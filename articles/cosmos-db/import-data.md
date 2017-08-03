@@ -17,17 +17,17 @@ origin.date: 06/06/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9202ea4edc2ab7da92291646399fbe52ff6304b9
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 4690136c00f3f67330c126642f2b7f0c21f5f890
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/26/2017
 ---
 # <a name="how-to-import-data-into-azure-cosmos-db-for-the-documentdb-api"></a>如何将 DocumentDB API 的数据导入 Azure Cosmos DB？
 
 本教程说明如何使用 Azure Cosmos DB：DocumentDB API 数据迁移工具，该工具可将数据从各种源（包括 JSON 文件、CSV 文件、SQL、MongoDB、Azure 表存储、Amazon DynamoDB 和 Azure Cosmos DB DocumentDB API 集合）导入到可在 Azure Cosmos DB 和 DocumentDB API 中使用的集合。 数据迁移工具还可用于从 DocumentDB API 的单分区集合迁移到多分区集合。
 
-只有在将数据导入到 Azure Cosmos DB，供 DocumentDB API 使用时才能使用该数据迁移工具。 目前不支持将导入的数据用于表 API 或图形 API。 
+只有在将数据导入到 Azure Cosmos DB，供 DocumentDB API 使用时才能使用该数据迁移工具。 目前不支持将导入数据与表 API 配合使用。 
 
 若要将导入的数据用于 MongoDB API，请参阅 [Azure Cosmos DB：如何将数据迁移到 MongoDB API？](mongodb-migrate.md)。
 

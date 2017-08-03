@@ -4,9 +4,10 @@
 ## [虚拟网络对等互连](virtual-network-peering-overview.md)
 ## [业务连续性](virtual-network-disaster-recovery-guidance.md)
 ## [常见问题](virtual-networks-faq.md)
-## IP 寻址
-### [Resource Manager](virtual-network-ip-addresses-overview-arm.md)
-### [经典](virtual-network-ip-addresses-overview-classic.md)
+## [IP 寻址](virtual-network-ip-addresses-overview-arm.md)
+## 经典
+### [IP 寻址](virtual-network-ip-addresses-overview-classic.md)
+### [访问控制列表](virtual-networks-acl.md)
 
 # 入门
 ## [创建首个虚拟网络](virtual-network-get-started-vnet-subnet.md)
@@ -21,24 +22,27 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [模板](virtual-networks-create-vnet-arm-template-click.md)
-#### [门户（经典）](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell（经典）](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [CLI（经典）](virtual-networks-create-vnet-classic-cli.md)
+#### 经典
+##### [门户](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### 网络安全组
 #### [门户](virtual-networks-create-nsg-arm-pportal.md)
 #### [PowerShell](virtual-networks-create-nsg-arm-ps.md)
 #### [CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [模板](virtual-networks-create-nsg-arm-template.md)
-#### [PowerShell（经典）](virtual-networks-create-nsg-classic-ps.md)
-#### [CLI（经典）](virtual-networks-create-nsg-classic-cli.md)
+#### 经典
+##### [PowerShell](virtual-networks-create-nsg-classic-ps.md)
+##### [CLI](virtual-networks-create-nsg-classic-cli.md)
 
 ### 用户定义路由
 #### [PowerShell](virtual-network-create-udr-arm-ps.md)
 #### [CLI](virtual-network-create-udr-arm-cli.md)
 #### [模板](virtual-network-create-udr-arm-template.md)
-#### [PowerShell（经典）](virtual-network-create-udr-classic-ps.md)
-#### [CLI（经典）](virtual-network-create-udr-classic-cli.md)
+#### 经典
+##### [PowerShell](virtual-network-create-udr-classic-ps.md)
+##### [CLI](virtual-network-create-udr-classic-cli.md)
 
 ### [虚拟网络对等互连](virtual-network-create-peering.md)
 
@@ -48,21 +52,24 @@
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [模板](virtual-network-deploy-static-pip-arm-template.md)
-##### [PowerShell（经典）](virtual-networks-reserved-public-ip.md)
+##### 经典
+###### [PowerShell](virtual-networks-reserved-public-ip.md)
 
 #### 使用静态专用 IP 地址创建 VM
 ##### [门户](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
-##### [门户（经典）](virtual-networks-static-private-ip-classic-pportal.md)
-##### [PowerShell（经典）](virtual-networks-static-private-ip-classic-ps.md)
-##### [CLI（经典）](virtual-networks-static-private-ip-classic-cli.md)
+##### 经典
+###### [门户](virtual-networks-static-private-ip-classic-pportal.md)
+###### [PowerShell](virtual-networks-static-private-ip-classic-ps.md)
+###### [CLI](virtual-networks-static-private-ip-classic-cli.md)
 
 #### 创建具有多个网络接口的 VM
 ##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)
 ##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)
-##### [PowerShell（经典）](virtual-network-deploy-multinic-classic-ps.md)
-##### [CLI（经典）](virtual-network-deploy-multinic-classic-cli.md)
+##### 经典
+###### [PowerShell](virtual-network-deploy-multinic-classic-ps.md)
+###### [CLI](virtual-network-deploy-multinic-classic-cli.md)
 
 #### 创建具有多个 IP 地址的 VM
 ##### [Azure 门户](virtual-network-multiple-ip-addresses-portal.md)
@@ -84,20 +91,23 @@
 ##### [示例应用程序](virtual-networks-sample-app.md)
 
 ## 配置
-
-### 访问控制列表
-#### [经典管理门户](virtual-networks-acl.md)
-#### [PowerShell](virtual-networks-acl-powershell.md)
 ### 虚拟机
 #### [添加或删除网络接口](virtual-network-network-interface-vm.md)
 #### [VM 和云服务的名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 #### [优化网络吞吐量](virtual-network-optimize-network-bandwidth.md)
 #### [查看和修改主机名](virtual-networks-viewing-and-modifying-hostnames.md)
+### 经典
+#### 访问控制列表
+##### [门户](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fvirtual-network%2ftoc.json)
+##### [PowerShell](virtual-networks-acl-powershell.md)
 
 ## 管理
 ### [虚拟网络](virtual-network-manage-network.md)
 #### [子网](virtual-network-manage-subnet.md)
 #### [对等互连](virtual-network-manage-peering.md)
+#### 经典
+##### [网络配置文件](virtual-networks-using-network-configuration-file.md)
+##### [从地缘组迁移到区域](virtual-networks-migrate-to-regional-vnet.md)
 ### 网络安全组
 #### [门户](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
@@ -118,10 +128,11 @@
 #### [门户](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [吞吐量测试](virtual-network-bandwidth-testing.md)
+### [无法删除虚拟网络](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # 引用
 ## [PowerShell (Resource Manager)](https://docs.microsoft.com/powershell/module/azurerm.network)
-## [PowerShell（经典）](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)
+## [PowerShell（经典）](https://docs.microsoft.com/powershell/module/azure/)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
 ## [Java](https://docs.microsoft.com/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)

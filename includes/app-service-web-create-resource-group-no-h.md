@@ -8,4 +8,4 @@
 az group create --name myResourceGroup --location chinanorth
 ```
 
-若要查看可用位置，请运行 `az appservice list-locations` 命令。 通常在附近的区域中创建资源。
+通常在附近的区域中创建资源组和资源。 若要查看 Azure Web 应用支持的所有位置，请运行 `az appservice list-locations` 命令。

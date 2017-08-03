@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 05/25/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: b513ad20a3435dc8ed8cd84d5b1b470ec219ed28
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 07/10/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: aeaee6f8ffcec95f92bd27c0afa0f4cec7083cf5
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>使用 SQL 数据库或 SQL 数据仓库配置和管理 Azure Active Directory 身份验证
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/14/2017
 4. 在“设置”区域中，单击订阅，然后单击页面底部的“编辑目录”。
 
     ![AD-设置-门户][5]
-5. 在“编辑目录”  框中，选择与 SQL Server 或 SQL 数据仓库相关联的 Azure Active Directory，然后单击箭头转到下一步。
+5. 在“编辑目录”  框中，选择与 SQL Server 或 SQL 数据仓库相关联的 Azure Active Directory，并单击箭头转到下一步。
 
     ![编辑-目录-选择][6]
 6. 在“确认”目录“映射”对话框中，确认“全部协同管理员都将被删除”。
@@ -126,6 +126,16 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 ```
 
 也可以使用 REST API 预配 Azure Active Directory 管理员。 有关详细信息，请参阅 [Azure SQL 数据库的 Azure SQL 数据库操作的 Service Management REST API 参考和操作](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+
+### <a name="cli"></a>CLI  
+也可以通过调用以下 CLI 命令来预配 Azure AD 管理员：
+| 命令 | 说明 |
+| --- | --- |
+|az sql server ad-admin create |为 Azure SQL Server 或 Azure SQL 数据仓库预配 Azure Active Directory 管理员。 （必须来自当前订阅。） |
+|az sql server ad-admin delete |删除 Azure SQL Server 或 Azure SQL 数据仓库的 Azure Active Directory 管理员。 |
+|az sql server ad-admin list |返回有关当前为 Azure SQL Server 或 Azure SQL 数据仓库配置的 Azure Active Directory 管理员的信息。 |
+
+有关 CLI 命令的详细信息，请参阅 [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server)。  
 
 ## <a name="configure-your-client-computers"></a>配置客户端计算机
 在所有客户端计算机上，如果你的应用程序或用户从中使用 Azure AD 标识连接到 Azure SQL 数据库或 Azure SQL 数据仓库，则必须安装以下软件：
@@ -221,7 +231,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 
 1. 启动 Management Studio 或 Data Tools，然后在“连接到服务器”（或“连接到数据库引擎”）对话框的“身份验证”框中，选择“Active Directory 密码身份验证”。
 2. 在“用户名”框中，以 **username@domain.com** 格式键入 Azure Active Directory 用户名。 这必须是来自 Azure Active Directory 的帐户或来自与 Azure Active Directory 联合的域的帐户。
-3. 在“密码”框中，为 Azure Active Directory 帐户或联合域帐户键入你的用户密码  。
+3. 在“密码”框中，为 Azure Active Directory 帐户或联合域帐户键入用户密码。
 
     ![选择 AD 密码身份验证][12]
 4. 单击“选项”按钮，在“连接属性”页上的“连接到数据库”框中，键入要连接的用户数据库的名称。 （请参阅前一选项的图。）
@@ -307,3 +317,5 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.chinacloudapi.cn -U bob@contoso.com -
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
+
+<!--Update_Description: wording update-->

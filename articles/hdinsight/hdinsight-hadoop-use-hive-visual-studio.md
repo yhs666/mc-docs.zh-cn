@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/22/2017
-ms.date: 07/24/2017
+origin.date: 07/07/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 697aea58b63f251e9d64c8a894709ee9eaa328bb
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 5514ac4e989e943af4763f3d8e34ed968ae1bad3
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用用于 Visual Studio 的 Data Lake 工具运行 Hive 查询
 
@@ -34,11 +34,11 @@ ms.lasthandoff: 07/14/2017
 * Azure HDInsight（HDInsight 上的 Hadoop）群集
 
   > [!IMPORTANT]
-  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * Visual Studio（以下版本之一）：
 
-    * Visual Studio 2013 Community/Professional/Premium/Ultimate [Update 4](https://www.microsoft.com/download/details.aspx?id=45326)
+    * Visual Studio 2013 Community/Professional/Premium/Ultimate Update 4
 
     * Visual Studio 2015（任何版本）
 
@@ -102,7 +102,8 @@ ms.lasthandoff: 07/14/2017
 
     这些语句可执行以下操作：
 
-   * `CREATE TABLE IF NOT EXISTS`：如果表尚不存在，则将创建表。 由于未使用 `EXTERNAL` 关键字，因此此语句将创建内部表。 内部表存储在 Hive 数据仓库中，并由 Hive 托管。
+   * 
+            `CREATE TABLE IF NOT EXISTS`：如果表尚不存在，则创建表。 由于未使用 `EXTERNAL` 关键字，因此此语句会创建内部表。 内部表存储在 Hive 数据仓库中，并由 Hive 托管。
 
      > [!NOTE]
      > 与 `EXTERNAL` 表不同，删除内部表会同时删除基础数据。
@@ -121,7 +122,8 @@ ms.lasthandoff: 07/14/2017
 
 有关 HDInsight 中的 Hive 的一般信息：
 
-* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* 
+            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
@@ -160,3 +162,5 @@ ms.lasthandoff: 07/14/2017
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
+
+<!--Update_Description: update meta data-->

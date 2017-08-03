@@ -16,25 +16,23 @@ origin.date: 05/10/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 08afe023bf30baaa2dee00b9dc65a0ff19339689
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 6749f4de80359a00c3d4c311b9457fefb7ec03d8
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 欢迎使用 Azure Cosmos DB
-<a id="welcome-to-azure-cosmos-db" class="xliff"></a>
+# <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
 
 Azure Cosmos DB 是由 Microsoft 提供的全球分布式多模型数据库。 只需单击一个按钮，即可通过 Azure Cosmos DB 跨任意数量的 Azure 地理区域弹性且独立地缩放吞吐量和存储。 它通过综合[服务级别协议](https://aka.ms/acdbsla) (SLA) 提供吞吐量、延迟、可用性和一致性保证，这是其他数据库服务无法提供的。
 
 ![Azure Cosmos DB 是 Microsoft 的全球分布式数据库服务，可以弹性扩展，可保证低延迟，有五个一致性模型，并且已保证满足综合 SLA](./media/introduction/azure-cosmos-db.png)
 
-Azure Cosmos DB 包含一个与架构无关、已经过写入优化、资源受到管理的数据库引擎，该引擎本身支持多个数据模型：键值、文档、图和列式数据模型。 它还以可扩展的方式支持许多用于访问数据的 API，包括 [MongoDB](mongodb-introduction.md)、[DocumentDB SQL](documentdb-introduction.md)、[Gremlin](graph-introduction.md)（预览版）和 [Azure 表](table-introduction.md)（预览版）。 
+Azure Cosmos DB 包含一个与架构无关、已经过写入优化、资源受到管理的数据库引擎，该引擎本身支持多个数据模型：键/值、文档和列式数据模型。 还以可扩展的方式支持许多用于访问数据的 API，包括 [MongoDB](mongodb-introduction.md)、[DocumentDB SQL](documentdb-introduction.md) 和 [Azure 表](table-introduction.md)（预览版）。 
 
 Azure Cosmos DB 在 2010 年末开始解决 Microsoft 内部大型应用程序开发人员所面临的难题。 由于构建全球分布式应用程序不是 Microsoft 一家公司的事情，因此我们让该服务以 Azure DocumentDB 的形式在外部供所有 Azure 开发人员使用。 Azure Cosmos DB 是 DocumentDB 发展过程中的下一个重大飞跃，现已提供给大家使用。 作为此 Azure Cosmos DB 版本的一部分，DocumentDB 客户（及其数据）将自动成为 Azure Cosmos DB 客户。 该转换是无缝进行的，这些客户现在有权访问 Azure Cosmos DB 提供的更广泛的新功能。 
 
-## 功能比较
-<a id="capability-comparison" class="xliff"></a>
+## <a name="capability-comparison"></a>功能比较
 
 Azure Cosmos DB 提供关系数据库和非关系数据库的最佳功能。
 
@@ -47,8 +45,7 @@ Azure Cosmos DB 提供关系数据库和非关系数据库的最佳功能。
 | 数据模型 + API | 关系 + SQL | 多模型 + OSS API | 多模型 + SQL + OSS API（即将推出更多） |
 | SLA | ✓ | x | ✓ 有关延迟、吞吐量、一致性和可用性的综合 SLA |
 
-## 关键功能
-<a id="key-capabilities" class="xliff"></a>
+## <a name="key-capabilities"></a>关键功能
 作为一种全球分布式数据库服务，Azure Cosmos DB 提供以下功能，帮助构建可缩放的、具有高响应性的全球分布式应用程序：
 
 * [**统包式全球分布**](#global-distribution)
@@ -56,9 +53,9 @@ Azure Cosmos DB 提供关系数据库和非关系数据库的最佳功能。
     * 不必担心硬件以及添加节点、VM 或内核等问题。 只需点击一下，即可获得数据。 
 
 * [**多个数据模型和用于访问及查询数据的常用 API**](#data-models)
-    * 支持多个数据模型，包括键值、文档、图和列式数据模型。
+    * 支持多个数据模型，包括键值、文档和列式数据模型。
     * 用于 Node.js、Java、.NET、.NET Core、Python 和 MongoDB 的可扩展 API。
-    * 用于查询的 SQL 和 Gremlin。 
+    * 用于查询的 SQL。 
 
 * [**在全球范围内按需求弹性缩放吞吐量和存储**](#horizontal-scale)
     * 以[秒](request-units.md)和[分钟](https://aka.ms/acdbrupm)为时间粒度轻松缩放吞吐量，并可以随时对其进行更改。 
@@ -90,7 +87,7 @@ Azure Cosmos DB 提供关系数据库和非关系数据库的最佳功能。
 Azure Cosmos DB 容器沿两个维度分布： 
 
 1. 在给定区域中，所有资源均使用资源分区进行横向分区（本地分布）。 
-2. 每个资源分区还将跨地理区域进行复制（全球分布）。 
+2. 每个资源分区还会跨地理区域进行复制（全球分布）。 
 
 ![描绘 Azure Cosmos DB 全球分布的图表](./media/introduction/azure-cosmos-db-global-distribution.png) 
 
@@ -101,14 +98,14 @@ Cosmos DB 中资源的全球分布是[统包](distribute-data-globally.md)式的
 无论数据量或区域数量如何，Cosmos DB 都保证 99% 的情况下每个新关联的区域在一小时之内开始处理客户端请求。 这是通过将种子设定与将数据从所有源资源分区复制到新关联区域进行并行化来完成的。 客户还可以删除现有区域或将以前与其数据库帐户关联的区域脱机。
 
 ## <a id="data-models"></a> 多模型、多 API 支持
- Azure Cosmos DB 本身支持包括文档、键值、图和列系列在内的多个数据模型。 Cosmos DB 数据库引擎的核心内容模型基于 Atom 记录序列 (ARS)。 Atom 包含一小组基元类型，如 string、bool 和 number。 记录是组成这些类型的结构。 序列是包含 Atom、记录或序列的数组。 
+ Azure Cosmos DB 本身支持包括文档、键/值和列系列在内的多个数据模型。 Cosmos DB 数据库引擎的核心内容模型基于 Atom 记录序列 (ARS)。 Atom 包含一小组基元类型，如 string、bool 和 number。 记录是组成这些类型的结构。 序列是包含 Atom、记录或序列的数组。 
 
  数据库引擎可以将不同数据模型有效地转换并投影到基于 ARS 的数据模型。 Cosmos DB 的核心数据模型本身可从动态类型化编程语言访问，并且可以作为 JSON 按现状公开。 
 
- 该服务还支持用于数据访问和查询的常用数据库 API。 Cosmos DB 的数据库引擎当前支持 [DocumentDB SQL](documentdb-introduction.md)、[MongoDB](mongodb-introduction.md)、[Azure 表](table-introduction.md)（预览版）和 [Gremlin](graph-introduction.md)（预览版）。 可以继续使用常用 OSS API 构建应用程序并获得已经过考验且完全托管的全球分布式数据库服务的全部优势。 
+ 该服务还支持用于数据访问和查询的常用数据库 API。 Cosmos DB 的数据库引擎目前支持 [DocumentDB SQL](documentdb-introduction.md)、[MongoDB](mongodb-introduction.md)、[Azure 表](table-introduction.md)（预览版）。 可以继续使用常用 OSS API 构建应用程序并获得已经过考验且完全托管的全球分布式数据库服务的全部优势。 
 
 ## <a id="horizontal-scale"></a> 横向缩放存储和吞吐量
-Cosmos DB 容器（例如，文档集合、表或图）中的所有数据均横向分区，并按资源分区以透明方式管理。 资源分区是按[客户指定的分区键](partition-data.md)分区的数据的容器，具有一致性和高可用性。 它为它所管理的一组资源提供单个系统映像，是缩放和分布的基本单位。 Cosmos DB 已设计为允许基于各不同地理区域的应用程序流量模式弹性缩放吞吐量，以支持因地理位置和时间而异的波动工作负荷。 该服务以透明方式管理分区，而不影响 Cosmos DB 容器的可用性、一致性、延迟或吞吐量。  
+Cosmos DB 容器（例如，文档集合、表）中的所有数据均横向分区，并按资源分区以透明方式管理。 资源分区是按[客户指定的分区键](partition-data.md)分区的数据的容器，具有一致性和高可用性。 它为它所管理的一组资源提供单个系统映像，是缩放和分布的基本单位。 Cosmos DB 已设计为允许基于各不同地理区域的应用程序流量模式弹性缩放吞吐量，以支持因地理位置和时间而异的波动工作负荷。 该服务以透明方式管理分区，而不影响 Cosmos DB 容器的可用性、一致性、延迟或吞吐量。  
 
 ![Azure Cosmos DB 可横向缩放](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -163,11 +160,10 @@ Cosmos DB 是第一个针对可用性、吞吐量、低延迟和一致性提供 
 
  考虑到总拥有成本 (TCO) 的全部因素时，诸如 Azure Cosmos DB 之类的托管云服务的成本效益可比在本地或虚拟机上运行的 OSS 相应服务高五到十倍。 对于大量的工作负荷而言，Azure Cosmos DB 最多可比 DynamoDB 便宜两到三倍。 可以在 [TCO 白皮书](https://aka.ms/documentdb-tco-paper)中了解详细信息。 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 请通过阅读以下快速入门文章之一，来开始使用 Azure Cosmos DB：
 
 * [开始使用 Azure Cosmos DB 的 DocumentDB API](create-documentdb-dotnet.md)
 * [开始使用 Azure Cosmos DB 的 MongoDB API](create-mongodb-nodejs.md)
-* [开始使用 Azure Cosmos DB 的图形 API](create-graph-dotnet.md)
+<!-- Not Available * [Get started with Azure Cosmos DB's Graph API](create-graph-dotnet.md) -->
 * [开始使用 Azure Cosmos DB 的表 API](create-table-dotnet.md)

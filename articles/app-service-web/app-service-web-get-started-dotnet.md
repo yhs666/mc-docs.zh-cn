@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 06/14/2017
-ms.date: 07/03/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: eb317d22fadc9d8934e68b55f4a7072af5b2551f
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 2ed75e7937a41b12c743d08f911e9e58bb8b70fb
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Web 应用
 
-[Azure Web 应用](/app-service-web/app-service-web-overview)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将第一个 ASP.NET Web 应用部署到 Azure 中。 完成后，便拥有了一个资源组，该资源组包含一个应用服务计划和一个具有已部署的 Web 应用程序的 Azure Web 应用。
+[Azure Web 应用](/app-service-web/app-service-web-overview)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将第一个 ASP.NET Web 应用部署到 Azure Web 应用中。 完成后，便拥有了一个资源组，该资源组包含一个应用服务计划和一个具有已部署的 Web 应用程序的 Azure Web 应用。
 
 ![Azure 应用服务中的 ASP.NET Web 应用](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
@@ -78,6 +78,11 @@ ms.lasthandoff: 07/13/2017
 
 在“创建应用服务”对话框中，选择“添加帐户”，然后登录到你的 Azure 订阅。 如果已经登录，请确保该帐户包含你的 Azure 订阅。 可以选择登录帐户来添加正确的帐户。
 
+> [!NOTE]
+> 如果已经登录，请先不要选择“创建”。
+>
+>
+
 ![登录 Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
 
 登录后，可在此对话框中创建 Azure Web 应用所需的所有资源。
@@ -110,7 +115,7 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="create-and-publish-the-web-app"></a>创建并发布 Web 应用
 
-在“Web 应用名称”中键入唯一的应用名称。 Web 应用的 URL 为 `http://<app_name>.chinacloudsites.cn`。 
+在“Web 应用名称”中，键入唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 Web 应用的 URL 为 `http://<app_name>.chinacloudsites.cn`，其中 `<app_name>` 是 Web 应用名称。 
 
 可以接受自动生成的名称，它是唯一的。
 
@@ -149,7 +154,7 @@ URL 使用前面指定的 Web 应用名称，其格式为 `http://<app_name>.chi
 
 ## <a name="manage-the-azure-web-app"></a>管理 Azure Web 应用
 
-转到 [Azure 门户](https://portal.azure.cn)管理 Web 应用。
+转到 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>管理 Web 应用。
 
 从左侧菜单中选择“应用服务”，然后选择 Azure Web 应用的名称。
 
@@ -167,3 +172,5 @@ URL 使用前面指定的 Web 应用名称，其格式为 `http://<app_name>.chi
 
 > [!div class="nextstepaction"]
 > [将 ASP.NET 与 SQL 数据库配合使用](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+<!--Update_Description: wording update-->

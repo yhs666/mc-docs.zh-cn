@@ -13,22 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-origin.date: 01/30/2017
-ms.date: 07/17/2017
+origin.date: 06/23/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
-ms.openlocfilehash: 08a0c1cd50d97f07771ee8852c71d3f2bc3345b3
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: a1896f861a7161f78501cb6b13a63b195cca5fff
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 将 SQL 代码迁移到 SQL 数据仓库
-<a id="migrate-your-sql-code-to-sql-data-warehouse" class="xliff"></a>
-将代码从其他数据库迁移到 SQL 数据仓库时，很可能需要更改代码库。 某些 SQL 数据仓库功能设计为以分布方式运行，因此可以大幅改善性能。 但是，为了保持性能和缩放性，某些功能还无法使用。
+# <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>将 SQL 代码迁移到 SQL 数据仓库
+本文介绍了将代码从其他数据库迁移到 SQL 数据仓库时可能需要做出的代码更改。 某些 SQL 数据仓库功能设计为以分布方式运行，因此可以大幅改善性能。 但是，为了保持性能和缩放性，某些功能还无法使用。
 
-## 常见的 T-SQL 限制
-<a id="common-t-sql-limitations" class="xliff"></a>
-以下列表汇总了最常用但却不受 Azure SQL 数据仓库支持的功能。 单击这些链接可以转到解决不支持功能的方法：
+## <a name="common-t-sql-limitations"></a>常见的 T-SQL 限制
+下面的列表汇总了 SQL 数据仓库不支持的最常用功能。 单击相应链接可以查看不支持的功能对应的解决方法：
 
 * [Update 中的 ANSI Join][ANSI joins on updates]
 * [Delete 中的 ANSI Join][ANSI joins on deletes]
@@ -57,8 +55,7 @@ ms.lasthandoff: 07/05/2017
 
 幸好可以解决其中的大多数限制。 上面提到的相关开发文章已提供了说明。
 
-## 支持的 CTE 功能
-<a id="supported-cte-features" class="xliff"></a>
+## <a name="supported-cte-features"></a>支持的 CTE 功能
 SQL 数据仓库支持部分通用表表达式 (CTE)。  目前支持以下 CTE 功能：
 
 * 可以在 SELECT 语句中指定 CTE。
@@ -70,8 +67,7 @@ SQL 数据仓库支持部分通用表表达式 (CTE)。  目前支持以下 CTE 
 * 可以从 CTE 引用外部表。
 * 可以在 CTE 中定义多个 CTE 查询定义。
 
-## CTE 限制
-<a id="cte-limitations" class="xliff"></a>
+## <a name="cte-limitations"></a>CTE 限制
 在 SQL 数据仓库中，通用表表达式存在一些限制，其中包括：
 
 * CTE 必须后接单个 SELECT 语句。 不支持 INSERT、UPDATE、DELETE 和 MERGE 语句。
@@ -81,12 +77,10 @@ SQL 数据仓库支持部分通用表表达式 (CTE)。  目前支持以下 CTE 
 * 将 CTE 用在属于批处理一部分的语句中时，该 CTE 之前的语句必须以分号结尾。
 * 用在通过 sp_prepare 准备的语句中时，CTE 的行为方式与 PDW 中的其他 SELECT 语句相同。 但是，如果 CTE 用作 sp_prepare 所准备的 CETAS 的一部分，则因为针对 sp_prepare 而实现绑定的方式不同，CTE 的行为将与 SQL Server 和其他 PDW 语句不同。 如果引用 CTE 的 SELECT 使用了 CTE 中不存在的错误列，sp_prepare 将会通过而不检测错误，但在 sp_execute 期间将引发错误。
 
-## 递归 CTE
-<a id="recursive-ctes" class="xliff"></a>
-SQL 数据仓库不支持递归 CTE。  递归 CTE 的迁移过程可能有点复杂，最好是将其分为多个步骤来进行。 通常你可以使用循环，并在循环访问递归的临时查询时填充临时表。 填充临时表之后，可以使用单个结果集返回数据。 类似的方法已用于解决[将 Group By 子句与 rollup/cube/grouping sets 选项配合使用][group by clause with rollup / cube / grouping sets options]一文中所述的 `GROUP BY WITH CUBE`。
+## <a name="recursive-ctes"></a>递归 CTE
+SQL 数据仓库不支持递归 CTE。  递归 CTE 的迁移过程可能有点复杂，最佳做法是将此过程拆分为多步过程。 通常可以使用循环，并在循环访问递归的临时查询时填充临时表。 填充临时表之后，可以使用单个结果集返回数据。 类似的方法已用于解决[将 Group By 子句与 rollup/cube/grouping sets 选项配合使用][group by clause with rollup / cube / grouping sets options]一文中所述的 `GROUP BY WITH CUBE`。
 
-## 不支持的系统函数
-<a id="unsupported-system-functions" class="xliff"></a>
+## <a name="unsupported-system-functions"></a>不支持的系统函数
 还有一些不支持的系统函数。 在数据仓库中，可能会经常发现使用了下面这些主要函数：
 
 * NEWSEQUENTIALID()
@@ -98,8 +92,7 @@ SQL 数据仓库不支持递归 CTE。  递归 CTE 的迁移过程可能有点�
 
 其中的许多问题都可以得到解决。
 
-## @@ROWCOUNT 解决方法
-<a id="rowcount-workaround" class="xliff"></a>
+## <a name="rowcount-workaround"></a>@@ROWCOUNT 解决方法
 若要解决缺少对 @@ROWCOUNT 的支持的问题，请创建一个将从 sys.dm_pdw_request_steps 中检索最后一个行计数的存储过程，然后在 DML 语句后执行 `EXEC LastRowCount`。
 
 ```sql
@@ -122,8 +115,7 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ;
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关所有支持的 T-SQL 语句的完整列表，请参阅 [Transact-SQL 主题][Transact-SQL topics]。
 
 <!--Image references-->
@@ -145,3 +137,5 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 <!--MSDN references-->
 
 <!--Other Web references-->
+
+<!--Update_Description: update meta properties, wording update-->

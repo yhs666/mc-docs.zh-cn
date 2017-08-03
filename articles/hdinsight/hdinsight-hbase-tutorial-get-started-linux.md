@@ -1,6 +1,6 @@
 ---
 title: "HDInsight 上的 HBase 入门示例 - Azure | Azure"
-description: "按照此 Apache HBase 示例，开始在 HDInsight 上使用 HBase。 从 HBase shell 创建表，然后使用 Hive 查询这些表。"
+description: "按照此 Apache HBase 示例，开始在 HDInsight 上使用 Hadoop。 从 HBase shell 创建表，并使用 Hive 查询这些表。"
 keywords: "hbasecommand,hbase 示例"
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/09/2017
-ms.date: 07/24/2017
+origin.date: 07/17/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: c4d35cd5d509633db79f78d8f0fe5e10065b6743
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 4df2842f2f5ce3fde373a15a75d3b709b362b857
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight 中的 Apache HBase 入门示例
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 07/14/2017
 
 1. 单击下面的图像可在 Azure 门户中打开模板。 模板位于公共 blob 容器中。 
 
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     >[!NOTE]
     > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，将一些终结点 -“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”；将允许的位置更改为“中国北部”和“中国东部”；将 HDInsight Linux 版本更改为 Azure 中国区支持的版本 3.5。
@@ -61,7 +61,7 @@ ms.lasthandoff: 07/14/2017
 3. 单击“法律条款”，然后单击“购买”。 确认已选中“固定到仪表板”复选框，然后单击“创建”。
 
 > [!NOTE]
-> 删除 HBase 群集后，可使用同一默认 Blob 容器创建另一 HBase 群集。 新群集将选取你在原始群集中创建的 HBase 表。 为了避免不一致，建议你在删除群集之前先禁用 HBase 表。
+> 删除 HBase 群集后，可使用同一默认 Blob 容器创建另一 HBase 群集。 新群集会选取在原始群集中创建的 HBase 表。 为了避免不一致，建议在删除群集之前先禁用 HBase 表。
 > 
 > 
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 07/14/2017
 
 ![HDInsight HBase 表格数据][img-hbase-sample-data-tabular]
 
-在 HBase（BigTable 的一种实现）中，相同的数据看起来类似于：
+在 HBase（BigTable 的一种实现）中，相同的数据如下所示：
 
 ![HDInsight HBase BigTable 数据][img-hbase-sample-data-bigtable]
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 07/14/2017
 
 HBase 提供了多种方法用于将数据载入表中。  有关详细信息，请参阅 [批量加载](http://hbase.apache.org/book.html#arch.bulk.load)。
 
-已将示例数据文件上传到公共 Blob 容器 *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*。  该数据文件的内容为：
+可在公共 Blob 容器 *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt* 中找到示例数据文件。  该数据文件的内容为：
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -125,11 +125,11 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
 可以选择创建一个文本文件并将该文件上传到自己的存储帐户。 有关说明，请参阅 [在 HDInsight 中为 Hadoop 作业上传数据][hdinsight-upload-data]。
 
 > [!NOTE]
-> 此过程使用你在上一个过程中创建的“联系人”HBase 表。
+> 此过程使用在上一个过程中创建的“联系人”HBase 表。
 > 
 > 
 
-1. 从 SSH 运行以下命令，将数据文件转换成 StoreFiles 并将其存储在 Dimporttsv.bulk.output 指定的相对路径：  如果你在 HBase Shell 中操作，请使用退出命令退出。
+1. 从 SSH 运行以下命令，将数据文件转换成 StoreFiles 并将其存储在 Dimporttsv.bulk.output 指定的相对路径。  如果你在 HBase Shell 中操作，请使用退出命令退出。
 
         hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 2. 运行以下命令，将数据从 /example/data/storeDataFileOutput 上传到 HBase 表：
@@ -159,7 +159,7 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>通过 Curl 使用 HBase REST API
 
-REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 你始终应该使用安全 HTTP (HTTPS) 来发出请求，以确保安全地将凭据发送到服务器。
+REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 始终应该使用安全 HTTP (HTTPS) 来发出请求，确保安全地将凭据发送到服务器。
 
 2. 使用以下命令列出现有的 HBase 表：
 
@@ -184,13 +184,13 @@ REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_a
         -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
         -v
 
-    必须使用 base64 来为 -d 参数中指定的值编码。  在此示例中：
+    必须使用 base64 来为 -d 参数中指定的值编码。 在此示例中：
 
    * MTAwMA==: 1000
    * UGVyc29uYWw6TmFtZQ==: Personal:Name
    * Sm9obiBEb2xl: John Dole
 
-     [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) 可以插入多个（批处理）值。
+     [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) 允许插入多个（批处理）值。
 5. 使用以下命令获取行：
 
         curl -u <UserName>:<Password> \
@@ -209,7 +209,7 @@ REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_a
 >        curl -u <UserName>:<Password> \
 >        -G https://<ClusterName>.azurehdinsight.cn/templeton/v1/status
 >   
-> 应会收到类似于以下响应的响应：
+>    应会收到类似于以下响应的响应：
 >   
 >        {"status":"ok","version":"v1"}
 
@@ -218,7 +218,7 @@ HDInsight 中的 HBase 随附了一个 Web UI 用于监视群集。 使用该 We
 
 **访问 HBase Master UI**
 
-1. 在以下网址打开 Ambari Web UI：https://&lt;Clustername>.azurehdinsight.cn。
+1. 通过 https://&lt;群集名称>.azurehdinsight.cn 登录到 Ambari Web UI。
 2. 在左侧菜单中，单击“HBase”  。
 3. 在页面顶部单击“快速链接”，指向活动 Zookeeper 节点链接，然后单击“HBase Master UI”。  该 UI 将在另一个浏览器标签页中打开：
 
@@ -242,7 +242,7 @@ HDInsight 中的 HBase 随附了一个 Web UI 用于监视群集。 使用该 We
 如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
 
 ## <a name="next-steps"></a>后续步骤
-在针对 HDInsight 的本 HBase 教程中，你已学习如何创建 HBase 群集、如何创建表以及如何从 HBase shell 查看这些表中的数据。 此外，学习了如何对 HBase 表中的数据使用 Hive 查询，以及如何使用 HBase C# REST API 创建 HBase 表并从该表中检索数据。
+本文已介绍如何创建 HBase 群集、如何创建表以及如何从 HBase shell 查看这些表中的数据。 此外，学习了如何对 HBase 表中的数据使用 Hive 查询，以及如何使用 HBase C# REST API 创建 HBase 表并从该表中检索数据。
 
 若要了解更多信息，请参阅以下文章：
 
@@ -269,3 +269,5 @@ HDInsight 中的 HBase 随附了一个 Web UI 用于监视群集。 使用该 We
 [img-hbase-shell]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
+
+<!--Update_Description: wording update-->

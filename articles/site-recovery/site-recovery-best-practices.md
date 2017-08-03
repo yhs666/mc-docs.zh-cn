@@ -17,19 +17,17 @@ ms.date: 07/10/2017
 ms.author: v-yeche
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: site-recovery-support-matrix-to-azure
-ms.openlocfilehash: cced2bf86ed464a54dcdadd55245e2848a399d3e
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: 35cd60c51292ad59431b96373c10a97ba6489ab0
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 准备部署 Azure Site Recovery
-<a id="get-ready-to-deploy-azure-site-recovery" class="xliff"></a>
+# <a name="get-ready-to-deploy-azure-site-recovery"></a>准备部署 Azure Site Recovery
 
 本文介绍如何为 Azure Site Recovery 部署做好准备。
 
-## 保护 Hyper-V 虚拟机
-<a id="protecting-hyper-v-virtual-machines" class="xliff"></a>
+## <a name="protecting-hyper-v-virtual-machines"></a>保护 Hyper-V 虚拟机
 
 可以使用多种部署选项来保护 Hyper-V 虚拟机。 可以将本地 Hyper-V VM 复制到 Azure 或辅助数据中心。 每种部署有不同的要求。
 
@@ -41,11 +39,10 @@ ms.lasthandoff: 06/30/2017
 **Azure 帐户** | 需要一个 Azure 帐户和 Site Recovery 服务的订阅。 | 需要一个 Azure 帐户和 Site Recovery 服务的订阅。 | 不可用 | 如果没有帐户，可以先使用试用版。
 **Azure 存储** | 必须有已启用异地复制的 Azure 存储帐户的订阅。 | 必须有已启用异地复制的 Azure 存储帐户的订阅。 | 不可用 | 该帐户应该位于 Azure Site Recovery 保管库所在的区域中，并与相同订阅关联。
 **联网** | 设置网络映射，以确保同一 Azure 网络上执行故障转移的所有虚拟机都能彼此互连，与这些虚拟机所属的恢复计划无关。 此外，如果在目标 Azure 网络上配置了网络网关，则虚拟机可以连接到其他本地虚拟机。 如果不设置网络映射，则只有同一个恢复计划中故障转移的计算机才能进行连接。 | 不可用 |  <br/><br/>设置网络映射，以确保在故障转移之后虚拟机连接到适当的网络，并以最佳方式将副本虚拟机放置在 Hyper-V 主机服务器上。 如果不配置网络映射，则故障转移之后，复制的计算机将不会连接到任何 VM 网络。 |  若要使用 VMM 设置网络映射，需要确保正确配置 VMM 逻辑和 VM 网络。
-**提供程序和代理** | 在部署期间，将在 VMM 服务器上安装 Azure Site Recovery 提供程序。 将在 VMM 云中的 Hyper-V 服务器上安装 Azure 恢复服务代理。 | 在部署期间，将在 Hyper-V 主机服务器或群集上安装 Azure Site Recovery 提供程序和 Azure 恢复服务代理。| 在部署期间，将在 VMM 服务器上安装 Azure Site Recovery 提供程序。 将在 VMM 云中的 Hyper-V 服务器上安装 Azure 恢复服务代理。 | 提供程序和代理使用加密的 HTTPS 连接通过 Internet 连接到站点恢复。 若要完成提供程序连接，无需添加防火墙例外或创建特定的代理。
+**提供程序和代理** | 在部署期间，将在 VMM 服务器上安装 Azure Site Recovery 提供程序。 会在 VMM 云中的 Hyper-V 服务器上安装 Azure 恢复服务代理。 | 在部署期间，将在 Hyper-V 主机服务器或群集上安装 Azure Site Recovery 提供程序和 Azure 恢复服务代理。| 在部署期间，将在 VMM 服务器上安装 Azure Site Recovery 提供程序。 将在 VMM 云中的 Hyper-V 服务器上安装 Azure 恢复服务代理。 | 提供程序和代理使用加密的 HTTPS 连接通过 Internet 连接到站点恢复。 若要完成提供程序连接，无需添加防火墙例外或创建特定的代理。
 **Internet 连接** | 仅 VMM 服务器需要 Internet 连接 | 仅 Hyper-V 主机服务器需要 Internet 连接 | 仅 VMM 服务器需要 Internet 连接 | 不需在虚拟机上安装任何软件，也不需将虚拟机直接连接到 Internet。
 
-## 保护 VMware 虚拟机或物理服务器
-<a id="protect-vmware-virtual-machines-or-physical-servers" class="xliff"></a>
+## <a name="protect-vmware-virtual-machines-or-physical-servers"></a>保护 VMware 虚拟机或物理服务器
 
 你可以使用一些部署选项来保护 VMware 虚拟机或 Windows/Linux 物理服务器。 可以将它们复制到 Azure 或辅助数据中心。 每种部署有不同的要求。
 
@@ -56,12 +53,12 @@ ms.lasthandoff: 06/30/2017
 **Azure** | 订阅：需订阅 Site Recovery 服务。 <br/><br/> 存储帐户：需要一个已启用异地复制的存储帐户。 该帐户应位于 Site Recovery 保管库所在的同一区域，并与同一订阅相关联。 <br/><br/> 配置服务器：需将配置服务器设置为 Azure VM <br/><br/> 主目标服务器：需将主目标服务器设置为 Azure VM <br/><br/> 在 Windows 中配置 Windows 计算机保护，或者在 Linux 中配置 Linux 计算机保护。<br/><br/> Azure 虚拟网络：需要一个 Azure 虚拟网络，配置服务器和主目标服务器将部署在该网络上。 它应该位于 Azure Site Recovery 保管库所在的同一订阅和区域中 | 不可用  
 **虚拟机/物理服务器** | 至少一个 VMware 虚拟机或物理 Windows/Linux 服务器。<br/><br/>部署期间，将在每个计算机上安装移动服务| 至少一个 VMware VM 或物理 Windows/Linux 服务器。<br/><br/> 部署期间将在每个计算机上安装统一代理。
 
-##<a name="virtual-machines"></a><a name="azure-virtual-machine-requirements"></a>Azure 虚拟机要求
+<a name="virtual-machines"></a>
+## <a name="azure-virtual-machine-requirements"></a> Azure 虚拟机要求
 
 可以部署 Site Recovery 以复制运行受 Azure 支持的任何操作系统的虚拟机和物理服务器。 这包括大多数的 Windows 和 Linux 版本。 需确保你想要保护的本地虚拟机符合 Azure 请求。
 
-## 优化部署
-<a id="optimizing-your-deployment" class="xliff"></a>
+## <a name="optimizing-your-deployment"></a>优化部署
 
 使用以下提示帮助优化和缩放部署。
 
@@ -70,7 +67,8 @@ ms.lasthandoff: 06/30/2017
 - **恢复计划限制**：Site Recovery 可以扩展到数千个虚拟机。 恢复计划旨在用作应一起故障转移的应用程序的模型，因此，我们可以将一个恢复计划中的计算机数目限制为 50。
 - Azure 服务限制：每个 Azure 订阅在核心、云服务等方面附带了一组默认限制。建议运行测试故障转移，验证订阅中资源的可用性。 可以通过 Azure 支持人员修改这些限制。
 - **容量规划**：缩放和性能规划。
-- **复制带宽**：如果你的复制带宽不足，请注意：
+- 
+            **复制带宽**：如果复制带宽不足，请注意：
     - **ExpressRoute**：可以配合 Azure ExpressRoute 和 WAN 优化器（如 Riverbed）来使用 Site Recovery。
     - **复制流量**：Site Recovery 用户只能使用数据块（而不是整个 VHD）执行智能初始复制。 在复制过程中，只会复制更改。
     - 网络流量：可以使用基于目标 IP 地址和端口的策略来设置 Windows QoS，从而控制用于复制的网络流量。  此外，如果要使用 Azure 备份代理复制到 Azure Site Recovery， 可以为该代理配置限制。

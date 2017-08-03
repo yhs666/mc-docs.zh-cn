@@ -3,8 +3,8 @@ title: "实现使用 Azure SQL 数据库的多租户 SaaS 应用程序 | Azure"
 description: "实现使用 Azure SQL 数据库的多租户 SaaS 应用程序。"
 services: sql-database
 documentationcenter: 
-author: AyoOlubeko
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: monicar
 tags: 
 ms.assetid: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/08/2017
-ms.author: v-johch
-ms.openlocfilehash: 9ad155566bb60ccb25a8be9e59a51175e62bf7e5
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 7c979436f61d6cbc009fc0e47077f719722dd3ce
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="implement-a-multi-tenant-saas-application-using-azure-sql-database"></a>实现使用 Azure SQL 数据库的多租户 SaaS 应用程序
 
@@ -39,14 +39,17 @@ ms.lasthandoff: 07/14/2017
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/1rmb-trial/)。
 
+## <a name="prerequisites"></a>先决条件
+
 若要完成本教程，请确保做好以下准备：
-* 已安装在计算机上的 PowerShell，及[最新版 Azure PowerShell SDK](/downloads/)
 
-* 最新版本的 [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)。 安装 SQL Server Management Studio 还会安装最新版本的 SQLPackage，这是一个可用于自动执行一系列数据库开发任务的命令行实用工具。
+* 已安装最新版本的 PowerShell 和[最新的 Azure PowerShell SDK](/downloads/)
 
-* [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)，及已安装在计算机上的[最新版 JAVA 开发工具包 (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)。 
+* 已安装最新版本的 [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)。 安装 SQL Server Management Studio 还会安装最新版本的 SQLPackage，这是一个可用于自动执行一系列数据库开发任务的命令行实用工具。
 
-* 已安装在计算机上的 [Apache Maven](https://maven.apache.org/download.cgi)。 Maven 将用于帮助管理依赖项，构建、测试和运行示例 Java 项目
+* 在计算机上已安装 [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 和[最新版 JAVA 开发工具包 (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)。 
+
+* 已安装 [Apache Maven](https://maven.apache.org/download.cgi)。 Maven 将用于帮助管理依赖项，构建、测试和运行示例 Java 项目
 
 ## <a name="set-up-data-environment"></a>设置数据环境
 
@@ -68,7 +71,7 @@ ms.lasthandoff: 07/14/2017
    
    # Store current client IP address (modify to include your IP address)
    $startIpAddress = 0.0.0.0 
-   $endIpAddress = 0.0.0.1
+   $endIpAddress = 0.0.0.0
    ```
    
 2. 登录到 Azure 并创建 SQL 服务器和弹性池 
@@ -502,6 +505,7 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 尝试使用 Java 应用程序连接到“tenant1”。 将收到一个错误，指出该租户不存在。
 
 ## <a name="next-steps"></a>后续步骤 
+
 本教程已介绍了如何执行以下操作：
 > [!div class="checklist"]
 > * 使用租户各有数据库模式设置数据库环境来支持多租户 SaaS 应用程序
@@ -517,5 +521,4 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 
 * 有关常见 Azure 任务的 Java 示例，请参阅 [Java 开发人员中心](/develop/java/)
 
-
-
+<!--Update_Description: wording update-->

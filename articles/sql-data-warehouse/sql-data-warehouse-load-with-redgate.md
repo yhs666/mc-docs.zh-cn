@@ -14,38 +14,34 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 origin.date: 10/31/2016
-ms.date: 07/17/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
-ms.openlocfilehash: 028baa0b2bba89a5282da58653d088bb726fa4b7
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: a36384eebd3b7c02db780064df54f25315aafd05
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 使用 Redgate Data Platform Studio 加载数据
-<a id="load-data-with-redgate-data-platform-studio" class="xliff"></a>
+# <a name="load-data-with-redgate-data-platform-studio"></a>使用 Redgate Data Platform Studio 加载数据
 
 > [!div class="op_single_selector"]
 > * [Redgate](sql-data-warehouse-load-with-redgate.md)
 > * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 > * [BCP](sql-data-warehouse-load-with-bcp.md)
-<!-- Data Factory not supported on Azure.cn-->
-<!-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)-->
+<!-- Not Available [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)-->
 
-本教程介绍如何使用 [Redgate 的 Data Platform Studio](http://www.red-gate.com/products/azure-development/data-platform-studio/) (DPS) 将数据从本地 SQL Server 迁移到 Azure SQL 数据仓库。 Data Platform Studio 应用了适当的兼容性修补程序和优化措施，可以快速启动 SQL 数据仓库操作。
+本教程介绍如何使用 [Redgate 的 Data Platform Studio](http://www.red-gate.com/products/azure-development/data-platform-studio/) (DPS) 将数据从本地 SQL Server 移到 Azure SQL 数据仓库。 Data Platform Studio 应用了适当的兼容性修补程序和优化措施，可以快速启动 SQL 数据仓库操作。
 
 > [!NOTE]
 > [Redgate](http://www.red-gate.com) 是 Microsoft 的长期合作伙伴，提供各种 SQL Server 工具。 Data Platform Studio 中的此功能免费提供，可作商业和非商业用途。
 > 
 > 
 
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
-### 创建或标识资源
-<a id="create-or-identify-resources" class="xliff"></a>
+## <a name="before-you-begin"></a>开始之前
+### <a name="create-or-identify-resources"></a>创建或标识资源
 在开始此教程之前，用户需具备：
 
-* **本地 SQL Server 数据库**：需要导入到 SQL 数据仓库中的数据必须来自本地 SQL Server（2008R2 版或更高版本）。 Data Platform Studio 不能直接从 Azure SQL 数据库或文本文件导入数据。
+* **本地 SQL Server 数据库**：需要导入到 SQL 数据仓库的数据必须来自本地 SQL Server（2008R2 或更高版本）。 Data Platform Studio 不能直接从 Azure SQL 数据库或文本文件导入数据。
 * **Azure 存储帐户**：Data Platform Studio 先将数据暂存在 Azure Blob 存储中，然后再将其加载到 SQL 数据仓库。 存储帐户必须使用“Resource Manager”部署模型（默认）而非“经典”部署模型。 如果还没有存储帐户，请学习如何创建一个存储帐户。 
 * **SQL 数据仓库**：本教程将数据从本地 SQL Server 移到 SQL 数据仓库，因此用户需要有一个联机数据仓库。 如果还没有数据仓库，请学习如何创建 Azure SQL 数据仓库。
 
@@ -54,8 +50,7 @@ ms.lasthandoff: 07/05/2017
 > 
 > 
 
-## 步骤 1：使用 Azure 帐户登录到 Data Platform Studio
-<a id="step-1-sign-in-to-data-platform-studio-with-your-azure-account" class="xliff"></a>
+## <a name="step-1-sign-in-to-data-platform-studio-with-your-azure-account"></a>步骤 1：使用 Azure 帐户登录到 Data Platform Studio
 打开 Web 浏览器，导航到 [Data Platform Studio](https://www.dataplatformstudio.com/) 网站。 使用 Azure 帐户登录，该帐户也用于创建过存储帐户和数据仓库。 如果电子邮件地址与工作/学校帐户和 Microsoft 帐户均有关联，请务必选择能够访问资源的帐户。
 
 > [!NOTE]
@@ -63,14 +58,12 @@ ms.lasthandoff: 07/05/2017
 > 
 > 
 
-## 步骤 2：启动导入向导
-<a id="step-2-start-the-import-wizard" class="xliff"></a>
+## <a name="step-2-start-the-import-wizard"></a>步骤 2：启动导入向导
 在 DPS 主屏幕中选择“导入到 Azure SQL 数据仓库”链接，启动导入向导。
 
 ![][1]
 
-## 步骤 3：安装 Data Platform Studio 网关
-<a id="step-3-install-the-data-platform-studio-gateway" class="xliff"></a>
+## <a name="step-3-install-the-data-platform-studio-gateway"></a>步骤 3：安装 Data Platform Studio 网关
 若要连接到本地 SQL Server 数据库，需安装 DPS 网关。 该网关是一个客户端代理，用于访问本地环境、提取数据，以及将数据上传到存储帐户。 数据不会通过 Redgate 的服务器。 安装该网关的步骤：
 
 1. 单击“创建网关”链接 
@@ -85,16 +78,14 @@ ms.lasthandoff: 07/05/2017
 
     安装以后，网关状态变为“已连接”，此时可选择“下一步”。
 
-## 步骤 4：标识源数据库
-<a id="step-4-identify-the-source-database" class="xliff"></a>
+## <a name="step-4-identify-the-source-database"></a>步骤 4：标识源数据库
 在“输入服务器名称”文本框中，输入托管数据库的服务器的名称，然后选择“下一步”。 然后，从下拉菜单中选择要从其中导入数据的数据库。
 
 ![][3]
 
 DPS 会检查所选数据库中是否存在要导入的表。 DPS 默认导入数据库中的所有表。 展开“所有表”链接即可选择或取消选择表。 选择“下一步”按钮继续操作。
 
-## 步骤 5：选择要暂存数据的存储帐户
-<a id="step-5-choose-a-storage-account-to-stage-the-data" class="xliff"></a>
+## <a name="step-5-choose-a-storage-account-to-stage-the-data"></a>步骤 5：选择要暂存数据的存储帐户
 DPS 会提示用户输入暂存数据的位置。 从订阅中选择一个现有的存储帐户，然后选择“下一步”。
 
 > [!NOTE]
@@ -104,8 +95,7 @@ DPS 会提示用户输入暂存数据的位置。 从订阅中选择一个现有
 
 ![][4]
 
-## 步骤 6：选择数据仓库
-<a id="step-6-select-a-data-warehouse" class="xliff"></a>
+## <a name="step-6-select-a-data-warehouse"></a>步骤 6：选择数据仓库
 接下来，选择一个要将数据导入到的联机 [Azure SQL 数据仓库](http://aka.ms/sqldw)数据库。 选择数据库以后，需要输入连接到数据库所需的凭据，然后选择“下一步”。
 
 ![][5]
@@ -115,8 +105,7 @@ DPS 会提示用户输入暂存数据的位置。 从订阅中选择一个现有
 > 
 > 
 
-## 步骤 7：导入数据
-<a id="step-7-import-the-data" class="xliff"></a>
+## <a name="step-7-import-the-data"></a>步骤 7：导入数据
 DPS 会确认用户是否要导入数据。 直接单击“开始导入”按钮，开始数据导入过程。
 
 ![][6]
@@ -129,8 +118,7 @@ DPS 会以可视化方式显示从本地 SQL Server 提取和上传数据的进�
 
 ![][8]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 若要浏览 SQL 数据仓库中的数据，请先查看以下内容：
 
 * [查询 Azure SQL 数据仓库 (Visual Studio)][Query Azure SQL Data Warehouse (Visual Studio)]
@@ -149,7 +137,7 @@ DPS 会以可视化方式显示从本地 SQL Server 提取和上传数据的进�
 如需更多的开发技巧，请参阅 [SQL 数据仓库开发概述](sql-data-warehouse-overview-develop.md)。
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-redgate/2016-10-05_15-59-56.png
+[1]: media/sql-data-warehouse-redgate/2016-10-05_15-59-56.png
 [2]: media/sql-data-warehouse-redgate/2016-10-05_11-16-07.png
 [3]: media/sql-data-warehouse-redgate/2016-10-05_11-17-46.png
 [4]: media/sql-data-warehouse-redgate/2016-10-05_11-20-41.png
@@ -164,3 +152,5 @@ DPS 会以可视化方式显示从本地 SQL Server 提取和上传数据的进�
 [Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
 [Load data into Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+
+<!--Update_Description: wording update-->

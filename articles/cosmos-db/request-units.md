@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 05/10/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: b6c7567f052449bc1bc180dfbc3087b4781f8f68
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: f3b00a43d2a39b92e714970ef39f13ef893860f7
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/26/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位
 现已推出：Azure Cosmos DB [请求单位计算器](https://www.documentdb.com/capacityplanner)。 了解[估计吞吐量需求](request-units.md#estimating-throughput-needs)。
@@ -27,9 +27,9 @@ ms.lasthandoff: 07/13/2017
 ![吞吐量计算器][5]
 
 ## <a name="introduction"></a>介绍
-[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 是由 Microsoft 提供的全球分布式多模型数据库。 使用 Azure Cosmos DB，无需租用虚拟机、部署软件或监视数据库。 Azure Cosmos DB 由 Microsoft 顶级工程师操作和持续监视，以提供一流的可用性、性能和数据保护。 你可以使用所选的 API 访问数据，因为它原生就支持 [DocumentDB SQL](documentdb-sql-query.md)（文档）、MongoDB（文档）、[Azure 表存储](https://www.azure.cn/home/features/storage/tables/)（键-值）和 [Gremlin](https://tinkerpop.apache.org/gremlin.html)（图形）。 Azure Cosmos DB 的计费依据是请求单位 (RU)。 如果使用 RU，则无需保留读取、写入容量或者预配 CPU、内存和 IOPS。
+[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 是由 Microsoft 提供的全球分布式多模型数据库。 使用 Azure Cosmos DB，无需租用虚拟机、部署软件或监视数据库。 Azure Cosmos DB 由 Microsoft 顶级工程师操作和持续监视，以提供一流的可用性、性能和数据保护。 可以使用所选的 API 访问数据，因为它原生就支持 [DocumentDB SQL](documentdb-sql-query.md)（文档）、MongoDB（文档）、[Azure 表存储](https://www.azure.cn/home/features/storage/tables/)（键-值）。 Azure Cosmos DB 的计费依据是请求单位 (RU)。 如果使用 RU，则无需保留读取、写入容量或者预配 CPU、内存和 IOPS。
 
-Azure Cosmos DB 支持从读取、写入，到复杂的图形查询等一系列操作使用 API。 并非所有请求都是相同的，因此系统会根据请求所需的计算量为它们分配规范化数量的**请求单位**。 操作的请求单位数是确定性的，可以通过响应标头跟踪 Azure Cosmos DB 中的任何操作消耗的请求单位数。 
+Azure Cosmos DB 支持不同操作（包括读取、写入等）的许多 API。 并非所有请求都是相同的，因此系统会根据请求所需的计算量为它们分配规范化数量的**请求单位**。 操作的请求单位数是确定性的，可以通过响应标头跟踪 Azure Cosmos DB 中的任何操作消耗的请求单位数。 
 
 若要提供可预测的性能，需要以 100 RU/秒为单位保留吞吐量。 对于每个 100 RU/秒的块，可以附加 1,000 RU/每分钟的块。 将每秒和每分钟预配吞吐量相组合可以带来极其有利的结果，因为不需要为峰值预配容量，并且与只使用每秒预配的任何服务相比，成本最高可节省 75%。
 
@@ -40,7 +40,7 @@ Azure Cosmos DB 支持从读取、写入，到复杂的图形查询等一系列�
 * 如何评估应用程序的请求单位需求？
 * 如果超过集合的请求单位容量会发生什么情况？
 
-由于 Azure Cosmos DB 是多模型数据库，因此必须注意，我们会提到文档 API 的集合/文档、图形 API 的图形/节点，以及表 API 的表/实体。 在整份文档中，我们将它们统称为容器/项。
+由于 Azure Cosmos DB 是多模型数据库，因此必须注意，我们会提到文档 API 的集合/文档以及表 API 的表/实体。 在整份文档中，我们将它们统称为容器/项。
 
 ## <a name="request-units-and-request-charges"></a>请求单位和请求费用
 Azure Cosmos DB 通过*保留*资源提供快速且可预测的性能，以满足应用程序的吞吐量需求。  由于应用程序加载和访问模式会随着时间推移而更改，Azure Cosmos DB 使你可以轻松增加或减少保留供应用程序使用的吞吐量。
@@ -54,9 +54,9 @@ Azure Cosmos DB 通过*保留*资源提供快速且可预测的性能，以满�
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>指定 Azure Cosmos DB 中的请求单位容量
-启用新集合、表或图形时，指定希望保留的每秒请求单位数（每秒 RU 数）。 还可以确定是否要启用每分钟 RU 数。 如果启用每分钟 RU 数，获得的结果是每秒 RU 数的 10 倍。 Azure Cosmos DB 将会根据预配的吞吐量分配物理分区来托管集合，并拆分/重新均衡分区中不断增长的数据。
+启用新集合或表时，请指定希望保留的每秒请求单位数（每秒 RU 数）。 还可以确定是否要启用每分钟 RU 数。 如果启用每分钟 RU 数，获得的结果是每秒 RU 数的 10 倍。 Azure Cosmos DB 将会根据预配的吞吐量分配物理分区来托管集合，并拆分/重新均衡分区中不断增长的数据。
 
-如果为集合预配的请求单位数大于或等于 2,500，Azure Cosmos DB 要求指定分区键。 以后将集合的吞吐量扩展到 2,500 个请求单位以上时，也需要使用分区键。 因此，我们强烈建议在创建吞吐量容器时配置[分区键](partition-data.md)，不管初始吞吐量有多大。 由于数据可能需要跨多个分区拆分，因此需要选择一个基数较高（几百到几百万个非重复值）的分区键，以便 Azure Cosmos DB 能够统一缩放集合/表/图形与请求。 
+如果为集合预配的请求单位数大于或等于 2,500，Azure Cosmos DB 要求指定分区键。 以后将集合的吞吐量扩展到 2,500 个请求单位以上时，也需要使用分区键。 因此，我们强烈建议在创建吞吐量容器时配置[分区键](partition-data.md)，不管初始吞吐量有多大。 由于数据可能需要跨多个分区拆分，因此需要选择一个基数较高（100 到几百万个非重复值）的分区键，以便 Azure Cosmos DB 能够统一缩放集合/表和请求。 
 
 > [!NOTE]
 > 分区键是一个逻辑边界而不是物理边界。 因此，不需要限制非重复分区键值的数目。 事实上，分区键值宁多勿少，因为 Azure Cosmos DB 提供的负载均衡选项较多。
@@ -76,7 +76,7 @@ await client.CreateDocumentCollectionAsync(
 
 Azure Cosmos DB 运行一个保留模型来预配吞吐量。 也就是说，用户需要根据*保留的*吞吐量付费，不管实际*使用的*吞吐量是多少。 随着应用程序的负载、数据和使用情况模式的更改，可以通过 SDK 或使用 [Azure 门户](https://portal.azure.cn)轻松扩展和缩减保留的 RU 数量。
 
-每个集合/表/图形映射到 Azure Cosmos DB 中的 `Offer` 资源，该资源包含有关预配吞吐量的元数据。 可以通过查找容器的相应服务资源，然后使用新的吞吐量值来对它进行更新，来更改分配的吞吐量。 以下代码片段使用 .NET SDK 将集合的吞吐量更改为每秒 5,000 个请求单位：
+每个集合/表均映射到 Azure Cosmos DB 中的 `Offer` 资源，该资源包含有关预配吞吐量的元数据。 可以通过查找容器的相应服务资源，然后使用新的吞吐量值来对它进行更新，来更改分配的吞吐量。 以下代码片段使用 .NET SDK 将集合的吞吐量更改为每秒 5,000 个请求单位：
 
 ```csharp
 // Fetch the resource to be updated

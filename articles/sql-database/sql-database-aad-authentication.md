@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 05/10/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: f2f97bbc86a316567f9f871e9e9c51c5371fc83e
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: c4b39eacc7ff99ed8d0da5644089527c975e8fcc
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>通过 SQL 数据库或 SQL 数据仓库使用 Azure Active Directory 身份验证进行身份验证
 Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) 中的标识连接到 Azure SQL 数据库和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的一种机制。 通过 Azure AD 身份验证，可在一个中心位置中集中管理数据库用户和其他 Microsoft 服务的标识。 集中 ID 管理提供一个单一位置来管理数据库用户，并简化权限管理。 包括如下优点：
@@ -102,6 +102,8 @@ Azure Active Directory 身份验证支持使用 Azure AD 标识连接到数据�
 * [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) 支持 Azure AD 身份验证。 另外，请参阅[设置连接属性](https://msdn.microsoft.com/library/ms378988.aspx)。   
 * PolyBase 无法使用 Azure AD 身份验证进行身份验证。   
 * Azure 门户的“导入数据库”和“导出数据库”边栏选项卡支持 SQL 数据库的 Azure AD 身份验证。 PowerShell 命令也支持使用 Azure AD 身份验证的导入和导出。   
+* SQL 数据库和 SQL 数据仓库通过 CLI 支持 Azure AD 身份验证。 有关详细信息，请参阅[使用 SQL 数据库或 SQL 数据仓库配置和管理 Azure Active Directory 身份验证](sql-database-aad-authentication-configure.md)和 [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server)。
+* SQL 数据库和 SQL 数据仓库通过 CLI 支持 Azure AD 身份验证。 有关详细信息，请参阅[使用 SQL 数据库或 SQL 数据仓库配置和管理 Azure Active Directory 身份验证](sql-database-aad-authentication-configure.md)和 [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server)。
 
 ## <a name="next-steps"></a>后续步骤
 - 若要了解如何创建和填充 Azure AD，然后如何使用 Azure SQL 数据库配置 Azure AD，请参阅[使用 Azure SQL 数据库配置 Azure AD](sql-database-aad-authentication-configure.md)。
@@ -126,3 +128,6 @@ Azure Active Directory 身份验证支持使用 Azure AD 标识连接到数据�
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
+
+
+<!--Update_Description: update word & link-->

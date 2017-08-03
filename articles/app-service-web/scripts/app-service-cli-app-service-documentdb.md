@@ -13,23 +13,25 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-origin.date: 03/20/2017
-ms.date: 04/24/2017
+origin.date: 06/19/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: 1633e0051a914e374e082c66a446969d4e068203
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 4cf5e7000902601230004309e1b54a644b89b5a5
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="connect-a-web-app-to-cosmos-db"></a>将 Web 应用连接到 Cosmos DB
 
-在此方案中，将了解如何创建 Azure Cosmos DB 帐户和 Azure Web 应用。 然后，使用应用设置将 Cosmos DB 链接到 Web 应用。
-
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+在此方案中，可以了解如何创建 Azure Cosmos DB 帐户和 Azure Web 应用。 然后，使用应用设置将 Cosmos DB 链接到 Web 应用。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -68,13 +70,15 @@ az webapp config appsettings set --settings "COSMOSDB_URL=$cosmosdb" "COSMOSDB_K
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) | 创建应用服务计划中的 Azure Web 应用。 |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | 创建 Cosmos DB 帐户。 这将是数据存储位置。 |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | 创建 Azure Web 应用。 |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | 创建 Cosmos DB 帐户。 这是数据存储位置。 |
 | [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) | 列出指定 Cosmos DB 帐户的访问密钥。 |
-| [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#update) | 创建或更新 Azure Web 应用的应用设置。 应用设置将作为应用的环境变量公开。 |
+| [az webapp config appsettings set](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#set) | 创建或更新 Azure Web 应用的应用设置。 应用设置将作为应用的环境变量公开。 |
 
 ## <a name="next-steps"></a>后续步骤
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 可以在 [Azure 应用服务文档](../app-service-cli-samples.md)中找到其他应用服务 CLI 脚本示例。
+
+<!--Update_Description: add a note about Azure CLI 2.0 version-->

@@ -3,8 +3,8 @@ title: "Azure Active Directory 常见问题解答 | Microsoft Docs"
 description: "“Azure Active Directory 常见问题”解答有关如何访问 Azure 和 Azure Active Directory、管理密码以及访问应用程序的问题。"
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 04/24/2017
-ms.date: 06/12/2017
+origin.date: 07/12/2017
+ms.date: 07/18/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 2d5aa4a4a6148a669421fa6f44fa600eeb842798
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: e64ee1345e710f7956f96b14c5d99308a55a6e35
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -75,7 +73,8 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 **问：如果我已被添加为协作者，该如何离开原来的租户？**
 
-**答：** 如果你被作为协作者添加到另一组织的租户，可使用右上角的“租户切换器”在租户之间切换。  目前还无法主动离开邀请组织，Microsoft 正致力于提供该功能。  在该功能推出之前，可以请求邀请组织将你从其租户中删除。
+
+            **答：**如果被作为协作者添加到另一组织的租户，可使用右上角的“租户切换器”在租户之间切换。  目前还无法主动离开邀请组织，Microsoft 正致力于提供该功能。  在该功能推出之前，可以请求邀请组织将你从其租户中删除。
 - - -
 **问：如何将我的本地目录连接到 Azure AD？**
 
@@ -148,7 +147,7 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 有关详细信息，请参阅：
 
-- [使用 SCIM 启用从 Azure Active Directory 到应用程序的用户和组自动预配](./active-directory-scim-provisioning.md) 
+- [使用 SCIM 启用从 Azure Active Directory 到应用程序的用户和组自动预配](active-directory-scim-provisioning.md)
 
 - - -
 **问：用户如何使用 Azure AD 来登录应用程序？**
@@ -160,7 +159,7 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 - 直接登录到联合应用
 - 联合、基于密码或现有应用的深层链接
 
-有关详细信息，请参阅[为用户部署 Azure AD 集成的应用程序](./active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)。
+有关详细信息，请参阅[为用户部署 Azure AD 集成的应用程序](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)。
 
 - - -
 **问：Azure AD 可通过哪些不同的方式来启用对应用程序的身份验证和单一登录？**
@@ -171,11 +170,17 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 - [Azure AD 的身份验证方案](./develop/active-directory-authentication-scenarios.md)
 - [Active Directory 身份验证协议](./develop/active-directory-developers-guide.md)
-- [Azure Active Directory 中单一登录的工作原理是什么？](./active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+- [Azure Active Directory 中单一登录的工作原理是什么？](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+
+- - -
+
+**问：SaaS 应用程序的自动用户预配是什么？**
+
+**答：** 使用 Azure AD 可在许多流行的云 (SaaS) 应用程序中自动创建、维护和删除用户标识。
 
 - - -
 **问：是否可以通过 Azure AD 设置安全的 LDAP 连接？**
 
 **答：**不可以。  Azure AD 不支持 LDAP 协议。
 
-
+<!--Update_Description: wording update-->   

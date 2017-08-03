@@ -16,14 +16,13 @@ origin.date: 05/10/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb14934d6c8502a13dfef60a52b5586c0bc4bade
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: a33eaacc178d82bdd23680690d3812e71845a0b3
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 如何在 Azure Cosmos DB 中分区和缩放
-<a id="how-to-partition-and-scale-in-azure-cosmos-db" class="xliff"></a>
+# <a name="how-to-partition-and-scale-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中分区和缩放
 
 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 是一个全局分布式多模型数据库服务，旨在帮助实现快速、可预测的性能并且随着应用程序的增长无缝扩展。 本文概述了如何对 Azure Cosmos DB 中的所有数据模型分区，并介绍了如何配置 Azure Cosmos DB 容器，以便有效地缩放应用程序。
 
@@ -32,9 +31,8 @@ ms.lasthandoff: 07/07/2017
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
 > 
 
-## Azure Cosmos DB 中的分区
-<a id="partitioning-in-azure-cosmos-db" class="xliff"></a>
-在 Azure Cosmos DB 中，可在任何规模以毫秒级响应时间对无架构数据进行存储和查询。 Cosmos DB 提供容器来存储称为“集合（适用于文档）、图形或表”的数据。 容器是逻辑资源，可跨一个或多个物理分区或服务器。 Cosmos DB 根据存储大小以及容器的预配吞吐量确定分区数。 Cosmos DB 中的每个分区都具有与之关联的 SSD 支持的存储且存储大小固定，可以复制分区以实现高可用性。 分区完全由 Azure Cosmos DB 进行管理，因此无需编写复杂的代码或亲自管理分区。 Cosmos DB 容器在存储和吞吐量方面没有限制。 
+## <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB 中的分区
+在 Azure Cosmos DB 中，可在任何规模以毫秒级响应时间对无架构数据进行存储和查询。 Cosmos DB 提供容器用于存储称为“集合（适用于文档）或表”的数据。 容器是逻辑资源，可跨一个或多个物理分区或服务器。 Cosmos DB 根据存储大小以及容器的预配吞吐量确定分区数。 Cosmos DB 中的每个分区都具有与之关联的 SSD 支持的存储且存储大小固定，可以复制分区以实现高可用性。 分区完全由 Azure Cosmos DB 进行管理，因此无需编写复杂的代码或亲自管理分区。 Cosmos DB 容器在存储和吞吐量方面没有限制。 
 
 ![水平](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -54,7 +52,6 @@ ms.lasthandoff: 07/07/2017
 | --- | --- | --- |
 | DocumentDB | 自定义分区键路径 | 固定 `id` | 
 | MongoDB | 自定义分片键  | 固定 `_id` | 
-| Graph | 自定义分区键属性 | 固定 `id` | 
 | 表 | 固定 `PartitionKey` | 固定 `RowKey` | 
 
 Cosmos DB 使用基于哈希的分区。 写入某个项时，Cosmos DB 将对分区键值进行哈希处理，并使用经过哈希处理的结果来确定要在其中存储该项的分区。 Cosmos DB 将分区键相同的所有项存储在同一个物理分区中。 选择分区键是设计时需要做出的重要决定。 选择的属性名称必须具有范围较宽的值，并采用均匀的访问模式。
@@ -65,9 +62,8 @@ Cosmos DB 使用基于哈希的分区。 写入某个项时，Cosmos DB 将对�
 
 可采用“固定”或“无限制”模式创建 Azure Cosmos DB 容器。 固定大小的容器上限为 10 GB，10,000 RU/s 吞吐量。 某些 API 允许对固定大小的容器省略分区键。 若要以无限制模式创建容器，必须至少指定 2500 RU/s 的吞吐量。
 
-## 分区和设置的吞吐量
-<a id="partitioning-and-provisioned-throughput" class="xliff"></a>
-Cosmos DB 旨在提供可预测的性能。 创建容器时，可以根据每秒[请求单位](request-units.md) (RU) 数保留吞吐量，为每分钟 RU 数留出潜在的余量。 将为每个请求分配请求单位费用，该费用与系统资源（如操作使用的 CPU、内存和 IO）的数量成正比。 读取 1-KB 会话一致性文档将消耗一个请求单位。 无论存储的项数或同时运行的并发请求数如何，读数都为 1 RU。 较大的项要求更高的请求单位数，具体取决于大小。 如果知道实体大小及为应用程序提供支持需要的读取次数，则可以为应用程序的读取需求配置准确的吞吐量。 
+## <a name="partitioning-and-provisioned-throughput"></a>分区和设置的吞吐量
+Cosmos DB 旨在提供可预测的性能。 创建容器时，可以根据每秒[请求单位](request-units.md) (RU) 数保留吞吐量，为每分钟 RU 数留出潜在的余量。 将为每个请求分配请求单位费用，该费用与系统资源（如操作使用的 CPU、内存和 IO）的数量成正比。 读取 1-KB 会话一致性文档会消耗一个请求单位。 无论存储的项数或同时运行的并发请求数如何，读数都为 1 RU。 较大的项要求更高的请求单位数，具体取决于大小。 如果知道实体大小及为应用程序提供支持需要的读取次数，则可以为应用程序的读取需求配置准确的吞吐量。 
 
 > [!NOTE]
 > 若要实现容器的全部吞吐量，必须选择分区键，可用于在某些不同的分区键值之间均匀分配请求。
@@ -77,8 +73,7 @@ Cosmos DB 旨在提供可预测的性能。 创建容器时，可以根据每秒
 ## <a name="designing-for-partitioning"></a>使用 Azure Cosmos DB API
 随时可以使用 Azure 门户或 Azure CLI 创建容器并对其进行缩放。 本部分介绍了如何在每个支持的 API 中创建容器，并指定吞吐量和分区键定义。
 
-### DocumentDB API
-<a id="documentdb-api" class="xliff"></a>
+### <a name="documentdb-api"></a>DocumentDB API
 以下示例演示了如何使用 DocumentDB API 创建容器（集合）。 可以在[使用 DocumentDB API 分区](partition-data.md)中找到更多详细信息。
 
 ```csharp
@@ -104,8 +99,7 @@ DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 ```
 
-### MongoDB API
-<a id="mongodb-api" class="xliff"></a>
+### <a name="mongodb-api"></a>MongoDB API
 使用 MongoDB API 可以通过常用的工具、驱动程序或 SDK 创建分片集合。 此示例中将使用 Mongo Shell 创建集合。
 
 在 Mongo Shell 中：
@@ -124,8 +118,7 @@ db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
 }
 ```
 
-### 表 API
-<a id="table-api" class="xliff"></a>
+### <a name="table-api"></a>表 API
 
 使用表 API 可在应用程序的 appSettings 配置中为表指定吞吐量：
 
@@ -158,24 +151,8 @@ TableResult retrievedResult = table.Execute(retrieveOperation);
 ```
 有关更多详细信息，请参阅[使用表 API 进行开发](tutorial-develop-table-dotnet.md)。
 
-### 图形 API
-<a id="graph-api" class="xliff"></a>
+<!-- Not Available ### Graph API -->
 
-使用图形 API 时，必须使用 Azure 门户或 CLI 创建容器。 由于 Azure Cosmos DB 是多模型服务，因此也可以使用其他模型之一来创建和缩放图形容器。
-
-可以在 Gremlin 中使用分区键和 ID 读取任何顶点或边缘。 例如，对于使用区域（“USA”）作为分区键，使用“Seattle”作为行键的图形，可以使用以下语法查找顶点：
-
-```
-g.V(['USA', 'Seattle'])
-```
-
-读取边缘时也一样，可以使用分区键和行键引用边缘。
-
-```
-g.E(['USA', 'I5'])
-```
-
-有关更多详细信息，请参阅 [Cosmos DB 的 Gremlin 支持](gremlin-support.md)。
 
 ## <a name="designing-for-partitioning"></a> 设计分区
 若要有效地使用 Azure Cosmos DB 进行缩放，在创建容器时需要选择适当的分区键。 在选择分区键方面有两个重要考虑因素：
@@ -191,16 +168,14 @@ g.E(['USA', 'I5'])
 
 在某些用例中（如 IoT 和用户配置文件），分区键可能与 ID（文档键）相同。 在其他用例（如时间序列数据）中，可能拥有与该 ID 不同的分区键。
 
-### 分区和记录/时间序列数据
-<a id="partitioning-and-loggingtime-series-data" class="xliff"></a>
+### <a name="partitioning-and-loggingtime-series-data"></a>分区和记录/时间序列数据
 Cosmos DB 最常见的用例之一是日志记录和遥测。 选取适当的分区键是很重要的，因为你可能需要读取/写入大量数据。 选择将取决于读取和写入的速率以及要运行的查询类型。 以下是有关如何选择适当分区键的一些提示。
 
 * 如果用例涉及很长时间积累的小速率写入，并且需要按时间戳范围和其他筛选器进行查询，则使用时间戳（例如数据）汇总作为分区键是个好方法。 这使你能够查询某日单个分区中的所有数据。 
 * 如果工作负荷是更常见的写入密集型，应使用不基于时间戳的分区键，使 Cosmos DB 能够跨不同分区均匀地分布写入。 此处，主机名、进程 ID、活动 ID 或其他具有较大基数的属性是不错的选择。 
 * 第三种方法是混合型分区键，其中包含多个容器，每个日期/月份各有一个容器，分区键是类似主机名的粒度属性。 这样做的好处是可以基于时间窗口设置不同的吞吐量，例如，当月的容器设置为更高的吞吐量，因为它维护读取和写入操作，而之前的月份吞吐量设置为较低，因为它们只维护读取。
 
-### 分区和多租户
-<a id="partitioning-and-multi-tenancy" class="xliff"></a>
+### <a name="partitioning-and-multi-tenancy"></a>分区和多租户
 若要使用 Cosmos DB 实现多租户应用程序，可以采用两种常用模式 - 每个租户一个分区键，每个租户一个容器。 下面是每种模式的优缺点：
 
 * 每个租户一个分区键：在此模型中，租户共置于单个容器中。 但是，可以针对单个分区执行单个租户内的项查询和插入。 可以在租户中的所有项之间实现事务逻辑。 由于多个租户共享一个容器，因此可以通过在单个容器内集中租户资源而不是为每个租户预配额外的多余空间来节约存储和吞吐量成本。 缺点是每个租户没有性能隔离。 性能/吞吐量的增加适用于整个容器，针对性增加适用于租户。
@@ -208,8 +183,7 @@ Cosmos DB 最常见的用例之一是日志记录和遥测。 选取适当的分
 
 也可以使用组合/分层的方法来共置小型租户并将较大的租户迁移到它们自身的容器中。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 本文概述了有关使用任何 Azure Cosmos DB API 进行分区的概念和最佳做法。 
 
 * 了解 [Azure Cosmos DB 中的预配吞吐量](request-units.md)

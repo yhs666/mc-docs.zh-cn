@@ -3,8 +3,8 @@ title: "SQL 数据库备份 - 自动化、异地冗余 | Microsoft Docs"
 description: "SQL 数据库每隔几分钟会自动创建一个本地数据库备份，并使用 Azure 读取访问异地冗余存储来提供异地冗余。"
 services: sql-database
 documentationcenter: 
-author: anosov1960
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 3ee3d49d-16fa-47cf-a3ab-7b22aa491a8d
 ms.service: sql-database
@@ -12,16 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2016
-ms.author: v-johch
-ms.openlocfilehash: 99cb0f20cb591a9f06667c61ffea57aa5bc9eaed
-ms.sourcegitcommit: b9eccd13f7aaab4e2f67b3a12d5ebb501750287d
+origin.date: 07/05/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: dfd88e11cdbd0441c5819786edbe4f6869e251ab
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 了解 SQL 数据库备份
-<a id="learn-about-sql-database-backups" class="xliff"></a>
+# <a name="learn-about-sql-database-backups"></a>了解 SQL 数据库备份
 <!------------------
 This topic is annotated with TEMPLATE guidelines for FEATURE TOPICS.
 
@@ -102,8 +102,7 @@ For consistency, being the heading with "What is ... "
 ```
 ----------------->
 
-## 什么是 SQL 数据库备份？
-<a id="what-is-a-sql-database-backup" class="xliff"></a>
+## <a name="what-is-a-sql-database-backup"></a>什么是 SQL 数据库备份？
 <!-- 
     Explains what a SQL Database backup is and answers an important question that people want to know.
 -->
@@ -126,32 +125,19 @@ SQL 数据库使用 SQL Server 技术创建[完整](https://msdn.microsoft.com/z
 * 从 Azure 恢复服务保管库中存储的特定备份还原数据库。 此操作允许还原旧版本的数据库，以满足符合性请求或运行旧版本的应用程序。
 * 若要执行还原，请参阅[从备份还原数据库](./sql-database-recovery-using-backups.md)。
 
-<!----------------- 
-    Explains first component of the backup feature
------------------->
-
-<!--------------- 
-    Explicit list of what to do with a geo-redundant backup. "Use a ..." helps people to scan the topic and find the uses quickly.
----------------->
-
->[!NOTE]
+> [!NOTE]
 > 在 Azure 存储中，术语“复制”指将文件从一个位置复制到另一个位置。 SQL 数据库复制指让多个辅助数据库与主数据库保持同步。 
+> 
 
-<!----------------
-    The next ## H2's discuss key characteristics of how the feature works. The title is in conversational language and asks the question that will be answered.
-------------------->
-## 免费附送的备份存储空间有多少？
-<a id="how-much-backup-storage-is-included-at-no-cost" class="xliff"></a>
+## <a name="how-much-backup-storage-is-included-at-no-cost"></a>免费附送的备份存储空间有多少？
 SQL 数据库提供的备份存储容量高达最大预配数据库存储空间的两倍，不收取任何额外费用。 例如，如果有一个标准数据库实例并且预配的数据库大小为 250 GB，则可以免费获得 500 GB 的备份存储空间。 如果数据库超过提供的备份存储空间，则可以选择与 Azure 支持联系来缩短保留期。 另一种做法是按照标准读取访问异地冗余存储 (RA-GRS) 费率付费购买额外的备份存储空间。 
 
-## 多久备份一次？
-<a id="how-often-do-backups-happen" class="xliff"></a>
-每周执行一次完整数据库备份，通常每隔数小时执行一次差异数据库备份，通常每隔 5-10 分钟执行一次事务日志备份。 会在数据库创建后立即计划第一次完整备份。 完整备份通常可在 30 分钟内完成，但如果数据库很大，花费的时间可能更长。 例如，对已还原的数据库或数据库副本执行初始备份可能需要更长时间。 在完成首次完整备份后，将在后台以静默方式自动计划和管理所有后续备份。 在平衡整体系统工作负荷时，SQL 数据库服务会确定所有数据库备份的确切时间。 
+## <a name="how-often-do-backups-happen"></a>多久备份一次？
+每周执行一次完整数据库备份，通常每隔数小时执行一次差异数据库备份，通常每隔 5-10 分钟执行一次事务日志备份。 会在数据库创建后立即计划第一次完整备份。 完整备份通常可在 30 分钟内完成，但如果数据库很大，花费的时间可能更长。 例如，对已还原的数据库或数据库副本执行初始备份可能需要更长时间。 在完成首次完整备份后，在后台以静默方式自动计划和管理所有后续备份。 在平衡整体系统工作负荷时，SQL 数据库服务会确定所有数据库备份的确切时间。 
 
 备份存储异地复制根据 Azure 存储复制计划执行。
 
-## 备份的保留时间有多长？
-<a id="how-long-do-you-keep-my-backups" class="xliff"></a>
+## <a name="how-long-do-you-keep-my-backups"></a>备份的保留时间有多长？
 
 每个 SQL 数据库备份都有一个保留期，该期限基于数据库的[服务层](./sql-database-service-tiers.md)。 各服务层中数据库的保留期如下：
 
@@ -166,14 +152,14 @@ Using a list so the information is easy to find when scanning.
 * 标准服务层为 35 天。
 * 高级服务层为 35 天。
 
-如果将数据库从标准或高级服务层降级到基本服务层，备份将保存 7 天。 超过 7 天的所有现有备份将不再可用。 
+如果将数据库从标准或高级服务层降级到基本服务层，备份将保存 7 天。 超过 7 天的所有现有备份不再可用。 
 
-如果将数据库从基本服务层升级到标准或高级服务层，SQL 数据库将保存现有备份，直到超过 35 天。 此时创建的新备份将保存 35 天。
+如果将数据库从基本服务层升级到标准或高级服务层，SQL 数据库将保存现有备份，直到超过 35 天。 此时创建的新备份保存 35 天。
 
-如果删除了某个数据库，SQL 数据库将以保存联机数据库的相同方式保存其备份。 例如删除了保留期为 7 天的某个基本数据库。 已保存 4 天的备份将继续保存 3 天。
+如果删除了某个数据库，SQL 数据库以保存联机数据库的相同方式保存其备份。 例如删除了保留期为 7 天的某个基本数据库。 已保存 4 天的备份将继续保存 3 天。
 
 > [!IMPORTANT]
-> 如果删除了托管 SQL 数据库的 Azure SQL 服务器，则属于该服务器的所有数据库也将被删除且不可恢复。 无法还原已删除的服务器。
+> 如果删除了托管 SQL 数据库的 Azure SQL 服务器，则属于该服务器的所有数据库也会被删除且不可恢复。 无法还原已删除的服务器。
 
 <!------------------
 ## How to extend the backup retention period?
@@ -228,7 +214,12 @@ You don't need to repeat links you have already given them.
 ```
 --------------------->
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="are-backups-encrypted"></a>备份已加密？
+
+为 Azure SQL 数据库启用 TDE 时，也会加密备份。 默认情况下，所有新的 Azure SQL 数据库都配置为启用 TDE。 有关 TDE 的详细信息，请参阅[使用 Azure SQL 数据库进行透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)。
+
+## <a name="next-steps"></a>后续步骤
 
 数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。 若要了解其他 Azure SQL 数据库业务连续性解决方案，请参阅[业务连续性概述](./sql-database-business-continuity.md)。
+
+<!--Update_Description: update word-->

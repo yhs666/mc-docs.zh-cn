@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/02/2017
-ms.date: 07/24/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: fb51159e08f5fbe640f59b402a0d756e26ab1f0e
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 12cde40580d76cb05c72d339eb8083c47637e435
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>由 HDInsight 上的 Hadoop 服务使用的端口
 
@@ -73,6 +73,13 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 
 > [!NOTE]
 > 某些服务仅适用于特定的群集类型。 例如，HBase 仅适用于 HBase 群集类型。
+
+### <a name="ambari"></a>Ambari
+
+| 服务 | Nodes | 端口 | 路径 | 协议 | 
+| --- | --- | --- | --- | --- |
+| Ambari Web UI | 头节点 | 8080 | / | HTTP |
+| Ambari REST API | 头节点 | 8080 | /api/v1 | HTTP |
 
 ### <a name="hdfs-ports"></a>HDFS 端口
 
@@ -148,3 +155,5 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 | 服务 | Nodes | 端口 | 协议 | 说明 |
 | --- | --- | --- | --- | --- |
 | Spark Thrift 服务器 |头节点 |10002 |Thrift |用于连接到 Spark SQL 的服务 (Thrift/JDBC) |
+
+<!--Update_Description: add Ambari ports-->

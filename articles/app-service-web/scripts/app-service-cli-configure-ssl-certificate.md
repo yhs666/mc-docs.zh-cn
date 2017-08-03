@@ -13,34 +13,37 @@ ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-origin.date: 04/10/2017
-ms.date: 05/02/2017
+origin.date: 06/19/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: f937ebf9cfdb7d73e70ed46718d3dea5ebd8603c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 67abcfc446fb179e5cb4e7bebfe4b0803644a316
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/28/2017
 ---
-
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>将自定义 SSL 证书绑定到 Web 应用
 
-此示例脚本在应用服务中创建一个 Web 应用及其相关资源，然后将自定义域名的 SSL 证书绑定到该应用。 对于此示例，你将需要：
+此示例脚本在应用服务中创建一个 Web 应用及其相关资源，并将自定义域名的 SSL 证书绑定到该应用。 对于此示例，需要：
 
 * 访问域注册机构的 DNS 配置页的权限。
 * 需要上传和绑定的 SSL 证书的有效 .PFX 文件及其密码。
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
 ```azurecli
 #!/bin/bash
 
-fqdn=<Replace with www.{yourdomain}>
-pfxPath=<Replace with path to your .PFX file>
-pfxPassword=<Replace with your .PFX password>
+fqdn=<replace-with-www.{yourdomain}>
+pfxPath=<replace-with-path-to-your-.PFX-file>
+pfxPassword=<replace-with-your=.PFX-password>
 webappname=mywebapp$RANDOM
 
 # Create a resource group.
@@ -50,27 +53,27 @@ az group create --location chinanorth --name myResourceGroup
 az appservice plan create --name $webappname --resource-group myResourceGroup --sku B1
 
 # Create a web app.
-az appservice web create --name $webappname --resource-group myResourceGroup \
+az webapp create --name $webappname --resource-group myResourceGroup \
 --plan $webappname
 
 echo "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn"
 read -p "Press [Enter] key when ready ..."
 
 # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
-# instructions at https://www.azure.cn/documentation/articles/web-sites-custom-domain-name/#step-2-create-the-dns-records to configure a CNAME record for the 
+# instructions at https://docs.azure.cn/app-service-web/web-sites-custom-domain-name#step-2-create-the-dns-records to configure a CNAME record for the 
 # hostname "www" and point it your web app's default domain name.
 
 # Map your prepared custom domain name to the web app.
-az appservice web config hostname add --webapp $webappname --resource-group myResourceGroup \
---name $fqdn
+az webapp config hostname add --webapp-name $webappname --resource-group myResourceGroup \
+--hostname $fqdn
 
 # Upload the SSL certificate and get the thumbprint.
-thumprint=$(az appservice web config ssl upload --certificate-file $pfxPath \
+thumprint=$(az webapp config ssl upload --certificate-file $pfxPath \
 --certificate-password $pfxPassword --name $webappname --resource-group myResourceGroup \
 --query thumbprint --output tsv)
 
 # Binds the uploaded SSL certificate to the web app.
-az appservice web config ssl bind --certificate-thumbprint $thumbprint --ssl-type SNI \
+az webapp config ssl bind --certificate-thumbprint $thumbprint --ssl-type SNI \
 --name $webappname --resource-group myResourceGroup
 
 echo "You can now browse to https://$fqdn"
@@ -86,10 +89,10 @@ echo "You can now browse to https://$fqdn"
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#delete) | 创建 Azure Web 应用。 |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/webapp/config/hostname#add) | 将自定义域映射到 Web 应用。 |
-| [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/webapp/config/ssl#upload) | 将 SSL 证书上传到 Web 应用。 |
-| [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/webapp/config/ssl#bind) | 将上传的 SSL 证书绑定到 Web 应用。 |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | 创建 Azure Web 应用。 |
+| [az webapp config hostname add](https://docs.microsoft.com/cli/azure/webapp/config/hostname#add) | 将自定义域映射到 Web 应用。 |
+| [az webapp config ssl upload](https://docs.microsoft.com/cli/azure/webapp/config/ssl#upload) | 将 SSL 证书上传到 Web 应用。 |
+| [az webapp config ssl bind](https://docs.microsoft.com/cli/azure/webapp/config/ssl#bind) | 将上传的 SSL 证书绑定到 Web 应用。 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -97,3 +100,4 @@ echo "You can now browse to https://$fqdn"
 
 可以在 [Azure 应用服务文档](../app-service-cli-samples.md)中找到其他应用服务 CLI 脚本示例。
 
+<!--Update_Description: add a note about Azure CLI 2.0 version-->

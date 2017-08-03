@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 脚本 - 设置异地复制故障转移组 - 单个 SQL 数据库 | Azure"
-description: "Azure PowerShell 脚本示例 - 使用 PowerShell 为单个 Azure SQL 数据库设置活动异地复制"
+title: "PowerShell 示例 - 异地复制故障转移组 - 单个 Azure SQL 数据库 | Azure"
+description: "为单个 Azure SQL 数据库设置活动异地复制的 Azure PowerShell 示例脚本"
 services: sql-database
 documentationcenter: sql-database
 author: Hayley244
@@ -14,24 +14,22 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 05/26/2017
-ms.date: 07/03/2017
-ms.author: v-johch
-ms.openlocfilehash: 4d35a9a96589b3b5d8c366d20847c0023f2d9523
-ms.sourcegitcommit: 73b1d0f7686dea85647ef194111528c83dbec03b
+origin.date: 06/23/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 8d6507619f1adaec8043b09cdef760098621e2b8
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 使用 PowerShell 为单个 Azure SQL 数据库配置活动异地复制故障转移组
-<a id="configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database-using-powershell" class="xliff"></a>
+# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>使用 PowerShell 为单个 Azure SQL 数据库配置活动异地复制故障转移组
 
-此示例 PowerShell 脚本为单一数据库配置活动异地复制故障转移组，并将其故障转移到次要副本。
+此 PowerShell 脚本示例为单个 Azure SQL 数据库配置活动异地复制故障转移组，并将其故障转移到 Azure SQL 数据库的次要副本。
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## 示例脚本
-<a id="sample-scripts" class="xliff"></a>
+## <a name="sample-scripts"></a>示例脚本
 
 ```powershell
 # Login-AzureRmAccount
@@ -128,8 +126,7 @@ Remove-AzureRmSqlDatabaseFailoverGroup `
 
 ```
 
-## 清理部署
-<a id="clean-up-deployment" class="xliff"></a>
+## <a name="clean-up-deployment"></a>清理部署
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
@@ -138,8 +135,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
 Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
 ```
 
-## 脚本说明
-<a id="script-explanation" class="xliff"></a>
+## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
@@ -157,9 +153,10 @@ Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 |||
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
+
+<!--Update_Description: wording update-->

@@ -12,25 +12,24 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-origin.date: 02/22/2017
-ms.date: 07/10/2017
+origin.date: 06/23/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9ce66f31bdea7632f415bc1c6f6e27ae56e45ef2
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: 165fd5232f53d723b67dcc188a813c105e54d8ce
+ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 将 Azure 自动化 Runbook 添加到恢复计划
-<a id="add-azure-automation-runbooks-to-recovery-plans" class="xliff"></a>
+# <a name="add-azure-automation-runbooks-to-recovery-plans"></a>将 Azure 自动化 Runbook 添加到恢复计划
 本教程介绍 Azure Site Recovery 如何与 Azure 自动化集成以便为恢复计划提供可扩展性。 恢复计划可以协调使用 Azure Site Recovery 保护的虚拟机的恢复，以便复制到辅助云和 Azure 方案。 恢复计划还有助于实现恢复的“一致准确性”、“可重复性”和“自动化”。 如果要将虚拟机故障转移到 Azure，则与 Azure 自动化集成可扩展恢复计划，并允许执行 Runbook，从而可以执行强大的自动化任务。
 
-如果尚未听说过 Azure 自动化，请在[此处](https://www.azure.cn/home/features/automation/)注册。 若要详细了解 [Azure Site Recovery](https://www.azure.cn/home/features/site-recovery/)，以及如何使用恢复计划来安排 Azure 恢复，请单击[此处](https://www.azure.cn/blog/?p=166264)。
+如果还没有听说过 Azure 自动化，请单击[此处](https://www.azure.cn/home/features/automation/)进行注册，并从[此处](../automation/automation-runbook-gallery.md)下载示例脚本。 若要详细了解 [Azure Site Recovery](https://www.azure.cn/home/features/site-recovery/)，以及如何使用恢复计划来安排 Azure 恢复，请单击[此处](https://www.azure.cn/blog/?p=166264)。
+<!-- https://azure.microsoft.com/documentation/scripts/ Redirect to ../automation/automation-runbook-gallery/ -->
 
 在本教程中，我们将了解如何将 Azure 自动化 Runbook 集成到恢复计划中。 我们会自动执行以前需要手动干预的简单任务，并了解如何将多步骤恢复转换成单击恢复操作。
 
-## 自定义恢复计划
-<a id="customize-the-recovery-plan" class="xliff"></a>
+## <a name="customize-the-recovery-plan"></a>自定义恢复计划
 1. 首先，打开恢复计划的资源边栏选项卡。 可以看到，恢复计划中包含了两个虚拟机用于恢复。
 
     ![](media/site-recovery-runbook-automation-new/essentials-rp.PNG)
@@ -53,8 +52,7 @@ ms.lasthandoff: 06/30/2017
 
     ![](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 
-## 添加脚本的要点
-<a id="salient-points-of-adding-a-script" class="xliff"></a>
+## <a name="salient-points-of-adding-a-script"></a>添加脚本的要点
 1. 可以右键单击脚本，然后选择“删除步骤”或“更新脚本”。
 2. 从本地故障转移到 Azure 时，脚本可以在 Azure 中运行；在关闭之前从 Azure 故障回复到本地期间，脚本可以在 Azure 中作为主端脚本运行。
 3. 脚本在运行时，会注入恢复计划上下文。
@@ -110,8 +108,7 @@ ms.lasthandoff: 06/30/2017
 * AzureRM.Network
 * AzureRM.Compute
 
-### 循环访问 VmMap 中的所有 VM
-<a id="accessing-all-vms-of-the-vmmap-in-a-loop" class="xliff"></a>
+### <a name="accessing-all-vms-of-the-vmmap-in-a-loop"></a>循环访问 VmMap 中的所有 VM
 使用以下代码片段循环访问 VmMap 中的所有 VM。
 
 ```
@@ -126,18 +123,17 @@ $vmMap = $RecoveryPlanContext.VmMap
      Write-output "Rolename " = $VM.RoleName
      }
  }
+
 ```
 
 > [!NOTE]
 > 如果脚本是启动组的准备操作，“资源组名称”和“角色名称”值为空。 仅当该组中的 VM 成功完成故障转移并且该脚本是启动组的后操作时，才填充这些值。
 
-## 结合多个恢复计划使用相同的自动化 Runbook
-<a id="using-the-same-automation-runbook-with-multiple-recovery-plans" class="xliff"></a>
+## <a name="using-the-same-automation-runbook-with-multiple-recovery-plans"></a>结合多个恢复计划使用相同的自动化 Runbook
 
 可以使用外部变量跨多个恢复计划使用单个脚本。 可以使用 [Azure 自动化变量](../automation/automation-variables.md)来存储可在执行恢复计划时传递的参数。 通过使用恢复计划的名称作为变量的前缀，可为每个恢复计划创建各个变量并将其用作参数。 可以在不更改脚本的情况下更改参数，使脚本以不同的方式工作。
 
-### 在 Runbook 脚本中使用简单字符串变量
-<a id="using-simple-string-variables-in-runbook-script" class="xliff"></a>
+### <a name="using-simple-string-variables-in-runbook-script"></a>在 Runbook 脚本中使用简单字符串变量
 
 假设在脚本中使用 NSG 的输入，并将其应用到恢复计划的 VM。
 
@@ -174,7 +170,7 @@ $RGnameVar = Get-AutomationVariable -Name $NSGRGValue
 接下来，可以在 Runbook 中使用这些变量，并将 NSG 应用到已故障转移的虚拟机的网络接口。
 
 ```
- InlineScript { 
+InlineScript { 
      if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
         $NSG = Get-AzureRmNetworkSecurityGroup -Name $Using:NSGname -ResourceGroupName $Using:NSGRGname
         Write-output $NSG.Id
@@ -188,10 +184,9 @@ $RGnameVar = Get-AutomationVariable -Name $NSGRGValue
 
 对于每个恢复计划，请创建独立的变量，以便可以重复使用脚本，同时请使用恢复计划名称作为变量的前缀。 [此处提供](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee)了本示例中的完整端到端脚本。
 
-### 使用复杂变量来存储更多信息
-<a id="using-complex-variable-to-store-more-information" class="xliff"></a>
+### <a name="using-complex-variable-to-store-more-information"></a>使用复杂变量来存储更多信息
 
-假设你只想要使用一个脚本在特定的 VM 上启用公共 IP，或者要在不同的虚拟机（不是所有）上应用不同的 NSG。 此脚本应该可以针对其他任何恢复计划重复使用。 每个恢复计划可以包含可变数量的虚拟机（例如，SharePoint 恢复计划有两个前端，而简单的 LOB 应用程序只有一个前端）。 每个恢复计划创建不同的变量无法实现此结果。 在此情况下，我们可以采用一种新的方法，在 Azure 自动化帐户资产中通过指定多个值来创建 [复杂变量](https://msdn.microsoft.com/zh-cn/library/dn913767.aspx?f=255&MSPPError=-2147217396) 。 需要使用 Azure PowerShell 执行以下步骤。
+假设你只想要使用一个脚本在特定的 VM 上启用公共 IP，或者要在不同的虚拟机（不是所有）上应用不同的 NSG。 此脚本应该可以针对其他任何恢复计划重复使用。 每个恢复计划可以包含可变数量的虚拟机（例如，SharePoint 恢复计划有两个前端，而简单的 LOB 应用程序只有一个前端）。 每个恢复计划创建不同的变量无法实现此结果。 在此情况下，我们可以采用一种新的方法，在 Azure 自动化帐户资产中通过指定多个值来创建 [复杂变量](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) 。 需要使用 Azure PowerShell 执行以下步骤。
 
 1. 在 Azure PowerShell 中登录到订阅。
 
@@ -240,17 +235,17 @@ $RGnameVar = Get-AutomationVariable -Name $NSGRGValue
 
 可以针对不同的恢复计划使用相同的脚本，并通过在不同的变量中存储对应于不同恢复计划的值，来提供不同的参数。
 
-## 示例脚本
-<a id="sample-scripts" class="xliff"></a>
+## <a name="sample-scripts"></a>示例脚本
 使用下面的“部署到 Azure”按钮将示例脚本部署到自动化帐户。
 
 [![“部署到 Azure”](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 还可查看有关将两层 WordPress 应用程序恢复到 Azure 的快速视频。
 
-## 其他资源
-<a id="additional-resources" class="xliff"></a>
+## <a name="additional-resources"></a>其他资源
 <!-- Not Available automation-sec-configure-azure-runas-account.md -->
-[Azure 自动化概述](http://msdn.microsoft.com/zh-CN/library/azure/dn643629.aspx "Azure 自动化概述")
+[Azure 自动化概述](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure 自动化概述")
 
 [Azure 自动化示例脚本](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure 自动化示例脚本")
+
+<!--Update_Description: update meta properties, wording update-->

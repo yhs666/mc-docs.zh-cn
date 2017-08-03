@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/24/2017
-ms.date: 03/28/2017
+origin.date: 06/26/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: dc837d1fa14291d3228006c8159e680a526f7bb9
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: ebf5b319f748a6397a29484722350d67de0bf852
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure 自动化中的常见问题解答 
 本文介绍如何排除 Azure 自动化中遇到的常见错误，并提供可能的解决方案建议。
@@ -35,7 +35,7 @@ ms.lasthandoff: 06/23/2017
 **疑难解答提示：** 为了确定具体错误，请执行以下步骤：  
 
 1. 确保在用于连接到 Azure 的自动化凭据资产名称中没有任何特殊字符，包括 **@** 字符。  
-2. 查看你是否能够在本地 PowerShell ISE 编辑器中使用存储在 Azure 自动化凭据中的用户名和密码。 为此，你可以在 PowerShell ISE 中运行以下 cmdlet：  
+2. 查看你是否能够在本地 PowerShell ISE 编辑器中使用存储在 Azure 自动化凭据中的用户名和密码。 为此，可以在 PowerShell ISE 中运行以下 cmdlet：  
 
         $Cred = Get-Credential  
         #Using Azure Service Management   
@@ -54,8 +54,8 @@ ms.lasthandoff: 06/23/2017
 1. 确保先运行 **Add-AzureAccount -Environment AzureChinaCloud**，然后再运行 **Select-AzureSubscription** cmdlet。  
 2. 如果仍显示此错误消息，可通过添加 **Get-AzureSubscription** cmdlet（在 **Add-AzureAccount -Environment AzureChinaCloud** cmdlet 后）来修改代码，然后执行代码。  现在，请验证 Get-AzureSubscription 的输出是否包含你的订阅详细信息。  
 
-    * 如果你在输出中看不到任何订阅详细信息，则说明该订阅尚未初始化。  
-    * 如果你在输出中看到了订阅详细信息，请确认你对 **Select-AzureSubscription** cmdlet 使用了正确的订阅名称或 ID。   
+   * 如果在输出中看不到任何订阅详细信息，则说明该订阅尚未初始化。  
+   * 如果在输出中看到了订阅详细信息，请确认你对 **Select-AzureSubscription** cmdlet 使用了正确的订阅名称或 ID。   
 
 ### <a name="scenario-authentication-to-azure-failed-because-multi-factor-authentication-is-enabled"></a>场景：无法向 Azure 进行身份验证，因为已启用多重身份验证
 错误：使用 Azure 用户名和密码向 Azure 进行身份验证时，收到“Add-AzureAccount: AADSTS50079: 需要进行强身份验证注册(验证)”错误。
@@ -65,6 +65,21 @@ ms.lasthandoff: 06/23/2017
 疑难解答提示：若要将证书用于 Azure 服务管理 cmdlet，请参阅[创建并添加管理 Azure 服务所需的证书](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)。 若要将服务主体用于 Azure Resource Manager cmdlet，请参阅[使用 Azure 门户创建服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)和[通过 Azure Resource Manager 对服务主体进行身份验证](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
 
 ## <a name="common-errors-when-working-with-runbooks"></a>使用 Runbook 时的常见错误
+### <a name="scenario-the-runbook-job-start-was-attempted-three-times-but-it-failed-to-start-each-time"></a>方案：runbook 作业已尝试启动三次，但每次均启动失败
+**错误：**runbook 启动失败，错误为“此作业已尝试启动三次，但均失败”。
+
+**错误原因：**此错误可能由以下原因导致：  
+
+1. 内存限制。  我们已经记录了分配给沙盒[自动化服务限制](../azure-subscription-service-limits.md#automation-limits)的内存限制，因此，如果使用超过 400 MB 的内存，作业可能会失败。 
+
+2. 模块不兼容。  如果模块依赖关系不正确，则可能会发生这种情况，并且如果模块依赖关系正确，runbook 通常会返回“找不到命令”或“无法绑定参数”消息。 
+
+**疑难解答提示：** 下述解决方案中的任何一种都可以解决此问题：  
+
+* 在内存限制内工作的建议方法是将工作负荷拆分到多个 runbook 上，尽可能不在内存中处理很多数据，不写入不必要的 runbook 输出，或考虑将多少个检查点写入 PowerShell 工作流 runbook 中。  
+
+* 需要更新 Azure 模块。  
+
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>场景：Runbook 因反序列化的对象而失败
 错误：Runbook 失败，出现错误“无法绑定参数 ``<ParameterName>``。 无法将反序列化 ``<ParameterType>`` 类型的 ``<ParameterType>`` 值转换成 ``<ParameterType>`` 类型”。
 
@@ -73,15 +88,15 @@ ms.lasthandoff: 06/23/2017
 **疑难解答提示：**  
 下述三种解决方案中的任何一种都可以解决此问题：
 
-1. 如果你要将复杂对象从一个 cmdlet 传送到另一个 cmdlet，则可将这两个 cmdlet 包装在 InlineScript 中。  
+1. 如果要将复杂对象从一个 cmdlet 传送到另一个 cmdlet，则可将这两个 cmdlet 包装在 InlineScript 中。  
 2. 传递复杂对象中你所需要的名称或值，不必传递整个对象。  
 
 ### <a name="scenario-runbook-job-failed-because-the-allocated-quota-exceeded"></a>场景：Runbook 作业失败，因为超过了分配的配额
 **错误：** Runbook 作业失败，出现“已达到此订阅的每月总作业运行时间配额”错误。
 
-错误原因：作业执行时间超过帐户的 500 分钟免费配额时，就会出现此错误。 此配额适用于所有类型的作业执行任务，例如测试作业、从门户启动作业、使用 Webhook 执行作业，以及通过 Azure 经典管理门户或数据中心计划要执行的作业。 若要详细了解自动化的定价，请参阅[自动化定价](https://www.azure.cn/pricing/details/automation/)。
+错误原因：作业执行时间超过帐户的 500 分钟免费配额时，就会出现此错误。 此配额适用于所有类型的作业执行任务，例如测试作业、从门户启动作业以及通过 Azure 经典管理门户或数据中心计划要执行的作业。 若要详细了解自动化的定价，请参阅[自动化定价](https://www.azure.cn/pricing/details/automation/)。
 
-**疑难解答提示：** 如果你想要每月使用 500 分钟以上的处理时间，则需将订阅从免费层改为基本层。 你可以通过下述步骤升级到基本层：  
+**疑难解答提示：** 如果你想要每月使用 500 分钟以上的处理时间，则需将订阅从免费层改为基本层。 可以通过下述步骤升级到基本层：  
 
 1. 登录到 Azure 订阅  
 2. 选择要升级的自动化帐户  
@@ -112,7 +127,7 @@ ms.lasthandoff: 06/23/2017
 **错误原因：** 模块无法成功导入到 Azure 自动化中的一些常见原因是：  
 
 * 结构与自动化所需的模块结构不符。  
-* 该模块依赖于其他模块，而后者尚未部署到你的自动化帐户。  
+* 该模块依赖于其他模块，而后者尚未部署到自动化帐户。  
 * 该模块的文件夹中缺少依赖项。  
 * 使用了 New-AzureAutomationModule cmdlet 来上传该模块，但尚未提供完整的存储路径，或者尚未使用可公开访问的 URL 来加载该模块。  
 
@@ -129,3 +144,5 @@ ms.lasthandoff: 06/23/2017
 
 * 从 Azure 专家那里获取帮助。 向 [MSDN Azure 或 CSDN Azure](https://www.azure.cn/support/forums/) 提交问题。
 * 提出 Azure 支持事件。 转到 [Azure 支持站点](https://www.azure.cn/support/contact/)，单击“技术和帐单支持”下的“获取支持”。
+
+<!--Update_Description: add "Scenario: The runbook job start was attempted three times, but it failed to start each time"-->

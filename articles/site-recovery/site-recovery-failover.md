@@ -12,34 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 06/05/2017
-ms.date: 07/10/2017
+origin.date: 07/04/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
-ms.openlocfilehash: ad9f3d38a1eb278218227de6ea9cbf75339d3cd0
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: 1d4c881af974d9755df84bceb10794c96b9732e6
+ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/28/2017
 ---
-# Site Recovery 中的故障转移
-<a id="failover-in-site-recovery" class="xliff"></a>
+# <a name="failover-in-site-recovery"></a>Site Recovery 中的故障转移
 本文介绍了如何对由 Site Recovery 保护的虚拟机和物理服务器进行故障回复。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 1. 执行故障转移之前，请先执行[测试故障转移](site-recovery-test-failover-to-azure.md)，确保一切按预期工作。
 2. [准备网络](site-recovery-network-design.md) 。  
 
 ##<a name="run-a-test-failover"></a><a name="run-an-unplanned-failover"></a><a name="run-a-failover"></a> 运行故障转移
-本过程介绍了如何对[恢复计划](site-recovery-create-recovery-plans.md)运行故障转移。 另外，你还可以从 **复制的项** 页面针对单台虚拟机或物理服务器运行故障转移。
+本过程介绍了如何对[恢复计划](site-recovery-create-recovery-plans.md)运行故障转移。 另外，还可以从 **复制的项** 页面针对单台虚拟机或物理服务器运行故障转移。
 
 ![故障转移](./media/site-recovery-failover/Failover.png)
 
-1. 选择“**恢复计划**” > “*recoveryplan_name*”。 Click **Failover** 
+1. 选择“**恢复计划**” > “*recoveryplan_name*”。 Click **Failover**
 2. 在“故障转移”屏幕上，选择要故障转移到的“恢复点”。 可以使用以下选项之一：
     1. 最新（默认选项）：此选项首先处理已发送到 Site Recovery 服务的所有数据，为每个虚拟机创建恢复点，然后再将其故障转移到该恢复点。 此选项提供最低 RPO（恢复点目标），因为故障转移后创建的虚拟机包含触发故障转移时已复制到 Site Recovery 服务的所有数据。 
     1. **最新处理的恢复点**：此选项可将恢复计划的所有虚拟机故障转移到已由 Site Recovery 服务处理的最新恢复点。 针对虚拟机执行测试故障转移时，也会显示最新处理的恢复点的时间戳。 如果要针对恢复计划执行故障转移，可以转到单个虚拟机，并查看“最新恢复点”磁贴来获取此信息。 由于不会花费时间来处理未经处理的数据，此选项是 RTO（恢复时间目标）较低的故障转移选项。 
     1. 最新应用一致：此选项将恢复计划的所有虚拟机故障转移到已由 Site Recovery 服务处理的最新应用程序一致恢复点。 对虚拟机执行测试故障转移时，还会显示最新应用一致性恢复点的时间戳。 如果要针对恢复计划执行故障转移，可以转到单个虚拟机，并查看“最新恢复点”磁贴来获取此信息。 
+    1. **最新多 VM 已处理**：此选项仅可用于至少有一个虚拟机已启用多 VM 一致性的恢复计划。 属于复制组的虚拟机将故障转移到最新通用多 VM 一致恢复点。 其他虚拟机将故障转移到其最近处理的恢复点。  
+    1. **最新多 VM 应用一致**：此选项仅可用于至少有一个虚拟机已启用多 VM 一致性的恢复计划。 属于复制组的虚拟机将故障转移到最新通用多 VM 应用程序一致恢复点。 其他虚拟机将故障转移到其最新的应用程序一致恢复点。
     1. **自定义**：如果要针对虚拟机执行测试故障转移，可以使用此选项故障转移到特定的恢复点。
 
     > [!NOTE]
@@ -66,17 +66,16 @@ ms.lasthandoff: 06/30/2017
 > [!NOTE]
 > 在不同的本地站点之间故障转移 Hyper-V 虚拟机时，若要返回到主要本地站点，必须先将虚拟机“反向复制”回到主站点，然后触发故障转移。 如果主虚拟机不可用，则在开始 **反向复制** 前必须从备份还原虚拟机。   
 >
-> 
+>
 
-## 故障转移作业
-<a id="failover-job" class="xliff"></a>
+## <a name="failover-job"></a>故障转移作业
 
 ![故障转移](./media/site-recovery-failover/FailoverJob.png)
 
 触发故障转移时，将执行以下步骤：
 
 1. 先决条件检查：此步骤确保满足故障转移需要的所有条件
-1. 故障转移：此步骤处理数据并使其准备就绪，以便可以根据该数据创建 Azure 虚拟机。 如果你选择了 **最新** 恢复点，则此步骤将基于已发送到服务的数据创建一个恢复点。
+1. 故障转移：此步骤处理数据并使其准备就绪，以便可以根据该数据创建 Azure 虚拟机。 如果你选择了 **最新** 恢复点，则此步骤基于已发送到服务的数据创建一个恢复点。
 1. 启动：此步骤使用在上一步骤中处理的数据创建 Azure 虚拟机。
 
 > [!WARNING]
@@ -84,8 +83,7 @@ ms.lasthandoff: 06/30/2017
 >
 >
 
-## 故障转移至 Azure 的耗时
-<a id="time-taken-for-failover-to-azure" class="xliff"></a>
+## <a name="time-taken-for-failover-to-azure"></a>故障转移至 Azure 的耗时
 
 在某些情况下，虚拟机的故障转移需要额外的中间步骤，中间步骤通常耗费约 8 到 10 分钟才能完成。 这些情况如下：
 
@@ -103,19 +101,18 @@ ms.lasthandoff: 06/30/2017
 
 在其他所有情况下，此中间步骤都非必需，因而故障转移的耗时将大大减少。 
 
-## 在故障转移中使用脚本
-<a id="using-scripts-in-failover" class="xliff"></a>
+## <a name="using-scripts-in-failover"></a>在故障转移中使用脚本
 执行故障转移时，你可能希望自动执行某些操作。 在[恢复计划](site-recovery-create-recovery-plans.md)中使用脚本或 [Azure 自动化 Runbook](site-recovery-runbook-automation.md) 可以实现此目的。
 
-## 其他注意事项
-<a id="other-considerations" class="xliff"></a>
-* 驱动器号 - 若要在故障转移后保留虚拟机上的驱动器号，可将虚拟机的“SAN 策略”设置为“OnlineAll”。 [了解详细信息](https://support.microsoft.com/zh-cn/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure)。
+## <a name="other-considerations"></a>其他注意事项
+* 驱动器号 - 若要在故障转移后保留虚拟机上的驱动器号，可将虚拟机的“SAN 策略”设置为“OnlineAll”。 [了解详细信息](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 故障转移虚拟机并且本地数据中心可用后，应该在本地数据中心重新保护 VMware 虚拟机。
 <!-- Not Available site-recovery-how-to-reprotect.md -->
 
 使用[“计划的故障转移”](site-recovery-failback-from-azure-to-hyper-v.md)选项可将 Hyper-V 虚拟机从 Azure“故障回复”到本地。
 
 如果已将 Hyper-V 虚拟机故障转移到 VMM 服务器管理的另一个本地数据中心并且主数据中心可用，请使用“反向复制”选项开始复制回到主数据中心。
+
+<!--Update_Description: update meta properties, wording update-->

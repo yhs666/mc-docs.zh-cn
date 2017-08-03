@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: "Azure 文档 | Microsoft Docs"
 description: "了解如何使用 Microsoft Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
-ms.openlocfilehash: 489129f8b3cfdbaae66ed46df1a9348b8488de15
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: fe7cd22fd74e96bfb7784b07678e28e64cd678dc
+ms.sourcegitcommit: 60d4879fbba23931b7b415b779edb872db00d394
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/20/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -156,6 +156,10 @@ ms.lasthandoff: 07/14/2017
                                                     <li><a class="barLink" href="/sql-database/">SQL 数据库即服务</a></li>
                                                     <li><a class="barLink" href="/mysql/">MySQL 数据库即服务</a></li>
                                                 </ul>
+                                                <h4>NoSQL</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/cosmos-db/">Cosmos DB</a></li>
+                                                </ul>
                                                 <h4>AI 和认知服务</h4>
                                                 <ul class="noBullet">
                                                     <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">计算机视觉 API</a></li>
@@ -195,7 +199,7 @@ ms.lasthandoff: 07/14/2017
                             <li></li>
                             <li class="bottomRightItem">
                                 <a href="https://aka.ms/aapw0h">
-                                <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">查看所有 Azure 服务<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
+                                <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">查看所有中国区 Azure 服务<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
                                 </a>
                             </li>
                             </li>
@@ -283,9 +287,9 @@ ms.lasthandoff: 07/14/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/documentdb/">
-                                                <img src="media/index/DocumentDB.svg" alt="" />
-                                                <p>DocumentDB</p>
+                                            <a href="/cosmos-db/">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>Cosmos DB</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1111,17 +1115,17 @@ ms.lasthandoff: 07/14/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/documentdb/">
+                                <a href="/cosmos-db/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/DocumentDB.svg" alt="" />
+                                                        <img src="media/index/cosmosdb.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>DocumentDB</h3>
+                                                    <h3>Cosmos DB</h3>
                                                     <p>托管的 NoSQL 文档数据库即服务</p>
                                                 </div>
                                             </div>

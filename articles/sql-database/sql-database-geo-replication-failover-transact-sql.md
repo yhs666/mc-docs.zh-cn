@@ -1,5 +1,5 @@
 ---
-title: "使用 Transact-SQL 为 Azure SQL 数据库启动计划内或计划外故障转移 | Azure"
+title: "TSQL：为 Azure SQL 数据库启动故障转移 | Azure"
 description: "使用 Transact-SQL 为 Azure SQL 数据库启动计划内或计划外故障转移"
 services: sql-database
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 origin.date: 01/10/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: 1756d5adbfa36eb711ef653caa340d88a6333a2a
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 6be0f9312f3545a9c627d5f508be8b46d3fb5425
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-transact-sql"></a>使用 Transact-SQL 为 Azure SQL 数据库启动计划内或计划外故障转移
 
@@ -38,9 +38,9 @@ ms.lasthandoff: 07/14/2017
 >  
 
 ## <a name="initiate-a-planned-failover-promoting-a-secondary-database-to-become-the-new-primary"></a>启动计划的故障转移，将辅助数据库升级为新的主数据库
-可以使用 **ALTER DATABASE** 语句来升级辅助数据库，以计划好的方式使它成为新的主数据库，并将现有的主数据库降级为辅助数据库。 此语句将在要升级的异地复制辅助数据库所在的 Azure SQL 数据库逻辑服务器中的 master 数据库上运行。 此功能适用于计划的故障转移（例如灾难恢复演练期间），它要求主数据库可用。
+可以使用 **ALTER DATABASE** 语句来升级辅助数据库，以计划好的方式使它成为新的主数据库，并将现有的主数据库降级为辅助数据库。 此语句在要升级的异地复制辅助数据库所在的 Azure SQL 数据库逻辑服务器中的 master 数据库上运行。 此功能适用于计划的故障转移（例如灾难恢复演练期间），它要求主数据库可用。
 
-该命令将执行以下工作流：
+该命令执行以下工作流：
 
 1. 暂时将复制切换为同步模式，导致所有未完成的事务被排送到辅助数据库并阻止所有新事务；
 2. 切换异地复制合作关系中两个数据库的角色。  
@@ -64,11 +64,11 @@ ALTER DATABASE <MyDB> FAILOVER;
 ## <a name="initiate-an-unplanned-failover-from-the-primary-database-to-the-secondary-database"></a>启动从主数据库到辅助数据库的非计划故障转移
 可以使用 **ALTER DATABASE** 语句来提升辅助数据库，以非计划的方式使它成为新的主数据库，当主数据库不再可用时，强制将现有主数据库降级为辅助数据库。 此语句将在要升级的异地复制辅助数据库所在的 Azure SQL 数据库逻辑服务器中的 master 数据库上运行。
 
-此功能适用于还原数据库的可用性至关重要并且可接受部分数据丢失的灾难恢复场合。 调用强制故障转移时，指定的辅助数据库将立即成为主数据库，并开始接受写入事务。 一旦原始主数据库能够与此新主数据库重新连接，将在原始主数据库上创建增量备份，旧的主数据库将变成新主数据库的辅助数据库；然后，它只是新主数据库的同步副本。
+此功能适用于还原数据库的可用性至关重要并且可接受部分数据丢失的灾难恢复场合。 调用强制故障转移时，指定的辅助数据库立即成为主数据库，并开始接受写入事务。 一旦原始主数据库能够与此新主数据库重新连接，会在原始主数据库上创建增量备份，旧的主数据库会变成新主数据库的辅助数据库；然后，它只是新主数据库的同步副本。
 
 但是，由于辅助数据库上不支持时间点还原，发生强制故障转移之前，如果用户想要恢复已提交到旧主数据库但尚未复制到新主数据库的数据，则应该咨询支持人员来恢复这些丢失的数据。
 
-如果主数据库具有多个辅助数据库，则该命令将自动重新配置其他辅助数据库以连接到新的主数据库。
+如果主数据库具有多个辅助数据库，则该命令会自动重新配置其他辅助数据库以连接到新的主数据库。
 
 使用以下步骤来启动计划外故障转移。
 
@@ -91,3 +91,5 @@ ALTER DATABASE <MyDB>   FORCE_FAILOVER_ALLOW_DATA_LOSS;
 * 若要了解如何设计云应用程序以使用活动异地复制，请参阅[设计云应用程序以使用异地复制实现业务连续性](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 * 有关将活动异地复制与弹性池配合使用的信息，请参阅[弹性池灾难恢复策略](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)。
 * 有关业务连续性概述，请参阅[业务连续性概述](sql-database-business-continuity.md)
+
+<!--Update_Description: update meta properties-->

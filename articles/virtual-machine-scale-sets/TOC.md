@@ -28,6 +28,7 @@
 ### [使用 PowerShell 的 Windows 规模集](virtual-machine-scale-sets-windows-manage.md)
 ### [规模集的升级](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [使用 DSC 和规模集](virtual-machine-scale-sets-dsc.md)
+### [规模集网络](virtual-machine-scale-sets-networking.md)
 ### [将模板转换为托管磁盘](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## 常见问题

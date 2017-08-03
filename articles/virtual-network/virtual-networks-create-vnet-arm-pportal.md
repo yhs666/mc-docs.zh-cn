@@ -17,11 +17,11 @@ origin.date: 05/12/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: 
-ms.openlocfilehash: 7033294cd50271c06df845913b216aca03841b16
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: d680a4943cb8bc89ee398589058fe3cdde8d56ce
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets"></a>创建包含多个子网的虚拟网络
 
@@ -59,9 +59,7 @@ ms.lasthandoff: 07/14/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. 在 Internet 浏览器中，打开 [Azure 门户](https://portal.azure.cn)。 使用 [Azure 帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果你没有 Azure 帐户，可以注册 [试用版](https://azure.microsoft.com/offers/ms-azr-0044p)。
-2. 在门户页面顶部“搜索资源”框的右侧，单击“>_”图标启动 Bash Azure Cloud Shell（预览版）。 Cloud Shell 窗格显示在门户底部。 几秒钟后将显示 **username@Azure:~$** 提示符。 Cloud Shell 使用在门户中登录时所用的凭据自动将你登录到门户。
-3. 在浏览器中复制以下脚本：
+1. 在终端中运行以下命令，或将以下脚本复制到一个文件并运行该文件。
     ```azurecli
     #!/bin/bash
 
@@ -83,19 +81,16 @@ ms.lasthandoff: 07/14/2017
       --vnet-name MyVnet \
       --resource-group MyResourceGroup
     ```
-4. 创建脚本文件并保存。 在 Cloud Shell 命令提示符下，键入 `nano myscript.sh --nonewlines`。 该命令使用空的 myscript.sh 文件启动 GNU nano 编辑器。 将光标放在编辑器窗口中并单击右键，然后单击“粘贴”。  
-5. 若要将该文件保存为 myscript.sh，请按住 Ctrl+X 键的同时键入 **Y**，然后按 Enter 键。 切换不同的会话后，Cloud Shell 存储不会持久保留已保存的文件。
-6. 在 Cloud Shell 命令提示符下，若要将文件标记为可执行文件，请运行 `chmod +x myscript.sh` 命令。
-7. 若要执行脚本，请输入 `./myscript.sh`。
-8. 运行完脚本后，若要查看虚拟网络的子网，请复制以下命令并将其粘贴到 Bash Cloud Shell 窗格中：
+
+8. 运行完脚本后，若要查看虚拟网络的子网，请复制以下命令并将其粘贴到 Bash 终端中：
     ```azurecli
     az network vnet subnet list --resource-group MyResourceGroup --vnet-name MyVnet --output table
     ```
-9. **可选**：若要删除在本教程中创建的资源，请完成本文的[删除资源](#delete-cli)中所述的步骤。
+9. 可选：若要删除在本教程中创建的资源，请完成本文[删除资源](#delete-cli)部分所述步骤。
 
 ## <a name="powershell"></a>PowerShell
 
-1. 安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果你不太熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+1. 安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 2. 若要启动 PowerShell 会话，请转到“开始”，输入 **powershell**，然后单击“PowerShell”。
 3. 在 PowerShell 窗口中，若要使用 [Azure 帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录，请输入 `login-azurermaccount`。
 4. 在浏览器中复制以下脚本：
@@ -158,8 +153,7 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="template-cli"></a>Azure CLI
 
-1. 在[门户](https://portal.azure.cn)中，使用 [Azure 帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果你没有 Azure 帐户，可以注册 [试用版](https://azure.microsoft.com/offers/ms-azr-0044p)。
-2. 在“搜索资源”框的右侧，单击“>_”图标启动 Bash Azure Cloud Shell（预览版）。 Cloud Shell 窗格显示在门户底部。 几秒钟后将显示 **username@Azure:~$** 提示符。 Cloud Shell 使用在门户中登录时所用的凭据自动将你登录到 Azure 门户。
+1. 如果没有 Azure 帐户，可以注册 [试用版](https://azure.microsoft.com/offers/ms-azr-0044p)。
 3. 若要为虚拟网络创建资源组，请输入以下命令：`az group create --name MyResourceGroup --location chinaeast`
 4. 可以使用以下参数选项之一来部署模板：
     - **默认的参数值**。 输入以下命令：`az group deployment create --resource-group MyResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`
@@ -169,7 +163,7 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="template-powershell"></a>PowerShell
 
-1. 安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果你不太熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+1. 安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 2. 若要启动 PowerShell 会话，请转到“开始”，输入 **powershell**，然后单击“PowerShell”。
 3. 在 PowerShell 窗口中，若要使用 [Azure 帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录，请输入 `login-azurermaccount`。
 4. 若要为虚拟网络创建资源组，请输入以下命令：`New-AzureRmResourceGroup -Name MyResourceGroup -Location chinaeast`
@@ -190,7 +184,7 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="delete-cli"></a>Azure CLI
 
-在 Cloud Shell 命令提示符下输入以下命令：`az group delete --name MyResourceGroup --yes`
+在终端中输入以下命令：`az group delete --name MyResourceGroup --yes`
 
 ### <a name="delete-powershell"></a>PowerShell
 

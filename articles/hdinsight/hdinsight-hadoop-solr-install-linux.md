@@ -14,24 +14,24 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/14/2017
-ms.date: 05/08/2017
+origin.date: 07/07/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 4904001cc14b0b85394c699e94e4701a78dedd81
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 8e96a63c122058246fbe3549cf21f646a036e059
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Solr
 
 了解如何使用脚本操作在 Azure HDInsight 上安装 Solr。 Solr 是一种功能强大的搜索平台，提供了企业级搜索功能，用于搜索由 Hadoop 管理的数据。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 > [!IMPORTANT]
-> 此文档中使用的示例脚本通过特定配置创建 Solr 群集。 如果要使用不同集合、分片、架构、副本等配置 Solr 群集，必须修改脚本和 Solr 二进制文件。
+> 此文档中使用的示例脚本使用特定配置安装 Solr 4.9。 如果要使用不同集合、分片、架构、副本等配置 Solr 群集，必须修改脚本和 Solr 二进制文件。
 
 ## <a name="whatis"></a>什么是 Solr
 
@@ -40,13 +40,13 @@ ms.lasthandoff: 07/14/2017
 > [!WARNING]
 > Microsoft 完全支持 HDInsight 群集提供的组件。
 >
-> 自定义组件（如 Solr）可获得合理范围的支持，以帮助进一步排查问题。 Azure.cn 支持可能无法解决与自定义组件有关的问题。 用户可能需要寻求开源社区的帮助。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自定义组件（如 Solr）可获得合理范围的支持，以帮助进一步排查问题。 Azure 支持可能无法解决与自定义组件有关的问题。 用户可能需要寻求开源社区的帮助。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 
 ## <a name="what-the-script-does"></a>脚本功能
 
 此脚本对 HDInsight 群集进行以下更改：
 
-* 将 Solr 安装到 `/usr/hdp/current/solr` 中
+* 将 Solr 4.9 安装到 `/usr/hdp/current/solr` 中
 * 创建用于运行 Solr 服务的用户 **solrusr**
 * 将 **solruser** 设置为 `/usr/hdp/current/solr` 的所有者
 * 添加自动启动 Solr 的 [Upstart](http://upstart.ubuntu.com/) 配置。
@@ -320,6 +320,8 @@ sudo start solr
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
+有关使用 Solr 备份和还原的详细信息，请参阅 [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups)。
+
 ## <a name="next-steps"></a>后续步骤
 
 * [在 HDInsight 群集上安装 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 使用群集自定义在 HDInsight Hadoop 群集上安装 Giraph。 Giraph 可让你通过使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。
@@ -327,3 +329,5 @@ sudo start solr
 * [在 HDInsight 群集上安装 Hue](hdinsight-hadoop-hue-linux.md)。 使用群集自定义在 HDInsight Hadoop 群集上安装 Hue。 Hue 是用来与 Hadoop 群集交互的一系列 Web 应用程序。
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
+
+<!--Update_Description: wording update-->

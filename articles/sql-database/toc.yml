@@ -19,8 +19,10 @@
           href: sql-database-connect-query-ssms.md
         - name: VS Code
           href: sql-database-connect-query-vscode.md
-        - name: .NET
-          href: sql-database-connect-query-dotnet.md
+        - name: 将 .NET 与 Visual Studio 配合使用
+          href: sql-database-connect-query-dotnet-visual-studio.md
+        - name: .NET Core
+          href: sql-database-connect-query-dotnet-core.md
         - name: PHP
           href: sql-database-connect-query-php.md
         - name: Node.js
@@ -33,8 +35,10 @@
           href: sql-database-connect-query-ruby.md
 - name: 教程
   items:
-    - name: 1 - 创建/设计新的 SQL DB
+    - name: 1 - 使用 SSMS 设计 DB
       href: sql-database-design-first-database.md
+    - name: 1 - 使用 .NET 设计 DB
+      href: sql-database-design-first-database-csharp.md
     - name: 2 - 迁移 SQL Server DB
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - 保护 SQL DB
@@ -55,10 +59,8 @@
   items:
     - name: 数据库和服务器
       items:
-        - name: 数据库
-          href: sql-database-overview.md
-        - name: 服务器
-          href: sql-database-server-overview.md
+        - name: 概述
+          href: sql-database-servers-databases.md
         - name: 服务层
           href: sql-database-service-tiers.md
         - name: 弹性池
@@ -75,8 +77,6 @@
           href: sql-database-paas-vs-sql-server-iaas.md
         - name: 功能
           href: sql-database-features.md
-        - name: 工具
-          href: sql-database-manage-overview.md
     - name: “安全”
       items:
         - name: 概述
@@ -114,8 +114,7 @@
         - name: 应用设计和恢复
           href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
         - name: 应用设计和池
-          href: >-
-            sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+          href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
         - name: 应用设计和应用升级
           href: sql-database-manage-application-rolling-upgrade.md
         - name: 从服务中断恢复
@@ -156,12 +155,12 @@
           href: sql-database-in-memory-oltp-monitoring.md
     - name: 横向扩展应用
       items:
+        - name: 概述
+          href: sql-database-elastic-scale-introduction.md
         - name: SaaS 设计模式
           href: sql-database-design-patterns-multi-tenancy-saas-applications.md
         - name: SaaS 应用安全性
           href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-        - name: 分片的数据库
-          href: sql-database-elastic-scale-introduction.md
         - name: 弹性客户端库
           href: sql-database-elastic-database-client-library.md
         - name: 分片映射
@@ -218,16 +217,6 @@
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: 操作指南
   items:
-    - name: 数据库和服务器
-      items:
-        - name: 弹性池 - 门户
-          href: sql-database-elastic-pool-manage-portal.md
-        - name: 弹性池 - PowerShell
-          href: sql-database-elastic-pool-manage-powershell.md
-        - name: 弹性池 - T-SQL
-          href: sql-database-elastic-pool-manage-tsql.md
-        - name: '弹性池 - C#'
-          href: sql-database-elastic-pool-manage-csharp.md
     - name: “安全”
       items:
         - name: 配置 Azure AD 身份验证
@@ -254,7 +243,7 @@
       items:
         - name: 使用 BCP 加载数据
           href: sql-database-load-from-csv-with-bcp.md
-    - name: 连接应用程序
+    - name: 监视和优化
       items:
         - name: 监视和提高性能
           href: sql-database-performance.md
@@ -293,8 +282,7 @@
         - name: 创建计数器
           href: sql-database-elastic-database-perf-counters.md
         - name: 使用实体框架
-          href: >-
-            sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+          href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
         - name: 升级客户端
           href: sql-database-elastic-scale-upgrade-client-library.md
         - name: 查询水平数据
@@ -307,21 +295,16 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
-        - name: '使用 C# 创建 DB'
-          href: sql-database-get-started-csharp.md
 - name: 引用
   items:
     - name: PowerShell
-      href: >-
-        https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql
+      href: 'https://docs.microsoft.com/powershell/module/azurerm.sql/#sql'
     - name: PowerShell（弹性 DB）
-      href: >-
-        https://docs.microsoft.com/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs
+      href: 'https://docs.microsoft.com/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
     - name: Azure CLI 2.0
       href: 'https://docs.microsoft.com/cli/azure/sql'
     - name: .NET
-      href: >-
-        https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models
+      href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models'
     - name: Java
       href: 'https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql'
     - name: Node.js
@@ -366,8 +349,7 @@
     - name: 公共数据集
       href: sql-database-public-data-sets.md
     - name: 排查连接问题
-      href: >-
-        https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
+      href: 'https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database'
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/sql-database/'
     - name: MSDN 论坛
@@ -379,13 +361,10 @@
     - name: 示例应用程序
       items:
         - name: Tailspin Surveys
-          href: >-
-            https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
+          href: 'https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md'
         - name: Contoso Clinic
           href: 'https://github.com/Microsoft/azure-sql-security-sample'
         - name: 弹性池遥测
-          href: >-
-            https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
+          href: 'https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools'
         - name: 弹性池自定义仪表板
-          href: >-
-            https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
+          href: 'https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard'

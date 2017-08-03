@@ -13,22 +13,23 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-origin.date: 03/20/2017
-ms.date: 04/24/2017
+origin.date: 06/19/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: b517c8b0c221fc66cf3f9b64f2b423b99a8741aa
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 29dd593d8463585bf008c31b31844314f9f9025c
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/28/2017
 ---
-
 # <a name="connect-a-web-app-to-a-redis-cache"></a>将 Web 应用连接到 Redis 缓存
 
-在此方案中，你将了解如何创建 Azure Redis 缓存和 Azure Web 应用。 然后，将使用应用设置将 Redis 缓存链接到 Web 应用。
+在此方案中，可以了解如何创建 Azure Redis 缓存和 Azure Web 应用。 然后，使用应用设置将 Redis 缓存链接到 Web 应用。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -48,13 +49,13 @@ az group create --name $resourceGroupName --location $location
 az appservice plan create --name WebAppWithRedisPlan --resource-group $resourceGroupName --location $location
 
 # Create a Web App
-az appservice web create --name $appName --plan WebAppWithRedisPlan --resource-group $resourceGroupName 
+az webapp create --name $appName --plan WebAppWithRedisPlan --resource-group $resourceGroupName 
 
 # Create a Redis Cache
 redis=($(az redis create --name $appName --resource-group $resourceGroupName --location $location --sku-capacity 0 --sku-family C --sku-name Basic --query [hostName,sslPort,accessKeys.primaryKey] --output tsv))
 
 # Assign the connection string to an App Setting in the Web App
-az appservice web config appsettings update --settings "REDIS_URL=${redis[0]}" "REDIS_PORT=${redis[1]}" "REDIS_KEY=${redis[2]}" --name $appName --resource-group $resourceGroupName
+az webapp config appsettings set --settings "REDIS_URL=${redis[0]}" "REDIS_PORT=${redis[1]}" "REDIS_KEY=${redis[2]}" --name $appName --resource-group $resourceGroupName
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
@@ -67,10 +68,10 @@ az appservice web config appsettings update --settings "REDIS_URL=${redis[0]}" "
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) | 创建应用服务计划中的 Azure Web 应用。 |
-| [az redis create](https://docs.microsoft.com/cli/azure/redis#create) | 创建新的 Redis 缓存实例。 这将是数据存储位置。 |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | 创建 Azure Web 应用。 |
+| [az redis create](https://docs.microsoft.com/cli/azure/redis#create) | 创建新的 Redis 缓存实例。 这是数据存储位置。 |
 | [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys) | 列出 Redis 缓存实例的访问密钥。 |
-| [az appservice web config appsetings update](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#update) | 创建或更新 Azure Web 应用的应用设置。 应用设置将作为应用的环境变量公开。 |
+| [az webapp config appsettings set](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#set) | 创建或更新 Azure Web 应用的应用设置。 应用设置将作为应用的环境变量公开。 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -78,3 +79,4 @@ az appservice web config appsettings update --settings "REDIS_URL=${redis[0]}" "
 
 可以在 [Azure 应用服务文档](../app-service-cli-samples.md)中找到其他应用服务 CLI 脚本示例。
 
+<!--Update_Description: replace "az appservice web" with "az webapp"-->

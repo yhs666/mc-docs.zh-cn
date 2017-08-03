@@ -16,40 +16,35 @@ ms.topic: hero-article
 origin.date: 05/10/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1183d073d2a12b5d85363b7ce70918bbb977592f
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: c21066d1ed1c0141b38d82ba75f1151431cdc37b
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/26/2017
 ---
-# Azure Cosmos DB：构建使用 .NET、Xamarin 和 Facebook 身份验证的 Web 应用
-<a id="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication" class="xliff"></a>
+# <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB：构建使用 .NET、Xamarin 和 Facebook 身份验证的 Web 应用
 
-Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
+Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
 
 本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户、文档数据库和集合。 然后，生成并部署基于 [DocumentDB .NET API](documentdb-sdk-dotnet.md)、[Xamarin](https://www.xamarin.com/) 和 Azure Cosmos DB 授权引擎构建的待办事项列表 Web 应用。 该待办事项列表 Web 应用实现基于用户的数据模式，使用户能够使用 Facebook 身份验证登录并管理其自己的待办事项。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 
 如果尚未安装 Visual Studio 2017，可以下载并使用**免费的** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## 创建数据库帐户
-<a id="create-a-database-account" class="xliff"></a>
+## <a name="create-a-database-account"></a>创建数据库帐户
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## 添加集合
-<a id="add-a-collection" class="xliff"></a>
+## <a name="add-a-collection"></a>添加集合
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-## 克隆示例应用程序
-<a id="clone-the-sample-application" class="xliff"></a>
+## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在，我们从 github 克隆 DocumentDB API 应用、设置连接字符串，然后运行该应用。 你将看到以编程方式处理数据是多么容易。 
+现在，我们从 github 克隆 DocumentDB API 应用、设置连接字符串，并运行该应用。 你会看到以编程方式处理数据是多么容易。 
 
 1. 打开 git 终端窗口（例如 git bash）并使用 `cd` 切换到工作目录。  
 
@@ -61,8 +56,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 3. 然后，在 Visual Studio 中打开 samples/xamarin/UserItems/xamarin.forms 文件夹中的 DocumentDBTodo.sln 文件。 
 
-## 查看代码
-<a id="review-the-code" class="xliff"></a>
+## <a name="review-the-code"></a>查看代码
 
 Xamarin 文件夹中的代码包含：
 
@@ -80,8 +74,7 @@ Xamarin 文件夹中的代码包含：
 
 ![包含示例数据的待办事项应用](./media/create-documentdb-xamarin-dotnet/tokenbroker.png)
 
-## 更新连接字符串
-<a id="update-your-connection-string" class="xliff"></a>
+## <a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
@@ -101,8 +94,7 @@ Xamarin 文件夹中的代码包含：
 
 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
 
-## 生成并部署 Web 应用
-<a id="build-and-deploy-the-web-app" class="xliff"></a>
+## <a name="build-and-deploy-the-web-app"></a>生成并部署 Web 应用
 
 1. 在 Azure 门户中，创建一个应用服务网站用于托管资源令牌中转站 API。
 2. 在 Azure 门户中，打开资源令牌中转站 API 网站的“应用设置”边栏选项卡。 填写以下应用设置：
@@ -117,21 +109,18 @@ Xamarin 文件夹中的代码包含：
 <!-- No Available [How to configure your App Service application to use Facebook login](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md) -->
     Run the Xamarin app.
 
-## 在 Azure 门户中查看 SLA
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
+## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## 清理资源
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>清理资源
 
 如果不打算继续使用此应用，请删除本快速入门教程在 Azure 门户中创建的所有资源，步骤如下： 
 
 1. 在 Azure 门户的左侧菜单中单击“资源组”，然后单击刚刚创建的资源的名称。 
 2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，然后单击“删除”。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 本快速入门教程已介绍如何创建 Azure Cosmos DB 帐户、使用数据资源管理器创建集合，以及构建和部署 Xamarin 应用。 现在可以将其他数据导入 Cosmos DB 帐户。 
 

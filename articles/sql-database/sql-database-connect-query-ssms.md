@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 05/26/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: 064b72ba2b085a8b2c3ba7a6285b67d441922bba
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 2a899ccd86f88da0948cfca06f0ddaf36755bc59
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL 数据库：使用 SQL Server Management Studio 进行连接和数据查询
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 07/14/2017
 
 在开始之前，请确保已安装最新版本的 [SSMS](https://msdn.microsoft.com/library/mt238290.aspx)。 
 
-## <a name="get-connection-information"></a>获取连接信息
+## <a name="sql-server-connection-information"></a>SQL Server 连接信息
 
 获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称、数据库名称和登录信息。
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/14/2017
 2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
 3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 将鼠标悬停在服务器名称上即可打开“通过单击进行复制”选项。
 
-   ![连接信息](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![连接信息](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. 如果忘了 Azure SQL 数据库服务器的登录信息，请导航到 SQL 数据库服务器页，查看服务器管理员名称并重置密码（如果需要）。 
 
@@ -163,6 +163,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="next-steps"></a>后续步骤
 
+- 若要了解如何使用 Transact-SQL 创建和管理服务器和数据库，请参阅[了解 Azure SQL 数据库服务器和数据库](sql-database-servers-databases.md)。
 - 有关 SSMS 的信息，请参阅[使用 SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)。
 - 若要使用 Visual Studio Code 进行连接和查询，请参阅[使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。
 - 若要使用 .NET 进行连接和查询，请参阅[使用 .NET 进行连接和查询](sql-database-connect-query-dotnet.md)。
@@ -171,3 +172,5 @@ ms.lasthandoff: 07/14/2017
 - 若要使用 Java 进行连接和查询，请参阅[使用 Java 进行连接和查询](sql-database-connect-query-java.md)。
 - 若要使用 Python 进行连接和查询，请参阅[使用 Python 进行连接和查询](sql-database-connect-query-python.md)。
 - 若要使用 Ruby 进行连接和查询，请参阅[使用 Ruby 进行连接和查询](sql-database-connect-query-ruby.md)。
+
+<!--Update_Description: update word & link-->

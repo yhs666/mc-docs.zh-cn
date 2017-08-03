@@ -16,21 +16,19 @@ ms.topic: hero-article
 origin.date: 05/10/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: f8944758f3957bb8e4e5e2644bb18a3a64459f39
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: ef8160a104d19c6b420efbca89c1b3c05f25703a
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/26/2017
 ---
-# Azure Cosmos DB：使用 Java 和 Azure 门户生成 DocumentDB API 应用
-<a id="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal" class="xliff"></a>
+# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB：使用 Java 和 Azure 门户生成 DocumentDB API 应用
 
-Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
+Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
 
 本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户、文档数据库和集合。 然后将生成并运行基于 [DocumentDB Java API](documentdb-sdk-java.md) 构建的控制台应用。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 
 * 在运行此示例之前，必须具备以下先决条件：
    * JDK 1.7+（如果没有 JDK，请运行 `apt-get install default-jdk`）
@@ -38,20 +36,17 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## 创建数据库帐户
-<a id="create-a-database-account" class="xliff"></a>
+## <a name="create-a-database-account"></a>创建数据库帐户
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## 添加集合
-<a id="add-a-collection" class="xliff"></a>
+## <a name="add-a-collection"></a>添加集合
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-## 克隆示例应用程序
-<a id="clone-the-sample-application" class="xliff"></a>
+## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在，我们从 github 克隆 DocumentDB API 应用、设置连接字符串，然后运行该应用。 你将看到以编程方式处理数据是多么容易。 
+现在，我们从 github 克隆 DocumentDB API 应用、设置连接字符串，并运行该应用。 你会看到以编程方式处理数据是多么容易。 
 
 1. 打开 git 终端窗口（例如 git bash）并使用 `CD` 切换到工作目录。  
 
@@ -61,8 +56,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
     git clone https://github.com/Azure-Samples/azure-cosmos-db-java-getting-started.git
     ```
 
-## 查看代码
-<a id="review-the-code" class="xliff"></a>
+## <a name="review-the-code"></a>查看代码
 
 快速查看应用中发生的情况。 打开 `app.js` 文件，会发现以下代码行创建 Azure Cosmos DB 资源。 
 
@@ -75,7 +69,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
             ConsistencyLevel.Session);
     ```
 
-* 将创建一个新数据库。
+* 会创建一个新数据库。
 
     ```java
     Database database = new Database();
@@ -84,7 +78,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
     this.client.createDatabase(database, null);
     ```
 
-* 将创建一个新集合。
+* 创建一个新集合。
 
     ```java
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -100,7 +94,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
     this.client.createCollection(databaseLink, collectionInfo, requestOptions);
     ```
 
-* 将创建一些文档。
+* 此时会创建一些文档。
 
     ```java
     // Any Java object within your code can be serialized into JSON and written to Azure Cosmos DB
@@ -131,8 +125,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
     }
     ```    
 
-## 更新连接字符串
-<a id="update-your-connection-string" class="xliff"></a>
+## <a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
@@ -150,8 +143,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
     `config.primaryKey "FILLME"`
 
-## 运行应用程序
-<a id="run-the-app" class="xliff"></a>
+## <a name="run-the-app"></a>运行应用程序
 
 1. 在终端中运行 `mvn package`，安装所需的 npm 模块
 
@@ -159,21 +151,18 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 现可返回到数据资源管理器，查看查询、修改和处理此新数据。 
 
-## 在 Azure 门户中查看 SLA
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
+## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## 清理资源
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>清理资源
 
 如果不打算继续使用此应用，请删除本快速入门教程在 Azure 门户中创建的所有资源，步骤如下：
 
 1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。 
 2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，然后单击“删除”。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 在本快速入门教程中，已了解如何创建 Azure Cosmos DB 帐户、使用数据资源管理器创建集合和运行应用。 现在可以将其他数据导入 Cosmos DB 帐户。 
 

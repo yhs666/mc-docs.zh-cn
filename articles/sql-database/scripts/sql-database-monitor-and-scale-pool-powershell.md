@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 脚本 - 监视和缩放 SQL 弹性池 | Azure"
-description: "Azure PowerShell 脚本示例 - 使用 PowerShell 监视和缩放 SQL 数据库弹性池"
+title: "PowerShell 示例 - 监视 - 缩放 - SQL 弹性池 - Azure SQL 数据库 | Azure"
+description: "用于在 Azure SQL 数据库中监视和缩放 SQL 弹性池的 Azure PowerShell 脚本示例"
 services: sql-database
 documentationcenter: sql-database
 author: Hayley244
@@ -14,18 +14,18 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 05/23/2017
-ms.date: 
-ms.author: v-johch
-ms.openlocfilehash: 4dcdee019764db23c756e1c33882aa40f5cbb49f
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 06/23/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: fd2ddce48e066a2ffc3a5edc44e0525bed9f4b74
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
-# <a name="monitor-and-scale-a-sql-database-elastic-pool-using-powershell"></a>使用 PowerShell 监视和缩放 SQL 数据库弹性池
+# <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>使用 PowerShell 在 Azure SQL 数据库中监视和缩放 SQL 弹性池
 
-此示例 PowerShell 脚本监视弹性池的性能指标，将其缩放为更高的性能级别，并基于性能指标之一创建警报规则。 
+此 PowerShell 脚本示例监视弹性池的性能指标，将其缩放为更高的性能级别，并基于性能指标之一创建预警规则。 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -146,3 +146,5 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
+
+<!--Update_Description: wording update-->

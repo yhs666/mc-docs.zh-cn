@@ -17,11 +17,11 @@ ms.topic: article
 origin.date: 05/10/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: a189b9faf46122d3159965333320496733c9888d
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: d762f65624d4cc28ea162eab7dc614890da30949
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上将 Oozie 与 Hadoop 配合使用以定义和运行工作流
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 07/14/2017
 * **HDInsight 群集**：请参阅[Linux 上的 HDInsight 入门](hdinsight-hadoop-linux-tutorial-get-started.md)
 
   > [!IMPORTANT]
-  > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+  > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="example-workflow"></a>示例工作流
 
@@ -701,7 +701,7 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
 **原因**：当前的权限设置不允许 Oozie 模拟指定的用户帐户。
 
-**解决方法**：允许 Oozie 模拟“用户”组中的用户。 使用 `groups USERNAME` 查看用户帐户所属的组。 如果该用户不是 **用户** 组的成员，请使用以下命令将该用户添加到该组：
+**解决方法**：允许 Oozie 模拟“用户”组中的用户。 使用 `groups USERNAME` 查看用户帐户所属的组。 如果该用户不是**用户**组的成员，请使用以下命令将该用户添加到该组：
 
     sudo adduser USERNAME users
 

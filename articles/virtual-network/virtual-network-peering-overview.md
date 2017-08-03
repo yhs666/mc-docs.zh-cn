@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 06/06/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: e2a3ddf126d0cda633602524b763fc394a88b9b2
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 571df6f311955f222444ebd302eed4e771f783a5
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="virtual-network-peering"></a>虚拟网络对等互连
 使用虚拟网络对等互连可以通过 Azure 主干网络连接同一区域中的两个虚拟网络。 对等互连后，出于连接目的，两个虚拟网络会显示为一个。 这两个虚拟网络仍作为单独资源管理，但对等虚拟网络中的虚拟机可直接通过专用 IP 地址彼此通信。
@@ -28,15 +28,15 @@ ms.lasthandoff: 07/14/2017
 
 * 不同虚拟网络中资源之间的连接延迟低且带宽高。
 * 能够将诸如网络设备和 VPN 网关等资源用作对等虚拟网络中的传输点。
-* 能够将两个通过 Azure Resource Manager 部署模型创建的虚拟网络对等互连，或者将一个通过 Resource Manager 部署模型创建的虚拟网络对等互连到一个通过经典部署模型创建的虚拟网络。 请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)一文，详细了解这两个 Azure 部署模型之间的差异。
+* 能够将两个通过 Azure Resource Manager 部署模型创建的虚拟网络对等互连，或者将一个通过 Resource Manager 部署模型创建的虚拟网络对等互连到一个通过经典部署模型创建的虚拟网络。 请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)一文，详细了解这两个 Azure 部署模型之间的差异。
 
 虚拟网络对等互连的要求和关键方面：
 
-* 对等虚拟网络必须位于同一 Azure 区域。
+* 对等虚拟网络必须位于同一 Azure 区域。 可以通过 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#V2V)连接不同 Azure 区域中的虚拟网络。
 * 对等虚拟网络的 IP 地址空间不得重叠。
 * 虚拟网络与另一虚拟网络对等后，则不能在其添加或删除地址空间。
 * 虚拟网络对等互连在两个虚拟网络之间进行。 对等互连之间没有任何派生的可传递关系。 例如，如果 virtualNetworkA 与 virtualNetworkB 对等互连，而 virtualNetworkB 与 virtualNetworkC 对等互连，则 virtualNetwork A 不会对等互连到 virtualNetworkC。
-* 可以将存在于两个不同订阅中的虚拟网络对等互连，只要两个订阅的特权用户授权予对等互连，并且订阅与同一个 Active Directory 租户关联即可。
+* 可以将存在于两个不同订阅中的虚拟网络对等互连，只要这两个订阅的特权用户授权对等互连，并且订阅与同一个 Azure Active Directory 租户关联即可。 可以使用 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#V2V)连接关联到不同 Active Directory 租户的订阅中的虚拟网络。
 * 如果两个虚拟网络都是通过 Resource Manager 部署模型创建的，或者其中一个是通过 Resource Manager 部署模型创建的，而另一个是通过经典部署模型创建的，则可以将这两个虚拟网络对等互连。 但是，两个都是通过经典部署模型创建的虚拟网络不能彼此对等互连。 将通过不同部署模型创建的虚拟网络对等互连时，两个虚拟网络必须存在于同一订阅中。 将通过不同部署模型创建且存在于不同订阅中的 VNet 对等互连的功能目前仍处于**预览**中。 如需更多详细信息，请参阅[创建虚拟网络对等互连](virtual-network-create-peering.md#different-subscriptions-different-deployment-models)一文。
 * 虽然在对等虚拟网络中进行虚拟机之间的通信没有其他带宽限制，但有一个最大网络带宽，具体取决于虚拟机大小（仍适用）。 若要深入了解不同 虚拟机大小的最大网络带宽，请参阅有关 [Windows](../virtual-machines/windows/sizes.md?toc=%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) 虚拟机大小的文章。
 
@@ -88,3 +88,5 @@ Azure 为虚拟机提供的内部 DNS 名称解析在对等虚拟网络中无效
 
 * 完成[虚拟网络对等互连教程](virtual-network-create-peering.md)
 * 了解所有[虚拟网络对等互连设置以及如何对其进行更改](virtual-network-manage-peering.md)。
+
+<!--Update_Description: wording update-->

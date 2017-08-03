@@ -16,11 +16,11 @@ ms.workload: big-data
 origin.date: 04/26/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: cefe6919843c4d060ea7433b3c549ca5b17c30bf
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 929d2e7d948002f3161078513d08753f6b97bce4
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="process-and-analyze-json-documents-using-hive-in-hdinsight"></a>使用 HDInsight 中的 Hive 处理和分析 JSON 文档
 
@@ -161,7 +161,7 @@ SerDe 是用于分析嵌套 JSON 文档的最佳选择，不但可定义 JSON �
       ![设置 JDK 的正确配置值][image-hdi-hivejson-jdk]
 2. 安装 [Maven 3.3.1](http://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.3.1/apache-maven-3.3.1-bin.zip)
 
-    转到“控件面板”->“编辑系统变量”（对应于帐户的 Environment 变量），将 bin 文件夹添加到路径。 以下屏幕截图显示了如何执行此操作。
+    转到“控件面板”->“编辑系统变量”（对应于帐户环境变量），将 bin 文件夹添加到路径。 以下屏幕截图显示了如何执行此操作。
 
     ![设置 Maven][image-hdi-hivejson-maven]
 3. 从 [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) github 站点克隆项目。 可以通过按以下屏幕截图中所示单击“下载 Zip”按钮来执行此操作。

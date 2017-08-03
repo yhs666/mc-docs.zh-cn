@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/24/2016
-ms.date: 05/08/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
-ms.openlocfilehash: eec8272dec178bab8394026c38b02845d5c4e13a
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 22e31d027b9dd8d7d855af6447d9043b4cc6c229
+ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="azure-load-balancer-overview"></a>Azure 负载均衡器概述
 
@@ -83,7 +83,7 @@ Azure 负载均衡器可提高应用程序的可用性和网络性能。 它是�
 
     输入终结点侦听公共端口，并将流量转发到内部端口。 你可以对内部或外部终结点映射相同端口，也可以对其使用其他端口。 例如，你可以将 Web 服务器配置为侦听端口 81，而公共终结点映射则为端口 80。 创建公共终结点这一操作会触发负载均衡器实例的创建。
 
-    使用 Azure 门户进行创建时，该门户会针对远程桌面协议 (RDP) 和远程 Windows PowerShell 会话流量自动创建虚拟机的终结点。 你可以使用这些终结点通过 Internet 远程管理虚拟机。
+    使用 Azure 门户进行创建时，该门户会针对远程桌面协议 (RDP) 和远程 Windows PowerShell 会话流量自动创建虚拟机的终结点。 可以使用这些终结点通过 Internet 远程管理虚拟机。
 
 * 自动重新配置
 
@@ -119,6 +119,10 @@ Azure 负载均衡器可提高应用程序的可用性和网络性能。 它是�
 
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
+## <a name="limitations"></a>限制
+
+负载均衡器后端池可以包含任意 VM SKU，基本层除外。
+
 ## <a name="next-steps"></a>后续步骤
 
 [面向 Internet 的负载均衡器概述](load-balancer-internet-overview.md)
@@ -126,3 +130,5 @@ Azure 负载均衡器可提高应用程序的可用性和网络性能。 它是�
 [内部负载均衡器概述](load-balancer-internal-overview.md)
 
 [开始创建面向 Internet 的负载均衡器](load-balancer-get-started-internet-arm-ps.md)
+
+<!--Update_Description: wording update; add Limitations of Load Balancer backend pools-->

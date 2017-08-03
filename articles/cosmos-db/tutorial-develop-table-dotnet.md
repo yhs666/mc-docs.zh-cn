@@ -16,16 +16,15 @@ origin.date: 05/10/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e2e332c9dede3ad097aac4e4275012bba94e2039
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 0a0606d2b79f1b102f6c6f6127d797db2d944feb
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/26/2017
 ---
-# Azure Cosmos DB：在 .NET 中使用表 API 进行开发
-<a id="azure-cosmos-db-develop-with-the-table-api-in-net" class="xliff"></a>
+# <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB：在 .NET 中使用表 API 进行开发
 
-Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。
+Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。
 
 本教程涵盖以下任务： 
 
@@ -41,8 +40,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > * 删除实体 
 > * 删除表
 
-## Azure Cosmos DB 中的表
-<a id="tables-in-azure-cosmos-db" class="xliff"></a> 
+## <a name="tables-in-azure-cosmos-db"></a>Azure Cosmos DB 中的表 
 
 Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduction.md)（预览），这些应用程序需要采用无架构设计的键-值存储。 [Azure 表存储](../storage/storage-introduction.md) SDK 和 REST API 可用于处理 Azure Cosmos DB。 可以使用 Azure Cosmos DB 创建具有高吞吐量要求的表。 Azure Cosmos DB 当前在公共预览版中支持吞吐量优化表（非正式地称为“高级表”）。 
 
@@ -65,16 +63,14 @@ Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduct
 * [Azure Cosmos DB 简介：表 API](table-introduction.md)
 * 有关可用 API 的完整详细信息的表服务参考文档[用于 .NET 的存储客户端库参考](https://msdn.microsoft.com/zh-cn/library/mt347887.aspx&clcid=0x409)
 
-### 关于本教程
-<a id="about-this-tutorial" class="xliff"></a>
+### <a name="about-this-tutorial"></a>关于本教程
 本教程供熟悉 Azure 表存储 SDK 并想要通过 Azure Cosmos DB 使用高级功能的开发人员使用。 本教程基于[通过 .NET 开始使用 Azure 表存储](../storage/storage-dotnet-how-to-use-tables.md)，并演示如何利用辅助索引、预配的吞吐量和多宿主等附加功能。 涵盖如何使用 Azure 门户创建 Azure Cosmos DB 帐户，然后生成并部署表应用程序。 还将演练用于创建和删除表，以及插入、更新、删除和查询表数据的 .NET 示例。 
 
 如果尚未安装 Visual Studio 2017，可以下载并使用**免费的** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## 创建数据库帐户
-<a id="create-a-database-account" class="xliff"></a>
+## <a name="create-a-database-account"></a>创建数据库帐户
 
 首先在 Azure 门户中创建 Azure Cosmos DB 帐户。  
 
@@ -87,8 +83,7 @@ Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduct
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
-## 克隆示例应用程序
-<a id="clone-the-sample-application" class="xliff"></a>
+## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
 现在让我们从 github 克隆表应用、设置连接字符串，并运行。
 
@@ -102,8 +97,7 @@ Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduct
 
 3. 然后在 Visual Studio 中打开解决方案文件。
 
-## 更新连接字符串
-<a id="update-your-connection-string" class="xliff"></a>
+## <a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
@@ -123,8 +117,7 @@ Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduct
 > 
 >
 
-## 生成并部署应用
-<a id="build-and-deploy-the-app" class="xliff"></a>
+## <a name="build-and-deploy-the-app"></a>生成并部署应用
 1. 在 Visual Studio 中，右键单击解决方案资源管理器中的项目，然后单击“管理 NuGet 包”。 
 
 2. 在 NuGet“浏览”框中，键入 WindowsAzure.Storage-PremiumTable。 选中“包括预发行版本”。
@@ -141,8 +134,7 @@ Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduct
 > 
 >
 
-## Azure Cosmos DB 功能
-<a id="azure-cosmos-db-capabilities" class="xliff"></a>
+## <a name="azure-cosmos-db-capabilities"></a>Azure Cosmos DB 功能
 Azure Cosmos DB 支持大量 Azure 表存储 API 中不可用的功能。 可以通过以下 `appSettings` 配置值启用新功能。 我们未向预览版 Microsoft Azure 存储 SDK 引入任何新签名或重载。 这样便能够同时连接到标准表和高级表，并使用其他 Azure 存储服务，如 Blob 和队列。 
 
 | 键 | 说明 |
@@ -188,8 +180,7 @@ Azure Cosmos DB 支持大量 Azure 表存储 API 中不可用的功能。 可以
 
 快速查看应用中发生的情况。 打开 `Program.cs` 文件，会发现以下几行代码将创建表资源。 
 
-## 创建表客户端
-<a id="create-the-table-client" class="xliff"></a>
+## <a name="create-the-table-client"></a>创建表客户端
 初始化 `CloudTableClient`，以连接到表帐户。
 
 ```csharp
@@ -197,8 +188,7 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 ```
 使用 `TableConnectionMode`、`TableConnectionProtocol`、`TableConsistencyLevel` 和 `TablePreferredLocations` 配置值初始化此客户端（如已在应用设置中指定）。
 
-## 创建表
-<a id="create-a-table" class="xliff"></a>
+## <a name="create-a-table"></a>创建表
 然后使用 `CloudTable` 创建表。 Azure Cosmos DB 中的表可就存储和吞吐量进行独立缩放，分区由服务自动处理。 Azure Cosmos DB 支持固定大小和数量不限的表。 有关详细信息，请参阅 [Azure Cosmos DB 中的分区](partition-data.md)。 
 
 ```csharp
@@ -221,8 +211,7 @@ table.CreateIfNotExists();
 
 接下来，我们将使用 Azure 表存储 SDK 逐步演练简单的读取和写入 (CRUD) 操作。 本教程演示通过 Azure Cosmos DB 实现的可预测的低至个位数的毫秒延迟和快速查询。
 
-## 将实体添加到表
-<a id="add-an-entity-to-a-table" class="xliff"></a>
+## <a name="add-an-entity-to-a-table"></a>将实体添加到表
 Azure 表存储中的实体从 `TableEntity` 类扩展，且必须具有 `PartitionKey` 和 `RowKey` 属性。 以下是客户实体定义的示例。
 
 ```csharp
@@ -261,8 +250,7 @@ TableOperation insertOperation = TableOperation.Insert(customer1);
 table.Execute(insertOperation);
 ```
 
-## 插入一批实体
-<a id="insert-a-batch-of-entities" class="xliff"></a>
+## <a name="insert-a-batch-of-entities"></a>插入一批实体
 Azure 表存储支持批量操作 API，这样便能够通过单个批量操作合并更新、删除和插入操作。 Azure Cosmos DB 不具有 Azure 表存储针对批量 API 的某些限制。 例如，可以在某批中执行多个读取，可以对批中的同一实体执行多个写入，且不存在每批 100 个操作的限制。 
 
 ```csharp
@@ -286,8 +274,7 @@ batchOperation.Insert(customer2);
 // Execute the batch operation.
 table.ExecuteBatch(batchOperation);
 ```
-## 检索单个条目
-<a id="retrieve-a-single-entity" class="xliff"></a>
+## <a name="retrieve-a-single-entity"></a>检索单个条目
 在同一 Azure 区域中，Azure Cosmos DB 中的检索 (GET) 完成延迟为 < 10 毫秒（p99）和约 1 毫秒（p50）。 通过设置 `TablePreferredLocations`，可以将任意多个区域添加到帐户中以实现低延迟读取，并部署应用程序以便从其本地区域（“多宿主”）读取。 
 
 可以使用以下代码片段检索单个实体：
@@ -303,8 +290,7 @@ TableResult retrievedResult = table.Execute(retrieveOperation);
 > 请参阅[使用多个区域进行开发](tutorial-global-distribution-table.md)，了解多宿主 API
 >
 
-## 使用自动辅助索引查询实体
-<a id="query-entities-using-automatic-secondary-indexes" class="xliff"></a>
+## <a name="query-entities-using-automatic-secondary-indexes"></a>使用自动辅助索引查询实体
 可以使用 `TableQuery` 类查询表。 Azure Cosmos DB 具有写入优化数据库引擎，可自动索引表中的所有列。 Azure Cosmos DB 中的索引是架构不可知的。 因此，即使架构在行间是不同的，或者架构随着时间的推移不断发展，仍会自动对其进行索引。 由于 Azure Cosmos DB 支持自动辅助索引，因此针对任何属性的查询均可有效使用索引。
 
 ```csharp
@@ -323,8 +309,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 
 在预览版中，对于表 API，Azure Cosmos DB 支持与 Azure 表存储相同的查询功能。 Azure Cosmos DB 还支持排序、聚合、地理空间查询、层次结构和各种内置函数。 在将来的服务更新中，表 API 将提供更多功能。 有关这些功能的概述，请参阅 [Azure Cosmos DB 查询](documentdb-sql-query.md)。 
 
-## 替换条目
-<a id="replace-an-entity" class="xliff"></a>
+## <a name="replace-an-entity"></a>替换条目
 若要更新实体，请从表服务中检索它，修改实体对象，然后将更改保存回表服务。 以下代码将更改现有客户的电话号码。 
 
 ```csharp
@@ -333,8 +318,7 @@ table.Execute(updateOperation);
 ```
 同样，可以执行 `InsertOrMerge` 或 `Merge` 操作。  
 
-## 删除实体
-<a id="delete-an-entity" class="xliff"></a>
+## <a name="delete-an-entity"></a>删除实体
 在检索实体之后，可使用更新实体的相同演示模式轻松删除该实体。 以下代码检索并删除一个客户实体。
 
 ```csharp
@@ -342,8 +326,7 @@ TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
 table.Execute(deleteOperation);
 ```
 
-## 删除表
-<a id="delete-a-table" class="xliff"></a>
+## <a name="delete-a-table"></a>删除表
 最后，以下代码示例将从存储帐户中删除表。 可以立即使用 Azure Cosmos DB 删除并重新创建表。
 
 ```csharp
@@ -351,16 +334,14 @@ CloudTable table = tableClient.GetTableReference("people");
 table.DeleteIfExists();
 ```
 
-## 清理资源
-<a id="clean-up-resources" class="xliff"></a> 
+## <a name="clean-up-resources"></a>清理资源 
 
 如果不打算继续使用此应用，请使用以下步骤删除本教程在 Azure 门户中创建的所有资源。   
 
 1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。  
 2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，然后单击“删除”。 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 本教程介绍如何将 Azure Cosmos DB 与表 API 配合使用，现已完成以下操作： 
 

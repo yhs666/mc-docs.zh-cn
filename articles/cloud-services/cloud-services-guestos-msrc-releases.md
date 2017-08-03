@@ -12,20 +12,48 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 6/6/2017
+origin.date: 07/07/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: c7e24756067ffbdf7f8dadba9f0e2a3b678f9c9e
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 07/31/2017
+ms.openlocfilehash: e3a33690bf99b10fd5c3a4edf046ef2af13f227d
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 若要确定特定的更新是否适用于你使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
 
+## <a name="june-guest-os"></a>6 月来宾 OS
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| --- | --- | --- | --- | --- |
+| Rel 17-06 | [4019472] |WS 2016 OS 质量改进 |5.8 |2017 年 5 月 9 日 |
+| Rel 17-06 | [4022722] |仅 Windows 安全性 |2.63 |2017 年 6 月 13 日 |
+| Rel 17-06 | [4022717] |仅 Windows 安全性 |4.43 |2017 年 6 月 13 日 |
+| Rel 17-06 | [4022718] |仅 Windows 安全性 |3.50 |2017 年 6 月 13 日 |
+| Rel 17-06 | [4021558] |Internet Explorer|2.63, 3.50, 4.43 |2017 年 6 月 13 日 |
+| Rel 17-06 | [4022719], [4022724], [4022726] |Windows 每月汇总 |2.63, 3.50, 4.43 |2017 年 6 月 13 日 |
+| Rel 17-06 | [4022730] |Adobe Flash Player 的安全更新 |3.50, 4.43, 5.8 |2017 年 6 月 13 日 |
+| Rel 17-06 | [4015217], [4015221], [4015583], [4015550], [4015219] |CVE-2017-0167 的再发布版 |4.43, 5.8 |2017 年 4 月 11 日 |
+| 不适用 | [4023136] |时区更新  |2.63, 3.50, 4.43 |2017 年 6 月 13 日 |
+| 不适用 | [4019264] |5 月非安全性汇总 |2.63 |2017 年 6 月 13 日 |
+| 不适用 | [4014545] |5 月 .NET 非安全性汇总 |2.63 |2017 年 6 月 13 日 |
+| 不适用 | [4014508] |5 月 .NET 非安全性汇总 |2.63 |2017 年 6 月 13 日 |
+| 不适用 | [4014511] |5 月 .NET 非安全性汇总 |2.63 |2017 年 6 月 13 日 |
+| 不适用 | [4014514] |5 月 .NET 非安全性汇总 |2.63|2017 年 6 月 13 日 |
+| 不适用 | [4019216] |5 月非安全性汇总 |3.50 |2017 年 6 月 13 日 |
+| 不适用 | [4014503] |5 月 .NET 非安全性汇总 |3.50 |2017 年 6 月 13 日 |
+| 不适用 | [4014506] |5 月 .NET 非安全性汇总 |3.50 |2017 年 6 月 13 日 |
+| 不适用 | [4014509] |5 月 .NET 非安全性汇总 |3.50 |2017 年 6 月 13 日 |
+| 不适用 | [4014513] |5 月 .NET 非安全性汇总 |3.50 |2017 年 6 月 13 日 |
+| 不适用 | [4019215] |5 月非安全性汇总 |4.43 |2017 年 6 月 13 日 |
+| 不适用 | [4014505] |5 月 .NET 非安全性汇总 |4.43 |2017 年 6 月 13 日 |
+| 不适用 | [4014507] |5 月 .NET 非安全性汇总 |4.43 |2017 年 6 月 13 日 |
+| 不适用 | [4014510] |5 月 .NET 非安全性汇总 |4.43 |2017 年 6 月 13 日 |
+| 不适用 | [4014512] |5 月 .NET 非安全性汇总 |4.43 |2017 年 6 月 13 日 |
+
 ## <a name="may-guest-os"></a>5 月来宾 OS
-| 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | Rel 17-05 | [4019472] |WS 2016 OS 质量改进 |5.7 | 2017 年 5 月 9 日 |
 | Rel 17-05 | [4019263] |仅 Windows 安全性 |2.62 | 2017 年 5 月 9 日 |
@@ -53,7 +81,7 @@ ms.lasthandoff: 07/14/2017
 | 不适用 | [4013418] |服务堆栈更新 |5.7 | 2017 年 5 月 9 日 |
 
 ## <a name="april-guest-os"></a>4 月来宾 OS
-| 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | Rel 17-04 |  [4015217]  |WS 2016 OS 质量改进 | 5.6 | 2017 年 4 月 11 日 |
 | Rel 17-04 |  [4015546]  |仅 Windows 安全性 |2.61 | 2017 年 4 月 11 日 |
@@ -73,7 +101,7 @@ ms.lasthandoff: 07/14/2017
 | Rel 17-04 |  [4012216]  |2017 年 3 月 Windows 8.1 和 Windows Server 2012 R2 安全质量月度汇总更新 |4.41 | 2017 年 4 月 11 日 |
 
 ## <a name="march-guest-os"></a>3 月来宾 OS
-| 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |改进和修复 | 5.5 | 2017 年 3 月 14 日 |
 | Rel 17-03 |  [4012212] |2017 年 3 月 Windows 7 SP1 和 Windows Server 2008 R2 SP1 仅用于安全的质量更新 |2.60 |2017 年 3 月 14 日 |
@@ -469,6 +497,33 @@ ms.lasthandoff: 07/14/2017
 | 不适用 |[2999802] |在 Windows 中打印时，虚线变成实线 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 | 不适用 |[2896881] |在 Windows 中登录期间使用 AddPrinterConnection VBScript 命令映射用户的打印机时，登录时间过长 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 
+[4022722]: http://support.microsoft.com/zh-cn/kb/4022722
+[4022717]: http://support.microsoft.com/zh-cn/kb/4022717
+[4022718]: http://support.microsoft.com/zh-cn/kb/4022718
+[4021558]: http://support.microsoft.com/zh-cn/kb/4021558
+[4022719]: http://support.microsoft.com/zh-cn/kb/4022719
+[4022724]: http://support.microsoft.com/zh-cn/kb/4022724
+[4022726]: http://support.microsoft.com/zh-cn/kb/4022726
+[4022730]: http://support.microsoft.com/zh-cn/kb/4022730
+[4015221]: http://support.microsoft.com/zh-cn/kb/4015221
+[4015583]: http://support.microsoft.com/zh-cn/kb/4015583
+[4015219]: http://support.microsoft.com/zh-cn/kb/4015219
+[4023136]: http://support.microsoft.com/zh-cn/kb/4023136
+[4019264]: http://support.microsoft.com/zh-cn/kb/4019264
+[4014545]: http://support.microsoft.com/zh-cn/kb/4014545
+[4014508]: http://support.microsoft.com/zh-cn/kb/4014508
+[4014511]: http://support.microsoft.com/zh-cn/kb/4014511
+[4014514]: http://support.microsoft.com/zh-cn/kb/4014514
+[4019216]: http://support.microsoft.com/zh-cn/kb/4019216
+[4014503]: http://support.microsoft.com/zh-cn/kb/4014503
+[4014506]: http://support.microsoft.com/zh-cn/kb/4014506
+[4014509]: http://support.microsoft.com/zh-cn/kb/4014509
+[4014513]: http://support.microsoft.com/zh-cn/kb/4014513
+[4019215]: http://support.microsoft.com/zh-cn/kb/4019215
+[4014505]: http://support.microsoft.com/zh-cn/kb/4014505
+[4014507]: http://support.microsoft.com/zh-cn/kb/4014507
+[4014510]: http://support.microsoft.com/zh-cn/kb/4014510
+[4014512]: http://support.microsoft.com/zh-cn/kb/4014512
 [4019472]: http://support.microsoft.com/zh-cn/kb/4019472
 [4019263]: http://support.microsoft.com/zh-cn/kb/4019263
 [4019213]: http://support.microsoft.com/zh-cn/kb/4019213
@@ -835,3 +890,6 @@ ms.lasthandoff: 07/14/2017
 
 [archive]: https://msdn.microsoft.com/zh-cn/library/azure/dn391773.aspx
 [family-explain]:./cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation
+
+
+<!--Update_Description: update wording-->

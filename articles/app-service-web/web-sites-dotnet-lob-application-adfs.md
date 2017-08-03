@@ -15,11 +15,11 @@ ms.workload: web
 origin.date: 08/31/2016
 ms.date: 03/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: 054d4cc20334110e7650e991ab5ffff4e5bea35e
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: c1ceb7a1a498b6d5ea219244ec975db7bf02b219
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="create-a-line-of-business-azure-app-with-ad-fs-authentication"></a>使用 AD FS 身份验证创建业务线 Azure 应用
 
@@ -131,14 +131,14 @@ ms.lasthandoff: 07/14/2017
 2. 选择“Azure 应用服务”。
 3. 如果您尚未登录 Azure，请单击“登录”  ，然后使用 Azure 订阅的 Microsoft 帐户进行登录。
 4. 登录后，单击“新建”  ，创建一个 Web 应用。
-5. 填写所有必填字段。 稍后将连接到本地数据，因此不需为此 Web 应用创建数据库。
+5. 填写所有必填字段。 稍后会连接到本地数据，因此不需为此 Web 应用创建数据库。
 
     ![](./media/web-sites-dotnet-lob-application-adfs/02-create-website.png)
 6. 单击“创建” 。 在您创建 Web 应用后，系统会打开“发布 Web”对话框。
 7. 在“目标 URL”中，将 **http** 更改为 **https**。 将整个 URL 复制到文本编辑器，以便稍后使用。 然后，单击“发布” 。
 
     ![](./media/web-sites-dotnet-lob-application-adfs/03-destination-url.png)
-8. 在 Visual Studio 中，在项目中打开 **Web.Release.config** 。 在 `<configuration>` 标记中插入以下 XML，然后将键值替换为发布 Web 应用的 URL。  
+8. 在 Visual Studio 中，在项目中打开 **Web.Release.config** 。 在 `<configuration>` 标记中插入以下 XML，并将键值替换为发布 Web 应用的 URL。  
 
    <pre class="prettyprint">
    &lt;appSettings&gt;
@@ -262,7 +262,7 @@ ms.lasthandoff: 07/14/2017
 
 ![](./media/web-sites-dotnet-lob-application-adfs/11-test-debugging-success.png)
 
-现在，你已在以下方面取得了成功：
+现在，已在以下方面取得了成功：
 
 * 你的应用程序已成功访问 AD FS，并且在 AD FS 数据库中找到了匹配的 RP 标识符
 * AD FS 已成功对 AD 用户进行身份验证，并将你重定向回到应用程序的主页
@@ -314,7 +314,7 @@ ms.lasthandoff: 07/14/2017
        at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
     </pre>
 
-    发生此错误的原因是默认情况下当用户的角色未授权时，MVC 将返回“401 未授权”。 这会对标识提供者 (AD FS) 发出重新进行身份验证的请求。 由于用户已经过身份验证，AD FS 将返回同一页，然后再次发出 401，并创建重定向循环。 您将使用简单的逻辑替代 AuthorizeAttribute 的 `HandleUnauthorizedRequest` 方法，以显示一些有意义的内容，而不是继续重定向循环。
+    发生此错误的原因是默认情况下当用户的角色未授权时，MVC 将返回“401 未授权”。 这会对标识提供者 (AD FS) 发出重新进行身份验证的请求。 由于用户已经过身份验证，AD FS 将返回同一页，然后再次发出 401，并创建重定向循环。 您会使用简单的逻辑替代 AuthorizeAttribute 的 `HandleUnauthorizedRequest` 方法，以显示一些有意义的内容，而不是继续重定向循环。
 5. 在项目中创建名为 AuthorizeAttribute.cs 的文件，并将以下代码粘贴到其中。
 
         using System;
@@ -349,7 +349,7 @@ ms.lasthandoff: 07/14/2017
 <a name="bkmk_data"></a>
 
 ## <a name="connect-to-on-premises-data"></a>连接到本地数据
-使用 AD FS 而不是 Azure Active Directory 实施业务线应用程序的一个原因是，既能符合法规要求，同时可将组织数据保留在外部。 这可能还意味着，您在 Azure 中的 Web 应用必须访问本地数据库，因为您不得使用 [SQL 数据库](https://www.azure.cn/home/features/sql-database/)作为 Web 应用的数据层。
+使用 AD FS 而不是 Azure Active Directory 实施业务线应用程序的一个原因是，既能符合法规要求，同时可将组织数据保留在外部。 这可能还意味着，Azure 中的 Web 应用必须访问本地数据库，因为不能使用 [SQL 数据库](https://www.azure.cn/home/features/sql-database/)作为 Web 应用的数据层。
 
 在 Azure 中国区，Azure 应用服务 Web 应用仅支持通过[虚拟网络](web-sites-integrate-with-vnet.md)访问本地数据库。
 

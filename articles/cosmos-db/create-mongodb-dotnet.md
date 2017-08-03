@@ -16,35 +16,31 @@ ms.topic: hero-article
 origin.date: 05/10/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7602a3836c59729528a053f1ad24398bc55b1c97
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 9c7ea3416d5ef9a7442f8e633e03171f3d2436ec
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/26/2017
 ---
-# Azure Cosmos DB：使用 .NET 和 Azure 门户生成 MongoDB API Web 应用
-<a id="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal" class="xliff"></a>
+# <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB：使用 .NET 和 Azure 门户生成 MongoDB API Web 应用
 
-Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
+Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
 
 本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户、文档数据库和集合。 然后生成并部署基于 [MongoDB .NET 驱动程序](https://docs.mongodb.com/ecosystem/drivers/csharp/)构建的“任务列表”Web 应用。 
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 
 如果尚未安装 Visual Studio 2017，可以下载并使用**免费的** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 <a id="create-account"></a>
-## 创建数据库帐户
-<a id="create-a-database-account" class="xliff"></a>
+## <a name="create-a-database-account"></a>创建数据库帐户
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## 克隆示例应用程序
-<a id="clone-the-sample-application" class="xliff"></a>
+## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在让我们从 github 克隆 MongoDB API 应用、设置连接字符串，并运行。 你将看到以编程方式处理数据是多么容易。 
+现在让我们从 github 克隆 MongoDB API 应用、设置连接字符串，并运行。 你会看到以编程方式处理数据是多么容易。 
 
 1. 打开 git 终端窗口（例如 git bash）并使用 `cd` 切换到工作目录。  
 
@@ -56,8 +52,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 3. 然后在 Visual Studio 中打开解决方案文件。 
 
-## 查看代码
-<a id="review-the-code" class="xliff"></a>
+## <a name="review-the-code"></a>查看代码
 
 快速查看应用中发生的情况。 打开 **DAL** 目录下的 **Dal.cs** 文件，会发现以下代码行创建 Azure Cosmos DB 资源。 
 
@@ -97,8 +92,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
     collection.Find(new BsonDocument()).ToList();
     ```
 
-## 更新连接字符串
-<a id="update-your-connection-string" class="xliff"></a>
+## <a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
@@ -106,7 +100,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 2. 打开 **DAL** 目录中的 **Dal.cs** 文件。 
 
-3. 从门户中复制“用户名”值（使用复制按钮），并在 **Dal.cs** 文件中将其设为“用户名”的值。 
+3. 从门户中复制“用户名”值（使用“复制”按钮），并在 **Dal.cs** 文件中将其设为“用户名”的值。 
 
 4. 然后从门户复制“主机”值，并在 **Dal.cs** 文件中将其设为“主机”的值。 
 
@@ -114,34 +108,30 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
 
-## 运行 Web 应用
-<a id="run-the-web-app" class="xliff"></a>
+## <a name="run-the-web-app"></a>运行 Web 应用
 
-1. 在 Visual Studio 中，右键单击**解决方案资源管理器**中的项目，然后单击“管理 NuGet 包”。 
+1. 在 Visual Studio 中，右键单击解决方案资源管理器中的项目，并单击“管理 NuGet 包”。 
 
 2. 在 NuGet“浏览”框中，键入 *MongoDB.Driver*。
 
-3. 从结果中安装“MongoDB.Driver”库。 这将安装 MongoDB.Driver 包以及所有依赖项。
+3. 从结果中安装“MongoDB.Driver”库。 这会安装 MongoDB.Driver 包以及所有依赖项。
 
-4. 单击 Ctrl+F5 运行应用程序。 你的应用将显示在浏览器中。 
+4. 单击 Ctrl+F5 运行应用程序。 你的应用会显示在浏览器中。 
 
 5. 在浏览器中单击“创建”，并在“任务列表”应用中创建一些新任务。
 
-## 在 Azure 门户中查看 SLA
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
+## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## 清理资源
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>清理资源
 
 如果不打算继续使用此应用，请删除本快速入门教程在 Azure 门户中创建的所有资源，步骤如下：
 
 1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。 
 2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，然后单击“删除”。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 在本快速入门教程中，已了解如何创建 Azure Cosmos DB 帐户和使用 API for MongoDB 运行 Web 应用。 现在可以将其他数据导入 Cosmos DB 帐户。 
 

@@ -14,16 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/04/2017
-ms.date: 06/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: e006fb35853658dcbc658e1ea5a9e26098d624a6
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 31e0dd31920c640c2bbcf792c42d80b44b3192e7
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 添加或删除虚拟机的网络接口
-<a id="add-network-interfaces-to-or-remove-from-virtual-machines" class="xliff"></a>
+# <a name="add-network-interfaces-to-or-remove-from-virtual-machines"></a>添加或删除虚拟机的网络接口
 
 了解如何在创建 VM 时添加现有的网络接口 (NIC)，或者添加或删除处于“已停止”（“已解除分配”）状态的现有 VM 的 NIC。 Azure 虚拟机 (VM) 通过 NIC 与 Internet、Azure 及本地资源通信。 一个 VM 可以有一个或多个 NIC。 
 
@@ -78,6 +77,7 @@ ms.lasthandoff: 06/23/2017
 |---|---|
 |CLI|[az vm nic add](https://docs.microsoft.com/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add)|
 |PowerShell|[Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|[将 NIC 添加到 VM](../virtual-machines/windows/multiple-nics.md#add-a-nic-to-an-existing-vm) 的详细步骤|
 
 ## <a name="vm-view-nic"></a> 查看 VM 的 NIC
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 06/23/2017
 |---|---|
 |CLI|[az vm nic remove](https://docs.microsoft.com/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove)|
 |PowerShell|[Remove-AzureRMVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-
+|[删除 VM 的 NIC](../virtual-machines/windows/multiple-nics.md#remove-a-nic-from-an-existing-vm) 的详细步骤|
 ## <a name="next-steps"></a>后续步骤
 若要创建具有多个 NIC 或 IP 地址的 VM，请参阅以下文章：
 
@@ -117,3 +117,5 @@ ms.lasthandoff: 06/23/2017
 ||[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)|
 |创建具有多个 IP 地址的单 NIC VM|[CLI](virtual-network-multiple-ip-addresses-cli.md)|
 ||[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
+
+<!--Update_Description: add links to multiple-nics.md-->

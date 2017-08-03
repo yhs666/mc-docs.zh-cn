@@ -13,17 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-origin.date: 10/31/2016
-ms.date: 07/17/2017
+origin.date: 06/29/2016
+ms.date: 07/24/2017
 ms.author: v-yeche
-ms.openlocfilehash: 677c4eef8ff9aff4392bdca3dac5900732ce66de
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: 2384805f98f8e498efad98f1d839ad34464c8e7b
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 概述 SQL 数据仓库中的表
-<a id="overview-of-tables-in-sql-data-warehouse" class="xliff"></a>
+# <a name="overview-of-tables-in-sql-data-warehouse"></a>概述 SQL 数据仓库中的表
 
 > [!div class="op_single_selector"]
 > * [概述][Overview]
@@ -36,7 +35,7 @@ ms.lasthandoff: 07/05/2017
 > 
 > 
 
-在 Azure SQL 数据仓库中创建表的入门操作很简单。  基本的 [CREATE TABLE][CREATE TABLE] 语法与常用语法无异，这种语法你在使用其他数据库时很可能已经很熟悉了。  创建表时，只需为表和列命名，然后为每个列定义数据类型即可。  如果你已经在其他数据库中创建过表，则此操作对你来说应该很熟悉。
+在 Azure SQL 数据仓库中创建表的入门操作很简单。  基本的 [CREATE TABLE][CREATE TABLE] 语法与常用语法无异，这种语法你在使用其他数据库时很可能已经很熟悉了。  创建表时，只需为表和列命名，并为每个列定义数据类型即可。  如果已经在其他数据库中创建过表，则此操作对你来说应该很熟悉。
 
 ```sql  
 CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
@@ -50,33 +49,26 @@ CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
 RENAME OBJECT Customer TO CustomerOrig; 
  ```
 
-## 分布式表
-<a id="distributed-tables" class="xliff"></a>
-由 SQL 数据仓库之类的分布式系统引入的新的基本属性是 **分布列**。  分布列的含义正如其名。  分布列是指决定后台数据如何分布或划分的列。  如果你在创建表时未指定分布列，该表的数据会自动根据 **轮循机制**进行分布。  虽然在某些情况下轮循机制表可能已经足够，但是定义分布列可以大大减少查询期间的数据移动，从而优化性能。  若要详细了解如何选择分布列，请参阅[分布表][Distribute]。
+## <a name="distributed-tables"></a>分布式表
+由 SQL 数据仓库之类的分布式系统引入的新的基本属性是 **分布列**。  分布列的含义正如其名。  分布列是指决定后台数据如何分布或划分的列。  如果在创建表时未指定分布列，该表的数据会自动根据 **轮循机制**进行分布。  虽然在某些情况下轮循机制表可能已经足够，但是定义分布列可以大大减少查询期间的数据移动，从而优化性能。  在表中有少量数据的情况下，选择创建具有“复制”分布类型的表会将数据复制到每个计算节点，并减少每次查询执行时的数据移动。 若要详细了解如何选择分布列，请参阅[分布表][Distribute]。
 
-## 对表进行索引和分区
-<a id="indexing-and-partitioning-tables" class="xliff"></a>
+## <a name="indexing-and-partitioning-tables"></a>对表进行索引和分区
 当你在使用 SQL 数据仓库的过程中变得更老练以后，如果你想要优化性能，则需了解有关表设计的详细信息。  若要了解详细信息，请参阅有关[表数据类型][Data Types]、[分布表][Distribute]、[为表编制索引][Index]、[将表分区][Partition]的文章。
 
-## 表统计信息
-<a id="table-statistics" class="xliff"></a>
+## <a name="table-statistics"></a>表统计信息
 若要获取 SQL 数据仓库的最佳性能，统计信息异常重要。  由于 SQL 数据仓库不会自动创建和更新统计信息（这可能与在 Azure SQL 数据库中遇到的情况一样），因此请阅读我们有关[统计信息][Statistics]的文章。该文章可能是需要阅读的最重要的文章之一，可确保获得最佳查询性能。
 
-## 临时表
-<a id="temporary-tables" class="xliff"></a>
-临时表是指仅在你登录期间存在且其他用户无法查看的表。  临时表可用于防止他人查看临时结果，并且不需清除。  由于临时表也利用本地存储，因此对于某些操作来说，临时表可以提供更快速的性能。  请参阅[临时表][Temporary]的文章，了解有关临时表的更多详细信息。
+## <a name="temporary-tables"></a>临时表
+临时表是指仅在登录期间存在且其他用户无法查看的表。  临时表可用于防止他人查看临时结果，并且不需清除。  由于临时表也利用本地存储，因此对于某些操作来说，临时表可以提供更快速的性能。  请参阅[临时表][Temporary]的文章，了解有关临时表的更多详细信息。
 
-## 外部表
-<a id="external-tables" class="xliff"></a>
-外部表，也称 PolyBase 表，是指可以从 SQL 数据仓库查询但其指向的数据却位于 SQL 数据仓库外部的表。  例如，你可以创建一个外部表，让其指向 Azure Blob 存储上的文件。  有关如何创建和查询外部表的更多详细信息，请参阅 [使用 PolyBase 加载数据][Load data with Polybase]。  
+## <a name="external-tables"></a>外部表
+外部表，也称 PolyBase 表，是指可以从 SQL 数据仓库查询但其指向的数据却位于 SQL 数据仓库外部的表。  例如，可以创建一个外部表，让其指向 Azure Blob 存储上的文件。  有关如何创建和查询外部表的更多详细信息，请参阅 [使用 PolyBase 加载数据][Load data with Polybase]。  
 
-## 不支持的表功能
-<a id="unsupported-table-features" class="xliff"></a>
+## <a name="unsupported-table-features"></a>不支持的表功能
 虽然 SQL 数据仓库包含许多与其他数据库提供的表功能相同的表功能，但也有一些功能是不受支持的。  下面是目前仍不支持的部分表功能的列表。
 
 | 不支持的功能 |
 | --- |
-| [标识属性][Identity Property]（请参阅[分配代理键解决方法][Assigning Surrogate Key Workaround]） |
 | 主键、外键、Unique 和 Check [表约束][Table Constraints] |
 | [唯一索引][Unique Indexes] |
 | [计算列][Computed Columns] |
@@ -87,8 +79,7 @@ RENAME OBJECT Customer TO CustomerOrig;
 | [索引视图][Indexed Views] |
 | [同义词][Synonyms] |
 
-## 表大小查询
-<a id="table-size-queries" class="xliff"></a>
+## <a name="table-size-queries"></a>表大小查询
 若要确定这 60 个分布中每个分布的表所占用的空间和行，一个简单的方法是使用 [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED]。
 
 ```sql
@@ -209,9 +200,8 @@ FROM size
 ;
 ```
 
-### 表空间摘要
-<a id="table-space-summary" class="xliff"></a>
-此查询返回行以及按表划分的空间。  此查询适用于查看哪些表是你最大的表，以及这些表是按轮循机制分布的还是按哈希分布的。  对于哈希分布表，此查询还显示分布列。  大多数情况下，最大的表应该是哈希分布，并使用聚集列存储索引。
+### <a name="table-space-summary"></a>表空间摘要
+此查询返回行以及按表划分的空间。  此查询适用于查看哪些表是最大的表，以及这些表是按轮循机制分布的、按复制分布的还是按哈希分布的。  对于哈希分布表，此查询还显示分布列。  大多数情况下，最大的表应该是哈希分布，并使用聚集列存储索引。
 
 ```sql
 SELECT 
@@ -241,8 +231,7 @@ ORDER BY
 ;
 ```
 
-### 按分布类型划分的表空间
-<a id="table-space-by-distribution-type" class="xliff"></a>
+### <a name="table-space-by-distribution-type"></a>按分布类型划分的表空间
 ```sql
 SELECT 
      distribution_policy_name
@@ -256,8 +245,7 @@ GROUP BY distribution_policy_name
 ;
 ```
 
-### 按索引类型划分的表空间
-<a id="table-space-by-index-type" class="xliff"></a>
+### <a name="table-space-by-index-type"></a>按索引类型划分的表空间
 ```sql
 SELECT 
      index_type_desc
@@ -271,8 +259,7 @@ GROUP BY index_type_desc
 ;
 ```
 
-### 分布空间摘要
-<a id="distribution-space-summary" class="xliff"></a>
+### <a name="distribution-space-summary"></a>分布空间摘要
 ```sql
 SELECT 
     distribution_id
@@ -287,8 +274,7 @@ ORDER BY    distribution_id
 ;
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅有关[表数据类型][Data Types]、[分布表][Distribute]、[为表编制索引][Index]、[将表分区][Partition]、[维护表统计信息][Statistics]和[临时表][Temporary]的文章。  有关最佳实践的详细信息，请参阅 [SQL 数据仓库最佳实践][SQL Data Warehouse Best Practices]。
 
 <!--Image references-->
@@ -305,19 +291,19 @@ ORDER BY    distribution_id
 [Load data with Polybase]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 
 <!--MSDN references-->
-[CREATE TABLE]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
-[RENAME]: https://msdn.microsoft.com/zh-cn/library/mt631611.aspx
-[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/zh-cn/library/mt204028.aspx
-[Identity Property]: https://msdn.microsoft.com/zh-cn/library/ms186775.aspx
-[Assigning Surrogate Key Workaround]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
-[Table Constraints]: https://msdn.microsoft.com/zh-cn/library/ms188066.aspx
-[Computed Columns]: https://msdn.microsoft.com/zh-cn/library/ms186241.aspx
-[Sparse Columns]: https://msdn.microsoft.com/zh-cn/library/cc280604.aspx
-[User-Defined Types]: https://msdn.microsoft.com/zh-cn/library/ms131694.aspx
-[Sequence]: https://msdn.microsoft.com/zh-cn/library/ff878091.aspx
-[Triggers]: https://msdn.microsoft.com/zh-cn/library/ms189799.aspx
-[Indexed Views]: https://msdn.microsoft.com/zh-cn/library/ms191432.aspx
-[Synonyms]: https://msdn.microsoft.com/zh-cn/library/ms177544.aspx
-[Unique Indexes]: https://msdn.microsoft.com/zh-cn/library/ms188783.aspx
+[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
+[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
+[Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
+[Computed Columns]: https://msdn.microsoft.com/library/ms186241.aspx
+[Sparse Columns]: https://msdn.microsoft.com/library/cc280604.aspx
+[User-Defined Types]: https://msdn.microsoft.com/library/ms131694.aspx
+[Sequence]: https://msdn.microsoft.com/library/ff878091.aspx
+[Triggers]: https://msdn.microsoft.com/library/ms189799.aspx
+[Indexed Views]: https://msdn.microsoft.com/library/ms191432.aspx
+[Synonyms]: https://msdn.microsoft.com/library/ms177544.aspx
+[Unique Indexes]: https://msdn.microsoft.com/library/ms188783.aspx
 
 <!--Other Web references-->
+
+<!--Update_Description: update meta properties, wording update-->

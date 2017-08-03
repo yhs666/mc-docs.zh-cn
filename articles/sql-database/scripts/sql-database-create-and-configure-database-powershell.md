@@ -1,10 +1,10 @@
 ---
-title: "Azure PowerShell 脚本 - 创建 SQL 数据库 | Azure"
-description: "Azure PowerShell 脚本示例 - 使用 PowerShell 创建 SQL 数据库"
+title: "PowerShell 示例 - 创建 Azure SQL 数据库 | Azure"
+description: "创建 Azure SQL 数据库的 Azure PowerShell 示例脚本"
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: hayley244
+manager: digimobile
 editor: carlrab
 tags: azure-service-management
 ms.assetid: 
@@ -14,18 +14,18 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 05/23/2017
-ms.date: 
-ms.author: v-johch
-ms.openlocfilehash: 6fe351072013c5dad26eaccd306ffaec2baedb5b
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 06/23/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 2cdf631302a917de8b801c14796e1f74fcc28882
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
-# <a name="create-a-single-sql-database-and-configure-a-firewall-rule-using-powershell"></a>使用 PowerShell 创建单个 SQL 数据库并配置防火墙规则
+# <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>使用 PowerShell 创建单一 Azure SQL 数据库并配置防火墙规则
 
-此示例 PowerShell 脚本创建 Azure SQL 数据库，并配置服务器级防火墙规则。 成功运行该脚本后，可以通过所有 Azure 服务和配置的 IP 地址访问 SQL 数据库。 
+此 PowerShell 脚本示例创建 Azure SQL 数据库，并配置服务器级防火墙规则。 成功运行该脚本后，可以通过所有 Azure 服务和配置的 IP 地址访问 SQL 数据库。 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -99,5 +99,5 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
 
-
+<!--Update_Description: wording update-->
 

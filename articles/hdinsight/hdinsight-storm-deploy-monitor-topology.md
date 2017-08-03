@@ -17,11 +17,11 @@ origin.date: 03/01/2017
 ms.date: 04/27/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.openlocfilehash: d9dc095b08734d1a44b7956d838d1be0c610ddd3
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: ec74a1a534d5fb5d976c5d21075b183555db4467
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 上部署和管理 Apache Storm 拓扑
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 07/14/2017
 HDInsight 工具中的 Storm 仪表板和 Storm 功能依赖于 Storm REST API，此 API 可用于创建你自己的监视和管理解决方案。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要将 Windows 作为操作系统的 Storm on HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> 本文档中的步骤需要将 Windows 作为操作系统的 Storm on HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 >
 > 有关通过使用 Linux 的 HDInsight 群集部署和管理 Storm 拓扑的信息，请参阅[在基于 Linux 的 HDInsight 上部署和管理 Apache Storm 拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)
 
@@ -50,8 +50,7 @@ HDInsight 工具中的 Storm 仪表板和 Storm 功能依赖于 Storm REST API�
 
   * Visual Studio 2012 Update 4
 
-  * Visual Studio 2013 [Update 4](http://www.microsoft.com/download/details.aspx?id=45326) 或 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
-  * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
+  * Visual Studio 2013 Update 4 或 Visual Studio 2013 Community
 
   * Visual Studio 2015（任何版本）
 

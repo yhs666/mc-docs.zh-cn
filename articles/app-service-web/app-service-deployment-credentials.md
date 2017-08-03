@@ -12,17 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 01/05/2016
-ms.date: 07/10/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 13ba5ecb88f8030c5325a6fcec8ed9da6b745d72
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: a888de3b09d509a37a34e14939a371d48f571f92
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 为 Azure 应用服务配置部署凭据
-<a id="configure-deployment-credentials-for-azure-app-service" class="xliff"></a>
-[Azure 应用服务](/app-service-web/app-service-changes-existing-services)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](app-service-deploy-local-git.md)和 [FTP/S 部署](app-service-deploy-ftp.md)。
+# <a name="configure-deployment-credentials-for-azure-app-service"></a>为 Azure 应用服务配置部署凭据
+[Azure 应用服务](/app-service-web/app-service-changes-existing-services)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](app-service-deploy-local-git.md)和 [FTP/S 部署](app-service-deploy-ftp.md)。 这些凭据与 Azure Active Directory 凭据不同。
 
 * **用户级凭据**：一组适用于整个 Azure 帐户的凭据。 在任何订阅中，它均可用于为 Azure 帐户有权访问的任何应用部署应用服务。 这些是默认的凭据组，可以在“应用服务” > **&lt;app_name>** > “部署凭据”中对其进行配置。 这也是在门户 GUI（例如应用的[资源边栏选项卡](../azure-resource-manager/resource-group-portal.md#manage-resources)的“概览”和“属性”）中呈现的默认组。
 
@@ -33,9 +32,14 @@ ms.lasthandoff: 06/30/2017
 
 * **应用级凭据**：用于每个应用的一组凭据。 只能使用它部署到该应用。 每个应用的凭据在创建应用时自动生成，并且可在应用的发布配置文件中找到。 无法手动配置凭据，但可以随时为应用重置凭据。
 
+    > [!NOTE]
+    > 若要通过基于角色的访问控制 (RBAC) 向某用户授予这些凭据的访问权限，需要在 Web 应用上将其设置为参与者或更高级别。 读取器不可发布，因此无法访问这些凭据。
+    >
+    >
+
 ## <a name="userscope"></a>设置和重置用户级凭据
 
-可以在应用的[资源边栏选项卡](../azure-resource-manager/resource-group-portal.md#manage-resources)中配置用户级凭据。 无论你在哪个应用中配置这些凭据，这些凭据都适用于 Azure 帐户中的所有应用和所有订阅。 
+可以在应用的[资源边栏选项卡](../azure-resource-manager/resource-group-portal.md#manage-resources)中配置用户级凭据。 无论在哪个应用中配置这些凭据，这些凭据都适用于 Azure 帐户中的所有应用和所有订阅。 
 
 若要配置用户级凭据，请执行以下操作：
 
@@ -44,7 +48,7 @@ ms.lasthandoff: 06/30/2017
     > [!NOTE]
     > 在门户中，你必须至少有一个应用，然后才能访问“部署凭据”边栏选项卡。 但使用 [Azure CLI](app-service-web-app-azure-resource-manager-xplat-cli.md) 时，可以在没有应用的情况下配置用户级凭据。
 
-2. 配置用户名和密码，然后单击“保存” 。
+2. 配置用户名和密码，并单击“保存” 。
 
     ![](./media/app-service-deployment-credentials/deployment_credentials_configure.png)
 
@@ -57,7 +61,7 @@ ms.lasthandoff: 06/30/2017
 ![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
 
 > [!NOTE]
-> Azure 不会显示用户级部署密码。 如果忘记了密码，将无法检索它。 但是，可以按照本部分中的步骤重置凭据。
+> Azure 不会显示用户级部署密码。 如果忘记了密码，则无法检索它。 但是，可以按照本部分中的步骤重置凭据。
 >
 >  
 
@@ -87,7 +91,8 @@ ms.lasthandoff: 06/30/2017
 
     重置操作将使以前下载的所有 .PublishSettings 文件无效。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 了解如何使用这些凭据通过[本地 Git](app-service-deploy-local-git.md) 或 [FTP/S](app-service-deploy-ftp.md) 部署应用。
+
+<!--Update_Description: add a note about RBAC-->

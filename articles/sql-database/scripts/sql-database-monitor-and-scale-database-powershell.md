@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 脚本 - 监视和缩放单个 SQL 数据库 | Azure"
-description: "Azure PowerShell 脚本示例 - 使用 PowerShell 监视和缩放单个 SQL 数据库"
+title: "PowerShell 示例 - 监视缩放 - 单一 Azure SQL 数据库 | Azure"
+description: "监视和缩放单一 Azure SQL 数据库的 Azure PowerShell 示例脚本"
 services: sql-database
 documentationcenter: sql-database
 author: Hayley244
@@ -14,18 +14,18 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 05/23/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: 0057f89f971927234677c768208775caa58ca0cc
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 06/23/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 1d0b619632358e841d8b66f7c3875568b9930fa0
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="monitor-and-scale-a-single-sql-database-using-powershell"></a>使用 PowerShell 监视和缩放单个 SQL 数据库
 
-此示例 PowerShell 脚本监视一个数据库的性能指标，将其缩放为更高的性能级别，并基于性能指标之一创建警报规则。 
+此 PowerShell 脚本示例监视数据库的性能指标，将数据库缩放为实现更高性能级别，并根据性能指标之一创建预警规则。 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -125,3 +125,5 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
+
+<!--Update_Description: wording update-->

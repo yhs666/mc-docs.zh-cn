@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 脚本 - 移动 SQL 数据库和弹性池 | Azure"
-description: "Azure PowerShell 脚本示例 - 使用 PowerShell 在弹性池之间移动 SQL 数据库"
+title: "PowerShell 示例 - 移动 Azure SQL 数据库 - SQL 弹性池 | Azure"
+description: "使用 PowerShell 在弹性池之间移动 SQL 数据库的 Azure PowerShell 示例脚本"
 services: sql-database
 documentationcenter: sql-database
 author: Hayley244
@@ -14,18 +14,18 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 05/23/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: 530a4be32a609b78cbff92efe0e15798290588ee
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 06/23/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: d04873c334f3fdc4262168e2013156c8e4414399
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="create-elastic-pools-and-move-databases-between-pools-and-out-of-a-pool-using-powershell"></a>使用 PowerShell 创建弹性池，并将数据库在池之间移动和移出池
 
-此示例 PowerShell 脚本创建两个弹性池，将数据库从一个弹性池移到另一个弹性池中，然后将数据库移出弹性池，移到单一数据库性能级别。 
+此 PowerShell 脚本示例创建两个弹性池，将数据库从一个弹性池移到另一个弹性池中，再将数据库移出弹性池，以实现单一数据库性能级别。 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -134,3 +134,5 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
+
+<!--Update_Description: wording update-->

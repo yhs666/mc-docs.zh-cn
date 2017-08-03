@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure 门户创建虚拟网络 | Azure"
-description: "了解如何使用 Azure 门户创建虚拟网络。"
+title: "使用 Azure 门户创建虚拟网络（经典）| Azure"
+description: "了解如何使用 Azure 门户创建虚拟网络（经典）。"
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 03/15/2016
 ms.date: 12/16/2016
 ms.author: v-dazen
-ms.openlocfilehash: 1cd7e31a3d66bc0c519f20ca9a2d1887b512ca58
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: d28a66ab932b840faa30238bad2fdb1624faa24d
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-portal"></a>使用 Azure 门户创建虚拟网络（经典）
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]

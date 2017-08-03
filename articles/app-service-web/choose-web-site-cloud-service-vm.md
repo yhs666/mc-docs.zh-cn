@@ -16,16 +16,14 @@ origin.date: 07/07/2016
 ms.date: 07/10/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: f7959de34a95adff6e3fffd5a21db622f32499b3
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: 0c25720e6879711afed1226f4b9403204621b7a8
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/28/2017
 ---
-# Azure 应用服务、虚拟机、Service Fabric 和云服务的比较
-<a id="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison" class="xliff"></a>
-## 概述
-<a id="overview" class="xliff"></a>
+# <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure 应用服务、虚拟机、Service Fabric 和云服务的比较
+## <a name="overview"></a>概述
 Azure 提供几种托管网站的方式：[Azure 应用服务][Azure App Service]、[虚拟机][Virtual Machines]、[Service Fabric][Service Fabric] 和[云服务][Cloud Services]。 本文可帮助你了解这几种方式，并针对你的 Web 应用程序做出正确的选择。
 
 Azure 应用服务是大多数 Web 应用的最佳选择。 部署和管理都已集成到平台，站点可以快速缩放以应对高流量负载，而内置的负载均衡和流量管理器可以实现高可用性。 [WebJobs][WebJobs] 功能使得将后台作业处理添加到应用服务 Web 应用变得轻松。
@@ -67,7 +65,7 @@ Azure 应用服务是大多数 Web 应用的最佳选择。 部署和管理都�
 ## <a name="scenarios"></a>方案和建议
 以下是一些常见的应用程序方案，其中每个方案都包含有关最适合的 Azure Web 托管选项的建议。
 
-* [我需要具有后台处理的 Web 前端和数据库后端，运行与本地资产集成的业务应用程序。](#onprem)
+* [需要具有后台处理的 Web 前端和数据库后端，运行与本地资产集成的业务应用程序。](#onprem)
 * [我需要一种可靠的方式来托管公司网站，既可以进行良好地扩展也能实现全国性覆盖。](#corp)
 * [我具有在 Windows Server 2003 上运行的 IIS6 应用程序。](#iis6)
 * [我是小型企业所有者，我需要使用一种成本较低的方式来托管站点，同时也要兼顾将来的业务增长。](#smallbusiness)
@@ -78,7 +76,7 @@ Azure 应用服务是大多数 Web 应用的最佳选择。 部署和管理都�
 * [我有一个需要连接到公司网络的业务线应用程序。](#lob)
 * [我想为移动客户端托管 REST API 或 Web 服务。](#mobile)
 
-### <a id="onprem"></a> 我需要具有后台处理的 Web 前端和数据库后端，运行与本地资产集成的业务应用程序。
+### <a id="onprem"></a> 需要具有后台处理的 Web 前端和数据库后端，运行与本地资产集成的业务应用程序。
 Azure 应用服务是针对复杂业务应用程序的理想解决方案。 你可以通过该网站开发应用，这些应用可以在负载均衡平台上自动缩放、使用 Active Directory 进行保护并连接到本地资源。 使用该网站，可以通过世界级门户和 API 轻松地管理这些应用，并且还能通过应用洞察工具深入了解客户使用这些应用的情况。 [Webjobs][Webjobs] 功能可将后台进程和任务作为 Web 层的一部分运行，而 VNET 功能则可轻松地重新连接到本地资源。 Azure 应用服务针对 Web 应用提供三个 9 的 SLA，且能够：
 
 * 在自愈性自动修补云平台上安全可靠地运行应用程序。

@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 脚本 - 监视和缩放单个 SQL 数据库 | Azure"
-description: "Azure CLI 脚本示例 - 使用 Azure CLI 监视和缩放单个 SQL 数据库"
+title: "CLI 示例 - 监视缩放 - 单一 Azure SQL 数据库 | Azure"
+description: "监视和缩放单一 Azure SQL 数据库的 Azure CLI 示例脚本"
 services: sql-database
 documentationcenter: sql-database
 author: Hayley244
@@ -14,21 +14,22 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 04/24/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: 52116cfcfdcaa54e952956b76206c87fcd84173b
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 06/23/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: dd239b9b3ffdd94ca335f939da54faf32763cfba
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
-# <a name="monitor-and-scale-a-single-sql-database-using-the-azure-cli"></a>使用 Azure CLI 监视和缩放单个 SQL 数据库
+# <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>使用 CLI 监视和缩放单一 SQL 数据库
 
-此示例 CLI 脚本在查询数据库的大小信息后，将单个 Azure SQL 数据库缩放为不同的性能级别。 
+此 Azure CLI 脚本示例在查询数据库的大小信息后，将单一 Azure SQL 数据库缩放为不同的性能级别。 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -101,3 +102,5 @@ az group delete --name myResourceGroup
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 其他 SQL 数据库 CLI 脚本示例可以在 [Azure SQL 数据库文档](../sql-database-cli-samples.md)中找到。
+
+<!--Update_Description: wording update-->

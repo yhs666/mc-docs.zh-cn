@@ -211,7 +211,7 @@ configuration ASRMobilityService {
 >
 
 ## <a name="step-3-upload-to-automation-dsc"></a>步骤 3：上传到 Automation DSC
-由于所进行的 DSC 配置会导入所需的 DSC 资源模块 (xPSDesiredStateConfiguration)，因此，需要先将该模块导入 Automation 中，然后才能上传 DSC 配置。
+由于所进行的 DSC 配置会导入所需的 DSC 资源模块 (xPSDesiredStateConfiguration)，因此，需要先将该模块导入自动化中，然后才能上传 DSC 配置。
 
 登录到自己的自动化帐户，浏览到“资产” > “模块”，然后单击“浏览库”。
 

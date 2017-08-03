@@ -2,181 +2,187 @@
   tocHref: /
   topicHref: /index
   items:
-  - name: Active Directory
-    tocHref: /active-directory/
-    topicHref: /active-directory/
-    items:
-      - name: 连接
-        tocHref: /active-directory/connect/
-        topicHref: /active-directory/connect/
-      - name: 开发
-        tocHref: /active-directory/develop/
-        topicHref: /active-directory/develop/
-  - name: 应用服务
-    tocHref: /app-service/
-    topicHref: /app-service/
-    items:
-    - name: Web 应用
-      tocHref: /app-service-web/
-      topicHref: /app-service-web/
-    - name: Mobile Apps
-      tocHref: /app-service-mobile/
-      topicHref: /app-service-mobile/
-    - name: API Apps
-      tocHref: /app-service-api/
-      topicHref: /app-service-api/
-  - name: 应用程序网关
-    tocHref: /application-gateway/
-    topicHref: /application-gateway/
-  - name: 自动化
-    tocHref: /automation/
-    topicHref: /automation/
-  - name: 门户
-    tocHref: /azure-portal/
-    topicHref: /azure-portal/
-  - name: Resource Manager
-    tocHref: /azure-resource-manager/
-    topicHref: /azure-resource-manager/
-  - name: 备份
-    tocHref: /backup/
-    topicHref: /backup/
-  - name: 批处理
-    tocHref: /batch/
-    topicHref: /batch/
-  - name: 缓存
-    tocHref: /cache/
-    topicHref: /cache/
-  - name: CDN
-    tocHref: /cdn/
-    topicHref: /cdn/
-  - name: 认知服务
-    tocHref: /cognitive-services/
-    topicHref: /cognitive-services/
-  - name: 云服务
-    tocHref: /cloud-services/
-    topicHref: /cloud-services/
-  - name: DocumentDB
-    tocHref: /documentdb/
-    topicHref: /documentdb/
-  - name: 事件中心
-    tocHref: /event-hubs/
-    topicHref: /event-hubs/
-  - name: Expressroute
-    tocHref: /expressroute/
-    topicHref: /expressroute/
-  - name: HDInsight
-    tocHref: /hdinsight/
-    topicHref: /hdinsight/
-  - name: IoT 中心
-    tocHref: /iot-hub/
-    topicHref: /iot-hub/
-  - name: IoT 套件
-    tocHref: /iot-suite/
-    topicHref: /iot-suite/
-  - name: 密钥保管库
-    tocHref: /key-vault/
-    topicHref: /key-vault/
-  - name: 负载均衡器
-    tocHref: /load-balancer/
-    topicHref: /load-balancer/
-  - name: 媒体服务
-    tocHref: /media-services/
-    topicHref: /media-services/
-  - name: 移动服务
-    tocHref: /mobile-services/
-    topicHref: /mobile-services/
-  - name: 监视和诊断
-    tocHref: /monitoring-and-diagnostics/
-    topicHref: /monitoring-and-diagnostics/
-  - name: 多重身份验证
-    tocHref: /multi-factor-authentication/
-    topicHref: /multi-factor-authentication/
-    items:
-      - name: 用户指南
-        tocHref: /multi-factor-authentication/end-user/
-        topicHref: /multi-factor-authentication/end-user/
-  - name: 通知中心
-    tocHref: /notification-hubs/
-    topicHref: /notification-hubs/
-  - name: Power BI Embedded
-    tocHref: /power-bi-embedded/
-    topicHref: /power-bi-embedded/
-  - name: Redis 缓存
-    tocHref: /redis-cache/
-    topicHref: /redis-cache/
-  - name: 复原能力
-    tocHref: /resiliency/
-    topicHref: /resiliency/
-  - name: 计划程序
-    tocHref: /scheduler/
-    topicHref: /scheduler/
-  - name: “安全”
-    tocHref: /security/
-    topicHref: /security/
-  - name: 服务总线
-    tocHref: /service-bus/
-    topicHref: /service-bus/
-  - name: 服务总线消息传送
-    tocHref: /service-bus-messaging/
-    topicHref: /service-bus-messaging/
-  - name: Service Bus 中继
-    tocHref: /service-bus-relay/
-    topicHref: /service-bus-relay/
-  - name: Service Fabric
-    tocHref: /service-fabric/
-    topicHref: /service-fabric/
-  - name: 站点恢复
-    tocHref: /site-recovery/
-    topicHref: /site-recovery/
-  - name: SQL 数据仓库
-    tocHref: /sql-data-warehouse/
-    topicHref: /sql-data-warehouse/
-  - name: SQL 数据库
-    tocHref: /sql-database/
-    topicHref: /sql-database/
-  - name: SQL Server Stretch Database
-    tocHref: /sql-server-stretch-database/
-    topicHref: /sql-server-stretch-database/
-  - name: 存储
-    tocHref: /storage/
-    topicHref: /storage/
-  - name: 流分析
-    tocHref: /stream-analytics/
-    topicHref: /stream-analytics/
-  - name: 流量管理器
-    tocHref: /traffic-manager/
-    topicHref: /traffic-manager/
-  - name: 虚拟机规模集
-    tocHref: /virtual-machine-scale-sets/
-    topicHref: /virtual-machine-scale-sets/
-  - name: 虚拟机
-    tocHref: /virtual-machines/
-    topicHref: /virtual-machines/
-    items:
-      - name: 工作负荷
-        tocHref: /virtual-machines/workloads/
-        topicHref: /virtual-machines/workloads/sap/get-started
-        items:
-          - name: SAP
-            tocHref: /virtual-machines/workloads/sap/
-            topicHref: /virtual-machines/workloads/sap/get-started
-      - name: Linux
-        tocHref: /virtual-machines/linux/
-        topicHref: /virtual-machines/linux/
-        items:
-          - name: 经典部署
-            tocHref: /virtual-machines/linux/classic/
-            topicHref: /virtual-machines/linux/classic/
-      - name: Windows
-        tocHref: /virtual-machines/windows/
-        topicHref: /virtual-machines/windows/
-        items:
-          - name: 经典部署
-            tocHref: /virtual-machines/windows/classic/
-            topicHref: /virtual-machines/windows/classic/
-  - name: 虚拟网络
-    tocHref: /virtual-network/
-    topicHref: /virtual-network/
-  - name: VPN 网关
-    tocHref: /vpn-gateway/
-    topicHref: /vpn-gateway/
+    - name: Active Directory
+      tocHref: /active-directory/
+      topicHref: /active-directory/
+      items:
+        - name: 连接
+          tocHref: /active-directory/connect/
+          topicHref: /active-directory/connect/
+        - name: Connect Health
+          tocHref: /active-directory/connect-health/
+          topicHref: /active-directory/connect-health/
+        - name: 开发
+          tocHref: /active-directory/develop/
+          topicHref: /active-directory/develop/
+        - name: Privileged Identity Management
+          tocHref: /active-directory/privileged-identity-management/
+          topicHref: /active-directory/privileged-identity-management/
+    - name: 应用服务
+      tocHref: /app-service/
+      topicHref: /app-service/
+      items:
+        - name: Web 应用
+          tocHref: /app-service-web/
+          topicHref: /app-service-web/
+        - name: Mobile Apps
+          tocHref: /app-service-mobile/
+          topicHref: /app-service-mobile/
+        - name: API Apps
+          tocHref: /app-service-api/
+          topicHref: /app-service-api/
+    - name: 应用程序网关
+      tocHref: /application-gateway/
+      topicHref: /application-gateway/
+    - name: 自动化
+      tocHref: /automation/
+      topicHref: /automation/
+    - name: 门户
+      tocHref: /azure-portal/
+      topicHref: /azure-portal/
+    - name: Resource Manager
+      tocHref: /azure-resource-manager/
+      topicHref: /azure-resource-manager/
+    - name: 备份
+      tocHref: /backup/
+      topicHref: /backup/
+    - name: 批处理
+      tocHref: /batch/
+      topicHref: /batch/
+    - name: 缓存
+      tocHref: /cache/
+      topicHref: /cache/
+    - name: CDN
+      tocHref: /cdn/
+      topicHref: /cdn/
+    - name: 云服务
+      tocHref: /cloud-services/
+      topicHref: /cloud-services/
+    - name: 认知服务
+      tocHref: /cognitive-services/
+      topicHref: /cognitive-services/
+    - name: CosmosDB
+      tocHref: /cosmos-db/
+      topicHref: /cosmos-db/
+    - name: 事件中心
+      tocHref: /event-hubs/
+      topicHref: /event-hubs/
+    - name: Expressroute
+      tocHref: /expressroute/
+      topicHref: /expressroute/
+    - name: HDInsight
+      tocHref: /hdinsight/
+      topicHref: /hdinsight/
+    - name: IoT 中心
+      tocHref: /iot-hub/
+      topicHref: /iot-hub/
+    - name: IoT 套件
+      tocHref: /iot-suite/
+      topicHref: /iot-suite/
+    - name: 密钥保管库
+      tocHref: /key-vault/
+      topicHref: /key-vault/
+    - name: 负载均衡器
+      tocHref: /load-balancer/
+      topicHref: /load-balancer/
+    - name: 媒体服务
+      tocHref: /media-services/
+      topicHref: /media-services/
+    - name: 移动服务
+      tocHref: /mobile-services/
+      topicHref: /mobile-services/
+    - name: 监视和诊断
+      tocHref: /monitoring-and-diagnostics/
+      topicHref: /monitoring-and-diagnostics/
+    - name: 多重身份验证
+      tocHref: /multi-factor-authentication/
+      topicHref: /multi-factor-authentication/
+      items:
+        - name: 用户指南
+          tocHref: /multi-factor-authentication/end-user/
+          topicHref: /multi-factor-authentication/end-user/
+    - name: 通知中心
+      tocHref: /notification-hubs/
+      topicHref: /notification-hubs/
+    - name: Power BI Embedded
+      tocHref: /power-bi-embedded/
+      topicHref: /power-bi-embedded/
+    - name: Redis 缓存
+      tocHref: /redis-cache/
+      topicHref: /redis-cache/
+    - name: 复原能力
+      tocHref: /resiliency/
+      topicHref: /resiliency/
+    - name: 计划程序
+      tocHref: /scheduler/
+      topicHref: /scheduler/
+    - name: “安全”
+      tocHref: /security/
+      topicHref: /security/
+    - name: 服务总线
+      tocHref: /service-bus/
+      topicHref: /service-bus/
+    - name: 服务总线消息传送
+      tocHref: /service-bus-messaging/
+      topicHref: /service-bus-messaging/
+    - name: Service Bus 中继
+      tocHref: /service-bus-relay/
+      topicHref: /service-bus-relay/
+    - name: Service Fabric
+      tocHref: /service-fabric/
+      topicHref: /service-fabric/
+    - name: 站点恢复
+      tocHref: /site-recovery/
+      topicHref: /site-recovery/
+    - name: SQL 数据仓库
+      tocHref: /sql-data-warehouse/
+      topicHref: /sql-data-warehouse/
+    - name: SQL 数据库
+      tocHref: /sql-database/
+      topicHref: /sql-database/
+    - name: SQL Server Stretch Database
+      tocHref: /sql-server-stretch-database/
+      topicHref: /sql-server-stretch-database/
+    - name: 存储
+      tocHref: /storage/
+      topicHref: /storage/
+    - name: 流分析
+      tocHref: /stream-analytics/
+      topicHref: /stream-analytics/
+    - name: 流量管理器
+      tocHref: /traffic-manager/
+      topicHref: /traffic-manager/
+    - name: 虚拟机规模集
+      tocHref: /virtual-machine-scale-sets/
+      topicHref: /virtual-machine-scale-sets/
+    - name: 虚拟机
+      tocHref: /virtual-machines/
+      topicHref: /virtual-machines/
+      items:
+        - name: 工作负荷
+          tocHref: /virtual-machines/workloads/
+          topicHref: /virtual-machines/workloads/sap/get-started
+          items:
+            - name: SAP
+              tocHref: /virtual-machines/workloads/sap/
+              topicHref: /virtual-machines/workloads/sap/get-started
+        - name: Linux
+          tocHref: /virtual-machines/linux/
+          topicHref: /virtual-machines/linux/
+          items:
+            - name: 经典部署
+              tocHref: /virtual-machines/linux/classic/
+              topicHref: /virtual-machines/linux/classic/
+        - name: Windows
+          tocHref: /virtual-machines/windows/
+          topicHref: /virtual-machines/windows/
+          items:
+            - name: 经典部署
+              tocHref: /virtual-machines/windows/classic/
+              topicHref: /virtual-machines/windows/classic/
+    - name: 虚拟网络
+      tocHref: /virtual-network/
+      topicHref: /virtual-network/
+    - name: VPN 网关
+      tocHref: /vpn-gateway/
+      topicHref: /vpn-gateway/

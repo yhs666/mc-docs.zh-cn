@@ -13,16 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 origin.date: 06/13/2017
-ms.date: 07/17/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
-ms.openlocfilehash: f03da6f5c2d70e2787d8199271734f67a5a731b8
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: 334595899ef2e199bdea75baab240a2a0cc0e30c
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 使用 IDENTITY 创建代理键
-<a id="creating-surrogate-keys-using-identity" class="xliff"></a>
+# <a name="create-surrogate-keys-by-using-identity"></a>使用 IDENTITY 创建代理键
 > [!div class="op_single_selector"]
 > * [概述][Overview]
 > * [数据类型][Data Types]
@@ -35,11 +34,10 @@ ms.lasthandoff: 07/05/2017
 > 
 > 
 
-许多数据建模者在设计数据仓库模型时希望在其表上创建代理键。 可以使用 IDENTITY 属性简单有效地实现此目标，且不会影响加载性能。 
+许多数据建模者想要在设计数据仓库模型时在其表上创建代理键。 可以使用 IDENTITY 属性轻松高效地实现此目标，而不会影响负载性能。 
 
-## 标识入门
-<a id="getting-started-with-identity" class="xliff"></a>
-首次创建表时，可以使用类似于以下语句的语法将表定义为具有 IDENTITY 属性：
+## <a name="get-started-with-identity"></a>IDENTITY 入门
+在首次使用类似以下语句的语法创建表时，可以将表定义为具有 IDENTITY 属性：
 
 ```sql
 CREATE TABLE dbo.T1
@@ -55,15 +53,13 @@ WITH
 
 然后，可以使用 `INSERT..SELECT` 来填充表。
 
-## 行为
-<a id="behavior" class="xliff"></a>
-IDENTITY 属性用于在数据仓库中的所有分布区上进行扩展，不会影响加载性能。 因此，IDENTITY 的实现是朝着这些目标努力的。 本部分重点介绍了实现的微妙之处，以帮助你更全面地了解它们。  
+## <a name="behavior"></a>行为
+IDENTITY 属性设计为能够在数据仓库的所有分布区中扩展，不会影响负载性能。 因此，IDENTITY 的实现旨在实现这些目标。 本部分重点介绍了实现的微妙之处，以帮助你更全面地了解它们。  
 
-### 值的分配
-<a id="allocation-of-values" class="xliff"></a>
-IDENTITY 属性不保证分配代理值时采用的顺序；这反映了 SQL Server 和 SQL DB 的行为。 但是，在 SQL 数据仓库中，无保证情况更加明显。 
+### <a name="allocation-of-values"></a>值的分配
+IDENTITY 属性不保证分配代理值的顺序，这反映了 SQL Server 和 Azure SQL 数据库的行为。 但是，在 Azure SQL 数据仓库中，保证的缺乏更为明显。 
 
-请参考以下示例进行理解：
+以下示例对此做了演示：
 
 ```sql
 CREATE TABLE dbo.T1
@@ -88,33 +84,29 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-请务必注意，分布区 1 中已经到达了两行。 第一行在 `C1` 列中具有代理值 1，第二行具有代理值 61。 这两个值都是由 IDENTITY 属性生成的。 但是，值的分配不是连续的。 此行为是设计使然。
+在前面的示例中，两行位于分布 1 中。 第一行在列 `C1` 中包含代理值 1，且第二行包含代理值 61。 这两个值均由 IDENTITY 属性生成。 但是，值的分配不是连续的。 此行为是设计使然。
 
-### 倾斜的数据
-<a id="skewed-data" class="xliff"></a> 
-数据类型的值范围在各个分布区之间是均匀分配的。 如果某个分布式表存在数据倾斜，则可供该数据类型使用的值范围可能已过早地耗尽。 例如，如果所有数据都在单个分布区中用完，则该表实际上只能访问数据类型的值的 1/60。 出于此原因，IDENTITY 属性仅限用于 `INT` 和 `BIGINT` 数据类型。
+### <a name="skewed-data"></a>倾斜的数据 
+数据类型的值范围在各个分布区之间是均匀分配的。 如果分布式表受偏斜数据的影响，则可用于数据类型的值范围可能会过早耗尽。 例如，如果所有数据最终都会处于单个分发中，则表实际上只能访问六十分之一的数据类型值。 出于此原因，IDENTITY 属性仅限用于 `INT` 和 `BIGINT` 数据类型。
 
-### SELECT..INTO
-<a id="selectinto" class="xliff"></a>
-将某个现有标识列选入新表时，新列将继承 IDENTITY 属性，除非下列情况之一属实：
-- SELECT 语句包含联接
-- 使用 UNION 联接了多个 SELECT 语句
-- 标识列在 select 列表中列出了多次
-- 标识列是表达式的一部分
+### <a name="selectinto"></a>SELECT..INTO
+在将现有的 IDENTITY 列选入新表时，新列将继承该 IDENTITY 属性，除非下列条件之一为 true：
+- SELECT 语句包含联接。
+- 使用 UNION 联接多个 SELECT 语句。
+- IDENTITY 列在 SELECT 列表中多次列出。
+- IDENTITY 列是表达式的一部分。
 
-如果这些情况有任何一种属实，则列将创建为 NOT NULL 而非继承 IDENTITY 属性
+如果其中的任一条件为 true，则创建属性为 NOT NULL 的列，而不继承 IDENTITY 属性。
 
-### CREATE TABLE AS SELECT (CTAS)
-<a id="create-table-as-select-ctas" class="xliff"></a>
-CTAS 遵循针对 SELECT..INTO 记录的同一 SQL Server 行为。 但是，不能在语句本身的 `CREATE TABLE` 部分的列定义中指定 IDENTITY 属性。 也不能在 CTAS 的 `SELECT` 部分中使用 IDENTITY 函数。 若要填充表，需要使用 `CREATE TABLE` 来定义表，后跟 `INSERT..SELECT` 来填充该表。
+### <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
+CREATE TABLE AS SELECT (CTAS) 遵循 SELECT..INTO 中记录的相同 SQL Server 行为。 但是，不能指定语句的 `CREATE TABLE` 部分的列定义中的 IDENTITY 属性。 同样，也不能在 CTAS 的 `SELECT` 部分中使用 IDENTITY 函数。 若要填充表，需要使用 `CREATE TABLE` 来定义后跟 `INSERT..SELECT` 的表来进行填充。
 
-## 显式将值插入到 IDENTITY 列
-<a id="explicit-insertion-of-values-into-an-identity-column" class="xliff"></a> 
+## <a name="explicitly-insert-values-into-an-identity-column"></a>将值显式插入到 IDENTITY 列 
 SQL 数据仓库支持 `SET IDENTITY_INSERT <your table> ON|OFF` 语法。 可以使用此语法显式将值插入到 IDENTITY 列中。
 
-许多数据建模者希望为其维度中的某些行使用预定义的负值。 -1 或“未知成员”行是一个典型的示例。 
+许多数据建模者喜欢在其维度中为某些行使用预定义的负值。 例如，-1 或“未知成员”行。 
 
-下一个脚本展示了如何使用 SET IDENTITY_INSERT 显式添加此行：
+下一个脚本演示如何使用 SET IDENTITY_INSERT 显式添加此行：
 
 ```sql
 SET IDENTITY_INSERT dbo.T1 ON;
@@ -133,14 +125,12 @@ FROM    dbo.T1
 ;
 ```    
 
-## 将数据加载到包含 IDENTITY 的表中
-<a id="loading-data-into-a-table-with-identity" class="xliff"></a>
+## <a name="load-data-into-a-table-with-identity"></a>将数据加载到具有 IDENTITY 的表
 
-IDENTITY 属性的存在对数据加载代码有一些影响。 下一部分重点介绍了将数据加载到使用 IDENTITY 的表时可使用的一些基本模式。 
+IDENTITY 属性的存在对数据加载代码有一定影响。 本节重点介绍使用 IDENTITY 将数据加载到表中的一些基本模式。 
 
-### 使用 PolyBase 加载数据
-<a id="loading-with-polybase" class="xliff"></a>
-若要将数据加载到表中并使用 IDENTITY 生成代理键，必须先创建表，然后使用 INSERT..SELECT 或 INSERT..VALUES 执行加载。
+### <a name="load-data-with-polybase"></a>使用 PolyBase 加载数据
+若要使用 IDENTITY 将数据加载到表中并生成代理键，请创建表，然后使用 INSERT..SELECT 或 INSERT..VALUES 执行加载。
 
 下面的示例重点介绍了基本模式：
 
@@ -171,30 +161,28 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
 > [!NOTE] 
-> 当前，将数据加载到包含 IDENTITY 列的表中时，无法使用 `CREATE TABLE AS SELECT`
+> 在将数据加载到包含 IDENTITY 列的表时，当前无法使用 `CREATE TABLE AS SELECT`。
 > 
 
-有关使用 bcp 加载数据的详细信息，请参阅以下文章：
+有关使用大容量复制程序 (BCP) 工具加载数据的详细信息，请参阅以下文章：
 
 - [使用 PolyBase 加载数据][]
 - [PolyBase 最佳做法][]
 
-### 使用 bcp 加载数据
-<a id="loading-with-bcp" class="xliff"></a>
-大容量复制程序 (bcp) 是一个命令行实用工具，可以用来将数据加载到 SQL 数据仓库中。 其参数之一 (-E) 控制当将数据加载到包含 IDENTITY 列的表时 bcp 的行为。 
+### <a name="load-data-with-bcp"></a>使用 BCP 加载数据
+BCP 是一个命令行工具，可用于将数据加载到 SQL 数据仓库。 在将数据加载到包含 IDENTITY 列的表中时，其中一个参数 (-E) 控制 BCP 的行为。 
 
-当指定了 -E 时，将保留输入文件中为包含 IDENTITY 的列存储的值。 如果未指定 -E，则会忽略此列中的值。 如果未包括标识列，则会照常加载数据。 将根据属性的增量和种子策略来生成值。
+在指定 -E 后，会保留输入文件中为 IDENTITY 列保留的值。 如果未指定 -E，则会忽略此列中的值。 如果未包括标识列，则会照常加载数据。 将根据属性的增量和种子策略来生成值。
 
-有关使用 bcp 加载数据的详细信息，请参阅以下文章：
+有关使用 BCP 加载数据的详细信息，请参阅以下文章：
 
-- [使用 bcp 加载数据][]
-- [MSDN 中的 bcp][]
+- [使用 BCP 加载][]
+- [MSDN 中的 BCP][]
 
-## 目录视图
-<a id="catalog-views" class="xliff"></a>
-SQL 数据仓库支持 `sys.identity_columns` 目录视图。 可以使用此视图将某个列标识为具有 IDENTITY 属性。
+## <a name="catalog-views"></a>目录视图
+SQL 数据仓库支持 `sys.identity_columns` 目录视图。 此视图可用于标识具有 IDENTITY 属性的列。
 
-有关如何将 `sys.identity_columns` 与其他系统目录视图进行集成的示例可以帮助你更好地理解数据库架构。
+为了帮助更好地了解数据库架构，本示例演示如何将 `sys.identity_columns` 与其他系统目录视图集成：
 
 ```sql
 SELECT  sm.name
@@ -214,12 +202,11 @@ AND     tb.name = 'T1'
 ;
 ```
 
-## 限制
-<a id="limitations" class="xliff"></a>
-IDENTITY 属性不能用于下列情况中：
-- 列数据类型不是 INT 或 BIGINT
-- 列同时是分发键
-- 表是外部表 
+## <a name="limitations"></a>限制
+不能在以下方案中使用 IDENTITY 属性：
+- 其中的列数据类型不是 INT 或 BIGINT
+- 其中的列也同样是分发键
+- 其中的表是外部表 
 
 SQL 数据仓库中不支持以下相关函数：
 
@@ -231,17 +218,15 @@ SQL 数据仓库中不支持以下相关函数：
 - [IDENT_SEED][]
 - [DBCC CHECK_IDENT()][]
 
-## 任务
-<a id="tasks" class="xliff"></a>
+## <a name="tasks"></a>任务
 
-本部分提供了在使用 IDENTITY 列时用于执行常见任务的一些示例代码。
+本部分提供在使用 IDENTITY 列时可用于执行常见任务的一些示例代码。
 
 > [!NOTE] 
 > 在下列所有任务中，C1 列都是 IDENTITY。
 > 
 
-### 查找表的最高已分配值
-<a id="find-the-highest-allocated-value-for-a-table" class="xliff"></a>
+### <a name="find-the-highest-allocated-value-for-a-table"></a>查找表的最高已分配值
 可以使用 `MAX()` 函数来确定为分布式表分配的最高值：
 
 ```sql
@@ -249,9 +234,8 @@ SELECT  MAX(C1)
 FROM    dbo.T1
 ``` 
 
-### 查找标识属性的种子和增量
-<a id="find-the-seed-and-increment-for-the-identity-property" class="xliff"></a>
-可以通过以下查询使用目录视图来查明表的标识增量和种子配置值： 
+### <a name="find-the-seed-and-increment-for-the-identity-property"></a>查找 IDENTITY 属性的种子和增量
+目录视图可用于通过使用以下查询来发现表的标识增量和种子配置值： 
 
 ```sql
 SELECT  sm.name
@@ -269,10 +253,10 @@ AND     tb.name = 'T1'
 ;
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
-若要详细了解如何开发表，请参阅有关[表概述][Overview]、[表数据类型][Data Types]、[分布表][Distribute]、[为表编制索引][Index]、[对表进行分区][Partition]和[临时表][Temporary]的文章。  有关最佳实践的详细信息，请参阅 [SQL 数据仓库最佳实践][SQL Data Warehouse Best Practices]。  
+* 若要了解有关开发表的详细信息，请参阅[表概述][Overview]、[表数据类型][Data Types]、[分布表][Distribute]、[为表编制索引][Index]、[将表分区][Partition]和[临时表][Temporary]。 
+* 有关最佳做法的详细信息，请参阅 [SQL 数据仓库最佳做法][SQL Data Warehouse Best Practices]。  
 
 <!--Image references-->
 
@@ -292,16 +276,18 @@ AND     tb.name = 'T1'
 [PolyBase 最佳做法]: /sql-data-warehouse/sql-data-warehouse-load-polybase-guide/
 
 <!--MSDN references-->
-[Identity property]: https://msdn.microsoft.com/zh-cn/library/ms186775.aspx
-[sys.identity_columns]: https://msdn.microsoft.com/zh-cn/library/ms187334.aspx
-[IDENTITY()]: https://msdn.microsoft.com/zh-cn/library/ms189838.aspx
-[@@IDENTITY]: https://msdn.microsoft.com/zh-cn/library/ms187342.aspx
-[SCOPE_IDENTITY]: https://msdn.microsoft.com/zh-cn/library/ms190315.aspx
-[IDENT_CURRENT]: https://msdn.microsoft.com/zh-cn/library/ms175098.aspx
-[IDENT_INCR]: https://msdn.microsoft.com/zh-cn/library/ms189795.aspx
-[IDENT_SEED]: https://msdn.microsoft.com/zh-cn/library/ms189834.aspx
-[DBCC CHECK_IDENT()]: https://msdn.microsoft.com/zh-cn/library/ms176057.aspx
+[Identity property]: https://msdn.microsoft.com/library/ms186775.aspx
+[sys.identity_columns]: https://msdn.microsoft.com/library/ms187334.aspx
+[IDENTITY()]: https://msdn.microsoft.com/library/ms189838.aspx
+[@@IDENTITY]: https://msdn.microsoft.com/library/ms187342.aspx
+[SCOPE_IDENTITY]: https://msdn.microsoft.com/library/ms190315.aspx
+[IDENT_CURRENT]: https://msdn.microsoft.com/library/ms175098.aspx
+[IDENT_INCR]: https://msdn.microsoft.com/library/ms189795.aspx
+[IDENT_SEED]: https://msdn.microsoft.com/library/ms189834.aspx
+[DBCC CHECK_IDENT()]: https://msdn.microsoft.com/library/ms176057.aspx
 
-[MSDN 中的 bcp]: https://msdn.microsoft.com/zh-cn/library/ms162802.aspx
+[MSDN 中的 bcp]: https://msdn.microsoft.com/library/ms162802.aspx
 
 <!--Other Web references-->
+
+<!--Update_Description: wording update-->

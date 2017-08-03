@@ -15,16 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 07/24/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 77d77da527d3a18fd75b3ff390e0913729dc2210
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 7b66857bce6ba698d35955b0f16ffa4f740c821c
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-applications-remotely-on-hdinsight-spark-through-vpn"></a>使用用于 IntelliJ 的 Azure 工具包通过 VPN 在 HDInsight Spark 上远程调试应用程序
-本文提供有关如何在 HDInsight Spark 群集上使用 Azure Toolkit for IntelliJ 中的 HDInsight 工具插件提交 Spark 作业，然后从台式机远程调试该作业的逐步指导。 为此，必须执行以下概要步骤：
+
+我们建议通过 ssh 远程调试 spark 应用程序的方式。 有关说明，[通过 SSH 使用用于 IntelliJ 的 Azure 工具包在 HDInsight 群集上远程调试 Spark 应用程序](/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)。
+
+本文提供有关如何在 HDInsight Spark 群集上使用 Azure Toolkit for IntelliJ 中的 HDInsight 工具插件提交 Spark 作业，并从台式机远程调试该作业的逐步指导。 为此，必须执行以下概要步骤：
 
 1. 创建站点到站点或点到站点 Azure 虚拟网络。 本文档中的步骤假设你使用站点到站点网络。
 2. 在 Azure HDInsight 中创建属于站点到站点 Azure 虚拟网络一部分的 Spark 群集。
@@ -91,7 +94,7 @@ ms.lasthandoff: 07/14/2017
 2. 在下一个窗口中提供以下项目详细信息，然后单击“完成”。  
    - 提供项目名称和项目位置。
    - 对于“项目 SDK”，请使用适用于 Spark 2.x 群集的 Java 1.8，以及适用于 Spark 1.x 群集的 Java 1.7。
-   - 对于“Spark 版本”，Scala 项目创建向导将集成 Spark SDK 和 Scala IDE 的适当版本。 如果 Spark 群集版本低于 2.0，请选择“Spark 1.x”。 否则，应选择“Spark 2.x”。 本示例使用 Spark2.0.2 (Scala 2.11.8)。
+   - 对于“Spark 版本”，Scala 项目创建向导将集成 Spark SDK 和 Scala SDK 的适当版本。 如果 Spark 群集版本低于 2.0，请选择“Spark 1.x”。 否则，应选择“Spark 2.x”。 本示例使用 Spark2.0.2 (Scala 2.11.8)。
        ![创建 Spark Scala 应用程序](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely-through-vpn/hdi-scala-project-details.png)
 
 3. Spark 项目将自动为你创建一个项目。 若要查看该项目，请遵循以下步骤。
@@ -197,7 +200,7 @@ ms.lasthandoff: 07/14/2017
                                      .setMaster("yarn-client")
                                      .set("spark.yarn.am.extraJavaOptions", "-Dhdp.version=2.4")
                                      .set("spark.yarn.jar", "wasbs:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")
-                                     .setJars(Seq("""C:\WORK\IntelliJApps\MyClusterApp\out\artifacts\MyClusterApp_DefaultArtifact\default_artifact.jar"""))
+                                     .setJars(Seq("""C:\workspace\IdeaProjects\MyClusterApp\out\artifacts\MyClusterApp_DefaultArtifact\default_artifact.jar"""))
                                      .set("spark.hadoop.validateOutputSpecs", "false")
            val sc = new SparkContext(conf)
 
@@ -210,7 +213,7 @@ ms.lasthandoff: 07/14/2017
      此处需要注意几个要点：
 
    * 对于. `.set("spark.yarn.jar", "wasbs:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`，请确保 Spark 程序集 JAR 可在指定路径上的群集存储中使用。
-   * 对于 `setJars`，指定将创建项目 jar 的位置。 这通常是 `<Your IntelliJ project directory>\out\<project name>_DefaultArtifact\default_artifact.jar`。
+   * 对于 `setJars`，指定要创建项目 jar 的位置。 这通常是 `<Your IntelliJ project directory>\out\<project name>_DefaultArtifact\default_artifact.jar`。
 12. 在 `RemoteClusterDebugging` 类中，右键单击 `test` 关键字，然后选择“创建 RemoteClusterDebugging 配置”。
 
     ![创建远程配置](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely-through-vpn/create-remote-config.png)
@@ -251,6 +254,10 @@ ms.lasthandoff: 07/14/2017
 ## <a name="seealso"></a>另请参阅
 * [概述：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)
 
+### <a name="demo"></a>演示
+* 创建 Scala 项目（视频）：[创建 Spark Scala 应用程序](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* 远程调试（视频）：[使用用于 IntelliJ 的 Azure 工具包在 HDInsight Spark 群集上远程调试 Spark 应用程序](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+
 ### <a name="scenarios"></a>方案
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
@@ -264,7 +271,8 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="tools-and-extensions"></a>工具和扩展
 * [使用用于 IntelliJ 的 Azure 工具包中的 HDInsight 工具创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [使用用于 IntelliJ 的 Azure 工具包在 HDInsight 群集上远程调试 Spark 应用程序](hdinsight-apache-spark-intellij-tool-debug-remotely.md)
+* [通过 SSH 使用用于 IntelliJ 的 Azure 工具包远程调试 Spark 应用程序](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [将用于 IntelliJ 的 HDInsight 工具与 Hortonworks 沙盒配合使用](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [使用用于 Eclipse 的 Azure 工具包中的 HDInsight 工具创建 Spark 应用程序](hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-zeppelin-notebook.md)
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
@@ -274,3 +282,5 @@ ms.lasthandoff: 07/14/2017
 ### <a name="manage-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](hdinsight-apache-spark-job-debugging.md)
+
+<!--Update_Description: wording update-->

@@ -1,5 +1,5 @@
 ---
-title: "运行 HDInsight 上的 jar 文件中的 Hadoop MapReduce 示例 - Azure | Azure"
+title: "运行 HDInsight 上的 Hadoop MapReduce 示例 - Azure | Azure"
 description: "开始使用 HDInsight 包含的 jar 文件中的 MapReduce 示例。 使用 SSH 连接到群集，然后使用 Hadoop 命令来运行示例作业。"
 keywords: "hadoop 示例 jar,hadoop 示例 jar,hadoop mapreduce 示例,mapreduce 示例"
 services: hdinsight
@@ -15,20 +15,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/03/2017
-ms.date: 07/24/2017
+origin.date: 06/26/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: cbe1a0725df443e01f04de11b7ea76fa98ba7303
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 94a48c81df8b8360c9e20c82dd5ceb19b6717301
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
-# <a name="run-the-mapreduce-examples-in-jar-files-included-in-hdinsight"></a>运行 HDInsight 包含的 jar 文件中的 Mapreduce 示例
+# <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>运行 HDInsight 包含的 MapReduce 示例
 
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-了解 HDInsight 上的 jar 文件中包含的 MapReduce 示例，以及如何在 Hadoop 群集上运行这些示例。
+了解如何运行 Hadoop on HDInsight 随附的 MapReduce 示例。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 07/14/2017
 * **HDInsight 群集**：请参阅[在 Linux 上的 HDInsight 中开始将 Hadoop 与 Hive 配合使用](hdinsight-hadoop-linux-tutorial-get-started.md)
 
     > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * **SSH 客户端**：有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -47,28 +47,28 @@ ms.lasthandoff: 07/14/2017
 
 **内容**：下面的示例都包含在该存档文件中：
 
-* **aggregatewordcount**：基于聚合的映射/化简程序，用于计算输入文件中单词的数目。
-* **aggregatewordhist**：基于聚合的映射/化简程序，用于计算输入文件中单词的直方图。
-* **bbp**：一种映射/化简程序，使用 Bailey-Borwein-Plouffe 来计算 Pi 的精确位数。
-* **dbcount**：一个作业示例，用于计算存储在数据库中的 pageview 日志数。
-* **distbbp**：一种映射/化简程序，使用 BBP 类型的公式来计算 Pi 的精确位数。
-* **grep**：一种映射/化简程序，用于计算输入中某个正则表达式的匹配数。
-* **grep**：一种作业，可以将经过排序且等分的数据集联接起来。
-* **multifilewc**：一种作业，可计算多个文件中的单词数。
-* **pentomino**：一种映射/化简平铺排列程序，用于查找五格拼板问题的解决方案。
-* **pi**：一种映射/化简程序，可使用拟蒙特卡罗法估算 Pi 值。
-* **randomtextwriter**：一种映射/化简程序，可以为每个节点写入 10 GB 的随机文本数据。
-* **randomwriter**：一种映射/化简程序，可为每个节点写入 10 GB 的随机数据。
-* **secondarysort**：一个示例，用于定义化简阶段的次级排序。
-* **sort**：一种映射/化简程序，用于对随机写入器所写入的数据进行排序。
-* **sudoku**：数独解算器。
-* **teragen**：为 terasort 生成数据。
-* **terasort**：运行 terasort。
-* **teravalidate**：检查 terasort 的结果。
-* **wordcount**：一种映射/化简程序，用于计算输入文件中的单词数。
-* **wordmean**：一种映射/化简程序，用于计算输入文件中单词的平均长度。
-* **wordmedian**：一种映射/化简程序，用于计算输入文件中单词的中间长度。
-* **wordstandarddeviation**：一种映射/化简程序，用于计算输入文件中单词长度的标准差。
+* `aggregatewordcount`：基于聚合的 mapreduce 程序，用于计算输入文件中单词的数目。
+* `aggregatewordhist`：基于聚合的 mapreduce 程序，用于计算输入文件中单词的直方图。
+* `bbp`：一个 mapreduce 程序，使用 Bailey-Borwein-Plouffe 来计算 Pi 的精确位数。
+* `dbcount`：一个作业示例，用于计算存储在数据库中的 pageview 日志数。
+* `distbbp`：一个 mapreduce 程序，使用 BBP 类型的公式来计算 Pi 的精确位数。
+* `grep`：一个 mapreduce 程序，用于计算输入中某个正则表达式的匹配数。
+* `join`：一个作业，可将经过排序且等分的数据集联接起来。
+* `multifilewc`：一个作业，可计算多个文件中的单词数。
+* `pentomino`：一个 mapreduce 平铺排列程序，用于查找五格拼板问题的解决方案。
+* `pi`：一个 mapreduce 程序，可使用拟蒙特卡罗法估算 Pi 值。
+* `randomtextwriter`：一个 mapreduce 程序，可以为每个节点写入 10 GB 的随机文本数据。
+* `randomwriter`：一个 mapreduce 程序，可为每个节点写入 10 GB 的随机数据。
+* `secondarysort`：一个示例，用于定义化简阶段的次级排序。
+* `sort`：一个 mapreduce 程序，用于对随机写入器所写入的数据进行排序。
+* `sudoku`：数独解算器。
+* `teragen`：为 terasort 生成数据。
+* `terasort`：运行 terasort。
+* `teravalidate`：检查 terasort 的结果。
+* `wordcount`：一个 mapreduce 程序，用于计算输入文件中的单词数。
+* `wordmean`：一个 mapreduce 程序，用于计算输入文件中单词的平均长度。
+* `wordmedian`：一个 mapreduce 程序，用于计算输入文件中单词的中间长度。
+* `wordstandarddeviation`：一个 mapreduce 程序，用于计算输入文件中单词长度的标准差。
 
 **Source code**：这些示例的源代码包含在 `/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples` 处的 HDInsight 群集上。
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 07/14/2017
 
     此消息表示可以为源文档提供多个输入路径。 最后的路径是存储输出（源文档中的单词数）的位置。
 
-4. 使用以下语句来计算《达芬奇笔记》（已作为示例数据提供给你的群集）中所有单词的数目：
+4. 使用以下语句来计算《达芬奇笔记》（已作为示例数据提供给群集）中所有单词的数目：
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
@@ -165,7 +165,7 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 ## <a name="pi--example"></a>Pi (π) 示例
 
-该示例使用统计学方法（拟蒙特卡罗法）来估算 pi 值。 点随机置于单位正方形中。 正方形还包含一个圆圈。 点位于圆圈中的概率等于圆圈面积 pi/4。 可以从 4R 的值来估算 pi 的值，其中 R 是落入圆圈内的点数与平方形内总点数的比率。 所使用的取样点越多，估算值越准确。
+该示例使用统计学方法（拟蒙特卡罗法）来估算 pi 值。 点随机置于单位正方形中。 正方形还包含一个圆圈。 点位于圆圈中的概率等于圆圈面积 pi/4。 可以基于 4R 的值估算 pi 的值。 R 是落入圆圈内的点数与正方形内总点数的比率。 所使用的取样点越多，估算值越准确。
 
 请使用以下命令运行此示例。 该命令使用 16 个映射（每个映射 10,000,000 个示例）来估算 pi 值：
 
@@ -173,13 +173,13 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
 ```
 
-此命令返回的值应类似于 **3.14159155000000000000**。 例如，pi 采用前 10 位小数时为 3.1415926535。
+此命令返回的值类似于 **3.14159155000000000000**。 例如，pi 采用前 10 位小数时为 3.1415926535。
 
 ## <a name="10-gb-greysort-example"></a>10 GB Greysort 示例
 
-GraySort 是一个基准排序，其指标为在给巨量数据（通常至少 100 TB）排序时达到的排序速率（TB/分钟）。
+GraySort 是一种基准排序。 该指标是在给大量数据（通常至少 100 TB）排序时达到的排序速率（TB/分钟）。
 
-此示例使用适中的 10 GB 数据，这样它运行时能相对快一点。 它使用由 Owen O'Malley 和 Arun Murthy 开发的 MapReduce 应用程序，此应用程序以 0.578 TB/分钟（100 TB 用时 173 分钟）的速率赢得了 2009 年年度常用（“daytona”）TB 级排序基准。 有关这一排序基准和其他排序基准的详细信息，请参阅 [Sortbenchmark](http://sortbenchmark.org/) 站点。
+此示例使用适中的 10 GB 数据，这样它运行时能相对快一点。 它使用由 Owen O'Malley 和 Arun Murthy 开发的 MapReduce 应用程序。 这些应用程序以 0.578 TB/分钟（100 TB 用时 173 分钟）的速率赢得了 2009 年常用（“daytona”）TB 级排序基准。 有关这一排序基准和其他排序基准的详细信息，请参阅 [Sortbenchmark](http://sortbenchmark.org/) 站点。
 
 本示例使用三组 MapReduce 程序：
 
@@ -187,7 +187,7 @@ GraySort 是一个基准排序，其指标为在给巨量数据（通常至少 1
 
 * **TeraSort**：以输入数据为例，使用 MapReduce 将数据排序到总序中
 
-    TeraSort 是一种标准 MapReduce 排序，但自定义的分区程序除外，此分区程序使用 N-1 个抽样键（用于定义每次简化的键范围）的已排序列表。 具体说来，sample[i-1] <= key < sample[i] 的所有键都将会发送到化简变量 i。 这样可确保化简变量 i 的输出全都小于化简变量 i+1 的输出。
+    TeraSort 是标准的 MapReduce 排序，但自定义的分区程序除外。 此分区程序使用 N-1 个抽样键（用于定义每次简化的键范围）的排序列表。 具体说来，sample[i-1] <= key < sample[i] 的所有键都将会发送到化简变量 i。 此分区程序可确保化简变量 i 的输出全都小于化简变量 i+1 的输出。
 
 * **TeraValidate**：一个 MapReduce 程序，用于验证输出是否已全局排序
 
@@ -201,7 +201,7 @@ GraySort 是一个基准排序，其指标为在给巨量数据（通常至少 1
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
     ```
 
-    `-Dmapred.map.tasks` 告诉 Hadoop 多少个映射任务将用于此作业。 最后两个参数指示作业创建 10 GB 大小的数据并将其存储在 `/example/data/10GB-sort-input` 处。
+    `-Dmapred.map.tasks` 告诉 Hadoop 多少个映射任务用于此作业。 最后两个参数指示作业创建 10 GB 大小的数据并将其存储在 `/example/data/10GB-sort-input` 处。
 
 2. 使用以下命令对数据排序：
 
@@ -209,7 +209,7 @@ GraySort 是一个基准排序，其指标为在给巨量数据（通常至少 1
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
     ```
 
-    `-Dmapred.reduce.tasks` 告诉 Hadoop 多少个化简任务将用于此作业。 最后两个参数只是数据的输入和输出位置。
+    `-Dmapred.reduce.tasks` 告诉 Hadoop 多少个化简任务会用于此作业。 最后两个参数只是数据的输入和输出位置。
 
 3. 使用以下方法来验证排序所生成的数据：
 
@@ -236,3 +236,5 @@ GraySort 是一个基准排序，其指标为在给巨量数据（通常至少 1
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+
+<!--Update_Description: wording update-->

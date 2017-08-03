@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/09/2017
-ms.date: 05/31/2017
+origin.date: 07/03/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 ms.custom: na
-ms.openlocfilehash: 3810f5e7ccdf76e885f57757a31d9253952a0e83
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: c6469b406caed128267b832e9faf29a6400018d0
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虚拟机规模集常见问题解答
 
@@ -423,7 +423,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>如何针对同一订阅和同一区域中的虚拟机规模集执行 VIP 交换？
 
-若要针对同一订阅和同一区域中的虚拟机规模集执行 VIP 交换，请参阅[VIP 交换：Azure Resource Manager 中的蓝绿色部署](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)。
+如果有两个包含 Azure 负载均衡器前端的虚拟机规模集，并且它们位于同一订阅和区域中，可以解除分配它们的公共 IP 地址，并将公共 IP 地址分配给其他资源。 有关示例，请参阅 [VIP 交换：Azure Resource Manager 中的蓝绿部署](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)。 但这确实意味着延迟，因为要在网络级别解除分配/分配资源。 也可以使用支持快速切换过渡槽和生产槽的 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)来托管应用程序。
 
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>如何为静态专用 IP 地址分配指定专用 IP 地址范围？
 
@@ -438,6 +438,28 @@ IP 地址是从指定的子网中选择的。
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>如何将虚拟机规模集中第一个 VM 的 IP 地址添加到模板的输出中？
 
 若要将虚拟机规模集中第一个 VM 的 IP 地址添加到模板的输出中，请参阅 [ARM：获取 VMSS 的专用 IP](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips)。
+
+### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>如何配置规模集使用的 DNS 服务器？
+
+若要创建具有自定义 DNS 配置的 VM 规模集，请将 dnsSettings JSON 数据包添加到规模集的 networkInterfaceConfigurations 节。 示例：
+```json
+    "dnsSettings":{
+        "dnsServers":["10.0.0.6", "10.0.0.5"]
+    }
+```
+
+### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>如何将规模集配置为向每个 VM 分配公共 IP 地址？
+
+若要创建向每个 VM 分配公共 IP 地址的 VM 规模集，请确保 Microsoft.Compute/virtualMAchineScaleSets 资源的 API 版本为 2017-03-30，并将 publicipaddressconfiguration JSON 数据包添加到规模集的 ipConfigurations 节。 示例：
+
+```json
+    "publicipaddressconfiguration": {
+        "name": "pub1",
+        "properties": {
+        "idleTimeoutInMinutes": 15
+        }
+    }
+```
 
 ## <a name="scale"></a>缩放
 
@@ -521,3 +543,5 @@ IP 地址是从指定的子网中选择的。
 - 想要更快速地启动一组 VM，而不是扩大虚拟机规模集。
   - 出于这种方案，你可能创建了自己的缩放引擎，并希望以更快的速度完成端到端缩放。
 - 你的虚拟机规模集未均匀分布在容错域或更新域。 这可能是由于你有选择地删除了 VM，或者因为过度预配后，VM 被删除。 在虚拟机规模集上先运行 `stop deallocate`，然后运行 `start`，可以将 VM 均匀地分布到容错域或更新域。
+
+<!--Update_Description: add question "How can I configure the DNS servers used by a scale set?" and "How can I configure a scale set to assign a public IP address to each VM?"-->

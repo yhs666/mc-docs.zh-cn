@@ -15,17 +15,16 @@ ms.workload: na
 origin.date: 03/14/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: b3bc1444bcd5cf773fb17a5a44dae64afc998b1a
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 9e4421ad6fea2151413d62c580f53d3327e00ce7
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 如何使用 Azure Cosmos DB 全局分配数据？
-<a id="how-to-distribute-data-globally-with-azure-cosmos-db" class="xliff"></a>
+# <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>如何使用 Azure Cosmos DB 全局分配数据？
 Azure 无所不在 - 跨 30 多个地理区域，遍布全球并且仍在持续扩展中。 遍及全球的 Azure 为开发人员提供一种差异化功能，让他们轻松构建、部署和管理全球分布的应用程序。 
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 针对任务关键型应用程序提供的全局分布式多模型数据库服务。 Azure Cosmos DB 在全球范围内提供[统包全局分发](distribute-data-globally.md)、[吞吐量和存储的弹性扩展](../cosmos-db/partition-data.md)、99% 的情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键-值、图形和列式数据模型。 作为一种基于云的服务，Azure Cosmos DB 通过多租户和全局分发获得了全面彻底的精心设计。
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 针对任务关键型应用程序提供的全局分布式多模型数据库服务。 Azure Cosmos DB 在全球范围内提供[统包全局分发](distribute-data-globally.md)、[吞吐量和存储的弹性扩展](../cosmos-db/partition-data.md)、99% 的情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键/值和列式数据模型。 作为一种基于云的服务，Azure Cosmos DB 通过多租户和全局分发获得了全面彻底的精心设计。
 
 **已分区并分布在三个 Azure 区域的单个 Azure Cosmos DB 集合**
 
@@ -95,9 +94,9 @@ Azure Cosmos DB 支持在发生一个或多个区域性故障时自动进行故�
 目前，自动和手动故障转移功能以数据库帐户的粒度进行公开。 请注意，在内部，Azure Cosmos DB 旨在以更细的数据库、集合或甚至（拥有一系列键的集合的）分区粒度提供自动故障转移。 
 
 ### <a id="MultiHomingAPIs"></a>Azure Cosmos DB 中的多宿主 API
-Azure Cosmos DB 允许使用逻辑（区域不可知）或物理（特定于区域）终结点与数据库交互。 使用逻辑终结点可确保发生故障转移时，应用程序可以透明方式采用多个宿主。 后者（物理终结点）提供对应用程序的细粒度控制，以将读取和写入重定向到特定区域。
+Azure Cosmos DB 允许使用逻辑（区域不可知）或物理（特定于区域）终结点与数据库交互。 使用逻辑终结点可确保发生故障转移时，应用程序可以透明方式采用多个宿主。 后者（物理终结点）提供对应用程序的细粒度控制，将读取和写入重定向到特定区域。
 
-可在相应的链接文章中找到有关如何为 [DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md)、[图形 API](../cosmos-db/tutorial-global-distribution-graph.md)、[表 API](../cosmos-db/tutorial-global-distribution-table.md) 和 [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) 配置读取首选项的信息。
+可在相应的链接文章中找到有关如何为 [DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md)、[表 API](../cosmos-db/tutorial-global-distribution-table.md) 和 [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) 配置读取首选项的信息。
 
 ### <a id="TransparentSchemaMigration"></a>透明且一致的数据库架构和索引迁移 
 Azure Cosmos DB 完全与[架构无关](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)。 其数据库引擎的特殊设计允许其自动且同步地索引所有其引入的数据，而无需要求用户提供任何架构或辅助索引。 这使用户能够快速地循环访问全局分布式应用程序，而无需担心数据库架构和索引迁移或者协调多阶段应用程序的架构更改推出。 Azure Cosmos DB 保证用户对索引策略进行的任何显式更改不会导致性能或可用性的降低。  

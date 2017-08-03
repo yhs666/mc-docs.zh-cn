@@ -1,10 +1,10 @@
 ---
-title: "Azure PowerShell 脚本 - 导入 bacpac SQL 数据库 | Azure"
-description: "Azure PowerShell 脚本示例 - 使用 PowerShell 从 bacpac 导入 SQL 数据库"
+title: "PowerShell 示例 - 导入 bacpac 文件 - Azure SQL 数据库 | Azure"
+description: "将 bacpac 文件导入 SQL 数据库的 Azure PowerShell 示例脚本"
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: Hayley244
+manager: digimobile
 editor: carlrab
 tags: azure-service-management
 ms.assetid: 
@@ -14,18 +14,18 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 05/23/2017
-ms.date: 
-ms.author: v-johch
-ms.openlocfilehash: 99b2b0562e5b809416724db5b50e543c9ab529fc
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 06/23/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: caf06e44fcf7014a66cfe584ba69069006e282a6
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
-# <a name="import-from-a-bacpac-into-a-sql-database-using-powershell"></a>使用 PowerShell 从 bacpac 导入 SQL 数据库
+# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>使用 PowerShell 将 bacpac 文件导入 Azure SQL 数据库
 
-此 PowerShell 脚本示例从 **bacpac** 文件导入数据库。  
+以下 PowerShell 脚本示例将数据库从 bacpac 文件导入 Azure SQL 数据库。  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -147,3 +147,5 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
+
+<!--Update_Description: wording update-->

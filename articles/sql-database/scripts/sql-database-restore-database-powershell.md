@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 脚本 - 还原 SQL 数据库 | Azure"
-description: "Azure PowerShell 脚本示例 - 使用 PowerShell 还原 SQL 数据库"
+title: "PowerShell 示例 - 还原备份 - Azure SQL 数据库 | Azure"
+description: "从异地冗余备份还原 Azure SQL 数据库的 Azure PowerShell 示例脚本"
 services: sql-database
 documentationcenter: sql-database
 author: Hayley244
@@ -14,24 +14,22 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 05/23/2017
-ms.date: 07/03/2017
-ms.author: v-johch
-ms.openlocfilehash: 34f85324a37b1c7b58c0470a2139c69c61f7a7b1
-ms.sourcegitcommit: bb82041119027be7a62fc96945d92a8a452e7849
+origin.date: 06/23/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: b8c5315d7eb6257fff313eb091b4c0c63f9cf75b
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 使用 PowerShell 还原 SQL 数据库
-<a id="restore-a-sql-database-using-powershell" class="xliff"></a>
+# <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>使用 PowerShell 从备份还原 Azure SQL 数据库
 
-此示例 PowerShell 脚本从异地冗余备份还原 Azure SQL 数据库，并将已删除的数据库还原到最新备份。  
+此 PowerShell 脚本示例从异地冗余备份还原 Azure SQL 数据库，根据最新备份还原已删除的 Azure SQL 数据库，并将 Azure SQL 数据库还原到特定的时间点。  
 
 在运行此脚本前，请确保已使用 `Add-AzureRmAccount -EnviroumentName AzureChina` cmdlet 创建与 Azure 的连接。
 
-## 示例脚本
-<a id="sample-script" class="xliff"></a>
+## <a name="sample-script"></a>示例脚本
 
 ```powershell
 # Login-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -122,8 +120,7 @@ Restore-AzureRmSqlDatabase -FromDeletedDatabaseBackup `
 # Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-## 清理部署
-<a id="clean-up-deployment" class="xliff"></a>
+## <a name="clean-up-deployment"></a>清理部署
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
@@ -131,8 +128,7 @@ Restore-AzureRmSqlDatabase -FromDeletedDatabaseBackup `
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
-## 脚本说明
-<a id="script-explanation" class="xliff"></a>
+## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
@@ -146,9 +142,10 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 | [Get-AzureRmSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | 获取可以还原的已删除数据库。 |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
+
+<!--Update_Description: wording update-->

@@ -17,16 +17,15 @@ origin.date: 05/10/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2e244ea198b6098837a2b101120e0bc03d996d1c
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 06c5d7b0f07f638d5d86b15c10722b4a9d64084d
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/26/2017
 ---
-# Azure Cosmos DB：使用 .NET 连接到 MongoDB 应用
-<a id="azure-cosmos-db-connect-to-a-mongodb-app-using-net" class="xliff"></a>
+# <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB：使用 .NET 连接到 MongoDB 应用
 
-Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
+Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
 
 本教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户，以及如何使用 [MongoDB API](mongodb-introduction.md) 创建用于存储数据的数据库和集合。 
 
@@ -37,30 +36,27 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > * 更新连接字符串
 > * 在虚拟机上创建 MongoDB 应用 
 
-## 创建数据库帐户
-<a id="create-a-database-account" class="xliff"></a>
+## <a name="create-a-database-account"></a>创建数据库帐户
 
 首先在 Azure 门户中创建 Azure Cosmos DB 帐户。  
 
 > [!TIP]
 > * 已有一个 Azure Cosmos DB 帐户？ 如果有，请跳到[设置 Visual Studio 解决方案](#SetupVS)
 > * 是否具有 Azure DocumentDB 帐户？ 如果有，则该帐户现为 Azure Cosmos DB 帐户，可以直接跳到[设置 Visual Studio 解决方案](#SetupVS)。  
-> * 如果使用 Azure Cosmos DB 模拟器，请遵循 [Azure Cosmos DB 模拟器](local-emulator.md)中的步骤设置该模拟器，然后直接跳到[设置 Visual Studio 解决方案](#SetupVS)。 
+> * 如果使用 Azure Cosmos DB 模拟器，请遵循 [Azure Cosmos DB 模拟器](local-emulator.md)中的步骤设置该模拟器，并直接跳到[设置 Visual Studio 解决方案](#SetupVS)。 
 >
 >
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## 更新连接字符串
-<a id="update-your-connection-string" class="xliff"></a>
+## <a name="update-your-connection-string"></a>更新连接字符串
 
 1. 在 Azure 门户的“Azure Cosmos DB”页中，选择用于 MongoDB 帐户的 API。 
 2. 在“帐户”边栏选项卡的左侧，单击“快速启动”。 
 3. 选择平台（*.NET 驱动程序*、*Node.js 驱动程序*、*MongoDB Shell*、*Java 驱动程序*、*Python 驱动程序*）。 如果未列出驱动程序或工具，别担心，我们持续记录了更多连接代码片段。 
 4. 将代码片段复制并粘贴到 MongoDB 应用后，即已准备就绪。
 
-## 设置 MongoDB 应用
-<a id="set-up-your-mongodb-app" class="xliff"></a>
+## <a name="set-up-your-mongodb-app"></a>设置 MongoDB 应用
 
 可以参考[在 Azure 中创建连接到虚拟机上运行的 MongoDB 的 Web 应用](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md)教程（需进行少量修改），快速设置一个连接到 MongoDB 帐户的 API 的 MongoDB 应用程序（在本地或发布到 Azure Web 应用）。  
 
@@ -209,16 +205,14 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 3. 应用可供使用！
 
-## 清理资源
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>清理资源
 
 如果不打算继续使用此应用，请使用以下步骤删除本教程在 Azure 门户中创建的所有资源。 
 
 1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。 
 2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，然后单击“删除”。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 在本教程中，已完成以下内容：
 

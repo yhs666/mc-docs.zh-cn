@@ -5,11 +5,14 @@
 在以下命令中，将 \<user-name> 和 \<password> 替换为新的用户名和密码。
 
 ```azurecli
-az appservice web deployment user set --user-name <username> --password <password>
+az webapp deployment user set --user-name <username> --password <password>
 ```
 
 用户名必须唯一。 密码长度必须至少为 8 个字符，其中包含以下 3 种元素中的两种：字母、数字、符号。 如果收到 ` 'Conflict'. Details: 409` 错误，请更改用户名。 如果收到 ` 'Bad Request'. Details: 400` 错误，请使用更强的密码。
 
 只需创建此部署用户一次；可对所有 Azure 部署使用此用户。
 
-记录用户名和密码以便在以后部署应用时使用。
+> [!NOTE]
+> 记录用户名和密码。 稍后需要使用它们来部署 Web 应用。
+>
+>

@@ -13,41 +13,58 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-origin.date: 10/31/2016
-ms.date: 07/17/2017
+origin.date: 06/27/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4c8195323a60609cd4258bf268158a1f650ff0c0
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: 0fad33365aa4df3104db76f87dc9e9eab1132afe
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 将解决方案迁移到 SQL 数据仓库
-<a id="migrate-your-solution-to-sql-data-warehouse" class="xliff"></a>
-SQL 数据仓库是一种分布式数据库系统，可根据你的需要弹性缩放。 为了保持性能与缩放性，SQL 数据仓库中未实现 SQL Server 的所有功能。 以下迁移主题大致介绍了将解决方案迁移到 SQL 数据仓库时考虑的一些重要因素。 由于针对缩放性设计数据仓库引入了不同的设计模式，因此传统的方法不一定最合适。 因此，用户可能会发现，调整现有解决方案可确保充分利用 SQL 数据仓库所提供的分布式平台。
+# <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>将解决方案迁移到 Azure SQL 数据仓库
+请参阅“将现有数据库解决方案迁移到 Azure SQL 数据仓库所涉及的内容”。 
 
-此外必须记住，SQL 数据仓库是基于 Azure 的平台。 因此，迁移过程很有可能需将数据传输到云中。 数据传输本身是一个话题，应予以谨慎考虑，尤其是随着卷增大时。 数据传输和数据加载是不同的主题。
+## <a name="profile-your-workload"></a>分析工作负荷
+在迁移之前，需要确定某个 SQL 数据仓库是适用于工作负荷的理想解决方案。 SQL 数据仓库是分布式系统，旨在对大型数据进行分析。  迁移到 SQL 数据仓库需要一些设计更改，这些更改不难理解但可能需要一些时间才能实现。 如果业务需要企业级的数据仓库，那么花费一些时间来实现这些优点是值得的。 但是，如果不需要改进 SQL 数据仓库，那么使用 SQL Server 或 Azure SQL 数据库则更经济实惠。
 
-## 迁移指南
-<a id="migration-guidance" class="xliff"></a>
-在开始迁移之前，请务必通读这些文章，确保了解一些产品差异和基本概念。
+在以下情况下，请考虑使用 SQL 数据仓库：
+- 具有一 个或更多几 TB 的数据
+- 计划对大量数据运行分析
+- 需要能够缩放计算和存储 
+- 想要在不需要计算资源时通过暂停这些资源来节省成本。
 
-* [迁移架构][Migrate your schema]
-* [迁移数据][Migrate your data]
-* [迁移代码][Migrate your code]
+不要将 SQL 数据仓库用于具有以下特点的操作 (OLTP) 工作负荷：
+- 高频率读取和写入
+- 大量单一实例选择
+- 大容量单行插入
+- 逐行处理需求
+- 不兼容的格式（JSON 和 XML）
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
-CAT（客户顾问团队）也有一些通过博客发布的很棒的 SQL 数据仓库指南。  有关迁移的其他指南，请参阅他们的 [在实践中将数据迁移到 Azure SQL 数据仓库][Migrating data to Azure SQL Data Warehouse in practice] 一文。
+## <a name="plan-the-migration"></a>规划迁移
+
+决定要将现有解决方案迁移到 SQL 数据仓库后，请务必在开始操作之前先规划迁移。 
+
+规划的一个目标是确保数据、表架构以及代码与 SQL 数据仓库兼容。 当前系统和 SQL 数据仓库之间存在一些需要解决的兼容性差异。 此外，将大量数据迁移到 Azure 需要时间。 更具体的规划可以加快将数据迁移到 Azure 的速度。 
+
+规划的另一个目标是进行设计方面的调整，以确保解决方案可以使用 SQL 数据仓库旨在提供的高查询性能。 由于针对缩放性设计数据仓库引入了不同的设计模式，因此传统的方法不一定最合适。 尽管在迁移后可以进行某些设计调整，但是在过程中尽早进行更改可以为以后的操作节省时间。
+
+若要执行成功迁移，需要迁移表架构、代码和数据。 有关这些迁移主题的指南，请参阅：
+
+-  [迁移架构](sql-data-warehouse-migrate-schema.md)
+-  [迁移代码](sql-data-warehouse-migrate-code.md)
+-  [迁移数据](sql-data-warehouse-migrate-data.md)。 
+
+## <a name="next-steps"></a>后续步骤
+CAT（客户顾问团队）也有一些很好的通过博客发布的 SQL 数据仓库指南。  有关迁移的其他指南，请参阅他们的[在实践中将数据迁移到 Azure SQL 数据仓库][Migrating data to Azure SQL Data Warehouse in practice] 一文。
 
 <!--Image references-->
 
 <!--Article references-->
-[Migrate your schema]: sql-data-warehouse-migrate-schema.md
-[Migrate your data]: sql-data-warehouse-migrate-data.md
-[Migrate your code]: sql-data-warehouse-migrate-code.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+
+<!--Update_Description: update meta properties, wording update-->

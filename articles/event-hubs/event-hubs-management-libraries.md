@@ -4,8 +4,8 @@ description: "通过 .NET 管理事件中心命名空间和实体"
 services: event-hubs
 cloud: na
 documentationcenter: na
-author: jtaubensee
-manager: timlt
+author: rockboyfor
+manager: digimobile
 ms.assetid: 
 ms.service: event-hubs
 ms.workload: na
@@ -13,16 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 04/10/2017
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 0fadb5c3724bdfadb30f5b479ea7f8545549d063
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: 869384a8c2683e716bf9c66313aaed2219250d7f
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/26/2017
 ---
-
 # <a name="event-hubs-management-libraries"></a>事件中心管理库
 
 事件中心管理库可以动态设置事件中心命名空间和实体。 这样可以实现复杂的部署和消息传递方案，以便能够以编程方式确定要设置的实体。 这些库目前可用于 .NET。
@@ -41,14 +39,13 @@ ms.lasthandoff: 04/28/2017
 * [使用 Azure PowerShell 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [使用 Azure CLI 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-这些教程将提供 `AppId`（客户端 ID）、`TenantId` 和 `ClientSecret`（身份验证密钥），这些都将用于管理库进行的身份验证。 必须具有要在其中运行的资源组的“所有者”权限。
+这些教程将提供 `AppId`（客户端 ID）、`TenantId` 和 `ClientSecret`（身份验证密钥），这些都会用于管理库进行的身份验证。 必须具有要在其中运行的资源组的“所有者”权限。
 
 ## <a name="programming-pattern"></a>编程模式
 
 所有事件中心资源的操纵模式都遵循常用协议：
 
 1. 使用 `Microsoft.IdentityModel.Clients.ActiveDirectory` 库从 Azure Active Directory 获取令牌。
-
     ```csharp
     var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
@@ -68,7 +65,7 @@ ms.lasthandoff: 04/28/2017
     };
     ```
 
-3. 将 CreateOrUpdate 参数设置为指定的值。
+3. 将 `CreateOrUpdate` 参数设置为指定值。
 
     ```csharp
     var ehParams = new EventHubCreateOrUpdateParameters()
@@ -85,4 +82,6 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="next-steps"></a>后续步骤
 * [.NET 管理示例](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
-* [Microsoft.Azure.Management.EventHub 引用](http://docs.microsoft.com/zh-cn/dotnet/api/Microsoft.Azure.Management.EventHub)
+* [Microsoft.Azure.Management.EventHub 引用](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.EventHub)
+
+<!--Update_Description: wording update and command style update-->

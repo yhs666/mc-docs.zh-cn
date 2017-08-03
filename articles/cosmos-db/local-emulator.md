@@ -16,14 +16,13 @@ ms.workload: na
 origin.date: 06/09/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: d576cd890fb37344aa229bee52c7f4a3b2c40124
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: a74d3fe564b3d7bcd4f421a33b571a1472f5c8b8
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 将 Azure Cosmos DB 模拟器用于本地开发和测试
-<a id="use-the-azure-cosmos-db-emulator-for-local-development-and-testing" class="xliff"></a>
+# <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
 <table>
 <tr>
@@ -59,17 +58,15 @@ ms.lasthandoff: 07/07/2017
 > 
 > 
 
-## 模拟器的工作原理
-<a id="how-the-emulator-works" class="xliff"></a>
+## <a name="how-the-emulator-works"></a>模拟器的工作原理
 Azure Cosmos DB 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它支持和 Azure Cosmos DB 相同的功能，包括支持创建和查询 JSON 文档、预配集合和调整集合的规模，以及执行存储过程和触发器。 可以使用 Azure Cosmos DB 模拟器开发和测试应用程序，并通过对 Azure Cosmos DB 的连接终结点进行单一配置更改将其部署到全局范围的 Azure。
 
 虽然创建了实际 Azure Cosmos DB 服务的高保真本地模拟，但是 Azure Cosmos DB 模拟器的实现不同于该服务。 例如，Azure Cosmos DB 模拟器针对持久性使用标准 OS 组件（如本地文件系统），针对连接性使用 HTTPS 协议堆栈。 这意味着，不可通过 Azure Cosmos DB 模拟器使用某些依赖于 Azure 基础结构的功能，如全局复制、读/写的单位数毫秒延迟，以及可调整的一致性级别。
 
 > [!NOTE]
-> 目前，模拟器中的数据资源管理器仅支持创建 DocumentDB API 集合与 MongoDB 集合。 模拟器中的数据资源管理器目前不支持创建表和图形。 
+> 目前，模拟器中的数据资源管理器仅支持创建 DocumentDB API 集合与 MongoDB 集合。 模拟器中的数据资源管理器目前不支持创建表。 
 
-## 系统要求
-<a id="system-requirements" class="xliff"></a>
+## <a name="system-requirements"></a>系统要求
 Azure Cosmos DB 模拟器具有以下硬件和软件要求：
 
 * 软件要求
@@ -78,15 +75,13 @@ Azure Cosmos DB 模拟器具有以下硬件和软件要求：
   * 2 GB RAM
   * 10 GB 可用硬盘空间
 
-## 安装
-<a id="installation" class="xliff"></a>
+## <a name="installation"></a>安装
 可以从 [Microsoft 下载中心](https://aka.ms/cosmosdb-emulator)下载并安装 Azure Cosmos DB 模拟器。 
 
 > [!NOTE]
 > 若要安装、配置和运行 Azure Cosmos DB 模拟器，必须在计算机上具有管理权限。
 
-## 在用于 Windows 的 Docker 上运行
-<a id="running-on-docker-for-windows" class="xliff"></a>
+## <a name="running-on-docker-for-windows"></a>在用于 Windows 的 Docker 上运行
 
 可以在用于 Windows 的 Docker 上运行 Azure Cosmos DB 模拟器。 该模拟器不适合于用于 Oracle Linux 的 Docker。
 
@@ -125,8 +120,7 @@ cd %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
 ```
 
-## 启动模拟器
-<a id="start-the-emulator" class="xliff"></a>
+## <a name="start-the-emulator"></a>启动模拟器
 
 若要启动 Azure Cosmos DB 模拟器，请选择“启动”按钮或按 Windows 键。 开始键入“Azure Cosmos DB 模拟器”，然后从应用程序列表中选择该模拟器。 
 
@@ -138,22 +132,19 @@ powershell .\importcert.ps1
 
 默认情况下，Azure Cosmos DB 模拟器安装到 `C:\Program Files\Azure Cosmos DB Emulator` 目录。 你还可以从命令行启动和停止模拟器。 有关详细信息，请参阅[命令行工具参考](#command-line)。
 
-## 启动数据资源管理器
-<a id="start-data-explorer" class="xliff"></a>
+## <a name="start-data-explorer"></a>启动数据资源管理器
 
 Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos DB 数据资源管理器。 地址将显示为 [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html)。 如果关闭浏览器并想要稍后重新打开，可在浏览器中打开 URL 或从 Windows 任务栏图标中的 Azure Cosmos DB 模拟器中启动，如下所示。
 
 ![Azure Cosmos DB 本地模拟器数据资源管理器启动器](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
-## 检查更新
-<a id="checking-for-updates" class="xliff"></a>
+## <a name="checking-for-updates"></a>检查更新
 数据资源管理器将指示是否有新的更新可供下载。 
 
 > [!NOTE]
 > 在 Azure Cosmos DB 模拟器的一个版本中创建的数据不保证在使用不同版本时可以访问。 如果需要长期保存数据，建议将该数据存储在 Azure Cosmos DB 帐户中，而不是存储在 Azure Cosmos DB 模拟器中。 
 
-## 对请求进行身份验证
-<a id="authenticating-requests" class="xliff"></a>
+## <a name="authenticating-requests"></a>对请求进行身份验证
 与云中的 Azure 文档一样，针对 Azure Cosmos DB 模拟器的每个请求都必须进行身份验证。 Azure Cosmos DB 模拟器使用一个固定的帐户和公开的身份验证密钥进行主密钥身份验证。 此帐户和密钥是允许用于 Azure Cosmos DB 模拟器的唯一凭据。 它们具有以下特点：
 
     Account name: localhost:<port>
@@ -164,8 +155,7 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 
 此外，与 Azure Cosmos DB 服务一样，Azure Cosmos DB 模拟器仅支持采用 SSL 的安全通信。
 
-## 通过模拟器进行开发
-<a id="developing-with-the-emulator" class="xliff"></a>
+## <a name="developing-with-the-emulator"></a>通过模拟器进行开发
 在桌面上运行 Azure Cosmos DB 模拟器以后，可以使用任何支持的 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 或 [Azure Cosmos DB REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) 与模拟器进行交互。 Azure Cosmos DB 模拟器还包括内置数据资源管理器，可以利用它在不编写任何代码的情况下为 DocumentDB 和 MongoDB API 创建集合，以及查看和编辑文档。   
 
     // Connect to the Azure Cosmos DB Emulator running locally
@@ -181,8 +171,7 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 
 默认情况下，使用 Azure Cosmos DB 模拟器，可创建多达 25 个单区集合或 1 个已分区集合。 有关如何更改此值的详细信息，请参阅[设置 PartitionCount 值](#set-partitioncount)。
 
-## 导出 SSL 证书
-<a id="export-the-ssl-certificate" class="xliff"></a>
+## <a name="export-the-ssl-certificate"></a>导出 SSL 证书
 
 .NET 语言和运行时使用 Windows 证书存储来安全地连接到 Azure Cosmos DB 本地模拟器。 其他语言有自己管理和使用证书方法。 Java 使用自己的[证书存储](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html)，而 Python 使用[套接字包装器](https://docs.python.org/2/library/ssl.html)。
 
@@ -197,8 +186,7 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 ## <a id="command-line"></a>命令行工具参考
 从安装位置中，可以使用命令行启动和停止模拟器、配置选项和执行其他操作。
 
-### 命令行语法
-<a id="command-line-syntax" class="xliff"></a>
+### <a name="command-line-syntax"></a>命令行语法
 
     CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/?]
 
@@ -291,8 +279,7 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 </tr>
 </table>
 
-## Azure Cosmos DB 模拟器与 Azure Cosmos DB 之间的差异
-<a id="differences-between-the-azure-cosmos-db-emulator-and-azure-cosmos-db" class="xliff"></a> 
+## <a name="differences-between-the-azure-cosmos-db-emulator-and-azure-cosmos-db"></a>Azure Cosmos DB 模拟器与 Azure Cosmos DB 之间的差异 
 由于 Azure Cosmos DB 模拟器提供在本地开发人员工作站上运行的模拟环境，因此模拟器与云中的 Azure Cosmos DB 帐户之间的功能存在一些差异：
 
 * Azure Cosmos DB 模拟器只支持一个固定的帐户和公开的主密钥。  在 Azure Cosmos DB 模拟器中无法重新生成密钥。
@@ -322,8 +309,7 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 4. 安装最新版的 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)。
 5. 通过设置一个 <= 250 的值启动具有 PartitionCount 标志的模拟器。 例如：`C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`。
 
-## 故障排除
-<a id="troubleshooting" class="xliff"></a>
+## <a name="troubleshooting"></a>故障排除
 
 使用以下提示来帮助解决使用 Azure Cosmos DB 模拟器时遇到的问题：
 
@@ -348,8 +334,7 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 6. 导航到 `%ProgramFiles%\Azure Cosmos DB Emulator`，查找 docdbemulator_000001.etl 文件。
 7. 将 .etl 文件和重现步骤一起发送至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) 进行调试。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 在本教程中已完成以下操作：
 

@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/30/2017
-ms.date: 07/24/2017
+origin.date: 07/03/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7cb18d7c839917356f974e190b5e820997a524d8
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: f3612bf5be076cbf3e6469ce0f8888ba3161fafd
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>什么是 Azure 中的虚拟机规模集？
 虚拟机规模集是一种 Azure 计算资源，可用于部署和管理一组相同的 VM。 由于所有 VM 的配置都相同，因此无需对 VM 进行任何预先配置。 这样就可以更方便地构建面向大型计算、大数据、容器化工作负荷的大规模服务。
@@ -39,8 +39,6 @@ ms.lasthandoff: 07/14/2017
 也可以使用 JSON 模板与 [REST API](https://msdn.microsoft.com/library/mt589023.aspx) 来定义和部署规模集，就像定义和部署单个 Azure Resource Manager VM 一样。 因此，可以使用任何标准的 Azure Resource Manager 部署方法。 有关模板的详细信息，请参阅[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 
 可在 [Azure 快速入门模板 GitHub 存储库](https://github.com/Azure/azure-quickstart-templates)中找到一组虚拟机规模集的示例模板。 （查找标题中含有 **vmss** 的模板。）
-
-这些模板的详细信息页中提供一个按钮链接用于访问门户部署功能。 若要部署规模集，请单击该按钮，然后填写门户中所需的任何参数。 如果不确定某个资源是否支持大写或大小写混合，则更为安全的做法是参数值使用小写字母和数字。 [VM 规模集模板剖析](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player)通过一个简单易懂的视频对规模集模板做了剖析。
 
 >[!NOTE]
 > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
@@ -74,7 +72,7 @@ Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -Virt
 ## <a name="scale-set-scenarios"></a>规模集方案
 本部分列出了一些典型的规模集方案。 一些高级 Azure 服务（如批处理、Service Fabric 和容器服务）使用这些方案。
 
-* **使用 RDP 或 SSH 连接到规模集实例**：在虚拟网络中创建规模集，不为规模集中的单个 VM 分配公共 IP 地址。 此策略避免了将独立的公共 IP 地址分配给计算网格中的所有节点所需的支出和管理开销。 可以从虚拟网络中的其他资源（例如可以为其分配公共 IP 地址的负载均衡器和独立虚拟机）连接到这些 VM。
+* **使用 RDP 或 SSH 连接到规模集实例**：在虚拟网络中创建规模集，默认情况下不为规模集中的单个 VM 分配公共 IP 地址。 此策略避免了将独立的公共 IP 地址分配给计算网格中的所有节点所需的支出和管理开销。 如果确实需要通过直接的外部连接来连接到规模集 VM，则可将规模集配置为自动将公共 IP 地址分配到新的 VM。 也可从虚拟网络中可以为其分配公共 IP 地址的其他资源（例如，负载均衡器和独立虚拟机）连接到这些 VM。 
 * **使用 NAT 规则连接到 VM**：可以创建一个公共 IP 地址，并将其分配给负载均衡器，然后定义入站 NAT 池。 这些操作将 IP 地址上的端口映射到规模集中 VM 上的端口。 例如：
 
   | 源 | Source Port | 目标 | Destination Port |
@@ -145,3 +143,5 @@ Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -Virt
 **答：** 是的。 规模集是包含 5 个容错域和 5 个更新域的隐式可用性集。 规模集如果包含 100 个以上的 VM，则会跨多个*位置组*，等效于多个可用性集。 有关位置组的详细信息，请参阅[使用大型虚拟机规模集](virtual-machine-scale-sets-placement-groups.md)。 由 VM 组成的可用性集可以与由 VM 组成的规模集位于相同的虚拟网络中。 常见的配置是将控件节点 VM（经常需要独特的配置）放在可用性集中，将数据节点放在规模集中。
 
 可在 [Azure 虚拟机规模集常见问题](virtual-machine-scale-sets-faq.md)中找到有关规模集的更多常见问题解答。
+
+<!--Update_Description: wording update-->

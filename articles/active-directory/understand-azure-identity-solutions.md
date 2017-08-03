@@ -2,26 +2,25 @@
 title: "了解 Azure 标识 | Microsoft Docs"
 description: "大致了解 Azure 标识解决方案的术语、概念和建议，以便为组织做出最明智的标识监管决策。"
 keywords: 
-author: jeffgilb
-manager: femila
-editor: jsnow
+author: alexchen2016
+manager: digimobile
+ms.reviewer: jsnow
 ms.author: v-junlch
-origin.date: 06/06/2017
-ms.date: 06/21/2017
+origin.date: 07/17/2017
+ms.date: 07/28/2017
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 8f6610b12b223ca233ad5b48518c74c24ee37e77
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 7860a1c7878fcf936a6fb12ab2343e13fa63ba2b
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 了解 Azure 标识解决方案
-<a id="understand-azure-identity-solutions" class="xliff"></a>
+# <a name="understand-azure-identity-solutions"></a>了解 Azure 标识解决方案
 Azure Active Directory (Azure AD) 是一个标识和访问管理云解决方案，它提供目录服务、标识监管和应用程序访问管理功能。 Azure AD 可以快速启用到 [Azure AD 应用程序库](https://azure.microsoft.com/marketplace/active-directory/all/)中的 1,000 个预先集成的商业和自定义应用的单一登录 (SSO)。 你可能已在使用其中的许多应用，例如 Office 365、Salesforce.com、Box、ServiceNow 和 Workday。
 
 在创建 Azure 订阅时，单个 Azure AD 目录自动与其进行关联。 然后，作为 Azure 中的标识服务，Azure AD 为基于云的资源提供所有标识管理和访问控制功能。 这些资源可能包括个体租户（组织）的用户、应用和组，如下图中所示：
@@ -30,8 +29,7 @@ Azure Active Directory (Azure AD) 是一个标识和访问管理云解决方案�
 
 Azure 根据每个组织的需求提供复杂程度不一的多种方式来利用标识即服务 (IDaaS)。 本文的余下部分将帮助你理解基本 Azure 标识术语和概念，并提供建议来帮助你从可用选项中做出最佳的选择。
 
-## 要理解的术语
-<a id="terms-to-know" class="xliff"></a>
+## <a name="terms-to-know"></a>要理解的术语
 
 在为组织做出 Azure 标识解决方案方面的决策之前，需要基本了解有关 Azure 标识服务的常用术语。
 
@@ -48,51 +46,52 @@ Azure 根据每个组织的需求提供复杂程度不一的多种方式来利�
 |工作或学校帐户 | 工作或学校帐户（由管理员针对商业/学术用途颁发）提供对企业级 Microsoft 云服务（例如 Azure、Intune 或 Office 365）的访问。|
 
 
-## 要理解的概念
-<a id="concepts-to-understand" class="xliff"></a>
+## <a name="concepts-to-understand"></a>要理解的概念
 
 现在，你已了解了基本 Azure 标识术语，你应当更加详细地了解这些 Azure 标识概念以帮助你做出信息充分的 Azure 标识服务决策。
 
 |要理解的概念 |说明|
 |-----|-----|
-|[Azure 订阅与 Azure Active Directory 的关联方式](/active-directory/active-directory-how-subscriptions-associated-directory/) |每个 Azure 订阅都与 Azure AD 目录建立了信任关系，以便对用户、服务和设备进行身份验证。 *多个订阅可以信任同一个 Azure AD 目录，但订阅始终只会信任单个 Azure AD 目录*。 这种信任关系不同于订阅与其他 Azure 资源（网站、数据库等）之间的信任关系，在后一种关系中，这些资源更像是订阅的子资源。 如果某个订阅过期，则对该订阅关联的非 Azure AD 资源的访问权限也将终止。 但是，Azure AD 目录将保留在 Azure 中，并且你可以将另一个订阅与该目录相关联，然后继续管理租户资源。|
-|[Azure 门户中基于角色的访问控制](/active-directory/role-based-access-control-what-is/)|Azure 基于角色的访问控制 (RBAC) 可帮助为 Azure 资源提供精细的访问管理。 权限过多，可能会向攻击者公开帐户。 权限太少，员工无法有效完成其工作。 使用 RBAC，可以根据应用到所有资源组的以下三个基本角色为员工分配所需的确切权限：所有者、参与者、读取者。 此外，还可以根据具体的需求，最多创建 2,000 个自己的[自定义 RBAC 角色](/active-directory/role-based-access-control-custom-roles/)。 |
+|[Azure 订阅与 Azure Active Directory 的关联方式](/active-directory/active-directory-how-subscriptions-associated-directory) |每个 Azure 订阅都与 Azure AD 目录建立了信任关系，以便对用户、服务和设备进行身份验证。 *多个订阅可以信任同一个 Azure AD 目录，但订阅始终只会信任单个 Azure AD 目录*。 这种信任关系不同于订阅与其他 Azure 资源（网站、数据库等）之间的信任关系，在后一种关系中，这些资源更像是订阅的子资源。 如果某个订阅过期，则对该订阅关联的非 Azure AD 资源的访问权限也将终止。 但是，Azure AD 目录将保留在 Azure 中，并且你可以将另一个订阅与该目录相关联，然后继续管理租户资源。|
+|[Azure 门户中基于角色的访问控制](/active-directory/role-based-access-control-what-is)|Azure 基于角色的访问控制 (RBAC) 可帮助为 Azure 资源提供精细的访问管理。 权限过多，可能会向攻击者公开帐户。 权限太少，员工无法有效完成其工作。 使用 RBAC，可以根据应用到所有资源组的以下三个基本角色为员工分配所需的确切权限：所有者、参与者、读取者。 此外，还可以根据具体的需求，最多创建 2,000 个自己的[自定义 RBAC 角色](/active-directory/role-based-access-control-custom-roles)。 |
 
 
-### Windows Server AD DS 与 Azure AD 之间的差别
-<a id="the-difference-between-windows-server-ad-ds-and-azure-ad" class="xliff"></a>
-如果你已熟悉 Windows 2000 Server 中最先引入的本地 Windows Server Active Directory 域服务 (AD DS) 的话，则可能已了解标识服务的基本概念。 但是，还要了解的一个要点是，Azure AD 不仅仅是在云中的域控制器。 它是在 Azure 中提供标识即服务 (IDaaS) 的一种全新方式，让我们以完全不同的思路考虑如何全面融入基于云的功能，以及帮助组织抵御新型威胁。 多年以来，IT 部门一直在使用 AD DS 保护其安全外设，但需要为员工、客户与合作伙伴提供标识支持的无外设企业需要一个全新的控制平面。 Azure AD 就是这样一个标识控制平面。
+### <a name="the-difference-between-windows-server-ad-ds-and-azure-ad"></a>Windows Server AD DS 与 Azure AD 之间的差别
+Azure Active Directory (Azure AD) 和本地 Active Directory（Active Directory 域服务，简称 AD DS）都是可以存储目录数据以及管理用户和资源之间通信的系统，涉及用户登录过程、身份验证和目录搜索。
 
-安全保护已从企业防火墙延伸到云中，Azure AD 可在其中通过为用户提供一个通用标识来保护公司资源和访问（在本地或云中）。 这为用户提供了灵活性来安全地访问他们所需的应用，可以从几乎任何设备完成其工作。 还提供了无缝的基于风险的数据保护控制（由机器学习功能和深度报告功能提供支持），这是 IT 确保公司数据安全所必需的。
+如果你已熟悉 Windows 2000 Server 中最先引入的本地 Windows Server Active Directory 域服务 (AD DS) 的话，则可能已了解标识服务的基本概念。 但是，还要了解的一个要点是，Azure AD 不仅仅是在云中的域控制器。 它是在 Azure 中提供标识即服务 (IDaaS) 的一种全新方式，让我们以完全不同的思路考虑如何全面融入基于云的功能，以及帮助组织抵御新型威胁。 
 
-### 扩展 Office 365 管理和安全功能
-<a id="extend-office-365-management-and-security-capabilities" class="xliff"></a>
-已在使用 Office 365？ 使用 Azure AD 扩展内置的 Office 365 功能来保护所有资源，使整个工作队伍能够安全地工作，可以加速数字转换。 使用 Azure AD 时，除了 Office 365 功能以外，还可以使用一个实现所有应用的单一登录的标识保护整个应用程序产品组合。 可以获取用户特权的其他见解，并提供按需、适时的管理访问。 得益于 Azure AD 提供的自助服务功能，例如重置忘记的密码、应用程序访问请求，用户的工作效率将会提高，创建的技术支持票证将会减少。
+AD DS 是 Windows Server 上的服务器角色，这意味着它可以部署在物理机或虚拟机上。 它的层次结构基于 X.500。 它使用 DNS 来查找对象，可以使用 LDAP 进行交互，且主要使用 Kerberos 进行身份验证。 除了将计算机加入域，Active Directory 还可以启用组织单位 (OU) 和组策略对象 (GPO)，因此可以在域之间建立信任。
+
+多年以来，IT 部门一直在使用 AD DS 保护其安全外设，但需要为员工、客户与合作伙伴提供标识支持的无外设企业需要一个全新的控制平面。 Azure AD 就是这样一个标识控制平面。 安全保护已从企业防火墙延伸到云中，Azure AD 可在其中通过为用户提供一个通用标识来保护公司资源和访问（在本地或云中）。 这为用户提供了灵活性来安全地访问他们所需的应用，可以从几乎任何设备完成其工作。 还提供了无缝的基于风险的数据保护控制（由机器学习功能和深度报告功能提供支持），这是 IT 确保公司数据安全所必需的。
+
+Azure AD 是多客户公共目录服务，这意味着用户可以在 Azure AD 中为云服务器和 Office 365 之类的应用程序创建租户。 用户和组在平面结构中创建，没有 OU 或 GPO。 身份验证通过 SAML、WS-Federation、OAuth 等协议执行。 可以查询 Azure AD，但必须使用名为“AD Graph API”的 REST API，而不能使用 LDAP。 这些都是基于 HTTP 和 HTTPS 运行的。
+
+### <a name="extend-office-365-management-and-security-capabilities"></a>扩展 Office 365 管理和安全功能
+已在使用 Office 365？ 使用 Azure AD 扩展内置的 Office 365 功能来保护所有资源，使整个工作队伍能够安全地工作，可以加速数字转换。 使用 Azure AD 时，除了 Office 365 功能以外，还可以使用一个实现所有应用的单一登录的标识保护整个应用程序产品组合。 不仅可以根据设备状态，而且可以根据用户、位置、应用程序和风险扩展条件访问功能。 在需要时，多重身份验证 (MFA) 功能将提供更大的保护。 可以获取用户特权的其他见解，并提供按需、适时的管理访问。 得益于 Azure AD 提供的自助服务功能，例如重置忘记的密码、应用程序访问请求，以及创建和管理组，用户的工作效率将会提高，创建的技术支持票证将会减少。
 
 > [!TIP]
 > 想要详细了解如何在 Office 365 中使用 Azure AD 标识管理？ [获取电子书](https://info.microsoft.com/Extend-Office-365-security-with-EMS.html)。
 
-## Microsoft 标识解决方案
-<a id="microsoft-identity-solutions" class="xliff"></a>
+## <a name="azure-identity-solutions"></a>Azure 标识解决方案
 
 Azure 允许以多种方式管理用户的标识，不管这些标识是完全在本地维护、只在云中维护，还是在两者之间的某个位置维护。 这些选项包括：Azure 中的自制 (DIY) AD DS、Azure Active Directory (Azure AD)、混合标识和 Azure AD 域服务。
 
+### <a name="do-it-yourself-diy-ad-ds"></a>自己动手 (DIY) AD DS
 对于不经常使用云的公司，可以使用 Azure 中的**自制 (DIY) AD DS**。 此选项支持许多非常适合 Azure 中虚拟机 (VM) 形式的部署的 Windows Server AD DS 方案。 例如，可以创建域控制器形式的、在与远程网络连接的远地数据中心运行的 Azure VM。 VM 可通过该数据中心支持来自远程用户的身份验证请求，并提高身份验证性能。 此选项还可以在 Azure 上托管少量的域控制器和单个虚拟网络，因此适合用作一种相对经济节省的方案来取代其他成本不菲的灾难恢复站点。 最后，你可能需要在 Azure 上部署需要 Windows Server AD DS、但不依赖本地网络或企业 Windows Server Active Directory 的应用程序，如 SharePoint。 在这种情况下，可以在 Azure 上部署一个独立的林以满足 SharePoint 服务器场的要求。 同样，也支持部署需要连接到本地网络和本地 Active Directory 的网络应用程序。
 
 **Azure Active Directory (Azure AD)** 独立版是完全基于云的标识和访问管理即服务 (IDaaS) 解决方案。 Azure AD 提供一组可靠的功能用于管理用户和组。 它可帮助保护对本地和云应用程序的访问，这些程序包括 Office 365 之类的 Microsoft Web 服务以及很多非 Microsoft 服务型软件 (SaaS) 应用程序。 Azure AD 提供三个版本：免费版、基本版和高级版。 Azure AD 可大幅提升组织的效率，将安全性从外围防火墙扩展到受 Azure 机器学习和其他高级安全功能保护的新控制平面。
  
-## 常见方案和建议
-<a id="common-scenarios-and-recommendations" class="xliff"></a>
+## <a name="common-scenarios-and-recommendations"></a>常见方案和建议
 
 下面是一些常见的标识和访问方案，其中每个方案都包含有关最适合的 Azure 标识选项的建议。
 
-  |标识方案| 建议|
-  |-----|-----|
-  |我需要在 Azure 中支持少量的虚拟机，但公司仍在本地 Active Directory (AD DS) 方面做了大量投资。|需要支持少量的虚拟机并在本地 AD DS 方面做了大笔投资时，可以通过 [DIY AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx) 来使用 Azure VM。 |
-  |我的业务立足于云，我们未投资购置任何本地标识解决方案。| 对于只在云中开展业务，对本地解决方案未做任何投资的企业而言，[Azure Active Directory](active-directory-whatis.md) 是最佳选择。|
+|标识方案| 建议|
+|-----|-----|
+|我需要在 Azure 中支持少量的虚拟机，但公司仍在本地 Active Directory (AD DS) 方面做了大量投资。|需要支持少量的虚拟机并在本地 AD DS 方面做了大笔投资时，可以通过 [DIY AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx) 来使用 Azure VM。 |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+
+## <a name="next-steps"></a>后续步骤
 
 了解 Azure 标识的概念以及可用的选项后，可以使用以下资源开始实现所选的选项：
 
@@ -101,3 +100,4 @@ Azure 允许以多种方式管理用户的标识，不管这些标识是完全�
 
 [在生产环境中部署 Azure AD](https://aka.ms/aad-onboard)
 
+<!-- Update_Description: wording update -->

@@ -13,22 +13,25 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-origin.date: 03/20/2017
-ms.date: 04/24/2017
+origin.date: 06/19/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 09933396977f13ba8adfc9c08147a3eb7e6a1d49
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.custom: mvc
+ms.openlocfilehash: b0b243250de38ca528b5ce30c4ac32a2e9403869
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/28/2017
 ---
-
 # <a name="connect-a-web-app-to-a-storage-account"></a>将 Web 应用连接到存储帐户
 
-在此方案中，你将了解如何创建 Azure 存储帐户和 Azure Web 应用。 然后，将使用应用设置将存储帐户链接到 Web 应用。
+通过此方案可以了解如何创建 Azure 存储帐户和 Azure Web 应用。 然后，使用应用设置将存储帐户链接到 Web 应用。
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -47,7 +50,7 @@ az group create --name myResourceGroup --location $location
 az appservice plan create --name WebAppWithStoragePlan --resource-group myResourceGroup --location $location
 
 # Create a Web App
-az appservice web create --name $appName --plan WebAppWithStoragePlan --resource-group myResourceGroup 
+az webapp create --name $appName --plan WebAppWithStoragePlan --resource-group myResourceGroup 
 
 # Create a Storage Account
 az storage account create --name $storageName --resource-group myResourceGroup --location $location --sku Standard_LRS
@@ -56,7 +59,7 @@ az storage account create --name $storageName --resource-group myResourceGroup -
 connstr=$(az storage account show-connection-string --name $storageName --resource-group myResourceGroup --query connectionString --output tsv)
 
 # Assign the connection string to an App Setting in the Web App
-az appservice web config appsettings update --settings "STORAGE_CONNSTR=$connstr" --name $appName --resource-group myResourceGroup
+az webapp config appsettings set --settings "STORAGE_CONNSTR=$connstr" --name $appName --resource-group myResourceGroup
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
@@ -69,10 +72,10 @@ az appservice web config appsettings update --settings "STORAGE_CONNSTR=$connstr
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) | 创建应用服务计划中的 Azure Web 应用。 |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | 创建存储帐户。 此帐户将存储静态资产。 |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | 创建 Azure Web 应用。 |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | 创建存储帐户。 此帐户存储静态资产。 |
 | [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account#show-connection-string) | |
-| [az appservice web config appsetings update](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#update) | 创建或更新 Azure Web 应用的应用设置。 应用设置将作为应用的环境变量公开。 |
+| [az webapp config appsettings set](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#set) | 创建或更新 Azure Web 应用的应用设置。 应用设置将作为应用的环境变量公开。 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -80,3 +83,4 @@ az appservice web config appsettings update --settings "STORAGE_CONNSTR=$connstr
 
 可以在 [Azure 应用服务文档](../app-service-cli-samples.md)中找到其他应用服务 CLI 脚本示例。
 
+<!--Update_Description: add a note about Azure CLI 2.0 version-->

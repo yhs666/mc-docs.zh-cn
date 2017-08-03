@@ -1,9 +1,9 @@
 ---
-title: "Microsoft Azure 云服务部署常见问题解答 | Azure"
+title: "Microsoft Azure 云服务部署常见问题解答 | Microsoft Docs"
 description: "本文列出有关 Microsoft Azure 云服务的部署的常见问题。"
 services: cloud-services
 documentationcenter: 
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: 
 tags: top-support-issue
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 07/31/2017
 ms.author: v-yiso
-ms.openlocfilehash: 062ba91ff9165aa6fb77919610c7c9019a3484c1
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: a45e1f7f089d5a4b0bcb64f6e03a5dc59bef5c97
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的部署问题：常见问题解答 (FAQ)
 
@@ -61,4 +61,6 @@ ms.lasthandoff: 07/14/2017
 
 有关详细信息，请参阅[如何更新云服务](./cloud-services-update-azure-service.md)。
 
+
+<!--Update_Description: update meta data only -->
  

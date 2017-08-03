@@ -2,10 +2,11 @@
 title: "Azure 云服务的虚拟机大小"
 description: "列出 Azure 云服务 Web 角色和辅助角色的不同虚拟机大小（及 ID）。"
 services: cloud-services
-documentationCenter: 
-authors: Thraka
+documentationcenter: 
+author: Thraka
 manager: timlt
 editor: 
+ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 01/12/2017
 ms.author: v-yiso
-ms.date: 03/24/2017
-ms.openlocfilehash: 1df0a7c812e0b19c8dd24b073ca0b1897c6b1dce
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.date: 07/31/2017
+ms.openlocfilehash: 005bb04e6006c4ec37f1c99e26ca400d8c661cb0
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="sizes-for-cloud-services"></a>云服务的大小
 
@@ -26,6 +27,8 @@ ms.lasthandoff: 07/13/2017
 
 > [!NOTE]
 >若要查看相关的 Azure 限制，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)
+>
+>
 
 ## <a name="sizes-for-web-and-worker-role-instances"></a>Web 角色实例和辅助角色实例的大小
 Azure 上有多个标准大小可供选择。 其中某些大小的注意事项包括：
@@ -40,9 +43,8 @@ Azure 上有多个标准大小可供选择。 其中某些大小的注意事项�
 
 以下注意事项可能有助于确定大小：
 
-* A8-A11 和 H 系列大小也称为 *计算密集型实例*。 运行这些大小的硬件专为计算密集型和网络密集型应用程序而设计和优化，包括高性能计算 (HPC) 群集应用程序、建模和模拟。 A8-A11 系列使用 Intel Xeon E5-2670 @ 2.6 GHZ，H 系列使用 Intel Xeon E5-2667 v3 @ 3.2 GHz。
-* Dv2 系列、D 系列和 G 系列是要求有更快速的 CPU、更好的本地磁盘性能，或更高内存的应用程序的理想选择。 它们为许多企业级应用程序提供强大的组合。
-* Azure 数据中心内的一些物理主机可能不支持更大的虚拟机大小，例如 A5 – A11。 因此，在以下情况下，可能会显示错误消息“未能配置虚拟机 {虚拟机名称}”或“未能创建虚拟机 {虚拟机名称}”：将现有虚拟机的大小调整为新的大小时；在 2013 年 4 月 16 日之前创建的虚拟网络中创建新的虚拟机时；或者向现有的云服务中添加新的虚拟机时。 有关每个部署方案的解决方法，请参阅支持论坛上的 [错误：“无法配置虚拟机”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) 。
+* Dv2 系列和 D 系列最适用于要求有更快速的 CPU、更好的本地磁盘性能或更高内存的应用程序。 它们为许多企业级应用程序提供强大的组合。
+* Azure 数据中心内的一些物理主机可能不支持更大的虚拟机大小，例如 A5 - A7。 因此，在以下情况下，可能会显示错误消息“未能配置虚拟机 {虚拟机名称}”或“未能创建虚拟机 {虚拟机名称}”：将现有虚拟机的大小调整为新的大小时；在 2013 年 4 月 16 日之前创建的虚拟网络中创建新的虚拟机时；或者向现有的云服务中添加新的虚拟机时。 有关每个部署方案的解决方法，请参阅支持论坛上的 [错误：“无法配置虚拟机”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) 。
 * 订阅也可能会限制某些大小系列中可部署的核心数。 若要增加配额，请联系 Azure 支持。
 
 ## <a name="performance-considerations"></a>性能注意事项
@@ -90,16 +92,6 @@ ACU 标有 *使用 Intel® Turbo 技术来增加 CPU 频率，并提升性能。
 | A6              | 4         | 28           | 1000                 | 2/高 |
 | A7              | 8         | 56           | 2040                 | 4/高 |
 
-## <a name="a-series---compute-intensive-instances"></a>A 系列 - 计算密集型实例
-
-| 大小            | CPU 核心数 | 内存：GiB  | 本地 HDD：GiB       | 最大网卡数/网络带宽等级 |
-|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| A8*             |8          | 56           | 1817                 | 2/高 |
-| A9*             |16         | 112          | 1817                 | 4/非常高 |
-| A10             |8          | 56           | 1817                 | 2/高 |
-| A11             |16         | 112          | 1817                 | 4/非常高 |
-
-\*支持 RDMA
 
 ## <a name="av2-series"></a>Av2 系列
 
@@ -139,30 +131,7 @@ ACU 标有 *使用 Intel® Turbo 技术来增加 CPU 频率，并提升性能。
 | Standard_D14_v2 | 16        | 112          | 800                  | 8/极高 |
 | Standard_D15_v2 | 20        | 140          | 1,000                | 8/极高 |
 
-## <a name="g-series"></a>G 系列
-| 大小            | CPU 核心数 | 内存：GiB  | 本地 SSD：GiB       | 最大网卡数/网络带宽等级 |
-|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| Standard_G1     | 2         | 28           | 384                  |1/高 |
-| Standard_G2     | 4         | 56           | 768                  |2/高 |
-| Standard_G3     | 8         | 112          | 1,536                |4/非常高 |
-| Standard_G4     | 16        | 224          | 3,072                |8/极高 |
-| Standard_G5     | 32        | 448          | 6,144                |8/极高 |
 
-## <a name="h-series"></a>H 系列
-Azure H 系列虚拟机是下一代高性能计算 VM，旨在满足高端计算需求，例如分子建模和计算流体动力学。 这些 8 核和 16 核的 VM 基于采用 DDR4 内存和本地 SSD 存储的 Intel Haswell E5-2667 V3 处理器技术构建。
-
-除强大的 CPU 功能外，H 系列还提供支持使用 InfiniBand 的低延迟 RDMA 网络的各种选项，以及支持内存密集型计算要求的多项内存配置。
-
-| 大小            | CPU 核心数 | 内存：GiB  | 本地 SSD：GiB       | 最大网卡数/网络带宽等级 |
-|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| Standard_H8     | 8         | 56           | 1000                 | 8/高 |
-| Standard_H16    | 16        | 112          | 2000                 | 8/非常高 |
-| Standard_H8m    | 8         | 112          | 1000                 | 8/高 |
-| Standard_H16m   | 16        | 224          | 2000                 | 8/非常高 |
-| Standard_H16r*  | 16        | 112          | 2000                 | 8/非常高 |
-| Standard_H16mr* | 16        | 224          | 2000                 | 8/非常高 |
-
-\*支持 RDMA
 
 ## <a name="configure-sizes-for-cloud-services"></a>配置云服务的大小
 
@@ -194,3 +163,5 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 
 ## <a name="next-steps"></a>后续步骤
 * 了解 [Azure 订阅和服务的限制、配额和约束](../azure-subscription-service-limits.md)。
+
+<!--Update_Description: update wording-->

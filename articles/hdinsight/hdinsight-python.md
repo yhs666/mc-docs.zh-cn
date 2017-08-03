@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 05/22/2017
-ms.date: 07/24/2017
+origin.date: 07/17/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 2370f3ac9c57b98008c857d66cead607e250e3a6
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: bf60baabf06a11077038737982d18a7b8fc11858
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>在 HDInsight 中通过 Hive 和 Pig 使用 Python 用户定义的函数 (UDF)
 
@@ -35,17 +35,23 @@ ms.lasthandoff: 07/14/2017
 
 HDInsight 还包含 Jython，后者是用 Java 编写的 Python 实现。 Jython 在 Java 虚拟机上直接运行，不使用流式处理。 将 Python 与 Pig 配合使用时，建议使用 Jython 作为 Python 解释器。
 
-## <a name="hivepython"></a>Hive 和 Python
+> [!WARNING]
+> 本文档中的步骤基于以下假设： 
+>
+> * 在本地开发环境中创建 Python 脚本。
+> * 通过本地 Bash 会话使用 `scp` 命令或使用提供的 PowerShell 脚本将脚本上传到 HDInsight。
 
-可以通过 HiveQL `TRANSFORM` 语句将 Python 用作 Hive 中的 UDF。 例如，以下 HiveQL 调用 `streaming.py` 文件中存储的 Python 脚本。
+## <a name="hivepython"></a>Hive UDF
+
+可以通过 HiveQL `TRANSFORM` 语句将 Python 用作 Hive 中的 UDF。 例如，以下 HiveQL 调用群集默认 Azure 存储帐户中存储的 `hiveudf.py` 文件。
 
 **基于 Linux 的 HDInsight**
 
 ```hiveql
-add file wasbs:///streaming.py;
+add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
-    USING 'python streaming.py' AS
+    USING 'python hiveudf.py' AS
     (clientid string, phoneLable string, phoneHash string)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
@@ -54,10 +60,10 @@ ORDER BY clientid LIMIT 50;
 **基于 Windows 的 HDInsight**
 
 ```hiveql
-add file wasbs:///streaming.py;
+add file wasbs:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
-    USING 'D:\Python27\python.exe streaming.py' AS
+    USING 'D:\Python27\python.exe hiveudf.py' AS
     (clientid string, phoneLable string, phoneHash string)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
@@ -68,13 +74,15 @@ ORDER BY clientid LIMIT 50;
 
 下面是本示例执行的操作：
 
-1. 文件开头的 `add file` 语句将 `streaming.py` 文件添加到分布式缓存，使群集中的所有节点都可访问该文件。
-2. `SELECT TRANSFORM ... USING` 语句从 `hivesampletable` 中选择数据。 它还将 clientid、devicemake 和 devicemodel 值传递到 `streaming.py` 脚本。
-3. `AS` 子句描述从 `streaming.py` 返回的字段。
+1. 文件开头的 `add file` 语句将 `hiveudf.py` 文件添加到分布式缓存，使群集中的所有节点都可访问该文件。
+2. `SELECT TRANSFORM ... USING` 语句从 `hivesampletable` 中选择数据。 它还将 clientid、devicemake 和 devicemodel 值传递到 `hiveudf.py` 脚本。
+3. `AS` 子句描述从 `hiveudf.py` 返回的字段。
 
 <a name="streamingpy"></a>
 
-下面是该 HiveQL 示例使用的 `streaming.py` 文件。
+### <a name="create-the-hiveudfpy-file"></a>创建 hiveudf.py 文件
+
+在开发环境中，创建名为 `hiveudf.py` 的文本文件。 将以下代码用作该文件的内容：
 
 ```python
 #!/usr/bin/env python
@@ -105,16 +113,17 @@ while True:
 
 有关如何在 HDInsight 群集上运行此示例的信息，请参阅[运行示例](#running)。
 
-## <a name="pigpython"></a>Pig 和 Python
+## <a name="pigpython"></a>Pig UDF
 
 在整个 `GENERATE` 语句中，Python 脚本可用作 Pig 中的 UDF。 可以使用 Jython 或 C Python 运行此脚本。
 
-这两种脚本的差别在于，Jython 在 JVM 上运行，并且原本就能从 Pig 调用。 C Python 是外部进程，因此 JVM 上的 Pig 中的数据将发送到 Python 进程中运行的脚本。 Python 脚本的输出将发回到 Pig。
+* Jython 在 JVM 上运行，并且原本就能从 Pig 调用。
+* C Python 是外部进程，因此 JVM 上的 Pig 中的数据将发送到 Python 进程中运行的脚本。 Python 脚本的输出将发回到 Pig。
 
 若要指定 Python 解释器，请在引用 Python 脚本时使用 `register`。 以下示例将脚本作为 `myfuncs` 注册到 Pig：
 
-* **使用 Jython**：`register '/path/to/pig_python.py' using jython as myfuncs;`
-* **使用 C Python**：`register '/path/to/pig_python.py' using streaming_python as myfuncs;`
+* **使用 Jython**：`register '/path/to/pigudf.py' using jython as myfuncs;`
+* **使用 C Python**：`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]
 > 使用 Jython 时，pig_jython 文件的路径可以是本地路径或 WASB:// 路径。 但是，使用 C Python 时，必须引用用于提交 Pig 作业的节点的本地文件系统上的文件。
@@ -135,7 +144,9 @@ DUMP DETAILS;
 3. 接下来，它将循环访问 `LOG` 中的记录，并使用 `GENERATE` 来调用作为 `myfuncs` 加载的 Python/Jython 脚本中包含的 `create_structure` 方法。 `LINE` 用于将当前记录传递给函数。
 4. 最后，使用 `DUMP` 命令将输出转储到 STDOUT。 操作完成后，此命令会显示结果。
 
-C Python 和 Jython 的 Python 脚本文件类似。 唯一的区别是，使用 C Python 时必须从 `pig_util` 导入。 `pig_python.py` 脚本如下：
+### <a name="create-the-pigudfpy-file"></a>创建 pigudf.py 文件
+
+在开发环境中，创建名为 `pigudf.py` 的文本文件。 将以下代码用作该文件的内容：
 
 <a name="streamingpy"></a>
 
@@ -151,10 +162,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-> [!NOTE]
-> 安装时不必要考虑“pig_util”，脚本会自动使用该选项。
-
-你应该记得，我们前面将 `LINE` 输入定义为 chararray，因为输入没有一致的架构。 Python 脚本将数据转换成用于输出的一致架构。
+在 Pig Latin 示例中，我们已将 `LINE` 输入定义为 chararray，因为输入没有一致的架构。 Python 脚本将数据转换成用于输出的一致架构。
 
 1. `@outputSchema` 语句定义返回到 Pig 的数据的格式。 在本例中，该格式为**数据袋**，这是一种 Pig 数据类型。 该数据袋包含以下字段，所有这些字段都是 chararray（字符串）：
 
@@ -174,7 +182,7 @@ def create_structure(input):
 
 数据返回到 Pig 时，其架构与 `@outputSchema` 语句中的定义一致。
 
-## <a name="running"></a>运行示例
+## <a name="running"></a>上传并运行示例
 
 > [!IMPORTANT]
 > **SSH** 步骤仅适用于基于 Linux 的 HDInsight 群集。 **PowerShell** 步骤适用于基于 Linux 或 Windows 的 HDInsight 群集，但需要 Windows 客户端。
@@ -183,39 +191,37 @@ def create_structure(input):
 
 有关使用 SSH 的详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-1. 使用 Python 示例 [streaming.py](#streamingpy) 和 [pig_python.py](#jythonpy) 在开发计算机上创建文件的本地副本。
-
-2. 使用 `scp` 将文件复制到你的 HDInsight 群集。 例如，以下命令将文件复制到名为 **mycluster**的群集。
+1. 使用 `scp` 将文件复制到 HDInsight 群集。 例如，以下命令将文件复制到名为 **mycluster**的群集。
 
     ```bash
-    scp streaming.py pig_python.py myuser@mycluster-ssh.azurehdinsight.cn:
+    scp hiveudf.py pigudf.py myuser@mycluster-ssh.azurehdinsight.cn:
     ```
 
-3. 使用 SSH 连接到群集。
+2. 使用 SSH 连接到群集。
 
     ```bash
     ssh myuser@mycluster-ssh.azurehdinsight.cn
     ```
 
-4. 从 SSH 会话将前面上传的 python 文件添加到群集的 WASB 存储中。
+3. 从 SSH 会话将前面上传的 python 文件添加到群集的 WASB 存储中。
 
     ```bash
-    hdfs dfs -put streaming.py /streaming.py
-    hdfs dfs -put pig_python.py /pig_python.py
+    hdfs dfs -put hiveudf.py /hiveudf.py
+    hdfs dfs -put pigudf.py /pigudf.py
     ```
 
 在上传文件后，使用以下步骤来运行 Hive 和 Pig 作业。
 
-#### <a name="hive"></a>Hive
+#### <a name="use-the-hive-udf"></a>使用 Hive UDF
 
 1. 使用 `hive` 命令来启动 Hive Shell。 加载 Shell 后，应可看到 `hive>` 提示符。
 
 2. 在 `hive>` 提示符下输入以下查询：
 
    ```hive
-   add file wasbs:///streaming.py;
+   add file wasbs:///hiveudf.py;
    SELECT TRANSFORM (clientid, devicemake, devicemodel)
-       USING 'python streaming.py' AS
+       USING 'python hiveudf.py' AS
        (clientid string, phoneLabel string, phoneHash string)
    FROM hivesampletable
    ORDER BY clientid LIMIT 50;
@@ -229,14 +235,14 @@ def create_structure(input):
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-#### <a name="pig"></a>Pig
+#### <a name="use-the-pig-udf"></a>使用 Pig UDF
 
 1. 使用 `pig` 命令来启动该 shell。 加载 Shell 后，将出现 `grunt>` 提示符。
 
 2. 在 `grunt>` 提示符下输入以下语句：
 
    ```pig
-   Register wasbs:///pig_python.py using jython as myfuncs;
+   Register wasbs:///pigudf.py using jython as myfuncs;
    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
@@ -251,10 +257,10 @@ def create_structure(input):
         ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
         ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-4. 使用 `quit` 退出 Grunt Shell，然后在本地文件系统上使用以下命令编辑 pig_python.py 文件：
+4. 使用 `quit` 退出 Grunt shell，并在本地文件系统上使用以下命令编辑 pigudf.py 文件：
 
     ```bash
-    nano pig_python.py
+    nano pigudf.py
     ```
 
 5. 进入编辑器后，删除行开头的 `#` 字符以取消注释以下行：
@@ -268,7 +274,7 @@ def create_structure(input):
 6. 使用 `pig` 命令再次启动 shell。 在 `grunt>` 提示符下，使用以下命令运行带有 Jython 解释器的 Python 脚本。
 
    ```pig
-   Register 'pig_python.py' using streaming_python as myfuncs;
+   Register 'pigudf.py' using streaming_python as myfuncs;
    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
@@ -277,64 +283,67 @@ def create_structure(input):
 
     完成此作业后，看到的输出应该与之前使用 Jython 运行脚本后的输出相同。
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell-upload-the-files"></a>PowerShell：上传文件
 
-这些步骤使用 Azure PowerShell。 有关如何使用 Azure PowerShell 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
+可以使用 PowerShell 将文件上传到 HDInsight 服务器。 使用以下脚本上传 Python 文件：
 
-1. 使用 Python 示例 [streaming.py](#streamingpy) 和 [pig_python.py](#jythonpy) 在开发计算机上创建文件的本地副本。
-2. 使用以下 PowerShell 脚本将 Python 文件上传到服务器：
+> [!IMPORTANT] 
+> 本部分中的步骤使用 Azure PowerShell。 有关如何使用 Azure PowerShell 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
-   ```powershell
-    # Log in to your Azure subscription
-    # Is there an active Azure subscription?
-    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-    if(-not($sub))
-    {
-        Add-AzureRmAccount -EnvironmentName AzureChinaCloud
-    }
+```powershell
+# Login to your Azure subscription
+# Is there an active Azure subscription?
+$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+}
 
-    # Get cluster info
-    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-    # Change the path to match the file location on your system
-    $pathToStreamingFile = "C:\path\to\streaming.py"
-    $pathToJythonFile = "C:\path\to\pig_python.py"
+# Get cluster info
+$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+# Change the path to match the file location on your system
+$pathToStreamingFile = "C:\path\to\hiveudf.py"
+$pathToJythonFile = "C:\path\to\pigudf.py"
 
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroup = $clusterInfo.ResourceGroup
-    $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-    $container=$clusterInfo.DefaultStorageContainer
-    $storageAccountKey=(Get-AzureRmStorageAccountKey `
-        -Name $storageAccountName `
-    -ResourceGroupName $resourceGroup)[0].Value
+$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$resourceGroup = $clusterInfo.ResourceGroup
+$storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
+$container=$clusterInfo.DefaultStorageContainer
+$storageAccountKey=(Get-AzureRmStorageAccountKey `
+    -Name $storageAccountName `
+-ResourceGroupName $resourceGroup)[0].Value
 
-    #Create a storage content and upload the file
-    $context = New-AzureStorageContext `
-        -StorageAccountName $storageAccountName `
-        -StorageAccountKey $storageAccountKey
+#Create a storage content and upload the file
+$context = New-AzureStorageContext `
+    -StorageAccountName $storageAccountName `
+    -StorageAccountKey $storageAccountKey
 
-    Set-AzureStorageBlobContent `
-        -File $pathToStreamingFile `
-        -Blob "streaming.py" `
-        -Container $container `
-        -Context $context
+Set-AzureStorageBlobContent `
+    -File $pathToStreamingFile `
+    -Blob "hiveudf.py" `
+    -Container $container `
+    -Context $context
 
-    Set-AzureStorageBlobContent `
-        -File $pathToJythonFile `
-        -Blob "pig_python.py" `
-        -Container $container `
-        -Context $context
-   ```
+Set-AzureStorageBlobContent `
+    -File $pathToJythonFile `
+    -Blob "pigudf.py" `
+    -Container $container `
+    -Context $context
+```
+> [!IMPORTANT]
+> 将 `C:\path\to` 值更改为开发环境中的文件路径。
 
-    此脚本将检索 HDInsight 群集的信息，然后提取默认存储帐户的名称和密钥，并将文件上传到容器的根目录。
+此脚本将检索 HDInsight 群集的信息，并提取默认存储帐户的名称和密钥，并将文件上传到容器的根目录。
 
-   > [!NOTE]
-   > 有关上传文件的详细信息，请参阅[在 HDInsight 中上传 Hadoop 作业的数据](hdinsight-upload-data.md)文档。
+> [!NOTE]
+> 有关上传文件的详细信息，请参阅[在 HDInsight 中上传 Hadoop 作业的数据](hdinsight-upload-data.md)文档。
 
-上传文件后，使用以下 PowerShell 脚本启动作业。 完成作业时，会将输出写入到 PowerShell 控制台。
+#### <a name="powershell-use-the-hive-udf"></a>PowerShell：使用 Hive UDF
 
-#### <a name="hive"></a>Hive
+也可以使用 PowerShell 远程运行 Hive 查询。 使用以下 PowerShell 脚本来运行使用 **hiveudf.py** 脚本的 Hive 查询：
 
-以下脚本运行 **streaming.py** 脚本。 在运行前，它会提示你输入 HDInsight 群集的 HTTPs/Admin 帐户信息。
+> [!IMPORTANT]
+> 在运行之前，该脚本会提示输入 HDInsight 群集的 HTTPs/管理员帐户信息。
 
 ```powershell
 # Login to your Azure subscription
@@ -350,10 +359,10 @@ $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
 $creds=Get-Credential -Message "Enter the login for the cluster"
 
 # If using a Windows-based HDInsight cluster, change the USING statement to:
-# "USING 'D:\Python27\python.exe streaming.py' AS " +
-$HiveQuery = "add file wasbs:///streaming.py;" +
+# "USING 'D:\Python27\python.exe hiveudf.py' AS " +
+$HiveQuery = "add file wasbs:///hiveudf.py;" +
                 "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
-                "USING 'python streaming.py' AS " +
+                "USING 'python hiveudf.py' AS " +
                 "(clientid string, phoneLabel string, phoneHash string) " +
                 "FROM hivesampletable " +
                 "ORDER BY clientid LIMIT 50;"
@@ -393,7 +402,7 @@ Get-AzureRmHDInsightJobOutput `
 
 #### <a name="pig-jython"></a>Pig (Jython)
 
-以下脚本通过 Jython 解释程序使用 **pig_python.py** 脚本。 在运行前，它会提示用户输入 HDInsight 群集的 HTTPs/Admin 信息。
+也可以使用 PowerShell 运行 Pig Latin 作业。 若要运行使用 **pigudf.py** 脚本的 Pig Latin 作业，请使用以下 PowerShell 脚本：
 
 > [!NOTE]
 > 使用 PowerShell 远程提交作业时，无法使用 C Python 作为解释器。
@@ -411,7 +420,7 @@ if(-not($sub))
 $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
 $creds=Get-Credential -Message "Enter the login for the cluster"
 
-$PigQuery = "Register wasbs:///pig_python.py using jython as myfuncs;" +
+$PigQuery = "Register wasbs:///pigudf.py using jython as myfuncs;" +
             "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
             "LOG = FILTER LOGS by LINE is not null;" +
             "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
@@ -463,7 +472,7 @@ Get-AzureRmHDInsightJobOutput `
 可以使用以下 PowerShell 语句删除 CR 字符，然后再将文件上传到 HDInsight：
 
 ```powershell
-$original_file ='c:\path\to\streaming.py'
+$original_file ='c:\path\to\hiveudf.py'
 $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 [IO.File]::WriteAllText($original_file, $text)
 ```
@@ -496,3 +505,5 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 * [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
+
+<!--Update_Description: wording update-->

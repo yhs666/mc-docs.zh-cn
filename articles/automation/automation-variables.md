@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 03/10/2017
 ms.date: 03/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 8b8a05e14ac73f8682de2cc76b5680eed86fe8c4
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 95c5a80055b0b47eae9199027c148a6c05cebe50
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自动化中的变量资产
 
@@ -40,9 +40,9 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="variable-types"></a>变量类型
 
-当使用 Azure 经典管理门户创建变量时，你必须通过下拉列表指定一个数据类型，以便门户可以显示用于输入变量值的相应控件。 该变量并不局限于此数据类型，但如果你想要指定不同类型的值，则必须使用 Windows PowerShell 设置该变量。 如果指定为“未定义”，则该变量的值将设置为 $null，并且必须使用 [Set-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx) cmdlet 或 Set-AutomationVariable 活动来设置该值。 无法在该门户中创建或更改复杂变量类型的值，但可以使用 Windows PowerShell 提供任何类型的值。 复杂类型将作为 [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx) 返回。
+当使用 Azure 经典管理门户创建变量时，你必须通过下拉列表指定一个数据类型，以便门户可以显示用于输入变量值的相应控件。 该变量并不局限于此数据类型，但如果想要指定不同类型的值，则必须使用 Windows PowerShell 设置该变量。 如果指定“未定义”，则该变量的值将设置为 **$null**，并且必须使用 [Set-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx) cmdlet 或 **Set-AutomationVariable** 活动来设置该值。 无法在该门户中创建或更改复杂变量类型的值，但可以使用 Windows PowerShell 提供任何类型的值。 复杂类型将作为 [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx) 返回。
 
-你可以通过创建一个数组或哈希表并将其保存到变量，来将多个值存储到单一变量。
+可以通过创建一个数组或哈希表并将其保存到变量，来将多个值存储到单一变量。
 
 下面列出了自动化中的可用变量类型：
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="cmdlets-and-workflow-activities"></a>Cmdlet 和工作流活动
 
-下表中的 cmdlet 用于通过 Windows PowerShell 创建和管理自动化变量。 可在自动化 Runbook 中使用的 [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)已随附了这些 cmdlet。
+下表中的 cmdlet 用于通过 Windows PowerShell 创建和管理自动化变量。 可在自动化 Runbook 中使用的 [Azure PowerShell 模块](../powershell-install-configure.md) 已随附了这些 cmdlet。
 
 |Cmdlet|说明|
 |:---|:---|
@@ -80,7 +80,7 @@ ms.lasthandoff: 06/21/2017
 
 ### <a name="to-create-a-variable-with-the-azure-classic-management-portal"></a>使用 Azure 经典管理门户创建变量
 
-1. 在你的自动化帐户中，单击窗口顶部的“资产”  。
+1. 在自动化帐户中，单击窗口顶部的“资产”。
 1. 在窗口底部，单击“添加设置” 。
 1. 单击“添加变量” 。
 1. 完成向导并单击复选框以保存新变量。
@@ -89,12 +89,12 @@ ms.lasthandoff: 06/21/2017
 
 [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) cmdlet 可创建变量并设置其初始值。 可以使用 [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx) 检索该值。 如果该值为简单类型，则返回相同的类型。 如果其为复杂类型，则返回 **PSCustomObject** 。
 
-下面的示例命令演示如何创建字符串类型的变量，然后返回其值。
+下面的示例命令演示如何创建字符串类型的变量，并返回其值。
 
     New-AzureAutomationVariable -AutomationAccountName "MyAutomationAccount" -Name 'MyStringVariable' -Encrypted $false -Value 'My String'
     $string = (Get-AzureAutomationVariable -AutomationAccountName "MyAutomationAccount" -Name 'MyStringVariable').Value
 
-下面的示例命令演示如何创建复杂类型的变量，然后返回其属性。 在这种情况下，会使用来自 **Get-AzureVM** 的虚拟机对象。
+下面的示例命令演示如何创建复杂类型的变量，并返回其属性。 在这种情况下，会使用来自 **Get-AzureVM** 的虚拟机对象。
 
     $vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
     New-AzureAutomationVariable -AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable" -Encrypted $false -Value $vm

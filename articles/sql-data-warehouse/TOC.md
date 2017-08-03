@@ -49,6 +49,7 @@
 #### [索引](sql-data-warehouse-tables-index.md)
 #### [标识](sql-data-warehouse-tables-identity.md)
 #### [分区](sql-data-warehouse-tables-partition.md)
+#### [复制的表](design-guidance-for-replicated-tables.md)
 #### [统计信息](sql-data-warehouse-tables-statistics.md)
 #### [临时](sql-data-warehouse-tables-temporary.md)
 
@@ -138,10 +139,11 @@
 ## [PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # 资源
-## [价格](https://www.azure.cn/pricing/details/sql-data-warehouse/)
-## [堆栈溢出](https://stackoverflow.com/questions/tagged/azure-sqldw/)
-## [服务更新](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Azure 路线图](https://azure.microsoft.com/roadmap/)
 ## [论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [定价](https://www.azure.cn/pricing/details/sql-data-warehouse/)
+## [服务更新](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [堆栈溢出](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse) -->
 
 <!-- Not Available ## Partners -->

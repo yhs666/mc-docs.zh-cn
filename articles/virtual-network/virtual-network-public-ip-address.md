@@ -14,16 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/05/2017
-ms.date: 06/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 0e1782f9c4bf5f74f2d72deb5936d2212c48ae49
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: f889a206d6d67fb37b4d12cb85c40416bed2183f
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 创建、更改或删除公共 IP 地址
-<a id="create-change-or-delete-public-ip-addresses" class="xliff"></a>
+# <a name="create-change-or-delete-public-ip-addresses"></a>创建、更改或删除公共 IP 地址
 
 了解公共 IP 地址以及如何创建、更改和删除它们。 公共 IP 地址是一种自带可配置设置的资源。 通过将公共 IP 地址分配给其他 Azure 资源，可以：
 - 与 Azure 虚拟机 (VM)、Azure 虚拟机规模集、Azure VPN 网关和面向 Internet 的 Azure 负载均衡器等资源建立入站 Internet 连接。
@@ -68,14 +67,15 @@ ms.lasthandoff: 06/23/2017
 |CLI|[az network public-ip-create](https://docs.microsoft.com/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 |PowerShell|[New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
-## <a name="change"></a>更改公共 IP 地址的设置或删除公共 IP 地址
+## <a name="change"></a>查看、更改公共 IP 地址的设置或删除公共 IP 地址
 
 1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
 2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“公共 IP 地址”。 在搜索结果中出现 **公共 IP 地址** 时，单击该地址。
-3. 在显示的“公共 IP 地址”  边栏选项卡中，单击要更改其设置或要删除的公共 IP 地址的名称。
+3. 在出现的“公共 IP 地址”边栏选项卡中，单击要查看、更改其设置或要删除的公共 IP 地址的名称。
 4. 在显示的公共 IP 地址边栏选项卡中，根据是否要删除或更改公共 IP 地址完成以下相应选项。
-    - **删除：**若要删除公共 IP 地址，请在该边栏选项卡的“概述”部分中单击“删除”。 如果该地址当前与 IP 配置关联，则无法删除。 如果地址当前与配置相关联，请单击“取消关联”  ，取消该地址与 IP 配置之间的关联。
-    - **更改：**单击“配置”。 使用本文 [创建公共 IP 地址](#create) 部分的步骤 4 中的信息更改设置。 若要将分配从静态更改为动态，必须先从与其关联的 IP 配置中取消关联公共 IP 地址。 然后，可将分配方法更改为动态，然后单击“关联”  将 IP 地址关联到相同的 IP 配置或其他配置，还可将其保留为取消关联状态。 若要取消关联公共 IP 地址，请在“概述”部分中单击“取消关联”。
+    - **查看**：边栏选项卡的“概述”部分显示公共 IP 地址的主要设置，例如与之关联的网络接口（如果地址与某个网络接口关联）。
+    - **删除**：若要删除公共 IP 地址，请在边栏选项卡的“概述”部分中单击“删除”。 如果该地址当前与 IP 配置关联，则无法删除。 如果地址当前与配置相关联，请单击“取消关联”  ，取消该地址与 IP 配置之间的关联。
+    - **更改**：单击“配置”。 使用本文 [创建公共 IP 地址](#create) 部分的步骤 4 中的信息更改设置。 若要将分配从静态更改为动态，必须先从与其关联的 IP 配置中取消关联公共 IP 地址。 然后，可将分配方法更改为动态，然后单击“关联”  将 IP 地址关联到相同的 IP 配置或其他配置，还可将其保留为取消关联状态。 若要取消关联公共 IP 地址，请在“概述”部分中单击“取消关联”。
 
 >[!WARNING]
 >将分配方法从静态更改为动态时，将丢失分配给公共 IP 地址的 IP 地址。 尽管 Azure 公共 DNS 服务器会保留静态或动态地址与任何 DNS 名称标签（如果已定义）之间的映射，但如果 VM 在处于停止（解除分配）状态之后启动，动态 IP 地址可能会更改。 为防止地址变化，请分配静态 IP 地址。
@@ -84,8 +84,8 @@ ms.lasthandoff: 06/23/2017
 
 |工具|命令|
 |---|---|
-|CLI|[az network public-ip update](https://docs.microsoft.com/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#update) 用于更新；[az network public-ip delete](https://docs.microsoft.com/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#delete) 用于删除|
-|PowerShell|[Set-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) 用于更新；[Remove-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermpublicipaddress) 用于删除|
+|CLI|[az network public-ip-list](https://docs.microsoft.com/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#list) 用于列出公共 IP 地址；[az network public-ip-show](https://docs.microsoft.com/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#show) 用于显示设置；[az network public-ip update](https://docs.microsoft.com/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#update) 用于更新；[az network public-ip delete](https://docs.microsoft.com/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#delete) 用于删除|
+|PowerShell|[Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) 用于检索公共 IP 地址对象并查看其设置；[Set-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) 用于更新设置；[Remove-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermpublicipaddress) 用于删除|
 
 ## <a name="next-steps"></a>后续步骤
 创建以下 Azure 资源时，将分配公共 IP 地址：
@@ -95,3 +95,5 @@ ms.lasthandoff: 06/23/2017
 - [Azure 应用程序网关](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fvirtual-network%2ftoc.json)
 - [使用 Azure VPN 网关建立站点到站点连接](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)
 - [Azure 虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fvirtual-network%2ftoc.json)
+
+<!--Update_Description: wording update-->

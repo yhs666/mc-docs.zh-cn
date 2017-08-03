@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 03/14/2017
-ms.date: 07/24/2017
+origin.date: 06/30/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 09322d4c4ce877fabead96d1cc747566f6a6309c
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: c911b4d4f5709c8c46701166c8a220729415bef9
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 模板在 HDInsight 中创建 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -71,7 +71,7 @@ ms.lasthandoff: 07/14/2017
 
     可从此处下载模板、将其保存到模板库中或部署该模板。
 
-    若要访问库中的模板，请从左侧菜单中单击“更多服务”，然后在“其他”类别下单击“模板”。
+    如果要访问库中的模板，请从左侧菜单中单击“更多服务”，并在“其他”类别下单击“模板”。
 
     > [!Note]
     > 模板和参数文件必须一起使用。 否则，可能收到意外结果。 例如，无论在下载模板前指定了何值，默认 **clusterKind** 属性值始终为 **hadoop**。
@@ -132,7 +132,7 @@ ms.lasthandoff: 07/14/2017
         # List cluster
         Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
 
-    PowerShell 脚本仅配置群集名称。 存储帐户名称在模板中进行硬编码。 系统提示输入群集用户密码。 （默认用户名为 **admin**。）系统还将提示输入 SSH 用户密码。 （默认 SSH 用户名为 **sshuser**。）  
+    PowerShell 脚本仅配置群集名称。 存储帐户名称在模板中进行硬编码。 系统提示输入群集用户密码。 （默认用户名为 **admin**。）系统还会提示输入 SSH 用户密码。 （默认 SSH 用户名为 **sshuser**。）  
 
 有关详细信息，请参阅[使用 PowerShell 进行部署](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template)。
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 07/14/2017
 如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
 
 ## <a name="next-steps"></a>后续步骤
-在本文中，你已经学习了几种创建 HDInsight 群集的方法。 若要了解更多信息，请参阅下列文章：
+在本文中，已经学习了几种创建 HDInsight 群集的方法。 若要了解更多信息，请参阅下列文章：
 
 * 有关通过 .NET 客户端库部署资源的示例，请参阅[使用 .NET 库和模板部署资源](../virtual-machines/windows/csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 有关部署应用程序的详细示例，请参阅[按可预见的方式在 Azure 中预配和部署微服务](../app-service-web/app-service-deploy-complex-application-predictably.md)。
@@ -174,7 +174,7 @@ ms.lasthandoff: 07/14/2017
 * 若要了解 Azure Resource Manager 模板的节，请参阅[创作模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 * 有关可在 Azure Resource Manager 模板中使用的函数列表，请参阅[模板函数](../azure-resource-manager/resource-group-template-functions.md)。
 
-## <a name="appendix-resource-manager-template"></a>附录：Resource Manager 模板
+## <a name="appendix-resource-manager-template-to-create-a-hadoop-cluster"></a>附录：用于创建 Hadoop 群集的 Resource Manager 模板
 以下 Azure Resource Manager 模板使用依赖的 Azure 存储帐户创建基于 Linux 的 Hadoop 群集。
 
 > [!NOTE]
@@ -325,7 +325,7 @@ ms.lasthandoff: 07/14/2017
                 "name": "[concat(variables('clusterStorageAccountName'),'.blob.core.chinacloudapi.cn')]",
                 "isDefault": true,
                 "container": "[parameters('clusterName')]",
-                "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('clusterStorageAccountName')), variables('defaultApiVersion')).key1]"
+                "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('clusterStorageAccountName')), variables('defaultApiVersion')).keys[0].value]"
                 }
             ]
             },
@@ -369,3 +369,169 @@ ms.lasthandoff: 07/14/2017
         }
     }
     }
+
+## <a name="appendix-resource-manager-template-to-create-a-spark-cluster"></a>附录：用于创建 Spark 群集的 Resource Manager 模板
+
+本部分提供可用于创建 HDInsight Spark 群集的 Resource Manager 模板。 此模板包含 `spark-defaults` 和 `spark-thrift-sparkconf`（用于 Spark 1.6 群集）以及 `spark2-defaults` 和 `spark2-thrift-sparkconf`（用于 Spark 2 群集）的配置。 此外，HDInsight 将根据群集大小计算并设置 `spark.executor.instances`、`spark.executor.memory` 和 `spark.executor.cores` 等配置。 
+
+如果将某节中的任一参数设置为模板本身的一部分，则 HDInsight 不会计算并设置同一节的其他参数。 例如，参数 `spark.executor.instances` 在 `spark-defaults` 配置中。 如果在 `spark-defaults` 配置中设置另一参数（如 `spark.yarn.exector.memoryOverhead`），则 HDInsight 也不会计算并设置 `spark.executor.instances` 参数。
+
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "0.9.0.0",
+    "parameters": {
+        "clusterName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the HDInsight cluster to create."
+            }
+        },
+        "clusterLoginUserName": {
+            "type": "string",
+            "defaultValue": "admin",
+            "metadata": {
+                "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
+            }
+        },
+        "clusterLoginPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "chinaeast",
+            "metadata": {
+                "description": "The location where all azure resources will be deployed."
+            }
+        },
+        "clusterVersion": {
+            "type": "string",
+            "defaultValue": "3.5",
+            "metadata": {
+                "description": "HDInsight cluster version."
+            }
+        },
+        "clusterWorkerNodeCount": {
+            "type": "int",
+            "defaultValue": 4,
+            "metadata": {
+                "description": "The number of nodes in the HDInsight cluster."
+            }
+        },
+        "clusterKind": {
+            "type": "string",
+            "defaultValue": "SPARK",
+            "metadata": {
+                "description": "The type of the HDInsight cluster to create."
+            }
+        },
+        "sshUserName": {
+            "type": "string",
+            "defaultValue": "sshuser",
+            "metadata": {
+                "description": "These credentials can be used to remotely access the cluster."
+            }
+        },
+        "sshPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+            }
+        }
+    },
+    "variables": {
+        "defaultApiVersion": "2017-06-01",
+        "clusterStorageAccountName": "[concat(parameters('clusterName'),'store')]"
+    },
+    "resources": [
+        {
+        "name": "[variables('clusterStorageAccountName')]",
+        "type": "Microsoft.Storage/storageAccounts",
+        "location": "[parameters('location')]",
+        "apiVersion": "[variables('defaultApiVersion')]",
+        "dependsOn": [ ],
+        "tags": { },
+        "properties": {
+            "accountType": "Standard_LRS"
+        }
+        },
+    {
+            "apiVersion": "2015-03-01-preview",
+            "name": "[parameters('clusterName')]",
+            "type": "Microsoft.HDInsight/clusters",
+            "location": "[parameters('location')]",
+            "dependsOn": [],
+            "properties": {
+                "clusterVersion": "[parameters('clusterVersion')]",
+                "osType": "Linux",
+                "tier": "standard",
+                "clusterDefinition": {
+                    "kind": "[parameters('clusterKind')]",
+                    "configurations": {
+                        "gateway": {
+                            "restAuthCredential.isEnabled": true,
+                            "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
+                            "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
+                        },
+                        "spark-defaults": {
+                            "spark.executor.cores": "2"
+                        },
+                        "spark-thrift-sparkconf": {
+                            "spark.yarn.executor.memoryOverhead": "896"
+                        }
+                    }
+                },
+                "storageProfile": {
+                    "storageaccounts": [
+                        {
+                            "name": "[concat(variables('clusterStorageAccountName'),'.blob.core.chinacloudapi.cn')]",
+                            "isDefault": true,
+                            "container": "[parameters('clusterName')]",
+                            "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('clusterStorageAccountName')), variables('defaultApiVersion')).keys[0].value]"
+                        }
+                    ]
+                },
+                "computeProfile": {
+                    "roles": [
+                        {
+                            "name": "headnode",
+                            "minInstanceCount": 1,
+                            "targetInstanceCount": 2,
+                            "hardwareProfile": {
+                                "vmSize": "Standard_D12"
+                            },
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "username": "[parameters('sshUserName')]",
+                                    "password": "[parameters('sshPassword')]"
+                                }
+                            },
+                            "virtualNetworkProfile": null,
+                            "scriptActions": []
+                        },
+                        {
+                            "name": "workernode",
+                            "minInstanceCount": 1,
+                            "targetInstanceCount": 4,
+                            "hardwareProfile": {
+                                "vmSize": "Standard_D4"
+                            },
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "username": "[parameters('sshUserName')]",
+                                    "password": "[parameters('sshPassword')]"
+                                    }
+                                },
+                                "virtualNetworkProfile": null,
+                                "scriptActions": []
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+
+<!--Update_Description: add a spark template-->

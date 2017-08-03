@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/14/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: 045efd84a51e4ddb575fc99d1b569821c8d8d179
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: b4287ee21d306bf0d850caefd6fbce02d50f7adf
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-with-transact-sql"></a>使用 Transact-SQL 为 Azure SQL 数据库配置活动异地复制
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 07/14/2017
 4. 单击“执行”  运行查询。
 
 ## <a name="remove-secondary-database"></a>删除辅助数据库
-可以使用 **ALTER DATABASE** 语句永久终止辅助数据库与其主数据库之间的复制关系。 此语句将在主数据库所在的 master 数据库上运行。 终止关系后，辅助数据库将成为常规读写数据库。 如果与辅助数据库的连接断开，命令将会成功，但辅助数据库必须等到连接恢复后才变为可读写。 有关详细信息，请参阅 [ALTER DATABASE (Transact-SQL) ](https://msdn.microsoft.com/library/mt574871.aspx)和[服务层](sql-database-service-tiers.md)。
+可以使用 **ALTER DATABASE** 语句永久终止辅助数据库与其主数据库之间的复制关系。 此语句会在主数据库所在的 master 数据库上运行。 终止关系后，辅助数据库成为常规读写数据库。 如果与辅助数据库的连接断开，命令将会成功，但辅助数据库必须等到连接恢复后才变为可读写。 有关详细信息，请参阅 [ALTER DATABASE (Transact-SQL) ](https://msdn.microsoft.com/library/mt574871.aspx)和[服务层](sql-database-service-tiers.md)。
 
 使用以下步骤从异地复制合作关系中删除异地复制的辅助数据库。
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 07/14/2017
 2. 打开“数据库”文件夹，展开“系统数据库”，右键单击“master”，然后单击“新建查询”。
 3. 使用以下语句显示具有异地复制链接的所有数据库。
 
-        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].geo_replication_links;
+        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM sys.geo_replication_links;
 4. 单击“执行”  运行查询。
 5. 打开“数据库”文件夹，展开“系统数据库”，右键单击“MyDB”，然后单击“新建查询”。
 6. 使用以下语句显示复制延迟和 MyDB 的辅助数据库上次复制的时间。
@@ -116,5 +116,7 @@ ms.lasthandoff: 07/14/2017
 9. 单击“执行”  运行查询。
 
 ## <a name="next-steps"></a>后续步骤
-* 若要深入了解活动异地复制，请参阅[活动异地复制](sql-database-geo-replication-overview.md)
+* 若要详细了解故障转移组和活动异地复制，请参阅[故障转移组](sql-database-geo-replication-overview.md)
 * 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)
+
+<!--Update_Description: wording update-->

@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 origin.date: 03/22/2016
 ms.date: 12/12/2016
 ms.author: v-dazen
-ms.openlocfilehash: 179c964f82d80d5bd33187b3df7509254c26d3fd
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 4f0074d2360848a98eab63603f649fac1e2de24a
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>如何使用 PowerShell（经典）设置静态内部专用 IP 地址
-大多数情况下，不需要指定虚拟机的静态内部 IP 地址。 虚拟网络中的 VM 将自动从指定的范围接收内部 IP 地址。 但在某些情况下，需要为特定 VM 指定静态 IP 地址。 例如，在你的 VM 需要运行 DNS 或将要成为域控制器的情况下。 静态内部 IP 地址会始终与 VM 关联在一起，即使经历“停止/取消预配”状态变化。 
+大多数情况下，不需要指定虚拟机的静态内部 IP 地址。 虚拟网络中的 VM 将自动从指定的范围接收内部 IP 地址。 但在某些情况下，需要为特定 VM 指定静态 IP 地址。 例如，在 VM 需要运行 DNS 或将要成为域控制器的情况下。 静态内部 IP 地址会始终与 VM 关联在一起，即使经历“停止/取消预配”状态变化。 
 
 > [!IMPORTANT]
 > Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 [Resource Manager 部署模型](virtual-networks-static-private-ip-arm-ps.md)。
@@ -41,7 +41,7 @@ ms.lasthandoff: 06/21/2017
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> 如果想要在安全的环境中测试上述命令，请遵循[创建虚拟网络](virtual-networks-create-vnet-classic-portal.md)中的准则创建名为 *TestVnet* 的 VNet，并确保其使用 *10.0.0.0/8* 地址空间。
+> 若要在安全环境中测试上面的命令，请按照[创建虚拟网络（经典）](virtual-networks-create-vnet-classic-pportal.md)中的指南，创建名为“TestVnet”的 VNet，并确保它使用“10.0.0.0/8”地址空间。
 > 
 > 
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 06/21/2017
     | New-AzureVM -ServiceName "TestService" -VNetName TestVnet
 
 ## <a name="how-to-retrieve-static-internal-ip-information-for-a-vm"></a>如何检索 VM 的静态内部 IP 信息
-若要查看使用上述脚本创建的 VM 的静态内部 IP 信息，请运行以下 PowerShell 命令，然后观察 *IpAddress*的值：
+如果要查看使用上述脚本创建的 VM 的静态内部 IP 信息，请运行以下 PowerShell 命令，并观察 *IpAddress*的值：
 
     Get-AzureVM -Name TestVM -ServiceName TestService
 

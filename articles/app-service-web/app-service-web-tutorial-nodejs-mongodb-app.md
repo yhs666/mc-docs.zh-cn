@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 05/04/2017
-ms.date: 07/03/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: bbd18f59116d33f2ec08cd861c4ee3782fbb2b5f
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: eff2c2eec0e04802c066efbbf91a355f671cd55f
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>在 Azure 中构建 Node.js 和 MongoDB Web 应用
 
@@ -46,13 +46,14 @@ Azure Web 应用提供高度可缩放、自修补的 Web 托管服务。 本教�
 1. [安装 Node.js 和 NPM](https://nodejs.org/)
 1. [安装 Gulp.js](http://gulpjs.com/) [（MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started) 要求的）
 1. [安装并运行 MongoDB 社区版](https://docs.mongodb.com/manual/administration/install-community/) 
-1. [安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+
 ## <a name="test-local-mongodb"></a>测试本地 MongoDB
 
-打开终端窗口并`cd`打开到`bin` MongoDB 安装的目录。 
+打开终端窗口并`cd`打开到`bin` MongoDB 安装的目录。 可使用此终端窗口运行本教程中的所有命令。
 
 在终端运行 `mongo` 以连接到本地 MongoDB 服务器。
 
@@ -62,7 +63,7 @@ mongo
 
 如果连接成功，那么 MongoDB 数据库已经开始运行。 如果连接不成功，那么请确保本地 MongoDB 数据库按[安装 MongoDB 社区版](https://docs.mongodb.com/manual/administration/install-community/)中的步骤来启动。 通常，MongoDB 已安装，但是仍需要运行 `mongod` 来启动它。 
 
-完成 MongoDB 数据库测试后，请在终端输入 Ctrl+C。 
+完成 MongoDB 数据库测试后，请在终端键入 `Ctrl+C`。 
 
 ## <a name="create-local-nodejs-app"></a>创建本地 Node.js 应用
 
@@ -70,7 +71,7 @@ mongo
 
 ### <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-打开终端窗口，运行 `cd` 切换到工作目录。  
+在终端窗口中，通过 `cd` 转到工作目录。  
 
 运行下列命令，克隆示例存储库。 
 
@@ -112,7 +113,7 @@ MEAN.js 示例应用程序将用户数据存储在数据库中。 如果成功�
 
 选择“管理员”>“管理文章”以添加一些文章。
 
-任何时候想停止 Node.js，可在终端按 Ctrl+C。 
+若要随时停止 Node.js，请在终端中按 `Ctrl+C`。 
 
 ## <a name="create-production-mongodb"></a>创建生产 MongoDB
 
@@ -257,7 +258,7 @@ MEAN.JS version: 0.5.0
 
 在浏览器中导航到 http://localhost:8443。 在顶部菜单点击“注册”并创建一个测试用户。 如果成功创建用户并登陆，那么应用会将数据写入 Azure 中的 Cosmos DB 数据库。 
 
-在终端中，通过键入 Ctrl+C 停止 Node.js。 
+在终端中，通过键入 `Ctrl+C` 停止 Node.js。 
 
 ## <a name="deploy-app-to-azure"></a>将应用部署到 Azure
 
@@ -555,7 +556,7 @@ NODE_ENV=production node server.js
 
 ![已向文章添加注释字段](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
 
-在终端中，通过键入 Ctrl+C 停止 Node.js。 
+在终端中，通过键入 `Ctrl+C` 停止 Node.js。 
 
 ### <a name="publish-changes-to-azure"></a>发布对 Azure 所做的更改
 
@@ -584,7 +585,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 启动日志流式处理后，请立即在浏览器中刷新 Azure Web 应用，以获取一些 Web 通信流。 现在能看到控制台日志传送到终端。
 
-通过键入 Ctrl+C，随时停止日志流式处理。 
+通过键入 `Ctrl+C`，随时停止日志流式处理。 
 
 ## <a name="manage-your-azure-web-app"></a>管理 Azure Web 应用
 
@@ -617,3 +618,5 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 > [!div class="nextstepaction"] 
 > [将现有的自定义 DNS 名称映射到 Azure Web 应用](app-service-web-tutorial-custom-domain.md)
+
+<!--Update_Description: add a note about Azure CLI 2.0 version-->

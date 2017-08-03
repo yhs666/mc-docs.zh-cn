@@ -15,16 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 origin.date: 05/26/2017
-ms.date: 07/03/2017
-ms.author: v-johch
-ms.openlocfilehash: 45f1db8a3f83f5426f90e63ad6fa161911079edf
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 409cd3671e328352c346c39b03adb6cf023c87d5
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 实现地理分散的数据库
-<a id="implement-a-geo-distributed-database" class="xliff"></a>
+# <a name="implement-a-geo-distributed-database"></a>实现地理分散的数据库
 
 在本教程中，将配置 Azure SQL 数据库和应用程序以便故障转移到远程区域中，然后测试故障转移计划。 你将学习如何执行以下操作： 
 
@@ -35,25 +34,25 @@ ms.lasthandoff: 06/30/2017
 > * 创建和编译 Java 应用程序以查询 Azure SQL 数据库
 > * 执行灾难恢复演练
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+如果没有 Azure 订阅，可在开始前[创建一个 1 元人民币的试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-若要完成本教程，请确保做好以下准备：
+## <a name="prerequisites"></a>先决条件
 
-- 最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。 
-- Azure SQL 数据库。 本教程使用以下任一快速入门中名为“mySampleDatabase”的 AdventureWorksLT 示例数据库：
+若要完成本教程，请确保已完成了以下先决条件：
+
+- 已安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。 
+- 已安装 Azure SQL 数据库。 本教程使用以下任一快速入门中名为“mySampleDatabase”的 AdventureWorksLT 示例数据库：
 
    - [创建 DB - 门户](sql-database-get-started-portal.md)
    - [创建 DB - CLI](sql-database-get-started-cli.md)
    - [创建 DB - PowerShell](sql-database-get-started-powershell.md)
 
-此外，若要针对自己的数据库执行 SQL 脚本，可使用以下查询工具之一：
+- 已确定了对数据库执行 SQL 脚本的一种方法，可以使用以下查询工具之一：
    - [Azure 门户](https://portal.azure.cn)中的查询编辑器。 有关使用 Azure 门户中的查询编辑器的详细信息，请参阅[使用查询编辑器进行连接和查询](sql-database-get-started-portal.md#query-the-sql-database)。
    - 最新版本的 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)，它是用于管理任何 SQL 基础结构（从适用于 Microsoft Windows 的 SQL Server 到 SQL 数据库，不一而足）的集成环境。
    - 最新版本的 [Visual Studio Code](https://code.visualstudio.com/docs)，它是一种图形代码编辑器，适用于 Linux、macOS 和 Windows，并且支持各种扩展，其中包括 [mssql 扩展](https://aka.ms/mssql-marketplace)（用于查询 Microsoft SQL Server、Azure SQL 数据库和 SQL 数据仓库）。 有关对 Azure SQL 数据库使用此工具的详细信息，请参阅[使用 VS Code 进行连接和查询](sql-database-connect-query-vscode.md)。 
 
-## 创建数据库用户并授予权限
-<a id="create-database-users-and-grant-permissions" class="xliff"></a>
+## <a name="create-database-users-and-grant-permissions"></a>创建数据库用户并授予权限
 
 连接到数据库并使用以下查询工具之一创建用户帐户：
 
@@ -75,8 +74,7 @@ ms.lasthandoff: 06/30/2017
    GRANT SELECT, INSERT, DELETE, UPDATE ON SalesLT.Product TO app_user;
    ```
 
-## 创建数据库级防火墙
-<a id="create-database-level-firewall" class="xliff"></a>
+## <a name="create-database-level-firewall"></a>创建数据库级防火墙
 
 为 SQL 数据库创建[数据库级防火墙规则](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)。 此数据库级防火墙规则将自动复制到在本教程中创建的辅助服务器。 为简单起见（在本教程中），使用执行本教程中步骤的计算机的公共 IP 地址。 若要确定用于服务器级防火墙规则（针对当前计算机）的 IP 地址，请参阅[创建服务器级防火墙](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。  
 
@@ -87,8 +85,7 @@ ms.lasthandoff: 06/30/2017
    EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
    ```
 
-## 创建活动异地复制自动故障转移组
-<a id="create-an-active-geo-replication-auto-failover-group" class="xliff"></a> 
+## <a name="create-an-active-geo-replication-auto-failover-group"></a>创建活动异地复制自动故障转移组 
 
 使用 Azure PowerShell 在 Azure 区域中的现有 Azure SQL 服务器和新的空 Azure SQL 服务器之间创建[活动异地复制自动故障转移组](sql-database-geo-replication-overview.md)，然后将示例数据库添加到故障转移组。
 
@@ -147,13 +144,11 @@ ms.lasthandoff: 06/30/2017
    $myfailovergroup   
    ```
 
-## 安装 Java 软件
-<a id="install-java-software" class="xliff"></a>
+## <a name="install-java-software"></a>安装 Java 软件
 
 本部分中的步骤假定你熟悉使用 Java 开发，但不熟悉如何使用 Azure SQL 数据库。 
 
-### **Mac OS**
-<a id="mac-os" class="xliff"></a>
+### <a name="mac-os"></a>**Mac OS**
 打开终端并导航到要在其中创建 Java 项目的目录。 输入以下命令安装 **brew** 和 **Maven**： 
 
 ```bash
@@ -164,8 +159,7 @@ brew install maven
 
 有关安装和配置 Java 和 Maven 环境的详细指导，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/sql-server/developer-get-started/)，依次选择“Java”和“MacOS”，然后按照步骤 1.2 和 1.3 中有关配置 Java 和 Maven 的详细说明进行操作。
 
-### **Linux (Ubuntu)**
-<a id="linux-ubuntu" class="xliff"></a>
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 打开终端并导航到要在其中创建 Java 项目的目录。 输入以下命令安装 **Maven**：
 
 ```bash
@@ -174,12 +168,10 @@ sudo apt-get install maven
 
 有关安装和配置 Java 和 Maven 环境的详细指导，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/sql-server/developer-get-started/)，依次选择“Java”和“Ubuntu”，然后遵循步骤 1.2、1.3 和 1.4 中配置 Java 和 Maven 的详细说明。
 
-### **Windows**
-<a id="windows" class="xliff"></a>
+### <a name="windows"></a>**Windows**
 使用官方安装程序安装 [Maven](https://maven.apache.org/download.cgi)。 使用 Maven 帮助管理依赖项、内部版本、测试和运行 Java 项目。 有关安装和配置 Java 和 Maven 环境的详细指导，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/sql-server/developer-get-started/)，依次选择“Java”和“Windows”，然后遵循步骤 1.2 和 1.3 中配置 Java 和 Maven 的详细说明。
 
-## 创建 SqlDbSample 项目
-<a id="create-sqldbsample-project" class="xliff"></a>
+## <a name="create-sqldbsample-project"></a>创建 SqlDbSample 项目
 
 1. 在命令控制台（例如 Bash）中，创建一个 Maven 项目。 
    ```bash
@@ -332,8 +324,7 @@ sudo apt-get install maven
    ```
 6. 保存并关闭 App.java 文件。
 
-## 编译并运行 SqlDbSample 项目
-<a id="compile-and-run-the-sqldbsample-project" class="xliff"></a>
+## <a name="compile-and-run-the-sqldbsample-project"></a>编译并运行 SqlDbSample 项目
 
 1. 在命令控制台中，执行以下命令。
 
@@ -354,8 +345,7 @@ sudo apt-get install maven
    3. insert on primary successful, read from secondary successful
    ```
 
-## 执行灾难恢复演练
-<a id="perform-disaster-recovery-drill" class="xliff"></a>
+## <a name="perform-disaster-recovery-drill"></a>执行灾难恢复演练
 
 1. 调用故障转移组的手动故障转移。 
 
@@ -394,7 +384,8 @@ sudo apt-get install maven
       -ServerName $mydrservername
    $fileovergroup.ReplicationRole
    ```
-## 后续步骤
-<a id="next-steps" class="xliff"></a> 
+## <a name="next-steps"></a>后续步骤 
 
-- 有关详细信息，请参阅[活动异地复制和故障转移组](sql-database-geo-replication-overview.md)。
+有关详细信息，请参阅[活动异地复制和故障转移组](sql-database-geo-replication-overview.md)。
+
+<!--Update_Description: wording update-->

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/25/2017
-ms.date: 07/24/2017
+origin.date: 07/17/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 7b9da402d196af75ed6b58c4f915f426615f3186
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: cb760158f0290df369544e923d798f5b7ef92a6d
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虚拟网络中的 HDInsight 上创建 HBase 群集
 了解如何在 [Azure 虚拟网络][1]中创建 Azure HDInsight HBase 群集。
@@ -33,9 +33,9 @@ ms.lasthandoff: 07/14/2017
 * 能够以更安全的方式处理敏感信息，而无需公开公共终结点。
 
 ### <a name="prerequisites"></a>先决条件
-在开始阅读本教程前，你必须具有：
+要阅读本教程，必须具备以下项：
 
-* **Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+* **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * **配备 Azure PowerShell 的工作站**。 请参阅[安装并使用 Azure PowerShell](/powershell-install-configure/)。
 
 ## <a name="create-hbase-cluster-into-virtual-network"></a>在虚拟网络上创建 HBase 群集
@@ -45,8 +45,8 @@ ms.lasthandoff: 07/14/2017
 > 某些属性已在模板中硬编码。 例如：
 >
 > * 位置：中国东部
-> * 群集版本：3.5
-> * **群集辅助角色节点计数**：4
+> * **群集版本**：3.5
+> * **群集工作节点计数**：2
 > * **默认存储帐户**：唯一字符串
 > * 虚拟网络名称：&lt;群集名称>-vnet
 > * **虚拟网络地址空间**：10.0.0.0/16
@@ -64,7 +64,7 @@ ms.lasthandoff: 07/14/2017
     >[!NOTE]
     > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，将一些终结点 -“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”；将允许的位置更改为“中国北部”和“中国东部”；将 HDInsight Linux 版本更改为 Azure 中国区支持的版本 3.5。
 
-2. 在“自定义部署”  边栏选项卡中输入以下项：
+2. 在“自定义部署”边栏选项卡中，输入以下属性：
 
    * **订阅**：选择用于创建 HDInsight 群集、从属存储帐户和 Azure 虚拟网络的 Azure 订阅。
    * 资源组：选择“新建”，然后指定新的资源组名称。
@@ -80,7 +80,7 @@ ms.lasthandoff: 07/14/2017
 要开始处理新 HBase 群集，可以按照[开始在 HDInsight 中将 HBase 与 Hadoop 配合使用](hdinsight-hbase-tutorial-get-started.md)中的步骤操作。
 
 ## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>使用 HBase Java RPC API 连接到 HBase 群集。
-1. 将基础结构即服务 (IaaS) 虚拟机创建到相同的 Azure 虚拟网络和子网中。 有关创建新 IaaS 虚拟机的说明，请参阅[创建运行 Windows Server 的虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md)。 按照本文档中的步骤操作时，必须使用以下内容进行网络配置：
+1. 将基础结构即服务 (IaaS) 虚拟机创建到相同的 Azure 虚拟网络和子网中。 有关创建新 IaaS 虚拟机的说明，请参阅[创建运行 Windows Server 的虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md)。 按照本文档中的步骤操作时，必须使用以下值进行网络配置：
 
    * 虚拟网络：&lt;群集名称>-vnet
    * **子网**：subnet1
@@ -210,12 +210,7 @@ ms.lasthandoff: 07/14/2017
 
          Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
 
-     这将返回 DNS 后缀。 例如， **yourclustername.b4.internal.chinacloudapp.cn**。
-   * 使用 RDP
-
-     还可使用远程桌面连接到 HBase 群集（你将连接到头节点），并从命令提示符运行 ipconfig 获取 DNS 后缀。 有关启用远程桌面协议 (RDP) 并使用 RDP 连接到群集的说明，请参阅[使用 Azure 门户在 HDInsight 中管理 Hadoop 群集][hdinsight-admin-portal]。
-
-     ![hdinsight.hbase.dns.surffix][img-dns-surffix]
+     此命令返回 DNS 后缀。 例如， **yourclustername.b4.internal.chinacloudapp.cn**。
 
 <!--
 3.    Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster.
@@ -247,7 +242,7 @@ ms.lasthandoff: 07/14/2017
 >
 
 ## <a name="next-steps"></a>后续步骤
-在本教程中，你已学习了如何创建 HBase 群集。 要了解更多信息，请参阅以下文章：
+在本教程中，已学习了如何创建 HBase 群集。 若要了解详细信息，请参阅以下文章：
 
 * [HDInsight 入门](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [在 HDInsight 中使用空边缘节点](hdinsight-apps-use-edge-node.md)
@@ -297,3 +292,5 @@ ms.lasthandoff: 07/14/2017
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "使用脚本操作来自定义 HBase 群集"
 
 [azure-preview-portal]: https://portal.azure.cn
+
+<!--Update_Description: wording update-->

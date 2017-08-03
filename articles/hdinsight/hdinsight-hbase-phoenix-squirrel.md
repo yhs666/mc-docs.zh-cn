@@ -16,11 +16,11 @@ origin.date: 05/25/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.openlocfilehash: 14c7fb3b9af08ba7dc079f0b5a30247414a0c90d
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 2aa6069f015645e94e6297ca35dfad261cd3ce35
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>将 Apache Phoenix 和 SQuirreL 与 HDInsight 中基于 Windows 的 HBase 群集配合使用
 了解如何在 HDInsight 中使用 [Apache Phoenix](http://phoenix.apache.org/) ，以及如何在工作站上安装和配置 SQuirrel 以连接到 HDInsight 中的 HBase 群集。 有关 Phoenix 的详细信息，请参阅 [在 15 分钟或以下了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。 有关 Phoenix 语法，请参阅 [Phoenix 语法](http://phoenix.apache.org/language/index.html)。
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/14/2017
 >
 
 > [!IMPORTANT]
-> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。 有关如何在基于 Linux 的 HDInsight 上使用 Phoenix 的信息，请参阅[将 Apache Phoenix 与 HDInsight 中基于 Linux 的 HBase 群集配合使用](hdinsight-hbase-phoenix-squirrel-linux.md)。
+> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 有关如何在基于 Linux 的 HDInsight 上使用 Phoenix 的信息，请参阅[将 Apache Phoenix 与 HDInsight 中基于 Linux 的 HBase 群集配合使用](hdinsight-hbase-phoenix-squirrel-linux.md)。
 >
 
 ## <a name="use-sqlline"></a>使用 SQLLine
@@ -86,7 +86,7 @@ ms.lasthandoff: 07/14/2017
 * 获取 HBase 群集的特定于连接的 DNS 后缀。 若要获取该后缀，请与群集建立连接桌面连接 (RDP)，然后运行 IPConfig。  DNS 后缀类似于：
 
         myhbase.b7.internal.chinacloudapp.cn
-* 在工作站中下载并安装 [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) 。 需要使用该程序包的 makecert 来创建证书。  
+* 在工作站中下载并安装 [Microsoft Visual Studio Express for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)。 需要使用该程序包的 makecert 来创建证书。  
 * 在工作站中下载并安装 [Java 运行时环境](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) 。  SQuirreL SQL 客户端 3.0 和更高版本需要 JRE 1.6 版或更高版本。  
 
 ### <a name="configure-a-point-to-site-vpn-connection-to-the-azure-virtual-network"></a>配置与 Azure 虚拟网络的点到站点 VPN 连接
@@ -125,7 +125,7 @@ ms.lasthandoff: 07/14/2017
     该图显示了 0 个客户端连接。 在与虚拟网络建立连接后，数字将更新为 1。
 
 #### <a name="create-your-certificates"></a>创建证书
-创建 X.509 证书的方法之一是使用 [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) 随附的证书创建工具 (makecert.exe)。
+创建 X.509 证书的方法之一是使用 [Microsoft Visual Studio Express for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) 随附的证书创建工具 (makecert.exe)。
 
 **创建自签名根证书**
 

@@ -15,20 +15,20 @@ ms.topic: article
 origin.date: 08/11/2016
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: a43f1e5442697c47590c6b490c7fabc7f472d455
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 69ad1b0a3fdd8c63259fe93484d32059d95cce7e
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>将应用与 Azure 虚拟网络进行集成
-本文档将介绍 Azure 应用服务虚拟网络集成功能，并说明如何在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)中使用应用对其进行设置。  如果你不熟悉 Azure 虚拟网络 (VNET)，则这里需要指出的是，该功能允许你将多个 Azure 资源置于你可以控制其访问权限但无法通过 Internet 路由的网络中。  然后，你可以使用多种 VPN 技术将这些网络连接到本地网络。  若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息： [Azure 虚拟网络概述][VNETOverview]。  
+本文档将介绍 Azure 应用服务虚拟网络集成功能，并说明如何在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)中使用应用对其进行设置。  如果你不熟悉 Azure 虚拟网络 (VNET)，则这里需要指出的是，该功能允许你将多个 Azure 资源置于你可以控制其访问权限但无法通过 Internet 路由的网络中。  然后，用户可以使用多种 VPN 技术将这些网络连接到本地网络。  若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息： [Azure 虚拟网络概述][VNETOverview]。  
 
 在 Azure 中国区，Azure 应用服务只有一个窗体。  
 
 * 支持全部定价计划的多租户系统
 
-VNET 集成功能允许你的 Web 应用访问虚拟网络中的资源，但不允许通过虚拟网络对你的 Web 应用进行专用访问。
+VNET 集成功能允许你的 Web 应用访问虚拟网络中的资源，但不允许通过虚拟网络对你的 Web 应用进行专用访问。 
 
 使用 VNET 集成的常见情景是，你需要通过 Web 应用来访问在 Azure 虚拟网络的虚拟机中运行的数据库或 Web 服务。  使用 VNET 集成时，你不需要公开 VM 中应用程序的公共终结点，可以改用无法通过 Internet 路由的专用地址。  
 
@@ -60,7 +60,7 @@ VNET 集成不支持某些功能，其中包括：
 * 默认情况下，集成应用只会根据 VNET 中的已定义路由将流量路由到 VNET 中。  
 
 ## <a name="enabling-vnet-integration"></a>启用 VNET 集成
-本文档重点介绍如何使用 Azure 门户进行 VNET 集成。  若要使用 PowerShell 为应用启用 VNET 集成，请遵循 [Connect your app to your virtual network by using PowerShell][IntPowershell]（使用 PowerShell 将应用连接到虚拟网络）中的指示进行操作。
+本文档重点介绍如何使用 Azure 门户进行 VNET 集成。  要使用 PowerShell 为应用启用 VNET 集成，请遵循 [Connect your app to your virtual network by using PowerShell][IntPowershell]（使用 PowerShell 将应用连接到虚拟网络）中的指示进行操作。
 
 你可以选择将应用连接到新的或现有的虚拟网络。  如果你在集成过程中创建新网络，则除了创建 VNET，系统还会为你预先配置动态路由网关并启用点到站点 VPN。  
 
@@ -92,12 +92,12 @@ VNET 集成不支持某些功能，其中包括：
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>在 Resource Manager VNET 中启用点到站点连接
-若要使用网关和点到站点配置 Resource Manager VNET，可以使用此处（[使用 PowerShell 配置与虚拟网络的点到站点连接][V2VNETP2S]）所述的 PowerShell，或使用此处（[使用 Azure 门户配置与 VNet 的点到站点连接][V2VNETPortal]）所述的 Azure 门户。  尚未提供执行此功能的 UI。 
+若要使用网关和点到站点配置 Resource Manager VNET，可以使用此处（[使用 PowerShell 配置与虚拟网络的点到站点连接][V2VNETP2S]）所述的 PowerShell，或使用此处（[使用 Azure 门户配置与 VNet 的点到站点连接][V2VNETPortal]）所述的 Azure 门户。  尚未提供执行此功能的 UI。 请注意，不需要为点到站点配置创建证书。 将 Web 应用连接到 VNET 时会自动配置证书。 
 
 ### <a name="creating-a-pre-configured-vnet"></a>创建预先配置的 VNET
 若要创建配置了网关和点到站点连接的新 VNET，则可使用应用服务网络 UI 来执行该操作，但仅限于 Resource Manager VNET。  若要创建配置了网关和点到站点连接的经典 VNET，则需通过“网络”用户界面手动执行该操作。 
 
-若要通过 VNET 集成 UI 创建 Resource Manager VNET，请直接选择“创建新的虚拟网络”  ，然后提供以下信息：
+如果要通过 VNET 集成 UI 创建 Resource Manager VNET，请直接选择“创建新的虚拟网络”  ，并提供以下信息：
 
 * 虚拟网络名称
 * 虚拟网络地址块
@@ -149,7 +149,7 @@ VNET 地址空间需使用 CIDR 表示法来指定。  如果你不熟悉 CIDR �
 * 网关状态 - 如果网关因某种原因而关闭，则应用无法访问 VNET 中的资源。  
 * VNET 地址空间 - 此项为 VNET 的 IP 地址空间。  
 * 点到站点地址空间 - 此项为 VNET 的点到站点 IP 地址空间。  你的应用会在此地址空间中将通信显示成来自其中一个 IP。  
-* 站点到站点地址空间 - 你可以使用站点到站点 VPN 将 VNET 连接到本地资源或其他 VNET。  配置完成以后，针对该 VPN 连接定义的 IP 范围会显示在此处。
+* 站点到站点地址空间 - 可以使用站点到站点 VPN 将 VNET 连接到本地资源或其他 VNET。  配置完成以后，针对该 VPN 连接定义的 IP 范围会显示在此处。
 * DNS 服务器 - 如果已为 DNS 服务器配置了 VNET，则这些服务器会列在此处。
 * 路由到 VNET 的 IP - 此项为通过 VNET 定义了路由的 IP 地址的列表。  这些地址会显示在此处。  
 
@@ -174,11 +174,11 @@ VNET 地址空间需使用 CIDR 表示法来指定。  如果你不熟悉 CIDR �
 **证书** 证书状态反映了应用服务所执行的检查的结果，该检查是为了验证用于 VPN 连接的证书是否仍然有效。  启用 VNET 集成后，如果这是第一次从该 ASP 中的应用集成到该 VNET，则必须进行证书交换以确保连接的安全性。  除了证书，我们还可以获得 DNS 配置、路由以及其他类似的用于描述网络的内容。
 如果更改了这些证书或网络信息，则需单击“同步网络”。  **注意**：单击“同步网络”会导致应用与 VNET 之间的连接出现短暂的中断。  虽然应用不会重新启动，但失去连接会导致站点功能失常。  
 
-## <a name="accessing-on-premise-resources"></a>访问本地资源
-VNET 集成功能的一大好处是，如果 VNET 通过站点到站点 VPN 连接到本地网络，则可通过应用访问本地资源。  不过，你可能需要使用点到站点 IP 范围的路由来更新本地 VPN 网关才能这样做。  先设置站点到站点 VPN 以后，接着应通过用于配置该 VPN 的脚本来设置包括点到站点 VPN 在内的路由。  如果在创建站点到站点 VPN 后才添加点到站点 VPN，则需手动更新路由。  具体操作信息取决于每个网关，在此不做说明。  
+## <a name="accessing-on-premises-resources"></a>访问本地资源
+VNET 集成功能的一大好处是，如果 VNET 通过站点到站点 VPN 连接到本地网络，则可通过应用访问本地资源。  不过，可能需要使用点到站点 IP 范围的路由来更新本地 VPN 网关才能这样做。  先设置站点到站点 VPN 以后，接着应通过用于配置该 VPN 的脚本来设置包括点到站点 VPN 在内的路由。  如果在创建站点到站点 VPN 后才添加点到站点 VPN，则需手动更新路由。  具体操作信息取决于每个网关，在此不做说明。  
 
 > [!NOTE]
-> 虽然可以在站点到站点 VPN 中使用 VNET 集成功能来访问本地资源，但目前仍无法在 ExpressRoute VPN 中使用该功能来执行同一操作。  与经典或 Resource Manager VNET 集成时也是如此。
+> VNET 集成功能不会将应用与包含 ExpressRoute 网关的 VNet 集成。 即使以[共存模式][VPNERCoex]配置 ExpressRoute 网关，该网关也无法工作。
 > 
 > 
 
@@ -247,8 +247,8 @@ VNET 集成功能的一大好处是，如果 VNET 通过站点到站点 VPN 连�
 * 登录到 VNET 中的其他 VM，尝试在该处访问资源主机:端口。  你可以使用某些 TCP ping 实用程序来进行此类操作，甚至还可以视需要使用 telnet。  此处的目的就是确定是否可以从这个其他的 VM 进行连接。 
 * 在其他 VM 中启动应用程序，测试能否在应用的控制台中访问该主机和端口  
 
-####<a name="on-premise-resources"></a>本地资源####
-如果你无法访问本地资源，则首先应检查你是否能够访问 VNET 中的资源。  如果能够访问，则后续步骤很容易。  你需要尝试从 VNET 中的 VM 访问本地应用程序。  你可以使用 telnet 或 TCP ping 实用程序。  如果 VM 无法访问本地资源，首先请确保站点到站点 VPN 连接正常。  如果正常，则请检查前述项目以及本地网关配置和状态。  
+####<a name="on-premises-resources"></a>本地资源####
+如果无法访问本地资源，首先应检查是否能够访问 VNET 中的资源。  如果能够访问，则后续步骤很容易。  需要尝试从 VNET 中的 VM 访问本地应用程序。  你可以使用 telnet 或 TCP ping 实用程序。  如果 VM 无法访问本地资源，首先请确保站点到站点 VPN 连接正常。  如果正常，请检查前述项目以及本地网关配置和状态。  
 
 现在，如果 VNET 托管的 VM 能够访问本地系统但应用无法访问，则可能是由于以下某个原因：
 
@@ -268,11 +268,14 @@ VNET 集成功能的一大好处是，如果 VNET 通过站点到站点 VPN 连�
 [8]: ./media/web-sites-integrate-with-vnet/vnetint-vnetp2s.png
 
 <!--Links-->
-[VNETOverview]: https:/www.azure.cn/documentation/articles/virtual-networks-overview/ 
+[VNETOverview]: https://www.azure.cn/documentation/articles/virtual-networks-overview/ 
 [AzurePortal]: http://portal.azure.cn/
 [ASPricing]: https://www.azure.cn/pricing/details/app-service/
 [VNETPricing]: https://www.azure.cn/pricing/details/vpn-gateway/
 [DataPricing]: https://www.azure.cn/pricing/details/data-transfer/
-[V2VNETP2S]: https:/www.azure.cn/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
-[IntPowershell]: https:/www.azure.cn/documentation/articles/app-service-vnet-integration-powershell/
+[V2VNETP2S]: https://www.azure.cn/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[IntPowershell]: https://www.azure.cn/documentation/articles/app-service-vnet-integration-powershell/
 [V2VNETPortal]: /vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
+[VPNERCoex]: /expressroute/expressroute-howto-coexist-resource-manager
+
+<!--Update_Description: wording update-->

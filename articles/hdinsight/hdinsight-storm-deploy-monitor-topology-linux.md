@@ -16,11 +16,11 @@ ms.workload: big-data
 origin.date: 06/16/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 09ea365575d0cb5eac15be217bd9cdb3c07770f8
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 6367fe396191d65631ccd86f5bf4493e459c5ba9
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>在 HDInsight 上部署和管理 Apache Storm 拓扑
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/14/2017
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> 本文中的步骤需要使用 HDInsight 群集上基于 Linux 的 Storm。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。 
+> 本文中的步骤需要使用 HDInsight 群集上基于 Linux 的 Storm。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 
 >
 > 有关在基于 Windows 的 HDInsight 上部署和监视拓扑的详细信息，请参阅 [在基于 Windows 的 HDInsight 上部署和管理 Apache Storm 拓扑](hdinsight-storm-deploy-monitor-topology.md)
 

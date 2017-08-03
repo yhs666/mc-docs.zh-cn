@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-origin.date: 02/14/2017
-ms.date: 03/03/2017
+origin.date: 07/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 9dcc19a91275a41eb2d855fa2fd5ed1fd86f2709
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 2945e2b0f9abaafc7d9040382d0772ac1213e757
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>如何管理 Azure Redis 缓存
 本主题介绍如何为 Azure Redis 缓存实例执行管理任务，如[重新启动](#reboot)和[计划更新](#schedule-updates)。
@@ -34,7 +34,7 @@ ms.lasthandoff: 06/23/2017
 
 ![重新启动](./media/cache-administration/redis-cache-administration-reboot.png)
 
-选择要重新启动的节点，然后单击“重新启动” 。
+选择要重新启动的节点，并单击“重新启动” 。
 
 ![重新启动](./media/cache-administration/redis-cache-reboot.png)
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 06/23/2017
 重新启动仅在高级定价层中可用。
 
 ## <a name="schedule-updates"></a>计划更新
-使用“计划更新”  边栏选项卡可以为缓存指定维护时段。 指定维护时段后，将在此时段内进行任何 Redis 服务器更新。 
+使用“计划更新”边栏选项卡可为高级层缓存指定维护时段。 指定维护时段后，会在此时段内进行任何 Redis 服务器更新。 
 
 > [!NOTE] 
 > 维护时段仅适用于 Redis 服务器更新，不适用于任何 Azure 更新或托管缓存的 VM 的操作系统更新。
@@ -127,3 +127,5 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="next-steps"></a>后续步骤
 * 了解更多 [Azure Redis 缓存高级层](cache-premium-tier-intro.md)功能。
+
+<!--Update_Description: wording update-->

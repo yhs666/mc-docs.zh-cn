@@ -16,14 +16,13 @@ ms.topic: article
 origin.date: 05/29/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 35eb905a0b750bb24343d4821721d6e499475384
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: e9261aef6803d91e92deccdfff1b767c51b24f28
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 使用 Azure Cosmos DB 进行社交
-<a id="going-social-with-azure-cosmos-db" class="xliff"></a>
+# <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
 生活在大规模互连的社会，这意味着有时候你也会成为 **社交网络**中的一部分。 我们使用社交网络与朋友、同事和家人保持联系，有时还会与有共同兴趣的人分享我们的激情。
 
 作为工程师或开发人员，我们可能想知道这些网络如何存储数据以及如何将这些数据相互联系起来，甚至有可能被要求自行为特定的间隙市场创建或构建新的社交网络。 这时就会产生一个大问题：所有这些数据是如何存储的？
@@ -44,9 +43,9 @@ ms.lasthandoff: 07/07/2017
 
 当然，我们也可以使用一个功能足够强大的超大 SQL 实例来解决数以千计的查询，其中可以使用许多这些连接来为我们提供内容，但当已经有一个更简单的解决方案存在时，我们为什么还要选择这种呢？
 
-## NoSQL 加载
-<a id="the-nosql-road" class="xliff"></a>
-本文将指导你以经济高效的方式使用 Azure 的 NoSQL 数据库 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 对社交平台的数据进行建模，同时利用其他 Azure Cosmos DB 功能，例如 [Gremlin Graph API](../cosmos-db/graph-introduction.md)。 使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法以 JSON 格式存储数据并应用[非规范化](https://en.wikipedia.org/wiki/Denormalization)，就可以将我们以前的复杂帖子转换为单个[文档](https://en.wikipedia.org/wiki/Document-oriented_database)：
+## <a name="the-nosql-road"></a>NoSQL 加载
+本文介绍如何以经济高效的方式使用 Azure 的 NoSQL 数据库 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 对社交平台的数据进行建模。 使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法以 JSON 格式存储数据并应用[非规范化](https://en.wikipedia.org/wiki/Denormalization)，就可以将我们以前的复杂帖子转换为单个[文档](https://en.wikipedia.org/wiki/Document-oriented_database)：
+<!-- Not Available [Gremlin Graph API](../cosmos-db/graph-introduction.md) -->
 
     {
         "id":"ew12-res2-234e-544f",
@@ -136,12 +135,10 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
         "totalPoints":11342
     }
 
-并且，可以使用 Azure Cosmos DB [Gremlin Graph API](../cosmos-db/graph-introduction.md) 来存储关注者的实际图表，为每个用户创建[顶点](http://mathworld.wolfram.com/GraphVertex.html)，并创建维护“A 关注 B”关系的[边缘](http://mathworld.wolfram.com/GraphEdge.html)。 通过 Graph API，不仅可以获取特定用户的关注者，而且还可以创建更复杂的查询来推荐有共同点的人员。 如果我们将人们喜欢或欣赏的内容类别添加到图表中，则我们可以开始组合各种体验，这包括智能内容发现、推荐我们关注的人喜欢的内容，或者查找与我们有很多共同点的人员。
+<!-- Not Available [Gremlin Graph API](../cosmos-db/graph-introduction.md) -->
 
-仍然可以使用用户统计信息文档在 UI 或快速配置文件预览中创建卡片。
 
-## “阶梯”模式和数据重复
-<a id="the-ladder-pattern-and-data-duplication" class="xliff"></a>
+## <a name="the-ladder-pattern-and-data-duplication"></a>“阶梯”模式和数据重复
 你可能已注意到，在引用帖子的 JSON 文档中，某个用户出现了多次。 而且你猜得没错，这意味着如果应用此非规范化，则表示用户的这一信息可以显示在多个地方。
 
 为了允许更快速地查询，我们引发了数据重复。 此负面影响的问题在于，如果通过一些操作，用户的数据发生更改，那么我们需要查找该用户曾经执行过的所有活动并对这些活动全部进行更新。 听上去不太实用，对不对？
@@ -201,8 +198,7 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
 
 <!-- Not Available ## The search box -->
 
-## 基础知识
-<a id="the-underlying-knowledge" class="xliff"></a>
+## <a name="the-underlying-knowledge"></a>基础知识
 存储所有此内容（每天会不断增加）后，我们可能会思考这样一个问题：我可以使用所有来自用户的此信息流做些什么？
 
 答案非常简单：将其投入使用并从中进行学习。
@@ -217,8 +213,7 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
 
 另一个可用的选项是使用 [Microsoft 认知服务](https://www.microsoft.com/cognitive-services) 分析用户内容：不仅可以更好地理解它们（通过分析使用 [文本分析 API](https://www.microsoft.com/cognitive-services/text-analytics-api)编写的内容），而且还可以检测不需要或不成熟的内容，然后使用[计算机构想 API](https://www.microsoft.com/cognitive-services/computer-vision-api)解决相关问题。 认知服务包括大量不需要使用任何一种机器学习知识的现成的可用解决方案。
 
-## 全球范围内的社交体验
-<a id="a-planet-scale-social-experience" class="xliff"></a>
+## <a name="a-planet-scale-social-experience"></a>全球范围内的社交体验
 最后，还必须说明一个非常重要的主题：**可伸缩性**。 在设计体系结构时，因为需要处理更多的数据和/或希望拥有更大的地理覆盖范围，所以每个组件的自行可伸缩性至关重要。 幸运的是，通过使用 Cosmos DB 完成此类复杂任务是一种**统包体验**。
 
 Cosmos DB 根据给定的**分区键**（定义为文档中的一个属性）自动创建分区，从而支持现成可用的[动态分区](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/)。 必须在设计时定义正确的分区键，并记住可用的[最佳做法](../cosmos-db/partition-data.md#designing-for-partitioning)；对于社交体验，分区策略必须与查询（需要在同一分区内进行读取）和写入（通过在多个分区上分散写入来避免“热点”）方式保持一致。 一些相关选项是：基于临时键（日/月/周）的分区，按内容类别、地理区域和用户进行划分；这一切都取决于查询数据并将其显示在社交体验中的方式。 
@@ -239,14 +234,12 @@ Cosmos DB 根据给定的**分区键**（定义为文档中的一个属性）自
 
 ![将全球覆盖范围添加到社交平台](./media/social-media-apps/social-media-apps-global-replicate.png)
 
-## 结束语
-<a id="conclusion" class="xliff"></a>
+## <a name="conclusion"></a>结束语
 本文尝试说明一种完全在 Azure 上创建具有低成本服务社交网络，并可通过鼓励使用多层存储解决方案和称为“阶梯”的数据分布得到良好结果的替代方法。
 
 ![社交网络中各 Azure 服务之间的交互关系图](./media/social-media-apps/social-media-apps-azure-solution.png)
 
 事实上，对于此类方案并没有万能方法，而需结合各种卓越的服务共同创建，才能提供绝佳的体验：Azure Cosmos DB 的速度和自由性，可用于提供绝佳的社交应用程序；一流搜索解决方案后的智能操作，如 Azure 搜索；Azure 应用服务的灵活性，不仅可以托管与语言无关的应用程序，甚至还可以托管功能强大的后台进程；Azure 存储和 Azure SQL 数据库的可扩展性，可用于存储大量数据；Azure 机器学习的分析功能，可创建能够为我们的进程提供反馈，并且有助于我们向合适的用户提供合适的内容的知识和智能。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 若要详细了解 Cosmos DB 用例，请参阅[常见 Cosmos DB 用例](use-cases.md)。

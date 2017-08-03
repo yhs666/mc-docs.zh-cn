@@ -1,24 +1,10 @@
 ---
-title: "Azure SQL 数据库 Query Performance Insight"
-description: "查询性能监视可以识别 Azure SQL 数据库中 CPU 消耗最大的查询。"
-services: sql-database
-documentationCenter: 
-author: Hayley244
-manager: digimobile
-editor: monicar
-ms.service: sql-database
-ms.topic: article
-origin.date: 08/09/2016
-ms.date: 07/03/2017
-ms.author: v-johch
-ms.openlocfilehash: 3baca216e8254b17f36af6c056583caf9a11eda3
-ms.sourcegitcommit: bb82041119027be7a62fc96945d92a8a452e7849
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
----
-# Azure SQL 数据库 Query Performance Insight
-<a id="azure-sql-database-query-performance-insight" class="xliff"></a>
+title: Azure SQL 数据库查询性能见解 description: 查询性能监视可以识别 Azure SQL 数据库中 CPU 占用最大的查询。
+services: sql-database documentationCenter: '' author: Hayley244 manager: digimobile editor: monicar
+
+ms.service: sql-database ms.topic: article origin.date: 07/05/2017 ms.date: 07/31/2017 ms.author: v-haiqya
+
+# <a name="azure-sql-database-query-performance-insight"></a>Azure SQL 数据库 Query Performance Insight
 
 管理和优化关系数据库性能是一项颇具挑战性的操作，需要投入大量的专业知识和时间。 查询性能见解通过提供以下功能使排查数据库性能问题花费的时间更少：
 
@@ -27,22 +13,19 @@ ms.lasthandoff: 06/28/2017
 - 可以向下钻取查询的详细信息。
 
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 
 - Query Performance Insight 仅适用于 Azure SQL 数据库 V12。
 - Query Performance Insight 要求在数据库中运行 [查询存储](https://msdn.microsoft.com/zh-cn/library/dn817826.aspx) 。 如果未运行查询存储，该门户会提示将其打开。
 
-## 权限
-<a id="permissions" class="xliff"></a>
+## <a name="permissions"></a>权限
 
-需要具备以下[基于角色的访问控制](../active-directory/role-based-access-control-configure.md)权限才能使用查询性能见解： 
+需要具备以下[基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)权限才能使用查询性能见解： 
 
 - 需要具备**读者**、**所有者**、**参与者**、**SQL DB 参与者**或 **SQL Server 参与者**权限才能查看资源占用排名靠前的查询和图表。 
 - 需要具备**所有者**、**参与者**、**SQL DB 参与者**或 **SQL Server 参与者**权限才能查看查询文本。
 
-## 使用 Query Performance Insight
-<a id="using-query-performance-insight" class="xliff"></a>
+## <a name="using-query-performance-insight"></a>使用 Query Performance Insight
 
 Query Performance Insight 很容易使用：
 
@@ -56,8 +39,7 @@ Query Performance Insight 很容易使用：
 > [!NOTE]
 > SQL 数据库的查询存储区需要捕获几个小时的数据，才能提供查询性能洞察数据。 如果在某段时间内数据库没有任何活动，或查询存储不处于活动状态，则显示该期间时图表为空。 如果查询存储未运行，可随时启用它。   
 
-## 查看 DTU 消耗量靠前的查询
-<a id="review-top-cpu-consuming-queries" class="xliff"></a>
+## <a name="review-top-cpu-consuming-queries"></a>查看 DTU 消耗量靠前的查询
 
 在 [门户](http://portal.azure.cn) 中执行以下操作：
 
@@ -78,15 +60,14 @@ Query Performance Insight 很容易使用：
     - 每个查询的持续时间（取决于聚合函数）。
     - 特定查询的执行总次数。
 
-    选择或清除图表要包含或排除的单个查询。 
+    选择或清除图表要包含或排除的单个查询。
 
 1. 如果感觉数据已过时，可单击“刷新”  按钮。
 1. 可选择单击“设置”  以自定义 CPU 消耗数据的显示方式，或显示不同的时间段。
 
     ![设置](./media/sql-database-query-performance/settings.png)
 
-## 查看单个查询的详细信息
-<a id="viewing-individual-query-details" class="xliff"></a>
+## <a name="viewing-individual-query-details"></a>查看单个查询的详细信息
 
 若要查看查询详细信息，请执行以下操作：
 
@@ -102,8 +83,7 @@ Query Performance Insight 很容易使用：
 
 1. 可选择单击“设置”  以自定义 CPU 消耗数据的显示方式，或显示不同的时间段。
 
-##  优化 Query Performance Insight 的“查询存储”配置
-<a id="optimizing-the-query-store-configuration-for-query-performance-insight" class="xliff"></a>
+##  <a name="optimizing-the-query-store-configuration-for-query-performance-insight"></a>优化 Query Performance Insight 的“查询存储”配置
 
 在使用 Query Performance Insight 的过程中，你可能会遇到以下查询存储消息：
 
@@ -111,14 +91,13 @@ Query Performance Insight 很容易使用：
 - “此数据库的查询存储处于只读模式，未在收集性能见解数据。”
 - “查询存储参数未以最佳方式针对查询性能见解设置。”
 
-当查询存储无法收集新数据时，通常会显示这些消息。 要解决这些问题，有两种选择：
+当查询存储无法收集新数据时，通常会显示这些消息。 要解决这些问题，有两种选择： 
 
 - 更改查询存储的保留和捕获策略
 - 增加查询存储的大小 
 - 清除查询存储
 
-### 建议的保留和捕获策略
-<a id="recommended-retention-and-capture-policy" class="xliff"></a>
+### <a name="recommended-retention-and-capture-policy"></a>建议的保留和捕获策略
 
 有两种类型的保留策略：
 
@@ -151,19 +130,17 @@ ALTER DATABASE [YourDB]
 SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 ```
 
-清除查询存储。 删除查询存储中的所有当前信息：
+清除查询存储。 删除查询存储中的所有当前信息： 
 
 ```
 ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 ```
 
-## 摘要
-<a id="summary" class="xliff"></a>
+## <a name="summary"></a>摘要
 
 Query Performance Insight 可帮助你了解查询工作负荷的影响，以及它与数据库资源消耗的关系。 使用此功能可以了解排名靠前的消耗查询，并在发生问题之前轻松找出问题。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关改善 SQL 数据库性能的其他建议，请单击“查询性能见解”[](./sql-database-advisor.md)边栏选项卡上的“数据库顾问”。
 
@@ -173,3 +150,5 @@ Query Performance Insight 可帮助你了解查询工作负荷的影响，以及
 [1]: ./media/sql-database-query-performance/tile.png
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
+
+<!--Update_Description: update link references-->

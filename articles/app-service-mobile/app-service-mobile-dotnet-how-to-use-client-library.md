@@ -2,22 +2,23 @@
 title: "使用应用服务移动应用托管客户端库 (Windows | Xamarin) | Azure"
 description: "了解如何在 Windows 和 Xamarin 应用中使用 Azure 应用服务移动应用的 .NET 客户端。"
 services: app-service\mobile
-documentationCenter: 
-authors: adrianhall
-manager: erikre
+documentationcenter: 
+author: adrianhall
+manager: adrianha
 editor: 
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2017
-ms.author: v-yiso
-ms.openlocfilehash: 74ad9fea1947b7e3e13dc464e9f309056ca363c2
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 01/04/2017
+ms.author: adrianha
+ms.date: 07/31/2017
+ms.openlocfilehash: 52989142207970975c05a87cb553a4689e3e076b
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何使用 Azure 移动应用的托管客户端
 
@@ -85,7 +86,7 @@ using Microsoft.WindowsAzure.MobileServices;
 
 ###<a name="symbolsource"></a>如何在 Visual Studio 中使用调试符号
 
-[SymbolSource][10]上提供了 Microsoft.Azure.Mobile 命名空间的符号。  若要将 SymbolSource 与 Visual Studio 集成，请参阅 [SymbolSource 说明][11] 。
+[SymbolSource][10]上提供了 Microsoft.Azure.Mobile 命名空间的符号。  要将 SymbolSource 与 Visual Studio 集成，请参阅 [SymbolSource 说明][11]。
 
 ##<a name="create-client"></a>创建移动应用客户端
 
@@ -230,7 +231,7 @@ MobileServiceTableQuery<TodoItem> query = todoTable
 
 ###<a name="paging"></a>如何在页中返回数据
 
-默认情况下，后端只返回前 50 行。 你可以通过调用 [Take] 方法来增加返回的行数。 将 `Take` 与 [Skip] 方法一起使用可以请求查询返回的总数据集的特定“页”。 执行以下查询后，将返回表中的前三个项。
+默认情况下，后端只返回前 50 行。 可以通过调用 [Take] 方法来增加返回的行数。 将 `Take` 与 [Skip] 方法一起使用可以请求查询返回的总数据集的特定“页”。 执行以下查询后，将返回表中的前三个项。
 
 ```
 // Define a filtered query that returns the top 3 items.
@@ -255,7 +256,7 @@ query = query.IncludeTotalCount();
 在实际应用中，可以搭配页导航控件或类似的 UI 使用类似于上述示例的查询，在页之间导航。
 
 >[!NOTE]
->若要替代移动应用后端中的 50 行限制，还必须将 [EnableQueryAttribute] 应用到公共 GET 方法，并指定分页行为。 将以下语句应用到该方法后，最大返回行数将设置为 1000：
+>要替代移动应用后端中的 50 行限制，还必须将 [EnableQueryAttribute] 应用到公共 GET 方法，并指定分页行为。 将以下语句应用到该方法后，最大返回行数将设置为 1000：
 >
 >    [EnableQuery(MaxTop=1000)]
 
@@ -395,7 +396,7 @@ await table.DeleteAsync(jo);
 
 两个或两个以上客户端可能会同时将更改写入同一项目。 如果没有冲突检测，最后一次写入会覆盖任何以前的更新。 **乐观并发控制** 假设每个事务均可以提交，因此不使用任何资源锁定。  提交事务之前，乐观并发控制将验证是否没有其他事务修改了数据。 如果数据已修改，则将回滚正在提交的事务。
 
-移动应用通过使用 `version` 系统属性列（该列是为移动应用后端中的每个表定义的）跟踪对每个项的更改来支持乐观并发控制。 每次更新某个记录时，移动应用都将该记录的 `version` 属性设置为新值。 在每次执行更新请求期间，会将该请求包含的记录的 `version` 属性与服务器上的记录的同一属性进行比较。 如果随请求传递的版本与后端不匹配，客户端库将引发 `MobileServicePreconditionFailedException<T>` 异常。 该异常中提供的类型就是包含记录服务器版本的后端中的记录。 然后，应用程序可以借助此信息来确定是否要使用后端中正确的 `version` 值再次执行更新请求以提交更改。
+移动应用通过使用 `version` 系统属性列（该列是为移动应用后端中的每个表定义的）跟踪对每个项的更改来支持乐观并发控制。 每次更新某个记录时，移动应用都将该记录的 `version` 属性设置为新值。 在每次执行更新请求期间，会将该请求包含的记录的 `version` 属性与服务器上的记录的同一属性进行比较。 如果随请求传递的版本与后端不匹配，客户端库会引发 `MobileServicePreconditionFailedException<T>` 异常。 该异常中提供的类型就是包含记录服务器版本的后端中的记录。 然后，应用程序可以借助此信息来确定是否要使用后端中正确的 `version` 值再次执行更新请求以提交更改。
 
 在 `version` 系统属性的表类中定义列，以启用开放式并发。 例如：
 
@@ -677,7 +678,7 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
 可以使用 Active Directory 身份验证库 (ADAL)，从使用 Azure Active Directory 身份验证的客户端启动用户身份验证。
 
 1. 根据[如何为 Active Directory 登录配置应用服务]教程的说明，为 AAD 登录配置移动应用。 请务必完成注册本机客户端应用程序的可选步骤。
-2. 在 Visual Studio 或 Xamarin Studio 中打开项目，然后添加对 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 包的引用。 搜索时，请包含预发行版。
+2. 在 Visual Studio 或 Xamarin Studio 中打开项目，并添加对 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 包的引用。 搜索时，请包含预发行版。
 3. 根据使用的平台，将以下代码添加到应用程序。 在每条代码中进行以下替换：
 
     * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 可以从 [ Azure 经典管理门户]中的 Azure Active Directory 的“域”选项卡复制此值。
@@ -786,7 +787,7 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
     ```
 
 #### <a name="client-livesdk"></a>使用 Microsoft 帐户和 Live SDK 进行单一登录
-若要对用户进行身份验证，必须在 Microsoft 帐户开发人员中心注册应用。 在移动应用后端上配置注册详细信息。 若要创建 Microsoft 帐户注册并将注册连接到移动应用后端，请完成 [注册应用以使用 Microsoft 帐户登录]中的步骤。 如果你同时拥有 Windows 应用商店和 Windows Phone 8/Silverlight 版本的应用，请先注册 Windows 应用商店版本。
+若要对用户进行身份验证，必须在 Microsoft 帐户开发人员中心注册应用。 在移动应用后端上配置注册详细信息。 要创建 Microsoft 帐户注册并将注册连接到移动应用后端，请完成 [注册应用以使用 Microsoft 帐户登录]中的步骤。 如果你同时拥有 Windows 应用商店和 Windows Phone 8/Silverlight 版本的应用，请先注册 Windows 应用商店版本。
 
 以下代码使用 Live SDK 进行身份验证，并使用返回的令牌登录到移动应用后端。
 
@@ -841,8 +842,8 @@ private async System.Threading.Tasks.Task AuthenticateAsync()
 
 有关详细信息，请参阅 [Windows Live SDK] 文档。
 
-###<a name="serverflow"></a>服务器托管的身份验证
-注册标识提供者后，使用提供者的 [MobileServiceAuthenticationProvider] 值对 [MobileServiceClient] 调用 [LoginAsync] 方法。 例如，以下代码使用 Microsoft 启动服务器流登录。
+### <a name="serverflow"></a>服务器托管的身份验证
+注册标识提供者后，使用提供者的 [MobileServiceAuthenticationProvider] 值对 [MobileServiceClient] 调用 [LoginAsync] 方法。 例如，以下代码将使用 Facebook 启动服务器流登录。
 
 ```
 private MobileServiceUser user;
@@ -854,7 +855,7 @@ private async System.Threading.Tasks.Task Authenticate()
         try
         {
             user = await client
-                .LoginAsync(MobileServiceAuthenticationProvider.Microsoft);
+                .LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount);
             message =
                 string.Format("You are now logged in - {0}", user.UserId);
         }
@@ -870,7 +871,7 @@ private async System.Threading.Tasks.Task Authenticate()
 }
 ```
 
-如果使用的标识提供者不是 Microsoft，请将上述 [MobileServiceAuthenticationProvider] 的值更改为提供者的值。
+如果使用的标识提供者不是 MicrosoftAccount，请将 [MobileServiceAuthenticationProvider] 的值更改为提供者的值。
 
 在服务器流中，Azure 应用服务可以通过显示所选提供者的登录页来管理 OAuth 身份验证。  标识提供者返回后，Azure 应用服务会生成一个应用服务身份验证令牌。 [LoginAsync] 方法返回 [MobileServiceUser]，后者提供已经过身份验证的用户的 [UserId]，以及 JSON Web 令牌 (JWT) 形式的 [MobileServiceAuthenticationToken]。 可以缓存此令牌，并在它过期之前重复使用。 有关详细信息，请参阅 [缓存身份验证令牌](#caching)。
 
@@ -878,10 +879,10 @@ private async System.Threading.Tasks.Task Authenticate()
 在某些情况下，存储提供者提供的身份验证令牌可避免在首次成功身份验证后调用登录方法。  Windows 应用商店和 UWP 应用可以使用 [PasswordVault] 在成功登录后缓存当前身份验证令牌，如下所示：
 
 ```
-await client.LoginAsync(MobileServiceAuthenticationProvider.Microsoft);     
+await client.LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount);      
 
 PasswordVault vault = new PasswordVault();
-vault.Add(new PasswordCredential("Microsoft", client.currentUser.UserId, 
+vault.Add(new PasswordCredential("MicrosoftAccount", client.currentUser.UserId, 
     client.currentUser.MobileServiceAuthenticationToken));
 ```
 
@@ -889,13 +890,13 @@ UserId 值存储为凭据的 UserName，令牌存储为 Password。 在后续启
 
 ```
 // Try to retrieve stored credentials.
-var creds = vault.FindAllByResource("Microsoft").FirstOrDefault();
+var creds = vault.FindAllByResource("MicrosoftAccount").FirstOrDefault();
 if (creds != null)
 {
     // Create the current user from the stored credentials.
     client.currentUser = new MobileServiceUser(creds.UserName);
     client.currentUser.MobileServiceAuthenticationToken = 
-        vault.Retrieve("Microsoft", creds.UserName).Password;
+        vault.Retrieve("MicrosoftAccount", creds.UserName).Password;
 }
 else
 {
@@ -907,12 +908,12 @@ else
 
 ```
 client.Logout();
-vault.Remove(vault.Retrieve("Microsoft", client.currentUser.UserId));
+vault.Remove(vault.Retrieve("MicrosoftAccount", client.currentUser.UserId));
 ```
 
 Xamarin 应用使用 [Xamarin.Auth] API 将凭据安全存储在 Account 对象中。 有关使用这些 API 的示例，请参阅 [ContosoMoments 照片分享示例](https://github.com/azure-appservice-samples/ContosoMoments)中的 [AuthStore.cs] 代码文件。
 
-使用客户端托管的身份验证时，也可以缓存从提供程序（例如 Microsoft）获取的访问令牌。 可以提供此令牌，从后端请求新的身份验证令牌，如下所示：
+使用客户端托管的身份验证时，也可以缓存从提供者（例如 MicrosoftAccount）获取的访问令牌。 可以提供此令牌，从后端请求新的身份验证令牌，如下所示：
 
 ```
 var token = new JObject();
@@ -920,7 +921,7 @@ var token = new JObject();
 token.Add("access_token", "<your_access_token_value>");
 
 // Authenticate using the access token.
-await client.LoginAsync(MobileServiceAuthenticationProvider.Microsoft, token);
+await client.LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount, token);
 ```
 
 ##<a name="pushnotifications"></a>推送通知
@@ -1138,3 +1139,7 @@ public async Task CallClientWithHandler()
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
 [AuthStore.cs]: (https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs)
 [ContosoMoments photo sharing sample]: https://github.com/azure-appservice-samples/ContosoMoments
+
+
+
+<!--Update_Description: update wording and code-->

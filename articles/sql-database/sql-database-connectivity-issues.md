@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: b5c54ba6b46863c21a35e748397eadbd68dce1d1
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: f5e98b688cb5334936daa01489529b991342907f
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>排查、诊断和防止 SQL 数据库中的 SQL 连接错误和暂时性错误
 本文介绍如何防止、排查、诊断和减少客户端应用程序在与 Azure SQL 数据库交互时发生的连接错误和暂时性错误。 了解如何配置重试逻辑、生成连接字符串以及调整其他连接设置。
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/14/2017
 ## <a name="transient-errors-transient-faults"></a>暂时性错误（暂时性故障）
 暂时性错误（也称为暂时性故障）存在很快解决自身问题的根本原因。 当 Azure 系统快速地将硬件资源转移到负载均衡更好的各种工作负荷时，偶尔会发生暂时性错误。 大多数这些重新配置事件通常在 60 秒内就能完成。 在进行这种重新配置的过程中，可能会遇到 Azure SQL 数据库的连接性问题。 连接到 Azure SQL 数据库的应用程序应当构建为能预见这些暂时性错误，并能通过在它们的代码内实现重试逻辑来处理它们，而不是以应用程序错误的形式呈现给用户。
 
-如果客户端程序使用 ADO.NET，系统将会引发 **SqlException**，使你的程序知道已发生暂时性错误。 你可以将 **Number** 属性与 [SQL 数据库客户端应用程序的 SQL 错误代码](sql-database-develop-error-messages.md)主题顶部附近的暂时性错误列表进行比较。
+如果客户端程序使用 ADO.NET，系统会引发 **SqlException**，使你的程序知道已发生暂时性错误。 你可以将 **Number** 属性与 [SQL 数据库客户端应用程序的 SQL 错误代码](sql-database-develop-error-messages.md)主题顶部附近的暂时性错误列表进行比较。
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 07/14/2017
 你将重试 SQL 连接或重新建立连接，具体取决于以下各项：
 
 * **在尝试连接期间发生暂时性错误**：应该延迟数秒后再重试连接。
-* **执行某个 SQL 查询命令期间发生暂时性错误**：不应该立即重试该命令。 而应在一定的延迟之后建立新的连接。 然后可以重试该命令。
+* **执行 SQL 查询命令期间发生暂时性错误**：不应立即重试命令。 而应在一定的延迟之后建立新的连接。 然后可以重试该命令。
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
@@ -144,7 +144,7 @@ ms.lasthandoff: 07/14/2017
 * mySqlConnection.Open 方法调用
 * mySqlConnection.Execute 方法调用
 
-有个很微妙的地方。 如果你正在执行“查询”  时发生暂时性错误， **SqlConnection** 对象不会重试连接操作，因而肯定不会重试你的查询。 但是， **SqlConnection** 在发送要执行的查询前会非常快速地检查连接。 如果快速检查检测到连接问题， **SqlConnection** 会重试连接操作。 如果重试成功，则会发送查询以执行。
+有个很微妙的地方。 如果正在执行“查询”时发生暂时性错误，**SqlConnection** 对象不会重试连接操作，因而肯定不会重试查询。 但是， **SqlConnection** 在发送要执行的查询前会非常快速地检查连接。 如果快速检查检测到连接问题， **SqlConnection** 会重试连接操作。 如果重试成功，则会发送查询以执行。
 
 #### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>ConnectRetryCount 是否应结合应用程序重试逻辑？
 假设你的应用程序具有功能强大的自定义重试逻辑。 它可能会重试连接操作 4 次。 如果你将 **ConnectRetryInterval** 和 **ConnectRetryCount** =3 添加到连接字符串，则将重试计数提高到 4 * 3 = 12 次重试。 你可能未打算重试这么多次。
@@ -192,7 +192,7 @@ ms.lasthandoff: 07/14/2017
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
 ### <a name="connection-adonet-461"></a>连接：ADO.NET 4.6.1
-如果你的程序使用 **System.Data.SqlClient.SqlConnection** 等 ADO.NET 类来连接到 Azure SQL 数据库，我们建议使用 .NET Framework 4.6.1 或更高版本。
+如果程序使用 **System.Data.SqlClient.SqlConnection** 等 ADO.NET 类来连接到 Azure SQL 数据库，我们建议使用 .NET Framework 4.6.1 或更高版本。
 
 ADO.NET 4.6.1：
 
@@ -203,7 +203,7 @@ ADO.NET 4.6.1：
 
 如果使用的是 ADO.NET 4.0 或更旧版本，我们建议升级到最新的 ADO.NET。
 
-* 从 2015 年 11 月开始，你可以 [下载 ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx)。
+* 从 2015 年 11 月开始，可以 [下载 ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx)。
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
@@ -440,3 +440,5 @@ public bool IsTransient(Exception ex)
 * 有关其他常见的 Azure SQL 数据库连接问题的故障排除，请访问 [Azure SQL 数据库的连接问题故障排除](sql-database-troubleshoot-common-connection-issues.md)。
 * [SQL Server 连接池 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 * [*重试*是 Apache 2.0 授权的通用重试库，它以 **Python** 编写，可以简化向几乎任何程序添加重试行为的任务。](https://pypi.python.org/pypi/retrying)
+
+<!--Update_Description: update word -->

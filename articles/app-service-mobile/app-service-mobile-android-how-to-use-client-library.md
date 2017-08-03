@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 04/25/2017
+origin.date: 04/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 2606b100dd4e91e74f76cee18d42143f5d33f99a
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/13/2017
+ms.openlocfilehash: 71409226f96366c8ba885afe58bb998684d2205c
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 如何使用用于 Android 的 Azure 移动应用 SDK
-<a id="how-to-use-the-azure-mobile-apps-sdk-for-android" class="xliff"></a>
+# <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用用于 Android 的 Azure 移动应用 SDK
 
 本指南说明如何使用用于移动应用的 Android 客户端 SDK 来实现常见方案，例如：
 
@@ -31,20 +31,17 @@ ms.lasthandoff: 06/21/2017
 
 本指南侧重于客户端 Android SDK。  若要详细了解移动应用的服务器端 SDK，请参阅 [Work with .NET backend SDK][10]（使用 .NET 后端）或 [How to use the Node.js backend SDK][11]（如何使用 Node.js 后端 SDK）。
 
-## 参考文档
-<a id="reference-documentation" class="xliff"></a>
+## <a name="reference-documentation"></a>参考文档
 
 可以在 GitHub 上找到有关 Android 客户端库的 [Javadocs API 参考][12] 。
 
-## 支持的平台
-<a id="supported-platforms" class="xliff"></a>
+## <a name="supported-platforms"></a>支持的平台
 
 用于 Android 的 Azure 移动应用 SDK 支持手机和平板电脑外形规格的 API 级别 19 到 24（KitKat 到 Nougat）。  具体而言，身份验证利用通用 Web 框架方法收集凭据。  服务器流身份验证不适用于手表等小型设备。
 
-## 安装与先决条件
-<a id="setup-and-prerequisites" class="xliff"></a>
+## <a name="setup-and-prerequisites"></a>安装与先决条件
 
-完成[移动应用快速入门](./app-service-mobile-android-get-started.md)教程。  此任务可确保满足开发 Azure 移动应用的所有先决条件。  快速入门还帮助配置帐户及创建第一个移动应用后端。
+完成[移动应用快速入门](app-service-mobile-android-get-started.md)教程。  此任务可确保满足开发 Azure 移动应用的所有先决条件。  快速入门还帮助配置帐户及创建第一个移动应用后端。
 
 如果决定不完成快速入门教程，请完成以下任务：
 
@@ -82,8 +79,7 @@ ms.lasthandoff: 06/21/2017
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-## 创建客户端连接
-<a id="create-a-client-connection" class="xliff"></a>
+## <a name="create-a-client-connection"></a>创建客户端连接
 
 Azure 移动应用为移动应用程序提供四项功能：
 
@@ -148,13 +144,11 @@ public AzureServiceAdapter {
 
 现在，可以调用主活动的 `onCreate()` 方法中的 `AzureServiceAdapter.Initialize(this);`。  需要访问客户端的其他任何方法使用 `AzureServiceAdapter.getInstance();` 获取对服务适配器的引用。
 
-## 数据操作
-<a id="data-operations" class="xliff"></a>
+## <a name="data-operations"></a>数据操作
 
 Azure 移动应用 SDK 的核心作用是让你访问移动应用后端上的 SQL Azure 中存储的数据。  可以使用强类型化类（首选）或非类型化查询（不建议）访问此数据。  本部分重点介绍如何使用强类型化类。
 
-### 定义客户端数据类
-<a id="define-client-data-classes" class="xliff"></a>
+### <a name="define-client-data-classes"></a>定义客户端数据类
 
 若要访问 SQL Azure 表的数据，可定义对应于移动应用后端中的表的客户端数据类。 本主题中的示例采用名为 **MyDataTable** 的表，其中包含以下列：
 
@@ -263,8 +257,7 @@ public class ToDoItem
 }
 ```
 
-### 创建表引用
-<a id="create-a-table-reference" class="xliff"></a>
+### <a name="create-a-table-reference"></a>创建表引用
 
 若要访问表，请先通过对 [MobileServiceClient][9] 调用 **getTable** 方法来创建一个 [MobileServiceTable][8] 对象。  此方法有两个重载：
 
@@ -486,9 +479,7 @@ List<ToDoItem> results = mToDoTable
 - 屏幕布局
 - 将两者关联起来的适配器。
 
-以下示例代码将移动应用 SQL Azure 表 **ToDoItem** 中的数据返回到一个数组中。 此活动是数据应用程序的常见模式。  数据库查询通常会返回行的集合，客户端在列表或数组中获取该集合。 在此示例中，该数组就是数据源。
-
-代码指定屏幕布局，用于定义设备中显示的数据视图。  这两者与适配器绑定在一起，在此代码中，适配器是 **ArrayAdapter&lt;ToDoItem&gt;** 类的扩展。
+以下示例代码将移动应用 SQL Azure 表 **ToDoItem** 中的数据返回到一个数组中。 此活动是数据应用程序的常见模式。  数据库查询通常会返回行的集合，客户端在列表或数组中获取该集合。 在此示例中，该数组就是数据源。  代码指定屏幕布局，用于定义设备中显示的数据视图。  这两者与适配器绑定在一起，在此代码中，适配器是 **ArrayAdapter&lt;ToDoItem&gt;** 类的扩展。
 
 #### <a name="layout"></a>定义布局
 
@@ -505,7 +496,7 @@ List<ToDoItem> results = mToDoTable
 
 在上述代码中， *listitem* 属性指定列表中单个行的布局 ID。 此代码指定复选框及其关联文本，并针对列表中的每个项进行一次实例化。 此布局不显示 **id** 字段，如果使用更复杂的布局，则会在屏幕中指定更多的字段。 以下代码摘自 **row_list_to_do.xml** 文件。
 
-```
+```java
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -520,10 +511,7 @@ List<ToDoItem> results = mToDoTable
 ```
 
 #### <a name="adapter"></a>定义适配器
-
-由于视图的数据源是 **ToDoItem** 的数组，因此我们需要基于 **ArrayAdapter&lt;ToDoItem&gt;** 类子类化适配器。 此子类将使用 **row_list_to_do** 布局为每个 **ToDoItem** 生成一个视图。
-
-在代码中，我们可以定义以下类作为 **ArrayAdapter&lt;E&gt;** 类的扩展：
+由于视图的数据源是 **ToDoItem** 的数组，因此我们需要基于 **ArrayAdapter&lt;ToDoItem&gt;** 类子类化适配器。 此子类将使用 **row_list_to_do** 布局为每个 **ToDoItem** 生成一个视图。  在代码中，可以定义以下类作为 **ArrayAdapter&lt;E&gt;** 类的扩展：
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
@@ -616,7 +604,6 @@ ToDoItemAdapter 构造函数的第二个参数是对布局的引用。 我们现
 
 请在每次修改 **ToDoItem** 表时调用适配器。 修改是逐条记录进行的，因此，要处理的是单个行而不是一个集合。 插入项时，需要对适配器调用 **add** 方法；删除项时，需要调用 **remove** 方法。
 
-
 可以在 [Android 快速入门项目][21]中找到完整示例。
 
 ## <a name="inserting"></a>将数据插入后端
@@ -639,8 +626,7 @@ ToDoItem entity = mToDoTable
 
 返回的实体将匹配插入后端表的数据，包括 ID 和后端上设置的任何其他值（例如 `createdAt`、`updatedAt` 和 `version` 字段）。
 
-
-移动应用表需要名为 **id**的主键列。 默认情况下，此列是字符串。 ID 列的默认值为 GUID。  可以提供其他唯一的值，例如电子邮件地址或用户名。 如果没有为插入的记录提供字符串 ID 值，后端会生成新的 GUID。
+移动应用表需要名为 **id**的主键列。 此列必须是字符串。 ID 列的默认值为 GUID。  可以提供其他唯一的值，例如电子邮件地址或用户名。 如果没有为插入的记录提供字符串 ID 值，后端会生成新的 GUID。
 
 字符串 ID 值提供以下优势：
 
@@ -660,8 +646,7 @@ mToDoTable
     .get();
 ```
 
-在此示例中，*item* 是对 *ToDoItem* 表中某个行的引用，该表包含一些更改。
-具有相同 **id** 的行会更新。
+在此示例中，*item* 是对 *ToDoItem* 表中某个行的引用，该表包含一些更改。  具有相同 **id** 的行会更新。
 
 ## <a name="deleting"></a>删除移动应用中的数据
 
@@ -692,9 +677,7 @@ ToDoItem result = mToDoTable
 
 ##<a name="untyped"></a>如何处理非类型化数据
 
-使用非类型化编程模型可以准确控制 JSON 序列化。  在某些常见方案中，可能会希望使用非类型化编程模型。 例如，如果后端表中包含许多列，但只需要引用其中几个列。  类型化模型需要在数据类中定义移动应用表的所有列。  
-
-用于访问数据的大多数 API 调用都与类型化编程调用类似。 主要差别在于，在非类型化模型中，要对 **MobileServiceJsonTable** 对象而不是 **MobileServiceTable** 对象调用方法。
+使用非类型化编程模型可以准确控制 JSON 序列化。  在某些常见方案中，可能会希望使用非类型化编程模型。 例如，如果后端表中包含许多列，但只需要引用其中几个列。  类型化模型需要在数据类中定义移动应用后端中定义的所有列。  用于访问数据的大多数 API 调用都与类型化编程调用类似。 主要差别在于，在非类型化模型中，要对 **MobileServiceJsonTable** 对象而不是 **MobileServiceTable** 对象调用方法。
 
 ### <a name="json_instance"></a>创建非类型化表的实例
 
@@ -792,8 +775,7 @@ Azure 移动应用客户端 SDK 还可使用 SQLite 数据库在本地存储服�
 * 冲突解决：SDK 检测服务器上发生的有冲突更改，并提供挂钩来提醒用户。
 * 软删除：将已删除的记录标记为已删除，使其他设备能够更新其脱机缓存。
 
-### 初始化脱机同步
-<a id="initialize-offline-sync" class="xliff"></a>
+### <a name="initialize-offline-sync"></a>初始化脱机同步
 
 在使用每个脱机表之前，必须先在脱机缓存中定义该表。  通常，在创建客户端之后立即执行表定义：
 
@@ -838,8 +820,7 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 }
 ```
 
-### 获取对脱机缓存表的引用
-<a id="obtain-a-reference-to-the-offline-cache-table" class="xliff"></a>
+### <a name="obtain-a-reference-to-the-offline-cache-table"></a>获取对脱机缓存表的引用
 
 对于联机表，可以使用 `.getTable()`。  对于脱机表，可以使用 `.getSyncTable()`：
 
@@ -849,8 +830,7 @@ MobileServiceTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoI
 
 可用于联机表的所有方法（包括筛选、排序、分页、插入数据、更新数据和删除数据）同样适用于脱机表。
 
-### 同步本地脱机缓存
-<a id="synchronize-the-local-offline-cache" class="xliff"></a>
+### <a name="synchronize-the-local-offline-cache"></a>同步本地脱机缓存
 
 同步在应用的控制范围内。  下面是一个示例同步方法：
 
@@ -875,8 +855,7 @@ private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
 
 如果为 `.pull(query, queryname)` 方法提供了查询名称，则使用增量同步，以便仅返回自上次成功完成提取以来创建或更改的记录。
 
-### 在脱机同步期间处理冲突
-<a id="handle-conflicts-during-offline-synchronization" class="xliff"></a>
+### <a name="handle-conflicts-during-offline-synchronization"></a>在脱机同步期间处理冲突
 
 如果在执行 `.push()` 操作期间发生冲突，将引发 `MobileServiceConflictException`。   服务器发出的项嵌入在异常中，可以通过针对该异常执行 `.getItem()` 来检索该项。  通过针对 MobileServiceSyncContext 对象调用以下项来调整推送：
 
@@ -1054,8 +1033,7 @@ MobileServiceUser user = mClient
 
 最佳做法是创建一个筛选器用于检测来自服务器的 401 响应，并尝试刷新用户令牌。
 
-## 使用客户端流身份验证登录
-<a id="log-in-with-client-flow-authentication" class="xliff"></a>
+## <a name="log-in-with-client-flow-authentication"></a>使用客户端流身份验证登录
 
 使用客户端流身份验证登录的一般过程如下：
 
@@ -1187,8 +1165,7 @@ mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
 });
 ```
 
-### 实现进度筛选器
-<a id="implement-a-progress-filter" class="xliff"></a>
+### <a name="implement-a-progress-filter"></a>实现进度筛选器
 
 可以通过实现 `ServiceFilter` 来截获每个请求。  例如，以下代码将更新预先创建的进度栏：
 
@@ -1233,8 +1210,7 @@ private class ProgressFilter implements ServiceFilter {
 mClient = new MobileServiceClient(applicationUrl).withFilter(new ProgressFilter());
 ```
 
-### 自定义请求标头
-<a id="customize-request-headers" class="xliff"></a>
+### <a name="customize-request-headers"></a>自定义请求标头
 
 使用以下 `ServiceFilter`，并像附加 `ProgressFilter` 一样附加筛选器：
 
@@ -1242,10 +1218,7 @@ mClient = new MobileServiceClient(applicationUrl).withFilter(new ProgressFilter(
 private class CustomHeaderFilter implements ServiceFilter {
 
     @Override
-    public ListenableFuture<ServiceFilterResponse> handleRequest(
-                ServiceFilterRequest request,
-                NextServiceFilterCallback next) {
-
+    public ListenableFuture<ServiceFilterResponse> handleRequest(ServiceFilterRequest request, NextServiceFilterCallback next) {
         runOnUiThread(new Runnable() {
 
             @Override
@@ -1314,3 +1287,6 @@ client.setGsonBuilder(
 [22]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
+
+
+<!--Update_Description: update wording -->

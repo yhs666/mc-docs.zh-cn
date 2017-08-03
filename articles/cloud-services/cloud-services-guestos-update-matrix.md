@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 6/16/2017
+origin.date: 07/07/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: 9fc16d4287938c53aacf7370c96ea05ed43979f2
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 07/31/2017
+ms.openlocfilehash: b95e9608129b50bf5c0d4b5042e93bbf3b521282
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 来宾 OS 版本和 SDK 兼容性对照表
 提供适用于云服务的最新 Azure 来宾 OS 版本的最新信息。 此信息将帮助你在来宾 OS 停用之前规划升级路径。 如果根据 [Azure 来宾 OS 更新设置][Azure Guest OS Update Settings]中所述将角色配置为使用自动进行来宾 OS 更新，则不一定要阅读本页面。
@@ -38,6 +38,9 @@ ms.lasthandoff: 07/14/2017
 不太确定什么是来宾 OS 或者来宾 OS 的工作原理？ 请阅读 [此部分](#how-it-works) 。
 
 ## <a name="news-updates"></a>新闻更新
+###### <a name="july-7-2017"></a>**2017 年 7 月 7 日**
+6 月版来宾 OS 已发行。
+
 ###### <a name="june-16-2017"></a>**2017 年 6 月 16 日**
 6 月版来宾 OS 将从 2016 年 16 月开始推出，预计于 7 月 11 日正式发行。
 
@@ -74,9 +77,10 @@ ms.lasthandoff: 07/14/2017
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.8_201706-01 |2017 年 7 月 7 日 |5.10 发行后 |TBD |
 | WA-GUEST-OS-5.7_201705-01 |2017 年 6 月 5 日 |5.9 发行后 |TBD |
 | WA-GUEST-OS-5.6_201704-01 |2017 年 5 月 9 日 |5.8 发行后 |TBD |
-| WA-GUEST-OS-5.5_201703-01 |2017 年 4 月 10 日 |5.7 发行后 |TBD |
+|~~WA-GUEST-OS-5.5_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
 |~~WA-GUEST-OS-5.4_201612-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5 日|TBD |
 |~~WA-GUEST-OS-5.3_201611-01~~ |2016 年 12 月 14 日 |2017 年 5 月 9 日 |TBD |
 |~~WA-GUEST-OS-5.2_201610-02~~ |2016 年 11 月 1 日 |2017 年 4 月 10 日 |TBD |
@@ -93,9 +97,10 @@ ms.lasthandoff: 07/14/2017
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.43_201706-01 |2017 年 7 月 7 日 |4.45 发行后 |TBD |
 | WA-GUEST-OS-4.42_201705-01 |2017 年 6 月 5 日 |4.44 发行后 |TBD |
 | WA-GUEST-OS-4.41_201704-01 |2017 年 5 月 9 日 |4.43 发行后 |TBD |
-| WA-GUEST-OS-4.40_201703-01 |2017 年 4 月 10 日 |4.42 发行后 |TBD |
+|~~WA-GUEST-OS-4.40_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
 |~~WA-GUEST-OS-4.39_201612-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5 日 |TBD |
 |~~WA-GUEST-OS-4.38_201611-01~~ |2016 年 12 月 14 日 |2017 年 5 月 9 日 |TBD |
 |~~WA-GUEST-OS-4.37_201610-02~~ |2016 年 11 月 16 日 |2017 年 4 月 10 日 |TBD |
@@ -113,21 +118,22 @@ ms.lasthandoff: 07/14/2017
 
 > [!NOTE]
 > 标有 * 的日期可随时更改
-> 
-> 
+>
+>
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.50_201706-01 |2017 年 7 月 7 日 |3.52 发行后 |TBD |
 | WA-GUEST-OS-3.49_201705-01 |2017 年 6 月 5 日 |3.51 发行后 |TBD |
 | WA-GUEST-OS-3.48_201704-01 |2017 年 5 月 9 日 |3.50 发行后 |TBD |
-| WA-GUEST-OS-3.47_201703-01 |2017 年 4 月 10 日 |3.49 发行后 |TBD |
-| ~~WA-GUEST-OS-3.46_201612-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5 日 |TBD |
-| ~~WA-GUEST-OS-3.45_201611-01~~ |2016 年 12 月 14 日 |2017 年 5 月 9 日 |TBD |
-| ~~WA-GUEST-OS-3.44_201610-02~~ |2016 年 11 月 16 日 |2017 年 5 月 1 日 |TBD |
-| ~~WA-GUEST-OS-3.43_201609-01~~ |2016 年 10 月 13 日 |2017 年 1 月 14 日 |TBD |
-| ~~WA-GUEST-OS-3.42_201608-01~~ |2016 年 9 月 13 日 |2016 年 12 月 16 日 |TBD |
-| ~~WA-GUEST-OS-3.41_201607-01~~ |2016 年 8 月 8 日 |2016 年 11 月 13 日 |TBD |
-| ~~WA-GUEST-OS-3.40_201606-01~~ |2016 年 7 月 13 日 |2016 年 10 月 13 日 |TBD |
+|~~WA-GUEST-OS-3.47_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
+|~~WA-GUEST-OS-3.46_201612-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5 日 |TBD |
+|~~WA-GUEST-OS-3.45_201611-01~~ |2016 年 12 月 14 日 |2017 年 5 月 9 日 |TBD |
+|~~WA-GUEST-OS-3.44_201610-02~~ |2016 年 11 月 16 日 |2017 年 5 月 1 日 |TBD |
+|~~WA-GUEST-OS-3.43_201609-01~~ |2016 年 10 月 13 日 |2017 年 1 月 14 日 |TBD |
+|~~WA-GUEST-OS-3.42_201608-01~~ |2016 年 9 月 13 日 |2016 年 12 月 16 日 |TBD |
+|~~WA-GUEST-OS-3.41_201607-01~~ |2016 年 8 月 8 日 |2016 年 11 月 13 日 |TBD |
+|~~WA-GUEST-OS-3.40_201606-01~~ |2016 年 7 月 13 日 |2016 年 10 月 13 日 |TBD |
 
 
 
@@ -138,14 +144,15 @@ ms.lasthandoff: 07/14/2017
 
 > [!NOTE]
 > 标有 * 的日期可随时更改
-> 
-> 
+>
+>
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.63_201706-01 |2017 年 7 月 7 日 |2.65 发行后 |TBD |
 | WA-GUEST-OS-2.62_201705-01 |2017 年 6 月 5 日 |2.64 发行后 |TBD |
 | WA-GUEST-OS-2.61_201704-01 |2017 年 5 月 9 日 |2.63 发行后 |TBD |
-| WA-GUEST-OS-2.60_201703-01 |2017 年 4 月 10 日 |2.62 发行后 |TBD |
+|~~WA-GUEST-OS-2.60_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
 |~~WA-GUEST-OS-2.59_201701-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5 日 |TBD |
 |~~WA-GUEST-OS-2.58_201612-01~~ |2017 年 1 月 10 日 |2017 年 5 月 9 日|TBD |
 |~~WA-GUEST-OS-2.57_201611-01~~ |2016 年 12 月 14 日 |2017 年 4 月 10 日 |TBD |
@@ -161,7 +168,7 @@ ms.lasthandoff: 07/14/2017
 [此处][patches]提供了每月来宾 OS 版本随附的修补程序列表。
 
 ## <a name="sdk-support"></a>SDK 支持
-尽管 [Azure SDK 停用策略][retire policy sdk] 指出仅支持 2.2 以上的版本，但特定的来宾 OS 允许你使用早期版本。 你应该始终使用最新的受支持 SDK。 
+尽管 [Azure SDK 停用策略][retire policy sdk] 指出仅支持 2.2 以上的版本，但特定的来宾 OS 允许使用早期版本。 你应该始终使用最新的受支持 SDK。 
 
 | 来宾 OS 系列 | 兼容的 SDK 版本 |
 | --- | --- |
@@ -176,7 +183,8 @@ ms.lasthandoff: 07/14/2017
 
 在**停用**日期与**失效**日期之间有一个缓冲期，可让你轻松地从一个来宾 OS 版本转换到新的版本。 如果正在使用*自动更新版*的来宾 OS，则始终可以获得最新版本，而无需担心失效的问题。
 
-**失效** 日期过后，仍旧使用该来宾 OS 的所有云服务将被停止、删除或强行升级。 你可以在 [此处][retirepolicy]了解有关停用策略的详细信息。
+
+            **失效** 日期过后，仍旧使用该来宾 OS 的所有云服务会被停止、删除或强行升级。 可以在 [此处][retirepolicy]了解有关停用策略的详细信息。
 
 ## <a name="guest-os-family-version-explanation"></a>来宾 OS 系列版本解释
 来宾 OS 系列基于发布的 Microsoft Windows Server 版本。 来宾 OS 是运行 Azure 云服务的基本操作系统。 每个来宾 OS 都具有系列、版本和版本号。 
@@ -231,3 +239,5 @@ Azure 不断地发布更新。 来宾 OS 只不过是此类更新的其中一种
 [retirepolicy]:./cloud-services-guestos-retirement-policy.md
 [fam1retire]:./cloud-services-guestos-family1-retirement.md
 [修复]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+
+<!--Update_Description: update wording-->

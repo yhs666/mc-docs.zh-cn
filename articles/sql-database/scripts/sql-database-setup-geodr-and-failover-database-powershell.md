@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 脚本 - 设置异地复制 - 单个 SQL 数据库 | Azure"
-description: "Azure PowerShell 脚本示例 - 使用 PowerShell 为单个 Azure SQL 数据库设置活动异地复制"
+title: "PowerShell 示例 - 活动异地复制 - 单一 Azure SQL 数据库 | Azure"
+description: "为单个 Azure SQL 数据库设置活动异地复制的 Azure PowerShell 示例脚本"
 services: sql-database
 documentationcenter: sql-database
 author: Hayley244
@@ -14,18 +14,18 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 05/23/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: c187c09e51d151da6dcf01e53365b315fdd8b3c1
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 06/23/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 3f6b9ad52aca48e89a22e0899962e3463b5b29b6
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
-# <a name="configure-active-geo-replication-for-a-single-azure-sql-database-using-powershell"></a>使用 PowerShell 为单个 Azure SQL 数据库配置活动异地复制
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>使用 PowerShell 为单一 Azure SQL 数据库配置活动异地复制
 
-此示例 PowerShell 脚本为单个数据库配置活动异地复制，并将其故障转移到辅助副本。
+此 PowerShell 脚本示例为单一 Azure SQL 数据库配置活动异地复制，并将其故障转移到 Azure SQL 数据库的次要副本。
 
 在运行此脚本前，请确保已使用 `Add-AzureRmAccount` cmdlet 创建与 Azure 的连接。
 
@@ -126,3 +126,5 @@ Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
+
+<!--Update_Description: wording update-->

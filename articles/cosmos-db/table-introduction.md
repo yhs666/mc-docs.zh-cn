@@ -15,16 +15,15 @@ ms.topic: get-started-article
 origin.date: 06/09/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0fae90887d6ee44b3157b6f081ba33b1613182ad
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: b04fb26df8d12187f684d6c7c9d11ca4d0515c62
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/26/2017
 ---
-# Azure Cosmos DB：表 API 简介
-<a id="introduction-to-azure-cosmos-db-table-api" class="xliff"></a>
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB：表 API 简介
 
-[Azure Cosmos DB](introduction.md) 是 Microsoft 针对任务关键型应用程序提供的全局分布式多模型数据库服务。 Azure Cosmos DB 在全球范围内提供[统包全局分发](distribute-data-globally.md)、[吞吐量和存储的弹性扩展](partition-data.md)、99% 的情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键-值、图形和列式数据模型。 
+[Azure Cosmos DB](introduction.md) 是 Microsoft 针对任务关键型应用程序提供的全局分布式多模型数据库服务。 Azure Cosmos DB 在全球范围内提供[统包全局分发](distribute-data-globally.md)、[吞吐量和存储的弹性扩展](partition-data.md)、99% 的情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键/值和列式数据模型。 
 
 ![Azure 表存储 API 和 Azure Cosmos DB](./media/table-introduction/premium-tables.png) 
 
@@ -32,9 +31,8 @@ Azure Cosmos DB 可为需要具有灵活架构、可预测性能、全局分发�
 
 可以继续对具有高存储和低吞吐量要求的表使用 Azure 表存储。 Azure Cosmos DB 会在将来更新中引入对存储优化表的支持，并且现有和新的 Azure 表存储帐户将升级到 Azure Cosmos DB。
 
-## 高级表 API 和标准表 API
-<a id="premium-and-standard-table-apis" class="xliff"></a>
-如果你当前使用 Azure 表存储，可以通过迁移到 Azure Cosmos DB 的“高级表”预览获得以下好处：
+## <a name="premium-and-standard-table-apis"></a>高级表 API 和标准表 API
+如果当前使用 Azure 表存储，可以通过迁移到 Azure Cosmos DB 的“高级表”预览获得以下好处：
 
 |  | Azure 表存储 | Azure Cosmos DB：表存储（预览版） |
 | --- | --- | --- |
@@ -47,13 +45,11 @@ Azure Cosmos DB 可为需要具有灵活架构、可预测性能、全局分发�
 | 定价 | 存储优化  | 吞吐量优化 |
 | SLA | 99.9% 可用性 | 在单个区域中达到 99.99% 可用性，并能够添加更多区域以实现更高的可用性。 针对正式发布版的[行业领先综合 SLA](https://www.azure.cn/support/sla/cosmos-db/) |
 
-## 如何入门
-<a id="how-to-get-started" class="xliff"></a>
+## <a name="how-to-get-started"></a>如何入门
 
 在 [Azure 门户](https://portal.azure.cn)中创建 Azure Cosmos DB 帐户，并通过我们的[使用 .NET 的表 API 快速入门](create-table-dotnet.md)开始使用。 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 下面是一些可帮助入门的指南：
 * 使用现有的 NET 表 SDK 开始使用 [Azure Cosmos DB 的表 API](create-table-dotnet.md)。

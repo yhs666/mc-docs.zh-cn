@@ -1,6 +1,6 @@
 ---
 title: "预配 Azure Cosmos DB 的吞吐量 | Azure"
-description: "了解如何为 Azure Cosmos DB 容器、集合、图形和表设置预配吞吐量。"
+description: "了解如何为 Azure Cosmos DB 容器、集合和表设置预配吞吐量。"
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/12/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 92ae3f7cde8de6c9960bf326447957c51c6f4af1
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 8a7dd87eb699d9e6a9cdd7a21939c17a12d1b018
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/26/2017
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>设置 Azure Cosmos DB 容器的吞吐量
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 07/13/2017
 ## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>使用 Azure 门户设置吞吐量
 
 1. 在新窗口中，打开 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧栏中单击“Azure Cosmos DB”，或者单击底部的“更多服务”，滚动到“数据库”，然后单击“Azure Cosmos DB”。
+2. 在左侧栏中单击“Azure Cosmos DB”，或者单击底部的“更多服务”，滚动到“数据库”，并单击“Azure Cosmos DB”。
 3. 选择 Cosmos DB 帐户。
 4. 在新窗口中的导航菜单内单击“数据资源管理器(预览)”。
 5. 在新窗口中展开数据库和容器，然后单击“设置和缩放”。

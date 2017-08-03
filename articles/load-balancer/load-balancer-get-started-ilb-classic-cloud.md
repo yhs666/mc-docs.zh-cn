@@ -13,31 +13,32 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 03/03/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
-ms.openlocfilehash: 494b26378926b85525c173748d890a529074e517
-ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.openlocfilehash: 173bfe429ba9054c69508bf7c0e446f96e27b8e0
+ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>开始为云服务创建内部负载均衡器（经典）
+
 > [!div class="op_single_selector"]
->- [PowerShell](./load-balancer-get-started-ilb-classic-ps.md)
->- [Azure CLI](./load-balancer-get-started-ilb-classic-cli.md)
->- [云服务](./load-balancer-get-started-ilb-classic-cloud.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-classic-cli.md)
+> * [云服务](../load-balancer/load-balancer-get-started-ilb-classic-cloud.md)
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何[使用 Resource Manager 模型执行这些步骤](./load-balancer-get-started-ilb-arm-ps.md)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何[使用 Resource Manager 模型执行这些步骤](load-balancer-get-started-ilb-arm-ps.md)。
 
 ## <a name="configure-internal-load-balancer-for-cloud-services"></a>为云服务配置内部负载均衡器
 
-虚拟机和云服务都支持内部负载均衡器。 在区域虚拟网络外部的云服务中创建的内部负载均衡器终结点将只能在该云服务中进行访问。
+虚拟机和云服务都支持内部负载均衡器。 在区域虚拟网络外部的云服务中创建的内部负载均衡器终结点只能在该云服务中进行访问。
 
 在云服务中创建第一个部署期间必须设置内部负载均衡器配置，如下面的示例中所示。
 
 > [!IMPORTANT]
-> 运行以下步骤的先决条件是已为云部署创建虚拟网络。 你需要虚拟网络名称和子网名称，以便创建内部负载均衡。
+> 运行以下步骤的先决条件是已为云部署创建虚拟网络。 需要虚拟网络名称和子网名称，以便创建内部负载均衡。
 
 ### <a name="step-1"></a>步骤 1
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 06/26/2017
 </NetworkConfiguration>
 ```
 
-让我们为网络配置文件添加值，以便显示其外观。 在此示例中，假设创建了一个名为“test_vnet”的子网，其中包含一个名为 test_subnet 的子网 10.0.0.0/24 并具有静态 IP 10.0.0.4。 负载均衡器将名为 testLB。
+让我们为网络配置文件添加值，以便显示其外观。 在此示例中，假定创建了一个名为“test_vnet”的 VNet，其中包含一个名为 test_subnet 的子网 10.0.0.0/24 并具有静态 IP 10.0.0.4。 负载均衡器将名为 testLB。
 
 ```xml
 <NetworkConfiguration>
@@ -65,7 +66,7 @@ ms.lasthandoff: 06/26/2017
 </NetworkConfiguration>
 ```
 
-有关负载均衡器架构的详细信息，请参阅 [添加负载均衡器](https://msdn.microsoft.com/zh-cn/library/azure/dn722411.aspx)。
+有关负载均衡器架构的详细信息，请参阅 [添加负载均衡器](https://msdn.microsoft.com/library/azure/dn722411.aspx)。
 
 ### <a name="step-2"></a>步骤 2
 
@@ -93,6 +94,8 @@ ms.lasthandoff: 06/26/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-[使用源 IP 关联配置负载均衡器分发模式](./load-balancer-distribution-mode.md)
+[使用源 IP 关联配置负载均衡器分发模式](load-balancer-distribution-mode.md)
 
-[配置负载均衡器的空闲 TCP 超时设置](./load-balancer-tcp-idle-timeout.md)
+[配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
+
+<!--Update_Description: wording update-->

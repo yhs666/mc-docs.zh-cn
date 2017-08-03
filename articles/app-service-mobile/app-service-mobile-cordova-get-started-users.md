@@ -2,22 +2,24 @@
 title: "使用移动应用在 Apache Cordova 中添加身份验证 | Azure 应用服务"
 description: "了解如何使用 Azure 应用服务中的移动应用，通过各种标识提供者对 Apache Cordova 应用的用户进行身份验证。"
 services: app-service\mobile
-documentationCenter: javascript
-authors: adrianhall
-manager: erikre
+documentationcenter: javascript
+author: adrianhall
+manager: adrianha
 editor: 
+ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
+origin.date: 10/30/2016
 ms.author: v-yiso
-ms.openlocfilehash: 9659c345ac8cae3154e4aaf155a62f6ccf0dfe3a
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/31/2017
+ms.openlocfilehash: 3b7a3befa44f38c80ef96912aa7326ef30cbd384
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>将身份验证添加到 Apache Cordova 应用
 
@@ -38,7 +40,7 @@ ms.lasthandoff: 06/21/2017
 现在，可以验证是否已禁用对后端的匿名访问。 在 Visual Studio 中：
 
 * 打开你在完成 [Get started with Mobile Apps]教程后创建的项目。
-* 在 **Google Android 模拟器**中运行你的应用程序。
+* 在 **Google Android 模拟器**中运行应用程序。
 * 验证应用启动后显示“意外的连接失败”。
 
 接下来，请更新应用，以便在从移动应用后端请求资源之前对用户进行身份验证。
@@ -50,7 +52,7 @@ ms.lasthandoff: 06/21/2017
 
    | 提供程序 | SDK 提供程序名称 | OAuth 主机 |
    |:--- |:--- |:--- |
-   | Azure Active Directory | aad | https://login.windows.net |
+   | Azure Active Directory | aad | https://login.chinacloudapi.cn |
    | Facebook | facebook | https://www.facebook.com |
    | Google | google | https://accounts.google.com |
    | Microsoft | microsoftaccount | https://login.live.com |
@@ -60,10 +62,10 @@ ms.lasthandoff: 06/21/2017
 
     ```
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'
-        data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
+        data: gap: https://login.chinacloudapi.cn https://yourapp.azurewebsites.cn; style-src 'self'">
     ```
 
-    将 `https://login.windows.net` 替换为上表中的 OAuth 主机。  有关 content-security-policy 元标记的详细信息，请参阅 [Content-Security-Policy 文档]。
+    将 `https://login.chinacloudapi.cn` 替换为上表中的 OAuth 主机。  有关 content-security-policy 元标记的详细信息，请参阅 [Content-Security-Policy 文档]。
 
     在相应的移动设备上使用时，某些身份验证提供程序不需要 Content-Security-Policy 更改。  例如，在 Android 设备上使用 Google 身份验证时便不需要 Content-Security-Policy 更改。
 
@@ -96,7 +98,7 @@ ms.lasthandoff: 06/21/2017
     login() 方法开始对提供程序进行身份验证。 login() 方法是返回 JavaScript Promise 的异步函数。  初始化的剩余部分放置在 promise 响应中，因此在 login() 方法完成之前不会执行。
 
 4. 在刚刚添加的代码中，将 `SDK_Provider_Name` 替换为登录提供程序的名称。 例如，对于 Azure Active Directory，请使用 `client.login('aad')`。
-5. 运行项目。  项目完成初始化后，应用程序将针对所选的身份验证提供程序显示 OAuth 登录页。
+5. 运行项目。  项目完成初始化后，应用程序针对所选的身份验证提供程序显示 OAuth 登录页。
 
 ## <a name="next-steps"></a>后续步骤
 * 了解 [有关 Azure 应用服务身份验证] 的详细信息。
@@ -104,6 +106,7 @@ ms.lasthandoff: 06/21/2017
 
 了解如何使用 SDK。
 
+* [Apache Cordova SDK]
 * [ASP.NET Server SDK]
 * [Node.js Server SDK]
 
@@ -112,5 +115,8 @@ ms.lasthandoff: 06/21/2017
 [Content-Security-Policy 文档]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 
 [有关 Azure 应用服务身份验证]: ./app-service-mobile-auth.md
+[Apache Cordova SDK]: ./app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: ./app-service-mobile-node-backend-how-to-use-server-sdk.md
+
+<!--Update_Description: update endpoint and some links-->

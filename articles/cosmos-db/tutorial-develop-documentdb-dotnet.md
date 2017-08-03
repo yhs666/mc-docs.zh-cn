@@ -17,16 +17,15 @@ origin.date: 05/10/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: bcf8438c132a520705cbf987478de829ca9829a3
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 1417196935a4d073b61983a42be9a8025c3417af
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/26/2017
 ---
-# Azure Cosmos DB：在 .NET 中使用 DocumentDB API 进行开发
-<a id="azure-cosmosdb-develop-with-the-documentdb-api-in-net" class="xliff"></a>
+# <a name="azure-cosmosdb-develop-with-the-documentdb-api-in-net"></a>Azure Cosmos DB：在 .NET 中使用 DocumentDB API 进行开发
 
-Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
+Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
 
 本教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户，然后使用 [DocumentDB .NET API](documentdb-introduction.md) 创建具有[分区键](documentdb-partition-data.md#partition-keys)的文档数据库和集合。 通过在创建集合时定义分区键，应用程序能够随数据增加轻松进行扩展。 
 
@@ -42,16 +41,14 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > * 删除文档
 > * 删除数据库
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 请确保你具有以下内容：
 
 * 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
     * 如果出于开发目的要使用模拟 Azure DocumentDB 服务的本地环境，则可在本教程中改用 [Azure Cosmos DB 模拟器](local-emulator.md)。
 * [Visual Studio](http://www.visualstudio.com/)。
 
-## 创建 Azure Cosmos DB 帐户
-<a id="create-an-azure-cosmos-db-account" class="xliff"></a>
+## <a name="create-an-azure-cosmos-db-account"></a>创建 Azure Cosmos DB 帐户
 
 首先在 Azure 门户中创建 Azure Cosmos DB 帐户。
 
@@ -127,8 +124,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
 ```
-## 确定分区键
-<a id="decide-on-a-partition-key" class="xliff"></a> 
+## <a name="decide-on-a-partition-key"></a>确定分区键 
 
 集合是存储文档的容器。 集合是逻辑资源，可以[跨一个或多个物理分区](partition-data.md)。 [分区键](documentdb-partition-data.md)是文档内用于在服务器或分区间分发数据的属性（或路径）。 具有相同分区键的所有文档都存储在同一分区中。 
 
@@ -204,8 +200,7 @@ await client.CreateDocumentAsync(
         ReadingTime = DateTime.UtcNow
     });
 ```
-## 读取数据
-<a id="read-data" class="xliff"></a>
+## <a name="read-data"></a>读取数据
 
 现使用 ReadDocumentAsync 方法按分区键和 ID 来读取文档。 请注意，读取包括 PartitionKey 值（对应 REST API 中的 `x-ms-documentdb-partitionkey` 请求标头）。
 
@@ -218,8 +213,7 @@ Document result = await client.ReadDocumentAsync(
 DeviceReading reading = (DeviceReading)(dynamic)result;
 ```
 
-## 更新数据
-<a id="update-data" class="xliff"></a>
+## <a name="update-data"></a>更新数据
 
 现使用 ReplaceDocumentAsync 方法更新某些数据。
 
@@ -233,8 +227,7 @@ await client.ReplaceDocumentAsync(
   reading);
 ```
 
-## 删除数据
-<a id="delete-data" class="xliff"></a>
+## <a name="delete-data"></a>删除数据
 
 现使用 DeleteDocumentAsync 方法按分区键和 ID 来删除文档。
 
@@ -244,8 +237,7 @@ await client.DeleteDocumentAsync(
   UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 ```
-## 查询已分区集合
-<a id="query-partitioned-collections" class="xliff"></a>
+## <a name="query-partitioned-collections"></a>查询已分区集合
 
 在已分区集合中查询数据时，Azure Cosmos DB 会自动将查询路由到筛选器（如果有）中所指定分区键值对应的分区。 例如，此查询将只路由到包含分区键“XMS-0001”的分区。
 
@@ -266,8 +258,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-## 并行查询执行
-<a id="parallel-query-execution" class="xliff"></a>
+## <a name="parallel-query-execution"></a>并行查询执行
 Azure Cosmos DB DocumentDB SDK 1.9.0 及更高版本支持并行查询执行选项，这些选项可用于对已分区集合执行低延迟查询，即使在这些查询需要处理大量分区时，也是如此。 例如，以下查询配置为跨分区并行运行。
 
 ```csharp
@@ -286,8 +277,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 如果给定相同状态的集合，并行查询将以串行执行相同的顺序返回结果。 执行包含排序（ORDER BY 和/或 TOP）的跨分区查询时，DocumentDB SDK 跨分区发出并行查询，并合并客户端中的部分排序结果，以生成全局范围内有序的结果。
 
-## 执行存储过程
-<a id="execute-stored-procedures" class="xliff"></a>
+## <a name="execute-stored-procedures"></a>执行存储过程
 最后，通过将以下代码添加到项目中，可以对具有相同设备 ID 的文档执行原子事务，例如，如果要在单个文档中维护聚合或设备的最新状态。
 
 ```csharp
@@ -299,16 +289,14 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 
 大功告成！ 这些是 Azure Cosmos DB 应用程序的主要组件，该程序使用分区键跨分区高效缩放数据分布。  
 
-## 清理资源
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>清理资源
 
 如果不打算继续使用此应用，请删除本教程在 Azure 门户中创建的所有资源，步骤如下：
 
 1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击创建的资源的唯一名称。 
 2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，然后单击“删除”。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 在本教程中，已完成以下内容： 
 

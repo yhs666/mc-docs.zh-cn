@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/03/2017
-ms.date: 05/08/2017
+origin.date: 05/26/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 453dfca7d4d3c9fa4ab973b4b08edb55b7ff7880
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 4b1e1efcb2a8a37897d1f238699972f0fa0b2f28
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>将 Pig 与 Hadoop on HDInsight 配合使用
 
@@ -38,7 +38,7 @@ Pig 是一个平台，可以使用名为 *Pig Latin* 的过程语言为 Hadoop �
 | [远程桌面](hdinsight-hadoop-use-pig-remote-desktop.md)（HDInsight 3.2 和 3.3） |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a id="why"></a>为何使用 Pig
 
@@ -110,7 +110,7 @@ HDInsight 可以使用各种方法来运行 Pig Latin 作业。 使用下表来�
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="pig-and-sql-server-integration-services"></a>Pig 和 SQL Server Integration Services
 
@@ -153,3 +153,5 @@ HDInsight 可以使用各种方法来运行 Pig Latin 作业。 使用下表来�
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
+
+<!--Update_Description: update meta data-->

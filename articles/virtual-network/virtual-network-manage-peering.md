@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 06/06/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 1cfcea248008729f929bd8936c253ec101103868
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 0f117af3adfc736951672fb0c2f3f68dabe33d32
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>创建、更改或删除虚拟网络对等互连
 
@@ -147,4 +147,4 @@ ms.lasthandoff: 07/14/2017
 ## <a name="next-steps"></a>后续步骤
 
 - 完成[虚拟网络对等互连教程](virtual-network-create-peering.md)
-- 创建中心辐射型网络拓扑 |[多个](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)|
+- 创建[中心辐射型网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)

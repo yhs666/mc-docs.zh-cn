@@ -1,5 +1,5 @@
 ---
-title: "使用 SQL 数据库异地复制设计灾难恢复云解决方案 | Azure"
+title: "设计灾难恢复解决方案 - Azure SQL 数据库 | Azure"
 description: "了解如何通过选择合适的故障转移模式来设计可实现灾难恢复的云解决方案。"
 services: sql-database
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/07/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: eff7a1d9b7f610433b563c177a0c671dd8bed0c7
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 4992154731b908d810e55628835f704e79de0d4e
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>使用 SQL 数据库弹性池的应用程序的灾难恢复策略
 这些年来，我们已经认识到云服务并不能做到万无一失，并且会发生灾难性事件。 SQL 数据库具备许多功能，可在发生这些事件时保证应用程序的业务连续性。 [弹性池](sql-database-elastic-pool.md)和单一数据库支持相同类型的灾难恢复功能。 本文介绍了几种针对利用这些 SQL 数据库业务连续性功能的弹性池的 DR 策略。
@@ -169,6 +169,7 @@ ms.lasthandoff: 07/14/2017
 * 若要了解 Azure SQL 数据库的自动备份，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)
 * 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)
 * 若要了解如何使用自动备份进行恢复，请参阅[从服务启动的备份中还原数据库](sql-database-recovery-using-backups.md)
-* 若要了解更快的恢复选项，请参阅[活动异地复制](sql-database-geo-replication-overview.md)  
+* 若要了解更快的恢复选项，请参阅[活动异地复制](sql-database-geo-replication-overview.md)
 * 若要了解如何使用自动备份进行存档，请参阅[数据库复制](sql-database-copy.md)
 
+<!--Update_Description: update meta properties-->

@@ -15,20 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/03/2017
-ms.date: 07/03/2017
-ms.author: v-johch
-ms.openlocfilehash: df1bfdda86c03b510ee8df1e1e86ac55e317c6e9
-ms.sourcegitcommit: 73b1d0f7686dea85647ef194111528c83dbec03b
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: f02de9286b3265d6c4b23ab0ee4b8e56d3d2058b
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/28/2017
 ---
-# SQL 数据库中扩展事件的环形缓冲区目标代码
-<a id="ring-buffer-target-code-for-extended-events-in-sql-database" class="xliff"></a>
+# <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL 数据库中扩展事件的环形缓冲区目标代码
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-你需要完整的代码示例以最简单快速的方式在测试期间捕获和报告扩展事件的信息。 扩展事件数据最简单的目标是[环形缓冲区目标](http://msdn.microsoft.com/library/ff878182.aspx)。
+需要完整的代码示例以最简单快速的方式在测试期间捕获和报告扩展事件的信息。 扩展事件数据最简单的目标是[环形缓冲区目标](http://msdn.microsoft.com/library/ff878182.aspx)。
 
 本主题演示一个 Transact-SQL 代码示例：
 
@@ -39,15 +38,14 @@ ms.lasthandoff: 06/28/2017
    * 选择要将事件的输出发送给环形缓冲区类型的目标，即 **package0.ring_buffer**。
 3. 启动事件会话。
 4. 发出几个简单的 SQL UPDATE 语句。
-5. 发出 SQL SELECT 以检索环形缓冲区的事件输出。
+5. 发出 SQL SELECT 语句，从环形缓冲区检索事件输出。
 
    * 将 **sys.dm_xe_database_session_targets** 和其他动态管理视图 (DMV) 联接在一起。
 6. 停止事件会话。
 7. 删除环形缓冲区目标以释放其资源。
 8. 删除事件会话和演示表。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 
 * Azure 帐户和订阅。 可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * 可在其中创建表的任何数据库。
@@ -59,8 +57,7 @@ ms.lasthandoff: 06/28/2017
   * 标题为[下载 SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx) 的主题。
   * [直接指向下载位置的链接。](http://go.microsoft.com/fwlink/?linkid=616025)
 
-## 代码示例
-<a id="code-sample" class="xliff"></a>
+## <a name="code-sample"></a>代码示例
 
 只要稍加修改，就可以在 Azure SQL 数据库或 Microsoft SQL Server 上运行以下环形缓冲区的代码示例。 不同之处在于步骤 5 的 FROM 子句中使用的某些动态管理视图 (DMV) 的名称中出现了节点“_database”。 例如：
 
@@ -210,8 +207,7 @@ GO
 
 &nbsp;
 
-## 环形缓冲区内容
-<a id="ring-buffer-contents" class="xliff"></a>
+## <a name="ring-buffer-contents"></a>环形缓冲区内容
 
 我们使用了 ssms.exe 来运行该代码示例。
 
@@ -308,8 +304,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 </RingBufferTarget>
 ```
 
-#### 释放环形缓冲区占用的资源
-<a id="release-resources-held-by-your-ring-buffer" class="xliff"></a>
+#### <a name="release-resources-held-by-your-ring-buffer"></a>释放环形缓冲区占用的资源
 
 处理完环形缓冲区后，可以发出 **ALTER** 将它删除并释放其资源，如下所示：
 
@@ -320,7 +315,7 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 GO
 ```
 
-事件会话的定义将会更新，但不会删除。 然后可以将环形缓冲区的另一个实例添加到事件会话：
+事件会话的定义会更新，但不会删除。 然后可以将环形缓冲区的另一个实例添加到事件会话：
 
 ```tsql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
@@ -332,14 +327,13 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
             );
 ```
 
-## 详细信息
-<a id="more-information" class="xliff"></a>
+## <a name="more-information"></a>详细信息
 
 有关 Azure SQL 数据库中扩展事件的主要主题是：
 
 * [SQL 数据库中扩展事件的注意事项](sql-database-xevent-db-diff-from-svr.md)，对比了 Azure SQL 数据库与 Microsoft SQL Server 之间存在差异的扩展事件的某些方面。
 
-可通过以下链接访问有关扩展事件的其他代码示例主题。 不过，必须定期检查所有示例，以确定这些示例是针对 Microsoft SQL Server 还是 Azure SQL 数据库。 然后，你可以在运行示例时确定是否要做出细微的更改。
+可通过以下链接访问有关扩展事件的其他代码示例主题。 不过，必须定期检查所有示例，以确定这些示例是针对 Microsoft SQL Server 还是 Azure SQL 数据库。 然后，用户可以在运行示例时确定是否要做出细微的更改。
 
 * Azure SQL 数据库的代码示例： [SQL 数据库中扩展事件的事件文件目标代码](sql-database-xevent-code-event-file.md)
 
@@ -349,3 +343,5 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
+
+<!--Update_Description: wording update -->

@@ -16,25 +16,25 @@ ms.topic: get-started-article
 origin.date: 05/10/2016
 ms.date: 01/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: 6667fc0ac014ca0e3eed67bd639a2f07db0cc17e
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: cbbd4fadc613e41de219304f72ac3b90185f364b
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="azure-automation-overview"></a>Azure 自动化概述
-借助 Azure 自动化，用户可以自动完成通常要在云环境和企业环境中执行的手动、长时间进行、易出错且重复性高的任务。 它可以节省时间，可以提高常规管理任务的可靠性，甚至可以将这些任务安排成按特定的时间间隔自动执行。 你可以使用 Runbook 实现这些过程的自动化，或者使用 Desired State Configuration 实现配置管理的自动化。 本文概述了 Azure 自动化并回答了一些常见问题。 您可以参考此库中的其他文章，以了解有关不同主题的更多详细信息。
+借助 Azure 自动化，用户可以自动完成通常要在云环境和企业环境中执行的手动、长时间进行、易出错且重复性高的任务。 它可以节省时间，可以提高常规管理任务的可靠性，甚至可以将这些任务安排成按特定的时间间隔自动执行。 可以使用 Runbook 实现这些过程的自动化，或者使用 Desired State Configuration 实现配置管理的自动化。 本文概述了 Azure 自动化并回答了一些常见问题。 可以参考此库中的其他文章，以了解有关不同主题的更多详细信息。
 
 ## <a name="automating-processes-with-runbooks"></a>使用 Runbook 实现过程的自动化
-Runbook 是 Azure 自动化中执行某些自动化过程的一组任务。 它可以是一个简单的过程（如启动虚拟机和创建日志项），也可以是一个复杂的 Runbook，组合其他较小的 Runbook 来执行复杂的过程，这些复杂的过程可以跨多个资源甚至多个云来执行，也可以在本地环境中执行。  
+Runbook 是 Azure 自动化中执行某些自动化过程的一组任务。 它可以是一个简单的过程（如启动虚拟机和创建日志项目），也可以是一个复杂的 Runbook，组合其他较小的 Runbook 来执行复杂的过程，这些复杂的过程可以跨多个资源甚至多个云来执行，也可以在本地环境中执行。  
 
-例如，如果 SQL 数据库即将达到最大大小，你可以通过现有的手动过程来截断该数据库，手动过程包括多个步骤，例如连接到服务器、连接到数据库、获取数据库的当前大小、查看是否超过了阈值，然后截断该数据库并通知用户。 您无需手动执行每个步骤，而是可以创建一个将所有这些任务作为单个过程执行的 Runbook。 你可以启动 Runbook，提供所需的信息，如 SQL 服务器名称、数据库名称、收件人电子邮件，然后无需干预，等待该过程自动完成即可。 
+例如，如果 SQL 数据库即将达到最大大小，用户可以通过现有的手动过程来截断该数据库，手动过程包括多个步骤，例如连接到服务器、连接到数据库、获取数据库的当前大小、查看是否超过了阈值，然后截断该数据库并通知用户。 无需手动执行每个步骤，而是可以创建一个将所有这些任务作为单个过程执行的 Runbook。 用户可以启动 Runbook，提供所需的信息，如 SQL 服务器名称、数据库名称、收件人电子邮件，然后无需干预，等待该过程自动完成即可。 
 
 ## <a name="what-can-runbooks-automate"></a>Runbook 可以自动化哪些任务？
-Azure 自动化中的 Runbook 均基于 Windows PowerShell 工作流，因此它们能够执行 PowerShell 可以完成的任何工作。 如果应用程序或服务具有一个 API，Runbook 可以使用它。 如果你有一个用于该应用程序的 PowerShell 模块，可以将该模块加载到 Azure 自动化中，并在 Runbook 中包括这些 cmdlet。 Azure 自动化 Runbook 在 Azure 云中运行，因此可以访问任何云资源或者那些可从云中访问的外部资源。 
+Azure 自动化中的 Runbook 均基于 Windows PowerShell 工作流，因此它们能够执行 PowerShell 可以完成的任何工作。 如果应用程序或服务具有一个 API，Runbook 可以使用它。 如果有一个用于该应用程序的 PowerShell 模块，可以将该模块加载到 Azure 自动化中，并在 Runbook 中包括这些 cmdlet。 Azure 自动化 Runbook 在 Azure 云中运行，因此可以访问任何云资源或者那些可从云中访问的外部资源。 
 
 ## <a name="getting-runbooks-from-the-community"></a>从社区获取 Runbook
-[Runbook 库](automation-runbook-gallery.md#runbooks-in-runbook-gallery) 包含来自 Microsoft 和社区的 Runbook，既可以在环境中使用未经修改的 Runbook，也可以根据自己的目的对其进行自定义。 您还可以将它们作为学习如何创建自己的 Runbook 的参考。 您甚至可以将您认为对其他用户有用的自己的 Runbook 分享到库中。 
+[Runbook 库](automation-runbook-gallery.md#runbooks-in-runbook-gallery) 包含来自 Microsoft 和社区的 Runbook，既可以在环境中使用未经修改的 Runbook，也可以根据自己的目的对其进行自定义。 还可以将它们作为学习如何创建自己的 Runbook 的参考。 甚至可以将自己认为对其他用户有用的 Runbook 分享到库中。 
 
 ## <a name="creating-runbooks-with-azure-automation"></a>使用 Azure 自动化创建 Runbook
 可以从头开始[创建自己的 Runbook](automation-creating-importing-runbook.md)，根据自己的需要修改 [Runbook 库](automation-runbook-gallery.md)中的 Runbook。 WindowsAzure.cn 中只有一个 Runbook 类型。 可以使用 PowerShell 工作流 Runbook，该 Runbook 可以脱机编辑，也可以使用 Azure 经典管理门户中的 [文本编辑器](automation-edit-textual-runbook.md) 进行编辑。
@@ -50,7 +50,7 @@ Azure 自动化中的 Runbook 均基于 Windows PowerShell 工作流，因此它
 * 自动执行各种安全功能，例如在检测到拒绝服务攻击时拒绝来自某个客户端的请求。 
 * 确保计算机始终符合配置的安全策略。
 * 通过管理确保在云和本地基础结构中对应用程序代码进行连续的部署。 
-* 针对你的实验室环境在 Azure 中构建 Active Directory 林。 
+* 针对实验室环境在 Azure 中构建 Active Directory 林。 
 * 如果 SQL 数据库即将达到其最大大小，则截断数据库中的表。 
 * 远程更新 Azure 网站的环境设置。 
 

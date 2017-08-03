@@ -15,19 +15,17 @@ ms.workload: storage-backup-recovery
 origin.date: 06/05/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
-ms.openlocfilehash: c9606924e02cae4c028c7bb7feee0c673bd21d0b
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: e1fec6fee6c0ce87a3145392f9aa2e62b1641fbc
+ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 从本地复制到 Azure 时的 Azure Site Recovery 支持矩阵
-<a id="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure" class="xliff"></a>
+# <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>从本地复制到 Azure 时的 Azure Site Recovery 支持矩阵
 
 本文汇总了复制和恢复到 Azure 时 Azure Site Recovery 支持的配置和组件。 有关 Azure Site Recovery 要求的详细信息，请参阅[先决条件](site-recovery-prereq.md)。
 
-## 部署选项支持
-<a id="support-for-deployment-options" class="xliff"></a>
+## <a name="support-for-deployment-options"></a>部署选项支持
 
 **部署** | **VMware/物理服务器** | **Hyper-V（具有/不具有 Virtual Machine Manager）** |
 --- | --- | ---
@@ -35,62 +33,80 @@ ms.lasthandoff: 06/30/2017
 **经典管理门户** | 仅限维护模式。 无法创建新的保管库。 | 仅限维护模式。
 **PowerShell** | 目前不支持。 | 支持
 
-## 数据中心管理服务器支持
-<a id="support-for-datacenter-management-servers" class="xliff"></a>
+## <a name="support-for-datacenter-management-servers"></a>数据中心管理服务器支持
 
-### 虚拟化管理实体
-<a id="virtualization-management-entities" class="xliff"></a>
+### <a name="virtualization-management-entities"></a>虚拟化管理实体
 
 **部署** | **支持**
 --- | ---
-**VMware VM/物理服务器** | vSphere 6.0、5.5 或具有最新更新的 5.1
+**VMware VM/物理服务器** | vCenter 6.5、6.0 或 5.5
 **Hyper-V（具有 Virtual Machine Manager）** | System Center Virtual Machine Manager 2016 和 System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
   > 目前不支持混合使用 Windows Server 2016 和 2012 R2 主机的 System Center Virtual Machine Manager 2016 云。
 
-### 主机服务器
-<a id="host-servers" class="xliff"></a>
+### <a name="host-servers"></a>主机服务器
 
 **部署** | **支持**
 --- | ---
-**VMware VM/物理服务器** | vCenter 5.5 或 6.0（仅支持 5.5 功能）
+**VMware VM/物理服务器** | vSphere 6.5、6.0 或 5.5
 **Hyper-V（具有/不具有 Virtual Machine Manager）** | Windows Server 2016、带有最新更新的 Windows Server 2012 R2。<br></br>如果使用了 SCVMM，Windows Server 2016 主机应由 SCVMM 2016 托管。
 
   >[!Note]
   >目前不支持混合使用主机（运行 Windows Server 2016 和 2012 R2）的 Hyper-V 站点。 当前不支持恢复到 Windows Server 2016 主机上 VM 的备用位置。
 
-## 复制计算机 OS 版本支持
-<a id="support-for-replicated-machine-os-versions" class="xliff"></a>
+## <a name="support-for-replicated-machine-os-versions"></a>复制计算机 OS 版本支持
 
 复制到 Azure 时，受保护的虚拟机必须符合 [Azure 要求](#failed-over-azure-vm-requirements)。
 下表总结了使用 Azure Site Recovery 时的各种部署方案中的复制操作系统支持。 此支持适用于在所述的 OS 上运行的任何工作负荷。
 
  **VMware/物理服务器** | Hyper-V（有/无 VMM） |
 --- | --- |
-64 位 Windows Server 2012 R2、Windows Server 2012、至少具有 SP1 的 Windows Server 2008 R2<br/><br/> Red Hat Enterprise Linux 6.7、6.8、7.1、7.2 <br/><br/>CentOS 6.5、6.6、6.7、 6.8、7.0、7.1、7.2 <br/><br/>Ubuntu 14.04 LTS 服务器[（支持的内核版本）](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Oracle Enterprise Linux 6.4、6.5（运行 Red Hat 兼容内核或 Unbreakable Enterprise Kernel Release 3 (UEK3)） <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>（不支持复制计算机从 SLES 11 SP3 升级到 SLES 11 SP4。 如果已将复制计算机从 SLES 11SP3 升级到 SLES 11 SP4，则需要禁用复制，并在升级后再次对计算机启用保护。） | [Azure 支持的](https://technet.microsoft.com/library/cc794868.aspx)
+64 位 Windows Server 2012 R2、Windows Server 2012、至少具有 SP1 的 Windows Server 2008 R2<br/>*Windows Server 2016* - 目前在 VMware 虚拟机和物理服务器上不受支持。 <br/><br/> Red Hat Enterprise Linux：5.2 到 5.11、6.1 到 6.8、7.0 到 7.3 <br/><br/>Cent OS：5.2 到 5.11、6.1 到 6.8、7.0 到 7.3 <br/><br/>Ubuntu 14.04 LTS 服务器[（支持的内核版本）](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS 服务器[（支持的内核版本）](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Oracle Enterprise Linux 6.4、6.5（运行 Red Hat 兼容内核或 Unbreakable Enterprise Kernel Release 3 (UEK3)） <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>（不支持复制计算机从 SLES 11 SP3 升级到 SLES 11 SP4。 如果已将复制计算机从 SLES 11SP3 升级到 SLES 11 SP4，则需要禁用复制，并在升级后再次对计算机启用保护。） | [Azure 支持的](https://technet.microsoft.com/library/cc794868.aspx)
+
+>[!IMPORTANT]
+>（适用于复制到 Azure 的 VMware/物理服务器）
+>
+> 在 Red Hat Enterprise Linux Server 7+ 和 CentOS 7+ 服务器上，从 Azure Site Recovery 移动服务版本 9.8 开始支持内核版本 3.10.0-514。<br/><br/>
+> 使用内核版本为 3.10.0-514，且移动服务版本低于版本 9.8 的客户需要先禁用复制，将移动服务的版本更新至版本 9.8，再重新启用复制。
+
+### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>VMware/物理服务器支持的 Ubuntu 内核版本
+
+**版本** | **移动服务版本** | **内核版本** |
+--- | --- | --- |
+14.04 LTS | 9.9 | 3.13.0-24-generic 到 3.13.0-117-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-75-generic |
+14.04 LTS | 9.10 | 3.13.0-24-generic 到 3.13.0-121-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-81-generic |
+16.04 LTS | 9.10 | 4.4.0-21-generic 到 4.4.0-81-generic、<br/>4.8.0-34-generic 到 4.8.0-56-generic、<br/>4.10.0-14-generic 到 4.10.0-24-generic |
+
+## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Linux 上支持的文件系统和来宾存储配置（VMware/物理服务器）
+
+运行 VMware 或物理服务器的 Linux 服务器支持以下文件系统和存储配置软件：
+* 文件系统：ext3、ext4、ReiserFS（仅限 Suse Linux Enterprise Server）和 XFS
+* 卷管理器：LVM2
+* 多路径软件：设备映射程序
+
+不支持半虚拟化存储设备（半虚拟化驱动程序导出的设备）。<br/>
+不支持多队列块 IO 设备。<br/>
+不支持使用 HP CCISS 存储控制器的物理服务器。<br/>
 
 >[!Note]
 > 在 Linux 服务器中，下列目录（如果设置为单独的分区/文件系统）必须位于源服务器的同一磁盘（OS 磁盘）：   / (root)、/boot、/usr、/usr/local、/var 和 /etc<br/><br/>
-> XFS 文件系统上的 ASR 目前不支持 XFS v5 功能（例如元数据校验和）。 请确保 XFS 文件系统不使用任何 v5 功能。 可以使用 xfs_info 实用工具来检查 XFS 超级块中是否存在分区。 如果 ftype 设置为 1，则会使用 XFSv5 功能。
+> 从移动服务版本 9.10 开始支持 XFS 文件系统上的 XFSv5 功能（例如元数据校验和）。 如果使用 XFSv5 功能，请确保运行移动服务 9.10 或更高版本。 可以使用 xfs_info 实用工具来检查 XFS 超级块中是否存在分区。 如果 ftype 设置为 1，则会使用 XFSv5 功能。
 >
 
-## 网络配置支持
-<a id="support-for-network-configuration" class="xliff"></a>
+## <a name="support-for-network-configuration"></a>网络配置支持
 下表总结了使用 Azure Site Recovery 复制到 Azure 时的各种部署方案中的网络配置支持。
 
-### 主机网络配置
-<a id="host-network-configuration" class="xliff"></a>
+### <a name="host-network-configuration"></a>主机网络配置
 
 **配置** | **VMware/物理服务器** | **Hyper-V（具有/不具有 Virtual Machine Manager）**
 --- | --- | ---
-NIC 组合 | 是<br/><br/>在物理机中不受支持| 是
+NIC 组合 | 是<br/><br/>复制物理机时不支持| 是
 VLAN | 是 | 是
 IPv4 | 是 | 是
 IPv6 | 否 | 否
 
-### 来宾 VM 网络配置
-<a id="guest-vm-network-configuration" class="xliff"></a>
+### <a name="guest-vm-network-configuration"></a>来宾 VM 网络配置
 
 **配置** | **VMware/物理服务器** | **Hyper-V（具有/不具有 Virtual Machine Manager）**
 --- | --- | ---
@@ -98,11 +114,10 @@ NIC 组合 | 否 | 否
 IPv4 | 是 | 是
 IPv6 | 否 | 否
 静态 IP (Windows) | 是 | 是
-静态 IP (Linux) | 否 | 否
+静态 IP (Linux) | 是 <br/><br/>虚拟机配置为在故障回复时使用 DHCP  | 否
 多 NIC | 是 | 是
 
-### 故障转移 Azure VM 网络配置
-<a id="failed-over-azure-vm-network-configuration" class="xliff"></a>
+### <a name="failed-over-azure-vm-network-configuration"></a>故障转移 Azure VM 网络配置
 
 **Azure 网络** | **VMware/物理服务器** | **Hyper-V（具有/不具有 Virtual Machine Manager）**
 --- | --- | ---
@@ -115,12 +130,10 @@ ELB | 是 | 是
 IPv4 | 是 | 是
 保留源 IP | 是 | 是
 
-## 存储支持
-<a id="support-for-storage" class="xliff"></a>
+## <a name="support-for-storage"></a>存储支持
 下表总结了使用 Azure Site Recovery 复制到 Azure 时的各种部署方案中的存储配置支持。
 
-### 主机存储配置
-<a id="host-storage-configuration" class="xliff"></a>
+### <a name="host-storage-configuration"></a>主机存储配置
 
 **配置** | **VMware/物理服务器** | **Hyper-V（具有/不具有 Virtual Machine Manager）**
 --- | --- | ---
@@ -129,8 +142,7 @@ SMB 3.0 | 不适用 | 是
 SAN (ISCSI) | 是 | 是
 多路径 (MPIO)<br></br>已使用 Microsoft DSM、EMC PowerPath 5.7 SP4、EMC PowerPath DSM for CLARiiON 进行测试 | 是 | 是
 
-### 来宾或物理服务器存储配置
-<a id="guest-or-physical-server-storage-configuration" class="xliff"></a>
+### <a name="guest-or-physical-server-storage-configuration"></a>来宾或物理服务器存储配置
 
 **配置** | **VMware/物理服务器** | **Hyper-V（具有/不具有 Virtual Machine Manager）**
 --- | --- | ---
@@ -138,12 +150,13 @@ VMDK | 是 | 不适用
 VHD/VHDX | 不适用 | 是
 第 2 代 VM | 不适用 | 是
 EFI/UEFI| 否 | 是
-共享群集磁盘 | 在 VMware 上支持<br/><br/> 在物理服务器上不适用 | 否
+共享群集磁盘 | 否 | 否
 加密磁盘 | 否 | 否
 NFS | 否 | 不适用
 SMB 3.0 | 否 | 否
 RDM | 是<br/><br/> 在物理服务器上不适用 | 不适用
-磁盘 > 1 TB | 否 | 否
+磁盘 > 1 TB | 是<br/><br/>最大 4095 GB | 是<br/><br/>最大 4095 GB
+具有 4K 扇区大小的磁盘 | 否 | 否
 包含条带化磁盘的卷 > 1 TB<br/><br/> LVM 逻辑卷管理 | 是 | 是
 存储空间 | 否 | 是
 热添加/移除磁盘 | 否 | 否
@@ -161,16 +174,15 @@ RA-GRS | 是 | 是
 高级存储 | 是 | 是
 导入/导出服务 | 否 | 否
 
-## Azure 计算配置支持
-<a id="support-for-azure-compute-configuration" class="xliff"></a>
+## <a name="support-for-azure-compute-configuration"></a>Azure 计算配置支持
 
 **计算功能** | **VMware/物理服务器** | **Hyper-V（具有/不具有 Virtual Machine Manager）**
 --- | --- | ---
 可用性集 | 是 | 是
 HUB | 是 | 是  
+<!-- Not Available Managed disks -->
 
-## 故障转移 Azure VM 要求
-<a id="failed-over-azure-vm-requirements" class="xliff"></a>
+## <a name="failed-over-azure-vm-requirements"></a>故障转移的 Azure VM 要求
 
 可以部署 Site Recovery 以复制运行受 Azure 支持的任何操作系统的虚拟机和物理服务器。 这包括大多数的 Windows 和 Linux 版本。 复制到 Azure 时，想要复制的本地 VM 必须符合以下 Azure 要求。
 
@@ -181,7 +193,7 @@ HUB | 是 | 是
 **操作系统磁盘大小** | 最大 1023 GB | 如果不支持，先决条件检查将会失败
 **操作系统磁盘计数** | 1 | 如果不支持，先决条件检查将会失败。
 **数据磁盘计数** | 如果将 **VMware VM 复制到 Azure**，则为 64 个或更少；如果将 **Hyper-V VM 复制到 Azure**，则为 16 个或更少 | 如果不支持，先决条件检查将会失败
-**数据磁盘 VHD 大小** | 最大 1023 GB | 如果不支持，先决条件检查将会失败
+**数据磁盘 VHD 大小** | 最大 4095 GB | 如果不支持，先决条件检查会失败
 **网络适配器** | 支持多个适配器 |
 **共享 VHD** | 不支持 | 如果不支持，先决条件检查将会失败
 **FC 磁盘** | 不支持 | 如果不支持，先决条件检查将会失败
@@ -190,16 +202,14 @@ HUB | 是 | 是
 **VM 名称** | 介于 1 和 63 个字符之间。 限制为字母、数字和连字符。 VM 名称必须以字母或数字开头和结尾。 | 在 Site Recovery 中更新虚拟机属性中的值。
 **VM 类型** | 第 1 代<br/><br/> 第 2 代 - Windows | OS 磁盘类型为“基本”的第 2 代 VM（其中包括一个或两个格式化为 VHDX 的数据卷），并且支持的磁盘空间大小小于 300 GB。<br></br>不支持 Linux 第 2 代 VM。 [了解详细信息](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
-## 恢复服务保管库操作支持
-<a id="support-for-recovery-services-vault-actions" class="xliff"></a>
+## <a name="support-for-recovery-services-vault-actions"></a>恢复服务保管库操作支持
 
 **操作** | **VMware/物理服务器** | **Hyper-V（无 Virtual Machine Manager）** | **Hyper-V（具有 Virtual Machine Manager）**
 --- | --- | --- | ---
 跨资源组移动保管库<br/><br/> 订阅内和跨订阅移动 | 否 | 否 | 否
 跨资源组移动存储、网络和 Azure VM<br/><br/> 订阅内和跨订阅移动 | 否 | 否 | 否
 
-## 提供程序和代理支持
-<a id="support-for-provider-and-agent" class="xliff"></a>
+## <a name="support-for-provider-and-agent"></a>提供程序和代理支持
 
 **Name** | **说明** | **最新版本** | **详细信息**
 --- | --- | --- | --- | ---
@@ -208,6 +218,7 @@ HUB | 是 | 是
 **移动服务** | 协调本地 VMware 服务器/物理服务器和 Azure/辅助站点之间的复制<br/><br/> 在想要复制的 VMware VM 或物理服务器上安装  | N/A（可从门户获取） | 不适用
 **Azure 恢复服务 (MARS) 代理** | 协调 Hyper-V VM 与 Azure 之间的复制<br/><br/> 在本地 Hyper-V 服务器（包含或不包含 Virtual Machine Manager 服务器）上安装 | 最新代理（[可从门户获取](http://aka.ms/latestmarsagent)） |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 [检查先决条件](site-recovery-prereq.md)
+
+<!--Update_Description: update meta properties， Supported Ubuntu kernel versions and file system for VMware/physical servers-->

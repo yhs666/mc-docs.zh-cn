@@ -18,11 +18,11 @@ ms.workload: big-data
 origin.date: 06/06/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 25992f9bbcfd85ed73de0e9296f0a758f6a09ba3
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: ccf738bab72800543ffcc4e4c4c87670929e28ef
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-and-more"></a>在 HDInsight 中设置包含 Hadoop、Spark 和其他组件的群集
 
@@ -59,7 +59,7 @@ Hadoop 群集由用于对任务进行分布式处理的多个虚拟机（节点�
 * [位置](#location)
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 3.3 停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 3.3 停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 >
 
 ## <a name="resource-group-name"></a>资源组名称 
@@ -193,9 +193,9 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 某些本机 Java 组件（如 Mahout 和 Cascading）可以在群集上作为 Java 存档 (JAR) 文件运行。 可以使用 Hadoop 作业提交机制将这些 JAR 文件分发到 Azure 存储，然后提交到 HDInsight 群集。 有关详细信息，请参阅[以编程方式提交 Hadoop 作业](hdinsight-submit-hadoop-jobs-programmatically.md)。
 
 > [!NOTE]
-> 如果在将 JAR 文件部署到 HDInsight 群集或调用 HDInsight 群集上的 JAR 文件时遇到问题，请联系 [Azure.cn 支持](https://www.azure.cn/support/contact/)。
+> 如果在将 JAR 文件部署到 HDInsight 群集或调用 HDInsight 群集上的 JAR 文件时遇到问题，请联系 [Azure 支持](https://www.azure.cn/support/contact/)。
 >
-> HDInsight 不支持级联，因此不符合 Azure.cn 技术支持的条件。 有关支持的组件的列表，请参阅 [HDInsight 提供的群集版本有哪些新功能？](hdinsight-component-versioning.md)。
+> HDInsight 不支持级联，因此不符合 Azure 技术支持的条件。 有关支持的组件的列表，请参阅 [HDInsight 提供的群集版本有哪些新功能？](hdinsight-component-versioning.md)。
 >
 >
 

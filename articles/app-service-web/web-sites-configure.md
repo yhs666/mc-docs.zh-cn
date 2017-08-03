@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 07/10/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 2f273f9c829277a938124a22478be8b017de37bf
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: bb83218ad1860bcbbe126dbc2c99237862989014
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>在 Azure 应用服务中配置 Web 应用
 本主题介绍如何使用 [Azure 门户]配置 Web 应用。
@@ -51,7 +51,7 @@ ms.lasthandoff: 07/13/2017
 **Web 套接字**。 设为“开”以启用 WebSocket 协议；例如，如果 Web 应用使用 [ASP.NET SignalR] 或 [socket.io]。
 
 <a name="alwayson"></a>
-**始终打开**。 默认情况下，Web 应用如果已处于空闲状态相当一段时间，则是未加载的状态。 这样可以让系统节省资源。 在“基本”或“标准”模式下，可启用“AlwaysOn”  以保证始终加载应用。 如果应用运行连续的 Web 作业，应启用“AlwaysOn” ；否则，这些 Web 作业可能无法可靠运行。
+**始终打开**。 默认情况下，Web 应用如果已处于空闲状态相当一段时间，则是未加载的状态。 这样可以让系统节省资源。 在“基本”或“标准”模式下，可启用“AlwaysOn”  以保证始终加载应用。 如果应用运行连续的 Web 作业或运行使用 CRON 表达式触发的 Web 作业，应启用“始终可用”；否则这些 Web 作业可能无法可靠运行。
 
 **托管管道版本**。 设置 IIS [管道模式]。 将此设置保留为“集成(默认)”，除非旧版应用需要旧版 IIS。
 
@@ -89,7 +89,7 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 使用此区域可添加自定义脚本处理器，以处理特定文件扩展名的请求。 
 
 * **扩展名**。 要处理的扩展名，例如 \*.php 或 handler.fcgi。 
-* **脚本处理器路径**。 脚本处理器的绝对路径。 与文件扩展名匹配的文件请求将由脚本处理器处理。 使用路径 `D:\home\site\wwwroot` 表示应用的根目录。
+* **脚本处理器路径**。 脚本处理器的绝对路径。 与文件扩展名匹配的文件请求由脚本处理器处理。 使用路径 `D:\home\site\wwwroot` 表示应用的根目录。
 * **其他参数**。 脚本处理器的可选命令行参数 
 
 ### <a name="virtual-applications-and-directories"></a>虚拟应用程序和目录
@@ -171,3 +171,5 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 [configure01]: ./media/web-sites-configure/configure01.png
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
+
+<!--Update_Description: add CRON expression trigger-->

@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 脚本 - 创建 SQL 数据库 | Azure"
-description: "Azure CLI 脚本示例 - 使用 Azure CLI 创建 SQL 数据库"
+title: "CLI 示例 - 创建 Azure SQL 数据库 | Azure"
+description: "用于创建 SQL 数据库的 Azure CLI 示例脚本"
 services: sql-database
 documentationcenter: sql-database
 author: Hayley244
@@ -14,20 +14,20 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 04/24/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: a6cb649c53161ca07701c116db50fe80175411fc
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 06/23/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: e45d23e955035bb20eba8e8f6ee24e5828530340
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
-# <a name="create-a-single-sql-database-and-configure-a-firewall-rule-using-the-azure-cli"></a>使用 Azure CLI 创建单个 SQL 数据库并配置防火墙规则
+# <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>使用 CLI 创建单一 Azure SQL 数据库并配置防火墙规则
 
-此示例 CLI 脚本创建 Azure SQL 数据库，并配置服务器级防火墙规则。 成功运行该脚本后，可以通过所有 Azure 服务和配置的 IP 地址访问 SQL 数据库。 
+此 Azure CLI 脚本示例创建 Azure SQL 数据库，并配置服务器级防火墙规则。 成功运行该脚本后，可以通过所有 Azure 服务和配置的 IP 地址访问 SQL 数据库。 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] 本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -98,3 +98,4 @@ az group delete --name myResourceGroup
 
 其他 SQL 数据库 CLI 脚本示例可以在 [Azure SQL 数据库文档](../sql-database-cli-samples.md)中找到。
 
+<!--Update_Description: wording update-->
