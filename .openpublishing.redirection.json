@@ -456,24 +456,29 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/cosmos-db/create-documentdb-dotnet-core.md",
+      "redirect_url": "/cosmos-db/documentdb-dotnetcore-get-started",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/event-hubs/event-hubs-availability-and-support-faq.md",
       "redirect_url": "/event-hubs/event-hubs-faq",
       "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/event-hubs/event-hubs-archive-overview.md",
-        "redirect_url": "/event-hubs/event-hubs-capture-overview",
-        "redirect_document_id": "false"
+      "source_path": "articles/event-hubs/event-hubs-archive-overview.md",
+      "redirect_url": "/event-hubs/event-hubs-capture-overview",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/event-hubs/event-hubs-archive-python.md",
-        "redirect_url": "/event-hubs/event-hubs-capture-python",
-        "redirect_document_id": "false"
+      "source_path": "articles/event-hubs/event-hubs-archive-python.md",
+      "redirect_url": "/event-hubs/event-hubs-capture-python",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/event-hubs/event-hubs-common-integrations.md",
-        "redirect_url": "/event-hubs/",
-        "redirect_document_id": "false"
+      "source_path": "articles/event-hubs/event-hubs-common-integrations.md",
+      "redirect_url": "/event-hubs/",
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/event-hubs/event-hubs-c-ephcs-getstarted.md",
@@ -506,9 +511,9 @@
       "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/event-hubs/event-hubs-handling-errors-retry.md",
-        "redirect_url": "/event-hubs/",
-        "redirect_document_id": "false"
+      "source_path": "articles/event-hubs/event-hubs-handling-errors-retry.md",
+      "redirect_url": "/event-hubs/",
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/event-hubs/event-hubs-java-ephcs-getstarted.md",
@@ -531,9 +536,9 @@
       "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/event-hubs/event-hubs-performance-scale.md",
-        "redirect_url": "/event-hubs/",
-        "redirect_document_id": "false"
+      "source_path": "articles/event-hubs/event-hubs-performance-scale.md",
+      "redirect_url": "/event-hubs/",
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/event-hubs/event-hubs-pulling-public-data.md",
@@ -546,9 +551,9 @@
       "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive.md",
-        "redirect_url": "/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture",
-        "redirect_document_id": "false"
+      "source_path": "articles/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive.md",
+      "redirect_url": "/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture",
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/event-hubs/event-hubs-sensors-notify-users.md",
@@ -1286,9 +1291,9 @@
       "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/stream-analytics/stream-analytics-get-started.md",
-        "redirect_url": "/stream-analytics/stream-analytics-real-time-fraud-detection",
-        "redirect_document_id": "false"
+      "source_path": "articles/stream-analytics/stream-analytics-get-started.md",
+      "redirect_url": "/stream-analytics/stream-analytics-real-time-fraud-detection",
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/traffic-manager/traffic-manager-configure-failover-routing-method.md",
