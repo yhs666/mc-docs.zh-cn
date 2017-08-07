@@ -4,28 +4,26 @@ description: "本文介绍 Azure Active Directory 直通身份验证的工作原
 services: active-directory
 keywords: "Azure AD Connect 直通身份验证, 安装 Active Directory, Azure AD 所需的组件, SSO, 单一登录"
 documentationcenter: 
-author: swkrish
-manager: femila
+author: alexchen2016
+manager: digimobile
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/12/2017
-ms.date: 06/21/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: 362cfc949a247b8a48d05b594bd1dd35419c7d8c
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: b1dc26a2c6076c5dc9a0e2df1d26456b2376cca9
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/04/2017
 ---
-# Azure Active Directory 直通身份验证：技术深入探讨
-<a id="azure-active-directory-pass-through-authentication-technical-deep-dive" class="xliff"></a>
+# <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory 直通身份验证：技术深入探讨
 
-## Azure Active Directory 直通身份验证的工作原理
-<a id="how-does-azure-active-directory-pass-through-authentication-work" class="xliff"></a>
+## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Azure Active Directory 直通身份验证的工作原理
 
 当用户尝试登录到受 Azure Active Directory (Azure AD) 保护的应用程序时，如果已在租户中启用直通身份验证，将执行以下步骤：
 
@@ -45,12 +43,12 @@ ms.lasthandoff: 06/23/2017
 
 ![直通身份验证](./media/active-directory-aadconnect-pass-through-authentication/pta2.png)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 - [**当前限制**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 此功能目前以预览版提供。 了解支持的方案和不支持的方案。
 - [**快速入门**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - 启动并运行 Azure AD 直通身份验证。
 - [**常见问题**](active-directory-aadconnect-pass-through-authentication-faq.md) - 常见问题的解答。
 - [**故障排除**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - 了解如何解决此功能的常见问题。
 - [**Azure AD 无缝 SSO**](active-directory-aadconnect-sso.md) - 了解有关此补充功能的详细信息。
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 针对提出新的功能请求。
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用于提出新的功能请求。
 
+<!-- Update_Description: update meta properties -->

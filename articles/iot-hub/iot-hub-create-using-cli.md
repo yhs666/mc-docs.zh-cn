@@ -12,15 +12,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/23/2017
-ms.date: 05/08/2017
+origin.date: 06/16/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 5cf453781736a41a4db49d68c21a5da1257d227e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.date: 08/14/2017
+ms.openlocfilehash: d3dbb4281ab43ebb1474753fcff035fc06a2f35a
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建 IoT 中心
 
@@ -37,12 +36,12 @@ ms.lasthandoff: 04/28/2017
 
 若要完成本教程，需要以下各项：
 
-* 有效的 Azure 帐户。如果没有帐户，只需几分钟即可创建一个[试用帐户][lnk-free-trial]。
+* 有效的 Azure 帐户。 如果没有帐户，只需几分钟即可创建一个[免费帐户][lnk-free-trial]。
 * [Azure CLI 2.0][lnk-CLI-install]。
 
 ## <a name="sign-in-and-set-your-azure-account"></a>登录并设置 Azure 帐户
 
-登录到 Azure 帐户，然后选择订阅。
+登录到 Azure 帐户，并选择订阅。
 
 1. 在命令提示符中，运行 [login 命令][lnk-login-command]：
     
@@ -51,8 +50,6 @@ ms.lasthandoff: 04/28/2017
     ```
 
     按照说明使用代码进行身份验证，并通过 Web 浏览器登录 Azure 帐户。
-    
-    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 2. 如果有多个 Azure 订阅，登录 Azure 可获得与凭据关联的所有 Azure 帐户的访问权限。 使用以下 [命令，列出可供使用的 Azure 帐户][lnk-az-account-command] ：
     
@@ -68,7 +65,7 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-使用 Azure CLI 创建资源组，然后添加 IoT 中心。
+使用 Azure CLI 创建资源组，并添加 IoT 中心。
 
 1. 创建 IoT 中心时，必须在资源组中创建它。 使用现有资源组，或运行以下[命令创建资源组][lnk-az-resource-command]：
 
@@ -77,7 +74,7 @@ ms.lasthandoff: 04/28/2017
     ```
 
     > [!TIP]
-    > 上一示例在中国东部位置创建资源组。可运行 `az account list-locations -o table` 命令，查看可用位置的列表。
+    > 上一示例在美国西部位置创建资源组。 可运行 `az account list-locations -o table`命令，查看可用位置的列表。
     >
     >
 
@@ -126,6 +123,8 @@ az group delete --name {your resource group name}
 [lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
 [lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
 [lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
-[lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
+[lnk-iot-pricing]: https://www.azure.cn/pricing/details/iot-hub/
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-portal]: ./iot-hub-create-through-portal.md
+
+<!--Update_Description: update meta data only-->

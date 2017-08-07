@@ -16,11 +16,11 @@ origin.date: 05/01/2017
 ms.date: 06/26/2017
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 7ab09ae87e6b3c570b65e3f41555365c305e4de2
-ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.openlocfilehash: 3476375799dad177e600807d37c9367f03b872ed
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 身份验证库
 Azure Active Directory (Azure AD) v2.0 终结点支持行业标准 OAuth 2.0 和 OpenID Connect 1.0 协议。 可以对 v2.0 终结点使用 Microsoft 和其他组织提供的各种库。
@@ -51,16 +51,16 @@ Azure AD v2.0 适用于两类库：
 
 | 平台 | 库 | 下载 | 源代码 | 示例 | 引用
 | --- | --- | --- | --- | --- | --- |
-| .NET 客户端、Windows 应用商店、UWP、Xamarin iOS 和 Android | MSAL .NET（预览） |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [桌面应用](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  |
+| .NET 客户端、Windows 应用商店、UWP、Xamarin iOS 和 Android | MSAL .NET（预览） |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) |  |  |
 | JavaScript | MSAL.js（预览） | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [单页应用](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  |
 | iOS、macOS | MSAL（预览） | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS 应用](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  |
-| Android | MSAL（预览） | [中央存储库](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android 应用](guidedsetups/active-directory-mobileanddesktopapp-android-intro.md) | [JavaDocs](http://javadoc.io/doc/com.microsoft.identity.client/msal) |
+| Android | MSAL（预览） | [中央存储库](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) |  | [JavaDocs](http://javadoc.io/doc/com.microsoft.identity.client/msal) |
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Microsoft 支持的服务器中间件库
 
 | 平台 | 库 | 下载 | 源代码 | 示例 | 引用
 | --- | --- | --- | --- | --- | --- |
-| .NET 4.x | OWIN OpenID Connect 中间件 |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[MVC 应用](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
+| .NET 4.x | OWIN OpenID Connect 中间件 |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) | | |
 | .NET 4.x | 适用于 AzureAD 的 OWIN OAuth Bearer 中间件 |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |  | |
 | .NET 4.x | 适用于 .NET 4.5 的 JWT 处理程序 | [NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/4.0.4.403061554) | [GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 | .NET Core | ASP.NET OpenID Connect 中间件 |[Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] |[ASP.NET 安全性 (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] |[MVC 应用](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-v2) |

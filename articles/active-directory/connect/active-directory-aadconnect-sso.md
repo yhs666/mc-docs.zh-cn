@@ -12,20 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/13/2017
-ms.date: 06/23/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: 0d30c4abfc72a5373aa67f9b930f62233c4380ce
-ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.openlocfilehash: c3b2d32bf994526b6ff84356f0f928c9f2e2d2ef
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 08/04/2017
 ---
-# Azure Active Directory 无缝单一登录
-<a id="azure-active-directory-seamless-single-sign-on" class="xliff"></a>
+# <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory 无缝单一登录
 
-## 什么是 Azure Active Directory 无缝单一登录？
-<a id="what-is-azure-active-directory-seamless-single-sign-on" class="xliff"></a>
+## <a name="what-is-azure-active-directory-seamless-single-sign-on"></a>什么是 Azure Active Directory 无缝单一登录？
 
 Azure Active Directory 无缝单一登录（Azure AD 无缝 SSO）可在连接到企业网络的企业设备上使用户自动登录。 启用此功能后，用户无需键入其密码即可登录到 Azure AD；通常，甚至无需键入其用户名。 此功能可让用户轻松访问基于云的应用程序，而无需使用其他任何本地组件。
 
@@ -36,8 +34,7 @@ Azure Active Directory 无缝单一登录（Azure AD 无缝 SSO）可在连接�
 >[!NOTE]
 >此功能不适用于 Active Directory 联合身份验证服务 (ADFS)，因为其中包含此功能。
 
-## 使用 Azure AD 无缝 SSO 的主要优点
-<a id="key-benefits-of-using-azure-ad-seamless-sso" class="xliff"></a>
+## <a name="key-benefits-of-using-azure-ad-seamless-sso"></a>使用 Azure AD 无缝 SSO 的主要优点
 
 - 更好的用户体验
   - 用户自动登录本地应用程序和基于云的应用程序。
@@ -48,8 +45,7 @@ Azure Active Directory 无缝单一登录（Azure AD 无缝 SSO）可在连接�
   - 可使用组策略向某些或所有用户推出。
   - 向 Azure AD 注册非 Windows 10 设备。 这需要 2.1 版或更高版本的[加入工作区客户端](https://www.microsoft.com/download/details.aspx?id=53554)。
 
-## 功能特点
-<a id="feature-highlights" class="xliff"></a>
+## <a name="feature-highlights"></a>功能特点
 
 - 登录用户名可以是本地默认用户名 (`userPrincipalName`)，也可以是 Azure AD Connect 中配置的另一个属性 (`Alternate ID`)。
 - 无缝 SSO 是机会性功能。 如果它由于任何原因失败，用户登录体验将回退到其常规行为 - 即，用户需要在登录页面上输入其密码。
@@ -68,8 +64,7 @@ Azure Active Directory 无缝单一登录（Azure AD 无缝 SSO）可在连接�
 
 \*需要[额外的配置](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 - [**快速入门**](active-directory-aadconnect-sso-quick-start.md) - 启动并运行 Azure AD 无缝 SSO。
 - [技术深入探讨](active-directory-aadconnect-sso-how-it-works.md) - 了解此功能的工作原理。
@@ -77,3 +72,4 @@ Azure Active Directory 无缝单一登录（Azure AD 无缝 SSO）可在连接�
 - [故障排除](active-directory-aadconnect-troubleshoot-sso.md) - 了解如何解决此功能的常见问题。
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用于提出新的功能请求。
 
+<!-- Update_Description: update meta properties -->

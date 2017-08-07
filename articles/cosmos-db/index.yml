@@ -13,7 +13,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 04/28/2017
-  ms.date: 07/17/2017
+  ms.date: 08/07/2017
   ms.author: v-yeche
 abstract:
   description: Azure Cosmos DB 是一种全球分布式数据库服务，它满足一个综合 SLA，允许跨任意数量的地理区域弹性且独立地缩放吞吐量与存储。  使用 Cosmos DB 可通过一系列常用 API 和编程模型开发文档、键/值数据库。 请参考我们的快速入门、教程和示例了解如何使用 Cosmos DB。

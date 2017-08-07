@@ -3,8 +3,8 @@ title: "混合标识所需的端口和协议 - Azure | Microsoft Docs"
 description: "此技术参考页面描述了需要为 Azure AD Connect 打开的端口"
 services: active-directory
 documentationcenter: 
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: curtand
 ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/25/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 6707ced20cad22488169f93abb77bddeb83e0416
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 585ce3b454b583999d8cb2e286154c438227d8fd
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>混合标识所需的端口和协议
 以下文档是用于实现混合标识解决方案所需的端口和协议的技术参考。 使用下图并参考相应的表格。
@@ -37,8 +35,8 @@ ms.lasthandoff: 05/26/2017
 | Kerberos |88 (TCP/UDP) |对 AD 林进行 Kerberos 身份验证。 |
 | MS-RPC |135 (TCP/UDP) |该端口绑定到 AD 林后，将在初始配置 Azure AD Connect 向导期间及密码同步期间使用。 |
 | LDAP |389 (TCP/UDP) |用于从 AD 导入数据。 数据将使用 Kerberos 签名和签章加密。 |
-| LDAP/SSL |636 (TCP/UDP) |用于从 AD 导入数据。 数据传输经过签名和加密。 仅当你使用 SSL 时才使用该端口。 |
-| RPC |49152-65535（随机高 RPC 端口）(TCP/UDP) |该端口绑定到 AD 林后，将在初始配置 Azure AD Connect 期间及密码同步期间使用。 有关详细信息，请参阅 [KB929851](https://support.microsoft.com/zh-cn/kb/929851)、[KB832017](https://support.microsoft.com/zh-cn/kb/832017) 和 [KB224196](https://support.microsoft.com/zh-cn/kb/224196)。 |
+| LDAP/SSL |636 (TCP/UDP) |用于从 AD 导入数据。 数据传输经过签名和加密。 仅使用 SSL 时才使用该端口。 |
+| RPC |49152-65535（随机高 RPC 端口）(TCP/UDP) |该端口绑定到 AD 林后，将在初始配置 Azure AD Connect 期间及密码同步期间使用。 有关详细信息，请参阅 [KB929851](https://support.microsoft.com/kb/929851)、[KB832017](https://support.microsoft.com/kb/832017) 和 [KB224196](https://support.microsoft.com/kb/224196)。 |
 
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>表 2 - Azure AD Connect 和 Azure AD
 此表描述了 Azure AD Connect 服务器与 Azure AD 之间通信所需的端口和协议。
@@ -81,7 +79,7 @@ ms.lasthandoff: 05/26/2017
 |协议|端口号|说明
 | --- | --- | ---
 |HTTP|80|启用出站 HTTP 流量以进行安全验证，例如 SSL。 连接器自动更新功能要正常工作也需要完成此操作。
-|HTTPS|443|    为操作（例如启用和禁用功能、注册连接器、下载连接器更新和处理所有用户登录请求）启用出站 HTTPS 流量。
+|HTTPS|443| 为操作（例如启用和禁用功能、注册连接器、下载连接器更新和处理所有用户登录请求）启用出站 HTTPS 流量。
 
 此外，Azure AD Connect 需要能够建立到 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/details.aspx?id=42064)的直接 IP 连接。
 
@@ -89,7 +87,7 @@ ms.lasthandoff: 05/26/2017
 
 |协议|端口号|说明
 | --- | --- | ---
-|HTTPS|443|    启用 SSO 注册（只有 SSO 注册过程才需要）。
+|HTTPS|443| 启用 SSO 注册（只有 SSO 注册过程才需要）。
 
 此外，Azure AD Connect 需要能够建立到 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/details.aspx?id=42064)的直接 IP 连接。 同样，这只是 SSO 注册过程所需的。
 
@@ -104,3 +102,4 @@ ms.lasthandoff: 05/26/2017
 | HTTPS |443 (TCP/UDP) |出站 |
 | Azure 服务总线 |5671 (TCP/UDP) |出站 |
 
+<!-- Update_Description: update meta properties -->

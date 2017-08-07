@@ -92,6 +92,7 @@
 ### 如何使用孪生属性
 #### [Node.js 后端/Node.js 设备](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-twin-how-to-configure.md)
+#### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-twin-how-to-configure.md)
 ### 使用设备作业更新设备固件
 #### [Node 后端/Node 设备](iot-hub-node-node-firmware-update.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-firmware-update.md)
@@ -130,9 +131,10 @@
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [使用真实设备](iot-hub-iot-edge-physical-device.md)
 ### 创建模块
-#### [Java](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-java-modules-windows-10ubuntu-linux-14)
-#### [.NET framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-net-modules-windows-10)
-#### [Node.js](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-javascript-modules-windows-10ubuntu-linux-14)
+#### [Java](./iot-hub-iot-edge-create-module-java.md)
+#### [.NET framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-the-net-module-sample-windows-10)
+#### [.NET Standard](./iot-hub-iot-edge-create-module-dotnet-core.md)
+#### [Node.js](./iot-hub-iot-edge-create-module-js.md)
 ### 构建
 #### [.NET framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
 #### [.NET Core 模块](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
@@ -175,3 +177,5 @@
 ## [Azure IoT 开发人员中心](https://azure.microsoft.com/develop/iot/)
 ## [Azure IoT 认证设备目录](https://catalog.azureiotsuite.com/)
 ## [技术案例研究](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)
+
+<!--Update_Description:update link references-->

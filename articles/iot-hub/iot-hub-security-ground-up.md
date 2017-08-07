@@ -1,40 +1,45 @@
 ---
-title: 从根本上保护 IoT 解决方案 | Azure
-description: 如何使用 Microsoft Azure IoT 中心和套件的内置安全功能。
+title: "从根本上保护 IoT 解决方案 | Azure"
+description: "如何使用 Microsoft Azure IoT 中心和套件的内置安全功能。"
 services: iot-hub
-documentationCenter: ''
-authors: YuriDio
+documentationCenter: 
+author: YuriDio
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1a30c2d5-ad82-4980-8203-5ce275184964
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/16/2017
-ms.date: 03/10/2017
+origin.date: 07/03/2017
 ms.author: v-yiso
+ms.date: 08/14/2017
+ms.openlocfilehash: 76d30a2856f723a52f21f888ae0c01990b101f6b
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/04/2017
 ---
-
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## 另请参阅
+## <a name="see-also"></a>另请参阅
 
 若要详细了解如何保护 IoT 解决方案，请参阅：
 
 - [IoT 安全最佳实践][lnk-security-best-practices]
 - [IoT 安全体系结构][lnk-security-architecture]
-- [保护你的 IoT 部署][lnk-security-deployment]
+- 
+            [保护 IoT 部署][lnk-security-deployment]
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-- [使用网关 SDK 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 模拟设备][lnk-iotedge]
 
 [lnk-security-best-practices]: ./iot-hub-security-best-practices.md
 [lnk-security-architecture]: ./iot-hub-security-architecture.md
 [lnk-security-deployment]: ./iot-hub-security-deployment.md
 
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
 
-<!---HONumber=Mooncake_0109_2017-->
+<!--Update_Description:update meta properties only-->
