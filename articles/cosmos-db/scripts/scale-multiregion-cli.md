@@ -15,31 +15,31 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: 814e5025fec3b41590e2acc3fcead9c4f8725c47
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 005c69738ee4f5aa80dca528634e5e2e43318dab
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 08/04/2017
 ---
-# 使用 Azure CLI 将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级
-<a id="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli" class="xliff"></a>
+# <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>使用 Azure CLI 将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级
 
-此示例可使用 Azure CLI 将任何类型的 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级。
+此示例使用 Azure CLI 将任何类型的 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 <!-- Not Available [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
 
-## 示例脚本
-<a id="sample-script" class="xliff"></a>
+本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+
+## <a name="sample-script"></a>示例脚本
 
 ```azurecli-interactive
 #!/bin/bash
 
 # Set variables for the new account, database, and collection
 resourceGroupName='myResourceGroup'
-location='southcentralus'
+location='chinaeast'
 name='docdb-test'
 
 # Create a resource group
@@ -59,20 +59,17 @@ az cosmosdb create \
 az cosmosdb update \
     --name $name \
     --resource-group $resourceGroupName \
-    --locations "South Central US"=0 "North Central US"=1 "East US"=2 "West US"=3
+    --locations "China East"=0 "China North"=1
 
 # Modify regional failover priorities
 az cosmosdb update \
     --name $name \
     --resource-group $resourceGroupName \
-    --locations "South Central US"=3 "North Central US"=2 "East US"=1 "West US"=0
-
-
+    --locations "China East"=1 "China North"=0
 
 ```
 
-## 清理部署
-<a id="clean-up-deployment" class="xliff"></a>
+## <a name="clean-up-deployment"></a>清理部署
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
@@ -80,20 +77,20 @@ az cosmosdb update \
 az group delete --name myResourceGroup
 ```
 
-## 脚本说明
-<a id="script-explanation" class="xliff"></a>
+## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
 | 命令 | 说明 |
 |---|---|
-| [az group create](https://docs.microsoft.com/zh-cn/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
-| [az cosmosdb update](https://docs.microsoft.com/zh-cn/cli/azure/cosmosdb/name#update) | 更新 Azure Cosmos DB 帐户。 |
-| [az group delete](https://docs.microsoft.com/zh-cn/cli/azure/resource#delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#update) | 更新 Azure Cosmos DB 帐户。 |
+| [az group delete](https://docs.microsoft.com/cli/azure/resource#delete) | 删除资源组，包括所有嵌套的资源。 |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/zh-cn/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 有关其他 Azure Cosmos DB CLI 脚本示例，请参见 [Azure Cosmos DB CLI 文档](../cli-samples.md)。
+
+<!--Update_Description: update link, wording update-->

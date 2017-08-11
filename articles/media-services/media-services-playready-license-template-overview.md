@@ -11,25 +11,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: v-johch
-ms.openlocfilehash: fa4ee21e20397dd99bf52b5674ea1d07ad1dde62
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 9c8ebae148fd607d0d0106691ece6eeffb6e9efe
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 #<a name="media-services-playready-license-template-overview"></a>媒体服务 PlayReady 许可证模板概述
 
 Azure 媒体服务现在提供可用于传送 Microsoft PlayReady 许可证的服务。 当最终用户播放器（例如 Silverlight）尝试播放受 PlayReady 保护的内容时，将向许可证传送服务发送请求以获取许可证。 如果许可证服务批准了该请求，则会颁发该许可证，该许可证将发送到客户端，并可用于解密和播放指定的内容。
 
-媒体服务还提供允许你配置 PlayReady 许可证的 API。 许可证包含用户尝试播放受保护的内容时要由 PlayReady DRM 运行时强制实施的权限和限制。
+媒体服务还提供允许配置 PlayReady 许可证的 API。 许可证包含用户尝试播放受保护的内容时要由 PlayReady DRM 运行时强制实施的权限和限制。
 以下是可以指定的 PlayReady 许可证限制的一些示例：
 
 - 许可证开始生效的日期/时间。
 - 许可证过期时的日期/时间值。 
 - 要在客户端的永久性存储区保存的许可证。 永久性许可证通常用于允许脱机播放内容。
-- 播放器必须具有的要播放你的内容的最低安全级别。 
+- 播放器必须具有的要播放内容的最低安全级别。 
 - 音频\视频内容的输入控件的输出保护级别。 
 - 有关详细信息，请参阅 [PlayReady 符合性规则](https://www.microsoft.com/playready/licensing/compliance/)文档中的输出控件部分 (3.5)。
 
@@ -308,3 +309,4 @@ XML 符合 PlayReady 许可证模板 XML 架构部分中定义的 PlayReady 许�
   <xs:element name="ScmsRestriction" nillable="true" type="tns:ScmsRestriction" />
 </xs:schema>
 ```
+<!--Update_Description: update metadata-->

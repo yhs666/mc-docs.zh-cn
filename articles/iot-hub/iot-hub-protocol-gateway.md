@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/11/2017
-ms.date: 02/10/2017
+origin.date: 07/11/2017
+ms.date: 08/14/2017
 ms.author: v-yiso
-ms.openlocfilehash: 842d4116e337caa6222cb77a5f691b645dcb352f
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: db0d78deecdc0b574da844b82086cc9be3799382
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # 支持 IoT 中心的其他协议
-Azure IoT 中心通过 MQTT、AMQP 和 HTTP 协议以本机方式支持通信。 在某些情况下，设备或现场网关可能无法使用这些标准协议的其中一个，且需要协议自适应。 在这种情况下，可以使用自定义网关。 自定义网关可以桥接进出 IoT 中心的流量，从而为 IoT 中心终结点启用协议自适应。 你可以使用 [Azure IoT 协议网关](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) 作为自定义网关，为 IoT 中心启用协议自适应。
+Azure IoT 中心通过 MQTT、AMQP 和 HTTP 协议以本机方式支持通信。 在某些情况下，设备或现场网关可能无法使用这些标准协议的其中一个，且需要协议自适应。 在这种情况下，可以使用自定义网关。 自定义网关可以桥接进出 IoT 中心的流量，从而为 IoT 中心终结点启用协议自适应。 可以使用 [Azure IoT 协议网关](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) 作为自定义网关，为 IoT 中心启用协议自适应。
 
 ## Azure IoT 协议网关
 Azure IoT 协议网关是协议自适应的框架，旨在用来与 IoT 中心进行高缩放性双向设备通信。 协议网关是一种传递组件，通过特定的协议接受设备连接。 它通过 AMQP 1.0 桥接发往 IoT 中心的流量。 Azure IoT 协议网关以开源软件项目的形式提供，它具有一定的灵活性，可用于添加对各种协议和协议版本的支持。
@@ -33,10 +33,10 @@ Azure IoT 协议网关包含可让用户根据需要自定义 MQTT 协议行为�
 
 MQTT 适配器还会演示用来为其他协议构建协议适配器的编程模型。 此外，借助 Azure IoT 协议网关编程模型，可对专门化处理插入自定义组件，例如自定义身份验证、消息转换、压缩/解压缩，或加密/解密设备与 IoT 中心之间的流量。
 
-为了提供弹性，协议网关和 MQTT 实现在开源软件项目中提供。 这样，你可就可以根据需要自定义实现。
+为了提供弹性，协议网关和 MQTT 实现在开源软件项目中提供。 这样，可就可以根据需要自定义实现。
 
 ## 后续步骤
-若要了解有关 Azure IoT 协议网关的详细信息以及如何使用并将其部署为 IoT 解决方案的一部分，请参阅：
+要了解有关 Azure IoT 协议网关的详细信息以及如何使用并将其部署为 IoT 解决方案的一部分，请参阅：
 
 * [GitHub 上的 Azure IoT 协议网关存储库](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 * [Azure IoT 协议网关开发人员指南](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
@@ -50,3 +50,5 @@ MQTT 适配器还会演示用来为其他协议构建协议适配器的编程模
 [lnk-compare]: ./iot-hub-compare-event-hubs.md
 [lnk-scaling]: ./iot-hub-scaling.md
 [lnk-devguide]: ./iot-hub-devguide.md
+
+<!--Update_Description:update meta properties only-->

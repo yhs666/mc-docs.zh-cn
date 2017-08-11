@@ -4,8 +4,8 @@ description: "Azure AD Connect 会将本地目录与 Azure Active Directory 集�
 keywords: "Azure AD Connect 介绍, Azure AD Connect 概述, 什么是 Azure AD Connect, 安装 active directory"
 services: active-directory
 documentationcenter: 
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
@@ -13,16 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: f797a771dcabb6b6fe48df3dd62d6e70cada4bbd
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 2730a61003c1042beff4a3f2d135d261b30885da
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>将本地目录与 Azure Active Directory 集成
-Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序的用户提供一个通用标识。 本主题将指导用户完成规划、部署和操作步骤。 其中统合了与这些操作相关的主题的链接。
+Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序的用户提供一个通用标识。 本主题指导用户完成规划、部署和操作步骤。 其中统合了与这些操作相关的主题的链接。
 
 > [!IMPORTANT]
 > [Azure AD Connect 是连接本地目录与 Azure AD 和 Office 365 的最佳方式。现在是从 Azure Active Directory Sync (DirSync) 或 Azure AD Sync 升级到 Azure AD Connect 的绝佳时机，因为这些工具现已弃用，将于 2017 年 4 月 13 日终止提供支持。](active-directory-aadconnect-dirsync-deprecated.md)
@@ -32,7 +33,7 @@ Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样�
 ![什么是 Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
 ## <a name="why-use-azure-ad-connect"></a>为何使用 Azure AD Connect
-将本地目录与 Azure AD 集成可提供通用标识用于访问云和本地资源，从而提高用户的生产率。 用户和组织可以享受到以下好处：
+将本地目录与 Azure AD 集成可提供用于访问云和本地资源的通用标识，来提高用户的工作效率。 用户和组织可以享受到以下好处：
 
 - 用户可以使用单个标识来访问本地应用程序和云服务，例如 Office 365。
 - 单个工具即可提供轻松同步和登录的部署体验。
@@ -63,9 +64,9 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 |主题 |链接|  
 | --- | --- |
 |下载 Azure AD Connect | [下载 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
-|使用快速设置安装 | [Azure AD Connect 的快速安装](active-directory-aadconnect-get-started-express.md)|
-|使用自定义设置安装 | [Azure AD Connect 的自定义安装](active-directory-aadconnect-get-started-custom.md)|
-|从 DirSync 升级 | [从 Azure AD 同步工具 (DirSync) 升级](active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|使用快速设置安装 | [Azure AD Connect 的快速安装](./active-directory-aadconnect-get-started-express.md)|
+|使用自定义设置安装 | [Azure AD Connect 的自定义安装](./active-directory-aadconnect-get-started-custom.md)|
+|从 DirSync 升级 | [从 Azure AD 同步工具 (DirSync) 升级](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
 |安装后 | [验证安装并分配许可证 ](active-directory-aadconnect-whats-next.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>了解有关安装 Azure AD Connect 的详细信息
@@ -75,7 +76,7 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 | --- | --- |
 |支持的拓扑 | [Azure AD Connect 的拓扑](active-directory-aadconnect-topologies.md)|
 |设计概念 | [Azure AD Connect 设计概念](active-directory-aadconnect-design-concepts.md)|
-|用于安装的帐户 | [有关 Azure AD Connect 凭据和权限的详细信息](active-directory-aadconnect-accounts-permissions.md)|
+|用于安装的帐户 | [有关 Azure AD Connect 凭据和权限的详细信息](./active-directory-aadconnect-accounts-permissions.md)|
 |操作规划 | [Azure AD Connect 同步：操作任务和注意事项](active-directory-aadconnectsync-operations.md)|
 |用户登录选项 | [Azure AD Connect 用户登录选项](active-directory-aadconnect-user-signin.md)|
 
@@ -135,9 +136,12 @@ Azure AD Connect 同步随附一个适用于大部分客户和拓扑的默认配
 | --- | --- |
 |版本历史记录 | [版本历史记录](active-directory-aadconnect-version-history.md)|
 |Azure AD 的非 ADFS 兼容性列表 | [Azure AD 联合身份验证兼容性列表](active-directory-aadconnect-federation-compatibility.md)|
+|配置 SAML 2.0 Idp|[将 SAML 2.0 标识提供者 (IdP) 用于单一登录](active-directory-aadconnect-federation-saml-idp.md)|
 |同步的属性 | [同步的属性](active-directory-aadconnectsync-attributes-synchronized.md)|
 |常见问题解答 | [Azure AD Connect 常见问题解答](active-directory-aadconnect-faq.md)|
 
 **其他资源**
 
 有关将本地目录扩展到云的 Ignite 2015 演示文稿。
+
+<!-- Update_Description: wording update -->

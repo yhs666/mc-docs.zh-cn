@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/15/2017
-ms.date: 07/17/2017
+origin.date: 06/27/2017
+ms.date: 08/07/2017
 ms.author: v-dazen
-ms.openlocfilehash: b108c8086ee8b845963d223fb0e3d0a45e55b251
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 6fd5ce2d121a6aced84666e162b961c99754529b
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal-classic"></a>使用 Azure 门户（经典）配置与 VNet 的点到站点连接
 
@@ -33,9 +33,8 @@ ms.lasthandoff: 07/14/2017
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Azure 门户（经典）](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
->
 
-使用点到站点 (P2S) 配置可以创建从单个客户端计算机到虚拟网络的安全连接。 如果要从远程位置（例如，从家里或会议室）连接到 VNet，或者只有少数几台客户端计算机需要连接到虚拟网络，点到站点连接将非常有用。 P2S VPN 连接通过本机 Windows VPN 客户端从客户端计算机启动。 连接客户端使用证书进行身份验证。 
+使用点到站点 (P2S) 配置可以创建从单个客户端计算机到虚拟网络的安全连接。 如果要从远程位置（例如，从家里或会议室）连接到 VNet，或者只有少数几台客户端计算机需要连接到虚拟网络，点到站点连接会非常有用。 P2S VPN 连接通过本机 Windows VPN 客户端从客户端计算机启动。 连接客户端使用证书进行身份验证。 
 
 ![点到站点连接示意图](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
@@ -56,7 +55,8 @@ P2S 连接有以下要求：
 * **地址空间：192.168.0.0/16**<br>对于此示例，我们只使用一个地址空间。 对于 VNet，可以有多个地址空间。
 * **子网名称：FrontEnd**
 * **子网地址范围：192.168.1.0/24**
-* **订阅：** 如果你有多个订阅，请确保使用正确的订阅。
+* 
+            **订阅：**如果有多个订阅，请确保使用正确的订阅。
 * **资源组：TestRG**
 * **位置：中国东部**
 * **连接类型：点到站点**
@@ -67,33 +67,33 @@ P2S 连接有以下要求：
 
 ## <a name="vnetvpn"></a>第 1 部分 - 创建虚拟网络和 VPN 网关
 
-开始之前，请确保你拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+开始之前，请确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ### <a name="createvnet"></a>第 1 部分：创建虚拟网络
 
-如果还没有虚拟网络，请创建一个。 这些屏幕截图仅供参考。 请务必替换为你自己的值。 若要使用 Azure 门户创建 VNet，请执行以下步骤：
+如果还没有虚拟网络，请创建一个。 这些屏幕截图仅供参考。 请务必替换成自己的值。 若要使用 Azure 门户创建 VNet，请执行以下步骤：
 
 1. 从浏览器导航到 [Azure 门户](http://portal.azure.cn)，并在必要时使用 Azure 帐户登录。
 2. 单击“新建” 。 在“搜索应用商店”字段中，键入“虚拟网络”。 从返回的列表中找到“虚拟网络”，单击打开“虚拟网络”边栏选项卡。
 
   ![搜索虚拟网络边栏选项卡](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
-3. 从靠近“虚拟网络”边栏选项卡底部的“选择部署模型”列表中，选择“经典”，然后单击“创建”。
+3. 从靠近“虚拟网络”边栏选项卡底部的“选择部署模型”列表中，选择“经典”，并单击“创建”。
 
   ![选择部署模型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/selectmodel.png)
 4. 在“创建虚拟网络”  边栏选项卡上，配置 VNet 设置。 在此边栏选项卡中，添加第一个地址空间和单个子网地址范围。 完成创建 VNet 之后，可以返回并添加其他子网和地址空间。
 
   ![创建虚拟网络边栏选项卡](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
 5. 验证“订阅”  是否正确。 可以使用下拉列表更改订阅。
-6. 单击“资源组”  ，然后选择现有资源组，或通过键入新的资源组名称创建新资源组。 如果要创建新资源组，请根据计划的配置值来命名资源组。 有关资源组的详细信息，请访问 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md#resource-groups)。
+6. 单击“资源组”  ，并选择现有资源组，或通过键入新的资源组名称创建新资源组。 如果要创建新资源组，请根据计划的配置值来命名资源组。 有关资源组的详细信息，请访问 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md#resource-groups)。
 7. 接下来，选择 VNet 的“位置”  设置。 该位置确定要部署到此 VNet 的资源所在的位置。
-8. 如果希望能够在仪表板上轻松查找 VNet，请选择“固定到仪表板”，然后单击“创建”。
+8. 如果希望能够在仪表板上轻松查找 VNet，请选择“固定到仪表板”，并单击“创建”。
 
   ![固定到仪表板](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/pintodashboard150.png)
 9. 单击“创建”后，仪表板上会出现一个磁贴，反映 VNet 的进度。 创建 VNet 时，该磁贴会更改。
 
   ![创建虚拟网络磁贴](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
 10. 创建虚拟网络后，可以在 Azure 经典管理门户中的“网络”页上，看到“状态”下面列出了“已创建”。
-11. 添加 DNS 服务器（可选）。 创建虚拟网络后，可以添加 DNS 服务器的 IP 地址进行名称解析。 指定 DNS 服务器时，该服务器应该可以解析 VNet 中资源的名称。<br>若要添加 DNS 服务器，请打开虚拟网络的设置，单击 DNS 服务器，然后添加要使用的 DNS 服务器的 IP 地址。 在随后的步骤中生成的客户端配置包将包含在本设置中指定的 DNS 服务器的 IP 地址。 如果需要在将来更新 DNS 服务器的列表，则可根据更新的列表生成并安装新的 VPN 客户端配置包。
+11. 添加 DNS 服务器（可选）。 创建虚拟网络后，可以添加 DNS 服务器的 IP 地址进行名称解析。 指定 DNS 服务器时，该服务器应该可以解析 VNet 中资源的名称。<br>如果要添加 DNS 服务器，请打开虚拟网络的设置，单击 DNS 服务器，并添加要使用的 DNS 服务器的 IP 地址。 在随后的步骤中生成的客户端配置包包含在本设置中指定的 DNS 服务器的 IP 地址。 如果需要在将来更新 DNS 服务器的列表，则可根据更新的列表生成并安装新的 VPN 客户端配置包。
 
 ### <a name="gateway"></a>第 2 部分：创建网关子网和动态路由网关
 
@@ -106,7 +106,7 @@ P2S 连接有以下要求：
 3. 在“新建 VPN 连接”边栏选项卡中，选择“点到站点”。
 
   ![点到站点连接类型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
-4. 对于“客户端地址空间”，请添加 IP 地址范围。 这是 VPN 客户端在连接时要从中接收 IP 地址的范围。 使用专用 IP 地址范围时，该范围不得与要通过其进行连接的本地位置重叠，也不得与要连接到其中的 VNet 重叠。 可以删除自动填充的范围，然后添加要使用的专用 IP 地址范围。
+4. 对于“客户端地址空间”，请添加 IP 地址范围。 这是 VPN 客户端在连接时要从中接收 IP 地址的范围。 使用专用 IP 地址范围时，该范围不得与要通过其进行连接的本地位置重叠，也不得与要连接到其中的 VNet 重叠。 可以删除自动填充的范围，并添加要使用的专用 IP 地址范围。
 
   ![客户端地址空间](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
 5. 选中“立即创建网关”复选框。
@@ -128,7 +128,9 @@ P2S 连接有以下要求：
 
 ## <a name="generatecerts"></a>第 2 部分 - 创建证书
 
-Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请将根证书的公钥信息上传到 Azure， 然后即可将该公钥视为“可信”公钥。 必须根据可信根证书生成客户端证书，然后将其安装在每个客户端计算机的 Certificates-Current User/个人证书存储中。 当客户端发起到 VNet 的连接时，使用证书对客户端进行身份验证。 有关如何生成和安装证书的详细信息，请参阅[点到站点的证书](vpn-gateway-certificates-point-to-site.md)。
+Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请将根证书的公钥信息上传到 Azure， 然后即可将该公钥视为“可信”公钥。 必须根据可信根证书生成客户端证书，并将其安装在每个客户端计算机的 Certificates-Current User/个人证书存储中。 当客户端发起到 VNet 的连接时，使用证书对客户端进行身份验证。 
+
+如果使用自签名证书，这些证书必须使用特定的参数创建。 可以按照 [PowerShell 和 Windows 10](vpn-gateway-certificates-point-to-site.md) 或 [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) 的说明，创建自签名证书。 使用自签名根证书以及从自签名根证书生成客户端证书时，请务必按这些说明中的步骤操作。 否则，创建的证书将不兼容 P2S 连接，并且会出现收到连接错误。
 
 ### <a name="cer"></a>第 1 部分：获取根证书的公钥 (.cer)
 
@@ -151,7 +153,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 3. 在“证书”边栏选项卡中，单击“上传”打开“上传证书”边栏选项卡。<br>
 
     ![上传证书边栏选项卡](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/uploadcerts.png)<br>
-4. 单击文件夹图形浏览 .cer 文件。 选择该文件，然后单击“确定”。 刷新页面，在“证书”边栏选项卡中查看上传的证书。
+4. 单击文件夹图形浏览 .cer 文件。 选择该文件，并单击“确定”。 刷新页面，在“证书”边栏选项卡中查看上传的证书。
 
   ![上传证书](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)<br>
 
@@ -170,7 +172,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
   * 对于 32 位客户端，请选择“VPN 客户端（32 位）”。
 
   ![下载 VPN 客户端配置包](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)<br>
-3. 生成打包的内容以后，即可下载它并在客户端计算机上安装它。 如果显示 SmartScreen 弹出窗口，请单击“更多信息”，然后单击“仍要运行”。 也可将要安装的包保存在其他客户端计算机上。
+3. 生成打包的内容以后，即可下载它并在客户端计算机上安装它。 如果显示 SmartScreen 弹出窗口，请依次单击“更多信息”、“仍要运行”。 也可将要安装的包保存在其他客户端计算机上。
 
 ### <a name="part-2-install-the-client-certificate"></a>第 2 部分：安装客户端证书
 
@@ -181,7 +183,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 ### <a name="connect-to-your-vnet"></a>连接到 VNet
 
 1. 若要连接到 VNet，请在客户端计算机上导航到 VPN 连接，找到创建的 VPN 连接。 其名称与虚拟网络的名称相同。 单击“连接”。 可能会出现与使用证书相关的弹出消息。 如果出现此消息，请单击“继续”  以使用提升的权限。
-2. 在“连接”状态页上，单击“连接”以启动连接。 如果看到“选择证书”屏幕，请确保所显示的客户端证书是要用来连接的证书。 如果不是，请使用下拉箭头选择正确的证书，然后单击“确定”。
+2. 在“连接”状态页上，单击“连接”以启动连接。 如果看到“选择证书”屏幕，请确保所显示的客户端证书是要用来连接的证书。 如果不是，请使用下拉箭头选择正确的证书，并单击“确定”。
 
   ![VPN 客户端连接](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientconnect.png)
 3. 连接已建立。
@@ -190,14 +192,14 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 
 如果连接时遇到问题，请检查以下项：
 
-- 打开“管理用户证书”，然后导航到“受信任的根证书颁发机构\证书”。 验证根证书是否已列出。 若要进行身份验证，根证书必须存在。 使用默认值“包括证书路径中的所有证书(如果可能)”导出客户端证书 .pfx 时，根证书信息也会导出。 安装客户端证书时，根证书也会安装在客户端计算机上。 
+- 打开“管理用户证书”，并导航到“受信任的根证书颁发机构\证书”。 验证根证书是否已列出。 若要进行身份验证，根证书必须存在。 使用默认值“包括证书路径中的所有证书(如果可能)”导出客户端证书 .pfx 时，根证书信息也会导出。 安装客户端证书时，根证书也会安装在客户端计算机上。 
 
 - 如果使用的是通过企业 CA 解决方案颁发的证书，并且无法进行身份验证，请检查客户端证书上的身份验证顺序。 可以通过双击客户端证书，并转到“详细信息”>“增强型密钥用法”来检查身份验证列表顺序。 请确保此列表显示的第一项是“客户端身份验证”。 如果不是，则需要基于将“客户端身份验证”作为列表中第一项的用户模板颁发客户端证书。 
 
 ### <a name="verify-the-vpn-connection"></a>验证 VPN 连接
 
-1. 若要验证你的 VPN 连接是否处于活动状态，请打开提升的命令提示符，然后运行 *ipconfig/all*。
-2. 查看结果。 请注意，你收到的 IP 地址是点到站点连接地址范围中的一个地址，该范围是你在创建 VNet 时指定的。 结果应大致如下所示：
+1. 如果要验证用户的 VPN 连接是否处于活动状态，请打开提升的命令提示符，并运行 *ipconfig/all*。
+2. 查看结果。 请注意，收到的 IP 地址是点到站点连接地址范围中的一个地址，该范围是你在创建 VNet 时指定的。 结果应大致如下所示：
 
 示例：
 
@@ -212,7 +214,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
 
- 如果你在通过 P2S 连接到虚拟机时出现问题，请使用“ipconfig”检查分配给以太网适配器的 IPv4 地址，该适配器所在的计算机正是你要从其进行连接的计算机。 如果该 IP 地址位于你要连接到的 VNet 的地址范围内，或者位于 VPNClientAddressPool 的地址范围内，则称为地址空间重叠。 当地址空间以这种方式重叠时，网络流量不会抵达 Azure，而是呆在本地网络中。 如果网络地址空间不重叠，但你仍然无法连接到 VM，请参阅[排查通过远程桌面连接到 VM 时的问题](../virtual-machines/windows/troubleshoot-rdp-connection.md)。
+ 如果在通过 P2S 连接到虚拟机时出现问题，请使用“ipconfig”检查分配给以太网适配器的 IPv4 地址，该适配器所在的计算机正是你要从其进行连接的计算机。 如果该 IP 地址位于要连接到的 VNet 的地址范围内，或者位于 VPNClientAddressPool 的地址范围内，则称为地址空间重叠。 当地址空间以这种方式重叠时，网络流量不会抵达 Azure，而是呆在本地网络中。 如果网络地址空间不重叠，但仍然无法连接到 VM，请参阅[排查通过远程桌面连接到 VM 时的问题](../virtual-machines/windows/troubleshoot-rdp-connection.md)。
 
 ## <a name="connectVM"></a>连接到虚拟机
 
@@ -234,15 +236,15 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 2. 在“点到站点连接”边栏选项卡中，单击“管理证书”打开“证书”边栏选项卡。<br>
 
   ![证书边栏选项卡](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)<br><br>
-3. 在“证书”边栏选项卡中，单击要删除的证书旁边的省略号，然后单击“删除”。
+3. 在“证书”边栏选项卡中，单击要删除的证书旁边的省略号，并单击“删除”。
 
   ![删除根证书](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deleteroot.png)<br>
 
 ## <a name="revokeclient"></a>吊销客户端证书
 
-你可以吊销客户端证书。 证书吊销列表可让你选择性地拒绝基于单个客户端证书的点到站点连接。 这不同于删除受信任的根证书。 如果从 Azure 中删除受信任的根证书 .cer，它会吊销由吊销的根证书生成/签名的所有客户端证书的访问权限。 如果吊销客户端证书而非根证书，则可继续使用从根证书生成的其他证书，以便进行点到站点连接所需的身份验证。
+可以吊销客户端证书。 通过证书吊销列表，可以选择性地拒绝基于单个客户端证书的点到站点连接。 这不同于删除受信任的根证书。 如果从 Azure 中删除受信任的根证书 .cer，它会吊销由吊销的根证书生成/签名的所有客户端证书的访问权限。 如果吊销客户端证书而非根证书，则可继续使用从根证书生成的其他证书，以便进行点到站点连接所需的身份验证。
 
-常见的做法是使用根证书管理团队或组织级别的访问权限，然后使用吊销的客户端证书针对单个用户进行精细的访问控制。
+常见的做法是使用根证书管理团队或组织级别的访问权限，并使用吊销的客户端证书针对单个用户进行精细的访问控制。
 
 ### <a name="to-revoke-a-client-certificate"></a>吊销客户端证书
 
@@ -250,7 +252,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 
 1. 检索客户端证书指纹。 有关详细信息，请参阅[如何：检索证书的指纹](https://msdn.microsoft.com/library/ms734695.aspx)。
 2. 将信息复制到一个文本编辑器，删除所有空格，使之成为一个连续的字符串。
-3. 导航到“‘经典虚拟网络名称’> 点到站点 VPN 连接 > 证书”边栏选项卡，然后单击“吊销列表”打开“吊销列表”边栏选项卡。 
+3. 导航到“‘经典虚拟网络名称’> 点到站点 VPN 连接 > 证书”边栏选项卡，并单击“吊销列表”打开“吊销列表”边栏选项卡。 
 4. 在“吊销列表”边栏选项卡中，单击“+添加证书”打开“将证书添加到吊销列表”边栏选项卡。
 5. 在“将证书添加到吊销列表”边栏选项卡中，将证书指纹以连续文本行的形式进行粘贴，不留空格。 单击边栏选项卡底部的“确定”。
 6. 更新完成后，不再可以使用证书来连接。 客户端在尝试使用此证书进行连接时，会收到一条消息，指出证书不再有效。
@@ -261,3 +263,5 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 
 ## <a name="next-steps"></a>后续步骤
 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/#pivot=services&panel=Compute)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。
+
+<!--Update_Description: wording update-->

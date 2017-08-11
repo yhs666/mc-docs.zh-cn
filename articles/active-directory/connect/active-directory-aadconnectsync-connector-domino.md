@@ -1,10 +1,10 @@
 ---
-title: "Lotus Domino 连接器 | Azure"
+title: "Lotus Domino 连接器 | Microsoft Docs"
 description: "本文介绍如何配置 Microsoft 的 Lotus Domino 连接器。"
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/10/2017
-ms.date: 04/05/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: 4d77e6cb061fdc42af85de0b94008ab9e48cdaca
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: c16d9bdd0fe2b5899a679879767aa57812a59471
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Lotus Domino 连接器技术参考
 本指南介绍 Lotus Domino 连接器。 本文适用于以下产品：
 
 - Microsoft 标识管理器 2016 (MIM2016)
 - Forefront 标识管理器 2010 R2 (FIM2010R2)
-  - 必须使用修补程序 4.1.3671.0 或更高版本 [KB3092178](https://support.microsoft.com/zh-cn/kb/3092178)。
+  - 必须使用修补程序 4.1.3671.0 或更高版本 [KB3092178](https://support.microsoft.com/kb/3092178)。
 
 对于 MIM2016 和 FIM2010R2，可以从 [Microsoft 下载中心](http://go.microsoft.com/fwlink/?LinkId=717495)下载此连接器。
 
@@ -52,7 +52,7 @@ Lotus Domino 连接器使用 Lotus Notes 客户端来与 Lotus Domino 服务器�
 - 若要使用 Lotus Domino 连接器，Domino Directory 服务器上必须有默认的 Lotus Domino LDAP 架构数据库 (schema.nsf)。 如果不存在，可以在 Domino 服务器上执行或重新启动 LDAP 服务来进行安装。
 
 ### <a name="connected-data-source-permissions"></a>连接的数据源权限
-若要在 Lotus Domino 连接器上执行任何支持的任务，你必须是以下组的成员：
+要在 Lotus Domino 连接器上执行任何支持的任务，必须是以下组的成员：
 
 - 具有完全访问权限的管理员
 - 管理员
@@ -86,7 +86,7 @@ Lotus Domino 连接器使用 Lotus Notes 客户端来与 Lotus Domino 服务器�
 | MailInDB |直接 |直接 |直接 |
 | 资源 |不适用 |不适用 |不适用 |
 
-创建资源时将创建 Notes 文档。 同样，删除资源时会删除 Notes 文档。
+创建资源时会创建 Notes 文档。 同样，删除资源时会删除 Notes 文档。
 
 ### <a name="ports-and-protocols"></a>端口和协议
 IBM Lotus Notes 客户端和 Domino 服务器使用 Notes 远程过程调用 (NRPC) 进行通信，其中 NRPC 应使用 TCP/IP。 默认端口号为 1352，但 Domino 管理员可以更改端口号。
@@ -115,7 +115,7 @@ IBM Lotus Notes 客户端和 Domino 服务器使用 Notes 远程过程调用 (NR
 如果同步服务版本提供配置“体系结构”的功能，请确保连接器设为默认值，以便在“进程”中运行。
 
 ### <a name="connectivity"></a>连接
-在“连接”页面中，必须指定 Lotus Domino 服务器名称，然后输入登录凭据。  
+在“连接”页面中，必须指定 Lotus Domino 服务器名称，并输入登录凭据。  
 ![连接](./media/active-directory-aadconnectsync-connector-domino/connectivity.png)
 
 Domino 服务器属性支持两种服务器名称格式：
@@ -136,9 +136,9 @@ ServerName/DirectoryName 格式是此属性的首选格式，因为它可在连�
 在“架构选项”中，可以使用以下选项： 
 
 - **默认架构**。 连接器检测 Domino 服务器中的架构。 此选择是默认选项。
-- **DSML 架构**。 只在 Domino 服务器不公开架构时使用。 然后，你可以使用此架构创建 DSML 文件，并导入此文件。 有关 DSML 的详细信息，请参阅 [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml)。
+- **DSML 架构**。 只在 Domino 服务器不公开架构时使用。 然后，用户可以使用此架构创建 DSML 文件，并导入此文件。 有关 DSML 的详细信息，请参阅 [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml)。
 
-当你单击“下一步”时，将验证 UserID 和密码配置参数。
+单击“下一步”时，会验证 UserID 和密码配置参数。
 
 ### <a name="global-parameters"></a>全局参数
 在“全局参数”页面中，可以配置时区与导入和导出操作的选项。  
@@ -293,7 +293,7 @@ Person 对象代表组织和组织单位中的用户。 除了默认属性，Dom
 - [管理用户](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_MANAGING_USERS_5151.html)
 - [重命名用户](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_RENAMING_A_USER_AUTOMATICALLY.html)
 
-所有这些操作都在 Lotus Domino 中执行，然后导入到同步服务。
+所有这些操作都在 Lotus Domino 中执行，并导入到同步服务。
 
 ### <a name="resources-and-rooms"></a>资源和会议室
 资源是 Lotus Domino 中的另一种数据库。 资源可以是配备各种设备（例如投影仪）的会议室。 Lotus Domino 连接器也支持子类型资源，这种资源是根据资源类型属性定义的：
@@ -321,7 +321,7 @@ Person 对象代表组织和组织单位中的用户。 除了默认属性，Dom
 Lotus Domino 连接器在资源保留数据库中执行创建、更新和删除操作。 将资源创建为 Names.nsf 中的文档（即主要通讯簿）。 有关编辑和删除资源的详细信息，请参阅 [Editing and deleting Resource documents](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_EDITING_AND_DELETING_RESOURCE_DOCUMENTS.html)（编辑和删除“资源”文档）。
 
 **资源的导入和导出操作**  
-与其他任何对象类型一样，可以在同步服务中导入和导出资源。 在配置期间选择对象类型作为资源。 为了成功执行导出操作，你应该具有资源类型、会议数据库和站点名称的详细信息。
+与其他任何对象类型一样，可以在同步服务中导入和导出资源。 在配置期间选择对象类型作为资源。 为了成功执行导出操作，应该具有资源类型、会议数据库和站点名称的详细信息。
 
 ### <a name="mail-in-databases"></a>邮件数据库
 邮件数据库是旨在接收邮件的数据库。 此数据库是未与任何特定 Lotus Domino 用户帐户相关联（也就是没有自己的 ID 文件和密码）的 Lotus Domino 邮箱。 邮件数据库具有关联的唯一 UserID（“短名称”），并有自己的电子邮件地址。
@@ -330,7 +330,7 @@ Lotus Domino 连接器在资源保留数据库中执行创建、更新和删除�
 
 有关必需属性的列表，请参阅本文后面的 [必需的属性](#mandatory-attributes) 部分。
 
-设计用于接收邮件的数据库时，将在 Lotus Domino 中创建邮件数据库文档。 存储数据库副本的每台服务器的 Domino 目录中都必须有此文档。 有关创建邮件数据库文档的详细说明，请参阅 [Creating a Mail-In Database document](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_CREATING_A_MAILIN_DATABASE_DOCUMENT_FOR_A_NEW_DATABASE_OVERVIEW.html)（创建“邮件收集数据库”文档）。
+设计用于接收邮件的数据库时，会在 Lotus Domino 中创建邮件数据库文档。 存储数据库副本的每台服务器的 Domino 目录中都必须有此文档。 有关创建邮件数据库文档的详细说明，请参阅 [Creating a Mail-In Database document](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_CREATING_A_MAILIN_DATABASE_DOCUMENT_FOR_A_NEW_DATABASE_OVERVIEW.html)（创建“邮件收集数据库”文档）。
 
 在创建邮件数据库之前，Domino 服务器上应该已有此数据库（应该已由 Lotus 管理员创建）。
 
@@ -356,8 +356,8 @@ Lotus Domino 连接器只支持使用 HTTP 密码的操作。
 
 Lotus Domino 连接器支持对 Internet 密码执行以下操作：
 
-- 设置密码：设置密码将对 Domino 用户设置新的 HTTP/Internet 密码。 默认情况下还将解锁帐户。 同步引擎的 WMI 接口上将公开解锁标志。
-- 更改密码：在此方案中，用户可能想要更改密码，或收到在指定时间后更改密码的提示。 若要进行此操作，必须同时拥有两者（旧密码和新密码）。 更改后，将在 Lotus Domino 中更新密码。
+- 设置密码：设置密码对 Domino 用户设置新的 HTTP/Internet 密码。 默认情况下还会解锁帐户。 同步引擎的 WMI 接口上会公开解锁标志。
+- 更改密码：在此方案中，用户可能想要更改密码，或收到在指定时间后更改密码的提示。 若要进行此操作，必须同时拥有两者（旧密码和新密码）。 更改后，密码会在 Lotus Domino 中更新。
 
 有关详细信息，请参阅：
 
@@ -368,7 +368,7 @@ Lotus Domino 连接器支持对 Internet 密码执行以下操作：
 本部分列出 Lotus Domino 连接器的属性描述和属性要求等信息。
 
 ### <a name="lotus-notes-properties"></a>Lotus Notes 属性
-将 Person 对象预配到 Lotus Domino 目录时，对象必须有一组已填入特定值的特定属性。 只有创建操作才需要这些值。
+将 Person 对象预配到 Lotus Domino 目录时，对象必须具有一组已填入特定值的特定属性。 只有创建操作才需要这些值。
 
 下表列出了这些属性及其描述。
 
@@ -436,15 +436,15 @@ Domino 连接器依赖 **目录助手** 功能来查找辅助通讯簿。 如果
 **方法 1：扩展 Lotus Domino 架构**
 
 1. 按照[这些步骤](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html)创建一份 Domino 目录模板 {PUBNAMES.NTF} 副本（请勿自定义默认的 IBM Lotus Domino 目录模板）：
-2. 在 Domino Designer 中打开刚才创建的 Domino 目录模板副本 {CONTOSO.NTF}，然后遵循以下步骤：
-   - 单击“共享元素”，然后展开子窗体
+2. 在 Domino Designer 中打开刚才创建的 Domino 目录模板副本 {CONTOSO.NTF}，并遵循以下步骤：
+   - 单击“共享元素”，并展开子窗体
    - 双击“${ObjectName}InheritableSchema”子窗体（其中 {ObjectName} 是默认结构对象类的名称，例如 Person）。
    - 为想要添加到 {MyPersonAtrribute} 架构的属性以及对应于该属性的属性命名。 选择“创建”菜单并从菜单中选择“字段”来创建字段。
    - 在添加的字段中，于字段“属性”窗口上选择其类型、样式、大小、字体和其他相关参数，并设置其属性。
    - 让属性默认值和该属性的名称保持相同（例如，如果属性名称是 MyPersonAttribute，请让默认值保有相同名称）。
    - 保存包含更新值的 ${ObjectName}InheritableSchema 子窗体。
-3. 按照 [这些步骤](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html)，将 Domino 目录模板 {PUBNAMES.NTF} 替换为新的自定义模板 {CONTOSO.NTF}。
-4. 关闭 Domino Admin，然后打开 Domino 控制台以重新启动 LDAP 服务，并重新加载 LDAP 架构：
+3. 按照[这些步骤](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html)，将 Domino 目录模板 {PUBNAMES.NTF} 替换为新的自定义模板 {CONTOSO.NTF}。
+4. 关闭 Domino Admin，并打开 Domino 控制台以重新启动 LDAP 服务，并重新加载 LDAP 架构：
    - 在 Domino 控制台中，于“Domino 命令”文本字段下插入命令以重新启动 LDAP 服务 - [重新启动任务 LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html)。
    - 若要重新加载 LDAP 架构，请使用 Tell LDAP 命令 - Tell LDAP ReloadSchema
 5. 打开 Domino Admin，并选择“人员和组”选项卡以查看添加的属性是否已在 Domino“添加人员”中反映。
@@ -461,7 +461,7 @@ Domino 连接器依赖 **目录助手** 功能来查找辅助通讯簿。 如果
    - 在“名称”属性旁，输入辅助对象类的名称，例如 TestSubform。
    - 将“选项”属性“包含在插入子窗体...对话框”保持为选中状态
    - 取消选择“选项”属性“在 Notes 中呈现传递 HTML”。
-   - 将其他属性保持不变，然后关闭“子窗体属性”框。
+   - 将其他属性保持不变，并关闭“子窗体属性”框。
    - 保存并关闭新子窗体。
 6. 执行以下操作来添加字段，以定义辅助对象类：
    - 打开创建的子窗体。
@@ -469,14 +469,14 @@ Domino 连接器依赖 **目录助手** 功能来查找辅助通讯簿。 如果
    - 在“字段”对话框的“基本”选项卡上的“名称”旁，指定任何名称，例如：{MyPersonTestAttribute}。
    - 在添加的字段中，选择其类型、样式、大小、字体和相关属性，以设置其属性。
    - 让属性默认值和该属性的名称保持相同（例如，如果属性名称是 MyPersonTestAttribute，请让默认值保有相同名称）。
-   - 保存包含更新值的子窗体，然后执行以下操作：
+   - 保存包含更新值的子窗体，并执行以下操作：
      - 在左窗格中，依次选择“共享代码”和“子窗体”
-     - 选择新的子窗体，然后选择“设计”-“设计属性”。
-     - 单击左边的第三个选项卡，然后选择“传播此设计更改禁止” 。
+     - 选择新的子窗体，并选择“设计”-“设计属性”。
+     - 单击左边的第三个选项卡，并选择“传播此设计更改禁止” 。
 7. 打开“${ObjectName}ExtensibleSchema”子窗体（其中 {ObjectName} 是默认结构化对象类的名称，例如 Person）。
 8. 插入“资源”并选择子窗体（刚才创建的，例如 TestSubform），然后保存 ${ObjectName}ExtensibleSchema 子窗体。
-9. 按照 [这些步骤](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html)，将 Domino 目录模板 {PUBNAMES.NTF} 替换为新的自定义模板 {CONTOSO.NTF}。
-10. 关闭 Domino Admin，然后打开 Domino 控制台以重新启动 LDAP 服务，并重新加载 LDAP 架构：
+9. 按照[这些步骤](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html)，将 Domino 目录模板 {PUBNAMES.NTF} 替换为新的自定义模板 {CONTOSO.NTF}。
+10. 关闭 Domino Admin，并打开 Domino 控制台以重新启动 LDAP 服务，并重新加载 LDAP 架构：
     - 在 Domino 控制台中，于“Domino 命令”文本字段下插入命令以重新启动 LDAP 服务 - [重新启动任务 LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html)。
     - 若要重新加载 LDAP 架构，请使用 Tell LDAP 命令 **Tell LDAP ReloadSchema**。
 11. 打开 Domino Admin，选择“人员和组”选项卡查看添加的属性是否已在 Domino“添加人员”中反映（在“其他”选项卡下）。
@@ -491,7 +491,9 @@ Domino 连接器依赖 **目录助手** 功能来查找辅助通讯簿。 如果
 5. 提供对应于对象类的有效 OID。
 6. 根据要求选择“必需属性类型”或“可选属性类型”字段下的扩展/自定义属性：
 7. 将所需的属性添加到 ExtensibleObjectClass 之后，单击“保存并关闭”。
-8. 系统将为相应的默认对象类创建具有扩展属性的 ExtensibleObjectClass。
+8. 系统为相应的默认对象类创建具有扩展属性的 ExtensibleObjectClass。
 
 ## <a name="troubleshooting"></a>故障排除
 - 有关如何启用记录来排查连接器问题的信息，请参阅 [如何启用连接器的 ETW 跟踪](http://go.microsoft.com/fwlink/?LinkId=335731)。
+
+<!-- Update_Description: update meta properties -->

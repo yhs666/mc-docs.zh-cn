@@ -13,20 +13,20 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-origin.date: 05/10/2017
-ms.date: 07/17/2017
+origin.date: 06/27/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: ef8160a104d19c6b420efbca89c1b3c05f25703a
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 86aaa31f733e0b32f6170f3a01f74fc086f40306
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB：使用 Java 和 Azure 门户生成 DocumentDB API 应用
 
 Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
 
-本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户、文档数据库和集合。 然后将生成并运行基于 [DocumentDB Java API](documentdb-sdk-java.md) 构建的控制台应用。
+本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户、文档数据库和集合。 然后会生成并运行基于 [DocumentDB Java API](documentdb-sdk-java.md) 构建的控制台应用。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -53,14 +53,14 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 2. 运行下列命令，克隆示例存储库。 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-java-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
     ```
 
 ## <a name="review-the-code"></a>查看代码
 
-快速查看应用中发生的情况。 打开 `app.js` 文件，会发现以下代码行创建 Azure Cosmos DB 资源。 
+快速查看应用中发生的情况。 打开 `Program.java` 文件，查找用于创建 Azure Cosmos DB 资源的代码行。 
 
-* 将对 `DocumentClient` 进行初始化。
+* 对 `DocumentClient` 进行初始化。
 
     ```java
     this.client = new DocumentClient("https://FILLME.documents.azure.cn",
@@ -107,7 +107,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
     this.client.createDocument(collectionLink, family, new RequestOptions(), true);
     ```
 
-* 将对 JSON 执行 SQL 查询。
+* 对 JSON 执行 SQL 查询。
 
     ```java
     FeedOptions queryOptions = new FeedOptions();
@@ -139,13 +139,11 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
     `"https://FILLME.documents.azure.cn"`
 
-4. 然后从门户复制“主密钥”的值，并将其设为 Program.java 的 DocumentClient 构造函数中主密钥的值。 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
-
-    `config.primaryKey "FILLME"`
+4. 然后从门户复制“主密钥”的值，并将第二个参数“FILL ME”替换为 Program.java 的 DocumentClient 构造函数中的密钥。 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
 
 ## <a name="run-the-app"></a>运行应用程序
 
-1. 在终端中运行 `mvn package`，安装所需的 npm 模块
+1. 在终端中运行 `mvn package`，安装所需的 Java 包。
 
 2. 在终端中运行 `mvn exec:java -D exec.mainClass=GetStarted.Program`，启动 Java 应用程序。
 
@@ -160,7 +158,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 如果不打算继续使用此应用，请删除本快速入门教程在 Azure 门户中创建的所有资源，步骤如下：
 
 1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。 
-2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，然后单击“删除”。
+2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -168,3 +166,5 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
+
+<!--Update_Description: update meta properties, wording update-->

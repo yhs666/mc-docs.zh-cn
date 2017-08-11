@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
-ms.author: v-johch
-ms.openlocfilehash: d6cab395f4e5202bc6ca514934f10ca82f434477
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 3fe1ebb5aa10d488f3f04af303f3c28d5184116f
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>跨多个存储帐户管理媒体服务资产
 从 Microsoft Azure 媒体服务 2.2 开始，可以将多个存储帐户附加到一个媒体服务帐户。 将多个存储帐户附加到一个媒体服务帐户这一功能具有以下优势：
@@ -43,20 +44,21 @@ ms.lasthandoff: 06/21/2017
 ## <a name="to-attach-storage-accounts"></a>附加存储帐户  
 
 若要将存储帐户附加到 AMS 帐户，请使用 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/media/mediaservice) 和 [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media)，如以下示例所示。
+```
+$regionName = "China East"
+$subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
+$resourceGroupName = "SkyMedia-ChinaEast-App"
+$mediaAccountName = "sky"
+$storageAccount1Name = "skystorage1"
+$storageAccount2Name = "skystorage2"
+$storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
+$storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
+$storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+$storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+$storageAccounts = @($storageAccount1, $storageAccount2)
 
-    $regionName = "China East"
-    $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
-    $resourceGroupName = "SkyMedia-ChinaEast-App"
-    $mediaAccountName = "sky"
-    $storageAccount1Name = "skystorage1"
-    $storageAccount2Name = "skystorage2"
-    $storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
-    $storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
-    $storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
-    $storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
-    $storageAccounts = @($storageAccount1, $storageAccount2)
-
-    Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+```
 
 ### <a name="support-for-cool-storage"></a>支持冷存储
 
@@ -69,212 +71,214 @@ ms.lasthandoff: 06/21/2017
 2. 检索默认存储帐户的名称。
 3. 在默认存储帐户中创建一个新资产。
 4. 在指定存储帐户中创建编码作业的输出资产。
-   
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using System;
-        using System.Collections.Generic;
-        using System.Configuration;
-        using System.IO;
-        using System.Linq;
-        using System.Text;
-        using System.Threading;
-        using System.Threading.Tasks;
+    ```
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
 
-        namespace MultipleStorageAccounts
+    namespace MultipleStorageAccounts
+    {
+        class Program
         {
-            class Program
+            // Location of the media file that you want to encode. 
+            private static readonly string _singleInputFilePath =
+                Path.GetFullPath(@"../..\supportFiles\multifile\interview2.wmv");
+
+            private static readonly string MediaServicesAccountName = 
+                ConfigurationManager.AppSettings["MediaServicesAccountName"];
+            private static readonly string MediaServicesAccountKey = 
+                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+
+            private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
+
+            // Azure China uses a different API server and a different ACS Base Address from the Global.
+            private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
+            private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
+
+            private static CloudMediaContext _context;
+            private static MediaServicesCredentials _cachedCredentials = null;
+
+            static void Main(string[] args)
             {
-                // Location of the media file that you want to encode. 
-                private static readonly string _singleInputFilePath =
-                    Path.GetFullPath(@"../..\supportFiles\multifile\interview2.wmv");
 
-                private static readonly string MediaServicesAccountName = 
-                    ConfigurationManager.AppSettings["MediaServicesAccountName"];
-                private static readonly string MediaServicesAccountKey = 
-                    ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+                // Create and cache the Media Services credentials in a static class variable.
+                _cachedCredentials = new MediaServicesCredentials(
+                                MediaServicesAccountName,
+                                MediaServicesAccountKey,
+                                _defaultScope,
+                                _chinaAcsBaseAddressUrl);
 
-                private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
+                // Create the API server Uri
+                _apiServer = new Uri(_chinaApiServerUrl);
 
-                // Azure China uses a different API server and a different ACS Base Address from the Global.
-                private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
-                private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
+                // Used the cached credentials to create CloudMediaContext.
+                _context = new CloudMediaContext(_apiServer, _cachedCredentials);
 
-                private static CloudMediaContext _context;
-                private static MediaServicesCredentials _cachedCredentials = null;
+                // Display the storage accounts associated with 
+                // the specified Media Services account:
+                foreach (var sa in _context.StorageAccounts)
+                    Console.WriteLine(sa.Name);
 
-                static void Main(string[] args)
+                // Retrieve the name of the default storage account.
+                var defaultStorageName = _context.StorageAccounts.Where(s => s.IsDefault == true).FirstOrDefault();
+                Console.WriteLine("Name: {0}", defaultStorageName.Name);
+                Console.WriteLine("IsDefault: {0}", defaultStorageName.IsDefault);
+
+                // Retrieve the name of a storage account that is not the default one.
+                var notDefaultStroageName = _context.StorageAccounts.Where(s => s.IsDefault == false).FirstOrDefault();
+                Console.WriteLine("Name: {0}", notDefaultStroageName.Name);
+                Console.WriteLine("IsDefault: {0}", notDefaultStroageName.IsDefault);
+
+                // Create the original asset in the default storage account.
+                IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, 
+                    defaultStorageName.Name, _singleInputFilePath);
+                Console.WriteLine("Created the asset in the {0} storage account", asset.StorageAccountName);
+
+                // Create an output asset of the encoding job in the other storage account.
+                IAsset outputAsset = CreateEncodingJob(asset, notDefaultStroageName.Name, _singleInputFilePath);
+                if(outputAsset!=null)
+                    Console.WriteLine("Created the output asset in the {0} storage account", outputAsset.StorageAccountName);
+
+            }
+
+            static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string storageName, string singleFilePath)
+            {
+                var assetName = "UploadSingleFile_" + DateTime.UtcNow.ToString();
+
+                // If you are creating an asset in the default storage account, you can omit the StorageName parameter.
+                var asset = _context.Assets.Create(assetName, storageName, assetCreationOptions);
+
+                var fileName = Path.GetFileName(singleFilePath);
+
+                var assetFile = asset.AssetFiles.Create(fileName);
+
+                Console.WriteLine("Created assetFile {0}", assetFile.Name);
+
+                assetFile.Upload(singleFilePath);
+
+                Console.WriteLine("Done uploading {0}", assetFile.Name);
+
+                return asset;
+            }
+
+            static IAsset CreateEncodingJob(IAsset asset, string storageName, string inputMediaFilePath)
+            {
+                // Declare a new job.
+                IJob job = _context.Jobs.Create("My encoding job");
+                // Get a media processor reference, and pass to it the name of the 
+                // processor to use for the specific task.
+                IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+
+                // Create a task with the encoding details, using a string preset.
+                ITask task = job.Tasks.AddNew("My encoding task",
+                    processor,
+                        "Adaptive Streaming",
+                    Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.ProtectedConfiguration);
+
+                // Specify the input asset to be encoded.
+                task.InputAssets.Add(asset);
+                // Add an output asset to contain the results of the job. 
+                // This output is specified as AssetCreationOptions.None, which 
+                // means the output asset is not encrypted. 
+                task.OutputAssets.AddNew("Output asset", storageName,
+                    AssetCreationOptions.None);
+
+                // Use the following event handler to check job progress.  
+                job.StateChanged += new
+                        EventHandler<JobStateChangedEventArgs>(StateChanged);
+
+                // Launch the job.
+                job.Submit();
+
+                // Check job execution and wait for job to finish. 
+                Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
+                progressJobTask.Wait();
+
+                // Get an updated job reference.
+                job = GetJob(job.Id);
+
+                // If job state is Error the event handling 
+                // method for job progress should log errors.  Here we check 
+                // for error state and exit if needed.
+                if (job.State == JobState.Error)
                 {
-
-                    // Create and cache the Media Services credentials in a static class variable.
-                    _cachedCredentials = new MediaServicesCredentials(
-                                    MediaServicesAccountName,
-                                    MediaServicesAccountKey,
-                                    _defaultScope,
-                                    _chinaAcsBaseAddressUrl);
-
-                    // Create the API server Uri
-                    _apiServer = new Uri(_chinaApiServerUrl);
-
-                    // Used the cached credentials to create CloudMediaContext.
-                    _context = new CloudMediaContext(_apiServer, _cachedCredentials);
-
-                    // Display the storage accounts associated with 
-                    // the specified Media Services account:
-                    foreach (var sa in _context.StorageAccounts)
-                        Console.WriteLine(sa.Name);
-
-                    // Retrieve the name of the default storage account.
-                    var defaultStorageName = _context.StorageAccounts.Where(s => s.IsDefault == true).FirstOrDefault();
-                    Console.WriteLine("Name: {0}", defaultStorageName.Name);
-                    Console.WriteLine("IsDefault: {0}", defaultStorageName.IsDefault);
-
-                    // Retrieve the name of a storage account that is not the default one.
-                    var notDefaultStroageName = _context.StorageAccounts.Where(s => s.IsDefault == false).FirstOrDefault();
-                    Console.WriteLine("Name: {0}", notDefaultStroageName.Name);
-                    Console.WriteLine("IsDefault: {0}", notDefaultStroageName.IsDefault);
-
-                    // Create the original asset in the default storage account.
-                    IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, 
-                        defaultStorageName.Name, _singleInputFilePath);
-                    Console.WriteLine("Created the asset in the {0} storage account", asset.StorageAccountName);
-
-                    // Create an output asset of the encoding job in the other storage account.
-                    IAsset outputAsset = CreateEncodingJob(asset, notDefaultStroageName.Name, _singleInputFilePath);
-                    if(outputAsset!=null)
-                        Console.WriteLine("Created the output asset in the {0} storage account", outputAsset.StorageAccountName);
-
+                    Console.WriteLine("\nExiting method due to job error.");
+                    return null;
                 }
 
-                static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string storageName, string singleFilePath)
+                // Get a reference to the output asset from the job.
+                IAsset outputAsset = job.OutputMediaAssets[0];
+
+                return outputAsset;
+            }
+
+            private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+            {
+                var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+                    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+
+                if (processor == null)
+                    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+
+                return processor;
+            }
+
+            private static void StateChanged(object sender, JobStateChangedEventArgs e)
+            {
+                Console.WriteLine("Job state changed event:");
+                Console.WriteLine("  Previous state: " + e.PreviousState);
+                Console.WriteLine("  Current state: " + e.CurrentState);
+
+                switch (e.CurrentState)
                 {
-                    var assetName = "UploadSingleFile_" + DateTime.UtcNow.ToString();
-
-                    // If you are creating an asset in the default storage account, you can omit the StorageName parameter.
-                    var asset = _context.Assets.Create(assetName, storageName, assetCreationOptions);
-
-                    var fileName = Path.GetFileName(singleFilePath);
-
-                    var assetFile = asset.AssetFiles.Create(fileName);
-
-                    Console.WriteLine("Created assetFile {0}", assetFile.Name);
-
-                    assetFile.Upload(singleFilePath);
-
-                    Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    return asset;
-                }
-
-                static IAsset CreateEncodingJob(IAsset asset, string storageName, string inputMediaFilePath)
-                {
-                    // Declare a new job.
-                    IJob job = _context.Jobs.Create("My encoding job");
-                    // Get a media processor reference, and pass to it the name of the 
-                    // processor to use for the specific task.
-                    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-
-                    // Create a task with the encoding details, using a string preset.
-                    ITask task = job.Tasks.AddNew("My encoding task",
-                        processor,
-                            "Adaptive Streaming",
-                        Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.ProtectedConfiguration);
-
-                    // Specify the input asset to be encoded.
-                    task.InputAssets.Add(asset);
-                    // Add an output asset to contain the results of the job. 
-                    // This output is specified as AssetCreationOptions.None, which 
-                    // means the output asset is not encrypted. 
-                    task.OutputAssets.AddNew("Output asset", storageName,
-                        AssetCreationOptions.None);
-
-                    // Use the following event handler to check job progress.  
-                    job.StateChanged += new
-                            EventHandler<JobStateChangedEventArgs>(StateChanged);
-
-                    // Launch the job.
-                    job.Submit();
-
-                    // Check job execution and wait for job to finish. 
-                    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-                    progressJobTask.Wait();
-
-                    // Get an updated job reference.
-                    job = GetJob(job.Id);
-
-                    // If job state is Error the event handling 
-                    // method for job progress should log errors.  Here we check 
-                    // for error state and exit if needed.
-                    if (job.State == JobState.Error)
-                    {
-                        Console.WriteLine("\nExiting method due to job error.");
-                        return null;
-                    }
-
-                    // Get a reference to the output asset from the job.
-                    IAsset outputAsset = job.OutputMediaAssets[0];
-
-                    return outputAsset;
-                }
-
-                private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-                {
-                    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-                        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-
-                    if (processor == null)
-                        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-                    return processor;
-                }
-
-                private static void StateChanged(object sender, JobStateChangedEventArgs e)
-                {
-                    Console.WriteLine("Job state changed event:");
-                    Console.WriteLine("  Previous state: " + e.PreviousState);
-                    Console.WriteLine("  Current state: " + e.CurrentState);
-
-                    switch (e.CurrentState)
-                    {
-                        case JobState.Finished:
-                            Console.WriteLine();
-                            Console.WriteLine("********************");
-                            Console.WriteLine("Job is finished.");
-                            Console.WriteLine("Please wait while local tasks or downloads complete...");
-                            Console.WriteLine("********************");
-                            Console.WriteLine();
-                            Console.WriteLine();
-                            break;
-                        case JobState.Canceling:
-                        case JobState.Queued:
-                        case JobState.Scheduled:
-                        case JobState.Processing:
-                            Console.WriteLine("Please wait...\n");
-                            break;
-                        case JobState.Canceled:
-                        case JobState.Error:
-                            // Cast sender as a job.
-                            IJob job = (IJob)sender;
-                            // Display or log error details as needed.
-                            Console.WriteLine("An error occurred in {0}", job.Id);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-
-                static IJob GetJob(string jobId)
-                {
-                    // Use a Linq select query to get an updated 
-                    // reference by Id. 
-                    var jobInstance =
-                        from j in _context.Jobs
-                        where j.Id == jobId
-                        select j;
-                    // Return the job reference as an Ijob. 
-                    IJob job = jobInstance.FirstOrDefault();
-
-                    return job;
+                    case JobState.Finished:
+                        Console.WriteLine();
+                        Console.WriteLine("********************");
+                        Console.WriteLine("Job is finished.");
+                        Console.WriteLine("Please wait while local tasks or downloads complete...");
+                        Console.WriteLine("********************");
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        break;
+                    case JobState.Canceling:
+                    case JobState.Queued:
+                    case JobState.Scheduled:
+                    case JobState.Processing:
+                        Console.WriteLine("Please wait...\n");
+                        break;
+                    case JobState.Canceled:
+                    case JobState.Error:
+                        // Cast sender as a job.
+                        IJob job = (IJob)sender;
+                        // Display or log error details as needed.
+                        Console.WriteLine("An error occurred in {0}", job.Id);
+                        break;
+                    default:
+                        break;
                 }
             }
-        }
 
+            static IJob GetJob(string jobId)
+            {
+                // Use a Linq select query to get an updated 
+                // reference by Id. 
+                var jobInstance =
+                    from j in _context.Jobs
+                    where j.Id == jobId
+                    select j;
+                // Return the job reference as an Ijob. 
+                IJob job = jobInstance.FirstOrDefault();
+
+                return job;
+            }
+        }
+    }
+    ```
+
+<!--Update_Description: update meta properties-->

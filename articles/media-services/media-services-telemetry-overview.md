@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/07/2016
-ms.date: 01/13/2017
-ms.author: v-johch
-ms.openlocfilehash: 01589a5a2b27f71768b53b2092ee6980c7938068
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 0411aa9d734684f20e38be27a698316880601f89
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="azure-media-services-telemetry"></a>Azure 媒体服务遥测
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="consuming-telemetry-information"></a>使用遥测信息
 
-如果为媒体服务帐户配置了遥测，遥测将写入到你所指定的存储帐户的 Azure 存储表中。 本部分将介绍适用于各项指标的存储表。
+如果为媒体服务帐户配置了遥测，遥测将写入到所指定的存储帐户的 Azure 存储表中。 本部分介绍适用于各项指标的存储表。
 
 可通过以下方式之一使用遥测数据：
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 06/21/2017
 
 ### <a name="telemetry-table-storage-output-schema"></a>遥测表存储输出架构
 
-遥测数据汇总存储在表“TelemetryMetrics20160321”中，其中是“20160321”创建表的日期。 遥测系统将为每个新日期（基于 00:00 UTC）单独创建一个表。 该表用于存储重复值，如给定时间范围内的引入比特率、发送的字节数等。 
+遥测数据汇总存储在表“TelemetryMetrics20160321”中，其中是“20160321”创建表的日期。 遥测系统为每个新日期（基于 00:00 UTC）单独创建一个表。 该表用于存储重复值，如给定时间范围内的引入比特率、发送的字节数等。 
 
 属性|值|示例/说明
 ---|---|---
@@ -154,7 +154,7 @@ Healthy|如果 FragmentDiscardedCount == 0 且 ArchiveAcquisitionError == False�
 
 ### <a name="how-to-consume-metrics-data"></a>如何使用指标数据？
 
-指标数据将存储为客户存储帐户中的一系列 Azure 表。 可通过以下工具使用此数据：
+指标数据存储为客户存储帐户中的一系列 Azure 表。 可通过以下工具使用此数据：
 
 - AMS SDK
 - Microsoft Azure 存储资源管理器（支持导出逗号分隔值格式并在 Excel 中进行处理）
@@ -209,3 +209,5 @@ Healthy|如果 FragmentDiscardedCount == 0 且 ArchiveAcquisitionError == False�
 ### <a name="how-to-manage-data-retention"></a>如何管理数据保留期？
 
 遥测系统不提供数据保留期管理，也不会自动删除旧记录。 因此，请在存储表中手动管理和删除旧记录。 可参阅存储 SDK 以了解如何执行此操作。
+
+<!--Update_Description: update metadata-->

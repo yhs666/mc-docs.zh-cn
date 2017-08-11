@@ -11,15 +11,15 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 origin.date: 05/22/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0a12b2aa05f7173ee482322f04ff60c0428544ec
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: aecd803cf3767f4c26a3f9869d64d5ae97444335
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-documentdb-api-and-net-core"></a>Azure Cosmos DB：DocumentDB API 和 .NET Core 入门
 > [!div class="op_single_selector"]
@@ -32,9 +32,9 @@ ms.lasthandoff: 07/13/2017
 >  
 > 
 
-欢迎使用 Azure Cosmos DB 入门教程！ 学习本教程后，你将拥有一个可创建并查询 DocumentDB 资源的控制台应用程序。
+欢迎使用 Azure Cosmos DB 入门教程！ 学习本教程后，你会有一个可创建并查询 DocumentDB 资源的控制台应用程序。
 
-我们将介绍：
+我们介绍：
 
 * 创建并连接到 Azure Cosmos DB 帐户
 * 配置 Visual Studio 解决方案
@@ -50,7 +50,7 @@ ms.lasthandoff: 07/13/2017
 
 想要使用 DocumentDB .NET Core SDK 生成 Xamarin iOS、Android 或 Forms 应用程序？ 请参阅[使用 DocumentDB 开发 Xamarin 移动应用程序](mobile-apps-with-xamarin.md)。
 
-然后，请使用位于本页顶部或底部的投票按钮向我们提供反馈。 如果你希望我们直接与你联系，欢迎将你的电子邮件地址附在评论中。
+然后，请使用位于本页顶部或底部的投票按钮向我们提供反馈。 如果希望我们直接与你联系，欢迎将电子邮件地址附在评论中。
 
 > [!NOTE]
 > 本教程中使用的 DocumentDB .NET Core SDK 目前与通用 Windows 平台 (UWP) 应用不兼容。 如需支持 UWP 应用的 .NET Core SDK 预览版，请向 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) 发送电子邮件。
@@ -58,7 +58,7 @@ ms.lasthandoff: 07/13/2017
 现在，让我们开始吧！
 
 ## <a name="prerequisites"></a>先决条件
-请确保你具有以下内容：
+请确保具有以下内容：
 
 * 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
     * 另外，对于本教程，也可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)。
@@ -82,7 +82,7 @@ ms.lasthandoff: 07/13/2017
 5. 接下来，无需离开菜单，单击“管理 NuGet 包...”。
 
    ![“项目”右键菜单屏幕截图](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. 在“NuGet”选项卡上，单击窗口顶部的“浏览”，然后在搜索框中输入 **azure documentdb**。
+6. 在“NuGet”选项卡上，单击窗口顶部的“浏览”，然后在搜索框中键入 **azure documentdb**。
 7. 在结果中找到 **Microsoft.Azure.DocumentDB.Core**，然后单击“安装”。
    适用于 .NET Core 的 DocumentDB 客户端库的程序包 ID 是 [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)。 如果用户的目标是不受此 .NET Core NuGet 包支持的 .NET Framework 版本（例如 net461），则请使用 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)，后者支持自 .NET Framework 4.5 以来的所有 .NET Framework 版本。
 8. 出现提示时，接受 NuGet 包安装和许可协议。
@@ -120,9 +120,9 @@ class Program
 
 接下来，转到 [Azure 门户](https://portal.azure.cn) 检索 URI 和主密钥。 DocumentDB URI 和主密钥是必需的，可让应用程序知道要连接的对象，让 DocumentDB 信任应用程序的连接。
 
-在 Azure 门户中，导航到 Azure Cosmos DB 帐户，然后单击“密钥”。
+在 Azure 门户中，导航到 Azure Cosmos DB 帐户，并单击“密钥”。
 
-从门户中复制该 URI 并将它粘贴到 program.cs 文件中的 `<your endpoint URI>` 。 然后从门户中复制“主密钥”并将它粘贴到 `<your key>`。 如果使用 Azure Cosmos DB 模拟器，请将 `https://localhost:8081` 用作终结点，并使用[如何使用 Azure Cosmos DB 模拟器进行开发](local-emulator.md)中明确定义的授权密钥。 请务必删除 < 和 >，但保留终结点和密钥的双引号。
+从门户中复制该 URI 并将它粘贴到 program.cs 文件中的 `<your endpoint URI>`。 然后从门户中复制“主密钥”并将它粘贴到 `<your key>`。 如果使用 Azure Cosmos DB 模拟器，请将 `https://localhost:8081` 用作终结点，并使用[如何使用 Azure Cosmos DB 模拟器进行开发](local-emulator.md)中明确定义的授权密钥。 请务必删除 < 和 >，但保留终结点和密钥的双引号。
 
 ![NoSQL 教程用于创建 C# 控制台应用程序的 Azure 门户的屏幕截图。 显示 DocumentDB 帐户，在“DocumentDB 帐户”边栏选项卡上突出显示“ACTIVE”中心、“键”按钮，在“键”边栏选项卡上突出显示 URI、主键、辅键的值][keys]
 
@@ -172,7 +172,7 @@ static void Main(string[] args)
 
 按“DocumentDBGettingStarted”按钮生成和运行应用程序。
 
-祝贺你！ 成功连接到 Azure Cosmos DB 帐户后，接下来应了解如何使用 Azure Cosmos DB 资源。  
+祝贺！ 成功连接到 Azure Cosmos DB 帐户后，接下来应了解如何使用 Azure Cosmos DB 资源。  
 
 ## <a name="step-4-create-a-database"></a>第 4 步：创建数据库
 在添加创建数据库的代码之前，添加一个用于向控制台写入的帮助器方法。
@@ -189,9 +189,9 @@ private void WriteToConsoleAndPromptToContinue(string format, params object[] ar
 }
 ```
 
-可以通过使用 **DocumentClient** 类的 [CreateDatabaseAsync](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 方法来创建 DocumentDB [数据库](documentdb-resources.md#databases)。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。
+可以通过使用 **DocumentClient** 类的 [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 方法来创建 DocumentDB [数据库](documentdb-resources.md#databases)。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。
 
-将以下代码复制并粘贴到客户端创建下方的 **GetStartedDemo** 方法。 这将创建一个名为 *FamilyDB*的数据库。
+将以下代码复制并粘贴到客户端创建下方的 **GetStartedDemo** 方法。 这会创建一个名为 *FamilyDB* 的数据库。
 
 ```csharp
 private async Task GetStartedDemo()
@@ -204,13 +204,14 @@ private async Task GetStartedDemo()
 
 按“DocumentDBGettingStarted”按钮运行应用程序。
 
-祝贺你！ 你已成功创建了 Azure Cosmos DB 数据库。  
+祝贺！ 已成功创建了 Azure Cosmos DB 数据库。  
 
 ## <a id="CreateColl"></a>步骤 5：创建集合
 > [!WARNING]
-> **CreateDocumentCollectionAsync** 将创建一个具有保留吞吐量的新集合，它牵涉定价。 有关详细信息，请访问 [定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
+> 
+            **CreateDocumentCollectionAsync** 会创建一个具有保留吞吐量的新集合，它牵涉定价。 有关详细信息，请访问 [定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
 
-可以通过使用 **DocumentClient** 类的 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 方法来创建[集合](documentdb-resources.md#collections)。 集合是 JSON 文档和相关联的 JavaScript 应用程序逻辑的容器。
+可以通过使用 **DocumentClient** 类的 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 方法来创建[集合](documentdb-resources.md#collections)。 集合是 JSON 文档和相关联的 JavaScript 应用程序逻辑的容器。
 
 将以下代码复制并粘贴到数据库创建下方的 **GetStartedDemo** 方法。 这将创建一个名为 *FamilyCollection_oa* 的文档集合。
 
@@ -225,10 +226,10 @@ private async Task GetStartedDemo()
 
 按“DocumentDBGettingStarted”按钮运行应用程序。
 
-祝贺你！ 已成功创建了 Azure Cosmos DB 文档集合。  
+祝贺！ 已成功创建了 Azure Cosmos DB 文档集合。  
 
 ## <a id="CreateDoc"></a>步骤 6：创建 JSON 文档
-可以通过使用 **DocumentClient** 类的 [CreateDocumentAsync](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 方法创建[文档](documentdb-resources.md#documents)。 文档为用户定义的（任意）JSON 内容。 现在，我们可以插入一个或多个文档。 如果已有要在数据库中存储的数据，则可以使用 DocumentDB 的 [数据迁移工具](import-data.md)。
+可以通过使用 **DocumentClient** 类的 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 方法创建[文档](documentdb-resources.md#documents)。 文档为用户定义的（任意）JSON 内容。 现在，我们可以插入一个或多个文档。 如果已有要在数据库中存储的数据，则可以使用 DocumentDB 的 [数据迁移工具](import-data.md)。
 
 在本例中，首先需要创建 Family 类来表示存储在 Azure Cosmos DB 中的对象。 此外还将创建 **Family** 中使用的 **Parent**、**Child**、**Pet** 和 **Address** 子类。 请注意，文档必须将 **ID** 属性序列化为 JSON 格式的 **ID**。 通过在 **GetStartedDemo** 方法后添加以下内部子类来创建这些类。
 
@@ -390,7 +391,7 @@ await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa",
 
 按“DocumentDBGettingStarted”按钮运行应用程序。
 
-祝贺你！ 已成功创建了两个 Azure Cosmos DB 文档。  
+祝贺！ 已成功创建了两个 Azure Cosmos DB 文档。  
 
 ![说明 NoSQL 教程创建 C# 控制台应用程序所用帐户、联机数据库、集合和文档的层次关系的图表](./media/documentdb-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
@@ -446,13 +447,13 @@ this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 按“DocumentDBGettingStarted”按钮运行应用程序。
 
-祝贺你！ 已成功完成了对 Azure Cosmos DB 集合的查询。
+祝贺！ 已成功完成了对 Azure Cosmos DB 集合的查询。
 
 下图说明了如何对已创建的集合调用 Azure Cosmos DB SQL 查询语法，相同的逻辑也适用于 LINQ 查询。
 
 ![说明 NoSQL 教程创建 C# 控制台应用程序所用查询的范围和意义的图表](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-查询中的 [FROM](documentdb-sql-query.md#FromClause) 关键字是可选的，因为 DocumentDB 查询的范围已限制为单个集合。 因此，“FROM Families f”可与“FROM root r”或者任何其他所选变量名进行交换。 默认情况下，DocumentDB 将推断你选择的 Families、root 或变量名，并默认引用当前集合。
+查询中的 [FROM](documentdb-sql-query.md#FromClause) 关键字是可选的，因为 DocumentDB 查询的范围已限制为单个集合。 因此，“FROM Families f”可与“FROM root r”或者任何其他所选变量名进行交换。 默认情况下，DocumentDB 会推断你选择的 Families、root 或变量名，并默认引用当前集合。
 
 ## <a id="ReplaceDocument"></a>步骤 8：替换 JSON 文档
 Azure Cosmos DB 支持替换 JSON 文档。  
@@ -475,7 +476,7 @@ private async Task ReplaceFamilyDocument(string databaseName, string collectionN
 }
 ```
 
-将以下代码复制并粘贴到查询执行下的 **GetStartedDemo** 方法。 替换文档之后，将再次运行相同查询以查看更改后的文档。
+将以下代码复制并粘贴到查询执行下的 **GetStartedDemo** 方法。 替换文档之后，会再次运行相同查询以查看更改后的文档。
 
 ```csharp
 await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
@@ -493,7 +494,7 @@ this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 按“DocumentDBGettingStarted”按钮运行应用程序。
 
-祝贺你！ 你已成功替换 DocumentDB 文档。
+祝贺！ 已成功替换 DocumentDB 文档。
 
 ## <a id="DeleteDocument"></a>步骤 9：删除 JSON 文档
 Azure Cosmos DB 支持删除 JSON 文档。  
@@ -529,10 +530,10 @@ await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.
 
 按“DocumentDBGettingStarted”按钮运行应用程序。
 
-祝贺你！ 你已成功删除了 Azure Cosmos DB 文档。
+祝贺！ 已成功删除了 Azure Cosmos DB 文档。
 
 ## <a id="DeleteDatabase"></a>步骤 10：删除数据库
-删除已创建的数据库将删除该数据库及其所有子资源（集合、文档等）。
+删除已创建的数据库会删除该数据库及其所有子资源（集合、文档等）。
 
 将以下代码复制并粘贴到文档删除下的 **GetStartedDemo** 方法，删除整个数据库和所有子资源。
 
@@ -548,12 +549,12 @@ await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"
 
 按“DocumentDBGettingStarted”按钮运行应用程序。
 
-祝贺你！ 你已成功删除了 Azure Cosmos DB 数据库。
+祝贺！ 已成功删除了 Azure Cosmos DB 数据库。
 
 ## <a id="Run"></a>步骤 11：一起运行 C# 控制台应用程序！
 在 Visual Studio 中按“DocumentDBGettingStarted”按钮，以调试模式生成应用程序。
 
-你应该看到已启动应用的输出。 输出会显示我们所添加的查询的结果，并且应与下面的示例文本相匹配。
+应该看到已启动应用的输出。 输出会显示我们所添加的查询的结果，并且应与下面的示例文本相匹配。
 
 ```
 Created FamilyDB_oa
@@ -578,10 +579,10 @@ Deleted Family Andersen.1
 End of demo, press any key to exit.
 ```
 
-祝贺你！ 你已经完成了本教程，并且获得了一个正常工作的 C# 控制台应用程序！
+祝贺！ 已经完成了本教程，并且获得了一个正常工作的 C# 控制台应用程序！
 
 ## <a id="GetSolution"></a> 获取完整的教程解决方案
-若要生成包含本文所有示例的 GetStarted 解决方案，你将需要以下内容：
+要生成包含本文所有示例的 GetStarted 解决方案，需要以下内容：
 
 * 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 * [Azure Cosmos DB 帐户][create-documentdb-dotnet.md#create-account]。
@@ -599,3 +600,5 @@ End of demo, press any key to exit.
 
 [create-documentdb-dotnet.md#create-account]: create-documentdb-dotnet.md#create-account
 [keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
+
+<!--Update_Description: update meta properties-->

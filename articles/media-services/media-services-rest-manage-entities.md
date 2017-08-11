@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 02/09/2017
 ms.date: 03/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 08c59179b240f5a349d08d2663a82083eff61273
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 8f306819d976ed840dded00878dbacb9b55c0b47
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="managing-media-services-entities-with-rest"></a>使用 REST 管理媒体服务实体 
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 06/21/2017
 >- [REST](./media-services-rest-manage-entities.md)
 >- [.NET](./media-services-dotnet-manage-entities.md)
 
-Microsoft Azure 媒体服务是一项以 OData v3 为基础的基于 REST 的服务。 因此，你可以像在任何其他 OData 服务上一样添加、查询、更新和删除实体。 适用时，将标注例外情况。 有关 OData 的详细信息，请参阅 [开放数据协议文档](http://www.odata.org/documentation/)。
+Microsoft Azure 媒体服务是一项以 OData v3 为基础的基于 REST 的服务。 因此，可以像在任何其他 OData 服务上一样添加、查询、更新和删除实体。 适用时，标注例外情况。 有关 OData 的详细信息，请参阅 [开放数据协议文档](http://www.odata.org/documentation/)。
 
 本主题介绍如何使用 REST 管理 Azure 媒体服务实体。
 
@@ -41,7 +41,7 @@ Microsoft Azure 媒体服务是一项以 OData v3 为基础的基于 REST 的服
 >
 >访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](./media-services-rest-how-to-use.md)。
 
->成功连接到 https://media.chinacloudapi.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须按[使用 REST API 连接到媒体服务](./media-services-rest-connect-programmatically.md)中所述对新的 URI 执行后续调用。 
+>成功连接到 https://media.chinacloudapi.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须按[使用 REST 访问 Azure 媒体服务 API](./media-services-rest-connect-with-aad.md) 中所述对新的 URI 执行后续调用。 
 
 ##<a name="adding-entities"></a>添加实体
 

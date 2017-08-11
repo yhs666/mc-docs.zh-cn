@@ -4,33 +4,35 @@ description: "示例应用程序在 Edison 上运行，监视来自 IoT 中心�
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "arduino 从 web 控制 led, arduino 通过 web 控制 led"
+ROBOTS: NOINDEX
+redirect_url: /iot-hub/iot-hub-intel-edison-kit-c-get-started
 ms.assetid: 820d38f3-d3b8-4249-9e2b-f1b9b771e62f
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/08/2016
+origin.date: 03/21/2017
 ms.date: 05/08/2017
 ms.author: v-yiso
-ms.openlocfilehash: 4928ddfab9f716c0b7403e3df606942c88a9fffc
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 6264d26aaba458724d96b21b562f510083aa568a
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="run-a-sample-application-to-receive-cloud-to-device-messages"></a>运行示例应用程序，接收云到设备消息
-在本文中，你将在 Intel Edison 上部署示例应用程序。 示例应用程序监视来自 IoT 中心的传入消息。 还会在计算机上运行 gulp 任务，将消息从 IoT 中心发送到 Edison。 示例应用程序在收到这些消息后，就会让 LED 闪烁。 如果有问题，可在 [故障排除页][troubleshooting]上查找解决方案。
+在本文中，你在 Intel Edison 上部署示例应用程序。 示例应用程序监视来自 IoT 中心的传入消息。 还会在计算机上运行 gulp 任务，将消息从 IoT 中心发送到 Edison。 示例应用程序在收到这些消息后，就会让 LED 闪烁。 如果有问题，可在 [故障排除页][troubleshooting]上查找解决方案。
 
 ## <a name="what-you-will-do"></a>执行的操作
 * 将示例应用程序连接到 IoT 中心。
 * 部署并运行示例应用程序。
 * 将消息从 IoT 中心发送到 Edison，使 LED 闪烁。
 
-## <a name="what-you-will-learn"></a>你要学习的知识
+## <a name="what-you-will-learn"></a>要学习的知识
 本文介绍：
 * 如何监视来自 IoT 中心的传入消息。
 * 如何将云到设备消息从 IoT 中心发送到 Edison。
@@ -98,3 +100,6 @@ gulp 任务将 20 条消息从 IoT 中心发送到 Edison 时，应看到 LED �
 [create-an-azure-function-app-and-storage-account]: ./iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md
 [gulp-command-and-blink-messages]: ./media/iot-hub-intel-edison-lessons/lesson4/gulp_blink_c.png
 [change-the-on-and-off-behavior-of-the-led]: ./iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md
+
+
+<!--Update_Description: update wording-->

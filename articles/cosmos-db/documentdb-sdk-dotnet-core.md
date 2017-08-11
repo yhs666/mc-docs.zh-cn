@@ -13,28 +13,29 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 06/12/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c45595026529369ceda819bc4aebc0221e4090f8
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 3cb22461e533bbf84482ca41155eaecc5c2a397c
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 08/04/2017
 ---
-# DocumentDB .NET Core SDK：发行说明和资源
-<a id="documentdb-net-core-sdk-release-notes-and-resources" class="xliff"></a>
+# <a name="documentdb-net-core-sdk-release-notes-and-resources"></a>DocumentDB .NET Core SDK：发行说明和资源
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET 更改源](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/zh-cn/rest/api/documentdb/)
-> * [REST 资源提供程序](https://docs.microsoft.com/zh-cn/rest/api/documentdbresourceprovider/)
-> * [SQL](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
+> * [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [SQL](documentdb-sql-query-reference.md)
 > 
 > 
+<!-- https://msdn.microsoft.com/library/azure/dn782250.aspx redirect to documentdb-sql-query-reference.md -->
 
 <table>
 
@@ -55,6 +56,7 @@ ms.lasthandoff: 07/07/2017
 
 <!-- Not Available ## Release & Retirement Dates -->
 
-## 另请参阅
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
+
+<!--Update_Description: update link-->

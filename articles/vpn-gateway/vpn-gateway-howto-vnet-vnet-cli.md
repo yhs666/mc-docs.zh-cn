@@ -14,17 +14,17 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/22/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-dazen
-ms.openlocfilehash: 8f3c6813357d25ad1a4ae1bb221076ce23348542
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: affff55bf1caa44f5915fcec6a59d20e7db297c7
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>使用 Azure CLI 配置 VNet 到 VNet 的 VPN 网关连接
 
-本文介绍如何在虚拟网络之间创建 VPN 网关连接。 虚拟网络可位于相同或不同的区域，来自相同或不同的订阅。 本文中的步骤适用于 Resource Manager 部署模型并使用 Azure CLI。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
+本文介绍如何在虚拟网络之间创建 VPN 网关连接。 虚拟网络可位于相同或不同的区域，来自相同或不同的订阅。 从不同的订阅连接 VNet 时，订阅不需要与相同的 Active Directory 租户相关联。 本文中的步骤适用于 Resource Manager 部署模型并使用 Azure CLI。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -44,11 +44,11 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="why-connect-virtual-networks"></a>为什么要连接虚拟网络？
 
-你可能会出于以下原因而连接虚拟网络：
+出于以下原因可能要连接虚拟网络：
 
 * **跨区域地域冗余和地域存在**
 
-  * 你可以使用安全连接设置自己的异地复制或同步，而无需借助于面向 Internet 的终结点。
+  * 可以使用安全连接设置自己的异地复制或同步，而无需借助于面向 Internet 的终结点。
   * 使用 Azure 流量管理器和负载均衡器，可以设置支持跨多个 Azure 区域实现异地冗余的高可用性工作负荷。 一个重要的示例就是对分布在多个 Azure 区域中的可用性组设置 SQL Always On。
 * **具有隔离或管理边界的区域多层应用程序**
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="Plan"></a>计划 IP 地址范围
 
-以下步骤将创建两个虚拟网络，以及它们各自的网关子网和配置。 然后，在两个 VNet 之间配置 VPN 连接。 必须规划好网络配置的 IP 地址范围。 请记住，必须确保没有任何 VNet 范围或本地网络范围存在任何形式的重叠。 在这些示例中，我们没有包括 DNS 服务器。 如果需要虚拟网络的名称解析，请参阅[名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
+以下步骤创建两个虚拟网络，以及它们各自的网关子网和配置。 然后，在两个 VNet 之间创建 VPN 连接。 必须规划好网络配置的 IP 地址范围。 请记住，必须确保没有任何 VNet 范围或本地网络范围存在任何形式的重叠。 在这些示例中，我们没有包括 DNS 服务器。 如果需要虚拟网络的名称解析，请参阅[名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 示例中使用了以下值：
 
@@ -133,12 +133,12 @@ ms.lasthandoff: 07/14/2017
   ```azurecli
   az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
   ```
-5. 创建网关子网。 请注意，网关子网命名为“GatewaySubnet”。 此名称是必需的。 在本示例中，网关子网使用 /27。 尽管创建的网关子网最小可为 /29，但建议至少选择 /28 或 /27，创建包含更多地址的更大子网。 这样便可以留出足够多的地址，满足将来可能需要使用的其他配置。
+5. 创建网关子网。 请注意，网关子网命名为“GatewaySubnet”。 此名称是必需的。 在本示例中，网关子网使用 /27。 尽管创建的网关子网最小可为 /29，但建议至少选择 /28 或 /27，创建包含更多地址的更大子网。 这样便可以留出足够的地址，满足将来可能需要使用的其他配置。
 
   ```azurecli 
   az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestRG1 --address-prefix 10.12.255.0/27
   ```
-6. 请求一个公共 IP 地址，以分配给要为 VNet 创建的网关。 请注意，AllocationMethod 为 Dynamic。 您无法指定要使用的 IP 地址。 它会动态分配到网关。
+6. 请求一个公共 IP 地址，以分配给要为 VNet 创建的网关。 请注意，AllocationMethod 为 Dynamic。 无法指定要使用的 IP 地址。 它会动态分配到网关。
 
   ```azurecli
   az network public-ip create -n VNet1GWIP -g TestRG1 --allocation-method Dynamic
@@ -227,7 +227,7 @@ ms.lasthandoff: 07/14/2017
   az network vnet-gateway show -n VNet4GW -g TestRG4
   ```
 
-3. 创建 TestVNet1 到 TestVNet4 的连接。 本步骤创建从 TestVNet1 到 TestVNet4 的连接。 示例中引用了一个共享密钥。 你可以对共享密钥使用自己的值。 共享密钥必须与两个连接匹配，这一点非常重要。 创建连接短时间即可完成。
+3. 创建 TestVNet1 到 TestVNet4 的连接。 本步骤创建从 TestVNet1 到 TestVNet4 的连接。 示例中引用了一个共享密钥。 可以对共享密钥使用自己的值。 共享密钥必须与两个连接匹配，这一点非常重要。 创建连接短时间即可完成。
 
   ```azurecli
   az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l chinaeast --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
@@ -257,7 +257,7 @@ ms.lasthandoff: 07/14/2017
 
 ![v2v 示意图](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
-在此方案中，我们将连接 TestVNet1 和 TestVNet5。 VNet 驻留在不同订阅中。 此配置的步骤将添加一个额外的 VNet 到 VNet 连接，以便将 TestVNet1 连接到 TestVNet5。
+在此方案中，我们连接 TestVNet1 和 TestVNet5。 VNet 驻留在不同订阅中。 订阅不需要与相同的 Active Directory 租户相关联。 此配置的步骤会添加一个额外的 VNet 到 VNet 连接，以便将 TestVNet1 连接到 TestVNet5。
 
 ### <a name="TestVNet1diff"></a>步骤 5 - 创建并配置 TestVNet1
 
@@ -265,7 +265,7 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="verifyranges"></a>步骤 6 - 验证 IP 地址范围
 
-创建其他连接时，必须验证新虚拟网络的 IP 地址空间是否不与任何其他的 VNet 范围或本地网关范围重叠。 对于本练习，你可以对 TestVNet5 使用以下值：
+创建其他连接时，必须验证新虚拟网络的 IP 地址空间是否不与任何其他的 VNet 范围或本地网关范围重叠。 对于本练习，可以对 TestVNet5 使用以下值：
 
 **TestVNet5 的值：**
 
@@ -294,7 +294,7 @@ ms.lasthandoff: 07/14/2017
 2. 创建 TestVNet5。
 
   ```azurecli
-  az network vnet create -n TestVNet5 -g TestRG5 --address-prefix 10.51.0.0/16 -l japaneast --subnet-name FrontEnd --subnet-prefix 10.51.0.0/24
+  az network vnet create -n TestVNet5 -g TestRG5 --address-prefix 10.51.0.0/16 -l chinaeast--subnet-name FrontEnd --subnet-prefix 10.51.0.0/24
   ```
 
 3. 添加子网。
@@ -318,7 +318,7 @@ ms.lasthandoff: 07/14/2017
 6. 创建 TestVNet5 网关
 
   ```azurecli
-  az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet5GW -l chinaeast--public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
   ```
 
 ### <a name="step-8---create-the-connections"></a>步骤 8 - 创建连接
@@ -356,7 +356,7 @@ ms.lasthandoff: 07/14/2017
 4. **[订阅 5]** 此步骤类似上面的步骤，只不过是创建 TestVNet5 到 TestVNet1 的连接。 请确保共享密钥匹配，并且连接到订阅 5。
 
   ```azurecli
-  az network vpn-connection create -n VNet5ToVNet1 -g TestRG5 --vnet-gateway1 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW -l japaneast --shared-key "eeffgg" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
+  az network vpn-connection create -n VNet5ToVNet1 -g TestRG5 --vnet-gateway1 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW -l chinaeast--shared-key "eeffgg" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
   ```
 
 ## <a name="verify"></a>验证连接
@@ -371,3 +371,5 @@ ms.lasthandoff: 07/14/2017
 
 * 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机文档](/#pivot=services&panel=Compute)。
 * 有关 BGP 的信息，请参阅 [BGP 概述](vpn-gateway-bgp-overview.md)和[如何配置 BGP](vpn-gateway-bgp-resource-manager-ps.md)。
+
+<!--Update_Description: wording update-->

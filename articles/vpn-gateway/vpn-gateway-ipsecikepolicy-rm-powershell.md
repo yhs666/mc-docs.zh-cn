@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/12/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-dazen
-ms.openlocfilehash: d293d93caf6b0975c43171f7161baac1a4691417
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 7ef8370e94c0aca1f13156e058a064d79b4ff35e
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>为 S2S VPN 或 VNet 到 VNet 的连接配置 IPsec/IKE 策略
 
@@ -38,7 +38,8 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 请�
 * [第 5 部分 - 管理（创建、添加、删除）连接的 IPsec/IKE 策略](#managepolicy)
 
 > [!IMPORTANT]
-> 1. 请注意，IPsec/IKE 策略仅适用于基于路由的标准 VPN 网关和高性能 VPN 网关。
+> 1. 请注意 IPsec/IKE 策略仅适用于以下网关 SKU：
+>     - ***Standard*** 和 ***HighPerformance***（基于路由）
 > 2. 一个给定的连接只能指定一个策略组合。
 > 3. 必须指定 IKE（主模式）和 IPsec（快速模式）的所有算法和参数。 不允许指定部分策略。
 > 4. 请查阅 VPN 设备供应商规范，确保本地 VPN 设备支持该策略。 如果策略不兼容，则无法建立 S2S 或 VNet 到 VNet 的连接。
@@ -59,27 +60,42 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 请�
 
 下表列出了支持的加密算法和密钥强度，可供客户配置。
 
-| IPsec/IKEv2  | 选项                                                                 |
+| IPsec/IKEv2  | **选项**                                                                 |
 | ---              | ---                                                                         |
 | IKEv2 加密 | AES256、AES192、AES128、DES3、DES                                           |
 | IKEv2 完整性  | SHA384、SHA256、SHA1、MD5                                                   |
-| DH 组         | ECP384、ECP256、DHGroup24、DHGroup14、DHGroup2048、DHGroup2、DHGroup1、无 |
+| DH 组         | DHGroup24、ECP384、ECP256、DHGroup14、DHGroup2048、DHGroup2、DHGroup1、无 |
 | IPsec 加密 | GCMAES256、GCMAES192、GCMAES128、AES256、AES192、AES128、DES3、DES、无    |
 | IPsec 完整性  | GCMASE256、GCMAES192、GCMAES128、SHA256、SHA1、MD5                          |
-| PFS 组        | ECP384、ECP256、PFS24、PFS2048、PFS14、PFS2、PFS1、无                     |
-| QM SA 生存期*  | 秒数（整数）和 KB 数（整数）                                      |
-| 流量选择器 | UsePolicyBasedTrafficSelectors**（$True/$False - 默认为 $False）            |
+| PFS 组        | PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、无                     |
+| QM SA 生存期   | （**可选**：如果未指定，则使用默认值）<br>秒（整数；至少为 300 秒/默认为 27000 秒）<br>KB（整数；至少为 1024 KB/默认为 102400000 KB）                                                                                |
+| 流量选择器 | UsePolicyBasedTrafficSelectors**（$True/$False; **可选**，如果未指定，则使用默认值 $False）                                                                         |
 |                  |                                                                             |
 
-> [!NOTE]
-> * (*) 在 Azure VPN 网关上，IKEv2 主模式 SA 生存期固定为 28,800 秒
-> * (**) 对于连接，将“UsePolicyBasedTrafficSelectors”设置为 $True，此时会配置 Azure VPN 网关，以连接到基于策略的本地 VPN 防火墙。 如果启用 PolicyBasedTrafficSelectors，则需确保对于本地网络（本地网关）前缀与 Azure 虚拟网络前缀的所有组合，VPN 设备都定义了与之匹配的（而不是任意到任意）流量选择器。 例如，如果本地网络前缀为 10.1.0.0/16 和 10.2.0.0/16，虚拟网络前缀为 192.168.0.0/16 和 172.16.0.0/16，则需指定以下流量选择器：
+> [!IMPORTANT]
+> 1. **如果将 GCMAES 用作 IPsec 加密算法，则必须为 IPsec 完整性选择相同的 GCMAES 算法和密钥长度；例如，对这两者使用 GCMAES128**
+> 2. 在 Azure VPN 网关上，IKEv2 主模式 SA 生存期固定为 28,800 秒
+> 3. 对于连接，将“UsePolicyBasedTrafficSelectors”设置为 $True，此时会配置 Azure VPN 网关，以连接到基于策略的本地 VPN 防火墙。 如果启用 PolicyBasedTrafficSelectors，则需确保对于本地网络（本地网关）前缀与 Azure 虚拟网络前缀的所有组合，VPN 设备都定义了与之匹配的（而不是任意到任意）流量选择器。 例如，如果本地网络前缀为 10.1.0.0/16 和 10.2.0.0/16，虚拟网络前缀为 192.168.0.0/16 和 172.16.0.0/16，则需指定以下流量选择器：
 >   * 10.1.0.0/16 <====> 192.168.0.0/16
 >   * 10.1.0.0/16 <====> 172.16.0.0/16
 >   * 10.2.0.0/16 <====> 192.168.0.0/16
 >   * 10.2.0.0/16 <====> 172.16.0.0/16
 
 如需基于策略的流量选择器的更多详细信息，请参阅[连接多个基于策略的本地 VPN 设备](vpn-gateway-connect-multiple-policybased-rm-ps.md)。
+
+下表列出了自定义策略支持的相应 Diffie-Hellman 组：
+
+| **Diffie-Hellman 组**  | **DHGroup**              | **PFSGroup** | **密钥长度** |
+| ---                       | ---                      | ---          | ---            |
+| 1                         | DHGroup1                 | PFS1         | 768 位 MODP   |
+| 2                         | DHGroup2                 | PFS2         | 1024 位 MODP  |
+| 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048 位 MODP  |
+| 19                        | ECP256                   | ECP256       | 256 位 ECP    |
+| 20                        | ECP384                   | ECP284       | 384 位 ECP    |
+| 24                        | DHGroup24                | PFS24        | 2048 位 MODP  |
+|                           |                          |              |                |
+
+有关更多详细信息，请参阅 [RFC3526](https://tools.ietf.org/html/rfc3526) 和 [RFC5114](https://tools.ietf.org/html/rfc5114)。
 
 ## <a name ="crossprem"></a>第 3 部分 - 新建采用 IPsec/IKE 策略的 S2S VPN 连接
 
@@ -91,7 +107,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 请�
 
 ### <a name="before-you-begin"></a>开始之前
 * 确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-* 你需要安装 Azure Resource Manager PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview)。
+* 需要安装 Azure Resource Manager PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview)。
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>步骤 1 - 创建虚拟网络、VPN 网关和本地网关
 
@@ -124,9 +140,9 @@ $LNGIP6        = "131.107.72.22"
 ```
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2.连接到订阅并创建新资源组
-确保切换到 PowerShell 模式，以便使用Resource Manager cmdlet。 有关详细信息，请参阅[将 Windows PowerShell 与 Resource Manager 配合使用](../powershell-azure-resource-manager.md)。
+确保切换到 PowerShell 模式，以便使用Resource Manager cmdlet。 有关详细信息，请参阅[将 Windows PowerShell 与资源管理器配合使用](../powershell-azure-resource-manager.md)。
 
-打开 PowerShell 控制台并连接到你的帐户。 使用下面的示例来帮助你连接：
+打开 PowerShell 控制台并连接到帐户。 使用下面的示例来帮助连接：
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -135,7 +151,7 @@ New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
 
 #### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3.创建虚拟网络、VPN 网关和本地网关
-以下示例创建包含三个子网的虚拟网络 TestVNet1，并创建 VPN 网关。 替换值时，请务必始终将网关子网特意命名为 GatewaySubnet。 如果命名为其他名称，网关创建将会失败。
+以下示例创建包含三个子网的虚拟网络 TestVNet1，并创建 VPN 网关。 替换值时，请务必始终将网关子网特意命名为 GatewaySubnet。 如果命名为其他名称，网关创建会失败。
 
 ```powershell
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -158,11 +174,21 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 
 #### <a name="1-create-an-ipsecike-policy"></a>1.创建 IPsec/IKE 策略
 下面的示例脚本使用以下算法和参数创建 IPsec/IKE 策略：
+
 * IKEv2：AES256、SHA384、DHGroup24
 * IPsec：AES256、SHA256、PFS24，SA 生存期为 7200 秒，大小为 2048KB
 
 ```powershell
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
+```
+
+如果将 GCMAES 用于 IPsec，必须为 IPsec 加密和完整性使用相同的 GCMAES 算法和密钥长度，例如：
+
+* IKEv2：AES256、SHA384、DHGroup24
+* IPsec：**GCMAES256、GCMAES256**、PFS24、SA 生存期 7200 秒和 2048KB
+
+```powershell
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
 ```
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2.创建采用 IPsec/IKE 策略的 S2S VPN 连接
@@ -353,3 +379,5 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 如需基于策略的流量选择器的更多详细信息，请参阅[连接多个基于策略的本地 VPN 设备](vpn-gateway-connect-multiple-policybased-rm-ps.md)。
 
 连接完成后，即可将虚拟机添加到虚拟网络。 请参阅[创建虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)以获取相关步骤。
+
+<!--Update_Description: add third party devices-->

@@ -1,23 +1,24 @@
 ---
-title: "Azure Active Directory Connect：常见问题 - Azure | Azure"
+title: "Azure Active Directory Connect：常见问题解答 - | Microsoft Docs"
 description: "此页包含有关 Azure AD Connect 的常见问题。"
 services: active-directory
 documentationcenter: 
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: ab8a326f21a6063e44d0db70c66845c9787e5eb9
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 1bfce0064889a6e0eb08d04c31dcf4ba122ca9d8
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>有关 Azure Active Directory Connect 的常见问题
 
@@ -55,16 +56,16 @@ Azure AD Connect 不支持 NetBios 名称包含句点“.”的本地林/域。
 
 ## <a name="environment"></a>环境
 **问：安装 Azure AD Connect 之后，是否支持重命名服务器？**  
-不支持。 更改服务器名称将导致同步引擎无法连接到 SQL 数据库，并且服务将无法启动。
+不支持。 更改服务器名称会导致同步引擎无法连接到 SQL 数据库，并且服务将无法启动。
 
 ## <a name="identity-data"></a>标识数据
 **问：Azure AD 中的 UPN (userPrincipalName) 属性与本地 UPN 不匹配，这是为什么？**  
 请参阅以下文章：
 
-- [Office 365、Azure 或 Intune 中的用户名与本地 UPN 或备用登录 ID 不匹配](https://support.microsoft.com/zh-cn/kb/2523192)
-- [在将用户帐户的 UPN 更改为使用不同的联合域后，Azure Active Directory 同步工具未同步更改](https://support.microsoft.com/zh-cn/kb/2669550)
+- [Office 365、Azure 或 Intune 中的用户名与本地 UPN 或备用登录 ID 不匹配](https://support.microsoft.com/kb/2523192)
+- [在将用户帐户的 UPN 更改为使用不同的联合域后，Azure Active Directory 同步工具未同步更改](https://support.microsoft.com/kb/2669550)
 
-你还可以根据 [Azure AD Connect 同步服务功能](active-directory-aadconnectsyncservice-features.md)中所述配置 Azure AD，以允许同步引擎更新 userPrincipalName。
+还可以根据 [Azure AD Connect 同步服务功能](active-directory-aadconnectsyncservice-features.md)中所述配置 Azure AD，以允许同步引擎更新 userPrincipalName。
 
 **问：是否支持将本地 AD 组/联系人对象与现有的 Azure AD 组/联系人对象进行软匹配？**  
 否，目前不支持。
@@ -72,15 +73,7 @@ Azure AD Connect 不支持 NetBios 名称包含句点“.”的本地林/域。
 **问：是否支持在现有的 Azure AD 组/联系人对象上手动设置 ImmutableId 属性，以便将其与本地 AD 组/联系人对象进行硬匹配？**  
 否，目前不支持。
 
-## <a name="security"></a>“安全”
-**问：是将在失败尝试次数达到特定数字后锁定帐户，还是会使用更复杂的策略？**</br>
-我们使用更复杂的策略锁定帐户。  此策略基于请求的 IP 和输入的密码。 根据存在攻击的可能性，锁定持续时间也会增加。  
 
-**问：某些（常用）密码被拒绝并显示消息“此密码已使用多次”，这是指当前 Active Directory 中使用的密码吗？**</br>
-这是指全局通用的密码，例如“Password”和“123456”的任何变体。
-
-**问：B2C 租户中会阻止来自可疑来源（僵尸网络、Tor 终结点）的登录请求还是需要使用基本或高级版租户才能阻止？**</br>
-我们确实有一个网关，该网关筛选请求且提供一些保护免受僵尸网络的危害，并应用于所有 B2C 租户。 
 
 ## <a name="custom-configuration"></a>自定义配置
 **问：在哪里可以找到 Azure AD Connect 的 PowerShell cmdlet 介绍？**  
@@ -98,6 +91,8 @@ Azure AD Connect 不支持 NetBios 名称包含句点“.”的本地林/域。
 **问：是否有方法来阻止并发会话？**</br>
 不可以。
 
+
+
 ## <a name="troubleshooting"></a>故障排除
 **问：如何获取有关 Azure AD Connect 的帮助？**
 
@@ -112,3 +107,6 @@ Azure AD Connect 不支持 NetBios 名称包含句点“.”的本地林/域。
 [Azure AD Connect 客户支持](https://manage.windowsazure.cn/?getsupport=true)
 
 - 使用此链接通过 Azure 门户获取支持。
+
+
+<!-- Update_Description: update meta properties -->

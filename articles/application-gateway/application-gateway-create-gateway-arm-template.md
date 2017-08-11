@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 07/03/2017
+ms.date: 08/07/2017
 ms.author: v-dazen
-ms.openlocfilehash: 57710eae044cc2165d4c9de60d0f1f33f4a3de71
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 591e6191e0d0b57148ef25620a39f09caca05a21
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建应用程序网关
 
@@ -55,7 +55,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 ## <a name="download-and-understand-the-azure-resource-manager-template"></a>下载并了解 Azure Resource Manager 模板
 
-可以从 GitHub 下载用于创建虚拟网络和两个子网的现有 Azure Resource Manager 模板，进行任何所需的更改，然后重用该模板。 为此，请使用以下步骤：
+可以从 GitHub 下载用于创建虚拟网络和两个子网的现有 Azure Resource Manager 模板，进行任何所需的更改，并重用该模板。 为此，请使用以下步骤：
 
 1. 导航到[创建启用了 Web 应用程序防火墙的应用程序网关](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf)。
 1. 单击 **azuredeploy.json**，然后单击 **RAW**。
@@ -183,7 +183,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
     **-n（或 --name）**。 新资源组的名称。 在本方案中为 *appgatewayRG*。
 
-    **-l（或 --location）**。 将创建新资源组的 Azure 区域。 在本方案中为 *chinanorth*。
+    **-l（或 --location）**。 会创建新资源组的 Azure 区域。 在本方案中为 *chinanorth*。
 
 1. 运行 `az group deployment create` cmdlet，使用上述步骤中下载并修改的模板和参数文件部署新虚拟网络。 在输出后显示的列表说明了所用的参数。
 
@@ -201,7 +201,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
     [![“部署到 Azure”](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-application-gateway-public-ip%2Fazuredeploy.json)
 
-1. 在门户上填写部署模板的参数，然后单击“确定”。
+1. 在门户上填写部署模板的参数，并单击“确定”。
 
     ![Parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
 
@@ -211,8 +211,15 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 ## <a name="providing-certificate-data-to-resource-manager-templates"></a>向 Resource Manager 模板提供证书数据
 
-如果将 SSL 与模板一起使用，请提供 base64 字符串的证书，而不是上传证书。 若要将 .pfx 或 .cer 转换为 base64 字符串，请运行以下 PowerShell 命令。 此代码片段会证书将转换为 base64 字符串，以便将其提供给模板。 预期输出为一个字符串，它可以存储在变量中，并粘贴到模板中。
+如果将 SSL 与模板一起使用，需要提供 base64 字符串格式的证书，而不是上传证书。 若要将 .pfx 或 .cer 转换为 base64 字符串，请运行以下命令之一。 以下命令将证书转换为可提供给模板的 base64 字符串。 预期输出为一个字符串，它可以存储在变量中，并粘贴到模板中。
 
+### <a name="macos"></a>macOS
+```bash
+cert=$( base64 <certificate path and name>.pfx )
+echo $cert
+```
+
+### <a name="windows"></a>Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```
@@ -243,3 +250,5 @@ az group delete --name appgatewayRG
 
 * [Azure 负载均衡器](/load-balancer/)
 * [Azure 流量管理器](/traffic-manager/)
+
+<!--Update_Description: add script for getting cert in macOS-->

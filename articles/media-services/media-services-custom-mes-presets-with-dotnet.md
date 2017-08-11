@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: v-johch
-ms.openlocfilehash: 3089bfd142c214559eed042378cdd768e61f0924
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: eb071b324f9c17e209bb35883196c231af0c6134
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>自定义 Media Encoder Standard 预设
 
 ## <a name="overview"></a>概述
 
-本主题演示如何通过使用自定义预设的 Media Encoder Standard (MES) 执行高级编码。 本主题使用 .NET 创建编码任务和执行此任务的作业。  
+本主题演示如何通过使用自定义预设的 Media Encoder Standard (MES) 执行高级编码。 本主题使用 .NET 创建编码任务和执行此任务的作业。
 
 本主题介绍如何使用 [H264 多比特率 720p](./media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 预设和减少层数来进行自定义预设。 [自定义 Media Encoder Standard 预设](./media-services-advanced-encoding-with-mes.md)主题演示了可用于执行高级编码任务的自定义预设。
 
@@ -32,81 +32,81 @@ ms.lasthandoff: 06/21/2017
 
 ### <a name="original-preset"></a>原始预设
 
-将在 [H264 多比特率 720p](./media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 主题中定义的 JSON 保存到具有 .json 扩展名的文件。 例如，CustomPreset_JSON.json。
+将 [H264 多比特率 720p](./media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 主题中定义的 JSON 保存到某个具有 .json 扩展名的文件。 例如，CustomPreset_JSON.json。
 
 ### <a name="customized-preset"></a>自定义的预设
 
 打开“CustomPreset_JSON.json”文件，删除“H264Layers” 中的前三层，使文件如下所示。
 
-```
-{  
-  "Version": 1.0,  
-  "Codecs": [  
-    {  
-      "KeyFrameInterval": "00:00:02",  
-      "H264Layers": [  
-        {  
-          "Profile": "Auto",  
-          "Level": "auto",  
-          "Bitrate": 1000,  
-          "MaxBitrate": 1000,  
-          "BufferWindow": "00:00:05",  
-          "Width": 640,  
-          "Height": 360,  
-          "BFrames": 3,  
-          "ReferenceFrames": 3,  
-          "AdaptiveBFrame": true,  
-          "Type": "H264Layer",  
-          "FrameRate": "0/1"  
-        },  
-        {  
-          "Profile": "Auto",  
-          "Level": "auto",  
-          "Bitrate": 650,  
-          "MaxBitrate": 650,  
-          "BufferWindow": "00:00:05",  
-          "Width": 640,  
-          "Height": 360,  
-          "BFrames": 3,  
-          "ReferenceFrames": 3,  
-          "AdaptiveBFrame": true,  
-          "Type": "H264Layer",  
-          "FrameRate": "0/1"  
-        },  
-        {  
-          "Profile": "Auto",  
-          "Level": "auto",  
-          "Bitrate": 400,  
-          "MaxBitrate": 400,  
-          "BufferWindow": "00:00:05",  
-          "Width": 320,  
-          "Height": 180,  
-          "BFrames": 3,  
-          "ReferenceFrames": 3,  
-          "AdaptiveBFrame": true,  
-          "Type": "H264Layer",  
-          "FrameRate": "0/1"  
-        }  
-      ],  
-      "Type": "H264Video"  
-    },  
-    {  
-      "Profile": "AACLC",  
-      "Channels": 2,  
-      "SamplingRate": 48000,  
-      "Bitrate": 128,  
-      "Type": "AACAudio"  
-    }  
-  ],  
-  "Outputs": [  
-    {  
-      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",  
-      "Format": {  
-        "Type": "MP4Format"  
-      }  
-    }  
-  ]  
-}  
+```.net
+{
+  "Version": 1.0,
+  "Codecs": [
+    {
+      "KeyFrameInterval": "00:00:02",
+      "H264Layers": [
+        {
+          "Profile": "Auto",
+          "Level": "auto",
+          "Bitrate": 1000,
+          "MaxBitrate": 1000,
+          "BufferWindow": "00:00:05",
+          "Width": 640,
+          "Height": 360,
+          "BFrames": 3,
+          "ReferenceFrames": 3,
+          "AdaptiveBFrame": true,
+          "Type": "H264Layer",
+          "FrameRate": "0/1"
+        },
+        {
+          "Profile": "Auto",
+          "Level": "auto",
+          "Bitrate": 650,
+          "MaxBitrate": 650,
+          "BufferWindow": "00:00:05",
+          "Width": 640,
+          "Height": 360,
+          "BFrames": 3,
+          "ReferenceFrames": 3,
+          "AdaptiveBFrame": true,
+          "Type": "H264Layer",
+          "FrameRate": "0/1"
+        },
+        {
+          "Profile": "Auto",
+          "Level": "auto",
+          "Bitrate": 400,
+          "MaxBitrate": 400,
+          "BufferWindow": "00:00:05",
+          "Width": 320,
+          "Height": 180,
+          "BFrames": 3,
+          "ReferenceFrames": 3,
+          "AdaptiveBFrame": true,
+          "Type": "H264Layer",
+          "FrameRate": "0/1"
+        }
+      ],
+      "Type": "H264Video"
+    },
+    {
+      "Profile": "AACLC",
+      "Channels": 2,
+      "SamplingRate": 48000,
+      "Bitrate": 128,
+      "Type": "AACAudio"
+    }
+  ],
+  "Outputs": [
+    {
+      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",
+      "Format": {
+        "Type": "MP4Format"
+      }
+    }
+  ]
+}
 ```
 
 ## <a id="encoding_with_dotnet"></a>使用媒体服务 .NET SDK 进行编码
@@ -115,20 +115,20 @@ ms.lasthandoff: 06/21/2017
 
 - 创建编码作业。
 - 获取对 Media Encoder Standard 编码器的引用。
-- 加载前面部分中创建的自定义 JSON 预设。 
+- 加载前面部分中创建的自定义 JSON 预设。
 
-    ```
+    ```.net
     // Load the JSON from the local file.
-    string configuration = File.ReadAllText(fileName);  
+    string configuration = File.ReadAllText(fileName);
     ```
 
-- 将编码任务添加到作业。 
+- 将编码任务添加到作业。
 - 指定要编码的输入资产。
-- 创建将包含所编码资产的输出资产。
+- 创建要包含所编码资产的输出资产。
 - 添加事件处理程序以检查作业进度。
 - 提交作业。
 
-    ```
+    ```.net
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -200,7 +200,7 @@ ms.lasthandoff: 06/21/2017
             {
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-                // Get a media processor reference, and pass to it the name of the 
+                // Get a media processor reference, and pass to it the name of the
                 // processor to use for the specific task.
                 IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
@@ -215,9 +215,9 @@ ms.lasthandoff: 06/21/2017
 
                 // Specify the input asset to be encoded.
                 task.InputAssets.Add(asset);
-                // Add an output asset to contain the results of the job. 
-                // This output is specified as AssetCreationOptions.None, which 
-                // means the output asset is not encrypted. 
+                // Add an output asset to contain the results of the job.
+                // This output is specified as AssetCreationOptions.None, which
+                // means the output asset is not encrypted.
                 task.OutputAssets.AddNew("Output asset",
                     AssetCreationOptions.None);
 
@@ -231,8 +231,8 @@ ms.lasthandoff: 06/21/2017
             private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
             {
                 Console.WriteLine("Job state changed event:");
-                Console.WriteLine("  Previous state: " + e.PreviousState);
-                Console.WriteLine("  Current state: " + e.CurrentState);
+                Console.WriteLine("Previous state: " + e.PreviousState);
+                Console.WriteLine("Current state: " + e.CurrentState);
                 switch (e.CurrentState)
                 {
                     case JobState.Finished:
@@ -274,4 +274,5 @@ ms.lasthandoff: 06/21/2017
     ```
 
 ## <a name="see-also"></a>另请参阅
+
 [媒体服务编码概述](./media-services-encode-asset.md)

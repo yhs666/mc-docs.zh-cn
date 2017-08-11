@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 origin.date: 06/14/2017
 ms.date: 07/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: 20c80e012c1ff0125fabae1e99c37c1c88b7a2c3
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: f6184dc394a2feab1293eb39657041d762d9fc0a
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>关于用于站点到站点 VPN 网关连接的 VPN 设备和 IPsec/IKE 参数
 
-通过 VPN 网关配置站点到站点 (S2S) 跨界 VPN 连接需要用到 VPN 设备。 在创建混合解决方案时，或者每当你想要在本地网络与虚拟网络之间建立安全连接时，可以使用站点到站点连接。 本文提供了适用于 Azure VPN 网关的 IPsec/IKE 参数的列表，以及连接到 Azure VPN 网关的有效 VPN 设备的列表。
+通过 VPN 网关配置站点到站点 (S2S) 跨界 VPN 连接需要用到 VPN 设备。 在创建混合解决方案时，或者每想要在本地网络与虚拟网络之间建立安全连接时，可以使用站点到站点连接。 本文提供了适用于 Azure VPN 网关的 IPsec/IKE 参数的列表，以及连接到 Azure VPN 网关的有效 VPN 设备的列表。
 
 > [!IMPORTANT]
 > 如果遇到本地 VPN 设备与 Azure VPN 网关之间的连接问题，请参阅[已知的设备兼容性问题](#known)。 
@@ -37,7 +37,7 @@ ms.lasthandoff: 07/14/2017
 * 除非另有说明，否则高性能 VPN 网关和 RouteBased VPN 网关的规范是相同的。 例如，经验证与 RouteBased VPN 网关兼容的 VPN 设备也与 Azure 高性能 VPN 网关兼容。
 
 > [!NOTE]
-> 配置站点到站点连接时，需要为你的 VPN 设备提供面向公众的 IPv4 IP 地址。
+> 配置站点到站点连接时，需要为 VPN 设备提供面向公众的 IPv4 IP 地址。
 >                
 
 ## <a name="devicetable"></a>验证的 VPN 设备和设备配置指南
@@ -56,7 +56,7 @@ ms.lasthandoff: 07/14/2017
 | Cisco              |ASA       |8.3 |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |不兼容 |
 | Cisco |ASR |PolicyBased：IOS 15.1<br>RouteBased：IOS 15.2 |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased：IOS 15.0<br>RouteBased*：IOS 15.1 |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[配置示例*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
-| Citrix |NetScaler MPX、SDX、VPX |10.1 及以上 | |不兼容 |
+| Citrix |NetScaler MPX、SDX、VPX |10.1 及以上 |[配置指南](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |不兼容 |
 | F5 |BIG-IP 系列 |12.0 |[配置指南](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[配置指南](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.4.2 |  |[配置指南](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
 | Internet Initiative Japan (IIJ) |SEIL 系列 |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[配置指南](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |不兼容 |
@@ -77,30 +77,30 @@ ms.lasthandoff: 07/14/2017
 即使没有看到设备在“已验证的 VPN 设备”表列出中，该设备也有可能适用于站点到站点连接。 请联系设备制造商了解更多支持和配置说明。
 
 ## <a name="editing"></a>编辑设备配置示例
-在下载提供的 VPN 设备配置示例后，你需要替换一些值来反映你环境的设置。
+在下载提供的 VPN 设备配置示例后，需要替换一些值来反映你环境的设置。
 
 ### <a name="to-edit-a-sample"></a>编辑示例的步骤：
 
 1. 使用记事本打开示例。
-2. 搜索所有 <*text*> 字符串并将其替换为与你的环境相关的值。 请确保包含 < 和 >。 指定名称时，你选择的名称应是唯一的。 如果命令无效，请查看设备制造商文档。
+2. 搜索所有 <*text*> 字符串并将其替换为与环境相关的值。 请确保包含 < 和 >。 指定名称时，选择的名称应是唯一的。 如果命令无效，请查看设备制造商文档。
 
 | **示例文本** | **更改为** |
 | --- | --- |
-| &lt;RP_OnPremisesNetwork&gt; |你为此对象选择的名称。 示例：myOnPremisesNetwork |
-| &lt;RP_AzureNetwork&gt; |你为此对象选择的名称。 示例：myAzureNetwork |
-| &lt;RP_AccessList&gt; |你为此对象选择的名称。 示例：myAzureAccessList |
-| &lt;RP_IPSecTransformSet&gt; |你为此对象选择的名称。 示例：myIPSecTransformSet |
-| &lt;RP_IPSecCryptoMap&gt; |你为此对象选择的名称。 示例：myIPSecCryptoMap |
+| &lt;RP_OnPremisesNetwork&gt; |为此对象选择的名称。 示例：myOnPremisesNetwork |
+| &lt;RP_AzureNetwork&gt; |为此对象选择的名称。 示例：myAzureNetwork |
+| &lt;RP_AccessList&gt; |为此对象选择的名称。 示例：myAzureAccessList |
+| &lt;RP_IPSecTransformSet&gt; |为此对象选择的名称。 示例：myIPSecTransformSet |
+| &lt;RP_IPSecCryptoMap&gt; |为此对象选择的名称。 示例：myIPSecCryptoMap |
 | &lt;SP_AzureNetworkIpRange&gt; |指定范围。 示例：192.168.0.0 |
 | &lt;SP_AzureNetworkSubnetMask&gt; |指定子网掩码。 示例：255.255.0.0 |
 | &lt;SP_OnPremisesNetworkIpRange&gt; |指定本地范围。 示例：10.2.1.0 |
 | &lt;SP_OnPremisesNetworkSubnetMask&gt; |指定本地子网掩码。 示例：255.255.255.0 |
-| &lt;SP_AzureGatewayIpAddress&gt; |此信息特定于你的虚拟网络，并位于经典管理门户的“网关 IP 地址”中。 |
-| &lt;SP_PresharedKey&gt; |此信息特定于你的虚拟网络，并作为“管理密钥”位于经典管理门户中。 |
+| &lt;SP_AzureGatewayIpAddress&gt; |此信息特定于虚拟网络，并位于经典管理门户的“网关 IP 地址”中。 |
+| &lt;SP_PresharedKey&gt; |此信息特定于虚拟网络，并作为“管理密钥”位于经典管理门户中。 |
 
 ## <a name="ipsec"></a>IPsec/IKE 参数
 > [!NOTE]
-> 尽管 Azure VPN 网关支持下表中列出的值，但你目前无法从 Azure VPN 网关中选择或指定算法或参数的特定组合。 你必须从本地 VPN 设备指定任何约束。 此外，还必须将 **MSS** 固定在 **1350**。
+> 尽管 Azure VPN 网关支持下表中列出的值，但目前无法从 Azure VPN 网关中指定或选择算法或参数的特定组合。 必须从本地 VPN 设备指定任何约束。 此外，还必须将 **MSS** 固定在 **1350**。
 > 
 >
 
@@ -178,7 +178,7 @@ ms.lasthandoff: 07/14/2017
 ## <a name="known"></a>已知的设备兼容性问题
 
 > [!IMPORTANT]
-> 这些是第三方 VPN 设备与 Azure VPN 网关之间的已知兼容性问题。 Azure 团队正积极与供应商合作解决此处列出的问题。 解决问题后，将使用最新的信息更新此页。 请定期查看。
+> 这些是第三方 VPN 设备与 Azure VPN 网关之间的已知兼容性问题。 Azure 团队正积极与供应商合作解决此处列出的问题。 解决问题后，使用最新的信息更新此页。 请定期查看。
 >
 >
 

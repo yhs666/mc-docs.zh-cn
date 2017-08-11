@@ -12,23 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/07/2017
-ms.date: 06/05/2017
+origin.date: 07/03/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: e4272b32fd95a28434013dbe2621a7238f7d83fa
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.date: 08/14/2017
+ms.openlocfilehash: db0e568f8b6139f01995aeee95ac86cdded65af1
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/04/2017
 ---
-
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>使用 Azure 门户配置 IoT 中心文件上传
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
 ## <a name="file-upload"></a>文件上传
-若要使用 [IoT 中心的文件上传功能][lnk-upload]，必须先将 Azure 存储帐户与中心关联。 选择“**文件上传**”设置，即可显示正在修改的 IoT 中心的文件上传属性列表。
+
+要使用 [IoT 中心的文件上传功能][lnk-upload]，必须先将 Azure 存储帐户与中心关联。 选择“文件上传”，以显示正在修改的 IoT 中心的文件上传属性列表。
 
 ![在门户中查看 IoT 中心文件上传设置][13]
 
@@ -58,7 +57,7 @@ ms.lasthandoff: 05/26/2017
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南][lnk-devguide]
-* [使用 IoT Edge 模拟设备][lnk-gateway]
+* [使用 IoT Edge 模拟设备][lnk-iotedge]
 * [从根本上保护 IoT 解决方案][lnk-securing]
 
   [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
@@ -72,5 +71,8 @@ ms.lasthandoff: 05/26/2017
 [lnk-monitor]: ./iot-hub-operations-monitoring.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: ./iot-hub-security-ground-up.md
+
+
+<!--Update_Description: update meta data and wording-->

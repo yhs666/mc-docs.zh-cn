@@ -13,14 +13,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 06/07/2017
-ms.date: 07/17/2017
+origin.date: 06/22/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6d0b9bd50636667b007cbbe1f09065200e6635ae
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: d6f4a61be9a61bc9054c44975eee82ba11d7a3aa
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB：使用表 API 生成 .NET 应用程序
 
@@ -44,18 +44,20 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 ## <a name="add-sample-data"></a>添加示例数据
 
-现在可以使用数据资源管理器将数据添加到新表。
+现在可以使用数据资源管理器（预览版）将数据添加到新表。
 
-1. 在数据资源管理器中，展开 **sample-database**、**sample-table**，单击“实体”，并单击“添加实体”。
-2. 现在请将数据添加到 PartitionKey 值框和 RowKey 值框，然后单击“添加实体”。
+1. 在数据资源管理器中，展开 **sample-table**，单击“实体”，然后单击“添加实体”。
 
-   ![在 Azure 门户的数据资源管理器中创建新文档](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+   ![在 Azure 门户的数据资源管理器中创建新实体](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+2. 现在请将数据添加到 PartitionKey 值框和 RowKey 值框，并单击“添加实体”。
+
+   ![为新实体设置分区键和行键](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
 
     现在可以在数据资源管理器中将更多实体添加到表、编辑实体或查询数据。 使用数据资源管理器还可以缩放吞吐量，并将存储过程、用户定义的函数和触发器添加到表中。
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在，我们从 github 克隆 DocumentDB API 应用、设置连接字符串，并运行该应用。 你会看到以编程方式处理数据是多么容易。 
+现在让我们从 github 克隆表应用、设置连接字符串，并运行。 你会看到以编程方式处理数据是多么容易。 
 
 1. 打开 git 终端窗口（例如 git bash）并使用 `cd` 切换到工作目录。  
 
@@ -85,7 +87,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
     table.CreateIfNotExists();
     ```
 
-* 创建一个新的表容器。 你会注意到，该代码非常类似于常规的 Azure 表存储 SDK 
+* 创建一个新的表容器。 你会注意到，该代码非常类似于常规的 Azure 表存储 SDK。 
 
     ```csharp
     CustomerEntity item = new CustomerEntity()
@@ -100,26 +102,18 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 ## <a name="update-your-connection-string"></a>更新连接字符串
 
-现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
+现在将更新连接字符串信息，使应用能够与 Azure Cosmos DB 通信。 
 
-1. 在 [Azure 门户](http://portal.azure.cn/)的 Azure Cosmos DB 帐户的左侧导航栏中，单击“密钥”，然后单击“读写密钥”。 使用屏幕右侧的复制按钮将 URI 和主密钥复制到下一步的 app.config 文件中。
+1. 在 Visual Studio 中，打开 app.config 文件。 
 
-    ![在 Azure 门户的“密钥”边栏选项卡中查看并复制访问密钥](./media/create-table-dotnet/keys.png)
+2. 在 [Azure 门户](http://portal.azure.cn/)的 Azure Cosmos DB 左侧导航菜单中，单击“连接字符串”。 然后在新窗格中单击连接字符串的复制按钮。 
 
-2. 在 Visual Studio 中，打开 app.config 文件。 
+    ![在“连接字符串”窗格中查看和复制终结点和帐户密钥](./media/create-table-dotnet/keys.png)
 
-3. 从门户中复制 Azure Cosmos DB 帐户名称，并在 app.config 中将其设为 PremiumStorageConnection 字符串值中 AccountName 的值。 在上面的屏幕截图中，帐户名称为 cosmos-db-quickstart。 帐户名称会显示在门户顶部。
+3. 将值粘贴到 app.config 文件中，充当 PremiumStorageConnectionString 的值。 
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.cn" />`
-
-4. 然后从门户复制“主密钥”的值，并在 PremiumStorageConnectionString 中将其设为 AccountKey 的值。 
-
-    `AccountKey=AUTHKEY`
-
-5. 最后，从门户的“密钥”页复制 URI 值（使用复制按钮），并将其设为 PremiumStorageConnectionString 的 TableEndpoint 的值。
-
-    `TableEndpoint=https://COSMOSDB.documents.azure.cn`
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.cn" />`    
 
     可以让 StandardStorageConnectionString 保留原样。
 
@@ -127,17 +121,25 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 ## <a name="run-the-web-app"></a>运行 Web 应用
 
-1. 在 Visual Studio 中，右键单击解决方案资源管理器中的项目，并单击“管理 NuGet 包”。 
+1. 在 Visual Studio 中，右键单击**解决方案资源管理器**中的 **PremiumTableGetStarted** 项目，然后单击“管理 NuGet 包”。 
 
-2. 在 NuGet“浏览”框中，键入 *WindowsAzure.Storage*，并选中“包括预发行版”框。 
+2. 在 NuGet“浏览”框中，键入 WindowsAzure.Storage-PremiumTable。
 
-3. 从结果中安装“Microsoft Azure 存储高级表”库。 这将安装预览版 Azure Cosmos DB 表 API 包以及所有依赖项。 请注意，这是与 Azure 表存储所使用的 Microsoft Azure 存储包不同的 NuGet 包。 
+3. 选中“包括预发行版”框。 
 
-4. 单击 Ctrl+F5 运行应用程序。
+4. 从结果中安装“WindowsAzure.Storage-PremiumTable”库。 这会安装预览版 Azure Cosmos DB 表 API 包以及所有依赖项。 请注意，这是与 Azure 表存储所使用的 Microsoft Azure 存储包不同的 NuGet 包。 
 
-    控制台窗口会显示添加到表中的数据。 完成脚本后，关闭控制台窗口。 
+5. 单击 Ctrl+F5 运行应用程序。
 
-现可返回到数据资源管理器，查看查询、修改和处理此新数据。 
+    控制台窗口会显示在表中添加、检索、查询、替换和删除的数据。 完成脚本后，按任意键关闭控制台窗口。 
+
+    ![快速入门的控制台输出](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-console-output.png)
+
+6. 若要查看数据资源管理器中的新实体，请直接注释掉 program.cs 中的第 188-208 行使其不会被删除，然后再次运行示例。 
+
+    现在可以回到数据资源管理器，单击“刷新”，展开“人员”表，再单击“实体”，然后即可使用该新数据。 
+
+    ![数据资源管理器中的新实体](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-data-explorer.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 
@@ -148,7 +150,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 如果不打算继续使用此应用，请删除本快速入门教程在 Azure 门户中创建的所有资源，步骤如下： 
 
 1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。 
-2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，然后单击“删除”。
+2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -156,3 +158,5 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 > [!div class="nextstepaction"]
 > [使用表 API 的查询](tutorial-query-table.md)
+
+<!--Update_Description: update meta properties, wording update -->

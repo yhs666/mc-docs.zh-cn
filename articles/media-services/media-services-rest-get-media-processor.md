@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2017
 ms.author: v-johch
-ms.openlocfilehash: 259646bb4f19c17b4537961c8785af61c968b2e6
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 2d92239e857dc10cd00f91924e1a7e5f4b98fd87
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>如何：获取媒体处理器实例
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 06/21/2017
 > 
 
 ## <a name="overview"></a>概述
-在媒体服务中，媒体处理器是完成特定处理任务（例如，对媒体内容进行编码、格式转换、加密或解密）的组件。 通常，当你创建一个任务以便对媒体内容进行编码、加密或格式转换时，就需要创建一个媒体处理器。
+在媒体服务中，媒体处理器是完成特定处理任务（例如，对媒体内容进行编码、格式转换、加密或解密）的组件。 通常，创建一个任务以便对媒体内容进行编码、加密或格式转换时，就需要创建一个媒体处理器。
 
 下表提供了每个可用媒体处理器的名称和说明。
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 06/21/2017
 > 
 > 访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
 > 
-> 必须按[使用 REST API 连接到媒体服务](media-services-rest-connect-programmatically.md)中所述对 URI 执行后续调用。 
+> 必须按[使用 REST 访问 Azure 媒体服务 API](./media-services-rest-connect-with-aad.md) 中所述对 URI 执行后续调用。 
 > 
 > 
 

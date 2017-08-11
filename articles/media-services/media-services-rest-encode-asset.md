@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 01/05/2017
 ms.date: 02/24/2017
 ms.author: v-johch
-ms.openlocfilehash: dc814390c657a8acb23383c3706645e750c28a7b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 1a6dec745e003946b5e3f9ef7638e4fc5d0c4382
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 #<a name="how-to-encode-an-asset-using-media-encoder-standard"></a>如何使用 Media Encoder Standard 对资产进行编码
 
@@ -28,16 +28,16 @@ ms.lasthandoff: 06/21/2017
 >- [REST](./media-services-rest-encode-asset.md)
 
 ##<a name="overview"></a>概述
-要通过 Internet 传送数字视频，你必须对媒体进行压缩。 数字视频文件相当大，可能因过大而无法通过 Internet 传送或者无法在你客户的设备上正常显示。 编码是压缩视频和音频以便你的客户能够查看媒体的过程。
+要通过 Internet 传送数字视频，必须对媒体进行压缩。 数字视频文件相当大，可能因过大而无法通过 Internet 传送或者无法在客户的设备上正常显示。 编码是压缩视频和音频以便客户能够查看媒体的过程。
 
-编码作业是媒体服务中最常见的处理操作之一。 可通过创建编码作业将媒体文件从一种编码转换为另一种编码。 编码时，可以使用媒体服务的内置编码器（Media Encoder Standard）。 你也可以使用媒体服务合作伙伴提供的编码器；可通过 Azure 应用商店获取第三方编码器。 可以使用为编码器定义的预设字符串，或使用预设配置文件来指定编码任务的详细信息。 若要查看可用预设的类型，请参阅 [Media Encoder Standard 的任务预设](http://msdn.microsoft.com/zh-cn/library/mt269960)。 
+编码作业是媒体服务中最常见的处理操作之一。 可通过创建编码作业将媒体文件从一种编码转换为另一种编码。 编码时，可以使用媒体服务的内置编码器（Media Encoder Standard）。 也可以使用媒体服务合作伙伴提供的编码器；可通过 Azure 应用商店获取第三方编码器。 可以使用为编码器定义的预设字符串，或使用预设配置文件来指定编码任务的详细信息。 若要查看可用预设的类型，请参阅 [Media Encoder Standard 的任务预设](http://msdn.microsoft.com/zh-cn/library/mt269960)。 
 
 每个作业可以有一个或多个任务，具体因要完成的处理类型而异。 REST API 允许通过以下两种方式之一创建作业及其相关任务：
 
 - 可通过 Job 实体上的 Tasks 导航属性，或
 - 通过 OData 批处理以内联形式定义任务。
 
-建议始终将夹层文件编码为自适应比特率 MP4 集，然后使用[动态打包](./media-services-dynamic-packaging-overview.md)将该集转换为所需的格式。
+建议始终将夹层文件编码为自适应比特率 MP4 集，并使用 [动态打包](./media-services-dynamic-packaging-overview.md)将该集转换为所需的格式。
 
 如果输出资产已经过存储加密，则必须配置资产传送策略。 有关详细信息，请参阅[配置资产传送策略](./media-services-rest-configure-asset-delivery-policy.md)。
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 06/21/2017
 >
 >访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](./media-services-rest-how-to-use.md)。
 
->成功连接到 https://media.chinacloudapi.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须按[使用 REST API 连接到媒体服务](./media-services-rest-connect-programmatically.md)中所述对新的 URI 执行后续调用。 
+>成功连接到 https://media.chinacloudapi.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须按[使用 REST 访问 Azure 媒体服务 API](./media-services-rest-connect-with-aad.md) 中所述对新的 URI 执行后续调用。 
 >
 >使用 JSON 并指定在请求中使用 __metadata 关键字（例如，为了引用某个链接对象）时，必须将 Accept 标头设置为 [JSON 详细格式](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)：Accept: application/json;odata=verbose。
 
@@ -91,7 +91,7 @@ HTTP/1.1 201 Created
 
 ##<a name="considerations"></a>注意事项
 
-- TaskBody 属性必须使用文本 XML 来定义将由任务使用的输入资产或输出资产的数量。 任务主题包含 XML 的 XML 架构定义。
+- TaskBody 属性必须使用文本 XML 来定义由任务使用的输入资产或输出资产的数量。 任务主题包含 XML 的 XML 架构定义。
 - 在 TaskBody 定义中，必须将 <inputAsset> 和 <outputAsset> 的每个内部值设置为 JobInputAsset(value) 或 JobOutputAsset(value)。
 - 一个任务可以有多个输出资产。 一个 JobOutputAsset(x) 只能一次用作作业中任务的输出。
 - 可以将 JobInputAsset 或 JobOutputAsset 指定为任务的输入资产。
@@ -228,7 +228,7 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 >[!NOTE]
 >与其他媒体服务实体不同的是，必须为每个 TaskTemplate 定义一个新的 GUID 标识符并将其放入请求正文中的 taskTemplateId 和 ID 属性中。 内容标识方案必须遵循“标识 Azure 媒体服务实体”中所述的方案。 此外，不能更新 JobTemplate。 而必须使用更新的更改创建新的 JobTemplate。
 
-如果成功，将返回以下响应：
+如果成功，返回以下响应：
 
 ```
 HTTP/1.1 201 Created
@@ -251,7 +251,7 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 {"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A3f1fe4a2-68f5-4190-9557-cd45beccef92')"}}], "TemplateId" : "nb:jtid:UUID:15e6e5e6-ac85-084e-9dc2-db3645fbf0aa"}
 ```
 
-如果成功，将返回以下响应：
+如果成功，返回以下响应：
 
 ```
 HTTP/1.1 201 Created

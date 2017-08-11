@@ -4,7 +4,7 @@ description: "本文介绍 Azure Active Directory (Azure AD) 直通身份验证�
 services: active-directory
 keywords: "什么是 Azure AD Connect 直通身份验证, 安装 Active Directory, Azure AD 所需的组件, SSO, 单一登录"
 documentationcenter: 
-author: swkrish
+author: alexchen2016
 manager: digimobile
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,20 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/12/2017
-ms.date: 06/21/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: 41a4fc24981d3f63915c7bee20464d2a32b43350
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: ceb2268a3c3a0859da390278f8a09c68e3987e16
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/04/2017
 ---
-# 使用 Azure Active Directory 直通身份验证进行用户登录
-<a id="user-sign-in-with-azure-active-directory-pass-through-authentication" class="xliff"></a>
+# <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>使用 Azure Active Directory 直通身份验证进行用户登录
 
-## 什么是 Azure Active Directory 直通身份验证？
-<a id="what-is-azure-active-directory-pass-through-authentication" class="xliff"></a>
+## <a name="what-is-azure-active-directory-pass-through-authentication"></a>什么是 Azure Active Directory 直通身份验证？
 
 Azure Active Directory (Azure AD) 直通身份验证可让用户使用相同的密码登录到在本地应用程序和基于云的应用程序。 此功能为用户提供更好的体验 - 用户可以少记住一个密码，同时可以降低 IT 支持成本，因为用户不太可能会忘记登录方法。 当用户使用 Azure AD 登录时，此功能可针对本地 Active Directory 直接验证用户的密码。
 
@@ -35,8 +33,7 @@ Azure Active Directory (Azure AD) 直通身份验证可让用户使用相同的�
 
 可将直通身份验证与[无缝单一登录](active-directory-aadconnect-sso.md)功能结合使用。 这样一来，当用户在其企业计算机上访问位于你的企业网络中的应用程序时，不需要键入密码即可登录。
 
-## 使用 Azure AD 直通身份验证的重要优势
-<a id="key-benefits-of-using-azure-ad-pass-through-authentication" class="xliff"></a>
+## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>使用 Azure AD 直通身份验证的重要优势
 
 - *更好的用户体验*
   - 用户使用相同的密码登录到本地应用程序和基于云的应用程序。
@@ -49,12 +46,11 @@ Azure Active Directory (Azure AD) 直通身份验证可让用户使用相同的�
 - *安全*
   - 本地密码永远不会以任何形式存储在云中。
   - 代理只从你的网络内部建立出站连接。 因此，无需在外围网络（也称 DMZ）中安装代理。
-  - 无缝使用 Azure AD 条件访问策略（包括多重身份验证 (MFA)）保护用户帐户。
+  - 可通过无缝使用 Azure AD 条件访问策略（包括多重身份验证 (MFA)），也可通过[筛选出密码搜索攻击](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)来保护用户帐户。
 - *高度可用*
   - 可在多台本地服务器上安装其他代理，提供登录请求的高可用性。
 
-## 功能特点
-<a id="feature-highlights" class="xliff"></a>
+## <a name="feature-highlights"></a>功能特点
 
 - 支持用户登录到所有基于 Web 浏览器的应用程序和使用[新式身份验证](https://aka.ms/modernauthga)的 Microsoft Office 客户端应用程序。
 - 登录用户名可以是本地默认用户名 (`userPrincipalName`)，也可以是 Azure AD Connect 中配置的另一个属性（称为 `Alternate ID`）。
@@ -64,15 +60,16 @@ Azure Active Directory (Azure AD) 直通身份验证可让用户使用相同的�
 - 可通过 [Azure AD Connect](active-directory-aadconnect.md) 启用此功能。
 - 此功能使用轻型本地代理侦听和响应密码验证请求。
 - 安装多个代理可提供登录请求的高可用性。
+- 该功能[保护](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)本地帐户免受云中的密码搜索攻击。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 - [**快速入门**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - 启动并运行 Azure AD 直通身份验证。
 - [**当前限制**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 此功能目前以预览版提供。 了解支持的方案和不支持的方案。
 - [**技术深入探讨**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - 了解此功能的工作原理。
-- [**常见问题**](active-directory-aadconnect-pass-through-authentication-faq.md) - 常见问题的解答。
+- [常见问题解答](active-directory-aadconnect-pass-through-authentication-faq.md) - 常见问题的解答。
 - [**故障排除**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - 了解如何解决此功能的常见问题。
 - [**Azure AD 无缝 SSO**](active-directory-aadconnect-sso.md) - 了解有关此补充功能的详细信息。
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 针对提出新的功能请求。
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用于提出新的功能请求。
 
+<!-- Update_Description: wording update -->

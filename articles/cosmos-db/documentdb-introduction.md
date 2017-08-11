@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 05/22/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: dec65a8589c0102b7f43d552e789e6e2ad7efb9a
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: d68f5a8ed40012da80f73a19c9e8457a4ba407c4
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB 简介：DocumentDB API
 
@@ -33,25 +33,25 @@ ms.lasthandoff: 07/26/2017
 ## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Azure Cosmos DB 提供了哪些功能和主要特性？
 Azure Cosmos DB 通过 DocumentDB API 提供了以下主要功能和优势：
 
-* 可弹性增减吞吐量和存储：根据应用程序需求，轻松增大或减小 JSON 数据库规模。 你的数据存储在固态硬盘 (SSD) 上，以实现可预测的低延迟。 Azure Cosmos DB 支持使用容器来存储称为集合的 JSON 数据，这些数据集几乎可以扩展到无限存储大小和预配吞吐量。 随着应用程序规模的增长，可以弹性无缝地扩展 Azure Cosmos DB 且其性能可以预测。 
+* 可弹性增减吞吐量和存储：根据应用程序需求，轻松增大或减小 JSON 数据库规模。 数据存储在固态硬盘 (SSD) 上，以实现可预测的低延迟。 Azure Cosmos DB 支持使用容器来存储称为集合的 JSON 数据，这些数据集几乎可以扩展到无限存储大小和预配吞吐量。 随着应用程序规模的增长，可以弹性无缝地扩展 Azure Cosmos DB 且其性能可以预测。 
 
 * 多区域复制：Azure Cosmos DB 以透明方式将数据复制到与 Azure Cosmos DB 帐户关联的所有区域，以便能够开发那些对全局性数据访问有要求的应用程序，与此同时还在一致性、可用性和性能方面做出权衡，所有这些都有相应的保证。 Azure Cosmos DB 提供具有多宿主 API 的透明区域故障转移，还可以弹性缩放全局吞吐量和存储。 有关详细信息，请参阅[使用 Azure Cosmos DB 全局分发数据](distribute-data-globally.md)。
 
 * 使用熟悉的 SQL 语法进行即席查询：存储异类 JSON 文档，并通过熟悉的 SQL 语法查询这些文档。 Azure Cosmos DB 使用高并发、无锁、日志结构化索引技术为所有文档内容自动编制索引。 这样可以实现各种实时查询，而无需指定架构提示、二级索引或视图。 有关详细信息，请参阅[查询 Azure Cosmos DB](documentdb-sql-query.md)。 
-* **在数据库中执行 JavaScript：** 使用标准 JavaScript 将应用程序逻辑表示为存储过程、触发器和用户定义函数 (UDF)。 这样，你的应用程序逻辑可基于数据进行运作，而无需担心应用程序和数据库架构之间的不匹配。 DocumentDB API 支持在数据库引擎内部直接进行 JavaScript 应用程序逻辑的完全事务执行。 对 JavaScript 的深度集成支持在一个 JavaScript 程序中将 INSERT、REPLACE、DELETE 和 SELECT 操作作为独立的事务来执行。 有关详细信息，请参阅 [DocumentDB 服务器端编程](programming.md)。
+* **在数据库中执行 JavaScript：** 使用标准 JavaScript 将应用程序逻辑表示为存储过程、触发器和用户定义函数 (UDF)。 这样，应用程序逻辑可基于数据进行运作，而无需担心应用程序和数据库架构之间的不匹配。 DocumentDB API 支持在数据库引擎内部直接进行 JavaScript 应用程序逻辑的完全事务执行。 对 JavaScript 的深度集成支持在一个 JavaScript 程序中将 INSERT、REPLACE、DELETE 和 SELECT 操作作为独立的事务来执行。 有关详细信息，请参阅 [DocumentDB 服务器端编程](programming.md)。
 
-* 可优化的一致性级别：从五个妥善定义的一致性级别中选择，实现一致性与性能之间的最佳平衡。 对于查询和读取操作，Azure Cosmos DB 提供五种不同的一致性级别：强一致性、有限过时一致性、会话一致性、前缀一致性和最终一致性。 通过这些细化的定义完好的一致性级别，你可以在一致性、可用性和延迟之间实现合理的平衡。 有关详细信息，请参阅[使用一致性级别最大化可用性和性能](consistency-levels.md)。
+* 可优化的一致性级别：从五个妥善定义的一致性级别中选择，实现一致性与性能之间的最佳平衡。 对于查询和读取操作，Azure Cosmos DB 提供五种不同的一致性级别：强一致性、有限过时一致性、会话一致性、前缀一致性和最终一致性。 通过这些细化的定义完好的一致性级别，可以在一致性、可用性和延迟之间实现合理的平衡。 有关详细信息，请参阅[使用一致性级别最大化可用性和性能](consistency-levels.md)。
 
-* **完全托管：** 无需管理数据库和计算机资源。 作为一种完全托管的 Azure 服务，用户无需管理虚拟机、部署并配置软件、管理缩放或处理复杂的数据层升级。 每个数据库都将自动备份，以防受到区域故障的影响。 可轻松添加 Azure Cosmos DB 帐户并根据需要预配容量，从而可以专注于应用程序而不是操作和管理数据库。 
+* **完全托管：** 无需管理数据库和计算机资源。 作为一种完全托管的 Azure 服务，用户无需管理虚拟机、部署并配置软件、管理缩放或处理复杂的数据层升级。 每个数据库都会自动备份，以防受到区域故障的影响。 可轻松添加 Azure Cosmos DB 帐户并根据需要预配容量，从而可以专注于应用程序而不是操作和管理数据库。 
 
-* **源于设计的开放性：** 通过使用现有的技能和工具快速入门。 针对 DocumentDB API 的编程非常简单易学，无需使用新的工具或遵循 JSON 或 JavaScript 的自定义扩展。 你可以通过简单的 RESTful HTTP 接口访问所有数据库功能，包括 CRUD、查询和 JavaScript 处理。 DocumentDB API 包含现有格式、语言和标准，并同时基于这些内容提供高价值的数据库功能。
+* **源于设计的开放性：** 通过使用现有的技能和工具快速入门。 针对 DocumentDB API 的编程非常简单易学，无需使用新的工具或遵循 JSON 或 JavaScript 的自定义扩展。 可以通过简单的 RESTful HTTP 接口访问所有数据库功能，包括 CRUD、查询和 JavaScript 处理。 DocumentDB API 包含现有格式、语言和标准，并同时基于这些内容提供高价值的数据库功能。
 
 * 自动编制索引：默认情况下，Azure Cosmos DB 将自动为数据库中的所有文档编制索引，无需任何架构或创建二级索引。 不想索引所有内容？ 别担心，还可以 [退出 JSON 文件中的路径](indexing-policies.md) 。
 
 ## <a name="data-management"></a>如何使用 DocumentDB API 管理数据？
 DocumentDB API 有助于通过定义完好的数据库资源管理 JSON 数据。 这些资源经过复制具有高可用性，并且使用其逻辑 URI 进行唯一寻址。 DocumentDB 为所有资源提供简单的基于 HTTP 的 RESTful 编程模型。 
 
-Azure Cosmos DB 数据库帐户是授予对 Azure Cosmos DB 的访问权限的唯一命名空间。 在创建数据库帐户之前，你必须具有 Azure 订阅，以便为你提供访问各种 Azure 服务的权限。 
+Azure Cosmos DB 数据库帐户是授予对 Azure Cosmos DB 的访问权限的唯一命名空间。 在创建数据库帐户之前，必须具有 Azure 订阅，以便提供访问各种 Azure 服务的权限。 
 
 Azure Cosmos DB 中的所有资源都以 JSON 文档的形式建模和存储。 将资源作为项（包含元数据的 JSON 文档）进行管理，也可以作为源（项的集合）进行管理。 项集包含在它们各自的源中。
 
@@ -66,13 +66,13 @@ Azure Cosmos DB 中的所有资源都以 JSON 文档的形式建模和存储。 
 
 ## <a name="develop"></a> 如何使用 DocumentDB API 开发应用？
 
-Azure Cosmos DB 通过 DocumentDB REST API 公开资源，可以使用能够发出 HTTP/HTTPS 请求的任何语言来调用此 API。 另外，还针对多种主流语言为 DocumentDB API 提供了编程库。 客户端库通过处理一些细节，例如地址缓存、异常管理、自动重试等，简化了使用 API 的许多方面。 当前这些库可用于以下语言和平台：  
+Azure Cosmos DB 通过 REST API 公开资源，可以使用能够发出 HTTP/HTTPS 请求的任何语言来调用这些 API。 另外，还针对多种主流语言为 DocumentDB API 提供了编程库。 客户端库通过处理一些细节，例如地址缓存、异常管理、自动重试等，简化了使用 API 的许多方面。 当前这些库可用于以下语言和平台：  
 
 | 下载 | 文档 |
 | --- | --- |
-| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET 库](https://msdn.microsoft.com/zh-cn/library/azure/dn948556.aspx) |
+| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET 库](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
 | [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js 库](http://azure.github.io/azure-documentdb-node/) |
-| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java 库](https://docs.microsoft.com/zh-cn/java/api/com.microsoft.azure.documentdb) |
+| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java 库](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb) |
 | [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[JavaScript 库](http://azure.github.io/azure-documentdb-js/) |
 | 不适用 |[服务器端 JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/) |
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python 库](http://azure.github.io/azure-documentdb-python/) |
@@ -85,14 +85,14 @@ Azure Cosmos DB 通过 DocumentDB REST API 公开资源，可以使用能够发�
 ### <a name="sql-query"></a>SQL 查询
 DocumentDB API 支持使用 SQL 语言（来源于 JavaScript 类型系统）和支持关系、层级和空间查询的表达式来查询文档。 DocumentDB 查询语言是一种用于查询 JSON 文档的简单而强大的接口。 该语言支持部分 ANSI SQL 语法，并深度集成了 JavaScript 对象、数组、对象构造和函数调用。 DocumentDB 提供的查询模型没有任何显式架构或来自开发人员的索引提示。
 
-可以在 DocumentDB API 中注册用户定义函数 (UDF)，并将其作为 SQL 查询的一部分进行引用，从而将语法扩展为支持自定义的应用程序逻辑。 这些 UDF 编写为 JavaScript 程序，并在数据库中执行。 
+可以在 DocumentDB API 中注册用户定义函数 (UDF)，并在 SQL 查询中进行引用，从而将语法扩展为支持自定义的应用程序逻辑。 这些 UDF 编写为 JavaScript 程序，并在数据库中执行。 
 
-对于 .NET 开发人员，DocumentDB [.NET SDK](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.linq.aspx) 还提供了 LINQ 查询提供程序。 
+对于 .NET 开发人员，DocumentDB [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) 还提供了 LINQ 查询提供程序。 
 
 ### <a name="transactions-and-javascript-execution"></a>事务和 JavaScript 执行
 DocumentDB API 允许将应用程序逻辑编写为完全使用 JavaScript 编写的命名程序。 这些程序是为集合注册的，可以对指定集合内的文档发布数据库操作。 可针对执行将 JavaScript 注册为触发器、存储过程或用户定义函数。 触发器和存储过程可以创建、读取、更新和删除文档，而用户定义函数作为查询执行逻辑的一部分执行，并且没有集合的写访问权限。
 
-DocumentDB API 中的 JavaScript 执行是在关系型数据库系统所支持的概念的基础之上建立的，只是现代性的将 Transact-SQL 换成了 JavaScript。 所有 JavaScript 逻辑都在使用快照隔离的环境 ACID 事务内执行。 在其执行过程中，如果 JavaScript 引发异常，则整个事务将被中止。
+DocumentDB API 中的 JavaScript 执行是在关系型数据库系统所支持的概念的基础之上建立的，只是现代性的将 Transact-SQL 换成了 JavaScript。 所有 JavaScript 逻辑都在使用快照隔离的环境 ACID 事务内执行。 在其执行过程中，如果 JavaScript 引发异常，则整个事务会被中止。
 
 <!-- Not Available ## Are there any online courses on Azure Cosmos DB? -->
 
@@ -100,3 +100,5 @@ DocumentDB API 中的 JavaScript 执行是在关系型数据库系统所支持�
 已有 Azure 帐户？ 然后，可以根据[快速入门](../cosmos-db/create-documentdb-dotnet.md)开始使用 Azure Cosmos DB，这些快速入门将引导创建帐户并开始使用 Cosmos DB。
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
+
+<!--Update_Description: update meta properties, update link-->

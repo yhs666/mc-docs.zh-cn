@@ -13,22 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8541c7c1f381aeb3c94c7951dae5b5fe7bb94bc5
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: a24648330685061a8822a1f8e4cf6927b465016d
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 08/04/2017
 ---
-# Azure Cosmos DB 中的每分钟请求单位数
-<a id="request-units-per-minute-in-azure-cosmos-db" class="xliff"></a>
+# <a name="request-units-per-minute-in-azure-cosmos-db"></a>Azure Cosmos DB 中的每分钟请求单位数
 
 Azure Cosmos DB 旨在帮助实现快速、可预测的性能，并随着应用程序的增长无缝扩展。 可以在 Cosmos DB 容器中以每秒和每分钟 (RU/m) 粒度预配吞吐量。 以每分钟粒度预配的吞吐量用于管理工作负荷中以每秒粒度发生的意外高峰。 
 
 本文概述了每分钟请求单位数 (RU/m) 的预配工作原理。 预配 RU/m 的目标是根据不可预测的需求（尤其是如果需要基于操作数据运行分析时）和高峰工作负荷提供可预测的性能。 希望客户使用更多的预配吞吐量，以便能够省心地快速扩展。
 
-阅读本文后，你将能够回答以下问题：
+阅读本文后，你能够回答以下问题：
 
 * 每分钟请求单位数是如何工作的？
 * 每分钟请求单位数和每秒请求单位数之间有什么差别？
@@ -37,8 +36,7 @@ Azure Cosmos DB 旨在帮助实现快速、可预测的性能，并随着应用�
 * 如何使用门户指标优化成本和性能？
 * 定义哪种类型的请求可能会消耗 RU/m 预算？
 
-## 预配每分钟请求单位数 (RU/m)
-<a id="provisioning-request-units-per-minute-rum" class="xliff"></a>
+## <a name="provisioning-request-units-per-minute-rum"></a>预配每分钟请求单位数 (RU/m)
 
 在以秒粒度 (RU/s) 预配 Azure Cosmos DB 时，如果吞吐量未超过该秒内预配的容量，则可以保证请求能够以较低的延迟成功完成。 使用 RU/m 时，粒度为分钟，可保证请求在该分钟内成功完成。 与喷发性系统相比，可以确保获得的性能可预测，并且可以针对性能做出规划。
 
@@ -48,32 +46,29 @@ Azure Cosmos DB 旨在帮助实现快速、可预测的性能，并随着应用�
 * 可在集合级别启用 RU/m。 可以通过 SDK（Node.js、Java 或 .Net）或门户（还包括 MongoDB API 工作负荷）启用 RU/m
 * 启用 RU/m 后，对于预配的每 100 个 RU/s，还会获得 1,000 个预配的 RU/m（10 倍比率）
 * 在给定的秒内，仅当已超过该秒内的每秒预配时，请求单位才会消耗 RU/m 预配
-* 60 秒期限 (UTC) 结束后，将会重填每分钟预配
+* 60 秒期限 (UTC) 结束后，会重填每分钟预配
 * 只能为每个分区最多预配 5,000 RU/s 的集合启用 RU/m。 如果扩展吞吐量需求并为每个分区使用这么高的预配级别，则会出现警告消息
 
 下面是一个具体的示例，其中，客户可以预配 10kRU/s 和 100kRU/m，通过在已预配 10,000 RU/s 和 100,000 RU/m 的集合中使用 90 秒期限，将高峰预配 (50kRU/s) 的成本节省 73%：
 
 * 第 1 秒：RU/m 预算设置为 100,000
-* 第 3 秒：在该秒内，请求单位消耗量为 11,010 RU，比 RU/s 预配高出 1,010 RU。 因此，将从 RU/m 预算中减去 1,010 RU。 98,990 RU 可用于 RU/m 预算中的后 57 秒
-* 第 29 秒：在该秒内，出现了一个较大的高峰（比每秒预配高 4 倍以上），请求单位消耗量为 46,920 RU。 将从 RU/m 预算中减去 36,920 RU，因此 RU 数从 92,323（第 28 秒）降至 55,403（第 29 秒）
+* 第 3 秒：在该秒内，请求单位消耗量为 11,010 RU，比 RU/s 预配高出 1,010 RU。 因此，会从 RU/m 预算中减去 1,010 RU。 98,990 RU 可用于 RU/m 预算中的后 57 秒
+* 第 29 秒：在该秒内，出现了一个较大的高峰（比每秒预配高 4 倍以上），请求单位消耗量为 46,920 RU。 从 RU/m 预算中减去 36,920 RU，因此 RU 数从 92,323（第 28 秒）降至 55,403（第 29 秒）
 * 第 61 秒：RU/m 预算设置回到 100,000 RU。
 
 ![显示 Azure Cosmos DB 消耗与预配的示意图](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute.png)
 
-## 使用 RU/m 指定请求单位容量
-<a id="specifying-request-unit-capacity-with-rum" class="xliff"></a>
+## <a name="specifying-request-unit-capacity-with-rum"></a>使用 RU/m 指定请求单位容量
 
 创建 Azure Cosmos DB 集合时，可以指定要为集合保留的每秒请求单位数（每秒 RU 数）。 还可以确定是否要添加每分钟 RU 数。 可以通过门户或 SDK 完成此操作。 
 
-### 通过门户
-<a id="through-the-portal" class="xliff"></a>
+### <a name="through-the-portal"></a>通过门户
 
 在预配集合时，只需按一下鼠标即可启用或禁用每分钟 RU 数。 
 
  ![显示如何在 Azure 门户中设置 RU/m 的屏幕截图](./media/request-units-per-minute/azure-cosmos-db-request-unit-per-minute-portal.png)
 
-### 通过 SDK
-<a id="through-the-sdk" class="xliff"></a>
+### <a name="through-the-sdk"></a>通过 SDK
 首先，请注意，RU/m 仅适用于以下 SDK：
 
 * .Net 1.14.0
@@ -112,10 +107,9 @@ OfferV2 offerV2 = new OfferV2(offer, 5000, false);
 await client.ReplaceOfferAsync(offerV2);
 ```
 
-## 适合的方案
-<a id="good-fit-scenarios" class="xliff"></a>
+## <a name="good-fit-scenarios"></a>适合的方案
 
-本部分将概述非常适合用于启用每分钟请求单位数的方案。
+本部分概述非常适合用于启用每分钟请求单位数的方案。
 
 开发/测试环境：适合。 在开发阶段，如果要使用不同的工作负荷测试应用程序，RU/m 可在此阶段提供灵活性。 虽然[模拟器](local-emulator.md)也是测试 Azure Cosmos DB 的极佳免费工具。 但如果想在云环境中开始，则应使用 RU/m，RU/m 可为解决即席性能需求提供极大的灵活性。 这样就可以将更多的时间放在开发上，不需要一开始就过多地考虑性能需求。 建议从最小的 RU/s 预配开始，并启用 RU/m。
 
@@ -129,8 +123,7 @@ await client.ReplaceOfferAsync(offerV2);
 
 具有即席需求的关键操作：在某些情况下，建议只允许关键操作访问 RU/m 预算，使预算不被即席操作或不太重要的操作消耗。 可根据下一部分所述轻松定义这种设置。
 
-## 使用门户指标优化成本和性能
-<a id="using-the-portal-metrics-to-optimize-cost-and-performance" class="xliff"></a>
+## <a name="using-the-portal-metrics-to-optimize-cost-and-performance"></a>使用门户指标优化成本和性能
 
 未来几周内将继续制作文档来介绍如何监视每分钟 RU 消耗量，以优化吞吐量需求。
 
@@ -157,10 +150,9 @@ await client.ReplaceOfferAsync(offerV2);
 |1-10%|正常使用|保留相同的预配级别|
 |超过 10%|利用过度|提高 RU/s 以减少对 RU/m 的依赖|
 
-## 选择可能消耗 RU/m 预算的操作
-<a id="select-which-operations-can-consume-the-rum-budget" class="xliff"></a>
+## <a name="select-which-operations-can-consume-the-rum-budget"></a>选择可能消耗 RU/m 预算的操作
 
-在请求级别，还可以启用/禁用 RU/m 预算来为请求提供服务（不管操作类型如何）。 如果已消耗常规的预配 RU/s 预算且请求无法消耗 RU/m 预算，此请求将被限制。 默认情况下，如果已激活 RU/m 吞吐量预算，则任何请求都将由 RU/m 预算提供服务。 
+在请求级别，还可以启用/禁用 RU/m 预算来为请求提供服务（不管操作类型如何）。 如果已消耗常规的预配 RU/s 预算且请求无法消耗 RU/m 预算，此请求会被限制。 默认情况下，如果已激活 RU/m 吞吐量预算，则任何请求都会由 RU/m 预算提供服务。 
 
 以下代码片段使用 DocumentDB API for CRUD 和查询操作禁用 RU/m 预算。
 
@@ -178,11 +170,12 @@ var query = client.CreateDocumentQuery<Book>(
     "select * from c",feedOptions).AsDocumentQuery();
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 本文已介绍 Azure Cosmos DB 中的分区工作原理、如何创建分区集合，以及如何为应用程序选择适当的分区键。
 
 * 使用 Azure Cosmos DB 执行规模和性能测试。 有关示例，请参阅[使用 Azure Cosmos DB 执行性能和规模测试](performance-testing.md)。
-* 开始使用 [SDK](documentdb-sdk-dotnet.md) 或 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) 编写代码。
+* 开始使用 [SDK](documentdb-sdk-dotnet.md) 或 [REST API](https://docs.microsoft.com/rest/api/documentdb/) 编写代码。
 * 了解 Azure Cosmos DB 中的[预配吞吐量](request-units.md)
+
+<!--Update_Description: wording update, update link-->

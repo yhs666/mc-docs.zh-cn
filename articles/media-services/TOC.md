@@ -1,14 +1,18 @@
 # [概述](media-services-overview.md)
-## [概念 ](media-services-concepts.md)
+## [方案和可用性](scenarios-and-availability.md)
+## [概念](media-services-concepts.md)
 
 # 入门
 ## [创建和管理帐户](media-services-create-account.md)
 ## [设置开发环境](media-services-set-up-computer.md)
-###[.NET](media-services-dotnet-how-to-use.md)
-###[REST](media-services-rest-how-to-use.md)  
-## 使用 ACS 密钥以编程方式进行连接
-### [.NET](media-services-dotnet-connect-programmatically.md)
-### [REST](media-services-rest-connect-programmatically.md)
+### [.NET](media-services-dotnet-how-to-use.md)
+### [REST](media-services-rest-how-to-use.md)  
+## [使用 AAD 身份验证访问 API](media-services-use-aad-auth-to-access-ams-api.md)
+### [使用门户管理 AAD 身份验证](media-services-portal-get-started-with-aad.md)
+### [使用 .NET 访问 API](media-services-dotnet-get-started-with-aad.md)
+### [使用 REST 访问 API](media-services-rest-connect-with-aad.md)
+### [使用 CLI 创建和配置 AAD 应用](media-services-cli-create-and-configure-aad-app.md)
+### [使用 PowerShell 创建和配置 AAD 应用](media-services-powershell-create-and-configure-aad-app.md)
 
 ## 传送点播视频
 ### [.NET SDK](media-services-dotnet-get-started.md)
@@ -89,6 +93,7 @@
 
 ## [实时流](media-services-manage-channels-overview.md)
 ### [本地编码器](media-services-live-streaming-with-onprem-encoders.md)
+#### [门户](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 #### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [使用云编码器实时传送视频流](media-services-manage-live-encoder-enabled-channels.md)
@@ -109,11 +114,9 @@
 ### [DRM 许可证传送](media-services-deliver-keys-and-licenses.md)
 ### [使用 PlayReady 和/或 Widevine 动态通用加密](media-services-protect-with-drm.md)
 ### [流式传输受 Apple FairPlay 保护的 HLS 内容](media-services-protect-hls-with-fairplay.md)
-
-### 资产传送
-#### 配置资产传送策略
-##### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
-##### [REST](media-services-rest-configure-asset-delivery-policy.md)
+### 配置资产传送策略
+#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### 创建内容密钥
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)

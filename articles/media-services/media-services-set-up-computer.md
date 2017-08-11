@@ -1,6 +1,6 @@
 ---
 title: "设置 Azure 媒体服务开发环境 | Azure"
-description: "设置你的环境以使用 Azure 媒体服务进行开发。"
+description: "设置环境以使用 Azure 媒体服务进行开发。"
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 01/23/2017
-ms.date: 03/10/2017
-ms.author: v-johch
-ms.openlocfilehash: d51db1599eabe86106fbd19e1fe8f949c3898cf0
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 07/10/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 04c44b39038319cf637df75c11a07ca902c27108
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="set-up-your-media-services-development-environment"></a>设置媒体服务开发环境
 
@@ -40,6 +40,6 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="connect-programmatically"></a>以编程方式连接
 
-若要使用 .NET 连接到 Azure 媒体服务，请参阅[此主题](./media-services-dotnet-connect-programmatically.md)。  
+若要连接到 Azure 媒体服务 API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。  
 
-若要使用 REST 连接到 Azure 媒体服务，请参阅[此](./media-services-rest-connect-programmatically.md)主题。
+<!--Update_Description: wording update-->

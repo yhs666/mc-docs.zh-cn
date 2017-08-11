@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 03/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 6c35e7153fcd7f54cb47a83ece050f60cd54bd34
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 0a1433902d366adbf8cea9e2e7f15ecc7a75942f
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="frequently-asked-questions"></a>常见问题
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 06/21/2017
 
 问：如何使用 REST 进行连接？
 
-答：成功连接到 https://media.chinacloudapi.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须按[使用 REST API 连接到媒体服务](./media-services-rest-connect-programmatically.md)中所述对新的 URI 执行后续调用。 
+答：成功连接到 https://media.chinacloudapi.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须按[使用 REST 访问 Azure 媒体服务 API](./media-services-rest-connect-with-aad.md) 中所述对新的 URI 执行后续调用。 
 
 问：如何在编码过程中旋转视频。
 

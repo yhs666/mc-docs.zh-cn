@@ -1,10 +1,10 @@
 ---
-title: "Azure AD Connect 同步：更改默认配置 | Azure"
+title: "Azure AD Connect 同步：更改默认配置 | Microsoft Docs"
 description: "提供有关更改 Azure AD Connect 同步的默认配置的最佳实践。"
 services: active-directory
 documentationcenter: 
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 7638a031-1635-4942-94c3-fce8f09eed5e
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.date: 03/07/2017
-ms.openlocfilehash: 38add4e4cd756c5390cf892e960d33ca6def00f9
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: ee010efb2ae4162bc336e0788b03dd5937ebb8a3
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 同步：有关更改默认配置的最佳实践
 本主题旨在说明支持和不支持的 Azure AD Connect 同步更改。
@@ -29,7 +29,7 @@ ms.lasthandoff: 06/21/2017
 ## <a name="changes-to-the-service-account"></a>对服务帐户的更改
 Azure AD Connect 同步在安装向导创建的服务帐户下运行。 此服务帐户保存了同步使用的数据库加密密钥。 它是使用 127 个字符长的密码创建的，密码设置为永不过期。
 
-- **不支持** 更改或重置服务帐户的密码。 这样做会破坏加密密钥，服务将无法访问数据库且无法启动。
+- **不支持** 更改或重置服务帐户的密码。 这样做会破坏加密密钥，服务无法访问数据库且无法启动。
 
 ## <a name="changes-to-the-scheduler"></a>对计划程序的更改
 从内部版本 1.1（2016 年 2 月）开始，可将[计划程序](active-directory-aadconnectsync-feature-scheduler.md)配置为使用非默认的同步周期（默认周期为 30 分钟）。
@@ -44,12 +44,12 @@ Azure AD Connect 同步在安装向导创建的服务帐户下运行。 此服�
 - 使用同步规则编辑器导出自定义同步规则。 编辑器会提供一个 PowerShell 脚本，可以在灾难恢复方案中使用它轻松重新创建同步规则。
 
 > [!WARNING]
-> 现成的同步规则具有指纹。 如果更改这些规则，指纹将不再匹配。 将来尝试应用 Azure AD Connect 的新版本时可能会遇到问题。 只能根据本文所述的方式进行更改。
+> 现成的同步规则具有指纹。 如果更改这些规则，指纹不再匹配。 将来尝试应用 Azure AD Connect 的新版本时可能会遇到问题。 只能根据本文所述的方式进行更改。
 
 ### <a name="disable-an-unwanted-sync-rule"></a>禁用不需要的同步规则
 不要删除现成的同步规则。 下一次升级期间会重新创建该规则。
 
-在某些情况下，安装向导生成的配置不适用于拓扑。 例如，如果使用帐户资源林拓扑，但已在具有 Exchange 架构的帐户林中扩展该架构，则系统将针对帐户林和资源林创建适用于 Exchange 的规则。 在此情况下，需要禁用适用于 Exchange 的同步规则。
+在某些情况下，安装向导生成的配置不适用于拓扑。 例如，如果使用帐户资源林拓扑，但已在具有 Exchange 架构的帐户林中扩展该架构，则系统针对帐户林和资源林创建适用于 Exchange 的规则。 在此情况下，需要禁用适用于 Exchange 的同步规则。
 
 ![已禁用同步规则](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/exchangedisabledrule.png)
 
@@ -58,7 +58,7 @@ Azure AD Connect 同步在安装向导创建的服务帐户下运行。 此服�
 ### <a name="change-an-out-of-box-rule"></a>更改现成的规则
 仅当需要更改联接规则时，才应更改现成的规则。 若需更改属性流，则应在创建同步规则时，让其优先级高于现成的规则。 实际上，需克隆的唯一规则是规则 **In from AD - User Join**。 可以使用优先级更高的规则重写所有其他规则。
 
-如果需要对现成的规则进行更改，应该复制该现成的规则，然后禁用原始规则。 然后对克隆的规则进行更改。 同步规则编辑器会帮助完成这些步骤。 打开现成的规则时，将显示此对话框：  
+如果需要对现成的规则进行更改，应该复制该现成的规则，并禁用原始规则。 然后对克隆的规则进行更改。 同步规则编辑器会帮助完成这些步骤。 打开现成的规则时，会显示此对话框：  
 ![对现成规则的警告](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
 选择“是”创建规则的副本。 随后会打开克隆的规则。  
@@ -71,3 +71,5 @@ Azure AD Connect 同步在安装向导创建的服务帐户下运行。 此服�
 
 - [Azure AD Connect 同步：理解和自定义同步](active-directory-aadconnectsync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
+
+<!-- Update_Description: update meta properties -->

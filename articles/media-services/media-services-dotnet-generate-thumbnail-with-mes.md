@@ -12,21 +12,190 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: v-johch
-ms.openlocfilehash: 9c7c4b54e225b9bcff43b16c06d6b51a7191ce58
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 07/14/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 2b72ab1cbbd558ab17411ee63dfa5a2d06f39f16
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
-#<a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>如何使用 Media Encoder Standard 通过 .NET 来生成缩略图
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>如何使用 Media Encoder Standard 通过 .NET 来生成缩略图
 
-本主题介绍如何使用媒体服务 .NET SDK 通过 Media Encoder Standard 来对资产进行编码和生成缩略图。 本主题定义了 XML 和 JSON 缩略图预设，可用于创建同时执行编码和生成缩略图的任务。 [此文档](https://msdn.microsoft.com/zh-cn/library/mt269962.aspx) 包含这些预设所用的元素的说明。
 
-请务必仔细阅读[注意事项](./media-services-dotnet-generate-thumbnail-with-mes.md#considerations)部分。
+可以使用 Media Encoder Standard 以 JPEG、PNG 或 BMP 图像文件格式从输入视频生成一个或多个缩略图。 可以提交仅生成图像的任务，也可以合并缩略图生成与编码功能。 本主题针对此类方案提供一些示例 XML 和 JSON 缩略图预设。 本主题的末尾提供了一段[示例代码](#code_sample)，演示如何使用媒体服务 .NET SDK 来完成编码任务。
 
-## <a name="example"></a>示例
+有关示例预设中使用的元素的更多详细信息，请查看 [Media Encoder Standard 架构](media-services-mes-schema.md)。
+
+请务必仔细阅读 [注意事项](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) 部分。
+
+## <a name="example---single-png-file"></a>示例 - 单个 PNG 文件
+
+可以使用以下 JSON 和 XML 预设基于输入视频的前几秒内容生成单个输出 PNG 文件，编码器会在其中尽力尝试查找“相关”帧。 请注意，输出图像尺寸已设置为 100%，这意味着，这些尺寸将与输入视频的尺寸匹配。 另请注意需要如何指定“Outputs”中“Format”设置，以匹配“Codecs”节中“PngLayers”的用法。 
+
+### <a name="json-preset"></a>JSON 预设
+
+    {
+      "Version": 1.0,
+      "Codecs": [
+        {
+          "PngLayers": [
+            {
+              "Type": "PngLayer",
+              "Width": "100%",
+              "Height": "100%"
+            }
+          ],
+          "Start": "{Best}",
+          "Type": "PngImage"
+        }
+      ],
+      "Outputs": [
+        {
+          "FileName": "{Basename}_{Index}{Extension}",
+          "Format": {
+            "Type": "PngFormat"
+          }
+        }
+      ]
+    }
+
+### <a name="xml-preset"></a>XML 预设
+
+    <?xml version="1.0" encoding="utf-16"?>
+    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://azure.microsoft.com/media/encoding/Preset/2014/03">
+      <Encoding>
+        <PngImage Start="{Best}">
+          <PngLayers>
+            <PngLayer>
+              <Width>100%</Width>
+              <Height>100%</Height>
+            </PngLayer>
+          </PngLayers>
+        </PngImage>
+      </Encoding>
+      <Outputs>
+        <Output FileName="{Basename}_{Index}{Extension}">
+          <PngFormat />
+        </Output>
+      </Outputs>
+    </Preset>
+
+## <a name="example---a-series-of-jpeg-images"></a>示例 - 一系列 JPEG 图像
+
+可以使用以下 JSON 和 XML 预设在输入时间线的 5%、15% ... 95% 时间戳处生成一组 10 幅图像，其中的图像大小指定为输入视频的四分之一。
+
+### <a name="json-preset"></a>JSON 预设
+
+    {
+      "Version": 1.0,
+      "Codecs": [
+        {
+          "JpgLayers": [
+            {
+              "Quality": 90,
+              "Type": "JpgLayer",
+              "Width": "25%",
+              "Height": "25%"
+            }
+          ],
+          "Start": "5%",
+          "Step": "1",
+          "Range": "1",
+          "Type": "JpgImage"
+        }
+      ],
+      "Outputs": [
+        {
+          "FileName": "{Basename}_{Index}{Extension}",
+          "Format": {
+            "Type": "JpgFormat"
+          }
+        }
+      ]
+    }
+
+### <a name="xml-preset"></a>XML 预设
+
+    <?xml version="1.0" encoding="utf-16"?>
+    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://azure.microsoft.com/media/encoding/Preset/2014/03">
+      <Encoding>
+        <JpgImage Start="5%" Step="10%" Range="96%">
+          <JpgLayers>
+            <JpgLayer>
+              <Width>25%</Width>
+              <Height>25%</Height>
+              <Quality>90</Quality>
+            </JpgLayer>
+          </JpgLayers>
+        </JpgImage>
+      </Encoding>
+      <Outputs>
+        <Output FileName="{Basename}_{Index}{Extension}">
+          <JpgFormat />
+        </Output>
+      </Outputs>
+    </Preset>
+
+## <a name="example---one-image-at-a-specific-timestamp"></a>示例 - 在特定时间戳处生成一幅图像
+
+可以使用以下 JSON 和 XML 预设在输入视频的 30 秒标记处生成单个 JPEG 图像。 此预设需要输入的持续时间超过 30 秒（否则作业会失败）。
+
+### <a name="json-preset"></a>JSON 预设
+
+    {
+      "Version": 1.0,
+      "Codecs": [
+        {
+          "JpgLayers": [
+            {
+              "Quality": 90,
+              "Type": "JpgLayer",
+              "Width": "25%",
+              "Height": "25%"
+            }
+          ],
+          "Start": "00:00:30",
+          "Step": "1",
+          "Range": "1",
+          "Type": "JpgImage"
+        }
+      ],
+      "Outputs": [
+        {
+          "FileName": "{Basename}_{Index}{Extension}",
+          "Format": {
+            "Type": "JpgFormat"
+          }
+        }
+      ]
+    }
+
+### <a name="xml-preset"></a>XML 预设
+
+    <?xml version="1.0" encoding="utf-16"?>
+    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://azure.microsoft.com/media/encoding/Preset/2014/03">
+      <Encoding>
+        <JpgImage Start="00:00:30" Step="00:00:02" Range="00:00:01">
+          <JpgLayers>
+            <JpgLayer>
+              <Width>25%</Width>
+              <Height>25%</Height>
+              <Quality>90</Quality>
+            </JpgLayer>
+          </JpgLayers>
+        </JpgImage>
+      </Encoding>
+      <Outputs>
+        <Output FileName="{Basename}_{Index}{Extension}">
+          <JpgFormat />
+        </Output>
+      </Outputs>
+    </Preset>
+
+## <a id="code_sample"></a>示例 - 对视频进行编码，并生成缩略图
+
 以下代码示例使用媒体服务 .NET SDK 执行下列任务：
 
 - 创建编码作业。
@@ -34,46 +203,33 @@ ms.lasthandoff: 06/21/2017
 - 加载预设 [XML](./media-services-dotnet-generate-thumbnail-with-mes.md#xml) 或 [JSON](./media-services-dotnet-generate-thumbnail-with-mes.md#json)，包含有编码预设以及生成缩略图所需的信息。 可以在某一文件中保存此 [XML](./media-services-dotnet-generate-thumbnail-with-mes.md#xml) 或 [JSON](./media-services-dotnet-generate-thumbnail-with-mes.md#json)，并使用以下代码来加载该文件。
 
     ```
-        // Load the XML (or JSON) from the local file.
-        string configuration = File.ReadAllText(fileName);  
+    // Load the XML (or JSON) from the local file.
+    string configuration = File.ReadAllText(fileName);  
     ```
 - 将一个编码任务添加到该作业。 
 - 指定要编码的输入资产。
-- 创建将包含所编码资产的输出资产。
+- 创建要包含所编码资产的输出资产。
 - 添加事件处理程序以检查作业进度。
 - 提交作业。
 
-    ```
+有关如何设置开发环境的指导，请参阅[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)主题。
+
     using System;
-    using System.Collections.Generic;
     using System.Configuration;
     using System.IO;
     using System.Linq;
-    using System.Net;
-    using System.Security.Cryptography;
-    using System.Text;
-    using System.Threading.Tasks;
     using Microsoft.WindowsAzure.MediaServices.Client;
-    using Newtonsoft.Json.Linq;
     using System.Threading;
-    using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
-    using System.Web;
-    using System.Globalization;
 
     namespace EncodeAndGenerateThumbnails
     {
         class Program
         {
             // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+            private static readonly string _AADTenantDomain = ConfigurationManager.AppSettings["AADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint = ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
-            // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
 
             private static readonly string _mediaFiles =
                 Path.GetFullPath(@"../..\Media");
@@ -83,12 +239,10 @@ ms.lasthandoff: 06/21/2017
 
             static void Main(string[] args)
             {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Used the chached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
                 // Get an uploaded asset.
                 var asset = _context.Assets.FirstOrDefault();
@@ -171,12 +325,11 @@ ms.lasthandoff: 06/21/2017
 
                 return processor;
             }
-
         }
     }
-    ```
+    
 
-##<a id="json"></a>缩略图 JSON 预设
+## <a id="json"></a>缩略图 JSON 预设
 
 有关架构的信息，请参阅 [此主题](https://msdn.microsoft.com/zh-cn/library/mt269962.aspx) 。
 
@@ -211,38 +364,12 @@ ms.lasthandoff: 06/21/2017
         {
           "Quality": 90,
           "Type": "JpgLayer",
-          "Width": 640,
-          "Height": 360
+              "Width": "100%",
+              "Height": "100%"
         }
       ],
       "Start": "{Best}",
       "Type": "JpgImage"
-    },
-    {
-      "PngLayers": [
-        {
-          "Type": "PngLayer",
-          "Width": 640,
-          "Height": 360,
-        }
-      ],
-      "Start": "00:00:01",
-      "Step": "00:00:10",
-      "Range": "00:00:58",
-      "Type": "PngImage"
-    },
-    {
-      "BmpLayers": [
-        {
-          "Type": "BmpLayer",
-          "Width": 640,
-          "Height": 360
-        }
-      ],
-      "Start": "10%",
-      "Step": "10%",
-      "Range": "90%",
-      "Type": "BmpImage"
     },
     {
       "Channels": 2,
@@ -259,19 +386,7 @@ ms.lasthandoff: 06/21/2017
       }
     },
     {
-      "FileName": "{Basename}_{Index}{Extension}",
-      "Format": {
-        "Type": "PngFormat"
-      }
-    },
-    {
-      "FileName": "{Basename}_{Index}{Extension}",
-      "Format": {
-        "Type": "BmpFormat"
-      }
-    },
-    {
-      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",
+          "FileName": "{Basename}_{Resolution}_{VideoBitrate}.mp4",
       "Format": {
         "Type": "MP4Format"
       }
@@ -280,7 +395,7 @@ ms.lasthandoff: 06/21/2017
 }
 ```
 
-##<a id="xml"></a>缩略图 XML 预设
+## <a id="xml"></a>缩略图 XML 预设
 
 有关架构的信息，请参阅 [此主题](https://msdn.microsoft.com/zh-cn/library/mt269962.aspx) 。
 
@@ -318,64 +433,39 @@ ms.lasthandoff: 06/21/2017
     <JpgImage Start="{Best}">
       <JpgLayers>
         <JpgLayer>
-          <Width>640</Width>
-          <Height>360</Height>
+          <Width>100%</Width>
+          <Height>100%/Height>
           <Quality>90</Quality>
         </JpgLayer>
       </JpgLayers>
     </JpgImage>
-    <BmpImage Start="10%" Step="10%" Range="90%">
-      <BmpLayers>
-        <BmpLayer>
-          <Width>640</Width>
-          <Height>360</Height>
-        </BmpLayer>
-      </BmpLayers>
-    </BmpImage>
-    <PngImage Start="00:00:01" Step="00:00:10" Range="00:00:58">
-      <PngLayers>
-        <PngLayer>
-          <Width>640</Width>
-          <Height>360</Height>
-        </PngLayer>
-      </PngLayers>
-    </PngImage>
   </Encoding>
   <Outputs>
-    <Output FileName="{Basename}_{Width}x{Height}_{VideoBitrate}.mp4">
+    <Output FileName="{Basename}_{Resolution}_{VideoBitrate}.mp4">
       <MP4Format />
     </Output>
     <Output FileName="{Basename}_{Index}{Extension}">
       <JpgFormat />
     </Output>
-    <Output FileName="{Basename}_{Index}{Extension}">
-      <BmpFormat />
-    </Output>
-    <Output FileName="{Basename}_{Index}{Extension}">
-      <PngFormat />
-    </Output>
   </Outputs>
 </Preset>
 ```
 
-##<a name="considerations"></a>注意事项
+## <a name="considerations"></a>注意事项
 
 请注意以下事项：
 
 - 为 Start/Step/Range 使用的显式时间戳假设输入源的长度至少为 1 分钟。
 - Jpg/Png/BmpImage 元素包含 Start、Step 和 Range 字符串属性 – 这些属性解释如下：
-
-    - 帧数（如果为非负整数），例如： "Start": "120"，
-    - 相对于源持续时间（如果以 % 后缀表示），例如： "Start": "15%"，或者
-    - 时间戳（如果以 HH:MM:SS... 格式表示）。 例如 "Start" : "00:01:00"
-
-    你可以随意混搭使用表示法。
-
+  - 帧数（如果为非负整数），例如： "Start": "120"，
+  - 相对于源持续时间（如果以 % 后缀表示），例如： "Start": "15%"，或者
+  - 时间戳（如果以 HH:MM:SS... 格式表示）。 例如 "Start" : "00:01:00"  
+    可以随意混搭使用表示法。  
     此外，Start 还支持特殊的宏 {Best}，它会尝试判断第一个“有意义”的内容帧。注意：（Start 设置为 {Best} 时，将忽略 Step 与 Range）
+  - 默认值：Start:{Best}
+- 需要显式提供每个图像格式的输出格式：Jpg/Png/BmpFormat。 提供时，MES 会将 JpgVideo 与 JpgFormat 进行匹配，依此类推。 OutputFormat 引入了新的图像编解码器特定宏 {Index}，需要为图像输出格式提供该宏一次（且只需一次）。
 
-    - 默认值：Start:{Best}
-- 需要显式提供每个图像格式的输出格式：Jpg/Png/BmpFormat。 MES 会将 JpgVideo（如果已指定）与 JpgFormat 进行匹配，依此类推。 OutputFormat 引入了新的图像编解码器特定宏 {Index}，需要为图像输出格式提供该宏一次（且只需一次）。
+## <a name="see-also"></a>另请参阅
+[媒体服务编码概述](media-services-encode-asset.md)
 
-##<a name="see-also"></a>另请参阅 
-
-[媒体服务编码概述](./media-services-encode-asset.md)
+<!--Update_Description: update word & code-->

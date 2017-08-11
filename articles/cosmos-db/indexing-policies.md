@@ -14,22 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 05/22/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: 569dd23b2aa7077d03bdb383dbb73d8f2fc522f8
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 2f4935aaf078abe62bcd53e8a8b9db5fff9c8d28
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 08/04/2017
 ---
-# Azure Cosmos DB 如何为数据编制索引？
-<a id="how-does-azure-cosmos-db-index-data" class="xliff"></a>
+# <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何为数据编制索引？
 
 默认情况下为所有 Azure Cosmos DB 数据编制索引。 尽管许多客户都愿意让 Azure Cosmos DB 自动处理索引的方方面面，但 Azure Cosmos DB 还支持在创建过程中为集合指定自定义索引策略。 与其他数据库平台中提供的辅助索引相比，Azure Cosmos DB 中的索引策略更加灵活且功能强大，因为它们允许设计和自定义索引形状，无需牺牲架构的灵活性。 若要了解 Azure Cosmos DB 中的索引工作原理，必须通过管理索引策略进行了解，可以在索引存储开销、写入和查询吞吐量以及查询一致性之间进行细化权衡。  
 
 本文中将详细介绍 Azure Cosmos DB 索引策略、自定义索引策略的方法和相关的权衡方案。 
 
-阅读本文后，将能够回答以下问题：
+阅读本文后，可以回答以下问题：
 
 * 如何重写属性以包括在索引中或从索引中排除？
 * 如何为最终更新配置索引？
@@ -70,7 +69,7 @@ Azure Cosmos DB 支持三种索引模式，可通过索引策略对 Azure Cosmos
 **无**：索引模式标记为“无”的集合没有与之关联的索引。 如果 Azure Cosmos DB 用作键值存储，并且只通过其 ID 属性访问文档，则通常使用该模式。 
 
 > [!NOTE]
-> 将索引策略配置为“无”时，删除任何现有索引会产生不良影响。 如果你的访问模式只需要“ID”和/或“自助链接”，请使用此选项。
+> 将索引策略配置为“无”时，删除任何现有索引会产生不良影响。 如果访问模式只需要“ID”和/或“自助链接”，请使用此选项。
 > 
 > 
 
@@ -85,7 +84,7 @@ Azure Cosmos DB 支持三种索引模式，可通过索引策略对 Azure Cosmos
 |会话|会话|最终|
 |最终|最终|最终|
 
-Azure Cosmos DB 返回在“无”索引模式下对集合进行查询的错误。 仍可通过 REST API 中的显式 `x-ms-documentdb-enable-scan` 标头或使用.NET SDK 的 `EnableScanInQuery` 请求选项，将查询作为扫描来执行。 `EnableScanInQuery`扫描不支持诸如 ORDER BY 等查询功能。
+Azure Cosmos DB 返回在“无”索引模式下对集合进行查询的错误。 仍可通过 REST API 中的显式 `x-ms-documentdb-enable-scan` 标头或使用 .NET SDK 的 `EnableScanInQuery` 请求选项，将查询作为扫描来执行。 `EnableScanInQuery`扫描不支持诸如 ORDER BY 等查询功能。
 
 下表显示了指定 EnableScanInQuery 时，基于索引模式（一致、延迟和无）进行的查询的一致性。
 
@@ -107,8 +106,7 @@ Azure Cosmos DB 返回在“无”索引模式下对集合进行查询的错误�
 
      collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("mydb"), collection);
 
-### 索引路径
-<a id="index-paths" class="xliff"></a>
+### <a name="index-paths"></a>索引路径
 Azure Cosmos DB 将 JSON 文档和索引建模为树形，从而可以针对树中的路径调整策略。 在这些文档中，可以选择必须包括在索引中或从索引中排除的路径。 如果事先已知查询模式，这可以提高写入性能并减少方案所需的索引存储。
 
 索引路径以根 (/) 开头，并常以 ?  通配符运算符结尾，表示前缀存在多个可能的值。 例如，对于 SELECT * FROM Families F WHERE F.familyName = "Andersen"，必须在集合的索引策略中包含 /familyName/?  的索引路径。
@@ -154,16 +152,14 @@ Azure Cosmos DB 将 JSON 文档和索引建模为树形，从而可以针对树�
 
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
 
-### 索引数据类型、种类和精度
-<a id="index-data-types-kinds-and-precisions" class="xliff"></a>
+### <a name="index-data-types-kinds-and-precisions"></a>索引数据类型、种类和精度
 现在，我们已经介绍了如何指定路径，让我们来讨论配置路径的索引策略时可以使用的选项。 可以为每个路径指定一个或多个索引定义：
 
 * 数据类型：String、Number、Point、Polygon 或 LineString（每个路径每种数据类型只能包含一个条目）
 * 索引种类：“哈希”（等式查询）、“范围”（等式、范围或 Order By 查询）或“空间”（空间查询） 
-* 精度：对于数字为 1-8 或 -1（最大精度），对于字符串为 1-100（最大精度）
+* 精度：对于字符串和数字的哈希索引，此值从 1 到 8 变化，默认值为 3。 对于字符串或数字值的范围索引，此值可以为 -1（最大精度），并可以在 1 到 100（最大精度）之间变化。
 
-#### 索引种类
-<a id="index-kind" class="xliff"></a>
+#### <a name="index-kind"></a>索引种类
 Azure Cosmos DB 针对每个路径都支持哈希和范围索引种类（即可以配置为字符串、数字或两者）。
 
 * **哈希** 支持高效的等式查询和联接查询。 在大多数用例下，哈希索引需要的精度不会高于 3 个字节的默认值。 DataType 可以是 String 或 Number。
@@ -190,9 +186,8 @@ Azure Cosmos DB 还支持每个路径的空间索引种类，可为 Point、Poly
 
 空间查询的规则相同。 默认情况下，如果没有空间索引，并且索引中没有其他筛选器可以使用，则空间查询会返回错误。 可以使用 x-ms-documentdb-enable-scan/EnableScanInQuery 以扫描方式执行空间索引。
 
-#### 索引精度
-<a id="index-precision" class="xliff"></a>
-索引精度让你可以在索引存储开销和查询性能之间做出权衡。 对于数字，建议使用默认精度配置 -1（“最大”）。 由于数字是 JSON 格式的 8 个字节，这相当于 8 个字节的配置。 选择较低值的精度（如 1-7）意味着在某些范围内的值会映射到相同的索引条目。 因此，你可以降低索引存储空间，但查询执行可能需要处理更多文档，并因此占用更大的吞吐量，即请求单位。
+#### <a name="index-precision"></a>索引精度
+索引精度让可以在索引存储开销和查询性能之间做出权衡。 对于数字，建议使用默认精度配置 -1（“最大”）。 由于数字是 JSON 格式的 8 个字节，这相当于 8 个字节的配置。 选择较低值的精度（如 1-7）意味着在某些范围内的值会映射到相同的索引条目。 因此，可以降低索引存储空间，但查询执行可能需要处理更多文档，并因此占用更大的吞吐量，即请求单位。
 
 索引精度配置对于字符串范围更加实用。 由于字符串可以是任意长度，索引精度的选择可影响字符串范围查询的性能，并且影响所需的索引存储空间量。 字符串范围索引可以配置为 1-100 或 -1（“最大”）。 如果想要对字符串属性执行 Order By 查询，则必须为相应路径指定精度 -1。
 
@@ -210,7 +205,7 @@ Azure Cosmos DB 还支持每个路径的空间索引种类，可为 Point、Poly
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), rangeDefault);   
 
 > [!NOTE]
-> 当查询使用 Order By，但针对最大精度的查询路径没有范围索引时，Azure Cosmos DB 将返回错误。 
+> 当查询使用 Order By，但针对最大精度的查询路径没有范围索引时，Azure Cosmos DB 返回错误。 
 > 
 > 
 
@@ -222,11 +217,10 @@ Azure Cosmos DB 还支持每个路径的空间索引种类，可为 Point、Poly
 
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
-## 选择包括在索引中和从索引中排除
-<a id="opting-in-and-opting-out-of-indexing" class="xliff"></a>
-可以选择是否让集合自动为所有文档编制索引。 默认情况下，为所有文档自动编制索引，但你可以选择关闭该功能。 关闭索引功能后，只能通过本身的链接或通过使用 ID 进行查询的方法访问文档。
+## <a name="opting-in-and-opting-out-of-indexing"></a>选择包括在索引中和从索引中排除
+可以选择是否让集合自动为所有文档编制索引。 默认情况下，为所有文档自动编制索引，但可以选择关闭该功能。 关闭索引功能后，只能通过本身的链接或通过使用 ID 进行查询的方法访问文档。
 
-关闭自动索引后，你仍然可以选择性地只将特定的文档添加到索引中。 相反，可以保留自动索引，并选择只排除特定的文档。 当只需要查询一个文档子集时，索引开/关配置非常有用。
+关闭自动索引后，仍然可以选择性地只将特定的文档添加到索引中。 相反，可以保留自动索引，并选择只排除特定的文档。 当只需要查询一个文档子集时，索引开/关配置非常有用。
 
 例如，下面的示例演示如何使用 [DocumentDB API .NET SDK](https://github.com/Azure/azure-documentdb-java) 和 [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) 属性来显式包括文档。
 
@@ -237,15 +231,14 @@ Azure Cosmos DB 还支持每个路径的空间索引种类，可为 Point、Poly
         new { id = "AndersenFamily", isRegistered = true },
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
 
-## 修改集合的索引策略
-<a id="modifying-the-indexing-policy-of-a-collection" class="xliff"></a>
+## <a name="modifying-the-indexing-policy-of-a-collection"></a>修改集合的索引策略
 使用 Azure Cosmos DB 可动态更改集合的索引策略。 更改 Azure Cosmos DB 集合的索引策略可能导致索引形状改变，包括可编制索引的路径、其精度以及索引本身的一致性模型。 因此，索引策略的更改实际上要求将旧索引转换为新索引。 
 
 **联机索引转换**
 
 ![索引的工作原理：Azure Cosmos DB 联机索引转换](./media/indexing-policies/index-transformations.png)
 
-在联机状态下执行索引转换，这意味着按照旧策略索引的文档可以按照新策略有效转换， **而不会影响集合的写入可用性或预配的吞吐量** 。 在索引转换过程中，使用 REST API、SDK 或在存储的过程和触发器中执行读取和写入操作的一致性不会受到影响。 这就意味着，在更改索引策略时，你的应用程序的性能不会下降，也没有停机时间。
+在联机状态下执行索引转换，这意味着按照旧策略索引的文档可以按照新策略有效转换， **而不会影响集合的写入可用性或预配的吞吐量** 。 在索引转换过程中，使用 REST API、SDK 或在存储的过程和触发器中执行读取和写入操作的一致性不会受到影响。 这就意味着，在更改索引策略时，应用程序的性能不会下降，也没有停机时间。
 
 但是，无论索引模式配置如何（一致或延迟），在执行索引转换期间查询始终一致。 这适用于使用所有接口（REST API、SDK 或从存储过程和触发器中）进行的查询。 与延迟索引一样，使用特定副本可用的备用资源在后台以异步方式对副本执行索引转换。 
 
@@ -309,12 +302,11 @@ Azure Cosmos DB 还支持每个路径的空间索引种类，可为 Point、Poly
 > [!NOTE]
 > 若要使用 ReplaceDocumentCollectionAsync 修改索引策略，要求安装不低于 1.3.0 版本的 .NET SDK
 > 
-> 要成功完成索引转换，必须确保集合有足够的可用存储空间。 如果集合达到其存储配额，将暂停索引转换。 获得可用的存储空间后（例如删除某些文档），索引转换将立即自动恢复。
+> 要成功完成索引转换，必须确保集合有足够的可用存储空间。 如果集合达到其存储配额，将暂停索引转换。 获得可用的存储空间后（例如删除某些文档），索引转换立即自动恢复。
 > 
 > 
 
-## 性能调优
-<a id="performance-tuning" class="xliff"></a>
+## <a name="performance-tuning"></a>性能调优
 DocumentDB API 提供有关性能指标的信息，如所用的索引存储以及每次操作的吞吐量成本（请求单位）。 此信息可用于比较各种索引策略和优化性能。
 
 若要检查存储配额和集合用法，请针对集合资源运行 HEAD 或 GET 请求，并检查 x-ms-request-quota 和 x-ms-request-usage 标头。 在 .NET SDK 中，[ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) 中的 [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) 和 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) 属性包含这些相应的值。
@@ -343,8 +335,7 @@ DocumentDB API 提供有关性能指标的信息，如所用的索引存储以�
 
      Console.WriteLine("Query consumed {0} request units in total", totalRequestCharge);
 
-## 对索引策略规范的更改
-<a id="changes-to-the-indexing-policy-specification" class="xliff"></a>
+## <a name="changes-to-the-indexing-policy-specification"></a>对索引策略规范的更改
 在 REST API 2015-06-03 版本中，于 2015 年 7 月 7 日对索引策略的架构进行了更改。 SDK 版本中的相应类具有与架构匹配的新实现。 
 
 JSON 规范中实现了以下更改：
@@ -352,10 +343,10 @@ JSON 规范中实现了以下更改：
 * 索引策略针对字符串支持范围索引
 * 每个路径可以有多个索引定义，每个对应一种数据类型
 * 对于数字，索引精度支持 1-8，对于字符串支持 1-100，-1 为最大精度
-* 路径段不需要使用双引号转义每个路径。 例如，你可以添加 /title/? 路径，而不是 /"title"/?
+* 路径段不需要使用双引号转义每个路径。 例如，可以添加 /title/? 路径，而不是 /"title"/?
 * 表示“所有路径”的根路径可以表示为 /*（或 /）
 
-如果你的代码使用 1.1.0 或更高版本的 .NET SDK 编写的自定义索引策略预配集合，则需要更改应用程序代码来处理这些更改，以迁移到 SDK 1.2.0 版本。 如果你没有用于配置索引策略的代码，或打算继续使用 SDK 旧版本，则不需进行任何更改。
+如果代码使用 1.1.0 或更高版本的 .NET SDK 编写的自定义索引策略预配集合，则需要更改应用程序代码来处理这些更改，以迁移到 SDK 1.2.0 版本。 如果没有用于配置索引策略的代码，或打算继续使用 SDK 旧版本，则不需进行任何更改。
 
 为了进行实际比较，下面给出一个自定义索引策略示例，该策略是用 REST API 2015-06-03 版本和早期的 2015-04-08 版本编写的。
 
@@ -406,10 +397,11 @@ JSON 规范中实现了以下更改：
        ]
     }
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 通过下面的链接查看索引策略管理示例，并了解有关 Azure Cosmos DB 的查询语言的详细信息。
 
 1. [DocumentDB API .NET 索引管理代码示例](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [DocumentDB API REST 集合操作](https://msdn.microsoft.com/zh-cn/library/azure/dn782195.aspx)
+2. [DocumentDB API REST 集合操作](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [使用 SQL 进行查询](documentdb-sql-query.md)
+
+<!--Update_Description: update link-->

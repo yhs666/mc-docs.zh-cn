@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 04/10/2017
 ms.date: 05/22/2017
 ms.author: v-dazen
-ms.openlocfilehash: 9850636867696d8a6063ec58d8e99b33b5f91a2b
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 62db4deb32de5a59e9ff6fb00ce69aaa1a6a96ef
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何验证到达虚拟网络的 VPN 吞吐量
 
@@ -60,7 +60,7 @@ VPN 网关连接涉及以下组件：
 
 此验证应在非高峰时段执行，因为测试期间的 VPN 隧道吞吐量饱和度无法给出准确的结果。
 
-此测试将使用 iPerf 工具来实施，此工具在 Windows 和 Linux 上均可使用，并且有“客户端”和“服务器”两种模式。 对于 Windows VM，其限速为 3 Gbps。
+此测试使用 iPerf 工具来实施，此工具在 Windows 和 Linux 上均可使用，并且有“客户端”和“服务器”两种模式。 对于 Windows VM，其限速为 3 Gbps。
 
 此工具不会对磁盘执行任何读/写操作。 它只会生成从一端至另一端的自生成 TCP 流量。 它已生成的统计信息基于各种旨在测量客户端和服务器节点间可用带宽的试验。 在两个节点间进行测试时，一个节点充当服务器，另一个则充当客户端。 完成此测试后，建议对调两个节点的角色，以测试它们的上传和下载吞吐量。
 
@@ -99,7 +99,7 @@ VPN 网关连接涉及以下组件：
      iperf3.exe -s -p 5001
      ```
 
-4. 在客户端节点上，转到从中提取 iperf 工具的目录，然后运行以下命令：
+4. 在客户端节点上，转到从中提取 iperf 工具的目录，并运行以下命令：
 
     ```CMD
     iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
@@ -117,7 +117,7 @@ VPN 网关连接涉及以下组件：
     iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32  >> output.txt
     ```
 
-6. 完成上述步骤后，请调换角色以使服务器节点变为客户端节点（反之亦然），然后执行相同的步骤。
+6. 完成上述步骤后，请调换角色以使服务器节点变为客户端（反之亦然），然后执行相同的步骤。
 
 ## <a name="address-slow-file-copy-issues"></a>解决文件复制速度缓慢问题
 在使用 Windows 资源管理器时，或者在通过 RDP 会话进行拖放时，文件的复制速度可能会很缓慢。 此问题通常是由以下的一个或两个因素造成的：
@@ -139,4 +139,4 @@ VPN 网关连接涉及以下组件：
 有关详细信息或帮助，请查看以下链接：
 
 - [优化 Azure 虚拟机网络吞吐量](../virtual-network/virtual-network-optimize-network-bandwidth.md)
-- [Azure.cn 支持](https://www.azure.cn/support/support-azure/)
+- [Azure 支持](https://www.azure.cn/support/support-azure/)

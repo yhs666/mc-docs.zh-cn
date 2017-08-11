@@ -15,14 +15,14 @@ ms.topic: article
 origin.date: 06/12/2017
 ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 5c4936a75128509b984f067393d67bb920e1c78b
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: e3a9583111d35336fd1aabd585400348aea8d9df
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 架构
-本主题描述 [Media Encoder Standard 预设](media-services-mes-presets-overview.md)基于的 XML 架构的一些元素和类型。 本主题介绍元素及其有效值。 将在以后发布完整架构。  
+本主题描述 [Media Encoder Standard 预设](media-services-mes-presets-overview.md)基于的 XML 架构的一些元素和类型。 本主题介绍元素及其有效值。 完整架构将在以后发布。  
 
 ## <a name="Preset"></a> 预设（根元素）
 定义编码预设。  
@@ -55,20 +55,20 @@ ms.lasthandoff: 07/14/2017
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
 | TwoPass<br/><br/> minOccurs="0" |**xs:boolean** |目前，仅支持单步编码。 |
-| KeyFrameInterval<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |确定 IDR 帧之间的（默认）间距。 |
+| KeyFrameInterval<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |确定 IDR 帧的固定间距（以秒为单位）。 亦称为“GOP 持续时间”。 请参阅下面的 **SceneChangeDetection**，此元素用于控制编码器能否偏离此值。 |
 | SceneChangeDetection<br/><br/> minOccurs="0"<br/><br/> default="false" |**xs:boolean** |如果设置为 true，编码器尝试检测视频中的场景更改并插入 IDR 帧。 |
 | 复杂性<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |控制编码速度和视频质量的平衡。 可能是以下值之一：速度、均衡或质量<br/><br/> 默认值：均衡 |
-| SyncMode<br/><br/> minOccurs="0" | |将在未来版本中公开功能。 |
+| SyncMode<br/><br/> minOccurs="0" | |会在未来版本中公开功能。 |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |输出视频层的集合。 |
 
 ### <a name="attributes"></a>属性
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| **条件** |**xs:string** | 当输入不包含视频时，建议强制编码器插入单色视频轨道。 为此，请使用 Condition="InsertBlackIfNoVideoBottomLayerOnly"（仅在最低比特率处插入视频）或 Condition="InsertBlackIfNoVideo"（在所有输出比特率处插入视频）。 有关详细信息，请参阅[此](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video)主题。|
+| **条件** |**xs:string** | 当输入不包含视频时，建议强制编码器插入单色视频轨道。 为此，请使用 Condition="InsertBlackIfNoVideoBottomLayerOnly"（仅在最低比特率处插入视频）或 Condition="InsertBlackIfNoVideo"（在所有输出比特率处插入视频）。 有关详细信息，请参阅[此](media-services-advanced-encoding-with-mes.md#no_video)主题。|
 
 ## <a name="H264Layers"></a> H264Layers
 
-默认情况下，如果向编码器发送仅包含音频而不包含视频的输入，则输出资产将包含仅有音频数据的文件。 某些播放器可能无法处理此类输出流。 在这种情况下，可使用 H264Video 的 InsertBlackIfNoVideo 属性设置，强制编码器将视频轨道添加到输出中。 有关详细信息，请参阅[此](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video)主题。
+默认情况下，如果向编码器发送仅包含音频而不包含视频的输入，则输出资产将包含仅有音频数据的文件。 某些播放器可能无法处理此类输出流。 在这种情况下，可使用 H264Video 的 InsertBlackIfNoVideo 属性设置，强制编码器将视频轨道添加到输出中。 有关详细信息，请参阅[此](media-services-advanced-encoding-with-mes.md#no_video)主题。
 
 ### <a name="elements"></a>元素
 | 名称 | 类型 | 说明 |
@@ -111,7 +111,7 @@ ms.lasthandoff: 07/14/2017
 ### <a name="attributes"></a>属性
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| **条件** |**xs:string** |若要强制编码器在输入不包含音频时生成包含静音曲目的资产，请指定“InsertSilenceIfNoAudio”值。<br/><br/> 默认情况下，如果你要向编码器发送仅包含视频而不包含音频的输入，输出资产将包含仅有视频数据的文件。 某些播放器可能无法处理此类输出流。 对于这种方案，你可以使用此设置来强制编码器将静音曲目添加到输出。 |
+| **条件** |**xs:string** |若要强制编码器在输入不包含音频时生成包含静音曲目的资产，请指定“InsertSilenceIfNoAudio”值。<br/><br/> 默认情况下，如果你要向编码器发送仅包含视频而不包含音频的输入，输出资产将包含仅有视频数据的文件。 某些播放器可能无法处理此类输出流。 对于这种方案，可以使用此设置来强制编码器将静音曲目添加到输出。 |
 
 ### <a name="groups"></a>组
 | 引用 | 说明 |
@@ -267,3 +267,5 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="examples"></a>示例
 查看根据此架构生成的 XML 预设示例，请参阅 [MES (Media Encoder Standard) 的任务预设](media-services-mes-presets-overview.md)。
+
+<!--Update_Description: wording update-->

@@ -1,26 +1,28 @@
 ---
-title: "运行示例应用程序，接收来自 Azure IoT 中心的云到设备消息 | Azure"
+title: "将 Arduino (C) 连接到 Azure IoT - 第 4 课：云到设备 | Microsoft 文档"
 description: "示例应用程序在 Adafruit Feather M0 WiFi 上运行，并监视来自 IoT 中心的传入消息。 新的 gulp 任务将消息从 IoT 中心发送到 Adafruit Feather M0 WiFi，使 LED 闪烁。"
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "arduino 从 web 控制 led, arduino 通过 web 控制 led"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: a0bf53fb-29fb-485f-ba4a-6c715057b1a2
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/13/2016
-ms.date: 05/08/2017
+origin.date: 03/21/2017
+ms.date: 08/14/2017
 ms.author: v-yiso
-ms.openlocfilehash: 468ba330ce1e7d1b289c8fcdc2f78fd5c0b75243
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: a68b58a58bb0210357e18dca3a8d6c4b8cf867bc
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="run-a-sample-application-to-receive-cloud-to-device-messages"></a>运行示例应用程序，接收云到设备消息
 在本文中，需在 Adafruit Feather M0 WiFi Arduino 开发板上部署示例应用程序。
@@ -32,7 +34,7 @@ ms.lasthandoff: 06/21/2017
 * 部署并运行示例应用程序。
 * 将消息从 IoT 中心发送到 Arduino 开发板，使 LED 闪烁。
 
-## <a name="what-you-will-learn"></a>你要学习的知识
+## <a name="what-you-will-learn"></a>要学习的知识
 本文介绍：
 * 如何监视来自 IoT 中心的传入消息。
 * 如何将云到设备消息从 IoT 中心发送到 Arduino 开发板。
@@ -137,3 +139,6 @@ gulp 命令将示例应用程序部署到 Arduino 开发板。 然后，它会�
 [config-arduino-json]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson4/config-arduino.png
 [sample-application]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson4/gulp_blink_arduino.png
 [change-the-on-and-off-led-behavior]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md
+
+
+<!--Update_Description: update meta data-->

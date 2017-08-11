@@ -12,27 +12,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 05/24/2017
-ms.date: 07/17/2017
+origin.date: 07/05/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5054833c297a9ab5791c5db98526b13880a215b4
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 51b4a1593cff628f01ccbc63b603a4fdcadd7837
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 08/04/2017
 ---
-# DocumentDB .NET SDK：下载和发行说明
-<a id="documentdb-net-sdk-download-and-release-notes" class="xliff"></a>
+# <a name="documentdb-net-sdk-download-and-release-notes"></a>DocumentDB .NET SDK：下载和发行说明
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET 更改源](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/zh-cn/rest/api/documentdb/)
-> * [REST 资源提供程序](https://docs.microsoft.com/zh-cn/rest/api/documentdbresourceprovider/)
-> * [SQL](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
+> * [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [SQL](documentdb-sql-query-reference.md)
 > 
 > 
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/07/2017
 
 <tr><td>**SDK 下载**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 
-<tr><td>**API 文档**</td><td>[ 参考文档](https://msdn.microsoft.com/zh-cn/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**API 文档**</td><td>[ 参考文档](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**示例**</td><td>[.NET代码示例](documentdb-dotnet-samples.md)</td></tr>
 
@@ -55,10 +55,10 @@ ms.lasthandoff: 07/07/2017
 <!-- Not Available ## Release & Retirement dates -->
 
 
-## 常见问题
-<a id="faq" class="xliff"></a>
+## <a name="faq"></a>常见问题
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## 另请参阅
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
+
+<!--Update_Description: update link-->

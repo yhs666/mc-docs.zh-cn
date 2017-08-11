@@ -14,17 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
 origin.date: 03/23/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: 58cbd0b5944ffa1b71d82467a96329ee35a642de
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 3cc8f26ff02130471749116f6b1086c29f56b5d3
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 08/04/2017
 ---
-# 使用 Azure Cosmos DB 中的更改源支持
-<a id="working-with-the-change-feed-support-in-azure-cosmos-db" class="xliff"></a>
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是快速灵活的全球复制数据库服务，用于存储大量事务与操作数据，读取和写入时的延迟为个位数的毫秒且可预测。 它非常适合用于 IoT、游戏、零售和操作日志记录应用程序。 这些应用程序中的一种常见设计模式是跟踪对 Azure Cosmos DB 数据所做的更改、更新具体化的视图、执行实时分析、将数据存档到冷存储，以及在发生特定事件时根据这些更改触发通知。 使用 Azure Cosmos DB 中的**更改源支持**，可以针对其中的每种模式构建高效、可缩放的解决方案。
+# <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的更改源支持
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是快速灵活的全球复制数据库服务，用于存储大量事务与操作数据，读取和写入时的延迟为个位数的毫秒且可预测。 它非常适合用于 IoT、游戏、零售和操作日志记录应用程序。 这些应用程序中的一种常见设计模式是跟踪对 Azure Cosmos DB 数据所做的更改、更新具体化视图、执行实时分析、将数据存档到冷存储，以及在发生特定事件时根据这些更改触发通知。 使用 Azure Cosmos DB 中的**更改源支持**，可以针对其中的每种模式构建高效、可缩放的解决方案。
 
 借助更改源支持，Azure Cosmos DB 在 Azure Cosmos DB 集合中按文档修改顺序提供有序的文档列表。 此源可用于侦听对集合中数据所做的修改，以及执行如下操作：
 
@@ -32,12 +31,11 @@ ms.lasthandoff: 07/07/2017
 * 针对更新执行实时（流）处理
 * 将数据与缓存、搜索引擎或数据仓库同步
 
-Azure Cosmos DB 中发生的更改将持久保存，并能够以异步方式进行处理，以及分散到一个或多个使用者供并行处理。 让我们了解更改源的 API，以及如何使用它们来构建可缩放的实时应用程序。 本文介绍了如何通过 Azure Cosmos DB DocumentDB API 处理空间数据。 
+Azure Cosmos DB 中发生的更改将持久保存，并能够以异步方式进行处理，以及分发到一个或多个使用者供并行处理。 让我们了解更改源的 API，以及如何使用它们来构建可缩放的实时应用程序。 本文介绍了如何通过 Azure Cosmos DB DocumentDB API 处理空间数据。 
 
 ![使用 Azure Cosmos DB 更改源促成实时分析和事件驱动的计算方案](./media/change-feed/changefeed.png)
 
-## 用例和方案
-<a id="use-cases-and-scenarios" class="xliff"></a>
+## <a name="use-cases-and-scenarios"></a>用例和方案
 使用更改源可对具有大量写入操作的大型数据集进行有效处理，这样就不需要查询整个数据集来识别发生了哪些更改。 例如，可以有效地执行以下任务：
 
 * 使用 Azure Cosmos DB 中存储的数据更新缓存、搜索索引或数据仓库。
@@ -57,29 +55,27 @@ Azure Cosmos DB 中发生的更改将持久保存，并能够以异步方式进�
 在 Web 应用和移动应用中，可以跟踪各种事件（例如，对客户配置文件、首选项或位置的更改），以触发特定的操作，例如，使用[应用服务](https://www.azure.cn/home/features/app-service/)向客户的设备发送推送通知。 例如，若要使用 Azure Cosmos DB 来构建游戏，可以使用更改源，根据已完成的游戏的分数实时更新排行榜。
 <!-- Not Available [Azure Functions](../azure-functions/functions-bindings-documentdb.md) -->
 
-## 更改源在 Azure Cosmos DB 中的工作原理
-<a id="how-change-feed-works-in-azure-cosmos-db" class="xliff"></a>
+## <a name="how-change-feed-works-in-azure-cosmos-db"></a>更改源在 Azure Cosmos DB 中的工作原理
 Azure Cosmos DB 能够以增量方式读取对 Azure Cosmos DB 集合所做的更新。 此更改源具有以下属性：
 
 * 更改将在 Azure Cosmos DB 中持久保存，并能够以异步方式进行处理。
-* 对集合中的文档所做的更改将立即在更改源中出现。
+* 对集合中的文档所做的更改立即在更改源中出现。
 * 每次对文档所做的更改只会在更改源中出现一次。 更改日志中仅包含最近对给定文档所做的更改， 而不包含中途的更改。
 * 更改源按照每个分区键值中的修改顺序排序。 无法保证各分区键值中的顺序一致。
 * 更改可从任意时间点同步，也就是说，发生更改的数据没有固定的保留期。
 * 更改以分区键范围区块提供。 多个使用者/服务器可以使用此功能并行处理大型集合中发生的更改。
 * 应用程序可以针对同一个集合同时请求多个更改源。
 
-Azure Cosmos DB 的更改源默认已针对所有帐户启用，不会在帐户中产生任何额外的费用。 可以使用写入区域或任何[读取区域](distribute-data-globally.md)中的[预配吞吐量](request-units.md)从更改源中读取数据，就像在 Azure Cosmos DB 中执行其他任何操作一样。 更改源包括针对集合中的文档所做的插入和更新操作。 可以通过在文档中的删除位置设置“软删除”标志来捕获删除操作。 或者，可以通过 [TTL 功能](time-to-live.md)为文档设置有限的过期期限（例如 24 小时），然后使用该属性的值捕获删除操作。 使用此解决方案时，处理更改的时间间隔必须比 TTL 过期期限要短。 更改源适用于文档集合中的每个分区键范围，因此，可以分散到一个或多个使用者供并行处理。 
+Azure Cosmos DB 的更改源默认已针对所有帐户启用，不会在帐户中产生任何额外的费用。 可以使用写入区域或任何[读取区域](distribute-data-globally.md)中的[预配吞吐量](request-units.md)从更改源中读取数据，就像在 Azure Cosmos DB 中执行其他任何操作一样。 更改源包括针对集合中的文档所做的插入和更新操作。 可以通过在文档中的删除位置设置“软删除”标志来捕获删除操作。 或者，可以通过 [TTL 功能](time-to-live.md)为文档设置有限的到期期限（例如 24 小时），然后使用该属性的值捕获删除操作。 使用此解决方案时，处理更改的时间间隔必须比 TTL 过期期限要短。 更改源适用于文档集合中的每个分区键范围，因此，可以分散到一个或多个使用者供并行处理。 
 
 ![Azure Cosmos DB 更改源的分布式处理](./media/change-feed/changefeedvisual.png)
 
-以下部分将介绍如何使用 Azure Cosmos DB REST API 和 SDK 访问更改源。 对于 .NET 应用程序，建议使用[更改源处理器库]()处理来自更改源的事件。
+以下部分介绍如何使用 Azure Cosmos DB REST API 和 SDK 访问更改源。 对于 .NET 应用程序，建议使用[更改源处理器库]()处理来自更改源的事件。
 
 ## <a id="rest-apis"></a>使用 REST API 和 SDK
 Azure Cosmos DB 为存储和吞吐量提供了称为**集合**的弹性容器。 集合中的数据已使用[分区键](partition-data.md)进行逻辑分组，以提高可伸缩性与性能。 Azure Cosmos DB 提供了各种 API 来访问这些数据，包括按 ID（读取/获取）、查询和读取源（扫描）进行查找。 可以通过在 DocumentDB `ReadDocumentFeed` API 中填充两个新请求标头来获取更改源，然后跨多个分区键范围并行处理更改源。
 
-### ReadDocumentFeed API
-<a id="readdocumentfeed-api" class="xliff"></a>
+### <a name="readdocumentfeed-api"></a>ReadDocumentFeed API
 让我们简单了解一下 ReadDocumentFeed 的工作原理。 Azure Cosmos DB 支持通过 `ReadDocumentFeed` API 读取集合中文档的源。 例如，以下请求返回 `serverlogs` 集合中的文档页面。 
 
     GET https://mydocumentdb.documents.azure.cn/dbs/smalldb/colls/serverlogs HTTP/1.1
@@ -92,7 +88,7 @@ Azure Cosmos DB 为存储和吞吐量提供了称为**集合**的弹性容器。
     Accept: application/json
     Host: mydocumentdb.documents.azure.cn
 
-可以使用 `x-ms-max-item-count` 限制结果；可以通过使用前一响应中返回的 `x-ms-continuation` 标头重新提交请求来恢复读取。 在单个客户端中执行时，`ReadDocumentFeed` 将以串行方式循环访问各分区的结果。 
+可以使用 `x-ms-max-item-count` 限制结果；可以通过使用前一响应中返回的 `x-ms-continuation` 标头重新提交请求来恢复读取。 在单个客户端中执行时，`ReadDocumentFeed` 以串行方式循环访问各分区的结果。 
 
 **串行读取文档源**
 
@@ -105,8 +101,7 @@ Azure Cosmos DB 为存储和吞吐量提供了称为**集合**的弹性容器。
     }
     while (feedResponse.ResponseContinuation != null);
 
-### ReadDocumentFeed 的分布式执行
-<a id="distributed-execution-of-readdocumentfeed" class="xliff"></a>
+### <a name="distributed-execution-of-readdocumentfeed"></a>ReadDocumentFeed 的分布式执行
 对于包含 TB 量级数据的集合，或者在引入大量更新的情况下，从一台客户端计算机以串行方式执行源读取可能不可行。 为了支持这些大数据方案，Azure Cosmos DB 提供了相应的 API，以透明方式在多个客户端读取者/使用者之间分布 `ReadDocumentFeed` 调用。 
 
 **分布式读取文档源**
@@ -116,8 +111,7 @@ Azure Cosmos DB 为存储和吞吐量提供了称为**集合**的弹性容器。
 * 执行 `ReadPartitionKeyRanges` 调用可以获取集合的分区键范围列表。 
 * 对于每个分区键范围，可以执行 `ReadDocumentFeed` 来读取具有该范围内的分区键的文档。
 
-### 检索集合的分区键范围
-<a id="retrieving-partition-key-ranges-for-a-collection" class="xliff"></a>
+### <a name="retrieving-partition-key-ranges-for-a-collection"></a>检索集合的分区键范围
 可以通过请求集合中的 `pkranges` 资源来检索分区键范围。 例如，以下请求检索 `serverlogs` 集合的分区键范围列表：
 
     GET https://querydemo.documents.azure.cn/dbs/bigdb/colls/serverlogs/pkranges HTTP/1.1
@@ -195,8 +189,7 @@ Azure Cosmos DB 为存储和吞吐量提供了称为**集合**的弹性容器。
 
 Azure Cosmos DB 支持通过设置可选的 `x-ms-documentdb-partitionkeyrangeid` 标头按分区键范围检索文档。 
 
-### 执行增量 ReadDocumentFeed
-<a id="performing-an-incremental-readdocumentfeed" class="xliff"></a>
+### <a name="performing-an-incremental-readdocumentfeed"></a>执行增量 ReadDocumentFeed
 ReadDocumentFeed 支持使用以下方案/任务对 Azure Cosmos DB 集合中的更改进行增量处理：
 
 * 读取自始至终（从创建集合时开始）对文档所做的全部更改。
@@ -266,7 +259,7 @@ ReadDocumentFeed 支持使用以下方案/任务对 Azure Cosmos DB 集合中的
 > [!NOTE]
 > 通过更改源，在存储过程或触发器中插入或更新了多个文档的情况下，页面中可能会返回比 `x-ms-max-item-count` 中指定的数目更多的项。 
 
-.NET SDK 提供 [CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) 和 [ChangeFeedOptions](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.changefeedoptions.aspx)帮助器类，以访问对集合进行的更改。 以下代码片段演示如何在单个客户端中使用.NET SDK 检索从一开始所做的全部更改。
+.NET SDK 提供 [CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) 和 [ChangeFeedOptions](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.changefeedoptions.aspx)帮助器类，以访问对集合进行的更改。 以下代码片段演示如何在单个客户端中使用.NET SDK 检索从一开始所做的全部更改。
 
     private async Task<Dictionary<string, string>> GetChanges(
         DocumentClient client,
@@ -348,7 +341,7 @@ ReadDocumentFeed 支持使用以下方案/任务对 Azure Cosmos DB 集合中的
 * CloseAsync
 * ProcessEventsAsync
 
-若要开始处理事件，请实例化 ChangeFeedProcessorHost，并为 Azure Cosmos DB 集合提供适当的参数。 然后，调用 `RegisterObserverAsync` 在运行时注册 `IChangeFeedObserver` 实现。 此时，主机将尝试使用“贪婪”算法获取 Azure Cosmos DB 集合内每个分区键范围上的租约。 这些租约将持续指定的时限，然后必须续订。 新节点（本例中的工作线程实例）进入联机状态时，它们将保留租约，以后每次尝试获取更多租约时，负载将在节点之间转移。
+若要开始处理事件，请实例化 ChangeFeedProcessorHost，并为 Azure Cosmos DB 集合提供适当的参数。 然后，调用 `RegisterObserverAsync` 在运行时注册 `IChangeFeedObserver` 实现。 此时，主机会尝试使用“贪婪”算法获取 Azure Cosmos DB 集合内每个分区键范围上的租约。 这些租约将持续指定的时限，并且必须续订。 新节点（本例中的工作线程实例）进入联机状态时，它们会保留租约，以后每次尝试获取更多租约时，负载会在节点之间转移。
 
 ![使用 Azure Cosmos DB 更改源处理器主机](./media/change-feed/changefeedprocessor.png)
 
@@ -406,7 +399,8 @@ ReadDocumentFeed 支持使用以下方案/任务对 Azure Cosmos DB 集合中的
 
 本文逐步讲解了 Azure Cosmos DB 的更改源支持，以及如何使用 REST API 和/或 SDK 跟踪对 Azure Cosmos DB 数据所做的更改。 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 尝试 [GitHub 上的 Azure Cosmos DB 更改源代码示例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
-* 使用 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 或 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) 开始编写代码
+* 使用 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 或 [REST API](https://docs.microsoft.com/rest/api/documentdb/) 开始编写代码
+
+<!--Update_Description: update link-->

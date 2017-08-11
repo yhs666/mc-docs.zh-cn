@@ -13,28 +13,29 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9faed26171ed89487f1c3dfe26545cddc3b8eaef
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: f2e7322b9dda841e8945268e562ae10e3833d6e6
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 08/04/2017
 ---
-# DocumentDB Python SDK：发行说明和资源
-<a id="documentdb-python-sdk-release-notes-and-resources" class="xliff"></a>
+# <a name="documentdb-python-sdk-release-notes-and-resources"></a>DocumentDB Python SDK：发行说明和资源
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET 更改源](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/zh-cn/rest/api/documentdb/)
-> * [REST 资源提供程序](https://docs.microsoft.com/zh-cn/rest/api/documentdbresourceprovider/)
-> * [SQL](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
+> * [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [SQL](documentdb-sql-query-reference.md)
 > 
 > 
+<!-- https://msdn.microsoft.com/library/azure/dn782250.aspx redirect to documentdb-sql-query-reference.md -->
 
 <table>
 
@@ -54,10 +55,10 @@ ms.lasthandoff: 07/07/2017
 <!-- Not Available ## Release notes -->
 <!-- Not Available ## Release & retirement dates -->
 
-## 常见问题
-<a id="faq" class="xliff"></a>
+## <a name="faq"></a>常见问题
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## 另请参阅
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
+
+<!--Update_Description: update link-->

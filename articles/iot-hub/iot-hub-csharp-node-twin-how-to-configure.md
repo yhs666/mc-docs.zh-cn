@@ -14,18 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/30/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
-ms.openlocfilehash: baa24ee5d4ff36681d5cbf7b5e0183df06b16719
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.date: 08/14/2017
+ms.openlocfilehash: a6c8b32d24a9c39329a491f3bb3a7bcda9d1de87
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/04/2017
 ---
-# 使用所需属性配置设备
-<a id="use-desired-properties-to-configure-devices" class="xliff"></a>
+# <a name="use-desired-properties-to-configure-devices"></a>使用所需属性配置设备
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-在本教程结束时，将会创建两个控制台应用：
+在本教程结束时，会创建两个控制台应用：
 
 * **SimulateDeviceConfiguration.js**，一个模拟设备应用，它等待所需配置更新并报告模拟配置更新过程的状态。
 * **SetDesiredConfigurationAndQuery**，一个 .NET 后端应用，用于在设备上设置所需配置并查询配置更新过程。
@@ -49,10 +48,10 @@ ms.lasthandoff: 06/28/2017
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## 创建模拟设备应用
-<a id="create-the-simulated-device-app" class="xliff"></a>
+<a id="#create-the-simulated-device-app"></a>
+## <a name="create-the-simulated-device-app"></a>创建模拟设备应用
 
-在此部分，用户需创建一个 Node.js 控制台应用，该应用可作为 **myDeviceId**连接到中心并等待所需配置更新，然后针对模拟配置更新过程报告更新。
+在此部分，用户需创建一个 Node.js 控制台应用，该应用可作为 **myDeviceId**连接到中心并等待所需配置更新，并针对模拟配置更新过程报告更新。
 
 1. 新建名为 **simulatedeviceconfiguration**的空文件夹。 在命令提示符下的 **simulatedeviceconfiguration** 文件夹中，使用以下命令创建新的 package.json 文件。 接受所有默认值。
    
@@ -99,7 +98,7 @@ ms.lasthandoff: 06/28/2017
             }
         });
    
-    **客户端**对象公开从设备与设备孪生进行交互所需的所有方法。 此代码将初始化 **Client** 对象，然后检索 **myDeviceId** 的设备孪生，并在所需属性上附加用于更新的处理程序。 该处理程序通过比较 configId 验证是否有实际的配置更改，然后调用用于启动配置更改的方法。
+    **客户端**对象公开从设备与设备孪生进行交互所需的所有方法。 此代码将初始化 **Client** 对象，检索 **myDeviceId** 的设备孪生，并在所需属性上附加用于更新的处理程序。 该处理程序通过比较 configId 来验证是否存在实际配置更改请求，并调用启动配置更改的方法。
    
     请注意，为了简单起见，此代码使用初始配置的硬编码默认值。 实际的应用可能会从本地存储加载该配置。
    
@@ -150,12 +149,13 @@ ms.lasthandoff: 06/28/2017
     };
     ```
 
-    **initConfigChange** 方法使用配置更新请求更新本地设备孪生对象的报告属性，并将状态设置为“等待中”，然后更新服务的设备孪生。 成功更新设备孪生后，它会模拟在执行 **completeConfigChange** 期间终止的长时间运行的进程。 此方法更新本地报告属性，将状态设置为“成功”并删除 **pendingConfig** 对象。 然后，它会更新服务的设备孪生。
+    
+            **initConfigChange** 方法使用配置更新请求更新本地设备孪生对象的报告属性，并将状态设置为“等待中”****，并更新服务的设备孪生。 成功更新设备孪生后，它会模拟在执行 **completeConfigChange** 期间终止的长时间运行的进程。 此方法更新本地报告属性，将状态设置为“成功”并删除 **pendingConfig** 对象。 然后，它会更新服务的设备孪生。
 
     请注意，为了节省带宽，仅通过指定要修改的属性（在上述代码中名为 **patch**）而不是替换整个文档来更新报告属性。
 
    > [!NOTE]
-   > 本教程不模拟并发配置更新的任何行为。 某些配置更新进程在更新运行过程中可能能够适应目标配置的更改，某些配置更新进程则可能必须将它们排队，某些配置更新进程会拒绝它们并显示错误情况。 请确保考虑你的特定配置过程所需的行为，并在开始配置更改之前添加相应的逻辑。
+   > 本教程不模拟并发配置更新的任何行为。 某些配置更新进程在更新运行过程中可能能够适应目标配置的更改，某些配置更新进程则可能必须将它们排队，某些配置更新进程会拒绝它们并显示错误情况。 请确保考虑特定配置过程所需的行为，并在开始配置更改之前添加相应的逻辑。
    > 
    > 
 6. 运行设备应用：
@@ -166,15 +166,14 @@ ms.lasthandoff: 06/28/2017
 
     此时会显示消息 `retrieved device twin`。 使应用保持运行状态。
 
-## 创建服务应用
-<a id="create-the-service-app" class="xliff"></a>
-在本节中，用户需创建一个 .NET 控制台应用，以便通过新的遥测配置对象在与 *myDeviceId* 关联的设备孪生上更新 **所需属性** 。 然后，它查询存储在 IoT 中心的设备孪生，并显示该设备的所需配置和报告配置之间的差异。
+## <a name="create-the-service-app"></a>创建服务应用
+在本节中，用户需创建一个 .NET 控制台应用，以便通过新的遥测配置对象在与 *myDeviceId* 关联的设备孪生上更新 **所需属性** 。 该应用随后会查询存储在 IoT 中心的设备孪生，并显示设备的所需配置与报告配置之间的差异。
 
-1. 在 Visual Studio 中，使用“ **控制台应用程序** ”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 **SetDesiredConfigurationAndQuery**。
+1. 在 Visual Studio 中，使用“**控制台应用程序**”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 **SetDesiredConfigurationAndQuery**。
 
     ![新的 Visual C# Windows 经典桌面项目][img-createapp]
-2. 在“解决方案资源管理器”中，右键单击“**SetDesiredConfigurationAndQuery**”项目，然后单击“**管理 NuGet 包**”。
-1. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，然后接受使用条款。 该过程将下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
+2. 在“解决方案资源管理器”中，右键单击“**SetDesiredConfigurationAndQuery**”项目，并单击“**管理 NuGet 包**”。
+1. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，并接受使用条款。 此过程会下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
 
     ![“NuGet 包管理器”窗口][img-servicenuget]
     
@@ -253,9 +252,8 @@ ms.lasthandoff: 06/28/2017
    > 
    > 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
-在本教程中，用户已从解决方案后端将所需配置设置为 *所需属性* ，此外还编写了一个设备应用来检测该更改并模拟多步骤更新过程（通过报告属性报告其状态）。
+## <a name="next-steps"></a>后续步骤
+在本教程中，已从解决方案后端将所需配置设置为“所需属性”，此外还编写了一个设备应用以检测该更改并模拟多步骤更新过程（通过报告属性报告其状态）。
 
 充分利用以下资源：
 
@@ -288,4 +286,6 @@ ms.lasthandoff: 06/28/2017
 
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
-[lnk-how-to-configure-createapp]: ./iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
+[lnk-how-to-configure-createapp]: ./iot-hub-csharp-node-twin-how-to-configure.md#create-the-simulated-device-app
+
+<!--Update_Description: update wording and add some anchors-->

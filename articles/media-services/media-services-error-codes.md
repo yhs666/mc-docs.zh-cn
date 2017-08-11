@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 01/10/2017
 ms.date: 02/24/2017
 ms.author: v-johch
-ms.openlocfilehash: 1d1318f9839cf12e53b38cd09c0e5a4ab3438855
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 393d533408d3e31cafc38ab2abdf2fbfd0202ad2
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="azure-media-services-error-codes"></a>Azure 媒体服务错误代码
 使用 Azure 媒体服务时，可能会从服务收到因问题而异的 HTTP 错误代码，例如身份验证令牌到期或媒体服务不支持操作。 以下是媒体服务可能返回的 **HTTP 错误代码** 及其可能原因的列表。  
@@ -28,7 +28,7 @@ ms.lasthandoff: 06/21/2017
 请求包含无效的信息，并出于以下原因之一被拒绝：
 
 * 指定了不受支持的 API 版本。 有关当前版本，请参阅[媒体服务 REST API 开发的设置](./media-services-rest-how-to-use.md)。
-* 未指定媒体服务的 API 版本。 有关如何指定 API 版本的信息，请参阅[使用媒体服务 REST API 连接到媒体服务](./media-services-rest-connect-programmatically.md)。
+* 未指定媒体服务的 API 版本。 有关如何指定 API 版本的信息，请参阅[使用 REST 访问 Azure 媒体服务 API](./media-services-rest-connect-with-aad.md)。
 
   > [!NOTE]
   >如果使用 .NET 或 Java SDK 连接到媒体服务，则无论何时尝试并执行针对媒体服务的操作，都会指定 API 版本。
@@ -47,7 +47,7 @@ ms.lasthandoff: 06/21/2017
 
 * 缺少身份验证标头。
 * 身份验证标头值错误。
-  * 令牌已过期。 如果直接使用 REST API，请参阅[使用媒体服务 REST API 连接到媒体服务](./media-services-rest-connect-programmatically.md)，了解如何生成新的身份验证令牌。 如果使用 .NET 或 Java SDK，请创建用于生成令牌的 CloudMediaContext 或 MediaContract 对象。 有关如何进行操作的详细信息，请参阅[使用适用于 .NET 的媒体服务 SDK 连接到媒体服务](./media-services-dotnet-connect-programmatically.md)。
+  * 令牌已过期。 如果直接使用 REST API，请参阅[使用 REST 访问 Azure 媒体服务 API](./media-services-rest-connect-with-aad.md)，了解如何生成新的身份验证令牌。 如果使用 .NET 或 Java SDK，请创建用于生成令牌的 CloudMediaContext 或 MediaContract 对象。 有关如何执行此操作的详细信息，请参阅[使用 .NET 访问 Azure 媒体服务 API](./media-services-dotnet-get-started-with-aad.md)。
   * 令牌包含无效签名。</li></ul></li></ul>
 
 ## <a name="403-forbidden"></a>403 禁止访问

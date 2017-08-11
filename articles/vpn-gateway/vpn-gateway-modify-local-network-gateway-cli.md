@@ -1,6 +1,6 @@
 ---
 title: "修改本地网关 IP 地址前缀和 VPN 网关 IP 地址| Azure| CLI| Azure"
-description: "本文介绍如何使用 Azure CLI 更改本地网络网关的 IP 地址前缀"
+description: "本文介绍如何使用 Azure CLI 更改本地网络网关的 IP 地址前缀。"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,38 +13,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/24/2017
-ms.date: 05/31/2017
+origin.date: 06/19/2017
+ms.date: 08/07/2017
 ms.author: v-dazen
-ms.openlocfilehash: 7876c4f4b18c5aff9f407d9f72d52179f6591649
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: cae64167c67cdfd0171e958e77d5b7986f361609
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/04/2017
 ---
-# 使用 Azure CLI 修改本地网络网关设置
-<a id="modify-local-network-gateway-settings-using-the-azure-cli" class="xliff"></a>
+# <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>使用 Azure CLI 修改本地网络网关设置
 
-有时本地网络网关 AddressPrefix 或 GatewayIPAddress 的设置会变更。 本文演示如何修改本地网络网关设置。 也可在 Azure 门户或 PowerShell 中修改这些设置。
+有时，本地网络网关的地址前缀或网关 IP 地址的设置会变更。 本文演示如何修改本地网络网关设置。 还可以通过选择以下列表中的其他选项，使用另一种方法来修改这些设置：
 
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
+> [!div class="op_single_selector"]
+> * [Azure 门户](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
+> * [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
+>
+>
+
+## <a name="before-you-begin"></a>开始之前
 
 安装最新版本的 CLI 命令（2.0 或更高版本）。 有关安装 CLI 命令的信息，请参阅 [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)（安装 Azure CLI 2.0）。
 
 [!INCLUDE [CLI-login](../../includes/vpn-gateway-cli-login-include.md)]
 
-## 修改 IP 地址前缀
-<a id="modify-ip-address-prefixes" class="xliff"></a>
+## <a name="modify-ip-address-prefixes"></a>修改 IP 地址前缀
 
 [!INCLUDE [modify-prefix](../../includes/vpn-gateway-modify-ip-prefix-cli-include.md)]
 
-## 修改网关 IP 地址
-<a id="modify-the-gateway-ip-address" class="xliff"></a>
+## <a name="modify-the-gateway-ip-address"></a>修改网关 IP 地址
 
 [!INCLUDE [modify-gateway-IP](../../includes/vpn-gateway-modify-lng-gateway-ip-cli-include.md)]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 可验证网关连接。 请参阅[验证网关连接](vpn-gateway-verify-connection-resource-manager.md)。
+
+<!--Update_Description: add selector-->

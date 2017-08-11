@@ -1,10 +1,10 @@
 ---
 title: "ESP8266 到云 - 将 Sparkfun ESP8266 Thing Dev 连接到 Azure IoT 中心 | Azure"
-description: "有关将 Arduino 设备 Sparkfun ESP8266 Thing Dev 连接到 Azure IoT 中心（可帮助管理 IoT 资产的 Microsoft 云服务）的指南。"
+description: "在本教程中了解如何设置 Sparkfun ESP8266 Thing Dev 并将其连接到 Azure IoT 中心，使其能够将数据发送到 Azure 云平台。"
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: 
 ms.assetid: 587fe292-9602-45b4-95ee-f39bba10e716
@@ -14,15 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/15/2017
-ms.date: 05/15/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 72727d89e4199fa3aeb0ca11f0ffa1032ff27c3f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.date: 08/14/2017
+ms.openlocfilehash: 8e8622757e80312e6595673391cfba82d8c41ee4
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>将 Sparkfun ESP8266 Thing Dev 连接到云中的 Azure IoT 中心
 
@@ -32,12 +30,12 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="what-you-will-do"></a>执行的操作
 
-将 Sparkfun ESP8266 Thing Dev 连接到创建的 Azure IoT 中心。 然后，在 ESP8266 上运行一个示例应用程序，用于从 DHT22 传感器收集温度和湿度数据。 最后，将传感器数据发送到 IoT 中心。
+将 Sparkfun ESP8266 Thing Dev 连接到要创建的 IoT 中心。 然后，在 ESP8266 上运行一个示例应用程序，用于从 DHT22 传感器收集温度和湿度数据。 最后，将传感器数据发送到 IoT 中心。
 
 > [!NOTE]
 > 如果使用其他 ESP8266 开发板，仍可遵循这些步骤将它连接到 IoT 中心。 根据所用的 ESP8266 开发板，可能需要重新配置 `LED_PIN`。 例如，如果使用 AI-Thinker 提供的 ESP8266，可将此参数从 `0` 更改为 `2`。 
 
-## <a name="what-you-will-learn"></a>你要学习的知识
+## <a name="what-you-will-learn"></a>要学习的知识
 
 * 如何创建 IoT 中心以及注册 Thing Dev 的设备。
 * 如何将 Thing Dev 与传感器和计算机相连接。
@@ -55,6 +53,7 @@ ms.lasthandoff: 05/05/2017
 
 还需要为开发环境做好以下准备：
 
+* 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需花费几分钟就能[创建一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 * 运行 Windows 或 Ubuntu 的 Mac 或 PC。
 * Sparkfun ESP8266 Thing Dev 要连接到的无线网络。
 * 建立 Internet 连接，以便下载配置工具。
@@ -66,79 +65,7 @@ ms.lasthandoff: 05/05/2017
 * 试验板。
 * M/M 跳线。
 
-## <a name="create-an-iot-hub-and-register-a-device-for-sparkfun-esp8266-thing-dev"></a>创建 IoT 中心并注册 Sparkfun ESP8266 Thing Dev 的设备
-
-### <a name="create-your-azure-iot-hub-in-the-azure-portal"></a>在 Azure 门户中创建 Azure IoT 中心
-
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-1. 单击“新建” > “物联网” > “IoT 中心”。
-
-   ![创建 IoT 中心](./media/iot-hub-sparkfun-thing-dev-get-started/3_iot-hub-creation.png)
-
-1. 在“IoT 中心”窗格中，输入 IoT 中心的所需信息：
-
-   ![创建 IoT 中心所需的基本信息](./media/iot-hub-sparkfun-thing-dev-get-started/4_iot-hub-provide-basic-info.png)
-
-   * **名称**：IoT 中心的名称。 如果输入的名称有效，将显示一个绿色复选标记。
-   * **定价和缩放级别**：选择免费的 F1 级别对于本演示教程已足够。 请参阅[定价和缩放级别](https://www.azure.cn/pricing/details/iot-hub)。
-   * **资源组**：创建用于托管 IoT 中心的资源组，或使用现有的资源组。 请参阅[使用资源组管理 Azure 资源](../azure-resource-manager/resource-group-portal.md)。
-   * **位置**：选择与创建的 IoT 中心最靠近的位置。
-   * **固定仪表板**：选中此选项可以方便地从仪表板访问 IoT 中心。
-1. 单击“创建” 。 创建 IoT 中心可能需要几分钟时间。 可在“通知”窗格中查看进度。
-
-   ![在通知窗格中监视 IoT 中心创建进度](./media/iot-hub-sparkfun-thing-dev-get-started/5_iot-hub-monitor-creation-progress-notification-pane.png)
-
-1. 创建 IoT 中心后，请在仪表板中单击它。 记下“主机名”供稍后使用，然后单击“共享访问策略”。
-
-   ![获取 IoT 中心的主机名](./media/iot-hub-sparkfun-thing-dev-get-started/6_iot-hub-get-hostname.png)
-
-1. 在“共享访问策略”窗格中单击“iothubowner”策略，然后复制并记下 IoT 中心的**连接字符串**供稍后使用。 有关详细信息，请参阅[控制对 IoT 中心的访问](./iot-hub-devguide-security.md)。
-
-   ![获取 IoT 中心连接字符串](./media/iot-hub-sparkfun-thing-dev-get-started/7_iot-hub-get-connection-string.png)
-
-现在已创建 IoT 中心。 稍后将会用到记下的主机名和连接字符串。
-
-### <a name="register-a-device-for-sparkfun-esp8266-thing-dev-in-your-iot-hub"></a>在 IoT 中心注册 Sparkfun ESP8266 Thing Dev 的设备
-
-每个 IoT 中心都有一个标识注册表，存储允许连接到 IoT 中心的设备的相关信息。 IoT 中心的标识注册表中必须先有设备的条目，然后该设备才能连接到 IoT 中心。
-
-本部分将使用 CLI 工具 iothub explorer 在 IoT 中心的标识注册表中注册 ESP8266 Thing Dev 的设备。
-
-> [!NOTE]
-> iothub explorer 需要 Node.js 4.x 或更高版本才能正常工作。
-
-若要注册 ESP8266 Thing Dev 的设备，请执行以下步骤：
-
-1. [下载](https://nodejs.org/en/download/)并安装 Node.js 的最新 LTS 版本，包括 NPM。
-1. 使用 NPM 安装 iothub explorer。
-
-   * Windows 7 或更高版本：以管理员身份启动命令提示符。 运行以下命令安装 iothub explorer：
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-   * Ubuntu 16.04 或更高版本：使用快捷键 Ctrl+Alt+T 打开终端，然后运行以下命令：
-
-     ```bash
-     sudo npm install -g iothub-explorer
-     ```
-   * macOS 10.1 或更高版本：打开终端，然后运行以下命令：
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-1. 运行以下命令登录到 IoT 中心：
-
-   ```bash
-   iothub-explorer login [your iot hub connection string]
-   ```
-1. 注册新设备（`deviceID` 为 `new-device`），然后运行以下命令获取设备的连接字符串。
-
-   ```bash
-   iothub-explorer create new-device --connection-string
-   ```
-
-记下已注册设备的连接字符串，因为稍后将要用到。
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## <a name="connect-esp8266-thing-dev-with-the-sensor-and-your-computer"></a>将 ESP8266 Thing Dev 与传感器和计算机相连接
 
@@ -165,7 +92,7 @@ ms.lasthandoff: 05/05/2017
 
 ### <a name="connect-sparkfun-esp8266-thing-dev-to-your-computer"></a>将 Sparkfun ESP8266 Thing Dev 连接到计算机
 
-按如下所示，使用 Micro USB 转 Type A USB 线缆将 Sparkfun ESP8266 Thing Dev 连接到计算机。
+按如下所示，使用 Micro USB 转 Type A USB 电缆将 Sparkfun ESP8266 Thing Dev 连接到计算机。
 
 ![将 feather huzzah 连接到计算机](./media/iot-hub-sparkfun-thing-dev-get-started/9_connect-thing-dev-computer.png)
 
@@ -180,7 +107,7 @@ ms.lasthandoff: 05/05/2017
    ls -l /dev/ttyACM*
    ```
 
-   将返回以下输出之一：
+   返回以下输出之一：
 
    * crw-rw---- 1 root uucp xxxxxxxx
    * crw-rw---- 1 root dialout xxxxxxxx
@@ -195,11 +122,11 @@ ms.lasthandoff: 05/05/2017
 
    `<group-owner-name>` 是在上一步骤中获取的组所有者名称。 `<username>` 是你的 Ubuntu 用户名。
 
-1. 从 Ubuntu 中注销，然后再次登录，使更改生效。
+1. 从 Ubuntu 中注销，并再次登录，使更改生效。
 
 ## <a name="collect-sensor-data-and-send-it-to-your-iot-hub"></a>收集传感器数据并将其发送到 IoT 中心
 
-在本部分，你将在 Sparkfun ESP8266 Thing Dev 上部署并运行一个示例应用程序。 该示例应用程序会使 Sparkfun ESP8266 Thing Dev 上的 LED 闪烁，并将从 DHT22 传感器收集的温度和湿度数据发送到 IoT 中心。
+在本部分，会在 Sparkfun ESP8266 Thing Dev 上部署并运行一个示例应用程序。 该示例应用程序会使 Sparkfun ESP8266 Thing Dev 上的 LED 闪烁，并将从 DHT22 传感器收集的温度和湿度数据发送到 IoT 中心。
 
 ### <a name="get-the-sample-application-from-github"></a>从 GitHub 获取示例应用程序
 
@@ -249,37 +176,37 @@ ms.lasthandoff: 05/05/2017
 
 ### <a name="dont-have-a-real-dht22-sensor"></a>没有真正的 DHT22 传感器？
 
-如果你没有真正的 DHT22 传感器，示例应用程序可以模拟温度和湿度数据。 若要让示例应用程序使用模拟的数据，请执行以下步骤：
+如果没有真正的 DHT22 传感器，示例应用程序可以模拟温度和湿度数据。 若要让示例应用程序使用模拟的数据，请执行以下步骤：
 
 1. 打开 `app` 文件夹中的 `config.h` 文件。
 1. 找到以下代码行并将值从 `false` 更改为 `true`：
    ```c
    define SIMULATED_DATA true
    ```
-   ![将示例应用程序配置为使用模拟的数据](./media/iot-hub-sparkfun-thing-dev-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
+   ![将示例应用程序配置为使用模拟数据](./media/iot-hub-sparkfun-thing-dev-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
    
 1. 使用 `Control-s` 保存该文件。
 
 ### <a name="deploy-the-sample-application-to-sparkfun-esp8266-thing-dev"></a>将示例应用程序部署到 Sparkfun ESP8266 Thing Dev
 
 1. 在 Arduino IDE 中，单击“Tool”（工具） > “Port”（端口），然后单击 Sparkfun ESP8266 Thing Dev 的串行端口。
-1. 单击“Sketch” > “Upload”（上载），生成示例应用程序并将其部署到 Sparkfun ESP8266 Thing Dev。
+1. 单击 “Sketch” > “Upload”（上传），生成示例应用程序并将其部署到 Sparkfun ESP8266 Thing Dev。
 
 ### <a name="enter-your-credentials"></a>输入凭据
 
-上载成功完成后，请执行以下步骤输入凭据：
+上传成功完成后，请执行以下步骤输入凭据：
 
 1. 在 Arduino IDE 中，单击“Tools”（工具） > “Serial Monitor”（串行监视器）。
 1. 在串行监视器窗口的右下角，可以看到两个下拉列表。
 1. 在左侧下拉列表中选择“No line ending”（无行尾）。
 1. 在右侧下拉列表中选择“115200 baud”（115200 波特率）。
-1. 在串行监视器窗口顶部的输入框中输入以下信息（如果系统要求提供），然后单击“Send”（发送）。
+1. 在串行监视器窗口顶部的输入框中输入以下信息（如果系统要求提供），并单击“Send”（发送）。
    * Wi-Fi SSID
    * Wi-Fi 密码
    * 设备连接字符串
 
 > [!Note]
-> 凭据信息将存储在 Sparkfun ESP8266 Thing Dev 的 EEPROM 中。 如果在 Sparkfun ESP8266 Thing Dev 开发板上单击重置按钮，示例应用程序将询问是否要擦除这些信息。 输入 `Y` 可擦除信息，系统会再次要求提供这些信息。
+> 凭据信息存储在 Sparkfun ESP8266 Thing Dev 的 EEPROM 中。 如果在 Sparkfun ESP8266 Thing Dev 开发板上单击重置按钮，示例应用程序会询问是否要擦除这些信息。 输入 `Y` 可擦除信息，系统会再次要求提供这些信息。
 
 ### <a name="verify-the-sample-application-is-running-successfully"></a>验证示例应用程序是否成功运行
 
@@ -293,3 +220,4 @@ ms.lasthandoff: 05/05/2017
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
+<!--Update_Description:update meta properties and wording-->

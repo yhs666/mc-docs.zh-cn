@@ -50,6 +50,7 @@
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell（经典）](vpn-gateway-about-forced-tunneling.md)
 ## 修改本地网关设置
+### [Azure 门户](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [验证 VPN 网关连接](vpn-gateway-verify-connection-resource-manager.md)
@@ -59,8 +60,15 @@
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell（经典）](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [配置 VPN 网关（经典）](vpn-gateway-configure-vpn-gateway-mp.md)
+## 配置第三方 VPN 设备
+### [概述和 Azure 配置](vpn-gateway-3rdparty-device-config-overview.md)
+### [示例：Cisco ASA 设备（IKEv2/无 BGP）](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## 故障排除
 ### [验证 VNet 的 VPN 吞吐量](vpn-gateway-validate-throughput-to-vnet.md)
+### [社区建议的 VPN 或防火墙设备设置](vpn-gateway-third-party-settings.md)
+### [点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+### [站点到站点连接间歇性地断开](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+### [站点到站点连接无法连接](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
 
 # 引用
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

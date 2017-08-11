@@ -12,73 +12,63 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/17/2017
-ms.author: v-johch
-ms.openlocfilehash: 938fec259aab60e7584012f6361ffe5e46af840e
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 07/11/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
+ms.openlocfilehash: c7c8614728e8b61cf5ee29862389eb1a7a7451d8
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>使用 Azure 媒体分析检测面部和情绪
+
 ## <a name="overview"></a>概述
-借助 **Azure Media Face Detector** 媒体处理器 (MP)，可通过面部表情来统计、跟踪动作，甚至计量受众的参与和反应。 此服务包含两项功能： 
+
+借助 **Azure Media Face Detector** 媒体处理器 (MP)，可通过面部表情来统计、跟踪动作，甚至计量受众的参与和反应。 此服务包含两项功能：
 
 * **面部检测**
-  
-    面部检测能够找出并跟踪视频中的人脸。 可以同时跟踪多个面部，随着对象移动持续进行跟踪，并将时间和位置的元数据以 JSON 文件的格式返回。 跟踪期间，该服务将在人员于屏幕上四处移动时，尝试为他们的面部赋予相同的 ID，即使他们被挡住或暂时离帧。
-  
+
+    面部检测能够找出并跟踪视频中的人脸。 可以检测多个面部，随后随着对象移动进行跟踪，并将时间和位置的元数据以 JSON 文件的形式返回。 跟踪期间，该服务会在人员于屏幕上四处移动时，尝试为他们的面部赋予相同的 ID，即使他们被挡住或暂时离帧。
+
   > [!NOTE]
-  > 此服务并不执行面部识别。 面部离帧或被挡住太久的人员，将在回来时赋予新的 ID。
-  > 
-  > 
+  > 此服务并不执行面部识别。 面部离帧或被挡住太久的人员，会在回来时赋予新的 ID。
+
 * **情绪检测**
-  
-    情绪检测是面部检测媒体处理器的可选组件，它根据检测到的面部返回多个情绪属性的分析，包括快乐、悲伤、恐惧、愤怒等等。 
+
+    情绪检测是面部检测媒体处理器的可选组件，它根据检测到的面部返回多个情绪属性的分析，包括快乐、悲伤、恐惧、愤怒等等。
 
 **Azure 媒体面部检测器** MP 目前以预览版提供。
 
 本主题提供有关 Azure Media Face Detector 的详细信息，并演示如何通过适用于 .NET 的媒体服务 SDK 使用它。
 
 ## <a name="face-detector-input-files"></a>面部检测器输入文件
+
 视频文件。 目前支持以下格式：MP4、MOV 和 WMV。
 
 ## <a name="face-detector-output-files"></a>面部检测器输出文件
+
 面部检测器和跟踪 API 可提供高精确度的面部位置检测和跟踪功能，并在单个视频中检测到最多 64 个人脸。 正面的面部可提供最佳效果，而侧面的面部和较小的面部（小于或等于 24x24 像素）可能就无法获得相同的精确度。
 
-已检测到并已跟踪的面部将在坐标（左侧、顶部、宽度和高度）中返回，其中会在以像素为单位的图像中指明面部的位置，以及表示正在跟踪该人员的面部 ID 编号。 在正面面部长时间于帧中消失或重叠的情况下，面部 ID 编号很容易重置，导致某些人员被分配多个 ID。
+已检测到并已跟踪的面部会在坐标（左侧、顶部、宽度和高度）中返回，其中会在以像素为单位的图像中指明面部的位置，以及表示正在跟踪该人员的面部 ID 编号。 在正面面部长时间于帧中消失或重叠的情况下，面部 ID 编号很容易重置，导致某些人员被分配多个 ID。
 
-### <a id="output_elements"></a>输出 JSON 文件中的元素
-对于面部检测和跟踪操作，输出结果以 JSON 格式包含给定文件中面部的元数据。
+## <a id="output_elements"></a>输出 JSON 文件中的元素
 
-面部检测和跟踪 JSON 包括以下属性：
+[!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
 
-| 元素 | 说明 |
-| --- | --- |
-| 版本 |这是指视频 API 的版本。 |
-| 时间刻度 |视频每秒的“刻度”数。 |
-| Offset |这是时间戳的时间偏移量。 在版本 1.0 的视频 API 中，此属性始终为 0。 在我们将来支持的方案中，此值可能会更改。 |
-| Framerate |视频的每秒帧数。 |
-| Fragments |元数据划分成称为“片段”的不同段。 每个片段包含开始时间、持续时间、间隔数字和事件。 |
-| 开始 |第一个事件的开始时间（以“刻度”为单位）。 |
-| 持续时间 |片段的长度（以“刻度”为单位）。 |
-| 时间间隔 |片段中每个事件条目的间隔（以“刻度”为单位）。 |
-| 事件 |每个事件包含在该持续时间内检测到并跟踪的面部。 它是包含事件数组的数组。 外部数组代表一个时间间隔。 内部数组包含在该时间点发生的 0 个或多个事件。 空括号 [] 代表没有检测到人脸。 |
-| ID |正在跟踪的面部的 ID。 如果某个面部后来未被检测到，此编号可能会意外更改。 给定人员在整个视频中应该拥有相同的 ID，但由于检测算法的限制（例如受到阻挡等情况），我们无法保证这一点 |
-| X, Y |规范化 0.0 到 1.0 比例中面部边框左上角的 X 和 Y 坐标。 <br/>-X 和 Y 坐标总是相对于横向方向，因此如果视频是纵向（或使用 iOS 时上下颠倒），便需要相应地变换坐标。 |
-| Width, Height |规范化 0.0 到 1.0 比例中面部边框的宽度和高度。 |
-| facesDetected |位于 JSON 结果的末尾，汇总在生成视频期间算法所检测到的面部数。 由于 ID 可能在面部无法检测时（例如面部离开屏幕、转向别处）意外重置，此数字并不一定与视频中的实际面部数相同。 |
-
-面部检测器使用分片（元数据可以分解为基于时间的区块，可以只下载需要的部分）和分段（可以在事件数过于庞大的情况下对事件进行分解）技术。 一些简单的计算可帮助你转换数据。 例如，如果事件从 6300（刻度）开始，其时间刻度为 2997（刻度/秒），帧速率为 29.97（帧/秒），那么：
+面部检测器使用分片（元数据可以分解为基于时间的区块，可以只下载需要的部分）和分段（可以在事件数过于庞大的情况下对事件进行分解）技术。 一些简单的计算可帮助转换数据。 例如，如果事件从 6300（刻度）开始，其时间刻度为 2997（刻度/秒），帧速率为 29.97（帧/秒），那么：
 
 * 开始时间/时间刻度 = 2.1 秒
 * 秒数 x 帧速率 = 63 帧
 
 ## <a name="face-detection-input-and-output-example"></a>面部检测输入和输出示例
+
 ### <a name="input-video"></a>输入视频
+
 [输入视频](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### <a name="task-configuration-preset"></a>任务配置（预设）
+
 在使用 **Azure 媒体面部检测器**创建任务时，必须指定配置预设。 以下配置预设仅适用于面部检测。
 
     {
@@ -89,12 +79,13 @@ ms.lasthandoff: 06/21/2017
     }
 
 #### <a name="attribute-descriptions"></a>属性说明
+
 | 属性名称 | 说明 |
 | --- | --- |
 | Mode |快速 - 处理速度快，但准确度较低（默认）。|
 
-
 ### <a name="json-output"></a>JSON 输出
+
 下面是 JSON 输出被截断的示例。
 
     {
@@ -142,13 +133,16 @@ ms.lasthandoff: 06/21/2017
             }
             ],
 
-        . . . 
+        . . .
 
 ## <a name="emotion-detection-input-and-output-example"></a>情绪检测输入和输出示例
+
 ### <a name="input-video"></a>输入视频
+
 [输入视频](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### <a name="task-configuration-preset"></a>任务配置（预设）
+
 在使用 **Azure 媒体面部检测器**创建任务时，必须指定配置预设。 以下配置预设指定基于情绪检测创建 JSON。
 
     {
@@ -160,8 +154,8 @@ ms.lasthandoff: 06/21/2017
       }
     }
 
-
 #### <a name="attribute-descriptions"></a>属性说明
+
 | 属性名称 | 说明 |
 | --- | --- |
 | Mode |Faces：仅人脸检测。<br/>PerFaceEmotion：独立返回每个人脸检测的情绪。<br/>AggregateEmotion：返回帧中所有面部的平均情绪值。 |
@@ -169,6 +163,7 @@ ms.lasthandoff: 06/21/2017
 | AggregateEmotionIntervalMs |在已选择 AggregateEmotion 模式时使用。 指定生成聚合结果的频率。 |
 
 #### <a name="aggregate-defaults"></a>聚合默认值
+
 下面是聚合窗口和间隔设置的建议值。 AggregateEmotionWindowMs 应该超过 AggregateEmotionIntervalMs。
 
 || 默认值 | 最小值 | 最大值 |
@@ -177,6 +172,7 @@ ms.lasthandoff: 06/21/2017
 | AggregateEmotionIntervalMs |0.5 |1 |0.25|
 
 ### <a name="json-output"></a>JSON 输出
+
 聚合情绪的 JSON 输出（已截断）：
 
     {
@@ -330,26 +326,28 @@ ms.lasthandoff: 06/21/2017
                  "disgust": 0,
                  "fear": 0,
 
-
 ## <a name="limitations"></a>限制
+
 * 支持的输入视频格式包括 MP4、MOV 和 WMV。
 * 可检测的面部大小范围为 24x24 到 2048x2048 像素。 无法检测此范围以外的面部。
 * 对于每个视频，返回的面部数上限为 64。
 * 某些面部可能因技术难题而无法检测，例如非常大的面部角度（头部姿势），以及较大的阻挡物。 正面和接近正面的面部可提供最佳效果。
 
 ## <a name="sample-code"></a>代码示例
+
 以下程序演示如何：
 
 1. 创建资产并将媒体文件上传到资产。
-2. 使用人脸检测任务创建一个作业，所根据的配置文件包含以下 json 预设。 
-
-        {
-            "version": "1.0"
-        }
-    
-3. 下载输出 JSON 文件。 
+1. 使用人脸检测任务创建一个作业，所根据的配置文件包含以下 json 预设。
 
     ```
+    {
+        "version": "1.0"
+    }
+    ```
+
+1. 下载输出 JSON 文件。
+    ```.net
     using System;
     using System.Configuration;
     using System.IO;
@@ -367,36 +365,35 @@ ms.lasthandoff: 06/21/2017
                 ConfigurationManager.AppSettings["MediaServicesAccountName"];
             private static readonly string _mediaServicesAccountKey =
                 ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-        private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
+            private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
 
-        // Azure China uses a different API server and a different ACS Base Address from the Global.
-        private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
-        private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
+            // Azure China uses a different API server and a different ACS Base Address from the Global.
+            private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
+            private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
 
             // Field for service context.
             private static CloudMediaContext _context = null;
             private static MediaServicesCredentials _cachedCredentials = null;
-        private static Uri _apiServer = null;
+            private static Uri _apiServer = null;
 
             static void Main(string[] args)
             {
 
                 // Create and cache the Media Services credentials in a static class variable.
-                    _cachedCredentials = new MediaServicesCredentials(
-                            _mediaServicesAccountName,
-                            _mediaServicesAccountKey,
-                            _defaultScope,
-                            _chinaAcsBaseAddressUrl);
+                _cachedCredentials = new MediaServicesCredentials(
+                        _mediaServicesAccountName,
+                        _mediaServicesAccountKey,
+                        _defaultScope,
+                        _chinaAcsBaseAddressUrl);
 
-            // Create the API server Uri
-            _apiServer = new Uri(_chinaApiServerUrl);
+                // Create the API server Uri
+                _apiServer = new Uri(_chinaApiServerUrl);
 
-                    // Used the chached credentials to create CloudMediaContext.
-                    _context = new CloudMediaContext(_apiServer, _cachedCredentials);
+                // Used the chached credentials to create CloudMediaContext.
+                _context = new CloudMediaContext(_apiServer, _cachedCredentials);
 
                 // Run the FaceDetection job.
-                var asset = RunFaceDetectionJob(@"C:\supportFiles\FaceDetection\BigBuckBunny.mp4",
-                                            @"C:\supportFiles\FaceDetection\config.json");
+                var asset = RunFaceDetectionJob(@"C:\supportFiles\FaceDetection\BigBuckBunny.mp4", @"C:\supportFiles\FaceDetection\config.json");
 
                 // Download the job output asset.
                 DownloadAsset(asset, @"C:\supportFiles\FaceDetection\Output");
@@ -485,8 +482,7 @@ ms.lasthandoff: 06/21/2017
                     .LastOrDefault();
 
                 if (processor == null)
-                    throw new ArgumentException(string.Format("Unknown media processor",
-                                                               mediaProcessorName));
+                    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
                 return processor;
             }
@@ -527,6 +523,8 @@ ms.lasthandoff: 06/21/2017
     ```
 
 ## <a name="related-links"></a>相关链接
-[Azure 媒体服务分析概述](./media-services-analytics-overview.md)
 
+[Azure 媒体服务分析概述](media-services-analytics-overview.md)  
 [Azure Media Analytics demos（Azure 媒体分析演示）](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!--Update_Description: wording update add a include link-->

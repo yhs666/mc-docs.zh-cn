@@ -182,8 +182,8 @@
 #### 创建 
 ##### [Azure 门户](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-##### [Visual Studio 和 Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
-
+#### 缩放 
+##### [手动](service-fabric-cluster-scale-up-down.md)
 #### [升级](service-fabric-cluster-upgrade.md)
 #### [设置访问控制](service-fabric-cluster-security-roles.md)
 #### [配置](service-fabric-cluster-fabric-settings.md)

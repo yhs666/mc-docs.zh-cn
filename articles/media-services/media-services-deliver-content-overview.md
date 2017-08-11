@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
-ms.author: v-johch
-ms.openlocfilehash: 3adc569d9a334be96162bf21ae1cd15b3e5c74e1
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 909aa8354b8c78df6faf4895e0dbdc9f4b51021d
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="deliver-content-to-customers"></a>向客户传送内容
 向客户传送流或视频点播内容时，目标在于向处于不同网络条件下的各种设备传送优质视频。
@@ -66,7 +67,7 @@ ms.lasthandoff: 06/21/2017
 > 
 > 
 
-若要更新定位符的过期日期，请使用 [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 或 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API。 请注意，当你更新 SAS 定位符的过期日期时，URL 会发生变化。
+若要更新定位符的过期日期，请使用 [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 或 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API。 请注意，更新 SAS 定位符的过期日期时，URL 会发生变化。
 
 定位符不用于管理按用户的访问控制。 通过数字版权管理 (DRM) 解决方案，可以为不同的用户提供不同的访问权限。 有关详细信息，请参阅 [保护媒体](http://msdn.microsoft.com/zh-cn/library/azure/dn282272.aspx)。
 
@@ -78,10 +79,10 @@ ms.lasthandoff: 06/21/2017
 若要为用户提供流式处理 URL，必须先创建一个 OnDemandOrigin 定位符。 通过创建定位符，可获得包含要流式传输的内容的资产的基本路径。 但是，为了能够流式传输此内容，需要进一步修改此路径。 若要构造流式处理清单文件的完整 URL，必须将定位符的路径值与清单 (filename.ism) 文件名连接起来。 然后，向定位符路径追加/Manifest 和相应的格式（如果需要）。
 
 > [!NOTE]
-> 你也可以通过 SSL 连接流式传输内容。 为此，请确保流 URL 以 HTTPS 开头。 请注意，AMS 目前不支持对自定义域使用 SSL。  
+> 也可以通过 SSL 连接流式传输内容。 为此，请确保流 URL 以 HTTPS 开头。 请注意，AMS 目前不支持对自定义域使用 SSL。  
 > 
 
-仅当要从中传送内容的流式处理终结点是在 2014 年 9 月 10 日之后创建的情况下，才可以通过 SSL 流式传输内容。 如果流式处理 URL 基于 2014 年 9 月 10 日之后创建的流式处理终结点，则 URL 会包含“streaming.mediaservices.chinacloudapi.cn”。 包含“origin.mediaservices.chinacloudapi.cn”（旧格式）的流式处理 URL 不支持 SSL。 如果你的 URL 采用旧格式，并且你希望能够通过 SSL 流式传输内容，请创建新的流式处理终结点。 使用基于新流式处理终结点的 URL 通过 SSL 流式传输内容。
+仅当要从中传送内容的流式处理终结点是在 2014 年 9 月 10 日之后创建的情况下，才可以通过 SSL 流式传输内容。 如果流式处理 URL 基于 2014 年 9 月 10 日之后创建的流式处理终结点，则 URL 会包含“streaming.mediaservices.chinacloudapi.cn”。 包含“origin.mediaservices.chinacloudapi.cn”（旧格式）的流式处理 URL 不支持 SSL。 如果 URL 采用旧格式，并且希望能够通过 SSL 流式传输内容，请创建新的流式处理终结点。 使用基于新流式处理终结点的 URL 通过 SSL 流式传输内容。
 
 ## <a name="streaming-url-formats"></a>流 URL 格式
 ### <a name="mpeg-dash-format"></a>MPEG-DASH 格式
@@ -127,10 +128,10 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 
 http://amstest1.streaming.mediaservices.chinacloudapi.cn/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-必须解密希望从源服务进行流式传输的所有存储加密资产，然后才能进行渐进式下载。
+必须解密希望从源服务进行流式传输的所有存储加密资产，才能进行渐进式下载。
 
 ## <a name="download"></a>下载
-若要将内容下载到客户端设备，必须创建 SAS 定位符。 使用 SAS 定位符可以访问文件所在的 Azure 存储容器。 若要构建下载 URL，必须将文件名嵌入到主机和 SAS 签名之间。
+要将内容下载到客户端设备，必须创建 SAS 定位符。 使用 SAS 定位符可以访问文件所在的 Azure 存储容器。 要构建下载 URL，必须将文件名嵌入到主机和 SAS 签名之间。
 
 以下示例演示了基于 SAS 定位符的 URL：
 
@@ -138,12 +139,12 @@ https://test001.blob.core.chinacloudapi.cn/asset-ca7a4c3f-9eb5-4fd8-a898-459cb17
 
 请注意以下事项：
 
-* 必须解密希望从源服务进行流式传输的所有存储加密资产，然后才能进行渐进式下载。
+* 必须解密希望从源服务进行流式传输的所有存储加密资产，才能进行渐进式下载。
 * 未在 12 小时内完成的下载会失败。
 
 ## <a name="streaming-endpoints"></a>流式处理终结点
 
-流式处理终结点表示一个流服务，该服务可以直接将内容传送给客户端播放器应用程序，也可以直接将内容传送给内容交付网络 (CDN) 以进一步分发。 流式处理终结点服务的出站流可以是实时流，也可以是媒体服务帐户中的视频点播资产。 
+流式处理终结点表示一个流服务，该服务可以直接将内容传送给客户端播放器应用程序，也可以直接将内容传送给内容交付网络 (CDN) 以进一步分发。 流式处理终结点服务的出站流可以是实时流，也可以是媒体服务帐户中的视频点播资产。
 
 >[!NOTE]
 >创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
@@ -178,3 +179,5 @@ https://test001.blob.core.chinacloudapi.cn/asset-ca7a4c3f-9eb5-4fd8-a898-459cb17
 ##<a name="related-topics"></a>相关主题
 
 [轮转存储密钥后更新媒体服务定位符](./media-services-roll-storage-access-keys.md)
+
+<!--Update_Description: update meta properties-->

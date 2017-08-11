@@ -12,21 +12,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/24/2017
+origin.date: 06/16/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 07/10/2017
-ms.openlocfilehash: 033c164f77d2dbe0f3599810b9a396b4d426e2f1
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.date: 08/14/2017
+ms.openlocfilehash: 18d0cef2a53c5ed3497ef87fcd12d6fd2136b4a5
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>了解和使用 Azure IoT SDK
 
 有三种类别的 SDK 适用于 IoT 中心：
 
-* **设备 SDK** 用于构建可在 IoT 设备上运行的应用。 这些应用将遥测发送到 IoT 中心，并可以选择从 IoT 中心接收消息。
+* **设备 SDK** 用于构建可在 IoT 设备上运行的应用。 这些应用将遥测数据发送到 IoT 中心，并可以选择从 IoT 中心接收消息。
 
 * **服务 SDK** 用于管理 IoT 中心，并可以选择向 IoT 设备发送消息。
 
@@ -40,7 +40,7 @@ Microsoft Azure IoT 设备 SDK 包含的代码可帮助构建连接到 Azure IoT
 
 以下 Azure IoT 设备 SDK 可以从 GitHub 进行下载：
 
-* [适用于 C 的 Azure IoT 设备 SDK][lnk-c-device-sdk]，采用 ANSI C (C99) 编写，具有可移植性和广泛的平台兼容性。
+* [适用于 C 的 Azure IoT 设备 SDK][lnk-c-device-sdk]，采用 ANSI C (C99) 编写，具有可移植性和广泛的平台兼容性。 有两个适用于 C 的设备客户端库，即低级别 **iothub_client** 和**序列化程序**。
 * [适用于 .NET 的 Azure IoT 设备 SDK][lnk-dotnet-device-sdk]
 * [适用于 Java 的 Azure IoT 设备 SDK][lnk-java-device-sdk]
 * [适用于 Node.js 的 Azure IoT 设备 SDK][lnk-node-device-sdk]
@@ -65,7 +65,7 @@ Azure IoT 服务 SDK 包含的代码可帮助生成直接与 IoT 中心进行交
 * [适用于 Node.js 的 Azure IoT 服务 SDK][lnk-node-service-sdk]
 * [适用于 Java 的 Azure IoT 服务 SDK][lnk-java-service-sdk]
 * [适用于 Python 的 Azure IoT 服务 SDK][lnk-python-service-sdk]
-
+* [适用于 C 的 Azure IoT 服务 SDK][lnk-c-service-sdk]
 
 > [!NOTE]
 > 有关使用语言和平台特定的程序包管理器在开发计算机上安装二进制文件和依赖项的信息，请参阅 GitHub 存储库中的自述文件。
@@ -101,6 +101,7 @@ Azure IoT Edge 包含用于创建 IoT 网关解决方案的基础结构和模块
 <!-- Links and images -->
 
 [lnk-c-device-sdk]: https://github.com/Azure/azure-iot-sdk-c
+[lnk-c-service-sdk]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_service_client
 [lnk-dotnet-device-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-java-device-sdk]: https://github.com/Azure/azure-iot-sdk-java/tree/master/device
 [lnk-dotnet-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
@@ -115,13 +116,15 @@ Azure IoT Edge 包含用于创建 IoT 网关解决方案的基础结构和模块
 [lnk-dotnet-ref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.devices
 [lnk-c-ref]: https://azure.github.io/azure-iot-sdk-c/index.html
 [lnk-java-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device
-[lnk-node-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.12/index.html
+[lnk-node-ref]: https://azure.github.io/azure-iot-sdk-node/
 [lnk-rest-ref]: https://docs.microsoft.com/rest/api/iothub/
 [lnk-java-service-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth
-[lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.11/index.html
+[lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/
 [lnk-gateway-ref]: http://azure.github.io/iot-edge/api_reference/c/html/
 
 [lnk-devguide-endpoints]: ./iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: ./iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-query]: ./iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
+
+<!--Update_Description: update meta data and some links-->

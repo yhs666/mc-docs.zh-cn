@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/12/2017
 ms.author: v-yiso
-ms.date: 07/03/2017
-ms.openlocfilehash: e3816de6cf16bd9558c80ab601e9a430581d8a1c
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.date: 08/14/2017
+ms.openlocfilehash: 3a2c791c89efbb80062dc4520732ad6e0dca491a
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="get-started-with-device-management-java"></a>设备管理入门 (Java)
 
@@ -48,7 +48,7 @@ trigger-reboot。 此应用：
 > [!NOTE]
 > [Azure IoT SDK][lnk-hub-sdks] 文章介绍了 Azure IoT SDK，这些 SDK 可用于构建在设备和解决方案后端运行的应用程序。
 
-若要完成本教程，你需要：
+要完成本教程，需要：
 
 * Java SE 8。 <br/> [准备开发环境][lnk-dev-setup] 介绍了如何在 Windows 或 Linux 上安装本教程所用的 Java。
 * Maven 3。  <br/> [准备开发环境][lnk-dev-setup]介绍如何在 Windows 或 Linux 上安装本教程所用的 [Maven][lnk-maven]。
@@ -76,7 +76,7 @@ trigger-reboot。 此应用：
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.3.19</version>
+      <version>1.5.22</version>
       <type>jar</type>
     </dependency>
     ```
@@ -217,7 +217,7 @@ trigger-reboot。 此应用：
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.26</version>
+      <version>1.3.30</version>
     </dependency>
     ```
 
@@ -445,3 +445,5 @@ trigger-reboot。 此应用：
 
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
 [lnk-maven-device-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
+
+<!--Update_Description:update wording-->

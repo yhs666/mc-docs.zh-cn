@@ -1,6 +1,6 @@
 ---
-title: "在使用 Azure 媒体服务时配置本地编码器以创建多比特率流 | Azure"
-description: "本主题列出的本地实时编码器可用于捕获实时事件，并将单比特率实时流发送到 AMS 通道（已启用实时编码）以供进一步处理。 本主题列出了演示如何配置所列编码器的教程链接。"
+title: "使用 Azure 媒体服务创建多比特率流时配置本地编码器 | Azure"
+description: "本主题列出的本地实时编码器可用于捕获实时事件，并将单比特率实时流发送到 AMS 频道（已启用实时编码）以供进一步处理。 本主题列出了演示如何配置所列编码器的教程链接。"
 services: media-services
 documentationcenter: 
 author: juliako
@@ -12,35 +12,37 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2016
-ms.date: 03/10/2017
-ms.author: v-johch
-ms.openlocfilehash: 21a55556b085eaaf7246522e32511614faa15e03
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 3b0f91a42b54a5ccaf0f8eda4c029bd535158d94
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
-#<a name="how-to-configure-on-premise-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>如何在使用 Azure 媒体服务时配置本地编码器以创建多比特率流
+# <a name="how-to-configure-on-premise-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>如何在使用 Azure 媒体服务时配置本地编码器以创建多比特率流
 
-本主题列出的本地实时编码器可用于捕获实时事件，并将单比特率实时流发送到 AMS 通道（已启用实时编码）以供进一步处理。 本主题还列出了演示如何配置所列编码器的教程链接。
+本主题列出的本地实时编码器可用于捕获实时事件，并将单比特率实时流发送到 AMS 频道（已启用实时编码）以供进一步处理。 本主题还列出了演示如何配置所列编码器的教程链接。
 
-##<a name="elemental-live"></a>Elemental Live
+## <a name="elemental-live"></a>Elemental Live
 
 有关如何配置 [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) 编码器以将单比特率实时流发送到 AMS 通道的信息，请参阅[配置 Elemental Live](./media-services-configure-elemental-live-encoder.md)。
 
-##<a name="flash-media-live-encoder"></a>Flash 媒体实时编码器
+## <a name="flash-media-live-encoder"></a>Flash 媒体实时编码器
 
 有关如何配置 [Flash 媒体实时编码器](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) 以将单比特率实时流发送到 AMS 通道的信息，请参阅[配置 FMLE](./media-services-configure-fmle-live-encoder.md)。
 
-##<a name="telestream-wirecast"></a>Telestream Wirecast
+## <a name="telestream-wirecast"></a>Telestream Wirecast
 
 有关如何配置 [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) 编码器以将单比特率实时流发送到 AMS 通道的信息，请参阅[配置 Wirecast](./media-services-configure-wirecast-live-encoder.md)。
 
-##<a name="newtek-tricaster"></a>NewTek TriCaster
+## <a name="newtek-tricaster"></a>NewTek TriCaster
 
 有关如何配置 [Tricaster](http://newtek.com/products/tricaster-40.html) 编码器以将单比特率实时流发送到 AMS 通道的信息，请参阅[配置 Tricaster](./media-services-configure-tricaster-live-encoder.md)。
 
 ## <a name="see-also"></a>另请参阅
 
 [使用 Azure 媒体服务实时传送视频流以创建多比特率流](./media-services-manage-live-encoder-enabled-channels.md)。
+
+<!--Update_Description: update meta data-->

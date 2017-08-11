@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 04/10/2017
 ms.author: v-johch
-ms.openlocfilehash: e22a998a5f84158074dd0ee49b603084a61b2b1b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: fb639ba7237c1646ab7a55034d3862983af87e9c
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 #<a name="dynamic-encryption-configure-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -30,11 +30,11 @@ ms.lasthandoff: 06/21/2017
 
 如果希望媒体服务加密资产，需要将加密密钥（CommonEncryption 或 EnvelopeEncryption）与资产相关联（如[此处](./media-services-rest-create-contentkey.md)所述），并配置密钥授权策略（如本文所述）。 
 
-当播放器请求流时，媒体服务将使用指定的密钥通过 AES 或 PlayReady 加密动态加密你的内容。 为了解密流，播放器将从密钥传送服务请求密钥。 为了确定用户是否有权获取密钥，服务将评估为密钥指定的授权策略。
+当播放器请求流时，媒体服务使用指定的密钥通过 AES 或 PlayReady 加密动态加密你的内容。 为了解密流，播放器会从密钥传送服务请求密钥。 为了确定用户是否有权获取密钥，服务会评估为密钥指定的授权策略。
 
 媒体服务支持通过多种方式对发出密钥请求的用户进行身份验证。 内容密钥授权策略可能受到一种或多种授权限制：开放或令牌限制。 令牌限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。 媒体服务支持采用简单 Web 令牌 ([SWT](https://msdn.microsoft.com/zh-cn/library/gg185950.aspx#BKMK_2)) 格式和 JSON Web 令牌 (JWT) 格式的令牌。  
 
-媒体服务不提供安全令牌服务。 你可以创建自定义 STS 或利用 Microsoft Azure ACS 颁发令牌。 必须将 STS 配置为创建令牌，该令牌使用指定密钥以及你在令牌限制配置中指定的颁发声明进行签名（如本文所述）。 如果令牌有效，而且令牌中的声明与为内容密钥配置的声明相匹配，则媒体服务密钥传送服务会将加密密钥返回到客户端。
+媒体服务不提供安全令牌服务。 可以创建自定义 STS 或利用 Microsoft Azure ACS 颁发令牌。 必须将 STS 配置为创建令牌，该令牌使用指定密钥以及你在令牌限制配置中指定的颁发声明进行签名（如本文所述）。 如果令牌有效，而且令牌中的声明与为内容密钥配置的声明相匹配，则媒体服务密钥传送服务会将加密密钥返回到客户端。
 
 有关详细信息，请参阅
 
@@ -49,9 +49,9 @@ ms.lasthandoff: 06/21/2017
 - 若要使用动态打包和动态加密，需确保要从中流式传输内容的流式处理终结点处于“正在运行”状态。
 - 资产必须包含一组自适应比特率 MP4 或自适应比特率平滑流式处理文件。 有关详细信息，请参阅[对资产进行编码](./media-services-encode-asset.md)。  
 - 使用 **AssetCreationOptions.StorageEncrypted** 选项上传资产并对其进行编码。
-- 如果你打算创建需要相同策略配置的多个内容密钥，我们强烈建议你创建单个授权策略，并将其重复用于多个内容密钥。
-- 密钥传送服务将 ContentKeyAuthorizationPolicy 及其相关对象（策略选项和限制）缓存 15 分钟。  如果你创建 ContentKeyAuthorizationPolicy 并指定使用“令牌”限制，然后对其进行测试，再将策略更新为“开放”限制，则现有策略切换到“开放”版本的策略需要大约 15 分钟。
-- 如果你添加或更新资产的传送策略，则必须删除现有定位符（如果有）并创建新定位符。
+- 如果打算创建需要相同策略配置的多个内容密钥，我们强烈建议创建单个授权策略，并将其重复用于多个内容密钥。
+- 密钥传送服务将 ContentKeyAuthorizationPolicy 及其相关对象（策略选项和限制）缓存 15 分钟。  如果创建 ContentKeyAuthorizationPolicy 并指定使用“令牌”限制，并对其进行测试，再将策略更新为“开放”限制，则现有策略切换到“开放”版本的策略需要大约 15 分钟。
+- 如果添加或更新资产的传送策略，则必须删除现有定位符（如果有）并创建新定位符。
 * 目前，无法加密渐进式下载。
 
 ##<a name="aes-128-dynamic-encryption"></a>AES-128 动态加密
@@ -61,7 +61,7 @@ ms.lasthandoff: 06/21/2017
 >
 >访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](./media-services-rest-how-to-use.md)。
 
->成功连接到 https://media.chinacloudapi.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须按[使用 REST API 连接到媒体服务](./media-services-rest-connect-programmatically.md)中所述对新的 URI 执行后续调用。 
+>成功连接到 https://media.chinacloudapi.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须按[使用 REST 访问 Azure 媒体服务 API](./media-services-rest-connect-with-aad.md) 中所述对新的 URI 执行后续调用。 
 
 ### <a name="open-restriction"></a>开放限制
 开放限制意味着系统会将密钥传送到发出密钥请求的任何用户。 此限制可能适用于测试用途。
@@ -206,7 +206,7 @@ HTTP/1.1 204 No Content
 
 本部分介绍如何创建内容密钥授权策略，以及如何将其与内容密钥相关联。 授权策略描述了必须达到什么授权要求才能确定用户是否有权接收密钥（例如，“验证密钥”列表是否包含令牌签名时使用的密钥）。
 
-若要配置令牌限制选项，你需要使用 XML 描述令牌的授权要求。 令牌限制配置 XML 必须符合以下 XML 架构。
+要配置令牌限制选项，需要使用 XML 描述令牌的授权要求。 令牌限制配置 XML 必须符合以下 XML 架构。
 
 ####<a id="schema"></a>令牌限制架构
 
@@ -310,15 +310,15 @@ Date: Tue, 10 Feb 2015 09:10:37 GMT
 
 ####<a name="link-contentkeyauthorizationpolicies-with-options"></a>将 ContentKeyAuthorizationPolicies 与 Options 相链接
 
-根据 [此处](#ContentKeyAuthorizationPolicies)所示将 ContentKeyAuthorizationPolicies 与 Options 相链接。
+根据[此处](#ContentKeyAuthorizationPolicies)所示将 ContentKeyAuthorizationPolicies 与 Options 相链接。
 
 ####<a name="add-authorization-policy-to-the-content-key"></a>将授权策略添加到内容密钥
 
-根据 [此处](#AddAuthorizationPolicyToKey)所示将 AuthorizationPolicy 添加到 ContentKey。
+根据[此处](#AddAuthorizationPolicyToKey)所示将 AuthorizationPolicy 添加到 ContentKey。
 
 ##<a name="playready-dynamic-encryption"></a>PlayReady 动态加密 
 
-媒体服务允许你配置相应的权限和限制，以便在用户尝试播放受保护的内容时，PlayReady DRM 运行时会强制实施这些权限和限制。 
+媒体服务允许配置相应的权限和限制，以便在用户尝试播放受保护的内容时，PlayReady DRM 运行时会强制实施这些权限和限制。 
 
 使用 PlayReady 保护内容时，需要在授权策略中指定的项目之一是用于定义 [PlayReady 许可证模板](./media-services-playready-license-template-overview.md)的 XML 字符串。 
 
@@ -412,15 +412,15 @@ Date: Tue, 10 Feb 2015 09:23:24 GMT
 
 ####<a name="link-contentkeyauthorizationpolicies-with-options"></a>将 ContentKeyAuthorizationPolicies 与 Options 相链接
 
-根据 [此处](#ContentKeyAuthorizationPolicies)所示将 ContentKeyAuthorizationPolicies 与 Options 相链接。
+根据[此处](#ContentKeyAuthorizationPolicies)所示将 ContentKeyAuthorizationPolicies 与 Options 相链接。
 
 ####<a name="add-authorization-policy-to-the-content-key"></a>将授权策略添加到内容密钥
 
-根据 [此处](#AddAuthorizationPolicyToKey)所示将 AuthorizationPolicy 添加到 ContentKey。
+根据[此处](#AddAuthorizationPolicyToKey)所示将 AuthorizationPolicy 添加到 ContentKey。
 
 ###<a name="token-restriction"></a>令牌限制
 
-若要配置令牌限制选项，你需要使用 XML 描述令牌的授权要求。 令牌限制配置 XML 必须符合 [此](#schema) 部分中所示的 XML 架构。
+要配置令牌限制选项，需要使用 XML 描述令牌的授权要求。 令牌限制配置 XML 必须符合 [此](#schema) 部分中所示的 XML 架构。
 
 ####<a name="create-contentkeyauthorizationpolicies"></a>创建 ContentKeyAuthorizationPolicies
 
@@ -469,11 +469,11 @@ Date: Tue, 10 Feb 2015 09:58:47 GMT
 
 ####<a name="link-contentkeyauthorizationpolicies-with-options"></a>将 ContentKeyAuthorizationPolicies 与 Options 相链接
 
-根据 [此处](#ContentKeyAuthorizationPolicies)所示将 ContentKeyAuthorizationPolicies 与 Options 相链接。
+根据[此处](#ContentKeyAuthorizationPolicies)所示将 ContentKeyAuthorizationPolicies 与 Options 相链接。
 
 ####<a name="add-authorization-policy-to-the-content-key"></a>将授权策略添加到内容密钥
 
-根据 [此处](#AddAuthorizationPolicyToKey)所示将 AuthorizationPolicy 添加到 ContentKey。
+根据[此处](#AddAuthorizationPolicyToKey)所示将 AuthorizationPolicy 添加到 ContentKey。
 
 ##<a id="types"></a>定义 ContentKeyAuthorizationPolicy 时使用的类型
 

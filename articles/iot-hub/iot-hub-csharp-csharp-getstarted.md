@@ -1,9 +1,9 @@
 ---
 title: "Azure IoT 中心入门 (.NET) | Azure"
-description: "如何使用用于 .NET 的 Azure IoT SDK 将设备到云消息从设备发送到 Azure IoT 中心。 将创建一个用于发送消息的模拟设备、一个用于在注册表中标识注册设备的服务应用，以及一个用于从 IoT 中心读取设备到云消息的服务应用。"
+description: "了解如何通过用于 .NET 的 IoT SDK 将设备到云消息发送到 Azure IoT 中心。 创建模拟的设备和服务应用，以便通过 IoT 中心注册设备、发送消息和读取消息。"
 services: iot-hub
 documentationcenter: .net
-author: Derek1101
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: f40604ff-8fd6-4969-9e99-8574fbcf036c
@@ -13,22 +13,21 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/08/2017
-ms.date: 07/10/2017
+ms.date: 08/14/2017
 ms.author: v-yiso
-ms.openlocfilehash: e42e539ec1b3f06fb25360c6a1ee2e4dd6cc116c
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.openlocfilehash: d283f586ef2a1cf505ae5b04619a7087364bdaeb
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/04/2017
 ---
-# 使用 .NET 将模拟设备连接到 IoT 中心
-<a id="connect-your-simulated-device-to-your-iot-hub-using-net" class="xliff"></a>
+# <a name="connect-your-device-to-your-iot-hub-using-net"></a>使用 .NET 将设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-本教程结束时，将会创建三个 .NET 控制台应用：
+本教程结束时，会创建三个 .NET 控制台应用：
 
-* **CreateDeviceIdentity**，用于创建设备标识和关联的安全密钥，以连接模拟设备应用。
-* **ReadDeviceToCloudMessages**，显示模拟设备应用发送的遥测数据。
+* **CreateDeviceIdentity**，用于创建设备标识和关联的安全密钥以连接设备应用。
+* **ReadDeviceToCloudMessages**，显示设备应用发送的遥测数据。
 * **SimulatedDevice**，它使用前面创建的设备标识连接到 IoT 中心，并使用 MQTT 协议每秒发送一次遥测消息。
 
 可以下载或克隆 Visual Studio 解决方案，其中包含 GitHub 提供的三个应用。
@@ -42,7 +41,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 > 
 > 
 
-若要完成本教程，您需要以下各项：
+要完成本教程，需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
@@ -55,9 +54,8 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 [!INCLUDE [iot-hub-get-started-create-device-identity-csharp](../../includes/iot-hub-get-started-create-device-identity-csharp.md)]
 
 <a id="D2C_csharp"></a>
-## 接收设备到云的消息
-<a id="receive-device-to-cloud-messages" class="xliff"></a>
-本部分将创建一个 .NET 控制台应用，用于从 IoT 中心读取设备到云的消息。 IoT 中心公开与 [Azure 事件中心][lnk-event-hubs-overview]兼容的终结点，以让用户读取设备到云的消息。 为了简单起见，本教程创建的基本读取器不适用于高吞吐量部署。 若要了解如何大规模处理设备到云的消息，请参阅[处理设备到云的消息][lnk-process-d2c-tutorial]教程。 若要深入了解如何处理来自事件中心的消息，请参阅[事件中心入门][lnk-eventhubs-tutorial]教程。 （本教程适用与 IoT 中心和事件中心相兼容的终结点。）
+## <a name="receive-device-to-cloud-messages"></a>接收设备到云的消息
+本部分创建一个 .NET 控制台应用，用于从 IoT 中心读取设备到云的消息。 IoT 中心公开与 [Azure 事件中心][lnk-event-hubs-overview]兼容的终结点，以让用户读取设备到云的消息。 为了简单起见，本教程创建的基本读取器不适用于高吞吐量部署。 若要了解如何大规模处理设备到云的消息，请参阅[处理设备到云的消息][lnk-process-d2c-tutorial]教程。 若要深入了解如何处理来自事件中心的消息，请参阅[事件中心入门][lnk-eventhubs-tutorial]教程。 （本教程适用与 IoT 中心和事件中心相兼容的终结点。）
 
 > [!NOTE]
 > 读取设备到云消息的事件中心兼容终结点始终使用 AMQP 协议。
@@ -65,7 +63,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 1. 在 Visual Studio 中，使用“控制台应用(.NET Framework)”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 确保 .NET Framework 版本为 4.5.1 或更高。 将项目命名为 **ReadDeviceToCloudMessages**。
 
     ![新的 Visual C# Windows 经典桌面项目][10a]
-2. 在解决方案资源管理器中，右键单击“ReadDeviceToCloudMessages”项目，然后单击“管理 NuGet 包”。
+2. 在解决方案资源管理器中，右键单击“ReadDeviceToCloudMessages”项目，并单击“管理 NuGet 包”。
 3. 在“NuGet 包管理器”窗口中，搜索 **WindowsAzure.ServiceBus**，选择“安装”并接受使用条款。 该过程将下载、安装 [Azure 服务总线][lnk-servicebus-nuget]及其所有依赖项并添加对它的引用。 此包可让应用程序连接到 IoT 中心上与事件中心兼容的终结点。
 4. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
    
@@ -124,15 +122,14 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
     Task.WaitAll(tasks.ToArray());
     ```
 
-## 创建模拟设备应用程序
-<a id="create-a-simulated-device-app" class="xliff"></a>
-本部分将创建一个 .NET 控制台应用，用于模拟向 IoT 中心发送设备到云消息的设备。
+## <a name="create-a-device-app"></a>创建设备应用
+本部分创建一个 .NET 控制台应用，用于模拟向 IoT 中心发送设备到云消息的设备。
 
 1. 在 Visual Studio 中，使用“控制台应用(.NET Framework)”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 确保 .NET Framework 版本为 4.5.1 或更高。 将项目命名为 **SimulatedDevice**。
 
     ![新的 Visual C# Windows 经典桌面项目][10b]
-2. 在解决方案资源管理器中，右键单击“SimulatedDevice”项目，然后单击“管理 NuGet 包”。
-3. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **Microsoft.Azure.Devices.Client**，选择“安装”以安装 **Microsoft.Azure.Devices.Client** 包，然后接受使用条款。 该过程将下载、安装 [Azure IoT 设备 SDK][lnk-device-nuget] NuGet 包及其依赖项并添加对它的引用。
+2. 在解决方案资源管理器中，右键单击“SimulatedDevice”项目，并单击“管理 NuGet 包”。
+3. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **Microsoft.Azure.Devices.Client**，选择“安装”以安装 **Microsoft.Azure.Devices.Client** 包，并接受使用条款。 该过程将下载、安装 [Azure IoT 设备 SDK][lnk-device-nuget] NuGet 包及其依赖项并添加对它的引用。
 4. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
    
    ```csharp
@@ -191,36 +188,35 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
    Console.ReadLine();
    ```
    
-   默认情况下，**Create** 方法将创建使用 AMQP 协议来与 IoT 中心通信的 **DeviceClient** 实例。 若要使用 MQTT 或 HTTP 协议，请使用 **Create** 方法的重写，它使用户能够指定协议。 如果使用 HTTP 协议，则还应在项目中添加 **Microsoft.AspNet.WebApi.Client** NuGet 包，以包含 **System.Net.Http.Formatting** 命名空间。
+   默认情况下，.NET Framework 应用中的 **Create** 方法会创建一个 **DeviceClient** 实例，该实例使用 AMQP 协议与 IoT 中心通信（UWP 和 PCL 客户端默认使用 HTTP）。若要使用 MQTT 或 HTTP 协议，请使用 **Create** 方法的重写，它使用户能够指定协议。 如果使用 HTTP 协议，则还应在项目中添加 **Microsoft.AspNet.WebApi.Client** NuGet 包，以包含 **System.Net.Http.Formatting** 命名空间。
 
-本教程将逐步讲解创建 IoT 中心模拟设备应用的步骤。 也可使用 [用于 Azure IoT 中心的连接服务][lnk-connected-service] Visual Studio 扩展将所需的代码添加到设备应用。
+本教程逐步讲解如何创建 IoT 中心设备应用。 也可以使用 [Azure IoT 中心的连接服务][lnk-connected-service] Visual Studio 扩展将所需的代码添加到设备应用。
 
 > [!NOTE]
 > 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按 MSDN 文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数性的回退）。
 > 
 > 
 
-## 运行应用
-<a id="run-the-apps" class="xliff"></a>
+## <a name="run-the-apps"></a>运行应用
 现在可以运行应用了。
 
-1. 在 Visual Studio 的“解决方案资源管理器”中右键单击解决方案，然后单击“设置启动项目”。 选择“多个启动项目”，然后针对“ReadDeviceToCloudMessages”和“SimulatedDevice”项目选择“启动”作为操作。
+1. 在 Visual Studio 的“解决方案资源管理器”中右键单击解决方案，并单击“设置启动项目”。 选择“多个启动项目”，并针对“ReadDeviceToCloudMessages”和“SimulatedDevice”项目选择“启动”作为操作。
 
     ![启动项目属性][41]
-2. 按 **F5** 启动这两个应用，使其运行。 来自 **SimulatedDevice** 应用的控制台输出会显示模拟设备应用发送给 IoT 中心的消息。 来自 **ReadDeviceToCloudMessages** 应用的控制台输出则会显示 IoT 中心接收的消息。
-
+2. 按 **F5** 启动这两个应用，使其运行。 来自 **SimulatedDevice** 应用的控制台输出会显示设备应用发送到 IoT 中心的消息。 来自 **ReadDeviceToCloudMessages** 应用的控制台输出则会显示 IoT 中心接收的消息。
+   
     ![来自应用的控制台输出][42]
 3. [Azure 门户][lnk-portal]中的“使用情况”磁贴显示发送到 IoT 中心的消息数：
 
     ![Azure 门户的“使用情况”磁贴][43]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
-在本教程中，已在 Azure 门户中配置了 IoT 中心，然后在 IoT 中心的标识注册表中创建了设备标识。 已使用此设备标识，使模拟设备应用可将设备到云的消息发送至 IoT 中心。 还创建了一个应用，用于显示 IoT 中心接收的消息。 
+## <a name="next-steps"></a>后续步骤
+在本教程中，已在 Azure 门户中配置了 IoT 中心，并在 IoT 中心的标识注册表中创建了设备标识。 已使用此设备标识来让设备应用向 IoT 中心发送设备到云的消息。 还创建了一个应用，用于显示 IoT 中心接收的消息。 
 
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 
-* [连接你的设备][lnk-connect-device]
+* 
+            [连接设备][lnk-connect-device]
 * [设备管理入门][lnk-device-management]
 * [IoT Edge 入门][lnk-iot-edge]
 
@@ -252,3 +248,5 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://www.azure.cn/develop/iot/
+
+<!--Update_Description: update wording-->

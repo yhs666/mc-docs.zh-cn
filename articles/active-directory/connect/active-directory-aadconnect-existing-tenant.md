@@ -3,8 +3,8 @@ title: "Azure AD Connect：已具有 Azure AD 时 | Microsoft 文档"
 description: "本主题介绍当存在现有的 Azure AD 租户时如何使用 Connect。"
 services: active-directory
 documentationcenter: 
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -12,38 +12,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 87d3055012244ae5d10cd8d548d6d3c1be661f62
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: d65d8dd355e2922482185bccd6111f24833bf514
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/04/2017
 ---
-
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>存在现有的租户时如何使用 Azure AD Connect
-有关如何使用 Azure AD Connect 的大多数主题假设一开始使用的是新 Azure AD 租户，其中不包含任何用户或其他对象。 但是，如果你一开始使用的 Azure AD 租户中填充了用户和其他对象，现在想要使用 Connect，那么，本主题适合你阅读。
+有关如何使用 Azure AD Connect 的大多数主题假设一开始使用的是新 Azure AD 租户，其中不包含任何用户或其他对象。 但是，如果一开始使用的 Azure AD 租户中填充了用户和其他对象，现在想要使用 Connect，那么，本主题适合你阅读。
 
 ## <a name="the-basics"></a>基础知识
 Azure AD 中的对象在云中 (Azure AD) 或本地掌控。 对于单个对象而言，无法在本地管理一些属性，在 Azure AD 中管理另一些属性。 每个对象都有一个标志，指示对象的管理位置。
 
 可以在本地管理一些用户，在云中管理另一些用户。 下面是此配置的常见应用情景：某家组织既有会计工作人员，也有销售工作人员。 会计工作人员有本地 AD 帐户，但销售工作人员没有，他们在 Azure AD 中有帐户。 这样，就需要在本地管理一些用户，在 Azure AD 中管理另一些用户。
 
-如果你最初在 Azure AD 中管理用户，而这些用户同时又在本地 AD 中，后来你想要使用 Connect，那么，就需要考虑到其他一些因素。
+如果最初在 Azure AD 中管理用户，而这些用户同时又在本地 AD 中，后来你想要使用 Connect，那么，就需要考虑到其他一些因素。
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>与 Azure AD 中的现有用户同步
-安装 Azure AD Connect 并开始同步时，Azure AD 同步服务（在 Azure AD 中）将针对每个新对象执行检查，尝试查找匹配的现有对象。 此过程使用三个属性：**userPrincipalName**、**proxyAddresses** 和 **sourceAnchor**/**immutableID**。 根据 **userPrincipalName** 和 **proxyAddresses** 执行的匹配称为**软匹配**。 根据 **sourceAnchor** 执行的匹配称为**硬匹配**。 对于 **proxyAddresses** 属性，只会将包含 **SMTP:**（即主要电子邮件地址）的值用于评估。
+安装 Azure AD Connect 并开始同步时，Azure AD 同步服务（在 Azure AD 中）针对每个新对象执行检查，尝试查找匹配的现有对象。 此过程使用三个属性：**userPrincipalName**、**proxyAddresses** 和 **sourceAnchor**/**immutableID**。 根据 **userPrincipalName** 和 **proxyAddresses** 执行的匹配称为**软匹配**。 根据 **sourceAnchor** 执行的匹配称为**硬匹配**。 对于 **proxyAddresses** 属性，只会将包含 **SMTP:**（即主要电子邮件地址）的值用于评估。
 
 只会针对来自 Connect 的新对象评估匹配。 如果更改现有对象，使它与其中的任一属性匹配，则看到的是错误。
 
-如果 Azure AD 发现某个对象的属性值与来自 Connect 的某个对象的属性值相同，并且前一个对象已在 Azure AD 中存在，则 Azure AD 中的对象将被 Connect 取代。 以前，云管理的对象已标记为在本地管理。 Azure AD 中的所有属性如果在本地 AD 中具有值，这些属性将被本地值覆盖， 但属性在本地具有 **NULL** 值除外。 在这种情况下，Azure AD 中的值将会保留，但是，仍然只能在本地将它更改为其他值。
+如果 Azure AD 发现某个对象的属性值与来自 Connect 的某个对象的属性值相同，并且前一个对象已在 Azure AD 中存在，则 Azure AD 中的对象会被 Connect 取代。 以前，云管理的对象已标记为在本地管理。 Azure AD 中的所有属性如果在本地 AD 中具有值，这些属性会被本地值覆盖， 但属性在本地具有 **NULL** 值除外。 在这种情况下，Azure AD 中的值将会保留，但是，仍然只能在本地将它更改为其他值。
 
 > [!WARNING]
-> 由于 Azure AD 中的所有属性将被本地值覆盖，因此请确保本地的数据正确。 例如，如果只是在 Office 365 中管理电子邮件地址，而没有在本地 AD DS 中将它保持更新，则会丢失 Azure AD/Office 365 中的、在 AD DS 中不存在的所有值。
+> 由于 Azure AD 中的所有属性将被本地值覆盖，因此请确保本地的数据正确。 例如，如果只是在 Office 365 中管理电子邮件地址，而没有在本地 AD DS 中将它保持更新，则会丢失 Azure AD/Office 365 中存在、但在 AD DS 中不存在的所有值。
 
 > [!IMPORTANT]
-> 如果使用密码同步（快速设置始终会使用它），则 Azure AD 中的密码将被本地 AD 中的密码覆盖。 如果你的用户经常管理不同的密码，则在安装 Connect 后，你需要告知他们使用本地密码。
+> 如果使用密码同步（快速设置始终会使用它），则 Azure AD 中的密码会被本地 AD 中的密码覆盖。 如果用户经常管理不同的密码，则在安装 Connect 后，需要告知他们使用本地密码。
 
 在规划过程中，必须考虑上一部分的内容和警告。 如果在 Azure AD 中做了大量更改，但这些更改未反映在本地 AD DS 中，则在使用 Azure AD Connect 同步对象之前，需要规划好如何在 AD DS 中填充更新的值。
 
@@ -59,6 +58,6 @@ Azure AD 中的对象在云中 (Azure AD) 或本地掌控。 对于单个对象�
 某些客户最初在 Azure AD 中使用仅限云的解决方案，而没有构建本地 AD。 后来，他们想要使用本地资源，并希望基于 Azure AD 数据构建本地 AD。 对于这种情况，Azure AD Connect 无法起到作用。 它不会创建本地用户，并且没有能力将本地密码设置为与 Azure AD 中的密码相同。
 
 ## <a name="next-steps"></a>后续步骤
-了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
+了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-
+<!-- Update_Description: update meta properties -->

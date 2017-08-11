@@ -12,20 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/12/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: 1cf0f8d8e5b2b5794e09a09967a4086ee43a2a3c
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
+ms.openlocfilehash: cc8a4474b84d156b5bc7518ed1f4324904c6bd85
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>通过自定义 MES 预设执行高级编码 
 
 ## <a name="overview"></a>概述
 
-本主题演示如何自定义 Media Encoder Standard 预设。 [通过使用自定义预设的 Media Encoder Standard 进行编码](media-services-custom-mes-presets-with-dotnet.md)主题演示如何使用 .NET 创建编码任务和执行此任务的作业。 自定义预设后，请将其提供给编码任务。 
+本主题演示如何自定义 Media Encoder Standard 预设。 [通过使用自定义预设的 Media Encoder Standard 进行编码](media-services-custom-mes-presets-with-dotnet.md)主题演示如何使用 .NET 创建编码任务和执行此任务的作业。 自定义预设后，请将自定义预设提供给编码任务。 
 
 >[!NOTE]
 >如果使用的是 XML 预设，请务必保留元素顺序，如下面的 XML 示例所示（例如，KeyFrameInterval 应在 SceneChangeDetection 前面）。
@@ -47,10 +47,10 @@ ms.lasthandoff: 07/14/2017
 
 ## <a id="thumbnails"></a>生成缩略图
 
-本部分说明如何自定义生成缩略图的预设。 下面定义的预设包含有关如何将文件编码的信息，以及生成缩略图时所需的信息。 可使用[此部分](media-services-mes-presets-overview.md)所述的任何 MES 预设，并添加生成缩略图的代码。  
+本部分说明如何自定义生成缩略图的预设。 下面定义的预设包含有关如何对文件编码的信息，以及生成缩略图所需的信息。 可使用[此部分](media-services-mes-presets-overview.md)所述的任何 MES 预设，并添加生成缩略图的代码。  
 
 > [!NOTE]
-> 如果要编码为单比特率视频，以下预设中的 **SceneChangeDetection** 设置只能设置为 true。 如果要编码为多比特率视频并将 **SceneChangeDetection** 设置为 true，则编码器将返回错误。  
+> 如果要编码为单比特率视频，以下预设中的 **SceneChangeDetection** 设置只能设置为 true。 如果要编码为多比特率视频并将 **SceneChangeDetection** 设置为 true，则编码器返回错误。  
 >
 >
 
@@ -241,11 +241,11 @@ ms.lasthandoff: 07/14/2017
   * 相对于源持续时间（如果以 % 为后缀表示），例如："Start": "15%"，或者
   * 时间戳（如果以 HH:MM:SS... 格式表示），例如，"Start" : "00:01:00"
 
-    你可以随意混搭使用表示法。
+    可以随意混搭使用表示法。
 
     此外，Start 还支持特殊的宏 {Best}，它会尝试确定第一个“有意义”的内容帧。注意：（Start 设置为 {Best} 时，将忽略 Step 与 Range）
   * 默认值：Start:{Best}
-* 需要显式提供每个图像格式的输出格式：Jpg/Png/BmpFormat。 MES 会将 JpgVideo（如果已指定）与 JpgFormat 进行匹配，依此类推。 OutputFormat 引入了新的图像编解码器特定宏 {Index}，需要为图像输出格式提供该宏一次（且只需一次）。
+* 需要显式提供每个图像格式的输出格式：Jpg/Png/BmpFormat。 提供时，MES 会将 JpgVideo 与 JpgFormat 进行匹配，依此类推。 OutputFormat 引入了新的图像编解码器特定宏 {Index}，需要为图像输出格式提供该宏一次（且只需一次）。
 
 ## <a id="trim_video"></a>剪裁视频（剪切）
 本部分说明如何修改编码器预设，以裁剪或修剪其输入为所谓的夹层文件或按需文件的输入视频。 也可以使用编码器来剪切或剪裁从实时流捕获或存档的资产 - [此博客](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)提供了详细信息。
@@ -696,7 +696,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
     </Preset>
 
 ## <a id="silent_audio"></a>在输入不包含音频时插入静音曲目
-默认情况下，如果要向编码器发送仅包含视频而不包含音频的输入，则输出资产将包含仅有视频数据的文件。 某些播放器可能无法处理此类输出流。 对于这种方案，你可以使用此设置来强制编码器将静音曲目添加到输出。
+默认情况下，如果要向编码器发送仅包含视频而不包含音频的输入，则输出资产包含仅有视频数据的文件。 某些播放器可能无法处理此类输出流。 对于这种方案，可以使用此设置来强制编码器将静音曲目添加到输出。
 
 若要强制编码器在输入不包含音频时生成包含静音曲目的资产，请指定“InsertSilenceIfNoAudio”值。
 
@@ -807,8 +807,8 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 * 需要知道视频的持续时间。
 * 以下预设示例假设所有输入视频的起始时间戳都为零。 如果视频具有不同的起始时间戳（通常是实时存档的情况），则需要修改 StartTime 值。
 * JSON 预设会显式引用输入资产的 AssetID 值。
-* 示例代码假设 JSON 预设已保存到本地文件（例如“C:\supportFiles\preset.json”）。 同时假设已通过上传两个视频文件创建了两个资产，并且你知悉生成的 AssetID 值。
-* 代码片段和 JSON 预设显示连接两个视频文件的示例。 你可以将其扩展至两个以上的视频，方法是：
+* 示例代码假设 JSON 预设已保存到本地文件（例如“C:\supportFiles\preset.json”）。 同时假设已通过上传两个视频文件创建了两个资产，并且你知道生成的 AssetID 值。
+* 代码片段和 JSON 预设显示连接两个视频文件的示例。 可以将其扩展至两个以上的视频，方法是：
 
   1. 重复调用 task. InputAssets.Add() 以便依次添加更多视频。
   2. 通过按相同顺序添加更多条目，对 JSON 中的“Sources”元素进行相应编辑。
@@ -848,7 +848,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
 ### <a name="json-preset"></a>JSON 预设
 
-使用你想连接的资产 ID 以及每个视频的适当时间段，更新你的自定义预设。
+使用想连接的资产 ID 以及每个视频的适当时间段，更新自定义预设。
 
     {
       "Version": 1.0,
@@ -907,7 +907,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
 ## <a id="no_video"></a>在输入不包含视频时插入视频轨迹
 
-默认情况下，如果要向编码器发送仅包含音频而不包含视频的输入，则输出资产将包含仅有音频数据的文件。 某些播放器（包括 Azure 媒体播放器）（请参阅[此处](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)）可能无法处理这样的流。 对于这种方案，可使用此设置来强制编码器将单色视频轨迹添加到输出。
+默认情况下，如果要向编码器发送仅包含音频而不包含视频的输入，则输出资产包含仅有音频数据的文件。 某些播放器（包括 Azure 媒体播放器）（请参阅[此处](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)）可能无法处理这样的流。 在该方案中，可使用此设置来强制编码器将单色视频轨道添加到输出。
 
 > [!NOTE]
 > 强制编码器插入输出视频轨迹会增加输出资产的大小，从而增加编码任务的相关成本。 应运行测试来验证此成本增加对每月费用的影响不大。
@@ -1026,3 +1026,5 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
 ## <a name="see-also"></a>另请参阅
 [媒体服务编码概述](media-services-encode-asset.md)
+
+<!--Update_Description: update meta properties-->

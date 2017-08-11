@@ -3,8 +3,8 @@ title: "通过快速设置开始使用 Azure AD Connect | Microsoft 文档"
 description: "了解如何下载、安装和运行 Azure AD Connect 的设置向导。"
 services: active-directory
 documentationcenter: 
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: curtand
 ms.assetid: b6ce45fd-554d-4f4d-95d1-47996d561c9f
 ms.service: active-directory
@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 3297af909b08aca40b45845719ef189d8fe59a41
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: e709b954755e8111c0a48e4692282963c3f1ea34
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>通过快速设置开始使用 Azure AD Connect
 采用单林拓扑和用于身份验证的[密码同步](active-directory-aadconnectsync-implement-password-synchronization.md)时，可以使用 Azure AD Connect 的“快速设置”。 **快速设置** 是默认选项，用于最常见的部署方案。 只需按几下鼠标即可将本地目录扩展到云中。
@@ -32,14 +31,11 @@ ms.lasthandoff: 04/22/2017
 ## <a name="express-installation-of-azure-ad-connect"></a>Azure AD Connect 的快速安装
 1. 以本地管理员身份登录到要安装 Azure AD Connect 的服务器。 应该在要用作同步服务器的服务器上执行此操作。
 2. 导航到 **AzureADConnect.msi**并双击它。
-3. 在“欢迎”屏幕上，选中对应的框，同意许可条款，然后单击“继续”。  
+3. 在“欢迎”屏幕上，选中对应的框，同意许可条款，并单击“继续”。  
 4. 在“快速设置”屏幕上，单击“使用快速设置”。  
    ![欢迎使用 Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. 在“连接到 Azure AD”屏幕上，输入 Azure AD 的全局管理员用户名和密码。 单击“下一步” 。  
-
-	![连接到 Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png)
-
-	如果收到错误消息并出现连接问题，请参阅[排查连接问题](active-directory-aadconnect-troubleshoot-connectivity.md)。
+   ![连接到 Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png)如果收到错误消息并出现连接问题，请参阅[排查连接问题](active-directory-aadconnect-troubleshoot-connectivity.md)。
 6. 在“连接到 AD DS”屏幕上，输入企业管理员帐户的用户名和密码。 可以采用 NetBios 或 FQDN 格式输入域部分，即 FABRIKAM\administrator 或 fabrikam.com\administrator。 单击“下一步”。  
    ![连接到 AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. 只有在未完成[先决条件](active-directory-aadconnect-prerequisites.md)中的[验证域](../active-directory-add-domain.md)步骤时，才会显示 [**Azure AD 登录配置**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration)页。
@@ -48,11 +44,9 @@ ms.lasthandoff: 04/22/2017
 8. 在“准备好配置”屏幕上，单击“安装”。
    - 在“已准备好配置”页上，可以取消选中“配置完成后立即开始同步过程”  复选框。 如果想要进行其他配置（例如[筛选](active-directory-aadconnectsync-configure-filtering.md)），应取消选中此复选框。 如果取消选择此选项，向导将配置同步，但会保持禁用计划程序。 在[重新运行安装向导](active-directory-aadconnectsync-installation-wizard.md)手动启用计划程序之前，计划程序不会运行。
    - 如果本地 Active Directory 中有 Exchange，也可以选择启用 [**Exchange 混合部署**](https://technet.microsoft.com/library/jj200581.aspx)。 如果打算同时在云中和本地设置 Exchange 邮箱，请启用此选项。
-
-        ![已准备好配置 Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
-
+     ![已准备好配置 Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 9. 安装完成后，单击“退出” 。
-10. 安装完成后，请注销并再次登录，然后即可使用同步服务管理器或同步规则编辑器。
+10. 安装完成后，请注销并再次登录，即可使用同步服务管理器或同步规则编辑器。
 
 ## <a name="next-steps"></a>后续步骤
 安装 Azure AD Connect 后，可以[验证安装并分配许可证](active-directory-aadconnect-whats-next.md)。
@@ -71,5 +65,4 @@ ms.lasthandoff: 04/22/2017
 | 从 DirSync 升级 |
 | 用于安装的帐户 |
 
-
-
+<!-- Update_Description: update meta properties -->

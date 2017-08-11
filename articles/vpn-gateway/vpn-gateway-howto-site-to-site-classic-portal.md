@@ -1,6 +1,6 @@
 ---
 title: "将本地网络连接到 Azure 虚拟网络：站点到站点 VPN（经典）：门户 | Azure"
-description: "通过公共 Internet 创建从本地网络到 Azure 虚拟网络的 IPsec 连接的步骤。 这些步骤将帮助你使用门户创建跨界站点到站点 VPN 网关连接。"
+description: "通过公共 Internet 创建从本地网络到 Azure 虚拟网络的 IPsec 连接的步骤。 这些步骤帮助你使用门户创建跨界站点到站点 VPN 网关连接。"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -14,13 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/24/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-dazen
-ms.openlocfilehash: 8f843249f64f91b3014d69faaf8e399ce7b0560f
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 169a49c23af121b6a2a8b9e840194a62961c85c0
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>使用 Azure 门户创建站点到站点连接（经典）
 
@@ -45,9 +45,9 @@ ms.lasthandoff: 07/14/2017
 
 在开始配置之前，请验证是否符合以下条件：
 
-* 验证是否需要使用经典部署模型。 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
-* 一台兼容的 VPN 设备和能够对其进行配置的人员。 有关兼容的 VPN 设备和设备配置的详细信息，请参阅[关于 VPN 设备](vpn-gateway-about-vpn-devices.md)。
-* 一个用于 VPN 设备的面向外部的公共 IPv4 IP 地址。 此 IP 地址不得位于 NAT 之后。
+* 确认要使用经典部署模型。 如果要使用资源管理器部署模型，请参阅[创建站点到站点连接（资源管理器）](vpn-gateway-howto-site-to-site-resource-manager-portal.md)。 我们建议在可能的情况下使用资源管理器部署模型。
+* 确保有一台兼容的 VPN 设备和能够对其进行配置的人员。 有关兼容的 VPN 设备和设备配置的详细信息，请参阅[关于 VPN 设备](vpn-gateway-about-vpn-devices.md)。
+* 确认 VPN 设备有一个面向外部的公共 IPv4 地址。 此 IP 地址不得位于 NAT 之后。
 * 如果熟悉本地网络配置中的 IP 地址范围，则需咨询能够提供此类详细信息的人员。 创建此配置时，必须指定 IP 地址范围前缀，Azure 会将该前缀路由到本地位置。 本地网络的任何子网都不得与要连接到的虚拟网络子网重叠。
 * 目前需要使用 PowerShell 来指定共享密钥和创建 VPN 网关连接。 安装最新版本的 Azure 服务管理 (SM) PowerShell cmdlet。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 使用 PowerShell 进行此配置时，请确保以管理员身份运行。 
 
@@ -70,11 +70,11 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="CreatVNet"></a>1.创建虚拟网络
 
-创建适用于 S2S 连接的虚拟网络时，需确保指定的地址空间与适用于本地站点（你需要连接到这些站点）的任何客户端地址空间不重叠。 如果有重叠子网，连接将无法正常工作。
+创建适用于 S2S 连接的虚拟网络时，需确保指定的地址空间与适用于本地站点（需要连接到这些站点）的任何客户端地址空间不重叠。 如果有重叠子网，连接无法正常工作。
 
 * 如果已有一个 VNet，请检查其设置是否与 VPN 网关设计兼容。 请特别注意任何可能与其他网络重叠的子网。 
 
-* 如果还没有虚拟网络，请创建。 这些屏幕截图仅供参考。 请务必替换为你自己的值。
+* 如果还没有虚拟网络，请创建。 这些屏幕截图仅供参考。 请务必替换成自己的值。
 
 ### <a name="to-create-a-virtual-network"></a>创建虚拟网络
 
@@ -82,16 +82,16 @@ ms.lasthandoff: 07/14/2017
 2. 单击“新建” 。 在“搜索应用商店”字段中，键入“虚拟网络”。 从返回的列表中找到“虚拟网络”，单击打开“虚拟网络”边栏选项卡。
 
     ![搜索虚拟网络边栏选项卡](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
-3. 从靠近“虚拟网络”边栏选项卡底部的“选择部署模型”列表中，选择“经典”，然后单击“创建”。
+3. 从靠近“虚拟网络”边栏选项卡底部的“选择部署模型”列表中，选择“经典”，并单击“创建”。
 
     ![选择部署模型](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
 4. 在“创建虚拟网络”  边栏选项卡上，配置 VNet 设置。 在此边栏选项卡中，添加第一个地址空间和单个子网地址范围。 完成创建 VNet 之后，可以返回并添加其他子网和地址空间。
 
     ![创建虚拟网络边栏选项卡](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "创建虚拟网络边栏选项卡")
 5. 验证“订阅”  是否正确。 可以使用下拉列表更改订阅。
-6. 单击“资源组”  ，然后选择现有资源组，或通过键入新的资源组名称创建新资源组。 有关资源组的详细信息，请访问 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md#resource-groups)。
+6. 单击“资源组”  ，并选择现有资源组，或通过键入新的资源组名称创建新资源组。 有关资源组的详细信息，请访问 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md#resource-groups)。
 7. 接下来，选择 VNet 的“位置”  设置。 该位置确定要部署到此 VNet 的资源所在的位置。
-8. 如果希望能够在仪表板上轻松查找 VNet，请选择“固定到仪表板”，然后单击“创建”。
+8. 如果希望能够在仪表板上轻松查找 VNet，请选择“固定到仪表板”，并单击“创建”。
 
     ![固定到仪表板](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "固定到仪表板")
 9. 单击“创建”后，仪表板上会出现一个磁贴，反映 VNet 的进度。 创建 VNet 时，该磁贴会更改。
@@ -112,7 +112,7 @@ ms.lasthandoff: 07/14/2017
 
 在 S2S 配置过程中不需进行 DNS 设置，但如果需要名称解析，则 DNS 是必需的。
 
-创建虚拟网络后，可以添加 DNS 服务器的 IP 地址来处理名称解析。 打开虚拟网络的设置，单击 DNS 服务器，然后添加要用于名称解析的 DNS 服务器的 IP 地址。 此设置不创建 DNS 服务器。 在示例设置中，我们使用公用 DNS 服务器。 通常情况下，需使用专用 DNS 服务器。 请务必添加可与资源通信的 DNS 服务器。
+创建虚拟网络后，可以添加 DNS 服务器的 IP 地址来处理名称解析。 打开虚拟网络的设置，单击 DNS 服务器，并添加要用于名称解析的 DNS 服务器的 IP 地址。 此设置不创建 DNS 服务器。 在示例设置中，我们使用公用 DNS 服务器。 通常情况下，需使用专用 DNS 服务器。 请务必添加可与资源通信的 DNS 服务器。
 
 1. 在门户中找到虚拟网络。
 2. 在虚拟网络的边栏选项卡的“设置”部分，单击“DNS 服务器”。
@@ -121,7 +121,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="localsite"></a>4.配置本地站点
 
-本地站点通常指本地位置。 它包含 VPN 设备的 IP 地址和地址范围，你需要创建到该设备的连接，并且需要通过 VPN 网关将地址范围路由到该设备。
+本地站点通常指本地位置。 它包含 VPN 设备的 IP 地址和地址范围，需要创建到该设备的连接，并且需要通过 VPN 网关将地址范围路由到该设备。
 
 1. 在门户中，导航到要为其创建网关的虚拟网络。
 2. 在虚拟网络“概览”边栏选项卡的“VPN 连接”部分，单击“网关”打开“新建 VPN 连接”边栏选项卡。
@@ -179,7 +179,7 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="step-1-connect-to-your-azure-account"></a>步骤 1。 连接到 Azure 帐户
 
-1. 使用提升的权限打开 PowerShell 控制台，然后连接到帐户。 使用下面的示例来帮助连接：
+1. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用下面的示例来帮助连接：
 
   ```powershell
   Add-AzureAccount -Environment AzureChinaCloud
@@ -199,14 +199,14 @@ ms.lasthandoff: 07/14/2017
 
 使用 PowerShell 和经典部署模型时，有时门户中资源的名称不是在使用 PowerShell 时 Azure 中本应显示的名称。 可通过以下步骤导出网络配置文件，获取这些名称的确切值。
 
-1. 在计算机上创建一个目录，然后将网络配置文件导出到该目录。 在此示例中，网络配置文件导出到 C:\AzureNet。
+1. 在计算机上创建一个目录，并将网络配置文件导出到该目录。 在此示例中，网络配置文件导出到 C:\AzureNet。
 
   ```powershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
 2. 使用 XML 编辑器打开网络配置文件，检查值中是否包含“LocalNetworkSite name”和“VirtualNetworkSite name”。 根据值修改此示例。 指定包含空格的名称时，请使用单引号将值引起来。
 
-3. 设置共享密钥并创建连接。 “-SharedKey”是你生成并指定的值。 在示例中，我们使用的是“abc123”，但你可以生成并且应该使用更复杂的。 重要的是，此处指定的值必须与配置 VPN 设备时指定的值相同。
+3. 设置共享密钥并创建连接。 “-SharedKey”是生成并指定的值。 在示例中，我们使用的是“abc123”，但可以生成并且应该使用更复杂的。 重要的是，此处指定的值必须与配置 VPN 设备时指定的值相同。
 
   ```powershell
   Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
@@ -220,3 +220,5 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="next-steps"></a>后续步骤
 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/#pivot=services&panel=Compute)。
+
+<!--Update_Description: wording update-->

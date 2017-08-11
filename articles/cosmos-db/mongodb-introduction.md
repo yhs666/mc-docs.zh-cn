@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/24/2017
-ms.date: 07/17/2017
+origin.date: 07/14/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2618b377f43eb9f89c984568de3d04ba6ed866b7
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: ffb5b54879592ed4ea674669f6ac4eb7a15eb0fb
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB: API for MongoDB 简介
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/26/2017
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>使用适用于 MongoDB 应用程序的 Azure Cosmos DB 有什么好处？
 
-可弹性增减吞吐量和存储：根据应用程序需求，轻松增大或减小 MongoDB 数据库规模。 你的数据存储在固态硬盘 (SSD) 上，以实现可预测的低延迟。 Cosmos DB 支持几乎可以扩展到无限存储大小和预配吞吐量的 MongoDB 集合。 随着应用程序规模的增长，可以弹性无缝地扩展 Cosmos DB 且其性能可以预测。 
+可弹性增减吞吐量和存储：根据应用程序需求，轻松增大或减小 MongoDB 数据库规模。 数据存储在固态硬盘 (SSD) 上，以实现可预测的低延迟。 Cosmos DB 支持几乎可以扩展到无限存储大小和预配吞吐量的 MongoDB 集合。 随着应用程序规模的增长，可以弹性无缝地扩展 Cosmos DB 且其性能可以预测。 
 
 多区域复制：Cosmos DB 以透明方式将数据复制到与 MongoDB 帐户关联的所有区域，使你可以开发那些对全局性数据访问有要求的应用程序，与此同时还在一致性、可用性和性能方面做出权衡，所有这些都有相应的保证。 Cosmos DB 提供使用多宿主 API 的透明区域故障转移，还可以弹性缩放全局吞吐量和存储。 在[全局分发数据](distribute-data-globally.md)中了解详细信息。
 
@@ -45,11 +45,7 @@ ms.lasthandoff: 07/26/2017
 自动编制索引：默认情况下，Cosmos DB 自动为 MongoDB 数据库中的文档包含的所有属性编制索引，无需任何架构，也无需创建二级索引。
 
 企业级 - Azure Cosmos DB 支持多个本地副本，可在本地或区域出现故障时，提供 99.99% 的可用性和数据保护。 Azure Cosmos DB 具有企业级[符合性认证](https://www.microsoft.com/trustcenter)和安全功能。 
-
-与 Scott Hanselman 和 Azure Cosmos DB 的工程（主管）经理 Kirill Gavrylyuk 一起，通过 Azure Friday 视频了解更多信息。
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/DocumentDB-Database-as-a-Service-for-MongoDB-Developers/player]
-> 
+<!-- Not Available [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Introducing-Azure-Cosmos-DB/player] -->
 
 ## <a name="how-to-get-started"></a>如何入门
 
@@ -69,3 +65,5 @@ ms.lasthandoff: 07/26/2017
 * 使用 [Robomongo](mongodb-robomongo.md) 连接到 MongoDB 的 API 帐户。
 * 了解操作将多少 RU 用于 [GetLastRequestStatistics 命令和 Azure 门户指标](request-units.md#GetLastRequestStatistics)。
 * 了解如何[配置全局分布的应用的读取首选项](../cosmos-db/tutorial-global-distribution-mongodb.md)。
+
+<!--Update_Description: update meta properties, update link-->

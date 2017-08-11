@@ -2,25 +2,24 @@
 title: "Azure AD Connect：使用 SAML 2.0 标识提供者进行单一登录 | Microsoft Docs"
 description: "本主题介绍如何使用兼容 SAML 2.0 的 Idp 进行单一登录。"
 services: active-directory
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.date: 06/21/2017
-ms.openlocfilehash: 25b590602268e1293d703785cd37454ae538b607
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 2f931d50a7eaf73cc6fd17f64a8fd2064bc5a2cf
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/04/2017
 ---
-#  使用 SAML 2.0 标识提供者 (IdP) 进行单一登录
-<a id="use-a-saml-20-identity-provider-idp-for-single-sign-on" class="xliff"></a>
+#  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>使用 SAML 2.0 标识提供者 (IdP) 进行单一登录
 
 本主题介绍如何将兼容 SAML 2.0 且基于 SP-Lite 配置文件的标识提供者用作首选的安全令牌服务 (STS)/标识提供者。 在你已经有了一个能够使用 SAML 2.0 访问的本地用户目录和密码存储的情况下，这很有用。 可以使用这个现有的用户目录登录到 Office 365 和其他受 Azure AD 保护的资源。 SAML 2.0 SP-Lite 配置文件基于基于广泛使用的安全断言标记语言 (SAML) 联合标识标准，可提供登录和属性交换框架。
 
@@ -42,8 +41,7 @@ Microsoft 支持此登录体验，允许你将 Microsoft 云服务（例如 Offi
 
 在使用 SAML 2.0 标识提供者的这个登录方案中，所有其他客户端均不可用。 例如，Lync 2010 桌面客户端不能登录到已将 SAML 2.0 标识提供者配置为进行单一登录的服务。
 
-## Azure AD SAML 2.0 协议要求
-<a id="azure-ad-saml-20-protocol-requirements" class="xliff"></a>
+## <a name="azure-ad-saml-20-protocol-requirements"></a>Azure AD SAML 2.0 协议要求
 本主题包含与 Azure AD 一起进行联合身份验证以便登录到一个或多个 Microsoft 云服务（例如 Office 365）时，SAML 2.0 标识提供者必须实现的协议和消息格式设置的详细要求。 本方案中使用的 Microsoft 云服务的 SAML 2.0 信赖方 (SP-STS) 为 Azure AD。
 
 建议你确保 SAML 2.0 标识提供者输出消息尽可能与提供的示例跟踪类似。 另外，请尽可能使用来自所提供的 Azure AD 元数据的特定属性值。 对输出消息满意以后，即可使用 Microsoft Connectivity Analyzer 进行测试，如下所述。
@@ -51,34 +49,30 @@ Microsoft 支持此登录体验，允许你将 Microsoft 云服务（例如 Offi
 可从以下 URL 下载 Azure AD 元数据：[https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml)。
 对于使用特定于中国的 Office 365 实例的中国客户来说，应使用以下联合身份验证终结点：[https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml)。
 
-## SAML 协议要求
-<a id="saml-protocol-requirements" class="xliff"></a>
+## <a name="saml-protocol-requirements"></a>SAML 协议要求
 本部署详述如何将请求和响应消息对放置在一起，以便正确设置消息格式。
 
 Azure AD 在进行配置后可以用于标识提供者，后者使用 SAML 2.0 SP Lite 配置文件，其中的部分具体要求已在下面列出。 可以使用示例性的 SAML 请求和响应消息进行自动和手动测试，从而实现与 Azure AD 的互操作性。
 
-## 签名块要求
-<a id="signature-block-requirements" class="xliff"></a>
+## <a name="signature-block-requirements"></a>签名块要求
 在 SAML 响应消息中，“签名”节点包含有关消息本身数字签名的信息。 签名块具有以下要求：
 
 1. 断言节点本身必须签名
 2.  必须使用 RSA-sha1 算法作为 DigestMethod。 不接受其他数字签名算法。
    `<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>`
 3.  也可对 XML 文档签名。 
-4.  转换算法必须与以下示例中的值匹配：   `<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+4.  转换算法必须与以下示例中的值匹配：`<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
        <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>`
-9.  SignatureMethod 算法必须与以下示例匹配：  `<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
+9.  SignatureMethod 算法必须与以下示例匹配：`<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
-## 支持的绑定
-<a id="supported-bindings" class="xliff"></a>
+## <a name="supported-bindings"></a>支持的绑定
 绑定是与传输相关的通信参数，是必需的。 以下要求适用于绑定：
 
 1. HTTPS 是所需的传输。
 2.  Azure AD 将需要使用 HTTP POST 在登录期间提交令牌。
 3.  Azure AD 将使用 HTTP POST 向标识提供者提交身份验证请求，并使用 REDIRECT 向标识提供者发送“注销”消息。
 
-## 必需属性
-<a id="required-attributes" class="xliff"></a>
+## <a name="required-attributes"></a>必需属性
 下表显示了针对 SAML 2.0 消息中的特定属性的要求。
  
 |属性|说明|
@@ -90,8 +84,7 @@ Azure AD 在进行配置后可以用于标识提供者，后者使用 SAML 2.0 S
 >[!IMPORTANT]
 >Azure AD 目前支持下述适用于 SAML 2.0 的 NameID 格式 URI：urn:oasis:names:tc:SAML:2.0:nameid-format:persistent。
 
-## SAML 请求与响应消息示例
-<a id="sample-saml-request-and-response-messages" class="xliff"></a>
+## <a name="sample-saml-request-and-response-messages"></a>SAML 请求与响应消息示例
 显示的请求与响应消息对是针对登录消息交换的。
 下面是从 Azure AD 发送到示例 SAML 2.0 标识提供者的示例请求消息。 示例 SAML 2.0 标识提供者为 Active Directory 联合身份验证服务 (AD FS)，已配置为使用 SAML-P 协议。 此外，还针对其他 SAML 2.0 标识提供者完成了互操作性测试。
 
@@ -153,31 +146,26 @@ Azure AD 在进行配置后可以用于标识提供者，后者使用 SAML 2.0 S
     </Assertion>
     </samlp:Response>`
 
-## 配置兼容 SAML 2.0 的标识提供者
-<a id="configure-your-saml-20-compliant-identity-provider" class="xliff"></a>
+## <a name="configure-your-saml-20-compliant-identity-provider"></a>配置兼容 SAML 2.0 的标识提供者
 本主题包含的准则适用于配置 SAML 2.0 标识提供者，目的是通过与 Azure AD 一起进行联合身份验证，使用 SAML 2.0 协议以单一登录方式访问一个或多个 Microsoft 云服务（例如 Office 365）。 本方案中使用的 Microsoft 云服务的 SAML 2.0 信赖方为 Azure AD。
 
-## 添加 Azure AD 元数据
-<a id="add-azure-ad-metadata" class="xliff"></a>
+## <a name="add-azure-ad-metadata"></a>添加 Azure AD 元数据
 SAML 2.0 标识提供者需遵循有关 Azure AD 信赖方的信息要求。 Azure AD 将元数据发布到 https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml。
 
 建议你在配置 SAML 2.0 标识提供者时，始终导入最新的 Azure AD 元数据。 请注意，Azure AD 不从标识提供者读取元数据。
 
-## 将 Azure AD 作为信赖方添加
-<a id="add-azure-ad-as-a-relying-party" class="xliff"></a>
+## <a name="add-azure-ad-as-a-relying-party"></a>将 Azure AD 作为信赖方添加
 必须允许在 SAML 2.0 标识提供者与 Azure AD 之间通信。 此配置取决于具体的的标识提供者，请参阅其文档。 通常应将信赖方 ID 设置为与 Azure AD 元数据中的 entityID 相同。
 
 >[!NOTE]
 >请验证 SAML 2.0 标识提供者服务器上的时钟是否已与准确的时间源同步。 时钟的时间不准确可能导致联合身份验证登录失败。
 
-## 安装 Windows PowerShell 以使用 SAML 2.0 标识提供者进行登录
-<a id="install-windows-powershell-for-sign-on-with-saml-20-identity-provider" class="xliff"></a>
+## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>安装 Windows PowerShell 以使用 SAML 2.0 标识提供者进行登录
 配置用于 Azure AD 登录的 SAML 2.0 标识提供者以后，下一步是下载并安装用于 Windows PowerShell 的 Azure Active Directory 模块。 安装以后，即可使用这些 cmdlet 将 Azure AD 域配置为联合域。
 
 用于 Windows PowerShell 的 Azure Active Directory 模块在下载后可用于管理 Azure AD 中的组织数据。 该模块可将一组 cmdlet 安装到 Windows PowerShell；运行这些 cmdlet 即可设置对 Azure AD 以及所有已订阅云服务的单一登录访问。 有关如何下载和安装 cmdlet 的说明，请参阅 [http://technet.microsoft.com/library/jj151815.aspx](http://technet.microsoft.com/library/jj151815.aspx)
 
-## 在 SAML 标识提供者与 Azure AD 之间建立信任
-<a id="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad" class="xliff"></a>
+## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>在 SAML 标识提供者与 Azure AD 之间建立信任
 在 Azure AD 域上配置联合身份验证之前，必须已配置自定义域。 不能联合 Microsoft 提供的默认域。 Microsoft 提供的默认域以“partner.onmschina.cn”结尾。
 需在 Windows PowerShell 命令行界面中运行一系列 cmdlet，以便添加或转换单一登录的域。
 
@@ -185,14 +173,11 @@ SAML 2.0 标识提供者需遵循有关 Azure AD 信赖方的信息要求。 Azu
 
 以下过程演示如何使用 SAML 2.0 SP-Lite 将现有的标准域转换为联合身份验证域。 请注意，域可能会出现中断情况，严重时在执行此步骤后 2 小时仍会影响用户。
 
-## 在 Azure AD Directory 中配置进行联合身份验证的域
-<a id="configuring-a-domain-in-your-azure-ad-directory-for-federation" class="xliff"></a>
+## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>在 Azure AD Directory 中配置进行联合身份验证的域
 
 
 1. 以租户管理员身份连接到 Azure AD Directory：Connect-MsolService。
-2.  配置所需的 Office 365 域，通过 SAML 2.0 来使用联合身份验证：
-
-    `$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
+2.  通过 SAML 2.0 将所需的 Office 365 域配置为使用联合：`$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
 
 3.  可以从 IDP 元数据文件中获取签名证书的 base64 编码字符串。 已提供此位置的示例，但该示例视实现情况可能稍有不同。
 
@@ -205,8 +190,7 @@ SAML 2.0 标识提供者需遵循有关 Azure AD 信赖方的信息要求。 Azu
 
 配置联合身份验证以后，可以切换回“非联合身份验证”（或“托管”）模式，但这种更改最长需要两小时才能完成，并且需要为每个用户分配新的随机密码，以便进行基于云的登录。 在某些情况下，可能需切换回“托管”模式才能在设置中重置错误。 有关域转换的详细信息，请参阅：[http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx)。
 
-## 预配 Azure AD/Office 365 的用户主体
-<a id="provision-user-principals-to-azure-ad--office-365" class="xliff"></a>
+## <a name="provision-user-principals-to-azure-ad--office-365"></a>预配 Azure AD/Office 365 的用户主体
 向 Office 365 进行用户身份验证之前，必须根据 SAML 2.0 声明中的断言语句为 Azure AD 预配用户主体。 如果不提前让 Azure AD 了解这些用户主体，则不能使用它们进行联合身份验证登录。 可以使用 Azure AD Connect 或 Windows PowerShell 来预配用户主体。
 
 可以使用 Azure AD Connect 从本地 Active Directory 预配 Azure AD 目录中域的主体。 如需更多详细信息，请参阅[将本地目录与 Azure Active Directory 集成](active-directory-aadconnect.md)。
@@ -217,9 +201,7 @@ SAML 2.0 标识提供者需遵循有关 Azure AD 信赖方的信息要求。 Azu
 
 
 1. 以租户管理员身份连接到 Azure AD Directory：Connect-MsolService。
-2.  创建新用户主体：
-
-    ` New-MsolUser
+2.  创建新用户主体：` New-MsolUser
         -UserPrincipalName elwoodf1@contoso.com
         -ImmutableId ABCDEFG1234567890
         -DisplayName "Elwood Folk"
@@ -234,8 +216,7 @@ SAML 2.0 标识提供者需遵循有关 Azure AD 信赖方的信息要求。 Azu
 >[!NOTE]
 >“UserPrinciplName”值必须与将在 SAML 2.0 声明中为“IDPEmail”发送的值匹配，“ImmutableID”值必须与在“NameID”断言语句中发送的值匹配。
 
-## 通过 SAML 2.0 IDP 验证单一登录
-<a id="verify-single-sign-on-with-your-saml-20-idp" class="xliff"></a>
+## <a name="verify-single-sign-on-with-your-saml-20-idp"></a>通过 SAML 2.0 IDP 验证单一登录
 在以管理员身份验证和管理单一登录（也称联合身份验证）之前，请查看以下文章中的信息并执行相关步骤，以便通过基于 SAML 2.0 SP-Lite 的标识提供者设置单一登录：
 
 
@@ -252,8 +233,7 @@ SAML 2.0 标识提供者需遵循有关 Azure AD 信赖方的信息要求。 Azu
 >如果转换而不是添加域，则可能需要长达 24 小时来设置单一登录。
 在验证单一登录之前，应完成 Active Directory 同步的设置，对目录进行同步，并激活同步的用户。
 
-### 使用工具验证单一登录是否已正确设置
-<a id="use-the-tool-to-verify-that-single-sign-on-has-been-set-up-correctly" class="xliff"></a>
+### <a name="use-the-tool-to-verify-that-single-sign-on-has-been-set-up-correctly"></a>使用工具验证单一登录是否已正确设置
 若要验证是否已正确设置单一登录，可执行以下过程，确认你能够使用公司凭据登录到云服务。
 
 Microsoft 提供了一种工具，用于测试基于 SAML 2.0 的标识提供者。 在运行测试工具之前，必须已将 Azure AD 租户配置为通过标识提供者进行联合身份验证。
@@ -275,8 +255,7 @@ Microsoft 提供了一种工具，用于测试基于 SAML 2.0 的标识提供者
 >[!NOTE]
 >Connectivity Analyzer 也使用基于 WS* 的协议和 ECP/PAOS 协议测试活动联合身份验证。 如果不使用这些，则可忽略以下错误：正在使用标识提供者的活动联合身份验证终结点测试活动登录流。
 
-### 手动验证单一登录是否已正确设置
-<a id="manually-verify-that-single-sign-on-has-been-set-up-correctly" class="xliff"></a>
+### <a name="manually-verify-that-single-sign-on-has-been-set-up-correctly"></a>手动验证单一登录是否已正确设置
 手动验证提供更多的步骤，可以利用这些步骤来确保 SAML 2.0 标识提供者在多种情形下正常运行。
 若要验证单一登录是否已正确设置，请完成以下步骤：
 
@@ -285,11 +264,11 @@ Microsoft 提供了一种工具，用于测试基于 SAML 2.0 的标识提供者
 2.  在密码框内单击。 如果设置了单一登录，则密码框会灰显，同时会显示以下消息：“你现在需在 <your company> 登录。”
 3.  单击“在 <your company> 登录”链接。 如果可以登录，则已设置单一登录。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 
 - [使用 Azure AD Connect 进行 Active Directory 联合身份验证服务的管理和自定义](active-directory-aadconnect-federation-management.md)
 - [Azure AD 联合身份验证兼容性列表](active-directory-aadconnect-federation-compatibility.md)
 - [Azure AD Connect 自定义安装](active-directory-aadconnect-get-started-custom.md)
 
+<!-- Update_Description: update meta properties -->

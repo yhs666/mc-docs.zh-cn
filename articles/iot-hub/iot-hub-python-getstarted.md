@@ -1,6 +1,6 @@
 ---
 title: "Azure IoT 中心入门 (Python) | Azure"
-description: "本文介绍如何通过用于 Python 的 Azure IoT SDK 将消息从模拟设备发送到 Azure IoT 中心。"
+description: "了解如何通过用于 Python 的 IoT SDK 将设备到云消息发送到 Azure IoT 中心。 创建模拟的设备和服务应用，以便通过 IoT 中心注册设备、发送消息和读取消息。"
 services: iot-hub
 author: dsk-2015
 manager: timlt
@@ -13,15 +13,14 @@ ms.workload: na
 origin.date: 04/22/2017
 ms.author: v-yiso
 ms.custom: na
-ms.date: 07/10/2017
-ms.openlocfilehash: 7d19bcfcef9364ee1227b838b7341a5f3cfb89b0
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.date: 08/14/2017
+ms.openlocfilehash: c6f3a8a219c0f40dc1a8ee6132a2717e9d105374
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/04/2017
 ---
-# 使用 Python 将模拟设备连接到 IoT 中心
-<a id="connect-your-simulated-device-to-your-iot-hub-using-python" class="xliff"></a>
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>使用 Python 将模拟设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 在本教程结束时，将会创建两个 Python 应用：
@@ -34,7 +33,7 @@ ms.lasthandoff: 06/28/2017
 > 
 > 
 
-若要完成本教程，您需要以下各项：
+要完成本教程，需要以下各项：
 
 * [Python 2.x 或 3.x][lnk-python-download]。 请确保根据安装程序的要求，使用 32 位或 64 位安装。 在安装过程中出现提示时，请确保将 Python 添加到特定于平台的环境变量中。 如果使用 Python 2.x，则可能需要[安装或升级 pip - Python 包管理系统][lnk-install-pip]。
 * 如果使用 Windows OS，则请安装 [Visual C++ 可再发行组件包][lnk-visual-c-redist]，以便使用 Python 中的本机 DLL。
@@ -52,9 +51,8 @@ ms.lasthandoff: 06/28/2017
 > 也可使用基于 Python 或 Node.js 的 Azure CLI，在命令行中轻松创建 IoT 中心。 [使用 Azure CLI 2.0 创建 IoT 中心][lnk-azure-cli-hub]一文介绍了执行该操作的快速步骤。 
 > 
 
-## 创建设备标识
-<a id="create-a-device-identity" class="xliff"></a>
-本部分列出了创建 Python 控制台应用的步骤，该应用可在 IoT 中心的标识注册表中创建设备标识。 设备无法连接到 IoT 中心，除非它在标识注册表中具有条目。 有关详细信息，请参阅 **IoT 中心开发人员指南** 的 [标识注册表][lnk-devguide-identity]部分。 当你运行此控制台应用时，它将生成唯一的设备 ID 和密钥，当设备向 IoT 中心发送设备到云的消息时，可以用于标识设备本身。
+## <a name="create-a-device-identity"></a>创建设备标识
+本部分列出了创建 Python 控制台应用的步骤，该应用可在 IoT 中心的标识注册表中创建设备标识。 设备无法连接到 IoT 中心，除非它在标识注册表中具有条目。 有关详细信息，请参阅 **IoT 中心开发人员指南** 的 [标识注册表][lnk-devguide-identity]部分。 当你运行此控制台应用时，它生成唯一的设备 ID 和密钥，当设备向 IoT 中心发送设备到云的消息时，可以用于标识设备本身。
 
 1. 打开命令提示符，然后安装用于 Python 的 Azure IoT 中心服务 SDK。 在安装 SDK 之后关闭命令提示符。
 
@@ -138,8 +136,7 @@ ms.lasthandoff: 06/28/2017
 > 
 
 
-## 创建模拟设备应用程序
-<a id="create-a-simulated-device-app" class="xliff"></a>
+## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
 本部分列出了创建 Python 控制台应用的步骤，该应用可模拟设备并向 IoT 中心发送设备到云消息。
 
 1. 打开新的命令提示符，然后安装用于 Python 的 Azure IoT 中心设备 SDK，如下所示。 在安装之后关闭命令提示符。
@@ -256,8 +253,7 @@ ms.lasthandoff: 06/28/2017
 > 
 > 
 
-## 从模拟设备接收消息
-<a id="receive-messages-from-your-simulated-device" class="xliff"></a>
+## <a name="receive-messages-from-your-simulated-device"></a>从模拟设备接收消息
 若要从设备接收遥测消息，需使用 IoT 中心公开的与[事件中心][lnk-event-hubs-overview]兼容的终结点，以便读取设备到云消息。 阅读[事件中心入门][lnk-eventhubs-tutorial]教程，了解如何处理来自事件中心的消息，这些事件中心所对应的终结点与 IoT 中心的事件中心兼容。 在 Python 中，事件中心尚不支持遥测，因此可创建一个基于 [Node.js](./iot-hub-node-node-getstarted.md#D2C_node) 或 [.NET](./iot-hub-csharp-csharp-getstarted.md#D2C_csharp) 事件中心的控制台应用，以便从 IoT 中心读取设备到云消息。 本教程介绍如何使用 [IoT 中心资源管理器工具][lnk-iot-hub-explorer]读取这些设备消息。
 
 1. 打开命令提示符并安装 IoT 中心资源管理器。 
@@ -283,15 +279,15 @@ ms.lasthandoff: 06/28/2017
 
     ![Python 设备到云消息][2]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
-本教程中，在 Azure 门户中配置了新的 IoT 中心，然后在 IoT 中心的标识注册表中创建了设备标识。 已使用此设备标识，使模拟设备应用可将设备到云的消息发送至 IoT 中心。 你已借助 IoT 中心资源管理器工具观察到 IoT 中心接收的消息。 
+## <a name="next-steps"></a>后续步骤
+本教程中，在 Azure 门户中配置了新的 IoT 中心，并在 IoT 中心的标识注册表中创建了设备标识。 已使用此设备标识来让模拟设备应用向 IoT 中心发送设备到云的消息。 你已借助 IoT 中心资源管理器工具观察到 IoT 中心接收的消息。 
 
 若要深入探索用于 Azure IoT 中心的 Python SDK 的用法，请访问[此 Git 中心存储库][lnk-python-github]。 若要查看用于 Python 的 Azure IoT 中心服务 SDK 的消息传送功能，可下载并运行 [iothub_messaging_sample.py][lnk-messaging-sample]。 若要了解如何通过用于 Python 的 Azure IoT 中心设备 SDK 进行设备端模拟，可下载并运行 [iothub_client_sample.py][lnk-client-sample]。
 
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 
-* [连接你的设备][lnk-connect-device]
+* 
+            [连接设备][lnk-connect-device]
 * [设备管理入门][lnk-device-management]
 * [Azure IoT Edge 入门][lnk-iot-edge]
 
@@ -329,3 +325,6 @@ ms.lasthandoff: 06/28/2017
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://www.azure.cn/develop/iot/
+
+
+<!--Update_Description:update meta properties only-->

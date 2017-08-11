@@ -1,9 +1,9 @@
 ---
 title: "开始将物理设备连接到 Azure IoT 中心 | Azure"
-description: "了解如何创建物理 IoT 设备并将其连接到 Azure IoT 中心。 设备可以将遥测数据发送到 IoT 中心，IoT 中心可以监视和管理设备。"
+description: "了解如何将物理设备和板连接到 Azure IoT 中心。 设备可以将遥测数据发送到 IoT 中心，IoT 中心可以监视和管理设备。"
 services: iot-hub
 documentationcenter: 
-author: Derek1101
+author: dominicbetts
 manager: timlt
 editor: 
 keywords: "Azure IoT 中心教程"
@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/02/2017
 ms.author: v-yiso
-ms.date: 07/03/2017
-ms.openlocfilehash: 85bbe51d293e75f5cc72a5d6a96c04ae56dc48d3
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.date: 08/14/2017
+ms.openlocfilehash: 47a30f7ee0fdae7782322c305707ea8d60200033
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/04/2017
 ---
-# Azure IoT 中心及物理设备入门教程
-<a id="azure-iot-hub-get-started-with-physical-devices-tutorials" class="xliff"></a>
+# <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Azure IoT 中心及物理设备入门教程
 
 这些教程介绍 Azure IoT 中心和设备 SDK。 这些教程介绍用于演示 IoT 中心功能的常见 IoT 方案。 这些教程还说明了如何将 IoT 中心与其他 Azure 服务和工具结合在一起，构建更强大的 IoT 解决方案。 下表中列出的教程演示如何创建物理 IoT 设备。
 

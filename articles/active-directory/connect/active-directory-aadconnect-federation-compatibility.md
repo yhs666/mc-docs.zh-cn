@@ -3,8 +3,8 @@ title: "Azure AD 联合身份验证兼容性列表"
 description: "本页列出了可用于实现单一登录的非 Microsoft 标识提供程序。"
 services: active-directory
 documentationcenter: 
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: curtand
 ms.assetid: 22c8693e-8915-446d-b383-27e9587988ec
 ms.service: active-directory
@@ -12,20 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/09/2017
-ms.date: 06/21/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: d7504369a46b2f5ec614bbcdaaf2e5d18eb27d56
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 10967859feaf5081dd50824f9250229aa1bd159f
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/04/2017
 ---
-# Azure AD 联合身份验证兼容性列表
-<a id="azure-ad-federation-compatibility-list" class="xliff"></a>
+# <a name="azure-ad-federation-compatibility-list"></a>Azure AD 联合身份验证兼容性列表
 Azure Active Directory 为 Office 365 和其他 Microsoft Online 服务提供单一登录与增强的应用程序访问安全性，以便在不使用任何非 Microsoft 解决方案的情况下实施混合部署和仅限云的部署。 与大多数 Microsoft Online 服务一样，Office 365 可与 Azure Active Directory 集成，以利用目录服务、身份验证和授权。 Azure Active Directory 还为数千种 SaaS 应用程序与本地 Web 应用程序提供单一登录。 有关支持的 SaaS 应用程序，请参阅 Azure Active Directory 应用程序库。
 
-对于投资了非 Microsoft 联合身份验证解决方案的组织，本主题将指导如何通过以下“Azure Active Directory 联合身份验证兼容性列表”中所列的非 Microsoft 标识提供程序，为使用 Microsoft Online Services 的 Windows Server Active Directory 用户配置单一登录。 
+对于投资了非 Microsoft 联合身份验证解决方案的组织，本主题指导如何通过以下“Azure Active Directory 联合身份验证兼容性列表”中所列的非 Microsoft 标识提供程序，为使用 Microsoft Online Services 的 Windows Server Active Directory 用户配置单一登录。 
 
 ![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)   
 [Oxford Computer Group](http://oxfordcomputergroup.com/)作为代表 Microsoft 的第三方，利用非 Microsoft 标识提供者针对 Azure Active Directory 的一组常见用例测试了这些单一登录体验。
@@ -379,4 +378,4 @@ Sign&go 5.3 支持通过配置 Kerberos 约定实现 Kerberos 身份验证。  �
 
 有关详细信息，请参阅 [VMware Workspace One](http://www.vmware.com/pdf/vidm-office365-saml.pdf)
 
-
+<!-- Update_Description: update meta properties -->

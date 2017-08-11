@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 01/23/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: 6e94edef57ac08a21e5ab80017bae338cdbbb36e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 696c24e94f169504c1147cd4ac20417f4e051f51
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 创建具有内部负载均衡器 (ILB) 的应用程序网关
 
@@ -34,21 +34,21 @@ ms.lasthandoff: 06/21/2017
 ## <a name="before-you-begin"></a>准备阶段
 
 1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。 可以从[下载页](/downloads/)的“Windows PowerShell”部分下载并安装最新版本。
-2. 将为应用程序网关创建虚拟网络和子网。 请确保没有虚拟机或云部署正在使用子网。 应用程序网关必须单独位于虚拟网络子网中。
+2. 为应用程序网关创建虚拟网络和子网。 请确保没有虚拟机或云部署正在使用子网。 应用程序网关必须单独位于虚拟网络子网中。
 3. 必须存在配置为使用应用程序网关的服务器，或者必须在虚拟网络中为其创建终结点，或者必须为其分配公共 IP/VIP。
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>创建应用程序网关需要什么？
 
 * **后端服务器池：** 后端服务器的 IP 地址列表。 列出的 IP 地址应属于虚拟网络子网但位于应用程序网关的不同子网中，或者是公共 IP/VIP。
 * **后端服务器池设置：** 每个池都有一些设置，例如端口、协议和基于 cookie 的关联性。 这些设置绑定到池，并会应用到池中的所有服务器。
-* **前端端口：** 此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，然后重定向到后端服务器之一。
+* **前端端口：** 此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，并重定向到后端服务器之一。
 * 侦听器：侦听器具有前端端口、协议（Http 或 Https，区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
 * **规则：** 规则将会绑定侦听器和后端服务器池，并定义当流量抵达特定侦听器时应定向到的后端服务器池。 目前仅支持 *基本* 规则。 *基本* 规则是一种轮循负载分布模式。
 
 ## <a name="create-an-application-gateway"></a>创建应用程序网关
 
 使用 Azure 经典部署和 Azure Resource Manager 部署的差别在于创建应用程序网关的顺序和需要配置的项。
-使用 Resource Manager 时，组成应用程序网关的所有项都将分开配置，然后结合在一起来创建应用程序网关资源。
+使用 Resource Manager 时，组成应用程序网关的所有项都将分开配置，并结合在一起来创建应用程序网关资源。
 
 以下是创建应用程序网关所需执行的步骤：
 
@@ -93,7 +93,7 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 New-AzureRmResourceGroup -Name appgw-rg -location "China North"
 ```
 
-Azure Resource Manager 要求所有资源组指定一个位置。 此位置将用作该资源组中的资源的默认位置。 请确保用于创建应用程序网关的所有命令都使用相同的资源组。
+Azure Resource Manager 要求所有资源组指定一个位置。 此位置用作该资源组中的资源的默认位置。 请确保用于创建应用程序网关的所有命令都使用相同的资源组。
 
 在上述示例中，我们在位置“中国北部”创建了名为“appgw-rg”的资源组。
 
@@ -123,7 +123,7 @@ $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -L
 $subnet = $vnet.subnets[0]
 ```
 
-此步骤会将子网对象分配到变量 $subnet 以完成后续步骤。
+此步骤会将子网对象分配给变量 $subnet 以完成后续步骤。
 
 ## <a name="create-an-application-gateway-configuration-object"></a>创建应用程序网关配置对象
 
@@ -138,10 +138,10 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Sub
 ### <a name="step-2"></a>步骤 2
 
 ```powershell
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
+$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
 ```
 
-此步骤会配置名为“pool01”的后端 IP 地址池，其 IP 地址为“134.170.185.46, 134.170.188.221,134.170.185.50”。 这些 IP 地址将接收来自前端 IP 终结点的网络流量。 替换上述 IP 地址，添加自己的应用程序 IP 地址终结点。
+此步骤配置名为“pool01”、IP 地址为“10.1.1.8, 10.1.1.9, 10.1.1.10”的后端 IP 地址池。 这些 IP 地址接收来自前端 IP 终结点的网络流量。 替换上述 IP 地址，添加自己的应用程序 IP 地址终结点。
 
 ### <a name="step-3"></a>步骤 3
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 05/03/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: dc5d8927cb3511b19b9cf635692bb2d37e304fd4
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: abf579ddb59e55a082288e4467d78b63a39cb8c0
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建应用程序网关
 
@@ -72,7 +72,7 @@ Azure 应用程序网关需要自己的子网。 在创建虚拟网络时，请�
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-打开 **Azure 命令提示符**，然后登录。 
+打开 **Azure 命令提示符**，并登录。 
 
 ```azurecli
 az login -u "username"
@@ -81,7 +81,7 @@ az login -u "username"
 > [!NOTE]
 > 还可以使用不带开关的 `az login` 进行设备登录，登录时需要在 aka.ms/deviceloginchina 输入代码。
 
-键入前述示例后，将提供代码。 在浏览器中导航到 https://aka.ms/deviceloginchina，继续登录过程。
+键入前述示例后，会提供代码。 在浏览器中导航到 https://aka.ms/deviceloginchina，继续登录过程。
 
 ![显示设备登录信息的 cmd][1]
 
@@ -135,6 +135,7 @@ az network application-gateway create \
 --sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
+--public-ip-address AdatumAppGatewayPIP \
 --frontend-port 443 \
 --routing-rule-type Basic \
 --http-settings-port 80

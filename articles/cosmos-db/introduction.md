@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6749f4de80359a00c3d4c311b9457fefb7ec03d8
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: dff898ab2f85ece5a02d08feee0ca868b534df7a
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Azure Cosmos DB 是由 Microsoft 提供的全球分布式多模型数据库。 �
 
 Azure Cosmos DB 包含一个与架构无关、已经过写入优化、资源受到管理的数据库引擎，该引擎本身支持多个数据模型：键/值、文档和列式数据模型。 还以可扩展的方式支持许多用于访问数据的 API，包括 [MongoDB](mongodb-introduction.md)、[DocumentDB SQL](documentdb-introduction.md) 和 [Azure 表](table-introduction.md)（预览版）。 
 
-Azure Cosmos DB 在 2010 年末开始解决 Microsoft 内部大型应用程序开发人员所面临的难题。 由于构建全球分布式应用程序不是 Microsoft 一家公司的事情，因此我们让该服务以 Azure DocumentDB 的形式在外部供所有 Azure 开发人员使用。 Azure Cosmos DB 是 DocumentDB 发展过程中的下一个重大飞跃，现已提供给大家使用。 作为此 Azure Cosmos DB 版本的一部分，DocumentDB 客户（及其数据）将自动成为 Azure Cosmos DB 客户。 该转换是无缝进行的，这些客户现在有权访问 Azure Cosmos DB 提供的更广泛的新功能。 
+Azure Cosmos DB 在 2010 年末开始解决 Microsoft 内部大型应用程序开发人员所面临的难题。 由于构建全球分布式应用程序不是 Microsoft 一家公司的事情，因此我们让该服务以 Azure DocumentDB 的形式在外部供所有 Azure 开发人员使用。 Azure Cosmos DB 是 DocumentDB 发展过程中的下一个重大飞跃，现已提供给大家使用。 作为此 Azure Cosmos DB 版本的一部分，DocumentDB 客户（及其数据）自动成为 Azure Cosmos DB 客户。 该转换是无缝进行的，这些客户现在有权访问 Azure Cosmos DB 提供的更广泛的新功能。 
 
 ## <a name="capability-comparison"></a>功能比较
 
@@ -62,7 +62,7 @@ Azure Cosmos DB 提供关系数据库和非关系数据库的最佳功能。
     * [透明且自动地](partition-data.md)缩放存储以满足现在和将来对大小的要求。
 
 * [**构建具有高响应性的任务关键型应用程序**](#low-latency) 
-    * 在全球任意位置均可访问你的数据，99% 的情况下延迟仅为几毫秒。 
+    * 在全球任意位置均可访问数据，99% 的情况下延迟仅为几毫秒。 
 
 * [**确保“始终可用”可用性**](#high-availability)
     * 在单个区域内可用性为 99.99%。
@@ -91,9 +91,9 @@ Azure Cosmos DB 容器沿两个维度分布：
 
 ![描绘 Azure Cosmos DB 全球分布的图表](./media/introduction/azure-cosmos-db-global-distribution.png) 
 
-存储和吞吐量需要缩放时，Cosmos DB 以透明方式跨所有区域执行分区管理操作。 无论缩放、分布或故障情况如何，Cosmos DB 都将继续提供全球分布式资源的单个系统映像。 
+存储和吞吐量需要缩放时，Cosmos DB 以透明方式跨所有区域执行分区管理操作。 无论缩放、分布或故障情况如何，Cosmos DB 都会继续提供全球分布式资源的单个系统映像。 
 
-Cosmos DB 中资源的全球分布是[统包](distribute-data-globally.md)式的。 在任何时候单击几下按钮（或以编程方式使用单个 API 调用），即可将任意数量的地理区域与你的数据库帐户相关联。 
+Cosmos DB 中资源的全球分布是[统包](distribute-data-globally.md)式的。 在任何时候单击几下按钮（或以编程方式使用单个 API 调用），即可将任意数量的地理区域与数据库帐户相关联。 
 
 无论数据量或区域数量如何，Cosmos DB 都保证 99% 的情况下每个新关联的区域在一小时之内开始处理客户端请求。 这是通过将种子设定与将数据从所有源资源分区复制到新关联区域进行并行化来完成的。 客户还可以删除现有区域或将以前与其数据库帐户关联的区域脱机。
 
@@ -111,15 +111,15 @@ Cosmos DB 容器（例如，文档集合、表）中的所有数据均横向分�
 
 可以通过使用[每秒请求单位 (RU/s)](request-units.md) 以编程方式预配吞吐量来弹性缩放 Azure Cosmos DB 容器的吞吐量。 在内部，该服务以透明方式管理资源分区，以在给定容器上提供吞吐量。 Cosmos DB 确保该吞吐量可跨与容器关联的所有区域使用。 新的吞吐量在所配置的吞吐量值发生更改后的五秒内生效。 
 
-可以在每秒和[每分钟 (RU/m)](request-units-per-minute.md) 粒度上预配 Cosmos DB 容器的吞吐量。 以每分钟粒度预配的吞吐量用于管理工作负荷中以每秒粒度发生的意外高峰。 
+可以在 Cosmos DB 容器中以每秒和[每分钟 (RU/m)](request-units-per-minute.md) 粒度预配吞吐量。 以每分钟粒度预配的吞吐量用于管理工作负荷中以每秒粒度发生的意外高峰。 
 
 ## <a id="low-latency"></a> 保证 99% 的情况下的低延迟
 作为 Cosmos DB SLA 的一部分，Cosmos DB 向其客户保证了 99% 的情况下端到端的低延迟。 对于典型的 1 KB 项，Cosmos DB 保证，在 99% 的情况下，同一 Azure 区域内读取操作的端到端延迟和已索引写入操作的端到端延迟分别低于 10 毫秒和 15 毫秒。 中间延迟明显更低（低于 5 毫秒）。  利用每个数据库事务上处理的请求的上限，Cosmos DB 使客户端可以明确区分事务存在高延迟与数据库不可用这两种情况。
 
 ## <a id="high-availability"></a> 透明多宿主和 99.99% 的高可用性
-可以动态地将“优先级”关联到与 Azure Cosmos DB 数据库帐户关联的区域。 优先级用于在发生区域性故障时将请求定向到特定区域。 区域性灾难不大可能发生，如果发生，Cosmos DB 将自动按优先级顺序进行故障转移。
+可以动态地将“优先级”关联到与 Azure Cosmos DB 数据库帐户关联的区域。 优先级用于在发生区域性故障时将请求定向到特定区域。 区域性灾难不大可能发生，如果发生，Cosmos DB 自动按优先级顺序进行故障转移。
 
-若要测试应用程序的端到端可用性，可以[手动触发故障转移](../documentdb/documentdb-regional-failovers.md)（速率限制为一小时内两个操作）。 Cosmos DB 保证在手动执行区域性故障转移期间不会丢失任何数据。 在发生区域性灾难的情况下，Cosmos DB 保证在系统启动的自动故障转移期间不超过一个有关数据丢失的上限。 在区域性故障转移后无需重新部署应用程序，Azure Cosmos DB 会保持履行可用性 SLA。 
+若要测试应用程序的端到端可用性，可以[手动触发故障转移](regional-failover.md)（速率限制为一小时内两个操作）。 Cosmos DB 保证在手动执行区域性故障转移期间不会丢失任何数据。 在发生区域性灾难的情况下，Cosmos DB 保证在系统启动的自动故障转移期间不超过一个有关数据丢失的上限。 在区域性故障转移后无需重新部署应用程序，Azure Cosmos DB 会保持履行可用性 SLA。 
 
 对于这种情况，DocumentDB 允许使用逻辑（与区域无关）终结点或物理（特定于区域）终结点与资源交互。 前者确保在发生故障转移时，应用程序可以透明方式采用多个宿主。 后者提供对应用程序的细粒度控制，以将读取和写入重定向到特定区域。 Cosmos DB 保证为每个数据库帐户履行 99.99% 可用性 SLA。 可用性保证与规模（预配的吞吐量和存储）、区域数目或与给定的数据库相关联的区域之间的地理距离无关。 
 
@@ -138,7 +138,7 @@ Cosmos DB 容器（例如，文档集合、表）中的所有数据均横向分�
 | --- | --- |
 | 强 | 可线性化 |
 | 有限过期 | 一致前缀。 读取操作落后写入操作 k 个前缀或 t 时间间隔 |
-| 会话   | 一致前缀。 单调读取、单调写入、读取你的写入、写入跟随读取 |
+| 会话   | 一致前缀。 单调读取、单调写入、读取写入、写入跟随读取 |
 | 一致前缀 | 返回的更新是全部更新的某些前缀，不带间隔 |
 | 最终  | 失序读取 |
 
@@ -150,7 +150,7 @@ Cosmos DB 是第一个针对可用性、吞吐量、低延迟和一致性提供 
 * 可用性：为每一个数据和控制平面操作提供 99.99% 的运行时间可用性 SLA。
 * 吞吐量：99.99% 的请求会成功完成 
 * 延迟：在 99% 的情况下，99.99% 的延迟 < 10 毫秒
-* 一致性：100% 的读取请求将满足你请求的一致性级别的一致性保证。
+* 一致性：100% 的读取请求将满足所请求的一致性级别的一致性保证。
 
 ## <a id="schema-free"></a> 免架构
 
@@ -167,3 +167,5 @@ Cosmos DB 是第一个针对可用性、吞吐量、低延迟和一致性提供 
 * [开始使用 Azure Cosmos DB 的 MongoDB API](create-mongodb-nodejs.md)
 <!-- Not Available * [Get started with Azure Cosmos DB's Graph API](create-graph-dotnet.md) -->
 * [开始使用 Azure Cosmos DB 的表 API](create-table-dotnet.md)
+
+<!--Update_Description: update link-->

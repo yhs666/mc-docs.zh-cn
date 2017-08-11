@@ -1,6 +1,6 @@
 ---
 title: "使用 .NET 按需传送内容入门 | Microsoft Docs"
-description: "本教程将引导你完成使用 Azure 媒体服务和 .NET 实施点播内容传送应用程序的步骤。"
+description: "本教程引导你完成使用 Azure 媒体服务和 .NET 实施点播内容传送应用程序的步骤。"
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/10/2017
-ms.author: v-johch
-ms.openlocfilehash: 2b34ddfbcaa3bf53d2cd6c6b8ed7d9bf1b02c80c
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 07/16/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
+ms.openlocfilehash: ec1700e0d408f339922d0e97d66bc3a7495abdb8
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -51,7 +52,7 @@ ms.lasthandoff: 06/21/2017
 
 ### <a name="ams-model"></a>AMS 模型
 
-开发针对媒体服务 OData 模型的 VoD 应用程序时，以下图像将显示某些最常用的对象。
+开发针对媒体服务 OData 模型的 VoD 应用程序时，以下图像会显示某些最常用的对象。
 
 单击图像查看其完整大小。  
 
@@ -79,53 +80,19 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>创建和配置 Visual Studio 项目
 
-1. 在 Visual Studio 中创建新的 C# 控制台应用程序。 输入“名称”、“位置”和“解决方案名称”，然后单击“确定”。
-2. 使用 [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet 包安装“Azure 媒体服务 .NET SDK 扩展”。  媒体服务.NET SDK 扩展是一组扩展方法和帮助器函数，可简化你的代码，并令使用媒体服务进行开发变得更加容易。 安装此包也会安装 **媒体服务 .NET SDK** 并添加所有其他必需的依赖项。
-
-    若要通过使用 NuGet 添加引用，请执行以下操作：在解决方案资源管理器中，在项目名称上单击鼠标右键按钮，选择“管理 NuGet 包”。 然后，搜索 windowsazure.mediaservices.extensions，并单击“安装”。
-
-3. 添加对 System.Configuration 程序集的引用。 此程序集包含用于访问配置文件（例如，App.config）的 **System.Configuration.ConfigurationManager** 类。
-
-    若要添加引用，请执行以下操作：在解决方案资源管理器中，在项目名称上单击鼠标右键按钮，选择“添加”、“引用”  > ，然后在搜索框中键入配置。 
-
-4. 打开 App.config 文件（如果该文件未按默认添加到项目中，请添加）并在该文件中添加 *appSettings* 节。 如以下示例中所示设置 Azure 媒体服务帐户名和帐户密钥的值。 若要获取帐户名和密钥信息，请转到 [Azure 门户](https://portal.azure.cn/) ，然后选择 AMS 帐户。 然后，选择“设置” > “密钥”。 管理密钥窗口会显示帐户名称、主密钥和辅助密钥。 复制帐户名称和主密钥的值。
-
-    ```
-    <configuration>
-    ...
-      <appSettings>
-        <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-        <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-      </appSettings>
-
-    </configuration>
-    ```
-
-5. 使用以下代码覆盖位于 Program.cs 文件开头的现有 **using** 语句。
-
-    ```
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Configuration;
-    using System.Threading;
-    using System.IO;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    ```
-
-6. 创建新的文件夹（文件夹可以位于本地驱动器上的任何位置），然后复制需要编码和流式处理或渐进式下载的 .mp4 文件。 在此示例中，使用了“C:\VideoFiles”路径。
+1. 设置开发环境，并在 app.config 文件中填充连接信息，如[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述。 
+2. 创建新的文件夹（文件夹可以位于本地驱动器上的任何位置），然后复制需要编码和流式处理或渐进式下载的 .mp4 文件。 在此示例中，使用了“C:\VideoFiles”路径。
 
 ## <a name="connect-to-the-media-services-account"></a>连接到媒体服务帐户
 
-使用采用 .NET 的媒体服务时，你必须将 **CloudMediaContext** 类用于大多数媒体服务编程任务：连接到媒体服务帐户；创建、更新、访问和删除以下对象：资产、资产文件、作业、访问策略、定位符等等。
+使用采用 .NET 的媒体服务时，必须将 **CloudMediaContext** 类用于大多数媒体服务编程任务：连接到媒体服务帐户；创建、更新、访问和删除以下对象：资产、资产文件、作业、访问策略、定位符等等。
 
-使用以下代码覆盖默认程序类。 该代码演示如何从 App.config 文件中读取连接值，以及如何创建 **CloudMediaContext** 对象以连接到媒体服务。 有关连接到媒体服务的详细信息，请参阅[使用适用于 .NET 的媒体服务 SDK 连接到媒体服务](./media-services-dotnet-connect-programmatically.md)。
+使用以下代码覆盖默认程序类。 该代码演示如何从 App.config 文件中读取连接值，以及如何创建 **CloudMediaContext** 对象以连接到媒体服务。 有关连接到媒体服务的详细信息，请参阅[使用 .NET 访问 Azure 媒体服务 API](./media-services-dotnet-get-started-with-aad.md)。
 
 请确保将文件名和路径更新为媒体文件所在位置。
 
-**Main** 函数调用将在本部分中进一步定义的方法。
+
+            **Main** 函数调用会在本部分中进一步定义的方法。
 
 > [!NOTE]
 >在添加所有函数的定义前，会一直收到编译错误。
@@ -134,38 +101,28 @@ ms.lasthandoff: 06/21/2017
 class Program
 {
     // Read values from the App.config file.
-    private static readonly string _mediaServicesAccountName =
-        ConfigurationManager.AppSettings["MediaServicesAccountName"];
-    private static readonly string _mediaServicesAccountKey =
-        ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-
+    private static readonly string _AADTenantDomain =
     private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
 
     // Azure China uses a different API server and a different ACS Base Address from the Global.
     private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
     private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
 
-    // Field for service context.
+        ConfigurationManager.AppSettings["AADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+
     private static CloudMediaContext _context = null;
-    private static MediaServicesCredentials _cachedCredentials = null;
     private static Uri _apiServer = null;
 
     static void Main(string[] args)
     {
         try
         {
-            // Create and cache the Media Services credentials in a static class variable.
-            _cachedCredentials = new MediaServicesCredentials(
-                            _mediaServicesAccountName,
-                            _mediaServicesAccountKey,
-                            _defaultScope,
-                            _chinaAcsBaseAddressUrl);
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-            // Create the API server Uri
-            _apiServer = new Uri(_chinaApiServerUrl);
-
-            // Used the chached credentials to create CloudMediaContext.
-            _context = new CloudMediaContext(_apiServer, _cachedCredentials);
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
             // Add calls to methods defined in this section.
     // Make sure to update the file name and path to where you have your media file.
@@ -201,13 +158,14 @@ class Program
 
 “CreateFromFile”方法采用“AssetCreationOptions”，可用于指定以下任一资产创建选项：
 
-* **无** - 不使用加密。 这是默认值。 请注意，使用此选项时，你的内容在传送过程中或静态存储过程中都不会受到保护。
+* **无** - 不使用加密。 这是默认值。 请注意，使用此选项时，内容在传送过程中或静态存储过程中都不会受到保护。
   如果计划使用渐进式下载交付 MP4，则使用此选项。
-* “StorageEncrypted” - 使用此选项可以通过高级加密标准 (AES) 256 位加密在本地加密明文内容，然后将其上传到 Azure 存储中以加密形式静态存储相关内容。 受存储加密保护的资产将在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。
+* “StorageEncrypted” - 使用此选项可以通过高级加密标准 (AES) 256 位加密在本地加密明文内容，然后将其上传到 Azure 存储中以加密形式静态存储相关内容。 受存储加密保护的资产会在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。
 * “CommonEncryptionProtected” - 正在上传经过通用加密或 PlayReady DRM 加密并受其保护的内容（例如，受 PlayReady DRM 保护的平滑流式处理）时使用此选项。
 * **EnvelopeEncryptionProtected** - 如果要上传使用 AES 加密的 HLS，请使用此选项。 请注意，Transform Manager 必须已对文件进行编码和加密。
 
-**CreateFromFile** 方法还允许你指定回调，以报告文件的上传进度。
+
+            **CreateFromFile** 方法还允许指定回调，以报告文件的上传进度。
 
 在以下示例中，指定了 **None** 作为资产选项。
 
@@ -232,15 +190,15 @@ static public IAsset UploadFile(string fileName, AssetCreationOptions options)
 
 ##<a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>将源文件编码为一组自适应比特率 MP4 文件
 
-将资产引入媒体服务后，即可对媒体进行编码、传输复用、打水印等处理，然后将其传送至客户端。 将根据多个后台角色实例调度把那个运行这些活动，以确保较高的性能和可用性。 这些活动称为作业，每个作业由原子任务构成，这些原子任务在资产文件上完成具体的工作。
+将资产引入媒体服务后，即可对媒体进行编码、传输复用、打水印等处理，并将其传送至客户端。 根据多个后台角色实例调度把那个运行这些活动，以确保较高的性能和可用性。 这些活动称为作业，每个作业由原子任务构成，这些原子任务在资产文件上完成具体的工作。
 
-如前所述，使用 Azure 媒体服务时最常见的方案之一是将自适应比特率流传送至你的客户端。 媒体服务可以将一组自适应比特率 MP4 文件动态打包为以下其中一种格式：HTTP Live Streaming (HLS)、平滑流式处理和 MPEG DASH。
+如前所述，使用 Azure 媒体服务时最常见的方案之一是将自适应比特率流传送至客户端。 媒体服务可以将一组自适应比特率 MP4 文件动态打包为以下其中一种格式：HTTP Live Streaming (HLS)、平滑流式处理和 MPEG DASH。
 
 若要利用动态打包，需要将夹层（源）文件编码或转换成一组自适应比特率 MP4 文件或自适应比特率平滑流式处理文件。  
 
-以下代码演示如何提交编码作业。 该作业所包含的一项任务会指定要使用 **Media Encoder Standard**将夹层文件转码成一组自适应比特率 MP4。 代码会提交作业，并等待作业完成。
+以下代码演示如何提交编码作业。 该作业所包含的一项任务会指定要使用 **Media Encoder Standard** 将夹层文件转码成一组自适应比特率 MP4。 代码会提交作业，并等待作业完成。
 
-作业完成后，你即可流式处理资产，或渐进式下载转码后所创建的 MP4 文件。
+作业完成后，即可流式处理资产，或渐进式下载转码后所创建的 MP4 文件。
 
 将以下方法添加到 Program 类。
 
@@ -281,11 +239,11 @@ static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOpti
 
 ##<a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>发布资产并获取用于流式处理和渐进式下载的 URL
 
-若要流处理或下载资产，你必须先创建定位符来“发布”资产。 定位符提供对资产中所含文件的访问权限。 媒体服务支持两种类型的定位符：用于流媒体（例如 MPEG DASH、HLS、或平滑流式处理）的 OnDemandOrigin 定位符，或是用于下载媒体文件的访问签名 (SAS) 定位符（有关 SAS 定位符的详细信息，请参阅[此](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/)博客）。
+要流处理或下载资产，必须先创建定位符来“发布”资产。 定位符提供对资产中所含文件的访问权限。 媒体服务支持两种类型的定位符：用于流媒体（例如 MPEG DASH、HLS、或平滑流式处理）的 OnDemandOrigin 定位符，或是用于下载媒体文件的访问签名 (SAS) 定位符（有关 SAS 定位符的详细信息，请参阅[此](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/)博客）。
 
 ### <a name="some-details-about-url-formats"></a>有关 URL 格式的一些详细信息
 
-创建定位符后，可以创建用于流式传输或下载文件的 URL。 本教程中的示例将输出一些 URL，可将其粘贴到适当的浏览器中。 本部分仅提供显示格式不同之处的简短示例。 
+创建定位符后，可以创建用于流式传输或下载文件的 URL。 本教程中的示例将输出 URL，可以将其粘贴在适当的浏览器中。 此部分直接提供了多个简短的示例，介绍了各种不同的格式。
 
 #### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>MPEG DASH 的流 URL 采用以下格式：
 
@@ -425,7 +383,7 @@ https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b3
 https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 ```
 
-若要流式传输视频，请将 URL 粘贴到 [Azure 媒体服务播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)的“URL”文本框中。
+要流式传输视频，请将 URL 粘贴到 [Azure 媒体服务播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)的“URL”文本框中。
 
 若要测试渐进式下载，请将 URL 粘贴到浏览器（例如 Internet Explorer、Chrome 或 Safari）中。
 
@@ -440,3 +398,5 @@ https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b3
 <!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.cn/
+
+<!--Update_Description: update word & code-->

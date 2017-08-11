@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 06/09/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: b04fb26df8d12187f684d6c7c9d11ca4d0515c62
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 278f120540a60fd76af6b3623f8773af8f503992
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB：表 API 简介
 
@@ -55,3 +55,5 @@ Azure Cosmos DB 可为需要具有灵活架构、可预测性能、全局分发�
 * 使用现有的 NET 表 SDK 开始使用 [Azure Cosmos DB 的表 API](create-table-dotnet.md)。
 * 了解[使用 Azure Cosmos DB 进行全局分发](distribute-data-globally.md)。
 * 了解 [Azure Cosmos DB 中的预配吞吐量](request-units.md)。
+
+<!--Update_Description: wording update-->

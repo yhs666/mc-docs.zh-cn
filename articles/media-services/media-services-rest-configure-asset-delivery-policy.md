@@ -12,31 +12,31 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2017
-ms.date: 04/10/2017
-ms.author: v-johch
-ms.openlocfilehash: b04a663e5e7aa5957cafe9ca1e58461810e587eb
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 07/13/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
+ms.openlocfilehash: f8feee6589f603e6bf8305be8e288e7362c86d48
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="configuring-asset-delivery-policies"></a>配置资产传送策略
 
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-如果你打算传送动态加密的资产，媒体服务内容传送工作流中的步骤之一是为资产配置传送策略。 资产传送策略告知媒体服务你希望如何传送资产：应该将资产动态打包成哪种流式处理协议（例如 MPEG DASH、HLS、平滑流或全部），是否要动态加密资产以及如何加密（信封或常用加密）。
+如果打算传送动态加密的资产，媒体服务内容传送工作流中的步骤之一是为资产配置传送策略。 资产传送策略告知媒体服务希望如何传送资产：应该将资产动态打包成哪种流式处理协议（例如 MPEG DASH、HLS、平滑流或全部），是否要动态加密资产以及如何加密（信封或常用加密）。
 
 本主题介绍创建和配置资产传送策略的原因和方式。
 
 >[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
+>创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。
 >
 >此外，若要使用动态打包和动态加密，用户的资产必须包含一组自适应比特率 MP4 或自适应比特率平滑流式处理文件。
 
-可以将不同的策略应用到同一个资产。 例如，可以将 PlayReady 加密应用到平滑流式处理，将 AES 信封应用到 MPEG DASH 和 HLS。 将阻止流式处理传送策略中未定义的任何协议（例如，添加仅将 HLS 指定为协议的单个策略）。 如果你根本没有定义任何传送策略，则情况不是这样。 此时，将允许所有明文形式的协议。
+可以将不同的策略应用到同一个资产。 例如，可以将 PlayReady 加密应用到平滑流式处理，将 AES 信封加密应用到 MPEG DASH 和 HLS。 将阻止流式处理传送策略中未定义的任何协议（例如，添加仅将 HLS 指定为协议的单个策略）。 如果根本没有定义任何传送策略，则情况不是这样。 此时，所有协议都可以通过。
 
-如果要传送存储加密资产，则必须配置资产的传送策略。 在流式传输资产之前，流式处理服务器会删除存储加密，然后再使用指定的传送策略流式传输你的内容。 例如，若要传送使用高级加密标准 (AES) 信封加密密钥加密的资产，请将策略类型设为“DynamicEnvelopeEncryption”。 若要删除存储加密并以明文的形式流式传输资产，请将策略类型设置为 **NoDynamicEncryption**。 下面是演示如何配置这些策略类型的示例。
+如果要传送存储加密资产，则必须配置资产的传送策略。 在流式传输资产之前，流式处理服务器会删除存储加密，再使用指定的传送策略流式传输用户的内容。 例如，若要传送使用高级加密标准 (AES) 信封加密密钥加密的资产，请将策略类型设为“DynamicEnvelopeEncryption”。 要删除存储加密并以明文的形式流式传输资产，请将策略类型设置为 **NoDynamicEncryption**。 下面是演示如何配置这些策略类型的示例。
 
 根据配置资产传送策略的方式，可以动态打包、动态加密和流式传输以下流式传输协议：平滑流式处理、HLS、MPEG DASH 流。
 
@@ -62,25 +62,27 @@ MPEG DASH
 
 有关如何发布资产和生成流 URL 的说明，请参阅 [生成流 URL](./media-services-deliver-streaming-content.md)。
 
-##<a name="considerations"></a>注意事项
+## <a name="considerations"></a>注意事项
 
 - 如果某个资产存在 OnDemand（流式处理）定位符，则不能删除与该资产关联的 AssetDeliveryPolicy。 在删除策略之前，建议先从资产中删除该策略。
 - 如果未设置资产传送策略，则无法在存储加密的资产上创建流式处理定位符。  如果资产未经过存储加密，则即使未设置资产传送策略，系统也可让你以明文形式创建定位符和流式处理资产。
 - 可将多个资产传送策略关联到单个资产，但只能指定一种方法来处理给定的 AssetDeliveryProtocol。  也就是说，如果尝试链接两个指定 AssetDeliveryProtocol.SmoothStreaming 协议的传送策略，则会导致出错，因为当客户端发出平滑流式处理请求时，系统不知道要应用哪个策略。
-- 如果资产包含现有流式处理定位符，则不能将新策略链接到该资产、取消现有策略与资产的链接，或者更新与该资产关联的传送策略。  必须先删除流式处理定位符，调整策略，再重新创建流式处理定位符。  重新创建流式处理定位符时，可以使用同一个 locatorId，但应确保该操作不会导致客户端出现问题，因为内容可能已被来源或下游 CDN 缓存。
+- 如果资产包含现有流式处理定位符，则不能将新策略链接到该资产、取消现有策略与该资产的链接，或者更新与该资产关联的传送策略。  必须先删除流式处理定位符，调整策略，再重新创建流式处理定位符。  重新创建流式处理定位符时，可以使用同一个 locatorId，但应确保该操作不会导致客户端出现问题，因为内容可能已被来源或下游 CDN 缓存。
 
 >[!NOTE]
 > 使用媒体服务 REST API 时，需注意以下事项：
 >
 >访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](./media-services-rest-how-to-use.md)。
-
->成功连接到 https://media.chinacloudapi.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须按[使用 REST API 连接到媒体服务](./media-services-rest-connect-programmatically.md)中所述对新的 URI 执行后续调用。 
+>
+>成功连接到 https://media.chinacloudapi.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须按[使用 REST 访问 Azure 媒体服务 API](./media-services-rest-connect-with-aad.md) 中所述对新的 URI 执行后续调用。
 
 ## <a name="clear-asset-delivery-policy"></a>清除资产传送策略
-### <a id="create_asset_delivery_policy"></a>创建资产传送策略
-以下 HTTP 请求将创建一个资产传送策略，该策略指定不要应用动态加密，而使用以下任何协议传送流：MPEG DASH、HLS 和平滑流式处理协议。 
 
-有关创建 AssetDeliveryPolicy 时可以指定哪些值的信息，请参阅 [定义 AssetDeliveryPolicy 时使用的类型](#types) 部分。   
+### <a id="create_asset_delivery_policy"></a>创建资产传送策略
+
+以下 HTTP 请求将创建一个资产传送策略，该策略指定不要应用动态加密，而使用以下任何协议传送流：MPEG DASH、HLS 和平滑流式处理协议。
+
+有关创建 AssetDeliveryPolicy 时可以指定哪些值的信息，请参阅 [定义 AssetDeliveryPolicy 时使用的类型](#types) 部分。
 
 请求：
 
@@ -94,12 +96,14 @@ Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423397827&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=Szo6lbJAvL3dyecAeVmyAnzv3mGzfUNClR5shk9Ivbk%3d
 x-ms-version: 2.11
 x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
-Host: https://wamsshaclus001rest-hs.chinacloudapp.cn 
+Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
 
-{"Name":"Clear Policy",
-"AssetDeliveryProtocol":7,
-"AssetDeliveryPolicyType":2,
-"AssetDeliveryConfiguration":null}
+{
+    "Name":"Clear Policy",
+    "AssetDeliveryProtocol":7,
+    "AssetDeliveryPolicyType":2,
+    "AssetDeliveryConfiguration":null
+}
 ```
 
 响应：
@@ -120,17 +124,19 @@ X-Powered-By: ASP.NET
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Sun, 08 Feb 2015 06:21:27 GMT
 
-{"odata.metadata":"https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AssetDeliveryPolicies/@Element",
-"Id":"nb:adpid:UUID:92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd",
-"Name":"Clear Policy",
-"AssetDeliveryProtocol":7,
-"AssetDeliveryPolicyType":2,
-"AssetDeliveryConfiguration":null,
-"Created":"2015-02-08T06:21:27.6908329Z",
-"LastModified":"2015-02-08T06:21:27.6908329Z"}
+{
+    "odata.metadata":"https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AssetDeliveryPolicies/@Element",
+    "Id":"nb:adpid:UUID:92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd",
+    "Name":"Clear Policy",
+    "AssetDeliveryProtocol":7,
+    "AssetDeliveryPolicyType":2,
+    "AssetDeliveryConfiguration":null,
+    "Created":"2015-02-08T06:21:27.6908329Z",
+    "LastModified":"2015-02-08T06:21:27.6908329Z"
+}
 ```
 
-###<a id="link_asset_with_asset_delivery_policy"></a>将资产与资产传送策略相链接
+### <a id="link_asset_with_asset_delivery_policy"></a>将资产与资产传送策略相链接
 
 以下 HTTP 请求将指定的资产链接到资产传送策略。
 
@@ -157,13 +163,13 @@ Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
 HTTP/1.1 204 No Content
 ```
 
-##<a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption 资产传送策略 
+## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption 资产传送策略
 
-###<a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>创建 EnvelopeEncryption 类型的内容密钥，并将其链接到资产
+### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>创建 EnvelopeEncryption 类型的内容密钥，并将其链接到资产
 
 指定 DynamicEnvelopeEncryption 传送策略时，需确保将资产链接到 EnvelopeEncryption 类型的内容密钥。 有关详细信息，请参阅：[创建内容密钥](./media-services-rest-create-contentkey.md)）。
 
-###<a id="get_delivery_url"></a>获取传送 URL
+### <a id="get_delivery_url"></a>获取传送 URL
 
 获取上一步创建的内容密钥的指定传送方法的传送 URL。 客户端使用返回的 URL 来请求 AES 密钥或 PlayReady 许可证，以播放受保护内容。
 
@@ -202,14 +208,17 @@ DataServiceVersion: 3.0;
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Sun, 08 Feb 2015 21:42:30 GMT
 
-{"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.chinacloudapi.cn/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
+{
+    "odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Edm.String",
+    "value":"https://amsaccount1.keydelivery.mediaservices.chinacloudapi.cn/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"
+    }
 ```
 
-###<a name="create-asset-delivery-policy"></a>创建资产传送策略
+### <a name="create-asset-delivery-policy"></a>创建资产传送策略
 
 以下 HTTP 请求将创建 **AssetDeliveryPolicy**，该策略配置为将动态信封加密 (**DynamicEnvelopeEncryption**) 应用到 **HLS** 协议（在本示例中，已阻止流式处理其他协议）。 
 
-有关创建 AssetDeliveryPolicy 时可以指定哪些值的信息，请参阅 [定义 AssetDeliveryPolicy 时使用的类型](#types) 部分。   
+有关创建 AssetDeliveryPolicy 时可以指定哪些值的信息，请参阅 [定义 AssetDeliveryPolicy 时使用的类型](#types) 部分。
 
 请求：
 
@@ -249,25 +258,25 @@ Date: Mon, 09 Feb 2015 05:24:38 GMT
 {"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
 ```
 
-###<a name="link-asset-with-asset-delivery-policy"></a>将资产与资产传送策略相链接
+### <a name="link-asset-with-asset-delivery-policy"></a>将资产与资产传送策略相链接
 
-请参阅 [将资产与资产传送策略相链接](#link_asset_with_asset_delivery_policy)
+请参阅[将资产与资产传送策略相链接](#link_asset_with_asset_delivery_policy)
 
-##<a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 资产传送策略 
+## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 资产传送策略 
 
-###<a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>创建 CommonEncryption 类型的内容密钥，并将其链接到资产
+### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>创建 CommonEncryption 类型的内容密钥，并将其链接到资产
 
 在指定 DynamicCommonEncryption 传送策略时，需确保将资产链接到 CommonEncryption 类型的内容密钥。 有关详细信息，请参阅：[创建内容密钥](./media-services-rest-create-contentkey.md)）。
 
-###<a name="get-delivery-url"></a>获取传送 URL
+### <a name="get-delivery-url"></a>获取传送 URL
 
 获取上一步创建的内容密钥的 PlayReady 传送方法的传送 URL。 客户端使用返回的 URL 来请求 PlayReady 许可证，以播放受保护内容。 有关详细信息，请参阅 [获取传送 URL](#get_delivery_url)。
 
-###<a name="create-asset-delivery-policy"></a>创建资产传送策略
+### <a name="create-asset-delivery-policy"></a>创建资产传送策略
 
-以下 HTTP 请求将创建 AssetDeliveryPolicy，该策略配置为将动态通用加密 (DynamicCommonEncryption) 应用到平滑流式处理协议（在本示例中，已阻止流式处理其他协议）。 
+以下 HTTP 请求将创建 AssetDeliveryPolicy，该策略配置为将动态通用加密 (DynamicCommonEncryption) 应用到平滑流式处理协议（在本示例中，已阻止流式处理其他协议）。
 
-有关创建 AssetDeliveryPolicy 时可以指定哪些值的信息，请参阅 [定义 AssetDeliveryPolicy 时使用的类型](#types) 部分。   
+有关创建 AssetDeliveryPolicy 时可以指定哪些值的信息，请参阅 [定义 AssetDeliveryPolicy 时使用的类型](#types) 部分。
 
 请求：
 
@@ -287,18 +296,16 @@ Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
 {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\/PlayReady\/"}]"}
 ```
 
-###<a name="link-asset-with-asset-delivery-policy"></a>将资产与资产传送策略相链接
+### <a name="link-asset-with-asset-delivery-policy"></a>将资产与资产传送策略相链接
 
-请参阅 [将资产与资产传送策略相链接](#link_asset_with_asset_delivery_policy)
+请参阅[将资产与资产传送策略相链接](#link_asset_with_asset_delivery_policy)
 
-##<a id="types"></a>定义 AssetDeliveryPolicy 时使用的类型
+## <a id="types"></a>定义 AssetDeliveryPolicy 时使用的类型
 
-###<a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol 
+### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
 
+以下枚举说明可以为资产传送协议设置的值。
 ```
-/// <summary>
-/// Delivery protocol for an asset delivery policy.
-/// </summary>
 [Flags]
 public enum AssetDeliveryProtocol
 {
@@ -322,6 +329,8 @@ public enum AssetDeliveryProtocol
     /// </summary>
     HLS = 0x4,
 
+        ProgressiveDownload = 0x10, 
+
     /// <summary>
     /// Include all protocols.
     /// </summary>
@@ -329,12 +338,10 @@ public enum AssetDeliveryProtocol
 }
 ```
 
-###<a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
+### <a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
 
+以下枚举说明可以为资产传送策略类型设置的值。
 ```
-/// <summary>
-/// Policy type for dynamic encryption of assets.
-/// </summary>
 public enum AssetDeliveryPolicyType
 {
     /// <summary>
@@ -343,15 +350,15 @@ public enum AssetDeliveryPolicyType
     None,
 
     /// <summary>
-    /// The Asset should not be delivered via this AssetDeliveryProtocol. 
+    /// The Asset should not be delivered via this AssetDeliveryProtocol.
     /// </summary>
-    Blocked, 
+    Blocked,
 
     /// <summary>
     /// Do not apply dynamic encryption to the asset.
     /// </summary>
     /// 
-    NoDynamicEncryption,  
+    NoDynamicEncryption,
 
     /// <summary>
     /// Apply Dynamic Envelope encryption.
@@ -365,13 +372,10 @@ public enum AssetDeliveryPolicyType
     }
 ```
 
-###<a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
+### <a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
 
+以下枚举说明可用于配置将内容密钥传送到客户端的方法的值。
 ```
-/// <summary>
-/// Delivery method of the content key to the client.
-///
-</summary>
 public enum ContentKeyDeliveryType
 {
     /// <summary>
@@ -395,13 +399,10 @@ public enum ContentKeyDeliveryType
 }
 ```
 
-###<a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
+### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
 
+以下枚举说明为配置用于获取资产传送策略的特定配置的密钥可以设置的值。
 ```
-/// <summary>
-/// Keys used to get specific configuration for an asset delivery policy.
-/// </summary>
-
 public enum AssetDeliveryPolicyConfigurationKey
 {
     /// <summary>
@@ -440,3 +441,5 @@ public enum AssetDeliveryPolicyConfigurationKey
     EnvelopeEncryptionIV
 }
 ```
+
+<!--Update_Description: update code-->

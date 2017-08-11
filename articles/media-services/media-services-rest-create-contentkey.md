@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: v-johch
-ms.openlocfilehash: acaa962cbe3640db39c5dffd8635a599ac36a8e7
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 59d90745e18d89b473ad13a21757d3bc55322223
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 #<a name="create-contentkeys-with-rest"></a>使用 REST 创建 ContentKey
 
@@ -33,18 +33,18 @@ ms.lasthandoff: 06/21/2017
 
 加密的资产必须与 **ContentKey**关联。 本文介绍如何创建内容密钥。
 
-以下是用于生成内容密钥的常规步骤，你会将这些内容密钥与你想要进行加密的资产关联。 
+以下是用于生成内容密钥的常规步骤，会将这些内容密钥与你想要进行加密的资产关联。 
 
 1. 随机生成一个 16 字节 AES 密钥（用于常规和信封加密）或 32 字节 AES 密钥（用于存储加密）。 
 
-    这将成为你资产的内容密钥，这意味着该资产的所有关联文件在解密过程中需要使用同一内容密钥。 
+    这会成为资产的内容密钥，这意味着该资产的所有关联文件在解密过程中需要使用同一内容密钥。 
 2. 调用 [GetProtectionKeyId](https://msdn.microsoft.com/zh-cn/library/azure/jj683097.aspx#getprotectionkeyid) 和 [GetProtectionKey](https://msdn.microsoft.com/zh-cn/library/azure/jj683097.aspx#getprotectionkey) 方法来获取正确的 X.509 证书，必须使用该证书加密内容密钥。
-3. 使用 X.509 证书的公钥来加密你的内容密钥。 
+3. 使用 X.509 证书的公钥来加密内容密钥。 
 
     媒体服务 .NET SDK 在加密时使用 RSA 和 OAEP。  可在 [EncryptSymmetricKeyData 函数](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)中查看示例。
 4. 创建一个使用密钥标识符和内容密钥计算得出的校验和值（基于 PlayReady AES 密钥校验和算法）。 有关详细信息，请参阅位于 [此处](http://www.microsoft.com/playready/documents/)的 PlayReady 标头对象文档的“PlayReady AES 密钥校验和算法”部分。
 
-    下面的 .NET 示例将使用密钥标识符和明文内容密钥的 GUID 部分计算校验和。
+    下面的 .NET 示例使用密钥标识符和明文内容密钥的 GUID 部分计算校验和。
 
     ```
     public static string CalculateChecksum(byte[] contentKey, Guid keyId)
@@ -75,11 +75,11 @@ ms.lasthandoff: 06/21/2017
 >
 >访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](./media-services-rest-how-to-use.md)。
 
->成功连接到 https://media.chinacloudapi.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须按[使用 REST API 连接到媒体服务](./media-services-rest-connect-programmatically.md)中所述对新的 URI 执行后续调用。 
+>成功连接到 https://media.chinacloudapi.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须按[使用 REST 访问 Azure 媒体服务 API](./media-services-rest-connect-with-aad.md) 中所述对新的 URI 执行后续调用。 
 
 ##<a name="retrieve-the-protectionkeyid"></a>检索 ProtectionKeyId 
 
-以下示例演示了如何检索证书的证书指纹 ProtectionKeyId，你在加密内容密钥时必须使用此指纹。 执行此步骤以确保你的计算机已具备适当的证书。
+以下示例演示了如何检索证书的证书指纹 ProtectionKeyId，在加密内容密钥时必须使用此指纹。 执行此步骤以确保计算机已具备适当的证书。
 
 请求：
 
@@ -239,7 +239,7 @@ Date: Wed, 04 Feb 2015 02:37:46 GMT
 
 ##<a name="associate-the-contentkey-with-an-asset"></a>将 ContentKey 与资产关联
 
-创建 ContentKey 后，使用 $links 操作将其与你的资产关联，如以下示例所示：
+创建 ContentKey 后，使用 $links 操作将其与资产关联，如以下示例所示：
 
 请求：
 

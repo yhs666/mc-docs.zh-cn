@@ -18,6 +18,9 @@
         - name: Privileged Identity Management
           tocHref: /active-directory/privileged-identity-management/
           topicHref: /active-directory/privileged-identity-management/
+    - name: Analysis Services
+      tocHref: /analysis-services/
+      topicHref: /analysis-services/
     - name: 应用服务
       tocHref: /app-service/
       topicHref: /app-service/

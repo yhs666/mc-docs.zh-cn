@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
-ms.author: v-johch
-ms.openlocfilehash: 7b832eb0b43badf8a095de5372677a197dad5220
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 5577b3260aa6b4115cefead649936bdfc5e60db4
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="task-presets-for-mes-media-encoder-standard"></a>MES (Media Encoder Standard) 的任务预设
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 06/21/2017
 > [!NOTE]
 >  使用预设进行 4k 编码时，应获取 `S3` 保留单位类型。 有关详细信息，请参阅[如何缩放编码](media-services-scale-media-processing-overview.md)。  
   
-使用 Media Encoder Standard 时，默认启用旋转。 如果视频在智能手机或其他移动设备上采用纵向模式录制，则默认情况下，这些预设会在编码之前将其旋转为横向模式（与 Azure 媒体编码器不同，使用 Azure 媒体编码器时，需手动进行视频旋转，如[此](http://azure.microsoft.com/blog/2014/08/21/advanced-encoding-features-in-azure-media-encoder/)博客的“视频旋转”中所述）。  
+使用 Media Encoder Standard 时，默认启用旋转。 如果视频在智能手机或其他移动设备上采用纵向模式录制，则默认情况下，这些预设会在编码之前将其旋转为横向模式（与 Azure 媒体编码器不同，使用 Azure 媒体编码器时，需手动进行视频旋转，如[此](http://azure.microsoft.com/blog/2014/08/21/advanced-encoding-features-in-azure-media-encoder/)博客的“视频旋转”下所述）。  
   
 可用预设：  
   
@@ -84,3 +85,5 @@ ms.lasthandoff: 06/21/2017
  [H264 单比特率低质量 SD (Android)](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) 生成比特率为 56 kbps 的单个 MP4 文件和立体声 AAC 音频。  
   
  有关媒体服务编码器的详细信息，请参阅[使用 Azure 媒体服务按需编码](media-services-encode-asset.md)。
+
+<!--Update_Description: update metadata-->

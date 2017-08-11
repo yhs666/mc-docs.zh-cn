@@ -1,10 +1,10 @@
 ---
-title: "Azure IoT 网关故障排除 | Azure"
+title: "模拟设备和 Azure IoT 网关 - 故障排除 | Microsoft Docs"
 description: "Intel NUC 网关的故障排除页"
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "iot 问题, 物联网问题"
 ms.assetid: 3ee8f4b0-5799-40a3-8cf0-8d5aa44dbc2b
@@ -13,14 +13,14 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/21/2016
-ms.date: 05/08/2017
+origin.date: 03/21/2017
+ms.date: 08/14/2017
 ms.author: v-yiso
-ms.openlocfilehash: 2d871c894a4e4c162c91d8b9a0de0057903ec9c5
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 098a361e3dde6f9822016cd336c8a589f5212d93
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="troubleshooting"></a>故障排除
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 06/21/2017
 
 ### <a name="no-response-during-gulp-tasks"></a>在 Gulp 任务期间没有响应
 
-如果在运行 Gulp 任务时遇到问题，可添加 `--verbose` 选项进行调试。 请尝试使用 `Ctrl + C`终止当前 gulp 任务，然后在控制台窗口中运行以下命令，以便查看调试消息。 可以在控制台输出中查看详细的错误消息。
+如果在运行 Gulp 任务时遇到问题，可添加 `--verbose` 选项进行调试。 请尝试使用 `Ctrl + C`终止当前 gulp 任务，并在控制台窗口中运行以下命令，以便查看调试消息。 可以在控制台输出中查看详细的错误消息。
 
 ```bash
 gulp --verbose
@@ -60,7 +60,7 @@ gulp --verbose
 npm install -g npm
 ```
 
-如果问题仍然存在，请在本文末尾留下你的评论，或者在 [示例存储库](https://github.com/azure-samples/iot-hub-c-intel-nuc-gateway-getting-started)中创建一个 GitHub 问题。
+如果问题仍然存在，请在本文末尾留下评论，或者在[示例存储库](https://github.com/azure-samples/iot-hub-c-intel-nuc-gateway-getting-started)中创建一个 GitHub 问题。
 
 ## <a name="remote-debugging"></a>远程调试
 > 以下说明介绍如何调试本教程中使用的 node.js 脚本。
@@ -172,3 +172,6 @@ iothub-explorer help
 ## <a name="azure-storage-issues"></a>Azure 存储问题
 
 [Microsoft Azure 存储资源管理器（预览版）](http://storageexplorer.com/)是 Microsoft 提供的一款独立应用，可用于在 Windows、macOS 和 Linux 上处理 Azure 存储数据。 可以使用此工具连接到表并查看其中的数据。 可以使用此工具排查 Azure 存储问题。
+
+
+<!--Update_Description: update meta data only-->

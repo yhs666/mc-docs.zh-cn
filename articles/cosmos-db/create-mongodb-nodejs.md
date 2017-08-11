@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 origin.date: 06/19/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: 38a03c40a4c671b2bd17fe10166f2d4222239be0
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 5db578a71a34baa01aabc2d71862f6c6eddede1c
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB：迁移现有的 Node.js MongoDB Web 应用 
 
@@ -32,15 +32,12 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 ![在 Azure 应用服务中运行的 MEAN.js 应用](./media/create-mongodb-nodejs/meanjs-in-azure.png)
 
-## <a name="prerequisites"></a>先决条件 
-
-本快速入门教程需要 Azure CLI 2.0。 可以在浏览器中使用 Azure Cloud Shell，或者在自己的计算机上[安装 Azure CLI 2.0](https://docs.microsoft.com/zh-cn/cli/azure/install-azure-cli) 以运行本教程中的代码块。
-
 <!-- Not Available [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)] -->
-
+本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+## <a name="prerequisites"></a>先决条件 
 除 Azure CLI 之外，还需要在本地安装 [Node.js](https://nodejs.org/) 和 [Git](http://www.git-scm.com/downloads)，以运行 `npm` 和 `git` 命令。
 
-你应该具备 Node.js 的实践知识。 本快速入门并未介绍有关开发 Node.js 应用程序的一般信息。
+应该具备 Node.js 的实践知识。 本快速入门并未介绍有关开发 Node.js 应用程序的一般信息。
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
@@ -64,7 +61,7 @@ npm start
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-如果使用已安装的 Azure CLI，请使用 [az login](https://docs.microsoft.com/zh-cn/cli/azure/#login) 命令登录到 Azure 订阅，按屏幕说明操作。
+如果使用已安装的 Azure CLI，请使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令登录到 Azure 订阅，按屏幕说明操作。
 
 ```azurecli
 az configure            # Azure CLI 2.0
@@ -82,23 +79,24 @@ az login
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.microsoft.com/zh-cn/cli/azure/group#create) 创建[资源组](../azure-resource-manager/resource-group-overview.md)。 Azure 资源组是在其中部署和管理 Azure 资源（例如 Web 应用、数据库和存储帐户）的逻辑容器。 
+使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建[资源组](../azure-resource-manager/resource-group-overview.md)。 Azure 资源组是在其中部署和管理 Azure 资源（例如 Web 应用、数据库和存储帐户）的逻辑容器。 
 
 以下示例在中国东部区域中创建一个资源组。 选择资源组的唯一名称。
 
 如果使用 Azure Cloud Shell，请单击“试用”，按照屏幕提示登录，然后将命令复制到命令提示符中。
+
 ```azurecli-interactive
 az group create --name myResourceGroup --location "China East"
 ```
 
 ## <a name="create-an-azure-cosmos-db-account"></a>创建 Azure Cosmos DB 帐户
 
-使用 [az cosmosdb create](https://docs.microsoft.com/zh-cn/cli/azure/cosmosdb#create) 命令创建 Azure Cosmos DB 帐户。
+使用 [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) 命令创建 Azure Cosmos DB 帐户。
 
-在以下命令中，请将 `<cosmosdb_name>` 占位符替换为自己的唯一 Azure Cosmos DB 帐户名。 此唯一名称将用作 Azure Cosmos DB 终结点 (`https://<cosmosdb_name>.documents.azure.cn/`) 的一部分，因此需要在 Azure 中的所有 Azure Cosmos DB 帐户之间保持唯一。 
+在以下命令中，请将 `<cosmosdb-name>` 占位符替换成自己的唯一 Azure Cosmos DB 帐户名。 此唯一名称将用作 Azure Cosmos DB 终结点 (`https://<cosmosdb-name>.documents.azure.cn/`) 的一部分，因此需要在 Azure 中的所有 Azure Cosmos DB 帐户之间保持唯一。 
 
 ```azurecli-interactive
-az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
+az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
 ```
 
 `--kind MongoDB` 参数启用 MongoDB 客户端连接。
@@ -108,17 +106,17 @@ az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kin
 ```json
 {
   "databaseAccountOfferType": "Standard",
-  "documentEndpoint": "https://<cosmosdb_name>.documents.azure.cn:443/",
+  "documentEndpoint": "https://<cosmosdb-name>.documents.azure.cn:443/",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Document
-DB/databaseAccounts/<cosmosdb_name>",
+DB/databaseAccounts/<cosmosdb-name>",
   "kind": "MongoDB",
   "location": "China East",
-  "name": "<cosmosdb_name>",
+  "name": "<cosmosdb-name>",
   "readLocations": [
     {
-      "documentEndpoint": "https://<cosmosdb_name>-chinaeast.documents.azure.cn:443/",
+      "documentEndpoint": "https://<cosmosdb-name>-chinaeast.documents.azure.cn:443/",
       "failoverPriority": 0,
-      "id": "<cosmosdb_name>-chinaeast",
+      "id": "<cosmosdb-name>-chinaeast",
       "locationName": "China East",
       "provisioningState": "Succeeded"
     }
@@ -127,9 +125,9 @@ DB/databaseAccounts/<cosmosdb_name>",
   "type": "Microsoft.DocumentDB/databaseAccounts",
   "writeLocations": [
     {
-      "documentEndpoint": "https://<cosmosdb_name>-chinaeast.documents.azure.cn:443/",
+      "documentEndpoint": "https://<cosmosdb-name>-chinaeast.documents.azure.cn:443/",
       "failoverPriority": 0,
-      "id": "<cosmosdb_name>-chinaeast",
+      "id": "<cosmosdb-name>-chinaeast",
       "locationName": "China East",
       "provisioningState": "Succeeded"
     }
@@ -141,48 +139,38 @@ DB/databaseAccounts/<cosmosdb_name>",
 
 此步骤使用 MongoDB 连接字符串将 MEAN.js 示例应用程序连接到刚刚创建的 Azure Cosmos DB 数据库。 
 
-## <a name="retrieve-the-key"></a>检索密钥
-
-若要连接到 Azure Cosmos DB 数据库，需要使用数据库密钥。 使用 [az cosmosdb list-keys](https://docs.microsoft.com/zh-cn/cli/azure/cosmosdb#list-keys) 命令检索主键。
-
-```azurecli-interactive
-az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
-```
-
-Azure CLI 输出类似于以下示例的信息。 
-
-```json
-{
-  "primaryMasterKey": "RUayjYjixJDWG5xTqIiXjC...",
-  "primaryReadonlyMasterKey": "...",
-  "secondaryMasterKey": "...",
-  "secondaryReadonlyMasterKey": "..."
-}
-```
-
-将 `primaryMasterKey` 的值复制到文本编辑器。 下一步骤需要用到此信息。
-
 <a name="devconfig"></a>
 ## <a name="configure-the-connection-string-in-your-nodejs-application"></a>在 Node.js 应用程序中配置连接字符串
 
 在 MEAN.js 存储库中打开 `config/env/local-development.js`。
 
-将此文件的内容替换为以下代码。 确保将两个 `<cosmosdb_name>` 占位符替换为 Azure Cosmos DB 帐户名，将 `<primary_master_key>` 占位符替换为在上一步骤中复制的密钥。
+请将此文件的内容替换为以下代码。 另外，请务必将两个 `<cosmosdb-name>` 占位符替换为 Azure Cosmos DB 帐户名。
 
 ```javascript
 'use strict';
 
 module.exports = {
   db: {
-    uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.cn:10250/mean-dev?ssl=true&sslverifycertificate=false'
+    uri: 'mongodb://<cosmosdb-name>:<primary_master_key>@<cosmosdb-name>.documents.azure.cn:10250/mean-dev?ssl=true&sslverifycertificate=false'
   }
 };
 ```
 
-> [!NOTE] 
-> 由于 [Azure Cosmos DB 需要 SSL](connect-mongodb-account.md#connection-string-requirements)，因此 `ssl=true` 选项非常重要。 
->
->
+## <a name="retrieve-the-key"></a>检索密钥
+
+若要连接到 Azure Cosmos DB 数据库，需要使用数据库密钥。 使用 [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) 命令检索主键。
+
+```azurecli-interactive
+az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
+```
+
+Azure CLI 输出类似于以下示例的信息。 
+
+```json
+"RUayjYjixJDWG5xTqIiXjC..."
+```
+
+复制 `primaryMasterKey` 的值。 粘贴此值并覆盖 `local-development.js` 中的 `<primary_master_key>`。
 
 保存所做更改。
 
@@ -208,7 +196,7 @@ MEAN.js 示例应用程序将用户数据存储在数据库中。 如果上述�
 
 若要查看、查询和处理在上一步骤中创建的用户数据，请在 Web 浏览器中登录到 [Azure 门户](https://portal.azure.cn)。
 
-在顶部搜索框中，键入“Azure Cosmos DB”。 打开 Cosmos DB 帐户边栏选项卡后，请选择 Cosmos DB 帐户。 在左侧导航栏中，单击“数据资源管理器”。 在“集合”窗格中展开集合，然后即可查看该集合中的文档，查询数据，甚至可以创建和运行存储过程、触发器与 UDF。 
+在顶部搜索框中，键入“Azure Cosmos DB”。 打开 Cosmos DB 帐户边栏选项卡后，请选择 Cosmos DB 帐户。 在左侧导航栏中，单击“数据资源管理器”。 在“集合”窗格中展开集合，即可查看该集合中的文档，查询数据，甚至可以创建和运行存储过程、触发器与 UDF。 
 
 ![Azure 门户中的数据资源管理器](./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png)
 
@@ -223,8 +211,13 @@ MEAN.js 示例应用程序将用户数据存储在数据库中。 如果上述�
 在 `db` 对象中，如以下示例所示替换 `uri` 的值。 请务必按上文所述替换占位符。
 
 ```javascript
-'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.cn:10250/mean?ssl=true&sslverifycertificate=false',
+'mongodb://<cosmosdb-name>:<primary_master_key>@<cosmosdb-name>.documents.azure.cn:10250/mean?ssl=true&sslverifycertificate=false',
 ```
+
+> [!NOTE] 
+> 由于 [Azure Cosmos DB 需要 SSL](connect-mongodb-account.md#connection-string-requirements)，因此 `ssl=true` 选项非常重要。 
+>
+>
 
 在终端中，将所有更改提交到 Git。 可以复制这两个命令，以便同时运行。
 
@@ -237,7 +230,7 @@ git commit -m "configured MongoDB connection string"
 如果不打算继续使用此应用，请删除本快速入门教程在 Azure 门户中创建的所有资源，步骤如下：
 
 1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。 
-2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，然后单击“删除”。
+2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -245,3 +238,5 @@ git commit -m "configured MongoDB connection string"
 
 > [!div class="nextstepaction"]
 > [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
+
+<!--Update_Description: wording update-->

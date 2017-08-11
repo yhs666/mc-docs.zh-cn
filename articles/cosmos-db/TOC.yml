@@ -27,6 +27,8 @@
           href: create-mongodb-dotnet.md
         - name: Java
           href: create-mongodb-java.md
+        - name: Golang
+          href: create-mongodb-golang.md
     - name: 表
       items:
         - name: .NET
@@ -194,7 +196,7 @@
         - name: 表 API
           items:
             - name: 表存储
-              href: 'https://docs.microsoft.com/zh-cn/rest/api/storageservices/fileservices/Table-Service-Concepts'
+              href: 'https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts'
         - name: 更改源
           href: change-feed.md
         - name: 地理空间
@@ -249,6 +251,8 @@
           href: documentdb-sdk-java.md
         - name: .NET
           href: documentdb-sdk-dotnet.md
+        - name: .NET 更改源
+          href: documentdb-sdk-dotnet-changefeed.md
         - name: .NET Core
           href: documentdb-sdk-dotnet-core.md
         - name: Node.js

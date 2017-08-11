@@ -1,6 +1,6 @@
 ---
 title: "使用 Azure IoT 中心的直接方法 (.NET/Node) | Azure"
-description: "如何使用 Azure IoT 中心直接方法。 使用适用于 Node.js 的 Azure IoT 设备 SDK 实现包含直接方法的模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现调用直接方法的服务应用。"
+description: "如何使用 Azure IoT 中心直接方法。 使用适用于 Java 的 Azure IoT 设备 SDK 实现包含直接方法的模拟设备应用，并使用适用于 Java 的 Azure IoT 服务 SDK 实现调用直接方法的服务应用。"
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/12/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
-ms.openlocfilehash: c815562082cf4b441b76710beea1a64a11deabe4
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.date: 08/14/2017
+ms.openlocfilehash: 6770d36822e0834925d0edd6c2aab0584933d832
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/04/2017
 ---
-# 使用直接方法 (Java)
-<a id="use-direct-methods-java" class="xliff"></a>
+# <a name="use-direct-methods-java"></a>使用直接方法 (Java)
 
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 06/28/2017
 >
 
 
-若要完成本教程，你需要：
+要完成本教程，需要：
 
 * Java SE 8。 <br/> [准备开发环境][lnk-dev-setup] 介绍了如何在 Windows 或 Linux 上安装本教程所用的 Java。
 * Maven 3。  <br/> [准备开发环境][lnk-dev-setup]介绍如何在 Windows 或 Linux 上安装本教程所用的 [Maven][lnk-maven]。
@@ -47,12 +46,11 @@ ms.lasthandoff: 06/28/2017
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## 创建模拟设备应用程序
-<a id="create-a-simulated-device-app" class="xliff"></a>
+## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
 
 在本部分中，你将创建一个 Java 控制台应用，用以响应解决方案后端调用的方法。
 
-1. 创建一个名为 iot-java-direct-method 的空文件夹。 在命令提示符下使用以下命令，在 iot-java-direct-method 文件夹中创建一个名为 **simulated-device** 的 Maven 项目。 请注意，这是一条很长的命令：
+1. 创建一个名为 iot-java-direct-method 的空文件夹。
 
 1. 在命令提示符下使用以下命令，在 iot-java-direct-method 文件夹中创建一个名为 **simulated-device** 的 Maven 项目。 请注意，这是一条很长的命令：
 
@@ -66,7 +64,7 @@ ms.lasthandoff: 06/28/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.26</version>
+      <version>1.3.30</version>
     </dependency>
     ```
 
@@ -106,7 +104,7 @@ ms.lasthandoff: 06/28/2017
     import java.util.Scanner;
     ```
 
-1. 将以下类级变量添加到 **App** 类。 将 **{youriothubname}** 替换为你的 IoT 中心名称，将 **{yourdevicekey}** 替换为在*创建设备标识*部分中生成的设备值：
+1. 将以下类级变量添加到 **App** 类。 将 **{youriothubname}** 替换为 IoT 中心名称，将 **{yourdevicekey}** 替换为在*创建设备标识*部分中生成的设备密钥值：
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.cn;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -197,8 +195,7 @@ ms.lasthandoff: 06/28/2017
 
     `mvn clean package -DskipTests`
 
-## 在设备上调用直接方法
-<a id="call-a-direct-method-on-a-device" class="xliff"></a>
+## <a name="call-a-direct-method-on-a-device"></a>在设备上调用直接方法
 
 在本部分中，你将创建一个 .Java 控制台应用，用以调用模拟设备应用中的一个直接方法并显示响应。 此控制台应用连接到 IoT 中心来调用该直接方法。
 
@@ -214,7 +211,7 @@ ms.lasthandoff: 06/28/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.3.19</version>
+      <version>1.5.22</version>
       <type>jar</type>
     </dependency>
     ```
@@ -299,8 +296,7 @@ ms.lasthandoff: 06/28/2017
 
     `mvn clean package -DskipTests`
 
-## 运行应用
-<a id="run-the-apps" class="xliff"></a>
+## <a name="run-the-apps"></a>运行应用
 
 现在可以运行控制台应用了。
 
@@ -320,10 +316,9 @@ ms.lasthandoff: 06/28/2017
 
     ![Java IoT 中心模拟设备应用对直接方法调用进行响应][9]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
-本教程中，在 Azure 门户中配置了新的 IoT 中心，然后在 IoT 中心的标识注册表中创建了设备标识。 你已通过此设备标识启用模拟设备应用的相关功能，使之能够响应通过云调用的方法。 你还创建了一个应用，用于调用设备上的方法并显示来自设备的响应。
+本教程中，在 Azure 门户中配置了新的 IoT 中心，并在 IoT 中心的标识注册表中创建了设备标识。 已通过此设备标识启用模拟设备应用的相关功能，使之能够响应通过云调用的方法。 还创建了一个应用，用于调用设备上的方法并显示来自设备的响应。
 
 若要探索其他 IoT 方案，请参阅[在多个设备上计划作业][lnk-devguide-jobs]。
 
@@ -343,3 +338,6 @@ ms.lasthandoff: 06/28/2017
 [lnk-tutorial-jobs]: ./iot-hub-node-node-schedule-jobs.md
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
 [lnk-maven-device-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
+
+
+<!--Update_Description:update meta properties and wording-->

@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/24/2016
-ms.author: v-johch
-ms.openlocfilehash: 27c314acf0052a133fe2184547c75180a5a67032
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 4620b372fa0ffb4070866108ea83790801955363
+ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="azure-media-services-analytics-overview"></a>Azure 媒体服务分析概述
 ## <a name="overview"></a>概述
@@ -36,10 +37,10 @@ Azure 媒体分析可让开发人员快速学会如何在有限范围内使用�
 
 ## <a name="azure-media-analytics-services"></a>Azure 媒体分析服务
 * **Indexer** — Azure Media Indexer 能使内容可搜索，以及生成隐藏式字幕跟踪。 
-* Hyperlapse - Microsoft Hyperlapse 是 Microsoft Research (MSR) 20 多年以来在计算机视觉研究上取得的成果，它结合了视频稳定化和缩时功能，可从长格式内容创建快速可用的优美视频。 除了创建缩时视频，你还可以使用 Hyperlapse 将通过手机和摄影机拍摄的不稳定视频创建稳定的视频。 有关详细信息和示例，请参阅[使用 Azure Media Hyperlapse 创建 Hyperlapse 媒体文件](media-services-hyperlapse-content.md)
+* Hyperlapse - Microsoft Hyperlapse 是 Microsoft Research (MSR) 20 多年以来在计算机视觉研究上取得的成果，它结合了视频稳定化和缩时功能，可从长格式内容创建快速可用的优美视频。 除了创建缩时视频，你还可以使用 Hyperlapse 通过手机和摄影机拍摄的不稳定视频创建稳定的视频。 有关详细信息和示例，请参阅[使用 Azure Media Hyperlapse 创建 Hyperlapse 媒体文件](media-services-hyperlapse-content.md)
 * **动作检测** — 可以使用此服务来检测具有固定背景的视频中的动作。 对于想要检查监视视频摘要上由监控摄影机检测到的动作事件是否存在误报的客户，此功能非常合适。 有关详细信息和示例，请参阅[Azure 媒体分析的动作检测](media-services-motion-detection.md)。
 * **面部检测和面部情绪** — 使用此服务可以检测人的面部和情绪，包括快乐、悲伤、惊讶、生气、藐视、恐惧、厌恶与冷漠/淡定。 此服务具有如下所述的多个有用行业应用程序，包括聚合与分析参与事件的人员的反应。 有关详细信息和示例，请参阅 [Azure 媒体分析的人脸和情绪检测](media-services-face-and-emotion-detection.md)。
-* **视频摘要** — 视频摘要可通过自动选择来自源视频的有趣片段帮助你创建长视频的摘要。 当你要提供有关长视频内容的快速概述时，这很有用。 有关详细信息和示例，请参阅[使用 Azure Media Video Thumbnails 创建视频摘要](media-services-video-summarization.md)
+* **视频摘要** — 视频摘要可通过自动选择来自源视频的有趣片段帮助你创建长视频的摘要。 要提供有关长视频内容的快速概述时，这很有用。 有关详细信息和示例，请参阅[使用 Azure Media Video Thumbnails 创建视频摘要](media-services-video-summarization.md)
 * 光学字符识别 - 通过 Azure 媒体分析 OCR（光学字符识别），可将视频文件中的文本内容转换成可编辑、可搜索的数字文本。 这可让你从媒体的视频信号中自动提取有意义的元数据。
 * 可缩放的人脸编修 - Azure 媒体编修器是一种 Azure 媒体分析 MP，可用于在云中进行可缩放的人脸编修。 使用面部修订，可对视频进行修改，使所选个人的面部模糊显示。 用户可能想要在公共安全和新闻媒体场景中使用面部修订服务。 对于时长仅几分钟但包含多张面孔的镜头，进行手动面部修订可能需要几个小时，但使用此服务仅需几个简单步骤即可完成该过程。 有关详细信息，请参阅[此文章](media-services-face-redaction.md)。
 
@@ -122,3 +123,5 @@ Azure 媒体分析可让开发人员快速学会如何在有限范围内使用�
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+
+<!--Update_Description: update meta properties-->

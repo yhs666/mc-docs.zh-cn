@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: get-started-article
 origin.date: 06/13/2017
-ms.date: 07/24/2017
+ms.date: 08/07/2017
 ms.author: v-dazen
-ms.openlocfilehash: 9f91e3c480664ff37c25b514d76f704223aded09
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 71c85596defc63de0bca738ac5d2823c7fffd7c6
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>构建 Node.js RESTful API 并将它部署到 Azure 中的 API 应用
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
@@ -30,9 +30,10 @@ ms.lasthandoff: 07/14/2017
 
 * [Git](https://git-scm.com/)
 * [Node.js 和 NPM](https://nodejs.org/)
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 
 ## <a name="prepare-your-environment"></a>准备环境
 
@@ -212,17 +213,23 @@ Tell us a bit about your application
     az login
     ```
 
-2. [!INCLUDE [Create resource group](../../includes/app-service-api-create-resource-group.md)] 
+2. 如果有多个 Azure 订阅，则可将默认订阅更改为所需订阅。
 
-3. [!INCLUDE [Create app service plan](../../includes/app-service-api-create-app-service-plan.md)]
+    ````azurecli
+    az account set --subscription <name or id>
+    ````
 
-4. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
+3. [!INCLUDE [Create resource group](../../includes/app-service-api-create-resource-group.md)] 
+
+4. [!INCLUDE [Create app service plan](../../includes/app-service-api-create-app-service-plan.md)]
+
+5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
 
 ## <a name="deploy-the-api-with-git"></a>使用 Git 部署 API
 
 通过将提交内容从本地 Git 存储库推送到 Azure 应用服务，将代码部署到 API 应用。
 
-1. [!INCLUDE [Configure your deployment credentials](../../includes/app-service-api-configure-local-git.md)] 
+1. [!INCLUDE [Configure your deployment credentials](../../includes/configure-deployment-user-no-h.md)] 
 
 2. 初始化 *ContactList* 目录中的一个新存储库。 
 
@@ -284,3 +291,5 @@ az group delete --name myResourceGroup
 ## <a name="next-step"></a>后续步骤 
 > [!div class="nextstepaction"]
 > [借助 CORS 从 JavaScript 客户端使用 API 应用](app-service-api-cors-consume-javascript.md)
+
+<!--Update_Description: add note about Azure CLI 2.0 version-->
