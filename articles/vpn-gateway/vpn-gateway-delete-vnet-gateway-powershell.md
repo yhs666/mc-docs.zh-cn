@@ -101,7 +101,7 @@ $Conns | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-此时，虚拟网络网关已删除。 可以使用接下来的步骤删除不再使用的任何资源。
+此时，虚拟网络网关已删除。 可以使用后续步骤删除不再使用的任何资源。
 
 ### <a name="5-delete-the-local-network-gateways"></a>5 删除本地网络网关。
 
@@ -203,7 +203,7 @@ $ConnsR | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-此时，虚拟网络网关已删除。 可以使用接下来的步骤删除不再使用的任何资源。
+此时，虚拟网络网关已删除。 可以使用后续步骤删除不再使用的任何资源。
 
 ### <a name="6-delete-the-public-ip-address-resources"></a>6.删除公共 IP 地址资源
 
@@ -261,7 +261,7 @@ $Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-此时，虚拟网络网关已删除。 可以使用接下来的步骤删除不再使用的任何资源。
+此时，虚拟网络网关已删除。 可以使用后续步骤删除不再使用的任何资源。
 
 ### <a name="3-delete-the-public-ip-address-resources"></a>3.删除公共 IP 地址资源
 

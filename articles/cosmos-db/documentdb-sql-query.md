@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/08/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: 69ac956ee90f8eecbefb170b495cee33c97482a4
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 099e5ad9efa6c5e2f1c7aad6c63e4b38314e7aa5
+ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB DocumentDB API 的 SQL 查询
 Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言来支持查询文档。 Cosmos DB 是真正无架构的。 凭借其对数据库引擎内 JSON 数据模型的直接承诺，它可以提供 JSON 文档的自动索引，而无需显式架构或创建辅助索引。 
@@ -34,7 +34,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
 
 <!-- Not Available [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player] -->
 
-然后，返回到本文中，我们将从 SQL 查询教程开始，指导你完成一些简单的 JSON 文档和 SQL 命令。
+然后，返回到本文中，我们将从 SQL 查询教程开始，指导用户完成一些简单的 JSON 文档和 SQL 命令。
 
 ## <a id="GettingStarted"></a>Cosmos DB 中的 SQL 命令入门
 为了解 Cosmos DB SQL 在工作时的情况，让我们以一些简单的 JSON 文档开始，并对它完成一些简单的查询。 考虑以下两个关于两个家庭的 JSON 文档。 请注意，使用 Cosmos DB，我们不需要显式创建任何架构或辅助索引。 我们只需将 JSON 文档插入到 Cosmos DB 集合中并随后进行查询。 这里，我们有一个包含 Andersen 家庭、父母、子女（以及他们的宠物）、地址和注册信息的简单 JSON 文档。 该文档拥有字符串、数字、布尔、数组和嵌套属性。 
@@ -96,7 +96,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
 }
 ```
 
-现在，让我们尝试对此数据执行一些查询来了解 DocumentDB API SQL 的一些主要方面。 例如，下面的查询将返回 ID 字段与 `AndersenFamily`匹配的文档。 由于它是 `SELECT *`，因此该查询的输出为完整的 JSON 文档：
+现在，让我们尝试对此数据执行一些查询来了解 DocumentDB API SQL 的一些主要方面。 例如，下面的查询返回 ID 字段与 `AndersenFamily` 匹配的文档。 由于它是 `SELECT *`，因此该查询的输出为完整的 JSON 文档：
 
 **查询**
 
@@ -158,12 +158,12 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
       { "givenName": "Lisa"}
     ]
 
-我们希望通过我们目前已看到的示例让你注意到 Cosmos DB 查询语言一些值得注意的方面：  
+我们希望通过我们目前已看到的示例来突出 Cosmos DB 查询语言一些值得注意的方面：  
 
-* 由于 DocumentDB API SQL 适用于 JSON 值，因此它可以处理三种形式的实体，而不是行和列。 因此，该语言可让你在任意深度引用树的节点，如 `Node1.Node2.Node3…..Nodem`，这类似于引用 `<table>.<column>` 的两个部分引用的关系 SQL。   
+* 由于 DocumentDB API SQL 适用于 JSON 值，因此它可以处理三种形式的实体，而不是行和列。 因此，使用该语言可在任意深度引用树的节点，如 `Node1.Node2.Node3…..Nodem`，这类似于引用 `<table>.<column>` 的两个部分引用的关系型 SQL。   
 * 结构化查询语言适用于无架构的数据。 因此，需要动态绑定类型系统。 相同的表达式在不同文档上可能会产生不同的类型。 查询的结果是一个有效的 JSON 值，但不保证它为固定的架构。  
 * Cosmos DB 仅支持严格的 JSON 文档。 这意味着类型系统和表达式仅限于处理 JSON 类型。 有关更多详细信息，请参阅 [JSON specification](http://www.json.org/) （JSON 规范）。  
-* Cosmos DB 集合是 JSON 文档的一个无架构容器。 集合中，文档内和跨文档的数据实体的关系是按包含关系隐式捕获的，而不是按主键和外键关系。 考虑到稍后将在本文中讨论文档内联接，因此这是一个值得注意的重要方面。
+* Cosmos DB 集合是 JSON 文档的一个无架构容器。 集合中，文档内和跨文档的数据实体的关系是按包含关系隐式捕获的，而不是按主键和外键关系。 考虑到稍后会在本文中讨论文档内联接，因此这是一个值得注意的重要方面。
 
 ## <a id="Indexing"></a> Cosmos DB 索引
 在我们开始了解 DocumentDB API SQL 语法前，值得先探索一下 Cosmos DB API API 中的索引设计。 
@@ -236,7 +236,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
       ]
     ]
 
-虽然上面的示例中使用数组作为源，但也可以使用对象作为源，如下例所示。 在源中可以找到的任何有效的 JSON 值（不是未定义的）都将被视为包含在查询的结果中。 如果一些家庭没有 `address.state` 值，则会将他们排除在查询结果之外。
+虽然上面的示例中使用数组作为源，但也可以使用对象作为源，如下例所示。 在源中可以找到的任何有效的 JSON 值（不是未定义的）都会被视为包含在查询的结果中。 如果一些家庭没有 `address.state` 值，则会将他们排除在查询结果之外。
 
 **查询**
 
@@ -513,14 +513,14 @@ Undefined </td>
     FROM Families.children[0] c
     WHERE c.grade BETWEEN 1 AND 5
 
-与在 ANSI-SQL 中不同，你也可以使用 FROM 子句中的 BETWEEN 子句，如以下示例所示。
+与在 ANSI-SQL 中不同，也可以使用 FROM 子句中的 BETWEEN 子句，如以下示例所示。
 
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
 
 了更快地执行查询，请记得创建索引策略，该策略对在 BETWEEN 子句中筛选的任何数值属性/路径使用范围索引类型。 
 
-在 DocumentDB API 与在 ANSI SQL 中使用 BETWEEN 的主要不同之处在于，前者支持对混合类型的属性执行快速范围查询 - 例如，可以在某些文档中将“grade”设置为数字 (5)，并在其他文档中将其设置为字符串（“grade4”）。 在这些情况下（如在 JavaScript 中），在两种不同类型之间进行比较的结果为“undefined”，将会跳过文档。
+在 DocumentDB API 与在 ANSI SQL 中使用 BETWEEN 的主要不同之处在于，前者支持对混合类型的属性执行快速范围查询 - 例如，可以在某些文档中将“grade”设置为数字 (5)，并在其他文档中将其设置为字符串（“grade4”）。 在这些情况下（如在 JavaScript 中），在两种不同类型之间进行比较的结果为“undefined”，会跳过文档。
 
 ### <a name="logical-and-or-and-not-operators"></a>逻辑（AND、OR 和 NOT）运算符
 逻辑运算符对布尔值进行运算。 下表显示了这些运算符的逻辑真值表。
@@ -559,7 +559,7 @@ IN 关键字可用于检查指定的值是否与列表中的任意值匹配。 �
 ### <a name="ternary--and-coalesce--operators"></a>三元 (?) 和联合 (??) 运算符
 三元和联合运算符可以用于生成条件表达式，类似于常用的编程语言（如 C# 和 JavaScript）。 
 
-当动态构建新的 JSON 属性时，使用三元 (?) 运算符会非常方便。 例如，现在你可以写入查询以将类级别（初学者/中级/高级）分类到用户可读的表单中，如下面所示。
+当动态构建新的 JSON 属性时，使用三元 (?) 运算符会非常方便。 例如，现在可以写入查询以将类级别（初学者/中级/高级）分类到用户可读的表单中，如下面所示。
 
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
      FROM Families.children[0] c
@@ -569,7 +569,7 @@ IN 关键字可用于检查指定的值是否与列表中的任意值匹配。 �
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
 
-如同使用其他查询运算符一样，如果任何文档中缺少条件表达式的引用属性，或者如果正在进行比较的类型不同，那么这些文档将会被排除在查询结果之外。
+与其他查询运算符一样，如果任何文档中缺少条件表达式的引用属性，或者如果正在进行比较的类型不同，那么这些文档会被排除在查询结果之外。
 
 联合 (??) 运算符可用于有效地检查文档中是否存在属性（也称为 已定义）。 这在对半结构化数据或混合类型的数据执行查询时很有用。 例如，此查询返回“lastName”（如果存在）或“surname”（如果不存在）。
 
@@ -577,7 +577,7 @@ IN 关键字可用于检查指定的值是否与列表中的任意值匹配。 �
     FROM Families f
 
 ### <a id="EscapingReservedKeywords"></a>带引号的属性访问器
-你也可以使用带引号的属性运算符 `[]` 访问属性。 例如，由于再也无法解析标识符“Families”，因此 `SELECT c.grade` and `SELECT c["grade"]` 是等效的。 此语法在需要转义包含空格和特殊字符的属性或正好将相同的名称作为 SQL 关键字或保留字共享的属性时很有用。
+也可以使用带引号的属性运算符 `[]` 访问属性。 例如，由于再也无法解析标识符“Families”，因此 `SELECT c.grade` and `SELECT c["grade"]` 是等效的。 此语法在需要转义包含空格和特殊字符的属性或正好将相同的名称作为 SQL 关键字或保留字共享的属性时很有用。
 
     SELECT f["lastName"]
     FROM Families f
@@ -605,7 +605,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
     }]
 
 ### <a name="nested-properties"></a>嵌套属性
-在下面的示例中，我们将投影两个嵌套的属性 `f.address.state` and `f.address.city`。
+在下面的示例中，我们投影两个嵌套的属性 `f.address.state` and `f.address.city`。
 
 **查询**
 
@@ -660,7 +660,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
     }]
 
 ### <a name="aliasing"></a>别名
-现在让我们使用值的显示别名对上面的示例进行扩展。 AS 是用于别名的关键字。 请注意，将第二个值投影为 `NameInfo`时，它如显示的那样是可选的。 
+现在让我们使用值的显示别名对上面的示例进行扩展。 AS 是用于别名的关键字。 请注意，将第二个值投影为 `NameInfo` 时，它如显示的那样是可选的。 
 
 如果查询包含两个具有相同名称的属性，则必须使用别名以重命名其中一个属性或两个属性，以便可以在投影的结果中消除它们的歧义。
 
@@ -895,9 +895,7 @@ TOP 关键字可用于限制来自查询中的值的数量。 将 TOP 与 ORDER 
 
 **结果**
 
-    [{
-        "$1": 1
-    }]
+    [ 1 ]
 
 下表显示了 DocumentDB API 中受支持的聚合函数的列表。 `SUM` 和 `AVG` 基于数字值执行，而 `COUNT`、`MIN`、`MAX` 则可基于数字、字符串、布尔值和 null 值执行。 
 
@@ -912,7 +910,7 @@ TOP 关键字可用于限制来自查询中的值的数量。 将 TOP 与 ORDER 
 也可基于数组迭代的结果进行聚合。 有关更多详细信息，请参阅[查询中的数组迭代](#Iteration)。
 
 > [!NOTE]
-> 请注意，使用 Azure 门户的查询浏览器时，聚合查询可能会通过查询页返回部分聚合的结果。 SDK 将跨所有页面生成单个累计值。 
+> 请注意，使用 Azure 门户的查询浏览器时，聚合查询可能会通过查询页返回部分聚合的结果。 SDK 跨所有页面生成单个累计值。 
 > 
 > 若要使用代码执行聚合查询，用户需要 .NET SDK 1.12.0、.NET Core SDK 1.1.0，或者 Java SDK 1.9.5 或更高版本。    
 >
@@ -1123,9 +1121,9 @@ TOP 关键字可用于限制来自查询中的值的数量。 将 TOP 与 ORDER 
 * 应用具有文档 **f** 的根的叉积，这些文档具有已在第一步中合并的每个子元素 **c**。
 * 最后，单独投影根对象 **f** 名称属性。 
 
-第一个文档 (`AndersenFamily`) 仅包含一个子元素，因此结果集仅包含与此文档对应的单个对象。 第二个文档 (`WakefieldFamily`) 包含两个子元素。 因此，叉积会为每个子女生成单独的对象，从而产生两个对象，每个对象分别与此文档对应。 请注意，这两个文档中的根字段将会是相同的，就如你在叉积中所预期的一样。
+第一个文档 (`AndersenFamily`) 仅包含一个子元素，因此结果集仅包含与此文档对应的单个对象。 第二个文档 (`WakefieldFamily`) 包含两个子元素。 因此，叉积会为每个子女生成单独的对象，从而产生两个对象，每个对象分别与此文档对应。 请注意，这两个文档中的根字段会是相同的，就如你在叉积中所预期的一样。
 
-JOIN 真正实用的地方是通过以其他方式难以投影的形式基于叉积生成元组。 此外，就如我们将会在下面的示例中看见的那样，你可以对元组组合进行筛选，总体上由用户选择元组满足的条件。
+JOIN 真正实用的地方是通过以其他方式难以投影的形式基于叉积生成元组。 此外，就如我们会在下面的示例中看见的那样，可以对元组组合进行筛选，总体上由用户选择元组满足的条件。
 
 **查询**
 
@@ -1174,7 +1172,7 @@ JOIN 真正实用的地方是通过以其他方式难以投影的形式基于叉
         }
     }
 
-`AndersenFamily` 有一个拥有一只宠物的孩子。 因此，叉积从此家庭中生成一行 (1*1*1)。 尽管 WakefieldFamily 有两个孩子，但只有一个孩子“Jesse”拥有宠物。 Jesse 拥有 2 只宠物。 因此叉积从此家庭中生成 1*1*2 = 2 行。
+`AndersenFamily` 有一个拥有一只宠物的孩子。 因此，叉积从此家庭中生成一行 (1\*1\*1)。 尽管 WakefieldFamily 有两个孩子，但只有一个孩子“Jesse”拥有宠物。 Jesse 拥有 2 只宠物。 因此叉积从此家庭中生成 1\*1\*2 = 2 行。
 
 在接下来的示例中，可以根据 `pet`进行额外的筛选。 这排除了宠物名称不是“Shadow”的所有元组。 请注意，我们能够从数组中生成元组，根据元组的任意元素进行筛选以及投影元素的任何组合。 
 
@@ -1209,7 +1207,7 @@ Azure Cosmos DB 根据存储过程和触发器，为对集合直接执行基于 
 ### <a id="UserDefinedFunctions"></a>用户定义的函数 (UDF)
 除了本文中已定义的类型外，DocumentDB API SQL 也对用户定义的函数 (UDF) 提供支持。 具体而言，支持标量 UDF，开发人员可在其中传入零个或许多参数并返回单个参数结果。 检查每个参数是否为合法的 JSON 值。  
 
-扩展 DocumentDB API SQL 语法以支持使用这些用户定义的函数的自定义应用程序逻辑。 可使用 DocumentDB API 注册 UDF，然后作为 SQL 查询的一部分引用这些函数。 事实上，UDF 经过精心设计，可由查询调用。 作为此选择的必然结果，UDF 不能访问其他 JavaScript 类型（存储过程和触发器）所拥有的上下文对象。 由于查询以只读方式执行，因此它们可以在主要或次要副本上运行。 因此，UDF 设计为在次要副本上运行，这与其他 JavaScript 类型不同。
+扩展 DocumentDB API SQL 语法，以支持使用这些用户定义的函数的自定义应用程序逻辑。 可使用 DocumentDB API 注册 UDF，并作为 SQL 查询的一部分引用这些函数。 事实上，UDF 经过精心设计，可由查询调用。 作为此选择的必然结果，UDF 不能访问其他 JavaScript 类型（存储过程和触发器）所拥有的上下文对象。 由于查询以只读方式执行，因此它们可以在主要或次要副本上运行。 因此，UDF 设计为在次要副本上运行，这与其他 JavaScript 类型不同。
 
 以下是如何在 Cosmos DB 数据库中（特别是在文档集合下）注册 UDF 的示例。
 
@@ -1311,7 +1309,7 @@ Azure Cosmos DB 根据存储过程和触发器，为对集合直接执行基于 
 
 如前面的示例所示，UDF 使用 DocumentDB API SQL 集成 JavaScript 语言的功能以通过丰富的可编程接口执行复杂的过程，并在内置 JavaScript 运行时功能的帮助下，执行条件逻辑。
 
-DocumentDB API SQL 在处理 UDF 当前阶段（WHERE 子句或 SELECT 子句），为源中每个文档的 UDF 提供参数。 将结果无缝地纳入总体执行管道中。 如果由 UDF 参数引用的属性在 JSON 值中不可用，则参数将被视为未定义，因此会完全跳过 UDF 调用。 同样，如果未定义 UDF的结果，则它不会包含在结果中。 
+DocumentDB API SQL 在处理 UDF 当前阶段（WHERE 子句或 SELECT 子句），为源中每个文档的 UDF 提供参数。 结果无缝地纳入总体执行管道中。 如果由 UDF 参数引用的属性在 JSON 值中不可用，则参数会被视为未定义，因此会完全跳过 UDF 调用。 同样，如果未定义 UDF的结果，则它不会包含在结果中。 
 
 总而言之，UDF 是作为查询的一部分处理复杂业务逻辑重要的工具。
 
@@ -1325,7 +1323,7 @@ Cosmos DB 是一个 JSON 数据库，与 JavaScript 运算符以及其评估语�
 ## <a name="parameterized-sql-queries"></a>参数化 SQL 查询
 Cosmos DB 支持使用带有常用的 @ 表示法的参数进行查询。 参数化 SQL 为用户输入提供可靠的处理和转义，可防止通过 SQL 注入发生意外的数据泄露。 
 
-例如，你可以编写一个将姓氏和省/自治区/直辖市地址作为参数的查询，然后基于用户输入针对姓氏和省/自治区/直辖市地址执行此查询。
+例如，可以编写一个将姓氏和省/自治区/直辖市地址作为参数的查询，然后基于用户输入针对姓氏和省/自治区/直辖市地址执行此查询。
 
     SELECT * 
     FROM Families f
@@ -1394,7 +1392,7 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 | [SIN (num_expr)](#bk_sin) | 返回指定表达式中指定角度的三角正弦（弧度）。 |
 | [TAN (num_expr)](#bk_tan) | 返回指定表达式中输入表达式的正切。 |
 
-例如，你现在可以运行以下查询：
+例如，现在可以运行以下查询：
 
 **查询**
 
@@ -1415,41 +1413,41 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
   <td><strong>说明</strong></td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_is_array">IS_ARRAY (expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array">IS_ARRAY (expr)</a></td>
   <td>返回一个布尔值，它指示值的类型是否为数组。</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (expr)</a></td>
   <td>返回一个布尔值，它指示值的类型是否为布尔。</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_is_null">IS_NULL (expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null">IS_NULL (expr)</a></td>
   <td>返回一个布尔值，它指示值的类型是否为 null。</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_is_number">IS_NUMBER (expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number">IS_NUMBER (expr)</a></td>
   <td>返回一个布尔值，它指示值的类型是否为数字。</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_is_object">IS_OBJECT (expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object">IS_OBJECT (expr)</a></td>
   <td>返回一个布尔值，它指示值的类型是否为 JSON 对象。</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_is_string">IS_STRING (expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string">IS_STRING (expr)</a></td>
   <td>返回一个布尔值，它指示值的类型是否为字符串。</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_is_defined">IS_DEFINED (expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined">IS_DEFINED (expr)</a></td>
   <td>返回一个布尔，它指示属性是否已经分配了值。</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_is_primitive">IS_PRIMITIVE (expr)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive">IS_PRIMITIVE (expr)</a></td>
   <td>返回一个布尔值，它指示值的类型是否为字符串、数字、布尔或 null。</td>
 </tr>
 
 </table>
 
-使用这些函数，你现在可以运行以下查询：
+使用这些函数，现在可以运行以下查询：
 
 **查询**
 
@@ -1464,24 +1462,24 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
 | 使用情况 | 说明 |
 | --- | --- |
-| [LENGTH (str_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_length) |返回指定字符串的字符数 |
-| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_concat) |返回一个字符串，该字符串是连接两个或多个字符串值的结果。 |
-| [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_substring) |返回部分字符串表达式。 |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_startswith) |返回一个布尔值，该值指示第一个字符串表达式是否以第二个字符串表达式结尾 |
-| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_endswith) |返回一个布尔值，该值指示第一个字符串表达式是否以第二个字符串表达式结尾 |
-| [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_contains) |返回一个布尔值，该值指示第一个字符串表达式是否包含第二个字符串表达式。 |
-| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_index_of) |返回第一个指定的字符串表达式中第一次出现第二个字符串表达式的起始位置，如果未找到字符串，则返回 -1。 |
-| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_left) |返回具有指定字符数的字符串的左侧部分。 |
-| [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_right) |返回具有指定字符数的字符串的右侧部分。 |
-| [LTRIM (str_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_ltrim) |返回删除前导空格后的字符串表达式。 |
-| [RTRIM (str_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_rtrim) |返回截断所有尾随空格后的字符串表达式。 |
-| [LOWER (str_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_lower) |返回在将大写字符数据转换为小写后的字符串表达式。 |
-| [UPPER (str_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_upper) |返回在将小写字符数据转换为大写后的字符串表达式。 |
-| [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_replace) |将出现的所有指定字符串值替换为另一个字符串值。 |
-| [REPLICATE (str_expr, num_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_replicate) |将一个字符串值重复指定的次数。 |
-| [REVERSE (str_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_reverse) |返回字符串值的逆序排序形式。 |
+| [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |返回指定字符串的字符数 |
+| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |返回一个字符串，该字符串是连接两个或多个字符串值的结果。 |
+| [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |返回部分字符串表达式。 |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |返回一个布尔值，该值指示第一个字符串表达式是否以第二个字符串表达式结尾 |
+| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |返回一个布尔值，该值指示第一个字符串表达式是否以第二个字符串表达式结尾 |
+| [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |返回一个布尔值，该值指示第一个字符串表达式是否包含第二个字符串表达式。 |
+| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |返回第一个指定的字符串表达式中第一次出现第二个字符串表达式的起始位置，如果未找到字符串，则返回 -1。 |
+| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) |返回具有指定字符数的字符串的左侧部分。 |
+| [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |返回具有指定字符数的字符串的右侧部分。 |
+| [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) |返回删除前导空格后的字符串表达式。 |
+| [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) |返回截断所有尾随空格后的字符串表达式。 |
+| [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |返回在将大写字符数据转换为小写后的字符串表达式。 |
+| [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |返回在将小写字符数据转换为大写后的字符串表达式。 |
+| [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |将出现的所有指定字符串值替换为另一个字符串值。 |
+| [REPLICATE (str_expr, num_expr)](/cosmos-db/documentdb-sql-query-reference#bk_replicate) |将一个字符串值重复指定的次数。 |
+| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |返回字符串值的逆序排序形式。 |
 
-借助这些函数，现可以运行以下查询。 例如，你可以返回大写形式的家庭名称，如下所示：
+借助这些函数，现可以运行以下查询。 例如，可以返回大写形式的家庭名称，如下所示：
 
 **查询**
 
@@ -1533,10 +1531,10 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
 | 使用情况 | 说明 |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_array_length) |返回指定数组表达式的元素数。 |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_array_concat) |返回一个数组，该数组是连接两个或更多数组值的结果。 |
-| [ARRAY_CONTAINS (arr_expr, expr)](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_array_contains) |返回一个布尔，它指示数组是否包含指定的值。 |
-| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx#bk_array_slice) |返回部分数组表达式。 |
+| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |返回指定数组表达式的元素数。 |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |返回一个数组，该数组是连接两个或更多数组值的结果。 |
+| [ARRAY_CONTAINS (arr_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |返回一个布尔，它指示数组是否包含指定的值。 |
+| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |返回部分数组表达式。 |
 
 数组函数可用于在 JSON 内操纵数组。 例如，下面的查询返回其中一位父母是“Robin Wakefield”的所有文档。 
 
@@ -2037,7 +2035,7 @@ Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 可以使用 Azure
 
 若要管理查询的数据一致性策略，请使用 `x-ms-consistency-level` 标头（如所有的 REST API 请求）。 对于会话一致性，还需要回显查询请求中最新的 `x-ms-session-token` Cookie 标头。 请注意，查询集合的索引策略也可以影响查询结果的一致性。 使用默认的索引策略设置，集合的索引始终与文档内容保持同步，且查询结果将与为数据选择的一致性匹配。 如果索引策略太放松而具有延迟，那么查询会返回过时的结果。 有关详细信息，请参阅 [Azure Cosmos DB 一致性级别][consistency-levels]。
 
-如果为集合配置的索引策略不能支持指定的查询，那么 Azure Cosmos DB 服务器会返回 400“错误的请求”。 在对为哈希（等式）查找配置的路径，以及从索引中显式排除的路径进行范围查询时，将返回此内容。 当索引不可用时，可通过指定 `x-ms-documentdb-query-enable-scan` 标头以允许查询执行扫描。
+如果为集合配置的索引策略不能支持指定的查询，那么 Azure Cosmos DB 服务器会返回 400“错误的请求”。 在对为哈希（等式）查找配置的路径，以及从索引中显式排除的路径进行范围查询时，返回此内容。 当索引不可用时，可通过指定 `x-ms-documentdb-query-enable-scan` 标头以允许查询执行扫描。
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 .NET SDK 支持 LINQ 和 SQL 查询。 以下示例演示了如何执行本文档之前介绍的简单筛选查询。
@@ -2122,7 +2120,7 @@ Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 可以使用 Azure
 
 .NET 客户端自动遍历 foreach 块中所有的查询结果页，如上所示。 REST API 部分介绍的查询选项也适用于 CreateDocumentQuery 方法中使用 `FeedOptions` and `FeedResponse` 的 .NET SDK。 可使用 `MaxItemCount` 设置控制页面的数量。 
 
-还可以通过使用 `IQueryable` 对象创建 `IDocumentQueryable`，然后读取 ` ResponseContinuationToken` 值并将它们作为 `FeedOptions` 中的 `RequestContinuationToken` 向回传递，从而显式控制分页。 当配置的索引策略不支持查询时，可将 `EnableScanInQuery` 设置为启用扫描。 对于分区集合，可以使用 `PartitionKey` 来针对单个分区运行查询（尽管 Cosmos DB 可以自动从查询文本中提取此内容），并使用 `EnableCrossPartitionQuery` 来运行需要针对多个分区运行的查询。 
+还可以通过使用 `IQueryable` 对象创建 `IDocumentQueryable`，并读取 ` ResponseContinuationToken` 值并将它们作为 `FeedOptions` 中的 `RequestContinuationToken` 向回传递，从而显式控制分页。 `EnableScanInQuery` 以启用扫描。 对于分区集合，可以使用 `PartitionKey` 来针对单个分区运行查询（尽管 Cosmos DB 可以自动从查询文本中提取此内容），并使用 `EnableCrossPartitionQuery` 来运行需要针对多个分区运行的查询。 
 
 有关包含查询的更多示例，请参阅 [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-documentdb-net)。 
 
@@ -2183,3 +2181,5 @@ Cosmos DB 使用存储过程和触发器，为对集合直接执行基于 JavaSc
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: introduction.md
 [consistency-levels]: consistency-levels.md
+
+<!--Update_Description: update link-->

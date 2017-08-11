@@ -186,7 +186,7 @@ AMS 客户可以缩放其 AMS 帐户中的流式处理终结点、媒体处理�
 
 ### <a name="encoding-media-processors"></a>编码媒体处理器
 
-AMS 提供两个按需编码器：**Media Encoder Standard** 和 **Media Encoder Premium Workflow**（在中国不可用）。 有关详细信息，请参阅 [Azure 按需媒体编码器的概述和比较](media-services-encode-asset.md)。 
+AMS 提供两个按需编码器：**Media Encoder Standard** 和 **Media Encoder Premium Workflow**（在中国不可用）。 有关详细信息，请参阅 [Azure 点播媒体编码器的概述和比较](media-services-encode-asset.md)。 
 
 #### <a name="availability"></a>可用性
 

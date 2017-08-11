@@ -4,7 +4,7 @@ description: "将 Intel NUC 设置为传感器和 Azure IoT 中心之间的 IoT 
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: yjianfeng
+manager: timlt
 tags: 
 keywords: "iot 网关, intel nuc, nuc 计算机, DE3815TYKE"
 ms.assetid: 917090d6-35c2-495b-a620-ca6f9c02b317
@@ -14,15 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/21/2017
-ms.date: 06/05/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: b10cbfd7c8131bdf51758ba1c8bdc637072c5148
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.date: 08/14/2017
+ms.openlocfilehash: 20068be85903f88f3465393dd048c48a3ab02413
+ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/04/2017
 ---
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>将 Intel NUC 设置为 IoT 网关
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -35,11 +33,11 @@ ms.lasthandoff: 05/26/2017
 
   > 如果有任何问题，请在[故障排除页面](./iot-hub-gateway-kit-c-troubleshooting.md)上查找解决方案。
 
-## <a name="what-you-will-learn"></a>你要学习的知识
+## <a name="what-you-will-learn"></a>要学习的知识
 
 本课介绍以下内容：
 
-- 如何将 Intel NUC 与外围设备连接。
+- 如何将 Intel NUC 与外设连接。
 - 如何使用智能包管理器在 Intel NUC 上安装和更新所需的包。
 - 如何运行“hello_world”示例应用程序来验证网关功能。
 
@@ -69,15 +67,17 @@ ms.lasthandoff: 05/26/2017
 
 此时需要键盘和监视器才能获取 Intel NUC 设备的 IP 地址。 如果已知道 IP 地址，可跳到本部分的步骤 3。
 
-1. 按下电源按钮打开 Intel NUC，然后登录。
+1. 按下电源按钮打开 Intel NUC，并登录。
 
    默认用户名和密码都是 `root`。
+
+       > Hit the enter key on your keyboard if you see either of the following errors when you boot: 'A TPM error (7) occurred attempting to read a pcr value.' or 'Timeout, No TPM chip found, activating TPM-bypass!'
 
 2. 在 Intel NUC 设备上运行 `ifconfig` 命令，Intel NUC 的 IP 地址。
 
    以下是命令输出的示例。
 
-   ![显示 Intel NUC IP 的 ifconfig 输出](./media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
+   ![显示 Intel NUC IP 的 ifconfig 输出](media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
 
    在此示例中，`inet addr:` 后面的值是计划从主计算机远程连接到 Intel NUC 时所需的 IP 地址。
 
@@ -104,8 +104,14 @@ Azure IoT Edge 包中包含 IoT Edge 及其依赖项的预编译二进制文件�
    ```
 
    > 提示“是否包括此通道?”时，输入“y”
+   
+   如果收到 `import read failed(-1)` 错误，请使用以下命令来解决问题：
+   ```bash
+   wget http://iotdk.intel.com/misc/iot_pub2.key 
+   rpm --import iot_pub2.key  
+   ```
 
-   `rpm` 命令导入 rpm 密钥。 `smart channel` 命令将 rpm 通道添加到智能包管理器。 运行 `smart update` 命令前，将看到如下输出。
+   `rpm` 命令导入 rpm 密钥。 `smart channel` 命令将 rpm 通道添加到智能包管理器。 运行 `smart update` 命令前，会看到如下输出。
 
    ![rpm 和智能通道命令输出](./media/iot-hub-gateway-kit-lessons/lesson1/rpm_smart_channel.png)
 
@@ -144,7 +150,7 @@ cd /usr/share/azureiotgatewaysdk/samples/hello_world/
 ./hello_world hello_world.json
 ```
 
-允许 Hello World 应用程序运行几分钟，然后点击 Enter 键来将其停止。
+允许 Hello World 应用程序运行几分钟，并点击 Enter 键来将其停止。
 ![应用程序输出](./media/iot-hub-gateway-kit-lessons/lesson1/hello_world.png)
 
 > 可以忽略后按 Enter，会显示任何参数无效 handle(NULL) 错误。
@@ -157,16 +163,16 @@ cd /usr/share/azureiotgatewaysdk/samples/hello_world/
 vim log.txt
 ```
 
-然后，你将看到 log.txt，将每隔 5 秒编写的网关 Hello World 模块的日志记录消息的 JSON 格式输出的内容。
+然后，用户将看到 log.txt，将每隔 5 秒编写的网关 Hello World 模块的日志记录消息的 JSON 格式输出的内容。
 ![log.txt 目录视图](./media/iot-hub-gateway-kit-lessons/lesson1/logtxtview.png)
 
 如果有任何问题，请在[故障排除页面](./iot-hub-gateway-kit-c-troubleshooting.md)上查找解决方案。
 
 ## <a name="summary"></a>摘要
 
-祝贺你！ 现已将 Intel NUC 设置为网关。 接下来可进入下一课，了解如何设置主机、创建 Azure IoT 中心以及注册 Azure IoT 中心逻辑设备。
+祝贺！ 已将 Intel NUC 设置为网关。 接下来可进入下一课，了解如何设置主机、创建 Azure IoT 中心以及注册 Azure IoT 中心逻辑设备。
 
 ## <a name="next-steps"></a>后续步骤
 [使用 IoT 网关将设备连接到 Azure IoT 中心](./iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 
-
+<!--Update_Description: add some code-->

@@ -39,7 +39,7 @@ ms.lasthandoff: 08/04/2017
 
 [!INCLUDE [delete gateway](../../includes/vpn-gateway-delete-vnet-gateway-portal-include.md)]
 
-此时，虚拟网络网关已删除。 接下来的步骤可帮助删除不再使用的任何资源。
+此时，虚拟网络网关已删除。 后续步骤可帮助删除不再使用的任何资源。
 
 ### <a name="to-delete-the-local-network-gateway"></a>删除本地网络网关
 
