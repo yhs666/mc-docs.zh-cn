@@ -1,5 +1,3 @@
-
-
 # 概述
 ## [计划程序是什么？](scheduler-intro.md)
 
@@ -25,8 +23,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/scheduler)
 
 # 资源
-## [定价](https://www.azure.cn/pricing/details/scheduler/)
-
-
+## [价格](https://www.azure.cn/pricing/details/scheduler/)
+## [服务更新](https://www.azure.cn/what-is-new/)
 
 

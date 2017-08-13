@@ -3,7 +3,7 @@ title: "在 Azure 的 Windows VM 上部署应用程序框架 | Azure"
 description: "使用 Azure Resource Manager 模板在 Windows VM 上创建常用应用程序框架，以便安装 Active Directory、Docker，等等。"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: squillace
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -17,11 +17,11 @@ origin.date: 05/19/2017
 ms.date: 10/25/2016
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fed24fdb7898b804c657ef5c939121dd3df54eb
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 3d6d40ffb63ab8abe99d52935ea1b809d2b3ddff
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="deploy-popular-application-frameworks-on-windows-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 模板在 Windows 上部署常用的应用程序框架 
 

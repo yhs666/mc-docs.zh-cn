@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/26/2017
-ms.date: 07/17/2017
+origin.date: 06/30/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
-ms.openlocfilehash: 707a54b30417e113d301393962a863487fb60284
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 8e2dad5308df42c25c23c9754f87426e0e74065a
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>使用 EventFlow 聚合和收集事件
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="setting-up-eventflow"></a>设置 EventFlow
 
-EventFlow 二进制文件以一组 NuGet 包的形式提供。 若要将 EventFlow 添加到某个 Service Fabric 服务项目，请在解决方案资源管理器中右键单击该项目，然后选择“管理 NuGet 包”。 切换到“浏览”选项卡并搜索“`Diagnostics.EventFlow`”：
+EventFlow 二进制文件以一组 NuGet 包的形式提供。 如果要将 EventFlow 添加到某个 Service Fabric 服务项目，请在解决方案资源管理器中右键单击该项目，并选择“管理 NuGet 包”。 切换到“浏览”选项卡并搜索“`Diagnostics.EventFlow`”：
 
 ![Visual Studio NuGet 包管理器 UI 中的 EventFlow NuGet 包](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
@@ -86,7 +86,7 @@ internal sealed class ServiceEventSource : EventSource
 }
 ```
 
-请注意， `eventFlowConfig.json` 文件是服务配置包的一部分。 对此文件所做的更改可以包含在服务的完整升级或者仅限配置的升级中，将会接受 Service Fabric 升级运行状况检查，如果升级失败，这些更改将会自动回滚。 有关详细信息，请参阅 [Service Fabric 应用程序升级](service-fabric-application-upgrade.md)。
+请注意， `eventFlowConfig.json` 文件是服务配置包的一部分。 对此文件所做的更改可以包含在服务的完整升级或者仅限配置的升级中，会接受 Service Fabric 升级运行状况检查，如果升级失败，这些更改会自动回滚。 有关详细信息，请参阅 [Service Fabric 应用程序升级](service-fabric-application-upgrade.md)。
 
 通过配置的 *filters* 节可进一步自定义将通过 EventFlow 管道到达输出的信息，使你能够删除或包含某些信息，或更改事件数据的结构。 有关筛选的详细信息，请参阅 [EventFlow 筛选器](https://github.com/Azure/diagnostics-eventflow#filters)。
 
@@ -135,7 +135,7 @@ namespace Stateless1
 }
 ```
 
-作为 `ServiceFabricDiagnosticsPipelineFactory` 中 `CreatePipeline` 方法的参数传递的名称是表示 EventFlow 日志收集管道的运行状况实体的名称。 如果 EventFlow 遇到错误并通过 Service Fabric 运行状况子系统报告此错误，将使用此名称。
+作为 `ServiceFabricDiagnosticsPipelineFactory` 中 `CreatePipeline` 方法的参数传递的名称是表示 EventFlow 日志收集管道的运行状况实体的名称。 如果 EventFlow 遇到错误并通过 Service Fabric 运行状况子系统报告此错误，则使用此名称。
 
 ### <a name="using-service-fabric-settings-and-application-parameters-to-in-eventflowconfig"></a>在 eventFlowConfig 中使用 Service Fabric 设置和应用程序参数
 
@@ -156,3 +156,5 @@ servicefabric:/<section-name>/<setting-name>
 * [使用 Application Insights 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [使用 OMS 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-oms.md)
 * [EventFlow 文档](https://github.com/Azure/diagnostics-eventflow)
+
+<!--Update_Description: update meta properties-->

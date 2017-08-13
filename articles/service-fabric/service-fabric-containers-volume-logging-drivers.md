@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/01/2017
-ms.date: 07/17/2017
+origin.date: 6/28/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
-ms.openlocfilehash: f3ff9d9acfd24e0507b57650ca990f5831b1a91b
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: d0f753b7ee45aa1ce45097823aa09627ac862e62
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="specifying-volume-plugins-and-logging-drivers-for-your-container"></a>为容器指定卷插件和日志记录驱动程序
 
@@ -63,3 +63,5 @@ Service Fabric 支持为容器服务指定 [Docker 卷插件](https://docs.docke
 <!-- Not Available [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-deploy-container.md) -->
 
 [将 Docker 容器部署到 Linux 上的 Service Fabric](service-fabric-deploy-container-linux.md)
+
+<!--Update_Description: update meta properties-->

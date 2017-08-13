@@ -41,7 +41,6 @@
 ## [了解应用清单](./active-directory-application-manifest.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
 ## 使用 SAML
 ### [Azure AD 和 SAML](./active-directory-saml-protocol-reference.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
-### [自定义声明](./active-directory-saml-claims-customization.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
 ### [调试基于 SAML 的 SSO](./active-directory-saml-debugging.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
 ## [使用签名密钥滚动更新](./active-directory-signing-key-rollover.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
 

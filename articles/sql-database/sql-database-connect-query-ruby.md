@@ -16,11 +16,11 @@ ms.topic: hero-article
 origin.date: 07/14/2017
 ms.date: 07/31/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 3e69fc83e1f856140664ba537c90296bb2956e76
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 8e898f5824130fa5911b879a1e26d27a3ef262c4
+ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 ---
 # <a name="use-ruby-to-query-an-azure-sql-database"></a>使用 Ruby 查询 Azure SQL 数据库
 
@@ -86,8 +86,8 @@ end
 
 1. 在命令提示符下运行以下命令：
 
-   ```bash
-   ruby sqltest.rb
+```bash
+ruby sqltest.rb
 ```
 
 2. 验证是否已返回前 20 行，然后关闭应用程序窗口。

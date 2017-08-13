@@ -1,10 +1,10 @@
 ---
-title: "Service Fabric 群集安全性：客户端角色 | Microsoft Docs"
+title: "Service Fabric 群集安全性：客户端角色 | Azure"
 description: "本文介绍两个客户端角色以及提供给这些角色的权限。"
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: coreysa
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 7bc808d9-3609-46a1-ac12-b4f53bff98dd
 ms.service: service-fabric
@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: v-johch
-ms.openlocfilehash: 856da2497b15f23da11829571a2eedd32b5ce02f
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+origin.date: 6/28/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
+ms.openlocfilehash: 011fcced8d64f6e6e9995fba2f336b37b13204bb
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>适用于 Service Fabric 客户端的基于角色的访问控制
 Azure Service Fabric 针对连接到 Service Fabric 群集的客户端支持两种不同的访问控制类型：管理员和用户。 访问控制可让群集管理员针对不同的用户组限制特定群集操作的访问权限，使群集更加安全。  
@@ -99,10 +100,11 @@ Azure Service Fabric 针对连接到 Service Fabric 群集的客户端支持两�
 管理员访问控制也有权访问上述操作。
 
 ## <a name="changing-default-settings-for-client-roles"></a>更改客户端角色的默认设置
-在群集清单文件中，你可以根据需要向客户端提供管理功能。 可以更改默认设置，方法是在[创建群集](service-fabric-cluster-creation-via-portal.md)过程中转到“**结构设置**”选项，然后在“**名称**”、“**管理员**”、“**用户**”和“**值**”字段中提供上述设置。
+在群集清单文件中，可以根据需要向客户端提供管理功能。 可以更改默认设置，方法是在[创建群集](service-fabric-cluster-creation-via-portal.md)过程中转到“**结构设置**”选项，并在“**名称**”、“**管理员**”、“**用户**”和“**值**”字段中提供上述设置。
 
 ## <a name="next-steps"></a>后续步骤
 [Service Fabric 群集安全性](service-fabric-cluster-security.md)
 
 [创建 Service Fabric 群集](service-fabric-cluster-creation-via-portal.md)
 
+<!--Update_Description: update meta properties-->

@@ -10,11 +10,11 @@ ms.topic: article
 origin.date: 02/09/2016
 ms.date: 02/06/2017
 ms.author: v-junlch
-ms.openlocfilehash: eff79ebd72b91e249a44b3e686422ae21ea88de7
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 5bc002ff9a7f21e17856e0ec0913ebf164039c46
+ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/11/2017
 ---
 #<a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>如何在 Azure Active Directory 中调试对应用程序进行基于 SAML 的单一登录
 
@@ -31,7 +31,6 @@ ms.lasthandoff: 07/13/2017
 ## <a name="related-articles"></a>相关文章
 
 - [有关 Azure Active Directory 中应用程序管理的文章索引](../active-directory-apps-index.md)
-- [如何为预先集成的应用自定义 SAML 令牌中颁发的声明](./active-directory-saml-claims-customization.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png
