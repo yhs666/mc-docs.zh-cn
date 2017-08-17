@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 06/27/2017
 ms.date: 07/31/2017
 ms.author: v-yeche
-ms.openlocfilehash: fcc4c435f4dd90710198cca0315b2ad8e4414e53
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: 13a058dbda2eae79303479ec6e430350f6bd8187
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="step-2-review-the-prerequisites-for-physical-server-to-azure-replication"></a>步骤 2：查看将物理服务器复制到 Azure 的先决条件
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/28/2017
 **先决条件** | **详细信息**
 --- | ---
 **Azure** | 了解 [Azure 要求](site-recovery-prereq.md#azure-requirements)
-**本地配置服务器** | 需要运行 Windows Server 2012 R2 或更高版本的物理服务器（或 VMware VM）。 将在 Site Recovery 部署过程中设置此服务器。<br/><br/> 默认情况下，进程服务器和主目标服务器也安装在此计算机上。 进行纵向扩展时，可能需要单独的进程服务器。 如果确实需要单独的进程服务器，那么它与配置服务器具有相同的要求。<br/><br/>
+**本地配置服务器** | 需要运行 Windows Server 2012 R2 或更高版本的物理服务器。 将在 Site Recovery 部署过程中设置此服务器。<br/><br/> 默认情况下，进程服务器和主目标服务器也安装在此计算机上。 进行纵向扩展时，可能需要单独的进程服务器。 如果确实需要单独的进程服务器，那么它与配置服务器具有相同的要求。<br/><br/>
 **本地 VM** | 想要复制的计算机应正在运行[受支持的操作系统](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)，并且符合 [Azure 先决条件](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
 **URL** | 配置服务器需要以下 URL 的访问权限：<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> 如果设置了基于 IP 地址的防火墙规则，请确保这些规则允许与 Azure 通信。<br/></br> 允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=41653)和 HTTPS (443) 端口。<br/></br> 允许订阅的 Azure 区域的 IP 地址范围以及中国北部的 IP 地址范围（用于访问控制和标识管理）。<br/><br/> 允许该用于下载 MySQL 的 URL：http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi。
 **移动服务** | 已安装在每个复制的服务器上。

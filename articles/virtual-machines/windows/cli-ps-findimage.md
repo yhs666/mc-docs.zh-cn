@@ -1,9 +1,9 @@
 ---
-title: "导航和选择 Windows VM 映像 | Azure"
-description: "了解在使用 Resource Manager 部署模型创建 Windows 虚拟机时如何确定映像的发布者、产品和 SKU。"
+title: "在 Azure 中选择 Windows VM 映像 | Azure"
+description: "了解如何使用 Azure PowerSHell 来确定发布服务器、产品/服务、SKU 和 Marketplace VM 映像的版本。"
 services: virtual-machines-windows
 documentationcenter: 
-author: squillace
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,44 +13,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 08/23/2016
-ms.date: 04/24/2017
+origin.date: 07/12/2017
+ms.date: 08/14/2017
 ms.author: v-dazen
-ms.openlocfilehash: dd52913c6ca4ac9b0ecf943c4701e7767cf3efb3
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 0066ad978d333a9ec32e9a7dd11400658006ec6a
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="navigate-and-select-windows-virtual-machine-images-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中导航和选择 Windows 虚拟机映像
-本主题介绍如何查找每个可能部署到目标位置的 VM 映像发布者、产品、SKU 和版本。 举例来说，某些常用 Windows VM 映像包括：
+# <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>如何使用 Azure PowerShell 在 Azure Marketplace 中查找 Windows VM 映像
+
+本主题介绍如何使用 Azure PowerShell 在 Azure Marketplace 中查找 VM 映像。 创建 Windows VM 时使用此信息来指定 Marketplace 映像。
+
+确保已安装并配置最新的 [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 ## <a name="table-of-commonly-used-windows-images"></a>常用 Windows 映像表
 | PublisherName | 产品 | SKU |
 |:--- |:--- |:--- |:--- |
-| MicrosoftSQLServer |SQL2016-WS2012R2 |Enterprise |
-| MicrosoftSQLServer |SQL2016-WS2012R2 |Standard |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-with-Containers |
+| MicrosoftWindowsServer |WindowsServer |2016-Nano-Server |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
-| MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
-| MicrosoftWindowsServer |WindowsServer |Windows-Server-Technical-Preview |
-| MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2-ENU |
+| MicrosoftSQLServer |SQL2016-WS2016 |Enterprise |
+| MicrosoftSQLServer |SQL2014SP2-WS2012R2 |Enterprise |
+| MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
 
-## <a name="find-azure-images-with-powershell"></a>使用 PowerShell 查找 Azure 映像
-> [!NOTE]
-> 下载并配置[最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 如果使用低于 1.0 版本的 Azure PowerShell 模块，则仍使用以下命令，但必须先执行 `Switch-AzureMode AzureResourceManager`。 
-> 
-> 
+## <a name="find-specific-images"></a>查找特定映像
 
-使用 Azure Resource Manager 创建新的虚拟机时，在某些情况下，你需要使用以下映像属性组合来指定映像：
+使用 Azure Resource Manager 创建新的虚拟机时，在某些情况下，需要使用以下映像属性组合来指定映像：
 
 * 发布者
 * 产品
 * SKU
 
-例如， `Set-AzureRMVMSourceImage` PowerShell cmdlet 或资源组模板文件需要这些值，必须在此命令或文件中指定要创建的虚拟机类型。
+例如，将这些值用于 [Set-AzureRMVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet 或资源组模板，必须在此资源组模板中指定要创建的 VM 类型。
 
-如果你需要确定这些值，可以浏览映像以确定这些值：
+如果需要确定这些值，可以运行 [Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher)、[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) 和 [Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagesku) cmdlet 来导航映像。 确定这些值：
 
 1. 列出映像发布者。
 2. 对于给定的发布者，列出其产品。
@@ -63,28 +64,33 @@ $locName="<Azure location, such as China North>"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 ```
 
-填写选择的发布者名称，然后运行以下命令：
+填写选择的发布者名称，并运行以下命令：
 
 ```powershell
 $pubName="<publisher>"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
 
-填写选择的产品名称，然后运行以下命令：
+填写选择的产品名称，并运行以下命令：
 
 ```powershell
 $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
-从 `Get-AzureRMVMImageSku` 命令的输出来看，你已获得了为新虚拟机指定映像所需的所有信息。
+从 `Get-AzureRMVMImageSku` 命令的输出，可获得为新虚拟机指定映像所需的所有信息。
 
 下面是一个完整示例：
 
 ```powershell
-PS C:\> $locName="China North"
-PS C:\> Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
+$locName="China North"
+Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
+```
+
+输出：
+
+```
 PublisherName
 -------------
 AsiaInfo.DeepSecurity
@@ -96,39 +102,51 @@ Canonical
 对于“MicrosoftWindowsServer”发布者：
 
 ```powershell
-PS C:\> $pubName="MicrosoftWindowsServer"
-PS C:\> Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+$pubName="MicrosoftWindowsServer"
+Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+```
 
+输出：
+
+```
 Offer
 -----
+Windows-HUB
 WindowsServer
+WindowsServer-HUB
 ```
 
 对于“WindowsServer”产品：
 
 ```powershell
-PS C:\> $offerName="WindowsServer"
-PS C:\> Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+$offerName="WindowsServer"
+Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+```
 
+输出：
+
+```
 Skus
 ----
 2008-R2-SP1
 2008-R2-SP1-zhcn
+2008-R2-SP1-smalldisk
 2012-Datacenter
 2012-Datacenter-zhcn
+2012-Datacenter-smalldisk
 2012-R2-Datacenter
-2012-R2-Datacenter-zhcn
+2012-R2-Datacenter-smalldisk
 2016-Datacenter
 2016-Datacenter-Server-Core
+2016-Datacenter-Server-Core-smalldisk
+2016-Datacenter-smalldisk
 2016-Datacenter-with-Containers
-2016-Datacenter-zhcn
 2016-Nano-Server
-2016-Nano-Server-Technical-Preview
-2016-Technical-Preview-with-Containers
-Windows-Server-Technical-Preview
 ```
 
-从上面的列表中复制选择的 SKU 名称，你已获得 `Set-AzureRMVMSourceImage` PowerShell cmdlet 或资源组模板的所有信息。
+从上面的列表中复制选择的 SKU 名称，已获得 `Set-AzureRMVMSourceImage` PowerShell cmdlet 或资源组模板的所有信息。
 
 ## <a name="next-steps"></a>后续步骤
-现在，你可以确切地选择想要使用的映像。 若要使用刚刚找到的映像信息快速创建虚拟机，或要使用包含该映像信息的模板，请参阅[使用 Resource Manager 和 PowerShell 创建 Windows VM](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+现在，可以确切地选择想要使用的映像。 若要使用刚找到的映像信息快速创建虚拟机，请参阅[使用 PowerShell 创建 Windows 虚拟机](quick-create-powershell.md)。
+
+<!--Update_Description: update output of some powershell commands-->

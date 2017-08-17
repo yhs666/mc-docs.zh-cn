@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 03/02/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: 730a1032963f8c5f50a1b9c082ae3ea87b61deef
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 79c324d5010f57b75cf7adfccf7e4969adb0e5e4
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="increase-the-size-of-a-data-disk-attached-to-a-windows-vm"></a>增加附加到 Windows VM 的数据磁盘的大小
 
@@ -37,12 +37,12 @@ ms.lasthandoff: 06/23/2017
 | [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm)                    | [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm)             |
 <br>
 
-以下脚本将引导你获取 VM 信息、选择数据磁盘和指定新的大小。
+以下脚本引导你获取 VM 信息、选择数据磁盘和指定新的大小。
 
 ```powershell
 # Select resource group
 
-    $rg = Get-AzureRMReseourceGroup | Out-GridView `
+    $rg = Get-AzureRMResourceGroup | Out-GridView `
         -Title "Select the resource group" `
         -PassThru
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 06/23/2017
 
 <br>
 
-以下脚本将引导你获取 VM 和存储帐户信息、选择数据磁盘和指定新的大小。
+以下脚本引导你获取 VM 和存储帐户信息、选择数据磁盘和指定新的大小。
 
 ```powershell
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 06/23/2017
     Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
 
-脚本文件可能包含类似于此代码的内容，以将驱动器分配增加到磁盘的最大大小：
+脚本文件可以包含类似于此代码的内容，将驱动器分配增加到磁盘的最大大小：
 
 ```powershell
 $driveLetter= "F"

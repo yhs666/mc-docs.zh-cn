@@ -11,14 +11,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/15/2017
-ms.date: 02/24/2017
-ms.author: v-johch
-ms.openlocfilehash: d6c178e092c757645d79402f686e71bdd14d107d
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 06/29/2017
+ms.date: 08/14/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 28da6a992d761286a76a5a54d2418720ede3ff11
+ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/09/2017
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>设置 Azure 导入/导出工具
 
@@ -30,23 +30,23 @@ Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱�
 
 ## <a name="prerequisites"></a>先决条件
 
-若要为导出作业 **准备驱动器** ，需要满足以下先决条件：
+若要为导入作业准备驱动器，必须满足以下先决条件：
 
 * 必须拥有一个有效的 Azure 订阅。
 * 该订阅必须包含一个存储帐户，其中有足够的可用空间可存储所要导入的文件。
-* 需要存储帐户的至少一个帐户密钥。
+* 至少必须有一个存储帐户访问密钥。
 * 需要准备一台装有 Windows 7、Windows Server 2008 R2 或更高版本的 Windows 操作系统的计算机（“复制计算机”）。
 * 必须在复制计算机上安装 .NET Framework 4。
 * 必须在复制计算机上启用 BitLocker。
-* 需要一个或多个已连接到复制计算机的空 3.5 英寸 SATA 硬盘驱动器。
+* 需要一个或多个已连接到复制计算机的空 3.5 英寸 SATA 硬盘。
 * 打算导入的文件必须可从复制计算机访问，无论这些文件是位于网络共享还是本地硬盘驱动器上。
 
-若要尝试 **修复** 某个已部分失败的导入，需要：
+若要尝试修复部分失败的导入，需要：
 
 * 复制日志文件
 * 存储帐户密钥
 
-若要尝试修复某个已部分失败的导出，需要：
+若要尝试修复部分失败的导出，需要：
 
 * 复制日志文件
 * 清单文件（可选）
@@ -54,7 +54,7 @@ Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱�
 
 ## <a name="installing-the-azure-importexport-tool"></a>安装 Azure 导入/导出工具
 
-首先，[下载 Azure 导入/导出工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)，并将其提取到计算机上的某个目录，如 `c:\WAImportExport`。
+首先，[下载 Azure 导入/导出工具](https://www.microsoft.com/download/details.aspx?id=55280)，并将其提取到计算机上的某个目录，如 `c:\WAImportExport`。
 
 Azure 导入/导出工具由以下文件组成：
 
@@ -63,44 +63,36 @@ Azure 导入/导出工具由以下文件组成：
 * hddid.dll
 * Microsoft.Data.Services.Client.dll
 * Microsoft.WindowsAzure.Storage.dll
+* Microsoft.WindowsAzure.Storage.pdb
+* Microsoft.WindowsAzure.Storage.xml
 * WAImportExport.exe
 * WAImportExport.exe.config
+* WAImportExport.pdb
 * WAImportExportCore.dll
+* WAImportExportCore.pdb
 * WAImportExportRepair.dll
+* WAImportExportRepair.pdb
 
-接下来，以 **管理员模式**打开命令提示窗口，并将目录切换到包含解压缩文件的目录。
+接下来，以**管理员模式**打开命令提示窗口，并将目录切换到包含解压缩文件的目录。
 
-若要输出命令帮助，请不带参数运行该工具：
+若要输出命令帮助，请不带参数运行此工具 (`WAImportExport.exe`)：
 
 ```
 WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013
 
 Copy directories and/or files with a new copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId> [/logdir:<LogDirectory>]
-        [/sk:<StorageAccountKey>]
-        [/silentmode]
-        [/InitialDriveSet:<driveset.csv>]
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>]
+        [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>]
         DataSet:<dataset.csv>
 
 Add more drives:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /AdditionalDriveSet:<driveset.csv>
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
 
 Abort an interrupted copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /AbortSession
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 
 Resume an interrupted copy session:
-    WAImportExport.exe PrepImport
-        /j:<JournalFile>
-        /id:<SessionId>
-        /ResumeSession
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /ResumeSession
 
 List drives:
     WAImportExport.exe PrepImport /j:<JournalFile> /ListDrives
@@ -221,3 +213,5 @@ Examples:
 * [修复导入作业](./storage-import-export-tool-repairing-an-import-job-v1.md)
 * [修复导出作业](./storage-import-export-tool-repairing-an-export-job-v1.md)
 * [排查 Azure 导入/导出工具问题](./storage-import-export-tool-troubleshooting-v1.md)
+
+<!--Update_Description: update code & word-->

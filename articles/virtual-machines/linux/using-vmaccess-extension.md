@@ -3,7 +3,7 @@ title: "配合使用 VMAccess 扩展和 Azure CLI 2.0 来重置访问权限 | Az
 description: "如何使用 VMAccess 扩展和 Azure CLI 2.0 在 Linux VM 上管理用户和重置访问权限"
 services: virtual-machines-linux
 documentationcenter: 
-author: vlivech
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -16,14 +16,14 @@ ms.topic: article
 origin.date: 02/16/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 4487c6b40b40895be748e78d2e07c796324fc836
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 50dace73c59456d611011eb66dc0ab45766669f1
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>配合使用 VMAccess 扩展和 Azure CLI 2.0 管理用户、SSH，并检查或修复 Linux VM 上的磁盘
-Linux VM 上的磁盘显示错误。 不知道怎样重置 Linux VM 的根密码，或者不小心删除了 SSH 私钥。 如果在数据中心时代发生这种情况，则需要开车到那里，然后打开 KVM 访问服务器控制台。 请将 Azure VMAccess 扩展想像成该 KVM 交换机，它允许你访问控制台以重置 Linux 访问或执行磁盘级维护。
+Linux VM 上的磁盘显示错误。 不知道怎样重置 Linux VM 的根密码，或者不小心删除了 SSH 私钥。 如果在数据中心时代发生这种情况，则需要开车到那里，并打开 KVM 访问服务器控制台。 请将 Azure VMAccess 扩展想像成该 KVM 交换机，它允许访问控制台以重置 Linux 访问或执行磁盘级维护。
 
 本文说明如何使用 Azure VMAcesss 扩展检查或修复磁盘、重置用户访问权限、管理用户帐户，或重置 Linux 上的 SSHD 配置。 也可以使用 [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
@@ -138,7 +138,7 @@ az vm extension set \
 ```
 
 ### <a name="reset-ssh"></a>重置 SSH
-如果你更改了 Linux VM SSHD 配置，并在验证更改之前关闭了 SSH 连接，则可能无法恢复 SSH 操作。  使用 VMAccess 可将 SSHD 配置重置回已知正常的配置，而无需通过 SSH 登录。
+如果更改了 Linux VM SSHD 配置，并在验证更改之前关闭了 SSH 连接，则可能无法恢复 SSH 操作。  可以使用 VMAccess 将 SSHD 配置重置回已知正常的配置，而无需通过 SSH 登录。
 
 若要重置 SSHD 配置，请创建名为 `reset_sshd.json` 的文件并添加以下内容：
 

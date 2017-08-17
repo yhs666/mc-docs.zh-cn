@@ -1,12 +1,11 @@
-## 应用程序
-<a id="applications" class="xliff"></a>
+## <a name="applications"></a>应用程序
 下表列出了一些最常用的应用程序框架模板。 选择一个要查看其详细信息的模板，可以在 GitHub 中查看该模板，还可以直接通过 Azure 门户进行部署。
 
 | 应用程序 | 了解详细信息 | 查看模板 | 立即部署 |
 |:--- |:---:|:---:|:---:|
 | Active Directory |[库](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc) |<a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Apache |[库](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm) |<a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapache2-on-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
-| Couchbase |[库](https://azure.microsoft.com/resources/templates/couchbase/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase) |<a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcouchbase%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Couchbase |[库](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase) |<a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcouchbase%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | DataStax |[库](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/couchbase/azuredeploy.json) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax) |<a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdatastax%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Django |[库](https://github.com/Azure/azure-quickstart-templates/tree/master/django-app/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/django-app) |<a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdjango-app%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Elasticsearch |[库](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) |<a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Felasticsearch%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
@@ -26,9 +25,8 @@
 
 除了这些模板，也可以在[库模板](https://github.com/Azure/azure-quickstart-templates/)中搜索模板。
 
-## Azure CLI 2.0
-<a id="azure-cli-20" class="xliff"></a>
-这些步骤需要 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行升级，请参阅[安装 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+## <a name="azure-cli-20"></a>Azure CLI 2.0
+这些步骤需要 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 首先，使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组。 然后使用 [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create) 从模板创建部署。 在 `--parameters` 中使用 `--template-uri` 参数以及任何必需的模板参数提供模板的完整 URI，如下所示：
 
@@ -41,8 +39,7 @@ az group deployment create --resource-group myResourceGroup \
 
 根据具体模板，Azure 可能需花费一些时间部署资源。
 
-## Azure PowerShell
-<a id="azure-powershell" class="xliff"></a>
+## <a name="azure-powershell"></a>Azure PowerShell
 这些步骤需要 Azure PowerShell 模块 3.6 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 首先，使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建资源组。 然后使用 [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) 从模板创建部署。 使用 `-TemplateURI` 参数提供模板的完整 URI，如下所示：
@@ -55,8 +52,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" `
 
 运行 [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) 命令时，系统可能会提示输入模板中参数的值。 根据具体模板，Azure 可能需花费一些时间部署资源。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 发现 [GitHub](https://github.com/Azure/azure-quickstart-templates) 上可自由应用的所有模板。
 
 了解有关 [Azure Resource Manager](../articles/resource-group-template-deploy.md) 的详细信息。

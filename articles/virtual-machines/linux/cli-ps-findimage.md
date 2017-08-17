@@ -1,9 +1,9 @@
 ---
 title: "使用 Azure CLI 选择 Linux VM 映像 | Azure"
-description: "了解在使用 Resource Manager 部署模型创建 Linux 虚拟机时如何确定映像的确定发布者、产品和 SKU。"
+description: "了解如何使用 Azure CLI 确定发布服务器、产品/服务、SKU 和 Marketplace VM 映像的版本。"
 services: virtual-machines-linux
 documentationcenter: 
-author: squillace
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,212 +13,235 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 02/15/2017
-ms.date: 04/24/2017
+origin.date: 07/11/2017
+ms.date: 08/14/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 42301c38628a195ba17b158107224062a3c97a9d
-ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.openlocfilehash: 1284f6954c81847239992f6be0c83d3e35570ac8
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/07/2017
 ---
-# 如何使用 Azure CLI 查找 Linux VM 映像
-<a id="how-to-find-linux-vm-images-with-the-azure-cli" class="xliff"></a>
-本主题介绍如何查找每个部署目标位置的发布者、产品、SKU 和版本。 
+# <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Marketplace 中查找 Linux VM 映像
+
+本主题介绍如何使用 Azure CLI 2.0 在 Azure Marketplace 中查找 VM 映像。 创建 Linux VM 时使用此信息来指定 Marketplace 映像。
+
+确保已安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 并已登录到 Azure 帐户 (`az login`)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-## 使用 Azure CLI 2.0
-<a id="use-azure-cli-20" class="xliff"></a>
+## <a name="list-popular-images"></a>列出常用映像
 
-[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 后，可使用 `az vm image list` 命令查看常用 VM 映像的缓存列表。 例如，下面的命令`az vm image list -o table` 示例显示：
+运行 [az vm image list](https://docs.microsoft.com/cli/azure/vm/image#list) 命令，无需选择 `--all` 选项即可在 Azure Marketplace 中查看常用 VM 映像的列表。 例如，运行以下命令以表格形式显示缓存的常用映像列表：
+
+```azurecli
+az vm image list --output table
+```
+
+输出包括 URN（*Urn* 列中的值），其形式为 *Publisher*:*Offer*:*Sku*:*Version*。 在使用 `az vm create` 创建 VM 时使用此值来指定映像。 使用某个常用 VM 映像创建 VM 时，可选择指定 URN 别名，如 *UbuntuLTS*。
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
-WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
-WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
-WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
-UbuntuServer   Canonical               14.04.4-LTS         Canonical:UbuntuServer:14.04.4-LTS:latest                       UbuntuLTS            latest
-CentOS         OpenLogic               7.2                 OpenLogic:CentOS:7.2:latest                                     CentOS               latest
-openSUSE       SUSE                    13.2                SUSE:openSUSE:13.2:latest                                       openSUSE             latest
-SLES           SUSE                    12-SP1              SUSE:SLES:12-SP1:latest                                         SLES                 latest
-Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
+Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
+SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
+UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
+WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
+WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
+WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
+WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
 ```
 
-### 查找所有当前映像
-<a id="finding-all-current-images" class="xliff"></a>
+## <a name="list-all-current-images"></a>列出所有当前映像
 
-若要获取包含所有映像的最新列表，请使用 `az vm image list` 命令和 `--all` 选项。 与 Azure CLI 1.0 命令不同，`az vm image list --all` 命令在默认情况下返回 **chinanorth** 中的所有映像（除非指定特定 `--location` 参数），因此 `--all` 命令需要一些时间才能完成。 若要以交互方式进行调查，请使用 `az vm image list --all > allImages.json`，这样会返回当前在 Azure 上可用的所有映像的列表，并将其存储为一个文件，供本地使用。 
-
-可以在多个选项中指定一个，将搜索限制于特定的位置、产品/服务、发布者或 SKU，前提是你在心目中已经有一个或多个此类范围。 如果未指定位置，则会返回 **chinanorth** 的值。
-
-### 查找特定映像
-<a id="find-specific-images" class="xliff"></a>
-
-将 `az vm image list` 与筛选器一起使用可查找特定信息。 例如，下面显示可用于 **Debian** 的**产品/服务**（请记住，不使用 `--all` 开关时，只搜索公共映像的本地缓存）：
+若要获取 Marketplace 中所有 VM 映像的当前列表，请使用具有 `--all` 选项的 `az vm image list` 命令。 此版本的命令需要一些时间才能完成：
 
 ```azurecli
-az vm image list --offer Debian -o table --all
+az vm image list --all
 ```
 
-输出类似下面这样： 
+如果没有使用 `--location` 选项指定一个特定位置，则会默认返回 `chinanorth` 的值。 （通过运行 `az configure --defaults location=<location>` 设置不同默认位置。）
 
-```
-Offer   Publisher   Sku   Urn                              Version
-------  ---------   ---   -------------------------------  -------------
-Debian  credativ    8     credativ:Debian:8:8.0.201701180  8.0.201701180
-
-<list shortened for the example>
-```
-
-可以对 **--publisher** 和 **--sku** 选项执行类似筛选。 甚至可以对筛选器执行部分匹配，如搜索 **--offer Deb** 以查找所有 Debian 映像，或搜索 **--publisher Micr** 以查找 Microsoft 发布的所有映像。
-
-如果知道部署位置，则可以将常规映像搜索结果与 `az vm image list-skus`、`az vm image list-offers` 和 `az vm image list-publishers` 命令一起使用，以查找所需的精确内容以及可以进行部署的位置。 例如，如果从前面的示例知道 `credativ` 具有 Debian 产品/服务，则可以使用 `--location` 和其他选项查找所需的精确内容。 以下示例在 **chinanorth**中查找一个 Debian 8 映像：
-
-```azurecli 
-az vm image show -l chinanorth -f debian -p credativ --sku 8 --version 8.0.201701180
-```
-
-输出为：
-
-```json
-{
-  "dataDiskImages": [],
-  "id": "/Subscriptions/<guid>/Providers/Microsoft.Compute/Locations/chinanorth/Publishers/credativ/ArtifactTypes/VMImage/Offers/debian/Skus/8/Versions/8.0.201701180",
-  "location": "chinanorth",
-  "name": "8.0.201701180",
-  "osDiskImage": {
-    "operatingSystem": "Linux"
-  },
-  "plan": null,
-  "tags": null
-}
-```
-
-## 使用 Azure CLI 1.0
-<a id="use-azure-cli-10" class="xliff"></a> 
-
-> [!NOTE]
-> 本文介绍如何使用支持 Azure Resource Manager 部署模型的 Azure CLI 1.0 或 Azure PowerShell 安装来导航和选择虚拟机映像。 作为先决条件，更改为 Resource Manager 模式。 使用 Azure CLI 时，键入 `azure config mode arm` 即可进入该模式。 
-> 
-
-查找映像的最快速方式是调用 `azure vm image list` 命令，并传递位置、发布者名称（不区分大小写！）和产品/服务（如果知道）。 例如，如果你知道“Canonical”是“UbuntuServer”产品的发布者，则以下列表只是简短的示例（许多列表相当长）。
+如果想要以交互方式进行调查，请将输出定向到本地文件。 例如：
 
 ```azurecli
-azure vm image list chinanorth canonical ubuntuserver
-info:    Executing command vm image list
-warn:    The parameter --sku if specified will be ignored
-+ Getting virtual machine image skus (Publisher:"canonical" Offer:"ubuntuserver" Location:"chinanorth")
-data:    Publisher  Offer         Sku                OS     Version          Location  Urn
-data:    ---------  ------------  -----------------  -----  ---------------  --------  --------------------------------------------------------
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201604203  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201604203
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201605161  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201605161
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201606100  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201606100
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201606270  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201606270
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201607210  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201607210
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201608150  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201608150
-data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607220  chinanorth    canonical:ubuntuserver:16.10-DAILY:16.10.201607220
-data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607230  chinanorth    canonical:ubuntuserver:16.10-DAILY:16.10.201607230
-data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607240  chinanorth    canonical:ubuntuserver:16.10-DAILY:16.10.201607240
+az vm image list --all > allImages.json
 ```
 
-**Urn** 列是传递给 `azure vm quick-create` 的表单。
+## <a name="find-specific-images"></a>查找特定映像
 
-不过，你通常还不知道什么可用。 在本示例中，可以使用 `azure vm image list-publishers` 命令并在提示符处指定数据中心位置，以便导航映像。 例如，以下列表是中国北部位置的所有映像发布者（将位置设为小写并删除标准位置中的空格，以传递位置参数）。
+结合使用 `az vm image list` 和其他选项，将搜索范围限制到特定位置、产品/服务、发布者或 SKU。 例如，以下命令显示所有 Debian 产品/服务（请记住，不使用 `--all` 开关时，只搜索常见映像的本地缓存）：
 
 ```azurecli
-azure vm image list-publishers
-info:    Executing command vm image list-publishers
-Location: chinanorth
-+ Getting virtual machine and/or extension image publishers (Location: "chinanorth")
-data:    Publisher                                   Location
-data:    ------------------------------------------  ----------
-data:    AsiaInfo.DeepSecurity                       chinanorth
-data:    AzureChinaMarketplace                       chinanorth
-data:    Canonical                                   chinanorth
-data:    CoreOS                                      chinanorth
-data:    credativ                                    chinanorth
+az vm image list --offer Debian --all --output table 
 ```
 
-这些列表可能相当长，因此上面的示例列表只是一个代码片段。 假设我注意到 Canonical 事实上是中国北部位置的映像发布者。 现在可以调用 `azure vm image list-offers` 来查找其发布的产品，并在提示文字后面输入位置和发布者，如以下示例所示：
+输出可能为很长的列表，因此会在此处截断： 
+
+```
+Offer    Publisher    Sku                Urn                                              Version
+-------  -----------  -----------------  -----------------------------------------------  --------------
+Debian   credativ     7                  credativ:Debian:7:7.0.201602010                  7.0.201602010
+Debian   credativ     7                  credativ:Debian:7:7.0.201603020                  7.0.201603020
+Debian   credativ     7                  credativ:Debian:7:7.0.201604050                  7.0.201604050
+Debian   credativ     7                  credativ:Debian:7:7.0.201604200                  7.0.201604200
+Debian   credativ     7                  credativ:Debian:7:7.0.201606280                  7.0.201606280
+Debian   credativ     7                  credativ:Debian:7:7.0.201609120                  7.0.201609120
+Debian   credativ     7                  credativ:Debian:7:7.0.201611020                  7.0.201611020
+...
+```
+
+通过 `--location`、`--publisher` 和 `--sku` 选项应用类似的筛选器。 甚至可以在筛选器上执行部分匹配，如搜索 `--offer Deb` 以查找所有 Debian 映像。
+
+例如，以下命令列出了 `chinanorth` 中的所有 Debian 8 SKU：
 
 ```azurecli
-azure vm image list-offers
-info:    Executing command vm image list-offers
-Location: chinanorth
-Publisher: canonical
-+ Getting virtual machine image offers (Publisher: "canonical" Location:"chinanorth")
-data:    Publisher  Offer         Location
-data:    ---------  ------------  ----------
-data:    canonical  UbuntuServer  chinanorth
-info:    vm image list-offers command OK
+az vm image list --location chinanorth --offer Deb --publisher credativ --sku 8 --all --output table
 ```
 
-现在，我们知道在中国北部区域中，Canonical 在 Azure 上发布 **UbuntuServer** 产品。 但是，有哪些 SKU 呢？ 若要获取这些值，请调用 `azure vm image list-skus` ，并在提示文字后面输入已找到的位置、发布者和产品/服务信息。
+输出：
+
+```
+Offer    Publisher    Sku                Urn                                              Version
+-------  -----------  -----------------  -----------------------------------------------  -------------
+Debian   credativ     8                  credativ:Debian:8:8.0.201602010                  8.0.201602010
+Debian   credativ     8                  credativ:Debian:8:8.0.201603020                  8.0.201603020
+Debian   credativ     8                  credativ:Debian:8:8.0.201604050                  8.0.201604050
+Debian   credativ     8                  credativ:Debian:8:8.0.201604200                  8.0.201604200
+Debian   credativ     8                  credativ:Debian:8:8.0.201606280                  8.0.201606280
+Debian   credativ     8                  credativ:Debian:8:8.0.201609120                  8.0.201609120
+Debian   credativ     8                  credativ:Debian:8:8.0.201611020                  8.0.201611020
+Debian   credativ     8                  credativ:Debian:8:8.0.201701180                  8.0.201701180
+Debian   credativ     8                  credativ:Debian:8:8.0.201703150                  8.0.201703150
+Debian   credativ     8                  credativ:Debian:8:8.0.201704110                  8.0.201704110
+Debian   credativ     8                  credativ:Debian:8:8.0.201704180                  8.0.201704180
+Debian   credativ     8                  credativ:Debian:8:8.0.201706190                  8.0.201706190
+Debian   credativ     8                  credativ:Debian:8:8.0.201706210                  8.0.201706210
+...
+```
+
+## <a name="navigate-the-images"></a>浏览映像 
+在某个位置查找映像的另一种方法是，运行序列中的 [az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image#list-publishers)、[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image#list-offers) 和 [az vm image list-skus](https://docs.microsoft.com/cli/azure/vm/image#list-skus) 命令。 可以使用这些命令确定以下值：
+
+1. 列出映像发布者。
+2. 对于给定的发布者，列出其产品。
+3. 对于给定的产品，列出其 SKU。
+
+例如，以下命令列出了中国北部位置的映像发布者：
 
 ```azurecli
-azure vm image list-skus
-info:    Executing command vm image list-skus
-Location: chinanorth
-Publisher: canonical
-Offer: ubuntuserver
-+ Getting virtual machine image skus (Publisher:"canonical" Offer:"ubuntuserver" Location:"chinanorth")
-data:    Publisher  Offer         sku                Location
-data:    ---------  ------------  -----------------  --------
-data:    canonical  ubuntuserver  12.04.2-LTS        chinanorth
-data:    canonical  ubuntuserver  12.04.3-LTS        chinanorth
-data:    canonical  ubuntuserver  12.04.4-LTS        chinanorth
-data:    canonical  ubuntuserver  12.04.5-DAILY-LTS  chinanorth
-data:    canonical  ubuntuserver  12.04.5-LTS        chinanorth
-data:    canonical  ubuntuserver  12.10              chinanorth
-data:    canonical  ubuntuserver  14.04-beta         chinanorth
-data:    canonical  ubuntuserver  14.04.0-LTS        chinanorth
-data:    canonical  ubuntuserver  14.04.1-LTS        chinanorth
-data:    canonical  ubuntuserver  14.04.2-LTS        chinanorth
-data:    canonical  ubuntuserver  14.04.3-LTS        chinanorth
-data:    canonical  ubuntuserver  14.04.4-DAILY-LTS  chinanorth
-data:    canonical  ubuntuserver  14.04.4-LTS        chinanorth
-data:    canonical  ubuntuserver  14.04.5-DAILY-LTS  chinanorth
-data:    canonical  ubuntuserver  14.04.5-LTS        chinanorth
-data:    canonical  ubuntuserver  14.10              chinanorth
-data:    canonical  ubuntuserver  14.10-beta         chinanorth
-data:    canonical  ubuntuserver  14.10-DAILY        chinanorth
-data:    canonical  ubuntuserver  15.04              chinanorth
-data:    canonical  ubuntuserver  15.04-beta         chinanorth
-data:    canonical  ubuntuserver  15.04-DAILY        chinanorth
-data:    canonical  ubuntuserver  15.10              chinanorth
-data:    canonical  ubuntuserver  15.10-alpha        chinanorth
-data:    canonical  ubuntuserver  15.10-beta         chinanorth
-data:    canonical  ubuntuserver  15.10-DAILY        chinanorth
-data:    canonical  ubuntuserver  16.04-alpha        chinanorth
-data:    canonical  ubuntuserver  16.04-beta         chinanorth
-data:    canonical  ubuntuserver  16.04.0-DAILY-LTS  chinanorth
-data:    canonical  ubuntuserver  16.04.0-LTS        chinanorth
-data:    canonical  ubuntuserver  16.10-DAILY        chinanorth
-info:    vm image list-skus command OK
+az vm image list-publishers --location chinanorth --output table
 ```
 
-利用这些信息，现在可以通过在顶部调用原始调用，准确地找到你需要的映像。
+输出：
+
+```
+Location    Name
+----------  ----------------------------------------------------
+chinanorth      4psa
+chinanorth      7isolutions
+chinanorth      a10networks
+chinanorth      abiquo
+chinanorth      accellion
+chinanorth      Acronis
+chinanorth      Acronis.Backup
+chinanorth      actian_matrix
+chinanorth      actifio
+chinanorth      activeeon
+chinanorth      adatao
+...
+```
+这些列表可能很长，因此此示例输出只是一个代码片段。 使用此信息可以从特定发布者找到产品/服务。 例如，如果 Canonical 是中国北部位置的映像发布者，可通过运行 `azure vm image list-offers` 查找其产品/服务。 传递位置和发布者，如以下示例中所示：
 
 ```azurecli
-azure vm image list chinanorth canonical ubuntuserver 16.04.0-LTS
-info:    Executing command vm image list
-+ Getting virtual machine images (Publisher:"canonical" Offer:"ubuntuserver" Sku: "16.04.0-LTS" Location:"chinanorth")
-data:    Publisher  Offer         Sku          OS     Version          Location  Urn
-data:    ---------  ------------  -----------  -----  ---------------  --------  --------------------------------------------------
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201604203  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201604203
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201605161  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201605161
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201606100  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201606100
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201606270  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201606270
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201607210  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201607210
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201608150  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201608150
-info:    vm image list command OK
+az vm image list-offers --location chinanorth --publisher Canonical --output table
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
-现在，你可以确切地选择想要使用的映像。 若要使用刚刚找到的 URN 信息快速创建虚拟机，或要使用包含该 URN 信息的模板，请参阅[使用 Azure CLI 创建 Linux VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+输出：
+
+```
+Location    Name
+----------  -------------------------
+chinanorth      Ubuntu15.04Snappy
+chinanorth      Ubuntu15.04SnappyDocker
+chinanorth      UbunturollingSnappy
+chinanorth      UbuntuServer
+chinanorth      Ubuntu_Core
+chinanorth      Ubuntu_Snappy_Core
+chinanorth      Ubuntu_Snappy_Core_Docker
+```
+可以看到，在中国北部区域，Canonical 在 Azure 上发布了 **UbuntuServer** 产品。 但是，有哪些 SKU 呢？ 要获取这些值，请运行 `azure vm image list-skus`，并对找到的位置、发布者和产品/服务进行设置：
+
+```azurecli
+az vm image list-skus --location chinanorth --publisher Canonical --offer UbuntuServer --output table
+```
+
+输出：
+
+```
+Location    Name
+----------  -----------------
+chinanorth      12.04.3-LTS
+chinanorth      12.04.4-LTS
+chinanorth      12.04.5-DAILY-LTS
+chinanorth      12.04.5-LTS
+chinanorth      12.10
+chinanorth      14.04.0-LTS
+chinanorth      14.04.1-LTS
+chinanorth      14.04.2-LTS
+chinanorth      14.04.3-LTS
+chinanorth      14.04.4-LTS
+chinanorth      14.04.5-DAILY-LTS
+chinanorth      14.04.5-LTS
+chinanorth      16.04-beta
+chinanorth      16.04-DAILY-LTS
+chinanorth      16.04-LTS
+chinanorth      16.04.0-LTS
+chinanorth      16.10
+chinanorth      16.10-DAILY
+chinanorth      17.04
+chinanorth      17.04-DAILY
+chinanorth      17.10-DAILY
+```
+
+最后，使用 `az vm image list` 命令查找所需的特定版本的 SKU，例如，**14.04-LTS**：
+
+```azurecli
+az vm image list --location chinanorth --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
+```
+
+输出：
+
+```
+Offer         Publisher    Sku        Urn                                               Version
+------------  -----------  ---------  ------------------------------------------------  ---------------
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201611220  16.04.201611220
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201611300  16.04.201611300
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612050  16.04.201612050
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612140  16.04.201612140
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612210  16.04.201612210
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201701130  16.04.201701130
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702020  16.04.201702020
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702200  16.04.201702200
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702210  16.04.201702210
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702240  16.04.201702240
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703020  16.04.201703020
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703030  16.04.201703030
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703070  16.04.201703070
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703270  16.04.201703270
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703280  16.04.201703280
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703300  16.04.201703300
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705080  16.04.201705080
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705160  16.04.201705160
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706100  16.04.201706100
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706191  16.04.201706191
+```
+## <a name="next-steps"></a>后续步骤
+现在，可通过记下 URN 值准确地选择想要使用的映像。 指定映像时，可将 URN 中的版本号替换为“最新”（可选）。 此版本始终是分发的最新版本。 若要使用刚刚找到的 URN 信息快速创建虚拟机，请参阅[使用 Azure CLI 创建 Linux VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+
+<!--Update_Description: update from Azure CLI 1.0 to 2.0-->

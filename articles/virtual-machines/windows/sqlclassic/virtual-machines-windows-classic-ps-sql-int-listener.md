@@ -16,45 +16,40 @@ ms.workload: iaas-sql-server
 origin.date: 05/02/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
-ms.openlocfilehash: 569c44c9be0810c2b32f757ea5b99ae5795aa357
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: f56632f84777b6006b912bd131b03481c797a4d0
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/07/2017
 ---
-# 在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听程序
-<a id="configure-an-ilb-listener-for-always-on-availability-groups-in-azure" class="xliff"></a>
+# <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听程序
 > [!div class="op_single_selector"]
 > * [内部侦听程序](../classic/ps-sql-int-listener.md)
 > * [外部侦听程序](../classic/ps-sql-ext-listener.md)
-> 
-> 
+>
+>
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Azure Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍经典部署模型的用法。 我们建议在大多数新部署中使用 Resource Manager 模型。
 
 若要在 Resource Manager 模型中配置 AlwaysOn 可用性组的侦听程序，请参阅[在 Azure 中配置 AlwaysOn 可用性组的负载均衡器](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)。
 
 可用性组可以仅包含本地副本或 Azure 副本，也可以跨越本地和 Azure 以实现混合配置。 Azure 副本可以位于同一区域，也可以跨越使用多个虚拟网络的多个区域。 本文中的过程假设已[配置可用性组](../classic/portal-sql-alwayson-availability-groups.md)，但未配置侦听程序。
 
-## 内部侦听器的准则和限制
-<a id="guidelines-and-limitations-for-internal-listeners" class="xliff"></a>
+## <a name="guidelines-and-limitations-for-internal-listeners"></a>内部侦听器的准则和限制
 在 Azure 中使用内部负载均衡器 (ILB) 的可用性组侦听程序遵循以下准则：
 
 * Windows Server 2008 R2、Windows Server 2012 和 Windows Server 2012 R2 支持可用性组侦听器。
 * 每个云服务只支持一个内部可用性组侦听程序，因为该侦听程序将配置给 ILB，而每个云服务只有一个 ILB。 但是，可以创建多个外部侦听器。 有关详细信息，请参阅[在 Azure 中配置 AlwaysOn 可用性组的外部侦听程序](../classic/ps-sql-ext-listener.md)。
 
-## 确定侦听器的可访问性
-<a id="determine-the-accessibility-of-the-listener" class="xliff"></a>
+## <a name="determine-the-accessibility-of-the-listener"></a>确定侦听器的可访问性
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
 本文重点介绍如何创建使用 ILB 的侦听程序。 如果需要公共或外部侦听程序，请参阅本文中的版本，其中介绍了如何设置[外部侦听程序](../classic/ps-sql-ext-listener.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
-## 创建支持直接服务器返回的负载均衡 VM 终结点
-<a id="create-load-balanced-vm-endpoints-with-direct-server-return" class="xliff"></a>
+## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>创建支持直接服务器返回的负载均衡 VM 终结点
 首先通过运行本部分稍后所示的脚本创建 ILB。
 
 为每个托管 Azure 副本的 VM 创建一个负载均衡的终结点。 如果在多个区域中拥有副本，该区域的每个副本必须位于同一个 Azure 虚拟网络的同一个云服务中。 跨越多个 Azure 区域创建可用性组副本需要配置多个虚拟网络。 有关配置虚拟网络连接的详细信息，请参阅[配置虚拟网络到虚拟网络连接](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)。
@@ -90,9 +85,9 @@ ms.lasthandoff: 06/30/2017
 
 12. 将以下 PowerShell 脚本复制到文本编辑器，并根据环境设置变量值。 已经为某些参数提供了默认值。  
 
-    使用地缘组的现有部署不能添加 ILB。 有关 ILB 要求的详细信息，请参阅[内部负载均衡器概述](../../../load-balancer/load-balancer-internal-overview.md)。 
+    使用地缘组的现有部署不能添加 ILB。 有关 ILB 要求的详细信息，请参阅[内部负载均衡器概述](../../../load-balancer/load-balancer-internal-overview.md)。
 
-    此外，如果可用性组跨 Azure 区域，则你必须在每个数据中心内对其中的云服务和节点运行该脚本一次。
+    此外，如果可用性组跨 Azure 区域，则必须在每个数据中心内对其中的云服务和节点运行该脚本一次。
 
         # Define variables
         $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
@@ -112,30 +107,20 @@ ms.lasthandoff: 06/30/2017
 
 13. 设置变量后，将脚本从文本编辑器复制到 PowerShell 会话并运行。 如果提示符仍然显示 >>，请再次按 Enter，以确保脚本开始运行。
 
-> [!NOTE]
-> 由于 Azure 经典管理门户目前不支持 ILB，因此不会显示 ILB 或终结点。 但是，如果负载均衡器在经典管理门户中运行，`Get-AzureEndpoint` 将返回内部 IP 地址。 否则，将返回 null。
-> 
-> 
-
-## 如果需要，请验证是否已安装 KB2854082
-<a id="verify-that-kb2854082-is-installed-if-necessary" class="xliff"></a>
+## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>如果需要，请验证是否已安装 KB2854082
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
 
-## 在可用性组节点中打开防火墙端口
-<a id="open-the-firewall-ports-in-availability-group-nodes" class="xliff"></a>
+## <a name="open-the-firewall-ports-in-availability-group-nodes"></a>在可用性组节点中打开防火墙端口
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-open-firewall.md)]
 
-## 创建可用性组侦听器
-<a id="create-the-availability-group-listener" class="xliff"></a>
+## <a name="create-the-availability-group-listener"></a>创建可用性组侦听器
 
 通过两个步骤创建可用性组侦听器。 首先，创建客户端接入点的群集资源，并配置依赖关系。 其次，在 PowerShell 中配置群集资源。
 
-### 创建客户端接入点并配置群集依赖关系
-<a id="create-the-client-access-point-and-configure-the-cluster-dependencies" class="xliff"></a>
+### <a name="create-the-client-access-point-and-configure-the-cluster-dependencies"></a>创建客户端接入点并配置群集依赖关系
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-create-listener.md)]
 
-### 在 PowerShell 中配置群集资源
-<a id="configure-the-cluster-resources-in-powershell" class="xliff"></a>
+### <a name="configure-the-cluster-resources-in-powershell"></a>在 PowerShell 中配置群集资源
 1. 对于 ILB，必须使用前面创建的 ILB 的 IP 地址。 在 PowerShell 中使用以下脚本获取此 IP 地址：
 
         # Define variables
@@ -169,20 +154,16 @@ ms.lasthandoff: 06/30/2017
 3. 设置变量之后，打开提升的 Windows PowerShell 窗口，然后将文本编辑器中的脚本粘贴到 PowerShell 会话并运行。 如果提示符仍然显示 >>，请再次按 Enter，确保脚本开始运行。
 
 4. 针对每个 VM 重复上述步骤。  
-    此脚本将使用云服务的 IP 地址来配置 IP 地址资源，同时设置探测端口等其他参数。 在 IP 地址资源联机后，它可以响应我们前面创建的负载均衡终结点在探测端口上的轮询。
+    此脚本使用云服务的 IP 地址配置 IP 地址资源，同时设置探测端口等其他参数。 在 IP 地址资源联机后，它可以响应我们前面创建的负载均衡终结点在探测端口上的轮询。
 
-## 使侦听器联机
-<a id="bring-the-listener-online" class="xliff"></a>
+## <a name="bring-the-listener-online"></a>使侦听器联机
 [!INCLUDE [Bring-Listener-Online](../../../../includes/virtual-machines-ag-listener-bring-online.md)]
 
-## 后续操作项
-<a id="follow-up-items" class="xliff"></a>
+## <a name="follow-up-items"></a>后续操作项
 [!INCLUDE [Follow-up](../../../../includes/virtual-machines-ag-listener-follow-up.md)]
 
-## 测试可用性组侦听程序（在同一虚拟网络中）
-<a id="test-the-availability-group-listener-within-the-same-virtual-network" class="xliff"></a>
+## <a name="test-the-availability-group-listener-within-the-same-virtual-network"></a>测试可用性组侦听程序（在同一虚拟网络中）
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]

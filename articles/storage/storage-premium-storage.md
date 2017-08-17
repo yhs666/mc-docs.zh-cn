@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/15/2017
-ms.date: 06/26/2017
-ms.author: v-johch
-ms.openlocfilehash: 9cb6139adafdd2d60e346f9b2ae65454902f5d6d
-ms.sourcegitcommit: a95cfb5f5d4d2f1286e8aa90823656d00eb32346
+origin.date: 06/27/2017
+ms.date: 08/17/2017
+ms.author: v-haiqya
+ms.openlocfilehash: f48c67cf14ed009e427259ebafd36a0acbb7b503
+ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/09/2017
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM 的高性能高级存储和托管磁盘
 Azure 高级存储为运行输入/输出 (I/O) 密集型工作负荷的虚拟机 (VM) 提供高性能、低延迟的磁盘支持。 使用高级存储的 VM 磁盘在固态硬盘 (SSD) 上存储数据。 若要利用高级存储磁盘的速度和性能优势，可将现有的 VM 磁盘迁移到高级存储。
@@ -63,7 +63,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 * **高级页 Blob**
 
-    高级存储支持页 Blob。 使用页 Blob 可在高级存储中存储 VM 的持久性非托管磁盘。 与标准 Azure 存储不同，高级存储不支持块 Blob、追加 Blob、文件、表或队列。 高级页 Blob 支持从 P4 到 P50 的八个大小，以及 P60 (8191GiB)。 P60 高级页 Blob 无法作为 VM 磁盘附加。 
+    高级存储支持页 Blob。 使用页 Blob 可在高级存储中存储 VM 的持久性非托管磁盘。 与标准 Azure 存储不同，高级存储不支持块 Blob、追加 Blob、文件、表或队列。 高级页 Blob 支持从 P10 至 P50 和 P60 (8191GiB) 这六种大小。 P60 高级页 Blob 无法作为 VM 磁盘附加。 
 
     放在高级存储帐户中的任何对象都是页 Blob。 页 Blob 对应于某种受支持的预配大小。 因此，高级存储帐户不适合用于存储微型 Blob。
 
@@ -123,7 +123,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
     例如，STANDARD_DS1 VM 为高级存储磁盘流量提供 32 MB/秒的专用带宽。 P10 高级存储磁盘可以提供 100 MB/秒的带宽。 如果将 P10 高级存储磁盘附加到此 VM，此 VM 的带宽最高只能达到 32 MB/秒， 而无法使用 P10 磁盘提供的最高 100 MB/秒带宽。
 
-    目前，DS 系列的最大 VM 是 Standard_DS15_v2。 Standard_DS15_v2 可以在所有磁盘上提供最高 960 MB/秒的带宽。 
+    目前，DS 系列的最大 VM 是 Standard_DS15_v2。 Standard_DS15_v2 可以在所有磁盘上提供最高 960 MB/秒的带宽。
 
     请注意，这些限制只适用于磁盘流量， 而不包括缓存命中和网络流量。 VM 网络流量可以使用单独的带宽。 网络流量使用的带宽不同于高级存储磁盘使用的专用带宽。
 
@@ -152,7 +152,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 如果要对非托管磁盘使用高级存储帐户并且应用程序超过了单个存储帐户的可伸缩性目标，可以考虑迁移到托管磁盘。 如果不想迁移到托管磁盘，请将应用程序构建为使用多个存储帐户。 然后，在这些存储帐户中将数据分区。 例如，如果要将 51-TB 的磁盘附加到多个 VM，请将这些磁盘分散在两个存储帐户中。 35 TB 是单个高级存储帐户的限制。 请确保单个高级存储帐户永远不会超过 35 TB 的设置磁盘。
 
 ### <a name="premium-storage-disk-limits"></a>高级存储磁盘限制
-预配高级存储磁盘时，磁盘的大小决定最大 IOPS 和吞吐量（带宽）。 Azure 提供三种类型的高级存储磁盘：P10、P20 和 P30。 每种高级存储磁盘类型在 IOPS 和吞吐量方面存在具体的限制。 下表描述了磁盘类型的限制：
+预配高级存储磁盘时，磁盘的大小决定最大 IOPS 和吞吐量（带宽）。 Azure 提供了七种类型的高级存储磁盘：P4（仅适用于托管磁盘）、P6（仅适用于托管磁盘）、P10、P20、P30、P40 和 P50。 每种高级存储磁盘类型在 IOPS 和吞吐量方面存在具体的限制。 下表描述了磁盘类型的限制：
 
 | 高级磁盘类型  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
@@ -177,7 +177,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
     Azure 会将磁盘大小映射（向上舍入）到上一部分的表格中指定的最接近高级存储磁盘选项。 例如，大小为 100 GB 的磁盘将分类为 P10 选项。 该选项可执行的 IOPS 最高为 500，吞吐量最高为 100 MB/秒。 同样，大小为 400 GB 的磁盘将分类为 P20 选项。 该选项可执行的 IOPS 最高为 2,300，吞吐量最高为 150 MB/秒。
     
     > [!NOTE]
-    > 你可以轻松增加现有磁盘的大小。 例如，你可能想要将 30-GB 大小的磁盘增加到 128 GB 甚至 1 TB。 或者，你可能想要将 P20 磁盘转换为 P30 磁盘，因为需要更高的容量或更高的 IOPS 和吞吐量。 
+    > 可以轻松增加现有磁盘的大小。 例如，你可能想要将 30-GB 大小的磁盘增加到 128 GB 甚至 1 TB。 或者，你可能想要将 P20 磁盘转换为 P30 磁盘，因为需要更高的容量或更高的 IOPS 和吞吐量。 
     > 
  
 * **I/O 大小**
@@ -238,7 +238,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 | 快照的存储帐户容量<br>（仅包括快照中的数据。 不包括基 Blob 中的数据。） | 10 TB |
 | 连续快照的最小间隔时间 | 10 分钟 |
 
-若要维护快照的异地冗余副本，你可以使用 AzCopy 或“复制 Blob”将高级存储帐户中的快照复制到异地冗余的标准存储帐户。 有关详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](./storage-use-azcopy.md)和 [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob)（复制 Blob）。
+要维护快照的异地冗余副本，可以使用 AzCopy 或“复制 Blob”将高级存储帐户中的快照复制到异地冗余的标准存储帐户。 有关详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](./storage-use-azcopy.md)和 [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob)（复制 Blob）。
 
 
 有关对高级存储帐户中的页 Blob 执行 REST 操作的详细信息，请参阅[对 Azure 高级存储执行 Blob 服务操作](http://go.microsoft.com/fwlink/?LinkId=521969)。
@@ -296,7 +296,7 @@ sudo yum install microsoft-hyper-v
 
 * **高级存储磁盘和 Blob 大小**
 
-    高级存储磁盘或 Blob 根据磁盘或 Blob 的预配大小计费。 Azure 会将预配大小映射（向上舍入）到最接近的高级存储磁盘选项。 有关详细信息，请参阅[高级存储的可伸缩性和性能目标](#premium-storage-scalability-and-performance-targets)中的表格。 每个磁盘将映射到一种受支持的预配大小并相应地计费。 任何预配的磁盘根据每月的高级存储优惠价格按小时计费。 例如，如果你在设置完 P10 磁盘的 20 小时后删除它，则会以 20 小时计算 P10 解决方案的费用。 这与写入磁盘的实际数据量或使用的 IOPS 和吞吐量无关。
+    高级存储磁盘或 Blob 根据磁盘或 Blob 的预配大小计费。 Azure 会将预配大小映射（向上舍入）到最接近的高级存储磁盘选项。 有关详细信息，请参阅[高级存储的可伸缩性和性能目标](#premium-storage-scalability-and-performance-targets)中的表格。 每个磁盘将映射到一种受支持的预配大小并相应地计费。 任何预配的磁盘根据每月的高级存储优惠价格按小时计费。 例如，如果在设置完 P10 磁盘的 20 小时后删除它，则会以 20 小时计算 P10 解决方案的费用。 这与写入磁盘的实际数据量或使用的 IOPS 和吞吐量无关。
 
 * **高级非托管磁盘快照**
 
@@ -335,3 +335,5 @@ sudo yum install microsoft-hyper-v
 ### <a name="blog-posts"></a>博客文章
 * [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)（Azure 高级存储已正式推出）
 * [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)（GS 系列公告：将高级存储支持添加到公有云中的最大 VM）
+
+<!--Update_Description: wording update-->

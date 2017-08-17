@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 05/26/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 458ea67f6b6c8b5d1f295d393caed07859aaeae1
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 8ebcd8625a08be99f9ab8ff296dedabc38ca0270
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>使用 OMS 进行事件分析和可视化
 
@@ -32,7 +32,7 @@ Log Analytics 从托管资源（包括 Azure 存储表或代理）收集数据�
 
 配置 OMS 后，即可访问特定的 OMS 工作区，在其中通过仪表板查询或可视化数据。
 
-在 Log Analytics 收到数据后，OMS 就能够通过多个可根据不同情形自定义的预打包管理解决方案来监视传入数据。 这其中包括 Service Fabric 分析解决方案和容器解决方案。使用 Service Fabric 群集时，这两种解决方案与诊断和监视最为相关。
+在 Log Analytics 收到数据后，OMS 就能够通过多个可根据不同情形自定义的预打包管理解决方案来监视传入数据。 这其中包括 Service Fabric 分析解决方案和容器解决方案。使用 Service Fabric 群集时，这两种解决方案与诊断和监视最为相关。 还包括其他几个值得探索的解决方案。此外，OMS 允许创建自定义解决方案。 所选用于群集的每个解决方案将在同一 OMS 工作区中与 Log Analytics 一起配置。 工作区允许使用自定义仪表板和数据可视化，以及对要收集、处理和分析的数据进行修改。
 <!-- Not Available [here](/operations-management-suite/operations-management-suite-solutions). -->
 
 ## <a name="setting-up-an-oms-workspace-with-the-service-fabric-solution"></a>使用 Service Fabric 解决方案设置 OMS 工作区
@@ -108,3 +108,5 @@ Log Analytics 从托管资源（包括 Azure 存储表或代理）收集数据�
 <!-- Not Available * For on-premise clusters, OMS offers a Gateway (HTTP Forward Proxy) that can be used to send data to OMS. Read more about that in [Connecting computers without Internet access to OMS using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) -->
 <!-- Not Available * Configure OMS to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics -->
 <!-- Not Available * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics -->
+
+<!--Update_Description: update meta properties, wording update-->

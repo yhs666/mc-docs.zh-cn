@@ -1,10 +1,10 @@
 ---
-title: "Azure AD Connect Synchronization Service Manager 操作 | Azure"
+title: "Azure AD Connect Synchronization Service Manager 操作 | Microsoft Docs"
 description: "了解用于 Azure AD Connect 的 Synchronization Service Manager 中的“操作”选项卡。"
 services: active-directory
 documentationcenter: 
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/02/2017
-ms.date: 04/05/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c7d532f88e7f4fc202e54cd9be9830d68e749b3
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: b663ca9148dfd2cc017465473d6aa5593dc891e6
+ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>使用 Sync Service Manager“操作”选项卡
 
@@ -48,4 +48,6 @@ ms.lasthandoff: 06/21/2017
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)配置的详细信息。
 
-了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
+了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
+
+<!-- Update_Description: update meta properties -->

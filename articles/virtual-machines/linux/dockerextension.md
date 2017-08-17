@@ -15,11 +15,11 @@ ms.workload: infrastructure
 origin.date: 05/11/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 5ec0bc37ed42de8e3cae2d5229996a53b6979e05
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 0be1630d129c736be83f1223ff70df01c64bf37b
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>在 Azure 中使用 Docker VM 扩展创建 Docker 环境
 Docker 是流行的容器管理和映像处理平台，用于在 Linux 上快速操作容器。 在 Azure 中，可以根据需要使用各种方式部署 Docker。 本文重点介绍如何通过 Azure CLI 2.0 使用 Docker VM 扩展和 Azure Resource Manager 模板。 还可以使用 [Azure CLI 1.0](dockerextension-nodejs.md) 执行这些步骤。
@@ -58,7 +58,7 @@ az group deployment create --resource-group myResourceGroup \
 
 需要几分钟才能完成部署。 部署完成后，[移到下一步](#deploy-your-first-nginx-container)，通过 SSH 连接到 VM。 
 
-（可选）若要重新通过提示符进行控制并让部署在后台继续运行，请将 `--no-wait` 标志添加到前一个命令。 使用此过程可在 CLI 中执行其他操作，同时让部署持续几分钟。 
+（可选）要重新通过提示符进行控制并让部署在后台继续运行，请将 `--no-wait` 标志添加到前一个命令。 使用此过程可在 CLI 中执行其他操作，同时让部署持续几分钟。 
 
 然后，可以使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#show) 查看有关 Docker 主机状态的详细信息。 以下示例在名为 *myResourceGroup* 的资源组中检查名为 *myDockerVM*（模板中的默认名称 - 请不要更改该名称）的 VM 的状态：
 
@@ -117,7 +117,7 @@ b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute 
 ![运行 ngnix 容器](./media/dockerextension/nginxrunning.png)
 
 ## <a name="azure-docker-vm-extension-template-reference"></a>Azure Docker VM 扩展模板参考
-之前的示例使用现有的快速入门模板。 还可使用自己的 Resource Manager 模板部署 Azure Docker VM 扩展。 为此，请将以下代码添加到 Resource Manager 模板，相应定义 VM 的 `vmName` ：
+之前的示例使用现有的快速入门模板。 还可使用自己的 Resource Manager 模板部署 Azure Docker VM 扩展。 为此，请将以下内容添加到资源管理器模板，并适当地定义 VM 的 `vmName`：
 
 ```json
 {

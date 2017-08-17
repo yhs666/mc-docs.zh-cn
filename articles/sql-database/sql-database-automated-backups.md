@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 07/05/2017
 ms.date: 07/31/2017
 ms.author: v-haiqya
-ms.openlocfilehash: dfd88e11cdbd0441c5819786edbe4f6869e251ab
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 8a23585e50a4b3ef2793c5c82c2be9774ea7c396
+ms.sourcegitcommit: 486760e5ee9518b2ad0a3e181450a64825e6ec83
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/08/2017
 ---
 # <a name="learn-about-sql-database-backups"></a>了解 SQL 数据库备份
 <!------------------
@@ -149,7 +149,7 @@ Using a list so the information is easy to find when scanning.
 ------------------->
 
 * 基本服务层为 7 天。
-* 标准服务层为 35 天。
+* 标准服务层为 14 天。
 * 高级服务层为 35 天。
 
 如果将数据库从标准或高级服务层降级到基本服务层，备份将保存 7 天。 超过 7 天的所有现有备份不再可用。 

@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 origin.date: 01/11/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: 4d0576b9f5aecdac35eef82e0ee9ae16ca795bde
-ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
+ms.openlocfilehash: 8106e67bbc9c51afde3f562b6fcef7ec3b4b55c0
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>在 Azure 中托管的网站中使用 ReportViewer
 > [!IMPORTANT] 
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/10/2017
 > [!IMPORTANT]
 > ASP.NET MVC Web 应用程序模板不支持 ReportViewer 控件。
 
-需要完成以下任务，才可将 ReportViewer 整合到 Azure 网站，。
+要将 ReportViewer 整合到 Azure 站点，需要完成以下任务。
 
 * **添加** 程序集到部署包
 * **配置** 身份验证和授权
@@ -41,17 +41,18 @@ ms.lasthandoff: 07/10/2017
 请查看 [Azure 虚拟机中的 SQL Server Business Intelligence](../classic/ps-sql-bi.md) 中的“一般建议和最佳实践”部分。
 
 > [!NOTE]
-> ReportViewer 控件随 Visual Studio Standard Edition 或更高版本提供。 如果你使用的是 Web Developer Express Edition，则必须安装 [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) 才能使用 ReportViewer 运行时功能。
+> ReportViewer 控件随 Visual Studio Standard Edition 或更高版本提供。 如果使用的是 Web Developer Express Edition，则必须安装 [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) 才能使用 ReportViewer 运行时功能。
 > 
 > Azure 中不支持在本地处理模式下配置的 ReportViewer。
 
 ## <a name="adding-assemblies-to-the-deployment-package"></a>将程序集添加到部署包
-当在本地托管 ASP.NET 应用程序时，在 Visual Studio 安装过程中 ReportViewer 程序集通常直接安装在 IIS 服务器的全局程序集缓存 (GAC) 中，可以由应用程序直接访问。 但在云中托管 ASP.NET 应用程序时，Azure 不允许将任何内容安装到 GAC 中，因此必须确保 ReportViewer 程序集可供应用程序本地使用。 你可以通过在你的项目中添加它们的引用并将它们配置为以本地方式复制来实现此操作。
+在本地托管 ASP.NET 应用程序时，在 Visual Studio 安装过程中 ReportViewer 程序集通常直接安装在 IIS 服务器的全局程序集缓存 (GAC) 中，可以由应用程序直接访问。 但在云中托管 ASP.NET 应用程序时，Azure 不允许将任何内容安装到 GAC 中，因此必须确保 ReportViewer 程序集可供应用程序本地使用。 可以通过在你的项目中添加它们的引用并将它们配置为以本地方式复制来实现此操作。
 
 在远程处理模式下，ReportViewer 控件使用以下程序集：
 
-* **Microsoft.ReportViewer.WebForms.dll**：包含 ReportViewer 代码，你需要在页面中使用 ReportViewer。 当你将 ReportViewer 控件拖到项目中的一个 ASP.NET 页时，此程序集的引用将被添加到该项目中。
-* **Microsoft.ReportViewer.Common.dll**：包含 ReportViewer 控件在运行时使用的类。 它不会自动添加到你的项目。
+* 
+            **Microsoft.ReportViewer.WebForms.dll**：包含 ReportViewer 代码，需要在页面中使用 ReportViewer。 当你将 ReportViewer 控件拖到项目中的一个 ASP.NET 页时，此程序集的引用会被添加到该项目中。
+* **Microsoft.ReportViewer.Common.dll**：包含 ReportViewer 控件在运行时使用的类。 它不会自动添加到项目。
 
 ### <a name="to-add-a-reference-to-microsoftreportviewercommon"></a>添加对 Microsoft.ReportViewer.Common 的引用
 * 右键单击项目的“引用”节点，然后选择“添加引用”，在 .NET 选项卡中选择程序集并单击“确定”。
@@ -63,7 +64,7 @@ ms.lasthandoff: 07/10/2017
 
 ### <a name="to-get-reportviewer-language-pack"></a>获取 ReportViewer 语言包
 1. 安装 [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=317386)中的适当 Microsoft Report Viewer 2012 Runtime 可再发行组件包。
-2. 从下拉列表中选择语言，页面将重定向到相应的下载中心页面。
+2. 从下拉列表中选择语言，页面会重定向到相应的下载中心页面。
 3. 单击“下载”，开始下载 ReportViewerLP.exe。
 4. 下载 ReportViewerLP.exe 后，单击“运行”立即安装，或单击“保存”将其保存到计算机。 如果单击“保存”，请记住保存该文件的文件夹的名称。
 5. 找到保存该文件的文件夹。 右键单击 ReportViewerLP.exe，单击“以管理员身份运行”，然后单击“是”。
@@ -81,9 +82,9 @@ ReportViewer 需要使用正确的凭据向报表服务器进行身份验证，�
 有关将 ASP.NET Web 应用程序发布到 Azure 的说明，请参阅[如何：从 Visual Studio 将 Web 应用程序迁移和发布到 Azure](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) 和 [Web 应用和 ASP.NET 入门](../../../app-service-web/app-service-web-get-started-dotnet.md)。
 
 > [!IMPORTANT]
-> 如果在解决方案资源管理器中的快捷菜单中未显示添加Azure 部署项目或添加 Azure 云服务项目命令，你可能需要将该项目的目标框架更改为 .NET Framework 4。
+> 如果在解决方案资源管理器中的快捷菜单中未显示添加Azure 部署项目或添加 Azure 云服务项目命令，可能需要将该项目的目标框架更改为 .NET Framework 4。
 > 
-> 两个命令提供基本相同的功能。 其中一个命令将在快捷菜单中显示，具体取决于安装的 Azure SDK 版本。
+> 两个命令提供基本相同的功能。 其中一个命令在快捷菜单中显示，具体取决于安装的 Azure SDK 版本。
 > 
 > 
 

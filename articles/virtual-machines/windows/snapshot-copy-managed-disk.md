@@ -2,7 +2,7 @@
 title: "创建用于备份的 Azure 托管磁盘的副本 | Azure"
 description: "了解如何创建 Azure 托管磁盘的副本，以便将其用于备份或排查磁盘问题。"
 documentationcenter: 
-author: bbetstcw
+author: cwatson-cat
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -15,14 +15,14 @@ ms.topic: article
 origin.date: 02/09/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
-ms.openlocfilehash: 4d9b6605b0cdb2f9841f43ca7817fe3f82e56608
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: e80b40ddb92e75105161da76d25e9fec7124d592
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>使用托管快照创建作为 Azure 托管磁盘存储的 VHD 的副本
-创建托管磁盘的快照进行备份，或者从快照创建托管磁盘，然后将其附加到测试虚拟机进行故障诊断。 托管快照是 VM 托管磁盘的完整时间点副本。 它将创建 VHD 的只读副本，默认情况下，将它存储为标准托管磁盘。 有关托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+创建托管磁盘的快照进行备份，或者从快照创建托管磁盘，并将其附加到测试虚拟机进行故障诊断。 托管快照是 VM 托管磁盘的完整时间点副本。 它将创建 VHD 的只读副本，默认情况下，将它存储为标准托管磁盘。 有关托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 有关定价的详细信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/managed-disks/)。 
 

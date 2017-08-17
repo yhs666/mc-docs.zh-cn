@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
-origin.date: 04/25/2017
-ms.date: 03/01/2017
+origin.date: 06/27/2017
+ms.date: 08/14/2017
 ms.author: v-dazen
-ms.openlocfilehash: fbfdaab94c952753387498ae23cef0972a32c873
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 54bb24413ebbaeafdd0709d998e5c7b7fb24fd52
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM 上的 Ruby on Rails Web 应用程序
 本教程介绍如何在 Azure 中使用 Linux 虚拟机托管 Ruby on Rails 网站。  
@@ -29,20 +29,24 @@ ms.lasthandoff: 06/23/2017
 
 > [!IMPORTANT]
 > Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../../../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-vm"></a>创建 Azure VM
 首先，使用 Linux 映像创建 Azure VM。
 
-若要创建 VM，可以使用 Azure 经典管理门户或 Azure 命令行接口 (CLI)。
+若要创建 VM，可以使用 Azure 门户或 Azure 命令行接口 (CLI)。
 
-### <a name="azure-classic-management-portal"></a>Azure 经典管理门户
-1. 登录到 [Azure 经典管理门户](http://manage.windowsazure.cn)
-2. 单击“新建” > “计算” > “虚拟机” > “快速创建”。 选择 Linux 映像。
-3. 输入密码。
+### <a name="azure-portal"></a>Azure 门户
+1. 登录到 [Azure 门户](https://portal.azure.cn)
+2. 单击“新建”，再在搜索框中键入“Ubuntu Server 14.04”。 单击搜索返回的条目。 对于部署模型，选择“经典”，再单击“创建”。
+3. 在“基本信息”边栏选项卡中，输入以下必填字段的值：“名称”（用于 VM）、“用户名”、“身份验证类型”和相应凭据、“Azure 订阅”、“资源组”和“位置”。
 
-预配 VM 后，单击 VM 名称，然后单击“仪表板” 。 找到“SSH 详细信息”下列出的 SSH 终结点 。
+   ![创建新的 Ubuntu 映像](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
+
+4. 预配 VM 后，依次单击 VM 名称和“设置”类别中的“终结点”。 找到“独立”下列出的 SSH 终结点。
+
+   ![默认终结点](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 执行 [创建运行 Linux 的虚拟机][vm-instructions]中的步骤。
@@ -57,13 +61,18 @@ ms.lasthandoff: 06/23/2017
 
         sudo apt-get update -y
         sudo apt-get upgrade -y
-        sudo apt-get install ruby ruby-dev build-essential libsqlite3-dev zlib1g-dev nodejs -y
+
+        sudo apt-add-repository ppa:brightbox/ruby-ng
+        sudo apt-get update
+        sudo apt-get install ruby2.4
+
+    > [!TIP]
+    > brightbox 存储库包含当前 Ruby 分发。
 
     安装可能需要几分钟时间。 安装完成后，使用以下命令验证 Ruby 是否已安装：
 
         ruby -v
 
-    这将返回已安装的 Ruby 的版本。
 3. 使用以下命令安装 Rails：
 
         sudo gem install rails --no-rdoc --no-ri -V
@@ -91,32 +100,36 @@ ms.lasthandoff: 06/23/2017
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>添加终结点
-1. 转到 [Azure 经典管理门户][management-portal] 并选择 VM。
+1. 转到 [Azure 门户](https://portal.azure.cn)并选择 VM。
 
-    ![虚拟机列表][vmlist]
-2. 选择页面顶部的“终结点”，然后单击页面底部的“+添加终结点”。
+2. 选择页面左侧“设置”中的“终结点”。
 
-    ![终结点页面][endpoints]
-3. 在“添加终结点”对话框中，选择“添加独立终结点”，然后单击“下一步”箭头。
+3. 单击页面顶部的“添加”。
 
-    ![新建终结点对话框][new-endpoint1]
-4. 在下一个对话框页面中，输入以下信息：
+4. 在“添加终结点”对话框页中，输入以下信息：
 
    * **名称**：HTTP
    * **协议**：TCP
    * **公用端口**：80
    * **专用端口**：3000
+   * **浮动 IP 地址**：已禁用
+   * **访问控制列表 - 顺序**：1001，或设置此访问规则优先级的其他值。
+   * **访问控制列表 - 名称**：allowHTTP
+   * **访问控制列表 - 操作**：允许
+   * **访问控制列表 - 远程子网**：1.0.0.0/16
 
-     这将创建一个公用端口 80，将流量路由到专用端口 3000，即 Rails 服务器侦听的端口。
+     此终结点有一个公用端口 80，可以将流量路由到专用端口 3000，即 Rails 服务器侦听的端口。 访问控制列表规则允许端口 80 上的公共流量。
 
-     ![新建终结点对话框][new-endpoint]
-5. 单击复选标记以保存终结点。
-6. 将出现一条消息，指出“正在进行更新” 。 此消息消失后，终结点将处于活动状态。 现在，可以通过导航到虚拟机的 DNS 名称测试应用程序。 网站应显示如下：
+     ![new-endpoint](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
+
+5. 单击“确定”，保存此终结点。
+
+6. 此时应看到一条指出“正在保存虚拟机终结点”的消息。 此消息消失后，终结点即处于活动状态。 现在，可以通过导航到虚拟机的 DNS 名称测试应用程序。 网站应显示如下：
 
     ![默认 rails 页面][default-rails-cloud]
 
 ## <a name="next-steps"></a>后续步骤
-在本教程中，手动执行大多数步骤。 在生产环境中，可在开发计算机上编写应用，然后将其部署到 Azure VM。 此外，大多数生产环境都结合其他服务器进程（如 Apache 或 NginX）托管 Rails 应用程序，这些进程处理路由到多个 Rails 应用程序实例的请求并提供静态资源。 有关详细信息，请参阅 http://rubyonrails.org/deploy/。
+在本教程中，手动执行大多数步骤。 在生产环境中，可在开发计算机上编写应用，并将其部署到 Azure VM。 此外，大多数生产环境都结合其他服务器进程（如 Apache 或 NginX）托管 Rails 应用程序，这些进程处理路由到多个 Rails 应用程序实例的请求并提供静态资源。 有关详细信息，请参阅 http://rubyonrails.org/deploy/。
 
 若要详细了解 Ruby on Rails，请参阅 [Ruby on Rails 指南][rails-guides]。
 
@@ -129,7 +142,6 @@ ms.lasthandoff: 06/23/2017
 <!-- WA.com links -->
 [blobs]:../../../storage/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:/develop/ruby/app-services/
-[management-portal]:https://manage.windowsazure.cn/
 [tables]:../../../storage/storage-ruby-how-to-use-table-storage.md
 [vm-instructions]:createportal.md
 
@@ -144,3 +156,5 @@ ms.lasthandoff: 06/23/2017
 [endpoints]:./media/virtual-machines-linux-classic-ruby-rails-web-app/endpoints.png
 [new-endpoint]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
 [new-endpoint1]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
+
+<!--Update_Description: update new portal instead of classic portal-->

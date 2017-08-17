@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/27/2017
 ms.date: 07/31/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1636e2784dee11bffd5f54a88e3e06b5ab0a8822
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: 0576cd7e03c878edcb355c20d973a5b2ce38cd95
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="step-11-run-a-test-failover-of-physical-servers-to-azure"></a>步骤 11：运行测试故障转移以便将物理服务器复制到 Azure
 
@@ -37,14 +37,14 @@ ms.lasthandoff: 07/28/2017
 可以为故障转移后创建的 Azure VM 设置目标 IP 地址。
 
 - 如果未提供地址，故障转移的计算机使用 DHCP。
-- 如果设置了无法用于故障转移的地址，故障转移将不会正常工作。
+- 如果设置了无法用于故障转移的地址，故障转移不会正常工作。
 - 如果地址可用于测试故障转移网络，则同一个目标 IP 地址可用于测试故障转移。
-- 网络适配器数目根据你为目标虚拟机指定的大小来确定：
+- 网络适配器数目根据为目标虚拟机指定的大小来确定：
 
      - 如果源计算机上的网络适配器数小于或等于目标计算机大小允许的适配器数，则目标的适配器数将与源相同。
      - 如果源虚拟机的适配器数目大于目标大小允许的数目，则使用目标大小允许的最大数目。
-     - 例如，如果源计算机有两个网络适配器，而目标计算机大小支持四个，则目标计算机将有两个适配器。 如果源计算机有两个适配器，但支持的目标大小只支持一个，则目标计算机只有一个适配器。     
-   - 如果虚拟机有多个网络适配器，它们将全部连接到同一个网络。
+     - 例如，如果源计算机有两个网络适配器，而目标计算机大小支持四个，则目标计算机有两个适配器。 如果源计算机有两个适配器，但支持的目标大小只支持一个，则目标计算机只有一个适配器。     
+   - 如果虚拟机有多个网络适配器，它们会全部连接到同一个网络。
    - 如果虚拟机有多个网络适配器，列表中显示的第一个适配器成为 Azure 虚拟机中的*默认*网络适配器。
 <!-- Not Available [Learn more](vmware-walkthrough-network.md) -->
 ## <a name="view-and-modify-vm-settings"></a>查看并修改 VM 设置
@@ -69,10 +69,8 @@ ms.lasthandoff: 07/28/2017
 - 若要在运行故障转移后使用 RDP 连接到 Azure VM，请[做好连接准备](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)。
  - 若要全面测试，需要在测试环境中复制 Active Directory 和 DNS。 [了解详细信息](site-recovery-active-directory.md#test-failover-considerations)。
  - 有关测试故障转移的完整信息，请参阅[此文](site-recovery-test-failover-to-azure.md)。
-- 在开始之前，请观看视频概述：
 
-     >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
-
+<!-- Not Available VIDEO -->
 现在，运行故障转移：
 
 1. 若要对一台计算机进行故障转移，请依次转到“设置” > “复制的项”，再依次单击“计算机”>“+测试故障转移”图标。

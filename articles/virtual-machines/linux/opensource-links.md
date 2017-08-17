@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 06/27/2016
 ms.date: 12/12/2016
 ms.author: v-dazen
-ms.openlocfilehash: b59d164a7fb362e51ad6c36ed00b3487c06bb086
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: f8b618bfee2ef5d8f13e782020f6f50a68dc9f52
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="linux-and-open-source-computing-on-azure"></a>Azure 上的 Linux 和开源计算
 查找在经典部署模型中创建和管理基于 Linux 的虚拟机所需的所有文档。
@@ -66,7 +66,7 @@ ms.lasthandoff: 07/14/2017
 * [Azure 基础结构服务实施准则](../windows/infrastructure-subscription-accounts-guidelines.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [选择 Linux 用户名](usernames.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [如何在经典部署模型中为虚拟机配置可用性集](../windows/classic/configure-availability.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [如何在 Azure VM 上安排计划内的维护](planned-maintenance-schedule.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [如何在 Azure VM 上安排计划内的维护](classic/planned-maintenance-schedule.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [管理虚拟机的可用性](../windows/manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure 中的 Linux 虚拟机的计划内维护](planned-maintenance.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 07/14/2017
 * [Azure 服务管理 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
 ## <a name="general-links"></a>常规链接
-下面是 Microsoft 博客、Technet 页面和外部站点（而非上述 Azure.cn 文档）的链接。 由于 Azure 和开源计算都在快速发展，因此几乎可以肯定以下链接都已过时， *尽管* 我们将尽最大努力继续添加更新的主题并删除过时的主题。 如果我们漏掉了任何主题，请在评论中告知我们。
+下面是 Microsoft 博客、Technet 页面和外部站点（而非上述 Azure.cn 文档）的链接。 由于 Azure 和开源计算都在快速发展，因此几乎可以肯定以下链接都已过时， *尽管*我们会尽最大努力继续添加更新的主题并删除过时的主题。 如果我们漏掉了任何主题，请在评论中告知我们。
 
 * [使用 Docker 容器在 Linux 上运行 ASP.NET 5](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 * [如何从 OpenLogic 部署 CentOS VM 映像](https://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)

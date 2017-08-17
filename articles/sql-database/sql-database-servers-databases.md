@@ -16,11 +16,11 @@ ms.workload: data-management
 origin.date: 07/05/2017
 ms.date: 07/31/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 764a0a6bd8c396a3a3d52d041b3ac49ff14e35f9
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 9e2c9c6bdec96ce1eb3343e8ae8b0e62c4321a55
+ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>创建并管理 Azure SQL 数据库服务器和数据库
 
@@ -97,7 +97,8 @@ Azure 数据库逻辑服务器：
 
   ![创建数据库 - 1](./media/sql-database-get-started-portal/create-database-1.png)
 
-> [重要说明] 若要了解如何选择数据库定价层，请参阅[服务层](sql-database-service-tiers.md)。
+> [!IMPORTANT]
+> 若要了解如何选择数据库定价层，请参阅[服务层](sql-database-service-tiers.md)。
 >
 
 ### <a name="manage-an-existing-sql-server"></a>管理现有 SQL 服务器
@@ -186,7 +187,7 @@ Azure 数据库逻辑服务器：
 | [ALTER DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) |修改 Azure SQL 数据库。 |
 |[ALTER DATABASE（Azure SQL 数据仓库）](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|修改 Azure SQL 数据仓库。|
 |[DROP DATABASE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql)|删除数据库。|
-|[sys.database_service_objectives（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|返回 Azure SQL 数据库或 Azure SQL 数据仓库的版本（服务层）、服务目标（定价层）和弹性池名称（若有）。 如果已登录 Azure SQL 数据库服务器中的 master 数据库，返回所有数据库的相关信息。 对于 Azure SQL 数据仓库，必须连接到 master 数据库。|
+|[sys.database_service_objectives（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|返回 Azure SQL 数据库或 Azure SQL 数据仓库的版本（服务层）、服务目标（定价层）和弹性池名称（若有）。 如果已登录到 Azure SQL 数据库服务器中的 master 数据库，则会返回所有数据库的相关信息。 对于 Azure SQL 数据仓库，必须连接到 master 数据库。|
 |[sys.dm_db_resource_stats（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| 返回“Azure SQL 数据库”数据库的 CPU、I/O 和内存消耗量。 即使数据库中没有活动，也会每隔 15 秒返回一行数据。|
 |[sys.resource_stats（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|返回 Azure SQL 数据库的 CPU 使用率和存储数据。 在五分钟间隔内收集并聚合数据。|
 |[sys.database_connection_stats（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|包含“SQL 数据库”数据库连接事件的统计信息，提供数据库连接成功和失败状态的概述。 |

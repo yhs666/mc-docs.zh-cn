@@ -1,10 +1,10 @@
 ---
-title: "PowerShell 连接器 | Azure"
+title: "PowerShell 连接器 | Microsoft Docs"
 description: "本文介绍如何配置 Microsoft 的 Windows PowerShell 连接器。"
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
 ms.service: active-directory
@@ -12,26 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2017
-ms.date: 03/13/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: ee6541299f0575c28fa6ef3330fe43c16ecc97ca
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: af8d791db16f4578544ea2997ac09080960e09ac
+ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Windows PowerShell 连接器技术参考
 本文介绍 Windows PowerShell 连接器。 本文适用于以下产品：
 
 - Microsoft 标识管理器 2016 (MIM2016)
 - Forefront 标识管理器 2010 R2 (FIM2010R2)
-  - 必须使用修补程序 4.1.3671.0 或更高版本 [KB3092178](https://support.microsoft.com/zh-cn/kb/3092178)。
+  - 必须使用修补程序 4.1.3671.0 或更高版本 [KB3092178](https://support.microsoft.com/kb/3092178)。
 
 对于 MIM2016 和 FIM2010R2，可以从 [Microsoft 下载中心](http://go.microsoft.com/fwlink/?LinkId=717495)下载此连接器。
 
 ## <a name="overview-of-the-powershell-connector"></a>PowerShell 连接器概述
-使用 PowerShell 连接器可将同步服务与可提供基于 Windows PowerShell 的 API 的外部系统相集成。 该连接器在基于调用的可扩展连接管理代理 2 (ECMA2) 框架与 Windows PowerShell 的功能之间建立联系。 有关 ECMA 框架的详细信息，请参阅 [Extensible Connectivity 2.2 Management Agent Reference](https://msdn.microsoft.com/zh-cn/library/windows/desktop/hh859557.aspx)（可扩展连接管理代理 2.2 参考）。
+使用 PowerShell 连接器可将同步服务与提供基于 Windows PowerShell 的 API 的外部系统相集成。 该连接器在基于调用的可扩展连接管理代理 2 (ECMA2) 框架与 Windows PowerShell 的功能之间建立联系。 有关 ECMA 框架的详细信息，请参阅 [Extensible Connectivity 2.2 Management Agent Reference](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx)（可扩展连接管理代理 2.2 参考）。
 
 ### <a name="prerequisites"></a>先决条件
 在使用连接器之前，请确保在同步服务器上安装以下软件：
@@ -43,7 +43,7 @@ ms.lasthandoff: 06/21/2017
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
 
 ## <a name="create-a-new-connector"></a>创建新连接器
-若要在同步服务中创建 Windows PowerShell 连接器，必须提供一系列 Windows PowerShell 脚本用于执行同步服务请求的步骤。 根据所要连接到的数据源和所需的功能，需要实现的脚本将有所不同。 本部分概述可以实现的每个脚本以及何时需要用到它们。
+若要在同步服务中创建 Windows PowerShell 连接器，必须提供一系列 Windows PowerShell 脚本用于执行同步服务请求的步骤。 根据所要连接到的数据源和所需的功能，需要实现的脚本有所不同。 本部分概述可以实现的每个脚本以及何时需要用到它们。
 
 Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本。 虽然可以运行存储在文件系统中的脚本，但将每个脚本的主体直接插入连接器配置要方便得多。
 
@@ -66,10 +66,10 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 | 域 |<Blank> |要存储的以便在连接器运行时使用的凭据域。 |
 | 用户 |<Blank> |要存储的以便在连接器运行时使用的凭据用户名。 |
 | 密码 |<Blank> |要存储的以便在连接器运行时使用的凭据密码。 |
-| 模拟连接器帐户 |False |如果为 true，同步服务将对提供的凭据上下文中运行 Windows PowerShell 脚本。 如果可能，建议使用传递给每个脚本的 **$Credentials** 参数来代替模拟。 有关使用此选项时必须具有的其他权限的详细信息，请参阅 [Additional Configuration for Impersonation](#additional-configuration-for-impersonation)（其他模拟配置）。 |
+| 模拟连接器帐户 |False |如果为 true，同步服务在提供的凭据上下文中运行 Windows PowerShell 脚本。 如果可能，建议使用传递给每个脚本的 **$Credentials** 参数来代替模拟。 有关使用此选项时必须具有的其他权限的详细信息，请参阅 [Additional Configuration for Impersonation](#additional-configuration-for-impersonation)（其他模拟配置）。 |
 | 模拟时加载用户配置文件 |False |指示 Windows 在模拟期间加载连接器凭据的用户配置文件。 如果要模拟的用户具有漫游配置文件，连接器不会加载漫游配置文件。 有关使用此参数时必须具有的其他权限的详细信息，请参阅 [Additional Configuration for Impersonation](#additional-configuration-for-impersonation)（其他模拟配置）。 |
 | 模拟时的登录类型 |无 |模拟期间的登录类型。 有关详细信息，请参阅 [dwLogonType][dw] 文档。 |
-| 仅限已签名的脚本 |False |如果为 true，Windows PowerShell 连接器将验证每个脚本是否具有有效的数字签名。 如果为 false，请确保同步服务服务器的 Windows PowerShell 执行策略是 RemoteSigned 或 Unrestricted。 |
+| 仅限已签名的脚本 |False |如果为 true，Windows PowerShell 连接器会验证每个脚本是否具有有效的数字签名。 如果为 false，请确保同步服务服务器的 Windows PowerShell 执行策略是 RemoteSigned 或 Unrestricted。 |
 
 **通用模块**  
 连接器允许在配置中存储共享的 Windows PowerShell 模块。 连接器在运行脚本时，会将 Windows PowerShell 模块提取到文件系统，使其可供每个脚本导入。
@@ -81,13 +81,13 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 若要从 %TEMP% 文件夹加载名为 FIMPowerShellConnectorModule.psm1 的模块，请使用以下语句： `Import-Module (Join-Path -Path $env:TEMP -ChildPath "FIMPowerShellConnectorModule.psm1")`
 
 **参数验证**  
-验证脚本是可选的 Windows PowerShell 脚本，可用于确保管理员提供的连接器配置参数有效。 验证服务器、连接凭据和连接参数是验证脚本的常见用途。 如果修改以下选项卡和对话框，将会调用验证脚本：
+验证脚本是可选的 Windows PowerShell 脚本，可用于确保管理员提供的连接器配置参数有效。 验证服务器、连接凭据和连接参数是验证脚本的常见用途。 如果修改以下选项卡和对话框，会调用验证脚本：
 
 - 连接
 - 全局参数
 - 分区配置
 
-验证脚本将从连接器接收以下参数：
+验证脚本从连接器接收以下参数：
 
 | 名称 | 数据类型 | 说明 |
 | --- | --- | --- |
@@ -100,14 +100,14 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 **架构发现**  
 架构发现脚本是必需的。 此脚本返回对象类型和属性，以及同步服务在配置属性流规则时使用的属性约束。 架构发现脚本在创建连接器期间运行，并填充连接器的架构。 它还由同步服务管理器中的“刷新架构”操作使用。
 
-架构发现脚本将从连接器接收以下参数：
+架构发现脚本从连接器接收以下参数：
 
 | 名称 | 数据类型 | 说明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |连接器的配置参数表。 |
 | 凭据 |[PSCredential][pscred] |包含管理员在“连接”选项卡上输入的任何凭据。 |
 
-脚本必须将单个 [架构][schema] 对象返回到管道中。 Schema 对象由代表对象类型（例如用户和组）的 [SchemaType][schemaT] 对象组成。 SchemaType 对象保存代表类型属性（例如名字、姓氏和邮寄地址）的 [SchemaAttribute][schemaA] 对象的集合。
+脚本必须将单个[架构][schema] 对象返回到管道中。 Schema 对象由代表对象类型（例如用户和组）的 [SchemaType][schemaT] 对象组成。 SchemaType 对象保存代表类型属性（例如名字、姓氏和邮寄地址）的 [SchemaAttribute][schemaA] 对象的集合。
 
 **其他参数**  
 除了标准配置设置以外，还可以定义连接器实例特定的其他自定义配置设置。 可以在连接器、分区或运行步骤级别指定这些参数，并从相关的 Windows PowerShell 脚本进行访问。 自定义配置设置可以纯文本格式存储在同步服务数据库中，或对其进行加密。 同步服务在必要时会自动加密和解密安全的配置设置。
@@ -131,23 +131,23 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 | 多个连接器的并发操作 |选中时，可以同时运行多个 Windows PowerShell 连接器。 |
 | 分区 |选中时，连接器可支持多个分区和分区发现。 |
 | 层次结构 |选中时，连接器可支持 LDAP 样式的层次结构。 |
-| 启用导入 |选中时，连接器将通过导入脚本导入数据。 |
+| 启用导入 |选中时，连接器通过导入脚本导入数据。 |
 | 启用增量导入 |选中时，连接器可以从导入脚本请求增量。 |
-| 启用导出 |选中时，连接器将通过导出脚本导出数据。 |
+| 启用导出 |选中时，连接器会通过导出脚本导出数据。 |
 | 启用完整导出 |选中时，导出脚本可支持导出整个连接器空间。 若要使用此选项，还必须选中“启用导出”。 |
-| 第一个导出阶段没有引用值 |选中时，将在第二个导出阶段导出引用属性。 |
+| 第一个导出阶段没有引用值 |选中时，在第二个导出阶段导出引用属性。 |
 | 启用对象重命名 |选中时，可以修改可分辨名称。 |
 | 删除-添加用作替换 |选中时，将删除-添加操作导出为单个替换。 |
 | 启用密码操作 |选中时，可支持密码同步脚本。 |
-| 在第一个阶段启用导出密码 |选中时，将在创建对象时导出预配期间设置的密码。 |
+| 在第一个阶段启用导出密码 |选中时，会在创建对象时导出预配期间设置的密码。 |
 
 ### <a name="global-parameters"></a>全局参数
 使用管理代理设计器中的“全局参数”选项卡可以配置连接器运行的 Windows PowerShell 脚本。 此外，可以针对“连接”选项卡上定义的自定义配置设置配置全局值。
 
 **分区发现**  
-分区是一个共享架构内的独立命名空间。 例如在 Active Directory 中，每个域就是一个林内的分区。 分区是导入和导出操作的逻辑组。 导入和导出将分区用作上下文，所有操作将在此上下文中发生。 分区应该代表 LDAP 中的层次结构。 导入操作使用分区的可分辨名称来验证所有返回的对象是否都在分区的范围内。 在从 Metaverse 预配到连接器空间的期间，也使用分区可分辨名称来确定对象应该在导出期间与哪个分区关联。
+分区是一个共享架构内的独立命名空间。 例如在 Active Directory 中，每个域就是一个林内的分区。 分区是导入和导出操作的逻辑组。 导入和导出将分区用作上下文，所有操作会在此上下文中发生。 分区应该代表 LDAP 中的层次结构。 导入操作使用分区的可分辨名称来验证所有返回的对象是否都在分区的范围内。 在从 Metaverse 预配到连接器空间的期间，也使用分区可分辨名称来确定对象应该在导出期间与哪个分区关联。
 
-分区发现脚本将从连接器接收以下参数：
+分区发现脚本从连接器接收以下参数：
 
 | 名称 | 数据类型 | 说明 |
 | --- | --- | --- |
@@ -159,7 +159,7 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 **层次结构发现**  
 仅当可分辨名称样式功能是 LDAP 时，才使用层次结构发现脚本。 可以使用该脚本来浏览和选择一组被视为在导入和导出操作范围之内或之外的容器。 此脚本只应提供节点列表，这些节点是提供给脚本的根节点的直接子级。
 
-层次结构发现脚本将从连接器接收以下参数：
+层次结构发现脚本从连接器接收以下参数：
 
 | 名称 | 数据类型 | 说明 |
 | --- | --- | --- |
@@ -173,9 +173,9 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 支持导入操作的连接器必须实现三个脚本。
 
 **开始导入**  
-开始导入脚本在导入运行步骤开始时运行。 在此步骤中，可以连接到源系统并执行预备步骤，然后从连接的系统导入数据。
+开始导入脚本在导入运行步骤开始时运行。 在此步骤中，可以连接到源系统并执行预备步骤，并从连接的系统导入数据。
 
-开始导入脚本将从连接器接收以下参数：
+开始导入脚本从连接器接收以下参数：
 
 | 名称 | 数据类型 | 说明 |
 | --- | --- | --- |
@@ -189,7 +189,7 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 **导入数据**  
 连接器调用导入数据脚本，直到脚本指示已没有其他数据要导入。 Windows PowerShell 连接器的页面大小为 9,999 个对象。 如果脚本在导入时返回超过 9,999 个对象，则必须支持分页。 连接器公开自定义数据属性用于存储水印，以便在每次调用导入数据脚本时，脚本继续从中断处开始导入对象。
 
-导入数据脚本将从连接器接收以下参数：
+导入数据脚本从连接器接收以下参数：
 
 | 名称 | 数据类型 | 说明 |
 | --- | --- | --- |
@@ -204,7 +204,7 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 **结束导入**  
 在导入运行结束时，将运行结束导入脚本。 此脚本应该执行任何必要的清理任务（例如断开系统连接和对失败做出响应）。
 
-结束导入脚本将从连接器接收以下参数：
+结束导入脚本从连接器接收以下参数：
 
 | 名称 | 数据类型 | 说明 |
 | --- | --- | --- |
@@ -219,9 +219,9 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 与连接器的导入体系结构一样，支持导出的连接器必须实现三个脚本。
 
 **开始导出**  
-开始导出脚本在导出运行步骤开始时运行。 在此步骤中，可以连接到源系统并执行任何预备步骤，然后将数据导出到连接的系统。
+开始导出脚本在导出运行步骤开始时运行。 在此步骤中，可以连接到源系统并执行任何预备步骤，并将数据导出到连接的系统。
 
-开始导出脚本将从连接器接收以下参数：
+开始导出脚本从连接器接收以下参数：
 
 | 名称 | 数据类型 | 说明 |
 | --- | --- | --- |
@@ -235,7 +235,7 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 **导出数据**  
 同步服务一直调用导出数据脚本，直到处理完所有挂起的导出为止。 如果连接器空间中挂起导出的大小大于连接器页面大小，可能会调用导出数据脚本多次，并可能针对同一对象调用多次。
 
-导出数据脚本将从连接器接收以下参数：
+导出数据脚本从连接器接收以下参数：
 
 | 名称 | 数据类型 | 说明 |
 | --- | --- | --- |
@@ -245,12 +245,12 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 | OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |告知脚本导出运行的类型（增量或完整）、分区、层次结构和预期的页面大小。 |
 | 类型 |[架构][schema] |要导出的连接器空间的架构。 |
 
-导出数据脚本必须将 [PutExportEntriesResults][peeres] 对象返回到管道中。 此对象不需要包含每个导出连接器的结果信息，除非发生定位点属性错误或更改。 例如，若要将 PutExportEntriesResults 对象返回到管道中： `Write-Output (New-Object Microsoft.MetadirectoryServices.PutExportEntriesResults)`
+导出数据脚本必须将 [PutExportEntriesResults][peeres] 对象返回到管道中。 此对象不需要包含每个导出连接器的结果信息，除非发生定位点属性错误或更改。 例如，要将 PutExportEntriesResults 对象返回到管道中： `Write-Output (New-Object Microsoft.MetadirectoryServices.PutExportEntriesResults)`
 
 **结束导出**  
 在导出运行结束时，将运行结束导出脚本。 此脚本应该执行任何必要的清理任务（例如断开系统连接和对失败做出响应）。
 
-结束导出脚本将从连接器接收以下参数：
+结束导出脚本从连接器接收以下参数：
 
 | 名称 | 数据类型 | 说明 |
 | --- | --- | --- |
@@ -264,7 +264,7 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 #### <a name="password-synchronization"></a>密码同步
 Windows PowerShell 连接器可以用作密码更改/重置的目标。
 
-密码脚本将从连接器接收以下参数：
+密码脚本从连接器接收以下参数：
 
 | 名称 | 数据类型 | 说明 |
 | --- | --- | --- |
@@ -277,7 +277,7 @@ Windows PowerShell 连接器可以用作密码更改/重置的目标。
 | OldPassword |字符串 |填充对象的旧密码以进行密码更改。 仅当 OperationType 为 **ChangePassword**时，才可以使用此参数。 |
 | NewPassword |字符串 |填充脚本应该设置的对象新密码。 |
 
-密码脚本预期不会将任何结果返回到 Windows PowerShell 管道。 如果密码脚本中发生错误，脚本应引发以下异常之一，以告知同步服务此问题：
+密码脚本不应将任何结果返回到 Windows PowerShell 管道。 如果密码脚本中发生错误，脚本应引发以下异常之一，以告知同步服务此问题：
 
 - [PasswordPolicyViolationException][pwdex1] — 当密码不符合所连接系统中的密码策略时引发。
 - [PasswordIllFormedException][pwdex2] — 当连接的系统不接受密码时引发。
@@ -287,7 +287,6 @@ Windows PowerShell 连接器可以用作密码更改/重置的目标。
 有关可用示例连接器的完整概述，请参阅 [Windows PowerShell Connector Sample Connector Collection][samp]（Windows PowerShell 连接器示例连接器集合）。
 
 ## <a name="other-notes"></a>其他说明
-
 ### <a name="additional-configuration-for-impersonation"></a>Additional Configuration for Impersonation
 对要模拟的用户授予同步服务服务器上的以下权限：
 
@@ -315,32 +314,34 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 - 有关如何启用记录来排查连接器问题的信息，请参阅 [如何启用连接器的 ETW 跟踪](http://go.microsoft.com/fwlink/?LinkId=335731)。
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[cpp]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.configparameterpage.aspx
-[keyk]: https://msdn.microsoft.com/zh-cn/library/ms132438.aspx
-[cp]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.configparameter.aspx
-[pscred]: https://msdn.microsoft.com/zh-cn/library/system.management.automation.pscredential.aspx
-[schema]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.schema.aspx
-[schemaT]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.schematype.aspx
-[schemaA]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.schemaattribute.aspx
-[dnstyle]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.madistinguishednamestyle.aspx
-[exportT]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.maexporttype.aspx
-[DataNorm]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.manormalizations.aspx
-[oconf]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.maobjectconfirmation.aspx
-[dw]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/aa378184.aspx
-[part]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.partition.aspx
-[hn]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.hierarchynode.aspx
-[oicrs]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.openimportconnectionrunstep.aspx
-[cecrs]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.closeexportconnectionrunstep.aspx
-[oicres]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.openimportconnectionresults.aspx
-[cecrs]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.closeexportconnectionrunstep.aspx
-[cicres]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.closeimportconnectionresults.aspx
-[oecrs]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.openexportconnectionrunstep.aspx
-[irs]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.importrunstep.aspx
-[cse]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.csentry.aspx
-[csec]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.csentrychange.aspx
-[peeres]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.putexportentriesresults.aspx
-[pwdopt]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.passwordoptions.aspx
-[pwdex1]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.passwordpolicyviolationexception.aspx
-[pwdex2]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.passwordillformedexception.aspx
-[pwdex3]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
+[cpp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameterpage.aspx
+[keyk]: https://msdn.microsoft.com/library/ms132438.aspx
+[cp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameter.aspx
+[pscred]: https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx
+[schema]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.schema.aspx
+[schemaT]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.schematype.aspx
+[schemaA]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.schemaattribute.aspx
+[dnstyle]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.madistinguishednamestyle.aspx
+[exportT]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.maexporttype.aspx
+[DataNorm]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.manormalizations.aspx
+[oconf]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.maobjectconfirmation.aspx
+[dw]: https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx
+[part]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.partition.aspx
+[hn]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.hierarchynode.aspx
+[oicrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.openimportconnectionrunstep.aspx
+[cecrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.closeexportconnectionrunstep.aspx
+[oicres]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.openimportconnectionresults.aspx
+[cecrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.closeexportconnectionrunstep.aspx
+[cicres]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.closeimportconnectionresults.aspx
+[oecrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.openexportconnectionrunstep.aspx
+[irs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.importrunstep.aspx
+[cse]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.csentry.aspx
+[csec]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.csentrychange.aspx
+[peeres]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.putexportentriesresults.aspx
+[pwdopt]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordoptions.aspx
+[pwdex1]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordpolicyviolationexception.aspx
+[pwdex2]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordillformedexception.aspx
+[pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
+
+<!-- Update_Description: link update -->

@@ -1,10 +1,10 @@
 ---
-title: "通用 SQL 连接器分步指南 | Azure"
-description: "本文将指导你完成一个使用通用 SQL 连接器的简单 HR 系统分步示例。"
+title: "通用 SQL 连接器分步指南 | Microsoft Docs"
+description: "本文指导完成一个使用通用 SQL 连接器的简单 HR 系统分步示例。"
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
 ms.service: active-directory
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2017
-ms.date: 03/13/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: b480ceaa4080d405e278c4515aa8cee548c0f365
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 619b83444ef236e155366f804471715494291596
+ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="generic-sql-connector-step-by-step"></a>通用 SQL 连接器分步说明
-本主题是一份循序渐进的指南。 其中将会创建一个简单的示例 HR 数据库，然后使用它导入一些用户及其组成员身份。
+本主题是一份循序渐进的指南。 其中将会创建一个简单的示例 HR 数据库，并使用它导入一些用户及其组成员身份。
 
 ## <a name="prepare-the-sample-database"></a>准备示例数据库
 在运行 SQL Server 的服务器上，运行[附录 A](#appendix-a) 中的 SQL 脚本。此脚本将创建名为 GSQLDEMO 的示例数据库。 创建的数据库的对象模型如下图所示：  
@@ -63,7 +63,7 @@ ms.lasthandoff: 06/21/2017
 ## <a name="create-the-generic-sql-connector"></a>创建通用 SQL 连接器
 1. 在同步服务管理器 UI 中，依次选择“连接器”和“创建”。 选择“通用 SQL (Microsoft)”，并为它指定描述性的名称。  
    ![Connector1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector1.png)
-2. 找到在上一节中创建的 DSN 文件并将其上传到服务器。 提供用于连接到数据库的凭据。  
+2. 找到在上一部分中创建的 DSN 文件并将其上传到服务器。 提供用于连接到数据库的凭据。  
    ![Connector2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector2.png)
 3. 在本演练中，可以简单地说有两种对象类型：“用户”和“组”。
    ![Connector3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector3.png)
@@ -203,3 +203,4 @@ GO
 ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
+<!-- Update_Description: update meta properties -->
