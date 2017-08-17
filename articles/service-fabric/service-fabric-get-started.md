@@ -1,6 +1,6 @@
 ---
 title: "设置 Azure 微服务的开发环境 | Azure"
-description: "安装运行时、SDK 和工具并创建本地开发群集。 完成此设置后，你就可以开始生成应用程序。"
+description: "安装运行时、SDK 和工具并创建本地开发群集。 完成此设置后，便可以开始生成应用程序。"
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/26/2017
-ms.date: 07/17/2017
+origin.date: 06/20/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
-ms.openlocfilehash: b4ff9d849befb0b065efe88bfa94cbc96390bb17
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 1e3568195897c22d8770feb962f838e42be2db3d
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="prepare-your-development-environment"></a>准备开发环境
 > [!div class="op_single_selector"]
@@ -63,21 +63,21 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发和管理工作负�
 * [安装 Azure Service Fabric SDK][core-sdk]
 
 当前版本包括：
-* Service Fabric SDK 2.6.210
-* Service Fabric 运行时 5.6.210
+* Service Fabric SDK 2.6.220
+* Service Fabric 运行时 5.6.220
 * Visual Studio 2015 工具 1.6.50508.2
 * Visual Studio 2017 Update 2
 
 当前预览版本包括：
-* Service Fabric SDK 255.255.2709.255
-* Service Fabric 运行时 255.255.5709.255
+* Service Fabric SDK 255.255.2718.255
+* Service Fabric 运行时 255.255.5718.255
 * Visual Studio 2015 工具 1.6.50509.5
 * Visual Studio 2017 Update 3 Preview 1
 
 有关支持的版本列表，请参阅 [Service Fabric 支持](service-fabric-support.md)
 
 ## <a name="enable-powershell-script-execution"></a>启用 PowerShell 脚本执行
-Service Fabric 使用 Windows PowerShell 脚本创建本地开发群集和部署 Visual Studio 中的应用程序。 默认情况下，Windows 会阻止这些脚本运行。 若要启用它们，你必须修改你的 PowerShell 执行策略。 以管理员身份打开 PowerShell 并输入以下命令：
+Service Fabric 使用 Windows PowerShell 脚本创建本地开发群集和部署 Visual Studio 中的应用程序。 默认情况下，Windows 会阻止这些脚本运行。 要启用它们，必须修改 PowerShell 执行策略。 以管理员身份打开 PowerShell 并输入以下命令：
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
@@ -86,7 +86,8 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ## <a name="next-steps"></a>后续步骤
 完成设置开发环境之后，便可开始生成和运行应用。
 
-* [在 Visual Studio 中创建你的第一个 Service Fabric 应用程序](service-fabric-create-your-first-application-in-visual-studio.md)
+* 
+            [在 Visual Studio 中创建第一个 Service Fabric 应用程序](service-fabric-create-your-first-application-in-visual-studio.md)
 * [了解如何在本地群集上部署和管理应用程序](service-fabric-get-started-with-a-local-cluster.md)
 * [了解编程模型：Reliable Services 和 Reliable Actors](service-fabric-choose-framework.md)
 * [在 GitHub 上检查 Service Fabric 代码示例](https://aka.ms/servicefabricsamples)
@@ -100,3 +101,5 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 链接"
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 链接"
 [powershell5-download]:https://www.microsoft.com/en-US/download/details.aspx?id=50395
+
+<!--Update_Description: update meta properties, wording update-->

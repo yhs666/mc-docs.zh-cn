@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/02/2017
-ms.date: 07/17/2017
+origin.date: 06/30/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
-ms.openlocfilehash: e7d118e2e07ef03357ff811450b54ff98e3dd098
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 297b7a7dd807b91bea2b427be0d06e9e20b9b1b5
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-on-windows-server-cluster"></a>升级 Windows Server 群集上的独立 Azure Service Fabric
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 07/14/2017
 >
 >
 
-仅当使用的是生产形式的节点配置（每个 Service Fabric 节点在独立的物理机或虚拟机上分配）时，才可以将群集升级到最新版本。 如果使用的是开发群集（单个物理机或虚拟机上有多个 Service Fabric 节点），必须使用新版本重新创建该群集。
+仅在使用生产类型节点配置（其中每个 Service Fabric 节点分配在单独的物理计算机或虚拟机上）时，才能将群集升级到新版本。 如果使用的是开发群集（单个物理机或虚拟机上有多个 Service Fabric 节点），必须使用新版本重新创建该群集。
 
 可以使用两个不同的工作流将群集升级至最新版本或受支持的 Service Fabric 版本。 其中一个工作流适用于已建立网络连接，可自动下载最新版本的群集。 另一个工作流适用于未建立网络连接，无法下载最新 Service Fabric 版本的群集。
 
@@ -156,7 +156,7 @@ ms.lasthandoff: 07/14/2017
     Copy-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab -ImageStoreConnectionString "fabric:ImageStore"
 
     ```
-4. 将下载的包复制到群集映像存储中。
+4. 将下载的包复制到群集映像存储区中。
 
 5. 注册复制的程序包。
 
@@ -208,8 +208,10 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="next-steps"></a>后续步骤
 * 了解如何自定义某些 [Service Fabric 群集设置](service-fabric-cluster-fabric-settings.md)。
-<!-- Not Available * Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md). -->
+* 了解如何[扩大和缩小群集](service-fabric-cluster-scale-up-down.md)。
 * 了解[应用程序升级](service-fabric-application-upgrade.md)。
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
+
+<!--Update_Description: update meta properties-->

@@ -3,8 +3,8 @@ title: "将 Azure 云服务应用转换为微服务 | Azure"
 description: "本指南将云服务 Web 角色和辅助角色与 Service Fabric 无状态服务进行比较，以帮助你从云服务迁移到 Service Fabric。"
 services: service-fabric
 documentationcenter: .net
-author: vturecek
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
 ms.service: service-fabric
@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/10/2017
-ms.date: 03/03/2017
-ms.author: v-johch
-ms.openlocfilehash: d382e55ea0fa5c30c76c6e0cfaccf13f2f8d50fb
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+origin.date: 06/29/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
+ms.openlocfilehash: 0a5496b8d1aa294be3ab8f2dfa594bc1bae7518e
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>将 Web 角色和辅助角色转换为 Service Fabric 无状态服务的指南
 本文说明如何将云服务的 Web 角色和辅助角色迁移到 Service Fabric 无状态服务。 对于整体体系结构大致保持相同的应用程序来说，这是从云服务迁移到 Service Fabric 的最简单路径。
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/13/2017
 ## <a name="cloud-service-project-to-service-fabric-application-project"></a>云服务项目到 Service Fabric 应用程序项目
  云服务项目和 Service Fabric 应用程序项目结构类似，两者都可代表应用程序的部署单位，也就是说，两者各自定义可在部署后运行应用程序的完整包。 云服务项目包含一个或多个 Web 角色或辅助角色。 同理，Service Fabric 应用程序项目包含一个或多个服务。 
 
-两者的区别在于，云服务项目结合应用程序部署与 VM 部署，因此其中包含 VM 配置设置，而 Service Fabric 应用程序项目只定义将要部署到 Service Fabric 群集中一组现有 VM 的应用程序。 Service Fabric 群集本身只可通过 ARM 模板或 Azure 门户部署一次，但可在群集中部署多个 Service Fabric 应用程序。
+两者的差别在于，云服务项目结合应用程序部署与 VM 部署，因此其中包含 VM 配置设置，而 Service Fabric 应用程序项目只定义将要部署到 Service Fabric 群集中一组现有 VM 的应用程序。 Service Fabric 群集本身只可通过资源管理器模板或 Azure 门户部署一次，但可在群集中部署多个 Service Fabric 应用程序。
 
 ![Service Fabric 与云服务项目的比较][3]
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 07/13/2017
 ![辅助角色到无状态服务][4]
 
 ## <a name="web-role-to-stateless-service"></a>Web 角色到无状态服务
-与辅助角色类似，Web 角色也代表无状态的工作负荷，因此在概念上也能映射到 Service Fabric 无状态服务。 不过，与 Web 角色不同的是，Service Fabric 不支持 IIS。 若要将 Web 应用程序从 Web 角色迁移到无状态服务，需要先移动到可以自托管且不依赖 IIS 或 System.Web 的 Web 框架（例如 ASP.NET Core 1）。
+与辅助角色类似，Web 角色也代表无状态的工作负荷，因此在概念上也能映射到 Service Fabric 无状态服务。 不过，与 Web 角色不同的是，Service Fabric 不支持 IIS。 要将 Web 应用程序从 Web 角色迁移到无状态服务，需要先移动到可以自托管且不依赖 IIS 或 System.Web 的 Web 框架（例如 ASP.NET Core 1）。
 
 | **应用程序** | **支持** | **迁移路径** |
 | --- | --- | --- |
@@ -108,29 +108,28 @@ namespace Stateless1
 
 辅助角色和 Service Fabric 服务的生命周期与生存期之间有几个主要差异：
 
- - **生命周期：** 最大的差异为辅助角色是 VM，因此其生命周期绑定到 VM，且包含 VM 启动和停止时的事件。 Service Fabric 服务的生命周期与 VM 的生命周期不同，因此不包含主机 VM 或计算机启动和停止时的事件，因为它们彼此不相关。
-
- - 生存期：如果 `Run` 方法退出，辅助角色实例将回收。 但是，Service Fabric 服务中的 `RunAsync` 方法可以运行到完成为止，服务实例将保持运行状态。 
+* **生命周期：** 最大的差异为辅助角色是 VM，因此其生命周期绑定到 VM，且包含 VM 启动和停止时的事件。 Service Fabric 服务的生命周期与 VM 的生命周期不同，因此不包含主机 VM 或计算机启动和停止时的事件，因为它们彼此不相关。
+* 生存期：如果 `Run` 方法退出，辅助角色实例将回收。 但是，Service Fabric 服务中的 `RunAsync` 方法可以运行到完成为止，服务实例将保持运行状态。 
 
 Service Fabric 为侦听客户端请求的服务提供可选的通信设置入口点。 RunAsync 和通信入口点都是 Service Fabric 服务中的可选重写（服务可选择只侦听客户端请求和/或只运行处理循环），这就是 RunAsync 方法无需重新启动服务实例就可退出的原因，因为它可以继续侦听客户端请求。
 
 ## <a name="application-api-and-environment"></a>应用程序 API 和环境
 云服务环境 API 提供当前 VM 实例的信息和功能，以及有关其他 VM 角色实例的信息。 Service Fabric 提供有关其运行时的信息，以及有关服务当前运行所在的节点的某些信息。 
 
-**环境任务** | **云服务** | **Service Fabric**
---- | --- | ---
-配置设置和更改通知 | `RoleEnvironment` | `CodePackageActivationContext`
-本地存储 | `RoleEnvironment` | `CodePackageActivationContext`
-终结点信息 | `RoleInstance` <ul><li>当前实例：`RoleEnvironment.CurrentRoleInstance`</li><li>其他角色和实例：`RoleEnvironment.Roles`</li> | <ul><li>适用于当前节点地址的 `NodeContext`</li><li>适用于服务终结点发现的 `FabricClient` 和 `ServicePartitionResolver`</li> 
-环境模拟 | `RoleEnvironment.IsEmulated` | 不适用
-同时更改事件 | `RoleEnvironment` | 不适用
+| **环境任务** | **云服务** | **Service Fabric** |
+| --- | --- | --- |
+| 配置设置和更改通知 |`RoleEnvironment` |`CodePackageActivationContext` |
+| 本地存储 |`RoleEnvironment` |`CodePackageActivationContext` |
+| 终结点信息 |`RoleInstance` <ul><li>当前实例：`RoleEnvironment.CurrentRoleInstance`</li><li>其他角色和实例：`RoleEnvironment.Roles`</li> |<ul><li>适用于当前节点地址的 `NodeContext`</li><li>适用于服务终结点发现的 `FabricClient` 和 `ServicePartitionResolver`</li> |
+| 环境模拟 |`RoleEnvironment.IsEmulated` |不适用 |
+| 同时更改事件 |`RoleEnvironment` |不适用 |
 
 ## <a name="configuration-settings"></a>配置设置
-云服务中的配置设置是针对 VM 角色设置的，将应用到该 VM 角色的所有实例。 这些设置是 ServiceConfiguration.*.cscfg 文件中设置的键-值对，可直接通过 RoleEnvironment 进行访问。 在 Service Fabric 中，设置单独应用到每个服务和每个应用程序，而不是应用到 VM，因为 VM 可以托管多个服务和应用程序。 服务由三个包组成：
+云服务中的配置设置是针对 VM 角色设置的，应用到该 VM 角色的所有实例。 这些设置是 ServiceConfiguration.*.cscfg 文件中设置的键-值对，可直接通过 RoleEnvironment 进行访问。 在 Service Fabric 中，设置单独应用到每个服务和每个应用程序，而不是应用到 VM，因为 VM 可以托管多个服务和应用程序。 服务由三个包组成：
 
- - **代码：** 包含服务的可执行文件、二进制文件、DLL 和服务需要运行的任何其他文件。
- - **配置：** 服务的所有配置文件和设置。
- - **数据：** 与服务关联的静态数据文件。
+* **代码：** 包含服务的可执行文件、二进制文件、DLL 和服务需要运行的任何其他文件。
+* **配置：** 服务的所有配置文件和设置。
+* **数据：** 与服务关联的静态数据文件。
 
 其中每个包可独立设置版本和进行升级。 与云服务类似，可通过 API 以编程方式访问配置包。发生配置包更改时，系统会提供事件来通知服务。 Settings.xml 文件可用于键-值配置和编程访问，这与 App.config 文件的应用设置部分类似。 但是，与云服务不同的是，Service Fabric 配置包可以包含任何格式的任何配置文件，不管是 XML、JSON、YAML 还是自定义的二进制格式。 
 
@@ -242,10 +241,11 @@ Service Fabric 中的启动入口点是在 ServiceManifest.xml 中针对每个�
 ## <a name="next-steps"></a>后续步骤
 阅读有关 Service Fabric Reliable Services 的详细信息以及云服务与 Service Fabric 应用程序体系结构之间的基本区别，以了解如何利用 Service Fabric 的完整功能集。
 
- - [Service Fabric Reliable Services 入门](./service-fabric-reliable-services-quick-start.md)
-
- - [云服务与 Service Fabric 之间差异的概念指南](./service-fabric-cloud-services-migration-differences.md)
+* [Service Fabric Reliable Services 入门](service-fabric-reliable-services-quick-start.md)
+* [云服务与 Service Fabric 之间差异的概念指南](service-fabric-cloud-services-migration-differences.md)
 
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
+
+<!--Update_Description: update meta properties-->

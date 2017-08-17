@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/26/2017
-ms.date: 07/17/2017
+origin.date: 06/30/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8e40fa70a2f9a90def592160ceb57f9a16f65c47
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 58624586af7d3d6ec6bef361e898218c467bbad0
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="infrastructure-level-event-and-log-generation"></a>基础结构级事件和日志生成
 
@@ -45,7 +45,7 @@ Service Fabric 具有自身的运行状况模型，以下文章对此做了详�
 - [添加自定义 Service Fabric 运行状况报告](service-fabric-report-health.md)
 - [查看 Service Fabric 运行状况报告](service-fabric-view-entities-aggregated-health.md)
 
-运行状况监视对于运行服务的多个方面至关重要。 当 Service Fabric 执行命名应用程序升级时，运行状况监视尤为重要。 服务的每个升级域都已升级并且提供给客户使用后，升级域必须先通过运行状况检查，然后部署才能转到下一个升级域。 如果无法实现良好的运行状况，部署将会回滚，使应用程序保持一种已知正常的状态。 尽管在回滚服务之前某些客户可能会受到影响，但大多数客户不会遇到问题。 此外，问题的解决速度相对较快，无需等待操作员的人工操作。 在代码中合并的运行状况检查越多，服务应对部署问题的弹性就越高。
+运行状况监视对于运行服务的多个方面至关重要。 当 Service Fabric 执行命名应用程序升级时，运行状况监视尤为重要。 服务的每个升级域都已升级并且提供给客户使用后，升级域必须先通过运行状况检查，然后部署才能转到下一个升级域。 如果无法实现良好的运行状况，部署将会回退，使应用程序保持一种已知正常的状态。 尽管在回滚服务之前某些客户可能会受到影响，但大多数客户不会遇到问题。 此外，问题的解决速度相对较快，无需等待操作员的人工操作。 在代码中合并的运行状况检查越多，服务应对部署问题的弹性就越高。
 
 服务运行状况的另一个方面是从服务报告指标。 指标在 Service Fabric 中非常重要，因为它们用于均衡资源使用量。 指标还可用作系统运行状况的指示器。 例如，假设某个应用程序包含许多服务，每个实例报告每秒请求数 (RPS) 指标。 如果一个服务使用的资源比另一个服务要多，Service Fabric 会围绕群集移动服务实例，尽量使资源利用率保持均衡。 有关资源利用的工作原理的详细说明，请参阅 [Manage resource consumption and load in Service Fabric with metrics](service-fabric-cluster-resource-manager-metrics.md)（在 Service Fabric 中使用指标管理资源消耗和负载）。
 
@@ -58,19 +58,19 @@ Service Fabric 具有自身的运行状况模型，以下文章对此做了详�
 
 若要报告运行状况，请使用如下所示的代码：
 
-  ```csharp
-    if (!result.HasValue)
-    {
-        HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
-        this.Partition.ReportInstanceHealth(healthInformation);
-    }
-  ```
+```csharp
+if (!result.HasValue)
+{
+    HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
+    this.Partition.ReportInstanceHealth(healthInformation);
+}
+```
 
 若要报告指标，请使用如下所示的代码：
 
-  ```csharp
-    this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
-  ```
+```csharp
+this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
+```
 
 ### <a name="service-fabric-support-logs"></a>Service Fabric 支持日志
 
@@ -96,30 +96,19 @@ Service Fabric 具有自身的运行状况模型，以下文章对此做了详�
 
 ## <a name="measuring-performance"></a>测量性能
 
-测量群集性能有助于了解它如何处理负载以及如何做出关于缩放群集的决策（请参阅有关[在本地](service-fabric-cluster-windows-server-add-remove-nodes.md)缩放群集的详细信息）。 以后分析日志时，性能数据还可用于比较你或你的应用程序和服务可能执行的操作。 以下是设置群集收集性能数据的两种常见方式：
-<!-- Not Available [scaling a cluster on Azure](service-fabric-cluster-scale-up-down.md) -->
+测量群集性能有助于了解它如何处理负载以及如何做出关于缩放群集的决策（请参阅有关[在 Azure 上](service-fabric-cluster-scale-up-down.md)或[在本地](service-fabric-cluster-windows-server-add-remove-nodes.md)缩放群集的详细信息）。 以后分析日志时，性能数据还可用于比较你或你的应用程序和服务可能执行的操作。 
 
-* 使用代理：这是收集性能数据的首选方法，因为与更改群集的诊断配置相比，修改代理收集的数据是一个相对简单的过程。 请阅读[此文](service-fabric-diagnostics-event-analysis-oms.md)，了解有关 OMS 代理的更多信息。OMS 代理是一个能够读取 Service Fabric 群集 VM 以及任何已部署的容器的性能数据的监视代理。
-<!-- Not Available [this](../log-analytics/log-analytics-windows-agents.md) -->
+有关使用 Service Fabric 时要收集的性能计数器的列表，请参阅 [Service Fabric 中的性能计数器](service-fabric-diagnostics-event-generation-perf.md)
 
-* 配置诊断以将性能计数器写入表中：对于 Azure 上的群集，这意味着更改 Azure 诊断配置以从群就中的 VM 读取适当的性能计数器，如果要部署任何容器，也能使其读取 docker 统计数据。 [此文](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md)回顾了如何设置性能计数器（不过适用于 .NET 应用程序）；Service Fabric 群集的相关设置过程也非常类似。 在 Resource Manager 模板中添加到“WadCfg > DiagnosticMonitorConfiguration”的快速示例代码如下所示。 在本例中，我们将设置一个性能计数器，每隔 15 秒采样（可更改并遵循“PT \<时间>\<单位>”格式，例如，PT3M 每隔 3 分钟采样），每分钟传输到适当的存储表中。
+以下是设置群集收集性能数据的两种常见方式：
 
-    ```json
-    "PerformanceCounters": {
-        "scheduledTransferPeriod": "PT1M",
-        "PerformanceCounterConfiguration": [
-            {
-                "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                "sampleRate": "PT15S",
-                "unit": "Percent",
-                "annotation": [
-                ],
-                "sinks": ""
-            }
-        ]
-    }
-    ```
+* 使用代理：这是从计算机中收集性能的首选方法，因为代理通常有可以收集的可能性能指标列表，并且选择要收集或更改的指标是一个相对简单的过程。 阅读有关[如何配置适用于 Service Fabric 的 OMS](service-fabric-diagnostics-event-analysis-oms.md) 的文章，了解有关 OMS 代理的更多信息，OMS 代理是一个能够读取群集 VM 和已部署容器的性能数据的监视代理。
+
+* 配置诊断以将性能计数器写入表中：对于 Azure 上的群集，这意味着更改 Azure 诊断配置以从群就中的 VM 读取适当的性能计数器，如果要部署任何容器，也能使其读取 docker 统计数据。 阅读有关在 Service Fabric 中配置 [WAD 中的性能计数器](service-fabric-diagnostics-event-aggregation-wad.md)的文章，设置性能计数器集合。
+<!-- Not Available [Setting up the OMS Windows Agent](../log-analytics/log-analytics-windows-agents.md) -->
 
 ## <a name="next-steps"></a>后续步骤
 
 需要将日志和事件聚合后，才能将其发送到任何分析平台。 阅读有关 [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 和 [WAD](service-fabric-diagnostics-event-aggregation-wad.md) 的信息，更好地了解一些推荐的选项。
+
+<!--Update_Description: update meta properties, update reference link -->

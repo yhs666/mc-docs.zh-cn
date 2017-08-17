@@ -1,6 +1,6 @@
 ---
 title: "有关 Azure Active Directory 中应用程序管理的文章索引 | Azure"
-description: "了解如何自定义联合证书的过期日期，以及如何续订即将过期的证书。"
+description: "了解如何自定义联合证书的到期日期，以及如何续订即将过期的证书。"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,16 +14,16 @@ ms.topic: article
 origin.date: 05/04/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.openlocfilehash: 50c3f998441c7bd533df500618cc760e64e9d92e
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 0f0f81940221a2147a3e31967de9053f6f29d6be
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>有关 Azure Active Directory 中应用程序管理的文章索引
 本页提供了一份完整列表，列出编写的 Azure Active Directory (Azure AD) 中各种应用程序相关功能的所有文章。
 
-每个主要功能区都有简介，同时也根据你要查找的信息指导需要阅读的文章。
+每个主要功能区都有简介，同时也根据要查找的信息指导需要阅读的文章。
 
 ## <a name="overview-articles"></a>概述文章
 对于只需要 Azure AD 应用程序管理功能的简要说明的用户，以下文章是很好的起点。
@@ -46,21 +46,21 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="single-sign-on-sso"></a>单一登录 (SSO)
 ### <a name="federated-single-sign-on-sign-into-many-apps-using-one-identity"></a>联合单一登录：使用一个标识登录多个应用程序
-单一登录可让用户只使用一组凭据，访问各种不同的应用程序和服务。 可以通过联合方法启用单一登录。 当用户尝试登录联合应用时，将被重定向到其组织的官方登录页面（由 Azure Active Directory 呈现），一旦身份验证成功，即重定向回到应用。
+单一登录可让用户只使用一组凭据，访问各种不同的应用程序和服务。 可以通过联合方法启用单一登录。 当用户尝试登录联合应用时，会被重定向到其组织的官方登录页面（由 Azure Active Directory 呈现），一旦身份验证成功，即重定向回到应用。
 
 | 文章指南 |  |
 |:---:| --- |
 | 联合身份验证和其他登录类型简介 |[使用 Azure AD 进行单一登录](./active-directory-appssoaccess-whatis.md) |
 | 通过简化的单一登录配置步骤与 Azure AD 预先集成的数千个 SaaS 应用 |[Azure AD 应用程序库入门](./active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[支持联合身份验证的预先集成应用完整列表](http://aka.ms/aadfederatedapps)|
 | 150 个以上的应用教程，介绍如何为应用配置单一登录 |
-| 如何手动设置和自定义单一登录配置 |如何为不在 Azure Active Directory 应用程序库中的应用配置联合单一登录 <br /><br />[如何为预先集成的应用自定义 SAML 令牌中颁发的声明](./develop/active-directory-saml-claims-customization.md) |
+| 如何手动设置和自定义单一登录配置 |如何为不在 Azure Active Directory 应用程序库中的应用配置联合单一登录 |
 | 使用 SAML 协议的联合应用的故障排除指南 |[排查基于 SAML 的单一登录问题](./develop/active-directory-saml-debugging.md) |
-| 如何设置应用的证书过期日期，以及如何续订证书 |[在 Azure Active Directory 中管理用于联合单一登录的证书](./active-directory-sso-certs.md) |
+| 如何设置应用的证书过期日期，以及如何续订证书 | 在 Azure Active Directory 中管理用于联合单一登录的证书 |
 
 联合单一登录适用于所有版本的 Azure AD，每个用户最多十个应用。 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) 支持无限数目的应用程序。 如果组织拥有 [Azure AD 基本版](https://www.azure.cn/pricing/details/identity/)或 [Azure AD 高级版](https://www.azure.cn/pricing/details/identity/)，则可以[使用组来分配对联合应用程序的访问权限](#managing-access-to-applications)。
 
 ### <a name="password-based-single-sign-on-account-sharing-and-sso-for-non-federated-apps"></a>基于密码的单一登录：非联合应用的帐户共享和 SSO
-为了实现单一登录到不支持联合身份验证的应用程序，Azure AD 提供了密码管理功能，可安全地将密码存储到 SaaS 应用并自动将用户登录到这些应用。 你可以轻松分发新建帐户的凭据，并与多人共享团队帐户。 用户无需知道他们有权访问的帐户凭据。
+为了实现单一登录到不支持联合身份验证的应用程序，Azure AD 提供了密码管理功能，这些功能可安全地将密码存储到 SaaS 应用并自动将用户登录到这些应用。 可以轻松分发新建帐户的凭据，并与多人共享团队帐户。 用户无需知道他们有权访问的帐户凭据。
 
 | 文章指南 |  |
 |:---:| --- |
@@ -72,7 +72,7 @@ ms.lasthandoff: 07/13/2017
 基于密码的单一登录适用于所有版本的 Azure AD，每个用户最多十个应用。 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) 支持无限数目的应用程序。 如果组织拥有 [Azure AD Basic](https://www.azure.cn/pricing/details/identity/) 或 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/)，则可以[使用组来分配对应用程序的访问权限](#managing-access-to-applications)。 自动密码滚动更新是一项 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) 功能。
 
 ### <a name="enabling-single-sign-on-between-azure-ad-and-on-premises-ad"></a>在 Azure AD 与本地 AD 之间启用单一登录
-如果你的组织在本地维护 Windows Server Active Directory，并在云中维护 Azure Active Directory，则你可能想在这两个系统之间启用单一登录。 Azure AD Connect（将这两个系统集成在一起的工具）提供多个设置单一登录的选项：建立与 ADFS 的联合或其他联合提供程序，或启用密码同步。
+如果组织在本地维护 Windows Server Active Directory，并在云中维护 Azure Active Directory，则你可能想在这两个系统之间启用单一登录。 Azure AD Connect（将这两个系统集成在一起的工具）提供多个设置单一登录的选项：建立与 ADFS 的联合或其他联合提供程序，或启用密码同步。
 
 | 文章指南 |  |
 |:---:| --- |
@@ -111,7 +111,7 @@ Azure AD Connect 适用于[所有版本的 Azure Active Directory](https://www.a
 
 | 文章指南 |  |
 |:---:| --- |
-| 用于将单一登录应用部署到用户的各种选项比较 |[为用户部署 Azure AD 集成的应用程序](./active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
+| 可用于将单一登录应用部署到用户的各种选项比较 |[为用户部署 Azure AD 集成的应用程序](./active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
 | 访问面板及其移动对应产品 MyApps 的概述 | 访问面板和 MyApps 简介 <br />- [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />- [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | 如何从 Office 365 网站访问 Azure AD 应用 |[使用 Office 365 应用启动程序](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | 如何从 Intune Managed Browser 移动应用访问 Azure AD 应用 |[Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />- [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />- [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |

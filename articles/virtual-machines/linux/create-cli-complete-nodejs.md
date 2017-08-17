@@ -16,24 +16,22 @@ ms.workload: infrastructure
 origin.date: 02/09/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: a6318ca9bb04e5ee03bd5a537a7ea9548bb044f1
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 6b5331e757e5ca10526cbf82ec07ad5281bbc8e4
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建完整的 Linux 环境
-在本文中，我们将构建一个简单网络，其中包含一个负载均衡器，以及一对可用于开发和简单计算的 VM。 将以逐条命令的方式完成整个过程，直到创建两个可以从 Internet 上的任何位置连接的有效且安全的 Linux VM。 然后，便可以继续构建更复杂的网络和环境。
+在本文中，我们构建一个简单网络，其中包含一个负载均衡器，以及一对可用于开发和简单计算的 VM。 将以逐条命令的方式完成整个过程，直到创建两个可以从 Internet 上的任何位置连接的有效且安全的 Linux VM。 然后，便可以继续构建更复杂的网络和环境。
 
-在此过程中，将了解 Resource Manager 部署模型提供的依赖性层次结构及其提供的功能。 明白系统是如何构建的以后，即可使用 [Azure Resource Manager 模板](../../resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)更快速地重新构建系统。 此外，了解环境的各个部分如何彼此配合运行后，可以更轻松创建模板以实现自动化。
+在此过程中，可以了解 Resource Manager 部署模型提供的依赖性层次结构及其提供的功能。 明白系统是如何构建的以后，即可使用 [Azure Resource Manager 模板](../../resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)更快速地重新构建系统。 此外，了解环境的各个部分如何彼此配合运行后，可以更轻松创建模板以实现自动化。
 
 该环境包含：
 
 * 两个位于可用性集中的 VM。
 * 端口 80 上有一个带负载均衡规则的负载均衡器。
 * 网络安全组 (NSG) 规则，阻止 VM 接受不需要的流量。
-
-![基本环境概述](./media/create-cli-complete/environment_overview.png)
 
 若要创建此自定义环境，需要在 Resource Manager 模式 (`azure config mode arm`) 下安装最新的 [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 此外，还需要一个 JSON 分析工具。 本示例使用 [jq](https://stedolan.github.io/jq/)。
 
@@ -52,7 +50,7 @@ ms.lasthandoff: 06/21/2017
 azure config mode arm
 ```
 
-在以下示例中，请将示例参数名称替换为自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `myVM`。
+在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `myVM`。
 
 创建资源组。 以下示例在 `chinanorth` 位置创建名为 `myResourceGroup` 的资源组：
 
@@ -156,7 +154,7 @@ azure network lb probe create -g myResourceGroup -l myLoadBalancer \
 azure network lb show -g myResourceGroup -n myLoadBalancer --json | jq '.'
 ```
 
-创建第一个网络接口卡 (NIC)。 将 `#####-###-###` 部分替换为你自己的 Azure 订阅 ID。 检查所创建的资源时，订阅 ID 不会记录在 **jq** 的输出中。 也可以使用 `azure account list`查看订阅 ID。
+创建第一个网络接口卡 (NIC)。 将 `#####-###-###` 部分替换为自己的 Azure 订阅 ID。 检查所创建的资源时，订阅 ID 不会记录在 **jq** 的输出中。 也可以使用 `azure account list`查看订阅 ID。
 
 以下示例创建名为 `myNic1`的 NIC：
 
@@ -276,7 +274,7 @@ azure group export myResourceGroup
 azure config mode arm
 ```
 
-在以下示例中，请将示例参数名称替换为自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `myVM`。
+在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `myVM`。
 
 ## <a name="create-resource-groups-and-choose-deployment-locations"></a>创建资源组并选择部署位置
 Azure 资源组是逻辑部署实体，包含用于启用资源部署逻辑管理的配置信息和元数据。 以下示例在 `chinanorth` 位置创建名为 `myResourceGroup` 的资源组：
@@ -453,7 +451,7 @@ azure group show myResourceGroup --json | jq '.'
 }
 ```
 
-现在，需在部署 VM 的 `myVnet` 虚拟网络中创建子网。 使用 `azure network vnet subnet create` 命令以及已创建的资源：`myResourceGroup` 资源组和 `myVnet` 虚拟网络。 在以下示例中，将添加一个名为 `mySubnet` 的子网，其子网地址前缀为 `192.168.1.0/24`：
+现在，需在部署 VM 的 `myVnet` 虚拟网络中创建子网。 使用 `azure network vnet subnet create` 命令以及已创建的资源：`myResourceGroup` 资源组和 `myVnet` 虚拟网络。 在以下示例中，会添加一个名为 `mySubnet` 的子网，其子网地址前缀为 `192.168.1.0/24`：
 
 ```azurecli
 azure network vnet subnet create --resource-group myResourceGroup \
@@ -476,7 +474,7 @@ data:
 info:    network vnet subnet create command OK
 ```
 
-由于子网以逻辑方式出现在虚拟网络中，可使用稍微不同的命令来查找子网信息。 使用的命令为 `azure network vnet show`，但将继续使用 `jq` 检查 JSON 输出。
+由于子网以逻辑方式出现在虚拟网络中，可使用稍微不同的命令来查找子网信息。 使用的命令为 `azure network vnet show`，但会继续使用 `jq` 检查 JSON 输出。
 
 ```azurecli
 azure network vnet show myResourceGroup myVnet --json | jq '.'
@@ -639,7 +637,7 @@ data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
 
-我们的负载均衡器很空，因此让我们创建一些 IP 池。 我们想要为负载均衡器创建两个 IP 池：一个用于前端，一个用于后端。 前端 IP 池将公开显示。 它也是我们将前面创建的 PIP 分配到的位置。 然后我们使用后端池作为 VM 要连接到的位置。 这样，流量便可以通过负载均衡器流向 VM。
+我们的负载均衡器很空，因此让我们创建一些 IP 池。 我们想要为负载均衡器创建两个 IP 池：一个用于前端，一个用于后端。 前端 IP 池会公开显示。 它也是我们将前面创建的 PIP 分配到的位置。 然后我们使用后端池作为 VM 要连接到的位置。 这样，流量便可以通过负载均衡器流向 VM。
 
 首先，创建前端 IP 池。 以下示例创建名为 `myFrontEndPool`的前端池：
 
@@ -729,7 +727,7 @@ azure network lb show myResourceGroup myLoadBalancer --json | jq '.'
 ```
 
 ## <a name="create-load-balancer-nat-rules"></a>创建负载均衡器 NAT 规则
-若要获取流经负载均衡器的流量，需要创建网络地址转换 (NAT) 规则来指定入站或出站操作。 可以指定要使用的协议，然后根据需要将外部端口映射到内部端口。 针对我们的环境，让我们创建一些规则，以允许通过负载均衡器对 VM 进行 SSH 访问。 将 TCP 端口 4222 和 4223 设置为定向到 VM 上的 TCP 端口 22（稍后将会创建）。 以下示例创建名为 `myLoadBalancerRuleSSH1` 的规则，用于将 TCP 端口 4222 映射到端口 22：
+若要获取流经负载均衡器的流量，需要创建网络地址转换 (NAT) 规则来指定入站或出站操作。 可以指定要使用的协议，并根据需要将外部端口映射到内部端口。 针对我们的环境，让我们创建一些规则，以允许通过负载均衡器对 VM 进行 SSH 访问。 将 TCP 端口 4222 和 4223 设置为定向到 VM 上的 TCP 端口 22（稍后会创建）。 以下示例创建名为 `myLoadBalancerRuleSSH1` 的规则，用于将 TCP 端口 4222 映射到端口 22：
 
 ```azurecli
 azure network lb inbound-nat-rule create --resource-group myResourceGroup \
@@ -765,7 +763,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --frontend-port 4223 --backend-port 22
 ```
 
-让我们继续为用于传输 Web 流量的 TCP 端口 80 创建 NAT 规则，并将该规则挂接到 IP 池。 如果将规则挂接到 IP 池，而不是将规则逐个挂接到 VM，则可以在 IP 池中添加或删除 VM。 然后，负载均衡器会自动调整流量流。 以下示例创建名为 `myLoadBalancerRuleWeb` 的规则，用于将 TCP 端口 80 映射到端口 80：
+让我们继续为用于传输 Web 流量的 TCP 端口 80 创建 NAT 规则，并将该规则挂接到 IP 池。 如果将规则挂接到 IP 池，而不是将规则逐个挂接到 VM，则可以在 IP 池中添加或删除 VM。 负载均衡器会自动调整流量流。 以下示例创建名为 `myLoadBalancerRuleWeb` 的规则，用于将 TCP 端口 80 映射到端口 80：
 
 ```azurecli
 azure network lb rule create --resource-group myResourceGroup \
@@ -797,7 +795,7 @@ info:    network lb rule create command OK
 ```
 
 ## <a name="create-a-load-balancer-health-probe"></a>创建负载均衡器运行状况探测
-运行状况探测定期检查受负载均衡器后面的 VM，以确保它们可以根据定义操作和响应请求。 否则，将从操作中删除这些 VM，确保不会将用户定向到它们。 可以针对运行状况探测定义自定义检查，以及间隔和超时值。 有关运行状况探测的详细信息，请参阅[负载均衡器探测](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 以下示例创建名为 `myHealthProbe`的 TCP 运行状况探测：
+运行状况探测定期检查受负载均衡器后面的 VM，以确保它们可以根据定义操作和响应请求。 否则，会从操作中删除这些 VM，确保不会将用户定向到它们。 可以针对运行状况探测定义自定义检查，以及间隔和超时值。 有关运行状况探测的详细信息，请参阅[负载均衡器探测](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 以下示例创建名为 `myHealthProbe`的 TCP 运行状况探测：
 
 ```azurecli
 azure network lb probe create --resource-group myResourceGroup \
@@ -958,7 +956,7 @@ azure network lb show --resource-group myResourceGroup \
 ## <a name="create-an-nic-to-use-with-the-linux-vm"></a>创建用于 Linux VM 的 NIC
 由于可以对 NIC 使用应用规则，因此能以编程方式使用 NIC。 可以创建多个规则。 在下面的 `azure network nic create` 命令中，要将 NIC 挂接到负载后端 IP 池，并与 NAT 规则关联以允许 SSH 流量。
 
-请将 `#####-###-###` 节替换为自己的 Azure 订阅 ID。 检查所创建的资源时，订阅 ID 不会记录在 `jq` 的输出中。 也可以使用 `azure account list`查看订阅 ID。
+将 `#####-###-###` 部分替换为自己的 Azure 订阅 ID。 检查所创建的资源时，订阅 ID 不会记录在 `jq` 的输出中。 也可以使用 `azure account list`查看订阅 ID。
 
 以下示例创建名为 `myNic1`的 NIC：
 
@@ -1044,7 +1042,7 @@ azure network nic show myResourceGroup myNic1 --json | jq '.'
 }
 ```
 
-现在，我们将创建第二个 NIC 并同样将其挂接到后端 IP 池。 这一次，第二个 NAT 规则将允许 SSH 流。 以下示例创建名为 `myNic2`的 NIC：
+现在，我们创建第二个 NIC 并同样将其挂接到后端 IP 池。 这一次，第二个 NAT 规则允许 SSH 流。 以下示例创建名为 `myNic2`的 NIC：
 
 ```azurecli
 azure network nic create --resource-group myResourceGroup --location chinanorth \
@@ -1080,7 +1078,7 @@ azure network nsg rule create --resource-group myResourceGroup \
 ```
 
 > [!NOTE]
-> 入站规则是入站网络连接的筛选器。 在本示例中，我们将 NSG 绑定到 VM 虚拟 NIC，这意味着任何对端口 22 的请求都将在 VM 上传递到 NIC。 此入站规则与网络连接相关，而不与终结点相关（终结点与经典部署相关）。 若要打开端口，必须将 `--source-port-range` 保持设置为“\*”（默认值）才能接受来自**任何**请求端口的入站请求。 端口通常是动态的。
+> 入站规则是入站网络连接的筛选器。 在本示例中，我们将 NSG 绑定到 VM 虚拟 NIC，这意味着任何对端口 22 的请求都会在 VM 上传递到 NIC。 此入站规则与网络连接相关，而不与终结点相关（终结点与经典部署相关）。 若要打开端口，必须将 `--source-port-range` 保持设置为“\*”（默认值）才能接受来自**任何**请求端口的入站请求。 端口通常是动态的。
 >
 >
 
@@ -1112,9 +1110,9 @@ azure availset create --resource-group myResourceGroup --location chinanorth
 请阅读有关[管理 VM 可用性](manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)的详细信息。
 
 ## <a name="create-the-linux-vms"></a>创建 Linux VM
-已经创建存储和网络资源，支持可访问 Internet 的 VM。 现在，创建 VM 并使用不含密码的 SSH 密钥保护其安全。 在此情况下，我们需要基于最新的 LTS 创建 Ubuntu VM。 我们将根据 [finding Azure VM images](../windows/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（查找 Azure VM 映像）中所述，使用 `azure vm image list` 来查找该映像信息。
+已经创建存储和网络资源，支持可访问 Internet 的 VM。 现在，创建 VM 并使用不含密码的 SSH 密钥保护其安全。 在此情况下，我们需要基于最新的 LTS 创建 Ubuntu VM。 我们会根据 [finding Azure VM images](../windows/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（查找 Azure VM 映像）中所述，使用 `azure vm image list` 来查找该映像信息。
 
-我们使用命令 `azure vm image list chinanorth canonical | grep LTS` 选择了映像。 在此示例中，使用 `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`。 对于最后一个字段，我们将传递 `latest`，以便将来可随时获取最新的内部版本。 （使用的字符串是 `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`）。
+我们使用命令 `azure vm image list chinanorth canonical | grep LTS` 选择了映像。 在此示例中，使用 `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`。 对于最后一个字段，我们传递 `latest`，以便将来可随时获取最新的内部版本。 （使用的字符串是 `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`）。
 
 已使用 **ssh-keygen -t rsa -b 2048** 在 Linux 或 Mac 上创建 ssh rsa 公钥和私钥对的任何人都熟悉下一个步骤。 如果 `~/.ssh` 目录中没有任何证书密钥对，可以创建证书密钥对：
 

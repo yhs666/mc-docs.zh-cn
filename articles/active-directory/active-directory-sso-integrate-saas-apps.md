@@ -1,5 +1,4 @@
 ---
-
 title: "将 Azure Active Directory 单一登录与 SaaS 应用相集成 | Microsoft Docs"
 description: "为 Azure Active Directory 中的 SaaS 应用启用单一登录身份验证和用户设置集中式访问管理。 有关如何将 Azure Active Directory 集成到 SaaS 应用的概述。"
 services: active-directory
@@ -17,15 +16,12 @@ ms.workload: identity
 origin.date: 05/04/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: e5afc5eeaeda0295569dbf5431cf18ecdef77477
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: a176ffc3aecbbe9d402cb24ee2e2bd6d5ddbf1ca
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/11/2017
 ---
-
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>将 Azure Active Directory 单一登录与 SaaS 应用相集成  
 
 [!INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
@@ -33,23 +29,23 @@ ms.lasthandoff: 05/26/2017
 若要开始为组织中安装的应用设置单一登录，将要使用 Azure Active Directory (Azure AD) 中的现有目录。 可以使用通过 Azure、Office 365 或 Windows Intune 获取的 Azure AD 目录。 如果有两个或更多个目录，请参阅[管理 Azure AD 目录](active-directory-administer.md)来确定要使用哪一个。
 
 ## <a name="authentication"></a>身份验证
-对于支持 SAML 2.0、WS 联合身份验证或 OpenID Connect 协议的应用程序，Azure Active Directory 将使用签名证书来建立信任关系。 有关详细信息，请参阅[管理联合单一登录的证书](active-directory-sso-certs.md)。
+对于支持 SAML 2.0、WS 联合身份验证或 OpenID Connect 协议的应用程序，Azure Active Directory 使用签名证书来建立信任关系。 
 
-对于仅支持基于 HTML 表单的登录的应用程序，Azure Active Directory 将使用“密码保管”来建立信任关系。 这样，组织中的用户便可以使用 SaaS 应用程序中的用户帐户信息自动登录到 SaaS 应用程序。 Azure AD 将收集并安全地存储用户帐户信息和相关密码。 有关详细信息，请参阅[基于密码的单一登录](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)。
+对于仅支持基于 HTML 表单的登录的应用程序，Azure Active Directory 使用“密码保管”来建立信任关系。 这样，组织中的用户便可以使用 SaaS 应用程序中的用户帐户信息自动登录到 SaaS 应用程序。 Azure AD 将收集并安全地存储用户帐户信息和相关密码。 有关详细信息，请参阅[基于密码的单一登录](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)。
 
 ## <a name="authorization"></a>授权
-设置的帐户通过单一登录身份验证之后，可授权用户使用应用程序。 用户设置可以手动完成，在某些情况下，你可以根据 Azure Active Directory 中所做的更改在 SaaS 应用中添加和删除用户信息。 
+设置的帐户通过单一登录身份验证之后，可授权用户使用应用程序。 用户设置可以手动完成，在某些情况下，可以根据 Azure Active Directory 中所做的更改在 SaaS 应用中添加和删除用户信息。 
 
-否则，你可以手动将用户信息添加到应用，或使用应用商店中提供的其他设置解决方案。
+否则，可以手动将用户信息添加到应用，或使用应用商店中提供的其他设置解决方案。
 
 ## <a name="access"></a>访问
-Azure AD 提供多种可自定义的方式来向组织中的最终用户部署应用程序。 你不会受限于任一特定的部署或访问解决方案。 可以使用[最符合需要的解决方案](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)。
+Azure AD 提供多种可自定义的方式来向组织中的最终用户部署应用程序。 不会受限于任一特定的部署或访问解决方案。 可以使用[最符合需要的解决方案](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)。
 
 ## <a name="additional-considerations-for-applications-already-in-use"></a>有关使用中应用程序的其他注意事项
 为组织中已在使用的应用程序设置单一登录的过程，与为新应用程序创建新帐户的过程不同。 基本步骤包括：将应用程序中的用户标识映射到 Azure AD 标识，以及了解集成之后用户如何体验登录应用程序。
 
 > [!NOTE]
-> 若要为现有应用程序设置 SSO，你需要有 Azure AD 和 SaaS 应用程序的全局管理员权限。
+> 要为现有应用程序设置 SSO，需要有 Azure AD 和 SaaS 应用程序的全局管理员权限。
 >
 >
 
@@ -67,10 +63,9 @@ Azure AD 提供多种可自定义的方式来向组织中的最终用户部署�
 
 ## <a name="next-steps"></a>后续步骤
 
-如果某个应用不在应用库中，你可以 [将该应用作为自定义应用程序添加到 Azure AD 应用库](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)。
+如果某个应用不在应用库中，可以[将该应用作为自定义应用程序添加到 Azure AD 应用库](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)。
 
 Azure.com 库中还提供了有关所有这些问题的更多详细信息，请先阅读 [Azure Active Directory 的应用程序访问与单一登录是什么](active-directory-appssoaccess-whatis.md)。
 
 此外，请不要错过[有关 Azure Active Directory 中应用程序管理的文章索引](active-directory-apps-index.md)。
-
 

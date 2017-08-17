@@ -37,13 +37,18 @@
 ### [Python](storage-python-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
-## 文件存储
-### [Windows、.NET、PowerShell](storage-dotnet-how-to-use-files.md)
+## [文件存储](storage-files-introduction.md)
+### [门户](storage-file-how-to-use-files-portal.md)
+### [.NET](storage-dotnet-how-to-use-files.md)
+### [PowerShell](storage-file-how-to-use-files-powershell.md)
+### [Windows](storage-file-how-to-use-files-windows.md)
 ### [Linux](storage-how-to-use-files-linux.md)
+### [Mac](storage-file-how-to-use-files-mac.md)  
 ### [Java](storage-java-how-to-use-file-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
-
+### [创建文件共享](storage-file-how-to-create-file-share.md)
+### [常见问题](storage-files-faq.md)
 ## 磁盘存储 
 ### [使用 Resource Manager 和 PowerShell 创建 VM](../virtual-machines/virtual-machines-windows-ps-create.md)
 ### [使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md)
@@ -106,9 +111,10 @@
 ## 安全
 ### [安全指南](storage-security-guide.md)
 ### [静态数据加密](storage-service-encryption.md)
-### [共享密钥身份验证](https://msdn.microsoft.com/library/dd179428.aspx)
+### [共享密钥身份验证](https://docs.microsoft.com/rest/api/storageservices/Authentication-for-the-Azure-Storage-Services)
 ### [共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [教程：使用 Azure 密钥保管库加密和解密 Blob](storage-encrypt-decrypt-blobs-key-vault.md)
+### [需要安全传输](storage-require-secure-transfer.md)
 ### 客户端加密
 #### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
@@ -123,7 +129,7 @@
 ### 排查磁盘删除错误
 #### [在 Resource Manager 部署中](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 #### [在经典部署中](storage-cannot-delete-storage-account-container-vhd.md)
-### [排查文件存储问题](storage-troubleshoot-file-connection-problems.md)
+### [排查文件存储问题](storage-troubleshoot-windows-file-connection-problems.md)
 ### [灾难恢复指南](storage-disaster-recovery-guidance.md)
 ## 传输数据
 ### [向/从存储器移动数据](storage-moving-data.md)

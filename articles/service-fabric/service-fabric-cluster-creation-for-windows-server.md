@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/24/2017
-ms.date: 07/17/2017
+origin.date: 06/24/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
-ms.openlocfilehash: e3818e3e93a70db4355d3b6d14abe31d164a5fba
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 76ea8732e985a9ff2c44ff12f92ea1fa32a741ca
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>创建在 Windows Server 上运行的独立群集
 可以使用 Azure Service Fabric 在运行 Windows Server 的任何虚拟机或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组相互连接的 Windows Server 计算机的任何环境（无论是本地环境还是任何云提供商所提供的环境）中部署和运行 Service Fabric 应用程序。 Service Fabric 提供了一个安装程序包，用于创建名为“Windows Server 独立包”的 Service Fabric 群集。
@@ -48,7 +48,7 @@ ms.lasthandoff: 07/14/2017
 
 在[此处](service-fabric-cluster-standalone-package-contents.md)查找有关包内容的详细信息。
 
-创建群集时，将自动下载 Service Fabric 运行时包。 如果从未连接到 Internet 的计算机进行部署，请从此处下载带外的运行时包： <br>
+创建群集时，会自动下载 Service Fabric 运行时包。 如果从未连接到 Internet 的计算机进行部署，请从此处下载带外的运行时包： <br>
 [下载链接 - Service Fabric 运行时 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)
 
 在此处查找独立群集配置示例： <br>
@@ -57,9 +57,9 @@ ms.lasthandoff: 07/14/2017
 <a id="createcluster"></a>
 
 ## <a name="create-the-cluster"></a>创建群集
-可以使用 *示例* 中包含的 [ClusterConfig.Unsecure.DevCluster.json](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)文件将 Service Fabric 部署到单机开发群集。
+可以使用*示例*中包含的 [ClusterConfig.Unsecure.DevCluster.json](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples) 文件将 Service Fabric 部署到单机开发群集。
 
-将独立包解压缩到计算机，将示例配置文件复制到本地计算机，然后通过管理员 PowerShell 会话从独立包文件夹运行 *CreateServiceFabricCluster.ps1* 脚本：
+将独立包解压缩到计算机，将示例配置文件复制到本地计算机，并通过管理员 PowerShell 会话从独立包文件夹运行 *CreateServiceFabricCluster.ps1* 脚本：
 ### <a name="step-1a-create-an-unsecured-local-development-cluster"></a>步骤 1A：创建不受保护的本地开发群集
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
@@ -104,7 +104,7 @@ ms.lasthandoff: 07/14/2017
     ```
 
 > [!NOTE]
-> 部署跟踪已写入运行 CreateServiceFabricCluster.ps1 PowerShell 脚本的 VM/计算机。 可在运行脚本的目录中的子文件夹 DeploymentTraces 中找到这些信息。 若要确定是否已将 Service Fabric 正确部署到计算机，请根据群集配置文件 FabricSettings 部分中的详述找到 FabricDataRoot 目录（默认为 c:\ProgramData\SF）中安装的文件。 在任务管理器中也可以看到 FabricHost.exe 和 Fabric.exe 进程正在运行。
+> 部署跟踪已写入运行 CreateServiceFabricCluster.ps1 PowerShell 脚本的 VM/计算机。 可在运行脚本的目录中的子文件夹 DeploymentTraces 中找到这些信息。 要确定是否已将 Service Fabric 正确部署到计算机，请根据群集配置文件 FabricSettings 部分中的详述找到 FabricDataRoot 目录（默认为 c:\ProgramData\SF）中安装的文件。 在任务管理器中也可以看到 FabricHost.exe 和 Fabric.exe 进程正在运行。
 > 
 > 
 
@@ -131,7 +131,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 现在可以通过 Service Fabric Explorer 连接到群集，既可以直接从装有 http://localhost:19080/Explorer/index.html 的某台计算机进行连接，也可以通过 http://<*IPAddressofaMachine*>:19080/Explorer/index.html 进行远程连接。
 
 ## <a name="add-and-remove-nodes"></a>添加和删除节点
-当业务需要改变时，您可以向独立 Service Fabric 群集添加或删除节点。 参阅[向 Service Fabric 独立群集添加或删节点](service-fabric-cluster-windows-server-add-remove-nodes.md)以了解详细步骤。
+当业务需要改变时，可以向独立 Service Fabric 群集添加或删除节点。 参阅[向 Service Fabric 独立群集添加或删节点](service-fabric-cluster-windows-server-add-remove-nodes.md)以了解详细步骤。
 
 <a id="removecluster" name="removecluster_anchor"></a>
 ## <a name="remove-a-cluster"></a>删除群集
@@ -152,9 +152,9 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 <a id="telemetry"></a>
 
 ## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>收集的遥测数据以及如何选择禁用遥测
-默认情况下，本产品会收集有关 Service Fabric 使用情况的遥测数据来改善自身。 在安装过程运行的最佳实践分析器将检查能否连接到 [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1)。 如果无法连接，安装将会失败，除非选择禁用遥测。
+默认情况下，本产品会收集有关 Service Fabric 使用情况的遥测数据来改善自身。 在安装过程中运行的最佳做法分析器将检查能否连接到 [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1)。 如果无法连接，安装会失败，除非选择禁用遥测。
 
-1. 遥测管道每天都会尝试一次将以下数据上传到 [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) 。 这是一种尽力而为的上传操作，不会影响群集功能。 遥测数据只会从运行主要故障转移管理器的节点发送。 其他节点都不会发送遥测数据。
+1. 遥测管道每天都会尝试一次将以下数据上传到 [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1)。 这是一种尽力而为的上传操作，不会影响群集功能。 遥测数据只会从运行主要故障转移管理器的节点发送。 其他节点都不会发送遥测数据。
 2. 遥测数据由以下内容组成：
 
 * 服务数目
@@ -178,7 +178,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 * ServiceFabricVersion
 * 从其上传遥测数据的虚拟机或计算机的 IP 地址
 
-若要禁用遥测数据，请将以下内容添加到群集配置中的*属性*：*enableTelemetry: false*。
+若要禁用遥测，请将以下内容添加到群集配置中的*属性*：*enableTelemetry: false*。
 
 <a id="previewfeatures" name="previewfeatures_anchor"></a>
 
@@ -201,3 +201,5 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
+
+<!--Update_Description: update meta properties-->

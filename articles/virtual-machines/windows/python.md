@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 中使用 Python 创建 Windows VM | Azure"
-description: "了解如何使用 Python 在 Azure 中创建 Windows VM。"
+title: "在 Azure 中使用 Python 创建和管理 Windows VM | Azure"
+description: "了解如何使用 Python 在 Azure 中创建和管理 Windows VM。"
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -13,39 +13,37 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 06/05/2017
-ms.date: 07/10/2017
+origin.date: 06/22/2017
+ms.date: 08/14/2017
 ms.author: v-dazen
-ms.openlocfilehash: 280523411728b6699b1f5cef9ee1b5215ccb024d
-ms.sourcegitcommit: 51a25dbbf5f32fe524860b1bb107108122b47bf0
+ms.openlocfilehash: 498b950036825116472d4ad8114146fa8a174b1d
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 08/07/2017
 ---
-# 在 Azure 中使用 Python 创建 Windows VM
-<a id="create-a-windows-vm-in-azure-using-python" class="xliff"></a>
+# <a name="create-and-manage-windows-vms-in-azure-using-python"></a>在 Azure 中使用 Python 创建和管理 Windows VM
 
-[Azure 虚拟机](overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) (VM) 需要多个支持性 Azure 资源。 本文介绍如何使用 Python 创建和删除 VM 资源。 你将学习如何执行以下操作：
+[Azure 虚拟机](overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) (VM) 需要多个支持性 Azure 资源。 本文介绍如何使用 Python 创建、管理和删除 VM 资源。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
 > * 创建 Visual Studio 项目
 > * 安装包
-> * 添加用于创建凭据的代码
-> * 添加用于创建资源的代码
-> * 添加用于删除资源的代码
+> * 创建凭据
+> * 创建资源
+> * 执行管理任务
+> * 删除资源
 > * 运行应用程序
 
 完成这些步骤大约需要 20 分钟。
 
-## 创建 Visual Studio 项目
-<a id="create-a-visual-studio-project" class="xliff"></a>
+## <a name="create-a-visual-studio-project"></a>创建 Visual Studio 项目
 
 1. 如果尚未安装，请安装 [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)。 在“工作负荷”页上选择“Python 开发”，然后单击“安装”。 在摘要中，可以看到系统已自动选择“Python 3 64 位 (3.6.0)”。 如果已安装 Visual Studio，则可以使用 Visual Studio 启动器添加 Python 工作负荷。
 2. 安装并启动 Visual Studio 后, 单击“文件” > “新建” > “项目”。
 3. 单击“模板” > “Python” > “Python 应用程序”，输入“myPythonProject” 作为项目名称并选择该项目的位置，然后单击“确定”。
 
-## 安装包
-<a id="install-packages" class="xliff"></a>
+## <a name="install-packages"></a>安装包
 
 1. 在解决方案资源管理器的“myPythonProject”下，右键单击“Python 环境”，然后选择“添加虚拟环境”。
 2. 在“添加虚拟环境”屏幕上，接受默认名称“env”，确保已选择“Python 3.6（64 位）”作为基础解释器，然后单击“创建”。
@@ -53,8 +51,7 @@ ms.lasthandoff: 07/03/2017
 
 应在输出窗口中看到 azure 包已成功安装。 
 
-## 添加用于创建凭据的代码
-<a id="add-code-to-create-credentials" class="xliff"></a>
+## <a name="create-credentials"></a>创建凭据
 
 在开始此步骤前，请确保具有 [Active Directory 服务主体](../../azure-resource-manager/resource-group-create-service-principal-portal.md)。 此外，应记下应用程序 ID、身份验证密钥和租户 ID，以便在后面的步骤中使用。
 
@@ -71,6 +68,7 @@ ms.lasthandoff: 07/03/2017
     from azure.mgmt.resource import ResourceManagementClient
     from azure.mgmt.compute import ComputeManagementClient
     from azure.mgmt.network import NetworkManagementClient
+    from azure.mgmt.compute.models import DiskCreateOption
     ```
 
 3. 接下来在 .py 文件的导入语句后添加变量，指定代码中使用的公用值：
@@ -79,6 +77,7 @@ ms.lasthandoff: 07/03/2017
     SUBSCRIPTION_ID = 'subscription-id'
     GROUP_NAME = 'myResourceGroup'
     LOCATION = 'chinanorth'
+    VM_NAME = 'myVM'
     ```
 
     将 subscription-id 替换为订阅标识符。
@@ -105,11 +104,9 @@ ms.lasthandoff: 07/03/2017
     credentials = get_credentials()
     ```
 
-## 添加用于创建资源的代码
-<a id="add-code-to-create-resources" class="xliff"></a>
+## <a name="create-resources"></a>创建资源
 
-### 初始化管理客户端
-<a id="initialize-management-clients" class="xliff"></a>
+### <a name="initialize-management-clients"></a>初始化管理客户端
 
 在 Azure 中使用 Python SDK 创建和管理资源时需要用到管理客户端。 若要创建管理客户端，请在 .py 文件末尾处的 if 语句下添加此代码：
 
@@ -128,8 +125,7 @@ compute_client = ComputeManagementClient(
 )
 ```
 
-### 创建 VM 和支持资源
-<a id="create-the-vm-and-supporting-resources" class="xliff"></a>
+### <a name="create-the-vm-and-supporting-resources"></a>创建 VM 和支持资源
 
 必须在[资源组](../../azure-resource-manager/resource-group-overview.md)中包含所有资源。
 
@@ -320,7 +316,7 @@ compute_client = ComputeManagementClient(
         vm_parameters = {
             'location': LOCATION,
             'os_profile': {
-                'computer_name': 'myVM',
+                'computer_name': VM_NAME,
                 'admin_username': 'azureuser',
                 'admin_password': 'Azure12345678'
             },
@@ -346,7 +342,7 @@ compute_client = ComputeManagementClient(
         }
         creation_result = compute_client.virtual_machines.create_or_update(
             GROUP_NAME, 
-            'myVM', 
+            VM_NAME, 
             vm_parameters
         )
 
@@ -367,8 +363,188 @@ compute_client = ComputeManagementClient(
     input('Press enter to continue...')
     ```
 
-## 添加用于删除资源的代码
-<a id="add-code-to-delete-resources" class="xliff"></a>
+## <a name="perform-management-tasks"></a>执行管理任务
+
+在虚拟机生命周期中，可能需要运行管理任务，例如启动、停止或删除虚拟机。 此外，建议创建代码来自动执行重复或复杂的任务。
+
+### <a name="get-information-about-the-vm"></a>获取有关 VM 的信息
+
+1. 若要获取有关虚拟机的信息，请在 .py 文件中将此函数添加在变量之后：
+
+    ```python
+    def get_vm(compute_client):
+        vm = compute_client.virtual_machines.get(GROUP_NAME, VM_NAME, expand='instanceView')
+        print("hardwareProfile")
+        print("   vmSize: ", vm.hardware_profile.vm_size)
+        print("\nstorageProfile")
+        print("  imageReference")
+        print("    publisher: ", vm.storage_profile.image_reference.publisher)
+        print("    offer: ", vm.storage_profile.image_reference.offer)
+        print("    sku: ", vm.storage_profile.image_reference.sku)
+        print("    version: ", vm.storage_profile.image_reference.version)
+        print("  osDisk")
+        print("    osType: ", vm.storage_profile.os_disk.os_type.value)
+        print("    name: ", vm.storage_profile.os_disk.name)
+        print("    createOption: ", vm.storage_profile.os_disk.create_option.value)
+        print("    caching: ", vm.storage_profile.os_disk.caching.value)
+        print("\nosProfile")
+        print("  computerName: ", vm.os_profile.computer_name)
+        print("  adminUsername: ", vm.os_profile.admin_username)
+        print("  provisionVMAgent: {0}".format(vm.os_profile.windows_configuration.provision_vm_agent))
+        print("  enableAutomaticUpdates: {0}".format(vm.os_profile.windows_configuration.enable_automatic_updates))
+        print("\nnetworkProfile")
+        for nic in vm.network_profile.network_interfaces:
+            print("  networkInterface id: ", nic.id)
+        print("\nvmAgent")
+        print("  vmAgentVersion", vm.instance_view.vm_agent.vm_agent_version)
+        print("    statuses")
+        for stat in vm_result.instance_view.vm_agent.statuses:
+            print("    code: ", stat.code)
+            print("    displayStatus: ", stat.display_status)
+            print("    message: ", stat.message)
+            print("    time: ", stat.time)
+        print("\ndisks");
+        for disk in vm.instance_view.disks:
+            print("  name: ", disk.name)
+            print("  statuses")
+            for stat in disk.statuses:
+                print("    code: ", stat.code)
+                print("    displayStatus: ", stat.display_status)
+                print("    time: ", stat.time)
+        print("\nVM general status")
+        print("  provisioningStatus: ", vm.provisioning_state)
+        print("  id: ", vm.id)
+        print("  name: ", vm.name)
+        print("  type: ", vm.type)
+        print("  location: ", vm.location)
+        print("\nVM instance status")
+        for stat in vm.instance_view.statuses:
+            print("  code: ", stat.code)
+            print("  displayStatus: ", stat.display_status)
+    ```
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+
+    ```python
+    get_vm(compute_client)
+    print("------------------------------------------------------")
+    input('Press enter to continue...')
+    ```
+
+### <a name="stop-the-vm"></a>停止 VM
+
+可停止虚拟机并保留其所有设置，但需继续付费；还可停止虚拟机并解除分配。 解除分配某个虚拟机也会解除分配与其关联的所有资源，并停止该虚拟机的计费。
+
+1. 若要停止虚拟机但不解除分配，请在 .py 文件中将此函数添加在变量之后：
+
+    ```python
+    def stop_vm(compute_client):
+        compute_client.virtual_machines.power_off(GROUP_NAME, VM_NAME)
+    ```
+
+    如果要解除虚拟机分配，请将 power_off 调用更改为以下代码：
+
+    ```python
+    compute_client.virtual_machines.deallocate(GROUP_NAME, VM_NAME)
+    ```
+
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+
+    ```python
+    stop_vm(compute_client)
+    input('Press enter to continue...')
+    ```
+
+### <a name="start-the-vm"></a>启动 VM
+
+1. 若要启动虚拟机，请在 .py 文件中将此函数添加在变量之后：
+
+    ```python
+    def start_vm(compute_client):
+        compute_client.virtual_machines.start(GROUP_NAME, VM_NAME)
+    ```
+
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+
+    ```python
+    start_vm(compute_client)
+    input('Press enter to continue...')
+    ```
+
+### <a name="resize-the-vm"></a>重设 VM 大小
+
+决定虚拟机大小时应考虑部署的诸多方面。 有关详细信息，请参见 [VM 大小](sizes.md)。
+
+1. 若要更改虚拟机大小，请在 .py 文件中将此函数添加在变量之后：
+
+    ```python
+    def update_vm(compute_client):
+        vm = compute_client.virtual_machines.get(GROUP_NAME, VM_NAME)
+        vm.hardware_profile.vm_size = 'Standard_DS3'
+        update_result = compute_client.virtual_machines.create_or_update(
+            GROUP_NAME, 
+            VM_NAME, 
+            vm
+        )
+
+    return update_result.result()
+    ```
+
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+
+    ```python
+    update_result = update_vm(compute_client)
+    print("------------------------------------------------------")
+    print(update_result)
+    input('Press enter to continue...')
+    ```
+
+### <a name="add-a-data-disk-to-the-vm"></a>将数据磁盘添加到 VM
+
+虚拟机可以有一个或多个存储为 VHD 的[数据磁盘](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+
+1. 若要将数据磁盘添加到虚拟机，请在 .py 文件中将此函数添加在变量之后： 
+
+    ```python
+    def add_datadisk(compute_client):
+        disk_creation = compute_client.disks.create_or_update(
+            GROUP_NAME,
+            'myDataDisk1',
+            {
+                'location': LOCATION,
+                'disk_size_gb': 1,
+                'creation_data': {
+                    'create_option': DiskCreateOption.empty
+                }
+            }
+        )
+        data_disk = disk_creation.result()
+        vm = compute_client.virtual_machines.get(GROUP_NAME, VM_NAME)
+        add_result = vm.storage_profile.data_disks.append({
+            'lun': 1,
+            'name': 'myDataDisk1',
+            'create_option': DiskCreateOption.attach,
+            'managed_disk': {
+                'id': data_disk.id
+            }
+        })
+        add_result = compute_client.virtual_machines.create_or_update(
+            GROUP_NAME,
+            VM_NAME,
+            vm)
+
+        return add_result.result()
+        ```
+
+2. To call the function that you previously added, add this code under the **if** statement at the end of the .py file:
+
+    ```python
+    add_result = add_datadisk(compute_client)
+    print("------------------------------------------------------")
+    print(add_result)
+    input('Press enter to continue...')
+    ```
+
+## <a name="delete-resources"></a>删除资源
 
 由于需要为 Azure 中使用的资源付费，因此，最好删除不再需要的资源。 如果要删除虚拟机和所有支持资源，只需删除资源组。
 
@@ -387,8 +563,7 @@ compute_client = ComputeManagementClient(
 
 3. 保存 myPythonProject.py。
 
-## 运行应用程序
-<a id="run-the-application" class="xliff"></a>
+## <a name="run-the-application"></a>运行应用程序
 
 1. 若要运行控制台应用程序，请在 Visual Studio 中单击“启动”。
 
@@ -396,9 +571,9 @@ compute_client = ComputeManagementClient(
 
     控制台应用程序从头到尾完成运行大约需要五分钟时间。 应用程序完成运行之后，可能需要花费几分钟时间来删除所有资源和资源组。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 - 如果部署出现问题，请查看[使用 Azure 门户对资源组部署进行故障排除](../../resource-manager-troubleshoot-deployments-portal.md)
-- 查看[使用 Azure Resource Manager 和 PowerShell 管理虚拟机](ps-manage.md)，了解如何管理创建的虚拟机。
-- 参考 [使用 Resource Manager 模板创建 Windows 虚拟机](ps-template.md)
+- 了解有关 [Azure Python 库](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)的详细信息
+
+<!--Update_Description: add section "Perform management tasks"-->

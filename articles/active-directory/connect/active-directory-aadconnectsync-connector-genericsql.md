@@ -3,8 +3,8 @@ title: "泛型 SQL 连接器 | Microsoft Docs"
 description: "本文介绍如何配置 Microsoft 的泛型 SQL 连接器。"
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,30 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2017
-ms.date: 06/12/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 40b144e06b05745e84347f74aa453d4f7ceaa113
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 0908c3b3412d5adc6e220d8ebc3bbdf78fd785da
+ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>泛型 SQL 连接器技术参考
 本指南介绍泛型 SQL 连接器。 本文适用于以下产品：
 
 - Microsoft 标识管理器 2016 (MIM2016)
 - Forefront 标识管理器 2010 R2 (FIM2010R2)
-  - 必须使用修补程序 4.1.3671.0 或更高版本 [KB3092178](https://support.microsoft.com/zh-cn/kb/3092178)。
+  - 必须使用修补程序 4.1.3671.0 或更高版本 [KB3092178](https://support.microsoft.com/kb/3092178)。
 
 对于 MIM2016 和 FIM2010R2，可以从 [Microsoft 下载中心](http://go.microsoft.com/fwlink/?LinkId=717495)下载此连接器。
 
 若要查看此连接器的工作原理，请参阅[泛型 SQL 连接器分步指南](active-directory-aadconnectsync-connector-genericsql-step-by-step.md)一文。
 
 ## <a name="overview-of-the-generic-sql-connector"></a>泛型 SQL 连接器概述
-使用泛型 SQL 连接器可以将同步服务与提供 ODBC 连接的数据库系统相集成。  
+使用通用 SQL 连接器可以将同步服务与提供 ODBC 连接的数据库系统相集成。  
 
 从较高层面讲，当前的连接器版本支持以下功能：
 
@@ -53,7 +51,7 @@ ms.lasthandoff: 05/26/2017
 - 64 位 ODBC 客户端驱动程序
 
 ### <a name="permissions-in-connected-data-source"></a>连接的数据源权限
-若要在泛型 SQL 连接器中创建或执行任何支持的任务，你必须具备：
+要在泛型 SQL 连接器中创建或执行任何支持的任务，必须具备：
 
 - db_datareader
 - db_datawriter
@@ -71,7 +69,7 @@ ms.lasthandoff: 05/26/2017
 
 ![CreateConnector](./media/active-directory-aadconnectsync-connector-genericsql/connectivity.png)
 
-当你创建新的泛型 SQL 连接器时，“连接”是第一个屏幕。 首先需要提供以下信息：
+创建新的泛型 SQL 连接器时，“连接”是第一个屏幕。 首先需要提供以下信息：
 
 - DSN 文件路径
 - 身份验证
@@ -91,7 +89,7 @@ ms.lasthandoff: 05/26/2017
 **导出类型: 对象替换**：在导出期间，只有一些属性已更改时，包含所有属性的整个对象将会导出并替换现有对象。
 
 ### <a name="schema-1-detect-object-types"></a>架构 1（检测对象类型）
-此页面上，将配置连接器要如何在数据库中查找不同的对象类型。
+此页面上，配置连接器要如何在数据库中查找不同的对象类型。
 
 每个对象类型显示为一个分区，并且在“配置分区和层次结构”上进一步设置。
 
@@ -106,7 +104,7 @@ ms.lasthandoff: 05/26/2017
 - **SQL 查询**：使用此选项可以提供 SQL 查询，返回包含对象类型的单个列，例如 `SELECT [Column Name] FROM TABLENAME`。 返回的列必须是字符串类型 (varchar)。
 
 ### <a name="schema-2-detect-attribute-types"></a>架构 2（检测属性类型）
-在此页面上，将配置如何检测属性名称和类型。 系统针对在前一页检测到的每个对象类型，列出配置选项。
+在此页上，将配置如何检测属性名称和类型。 系统针对在前一页检测到的每个对象类型，列出配置选项。
 
 ![schema2a](./media/active-directory-aadconnectsync-connector-genericsql/schema2a.png)
 
@@ -116,7 +114,7 @@ ms.lasthandoff: 05/26/2017
 - **SQL 查询**：使用此选项可以提供 SQL 查询，返回包含属性名称的单个列，例如 `SELECT [Column Name] FROM TABLENAME`。 返回的列必须是字符串类型 (varchar)。
 
 ### <a name="schema-3-define-anchor-and-dn"></a>架构 3（定义定位点和 DN）
-此页面可让你为每个检测到的对象类型配置定位点和 DN 属性。 可以选择多个属性，让定位点变成唯一。
+使用此页可为每个检测到的对象类型配置定位点和 DN 属性。 可以选择多个属性，让定位点变成唯一。
 
 ![schema3a](./media/active-directory-aadconnectsync-connector-genericsql/schema3a.png)
 
@@ -139,7 +137,7 @@ ms.lasthandoff: 05/26/2017
 说明：
 
 - 如果连接器无法检测属性类型，则使用字符串数据类型。
-- 可将嵌套表视为包含一个列的数据库表。 Oracle 不以任何特定顺序存储嵌套表的行。 但是，当你将嵌套表检索到 PL/SQL 变量时，行便有从 1 开始的连续下标。 这可让你获取单个行的类似于数组的访问。
+- 可将嵌套表视为包含一个列的数据库表。 Oracle 不以任何特定顺序存储嵌套表的行。 但是，将嵌套表检索到 PL/SQL 变量时，行便有从 1 开始的连续下标。 通过该下标可获得单个行的类似于数组的访问。
 - 连接器不支持 **VARRYS**。
 
 ### <a name="schema-5-define-partition-for-reference-attributes"></a>架构 5（定义引用属性的分区）
@@ -161,7 +159,7 @@ ms.lasthandoff: 05/26/2017
 
  </br> 如果选择了 “*”，则还必须指定包含对象类型的列的名称。</br> ![](./media/active-directory-aadconnectsync-connector-genericsql/any-03.png)
 
-导入后，你将看到如下图所示的内容：
+导入后，你会看到如下图所示的内容：
 
   ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/after-import.png)
 
@@ -199,12 +197,9 @@ ms.lasthandoff: 05/26/2017
 连接器提供两种方法来支持密码同步：
 
 - **存储过程**：此方法需要两个存储过程来支持设置和更改密码。 按照以下示例，分别在“设置密码 SP 参数”和“更改密码 SP 参数”中键入添加和更改密码操作的所有参数。
-    
-    ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters3.png)
-
+  ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters3.png)
 - **密码扩展**：此方法需要密码扩展 DLL（必须提供实现 [IMAExtensible2Password](https://msdn.microsoft.com/library/microsoft.metadirectoryservices.imaextensible2password.aspx) 接口的扩展 DLL 名称）。 密码扩展组件必须放在扩展文件夹中，连接器才可以在运行时加载 DLL。
-
-    ![globalparameters4](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters4.png)
+  ![globalparameters4](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters4.png)
 
 还必须在“配置扩展”页面上启用密码管理。
 ![globalparameters5](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters5.png)
@@ -239,7 +234,7 @@ ms.lasthandoff: 05/26/2017
 **表/视图**  
 若要导入对象的多值属性，必须在“多值表/视图名称”中提供逗号分隔的表/视图名称，并在父表的“联接条件”中提供各自的联接条件。
 
-示例：你想要导入员工对象与其所有的多值属性。 有两个表：Employee（主表）和 Department（多值）。
+示例：想要导入员工对象及其所有多值属性。 有两个表：Employee（主表）和 Department（多值）。
 请执行以下操作：
 
 - 在“表/视图/SP”中键入“Employee”。
@@ -287,7 +282,7 @@ ms.lasthandoff: 05/26/2017
 - SQL 查询
 
 **表/视图**  
-如果选择“表/视图”选项，连接器将生成相应的查询来执行导出。
+如果选择“表/视图”选项，连接器会生成相应的查询来执行导出。
 
 **存储过程**  
 ![runstep8](./media/active-directory-aadconnectsync-connector-genericsql/runstep8.png)
@@ -313,4 +308,4 @@ ms.lasthandoff: 05/26/2017
 ## <a name="troubleshooting"></a>故障排除
 - 有关如何启用记录来排查连接器问题的信息，请参阅 [如何启用连接器的 ETW 跟踪](http://go.microsoft.com/fwlink/?LinkId=335731)。
 
-
+<!-- Update_Description: update meta properties -->

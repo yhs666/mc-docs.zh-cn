@@ -1,9 +1,22 @@
 ---
-title: Azure SQL 数据库查询性能见解 description: 查询性能监视可以识别 Azure SQL 数据库中 CPU 占用最大的查询。
-services: sql-database documentationCenter: '' author: Hayley244 manager: digimobile editor: monicar
-
-ms.service: sql-database ms.topic: article origin.date: 07/05/2017 ms.date: 07/31/2017 ms.author: v-haiqya
-
+title: "Azure SQL 数据库 Query Performance Insight"
+description: "查询性能监视可以识别 Azure SQL 数据库中 CPU 消耗最大的查询。"
+services: sql-database
+documentationCenter: 
+author: Hayley244
+manager: digimobile
+editor: monicar
+ms.service: sql-database
+ms.topic: article
+origin.date: 07/05/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: fd62ddc825b135cdf693ef726fd1123b9a725548
+ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/09/2017
+---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL 数据库 Query Performance Insight
 
 管理和优化关系数据库性能是一项颇具挑战性的操作，需要投入大量的专业知识和时间。 查询性能见解通过提供以下功能使排查数据库性能问题花费的时间更少：
@@ -85,7 +98,7 @@ Query Performance Insight 很容易使用：
 
 ##  <a name="optimizing-the-query-store-configuration-for-query-performance-insight"></a>优化 Query Performance Insight 的“查询存储”配置
 
-在使用 Query Performance Insight 的过程中，你可能会遇到以下查询存储消息：
+在使用 Query Performance Insight 的过程中，可能会遇到以下查询存储消息：
 
 - “查询存储已达到其容量，未在收集新数据。”
 - “此数据库的查询存储处于只读模式，未在收集性能见解数据。”
@@ -138,7 +151,7 @@ ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
 ## <a name="summary"></a>摘要
 
-Query Performance Insight 可帮助你了解查询工作负荷的影响，以及它与数据库资源消耗的关系。 使用此功能可以了解排名靠前的消耗查询，并在发生问题之前轻松找出问题。
+Query Performance Insight 可帮助了解查询工作负荷的影响，以及它与数据库资源消耗的关系。 使用此功能可以了解排名靠前的消耗查询，并在发生问题之前轻松找出问题。
 
 ## <a name="next-steps"></a>后续步骤
 

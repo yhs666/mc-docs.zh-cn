@@ -3,8 +3,8 @@ title: "资源平衡器群集描述 | Azure"
 description: "通过在群集 Resource Manager 中指定容错域、升级域、节点属性和节点容量描述 Service Fabric 群集。"
 services: service-fabric
 documentationcenter: .net
-author: masnider
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
 ms.service: Service-Fabric
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/05/2017
-ms.date: 02/20/2017
-ms.author: v-johch
-ms.openlocfilehash: efef0ea53233b192bd283595fb9c28464c33306d
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.date: 08/14/2017
+ms.author: v-yeche
+ms.openlocfilehash: 36b64e40883eb2eec3dd038793a4ca4e40c25da1
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="describing-a-service-fabric-cluster"></a>描述 Service Fabric 群集
 Service Fabric 群集 Resource Manager 提供多种用于描述群集的的机制。 在运行时，群集 Resource Manager 使用此信息来确保群集中运行的服务的高可用性。 同时强制实施这些重要规则，并尝试优化群集的资源消耗。
@@ -45,15 +45,15 @@ Service Fabric 群集 Resource Manager 提供多种用于描述群集的的机�
 
 在运行时，Service Fabric 群集 Resource Manager 会考虑群集中的容错域，并计划布局。  它会尝试分散放置服务器的有状态副本或无状态实例，以便使它们位于不同的容错域中。 在任何一个容错域（位于层次结构中的任何一个级别）发生故障时，此过程有助于确保该服务的可用性不会遭到破坏。
 
-Service Fabric 群集 Resource Manager 不会考虑容错域层次结构中有多少层。 但是它会确保丢失任何一部分层次结构都不会影响到在此层次结构以上运行的服务。 因此容错域层次结构中的每一个深度级别上的节点数目最好相同。 保持级别均衡可以防止一部分层次结构比其他层析结构包含更多的服务。 否则将导致单个节点的负载不均衡，并使某些域的故障比其他故障更严重。
+Service Fabric 群集资源管理器不会考虑容错域层次结构中有多少层。 但是它会确保丢失任何一部分层次结构都不会影响到在此层次结构以上运行的服务。 因此容错域层次结构中的每一个深度级别上的节点数目最好相同。 保持级别均衡可以防止一部分层次结构比其他层析结构包含更多的服务。 否则会导致单个节点的负载不均衡，并使某些域的故障比其他故障更严重。
 
-群集中容错域的“树”不平衡时，会增大群集 Resource Manager 确定最佳服务分配的难度。 容错域布局不均衡意味着丢失特定的域可能会对某些群集的可用性造成更严重的影响。 因此群集 Resource Manager 会在两个目标之间举棋不定：将服务放置在“繁忙”域中，以便使用该域中的计算机；还是以某种特定方式放置服务以使域的丢失不会造成问题。 这呈现出来是什么样呢？
+群集中容错域的“树”不平衡时，会增大群集资源管理器确定最佳服务分配的难度。 容错域布局不均衡意味着丢失特定的域可能会对某些群集的可用性造成更严重的影响。 因此群集资源管理器会在两个目标之间举棋不定：将服务放置在“繁忙”域中，以便使用该域中的计算机；还是以某种特定方式放置服务以使域的丢失不会造成问题。 这呈现出来是什么样呢？
 
 <center>
 ![两种不同的群集布局][Image2]
 </center>
 
-上图显示了两个不同的示例群集布局。 第一个示例中，节点均匀分散到各容错域中。 而另一个示例中，其中一个容错域承载了多得多的节点。 如果曾在本地或另一个环境中维护自己的群集，则需要注意这种情况。
+上图显示了两个不同的示例群集布局。 第一个示例中，节点均匀分散到各容错域中。 而另一个示例中，其中一个容错域承载了多得多的节点。 如果曾经在本地或另一个环境中维护自己的群集，则需要注意一些事项。
 
 在 Azure 中，系统会为用户选择哪个容错域包含节点。 但是，根据设置的节点数目，仍然可能出现某容错域比其他容错域承载更多节点的情况。 例如，假设有五个容错域，但是针对某个给定节点类型配置了七个节点。 在这种情况下，前两个容错域将承载更多的节点。 如果继续使用几个实例部署更多的节点类型，问题会变得更严重。
 
@@ -70,9 +70,9 @@ Service Fabric 群集 Resource Manager 不会考虑容错域层次结构中有�
 
 使用大量升级域既有利也有弊。 升级域越多，升级的每个步骤就更精细，影响到的节点或服务就越少。 这样每次需要移动的服务数就越少，系统中的流动也越少。 此外，这往往会提高可靠性（因为在升级过程中发生的任何问题所影响到的服务更少）。 升级域越多，还意味着其他节点上需用于处理升级影响的可用开销越少。 例如，如果有五个升级域，每个域中的节点处理大约 20% 的流量。 如果升级时需要关闭该升级域，则这些负载需要转移到其他地方。 升级域越多，意味着在群集中的其他节点上必需维持的开销越少。
 
-拥有多个升级域的缺点是升级需要花费的时间更长。 升级域完成后，Service Fabric 将等待一小段时间再继续处理。 此延迟可以让升级导致的问题能够显现出来并被检测到。 这种折衷是可接受的，因为可以防止错误的更改一次性影响过多的服务。
+拥有多个升级域的缺点是升级需要花费的时间更长。 升级域完成后，Service Fabric 会等待一小段时间再继续处理。 此延迟可以让升级导致的问题能够显现出来并被检测到。 这种折衷是可接受的，因为可以防止错误的更改一次性影响过多的服务。
 
-升级域太少会产生负面影响 – 当每个单独的升级域关闭并进行升级时，大部分的整体容量将不可用。 例如，如果只有三个升级域，则一次只能采用整体服务或群集容量的 1/3。 让如此多的服务同时停止并非理想的结果，因为必须在其余的群集中拥有足够的容量才能处理工作负荷。 维护缓冲区意味着在正常情况下，这些节点处理的负载量降低，由此增加了服务运行的成本。
+升级域太少会产生负面影响 – 当每个单独的升级域关闭并进行升级时，大部分的整体容量不可用。 例如，如果只有三个升级域，则一次只能采用整体服务或群集容量的 1/3。 让如此多的服务同时停止并非理想的结果，因为必须在其余的群集中拥有足够的容量才能处理工作负荷。 维护缓冲区意味着在正常情况下，这些节点处理的负载量降低，由此增加了服务运行的成本。
 
 环境中容错域或升级域的总数没有实际限制，对于它们如何重叠也没有约束。 常见的结构为：
 
@@ -89,7 +89,7 @@ Service Fabric 群集 Resource Manager 不会考虑容错域层次结构中有�
 最常见的模型（也是 Azure 中使用的模型）是 FD/UD 矩阵，其中 FD 和 UD 构成一个表，节点沿着对角线开始放置。 最后的结构是稀疏还是紧凑取决于相比于 FD 和 UD 数目的节点总数。 换而言之，对于足够大的群集，几乎所有布局最终看起来都像是密集矩阵模式，如上图中右下选项所示。
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>容错域与升级域约束及最终行为
-群集 Resource Manager 将要在容错域与升级域之间保持服务的均衡视为约束。 可在[此文](./service-fabric-cluster-resource-manager-management-integration.md)中详细了解约束。 容错域和升级域约束的定义如下：“针对给定的服务分区，两个域之间的服务对象（无状态服务实例或有状态服务副本）数目差应该永远不大于 1。”  这实际上意味着，对于给定的服务而言，特定的移动或排列方式可能无效，因为它们会违反容错域或升级域的约束。
+群集资源管理器将要在容错域与升级域之间保持服务的均衡视为约束。 可在[此文](service-fabric-cluster-resource-manager-management-integration.md)中详细了解约束。 容错域和升级域约束的定义如下：“针对给定的服务分区，两个域之间的服务对象（无状态服务实例或有状态服务副本）数目差应该永远不大于 1。”  这实际上意味着，对于给定的服务而言，特定的移动或排列方式可能无效，因为它们会违反容错域或升级域的约束。
 
 让我们看一个示例。 假设有一个 6 节点群集，其中配置了 5 个容错域和 5 个升级域。
 
@@ -116,7 +116,7 @@ Service Fabric 群集 Resource Manager 不会考虑容错域层次结构中有�
 
 此布局在每个容错域与升级域的节点数目上是均衡的。 并且在每个容错域和升级域的副本数目上也是均衡的。 每个域都拥有相同数量的节点，以及相同数量的副本。
 
-现在让我们看看，如果不使用 N2，而是改用 N6 会发生什么情况。 副本将如何分布？
+现在让我们看看，如果不使用 N2，而是改用 N6 会发生什么情况。 副本会如何分布？
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -143,7 +143,7 @@ Service Fabric 群集 Resource Manager 不会考虑容错域层次结构中有�
 ## <a name="configuring-fault-and-upgrade-domains"></a>配置容错域和升级域
 对容错域和升级域的定义在 Azure 托管的 Service Fabric 部署中自动完成。 Service Fabric 从 Azure 中选择并使用环境信息。
 
-如果要创建自己的群集（或者要在开发环境中运行特定的拓扑），则需要自行提供容错域和升级域信息。 在本示例中，我们定义了一个 9 节点本地开发群集，该群集跨 3 个“数据中心”（每个数据中心有 3 个机架）。 该群集还有跨这三个数据中心条带化的三个升级域。 在群集清单模板中，将如下所示：
+如果要创建自己的群集（或者要在开发环境中运行特定的拓扑），则需要自行提供容错域和升级域信息。 在本示例中，我们定义了一个 9 节点本地开发群集，该群集跨 3 个“数据中心”（每个数据中心有 3 个机架）。 该群集还有跨这三个数据中心条带化的三个升级域。 在群集清单模板中，会如下所示：
 
 ClusterManifest.xml
 
@@ -358,20 +358,20 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 放置约束（以及即将讨论的许多其他协调器控制）是针对每个不同的命名服务实例指定的。 更新始终会取代（覆盖）以前指定的值。
 
-节点上的属性目前是通过群集定义来定义的，因此在不升级群集的情况下无法更新。 需要先将每个受影响的节点关闭，然后再重新启用，才能升级节点的属性。
+节点上的属性目前是通过群集定义来定义的，因此在不升级群集的情况下无法更新。 需要先将每个受影响的节点关闭，此后再重新启用，才能升级节点的属性。
 
 ## <a name="capacity"></a>容量
 任何协调器的最重要作业之一是帮助管理群集中的资源消耗。 如果想要有效运行服务，则最不想遇到的情况是一些节点是热的，而其他节点是冷的。 热节点导致资源争用和性能不佳，而冷节点代表资源浪费和成本增加。 考虑均衡之前，建议首先确保节点不会耗尽资源。
 
-Service Fabric 使用 `Metrics`表示资源。 指标是你想要向 Service Fabric 描述的任何逻辑或物理资源。 指标的示例是诸如“WorkQueueDepth”或“MemoryInMb”的参数。 有关指标的配置及其用法的信息，请参阅[此文](./service-fabric-cluster-resource-manager-metrics.md)
+Service Fabric 使用 `Metrics`表示资源。 指标是要向 Service Fabric 描述的任何逻辑或物理资源。 指标的示例是诸如“WorkQueueDepth”或“MemoryInMb”的参数。 有关指标的配置及其用法的信息，请参阅[此文](service-fabric-cluster-resource-manager-metrics.md)
 
-指标与放置约束和节点属性不同。 节点属性是节点本身的静态描述符，而指标与节点包含的资源，以及当服务在节点上运行时服务消耗的资源相关。 节点属性可能为“HasSSD”，可设置为 true 或 false。 该 SSD 上的可用空间量（和服务消耗的空间量）是类似于“DriveSpaceInMb”的指标。 节点会将其“DriveSpaceInMb”容量纳入驱动器上的非保留空间总量。 服务将报告在运行时使用了多少指标。
+指标与放置约束和节点属性不同。 节点属性是节点本身的静态描述符，而指标与节点包含的资源，以及当服务在节点上运行时服务消耗的资源相关。 节点属性可能为“HasSSD”，可设置为 true 或 false。 该 SSD 上的可用空间量（和服务消耗的空间量）是类似于“DriveSpaceInMb”的指标。 节点会将其“DriveSpaceInMb”容量纳入驱动器上的非保留空间总量。 服务会报告在运行时使用了多少指标。
 
 请注意，与放置约束和节点属性相同，Service Fabric 群集 Resource Manager 不理解指标名称的含义。 指标名称只是字符串。 建议不明确时，将单位声明为创建的指标名称的一部分。
 
-如果关闭所有资源 *均衡*，Service Fabric 群集 Resource Manager 仍将尝试确保最终没有节点超出其容量。 通常来说可以这样，除非整个群集过满。 容量是群集 Resource Manager 用来了解节点包含的资源量的另一个 *约束* 。 还会针对整个群集来追踪剩余容量。 服务级别的容量和消耗量均以指标来表示。 例如，指标可能是“MemoryInMb”，给定的节点可能有 2048 个单位的 MemoryInMb 容量。 可以这么描述：该节点上的某些服务目前正在消耗 64 个单位的 MemoryInMb。
+如果关闭所有资源均衡，Service Fabric 群集资源管理器仍会尝试确保最终没有节点超出其容量。 通常来说可以这样，除非整个群集过满。 容量是群集 Resource Manager 用来了解节点包含的资源量的另一个 *约束* 。 还会针对整个群集来追踪剩余容量。 服务级别的容量和消耗量均以指标来表示。 例如，指标可能是“MemoryInMb”，给定的节点可能有 2048 个单位的 MemoryInMb 容量。 可以这么描述：该节点上的某些服务目前正在消耗 64 个单位的 MemoryInMb。
 
-在运行时，群集 Resource Manager 将跟踪每个节点上的每个资源消耗了多少，以及剩余了多少。 从节点容量中减去该节点上运行的每个服务的已声明用量即可得出。 使用此信息，Service Fabric 群集 Resource Manager 可找出要放置或移动副本的位置，使节点不会超过容量。
+在运行时，群集 Resource Manager 会跟踪每个节点上的每个资源消耗了多少，以及剩余了多少。 从节点容量中减去该节点上运行的每个服务的已声明用量即可得出。 使用此信息，Service Fabric 群集资源管理器可找出要放置或移动副本的位置，使节点不会超过容量。
 
 C#：
 
@@ -422,12 +422,12 @@ ClusterManifest.xml
 ],
 ```
 
-此外，服务的负载也可能会动态变化（事实上这很常见）。 假设副本的负载从 64 更改为 1024，但是当时正在运行该副本的节点上只剩下 512（个单位的“MemoryInMb”指标）。 现在副本或实例的位置无效，因为该节点上没有足够的空间。 如果该节点上副本和实例的总用量超出了节点容量，也可能发生这种情况。 在这两种情况下，群集 Resource Manager 都必须实施操作，将节点中的用量降低至容量下。 将该节点上的一个或多个副本或实例移到其他节点即可。 移动副本时，群集 Resource Manager 会尝试将移动成本降至最低。 [此文](./service-fabric-cluster-resource-manager-movement-cost.md)介绍了移动成本。
+此外，服务的负载也可能会动态变化（事实上这很常见）。 假设副本的负载从 64 更改为 1024，但是当时正在运行该副本的节点上只剩下 512（个单位的“MemoryInMb”指标）。 现在副本或实例的位置无效，因为该节点上没有足够的空间。 如果该节点上副本和实例的总用量超出了节点容量，也可能发生这种情况。 在这两种情况下，群集资源管理器都必须实施操作，将节点中的用量降低至容量下。 将该节点上的一个或多个副本或实例移到其他节点即可。 移动副本时，群集资源管理器会尝试将移动成本降至最低。 [此文](service-fabric-cluster-resource-manager-movement-cost.md)介绍了移动成本。
 
 ## <a name="cluster-capacity"></a>群集容量
-那么，我们要如何防止整体群集太满？ 使用动态负载时，实际上群集 Resource Manager 并没有太多可以执行的操作。 服务可使自己的负载高峰独立于群集 Resource Manager 所执行的操作。 因此，群集当前或许拥有足够的容量，但将来需要扩大规模时，可能就不够用了。 话虽如此，但是可以通过加入某些控件来防止基本问题。 我们可做的第一件事是防止创建导致群集空间变满的新工作负荷。
+那么，我们要如何防止整体群集太满？ 使用动态负载时，实际上群集资源管理器并没有太多可以执行的操作。 服务可使自己的负载高峰独立于群集 Resource Manager 所执行的操作。 因此，群集当前或许拥有足够的容量，但将来需要扩大规模时，可能就不够用了。 话虽如此，但是可以通过加入某些控件来防止基本问题。 我们可做的第一件事是防止创建导致群集空间变满的新工作负荷。
 
-假设要创建一个无状态服务，并且它具有某些关联的负载（比默认值还多且动态负载稍后才报告）。 假设服务需考虑“DiskSpaceInMb”指标。 并且假设服务的每个实例将使用 5 个单位的“DiskSpaceInMb”。 需要创建服务的 3 个实例。 很好！ 这意味着我们需要群集中有 15 个单位的“DiskSpaceInMb”才能创建这些服务实例。 群集 Resource Manager 将持续计算整体容量和每个指标的消耗量，因此可以轻松确定群集中是否有足够的空间。 空间不足时，群集 Resource Manager 将拒绝创建服务调用。
+假设要创建一个无状态服务，并且它具有某些关联的负载（比默认值还多且动态负载稍后才报告）。 假设服务需考虑“DiskSpaceInMb”指标。 并且假设服务的每个实例使用 5 个单位的“DiskSpaceInMb”。 需要创建服务的 3 个实例。 很好！ 这意味着我们需要群集中有 15 个单位的“DiskSpaceInMb”才能创建这些服务实例。 群集资源管理器将持续计算整体容量和每个指标的消耗量，因此可以轻松确定群集中是否有足够的空间。 空间不足时，群集资源管理器会拒绝“创建服务”调用。
 
 因为只要求有 15 个可用单位，所以可以使用不同的方式分配此空间。 例如，可能是在 15 个不同节点上各有一个剩余单位的容量，或是在 5 个不同节点上各有三个剩余单位的容量。 或是在 3 个节点上有五个单位的可用容量，只要群集 Resource Manager 能够重新安排，就最终会放置服务。 此类重新排列几乎始终可行，除非整个群集几乎已满，或者所有服务都非常“庞大”，或者同时出现这两种情况。
 
@@ -470,7 +470,7 @@ ClusterManifest.xml
 ]
 ```
 
-群集用于某个指标的缓冲容量不足时，创建新服务将失败。 这样可以确保群集留有足够的备用开销，使升级和故障不会造成节点容量不足。 缓冲容量是可选项，但建议为定义了指标容量的所有群集启用。
+群集用于某个指标的缓冲容量不足时，创建新服务会失败。 这样可以确保群集留有足够的备用开销，使升级和故障不会造成节点容量不足。 缓冲容量是可选项，但建议为定义了指标容量的所有群集启用。
 
 群集 Resource Manager 通过 PowerShell 和查询 API 公开此信息。 由此可查看缓冲容量设置、总容量及群集中使用的每个指标的当前耗用量。 下面提供了该输出的示例：
 
@@ -501,10 +501,10 @@ LoadMetricInformation     :
 ```
 
 ## <a name="next-steps"></a>后续步骤
-- 有关群集 Resource Manager 中的体系结构和信息流的信息，请参阅[此文](./service-fabric-cluster-resource-manager-architecture.md)
-- 定义碎片整理指标是合并（而不是分散）节点上负载的一种方式。 若要了解如何配置碎片整理，请参阅[此文](./service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- 从头开始并[获取 Service Fabric 群集 Resource Manager 简介](./service-fabric-cluster-resource-manager-introduction.md)
-- 若要了解群集 Resource Manager 如何管理和均衡群集中的负载，请查看有关[均衡负载](./service-fabric-cluster-resource-manager-balancing.md)的文章
+* 有关群集 Resource Manager 中的体系结构和信息流的信息，请参阅[此文](service-fabric-cluster-resource-manager-architecture.md)
+* 定义碎片整理指标是合并（而不是分散）节点上负载的一种方式。 若要了解如何配置碎片整理，请参阅[此文](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+* 从头开始并[获取 Service Fabric 群集 Resource Manager 简介](service-fabric-cluster-resource-manager-introduction.md)
+* 若要了解群集 Resource Manager 如何管理和均衡群集中的负载，请查看有关[均衡负载](service-fabric-cluster-resource-manager-balancing.md)的文章
 
 [Image1]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
@@ -513,3 +513,5 @@ LoadMetricInformation     :
 [Image5]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
 [Image6]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
+
+<!--Update_Description: update meta properties， wording update -->

@@ -1,10 +1,10 @@
 ---
-title: "Azure AD Connect 同步：防止意外删除 | Azure"
+title: "Azure AD Connect 同步：防止意外删除 | Microsoft Docs"
 description: "本主题说明 Azure AD Connect 中的防止意外删除功能。"
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/08/2017
-ms.date: 03/13/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: 688e06d38eb72801007200cdec0bf7562e21c036
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 100c9f1d0f17909ab05b3bbac5a6a96789e036d0
+ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 同步：防止意外删除
 本主题说明 Azure AD Connect 中的防止意外删除功能。
@@ -46,7 +46,7 @@ ms.lasthandoff: 06/21/2017
 在 Synchronization Service Manager UI 中查看导出配置文件时，还可以看到状态 `stopped-deletion-threshold-exceeded`。
 ![有关防止意外删除的 Sync Service Manager UI](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/syncservicemanager.png)
 
-如果这是意外情况，请进行调查，并采取纠正措施。 若要查看哪些对象即将被删除，请执行以下操作：
+如果这是意外情况，请进行调查，并采取纠正措施。 要查看哪些对象即将被删除，请执行以下操作：
 
 1. 从“开始”菜单启动“同步服务”。
 2. 转到“连接器”。
@@ -58,13 +58,16 @@ ms.lasthandoff: 06/21/2017
 
 如果想要查看所有删除项，请执行以下操作：
 
-1. 若要暂时禁用此保护并允许删除这些项，请运行 PowerShell cmdlet： `Disable-ADSyncExportDeletionThreshold`。 提供 Azure AD 全局管理员帐户和密码。
+1. 若要检索当前的删除阈值，请运行 PowerShell cmdlet `Get-ADSyncExportDeletionThreshold`。 提供 Azure AD 全局管理员帐户和密码。 默认值为 500。
+2. 若要暂时禁用此保护并允许删除这些项，请运行 PowerShell cmdlet： `Disable-ADSyncExportDeletionThreshold`。 提供 Azure AD 全局管理员帐户和密码。
    ![凭据](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
-2. 如果 Azure Active Directory 连接器仍被选中，请选择“运行”操作，再选择“导出”。
-3. 若要重新启用保护，请运行 PowerShell cmdlet： `Enable-ADSyncExportDeletionThreshold`。
+3. 如果 Azure Active Directory 连接器仍被选中，请选择“运行”操作，再选择“导出”。
+4. 若要重新启用保护，请运行 PowerShell cmdlet： `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`。 检索当前的删除阈值时，请将 500 替换成看到的值。 提供 Azure AD 全局管理员帐户和密码。
 
 ## <a name="next-steps"></a>后续步骤
 **概述主题**
 
 - [Azure AD Connect 同步：理解和自定义同步](active-directory-aadconnectsync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
+
+<!-- Update_Description: wording update -->

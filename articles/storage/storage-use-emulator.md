@@ -12,13 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
-ms.author: v-johch
-ms.openlocfilehash: 22306fd05ffc3f5f65caabee826719c063791a14
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 06/08/2017
+ms.date: 08/14/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 3987f2769bb0b50c6b7e4b274aeed93008a373a2
+ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/09/2017
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 存储模拟器进行开发和测试
 
@@ -27,10 +28,10 @@ Microsoft Azure 存储模拟器提供了一个模拟 Azure Blob、队列和表�
 ## <a name="get-the-storage-emulator"></a>获取存储模拟器
 存储模拟器作为 [Azure SDK](/downloads/) 的一部分提供。 此外，还可使用[独立安装程序](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409)（直接下载）来安装存储模拟器。 若要安装存储模拟器，必须在计算机上具有管理权限。
 
-存储模拟器目前仅在 Windows 上运行。
+存储模拟器目前仅在 Windows 上运行。 若考虑使用 Linux 的存储模拟器，一个选择是使用由社区维护的开源存储模拟器 [Azurite](https://github.com/arafato/azurite)。
 
 > [!NOTE]
-> 在一个版本的存储模拟器中创建的数据不保证在使用不同版本时可以访问。 如果需要长期保存数据，建议将该数据存储在 Azure 存储帐户中，而不是在存储模拟器中。
+> 在一个版本的存储模拟器中创建的数据不保证在使用不同版本时可以访问。 如果需要长期保存数据，建议将该数据存储在 Azure 存储帐户中，而不是存储在存储模拟器中。
 > <p/>
 > 存储模拟器依赖于特定版本的 OData 库。 不支持将存储模拟器使用的 OData DLL 替换为其他版本，这样做可能会导致意外行为。 不过，可以使用存储服务支持的任何版本的 OData 向模拟器发送请求。
 >
@@ -48,7 +49,7 @@ Microsoft Azure 存储模拟器提供了一个模拟 Azure Blob、队列和表�
 1. 开始键入 `Azure Storage Emulator`。
 1. 从所示应用程序的列表中选择该模拟器。
 
-存储模拟器启动时，将显示“命令提示符”窗口。 可使用此控制台窗口启动和停止存储模拟器、清除数据、获取状态和初始化模拟器。 有关详细信息，请参阅本文后面的[存储模拟器命令行工具参考](#storage-emulator-command-line-tool-reference)部分。
+存储模拟器启动时，会显示“命令提示符”窗口。 可使用此控制台窗口启动和停止存储模拟器、清除数据、获取状态和初始化模拟器。 有关详细信息，请参阅本文后面的[存储模拟器命令行工具参考](#storage-emulator-command-line-tool-reference)部分。
 
 运行模拟器时，在 Windows 任务栏通知区域中会显示一个图标。
 
@@ -103,7 +104,7 @@ Microsoft Azure 存储模拟器提供了一个模拟 Azure Blob、队列和表�
 还可使用 Azure PowerShell 来生成 SAS 令牌。 以下示例会生成可完全访问 blob 容器的 SAS 令牌：
 
 1. 若尚未安装 Azure PowerShell，请进行安装（建议使用最新版 Azure PowerShell cmdlet 安装）。 有关安装说明，请参阅 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装和配置 Azure PowerShell）。
-2. 打开 Azure PowerShell 并运行以下命令，将 `ACCOUNT_NAME` 和 `ACCOUNT_KEY==` 替换为你自己的凭据，将 `CONTAINER_NAME` 替换为所选名称：
+2. 打开 Azure PowerShell 并运行以下命令，将 `ACCOUNT_NAME` 和 `ACCOUNT_KEY==` 替换为自己的凭据，将 `CONTAINER_NAME` 替换为所选名称：
 
     ```powershell
     $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
@@ -136,7 +137,7 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 
 `https://myaccount.blob.core.chinacloudapi.cn/mycontainer/myblob.txt`
 
-但在存储模拟器中，因为本地计算机不执行域名解析，帐户名称将是 URI 路径（而非主机名）的一部分。 可对存储模拟器中的资源使用以下 URI 格式：
+但在存储模拟器中，因为本地计算机不执行域名解析，帐户名称是 URI 路径（而非主机名）的一部分。 可对存储模拟器中的资源使用以下 URI 格式：
 
 `http://<local-machine-address>:<port>/<account-name>/<resource-path>`
 
@@ -160,11 +161,11 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 >
 >
 
-##<a name="storage-emulator-command-line-tool-reference"></a> 存储模拟器命令行工具参考
-从版本 3.0 开始，启动存储模拟器时将显示控制台窗口。 可使用控制台窗口中的命令行来启动和停止模拟器、查询状态以及执行其他操作。
+## <a name="storage-emulator-command-line-tool-reference"></a> 存储模拟器命令行工具参考
+从版本 3.0 开始，启动存储模拟器时会显示控制台窗口。 可使用控制台窗口中的命令行来启动和停止模拟器、查询状态以及执行其他操作。
 
 > [!NOTE]
-> 如果已安装 Azure 计算模拟器，则在启动存储模拟器时，将显示一个系统任务栏图标。 右键单击该图标可显示一个菜单，其中提供了启动和停止存储模拟器的图形化方式。
+> 如果已安装 Azure 计算模拟器，则在启动存储模拟器时，会显示一个系统任务栏图标。 右键单击该图标可显示一个菜单，其中提供了启动和停止存储模拟器的图形化方式。
 >
 >
 
@@ -188,23 +189,23 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 * 存储模拟器只支持单一固定的帐户和众所周知的身份验证密钥。
 * 存储模拟器不是可扩展的存储服务，并且不支持大量并发客户端。
 * 如 [对存储模拟器中的资源进行寻址](#addressing-resources-in-the-storage-emulator)中所述，存储模拟器与 Azure 存储帐户中的资源以不同方式寻址。 存在这种差异是因为在云中可进行域名解析，但在本地计算机上不提供域名解析。
-* 存储模拟器帐户从 3.1 版开始，支持读取访问地域冗余复制 (RA-GRS)。 在模拟器中，所有帐户都已启用 RA-GRS，在主要和次要副本之间不会有任何延迟。 获取 Blob 服务统计信息、获取队列服务统计信息和获取表服务统计信息操作在帐户辅助上受支持，并且将始终根据基础 SQL 数据库返回 `LastSyncTime` 响应元素的值作为当前时间。
+* 存储模拟器帐户从 3.1 版开始，支持读取访问地域冗余复制 (RA-GRS)。 在模拟器中，所有帐户都已启用 RA-GRS，在主要和次要副本之间不会有任何延迟。 获取 Blob 服务统计信息、获取队列服务统计信息和获取表服务统计信息操作在帐户辅助上受支持，并且始终根据基础 SQL 数据库返回 `LastSyncTime` 响应元素的值作为当前时间。
 * 文件服务和 SMB 协议服务终结点当前在存储模拟器中不受支持。
-* 如果使用模拟器尚不支持的存储服务版本，则存储模拟器将返回 VersionNotSupportedByEmulator 错误（HTTP 状态代码 400 - 错误请求）。
+* 如果使用模拟器尚不支持的存储服务版本，则存储模拟器返回 VersionNotSupportedByEmulator 错误（HTTP 状态代码 400 - 错误请求）。
 
 ### <a name="differences-for-blob-storage"></a>Blob 存储的差异
 以下差异适用于模拟器中的 Blob 存储：
 
 * 存储模拟器仅支持最大为 2 GB 的 Blob。
-* 增量复制允许复制被覆盖的 blob 中的快照，这将在服务上返回失败消息。
+* 增量复制允许复制被覆盖的 blob 中的快照，这会在服务上返回失败消息。
 * “获取页面范围差异”在使用增量复制 Blob 复制的快照之间不起作用。
 * 对存在于存储模拟器中并具有活动租约的 Blob 执行的放置 Blob 操作可能会成功，即使在请求中未指定租约 ID。
-* 追加 Blob 操作不受模拟器支持。 尝试对追加 Blob 执行的操作将返回 FeatureNotSupportedByEmulator 错误（HTTP 状态代码 400 - 错误请求）。
+* 追加 Blob 操作不受模拟器支持。 尝试对追加 Blob 执行操作会返回 FeatureNotSupportedByEmulator 错误（HTTP 状态代码 400 - 错误请求）。
 
 ### <a name="differences-for-table-storage"></a>表存储的差异
 以下差异适用于模拟器中的表存储：
 
-* 存储模拟器中表服务的日期属性仅支持 SQL Server 2005 所支持的范围（要求其晚于 1753 年 1 月 1 日）。 1753 年 1 月 1 日之前的所有日期都会更改为此值。 日期的精度仅限于 SQL Server 2005 的精度，这意味着日期将精确到 1/300 秒。
+* 存储模拟器中表服务的日期属性仅支持 SQL Server 2005 所支持的范围（要求其晚于 1753 年 1 月 1 日）。 1753 年 1 月 1 日之前的所有日期都会更改为此值。 日期的精度限制为 SQL Server 2005 的精度，这意味着日期将精确到 1/300 秒。
 * 存储模拟器支持小于 512 个字节的分区键和行键属性值（每个）。 此外，帐户名称、表名和键属性名称合在一起的总大小不能超过 900 个字节。
 * 存储模拟器中的表中的某行的总大小被限制为小于 1 MB。
 * 在存储模拟器中，数据类型 `Edm.Guid` 或 `Edm.Binary` 的属性仅支持查询筛选器字符串中的 `Equal (eq)` 和 `NotEqual (ne)` 比较运算符。
@@ -213,6 +214,10 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 模拟器中的队列存储没有任何差异。
 
 ## <a name="storage-emulator-release-notes"></a>存储模拟器发行说明
+### <a name="version-52"></a>版本 5.2
+* 存储模拟器现在支持 Blob、队列和表服务终结点上 2017-04-17 版本的存储服务。
+* 修复了表属性值未正确编码的 bug。
+
 ### <a name="version-51"></a>版本 5.1
 * 修复了一个 Bug。出现该 Bug 时，存储模拟器会在某些不包含服务的响应中返回 `DataServiceVersion` 标头。
 
@@ -259,10 +264,13 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 
 ### <a name="version-30"></a>版本 3.0
 * Azure 存储模拟器中不再与计算模拟器在同一个包中提供。
-* 为支持可编脚本的命令行接口，已弃用存储模拟器图形用户界面。 有关命令行接口的详细信息，请参阅“存储模拟器命令行工具参考”。 图形界面将继续存在于 3.0 版中，但仅在安装了计算模拟器的情况下通过右键单击系统托盘图标并选择“显示存储模拟器用户界面”来访问。
+* 为支持可编脚本的命令行接口，已弃用存储模拟器图形用户界面。 有关命令行接口的详细信息，请参阅“存储模拟器命令行工具参考”。 图形界面继续存在于 3.0 版中，但仅在安装了计算模拟器的情况下通过右键单击系统托盘图标并选择“显示存储模拟器用户界面”来访问。
 * 现在完全支持版本 2013年-08-15 的 Azure 存储服务。 （以前仅存储模拟器 2.2.1 预览版本支持此版本。）
 
 ## <a name="next-steps"></a>后续步骤
 
+* 评估跨平台的、由社区维护的开源存储模拟器 [Azurite](https://github.com/arafato/azurite)。 
 * [使用 .NET 的 Azure 存储示例](storage-samples-dotnet.md)包含开发应用程序时可使用的多个代码示例的链接。
 * 可使用 [Azure 存储资源管理器](http://storageexplorer.com)处理云存储帐户和存储模拟器中的资源。
+
+<!--Update_Description: wording update-->

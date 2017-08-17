@@ -1,10 +1,10 @@
 ---
 title: "调试 Windows 中的 Azure 微服务 | Azure"
-description: "了解如何在本地开发计算机上监视和诊断使用 Microsoft Azure Service Fabric 编写的服务。"
+description: "了解如何监视和诊断本地开发计算机上使用 Azure Service Fabric 编写的服务。"
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
 ms.service: service-fabric
@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2017
-ms.author: v-johch
-ms.openlocfilehash: 2c98cffd7cc15a9c018b73dd68a6d1d38887bfb9
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+origin.date: 04/24/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
+ms.openlocfilehash: 259de7ab0cd7df4ad1531c2285c4089ad220987c
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>在本地计算机开发安装过程中监视和诊断服务
 > [!div class="op_single_selector"]
@@ -34,20 +35,20 @@ ms.lasthandoff: 07/13/2017
 
 * **ETW 速度很快。** 它是作为一种对代码执行时间影响最小的跟踪技术而构建的。
 * **ETW 跟踪可以跨本地开发环境和实际群集安装无缝工作。** 这意味着当准备好将代码部署到实际群集时，无需重新编写跟踪代码。
-* **Service Fabric 系统代码也使用 ETW 进行内部跟踪。** 因此可查看与 Service Fabric 系统跟踪交错的应用程序跟踪。 它还可帮助你更轻松地了解基础系统中应用程序代码与事件之间的序列和相互关系。
+* **Service Fabric 系统代码也使用 ETW 进行内部跟踪。** 因此可查看与 Service Fabric 系统跟踪交错的应用程序跟踪。 它还可帮助更轻松地了解基础系统中应用程序代码与事件之间的序列和相互关系。
 * **Service Fabric Visual Studio 工具中有内置支持，可以查看 ETW 事件。** 使用 Service Fabric 正确配置 Visual Studio 后，ETW 事件将出现在 Visual Studio 的“诊断事件”视图中。 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>在 Visual Studio 中查看 Service Fabric 系统事件
-Service Fabric 发出 ETW 事件以帮助应用程序开发人员了解平台中发生的情况。 如果还没有这么做，请继续遵循[在 Visual Studio 中创建第一个应用程序](service-fabric-create-your-first-application-in-visual-studio.md)中的步骤。 此信息将帮助你使应用程序启动并运行，通过诊断事件查看器显示跟踪消息。
+Service Fabric 发出 ETW 事件以帮助应用程序开发人员了解平台中发生的情况。 如果还没有这么做，请继续遵循[在 Visual Studio 中创建第一个应用程序](service-fabric-create-your-first-application-in-visual-studio.md)中的步骤。 此信息帮助你使应用程序启动并运行，通过诊断事件查看器显示跟踪消息。
 
 1. 如果诊断事件窗口未自动显示，请在 Visual Studio 中转到“视图”选项卡上，选择“其他窗口”，然后选择“诊断事件查看器”。
 
 2. 每个事件都有标准元数据信息，它将显示事件来自的节点、应用程序和服务。 也可以使用事件窗口顶端的“筛选事件”框来筛选事件列表。 例如，可根据“节点名称”或“服务名称”进行筛选。 查看事件详细信息时，也可以使用事件窗口顶端的“暂停”按钮来暂停，稍后再继续，而不会丢失任何事件。
 
-  ![Visual Studio 诊断事件查看器](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
+    ![Visual Studio 诊断事件查看器](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
 ## <a name="add-your-own-custom-traces-to-the-application-code"></a>将自己的自定义跟踪添加到应用程序代码
-Service Fabric Visual Studio 项目模板包含示例代码。 该代码将显示如何添加自定义应用程序代码 ETW 跟踪（与来自 Service Fabric 的系统跟踪一起显示在 Visual Studio ETW 查看器中）。 此方法的优点是会将元数据自动添加到跟踪中，并配置了 Visual Studio 诊断事件查看器来显示它们。
+Service Fabric Visual Studio 项目模板包含示例代码。 该代码显示如何添加自定义应用程序代码 ETW 跟踪（与来自 Service Fabric 的系统跟踪一起显示在 Visual Studio ETW 查看器中）。 此方法的优点是元数据会自动添加到跟踪中，并已配置了 Visual Studio 诊断事件查看器来显示它们。
 
 对于从服务模板（无状态或有状态）创建的项目，只要搜索 `RunAsync` 实现即可：
 
@@ -56,14 +57,16 @@ Service Fabric Visual Studio 项目模板包含示例代码。 该代码将显�
 
 对于从 Actor 模板（无状态或有状态）创建的项目：
 
-1. 打开 **"ProjectName".cs** 文件，其中， *ProjectName* 是为你的 Visual Studio 项目选择的名称。  
+1. 打开 **"ProjectName".cs** 文件，其中，*ProjectName* 是为 Visual Studio 项目选择的名称。  
 2. 在 DoWorkAsync 方法中查找代码 `ActorEventSource.Current.ActorMessage(this, "Doing Work");`。  这是根据应用程序代码编写的自定义 ETW 跟踪的一个示例。  
 3. 在文件 ActorEventSource.cs 中，可找到 `ActorEventSource.ActorMessage` 方法的重载，由于性能方面的原因，应该将其用于高频率事件。
 
-将自定义 ETW 跟踪添加到服务代码之后，可以再次生成、部署和运行应用程序以在诊断事件查看器中查看事件。 如果使用 **F5**调试应用程序，则将自动打开诊断事件查看器。
+将自定义 ETW 跟踪添加到服务代码之后，可以再次生成、部署和运行应用程序以在诊断事件查看器中查看事件。 如果使用 **F5**调试应用程序，则自动打开诊断事件查看器。
 
 ## <a name="next-steps"></a>后续步骤
 添加到上述应用程序用于进行本地诊断的跟踪代码适用于各种工具，在 Azure 群集上运行应用程序时，可以使用这些工具查看这些事件。 请查看以下文章，其中介绍了各种工具选项，以及如何设置这些选项。
 
 * [如何使用 Azure 诊断收集日志](service-fabric-diagnostics-how-to-setup-wad.md)
+* [使用 EventFlow 聚合和收集事件](service-fabric-diagnostics-event-aggregation-eventflow.md)
 
+<!--Update_Description: update meta properties, update reference link -->

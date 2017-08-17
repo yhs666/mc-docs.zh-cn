@@ -1,10 +1,10 @@
 ---
-title: "泛型 LDAP 连接器 | Azure"
+title: "泛型 LDAP 连接器 | Microsoft Docs"
 description: "本文介绍如何配置 Microsoft 的泛型 LDAP 连接器。"
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/10/2017
-ms.date: 04/05/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: d9f886b4960f8bda671f09a1fceb55a735da0aeb
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 6ea729090ec331b4c1f9334f76a9447cf126bb7c
+ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>泛型 LDAP 连接器技术参考
 本指南介绍泛型 LDAP 连接器。 本文适用于以下产品：
 
 - Microsoft 标识管理器 2016 (MIM2016)
 - Forefront 标识管理器 2010 R2 (FIM2010R2)
-  - 必须使用修补程序 4.1.3671.0 或更高版本 [KB3092178](https://support.microsoft.com/zh-cn/kb/3092178)。
+  - 必须使用修补程序 4.1.3671.0 或更高版本 [KB3092178](https://support.microsoft.com/kb/3092178)。
 
 对于 MIM2016 和 FIM2010R2，可以从 [Microsoft 下载中心](http://go.microsoft.com/fwlink/?LinkId=717495)下载此连接器。
 
@@ -127,7 +127,7 @@ True/False 筛选器通常不被报告为受 LDAP 目录支持，并且可能出
 `2.16.840.1.113730.3.4.9` VLVControl  
 `1.2.840.113556.1.4.473` SortControl
 
-如果连接器配置中已启用这两个选项，将使用 pagedResultsControl。
+如果连接器配置中已启用这两个选项，则使用 pagedResultsControl。
 
 `1.2.840.113556.1.4.417` ShowDeletedControl
 
@@ -141,7 +141,7 @@ True/False 筛选器通常不被报告为受 LDAP 目录支持，并且可能出
 - LDAP Accesslog。 请参阅 [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
 - LDAP Changelog。 请参阅 [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
 - TimeStamp。 对于 Novell/NetIQ eDirectory，连接器使用最后的日期/时间来获取已创建和更新的对象。 Novell/NetIQ eDirectory 不提供等效方法来检索已删除的对象。 如果 LDAP 服务器上没有其他作用中的增量导入方法，也可以使用此选项。 此选项无法导入已删除的对象。
-- USNChanged。 请参阅： [https://msdn.microsoft.com/zh-cn/library/ms677627.aspx](https://msdn.microsoft.com/zh-cn/library/ms677627.aspx)
+- USNChanged。 请参阅：[https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
 
 ### <a name="not-supported"></a>不支持
 不支持以下 LDAP 功能：
@@ -163,7 +163,7 @@ True/False 筛选器通常不被报告为受 LDAP 目录支持，并且可能出
 - 对于其他绑定，请在用户名/密码中输入信息或选择证书。
 - 如果使用 Kerberos 进行身份验证，则还要提供用户的领域/域。
 
-“属性别名”  文本框用于以 RFC4522 语法在架构中定义的属性。 在架构检测期间无法检测这些属性，连接器需要帮助识别这些属性。 例如，只有在“属性别名”框中输入以下项目，才能正确地将 userCertificate 属性识别为二进制属性：
+“属性别名”  文本框用于以 RFC4522 语法在架构中定义的属性。 在架构检测期间无法检测这些属性，连接器需要帮助识别这些属性。 例如，必须在“属性别名”框中输入以下项目，才能正确地将 userCertificate 属性识别为二进制属性：
 
 `userCertificate;binary`
 
@@ -180,12 +180,12 @@ True/False 筛选器通常不被报告为受 LDAP 目录支持，并且可能出
 
 ![连接](./media/active-directory-aadconnectsync-connector-genericldap/globalparameters.png)
 
-上半部分显示服务器本身所提供的信息，例如服务器名称。 连接器还会验证根 DSE 中是否存在必需的控件。 如果未列出这些控件，将显示警告。 某些 LDAP 目录不会列出根 DSE 中的所有功能，但即使出现警告，连接器也能正常运行。
+上半部分显示服务器本身所提供的信息，例如服务器名称。 连接器还会验证根 DSE 中是否存在必需的控件。 如果未列出这些控件，会显示警告。 某些 LDAP 目录不会列出根 DSE 中的所有功能，但即使出现警告，连接器也能正常运行。
 
 “支持的控件”复选框控制特定操作的行为： 
 
-- 选择删除树后，将使用一个 LDAP 调用删除层次结构。 如果未选择删除树，连接器将根据需要进行递归删除。
-- 选择分页结果后，连接器将使用运行步骤中指定的大小执行分页导入。
+- 选择删除树后，使用一个 LDAP 调用删除层次结构。 如果未选择删除树，连接器根据需要进行递归删除。
+- 选择分页结果后，连接器使用运行步骤中指定的大小执行分页导入。
 - VLVControl 和 SortControl 是 pagedResultsControl 的替代项，可从 LDAP 目录读取数据。
 - 如果所有三个选项（pagedResultsControl、VLVControl 和 SortControl）都未选择，连接器将在一个操作中导入所有对象，如果目录很大，此操作可能失败。
 - 只有在增量导入方法是 USNChanged 时，才使用 ShowDeletedControl。
@@ -221,7 +221,7 @@ True/False 筛选器通常不被报告为受 LDAP 目录支持，并且可能出
 通过配置预配层次结构，可以将连接器配置为根据需要自动创建结构。 例如，如果有命名空间 dc=contoso,dc=com 并且预配了一个新对象（cn=Joe、ou=Seattle、c=US、dc=contoso、dc=com），则连接器可以创建国家/地区类型为美国，organizationalUnit 为西雅图的对象（如果目录中尚不存在这些项）。
 
 ### <a name="configure-partitions-and-hierarchies"></a>配置分区和层次结构
-在分区和层次结构页面上，选择具有你打算导入和导出的对象的所有命名空间。
+在分区和层次结构页上，选择具有打算导入和导出的对象的所有命名空间。
 
 ![分区](./media/active-directory-aadconnectsync-connector-genericldap/partitions.png)
 
@@ -269,3 +269,5 @@ Open LDAP 中的增量水印是 UTC 日期/时间。 出于此原因，FIM 同�
 
 ## <a name="troubleshooting"></a>故障排除
 - 有关如何启用记录来排查连接器问题的信息，请参阅 [如何启用连接器的 ETW 跟踪](http://go.microsoft.com/fwlink/?LinkId=335731)。
+
+<!-- Update_Description: update meta properties -->

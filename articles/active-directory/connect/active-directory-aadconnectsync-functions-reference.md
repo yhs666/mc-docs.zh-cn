@@ -1,10 +1,10 @@
 ---
-title: "Azure AD Connect 同步：函数引用 | Azure"
+title: "Azure AD Connect 同步：函数引用 | Microsoft Docs"
 description: "在 Azure AD Connect 同步中引用声明性设置表达式。"
 services: active-directory
 documentationcenter: 
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2017
-ms.date: 03/13/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: 4d57de3f06343792b34a25f05215d22c7e469a68
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: df6788a935a3d48c6c31f09db04bfac7cc211a02
+ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步：函数引用
 在 Azure AD Connect 中，函数用于在同步期间操作属性值。  
@@ -28,7 +28,7 @@ ms.lasthandoff: 06/21/2017
 
 如果函数被重载并接受多个语法，则会列出所有的有效语法。  
 该函数为强类型函数，并会验证传递的类型是否匹配记录的类型。  
-如果类型不匹配，将引发错误。
+如果类型不匹配，会引发错误。
 
 类型使用以下语法表示：
 
@@ -51,6 +51,13 @@ mvbin、mvstr 和 mvref 类型的函数只适用于多值属性。 bin、str 和
 ## <a name="functions-reference"></a>函数引用
 | 函数列表 |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
+| 证书 | | | | |
+| [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
+| [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
+| [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
+| [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
+| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
+[ CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **转换** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
@@ -70,7 +77,8 @@ mvbin、mvstr 和 mvref 类型的函数只适用于多值属性。 bin、str 和
 | [Contains](#contains) |[计数](#count) |[项目](#item) |[ItemOrNull](#itemornull) | |
 | [Join](#join) |[RemoveDuplicates](#removeduplicates) |[拆分](#split) | | |
 | **程序流** | | | | |
-| [错误](#error) |[IIF](#iif) |[Switch](#switch) | | |
+| [错误](#error) |[IIF](#iif) |[选择](#select) |[Switch](#switch) | |
+| [Where](#where) |[With](#with) | | | |
 | **文本** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Left](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
@@ -149,6 +157,204 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 `CDate("2013-01-10 4:00 PM -8")`  
 返回表示 "2013-01-11 12:00 AM" 的 DateTime
 
+
+
+
+
+
+
+
+- - -
+### CertExtensionOids <a name="certextensionoids"></a>
+**说明：**  
+返回证书对象所有关键扩展的 Oid 值。
+
+**语法：**  
+`mvstr CertExtensionOids(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertFormat <a name="certformat"></a>
+**说明：**  
+返回此 X.509v3 证书的格式名称。
+
+**语法：**  
+`str CertFormat(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertFriendlyName <a name="certfriendlyname"></a>
+**说明：**  
+返回证书的关联别名。
+
+**语法：**  
+`str CertFriendlyName(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertHashString <a name="certhashstring"></a>
+**说明：**  
+以十六进制字符串的形式返回 X.509v3 证书的 SHA1 哈希值。
+
+**语法：**  
+`str CertHashString(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertIssuer <a name="certissuer"></a>
+**说明：**  
+返回颁发此 X.509v3 证书的证书颁发机构名称。
+
+**语法：**  
+`str CertIssuer(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertIssuerDN <a name="certissuerdn"></a>
+**说明：**  
+返回证书颁发者的可分辨名称。
+
+**语法：**  
+`str CertIssuerDN(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertIssuerOid <a name="certissueroid"></a>
+**说明：**  
+返回证书颁发者的 Oid。
+
+**语法：**  
+`str CertIssuerOid(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertKeyAlgorithm <a name="certkeyalgorithm"></a>
+**说明：**  
+以字符串形式返回此 X.509v3 证书的密钥算法信息。
+
+**语法：**  
+`str CertKeyAlgorithm(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertKeyAlgorithmParams <a name="certkeyalgorithmparams"></a>
+**说明：**  
+以十六进制字符串的形式返回此 X.509v3 证书的密钥算法参数。
+
+**语法：**  
+`str CertKeyAlgorithm(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertNameInfo <a name="certnameinfo"></a>
+**说明：**  
+返回证书中的使用者和颁发者名称。
+
+**语法：**  
+`str CertNameInfo(binary certificateRawData, str x509NameType, bool includesIssuerName)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+*   X509NameType：针对使用者的 X509NameType 值。
+*   includesIssuerName：包含颁发者名称则为 true；否则为 false。
+
+- - -
+### CertNotAfter <a name="certnotafter"></a>
+**说明：**  
+返回证书不再有效后的本地时间日期。
+
+**语法：**  
+`dt CertNotAfter(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertNotBefore <a name="certnotbefore"></a>
+**说明：**  
+返回证书开始生效的本地时间日期。
+
+**语法：**  
+`dt CertNotBefore(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertPublicKeyOid <a name="certpublickeyoid"></a>
+**说明：**  
+返回此 X.509v3 证书的公钥 Oid。
+
+**语法：**  
+`str CertKeyAlgorithm(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertPublicKeyParametersOid <a name="certpublickeyparametersoid"></a>
+**说明：**  
+返回此 X.509v3 证书的公钥参数 Oid。
+
+**语法：**  
+`str CertPublicKeyParametersOid(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertSerialNumber <a name="certserialnumber"></a>
+**说明：**  
+返回 X.509v3 证书的序列号。
+
+**语法：**  
+`str CertSerialNumber(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertSignatureAlgorithmOid <a name="certsignaturealgorithmoid"></a>
+**说明：**  
+返回用于创建证书签名的算法 Oid。
+
+**语法：**  
+`str CertSignatureAlgorithmOid(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertSubject <a name="certsubject"></a>
+**说明：**  
+获取证书中使用者的可分辨名称。
+
+**语法：**  
+`str CertSubject(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertSubjectNameDN <a name="certsubjectnamedn"></a>
+**说明：**  
+返回证书中使用者的可分辨名称。
+
+**语法：**  
+`str CertSubjectNameDN(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertSubjectNameOid <a name="certsubjectnameoid"></a>
+**说明：**  
+返回证书中使用者名称的 Oid。
+
+**语法：**  
+`str CertSubjectNameOid(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertThumbprint <a name="certthumbprint"></a>
+**说明：**  
+返回证书的指纹。
+
+**语法：**  
+`str CertThumbprint(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
+- - -
+### CertVersion <a name="certversion"></a>
+**说明：**  
+返回证书的 X.509 格式版本。
+
+**语法：**  
+`str CertThumbprint(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
+
 - - -
 ### <a name="cguid"></a>CGuid
 **说明：**  
@@ -176,7 +382,7 @@ Contains 函数查找多值属性内的字符串
 返回找到字符串的多值属性中的索引。 如果未找到字符串，则返回 0。
 
 **备注：**  
-对于多值字符串属性，搜索将在值中查找子字符串。  
+对于多值字符串属性，搜索在值中查找子字符串。  
 对于引用属性，搜索的字符串必须与视为匹配的值完全匹配。
 
 **示例：**  
@@ -298,7 +504,7 @@ CStr 函数转换为字符串数据类型。
 **语法：**  
 `dt DateAdd(str interval, num value, dt date)`
 
-- interval：字符串表达式，即你想要添加的时间间隔。 字符串必须具有下列值之一：
+- interval：字符串表达式，即需要添加的时间间隔。 字符串必须具有下列值之一：
   - yyyy Year
   - q Quarter
   - m Month
@@ -309,7 +515,7 @@ CStr 函数转换为字符串数据类型。
   - h Hour
   - n Minute
   - s Second
-- value：你想要添加的单元数。 它可以是正值（以获取将来的日期）或负值（以获取过去的日期）。
+- value：要添加的单元数。 它可以是正值（以获取将来的日期）或负值（以获取过去的日期）。
 - date：表示间隔添加到其中的日期的 DateTime。
 
 **示例：**  
@@ -506,6 +712,14 @@ InStrRev 函数查找字符串中最后一次出现的子字符串
 **备注：**  
 用来确定 CDate() 是否成功。
 
+- - -
+### IsCert <a name="iscert"></a>
+**说明：**  
+如果原始数据可以序列化为 .NET X509Certificate2 证书对象，则返回 true。
+
+**语法：**  
+`bool CertThumbprint(binary certificateRawData)`  
+*   certificateRawData：X.509 证书的字节数组表示形式。 字节数组可以是编码的二进制文件 (DER) 或 Base64 编码的 X.509 数据。
 - - -
 ### <a name="isempty"></a>IsEmpty
 **说明：**  
@@ -861,7 +1075,7 @@ RemoveDuplicates 函数使用多值字符串，并确保每个值都是唯一值
 返回净化的 proxyAddress 属性，其中所有重复值已被删除。
 
 - - -
-### <a name="replace"></a>将
+### <a name="replace"></a>Replace
 **说明：**  
 Replace 函数将所有出现的某一字符串替换为另一个字符串。
 
@@ -881,7 +1095,7 @@ Replace 函数将所有出现的某一字符串替换为另一个字符串。
 
 **示例：**  
 `Replace([address],"\r\n",", ")`  
-将 CRLF 替换为逗号和空格，可能导致出现 "One Microsoft Way, Redmond, WA, USA"
+将 CRLF 替换为逗号和空格，可能导致出现“One Microsoft Way, Redmond, WA, USA”
 
 - - -
 ### <a name="replacechars"></a>ReplaceChars
@@ -955,6 +1169,24 @@ RTrim 函数从字符串中删除尾随空格。
 返回 "Test"。
 
 - - -
+### 选择 <a name="select"></a>
+**说明：**  
+根据指定函数处理多值属性（或表达式输出）中的所有值。
+
+**语法：**  
+`mvattr Select(variable item, mvattr attribute, func function)`  
+`mvattr Select(variable item, exp expression, func function)`
+
+- item：表示多值属性中的元素
+- attribute：多值属性
+- expression：一个返回值集合的表达式
+- condition：可以处理属性中某个项的任何函数
+
+**示例：**  
+`Select($item,[otherPhone],Replace($item,“-”,“”))`  
+在删除连字符 (-) 后，返回多值属性 otherPhone 中的所有值。
+
+- - -
 ### <a name="split"></a>拆分
 **说明：**  
 Split 函数使用采用分隔符分隔的字符串，并使其成为多值字符串。
@@ -982,7 +1214,7 @@ StringFromGuid 函数使用二进制 GUID，并将其转换为字符串
 - - -
 ### <a name="stringfromsid"></a>StringFromSid
 **说明：**  
-StringFromSid 函数将包含安全标识符的字节数组转换为字符串。
+StringFromSid 函数包含安全标识符的字节数组转换为字符串。
 
 **语法：**  
 `str StringFromSid(bin ObjectSID)`  
@@ -1003,14 +1235,14 @@ Switch 函数参数列表包含表达式和值对。 表达式从左到右计算
 
 例如，如果 expr1 为 True，则 Switch 返回 value1。 如果 expr-1 为 False，但 expr-2 为 True，则 Switch 返回 value-2，依此类推。
 
-如果满足以下条件，Switch 将返回 Nothing：
+如果满足以下条件，Switch 返回 Nothing：
 
 - 没有任何表达式求值为 True。
 - 第一个 True 表达式的相应值为 Null。
 
-Switch 对所有表达式求值，即使它只返回其中一个结果。 为此，你应监视非预期的负面影响。 例如，如果任何表达式的计算结果导致除数为零的错误，则会出现错误。
+Switch 对所有表达式求值，即使它只返回其中一个结果。 为此，应监视非预期的负面影响。 例如，如果任何表达式的计算结果导致除数为零的错误，则会出现错误。
 
-值还可以是将返回自定义字符串的错误函数。
+值还可以是返回自定义字符串的错误函数。
 
 **示例：**  
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
@@ -1044,6 +1276,42 @@ UCase 函数将字符串中的所有字符都转换为大写形式。
 返回 "test"。
 
 - - -
+### Where <a name="where"></a>
+
+**说明：**  
+根据指定条件，从多值属性（或表达式输出）中返回值子集。
+
+**语法：**  
+`mvattr Where(variable item, mvattr attribute, exp condition)`  
+`mvattr Where(variable item, exp expression, exp condition)`  
+- item：表示多值属性中的元素
+- attribute：多值属性
+- condition：计算结果可能为 true 或 false 的任何表达式
+- expression：一个返回值集合的表达式
+
+**示例：**  
+`Where($item,[userCertificate],CertNotAfter($item)>Now())`  
+返回多值属性 userCertificate 中未过期的证书值。
+
+- - -
+### With <a name="with"></a>
+**说明：**  
+通过使用变量来表示在复杂表达式中出现一次或多次的子表达式，With 函数提供了一种简化复杂表达式的方法。
+
+**语法：**
+`With(var variable, exp subExpression, exp complexExpression)`  
+- variable：表示子表达式。
+- subExpression：由变量表示的子表达式。
+- complexExpression：复杂表达式。
+
+**示例：**  
+`With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
+在功能上等效于：  
+`IIF (Count(Where($item,[userCertificate],CertNotAfter($item)>Now()))>0, Where($item,[userCertificate],CertNotAfter($item)>Now()),NULL)`  
+它在 userCertificate 属性中仅返回未过期的证书值。
+
+
+- - -
 ### <a name="word"></a>Word
 **说明：**  
 基于描述要使用的分隔符与要返回的单词数的参数，Word 函数返回字符串中包含的单词。
@@ -1074,3 +1342,5 @@ UCase 函数将字符串中的所有字符都转换为大写形式。
 - [了解声明性预配表达式](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
 - [Azure AD Connect Sync：自定义同步选项](active-directory-aadconnectsync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
+
+<!-- Update_Description: wording update -->

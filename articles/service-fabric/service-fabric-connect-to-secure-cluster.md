@@ -13,52 +13,94 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/01/2017
-ms.date: 07/17/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
-ms.openlocfilehash: ad1361f6665bd5b932c802ec019a9e72817595a4
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 7ec82e414d258c5eb889c8cacf2785f4b9e23e36
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="connect-to-a-secure-cluster"></a>连接到安全群集
 当客户端连接到 Service Fabric 群集节点时，可以使用证书安全性或 Azure Active Directory (AAD) 与客户端建立经过身份验证的安全通信。 此身份验证可确保只有经过授权的用户才能访问该群集和部署的应用程序，以及执行管理任务。  创建群集时，必须事先在该群集上启用证书或 AAD 安全性。  有关群集安全方案的详细信息，请参阅[群集安全性](service-fabric-cluster-security.md)。 如果要连接到使用证书保护的群集，请在连接到群集的计算机上[设置客户端证书](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert)。 
 
 <a id="connectsecureclustercli"></a> 
 
-## <a name="connect-to-a-secure-cluster-using-azure-cli"></a>使用 Azure CLI 连接到安全群集
-以下 Azure CLI 命令说明如何连接到安全群集。 
+## <a name="connect-to-a-secure-cluster-using-cli"></a>使用 CLI 连接到安全群集
+
+可以通过多种不同方式使用 Service Fabric Azure CLI 2.0 命令或 XPlat CLI 连接到安全群集。
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>使用客户端证书连接到安全群集
-证书详细信息必须与群集节点上的证书匹配。 
 
-如果证书具有证书颁发机构 (CA)，则需要添加 `--ca-cert-path` 参数，如下例所示： 
+使用客户端证书进行身份验证时，证书详细信息必须与部署到群集节点的证书匹配。 如果证书具有证书颁发机构 (CA)，则需要另外指定受信任的 CA。 使用 XPlat CLI 和 Azure CLI 2.0 的以下示例进行连接。
 
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
-```
+#### <a name="xplat-cli"></a>XPlat CLI
 
-如果有多个 CA，请使用逗号作为分隔符。 
+使用 XPlat CLI 时，运行以下命令进行连接：
 
-如果证书中的“公用名”与连接终结点不匹配，可以使用 `--strict-ssl-false` 参数绕过验证。 
-
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2
 ```
 
-如果想要跳过 CA 验证，可以添加 ``--reject-unauthorized-false`` 参数，如以下命令中所示：
+可以使用 `,` 指定多个 CA 证书以分隔路径。
 
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
-```
+如果证书中的“公用名”与连接终结点不匹配，可以使用 `--strict-ssl-false` 参数绕过验证。 例如：
 
-若要连接到使用自签名证书保护的群集，请使用以下命令删除 CA 验证和公用名验证：
-
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
 ```
 
-在连接后，应能够[运行其他 CLI 命令](service-fabric-azure-cli.md)与群集进行交互。 
+如果想要跳过 CA 验证，可以添加 ``--reject-unauthorized-false`` 参数。 例如：
+
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
+```
+
+若要连接到使用自签名证书进行保护的群集，请使用去除 CA 验证和常用名验证的以下命令：
+
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
+```
+
+#### <a name="azure-cli-20"></a>Azure CLI 2.0
+
+使用 Azure CLI 2.0 时，可以使用 `az sf cluster select` 命令连接到群集。
+
+可以通过两种不同方式指定客户端证书：作为证书和密钥对，或作为单个 pem 文件。 对于受密码保护的 `pem` 文件，系统将自动提示输入密码。
+
+若要将客户端证书指定为 pem 文件，请在 `--pem` 参数中指定文件路径。 例如：
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+```
+
+在运行任何其他命令之前，受密码保护的 pem 文件将提示用户输入密码。
+
+若要指定证书、密钥对，请使用 `--cert` 和 `--key` 参数指定每个相应文件的文件路径。
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
+```
+有时用于保护测试或开发群集的证书未通过证书验证。 若要绕过证书验证，请指定 `--no-verify` 选项。 例如：
+
+> [!WARNING]
+> 连接到生产 Service Fabric 群集时，不要使用 `no-verify` 选项。
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
+```
+
+此外，可以指定受信任 CA 证书或单个证书的目录的路径。 若要指定这些路径，请使用 `--ca` 参数。 例如：
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
+```
+
+在连接后，应能够[运行其他 CLI 命令](service-fabric-azure-cli.md)与群集进行交互。
 
 <a id="connectsecurecluster"></a>
 
@@ -115,7 +157,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 
 <a id="connectsecureclusterfabricclient"></a>
 
-##<a name="connect-to-a-cluster-using-the-fabricclient-apis"></a> 使用 FabricClient API 连接到群集
+## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a> 使用 FabricClient API 连接到群集
 Service Fabric SDK 为群集管理提供 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 类。 若要使用 FabricClient API，请获取 Microsoft.ServiceFabric NuGet 包。
 
 ### <a name="connect-to-an-unsecure-cluster"></a>连接到不安全的群集
@@ -243,7 +285,7 @@ static string GetAccessToken(
 {
     string authorityFormat = @"https://login.chinacloudapi.cn/{0}";
     string authority = string.Format(CultureInfo.InvariantCulture, authorityFormat, tenantId);
-        var authContext = new AuthenticationContext(authority);
+    var authContext = new AuthenticationContext(authority);
 
     var authResult = authContext.AcquireToken(
         resource,
@@ -308,19 +350,19 @@ Azure 门户的群集基本信息窗格中也提供了完整 URL。
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>使用 Azure Active Directory 连接到安全群集
 
-若要连接到用 AAD 保护的群集，请将浏览器指向：
+要连接到用 AAD 保护的群集，请将浏览器指向：
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-系统将自动提示使用 AAD 登录。
+系统会自动提示使用 AAD 登录。
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>使用客户端证书连接到安全群集
 
-若要连接到使用证书保护的群集，请将浏览器指向：
+要连接到使用证书保护的群集，请将浏览器指向：
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-系统将自动提示选择客户端证书。
+系统自动提示选择客户端证书。
 
 <a id="connectsecureclustersetupclientcert"></a>
 ## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>在远程计算机上设置客户端证书
@@ -348,3 +390,10 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 * [在 Visual Studio 中管理 Service Fabric 应用程序](service-fabric-manage-application-in-visual-studio.md)。
 * [Service Fabric 运行状况模型简介](service-fabric-health-introduction.md)
 * [应用程序安全性和 RunAs](service-fabric-application-runas-security.md)
+
+## <a name="related-articles"></a>相关文章
+
+* [Service Fabric 和 Azure CLI 2.0 入门](service-fabric-azure-cli-2-0.md)
+* [Service Fabric XPlat CLI 入门](service-fabric-azure-cli.md)
+
+<!--Update_Description: update meta properties, add feature on connecting the cluster via using XPlat CLI and CLI 2.0-->

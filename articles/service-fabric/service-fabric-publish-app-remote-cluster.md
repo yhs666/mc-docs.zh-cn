@@ -11,11 +11,11 @@ ms.topic: article
 origin.date: 07/29/2016
 ms.date: 02/21/2017
 ms.author: v-johch
-ms.openlocfilehash: e975e871c47d770012f60eeaffbba0892bc2c118
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 2609fb9bc3dd91ec6b99c22ef11b9a72dc592a25
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="publish-an-application-to-a-remote-cluster-by-using-visual-studio"></a>使用 Visual Studio 将应用程序发布到远程群集
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 07/13/2017
 
 ### <a name="deploy-fabricapplicationps1"></a>Deploy-FabricApplication.ps1
 
-这是一个 PowerShell 脚本，它使用发布配置文件路径作为参数来发布 Service Fabric 应用程序。 由于此脚本是应用程序的一部分，因此，在必要时，你可以根据应用程序对其进行修改。
+这是一个 PowerShell 脚本，它使用发布配置文件路径作为参数来发布 Service Fabric 应用程序。 由于此脚本是应用程序的一部分，因此，在必要时，可以根据应用程序对其进行修改。
 
 ### <a name="publish-profiles"></a>发布配置文件
 
@@ -35,15 +35,16 @@ Service Fabric 应用程序项目中名为 PublishProfiles 的文件夹包含 XM
 - 应用程序参数文件的路径
 - 升级设置
 
-默认情况下，应用程序包含两个发布配置文件：Local.xml 和 Cloud.xml。 你可以通过复制并粘贴其中一个默认文件，来添加更多的配置文件。
+默认情况下，应用程序包含两个发布配置文件：Local.xml 和 Cloud.xml。 可以通过复制并粘贴其中一个默认文件，来添加更多的配置文件。
 
 ### <a name="application-parameter-files"></a>应用程序参数文件
 
 Service Fabric 应用程序项目中名为 ApplicationParameters 的文件夹包含用户指定的应用程序清单参数值的 XML 文件。 应用程序清单文件可以参数化，以便可以针对部署设置使用不同的值。 若要了解有关参数化应用程序的详细信息，请参阅[在 Service Fabric 中管理多个环境](./service-fabric-manage-multiple-environment-app-configuration.md)。
 
 >[!NOTE]
-> 对于执行组件服务，应该先构建项目，然后尝试使用编辑器或通过“发布”对话框编辑文件。 这是因为在构建期间将生成一部分清单文件。
+> 对于执行组件服务，应该先构建项目，并尝试使用编辑器或通过“发布”对话框编辑文件。 这是因为在构建期间会生成一部分清单文件。
 
+<a name="to-publish-an-application-using-the-publish-service-fabric-application-dialog-box"> </a>
 ## <a name="to-publish-an-application-by-using-the-publish-service-fabric-application-dialog-box"></a>使用“发布 Service Fabric 应用程序”对话框发布应用程序
 
 以下步骤演示如何使用 Visual Studio Service Fabric 工具提供的“发布 Service Fabric 应用程序”对话框发布应用程序。
@@ -54,7 +55,7 @@ Service Fabric 应用程序项目中名为 ApplicationParameters 的文件夹包
 
     “目标配置文件”下拉列表中选择的文件是保存除“清单版本”以外的所有设置的位置。 可以重复使用现有配置文件，或通过选择“目标配置文件”下拉列表框中的“<管理配置文件...>”来创建一个新的配置文件。 选择发布配置文件时，其内容将出现在对话框的相应字段中。 若要随时保存更改，请选择“保存配置文件”链接。    
 
-2. 在“连接终结点”部分中，指定本地或远程 Service Fabric 群集的发布终结点。  若要添加或更改连接终结点，请单击“连接终结点”下拉列表。 该列表根据 Azure 订阅显示可对其发布的可用 Service Fabric 群集连接终结点。 请注意，如果你尚未登录到 Visual Studio，系统将提示你登录。
+2. 在“连接终结点”部分中，指定本地或远程 Service Fabric 群集的发布终结点。  若要添加或更改连接终结点，请单击“连接终结点”下拉列表。 该列表根据 Azure 订阅显示可对其发布的可用 Service Fabric 群集连接终结点。 请注意，如果你尚未登录到 Visual Studio，系统会提示你登录。
 
     使用群集选择对话框从一组可用订阅和群集中进行选择。
 
@@ -75,7 +76,7 @@ Service Fabric 应用程序项目中名为 ApplicationParameters 的文件夹包
 
     ![“编辑版本”对话框][3]
 
-    如果应用程序和服务版本使用 1.0.0 等语义化版本设置，或格式为 1.0.0.0 的数字值，请选择“自动更新应用程序和服务版本”选项。 如果选择此选项，则每当代码、配置或数据包版本更新时，服务和应用程序版本号将自动更新。 如果你想要以手动方式编辑版本，请清除该复选框以禁用此功能。
+    如果应用程序和服务版本使用 1.0.0 等语义化版本设置，或格式为 1.0.0.0 的数字值，请选择“自动更新应用程序和服务版本”选项。 如果选择此选项，则每当代码、配置或数据包版本更新时，服务和应用程序版本号将自动更新。 如果想要以手动方式编辑版本，请清除该复选框以禁用此功能。
 
     >[!NOTE]
     > 对于执行组件项目的所有包条目，请先构建项目以便在服务清单文件中生成这些条目。
@@ -84,7 +85,7 @@ Service Fabric 应用程序项目中名为 ApplicationParameters 的文件夹包
 
 ## <a name="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters"></a>发布到任意群集终结点（包括合作群集）
 
-Visual Studio 发布体验已针对发布到远程群集（与某个 Azure 订阅关联）进行优化。 但是，也可以通过直接编辑发布配置文件 XML 发布到任意终结点（例如 Service Fabric 合作群集）。 如上所述，默认情况下提供了两个发布配置文件 - Local.xml 和 Cloud.xml ，但可以针对不同的环境创建更多的配置文件。 例如，你可以创建一个配置文件（例如命名为 **Party.xml**）用于发布到合作群集。
+Visual Studio 发布体验已针对发布到远程群集（与某个 Azure 订阅关联）进行优化。 但是，也可以通过直接编辑发布配置文件 XML 发布到任意终结点（例如 Service Fabric 合作群集）。 如上所述，默认情况下提供了两个发布配置文件 - Local.xml 和 Cloud.xml ，但可以针对不同的环境创建更多的配置文件。 例如，可以创建一个配置文件（例如命名为 **Party.xml**）用于发布到合作群集。
 
 如果要连接到未受保护的群集，只需提供群集连接终结点，例如 `partycluster1.chinaeast.chinacloudapp.cn:19000`。 在此情况下，发布配置文件中的连接终结点看起来类似于：
 
@@ -98,7 +99,7 @@ Visual Studio 发布体验已针对发布到远程群集（与某个 Azure 订�
 
   ![发布对话框中的新发布配置文件][4]
 
-  请注意，在此情况下，新发布配置文件将指向某个默认的应用程序参数文件。 如果你想要将相同的应用程序配置发布到多个环境，这是合理的结果。 相反，如果要发布的每个环境有不同的配置，则合理的做法是创建相应的应用程序参数文件。
+  请注意，在此情况下，新发布配置文件指向某个默认的应用程序参数文件。 如果想要将相同的应用程序配置发布到多个环境，这是合理的结果。 相反，如果要发布的每个环境有不同的配置，则合理的做法是创建相应的应用程序参数文件。
 
 ## <a name="next-steps"></a>后续步骤
 

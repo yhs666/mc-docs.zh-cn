@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 origin.date: 05/30/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
-ms.openlocfilehash: a253c12eb238bcd11a4da00527bf96c87c68ad28
-ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
+ms.openlocfilehash: 36b60d3f68519291653c3b44f7893e8133fa6ed7
+ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server Business Intelligence
 > [!IMPORTANT] 
@@ -232,18 +232,18 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
 
 * **报表生成器**：虚拟机包括适用于 SQL 2014 和 2012 的 Microsoft SQL Server 报表生成器的一键式版本。 若要首次在虚拟机上通过 SQL 2016 启动报表生成器：
 
-  1. 使用管理权限启动你的浏览器。
-  2. 在虚拟机上浏览到 Web 门户，然后选择右上角的“下载”  图标。
+  1. 使用管理权限启动浏览器。
+  2. 在虚拟机上浏览到 Web 门户，并选择右上角的“下载”  图标。
   3. 选择“报表生成器” 。
 
      有关详细信息，请参阅[启动报表生成器](https://msdn.microsoft.com/library/ms159221.aspx)。
 * SQL Server Data Tools：VM：SQL Server Data Tools 安装在虚拟机上并可用于在该虚拟机上创建报表服务器项目和报表。 SQL Server Data Tools 可以将报表发布到虚拟机上的报表服务器。
-* SQL Server Data Tools：远程：在本地计算机上，在 SQL Server Data Tools 中创建一个包含 Reporting Services 报表的 Reporting Services 项目。 将项目配置为连接到 web 服务 URL。
+* SQL Server Data Tools：远程：在本地计算机上，在 SQL Server Data Tools 中创建一个包含 Reporting Services 报表的 Reporting Services 项目。 将项目配置为连接到 Web 服务 URL。
 
     ![SSRS 项目的 ssdt 项目属性](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
-* 创建一个包含报表的 .VHD 硬盘驱动器，然后上传并附加该驱动器。
+* 创建一个包含报表的 .VHD 硬盘驱动器，上传并附加该驱动器。
 
-  1. 在本地计算机上创建一个包含您的报表的 .VHD 硬盘驱动器。
+  1. 在本地计算机上创建一个包含报表的 .VHD 硬盘驱动器。
   2. 创建并安装管理证书。
   3. 使用 Add-AzureVHD cmdlet 将 VHD 文件上传到 Azure [创建 Windows Server VHD 并将其上传到 Azure](../classic/createupload-vhd.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
   4. 将磁盘附加到虚拟机。
@@ -304,11 +304,11 @@ Analysis Services 的默认实例侦听 TCP 端口 2383。 在虚拟机防火墙
 ## <a name="virtual-machine-endpoints-and-firewall-ports"></a>虚拟机终结点以及防火墙端口
 本部分总结了要创建的 Azure 虚拟机终结点以及要在虚拟机防火墙中打开的端口。 下表总结了要为其创建终结点的 **TCP** 端口和要在虚拟机防火墙中打开的端口。
 
-* 如果您使用的是单个 VM 并且下列两项为 true，不需要创建 VM 终结点并且不需要在 VM 上的防火墙中打开端口。
+* 如果使用的是单个 VM 并且下列两项为 true，不需要创建 VM 终结点并且不需要在 VM 上的防火墙中打开端口。
 
-  * 你未远程连接到 VM 上的 SQL Server 功能。 与 VM 建立远程桌面连接和从本地访问 VM 上的 SQL Server 功能，不被视为与 SQL Server 功能远程连接。
+  * 未远程连接到 VM 上的 SQL Server 功能。 与 VM 建立远程桌面连接和从本地访问 VM 上的 SQL Server 功能，不被视为与 SQL Server 功能远程连接。
   * 不通过 Azure 虚拟网络或其他 VPN 隧道解决方案将 VM 加入到本地域。
-* 如果虚拟机未加入到域，但您希望远程连接到 VM 上的 SQL Server 功能：
+* 如果虚拟机未加入到域，但希望远程连接到 VM 上的 SQL Server 功能：
 
   * 在 VM 防火墙中打开端口。
   * 为前述端口 (*) 创建虚拟机终结点。
@@ -321,7 +321,7 @@ Analysis Services 的默认实例侦听 TCP 端口 2383。 在虚拟机防火墙
   | **1434** |UDP |SQL Server Browser。 当 VM 加入到域时需要。 |
   | **2382** |TCP |SQL Server Browser。 |
   | **2383** |TCP |SQL Server Analysis Services 默认实例和群集命名实例。 |
-  | **用户定义** |TCP |为您选择的端口号创建一个静态 Analysis Services 命名实例端口，然后在防火墙中解锁该端口号。 |
+  | **用户定义** |TCP |为用户选择的端口号创建一个静态 Analysis Services 命名实例端口，并在防火墙中解锁该端口号。 |
 
 有关创建终结点的详细信息，请参阅以下资源：
 

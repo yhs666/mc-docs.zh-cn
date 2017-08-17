@@ -1,10 +1,10 @@
 ---
-title: "了解 Service Fabric 应用程序和服务安全策略 | Azure"
+title: "了解 Azure 微服务安全策略 | Azure"
 description: "有关如何使用系统帐户和本地安全帐户运行 Service Fabric 应用程序的概述，包括应用程序在启动之前，需要在其中执行某些特权操作的 SetupEntry 点"
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
@@ -12,26 +12,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/05/2017
-ms.date: 02/20/2017
-ms.author: v-johch
-ms.openlocfilehash: c335c441ee424fdbee5cd5c37d40e6963371dd33
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+origin.date: 06/30/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
+ms.openlocfilehash: 21d83d715aabc78590dde8b68abd8913110a7d6b
+ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>为应用程序配置安全策略
-通过使用 Azure Service Fabric，可帮助保护群集中以不同用户帐户运行的应用程序。 使用用户帐户进行部署时，Service Fabric 还有助于保护应用程序所使用的资源，例如文件、目录和证书。 这样，即使是在共享托管环境中，运行应用程序会更加安全。
+使用 Azure Service Fabric，可以保护群集中以不同用户帐户运行的应用程序。 使用用户帐户进行部署时，Service Fabric 还有助于保护应用程序所使用的资源，例如文件、目录和证书。 这样，即使是在共享托管环境中，运行应用程序会更加安全。
 
 默认情况下，Service Fabric 应用程序在运行 Fabric.exe 进程的帐户之下运行。 Service Fabric 还允许使用应用程序清单中指定的本地用户帐户或本地系统帐户运行应用程序。 受支持的本地系统帐户类型为 LocalUser、NetworkService、LocalService 和 LocalSystem。
 
- 使用独立安装程序在数据中心中的 Windows Server 上运行 Service Fabric 时，可使用 Active Directory 域帐户。
+ 使用独立安装程序在数据中心中的 Windows Server 上运行 Service Fabric 时，可以使用 Active Directory 域帐户，包括组托管服务帐户。
 
 可以定义和创建用户组，以便将一个或多个要统一管理的用户添加到每个组。 如果不同的服务入口点有多个用户，而且这些用户需要拥有可在组级别使用的某些常用权限，则这种做法很有用。
 
 ## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>配置服务安装程序入口点的策略
-如[应用程序模型](./service-fabric-application-model.md)中所述，安装程序入口点 SetupEntryPoint 是特权入口点，以与 Service Fabric 相同的凭据（通常是 NetworkService 帐户）先于任何其他入口点运行。 **EntryPoint** 指定的可执行文件通常是长时间运行的服务主机。 因此，具有单独的安装程序入口点可避免长时间使用高特权运行服务主机可执行文件。 由 EntryPoint 指定的可执行文件在 SetupEntryPoint 成功退出后运行。 如果出现终止或崩溃，则将监视并重启所产生的进程（再次从 **SetupEntryPoint** 开始）。
+如[应用程序模型](service-fabric-application-model.md)中所述，安装程序入口点 SetupEntryPoint 是特权入口点，以与 Service Fabric 相同的凭据（通常是 NetworkService 帐户）先于任何其他入口点运行。 **EntryPoint** 指定的可执行文件通常是长时间运行的服务主机。 因此，具有单独的安装程序入口点可避免长时间使用高特权运行服务主机可执行文件。 由 EntryPoint 指定的可执行文件在 SetupEntryPoint 成功退出后运行。 如果出现终止或崩溃，则监视并重启所产生的进程（再次从 **SetupEntryPoint** 开始）。
 
 下面是一个简单的服务清单示例，其中介绍了服务的 SetupEntryPoint 和主要 EntryPoint。
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 07/13/2017
 
 接下来，在 ServiceManifestImport 节下面配置策略，以将此主体应用到 SetupEntryPoint。 这会告知 Service Fabric，当 MySetup.bat 文件运行时，它应该是具有管理员特权的 `RunAs`。 假设你尚未将策略应用到主入口点，则 MyServiceHost.exe 中的代码将以系统 NetworkService 帐户运行。 这是用于运行所有服务入口点的默认帐户。
 
-现在让我们将 MySetup.bat 文件添加 Visual Studio 项目，以测试管理员特权。 在 Visual Studio 中，右键单击服务项目，然后添加名为 MySetup.bat 的新文件。
+现在让我们将 MySetup.bat 文件添加 Visual Studio 项目，以测试管理员特权。 在 Visual Studio 中，右键单击服务项目，并添加名为 MySetup.bat 的新文件。
 
 接下来，确保 MySetup.bat 文件已包含在服务包中。 默认情况下未包含该文件。 选择该文件，单击右键打开上下文菜单，然后选择“属性”。 在“属性”对话框中，确保已将“复制到输出目录”设置为“有更新时才复制”。 请参阅下面的屏幕截图。
 
@@ -173,7 +173,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ## <a name="use-console-redirection-for-local-debugging"></a>使用控制台重定向进行本地调试
 有时，需要查看运行脚本的控制台输出以便进行调试。 为此，可以设置控制台重定向策略以将输出写入到文件。 文件输出写入到部署和运行应用程序的节点上的应用程序文件夹 log 中。 （上面的示例说明了在何处找到此文件夹）。
 
-> [!NOTE]
+> [!WARNING]
 > 永远不要在生产中部署的应用程序中使用控制台重定向策略，因为这可能会影响应用程序故障转移。  仅将其用于本地开发和调试目的。  
 > 
 > 
@@ -187,13 +187,13 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
     <WorkingFolder>CodePackage</WorkingFolder>
     <ConsoleRedirection FileRetentionCount="10"/>
     </ExeHost>
-</SetupEntryPoint> 
+</SetupEntryPoint>
 ```
 
 如果现在更改 MySetup.ps1 文件以写入 **Echo** 命令，该命令会写入输出文件以进行调试：
 
 ```
-Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to" 
+Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
 ```
 
 **调试脚本后，请立即删除此控制台重定向策略**。
@@ -202,7 +202,7 @@ Echo "Test console redirection which writes to the application log folder on the
 上述步骤已说明如何将 RunAs 策略应用于 SetupEntryPoint。 让我们深入了解如何创建可作为服务策略应用的不同主体。
 
 ### <a name="create-local-user-groups"></a>创建本地用户组
-可以定义和创建允许将一个或多个用户添加到组的用户组。 如果不同的服务入口点有多个用户，而且这些用户需要拥有可在组级别使用的某些常用权限，则这种做法特别有用。 以下示例演示一个名为 **LocalAdminGroup** 且具有管理员特权的本地组。 Customer1 和 Customer2 这两个用户已成为此本地组的成员。
+可以定义和创建允许将一个或多个用户添加到组的用户组。 如果不同的服务入口点对应有多个用户，而且这些用户需要拥有特定的常见组级别权限，这种做法就特别有用。 以下示例演示一个名为 **LocalAdminGroup** 且具有管理员特权的本地组。 Customer1 和 Customer2 这两个用户已成为此本地组的成员。
 
 ```xml
 <Principals>
@@ -229,7 +229,7 @@ Echo "Test console redirection which writes to the application log folder on the
 ```
 
 ### <a name="create-local-users"></a>创建本地用户
-可以创建一个本地用户，用于帮助保护应用程序中的服务。 在应用程序清单的 principals 节中指定 **LocalUser** 帐户类型时，Service Fabric 将在部署应用程序的计算机上创建本地用户帐户。 默认情况下，这些帐户的名称不与应用程序清单中指定的名称相同（例如，以下示例中的 Customer3）。 相反，它们是动态生成的并带有随机密码。
+可以创建一个本地用户，用于帮助保护应用程序中的服务。 在应用程序清单的 principals 节中指定 **LocalUser** 帐户类型时，Service Fabric 会在部署应用程序的计算机上创建本地用户帐户。 默认情况下，这些帐户的名称不与应用程序清单中指定的名称相同（例如，以下示例中的 Customer3）。 相反，它们是动态生成的并带有随机密码。
 
 ```xml
 <Principals>
@@ -262,7 +262,7 @@ ServiceManifestImport 的 RunAsPolicy 部分指定 principals 部分中应该用
 如果未指定 **EntryPointType** ，则 EntryPointType 的默认值设置为“Main”。 如果想要以系统帐户运行某些高特权设置操作，则指定 **SetupEntryPoint** 尤其有用。 实际服务代码可使用较低特权的帐户来运行。
 
 ### <a name="apply-a-default-policy-to-all-service-code-packages"></a>将默认策略应用到所有服务代码包
-DefaultRunAsPolicy 部分用于针对未定义特定 RunAsPolicy 的所有代码包指定默认用户帐户。 如果在应用程序所用的服务清单中指定的大多数代码包需要以同一用户运行，则应用程序可以只定义该用户帐户的默认 RunAs 策略。 以下示例指定如果代码包未指定 RunAsPolicy，则此代码包应该以 principals 部分指定的 MyDefaultAccount 运行。
+**DefaultRunAsPolicy** 部分用于针对未定义特定 **RunAsPolicy** 的所有代码包指定默认用户帐户。 如果在应用程序所用的服务清单中指定的大多数代码包需要以同一用户运行，则应用程序可以只定义该用户帐户的默认 RunAs 策略。 以下示例指定如果代码包未指定 RunAsPolicy，则此代码包应该以 principals 部分指定的 MyDefaultAccount 运行。
 
 ```xml
 <Policies>
@@ -270,9 +270,9 @@ DefaultRunAsPolicy 部分用于针对未定义特定 RunAsPolicy 的所有代码
 </Policies>
 ```
 ### <a name="use-an-active-directory-domain-group-or-user"></a>使用 Active Directory 域组或用户
-对于使用独立安装程序在 Windows Server 上安装的 Service Fabric 实例，可以使用 Active Directory 用户或组帐户的凭据来运行服务。 注意：这是域中的本地 Active Directory，不是 Azure Active Directory (Azure AD)。 通过使用域用户或组，可以访问域中已被授予权限的其他资源（例如文件共享）。
+对于使用独立安装程序在 Windows Server 上安装的 Service Fabric 实例，可以使用 Active Directory 用户或组帐户的凭据来运行服务。 这是域中的本地 Active Directory，不是 Azure Active Directory (Azure AD)。 通过使用域用户或组，可以访问域中已被授予权限的其他资源（例如文件共享）。
 
-下面的示例演示名为 TestUser 的 Active Directory 用户，其域密码使用名为 MyCert 的证书进行了加密。 可以使用 `Invoke-ServiceFabricEncryptText` PowerShell 命令创建机密加密文本。 请参阅[管理 Service Fabric 应用程序中的机密](./service-fabric-application-secret-management.md)获取详细信息。
+下面的示例演示名为 TestUser 的 Active Directory 用户，其域密码使用名为 MyCert 的证书进行了加密。 可以使用 `Invoke-ServiceFabricEncryptText` PowerShell 命令创建机密加密文本。 请参阅[管理 Service Fabric 应用程序中的机密](service-fabric-application-secret-management.md)获取详细信息。
 
 用于解密密码的证书私钥必须使用带外方法（在 Azure 中通过 Azure Resource Manager）部署到本地计算机。 这样，当 Service Fabric 将服务包部署到计算机时，便能够解密密码和用户名，向 Active Directory 进行身份验证以使用这些凭据运行。
 
@@ -290,9 +290,47 @@ DefaultRunAsPolicy 部分用于针对未定义特定 RunAsPolicy 的所有代码
 </Policies>
 <Certificates>
 ```
+### <a name="use-a-group-managed-service-account"></a>使用组托管服务帐户。
+对于使用独立安装程序在 Windows Server 上安装的 Service Fabric 实例，可以以组托管服务帐户 (gMSA) 身份来运行服务。 注意：这是域中的本地 Active Directory，不是 Azure Active Directory (Azure AD)。 使用 gMSA 时，没有密码或加密密码存储在 `Application Manifest` 中。
+
+以下示例演示如何创建一个名为 *svc-Test$* 的 gMSA 帐户；如何将该托管服务帐户部署到群集节点；以及如何配置用户主体。
+
+##### <a name="prerequisites"></a>先决条件。
+- 域需要 KDS 根密钥。
+- 域必须位于 Windows Server 2012 或更高功能级别上。
+
+##### <a name="example"></a>示例
+1. 让 active directory 域管理员使用 `New-ADServiceAccount` commandlet 创建组托管服务帐户，并确保 `PrincipalsAllowedToRetrieveManagedPassword` 包括所有 service fabric 群集节点。 请注意，`AccountName`、`DnsHostName` 和 `ServicePrincipalName` 必须是唯一的。
+```
+New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
+```
+2. 在每个 Service Fabric 群集节点（例如，`SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`）上，安装并测试 gMSA。
+```
+Add-WindowsFeature RSAT-AD-PowerShell
+Install-AdServiceAccount svc-Test$
+Test-AdServiceAccount svc-Test$
+```
+3. 配置用户主体，并配置 RunAsPolicy 以引用用户。
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
+      <ConfigOverrides />
+      <Policies>
+         <RunAsPolicy CodePackageRef="Code" UserRef="DomaingMSA"/>
+      </Policies>
+   </ServiceManifestImport>
+  <Principals>
+    <Users>
+      <User Name="DomaingMSA" AccountType="ManagedServiceAccount" AccountName="domain\svc-Test$"/>
+    </Users>
+  </Principals>
+</ApplicationManifest>
+```
 
 ## <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>为 HTTP 和 HTTPS 终结点分配安全访问策略
-如果向服务应用 RunAs 策略，而服务清单声明具有 HTTP 协议的终结点资源，则必须指定 **SecurityAccessPolicy** ，确保分配给这些终结点的端口都已针对用来运行服务的 RunAs 用户帐户正确列入访问控制列表中。 否则， **http.sys** 将无权访问服务，并且无法从客户端调用。 以下示例将 Customer3 帐户应用到名为 **ServiceEndpointName**的终结点，并向其授予完全访问权限。
+如果向服务应用 RunAs 策略，而服务清单声明具有 HTTP 协议的终结点资源，则必须指定 **SecurityAccessPolicy** ，确保分配给这些终结点的端口都已针对用来运行服务的 RunAs 用户帐户正确列入访问控制列表中。 否则，**http.sys** 无法访问服务，并且无法从客户端调用。 以下示例将 Customer1 帐户应用于名为 **EndpointName** 的终结点，并向它授予完全访问权限。
 
 ```xml
 <Policies>
@@ -313,6 +351,12 @@ DefaultRunAsPolicy 部分用于针对未定义特定 RunAsPolicy 的所有代码
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
 </Policies
 ```
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>使用 https 终结点升级多个应用程序
+请注意，使用 http**s** 时，不要将**相同端口**用于同一应用程序的不同实例。 原因是，Service Fabric 无法升级应用程序实例之一的证书。 例如，如果应用程序 1 或应用程序 2 都要将证书 1 升级为证书 2。 升级时，Service Fabric 可能已使用 http.sys 清除了证书 1 注册，即使其他应用程序仍在使用它，也不例外。 为了防止发生这种情况，Service Fabric 检测到另一个应用程序实例已在带证书的端口上注册（由于 http.sys），导致操作失败。
+
+因此，Service Fabric 不支持通过以下方法升级两个不同的服务：在不同的应用程序实例中使用**同一端口**。 也就是说，不能对同一端口上的不同服务使用同一证书。 如果需要在同一端口上使用共享证书，请务必将服务放置在具有放置约束的不同计算机上。 或者，如果可以，考虑将 Service Fabric 动态端口用于每个应用程序实例中的各个服务。 
+
+如果 https 升级失败，则会看到内容为“Windows HTTP Server API 不支持对共享端口的应用程序使用多个证书”的错误警告。
 
 ## <a name="a-complete-application-manifest-example"></a>完整应用程序清单的示例
 以下应用程序清单显示了许多不同的设置：
@@ -373,8 +417,10 @@ DefaultRunAsPolicy 部分用于针对未定义特定 RunAsPolicy 的所有代码
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>后续步骤
 
-* [了解应用程序模型](./service-fabric-application-model.md)
-* [在服务清单中指定资源](./service-fabric-service-manifest-resources.md)
-* [部署应用程序](./service-fabric-deploy-remove-applications.md)
+* [了解应用程序模型](service-fabric-application-model.md)
+* [在服务清单中指定资源](service-fabric-service-manifest-resources.md)
+* [部署应用程序](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
+
+<!--Update_Description: update meta properties, add new feature on Group Managed Service Account-->

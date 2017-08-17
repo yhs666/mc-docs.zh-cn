@@ -3,8 +3,8 @@ title: "Azure AD Connect 同步：技术概念 | Microsoft Docs"
 description: "介绍 Azure AD Connect 同步的技术概念。"
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/24/2017
-ms.date: 06/12/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: ad433677fd0082ec74f7d7d2e37957112f67695b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 60302d3e9cec8c101d000bf147e74b21703cd5e0
+ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/11/2017
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect 同步：技术概念
 本文是[了解体系结构](active-directory-aadconnectsync-technical-concepts.md)主题的总结。
@@ -64,7 +62,7 @@ metaverse 是相邻连接器空间中的所有已联接标识的合并视图。 
 
 ## <a name="connector-space"></a>连接器空间
 每个已连接数据源都表示为连接器空间中对象和属性的已筛选子集。
-此特点允许同步服务在本地工作，并且当同步对象时，不需要联系远程系统，此外还将交互仅限制为导入和导出。
+此特点允许同步服务在本地工作，并且当同步对象时，不需要联系远程系统，此外还将交互限制为仅导入和导出。
 
 当数据源和连接器具有提供更改列表（增量导入）的功能时，则操作效率作为仅有的更改会显著增加，因为最后一个轮询周期进行了交换。 连接器空间通过要求连接器计划导入和导出保护已连接数据源免于进行自动传播的更改。 当测试、预览或确认下一次更新时，此添加的保护可让你高枕无忧。
 
@@ -73,15 +71,15 @@ metaverse 是相邻连接器空间中的所有已联接标识的合并视图。
 
 标识链接在一起，并且机构通过导入流映射分配给各种属性，中心 metaverse 对象开始聚合来自多个系统的信息。 通过此对象属性流，映射将信息携带到出站系统。
 
-当机构系统将对象投入到 metaverse 时创建对象。 只要所有连接都已删除，则会删除 metaverse 对象。
+当权威系统将对象投入到 metaverse 中时创建对象。 只要所有连接都已删除，则会删除 metaverse 对象。
 
 不能直接编辑 metaverse 中的对象。 该对象中的所有数据都必须通过属性流提供。 metaverse 为每个连接器空间维护永久性连接器。 这些连接器不要求针对每次同步运行进行重新评估。 这意味着 Azure AD Connect 同步不必每次都查找匹配的远程对象。 这样就不需要使用开销较高的代理来避免更改通常负责关联对象的属性。
 
-当发现可能具有需要管理的先前存在对象的新数据源时，Azure AD Connect 同步将使用一个称为联接规则的进程来评估要与之建立链路的潜在候选者。
+当发现可能具有需要管理的先前存在对象的新数据源时，Azure AD Connect 同步使用一个称为联接规则的进程来评估要与之建立链路的潜在候选者。
 一旦建立链接，此评估则不会再次出现，且远程连接的数据源和 metaverse 之间可能发生普通属性流。
 
 ## <a name="provisioning"></a>设置
-当机构源将新对象投入到 metaverse 中时，则可能在另一个连接器中创建表示下游连接的数据源的新连接器空间对象。
+当权威源将新对象投入到 metaverse 中时，则可能在另一个连接器中创建表示下游连接的数据源的新连接器空间对象。
 
 这本质上会建立链接，并且属性流可以双向继续。
 
@@ -94,4 +92,4 @@ metaverse 是相邻连接器空间中的所有已联接标识的合并视图。
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-
+<!-- Update_Description: update meta properties -->

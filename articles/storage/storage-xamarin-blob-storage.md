@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/11/2017
-ms.author: v-johch
-ms.openlocfilehash: 22977352c4a4c536e4bed3cc299c05e7c626e467
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 08/14/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 5321546ca3bebfcd152108bd6714826da4cd7aa4
+ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/09/2017
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>如何通过 Xamarin 使用 Blob 存储
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
@@ -31,19 +31,19 @@ Xamarin 使开发人员能够通过共享的 C# 代码库来使用其本机用�
 [!INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
 ## <a name="create-a-new-xamarin-application"></a>创建新的 Xamarin 应用程序
-本教程将创建面向 Android、iOS 和 Windows 的应用。 此应用将仅创建一个容器，并将 Blob 上传到此容器中。 我们将使用 Windows 上的 Visual Studio，这些知识同样适用于通过 macOS 上的 Xamarin Studio 创建应用的情况。
+本教程创建面向 Android、iOS 和 Windows 的应用。 此应用将仅创建一个容器，并将 Blob 上传到此容器中。 我们会使用 Windows 上的 Visual Studio，这些知识同样适用于通过 macOS 上的 Xamarin Studio 创建应用的情况。
 
 请按以下步骤创建应用程序：
 
 1. 下载并安装 [Xamarin for Visual Studio](https://www.xamarin.com/download)（如果尚未这样做）。
 2. 打开 Visual Studio，创建空白应用（本机可移植）：“文件”>“新建”>“项目”>“跨平台”>“空白应用(本机可移植)”。
-3. 右键单击“解决方案资源管理器”窗格中的解决方案，然后选择“为解决方案管理 NuGet 包”。 搜索 **WindowsAzure.Storage**，并将最新稳定版本安装到解决方案中的所有项目。
+3. 右键单击“解决方案资源管理器”窗格中的解决方案，并选择“为解决方案管理 NuGet 包”。 搜索 **WindowsAzure.Storage**，并将最新稳定版本安装到解决方案中的所有项目。
 4. 生成并运行项目。
 
-现在，应该有了这样一个应用程序，单击其中某个按钮将使计数器递增。
+现在，应该有了这样一个应用程序：单击某个按钮即可让计数器递增。
 
 ## <a name="create-container-and-upload-blob"></a>创建容器并上传 Blob
-接下来，需要在 `(Portable)` 项目中，向 `MyClass.cs` 添加一些代码。 此代码将创建一个容器并在其中上传 Blob。 `MyClass.cs` 应如下所示：
+接下来，需要在 `(Portable)` 项目中，向 `MyClass.cs` 添加一些代码。 此代码创建一个容器并在其中上传 Blob。 `MyClass.cs` 应如下所示：
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -250,3 +250,4 @@ namespace XamarinApp.WinPhone
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
+<!--Update_Description: wording update - Storage -> storage-->
