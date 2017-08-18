@@ -1,13 +1,13 @@
 ---
 layout: HubPage
 hide_bc: True
-title: "Azure 文档"
+title: "Azure 文档和资源"
 description: "了解如何使用 Microsoft Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
-ms.openlocfilehash: ef32c09a4e1a56c614558a82cbbdf425bcd9af14
-ms.sourcegitcommit: 486760e5ee9518b2ad0a3e181450a64825e6ec83
+ms.openlocfilehash: b319ffb95ec9e5993c605de138064803dd7d5632
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/17/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -308,7 +308,6 @@ ms.lasthandoff: 08/08/2017
                                     </ul>
                                     <h3>容器</h3>
                                     <ul>
-
                                         <li>
                                             <a href="/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
@@ -436,54 +435,53 @@ ms.lasthandoff: 08/08/2017
                                             </a>
                                         </li>
                                     </ul>
-
-                                    <h3>Internet of Things</h3>
+                                    <h3>物联网</h3>
                                     <ul>
                                         <li>
                                             <a href="/develop/iot/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>IoT Developer Center</p>
+                                                <p>IoT 开发人员中心</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/iot-hub/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>Azure IoT Hub</p>
+                                                <p>Azure IoT 中心</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/iot-suite/">
                                                 <img src="media/index/iot-suite.svg" alt="" />
-                                                <p>Azure IoT Suite</p>
+                                                <p>Azure IoT 套件</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/event-hubs/">
                                                 <img src="media/index/EventHubs.svg" alt="" />
-                                                <p>Event Hubs</p>
+                                                <p>事件中心</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
-                                                <p>Notification Hubs</p>
+                                                <p>通知中心</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Stream Analytics</p>
+                                                <p>流分析</p>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="group">
-                                    <h3>Web + Mobile</h3>
+                                    <h3>Web + 移动</h3>
                                     <ul>
                                         <li>
                                             <a href="/app-service-web/">
                                                 <img src="media/index/app-service-web.svg" alt="" />
-                                                <p>Web Apps</p>
+                                                <p>Web 应用</p>
                                             </a>
                                         </li>
                                         <li>
@@ -507,22 +505,22 @@ ms.lasthandoff: 08/08/2017
                                         <li>
                                             <a href="/media-services/">
                                                 <img src="media/index/MediaServices.svg" alt="" />
-                                                <p>Media Services</p>
+                                                <p>媒体服务</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
-                                                <p>Notification Hubs</p>
+                                                <p>通知中心</p>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Security + Identity</h3>
+                                    <h3>安全性 + 标识</h3>
                                     <ul>
                                         <li>
                                             <a href="/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>Key Vault</p>
+                                                <p>密钥保管库</p>
                                             </a>
                                         </li>
                                         <li>
@@ -534,40 +532,40 @@ ms.lasthandoff: 08/08/2017
                                         <li>
                                             <a href="/multi-factor-authentication/">
                                                 <img src="media/index/MultiFactorAuthentication.svg" alt="" />
-                                                <p>Multi-Factor Authentication</p>
+                                                <p>多重身份验证</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/security/">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Security Information</p>
+                                                <p>安全信息</p>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Monitoring + Management</h3>
+                                    <h3>监视 + 管理</h3>
                                     <ul>
                                         <li>
                                             <a href="/automation/">
                                                 <img src="media/index/Automation.svg" alt="" />
-                                                <p>Automation</p>
+                                                <p>自动化</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Backup</p>
+                                                <p>备份</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
-                                                <p>Site Recovery</p>
+                                                <p>站点恢复</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/scheduler/">
                                                 <img src="media/index/Scheduler.svg" alt="" />
-                                                <p>Scheduler</p>
+                                                <p>计划程序</p>
                                             </a>
                                         </li>
                                         <li>
@@ -588,7 +586,7 @@ ms.lasthandoff: 08/08/2017
                         </ul>
                     </li>
                     <li>
-                        <a data-default="true" href="#Compute">Compute</a>
+                        <a data-default="true" href="#Compute">计算</a>
                         <ul id="Compute" class="cardsA">
                             <li>
                                 <a href="/virtual-machines/linux/">
@@ -601,8 +599,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Linux Virtual Machines</h3>
-                                                    <p>Provision virtual machines of Ubuntu, Red Hat, and more</p>
+                                                    <h3>Linux 虚拟机</h3>
+                                                    <p>为 Ubuntu、Red Hat 等预配虚拟机</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -620,8 +618,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Windows Virtual Machines</h3>
-                                                    <p>Provision virtual machines for SQL Server, SharePoint, and more</p>
+                                                    <h3>Windows 虚拟机</h3>
+                                                    <p>为 SQL Server、SharePoint 等预配虚拟机</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -639,8 +637,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Virtual Machine Scale Sets</h3>
-                                                    <p>Manage and scale 10s to 1000s of Linux and Windows virtual machines</p>
+                                                    <h3>虚拟机规模集</h3>
+                                                    <p>管理和缩放数十到数千个 Linux 和 Windows 虚拟机</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -658,8 +656,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Web Apps</h3>
-                                                    <p>Quickly create and deploy mission critical Web apps at scale</p>
+                                                    <h3>Web 应用</h3>
+                                                    <p>快速创建并大规模部署任务关键型 Web 应用</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -677,8 +675,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>App Service</h3>
-                                                    <p>Deploy web apps on Linux using containers</p>
+                                                    <h3>应用服务</h3>
+                                                    <p>在 Linux 上使用容器部署 Web 应用</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -696,8 +694,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Batch</h3>
-                                                    <p>Run compute jobs using containers</p>
+                                                    <h3>批处理</h3>
+                                                    <p>使用容器运行计算作业</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -716,7 +714,7 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Develop microservices and orchestrate containers on Windows or Linux</p>
+                                                    <p>在 Windows 或 Linux 上开发微服务和协调容器</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -734,8 +732,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cloud Services</h3>
-                                                    <p>Create highly available, infinitely scalable cloud applications and APIs</p>
+                                                    <h3>云服务</h3>
+                                                    <p>创建高度可用且可无限缩放的云应用程序和 API</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -745,7 +743,7 @@ ms.lasthandoff: 08/08/2017
                         </ul>
                     </li>
                     <li>
-                        <a href="#network">Networking</a>
+                        <a href="#network">网络</a>
                         <ul id="network" class="cardsA">
                             <li>
                                 <a href="/virtual-network/">
@@ -758,8 +756,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Virtual Network</h3>
-                                                    <p>Provision private networks, optionally connect to on-premises datacenters</p>
+                                                    <h3>虚拟网络</h3>
+                                                    <p>预配专用网络，根据需要连接到本地数据中心</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -777,8 +775,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Load Balancer</h3>
-                                                    <p>Deliver high availability and network performance to your applications</p>
+                                                    <h3>负载均衡器</h3>
+                                                    <p>提高应用程序的可用性和网络性能</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -796,9 +794,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Application Gateway</h3>
-                                                    <p>Layer 7 Load Balancer with built-in HTTP load balancing and delivery
-                                                        control</p>
+                                                    <h3>应用程序网关</h3>
+                                                    <p>具有内置 HTTP 负载均衡和传送控件的第 7 层负载均衡器</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -816,8 +813,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>VPN Gateway</h3>
-                                                    <p>Establish secure, cross-premises connectivity</p>
+                                                    <h3>VPN 网关</h3>
+                                                    <p>建立安全的跨界连接</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -836,8 +833,7 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>CDN</h3>
-                                                    <p>Deliver content to end-users through a robust network of global data
-                                                        centers </p>
+                                                    <p>通过全球数据中心的稳定网络向最终用户传送内容 </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -855,8 +851,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Traffic Manager</h3>
-                                                    <p>Route incoming traffic for high performance and availability</p>
+                                                    <h3>流量管理器</h3>
+                                                    <p>根据高性能和高可用性要求路由传入流量</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -875,7 +871,7 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
-                                                    <p>Dedicated private network fiber connections to Azure</p>
+                                                    <p>Azure 专用网络光纤连接</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -885,7 +881,7 @@ ms.lasthandoff: 08/08/2017
                         </ul>
                     </li>
                     <li>
-                        <a href="#storage">Storage</a>
+                        <a href="#storage">存储</a>
                         <ul id="storage" class="cardsA">
                             <li>
                                 <a href="/storage/">
@@ -898,8 +894,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Storage</h3>
-                                                    <p>Durable, highly available, and massively scalable cloud storage</p>
+                                                    <h3>存储</h3>
+                                                    <p>持久、高度可用且高度可缩放的云存储</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -917,8 +913,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Backup</h3>
-                                                    <p>Simple and reliable server backup to the cloud</p>
+                                                    <h3>备份</h3>
+                                                    <p>以简单可靠的方式将服务器数据备份到云中</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -936,8 +932,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Site Recovery</h3>
-                                                    <p>Orchestrate protection and recovery of private clouds</p>
+                                                    <h3>站点恢复</h3>
+                                                    <p>协调私有云的保护和恢复</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -947,7 +943,7 @@ ms.lasthandoff: 08/08/2017
                         </ul>
                     </li>
                     <li>
-                        <a href="#web">Web + Mobile</a>
+                        <a href="#web">Web + 移动</a>
                         <ul id="web" class="cardsA">
                             <li>
                                 <a href="/app-service-web">
@@ -960,8 +956,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Web Apps</h3>
-                                                    <p>Quickly create and deploy mission critical Web apps at scale</p>
+                                                    <h3>Web 应用</h3>
+                                                    <p>快速创建并大规模部署任务关键型 Web 应用</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -980,7 +976,7 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Mobile Apps</h3>
-                                                    <p>Build and host the backend for any mobile app</p>
+                                                    <p>生成和托管任何移动应用的后端</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -999,7 +995,7 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Apps</h3>
-                                                    <p>Easily build and consume Cloud API</p>
+                                                    <p>轻松生成和使用云 API</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1018,8 +1014,7 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>CDN</h3>
-                                                    <p>Deliver content to end-users through a robust network of global data
-                                                        centers </p>
+                                                    <p>通过全球数据中心的稳定网络向最终用户传送内容 </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1037,8 +1032,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Media Services</h3>
-                                                    <p>Encode, store, and stream video and audio at scale</p>
+                                                    <h3>媒体服务</h3>
+                                                    <p>大规模编码、存储和流式传输视频和音频</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1056,8 +1051,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Notification Hubs</h3>
-                                                    <p>A scalable, push notification engine for quickly sending millions of messages</p>
+                                                    <h3>通知中心</h3>
+                                                    <p>快速发送数百万条消息的可缩放推送通知引擎</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1067,9 +1062,8 @@ ms.lasthandoff: 08/08/2017
                         </ul>
                     </li>
                     <li>
-                        <a href="#containers">Containers</a>
+                        <a href="#containers">容器</a>
                         <ul id="containers" class="cardsA">
-
                             <li>
                                 <a href="/service-fabric/">
                                     <div class="cardSize">
@@ -1082,7 +1076,7 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Develop microservices and orchestrate containers on Windows or Linux</p>
+                                                    <p>在 Windows 或 Linux 上开发微服务和协调容器</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1100,8 +1094,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>App Service</h3>
-                                                    <p>Deploy web apps on Linux using containers</p>
+                                                    <h3>应用服务</h3>
+                                                    <p>在 Linux 上使用容器部署 Web 应用</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1119,8 +1113,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Batch</h3>
-                                                    <p>Run compute jobs using containers</p>
+                                                    <h3>批处理</h3>
+                                                    <p>使用容器运行计算作业</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1130,7 +1124,7 @@ ms.lasthandoff: 08/08/2017
                         </ul>
                     </li>
                     <li>
-                        <a href="#databases">Databases</a>
+                        <a href="#databases">数据库</a>
                         <ul id="databases" class="cardsA">
                             <li>
                                 <a href="/sql-database/">
@@ -1143,8 +1137,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL Database</h3>
-                                                    <p>Managed relational database-as-a-service</p>
+                                                    <h3>SQL 数据库</h3>
+                                                    <p>托管的关系数据库即服务</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1162,8 +1156,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL Data Warehouse</h3>
-                                                    <p>Elastic data warehouse-as-a-service with enterprise-class features</p>
+                                                    <h3>SQL 数据仓库</h3>
+                                                    <p>具有企业级功能的弹性数据仓库即服务</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1182,7 +1176,7 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Server Stretch Database</h3>
-                                                    <p>Dynamically stretch on-premises SQL Server databases to Azure</p>
+                                                    <p>将本地 SQL Server 数据库动态延伸到 Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1201,7 +1195,7 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cosmos DB</h3>
-                                                    <p>Managed NoSQL document database-as-a-service</p>
+                                                    <p>托管的 NoSQL 文档数据库即服务</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1220,7 +1214,7 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>MySQL</h3>
-                                                    <p>Managed MySQL database service for app developers</p>
+                                                    <p>面向应用开发人员的托管 MySQL 数据库服务</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1238,19 +1232,18 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Redis Cache</h3>
-                                                    <p>High throughput, low latency data access to build fast/scalable applications</p>
+                                                    <h3>Redis 缓存</h3>
+                                                    <p>进行高吞吐量、低延迟的数据访问以生成快速/可缩放的应用程序</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </li>
-
                         </ul>
                     </li>
                     <li>
-                        <a href="#iot">Internet of Things</a>
+                        <a href="#iot">物联网</a>
                         <ul id="iot" class="cardsA">
                             <li>
                                 <a href="/develop/iot/">
@@ -1263,8 +1256,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Developer Center</h3>
-                                                    <p>Get started connecting your devices</p>
+                                                    <h3>IoT 开发人员中心</h3>
+                                                    <p>开始连接设备</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1282,8 +1275,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure IoT Hub</h3>
-                                                    <p>Connect, monitor, and control billions of IoT assets</p>
+                                                    <h3>Azure IoT 中心</h3>
+                                                    <p>连接、监视和控制数十亿 IoT 资产</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1301,8 +1294,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure IoT Suite</h3>
-                                                    <p>Capture and analyze untapped data to improve business results</p>
+                                                    <h3>Azure IoT 套件</h3>
+                                                    <p>捕获并分析未使用的数据，以改善业务成果</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1320,8 +1313,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Event Hubs</h3>
-                                                    <p>Receive telemetry from millions of devices</p>
+                                                    <h3>事件中心</h3>
+                                                    <p>从数百万个设备接收遥测数据</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1339,8 +1332,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Stream Analytics</h3>
-                                                    <p>Real-time data stream processing from millions of IoT devices</p>
+                                                    <h3>流分析</h3>
+                                                    <p>实时处理来自数百万台 IoT 设备的数据流</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1358,8 +1351,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Notification Hubs</h3>
-                                                    <p>A scalable, push notification engine for quickly sending millions of messages</p>
+                                                    <h3>通知中心</h3>
+                                                    <p>快速发送数百万条消息的可缩放推送通知引擎</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1369,7 +1362,7 @@ ms.lasthandoff: 08/08/2017
                         </ul>
                     </li>
                     <li>
-                        <a href="#integration">Enterprise Integration</a>
+                        <a href="#integration">企业集成</a>
                         <ul id="integration" class="cardsA">
                             <li>
                                 <a href="/service-bus/">
@@ -1382,8 +1375,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Service Bus</h3>
-                                                    <p>Connect across private and public cloud environments</p>
+                                                    <h3>服务总线</h3>
+                                                    <p>在私有云环境和公有云环境中连接</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1402,7 +1395,7 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Server Stretch Database</h3>
-                                                    <p>Dynamically stretch on-premises SQL Server databases to Azure</p>
+                                                    <p>将本地 SQL Server 数据库动态延伸到 Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1412,7 +1405,7 @@ ms.lasthandoff: 08/08/2017
                         </ul>
                     </li>
                     <li>
-                        <a href="#security">Security + Identity</a>
+                        <a href="#security">安全性 + 标识</a>
                         <ul id="security" class="cardsA">
                             <li>
                                 <a href="/key-vault/">
@@ -1425,8 +1418,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Key Vault</h3>
-                                                    <p>Learn how to manage cryptographic keys and secrets</p>
+                                                    <h3>密钥保管库</h3>
+                                                    <p>了解如何管理加密密钥和机密</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1445,7 +1438,7 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Active Directory</h3>
-                                                    <p>Synchronize on-premises directories and enable single sign-on</p>
+                                                    <p>同步本地目录并启用单一登录</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1463,8 +1456,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Multi-Factor Authentication</h3>
-                                                    <p>Safeguard access to your data and apps with an extra level of authentication</p>
+                                                    <h3>多重身份验证</h3>
+                                                    <p>利用额外的一层身份验证确保安全访问数据和应用</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1482,8 +1475,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Security Information</h3>
-                                                    <p>Learn how Azure provides a secure infrastructure to build cloud solutions</p>
+                                                    <h3>安全信息</h3>
+                                                    <p>了解 Azure 如何提供用于生成云解决方案的安全基础结构</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1493,7 +1486,7 @@ ms.lasthandoff: 08/08/2017
                         </ul>
                     </li>
                     <li>
-                        <a href="#mgmt">Monitoring + Management</a>
+                        <a href="#mgmt">监视 + 管理</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
                                 <a href="/automation/">
@@ -1506,8 +1499,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Automation</h3>
-                                                    <p>Simplify cloud management with process automation</p>
+                                                    <h3>自动化</h3>
+                                                    <p>使用流程自动化来简化云管理</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1525,8 +1518,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Backup</h3>
-                                                    <p>Simple and reliable server backup to the cloud</p>
+                                                    <h3>备份</h3>
+                                                    <p>以简单可靠的方式将服务器数据备份到云中</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1544,8 +1537,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Site Recovery</h3>
-                                                    <p>Orchestrate protection and recovery of private clouds</p>
+                                                    <h3>站点恢复</h3>
+                                                    <p>协调私有云的保护和恢复</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1563,8 +1556,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Scheduler</h3>
-                                                    <p>Run your jobs on simple or complex recurring schedules</p>
+                                                    <h3>计划程序</h3>
+                                                    <p>根据简单或复杂的定期计划运行作业</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1583,7 +1576,7 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Monitor</h3>
-                                                    <p>Highly granular and real-time monitoring data for any Azure resource</p>
+                                                    <p>对任何 Azure 资源进行高精度的实时数据监视</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1602,7 +1595,7 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Resource Manager</h3>
-                                                    <p>Deploy and manage Azure resources</p>
+                                                    <p>部署和管理 Azure 资源</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1614,14 +1607,14 @@ ms.lasthandoff: 08/08/2017
                 </ul>
             </li>
             <li>
-                <a href="#sdkstools">SDKs/Tools</a>
+                <a href="#sdkstools">SDK/工具</a>
                 <ul id="sdkstools">
                     <li>
-                        <a href="#sdkstools-all">all</a>
+                        <a href="#sdkstools-all">全部</a>
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
-                                    <h2>Languages &amp; Frameworks</h2>
+                                    <h2>语言和框架</h2>
                                 </div>
                             </li>
                             <li>
@@ -1635,13 +1628,13 @@ ms.lasthandoff: 08/08/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-install">Get the Azure libraries for .NET</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-install">获取用于 .NET 的 Azure 库</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure">Get started</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/api/overview/azure/?view=azure-dotnet">API reference</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/api/overview/azure/?view=azure-dotnet">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1659,13 +1652,13 @@ ms.lasthandoff: 08/08/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://docs.microsoft.com/python/azure/python-sdk-azure-install">Get the Azure libraries for Python</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/python/azure/python-sdk-azure-install">获取用于 Python 的 Azure 库</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/python/azure">Get started</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/python/azure">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/python/api/overview/azure/">API reference</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/python/api/overview/azure/">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1683,13 +1676,13 @@ ms.lasthandoff: 08/08/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/azure/node-sdk-azure-install">Get the Azure libraries for Node.js</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/azure/node-sdk-azure-install">获取用于 Node.js 的 Azure 库</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">Get started</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/api/overview/azure">API reference</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/api/overview/azure">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1707,13 +1700,13 @@ ms.lasthandoff: 08/08/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure/java-sdk-azure-install">Get the Azure libraries for Java</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure/java-sdk-azure-install">获取用于 Java 的 Azure 库</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure">Get started</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/api/overview/azure">API reference</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/java/api/overview/azure">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1731,16 +1724,16 @@ ms.lasthandoff: 08/08/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://rubygems.org/gems/azure">Get the Ruby SDK</a>
+                                                    <a target="_blank" href="https://rubygems.org/gems/azure">获取 Ruby SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Get started</a>
+                                                    <a target="_blank" href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API reference</a>
+                                                    <a target="_blank" href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/develop/ruby/">Learn more</a>
+                                                    <a target="_blank" href="https://azure.microsoft.com/develop/ruby/">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1758,12 +1751,11 @@ ms.lasthandoff: 08/08/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://docs.microsoft.com/rest/api/">Get started with REST</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/rest/api/">REST 入门</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/rest/api">Reference</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/rest/api">参考</a>
                                                 </p>
-
                                             </div>
                                         </div>
                                     </div>
@@ -1771,7 +1763,7 @@ ms.lasthandoff: 08/08/2017
                             </li>
                             <li>
                                 <div class="container">
-                                    <h2>Command-Line Interface (CLI)</h2>
+                                    <h2>命令行接口 (CLI)</h2>
                                 </div>
                             </li>
                             <li>
@@ -1784,16 +1776,15 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0
-                                                </h3>
+                                                <h3>Azure CLI 2.0 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/overview">Get Started</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/overview">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/install-azure-cli">Download Azure CLI 2.0</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/install-azure-cli">下载 Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure">Reference</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure">参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1812,13 +1803,13 @@ ms.lasthandoff: 08/08/2017
                                             <div class="cardText">
                                                 <h3>PowerShell</h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/azure/get-started-azureps">Get Started</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/azure/get-started-azureps">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/azure/install-azurerm-ps">Download PowerShell</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/azure/install-azurerm-ps">下载 PowerShell</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/azure/overview">Reference</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/azure/overview">参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1835,22 +1826,21 @@ ms.lasthandoff: 08/08/2017
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI
-                                                </h3>
+                                                <h3>Azure CLI </h3>
                                                 <p>
-                                                    <a href="/xplat-cli-install?toc=%2fvirtual-machines%2flinux%2ftoc.json">Get Started</a>
+                                                    <a href="/xplat-cli-install?toc=%2fvirtual-machines%2flinux%2ftoc.json">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="http://aka.ms/linux-azure-cli">Download Azure CLI for Linux</a>
+                                                    <a target="_blank" href="http://aka.ms/linux-azure-cli">下载用于 Linux 的 Azure CLI</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="http://aka.ms/mac-azure-cli">Download Azure CLI for Mac</a>
+                                                    <a target="_blank" href="http://aka.ms/mac-azure-cli">下载用于 Mac 的 Azure CLI</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="http://aka.ms/webpi-azure-cli">Download Azure CLI for Windows</a>
+                                                    <a target="_blank" href="http://aka.ms/webpi-azure-cli">下载用于 Windows 的 Azure CLI</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/virtual-machines/azure-cli-arm-commands?toc=%2fvirtual-machines%2flinux%2ftoc.json">Reference</a>
+                                                    <a href="/virtual-machines/azure-cli-arm-commands?toc=%2fvirtual-machines%2flinux%2ftoc.json">参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1862,16 +1852,14 @@ ms.lasthandoff: 08/08/2017
                 </ul>
             </li>
             <li>
-                <a href="#architecture">Architecture</a>
+                <a href="#architecture">体系结构</a>
                 <ul id="architecture">
                     <li>
                         <a href="#architecture1"></a>
                         <ul id="architecture1" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p>A set of recommended architectures for cloud applications. Each architecture includes
-                                        recommended practices, prescriptive steps, and an executable component that embodies
-                                        the recommendations.</p>
+                                    <p>为云应用程序建议的一组体系结构。 每种体系结构包括建议的做法、说明性的步骤以及体现建议内容的可执行组件。</p>
                                 </div>
                             </li>
                             <li>
@@ -1885,8 +1873,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Application Architecture Guide</h3>
-                                                    <p>Fundamental knowledge to be successful in the cloud. If you’re new to the cloud or new to Azure, start here.</p>
+                                                    <h3>Azure 应用程序体系结构指南</h3>
+                                                    <p>在云中成功操作需掌握的基础知识。 云或 Azure 的新手可以从此处着手。</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1904,8 +1892,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Reference Architectures</h3>
-                                                    <p>A set of recommended architectures for the cloud. Each architecture includes best practices, prescriptive steps, and a deployable solution.</p>
+                                                    <h3>参考体系结构</h3>
+                                                    <p>适用于云的一组建议的体系结构。 每个体系结构都包括最佳做法、规范步骤和可部署的解决方案。</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1923,8 +1911,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cloud Design Patterns</h3>
-                                                    <p>Design patterns for the cloud. Each pattern describes a problem, a pattern that addresses the problem, and an example based on Azure.</p>
+                                                    <h3>云设计模式</h3>
+                                                    <p>云的设计模式。 每种模式描述了一个问题、用于解决该问题的模式，以及基于 Azure 的示例。</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1942,9 +1930,8 @@ ms.lasthandoff: 08/08/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Best Practices for Cloud Applications</h3>
-                                                    <p>A set of best practices for cloud applications, covering aspects such
-                                                        as auto-scaling, caching, data partitioning, API design, and monitoring.</p>
+                                                    <h3>云应用程序最佳做法</h3>
+                                                    <p>适用于云应用程序的一套最佳做法，涉及自动缩放、缓存、数据分区、API 设计和监视等多个方面。</p>
                                                 </div>
                                             </div>
                                         </div>
