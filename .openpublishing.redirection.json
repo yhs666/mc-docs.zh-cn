@@ -461,6 +461,11 @@
       "redirect_document_id": "false"
     },
     {
+        "source_path": "articles/cosmos-db/welcome-documentdb-customers.md",
+        "redirect_url": "/cosmos-db/faq#moving-to-cosmos-db",
+        "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/event-hubs/event-hubs-availability-and-support-faq.md",
       "redirect_url": "/event-hubs/event-hubs-faq",
       "redirect_document_id": "false"
@@ -731,14 +736,94 @@
       "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/site-recovery/site-recovery-best-practices.md",
-      "redirect_url": "site-recovery-support-matrix-to-azure",
-      "redirect_document_id": "false"
+        "source_path": "articles/service-fabric/service-fabric-cluster-creation-via-visual-studio.md",
+        "redirect_url": "/service-fabric/service-fabric-cluster-creation-via-arm",
+        "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/site-recovery/site-recovery-support-matrix.md",
-      "redirect_url": "site-recovery-support-matrix-to-azure",
-      "redirect_document_id": "false"
+        "source_path": "articles/service-fabric/service-fabric-cluster-creation-with-windows-azure-vms.md",
+        "redirect_url": "/service-fabric/service-fabric-cluster-creation-via-arm",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/service-fabric/service-fabric-diagnostic-collect-logs-without-an-agent.md",
+        "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/service-fabric/service-fabric-diagnostic-how-to-use-elasticsearch.md",
+        "redirect_url": "/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md",
+        "redirect_url": "/service-fabric/service-fabric-diagnostics-overview",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/service-fabric/service-fabric-reliable-services-communication-webapi.md",
+        "redirect_url": "/service-fabric/service-fabric-reliable-services-communication-aspnetcore",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/service-fabric/service-fabric-reliable-services-platform-architecture.md",
+        "redirect_url": "/service-fabric/service-fabric-reliable-services-introduction",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/service-fabric/service-fabric-rest-based-application-lifecycle-sample.md",
+        "redirect_url": "https://docs.microsoft.com/zh-cn/rest/api/servicefabric/",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/service-fabric/service-fabric-use-data-loss-api.md",
+        "redirect_url": "/service-fabric/service-fabric-testability-overview",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-architecture-vmware-to-azure.md",
+        "redirect_url": "/site-recovery/vmware-walkthrough-architecture",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-best-practices.md",
+        "redirect_url": "/site-recovery/site-recovery-support-matrix-to-azure",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-components.md",
+        "redirect_url": "/site-recovery/site-recovery-azure-to-azure-architecture",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-hyper-v-azure-architecture.md",
+        "redirect_url": "/site-recovery/site-recovery-architecture-hyper-v-to-azure",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-hyper-v-site-to-azure.md",
+        "redirect_url": "/site-recovery/hyper-v-site-walkthrough-overview",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-physical-servers-to-azure.md",
+        "redirect_url": "/site-recovery/physical-walkthrough-overview",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-support-matrix.md",
+        "redirect_url": "/site-recovery/site-recovery-support-matrix-to-azure",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-classic.md",
+        "redirect_url": "/site-recovery/site-recovery-vmware-to-azure",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-vmware-to-azure.md",
+        "redirect_url": "/site-recovery/vmware-walkthrough-overview",
+        "redirect_document_id": "false"
     },
     {
       "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
@@ -1284,6 +1369,71 @@
       "source_path": "articles/sql-database/sql-database-works-in-your-environment.md",
       "redirect_url": "/sql-database/sql-database-develop-overview",
       "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-backup.md",
+        "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-disable.md",
+        "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-enable-database.md",
+        "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/enable-stretch-database-for-a-database",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-enable-table.md",
+        "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/enable-stretch-database-for-a-table",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-identify-databases.md",
+        "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-limitations.md",
+        "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/limitations-for-stretch-database",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-manage.md",
+        "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-overview.md",
+        "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/stretch-database",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-monitor.md",
+        "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-pause.md",
+        "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-restore.md",
+        "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-predicate-function.md",
+        "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-wizard.md",
+        "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard",
+        "redirect_document_id": "true"
     },
     {
       "source_path": "articles/storage/storage-troubleshoot-file-connection-problems.md",
