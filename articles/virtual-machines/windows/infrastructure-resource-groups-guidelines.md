@@ -13,28 +13,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 03/17/2017
-ms.date: 07/03/2017
+origin.date: 06/26/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c516b052820ecfedda086a89cdfcda1ca9078534
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 8f17b166d4a6febca5a306ae61e7b02600dc84ff
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/18/2017
 ---
-# 适用于 Windows VM 的 Azure 资源组准则
-<a id="azure-resource-group-guidelines-for-windows-vms" class="xliff"></a>
+# <a name="azure-resource-group-guidelines-for-windows-vms"></a>适用于 Windows VM 的 Azure 资源组准则
 
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 本文重点介绍如何以逻辑方式构建环境并将所有组件组合到资源组中。
 
-## 资源组的实施准则
-<a id="implementation-guidelines-for-resource-groups" class="xliff"></a>
+## <a name="implementation-guidelines-for-resource-groups"></a>资源组的实施准则
 决策：
 
-* 你是要以核心基础结构组件还是以完整的应用程序部署构建资源组？
+* 是要以核心基础结构组件还是以完整的应用程序部署构建资源组？
 * 是否需要使用基于角色的访问控制来限制对资源组的访问？
 
 任务：
@@ -42,13 +40,12 @@ ms.lasthandoff: 06/23/2017
 * 定义所需的核心基础结构组件和专用资源组。
 * 查看如何实现 Resource Manager 模板以进行一致且可重现的部署。
 * 定义控制资源组访问所需的用户访问角色。
-* 使用你的命名约定来创建资源组集。 你可以使用 Azure PowerShell 或门户。
+* 使用命名约定来创建资源组集。 可以使用 Azure PowerShell 或门户。
 
-## 资源组
-<a id="resource-groups" class="xliff"></a>
+## <a name="resource-groups"></a>资源组
 在 Azure 中，以逻辑方式将相关资源（例如存储帐户、虚拟网络及虚拟机 (VM)）组合到一起，将它们作为单个实体进行部署、管理和维护。 从管理的角度来看，此方法可让用户在将所有相关资源放在一起的情况下更轻松地部署应用程序，或者授予他人访问该资源组的权限。 资源组名称的最大长度为 90 个字符。 若要更全面地了解资源组，请阅读 [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)。
 
-资源组的一项重要特征是能够使用模板构建环境。 模板就是一个 JSON 文件，用于声明存储、网络和计算资源。 还可以定义要应用的任何相关自定义脚本或配置。 通过使用这些模板，可以为应用程序创建一致且可重现的部署。 此方法可以轻松构建开发环境，然后使用相同的模板创建生产部署，反之亦然。 若要更好地了解模板的使用方式，请阅读[模板演练](../../azure-resource-manager/resource-manager-template-walkthrough.md)，了解构建模板的每个步骤。
+资源组的一项重要特征是能够使用模板构建环境。 模板就是一个 JSON 文件，用于声明存储、网络和计算资源。 还可以定义要应用的任何相关自定义脚本或配置。 通过使用这些模板，可以为应用程序创建一致且可重现的部署。 此方法可以轻松构建开发环境，并使用相同的模板创建生产部署，反之亦然。 若要更好地了解模板的使用方式，请阅读[模板演练](../../azure-resource-manager/resource-manager-template-walkthrough.md)，了解构建模板的每个步骤。
 
 在使用资源组设计环境时，可以采用以下两种不同的方法：
 
@@ -57,6 +54,7 @@ ms.lasthandoff: 06/23/2017
 
 随着规模的扩大，为虚拟网络和子网创建集中式资源组可让用户更轻松地为混合连接选项生成跨界网络连接。 另一种方法是让每个应用程序都有自己的需要配置和维护的虚拟网络。  [基于角色的访问控制](../../active-directory/role-based-access-control-what-is.md)提供一种精细方式，控制对资源组的访问。 对于生产应用程序，可以控制能访问那些资源的用户；对于核心基础结构资源，可以限制为只有基础结构工程师可以使用它们。 应用程序所有者只能访问其资源组内的应用程序组件，而不能访问环境的核心 Azure 基础结构。 在设计环境时，请考虑需要访问资源的用户，并据此设计资源组。 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+
+<!--Update_Description: update meta data-->

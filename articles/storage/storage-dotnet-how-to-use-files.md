@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 05/27/2017
 ms.date: 08/14/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 80dbf82f5f995c1198e55432cac348ff63d473aa
-ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
+ms.openlocfilehash: 31c0ba022ec837565ea73ba981fdebb0f79976b2
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="develop-for-azure-file-storage-with-net"></a>使用 .NET 针对 Azure 文件存储进行开发 
 > [!NOTE]
@@ -387,10 +387,6 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ## <a name="next-steps"></a>后续步骤
 请参阅以下链接以获取有关 Azure 文件存储的更多信息。
 
-### <a name="conceptual-articles-and-videos"></a>概念性文章和视频
-* [Azure 文件存储：适用于 Windows 和 Linux 的顺畅的云 SMB 文件系统](https://www.azure.cn/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [如何将 Azure 文件存储与 Linux 配合使用](storage-how-to-use-files-linux.md)
-
 ### <a name="tooling-support-for-file-storage"></a>文件存储的工具支持
 * [对 Azure 存储使用 Azure PowerShell](storage-powershell-guide-full.md)
 * [如何对 Azure 存储使用 AzCopy](storage-use-azcopy.md)
@@ -400,11 +396,5 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ### <a name="reference"></a>引用
 * [.NET 存储客户端库参考](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [文件服务 REST API 参考](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-
-### <a name="blog-posts"></a>博客文章
-* [Azure 文件存储现已正式发布](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Azure 文件存储内部](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introducing Azure File Service（Azure 文件服务简介）](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [持久连接到 Azure 文件存储](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 <!--Update_Description: wording update - only remain dotnet related-->

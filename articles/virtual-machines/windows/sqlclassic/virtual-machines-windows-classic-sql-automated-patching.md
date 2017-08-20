@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 01/17/2017
-ms.date: 03/28/2017
+origin.date: 07/05/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: bbb3cf6fd4807e99b115d16f4d92f23b2f42c95a
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 9d95ac79509a57634599c6487e1cdca8fe43f7d4
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>在 Azure 虚拟机（经典）中对 SQL Server 进行自动修补
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 06/21/2017
 > 
 > 
 
-自动修补将为运行 SQL Server 的 Azure 虚拟机建立一个维护时段。 只能在此维护时段内安装自动更新。 对于 SQL Server，这可以确保在数据库的最佳可能时间进行系统更新和任何关联的重新启动。 自动修补依赖于 [SQL Server IaaS 代理扩展](../classic/sql-server-agent-extension.md)。
+自动修补为运行 SQL Server 的 Azure 虚拟机建立一个维护时段。 只能在此维护时段内安装自动更新。 对于 SQL Server，这可以确保在数据库的最佳可能时间进行系统更新和任何关联的重新启动。 自动修补依赖于 [SQL Server IaaS 代理扩展](../classic/sql-server-agent-extension.md)。
 
 > [!IMPORTANT] 
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 若要查看本文的 Resource Manager 版本，请参阅[在 Azure 虚拟机 Resource Manager 中自动修补 SQL Server](../sql/virtual-machines-windows-sql-automated-patching.md)。
@@ -41,6 +41,7 @@ ms.lasthandoff: 06/21/2017
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **SQL Server 版本**：
 
@@ -68,7 +69,7 @@ ms.lasthandoff: 06/21/2017
 | **修补程序类别** |重要 |要下载并安装的更新类别。 |
 
 ## <a name="configuration-with-powershell"></a>使用 PowerShell 进行配置
-以下示例将使用 PowerShell 在现有的 SQL Server VM 上配置自动修补。 **New-AzureVMSqlServerAutoPatchingConfig** 命令可为自动更新配置新的维护时段。
+以下示例使用 PowerShell 在现有的 SQL Server VM 上配置自动修补。 **New-AzureVMSqlServerAutoPatchingConfig** 命令可为自动更新配置新的维护时段。
 
     $aps = New-AzureVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
@@ -91,3 +92,5 @@ ms.lasthandoff: 06/21/2017
 有关其他可用自动化任务的信息，请参阅 [SQL Server IaaS 代理扩展](../classic/sql-server-agent-extension.md)。
 
 有关在 Azure VM 中运行 SQL Server 的详细信息，请参阅 [Azure 虚拟机中的 SQL Server 概述](../sql/virtual-machines-windows-sql-server-iaas-overview.md)。
+
+<!--Update_Description: add sql server 2016-->

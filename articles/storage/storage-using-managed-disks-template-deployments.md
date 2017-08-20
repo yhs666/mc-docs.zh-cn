@@ -13,12 +13,13 @@ ms.workload: storage
 origin.date: 06/01/2017
 ms.date: 08/14/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 0c579b0c7f504a243551127855bd72dd885ae52f
-ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
+ms.openlocfilehash: 688fbe3e1bf32aa8eb20ac64e86f61ae9f92ead5
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/18/2017
 ---
+<!--with managed diak context!!!!!-->
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 模板中使用托管磁盘
 
 本文介绍使用 Azure Resource Manager 模板预配虚拟机时托管与非托管磁盘之间的差异。 这有助于将现有模板从使用非托管磁盘更新为使用托管磁盘。 我们将使用 [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) 模板作为参考指南。 如果想要直接对它们进行比较，可以同时看到使用[托管磁盘](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json)的模板和以前使用[非托管磁盘](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json)的版本。

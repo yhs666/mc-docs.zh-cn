@@ -2,62 +2,65 @@
 documentType: LandingData
 title: Linux 虚拟机
 metadata:
+  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
   title: Azure Linux 虚拟机文档 - 教程和 API 参考
   meta.description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
   services: virtual-machines\linux
-  author: bbetstcw
+  author: czeumault
   manager: carolz
   ms.service: virtual-machines-linux
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 06/02/2017
-  ms.author: carolz
+  ms.date: 08/21/2017
+  ms.author: v-dazen
 abstract:
   description: Azure Linux 虚拟机使用所选 Red Hat、Ubuntu 或 Linux 分发按需提供具有高可伸缩性且十分安全的虚拟化基础结构。 使用我们的快速入门、教程和示例了解如何创建、配置、管理和缩放 Linux VM。
 sections:
-- title: 5 分钟快速入门
-  items:
-  - type: paragraph
-    text: 了解如何在运行 Ubuntu 的虚拟机中部署 NGINX Web 服务器：
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI
-      href: /virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fvirtual-machines%2flinux%2ftoc.json
-    - image: 
-        src: /virtual-machines/linux/media/index/portal.svg
-      text: Azure 门户
-      href: /virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fvirtual-machines%2flinux%2ftoc.json
-    - image: 
-        src: /virtual-machines/linux/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: /virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fvirtual-machines%2flinux%2ftoc.json
-- title: 分步教程
-  items:
-  - type: paragraph
-    text: 了解如何在 Azure 上部署、管理和缩放 Linux VM
-  - type: list
-    style: ordered
+  - title: 5 分钟快速入门
     items:
-    - html: <a href="/virtual-machines/linux/tutorial-manage-vm">创建和管理 Linux VM</a>
-    - html: <a href="/virtual-machines/linux/tutorial-automate-vm-deployment">自动执行 VM 配置</a>
-    - html: <a href="/virtual-machines/linux/tutorial-custom-images">创建自定义 VM 映像</a>
-    - html: <a href="/virtual-machines/linux/tutorial-availability-sets">创建高度可用的 VM</a>
-    - html: <a href="/virtual-machines/linux/tutorial-create-vmss">创建 VM 规模集</a>
-    - html: <a href="/virtual-machines/linux/tutorial-load-balancer">对 VM 进行负载均衡</a>
-    - html: <a href="/virtual-machines/linux/tutorial-virtual-network">管理 VM 和虚拟网络</a>
-    - html: <a href="/virtual-machines/linux/tutorial-monitoring">监视 VM</a>
-- title: 示例
-  items:
-  - type: paragraph
-    text: 将第一个应用程序部署到 Azure。
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 了解如何在运行 Ubuntu 的虚拟机中部署 NGINX Web 服务器：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /virtual-machines/linux/media/index/cli.svg
+            text: Azure CLI
+            href: /virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fvirtual-machines%2flinux%2ftoc.json
+          - image:
+              src: /virtual-machines/linux/media/index/portal.svg
+            text: Azure 门户
+            href: /virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fvirtual-machines%2flinux%2ftoc.json
+          - image:
+              src: /virtual-machines/linux/media/index/logo_powershell.svg
+            text: Azure PowerShell
+            href: /virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fvirtual-machines%2flinux%2ftoc.json
+  - title: 分步教程
     items:
-    - html: <a href="/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a>
-    - html: <a href="/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
+      - type: paragraph
+        text: 了解如何在 Azure 上部署、管理和缩放 Linux VM
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/virtual-machines/linux/tutorial-manage-vm">创建和管理 Linux VM</a>
+          - html: <a href="/virtual-machines/linux/tutorial-manage-disks">创建和管理 VM 磁盘</a></li>
+          - html: <a href="/virtual-machines/linux/tutorial-automate-vm-deployment">自动执行 VM 配置</a>
+          - html: <a href="/virtual-machines/linux/tutorial-custom-images">创建自定义 VM 映像</a>
+          - html: <a href="/virtual-machines/linux/tutorial-availability-sets">创建高度可用的 VM</a>
+          - html: <a href="/virtual-machines/linux/tutorial-create-vmss">创建 VM 规模集</a>
+          - html: <a href="/virtual-machines/linux/tutorial-load-balancer">对 VM 进行负载均衡</a>
+          - html: <a href="/virtual-machines/linux/tutorial-virtual-network">管理 VM 和虚拟网络</a>
+          - html: <a href="/virtual-machines/linux/tutorial-monitoring">监视 VM</a>
+          - html: <a href="/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">使用 Jenkins、Docker 和 GitHub 创建 CI/CD 基础结构</a>
+  - title: 示例
+    items:
+      - type: paragraph
+        text: 将第一个应用程序部署到 Azure。
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a>
+          - html: <a href="/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>

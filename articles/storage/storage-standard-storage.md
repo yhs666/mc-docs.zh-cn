@@ -15,12 +15,13 @@ ms.topic: article
 origin.date: 02/18/2017
 ms.date: 08/14/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 615974ccd0d8eee33f8a800003ecf02f8c7aad4a
-ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
+ms.openlocfilehash: a48edc907b28c4fe77287d744c5b6b387f1cc32f
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/18/2017
 ---
+<!--with storage context!!!!!-->
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>高性价比标准存储以及非托管和托管 Azure VM 磁盘
 
 Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成本的磁盘支持。 它还支持 Blob、表、队列和文件。 使用标准存储，数据将存储在硬盘驱动器 (HDD) 上。 使用 VM 时，可将标准存储磁盘用于开发/测试方案和不太重要的工作负荷，将高级存储磁盘用于任务关键型生产应用程序。 所有 Azure 区域均提供标准存储。 

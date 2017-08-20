@@ -15,18 +15,18 @@ ms.topic: article
 origin.date: 06/27/2017
 ms.date: 08/14/2017
 ms.author: v-haiqya
-ms.openlocfilehash: eb1de2cf22f67b2443ad3575b46b34dd4dd7ffbc
-ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
+ms.openlocfilehash: 2b0639c429d88e83c45cc5d7a6087a7912e1c4ce
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>迁移到 Azure 高级存储（非托管磁盘）
-
+<!--
 > [!NOTE]
-> 本文介绍如何将使用非托管标准磁盘的 VM 迁移到使用非托管高级磁盘的 VM。 建议用户对新的 VM 使用 Azure 托管磁盘，并将以前的非托管磁盘转换为托管磁盘。 托管磁盘管理基础的存储帐户，这样用户就不需要这样做。 有关详细信息，请参阅[托管磁盘概述](storage-managed-disks-overview.md)。
+> This article discusses how to migrate a VM that uses unmanaged standard disks to a VM that uses unmanaged premium disks. We recommend that you use Azure Managed Disks for new VMs, and that you convert your previous unmanaged disks to managed disks. Managed Disks handle the underlying storage accounts so you don't have to. For more information, please see our [Managed Disks Overview](storage-managed-disks-overview.md).
 >
-
+-->
 Azure 高级存储为运行 I/O 密集型工作负荷的虚拟机提供高性能、低延迟的磁盘支持。 可以将应用程序的 VM 磁盘迁移到 Azure 高级存储，以充分利用这些磁盘的速度和性能。
 
 本指南旨在帮助 Azure 高级存储的新用户更好地准备从当前系统到高级存储的平稳转换。 本指南涉及此过程中的 3 个关键部分：

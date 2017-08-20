@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 03/17/2017
-ms.date: 04/27/2017
+origin.date: 06/26/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49ae045abf3f0f234b25f176d32042d0585f4a87
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 45baaf0230148e9c8aca50008bf970355a34a0bd
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-infrastructure-naming-guidelines-for-windows-vms"></a>适用于 Windows VM 的 Azure 基础结构命名准则
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 06/23/2017
 ## <a name="implementation-guidelines-for-naming-conventions"></a>命名约定的实施准则
 决策：
 
-* 你的 Azure 资源的命名约定是什么？
+* Azure 资源的命名约定是什么？
 
 任务：
 
@@ -41,9 +41,9 @@ ms.lasthandoff: 06/23/2017
 * 将要使用的命名约定记录到文件中并将其分发给所有相关方，确保各部署间一致。
 
 ## <a name="naming-conventions"></a>命名约定
-在 Azure 中创建任何项目之前，你应该已确定合适的命名约定。 命名约定可确保所有资源都具有可预测的名称，这有助于减轻与这些资源的管理相关联的管理负担。
+在 Azure 中创建任何项目之前，应该已确定合适的命名约定。 命名约定可确保所有资源都具有可预测的名称，这有助于减轻与这些资源的管理相关联的管理负担。
 
-你可以选择遵循一组为你的整个组织或特定 Azure 订阅或帐户定义的特定命名约定。 虽然组织内的个人在使用 Azure 资源时，在团队需要在 Azure 上处理项目时很容易建立隐式规则，但该模型可伸缩性差。
+可以选择遵循一组为整个组织或特定 Azure 订阅或帐户定义的特定命名约定。 虽然组织内的个人在使用 Azure 资源时，在团队需要在 Azure 上处理项目时很容易建立隐式规则，但该模型可伸缩性差。
 
 应事先就命名约定集达成一致意见。 关于超越这组规则的命名约定，有一些注意事项。
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 06/23/2017
 * 网络安全组
 * 角色
 
-为了确保名称可以提供足够的信息来确定它所引用的资源，你应该使用描述性名称。
+为了确保名称可以提供足够的信息来确定它所引用的资源，应该使用描述性名称。
 
 ## <a name="computer-names"></a>计算机名称
 创建虚拟机 (VM) 时，Azure 要求 VM 名称最多由 15 个字符组成，该名称将在资源名称中使用。 Azure 将对该 VM 中安装的操作系统使用同一名称。 但是，这些名称可能并非始终相同。
@@ -98,7 +98,7 @@ ms.lasthandoff: 06/23/2017
 建议 Azure VM 名称应该与基础操作系统计算机名称相同。
 
 ## <a name="storage-account-names"></a>存储帐户名称
-本节不适用于 [Azure 托管磁盘](../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，因为无需创建单独的存储帐户。 对于非托管磁盘，存储帐户具有适用于其名称的特殊规则。 你只能使用小写字母和数字。 有关详细信息，请参阅[创建存储帐户](../../storage/storage-create-storage-account.md#create-a-storage-account)。 此外，存储帐户名称与 core.chinacloudapi.cn 组合在一起应该是一个全局有效的唯一 DNS 名称。 例如，如果存储帐户名为 mystorageaccount，则下面生成的 DNS 名称应该是唯一的：
+本节不适用于 [Azure 托管磁盘](../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，因为无需创建单独的存储帐户。 对于非托管磁盘，存储帐户具有适用于其名称的特殊规则。 只能使用小写字母和数字。 有关详细信息，请参阅[创建存储帐户](../../storage/storage-create-storage-account.md#create-a-storage-account)。 此外，存储帐户名称与 core.chinacloudapi.cn 组合在一起应该是一个全局有效的唯一 DNS 名称。 例如，如果存储帐户名为 mystorageaccount，则下面生成的 DNS 名称应该是唯一的：
 
 * mystorageaccount.blob.core.chinacloudapi.cn
 * mystorageaccount.table.core.chinacloudapi.cn
@@ -106,3 +106,5 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="next-steps"></a>后续步骤
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+
+<!--Update_Description: update meta data-->

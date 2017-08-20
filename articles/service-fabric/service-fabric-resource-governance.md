@@ -3,8 +3,8 @@ title: "Azure Service Fabric 容器和服务的资源调控 | Azure"
 description: "Azure Service Fabric 允许指定在容器内部或外部运行的服务的资源限制。"
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
@@ -12,21 +12,20 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/02/2017
-ms.author: v-johch
-ms.openlocfilehash: 398618f177be86b4d0b6dac115adac0440a4269a
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 6/28/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
+ms.openlocfilehash: 8073bbcef2059b72cbaf959750743783ec3bc502
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/17/2017
 ---
-# 资源调控
-<a id="resource-governance" class="xliff"></a> 
+# <a name="resource-governance"></a>资源调控 
 
 在同一节点或群集上运行多项服务时，其中一项服务可能会消耗更多的资源，从而使其他服务得不到足够的资源。 此问题被称为邻近干扰问题。 Service Fabric 允许开发人员指定每个服务的保留和限制，在保证资源的同时限制其资源使用情况。 
 
-## 资源调控指标
-<a id="resource-governance-metrics" class="xliff"></a> 
+## <a name="resource-governance-metrics"></a>资源调控指标 
 
 每个[服务包](service-fabric-application-model.md)的 Service Fabric 中支持资源调控。 可在代码包之间进一步划分分配到服务包的资源。 指定的资源限制也意味着资源的保留。 Service Fabric 支持使用两个内置[指标](service-fabric-cluster-resource-manager-metrics.md)指定每个服务包的 CPU 和内存：
 
@@ -42,8 +41,7 @@ ms.lasthandoff: 06/21/2017
 
 这些指标不支持[动态负载报告](service-fabric-cluster-resource-manager-metrics.md)，在创建时即定义了这些指标的负载。
 
-## 设置群集以启用资源调控
-<a id="cluster-set-up-for-enabling-resource-governance" class="xliff"></a>
+## <a name="cluster-set-up-for-enabling-resource-governance"></a>设置群集以启用资源调控
 
 应在群集的每个节点类型中手动定义容量，如下所示：
 
@@ -55,7 +53,7 @@ ms.lasthandoff: 06/21/2017
       </Capacities>
     </NodeType>
 ```
- 
+
 仅在用户服务上允许资源调控，而非任何系统服务上。 指定容量时，必须为系统服务留出未分配的内核和内存。 为了获得最佳性能，还应在群集清单中打开以下设置： 
 
 ```xml
@@ -65,9 +63,7 @@ ms.lasthandoff: 06/21/2017
 </Section>
 ```
 
-
-## 指定资源调控
-<a id="specifying-resource-governance" class="xliff"></a> 
+## <a name="specifying-resource-governance"></a>指定资源调控 
 
 应用程序清单（ServiceManifestImport 部分）中指定了资源调控限制，如以下示例所示：
 
@@ -90,13 +86,14 @@ ms.lasthandoff: 06/21/2017
     </Policies>
   </ServiceManifestImport>
 ```
-  
+
 在此示例中，服务包 ServicePackageA 在放置它的节点上获得一个核心。 此服务包包含两个代码包（CodeA1 和 CodeA2），并且都指定 `CpuShares` 参数。 CpuShares 512:256 的比例将核心划分到两个代码包中。 因此，在此示例中，CodeA1 获得核心的三分之二，CodeA2 获得核心的三分之一（和相同的软保证保留）。 没有为代码包指定 CpuShares 的情况下，Service Fabric 会在其中平均分配内核。
 
 内存限制是绝对的，所以这两个代码包都限制为 1024 MB 内存（和相同的软保证保留）。 代码包（容器或进程）无法分配超出此限制的内存，尝试执行此操作会引发内存不足异常。 若要强制执行资源限制，服务包中的所有代码包均应指定内存限制。
 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 若要了解有关群集 Resource Manager 的详细信息，请参阅[此文](service-fabric-cluster-resource-manager-introduction.md)。
 * 若要了解有关应用程序模型、服务包、代码包以及如何将副本映射到它们的详细信息，请阅读[此文](service-fabric-application-model.md)。
+
+<!--Update_Description: update meta properties-->

@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/23/2017
-ms.date: 07/17/2017
+origin.date: 06/28/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8a56c1895080a67e71f0e1207be2643eef3b5674
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: bff07b7a02706b679dd7ae6221fc46ac09775fb4
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Linux 上的 Service Fabric（预览版）与 Windows 上的 Service Fabric（正式版）之间的差异
 
@@ -106,3 +106,5 @@ Windows 和 Linux 的开发工具也不相同。 VisualStudio、Powershell、VST
 * [使用适用于 Eclipse 的 Service Fabric 插件在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-get-started-eclipse.md)
 * [在 Linux 上创建第一个 CSharp 应用程序](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [使用 Azure CLI 管理 Service Fabric 应用程序](service-fabric-azure-cli.md)
+
+<!--Update_Description: update meta properties-->

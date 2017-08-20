@@ -13,24 +13,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 03/17/2017
-ms.date: 04/24/2017
+origin.date: 06/26/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 460415e4a43b607c03747acf5511be658a0b02fe
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 4e014829f05ecbe6d3d0f9c8e27fbfa28cef42b7
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>适用于 Linux VM 的 Azure 示例基础结构演练
 
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
-本文将逐步讲述如何构建示例应用程序基础结构。 我们将详细介绍如何设计简单在线商店的基础结构，此在线商店可将关于命名约定、可用性集、虚拟网络及负载均衡器的所有准则和决策聚集在一起；以及如何实际部署你的虚拟机 (VM)。
+本文逐步讲述如何构建示例应用程序基础结构。 我们详细介绍如何设计简单在线商店的基础结构，此在线商店可将关于命名约定、可用性集、虚拟网络及负载均衡器的所有准则和决策聚集在一起；以及如何实际部署你的虚拟机 (VM)。
 
 ## <a name="example-workload"></a>示例工作负荷
-Adventure Works Cycles 想要在 Azure 中生成一个在线商店应用程序，该应用程序将包含：
+Adventure Works Cycles 想要在 Azure 中生成一个在线商店应用程序，该应用程序包含：
 
 * 两个在 Web 层中运行客户端前端的 nginx 服务器
 * 两个在应用程序层中处理数据和订单的 nginx 服务器
@@ -53,7 +53,7 @@ Adventure Works Cycles 想要在 Azure 中生成一个在线商店应用程序�
 * 具有类似角色的 VM 的可用性集
 * 虚拟机
 
-以上各项都将遵循以下命名约定：
+以上各项都会遵循以下命名约定：
 
 * Adventure Works Cycles 使用 **[IT 工作负荷]-[位置]-[Azure 资源]** 作为前缀
     * 在本示例中，IT 工作负荷名为 **azos**（Azure On-line Store，Azure 在线商店），位置为 **che**（China East，中国东部）
@@ -121,3 +121,5 @@ Adventure Works Cycles 决定为其 Azure VM 使用以下名称：
 
 ## <a name="next-steps"></a>后续步骤
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
+
+<!--Update_Description: update meta data-->

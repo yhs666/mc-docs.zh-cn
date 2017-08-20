@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 06/29/2016
 ms.date: 12/26/2016
 ms.author: v-dazen
-ms.openlocfilehash: e20f0538dd8e5778424943abd2460506a07b300f
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 181e4b16a134ca906277c183285b7c53824ecff8
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="best-practices-for-running-a-windows-vm-on-azure"></a>在 Azure 上运行 Windows VM 的最佳实践
+
 [!INCLUDE [gudiance-comput-single-vm-windows](../../../includes/guidance-compute-single-vm-windows.md)]

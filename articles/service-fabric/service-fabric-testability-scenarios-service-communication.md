@@ -3,8 +3,8 @@ title: "可测试性：服务通信 | Azure"
 description: "服务到服务通信是 Service Fabric 应用程序的关键集成点。 本文讨论设计注意事项和测试技术。"
 services: service-fabric
 documentationcenter: .net
-author: vturecek
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
 ms.service: service-fabric
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/04/2017
-ms.date: 02/20/2017
-ms.author: v-johch
-ms.openlocfilehash: ae6c37fd5937942b4d70cda1614acdb9edaee278
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 06/29/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
+ms.openlocfilehash: 8a0f4c86534b7e1faa81a82410b988ff4fbdc9e2
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric 可测试性方案：服务通信
 Azure Service Fabric 中自然显露了微服务和面向服务的体系结构风格。 在这些类型的分布式体系结构中，组件化微服务应用程序通常由需要相互通信的多个服务组成。 即使在最简单的情况下，一般至少有一个无状态 Web 服务和一个有状态数据存储服务需要进行通信。
@@ -28,9 +28,9 @@ Azure Service Fabric 中自然显露了微服务和面向服务的体系结构�
 
 这些服务边界在一个分布式系统中连接在一起时，需要考虑几个注意事项：
 
- - *传输协议*。 使用 HTTP 协议以提高互操作性，还是使用一个自定义二进制协议以获得最大吞吐量？
- - *错误处理*。 如何处理永久性错误和暂时性错误？ 服务转移到另一个节点时会发生什么情况？
- - *超时和延迟*。 在多层应用程序中，每个服务层如何处理从堆栈到用户的延迟？
+* *传输协议*。 使用 HTTP 协议以提高互操作性，还是使用一个自定义二进制协议以获得最大吞吐量？
+* *错误处理*。 如何处理永久性错误和暂时性错误？ 服务转移到另一个节点时会发生什么情况？
+* *超时和延迟*。 在多层应用程序中，每个服务层如何处理从堆栈到用户的延迟？
 
 无论使用 Service Fabric 提供的内置服务通信组件还是构建自己的通信组件，测试服务之间的交互都是确保应用程序恢复能力的关键部分。
 
@@ -40,14 +40,14 @@ Azure Service Fabric 中自然显露了微服务和面向服务的体系结构�
 
 因为服务在群集内四处移动，与服务通信时，客户端和其他服务应准备好处理两种方案：
 
-- 从上次与之通信起，服务实例或分区副本已经移动。 这是服务生命周期的正常部分，并且在应用程序的生命周期内应是预计会发生的。
-- 服务实例或分区副本正在移动。 尽管在 Service Fabric 中一个服务从一个节点移到另一个节点时发生故障转移的速度非常快，但如果服务的通信组件启动较慢，可用性仍然有可能出现延迟。
+* 从上次与之通信起，服务实例或分区副本已经移动。 这是服务生命周期的正常部分，并且在应用程序的生命周期内应是预计会发生的。
+* 服务实例或分区副本正在移动。 尽管在 Service Fabric 中一个服务从一个节点移到另一个节点时发生故障转移的速度非常快，但如果服务的通信组件启动较慢，可用性仍然有可能出现延迟。
 
 适当地处理这些方案对于系统的顺畅运行非常重要。 若要实现此目的，请记住：
 
-- 可以连接的每个服务都有一个它要侦听的地址（例如 HTTP 或 WebSockets）。 当服务实例或分区已经移动时，其地址终结点将改变。 （它已移到另一个节点，该节点具有不同的 IP 地址。）） 如果使用内置通信组件，它们会处理服务地址的重新解析。
-- 服务实例再次启动其侦听程序时，服务延迟有可能暂时性增大。 这取决于服务实例移动后，服务打开侦听程序的速度。
-- 服务打开新的节点后，任何现有连接都需要关闭并重新打开。 正常的节点关闭或重新启动会等待现有连接正常关闭。
+* 可以连接的每个服务都有一个它要侦听的地址（例如 HTTP 或 WebSockets）。 当服务实例或分区已经移动时，其地址终结点将改变。 （它已移到另一个节点，该节点具有不同的 IP 地址。）） 如果使用内置通信组件，它们会处理服务地址的重新解析。
+* 服务实例再次启动其侦听程序时，服务延迟有可能暂时性增大。 这取决于服务实例移动后，服务打开侦听程序的速度。
+* 服务打开新的节点后，任何现有连接都需要关闭并重新打开。 正常的节点关闭或重新启动会等待现有连接正常关闭。
 
 ### <a name="test-it-move-service-instances"></a>测试：移动服务实例
 
@@ -58,7 +58,9 @@ Azure Service Fabric 中自然显露了微服务和面向服务的体系结构�
     移动有状态服务分区的主副本有无数原因。 用此来指定某个特定分区的主副本，以查看服务如何以一种非常有控制力的方式对移动做出反应。
 
     ```powershell
+
     PS > Move-ServiceFabricPrimaryReplica -PartitionId 6faa4ffa-521a-44e9-8351-dfca0f7e0466 -ServiceName fabric:/MyApplication/MyService
+
     ```
 
 2. 停止某个节点。
@@ -68,7 +70,9 @@ Azure Service Fabric 中自然显露了微服务和面向服务的体系结构�
     可以使用 PowerShell **Stop-ServiceFabricNode** cmdlet 来停止节点：
 
     ```powershell
+
     PS > Restart-ServiceFabricNode -NodeName Node_1
+
     ```
 
 ## <a name="maintain-service-availability"></a>维持服务可用性
@@ -84,13 +88,16 @@ Azure Service Fabric 中自然显露了微服务和面向服务的体系结构�
 可以使用 Invoke-ServiceFabricPartitionQuorumLoss PowerShell cmdlet 引入仲裁丢失： 
 
 ```powershell
+
 PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode QuorumReplicas -QuorumLossDurationInSeconds 20
+
 ```
 
-在本示例中，我们将 `QuorumLossMode` 设置为 `QuorumReplicas`，指出我们希望引入仲裁丢失而不关闭所有副本。 这样仍然能够进行读取操作。 若要测试整个分区不可用的情形，可将此开关设置为 `AllReplicas`。
+在本示例中，我们将 `QuorumLossMode` 设置为 `QuorumReplicas`，指出我们希望引入仲裁丢失而不关闭所有副本。 这样仍然能够进行读取操作。 要测试整个分区不可用的情形，可将此开关设置为 `AllReplicas`。
 
 ## <a name="next-steps"></a>后续步骤
+[了解有关可测试性操作的详细信息](service-fabric-testability-actions.md)
 
-[了解有关可测试性操作的详细信息](./service-fabric-testability-actions.md)
+[了解有关可测试性方案的详细信息](service-fabric-testability-scenarios.md)
 
-[了解有关可测试性方案的详细信息](./service-fabric-testability-scenarios.md)
+<!--Update_Description: update meta properties-->

@@ -12,15 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 origin.date: 01/23/2017
 ms.date: 08/14/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 8cba1fdcb63a9737a7e0c2002669d249cad0603b
-ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
+ms.openlocfilehash: 8c36f9eb0aa15a5057276197bd63313ccba68020
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="about-azure-storage-accounts"></a>关于 Azure 存储帐户
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]

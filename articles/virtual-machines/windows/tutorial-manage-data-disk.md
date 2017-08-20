@@ -17,14 +17,12 @@ origin.date: 05/02/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 80c52b1d56d5da895403ab05a91e9d5b02d07557
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: d0ec56467c5fa6c8c72a094bfa66e8b770765092
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="manage-azure-disks-with-powershell"></a>使用 PowerShell 管理 Azure 磁盘
 
 Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 创建 VM 时，请务必选择适用于所需工作负荷的磁盘大小和配置。 本教程介绍如何部署和管理 VM 磁盘。 学习内容：
@@ -52,7 +50,7 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 |----|----|----|
 | [常规用途](sizes-general.md) | A 和 D 系列 | 800 |
 | [计算优化](sizes-compute.md) | F 系列 | 800 |
-| [内存优化](../virtual-machines-windows-sizes-memory.md) | D 和 G 系列 | 6144 |
+| [内存优化](../virtual-machines-windows-sizes-memory.md) | D 系列 | 6144 |
 
 ## <a name="azure-data-disks"></a>Azure 数据磁盘
 
@@ -64,7 +62,7 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 |----|----|----|
 | [常规用途](sizes-general.md) | A 和 D 系列 | 32 |
 | [计算优化](sizes-compute.md) | F 系列 | 32 |
-| [内存优化](../virtual-machines-windows-sizes-memory.md) | D 和 G 系列 | 64 |
+| [内存优化](../virtual-machines-windows-sizes-memory.md) | D 系列 | 64 |
 
 ## <a name="vm-disk-types"></a>VM 磁盘类型
 
@@ -76,7 +74,7 @@ Azure 提供两种类型的磁盘。
 
 ### <a name="premium-disk"></a>高级磁盘
 
-高级磁盘由基于 SSD 的高性能、低延迟磁盘提供支持。 完美适用于运行生产工作负荷的 VM。 高级存储支持 DS 系列、DSv2 系列、GS 系列和 FS 系列 VM。 高级磁盘分为 3 种类型（P10、P20 和 P30），磁盘大小决定磁盘类型。 选择时，磁盘大小值舍入为下一类型。 例如，大小在 128 GB 以下的磁盘类型为 P10，大小在 129 和 512 之间的磁盘类型为 P20，大小在 512 以上的磁盘类型为 P30。 
+高级磁盘由基于 SSD 的高性能、低延迟磁盘提供支持。 完美适用于运行生产工作负荷的 VM。 高级存储支持 DS 系列、DSv2 系列和 FS 系列 VM。 高级磁盘分为 3 种类型（P10、P20 和 P30），磁盘大小决定磁盘类型。 选择时，磁盘大小值舍入为下一类型。 例如，大小在 128 GB 以下的磁盘类型为 P10，大小在 129 和 512 之间的磁盘类型为 P20，大小在 512 以上的磁盘类型为 P30。 
 
 ### <a name="premium-disk-performance"></a>高级磁盘性能
 
@@ -152,4 +150,3 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 > [!div class="nextstepaction"]
 > [自动执行 VM 配置](./tutorial-automate-vm-deployment.md)
-

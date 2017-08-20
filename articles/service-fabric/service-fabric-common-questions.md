@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 06/20/2017
 ms.date: 08/14/2017
 ms.author: v-yeche
-ms.openlocfilehash: d50bcc4b5f03f8c753867a428c8c48f743a369de
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: ab4690f70b1cd73c17dc6f4bd446b1a71c4d003c
+ms.sourcegitcommit: a813e6e98367a9ef389a05c8e050fc38812a13b1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/15/2017
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 常见问题
 
@@ -49,7 +49,8 @@ ms.lasthandoff: 08/11/2017
 
 详细解答 - 尽管通过大型虚拟机规模集可将虚拟机规模集扩展至多达 1000 个 VM 实例，但这是通过使用放置组 (PG) 实现的。 容错域 (FD) 和升级域 (UD) 仅在使用 FD 和 UD 来为服务副本/服务实例做出放置决策的放置组 Service Fabric 中保持一致。 因为 FD 和 UD 仅在放置组中可比较，因此 SF 无法使用它。 例如，如果 PG1 中的 VM1 具有一个 FD=0 的拓扑，并且 PG2 中的 VM9 具有一个 FD=4 的拓扑，这并不意味着 VM1 和 VM2 在两个不同的硬件机架上，因此在这种情况下 SF 无法使用 FD 值做出放置决策。
 
-当前，大型虚拟机规模集还存在其他问题，例如缺少 level-4 负载均衡支持。 请参考[有关大型规模集的详细信息](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
+当前，大型虚拟机规模集还存在其他问题，例如缺少 level-4 负载均衡支持。 
+<!-- Release later Refer to for [details on Large scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) -->
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Service Fabric 群集的最小大小如何？ 为什么不能更小？
 

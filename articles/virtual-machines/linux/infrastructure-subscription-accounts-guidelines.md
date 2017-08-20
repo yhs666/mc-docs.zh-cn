@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 03/17/2017
-ms.date: 04/27/2017
+origin.date: 06/26/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9ca3a3790fe4cf7e5c0e6f7ccc5f0dd2d013ec8
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 23683304938ce5453e9455184b94baa9d41a916a
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-subscription-and-accounts-guidelines-for-linux-vms"></a>适用于 Linux VM 的 Azure 订阅和帐户准则
 
@@ -68,3 +68,5 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="next-steps"></a>后续步骤
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
+
+<!--Update_Description: update meta data-->

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/13/2017
+origin.date: 07/03/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 3ebd17930d046f981a7f1405cb8a369131a0e7d8
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 08/21/2017
+ms.openlocfilehash: 9d8d56d1258a83879074bfd821e123ad3e447023
+ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/14/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作伙伴和对等位置
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 07/14/2017
 
 ![位置地图][0]
 
-如果你至少与地缘政治区域内的一个 ExpressRoute 位置连接，你将有权访问地缘政治区域内所有区域中的 Azure 服务。
+如果至少与地缘政治区域内的一个 ExpressRoute 位置连接，将有权访问地缘政治区域内所有区域中的 Azure 服务。
 
 ### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>地缘政治区域内 ExpressRoute 位置与 Azure 区域的映射。
 下表提供了地缘政治区域内 ExpressRoute 位置与 Azure 区域的映射。
@@ -146,7 +146,7 @@ ms.lasthandoff: 07/14/2017
     - [NextDC](http://www.nextdc.com/)
     - [CoreSite](http://www.coresite.com/)
     - [Cologix](http://www.cologix.com/)
-- 让你的连接提供商将你的网络扩展到选择的对等互连位置。
+- 让连接提供商将网络扩展到选择的对等互连位置。
     - 确保连接服务提供商以高可用性方式扩展连接，以防出现单点故障。
 - 从 Exchange 连接服务提供商处订购 ExpressRoute 线路以连接到 Microsoft。
     - 根据 [创建 ExpressRoute 线路](expressroute-howto-circuit-classic.md) 中的步骤来设置连接。
@@ -160,7 +160,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute 系统集成商
 
-根据网络规模，有时很难启用专用连接来满足需求。 你可以与下表中列出的任一系统集成商合作，以帮助将你加入 ExpressRoute。
+根据网络规模，有时很难启用专用连接来满足需求。 可以与下表中列出的任一系统集成商合作，以帮助将你加入 ExpressRoute。
 
 |**系统集成商**|**所在洲**|
 |---|---|
@@ -178,3 +178,6 @@ ms.lasthandoff: 07/14/2017
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "位置地图"
+
+
+<!--Update_Description:update meta properties only-->

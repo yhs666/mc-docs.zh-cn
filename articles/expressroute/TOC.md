@@ -57,16 +57,8 @@
 # 资源
 ## [价格](https://www.azure.cn/pricing/details/expressroute/)
 ## [网络博客](https://azure.microsoft.com/blog/topics/networking/)
+## [价格](https://www.azure.cn/pricing/details/expressroute/)
 ## [案例研究](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [SLA](https://www.azure.cn/support/legal/sla/)
 ## [订阅和服务限制](../azure-subscription-service-limits.md)
-## [视频](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
-### [创建 ExpressRoute 线路](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
-### [如何为线路设置专用对等互连](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
-### [为线路设置公共对等互连](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)
-### [为 ExpressRoute 创建虚拟网络](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/)
-### [创建 ExpressRoute 的虚拟网络网关](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/)
-### [将虚拟网关连接到线路](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
-### [提升网络基础结构的连接能力](https://go.microsoft.com/fwlink/p/?LinkId=615124)
-### [混合合作关系：启用本地方案](https://go.microsoft.com/fwlink/p/?LinkId=615125)
-## [服务更新](https://azure.microsoft.com/updates/?product=expressroute)
+<!--Update_Description: remove the video related references-->

@@ -12,13 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 04/10/2017
-ms.date: 05/31/2017
+origin.date: 07/10/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: b67f163a04e9340d3bba9c6f1234b359e1211033
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 4f8c1a0f06d681ff3f48ad00dd58e251a07f30b5
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/18/2017
 ---
 [!INCLUDE [virtual-machines-common-regions-and-availability](../../../includes/virtual-machines-common-regions-and-availability.md)]
+
+<!--Update_Description: update meta data-->

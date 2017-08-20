@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 02/27/2016
 ms.date: 03/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: de21e3bcc8fae2dada4b4af29c3791ef8bfbfd5f
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: d5bc517ce9cf7e730f20d55d0460033c9217d0f3
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-your-first-virtual-network"></a>创建首个虚拟网络
 
@@ -28,14 +28,14 @@ ms.lasthandoff: 06/23/2017
 
 ![虚拟网络关系图](./media/virtual-network-get-started-vnet-subnet/vnet-diagram.png)
 
-Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 你可以控制 Azure 网络设置并定义 DHCP 地址块、DNS 设置、安全策略和路由。 若要详细了解 VNet 概念，请阅读[虚拟网络概述](virtual-networks-overview.md)一文。 完成以下步骤创建图中所示的资源：
+Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 可以控制 Azure 网络设置并定义 DHCP 地址块、DNS 设置、安全策略和路由。 若要详细了解 VNet 概念，请阅读[虚拟网络概述](virtual-networks-overview.md)一文。 完成以下步骤创建图中所示的资源：
 
 1. [创建包含两个子网的 VNet](#create-vnet)
 2. [创建两个 VM，每个都有一个网络接口 (NIC)](#create-vms)，并将一个网络安全组 (NSG) 关联到每个 NIC
 3. [连接到 VM 和从 VM 连接](#connect-to-from-vms)
 4. [删除所有资源](#delete-resources)。 对于该练习中创建的某些资源，其预配时会产生费用。 为尽量削减费用，完成练习后，请务必完成本节中的步骤以删除创建的资源。
 
-你将基本了解在完成本节中的步骤后可如何使用 VNet。 提供后续步骤，便于你详细了解如何更深层次地使用 VNet。
+在完成本节中的步骤后，可以基本了解如何使用 VNet。 提供后续步骤，便于详细了解如何更深层次地使用 VNet。
 
 ## <a name="create-vnet"></a>创建包含两个子网的虚拟网络
 
@@ -58,12 +58,12 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 你�
     |**子网地址范围**|*10.0.0.0/24*| 指定的范围必须位于为该虚拟网络定义的地址空间内。|
     |**订阅**|*[你的订阅]*|选择要在其中创建 VNet 的订阅。 VNet 位于单个订阅内。|
     |**资源组**|**新建：** *MyRG*|创建资源组。 资源组名称在所选订阅中必须唯一。 若要详细了解资源组，请阅读 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#resource-groups) 概述文章。|
-    |**位置**|*华北*| 通常选择在物理位置上最接近你的位置。|
+    |**位置**|*华北*| 通常选择在物理位置上最接近位置。|
 
     VNet 创建需耗时几秒。 创建后，即可看到 Azure 门户仪表板。
 
 6. 创建虚拟网络以后，在 Azure 门户的“收藏夹”窗格中单击“所有资源”。 单击“所有资源”边栏选项卡中的“MyVNet”虚拟网络。 如果所选订阅中已包含多个资源，则可在“按名称筛选…”框中输入“MyVNet”， 轻松访问 VNet。
-7. “MyVNet”  边栏选项卡将打开并显示 VNet 相关信息，如下图所示：
+7. “MyVNet” 边栏选项卡会打开并显示 VNet 相关信息，如下图所示：
 
     ![虚拟网络关系图](./media/virtual-network-get-started-vnet-subnet/myvnet.png)
 
@@ -105,6 +105,7 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 
     |**设置**|**值**|**详细信息**|
     |---|---|---|
+    |**存储：使用托管磁盘**|*是*||
     |**虚拟网络**| 选择“MyVNet” |可选择要创建的 VM 所在的同一位置下的任意 VNet。 若要详细了解 VNet 和子网，请参阅[虚拟网络](virtual-networks-overview.md)一文。|
     |**子网**|选择“前端” |可选择 VNet 中的任意子网。|
     |**公共 IP 地址**|接受默认值|公共 IP 地址允许通过 Internet 连接到 VM。 若要详细了解公共 IP 地址，请阅读 [IP 地址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)一文。|
@@ -113,7 +114,7 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 
     可以使用网络安全组 (NSG)，针对流入和流出 VM 的网络流量的类型创建入站/出站规则。 默认拒绝所有到 VM 的入站流量。 可以为生产型 Web 服务器添加更多针对 TCP/80 (HTTP) 和 TCP/443 (HTTPS) 的入站规则。 没有出站流量规则，因为默认允许所有出站流量。 可添加/删除规则，根据策略控制流量。 阅读[网络安全组](virtual-networks-nsg.md)一文，了解有关 NSG 的详细信息。
 
-6.  在“摘要”边栏选项卡中查看设置，然后单击“确定”创建 VM。 VM 创建后，门户仪表板上将显示“状态”磁贴。 创建操作可能耗时几分钟。 无需等待创建完成。 在 VM 创建期间，可继续执行下一步。
+6.  在“摘要”边栏选项卡中查看设置，然后单击“确定”创建 VM。 VM 创建后，门户仪表板上显示“状态”磁贴。 创建操作可能耗时几分钟。 无需等待创建完成。 在 VM 创建期间，可继续执行下一步。
 
 ### <a name="create-database-server-vm"></a>创建数据库服务器 VM
 
@@ -138,13 +139,14 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 
     |**设置**|**值**|**详细信息**|
     |----|----|---|
+    |**存储：使用托管磁盘**|*是*||
     |**虚拟网络**|选择“MyVNet” |可选择要创建的 VM 所在的同一位置下的任意 VNet。|
     |**子网**|选择“后端”，方法是：单击“子网”框，然后从“选择子网”边栏选项卡选择“后端”|可选择 VNet 中的任意子网。|
     |**公共 IP 地址**|无 - 单击默认地址，然后从“选择公共 IP 地址”边栏选项卡单击“无”|若没有公共 IP 地址，就只能通过连接到同一 VNet 的其他 VM 连接到此 VM。 不能直接从 Internet 连接到该 VM。|
     |**网络安全组(防火墙)**|接受默认值| 与为 MyWebServer VM 创建的默认 NSG 一样，此 NSG 也具有相同的默认入站规则。 可以为数据库服务器添加其他针对 TCP/1433 (MS SQL) 的入站规则。 没有出站流量规则，因为默认允许所有出站流量。 可添加/删除规则，根据策略控制流量。|
     |**其他所有值**|接受默认值||
 
-6.  在“摘要”边栏选项卡中查看设置，然后单击“确定”创建 VM。 VM 创建后，门户仪表板上将显示“状态”磁贴。 创建操作可能耗时几分钟。 无需等待创建完成。 在 VM 创建期间，可继续执行下一步。
+6.  在“摘要”边栏选项卡中查看设置，然后单击“确定”创建 VM。 VM 创建后，门户仪表板上显示“状态”磁贴。 创建操作可能耗时几分钟。 无需等待创建完成。 在 VM 创建期间，可继续执行下一步。
 
 ## <a name="review"></a>查看资源
 
@@ -153,7 +155,7 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 1. 在“收藏夹”窗格中，单击“更多服务”。
 2. 在“更多服务”窗格中，在包含单词“筛选”的框中键入“资源组”。 若在筛选后的列表中显示，则单击“资源组”  。
 3. 在“资源组”窗格中，单击“MyRG”资源组。 如果订阅中有很多现有的资源组，则可在包含文本“按名称筛选…”的框中键入“MyRG”， 以快速访问 MyRG 资源组。
-4.  在“MyRG”  边栏选项卡中，将看到资源组包含 12 个资源，如下图所示：
+4.  在“MyRG”  边栏选项卡中，会看到资源组包含 12 个资源，如下图所示：
 
     ![资源组内容](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
@@ -173,7 +175,7 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 
     ![连接到 Web 服务器 VM](./media/virtual-network-get-started-vnet-subnet/webserver.png)
 
-4. 允许浏览器下载“MyWebServer.rdp”  文件，然后将其打开。
+4. 允许浏览器下载“MyWebServer.rdp”  文件，并将其打开。
 5. 如果收到一个对话框，显示无法验证远程连接的发布者，请单击“连接” 。
 6. 输入凭据时，请确保登录时所用的用户名和密码与本文 [创建 Web 服务器 VM](#create-web-server-vm) 部分的步骤 3 中所指定的相同。 如果显示的“Windows 安全”框没有列出正确的凭据，则可能需要单击“更多选项”，然后单击“使用其他帐户”，以便指定正确的用户名和密码。 单击“确定”  以连接到 VM。
 7. 如果出现一个“远程桌面连接”框，提示无法验证远程计算机的身份，则请单击“是”。
@@ -191,8 +193,8 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 
 1. 如果尚未打开指向 MyWebServerVM 的远程连接，请完成本文 [从 Internet 连接到 Web 服务器 VM](#connect-from-internet) 部分中的步骤，建立到 VM 的远程连接。
 2. 在 Windows 桌面上，打开“Internet Explorer”。 在“设置 Internet Explorer 11”对话框中，单击“不使用推荐设置”，然后单击“确定”。 建议接受生产服务器的推荐设置。
-3. 在 Internet Explorer 地址栏中，输入“bing.com” [](http:www.bing.com)。 如果出现一个 Internet Explorer 对话框，则请单击“添加”，然后单击“受信任的站点”对话框中的“添加”，再单击“关闭”。 任何其他 Internet Explorer 对话框均重复此过程。
-4. 在必应搜索页面中，输入“whatsmyipaddress” ，然后单击“放大镜”按钮。 在你创建 VM 时，必应会返回分配到门户创建的公共 IP 地址资源的公共 IP 地址。 如果检查“MyWebServer-ip”  资源的设置，可看到分配给公共 IP 地址资源的 IP 地址，如下图所示。 但分配到 VM 的 IP 地址不同。
+3. 在 Internet Explorer 地址栏中，输入“bing.com” [](http:www.bing.com)。如果出现一个 Internet Explorer 对话框，则请单击“添加”，然后单击“受信任的站点”对话框中的“添加”，再单击“关闭”。 任何其他 Internet Explorer 对话框均重复此过程。
+4. 在必应搜索页面中，输入“whatsmyipaddress” ，并单击“放大镜”按钮。 在创建 VM 时，必应会返回分配到门户创建的公共 IP 地址资源的公共 IP 地址。 如果检查“MyWebServer-ip”  资源的设置，可看到分配给公共 IP 地址资源的 IP 地址，如下图所示。 但分配到 VM 的 IP 地址不同。
 
     ![连接到 Web 服务器 VM](./media/virtual-network-get-started-vnet-subnet/webserver-pip.png)
 
@@ -207,7 +209,7 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 若要从 Web 服务器 VM 连接到数据库服务器 VM，请完成以下步骤：
 
 1. 如果尚未打开指向 MyWebServer VM 的远程连接，请完成本文 [从 Internet 连接到 Web 服务器 VM](#connect-from-internet) 部分中的步骤，建立连接到 VM 的远程连接。
-2. 单击 Windows 桌面左下角的“开始”按钮，然后开始键入“远程桌面” 。 “开始”菜单列表显示“远程桌面连接” 时单击它。
+2. 单击 Windows 桌面左下角的“开始”按钮，并开始键入“远程桌面” 。 “开始”菜单列表显示“远程桌面连接” 时单击它。
 3. 在“远程桌面连接”对话框中，输入“MyDBServer”作为计算机名称，然后单击“连接”。
 4. 输入在本文[创建数据库服务器 VM](#create-database-server-vm) 部分的步骤 3 中输入的用户名和密码，然后单击“确定”。
 5. 如果收到一个对话框，显示无法验证远程计算机的标识，请单击“是” 。
@@ -219,7 +221,7 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 - 启用了来自 Web 服务器 VM 的连接，其与数据库服务器 VM 连接到同一个 VNet。 若要连接到未分配有公共 IP 地址的 VM，必须从连接到同一 VNet 的其他 VM 进行连接，即使该 VM 连接到其他子网也是如此。
 - 尽管 VM 连接到不同子网，Azure 仍会创建实现子网间连接的默认路由。 但是，可通过自行创建路由覆盖默认路由。 若要详细了解 Azure 中的路由，请阅读[用户定义的路由](virtual-networks-udr-overview.md)一文。
 
-如果用户尝试从 Internet 启动到数据库服务器 VM 的远程连接，就像在本文[从 Internet 连接到 Web 服务器 VM](#connect-from-internet) 部分那样操作，则会看到“连接”选项灰显。 灰显的原因是，未向 VM 分配公共 IP 地址，因此无法建立从 Internet 到该 VM 的入站连接。
+如果用户尝试从 Internet 启动到数据库服务器 VM 的远程连接，就像在本文[从 Internet 连接到 Web 服务器 VM](#connect-from-internet) 部分那样操作，则会看到“连接”选项灰显。灰显的原因是，未向 VM 分配公共 IP 地址，因此无法建立从 Internet 到该 VM 的入站连接。
 
 ### <a name="connect-to-the-internet-from-the-database-server-vm"></a>从数据库服务器 VM 连接到 Internet
 
@@ -229,7 +231,7 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 2. 在 Windows 桌面的 MyDBServer VM 上，打开 Internet Explorer 并响应对话框，如本文 [从 Web 服务器 VM 连接到 Internet](#connect-to-internet) 部分的步骤 2 和 3 中所述。
 3. 在地址栏中输入“bing.com” [](http:www.bing.com)。
 4. 在出现的 Internet Explorer 对话框中单击“添加”，然后再在“受信任的站点”对话框中单击“添加”和“关闭”。 在显示的所有其他对话框中完成这些步骤。
-5. 在必应搜索页面中，输入“whatsmyipaddress” ，然后单击“放大镜”按钮。 必应返回当前由 Azure 基础结构分配给 VM 的公共 IP 地址。 6. 关闭从 MyWebServer VM 到 MyDBServer VM 的远程桌面连接，然后关闭到 MyWebServer VM 的远程连接。
+5. 在必应搜索页面中，输入“whatsmyipaddress” ，并单击“放大镜”按钮。 必应返回当前由 Azure 基础结构分配给 VM 的公共 IP 地址。 6. 关闭从 MyWebServer VM 到 MyDBServer VM 的远程桌面连接，然后关闭到 MyWebServer VM 的远程连接。
 
 允许指向 Internet 的出站连接，因为默认允许所有出站流量，即使公共 IP 地址资源未分配到 MyDBServer VM 也是如此。 默认情况下，无论 VM 是否分配有公共 IP 地址资源，所有 VM 均可出站连接到 Internet。 但是，无法从 Internet 连接到公共 IP 地址，正如可为分配有公共 IP 地址资源的 MyWebServer VM 建立连接一样。
 
@@ -239,7 +241,7 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 
 1. 若要查看本文中创建的 MyRG 资源组，请完成本文 [查看资源](#review) 部分中的步骤 1-3。 再次查看资源组中的资源。 如果按照前面的步骤创建了 MyRG 资源组，则会看到图中显示的步骤 4 的 12 项资源。
 2. 在“MyRG”边栏选项卡中，单击“删除”  按钮。
-3. 门户将要求你键入资源组的名称以确认要将其删除。 如果看到的资源不同于在本文[查看资源](#review)部分的步骤 4 中显示的资源，请单击“取消”。 如果只看到在本文中创建的 12 项资源，则请键入 *MyRG* 作为资源组名称，然后单击“删除”。 资源组将连同其内附的所有资源一并删除，因此在删除前，请始终要确认资源组的内容。 门户将删除资源组中包含的所有资源，然后删除资源组本身。 此过程需耗时几分钟。
+3. 门户将要求键入资源组的名称以确认要将其删除。 如果看到的资源不同于在本文[查看资源](#review)部分的步骤 4 中显示的资源，请单击“取消”。 如果只看到在本文中创建的 12 项资源，则请键入 *MyRG* 作为资源组名称，然后单击“删除”。 资源组将连同其内附的所有资源一并删除，因此在删除前，请始终要确认资源组的内容。 门户将删除资源组中包含的所有资源，然后删除资源组本身。 此过程需耗时几分钟。
 
 ## <a name="next-steps"></a>后续步骤
 

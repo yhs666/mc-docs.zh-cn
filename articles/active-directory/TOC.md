@@ -59,7 +59,6 @@
 ##### [经典门户](./active-directory-add-manage-domain-names.md)
 ### 自定义登录页
 ### [管理目录](./active-directory-administer.md)
-### [O365 目录](./active-directory-manage-o365-subscription.md)
 ### [自助注册](./active-directory-self-service-signup.md)
 ### [使用 Azure AD Connect 集成本地标识](./connect/active-directory-aadconnect.md)
 
