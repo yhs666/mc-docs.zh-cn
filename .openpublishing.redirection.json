@@ -781,11 +781,6 @@
         "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/site-recovery/site-recovery-architecture-vmware-to-azure.md",
-        "redirect_url": "/site-recovery/vmware-walkthrough-architecture",
-        "redirect_document_id": "false"
-    },
-    {
         "source_path": "articles/site-recovery/site-recovery-best-practices.md",
         "redirect_url": "/site-recovery/site-recovery-support-matrix-to-azure",
         "redirect_document_id": "false"
@@ -813,16 +808,6 @@
     {
         "source_path": "articles/site-recovery/site-recovery-support-matrix.md",
         "redirect_url": "/site-recovery/site-recovery-support-matrix-to-azure",
-        "redirect_document_id": "false"
-    },
-    {
-        "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-classic.md",
-        "redirect_url": "/site-recovery/site-recovery-vmware-to-azure",
-        "redirect_document_id": "false"
-    },
-    {
-        "source_path": "articles/site-recovery/site-recovery-vmware-to-azure.md",
-        "redirect_url": "/site-recovery/vmware-walkthrough-overview",
         "redirect_document_id": "false"
     },
     {
@@ -3596,6 +3581,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/request-units-per-minute.md",
+      "redirect_url": "/cosmos-db/request-units",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/documentdb/documentdb-indexing-policies.md",
       "redirect_url": "/cosmos-db/indexing-policies",
       "redirect_document_id": false
@@ -3803,11 +3793,6 @@
     {
       "source_path": "articles/documentdb/documentdb-regional-failovers.md",
       "redirect_url": "/cosmos-db/regional-failover",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/request-units-per-minute.md",
-      "redirect_url": "/cosmos-db/request-units",
       "redirect_document_id": false
     },
     {
