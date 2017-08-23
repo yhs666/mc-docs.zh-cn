@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/13/2016
+origin.date: 06/28/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 42a1d77c76ef2502446bfab5f16c64313601b791
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 08/21/2017
+ms.openlocfilehash: 4c0ee460ea4f34b6382f688a4464941f4e23bd36
+ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/14/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 将虚拟网络连接到 ExpressRoute 线路（经典）
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.lasthandoff: 07/14/2017
 
 1. 需要 Azure PowerShell 模块的最新版本。 可以从 [Azure 下载页](https://www.azure.cn/downloads/)的 PowerShell 部分下载最新 PowerShell 模块。 有关如何配置计算机以使用 Azure PowerShell 模块的分步指导，请遵循[如何安装和配置 Azure PowerShell](../powershell-install-configure.md) 中的说明。 
 2. 在开始配置之前，需要查看[先决条件](./expressroute-prerequisites.md)、[路由要求](./expressroute-routing.md)和[工作流](./expressroute-workflows.md)。
-3. 你必须有一个活动的 ExpressRoute 线路。 
+3. 必须有一个活动的 ExpressRoute 线路。 
     - 请按说明[创建 ExpressRoute 线路](./expressroute-howto-circuit-classic.md)，并让连接提供商启用该线路。
     - 确保为线路配置 Azure 专用对等互连。 有关路由说明，请参阅[配置路由](./expressroute-howto-routing-classic.md)一文。 
     - 确保配置 Azure 专用对等互连，并运行用户网络和 Microsoft 之间的 BGP 对等互连，以便启用端到端连接。
@@ -71,7 +71,7 @@ ms.lasthandoff: 07/14/2017
 ### <a name="administration"></a>管理
 *线路所有者* 是在其中创建 ExpressRoute 线路的订阅的管理员/共同管理员。 线路所有者可以授权其他订阅的管理员/共同管理员（称为 *线路用户*）使用他们拥有的专用线路。 有权使用组织的 ExpressRoute 线路的线路用户，在获得授权后可以将其订阅中的虚拟网络链接到 ExpressRoute 线路。
 
-线路所有者有权随时修改和撤消授权。 撤消授权将导致从已撤消其访问权限的订阅中删除所有链接。
+线路所有者有权随时修改和撤消授权。 撤消授权会导致从已撤消其访问权限的订阅中删除所有链接。
 
 ### <a name="circuit-owner-operations"></a>线路所有者操作
 
@@ -160,6 +160,12 @@ ms.lasthandoff: 07/14/2017
     ----- --------
     Provisioned SalesVNET1
 
+在虚拟网络新链接的订阅中运行此命令：
+
+    New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+
 ## <a name="next-steps"></a>后续步骤
 
 有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](./expressroute-faqs.md)。
+
+<!--Update_Description: update wording and code-->

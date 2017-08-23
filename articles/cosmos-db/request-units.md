@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 05/10/2017
 ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: fb06cb98538cfd100eb0409b0705000a859dc69a
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: b15738c586323f8a46d19b50d471901621e7c248
+ms.sourcegitcommit: a813e6e98367a9ef389a05c8e050fc38812a13b1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/15/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位
 现已推出：Azure Cosmos DB [请求单位计算器](https://www.documentdb.com/capacityplanner)。 了解[估计吞吐量需求](request-units.md#estimating-throughput-needs)。
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/04/2017
 ## <a name="introduction"></a>介绍
 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 是由 Microsoft 提供的全球分布式多模型数据库。 使用 Azure Cosmos DB，无需租用虚拟机、部署软件或监视数据库。 Azure Cosmos DB 由 Microsoft 顶级工程师操作和持续监视，以提供一流的可用性、性能和数据保护。 可以使用所选的 API 访问数据，因为它原生就支持 [DocumentDB SQL](documentdb-sql-query.md)（文档）、MongoDB（文档）、[Azure 表存储](https://www.azure.cn/home/features/storage/tables/)（键-值）。 Azure Cosmos DB 的计费依据是请求单位 (RU)。 借助 RU，无需保留读取/写入容量或预配 CPU、内存和 IOPS。
 
-Azure Cosmos DB 支持不同操作（范围从简单读取、写入到复杂图形查询等）的许多 API。 并非所有请求都是相同的，因此系统会根据请求所需的计算量为它们分配规范化数量的**请求单位**。 操作的请求单位数是确定性的，可以通过响应标头跟踪 Azure Cosmos DB 中的任何操作消耗的请求单位数。 
+Azure Cosmos DB 支持不同操作（包括简单读取、写入等）的许多 API。 并非所有请求都是相同的，因此系统会根据请求所需的计算量为它们分配规范化数量的**请求单位**。 操作的请求单位数是确定性的，可以通过响应标头跟踪 Azure Cosmos DB 中的任何操作消耗的请求单位数。 
 
 若要提供可预测的性能，需要以 100 RU/秒为单位保留吞吐量。 对于每个 100 RU/秒的块，可以附加 1,000 RU/每分钟的块。 将每秒预配和每分钟预配结合可发挥非常强大的作用，因为无需预配峰值负载，与任何只使用每秒预配的服务相比，可节省高达 75% 的成本。
 

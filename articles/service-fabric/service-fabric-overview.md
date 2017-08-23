@@ -1,10 +1,10 @@
 ---
-title: "Service Fabric 概述 | Azure"
+title: "Azure 上的 Service Fabric 概述 | Azure"
 description: "Service Fabric 概述，其中应用程序由许多微服务组成，以提供扩展性和恢复能力。 Service Fabric 是一个分布式系统平台，用于生成面向云的可缩放、可靠且易于管理的应用程序。"
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: masnider
 ms.assetid: bbcc652a-a790-4bc4-926b-e8cd966587c0
 ms.service: service-fabric
@@ -12,109 +12,81 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/05/2017
-ms.date: 02/20/2017
-ms.author: v-johch
-ms.openlocfilehash: e1d843782748de60fb43642e6a2c7a3bcd7066ac
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+origin.date: 07/02/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
+ms.openlocfilehash: 6e1d6715a513db9dd3de5a83e358f9f9330c1b9a
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概述
-Service Fabric 是分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务。 Service Fabric 还解决了开发和管理云应用程序中的重大难题。 开发人员和管理员不仅可以避免复杂的基础结构问题，而且可以专注于实现可缩放、可靠且可管理的要求苛刻的任务关键型工作负荷。 Service Fabric 代表用于生成和管理这些企业级第 1 层云规模应用程序的下一代中间件平台。
+Azure Service Fabric 是一种分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务和容器。 Service Fabric 还解决了开发和管理云本机应用程序面临的重大难题。 开发人员和管理员不仅可以避免复杂的基础结构问题，而且可以专注于实现可缩放、可靠且可管理的要求苛刻的任务关键型工作负荷。 Service Fabric 代表了下一代平台，用于生成和管理在容器中运行的企业级单层云规模应用程序。
+<!-- Not Available -- Channel9 video -- >
 
-第 9 频道中的这部简短视频介绍了 Service Fabric 和微服务： <center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
-<img src="./media/service-fabric-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+## Applications composed of microservices 
+Service Fabric enables you to build and manage scalable and reliable applications composed of microservices that run at high density on a shared pool of machines, which is referred to as a cluster. It provides a sophisticated, lightweight runtime to build distributed, scalable, stateless, and stateful microservices running in containers. It also provides comprehensive application management capabilities to provision, deploy, monitor, upgrade/patch, and delete deployed applications including containerized services.
 
-这部较长的 Microsoft 虚拟大学视频介绍了 Service Fabric 的核心概念： <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">  
-<img src="./media/service-fabric-overview/CoreConceptsVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Service Fabric powers many Microsoft services today, including Azure SQL Database, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Dynamics 365, Skype for Business, and many core Azure services.
 
-## <a name="applications-composed-of-microservices"></a>由微服务组成的应用程序
-利用 Service Fabric，可以生成并管理由微服务组成的应用程序，这些应用程序可缩放且可靠，以非常高的密度在计算机共享池（称为群集）上运行。 它提供复杂的运行时，可生成分布式、可缩放的无状态和有状态微服务。 它还提供全面的应用程序管理功能，用于预配、部署、监视、升级/修补和删除部署的应用程序。
+Service Fabric is tailored to create cloud native services that can start small, as needed, and grow to massive scale with hundreds or thousands of machines.
 
-为什么微服务方法很重要？ 有以下两个主要原因：
+Today's Internet-scale services are built of microservices. Examples of microservices include protocol gateways, user profiles, shopping carts, inventory processing, queues, and caches. Service Fabric is a microservices platform that gives every microservice (or container) a unique name that can be either stateless or stateful.
 
-* 能够根据应用程序的需求缩放应用程序的不同部分。
-* 开发团队可以更加灵活地推出更改，从而更快速和更频繁地向客户提供功能。
+Service Fabric provides comprehensive runtime and lifecycle management capabilities to applications that are composed of these microservices. It hosts microservices inside containers that are deployed and activated across the Service Fabric cluster. A move from virtual machines to containers makes possible an order-of-magnitude increase in density. Similarly, another order of magnitude in density becomes possible when you move from containers to microservices in these containers. For example, a single cluster for Azure SQL Database comprises hundreds of machines running tens of thousands of containers that host a total of hundreds of thousands of databases. Each database is a Service Fabric stateful microservice. 
 
-Service Fabric 为当今很多 Microsof 服务提供支持，包括 Azure SQL 数据库、Azure DocumentDB、Cortana、Power BI、Microsoft Intune、Azure 事件中心、Azure IoT、Skype for Business 和许多核心 Azure 服务。
+For more on the microservices approach, read [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
 
-Service Fabric 专为创建云端本机服务而定制，这些服务可以根据需要从小规模开始，然后成长为包含数百或数千台计算机的大规模服务。
+## Container deployment and orchestration
+Service Fabric is an [container orchestrator](service-fabric-cluster-resource-manager-introduction.md) deploying microservices across a cluster of machines. Microservices can be developed in many ways from using the [Service Fabric programming models ](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md),to deploying [any code of your choice](service-fabric-deploy-existing-app.md)Importantly, you can mix both services in processes and services in containers in the same application. If you just want to [deploy and manage containers](service-fabric-containers-overview.md), Service Fabric is a perfect choice as a container orchestrator.
 
-当今的 Internet 规模的服务是使用微服务构建而成的。 微服务的例子包括协议网关、用户配置文件、购物车，清单处理、排队和缓存等。 Service Fabric 是微服务平台，为每个微服务提供可以是无状态或有状态的唯一名称。
+## Any OS, any cloud
+Service Fabric runs everywhere. You can create clusters for Service Fabric in many environments, including Azure or on premises, on Windows Server, or on Linux. You can even create clusters on other public clouds. In addition, the development environment in the SDK is **identical** to the production environment, with no emulators involved. In other words, what runs on your local development cluster deploys to the clusters in other environments.
 
-Service Fabric 为由这些微服务组成的应用程序提供全面的运行时和生命周期管理功能。 它在 Service Fabric 群集间部署和激活的容器内部托管微服务。 从虚拟机改为使用容器可能使密度出现数量级增长。 同样，从容器改为使用微服务也可能使密度再次出现数量级增长。 例如，单个 Azure SQL 数据库群集包含数百台计算机，这些计算机运行数以万计的容器，而这些容器总共托管数十万个数据库。 每个数据库都是一个 Service Fabric 有状态微服务。 这同样适用于前文提及的其他服务，正因如此，我们使用 *“超大规模”* 一词来描述 Service Fabric 功能。 如果容器为你提供了高密度，那么微服务可为你提供超大规模。
+![Service Fabric platform][Image1]
 
-有关微服务方法的详细信息，请阅读[微服务方法为什么可以生成应用程序？](./service-fabric-overview-microservices.md)
+For more information on creating clusters on-premises, read [creating a cluster on Windows Server or Linux](service-fabric-deploy-anywhere.md) or for Azure creating a cluster [via the Azure portal](service-fabric-cluster-creation-via-portal.md).
 
-## <a name="container-deployment-and-orchestration"></a>容器部署和业务流程
-Service Fabric 是跨计算机群集的微服务 [Orchestrator](./service-fabric-cluster-resource-manager-introduction.md)。 开发微服务的方式多种多样：使用 [Service Fabric 编程模型](./service-fabric-choose-framework.md)，或者部署[来宾可执行文件](./service-fabric-deploy-existing-app.md)，不一而足。 Service Fabric 可在容器映像中部署服务。 重要的是，可以在同一应用程序中混合使用进程中的服务和容器中的服务。 如果只需要跨计算机群集[部署和管理容器映像](./service-fabric-containers-overview.md)，Service Fabric 是最佳选择。
+## Stateless and stateful microservices for Service Fabric
+Service Fabric enables you to build applications that consist of microservices or containers. Stateless microservices (such as protocol gateways and web proxies) do not maintain a mutable state outside a request and its response from the service. Azure Cloud Services worker roles are an example of a stateless service. Stateful microservices (such as user accounts, databases, devices, shopping carts, and queues) maintain a mutable, authoritative state beyond the request and its response. Today's Internet-scale applications consist of a combination of stateless and stateful microservices. 
 
-## <a name="create-clusters-for-service-fabric-anywhere"></a>随处创建 Service Fabric 群集
-可在许多环境（包括在 Azure 中或本地、在 Windows Server 或 Linux 上）中创建 Service Fabric 群集。 此外，SDK 中的开发环境与生产环境完全相同，都不涉及模拟器。 换而言之，在本地开发群集上运行的对象会部署到其他环境中的同一群集。
+A key differentation with Service Fabric is its strong focus on building stateful services, either with the [built-in programming models ](service-fabric-choose-framework.md) or with  containerized stateful services. The [application scenarios](service-fabric-application-scenarios.md) describe the scenarios where stateful services are used.
 
-有关在本地创建群集的详细信息，请阅读[在 Windows Server 或 Linux 上创建群集](./service-fabric-deploy-anywhere.md)。有关创建 Azure 群集的详细信息，请阅读[通过 Azure 门户创建群集](./service-fabric-cluster-creation-via-portal.md)。
+## Application lifecycle management
+Service Fabric provides support for the full application lifecycle and CI/CD of cloud applications including containers. This lifecycle includes development through deployment, daily management, and maintenance to eventual decommissioning.
 
-![Service Fabric 平台][Image1]
+Service Fabric application lifecycle management capabilities enable application administrators and IT operators to use simple, low-touch workflows to provision, deploy, patch, and monitor applications. These built-in workflows greatly reduce the burden on IT operators to keep applications continuously available.
 
-## <a name="stateless-and-stateful-micrososervices-for-service-fabric"></a>无状态和有状态 Service Fabric 微服务
-借助 Service Fabric，可生成由微服务组成的应用程序。 无状态微服务（例如网关、Web 代理）不维护除请求及其来自服务的响应之外任何可变状态。 Azure 云服务辅助角色是无状态服务的一个示例。 有状态微服务（例如，用户帐户、数据库、设备、购物车、队列）维护除请求及其响应之外的可变、授权状态。 当今的 Internet 规模应用程序包含无状态和有状态微服务的组合。
+Most applications consist of a combination of stateless and stateful microservices, containers, and other executables that are deployed together. By having strong types on the applications, Service Fabric enables the deployment of multiple application instances. Each instance is managed and upgraded independently. Importantly, Service Fabric can deploy containers or any executables and make them reliable. For example, Service Fabric can deploy .NET, ASP.NET Core, node.js, Windows containers, Linux containers, Java virtual machines, scripts, Angular, or literally anything that makes up your application.
 
-为何要将有状态和无状态的微服务一同使用？ 有以下两个主要原因：
+Service Fabric is integrated with CI/CD tools such as [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html), and [Octopus Deploy](https://octopus.com/) and can be used with any other popular CI/CD tool.
 
-* 在同一台计算机上禁用代码和数据，可以生成高吞吐量、低延迟、容错联机事务处理 (OLTP) 服务。 一些示例包括互动商店、搜索、物联网 (IoT) 系统、交易系统、信用卡处理和欺诈检测系统，以及个人档案管理。
-* 可以简化应用程序设计。 使用有状态微服务时，无需其他队列和缓存，而这在传统上是处理纯无状态应用程序的可用性和延迟要求所必需的。 有状态服务原本就具有高可用性和低延迟，减少了在应用程序中要作为一个整体进行管理的移动部件的数量。
+For more information about application lifecycle management, read [Application lifecycle](service-fabric-application-lifecycle.md). For more about how to deploy any code, see [deploy a guest executable](service-fabric-deploy-existing-app.md).
 
-有关使用 Service Fabric 的应用程序模式的详细信息，请阅读适用于相应服务的[应用程序方案](./service-fabric-application-scenarios.md)和[选择编程模型框架](./service-fabric-choose-framework.md)。
+## Key capabilities
+By using Service Fabric, you can:
 
-也可观看下面的 Microsoft 虚拟大学视频，大致了解无状态服务和有状态服务： <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">  
-<img src="./media/service-fabric-overview/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
-
-## <a name="application-lifecycle-management"></a>应用程序生命周期管理
-Service Fabric 为云应用程序的完整应用程序生命周期管理提供支持。 此生命周期包括开发到部署、日常管理，以及维护到最终解除授权。
-
-借助 Service Fabric 应用程序生命周期管理功能，应用程序管理员和 IT 操作人员能够使用低接触的简单工作流预配、部署、修补和监视应用程序。 这些内置的工作流极大地减少了 IT 操作人员保持应用程序持续可用的负担。
-
-大多数应用程序包含无状态和有状态微服务的组合，以及一起部署的其他可执行文件/运行时。 通过在应用程序和已打包微服务上采用强类型，使用 Service Fabric 能够部署多个应用程序实例。 每个实例将单独进行管理和升级。 重要的是，Service Fabric 能够部署 *任何* 可执行文件或运行时并使其可靠。 例如，Service Fabric 可部署 .NET、ASP.NET Core、Node.js、Java 虚拟机、脚本、Angular 或组成应用程序的任何其他对象。
-
-有关应用程序生命周期管理的详细信息，请阅读[应用程序生命周期](./service-fabric-application-lifecycle.md)。 有关如何部署任意代码的详细信息，请参阅[部署来宾可执行文件](./service-fabric-deploy-existing-app.md)
-
-也可观看下面的 Microsoft 虚拟大学视频，大致了解应用生命周期管理： <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">  
-<img src="./media/service-fabric-overview/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
-
-## <a name="key-capabilities"></a>关键功能
-通过使用 Service Fabric，你可以：
-
-* 开发可自我修复的高度可扩展应用程序。
-* 使用 Service Fabric 编程模型开发由微服务组成的应用程序。 或者，可以直接托管选择的来宾可执行文件和其他应用程序框架，例如 ASP.NET Core 或 Node.js。
-* 开发高度可靠的无状态和有状态微服务。
-* 部署并协调包括整个群集中的 Windows 容器和 Docker 容器的容器。 这些容器可以包含来宾可执行文件，或可靠的无状态和有状态微服务。 在任一情况下，都可以获得容器端口到主机端口的映射、容器可发现性和自动故障转移。
-* 通过使用有状态微服务代替缓存和队列来简化你的应用程序的设计。
-* 无需更改代码，即可部署到 Azure，或部署到运行 Windows 或 Linux 的本地数据中心。 编写一次，即可随处部署到任何 Service Fabric 群集。
-* 使用“计算机上的数据中心”方法进行开发。 本地开发环境使用 Azure 数据中心运行的相同代码。
-* 在数秒内部署应用程序。
-* 以比虚拟机更高的密度部署应用程序，每台计算机部署成千上万的应用程序。
-* 同时部署同一应用程序的不同版本，并单独升级每个应用程序。
-* 管理有状态应用程序的生命周期，且无需任何停机时间，包括中断升级和非中断升级。
-* 通过使用 .NET API、Java (Linux)、PowerShell、Azure 命令行接口 (Linux) 或 REST 接口管理应用程序。
-* 在应用程序内独立地升级和修补微服务。
-* 监视并诊断应用程序的运行状况，并设置策略以执行自动修复。
-* 增加或减少群集中的节点数量，扩大或缩小每个节点的大小。 缩放节点时，应用程序会自动缩放，并根据可用资源进行分布。
-* 观看可自我修复的资源平衡器如何在群集间协调重新分发应用程序。 Service Fabric 可从故障中恢复，并基于可用资源优化负载分布。
-* 使用错误分析服务在服务上进行混沌测试，找出问题和故障，然后再在生产环境中运行。
+* Deploy to Azure or to on-premises datacenters that run Windows or Linux with zero code changes. Write once, and then deploy anywhere to any Service Fabric cluster.
+* Develop scalable applications that are composed of microservices by using the Service Fabric programming models, containers, or any code.
+* Develop highly reliable stateless and stateful microservices. Simplify the design of your application by using stateful microservices. 
+* Use the novel Reliable Actors programming model to create cloud objects with self contained code and state.
+* Deploy and orchestrate containers that include Windows containers and Linux containers. Service Fabric is a data aware, stateful, container orchestrator.
+* Deploy applications in seconds, at high density with hundreds or thousands of applications or containers per machine.
+* Deploy different versions of the same application side by side, and upgrade each application independently.
+* Manage the lifecycle of your applications without any downtime, including breaking and nonbreaking upgrades.
+* Scale out or scale in the number of nodes in a cluster. As you scale nodes, your applications automatically scale.
+* Monitor and diagnose the health of your applications and set policies for performing automatic repairs.
+* Watch the resource balancer orchestrate the redistribution of applications across the cluster. Service Fabric recovers from failures and optimizes the distribution of load based on available resources.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>后续步骤
 * 更多相关信息：
-    * [为什么要使用微服务方法构建应用程序？](./service-fabric-overview-microservices.md)
-    * [术语概述](./service-fabric-technical-overview.md)
-* 设置 Service Fabric [开发环境](./service-fabric-get-started.md)  
-* 为服务[选择编程模型框架](./service-fabric-choose-framework.md)
-* 了解 [Service Fabric 支持选项](./service-fabric-support.md)
+  * [为什么要使用微服务方法构建应用程序？](service-fabric-overview-microservices.md)
+  * [术语概述](service-fabric-technical-overview.md)
+* 设置 Service Fabric [开发环境](service-fabric-get-started.md)  
+* 了解 [Service Fabric 支持选项](service-fabric-support.md)
 
-[Image1]: ./media/service-fabric-overview/Service-Fabric-Overview.png
+[Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
+
+<!--Update_Description: update meta properties, wording update-->

@@ -12,31 +12,29 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/10/2017
-ms.date: 07/03/2017
+origin.date: 06/28/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
-ms.openlocfilehash: a53c5d88598bb294e3d8269e2219b6c675cf9597
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 89050c3080d798ac3a90d3e4715e51d35d7faf1e
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/18/2017
 ---
-# 将资源移到新资源组或订阅中
-<a id="move-resources-to-new-resource-group-or-subscription" class="xliff"></a>
+# <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 本主题说明如何将资源移到新订阅或同一订阅的新资源组中。 可以使用门户、PowerShell、Azure CLI 或 REST API 移动资源。 本主题中的移动操作无需任何 Azure 支持的协助即可供使用。
 
-移动资源时，源组和目标组将被锁定，直到移动操作完成。 在完成移动之前，将阻止对资源组执行写入和删除操作。 此锁意味着用户无法添加、更新或删除资源组中的资源，但并不意味着资源处于冻结状态。 例如，如果将 SQL Server 及其数据库移到新的资源组中，使用数据库的应用程序体验不到停机， 仍可读取和写入到数据库。 
+移动资源时，源组和目标组会被锁定，直到移动操作完成。 在完成移动之前，将阻止对资源组执行写入和删除操作。 此锁意味着用户无法添加、更新或删除资源组中的资源，但并不意味着资源处于冻结状态。 例如，如果将 SQL Server 及其数据库移到新的资源组中，使用数据库的应用程序体验不到停机， 仍可读取和写入到数据库。
 
-您不能更改该资源的位置。 移动资源仅能够将其移动到新的资源组。 新的资源组可能有不同的位置，但这不会更改该资源的位置。
+不能更改该资源的位置。 移动资源仅能够将其移动到新的资源组。 新的资源组可能有不同的位置，但这不会更改该资源的位置。
 
-<!-- Not Available [Switch your Azure subscription to another offer](../billing/billing-how-to-switch-azure-offer.md) -->
 > [!NOTE]
 > 本文介绍如何在现有 Azure 帐户产品/服务中移动资源。
 > 
 > 
+<!-- Not Available [Switch your Azure subscription to another offer](../billing/billing-how-to-switch-azure-offer.md) -->
 
-## 移动资源前需查看的清单
-<a id="checklist-before-moving-resources" class="xliff"></a>
+## <a name="checklist-before-moving-resources"></a>移动资源前需查看的清单
 移动资源之前需执行的一些重要步骤。 验证这些条件可以避免错误。
 
 1. 源订阅与目标订阅必须在同一个 [Azure Active Directory 租户](../active-directory/develop/active-directory-howto-tenant.md)中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 Azure PowerShell 或 Azure CLI。
@@ -53,21 +51,20 @@ ms.lasthandoff: 06/23/2017
     az account show --subscription "Example Subscription" --query tenantId
     ```
 
-    如果源和目标订阅的租户 ID 不相同，则可以尝试更改订阅的目录。 但是，此选项仅可供使用 Microsoft 帐户（而非组织帐户）登录的服务管理员使用。 若要尝试更改目录，请登录到[经典管理门户](https://manage.windowsazure.cn/)，选择“设置”，然后选择订阅。 如果“编辑目录”图标可用，请选择它以更改关联的 Azure Active Directory。 
+    如果源和目标订阅的租户 ID 不相同，则可以尝试更改订阅的目录。 但是，此选项仅可供使用 Microsoft 帐户（而非组织帐户）登录的服务管理员使用。 若要尝试更改目录，请登录到[经典管理门户](https://manage.windowsazure.cn/)，选择“设置”，然后选择订阅。 如果“编辑目录”图标可用，请选择它以更改关联的 Azure Active Directory。
 
-    ![编辑目录](./media/resource-group-move-resources/edit-directory.png) 
+    ![编辑目录](./media/resource-group-move-resources/edit-directory.png)
 
     如果该图标不可用，必须联系技术支持将资源移到新租户。
 
 2. 服务必须支持移动资源的功能。 本主题列出了哪些服务允许移动资源，哪些服务不允许移动资源。
 3. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会遇到此问题，但该订阅从未配合该资源类型使用。 若要了解如何检查注册状态和注册资源提供程序，请参阅 [Resource providers and types](resource-manager-supported-services.md)（资源提供程序和类型）。
 
-## 致电支持人员的时机
-<a id="when-to-call-support" class="xliff"></a>
+## <a name="when-to-call-support"></a>致电支持人员的时机
 可通过本主题所示的自助服务操作移动大部分资源。 使用自助服务操作：
 
 * 移动 Resource Manager 资源。
-* 根据 [经典部署限制](#classic-deployment-limitations)移动经典资源。 
+* 根据 [经典部署限制](#classic-deployment-limitations)移动经典资源。
 
 有以下需要时，请致电支持人员：
 
@@ -84,11 +81,11 @@ ms.lasthandoff: 06/23/2017
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
 * 认知服务
-* DocumentDB
+* Azure Cosmos DB
 * 事件中心
 * HDInsight 群集 - 请参阅 [HDInsight 限制](#hdinsight-limitations)
 * IoT 中心
-* 密钥保管库 
+* 密钥保管库
 * 负载均衡器
 * 媒体服务
 * 通知中心
@@ -102,39 +99,42 @@ ms.lasthandoff: 06/23/2017
 * 流分析
 * SQL 数据库服务器 - 数据库和服务器必须位于同一个资源组中。 移动 SQL 服务器时，也会移动其所有数据库。
 * 流量管理器
-* 虚拟机 - 不支持移到新的订阅（当其证书存储在密钥保管库中时）
+* 虚拟机
+* 证书存储在 Key Vault 中的虚拟机 - 支持移到同一订阅中的新资源组，但不支持跨订阅移动。
 * 虚拟机（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
-* 虚拟网络 - 当前无法移动对等虚拟网络，直到禁用了 VNet 对等互连为止。 禁用后，即可成功移动虚拟网络，然后可启用 VNet 对等互连。 此外，如果虚拟网络包含具有资源导航链接的任何子网，则虚拟网络不能移到其他订阅。 例如，当 Microsoft.Cache redis 资源部署到虚拟网络子网时，此子网具有资源导航链接。
+* 虚拟网络 - 当前无法移动对等虚拟网络，直到禁用了 VNet 对等互连为止。 禁用后，即可成功移动虚拟网络，并可启用 VNet 对等互连。 此外，如果虚拟网络包含具有资源导航链接的任何子网，则虚拟网络不能移到其他订阅。 例如，当 Microsoft.Cache redis 资源部署到虚拟网络子网时，此子网具有资源导航链接。
+* VPN 网关
 
-## 不支持移动的服务
-<a id="services-that-do-not-enable-move" class="xliff"></a>
+## <a name="services-that-do-not-enable-move"></a>不支持移动的服务
 目前不支持移动资源的服务包括：
 
 * AD 混合运行状况服务
 * 应用程序网关
-
+* 带托管磁盘的虚拟机的可用性集
 * Express Route
 * 开发测试实验室 - 支持移至同一订阅中的新资源组，但不支持跨订阅移动。
+* 从托管磁盘创建的映像
+* 托管磁盘
 * 恢复服务保管库：也不会移动与恢复服务保管库关联的计算、网络和存储资源，请参阅 [恢复服务限制](#recovery-services-limitations)。
 * “安全”
-* 证书存储在密钥保管库中的虚拟机
+* 从托管磁盘创建的快照
 * 带托管磁盘的虚拟机
 * 虚拟网络（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 
 ## <a name="app-service-limitations"></a>应用服务限制
-使用应用服务应用时，你不能只移动应用服务计划。 若要移动应用服务应用，可以使用以下选项：
+使用应用服务应用时，不能只移动应用服务计划。 若要移动应用服务应用，可以使用以下选项：
 
 * 将该资源组中的应用服务计划以及所有其他应用服务资源移到尚无应用服务资源的新资源组。 这一要求意味着，与应用服务计划不关联的应用服务资源也必须移动。 
 * 将应用移到另一个资源组中，但保留原始资源组中的所有应用服务计划。
 
-即使应用服务计划不与应用位于同一资源组中，应用也可以正常运行。
+应用服务计划不需要与应用位于同一资源组中，应用也可以正常运行。
 
-例如，如果你的资源组包含：
+例如，如果资源组包含：
 
 * **web-a**，与 **plan-a** 相关联
 * **web-b**，与 **plan-b** 相关联
 
-你的选项包括：
+选项包括：
 
 * 移动 **web-a**、**plan-a**、**web-b** 和 **plan-b**
 * 移动 **web-a** 和 **web-b**
@@ -143,7 +143,7 @@ ms.lasthandoff: 06/23/2017
 
 所有其他组合都涉及保留在移动应用服务计划时不能保留的资源类型（任何应用服务资源类型）。
 
-如果你的 Web 应用与其应用服务计划位于不同的资源组中，而你想要将二者都移到新的资源组，则必须分两步执行移动操作。 例如：
+如果 Web 应用与其应用服务计划位于不同的资源组中，而你想要将二者都移到新的资源组，则必须分两步执行移动操作。 例如：
 
 * **web-a** 位于 **web-group** 中
 * **plan-a** 位于 **plan-group** 中
@@ -174,8 +174,7 @@ ms.lasthandoff: 06/23/2017
 ## <a name="classic-deployment-limitations"></a>经典部署限制
 移动通过经典模型部署的资源时，其选项各不相同，具体取决于是在订阅内移动资源，还是将资源移到新的订阅。
 
-### 同一订阅
-<a id="same-subscription" class="xliff"></a>
+### <a name="same-subscription"></a>同一订阅
 在同一订阅内将资源从一个资源组移动到另一个资源组时，存在以下限制：
 
 * 不能移动虚拟网络（经典）。
@@ -187,8 +186,7 @@ ms.lasthandoff: 06/23/2017
 
 若要将经典资源移到同一订阅内的新资源组，请通过[门户](#use-portal)、[Azure PowerShell](#use-powershell)、[Azure CLI](#use-azure-cli) 或 [REST API](#use-rest-api) 使用标准移动操作。 使用的操作应与移动 Resource Manager 资源时所用的操作相同。
 
-### 新订阅
-<a id="new-subscription" class="xliff"></a>
+### <a name="new-subscription"></a>新订阅
 将资源移动到新订阅时，存在以下限制：
 
 * 必须在同一操作中移动订阅中的所有经典资源。
@@ -255,7 +253,7 @@ ms.lasthandoff: 06/23/2017
 此操作可能需要运行几分钟。 
 
 ## <a name="use-portal"></a>使用门户
-若要移动资源，请选择包含这些资源的资源组，然后选择“移动”  按钮。
+如果要移动资源，请选择包含这些资源的资源组，并选择“移动”  按钮。
 
 ![移动资源](./media/resource-group-move-resources/select-move.png)
 
@@ -269,12 +267,12 @@ ms.lasthandoff: 06/23/2017
 
 ![显示移动状态](./media/resource-group-move-resources/show-status.png)
 
-操作完成后，你会获得结果通知。
+操作完成后，会获得结果通知。
 
 ![显示移动结果](./media/resource-group-move-resources/show-result.png)
 
 ## <a name="use-powershell"></a>使用 PowerShell
-若要将现有资源移到另一个资源组或订阅，请使用 `Move-AzureRmResource` 命令。
+要将现有资源移到另一个资源组或订阅，请使用 `Move-AzureRmResource` 命令。
 
 第一个示例演示如何将一个资源移到新的资源组。
 
@@ -293,7 +291,7 @@ Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Res
 
 若要移到新订阅，请包含 `DestinationSubscriptionId` 参数的值。
 
-系统将要求确认是否想要移动指定的资源。
+系统会要求确认是否想要移动指定的资源。
 
 ```powershell
 Confirm
@@ -306,7 +304,7 @@ Are you sure you want to move these resources to the resource group
 ```
 
 ## <a name="use-azure-cli"></a>使用 Azure CLI 2.0
-若要将现有资源移到另一个资源组或订阅，请使用 `az resource move` 命令。 提供要移动的资源的资源 ID。 可以使用以下命令获取资源 ID：
+要将现有资源移到另一个资源组或订阅，请使用 `az resource move` 命令。 提供要移动的资源的资源 ID。 可以使用以下命令获取资源 ID：
 
 ```azurecli
 az resource show -g sourceGroup -n storagedemo --resource-type "Microsoft.Storage/storageAccounts" --query id
@@ -320,9 +318,8 @@ az resource move --destination-group newgroup --ids "/subscriptions/{guid}/resou
 
 若要移到新订阅，请提供 `--destination-subscription-id` 参数。
 
-## 使用 Azure CLI 1.0
-<a id="use-azure-cli-10" class="xliff"></a>
-若要将现有资源移到另一个资源组或订阅，请使用 `azure resource move` 命令。 提供要移动的资源的资源 ID。 可以使用以下命令获取资源 ID：
+## <a name="use-azure-cli-10"></a>使用 Azure CLI 1.0
+要将现有资源移到另一个资源组或订阅，请使用 `azure resource move` 命令。 提供要移动的资源的资源 ID。 可以使用以下命令获取资源 ID：
 
 ```azurecli
 azure resource list -g sourceGroup --json
@@ -353,10 +350,10 @@ azure resource list -g sourceGroup --json
 azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
 ```
 
-系统将要求确认是否想要移动指定的资源。
+系统会要求确认是否想要移动指定的资源。
 
 ## <a name="use-rest-api"></a>使用 REST API
-若要将现有资源移到另一个资源组或订阅中，请运行：
+要将现有资源移到另一个资源组或订阅中，请运行：
 
 ```HTTP
 POST https://management.chinacloudapi.cn/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
@@ -364,9 +361,10 @@ POST https://management.chinacloudapi.cn/subscriptions/{source-subscription-id}/
 
 在请求正文中，指定目标资源组和要移动的资源。 有关移动 REST 操作的详细信息，请参阅 [移动资源](https://msdn.microsoft.com/library/azure/mt218710.aspx)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
-* 若要了解管理订阅所需的 PowerShell cmdlet，请参阅[将 Azure PowerShell 与 Resource Manager 配合使用](powershell-azure-resource-manager.md)。
-* 若要了解管理订阅所需的 Azure CLI 命令，请参阅[将 Azure CLI 与 Resource Manager 配合使用](xplat-cli-azure-resource-manager.md)。
+## <a name="next-steps"></a>后续步骤
+* 若要了解管理订阅所需的 PowerShell cmdlet，请参阅[将 Azure PowerShell 与资源管理器配合使用](powershell-azure-resource-manager.md)。
+* 若要了解管理订阅所需的 Azure CLI 命令，请参阅[将 Azure CLI 与资源管理器配合使用](xplat-cli-azure-resource-manager.md)。
 * 若要了解管理订阅所需的门户功能，请参阅[使用 Azure 门户管理资源](resource-group-portal.md)。
 * 若要了解如何向资源应用逻辑组织，请参阅[使用标记组织资源](resource-group-using-tags.md)。
+
+<!--Update_Description: wording update-->

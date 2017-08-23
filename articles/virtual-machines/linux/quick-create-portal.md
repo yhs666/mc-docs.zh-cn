@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 05/02/2017
-ms.date: 07/03/2017
+origin.date: 07/15/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: c7706904a91f0809710aa712c528fe6a6e317b27
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: 2a2258db5e044ce516302b5b3cec126f36c4a68b
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/18/2017
 ---
-# 使用 Azure 门户创建 Linux 虚拟机
-<a id="create-a-linux-virtual-machine-with-the-azure-portal" class="xliff"></a>
+# <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>使用 Azure 门户创建 Linux 虚拟机
 
 可以通过 Azure 门户创建 Azure 虚拟机。 此方法提供一个基于浏览器的用户界面，用于创建和配置虚拟机和所有相关的资源。 本快速入门介绍了如何创建虚拟机并在 VM 上安装 webserver。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-## 创建 SSH 密钥对
-<a id="create-ssh-key-pair" class="xliff"></a>
+## <a name="create-ssh-key-pair"></a>创建 SSH 密钥对
 
 需要一个 SSH 密钥对才能完成此快速入门。 如果有现成的 SSH 密钥对，则可跳过此步骤。
 
@@ -41,17 +39,15 @@ ms.lasthandoff: 06/30/2017
 ssh-keygen -t rsa -b 2048
 ```
 
-## 登录 Azure
-<a id="log-in-to-azure" class="xliff"></a> 
+## <a name="log-in-to-azure"></a>登录 Azure 
 
 通过 http://portal.azure.cn 登录到 Azure 门户。
 
-## 创建虚拟机
-<a id="create-virtual-machine" class="xliff"></a>
+## <a name="create-virtual-machine"></a>创建虚拟机
 
 1. 单击 Azure 门户左上角的“新建”按钮。
 
-2. 选择“计算”，选择“Ubuntu Server 16.04 LTS”，确保“Resource Manager”是选择的部署模型。 单击“创建”  按钮。 
+2. 依次选择“计算”、“Ubuntu Server 16.04 LTS”。 
 
 3. 输入虚拟机信息。 对于“身份验证类型”，请选择“SSH 公钥”。 粘贴“SSH 公钥”时，请务必删除所有前导或尾随空格。 完成后，单击“确定”。
 
@@ -61,18 +57,17 @@ ssh-keygen -t rsa -b 2048
 
     ![显示 VM 大小的屏幕截图](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. 在“设置”边栏选项卡中，为其余设置保留默认值，然后单击“确定”。
+5. 在设置边栏选项卡中保留默认值，并单击“确定”。
 
 6. 在摘要页上，单击“确定”以开始虚拟机部署。
 
 7. VM 将固定到 Azure 门户仪表板。 完成部署后，VM 摘要边栏选项卡将自动打开。
 
-## 连接到虚拟机
-<a id="connect-to-virtual-machine" class="xliff"></a>
+## <a name="connect-to-virtual-machine"></a>连接到虚拟机
 
 创建与虚拟机的 SSH 连接。
 
-1. 单击虚拟机边栏选项卡上的“连接”按钮。 单击“连接”按钮后，将显示可用于连接到虚拟机的 SSH 连接字符串。
+1. 单击虚拟机边栏选项卡上的“连接”按钮。 单击“连接”按钮后，显示可用于连接到虚拟机的 SSH 连接字符串。
 
     ![门户 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
@@ -82,8 +77,7 @@ ssh-keygen -t rsa -b 2048
 ssh azureuser@40.112.21.50
 ```
 
-## 安装 NGINX
-<a id="install-nginx" class="xliff"></a>
+## <a name="install-nginx"></a>安装 NGINX
 
 使用以下 bash 脚本更新包源并安装最新的 NGINX 包。 
 
@@ -99,8 +93,7 @@ sudo apt-get -y install nginx
 
 完成后，退出 SSH 会话，返回 Azure 门户中的 VM 属性。
 
-## 为 Web 流量打开端口 80
-<a id="open-port-80-for-web-traffic" class="xliff"></a> 
+## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80 
 
 网络安全组 (NSG) 保护入站和出站流量的安全。 从 Azure 门户创建 VM 后，将会在进行 SSH 连接的端口 22 上创建入站规则。 由于此 VM 托管 webserver，需为端口 80 创建 NSG 规则。
 
@@ -111,22 +104,21 @@ sudo apt-get -y install nginx
 5. 在“名称”中，键入“http”。 请确保将“端口范围”设置为 80，将“操作”设置为“允许”。 
 6. 单击 **“确定”**。
 
-## 查看 NGINX 欢迎页
-<a id="view-the-nginx-welcome-page" class="xliff"></a>
+## <a name="view-the-nginx-welcome-page"></a>查看 NGINX 欢迎页
 
 安装 NGINX 并向 VM 打开端口 80 以后，即可通过 Internet 访问 webserver。 打开 Web 浏览器，输入 VM 的公共 IP 地址。 该公共 IP 地址可在 Azure 门户的 VM 边栏选项卡上找到。
 
 ![NGINX 默认站点](./media/quick-create-cli/nginx.png) 
 
-## 清理资源
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>清理资源
 
-不再需要资源组、虚拟机和所有相关的资源时，可将其删除。 为此，请从虚拟机边栏选项卡中选择该资源组，然后单击“删除”。
+不再需要资源组、虚拟机和所有相关的资源时，可将其删除。 为此，请从虚拟机边栏选项卡中选择该资源组，并单击“删除”。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 在本快速入门中，部署了一个简单的虚拟机、一条网络安全组规则，并安装了一个 Web 服务器。 若要详细了解 Azure 虚拟机，请继续学习 Linux VM 的教程。
 
 > [!div class="nextstepaction"]
 > [Azure Linux 虚拟机教程](./tutorial-manage-vm.md)
+
+<!--Update_Description: wording update-->

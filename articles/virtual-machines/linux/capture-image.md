@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure CLI 2.0 捕获 Linux VM | Azure"
-description: "如何使用由 Azure CLI 2.0 创建的托管磁盘，捕获和通用化基于 Linux 的 Azure 虚拟机 (VM) 的映像"
+title: "使用 CLI 2.0 在 Azure 中捕获 Linux VM 的映像 | Azure"
+description: "使用 Azure CLI 2.0 捕获 Azure VM 的映像以用于批量部署。"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
+author: cynthn
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,76 +13,40 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 05/23/2017
-ms.date: 07/03/2017
+origin.date: 07/10/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: c1d6eccca5b4f91f30a6ec5a7e0c748bb63767d9
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: a1d61947388c0c977334381aa65f3a0d97be0ca6
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/18/2017
 ---
-# 如何通用化和捕获 Linux 虚拟机
-<a id="how-to-generalize-and-capture-a-linux-virtual-machine" class="xliff"></a>
-要重用在 Azure 中部署和配置的虚拟机 (VM)，需捕获 VM 的映像。 此过程还涉及从映像部署新 VM 之前，先通用化 VM 以删除个人帐户信息。 本文详细介绍了如何使用 Azure CLI 2.0 为使用 Azure 托管磁盘的 VM 捕获 VM 映像。 这些磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。 有关详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md)。 本文详细介绍了如何使用 Azure CLI 2.0 来捕获 Linux VM。 还可以使用 [Azure CLI 1.0](capture-image-nodejs.md) 执行这些步骤。
+# <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何创建虚拟机或 VHD 的映像
 
-> [!TIP]
-> 如果要创建具有其专用备份或调试状态的现有 Linux VM 的副本，请参阅[创建在 Azure 上运行的 Linux 虚拟机的副本](copy-vm.md)。 如果要从本地 VM 上传 Linux VHD，请参阅[上传自定义磁盘映像并从其创建 Linux VM](upload-vhd.md)。  
+<!-- generalize, image - extended version of the tutorial-->
 
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
+若要创建虚拟机 (VM) 的多个副本以用于 Azure 中，需要捕获 VM 或 OS VHD 的映像。 若要创建映像，需要删除个人帐户信息，这使得多次部署更加安全。 执行下列步骤可取消预配现有 VM，解除分配并创建映像。 可以使用此映像，在订阅内的任何资源组中创建 VM。
+
+如果想要创建一份现有 Linux VM 的副本以用于备份或调试，或从本地 VM 上传专用 Linux VHD，请参阅[上传自定义磁盘映像并根据该映像创建 Linux VM](upload-vhd.md)。  
+
+还可使用 **Packer** 创建自定义配置。 有关使用 Packer 的详细信息，请参阅[如何使用 Packer 在 Azure 中创建 Linux 虚拟机映像](build-image-with-packer.md)。
+
+## <a name="before-you-begin"></a>开始之前
 确保符合以下先决条件：
 
-* **在 Resource Manager 部署模型中创建的 Azure VM** - 如果尚未创建 Linux VM，则可以使用[门户](quick-create-portal.md)、[Azure CLI](quick-create-cli.md) 或 [Resource Manager 模板](cli-deploy-templates.md)。 根据需要配置 VM。 例如， [添加数据磁盘](add-disk.md)、应用更新和安装应用程序。 
+* 需要使用托管磁盘在资源管理器部署模型中创建 Azure VM。 如果尚未创建 Linux VM，则可以使用[门户](quick-create-portal.md)、[Azure CLI](quick-create-cli.md) 或[资源管理器模板](cli-deploy-templates.md)。 根据需要配置 VM。 例如， [添加数据磁盘](add-disk.md)、应用更新和安装应用程序。 
 
-还需要安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 并已使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录到 Azure 帐户。
+* 还需要安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 并已使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-## 快速命令
-<a id="quick-commands" class="xliff"></a>
-如果需要快速完成任务，请参阅以下部分，其中详细说明了在 Azure 中捕获 Linux VM 映像的基本命令。 本文档的余下部分（ [从此处开始](#detailed-steps)）提供了每个步骤的更详细信息和应用背景。 在以下示例中，请将示例参数名称替换为你自己的值。 示例参数名称包括 *myResourceGroup*、*myVM* 和 *myImage*。
+## <a name="quick-commands"></a>快速命令
 
-1. 取消设置源 VM。 *+user* 参数还会删除上次预配的用户帐户。 如果要将帐户凭据烤到 VM 中，请使用 *-deprovision* 将用户帐户保持不变。
+有关本主题的用于测试、评估或了解 Azure 中的 VM 的简化版本，请参阅[使用 CLI 创建 Azure VM 的自定义映像](tutorial-custom-images.md)。
 
-    ```bash
-    ssh ops@myvm.chinanorth.chinacloudapp.cn
-    sudo waagent -deprovision+user -force
-    exit
-    ```
-
-2. 使用 [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate)解除分配 VM：
-
-    ```azurecli
-    az vm deallocate --resource-group myResourceGroup --name myVM
-    ```
-
-3. 使用 [az vm generalize](https://docs.microsoft.com/cli/azure/vm#generalize) 通用化 VM。 如果已使用 [Packer](http://www.packer.io) 等工具生成源 VM，请跳过此步骤，因为你的映像已通用化。
-
-    ```azurecli
-    az vm generalize --resource-group myResourceGroup --name myVM
-    ```
-
-4. 使用 [az image create](https://docs.microsoft.com/cli/azure/image#create)从 VM 资源创建映像：
-
-    ```azurecli
-    az image create --resource-group myResourceGroup --name myImage --source myVM
-    ```
-
-5. 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create)从映像资源创建 VM：
-
-    ```azurecli
-    az vm create --resource-group myResourceGroup --name myVMDeployed --image myImage
-        --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub
-    ```
-
-## 详细步骤
-<a id="detailed-steps" class="xliff"></a>
-通过下列步骤可以取消设置现有 VM，解除分配并通用化 VM 资源，然后创建映像。 可以使用此映像，在订阅内的任何资源组中创建 VM。 此过程使 [Azure 托管磁盘](../../storage/storage-managed-disks-overview.md)比非托管磁盘更具优势。 使用非托管磁盘时，创建基础虚拟硬盘 (VHD) 的 blob 副本之后，便只能在与复制的 VHD blob 相同的存储帐户中创建 VM。 使用托管磁盘时，所创建的映像资源可部署在整个订阅中。
-
-## 步骤 1：删除 Azure Linux 代理
-<a id="step-1-remove-the-azure-linux-agent" class="xliff"></a>
-要使 VM 做好进行通用化的准备，请使用 Azure VM 代理取消设置 VM，以删除文件和数据。 在目标 Linux VM 上，使用带 *+deprovision* 参数的 `waagent` 命令。 有关详细信息，请参阅 [Azure Linux 代理用户指南](../windows/agent-user-guide.md)。
+## <a name="step-1-deprovision-the-vm"></a>步骤 1：取消预配 VM
+使用 Azure VM 代理取消预配 VM 以删除计算机特定文件和数据。 在源 Linux VM 上，使用带 *-deprovision+user* 参数的 `waagent` 命令。 有关详细信息，请参阅 [Azure Linux 代理用户指南](../windows/agent-user-guide.md)。
 
 1. 使用 SSH 客户端连接到 Linux VM。
 2. 在 SSH 窗口中，键入以下命令：
@@ -90,47 +54,58 @@ ms.lasthandoff: 06/23/2017
     ```bash
     sudo waagent -deprovision+user
     ```
+<br>
    > [!NOTE]
-   > 仅在要捕获为映像的 VM 上运行此命令。 不保证映像中的所有敏感信息被清除，或者映像适合用于分发。 *+user* 参数还会删除上次预配的用户帐户。 如果要将帐户凭据烤到 VM 中，请使用 *-deprovision* 将用户帐户保持不变。
+   > 仅在要捕获为映像的 VM 上运行此命令。 不保证映像中的所有敏感信息被清除，或者映像适合用于分发。 *+user* 参数还会删除上次预配的用户帐户。 如果想要在 VM 中保留帐户凭据，只需使用 *-deprovision* 就地保留用户帐户。
 
-3. 键入 *y* 继续。 添加 *-force* 参数即可免除此确认步骤。
-4. 完成该命令后，键入 `exit`。 此步骤将关闭 SSH 客户端。
+3. 键入 **y** 继续。 添加 **-force** 参数即可免除此确认步骤。
+4. 完成该命令后，键入 **exit**。 此步骤将关闭 SSH 客户端。
 
-## 步骤 2：创建 VM 映像
-<a id="step-2-create-vm-image" class="xliff"></a>
-使用 Azure CLI 2.0 通用化和捕获 VM。 在以下示例中，请将示例参数名称替换为自己的值。 示例参数名称包括 *myResourceGroup*、*myVnet* 和 *myVM*。
+## <a name="step-2-create-vm-image"></a>步骤 2：创建 VM 映像
+使用 Azure CLI 2.0 将 VM 标记为通用化并捕获映像。 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myVnet* 和 *myVM*。
 
 1. 对使用 [az vm deallocate](https://docs.microsoft.com/cli//azure/vm#deallocate) 取消设置的 VM 解除分配。 以下示例在名为 myResourceGroup 的资源组中解除分配名为 myVM 的 VM：
 
     ```azurecli
-    az vm deallocate --resource-group myResourceGroup --name myVM
+    az vm deallocate \
+      --resource-group myResourceGroup \
+      --name myVM
     ```
 
-2. 使用 [az vm generalize](https://docs.microsoft.com/cli//azure/vm#generalize) 通用化 VM。 如果已使用 [Packer](http://www.packer.io) 等工具生成源 VM，请跳过此步骤，因为你的映像已通用化。 以下示例在名为 myResourceGroup 的资源组中通用化名为 myVM 的 VM：
+2. 使用 [az vm generalize](https://docs.microsoft.com/cli//azure/vm#generalize) 将 VM 标记为通用化。 以下示例将名为 *myResourceGroup* 的资源组中名为 *myVM* 的 VM 标记为通用化：
 
     ```azurecli
-    az vm generalize --resource-group myResourceGroup --name myVM
+    az vm generalize \
+      --resource-group myResourceGroup \
+      --name myVM
     ```
 
 3. 现在，使用 [az image create](https://docs.microsoft.com/cli//azure/image#create) 创建 VM 资源的映像。 以下示例使用名为 myVM 的 VM 资源在名为 myResourceGroup 的资源组中创建名为 myImage 的映像：
 
     ```azurecli
-    az image create --resource-group myResourceGroup --name myImage --source myVM
+    az image create \
+      --resource-group myResourceGroup \
+      --name myImage --source myVM
     ```
 
    > [!NOTE]
    > 该映像在与源 VM 相同的资源组中创建。 可以在订阅内的任何资源组中从此映像创建 VM。 从管理角度来看，你可能希望为 VM 资源和映像创建特定的资源组。
 
-## 步骤 3：从捕获的映像创建 VM
-<a id="step-3-create-a-vm-from-the-captured-image" class="xliff"></a>
+## <a name="step-3-create-a-vm-from-the-captured-image"></a>步骤 3：从捕获的映像创建 VM
 使用通过 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建的映像来创建 VM。 以下示例从名为 myImage 的映像创建名为 myVMDeployed 的 VM：
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVMDeployed --image myImage
-    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub
+az vm create \
+   --resource-group myResourceGroup \
+   --name myVMDeployed \
+   --image myImage\
+   --admin-username azureuser \
+   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-使用托管磁盘，可在订阅内的任何资源组中从映像创建 VM。 此行为与非托管磁盘有所不同，在非托管磁盘中只能在与源 VHD 相同的存储帐户中创建 VM。 若要在与映像不同的资源组中创建 VM，请指定映像的完整资源 ID。 使用 [az image list](https://docs.microsoft.com/cli/azure/image#list) 查看映像列表。 输出类似于以下示例：
+### <a name="creating-the-vm-in-another-resource-group"></a>在另一个资源组中创建 VM 
+
+可在订阅内的任何资源组中根据映像创建 VM。 若要在与映像不同的资源组中创建 VM，请指定映像的完整资源 ID。 使用 [az image list](https://docs.microsoft.com/cli/azure/image#list) 查看映像列表。 输出类似于以下示例：
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -141,21 +116,26 @@ az vm create --resource-group myResourceGroup --name myVMDeployed --image myImag
 以下示例使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) ，通过指定映像资源 ID，在与源映像不同的资源组中创建 VM：
 
 ```azurecli
-az vm create --resource-group myOtherResourceGroup --name myOtherVMDeployed 
-    --image "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage"
-    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub
+az vm create \
+   --resource-group myOtherResourceGroup \
+   --name myOtherVMDeployed \
+   --image "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage" \
+   --admin-username azureuser \
+   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-### 验证部署
-<a id="verify-the-deployment" class="xliff"></a>
-现在将 SSH 连接到你创建的虚拟机以验证部署并开始使用新的 VM。 若要通过 SSH 连接，请使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#show)查找 VM 的 IP 地址或 FQDN：
+## <a name="step-4-verify-the-deployment"></a>步骤 4：验证部署
+
+现在将 SSH 连接到创建的虚拟机以验证部署并开始使用新的 VM。 若要通过 SSH 连接，请使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#show)查找 VM 的 IP 地址或 FQDN：
 
 ```azurecli
-az vm show --resource-group myResourceGroup --name myVM --show-details
+az vm show \
+   --resource-group myResourceGroup \
+   --name myVMDeployed \
+   --show-details
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 可以从源 VM 映像创建多个 VM。 如果需要对映像进行更改，请执行以下操作： 
 
 - 从映像创建 VM。
@@ -164,3 +144,5 @@ az vm show --resource-group myResourceGroup --name myVM --show-details
 - 将此新映像用于将来的部署。 如果需要，请删除原始映像。
 
 有关使用 CLI 管理 VM 的详细信息，请参阅 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview)。
+
+<!--Update_Description: wording update-->

@@ -15,11 +15,11 @@ ms.workload: infrastructure
 origin.date: 02/13/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 690e5bcf2674996b5d6383a493b18a848871b2fa
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 40b3cb3564f4c5b6103656552aaa41793496643c
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上装载 Azure 文件存储
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 06/21/2017
 * 一个 Azure 文件存储共享
 * 一个 Linux VM
 
-将任何示例替换为你自己的设置。
+将任何示例替换成自己的设置。
 
 ### <a name="create-a-directory-for-the-local-mount"></a>为本地装载创建目录
 
@@ -91,7 +91,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 
 3. 显示存储帐户密钥。
 
-    创建存储帐户时，帐户密钥是成对创建的，这样是为了不中断任何服务就可轮换密钥。 轮换到密钥对中的第二个密钥后，将创建新的密钥对。 新的存储帐户密钥始终成对创建，可确保始终至少有一个未使用的存储帐户密钥可以轮换到。
+    创建存储帐户时，帐户密钥是成对创建的，这样是为了不中断任何服务就可轮换密钥。 轮换到密钥对中的第二个密钥后，创建新的密钥对。 新的存储帐户密钥始终成对创建，可确保始终至少有一个未使用的存储帐户密钥可以轮换到。
 
     使用 [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) 查看存储帐户密钥。 名为 `mystorageaccount` 的存储帐户的密钥列在以下示例中：
 
@@ -121,7 +121,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 
 5. 创建一个装入点目录。
 
-    在 Linux 文件系统中创建将 SMB 共享装载到其中的本地目录。 写入到本地装载目录或从本地装载目录读取的任何内容都将转发到文件存储上托管的 SMB 共享。 若要在 /mnt/mymountdirectory 中创建本地目录，请使用以下示例：
+    在 Linux 文件系统中创建将 SMB 共享装载到其中的本地目录。 写入到本地装载目录或从本地装载目录读取的任何内容都会转发到文件存储上托管的 SMB 共享。 若要在 /mnt/mymountdirectory 中创建本地目录，请使用以下示例：
 
     ```bash
     sudo mkdir -p /mnt/mymountdirectory

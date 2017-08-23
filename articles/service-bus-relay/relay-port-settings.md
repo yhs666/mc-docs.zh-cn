@@ -12,18 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/24/2017
-ms.date: 07/07/2017
+origin.date: 07/03/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: a23b53f3e7259493fb2f88e9423a79efc4e1ec47
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.date: 08/21/2017
+ms.openlocfilehash: 6d50ef7eee3b28c884dd9403489e00a5e8fa923f
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-relay-port-settings"></a>Azure 中继端口设置
 
 下表描述 Azure 中继端口值的所需配置。
@@ -56,3 +53,6 @@ ms.lasthandoff: 05/05/2017
 若要了解有关 Azure 中继的详细信息，请访问以下链接：
 * [什么是 Azure 中继？](./relay-what-is-it.md)
 * [中继常见问题](./relay-faq.md)
+
+
+<!--Update_Description:update meta properties only-->

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/02/2017
-ms.date: 03/20/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: fe57e90b56efe894f54cafe0d5f8065a51979cef
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: fc829b774ccdd2327a0af51e20bff953c291d0ef
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="information-for-non-endorsed-distributions"></a>有关未认可发行版的信息
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -32,7 +32,7 @@ ms.lasthandoff: 06/30/2017
 
 在 Azure 上运行的所有发行版都需要满足多个先决条件才能在平台上正常运行。  本文并未涵盖所有信息，因为每个发行版都不同；即使满足以下所有条件，也可能仍需显著调整 Linux 系统以确保能在平台上正常运行。
 
-正是出于这个原因，建议尽可能地从某个 [Azure 上的 Linux - 认可的发行版](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)开始操作。 以下文章指导你完成如何准备 Azure 支持的各种认可的 Linux 发行版：
+正是出于这个原因，建议尽可能地从某个 [Azure 上的 Linux - 认可的发行版](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)开始操作。 以下文章指导完成如何准备 Azure 支持的各种认可的 Linux 发行版：
 
 * **[基于 CentOS 的发行版](create-upload-centos.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -47,14 +47,14 @@ ms.lasthandoff: 06/30/2017
 * Azure 不支持 VHDX 格式，仅支持**固定大小的 VHD**。  可使用 Hyper-V 管理器或 convert-vhd cmdlet 将磁盘转换为 VHD 格式。 如果使用 VirtualBox，则意味着选择的是“固定大小”，而不是在创建磁盘时动态分配默认大小。
 * Azure 仅支持第 1 代虚拟机。 可将第 1 代虚拟机从 VHDX 转换成 VHD 文件格式，并从动态扩展转换成固定大小磁盘。 但无法更改虚拟机的代次。 有关详细信息，请参阅 [是否应在 HYPER-V 中创建第 1 代或第 2 代虚拟机？](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 * VHD 允许的最大大小为 1,023 GB。
-* 在安装 Linux 系统时，*建议*使用标准分区而不是 LVM（通常是许多安装的默认值）。 这将避免 LVM 与克隆 VM 发生名称冲突，特别是在 OS 磁盘需要连接到另一台相同的 VM 进行故障排除的情况下。 [LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 可以在数据磁盘上使用。
-* 需要装载 UDF 文件系统的内核支持。 在 Azure 上首次启动时，预配配置将通过附加到来宾的 UDF 格式媒体传递到 Linux VM。 Azure Linux 代理必须能够装载 UDF 文件系统才能读取其配置和预配 VM。
-* 低于 2.6.37 的 Linux 内核版本不支持具有更大 VM 大小的 Hyper-V 上的 NUMA。 此问题主要影响使用上游 Red Hat 2.6.32 内核的旧发行版，在 RHEL 6.6 (kernel-2.6.32-504) 中已解决。 运行版本低于 2.6.37 的自定义内核的系统，或者版本低于 2.6.32-504 的基于 RHEL 的内核必须在 grub.conf 中的内核命令行上设置启动参数 `numa=off`。 有关详细信息，请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
+* 在安装 Linux 系统时，*建议*使用标准分区而不是 LVM（通常是许多安装的默认值）。 这可以避免与克隆 VM 发生 LVM 名称冲突，尤其是在需要将 OS 磁盘连接到另一个同类 VM 进行故障排除时。 [LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 可以在数据磁盘上使用。
+* 需要装载 UDF 文件系统的内核支持。 在 Azure 上首次启动时，预配配置会通过附加到来宾的 UDF 格式媒体传递到 Linux VM。 Azure Linux 代理必须能够装载 UDF 文件系统才能读取其配置和预配 VM。
+* 低于 2.6.37 的 Linux 内核版本不支持具有更大 VM 大小的 Hyper-V 上的 NUMA。 此问题主要影响使用上游 Red Hat 2.6.32 内核的旧分发版，在 RHEL 6.6 (kernel-2.6.32-504) 中已解决。 运行版本低于 2.6.37 的自定义内核的系统，或者版本低于 2.6.32-504 的基于 RHEL 的内核必须在 grub.conf 中的内核命令行上设置启动参数 `numa=off`。 有关详细信息，请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
 * 不要在操作系统磁盘上配置交换分区。 可以配置 Linux 代理，以在临时资源磁盘上创建交换文件。  可以在下面的步骤中找到有关此内容的详细信息。
 * 所有 VHD 的大小必须是 1 MB 的倍数。
 
-### <a name="installing-linux-without-hyper-v"></a>安装不带 Hyper-V 的 Linux
-在某些情况下，Linux 安装程序可能无法在初始 ramdisk（initrd 或 initramfs）中包含 Hyper-V 驱动程序，除非它检测到它正在运行 Hyper-V 环境。  使用不同虚拟化系统（即 Virtualbox、KVM 等）来准备 Linux 映像时，可能需要重新生成 initrd 以确保至少 `hv_vmbus` 和 `hv_storvsc` 内核模块可在初始 ramdisk 上使用。  至少在基于上游 Red Hat 发行版的系统上这是一个已知问题。
+### <a name="installing-kernel-modules-without-hyper-v"></a>安装无 Hyper-V 的内核模块
+Azure 在 Hyper-V 虚拟机监控程序上运行，因此 Linux 需要安装某些内核模块才能在 Azure 中运行。 如果具有在 Hyper-V 外部创建的 VM，Linux 安装程序可能无法在初始 ramdisk（initrd 或 initramfs）中包含 Hyper-V 驱动程序，除非它检测到它正在运行 Hyper-V 环境。 使用不同虚拟化系统（即 Virtualbox、KVM 等）来准备 Linux 映像时，可能需要重新生成 initrd 以确保至少 `hv_vmbus` 和 `hv_storvsc` 内核模块可在初始 ramdisk 上使用。  至少在基于上游 Red Hat 发行版的系统上这是一个已知问题。
 
 重新生成 initrd 或 initramfs 映像的机制可能会因发行版而有所不同。 请查阅发行版文档或相应过程支持。  以下是使用 `mkinitrd` 实用程序如何重新生成 initrd 的示例：
 
@@ -83,7 +83,7 @@ Azure 上的 VHD 映像必须将虚拟大小调整为 1MB。  通常，应正确
 
        # qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
 
-2. 计算磁盘映像所需的大小，以确保将虚拟大小调整为 1MB。  可以使用以下 bash shell 脚本帮助解决此问题。  此脚本使用“`qemu-img info`”确定磁盘映像的虚拟大小，然后将大小计算为下一个 1MB：
+2. 计算磁盘映像所需的大小，以确保将虚拟大小调整为 1MB。  可以使用以下 bash shell 脚本帮助解决此问题。  此脚本使用“`qemu-img info`”确定磁盘映像的虚拟大小，并将大小计算为下一个 1MB：
 
        rawdisk="MyLinuxVM.raw"
        vhddisk="MyLinuxVM.vhd"
@@ -150,13 +150,13 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
 
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
 
-    这还可确保将所有控制台消息发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。
+    这还可以确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。
 
     除此之外，建议 *删除* 以下参数（如果存在）：
 
         rhgb quiet crashkernel=auto
 
-    图形和静默引导不适用于要将所有日志发送到串行端口的云环境。 根据需要可以配置 `crashkernel` 选项，但请注意此参数会使虚拟机中的可用内存量减少 128MB 或更多，这在小型虚拟机上可能会出现问题。
+    图形引导和无人参与引导不适用于云环境，在该环境中我们想要将所有日志都发送到串行端口。 根据需要可以配置 `crashkernel` 选项，但请注意此参数会使虚拟机中的可用内存量减少 128MB 或更多，这在小型虚拟机上可能会出现问题。
 
 * 安装 Azure Linux 代理
 
@@ -186,3 +186,5 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
   > 
 
 * 然后，需要关闭虚拟机并将 VHD 上传到 Azure。
+
+<!--Update_Description: wording update-->

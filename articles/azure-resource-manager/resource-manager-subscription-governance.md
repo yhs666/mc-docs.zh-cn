@@ -13,16 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/31/2017
-ms.date: 07/03/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2005b85c9c9d58d9184af35648c549d71e0fe622
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: f82132429cf9aec63852c97c5406a12dd74b10e5
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/17/2017
 ---
-# Azure 企业基架 - 出于合规目的监管订阅
-<a id="azure-enterprise-scaffold---prescriptive-subscription-governance" class="xliff"></a>
+# <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure 企业基架 - 出于合规目的监管订阅
 为了实现敏捷性和灵活性，企业越来越多地采用公有云。 它们利用云的优势来产生营收或优化企业资源。 Azure 提供多种不同的服务，企业可以像构建块一样将它们组合，解决广泛的工作负荷与应用程序需求。 
 
 但是，往往难以知道从何处着手。 决定使用 Azure 之后，经常会遇到以下几个问题：
@@ -33,10 +32,9 @@ ms.lasthandoff: 06/23/2017
 
 不带任何防护措施的空白订阅，其前景是让人担忧的。 如果不在这方面有所作为，可能会在过渡到 Azure 时遇到阻碍。
 
-本文为技术专业人员提供一个起点，帮助他们解决监管需求，并在监管需求与敏捷性需求之间权衡利弊。 其中将会介绍企业基架的概念，它可以引导组织实施和管理 Azure 订阅。 
+本文为技术专业人员提供一个起点，帮助他们解决监管需求，并在监管需求与敏捷性需求之间权衡利弊。 其中会介绍企业基架的概念，它可以引导组织实施和管理 Azure 订阅。 
 
-## 监管需求
-<a id="need-for-governance" class="xliff"></a>
+## <a name="need-for-governance"></a>监管需求
 在过渡到 Azure 时，必须提前解决监管方面的问题，确保成功地在企业中利用云。 遗憾的是，建立全面监管系统所花费的时间和存在的官僚主义，意味着某些业务小组必须直接与供应商对话，而不与企业 IT 部门沟通。 如果资源未得到正确管理，这种方法可能会导致企业出现漏洞。 公有云的特征 - 敏捷性、灵活性和基于消耗量的定价 - 对于需要快速满足客户（内部和外部）需求的业务小组而言非常重要。 但是，企业 IT 部门需要确保有效地保护数据和系统。
 
 在现实生活中，我们可以使用基架来打好建筑物的基础。 基架主导总体框架，为需要安装的长久系统提供定位点。 企业基架也是如此：一套灵活的控制机制和 Azure 功能为环境提供结构，为公有云上生成的服务提供定位点。 它为构建者（IT 人员和业务小组）提供创建和附加新服务的基础。
@@ -59,8 +57,7 @@ ms.lasthandoff: 06/23/2017
 > 
 > 
 
-## 定义层次结构
-<a id="define-your-hierarchy" class="xliff"></a>
+## <a name="define-your-hierarchy"></a>定义层次结构
 基架的基础是 Azure 企业许可登记表（和企业门户）。 企业许可登记表定义 Azure 服务在公司内部的形式与用法，属于核心监管结构。 在企业协议中，客户可以将环境进一步细分为部门、帐户，最终细分为订阅。 Azure 订阅是包含所有资源的基本单位。 它还定义 Azure 中的多种限制，例如核心数、资源数，等等。
 
 ![层次结构](./media/resource-manager-subscription-governance/agreement.png)
@@ -81,20 +78,18 @@ Azure 注册的三种常见模式为：
 
 可以在订阅级别应用基架，将企业的监管要求扩展到订阅中。
 
-## 命名标准
-<a id="naming-standards" class="xliff"></a>
+## <a name="naming-standards"></a>命名标准
 基架的第一个支柱是命名标准。 使用妥善设计的命名标准，可以在门户、帐单和脚本中识别资源。 企业很可能已针对本地基础结构制定了命名标准。 将 Azure 添加到环境时，应该将这些命名标准扩展到 Azure 资源。 命名标准有助于在所有级别提高环境管理的效率。
 
 <!--Not Available on ../guidance/*.* such as guidance-naming-conventions.md -->
 > [!TIP]
 > 关于命名约定：
 > * 对资源名称使用骆驼拼写法（例如，myResourceGroup 和 vnetNetworkName）。 注意：某些资源，例如存储帐户，只允许使用小写字母（不能包括其他特殊字符）。
-> * 考虑使用 Azure Resource Manager 策略（下一部分将会介绍）强制实施命名标准。
+> * 考虑使用 Azure Resource Manager 策略（下一部分会介绍）强制实施命名标准。
 > 
 > 前面的提示有助于实现一致的命名约定。
 
-## 策略和审核
-<a id="policies-and-auditing" class="xliff"></a>
+## <a name="policies-and-auditing"></a>策略和审核
 基架的第二个支柱涉及到创建 [Azure Resource Manager 策略](resource-manager-policy.md)和[审核活动日志](resource-group-audit.md)。 使用 Resource Manager 可以控制 Azure 中的风险。 可以定义策略，通过限制、强制实施或审核特定的操作来确保数据所有权。 
 
 * 策略是默认的 **允许** 系统。 通过为资源定义和分配策略来拒绝或审核针对资源的操作，从而实现对操作的控制。
@@ -107,8 +102,7 @@ Azure 注册的三种常见模式为：
 * **审核**：允许请求，但在活动日志中添加一行（可用于提供警报或触发 Runbook）
 * **追加**：将指定的信息添加到资源。 例如，如果某个资源没有“CostCenter”标记，则添加该标记并使用默认值。
 
-### Resource Manager 策略的常见用途
-<a id="common-uses-of-resource-manager-policies" class="xliff"></a>
+### <a name="common-uses-of-resource-manager-policies"></a>Resource Manager 策略的常见用途
 Azure Resource Manager 策略是 Azure 工具包中的一个强大工具。 使用这些策略可以避免意外的成本，通过标记识别资源的成本中心，以及确保满足法规要求。 将策略与内置审核功能相结合，可以创建复杂而灵活的解决方案。 策略允许公司针对“传统 IT”工作负荷和“敏捷”工作负荷（例如，开发客户应用程序）提供控制。 策略的最常见模式包括：
 
 * **地域法规遵从/数据主权** - Azure 为全球各区域提供支持。 企业常常希望能够控制创建资源的位置（不管是为了确保数据主权，还是只为了确保在靠近最终使用者的位置创建资源）。
@@ -141,14 +135,12 @@ Azure Resource Manager 策略是 Azure 工具包中的一个强大工具。 使�
 > 
 > 
 
-### 审核 - 发生了什么？
-<a id="audit---what-happened" class="xliff"></a>
+### <a name="audit---what-happened"></a>审核 - 发生了什么？
 若要查看环境是否正常运行，需要审核用户活动。 Azure 中的大多数资源类型都会创建诊断日志，可以通过日志工具或在 Azure Operations Management Suite 中对其进行分析。 可以跨多个订阅收集活动日志，提供部门或企业视图。 审核记录既是一个重要的诊断工具，也是在 Azure 环境中触发事件的关键机制。
 
 使用 Resource Manager 部署中的活动日志，可以确定执行了哪些 **操作** ，以及谁执行了这些操作。 可以使用 Log Analytics 等工具来收集和聚合活动日志。
 
-## 资源标记
-<a id="resource-tags" class="xliff"></a>
+## <a name="resource-tags"></a>资源标记
 随着组织中的用户不断地在订阅中添加资源，将资源与相应的部门、客户和环境相关联就变得越发重要。 可以通过[标记](resource-group-using-tags.md)将元数据附加到资源。 可以使用标记提供有关资源或所有者的信息。 使用标记不仅可以通过多种方式聚合与分组资源，而且还能使用这些数据实现费用分摊的目的。 可以标记最多包含 15 个“键:值”对的资源。 
 
 资源标记十分灵活，应附加到大多数资源。 常见的资源标记示例包括：
@@ -162,6 +154,7 @@ Azure Resource Manager 策略是 Azure 工具包中的一个强大工具。 使�
 
 ![标记](./media/resource-manager-subscription-governance/resource-group-tagging.png)
 
+<!-- Not Available [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md) -->
 > [!TIP]
 > 考虑制定强制要求对以下各项使用标记的策略：
 > 
@@ -172,8 +165,7 @@ Azure Resource Manager 策略是 Azure 工具包中的一个强大工具。 使�
 > 
 > 此标记策略规定业务、财务、安全、风险管理和综合环境管理部门需要各个订阅中的哪些元数据。 
 
-## 资源组
-<a id="resource-group" class="xliff"></a>
+## <a name="resource-group"></a>资源组
 使用 Resource Manager 可将资源放入有意义的组中，便于管理、记帐或自然关联。 如前所述，Azure 有两种部署模型。 在早期的经典模型中，管理的基本单位是订阅。 订阅中的资源很难分解，导致需要创建大量的订阅。 Resource Manager 模型中引入了资源组。 资源组是具有相同生命周期的或共享某个属性（例如“所有 SQL 服务器”或“应用程序 A”）的资源的容器。
 
 资源组不能彼此包含，资源只能属于一个资源组。 可以针对资源组中的所有资源应用特定操作。 例如，删除某个资源组会删除该资源组中的所有资源。 通常，可将整个应用程序或相关系统放在同一个资源组中。 例如，名为 Contoso Web 应用程序的三层应用程序在同一个资源组中包含 Web 服务器、应用程序服务器和 SQL 服务器。
@@ -184,10 +176,9 @@ Azure Resource Manager 策略是 Azure 工具包中的一个强大工具。 使�
 > * 而有所不同“传统 IT”工作负荷通常按同一生命周期中的项（例如某个应用程序）分组。 由于可按应用程序分组，因此可以管理每个应用程序。
 > * “敏捷 IT”工作负荷往往侧重面向外部客户的云应用程序。 资源组应反映部署层（如 Web 层、应用程序层）和管理层。
 > 
-> 了解工作负荷有助于你制定资源组策略。
+> 了解工作负荷有助于制定资源组策略。
 
-## 基于角色的访问控制
-<a id="role-based-access-control" class="xliff"></a>
+## <a name="role-based-access-control"></a>基于角色的访问控制
 我们可能会问自己，“谁才有权访问资源？ 或者“如何控制这种访问权限？” 允许或禁止访问 Azure 门户，以及控制在门户中对资源的访问至关重要。 
 
 Azure 在最初发布时，对订阅的访问控制非常简单：只允许管理员或共同管理员访问。 有权访问经典模型中的订阅意味着有权访问门户中的所有资源。 缺少精细控制导致需要衍生订阅来针对 Azure 注册提供合理的访问控制级别。
@@ -203,10 +194,9 @@ Azure 在最初发布时，对订阅的访问控制非常简单：只允许管�
 >   * 部署组：只能部署资源的组。
 >   * 虚拟机管理：能够重新启动 VM（为了操作）的组
 > 
-> 这些提示有助于你跨订阅管理用户访问权限。
+> 这些提示有助于跨订阅管理用户访问权限。
 
-## Azure 资源锁
-<a id="azure-resource-locks" class="xliff"></a>
+## <a name="azure-resource-locks"></a>Azure 资源锁
 随着组织不断在订阅中添加核心服务，确保这些服务随时可用，避免业务中断已变得越来越重要。 使用[资源锁](resource-group-lock-resources.md)可以限制针对高价值资源（修改或删除这些资源会给应用程序或云基础结构造成重大影响）的操作。 可以将锁应用于订阅、资源组或资源。 通常，我们会将锁应用于虚拟网络、网关和存储帐户等基础资源。 
 
 资源锁目前支持两个值：CanNotDelete 和 ReadOnly。 CanNotDelete 表示用户（具有相应权限）仍可读取或修改某个资源，但无法删除该资源。 ReadOnly 表示经过授权的用户无法删除或修改某个资源。
@@ -223,8 +213,7 @@ Azure 在最初发布时，对订阅的访问控制非常简单：只允许管�
 > 
 > 此外，策略对于相应控制机制的维护至关重要。 建议对使用中的策略应用 **CanNotDelete** 锁。
 
-## 核心网络资源
-<a id="core-networking-resources" class="xliff"></a>
+## <a name="core-networking-resources"></a>核心网络资源
 对资源的访问可能是从内部（在企业网络中）或外部（通过 Internet）发起的。 组织中的用户经常会无意中将资源放在错误的位置，使其遭到恶意访问。 与对待本地设备一样，企业必须增设相应的控制机制，确保 Azure 用户做出正确的决策。 为了进行订阅监管，我们指定了可提供基本访问控制的核心资源。 这些核心资源包括：
 
 * **虚拟网络** 是子网的容器对象。 尽管严格意义上没有必要，但将应用程序连接到内部企业资源时往往要用到它。
@@ -237,10 +226,9 @@ Azure 在最初发布时，对订阅的访问控制非常简单：只允许管�
 > * 为面向外部的工作负荷和面向内部的工作负荷创建专用的虚拟网络。 这种方法可以减少将原本用于内部工作负荷的虚拟机意外放入外向空间的可能性。
 > * 通过配置网络安全组来限制访问。 最起码应该阻止从内部虚拟网络访问 Internet，并阻止从外部虚拟网络访问企业网络。
 > 
-> 这些提示有助于你实现安全的网络资源。
+> 这些提示有助于实现安全的网络资源。
 
-### 自动化
-<a id="automation" class="xliff"></a>
+### <a name="automation"></a>自动化
 单独管理每个资源不仅费时，而且在执行某些操作时还很容易出错。 Azure 提供多种自动化功能，包括 Azure 自动化、逻辑应用和 Azure Functions。 [Azure 自动化](../automation/automation-intro.md)可让管理员创建和定义 Runbook 来处理常见的资源管理任务。 可以使用 PowerShell 代码编辑器或图形编辑器创建 Runbook。 可以生成复杂的多阶段工作流。 Azure 自动化通常用于处理常见任务，例如，关闭未使用的资源，无需人工干预创建资源来响应特定的触发器。
 
 > [!TIP]
@@ -252,8 +240,7 @@ Azure 在最初发布时，对订阅的访问控制非常简单：只允许管�
 > 
 > 
 
-## Azure 安全中心
-<a id="azure-security-center" class="xliff"></a>
+## <a name="azure-security-center"></a>Azure 安全中心
 在采用云的过程中，最大的阻碍之一也许是安全忧虑。 IT 风险管理人员和安全部门需确保 Azure 中资源的安全。 
 
 <!-- Not Available on ../security-center/*.* -->
@@ -266,6 +253,7 @@ Azure 安全中心在一个中心视图中提供订阅中资源的安全状态�
 > 
 > 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 了解订阅监管后，接下来可以了解如何实施这些建议。 请参阅 [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md)（Azure 订阅监管实施示例）。
+
+<!--Update_Description: wording update-->

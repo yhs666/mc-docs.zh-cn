@@ -3,7 +3,7 @@ title: "Azure 中继 API 概述 | Azure"
 description: "可用的 Azure 中继 API 概述"
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: fdaa1d2b-bd80-4e75-abb9-0c3d0773af2d
@@ -12,30 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/24/2017
-ms.date: 07/07/2017
+origin.date: 07/03/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: d41830af07af916b97d493ca54c387bf948f0dd1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.date: 08/21/2017
+ms.openlocfilehash: fe8993875ea9f707e1134d36a3bc3211743f1623
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="available-relay-apis"></a>可用的中继 API
 
 ## <a name="runtime-apis"></a>运行时 API
 
-下面是当前可用的所有中继运行时客户端的列表。
+下表列出了当前可用的所有中继运行时客户端。
 
-有关每个运行时库状态的详细信息，请参阅[其他信息](#additional-information)。
+[其他信息](#additional-information)部分包含有关每个运行时库状态的详细信息。
 
 | 语言/平台 | 可用功能 | 客户端程序包 | 存储库 |
 | --- | --- | --- | --- |
 | .NET Standard | 混合连接 | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET framework | WCF 中继 | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | 不适用 |
-| 节点 | 混合连接 | [hyco-ws](https://www.npmjs.com/package/hyco-ws)<br/>[hyco-websocket](https://www.npmjs.com/package/hyco-websocket) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| 节点 | 混合连接 | [`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### <a name="additional-information"></a> 其他信息
 
@@ -46,3 +44,6 @@ ms.lasthandoff: 05/05/2017
 若要了解有关 Azure 中继的详细信息，请访问以下链接：
 * [什么是 Azure 中继？](./relay-what-is-it.md)
 * [中继常见问题](./relay-faq.md)
+
+
+<!--Update_Description:update meta properties only-->

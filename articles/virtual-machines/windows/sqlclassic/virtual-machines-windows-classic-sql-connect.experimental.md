@@ -15,31 +15,27 @@ ms.workload: iaas-sql-server
 origin.date: 01/31/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-experimental: True
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: ac3e6de9119693a0f7df4ea5027bc80b36b74f14
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 1fd12a563fe7a0bd47bb791bc4ac8f9d5376c1b5
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/18/2017
 ---
-# 连接到 Azure 上的 SQL Server 虚拟机（经典部署）
-<a id="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment" class="xliff"></a>
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>连接到 Azure 上的 SQL Server 虚拟机（经典部署）
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-connect.md)
 > * [经典](../classic/sql-connect.md)
 > 
 > 
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 本主题介绍如何连接到运行于 Azure 虚拟机的 SQL Server 实例。 它介绍了一些[常规连接方案](#connection-scenarios)，并提供了[在 Azure VM 中配置 SQL Server 连接的详细步骤](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)。
 
 > [!IMPORTANT] 
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 如果使用的是 Resource Manager VM，请参阅[使用 Resource Manager 连接到 Azure 上的 SQL Server 虚拟机](../sql/virtual-machines-windows-sql-connect.md)。
 
-## 连接方案
-<a id="connection-scenarios" class="xliff"></a>
+## <a name="connection-scenarios"></a>连接方案
 将客户端连接到虚拟机上运行的 SQL Server 的方式各不相同，具体取决于客户端的位置与计算机/网络配置。 这些方案包括：
 
 * [连接到同一云服务中的 SQL Server](#connect-to-sql-server-in-the-same-cloud-service)
@@ -51,16 +47,14 @@ ms.lasthandoff: 06/23/2017
 > 
 > 
 
-### 连接到同一云服务中的 SQL Server
-<a id="connect-to-sql-server-in-the-same-cloud-service" class="xliff"></a>
+### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>连接到同一云服务中的 SQL Server
 可以在同一云服务中创建多个虚拟机。 若要了解此虚拟机方案，请参阅[如何将虚拟机连接到虚拟网络或云服务](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service)。 在此方案中，一台虚拟机上的客户端尝试连接到在同一云服务中另一虚拟机上运行的 SQL Server。
 
-在此方案中，可使用 VM **名称**（在门户中也显示为**计算机名**或**主机名**）进行连接。 这是你在创建 VM 时为其提供的名称。 例如，如果你将 SQL VM 命名为 **mysqlvm**，则同一云服务中的客户端 VM 可以使用以下连接字符串进行连接：
+在此方案中，可使用 VM **名称**（在门户中也显示为**计算机名**或**主机名**）进行连接。 这是你在创建 VM 时为其提供的名称。 例如，如果将 SQL VM 命名为 **mysqlvm**，则同一云服务中的客户端 VM 可以使用以下连接字符串进行连接：
 
     "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-### 通过 Internet 连接到 SQL Server
-<a id="connect-to-sql-server-over-the-internet" class="xliff"></a>
+### <a name="connect-to-sql-server-over-the-internet"></a>通过 Internet 连接到 SQL Server
 如果想要通过 Internet 连接到 SQL Server 数据库引擎，则必须创建虚拟机终结点以进行传入 TCP 通信。 此 Azure 配置步骤将传入 TCP 端口通信定向到虚拟机可以访问的 TCP 端口。
 
 若要通过 Internet 进行连接，必须使用 VM 的 DNS 名称和（本文中稍后配置的）VM 终结点端口号。 若要查找 DNS 名称，请导航到 Azure 门户，然后选择“虚拟机(经典)”。 然后选择你的虚拟机。 “DNS 名称”显示在“概述”部分中。
@@ -69,26 +63,24 @@ ms.lasthandoff: 06/23/2017
 
     "Server=mycloudservice.chinacloudapp.cn,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-尽管此连接字符串使客户端可通过 Internet 进行连接，但这并不意味着任何人都可以连接到 SQL Server。 外部客户端必须有正确的用户名和密码。 为了提高安全性，请不要对公共虚拟机终结点使用常用的 1433 端口。 如果可能，请考虑在终结点上添加 ACL 以将流量限制到你允许的客户端。 有关在终结点上使用 ACL 的说明，请参阅[管理终结点上的 ACL](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)。
+尽管此连接字符串使客户端可通过 Internet 进行连接，但这并不意味着任何人都可以连接到 SQL Server。 外部客户端必须有正确的用户名和密码。 为了提高安全性，请不要对公共虚拟机终结点使用常用的 1433 端口。 如果可能，请考虑在终结点上添加 ACL 以将流量限制到允许的客户端。 有关在终结点上使用 ACL 的说明，请参阅[管理终结点上的 ACL](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)。
 
 > [!NOTE]
 > 使用此方法与 SQL Server 通信时，Azure 数据中心的所有传出数据都将服从[出站数据传输的定价](https://www.azure.cn/pricing/details/data-transfer/)。
 > 
 > 
 
-### 连接到同一虚拟网络中的 SQL Server
-<a id="connect-to-sql-server-in-the-same-virtual-network" class="xliff"></a>
-[虚拟网络](../../../virtual-network/virtual-networks-overview.md)支持其他方案。 你可以连接同一虚拟网络中的 VM，即使这些 VM 位于不同的云服务中。 使用[站点到站点 VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)，可以创建连接 VM 与本地网络和计算机的混合体系结构。
+### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>连接到同一虚拟网络中的 SQL Server
+[虚拟网络](../../../virtual-network/virtual-networks-overview.md)支持其他方案。 可以连接同一虚拟网络中的 VM，即使这些 VM 位于不同的云服务中。 使用[站点到站点 VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)，可以创建连接 VM 与本地网络和计算机的混合体系结构。
 
 虚拟网络还允许将 Azure VM 加入域。 加入域是将 Windows 身份验证用于 SQL Server 的唯一方式。 其他连接方案需要使用用户名和密码进行 SQL 身份验证。
 
-如果计划配置域环境和 Windows 身份验证，则不需要配置公共终结点或 SQL 身份验证和登录。 在此方案中，你可以在连接字符串中指定 SQL Server VM 名称以连接 SQL Server 实例。 以下示例假设已配置 Windows 身份验证，并且用户已获得访问 SQL Server 实例的权限。
+如果计划配置域环境和 Windows 身份验证，则不需要配置公共终结点或 SQL 身份验证和登录。 在此方案中，可以在连接字符串中指定 SQL Server VM 名称以连接 SQL Server 实例。 以下示例假设已配置 Windows 身份验证，并且用户已获得访问 SQL Server 实例的权限。
 
     "Server=mysqlvm;Integrated Security=true"
 
-## 在 Azure VM 中配置 SQL Server 连接的步骤
-<a id="steps-for-configuring-sql-server-connectivity-in-an-azure-vm" class="xliff"></a>
-以下步骤演示了如何使用 SQL Server Management Studio (SSMS) 通过 Internet 连接到 SQL Server 实例。 但是，这些步骤同样适用于使你的 SQL Server 虚拟机可以通过本地和 Azure 中运行的应用程序访问。
+## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>在 Azure VM 中配置 SQL Server 连接的步骤
+以下步骤演示了如何使用 SQL Server Management Studio (SSMS) 通过 Internet 连接到 SQL Server 实例。 但是，这些步骤同样适用于使 SQL Server 虚拟机可以通过本地和 Azure 中运行的应用程序访问。
 
 必须先完成下列任务，然后才能从其他 VM 或 Internet 连接到 SQL Server 的实例：
 
@@ -110,12 +102,9 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [Connect to SQL Server in a VM Classic Steps](../../../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
-如果还打算针对高可用性和灾难恢复使用 AlwaysOn 可用性组，则应考虑实施侦听器。 数据库客户端将连接到侦听器，而不是直接连接到一个 SQL Server 实例。 侦听器将客户端路由到可用性组中的主副本。 有关详细信息，请参阅[在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听器](../classic/ps-sql-int-listener.md)。
+## <a name="next-steps"></a>后续步骤
+如果还打算针对高可用性和灾难恢复使用 AlwaysOn 可用性组，则应考虑实施侦听器。 数据库客户端连接到侦听器，而不是直接连接到一个 SQL Server 实例。 侦听器将客户端路由到可用性组中的主副本。 有关详细信息，请参阅[在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听器](../classic/ps-sql-int-listener.md)。
 
 请务必查看适用于 Azure 虚拟机上运行的 SQL Server 的所有最佳安全性实践。 有关详细信息，请参阅 [Azure 虚拟机中 SQL Server 的安全注意事项](../sql/virtual-machines-windows-sql-security.md)。
-
-[探索学习路径](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) ：Azure 虚拟机上的 SQL Server。 
 
 有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [SQL Server on Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。

@@ -3,21 +3,22 @@ title: "在 Azure Service Fabric 中帮助保护服务的通信 | Azure"
 description: "概述如何帮助保护在 Azure Service Fabric 群集中运行的 Reliable Services 的通信。"
 services: service-fabric
 documentationcenter: java
-author: PavanKunapareddyMSFT
-manager: timlt
+author: rockboyfor
+manager: digimobile
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/09/2017
-ms.author: v-johch
-ms.openlocfilehash: 968d65216d175a7337dca38ce20db6c89e2c0123
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 06/30/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
+ms.openlocfilehash: 169789d7c4914f1ae591abd50e279ebaa20ddc38
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>在 Azure Service Fabric 中帮助保护服务的通信
 > [!div class="op_single_selector"]
@@ -27,9 +28,9 @@ ms.lasthandoff: 06/21/2017
 >
 
 ## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>使用服务远程处理时帮助保护服务
-我们将使用一个现有[示例](service-fabric-reliable-services-communication-remoting-java.md)来解释如何为 Reliable Services 设置远程处理。 若要在使用服务远程处理时帮助保护服务，请遵循以下步骤：
+我们使用一个现有[示例](service-fabric-reliable-services-communication-remoting-java.md) ，解释如何为 Reliable Services 设置远程处理。 若要在使用服务远程处理时帮助保护服务，请遵循以下步骤：
 
-1. 创建接口 `HelloWorldStateless`，用于定义可供服务的远程过程调用使用的方法。 服务将使用 `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` 包中声明的 `FabricTransportServiceRemotingListener`。 这是可以提供远程处理功能的 `CommunicationListener` 实现。
+1. 创建接口 `HelloWorldStateless`，用于定义可供服务的远程过程调用使用的方法。 服务会使用 `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` 包中声明的 `FabricTransportServiceRemotingListener`。 这是可以提供远程处理功能的 `CommunicationListener` 实现。
 
     ```java
     public interface HelloWorldStateless extends Service {
@@ -53,7 +54,7 @@ ms.lasthandoff: 06/21/2017
     ```
 2. 添加侦听器设置和安全凭据。
 
-    确保你要用来帮助保护服务通信的证书安装在群集中的所有节点上。 有两种方式可用于提供侦听器设置和安全凭据：
+    确保要用来帮助保护服务通信的证书安装在群集中的所有节点上。 有两种方式可用于提供侦听器设置和安全凭据：
 
    1. 使用[配置包](service-fabric-application-model.md)提供：
 
@@ -84,7 +85,7 @@ ms.lasthandoff: 06/21/2017
         }
        ```
 
-        如果将在 settings.xml 中添加 `TransportSettings` 节而不添加任何前缀，`FabricTransportListenerSettings` 将默认加载此节中的所有设置。
+        如果要在 settings.xml 中添加 `TransportSettings` 节而不添加任何前缀，`FabricTransportListenerSettings` 将默认加载此节中的所有设置。
 
         ```xml
         <!--"TransportSettings" section without any prefix.-->
@@ -92,7 +93,7 @@ ms.lasthandoff: 06/21/2017
             ...
         </Section>
         ```
-        在这种情况下，`CreateServiceReplicaListeners` 方法如下所示：
+        在这种情况下，`CreateServiceInstanceListeners` 方法如下所示：
 
         ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -119,3 +120,5 @@ ms.lasthandoff: 06/21/2017
     CompletableFuture<String> message = client.getHelloWorld();
 
     ```
+
+<!--Update_Description: update meta properties, wording update-->

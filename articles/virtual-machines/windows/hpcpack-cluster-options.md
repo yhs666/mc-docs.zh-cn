@@ -16,11 +16,11 @@ ms.workload: big-compute
 origin.date: 02/06/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: 4407dcf9334b907d0f9d6545c2abb5ca95019864
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 682535f2071db5d912a99856b60f05df6f2be1f9
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="options-with-hpc-pack-to-create-and-manage-a-windows-hpc-cluster-in-azure"></a>在 Azure 中使用 HPC Pack 创建和管理 Windows HPC 群集时可用的选项
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
@@ -45,6 +45,7 @@ ms.lasthandoff: 06/23/2017
 * [增加和减少 HPC Pack 群集中的 Azure 计算资源](classic/hpcpack-cluster-node-autogrowshrink.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [将作业提交到 Azure 中的 HPC Pack 群集](hpcpack-cluster-submit-jobs.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [HPC Pack 中的作业管理](https://technet.microsoft.com/library/jj899585.aspx)
+* [使用 Azure Active Directory 在 Azure 中管理 HPC Pack 群集](hpcpack-cluster-active-directory.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="add-worker-role-nodes-to-an-hpc-pack-cluster"></a>将辅助角色节点添加到 HPC Pack 群集
 * [使用 HPC Pack 迸发到 Azure 辅助角色实例](https://technet.microsoft.com/library/gg481749.aspx)

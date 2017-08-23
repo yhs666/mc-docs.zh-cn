@@ -14,17 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 07/03/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: 8acfbff4820c84332f39dfc2dc99651db1dbf4f8
-ms.sourcegitcommit: 2c397ac599bdb39b257580a1b55a1ce67e19ae56
+ms.openlocfilehash: 789e42d1df6c4a6d91f6275c1710dece9c93d155
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 08/18/2017
 ---
-# 如何监视 Azure 中的 Linux 虚拟机
-<a id="how-to-monitor-a-linux-virtual-machine-in-azure" class="xliff"></a>
+# <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>如何监视 Azure 中的 Linux 虚拟机
 
 为确保 Azure 中的虚拟机 (VM) 正常运行，可以查看启动诊断和性能指标。 本教程介绍如何执行下列操作：
 
@@ -36,10 +35,9 @@ ms.lasthandoff: 07/03/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-本教程需要 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 
-## 创建 VM
-<a id="create-vm" class="xliff"></a>
+## <a name="create-vm"></a>创建 VM
 
 若要查看诊断和指标的状态，需要创建一个 VM。 首先，使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroupMonitor”的资源组。
 
@@ -58,8 +56,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-## 启用启动诊断
-<a id="enable-boot-diagnostics" class="xliff"></a>
+## <a name="enable-boot-diagnostics"></a>启用启动诊断
 
 Linux VM 启动时，启动诊断扩展将捕获启动输出并将其存储在 Azure 存储中。 此数据可以用于排查 VM 启动问题。 使用 Azure CLI 创建 Linux VM 时，不会自动启用启动诊断。
 
@@ -90,8 +87,7 @@ az vm boot-diagnostics enable \
   --storage $bloburi
 ```
 
-## 查看启动诊断
-<a id="view-boot-diagnostics" class="xliff"></a>
+## <a name="view-boot-diagnostics"></a>查看启动诊断
 
 启用引导诊断后，每当停止再启动 VM 时，会将有关启动过程的信息写入日志文件。 本示例首先使用 [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate) 命令解除分配 VM，如下所示：
 
@@ -111,8 +107,7 @@ az vm start --resource-group myResourceGroupMonitor --name myVM
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
 ```
 
-## 安装诊断扩展
-<a id="install-diagnostics-extension" class="xliff"></a>
+## <a name="install-diagnostics-extension"></a>安装诊断扩展
 
 > [!IMPORTANT]
 > 本文档介绍 Linux 诊断扩展 2.3 版（已弃用）。 2.3 版的有效支持期至 2018 年 6 月 30 日。
@@ -128,8 +123,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
     ![查看诊断指标](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
-## 创建警报
-<a id="create-alerts" class="xliff"></a>
+## <a name="create-alerts"></a>创建警报
 
 可以根据特定的性能指标创建警报。 例如，当平均 CPU 使用率超过特定的阈值或者可用磁盘空间低于特定的空间量时，警报可用于发出通知。 警报显示在 Azure 门户中，也可以通过电子邮件发送。 还可以触发 Azure 自动化 Runbook 或 Azure 逻辑应用来响应生成的警报。
 
@@ -142,8 +136,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 6. （可选）选中“电子邮件所有者、参与者和读者”对应的框，以便向他们发送电子邮件通知。 默认操作是在门户中显示通知。
 7. 单击“确定”按钮。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 在本教程中，你已使用 Azure 安全中心配置并查看了 VM。 你已了解如何：
 
@@ -157,3 +150,5 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 > [!div class="nextstepaction"]
 > [Linux 虚拟机脚本示例](./cli-samples.md)
+
+<!--Update_Description: wording update-->

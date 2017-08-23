@@ -1,10 +1,10 @@
 ---
-title: "指定 Service Fabric 服务终结点 | Microsoft 文档"
+title: "指定 Service Fabric 服务终结点 | Azure"
 description: "如何在服务清单中描述终结点资源，包括如何设置 HTTPS 终结点"
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: v-johch
-ms.openlocfilehash: d793b001a3c085643c844cc361dc1fceac2264e4
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 6/28/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
+ms.openlocfilehash: a38f357e8a3ccfd127b6df59ae0f81999210d28d
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>在服务清单中指定资源
 ## <a name="overview"></a>概述
@@ -88,17 +89,17 @@ HTTP 终结点由 Service Fabric 自动建立 ACL。
 </ServiceManifest>
 ```
 
-## <a name="example-specifying-an-https-endpoint-for-your-service"></a>示例：指定用于你的服务的 HTTPS 终结点
+## <a name="example-specifying-an-https-endpoint-for-your-service"></a>示例：指定用于服务的 HTTPS 终结点
 HTTPS 协议提供服务器身份验证，用于对客户端-服务器通信进行加密。 若要在 Service Fabric 服务上启用 HTTPS，请在服务清单的“*资源 -> 终结点 -> 终结点*”部分中指定该协议，如前面针对终结点 *ServiceEndpoint3* 的操作所示。
 
 > [!NOTE]
-> 不能在应用程序升级期间更改服务的协议，因为这是一项破坏性更改。
+> 在应用程序升级期间不能更改服务的协议。 如果在升级期间进行了更改，那会是一项重大的更改。
 > 
 > 
 
-下面是你需要为 HTTPS 设置的一个示例 ApplicationManifest。 必须提供证书的指纹。 EndpointRef 是对 ServiceManifest 中 EndpointResource 的引用，你为其设置 HTTPS 协议。 可以添加多个 EndpointCertificate。  
+下面是需要为 HTTPS 设置的一个示例 ApplicationManifest。 必须提供证书的指纹。 EndpointRef 是对 ServiceManifest 中 EndpointResource 的引用，为其设置 HTTPS 协议。 可以添加多个 EndpointCertificate。  
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest ApplicationTypeName="Application1Type"
                      ApplicationTypeVersion="1.0.0"
@@ -137,3 +138,5 @@ HTTPS 协议提供服务器身份验证，用于对客户端-服务器通信进�
   </Certificates>
 </ApplicationManifest>
 ```
+
+<!--Update_Description: update meta properties, wording update-->

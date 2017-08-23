@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 04/17/2017
 ms.date: 08/14/2017
 ms.author: v-haiqya
-ms.openlocfilehash: be728c0ba967be3c0e853fd9077345f50d0b1faf
-ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
+ms.openlocfilehash: 7e3b07651cecc9ce36f445824d1054830c37b470
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="use-the-azure-importexport-service-to-transfer-data-to-blob-storage"></a>使用 Azure 导入/导出服务可将数据传入 Blob 存储
 使用 Azure 导入/导出服务，可以将硬盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传入 Azure Blob 存储。 用户还可以使用此服务将数据从 Azure Blob 存储传输到硬盘驱动器，再寄送到本地站点。 如果需要在本地站点和 Azure 之间传输数 TB 的数据，而由于带宽限制或网络成本过高，通过网络上传或下载数据不可行，在这种情况下，则可以使用此服务。
@@ -112,7 +112,7 @@ Azure 导入/导出服务支持将数据复制到中国东部或中国北部的 
 
 **从数据中心寄送驱动器：**
 
-创建导入或导出作业时，必须提供回寄地址，以便 Microsoft 在作业完成后使用该地址将驱动器寄回给你。 请确保提供有效的回寄地址，以免延误对驱动器的处理。
+创建导入或导出作业时，必须提供回寄地址，以便 21Vainet 在作业完成后使用该地址寄回驱动器。 请确保提供有效的回寄地址，以免延误对驱动器的处理。
 
 可以使用所选的承运人来寄送硬盘。 该承运人商应提供相应的跟踪号来维护监护链。 此外，还必须提供有效的中国邮政服务帐号，以便 Microsoft 寄回驱动器。 如果已经有了一个快递商帐户号码，请确保其有效。
 
@@ -158,7 +158,7 @@ Azure 导入/导出服务支持将数据复制到中国东部或中国北部的 
     ![图 2：导出作业流](./media/storage-import-export-service/exportjob.png)
 
 ### <a name="viewing-your-job-status"></a>查看作业和驱动器状态
-可以从 Azure 门户跟踪导入或导出作业的状态。 单击“导入/导出”选项卡。 作业的列表出现在该页上。
+可以从 Azure 门户跟踪导入或导出作业的状态。 单击“导入/导出”选项卡。作业的列表出现在该页上。
 
 ![查看作业状态](./media/storage-import-export-service/jobstate.png)
 
@@ -390,7 +390,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
    > 
    > 
 7. 可以在 Azure 门户中的仪表板上跟踪作业进度。 通过“查看作业状态”，了解上一部分中每个作业状态的含义。
-8. 收到包含已导出数据的驱动器以后，即可查看和复制该服务为驱动器生成的 BitLocker 密钥。 在 Azure 门户中导航到用户的存储帐户，并单击“导入/导出”选项卡。 从列表中选择用户的导出作业，并单击“查看密钥”按钮。 BitLocker 密钥随即出现，如下所示：
+8. 收到包含已导出数据的驱动器以后，即可查看和复制该服务为驱动器生成的 BitLocker 密钥。 在 Azure 门户中导航到用户的存储帐户，并单击“导入/导出”选项卡。从列表中选择用户的导出作业，并单击“查看密钥”按钮。 BitLocker 密钥随即出现，如下所示：
    
    ![查看导出作业的 BitLocker 密钥](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 
@@ -434,9 +434,9 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 
 否。 所有驱动器都使用 BitLocker 加密。
 
-**我是否可为导入/导出作业从 Microsoft 购买驱动器？**
+**是否可为导入/导出作业从 21Vianet 购买驱动器？**
 
-否。 对于导入和导出作业，需要装运自己的驱动器。
+不可以。 对于导入和导出作业，需要装运自己的驱动器。
 
 **如何访问此服务导入的数据** 可以通过 Azure 门户或使用名为“存储资源管理器”的独立工具来访问 Azure 存储帐户中的数据。 https://docs.azure.cn/zh-cn/vs-azure-tools-storage-manage-with-storage-explorer 
 
@@ -459,9 +459,9 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 
 可以通过任何知名的快递商（例如 FedEx 或中国邮政）将驱动器寄送到数据中心。 但是，如果要求我们将驱动器从数据中心寄回给你，你必须提供可用地址。
 
-**跨国寄送驱动器是否存在限制？**
+**寄送驱动器是否存在限制？**
 
-在发运物理介质之前，请咨询顾问以验证介质和数据是否可以合法地发运到所确定的数据中心。 这有助于确保它可以及时到达 Microsoft。
+在发运物理介质之前，请咨询顾问以验证介质和数据是否可以合法地发运到所确定的数据中心。 这有助于确保它可以及时到达 21Vianet。
 
 创建作业时，寄送地址是一个不同于存储帐户位置的位置。我该怎样做？
 

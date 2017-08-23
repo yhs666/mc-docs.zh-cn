@@ -31,6 +31,7 @@
 <!-- Not Availble ### [Use objects for parameters](resource-manager-objects-as-parameters.md) -->
 ### [在链接模板之间共享状态](best-practices-resource-manager-state.md)
 ### [用于设计模板的模式](best-practices-resource-manager-design-templates.md)
+
 ## 部署
 ### PowerShell
 #### [部署模板](resource-group-template-deploy.md)
@@ -70,13 +71,15 @@
 <!-- Not Available ### [Use scripts to assign policy](resource-manager-policy-create-assign.md) -->
 ### 示例
 <!-- Not Available #### [Resource tags](resource-manager-policy-tags.md) -->
+<!-- Not Available #### [Naming conventions](resource-manager-policy-naming-convention.md) -->
+<!-- Not Available #### [Network](resource-manager-policy-network.md) -->
 <!-- Not Available #### [Storage](resource-manager-policy-storage.md) -->
 #### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure-resource-manager%2ftoc.json)
 #### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure-resource-manager%2ftoc.json)
 
 <!-- Not Available ## Use managed applications -->
-<!-- Not Available ### [Publish managed application](managed-application-publishing.md) -->
-<!-- Not Available ### [Consume managed application](managed-application-consumption.md) -->
+<!-- Not Available ### [Publish service catalog application](managed-application-publishing.md) -->
+<!-- Not Available ### [Consume service catalog application](managed-application-consumption.md) -->
 <!-- Not Available ### [Create UI definitions](managed-application-createuidefinition-overview.md) -->
 
 ## 审核
@@ -85,6 +88,7 @@
 
 ## 故障排除
 ### [常见部署错误](resource-manager-common-deployment-errors.md)
+### [了解部署错误](resource-manager-troubleshoot-tips.md)
 
 # 引用
 <!-- Not Available ## [Template format](/templates/) -->
@@ -118,8 +122,8 @@
 ## [REST](https://docs.microsoft.com/rest/api/resources/)
 
 # 资源
+<!-- Not Available ## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager) -->
+## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [限制请求](resource-manager-request-limits.md)
 ## [跟踪异步操作](resource-manager-async-operations.md)
-## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager) -->
-<!-- Not Available ## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager) -->

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/23/2017
+origin.date: 06/27/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: d2ea8fef1e01f27ee1347fb0273bc9f6ecc79e1b
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 08/21/2017
+ms.openlocfilehash: 5f55aeb8fba67a0862f4e544325cdbbb706f99c0
+ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/14/2017
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 语法
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 07/14/2017
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
 ```  
   
-这是指以字母开头且后跟一个或多个下划线/字母/数字的任何字符串。  
+此语法是指任何以字母开头且后跟一个或多个下划线/字母/数字的字符串。  
   
 `[:IsLetter:]` 是指分类为 Unicode 字母的任何 Unicode 字符。 `System.Char.IsLetter(c)` 返回 `true`（如果 `c` 为 Unicode 字母）。  
   
@@ -147,7 +147,7 @@ ms.lasthandoff: 07/14/2017
   
 -   `<integer_constant>` 是指不使用引号引起来且不包含小数点的数字字符串。 这些值作为 `System.Int64` 在内部存储，并具有相同的作用域。  
   
-     下面是长整数常量的示例：  
+     下面是长常量的示例：  
   
     ```  
     1894  
@@ -223,7 +223,7 @@ ms.lasthandoff: 07/14/2017
   
 ### <a name="property-evaluation-semantics"></a>属性求值语义  
   
--   对不存在的系统属性进行求值的尝试会引发 [FilterException](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.filterexception) 异常。  
+-   尝试对不存在的系统属性求值会引发 [FilterException](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.filterexception) 异常。  
   
 -   不存在的属性在内部作为 **未知**进行求值。  
   
@@ -239,11 +239,11 @@ ms.lasthandoff: 07/14/2017
   
  `[NOT] LIKE`中的未知求值：  
   
--   如果任何操作数的求值结果为**未知**，则结果为**未知**。  
+-   如果任何操作数的求值结果为“未知”，则结果为“未知”。  
   
  `[NOT] IN`中的未知求值：  
   
--   如果左侧操作数的求值结果为**未知**，则结果为**未知**。  
+-   如果左侧操作数的求值结果为“未知”，则结果为“未知”。  
   
  **AND** 运算符中的未知求值：  
   

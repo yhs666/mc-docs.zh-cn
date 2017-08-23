@@ -12,28 +12,28 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/05/2017
-ms.date: 07/03/2017
+origin.date: 06/28/2017
+ms.date: 08/02/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0665ac6003971680aee598e0b806d2ce2929b88
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 96df8a9584c855caeab11b8ee045ef3f97e48478
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 
-与其他 Azure 服务一样，与 Batch 服务关联的某些资源存在限制。 其中的许多限制是 Azure 在订阅或帐户级别应用的默认配额。 本文将描述这些默认值，以及如何请求提高配额。
+与其他 Azure 服务一样，与 Batch 服务关联的某些资源存在限制。 其中的许多限制是 Azure 在订阅或帐户级别应用的默认配额。 本文描述这些默认值，以及如何请求提高配额。
 
 设计和增加 Batch 工作负荷时，请记住这些配额。 例如，如果池没有达到指定的计算节点目标数量，那么可能是已达到批处理帐户的核心配额限制，或者已达到订阅的区域 VM 核心配额。
 
 可以在单个批处理帐户中运行多个批处理工作负荷，或者在相同订阅的不同 Azure 区域的批处理帐户之间分散工作负荷。
 
-如果你打算在 Batch 中运行生产工作负荷，可能需要将一个或多个配额提高到默认值以上。 如果需要提高配额，可以免费提出在线 [客户支持请求](#increase-a-quota) 。
+如果打算在 Batch 中运行生产工作负荷，可能需要将一个或多个配额提高到默认值以上。 如果需要提高配额，可以免费提出在线 [客户支持请求](#increase-a-quota) 。
 
 > [!NOTE]
-> 配额是一种信用限制，不附带容量保证。 如果你有大规模的容量需求，请联系 Azure 支持。
+> 配额是一种信用限制，不附带容量保证。 如果有大规模的容量需求，请联系 Azure 支持。
 > 
 > 
 
@@ -47,13 +47,15 @@ ms.lasthandoff: 07/14/2017
 | 每个 Batch 帐户的[应用程序](batch-application-packages.md)数 |20 |
 | 每个应用程序的应用程序包数 |40 |
 | 应用程序包大小（每个） |约 195GB<sup>1</sup> |
+| 启动任务最大大小 | 32,768 个字符<sup>2</sup> |
 
-<sup>1</sup> 最大的块 Blob 大小的 Azure 存储限制
+<sup>1</sup> 最大的块 Blob 大小的 Azure 存储限制<br />
+<sup>2</sup> 包括资源文件和环境变量
 
 ## <a name="view-batch-quotas"></a>查看 Batch 配额
 可在 [Azure 门户][portal]中查看批处理帐户配额。
 
-1. 在门户中选择“Batch 帐户”，然后选择所需的 Batch 帐户。
+1. 在门户中选择“Batch 帐户”，并选择所需的 Batch 帐户。
 2. 在批处理帐户的菜单边栏选项卡中选择“属性”。
 3. “属性”边栏选项卡显示了当前应用于 Batch 帐户的 **配额**
    
@@ -68,7 +70,7 @@ ms.lasthandoff: 07/14/2017
    
     a. “问题类型” > “配额”
    
-    b. 选择你的订阅。
+    b. 选择订阅。
    
     c. “配额类型” > “Batch”
    
@@ -103,3 +105,4 @@ ms.lasthandoff: 07/14/2017
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
+<!-- Update_Description: wording update -->

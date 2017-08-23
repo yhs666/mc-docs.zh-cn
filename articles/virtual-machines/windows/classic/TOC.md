@@ -21,7 +21,7 @@
 ## 网络
 ### [如何设置终结点](setup-endpoints.md)
 ### [将 VM 与 VNet 或云服务连接](connect-vms.md)
-### [将经典 VNet 连接到Resource Manager VNet](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+### [将经典 VNet 连接到资源管理器 VNet](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 ### [创建负载均衡器](../../../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 ### [使用 Azure PowerShell 管理 NSG](../../../virtual-network/virtual-networks-create-nsg-classic-ps.md)
 
@@ -41,6 +41,7 @@
 ### [安装和配置 Trend Micro Deep Security 即服务](install-trend.md)
 ### [配置可用性集](configure-availability.md)
 ### [调整经典部署模型中创建的 Windows VM 大小](resize-vm.md)
+### [维护](planned-maintenance-schedule.md)
 
 ## 管理
 ### [从经典部署迁移到 Resource Manager 部署](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)

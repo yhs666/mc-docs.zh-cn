@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/29/2017
 ms.date: 08/14/2017
 ms.author: v-haiqya
-ms.openlocfilehash: d6207f7f50ca2d1ef4ce60b95b1151bd055a37a9
-ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
+ms.openlocfilehash: 1f7a1a2c09ed6065b19c6ebcb3c4a27def9e02e6
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器
 
@@ -36,8 +36,8 @@ WAImportExport 工具是可与 [Azure 导入/导出服务](./storage-import-expo
 
 ### <a name="preparing-disk-for-import-job"></a>为导入作业准备磁盘
 
-- BitLocker - 必须在运行 WAImportExport 工具的计算机上启用 BitLocker。 若要了解如何启用 BitLocker，请参阅 [FAQ](#faq)。
-- **磁盘** 。 有关磁盘规格，请参阅 [常见问题](#faq) 。
+- **BitLocker** - 必须在运行 WAImportExport 工具的计算机上启用 BitLocker。 若要了解如何启用 BitLocker，请参阅 [FAQ](#faq)。
+- **磁盘** - 可从运行 WAImportExport 工具的计算机访问。 有关磁盘规格，请参阅 [常见问题](#faq) 。
 - **源文件** - 打算导入的文件必须可从复制计算机访问，无论这些文件是位于网络共享还是本地硬盘驱动器上。
 
 ### <a name="repairing-a-partially-failed-import-job"></a>修复部分失败的导入作业
@@ -159,7 +159,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 如果数据无法放入 InitialDriveset 中指定的驱动器，可以使用该工具将其他驱动器添加到同一个复制会话。 
 
 >[!NOTE] 
->会话 ID 应与上一个会话 ID 匹配。 日记文件应与上一个会话中指定的文件匹配。
+>会话 ID 应与上一个会话 ID 匹配。日记文件应与上一个会话中指定的文件匹配。
 >
 ```
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
@@ -316,7 +316,7 @@ WAImportExport 工具是可与 Azure 导入/导出服务一起使用的驱动器
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>在哪里可以找到上一个版本的 WAImportExport 工具？
 
-WAImportExport 工具包含 WAImportExport V1 工具所提供的全部功能。 使用 WAImportExport 工具，用户可以指定多个源，并写入多个驱动器。 此外，用户可以在单个 CSV 文件中轻松管理要复制的数据的多个源位置。 但是，如果需要 SAS 支持或者要将单个源复制到单个磁盘，可以 [下载 WAImportExport V1 工具] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) 并参阅 [WAImportExport V1 参考](storage-import-export-tool-how-to-v1.md)，获取 WAImportExport V1 用法的帮助。
+WAImportExport 工具包含 WAImportExport V1 工具所提供的全部功能。 使用 WAImportExport 工具，用户可以指定多个源，并写入多个驱动器。 此外，用户可以在单个 CSV 文件中轻松管理要复制的数据的多个源位置。 但是，如果需要 SAS 支持或者要将单个源复制到单个磁盘，可以[下载 WAImportExport V1 工具](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409)并参阅 [WAImportExport V1 参考](storage-import-export-tool-how-to-v1.md)，获取 WAImportExport V1 用法的帮助。
 
 #### <a name="what-is-a-session-id"></a>会话 ID 是什么？
 

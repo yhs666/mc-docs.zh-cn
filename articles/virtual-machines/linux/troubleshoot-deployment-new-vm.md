@@ -14,19 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 09/09/2016
-ms.date: 02/20/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: 7d375de8ce5caa690b3436a7147eabab12a34aa8
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: ecd7acde7c00ea03102c80ab9cd5f9d66ef09a17
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>排查在 Azure 中创建新 Linux 虚拟机时遇到的 Resource Manager 部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
+## <a name="top-issues"></a>常见问题
+[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
+
+若有其他 VM 部署问题和疑问，请参阅[排查 Azure 中的 Linux 虚拟机部署问题](troubleshoot-deploy-vm.md)。
 ## <a name="collect-activity-logs"></a>收集活动日志
 若要开始故障排除，请收集活动日志，以识别与问题相关的错误。 以下链接包含有关要遵循的过程的详细信息。
 
@@ -85,3 +89,5 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="next-steps"></a>后续步骤
 如果在 Azure 中启动已停止的 Linux VM 或调整现有 Linux VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动或调整现有 Linux 虚拟机大小时遇到的 Resource Manager 部署问题](restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+
+<!--Update_Description: add section "Top Issues"-->

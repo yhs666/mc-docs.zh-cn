@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 中使用 Jenkins 创建 CI/CD 管道 | Azure"
-description: "了解如何在 Azure 中创建一个 Jenkins 实例，用于在每次提交代码后从 GitHub 提取数据，并生成新的 Docker 容器来运行应用"
+title: "在 Azure 中使用 Jenkins 创建开发管道 | Azure"
+description: "了解如何在 Azure 中创建一个 Jenkins 虚拟机，用于在每次提交代码后从 GitHub 提取数据，并生成新的 Docker 容器来运行应用"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 07/24/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: f78951eec5b4f7746deae43a3893a35708a3763b
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 95a337a0f0c574a061e008f3d4d9e15b7bc34545
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="create-a-cicd-infrastructure-on-a-linux-vm-in-azure-that-uses-jenkins-github-and-docker"></a>在 Azure 中的 Linux VM 上创建使用 Jenkins、GitHub 和 Docker 的 CI/CD 基础结构
+# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>如何使用 Jenkins、GitHub 和 Docker 在 Azure 中的 Linux VM 上创建开发基础结构
 若要将应用程序开发的生成和测试阶段自动化，可以使用持续集成和部署 (CI/CD) 管道。 本教程介绍如何在 Azure VM 上创建 CI/CD 管道，包括如何：
 
 > [!div class="checklist"]
@@ -34,9 +34,9 @@ ms.lasthandoff: 07/14/2017
 > * 创建应用的 Docker 映像
 > * 验证 GitHub 提交是否生成新的 Docker 映像并更新正在运行的应用
 
-本教程需要 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
-
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 
 ## <a name="create-jenkins-instance"></a>创建 Jenkins 实例
 在有关[如何在首次启动时自定义 Linux 虚拟机](tutorial-automate-vm-deployment.md)的上一个教程中，你已了解如何使用 cloud-init 自动执行 VM 自定义。 本教程使用 cloud-init 文件在 VM 上安装 Jenkins 和 Docker。 
@@ -231,3 +231,5 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 
 > [!div class="nextstepaction"]
 > [Linux 虚拟机脚本示例](./cli-samples.md)
+
+<!--Update_Description: wording update-->

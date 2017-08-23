@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/07/2017
-ms.date: 07/17/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
-ms.openlocfilehash: 218353b8084334cf95b391e2ef61bf3f7253b28a
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: f02bccd504dcdee069fc384bf4d9cc4ce81c616d
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>了解 ImageStoreConnectionString 设置
 
@@ -45,7 +45,7 @@ Service Fabric 一开始被许多不同的团队用作 Microsoft 内部消耗平
 
 在开发过程中，本地单机群集使用文件系统提供程序，而不使用映像存储区服务，目的在于让群集的 bootstrap 操作速度略微提升。 差异通常较小，但在开发期间，它对大多数人员而言是有用的优化。 尽管可部署其他存储提供程序类型的本地单机群集，但通常没有理由这么做，因为无论使用哪种提供程序，开发/测试工作流都保持不变。 除这种用法外，文件系统和 Azure 存储提供程序仅为提供旧版支持而存在。
 
-因此，虽然 ImageStoreConnectionString 是可配置的，但用户通常只使用默认设置。 通过 [Visual Studio][12]发布到 Azure 时，会相应地自动为用户设置该参数。 对于在 Azure 中托管的群集的编程部署，连接字符串始终是“fabric:ImageStore”。 即使有疑问时，也始终可通过 [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest)、[.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) 或 [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest) 检索群集清单来验证其值。 还应始终将本地测试和生产群集配置为使用映像存储区服务提供程序。
+因此，虽然 ImageStoreConnectionString 是可配置的，但用户通常只使用默认设置。 通过 [Visual Studio][12]发布到 Azure 时，会相应地自动为用户设置该参数。 对于在 Azure 中托管的群集的编程部署，连接字符串始终是“fabric:ImageStore”。 即使有疑问时，也始终可通过 [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest)、[.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) 或 [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest) 检索群集清单来验证其值。 同样，本地测试和生产群集应始终配置为使用映像存储区服务提供程序。
 
 ### <a name="next-steps"></a>后续步骤
 [使用 PowerShell 部署和删除应用程序][10]
@@ -57,3 +57,5 @@ Service Fabric 一开始被许多不同的团队用作 Microsoft 内部消耗平
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
 [12]: service-fabric-publish-app-remote-cluster.md
+
+<!--Update_Description: wording update-->

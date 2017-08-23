@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/24/2017
-ms.date: 07/17/2017
+origin.date: 6/28/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
-ms.openlocfilehash: 292e40af2f659298c8f4323bd2543b54c708f0ac
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: cf818d9fb8133c81538ab561a9675562cbf02e88
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="package-an-application"></a>打包应用程序
 本文介绍如何打包 Service Fabric 应用程序并为部署做好准备。
@@ -46,7 +46,7 @@ D:\TEMP\MYAPPLICATIONTYPE
             init.dat
 ```
 
-文件夹的名称与每个相应元素的 **Name** 特性匹配。 例如，如果服务清单包含两个名为 **MyCodeA** 和 **MyCodeB** 的代码包，则两个同名的文件夹将包含用于每个代码包的必要二进制文件。
+文件夹的名称与每个相应元素的 **Name** 特性匹配。 例如，如果服务清单包含两个名为 **MyCodeA** 和 **MyCodeB** 的代码包，则两个同名的文件夹会包含用于每个代码包的必要二进制文件。
 
 ## <a name="use-setupentrypoint"></a>使用 SetupEntryPoint
 **SetupEntryPoint** 的典型使用场景是需要在服务启动之前运行可执行文件，或需要使用提升的权限来执行操作时。 例如：
@@ -64,10 +64,10 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ![使用 Visual Studio 打包应用程序][vs-package-command]
 
-打包完成后，该包的位置将显示在“输出”窗口中。 在 Visual Studio 中部署或调试应用程序时，打包步骤自动发生。
+打包完成后，该包的位置会显示在“输出”窗口中。 在 Visual Studio 中部署或调试应用程序时，打包步骤自动发生。
 
 ### <a name="build-a-package-by-command-line"></a>通过命令行生成一个包
-还可以使用 `msbuild.exe` 以编程方式打包你的应用程序。 这是 Visual Studio 实际运行的操作，因此输出是相同的。
+还可以使用 `msbuild.exe` 以编程方式打包应用程序。 这是 Visual Studio 实际运行的操作，因此输出是相同的。
 
 ```shell
 D:\Temp> msbuild HelloWorld.sfproj /t:Package
@@ -122,7 +122,7 @@ PS D:\temp>
 对于压缩应用程序包，[上传应用程序包](service-fabric-deploy-remove-applications.md#upload-the-application-package)比上传未压缩的包（特别是如果考虑压缩时间）需要更长时间，但[注册](service-fabric-deploy-remove-applications.md#register-the-application-package)和[取消注册应用程序类型](service-fabric-deploy-remove-applications.md#unregister-an-application-type)对于压缩应用程序包而言更快。
 
 压缩包和未压缩包的部署机制相同。 如果为压缩包，则存储在群集映像存储等位置，并且在应用程序运行前在节点上解压缩。
-压缩会将有效的 Service Fabric 包替换为已压缩版本。 文件夹必须允许写入操作。 对已压缩的包运行压缩将不会产生任何更改。 
+压缩会将有效的 Service Fabric 包替换为已压缩版本。 文件夹必须允许写入操作。 对已压缩的包运行压缩不会产生任何更改。 
 
 可以通过使用 `CompressPackage` 开关运行 Powershell 命令 [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 来压缩包。 可以通过使用 `UncompressPackage` 开关运行同一命令来解压缩包。
 
@@ -168,7 +168,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
-在内部，Service Fabric 将计算应用程序包的校验和以进行验证。 使用压缩时，将对每个包的压缩版本计算校验和。
+在内部，Service Fabric 将计算应用程序包的校验和以进行验证。 使用压缩时，会对每个包的压缩版本计算校验和。
 如果复制了应用程序包的未压缩版本，并且想对此包使用压缩，则必须更改 `code`、`config` 和 `data` 包的版本以避免校验和不匹配。 如果包未发生更改，则可以使用[差异预配](service-fabric-application-upgrade-advanced.md)而不是更改版本。 使用此选项时，不要包含未更改的包，而是从服务清单中引用它。
 
 同样，如果上传了压缩版本的包并需要使用未压缩的包，则必须更新版本以避免校验和不匹配。
@@ -200,3 +200,5 @@ PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApp
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
+
+<!--Update_Description: update meta properties-->

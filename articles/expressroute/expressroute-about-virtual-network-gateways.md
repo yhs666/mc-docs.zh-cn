@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/20/2017
+origin.date: 07/05/2017
 ms.author: v-yiso
-ms.date: 04/24/2017
-ms.openlocfilehash: d98a3d13b1126382efa859bbec19ce6e88db4680
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 08/21/2017
+ms.openlocfilehash: 995bc012a13e6cb79de951b13017d513d2d20304
+ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/14/2017
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>关于 ExpressRoute 的虚拟网络网关
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/14/2017
 
 创建虚拟网络网关时，需要指定几项设置。 其中一个必要设置为，指定是否将网关用于 ExpressRoute 或站点到站点 VPN 流量。 在 Resource Manager 部署模型中，该设置为“-GatewayType”。
 
-如果网络流量是在专用连接上发送，可以使用网关类型“ExpressRoute”， 也称为 ExpressRoute 网关。 如果网络流量通过公共 Internet 以加密形式发送，可以使用网关类型“Vpn”。 称为 VPN 网关。 站点到站点、点到站点和 VNet 到 VNet 连接都使用 VPN 网关。 
+如果是通过专用连接发送网络流量，可以使用网关类型“ExpressRoute”。 也称为 ExpressRoute 网关。 如果网络流量通过公共 Internet 以加密形式发送，可以使用网关类型“Vpn”。 称为 VPN 网关。 站点到站点、点到站点和 VNet 到 VNet 连接都使用 VPN 网关。
 
 对于每种网关类型，每个虚拟网络只能有一个虚拟网络网关。 例如，一个虚拟网络网关使用 -GatewayType Vpn，另一个使用 -GatewayType ExpressRoute。 本文重点介绍 ExpressRoute 虚拟网络网关。
 
@@ -61,3 +61,5 @@ ms.lasthandoff: 07/14/2017
 ## <a name="next-steps"></a>后续步骤
 
 有关可用连接配置的详细信息，请参阅 [ExpressRoute 概述](./expressroute-introduction.md)。
+
+<!--Update_Description:update meta properties only-->

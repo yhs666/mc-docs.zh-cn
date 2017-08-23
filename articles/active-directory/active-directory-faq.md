@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 07/12/2017
 ms.date: 07/18/2017
 ms.author: v-junlch
-ms.openlocfilehash: e64ee1345e710f7956f96b14c5d99308a55a6e35
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 025432d9948319d8fbd4cb48623f4be61271a056
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -35,7 +35,6 @@ Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决�
 有关详细信息，请参阅：
 
 - [Azure 订阅与 Azure Active Directory 的关联方式](active-directory-how-subscriptions-associated-directory.md)
-- [在 Azure 中管理 Office 365 订阅的目录](active-directory-manage-o365-subscription.md)
 
 - - -
 **问：Azure AD、Office 365 与 Azure 之间是什么关系？**
@@ -48,7 +47,7 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 - - -
 **问：为什么可以登录到 Azure 门户，但不能登录到 Azure 经典管理门户？**
 
-**答：**Azure 门户不需要有效的订阅，而经典管理门户则需要有效的订阅。  如果没有订阅，将无法登录到经典管理门户。
+**答：**Azure 门户不需要有效的订阅，而经典管理门户则需要有效的订阅。  如果没有订阅，则无法登录到经典管理门户。
 - - -
 **问：订阅管理员与目录管理员的区别是什么？**
 
@@ -78,7 +77,7 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 - - -
 **问：如何将我的本地目录连接到 Azure AD？**
 
-**答：** 可以使用 Azure AD Connect 将本地目录连接到 Azure AD。
+**答：**可以使用 Azure AD Connect 将本地目录连接到 Azure AD。
 
 有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](./connect/active-directory-aadconnect.md)。
 
@@ -87,20 +86,20 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 **答：**只需在本地目录与 Azure AD 之间设置单一登录 (SSO)。 只要通过 Azure AD 访问云应用程序，该服务就会自动让用户使用其本地凭据正确进行身份验证。
 
-可以通过联合身份验证解决方案（例如 Active Directory 联合身份验证服务 (AD FS)）或通过配置密码哈希同步，轻松地从本地实现 SSO。 可以使用 Azure AD Connect 配置向导轻松部署这两个选项。
+可以通过联合身份验证解决方案（例如 Active Directory 联合身份验证服务 (AD FS)）或通过配置密码哈希同步，轻松地从本地实现 SSO。可以使用 Azure AD Connect 配置向导轻松部署这两个选项。
 
 有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](./connect/active-directory-aadconnect.md)。
 
 - - -
 **问：Azure AD 是否为组织中的用户提供自助服务门户？**
 
-**答：** 是的，Azure AD 提供 [Azure AD 访问面板](https://login.partner.microsoftonline.cn) ，方便用户使用自助服务以及进行应用程序访问。 如果你是 Office 365 客户，可以在 Office 365 门户中找到许多相同的功能。
+**答：** 是的，Azure AD 提供 [Azure AD 访问面板](https://login.partner.microsoftonline.cn) ，方便用户使用自助服务以及进行应用程序访问。 如果是 Office 365 客户，可以在 Office 365 门户中找到许多相同的功能。
 
 - - -
 ## <a name="password-management"></a>密码管理
 **问：是否可以使用 Azure AD 密码写回但不使用密码同步？（在这种情况下，是否可以结合密码写回使用 Azure AD 自助密码重置 (SSPR)，而不将密码存储在云中？）**
 
-**答：** 无需将 Active Directory 密码同步到 Azure AD 即可启用写回。 在联合环境中，Azure AD 单一登录 (SSO) 依赖本地目录对用户进行身份验证。 在这种情况下，并不需要在 Azure AD 中跟踪本地密码。
+**答：**无需将 Active Directory 密码同步到 Azure AD 即可启用写回。 在联合环境中，Azure AD 单一登录 (SSO) 依赖本地目录对用户进行身份验证。 在这种情况下，并不需要在 Azure AD 中跟踪本地密码。
 
 - - -
 **问：需要多长时间才能将密码写回到 Active Directory 本地？**
@@ -143,7 +142,7 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 - - -
 **问：如果 Azure AD 应用商店中没有我需要的应用程序怎么办？**
 
-**答：** 使用 Azure AD Premium，可以添加和配置所需的任何应用程序。 你可以根据应用程序的功能和自己的喜好来配置 SSO 和自动预配。  
+**答：** 使用 Azure AD Premium，可以添加和配置所需的任何应用程序。 可以根据应用程序的功能和自己的喜好来配置 SSO 和自动预配。  
 
 有关详细信息，请参阅：
 

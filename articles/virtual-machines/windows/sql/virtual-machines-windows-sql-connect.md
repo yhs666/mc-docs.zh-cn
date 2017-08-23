@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 origin.date: 02/28/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: cedcae555347df018d3d6e9515dcf39f54cb3b45
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: c3e773d734588a06045bfd8914efbc5d83037c99
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>连接到 Azure (Resource Manager) 上的 SQL Server 虚拟机
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ ms.lasthandoff: 06/21/2017
 ### <a name="connect-to-sql-server-over-the-internet"></a>通过 Internet 连接到 SQL Server
 若要从 Internet 连接到 SQL Server 数据库引擎，需完成多个必要的步骤，例如配置防火墙、启用 SQL 身份验证以及配置网络安全组。必须设置网络安全组规则，以便在端口 1433 上进行 TCP 通信。
 
-如果使用门户通过 Resource Manager 来预配 SQL Server 虚拟机映像，则当选择“公共”  作为 SQL 连接选项时，系统会为你完成以下步骤：
+如果使用门户通过 Resource Manager 来预配 SQL Server 虚拟机映像，则当选择“公共”作为 SQL 连接选项时，系统会完成以下步骤：
 
 ![预配期间的公共 SQL 连接选项](./media/virtual-machines-windows-sql-connect/sql-vm-portal-connectivity.png)
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 06/21/2017
 
     "Server=sqlvmlabel.chinaeast.chinacloudapp.cn;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-尽管客户端可通过 Internet 进行连接，但这并不意味着任何人都可以连接到 SQL Server。 外部客户端必须有正确的用户名和密码。 为了提高安全性，可以不使用 1433 这个众所周知的端口。 例如，如果你将 SQL Server 配置为在端口 1500 上进行侦听并制定了适当的防火墙和网络安全组规则，则可将端口号附加到服务器名称上进行连接，示例如下：
+尽管客户端可通过 Internet 进行连接，但这并不意味着任何人都可以连接到 SQL Server。 外部客户端必须有正确的用户名和密码。 为了提高安全性，可以不使用 1433 这个众所周知的端口。 例如，如果将 SQL Server 配置为在端口 1500 上进行侦听并制定了适当的防火墙和网络安全组规则，则可将端口号附加到服务器名称上进行连接，示例如下：
 
     "Server=sqlvmlabel.chinaeast.chinacloudapp.cn,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
@@ -71,27 +71,27 @@ ms.lasthandoff: 06/21/2017
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>连接到同一虚拟网络中的 SQL Server
-[虚拟网络](../../../virtual-network/virtual-networks-overview.md)支持其他方案。 你可以连接同一虚拟网络中的 VM，即使这些 VM 位于不同的资源组中。 使用[站点到站点 VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)，可以创建连接 VM 与本地网络和计算机的混合体系结构。
+[虚拟网络](../../../virtual-network/virtual-networks-overview.md)支持其他方案。 可以连接同一虚拟网络中的 VM，即使这些 VM 位于不同的资源组中。 使用[站点到站点 VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)，可以创建连接 VM 与本地网络和计算机的混合体系结构。
 
 虚拟网络还可让你将 Azure VM 加入域。 这是对 SQL Server 使用 Windows 身份验证的唯一方式。 其他连接方案需要使用用户名和密码进行 SQL 身份验证。
 
-如果使用门户通过 Resource Manager 来预配 SQL Server 虚拟机映像，则可选择“专用”  作为 SQL 连接选项，以便在虚拟网络上设置通信所需的适当防火墙规则。 如果不是在进行预配，则可按照 [本文中手动配置连接的步骤](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)来手动配置 SQL Server 和虚拟机。 但如果你计划配置域环境和 Windows 身份验证，则不需要使用本文中的步骤来配置 SQL 身份验证和登录。 你也不需要配置通过 Internet 进行访问的网络安全组规则。
+如果使用门户通过 Resource Manager 来预配 SQL Server 虚拟机映像，则可选择“专用”  作为 SQL 连接选项，以便在虚拟网络上设置通信所需的适当防火墙规则。 如果不是在进行预配，则可按照 [本文中手动配置连接的步骤](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)来手动配置 SQL Server 和虚拟机。 但如果计划配置域环境和 Windows 身份验证，则不需要使用本文中的步骤来配置 SQL 身份验证和登录。 也不需要配置通过 Internet 进行访问的网络安全组规则。
 
 > [!NOTE]
 > SQL Server Express 版本的虚拟机映像不会自动启用 TCP/IP 协议。 对于 Express 版本，必须在创建 VM 后使用 SQL Server 配置管理器来 [手动启用 TCP/IP 协议](#configure-sql-server-to-listen-on-the-tcp-protocol) 。
 > 
 > 
 
-假设你已在虚拟网络中配置 DNS，则可在连接字符串中指定 SQL Server VM 计算机名来连接 SQL Server 实例。 以下示例还假设同时已配置 Windows 身份验证，并且用户已获得访问 SQL Server 实例的权限。
+假设已在虚拟网络中配置 DNS，则可在连接字符串中指定 SQL Server VM 计算机名来连接 SQL Server 实例。 以下示例还假设同时已配置 Windows 身份验证，并且用户已获得访问 SQL Server 实例的权限。
 
     "Server=mysqlvm;Integrated Security=true"
 
-请注意，在此方案中，你还可以指定 VM 的 IP 地址。
+请注意，在此方案中，还可以指定 VM 的 IP 地址。
 
 ## <a name="steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm"></a>在 Azure VM 中手动配置 SQL Server 连接的步骤
-以下步骤演示了如何手动设置到 SQL Server 实例的连接，然后选择性地使用 SQL Server Management Studio (SSMS) 通过 Internet 进行连接。 请注意，当你在门户中选择适当的 SQL Server 连接选项时，系统会为你完成下面的多项步骤。
+以下步骤演示了如何手动设置到 SQL Server 实例的连接，然后选择性地使用 SQL Server Management Studio (SSMS) 通过 Internet 进行连接。 请注意，在门户中选择适当的 SQL Server 连接选项时，系统会完成下面的多项步骤。
 
-必须先完成以下各节中所述的下列任务，然后才能通过其他 VM 或 Internet 连接到 SQL Server 的实例：
+必须先完成以下各节中所述的下列任务，才能通过其他 VM 或 Internet 连接到 SQL Server 的实例：
 
 * [在 Windows 防火墙中打开 TCP 端口](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
 * [将 SQL Server 配置为侦听 TCP 协议](#configure-sql-server-to-listen-on-the-tcp-protocol)
@@ -109,7 +109,5 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="next-steps"></a>后续步骤
 若要查看预配说明以及这些连接步骤，请参阅[在 Azure 上预配 SQL Server 虚拟机](virtual-machines-windows-portal-sql-server-provision.md)。
-
-[探索学习路径](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) ：Azure 虚拟机上的 SQL Server。
 
 有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。

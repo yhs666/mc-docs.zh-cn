@@ -3,8 +3,8 @@ title: "基于执行组件的 Azure 微服务中的重新进入 | Azure"
 description: "Service Fabric Reliable Actors 的可重入性简介"
 services: service-fabric
 documentationcenter: .net
-author: vturecek
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: amanbha
 ms.assetid: be23464a-0eea-4eca-ae5a-2e1b650d365e
 ms.service: service-fabric
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/10/2017
-ms.date: 06/15/2017
-ms.author: v-johch
-ms.openlocfilehash: 2d4f5a935cadbe6038f91ed3979d310caf8c922e
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+origin.date: 06/29/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
+ms.openlocfilehash: 644666aba7b420862312d81214eaa5f074c2622b
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="reliable-actors-reentrancy"></a>Reliable Actors 可重入性
 默认情况下，Reliable Actors 运行时允许基于逻辑调用上下文的可重入性。 这使执行组件在处于相同调用上下文链中时可重入。 例如，如果执行组件 A 将消息发送给执行组件 B，而后者将消息发送给执行组件 C。在处理消息的过程中，如果执行组件 C 调用执行组件 A，则允许消息可重入。 属于不同调用上下文的任何其他消息会在执行组件 A 上受阻，直到它完成处理。
@@ -36,10 +36,16 @@ public enum ActorReentrancyMode
     Disallowed = 2
 }
 ```
-
+```Java
+public enum ActorReentrancyMode
+{
+    LogicalCallContext(1),
+    Disallowed(2)
+}
+```
 可在注册过程中在 `ActorService`的设置中配置重新进入。 该设置适用于执行组件服务中创建的所有执行组件实例。
 
-以下示例演示了将重入模式设置为 `ActorReentrancyMode.Disallowed`的执行组件服务。 在这种情况下，如果执行组件向另一个执行组件发送可重入消息，则会引发类型为 `FabricException` 的异常。
+以下示例演示了将重入模式设置为 `ActorReentrancyMode.Disallowed` 的执行组件服务。 在这种情况下，如果执行组件向另一个执行组件发送可重入消息，则会引发类型为 `FabricException` 的异常。
 
 ```csharp
 static class Program
@@ -50,8 +56,8 @@ static class Program
         {
             ActorRuntime.RegisterActorAsync<Actor1>(
                 (context, actorType) => new ActorService(
-                    context, 
-                    actorType, () => new Actor1(), 
+                    context,
+                    actorType, () => new Actor1(),
                     settings: new ActorServiceSettings()
                     {
                         ActorConcurrencySettings = new ActorConcurrencySettings()
@@ -71,8 +77,39 @@ static class Program
     }
 }
 ```
+```Java
+static class Program
+{
+    static void Main()
+    {
+        try
+        {
+            ActorConcurrencySettings actorConcurrencySettings = new ActorConcurrencySettings();
+            actorConcurrencySettings.setReentrancyMode(ActorReentrancyMode.Disallowed);
+
+            ActorServiceSettings actorServiceSettings = new ActorServiceSettings();
+            actorServiceSettings.setActorConcurrencySettings(actorConcurrencySettings);
+
+            ActorRuntime.registerActorAsync(
+                Actor1.getClass(),
+                (context, actorType) -> new FabricActorService(
+                    context,
+                    actorType, () -> new Actor1(),
+                    null,
+                    stateProvider,
+                    actorServiceSettings, timeout);
+
+            Thread.sleep(Long.MAX_VALUE);
+        }
+        catch (Exception e)
+        {
+            throw e;
+        }
+    }
+}
+```
 
 ## <a name="next-steps"></a>后续步骤
- - [执行组件诊断和性能监视](./service-fabric-reliable-actors-diagnostics.md)
- - [执行组件 API 参考文档](https://msdn.microsoft.com/zh-cn/library/azure/dn971626.aspx)
- - [代码示例](https://github.com/Azure/servicefabric-samples)
+* 了解[执行组件 API 参考文档](https://msdn.microsoft.com/library/azure/dn971626.aspx)中有关重新进入的详细信息
+
+<!--Update_Description: update meta properties, add java implementation code on service fabric-->

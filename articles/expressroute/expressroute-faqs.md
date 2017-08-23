@@ -1,7 +1,7 @@
 ---
-title: "ExpressRoute 常见问题"
+title: "Azure ExpressRoute 常见问题解答 | Microsoft Docs"
 description: "ExpressRoute 常见问题包含有关支持的 Azure 服务、费用、数据和连接、SLA、提供商和位置、带宽的信息和其他技术详细信息。"
-documentationCenter: na
+documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/12/2017
+origin.date: 07/14/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 325b9c03a80f4bbe5fe6a8b139617722290bc4e4
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 08/21/2017
+ms.openlocfilehash: 026c76ac78ad85b37bbde71696bb752f28118653
+ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/14/2017
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
 ## <a name="what-is-expressroute"></a>什么是 ExpressRoute？
-ExpressRoute 是一项 Azure 服务，允许在 Microsoft 数据中心与本地环境或共同租用设施中的基础结构之间创建专用连接。 ExpressRoute 连接不通过公共 Internet，与通过公共 Internet 的典型连接相比，可提供更高的安全性、可靠性、速度以及更低的延迟。
+ExpressRoute 是一项 Azure 服务，允许在 Microsoft 数据中心与本地环境或共同租用设施中的基础结构之间创建专用连接。 ExpressRoute 连接不通过公共 Internet，与通过 Internet 的典型连接相比，提供更高的安全性、可靠性、速度和更低的延迟。
 
 ### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>使用 ExpressRoute 和专用网络连接有什么好处？
-ExpressRoute 连接不通过公共 Internet，与通过公共 Internet 的典型连接相比，可提供更高的安全性、可靠性、速度以及较低的一致延迟。 在某些情况下，使用 ExpressRoute 连接在本地设备和 Azure 之间传输数据可以产生显著的成本效益。
+ExpressRoute 连接不通过公共 Internet，与通过 Internet 的典型连接相比，提供更高的安全性、可靠性、速度和较低的一致延迟。 在某些情况下，使用 ExpressRoute 连接在本地设备和 Azure 之间传输数据可以产生显著的成本效益。
 
 ### <a name="where-is-the-service-available"></a>哪里提供该服务？
 参阅 [ExpressRoute 合作伙伴和位置](./expressroute-locations.md)了解服务上市区域和可用性。
@@ -45,7 +45,7 @@ ExpressRoute 连接不通过公共 Internet，与通过公共 Internet 的典型
 可以。 ExpressRoute 线路的配置支持免费将速度提升到购买带宽限制的两倍。 请咨询服务提供商，以确定他们是否支持此功能。
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>是否可以同时与虚拟网络和其他 Azure 服务使用同一专用网络连接？
-是的。 设置 ExpressRoute 线路后，将允许你同时访问虚拟网络中的服务和其他 Azure 服务。 你将通过专用对等路径连接到虚拟网络，通过公用对等路径连接到其他服务。
+是的。 设置 ExpressRoute 线路后，可以同时访问虚拟网络中的服务和其他 Azure 服务。 将通过专用对等路径连接到虚拟网络，通过公用对等路径连接到其他服务。
 
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>ExpressRoute 是否提供服务级别协议 (SLA)？
 有关详细信息，请参阅 [ExpressRoute SLA 页](https://www.azure.cn/support/legal/sla/)。
@@ -98,7 +98,7 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 否。 不支持将第 2 层连接扩展到 Azure。
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>是否可以在订阅中有多条 ExpressRoute 线路？
-可以。 可以在订阅中有多条 ExpressRoute 线路。 专用线路数的默认限制设置为 10。 如果需要增大限制，请联系 Microsoft 支持。
+可以。 可以在订阅中有多条 ExpressRoute 线路。 默认限制设置为 10。 如果需要增大限制，请联系 Microsoft 支持。
 
 ### <a name="can-i-have-expressroute-circuits-from-different-service-providers"></a>是否可以使用不同服务提供商的 ExpressRoute 线路？
 可以。 可以使用多个服务提供商的 ExpressRoute 线路。 每条 ExpressRoute 线路将只与一个服务提供商相关联。
@@ -111,7 +111,7 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 
 - 必须建立一条 ExpressRoute 线路并让服务提供商启用它。
 - 用户或提供商必须配置 BGP 对等互连。
-- 你必须将虚拟网络连接到 ExpressRoute 线路。
+- 必须将虚拟网络连接到 ExpressRoute 线路。
 
 有关详细信息，请参阅 [ExpressRoute 线路预配工作流和线路状态](./expressroute-workflows.md)。
 
@@ -133,10 +133,10 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 可以。 可以将一个虚拟网络最多链接到 4 条 ExpressRoute 线路。 必须通过 4 个不同的 [ExpressRoute 位置](./expressroute-locations.md)订购这些线路。
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>是否可以从连接到 ExpressRoute 线路的虚拟网络访问 Internet？
-可以。 如果尚未通过 BGP 会话公布默认路由 (0.0.0.0/0) 或 Internet 路由前缀，将能够从连接到 ExpressRoute 线路的虚拟网络连接到 Internet。
+可以。 如果尚未通过 BGP 会话公布默认路由 (0.0.0.0/0) 或 Internet 路由前缀，能够从连接到 ExpressRoute 线路的虚拟网络连接到 Internet。
 
 ### <a name="can-i-block-internet-connectivity-to-virtual-networks-connected-to-expressroute-circuits"></a>是否可以阻止与连接到 ExpressRoute 线路的虚拟网络建立 Internet 连接？
-可以。 可以公布默认路由 (0.0.0.0/0) 以阻止与部署在虚拟网络中的虚拟机建立所有 Internet 连接，并通过 ExpressRoute 线路路由所有流量。 请注意，如果播发默认路由，会强制将传送到通过公共对等互连提供的服务（如 Azure 存储和 SQL DB）的流量传回到本地。 必须将路由器配置为通过公共对等路径或通过 Internet 将流量传回到 Azure。
+可以。 可以公布默认路由 (0.0.0.0/0) 以阻止与部署在虚拟网络中的虚拟机建立所有 Internet 连接，并通过 ExpressRoute 线路路由所有流量。 请注意，如果播发默认路由，则会强制将传送到通过公共对等互连提供的服务（如 Azure 存储和 SQL DB）的流量传回到本地。 必须将路由器配置为通过公共对等路径或通过 Internet 将流量传回到 Azure。
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>连接到同一 ExpressRoute 线路的虚拟网络是否可以相互通信？
 可以。 连接到同一 ExpressRoute 线路的虚拟网络中部署的虚拟机可以彼此通信。
@@ -145,7 +145,7 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 可以。 ExpressRoute 可以与站点到站点 VPN 共存。
 
 ### <a name="can-i-move-a-virtual-network-from-site-to-site--point-to-site-configuration-to-use-expressroute"></a>是否可以将虚拟网络从站点到站点/点到站点配置转为使用 ExpressRoute？
-可以。 必须在虚拟网络中创建 ExpressRoute 网关。 该过程将会造成较短的停机时间。
+可以。 必须在虚拟网络中创建 ExpressRoute 网关。 该过程会造成较短的停机时间。
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>为什么有一个公共 IP 地址与虚拟网络上的 ExpressRoute 网关相关联？
 这仅用于内部管理。 此公共 IP 地址没有公开到 Internet，因此不会给虚拟网络带来安全隐患。
@@ -161,7 +161,7 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 在公共对等 BGP 会话中，不接受私有前缀 (RFC1918)。
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>如果超过 BGP 限制，会发生什么情况？
-会将 BGP 会话删除。 当前缀计数低于限制后，将重置这些会话。
+会将 BGP 会话删除。 当前缀计数低于限制后，会重置这些会话。
 
 ### <a name="what-is-the-expressroute-bgp-hold-time-can-it-be-adjusted"></a>ExpressRoute BGP 保持时间是多少？ 是否可以进行调整？
 保持时间为 180。 Keep-Alive（保持活动）消息每隔 60 秒发送一次。 这些是 Microsoft 端的固定设置，无法更改。
@@ -173,14 +173,14 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 2. 执行 DNS 查找，找到 **kms.core.windows.net** 的 IP 地址
 3. 然后执行以下 3 项操作之一，使密钥管理服务能够识别来自 Azure 的激活请求并遵循该请求。
    * 在你的本地网络上，通过公共对等互连将发往 IP 地址（在步骤 2 中获得）的流量路由回到 Azure。
-   * 让你的 NSP 提供商通过公共对等互连将流量路由回到 Azure。
-   * 创建用户定义的路由，该路由指明具有 Internet 的 IP 作为下一跃点，然后将其应用于这些虚拟机所在的子网。
+   * 让 NSP 提供商通过公共对等互连将流量路由回到 Azure。
+   * 创建用户定义的路由，该路由指明具有 Internet 的 IP 作为下一跃点，并将其应用于这些虚拟机所在的子网。
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit"></a>是否可以更改 ExpressRoute 线路的带宽？
-是的，你可以尝试在 Azure 门户中或者使用 PowerShell.mpt 来增加 ExpressRoute 线路的带宽。 如果在创建线路的物理端口上有容量可用，则更改将会成功。 如果更改失败，这意味着当前端口上没有剩余足够的容量，你需要创建具有更高带宽的新 ExpressRoute 线路；或者意味着在该位置没有额外的容量，在这种情况下将无法增加带宽。 还必须跟进你的连接服务提供商，确保他们更新其网络中的限制以支持带宽增加。 不过，你无法减小 ExpressRoute 线路的带宽。 你必须创建具有更低带宽的新 ExpressRoute 线路并删除旧线路。
+是的，可以尝试在 Azure 门户中或者使用 PowerShell.mpt 来增加 ExpressRoute 线路的带宽。 如果在创建线路的物理端口上有容量可用，则更改会成功。 如果更改失败，这意味着当前端口上没有剩余足够的容量，需要创建具有更高带宽的新 ExpressRoute 线路；或者意味着在该位置没有额外的容量，在这种情况下将无法增加带宽。 还必须跟进连接服务提供商，确保他们更新其网络中的限制以支持带宽增加。 不过，无法减小 ExpressRoute 线路的带宽。 必须创建具有更低带宽的新 ExpressRoute 线路并删除旧线路。
 
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>如何更改 ExpressRoute 线路的带宽？
-可以使用“更新专用线路 API”和 PowerShell cmdlet 更新 ExpressRoute 线路的带宽。
+可以使用 REST API 和 PowerShell cmdlet 更新 ExpressRoute 线路的带宽。
 
 ## <a name="expressroute-premium"></a>ExpressRoute 高级版
 ### <a name="what-is-expressroute-premium"></a>什么是 ExpressRoute 高级版？
@@ -188,7 +188,7 @@ ExpressRoute 高级版是下面列出的功能的集合。
 
 * 对于专用对等互连，将路由表限制从 4000 个路由提升为 10,000 个路由。
 * 已增加可连接到 ExpressRoute 线路的 VNet 数（默认数为 10 个）。 有关详细信息，请参阅下表。
-* 通过 Microsoft 核心网络建立全局连接。 现在，可以将一个地缘政治区域中的 VNet 链接到另一个区域中的 ExpressRoute 线路。 **示例：**可以将欧洲西部创建的 VNet 链接到硅谷创建的 ExpressRoute 线路。 **其他示例：**在公共对等互连中，会播发来自其他地缘政治区域的前缀，以便你可以进行连接，例如，通过硅谷的线路连接到欧洲西部地区的 SQL Azure。
+* 通过 Microsoft 核心网络建立全局连接。 现在，可以将一个地缘政治区域中的 VNet 链接到另一个区域中的 ExpressRoute 线路。 **示例：**可以将欧洲西部创建的 VNet 链接到硅谷创建的 ExpressRoute 线路。 **其他示例：**在公共对等互连中，会播发来自其他地缘政治区域的前缀，以便可以进行连接，例如，通过硅谷的线路连接到欧洲西部地区的 SQL Azure。
 * 连接到 Office 365 和 Dynamics 365。
 
 ### <a name="how-many-vnets-can-i-link-to-an-expressroute-circuit-if-i-enabled-expressroute-premium"></a>如果启用 ExpressRoute 高级版，可将多少个 VNet 链接到 ExpressRoute 线路？
@@ -197,13 +197,13 @@ ExpressRoute 高级版是下面列出的功能的集合。
 [!INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
 
 ### <a name="how-do-i-enable-expressroute-premium"></a>如何启用 ExpressRoute 高级版？
-启用相应功能后可启用 ExpressRoute 高级功能，并且可通过更新线路状态将其关闭。 可以在创建线路时启用 ExpressRoute 高级版，或者通过调用“更新专用线路 API”/PowerShell cmdlet 启用 ExpressRoute 高级版。
+启用相应功能后可启用 ExpressRoute 高级功能，并且可通过更新线路状态将其关闭。 可以在创建线路时启用 ExpressRoute 高级版，或者通过调用 REST API/PowerShell cmdlet 来启用 ExpressRoute 高级版。
 
 ### <a name="how-do-i-disable-expressroute-premium"></a>如何禁用 ExpressRoute 高级版？
-可以通过调用“更新专用线路 API”/PowerShell cmdlet 禁用 ExpressRoute 高级版。在禁用 ExpressRoute 高级版前，必须确保调整连接需求以满足默认限制。 如果利用率级别超出默认限制，将拒绝 ExpressRoute 禁用请求。
+可以通过调用 REST API/PowerShell cmdlet 来禁用 ExpressRoute 高级版。 必须确保已调整连接需求以满足默认限制，再禁用 ExpressRoute 高级版。 如果利用率级别超出默认限制，将拒绝 ExpressRoute 禁用请求。
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>我是否可以从高级功能集选择所需的功能？
-否。 无法选择所需的功能。 如果启用 ExpressRoute 高级版，将会启用所有功能。
+否。 无法选择所需的功能。 如果启用 ExpressRoute 高级版，则会启用所有功能。
 
 ### <a name="how-much-does-expressroute-premium-cost"></a>ExpressRoute 高级版需要多少费用？
 有关费用，请参阅[定价详细信息](https://www.azure.cn/pricing/details/expressroute/)。
@@ -218,7 +218,7 @@ ExpressRoute 高级版是下面列出的功能的集合。
 
 1. 请查看 [ExpressRoute 先决条件页](./expressroute-prerequisites.md)，以确保满足要求。
 2. 请查看 [ExpressRoute 合作伙伴和位置](./expressroute-locations.md)中的服务提供商和位置列表，以确保满足连接需求。
-3. 请查看 [针对 Office 365 的网络规划和性能优化](http://aka.ms/tune/)，以规划你的容量要求
+3. 请查看[针对 Office 365 的网络规划和性能优化](http://aka.ms/tune/)，以规划容量要求。
 4. 按照以下工作流中列出的步骤来设置连接：[ExpressRoute 线路预配工作流和线路状态](./expressroute-workflows.md)。
 
 > [!IMPORTANT]
@@ -228,7 +228,7 @@ ExpressRoute 高级版是下面列出的功能的集合。
 
 
 ### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>现有 ExpressRoute 线路能否支持连接到 Office 365 服务和 Dynamics 365？
-是的。 可以将现有 ExpressRoute 线路配置为支持连接到 Office 365 服务。 确保容量足以连接到 Office 365 服务，并确保已启用高级外接程序。 [针对 Office 365 的网络规划和性能优化](http://aka.ms/tune/) 中的内容可帮助你规划连接需求。 另外，请参阅[创建和修改 ExpressRoute 线路](expressroute-howto-circuit-classic.md)。
+是的。 可以将现有 ExpressRoute 线路配置为支持连接到 Office 365 服务。 确保容量足以连接到 Office 365 服务，并确保已启用高级外接程序。 [针对 Office 365 的网络规划和性能优化](http://aka.ms/tune/)中的内容可帮助规划连接需求。 另外，请参阅[创建和修改 ExpressRoute 线路](expressroute-howto-circuit-classic.md)。
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>通过 ExpressRoute 连接可以访问哪些 Office 365 服务？
 如需可以通过 ExpressRoute 使用的服务的最新列表，请参阅 [Office 365 URL 和 IP 地址范围](http://aka.ms/o365endpoints)页。
@@ -240,7 +240,10 @@ Office 365 服务和 Dynamics 365 要求启用高级外接程序。 [定价详�
 有关支持 ExpressRoute 的合作伙伴和位置列表，请参阅 [ExpressRoute 合作伙伴和位置](./expressroute-locations.md)。
 
 ### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>即使为组织配置了 ExpressRoute，是否也可以通过 Internet 访问 Office 365？
-可以。 即使为网络配置了 ExpressRoute，也可以通过 Internet 访问 Office 365 服务终结点。 如果所在位置已配置为通过 ExpressRoute 连接到 Office 365 服务，则将通过 ExpressRoute 进行连接。
+可以。 即使为网络配置了 ExpressRoute，也可以通过 Internet 访问 Office 365 服务终结点。 如果所在位置已配置为通过 ExpressRoute 连接到 Office 365 服务，则通过 ExpressRoute 进行连接。
 
 ### <a name="can-dynamics-ax-online-be-accessed-over-an-expressroute-connection"></a>是否可以通过 ExpressRoute 连接访问 Dynamics AX Online？
 不可以，不支持这样做。
+
+
+<!--Update_Description:update meta properties and wording-->

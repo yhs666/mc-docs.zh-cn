@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 01/18/2017
-ms.date: 03/20/2017
+origin.date: 07/05/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 373d7223a6825d879241d708509c78c311496f52
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: c455523a2ba123177725f686e4b1efbe40e284fa
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>使用 SQL Server 代理扩展（经典）在 Azure 虚拟机上自动完成管理任务
 > [!div class="op_single_selector"]
@@ -50,6 +50,7 @@ SQL Server IaaS 代理扩展支持以下管理任务：
 ### <a name="operating-system"></a>操作系统：
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 ### <a name="sql-server-versions"></a>SQL Server 版本：
 * SQL Server 2012
@@ -105,3 +106,5 @@ SQL Server IaaS 代理扩展支持以下管理任务：
 开始使用扩展支持的服务之一。 有关详细信息，请参阅本文的 [支持的服务](#supported-services) 部分中提到的主题。
 
 有关在 Azure 虚拟机中运行 SQL Server 的详细信息，请参阅 [Azure 虚拟机中的 SQL Server 概述](../sql/virtual-machines-windows-sql-server-iaas-overview.md)。
+
+<!--Update_Description: add sql server 2016-->

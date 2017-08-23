@@ -1,9 +1,9 @@
 ---
 title: "开始在 .NET 中使用 Azure 中继混合连接 | Microsoft 文档"
-description: "如何为混合连接编写 C# 控制台应用程序"
+description: "为 Azure 中继混合连接编写 C# 控制台应用程序。"
 services: service-bus-relay
 documentationcenter: .net
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
@@ -12,32 +12,33 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 03/27/2017
-ms.date: 07/07/2017
+origin.date: 07/07/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 4ac3d1c6b61b942f8c1ac0486ded3b4c390f1b1c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.date: 08/21/2017
+ms.openlocfilehash: 52741782e5d87b7012a45d1893bdb93f739558f0
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>中继混合连接入门
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-本教程简单介绍了 [Azure 中继混合连接](./relay-what-is-it.md#hybrid-connections)，同时介绍了如何创建客户端应用程序，以便将消息发送到相应的侦听器应用程序。 
+本教程简单介绍了 [Azure 中继混合连接](relay-what-is-it.md#hybrid-connections)，同时介绍了如何使用 .NET 创建客户端应用程序，以便将消息发送到相应的侦听器应用程序。 
 
-## <a name="what-will-be-accomplished"></a>将要完成的任务
-由于混合连接要求客户端和服务器组件，本教程将创建两个控制台应用程序。 步骤如下：
+## <a name="what-will-be-accomplished"></a>要完成的任务
+由于混合连接要求客户端和服务器组件，本教程创建两个控制台应用程序。 下面是相关步骤：
 
 1. 使用 Azure 门户创建中继命名空间。
-2. 使用 Azure 门户创建混合连接。
+2. 使用 Azure 门户在该命名空间中创建混合连接。
 3. 编写服务器（侦听器）控制台应用程序，用于接收消息。
 4. 编写客户端（发送方）控制台应用程序，用于发送消息。
 
 ## <a name="prerequisites"></a>先决条件
-1. [Visual Studio 2015 或更高版本](http://www.visualstudio.com)。 本教程中的示例使用 Visual Studio 2015。
+
+若要完成本教程，需要具备以下先决条件：
+
+1. [Visual Studio 2015 或更高版本](http://www.visualstudio.com)。 本教程中的示例使用 Visual Studio 2017。
 2. Azure 订阅。
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -76,4 +77,4 @@ ms.lasthandoff: 05/05/2017
 * [创建命名空间](./relay-create-namespace-portal.md)
 * [节点入门](./relay-hybrid-connections-node-get-started.md)
 
-
+<!--Update_Description:update meta properties and wording-->

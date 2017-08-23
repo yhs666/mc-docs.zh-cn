@@ -13,24 +13,27 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 05/26/2017
-ms.date: 07/03/2017
+origin.date: 06/26/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66db9a5df1c3596f2214927201ae9b81274e06d9
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: aa428d8285f4c1e2d8eafb3f5f433e41f359143e
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/18/2017
 ---
-# 排查在 Azure 中新建 Windows VM 时遇到的部署问题
-<a id="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure" class="xliff"></a>
+# <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>排查在 Azure 中新建 Windows VM 时遇到的部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
-## 收集活动日志
-<a id="collect-activity-logs" class="xliff"></a>
+## <a name="top-issues"></a>常见问题
+[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
+
+若有其他 VM 部署问题和疑问，请参阅[排查 Azure 中的 Windows 虚拟机部署问题](troubleshoot-deploy-vm.md)。
+
+## <a name="collect-activity-logs"></a>收集活动日志
 若要开始故障排除，请收集活动日志，以识别与问题相关的错误。 以下链接包含有关要遵循的过程的详细信息。
 
 [查看部署操作](../../azure-resource-manager/resource-manager-deployment-operations.md)
@@ -63,8 +66,7 @@ ms.lasthandoff: 06/23/2017
 
 若要解决这两个错误，请从门户中删除当前映像，并[从当前 VHD 重新捕获映像](vhd-copy.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，其设置与 OS 的设置相同（通用/专用）。
 
-## 问题：自定义/库/应用商店映像；分配失败
-<a id="issue-customgallerymarketplace-image-allocation-failure" class="xliff"></a>
+## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>问题：自定义/库/应用商店映像；分配失败
 当新的 VM 请求被固定到不支持所请求的 VM 大小、或没有可用空间可处理请求的群集时，便会发生此错误。
 
 **原因 1：** 群集不支持请求的 VM 大小。
@@ -87,6 +89,7 @@ ms.lasthandoff: 06/23/2017
   * 在不同的可用性集（位于同一区域）中创建新 VM。
   * 将新 VM 添加到同一虚拟网络。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 如果在 Azure 中启动已停止的 Windows VM 或调整现有 Windows VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的 Resource Manager 部署问题](restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+
+<!--Update_Description: add section "Top Issues"-->

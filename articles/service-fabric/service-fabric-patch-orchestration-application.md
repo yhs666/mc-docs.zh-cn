@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/09/2017
-ms.date: 07/17/2017
+origin.date: 5/9/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9b0d6b045e3ea9aead707b6ba5433818f1995651
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 8e62fdfce76da6b0fd9e9ab1b5efd6fd71f7f148
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>在 Service Fabric 群集中修补 Windows 操作系统
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 07/14/2017
 #### <a name="azure-clusters"></a>Azure 群集
 修补业务流程应用必须在 Service Fabric 运行时版本为 v5.5 或更高的 Azure 群集上运行。
 
-#### <a name="standalone-on-premise-clusters"></a>独立的本地群集
+#### <a name="standalone-on-premises-clusters"></a>独立本地群集
 修补业务流程应用必须在 Service Fabric 运行时版本为 v5.6 或更高的独立群集上运行。
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>启用“修复管理器”服务（如果尚未运行）
@@ -147,10 +147,9 @@ ms.lasthandoff: 07/14/2017
 - 24afa313-0d3b-4c7c-b485-1047fd964b60
 - 05dc046c-60e9-4ef7-965e-91660adffa68
 
-在 Resource Manager 模板中的 `WadCfg` 节中添加以下节： 
+在资源管理器模板中，转到 `WadCfg` 下的 `EtwEventSourceProviderConfiguration` 节，并添加以下条目：
 
 ```json
-"PatchOrchestrationApplication": [
   {
     "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
     "scheduledTransferPeriod": "PT5M",
@@ -178,8 +177,7 @@ ms.lasthandoff: 07/14/2017
     "DefaultEvents": {
     "eventDestination": " PatchOrchestrationApplicationTable"
     }
-  },
-]
+  }
 ```
 
 > [!NOTE]
@@ -290,7 +288,7 @@ ms.lasthandoff: 07/14/2017
 ### <a name="collect-patch-orchestration-app-logs"></a>收集修补业务流程应用日志
 
 修补业务流程应用日志是作为 Service Fabric（运行时版本至少为 `5.6.220.9494`）日志的一部分收集的。
-对于运行的 Service Fabric 运行时版本低于 `5.6.220.9494` 的群集，可通过以下方法之一来收集日志。
+对于运行 Service Fabric 运行时版本低于 `5.6.220.9494` 的群集，可通过以下方法之一来收集日志。
 
 #### <a name="locally-on-each-node"></a>在每个节点本地
 
@@ -391,3 +389,5 @@ A. 修补业务流程应用所需的时长主要取决于以下因素：
 Windows 更新发生故障时，会使特定节点或升级域上的应用程序或群集的运行状况恶化。 修补业务流程应用会终止任何后续的 Windows 更新操作，直到群集再次正常运行。
 
 管理员必须介入，并判断为何 Windows 更新会导致应用程序或群集运行不正常。
+
+<!--Update_Description: update meta properties, wording update-->

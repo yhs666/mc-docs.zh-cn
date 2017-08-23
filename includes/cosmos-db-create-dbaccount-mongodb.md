@@ -5,7 +5,7 @@
 
 3. 在“新建帐户”边栏选项卡中，为 Azure Cosmos DB 帐户指定所需的配置。 
 
-    使用 Azure Cosmos DB，可以选择以下四个编程模型之一：Gremlin（图形）、MongoDB、SQL (DocumentDB) 和表（键/值）。 
+    使用 Azure Cosmos DB，可以选择以下三个编程模型之一：MongoDB、SQL (DocumentDB) 和表（键/值）。 
 
     在本快速入门教程中，我们会针对 MongoDB API 编程，因此，在填写表单时，请选择“MongoDB”。 但如果有社交媒体应用的图形数据、来自目录应用的文档数据或键/值（表）数据，请意识到 Azure Cosmos DB 可以为所有任务关键型应用程序提供高度可用的全球分布式数据库服务平台。
 
@@ -15,7 +15,7 @@
 
     设置|建议的值|说明
     ---|---|---
-    ID|*唯一值*|选择用于标识 Azure Cosmos DB 帐户的唯一名称。 *documents.azure.cn* 将追加到所提供的 ID 以创建 URI，因此，请使用唯一但可识别的 ID。 ID 只能包含小写字母、数字及“-”字符，且长度必须为 3 到 50 个字符。
+    ID|*唯一值*|选择用于标识 Azure Cosmos DB 帐户的唯一名称。 *documents.azure.cn* 会追加到所提供的 ID 以创建 URI，因此，请使用唯一但可识别的 ID。 ID 只能包含小写字母、数字及“-”字符，且长度必须为 3 到 50 个字符。
     API|MongoDB|在本文的后面部分中，我们针对 [MongoDB API](../articles/documentdb/documentdb-protocol-mongodb.md) 编程。|
     订阅|
             *订阅*|要用于 Azure Cosmos DB 帐户的 Azure 订阅。 

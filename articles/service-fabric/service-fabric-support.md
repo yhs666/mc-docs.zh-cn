@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/15/2017
-ms.date: 07/17/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
-ms.openlocfilehash: e23edd62cd564be0653eea72714598e169a80422
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: d4cad763f7727e49b4177aa6aef933479ed0dc2d
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支持选项
 
@@ -49,11 +49,11 @@ ms.lasthandoff: 07/14/2017
 
 <a id="getsupportonissues"></a>
 
-## <a name="report-azure-service-fabric-issues"></a>报告 Azure Service Fabric 问题
+## <a name="report-azure-service-fabric-issues"></a>报告 Azure Service Fabric 问题 
 
 我们已设置 GitHub 存储库，用于报告 Service Fabric 问题。  我们还积极监视以下论坛。
 
-### <a name="github-repo"></a>GitHub 存储库
+### <a name="github-repo"></a>GitHub 存储库 
 
 在 [Service-Fabric-issues git 存储库](https://github.com/Azure/service-fabric-issues)中报告 Azure Service Fabric 问题。 此存储库用于报告和跟踪 Azure Service Fabric 问题，以及进行小型功能请求。 **请勿使用此存储库报告实时站点问题**。
 
@@ -66,7 +66,6 @@ ms.lasthandoff: 07/14/2017
 [有关 Service Fabric 的 Azure 反馈论坛][uservoice-forum]最适合用户提交关于产品的大型功能创意，我们可以看到，大多数常见的请求都属于我们的中长期规划。 我们鼓励你在社区内争取大家对你的建议的支持。
 
 <a id="releasesuport"></a>
-
 ## <a name="supported-service-fabric-versions"></a>支持的 Service Fabric 版本
 
 请确保群集始终运行受支持的 Service Fabric 版本。 当我们宣布发行新版 Service Fabric 时，以前的版本标记为自发布日期起至少 60 天后结束支持。 新版本在 [Service Fabric 团队博客](https://blogs.msdn.microsoft.com/azureservicefabric/)中公布。
@@ -88,7 +87,7 @@ ms.lasthandoff: 07/14/2017
 
 <a id="previewversion"></a>
 
-## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 预览版本 - 不支持在生产环境中使用
+## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 预览版本 - 不支持在生产环境中使用。
 
 我们会不时发布包含重要功能的版本，希望用户对这些功能提供反馈，这些版本将作为预览版发布。 这些预览版本应仅用于测试目的。 生产群集应始终运行支持的稳定 Service Fabric 版本。 预览版本始终以主版本号和次版本号 255 开头。 例如，如果看到 Service Fabric 版本 255.255.5703.949，则该版本应仅在测试群集中使用且处于预览状态。 这些预览版本也在 [Service Fabric 团队博客](https://blogs.msdn.microsoft.com/azureservicefabric)上公布，并将提供有关包含的功能的详细信息。
 
@@ -105,3 +104,5 @@ ms.lasthandoff: 07/14/2017
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: http://aka.ms/servicefabricdocs
 [sample-repos]: http://aka.ms/servicefabricsamples
+
+<!--Update_Description: update meta properties, wording update-->

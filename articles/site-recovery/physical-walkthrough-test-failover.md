@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/27/2017
 ms.date: 07/31/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0576cd7e03c878edcb355c20d973a5b2ce38cd95
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.openlocfilehash: 72f80cc84e86448894a46e3ac534c5ed00e012e6
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="step-11-run-a-test-failover-of-physical-servers-to-azure"></a>步骤 11：运行测试故障转移以便将物理服务器复制到 Azure
 
@@ -29,8 +29,15 @@ ms.lasthandoff: 08/07/2017
 
 运行测试故障转移前，建议先验证服务器属性，并执行所需的任何更改。 可以在“复制的项”中查看 VM 属性。 “概要”边栏选项卡显示有关计算机设置和状态的信息。
 
-<!-- Not Available ## Managed disk considerations -->
+## <a name="managed-disk-considerations"></a>托管磁盘注意事项
 
+[托管磁盘](../storage/storage-managed-disks-overview.md)通过管理与 VM 磁盘关联的存储帐户简化了 Azure VM 的磁盘管理。 
+
+- 为服务器启用保护功能后，VM 数据复制到存储帐户中。 只有当故障转移发生时，才会创建托管磁盘，并将它附加到 VM。
+- 只能为使用资源管理器模型部署的 Azure VM 创建托管磁盘。  
+- 启用此设置后，仅可以选择启用了“使用托管磁盘”的资源组中的可用性集。 包含托管磁盘的 VM 必须位于“使用托管磁盘”设置为“是”的可用性集中。 如果没有为 VM 启用此设置，那么仅可以选择未启用“使用托管磁盘”的资源组中的可用性集。
+- [详细了解](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set)托管磁盘和可用性集。
+- 如果已使用存储服务加密加密用于复制的存储帐户，则无法在故障转移期间创建托管磁盘。 在这种情况下，要么不要启用托管磁盘，要么为 VM 禁用保护功能，并重新启用为使用未启用加密的存储帐户。 [了解详细信息](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption)。
 
 ## <a name="network-considerations"></a>网络注意事项
 

@@ -14,21 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 07/10/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: 5b4b7ed7480767ca252c2cd0432772387d1a8c89
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: 58e72cbf2d079b58493d1c0313cdcd9003184a29
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/18/2017
 ---
-# 使用远程桌面连接到 Azure Linux VM
-<a id="using-remote-desktop-to-connect-to-a-azure-linux-vm" class="xliff"></a>
+# <a name="using-remote-desktop-to-connect-to-a-azure-linux-vm"></a>使用远程桌面连接到 Azure Linux VM
 > [!IMPORTANT] 
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关本文中的资源管理器的更新版本，请参阅[此文](../use-remote-desktop.md)。
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 RDP（远程桌面协议）是 Windows 使用的专用协议。 如何使用 RDP 远程连接到 Linux VM（虚拟机）？
 
 此指南将为你提供答案！ 它将帮助你在 Azure Linux VM 上安装和配置 xrdp，使你能够从一台 Windows 计算机通过远程桌面与其连接。 本指南将使用运行 Ubuntu 或 OpenSUSE 的 Linux VM 作为示例。
@@ -40,16 +38,14 @@ Xrdp 工具是一个开源 RDP 服务器，支持从 Windows 计算机通过远�
 > 
 > 
 
-## 为远程桌面创建终结点
-<a id="create-an-endpoint-for-remote-desktop" class="xliff"></a>
-在本文档中，我们将使用默认终结点 3389 进行远程连接。 因此，将 Linux VM 的 3389 终结点设置为 `Remote Desktop`，如下所示：
+## <a name="create-an-endpoint-for-remote-desktop"></a>为远程桌面创建终结点
+在本文档中，我们将使用默认终结点 3389 进行远程连接。因此，将 Linux VM 的 3389 终结点设置为 `Remote Desktop`，如下所示：
 
 ![图像](./media/remote-desktop/endpoint-for-linux-server.png)
 
 如果不知道如何设置 VM 终结点，请参阅[本指南](setup-endpoints.md)。
 
-## 安装 Gnome 桌面
-<a id="install-gnome-desktop" class="xliff"></a>
+## <a name="install-gnome-desktop"></a>安装 Gnome 桌面
 通过 `putty` 连接到 Linux VM，并安装 `Gnome Desktop`。
 
 对于 Ubuntu，使用：
@@ -61,8 +57,7 @@ Xrdp 工具是一个开源 RDP 服务器，支持从 Windows 计算机通过远�
 
     #sudo zypper install gnome-session
 
-## 安装 xrdp
-<a id="install-xrdp" class="xliff"></a>
+## <a name="install-xrdp"></a>安装 xrdp
 对于 Ubuntu，使用：
 
     #sudo apt-get install xrdp
@@ -77,8 +72,7 @@ Xrdp 工具是一个开源 RDP 服务器，支持从 Windows 计算机通过远�
     #sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
     #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
 
-## 启动时启动 xrdp 并设置 xdrp 服务
-<a id="start-xrdp-and-set-xdrp-service-at-boot-up" class="xliff"></a>
+## <a name="start-xrdp-and-set-xdrp-service-at-boot-up"></a>启动时启动 xrdp 并设置 xdrp 服务
 对于 OpenSUSE，请使用：
 
     #sudo systemctl start xrdp
@@ -86,8 +80,7 @@ Xrdp 工具是一个开源 RDP 服务器，支持从 Windows 计算机通过远�
 
 对于 Ubuntu，安装后，在启动时会自动启动并启用 xrdp。
 
-## 如果使用比 Ubuntu 12.04LTS 更高的 Ubuntu 版本，请使用 xfce
-<a id="using-xfce-if-you-are-using-an-ubuntu-version-later-than-ubuntu-1204lts" class="xliff"></a>
+## <a name="using-xfce-if-you-are-using-an-ubuntu-version-later-than-ubuntu-1204lts"></a>如果使用比 Ubuntu 12.04LTS 更高的 Ubuntu 版本，请使用 xfce
 因为当前的 xrdp 版本不支持比 Ubuntu 12.04LTS 更高的 Ubuntu 版本的 Gnome 桌面，我们将使用 `xfce` 桌面。
 
 请使用以下命令安装 `xfce`：
@@ -108,14 +101,14 @@ Xrdp 工具是一个开源 RDP 服务器，支持从 Windows 计算机通过远�
 
     #sudo service xrdp restart
 
-## 从 Windows 计算机连接 Linux VM
-<a id="connect-your-linux-vm-from-a-windows-machine" class="xliff"></a>
+## <a name="connect-your-linux-vm-from-a-windows-machine"></a>从 Windows 计算机连接 Linux VM
 在 Windows 计算机中，启动远程桌面客户端，并输入 Linux VM DNS 名称。 或转到 Azure 门户中的 VM 仪表板并单击 `Connect` 连接 Linux VM。 在这种情况下，将显示登录窗口：
 
 ![图像](./media/remote-desktop/no2.png)
 
 使用 Linux VM 的用户名和密码登录。
 
-## 下一步
-<a id="next" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关使用 xrdp 的详细信息，请参阅 [http://www.xrdp.org/](http://www.xrdp.org/)。
+
+<!--Update_Description: wording update-->

@@ -14,17 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 07/03/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: 1fedda294f6d47fc4fe2ddf8f02173ce4d838891
-ms.sourcegitcommit: 2c397ac599bdb39b257580a1b55a1ce67e19ae56
+ms.openlocfilehash: fd75dcc8353fe355abd7da6730798b6301f87081
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 08/18/2017
 ---
-# 使用 Azure CLI 管理 Azure 磁盘
-<a id="manage-azure-disks-with-the-azure-cli" class="xliff"></a>
+# <a name="manage-azure-disks-with-the-azure-cli"></a>使用 Azure CLI 管理 Azure 磁盘
 
 Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 创建 VM 时，请务必选择适用于所需工作负荷的磁盘大小和配置。 本教程介绍如何部署和管理 VM 磁盘。 学习内容：
 
@@ -39,10 +38,9 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-本教程需要 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 
-## 默认 Azure 磁盘
-<a id="default-azure-disks" class="xliff"></a>
+## <a name="default-azure-disks"></a>默认 Azure 磁盘
 
 创建 Azure 虚拟机后，将自动向此虚拟机附加两个磁盘。 
 
@@ -50,8 +48,7 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 
 临时磁盘- 临时磁盘使用 VM 所在的 Azure 主机上的固态驱动器。 临时磁盘具有高性能，可用于临时数据处理等操作。 但是，如果将 VM 移动到新的主机，临时磁盘上存储的数据都将被删除。 临时磁盘的大小由 VM 大小决定。 临时磁盘标记为“/dev/sdb”，且装载点为 /mnt。
 
-### 临时磁盘大小
-<a id="temporary-disk-sizes" class="xliff"></a>
+### <a name="temporary-disk-sizes"></a>临时磁盘大小
 
 | 类型 | VM 大小 | 临时磁盘大小上限 (GB) |
 |----|----|----|
@@ -59,13 +56,11 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 | [计算优化](sizes-compute.md) | F 系列 | 800 |
 | [内存优化](../virtual-machines-windows-sizes-memory.md) | D 系列 | 6144 |
 
-## Azure 数据磁盘
-<a id="azure-data-disks" class="xliff"></a>
+## <a name="azure-data-disks"></a>Azure 数据磁盘
 
 可添加额外的数据磁盘，用于安装应用程序和存储数据。 在任何需要持久和灵敏数据存储的情况下，都应使用数据磁盘。 每个数据磁盘的最大容量为 1 TB。 虚拟机的大小决定可附加到 VM 的数据磁盘数。 每个 VM 核心可附加两个数据磁盘。 
 
-### 每个 VM 的最大数据磁盘数
-<a id="max-data-disks-per-vm" class="xliff"></a>
+### <a name="max-data-disks-per-vm"></a>每个 VM 的最大数据磁盘数
 
 | 类型 | VM 大小 | 每个 VM 的最大数据磁盘数 |
 |----|----|----|
@@ -73,23 +68,19 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 | [计算优化](sizes-compute.md) | F 系列 | 32 |
 | [内存优化](../virtual-machines-windows-sizes-memory.md) | D 系列 | 64 |
 
-## VM 磁盘类型
-<a id="vm-disk-types" class="xliff"></a>
+## <a name="vm-disk-types"></a>VM 磁盘类型
 
 Azure 提供两种类型的磁盘。
 
-### 标准磁盘
-<a id="standard-disk" class="xliff"></a>
+### <a name="standard-disk"></a>标准磁盘
 
 标准存储以 HDD 为基础，可以在确保性能的同时提供经济高效的存储。 标准磁盘适用于经济高效的开发和测试工作负荷。
 
-### 高级磁盘
-<a id="premium-disk" class="xliff"></a>
+### <a name="premium-disk"></a>高级磁盘
 
 高级磁盘由基于 SSD 的高性能、低延迟磁盘提供支持。 完美适用于运行生产工作负荷的 VM。 高级存储支持 DS 系列、DSv2 系列和 FS 系列 VM。 高级磁盘分为 3 种类型（P10、P20 和 P30），磁盘大小决定磁盘类型。 选择时，磁盘大小值舍入为下一类型。 例如，如果磁盘大小小于 128 GB，则磁盘类型为 P10。 如果磁盘大小介于 129 GB 和 512 GB 之间，则大小为 P20。 如果超过 512 GB，则大小为 P30。
 
-### 高级磁盘性能
-<a id="premium-disk-performance" class="xliff"></a>
+### <a name="premium-disk-performance"></a>高级磁盘性能
 
 |高级存储磁盘类型 | P10 | P20 | P30 |
 | --- | --- | --- | --- |
@@ -99,13 +90,11 @@ Azure 提供两种类型的磁盘。
 
 尽管上表确定了每个磁盘的最大 IOPS，但还可通过条带化多个数据磁盘实现更高级别的性能。 例如，Standard_GS5 VM 最多可实现 80,000 IOPS。 若要详细了解每个 VM 的最大 IOPS，请参阅 [Linux VM 大小](sizes.md)。
 
-## 创建并附加磁盘
-<a id="create-and-attach-disks" class="xliff"></a>
+## <a name="create-and-attach-disks"></a>创建并附加磁盘
 
 可创建磁盘，并将其附加到新建 VM 或现有 VM。
 
-### 在 VM 创建时附加磁盘
-<a id="attach-disk-at-vm-creation" class="xliff"></a>
+### <a name="attach-disk-at-vm-creation"></a>在 VM 创建时附加磁盘
 
 使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 命令创建资源组。 
 
@@ -125,8 +114,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-### 将磁盘附加到现有 VM
-<a id="attach-disk-to-existing-vm" class="xliff"></a>
+### <a name="attach-disk-to-existing-vm"></a>将磁盘附加到现有 VM
 
 若要创建新磁盘并将其附加到现有虚拟机，请使用 [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) 命令。 以下示例创建大小为 128 GB 的高级磁盘，并将其附加到上一步创建的 VM 中。
 
@@ -134,13 +122,11 @@ az vm create \
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
 ```
 
-## 准备数据磁盘
-<a id="prepare-data-disks" class="xliff"></a>
+## <a name="prepare-data-disks"></a>准备数据磁盘
 
 将磁盘附加到虚拟机后，需要将操作系统配置为使用该磁盘。 以下示例演示如何手动配置磁盘。 还可使用 cloud-init 自动执行此过程，[后面的教程](./tutorial-automate-vm-deployment.md)对此进行了介绍。
 
-### 手动配置
-<a id="manual-configuration" class="xliff"></a>
+### <a name="manual-configuration"></a>手动配置
 
 创建与虚拟机的 SSH 连接。 将示例 IP 地址替换为虚拟机的公共 IP 地址。
 
@@ -205,8 +191,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail,
 exit
 ```
 
-## 调整 VM 磁盘大小
-<a id="resize-vm-disk" class="xliff"></a>
+## <a name="resize-vm-disk"></a>调整 VM 磁盘大小
 
 部署 VM 后，可增加操作系统磁盘或任何附加数据磁盘的大小。 需要更多存储空间或更高级别的性能（P10、P20、P30）时，增加磁盘大小很有用。 请注意，不能降低磁盘大小。
 
@@ -236,15 +221,13 @@ az vm start --resource-group myResourceGroupDisk --name myVM
 
 如果已调整操作系统磁盘的大小，则会自动扩展分区。 如果已调整数据磁盘的大小，则需在 VM 操作系统中扩展任何当前分区。
 
-## 拍摄 Azure 磁盘快照
-<a id="snapshot-azure-disks" class="xliff"></a>
+## <a name="snapshot-azure-disks"></a>拍摄 Azure 磁盘快照
 
 拍摄磁盘快照可创建磁盘的只读时间点副本。 Azure VM 快照可用于快速保存配置更改前 VM 所处的状态。 如果已证实不需要更改配置，可使用此快照还原 VM 状态。 VM 具有多个磁盘时，则拍摄的每个磁盘快照都与其他磁盘快照无关。 为了获取应用程序一致的备份，请考虑在拍摄磁盘快照之前停止 VM。 或者使用 [Azure 备份服务](/backup/)，以便在 VM 运行时执行自动备份。
 
-### 创建快照
-<a id="create-snapshot" class="xliff"></a>
+### <a name="create-snapshot"></a>创建快照
 
-创建虚拟机磁盘快照前，需要磁盘 ID 或名称。 使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#show) 命令返回磁盘 ID。 在此示例中，磁盘 ID 存储在变量中，因此能够在稍后的步骤中使用。
+创建虚拟机磁盘快照前，需要磁盘 ID 或名称。 使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#show) 命令返回磁盘 ID。在此示例中，磁盘 ID 存储在变量中，因此能够在稍后的步骤中使用。
 
 ```azurecli 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -256,8 +239,7 @@ osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osD
 az snapshot create -g myResourceGroupDisk --source "$osdiskid" --name osDisk-backup
 ```
 
-### 从快照创建磁盘
-<a id="create-disk-from-snapshot" class="xliff"></a>
+### <a name="create-disk-from-snapshot"></a>从快照创建磁盘
 
 然后，可将此快照转换为可用于重新创建虚拟机的磁盘。
 
@@ -265,8 +247,7 @@ az snapshot create -g myResourceGroupDisk --source "$osdiskid" --name osDisk-bac
 az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
 ```
 
-### 从快照还原虚拟机
-<a id="restore-virtual-machine-from-snapshot" class="xliff"></a>
+### <a name="restore-virtual-machine-from-snapshot"></a>从快照还原虚拟机
 
 若要演示如何还原虚拟机，请删除现有虚拟机。 
 
@@ -280,8 +261,7 @@ az vm delete --resource-group myResourceGroupDisk --name myVM
 az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk mySnapshotDisk --os-type linux
 ```
 
-### 重新附加数据磁盘
-<a id="reattach-data-disk" class="xliff"></a>
+### <a name="reattach-data-disk"></a>重新附加数据磁盘
 
 需要将所有数据磁盘重新附加到虚拟机。
 
@@ -297,8 +277,7 @@ datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')]
 az vm disk attach -g myResourceGroupDisk --vm-name myVM --disk $datadisk
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 本教程中介绍了以下 VM 磁盘主题：
 
@@ -315,3 +294,5 @@ az vm disk attach -g myResourceGroupDisk --vm-name myVM --disk $datadisk
 
 > [!div class="nextstepaction"]
 > [自动执行 VM 配置](./tutorial-automate-vm-deployment.md)
+
+<!--Update_Description: wording update-->

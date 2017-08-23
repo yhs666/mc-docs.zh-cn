@@ -3,8 +3,8 @@ title: "有状态 Reliable Services 诊断 | Azure"
 description: "有状态 Reliable Services 的诊断功能"
 services: service-fabric
 documentationcenter: .net
-author: AlanWarwick
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
 ms.service: Service-Fabric
@@ -12,32 +12,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/04/2017
-ms.date: 02/20/2017
-ms.author: v-johch
-ms.openlocfilehash: c39a823fdb269efc53825fd62306ce5810975d65
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 06/30/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
+ms.openlocfilehash: 1084d51adab445bebceb211c9853658e5f253a25
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>有状态 Reliable Services 的诊断功能
-有状态 Reliable Services StatefulServiceBase 类会发出 [EventSource](https://msdn.microsoft.com/zh-cn/library/system.diagnostics.tracing.eventsource.aspx) 事件，可将其用于调试服务、提供对运行时运行方式的深入了解以及帮助进行故障排除。
+有状态 Reliable Services StatefulServiceBase 类会发出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件，可用于调试服务、提供对运行时运行方式的深入了解，以及帮助进行故障排除。
 
 ## <a name="eventsource-events"></a>EventSource 事件
-有状态 Reliable Services StatefulServiceBase 类的 EventSource 名称是“Microsoft-ServiceFabric-Services”。 当[在 Visual Studio 中调试](./service-fabric-debugging-your-application.md)服务时，来自此事件源的事件将显示在“[诊断事件](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio)”窗口中。
+有状态 Reliable Services StatefulServiceBase 类的 EventSource 名称是“Microsoft-ServiceFabric-Services”。 当[在 Visual Studio 中调试](service-fabric-debugging-your-application.md)服务时，来自此事件源的事件将显示在“[诊断事件](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio)”窗口中。
 
-可帮助收集和/或查看 EventSource 事件的工具和技术的示例包括：[PerfView](http://www.microsoft.com/download/details.aspx?id=28567)、[Microsoft Azure 诊断](../cloud-services/cloud-services-dotnet-diagnostics.md)和 [Microsoft TraceEvent 库](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
+可帮助收集和/或查看 EventSource 事件的工具和技术的示例包括：[PerfView](http://www.microsoft.com/download/details.aspx?id=28567)、[Azure 诊断](../cloud-services/cloud-services-dotnet-diagnostics.md)和 [Microsoft TraceEvent 库](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
 
 ## <a name="events"></a>事件
 
-|事件名称|事件 ID|级别|事件说明|
-|----------|--------|-----|-----------------|
-|StatefulRunAsyncInvocation|1|信息性|在服务 RunAsync 任务启动时发出|
-|StatefulRunAsyncCancellation|2|信息性|在服务 RunAsync 任务取消时发出|
-|StatefulRunAsyncCompletion|3|信息性|在服务 RunAsync 任务完成时发出|
-|StatefulRunAsyncSlowCancellation|4|警告|在服务 RunAsync 任务完成取消所用时间过长时发出|
-|StatefulRunAsyncFailure|5|错误|在服务 RunAsync 任务引发异常时发出|
+| 事件名称 | 事件 ID | 级别 | 事件说明 |
+| --- | --- | --- | --- |
+| StatefulRunAsyncInvocation |1 |信息性 |在服务 RunAsync 任务启动时发出 |
+| StatefulRunAsyncCancellation |2 |信息性 |在服务 RunAsync 任务取消时发出 |
+| StatefulRunAsyncCompletion |3 |信息性 |在服务 RunAsync 任务完成时发出 |
+| StatefulRunAsyncSlowCancellation |4 |警告 |在服务 RunAsync 任务完成取消所用时间过长时发出 |
+| StatefulRunAsyncFailure |5 |错误 |在服务 RunAsync 任务引发异常时发出 |
 
 ## <a name="interpret-events"></a>解释事件
 
@@ -51,3 +51,5 @@ StatefulRunAsyncInvocation、StatefulRunAsyncCompletion 和 StatefulRunAsyncCanc
 
 ## <a name="next-steps"></a>后续步骤
 * [PerfView 中的 EventSource 提供程序](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+
+<!--Update_Description: update meta properties-->

@@ -16,11 +16,11 @@ ms.workload: database
 origin.date: 06/07/2017
 ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: bdcef97602b9097e6c8ccaa839cd8ded622481df
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 3ffc92d309b5356e4a68869b9b27de80a5de5240
+ms.sourcegitcommit: a813e6e98367a9ef389a05c8e050fc38812a13b1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/15/2017
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 08/04/2017
 |**高可用性、灾难恢复、备份和还原**||
 |[配置故障转移策略](scripts/ha-failover-policy-cli.md)|为在其中复制帐户的每个区域设置故障转移优先级。|
 |**将 Azure Cosmos DB 连接到资源**||
-|[将 Web 应用连接到 Azure Cosmos DB](/app-service-web/scripts/app-service-cli-app-service-documentdb?toc=%2fcli%2fazure%2ftoc.json)|创建并连接 Azure Cosmos DB 数据库和 Azure Web 应用。|
+|[将 Web 应用连接到 Azure Cosmos DB](/app-service-web/scripts/app-service-cli-app-service-documentdb.md)|创建并连接 Azure Cosmos DB 数据库和 Azure Web 应用。|
 |||
 
 <!-- Not Available ?toc=%2fcli%2fazure%2ftoc.json in docs.microsoft.com website -->

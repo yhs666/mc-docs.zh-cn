@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 01/09/2017
-ms.date: 07/03/2017
+origin.date: 06/27/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: cb2dda90eddb782c7da0d2edf108a28b7884ee0a
-ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
+ms.openlocfilehash: 5ddff2ad6ec6d79b53a918df97b4825fe0de0cf8
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 概述
 本主题介绍了在 Azure 虚拟机 (VM) 上运行 SQL Server 的选项，提供了[门户映像链接](#option-1-create-a-sql-vm-with-per-minute-licensing)，同时概述了[常见任务](#manage-your-sql-vm)。
@@ -57,7 +57,6 @@ ms.lasthandoff: 07/10/2017
 | **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP1EnterpriseWindowsServer2016)、[Standard](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP1StandardWindowsServer2016)、[Web](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP1WebWindowsServer2016)、[Express](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP1ExpressWindowsServer2016)、[Developer](https://portal.azure.cn/#create/Microsoft.SQLServer2016SP1DeveloperWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.cn/#create/Microsoft.SQLServer2014SP2EnterpriseWindowsServer2012R2)、[Standard](https://portal.azure.cn/#create/Microsoft.SQLServer2014SP2StandardWindowsServer2012R2)、[Web](https://portal.azure.cn/#create/Microsoft.SQLServer2014SP2WebWindowsServer2012R2)、[Express](https://portal.azure.cn/#create/Microsoft.SQLServer2014SP2ExpressWindowsServer2012R2) |
 | **SQL Server 2012 SP3** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.cn/#create/Microsoft.SQLServer2012SP3EnterpriseWindowsServer2012R2)、[Standard](https://portal.azure.cn/#create/Microsoft.SQLServer2012SP3StandardWindowsServer2012R2)、[Web](https://portal.azure.cn/#create/Microsoft.SQLServer2012SP3WebWindowsServer2012R2)、[Express](https://portal.azure.cn/#create/Microsoft.SQLServer2012SP3ExpressWindowsServer2012R2) |
-| **SQL Server 2008 R2 SP3** |Windows Server 2008 R2 |[Enterprise](https://portal.azure.cn/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2)、[Standard](https://portal.azure.cn/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2)、[Web](https://portal.azure.cn/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2) |
 
 除了此列表，也可以使用 SQL Server 版本和操作系统的其他组合。 在 Azure 门户中通过应用商店搜索查找其他映像。 
 
@@ -88,21 +87,21 @@ ms.lasthandoff: 07/10/2017
 最基本的管理步骤之一是，通过 SQL Server Management Studio (SSMS) 之类的工具连接到 SQL Server VM。 有关如何连接到新 SQL Server VM 的说明，请参阅[连接到 Azure 上的 SQL Server 虚拟机](virtual-machines-windows-sql-connect.md)。
 
 ### <a name="migrate-your-data"></a>迁移数据
-如果已有数据库，你会想要将该数据库移至新预配的 SQL VM。 有关迁移选项的列表和指导，请参阅[将数据库迁移到 Azure VM 上的 SQL Server](virtual-machines-windows-migrate-sql.md)。
+如果已有数据库，会想要将该数据库移至新预配的 SQL VM。 有关迁移选项的列表和指导，请参阅[将数据库迁移到 Azure VM 上的 SQL Server](virtual-machines-windows-migrate-sql.md)。
 
 ### <a name="configure-high-availability"></a>配置高可用性
-如果你需要高可用性，请考虑配置 SQL Server 可用性组。 这涉及虚拟网络中的多个 Azure VM。 如果想要手动配置可用性组和关联的侦听器，请参阅[在 Azure VM 中配置 AlwaysOn 可用性组](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)。
+如果需要高可用性，请考虑配置 SQL Server 可用性组。 这涉及虚拟网络中的多个 Azure VM。 如果想要手动配置可用性组和关联的侦听器，请参阅[在 Azure VM 中配置 AlwaysOn 可用性组](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)。
 
 有关其他高可用性注意事项，请参阅 [Azure 虚拟机中 SQL Server 的高可用性和灾难恢复](virtual-machines-windows-sql-high-availability-dr.md)。
 
 ### <a name="back-up-your-data"></a>备份数据
-Azure VM 可以利用[自动备份](virtual-machines-windows-sql-automated-backup.md)，这将定期在 Blob 存储中创建数据库的备份。 你也可以手动使用此技术。 有关详细信息，请参阅[使用 Azure 存储进行 SQL Server 备份和还原](virtual-machines-windows-use-storage-sql-server-backup-restore.md)。 有关所有备份和还原选项的概述，请参阅 [Azure 虚拟机中 SQL Server 的备份和还原](virtual-machines-windows-sql-backup-recovery.md)。
+Azure VM 可以利用[自动备份](virtual-machines-windows-sql-automated-backup.md)，这将定期在 Blob 存储中创建数据库的备份。 也可以手动使用此技术。 有关详细信息，请参阅[使用 Azure 存储进行 SQL Server 备份和还原](virtual-machines-windows-use-storage-sql-server-backup-restore.md)。 有关所有备份和还原选项的概述，请参阅 [Azure 虚拟机中 SQL Server 的备份和还原](virtual-machines-windows-sql-backup-recovery.md)。
 
 ### <a name="automate-updates"></a>自动更新
 Azure VM 可以使用[自动修补](virtual-machines-windows-sql-automated-patching.md)来安排维护时段，以便自动安装重要的 Windows 和 SQL Server 更新。
 
 ### <a name="customer-experience-improvement-program-ceip"></a>客户体验改善计划 (CEIP)
-客户体验改善计划 (CEIP) 默认情况下已启用。 它定期将报表发送给 Microsoft，以帮助改进 SQL Server。 CEIP 不要求管理任务，除非想在预配后禁用它。 你可以通过远程桌面连接到 VM，以自定义或禁用 CEIP。 然后运行 **SQL Server 错误和使用情况报告** 实用工具。 请按照说明禁用报告功能。 
+客户体验改善计划 (CEIP) 默认情况下已启用。 它定期将报表发送给 Microsoft，以帮助改进 SQL Server。 CEIP 不要求管理任务，除非想在预配后禁用它。 可以通过远程桌面连接到 VM，以自定义或禁用 CEIP。 然后运行 **SQL Server 错误和使用情况报告**实用工具。 请按照说明禁用报告功能。 
 
 有关详细信息，请参阅[接受许可条款](https://msdn.microsoft.com/library/ms143343.aspx)主题的“CEIP”部分。 
 
@@ -111,3 +110,5 @@ Azure VM 可以使用[自动修补](virtual-machines-windows-sql-automated-patch
 有关定价的问题，请参阅 [SQL Server Azure VM 的定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)和 [Azure 定价页](https://www.azure.cn/pricing/details/virtual-machines/windows/)。 在“OS/软件”列表中选择 SQL Server 的目标版本。 然后查看不同大小的虚拟机的价格。
 
 其他问题？ 请先参阅 [Azure 虚拟机中的 SQL Server 常见问题解答](virtual-machines-windows-sql-server-iaas-faq.md)。 同时将问题或看法添加到任何 SQL VM 主题的底部，以便与 Azure.cn 和社区互动。
+
+<!--Update_Description: wording update-->

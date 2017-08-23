@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 01/31/2017
-ms.date: 03/28/2017
+origin.date: 07/05/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: 98b7fa12dd973df61906da8df417094bddcfcc4c
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 16545a4198b30f51eb8ad602eb78a59b8db8bdc4
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure 虚拟机中 SQL Server 的自动修补 (Resource Manager)
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 06/23/2017
 > 
 > 
 
-自动修补将为运行 SQL Server 的 Azure 虚拟机建立一个维护时段。 只能在此维护时段内安装自动更新。 对于 SQL Server，此限制可以确保在数据库的最佳可能时间进行系统更新和任何关联的重新启动。 自动修补依赖于 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)。
+自动修补为运行 SQL Server 的 Azure 虚拟机建立一个维护时段。 只能在此维护时段内安装自动更新。 对于 SQL Server，此限制可以确保在数据库的最佳可能时间进行系统更新和任何关联的重新启动。 自动修补依赖于 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)。
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -42,6 +42,7 @@ ms.lasthandoff: 06/23/2017
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **SQL Server 版本**：
 
@@ -82,7 +83,7 @@ ms.lasthandoff: 06/23/2017
 若要了解上下文，请参阅有关[在 Azure 中预配 SQL Server 虚拟机](virtual-machines-windows-portal-sql-server-provision.md)的完整主题。
 
 ### <a name="existing-vms"></a>现有 VM
-对于现有的 SQL Server 虚拟机，请选择你的 SQL Server 虚拟机。 然后选择“设置”边栏选项卡的“SQL Server 配置”部分。
+对于现有的 SQL Server 虚拟机，请选择 SQL Server 虚拟机。 然后选择“设置”边栏选项卡的“SQL Server 配置”部分。
 
 ![现有 VM 的 SQL 自动修补](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
 
@@ -92,17 +93,17 @@ ms.lasthandoff: 06/23/2017
 
 完成后，单击“SQL Server 配置”边栏选项卡底部的“确定”按钮保存更改。
 
-当你首次启用自动修补时，Azure 将在后台配置 SQL Server IaaS 代理。 在此期间，Azure 门户可能不会显示已配置自动修补。 请等待几分钟，以便安装和配置代理。 随后，Azure 门户将反映新设置。
+当你首次启用自动修补时，Azure 会在后台配置 SQL Server IaaS 代理。 在此期间，Azure 门户可能不会显示已配置自动修补。 请等待几分钟，以便安装和配置代理。 随后，Azure 门户将反映新设置。
 
 > [!NOTE]
-> 你也可以使用模板来配置自动修补。 有关详细信息，请参阅 [Azure quickstart template for Automated Patching](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update)（用于自动备份的 Azure 快速入门模板）。
+> 也可以使用模板来配置自动修补。 有关详细信息，请参阅 [Azure quickstart template for Automated Patching](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update)（用于自动备份的 Azure 快速入门模板）。
 > 
 > 
 
 ## <a name="configuration-with-powershell"></a>使用 PowerShell 进行配置
 预配 SQL VM 后，使用 PowerShell 配置自动修补。
 
-以下示例将使用 PowerShell 在现有的 SQL Server VM 上配置自动修补。 **AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig** 命令可以为自动更新配置新的维护时段。
+以下示例使用 PowerShell 在现有的 SQL Server VM 上配置自动修补。 **AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig** 命令可以为自动更新配置新的维护时段。
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
@@ -121,9 +122,11 @@ ms.lasthandoff: 06/23/2017
 
 可能需要花费几分钟来安装和配置 SQL Server IaaS 代理。
 
-若要禁用自动修补，请对 **AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig** 运行不带 **-Enable** 参数的同一个脚本。 缺少 **-Enable** 参数将向该命令发出指示以禁用此功能。
+若要禁用自动修补，请对 **AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig** 运行不带 **-Enable** 参数的同一个脚本。 缺少 **-Enable** 参数会向该命令发出指示以禁用此功能。
 
 ## <a name="next-steps"></a>后续步骤
 有关其他可用自动化任务的信息，请参阅 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)。
 
 有关在 Azure VM 中运行 SQL Server 的详细信息，请参阅 [Azure 虚拟机中的 SQL Server 概述](virtual-machines-windows-sql-server-iaas-overview.md)。
+
+<!--Update_Description: add sql server 2016-->

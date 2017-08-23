@@ -12,23 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/24/2017
-ms.date: 07/03/2017
+origin.date: 06/26/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
-ms.openlocfilehash: f8667b924b66cca2fb5adc712d1e860d9f302d4b
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: b3a6bab29e16ae43423a0e7833416e92bd331149
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/17/2017
 ---
-# 在 Azure Resource Manager 模板中部署资源或属性的多个实例
-<a id="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates" class="xliff"></a>
+# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 模板中部署资源或属性的多个实例
 本主题介绍如何在 Azure Resource Manager 模板中进行迭代操作，以创建多个资源实例，或者在资源中创建多个属性实例。
 
 如果需要在模板中添加逻辑来指定是否部署资源，请参阅[有条件地部署资源](#conditionally-deploy-resource)。
 
-## 资源迭代
-<a id="resource-iteration" class="xliff"></a>
+## <a name="resource-iteration"></a>资源迭代
 若要创建某个资源类型的多个实例，请向该资源类型添加 `copy` 元素。 在 copy 元素中，为此循环指定迭代次数和名称。 计数值必须是不超过 800 的正整数。 Resource Manager 将并行创建资源。 因此，创建顺序是不确定的。 若要在序列中创建迭代的资源，请参阅[串行复制](#serial-copy)。 
 
 要多次创建的资源将采用以下格式：
@@ -113,8 +111,7 @@ ms.lasthandoff: 06/23/2017
 * storagefabrikam
 * storagecoho
 
-## 串行复制
-<a id="serial-copy" class="xliff"></a>
+## <a name="serial-copy"></a>串行复制
 
 使用 copy 元素创建某种资源类型的多个实例时，默认情况下，Resource Manager 并行部署这些实例。 但是，你可能希望将资源指定为按顺序部署。 例如，在更新生产环境时，可能需要错开更新，使任何一次仅更新一定数量。
 
@@ -260,8 +257,7 @@ mode 属性也接受 **parallel**（它是默认值）。
 }
 ```
 
-## 属性迭代
-<a id="property-iteration" class="xliff"></a>
+## <a name="property-iteration"></a>属性迭代
 
 若要为资源中的某个属性创建多个值，请在 properties 元素中添加 `copy` 数组。 此数组包含对象，每个对象具有以下属性：
 
@@ -355,8 +351,54 @@ Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将
 }
 ```
 
-## 依赖于循环中的资源
-<a id="depend-on-resources-in-a-loop" class="xliff"></a>
+只能在每个资源的属性中包含一个 copy 元素。 若要为多个属性指定一个迭代循环，请在 copy 数组中定义多个对象。 每个对象单独迭代。 例如，若要在负载均衡器上创建 `frontendIPConfigurations` 属性和 `loadBalancingRules` 属性的多个实例，请在单个 copy 元素中定义这两个对象： 
+
+```json
+{
+    "name": "[variables('loadBalancerName')]",
+    "type": "Microsoft.Network/loadBalancers",
+    "properties": {
+        "copy": [
+          {
+              "name": "frontendIPConfigurations",
+              "count": 2,
+              "input": {
+                  "name": "[concat('loadBalancerFrontEnd', copyIndex('frontendIPConfigurations', 1))]",
+                  "properties": {
+                      "publicIPAddress": {
+                          "id": "[variables(concat('publicIPAddressID', copyIndex('frontendIPConfigurations', 1)))]"
+                      }
+                  }
+              }
+          },
+          {
+              "name": "loadBalancingRules",
+              "count": 2,
+              "input": {
+                  "name": "[concat('LBRuleForVIP', copyIndex('loadBalancingRules', 1))]",
+                  "properties": {
+                      "frontendIPConfiguration": {
+                          "id": "[variables(concat('frontEndIPConfigID', copyIndex('loadBalancingRules', 1)))]"
+                      },
+                      "backendAddressPool": {
+                          "id": "[variables('lbBackendPoolID')]"
+                      },
+                      "protocol": "tcp",
+                      "frontendPort": "[variables(concat('frontEndPort' copyIndex('loadBalancingRules', 1))]",
+                      "backendPort": "[variables(concat('backEndPort' copyIndex('loadBalancingRules', 1))]",
+                      "probe": {
+                          "id": "[variables('lbProbeID')]"
+                      }
+                  }
+              }
+          }
+        ],
+        ...
+    }
+}
+```
+
+## <a name="depend-on-resources-in-a-loop"></a>依赖于循环中的资源
 可以使用 `dependsOn` 元素指定一个资源在另一个资源之后部署。 若要部署的资源依赖于循环中的资源集合，请在 dependsOn 元素中提供 copy 循环的名称。 以下示例演示了如何在部署虚拟机之前部署三个存储帐户。 此处并未显示完整的虚拟机定义。 请注意，copy 元素的名称设置为 `storagecopy`，而虚拟机的 dependsOn 元素也设置为 `storagecopy`。
 
 ```json
@@ -392,9 +434,8 @@ Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将
 }
 ```
 
-## 创建子资源的多个实例
-<a id="create-multiple-instances-of-a-child-resource" class="xliff"></a>
-不能对子资源使用 copy 循环。 若要创建子资源的多个实例，而该子资源通常在其他资源中定义为嵌套资源，则必须将该资源创建为顶级资源。 可以通过 type 和 name 属性定义与父资源的关系。
+## <a name="create-multiple-instances-of-a-child-resource"></a>创建子资源的多个实例
+不能对子资源使用 copy 循环。 要创建子资源的多个实例，而该子资源通常在其他资源中定义为嵌套资源，则必须将该资源创建为顶级资源。 可以通过 type 和 name 属性定义与父资源的关系。
 
 例如，假设用户通常会将某个数据集定义为数据工厂中的子资源。
 
@@ -416,7 +457,7 @@ Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将
 }]
 ```
 
-若要创建数据集的多个实例，请将数据集移出数据工厂。 数据集必须与数据工厂位于同一层级，但仍属数据工厂的子资源。 可以通过 type 和 name 属性保留数据集和数据工厂之间的关系。 由于类型不再可以从其在模板中的位置推断，因此必须按以下格式提供完全限定的类型： `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`。
+要创建数据集的多个实例，请将数据集移出数据工厂。 数据集必须与数据工厂位于同一层级，但仍属数据工厂的子资源。 可以通过 type 和 name 属性保留数据集和数据工厂之间的关系。 由于类型不再可以从其在模板中的位置推断，因此必须按以下格式提供完全限定的类型： `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`。
 
 若要与数据工厂的实例建立父/子关系，提供的数据集的名称应包含父资源名称。 使用以下格式： `{parent-resource-name}/{child-resource-name}`。  
 
@@ -443,8 +484,7 @@ Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将
 }]
 ```
 
-## 有条件地部署资源
-<a id="conditionally-deploy-resource" class="xliff"></a>
+## <a name="conditionally-deploy-resource"></a>有条件地部署资源
 
 若要指定是否部署资源，请使用 `condition` 元素。 此元素的值将解析为 true 或 false。 如果值为 true，则部署资源。 如果值为 false，则不部署资源。 例如，若要指定是要部署新的存储帐户还是使用现有存储帐户，请使用：
 
@@ -467,7 +507,8 @@ Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将
 
 有关使用密码或 SSH 密钥部署虚拟机的示例，请参阅[用户名或 SSH 条件模板](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 若要了解有关模板区段的信息，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
 * 若要了解如何部署模板，请参阅 [使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
+
+<!--Update_Description: wording update, add template code of copy element.-->

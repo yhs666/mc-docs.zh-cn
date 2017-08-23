@@ -3,8 +3,8 @@ title: "Azure CLI 脚本示例 - 部署模板 | Azure"
 description: "用于部署 Azure Resource Manager 模板的示例脚本。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 
 ms.service: azure-resource-manager
@@ -13,15 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/19/2017
-ms.date: 06/05/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 9385b7ff9b3e7a82fa5d8f8e54c74fce223dd269
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 612074212f584f8607b1242352a75edca9d95ab1
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="azure-resource-manager-template-deployment---azure-cli-script"></a>Azure Resource Manager 模板部署 - Azure CLI 脚本
 
@@ -122,16 +120,11 @@ then
 fi
 
 #set the default subscription id
-az account set --name $subscriptionId
-
-set +e
+az account set --subscription $subscriptionId
 
 #Check for existing RG
-az group show $resourceGroupName 1> /dev/null
-
-if [ $? != 0 ]; then
+if [ $(az group exists --name $resourceGroupName) == 'false' ]; then
     echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
-    set -e
     (
         set -x
         az group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
@@ -167,7 +160,7 @@ az group delete --name myResourceGroup
 
 | 命令 | 说明 |
 |---|---|
-| [az group show](https://docs.microsoft.com/cli/azure/group#show) | 获取资源组。 |
+| [az group exists](https://docs.microsoft.com/cli/azure/group#exists) | 检查是否有资源组。 |
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create) | 启动部署。  |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | 删除资源组，包括其所有资源。 |
@@ -177,3 +170,5 @@ az group delete --name myResourceGroup
 * 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-cli-sas-token.md)。
 * 若要在模板中定义参数，请参阅[创作模板](resource-group-authoring-templates.md#parameters)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
+
+<!--Update_Description: wording update, update link-->

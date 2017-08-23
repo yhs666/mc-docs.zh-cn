@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 03/17/2017
-ms.date: 04/24/2017
+origin.date: 06/26/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bcbad0a07a140ad90d4293093d5e0f514bcf3ab7
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 0d82258bb63146dfcd8200312ca5569fd180e2e0
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-storage-infrastructure-guidelines-for-linux-vms"></a>适用于 Linux VM 的 Azure 存储基础结构准则
 
@@ -34,9 +34,9 @@ ms.lasthandoff: 06/23/2017
 
 * 要使用 Azure 托管磁盘还是非托管磁盘？
 * 需要为工作负荷使用标准存储还是高级存储？
-* 是否需要进行磁盘条带化以创建大于 1023 GB 的磁盘？
+* 是否需要进行磁盘条带化以创建大于 4TB 的磁盘？
 * 是否需要进行磁盘条带化以获得工作负荷的最佳 I/O 性能？
-* 你需要使用哪一组存储帐户来托管你的 IT 工作负荷或基础结构？
+* 需要使用哪一组存储帐户来托管 IT 工作负荷或基础结构？
 
 任务：
 
@@ -46,7 +46,8 @@ ms.lasthandoff: 06/23/2017
 ## <a name="storage"></a>存储
 Azure 存储是部署与管理虚拟机 (VM) 和应用程序的重要部分。 Azure 存储提供的服务可用于存储文件数据、非结构化数据和消息，该存储空间也是为 VM 提供支持的基础结构的一部分。
 
-[Azure 托管磁盘](../../storage/storage-managed-disks-overview.md)在幕后为你处理存储。 使用非托管磁盘时，需创建存储帐户来存储你的 Azure VM 的磁盘（VHD 文件）。 进行扩展时，必须确保创建了额外的存储帐户，以便任何磁盘都不会超出对存储的 IOPS 限制。 使用托管磁盘处理存储时，不再受到存储帐户限制（例如每个帐户 20,000 IOPS）的约束。 另外，不再需要将自定义映像（VHD 文件）复制到多个存储帐户。 可在一个中心位置管理自定义映像（每个 Azure 区域保存一个存储帐户），并使用它们在一个订阅中创建数百个 VM。 我们建议你使用托管磁盘进行新部署。
+
+            [Azure 托管磁盘](../../storage/storage-managed-disks-overview.md)在幕后处理存储。 使用非托管磁盘时，需创建存储帐户来存储 Azure VM 的磁盘（VHD 文件）。 进行扩展时，必须确保创建了额外的存储帐户，以便任何磁盘都不会超出对存储的 IOPS 限制。 使用托管磁盘处理存储时，不再受到存储帐户限制（例如每个帐户 20,000 IOPS）的约束。 另外，不再需要将自定义映像（VHD 文件）复制到多个存储帐户。 可在一个中心位置管理自定义映像（每个 Azure 区域保存一个存储帐户），并使用它们在一个订阅中创建数百个 VM。 我们建议使用托管磁盘进行新部署。
 
 有两种可为 VM 提供支持的存储帐户：
 
@@ -55,7 +56,7 @@ Azure 存储是部署与管理虚拟机 (VM) 和应用程序的重要部分。 A
 
 Azure 使用一个操作系统磁盘、一个临时磁盘和零个或更多可选数据磁盘创建 VM。 操作系统磁盘和数据磁盘是 Azure 页 blob，而临时磁盘则通过本地方式存储在计算机所在的节点上。 请注意，在设计应用程序时，务必仅将此临时磁盘用于非持久性数据，因为 VM 可能会在维护事件期间在主机之间迁移。 任何存储在临时磁盘上的数据都会丢失。
 
-持久性和高可用性将由基础 Azure 存储环境提供，以确保数据在发生非计划维护或硬件故障时受到保护。 设计 Azure 存储环境时，可以选择复制 VM 存储：
+持久性和高可用性由基础 Azure 存储环境提供，以确保数据在发生非计划维护或硬件故障时受到保护。 设计 Azure 存储环境时，可以选择复制 VM 存储：
 
 * 在给定的 Azure 数据中心内本地复制
 * 在给定区域内的 Azure 数据中心之间复制
@@ -63,25 +64,24 @@ Azure 使用一个操作系统磁盘、一个临时磁盘和零个或更多可�
 
 了解[有关高可用性复制选项的详细信息](../../storage/storage-introduction.md#replication-for-durability-and-high-availability)。
 
-操作系统磁盘和数据磁盘的最大大小为 1023 千兆字节 (GB)。 Blob 的最大大小为 1024 GB，并且必须包含 VHD 文件的元数据（脚注）（1 GB 是 1024<sup>3</sup> 字节）。 你可以使用逻辑卷管理器 (LVM) 来超越此限制，方法是将数据磁盘整合在一起，以向 VM 提供大于 1023 GB 的逻辑卷。
+操作系统磁盘和数据磁盘的最大大小为 4TB。 可以使用逻辑卷管理器 (LVM) 来超越此限制，方法是将数据磁盘整合在一起，以向 VM 提供大于 1023 GB 的逻辑卷。
 
 设计 Azure 存储部署时有几个可伸缩性限制，请参阅 [Azure 订阅和服务限制、配额和约束条件](../../azure-subscription-service-limits.md#storage-limits)，了解更多详细信息。 另请参阅 [Azure 存储伸缩性和性能目标](../../storage/storage-scalability-targets.md)。
 
 针对应用程序存储，可以使用 Blob 存储来存储非结构化对象数据，例如文档、映像、备份、配置数据、 日志等。 应用程序可以直接写入 Azure Blob 存储，而不是写入附加到 VM 的虚拟磁盘。 根据可用性需求和成本限制，Blob 存储还提供[热存储层和冷存储层](../../storage/storage-blob-storage-tiers.md)选项。
 
 ## <a name="striped-disks"></a>条带化的磁盘
-除了允许创建大于 1023 GB 的磁盘外，在许多情况下，对数据磁盘使用条带化还可增强性能，因为允许多个 blob 支持单个卷的存储。 使用条带化时，将会并行处理针对单个逻辑磁盘写入和读取数据所需的 I/O。
+除了允许创建大于 1023 GB 的磁盘外，在许多情况下，对数据磁盘使用条带化还可增强性能，因为允许多个 blob 支持单个卷的存储。 使用条带化时，会并行处理针对单个逻辑磁盘写入和读取数据所需的 I/O。
 
-Azure 将对可用的数据磁盘数和带宽加以限制，具体取决于 VM 大小。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+Azure 将对可用的数据磁盘数和带宽加以限制，具体取决于 VM 大小。 有关详细信息，请参阅[虚拟机大小](sizes.md)。
 
 如果要对 Azure 数据磁盘使用磁盘条带化，请考虑以下准则：
 
-* 数据磁盘应始终为最大大小 (1023 GB)。
 * 附加 VM 大小所允许的最大数据磁盘量。
 * 使用 LVM。
 * 避免使用 Azure 数据磁盘缓存选项（缓存策略 =“无”）。
 
-有关详细信息，请参阅[在 Linux VM 上配置 LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+有关详细信息，请参阅[在 Linux VM 上配置 LVM](configure-lvm.md)。
 
 ## <a name="multiple-storage-accounts"></a>多个存储帐户
 本节不适用于 [Azure 托管磁盘](../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，因为无需创建单独的存储帐户。 
@@ -92,3 +92,5 @@ Azure 将对可用的数据磁盘数和带宽加以限制，具体取决于 VM �
 
 ## <a name="next-steps"></a>后续步骤
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
+
+<!--Update_Description: wording update-->

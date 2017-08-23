@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/12/2017
-ms.author: v-yiso
+origin.date: 06/30/2017
 ms.date: 
-ms.openlocfilehash: a00a3d0c3a70de4eacaacd499d8074abf4a50bbe
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.author: v-yiso
+ms.openlocfilehash: 2de1d0595ded91a98d88f17eb765d2fa07e6d478
+ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/14/2017
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 先决条件和清单  
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/14/2017
 - 即使提供商不是 ExpressRoute 连接合作伙伴，也可通过[云交换提供商](./expressroute-locations.md#nonpartners)连接到 Microsoft 云。
 
 ## <a name="network-requirements"></a>网络要求
-- **冗余连接**：对于你和提供商之间的物理连接，没有冗余方面的要求。 即使只有 [一个到云交换的物理连接](./expressroute-faqs.md#onep2plink)，Microsoft 也会要求在 Microsoft 的路由器和对等互连路由器之间建立冗余的 BGP 会话。 
+- **冗余连接**：对于客户与提供商之间的物理连接，没有冗余方面的要求。 即使只有 [一个到云交换的物理连接](./expressroute-faqs.md#onep2plink)，Microsoft 也会要求在 Microsoft 的路由器和对等互连路由器之间建立冗余的 BGP 会话。 
 - 路由：你或你的提供商需设置和管理针对[路由域](./expressroute-circuit-peerings.md)的 BGP 会话，具体取决于连接到 Microsoft 云的方式。 某些以太网连接服务提供商或云交换服务提供商可能会以增值服务的形式提供 BGP 管理。
 
 
@@ -50,3 +50,5 @@ ms.lasthandoff: 07/14/2017
     - [创建 ExpressRoute 线路](./expressroute-howto-circuit-classic.md)
     - [配置路由](./expressroute-howto-routing-classic.md)
     - [将 VNet 链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-classic.md)
+    
+<!--Update_Description:update meta properties only-->    

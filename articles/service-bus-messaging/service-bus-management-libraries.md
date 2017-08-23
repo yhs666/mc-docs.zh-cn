@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/03/2017
-ms.date: 07/17/2017
+origin.date: 07/05/2017
+ms.date: 08/21/2017
 ms.author: v-yiso
-ms.openlocfilehash: 64d583b708502b057fcf876412eecf213526e5b3
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 678aae71249cd98d2d34d001ae4f25dba0247ad7
+ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/14/2017
 ---
 # <a name="service-bus-management-libraries"></a>服务总线管理库
 
-服务总线管理库可动态预配服务总线命名空间和实体。 因而适用于复杂部署和消息传送方案，这让用户能够以编程方式确定要预配的实体。 这些库当前面向 .NET 提供。
+Azure 服务总线管理库可以动态预配服务总线命名空间和实体。 这样可以实现复杂的部署和消息方案，并能以编程方式确定要预配的实体。 这些库目前可用于 .NET。
 
 ## <a name="supported-functionality"></a>受支持的功能
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-若要开始使用服务总线管理库，必须使用 Azure Active Directory (AAD) 进行身份验证。 AAD 要求以提供 Azure 资源访问权限的服务主体身份进行身份验证。 有关创建服务主体的信息，请参阅以下文章之一：  
+若要开始使用服务总线管理库，必须使用 Azure Active Directory (AAD) 服务进行身份验证。 AAD 要求以提供 Azure 资源访问权限的服务主体身份进行身份验证。 有关创建服务主体的信息，请参阅以下文章之一：  
 
 * [使用 Azure 门户创建可访问资源的 Active Directory 应用程序和服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * [使用 Azure PowerShell 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal.md)
@@ -51,7 +51,7 @@ ms.lasthandoff: 07/14/2017
     var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
     var result = await context.AcquireTokenAsync(
-        "https://management.core.windows.net/",
+        "https://management.core.chinacloudapi.cn/",
         new ClientCredential(clientId, clientSecret)
     );
     ```
@@ -81,4 +81,4 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="next-steps"></a>后续步骤
 * [.NET 管理示例](https://github.com/Azure-Samples/service-bus-dotnet-management/)
-* [Microsoft.Azure.Management.ServiceBus 参考](https://docs.microsoft.com/en-us/dotnet/api/Microsoft.Azure.Management.ServiceBus)
+* [Microsoft.Azure.Management.ServiceBus API 参考](https://docs.microsoft.com/en-us/dotnet/api/Microsoft.Azure.Management.ServiceBus)

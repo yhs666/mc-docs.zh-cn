@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 03/01/2017
-ms.date: 04/27/2017
+origin.date: 07/17/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: b09073348165139c292e1f05f4ec1056b6389902
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 6566840ed619cebfa5ca532b23042855f96ea8ed
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="virtual-networks-and-windows-virtual-machines-in-azure"></a>Azure 中的虚拟网络和 Windows 虚拟机 
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 06/23/2017
 
 | 方法 | 说明 |
 | ------ | ----------- |
-| Azure 门户 | 在 Azure 门户中创建 VM 时，系统会自动创建网络接口（无法使用单独创建的 NIC）。 门户将创建只包含一个 NIC 的 VM。 如果想要创建包含多个 NIC 的 VM，必须使用其他方法创建 VM。 |
+| Azure 门户 | 在 Azure 门户中创建 VM 时，系统会自动创建网络接口（无法使用单独创建的 NIC）。 门户会创建只包含一个 NIC 的 VM。 如果想要创建包含多个 NIC 的 VM，必须使用其他方法创建 VM。 |
 | [Azure PowerShell](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) | 结合 **-PublicIpAddressId** 参数使用 [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface)，提供事先创建的公共 IP 地址标识符。 |
 | [Azure CLI](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md) | 若要提供事先创建的公共 IP 地址标识符，请结合 [--public-ip-address](https://docs.microsoft.com/cli/azure/network/nic#create) 参数使用 **az network nic create** 。 |
 | [模板](../../virtual-network/virtual-network-deploy-multinic-arm-template.md) | 参考 [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) （虚拟网络中使用公共 IP 地址的网络接口），使用模板部署网络接口。 |
@@ -75,13 +75,13 @@ ms.lasthandoff: 06/23/2017
 
 将 IP 地址分配给资源有两种方法：动态或静态。 默认分配方法为动态，即，IP 地址不是在创建它时分配的， 而是在创建 VM 或启动已停止的 VM 时分配的。 停止或删除该 VM 时，会释放该 IP 地址。 
 
-若要确保 VM 的 IP 地址保持不变，可将分配方法显式设置为静态。 在这种情况下，IP 地址是即时分配的。 只有在删除该 VM 或将其分配方法更改为动态时，才会释放该地址。
+要确保 VM 的 IP 地址保持不变，可将分配方法显式设置为静态。 在这种情况下，IP 地址是即时分配的。 只有在删除该 VM 或将其分配方法更改为动态时，才会释放该地址。
 
 下表列出了可用于创建 IP 地址的方法。
 
 | 方法 | 说明 |
 | ------ | ----------- |
-| [Azure 门户](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | 默认情况下，公共 IP 地址是动态的，在停止或删除 VM 时，与这些公共 IP 地址关联的地址可能会更改。 为确保 VM 始终使用同一个公共 IP 地址，需创建静态公共 IP 地址。 默认情况下，门户将在创建 VM 时向 NIC 分配一个动态专用 IP 地址。 创建 VM 后，可将此地址更改为静态地址。|
+| [Azure 门户](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | 默认情况下，公共 IP 地址是动态的，在停止或删除 VM 时，与这些公共 IP 地址关联的地址可能会更改。 为确保 VM 始终使用同一个公共 IP 地址，需创建静态公共 IP 地址。 默认情况下，门户会在创建 VM 时向 NIC 分配一个动态专用 IP 地址。 创建 VM 后，可将此地址更改为静态地址。|
 | [Azure PowerShell](../../virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | 结合值为 Dynamic 或 Static 的 **-AllocationMethod** 参数使用 [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress)。 |
 | [Azure CLI](../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | 结合值为 Dynamic 或 Static 的 [--allocation-method](https://docs.microsoft.com/cli/azure/network/public-ip#create) 参数使用 **az network public-ip create** 。 |
 | [模板](../../virtual-network/virtual-network-deploy-static-pip-arm-template.md) | 参考 [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) （虚拟网络中使用公共 IP 地址的网络接口），使用模板部署公共 IP 地址。 |
@@ -109,7 +109,7 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="network-security-groups"></a>网络安全组
 
-[网络安全组 (NSG)](../../virtual-network/virtual-networks-nsg.md) 包含一系列访问控制列表 (ACL) 规则，这些规则可以允许或拒绝流向子网和/或 NIC 的网络流量。 NSG 可与子网或者已连接到子网的各个 NIC 相关联。 当 NSG 与某个子网相关联时，ACL 规则将应用到该子网中的所有 VM。 另外，可以通过将 NSG 直接关联到 NIC，对流向单个 NIC 的流量进行限制。
+[网络安全组 (NSG)](../../virtual-network/virtual-networks-nsg.md) 包含一系列访问控制列表 (ACL) 规则，这些规则可以允许或拒绝流向子网和/或 NIC 的网络流量。 NSG 可与子网或者已连接到子网的各个 NIC 相关联。 当 NSG 与某个子网相关联时，ACL 规则应用到该子网中的所有 VM。 另外，可以通过将 NSG 直接关联到 NIC，对流向单个 NIC 的流量进行限制。
 
 NSG 包含两种类型的规则：入站规则和出站规则。 在每组中，规则的优先级必须保持唯一。 每个规则包含以下属性：协议、源和目标端口范围、地址前缀、流量方向、优先级和访问类型。 
 
@@ -162,11 +162,11 @@ NSG 包含两种类型的规则：入站规则和出站规则。 在每组中，
 
 ## <a name="vms"></a>VM
 
-可在同一 VNet 中创建 VM，VM 可以使用专用 IP 地址相互连接。 即使 VM 位于不同的子网中，它们也可以相互连接，无需配置网关或使用公共 IP 地址。 若要将 VM 放入某个 VNet，请创建该 VNet，然后在每个 VM 时，将其分配到该 VNet 和子网。 在部署或启动期间，VM 将获取其网络设置。  
+可在同一 VNet 中创建 VM，VM 可以使用专用 IP 地址相互连接。 即使 VM 位于不同的子网中，它们也可以相互连接，无需配置网关或使用公共 IP 地址。 要将 VM 放入某个 VNet，请创建该 VNet，然后在每个 VM 时，将其分配到该 VNet 和子网。 在部署或启动期间，VM 会获取其网络设置。  
 
-部署 VM 时，系统将为 VM 分配一个 IP 地址。 如果将多个 VM 部署到 VNet 或子网，则 VM 启动时，系统将为其分配 IP 地址。 动态 IP 地址 (DIP) 是与 VM 关联的内部 IP 地址。 可向 VM 分配静态 DIP。 如果分配静态 DIP，应考虑使用特定的子网，避免意外地重复使用另一个 VM 的静态 DIP。  
+部署 VM 时，系统为 VM 分配一个 IP 地址。 如果将多个 VM 部署到 VNet 或子网，则 VM 启动时，系统为其分配 IP 地址。 动态 IP 地址 (DIP) 是与 VM 关联的内部 IP 地址。 可向 VM 分配静态 DIP。 如果分配静态 DIP，应考虑使用特定的子网，避免意外地重复使用另一个 VM 的静态 DIP。  
 
-如果创建了一个 VM，事后又想要将它迁移到 VNet，做出这种配置更改并不是一个简单的过程。 在这种情况下，必须将 VM 重新部署到 VNet。 最简单的重新部署方法是删除该 VM（但不要删除其上附加的任何磁盘），然后在 VNet 中使用原始磁盘重新创建 VM。 
+如果创建了一个 VM，事后又想要将它迁移到 VNet，做出这种配置更改并不是一个简单的过程。 在这种情况下，必须将 VM 重新部署到 VNet。 最简单的重新部署方法是删除该 VM（但不要删除其上附加的任何磁盘），并在 VNet 中使用原始磁盘重新创建 VM。 
 
 下表列出了可用于在 VNet 中创建 VM 的方法。
 
@@ -181,3 +181,5 @@ NSG 包含两种类型的规则：入站规则和出站规则。 在每组中，
 - 了解如何配置[用户定义的路由和 IP 转发](../../virtual-network/virtual-networks-udr-overview.md)。 
 - 了解如何配置 [VNet 到 VNet 连接](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
 - 了解如何[排查路由问题](../../virtual-network/virtual-network-routes-troubleshoot-portal.md)。
+
+<!--Update_Description: update meta data-->

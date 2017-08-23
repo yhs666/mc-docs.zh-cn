@@ -3,8 +3,8 @@ title: "设置 Azure 资源的部署顺序 | Azure"
 description: "介绍如何在部署期间将一个资源设置为依赖于另一个资源，以确保按正确的顺序部署资源。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 34ebaf1e-480c-4b4d-9bf6-251bd3f8f2cf
 ms.service: azure-resource-manager
@@ -13,16 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/03/2017
-ms.date: 06/05/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 0d7555c2b96f81be17708aafb1478d17f05f4d70
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 3b4fd79a6ffb7c3feffe60f98163e366ffb25dac
+ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/17/2017
 ---
-
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>定义在 Azure Resource Manager 模板中部署资源的顺序
 对于给定的资源，可能有部署资源之前必须存在的其他资源。 例如，SQL Server 必须存在，才能尝试部署 SQL 数据库。 可通过将一个资源标记为依赖于其他资源来定义此关系。 使用 **dependsOn** 元素或 **reference** 函数定义依赖项。 
 
@@ -65,7 +63,7 @@ Resource Manager 将评估资源之间的依赖关系，并根据其依赖顺序
 尽管你可能倾向使用 dependsOn 来映射资源之间的关系，但请务必了解这么做的理由。 例如，若要记录资源的互连方式，那么，dependsOn 方法并不合适。 部署之后，无法查询 dependsOn 元素中定义的资源。 通过使用 dependsOn，可以影响部署时间，因为 Resource Manager 不会并行部署两个具有依赖关系的资源。 若要记录资源之间的关系，请改为使用 [资源链接](https://docs.microsoft.com/rest/api/resources/resourcelinks)。
 
 ## <a name="child-resources"></a>子资源
-资源属性允许指定与所定义的资源相关的子资源。 子资源总共只能定义五级。 请务必注意子资源和父资源之间不能创建隐式依赖关系。 如果您需要在父级资源后部署子资源，则必须使用 dependsOn 属性明确声明该依赖关系。 
+资源属性允许指定与所定义的资源相关的子资源。 子资源总共只能定义五级。 请务必注意子资源和父资源之间不能创建隐式依赖关系。 如果要在父级资源后部署子资源，则必须使用 dependsOn 属性明确声明该依赖关系。 
 
 每个父资源仅接受特定的资源类型作为子资源。 可接受的资源类型在父资源的 [模板架构](https://github.com/Azure/azure-resource-manager-schemas) 中指定。 子资源类型的名称包含父资源类型的名称，例如 **Microsoft.Web/sites/config** 和 **Microsoft.Web/sites/extensions** 都是 **Microsoft.Web/sites** 的子资源。
 
@@ -155,9 +153,11 @@ Resource Manager 可在模板验证过程中确定循环依赖项。 如果收�
 3. vm1 上的扩展依赖于 vm1 和 vm2。 扩展在 vm1 上设置的值是从 vm2 获取的。
 4. vm2 上的扩展依赖于 vm1 和 vm2。 扩展在 vm2 上设置的值是从 vm1 获取的。
 
-若要了解如何评估部署顺序以及如何解决依赖项错误，请参阅[检查部署顺序](resource-manager-common-deployment-errors.md#check-deployment-sequence)。
+有关评估部署顺序和解决依赖项错误的信息，请参阅[排查使用 Azure 资源管理器时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
 
 ## <a name="next-steps"></a>后续步骤
 * 若要了解如何在部署期间排查依赖项故障，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
 * 若要了解有关创建 Azure Resource Manager模板的信息，请参阅[创作模板](resource-group-authoring-templates.md)。 
 * 有关模板中的可用函数列表，请参阅[模板函数](resource-group-template-functions.md)。
+
+<!--Update_Description: wording update, update link-->

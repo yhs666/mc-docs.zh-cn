@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 06/07/2017
-ms.date: 07/10/2017
+origin.date: 07/12/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: 2b8f70b25fa67363858d092d53e56c12d75ae81d
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 7b720fb224e176d24047099263fbaf242fd49ad9
+ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 07/13/2017
 - 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/#Windows)。 
 - 若要查看 Azure VM 的一般限制，请参阅 [Azure 订阅和服务限制、配额与约束](../../azure-subscription-service-limits.md)。
 - 存储成本根据存储帐户中的已使用页数进行单独计算。 有关详细信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)。
-- 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
+- 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
 ## <a name="rest-api"></a>REST API
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="acu"></a>ACU
 
-了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
+了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -57,3 +57,5 @@ ms.lasthandoff: 07/13/2017
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
 - [内存优化](../virtual-machines-windows-sizes-memory.md)
+
+<!--Update_Description: update meta data-->

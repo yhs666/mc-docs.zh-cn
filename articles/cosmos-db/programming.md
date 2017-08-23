@@ -16,20 +16,15 @@ ms.topic: article
 origin.date: 06/13/2016
 ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6eb780a39d7bda6c5c98c5c6cceb6002f38da699
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 6bc2051ca799111535b5c77f34bfc7e2bd765d93
+ms.sourcegitcommit: a813e6e98367a9ef389a05c8e050fc38812a13b1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/15/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 服务器端编程：存储过程、数据库触发器和 UDF
 了解 Azure Cosmos DB 的语言如何集成、JavaScript 的事务执行如何使开发人员以 [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript 本机编写**存储过程**、**触发器**和**用户定义的函数 (UDF)**。 因此，我们能够编写可以在数据库存储分区上直接传送和执行的数据库程序应用程序逻辑。 
 
-我们建议从观看下面的视频入手，Andrew Liu 在该视频中简要介绍了 Cosmos DB 的服务器端数据库编程模型。 
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
-> 
-> 
 
 然后，返回到本文，用户将在其中了解以下问题的答案：  
 
