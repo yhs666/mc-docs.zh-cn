@@ -806,6 +806,16 @@
         "redirect_document_id": "false"
     },
     {
+        "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-classic.md",
+        "redirect_url": "/site-recovery/site-recovery-vmware-to-azure",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-vmware-to-azure.md",
+        "redirect_url": "/site-recovery/vmware-walkthrough-overview",
+        "redirect_document_id": "false"
+    },
+    {
         "source_path": "articles/site-recovery/site-recovery-support-matrix.md",
         "redirect_url": "/site-recovery/site-recovery-support-matrix-to-azure",
         "redirect_document_id": "false"
@@ -3444,6 +3454,26 @@
       "source_path": "articles/virtual-network/virtual-network-network-interface-overview.md",
       "redirect_url": "/virtual-network/virtual-network-network-interface",
       "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-classic-portal.md",
+        "redirect_url": "/virtual-network/virtual-networks-create-vnet-classic-pportal",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-manage-dns-in-vnet.md",
+        "redirect_url": "/virtual-network/virtual-networks-using-network-configuration-file",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-public-ip-within-vnet.md",
+        "redirect_url": "/virtual-network/virtual-network-manage-network",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnetpeering-arm-portal.md",
+        "redirect_url": "/virtual-network/virtual-network-create-peering",
+        "redirect_document_id": false
     },
     {
       "source_path": "articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md",
