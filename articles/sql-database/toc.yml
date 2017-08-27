@@ -306,7 +306,7 @@
     - name: .NET
       href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models'
     - name: Java
-      href: 'https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql'
+      href: 'https://docs.azure.cn/java/api/com.microsoft.azure.management.sql'
     - name: Node.js
       href: 'https://msdn.microsoft.com/library/mt652093.aspx'
     - name: Python

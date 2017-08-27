@@ -357,7 +357,7 @@
     - name: .NET
       href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute'
     - name: Java
-      href: 'https://docs.microsoft.com/java/api'
+      href: 'https://docs.azure.cn/zh-cn/java/api/overview/'
     - name: Node.js
       href: '/develop/nodejs/#azure-sdk'
     - name: Python

@@ -43,8 +43,8 @@
 
 # 引用
 ## Java
-### [com.microsoft.azure.eventhubs](https://docs.microsoft.com/java/api/com.microsoft.azure.eventhubs)
-### [com.microsoft.azure.eventprocessorhost](https://docs.microsoft.com/java/api/com.microsoft.azure.eventprocessorhost)
+### [com.microsoft.azure.eventhubs](https://docs.azure.cn/java/api/com.microsoft.azure.eventhubs)
+### [com.microsoft.azure.eventprocessorhost](https://docs.azure.cn/java/api/com.microsoft.azure.eventprocessorhost)
 ## .NET
 ### [Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs)
 ### [Microsoft.Azure.EventHubs.Processor](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)

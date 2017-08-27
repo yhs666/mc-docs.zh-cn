@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/12/2017
-ms.date: 07/18/2017
+origin.date: 08/16/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 025432d9948319d8fbd4cb48623f4be61271a056
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: ef230f63f9ca23f758c4c1e49e88351e06b3fe5e
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -144,10 +144,6 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 **答：** 使用 Azure AD Premium，可以添加和配置所需的任何应用程序。 可以根据应用程序的功能和自己的喜好来配置 SSO 和自动预配。  
 
-有关详细信息，请参阅：
-
-- [使用 SCIM 启用从 Azure Active Directory 到应用程序的用户和组自动预配](active-directory-scim-provisioning.md)
-
 - - -
 **问：用户如何使用 Azure AD 来登录应用程序？**
 
@@ -180,6 +176,6 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 - - -
 **问：是否可以通过 Azure AD 设置安全的 LDAP 连接？**
 
-**答：**不可以。  Azure AD 不支持 LDAP 协议。
+**答：**不可以。 Azure AD 不支持 LDAP 协议。
 
-<!--Update_Description: wording update-->   
+<!--Update_Description: update metadata properties -->  

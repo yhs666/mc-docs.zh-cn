@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/26/2016
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 429436b8c08b751566c29f084e8c64ef8fb69826
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: a48f121baf15ddeefc6f1ac2138b23d8ce75de62
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="authentication-and-user-permissions"></a>身份验证和用户权限
 Azure Analysis Services 使用 Azure Active Directory (Azure AD) 进行标识管理和用户身份验证。 在相同订阅中，创建、管理或连接到 Azure Analysis Services 服务器的任何用户均需具备 [Azure AD 租户](../active-directory/active-directory-administer.md)中的有效用户标识。
@@ -38,7 +38,7 @@ Azure Analysis Services 使用 Azure Active Directory (Azure AD) 进行标识管
  根据使用的客户端应用程序或工具，身份验证类型和登录方式可能有所不同。 每个应用程序可能支持连接到云服务（如 Azure Analysis Services）的不同功能。
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
-Azure Analysis Services 服务器通过以下方式支持来自 [SSMS V17.1](/sql/ssms/download-sql-server-management-studio-ssms) 及更高版本的连接：使用 Windows 身份验证、Active Directory 密码验证和 Active Directory 通用身份验证。 通常，建议使用 Active Directory 通用身份验证，原因如下：
+Azure Analysis Services 服务器通过以下方式支持来自 [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 及更高版本的连接：使用 Windows 身份验证、Active Directory 密码验证和 Active Directory 通用身份验证。 通常，建议使用 Active Directory 通用身份验证，原因如下：
 
 *  支持交互式和非交互式身份验证方法。
 
@@ -80,4 +80,4 @@ Excel 用户可使用 Windows 帐户、组织 ID（电子邮件地址）或外�
 [管理服务器管理员](analysis-services-server-admins.md)  
 [基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)
 
-<!--Update_Description: new articles on manage user and role in analysis serices -->
+<!--Update_Description: update meta properties, update reference link -->

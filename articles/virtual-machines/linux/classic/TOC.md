@@ -56,7 +56,7 @@
 # 引用
 ## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
-## [Java](https://docs.microsoft.com/java/api)
+## [Java](https://docs.azure.cn/zh-cn/java/api/overview/)
 ## [创建 Resource Manager 模板](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 ## [社区模板](https://github.com/Azure/azure-quickstart-templates)
 ## [计算 REST](https://docs.microsoft.com/rest/api/compute)

@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/06/2017
 ms.author: v-yiso
 ms.date: 
-ms.openlocfilehash: e41c2ab49743eec655ad96b0f58f58b8fc0f072d
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: aa12c54dc126ba23f93abb18507c443661cedd64
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="overview-of-metrics-in-azure"></a>Azure 中的指标概述
 
@@ -72,6 +72,4 @@ ms.lasthandoff: 07/14/2017
 与指标一样，可使用 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931963.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) 按编程方式访问完整使用配额集。
 
 ## <a name="next-steps"></a>后续步骤
-
-* [启用监视和诊断](./insights-how-to-use-diagnostics.md)收集服务的详细高频指标。
 * [自动缩放实例计数](./insights-how-to-scale.md)确保服务可用且响应迅速。

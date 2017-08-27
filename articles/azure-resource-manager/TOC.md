@@ -117,7 +117,7 @@
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.resources)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/resource)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.resourcemanager)
-## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.resources)
+## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
 ## [REST](https://docs.microsoft.com/rest/api/resources/)
 

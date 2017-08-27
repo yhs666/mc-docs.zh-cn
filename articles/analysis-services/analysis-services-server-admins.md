@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/22/2016
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 168dd7f5c2f3485d9763dd5c7fd18d1cc0e3c5b9
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: f7fef069812d4aa8ccad69aa7888e4b5f6cb4468
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="manage-server-administrators"></a>管理服务器管理员
 服务器管理员必须是 Azure Active Directory (Azure AD) 中服务器所在租户的有效用户或组。 可以使用 Azure 门户中服务器的控制边栏选项卡中的“Analysis Services 管理员”，或 SSMS 中的“服务器属性”来管理服务器管理员。 
@@ -44,4 +44,4 @@ ms.lasthandoff: 08/02/2017
 [管理数据库角色和用户](analysis-services-database-users.md)  
 [基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)
 
-<!--Update_Description: new articles on manage admin of analysis serices-->
+<!--Update_Description: update meta properties-->

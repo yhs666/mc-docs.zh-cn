@@ -3,28 +3,25 @@ title: "了解 Azure 中的资源访问权限 | Microsoft Docs"
 description: "本主题介绍有关使用订阅管理员在整个 Azure 门户中控制资源访问权限的概念"
 services: active-directory
 documentationcenter: 
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/08/2017
-ms.date: 06/12/2017
+origin.date: 07/24/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 1fdc764221181f2709656a9f6d0f41ab2e8e08de
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.custom: oldportal;it-pro;
+ms.openlocfilehash: 8f7c17161628f080e2f6d1668f527a73281ccef7
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>了解 Azure 中的资源访问权限
-> [!NOTE]
-> 本主题介绍有关使用订阅管理员在整个 Azure 门户中控制资源访问权限的概念。 作为替代方法，Azure 管理门户提供[基于角色的访问控制](role-based-access-control-configure.md)，以便更准确地管理 Azure 资源。
-> 
-> 
 
 2013 年 10 月，为了为改进用户管理 Azure 资源访问权限的体验打下坚实基础，Azure 经典管理门户和服务管理 API 与 Azure Active Directory 进行了集成。 Azure Active Directory 已经提供了出色的功能，例如用户管理、本地目录同步、多重身份验证和应用程序访问控制。 自然，这些功能也应用于全面管理 Azure 资源。
 
@@ -66,3 +63,4 @@ Azure 中的访问控制首先体现在计费方面。 Azure 帐户的所有者�
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
+<!--Update_Description: wording update -->

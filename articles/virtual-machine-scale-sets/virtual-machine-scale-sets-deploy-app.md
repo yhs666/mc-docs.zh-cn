@@ -3,8 +3,8 @@ title: "在虚拟机规模集上部署应用"
 description: "使用扩展在 Azure 虚拟机规模集上部署应用。"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: thraka
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/26/2017
-ms.date: 07/24/2017
+ms.date: 08/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: 4d57589d651d312ebcc066ec3297b5e1b0efc2cd
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 2cb9eca5618a42f0c55a73a35cab6b42cac1f67e
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>在虚拟机规模集上部署应用程序
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/14/2017
 
 4. 使用在上一步骤中捕获的映像 URI 创建[虚拟机规模集][vmss-create]。
 
-有关磁盘的详细信息，请参阅[托管磁盘概述](../storage/storage-managed-disks-overview.md)和[使用附加的数据磁盘](virtual-machine-scale-sets-attached-disks.md)。
+有关磁盘的详细信息，请参阅[托管磁盘概述](../virtual-machines/windows/managed-disks-overview.md)和[使用附加的数据磁盘](virtual-machine-scale-sets-attached-disks.md)。
 
 ## <a name="install-when-the-scale-set-is-provisioned"></a>预配规模集时安装
 
@@ -224,3 +224,5 @@ az vmss create \
 [linux-vm-capture]: ../virtual-machines/linux/capture-image.md
 [windows-vm-capture]: ../virtual-machines/windows/capture-image.md 
 [vmss-create]: virtual-machine-scale-sets-create.md
+
+<!--Update_Description: update link-->

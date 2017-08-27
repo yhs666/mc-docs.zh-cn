@@ -15,17 +15,17 @@ ms.workload: NA
 origin.date: 06/28/2017
 ms.date: 08/21/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2b979d14fd56b405a4128c32030b1832b409f821
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: eedd6970d84412da4e1a1c19e1ab621a61ce7966
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="service-fabric-on-linux"></a>Linux 上的 Service Fabric
 如同在 Windows 上一样，可以使用 Linux 上的 Service Fabric 预览版在 Linux 上构建、部署和管理高可用性、高度可缩放的应用程序。 Service Fabric 框架（Reliable Services 和 Reliable Actors）除了可在 C# (.NET Core) 中使用以外，也能在 Java on Linux 中使用。  还可以使用任何语言或框架来构建[来宾可执行的服务](service-fabric-deploy-existing-app.md)。 此外，预览版还支持协调 Docker 容器。 Docker 容器可以运行使用 Service Fabric 框架的来宾可执行文件或本机 Service Fabric 服务。
 
-Linux 版 Service Fabric 在概念上等同于 Windows 版 Service Fabric（OS 细节和编程语言支持除外）。 因此，我们的大部分[现有文档](./index.md)都能帮助你熟悉该技术。
-<!-- http://aka.ms/servicefabricdocs match to ./index.md -->
+Linux 版 Service Fabric 在概念上等同于 Windows 版 Service Fabric（OS 细节和编程语言支持除外）。 因此，我们的大部分[现有文档](./index.yml)都能帮助你熟悉该技术。
+<!-- http://aka.ms/servicefabricdocs match to ./index.yml -->
 
 ## <a name="supported-operating-systems-and-programming-languages"></a>支持操作系统和编程语言
 受限预览版支持创建单机开发群集，以及在 Azure 中运行 Ubuntu Server 16.04 的多计算机群集。 除来宾可执行文件和协调 Docker 容器以外，预览版还支持 Java 和 C# 中的 Reliable Actors 和 Reliable Stateless Services 框架。  

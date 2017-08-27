@@ -27,8 +27,9 @@
 # 引用
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch)
-## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.batch)
+## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
+## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch)
 ## [REST](https://docs.microsoft.com/rest/api/batchservice)
 
 # 相关内容

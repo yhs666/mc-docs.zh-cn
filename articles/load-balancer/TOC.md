@@ -51,7 +51,7 @@
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network)
 ## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/network/lb)
 ## [.NET](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.azure.management.network.models)
-## [Java](https://docs.microsoft.com/zh-cn/java/api/com.microsoft.azure.management.network)
+## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html)

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: af76ff27440391abb9fc53a59b81f931f5742daa
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: 0378f140882cb571b0e142f7751110d030150930
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="connect-to-an-azure-analysis-services-server"></a>连接到 Azure Analysis Services 服务器
 
@@ -77,4 +77,4 @@ ms.lasthandoff: 08/02/2017
 [使用 Power BI 进行连接](analysis-services-connect-pbi.md)   
 [管理服务器](analysis-services-manage.md)
 
-<!--Update_Description: new articles on how to connect analysis serices server -->
+<!--Update_Description: update meta properties -->

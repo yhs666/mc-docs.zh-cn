@@ -3,8 +3,8 @@ title: "在 Azure 虚拟机规模集中使用托管磁盘 | Azure"
 description: "了解在虚拟机规模集中使用托管磁盘的原因和如何使用"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gatneil
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 06/01/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: fc37bfa1edf4bba944f691ccdb816bba54af5785
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 08/28/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 01128d97f023349ae4a98a765990cf5df3b0d354
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Azure VM 规模集和托管磁盘
 
@@ -45,7 +45,7 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 
 ## <a name="next-steps"></a>后续步骤
 
-有关托管磁盘的一般性详细信息，请参阅[此文](../storage/storage-managed-disks-overview.md)。
+有关托管磁盘的一般性详细信息，请参阅[此文](../virtual-machines/windows/managed-disks-overview.md)。
 
 若要了解如何转换 Resource Manager 模板以预配使用托管磁盘的规模集，请参阅[本文](./virtual-machine-scale-sets-convert-template-to-md.md)。 对 Resource Manager 模板的修改也适用于 Azure REST API。
 

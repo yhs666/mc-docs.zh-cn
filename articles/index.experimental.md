@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: "Azure 文档"
 description: "了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
-ms.openlocfilehash: f7e9ddf3fa3bdeef74c7f60a1f057f104a1226c1
-ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.openlocfilehash: 7e9dfe081bad92819c819f3ed73fc5844bbcd3d6
+ms.sourcegitcommit: d50ba5d6f934de899a9b35f0f3c1f3be164ba1ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 08/25/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1822,13 +1822,13 @@ ms.lasthandoff: 06/29/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure/java-sdk-azure-install">获取用于 Java 的 Azure 库</a>
+                                                    <a target="_blank" href="/java/java-sdk-azure-install">获取用于 Java 的 Azure 库</a>
                                                 </h3>
                                                 <p>
                                                     <a target="_blank" href="/develop/java/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/api/">API 参考</a>
+                                                    <a target="_blank" href="/java/api/overview">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>

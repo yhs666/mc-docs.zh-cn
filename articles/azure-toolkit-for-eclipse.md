@@ -15,16 +15,15 @@ ms.topic: article
 origin.date: 12/22/2016
 ms.date: 02/14/2017
 ms.author: v-junlch
-ms.openlocfilehash: d05f3b175af7ab0f9f0e1e34109159bb710a33eb
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 4a05177ef63d8258fed8fb635d8a420f05bc1808
+ms.sourcegitcommit: d50ba5d6f934de899a9b35f0f3c1f3be164ba1ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/25/2017
 ---
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/zh-cn/library/azure/hh694271.aspx -->
 
-# 适用于 Eclipse 的 Azure 工具包
-<a id="azure-toolkit-for-eclipse" class="xliff"></a>
+# <a name="azure-toolkit-for-eclipse"></a>适用于 Eclipse 的 Azure 工具包
 使用 Azure Toolkit for Eclipse 提供的模板和功能，可轻松地利用 Eclipse 开发环境创建、开发、测试和部署 Azure 应用程序。 它是一个开放源代码项目，其源代码可从项目站点的 MIT 许可证下获取，网址为：
 
 - <https://github.com/microsoft/azure-tools-for-java>
@@ -34,16 +33,14 @@ ms.lasthandoff: 06/21/2017
 > 
 > 
 
-## Azure Toolkit for Eclipse 入门
-<a id="getting-started-with-the-azure-toolkit-for-eclipse" class="xliff"></a>
+## <a name="getting-started-with-the-azure-toolkit-for-eclipse"></a>Azure Toolkit for Eclipse 入门
 以下文章可帮助你着手使用 Azure Toolkit for Eclipse：
 
 - [Azure Toolkit for Eclipse 的新增功能]
 - [安装 Azure Toolkit for Eclipse]
 - [在 Eclipse 中创建 Azure 的 Hello World 云服务]
 
-## 配置 Azure 项目设置
-<a id="configuring-azure-project-settings" class="xliff"></a>
+## <a name="configuring-azure-project-settings"></a>配置 Azure 项目设置
 以下文章说明了如何使用 Azure Toolkit for Eclipse 来配置 Azure 项目的设置：
 
 - [Azure 项目属性]
@@ -53,16 +50,14 @@ ms.lasthandoff: 06/21/2017
 - [启用会话相关性]
 - [在 Eclipse 中为 Azure 部署启用远程访问]
 
-## 使用 Azure Toolkit for Eclipse
-<a id="using-the-azure-toolkit-for-eclipse" class="xliff"></a>
+## <a name="using-the-azure-toolkit-for-eclipse"></a>使用 Azure Toolkit for Eclipse
 以下文章演示了如何使用 Azure Toolkit for Eclipse 将 Azure 功能添加到 Java 项目：
 
 - [在 Eclipse 中显示 Package for Azure Libraries for Java 的 Javadoc 内容]
 - [实施大型部署]
 - [在 Eclipse 中调试 Azure 应用程序]
 
-## 另请参阅
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>另请参阅
 有关 Azure Toolkits for Java IDE 的详细信息，请参阅以下链接：
 
 - *用于 Eclipse 的 Azure 工具包（本文）*
@@ -83,7 +78,7 @@ ms.lasthandoff: 06/21/2017
 [Azure Toolkit for Eclipse 的新增功能]:./azure-toolkit-for-eclipse-whats-new.md
 [Azure Toolkit for IntelliJ 中的新增功能]:./azure-toolkit-for-intellij-whats-new.md
 
-[Azure Java 开发人员中心]: https://azure.microsoft.com/develop/java/
+[Azure Java 开发人员中心]: /java/
 [用于 Visual Studio Team Services 的 Java 工具]: https://java.visualstudio.com/
 
 [Azure 项目属性]:./azure-toolkit-for-eclipse-azure-project-properties.md

@@ -14,20 +14,17 @@ ms.topic: landing-page
 ms.author: v-dazen
 origin.date: 06/13/2017
 ms.date: 06/13/2017
-ms.openlocfilehash: b2ececcd3ec5f7ea1ade370e992fc820d0cc2bcb
-ms.sourcegitcommit: 246df5421210c9111c4c0d96df5defb06b139088
+ms.openlocfilehash: daaa2e0323678dd2cdc50f764866a20e2beaa2c0
+ms.sourcegitcommit: d50ba5d6f934de899a9b35f0f3c1f3be164ba1ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 08/25/2017
 ---
-# 工具和 API 参考
-<a id="tools-and-api-references" class="xliff"></a>
+# <a name="tools-and-api-references"></a>工具和 API 参考
 
-## 命令行
-<a id="command-line" class="xliff"></a>
+## <a name="command-line"></a>命令行
 
-### [PowerShell (ARM)](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-<a id="powershell-armhttpsdocsmicrosoftcompowershellazureps-cmdlets-docs" class="xliff"></a>
+### <a name="powershell-armhttpsdocsmicrosoftcompowershellazureps-cmdlets-docs"></a>[PowerShell (ARM)](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -295,8 +292,7 @@ ms.lasthandoff: 06/22/2017
     </ul>
 </div>
 
-### [PowerShell（经典）](https://docs.microsoft.com/en-ca/powershell/module/azure/)
-<a id="powershell-classichttpsdocsmicrosoftcomen-capowershellmoduleazure" class="xliff"></a>
+### <a name="powershell-classichttpsdocsmicrosoftcomen-capowershellmoduleazure"></a>[PowerShell（经典）](https://docs.microsoft.com/en-ca/powershell/module/azure/)
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -430,8 +426,7 @@ ms.lasthandoff: 06/22/2017
     </ul>
 </div>
 
-### [Azure CLI](https://docs.microsoft.com/cli/azure/)
-<a id="azure-clihttpsdocsmicrosoftcomcliazure" class="xliff"></a>
+### <a name="azure-clihttpsdocsmicrosoftcomcliazure"></a>[Azure CLI](https://docs.microsoft.com/cli/azure/)
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -680,11 +675,9 @@ ms.lasthandoff: 06/22/2017
     </ul>
 </div>
 
-## 语言
-<a id="language" class="xliff"></a>
+## <a name="language"></a>语言
 
-### [.NET](https://docs.microsoft.com/dotnet/api)
-<a id="nethttpsdocsmicrosoftcomdotnetapi" class="xliff"></a>
+### <a name="nethttpsdocsmicrosoftcomdotnetapi"></a>[.NET](https://docs.microsoft.com/dotnet/api)
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -964,8 +957,7 @@ ms.lasthandoff: 06/22/2017
     </ul>
 </div>
 
-### [Java](https://docs.microsoft.com/java/api)
-<a id="javahttpsdocsmicrosoftcomjavaapi" class="xliff"></a>
+### <a name="javajavaapioverview"></a>[Java](/java/api/overview/)
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -977,25 +969,25 @@ ms.lasthandoff: 06/22/2017
                     <h3>计算</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/virtualmachines" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/virtualmachines" data-linktype="relative-path">
                                 <img alt = "" src="media/index/VirtualMachine.svg" data-linktype="relative-path">
                                 <p>虚拟机</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/appservice" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/appservice" data-linktype="relative-path">
                                 <img alt = "" src="media/index/AppService.svg" data-linktype="relative-path">
                                 <p>应用服务</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/batch" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/batch" data-linktype="relative-path">
                                 <img alt = "" src="media/index/Batch.svg" data-linktype="relative-path">
                                 <p>批处理</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/servicefabric" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/servicefabric" data-linktype="relative-path">
                                 <img alt = "" src="media/index/Fabric.svg" data-linktype="relative-path">
                                 <p>Service Fabric</p>
                             </a>
@@ -1015,13 +1007,13 @@ ms.lasthandoff: 06/22/2017
                     <h3>数据库</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/sql" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/sql" data-linktype="relative-path">
                                 <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
                                 <p>SQL 数据库</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/rediscache" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/rediscache" data-linktype="relative-path">
                                 <img alt = "" src="media/index/RedisCache.svg" data-linktype="relative-path">
                                 <p>Redis 缓存</p>
                             </a>
@@ -1041,7 +1033,7 @@ ms.lasthandoff: 06/22/2017
                     <h3>企业集成</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/servicebus" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/servicebus" data-linktype="relative-path">
                                 <img alt = "" src="media/index/ServiceBus.svg" data-linktype="relative-path">
                                 <p>服务总线</p>
                             </a>
@@ -1060,12 +1052,12 @@ ms.lasthandoff: 06/22/2017
                     <h3>网络</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/networking" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/networking" data-linktype="relative-path">
                                 <img alt = "" src="media/index/VirtualNetwork.svg" data-linktype="relative-path">
                                 <p>虚拟网络</p>
                             </a>
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/trafficmanager" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/trafficmanager" data-linktype="relative-path">
                                 <img alt = "" src="media/index/TrafficManager.svg" data-linktype="relative-path">
                                 <p>流量管理器</p>
                             </a>
@@ -1084,7 +1076,7 @@ ms.lasthandoff: 06/22/2017
                     <h3>存储</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/storage" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/azure/storage" data-linktype="relative-path">
                                 <img alt = "" src="media/index/Storage.svg" data-linktype="relative-path">
                                 <p>存储</p>
                             </a>
@@ -1104,19 +1096,19 @@ ms.lasthandoff: 06/22/2017
                     <h3>物联网</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/iot" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/iot" data-linktype="relative-path">
                                 <img alt = "" src="media/index/IoTHub.svg" data-linktype="relative-path">
                                 <p>IoT 中心</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/eventhub" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/eventhub" data-linktype="relative-path">
                                 <img alt = "" src="media/index/EventHubs.svg" data-linktype="relative-path">
                                 <p>事件中心</p>
                             </a>
                             <ul>
-                                <li><a class="barLink" href="https://docs.microsoft.com/java/api/com.microsoft.azure.eventhubs">com.microsoft.azure.eventhubs</a></li>
-                                <li><a class="barLink" href="https://docs.microsoft.com/java/api/com.microsoft.azure.eventprocessorhost">com.microsoft.azure.eventprocessorhost</a></li>
+                                <li><a class="barLink" href="/java/api/com.microsoft.azure.eventhubs">com.microsoft.azure.eventhubs</a></li>
+                                <li><a class="barLink" href="/java/api/com.microsoft.azure.eventprocessorhost">com.microsoft.azure.eventprocessorhost</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -1133,13 +1125,13 @@ ms.lasthandoff: 06/22/2017
                     <h3>安全性 + 标识</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/keyvault" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/keyvault" data-linktype="relative-path">
                                 <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
                                 <p>密钥保管库</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/activedirectory" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/activedirectory" data-linktype="relative-path">
                                 <img alt = "" src="media/index/ActiveDirectory.svg" data-linktype="relative-path">
                                 <p>Azure Active Directory</p>
                             </a>
@@ -1158,7 +1150,7 @@ ms.lasthandoff: 06/22/2017
                     <h3>监视 + 管理</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/resources" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/resources" data-linktype="relative-path">
                                 <img alt = "" src="media/index/AzureDefaultBlack.svg" data-linktype="relative-path">
                                 <p>Azure Resource Manager</p>
                             </a>
@@ -1173,17 +1165,13 @@ ms.lasthandoff: 06/22/2017
     </ul>
 </div>
 
-### [Node.js](/develop/nodejs/)
-<a id="nodejsdevelopnodejs" class="xliff"></a>
+### <a name="nodejsdevelopnodejs"></a>[Node.js](/develop/nodejs/)
 
-### [Python](/develop/python/)
-<a id="pythondeveloppython" class="xliff"></a>
+### <a name="pythondeveloppython"></a>[Python](/develop/python/)
 
-## REST
-<a id="rest" class="xliff"></a>
+## <a name="rest"></a>REST
 
-### [REST API (ARM)](https://docs.microsoft.com/rest/api/)
-<a id="rest-api-armhttpsdocsmicrosoftcomrestapi" class="xliff"></a>
+### <a name="rest-api-armhttpsdocsmicrosoftcomrestapi"></a>[REST API (ARM)](https://docs.microsoft.com/rest/api/)
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1487,8 +1475,7 @@ ms.lasthandoff: 06/22/2017
     </ul>
 </div>
 
-### REST API（经典）
-<a id="rest-api-classic" class="xliff"></a>
+### <a name="rest-api-classic"></a>REST API（经典）
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1609,8 +1596,7 @@ ms.lasthandoff: 06/22/2017
     </ul>
 </div>
 
-## 其他
-<a id="others" class="xliff"></a>
+## <a name="others"></a>其他
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1645,8 +1631,7 @@ ms.lasthandoff: 06/22/2017
 
 
 
-### SQL 数据库
-<a id="sql-database" class="xliff"></a>
+### <a name="sql-database"></a>SQL 数据库
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1778,8 +1763,7 @@ ms.lasthandoff: 06/22/2017
 </div>
 
 
-### Redis 缓存
-<a id="redis-cache" class="xliff"></a>
+### <a name="redis-cache"></a>Redis 缓存
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1812,8 +1796,7 @@ ms.lasthandoff: 06/22/2017
 </div>
 
 
-### 网络
-<a id="networking" class="xliff"></a>
+### <a name="networking"></a>网络
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1852,8 +1835,7 @@ ms.lasthandoff: 06/22/2017
 </div>
 
 
-### 存储
-<a id="storage" class="xliff"></a>
+### <a name="storage"></a>存储
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1897,8 +1879,7 @@ ms.lasthandoff: 06/22/2017
     </ul>
 </div>
 
-### 流分析
-<a id="stream-analytics" class="xliff"></a>
+### <a name="stream-analytics"></a>流分析
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1924,8 +1905,7 @@ ms.lasthandoff: 06/22/2017
     </ul>
 </div>
 
-### Power BI Embedded
-<a id="power-bi-embedded" class="xliff"></a>
+### <a name="power-bi-embedded"></a>Power BI Embedded
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>

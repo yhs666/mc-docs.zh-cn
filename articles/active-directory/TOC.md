@@ -44,7 +44,6 @@
 #### [需要分配](./active-directory-applications-guiding-developers-requiring-user-assignment.md)
 #### [开发 LoB 应用](./active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [管理对应用的访问](./active-directory-managing-access-to-apps.md)
-### [使用 SCIM 预配用户](./active-directory-scim-provisioning.md)
 ### [文档库](active-directory-apps-index.md)
 
 
@@ -92,7 +91,7 @@
 
 # 引用
 ## [PowerShell cmdlets](http://docs.microsoft.com/powershell/ )
-## [Java API 参考](http://docs.microsoft.com/java/api)
+## [Java API 参考](/java/api/overview)
 ## [.NET API](http://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [服务限制和局限性](./active-directory-service-limits-restrictions.md)
 

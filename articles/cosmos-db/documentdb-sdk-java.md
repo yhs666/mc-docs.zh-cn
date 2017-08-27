@@ -16,11 +16,11 @@ origin.date: 05/24/2017
 ms.date: 08/07/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5acf95c1d2d9bd3c74693b8425cc940be5d1983b
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: e00a5d6667238595fe20e35698e78e4ecefa7364
+ms.sourcegitcommit: bfdbf6df593eb9ea6ad7372375db671886055a12
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/24/2017
 ---
 # <a name="documentdb-java-sdk-release-notes-and-resources"></a>DocumentDB Java SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ ms.lasthandoff: 08/04/2017
 
 <tr><td>**SDK 下载**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
-<tr><td>**API 文档**</td><td>[Java API 参考文档](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb)</td></tr>
+<tr><td>**API 文档**</td><td>[Java API 参考文档](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb)</td></tr>
 
 <tr><td>**参与 SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 

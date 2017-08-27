@@ -83,7 +83,7 @@
 # 引用
 ## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
-## [Java](https://docs.microsoft.com/java/api)
+## [Java](https://docs.azure.cn/zh-cn/java/api/overview/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute)
 ## [创建 Resource Manager 模板](../../../resource-group-authoring-templates.md)
 ## [社区模板](https://github.com/Azure/azure-quickstart-templates)

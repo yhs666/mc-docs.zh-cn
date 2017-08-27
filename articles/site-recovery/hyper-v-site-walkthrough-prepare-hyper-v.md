@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/22/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5c6df0709691d73af45d10f37f3f09a21298325a
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: a6d5310ad5484caa0435ca752a49ce52ec2a724a
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="step-6-prepare-hyper-v-hosts-for-replication-to-azure"></a>步骤 6：为复制到 Azure 准备 Hyper-V 主机
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="prepare-hosts"></a>准备主机
 
-- 确保 Hyper-V 主机符合[先决条件](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-virtual-machine-manager)。
+- 确保 Hyper-V 主机符合[先决条件](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-to-azure-no-vmm)。
 - 确保主机可以访问所需的 URL：
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
@@ -44,4 +44,4 @@ ms.lasthandoff: 07/28/2017
 
 转到[步骤 7：创建保管库](hyper-v-site-walkthrough-create-vault.md)
 
-<!--Update_Description: new article about walkthrought prepare hyper-v from hyper-v to azure  -->
+<!--Update_Description: update reference link -->

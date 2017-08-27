@@ -12,23 +12,24 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/01/2017
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 026405cc83295dc3aca99e542cb1901540446c25
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: 2d92fdeebe62621fcfcbba78fe58d2da97c82b43
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="backup-and-restore"></a>备份和还原
 
-在 Azure Analysis Services 中备份表格模型数据库与在本地 Analysis Services 中备份大致相同。 主要区别在于存储备份文件的位置。 必须将备份文件保存到 [Azure 存储帐户](../storage/storage-create-storage-account.md)的容器中。 可以使用已有存储帐户和容器，也可以在为服务器配置存储设置时创建。
+在 Azure Analysis Services 中备份表格模型数据库与在本地 Analysis Services 中备份大致相同。 主要区别在于存储备份文件的位置。 必须将备份文件保存到 [Azure 存储帐户](../storage/common/storage-create-storage-account.md)的容器中。 可以使用已有存储帐户和容器，也可以在为服务器配置存储设置时创建。
 
 > [!NOTE]
 > 创建存储帐户可能会导致新的计费服务。 若要了解详细信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)。
 > 
 > 
+<!-- Valid Storage Price: https://www.azure.cn/pricing/details/storage/-->
 
 使用 abf 扩展名保存备份。 对于内存中表格模型，将存储模型数据和元数据。 对于 DirectQuery 表格模型，将仅存储模型元数据。 备份可以进行压缩和加密，具体取决于选择的选项。 
 
@@ -75,10 +76,10 @@ ms.lasthandoff: 08/02/2017
 5. 单击“确定”创建并保存备份文件。
 
 ### <a name="powershell"></a>PowerShell
-使用 [Backup-ASDatabase](/sql/analysis-services/powershell/backup-asdatabase-cmdlet) cmdlet。
+使用 [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet) cmdlet。
 
 ## <a name="restore"></a>还原
-还原时，备份文件必须在已为服务器配置的存储帐户中。 如果需要将备份文件从本地位置移到存储帐户，请使用 [Azure 存储资源管理器](/vs-azure-tools-storage-manage-with-storage-explorer)或 [AzCopy](../storage/storage-use-azcopy.md) 命令行实用工具。 
+还原时，备份文件必须在已为服务器配置的存储帐户中。 如果需要将备份文件从本地位置移到存储帐户，请使用 [Azure 存储资源管理器](/vs-azure-tools-storage-manage-with-storage-explorer)或 [AzCopy](../storage/common/storage-use-azcopy.md) 命令行实用工具。 
 
 > [!NOTE]
 > 如果要从本地服务器还原，必须先从该模型的角色中删除所有域用户，并再将这些用户作为 Azure Active Directory 用户重新添加到这些角色。
@@ -99,12 +100,12 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="powershell"></a>PowerShell
 
-使用 [Restore-ASDatabase](/sql/analysis-services/powershell/restore-asdatabase-cmdlet) cmdlet.
+使用 [Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet) cmdlet.
 
 ## <a name="related-information"></a>相关信息
 
-[Azure 存储帐户](../storage/storage-create-storage-account.md)  
+[Azure 存储帐户](../storage/common/storage-create-storage-account.md)  
 [高可用性](analysis-services-bcdr.md)     
 [管理 Azure Analysis Services](analysis-services-manage.md)
 
-<!--Update_Description: new articles on analysis services back up  -->
+<!--Update_Description: update reference link-->

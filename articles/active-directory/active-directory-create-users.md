@@ -3,30 +3,33 @@ title: "向 Azure Active Directory 添加新用户 | Microsoft Docs"
 description: "说明如何在 Azure Active Directory 中添加新用户或更改用户信息。"
 services: active-directory
 documentationcenter: 
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: e3673727-6bec-4fdc-87a4-d65b213c4c3c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 04/26/2017
-ms.date: 06/12/2017
+ms.topic: article
+origin.date: 07/26/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: bc2ee73d7f4615389cf467100b701a7e9f47b49d
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.openlocfilehash: cafbde49642a6f31f4a03be89687d7731ab17fc1
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/25/2017
 ---
-# <a name="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory"></a>向 Azure Active Directory 添加新用户或具有 Microsoft 帐户的用户
-请添加用户以填充你的目录。 本文说明如何在组织中添加新用户，以及如何添加具有 Microsoft 帐户的用户。 有关在 Azure Active Directory 中添加来自其他目录的用户或添加来自合作伙伴公司的用户的详细信息，请参阅 [在 Azure Active Directory 中添加来自其他目录或合作伙伴公司的用户](active-directory-create-users-external.md)。 默认情况下，添加的用户没有管理员权限，但你随时可以向他们分配角色。
+# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>向 Azure Active Directory 添加新用户或具有 Microsoft 帐户的用户
+请添加用户以填充目录。 本文说明如何在组织中添加新用户，以及如何添加具有 Microsoft 帐户的用户。 有关在 Azure Active Directory 中添加来自其他目录的用户或添加来自合作伙伴公司的用户的详细信息，请参阅 [在 Azure Active Directory 中添加来自其他目录或合作伙伴公司的用户](active-directory-create-users-external.md)。 默认情况下，添加的用户没有管理员权限，但你随时可以向他们分配角色。
 
 ## <a name="add-a-user"></a>添加用户
 1. 使用充当目录全局管理员的帐户登录到 [Azure 经典管理门户](https://manage.windowsazure.cn) 。
-2. 选择“Active Directory” ，然后选择组织目录的名称。
+2. 选择“Active Directory” ，并选择组织目录的名称。
 3. 选择“用户”选项卡，然后在命令栏中选择“添加用户”。
 4. 在“告诉我们有关此用户的信息”页上的“用户类型”下，选择下列其中一项：
 
@@ -37,24 +40,24 @@ ms.lasthandoff: 07/13/2017
 7. 在“获取临时密码”页上，选择“创建”。
 
 > [!IMPORTANT]
-> 如果你所在的组织使用多个域，在添加用户帐户时你应知道以下问题：
+> 如果所在的组织使用多个域，在添加用户帐户时你应知道以下问题：
 >
 > * 例如，若要跨域添加具有相同用户主体名称 (UPN) 的用户帐户，请**先**添加 geoffgrisso@contoso.partner.onmschina.cn，**再**添加 geoffgrisso@contoso.com。
-> * **不要**在添加 geoffgrisso@contoso.partner.onmschina.cn 之前添加 geoffgrisso@contoso.com。 此顺序非常重要，事后想要撤消操作将很麻烦。
+> * **不要**在添加 geoffgrisso@contoso.partner.onmschina.cn 之前添加 geoffgrisso@contoso.com。 此顺序非常重要，事后想要撤消操作会很麻烦。
 >
 >
 
 ## <a name="change-user-information"></a>更改用户信息
 可以更改任何用户属性，但对象 ID 除外。
 
-1. 打开你的目录。
-2. 选择“用户”  选项卡，然后选择要更改的用户的显示名称。
-3. 完成更改，然后单击“保存” 。
+1. 打开目录。
+2. 选择“用户”  选项卡，并选择要更改的用户的显示名称。
+3. 完成更改，并单击“保存” 。
 
 如果要更改的用户已与本地 Active Directory 服务同步，则无法使用此过程来更改用户信息。 若要更改该用户，请使用本地 Active Directory 管理工具。
 
 ## <a name="guest-user-management-and-limitations"></a>来宾用户管理和限制
-来宾帐户是来自其他目录的用户，他们已受邀加入你的目录，可以访问 SharePoint 文档、应用程序或其他 Azure 资源。 目录中来宾帐户的基础 UserType 属性设置为“Guest”。 普通用户（具体而言，指目录的成员）的 UserType 属性设置为“Member”。
+来宾帐户是来自其他目录的用户，他们已受邀加入目录，可以访问 SharePoint 文档、应用程序或其他 Azure 资源。 目录中来宾帐户的基础 UserType 属性设置为“Guest”。 普通用户（具体而言，指目录的成员）的 UserType 属性设置为“Member”。
 
 来宾在目录中的权利有限。 这些权利限制了客户发现有关目录中其他用户的信息。 但是，来宾用户仍可与其使用的资源相关联的用户和组交互。 来宾用户可以：
 
@@ -85,3 +88,4 @@ ms.lasthandoff: 07/13/2017
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
+<!--Update_Description: update metadata properties -->

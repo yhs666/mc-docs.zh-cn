@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: fad62fd926069eb9f71d6acd9fed4a4449942744
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: da25b7298672e9de45e73309c475dd6aaa2b6f33
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="connect-with-power-bi"></a>使用 Power BI 进行连接
 
@@ -58,4 +58,4 @@ ms.lasthandoff: 08/02/2017
 [连接到 Azure Analysis Services](analysis-services-connect.md)   
 [客户端库](analysis-services-data-providers.md)
 
-<!--Update_Description: new articles on how to connect analysis serices server with Power BI-->
+<!--Update_Description: update meta properties-->

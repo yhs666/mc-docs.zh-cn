@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/22/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 64b57acf46e18405418cf2226c71c9a106db31b1
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: e070590813d0a2d418afbfa3b89a3422b714ab6d
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="step-9-set-up-a-replication-policy-for-hyper-v-vm-replication-to-azure"></a>步骤 9：为将 Hyper-V VM 复制到 Azure 设置复制策略
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/28/2017
 
 Hyper-V 使用两种类型的快照 — 标准快照，它提供整个虚拟机的增量快照；与应用程序一致的快照，它生成虚拟机内的应用程序数据的时间点快照。
     - 与应用程序一致的快照使用卷影复制服务 (VSS) 来确保应用程序在拍摄快照时处于一致状态。
-    - 如果启用了应用程序一致性快照，它将影响在源虚拟机上运行的应用程序的性能。 请确保设置的值小于配置的额外恢复点的数目。
+    - 如果启用了应用程序一致性快照，它会影响在源虚拟机上运行的应用程序的性能。 请确保设置的值小于配置的额外恢复点的数目。
 
 ## <a name="set-up-a-replication-policy"></a>设置复制策略
 
@@ -41,11 +41,11 @@ Hyper-V 使用两种类型的快照 — 标准快照，它提供整个虚拟机�
 3. 在“复制频率” 中，指定要在初始复制后复制增量数据的频率（每隔 30 秒、5 或 15 分钟）。
 
     > [!NOTE]
-    > 复制到高级存储时，不支持 30 秒的频率。 该限制取决于高级存储支持的每 blob 快照数 (100)。 [了解详细信息](../storage/storage-premium-storage.md#snapshots-and-copy-blob)。
+    > 复制到高级存储时，不支持 30 秒的频率。 该限制取决于高级存储支持的每 blob 快照数 (100)。 [了解详细信息](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob)。
 
 4. 在“恢复点保留期”中，针对每个恢复点指定保留期窗口的长度（以小时为单位）。 VM 可以恢复到某个时段内的任意时间点。
 5. 在“应用一致性快照频率”中，指定创建包含应用程序一致性快照的恢复点的频率（1-12 小时）。
-6. 在“初始复制开始时间”中，指定开始初始复制的时间。 复制通过 Internet 带宽进行，因此你可能需要将它安排在非繁忙时间。 。
+6. 在“初始复制开始时间”中，指定开始初始复制的时间。 复制通过 Internet 带宽进行，因此，可能需要将它安排在非繁忙时间。 。
 
     ![复制策略](./media/hyper-v-site-walkthrough-replication/gs-replication2.png)
 
@@ -55,4 +55,4 @@ Hyper-V 使用两种类型的快照 — 标准快照，它提供整个虚拟机�
 
 转到[步骤 10：启用复制](hyper-v-site-walkthrough-enable-replication.md)
 
-<!--Update_Description: new article about walkthrought replication from hyper-v to azure  -->
+<!--Update_Description: update reference link -->

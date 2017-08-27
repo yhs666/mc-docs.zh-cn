@@ -3,8 +3,8 @@ title: "将 Azure AD 与应用集成入门 | Microsoft Docs"
 description: "本文是一篇入门指南，介绍如何将 Azure Active Directory (AD) 与本地应用程序和云应用程序集成。"
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/04/2017
-ms.date: 06/12/2017
+origin.date: 07/31/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 9c971928d3fdf77f77a893eb84809da385f9b960
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.reviewer: asteen
+ms.openlocfilehash: 76afc6ec87f9e67adc022686f123612e0c69ae0a
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>将 Azure Active Directory 与应用程序集成入门指南
 ## <a name="overview"></a>概述
@@ -88,3 +89,4 @@ ms.lasthandoff: 08/11/2017
 - [有关 Azure Active Directory 中应用程序管理的文章索引](active-directory-apps-index.md)
 
 
+<!--Update_Description: update metadata properties -->

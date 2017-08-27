@@ -49,7 +49,7 @@
 ## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/network/application-gateway)
 ## [.NET](https://docs.microsoft.com/dotnet/api)
-## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network)
+## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
