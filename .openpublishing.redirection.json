@@ -136,6 +136,16 @@
       "redirect_document_id": "false"
     },
     {
+        "source_path": "articles/resource-manager-subscription-examples.md",
+        "redirect_url": "/azure-resource-manager/resource-manager-subscription-examples",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/resource-manager-subscription-governance.md",
+        "redirect_url": "/azure-resource-manager/resource-manager-subscription-governance",
+        "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/resource-manager-supported-services.md",
       "redirect_url": "/azure-resource-manager/resource-manager-supported-services",
       "redirect_document_id": "false"
@@ -147,12 +157,12 @@
     },
     {
       "source_path": "articles/resource-manager-template-keyvault-secret.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/azure/templates/microsoft.keyvault/vaults",
+      "redirect_url": "https://docs.microsoft.com/zh-cn/azure/templates/microsoft.keyvault/vaults",
       "redirect_document_id": "false"
     },
     {
       "source_path": "articles/resource-manager-template-keyvault.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/azure/templates/microsoft.keyvault/vaults",
+      "redirect_url": "https://docs.microsoft.com/zh-cn/azure/templates/microsoft.keyvault/vaults",
       "redirect_document_id": "false"
     },
     {
@@ -162,12 +172,12 @@
     },
     {
       "source_path": "articles/resource-manager-template-lock.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/azure/templates/microsoft.authorization/locks",
+      "redirect_url": "https://docs.microsoft.com/azure/templates/microsoft.authorization/locks",
       "redirect_document_id": "false"
     },
     {
       "source_path": "articles/resource-manager-template-storage.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/azure/templates/microsoft.storage/storageaccounts",
+      "redirect_url": "https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts",
       "redirect_document_id": "false"
     },
     {
@@ -194,6 +204,11 @@
       "source_path": "articles/resource-manager-troubleshoot-deployments-rest.md",
       "redirect_url": "/azure-resource-manager/resource-manager-deployment-operations",
       "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/resource-manager-vs-code.md",
+        "redirect_url": "/azure-resource-manager/resource-manager-create-first-template",
+        "redirect_document_id": "false"
     },
     {
       "source_path": "articles/virtual-machines-command-line-tools.md",
@@ -402,12 +417,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-template-keyvault-secret.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/azure/templates/microsoft.keyvault/vaults",
+      "redirect_url": "https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults",
       "redirect_document_id": "false"
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-template-keyvault.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/azure/templates/microsoft.keyvault/vaults",
+      "redirect_url": "https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults",
       "redirect_document_id": "false"
     },
     {
@@ -417,12 +432,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-template-lock.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/azure/templates/microsoft.authorization/locks",
+      "redirect_url": "https://docs.microsoft.com/azure/templates/microsoft.authorization/locks",
       "redirect_document_id": "false"
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-template-storage.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/azure/templates/microsoft.storage/storageaccounts",
+      "redirect_url": "https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts",
       "redirect_document_id": "false"
     },
     {
@@ -449,6 +464,11 @@
       "source_path": "articles/azure-resource-manager/resource-manager-troubleshoot-deployments-rest.md",
       "redirect_url": "/azure-resource-manager/resource-manager-deployment-operations",
       "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/azure-resource-manager/resource-manager-update.md",
+        "redirect_url": "https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/update-resource",
+        "redirect_document_id": "false"
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-vs-code.md",
