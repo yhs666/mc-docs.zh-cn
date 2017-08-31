@@ -3,8 +3,8 @@ title: "Azure 虚拟机规模集附加数据磁盘 | Azure"
 description: "了解如何将附加数据磁盘与虚拟机规模集配合使用"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 04/25/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: acd2fa20eb48f766f8fbe6ec7f22c1d916276425
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 08/28/2017
+ms.author: v-haiqya
+ms.openlocfilehash: fd4b294f4c8032b1ef69cf24daed706e95aa662c
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Azure VM 规模集及附加数据磁盘
 Azure [虚拟机规模集](/virtual-machine-scale-sets/)现在支持对虚拟机附加数据磁盘。 对于使用 Azure 托管磁盘创建的规模集，可以在存储配置文件中定义数据磁盘。 以前，OS 驱动器和临时驱动器是规模集中 VM 的唯一直接连接的存储选项。
@@ -76,7 +76,7 @@ Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScale
 > [!NOTE]
 > 不同的 VM 大小所支持的附加驱动器数量有不同的限制。 在添加新磁盘之前，请检查[虚拟机大小特征](../virtual-machines/windows/sizes.md)。
 
-也可通过以下方式添加磁盘：先向规模集定义的 storageProfile 中的 dataDisks 属性添加新条目，然后应用所做的更改。 选择“编辑”  并将新磁盘添加到数据磁盘列表。 例如 使用以上示例：
+也可通过以下方式添加磁盘：先向规模集定义的 storageProfile 中的 dataDisks 属性添加新条目，并应用所做的更改。 选择“编辑”并将新磁盘添加到数据磁盘列表。 例如 使用以上示例：
 ```json
 "dataDisks": [
     {
@@ -99,10 +99,20 @@ Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScale
     }          
 ]
 ```
-然后选择“PUT”  将更改应用于规模集。 如果使用的 VM 大小支持两个以上附加数据磁盘，则此示例适用。
+然后选择“PUT”将更改应用于规模集。 如果使用的 VM 大小支持两个以上附加数据磁盘，则此示例适用。
 
 > [!NOTE]
 > 对规模集定义进行更改时（如添加或删除数据磁盘），更改适用于所有新建 VM，但仅在 _upgradePolicy_ 属性设置为“自动”的情况下，才适用于现有 VM。 如果此属性设置为“手动”，则需手动将新模型应用于现有 VM。 可以在门户中执行此操作，使用 Update-AzureRmVmssInstance PowerShell 命令或 az vmss update-instances CLI 命令。
+
+## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>将预先填充的数据磁盘添加到现有规模集 
+根据设计，在向现有的规模集模型添加磁盘时，创建的磁盘始终为空。 此方案还包括规模集创建的新实例。 之所以出现这样的行为，是因为规模集定义有一个空的数据磁盘。 若要为现有的规模集模型创建预先填充的数据驱动器，可以从后续的两个选项中随意选择一个：
+
+* 通过运行自定义脚本，将数据从实例 0 VM 复制到其他 VM 中的数据磁盘。
+* 使用 OS 磁盘和数据磁盘（以及必需的数据）创建一个托管映像，并使用该映像创建新的规模集。 这样一来，每个新创建的 VM 都会有一个数据磁盘，该磁盘是在规模集的定义中规定的。 由于该定义会引用带数据磁盘的映像，且该磁盘包含自定义数据，因此规模集中每个虚拟机都会自动带有这些更改。
+
+若要创建自定义映像，可参阅以下方法：[在 Azure 中创建通用 VM 的托管映像](/virtual-machines/windows/capture-image-resource/) 
+
+用户需捕获包含必需数据的实例 0 VM，并将该 vhd 用于映像定义。
 
 ## <a name="removing-a-data-disk-from-a-scale-set"></a>从规模集中删除数据磁盘
 可使用 Azure CLI _az vmss disk detach_ 命令从 VM 规模集中删除数据磁盘。 例如，以下命令删除 lun 2 处定义的磁盘：
@@ -118,4 +128,4 @@ Microsoft.Compute API 的 API 版本 [_2016-04-30-preview_](https://github.com/A
 
 Azure 门户对规模集中附加数据磁盘的支持一开始是受限的。 根据需求，可使用 Azure 模板、CLI、PowerShell、SDK 和 REST API 来管理附加磁盘。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update add Adding pre-populated data disks to an existent scale set-->

@@ -3,8 +3,8 @@ title: "Azure 虚拟机规模集常见问题 | Azure"
 description: "获取有关虚拟机规模集常见问题的解答。"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gatneil
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/03/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 07/20/2017
+ms.date: 08/28/2017
+ms.author: v-haiqya
 ms.custom: na
-ms.openlocfilehash: c6469b406caed128267b832e9faf29a6400018d0
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 5d5df6891297f6c26263eaf2291c0019038287d6
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虚拟机规模集常见问题解答
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 07/28/2017
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location chinanorth -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
 
-    此命令将提供 Azure Resource Manager 模板的输入。
+    此命令提供 Azure Resource Manager 模板的输入。
 
     有关如何在密钥保管库中创建自签名证书的示例，请参阅[Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security/)。
 
@@ -134,7 +134,7 @@ ms.lasthandoff: 07/28/2017
 
 若要从现有 VM 中删除证书，需要编写一个自定义脚本扩展，从证书存储中手动删除证书。
 
-### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning-i-want-to-store-the-ssh-public-key-values-in-azure-key-vault-and-then-use-them-in-my-resource-manager-template"></a>如何在预配期间将现有的 SSH 公钥注入到虚拟机规模集 SSH 层？ 我想要将 SSH 公钥值存储在 Azure Key Vault 中，然后在 Resource Manager 模板中使用这些值。
+### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning-i-want-to-store-the-ssh-public-key-values-in-azure-key-vault-and-then-use-them-in-my-resource-manager-template"></a>如何在预配期间将现有的 SSH 公钥注入到虚拟机规模集 SSH 层？ 我想要将 SSH 公钥值存储在 Azure Key Vault 中，并在 Resource Manager 模板中使用这些值。
 
 如果仅向 VM 提供 SSH 公钥，则不需要将公钥放在 Key Vault 中。 公钥不是机密。
 
@@ -164,7 +164,7 @@ keyData | 是 | String | 指定 base64 编码的 SSH 公钥
 
     >Update-AzureRmVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
 
-如果尝试重新添加同一保管库，而不是使用现有源保管库的新保管库证书，可能会看到此消息。 如果要添加其他机密，`Add-AzureRmVmssSecret` 命令将无法正常运行。
+如果尝试重新添加同一保管库，而不是使用现有源保管库的新保管库证书，可能会看到此消息。 如果要添加其他机密，`Add-AzureRmVmssSecret` 命令无法正常运行。
 
 若要添加同一密钥保管库中的其他机密，请更新 $vmss.properties.osProfile.secrets[0].vaultCertificates 列表。
 
@@ -176,11 +176,11 @@ keyData | 是 | String | 指定 base64 编码的 SSH 公钥
 > 目前，不能通过使用虚拟机规模集 API 删除 VM 中的证书。
 >
 
-新的 VM 将不具有旧证书。 但是，具有证书的 VM 和已部署的 VM 将具有旧证书。
+新的 VM 不具有旧证书。 但是，具有证书的 VM 和已部署的 VM 将具有旧证书。
 
 ### <a name="can-i-push-certificates-to-the-virtual-machine-scale-set-without-providing-the-password-when-the-certificate-is-in-the-secret-store"></a>如果证书位于机密存储中，是否可以在不提供密码的情况下将证书推送到虚拟机规模集？
 
-你不需要对脚本中的密码进行硬编码。 可以使用运行部署脚本的权限来动态检索密码。 如果某个脚本可移动机密存储密钥保管库的证书，机密存储 `get certificate` 命令也会输出 pfx 文件的密码。
+不需要对脚本中的密码进行硬编码。 可以使用运行部署脚本的权限来动态检索密码。 如果某个脚本可移动机密存储密钥保管库的证书，机密存储 `get certificate` 命令也会输出 pfx 文件的密码。
 
 ### <a name="how-does-the-secrets-property-of-virtualmachineprofileosprofile-for-a-virtual-machine-scale-set-work-why-do-i-need-the-sourcevault-value-when-i-have-to-specify-the-absolute-uri-for-a-certificate-by-using-the-certificateurl-property"></a>虚拟机规模集的 virtualMachineProfile.osProfile 的 Secrets 属性的工作原理是什么？ 使用 certificateUrl 属性指定证书的绝对 URI 时，为什么需要 sourceVault 值？ 
 
@@ -192,15 +192,15 @@ Windows 远程管理 (WinRM) 证书引用必须在 OS 配置文件的 Secrets �
 
 ### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>如果将机密添加到现有虚拟机规模集，机密会注入到现有 VM 中，还是仅注入到新 VM 中？ 
 
-证书将添加到所有 VM，包括现有的 VM。 如果虚拟机规模集的 upgradePolicy 属性设置为“手动”，当你对 VM 执行手动更新时，证书将添加到该 VM。
+证书会添加到所有 VM，包括现有的 VM。 如果虚拟机规模集的 upgradePolicy 属性设置为“手动”，对 VM 执行手动更新时，证书会添加到该 VM。
 
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>在 Linux VM 上，证书放在哪个位置？
 
-若要了解如何部署 Linux VM 的证书，请参阅 [Deploy certificates to VMs from a customer-managed key vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/)（将证书从客户管理的密钥保管库部署到 VM）。
+若要了解如何部署 Linux VM 的证书，请参阅[将证书从客户管理的 Key Vault 部署到 VM](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/)。
 
 ### <a name="how-do-i-add-a-new-vault-certificate-to-a-new-certificate-object"></a>如何将新的保管库证书添加到新的证书对象？
 
-若要将保管库证书添加到现有机密，请参阅下面的 PowerShell 示例。 仅使用一个机密对象。
+要将保管库证书添加到现有机密，请参阅下面的 PowerShell 示例。 仅使用一个机密对象。
 
 ```powershell
 $newVaultCertificate = New-AzureRmVmssVaultCertificateConfig -CertificateStore MY -CertificateUrl https://sansunallapps1.vault.azure.cn:443/secrets/dg-private-enc/55fa0332edc44a84ad655298905f1809
@@ -216,9 +216,9 @@ Update-AzureRmVmss -VirtualMachineScaleSet $vmss -ResourceGroup $rg -Name $vmssN
 
 ### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>从 Key Vault 中删除证书会发生什么情况？
 
-如果从密钥保管库中删除机密，然后对所有 VM 运行 `stop deallocate`，则再次启动这些 VM 时，将发生失败。 失败发生的原因是 CRP 需要从密钥保管库检索机密，但它无法进行检索。 在这种情况下，可以从虚拟机规模集模型中删除证书。 
+如果从 Key Vault 中删除机密，然后对所有 VM 运行 `stop deallocate`，则再次启动这些 VM 时，会发生失败。 失败发生的原因是 CRP 需要从密钥保管库检索机密，但它无法进行检索。 在这种情况下，可以从虚拟机规模集模型中删除证书。 
 
-CRP 组件不会持久保留客户机密。 如果对虚拟机规模集中的所有虚拟机运行 `stop deallocate`，会删除缓存。 在这种情况下，将从密钥保管库中检索机密。
+CRP 组件不会持久保留客户机密。 如果对虚拟机规模集中的所有虚拟机运行 `stop deallocate`，会删除缓存。 在这种情况下，从密钥保管库中检索机密。
 
 扩大时不会遇到此问题，因为（单 Fabric 租户模型中的）Azure Service Fabric 中存在机密的缓存副本。
 
@@ -230,17 +230,17 @@ CRP 组件不会持久保留客户机密。 如果对虚拟机规模集中的所
 --- | ---
 GET | https://mykeyvault.vault.azure.cn/secrets/{secret-name}/{secret-version}?api-version={api-version}
 
-请将 {secret-name} 替换为该名称，将 {secret-version} 替换为要检索的机密的版本。 机密版本可能被排除。 在这种情况下，将检索当前的版本。
+请将 {*secret-name*} 替换为该名称，将 {*secret-version*} 替换为要检索的机密的版本。 机密版本可能被排除。 在这种情况下，将检索当前的版本。
 
 ### <a name="why-do-i-have-to-specify-the-certificate-version-when-i-use-key-vault"></a>使用 Key Vault 时，为什么需要指定证书版本？
 
 Key Vault 要求指定证书版本的目的是为了使用户清楚地了解哪些证书部署在其 VM 上。
 
-如果创建了 VM，然后更新了密钥保管库中的机密，则新证书不会下载到 VM。 但是，VM 看上去像是引用了该证书，并且新 VM 将获取新机密。 若要避免此问题，你需要引用机密的版本。
+如果创建了 VM，并更新了密钥保管库中的机密，则新证书不会下载到 VM。 但是，VM 看上去像是引用了该证书，并且新 VM 会获取新机密。 要避免此问题，需要引用机密的版本。
 
 ### <a name="my-team-works-with-several-certificates-that-are-distributed-to-us-as-cer-public-keys-what-is-the-recommended-approach-for-deploying-these-certificates-to-a-virtual-machine-scale-set"></a>本团队正在开发几个证书，到时将以 .cer 公钥的形式分发给大家使用。 将这些证书部署到虚拟机规模集的建议方法有哪些？
 
-若要将 .cer 公钥部署到虚拟机规模集，可以生成仅包含 .cer 文件的 .pfx 文件。 为此，请使用 `X509ContentType = Pfx`。 例如，将 .cer 文件作为 x509Certificate2 对象加载到 C# 或 PowerShell 中，然后调用该方法。 
+要将 .cer 公钥部署到虚拟机规模集，可以生成仅包含 .cer 文件的 .pfx 文件。 为此，请使用 `X509ContentType = Pfx`。 例如，将 .cer 文件作为 x509Certificate2 对象加载到 C# 或 PowerShell 中，然后调用该方法。 
 
 有关详细信息，请参阅 [X509Certificate.Export 方法 (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx))。
 
@@ -258,7 +258,7 @@ Key Vault 要求指定证书版本的目的是为了使用户清楚地了解哪�
 
 我们还支持 application/x-pkcs12 内容类型。 有关使用 application/x-pkcs12 的说明，请参阅 [Azure Key Vault 中的 PFX 证书](http://www.rahulpnath.com/blog/pfx-certificate-in-azure-key-vault/)。
 
-我们目前不支持 .cer 文件。 若要使用.cer 文件，请将其导出到.pfx 容器中。
+我们目前不支持 .cer 文件。 要使用.cer 文件，请将其导出到.pfx 容器中。
 
 ## <a name="compliance"></a>合规性
 
@@ -313,17 +313,17 @@ Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -Virtua
 
 如果更新策略设置为**自动**，使用新扩展属性重新部署模板可更新所有 VM。
 
-如果更新策略设置为“手动”，先更新扩展，然后手动更新 VM 中的所有实例。
+如果更新策略设置为“手动”，先更新扩展，并手动更新 VM 中的所有实例。
 
 ### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected-that-is-will-the-vms-not-match-the-virtual-machine-scale-set-model-or-are-they-ignored-when-an-existing-machine-is-service-healed-or-reimaged-are-the-scripts-that-are-currently-configured-on-the-virtual-machine-scale-set-executed-or-are-the-scripts-that-were-configured-when-the-vm-was-first-created-used"></a>如果更新与现有虚拟机规模集关联的扩展，是否会影响现有的 VM？ （即，VM 是否会不匹配虚拟机规模集模型？）或者，是否会忽略 VM？ 如果对现有计算机执行服务修复或重置映像操作，是否会执行当前在虚拟机规模集上配置的脚本，或者，是否会使用最初创建 VM 时配置的脚本？
 
-如果更新虚拟机规模中的扩展定义，且将 upgradePolicy 属性设置为“自动”，则会更新 VM。 如果 upgradePolicy 属性设置为“手动”，扩展会标记为不匹配模型。 
+如果更新虚拟机规模集模型中的扩展定义，且将 upgradePolicy 属性设置为“自动”，则会更新 VM。 如果 upgradePolicy 属性设置为“手动”，扩展会标记为不匹配模型。 
 
 如果对现有 VM 执行服务修复，这种行为类似于重新启动，因此不会重新运行扩展。 如果重置映像，则类似于将 OS 驱动器替换为源映像。 在这种情况下，将运行最新模型中的任何专用设置（如扩展）。
 
 ### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-azure-ad-domain"></a>如何将虚拟机规模集加入到 Azure AD 域？
 
-若要将虚拟机规模集加入到 Azure Active Directory (Azure AD) 域，可以定义一个扩展。 
+要将虚拟机规模集加入到 Azure Active Directory (Azure AD) 域，可以定义一个扩展。 
 
 若要定义扩展，请使用 JsonADDomainExtension 属性：
 
@@ -423,7 +423,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>如何针对同一订阅和同一区域中的虚拟机规模集执行 VIP 交换？
 
-如果有两个包含 Azure 负载均衡器前端的虚拟机规模集，并且它们位于同一订阅和区域中，可以解除分配它们的公共 IP 地址，并将公共 IP 地址分配给其他资源。 有关示例，请参阅 [VIP 交换：Azure Resource Manager 中的蓝绿部署](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)。 但这确实意味着延迟，因为要在网络级别解除分配/分配资源。 也可以使用支持快速切换过渡槽和生产槽的 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)来托管应用程序。
+如果有两个包含 Azure 负载均衡器前端的虚拟机规模集，并且它们位于同一订阅和区域中，可以解除分配它们的公共 IP 地址，并将公共 IP 地址分配给其他资源。 有关示例，请参阅 [VIP 交换：Azure Resource Manager 中的蓝绿部署](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)。 但这确实意味着延迟，因为要在网络级别解除分配/分配资源。 更快的做法是将 Azure 应用程序网关与两个后端池和路由规则结合使用。 也可以使用支持快速切换暂存槽和生产槽的 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)托管应用程序。
 
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>如何为静态专用 IP 地址分配指定专用 IP 地址范围？
 
@@ -461,6 +461,10 @@ IP 地址是从指定的子网中选择的。
     }
 ```
 
+### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>能否配置与多个应用程序网关配合使用的规模集？
+
+是的。 可将多个应用程序网关后端地址池的资源 ID 添加到规模集网络配置文件的 _ipConfigurations_ 部分的 _applicationGatewayBackendAddressPools_ 列表中。
+
 ## <a name="scale"></a>缩放
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>在哪些情况下我会创建包含少于两个 VM 的虚拟机规模集？
@@ -497,7 +501,7 @@ IP 地址是从指定的子网中选择的。
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>如何启用启动诊断？
 
-若要启用启动诊断，首先，创建存储帐户。 然后，将此 JSON 块放在虚拟机规模集  **virtualMachineProfile** 中，并更新虚拟机规模集：
+若要启用启动诊断，首先，创建存储帐户。 然后，将此 JSON 块放在虚拟机规模集 **virtualMachineProfile** 中，并更新虚拟机规模集：
 
 ```json
 "diagnosticsProfile": {
@@ -508,7 +512,7 @@ IP 地址是从指定的子网中选择的。
 }
 ```
 
-创建新 VM 时，VM 的 InstanceView 属性将显示屏幕截图的详细信息等等。 下面是一个示例：
+创建新 VM 时，VM 的 InstanceView 属性显示屏幕截图的详细信息等等。 下面是一个示例：
 
 ```json
 "bootDiagnostics": {
@@ -531,9 +535,9 @@ IP 地址是从指定的子网中选择的。
 
 ### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>虚拟机规模集 VM 计算机名和 VM ID 为什么不是连续的？ 例如：0，1，3...
 
-虚拟机规模集 VM 计算机名和 VM ID 不连续是因为虚拟机规模集的 **overprovision** 属性设置为默认值 **true**。 如果 overprovision 设置为 **true**，创建的 VM 数量将超过请求数量。 然后，将删除多余的 VM。 在这种情况下，虽然部署可靠性得到提高，但代价是无法遵守连续命名和连续网络地址转换 (NAT) 规则。 
+虚拟机规模集 VM 计算机名和 VM ID 不连续是因为虚拟机规模集的 **overprovision** 属性设置为默认值 **true**。 如果 overprovision 设置为 **true**，创建的 VM 数量会超过请求数量。 然后，将删除多余的 VM。 在这种情况下，虽然部署可靠性得到提高，但代价是无法遵守连续命名和连续网络地址转换 (NAT) 规则。 
 
-可以将此属性设置为 **false**。 对于小型虚拟机规模集，不会显著影响部署可靠性。
+可将此属性设置为 **false**。 对于小型虚拟机规模集，不会显著影响部署可靠性。
 
 ### <a name="what-is-the-difference-between-deleting-a-vm-in-a-virtual-machine-scale-set-and-deallocating-the-vm-when-should-i-choose-one-over-the-other"></a>删除虚拟机规模集中的 VM 与解除分配 VM 有什么区别？ 如何在这两种做法之间做出选择？
 
@@ -541,7 +545,7 @@ IP 地址是从指定的子网中选择的。
 
 - 不再想要支付计算费用，但要保留 VM 的磁盘状态。
 - 想要更快速地启动一组 VM，而不是扩大虚拟机规模集。
-  - 出于这种方案，你可能创建了自己的缩放引擎，并希望以更快的速度完成端到端缩放。
-- 你的虚拟机规模集未均匀分布在容错域或更新域。 这可能是由于你有选择地删除了 VM，或者因为过度预配后，VM 被删除。 在虚拟机规模集上先运行 `stop deallocate`，然后运行 `start`，可以将 VM 均匀地分布到容错域或更新域。
+  - 出于这种方案，可能创建了自己的缩放引擎，并希望以更快的速度完成端到端缩放。
+- 虚拟机规模集未均匀分布在容错域或更新域。 这可能是由于有选择地删除了 VM，或者因为过度预配后，VM 被删除。 在虚拟机规模集上先运行 `stop deallocate`，并运行 `start`，可将 VM 均匀地分布到容错域或更新域。
 
-<!--Update_Description: add question "How can I configure the DNS servers used by a scale set?" and "How can I configure a scale set to assign a public IP address to each VM?"-->
+<!--Update_Description: add question "Can I configure a scale set to work with multiple Application Gateways?"-->

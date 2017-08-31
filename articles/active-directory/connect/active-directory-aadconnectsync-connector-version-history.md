@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/12/2017
-ms.date: 07/31/2017
+origin.date: 08/18/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
-ms.openlocfilehash: 13987e94cd743ceb8595dd4d0dec139605c57aac
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: 3cae3d5015554e4202bb738fb128b1d2268a09b8
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="connector-version-release-history"></a>连接器版本发行历史记录
 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接器会经常更新。
 
 > [!NOTE]
-> 本主题仅适用于 FIM 和 MIM。 Azure AD Connect 不支持这些连接器。
+> 本主题仅适用于 FIM 和 MIM。 不支持将这些连接器安装在 Azure AD Connect 上。 升级到指定的版本时，已发布的连接器会预安装在 AADConnect 上。
 
 本主题列出所有已发布的连接器版本。
 
@@ -38,23 +38,36 @@ Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接�
 - [PowerShell 连接器](active-directory-aadconnectsync-connector-powershell.md)参考文档
 - [Lotus Domino 连接器](active-directory-aadconnectsync-connector-domino.md)参考文档
 
+
+## <a name="116040-aadconnect-11xxx0"></a>1.1.604.0 (AADConnect 1.1.XXX.0)
+
+
+### <a name="fixed-issues"></a>已解决的问题：
+
+- 泛型 Web 服务：
+  - 解决了存在两个或更多终结点时无法创建 SOAP 项目的问题。
+- 泛型 SQL：
+  - 在导入操作中，GSQL 在保存到连接器空间时未正确转换时间。 GSQL 连接器空间的默认日期和时间格式已从“yyyy-MM-dd hh:mm:ssZ”更改为“yyyy-MM-dd HH:mm:ssZ”。
+
 ## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
 
 ### <a name="fixed-issues"></a>已解决的问题：
 
 - 泛型 Web 服务：
-  - Wsconfig 工具未正确转换 REST 服务方法的“示例请求”中的 Json 数组。 因此，为 REST 请求序列化此 Json 数组时会出现问题。
-  - Web 服务连接器配置工具不支持在 JSON 属性名称中使用空格符号。可手动将替换模式添加到 WSConfigTool.exe.config 文件中，例如 ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+  - Wsconfig 工具未正确转换 REST 服务方法的“示例请求”中的 Json 数组。 这导致序列化 REST 请求的此 Json 数组时出现问题。
+  - Web 服务连接器配置工具不支持在 JSON 属性名称中使用空间符号 
+    - 可将替换模式手动添加到 WSConfigTool.exe.config 文件，例如 ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
 
 - Lotus Notes：
-  - 选项“允许组织/组织单位的自定义认证者”处于禁用状态时，导出（更新）期间连接将失败。导出流后，将所有属性导出到 Domino，但在导出时，KeyNotFoundException 会返回到同步。 这是因为重命名操作试图通过更改下列属性之一来更改 DN（用户名属性）时操作失败：  
-    - LastName
-    - FirstName
-    - MiddleInitial
-    - AltFullName
-    - AltFullNameLanguage
-    - ou
-    - altcommonname
+  - 选项“允许组织/组织单位的自定义认证者”处于禁用状态时，导出（更新）期间连接将失败。导出流后，将所有属性导出到 Domino，但在导出时，KeyNotFoundException 会返回到同步。 
+    - 这是因为重命名操作试图通过更改下列属性之一来更改 DN（用户名属性）时操作失败：  
+      - LastName
+      - FirstName
+      - MiddleInitial
+      - AltFullName
+      - AltFullNameLanguage
+      - ou
+      - altcommonname
 
   - “允许组织/组织单位的自定义认证者”选项已启用，但所需认证者仍为空时，会发生 KeyNotFoundException。
 
@@ -197,4 +210,4 @@ Lotus：
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: wording update -->
+<!--Update_Description: wording update -->

@@ -2,7 +2,7 @@
 title: "Azure 活动日志概述 | Azure"
 description: "了解什么是 Azure 活动日志，以及如何通过它了解发生在 Azure 订阅中的事件。"
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/02/2017
+origin.date: 08/02/2017
 ms.author: v-yiso
-ms.date: 03/31/2017
-ms.openlocfilehash: cdf2fe3b6aecd9cfd38c1a8811605a8faa4fb436
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 09/04/2017
+ms.openlocfilehash: c8ac70d56a09245c023fa2ff9b8f0a3d52d5bfb3
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/25/2017
 ---
-# <a name="overview-of-the-azure-activity-log"></a>Azure 活动日志概述
-**Azure 活动日志** 是一种日志，方便用户了解对订阅中的资源执行的操作。 活动日志此前称为“审核日志”或“操作日志”，因为它报告订阅的控制平面事件。 通过活动日志，可确定订阅中资源上进行的任何写入操作 (PUT, POST, DELETE) 的“什么操作、谁操作和操作时间”等信息。 还可以了解该操作和其他相关属性的状态。 活动日志未包括读取 (GET) 操作或针对使用经典/“RDFE”模型的资源的操作。
+# <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活动日志监视订阅活动
+**Azure 活动日志**是一种方便用户深入了解 Azure 中发生的订阅级别事件的订阅日志。 这包括从 Azure 资源管理器操作数据到服务运行状况事件更新的一系列数据。 活动日志之前称为“审核日志”或“操作日志”，因为“管理”类别报告订阅的控制面事件。 通过活动日志，可确定订阅中资源上进行的任何写入操作 (PUT, POST, DELETE) 的“什么操作、谁操作和操作时间”等信息。 还可以了解该操作和其他相关属性的状态。 活动日志未包括读取 (GET) 操作或针对使用经典/“RDFE”模型的资源的操作。
 
 ![活动日志与其他类型的日志 ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
 
 图 1：活动日志与其他类型的日志
 
-活动日志提供有关操作的数据，这些操作是针对外部资源的。 诊断日志由资源发出，提供的信息是有关该资源的操作的。
+活动日志提供有关从外部（“控制面”）对资源所执行操作的数据。 诊断日志由资源发出，提供的信息是有关该资源的操作的。
 
 可通过 Azure 门户、CLI、PowerShell cmdlet 和 Azure Monitor REST API 从活动日志检索事件。
 
 
 > [!WARNING]
-> Azure 活动日志主要适用于 Azure Resource Manager 中发生的活动。 它不跟踪使用经典/RDFE 模型的资源。 某些经典资源类型在 Azure Resource Manager 中具有代理资源提供程序（例如 Microsoft.ClassicCompute）。 如果使用这些代理资源提供程序通过 Azure Resource Manager 与经典资源类型交互，相关操作将出现在活动日志中。 如果你在经典门户中与经典资源类型交互，或以其他方式不通过 Azure Resource Manager 代理与经典资源类型交互，则你的操作只会记录在操作日志中。 操作日志只能在经典门户中访问。
+> Azure 活动日志主要适用于 Azure Resource Manager 中发生的活动。 它不跟踪使用经典/RDFE 模型的资源。 某些经典资源类型在 Azure Resource Manager 中具有代理资源提供程序（例如 Microsoft.ClassicCompute）。 如果使用这些代理资源提供程序通过 Azure Resource Manager 与经典资源类型交互，相关操作出现在活动日志中。 如果在经典门户中与经典资源类型交互，或以其他方式不通过 Azure Resource Manager 代理与经典资源类型交互，则操作只会记录在操作日志中。 操作日志只能在经典门户中访问。
 >
 >
 ## <a name="what-you-can-do-with-the-activity-log"></a>可以对活动日志执行的操作
@@ -42,16 +42,34 @@ ms.lasthandoff: 07/14/2017
 
 ![Azure 活动日志](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
-* [创建触发活动日志事件的警报。](./monitoring-activity-log-alerts.md)
+* 在 **Azure 门户**中查询和查看活动日志。
 * [将活动日志流式传输到事件中心](./monitoring-stream-activity-logs-event-hubs.md)，方便第三方服务或自定义分析解决方案（例如 PowerBI）引入。
 * 在 PowerBI 中使用 [PowerBI 内容包](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)分析活动日志。
 * [将活动日志保存到存储帐户进行存档或手动检查](./monitoring-archive-activity-log.md)。 可以使用日志配置文件指定保留时间（天）。
-* 在 **Azure 门户**中查询和查看活动日志。
 * 通过 PowerShell Cmdlet、CLI 或 REST API 查询活动日志。
 
-可以使用与发出日志的存储帐户或事件中心命名空间不在同一订阅中的存储帐户或事件中心命名空间。 配置设置的用户必须对这两个订阅具有相应的 RBAC 访问权限。
+## <a name="query-the-activity-log-in-the-azure-portal"></a>在 Azure 门户中查询活动日志
+在 Azure 门户中，可在多个位置查看活动日志：
+* 活动日志边栏选项卡，可通过在左侧导航窗格中的“更多服务”下搜索活动日志进行访问。
+* “监视”边栏选项卡，默认情况下在左侧导航窗格中显示。 活动日志是 Azure Monitor 边栏选项卡的一部分。
+* 任何资源的**资源边栏选项卡**，例如虚拟机的配置边栏选项卡。 活动日志是大多数这些资源边栏选项卡的一部分，单击它可自动筛选出与特定资源相关的事件。
 
-## <a name="export-the-activity-log-with-log-profiles"></a>使用日志配置文件导出活动日志
+在 Azure 门户中，可通过以下字段筛选活动日志：
+* 时间跨度 - 事件的开始时间和结束时间。
+* 类别 - 上述的事件类别。
+* 订阅 - 一个或多个 Azure 订阅名称。
+* 资源组 - 这些订阅中的一个或多个资源组。
+* 资源（名称）- 特定资源的名称。
+* 资源类型 - 资源的类型，例如 Microsoft.Compute/virtualmachines。
+* 操作名称 - Azure 资源管理器操作的名称，例如 Microsoft.SQL/servers/Write。
+* 严重性 - 事件的严重性级别（信息、警告、错误、严重）。
+* 事件发起者 -“调用方”或执行操作的用户。
+* 开放搜索 - 这是一个开放的文本搜索框，可在所有事件的所有字段中搜索该字符串。
+
+定义一组筛选条件后，如果将来需要再次使用已应用的筛选条件执行相同的查询，可将它保存为在会话中保留的查询。 还可将查询固定到 Azure 仪表板，始终关注特定事件。
+
+单击“应用”运行查询并显示所有匹配的事件。 单击列表中的任何事件会显示该事件的摘要以及该事件的完整原始 JSON。
+## <a name="export-the-activity-log-with-a-log-profile"></a>使用日志配置文件导出活动日志
 **日志配置文件** 控制如何导出活动日志。 可以使用日志配置文件配置：
 
 * 应将活动日志发送到何处：存储帐户或事件中心
@@ -60,7 +78,9 @@ ms.lasthandoff: 07/14/2017
 * 活动日志应在存储帐户中保留多长时间。
     - 保留期为 0 天意味着永久保留日志。 如果不需永久保留，则可将该值设置为 1 到 2147483647 之间的任意天数。
     - 如果设置了保留策略，但禁止将日志存储在存储帐户中（例如，如果仅选择事件中心或 OMS 选项），则保留策略无效。
-    - 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，将会删除前天的日志。
+    - 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。
+
+可以使用与发出日志的存储帐户或事件中心命名空间不在同一订阅中的存储帐户或事件中心命名空间。 配置设置的用户必须对这两个订阅具有相应的 RBAC 访问权限。
 
 可通过门户中“活动日志”边栏选项卡的“导出”选项配置这些设置。 还可 [使用 Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx)、PowerShell cmdlet 或 CLI 以编程方式配置这些设置。 一个订阅只能有一个日志配置文件。
 
@@ -136,114 +156,6 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 ```
 azure insights logprofile delete --name my_log_profile
 ```
-
-## <a name="event-schema"></a>事件架构
-活动日志中的每个事件都有一个类似于此示例的 JSON blob：
-
-```
-{
-  "value": [ {
-    "authorization": {
-      "action": "microsoft.support/supporttickets/write",
-      "role": "Subscription Admin",
-      "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841"
-    },
-    "caller": "admin@contoso.com",
-    "channels": "Operation",
-    "claims": {
-      "aud": "https://management.core.windows.net/",
-      "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
-      "iat": "1421876371",
-      "nbf": "1421876371",
-      "exp": "1421880271",
-      "ver": "1.0",
-      "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
-      "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-      "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
-      "puid": "20030000801A118C",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
-      "name": "John Smith",
-      "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
-      "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
-      "appidacr": "2",
-      "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-      "http://schemas.microsoft.com/claims/authnclassreference": "1"
-    },
-    "correlationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-    "description": "",
-    "eventDataId": "44ade6b4-3813-45e6-ae27-7420a95fa2f8",
-    "eventName": {
-      "value": "EndRequest",
-      "localizedValue": "End request"
-    },
-    "eventSource": {
-      "value": "Microsoft.Resources",
-      "localizedValue": "Microsoft Resources"
-    },
-    "httpRequest": {
-      "clientRequestId": "27003b25-91d3-418f-8eb1-29e537dcb249",
-      "clientIpAddress": "192.168.35.115",
-      "method": "PUT"
-    },
-    "id": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841/events/44ade6b4-3813-45e6-ae27-7420a95fa2f8/ticks/635574752669792776",
-    "level": "Informational",
-    "resourceGroupName": "MSSupportGroup",
-    "resourceProviderName": {
-      "value": "microsoft.support",
-      "localizedValue": "microsoft.support"
-    },
-    "resourceUri": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-    "operationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-    "operationName": {
-      "value": "microsoft.support/supporttickets/write",
-      "localizedValue": "microsoft.support/supporttickets/write"
-    },
-    "properties": {
-      "statusCode": "Created"
-    },
-    "status": {
-      "value": "Succeeded",
-      "localizedValue": "Succeeded"
-    },
-    "subStatus": {
-      "value": "Created",
-      "localizedValue": "Created (HTTP Status Code: 201)"
-    },
-    "eventTimestamp": "2015-01-21T22:14:26.9792776Z",
-    "submissionTimestamp": "2015-01-21T22:14:39.9936304Z",
-    "subscriptionId": "s1"
-  } ],
-"nextLink": "https://management.azure.com/########-####-####-####-############$skiptoken=######"
-}
-```
-
-| 元素名称 | 说明 |
-| --- | --- |
-| authorization |包含事件的 RBAC 属性的 Blob。 通常包括“action”、“role”和“scope”属性。 |
-| caller |执行操作（UPN 声明或 SPN 声明，具体取决于可用性）的用户的电子邮件地址。 |
-| channels |以下值之一：“Admin”、“Operation” |
-| correlationId |通常为字符串格式的 GUID。 共享 correlationId 的事件属于同一 uber 操作。 |
-| 说明 |事件的静态文本说明。 |
-| eventDataId |事件的唯一标识符。 |
-| eventSource |生成此事件的 Azure 服务或基础结构的名称。 |
-| httpRequest |描述 Http 请求的 Blob。 通常包括 "clientRequestId"、"clientIpAddress" 和 "method"（HTTP 方法， 例如 PUT）。 |
-| 级别 |事件的级别。 以下值之一：“Critical”、“Error”、“Warning”、“Informational”和“Verbose” |
-| resourceGroupName |受影响资源的资源组的名称。 |
-| resourceProviderName |受影响资源的资源提供程序的名称 |
-| resourceUri |受影响资源的资源 ID。 |
-| operationId |在多个事件（对应于单个操作）之间共享的 GUID。 |
-| operationName |操作的名称。 |
-| 属性 |`<Key, Value>` 对集合（即字典），描述事件的详细信息。 |
-| 状态 |描述操作状态的字符串。 部分常用值包括：Started、In Progress、Succeeded、Failed、Active、Resolved。 |
-| subStatus |通常为相应 REST 调用的 HTTP 状态代码，但也可能包括用于描述子状态的其他字符串，例如以下常用值：OK（HTTP 状态代码：200）、Created（HTTP 状态代码：201）、Accepted（HTTP 状态代码：202）、No Content（HTTP 状态代码：204）、Bad Request（HTTP 状态代码：400）、Not Found（HTTP 状态代码：404）、Conflict（HTTP 状态代码：409）、Internal Server Error（HTTP 状态代码：500）、Service Unavailable（HTTP 状态代码：503）、Gateway Timeout（HTTP 状态代码：504）。 |
-| eventTimestamp |处理与事件对应的请求的 Azure 服务生成事件时的时间戳。 |
-| submissionTimestamp |事件可供查询的时间戳。 |
-| subscriptionId |Azure 订阅 ID。 |
-| nextLink |继续标记，用于提取下一结果集，此时这些结果已分解成多个响应。 通常在有超过 200 个记录时需要。 |
 
 ## <a name="next-steps"></a>后续步骤
 - [详细了解活动日志（以前称为审核日志）](../azure-resource-manager/resource-group-audit.md)
