@@ -1,10 +1,10 @@
 ---
-title: "Azure 单一登录 SAML 协议 | Azure"
+title: "Azure 单一登录 SAML 协议 | Microsoft Docs"
 description: "本文介绍 Azure Active Directory 中的单一登录 SAML 协议"
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2017
-ms.date: 03/13/2017
+origin.date: 07/19/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
-ms.openlocfilehash: eed3f4b2352d9fe9b5e9d74e0426cf8ee8c415e6
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.custom: aaddev
+ms.openlocfilehash: 7ab5c3ac0c7145d501147dc62e57d1e2ee13c283
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/25/2017
 ---
 # 单一登录 SAML 协议
 本文介绍了 SAML 2.0 身份验证请求和响应，它受 Azure Active Directory (Azure AD) 支持，适用于单一登录。
@@ -41,16 +42,17 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
+
 | 参数 |  | 说明 |
 | --- | --- | --- |
 | ID |必填 |Azure AD 使用此属性来填充返回的响应的 `InResponseTo` 属性。 ID 的开头不能是数字，因此常见的策略是在 GUID 的字符串表示形式前面加上类似于“id”的字符串。 例如， `id6c1c178c166d486687be4aaf5e482730` 是有效的 ID。 |
 | Version |必填 |应为 **2.0**。 |
-| IssueInstant |必填 |这是具有 UTC 值并采用[往返格式（“o”）](https://msdn.microsoft.com/zh-cn/library/az4se3k1.aspx)的 DateTime 字符串。 Azure AD 需要这种类型的日期时间值，但不评估或使用该值。 |
+| IssueInstant |必填 |这是具有 UTC 值并采用[往返格式（“o”）](https://msdn.microsoft.com/library/az4se3k1.aspx)的 DateTime 字符串。 Azure AD 需要这种类型的日期时间值，但不评估或使用该值。 |
 | AssertionConsumerServiceUrl |可选 |如果提供，必须与 Azure AD 中云服务的 `RedirectUri` 匹配。 |
-| ForceAuthn |可选 | 一个布尔值。 如果为 true，意味着用户将被强制重新验证身份，即使他们具有与 Azure AD 之间的有效会话。 |
+| ForceAuthn |可选 | 一个布尔值。 如果为 true，意味着用户会被强制重新验证身份，即使他们具有与 Azure AD 之间的有效会话。 |
 | IsPassive |可选 |一个布尔值，指定 Azure AD 是否应该在没有用户交互的情况下使用会话 Cookie（如果存在）以无提示方式验证用户身份。 如果为 true，Azure AD 会尝试使用会话 cookie 验证用户。 |
 
-其他所有 `AuthnRequest` 属性（例如 Consent、Destination、AssertionConsumerServiceIndex、AttributeConsumerServiceIndex 和 ProviderName）将被 **忽略**。
+其他所有 `AuthnRequest` 属性（例如 Consent、Destination、AssertionConsumerServiceIndex、AttributeConsumerServiceIndex 和 ProviderName）会被**忽略**。
 
 Azure AD 还会忽略 `AuthnRequest` 中的 `Conditions` 元素。
 
@@ -72,7 +74,7 @@ Azure AD 还会忽略 `AuthnRequest` 中的 `Conditions` 元素。
 <NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
 ```
 
-如果提供了 `NameIDPolicy`，则可以包含其可选的 `Format` 属性。 `Format` 属性只能使用以下值之一；其他任何值都将导致错误。
+如果提供了 `NameIDPolicy`，则可以包含其可选的 `Format` 属性。 `Format` 属性只能使用以下值之一；其他任何值都会导致错误。
 
 - `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`：Azure Active Directory 以成对标识符形式发出 NameID 声明。
 - `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`：Azure Active Directory 发出电子邮件地址格式的 NameID 声明。
@@ -100,7 +102,7 @@ Azure AD 将忽略 `AuthnRequest` 元素的 `Subject` 元素。
 
 ```
 <samlp:Response ID="_a4958bfd-e107-4e67-b06d-0d85ade2e76a" Version="2.0" IssueInstant="2013-03-18T07:38:15.144Z" Destination="https://contoso.com/identity/inboundsso.aspx" InResponseTo="id758d0ef385634593a77bdf7e632984b6" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
-  <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+  <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.partner.microsoftonline.cn/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
   <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
     ...
   </ds:Signature>
@@ -108,7 +110,7 @@ Azure AD 将忽略 `AuthnRequest` 元素的 `Subject` 元素。
     <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
   </samlp:Status>
   <Assertion ID="_bf9c623d-cc20-407a-9a59-c2d0aee84d12" IssueInstant="2013-03-18T07:38:15.144Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
-    <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+    <Issuer>https://login.partner.microsoftonline.cn/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
     <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
       ...
     </ds:Signature>
@@ -148,12 +150,12 @@ Azure AD 将忽略 `AuthnRequest` 元素的 `Subject` 元素。
 - `InResponseTo`：设置为发起响应的 `AuthnRequest` 元素的 `ID` 属性。
 
 ### 颁发者
-Azure AD 将 `Issuer` 元素设置为 `https://login.microsoftonline.com/<TenantIDGUID>/`，其中，<TenantIDGUID> 是 Azure AD 租户的租户 ID。
+Azure AD 将 `Issuer` 元素设置为 `https://login.partner.microsoftonline.cn/<TenantIDGUID>/`，其中，<TenantIDGUID> 是 Azure AD 租户的租户 ID。
 
 例如，具有 Issuer 元素的示例响应看起来类似于这样：
 
 ```
-<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.partner.microsoftonline.cn/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 ### Status
@@ -183,13 +185,13 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 此元素设置为 `https://sts.chinacloudapi.cn/<TenantIDGUID>/`，其中，<TenantIDGUID> 是 Azure AD 租户的租户 ID。
 
 ```
-<Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer>https://login.partner.microsoftonline.cn/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 #### 签名
 Azure AD 为断言签名以响应成功登录。 `Signature` 元素包含数字签名，可供云服务用来对源进行身份验证，以验证断言的完整性。
 
-为了生成此数字签名，Azure AD 将在其元数据文档的 `IDPSSODescriptor` 元素中使用签名密钥。
+为了生成此数字签名，Azure AD 会在其元数据文档的 `IDPSSODescriptor` 元素中使用签名密钥。
 
 ```
 <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
@@ -251,20 +253,23 @@ Azure AD 为断言签名以响应成功登录。 `Signature` 元素包含数字�
       </Attribute>
       ...
 </AttributeStatement>
-```
+```        
 
 - Name 声明：`Name` 属性值 (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) 是经过身份验证的用户的用户主体名称，例如 `testuser@managedtenant.com`。
 - ObjectIdentifier 声明：`ObjectIdentifier` 属性值 (`http://schemas.microsoft.com/identity/claims/objectidentifier`) 是目录对象的 `ObjectId`，该目录对象表示 Azure AD 中经过身份验证的用户。 `ObjectId` 是经过身份验证的用户的不可变、全局唯一且可重复使用的安全标识符。
 
 #### AuthnStatement
-
 此元素断言在特定时间以特定方式对断言使用者进行身份验证。
 
 - `AuthnInstant` 属性指定使用 Azure AD 对用户进行身份验证的时间。
 - `AuthnContext` 元素指定用于对用户进行身份验证的身份验证上下文。
 
-        <AuthnStatement AuthnInstant="2013-03-18T07:33:56.000Z" SessionIndex="_bf9c623d-cc20-407a-9a59-c2d0aee84d12">
-              <AuthnContext>
-                <AuthnContextClassRef> urn:oasis:names:tc:SAML:2.0:ac:classes:Password</AuthnContextClassRef>
-              </AuthnContext>
-        </AuthnStatement>
+```
+<AuthnStatement AuthnInstant="2013-03-18T07:33:56.000Z" SessionIndex="_bf9c623d-cc20-407a-9a59-c2d0aee84d12">
+      <AuthnContext>
+        <AuthnContextClassRef> urn:oasis:names:tc:SAML:2.0:ac:classes:Password</AuthnContextClassRef>
+      </AuthnContext>
+</AuthnStatement>
+```
+
+<!--Update_Description: wording update -->
