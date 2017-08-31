@@ -29,7 +29,7 @@
 # 引用
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network/traffic-manager)
-## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.trafficmanager)
+## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html)

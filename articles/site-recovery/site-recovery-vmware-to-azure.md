@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/12/2017
 ms.author: v-johch
 ms.openlocfilehash: 68c91d5e202db31cc6af7c972ce090d86bf7ae9d
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.sourcegitcommit: 6e849d15b7c5aaa554668195eef2e58ae1de10bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/23/2017
 ---
 # <a name="replicate-vmware-virtual-machines-to-azure-with--site-recovery"></a>通过 Site Recovery 将 VMware 虚拟机复制到 Azure
 >[!div class="op_single_selector"]
@@ -65,7 +65,7 @@ ms.lasthandoff: 07/13/2017
 ## <a name="set-up-azure"></a>设置 Azure
 
 1. [设置 Azure 网络](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)。
-    - 在故障转移后创建 Azure VM 时，Azure VM 将置于此网络中。
+    - 在故障转移后创建 Azure VM 时，Azure VM 置于此网络中。
     - 可以在 [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) 中设置网络，也可以在经典模式下设置网络。
 
 2. 设置用于所复制数据的 [Azure 存储帐户](../storage/storage-create-storage-account.md#create-a-storage-account)。
@@ -82,14 +82,15 @@ ms.lasthandoff: 07/13/2017
 
 ##<a name="install-the-mobility-service-manually"></a><a name="install-mobility-service-on-a-windows-server-using-the-command-prompt"></a><a name="install-the-mobility-service"></a><a name="prepare-for-automatic-discovery-and-push-installation"></a>为自动发现和推送安装做好准备
 
-- **为自动发现准备一个帐户**：Site Recovery 进程服务器将自动发现 VM。 为此，Site Recovery 需要凭据，以便访问 vCenter 服务器和 vSphere ESXi 主机。
+- 
+            **为自动发现准备一个帐户**：Site Recovery 进程服务器自动发现 VM。 为此，Site Recovery 需要凭据，以便访问 vCenter 服务器和 vSphere ESXi 主机。
 
     1. 若要使用专用帐户，请创建一个角色（在 vCenter 级别，具有这些[权限](#vmware-account-permissions)）。 为其指定一个名称，例如 Azure_Site_Recovery。
     2. 然后在 vSphere 主机或 vCenter 服务器上创建一个用户，并向其分配该角色。 在 Site Recovery 部署过程中指定此用户帐户。
 
 - **准备一个用于推送移动服务的帐户**：如果要将移动服务推送到 VM，则需要一个可由进程服务器用来访问 VM 的帐户。 该帐户仅用于推送安装。 可以使用域或本地帐户：
 
-    - 对于 Windows，如果你使用的不是域帐户，则需在本地计算机上禁用远程用户访问控制。 为此，请在注册表中的 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 下添加值为 1 的 DWORD 项 LocalAccountTokenFilterPolicy。
+    - 对于 Windows，如果使用的不是域帐户，则需在本地计算机上禁用远程用户访问控制。 为此，请在注册表中的 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 下添加值为 1 的 DWORD 项 LocalAccountTokenFilterPolicy。
     - 如果想要从 CLI 为 Windows 添加注册表项，请键入：``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
     - 对于 Linux，该帐户应是源 Linux 服务器上的root 用户。
 
@@ -111,7 +112,7 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="set-up-the-source-environment"></a>设置源环境
 
-设置配置服务器，将它注册到保管库中，然后发现 VM。
+设置配置服务器，将它注册到保管库中，并发现 VM。
 
 1. 单击“Site Recovery” > “步骤 1: 准备基础结构” > “源”。
 2. 如果没有配置服务器，请单击“+配置服务器”。
@@ -125,7 +126,7 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="run-site-recovery-unified-setup"></a>运行站点恢复统一安装程序
 
-在开始之前，执行以下操作，然后运行统一安装程序来安装配置服务器、进程服务器和主目标服务器。
+在开始之前，执行以下操作，并运行统一安装程序来安装配置服务器、进程服务器和主目标服务器。
 
 ```
 - On the configuration server VM, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
@@ -156,7 +157,7 @@ ms.lasthandoff: 07/13/2017
 
 [!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
 
-Site Recovery 将使用指定的设置连接到 VMware 服务器并发现 VM。
+Site Recovery 使用指定的设置连接到 VMware 服务器并发现 VM。
 
 ##<a name="step-3-set-up-the-target-environment"></a>设置目标
 
@@ -164,7 +165,7 @@ Site Recovery 将使用指定的设置连接到 VMware 服务器并发现 VM。
 
 1. 单击“准备基础结构” > “目标”，然后选择要使用的 Azure 订阅。
 2. 指定目标部署模型是基于 Resource Manager 还是基于经典部署。
-3. Site Recovery 将检查是否有一个或多个兼容的 Azure 存储帐户和网络。
+3. Site Recovery 检查是否有一个或多个兼容的 Azure 存储帐户和网络。
 
    ![目标](./media/site-recovery-vmware-to-azure/gs-target.png)
 4. 如果尚未创建存储帐户或网络，请单击“+存储帐户”或“+网络”，创建 Resource Manager 帐户或内联网络。
@@ -173,12 +174,12 @@ Site Recovery 将使用指定的设置连接到 VMware 服务器并发现 VM。
 
 1. 若要创建新的复制策略，请单击“Site Recovery 基础结构” > “复制策略” > “+复制策略”。
 2. 在“创建复制策略”中指定策略名称。
-3. 在“RPO 阈值”中：指定 RPO 限制。 此值指定创建数据恢复点的频率。 如果连续复制超出此限制，将生成警报。
+3. 在“RPO 阈值”中：指定 RPO 限制。 此值指定创建数据恢复点的频率。 如果连续复制超出此限制，则会生成警报。
 4. 在“恢复点保留期”中，针对每个恢复点指定保留期窗口的长度（以小时为单位）。 可将复制的虚拟机恢复到窗口中的任何点。 复制到高级存储的计算机最多支持 24 小时的保留期，复制到标准存储的计算机最多支持 72 小时的保留期。
 5. 在“应用一致性快照频率”中，指定创建包含应用程序一致性快照的恢复点的频率（以分钟为单位）。 单击“确定”创建该策略。
 
     ![复制策略](./media/site-recovery-vmware-to-azure/gs-replication2.png)
-8. 当你创建新策略时，该策略将自动与配置服务器关联。 默认情况下将自动创建一个匹配策略用于故障回复。 例如，如果复制策略是 rep-policy，则故障回复策略将是 rep-policy-failback。 从 Azure 启动故障回复之前，不会使用此策略。  
+8. 创建新策略时，该策略会自动与配置服务器关联。 默认情况下自动创建一个匹配策略用于故障回复。 例如，如果复制策略是 rep-policy，则故障回复策略将是 rep-policy-failback。 从 Azure 启动故障回复之前，不会使用此策略。  
 
 ## <a name="plan-capacity"></a>规划容量
 
@@ -204,11 +205,11 @@ Site Recovery 将使用指定的设置连接到 VMware 服务器并发现 VM。
 - 添加或修改 VM 之后，可能需要 15 分钟或更长时间，更改才会生效并显示在门户中。
 - 可在“配置服务器” > “上次联系位置”查看上次发现 VM 的时间。
 - 若要添加 VM 而不想等待执行计划的发现，请突出显示配置服务器（不要单击它），然后单击“刷新”。
-* 如果已为推送安装准备了 VM，那么在启用复制时，进程服务器将自动安装移动服务。
+* 如果已为推送安装准备了 VM，那么在启用复制时，进程服务器自动安装移动服务。
 
 ### <a name="exclude-disks-from-replication"></a>从复制中排除磁盘
 
-默认情况下将复制计算机上的所有磁盘。 你可以从复制中排除磁盘。 例如，你可能不想复制包含临时数据，或者每次重启计算机或应用程序时会刷新的数据（例如 pagefile.sys 或 SQL Server tempdb）的磁盘。
+默认情况下将复制计算机上的所有磁盘。 可以从复制中排除磁盘。 例如，你可能不想复制包含临时数据，或者每次重启计算机或应用程序时会刷新的数据（例如 pagefile.sys 或 SQL Server tempdb）的磁盘。
 
 ###<a name="step-6-replicate-applications"></a>复制 VM
 
@@ -216,7 +217,7 @@ Site Recovery 将使用指定的设置连接到 VMware 服务器并发现 VM。
 2. 在“源”中选择配置服务器。
 3. 在“计算机类型”中，选择“虚拟机”。
 4. 在“vCenter/vSphere 虚拟机监控程序”中，选择管理 vSphere 主机的 vCenter 服务器，或选择该主机。
-5. 选择进程服务器。 如果未创建任何额外的进程服务器，该进程服务器将是配置服务器。 然后，单击“确定” 。
+5. 选择进程服务器。 如果未创建任何额外的进程服务器，该进程服务器将是配置服务器。 。
 
     ![启用复制](./media/site-recovery-vmware-to-azure/enable-replication2.png)
 
@@ -238,12 +239,12 @@ Site Recovery 将使用指定的设置连接到 VMware 服务器并发现 VM。
 12. 如果要将计算机集合到复制组，请启用“多 VM 一致性”并指定组的名称。 。 请注意：
 
     * 复制组中的计算机将一起复制，并在故障转移时获得崩溃一致且应用一致的共享恢复点。
-    * 我们建议你将 VM 和物理服务器集合在一起，使其镜像你的工作负荷。 启用多 VM 一致性可能会影响工作负荷性能，因此，仅当计算机运行相同的工作负荷并且你需要一致性时，才应使用该设置。
+    * 我们建议将 VM 和物理服务器集合在一起，使其镜像工作负荷。 启用多 VM 一致性可能会影响工作负荷性能，因此，仅当计算机运行相同的工作负荷并且需要一致性时，才应使用该设置。
 
     ![启用复制](./media/site-recovery-vmware-to-azure/enable-replication7.png)
 13. 单击“启用复制”。 可以在“设置” > “作业” > “Site Recovery 作业”中，跟踪“启用保护”作业的进度。 在“完成保护”作业运行之后，计算机就可以进行故障转移了。
 
-启用复制后，将安装移动服务（如果设置了推送安装）。 在 VM 上对移动服务进行推送安装后，保护作业将启动并失败。 发生这种失败后，需要手动重新启动每台计算机。 然后，保护作业将重新开始，初始复制将会进行。
+启用复制后，会安装移动服务（如果设置了推送安装）。 在 VM 上对移动服务进行推送安装后，保护作业将启动并失败。 发生这种失败后，需要手动重新启动每台计算机。 然后，保护作业将重新开始，初始复制将会进行。
 
 ### <a name="view-and-manage-vm-properties"></a>查看和管理 VM 属性
 
@@ -256,17 +257,17 @@ Site Recovery 将使用指定的设置连接到 VMware 服务器并发现 VM。
 
    - 可以设置目标 IP 地址。
 
-    - 如果未提供地址，故障转移的计算机将使用 DHCP。
-    - 如果设置了无法用于故障转移的地址，故障转移将不会正常工作。
+    - 如果未提供地址，故障转移的计算机使用 DHCP。
+    - 如果设置了无法用于故障转移的地址，故障转移不会正常工作。
     - 如果地址可用于测试故障转移网络，则同一个目标 IP 地址可用于测试故障转移。
 
-   - 网络适配器数目根据你为目标虚拟机指定的大小来确定：
+   - 网络适配器数目根据为目标虚拟机指定的大小来确定：
 
      - 如果源计算机上的网络适配器数小于或等于目标计算机大小允许的适配器数，则目标的适配器数将与源相同。
      - 如果源虚拟机的适配器数目大于目标大小允许的数目，则使用目标大小允许的最大数目。
-     - 例如，如果源计算机有两个网络适配器，而目标计算机大小支持四个，则目标计算机将有两个适配器。 如果源计算机有两个适配器，但支持的目标大小只支持一个，则目标计算机只有一个适配器。     
-   - 如果虚拟机有多个网络适配器，它们将全部连接到同一个网络。
-   - 如果虚拟机有多个网络适配器，列表中显示的第一个适配器将成为 Azure 虚拟机中的 *默认* 网络适配器。
+     - 例如，如果源计算机有两个网络适配器，而目标计算机大小支持四个，则目标计算机有两个适配器。 如果源计算机有两个适配器，但支持的目标大小只支持一个，则目标计算机只有一个适配器。     
+   - 如果虚拟机有多个网络适配器，它们会全部连接到同一个网络。
+   - 如果虚拟机有多个网络适配器，列表中显示的第一个适配器成为 Azure 虚拟机中的*默认*网络适配器。
 5. 在“磁盘”中，可以看到 VM 操作系统，以及将要复制的数据磁盘。
 
 ## <a name="run-a-test-failover"></a>运行测试故障转移

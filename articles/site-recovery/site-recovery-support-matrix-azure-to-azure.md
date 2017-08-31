@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/10/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: ede4944043b2ab31227791f0fed3c86794a842fb
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: 79d1b9edf795cc1e5aea9300676da8cc86f90dc4
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>从 Azure 复制到 Azure 的 Azure Site Recovery 支持矩阵
 
@@ -120,10 +120,10 @@ Azure 库映像 - 第三方发布 | 支持 | 只要 VM 在 Site Recovery 支持�
 
 **配置** | 支持/不支持 | **备注**
 --- | --- | ---
-最大 OS 磁盘大小 | 1023 GB | 请参阅 [VM 使用的磁盘。](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
-最大数据磁盘大小 | 1023 GB | 请参阅 [VM 使用的磁盘。](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
+最大 OS 磁盘大小 | 1023 GB | 请参阅 [VM 使用的磁盘。](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+最大数据磁盘大小 | 1023 GB | 请参阅 [VM 使用的磁盘。](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 数据磁盘数 | 特定 Azure VM 大小支持最多 64 个 | 请参阅 [Azure 虚拟机大小](../virtual-machines/windows/sizes.md)
-临时磁盘 | 始终从复制中排除 | 复制时始终排除临时磁盘。 根据 Azure 指南，不应将任何永久性数据存储在临时磁盘中。 有关详细信息，请参阅 [Azure VM 上的临时磁盘](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk)。
+临时磁盘 | 始终从复制中排除 | 复制时始终排除临时磁盘。 根据 Azure 指南，不应将任何永久性数据存储在临时磁盘中。 有关详细信息，请参阅 [Azure VM 上的临时磁盘](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)。
 磁盘上的数据更改速率 | 每个磁盘最大 6 MBps | 如果磁盘上的平均数据更改率连续超过 6 MBps，复制将不同步。 但是，如果只是偶尔出现数据迸发，数据更改率间或高于 6 MBps，但随后又降下来，则复制可同步。 在这种情况下，恢复点可能会稍有延迟。
 标准存储帐户中的磁盘 | 支持 |
 高级存储帐户中的磁盘 | 支持 | 如果 VM 的磁盘分散在高级和标准存储帐户中，可以为每个磁盘选择不同的目标存储帐户，确保在目标区域中具有相同的存储配置
@@ -137,11 +137,11 @@ Azure 磁盘加密 (ADE) | 不支持 |
 LRS | 支持 |
 GRS | 支持 |
 RA-GRS | 支持 |
-ZRS | 支持 |  
+ZRS | 不支持 |  
 冷存储和热存储 | 不支持 | 冷存储和热存储不支持虚拟机磁盘
 
 >[!IMPORTANT]
-> 请确保按照源 Azure 虚拟机的[存储指南](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)进行操作，避免出现任何性能问题。 如果使用默认设置，Site Recovery 将基于源配置创建所需的存储帐户。 如果自定义并选择自己的设置，请确保使用 (.../ storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) 作为源 VM。
+> 请确保按照源 Azure 虚拟机的[存储指南](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)进行操作，避免出现任何性能问题。 如果使用默认设置，Site Recovery 将基于源配置创建所需的存储帐户。 如果自定义并选择自己的设置，请确保按照 (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) 配置源 VM。
 
 ## <a name="support-for-network-configuration"></a>网络配置支持
 **配置** | 支持/不支持 | **备注**
@@ -167,4 +167,4 @@ VNET 到 VNET 连接 | 支持 | 请参阅[网络指南文档。](site-recovery-a
 - 详细了解 [networking guidance for replicating Azure VMs](site-recovery-azure-to-azure-networking-guidance.md)（有关复制 Azure VM 的网络指南）
 <!-- Not Available [replicating Azure VMs](site-recovery-azure-to-azure.md) -->
 
-<!--Update_Description: update meta properties, add Linux version support list -->
+<!--Update_Description: update meta properties, update reference link -->

@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: article
 origin.date: 06/09/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 2101af806a1313ccda65b230618e332a50e5e4f2
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: b3541e09fc0bb54221d5d07bf7067c8ed613322d
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>使用 SQL 数据库在 Azure 中生成 ASP.NET 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-[Azure Web 应用](/app-service-web/app-service-web-overview)提供高度可缩放、自修补的 Web 托管服务。 本教程演示如何在 Azure 中部署数据驱动的 ASP.NET Web 应用，以及如何将其连接到 [Azure SQL 数据库](../sql-database/sql-database-technical-overview.md)。 完成此流程后，你将能在 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)中运行 ASP.NET 应用，并将其连接到 SQL 数据库。
+[Azure Web 应用](./app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。 本教程演示如何在 Azure 中部署数据驱动的 ASP.NET Web 应用，以及如何将其连接到 [Azure SQL 数据库](../sql-database/sql-database-technical-overview.md)。 完成此流程后，你将能在 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)中运行 ASP.NET 应用，并将其连接到 SQL 数据库。
 
 ![Azure Web 应用中已发布 ASP.NET 应用程序](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 07/28/2017
 
 若要完成本教程，需执行以下操作：
 
-* 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)：
+* 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
   - **ASP.NET 和 Web 开发**
   - **Azure 开发**
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 07/28/2017
 
 [!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
-在“创建应用服务”对话框中单击“添加帐户”，然后登录到你的 Azure 订阅。 如果已登录到 Azure 帐户，请确保该帐户包含你的 Azure 订阅。 如果登录的 Azure 帐户不包含你的 Azure 订阅，请单击该帐户添加正确的帐户。
+在“创建应用服务”对话框中单击“添加帐户”，并登录到用户的 Azure 订阅。 如果已登录到 Azure 帐户，请确保该帐户包含 Azure 订阅。 如果登录的 Azure 帐户不包含 Azure 订阅，请单击该帐户添加正确的帐户。
 
 ![登录 Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
@@ -171,7 +171,7 @@ ms.lasthandoff: 07/28/2017
 
 ![Azure Web 应用中已发布 ASP.NET 应用程序](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-祝贺你！ 数据驱动 ASP.NET 应用程序当前在 Azure 应用服务中实时运行。
+祝贺！ 数据驱动 ASP.NET 应用程序当前在 Azure 应用服务中实时运行。
 
 ## <a name="access-the-sql-database-locally"></a>本地访问 SQL 数据库
 
@@ -397,7 +397,7 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 转到 [Azure 门户](https://portal.azure.cn)查看已创建的 Web 应用。 
 
-从左侧菜单中单击“应用服务”，然后单击 Azure Web 应用的名称。
+从左侧菜单中单击“应用服务”，并单击 Azure Web 应用的名称。
 
 ![在门户中导航到 Azure Web 应用](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 

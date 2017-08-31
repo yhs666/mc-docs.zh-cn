@@ -16,11 +16,11 @@ ms.topic: get-started-article
 origin.date: 05/22/2017
 ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: d68f5a8ed40012da80f73a19c9e8457a4ba407c4
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 6ee8b6fc9fa2b6f64f95cb10f8af77e168d473cf
+ms.sourcegitcommit: bfdbf6df593eb9ea6ad7372375db671886055a12
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/24/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB 简介：DocumentDB API
 
@@ -38,7 +38,7 @@ Azure Cosmos DB 通过 DocumentDB API 提供了以下主要功能和优势：
 * 多区域复制：Azure Cosmos DB 以透明方式将数据复制到与 Azure Cosmos DB 帐户关联的所有区域，以便能够开发那些对全局性数据访问有要求的应用程序，与此同时还在一致性、可用性和性能方面做出权衡，所有这些都有相应的保证。 Azure Cosmos DB 提供具有多宿主 API 的透明区域故障转移，还可以弹性缩放全局吞吐量和存储。 有关详细信息，请参阅[使用 Azure Cosmos DB 全局分发数据](distribute-data-globally.md)。
 
 * 使用熟悉的 SQL 语法进行即席查询：存储异类 JSON 文档，并通过熟悉的 SQL 语法查询这些文档。 Azure Cosmos DB 使用高并发、无锁、日志结构化索引技术为所有文档内容自动编制索引。 这样可以实现各种实时查询，而无需指定架构提示、二级索引或视图。 有关详细信息，请参阅[查询 Azure Cosmos DB](documentdb-sql-query.md)。 
-* **在数据库中执行 JavaScript：** 使用标准 JavaScript 将应用程序逻辑表示为存储过程、触发器和用户定义函数 (UDF)。 这样，应用程序逻辑可基于数据进行运作，而无需担心应用程序和数据库架构之间的不匹配。 DocumentDB API 支持在数据库引擎内部直接进行 JavaScript 应用程序逻辑的完全事务执行。 对 JavaScript 的深度集成支持在一个 JavaScript 程序中将 INSERT、REPLACE、DELETE 和 SELECT 操作作为独立的事务来执行。 有关详细信息，请参阅 [DocumentDB 服务器端编程](programming.md)。
+* **在数据库中执行 JavaScript：**使用标准 JavaScript 将应用程序逻辑表示为存储过程、触发器和用户定义函数 (UDF)。 这样，应用程序逻辑可基于数据进行运作，而无需担心应用程序和数据库架构之间的不匹配。 DocumentDB API 支持在数据库引擎内部直接进行 JavaScript 应用程序逻辑的完全事务执行。 对 JavaScript 的深度集成支持在一个 JavaScript 程序中将 INSERT、REPLACE、DELETE 和 SELECT 操作作为独立的事务来执行。 有关详细信息，请参阅 [DocumentDB 服务器端编程](programming.md)。
 
 * 可优化的一致性级别：从五个妥善定义的一致性级别中选择，实现一致性与性能之间的最佳平衡。 对于查询和读取操作，Azure Cosmos DB 提供五种不同的一致性级别：强一致性、有限过时一致性、会话一致性、前缀一致性和最终一致性。 通过这些细化的定义完好的一致性级别，可以在一致性、可用性和延迟之间实现合理的平衡。 有关详细信息，请参阅[使用一致性级别最大化可用性和性能](consistency-levels.md)。
 
@@ -72,7 +72,7 @@ Azure Cosmos DB 通过 REST API 公开资源，可以使用能够发出 HTTP/HTT
 | --- | --- |
 | [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET 库](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
 | [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js 库](http://azure.github.io/azure-documentdb-node/) |
-| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java 库](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb) |
+| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java 库](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb) |
 | [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[JavaScript 库](http://azure.github.io/azure-documentdb-js/) |
 | 不适用 |[服务器端 JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/) |
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python 库](http://azure.github.io/azure-documentdb-python/) |

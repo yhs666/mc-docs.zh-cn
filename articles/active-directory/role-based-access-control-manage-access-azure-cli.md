@@ -1,31 +1,31 @@
 ---
-title: "使用 Azure CLI 管理基于角色的访问控制 (RBAC) | Azure"
+title: "使用 Azure CLI 管理基于角色的访问控制 (RBAC) | Microsoft Docs"
 description: "通过列出角色和角色操作、将角色分配到订阅和应用程序范围来了解如何使用 Azure 命令行界面管理基于角色的访问控制 (RBAC)。"
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
-editor: 
+author: alexchen2016
+manager: digimobile
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/22/2017
-ms.date: 04/05/2017
+origin.date: 07/12/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: dcd2fea67bcacd06659a5c3ea706505b2d60ea3c
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.reviewer: rqureshi
+ms.openlocfilehash: d2d5d7ee8a6ae742941b2ab0b9f9d36c5754caf4
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>使用 Azure 命令行接口管理基于角色的访问控制
 > [!div class="op_single_selector"]
->- [PowerShell](./role-based-access-control-manage-access-powershell.md)
->- [Azure CLI](./role-based-access-control-manage-access-azure-cli.md)
->- [REST API](./role-based-access-control-manage-access-rest.md)
+> * [PowerShell](role-based-access-control-manage-access-powershell.md)
+> * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+> * [REST API](role-based-access-control-manage-access-rest.md)
 
 可以使用 Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API，精细地管理对订阅和资源的访问。 使用此功能，可以通过在特定范围内为 Active Directory 用户、组或服务主体分配某些角色来向其授予访问权限。
 
@@ -114,7 +114,7 @@ azure role assignment create
 ```
 
 ### <a name="assign-a-role-to-group-at-the-subscription-scope"></a>将角色分配给订阅范围内的组
-若要将角色分配给订阅范围内的组，请使用：
+要将角色分配给订阅范围内的组，请使用：
 
 ```
 azure role assignment create --objectId  <group object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
@@ -125,7 +125,7 @@ azure role assignment create --objectId  <group object id> --roleName <name of r
 ![RBAC Azure 命令行 - 按组创建的 Azure 角色分配 - 屏幕截图](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
 
 ### <a name="assign-a-role-to-an-application-at-the-subscription-scope"></a>将角色分配给订阅范围内的应用程序
-若要将角色分配给订阅范围内的应用程序，请使用：
+要将角色分配给订阅范围内的应用程序，请使用：
 
 ```
 azure role assignment create --objectId  <applications object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
@@ -136,7 +136,7 @@ azure role assignment create --objectId  <applications object id> --roleName <na
  ![RBAC Azure 命令行 - 按应用程序创建的 Azure 角色分配](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-2.png)
 
 ### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>将角色分配给资源组范围内的用户
-若要将角色分配给资源组范围内的用户，请使用：
+要将角色分配给资源组范围内的用户，请使用：
 
 ```
 azure role assignment create --signInName  <user email address> --roleName "<name of role>" --resourceGroup <resource group name>
@@ -147,7 +147,7 @@ azure role assignment create --signInName  <user email address> --roleName "<nam
 ![RBAC Azure 命令行 - 按用户创建的 Azure 角色分配 - 屏幕截图](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
 
 ### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>将角色分配给资源范围内的组
-若要将角色分配给资源范围内的组，请使用：
+要将角色分配给资源范围内的组，请使用：
 
 ```
 azure role assignment create --objectId <group id> --role "<name of role>" --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
@@ -196,7 +196,7 @@ azure role set --inputfile <file path>
 ![RBAC Azure 命令行 - Azure 角色集 - 屏幕截图](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## <a name="delete-a-custom-role"></a>删除自定义角色
-若要删除自定义角色，请先使用 `azure role show` 命令确定角色的 **ID** 。 然后，使用 `azure role delete` 命令通过指定 **ID**来删除该角色。
+若要删除自定义角色，请先使用 `azure role show` 命令确定角色的 **ID** 。 然后，使用 `azure role delete` 命令通过指定 **ID** 来删除该角色。
 
 以下示例删除了 *虚拟机操作员* 自定义角色。
 
@@ -218,7 +218,10 @@ azure role list --json | jq '.[] | {"name":.properties.roleName, type:.propertie
 ```
 azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
+
 ![RBAC Azure 命令行 - 自定义角色的 Azure 角色列表 - 屏幕截图](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
 
-## <a name="rbac-topics"></a>RBAC 主题
+## <a name="next-steps"></a>后续步骤
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+
+<!--Update_Description: wording update -->

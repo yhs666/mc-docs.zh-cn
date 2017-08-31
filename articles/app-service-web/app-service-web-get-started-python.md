@@ -1,6 +1,6 @@
 ---
 title: "在 Azure 中创建 Python Web 应用 | Azure"
-description: "数分钟内在 Azure App Service Web 应用中部署首个 Python Hello World。"
+description: "数分钟内在 Azure 应用服务 Web 应用中部署首个 Python Hello World。"
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 03/17/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 93765a77916b6df0c3fd5e0b695421debb08b948
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 417b2d2bc35bb2ea2c0d15e58b55d192b49d2a3c
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="create-a-python-web-app-in-azure"></a>在 Azure 中创建 Python Web 应用
 
@@ -57,6 +57,12 @@ cd Python-docs-hello-world
 ```
 
 ## <a name="run-the-app-locally"></a>在本地运行应用
+
+使用 `pip` 安装所需包。
+
+```bash
+pip install -r requirements.txt
+```
 
 打开终端窗口并使用 `Python` 命令启动内置 Python Web 服务器，在本地运行应用程序。
 
@@ -150,7 +156,7 @@ To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
 http://<app_name>.chinacloudsites.cn
 ```
 
-Python 示例代码在 Azure App Service Web 应用中运行。
+Python 示例代码在 Azure 应用服务 Web 应用中运行。
 
 ![在 Azure 中运行的示例应用](media/app-service-web-get-started-python/hello-world-in-browser.png)
 

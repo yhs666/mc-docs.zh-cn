@@ -6,26 +6,27 @@ documentationcenter:
 author: alexchen2016
 manager: digimobile
 editor: 
+ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/13/2017
-ms.date: 07/31/2017
+origin.date: 07/27/2017
+ms.date: 08/23/2017
 ms.author: v-junlch
-ms.openlocfilehash: 9ce7a0418a70307712be9f587c6f26cb67fc0c08
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: e94240f7b9f3d1efdc01f821734f8e133aff1c45
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帐户和权限
 Azure AD Connect 安装向导提供提供两种不同的路径：
 
-- 在“快速设置”中，向导需要更多权限，以便轻松设置配置，而无需创建用户或单独配置权限。
-- 在“自定义设置”中，向导提供更多选项；但在某些情况下，需要确保自己拥有正确的权限。
+- 在“快速设置”中，此向导需要更多权限。  这样便可以轻松设置配置，而无需创建用户或配置权限。
+- 在“自定义设置”中，此向导可提供更多选择和选项。 但是，在某些情况下，需要确保自己具有相应的权限。
 
 ## <a name="related-documentation"></a>相关文档
 如果尚未阅读文档了解如何[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)，请查看下表获取相关主题的链接。
@@ -39,7 +40,7 @@ Azure AD Connect 安装向导提供提供两种不同的路径：
 |安装后 | [验证安装并分配许可证 ](active-directory-aadconnect-whats-next.md)|
 
 ## <a name="express-settings-installation"></a>快速设置安装
-在快速设置中，安装向导要求提供 AD DS 企业管理员凭据，以便配置本地 Active Directory，使其具有 Azure AD Connect 所需的权限。 如果从 DirSync 升级，AD DS 企业管理员凭据可用于重置 DirSync 所用帐户的密码。 此外，还需要 Azure AD 全局管理员凭据。
+在“快速设置”中，安装向导要求提供 AD DS 企业管理员凭据。  因此，可以为本地 Active Directory 配置 Azure AD Connect 所需的权限。 如果从 DirSync 升级，AD DS 企业管理员凭据可用于重置 DirSync 所用帐户的密码。 此外，还需要 Azure AD 全局管理员凭据。
 
 | 向导页 | 收集的凭据 | 所需的权限 | 用途 |
 | --- | --- | --- | --- |
@@ -66,7 +67,7 @@ Azure AD Connect 安装向导提供提供两种不同的路径：
 | 重置密码 |准备启用密码写回 |
 
 ## <a name="custom-settings-installation"></a>自定义设置安装
-以前，使用自定义设置时，必须在安装之前创建用于连接 Active Directory 的帐户。 授予此帐户的权限可在 [创建 AD DS 帐户](#create-the-ad-ds-account)中找到。 使用 Azure AD Connect 版本 1.1.524.0 及更高版本，可以选择让 Azure AD Connect 向导创建帐户。
+Azure AD Connect 版本 1.1.524.0 及更高版本提供了相应选项，让 Azure AD Connect 向导创建用于连接 Active Directory 的帐户。  早期版本需要在安装之前创建该帐户。 授予此帐户的权限可在 [创建 AD DS 帐户](#create-the-ad-ds-account)中找到。 
 
 | 向导页 | 收集的凭据 | 所需的权限 | 用途 |
 | --- | --- | --- | --- |
@@ -80,7 +81,7 @@ Azure AD Connect 安装向导提供提供两种不同的路径：
 | “AD FS 服务帐户”页上的“使用域用户帐户选项” |AD 用户帐户凭据 |域用户 |提供了其凭据的 AD 用户帐户用作 AD FS 服务的登录帐户。 |
 
 ### <a name="create-the-ad-ds-account"></a>创建 AD DS 帐户
-安装 Azure AD Connect 时，“连接目录”页上指定的帐户必须位于 Active Directory 中且已获得所需权限。 安装向导不会验证权限，任何问题只能在同步期间发现。
+“连接目录”页上指定的帐户必须在安装之前存在于 Active Directory 中。  还必须向它授予所需的权限。 安装向导不会验证权限，任何问题只能在同步期间发现。
 
 需要哪些权限取决于启用的可选功能。 如果有多个域，则必须对林中的所有域授予权限。 如果未启用任何一项功能，默认的 **域用户** 权限就已足够。
 
@@ -89,7 +90,7 @@ Azure AD Connect 安装向导提供提供两种不同的路径：
 | msDS-ConsistencyGuid 功能 |对[设计概念 - 使用 msDS-ConsistencyGuid 作为 sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor) 中所述的 msDS-ConsistencyGuid 属性的写入权限。 | 
 | 密码同步 |<li>复制目录更改</li>  <li>复制所有目录更改 |
 | Exchange 混合部署 |针对用户、组和联系人的属性的写入权限，详见[Exchange 混合写回](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)。 |
-| Exchange 邮件公共文件夹 |对 [Exchange 邮件公共文件夹](active-directory-aadconnectsync-attributes-synchronized.md)中所述的公共文件夹属性的读取权限。 | 
+| Exchange 邮件公共文件夹 |对 [Exchange 邮件公共文件夹](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder)中所述的公共文件夹属性的读取权限。 | 
 
 ## <a name="upgrade"></a>升级
 从 Azure AD Connect 的一个版本升级到新版本时，需要拥有以下权限：
@@ -113,7 +114,7 @@ Azure AD Connect 安装向导提供提供两种不同的路径：
 
 | 帐户的类型 | 安装选项 | 说明 |
 | --- | --- | --- |
-| [虚拟服务帐户](#virtual-service-account) | 2017 年 4 月版和更高版本中的快速和自定义安装 | 此选项用于所有快速安装，但域控制器上的安装除外。 对于自定义安装，除非使用了其他选项，否则此选项是默认选项。 |
+| [虚拟服务帐户](#virtual-service-account) | 2017 年 4 月版和更高版本中的快速和自定义安装 | 此选项用于所有快速安装，但域控制器上的安装除外。 对于自定义安装，除非使用了其他选项，否则它便是默认选项。 |
 | [组托管服务帐户](#group-managed-service-account) | 2017 年 4 月版和更高版本中的自定义安装 | 如果使用远程 SQL 服务器，则我们建议使用组托管服务帐户。 |
 | [用户帐户](#user-account) | 2017 年 4 月版和更高版本中的快速和自定义安装 | 仅当在 Windows Server 2008 和域控制器上安装时，才会在安装期间创建带有 AAD_ 前缀的用户帐户。 |
 | [用户帐户](#user-account) | 2017 年 3 月版和更低版本中的快速和自定义安装 | 安装期间创建带有 AAD_ 前缀的本地帐户。 使用自定义安装时，可以指定另一个帐户。 |
@@ -152,16 +153,18 @@ VSA 适用于同步引擎与 SQL 位于同一台服务器上的场合。 如果�
 此功能需要 Windows Server 2008 R2 或更高版本。 如果在 Windows Server 2008 上安装 Azure AD Connect，则安装将回退以改用[用户帐户](#user-account)。
 
 #### <a name="group-managed-service-account"></a>组托管服务帐户
-如果使用远程 SQL 服务器，则我们建议使用**组托管服务帐户**。 有关如何为组托管服务帐户准备 Active Directory 的详细信息，请参阅[组托管服务帐户概述](https://technet.microsoft.com/library/hh831782.aspx)。
+如果使用远程 SQL Server，则建议使用**组托管服务帐户**。 有关如何为组托管服务帐户准备 Active Directory 的详细信息，请参阅[组托管服务帐户概述](https://technet.microsoft.com/library/hh831782.aspx)。
 
 若要使用此选项，请[安装所需的组件](active-directory-aadconnect-get-started-custom.md#install-required-components)页上选择“使用现有的服务帐户”，然后选择“托管服务帐户”。  
 ![VSA](./media/active-directory-aadconnect-accounts-permissions/serviceaccount.png)  
-也支持使用[独立的托管服务帐户](https://technet.microsoft.com/library/dd548356.aspx)。 但是，由于只能在本地计算机上使用这些帐户，因此，与使用默认的虚拟服务帐户相比，使用此类帐户并没有实际的优势。
+也支持使用[独立的托管服务帐户](https://technet.microsoft.com/library/dd548356.aspx)。 但是，这些帐户只能在本地计算机上使用，因此使用这些帐户相对默认虚拟服务帐户而言并没有好处。
 
 此功能需要 Windows Server 2012 或更高版本。 如果需要使用早期的操作系统并使用远程 SQL，则必须使用[用户帐户](#user-account)。
 
 #### <a name="user-account"></a>用户帐户
-本地服务帐户由安装向导创建（除非在自定义设置指定了要使用的帐户）。 该帐户具有 **AAD_** 前缀，可用作实际同步服务的运行帐户。 如果在域控制器上安装 Azure AD Connect，则会在该域中创建帐户。 域中必须具有 **AAD_** 服务帐户，才能使用运行 SQL Server 的远程服务器和需要身份验证的代理。
+本地服务帐户由安装向导创建（除非在自定义设置指定了要使用的帐户）。 该帐户具有 **AAD_** 前缀，可用作实际同步服务的运行帐户。 如果在域控制器上安装 Azure AD Connect，则会在该域中创建帐户。 在以下情况下，**AAD_** 服务帐户必须位于域中：
+   - 使用运行 SQL Server 的远程服务器
+   - 使用需要身份验证的代理
 
 ![同步服务帐户](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
@@ -180,7 +183,7 @@ VSA 适用于同步引擎与 SQL 位于同一台服务器上的场合。 如果�
 
 使用该帐户的服务器名称可以根据用户名的第二个部分来识别。 在上图中，服务器名称为 FABRIKAMCON。 如果部署了暂存服务器，每个服务器都有自身的帐户。
 
-服务帐户带有永不过期的长复杂密码。 系统为其授予了特殊角色“目录同步帐户”，该角色仅可执行目录同步任务。 只可在 Azure AD Connect 向导中授予该特殊的内置角色，并且 Azure 门户会显示此帐户具有“用户”角色。
+服务帐户带有永不过期的长复杂密码。 系统为其授予了特殊角色“目录同步帐户”，该角色仅可执行目录同步任务。 此特殊内置角色不能在 Azure AD Connect 向导之外授予。 Azure 门户显示具有“用户”角色的此帐户。
 
 Azure AD 将同步服务帐户数目限制为 20 个。 若要在 Azure AD 中获取现有 Azure AD 服务帐户的列表，请运行以下 Azure AD PowerShell cmdlet：`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
@@ -189,4 +192,4 @@ Azure AD 将同步服务帐户数目限制为 20 个。 若要在 Azure AD 中�
 ## <a name="next-steps"></a>后续步骤
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: wording update -->
+<!--Update_Description: wording update -->

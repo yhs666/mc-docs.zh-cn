@@ -1,25 +1,25 @@
 ---
-title: "对 Azure RBAC 进行故障排除 | Azure"
+title: "Azure RBAC 故障排除 | Microsoft Docs"
 description: "获取有关基于角色的访问控制资源问题或疑问的帮助。"
 services: azure-portal
 documentationcenter: na
-author: kgremban
-manager: femila
-editor: 
+author: alexchen2016
+manager: digimobile
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/02/2017
-ms.date: 04/05/2017
+origin.date: 07/12/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: cf21165c80bd5faa0189736aec417593b967a020
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.reviewer: rqureshi
+ms.openlocfilehash: 40621521d5fbe550c45c10412e026aa49874266f
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="role-based-access-control-troubleshooting"></a>基于角色的访问控制故障排除
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 06/21/2017
 - 参与者  
 - 读取器  
 
-所有者和参与者对管理体验具有完全访问权限，但是参与者无法向其他用户授予访问权限。 具有读者角色事情会变得更加有趣，因此，我们将着重介绍读者角色。 有关如何授予访问权限的详细信息，请参阅[基于角色的访问控制入门文章](./role-based-access-control-configure.md)。
+所有者和参与者对管理体验具有完全访问权限，但是参与者无法向其他用户授予访问权限。 具有读者角色事情会变得更加有趣，因此，我们着重介绍读者角色。 有关如何授予访问权限的详细信息，请参阅[基于角色的访问控制入门文章](./role-based-access-control-configure.md)。
 
 ## <a name="app-service-workloads"></a>应用服务工作负荷
 ### <a name="write-access-capabilities"></a>写访问功能
-如果你为用户授予单个 Web 应用的只读访问权限，某些功能可能会被禁用，这可能不是你所期望的。 以下管理功能需要对 Web 应用具有写入权限（参与者或所有者），并且不适用于任何只读方案。
+如果为用户授予单个 Web 应用的只读访问权限，某些功能可能会被禁用，这可能不是你所期望的。 以下管理功能需要对 Web 应用具有写入权限（参与者或所有者），并且不适用于任何只读方案。
 
 - 命令（例如启动、停止等。）
 - 更改设置（如常规配置、缩放设置、备份设置和监视设置）
@@ -46,14 +46,14 @@ ms.lasthandoff: 06/21/2017
 - Web 测试
 - 虚拟网络（只在虚拟网络是由具有写入权限的用户在以前配置时，才对读者可见）。
 
-如果你无法访问以上任何磁贴，则需要让管理员为你提供对 Web 应用的“参与者”访问权限。
+如果无法访问以上任何磁贴，则需要让管理员提供对 Web 应用的“参与者”访问权限。
 
 ### <a name="dealing-with-related-resources"></a>处理相关资源
 由于存在几个相互作用的不同资源，Web 应用程序是复杂的。 下面是包含几个网站的典型资源组：
 
 ![Web 应用程序资源组](./media/role-based-access-control-troubleshooting/website-resource-model.png)
 
-因此，如果你只授予某人对 Web 应用的访问权限，则 Azure 门户中的网站边栏选项卡上的很多功能将被禁用。
+因此，如果只授予某人对 Web 应用的访问权限，则 Azure 门户中的网站边栏选项卡上的很多功能将被禁用。
 
 这些项需要对与网站对应的应用服务计划具有写入权限：  
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 06/21/2017
 
 这些项需要对包含网站的整个资源组具有写入权限：  
 
-- SSL 证书和绑定（因为 SSL 证书可以在同一资源组和地理位置中的站点之间共享）  
+- SSL 证书和绑定（SSL 证书可以在同一资源组和地理位置中的站点之间共享）  
 - 警报规则  
 - 自动缩放设置  
 - Application Insights 组件  
@@ -87,10 +87,12 @@ ms.lasthandoff: 06/21/2017
 - 负载均衡集  
 - 警报规则  
 
-如果你不能访问以上任何磁贴，则需要让管理员为你提供对资源组的“参与者”访问权限。
+如果无法访问以上任何磁贴，则需要让管理员提供对资源组的“参与者”访问权限。
 
 ## <a name="see-more"></a>另请参阅
-- [基于角色的访问控制](./role-based-access-control-configure.md)：Azure 门户中的 RBAC 入门。
-- [内置角色](./role-based-access-built-in-roles.md)：获取有关 RBAC 中标配角色的详细信息。
-- [Azure RBAC 中的自定义角色](./role-based-access-control-custom-roles.md)：了解如何创建自定义角色，以满足访问需要。
-- [创建访问权限更改历史记录报告](./role-based-access-control-access-change-history-report.md)：记录 RBAC 中的角色分配更改。
+- [基于角色的访问控制](role-based-access-control-configure.md)：Azure 门户中的 RBAC 入门。
+- [内置角色](role-based-access-built-in-roles.md)：获取有关 RBAC 中标配角色的详细信息。
+- [Azure RBAC 中的自定义角色](role-based-access-control-custom-roles.md)：了解如何创建自定义角色，以满足访问需要。
+- [创建访问权限更改历史记录报告](role-based-access-control-access-change-history-report.md)：记录 RBAC 中的角色分配更改。
+
+<!--Update_Description: wording update -->

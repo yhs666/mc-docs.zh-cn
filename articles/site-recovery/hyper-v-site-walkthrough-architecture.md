@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 06/22/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 118b4bfff503eff31d4d9f96d7696724cfd14a2e
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: 5d411e337106b7904d0ba3d3824a346da8dd0728
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>步骤 1：查看执行 Hyper-V 到 Azure 的复制的体系结构
 
@@ -60,8 +60,8 @@ ms.lasthandoff: 07/28/2017
 
 1. 当触发初始复制时，系统会创建一个 [Hyper-V VM 快照](https://technet.microsoft.com/library/dd560637.aspx)。
 2. 将逐个复制虚拟硬盘，直到它们全部复制到 Azure。 这可能需要花费一些时间，具体取决于 VM 大小和网络带宽。 若要优化网络的使用，请参阅 [How to manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/kb/3056159)（如何管理本地到 Azure 保护的网络带宽使用）。
-3. 如果在初始复制期间发生磁盘更改，Hyper-V 副本复制跟踪器将跟踪这些更改，并将其记录在 Hyper-V 复制日志 (.hrl) 中。 这些文件与磁盘位于同一文件夹中。 每个磁盘都有一个关联的 .hrl 文件，该文件将发送到辅助存储。
-4. 当初始复制正在进行时，快照和日志将占用磁盘资源。
+3. 如果在初始复制期间发生磁盘更改，Hyper-V 副本复制跟踪器将跟踪这些更改，并将其记录在 Hyper-V 复制日志 (.hrl) 中。 这些文件与磁盘位于同一文件夹中。 每个磁盘都有一个关联的 .hrl 文件，该文件将发送到辅助存储器。
+4. 当初始复制正在进行时，快照和日志文件将占用磁盘资源。
 5. 当初始复制完成时，会删除 VM 快照。 日志中的增量磁盘更改会同步且合并到父磁盘中。
 
 ### <a name="finalize-protection"></a>完成保护
@@ -77,11 +77,11 @@ ms.lasthandoff: 07/28/2017
 
 ### <a name="synchronize-replication"></a>同步复制
 
-1. 如果增量复制失败且完整复制因为带宽或时间限制而需要大量开销，则会将 VM 标记为重新同步。 例如，如果 .hrl 文件达到磁盘大小的 50%，系统会将 VM 标记为重新同步。
+1. 如果增量复制失败且完整复制因带宽或时间限制而需要大量开销，则会将 VM 标记为需要重新同步。 例如，如果 .hrl 文件达到磁盘大小的 50%，系统会将 VM 标记为需要重新同步。
 2.  重新同步通过计算源虚拟机和目标虚拟机的校验和并只发送增量数据来最大程度地减少发送的数据量。 重新同步使用固定块区块算法，其中源文件和目标文件被分到固定区块。 系统会针对每个区块生成校验和，并进行比较，以确定源中的哪些区块需要应用到目标。
 3. 重新同步完成后，应会恢复正常增量复制。 默认情况下，重新同步计划为在非工作时间自动运行，但可以手动重新同步虚拟机。 例如，如果发生网络中断或其他服务中断，可以继续重新同步。 为此，请在“门户”>“重新同步”中选择 VM。
 
-    ![手动重新同步](media/hyper-v-site-walkthrough-architecture/image4.png)
+    ![手动重新同步](./media/hyper-v-site-walkthrough-architecture/image4.png)
 
 ### <a name="retry-logic"></a>重试逻辑
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="failover-and-failback-process"></a>故障转移和故障回复过程
 
-1. 可以运行从本地 Hyper-V VM 到 Azure 的计划内或计划外[故障转移](site-recovery-failover.md)。 如果运行计划内故障转移，则源 VM 将关闭以确保不会丢失数据。
+1. 可以运行从本地 Hyper-V VM 到 Azure 的计划内或计划外[故障转移](site-recovery-failover.md)。 如果运行计划内故障转移，则源 VM 关闭以确保不会丢失数据。
 2. 可以故障转移单台计算机，或创建[恢复计划](site-recovery-create-recovery-plans.md)来协调多台计算机的故障转移。
 4. 运行故障转移后，应会在 Azure 中看到创建的副本 VM。 如果需要，可向 VM 分配公共 IP 地址。
 5. 然后提交故障转移，开始从副本 Azure VM 访问工作负荷。
@@ -104,4 +104,4 @@ ms.lasthandoff: 07/28/2017
 
 转到[步骤 2：查看部署先决条件](hyper-v-site-walkthrough-prerequisites.md)
 
-<!--Update_Description: new article about walkthrought architecture from hyper-v to azure  -->
+<!--Update_Description: update meta properties  -->

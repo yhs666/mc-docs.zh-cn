@@ -3,31 +3,31 @@ title: "为 Azure RBAC 创建自定义角色 | Microsoft Docs"
 description: "了解如何通过 Azure 基于角色的访问控制来定义自定义角色，以便在 Azure 订阅中进行更精确的身份管理。"
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
-editor: 
+author: alexchen2016
+manager: digimobile
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/21/2017
+origin.date: 07/11/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
+ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 41047be4bef215cb57e08bc50ce0be291ad6b7d5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: 03ca28ea97806aff170aa4408424a5d4359c47a5
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>创建用于 Azure 基于角色的访问控制的自定义角色
-如果没有符合你特定访问需求的内置角色，可在 Azure 基于角色的访问控制 (RBAC) 中创建自定义角色。 可以使用 [Azure PowerShell](role-based-access-control-manage-access-powershell.md)、[Azure 命令行接口](role-based-access-control-manage-access-azure-cli.md) (CLI) 和 [REST API](role-based-access-control-manage-access-rest.md) 创建自定义角色。 与内置角色一样，可以将自定义角色分配到订阅、资源组和资源范围内的用户、组和应用程序。 自定义角色存储在 Azure AD 租户中，并且可以在将该租户用作其 Azure AD 目录的所有订阅之间共享。
+如果没有符合你特定访问需求的内置角色，可在 Azure 基于角色的访问控制 (RBAC) 中创建自定义角色。 可以使用 [Azure PowerShell](role-based-access-control-manage-access-powershell.md)、[Azure 命令行接口](role-based-access-control-manage-access-azure-cli.md) (CLI) 和 [REST API](role-based-access-control-manage-access-rest.md) 创建自定义角色。 与内置角色一样，可以将自定义角色分配到订阅、资源组和资源范围内的用户、组和应用程序。 自定义角色存储在 Azure AD 租户中，可以在订阅之间共享。
 
 每个租户可以创建最多 2000 个自定义角色。 
 
-下面是用于监视和重新启动虚拟机的自定义角色的一个示例：
+以下示例显示了用于监视和重启虚拟机的自定义角色：
 
 ```
 {
@@ -88,7 +88,7 @@ azure provider operations show "Microsoft.Network/*"
 如果排除受限制的操作可以更方便地定义希望允许的操作集，则使用 **NotActions** 属性。 通过用 **Actions** 操作减去 **NotActions** 操作可以计算出自定义角色授予的访问权限。
 
 > [!NOTE]
-> 如果用户分配到的角色排除 **NotActions**中的一个操作，并且分配到向同一操作授予访问权限的第二个角色，则用户可以执行该操作。 **NotActions** 不是拒绝规则 - 它只是一个简便方法，可在需要排除特定操作时创建一组允许的操作。
+> 如果用户分配到的角色排除 **NotActions** 中的一个操作，并且分配到向同一操作授予访问权限的第二个角色，则用户可以执行该操作。 **NotActions** 不是拒绝规则 - 它只是一个简便方法，可在需要排除特定操作时创建一组允许的操作。
 >
 >
 
@@ -125,4 +125,4 @@ azure provider operations show "Microsoft.Network/*"
   - [REST API](role-based-access-control-manage-access-rest.md)
 - [内置角色](role-based-access-built-in-roles.md)：获取有关 RBAC 中标配角色的详细信息。
 
-
+<!--Update_Description: wording update -->

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/12/2017
-ms.date: 07/31/2017
+origin.date: 08/02/2017
+ms.date: 08/23/2017
 ms.author: v-junlch
-ms.openlocfilehash: 4a810bad0b34259d8cb72b02a3de0a9dac122c0d
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 1b137fa29e6c24628801672a71a4c67c0c392e85
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义安装
 如果希望有更多的安装选项，可以使用 Azure AD Connect“自定义设置”。 如果拥有多个林或希望配置未覆盖在快速安装中的可选功能，可以使用它。 它适用于[**快速安装**](active-directory-aadconnect-get-started-express.md)不能满足部署或拓扑的所有情况。
@@ -52,8 +52,8 @@ ms.lasthandoff: 08/04/2017
 |传递身份验证（预览版）|用户能够用在其本地网络中使用的相同密码登录到 Microsoft 云服务，例如 Office 365。  将用户密码传递到本地 Active Directory 控制器进行验证。
 | 使用 AD FS 进行联合身份验证 |用户能够用在其本地网络中使用的相同密码登录到 Microsoft 云服务，例如 Office 365。  用户被重定向到他们的本地 AD FS 实例以进行登录，并在本地完成身份验证。 |
 | 不配置 |不安装和配置任一功能。 如果已有第三方联合服务器或部署了另一个现有解决方案，请选择此选项。 |
-|启用单一登录|此选项适用于密码同步和传递身份验证，为企业网络中的桌面用户提供单一登录体验。  有关详细信息，请参阅[单一登录](active-directory-aadconnect-sso.md)。 </br>请注意，此选项不适用于 AD FS 客户，因为 AD FS 已提供相同级别的单一登录。</br>（如果同时未发布 PTA）
-|登录选项|此选项可用于密码同步客户，并为公司网络中的桌面用户提供单一登录体验。  </br>有关详细信息，请参阅[单一登录](active-directory-aadconnect-sso.md)。 </br>请注意，对于 AD FS 客户此选项不可用，因为 AD FS 已提供相同级别的单一登录。
+|启用单一登录|此选项适用于密码同步和传递身份验证，为企业网络中的桌面用户提供单一登录体验。 </br>请注意，对于 AD FS 客户此选项不可用，因为 AD FS 已提供相同级别的单一登录。</br>（如果同时未发布 PTA）
+|登录选项|此选项可用于密码同步客户，并为公司网络中的桌面用户提供单一登录体验。  </br>请注意，对于 AD FS 客户此选项不可用，因为 AD FS 已提供相同级别的单一登录。
 
 
 ### <a name="connect-to-azure-ad"></a>连接到 Azure AD
@@ -123,10 +123,10 @@ ms.lasthandoff: 08/04/2017
 | 设置 | 说明 |
 | --- | --- |
 | [用户在所有林中只呈现一次](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |将所有用户在 Azure AD 中创建为单独的对象。 不会在 Metaverse 中联接对象。 |
-| [邮件属性](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |如果邮件属性在不同的林中具有相同的值，此选项将联接用户和联系人。 当已使用 GALSync 创建了联系人时，请使用此选项。 |
+| [邮件属性](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |如果邮件属性在不同的林中具有相同的值，此选项将联接用户和联系人。 当已使用 GALSync 创建了联系人时，请使用此选项。 如果选择此选项，则不会将 Mail 属性尚未填充的 User 对象同步到 Azure AD。 |
 | [ObjectSID 和 msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |此选项将帐户林中的已启用用户与资源林中的已禁用用户进行联接。 在 Exchange 中，此配置称为链接邮箱。 如果只使用 Lync 并且资源林中没有 Exchange，也可以使用此选项。 |
 | sAMAccountName 和 MailNickName |此选项根据预期可以在其中找到用户登录 ID 的属性进行联接。 |
-| 特定的属性 |此选项允许选择自己的属性。 **限制：** 确保选择已可在 Metaverse 中找到的属性。 如果选择自定义属性（不在 Metaverse 中），向导将无法完成。 |
+| 特定的属性 |此选项允许选择自己的属性。 如果选择此选项，则不会将其选定属性尚未填充的 User 对象同步到 Azure AD。 **限制：** 确保选择已可在 Metaverse 中找到的属性。 如果选择自定义属性（不在 Metaverse 中），向导将无法完成。 |
 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>选择应如何使用 Azure AD 标识用户 - 源定位点
 sourceAnchor 属性是一个在用户对象的生命周期内不会改变的属性。 它是链接本地用户与 Azure AD 中用户的主密钥。
@@ -201,8 +201,8 @@ sourceAnchor 属性是一个在用户对象的生命周期内不会改变的属�
 
 ![启用单一登录](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
 
-> [!NOTE]
-> 如果不想要对某个特定的林使用单一登录，可以跳过该林。
+>[!NOTE]
+>如果不想要对某个特定的林使用单一登录，可以跳过该林。
 
 #### <a name="configure-the-intranet-zone-for-client-machines"></a>配置客户端计算机的 Intranet 区域
 为了确保客户端在 Intranet 区域中自动登录，需确保两个 URL 是 Intranet 区域的一部分。 这样就可以确保已加入域的计算机在连接到企业网络后，向 Azure AD 自动发送 Kerberos 票证。
@@ -270,9 +270,12 @@ sourceAnchor 属性是一个在用户对象的生命周期内不会改变的属�
 AD FS 服务需要域服务帐户来验证用户，以及在 Active Directory 中查找用户信息。 它可以支持两种类型的服务帐户：
 
 - **组托管服务帐户** - Active Directory 域服务中随 Windows Server 2012 一起引入。 此类型的帐户提供 AD FS 之类的服务，让可以使用单个帐户，且不需要定期更新帐户密码。 如果 AD FS 服务器所属的域中已有 Windows Server 2012 域控制器，请使用此选项。
-- **域用户帐户** - 此类型的帐户会请求你提供密码，并在密码更改或过期时定期更新密码。 仅当 AD FS 服务器所属的域中没有 Windows Server 2012 域控制器时，才使用此选项。
+- **域用户帐户** - 此类型的帐户会要求提供密码，并在密码更改或过期时定期更新密码。 仅当 AD FS 服务器所属的域中没有 Windows Server 2012 域控制器时，才使用此选项。
 
 如果选择了组托管的服务帐户且从未在 Active Directory 中使用过此功能，则系统会提示输入企业管理员凭据。 这些凭据用于启动密钥存储，以及在 Active Directory 中启用该功能。
+
+> [!NOTE]
+> Azure AD Connect 会检查 AD FS 服务是否已在域中注册为 SPN。  AD DS 不允许同时注册重复的 SPN。  如果发现重复的 SPN，则必须删除该 SPN 才能继续操作。
 
 ![AD FS 服务帐户](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 
@@ -312,6 +315,15 @@ AD FS 服务需要域服务帐户来验证用户，以及在 Active Directory �
 
 ### <a name="verify-your-federation-configuration"></a>验证联合配置
 单击“验证”按钮后，Azure AD Connect 会验证 DNS 设置。
+
+**Intranet 连接检查**
+
+- 解析联合 FQDN：Azure AD Connect 会检查是否可以通过 DNS 解析联合 FQDN，以确保连接性。 如果 Azure AD Connect 无法解析 FQDN，验证会失败。 确保提供联合身份验证服务 FQDN 的 DNS 记录，以便成功完成验证。
+- DNS A 记录：Azure AD Connect 会检查是否存在联合身份验证服务的 A 记录。 在没有 A 记录的情况下，验证会失败。 请为联合 FQDN 创建 A 记录而不是 CNAME 记录，以便成功完成验证。
+
+**Extranet 连接检查**
+
+- 解析联合 FQDN：Azure AD Connect 会检查是否可以通过 DNS 解析联合 FQDN，以确保连接性。
 
 ![完成](./media/active-directory-aadconnect-get-started-custom/completed.png)
 

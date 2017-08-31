@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: "Azure 文档和资源"
 description: "了解如何使用 Microsoft Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
-ms.openlocfilehash: b319ffb95ec9e5993c605de138064803dd7d5632
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: d3ce1ed30be4046b305aefa1e456106236f1a8dc
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/25/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -123,7 +123,7 @@ ms.lasthandoff: 08/17/2017
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure/">
+                                                    <a target="_blank" href="/java/">
                                                         <img src="media/index/logo_java.svg" alt="">
                                                         <span>Java</span>
                                                     </a>
@@ -138,7 +138,7 @@ ms.lasthandoff: 08/17/2017
                                                     <h4>应用模型</h4>
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/app-service-web/">Web 应用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                                                        <li><a class="barLink" href="/azure/service-fabric/">Service Fabric</a></li>
+                                                        <li><a class="barLink" href="/service-fabric/">将微服务与 Service Fabric 配合使用</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -177,24 +177,21 @@ ms.lasthandoff: 08/17/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>命令行工具</h3>
-                                                <div class="ico48Link">
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/overview">
-                                                        <img src="media/index/azure_dev-7.svg" alt="">
-                                                        <span>Azure<br />CLI</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/azure/overview">
-                                                        <img src="media/index/azure_dev-8.svg" alt="">
-                                                        <span>Azure<br />PowerShell</span>
-                                                    </a>
+                                                <div class="cols">
+                                                    <div>
+                                                        <a class="barLink" target="_blank" href="https://docs.microsoft.com/cli/azure/overview">
+                                                            <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="barLink" target="_blank" href="https://docs.microsoft.com/powershell/azure/overview">
+                                                            <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li></li>
                             <li></li>
                             <li></li>
                             <li></li>
@@ -402,6 +399,24 @@ ms.lasthandoff: 08/17/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/storage/blobs/storage-blobs-introduction/">
+                                                <img src="media/index/logo_azure-blob-storage.svg" alt="" />
+                                                <p>Blob 存储</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/storage/files/storage-files-introduction/">
+                                                <img src="media/index/logo_azure-storage-file.svg" alt="" />
+                                                <p>文件存储</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/storage/queues/storage-queues-introduction/">
+                                                <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                <p>队列存储</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
                                                 <p>备份</p>
@@ -487,13 +502,13 @@ ms.lasthandoff: 08/17/2017
                                         <li>
                                             <a href="/app-service-mobile/">
                                                 <img src="media/index/app-service-mobile.svg" alt="" />
-                                                <p>Mobile Apps</p>
+                                                <p>移动应用</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/app-service-api/">
                                                 <img src="media/index/app-service-api.svg" alt="" />
-                                                <p>API Apps</p>
+                                                <p>API 应用</p>
                                             </a>
                                         </li>
                                         <li>
@@ -903,6 +918,63 @@ ms.lasthandoff: 08/17/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/storage/blobs/storage-blobs-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-blob-storage.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Blob 存储</h3>
+                                                    <p>高度可缩放的非结构化数据对象存储</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/storage/files/storage-files-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-storage-file.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>文件存储</h3>
+                                                    <p>简单的分布式跨平台文件系统</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/storage/queues/storage-queues-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>队列存储</h3>
+                                                    <p>用于大容量云服务的持久队列</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/backup/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -975,7 +1047,7 @@ ms.lasthandoff: 08/17/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Mobile Apps</h3>
+                                                    <h3>移动应用</h3>
                                                     <p>生成和托管任何移动应用的后端</p>
                                                 </div>
                                             </div>
@@ -994,7 +1066,7 @@ ms.lasthandoff: 08/17/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>API Apps</h3>
+                                                    <h3>API 应用</h3>
                                                     <p>轻松生成和使用云 API</p>
                                                 </div>
                                             </div>
@@ -1065,25 +1137,6 @@ ms.lasthandoff: 08/17/2017
                         <a href="#containers">容器</a>
                         <ul id="containers" class="cardsA">
                             <li>
-                                <a href="/service-fabric/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Fabric.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Service Fabric</h3>
-                                                    <p>在 Windows 或 Linux 上开发微服务和协调容器</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/app-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1115,6 +1168,25 @@ ms.lasthandoff: 08/17/2017
                                                 <div class="cardText">
                                                     <h3>批处理</h3>
                                                     <p>使用容器运行计算作业</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/service-fabric/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Service Fabric</h3>
+                                                    <p>在 Windows 或 Linux 上开发微服务和协调容器</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1190,7 +1262,7 @@ ms.lasthandoff: 08/17/2017
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/cosmosdb.svg" alt="" />
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1234,6 +1306,68 @@ ms.lasthandoff: 08/17/2017
                                                 <div class="cardText">
                                                     <h3>Redis 缓存</h3>
                                                     <p>进行高吞吐量、低延迟的数据访问以生成快速/可缩放的应用程序</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#analytics">数据 + 分析</a>
+                        <ul id="analytics" class="cardsA">
+                            <li>
+                                <a href="/hdinsight/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/HDInsight.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>HDInsight</h3>
+                                                    <p>预配云 Hadoop、Spark、R Server、Hbase 和 Storm 群集</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/stream-analytics/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/StreamAnalytics.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>流分析</h3>
+                                                    <p>实时处理来自数百万台 IoT 设备的数据流</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/power-bi-embedded/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/PowerBIEmbedded.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Power BI Embedded</h3>
+                                                    <p>在应用程序中嵌入完全交互式的、令人惊叹的数据可视化效果</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1700,13 +1834,13 @@ ms.lasthandoff: 08/17/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure/java-sdk-azure-install">获取用于 Java 的 Azure 库</a>
+                                                    <a target="_blank" href="/java/java-sdk-azure-install">获取用于 Java 的 Azure 库</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure">入门</a>
+                                                    <a target="_blank" href="/java">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/api/overview/azure">API 参考</a>
+                                                    <a target="_blank" href="/java/api/overview">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>

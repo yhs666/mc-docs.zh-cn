@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/25/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1801e25d79b2fa20dd7515525537193af319fac7
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: 4c7697c4e85c605b0db4369ac7bb78fd773b0b0a
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="what-is-site-recovery"></a>什么是 Site Recovery？
 
@@ -76,6 +76,6 @@ Site Recovery 可以为以下计算机管理复制：
 ## <a name="next-steps"></a>后续步骤
 <!-- Not Available site-recovery-azure-to-azure.md -->
 * 阅读有关[工作负荷支持](site-recovery-workload.md)的更多内容
-* 开始[从 Hyper-V 复制到 Azure](hyper-v-site-walkthrough-overview.md)。
+* 开始[从 VMware 复制到 Azure](vmware-walkthrough-overview.md) 或[从 Hyper-V 复制到 Azure](hyper-v-site-walkthrough-overview.md)。
 
-<!--Update_Description: update meta properties, add the description between BCDR and Azure Recovery Services-->
+<!--Update_Description: update meta properties, update reference link -->

@@ -1,0 +1,53 @@
+---
+title: "准备目标（VMware 到 Azure）| Azure"
+description: "本文介绍如何准备 Azure 环境，以便开始将 VMware 虚拟机复制到 Azure 中。"
+services: site-recovery
+documentationcenter: 
+author: rockboyfor
+manager: digimobile
+editor: 
+ms.assetid: 
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: backup-recovery
+origin.date: 05/31/2017
+ms.date: 08/28/2017
+ms.author: v-yeche
+ms.openlocfilehash: 4736812f4d486bcfef3a48ab7a1081ec24d1f16f
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/25/2017
+---
+# <a name="prepare-target-vmware-to-azure"></a>准备目标（VMware 到 Azure）
+> [!div class="op_single_selector"]
+> * [VMware 到 Azure](./site-recovery-prepare-target-vmware-to-azure.md)
+> * [物理机到 Azure](./site-recovery-prepare-target-physical-to-azure.md)
+
+本文介绍如何准备 Azure 环境，以便开始将 VMware 虚拟机复制到 Azure 中。
+
+## <a name="prerequisites"></a>先决条件
+
+本文的假设条件如下：
+- 已创建恢复服务保管库来保护 VMware 虚拟机。 可通过 [Azure 门户](http://portal.azure.cn "Azure 门户")创建恢复服务保管库。
+- 已[设置本地环境](./site-recovery-set-up-vmware-to-azure.md)，用于将 VMware 虚拟机复制到 Azure。
+
+## <a name="prepare-target"></a>准备目标
+
+完成“步骤 1: 选择保护目标”和“步骤 2: 准备源”后，会转到“步骤 3: 目标”
+
+![准备目标](./media/site-recovery-prepare-target-vmware-to-azure/prepare-target-vmware-to-azure.png)
+
+1. **订阅：**从下拉菜单中选择要将虚拟机复制到的订阅。
+2. **部署模型：**选择部署模型（经典或资源管理器）
+
+根据选择的部署模型，系统会运行验证来确保目标订阅至少拥有一个兼容的存储帐户和虚拟网络，可供将虚拟机复制和故障转移到其中。
+
+成功完成验证后，单击“确定”转到下一步。
+
+如果没有（或想要添加更多）兼容的资源管理器存储帐户或虚拟网络，可通过单击边栏选项卡顶部的“+存储帐户”或“+网络”按钮实现。
+
+## <a name="next-steps"></a>后续步骤
+[配置复制设置](./site-recovery-setup-replication-settings-vmware.md)。

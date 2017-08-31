@@ -1,10 +1,10 @@
 ---
 title: "在 Azure Active Directory 中分配管理员角色 | Microsoft Docs"
-description: "介绍 Azure Active Directory 提供的管理员角色，以及如何分配这些角色。"
+description: "管理员角色可用于创建或编辑用户、分配管理角色、重置用户密码、管理用户许可证，或者管理域。 分配为管理员角色的用户在组织已订阅的所有云服务中具有相同的权限。"
 services: active-directory
 documentationcenter: 
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
 ms.service: active-directory
@@ -12,21 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/14/2017
-ms.date: 06/12/2017
+origin.date: 07/25/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 1172205d3be89f9ea1d0d1937bb09b8c1d36f27e
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.reviewer: Vince.Smith
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.openlocfilehash: c8ee4d0234e66ead52b9761b8257325e19f8daed
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中分配管理员角色
 使用 Azure Active Directory (Azure AD) 时，可以指定不同的管理员来执行不同的功能。 这些管理员可以按角色访问 Azure 门户或 Azure 经典管理门户中的各种功能：创建或编辑用户、将管理角色分配给他人、重置用户密码、管理用户许可证以及管理域，等等。 不论是通过 Office 365 门户、Azure 经典管理门户还是用于 Windows PowerShell 的 Azure AD 模块分配管理员角色，分配了该角色的用户在组织订阅的所有云服务中都拥有相同的权限。
 
 提供以下管理员角色：
 
-- **全局管理员/公司管理员**：有权访问所有管理功能。 注册 Azure 帐户的人员将成为全局管理员。 只有全局管理员才能分配其他管理员角色。 你的公司中可以有多个全局管理员。
+- **全局管理员/公司管理员**：有权访问所有管理功能。 注册 Azure 帐户的人员成为全局管理员。 只有全局管理员才能分配其他管理员角色。 公司中可以有多个全局管理员。
 
   > [!NOTE]
   > 在 Microsoft 图形 API、Azure AD 图形 API 和 Azure AD PowerShell 中，此角色标识为“公司管理员”。 它是 [Azure 门户](https://portal.azure.cn)中的“全局管理员”。
@@ -58,3 +61,5 @@ ms.lasthandoff: 07/13/2017
 - [管理用户](./active-directory-create-users.md)
 - [管理密码](./active-directory-manage-passwords.md)
 
+
+<!--Update_Description: update metadata properties -->  

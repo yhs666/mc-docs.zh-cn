@@ -1,10 +1,10 @@
 ---
-title: "Azure AD Connect：声明性设置表达式 | Azure"
+title: "Azure AD Connect：声明性预配表达式 | Microsoft Docs"
 description: "介绍声明性设置表达式。"
 services: active-directory
 documentationcenter: 
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -12,20 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+origin.date: 07/18/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
-ms.openlocfilehash: e6b3781f500148b80e7c78a9c477e28defd119b0
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 2fcc3edbb9dd0d6cc489370cc11fac7b374c28e7
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect 同步：了解声明性设置表达式
 Azure AD Connect 同步基于 Forefront Identity Manager 2010 中最先引入的声明性设置。 使用该功能可以实现完整的标识集成业务逻辑，而无需编写已编译的代码。
 
 声明性设置的一个重要组成部分是属性流中使用的表达式语言。 所用的语言是 Microsoft® Visual Basic® for Applications (VBA) 的子集。 Microsoft Office 中使用了这种语言，具有 VBScript 经验的用户都认识该语言。 声明性设置表达式语言只使用函数，不属于结构化语言。 它不提供任何方法或语句。 函数嵌套在表达式程序流中。
 
-有关详细信息，请参阅 [Welcome to the Visual Basic for Applications language reference for Office 2013](https://msdn.microsoft.com/zh-cn/library/gg264383.aspx)（欢迎使用适用于 Office 2013 的 Visual Basic 应用程序语言参考）。
+有关详细信息，请参阅 [Welcome to the Visual Basic for Applications language reference for Office 2013](https://msdn.microsoft.com/library/gg264383.aspx)（欢迎使用适用于 Office 2013 的 Visual Basic 应用程序语言参考）。
 
 属性属于强类型。 函数只接受正确类型的属性。 它还区分大小写。 函数名称和属性名称都必须具有正确的大小写，否则会引发错误。
 
@@ -39,7 +40,7 @@ Azure AD Connect 同步基于 Forefront Identity Manager 2010 中最先引入的
 - 内置常量和文本仅使用其名称表示：NULL、CRLF、IgnoreThisFlow
 
 ### <a name="functions"></a>函数
-声明性设置使用许多函数来实现转换属性值的可能性。 这些函数可以嵌套，因此，一个函数的结果将传递到另一个函数。
+声明性设置使用许多函数来实现转换属性值的可能性。 这些函数可以嵌套，因此，一个函数的结果会传递到另一个函数。
 
 `Function1(Function2(Function3()))`
 
@@ -77,7 +78,7 @@ Active Directory 连接器为入站同步规则提供以下参数：
 运算符从左到右进行求值，并具有相同的求值优先级。 也就是说，\*（乘号）不会在 -（减号）之前求值。 2\*(5+3) 与 2\*5+3 不同。 如果从左到右的计算顺序不适当，则使用括号 () 来更改计算顺序。
 
 ## <a name="multi-valued-attributes"></a>多值属性
-可对单值和多值属性运行函数。 对于多值属性，函数将针对每个值运行，向每个值应用相同的函数。
+可对单值和多值属性运行函数。 对于多值属性，函数针对每个值运行，向每个值应用相同的函数。
 
 例如：  
 `Trim([proxyAddresses])` 对 proxyAddress 属性中的每个值执行 Trim。  
@@ -97,3 +98,6 @@ Active Directory 连接器为入站同步规则提供以下参数：
 **参考主题**
 
 - [Azure AD Connect 同步：函数引用](active-directory-aadconnectsync-functions-reference.md)
+
+
+<!--Update_Description: update metadata properties -->

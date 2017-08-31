@@ -12,19 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/13/2017
-ms.date: 07/18/2017
+origin.date: 07/25/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 336d3d065151c3ebe2377f5d4d722b4c46ecf8d0
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 06c5d157e6e2bb0dc1948216831223d44824c47a
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Azure Active Directory 中自定义域名的概念性概述
-域名是许多目录资源标识符的重要部分：它可能是用户的用户名或电子邮件地址的一部分、组地址的一部分，也可能是应用程序的应用 ID URI 的一部分。 Azure Active Directory (Azure AD) 中的资源可包含已验证为目录（包含该资源）所拥有的域名。 只有全局管理员才能在 Azure AD 中执行域管理任务。
+域名可以是许多目录资源的重要标识符，作为以下项的一部分：
 
-Azure AD 中的域名是全局唯一的。 一个域名只可供一个 Azure AD 使用。 如果某个 Azure AD 目录已验证域名，则其他 Azure AD 目录就不能验证或使用该相同的域名。
+- 用户的用户名或电子邮件地址
+- 应用程序的应用 ID URI
+
+Azure Active Directory (Azure AD) 中的资源可包含已验证为目录（包含该资源）所拥有的域名。 只有全局管理员才能在 Azure AD 中执行域管理任务。
+
+Azure AD 中的域名是全局唯一的。 自定义域名一次只能由一个 Azure AD 租户使用。 如果某个 Azure AD 目录已验证域名，则其他 Azure AD 目录就不能验证或使用该相同的域名。
 
 ## <a name="initial-and-custom-domain-names"></a>初始域名和自定义域名
 Azure AD 中的每个域名不是初始域名就是自定义域名。
@@ -38,7 +43,7 @@ Azure AD 中的每个域名不是初始域名就是自定义域名。
 ## <a name="verified-and-unverified-domain-names"></a>已验证和未验证的域名
 目录的初始域名会由 Azure AD 隐式评估为已验证。 管理员在 Azure AD 中添加自定义域名时，其最初是未验证的状态。 Azure AD 不允许任何目录资源使用未验证的域名。 如此可确保只有一个目录可以使用特定的域名，而且使用域名的组织实际拥有该域名。
 
-Azure AD 通过在域名的域名服务 (DNS) 区域文件中查找特定的条目，来验证域名的所有权。 若要验证域名的所有权，管理员可以从 Azure AD 获取 Azure AD 将查找的 DNS 条目，并将该条目添加到域名的 DNS 区域文件。 该域的域名注册机构负责维护 DNS 区域文件。 域验证步骤可在[将自定义域添加到 Azure AD 目录](active-directory-add-domain.md)一文中找到。
+Azure AD 通过在域名的域名服务 (DNS) 区域文件中查找特定的条目，来验证域名的所有权。 要验证域名的所有权，管理员可以从 Azure AD 获取 Azure AD 将查找的 DNS 条目，并将该条目添加到域名的 DNS 区域文件。 该域的域名注册机构负责维护 DNS 区域文件。 域验证步骤可在[将自定义域添加到 Azure AD 目录](active-directory-add-domain.md)一文中找到。
 
 将 DNS 条目添加到域名的区域文件中，并不会影响其他域服务，例如电子邮件或 Web 托管。
 
@@ -63,4 +68,4 @@ Azure Web 应用使用其自身的机制来验证域的所有权。 必须验证
 - [使用 PowerShell 管理 Azure AD 中的域名](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 - [使用 Azure AD 图形 API 管理 Azure AD 中的域名](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-<!--Update_Description: update meta properties -->   
+<!--Update_Description: wording update -->   

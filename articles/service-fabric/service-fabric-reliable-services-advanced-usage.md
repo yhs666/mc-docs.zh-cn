@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 06/29/2017
 ms.date: 08/21/2017
 ms.author: v-yeche
-ms.openlocfilehash: d397e7731fbf122175c8c546addc589d9022db7a
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 5ba0908fdf31765e81aab391aab84134b52b4d82
+ms.sourcegitcommit: bfdbf6df593eb9ea6ad7372375db671886055a12
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/24/2017
 ---
 # <a name="advanced-usage-of-the-reliable-services-programming-model"></a>Reliable Services 编程模型的高级用法
 Azure Service Fabric 可简化可靠的无状态服务和有状态服务的编写与管理。 本指南讨论 Reliable Services 的高级用法，以便针对服务获得更多控制和灵活性。 阅读本指南之前，自己应熟悉 [Reliable Services 编程模型](service-fabric-reliable-services-introduction.md)。
@@ -40,7 +40,7 @@ Azure Service Fabric 可简化可靠的无状态服务和有状态服务的编�
 * `Task OnCloseAsync(CancellationToken) - C# / CompletableFuture onCloseAsync(CancellationToken) - Java`：当要正常关闭无状态服务实例时调用 OnCloseAsync。 升级服务代码、由于负载均衡而移动服务实例或是检测到暂时性故障时，可能会出现这种情况。 OnCloseAsync 可以用于安全地关闭任何资源、停止任何后台处理、完成外部状态保存或关闭现有连接。
 * `void OnAbort() - C# / void onAbort() - Java`：当要强制关闭无状态服务实例时调用 OnAbort。 当在节点上检测到永久性故障时，或者当 Service Fabric 由于内部错误而无法可靠地管理服务实例的生命周期时，通常会调用此方法。
 
-## <a name="stateful-service-replica-lifecycle"></a>有状态服务副本生命周期
+## <a name="stateful-service-replica-lifecycle" ></a>有状态服务副本生命周期
 
 > [!NOTE]
 > Java 目前不支持有状态的 Reliable Services。

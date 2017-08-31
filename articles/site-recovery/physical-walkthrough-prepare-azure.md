@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/25/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5c97126b4c77771966380ccce56824c96d95e5f9
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: bbeecbb4266b652ddf30a40e8bc008e1fe0ed86f
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="step-5-prepare-azure-resources-for-physical-server-replication-to-azure"></a>步骤 5：准备 Azure 资源以便将物理服务器复制到 Azure
 
@@ -33,14 +33,14 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="set-up-an-azure-account"></a>设置 Azure 帐户
 
-- 获取 [Azure 帐户](http://azure.microsoft.com/)。
+- 获取 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial-full/)。
 - 可以从[试用版](https://www.azure.cn/pricing/1rmb-trial/)开始。
 - 在 [Azure Site Recovery 定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)中“支持的地理位置”下，查看 Site Recovery 支持哪些区域。
 - 了解 [Site Recovery 定价](site-recovery-faq.md#pricing)，并获取[定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)。
 
 ## <a name="set-up-an-azure-network"></a>设置 Azure 网络
 
-- 设置 Azure 网络。 在故障转移后创建 Azure VM 时，Azure VM 将置于此网络中。
+- 设置 Azure 网络。 故障转移后创建 Azure VM 时，Azure VM 将置于此网络中。
 - Azure 门户中的 Site Recovery 可以使用在 [Resource Manager](../resource-manager-deployment-model.md) 或经典模式下设置的网络。
 - 该网络应位于与恢复服务保管库相同的区域。
 - 了解[虚拟网络定价](https://www.azure.cn/pricing/details/networking/)。
@@ -49,13 +49,13 @@ ms.lasthandoff: 07/28/2017
 ## <a name="set-up-an-azure-storage-account"></a>设置 Azure 存储帐户
 
 - Site Recovery 将本地服务器复制到 Azure 存储。 发生故障转移后，通过存储创建 Azure VM。
-- 设置用于所复制数据的 [Azure 存储帐户](../storage/storage-create-storage-account.md#create-a-storage-account)。
+- 设置用于所复制数据的 [Azure 存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
 - Azure 门户中的 Site Recovery 可以使用在 Resource Manager 或经典模式下设置的存储帐户。
-- 存储帐户可以是标准帐户，也可以是[高级](../storage/storage-premium-storage.md)帐户。
+- 存储帐户可以是标准帐户，也可以是[高级](../storage/common/storage-premium-storage.md)帐户。
 - 如果设置高级帐户，还需要使用额外的标准帐户来记录数据。
 
 ## <a name="next-steps"></a>后续步骤
 
 转到[步骤 6：设置保管库](physical-walkthrough-create-vault.md)
 
-<!--Update_Description: new article about walkthrought prepare azure from physical to azure -->
+<!--Update_Description: update reference link -->

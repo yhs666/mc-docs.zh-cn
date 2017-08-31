@@ -11,20 +11,20 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-origin.date: 05/04/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.topic: quickstart
+origin.date: 07/21/2017
+ms.date: 09/04/2017
+ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 41746ee63975e83542ea93a6634de458dcf0c3c7
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 5b81cdc3e911b84e9c5e8160277d91d72b8b4fc0
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中创建 PHP Web 应用
 
-[Azure Web 应用](/app-service-web/app-service-web-overview)提供高度可缩放、自修补的 Web 托管服务。  本快速入门教程演示如何将 PHP 应用部署到 Azure Web 应用。 使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 创建 Web 应用，并使用 Git 将 PHP 代码示例部署到 Web 应用。
+[Azure Web 应用](./app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门教程演示如何将 PHP 应用部署到 Azure Web 应用。 在 Cloud Shell 中使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 创建 Web 应用，并使用 Git 将示例 PHP 代码部署到 Web 应用。
 
 ![在 Azure 中运行的示例应用]](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -39,21 +39,12 @@ ms.lasthandoff: 07/28/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+## <a name="download-the-sample-locally"></a>将示例下载到本地
 
-## <a name="download-the-sample"></a>下载示例
-
-在终端窗口中，运行以下命令，将示例应用存储库克隆到本地计算机。
+在终端窗口中运行以下命令。 这样会将示例应用程序克隆到本地计算机，并导航到包含示例代码的目录。
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
-```
-
-使用此终端窗口运行本快速入门中的所有命令。
-
-切换到包含示例代码的目录。
-
-```bash
 cd php-docs-hello-world
 ```
 
@@ -116,7 +107,7 @@ To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
    cc39b1e..25f1805  master -> master
 ```
 
-## <a name="browse-to-the-app"></a>浏览到应用
+## <a name="browse-to-the-app-locally"></a>在本地浏览到应用
 
 使用 Web 浏览器浏览到已部署的应用程序。
 
@@ -130,9 +121,9 @@ PHP 示例代码正在 Azure 应用服务 Web 应用中运行。
 
 **祝贺你！** 现已将第一个 PHP 应用部署到应用服务。
 
-## <a name="update-and-redeploy-the-code"></a>更新并重新部署代码
+## <a name="update-locally-and-redeploy-the-code"></a>在本地更新并重新部署代码
 
-使用本地文本编辑器打开 PHP 应用中的 `index.php` 文件，然后对 `echo` 旁边的字符串中的文本稍微进行更改：
+使用本地文本编辑器打开 PHP 应用中的 `index.php` 文件，并对 `echo` 旁边的字符串中的文本稍微进行更改：
 
 ```php
 echo "Hello Azure!";

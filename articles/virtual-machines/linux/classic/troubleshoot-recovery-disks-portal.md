@@ -1,0 +1,30 @@
+---
+title: "通过将 OS 磁盘附加到恢复 VM，对 Azure Linux 经典 VM 进行故障排除 | Microsoft Docs"
+description: "了解如何通过将 OS 磁盘附加到恢复 VM，对 Azure Linux 经典 VM 进行故障排除"
+services: virtual-machines-linux
+documentationCenter: 
+authors: hayley244
+manager: cshepard
+editor: 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+origin.date: 07/21/2017
+ms.date: 08/28/2017
+ms.author: v-haiqya
+ms.openlocfilehash: f7b5b65f1d37702c6c1cfe0a68f83c765d2d6a66
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/25/2017
+---
+# <a name="troubleshoot-a-linux-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>通过将 OS 磁盘附加到恢复 VM，对 Linux 经典 VM 进行故障排除
+
+[!INCLUDE [virtual-machines-classic-recovery-disks-portal](../../../../includes/virtual-machines-classic-recovery-disks-portal.md)]
+
+## <a name="next-steps"></a>后续步骤
+如果在连接 VM 时遇到问题，请参阅[针对通过 SSH 连接到 Azure Linux VM 时发生的失败、出错或被拒绝问题进行故障排除](../troubleshoot-ssh-connection.md)。 
+
+对于访问 VM 上运行的应用程序时遇到的问题，请参阅[排查 Azure 中 Linux 虚拟机上的应用程序连接问题](../troubleshoot-app-connection.md)。

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 07/31/2017
+origin.date: 08/02/2017
+ms.date: 08/23/2017
 ms.author: v-junlch
-ms.openlocfilehash: 585ce3b454b583999d8cb2e286154c438227d8fd
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: c04164092cb81cbd896bf84fd8f1a2d69f1d0c62
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>混合标识所需的端口和协议
 以下文档是用于实现混合标识解决方案所需的端口和协议的技术参考。 使用下图并参考相应的表格。
@@ -35,6 +35,7 @@ ms.lasthandoff: 08/04/2017
 | Kerberos |88 (TCP/UDP) |对 AD 林进行 Kerberos 身份验证。 |
 | MS-RPC |135 (TCP/UDP) |该端口绑定到 AD 林后，将在初始配置 Azure AD Connect 向导期间及密码同步期间使用。 |
 | LDAP |389 (TCP/UDP) |用于从 AD 导入数据。 数据将使用 Kerberos 签名和签章加密。 |
+| RPC | 445 (TCP/UDP) |由无缝 SSO 用于在 AD 林中创建计算机帐户。 |
 | LDAP/SSL |636 (TCP/UDP) |用于从 AD 导入数据。 数据传输经过签名和加密。 仅使用 SSL 时才使用该端口。 |
 | RPC |49152-65535（随机高 RPC 端口）(TCP/UDP) |该端口绑定到 AD 林后，将在初始配置 Azure AD Connect 期间及密码同步期间使用。 有关详细信息，请参阅 [KB929851](https://support.microsoft.com/kb/929851)、[KB832017](https://support.microsoft.com/kb/832017) 和 [KB224196](https://support.microsoft.com/kb/224196)。 |
 
@@ -102,4 +103,4 @@ ms.lasthandoff: 08/04/2017
 | HTTPS |443 (TCP/UDP) |出站 |
 | Azure 服务总线 |5671 (TCP/UDP) |出站 |
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

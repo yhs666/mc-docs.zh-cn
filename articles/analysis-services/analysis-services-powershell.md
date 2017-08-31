@@ -12,14 +12,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 08/07/2017
+origin.date: 07/19/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 953bb7812fe985a9305f971eb53092f1c02c5dd4
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: a6827405bda9f2a66606554d7e103b3b6bea367d
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 
@@ -37,6 +37,7 @@ Azure Analysis Services cmdlet 包含在 [AzureRM.AnalysisServices](https://www.
 
 |Cmdlet|说明| 
 |------------|-----------------| 
+|[Export-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|将日志导出到文件。| 
 |[Get-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|获取服务器实例的详细信息。|  
 |[New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|创建服务器实例。|
 |[Remove-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|删除服务器实例。|  
@@ -70,4 +71,4 @@ SqlServer 模块提供任务特定的数据库管理 cmdlet，以及接受表格
 * [PowerShell 库中的 SqlServer 模块](https://www.powershellgallery.com/packages/SqlServer)    
 * [Tabular Model Programming for Compatibility Level 1200 and higher](https://msdn.microsoft.com/library/mt712541.aspx)（适用于兼容级别 1200 及更高级别的表格模型编程）
 
-<!--Update_Description: new articles on manage analysis serices with powershell-->
+<!--Update_Description: add cmdlet of Export-AzureAnalysisServicesInstance -->

@@ -4,8 +4,8 @@ description: "为 Azure Active Directory 中的 SaaS 应用启用单一登录身
 services: active-directory
 keywords: "将 Azure AD 与 SaaS 应用相集成"
 documentationcenter: 
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 53b9d341-d1fc-4bbb-ac7c-3f4c68fcf00a
 ms.service: active-directory
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/04/2017
-ms.date: 06/12/2017
+origin.date: 08/17/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: a176ffc3aecbbe9d402cb24ee2e2bd6d5ddbf1ca
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.reviewer: aaronsm
+ms.openlocfilehash: 1d67385c3603db8bea13bd28068e51f065f773b9
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>将 Azure Active Directory 单一登录与 SaaS 应用相集成  
 
@@ -63,9 +64,8 @@ Azure AD 提供多种可自定义的方式来向组织中的最终用户部署�
 
 ## <a name="next-steps"></a>后续步骤
 
-如果某个应用不在应用库中，可以[将该应用作为自定义应用程序添加到 Azure AD 应用库](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)。
-
-Azure.com 库中还提供了有关所有这些问题的更多详细信息，请先阅读 [Azure Active Directory 的应用程序访问与单一登录是什么](active-directory-appssoaccess-whatis.md)。
+Azure.com 库中还提供了有关所有这些问题的更多详细信息，请先阅读 [Azure Active Directory 的应用程序访问与单一登录是什么？](active-directory-appssoaccess-whatis.md)。
 
 此外，请不要错过[有关 Azure Active Directory 中应用程序管理的文章索引](active-directory-apps-index.md)。
 
+<!--Update_Description: wording update -->

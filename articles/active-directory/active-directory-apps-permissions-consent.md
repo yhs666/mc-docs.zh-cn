@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 中的应用、权限和同意 | Azure"
+title: "Azure Active Directory 中的应用、权限和许可 | Microsoft Docs"
 description: "Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序提供一个通用标识。"
 keywords: "Azure AD 介绍, 应用, 什么是 Azure AD Connect, 安装 active directory"
 services: active-directory
 documentationcenter: 
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 25897cc4-7687-49b6-b0d5-71f51302b6b1
 ms.service: active-directory
@@ -13,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 11/17/2016
+origin.date: 07/31/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.date: 01/05/2017
-ms.openlocfilehash: 10ac002ba8a5b32db810043a95942384da868fad
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.reviewer: jesakowi
+ms.custom: oldportal;it-pro;
+ms.openlocfilehash: d28d8b6602ffa017b58770d2b3c4f39676d74fd9
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Azure Active Directory 中的应用、权限和同意
-在 Azure Active Directory 内，可以向目录添加应用程序。  可以添加的应用程序因应用程序的类型而异。  若要在经典管理门户中查看应用程序，请选择一个目录，然后选择应用程序。
+在 Azure Active Directory 内，可以向目录添加应用程序。  可以添加的应用程序因应用程序的类型而异。  如果要在经典管理门户中查看应用程序，请选择一个目录，并选择应用程序。
 
 ![](./media/active-directory-apps-permissions-consent/apps1.png)
 
@@ -70,20 +72,20 @@ ms.lasthandoff: 06/21/2017
 
 ![](./media/active-directory-apps-permissions-consent/apps7.png)
 
-在经典管理门户中，选择“用户可以授权应用程序访问其数据”。****
+在经典管理门户中，选择“用户可以授权应用程序访问其数据”。
 ![](./media/active-directory-apps-permissions-consent/apps8.png)
 
-- 可以控制用户是否能够注册其自己的单租户 LOB 应用：在经典管理门户中，选择“用户可添加集成应用程序”。****
+- 可以控制用户是否能够注册其自己的单租户 LOB 应用：在经典管理门户中，选择“用户可添加集成应用程序”。
 ![](./media/active-directory-apps-permissions-consent/apps9.png)
 
->[!NOTE]
->即使允许用户注册单租户 LOB 应用，对于注册对象也存在限制。  
->例如，不是目录管理员的开发人员。
->
->- 用户不能让单租户应用成为多租户应用。
->- 注册单租户 LOB 应用时，用户不能向其他应用请求仅限应用的权限。
->- 注册单租户 LOB 应用时，如果委托的权限需要管理员同意，则用户不能向其他应用请求这些权限。
->- 用户不能对自己不是所有者的应用进行更改。
+    >[!NOTE]
+    >即使允许用户注册单租户 LOB 应用，对于注册对象也存在限制。  
+    >例如，不是目录管理员的开发人员。
+    >
+    >- 用户不能让单租户应用成为多租户应用。
+    >- 注册单租户 LOB 应用时，用户不能向其他应用请求仅限应用的权限。
+    >- 注册单租户 LOB 应用时，如果委托的权限需要管理员同意，则用户不能向其他应用请求这些权限。
+    >- 用户不能对自己不是所有者的应用进行更改。
 
 - 可以控制用户是否可以自行添加使用密码 SSO（也称为“密码保管”）的预先集成的应用![](./media/active-directory-apps-permissions-consent/apps10.png)
 
@@ -98,7 +100,9 @@ ms.lasthandoff: 06/21/2017
 
 举个例子，让我们以租户中的用户已登录的“FabrikamMail for Office 365”应用为例。 “FabrikamMail”是 Android 邮件阅读器应用，由“Fabrikam, Inc.”发布。 这属于“其他用户开发的、Contoso 可以同意的多租户应用”。
 
-如果允许用户同意，则用户在首次登录时会看到同意提示信息： ![](./media/active-directory-apps-permissions-consent/apps14.png)
+如果允许用户许可该应用，则当他们首次登录时，将看到许可提示：
+
+![](./media/active-directory-apps-permissions-consent/apps14.png)
 
 “访问你的邮箱”是针对“Office 365 Exchange Online”（即 Exchange）公开的“以登录用户的身份访问邮箱”权限，向用户显示的许可字符串。
 
@@ -195,3 +199,5 @@ StartTime   : 01/01/0001 12:00:00 AM
 （ClientId 是 FabrikamMail 的服务主体对象 ID（刚刚创建），PrincipalId 是用户对象 ID（属于许可用户），ResourceId 是 Exchange 的服务主体对象 ID，Scope 是 Exchange 中已许可的权限）。
 
 如果不允许用户同意，他们会看到指示需要权限的屏幕。
+
+<!--Update_Description: update metadata properties -->  

@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 05/10/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 498e88110076c672db9bef650a843f902fc83967
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: c40469f34a7124a6dd958b8e50fa6872a1b87d3c
+ms.sourcegitcommit: 6e849d15b7c5aaa554668195eef2e58ae1de10bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/23/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 表 .NET API：下载和发行说明
 
@@ -31,12 +31,9 @@ ms.lasthandoff: 07/26/2017
 |**当前受支持的框架**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 <!-- Not Available [Azure CosmosDB: Create a container with the Graph API](tutorial-develop-graph-dotnet.md) -->
 
-## <a name="release-notes"></a>发行说明
-
-* 初始预览版本。
-
-## <a name="release--retirement-dates"></a>发布和停用日期
-Microsoft 至少会在停用 SDK 的 **12 个月**之前发出通知，以便顺利转换到更新的/受支持的版本。
+<!-- Not Avaialble ## Release notes -->
+## <a name="release--retirement"></a>发布和停用
+Microsoft 至少会在停用 SDK 之前发出通知，以便顺利转换到更新的/受支持的版本。
 
 新特性和功能以及优化仅添加到当前 SDK，因此建议始终尽早升级到最新的 SDK 版本。 
 

@@ -14,15 +14,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 06/01/2017
-ms.date: 08/07/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8e8c43a85a97cd05aef2aca9f0511352f5095eea
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: cfa3a12dcd4e12e71c772c8edc72a8dd904b5201
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/25/2017
 ---
-# <a name="lesson-1-create-a-new-tabular-model-project"></a>第 1 课：创建新的表格模型项目
+# <a name="lesson-1-create-a-tabular-model-project"></a>第 1 课：创建表格模型项目
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 08/02/2017
 
     ![aas-lesson1-tmd](../tutorials/media/aas-lesson1-tmd.png)
 
-    如果“兼容性级别”列表框中未显示“SQL Server 2017/Azure Analysis Services (1400)”，则表示使用的不是最新版本的 SQL Server Data Tools。 若要获取最新版本，请参阅[安装 SQL Server Data tools](/sql/ssdt/download-sql-server-data-tools-ssdt)。  
+    如果“兼容性级别”列表框中未显示“SQL Server 2017/Azure Analysis Services (1400)”，则表示使用的不是最新版本的 SQL Server Data Tools。 若要获取最新版本，请参阅[安装 SQL Server Data tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)。  
 
 ## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>了解 SSDT 表格模型创作环境  
 创建新的表格模型项目后，让我们花点时间了解 SSDT 中的表格模型创作环境。  
@@ -64,7 +64,7 @@ ms.lasthandoff: 08/02/2017
 
 ![aas-lesson1-tme](../tutorials/media/aas-lesson1-tme.png)
 
-单击“解决方案资源管理器”选项卡。 此处将显示 **Model.bim** 文件。 如果左侧未显示设计器窗口（包含 Model.bim 选项卡的空窗口），请在“解决方案资源管理器”中的“AW Internet Sales 项目”下面双击“Model.bim”文件。 Model.bim 文件包含模型项目的元数据。 
+单击“解决方案资源管理器”选项卡。此处将显示 **Model.bim** 文件。 如果左侧未显示设计器窗口（包含 Model.bim 选项卡的空窗口），请在“解决方案资源管理器”中的“AW Internet Sales 项目”下面双击“Model.bim”文件。 Model.bim 文件包含模型项目的元数据。 
 
 ![aas-lesson1-se](../tutorials/media/aas-lesson1-se.png)
 
@@ -82,3 +82,5 @@ ms.lasthandoff: 08/02/2017
 
 ## <a name="whats-next"></a>后续步骤
 [第 2 课：获取数据](../tutorials/aas-lesson-2-get-data.md)。
+
+<!--Update_Description: wording update-->

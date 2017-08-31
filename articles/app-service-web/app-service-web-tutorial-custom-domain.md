@@ -16,11 +16,11 @@ origin.date: 06/23/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: 19c5822a3b065f028a99affdd4d0184c883bc914
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 7665ec2d4a35e372e51192104a44861067a50a59
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>将现有的自定义 DNS 名称映射到 Azure Web 应用
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/28/2017
 若要完成本教程，需执行以下操作：
 
 * [创建一个应用服务应用](/app-service/)，或者使用为其他教程创建的应用。
-* 购买一个域名并确保你对你的域提供商的 DNS 注册表具有访问权限。
+* 购买域名，确保可以访问域提供商（如 GoDaddy）的 DNS 注册表。
 
   例如，若要添加 `contoso.com` 和 `www.contoso.com` 的 DNS 条目，必须能够配置 `contoso.com` 根域的 DNS 设置。
 
@@ -66,6 +66,8 @@ ms.lasthandoff: 07/28/2017
 
 可以看到应用服务应用的管理页面。  
 
+<a name="checkpricing"></a>
+
 ### <a name="check-the-pricing-tier"></a>检查定价层
 
 在应用页面的左侧导航窗格中，向下滚动到“设置”部分，然后选择“扩展(应用服务计划)”。
@@ -77,6 +79,8 @@ ms.lasthandoff: 07/28/2017
 ![检查定价层](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 如果应用服务计划不是**免费的**，请关闭“选择定价层”页面并跳到[映射 CNAME 记录](#cname)。
+
+<a name="scaleup"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>扩展应用服务计划
 
@@ -96,22 +100,7 @@ ms.lasthandoff: 07/28/2017
 
 在教程示例中，将为 `www` 子域（例如 `www.contoso.com`）添加 CNAME 记录。
 
-### <a name="access-dns-records-with-domain-provider"></a>通过域提供商访问 DNS 记录
-
-登录到域提供商的网站。
-
-查找管理 DNS 记录的页面。 每个域提供商都有其自己的 DNS 记录界面，因此应查阅提供商的文档。 查找站点中标签为“域名”、“DNS”或“名称服务器管理”的链接或区域。 
-
-通常，通过查看帐户信息，然后查找如“我的域”之类的链接，便可以找到 DNS 记录管理页面。 转到此页面，然后查找名为**区域文件**、**DNS 记录**或**高级配置**等名称的链接。
-
-以下屏幕截图是 DNS 记录管理页面的一个示例：
-
-![示例 DNS 记录页](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-在示例屏幕截图中，选择“添加”来创建记录。 某些提供商提供了不同的链接来添加不同的记录类型。 同样，需要查阅提供商的文档。
-
-> [!NOTE]
-> 对于某些提供商，在选择单独的“保存更改”链接之前，这些 DNS 记录不会生效。 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-cname-record"></a>创建 CNAME 记录
 
@@ -175,22 +164,7 @@ ms.lasthandoff: 07/28/2017
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-### <a name="access-dns-records-with-domain-provider"></a>通过域提供商访问 DNS 记录
-
-登录到域提供商的网站。
-
-查找管理 DNS 记录的页面。 每个域提供商都有其自己的 DNS 记录界面，因此应查阅提供商的文档。 查找站点中标签为“域名”、“DNS”或“名称服务器管理”的链接或区域。 
-
-通常，通过查看帐户信息，然后查找如“我的域”之类的链接，便可以找到 DNS 记录管理页面。 转到此页面，然后查找名为**区域文件**、**DNS 记录**或**高级配置**等名称的链接。
-
-以下屏幕截图是 DNS 记录管理页面的一个示例：
-
-![示例 DNS 记录页](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-在示例屏幕截图中，选择“添加”来创建记录。 某些提供商提供了不同的链接来添加不同的记录类型。 同样，需要查阅提供商的文档。
-
-> [!NOTE]
-> 对于某些提供商，在选择单独的“保存更改”链接之前，这些 DNS 记录不会生效。 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-a-record"></a>创建 A 记录
 
@@ -246,22 +220,7 @@ ms.lasthandoff: 07/28/2017
 
 在教程示例中，你将通过添加 CNAME 记录将[通配符 DNS 名称](https://en.wikipedia.org/wiki/Wildcard_DNS_record)（例如 `*.contoso.com`）映射到应用服务应用。 
 
-### <a name="access-dns-records-with-domain-provider"></a>通过域提供商访问 DNS 记录
-
-登录到域提供商的网站。
-
-查找管理 DNS 记录的页面。 每个域提供商都有其自己的 DNS 记录界面，因此应查阅提供商的文档。 查找站点中标签为“域名”、“DNS”或“名称服务器管理”的链接或区域。 
-
-通常，通过查看帐户信息，然后查找如“我的域”之类的链接，便可以找到 DNS 记录管理页面。 转到此页面，然后查找名为**区域文件**、**DNS 记录**或**高级配置**等名称的链接。
-
-以下屏幕截图是 DNS 记录管理页面的一个示例：
-
-![示例 DNS 记录页](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-在示例屏幕截图中，选择“添加”来创建记录。 某些提供商提供了不同的链接来添加不同的记录类型。 同样，需要查阅提供商的文档。
-
-> [!NOTE]
-> 对于某些提供商，在选择单独的“保存更改”链接之前，这些 DNS 记录不会生效。 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-cname-record"></a>创建 CNAME 记录
 
@@ -354,4 +313,4 @@ Set-AzureRmWebApp `
 > [!div class="nextstepaction"]
 > [将现有的自定义 SSL 证书绑定到 Azure Web 应用](app-service-web-tutorial-custom-ssl.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: add the includes file of accessing DNS record with domain provider-->

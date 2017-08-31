@@ -13,21 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
-ms.openlocfilehash: 040c49ff6e0247ecd374ddd6962023a7cee6f4d5
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: a47e5bf1803acd6b8a7cb2a586a5f1cd937b1a82
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 用户登录选项
 Azure Active Directory (Azure AD) Connect 可让用户使用同一组密码登录云和本地资源。 本文介绍每个标识模型的重要概念，以帮助你选择登录到 Azure AD 时想要使用的标识。
 
 如果已熟悉了 Azure AD 标识模型，并且想详细了解某个特定的方法，则请参阅相应的链接：
 
-- 使用[单一登录 (SSO)](active-directory-aadconnect-sso.md) 的[密码同步](#password-synchronization)
-- [直通身份验证](active-directory-aadconnect-pass-through-authentication.md)
 - [（使用 Active Directory 联合身份验证服务 (AD FS)）联合的 SSO](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>为组织选择用户登录方法
@@ -44,29 +42,12 @@ Azure Active Directory (Azure AD) Connect 可让用户使用同一组密码登�
 
 * 通过轻型连接器。
 
->[!NOTE]
-> 目前直通身份验证对于富客户端具有某些限制。 有关详细信息，请参阅[直通身份验证](active-directory-aadconnect-pass-through-authentication.md)。
-
 ### <a name="password-synchronization"></a>密码同步
 凭借密码同步，可将用户密码的哈希从本地 Active Directory 同步到 Azure AD。 当密码在本地更改或重置时，新密码将立即同步到 Azure AD，以便用户用于访问云资源的密码与访问本地资源的密码始终为同一密码。 密码绝不会被发送到 Azure AD，也不会以明文的形式存储在 Azure AD 中。 可将密码同步与密码写回一起使用，以在 Azure AD 中启用自助密码重置。
-
-此外，还可以对公司网络中已加入域的计算机上的用户启用 [SSO](active-directory-aadconnect-sso.md)。 通过单一登录，受支持的用户只需输入用户名即可安全访问云资源。
 
 ![密码同步](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
 有关详细信息，请参阅[密码同步](active-directory-aadconnectsync-implement-password-synchronization.md)一文。
-
-### <a name="pass-through-authentication"></a>直通身份验证
-凭借直通身份验证，将针对本地 Active Directory 控制器验证用户的密码。 密码无需以任何形式存在于 Azure AD 中。 此身份验证允许在对云服务进行身份验证的过程中评估本地策略（例如登录时间限制）。
-
-直通身份验证使用本地环境中已加入域的 Windows Server 2012 R2 计算机上的简单代理。 此代理侦听密码验证请求。 它不需要对 Internet 开放的任何入站端口。
-
-此外，还可以对公司网络中已加入域的计算机上的用户启用单一登录。 通过单一登录，受支持的用户只需输入用户名即可安全访问云资源。
-![直通身份验证](./media/active-directory-aadconnect-user-signin/pta.png)
-
-有关详细信息，请参阅：
-- [直通身份验证](active-directory-aadconnect-pass-through-authentication.md)
-- [单一登录](active-directory-aadconnect-sso.md)
 
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>在 Windows Server 2012 R2 中使用新的或现有 AD FS 场进行联合身份验证
 凭借联合登录，用户可以使用其本地密码登录到 Azure 基于 AD 的服务。 当用户处于企业网络上时，他们甚至无需输入其密码。 使用 AD FS 的联合身份验证选项，可在 Windows Server 2012 R2 中部署新的或现有的 AD FS 场。 如果选择指定现有场，Azure AD Connect 将在场与 Azure AD 之间配置信任，使你的用户能够登录。

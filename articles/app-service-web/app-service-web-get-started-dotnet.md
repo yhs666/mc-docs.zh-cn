@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 06/14/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 2ed75e7937a41b12c743d08f911e9e58bb8b70fb
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 4b099f621809bbd5136133bf157a896ecd04a082
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Web 应用
 
-[Azure Web 应用](/app-service-web/app-service-web-overview)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将第一个 ASP.NET Web 应用部署到 Azure Web 应用中。 完成后，便拥有了一个资源组，该资源组包含一个应用服务计划和一个具有已部署的 Web 应用程序的 Azure Web 应用。
+[Azure Web 应用](./app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将第一个 ASP.NET Web 应用部署到 Azure Web 应用中。 完成后，便拥有了一个资源组，该资源组包含一个应用服务计划和一个具有已部署的 Web 应用程序的 Azure Web 应用。
 
 ![Azure 应用服务中的 ASP.NET Web 应用](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/28/2017
 
 若要完成本教程，需执行以下操作：
 
-* 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)：
+* 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
     - **ASP.NET 和 Web 开发**
     - **Azure 开发**
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-在“创建应用服务”对话框中，选择“添加帐户”，然后登录到你的 Azure 订阅。 如果已经登录，请确保该帐户包含你的 Azure 订阅。 可以选择登录帐户来添加正确的帐户。
+在“创建应用服务”对话框中，选择“添加帐户”，然后登录到 Azure 订阅。 如果已登录，请从下拉列表中选择包含所需订阅的帐户。
 
 > [!NOTE]
 > 如果已经登录，请先不要选择“创建”。
@@ -84,8 +84,6 @@ ms.lasthandoff: 07/28/2017
 >
 
 ![登录 Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
-
-登录后，可在此对话框中创建 Azure Web 应用所需的所有资源。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -115,9 +113,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="create-and-publish-the-web-app"></a>创建并发布 Web 应用
 
-在“Web 应用名称”中，键入唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 Web 应用的 URL 为 `http://<app_name>.chinacloudsites.cn`，其中 `<app_name>` 是 Web 应用名称。 
-
-可以接受自动生成的名称，它是唯一的。
+在“Web 应用名称”中，键入唯一的应用名称（有效字符为 `a-z`、`0-9` 和 `-`），或接受自动生成的唯一名称。 Web 应用的 URL 为 `http://<app_name>.chinacloudsites.cn`，其中 `<app_name>` 是 Web 应用名称。
 
 选择“创建”开始创建 Azure 资源。
 
@@ -127,7 +123,7 @@ ms.lasthandoff: 07/28/2017
 
 ![已在 Azure 中发布的 ASP.NET Web 应用](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
 
-URL 使用前面指定的 Web 应用名称，其格式为 `http://<app_name>.chinacloudsites.cn`。 
+将[创建和发布步骤](#create-and-publish-the-web-app)中指定的 Web 应用名称用作 `http://<app_name>.chinacloudsites.cn` 格式的 URL 前缀。
 
 恭喜，你的 ASP.NET Web 应用已在 Azure 应用服务中实时运行！
 

@@ -3,8 +3,8 @@ title: "创建 Azure 虚拟机规模集 | Azure"
 description: "使用 Azure CLI、PowerShell、模板或 Visual Studio 创建和部署 Linux 或 Windows Azure 虚拟机规模集。"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: Thraka
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 05/23/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: bd7cd7c1754ce02cba72152c2775939173f9a67e
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 07/21/2017
+ms.date: 08/28/2017
+ms.author: v-haiqya
+ms.openlocfilehash: e8664c41fed0a0e475dfc063ec26623ea3aca33c
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="create-and-deploy-a-virtual-machine-scale-set"></a>创建和部署虚拟机规模集
 使用虚拟机规模集可以轻松地将相同的虚拟机作为集来进行部署和管理。 规模集为超大规模应用程序提供高度可缩放且可自定义的计算层，并且它们支持 Windows 平台映像、Linux 平台映像、自定义映像和扩展。 有关规模集的详细信息，请参阅[虚拟机规模集](virtual-machine-scale-sets-overview.md)。
@@ -60,7 +60,7 @@ New-AzureRmResourceGroup -Location chinanorth -Name MyResourceGroup1
 
 ## <a name="create-from-azure-cli"></a>从 Azure CLI 创建
 
-使用 Azure CLI，只需最少的工作量就可创建虚拟机规模集。 如果省略默认值，则将为你提供它们。 例如，如果你未指定任何虚拟网络信息，系统将自动创建一个虚拟网络。 如果省略以下组成部分，系统会自动予以创建： 
+使用 Azure CLI，只需最少的工作量就可创建虚拟机规模集。 如果省略默认值，则将为你提供它们。 例如，如果你未指定任何虚拟网络信息，系统自动创建一个虚拟网络。 如果省略以下组成部分，系统会自动予以创建： 
 - 负载均衡器
 - 虚拟网络
 - 公共 IP 地址
@@ -182,6 +182,12 @@ Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig
 New-AzureRmVmss -ResourceGroupName $rg -Name "MyScaleSet1" -VirtualMachineScaleSet $vmssConfig
 ```
 
+### <a name="using-a-custom-virtual-machine-image"></a>使用自定义虚拟机映像
+如果要从自己的自定义映像创建规模集，而不是从库中引用虚拟机映像，Set-AzureRmVmssStorageProfile 命令将如下所示：
+```PowerShell
+Set-AzureRmVmssStorageProfile -OsDiskCreateOption FromImage -ManagedDisk PremiumLRS -OsDiskCaching "None" -OsDiskOsType Linux -ImageReferenceId (Get-AzureRmImage -ImageName $VMImage -ResourceGroupName $rg).id
+```
+
 ## <a name="create-from-a-template"></a>从模板创建
 
 可以使用 Azure Resource Manager 模板部署虚拟机规模集。 可以创建自己的模板，也可以使用[模板存储库](https://github.com/Azure/azure-quickstart-templates/?term=vmss)中的模板。 可直接将这些模板部署到 Azure 订阅。
@@ -205,4 +211,4 @@ Azure 门户提供了快速创建规模集的简便方式。 有关详细信息�
 
 了解如何[管理应用](virtual-machine-scale-sets-deploy-app.md)。
 
-<!--Update_Description: update sample code-->
+<!--Update_Description: Add Using a custom virtual machine image-->

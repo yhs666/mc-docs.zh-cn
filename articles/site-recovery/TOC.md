@@ -10,8 +10,22 @@
 ### [本地到 Azure 支持](site-recovery-support-matrix-to-azure.md)
 ### [本地到辅助站点支持](site-recovery-support-matrix-to-sec-site.md)
 ## [常见问题](site-recovery-faq.md)
+## [观看简介](https://www.azure.cn/video-center/)
 
 # 入门
+## [将 VMware VM 复制到 Azure](vmware-walkthrough-overview.md)
+### [步骤 1：查看体系结构](vmware-walkthrough-architecture.md)
+### [步骤 2：查看先决条件和限制](vmware-walkthrough-prerequisites.md)
+### [步骤 3：规划容量](vmware-walkthrough-capacity.md)
+### [步骤 4：规划网络](vmware-walkthrough-network.md)
+### [步骤 5：准备 Azure](vmware-walkthrough-prepare-azure.md)
+### [步骤 6：准备 VMware](vmware-walkthrough-prepare-vmware.md)
+### [步骤 7：创建保管库](vmware-walkthrough-create-vault.md)
+### [步骤 8：设置源和目标](vmware-walkthrough-source-target.md)
+### [步骤 9：创建复制策略](vmware-walkthrough-replication.md)
+### [步骤 10：安装移动服务](vmware-walkthrough-install-mobility.md)
+### [步骤 11：启用复制](vmware-walkthrough-enable-replication.md)
+### [步骤 12：运行测试故障转移](vmware-walkthrough-test-failover.md)
 ## [将 Hyper-V VM 复制到 Azure](hyper-v-site-walkthrough-overview.md)
 ### [步骤 1：查看体系结构](hyper-v-site-walkthrough-architecture.md)
 ### [步骤 2：查看先决条件和限制](hyper-v-site-walkthrough-prerequisites.md)
@@ -24,7 +38,19 @@
 ### [步骤 9：创建复制策略](hyper-v-site-walkthrough-replication.md)
 ### [步骤 10：启用复制](hyper-v-site-walkthrough-enable-replication.md)
 ### [步骤 11：运行测试故障转移](hyper-v-site-walkthrough-test-failover.md)
-## [将 Hyper-V VM 复制到 Azure（包含 VMM）](site-recovery-vmm-to-azure.md)
+## [将 Hyper-V VM 复制到 Azure（使用 VMM）](vmm-to-azure-walkthrough-overview.md)
+### [步骤 1：查看体系结构](vmm-to-azure-walkthrough-architecture.md)
+### [步骤 2：查看先决条件和限制](vmm-to-azure-walkthrough-prerequisites.md)
+### [步骤 3：规划容量](vmm-to-azure-walkthrough-capacity.md)
+### [步骤 4：规划网络](vmm-to-azure-walkthrough-network.md)
+### [步骤 5：准备 Azure](vmm-to-azure-walkthrough-prepare-azure.md)
+### [步骤 6：准备 VMM 和 Hyper-V](vmm-to-azure-walkthrough-vmm-hyper-v.md)
+### [步骤 7：创建保管库](vmm-to-azure-walkthrough-create-vault.md)
+### [步骤 8：设置源和目标](vmm-to-azure-walkthrough-source-target.md)
+### [步骤 9：配置网络映射](vmm-to-azure-walkthrough-network-mapping.md)
+### [步骤 10：创建复制策略](vmm-to-azure-walkthrough-replication.md)
+### [步骤 11：启用复制](vmm-to-azure-walkthrough-enable-replication.md)
+### [步骤 12：运行测试故障转移](vmm-to-azure-walkthrough-test-failover.md)
 ## [将物理服务器复制到 Azure](physical-walkthrough-overview.md)
 ### [步骤 1：查看体系结构](physical-walkthrough-architecture.md)
 ### [步骤 2：查看先决条件和限制](physical-walkthrough-prerequisites.md)
@@ -37,8 +63,9 @@
 ### [步骤 9：安装移动服务](physical-walkthrough-install-mobility.md)
 ### [步骤 10：启用复制](physical-walkthrough-enable-replication.md)
 ### [步骤 11：运行测试故障转移](physical-walkthrough-test-failover.md)
-## [将 Hyper-V VM 复制到辅助站点（包含 VMM）](site-recovery-vmm-to-vmm.md)
+## [将 Hyper-V VM 复制到辅助站点（使用 VMM）](site-recovery-vmm-to-vmm.md)
 
+## [在多租户部署中将 VMware VM 复制到 Azure (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
 # 如何
 ## 计划
@@ -62,7 +89,9 @@
 #### [运行到 Azure 的测试故障转移](site-recovery-test-failover-to-azure.md)
 #### [运行 VMM 云之间的测试故障转移](site-recovery-test-failover-vmm-to-vmm.md)
 ### [故障转移受保护的计算机](site-recovery-failover.md)
-
+### 在故障转移后重新保护计算机
+#### [从 Azure 次要区域到主区域进行重新保护](site-recovery-how-to-reprotect-azure-to-azure.md)
+#### [从 Azure 到本地进行重新保护](site-recovery-how-to-reprotect.md)
 ### 从 Azure 回复故障
 #### [从 Azure 到 Hyper-V 进行故障回复](site-recovery-failback-from-azure-to-hyper-v.md)
 ## 迁移
@@ -74,14 +103,14 @@
 ### [复制 SQL Server](site-recovery-sql.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
-### [SAP](site-recovery-workload.md#protect-sap)
+
 ### [其他工作负荷](site-recovery-workload.md#workload-summary)
 ## 自动复制
-### [将 Hyper-V 自动复制到 Azure（不包含 VMM）](site-recovery-deploy-with-powershell-resource-manager.md)
-### [将 Hyper-V 自动复制到 Azure（包含 VMM）](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-### [将 Hyper-V 自动复制到辅助站点（包含 VMM）](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
+### [将 Hyper-V 自动复制到 Azure（不使用 VMM）](site-recovery-deploy-with-powershell-resource-manager.md)
+### [将 Hyper-V 自动复制到 Azure（使用 VMM）](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+### [将 Hyper-V 自动复制到辅助站点（使用 VMM）](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## 管理
-
+### [将 Site Recovery 保管库升级到恢复服务保管库](upgrade-site-recovery-vaults.md)
 ### [删除服务器并禁用保护](site-recovery-manage-registration-and-protection.md)
 ### [删除恢复服务保管库](delete-vault.md)
 ## 监视和故障排除
@@ -97,7 +126,10 @@
 ## [Azure 自动化](https://docs.azure.cn/zh-cn/automation/)
 
 # 资源
-
+## [Azure 路线图](https://azure.microsoft.com/roadmap/)
 ## [博客](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
 ## [论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
-## [定价](https://www.azure.cn/pricing/details/site-recovery/)
+## [学习路径](https://www.azure.cn/documentation/learning-paths/site-recovery/)
+## [价格](https://www.azure.cn/pricing/details/site-recovery/)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
+## [服务更新](https://www.azure.cn/what-is-new/)

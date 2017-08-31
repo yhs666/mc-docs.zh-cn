@@ -15,14 +15,14 @@ ms.topic: get-started-article
 origin.date: 05/12/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
-ms.openlocfilehash: bbb81082127bb699832339f7acbd59913e174589
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 22dd71deca3a4bffe427073229a216901b08a381
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>为首个 Web 应用添加功能
-在[在 5 分钟内将首个 Web 应用部署到 Azure](app-service-web-get-started-dotnet.md) 教程中，已将一个示例 Web 应用部署到 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。 本文将快速地在所部署的 Web 应用中添加一些强大功能。 只需几分钟，就能够：
+在[在 5 分钟内将首个 Web 应用部署到 Azure](app-service-web-get-started-dotnet.md) 教程中，已将一个示例 Web 应用部署到 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)。 本文将快速地在所部署的 Web 应用中添加一些强大功能。 只需几分钟，就能够：
 
 * 强制实施用户身份验证
 * 自动缩放应用
@@ -134,6 +134,7 @@ ms.lasthandoff: 06/23/2017
 
 应会看到“订阅管理员”已是应用的“所有者”。 如果你是 Azure 订阅（例如试用订阅）的帐户管理员，该组将包括你。 有关 Azure 基于角色的访问控制的详细信息，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-configure.md)。
 
+
 ## <a name="next-steps"></a>后续步骤
 配置警报时，可能已注意到“工具”边栏选项卡中有一组丰富的工具。 可在此处排查问题、监视性能、测试漏洞、管理资源、与 VM 控制台交互 以及添加有用的扩展。 可单击其中的每个工具，一键探索这些简单但功能强大的工具。
 
@@ -143,6 +144,6 @@ ms.lasthandoff: 06/23/2017
 * [设置持续部署](app-service-continuous-deployment.md) - 将应用部署集成到源代码控制系统。 通过每次提交部署到 Azure。
 * [备份应用](web-sites-backup.md) - 为 Web 应用设置备份和还原。 为意外的故障做好准备并从中恢复。
 * [启用诊断日志](web-sites-enable-diagnostic-log.md) - 从 Azure 或应用程序跟踪读取 IIS 日志。
-* [扫描应用中的漏洞](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
+* [扫描应用中的漏洞](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)-
   使用 [Tinfoil Security](https://www.tinfoilsecurity.com/) 提供的服务扫描 Web 应用，查找新型威胁。
 * [了解应用服务的工作方式](../app-service/app-service-how-works-readme.md)

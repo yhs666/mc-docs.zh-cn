@@ -1,10 +1,10 @@
 ---
-title: "通过 Azure AD Connect 同步的属性 | Azure"
+title: "Azure AD Connect 同步的属性 | Microsoft Docs"
 description: "列出与 Azure Active Directory 同步的属性。"
 services: active-directory
 documentationcenter: 
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
+origin.date: 07/17/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
-ms.date: 03/07/2017
-ms.openlocfilehash: 063bea214b56b205ee6c1b34a0436952da27e15c
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 587cf4f2e5a7e7a8ad24d7a69939b22095dd4dc2
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步：与 Azure Active Directory 同步的属性
 本主题列出通过 Azure AD Connect 同步进行同步的属性。  
@@ -29,12 +29,12 @@ ms.lasthandoff: 06/21/2017
 常见的问题是：要同步的最小属性的列表是什么。 默认的（也是建议的）方法是保留默认属性，以便可以在云中构造完整的 GAL（全局地址列表），并获取 Office 365 工作负荷中的所有功能。 在某些情况下，组织并不想要将某些属性同步到云中，因为这些属性包含敏感数据或 PII（个人身份信息），如以下示例中所示：  
 ![错误的属性](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
 
-在此情况下，请从本主题中的属性列表着手，并识别包含敏感数据或 PII 数据、因而不能同步的属性。 然后在安装期间使用 [Azure AD 应用程序和属性筛选](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering)取消选择这些属性。
+在此情况下，请从本主题中的属性列表着手，并识别包含敏感数据或 PII 数据、因而不能同步的属性。 然后在安装期间使用 [Azure AD 应用和属性筛选](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering)取消选择这些属性。
 
 > [!WARNING]
 > 取消选择属性时，应该小心，只取消选择那些绝对不能同步的属性。 取消选择其他属性可能会对功能造成负面影响。
-> 
-> 
+>
+>
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
 | 属性名称 | 用户 | 注释 |
@@ -53,6 +53,7 @@ ms.lasthandoff: 06/21/2017
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |如果启用了帐户，则进行定义。 |
 | assistant |X |X | | |
+| altRecipient |X | | |需要 Azure AD Connect 版本 1.1.552.0 或更高版本。 |
 | authOrig |X |X |X | |
 | c |X |X | | |
 | cn |X | |X | |
@@ -102,6 +103,7 @@ ms.lasthandoff: 06/21/2017
 | msExchAuditOwner |X | | | |
 | msExchBlockedSendersHash |X |X | | |
 | msExchBypassAudit |X | | | |
+| msExchBypassModerationLink | | |X |在 Azure AD Connect 版本 1.1.524.0 中可用 |
 | msExchCoManagedByLink | | |X | |
 | msExchDelegateListLink |X | | | |
 | msExchELCExpirySuspensionEnd |X | | | |
@@ -418,11 +420,11 @@ ms.lasthandoff: 06/21/2017
 | domainNetBios |X |也称为 netBiosName。 例如 CONTOSO。 |
 
 ## <a name="exchange-hybrid-writeback"></a>Exchange 混合写回
-选择启用 **Exchange 混合**部署时，这些属性将从 Azure AD 写回到本地 Active Directory。 根据你的 Exchange 版本，可能会同步更少的属性。
+选择启用 **Exchange 混合**部署时，这些属性从 Azure AD 写回到本地 Active Directory。 根据 Exchange 版本，可能会同步更少的属性。
 
 | 属性名称 | 用户 | 联系人 | 组 | 注释 |
 | --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |派生自 Azure AD 中的 cloudAnchor。 此属性是 Exchange 2016 中的新增属性。 |
+| msDS-ExternalDirectoryObjectID |X | | |派生自 Azure AD 中的 cloudAnchor。 此属性是 Exchange 2016 和 Windows Server 2016 AD 中的新增属性。 |
 | msExchArchiveStatus |X | | |联机存档：使客户能够存档邮件。 |
 | msExchBlockedSendersHash |X | | |筛选：从客户端写回本地筛选及在线安全和已阻止的发件人数据。 |
 | msExchSafeRecipientsHash |X | | |筛选：从客户端写回本地筛选及在线安全和已阻止的发件人数据。 |
@@ -430,6 +432,19 @@ ms.lasthandoff: 06/21/2017
 | msExchUCVoiceMailSettings |X | | |启用统一消息传送 (UM) - 在线语音邮件：供 Microsoft Lync Server 集成用于向 Lync Server 本地指示用户在在线服务中有语音邮件。 |
 | msExchUserHoldPolicies |X | | |诉讼数据保留：启用云服务来标识哪些用户正处于诉讼数据保留状态。 |
 | proxyAddresses |X |X |X |只插入 Exchange Online 中的 x500 地址。 |
+| publicDelegates |X | | |允许向拥有本地 Exchange 邮箱的用户授予 Exchange Online 邮箱的 SendOnBehalfTo 权限。 需要 Azure AD Connect 版本 1.1.552.0 或更高版本。 |
+
+## <a name="exchange-mail-public-folder"></a>Exchange 邮件公共文件夹
+如果选择启用“Exchange 邮件公用文件夹”，这些属性将从本地 Active Directory 同步到 Azure AD。
+
+| 属性名称 | PublicFolder | 注释 |
+| --- | :---:| --- |
+| displayName | X |  |
+| mail | X |  |
+| msExchRecipientTypeDetails | X |  |
+| objectGUID | X |  |
+| proxyAddresses | X |  |
+| targetAddress | X |  |
 
 ## <a name="device-writeback"></a>设备写回
 设备对象是在 Active Directory 中创建的。 这些对象可以是加入 Azure AD 的设备，或加入域的 Windows 10 计算机。
@@ -452,10 +467,12 @@ ms.lasthandoff: 06/21/2017
 | msDS-RegisteredOwner |X | |
 
 ## <a name="notes"></a>说明
-- 使用替代 ID 时，本地属性 userPrincipalName 将与 Azure AD 属性 onPremisesUserPrincipalName 同步。 替代 ID 属性（例如 mail）将与 Azure AD 属性 userPrincipalName 同步。
+- 使用替代 ID 时，本地属性 userPrincipalName 将与 Azure AD 属性 onPremisesUserPrincipalName 同步。 替代 ID 属性（例如 mail）会与 Azure AD 属性 userPrincipalName 同步。
 - 在上述列表中，对象类型 User 也适用于对象类型 iNetOrgPerson。
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)配置的详细信息。
 
-了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
+了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
+
+<!--Update_Description: wording update -->

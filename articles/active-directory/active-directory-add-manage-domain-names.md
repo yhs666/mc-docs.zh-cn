@@ -12,17 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/13/2017
-ms.date: 07/18/2017
+origin.date: 07/26/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: d4e41648f1342d5b22237bb79dd3c97f3ff3ec54
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.openlocfilehash: d6b9062fb2bf5cc125c5cf9bed9ca9094ec0f412
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自定义域名
-域名是许多目录资源标识符的重要部分：它可能是用户的用户名或电子邮件地址的一部分、组地址的一部分，也可能是应用程序的应用 ID URI 的一部分。 Azure Active Directory (Azure AD) 中的资源可包含已验证为目录（包含该资源）所拥有的域名。 只有全局管理员才能在 Azure AD 中执行域管理任务。
+域名可以是许多目录资源的重要标识符，作为以下项的一部分：
+
+- 用户的用户名或电子邮件地址
+- 应用程序的应用 ID URI
+
+Azure Active Directory (Azure AD) 中的资源可包含已验证为目录（包含该资源）所拥有的域名。 只有全局管理员才能在 Azure AD 中执行域管理任务。
 
 ## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>设置 Azure AD 目录的主域名
 创建目录后，初始域名（例如“contoso.partner.onmschina.cn”）也是目录的主域名。 在 [Azure 经典管理门户](https://manage.windowsazure.cn/)或其他门户（如 Office 365 管理门户）中创建新用户时，主域是新用户的默认域名。 这简化了管理员在门户中创建新用户的过程。
@@ -31,7 +38,7 @@ ms.lasthandoff: 07/28/2017
 
 1. 使用充当 Azure AD 目录全局管理员的用户帐户登录到 [Azure 经典管理门户](https://manage.windowsazure.cn/) 。
 2. 在左侧导航栏上选择“Active Directory”  。
-3. 打开你的目录。
+3. 打开目录。
 4. 选择“域”选项卡。
 5. 在命令栏上选择“更改主域名”  按钮。
 6. 选择你想要其作为目录的新主域的域。
@@ -42,7 +49,7 @@ ms.lasthandoff: 07/28/2017
 可以将最多 900 个自定义域名添加到每个 Azure AD 目录。 [添加其他自定义域名](active-directory-add-domain.md)的过程与第一个自定义域名相同。
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>添加自定义域的子域
-如果想要将第三级域名（如 “europe.contoso.com”）添加到目录，则应首先添加并验证第二级域，例如 contoso.com。 子域由 Azure AD 自动验证。 若要查看刚添加的子域是否已经过验证，请刷新浏览器中的页面，其中列出了目录中的域。
+如果想要将第三级域名（如 “europe.contoso.com”）添加到目录，则应首先添加并验证第二级域，例如 contoso.com。子域由 Azure AD 自动验证。 若要查看刚添加的子域是否已经过验证，请刷新浏览器中的页面，其中列出了目录中的域。
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>更改自定义域名的 DNS 注册机构会发生什么情况
 如果更改自定义域名的 DNS 注册机构，则可以继续将自定义域名用于 Azure AD 本身，而不会发生中断，也不需要执行其他配置任务。 如果在 Office 365、Intune 或其他依赖于 Azure AD 中的自定义域名的服务中使用自定义域名，请参阅这些服务的文档。
@@ -69,4 +76,4 @@ ms.lasthandoff: 07/28/2017
 - [管理自定义域名](active-directory-add-manage-domain-names.md)
 
 
-<!--Update_Description: update meta properties -->   
+<!--Update_Description: wording update -->   

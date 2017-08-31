@@ -12,30 +12,30 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/06/2017
-ms.date: 07/31/2017
+origin.date: 08/01/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 53544b6f0dd322b9d2ea15710eed251ae54bc399
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: 03055399f691a9567f46d220e62ea83133b6dd31
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>使用 Azure Automation DSC 部署移动服务以复制 VM
 在 Operations Management Suite 中，我们提供了一个可在业务连续性计划中使用的综合性备份和灾难恢复解决方案。
 
 我们已使用 Hyper-V 副本并结合 Hyper-V 体验了这些功能。 但是，这些功能现已经过扩展，可支持异构设置，因为客户在其云中拥有多个虚拟机监管程序与平台。
 
-如果你目前运行的是 VMware 工作负荷和/或物理服务器，当 Azure 是目标时，管理服务器将运行环境中的所有 Azure Site Recovery 组件来处理与 Azure 之间的通信和数据复制。
+如果目前运行的是 VMware 工作负荷和/或物理服务器，当 Azure 是目标时，管理服务器将运行环境中的所有 Azure Site Recovery 组件来处理与 Azure 之间的通信和数据复制。
 
 ## <a name="deploy-the-site-recovery-mobility-service-by-using-automation-dsc"></a>使用 Automation DSC 部署 Site Recovery 移动服务
 让我们快速剖析此管理服务器的作用：
 
 管理服务器运行多个服务器角色。 其中一个角色是 *配置*，负责协调通信，以及管理数据复制与恢复过程。
 
-此外， *进程* 角色充当复制网关。 此角色接收受保护源计算机提供的复制数据，通过缓存、压缩和加密对其进行优化，然后将数据发送到 Azure 存储帐户。 进程角色的一大功能是，它还可以将移动服务的安装推送到受保护的计算机，并执行自动发现 VMware VM 的操作。
+此外， *进程* 角色充当复制网关。 此角色接收受保护源计算机提供的复制数据，通过缓存、压缩和加密对其进行优化，并将数据发送到 Azure 存储帐户。 进程角色的一大功能是，它还可以将移动服务的安装推送到受保护的计算机，并执行自动发现 VMware VM 的操作。
 
-从 Azure 故障回复时， *主目标* 角色将处理此操作过程中的复制数据。
+从 Azure 故障回复时，*主目标*角色将处理此操作过程中的复制数据。
 
 对于受保护的计算机，我们依赖于 *移动服务*。 此组件部署在要复制到 Azure 的每个计算机（VMware VM 或物理服务器）上。 它捕获计算机上的数据写入操作，并将这些操作转发到管理服务器（进程角色）。
 
@@ -53,15 +53,13 @@ ms.lasthandoff: 07/28/2017
 * 一个存储库，用于存储注册到管理服务器时所需的通行短语
 
     > [!NOTE]
-    >将为每个管理服务器生成唯一的通行短语。 若要部署多个管理服务器，需确保将正确的通行短语存储在 passphrase.txt 文件中。
+    >为每个管理服务器生成唯一的通行短语。 要部署多个管理服务器，需确保将正确的通行短语存储在 passphrase.txt 文件中。
     > 
     > 
 * 在计算机上安装 Windows Management Framework (WMF) 5.0，需要启用以获取保护（Automation DSC 的要求）
 
     > [!NOTE]
-    >如需将 DSC 用于安装了 WMF 4.0 的 Windows 计算机上，请参阅[在断开连接的环境中使用 DSC](#Use DSC in disconnected environments) 部分。
-    > 
-    > 
+    > 如需将 DSC 用于安装了 WMF 4.0 的 Windows 计算机上，请参阅[在断开连接的环境中使用 DSC](## Use DSC in disconnected environments) 部分。
 
 移动服务可通过命令行安装，接受多个参数。 因此，在从安装中提取二进制文件后，需要保留这些文件，并将其存储在能够使用 DSC 配置进行检索的某个位置。
 
@@ -82,7 +80,7 @@ ms.lasthandoff: 07/28/2017
 现已获得所需的二进制文件，可以使用 Automation DSC 自动安装移动服务了。
 
 ### <a name="passphrase"></a>通行短语
-接下来，你需要确定在何处放置这个压缩的文件夹。 可以使用稍后所述的 Azure 存储帐户来存储设置所需的通行短语。 然后，代理将在此过程中注册到管理服务器。
+接下来，需要确定在何处放置这个压缩的文件夹。 可以使用稍后所述的 Azure 存储帐户来存储设置所需的通行短语。 然后，代理将在此过程中注册到管理服务器。
 
 部署管理服务器时获取的通行短语可以保存到 txt 文件 (passphrase.txt) 中。
 
@@ -147,7 +145,7 @@ configuration ASRMobilityService {
         Package Install {
             Path = 'C:\temp\ASRSetup\ASR\UNIFIEDAGENT.EXE'
             Ensure = 'Present'
-            Name = 'Microsoft Azure Site Recovery mobility Service/Master Target Server'
+            Name = 'Azure Site Recovery mobility Service/Master Target Server'
             ProductId = '275197FC-14FD-4560-A5EB-38217F80CBD1'
             Arguments = $Arguments
             DependsOn = '[Archive]ASRzip'
@@ -193,7 +191,7 @@ configuration ASRMobilityService {
 }
 ```
 
-配置将执行以下操作：
+配置会执行以下操作：
 
 * 变量告诉配置要在何处获取移动服务和 Azure VM 代理的二进制文件、在何处获取通行短语，以及在何处存储输出。
 * 配置将导入 xPSDesiredStateConfiguration DSC 资源，以便可以使用 `xRemoteFile` 从存储库下载文件。
@@ -201,7 +199,7 @@ configuration ASRMobilityService {
 * 存档资源将提取压缩文件夹中的文件。
 * 包安装资源将使用特定参数安装 UNIFIEDAGENT.EXE 安装程序的移动服务。 （需要根据实际环境对构造参数的变量进行更改。）
 * 包 AzureAgent 资源安装 Azure VM 代理，这是针对 Azure 中运行的每个 VM 建议安装的代理。 故障转移后，还能通过 Azure VM 代理将扩展添加到 VM。
-* 服务资源将确保相关的移动服务和 Azure 服务始终运行。
+* 服务资源可确保相关的移动服务和 Azure 服务始终运行。
 
 将配置保存为 **ASRMobilityService**。
 
@@ -215,14 +213,14 @@ configuration ASRMobilityService {
 
 登录到自己的自动化帐户，浏览到“资产” > “模块”，然后单击“浏览库”。
 
-你可以在此处搜索模块，并将其导入到帐户中。
+可以在此处搜索模块，并将其导入到帐户中。
 
 ![导入模块](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)
 
-完成此操作后，请转到已安装 Azure Resource Manager 模块的计算机，然后继续导入新建的 DSC 配置。
+完成此操作后，请转到已安装 Azure Resource Manager 模块的计算机，并继续导入新建的 DSC 配置。
 
 ### <a name="import-cmdlets"></a>导入 cmdlet
-在 PowerShell 中，登录到 Azure 订阅。 修改 cmdlet 以反映环境，然后捕获变量中的自动化帐户信息：
+在 PowerShell 中，登录到 Azure 订阅。 修改 cmdlet 以反映环境，并捕获变量中的自动化帐户信息：
 
 ```powershell
 $AAAccount = Get-AzureRmAutomationAccount -ResourceGroupName 'KNOMS' -Name 'KNOMSAA'
@@ -346,7 +344,7 @@ Get-DscConfigurationStatus
 
 此外，移动服务安装程序自带的日志位于 *SystemDrive*\ProgramData\ASRSetupLogs 中。
 
-就这么简单。 现在，已在要使用 Site Recovery 保护的计算机上成功部署和注册移动服务。 DSC 将确保所需的服务始终处于运行状态。
+就这么简单。 现在，已在要使用 Site Recovery 保护的计算机上成功部署和注册移动服务。 DSC 可确保所需的服务始终处于运行状态。
 
 ![成功部署](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
 
@@ -357,7 +355,7 @@ Get-DscConfigurationStatus
 
 可以在环境中将自己的 DSC 实例化，这样，基本上就能获得 Automation DSC 所提供的相同功能。 即，客户端将请求到 DSC 终结点的配置（在其注册后）。 另一种做法是将 DSC 配置手动推送到计算机（无论是在本地还是远程）。
 
-请注意，本示例为计算机名添加了一个参数。 远程文件现在位于想要保护的计算机应可访问的远程共享上。 脚本结束时，将启用配置，然后开始将 DSC 配置应用到目标计算机。
+请注意，本示例为计算机名添加了一个参数。 远程文件现在位于想要保护的计算机应可访问的远程共享上。 脚本结束时，会启用配置，然后开始将 DSC 配置应用到目标计算机。
 
 ### <a name="prerequisites"></a>先决条件
 确定已安装 xPSDesiredStateConfiguration PowerShell 模块。 对于安装了 WMF 5.0 的 Windows 计算机，可在目标计算机上运行以下 cmdlet 来安装 xPSDesiredStateConfiguration 模块：
@@ -430,7 +428,7 @@ configuration ASRMobilityService {
         Package Install {
             Path = 'C:\temp\ASRSetup\ASR\UNIFIEDAGENT.EXE'
             Ensure = 'Present'
-            Name = 'Microsoft Azure Site Recovery mobility Service/Master Target Server'
+            Name = 'Azure Site Recovery mobility Service/Master Target Server'
             ProductId = '275197FC-14FD-4560-A5EB-38217F80CBD1'
             Arguments = $Arguments
             DependsOn = '[Archive]ASRzip'
@@ -482,7 +480,7 @@ Start-DscConfiguration .\ASRMobilityService -Wait -Force -Verbose
 
 部署模板后，只需参阅本指南中的步骤 4 即可登记计算机。
 
-该模板将执行以下操作：
+该模板会执行以下操作：
 
 1. 使用现有的自动化帐户或创建新的自动化帐户
 2. 获取以下各项的输入参数：
@@ -515,4 +513,4 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ## <a name="next-steps"></a>后续步骤
 部署移动服务代理后，可为虚拟机[启用复制](site-recovery-vmware-to-azure.md)。
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, update link-->

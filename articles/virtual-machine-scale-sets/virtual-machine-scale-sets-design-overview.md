@@ -1,11 +1,11 @@
 ---
-title: "设计规模化的 Azure 虚拟机规模集 | Azure"
-description: "了解如何设计规模化的 Azure 虚拟机规模集"
+title: "Azure 虚拟机规模集的设计注意事项 | Azure"
+description: "了解 Azure 虚拟机规模集的设计注意事项"
 keywords: "linux 虚拟机, 虚拟机规模集"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gatneil
-manager: madhana
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: 583676a592562c0ce67d4604299952cbcf1663b8
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 43ff438153bf3308f3ba5bb0742f1ec4b0f6f8c3
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
-# <a name="designing-scale-sets-for-scale"></a>根据缩放需求设计规模集
+# <a name="design-considerations-for-scale-sets"></a>规模集的设计注意事项
 本主题讨论虚拟机规模集的设计注意事项。 有关什么是虚拟机规模集的信息，请参阅[虚拟机规模集概述](virtual-machine-scale-sets-overview.md)。
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>何时使用规模集而不使用虚拟机？
@@ -50,7 +50,7 @@ ms.lasthandoff: 07/28/2017
 ## <a name="storage"></a>存储
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>使用 Azure 托管磁盘创建规模集
-可以使用 [Azure 托管磁盘](../storage/storage-managed-disks-overview.md)而不是传统的 Azure 存储帐户创建规模集。 托管磁盘可以提供以下优点：
+可以使用 [Azure 托管磁盘](../virtual-machines/windows/managed-disks-overview.md)而不是传统的 Azure 存储帐户创建规模集。 托管磁盘可以提供以下优点：
 - 无需为规模集 VM 预先创建一组 Azure 存储帐户。
 - 可以为规模集中的 VM 定义[附加的数据磁盘](virtual-machine-scale-sets-attached-disks.md)。
 - 可以将规模集配置为[在一个规模集中最多支持 1,000 个 VM](virtual-machine-scale-sets-placement-groups.md)。 
@@ -76,4 +76,4 @@ ms.lasthandoff: 07/28/2017
 
 对于高出这些限制所允许的 VM，需要部署多个规模集，如[此模板](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)所示。
 
-<!--Update_Description: add question "When to use scale sets instead of virtual machines?"-->
+<!--Update_Description: update link-->

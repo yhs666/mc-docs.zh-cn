@@ -3,8 +3,8 @@ title: "Azure 虚拟机规模集的网络 | Azure"
 description: "Azure 虚拟机规模集的配置网络属性。"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 18c9fba4a95f76d527493fb4fe7404abc07a899f
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 07/17/2017
+ms.date: 08/28/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 2f19abb9436a084f82cf93d3f26e4562f4f1b8b0
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虚拟机规模集的网络
 
@@ -115,7 +115,17 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>在规模集中查询虚拟机的公共 IP 地址
 若要通过 CLI 2.0 列出分配到规模集虚拟机的公共 IP 地址，请使用 **az vmss list-instance-public-ips** 命令。
 
-也可使用 [Azure 资源浏览器](https://resources.azure.com)或者 Azure REST API **2017-03-30** 或更高版本查询分配到规模集虚拟机的公共 IP 地址。
+若要使用 PowerShell 列出规模集的公共 IP 地址，请使用 _Get-AzureRmPublicIpAddress_ 命令。 例如：
+```PowerShell
+PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+```
+
+也可以通过直接引用公共 IP 地址配置的资源 ID 来查询公共 IP 地址。 例如：
+```PowerShell
+PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+```
+
+使用 [Azure 资源浏览器](https://resources.azure.com)或者 Azure REST API **2017-03-30** 版或更高版本查询分配到规模集虚拟机的公共 IP 地址。
 
 若要使用资源浏览器查看规模集的公共 IP 地址，请找到规模集下的 **publicipaddresses** 节。 例如：https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
 
@@ -279,3 +289,4 @@ GET https://management.chinacloudapi.cn/subscriptions/{your sub ID}/resourceGrou
 
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 虚拟网络的详细信息，请参阅[此文档](../virtual-network/virtual-networks-overview.md)。
+<!--Update_Description: update list & query scale set public IP addresses sample code-->

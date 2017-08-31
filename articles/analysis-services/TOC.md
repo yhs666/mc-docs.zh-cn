@@ -2,16 +2,27 @@
 ## [什么是 Azure Analysis Services？](analysis-services-overview.md)
 ## [支持的数据源](analysis-services-datasource.md)
 ## [身份验证和用户权限](analysis-services-manage-users.md)
+## [连接到本地数据源](analysis-services-gateway.md)
+## [兼容级别](analysis-services-compat-level.md)
+## [高可用性](analysis-services-bcdr.md)
 
-# 快速入门
-## [创建服务器 - 门户](analysis-services-create-server.md)
-## [部署模型 - SSDT](analysis-services-deploy.md)
+# 入门
+## [在 Azure 门户中创建服务器](analysis-services-create-server.md)
+## [使用 PowerShell 创建服务器](analysis-services-create-powershell.md)
+## [从 Visual Studio 部署模型](analysis-services-deploy.md)
+## [在 Azure 门户（预览）中创建模型](analysis-services-create-model-portal.md)
 
-# 示例
-## [GitHub 上的 Analysis Services 示例](https://github.com/Microsoft/Analysis-Services)
-
-# 教程
-## 创建和部署模型
+# 操作说明 
+## [管理服务器](analysis-services-manage.md)
+## [管理数据库用户](analysis-services-database-users.md)
+## [管理服务器管理员](analysis-services-server-admins.md)
+## [安装并配置本地数据网关](analysis-services-gateway-install.md)
+## [获取客户端库](analysis-services-data-providers.md)
+## [备份和还原](analysis-services-backup.md)
+## [使用 Excel 进行连接](analysis-services-connect-excel.md)
+## [使用 Power BI 进行连接](analysis-services-connect-pbi.md)
+## [创建 .odc 文件](analysis-services-odc.md)
+## 教程
 ### [Adventure Works 教程](tutorials/aas-adventure-works-tutorial.md)
 ### [第 1 课：创建新的表格模型项目](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 ### [第 2 课：获取数据](tutorials/aas-lesson-2-get-data.md)
@@ -28,19 +39,7 @@
 ### [第 13 课：部署](tutorials/aas-lesson-13-deploy.md)
 ### [补充课程 - 详细信息行](tutorials/aas-supplemental-lesson-detail-rows.md)
 ### [补充课程 - 动态安全性](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [补充课程 - 不规则层次结构](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
-
-# 操作说明 
-## [管理服务器](analysis-services-manage.md)
-## [管理数据库用户](analysis-services-database-users.md)
-## [管理服务器管理员](analysis-services-server-admins.md)
-## [集成本地数据网关](analysis-services-gateway.md)
-## [使用 Excel 进行连接](analysis-services-connect-excel.md)
-## [使用 Power BI 进行连接](analysis-services-connect-pbi.md)
-## [获取客户端库](analysis-services-data-providers.md)
-## [备份和还原](analysis-services-backup.md)
-## [高可用性](analysis-services-bcdr.md)
-## [创建 .odc 文件](analysis-services-odc.md)
+### [补充课程 - 不规则层次结构](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # 引用
 ## [PowerShell](analysis-services-powershell.md)
@@ -50,11 +49,13 @@
 ## [表格模型脚本语言 (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # 资源
+## [GitHub 上的 Analysis Services 代码示例](https://github.com/Microsoft/Analysis-Services)
 ## [Analysis Services 团队博客](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
 ## [Azure 路线图](https://azure.microsoft.com/roadmap/)
 ## [Azure 状态](https://www.azure.cn/support/service-dashboard/)
 ## [反馈](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [定价](https://www.azure.cn/pricing/details/analysis-services/)
+## [价格](https://www.azure.cn/pricing/details/analysis-services/)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest) -->

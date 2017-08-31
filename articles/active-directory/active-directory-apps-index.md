@@ -3,22 +3,23 @@ title: "有关 Azure Active Directory 中应用程序管理的文章索引 | Azu
 description: "了解如何自定义联合证书的到期日期，以及如何续订即将过期的证书。"
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: alexchen2016
+manager: digimobile
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/04/2017
-ms.date: 06/12/2017
+origin.date: 07/31/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 0f0f81940221a2147a3e31967de9053f6f29d6be
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.reviewer: asteen
+ms.openlocfilehash: df3ec493b57c99f071d48bff292df1bf72f26518
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>有关 Azure Active Directory 中应用程序管理的文章索引
 本页提供了一份完整列表，列出编写的 Azure Active Directory (Azure AD) 中各种应用程序相关功能的所有文章。
@@ -91,7 +92,7 @@ Azure AD Connect 适用于[所有版本的 Azure Active Directory](https://www.a
 | 文章指南 |  |
 |:---:| --- |
 | 配置如何在 Azure AD 与 SaaS 应用程序之间映射信息 | 自定义属性映射 <br><br> 编写属性映射表达式 |
-| 如何对支持 SCIM 协议的任何应用启用自动设置 |[对启用 SCIM 的任何应用设置自动用户预配](active-directory-scim-provisioning.md) |
+| 如何对支持 SCIM 协议的任何应用启用自动设置 | 对启用 SCIM 的任何应用设置自动用户预配 |
 | 根据应用程序的属性值限制可以设置应用程序的人员 | |
 
 自动用户设置适用于所有版本的 Azure AD，每个用户最多十个应用。 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) 支持无限数目的应用程序。 如果组织拥有 [Azure AD Basic](https://www.azure.cn/pricing/details/identity/) 或 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/)，则可以[使用组来管理要预配哪些用户](#managing-access-to-applications)。
@@ -119,7 +120,9 @@ Azure AD Connect 适用于[所有版本的 Azure Active Directory](https://www.a
 
 访问面板适用于[所有版本的 Azure Active Directory](https://www.azure.cn/pricing/details/identity/)。
 
-##<a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另请参阅
+[什么是 Azure Active Directory？](active-directory-whatis.md)
 
 [Azure 多重身份验证](https://www.azure.cn/home/features/multi-factor-authentication/)
 
+<!--Update_Description: wording update -->  

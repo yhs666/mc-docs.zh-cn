@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/06/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
-ms.openlocfilehash: 535b0d5d51577b35ae3182ec8050a26173554952
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 2f7703212e3064d7e022e667527f990c2f3ebafc
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Azure Web 应用上节点应用程序的最佳做法和故障排除指南
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
@@ -251,11 +251,11 @@ http.createServer(function (req, res) {
 NODE.exe 内有名为 NODE\_PENDING\_PIPE\_INSTANCES 的设置。 默认情况下，此值在 Azure Webapps 外部为 4。 这表示 node.exe 在命名管道上一次只能接受 4 个请求。 在 Azure Webapps 上，此值设置为 5000，应足以满足 Azure Webapps 上运行的大多数节点应用程序。 Azure Webapps 上不应出现 503.1003，因为 NODE\_PENDING\_PIPE\_INSTANCES 的值较高。  |
 
 ## <a name="more-resources"></a>更多资源
-请访问以下链接，详细了解 Azure App Service 上的 node.js 应用程序。
+请访问以下链接，详细了解 Azure 应用服务上的 node.js 应用程序。
 
 * [Azure 应用服务中的 Node.js Web 应用入门](app-service-web-get-started-nodejs.md)
-* [如何在 Azure App Service 中调试 Node.js Web 应用](web-sites-nodejs-debug.md)
+* [如何在 Azure 应用服务中调试 Node.js Web 应用](web-sites-nodejs-debug.md)
 * [将 Node.js 模块与 Azure 应用程序一起使用](../nodejs-use-node-modules-azure-apps.md)
-* [Azure App Service Web 应用：Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure 应用服务 Web 应用：Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js 开发人员中心](../nodejs-use-node-modules-azure-apps.md)
-* [探索神秘无比的 Kudu 调试控制台](/articles/aog-web-app-diagnostics-kudu/)
+* [探索神秘无比的 Kudu 调试控制台](/articles/web-mobile/aog-web-app-diagnostics-kudu/)

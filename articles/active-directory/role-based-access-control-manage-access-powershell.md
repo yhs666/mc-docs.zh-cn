@@ -1,38 +1,38 @@
 ---
-title: "使用 Azure PowerShell 管理基于角色的访问控制 (RBAC) | Azure"
+title: "使用 Azure PowerShell 管理基于角色的访问控制 (RBAC) | Microsoft Docs"
 description: "如何使用 Azure PowerShell 管理 RBAC，包括列出角色、分配角色和删除角色分配。"
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
-editor: 
+author: alexchen2016
+manager: digimobile
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 03/02/2017
-ms.date: 04/05/2017
+origin.date: 07/12/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 0a9dd851129d6194a04db30e461a17c172cd0efb
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.reviewer: rqureshi
+ms.openlocfilehash: a7ca6882a28ebcc399074a9ee7d5d2cebb158dee
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>使用 Azure PowerShell 管理基于角色的访问控制
 > [!div class="op_single_selector"]
->- [PowerShell](./role-based-access-control-manage-access-powershell.md)
->- [Azure CLI](./role-based-access-control-manage-access-azure-cli.md)
->- [REST API](./role-based-access-control-manage-access-rest.md)
+> * [PowerShell](role-based-access-control-manage-access-powershell.md)
+> * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+> * [REST API](role-based-access-control-manage-access-rest.md)
 
 可以使用 Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Management API 精细管理对订阅的访问权限。 使用此功能，可以通过在特定范围内为 Active Directory 用户、组或服务主体分配某些角色来向其授予访问权限。
 
 在使用 PowerShell 管理 RBAC 之前，需具备以下先决条件：
 
-- Azure PowerShell 0.8.8 版或更高版本。 若要安装最新版本并将其与 Azure 订阅相关联，请参阅[如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
-- Azure Resource Manager cmdlets。 在 PowerShell 中安装 [Azure Resource Manager cmdlets](https://msdn.microsoft.com/zh-cn/library/mt125356.aspx) 。
+- Azure PowerShell 0.8.8 版或更高版本。 若要安装最新版本并将其与 Azure 订阅相关联，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
+- Azure Resource Manager cmdlets。 在 PowerShell 中安装 [Azure Resource Manager cmdlets](https://docs.microsoft.com/powershell/azure/overview) 。
 
 ## <a name="list-roles"></a>列出角色
 ### <a name="list-all-available-roles"></a>列出所有可用的角色
@@ -72,6 +72,7 @@ Get-AzureRmRoleAssignment -ResourceGroupName Pharma-Sales-ProjectForcast | FL Di
 
 ```
 Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com | FL DisplayName, RoleDefinitionName, Scope
+
 Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
@@ -88,7 +89,7 @@ Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 ### <a name="search-for-object-ids"></a>搜索对象 ID
 若要分配角色，需要标识对象（用户、组或应用程序）和范围。
 
-如果不知道订阅 ID，可以在 Azure 门户的“订阅”  边栏选项卡中查找。 若要了解如何通过查询获取订阅 ID，请参阅 MSDN 上的 [Get-AzureSubscription](https://msdn.microsoft.com/zh-cn/library/dn495302.aspx) 。
+如果不知道订阅 ID，可以在 Azure 门户的“订阅”  边栏选项卡中查找。 若要了解如何通过查询获取订阅 ID，请参阅 MSDN 上的 [Get-AzureSubscription](https://docs.microsoft.com/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) 。
 
 若要获取 Azure AD 组的对象 ID，请使用：
 
@@ -141,7 +142,7 @@ Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role nam
 ## <a name="create-a-custom-role"></a>创建自定义角色
 若要创建自定义角色，请使用 ```New-AzureRmRoleDefinition``` 命令。 可以通过两种方法来构造角色，即使用 PSRoleDefinitionObject 或 JSON 模板。 
 
-## <a name="get-actions-from-particular-resource-provider"></a>从特定的资源提供程序获取 Actions
+## <a name="get-actions-for-a-resource-provider"></a>获取资源提供程序的操作
 从头开始创建自定义角色时，必须了解资源提供程序提供的所有可能的操作。
 请使用 ```Get-AzureRMProviderOperation``` 命令获取该信息。
 例如，若要查看虚拟机的所有可用操作，请使用以下命令：
@@ -151,7 +152,7 @@ Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT Operatio
 ```
 
 ### <a name="create-role-with-psroledefinitionobject"></a>使用 PSRoleDefinitionObject 创建角色
-使用 PowerShell 创建自定义角色时，可以从头开始或使用某个[内置角色](./role-based-access-built-in-roles.md)作为起点。 本部分的示例在一开始时使用某个内置角色，然后使用更多的特权对其进行自定义。 编辑属性，添加所需的 Actions、notActions 或 scopes，然后将所做的更改另存为新角色。
+使用 PowerShell 创建自定义角色时，可以从头开始或使用某个[内置角色](role-based-access-built-in-roles.md)作为起点。 本部分的示例在一开始时使用某个内置角色，并使用更多的特权对其进行自定义。 编辑属性，添加所需的 Actions、notActions 或 scopes，然后将所做的更改另存为新角色。
 
 以下示例从虚拟机参与者角色开始，使用该角色创建名为虚拟机操作员的自定义角色。 该新角色授权访问 Microsoft.Compute、Microsoft.Storage 和 Microsoft.Network 资源提供程序的所有读取操作，并授权访问启动、重新启动和监视操作。 该自定义角色可以在两个订阅中使用。
 
@@ -179,7 +180,7 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 屏幕截图](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### <a name="create-role-with-json-template"></a>使用 JSON 模板创建角色
-JSON 模板可以用作自定义角色的源定义。 以下示例创建一个可以对存储和计算资源进行读取访问以及获取支持的自定义角色，并将该角色添加到两个订阅。 创建包含以下内容的新文件 `C:\CustomRoles\customrole1.json` 。 在开始创建角色时，应将 ID 设置为 `null` ，因为新 ID 是自动生成的。 
+JSON 模板可以用作自定义角色的源定义。 以下示例创建一个可以对存储和计算资源进行读取访问以及获取支持的自定义角色，并将该角色添加到两个订阅。 创建包含以下示例的新文件 `C:\CustomRoles\customrole1.json`。 创建初始角色时，应将 ID 设置为 `null`，因为会自动生成新的 ID。 
 
 ```
 {
@@ -200,9 +201,7 @@ JSON 模板可以用作自定义角色的源定义。 以下示例创建一个�
   ]
 }
 ```
-
-若要将角色添加到订阅，请运行以下 PowerShell 命令：
-
+要将角色添加到订阅，请运行以下 PowerShell 命令：
 ```
 New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
@@ -213,16 +212,17 @@ New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ### <a name="modify-role-with-psroledefinitionobject"></a>使用 PSRoleDefinitionObject 修改角色
 若要修改自定义角色，首先，请使用 `Get-AzureRmRoleDefinition` 命令检索角色定义。 然后，对角色定义做出所需更改。 最后，使用 `Set-AzureRmRoleDefinition` 命令保存修改后的角色定义。
 
-以下示例将 `Microsoft.Insights/diagnosticSettings/*` 操作添加到 *虚拟机操作员* 自定义角色。
+以下示例将 `Microsoft.Insights/diagnosticSettings/*` 操作添加到“虚拟机操作员”自定义角色。
 
 ```
 $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
 $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*")
 Set-AzureRmRoleDefinition -Role $role
 ```
+
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - 屏幕截图](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-1.png)
 
-以下示例将 Azure 订阅添加到“虚拟机操作员”  自定义角色的可分配范围。
+以下示例将 Azure 订阅添加到“虚拟机操作员”自定义角色的可分配范围。
 
 ```
 Get-AzureRmSubscription - SubscriptionName Production3
@@ -259,7 +259,6 @@ Set-AzureRmRoleDefinition -Role $role
 ```
 
 若要更新现有角色，请运行以下 PowerShell 命令：
-
 ```
 Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
@@ -293,5 +292,7 @@ Get-AzureRmRoleDefinition | FT Name, IsCustom
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 屏幕截图](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## <a name="see-also"></a>另请参阅
-- [将 Azure PowerShell 与 Azure Resource Manager 结合使用](../azure-resource-manager/powershell-azure-resource-manager.md)
+- [将 Azure PowerShell 与 Azure 资源管理器配合使用](../azure-resource-manager/powershell-azure-resource-manager.md)
   [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+
+<!--Update_Description: wording update -->

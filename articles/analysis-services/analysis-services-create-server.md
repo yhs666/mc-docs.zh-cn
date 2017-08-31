@@ -13,23 +13,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/14/2017
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: b1945a233fe2cdda8b9234f552856278aa46a1af
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: 2f0cdb9e1da3e9ce3227961a8c00b15a40c712c4
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>在 Azure 门户中创建 Azure Analysis Services 服务器
 本文介绍如何在 Azure 订阅中创建 Analysis Services 服务器资源。
 
 ## <a name="before-you-begin"></a>开始之前
-要开始，需要：
+若要完成本快速入门，需要以下项：
 
 * **Azure 订阅**：访问 [Azure 1 元人民币的试用订阅](https://www.azure.cn/pricing/1rmb-trial-full/)以创建帐户。
-* **Azure Active Directory**：订阅必须与 Azure Active Directory 租户相关联。 并且，需要使用该 Azure Active Directory 中的一个帐户登录 Azure。 不支持 Microsoft 帐户。 若要了解详细信息，请参阅[用户身份验证](analysis-services-overview.md#secure)。
+* **Azure Active Directory**：订阅必须与 Azure Active Directory 租户相关联。 并且，需要使用该 Azure Active Directory 中的一个帐户登录 Azure。 不支持 Microsoft 帐户。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
 * **资源组**：使用已有资源组，或[创建新资源组](../azure-resource-manager/resource-group-overview.md)。
 
 > [!NOTE]
@@ -60,4 +60,4 @@ ms.lasthandoff: 08/02/2017
 
 如果部署到服务器的模型连接本地数据源，则需要在网络中的计算机上安装[本地数据网关](analysis-services-gateway.md)。
 
-<!--Update_Description: new articles on creating analysis serices server -->
+<!--Update_Description: wording update, update reference link -->

@@ -4,7 +4,7 @@ description: "本文档详述了使用 Azure AD Connect 更新 AD FS 场的 SSL 
 services: active-directory
 keywords: "azure ad connect, adfs ssl 更新, adfs 证书更新, 更改 adfs 证书, 新建 adfs 证书, adfs 证书, 更新 adfs ssl 证书, 更新 ssl 证书 adfs, 配置 adfs ssl 证书, adfs, ssl, 证书, adfs 服务通信证书, 更新联合身份验证, 配置联合身份验证, aad connect"
 authors: anandyadavmsft
-manager: femila
+manager: digimobile
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2016
+origin.date: 08/02/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 9fa86fb18cf03ef1e71e5d8c245d325887084717
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
----    
-
+ms.openlocfilehash: 0e4ae04fd5df16e0789c25f3987ee5374ab0ccc6
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/25/2017
+---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>更新 Active Directory 联合身份验证服务 (AD FS) 场的 SSL 证书
 
 ## <a name="overview"></a>概述
-本文介绍如何使用 Azure AD Connect 更新 Active Directory 联合身份验证服务 (AD FS) 场的 SSL 证书。 如果将 Azure AD Connect 中的登录方法设置为 AD FS，可以使用 Azure AD Connect 工具轻松更新 AD FS 场的 SSL 证书。 可以跨所有联合身份验证和 Web 应用程序代理 (WAP) 服务器，通过简单的 3 个步骤来执行此操作：
+本文介绍如何使用 Azure AD Connect 更新 Active Directory 联合身份验证服务 (AD FS) 场的 SSL 证书。 即使所选的用户登录方法不是 AD FS，也可以使用 Azure AD Connect 工具轻松更新 AD FS 场的 SSL 证书。
+
+可以通过三个简单步骤在所有联合服务器和 Web 应用程序代理 (WAP) 服务器上执行整个更新 AD FS 场的 SSL 证书的操作：
 
 ![三个步骤](./media/active-directory-aadconnectfed-ssl-update/threesteps.png)
 
@@ -66,10 +66,10 @@ Azure AD Connect 尝试通过以下方式自动获取有关 AD FS 场的信息�
 
 提供证书后，Azure AD Connect 将执行一系列先决条件检查。 验证证书，确保 AD FS 场的证书正确：
 
--    证书的使用者名称/备用使用者名称与联合身份验证服务名称相同，或者证书是通配符证书。
--    证书的有效期超过 30 天。
--    证书信任链有效。
--    证书受密码保护。
+-   证书的使用者名称/备用使用者名称与联合身份验证服务名称相同，或者证书是通配符证书。
+-   证书的有效期超过 30 天。
+-   证书信任链有效。
+-   证书受密码保护。
 
 ## <a name="step-3-select-servers-for-the-update"></a>步骤 3：选择要更新的服务器
 
@@ -77,7 +77,7 @@ Azure AD Connect 尝试通过以下方式自动获取有关 AD FS 场的信息�
 
 ![选择要更新的服务器](./media/active-directory-aadconnectfed-ssl-update/selectservers.png)
 
-完成配置后，Azure AD Connect 将显示一条指示更新状态的消息，并提供一个用于验证 AD FS 登录的选项。
+完成配置后，Azure AD Connect 会显示一条指示更新状态的消息，并提供一个用于验证 AD FS 登录的选项。
 
 ![配置完成](./media/active-directory-aadconnectfed-ssl-update/configurecomplete.png)   
 
@@ -85,7 +85,7 @@ Azure AD Connect 尝试通过以下方式自动获取有关 AD FS 场的信息�
 
 - **对于新的 AD FS SSL 证书，证书的使用者名称应该是什么？**
 
-    Azure AD Connect 会检查证书的使用者名称/备用使用者名称是否包含联合身份验证服务名称。 例如，如果联合身份验证服务名称为 fs.contoso.com，则使用者名称/备用使用者名称必须为 fs.contoso.com。  也接受通配符证书。
+    Azure AD Connect 会检查证书的使用者名称/备用使用者名称是否包含联合身份验证服务名称。 例如，如果联合身份验证服务名称为 fs.contoso.com，则使用者名称/备用使用者名称必须为 fs.contoso.com。也接受通配符证书。
 
 - **为什么在 WAP 服务器页上又要求我提供凭据？**
 
@@ -93,19 +93,19 @@ Azure AD Connect 尝试通过以下方式自动获取有关 AD FS 场的信息�
 
 - **服务器显示为脱机。我该怎样做？**
 
-    如果服务器处于脱机状态，Azure AD Connect 将无法执行任何操作。 如果该服务器属于 AD FS 场，则检查与该服务器的连接。 解决该问题之后，请按“刷新”图标以更新向导中的状态。 如果该服务器此前属于场，但现在不再存在，请单击“删除”，将其从 Azure AD Connect 保留的服务器列表中删除。 从 Azure AD Connect 的列表中删除服务器不会变更 AD FS 本身的配置。 如果使用的是 Windows Server 2016 或更高版本中的 AD FS，该服务器将保留在配置设置中，并将在下次运行此任务时再次显示该服务器。
+    如果服务器处于脱机状态，Azure AD Connect 无法执行任何操作。 如果该服务器属于 AD FS 场，则检查与该服务器的连接。 解决该问题之后，请按“刷新”图标以更新向导中的状态。 如果该服务器此前属于场，但现在不再存在，请单击“删除”，将其从 Azure AD Connect 保留的服务器列表中删除。 从 Azure AD Connect 的列表中删除服务器不会变更 AD FS 本身的配置。 如果使用的是 Windows Server 2016 或更高版本中的 AD FS，该服务器将保留在配置设置中，并会在下次运行此任务时再次显示该服务器。
 
 - **能否使用新的 SSL 证书更新一部分场服务器？**
 
-    是的。 你始终可以再次运行“更新 SSL 证书”任务，以更新剩余的服务器。 在“选择要更新 SSL 证书的服务器”页上，可以根据“SSL 到期日期”对服务器列表进行排序，以轻松访问尚未更新的服务器。
+    是的。 始终可以再次运行“更新 SSL 证书”任务，以更新剩余的服务器。 在“选择要更新 SSL 证书的服务器”页上，可以根据“SSL 到期日期”对服务器列表进行排序，以轻松访问尚未更新的服务器。
 
 - **我在上次运行时删除了服务器，但该服务器仍显示为脱机并且在“AD FS 服务器”页中列出。为什么删除该脱机服务器后它仍会显示？**
 
-    从 Azure AD Connect 的列表中删除服务器并不会将其从 AD FS 配置中删除。 Azure AD Connect 引用 AD FS（Windows Server 2016 或更高版本）中有关场的任何信息。 如果服务器仍在 AD FS 配置中，它将列回到列表中。  
+    从 Azure AD Connect 的列表中删除服务器并不会将其从 AD FS 配置中删除。 Azure AD Connect 引用 AD FS（Windows Server 2016 或更高版本）中有关场的任何信息。 如果服务器仍在 AD FS 配置中，它会重回列表中。  
 
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure AD Connect 和联合身份验证](active-directory-aadconnectfed-whatis.md)
 - [使用 Azure AD Connect 进行 Active Directory 联合身份验证服务的管理和自定义](active-directory-aadconnect-federation-management.md)
 
-
+<!--Update_Description: wording update -->

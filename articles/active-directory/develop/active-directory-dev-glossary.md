@@ -1,10 +1,10 @@
 ---
-title: "Azure Active Directory 开发人员词汇表 | Azure"
+title: "Azure Active Directory 开发人员词汇表 | Microsoft Docs"
 description: "常用的 Azure Active Directory 开发人员概念和功能术语列表。"
 services: active-directory
 documentationcenter: 
-author: bryanla
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 03/20/2017
-ms.date: 04/17/2017
+origin.date: 07/19/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
-ms.openlocfilehash: 8afcb23974779ecac9b9eda44e89363b551ef822
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.custom: aaddev
+ms.openlocfilehash: f5640614812be60adeaa053692c610e24e53c2e5
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 开发人员词汇表
 本文包含一些核心 Azure Active Directory (AD) 开发人员概念的定义，帮助你了解 Azure AD 的应用程序开发。
@@ -38,16 +39,18 @@ ms.lasthandoff: 07/14/2017
 [Azure 经典管理门户][AZURE-classic-portal]提供的一项功能，可生成以 JSON 表示的应用程序标识配置，作为其关联 [Application][AAD-Graph-App-Entity] 实体和 [ServicePrincipal][AAD-Graph-Sp-Entity] 实体的更新机制。 有关详细信息，请参阅 [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] （了解 Azure Active Directory 应用程序清单）。
 
 ## <a name="application-object"></a>应用程序对象
-在 [Azure 经典管理门户][AZURE-classic-portal]中注册/更新应用程序时，门户将为该租户同时创建/更新[应用程序对象](#service-principal-object)和对应的服务主体对象。 应用程序对象可全局（在其能够访问的所有租户中）定义应用程序的标识配置，并可提供模板来派生出其对应的服务主体对象，在运行时于本地（在特定租户中）使用。
+在 [Azure 经典管理门户][AZURE-classic-portal]中注册/更新应用程序时，门户将为该租户同时创建/更新应用程序对象和对应的[服务主体对象](#service-principal-object)。 应用程序对象可全局（在其能够访问的所有租户中）定义应用程序的标识配置，并可提供模板来派生出其对应的服务主体对象，在运行时于本地（在特定租户中）使用。
 
 如需更多详细信息，请参阅[应用程序和服务主体对象][AAD-App-SP-Objects]。
 
 ## <a name="application-registration"></a>应用程序注册
-若要允许某个应用程序与标识和访问管理功能集成并将这些功能委托给 Azure AD，必须向 Azure AD [租户](#tenant)注册该应用程序。 向 Azure AD 注册应用程序时，必须提供应用程序的标识配置，以允许它与 Azure AD 集成并使用如下所述的功能：
+要允许某个应用程序与标识和访问管理功能集成并将这些功能委托给 Azure AD，必须向 Azure AD [租户](#tenant)注册该应用程序。 向 Azure AD 注册应用程序时，必须提供应用程序的标识配置，以允许它与 Azure AD 集成并使用如下所述的功能：
 
 - 使用 Azure AD 标识管理和 [OpenID Connect][OpenIDConnect] 协议实现进行可靠的单一登录管理
 - 通过 Azure AD 的 OAuth 2.0 [授权服务器](#authorization-server)实现，由[客户端应用程序](#client-application)以中转方式访问[受保护资源](#resource-server)
 - [同意框架](#consent)用于根据资源所有者授权来管理客户端对受保护资源的访问。
+
+有关详细信息，请参阅 [Integrating applications with Azure Active Directory][AAD-Integrating-Apps]（将应用程序与 Azure Active Directory 集成）。
 
 ## <a name="authentication"></a>authentication
 向访问方质询合法凭据的措施，提供创建用于标识和访问控制的安全主体的基础。 例如，在 [OAuth2 授权](#authorization-grant)期间，访问方身份验证根据使用的授权填充[资源所有者](#resource-owner)或[客户端应用程序](#client-application)角色。
@@ -59,7 +62,7 @@ ms.lasthandoff: 07/14/2017
 - 在客户端访问资源期间：与[资源服务器](#resource-server)实现的机制一样，使用[访问令牌](#access-token)中提供的[声明](#claim)值作为依据做出访问控制决策。
 
 ## <a name="authorization-code"></a>授权代码
-在四个 OAuth2 [授权](#authorization-grant)之一的“授权代码”流程中，由[授权终结点](#authorization-endpoint)提供给[客户端应用程序](#client-application)的短期“令牌”。 为响应[资源所有者](#resource-owner)的身份验证，将授权代码返回给客户端应用程序，指出资源所有者已进行所请求资源的访问授权委托。 在执行流程的过程中，稍后会将授权代码兑换为 [访问令牌](#access-token)。
+在四个 OAuth2 [授权](#authorization-grant)之一的“授权代码”流程中，由[授权终结点](#authorization-endpoint)提供给[客户端应用程序](#client-application)的短期“令牌”。 为响应[资源所有者](#resource-owner)的身份验证，将授权代码返回给客户端应用程序，指出资源所有者已进行所请求资源的访问授权委托。 在执行流程的过程中，稍后会将授权代码兑换为[访问令牌](#access-token)。
 
 ## <a name="authorization-endpoint"></a>授权终结点
 [授权服务器](#authorization-server)实现的终结点之一，用来与[资源所有者](#resource-owner)进行交互，以便在 OAuth2 授权流程期间提供[授权](#authorization-grant)。 根据使用的授权流程，实际提供的授权可能不同，这包括[授权代码](#authorization-code)或[安全令牌](#security-token)。
@@ -72,7 +75,7 @@ ms.lasthandoff: 07/14/2017
 ## <a name="authorization-server"></a>授权服务器
 根据 [OAuth2 授权框架][OAuth2-Role-Def]的定义，这是在成功验证[资源所有者](#resource-owner)并获取其授权之后，负责向[客户端](#client-application)颁发访问令牌的服务器。 [客户端应用程序](#client-application)在运行时根据 OAuth2 定义的[权限授予](#authorization-grant)，通过其[权限](#authorization-endpoint)和[令牌](#token-endpoint)终结点来与授权服务器交互。
 
-对于 Azure AD 应用程序集成，Azure AD 将为 Azure AD 应用程序和 Microsoft 服务 API（例如 [Microsoft 图形 API][Microsoft-Graph]）实现授权服务器角色。
+对于 Azure AD 应用程序集成，Azure AD 为 Azure AD 应用程序和 Microsoft 服务 API（例如 [Microsoft 图形 API][Microsoft-Graph]）实现授权服务器角色。
 
 ## <a name="claim"></a>声明
 [安全令牌](#security-token)包含声明，声明将有关某个实体（例如[客户端应用程序](#client-application)或[资源所有者](#resource-owner)）的断言提供给另一个实体（例如[资源服务器](#resource-server)）。 声明是中继令牌主体（例如，由[授权服务器](#authorization-server)进行身份验证的安全主体）相关事实的名称/值对。 给定令牌中的声明依赖于几个变量，包括令牌类型、用于验证主体身份的凭据类型和应用程序配置等。
@@ -169,7 +172,7 @@ Azure AD 目录的实例称为 Azure AD 租户。 所提供的功能包括：
 与服务主体对象用于表示应用程序实例的方式一样，用户主体对象是另一种类型的安全主体，它代表用户。 Azure AD Graph [用户实体][AAD-Graph-User-Entity]定义用户对象的架构，包括用户相关属性，例如姓名、用户主体名称、目录角色成员身份等。这样即可提供 Azure AD 的用户标识配置，用于在运行时建立用户主体。 用户主体用于代表经身份验证的用户执行单一登录、记录[同意](#consent)委托、做出访问控制决策等操作。
 
 ## <a name="web-client"></a>Web 客户端
-一类 [客户端应用程序](#client-application) ，可在 Web 服务器上执行所有代码，并可将凭据安全地存储在服务器上，充当“机密”客户端。 有关详细信息，请参阅 [OAuth2 client types and profiles][OAuth2-Client-Types] （OAuth2 客户端类型和配置文件）。
+一类[客户端应用程序](#client-application) ，可在 Web 服务器上执行所有代码，并可将凭据安全地存储在服务器上，充当“机密”客户端。 有关详细信息，请参阅 [OAuth2 client types and profiles][OAuth2-Client-Types] （OAuth2 客户端类型和配置文件）。
 
 ## <a name="next-steps"></a>后续步骤
 [Azure AD 开发人员指南][AAD-Dev-Guide]是用于所有 Azure AD 开发相关主题的门户，包括[应用程序集成][AAD-How-To-Integrate]的概述和 [Azure AD 身份验证与支持的身份验证方案][AAD-Auth-Scenarios]基本知识。
@@ -179,18 +182,19 @@ Azure AD 目录的实例称为 Azure AD 租户。 所提供的功能包括：
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-App-Manifest]:./active-directory-application-manifest.md
-[AAD-App-SP-Objects]:./active-directory-application-objects.md
-[AAD-Auth-Scenarios]:./active-directory-authentication-scenarios.md
-[AAD-Dev-Guide]:./active-directory-developers-guide.md
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
+[AAD-App-Manifest]: ./active-directory-application-manifest.md
+[AAD-App-SP-Objects]: ./active-directory-application-objects.md
+[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
+[AAD-Dev-Guide]: ./active-directory-developers-guide.md
+[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
-[AAD-How-Subscriptions-Assoc]:../active-directory-how-subscriptions-associated-directory.md
-[AAD-How-To-Integrate]: active-directory-how-to-integrate.md
-[AAD-How-To-Tenant]:./active-directory-howto-tenant.md
-[AAD-Multi-Tenant-Overview]:./active-directory-devhowto-multi-tenant-overview.md
+[AAD-How-Subscriptions-Assoc]: ../active-directory-how-subscriptions-associated-directory.md
+[AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
+[AAD-How-To-Tenant]: active-directory-howto-tenant.md
+[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
+[AAD-Multi-Tenant-Overview]: active-directory-devhowto-multi-tenant-overview.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:./active-directory-token-and-claims.md
 [AZURE-classic-portal]: https://manage.windowsazure.cn
@@ -206,3 +210,5 @@ Azure AD 目录的实例称为 Azure AD 租户。 所提供的功能包括：
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
+
+<!--Update_Description: wording update -->

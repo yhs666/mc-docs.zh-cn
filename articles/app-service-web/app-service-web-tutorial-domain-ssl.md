@@ -13,15 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 03/29/2017
-ms.date: 05/02/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 565367691c28abb53ccac54c9d414e42be866598
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 194f5430e76bad264f8f16dc9243e50eaa886d8e
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="add-custom-domain-and-ssl-to-an-azure-web-app"></a>将自定义域和 SSL 添加到 Azure Web 应用
 
@@ -31,7 +29,7 @@ ms.lasthandoff: 04/22/2017
 
 在运行此示例之前，请在本地安装 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
-你还需要对相应域提供商的 DNS 配置页拥有管理访问权限。 例如，若要添加 `www.contoso.com`，需要能够配置 `contoso.com` 的 DNS 条目。
+还需要对相应域提供商的 DNS 配置页拥有管理访问权限。 例如，若要添加 `www.contoso.com`，需要能够配置 `contoso.com` 的 DNS 条目。
 
 最后，对于要上传和绑定的 SSL 证书，需要具有一个有效的 .PFX 文件及其密码。 应配置此 SSL 证书来保护所需的自定义域名。 在上面的示例中，SSL 证书应保护 `www.contoso.com`。 
 
@@ -39,7 +37,7 @@ ms.lasthandoff: 04/22/2017
 
 ### <a name="log-in-to-azure"></a>登录 Azure
 
-现在，我们将在终端窗口中使用 Azure CLI 2.0 创建所需的资源用于在 Azure 中托管该 Node.js 应用。  使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。 
+现在，我们在终端窗口中使用 Azure CLI 2.0 创建所需的资源用于在 Azure 中托管该 Node.js 应用。  使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。 
 
 ```azurecli 
 az login 
@@ -60,21 +58,13 @@ az group create --name myResourceGroup --location chinanorth
 
 使用 [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) 命令创建应用服务计划。 
 
-> [!NOTE] 
-> 应用服务计划表示用于托管应用的物理资源集合。 分配到应用服务计划的所有应用程序将共享该计划定义的资源，在托管多个应用时可以节省成本。 
-> 
-> 应用服务计划定义： 
-> * 区域（中国北部、中国东部） 
-> * 实例大小（小、中、大） 
-> * 规模计数（一个、两个、三个实例，等等） 
-> * SKU（免费、共享、基本、标准、高级）
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 以下示例创建一个名为 `myAppServicePlan` 且使用**基本**定价层的应用服务计划。
 
     az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
 
-创建应用服务计划后，Azure CLI 将显示类似于以下示例的信息。 
+创建应用服务计划后，Azure CLI 会显示类似于以下示例的信息。 
 
 ```json 
 { 
@@ -94,15 +84,15 @@ az group create --name myResourceGroup --location chinanorth
 
 ## <a name="create-a-web-app"></a>创建 Web 应用
 
-创建应用服务计划后，请在 `myAppServicePlan` 应用服务计划中创建 Web 应用。 该 Web 应用提供托管空间用于部署代码，并提供一个 URL 用于查看已部署的应用程序。 使用 [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) 命令创建该 Web 应用。 
+创建应用服务计划后，请在 `myAppServicePlan` 应用服务计划中创建 Web 应用。 该 Web 应用提供托管空间用于部署代码，并提供一个 URL 用于查看已部署的应用程序。 使用 [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) 命令创建该 Web 应用。 
 
-在以下命令中，请将出现的 `<app_name>` 占位符替换为你自己的唯一应用名称。 此唯一名称将用作 Web 应用的默认域名的一部分，因此，该名称需要在 Azure 中的所有应用之间保持唯一。 稍后，可以先将任何自定义 DNS 条目映射到 Web 应用，然后向用户公开该条目。 
+在以下命令中，请将出现的 `<app_name>` 占位符替换成自己的唯一应用名称。 此唯一名称用作 Web 应用的默认域名的一部分，因此，该名称需要在 Azure 中的所有应用之间保持唯一。 稍后，可以先将任何自定义 DNS 条目映射到 Web 应用，并向用户公开该条目。 
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan 
 ```
 
-创建 Web 应用后，Azure CLI 将显示类似于以下示例的信息。 
+创建 Web 应用后，Azure CLI 会显示类似于以下示例的信息。 
 
 ```json 
 { 
@@ -122,23 +112,23 @@ az appservice web create --name <app_name> --resource-group myResourceGroup --pl
 } 
 ```
 
-在 JSON 输出中，`defaultHostName` 显示了你的 Web 应用的默认域名。 在浏览器中，导航到此地址。
+在 JSON 输出中，`defaultHostName` 显示了 Web 应用的默认域名。 在浏览器中，导航到此地址。
 
 ```
 http://<app_name>.chinacloudsites.cn 
 ``` 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-created.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-created.png)  
 
 ## <a name="step-2---configure-dns-mapping"></a>步骤 2 - 配置 DNS 映射
 
-在此步骤中，你将添加一个从自定义域到 Web 应用默认域名 `<app_name>.chinacloudsites.cn` 的映射。 通常，需要在域提供商的网站上执行此步骤。 每个域注册机构的网站都略有不同，因此你应查阅提供商的文档。 但是，仍然有一些一般准则。 
+此步骤添加一个从自定义域到 Web 应用默认域名 `<app_name>.chinacloudsites.cn` 的映射。 通常，需要在域提供商的网站上执行此步骤。 每个域注册机构的网站都略有不同，因此，应查阅提供商的文档。 但是，仍然有一些一般准则。 
 
 ### <a name="navigate-to-to-dns-management-page"></a>导航到 DNS 管理页
 
 首先，登录到域注册机构的网站。  
 
-然后，找到用于管理 DNS 记录的页面。 查找站点中标签为“域名”、“DNS”或“名称服务器管理”的链接或区域。 通常可通过查看帐户信息，然后查找如“我的域” 之类的链接，便可以找到链接。
+然后，找到用于管理 DNS 记录的页面。 查找站点中标签为“域名”、“DNS”或“名称服务器管理”的链接或区域。 通常可通过查看帐户信息，并查找如“我的域”之类的链接，便可以找到连接。
 
 在找到该页面后，查找允许添加或编辑 DNS 记录的链接。 这可能是**区域文件**或**DNS 记录**链接，也可能是**高级配置**链接。
 
@@ -150,7 +140,7 @@ http://<app_name>.chinacloudsites.cn
 
 ## <a name="step-3---configure-the-custom-domain-on-your-web-app"></a>步骤 3 - 在 Web 应用中配置自定义域
 
-在域提供商的网站上完成主机名映射配置后，可以在 Web 应用中配置自定义域。 可以使用 [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/webapp/config/hostname#add) 命令添加此配置。 
+在域提供商的网站上完成主机名映射配置后，可以在 Web 应用中配置自定义域。 可以使用 [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) 命令添加此配置。 
 
 在以下命令中，请将 `<app_name>` 替换为唯一的应用名称，将 <your_custom_domain> 替换为完全限定的自定义域名（例如 `www.contoso.com`）。 
 
@@ -164,17 +154,17 @@ az appservice web config hostname add --webapp <app_name> --resource-group myRes
 http://www.contoso.com 
 ``` 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-custom-domain.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-custom-domain.png)  
 
 ## <a name="step-4---bind-a-custom-ssl-certificate-to-your-web-app"></a>步骤 4 - 将自定义 SSL 证书绑定到 Web 应用
 
-现在你已有了一个 Azure Web 应用，你希望为其提供的域名显示在浏览器的地址栏中。 但是，如果现在导航到 `https://<your_custom_domain>`，将会发生证书错误。 
+现在已有了一个 Azure Web 应用，你希望为其提供的域名显示在浏览器的地址栏中。 但是，如果现在导航到 `https://<your_custom_domain>`，会发生证书错误。 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-cert-error.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-cert-error.png)  
 
 之所以发生此错误，是因为 Web 应用还没有与自定义域名匹配的 SSL 证书绑定。 但是，如果导航到 `https://<app_name>.chinacloudsites.cn`，则不会发生错误。 这是因为，默认情况下，应用以及所有 Azure 应用服务应用都由 `*.chinacloudsites.cn` 通配符域的 SSL 证书提供保护。 
 
-若要通过自定义域名访问 Web 应用，需要将自定义域的 SSL 证书绑定到该 Web 应用。 你将在此步骤中执行此操作。 
+要通过自定义域名访问 Web 应用，需要将自定义域的 SSL 证书绑定到该 Web 应用。 你会在此步骤中执行此操作。 
 
 ### <a name="upload-the-ssl-certificate"></a>上传 SSL 证书
 
@@ -186,7 +176,7 @@ http://www.contoso.com
 az appservice web config ssl upload --name <app_name> --resource-group myResourceGroup --certificate-file <path_to_pfx_file> --certificate-password <password> 
 ```
 
-上传证书后，Azure CLI 将显示类似于以下示例的信息：
+上传证书后，Azure CLI 会显示类似于以下示例的信息：
 
 ```json
 {
@@ -226,7 +216,7 @@ ificates/9FD1D2D06E2293673E2A8D1CA484A092BD016D00__China North_myResourceGroup",
 
 ### <a name="bind-the-uploaded-ssl-certificate-to-the-web-app"></a>将上传的 SSL 证书绑定到 Web 应用
 
-Web 应用现在具有了所需的自定义域名，并且它还具有一个用于保护该自定义域的 SSL 证书。 剩下的唯一要做的事情就是将已上传的证书绑定到 Web 应用。 可以使用 [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/webapp/config/ssl#bind) 命令实现此目的。
+Web 应用现在具有了所需的自定义域名，并且它还具有一个用于保护该自定义域的 SSL 证书。 剩下的唯一要做的事情就是将已上传的证书绑定到 Web 应用。 可以使用 [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#bind) 命令实现此目的。
 
 在以下命令中，请将 `<app_name>` 替换为唯一的应用名称，将 `<thumbprint-from-previous-output>` 替换为通过前面所示的命令获取的证书指纹。 
 
@@ -315,4 +305,4 @@ Web 应用现在具有了所需的自定义域名，并且它还具有一个用�
 https://www.contoso.com 
 ``` 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)

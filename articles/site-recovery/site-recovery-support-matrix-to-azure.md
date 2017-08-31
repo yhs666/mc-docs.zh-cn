@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 06/05/2017
-ms.date: 07/10/2017
+origin.date: 07/04/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: e1fec6fee6c0ce87a3145392f9aa2e62b1641fbc
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: f7fd5ea237f3d9a9a83f9b6390c2ddb7eedcba90
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>从本地复制到 Azure 时的 Azure Site Recovery 支持矩阵
 
@@ -156,7 +156,7 @@ NFS | 否 | 不适用
 SMB 3.0 | 否 | 否
 RDM | 是<br/><br/> 在物理服务器上不适用 | 不适用
 磁盘 > 1 TB | 是<br/><br/>最大 4095 GB | 是<br/><br/>最大 4095 GB
-具有 4K 扇区大小的磁盘 | 否 | 否
+具有 4K 扇区大小的磁盘 | 是 | 是，第 1 代 VM 支持<br/><br/>第 2 代 VM 不支持。
 包含条带化磁盘的卷 > 1 TB<br/><br/> LVM 逻辑卷管理 | 是 | 是
 存储空间 | 否 | 是
 热添加/移除磁盘 | 否 | 否
@@ -180,7 +180,7 @@ RA-GRS | 是 | 是
 --- | --- | ---
 可用性集 | 是 | 是
 HUB | 是 | 是  
-<!-- Not Available Managed disks -->
+托管磁盘 | 是 | 是<br/><br/>当前不支持从使用托管磁盘的 Azure VM 故障回复到本地。
 
 ## <a name="failed-over-azure-vm-requirements"></a>故障转移的 Azure VM 要求
 
@@ -188,16 +188,16 @@ HUB | 是 | 是
 
 **实体** | **要求** | **详细信息**
 --- | --- | ---
-**来宾操作系统** | 对于从 Hyper-V 到 Azure 的复制，Site Recovery 支持 [Azure 支持](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)的所有操作系统。| 如果不支持，先决条件检查将会失败。
-**来宾操作系统体系结构** | 64 位 | 如果不支持，先决条件检查将会失败
-**操作系统磁盘大小** | 最大 1023 GB | 如果不支持，先决条件检查将会失败
-**操作系统磁盘计数** | 1 | 如果不支持，先决条件检查将会失败。
-**数据磁盘计数** | 如果将 **VMware VM 复制到 Azure**，则为 64 个或更少；如果将 **Hyper-V VM 复制到 Azure**，则为 16 个或更少 | 如果不支持，先决条件检查将会失败
+**来宾操作系统** | 对于从 Hyper-V 到 Azure 的复制，Site Recovery 支持 [Azure 支持](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)的所有操作系统。 <br/><br/> 对于 VMware 和物理服务器复制，请检查 Windows 和 Linux [先决条件](site-recovery-vmware-to-azure-classic.md) | 如果不支持，先决条件检查会失败。
+**来宾操作系统体系结构** | 64 位 | 如果不支持，先决条件检查会失败
+**操作系统磁盘大小** | 如果要**将 VMware VM 或物理服务器复制到 Azure**，则最大为 2048 GB。<br/><br/>对于 **Hyper-V 第 1 代** VM，最大为 2048 GB。<br/><br/>对于 **Hyper-V 第 2 代** VM，最大为 300 GB。  | 如果不支持，先决条件检查会失败
+**操作系统磁盘计数** | 1 | 如果不支持，先决条件检查会失败。
+**数据磁盘计数** | 如果将 **VMware VM 复制到 Azure**，则为 64 个或更少；如果将 **Hyper-V VM 复制到 Azure**，则为 16 个或更少 | 如果不支持，先决条件检查会失败
 **数据磁盘 VHD 大小** | 最大 4095 GB | 如果不支持，先决条件检查会失败
 **网络适配器** | 支持多个适配器 |
-**共享 VHD** | 不支持 | 如果不支持，先决条件检查将会失败
-**FC 磁盘** | 不支持 | 如果不支持，先决条件检查将会失败
-**硬盘格式** | VHD <br/><br/> VHDX | 尽管 Azure 目前不支持 VHDX，但当你故障转移到 Azure 时，Site Recovery 会自动将 VHDX 转换为 VHD。 当你故障回复到本地时，虚拟机将继续使用 VHDX 格式。
+**共享 VHD** | 不支持 | 如果不支持，先决条件检查会失败
+**FC 磁盘** | 不支持 | 如果不支持，先决条件检查会失败
+**硬盘格式** | VHD <br/><br/> VHDX | 尽管 Azure 目前不支持 VHDX，但故障转移到 Azure 时，Site Recovery 会自动将 VHDX 转换为 VHD。 故障回复到本地时，虚拟机将继续使用 VHDX 格式。
 **Bitlocker** | 不支持 | 保护虚拟机之前，必须先禁用 Bitlocker。
 **VM 名称** | 介于 1 和 63 个字符之间。 限制为字母、数字和连字符。 VM 名称必须以字母或数字开头和结尾。 | 在 Site Recovery 中更新虚拟机属性中的值。
 **VM 类型** | 第 1 代<br/><br/> 第 2 代 - Windows | OS 磁盘类型为“基本”的第 2 代 VM（其中包括一个或两个格式化为 VHDX 的数据卷），并且支持的磁盘空间大小小于 300 GB。<br></br>不支持 Linux 第 2 代 VM。 [了解详细信息](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
@@ -221,4 +221,4 @@ HUB | 是 | 是
 ## <a name="next-steps"></a>后续步骤
 [检查先决条件](site-recovery-prereq.md)
 
-<!--Update_Description: update meta properties， Supported Ubuntu kernel versions and file system for VMware/physical servers-->
+<!--Update_Description: update meta properties， wording update-->

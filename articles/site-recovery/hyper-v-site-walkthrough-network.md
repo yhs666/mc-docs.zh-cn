@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/21/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: bf7ca5970296a7fecb3506b9b0464e1d596f8fb6
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: 44ff594778f71f88de81c8361258b9f8b1505a5b
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="step-4-plan-networking-for-hyper-v-to-azure-replication"></a>步骤 4：为 Hyper-V 到 Azure 的复制规划网络
 
@@ -31,17 +31,14 @@ ms.lasthandoff: 07/28/2017
 
 规划复制和故障转移策略时的关键问题之一是，如何在运行故障转移后连接到 Azure VM。 设计有关副本 Azure VM 的网络策略时，可以选择使用下列两种方法：
 
-- **不同的 IP 地址**：可以为复制的 Azure VM 网络选择使用不同的 IP 地址范围。 在此方案中，VM 会在故障转移后获取新的 IP 地址，并且需要进行 DNS 更新。
-- **相同的 IP 地址**：我们可能想要在故障转移后在 Azure 中使用与本地主站点相同的 IP 地址范围。 在正常情况下，必须使用 IP 地址的新位置更新路由。 但是，如果在主站点与 Azure 之间部署有延伸 VLAN，保留虚拟机的 IP 地址将成为有效选项。 保留相同的 IP 地址，可以减少运行故障转移后出现的网络相关问题，从而简化恢复过程。
-<!-- Not Available  [Learn more](site-recovery-test-failover-vmm-to-vmm.md#prepare-the-infrastructure-for-test-failover) -->
+- **不同的 IP 地址**：可以为复制的 Azure VM 网络选择使用不同的 IP 地址范围。 在此方案中，VM 会在故障转移后获取新的 IP 地址，并且需要进行 DNS 更新。 [了解详细信息](site-recovery-test-failover-vmm-to-vmm.md#prepare-the-infrastructure-for-test-failover)
+- **相同 IP 地址**：可能想要在故障转移后对 Azure 网络使用与本地主网络相同的 IP 地址范围。  保留相同的 IP 地址，可以减少运行故障转移后出现的网络相关问题，从而简化恢复过程。 不过，复制到 Azure 时，需要在运行故障转移后在路由中更新 IP 地址的新位置。
 
 ## <a name="retain-ip-addresses"></a>保留 IP 地址
 
-从灾难恢复的角度来看，使用固定 IP 地址似乎是最简单的方法，但也有若干潜在挑战。 通过子网故障转移方式故障转移到 Azure 时，Site Recovery 提供保留 IP 地址的功能。
+Site Recovery 支持在通过子网故障转移到 Azure 时保留固定的 IP 地址。
 
-### <a name="subnet-failover"></a>子网故障转移
-
-在此方案中，特定子网会出现在站点 1 或站点 2 中，但永远不会同时出现在这两个站点中。 为了能够在故障转移时保留 IP 地址空间，可以编程方式安排路由器基础结构，将子网从一个站点移到另一个站点。 在故障转移期间，子网会随关联的受保护 VM 一起移动。 此方法的主要缺点在于，当出现故障时，必须移动整个子网，从而可能会影响故障转移粒度注意事项。
+借助子网故障转移，特定子网会出现在站点 1 或站点 2 中，但永远不会同时出现在这两个站点中。 为了能够在故障转移时保留 IP 地址空间，可以编程方式安排路由器基础结构，将子网从一个站点移到另一个站点。 在故障转移期间，子网会随关联的受保护 VM 一起移动。 主要缺点是，在出现故障时，必须移动整个子网。
 
 ### <a name="failover-example"></a>故障转移示例
 
@@ -54,7 +51,7 @@ ms.lasthandoff: 07/28/2017
  - Woodgrove 必须处理依赖硬编码 IP 地址的应用程序和配置，因此需要在故障转移到 Azure 之后为应用程序保留 IP 地址。
  - Woodgrove 已向在 Azure 中运行的资源分配介于范围 172.16.1.0/24、172.16.2.0/24 的 IP 地址。
 
-为了能使 Woodgrove 在保留 IP 地址的同时将其 VM 复制到 Azure，该公司需要执行以下操作：
+为了使 Woodgrove 能够在保留 IP 地址的同时将其 VM 复制到 Azure，该公司需执行以下操作：
 
 1. 创建 Azure 虚拟网络。 此网络应为本地网络扩展，这样应用程序才能顺畅地进行故障转移。
 2. 除了允许向在 Azure 中创建的虚拟网络添加点到站点连接外，Azure 还允许添加站点间 VPN 连接。
@@ -90,4 +87,4 @@ ms.lasthandoff: 07/28/2017
 
 转到[步骤 5：准备 Azure 资源](hyper-v-site-walkthrough-prepare-azure.md)
 
-<!--Update_Description: new article about walkthrought network from hyper-v to azure  -->
+<!--Update_Description: wording update -->
