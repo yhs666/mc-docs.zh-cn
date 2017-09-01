@@ -10,11 +10,11 @@ ms.workload: identity
 origin.date: 06/06/2017
 ms.date: 08/02/2017
 ms.author: v-junlch
-ms.openlocfilehash: 79f250880ee133f5cb48da87a7c66ed74621f16d
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 0c9556d398f58c19a0718c51069a2fd73f5e9bb4
+ms.sourcegitcommit: d50ba5d6f934de899a9b35f0f3c1f3be164ba1ee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 密钥保管库开发人员指南
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 08/18/2017
 
 #### <a name="java"></a>Java
 
-- [Java SDK for Key Vault](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)（适用于 Key Vault 的 Java SDK）
+- [Java SDK for Key Vault](/java/api/com.microsoft.azure.keyvault)（适用于 Key Vault 的 Java SDK）
 
 #### <a name="nodejs"></a>Node.js
 

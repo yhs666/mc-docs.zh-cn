@@ -12,14 +12,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/01/2017
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2354975d75ce0cae847e2af278aec0851becd987
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: 5c2d58ddaa6b7dd520cc31511da3037c96c77dad
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 高可用性
 本文说明如何确保 Azure Analysis Services 服务器的高可用性。 
@@ -36,4 +36,5 @@ ms.lasthandoff: 08/02/2017
 ## <a name="related-information"></a>相关信息
 [备份和还原](analysis-services-backup.md)   
 [管理 Azure Analysis Services](analysis-services-manage.md)
-<!--Update_Description: new articles on analysis serices high availablility -->
+
+<!--Update_Description: update meta properties -->

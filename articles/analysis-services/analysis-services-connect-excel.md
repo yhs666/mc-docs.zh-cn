@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1b500d7002d5914a53a6d07c3d3b648633e84021
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: 311d023b132d0b5ac9ebcf869f93f23519fa2af1
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="connect-with-excel"></a>使用 Excel 进行连接
 
@@ -46,4 +46,4 @@ ms.lasthandoff: 08/02/2017
 [客户端库](analysis-services-data-providers.md)   
 [管理服务器](analysis-services-manage.md)
 
-<!--Update_Description: new articles on how to connect analysis serices server with Excel -->
+<!--Update_Description: update meta properties-->

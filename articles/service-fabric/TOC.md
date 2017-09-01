@@ -280,7 +280,7 @@
 ## [PowerShell (Azure)](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/servicefabric)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/sf)
-## [Java API](https://docs.microsoft.com/java/api/overview/azure/servicefabric)
+## [Java API](https://docs.azure.cn/java/api/overview/azure/servicefabric)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](https://docs.microsoft.com/rest/api/servicefabric)
 

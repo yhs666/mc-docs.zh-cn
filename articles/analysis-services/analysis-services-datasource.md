@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: f7888690af036cfd3987253ea89f0506a8b9faa0
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: 3ea9d8140f7970e203d12912db654c99c58a90e1
+ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/25/2017
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 Azure Analysis Services 服务器支持连接到云中的数据源和组织中的本地数据源。 始终添加其他受支持的数据源。 请经常返回查看。 
@@ -103,4 +103,4 @@ Azure Analysis Services 服务器支持连接到云中的数据源和组织中�
 如有本地数据源，请务必安装[本地网关](analysis-services-gateway.md)。   
 若要深入了解如何在 SSDT 或 SSMS 中管理服务器，请参阅[管理服务器](analysis-services-manage.md)。
 
-<!--Update_Description: new articles about connection datasource in analysis serices -->
+<!--Update_Description: update meta properties -->
