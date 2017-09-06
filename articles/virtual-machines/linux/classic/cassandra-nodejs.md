@@ -3,8 +3,8 @@ title: "在 Azure 上通过 Linux 运行 Cassandra | Azure"
 description: "如何使用 Node.js 应用在 Azure 虚拟机上通过 Linux 运行 Cassandra 群集"
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: hanuk
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
@@ -13,18 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 04/25/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: 918986b9b8d92fa5dfdb6554e6089f31c4679086
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 27bb0973bd858f33f522a3b907f0413cd0399850
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>在 Azure 上同时运行 Cassandra 和 Linux 并通过 Node.js 进行访问
 > [!IMPORTANT] 
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 请参阅 [Datastax Enterprise](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax) 的 Resource Manager 模板和 [CentOS 上 的Spark 群集和 Cassandra](https://github.com/Azure/azure-quickstart-templates/tree/master/spark-and-cassandra-on-centos/)。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 
 
 ## <a name="overview"></a>概述
 Azure 是一个开放式云平台，可运行 Microsoft 软件和非 Microsoft 软件，包括操作系统、应用程序服务器、消息传递中间件，以及来自商业和开源模型的 SQL 数据库和 NoSQL 数据库。 在包括 Azure 在内的公共云上构建可复原的服务，需要针对应用程序服务器和存储层进行仔细规划，并精心设计体系结构。 Cassandra 的分布式存储体系结构，自然有助于构建高可用性的系统，此类系统在发生群集故障时容错性很强。 Cassandra 是 Apache Software Foundation 在 cassandra.apache.org 上维护的云规模 NoSQL 数据库；Cassandra 以 Java 编写，因此可在 Windows 和 Linux 平台上运行。
@@ -48,7 +47,7 @@ Cassandra 可以部署到单个或多个 Azure 区域，具体取决于工作负
 ### <a name="single-region-deployment"></a>单区域部署
 首先学习单区域部署，然后运用所学的知识创建多区域模型。 将使用 Azure 虚拟网络创建独立的子网，以满足上述网络安全要求。  介绍的单区域部署创建过程使用 Ubuntu 14.04 LTS 和 Cassandra 2.08；但是，可以轻松调整该过程，使其适用于其他 Linux 产品。 以下是单区域部署的部分系统特征。  
 
-**高可用性：**图 1 中所示的 Cassandra 节点已部署到两个可用性集，因此可将这些节点分布到多个容错域，以实现高可用性。 将标注每个可用性集的 VM 映射到 2 个容错域。  Azure 使用容错域这个概念来管理计划外停机（例如，硬件或软件故障），使用升级域（例如，主机或来宾 OS 修补/升级、应用程序升级）这个概念来管理计划内停机。
+**高可用性：**图 1 中所示的 Cassandra 节点已部署到两个可用性集，因此可将这些节点分布到多个容错域，以实现高可用性。 将标注每个可用性集的 VM 映射到 2 个容错域。  Azure 使用容错域这个概念来管理计划外停机（例如，硬件或软件故障），使用升级域（例如，主机或来宾 OS 修补/升级、应用程序升级）这个概念来管理计划内停机。 请参阅 [Azure 应用程序的灾难恢复和高可用性](http://msdn.microsoft.com/library/dn251004.aspx)，了解容错域和升级域在实现高可用性方面的作用。
 
 ![单区域部署](./media/cassandra-nodejs/cassandra-linux1.png)
 
@@ -119,7 +118,7 @@ Cassandra 支持两种类型的数据完整性模型 - 一致性和最终一致�
 <tr><th>软件</th><th>源</th><th>版本</th></tr>
 <tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://archive.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
+<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Azure](https://www.azure.cn) </td><td>14.04 LTS</td></tr>
 </table>
 

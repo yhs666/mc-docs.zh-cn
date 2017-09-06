@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 02/29/2016
 ms.date: 07/17/2017
 ms.author: v-yiso
-ms.openlocfilehash: 7dc5ad52c82e51259e326d4087bd7d940aeed4ac
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: fcb83b046bcdb0fd3435eee1a0bc9a1335b2c45e
+ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/01/2017
 ---
 # <a name="create-and-use-performance-counters-in-an-azure-application"></a>在 Azure 应用程序中创建和使用性能计数器
 
@@ -87,7 +87,7 @@ Azure 支持针对 Web 角色和辅助角色创建和修改自定义性能计数
 
 ## <a name="store-and-view-performance-counter-data"></a>存储和查看性能计数器数据
 
-Azure 缓存性能计数器数据和其他诊断信息。 当正在运行的角色实例使用远程桌面访问权限查看性能监视器之类的工具时，此数据可用于进行远程监视。 若要保留角色实例以外的数据，诊断代理必须将数据传输到 Azure 存储。 缓存的性能计数器数据的大小限制可以在诊断代理中配置，也可以将其配置为所有诊断数据的共享限制的一部分。 有关如何设置缓冲区大小的详细信息，请参阅 [OverallQuotaInMB](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitorconfiguration.overallquotainmb.aspx) 和 [DirectoriesBufferConfiguration](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.diagnostics.directoriesbufferconfiguration.aspx)。 请参阅 [在 Azure 存储中存储和查看诊断数据](https://msdn.microsoft.com/zh-cn/library/azure/hh411534.aspx) ，了解通过设置诊断代理将数据传输到存储帐户。
+Azure 缓存性能计数器数据和其他诊断信息。 当正在运行的角色实例使用远程桌面访问权限查看性能监视器之类的工具时，此数据可用于进行远程监视。 要保留角色实例以外的数据，诊断代理必须将数据传输到 Azure 存储。 缓存的性能计数器数据的大小限制可以在诊断代理中配置，也可以将其配置为所有诊断数据的共享限制的一部分。 有关如何设置缓冲区大小的详细信息，请参阅 [OverallQuotaInMB](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitorconfiguration.overallquotainmb.aspx) 和 [DirectoriesBufferConfiguration](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.diagnostics.directoriesbufferconfiguration.aspx)。 请参阅[在 Azure 存储中存储和查看诊断数据](https://msdn.microsoft.com/zh-cn/library/azure/hh411534.aspx) ，了解通过设置诊断代理将数据传输到存储帐户。
 
 每个配置的性能计数器实例均按指定的采样率进行记录，并通过计划的传输请求或按需传输请求将采样的数据传输到存储帐户。 可以将自动传输计划为每分钟一次。 通过诊断代理传输的性能计数器数据存储在存储帐户的 WADPerformanceCountersTable 表中。 该表可以通过标准 Azure 存储 API 方法进行访问和查询。 请参阅 [Azure 性能计数器示例](http://code.msdn.microsoft.com/Windows-Azure-PerformanceCo-7d80ebf9) ，以获取通过 WADPerformanceCountersTable 表查询和显示性能计数器数据的示例。
 
@@ -141,7 +141,7 @@ Azure 缓存性能计数器数据和其他诊断信息。 当正在运行的角�
     </PerformanceCounters>
 ```
 
-bufferQuotaInMB 属性，指定可用于数据收集类型（Azure 日志、IIS 日志等）的文件系统存储的最大量。 默认值为 0。 在达到配额时，将删除最旧的数据，因为将添加新数据。 所有 bufferQuotaInMB 属性的总和必须大于 OverallQuotaInMB 特性的值。 有关确定收集诊断数据需要多少存储的更多详细讨论，请参阅 [有关开发 Azure 应用程序的问题排查最佳实践](https://msdn.microsoft.com/zh-cn/library/windowsazure/hh771389.aspx)中的“设置 WAD”一节。
+bufferQuotaInMB 属性，指定可用于数据收集类型（Azure 日志、IIS 日志等）的文件系统存储的最大量。 默认值为 0。 在达到配额时，会删除最旧的数据，因为要添加新数据。 所有 bufferQuotaInMB 属性的总和必须大于 OverallQuotaInMB 特性的值。 有关确定收集诊断数据需要多少存储的更多详细讨论，请参阅 [有关开发 Azure 应用程序的问题排查最佳实践](https://msdn.microsoft.com/zh-cn/library/windowsazure/hh771389.aspx)中的“设置 WAD”一节。
 
 scheduledTransferPeriod 特性，指定计划数据传输之间的时间间隔，取整为最接近的分钟数。 在下面的示例中，将其设置为 PT30M（30 分钟）。 将传输时间段设置为较小的值（如 1 分钟）会对应用程序的生产性能产生负面影响，但在测试时有助于快速查看诊断信息。 计划的传输时间段应足够小以确保不会在实例上覆盖诊断数据，但也应足够大以确保不会影响应用程序的性能。
 
@@ -179,13 +179,13 @@ counterSpecifier 属性指定要收集的性能计数器。sampleRate 属性指�
     </ConfigurationSettings>
     ```
 现已设置连接字符串，在部署应用程序时，该应用程序会将诊断数据保存到存储帐户。
-4. 保存并生成项目，然后部署应用程序。
+4. 保存并生成项目，部署应用程序。
 
 ## <a name="step-2-optional-create-custom-performance-counters"></a>步骤 2：（可选）创建自定义性能计数器
 
 除了预定义的性能计数器外，还可以添加自己的自定义性能计数器来监视 Web 角色或辅助角色。 自定义性能计数器可用于跟踪和监视应用程序特定行为，并且可使用提升的权限在启动任务、Web 角色或辅助角色中创建或删除该计数器。
 
-Azure 诊断代理会在启动后一分钟刷新 .wadcfg 文件中的性能计数器配置。  如果在 OnStart 方法中创建自定义性能计数器，并且启动任务的执行时间超过 1 分钟，则自定义性能计数器不会在 Azure 诊断代理尝试加载时创建。  在这种情况下，Azure 诊断可正确捕获除自定义性能计数器以外的所有诊断数据。  若要解决此问题，可以在启动任务中创建性能计数器，也可以在创建性能计数器后将部分启动任务工作转移到 OnStart 方法。
+Azure 诊断代理会在启动后一分钟刷新 .wadcfg 文件中的性能计数器配置。  如果在 OnStart 方法中创建自定义性能计数器，并且启动任务的执行时间超过 1 分钟，则自定义性能计数器不会在 Azure 诊断代理尝试加载时创建。  在这种情况下，Azure 诊断可正确捕获除自定义性能计数器以外的所有诊断数据。  要解决此问题，可以在启动任务中创建性能计数器，也可以在创建性能计数器后将部分启动任务工作转移到 OnStart 方法。
 
 执行下列步骤，创建一个名为“\MyCustomCounterCategory\MyButton1Counter”的简单自定义性能计数器：
 
@@ -204,7 +204,7 @@ Azure 诊断代理会在启动后一分钟刷新 .wadcfg 文件中的性能计�
     </PerformanceCounters>
     ```
 5. 保存文件。
-6. 先使用角色的 OnStart 方法创建自定义性能计数器类别，然后再调用 base.OnStart。 以下 C# 示例将创建一个自定义类别（如果尚不存在）：
+6. 先使用角色的 OnStart 方法创建自定义性能计数器类别，再调用 base.OnStart。 以下 C# 示例将创建一个自定义类别（如果尚不存在）：
 
     ```csharp
     public override bool OnStart()
@@ -251,11 +251,10 @@ Azure 诊断代理会在启动后一分钟刷新 .wadcfg 文件中的性能计�
     ```
 8. 保存文件。  
 
-现在，将由 Azure 诊断监视器收集自定义性能计数器数据。
+现在，由 Azure 诊断监视器收集自定义性能计数器数据。
 
 ## <a name="step-3-query-performance-counter-data"></a>步骤 3：查询性能计数器数据
-
-部署并运行应用程序后，诊断监视器将开始收集性能计数器并将该数据保存到 Azure 存储。 使用 Cerebrata 提供的工具（例如 Visual Studio 中的服务器资源管理器、[Azure 存储资源管理器](http://azurestorageexplorer.codeplex.com/)或 [Azure 诊断管理器](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx)）查看 WADPerformanceCountersTable 表中的性能计数器数据。 还可以使用 [C#](../storage/storage-dotnet-how-to-use-tables.md)、[Java](../storage/storage-java-how-to-use-table-storage.md)、[Node.js](../storage/storage-nodejs-how-to-use-table-storage.md)、[Python](../storage/storage-python-how-to-use-table-storage.md)、[Ruby](../storage/storage-ruby-how-to-use-table-storage.md) 或 [PHP](../storage/storage-php-how-to-use-table-storage.md) 以编程方式查询表服务。
+部署并运行应用程序后，诊断监视器将开始收集性能计数器并将该数据保存到 Azure 存储。 使用 Cerebrata 提供的工具（例如 Visual Studio 中的服务器资源管理器、[Azure 存储资源管理器](http://azurestorageexplorer.codeplex.com/)或 [Azure 诊断管理器](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx)）查看 WADPerformanceCountersTable 表中的性能计数器数据。 还可以使用 [C#](../cosmos-db/table-storage-how-to-use-dotnet.md)、[Java](../cosmos-db/table-storage-how-to-use-java.md)、[Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md)、[Python](../cosmos-db/table-storage-how-to-use-python.md)、[Ruby](../cosmos-db/table-storage-how-to-use-ruby.md) 或 [PHP](../cosmos-db/table-storage-how-to-use-php.md) 以编程方式查询表服务。
 
 以下 C# 示例显示针对 WADPerformanceCountersTable 表的基本查询，并将诊断数据保存到 CSV 文件中。 将性能计数器保存到 CSV 文件后，可以使用 Microsoft Excel 中的图形功能或使用其他一些工具来使数据可视化。 请务必添加对 Microsoft.WindowsAzure.Storage.dll（包含在 2012 年 10 月版的 Azure SDK for .NET 及更高版本中）的引用。 程序集安装在 %Program Files%\Microsoft SDKs\Microsoft Azure.NET SDK\version-num\ref\ 目录中。
 
@@ -331,5 +330,3 @@ public class PerformanceCountersEntity : TableEntity
 }
 ```
 
-## <a name="next-steps"></a>后续步骤
-[查看有关 Azure 诊断的其他文章](../azure-diagnostics.md)

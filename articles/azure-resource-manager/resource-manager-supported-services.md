@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/12/2017
-ms.date: 07/03/2017
+origin.date: 07/25/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5d721f4c157bb6de475d61674332b158ce1070e7
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: bbd3cfb35d4dde22e28ca1d89af8cff36b2857a1
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/31/2017
 ---
-# 资源提供程序和类型
-<a id="resource-providers-and-types" class="xliff"></a>
+# <a name="resource-providers-and-types"></a>资源提供程序和类型
 
 部署资源时，经常需要检索有关资源提供程序和类型的信息。 本文介绍如何执行以下操作：
 
@@ -35,8 +34,7 @@ ms.lasthandoff: 06/23/2017
 
 可以通过门户、PowerShell 或 Azure CLI 执行这些步骤。
 
-## PowerShell
-<a id="powershell" class="xliff"></a>
+## <a name="powershell"></a>PowerShell
 
 若要查看 Azure 中的所有资源提供程序和订阅的注册状态，请使用：
 
@@ -56,7 +54,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-默认情况下，会自动注册多个资源提供程序；但是，你可能需要手动注册某些资源提供程序。 若要注册资源提供程序，请提供命名空间：
+通过注册资源提供程序，将订阅配置为使用资源提供程序。 注册的作用域始终是订阅。 默认情况下，将自动注册许多资源提供程序。 但可能需要手动注册某些资源提供程序。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 此操作包含在“参与者”和“所有者”角色中。
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
@@ -70,6 +68,8 @@ RegistrationState : Registering
 ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {China North, China East, China East 2, China North...}
 ```
+
+当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
 
 若要查看特定资源提供程序的信息，请使用：
 
@@ -94,7 +94,7 @@ Locations         : {China North, China East, China East 2, China North...}
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
-将返回：
+返回：
 
 ```powershell
 batchAccounts
@@ -111,7 +111,7 @@ API 版本对应于资源提供程序发布的 REST API 操作版本。 资源�
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
-将返回：
+返回：
 
 ```powershell
 2017-05-01
@@ -129,15 +129,14 @@ API 版本对应于资源提供程序发布的 REST API 操作版本。 资源�
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
-将返回：
+返回：
 
 ```powershell
 China North
 China East
 ```
 
-## Azure CLI
-<a id="azure-cli" class="xliff"></a>
+## <a name="azure-cli"></a>Azure CLI
 若要查看 Azure 中的所有资源提供程序和订阅的注册状态，请使用：
 
 ```azurecli
@@ -156,13 +155,15 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-默认情况下，会自动注册多个资源提供程序；但是，你可能需要手动注册某些资源提供程序。 若要注册资源提供程序，请提供命名空间：
+通过注册资源提供程序，将订阅配置为使用资源提供程序。 注册的作用域始终是订阅。 默认情况下，将自动注册许多资源提供程序。 但可能需要手动注册某些资源提供程序。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 此操作包含在“参与者”和“所有者”角色中。
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
 ```
 
 这会返回一条消息，指出注册正在进行。
+
+当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
 
 若要查看特定资源提供程序的信息，请使用：
 
@@ -189,7 +190,7 @@ az provider show --namespace Microsoft.Batch
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
-将返回：
+返回：
 
 ```azurecli
 Result
@@ -208,7 +209,7 @@ API 版本对应于资源提供程序发布的 REST API 操作版本。 资源�
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
-将返回：
+返回：
 
 ```azurecli
 Result
@@ -228,7 +229,7 @@ Result
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 
-将返回：
+返回：
 
 ```azurecli
 Result
@@ -237,8 +238,7 @@ China North
 China East
 ```
 
-## 门户
-<a id="portal" class="xliff"></a>
+## <a name="portal"></a>门户
 
 若要查看 Azure 中的所有资源提供程序以及订阅的注册状态，请选择“订阅”。
 
@@ -252,9 +252,11 @@ China East
 
 ![显示资源提供程序](./media/resource-manager-supported-services/show-resource-providers.png)
 
-默认情况下，会自动注册多个资源提供程序；但是，你可能需要手动注册某些资源提供程序。 若要注册资源提供程序，请选择“注册”。
+通过注册资源提供程序，将订阅配置为使用资源提供程序。 注册的作用域始终是订阅。 默认情况下，将自动注册许多资源提供程序。 但可能需要手动注册某些资源提供程序。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 此操作包含在“参与者”和“所有者”角色中。 若要注册资源提供程序，请选择“注册”。
 
 ![注册资源提供程序](./media/resource-manager-supported-services/register-provider.png)
+
+当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
 
 若要查看特定资源提供程序的信息，请选择“更多服务”。
 
@@ -280,8 +282,9 @@ API 版本对应于资源提供程序发布的 REST API 操作版本。 资源�
 
 ![显示 API 版本](./media/resource-manager-supported-services/show-api-versions.png)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 若要了解如何创建 Resource Manager 模板，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
 * 若要了解如何部署资源，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
-* 若要查看资源提供程序的操作，请参阅 [Azure REST API](https://docs.microsoft.com/zh-cn/rest/api/)。
+* 若要查看资源提供程序的操作，请参阅 [Azure REST API](https://docs.microsoft.com/rest/api/)。
+
+<!--Update_Description: update meta properties, wording update -->

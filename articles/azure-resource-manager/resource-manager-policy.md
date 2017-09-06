@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/27/2017
-ms.date: 08/21/2017
+origin.date: 08/02/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 543b6ff22eeb83b7e11088e1b20d16bd07d5484b
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 118b5a85648b2be90e10232cb0a8fbaea2a8674f
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="resource-policy-overview"></a>资源策略概述
-使用资源策略可在组织中建立资源约定。 通过定义约定，可以控制成本并更轻松地管理资源。 例如，可以指定仅允许某些类型的虚拟机，或要求所有资源都带有特定的标记。 策略由所有子资源继承。 因此，如果将策略应用到资源组，则其适用于该资源组中的所有资源。
+使用资源策略可在组织中建立资源约定。 通过定义约定，可以控制成本并更轻松地管理资源。 例如，可指定仅允许特定类型的虚拟机。 或者，可要求所有资源都拥有特定标记。 策略由所有子资源继承。 因此，如果将策略应用到资源组，则其适用于该资源组中的所有资源。
 
 了解策略的两个概念：
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 08/17/2017
 > 
 
 ## <a name="how-is-it-different-from-rbac"></a>策略与 RBAC 有什么不同？
-策略和基于角色的访问控制 (RBAC) 之间存在一些主要区别。 RBAC 关注不同范围内的**用户**操作。 例如，你将添加到所需范围的资源组的参与者角色后，便可以对该资源组做出更改。 策略关注部署期间的 **资源** 属性。 例如，通过策略，可以控制可预配的资源类型，或限制可以预配资源的位置。 不同于 RBAC，策略是默认的允许和明确拒绝系统。 
+策略和基于角色的访问控制 (RBAC) 之间存在一些主要区别。 RBAC 关注不同范围内的**用户**操作。 例如，你将添加到所需范围的资源组的参与者角色后，便可以对该资源组做出更改。 策略关注部署期间的 **资源** 属性。 例如，可通过策略控制能够预配的资源类型。 或者，可限制能够预配资源的位置。 不同于 RBAC，策略是默认的允许和明确拒绝系统。 
 
 若要使用策略，用户必须通过 RBAC 进行身份验证。 具体而言，帐户需要：
 
@@ -196,7 +196,8 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 
 在使用 **like** 条件时，可以在值中提供通配符 (*)。
 
-使用 **match** 条件时，请提供 `#` 来表示数字，提供 `?` 来表示字母，提供任何其他字符来表示该实际字符。 有关示例，请参阅[设置命名约定](#set-naming-convention)。
+使用 **match** 条件时，请提供 `#` 来表示数字，提供 `?` 来表示字母，提供任何其他字符来表示该实际字符。
+<!-- [Apply resource policies for names and text](resource-manager-policy-naming-convention.md) -->
 
 ### <a name="fields"></a>字段
 使用字段构成条件。 字段显示用于描述资源状态的资源请求负载属性。  
@@ -236,7 +237,7 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 
 ## <a name="aliases"></a>别名
 
-使用属性别名来访问资源类型的特定属性。 
+使用属性别名来访问资源类型的特定属性。 通过别名，可限制允许用于特定资源属性的值和条件。 每个别名会映射到给定资源类型不同 API 版本的路径。 在策略评估期间，策略引擎会获取该 API 版本的属性路径。
 
 Microsoft.Cache/Redis
 
@@ -267,6 +268,7 @@ Microsoft.Compute/virtualMachines
 
 | 别名 | 说明 |
 | ----- | ----------- |
+| Microsoft.Compute/imageId | 设置用于创建虚拟机的映像的标识符。 |
 | Microsoft.Compute/imageOffer | 设置用于创建虚拟机的平台映像或应用商店映像的产品/服务。 |
 | Microsoft.Compute/imagePublisher | 设置用于创建虚拟机的平台映像或应用商店映像的发布服务器。 |
 | Microsoft.Compute/imageSku | 设置用于创建虚拟机的平台映像或应用商店映像的 SKU。 |
@@ -291,6 +293,7 @@ Microsoft.Compute/virtualMachineScaleSets
 
 | 别名 | 说明 |
 | ----- | ----------- |
+| Microsoft.Compute/imageId | 设置用于创建虚拟机的映像的标识符。 |
 | Microsoft.Compute/imageOffer | 设置用于创建虚拟机的平台映像或应用商店映像的产品/服务。 |
 | Microsoft.Compute/imagePublisher | 设置用于创建虚拟机的平台映像或应用商店映像的发布服务器。 |
 | Microsoft.Compute/imageSku | 设置用于创建虚拟机的平台映像或应用商店映像的 SKU。 |

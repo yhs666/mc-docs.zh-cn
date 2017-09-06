@@ -17,11 +17,11 @@ ms.workload: big-data
 origin.date: 06/30/2017
 ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: c911b4d4f5709c8c46701166c8a220729415bef9
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 2ec22e727f157ff5d76fcdf018da800612e94f1c
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 模板在 HDInsight 中创建 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -45,7 +45,7 @@ ms.lasthandoff: 07/28/2017
 
 在此模板中，定义应用程序所需的资源。 还可指定部署参数以输入不同环境的值。 模板中包含用于为部署构造值的 JSON 和表达式。
 
-可在 [Azure 快速启动模板](https://github.com/Azure/azure-quickstart-templates/?term=hdinsight)中找到 HDInsight 模板示例。 将跨平台 [Visual Studio 代码](https://code.visualstudio.com/#alt-downloads)与 [Resource Manager 扩展](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)或文本编辑器配合使用，将模板保存到工作站上的文件中。 了解如何使用不同方法调用模板。
+可在 [Azure 快速启动模板](https://github.com/Azure/azure-quickstart-templates/?term=hdinsight)中找到 HDInsight 模板示例。 将跨平台 [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) 与[资源管理器扩展](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)或文本编辑器配合使用，将模板保存到工作站上的文件中。 了解如何使用不同方法调用模板。
 
 有关 Resource Manager 模板的详细信息，请参阅以下文章：
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 07/28/2017
 **使用 Azure 门户生成模板**
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧菜单中单击“新建”，然后依次单击“智能+分析”和“HDInsight”。
+2. 在左侧菜单中单击“新建”，并依次单击“智能+分析”和“HDInsight”。
 3. 按照说明输入属性。 可使用“快速创建”或“自定义”选项。
 4. 在“摘要”选项卡上，单击“下载模板和参数”：
 
@@ -170,7 +170,7 @@ ms.lasthandoff: 07/28/2017
 
 * 有关通过 .NET 客户端库部署资源的示例，请参阅[使用 .NET 库和模板部署资源](../virtual-machines/windows/csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 有关部署应用程序的详细示例，请参阅[按可预见的方式在 Azure 中预配和部署微服务](../app-service-web/app-service-deploy-complex-application-predictably.md)。
-* 有关将解决方案部署到不同环境的指南，请参阅 [Azure 中的开发和测试环境](../azure-resource-manager/solution-dev-test-environments.md)。
+<!-- Redirect URL Not Available [Development and test environments in Azure](../azure-resource-manager/solution-dev-test-environments.md). -->
 * 若要了解 Azure Resource Manager 模板的节，请参阅[创作模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 * 有关可在 Azure Resource Manager 模板中使用的函数列表，请参阅[模板函数](../azure-resource-manager/resource-group-template-functions.md)。
 

@@ -3,8 +3,8 @@ title: "开始使用 REST 按需传送内容 | Azure"
 description: "本教程介绍了使用 Azure 媒体服务和 REST API 实现点播内容传送应用程序的步骤。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 88194b59-e479-43ac-b179-af4f295e3780
 ms.service: media-services
@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: v-johch
-ms.openlocfilehash: 42f48a2bb2b1b3a7ff2c1f298e003d4a94b118fe
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 08/10/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 57189ffffb5b1c4d5a1000702d8cc1ee9aff9234
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>开始使用 REST 传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -27,7 +28,7 @@ ms.lasthandoff: 06/21/2017
 
 本教程介绍了基本的媒体服务工作流，以及进行媒体服务开发需要用到的最常见编程对象和任务。 完成本教程后，就可以流式传输或渐进下载已上传、编码和下载的示例媒体文件。
 
-开发针对媒体服务 OData 模型的 VoD 应用程序时，以下图像将显示某些最常用的对象。
+开发针对媒体服务 OData 模型的 VoD 应用程序时，以下图像会显示某些最常用的对象。
 
 单击图像查看其完整大小。  
 
@@ -37,13 +38,13 @@ ms.lasthandoff: 06/21/2017
 以下是开始使用媒体服务和 REST API 进行开发所要满足的先决条件。
 
 * 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。 
-* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[如何创建媒体服务帐户](media-services-create-account.md)。
+* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * 了解如何使用媒体服务 REST API 进行开发。 有关详细信息，请参阅[媒体服务 REST API 概述](media-services-rest-how-to-use.md)。
 * 可以发送 HTTP 请求和响应的所选应用程序。 本教程使用 [Fiddler](http://www.telerik.com/download/fiddler)。
 
 本快速入门教程中说明了以下任务。
 
-1. 启动流式处理终结点（使用 Azure 经典管理门户）。
+1. 启动流式处理终结点（使用 Azure 门户）。
 2. 使用 REST API 连接到媒体服务帐户。
 3. 使用 REST API 创建新资产并上传视频文件。
 4. 使用 REST API 将源文件编码为一组自适应比特率 MP4 文件。
@@ -53,10 +54,12 @@ ms.lasthandoff: 06/21/2017
 >[!NOTE]
 >不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies)主题。
 
+若要深入了解本主题中使用的 AMS REST 实体，请参阅 [Azure 媒体服务 REST API 参考](https://docs.microsoft.com/rest/api/media/services/azure-media-services-rest-api-reference)。 也可参阅 [Azure 媒体服务概念](media-services-concepts.md)。
 
-若要深入了解本主题中使用的 AMS REST 实体，请参阅 [Azure 媒体服务 REST API 参考](https://docs.microsoft.com/rest/api/media/services/azure-media-services-rest-api-reference)。 也可参阅 [Azure 媒体服务概念](./media-services-concepts.md)。
+>[!NOTE]
+>访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
 
-## <a name="start-streaming-endpoints-using-the-azure-classic-management-portal"></a>使用 Azure 经典管理门户启动流式处理终结点
+## <a name="start-streaming-endpoints-using-the-azure-portal"></a>使用 Azure 门户启动流式处理终结点
 
 使用 Azure 媒体服务时，最常见的场景之一是通过自适应比特率流式处理来传送视频。 媒体服务提供动态打包，可按媒体服务支持的流格式（MPEG DASH、HLS、平滑流式处理）及时传送自适应比特率 MP4 编码内容，而无需存储上述各种流格式的预打包版本。
 
@@ -65,9 +68,9 @@ ms.lasthandoff: 06/21/2017
 
 若要启动流式处理终结点，请执行以下操作：
 
-1. 在 [Azure 经典管理门户](https://manage.windowsazure.cn/)登录。
-2. 单击“流式处理终结点”。 
-3. 单击默认的流式处理终结点。 
+1. 在 [Azure 门户](https://portal.azure.cn/)登录。
+2. 在“设置”窗口中，单击“流式处理终结点”。
+3. 单击默认的流式处理终结点。
 
     此时会显示“默认流式处理终结点详细信息”窗口。
 
@@ -75,119 +78,8 @@ ms.lasthandoff: 06/21/2017
 5. 单击“保存”按钮保存更改。
 
 ## <a id="connect"></a>使用 REST API 连接到媒体服务帐户
-访问 Azure 媒体服务时需要以下两项内容：由 Azure 访问控制服务 (ACS) 提供的访问令牌和媒体服务本身的 URI。 在创建这些请求时，可以使用任何想要的方法，前提是在调用媒体服务时指定了正确的标头值，并且正确地传入了访问令牌。
 
-以下步骤描述了在使用媒体服务 REST API 连接到媒体服务时运用的最常见工作流：
-
-1. 获取访问令牌。
-2. 连接到媒体服务 URI。  
-    
-    >[!NOTE] 
-    >- 上海 DC URL（中国东部）：https://wamsshaclus001rest-hs.chinacloudapp.cn/API/
-    >- 北京 DC URL（中国北部）：https://wamsbjbclus001rest-hs.chinacloudapp.cn/API/
-
-3. 将 API 调用直接发布到上面的 URL（在其中创建媒体服务）。 
-
-
-
-### <a name="getting-an-access-token"></a>获取访问令牌
-若要直接通过 REST API 访问媒体服务，请从 ACS 中检索一个访问令牌，并在向该服务提出每个 HTTP 请求期间使用该令牌。 在直接连接到媒体服务之前，你不需要满足任何其他先决条件。
-
-以下示例显示了用于检索令牌的 HTTP 请求标头和正文。
-
-**标头**：
-
-```
-POST https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn/v2/OAuth2-13 HTTP/1.1
-Content-Type: application/x-www-form-urlencoded
-Host: wamsprodglobal001acs.accesscontrol.chinacloudapi.cn
-Content-Length: 120
-Expect: 100-continue
-Connection: Keep-Alive
-Accept: application/json
-```
-
-**正文**：
-
-请在此请求的正文中提供 client_id 和 client_secret 值；client_id 和 client_secret 分别对应于 AccountName 和 AccountKey 值。 在你设置帐户时，媒体服务将向你提供这些值。
-
-当用作访问令牌请求中的 client_secret 值时，媒体服务帐户的 AccountKey 必须进行 URL 编码。
-
-```
-grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
-```
-
-例如： 
-
-```
-grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
-```
-
-以下示例显示了在响应正文中包含访问令牌的 HTTP 响应。
-
-```
-HTTP/1.1 200 OK
-Cache-Control: no-cache, no-store
-Pragma: no-cache
-Content-Type: application/json; charset=utf-8
-Expires: -1
-request-id: a65150f5-2784-4a01-a4b7-33456187ad83
-X-Content-Type-Options: nosniff
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Date: Thu, 15 Jan 2015 08:07:20 GMT
-Content-Length: 670
-
-{  
-   "token_type":"http://schemas.xmlsoap.org/ws/2009/11/swt-token-profile-1.0",
-   "access_token":"http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421330840&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=uf69n82KlqZmkJDNxhJkOxpyIpA2HDyeGUTtSnq1vlE%3d",
-   "expires_in":"21600",
-   "scope":"urn:WindowsAzureMediaServices"
-}
-```
-
-> [!NOTE]
-> 建议在外部存储中缓存“access_token”和“expires_in”（访问令牌的有效期，以秒为单位）值。 以后可以从存储中检索令牌数据，并在媒体服务 REST API 调用中重新使用。 这对于令牌可以在多个进程或多台计算机之间安全共享的方案尤其有用。
->
->
-
-确保监视访问令牌的“expires_in”值，并在必要时使用新令牌更新你的 REST API 调用。
-
-### <a name="connecting-to-the-media-services-uri"></a>连接到媒体服务 URI
-
-
-用于上传和下载资产文件的根 URI 为 https://yourstorageaccount.blob.core.chinacloudapi.cn/，其中的存储帐户名为你在媒体服务帐户设置期间使用的同一帐户名。
-
-以下示例演示了发往中国东部区域 (https://wamsshaclus001rest-hs.chinacloudapp.cn/API/) 的媒体服务的 HTTP 请求。 
-
-**HTTP 请求**：
-
-```
-GET https://wamsshaclus001rest-hs.chinacloudapp.cn/api/ HTTP/1.1
-Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
-x-ms-version: 2.11
-Accept: application/json
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-```
-
-**HTTP 响应**：
-
-```
-HTTP/1.1 200 OK
-Cache-Control: no-cache
-Content-Length: 1250
-Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-Server: Microsoft-IIS/8.5
-request-id: 5f52ea9d-177e-48fe-9709-24953d19f84a
-x-ms-request-id: 5f52ea9d-177e-48fe-9709-24953d19f84a
-X-Content-Type-Options: nosniff
-DataServiceVersion: 3.0;
-X-Powered-By: ASP.NET
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Date: Sat, 17 Jan 2015 07:44:52 GMT
-
-{"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata","value":[{"name":"AccessPolicies","url":"AccessPolicies"},{"name":"Locators","url":"Locators"},{"name":"ContentKeys","url":"ContentKeys"},{"name":"ContentKeyAuthorizationPolicyOptions","url":"ContentKeyAuthorizationPolicyOptions"},{"name":"ContentKeyAuthorizationPolicies","url":"ContentKeyAuthorizationPolicies"},{"name":"Files","url":"Files"},{"name":"Assets","url":"Assets"},{"name":"AssetDeliveryPolicies","url":"AssetDeliveryPolicies"},{"name":"IngestManifestFiles","url":"IngestManifestFiles"},{"name":"IngestManifestAssets","url":"IngestManifestAssets"},{"name":"IngestManifests","url":"IngestManifests"},{"name":"StorageAccounts","url":"StorageAccounts"},{"name":"Tasks","url":"Tasks"},{"name":"NotificationEndPoints","url":"NotificationEndPoints"},{"name":"Jobs","url":"Jobs"},{"name":"TaskTemplates","url":"TaskTemplates"},{"name":"JobTemplates","url":"JobTemplates"},{"name":"MediaProcessors","url":"MediaProcessors"},{"name":"EncodingReservedUnitTypes","url":"EncodingReservedUnitTypes"},{"name":"Operations","url":"Operations"},{"name":"StreamingEndpoints","url":"StreamingEndpoints"},{"name":"Channels","url":"Channels"},{"name":"Programs","url":"Programs"}]}
-```
-
+若要了解如何连接到 AMS API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
 
 ## <a id="upload"></a>使用 REST API 创建新资产并上传视频文件
@@ -198,7 +90,7 @@ Date: Sat, 17 Jan 2015 07:44:52 GMT
 
 * **None** = **0** - 不使用加密。 使用此选项时，内容在传送过程中或静态存储过程中都不会受到保护。
     如果计划使用渐进式下载交付 MP4，则使用此选项。
-* **StorageEncrypted** = **1** - 使用 AES-256 位加密在本地加密明文内容，然后将其上传到 Azure 存储，在其中以加密形式静态存储相关内容。 受存储加密保护的资产将在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。
+* **StorageEncrypted** = **1** - 使用 AES-256 位加密在本地加密明文内容，然后将其上传到 Azure 存储，在其中以加密形式静态存储相关内容。 受存储加密保护的资产会在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。
 * **CommonEncryptionProtected** = **2** - 上传经过通用加密或 PlayReady DRM 加密并受其保护的内容（例如，受 PlayReady DRM 保护的平滑流式处理）时使用此选项。
 * **EnvelopeEncryptionProtected** = **4** - 如果要上传使用 AES 加密的 HLS，请使用此选项。 Transform Manager 必须已对文件进行编码和加密。
 
@@ -227,7 +119,7 @@ Content-Length: 45
 
 **HTTP 响应**
 
-如果成功，将返回以下响应：
+如果成功，返回以下响应：
 
 ```
 HTP/1.1 201 Created
@@ -260,7 +152,7 @@ Date: Sun, 18 Jan 2015 22:06:40 GMT
 ```
 
 ### <a name="create-an-assetfile"></a>创建 AssetFile
-[AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) 实体表示 blob 容器中存储的视频或音频文件。 一个资产文件始终与一个资产关联，而一个资产则可能包含一个或多个 AssetFiles。 如果资产文件对象未与 BLOB 容器中的数字文件关联，则媒体服务 Encoder 任务将失败。
+[AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) 实体表示 blob 容器中存储的视频或音频文件。 一个资产文件始终与一个资产关联，而一个资产则可能包含一个或多个 AssetFiles。 如果资产文件对象未与 blob 容器中的数字文件关联，则媒体服务编码器任务将失败。
 
 将数字媒体文件上传到 blob 容器中后，可使用 **MERGE** HTTP 请求更新 AssetFile 中有关媒体文件的信息（如本主题稍后所述）。
 
@@ -348,7 +240,7 @@ Content-Length: 74
 **HTTP 响应**
 
 
-如果成功，将返回以下响应：
+如果成功，返回以下响应：
 ```
 HTTP/1.1 201 Created
 Cache-Control: no-cache
@@ -388,7 +280,7 @@ SAS URL 采用以下格式：
 请注意以下事项：
 
 * 一项给定的资产一次最多只能与五个唯一的定位符相关联。 有关详细信息，请参阅定位符。
-* 如果需要立即上传文件，应将 StartTime 值设置为当前时间前五分钟。 这是因为你的客户端计算机与媒体服务之间可能存在时钟偏差。 此外，StartTime 值必须采用以下 DateTime 格式：YYYY-MM-DDTHH:mm:ssZ（例如，“2014-05-23T17:53:50Z”）。    
+* 如果需要立即上传文件，应将 StartTime 值设置为当前时间前五分钟。 这是因为客户端计算机与媒体服务之间可能存在时钟偏差。 此外，StartTime 值必须采用以下 DateTime 格式：YYYY-MM-DDTHH:mm:ssZ（例如，“2014-05-23T17:53:50Z”）。    
 * 定位符从创建到可用可能会有 30-40 秒的延迟。 SAS URL 和源定位符都会出现这个问题。
 
 有关 SAS 定位符的详细信息，请参阅[此](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/)博客。
@@ -419,7 +311,7 @@ Content-Length: 178
 
 **HTTP 响应**
 
-如果成功，将返回以下响应：
+如果成功，返回以下响应：
 
 ```
 HTTP/1.1 201 Created
@@ -455,9 +347,9 @@ Date: Mon, 19 Jan 2015 03:01:29 GMT
 设置 AccessPolicy 和定位符后，即可使用 Azure 存储 REST API 将具体的文件上传到 Azure Blob 存储容器。 必须将文件作为块 blob 上传。 页 blob 不受 Azure 媒体服务支持。  
 
 >[!NOTE]
-> 必须将要上传的文件的文件名添加到在上一节收到的定位符 **Path** 值中。 例如，https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 。 。 。 
+> 必须将要上传的文件的文件名添加到上一部分中收到的定位符 **Path** 值中。 例如，https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 。 。 。 
 
-有关使用 Azure 存储 blob 的详细信息，请参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API)。
+有关使用 Azure 存储 blob 的详细信息，请参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)。
 
 ### <a name="update-the-assetfile"></a>更新 AssetFile
 上传文件后，请更新 FileAsset 大小（和其他）信息。 例如：
@@ -484,7 +376,7 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 **HTTP 响应**
 
-如果成功，将返回以下响应：
+如果成功，返回以下响应：
 
     HTTP/1.1 204 No Content
     ...
@@ -505,7 +397,7 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 **HTTP 响应**
 
-如果成功，将返回以下响应：
+如果成功，返回以下响应：
 
 ```
 HTTP/1.1 204 No Content 
@@ -527,7 +419,7 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 **HTTP 响应**
 
-如果成功，将返回以下响应：
+如果成功，返回以下响应：
 
 ```
 HTTP/1.1 204 No Content
@@ -536,14 +428,14 @@ HTTP/1.1 204 No Content
 
 ## <a id="encode"></a>将源文件编码为一组自适应比特率 MP4 文件
 
-将资产引入媒体服务后，即可对媒体进行编码、传输复用、打水印等处理，然后将其传送至客户端。 将根据多个后台角色实例调度把那个运行这些活动，以确保较高的性能和可用性。 这些活动称为作业，每个作业由原子任务构成，这些原子任务在资产文件上完成具体的工作（有关详细信息，请参阅[作业](https://docs.microsoft.com/en-us/rest/api/media/operations/job)、[任务](https://docs.microsoft.com/en-us/rest/api/media/operations/task)描述）。 
+将资产引入媒体服务后，即可对媒体进行编码、传输复用、打水印等处理，并将其传送至客户端。 根据多个后台角色实例调度把那个运行这些活动，以确保较高的性能和可用性。 这些活动称为作业，每个作业由原子任务构成，这些原子任务在资产文件上完成具体的工作（有关详细信息，请参阅[作业](https://docs.microsoft.com/rest/api/media/services/job)、[任务](https://docs.microsoft.com/rest/api/media/services/task)描述）。
 
 如前所述，使用 Azure 媒体服务最常见的方案之一是将自适应比特率流传送至客户端。 媒体服务可将一组自适应比特率 MP4 文件动态打包为以下格式之一：HTTP Live Streaming (HLS)、平滑流式处理、MPEG DASH。
 
-以下部分说明了如何创建包含一个编码任务的作业。 该任务指定使用 **Media Encoder Standard**将夹层文件转码成一组自适应比特率 MP4。 该部分还说明了如何监视作业处理进度。 作业完成后，可创建所需的定位符来获取对资产的访问权限。
+以下部分说明了如何创建包含一个编码任务的作业。 该任务指定使用 **Media Encoder Standard** 将夹层文件转码成一组自适应比特率 MP4。 该部分还说明了如何监视作业处理进度。 作业完成后，可创建所需的定位符来获取对资产的访问权限。
 
 ### <a name="get-a-media-processor"></a>获取媒体处理器
-在媒体服务中，媒体处理器是完成特定处理任务（例如，对媒体内容进行编码、格式转换、加密或解密）的组件。 对于本教程中所示的编码任务，将使用 Media Encoder Standard。
+在媒体服务中，媒体处理器是完成特定处理任务（例如，对媒体内容进行编码、格式转换、加密或解密）的组件。 对于本教程中所示的编码任务，会使用 Media Encoder Standard。
 
 以下代码会请求编码器的 ID。
 
@@ -632,7 +524,7 @@ Content-Length: 482
 
 **HTTP 响应**
 
-如果成功，将返回以下响应：
+如果成功，返回以下响应：
 
 ```
 HTTP/1.1 201 Created
@@ -742,7 +634,7 @@ Content-Length: 0
 
 **HTTP 响应**
 
-如果成功，将返回以下响应：
+如果成功，返回以下响应：
 
 ```
 HTTP/1.1 200 OK
@@ -778,7 +670,7 @@ Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidenti
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
-如果成功，将返回不带消息正文的 204 响应代码。
+如果成功，返回不带消息正文的 204 响应代码。
 
 > [!NOTE]
 > 将作业 ID 作为参数传递给 CancelJob 时，必须对作业 ID 进行 URL 编码（通常为 nb:jid:UUID: 某个值）。
@@ -895,10 +787,10 @@ Expect: 100-continue
 {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 ```
 
-如果成功，将返回描述已创建的 AccessPolicy 实体的 201 成功代码。 然后，需要使用 AccessPolicy ID 以及包含需传送文件的资产（如某个输出资产）的资产 ID 来创建定位符实体。
+如果成功，则返回描述已创建的 AccessPolicy 实体的 201 成功代码。 然后，需要使用 AccessPolicy ID 以及包含需传送文件的资产（如某个输出资产）的资产 ID 来创建定位符实体。
 
 > [!NOTE]
-> 此基本工作流与引入资产时上传文件的工作流相同（如本主题前面所述）。 此外，和上传文件一样，如果（或你的客户端）需要立即访问文件，请将 StartTime 值设置为当前时间前五分钟。 此操作是必需的，因为客户端与媒体服务之间可能存在时钟偏差。 StartTime 值必须采用以下 DateTime 格式：YYYY-MM-DDTHH:mm:ssZ（例如，“2014-05-23T17:53:50Z”）。
+> 此基本工作流与引入资产时上传文件的工作流相同（如本主题前面所述）。 此外，和上传文件一样，如果（或客户端）需要立即访问文件，请将 StartTime 值设置为当前时间前五分钟。 此操作是必需的，因为客户端与媒体服务之间可能存在时钟偏差。 StartTime 值必须采用以下 DateTime 格式：YYYY-MM-DDTHH:mm:ssZ（例如，“2014-05-23T17:53:50Z”）。
 >
 >
 
@@ -920,7 +812,7 @@ Expect: 100-continue
 {"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c", "StartTime" : "2014-05-17T16:45:53", "Type":1}
 ```
 
-如果成功，将返回以下响应：
+如果成功，返回以下响应：
 
 ```
 HTTP/1.1 201 Created
@@ -967,7 +859,7 @@ Date: Mon, 14 May 2012 21:41:32 GMT
 返回的 **Path** 属性包含的 SAS URL。
 
 > [!NOTE]
-> 如果下载存储加密的内容，则必须先手动进行解密，然后才能显示该内容；也可以在处理任务中使用 Storage Decryption MediaProcessor 将已处理的文件以明文形式输出到某个 OutputAsset，然后从该资产中进行下载。 有关处理的详细信息，请参阅“使用媒体服务 REST API 创建编码作业”。 此外，SAS URL 定位符在创建后即无法更新。 例如，不能将同一定位符重用于已更新的 StartTime 值。 这是由创建 SAS URL 的方式决定的。 如果希望在定位符过期后访问某个供下载的资产，则必须创建一个带新 StartTime 的新定位符。
+> 如果下载存储加密的内容，则必须先手动进行解密，才能显示该内容；也可以在处理任务中使用 Storage Decryption MediaProcessor 将已处理的文件以明文形式输出到某个 OutputAsset，并从该资产中进行下载。 有关处理的详细信息，请参阅“使用媒体服务 REST API 创建编码作业”。 此外，SAS URL 定位符在创建后即无法更新。 例如，不能将同一定位符重用于已更新的 StartTime 值。 这是由创建 SAS URL 的方式决定的。 如果希望在定位符过期后访问某个供下载的资产，则必须创建一个带新 StartTime 的新定位符。
 >
 >
 
@@ -977,7 +869,7 @@ Date: Mon, 14 May 2012 21:41:32 GMT
 >[!NOTE]
 > 必须将要下载的文件的文件名添加到在上一部分收到的 Locator **Path** 值中。 例如，https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 。 。 。 
 
-有关使用 Azure 存储 Blob 的详细信息，请参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API)。
+有关使用 Azure 存储 Blob 的详细信息，请参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)。
 
 由于之前已经执行了编码作业（编码成自适应 MP4 集），因此可以渐进式下载多个 MP4 文件。 例如：    
 
@@ -1018,7 +910,7 @@ Expect: 100-continue
 {"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3", "StartTime" : "2014-05-17T16:45:53",, "Type":2}
 ```
 
-如果成功，将返回以下响应：
+如果成功，返回以下响应：
 
 ```
 HTTP/1.1 201 Created
@@ -1083,4 +975,5 @@ http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-
 ## <a id="play"></a>播放内容
 若要流式处理视频，请使用 [Azure 媒体服务播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。
 
-若要测试渐进式下载，请将 URL 粘贴到浏览器（例如 IE、Chrome、Safari）中。
+要测试渐进式下载，请将 URL 粘贴到浏览器（例如 IE、Chrome、Safari）中。
+<!--Update_Description: remove ACS related content-->

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/12/2017
-ms.date: 08/21/2017
+origin.date: 08/17/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: b9b2ca4c2ddc4c9c4c1e1d81fb37fcd21ea43be5
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: fe0e5dc715c7d097d335c4dbd56745d311c98a27
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>排查使用 Azure Resource Manager 时的常见 Azure 部署错误
 本主题介绍如何解决可能遇到的一些常见 Azure 部署错误。
@@ -63,7 +63,25 @@ Message: The requested tier for resource '<resource>' is currently not available
 for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
 ```
 
-当所选的资源 SKU（如 VM 大小）不可用于所选的位置时，会收到此错误。 若要解决此问题，需要确定区域提供哪些 SKU。 可以使用门户或 REST 操作查找可用的 SKU。
+当所选的资源 SKU（如 VM 大小）不可用于所选的位置时，会收到此错误。 若要解决此问题，需要确定区域提供哪些 SKU。 可使用 PowerShell、门户或 REST 操作查找可用的 SKU。
+
+- 对于 PowerShell，请使用 [Get-AzureRmComputeResourceSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) 并按位置进行筛选。 必须安装最新版本 PowerShell 才能运行此命令。
+
+  ```powershell
+  Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("chinaeast")}
+  ```
+
+  结果包括位置的 SKU 列表以及针对该 SKU 的任何限制。
+
+  ```powershell
+  ResourceType                Name      Locations Restriction                      Capability Value
+  ------------                ----      --------- -----------                      ---------- -----
+  availabilitySets         Classic chinaeast             MaximumPlatformFaultDomainCount     3
+  availabilitySets         Aligned chinaeast             MaximumPlatformFaultDomainCount     3
+  virtualMachines      Standard_A0 chinaeast
+  virtualMachines      Standard_A1 chinaeast
+  virtualMachines      Standard_A2 chinaeast
+  ```
 
 - 如果要使用 [门户](https://portal.azure.cn)，请登录到门户，并通过界面添加资源。 设置值时，可看到该资源的可用 SKU。 不需要完成部署。
 
@@ -244,7 +262,8 @@ az account set --subscription {subscription-name}
 
     当资源以某种方式互相依赖，导致部署无法启动时，就会出现此错误。 将多个相互依赖的项组合在一起时，会导致两个或两个以上的资源等待其他资源，而后者也在进行等待。 例如，resource1 依赖于 resource3，resource2 依赖于 resource1，resource3 依赖于 resource2。 通常情况下，删除不必要的依赖项即可解决此问题。
 
-### <a name="notfound"></a><a name="notfound-and-resourcenotfound"></a>NotFound 和 ResourceNotFound
+<a id="notfound"></a>
+### <a name="notfound-and-resourcenotfound"></a>NotFound 和 ResourceNotFound
 如果模板包含无法解析的资源的名称，将出现类似于下面的错误：
 
 ```
@@ -312,7 +331,8 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 ]
 ```
 
-## <a id="storagenamenotunique"></a><a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a> StorageAccountAlreadyExists 和 StorageAccountAlreadyTaken
+<a name="storagenamenotunique"></a>
+## <a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a> StorageAccountAlreadyExists 和 StorageAccountAlreadyTaken
 对于存储帐户，必须提供在 Azure 中唯一的资源名称。 如果不提供唯一名称，会出现类似于下面的错误：
 
 ```
@@ -336,7 +356,9 @@ Message=The storage account named mystorage is already taken.
 
 为属性提供的值无效时，可能遇到 BadRequest 状态。 例如，如果为存储帐户提供错误的 SKU 值，部署将失败。 若要确定属性的有效值，请查看 [REST API](https://docs.microsoft.com/rest/api) 以了解要部署的资源类型。
 
-## <a id="noregisteredproviderfound"></a> NoRegisteredProviderFound 和 MissingSubscriptionRegistration
+<a id="noregisteredproviderfound" />
+
+## <a name="noregisteredproviderfound-and-missingsubscriptionregistration"></a>NoRegisteredProviderFound 和 MissingSubscriptionRegistration
 部署资源时，可能会收到以下错误代码和消息：
 
 ```
@@ -418,7 +440,8 @@ az provider register --namespace Microsoft.Cdn
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-## <a name="quotaexceeded"></a><a name="operationnotallowed"></a>QuotaExceeded 和 OperationNotAllowed
+<a id="quotaexceeded"></a>
+## <a name="operationnotallowed"></a>QuotaExceeded 和 OperationNotAllowed
 部署超出配额（可能是根据资源组、订阅、帐户和其他范围指定的）时，可能会遇到问题。 例如，订阅可能配置为限制某个区域的核心数目。 如果尝试部署超过允许核心数目的虚拟机，将收到指出超过配额的错误消息。
 有关完整的配额信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
 
@@ -502,7 +525,7 @@ Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/p
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-在 **Azure CLI 2.0** 中，提供策略定义的名称：
+在 **Azure CLI** 中，提供策略定义的名称：
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
@@ -510,7 +533,7 @@ az policy definition show --name regionPolicyAssignment
 
 有关详细信息，请参阅以下文章：
 
-<!-- Not Avaialble - [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md) -->
+<!-- Not Avaialble [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md) -->
 - [使用策略来管理资源和控制访问](resource-manager-policy.md)
 
 ## <a name="authorization-failed"></a>授权失败
@@ -522,4 +545,4 @@ az policy definition show --name regionPolicyAssignment
 * 若要了解审核操作，请参阅[使用 Resource Manager 执行审核操作](resource-group-audit.md)。
 * 若要了解部署期间为确定错误需要执行哪些操作，请参阅[查看部署操作](resource-manager-deployment-operations.md)。
 
-<!--Update_Description: wording update, remove the troubleshoot tips-->
+<!--Update_Description: wording update, add Get-AzureRmComputeResourceSku sample code -->

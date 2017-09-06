@@ -3,8 +3,8 @@ title: "在 Azure 中使用 Team Services 创建 CI/CD 管道 | Azure"
 description: "了解如何创建 Visual Studio Team Services 管道，用于将 Web 应用部署到 Windows VM 上的 IIS，实现持续集成和持续交付"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,17 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/12/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: d9e79a1bb3d9ba0a02d479e67bdbab141951627d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 48541f696f7ef835a1d18d71d38e9db839345c8f
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>使用 Visual Studio Team Services 和 IIS 创建持续集成管道
 若要将应用程序开发的生成、测试和部署阶段自动化，可以使用持续集成和部署 (CI/CD) 管道。 本教程介绍如何在 Azure 中使用 Visual Studio Team Services 和 Windows 虚拟机 (VM) 创建一个运行 IIS 的 CI/CD 管道。 你将学习如何执行以下操作：
 
@@ -223,8 +221,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 > * 创建发布定义，用于将新的 Web 部署包发布到 IIS
 > * 测试 CI/CD 管道
 
-请访问以下链接，查看预先生成的虚拟机脚本示例。
+转到下一教程，了解如何使用 SSL 证书保护 Web 服务器。
 
 > [!div class="nextstepaction"]
-> [Windows 虚拟机脚本示例](./powershell-samples.md)
-
+> [使用 SSL 保护 Web 服务器](tutorial-secure-web-server.md)

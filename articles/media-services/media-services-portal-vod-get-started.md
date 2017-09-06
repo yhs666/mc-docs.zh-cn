@@ -3,8 +3,8 @@ title: "使用 Azure 门户传送 VoD 入门 | Azure"
 description: "本教程引导你完成相关步骤，利用 Azure 门户和 Azure 媒体服务 (AMS) 应用程序实现基本的点播视频 (VoD) 内容传送服务。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 6c98fcfa-39e6-43a5-83a5-d4954788f8a4
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/12/2017
-ms.date: 
+origin.date: 08/07/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: b7c57542dc213c120886d6e893746a5fc7ef56bf
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: b6da2a14300d639ad6bf8f075df6f1349e89c856
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-the-azure-portal"></a>开始使用 Azure 门户传递点播内容
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -91,8 +91,8 @@ ms.lasthandoff: 08/04/2017
 1. 在“设置”窗口中，选择“资产”。  
 2. 在“资产”窗口中，选择想要编码的资产。
 3. 按“编码”按钮。
-4. 在“对资产进行编码”窗口中，选择“Media Encoder Standard”处理器和预设。 例如，如果知道输入视频的分辨率为 1920x1080 像素，则可使用“H264 多比特率 1080p”预设。 有关预设的详细信息，请参阅[此](media-services-mes-presets-overview.md)文 - 务必选择最适合输入视频的预设。 如果视频的分辨率低 (640x360)，则不应使用默认的“H264 多比特率 1080p”预设。
-
+4. 在“对资产进行编码”窗口中，选择“Media Encoder Standard”处理器和预设。 有关预设的信息，请参阅[自动生成比特率阶梯](media-services-autogen-bitrate-ladder-with-mes.md)和 [MES 的任务预设](media-services-mes-presets-overview.md)。 如果计划控制所使用的编码预设，请谨记：必须选择最适合输入视频的预设。 例如，如果知道输入视频的分辨率为 1920x1080 像素，则可使用“H264 多比特率 1080p”预设。 如果视频的分辨率低 (640x360)，则不应使用“H264 多比特率 1080p”预设。
+   
    为了方便管理，系统允许编辑输出资产的名称，以及作业的名称。
 
    ![对资产进行编码](./media/media-services-portal-vod-get-started/media-services-encode1.png)
@@ -154,7 +154,8 @@ Azure 门户提供了可用于测试视频的内容播放器。
 
 请注意以下事项：
 
+* 若要开始流式处理，请开始运行“默认”流式处理终结点。
 * 确保视频已发布。
 * 此 **Media player** 从默认的流式处理终结点播放。 如果要从非默认流式处理终结点播放，请单击复制该 URL，并使用其他播放器。 例如 [Azure 媒体服务播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。
 
-<!--Update_Description:new file-->
+<!--Update_Description:wording update-->

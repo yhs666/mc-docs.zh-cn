@@ -6,19 +6,20 @@ documentationCenter:
 authors: Thraka
 manager: timlt
 editor: 
+ms.assetid: 0ea78ccc-5e7d-40f8-bdb6-478c0eb0e265
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/06/2016
+origin.date: 07/18/2017
 ms.author: v-yiso
-ms.date: 01/25/2017
-ms.openlocfilehash: 74f92f0d08218afe451629af4c1cc786bb596320
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 09/11/2017
+ms.openlocfilehash: da48bd4e9c3c42478bf7419d0a1a9702717cf36d
+ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/01/2017
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何创建和部署云服务
 
@@ -28,10 +29,10 @@ ms.lasthandoff: 06/21/2017
 
 Azure 经典门户提供两种创建和部署云服务的方法：快速创建和自定义创建。
 
-本主题介绍如何使用“快速创建”方法创建新的云服务，然后使用“上传”  在 Azure 中上传和部署云服务包。 使用此方法时，Azure 经典门户将在用户操作时提供方便的链接以便满足所有要求。 如果可以在创建云服务时对其进行部署，可使用“自定义创建” 同时执行这两项操作。
+本主题介绍如何使用“快速创建”方法创建新的云服务，并使用“上传”  在 Azure 中上传和部署云服务包。 使用此方法时，Azure 经典门户会在用户操作时提供方便的链接以便满足所有要求。 如果可以在创建云服务时对其进行部署，可使用“自定义创建” 同时执行这两项操作。
 
 > [!NOTE]
-> 如果计划从 Visual Studio Team Services (VSTS) 发布云服务，请使用“快速创建”，然后从“快速启动”或仪表板设置 VSTS 发布。 有关详细信息，请参阅[使用 Visual Studio Team Services 向 Azure 持续交付][TFSTutorialForCloudService]，或查看“快速启动”页的帮助。
+> 如果计划从 Visual Studio Team Services (VSTS) 发布云服务，请使用“快速创建”，并从“快速启动”或仪表板设置 VSTS 发布。
 > 
 > 
 
@@ -78,7 +79,7 @@ Azure 经典门户提供两种创建和部署云服务的方法：快速创建�
 
 2. 在“URL”中，输入要在公用 URL 中使用的子域名称，以便在生产部署中访问云服务 。 生产部署的 URL 格式为：http://myURL.chinacloudapp.cn。
 
-3. 在“区域或地缘组”中，选择要在其中部署云服务的地理区域或地缘组 。 若要将云服务和其他 Azure 服务部署到某个区域中的同一位置，请选择地缘组。
+3. 在“区域或地缘组”中，选择要在其中部署云服务的地理区域或地缘组 。 要将云服务和其他 Azure 服务部署到某个区域中的同一位置，请选择地缘组。
 
 4. 单击“创建云服务”。
 
@@ -122,7 +123,7 @@ Azure 经典门户提供两种创建和部署云服务的方法：快速创建�
 
 4. 在“配置”中，使用“浏览”选择要使用的服务配置文件 (.cscfg)。
 
-5. 如果云服务将包括只具有一个实例的任何角色，请选中“即使一个或多个角色包含单个实例也进行部署”复选框以使部署继续进行  。
+5. 如果云服务将包括只具有一个实例的任何角色，请选中“即使一个或多个角色包含单个实例也进行部署”复选框以使部署继续进行。
 
     如果每个角色至少具有两个实例，则在维护和服务更新期间，Azure 只能保证 99.95% 的云服务访问。 如果需要，可以在部署云服务后，在“缩放”页上添加其他角色实例  。 有关详细信息，请参阅[服务级别协议](https://www.azure.cn/support/legal/sla)。
 
@@ -144,7 +145,6 @@ Azure 经典门户提供两种创建和部署云服务的方法：快速创建�
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -3,8 +3,8 @@ title: "在 Azure 中创建托管映像 | Azure"
 description: "在 Azure 中创建通用 VM 或 VHD 的托管映像。 映像可用于创建多个使用托管磁盘的 VM。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,21 +14,19 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/27/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: fc5abae9b42ce4e9449745e494454cdbaed75d1d
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 46d251e7871aad1febb779186a85174094480090
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/29/2017
 ---
-# 在 Azure 中创建通用 VM 的托管映像
-<a id="create-a-managed-image-of-a-generalized-vm-in-azure" class="xliff"></a>
+# <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中创建通用 VM 的托管映像
 
 可以从在存储帐户中存储为托管磁盘或非托管磁盘的通用 VM 中创建托管映像资源。 然后可以使用该映像创建多个 VM。 
 
-## 使用 Sysprep 通用化 Windows VM
-<a id="generalize-the-windows-vm-using-sysprep" class="xliff"></a>
+## <a name="generalize-the-windows-vm-using-sysprep"></a>使用 Sysprep 通用化 Windows VM
 
 Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要用作映像的计算机。 有关 Sysprep 的详细信息，请参阅[如何使用 Sysprep：简介](http://technet.microsoft.com/library/bb457073.aspx)。
 
@@ -48,12 +46,33 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
     ![启动 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. 在 Sysprep 完成时，它会关闭虚拟机。 不要重新启动 VM。
 
-## 使用 Powershell 创建 VM 的托管映像
-<a id="create-a-managed-image-of-a-vm-using-powershell" class="xliff"></a>
+
+## <a name="create-a-managed-image-in-the-portal"></a>在门户中创建托管映像 
+
+1. 打开 [门户](https://portal.azure.cn)。
+2. 单击加号以创建新资源。
+3. 在筛选器搜索中，键入“映像” 。
+4. 从结果中选择“映像”。
+5. 在“映像”边栏选项卡中，单击“创建”。
+6. 在“名称”中，键入映像的名称。
+7. 如果有多个订阅，请从“订阅”下拉列表中选择正确的订阅。
+7. 在“资源组”中，选择“新建”并键入名称，或选择“来自现有”并从下拉列表中选择要使用的资源组。
+8. 在“位置”中，选择资源组的位置。
+9. 在“OS 类型”中，选择操作系统类型，可以为 Windows 或 Linux。
+11. 在“存储 blob”中，单击“浏览”以在 Azure 存储中查找 VHD。
+12. 在“帐户类型”中，选择 Standard_LRS 或 Premium_LRS。 标准版使用硬盘驱动器，高级版使用固态硬盘。 这两者都使用本地冗余存储。
+13. 在“磁盘缓存”中，选择适当的磁盘缓存选项。 选项包括“无”、“只读”和“读\写”。
+14. 可选：也可以将现有的数据磁盘添加到映像，只需单击“+ 添加数据磁盘”即可。  
+15. 完成选择后，请单击“创建”。
+16. 创建映像后，在所选资源组的资源列表中，你会看到它作为**映像**资源而出现。
+
+
+
+## <a name="create-a-managed-image-of-a-vm-using-powershell"></a>使用 Powershell 创建 VM 的托管映像
 
 直接从 VM 创建映像可确保映像中包含与 VM 关联的所有磁盘，包括 OS 磁盘和任何数据磁盘。
 
-在开始之前，请确保你有最新版本的 AzureRM.Compute PowerShell 模块。 运行以下命令来安装该模块。
+在开始之前，请确保有最新版本的 AzureRM.Compute PowerShell 模块。 运行以下命令来安装该模块。
 
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
@@ -96,8 +115,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
     New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ``` 
 
-## 在 PowerShell 中创建 VHD 的托管映像
-<a id="create-a-managed-image-of-a-vhd-in-powershell" class="xliff"></a>
+## <a name="create-a-managed-image-of-a-vhd-in-powershell"></a>在 PowerShell 中创建 VHD 的托管映像
 
 使用通用 OS VHD 创建托管映像。
 
@@ -129,8 +147,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
     $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
-## 使用 Powershell 从快照创建托管映像
-<a id="create-a-managed-image-from-a-snapshot-using-powershell" class="xliff"></a>
+## <a name="create-a-managed-image-from-a-snapshot-using-powershell"></a>使用 Powershell 从快照创建托管映像
 
 还可以从通用 VM 的 VHD 快照创建托管映像。
 
@@ -161,6 +178,6 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
-- 现在，你可以[从通用托管映像创建 VM](create-vm-generalized-managed.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+## <a name="next-steps"></a>后续步骤
+- 现在，可以[从通用托管映像创建 VM](create-vm-generalized-managed.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+<!--Update_Description: add section "Create a managed image in the portal"-->

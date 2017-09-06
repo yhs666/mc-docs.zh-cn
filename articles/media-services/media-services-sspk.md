@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/06/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: e166fe4fa7a0a5151a1ad05b2760dd6c62e568a1
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/09/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: a97f233d508ea207ee5adbebb360605eb3479d8e
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>授权 Microsoft® 平滑流式处理客户端移植工具包
 ## <a name="overview"></a>概述
@@ -105,6 +105,7 @@ Microsoft 根据此许可证提供全部所需的知识产权，以便从其他�
 * Sony Corporation
 * Tatung Technology Inc.
 * TCL Technoly Electronics (Huizhou) Co., Ltd.
+* Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
 * ZTE Corporation
@@ -129,6 +130,7 @@ Microsoft 根据此许可证提供全部所需的知识产权，以便从其他�
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
+* Hisense International Co., Ltd. 
 * Homecast Co.,Ltd
 * Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
@@ -150,6 +152,7 @@ Microsoft 根据此许可证提供全部所需的知识产权，以便从其他�
 * TCL Overseas Marketing (Macao Commercial Offshore) Limited
 * Technicolor Delivery Technologies, SAS
 * Tongfang Global Ltd.
+* Top Victory Investments, Ltd.
 * Toshiba Lifestyle Products & Services Corporation
 * Universal Media Corporation /Slovakia/ s.r.o.
 * VIZIO, Inc.

@@ -12,24 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/13/2017
-ms.date: 07/03/2017
+origin.date: 08/01/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1a0c87aa7f08b8ac547bd3d10da205badc82b09a
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 37e04a63d729c0aa528d678c518d636972bf35ba
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/31/2017
 ---
-# Azure Resource Manager 模板函数
-<a id="azure-resource-manager-template-functions" class="xliff"></a>
+# <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 模板函数
 本主题介绍可以在 Azure Resource Manager 模板中使用的所有函数。
 
 通过将函数分别括在方括号（`[` 和 `]`）内，在模板中添加函数。 在部署过程中计算表达式。 尽管编写为字符串文本，但表达式的计算结果可以是不同的 JSON 类型，例如数组、对象或整数。 如同在 JavaScript 中一样，函数调用的格式为 `functionName(arg1,arg2,arg3)`。 使用点和 [index] 运算符引用属性。
 
 模板表达式不能超过 24,576 个字符。
 
-模板函数及其参数不区分大小写。 例如，Resource Manager 将 **variables('var1')** 和 **VARIABLES('VAR1')** 视为相同。 在求值时，除非函数明确修改大小写（例如，使用 toUpper 或 toLower 进行修改），否则函数将保留大小写。 某些资源类型可能会提出大小写要求，而不考虑函数求值方式。
+模板函数及其参数不区分大小写。 例如，资源管理器将 **variables('var1')** 和 **VARIABLES('VAR1')** 解析为相同内容。 在求值时，除非函数明确修改大小写（例如，使用 toUpper 或 toLower 进行修改），否则函数保留大小写。 某些资源类型可能会提出大小写要求，而不考虑函数求值方式。
 
 <a id="array" />
 <a id="coalesce" />
@@ -48,8 +47,7 @@ ms.lasthandoff: 06/23/2017
 <a id="take" />
 <a id="union" />
 
-## 数组和对象函数
-<a id="array-and-object-functions" class="xliff"></a>
+## <a name="array-and-object-functions"></a>数组和对象函数
 Resource Manager 提供以下用于处理数组和对象的函数。
 
 * [array](resource-group-template-functions-array.md#array)
@@ -60,6 +58,7 @@ Resource Manager 提供以下用于处理数组和对象的函数。
 * [empty](resource-group-template-functions-array.md#empty)
 * [first](resource-group-template-functions-array.md#first)
 * [intersection](resource-group-template-functions-array.md#intersection)
+* [json](resource-group-template-functions-array.md#json)
 * [last](resource-group-template-functions-array.md#last)
 * [length](resource-group-template-functions-array.md#length)
 * [min](resource-group-template-functions-array.md#min)
@@ -75,8 +74,7 @@ Resource Manager 提供以下用于处理数组和对象的函数。
 <a id="greater" />
 <a id="greaterorequals" />
 
-## 比较函数
-<a id="comparison-functions" class="xliff"></a>
+## <a name="comparison-functions"></a>比较函数
 Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 * [equals](resource-group-template-functions-comparison.md#equals)
@@ -89,8 +87,7 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 <a id="parameters" />
 <a id="variables" />
 
-## 部署值函数
-<a id="deployment-value-functions" class="xliff"></a>
+## <a name="deployment-value-functions"></a>部署值函数
 Resource Manager 提供以下函数，用于从与部署相关的模板和值部分获取值：
 
 * [部署](resource-group-template-functions-deployment.md#deployment)
@@ -108,8 +105,16 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 <a id="mul" />
 <a id="sub" />
 
-## 数值函数
-<a id="numeric-functions" class="xliff"></a>
+## <a name="logical-functions"></a>逻辑函数
+资源管理器提供以下用于处理逻辑条件的函数：
+
+* [and](resource-group-template-functions-logical.md#and)
+* [bool](resource-group-template-functions-logical.md#bool)
+* [if](resource-group-template-functions-logical.md#if)
+* [not](resource-group-template-functions-logical.md#not)
+* [or](resource-group-template-functions-logical.md#or)
+
+## <a name="numeric-functions"></a>数值函数
 Resource Manager 提供以下用于处理整数的函数：
 
 * [添加](resource-group-template-functions-numeric.md#add)
@@ -131,8 +136,7 @@ Resource Manager 提供以下用于处理整数的函数：
 <a id="resourceid" />
 <a id="subscription" />
 
-## Resource functions
-<a id="resource-functions" class="xliff"></a>
+## <a name="resource-functions"></a>Resource functions
 Resource Manager 提供以下用于获取资源值的函数：
 
 * [listKeys 和 list{Value}](resource-group-template-functions-resource.md#listkeys)
@@ -145,7 +149,6 @@ Resource Manager 提供以下用于获取资源值的函数：
 <a id="base64" />
 <a id="base64tojson" />
 <a id="base64tostring" />
-<a id="bool" />
 <a id="concat" />
 <a id="containsstring" />
 <a id="datauri" />
@@ -173,14 +176,12 @@ Resource Manager 提供以下用于获取资源值的函数：
 <a id="uricomponent" />
 <a id="uricomponenttostring" />
 
-## 字符串函数
-<a id="string-functions" class="xliff"></a>
+## <a name="string-functions"></a>字符串函数
 Resource Manager 提供以下用于处理字符串的函数：
 
 * [base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
 * [base64ToString](resource-group-template-functions-string.md#base64tostring)
-* [bool](resource-group-template-functions-string.md#bool)
 * [concat](resource-group-template-functions-string.md#concat)
 * [contains](resource-group-template-functions-string.md#contains)
 * [dataUri](resource-group-template-functions-string.md#datauri)
@@ -208,9 +209,10 @@ Resource Manager 提供以下用于处理字符串的函数：
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 有关 Azure Resource Manager 模板中各部分的说明，请参阅 [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)（创作 Azure Resource Manager 模板）
-* 若要合并多个模板，请参阅 [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)（将链接的模板与 Azure Resource Manager 配合使用）
+* 若要合并多个模板，请参阅 [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)（将链接模板与 Azure 资源管理器配合使用）
 * 若要在创建资源类型时迭代指定的次数，请参阅 [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)（在 Azure Resource Manager 中创建多个资源实例）
 * 若要查看如何部署已创建的模板，请参阅 [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)（使用 Azure Resource Manager 模板部署应用程序）
+
+<!--Update_Description: update meta properties, add Logical function content block-->

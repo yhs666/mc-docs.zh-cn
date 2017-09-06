@@ -3,8 +3,8 @@ title: "使用媒体服务 REST API 配置资产传送策略 | Azure"
 description: "本主题介绍如何使用媒体服务 REST API 配置不同的资产传送策略。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: dwrede
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/13/2017
-ms.date: 08/07/2017
+origin.date: 08/10/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: f8feee6589f603e6bf8305be8e288e7362c86d48
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: 2a50181a08dde2c2be824545869f16ce2d402485
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="configuring-asset-delivery-policies"></a>配置资产传送策略
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/04/2017
 本主题介绍创建和配置资产传送策略的原因和方式。
 
 >[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。
+>创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
 >
 >此外，若要使用动态打包和动态加密，用户的资产必须包含一组自适应比特率 MP4 或自适应比特率平滑流式处理文件。
 
@@ -44,37 +44,32 @@ ms.lasthandoff: 08/04/2017
 
 平滑流式处理：
 
-```
-{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
-```
+{流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest
 
 HLS：
 
-```
-{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
-```
+{流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest(format=m3u8-aapl)
 
 MPEG DASH
 
-```
-{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
-```
+{流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest(format=mpd-time-csf)
 
-有关如何发布资产和生成流 URL 的说明，请参阅 [生成流 URL](./media-services-deliver-streaming-content.md)。
+
+有关如何发布资产和生成流 URL 的说明，请参阅 [生成流 URL](media-services-deliver-streaming-content.md)。
 
 ## <a name="considerations"></a>注意事项
-
-- 如果某个资产存在 OnDemand（流式处理）定位符，则不能删除与该资产关联的 AssetDeliveryPolicy。 在删除策略之前，建议先从资产中删除该策略。
-- 如果未设置资产传送策略，则无法在存储加密的资产上创建流式处理定位符。  如果资产未经过存储加密，则即使未设置资产传送策略，系统也可让你以明文形式创建定位符和流式处理资产。
-- 可将多个资产传送策略关联到单个资产，但只能指定一种方法来处理给定的 AssetDeliveryProtocol。  也就是说，如果尝试链接两个指定 AssetDeliveryProtocol.SmoothStreaming 协议的传送策略，则会导致出错，因为当客户端发出平滑流式处理请求时，系统不知道要应用哪个策略。
-- 如果资产包含现有流式处理定位符，则不能将新策略链接到该资产、取消现有策略与该资产的链接，或者更新与该资产关联的传送策略。  必须先删除流式处理定位符，调整策略，再重新创建流式处理定位符。  重新创建流式处理定位符时，可以使用同一个 locatorId，但应确保该操作不会导致客户端出现问题，因为内容可能已被来源或下游 CDN 缓存。
+* 如果某个资产存在 OnDemand（流式处理）定位符，则不能删除与该资产关联的 AssetDeliveryPolicy。 在删除策略之前，建议先从资产中删除该策略。
+* 如果未设置资产传送策略，则无法在存储加密的资产上创建流式处理定位符。  如果资产未经过存储加密，则即使未设置资产传送策略，系统也可让你以明文形式创建定位符和流式处理资产。
+* 可将多个资产传送策略关联到单个资产，但只能指定一种方法来处理给定的 AssetDeliveryProtocol。  也就是说，如果尝试链接两个指定 AssetDeliveryProtocol.SmoothStreaming 协议的传送策略，则会导致出错，因为当客户端发出平滑流式处理请求时，系统不知道要应用哪个策略。
+* 如果资产包含现有流式处理定位符，则不能将新策略链接到该资产、取消现有策略与该资产的链接，或者更新与该资产关联的传送策略。  必须先删除流式处理定位符，调整策略，再重新创建流式处理定位符。  重新创建流式处理定位符时，可以使用同一个 locatorId，但应确保该操作不会导致客户端出现问题，因为内容可能已被来源或下游 CDN 缓存。
 
 >[!NOTE]
-> 使用媒体服务 REST API 时，需注意以下事项：
->
->访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](./media-services-rest-how-to-use.md)。
->
->成功连接到 https://media.chinacloudapi.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须按[使用 REST 访问 Azure 媒体服务 API](./media-services-rest-connect-with-aad.md) 中所述对新的 URI 执行后续调用。
+
+>访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
+
+## <a name="connect-to-media-services"></a>连接到媒体服务
+
+若要了解如何连接到 AMS API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
 ## <a name="clear-asset-delivery-policy"></a>清除资产传送策略
 
@@ -87,7 +82,7 @@ MPEG DASH
 请求：
 
 ```
-POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
 Content-Type: application/json
 DataServiceVersion: 1.0;NetFx
 MaxDataServiceVersion: 3.0;NetFx
@@ -113,7 +108,7 @@ HTTP/1.1 201 Created
 Cache-Control: no-cache
 Content-Length: 363
 Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-Location: https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')
+Location: https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')
 Server: Microsoft-IIS/8.5
 x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
 request-id: 6aedbf93-4bc2-4586-8845-fd45590136af
@@ -125,7 +120,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Sun, 08 Feb 2015 06:21:27 GMT
 
 {
-    "odata.metadata":"https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AssetDeliveryPolicies/@Element",
+    "odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AssetDeliveryPolicies/@Element",
     "Id":"nb:adpid:UUID:92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd",
     "Name":"Clear Policy",
     "AssetDeliveryProtocol":7,
@@ -143,7 +138,7 @@ Date: Sun, 08 Feb 2015 06:21:27 GMT
 请求：
 
 ```
-POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A86933344-9539-4d0c-be7d-f842458693e0')/$links/DeliveryPolicies HTTP/1.1
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A86933344-9539-4d0c-be7d-f842458693e0')/$links/DeliveryPolicies HTTP/1.1
 DataServiceVersion: 1.0;NetFx
 MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
@@ -154,7 +149,7 @@ x-ms-version: 2.11
 x-ms-client-request-id: 56d2763f-6e72-419d-ba3c-685f6db97e81
 Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
 
-{"uri":"https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')"}
+{"uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')"}
 ```
 
 响应：
@@ -167,7 +162,7 @@ HTTP/1.1 204 No Content
 
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>创建 EnvelopeEncryption 类型的内容密钥，并将其链接到资产
 
-指定 DynamicEnvelopeEncryption 传送策略时，需确保将资产链接到 EnvelopeEncryption 类型的内容密钥。 有关详细信息，请参阅：[创建内容密钥](./media-services-rest-create-contentkey.md)）。
+指定 DynamicEnvelopeEncryption 传送策略时，需确保将资产链接到 EnvelopeEncryption 类型的内容密钥。 有关详细信息，请参阅：[创建内容密钥](media-services-rest-create-contentkey.md)）。
 
 ### <a id="get_delivery_url"></a>获取传送 URL
 
@@ -178,7 +173,7 @@ HTTP/1.1 204 No Content
 请求：
 
 ```
-POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/ContentKeys('nb:kid:UUID:dc88f996-2859-4cf7-a279-c52a9d6b2f04')/GetKeyDeliveryUrl HTTP/1.1
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/ContentKeys('nb:kid:UUID:dc88f996-2859-4cf7-a279-c52a9d6b2f04')/GetKeyDeliveryUrl HTTP/1.1
 Content-Type: application/json
 MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
@@ -223,7 +218,7 @@ Date: Sun, 08 Feb 2015 21:42:30 GMT
 请求：
 
 ```
-POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
 Content-Type: application/json
 DataServiceVersion: 1.0;NetFx
 MaxDataServiceVersion: 3.0;NetFx
@@ -259,14 +254,11 @@ Date: Mon, 09 Feb 2015 05:24:38 GMT
 ```
 
 ### <a name="link-asset-with-asset-delivery-policy"></a>将资产与资产传送策略相链接
-
 请参阅[将资产与资产传送策略相链接](#link_asset_with_asset_delivery_policy)
 
-## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 资产传送策略 
-
+## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 资产传送策略
 ### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>创建 CommonEncryption 类型的内容密钥，并将其链接到资产
-
-在指定 DynamicCommonEncryption 传送策略时，需确保将资产链接到 CommonEncryption 类型的内容密钥。 有关详细信息，请参阅：[创建内容密钥](./media-services-rest-create-contentkey.md)）。
+在指定 DynamicCommonEncryption 传送策略时，需确保将资产链接到 CommonEncryption 类型的内容密钥。 有关详细信息，请参阅：[创建内容密钥](media-services-rest-create-contentkey.md)）。
 
 ### <a name="get-delivery-url"></a>获取传送 URL
 
@@ -281,7 +273,7 @@ Date: Mon, 09 Feb 2015 05:24:38 GMT
 请求：
 
 ```
-POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
 Content-Type: application/json
 DataServiceVersion: 1.0;NetFx
 MaxDataServiceVersion: 3.0;NetFx
@@ -442,4 +434,3 @@ public enum AssetDeliveryPolicyConfigurationKey
 }
 ```
 
-<!--Update_Description: update code-->

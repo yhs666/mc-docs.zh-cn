@@ -3,8 +3,8 @@ title: "在 Azure 中对远程桌面进行详细故障排除 | Azure"
 description: "查看详细的疑难解答步骤，了解如何处理无法在 Azure 中连接到 Windows 虚拟机的远程桌面问题"
 services: virtual-machines-windows
 documentationcenter: 
-author: genlin
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: "无法连接到远程桌面, 远程桌面故障排除, 远程桌面无法连接, 远程桌面错误, 远程桌面故障排除, 远程桌面问题"
@@ -14,17 +14,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-origin.date: 05/31/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 95ca000c4ff6a71f456d06bc6b47389e0c757a79
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+origin.date: 07/25/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 9999497a5c1ffa866685c0833e244ac574c5461e
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/29/2017
 ---
-# 详细故障排除步骤：针对 Azure 中到 Windows VM 的远程桌面连接问题
-<a id="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure" class="xliff"></a>
+# <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>详细故障排除步骤：针对 Azure 中到 Windows VM 的远程桌面连接问题
 本文提供详细的故障排除步骤，用于为基于 Windows 的 Azure 虚拟机诊断和修复复杂的远程桌面错误。
 
 > [!IMPORTANT]
@@ -34,10 +33,9 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-如果你对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，你也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并单击“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题解答](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并单击“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题解答](https://www.azure.cn/support/faq/)。
 
-## 远程桌面连接的组件
-<a id="components-of-a-remote-desktop-connection" class="xliff"></a>
+## <a name="components-of-a-remote-desktop-connection"></a>远程桌面连接的组件
 以下是 RDP 连接所涉及的组件：
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
@@ -47,8 +45,7 @@ ms.lasthandoff: 06/23/2017
 * VM 或包含 VM 的云服务的公共 IP 地址（也称为虚拟 IP 地址 ([VIP](https://en.wikipedia.org/wiki/Virtual_IP_address))）已更改。 RDP 失败的原因可能是 DNS 客户端缓存仍使用旧的 IP 地址  注册 DNS 名称。 请刷新 DNS 客户端缓存，并尝试重新连接 VM。 或者，尝试直接使用新 VIP 进行连接。
 * 使用第三方应用程序来管理远程桌面连接，而不是使用 Azure 门户所生成的连接。 验证应用程序配置是否包含适用于远程桌面流量的 TCP 端口。 可以通过在 [Azure 门户](https://portal.azure.cn)中单击 VM 的“设置”>“终结点”来检查经典虚拟机的此端口。
 
-## 预备步骤
-<a id="preliminary-steps" class="xliff"></a>
+## <a name="preliminary-steps"></a>预备步骤
 在继续进行详细故障排除前，
 
 * 在 Azure 门户中检查虚拟机的状态，查看是否存在任何明显问题。
@@ -56,8 +53,7 @@ ms.lasthandoff: 06/23/2017
 
 在执行这些步骤后，尝试通过远程桌面重新连接到 VM。
 
-## 详细故障排除步骤
-<a id="detailed-troubleshooting-steps" class="xliff"></a>
+## <a name="detailed-troubleshooting-steps"></a>详细故障排除步骤
 由于以下源出现问题，远程桌面客户端可能无法访问 Azure VM 上的远程桌面服务：
 
 * [远程桌面客户端计算机](#source-1-remote-desktop-client-computer)
@@ -66,8 +62,7 @@ ms.lasthandoff: 06/23/2017
 * [网络安全组](#source-4-network-security-groups)
 * [基于 Windows 的 Azure VM](#source-5-windows-based-azure-vm)
 
-## 来源 1：远程桌面客户端计算机
-<a id="source-1-remote-desktop-client-computer" class="xliff"></a>
+## <a name="source-1-remote-desktop-client-computer"></a>来源 1：远程桌面客户端计算机
 验证计算机是否可以与本地另一台基于 Windows 的计算机建立远程桌面连接。
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
@@ -79,10 +74,9 @@ ms.lasthandoff: 06/23/2017
 * 阻止远程桌面连接的本地安装的网络监视软件。
 * 阻止远程桌面连接的其他类型的安全软件，该软件监视流量或允许/禁止特定类型的流量。
 
-针对上述所有情况，请暂时禁用可疑软件，然后尝试通过远程桌面连接到本地计算机。 如果可以通过这种方式找出实际原因，请与网络管理员合作更正软件设置，以允许远程桌面连接。
+针对上述所有情况，请暂时禁用可疑软件，并尝试通过远程桌面连接到本地计算机。 如果可以通过这种方式找出实际原因，请与网络管理员合作更正软件设置，以允许远程桌面连接。
 
-## 来源 2：组织 Intranet 边缘设备
-<a id="source-2-organization-intranet-edge-device" class="xliff"></a>
+## <a name="source-2-organization-intranet-edge-device"></a>来源 2：组织 Intranet 边缘设备
 验证直接连接到 Internet 的计算机是否可以与 Azure 虚拟机建立远程桌面连接。
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
@@ -97,8 +91,7 @@ ms.lasthandoff: 06/23/2017
 
 与网络管理员合作更正组织 Intranet 边缘设备的设置，以允许与 Internet 建立基于 HTTPS 的远程桌面连接。
 
-## 来源 3：云服务终结点和 ACL
-<a id="source-3-cloud-service-endpoint-and-acl" class="xliff"></a>
+## <a name="source-3-cloud-service-endpoint-and-acl"></a>来源 3：云服务终结点和 ACL
 对于使用经典部署模型创建的 VM，验证同一云服务或虚拟网络中的其他 Azure VM 能否与 Azure VM 建立远程桌面连接。
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
@@ -113,23 +106,14 @@ ms.lasthandoff: 06/23/2017
 * 目标 VM 上远程桌面通信的终结点配置：终结点的专用 TCP 端口必须与 VM 的远程桌面服务正在侦听的 TCP 端口（默认值为 3389）匹配。
 * 目标 VM 上远程桌面通信终结点的 ACL：ACL 可根据源 IP 地址，指定允许或拒绝从 Internet 传入的流量。 错误配置 ACL 可能会阻止传入远程桌面流量到达终结点。 检查 ACL 以确保允许从代理服务器或其他边缘服务器的公共 IP 地址传入的流量。 有关详细信息，请参阅[什么是网络访问控制列表 (ACL)？](../../virtual-network/virtual-networks-acl.md)
 
-要检查终结点是否是问题的源，删除当前终结点，然后创建新终结点，并选择范围 49152-65535 中的随机端口作为外部端口号。 有关详细信息，请参阅[如何对虚拟机设置终结点](classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+要检查终结点是否是问题的源，删除当前终结点，创建新终结点，并选择范围 49152-65535 中的随机端口作为外部端口号。 有关详细信息，请参阅[如何对虚拟机设置终结点](classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
-## 来源 4：网络安全组
-<a id="source-4-network-security-groups" class="xliff"></a>
-使用网络安全组可以对允许的入站和出站流量进行更好的控制。 你可以创建跨 Azure 虚拟网络中的子网和云服务的规则。 检查你的网络安全组规则，以确保允许来自 Internet 的远程桌面流量：
+## <a name="source-4-network-security-groups"></a>来源 4：网络安全组
+使用网络安全组可以对允许的入站和出站流量进行更好的控制。 可以创建跨 Azure 虚拟网络中的子网和云服务的规则。
 
-* 在 Azure 门户中，选择你的 VM
-* 单击“所有设置” | “网络接口”，然后选择你的网络接口。
-* 单击“所有设置” | “网络安全组”，然后选择你的网络安全组。
-* 单击“所有设置” | “入站安全规则”，并确保 TCP 端口 3389 上有允许 RDP 的规则。
-  * 如果尚无规则，请单击“添加”创建规则。 输入 **TCP** 作为协议，然后输入 **3389** 作为目标端口范围。
-  * 确保将操作设置为“允许”  ，然后单击“确定”保存新的入站规则。
+可以查看生效的安全组规则，确保入站“允许”NSG 规则存在并已针对 RDP 端口（默认为 3389）设置优先级。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow)。
 
-有关详细信息，请参阅 [什么是网络安全组 (NSG)？](../../virtual-network/virtual-networks-nsg.md)
-
-## 来源 5：基于 Windows 的 Azure VM
-<a id="source-5-windows-based-azure-vm" class="xliff"></a>
+## <a name="source-5-windows-based-azure-vm"></a>来源 5：基于 Windows 的 Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
 请按[此文](reset-rdp.md)说明执行操作。 本文会重置虚拟机上的远程桌面服务：
@@ -144,7 +128,7 @@ ms.lasthandoff: 06/23/2017
 * Windows 防火墙或其他本地防火墙使用阻止远程桌面通信的出站规则。
 * Azure 虚拟机上运行的入侵检测或网络监视软件阻止远程桌面连接。
 
-对于使用经典部署模型创建的 VM，可以使用与 Azure 虚拟机的远程 Azure PowerShell 会话。 首先，需要安装虚拟机托管云服务的证书。 转到 [为 Azure 虚拟机配置安全远程 PowerShell 访问](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) ，并将 **InstallWinRMCertAzureVM.ps1** 脚本文件下载到本地计算机。
+对于使用经典部署模型创建的 VM，可以使用与 Azure 虚拟机的远程 Azure PowerShell 会话。 首先，需要安装虚拟机托管云服务的证书。 转到[为 Azure 虚拟机配置安全远程 PowerShell 访问](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe)，并将 **InstallWinRMCertAzureVM.ps1** 脚本文件下载到本地计算机。
 
 接下来，安装 Azure PowerShell（如果尚未安装）。 请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
@@ -179,8 +163,7 @@ Enter-PSSession -ConnectionUri $uri -Credential $creds
 
 此提示的第一部分是包含目标 VM 的云服务名称，可能与于“cloudservice4testing.chinacloudapp.cn”不同。 现在，可对此云服务发出 Azure PowerShell 命令来调查上述问题并更正配置。
 
-### 手动更正远程桌面服务侦听 TCP 端口
-<a id="to-manually-correct-the-remote-desktop-services-listening-tcp-port" class="xliff"></a>
+### <a name="to-manually-correct-the-remote-desktop-services-listening-tcp-port"></a>手动更正远程桌面服务侦听 TCP 端口
 出现远程 Azure PowerShell 会话提示时，运行此命令。
 
 ```powershell
@@ -207,8 +190,7 @@ Exit-PSSession
 
 验证 Azure VM 的远程桌面终结点是否也使用 TCP 端口 3398 作为其内部端口。 重启 Azure VM，并重新尝试远程桌面连接。
 
-## 其他资源
-<a id="additional-resources" class="xliff"></a>
+## <a name="additional-resources"></a>其他资源
 [如何为 Windows 虚拟机重置密码或远程桌面服务](reset-rdp.md)
 
 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)

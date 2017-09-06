@@ -3,8 +3,8 @@ title: "有关创建 Resource Manager 模板的最佳做法 | Azure"
 description: "有关简化 Azure Resource Manager 模板的指导。"
 services: azure-resource-manager
 documentationcenter: 
-author: tfitzmac
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 31b10deb-0183-47ce-a5ba-6d0ff2ae8ab3
 ms.service: azure-resource-manager
@@ -13,28 +13,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/31/2017
-ms.date: 06/05/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: c4e53ff6a790555505ec8f72f654a36060100399
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 3fc678959202ba652d400700d07f712d3444c8dc
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/31/2017
 ---
-
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>有关创建 Resource Manager 模板的最佳做法
 本文中的指导可帮助你创建可靠且易于使用的 Azure Resource Manager 模板。 这些指导只属于建议， 除非有明确的规定，否则不一定非要遵循。 在具体的场合下，可能需要对以下方法或示例之一做出变通。
 
 ## <a name="resource-names"></a>资源名称
-通常，你会在 Resource Manager 中使用三种类型的资源名称：
+通常，会在 Resource Manager 中使用三种类型的资源名称：
 
 * 必须唯一的资源名称。
 * 不一定要唯一的资源名称，不过，提供的名称应可帮助根据上下文识别资源。
 * 通用的资源名称。
 
+<!-- Not Available /guidance/guidance-naming-conventions.md -->
 有关建立命名约定的帮助，请参阅 [Azure 基础结构命名准则](../virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-
 
 ### <a name="unique-resource-names"></a>唯一的资源名称
 对于具有数据访问终结点的任何资源类型，必须提供唯一的资源名称。 需要唯一名称的一些常见资源类型包括：
@@ -170,7 +168,7 @@ ms.lasthandoff: 05/26/2017
     ]
     ```
    
-    如果只有有限数量的位置支持某种资源类型，你可能需要在模板中直接指定有效的位置。 如果必须使用 **location** 参数，请尽量与可能需要位于同一位置的资源共享该参数值。 这样可以最大程度地减少用户必须提供位置信息的次数。
+    如果只有有限数量的位置支持某种资源类型，可能需要在模板中直接指定有效的位置。 如果必须使用 **location** 参数，请尽量与可能需要位于同一位置的资源共享该参数值。 这样可以最大程度地减少用户必须提供位置信息的次数。
 * 避免对资源类型的 API 版本使用参数或变量。 资源的属性和值可能会因版本号的不同而异。 如果将 API 版本设置为参数或变量，代码编辑器中的 IntelliSense 无法确定正确架构。 并且会在模板中将 API 版本硬编码。
 
 ## <a name="variables"></a>变量
@@ -276,6 +274,7 @@ ms.lasthandoff: 05/26/2017
    
     有关连接到虚拟机的详细信息，请参阅：
    
+    <!-- Not Available guidance/guidance-compute-n-tier-vm.md-->
     * [在 Azure Resource Manager 中设置对 VM 的 WinRM 访问](../virtual-machines/windows/winrm.md)
     * [使用 Azure 门户实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-portal.md)
     * [使用 PowerShell 实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-powershell.md)
@@ -343,20 +342,20 @@ ms.lasthandoff: 05/26/2017
 * 可将解决方案分解为目标组件。
 * 可在不同的主模板中重复使用嵌套模板。
 
-如果你选择使用嵌套模板，以下指导可帮助你标准化模板设计。 这些指导基于[用于设计 Azure Resource Manager 模板的模式](best-practices-resource-manager-design-templates.md)。 我们建议在设计中包含以下模板：
+如果选择使用嵌套模板，以下指导可帮助你标准化模板设计。 这些指导基于[用于设计 Azure Resource Manager 模板的模式](best-practices-resource-manager-design-templates.md)。 我们建议在设计中包含以下模板：
 
 * **主模板** (azuredeploy.json)。 用于输入参数。
 * **共享的资源模板**。 用于部署其他所有资源使用的共享资源（例如虚拟网络和可用性集）。 使用 **dependsOn** 表达式可确保在其他模板之前部署此模板。
 * **可选资源模板**。 用于根据某个参数（例如 jumpbox）有条件地部署资源。
-* **成员资源模板**。 应用程序层中的每个实例类型都有其自身的配置。 在一个层中，可以定义不同的实例类型。 （例如，第一个实例创建群集，其他实例将添加到现有群集。）每个实例类型都有其自身的部署模板。
+* **成员资源模板**。 应用程序层中的每个实例类型都有其自身的配置。 在一个层中，可以定义不同的实例类型。 （例如，第一个实例创建群集，其他实例会添加到现有群集。）每个实例类型都有其自身的部署模板。
 * **脚本**。 广泛可重用的脚本适用于每个实例类型（例如，初始化和格式化其他磁盘）。 为特定自定义目的创建的自定义脚本根据实例类型的不同而异。
 
 ![嵌套模板](./media/resource-manager-template-best-practices/nestedTemplateDesign.png)
 
-有关详细信息，请参阅[将链接的模板与 Azure Resource Manager 配合使用](resource-group-linked-templates.md)。
+有关详细信息，请参阅[将链接模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
 
 ## <a name="conditionally-link-to-nested-templates"></a>有条件地链接到嵌套模板
-可以使用某个参数有条件地链接到嵌套模板。 该参数将成为模板 URI 的一部分：
+可以使用某个参数有条件地链接到嵌套模板。 该参数成为模板 URI 的一部分：
 
 ```json
 "parameters": {
@@ -392,10 +391,11 @@ ms.lasthandoff: 05/26/2017
 ## <a name="template-format"></a>模板格式
 一种不错的做法是通过 JSON 验证程序传递模板。 验证程序可帮助删除多余的逗号、圆括号和方括号，避免部署期间出错。 尝试根据偏好的编辑环境（Visual Studio Code、Atom、Sublime Text、Visual Studio）使用 [JSONLint](http://jsonlint.com/) 或 linter 包。
 
-另外，一个不错的想法是设置 JSON 的格式以以提高可读性。 可以为本地编辑器使用 JSON 格式化程序包。 在 Visual Studio 中，按 **Ctrl+K、Ctrl+D** 设置文档的格式。 在 Visual Studio Code 中，按 **Alt+Shift+F**。 如果你的本地编辑器无法设置文档格式，你可以使用 [联机格式化程序](https://www.bing.com/search?q=json+formatter)。
+另外，一个不错的想法是设置 JSON 的格式以以提高可读性。 可以为本地编辑器使用 JSON 格式化程序包。 在 Visual Studio 中，按 **Ctrl+K、Ctrl+D** 设置文档的格式。 在 Visual Studio Code 中，按 **Alt+Shift+F**。 如果本地编辑器无法设置文档格式，可以使用[联机格式化程序](https://www.bing.com/search?q=json+formatter)。
 
 ## <a name="next-steps"></a>后续步骤
-
-* 有关设置存储帐户的指导，请参阅 [Azure 存储性能和可伸缩性清单](../storage/storage-performance-checklist.md)。
-* 有关虚拟网络的帮助，请参阅[网络基础结构指南](../virtual-machines/windows/infrastructure-networking-guidelines.md)。
+<!-- Not Available on Guidance Directory-->
+* 有关设置存储帐户的指导，请参阅 [Azure 存储性能和可伸缩性清单](../storage/common/storage-performance-checklist.md)。
 * 若要了解企业如何使用 Resource Manager 有效管理订阅，请参阅 [Azure 企业基架：规范性订阅管理](resource-manager-subscription-governance.md)。
+
+<!--Update_Description: update meta properties, update reference link-->

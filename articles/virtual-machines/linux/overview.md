@@ -3,8 +3,8 @@ title: "Azure 中 Linux VM 的概述 | Azure"
 description: "介绍 Linux 虚拟机上的 Azure 计算、存储和网络服务。"
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: rickstercdn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2016
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: ee136b9bdd16ed2982c1f1d0c45bdce68668dfdd
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: c80450452bc3c623ef130d1540c42f0c1bbc7af0
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Azure 正在不断集结各种集成的公有云服务，包括分析、虚拟机、数据库、移动、网络、存储和 Web，因此很适合用于托管解决方案。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。
@@ -32,12 +32,12 @@ Azure 正在不断集结各种集成的公有云服务，包括分析、虚拟�
 
 ## <a name="managed-disks"></a>托管磁盘
 
-托管磁盘为用户在后台处理 Azure 存储帐户的创建和管理，确保用户无需担心存储帐户的可伸缩性限制。 用户只需指定磁盘大小和性能层（标准或高级），Azure 就会为用户创建和管理磁盘。 即使是添加磁盘或者扩展和缩减 VM，也无需考虑要使用哪种存储。 如果要创建新的 VM，请[使用 Azure CLI 2.0](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，通过托管 OS 和数据磁盘创建 VM。 如果 VM 具有非托管磁盘，则可以[将 VM 转换为由托管磁盘支持](convert-unmanaged-to-managed-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+托管磁盘为用户在后台处理 Azure 存储帐户的创建和管理，确保用户无需担心存储帐户的可伸缩性限制。 用户只需指定磁盘大小和性能层（标准或高级），Azure 就会为用户创建和管理磁盘。 即使是添加磁盘或者扩展和缩减 VM，也无需考虑要使用哪种存储。 如果要创建新的 VM，请[使用 Azure CLI 2.0](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 Azure 门户，通过托管 OS 和数据磁盘创建 VM。 如果 VM 具有非托管磁盘，则可以[将 VM 转换为由托管磁盘支持](convert-unmanaged-to-managed-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-用户还可以按 Azure 区域在一个存储帐户中管理自定义映像，并使用这些映像在同一订阅中创建数百台 VM。 有关托管磁盘的详细信息，请参阅[托管磁盘概述](../../storage/storage-managed-disks-overview.md)。
+用户还可以按 Azure 区域在一个存储帐户中管理自定义映像，并使用这些映像在同一订阅中创建数百台 VM。 有关托管磁盘的详细信息，请参阅[托管磁盘概述](../windows/managed-disks-overview.md)。
 
 ## <a name="azure-virtual-machines--instances"></a>Azure 虚拟机和实例
-Azure 支持运行由多家合作伙伴提供和维护的众多热门 Linux 分发版。  可以在 Azure 应用商店中找到 CentOS、Debian、Ubuntu、CoreOS、FreeBSD 以及其他分发版。 我们积极与各大 Linux 社区合作以便为 [Azure 认可的 Linux 分发版](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)列表添加更多成员。
+Azure 支持运行由多家合作伙伴提供和维护的众多热门 Linux 分发版。  可以在 Azure Marketplace 中找到 CentOS、Debian、Ubuntu、CoreOS、RancherOS、FreeBSD 以及其他分发版。 我们积极与各大 Linux 社区合作以便为 [Azure 认可的 Linux 分发版](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)列表添加更多成员。
 
 如果首选的 Linux 分发版目前不在库中，可以通过[在 Azure 中创建和上传 Linux VHD](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 来“自带 Linux”VM。
 
@@ -53,15 +53,15 @@ Azure 支持运行由多家合作伙伴提供和维护的众多热门 Linux 分�
 
 注意：DS 系列 VM 可以访问高级存储 - 适用于 I/O 密集型工作负荷的以 SSD 为后盾的高性能低延迟存储。 高级存储只在某些区域可用。 有关详细信息，请参阅：
 
-* [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../storage/storage-premium-storage.md)
+* [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../storage/common/storage-premium-storage.md)
 
 ## <a name="automation"></a>自动化
-若要实现适当的 DevOps 区域性，所有基础结构都必须是代码。  如果所有基础结构都是代码，便可以轻松实现重建（Phoenix 服务器）。  Azure 可与所有主要自动化工具（如 Chef、SaltStack 和 Puppet）配合使用。  Azure 也有自己的自动化工具：
+若要实现适当的 DevOps 区域性，所有基础结构都必须是代码。  如果所有基础结构都是代码，便可以轻松实现重建（Phoenix 服务器）。  Azure 可与所有主要自动化工具（如 Ansible、Chef、SaltStack 和 Puppet）配合使用。  Azure 也有自己的自动化工具：
 
 * [Azure 模板](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure VMAccess](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](http://cloud-init.io/) 支持。  目前，默认情况下 Canonical Ubuntu VM 在启用 cloud-init 的情况下进行部署。  Red Hats RHEL、 CentOS 和 Fedora 支持 cloud-init。
+Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](http://cloud-init.io/) 支持。  目前，默认情况下 Canonical Ubuntu VM 在启用 cloud-init 的情况下进行部署。  CentOS 和 Fedora 支持 cloud-init。
 
 * [在 Azure Linux VM 上使用 cloud-init](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -105,11 +105,9 @@ Microsoft 与合作伙伴紧密合作，以确保及时更新可用映像并针�
 ### <a name="login-using-ssh-without-a-password"></a>不使用密码通过 SSH 登录
 VM 现在正在 Azure 上运行，用户可以登录。  通过 SSH 使用密码登录既耗时又不安全，  而使用 SSH 密钥则要安全快捷得多。  通过门户或 CLI 创建 Linux VM 时，有两种身份验证选择。  如果为 SSH 选择密码，则 Azure 会将 VM 配置为允许通过密码登录。  如果选择使用 SSH 公钥，则 Azure 将 VM 配置为只允许通过 SSH 密钥登录，并禁止密码登录。 若要通过只允许 SSH 密钥登录来保护 Linux VM，请在门户或 CLI 中创建 VM 的过程中使用 SSH 公钥选项。
 
-* [通过配置 SSHD 禁用 Linux VM 上的 SSH 密码](mac-disable-ssh-password-usage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-
 ## <a name="related-azure-components"></a>相关 Azure 组件
 ## <a name="storage"></a>存储
-* [Azure 存储简介](../../storage/storage-introduction.md)
+* [Azure 存储简介](../../storage/common/storage-introduction.md)
 * [使用 azure-cli 将磁盘添加到 Linux VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [如何在 Azure 门户中将数据磁盘附加到 Linux VM](attach-disk-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -123,5 +121,3 @@ VM 现在正在 Azure 上运行，用户可以登录。  通过 SSH 使用密码
 现在已概要了解 Azure 上的 Linux。  下一步是进一步的研究，并创建一些 VM 组件！
 
 * [通过 Azure CLI 浏览不断增多的常见任务的示例脚本列表](cli-samples.md)
-
-<!--Update_Description: wording update-->

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/12/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: e3a9583111d35336fd1aabd585400348aea8d9df
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+origin.date: 07/19/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: d0323028576e7b00cbc45c80df2b7b59a4b47c6c
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 架构
 本主题描述 [Media Encoder Standard 预设](media-services-mes-presets-overview.md)基于的 XML 架构的一些元素和类型。 本主题介绍元素及其有效值。 完整架构将在以后发布。  
@@ -64,7 +64,7 @@ ms.lasthandoff: 08/04/2017
 ### <a name="attributes"></a>属性
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| **条件** |**xs:string** | 当输入不包含视频时，建议强制编码器插入单色视频轨道。 为此，请使用 Condition="InsertBlackIfNoVideoBottomLayerOnly"（仅在最低比特率处插入视频）或 Condition="InsertBlackIfNoVideo"（在所有输出比特率处插入视频）。 有关详细信息，请参阅[此](media-services-advanced-encoding-with-mes.md#no_video)主题。|
+| **条件** |**xs:string** | 当输入不包含视频时，建议强制编码器插入单色视频轨道。为此，请使用 Condition="InsertBlackIfNoVideoBottomLayerOnly"（仅在最低比特率处插入视频）或 Condition="InsertBlackIfNoVideo"（在所有输出比特率处插入视频）。 有关详细信息，请参阅[此](media-services-advanced-encoding-with-mes.md#no_video)主题。|
 
 ## <a name="H264Layers"></a> H264Layers
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 08/04/2017
 | BFrames<br/><br/> minOccurs="0" |**xs:int** |参考帧之间的 B 帧数。 |
 | ReferenceFrames<br/><br/> minOccurs="0"<br/><br/> default="3" |**xs:int** |GOP 中的参考帧数。 |
 | EntropyMode<br/><br/> minOccurs="0"<br/><br/> default="Cabac" |**xs:string** |可能是以下值之一：Cabac 和 Cavlc。 |
-| FrameRate<br/><br/> minOccurs="0" |有理数 |确定输出视频的帧速率。 使用默认值 "0/1"，允许编码器使用与输入视频相同的帧速率。 允许的值应为常规视频帧速率，如下所示。 但是，允许使用任何有效有理数。 例如 1/1 表示 1 fps 且有效。<br/><br/> - 12/1 (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29.97 fps) |
+| FrameRate<br/><br/> minOccurs="0" |有理数 |确定输出视频的帧速率。 使用默认值 "0/1"，允许编码器使用与输入视频相同的帧速率。 允许的值应为常规视频帧速率，如下所示。 但是，允许使用任何有效有理数。 例如 1/1 表示 1 fps 且有效。<br/><br/> - 12/1 (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29.97 fps) <br/> <br/>**注意** 如果要创建多比特率编码的自定义预设，则预设的所有层**必须**都使用相同的帧速率值。|
 | AdaptiveBFrame<br/><br/> minOccurs="0" |**xs:boolean** |从 Azure 媒体编码器复制 |
 | Slices<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |确定一帧分为多少切片。 建议使用默认值。 |
 
@@ -267,5 +267,3 @@ ms.lasthandoff: 08/04/2017
 
 ## <a name="examples"></a>示例
 查看根据此架构生成的 XML 预设示例，请参阅 [MES (Media Encoder Standard) 的任务预设](media-services-mes-presets-overview.md)。
-
-<!--Update_Description: wording update-->

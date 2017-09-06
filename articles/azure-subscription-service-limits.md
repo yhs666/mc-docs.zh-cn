@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/27/2017
-ms.date: 08/01/2017
+origin.date: 08/21/2017
+ms.date: 08/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: 302efd4c9706e70350d30b73f486f4199fb54ea3
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 81c699f0f8ee6e0bf1b0543f395ff2af7a092d3b
+ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/30/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
@@ -50,6 +50,7 @@ ms.lasthandoff: 08/04/2017
 - [应用服务](#app-service-limits)
 - [应用程序网关](#application-gateway-limits)
 - [自动化](#automation-limits)
+- [Azure Cosmos DB](#azure-cosmos-db-limits)
 - [Azure Redis 缓存](#azure-redis-cache-limits)
 - [备份](#backup-limits)
 - [批处理](#batch-limits)
@@ -119,7 +120,7 @@ ms.lasthandoff: 08/04/2017
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### 存储限制 <a name="storage-limits"></a>
-有关存储帐户限制的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](storage/storage-scalability-targets.md)。
+有关存储帐户限制的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](storage/common/storage-scalability-targets.md)。
 <!--like # storage accts --> 
 #### <a name="storage-service-limits"></a>存储服务限制
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
@@ -156,6 +157,9 @@ ms.lasthandoff: 08/04/2017
 
 ### <a name="batch-limits"></a>批处理限制
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+
+### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 限制
+Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放，以处理应用程序的任何需求。 如果对 Azure Cosmos DB 提供的规模有任何问题，请发送电子邮件到 askcosmosdb@microsoft.com。
 
 ### <a name="media-services-limits"></a>媒体服务限制
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]

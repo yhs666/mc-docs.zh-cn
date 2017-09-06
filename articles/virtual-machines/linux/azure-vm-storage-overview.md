@@ -3,7 +3,7 @@ title: "Azure Linux VM 和 Azure 存储 | Azure"
 description: "介绍 Linux 虚拟机上的 Azure 标准和高级存储，以及托管和非托管磁盘。"
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
+author: hayley244
 manager: timlt
 editor: 
 ms.assetid: d364c69e-0bd1-4f80-9838-bbc0a95af48c
@@ -13,28 +13,28 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/07/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
-ms.openlocfilehash: ffb530e989c74a8e23ae4d23aed37d8cefc0efe7
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 74e5281846f1c4a31609bb42e8a9ec2c2b9ee6a0
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-and-linux-vm-storage"></a>Azure 和 Linux VM 存储
 Azure 存储是依赖于持续性、可用性和伸缩性来满足客户需求的现代应用程序的云存储解决方案。  除了使开发人员可以构建大型应用程序来支持新方案之外，Azure 存储还为 Azure 虚拟机提供了存储基础。
 
 ## <a name="managed-disks"></a>托管磁盘
 
-目前 Azure VM 支持使用 [Azure 托管磁盘](../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，使得你自身无需创建或管理任何 [Azure 存储帐户](../../storage/storage-introduction.md)便可创建 VM。 指定是需要高级还是标准存储，以及磁盘应具有的容量，随之 Azure 便会创建 VM 磁盘。 使用托管磁盘的 VM 具有许多重要功能，包括：
+目前 Azure VM 支持使用 [Azure 托管磁盘](../windows/managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，使得你自身无需创建或管理任何 [Azure 存储帐户](../../storage/common/storage-introduction.md)便可创建 VM。 指定是需要高级还是标准存储，以及磁盘应具有的容量，随之 Azure 便会创建 VM 磁盘。 使用托管磁盘的 VM 具有许多重要功能，包括：
 
 - 自动可伸缩性支持。 Azure 创建磁盘并管理基础存储，每个订阅最多可支持 10,000 个磁盘。
 - 可用性集带来更高的可靠性。 Azure 可确保 VM 磁盘在可用集内自动彼此隔离。
 - 增强的访问控制。 托管磁盘公开由 [Azure 基于角色的访问控制 (RBAC)](../../active-directory/role-based-access-control-what-is.md) 所控制的各种操作。
 
-托管磁盘与非托管磁盘的定价不同。 有关这方面的信息，请参阅[托管磁盘的定价和计费](../../storage/storage-managed-disks-overview.md#pricing-and-billing)。
+托管磁盘与非托管磁盘的定价不同。 有关这方面的信息，请参阅[托管磁盘的定价和计费](../windows/managed-disks-overview.md#pricing-and-billing)。
 
-可以通过 [az vm convert](https://docs.microsoft.com/cli/azure/vm#convert)，将使用非托管磁盘的现有 VM 转换为使用托管磁盘。 有关详细信息，请参阅[如何将 Linux VM 从非托管磁盘转换为 Azure 托管磁盘](convert-unmanaged-to-managed-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果非托管磁盘所在的存储帐户已使用或曾使用 [Azure 存储服务加密 (SSE)](../../storage/storage-service-encryption.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 加密，则无法将该非托管磁盘转换为托管磁盘。 下列步骤详细说明如何转换位于（或曾位于）已加密存储帐户的非托管磁盘：
+可以通过 [az vm convert](https://docs.microsoft.com/cli/azure/vm#convert)，将使用非托管磁盘的现有 VM 转换为使用托管磁盘。 有关详细信息，请参阅[如何将 Linux VM 从非托管磁盘转换为 Azure 托管磁盘](convert-unmanaged-to-managed-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果非托管磁盘所在的存储帐户已使用或曾使用 [Azure 存储服务加密 (SSE)](../../storage/common/storage-service-encryption.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 加密，则无法将该非托管磁盘转换为托管磁盘。 下列步骤详细说明如何转换位于（或曾位于）已加密存储帐户的非托管磁盘：
 
 - 使用 [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#start) 将虚拟硬盘 (VHD) 复制到从未启用过 Azure 存储服务加密的存储帐户。
 - 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建使用托管磁盘的 VM 并指定创建期间的 VHD 文件，或
@@ -51,68 +51,35 @@ Azure VM - 无论它使用托管磁盘还是非托管磁盘 - 都能以标准存
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-首先，创建资源组以管理资源：
+首先，使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建用于管理资源的资源组：
 
 ```azurecli
 az group create --location chinanorth --name myResourceGroup
 ```
 
-然后使用 `az vm create` 命令创建 VM，如以下示例所示；请记住指定唯一的 `--public-ip-address-dns-name` 参数，因为 `manageddisks` 可能已被使用。
+现在，使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 指定唯一的 `--public-ip-address-dns-name` 自变量，可能会采用 `mypublicdns`。
 
 ```azurecli
 az vm create \
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub
---public-ip-address-dns-name manageddisks \
---resource-group myResourceGroup \
---location chinanorth \
---name myVM
+    --resource-group myResourceGroup \
+    --name myVM
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --public-ip-address-dns-name mypublicdns
 ```
 
 上述示例以标准存储帐户创建了一个具有托管磁盘的 VM。 若要使用高级存储帐户，请添加 `--storage-sku Premium_LRS` 参数，如以下示例所示：
 
 ```azurecli
 az vm create \
---storage-sku Premium_LRS
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub
---public-ip-address-dns-name manageddisks \
---resource-group myResourceGroup \
---location chinanorth \
---name myVM
-```
-
-### <a name="create-a-vm-with-an-unmanaged-standard-disk-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建一个具有非托管标准磁盘的 VM
-
-当然，也可以使用 Azure CLI 1.0 创建标准和高级磁盘 VM；目前，还不能使用 Azure CLI 1.0 创建由托管磁盘提供支持的 VM。
-
-`-z` 选项选择 Standard_A1，它是基于标准存储的 Linux VM。
-
-```azurecli
-azure vm quick-create -g rbg \
-exampleVMname \
--l chinanorth \
--y Linux \
--Q Debian \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub
--z Standard_A1
-```
-
-### <a name="create-a-vm-with-premium-storage-using-the-azure-cli-10"></a>通过 Azure CLI 1.0 创建使用高级存储的 VM
-`-z` 选项选择 Standard_DS1，即基于高级存储的 Linux VM。
-
-```azurecli
-azure vm quick-create -g rbg \
-exampleVMname \
--l chinanorth \
--y Linux \
--Q Debian \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub
--z Standard_DS1
+    --resource-group myResourceGroup \
+    --name myVM
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --public-ip-address-dns-name mypublicdns \
+    --storage-sku Premium_LRS
 ```
 
 ## <a name="standard-storage"></a>标准存储
@@ -126,7 +93,7 @@ Azure 高级存储为运行 I/O 密集型工作负荷的虚拟机提供高性能
 * 高级存储磁盘：Azure 高级存储支持可附加到 DS 或 DSv2 系列 Azure VM 的 VM 磁盘。
 * 高级页 Blob：高级存储支持 Azure 页 Blob（用于保存 Azure 虚拟机 (VM) 的永久性磁盘）。
 * 高级本地冗余存储：高级存储帐户仅支持使用本地冗余存储 (LRS) 作为复制选项，并在单个区域中保留三个数据副本。
-* [高级存储](../../storage/storage-premium-storage.md)
+* [高级存储](../../storage/common/storage-premium-storage.md)
 
 ## <a name="premium-storage-supported-vms"></a>支持高级存储的 VM
 高级存储支持 DS 系列、DSv2 系列和 Fs 系列 Azure 虚拟机 (VM)。 可以在支持高级存储的 VM 上同时使用标准和高级存储磁盘。 但不能在不兼容高级存储的 VM 系列中使用高级存储磁盘。
@@ -149,7 +116,7 @@ Azure 文件存储使用标准 SMB 协议在云中提供文件共享。 使用 A
 
 文件存储基于与 Blob、表和队列存储相同的技术构建，因此文件存储能够提供 Azure 存储平台内置的现有可用性、持续性、可伸缩性和异地冗余。 有关存文件存储性能目标和限制的详细信息，请参阅“Azure 存储伸缩性和性能目标”。
 
-* [如何将 Azure 文件存储与 Linux 配合使用](../../storage/storage-how-to-use-files-linux.md)
+* [如何将 Azure 文件存储与 Linux 配合使用](../../storage/files/storage-how-to-use-files-linux.md)
 
 ## <a name="hot-storage"></a>热存储
 Azure 热存储层为存储经常访问的数据进行了优化。  热存储是 Blob 存储的默认存储类型。
@@ -189,7 +156,7 @@ Azure 冷存储层为存储不常访问且长期留存的数据进行了优化�
 
 若要深入了解 Azure 存储冗余，请参阅：
 
-* [Azure 存储复制](../../storage/storage-redundancy.md)
+* [Azure 存储复制](../../storage/common/storage-redundancy.md)
 
 ## <a name="scalability"></a>可伸缩性
 Azure 存储可以大规模伸缩，因此可以存储和处理数百 TB 的数据来支持科学、财务分析和媒体应用程序所需的大数据方案。 也可以存储小型商业网站所需的少量数据。 需求降低时，只需要为当前存储的数据支付费用。 Azure 存储当前存储了数十万亿个唯一的客户对象，平均每秒处理数百万个请求。
@@ -222,7 +189,7 @@ Azure 存储提供配套的安全性功能，这些功能相辅相成，可让�
 ## <a name="encryption-at-rest"></a>静态加密
 我们将讨论存储服务加密 (SSE) 以及如何对存储帐户启用它，从而使块 Blob、页 Blob 以及追加 Blob 在写入到 Azure 存储时自动进行加密。 还会介绍如何使用 Azure 磁盘加密，并探究磁盘加密、SSE 与客户端加密之间的基本差异和情况。 我们将简要探讨美国政府针对计算机实施的FIPS 合规性。
 
-* [Azure 存储安全指南](../../storage/storage-security-guide.md)
+* [Azure 存储安全指南](../../storage/common/storage-security-guide.md)
 
 ## <a name="temporary-disk"></a>临时磁盘
 每个 VM 包含一个临时磁盘。 临时磁盘为应用程序和进程提供短期存储存储空间，仅用于存储页面或交换文件等数据。 在[维护事件](manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期间或[重新部署 VM](redeploy-to-new-node.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 时，临时磁盘上的数据可能会丢失。 在 VM 标准重启期间，临时驱动器上的数据应会保留。
@@ -237,3 +204,4 @@ Azure 存储提供配套的安全性功能，这些功能相辅相成，可让�
 
 ## <a name="storage-limits"></a>存储限制
 * [存储服务限制](../../azure-subscription-service-limits.md#storage-limits)
+<!--Update_Description: update scripts for managed disks-->

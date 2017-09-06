@@ -3,7 +3,7 @@
 ## [概念](media-services-concepts.md)
 
 # 入门
-## [创建和管理帐户](media-services-create-account.md)
+## [创建和管理帐户](media-services-portal-create-account.md)
 ## [设置开发环境](media-services-set-up-computer.md)
 ### [.NET](media-services-dotnet-how-to-use.md)
 ### [REST](media-services-rest-how-to-use.md)  
@@ -15,20 +15,22 @@
 ### [使用 PowerShell 创建和配置 AAD 应用](media-services-powershell-create-and-configure-aad-app.md)
 
 ## 传送点播视频
+### [门户](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## 执行实时传送视频流
+### [门户](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # 如何
 ## 管理
-### 帐户
-#### [PowerShell](media-services-manage-with-powershell.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 ### 实体
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
+### [流式处理终结点](media-services-streaming-endpoints-overview.md)
+#### [门户](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### 存储
 #### [更改存储访问密钥后更新媒体服务](media-services-roll-storage-access-keys.md)
 #### [跨多个存储帐户管理资产](meda-services-managing-multiple-storage-accounts.md)
@@ -36,6 +38,7 @@
 
 ## 上传内容
 ### 将文件上传到帐户中
+#### [门户](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [复制现有 Blob](media-services-copying-existing-blob.md)
@@ -46,6 +49,7 @@
 #### [Media Encoder Standard 格式和编解码器](media-services-media-encoder-standard-formats.md)
 #### [使用 MES 自动生成比特率阶梯](media-services-autogen-bitrate-ladder-with-mes.md)
 #### 使用 Media Encoder Standard 进行编码
+##### [门户](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 ##### [REST](media-services-rest-encode-asset.md)
 #### [使用 MES 进行高级编码](media-services-advanced-encoding-with-mes.md)
@@ -95,7 +99,6 @@
 ### [本地编码器](media-services-live-streaming-with-onprem-encoders.md)
 #### [门户](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [使用云编码器实时传送视频流](media-services-manage-live-encoder-enabled-channels.md)
 #### [门户](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -108,6 +111,7 @@
 ### [碎片化 MP4 实时引入规范](media-services-fmp4-live-ingest-overview.md)
 
 ## [保护](media-services-content-protection-overview.md)
+### [在门户中配置内容保护](media-services-portal-protect-content.md)
 ### [为流配置 AES-128 明文密钥](media-services-protect-with-aes128.md)
 ### [将 REST 与存储加密配合使用来加密内容](media-services-rest-storage-encryption.md)
 ### [媒体服务 PlayReady 许可证模板概述](media-services-playready-license-template-overview.md)
@@ -126,7 +130,9 @@
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 
 ## [分析](media-services-analytics-overview.md)
+### [使用门户分析媒体](media-services-portal-analyze.md)
 ### [使用 Indexer 进行处理](media-services-index-content.md)
+#### [任务预设](indexer-task-preset.md)
 ### [使用 Hyperlapse 进行处理](media-services-hyperlapse-content.md)
 ### [使用 Face Detector 进行处理](media-services-face-and-emotion-detection.md)
 ### [使用 Motion Detector 进行处理](media-services-motion-detection.md)
@@ -141,9 +147,10 @@
 
 ## 缩放
 ### [媒体处理](media-services-scale-media-processing-overview.md)
+#### [门户](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
-
+### 流式处理终结点
+#### [门户](media-services-portal-scale-streaming-endpoints.md)
 
 ## [传送内容](media-services-deliver-content-overview.md)
 ### [动态打包](media-services-dynamic-packaging-overview.md)
@@ -151,6 +158,7 @@
 #### [使用 .NET 创建筛选器](media-services-dotnet-dynamic-manifest.md)
 #### [使用 REST 创建筛选器](media-services-rest-dynamic-manifest.md)
 ### 发布内容
+#### [门户](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
 ### [通过下载传送](media-services-deliver-asset-download.md)

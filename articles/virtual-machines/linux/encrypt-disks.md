@@ -3,8 +3,8 @@ title: "加密 Azure 中 Linux VM 上的磁盘 | Azure"
 description: "如何使用 Azure CLI 2.0 加密 Linux VM 上的虚拟磁盘以增强安全性"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 2a23b6fa-6941-4998-9804-8efe93b647b3
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 07/05/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: 5a8122291350003be9b8333b8c1f7b3daacb04ca
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 4ecc84c7e337a9518c30d72c5710c9a6c28d2dca
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>如何加密 Linux VM 上的虚拟磁盘
 为了增强虚拟机 (VM) 的安全性以及符合性，可以加密 Azure 中的虚拟磁盘。 磁盘是使用 Azure 密钥保管库中受保护的加密密钥加密的。 可以控制这些加密密钥，以及审核对它们的使用。 本文介绍如何使用 Azure CLI 2.0 加密 Linux VM 上的虚拟磁盘。 还可以使用 [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
@@ -72,13 +72,13 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
     --secret-permissions set
 ```
 
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM 并附加一个 5Gb 数据磁盘。 只有特定应用商店映像才支持磁盘加密。 下面的示例使用 Ubuntu 14.04 映像创建名为 `myVM` 的 VM：
+使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM 并附加一个 5Gb 数据磁盘。 只有特定应用商店映像才支持磁盘加密。 下面的示例使用 **CentOS 7.2n** 映像创建一个名为 `myVM` 的 VM：
 
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+    --image OpenLogic:CentOS:7.2n:7.2.20160629 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --data-disk-sizes-gb 5
@@ -206,13 +206,13 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 ```
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
-为了实际加密一些虚拟磁盘，让我们创建一个 VM 并添加一个数据磁盘。 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建要加密的 VM 并附加一个 5Gb 数据磁盘。 只有特定应用商店映像才支持磁盘加密。 下面的示例使用 **Ubuntu 14.04** 映像创建名为 *myVM* 的 VM：
+为了实际加密一些虚拟磁盘，让我们创建一个 VM 并添加一个数据磁盘。 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建要加密的 VM 并附加一个 5Gb 数据磁盘。 只有特定应用商店映像才支持磁盘加密。 以下示例使用 CentOS 7.2n 映像创建一个名为 myVM 的 VM：
 
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+    --image OpenLogic:CentOS:7.2n:7.2.20160629 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --data-disk-sizes-gb 5
@@ -270,16 +270,15 @@ az vm encryption show --resource-group myResourceGroup --name myVM
 
 现在，状态应将 OS 磁盘和数据磁盘均报告为 **Encrypted**。
 
-## <a name="add-additional-data-disks"></a>添加更多数据磁盘
-加密数据磁盘后，可将更多的虚拟磁盘添加到 VM 并将其加密。 运行 `az vm encryption enable` 命令时，可以使用 `--sequence-version` 参数递增序列版本。 使用此序列版本参数可以针对同一个 VM 重复执行操作。
 
-例如，按如下所示将另一个虚拟磁盘添加到 VM：
+## <a name="add-additional-data-disks"></a>添加更多数据磁盘
+加密数据磁盘后，可将更多的虚拟磁盘添加到 VM 并将其加密。 例如，按如下所示将另一个虚拟磁盘添加到 VM：
 
 ```azurecli
 az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-gb 5
 ```
 
-重新运行上述命令来加密虚拟磁盘，不过这次请添加 `--sequence-version` 参数，以便递增第一次运行中使用的值，如下所示：
+重新运行命令以加密虚拟磁盘，如下所示：
 
 ```azurecli
 az vm encryption enable \
@@ -289,12 +288,11 @@ az vm encryption enable \
     --aad-client-secret $sp_password \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
-    --volume-type all \
-    --sequence-version 2
+    --volume-type all
 ```
 
 ## <a name="next-steps"></a>后续步骤
 * 有关管理 Azure 密钥保管库的详细信息，包括删除加密密钥和保管库，请参阅 [Manage Key Vault using CLI](../../key-vault/key-vault-manage-with-cli2.md)（使用 CLI 管理密钥保管库）。
 * 有关磁盘加密的详细信息，例如准备要上传到 Azure 的已加密自定义 VM，请参阅 [Azure Disk Encryption](../../security/azure-security-disk-encryption.md)（Azure 磁盘加密）。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update sample from Ubuntu to cent OS-->

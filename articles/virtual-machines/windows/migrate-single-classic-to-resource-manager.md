@@ -3,8 +3,8 @@ title: "将经典 VM 迁移到 ARM 托管磁盘 VM | Azure"
 description: "将单个 Azure VM 从经典部署模型迁移到 Resource Manager 部署模型中的托管磁盘。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,37 +14,32 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: eaa02978fc0ce983ee2e612dc0416bebd7b56f2d
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: d761e60960cc03a48cdb5a1663c6f5d19323fc43
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/29/2017
 ---
-# 手动将经典 VM 从 VHD 迁移到新的 ARM 托管磁盘 VM
-<a id="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd" class="xliff"></a> 
+# <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>手动将经典 VM 从 VHD 迁移到新的 ARM 托管磁盘 VM 
 
-本部分有助于将现有 Azure VM 从经典部署模型迁移到 Resource Manager 部署模型中的[托管磁盘](../../storage/storage-managed-disks-overview.md)。
+本部分有助于将现有 Azure VM 从经典部署模型迁移到资源管理器部署模型中的[托管磁盘](managed-disks-overview.md)。
 
-## 计划迁移到托管磁盘
-<a id="plan-for-the-migration-to-managed-disks" class="xliff"></a>
+## <a name="plan-for-the-migration-to-managed-disks"></a>计划迁移到托管磁盘
 
 本部分可帮助你针对 VM 和磁盘类型做出最佳决策。
 
-### 位置
-<a id="location" class="xliff"></a>
+### <a name="location"></a>位置
 
 选取 Azure 托管磁盘可用位置。 如果要迁移到高级托管磁盘，还应确保高级存储在计划迁移到的目标区域中可用。
 
-### VM 大小
-<a id="vm-sizes" class="xliff"></a>
+### <a name="vm-sizes"></a>VM 大小
 
 如果要迁移到高级托管磁盘，需要将 VM 的大小更新为该 VM 所在区域中支持高级存储的可用大小。 查看支持高级存储的 VM 大小。 [虚拟机大小](sizes.md)中列出了 Azure VM 大小规范。
 查看适用于高级存储的虚拟机的性能特征并选择最适合工作负荷的 VM 大小。 确保 VM 上有足够的带宽来驱动磁盘通信。
 
-### 磁盘大小
-<a id="disk-sizes" class="xliff"></a>
+### <a name="disk-sizes"></a>磁盘大小
 
 **高级托管磁盘**
 
@@ -52,7 +47,7 @@ ms.lasthandoff: 06/23/2017
 
 | 高级磁盘类型  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| 磁盘大小           | 32 GB| 64 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| 磁盘大小           | 128 GB| 512 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | 每个磁盘的 IOPS       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
 | 每个磁盘的吞吐量 | 每秒 25 MB  | 每秒 50 MB  | 每秒 100 MB | 每秒 150 MB | 每秒 200 MB | 每秒 250 MB | 每秒 250 MB | 
 
@@ -62,37 +57,33 @@ ms.lasthandoff: 06/23/2017
 
 | 标准磁盘类型  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
-| 磁盘大小           | 32 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
+| 磁盘大小           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
 | 每个磁盘的 IOPS       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
 | 每个磁盘的吞吐量 | 每秒 60 MB | 每秒 60 MB | 每秒 60 MB | 每秒 60 MB | 每秒 60 MB | 每秒 60 MB | 每秒 60 MB | 
 
-### 磁盘缓存策略
-<a id="disk-caching-policy" class="xliff"></a> 
+### <a name="disk-caching-policy"></a>磁盘缓存策略 
 
 **高级托管磁盘**
 
 默认情况下，所有高级数据磁盘的磁盘缓存策略都是“只读”，所有附加到 VM 的高级操作系统都是“读写”。 为使应用程序的 IO 达到最佳性能，建议使用此配置设置。 对于频繁写入或只写的磁盘（例如 SQL Server 日志文件），禁用磁盘缓存可获得更佳的应用程序性能。
 
-### 定价
-<a id="pricing" class="xliff"></a>
+### <a name="pricing"></a>定价
 
 查看[托管磁盘定价](https://www.azure.cn/pricing/details/managed-disks/)。 高级托管磁盘的定价与高级非托管磁盘相同。 但标准托管磁盘的定价与标准非托管磁盘不同。
 
-## 清单
-<a id="checklist" class="xliff"></a>
+## <a name="checklist"></a>清单
 
 1.  如果要迁移到高级托管磁盘，请确保它在要迁移到的区域中可用。
 
 2.  决定要使用的新 VM 系列。 如果要迁移到高级托管磁盘，则应支持高级存储。
 
-3.  确定将使用的确切 VM 大小，将迁移到的区域应支持此大小。 VM 大小需要足够大以支持所拥有的数据磁盘数。 例如，如果有四个数据磁盘，则 VM 必须至少有两个核心。 此外，还应考虑处理能力、内存和网络带宽需求。
+3.  确定要使用的确切 VM 大小，将迁移到的区域应支持此大小。 VM 大小需要足够大以支持所拥有的数据磁盘数。 例如，如果有四个数据磁盘，则 VM 必须至少有两个核心。 此外，还应考虑处理能力、内存和网络带宽需求。
 
 4.  手边具备当前 VM 详细信息，包括磁盘和对应的 VHD blob 的列表。
 
 让应用程序做好停机准备。 为了执行干净的迁移，必须停止当前系统中的所有处理。 只有这样才能使其处于一致状态，可以将该状态迁移到新的平台。 停机持续时间取决于要迁移的磁盘中的数据量。
 
-## 迁移 VM
-<a id="migrate-the-vm" class="xliff"></a>
+## <a name="migrate-the-vm"></a>迁移 VM
 
 让应用程序做好停机准备。 为了执行干净的迁移，必须停止当前系统中的所有处理。 只有这样才能使其处于一致状态，可以将该状态迁移到新的平台。 停机持续时间取决于要迁移的磁盘中的数据量。
 
@@ -132,7 +123,7 @@ ms.lasthandoff: 06/23/2017
     -ResourceGroupName $resourceGroupName
     ```
 
-3.  将 OS 磁盘附加到新的 VM。
+3.  将 OS 磁盘附加到新 VM。
 
     ```powershell
     $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
@@ -173,7 +164,6 @@ ms.lasthandoff: 06/23/2017
 >
 >
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 - 连接到虚拟机。 有关说明，请参阅[如何连接并登录到运行 Windows 的 Azure 虚拟机](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。

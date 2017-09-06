@@ -13,26 +13,24 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 05/15/2017
-ms.date: 07/03/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: e70caa9f802719ecdbb51fc17581b731449c90dd
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: b6fdeecf1c041553f4ac6afdbdc8f5ced8b52c34
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/31/2017
 ---
-# 使用 Azure CLI 创建服务主体来访问资源
-<a id="use-azure-cli-to-create-a-service-principal-to-access-resources" class="xliff"></a>
+# <a name="use-azure-cli-to-create-a-service-principal-to-access-resources"></a>使用 Azure CLI 创建服务主体来访问资源
 
-当某个应用或脚本需要访问资源时，你可以为该应用设置一个标识，然后使用其自身的凭据进行身份验证。 此标识称为服务主体。 使用此方法可实现以下目的：
+当某个应用或脚本需要访问资源时，用户可以为该应用设置一个标识，并使用其自身的凭据进行身份验证。 此标识称为服务主体。 使用此方法可实现以下目的：
 
-* 将不同于你自己的权限的权限分配给应用标识。 通常情况下，这些权限仅限于应用需执行的操作。
+* 将不同于自己的权限的权限分配给应用标识。 通常情况下，这些权限仅限于应用需执行的操作。
 * 执行无人参与的脚本时，使用证书进行身份验证。
 
-本文介绍如何通过 [Azure CLI 1.0](../cli-install-nodejs.md) 设置应用程序，使之能够使用自己的凭据和标识运行。 安装最新版的 [Azure CLI 1.0](../cli-install-nodejs.md)，确保你的环境符合本文中示例的要求。
+本文介绍如何通过 [Azure CLI 1.0](../cli-install-nodejs.md) 设置应用程序，使之能够使用自己的凭据和标识运行。 安装最新版的 [Azure CLI 1.0](../cli-install-nodejs.md)，确保环境符合本文中示例的要求。
 
-## 所需的权限
-<a id="required-permissions" class="xliff"></a>
+## <a name="required-permissions"></a>所需的权限
 若要完成本主题，必须在 Azure Active Directory 和 Azure 订阅中均具有足够的权限。 具体而言，必须能够在 Azure Active Directory 中创建应用并向角色分配服务主体。 
 
 检查帐户是否有足够权限的最简方法是使用门户。 请参阅[在门户中检查所需的权限](resource-group-create-service-principal-portal.md#required-permissions)。
@@ -42,7 +40,7 @@ ms.lasthandoff: 06/23/2017
 ## <a name="create-service-principal-with-password"></a> 使用密码创建服务主体
 在本部分中，会执行相关步骤，使用密码创建 AD 应用程序，并将读取者角色分配给服务主体。
 
-1. 登录到你的帐户。
+1. 登录到帐户。
 
     ```azurecli
     azure login -e AzureChinaCloud
@@ -53,7 +51,7 @@ ms.lasthandoff: 06/23/2017
     azure ad sp create -n exampleapp -p {your-password}
     ```
 
-    随后将返回新的服务主体。 授权时需要使用对象 ID。 登录时需要提供随服务主体名称列出的 GUID。 此 GUID 与 AppId 的值一样。 在示例应用程序中，此值称为 `Client ID`。 
+    随后返回新的服务主体。 授权时需要使用对象 ID。 登录时需要提供随服务主体名称列出的 GUID。 此 GUID 与 AppId 的值一样。在示例应用程序中，此值称为 `Client ID`。 
 
     ```azurecli
     info:    Executing command ad sp create
@@ -85,7 +83,7 @@ ms.lasthandoff: 06/23/2017
     azure account show
     ```
 
-    将返回：
+    返回：
 
     ```azurecli
     info:    Executing command account show
@@ -130,7 +128,7 @@ ms.lasthandoff: 06/23/2017
     azure login -e AzureChinaCloud -u 7132aca4-1bdb-4238-ad81-996ff91d8db4 --service-principal --tenant {tenant-id}
     ```
 
-    系统将提示输入密码。 提供在创建 AD 应用程序时指定的密码。
+    系统会提示输入密码。 提供在创建 AD 应用程序时指定的密码。
 
     ```azurecli
     info:    Executing command login
@@ -142,7 +140,7 @@ ms.lasthandoff: 06/23/2017
 也可从要登录的命令行调用 REST 操作。 可以从身份验证响应中检索访问令牌，将其用于其他操作。 若要通过示例来了解如何通过调用 REST 操作来检索访问令牌，请参阅[生成访问令牌](resource-manager-rest-api.md#generating-an-access-token)。
 
 ## <a name="create-service-principal-with-certificate"></a>使用证书创建服务主体
-在本部分中，将执行步骤以：
+本部分会执行步骤以：
 
 * 创建自签名证书
 * 使用证书创建 AD 应用程序，并创建服务主体
@@ -164,7 +162,7 @@ ms.lasthandoff: 06/23/2017
 
 3. 打开 **examplecert.pem** 文件并找到 **-----BEGIN CERTIFICATE-----** 与 **-----END CERTIFICATE-----** 之间的长字符序列。 复制证书数据。 创建服务主体时将此数据作为参数传递。
 
-4. 登录到你的帐户。
+4. 登录到帐户。
 
     ```azurecli
     azure login -e AzureChinaCloud
@@ -175,7 +173,7 @@ ms.lasthandoff: 06/23/2017
     azure ad sp create -n exampleapp --cert-value {certificate data}
     ```
 
-    随后将返回新的服务主体。 授权时需要使用对象 ID。 登录时需要提供随服务主体名称列出的 GUID。 此 GUID 与 AppId 的值一样。 在示例应用程序中，此值称为“客户端 ID”。 
+    随后返回新的服务主体。 授权时需要使用对象 ID。 登录时需要提供随服务主体名称列出的 GUID。 此 GUID 与 AppId 的值一样。在示例应用程序中，此值称为“客户端 ID”。 
      
     ```azurecli
     info:    Executing command ad sp create
@@ -194,8 +192,7 @@ ms.lasthandoff: 06/23/2017
     azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
     ```
   
-### 通过自动执行的 Azure CLI 脚本提供证书
-<a id="provide-certificate-through-automated-azure-cli-script" class="xliff"></a>
+### <a name="provide-certificate-through-automated-azure-cli-script"></a>通过自动执行的 Azure CLI 脚本提供证书
 现在，需要以应用程序方式登录以执行相应操作。
 
 1. 以服务主体方式登录时，需提供 AD 应用所在目录的租户 ID。 租户是 Azure Active Directory 的实例。 若要检索当前已经过身份验证的订阅的租户 ID，请使用：
@@ -204,7 +201,7 @@ ms.lasthandoff: 06/23/2017
     azure account show
     ```
 
-    将返回：
+    返回：
 
     ```azurecli
     info:    Executing command account show
@@ -263,8 +260,7 @@ ms.lasthandoff: 06/23/2017
 
 现在，你已作为所创建 Azure Active Directory 应用程序的服务主体进行身份验证。
 
-## 更改凭据
-<a id="change-credentials" class="xliff"></a>
+## <a name="change-credentials"></a>更改凭据
 
 为了保障安全或由于凭据过期，若要更改 AD 应用的凭据，请使用 `azure ad app set`。
 
@@ -280,14 +276,13 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --password
 azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-value {certificate data}
 ```
 
-## 调试
-<a id="debug" class="xliff"></a>
+## <a name="debug"></a>调试
 
-创建服务主体时，你可能会遇到以下错误：
+创建服务主体时，可能会遇到以下错误：
 
-* “Authentication_Unauthorized”或“在上下文中找不到订阅”。 - 如果帐户不具有在 Azure Active Directory 上注册应用[所需的权限](#required-permissions)，会收到此错误。 通常，当仅 Azure Active Directory 中的管理员用户可注册应用且帐户不是管理员帐户时，会看到此错误。 可要求管理员为你分配管理员角色，或者允许用户注册应用。
+* “Authentication_Unauthorized”或“在上下文中找不到订阅”。 - 如果帐户不具有在 Azure Active Directory 上注册应用[所需的权限](#required-permissions)，会收到此错误。 通常，当仅 Azure Active Directory 中的管理员用户可注册应用且帐户不是管理员帐户时，会看到此错误。可要求管理员分配管理员角色，或者允许用户注册应用。
 
-* 你的帐户“无权对作用域 '/subscriptions/{guid}' 执行 'Microsoft.Authorization/roleAssignments/write' 操作。”- 当帐户没有足够权限，无法为标识分配角色时，将会出现此错误。 可要求订阅管理员将你添加到“用户访问管理员”角色。
+* 帐户“无权对作用域 '/subscriptions/{guid}' 执行 'Microsoft.Authorization/roleAssignments/write' 操作。”- 当帐户没有足够权限，无法为标识分配角色时，会出现此错误。 可要求订阅管理员将你添加到“用户访问管理员”角色。
 
 ## <a name="sample-applications"></a>示例应用程序
 以下示例应用程序演示如何以服务主体身份登录。
@@ -300,25 +295,28 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-val
 **Java**
 
 * [资源入门 - 在 Java 中使用 Azure Resource Manager 模板部署资源](https://github.com/Azure-Samples/resources-java-deploy-using-arm-template/)
-* [资源入门 - 在 Java 中管理资源组](https://github.com/Azure-Samples/resources-java-manage-resource-group//)
+* [资源入门 - 在 Java 中管理资源组](https://github.com/Azure-Samples/resources-java-manage-resource-group/)
+* [Java](https://docs.azure.cn/java/java-sdk-azure-authenticate)
 
 **Python**
 
 * [在 Python 中使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-python-template-deployment/)
 * [使用 Python 管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-python-resources-and-groups/)
+* [Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 
 **Node.js**
 
 * [在 Node.js 中使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-node-template-deployment/)
 * [使用 Node.js 管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-node-resources-and-groups/)
+* [Node.js](https://docs.microsoft.com/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
 
 **Ruby**
 
 * [在 Ruby 中使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/)
 * [使用 Ruby 管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
+* [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
-* 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅 [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md)（使用 Azure Resource Manager API 进行授权的开发人员指南）。
+## <a name="next-steps"></a>后续步骤
+* 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅 [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md)（使用 Azure 资源管理器 API 进行授权的开发人员指南）。
 * 若要获取有关使用证书和 Azure CLI 的详细信息，请参阅 [Certificate-based authentication with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)（从 Linux 命令行对 Azure 服务主体进行基于证书的身份验证）。
 * 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure Resource Manager 资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。

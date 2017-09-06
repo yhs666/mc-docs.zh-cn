@@ -3,8 +3,8 @@ title: "适用于 Windows 的 Azure 自定义脚本扩展 | Azure"
 description: "使用自定义脚本扩展自动化 Windows VM 配置任务"
 services: virtual-machines-windows
 documentationcenter: 
-author: neilpeterson
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: f4181fee-7a9d-4a1c-b517-52956f5b7fa1
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/16/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: 88a5db91242b923da2976e333ec33c2b78f0ebb5
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 928b21feb0368c6ce34e70ce77baf45042b88dbb
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="custom-script-extension-for-windows"></a>适用于 Windows 的自定义脚本扩展
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 08/18/2017
     "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.8",
+        "typeHandlerVersion": "1.9",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
@@ -85,7 +85,7 @@ ms.lasthandoff: 08/18/2017
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Compute |
 | type | 扩展 |
-| typeHandlerVersion | 1.8 |
+| typeHandlerVersion | 1.9 |
 | fileUris（例如） | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute（例如） | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
 | storageAccountName（例如） | examplestorageacct |
@@ -156,4 +156,4 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update typeHandlerVersion-->

@@ -1,10 +1,10 @@
 ---
-title: "将 Azure 虚拟网络连接到另一 VNet：PowerShell | Azure"
+title: "将 Azure 虚拟网络连接到另一 VNet：PowerShell | Microsoft Docs"
 description: "本文指导使用 Azure Resource Manager 和 PowerShell 将虚拟网络连接在一起。"
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/05/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
-ms.openlocfilehash: 6b71fc044515e23e5ce99c538b52ce0fd80112b7
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+origin.date: 08/02/2017
+ms.date: 08/31/2017
+ms.author: v-junlch
+ms.openlocfilehash: dcde9412981f959b92ff993a12ad637111b5105b
+ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/01/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 配置 VNet 到 VNet VPN 网关连接
 
@@ -29,10 +29,10 @@ ms.lasthandoff: 08/04/2017
 本文中的步骤适用于 Resource Manager 部署模型并使用 PowerShell。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure 门户](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Resource Manager - Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [经典 - Azure 门户](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Azure 门户](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure 门户（经典）](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [连接不同的部署模型 - Azure 门户](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [连接不同的部署模型 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
@@ -48,13 +48,13 @@ ms.lasthandoff: 08/04/2017
 
 出于以下原因可能要连接虚拟网络：
 
-* **跨区域地域冗余和地域存在**
+- **跨区域地域冗余和地域存在**
 
-  * 可以使用安全连接设置自己的异地复制或同步，而无需借助于面向 Internet 的终结点。
-  * 使用 Azure 流量管理器和负载均衡器，可以设置支持跨多个 Azure 区域实现异地冗余的高可用性工作负荷。 一个重要的示例就是对分布在多个 Azure 区域中的可用性组设置 SQL Always On。
-* **具有隔离或管理边界的区域多层应用程序**
+  - 可以使用安全连接设置自己的异地复制或同步，而无需借助于面向 Internet 的终结点。
+  - 使用 Azure 流量管理器和负载均衡器，可以设置支持跨多个 Azure 区域实现异地冗余的高可用性工作负荷。 一个重要的示例就是对分布在多个 Azure 区域中的可用性组设置 SQL Always On。
+- **具有隔离或管理边界的区域多层应用程序**
 
-  * 在同一区域中，由于存在隔离或管理要求，可以设置具有多个虚拟网络的多层应用程序，这些虚拟网络相互连接在一起。
+  - 在同一区域中，由于存在隔离或管理要求，可以设置具有多个虚拟网络的多层应用程序，这些虚拟网络相互连接在一起。
 
 有关 VNet 到 VNet 连接的详细信息，请参阅本文末尾的 [VNet 到 VNet 常见问题解答](#faq) 。
 
@@ -80,34 +80,35 @@ ms.lasthandoff: 08/04/2017
 
 **TestVNet1 的值：**
 
-* VNet 名称：TestVNet1
-* 资源组：TestRG1
-* 位置：中国东部
-* TestVNet1：10.11.0.0/16 和 10.12.0.0/16
-* FrontEnd：10.11.0.0/24
-* BackEnd：10.12.0.0/24
-* GatewaySubnet：10.12.255.0/27
-* GatewayName：VNet1GW
-* 公共 IP：VNet1GWIP
-* VPNType：RouteBased
-* Connection(1to4)：VNet1toVNet4
-* Connection(1to5)：VNet1toVNet5
-* ConnectionType：VNet2VNet
+- VNet 名称：TestVNet1
+- 资源组：TestRG1
+- 位置：中国东部
+- TestVNet1：10.11.0.0/16 和 10.12.0.0/16
+- FrontEnd：10.11.0.0/24
+- BackEnd：10.12.0.0/24
+- GatewaySubnet：10.12.255.0/27
+- GatewayName：VNet1GW
+- 公共 IP：VNet1GWIP
+- VPNType：RouteBased
+- Connection(1to4)：VNet1toVNet4
+- Connection(1to5)：VNet1toVNet5
+- ConnectionType：VNet2VNet
 
 **TestVNet4 的值：**
 
-* VNet 名称：TestVNet4
-* TestVNet2：10.41.0.0/16 和 10.42.0.0/16
-* FrontEnd：10.41.0.0/24
-* BackEnd：10.42.0.0/24
-* GatewaySubnet：10.42.255.0/27
-* 资源组：TestRG4
-* 位置：中国北部
-* GatewayName：VNet4GW
-* 公共 IP：VNet4GWIP
-* VPNType：RouteBased
-* 连接：VNet4toVNet1
-* ConnectionType：VNet2VNet
+- VNet 名称：TestVNet4
+- TestVNet2：10.41.0.0/16 和 10.42.0.0/16
+- FrontEnd：10.41.0.0/24
+- BackEnd：10.42.0.0/24
+- GatewaySubnet：10.42.255.0/27
+- 资源组：TestRG4
+- 位置：中国北部
+- GatewayName：VNet4GW
+- 公共 IP：VNet4GWIP
+- VPNType：RouteBased
+- 连接：VNet4toVNet1
+- ConnectionType：VNet2VNet
+
 
 ### <a name="Step2"></a>步骤 2 - 创建并配置 TestVNet1
 
@@ -189,7 +190,7 @@ ms.lasthandoff: 08/04/2017
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
   -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
-  -VpnType RouteBased -GatewaySku Standard
+  -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>步骤 3 - 创建并配置 TestVNet4
@@ -251,7 +252,7 @@ ms.lasthandoff: 08/04/2017
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
   -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
-  -VpnType RouteBased -GatewaySku Standard
+  -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### <a name="step-4---create-the-connections"></a>步骤 4 - 创建连接
@@ -294,18 +295,18 @@ ms.lasthandoff: 08/04/2017
 
 **TestVNet5 的值：**
 
-* VNet 名称：TestVNet5
-* 资源组：TestRG5
-* 位置：中国东部
-* TestVNet5：10.51.0.0/16 和 10.52.0.0/16
-* FrontEnd：10.51.0.0/24
-* BackEnd：10.52.0.0/24
-* GatewaySubnet：10.52.255.0.0/27
-* GatewayName：VNet5GW
-* 公共 IP：VNet5GWIP
-* VPNType：RouteBased
-* 连接：VNet5toVNet1
-* ConnectionType：VNet2VNet
+- VNet 名称：TestVNet5
+- 资源组：TestRG5
+- 位置：中国东部
+- TestVNet5：10.51.0.0/16 和 10.52.0.0/16
+- FrontEnd：10.51.0.0/24
+- BackEnd：10.52.0.0/24
+- GatewaySubnet：10.52.255.0.0/27
+- GatewayName：VNet5GW
+- 公共 IP：VNet5GWIP
+- VPNType：RouteBased
+- 连接：VNet5toVNet1
+- ConnectionType：VNet2VNet
 
 ### <a name="step-7---create-and-configure-testvnet5"></a>步骤 7 - 创建并配置 TestVNet5
 
@@ -383,7 +384,7 @@ ms.lasthandoff: 08/04/2017
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
-  -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
+  -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### <a name="step-8---create-the-connections"></a>步骤 8 - 创建连接
@@ -466,7 +467,7 @@ ms.lasthandoff: 08/04/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-* 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机文档](/#pivot=services&panel=Compute)。
-* 有关 BGP 的信息，请参阅 [BGP 概述](vpn-gateway-bgp-overview.md)和[如何配置 BGP](vpn-gateway-bgp-resource-manager-ps.md)。
+- 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机文档](/#pivot=services&panel=Compute)。
+- 有关 BGP 的信息，请参阅 [BGP 概述](vpn-gateway-bgp-overview.md)和[如何配置 BGP](vpn-gateway-bgp-resource-manager-ps.md)。
 
 <!--Update_Description: wording update-->

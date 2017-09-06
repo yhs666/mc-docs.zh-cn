@@ -3,8 +3,8 @@ title: "SQL Server 可用性组 - Azure 虚拟机 - 灾难恢复 | Azure"
 description: "本文介绍如何使用不同区域中的副本在 Azure 虚拟机上配置 SQL Server Always On 可用性组。"
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
-manager: jhubbard
+authors: hayley244
+manager: digimobile
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/02/2017
-ms.date: 03/20/2017
-ms.author: v-dazen
-ms.openlocfilehash: 6a81be6388aa0add0e22b0798fa0fe98b61c9502
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 34c1d20cb8c540448d582616fd95f1bab5833db0
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>在位于不同区域的 Azure 虚拟机上配置 Always On 可用性组
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 06/23/2017
 
 在此部署中，所有虚拟机位于一个 Azure 区域。 在 SQL-1 和 SQL-2 上，可以使用自动故障转移为可用性组副本配置同步提交。 若要构建此体系结构，请参阅[可用性组模板或教程](virtual-machines-windows-portal-sql-availability-group-overview.md)。
 
-如果无法访问 Azure 区域，此体系结构将很容易停机。 为了解决此漏洞，可在不同的 Azure 区域添加一个副本。 下图显示了新体系结构的大致形式：
+如果无法访问 Azure 区域，此体系结构很容易停机。 为了解决此漏洞，可在不同的 Azure 区域添加一个副本。 下图显示了新体系结构的大致形式：
 
 ![可用性组 DR](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic-dr.png)
 
@@ -148,7 +148,7 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="fail-over-to-remote-region"></a>故障转移到远程区域
 
-若要测试侦听器与远程区域之间的连接，可将副本故障转移到远程区域。 尽管副本是异步的，但故障转移存在丢失数据的可能性。 若要故障转移并防止丢失数据，请将可用性模式更改为同步，将故障转移模式设置为自动。 使用以下步骤：
+要测试侦听器与远程区域之间的连接，可将副本故障转移到远程区域。 尽管副本是异步的，但故障转移存在丢失数据的可能性。 要故障转移并防止丢失数据，请将可用性模式更改为同步，将故障转移模式设置为自动。 使用以下步骤：
 
 1. 在“对象资源管理器”中连接到承载主副本的 SQL Server 实例。
 1. 在“AlwaysOn 可用性组”的“可用性组”下，右键单击可用性组，然后单击“属性”。
@@ -157,7 +157,7 @@ ms.lasthandoff: 06/23/2017
 1. 单击“确定”。
 1. 在“对象资源管理器”中，右键单击可用性组中，然后单击“显示仪表板”。
 1. 在仪表板中，验证 DR 站点中的副本是否已同步。
-1. 在“对象资源管理器”中，右键单击可用性组中，然后单击“付账转移...”。 SQL Server Management Studio 将打开向导对 SQL Server 进行故障转移。  
+1. 在“对象资源管理器”中，右键单击可用性组中，然后单击“付账转移...”。SQL Server Management Studio 将打开向导对 SQL Server 进行故障转移。  
 1. 单击“下一步”，然后选择灾难恢复站点中的 SQL Server 实例。 再次单击“下一步”。
 1. 连接到灾难恢复站点中的 SQL Server 实例，然后单击“下一步”。
 1. 在“摘要”页上查看设置，然后单击“完成”。

@@ -3,8 +3,8 @@ title: "通过 Azure 门户使用 Media Encoder Standard 对资产进行编码 |
 description: "本教程逐步演示如何通过 Azure 门户使用 Media Encoder Standard 对资产进行编码。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 107d9e9a-71e9-43e5-b17c-6e00983aceab
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/24/2016
-ms.date: 08/07/2017
+origin.date: 08/07/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 34cf9356762a2f963df855a7eb066ecb2b5fb74d
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: c0dd2709183543bdbc5a973f58a32651799ba281
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="encode-an-asset-using-media-encoder-standard-with-the-azure-portal"></a>通过 Azure 门户使用 Media Encoder Standard 对资产进行编码
 > [!NOTE]
@@ -42,7 +42,7 @@ ms.lasthandoff: 08/04/2017
 2. 在“设置”窗口中，选择“资产”。  
 3. 在“资产”窗口中，选择想要编码的资产。
 4. 按“编码”按钮。
-5. 在“对资产进行编码”窗口中，选择“Media Encoder Standard”处理器和预设。 例如，如果知道输入视频的分辨率为 1920x1080 像素，则可使用“H264 多比特率 1080p”预设。 有关预设的详细信息，请参阅[此](media-services-mes-presets-overview.md)文 - 务必选择最适合输入视频的预设。 如果视频的分辨率低 (640x360)，则不应使用默认的“H264 多比特率 1080p”预设。
+5. 在“对资产进行编码”窗口中，选择“Media Encoder Standard”处理器和预设。 有关预设的信息，请参阅[自动生成比特率阶梯](media-services-autogen-bitrate-ladder-with-mes.md)和 [MES 的任务预设](media-services-mes-presets-overview.md)。 如果计划控制所使用的编码预设，请谨记：必须选择最适合输入视频的预设。 例如，如果知道输入视频的分辨率为 1920x1080 像素，则可使用“H264 多比特率 1080p”预设。 如果视频的分辨率低 (640x360)，则不应使用“H264 多比特率 1080p”预设。
 
    为了方便管理，系统允许编辑输出资产的名称，以及作业的名称。
 
@@ -52,4 +52,4 @@ ms.lasthandoff: 08/04/2017
 ## <a name="next-step"></a>后续步骤
 可通过 Azure 门户监视编码作业的进度，如[此](media-services-portal-check-job-progress.md)文中所述。  
 
-<!--Update_Description: new file-->
+<!--Update_Description: wording update-->

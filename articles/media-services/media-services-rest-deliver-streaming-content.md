@@ -1,54 +1,68 @@
 ---
 title: "使用 REST 发布 Azure 媒体服务内容"
 description: "了解如何创建用于生成流式处理 URL 的定位符。 代码使用 REST API。"
-authors: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 services: media-services
-documentationCenter: 
+documentationcenter: 
+ms.assetid: ff332c30-30c6-4ed1-99d0-5fffd25d4f23
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/30/2016
-ms.date: 12/16/2016
-ms.author: v-johch
-ms.openlocfilehash: 307ffe0ce8b225d209bc1fc7aa0add31ec4a4e83
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 08/09/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 88509df58946d0c5c76aa8e17914e9e91de5bbcc
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>使用 REST 发布 Azure 媒体服务内容
-
 > [!div class="op_single_selector"]
->- [.NET](./media-services-deliver-streaming-content.md)
->- [REST](./media-services-rest-deliver-streaming-content.md)
+> * [.NET](media-services-deliver-streaming-content.md)
+> * [REST](media-services-rest-deliver-streaming-content.md)
+> * [门户](media-services-portal-publish.md)
+> 
+> 
 
-##<a name="overview"></a>概述
-
-可通过创建 OnDemand 流式处理定位符并生成流式处理 URL，来流式处理自适应比特率 MP4 集。 [对资产进行编码](./media-services-rest-encode-asset.md)主题说明了如何编码成自适应比特率 MP4 集。 如果内容已加密，则在创建定位符之前配置资产传送策略（如[本主题](./media-services-rest-configure-asset-delivery-policy.md)中所述）。 
+## <a name="overview"></a>概述
+可通过创建 OnDemand 流式处理定位符并生成流式处理 URL，来流式处理自适应比特率 MP4 集。 [对资产进行编码](media-services-rest-encode-asset.md)主题说明了如何编码成自适应比特率 MP4 集。 如果内容已加密，则在创建定位符之前配置资产传送策略（如[本主题](media-services-rest-configure-asset-delivery-policy.md)中所述）。 
 
 也可以使用 OnDemand 流式处理定位符生成指向可渐进式下载的 MP4 文件的 URL。  
 
-本主题说明如何创建 OnDemand 流式处理定位符，以发布资产及生成平滑流式处理、MPEG DASH 和 HLS 流式处理 URL。 此外，还将演示如何生成渐进式下载 URL。
+本主题说明如何创建 OnDemand 流式处理定位符，以发布资产及生成平滑流式处理、MPEG DASH 和 HLS 流式处理 URL。 此外，还会示范如何生成渐进式下载 URL。
 
-[以下](#types) 部分显示了其值将在 REST 调用中使用的枚举类型。   
 
-##<a name="create-an-ondemand-streaming-locator"></a>创建 OnDemand 流式处理定位符
+            [以下](#types) 部分显示了其值会在 REST 调用中使用的枚举类型。   
 
+> [!NOTE]
+> 访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
+> 
+
+## <a name="connect-to-media-services"></a>连接到媒体服务
+
+若要了解如何连接到 AMS API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
+
+
+## <a name="create-an-ondemand-streaming-locator"></a>创建 OnDemand 流式处理定位符
 若要创建 OnDemand 流式处理定位符并获取 URL，需执行以下操作：
 
-   1. 如果内容已加密，请定义访问策略。
-   2. 创建 OnDemand 流式处理定位符。
-   3. 如果计划进行流式处理，请获取资产中的流式处理清单文件 (.ism)。 
+1. 如果内容已加密，请定义访问策略。
+2. 创建 OnDemand 流式处理定位符。
+3. 如果计划进行流式处理，请获取资产中的流式处理清单文件 (.ism)。 
+   
+   若计划进行渐进式下载，请获取资产中的 MP4 文件名。 
+4. 生成清单文件或 MP4 文件的 URL。 
+5. 请注意，不能使用包含写入或删除权限的 AccessPolicy 创建流式处理定位符。
 
-    若计划进行渐进式下载，请获取资产中的 MP4 文件名。 
-   4. 生成清单文件或 MP4 文件的 URL。 
-   5. 请注意，不能使用包含写入或删除权限的 AccessPolicy 创建流式处理定位符。
+### <a name="create-an-access-policy"></a>创建访问策略
 
-###<a name="create-an-access-policy"></a>创建访问策略
+>[!NOTE]
+>不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies)主题。
 
 请求：
 
@@ -193,6 +207,8 @@ public enum LocatorType
 }
 ```
 
-##<a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另请参阅
+[媒体服务操作 REST API 概述](media-services-rest-how-to-use.md)
 
-[配置资产传送策略](./media-services-rest-configure-asset-delivery-policy.md)
+[配置资产传送策略](media-services-rest-configure-asset-delivery-policy.md)
+

@@ -3,8 +3,8 @@ title: "在 Azure 中为 Linux 创建虚拟机规模集 | Azure"
 description: "使用虚拟机规模集在 Linux VM 上创建和部署高度可用的应用程序"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 05/02/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: 37fe3fa7a022d0051652260967723a1cc2155484
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+origin.date: 08/11/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 2c3e4de24316c6c9e172395643f2f81dff45717f
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>在 Linux 上创建虚拟机规模集和部署高度可用的应用
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则以根据 CPU 使用率、内存需求或网络流量进行自动缩放。 在本教程中，将在 Azure 中部署虚拟机规模集。 你将学习如何执行以下操作：
@@ -103,14 +103,15 @@ az group create --name myResourceGroupScaleSet --location chinaeast
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
-  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --image UbuntuLTS \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
   --generate-ssh-keys      
 ```
 
-创建和配置所有的规模集资源和 VM 需要几分钟时间。
+创建和配置所有的规模集资源和 VM 需要几分钟时间。 在 Azure CLI 返回提示之后，仍然存在继续运行的后台任务。 可能还需等待几分钟才能访问应用。
+
 
 ## <a name="allow-web-traffic"></a>允许 Web 流量
 已自动创建一个负载均衡器，作为虚拟机规模集的一部分。 负载均衡器使用负载均衡器规则将流量分配到一组定义的 VM。 可以在下一篇教程[如何在 Azure 中实现虚拟机的负载均衡](tutorial-load-balancer.md)中详细了解负载均衡器的概念和配置。
@@ -209,7 +210,7 @@ az vmss list-instance-connection-info \
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSetDisks \
-  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --image UbuntuLTS \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
@@ -254,5 +255,3 @@ az vmss disk detach `
 
 > [!div class="nextstepaction"]
 > [对虚拟机进行负载均衡](tutorial-load-balancer.md)
-
-<!--Update_Description: wording update-->

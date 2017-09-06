@@ -3,8 +3,8 @@ title: "Azure Resource Manager 模板中的虚拟机 | Azure"
 description: "详细了解如何在 Azure Resource Manager 模板中定义虚拟机资源。"
 services: virtual-machines-windows
 documentationcenter: 
-author: davidmu1
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
@@ -13,17 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 03/07/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: 11ea97e572186a7ecb2844529211ae017c468ac4
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+origin.date: 07/18/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 9e0b9e95a9c7a2d3d03d5cde017532c44c093e68
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/29/2017
 ---
-# Azure Resource Manager 模板中的虚拟机
-<a id="virtual-machines-in-an-azure-resource-manager-template" class="xliff"></a>
+# <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 模板中的虚拟机
 
 本文介绍 Azure Resource Manager 模板中与虚拟机相关的方面。 本文不会介绍用于创建虚拟机的完整模板；在完整的模板中，需要提供存储帐户、网络接口、公共 IP 地址和虚拟网络的资源定义。 有关如何统一定义这些资源的详细信息，请参阅 [Resource Manager 模板演练](../../azure-resource-manager/resource-manager-template-walkthrough.md)。
 
@@ -47,7 +46,7 @@ ms.lasthandoff: 06/30/2017
     ], 
     "properties": { 
       "hardwareProfile": { 
-        "vmSize": "Standard_DS1_v2" 
+        "vmSize": "Standard_DS1" 
       }, 
       "osProfile": { 
         "computername": "[concat('myVM', copyindex())]", 
@@ -62,10 +61,10 @@ ms.lasthandoff: 06/30/2017
           "version": "latest" 
         }, 
         "osDisk": { 
-          "name": "[concat('myOSDisk', copyindex())]" 
+          "name": "[concat('myOSDisk', copyindex())]",
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
-        }
+        },
         "dataDisks": [
           {
             "name": "[concat('myDataDisk', copyindex())]",
@@ -79,10 +78,10 @@ ms.lasthandoff: 06/30/2017
         "networkInterfaces": [ 
           { 
             "id": "[resourceId('Microsoft.Network/networkInterfaces',
-              concat('myNIC', copyindex())]" 
+              concat('myNIC', copyindex()))]" 
           } 
         ] 
-      }
+      },
       "diagnosticsProfile": {
         "bootDiagnostics": {
           "enabled": "true",
@@ -152,8 +151,7 @@ ms.lasthandoff: 06/30/2017
 >
 >
 
-## API 版本
-<a id="api-version" class="xliff"></a>
+## <a name="api-version"></a>API 版本
 
 使用模板部署资源时，必须指定要使用的 API 版本。 本示例使用以下 apiVersion 元素显示虚拟机资源：
 
@@ -161,7 +159,7 @@ ms.lasthandoff: 06/30/2017
 "apiVersion": "2016-04-30-preview",
 ```
 
-在模板中指定的 API 版本会影响到可在模板中定义的属性。 通常，在创建模板时，应选择最新的 API 版本。 对于现有模板，你可以决定是要继续使用以前的 API 版本，还是要选择最新版本来更新模板以利用新功能。
+在模板中指定的 API 版本会影响到可在模板中定义的属性。 通常，在创建模板时，应选择最新的 API 版本。 对于现有模板，可以决定是要继续使用以前的 API 版本，还是要选择最新版本来更新模板以利用新功能。
 
 可通过以下方式获取最新的 API 版本：
 
@@ -171,8 +169,7 @@ ms.lasthandoff: 06/30/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-## 参数和变量
-<a id="parameters-and-variables" class="xliff"></a>
+## <a name="parameters-and-variables"></a>参数和变量
 
 使用[参数](../../resource-group-authoring-templates.md)可在运行模板时轻松指定模板值。 本示例使用了以下 parameters 节：
 
@@ -219,12 +216,11 @@ ms.lasthandoff: 06/30/2017
 }, 
 ```
 
-部署示例模板时，先前创建的存储帐户的名称和标识符将使用变量值。 变量还用于提供诊断扩展的设置。 请参阅[创建 Azure Resource Manager 模板的最佳实践](../../resource-manager-template-best-practices.md)来帮助自己确定如何构造模板中的参数和变量。
+部署示例模板时，先前创建的存储帐户的名称和标识符使用变量值。 变量还用于提供诊断扩展的设置。 请参阅[创建 Azure Resource Manager 模板的最佳实践](../../resource-manager-template-best-practices.md)来帮助自己确定如何构造模板中的参数和变量。
 
-## 资源循环
-<a id="resource-loops" class="xliff"></a>
+## <a name="resource-loops"></a>资源循环
 
-如果需要为应用程序创建多个虚拟机，可在模板中使用 copy 元素。 此可选元素将根据以参数形式指定的数目反复创建 VM：
+如果需要为应用程序创建多个虚拟机，可在模板中使用 copy 元素。 此可选元素根据以参数形式指定的数目反复创建 VM：
 
 ```
 "copy": {
@@ -237,7 +233,7 @@ ms.lasthandoff: 06/30/2017
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
+  "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
@@ -257,8 +253,7 @@ ms.lasthandoff: 06/30/2017
 } ]
 ```
 
-## 依赖项
-<a id="dependencies" class="xliff"></a>
+## <a name="dependencies"></a>依赖项
 
 大多数资源必须依赖于其他资源才能正常工作。 虚拟机必须与虚拟网络相关联，因此需要一个网络接口。 [dependsOn](../../resource-group-define-dependencies.md) 元素用于确保在创建 VM 之前，网络接口随时可供使用：
 
@@ -268,7 +263,7 @@ ms.lasthandoff: 06/30/2017
 ],
 ```
 
-Resource Manager 将同时部署所有不依赖于其他所要部署的资源的资源。 请谨慎设置依赖关系，因为可能会无意中指定不必要的依赖关系，导致部署速度变慢。 多个资源的依赖关系可能会串联在一起。 例如，网络接口依赖于公共 IP 地址和虚拟网络资源。
+Resource Manager 同时部署所有不依赖于其他所要部署的资源的资源。 请谨慎设置依赖关系，因为可能会无意中指定不必要的依赖关系，导致部署速度变慢。 多个资源的依赖关系可能会串联在一起。 例如，网络接口依赖于公共 IP 地址和虚拟网络资源。
 
 如何知道是否需要指定依赖关系？ 查看模板中设置的值即可。 如果虚拟机资源定义中的某个元素指向同一模板中部署的另一个资源，则需要指定依赖关系。 例如，示例虚拟机定义了一个网络配置文件：
 
@@ -278,29 +273,26 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
     "id": "[resourceId('Microsoft.Network/networkInterfaces',
       concat('myNIC', copyindex())]" 
   } ] 
-}
+},
 ```
 
 若要设置此属性，网络接口必须存在。 因此，需要指定依赖关系。 如果在一个资源（父级）内部定义了另一个资源（子级），则也需要设置依赖关系。 例如，诊断设置和自定义脚本扩展都定义为虚拟机的子资源。 只有存在该虚拟机，才能创建这些子资源。 因此，这两个资源都标记为依赖于该虚拟机。
 
-## 配置文件
-<a id="profiles" class="xliff"></a>
+## <a name="profiles"></a>配置文件
 
 定义虚拟机资源时，需要使用几个 profile 元素。 其中一些元素是必需的，还有一些是可选的。 例如，hardwareProfile、osProfile、storageProfile 和 networkProfile 元素是必需的，而 diagnosticsProfile 是可选的。 这些配置文件定义如下所述的设置：
 
 - [大小](sizes.md)
-- [名称](../linux/infrastructure-naming-guidelines.md)和凭据
+- [名称](https://docs.microsoft.com/architecture/best-practices/naming-conventions)和凭据
 - 磁盘和[操作系统设置](cli-ps-findimage.md)
 - [网络接口](../../virtual-network/virtual-networks-multiple-nics.md) 
 - 启动诊断
 
-## 磁盘和映像
-<a id="disks-and-images" class="xliff"></a>
-
-在 Azure 中，vhd 文件可以表示[磁盘或映像](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 如果 vhd 文件中的操作系统专用于特定的 VM，则该文件称为磁盘。 如果 vhd 文件中的操作系统经过通用化，用于创建许多 VM，则该文件称为映像。   
-
-### 从平台映像创建新虚拟机和新磁盘
-<a id="create-new-virtual-machines-and-new-disks-from-a-platform-image" class="xliff"></a>
+## <a name="disks-and-images"></a>磁盘和映像
+   
+在 Azure 中，vhd 文件可以表示[磁盘或映像](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 如果 vhd 文件中的操作系统专用于特定的 VM，则该文件称为磁盘。 如果 vhd 文件中的操作系统经过通用化，用于创建许多 VM，则该文件称为映像。   
+    
+### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>从平台映像创建新虚拟机和新磁盘
 
 创建 VM 时，必须确定要使用哪个操作系统。 imageReference 元素用于定义新 VM 的操作系统。 本示例显示了 Windows Server 操作系统的定义：
 
@@ -331,13 +323,12 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
-}
+},
 ```
 
-### 从现有托管磁盘创建新虚拟机
-<a id="create-new-virtual-machines-from-existing-managed-disks" class="xliff"></a>
+### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>从现有托管磁盘创建新虚拟机
 
-若要从现有磁盘创建虚拟机，请删除 imageReference 和 osProfile 元素，然后定义以下磁盘设置：
+如果要从现有磁盘创建虚拟机，请删除 imageReference 和 osProfile 元素，并定义以下磁盘设置：
 
 ```
 "osDisk": { 
@@ -347,13 +338,12 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
   }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
-}
+},
 ```
 
-### 从托管映像创建新虚拟机
-<a id="create-new-virtual-machines-from-a-managed-image" class="xliff"></a>
+### <a name="create-new-virtual-machines-from-a-managed-image"></a>从托管映像创建新虚拟机
 
-若要从托管映像创建虚拟机，请更改 imageReference 元素，然后定义以下磁盘设置：
+如果要从托管映像创建虚拟机，请更改 imageReference 元素，并定义以下磁盘设置：
 
 ```
 "storageProfile": { 
@@ -366,13 +356,12 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
     "caching": "ReadWrite", 
     "createOption": "FromImage" 
   }
-}
+},
 ```
 
-### 附加数据磁盘
-<a id="attach-data-disks" class="xliff"></a>
+### <a name="attach-data-disks"></a>附加数据磁盘
 
-可以选择性地将数据磁盘添加到 VM。 [磁盘数目](sizes.md)取决于要使用的操作系统磁盘的大小。 如果 VM 的大小设置为 Standard_DS1_v2，则可添加到 VM 的数据磁盘数目上限为 2。 在本示例中，将向每个 VM 添加一个托管数据磁盘：
+可以选择性地将数据磁盘添加到 VM。 [磁盘数目](sizes.md)取决于要使用的操作系统磁盘的大小。 如果 VM 的大小设置为 Standard_DS1_v2，则可添加到 VM 的数据磁盘数目上限为 2。 本示例中向每个 VM 添加一个托管数据磁盘：
 
 ```
 "dataDisks": [
@@ -383,13 +372,12 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
-]
+],
 ```
 
-## 扩展
-<a id="extensions" class="xliff"></a>
+## <a name="extensions"></a>扩展
 
-尽管[扩展](extensions-features.md)是独立的资源，但它们与 VM 密切相关。 可将扩展添加为 VM 的子资源，或添加为独立的资源。 本示例显示要将[诊断扩展](extensions-diagnostics-template.md)添加到 VM：
+尽管[扩展](extensions-features.md)是独立的资源，但它们与 VM 密切相关。 可将扩展添加为 VM 的子资源，或添加为独立的资源。 本示例显示添加到 VM 的[诊断扩展](extensions-diagnostics-template.md)：
 
 ```
 { 
@@ -422,9 +410,9 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
 },
 ```
 
-此扩展资源使用 storageName 变量和 diagnostic 变量来提供值。 若要更改此扩展收集的数据，可将更多的性能计数器添加到 wadperfcounters 变量。 还可以选择将诊断数据放入其他存储帐户，而不是 VM 磁盘所在的存储帐户。
+此扩展资源使用 storageName 变量和 diagnostic 变量来提供值。 要更改此扩展收集的数据，可将更多的性能计数器添加到 wadperfcounters 变量。 还可以选择将诊断数据放入其他存储帐户，而不是 VM 磁盘所在的存储帐户。
 
-可在 VM 上安装许多扩展，但最有用的扩展也许是[自定义脚本扩展](extensions-customscript.md)。 在本示例中，首次启动每个 VM 时，将在 VM 上运行名为 start.ps1 的 PowerShell 脚本：
+可在 VM 上安装许多扩展，但最有用的扩展也许是[自定义脚本扩展](extensions-customscript.md)。 在本示例中，首次启动每个 VM 时，会在 VM 上运行名为 start.ps1 的 PowerShell 脚本：
 
 ```
 {
@@ -451,7 +439,7 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
 }
 ```
 
-start.ps1 脚本可以完成许多配置任务。 例如，在本示例中已添加到 VM 的数据磁盘并未初始化；可以使用自定义脚本将它们初始化。 如果要执行多个启动任务，可在 Azure 存储中使用 start.ps1 文件调用其他 PowerShell 脚本。 本示例使用 PowerShell，但你可以使用自己的操作系统支持的任何脚本方法。
+start.ps1 脚本可以完成许多配置任务。 例如，在本示例中已添加到 VM 的数据磁盘并未初始化；可以使用自定义脚本将它们初始化。 如果要执行多个启动任务，可在 Azure 存储中使用 start.ps1 文件调用其他 PowerShell 脚本。 本示例使用 PowerShell，但可以使用自己的操作系统支持的任何脚本方法。
 
 可在门户中通过“扩展”设置查看已安装的扩展的状态：
 
@@ -459,19 +447,17 @@ start.ps1 脚本可以完成许多配置任务。 例如，在本示例中已添
 
 此外，也可以使用 **Get-AzureRmVMExtension** PowerShell 命令、**vm extension get** Azure CLI 2.0 命令或“获取扩展信息”REST API 来获取扩展信息。
 
-## 部署
-<a id="deployments" class="xliff"></a>
+## <a name="deployments"></a>部署
 
-部署模板时，Azure 将会跟踪以组的形式部署的资源，并自动为这个部署的组分配一个名称。 部署名称与模板名称相同。
+部署模板时，Azure 会跟踪以组的形式部署的资源，并自动为这个部署的组分配一个名称。 部署名称与模板名称相同。
 
 如果想知道部署中的资源状态，可以使用 Azure 门户中的“资源组”边栏选项卡：
 
 ![获取部署信息](./media/template-description/virtual-machines-deployment-info.png)
 
-完全可以使用同一个模板来创建资源或更新现有资源。 使用命令部署模板时，可以指定想要使用的[模式](../../resource-group-template-deploy.md)。 模式可设置为“完整”(Complete) 或“增量”(Incremental)。 默认设置为执行增量更新。 请谨慎使用“完整”模式，因为这可能会意外删除资源。 将模式设置为“完整”时，Resource Manager 会删除资源组中不包含在模板内的所有资源。
+完全可以使用同一个模板来创建资源或更新现有资源。 使用命令部署模板时，可以指定想要使用的[模式](../../resource-group-template-deploy.md)。 模式可设置为“完整”(Complete) 或“增量”(Incremental)。 默认设置为执行增量更新。 请谨慎使用“完整”模式，因为这可能会意外删除资源。 将模式设置为“完整”时，资源管理器会删除资源组中未包含在模板中的所有资源。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 - 参考[创作 Azure Resource Manager 模板](../../resource-group-authoring-templates.md)创建自己的模板。
 - 参考[使用 Resource Manager 模板创建 Windows 虚拟机](ps-template.md)部署创建的模板。

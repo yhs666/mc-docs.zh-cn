@@ -13,27 +13,27 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 06/12/2017
-ms.date: 07/17/2017
+ms.date: 09/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: aa85653cdf22eba8edf4588a34204bef2e7b393e
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 6a72b5997247348661e35059b958716deb771719
+ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/01/2017
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>在 Azure 中持续交付云服务
 
 本文中所述过程向你演示如何设置对 Azure 云应用程序的持续交付。 此过程使你能够在签入每个代码后，自动创建服务包并将其部署到 Azure。 本文中介绍的包生成过程与 Visual Studio 中的“打包”命令等效，而发布步骤与 Visual Studio 中的“发布”命令等效。
 本文包含使用 MSBuild 命令行语句和 Windows PowerShell 脚本创建生成服务器的方法，并演示了如何选择性地配置 Visual Studio Team Foundation Server - Team Build 定义以使用 MSBuild 命令和 PowerShell 脚本。 可针对生成环境和 Azure 目标环境自定义此过程。
 
-也可以使用 Visual Studio Team Services（Azure 中托管的 TFS 版本）更轻松地实现此目的。 有关详细信息，请参阅[使用 Visual Studio Team Services 向 Azure 持续交付][Continuous Delivery to Azure by Using Visual Studio Team Services]。
+也可以使用 Visual Studio Team Services（Azure 中托管的 TFS 版本）更轻松地实现此目的。 
 
 开始之前，应从 Visual Studio 中发布应用程序。
-这将确保所有资源在尝试实现发布过程的自动化时可用并已初始化。
+这会确保所有资源在尝试实现发布过程的自动化时可用并已初始化。
 
 ## <a name="1-configure-the-build-server"></a>1：配置生成服务器
 
-必须先在生成服务器上安装必需的软件和工具，然后才能使用 MSBuild 创建 Azure 包。
+必须先在生成服务器上安装必需的软件和工具，才能使用 MSBuild 创建 Azure 包。
 
 无需在生成服务器上安装 Visual Studio。 若要使用 Team Foundation 生成服务管理生成服务器，请按照 [Team Foundation 生成服务][Team Foundation Build Service] 文档中的说明操作。
 
@@ -47,11 +47,11 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="2-build-a-package-using-msbuild-commands"></a>2：使用 MSBuild 命令生成包
 
-本部分介绍如何构造用于生成 Azure 包的 MSBuild 命令。 在生成服务器上执行此步骤可验证所有内容是否已正确配置，以及 MSBuild 命令是否起到预期作用。 你可将此命令行添加到生成服务器上的现有生成脚本中，也可在 TFS 生成定义中使用此命令行，如下一部分所述。 有关命令行参数和 MSBuild 的详细信息，请参阅 [MSBuild 命令行参考](https://msdn.microsoft.com/zh-cn/library/ms164311%28v=vs.140%29.aspx)。
+本部分介绍如何构造用于生成 Azure 包的 MSBuild 命令。 在生成服务器上执行此步骤可验证所有内容是否已正确配置，以及 MSBuild 命令是否起到预期作用。 可将此命令行添加到生成服务器上的现有生成脚本中，也可在 TFS 生成定义中使用此命令行，如下一部分所述。 有关命令行参数和 MSBuild 的详细信息，请参阅 [MSBuild 命令行参考](https://msdn.microsoft.com/zh-cn/library/ms164311%28v=vs.140%29.aspx)。
 
 1. 如果在生成服务器上安装了 Visual Studio，请在 Windows 中的“Visual Studio Tools”文件夹中找到并选择“Visual Studio 命令提示符”。
 
-    如果未在生成服务器上安装 Visual Studio，请打开命令提示符并确保可按相应的路径访问 MSBuild.exe。 MSBuild 与 .NET Framework 一起安装在路径 %WINDIR%\\Microsoft.NET\\Framework\\Version 中。 例如，若要在已安装 .NET Framework 4 的情况下将 MSBuild.exe 添加到 PATH 环境变量，请在命令提示符处键入以下命令：
+    如果未在生成服务器上安装 Visual Studio，请打开命令提示符并确保可按相应的路径访问 MSBuild.exe。 MSBuild 与 .NET Framework 一起安装在路径 %WINDIR%\\Microsoft.NET\\Framework\\Version 中。 例如，要在已安装 .NET Framework 4 的情况下将 MSBuild.exe 添加到 PATH 环境变量，请在命令提示符处键入以下命令：
 
     ```
     set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
@@ -67,7 +67,7 @@ ms.lasthandoff: 07/14/2017
 
     此选项可缩写为 /t:Publish。 安装 Azure SDK 后，MSBuild 中的 /t:Publish 选项不应与 Visual Studio 中的可用 Publish 命令混淆。 /t:Publish 选项仅生成 Azure 包。 它不会像 Visual Studio 中的 Publish 命令那样部署包。
 
-    你也可以将项目名称指定为 MSBuild 参数。 如果未指定，则使用当前目录。 有关 MSBuild 命令行选项的详细信息，请参阅 [MSBuild 命令行参考](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx)。
+    也可以将项目名称指定为 MSBuild 参数。 如果未指定，则使用当前目录。 有关 MSBuild 命令行选项的详细信息，请参阅 [MSBuild 命令行参考](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx)。
 
 4.  查找输出。 默认情况下，此命令将创建与项目的根文件夹相关的目录，例如 ProjectDir\\bin\\Configuration\\app.publish\\。 生成 Azure 项目时，会生成两个文件，即包文件本身和附带的配置文件：
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 07/14/2017
 
     默认情况下，每个 Azure 项目均包含两个服务配置文件（.cscfg 文件），这两个文件分别针对本地（调试）生成和云（过渡或生产）生成，可根据需要添加或删除服务配置文件。 在 Visual Studio 中生成包时，系统会询问要将哪个服务配置文件与包一起包含。
 
-5.  指定服务配置文件。 使用 MSBuild 生成包时，默认情况下将包含本地服务配置文件。 若要包含其他服务配置文件，请设置 MSBuild 命令的 TargetProfile 属性，如以下示例所示：
+5.  指定服务配置文件。 使用 MSBuild 生成包时，默认情况下包含本地服务配置文件。 若要包含其他服务配置文件，请设置 MSBuild 命令的 TargetProfile 属性，如以下示例所示：
 
     ```
     MSBuild /t:Publish /p:TargetProfile=Cloud
@@ -92,7 +92,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="3-build-a-package-using-tfs-team-build"></a>3：使用 TFS Team Build 生成包
 
-如果已将 Team Foundation Server (TFS) 设置为生成控制器并将生成服务器设置为 TFS 生成计算机，则可以选择为 Azure 包设置自动化生成。 有关如何设置 Team Foundation Server 并将其用作生成系统的信息，请参阅 [扩展生成系统][Scale out your build system]。 具体而言，以下过程假设你已根据 [部署和配置生成服务器][Deploy and configure a build server]中所述配置了生成服务器，而且已创建了一个团队项目并在该团队项目中创建了一个云服务项目。
+如果已将 Team Foundation Server (TFS) 设置为生成控制器并将生成服务器设置为 TFS 生成计算机，则可以选择为 Azure 包设置自动化生成。 有关如何设置 Team Foundation Server 并将其用作生成系统的信息，请参阅[扩展生成系统][Scale out your build system]。 具体而言，以下过程假设已根据 [部署和配置生成服务器][Deploy and configure a build server]中所述配置了生成服务器，而且已创建了一个团队项目并在该团队项目中创建了一个云服务项目。
 
 若要配置 TFS 以生成 Azure 包，请执行下列步骤：
 
@@ -100,13 +100,13 @@ ms.lasthandoff: 07/14/2017
 
     ![“新建生成定义”选项][0]
 
-2.  选择“触发器”  选项卡，然后为希望生成包的时间指定所需条件。 例如，指定“持续集成”  可在进行源代码管理签入时生成包。
+2.  选择“触发器”  选项卡，并为希望生成包的时间指定所需条件。 例如，指定“持续集成”  可在进行源代码管理签入时生成包。
 
 3. 选择“源设置”选项卡，并确保项目文件夹已在“源代码管理文件夹”列中列出，并且状态为“活动”。
 
-4.  选择“生成默认值”  选项卡，并在生成控制器下确认生成服务器的名称。  此外，选择“将生成输出复制到以下放置文件夹”  选项并指定所需的放置位置。
+4.  选择“生成默认值”  选项卡，并在生成控制器下确认生成服务器的名称。  此外，选择“会生成输出复制到以下放置文件夹”  选项并指定所需的放置位置。
 
-5.  选择“进程”  选项卡。 在“进程”选项卡上选择默认模板，在“生成”下选择项目（如果尚未选择），然后展开网格“生成”部分中的“高级” 部分。
+5.  选择“进程”  选项卡。在“进程”选项卡上选择默认模板，在“生成”下选择项目（如果尚未选择），然后展开网格“生成”部分中的“高级” 部分。
 
 6.  选择“MSBuild 参数”，并按上面步骤 2 中所述设置相应的 MSBuild 命令行参数。 例如，输入 /t:Publish /p:PublishDir=\\\\myserver\\drops\\ 可以生成一个包并将包文件复制到位置 \\\\myserver\\drops\\：
 
@@ -143,7 +143,7 @@ ms.lasthandoff: 07/14/2017
 
 6.  确保已在订阅中创建可通过发布脚本定位的有效云服务和存储帐户。 存储帐户（Blob 存储）将用于在创建部署时上传和临时存储部署包和配置文件。
 
-    -   若要创建新的云服务，可以调用此脚本或使用 [Azure 门户](https://portal.azure.cn)。 云服务名称将用作完全限定域名中的前缀，因此该名称必须是唯一的。
+    -   若要创建新的云服务，可以调用此脚本或使用 [Azure 门户](https://portal.azure.cn)。 云服务名称会用作完全限定域名中的前缀，因此该名称必须是唯一的。
 
         ```
         New-AzureService -ServiceName "mytestcloudservice" -Location "China North" -Label "mytestcloudservice"
@@ -158,7 +158,7 @@ ms.lasthandoff: 07/14/2017
 7.  直接从 Azure PowerShell 调用脚本，或将此脚本连接到在包生成后进行的主机生成自动化。
 
     >[!IMPORTANT]
-    > 默认情况下，此脚本将始终删除或替换现有部署（如果检测到这些部署）。 这对于从没有用户提示的自动化中启用持续交付是必需的。
+    > 默认情况下，此脚本始终删除或替换现有部署（如果检测到这些部署）。 这对于从没有用户提示的自动化中启用持续交付是必需的。
 
     **示例方案 1：** 对服务的过渡环境进行持续部署：
 
@@ -210,7 +210,7 @@ ms.lasthandoff: 07/14/2017
     可使用脚本 ($enableDeploymentUpgrade = 0) 或通过将 -enableDeploymentUpgrade 0 作为参数传递（这会将脚本行为更改为首先删除任何现有部署，然后创建新的部署）来禁用升级部署。
 
    > [!IMPORTANT]
-   > 默认情况下，此脚本将始终删除或替换现有部署（如果检测到这些部署）。 这对于从没有用户/操作员提示的自动化中启用持续交付是必需的。
+   > 默认情况下，此脚本始终删除或替换现有部署（如果检测到这些部署）。 这对于从没有用户/操作员提示的自动化中启用持续交付是必需的。
    >
    >
 
@@ -222,13 +222,13 @@ ms.lasthandoff: 07/14/2017
 
 2.  选择“进程”选项卡  。
 
-3. 按照 [这些说明](http://msdn.microsoft.com/zh-cn/library/dd647551.aspx) 添加生成过程模板的活动项目，下载默认模板，将其添加到项目并将其签入。 为生成过程模板指定新名称，如 AzureBuildProcessTemplate。
+3. 按照[这些说明](http://msdn.microsoft.com/zh-cn/library/dd647551.aspx)添加生成过程模板的活动项目，下载默认模板，将其添加到项目并将其签入。 为生成过程模板指定新名称，如 AzureBuildProcessTemplate。
 
-3.  返回到“进程”选项卡，然后使用“显示详细信息”显示可用生成过程模板的列表。 选择“新建...”按钮，然后导航到你刚刚添加并签入的项目  。 找到刚刚创建的模板，然后选择“确定” 。
+3.  返回到“进程”选项卡，然后使用“显示详细信息”显示可用生成过程模板的列表。 选择“新建...”按钮，并导航到用户刚刚添加并签入的项目  。 找到刚刚创建的模板，并选择“确定” 。
 
 4.  打开选定的过程模板以进行编辑。 可以直接在工作流设计器或 XML 编辑器中打开以处理 XAML。
 
-5.  在工作流设计器的参数选项卡中将以下一系列新参数作为单独的行项添加。 所有参数应具有 direction=In 和 type=String。 这两个值将用于将参数从生成定义流入工作流中，然后用于调用发布脚本。
+5.  在工作流设计器的参数选项卡中将以下一系列新参数作为单独的行项添加。 所有参数应具有 direction=In 和 type=String。 这两个值将用于将参数从生成定义流入工作流中，并用于调用发布脚本。
 
     ```
     SubscriptionName
@@ -289,9 +289,9 @@ ms.lasthandoff: 07/14/2017
         Not String.IsNullOrEmpty(PublishScriptLocation)
         ```
 
-    2.  在 If 语句的 Then 事例中，添加一个新的 Sequence 活动。 将显示名称设置为 'Start publish'
+    2.  在 If 语句的 Then 事例中，添加一个新的 Sequence 活动。 会显示名称设置为 'Start publish'
 
-    3.  Start publish 序列仍处于选定状态的情况下，在工作流设计器的变量选项卡中将以下一系列新变量作为单独的行项添加。 所有变量应具有 Variable type =String 和 Scope=Start publish。 这两个值将用于将参数从生成定义流入工作流中，然后用于调用发布脚本。
+    3.  Start publish 序列仍处于选定状态的情况下，在工作流设计器的变量选项卡中将以下一系列新变量作为单独的行项添加。 所有变量应具有 Variable type =String 和 Scope=Start publish。 这两个值将用于将参数从生成定义流入工作流中，并用于调用发布脚本。
 
         -   String 类型的 SubscriptionDataFilePath
 
@@ -314,17 +314,17 @@ ms.lasthandoff: 07/14/2017
 
         4.  OutputEncoding= System.Text.Encoding.GetEncoding(System.Globalization.CultureInfo.InstalledUICulture.TextInfo.OEMCodePage)
 
-    7.  在 InvokeProcess 的“处理标准输出”部分文本框中，将文本框值设置为“data”  。 这是一个用于存储标准输出数据的变量。
+    7.  在 InvokeProcess 的“处理标准输出”部分文本框中，将文本框值设置为“data”。 这是一个用于存储标准输出数据的变量。
 
-    8.  在“处理错误输出”部分的正下方添加一个 WriteBuildError 活动  。 设置 Importance = 'Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High' 和 Message='data'。 这可确保脚本的标准输出将写入到生成输出中。
+    8.  在“处理错误输出”部分的正下方添加一个 WriteBuildError 活动  。 设置 Importance = 'Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High' 和 Message='data'。 这可确保脚本的标准输出会写入到生成输出中。
 
-    9.  在 InvokeProcess 的“处理错误输出”部分文本框中，将文本框值设置为“data”  。 这是一个用于存储标准错误数据的变量。
+    9.  在 InvokeProcess 的“处理错误输出”部分文本框中，将文本框值设置为“data”。 这是一个用于存储标准错误数据的变量。
 
     10. 在“处理错误输出”部分的正下方添加一个 WriteBuildError 活动  。 设置 Message='data'。 这可确保脚本的标准错误将写入到生成错误输出中。
 
     11. 更正蓝色感叹号指示的任何错误。 将鼠标悬停在感叹号上可以获取有关错误的提示。 保存工作流以清除错误。
 
-    发布工作流活动的最终结果将与设计器中的以下内容类似：
+    发布工作流活动的最终结果与设计器中的以下内容类似：
 
     ![工作流活动][5]
 
@@ -390,7 +390,7 @@ ms.lasthandoff: 07/14/2017
 
 10. 保存对生成定义所做的更改。
 
-11. 对生成进行排队以便同时执行包生成和发布。 如果触发器设置为“持续集成”，则将在每次签入时执行此行为。
+11. 对生成进行排队以便同时执行包生成和发布。 如果触发器设置为“持续集成”，则在每次签入时执行此行为。
 
 ### <a name="publishcloudserviceps1-script-template"></a>PublishCloudService.ps1 脚本模板
 

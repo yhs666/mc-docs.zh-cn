@@ -3,8 +3,8 @@ title: "创建 OpenBSD VM 映像并将其上传到 Azure | Azure"
 description: "了解如何创建和上传包含 OpenBSD 操作系统的虚拟硬盘 (VHD)，以便通过 Azure CLI 创建 Azure 虚拟机"
 services: virtual-machines-linux
 documentationcenter: 
-author: KylieLiang
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 1ef30f32-61c1-4ba8-9542-801d7b18e9bf
@@ -14,28 +14,25 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/24/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: 20cb16f6f85ffbbdaa5d0751ac4153536b24811c
-ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: b9875ad83bd4fadd426ef2b5b7c8438480f50d45
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# 创建 OpenBSD 磁盘映像并将其上传到 Azure
-<a id="create-and-upload-an-openbsd-disk-image-to-azure" class="xliff"></a>
+# <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>创建 OpenBSD 磁盘映像并将其上传到 Azure
 本文介绍如何创建和上传包含 OpenBSD 操作系统的虚拟硬盘 (VHD)。 上传后，可将其用作自己的映像，通过 Azure CLI 在 Azure 中创建虚拟机 (VM)。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 本文假定你拥有以下项目：
 
 * Azure 订阅 - 如果没有帐户，只需几分钟即可创建一个。 了解如何[创建试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。  
 * Azure CLI 2.0 - 确保已安装了最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) 并已使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录到 Azure 帐户。
 * 安装在 .vhd 文件中的 OpenBSD 操作系统 - 必须将受支持的 OpenBSD 操作系统（6.1 版）安装到虚拟硬盘中。 可使用多种工具创建 .vhd 文件。 例如，可使用 Hyper-V 等虚拟化解决方案创建 .vhd 文件并安装操作系统。 有关如何安装和使用 Hyper-V 的说明，请参阅[安装 Hyper-V 并创建虚拟机](http://technet.microsoft.com/library/hh846766.aspx)。
 
-## 为 Azure 准备 OpenBSD 映像
-<a id="prepare-openbsd-image-for-azure" class="xliff"></a>
+## <a name="prepare-openbsd-image-for-azure"></a>为 Azure 准备 OpenBSD 映像
 在安装了 OpenBSD 操作系统 6.1（已添加 Hyper-V 支持）的 VM上，完成以下步骤：
 
 1. 如果安装期间未启用 DHCP，请启用该服务，如下所示：
@@ -95,16 +92,14 @@ ms.lasthandoff: 07/06/2017
 
 现在可以关闭 VM。
 
-## 准备 VHD
-<a id="prepare-the-vhd" class="xliff"></a>
+## <a name="prepare-the-vhd"></a>准备 VHD
 Azure 不支持 VHDX 格式，仅支持**固定大小的 VHD**。 可使用 Hyper-V 管理器或 Powershell [convert-vhd](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/convert-vhd) cmdlet 将磁盘转换为固定 VHD 格式。 示例如下。
 
 ```powershell
 Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
-## 创建存储资源并上传
-<a id="create-storage-resources-and-upload" class="xliff"></a>
+## <a name="create-storage-resources-and-upload"></a>创建存储资源并上传
 首先，使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
@@ -122,7 +117,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-若要控制对存储帐户的访问，请使用 [az storage account key list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) 获取存储密钥，如下所示：
+若要控制对存储帐户的访问，请按如下所示，使用 [az storage account key list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) 获取存储密钥：
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
@@ -151,8 +146,7 @@ az storage blob upload \
     --account-key ${STORAGE_KEY}
 ```
 
-## 从 VHD 创建 VM
-<a id="create-vm-from-your-vhd" class="xliff"></a>
+## <a name="create-vm-from-your-vhd"></a>从 VHD 创建 VM
 可使用[示例脚本](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md)或直接使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 若要指定上传的 OpenBSD VHD，请使用 `--image` 参数，如下所示：
 
 ```azurecli
@@ -177,8 +171,7 @@ az vm list-ip-addresses --resource-group myResourceGroup --name myOpenBSD61
 ssh azureuser@<ip address>
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 若要深入了解 OpenBSD6.1 上的 Hyper-V 支持，请阅读 [OpenBSD 6.1](https://www.openbsd.org/61.html) 和 [hyperv.4](http://man.openbsd.org/hyperv.4)。
 
 若要从托管磁盘创建 VM，请阅读 [az disk](https://docs.microsoft.com/cli/azure/disk)。

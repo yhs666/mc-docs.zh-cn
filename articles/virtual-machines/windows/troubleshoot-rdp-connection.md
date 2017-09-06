@@ -4,8 +4,8 @@ description: "排查无法使用远程桌面连接到 Azure 中 Windows 虚拟�
 keywords: "远程桌面错误,远程桌面连接错误,无法连接到 VM,远程桌面故障排除"
 services: virtual-machines-windows
 documentationcenter: 
-author: genlin
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-origin.date: 06/14/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: e498eb78cb5008b5def6bd73709c78a3acf3ea71
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+origin.date: 07/25/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: d0fde9335ae6a69bd4dcdaf657abac9d8b24e197
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>排查 Azure 虚拟机的远程桌面连接问题
 与基于 Windows 的 Azure 虚拟机 (VM) 的远程桌面协议 (RDP) 连接可能会因各种原因而失败，使用户无法访问 VM。 问题可能出在 VM 上的远程桌面服务、网络连接或主计算机上的远程桌面客户端。 本文介绍解决 RDP 连接问题的一些最常见方法。 
@@ -66,25 +66,8 @@ ms.lasthandoff: 08/18/2017
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“重置密码”按钮。 将“模式”设置为“仅重置配置”，然后单击“更新”按钮：
 
     ![在 Azure 门户中重置 RDP 配置](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **验证网络安全组规则**。 此故障排除步骤验证网络安全组中是否存在允许 RDP 流量的规则。 RDP 的默认端口为 TCP 端口 3389。 创建 VM 时，可能不会自动创建允许 RDP 流量的规则。
+2. **验证网络安全组规则**。 可以查看生效的安全组规则，确保入站“允许”NSG 规则存在并已针对 RDP 端口（默认为 3389）设置优先级。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow)。
 
-    在 Azure 门户中选择 VM。 从“设置”窗格单击“网络接口”。
-
-    ![在 Azure 门户中查看 VM 的网络接口](./media/troubleshoot-rdp-connection/select-network-interfaces.png)
-
-    从列表中选择网络接口（通常只有一个）：
-
-    ![在 Azure 门户中选择网络接口](./media/troubleshoot-rdp-connection/select-interface.png)
-
-    选择“网络安全组”，查看与网络接口关联的网络安全组： 
-
-    ![在 Azure 门户中选择“网络安全组”](./media/troubleshoot-rdp-connection/select-nsg.png)
-
-    验证是否存在允许 TCP 端口 3389 上的 RDP 流量的入站规则。 以下示例显示了一个允许 RDP 流量的有效安全规则。 可以看到 `Service` 和 `Action` 已正确配置：
-
-    ![验证 Azure 门户中的 RDP NSG 规则](./media/troubleshoot-rdp-connection/verify-nsg-rules.png)
-
-    如果不存在允许 RDP 通信的规则，请[创建网络安全组规则](nsg-quickstart-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 允许 TCP 端口 3389。
 3. **检查 VM 启动诊断**。 此故障排除步骤检查 VM 控制台日志，确定 VM 是否报告了问题。 并非所有 VM 都已启用启动诊断，因此，此故障排除步骤可能是可选的。
 
     本文未介绍具体的故障排除步骤，而是指出会影响 RDP 连接的更广泛问题。 有关查看控制台日志和 VM 屏幕截图的详细信息，请参阅 [Boot Diagnostics for VMs](boot-diagnostics.md)（VM 的启动诊断）。
@@ -252,4 +235,3 @@ ms.lasthandoff: 08/18/2017
 * 有关用于访问 VM 上运行的应用程序的故障排除步骤，请参阅[对在 Azure VM 上运行的应用程序的访问进行故障排除](../linux/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 * 如果在 Azure 中使用 Secure Shell (SSH) 连接到 Linux VM 时遇到问题，请参阅[对 Azure 中到 Linux VM 的 SSH 连接进行故障排除](../linux/troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-<!--Update_Description: wording update-->

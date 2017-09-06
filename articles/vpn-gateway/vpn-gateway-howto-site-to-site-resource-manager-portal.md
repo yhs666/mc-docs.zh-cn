@@ -1,10 +1,10 @@
 ---
-title: "将本地网络连接到 Azure 虚拟网络：站点到站点 VPN：门户 | Azure"
+title: "将本地网络连接到 Azure 虚拟网络：站点到站点 VPN：门户 | Microsoft Docs"
 description: "通过公共 Internet 创建从本地网络到 Azure 虚拟网络的 IPsec 连接的步骤。 这些步骤帮助你使用门户创建跨界站点到站点 VPN 网关连接。"
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 827a4db7-7fa5-4eaf-b7e1-e1518c51c815
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/31/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
-ms.openlocfilehash: f37b721d363b48a5302ad21168cf96879e30b0a4
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+origin.date: 08/02/2017
+ms.date: 08/31/2017
+ms.author: v-junlch
+ms.openlocfilehash: cbcd022700cc3ed85862c34ccbc2c692a4970eed
+ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/01/2017
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>在 Azure 门户中创建站点到站点连接
 
@@ -31,7 +31,6 @@ ms.lasthandoff: 08/04/2017
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure 门户（经典）](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [经典管理门户（经典）](vpn-gateway-site-to-site-create.md)
 > 
 >
 
@@ -43,32 +42,32 @@ ms.lasthandoff: 08/04/2017
 
 在开始配置之前，请验证是否符合以下条件：
 
-* 确保有一台兼容的 VPN 设备和能够对其进行配置的人员。 有关兼容的 VPN 设备和设备配置的详细信息，请参阅[关于 VPN 设备](vpn-gateway-about-vpn-devices.md)。
-* 确认 VPN 设备有一个面向外部的公共 IPv4 地址。 此 IP 地址不得位于 NAT 之后。
-* 如果熟悉本地网络配置中的 IP 地址范围，则需咨询能够提供此类详细信息的人员。 创建此配置时，必须指定 IP 地址范围前缀，Azure 会将该前缀路由到本地位置。 本地网络的任何子网都不得与要连接到的虚拟网络子网重叠。 
+- 确保有一台兼容的 VPN 设备和能够对其进行配置的人员。 有关兼容的 VPN 设备和设备配置的详细信息，请参阅[关于 VPN 设备](vpn-gateway-about-vpn-devices.md)。
+- 确认 VPN 设备有一个面向外部的公共 IPv4 地址。 此 IP 地址不得位于 NAT 之后。
+- 如果熟悉本地网络配置中的 IP 地址范围，则需咨询能够提供此类详细信息的人员。 创建此配置时，必须指定 IP 地址范围前缀，Azure 会将该前缀路由到本地位置。 本地网络的任何子网都不得与要连接到的虚拟网络子网重叠。 
 
 ### <a name="values"></a>示例值
 
 本文中的示例使用以下值。 可使用这些值创建测试环境，或参考这些值以更好地理解本文中的示例。
 
-* **VNet 名称：**TestVNet1
-* **地址空间：** 
-    * 10.11.0.0/16
-    * 10.12.0.0/16（可选，适用于本练习）
-* **子网：**
-  * FrontEnd：10.11.0.0/24
-  * BackEnd：10.12.0.0/24（可选，适用于本练习）
-* **GatewaySubnet：**10.11.255.0/27
-* **资源组：** TestRG1
-* **位置：** 中国东部
-* **DNS 服务器：**可选。 DNS 服务器的 IP 地址。
-* **虚拟网关名称：**VNet1GW
-* **公共 IP：** VNet1GWIP
-* **VPN 类型：** 基于路由
-* **连接类型：**站点到站点 (IPsec)
-* **网关类型：** VPN
-* **本地网络网关名称：** Site2
-* **连接名称：** VNet1toSite2
+- **VNet 名称：**TestVNet1
+- **地址空间：** 
+  - 10.11.0.0/16
+  - 10.12.0.0/16（可选，适用于本练习）
+- **子网：**
+  - FrontEnd：10.11.0.0/24
+  - BackEnd：10.12.0.0/24（可选，适用于本练习）
+- **GatewaySubnet：**10.11.255.0/27
+- **资源组：** TestRG1
+- **位置：** 中国东部
+- **DNS 服务器：**可选。 DNS 服务器的 IP 地址。
+- **虚拟网关名称：**VNet1GW
+- **公共 IP：** VNet1GWIP
+- **VPN 类型：** 基于路由
+- **连接类型：**站点到站点 (IPsec)
+- **网关类型：** VPN
+- **本地网络网关名称：** Site2
+- **连接名称：** VNet1toSite2
 
 ## <a name="CreatVNet"></a>1.创建虚拟网络
 
@@ -119,10 +118,18 @@ ms.lasthandoff: 08/04/2017
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
+## <a name="reset"></a>如何重置 VPN 网关
+
+如果丢失一个或多个站点到站点隧道上的跨界 VPN 连接，重置 Azure VPN 网关可有效解决该情况。 在此情况下，本地 VPN 设备都在正常工作，但却无法与 Azure VPN 网关建立 IPsec 隧道。 有关步骤，请参阅[重置 VPN 网关](vpn-gateway-resetgw-classic.md)。
+
+## <a name="resize"></a>如何更改网关 SKU（重设网关大小）
+
+有关更改网关 SKU 的步骤，请参阅[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
+
 ## <a name="next-steps"></a>后续步骤
 
-*  有关 BGP 的信息，请参阅 [BGP 概述](vpn-gateway-bgp-overview.md)和[如何配置 BGP](vpn-gateway-bgp-resource-manager-ps.md)。
-*  有关强制隧道的信息，请参阅[关于强制隧道](vpn-gateway-forced-tunneling-rm.md)
-*  有关高可用性主动-主动连接的信息，请参阅[高可用性跨界连接与 VNet 到 VNet 连接](vpn-gateway-highlyavailable.md)。
+- 有关 BGP 的信息，请参阅 [BGP 概述](vpn-gateway-bgp-overview.md)和[如何配置 BGP](vpn-gateway-bgp-resource-manager-ps.md)。
+- 有关强制隧道的信息，请参阅[关于强制隧道](vpn-gateway-forced-tunneling-rm.md)。
+- 有关高可用性主动-主动连接的信息，请参阅[高可用性跨界连接与 VNet 到 VNet 连接](vpn-gateway-highlyavailable.md)。
 
 <!--Update_Description: wording update-->

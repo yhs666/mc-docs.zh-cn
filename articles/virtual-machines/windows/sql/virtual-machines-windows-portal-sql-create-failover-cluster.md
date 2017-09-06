@@ -3,8 +3,8 @@ title: "SQL Server FCI - Azure 虚拟机 | Azure"
 description: "本文介绍如何在 Azure 虚拟机上创建 SQL Server 故障转移群集实例。"
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
-manager: jhubbard
+authors: hayley244
+manager: digimobile
 editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
@@ -15,16 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/17/2017
-ms.date: 04/27/2017
-ms.author: v-dazen
-ms.openlocfilehash: af20e9849c99693b0bc9176ffba355aabdab7e50
-ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: b4bd479abec015f48427a39cecd3cfc4e4118259
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# 在 Azure 虚拟机上配置 SQL Server 故障转移群集实例
-<a id="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines" class="xliff"></a>
+# <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虚拟机上配置 SQL Server 故障转移群集实例
 
 本文介绍如何在 Resource Manager 模型中的 Azure 虚拟机上创建 SQL Server 故障转移群集实例 (FCI)。 此解决方案使用 [Windows Server 2016 Datacenter Edition 存储空间直通 \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) 作为基于软件的虚拟 SAN，在 Windows 群集中的节点 (Azure VM) 之间同步存储（数据磁盘）。 S2D 是 Windows Server 2016 中的新增功能。
 
@@ -49,18 +48,15 @@ ms.lasthandoff: 07/06/2017
 
 S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述的体系结构为超聚合。 超聚合基础结构将存储放置在托管群集应用程序的相同服务器上。 在此体系结构中，存储位于每个 SQL Server FCI 节点上。
 
-### 示例 Azure 模板
-<a id="example-azure-template" class="xliff"></a>
+### <a name="example-azure-template"></a>示例 Azure 模板
 
 可以在 Azure 中基于模板创建整个解决方案。 GitHub [Azure 快速入门模板](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad)中提供了一个模板示例。 此示例不是针对任何特定工作负荷设计的，也没有针对任何特定工作负荷进行测试。 运行该模板可以使用与域连接的 S2D 存储创建 SQL Server FCI。 可以评估该模板，并根据用途对其进行修改。
 
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>开始之前
 
 在继续下一步之前，需要掌握一些知识并做好一些准备工作。
 
-### 要了解的事项
-<a id="what-to-know" class="xliff"></a>
+### <a name="what-to-know"></a>要了解的事项
 应该对以下技术有实际的了解：
 
 - [Windows 群集技术](http://technet.microsoft.com/library/hh831579.aspx)
@@ -71,8 +67,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 - [Windows Server 2016 中使用存储空间直通的超聚合解决方案](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure 资源组](../../../azure-resource-manager/resource-group-portal.md)
 
-### 准备工作
-<a id="what-to-have" class="xliff"></a>
+### <a name="what-to-have"></a>准备工作
 
 在遵循本文中的说明之前，应事先做好以下准备：
 
@@ -87,12 +82,11 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
 满足这些先决条件后，可继续构建故障转移群集。 第一步是创建虚拟机。
 
-## 步骤 1：创建虚拟机
-<a id="step-1-create-virtual-machines" class="xliff"></a>
+## <a name="step-1-create-virtual-machines"></a>步骤 1：创建虚拟机
 
 1. 使用订阅登录到 [Azure 门户](http://portal.azure.cn)。
 
-1. [创建 Azure 可用性集](../create-availability-set.md)。
+1. [创建 Azure 可用性集](../tutorial-availability-sets.md)。
 
    可用性集可将各个容错域和更新域中的虚拟机分组。 可用性集确保应用程序不会受到单一故障点（例如网络交换机或服务器机架电源装置）的影响。
 
@@ -103,7 +97,8 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
    - 单击“创建” 。
    - 在“创建可用性集”边栏选项卡中设置以下值： 
       - **名称**：可用性集的名称。
-      - **订阅**：你的 Azure 订阅。
+      - 
+            **订阅**：Azure 订阅。
       - **资源组**：如果想要使用现有的组，请单击“使用现有项”并从下拉列表中选择该组。 否则，请选择“新建”并键入组的名称。
       - **位置**：设置要在其中创建虚拟机的位置。
       - **容错域**：使用默认值 (3)。
@@ -136,11 +131,11 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
       - **Windows Server Datacenter 2016 上的 SQL Server 2016 Developer**
 
    >[!IMPORTANT]
-   >创建虚拟机后，请删除预装的独立 SQL Server 实例。 配置故障转移群集和 S2D 之后，将使用预装的 SQL Server 媒体创建 SQL Server FCI。
+   >创建虚拟机后，请删除预装的独立 SQL Server 实例。 配置故障转移群集和 S2D 之后，使用预装的 SQL Server 媒体创建 SQL Server FCI。
 
    或者，可以使用只包含操作系统的 Azure 应用商店映像。 选择一个 **Windows Server 2016 Datacenter** 映像，并在配置故障转移群集和 S2D 后安装 SQL Server FCI。 此映像不包含 SQL Server 安装媒体。 将安装媒体放在可以针对每个服务器运行 SQL Server 安装的位置。
 
-1. Azure 在创建虚拟机之后，将使用 RDP 连接到每个虚拟机。
+1. Azure 在创建虚拟机之后，使用 RDP 连接到每个虚拟机。
 
    首次使用 RDP 连接到虚拟机时，计算机将询问是否允许在网络上发现此 PC。 单击 **“是”**。
 
@@ -162,9 +157,9 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
    | 目的 | TCP 端口 | 说明
    | ------ | ------ | ------
    | SQL Server | 1433 | SQL Server 的默认实例正常使用的端口。 如果使用了库中的某个映像，此端口会自动打开。
-   | 运行状况探测 | 59999 | 任何打开的 TCP 端口。 在后面的步骤中，需要将负载均衡器 [运行状况探测](#probe) 和群集配置为使用此端口。  
+   | 运行状况探测 | 59999 | 任何打开的 TCP 端口。 在后面的步骤中，需要将负载均衡器[运行状况探测](#probe)和群集配置为使用此端口。  
 
-1. 将存储添加到虚拟机。 有关详细信息，请参阅[添加存储](../../../storage/storage-premium-storage.md)。
+1. 将存储添加到虚拟机。 有关详细信息，请参阅[添加存储](../../../storage/common/storage-premium-storage.md)。
 
    这两个虚拟机至少需要两个数据磁盘。
 
@@ -182,8 +177,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
 创建并配置虚拟机后，可配置故障转移群集。
 
-## 步骤 2：使用 S2D 配置 Windows 故障转移群集
-<a id="step-2-configure-the-windows-failover-cluster-with-s2d" class="xliff"></a>
+## <a name="step-2-configure-the-windows-failover-cluster-with-s2d"></a>步骤 2：使用 S2D 配置 Windows 故障转移群集
 
 下一步是使用 S2D 配置故障转移群集。 此步骤包括以下子步骤：
 
@@ -193,8 +187,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 1. 创建云见证
 1. 添加存储
 
-### 添加 Windows 故障转移群集功能
-<a id="add-windows-failover-clustering-feature" class="xliff"></a>
+### <a name="add-windows-failover-clustering-feature"></a>添加 Windows 故障转移群集功能
 
 1. 若要开始，请使用属于本地管理员的成员并且有权在 Active Directory 中创建对象的域帐户，通过 RDP 连接到第一个虚拟机。 使用此帐户完成余下的配置。
 
@@ -215,8 +208,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
 特此指出，后续步骤遵循了 [Windows Server 2016 中使用存储空间直通的超聚合解决方案](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct)中“步骤 3”下面的说明。
 
-### 验证群集
-<a id="validate-the-cluster" class="xliff"></a>
+### <a name="validate-the-cluster"></a>验证群集
 
 本指南参考了 [验证群集](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation)中的说明。
 
@@ -246,8 +238,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
 验证群集后，创建故障转移群集。
 
-### 创建故障转移群集
-<a id="create-the-failover-cluster" class="xliff"></a>
+### <a name="create-the-failover-cluster"></a>创建故障转移群集
 
 本指南参考了[创建故障转移群集](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster)。
 
@@ -262,8 +253,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") -StaticAddress <n.n.n.n> -NoStorage
 ```   
 
-### 创建云见证
-<a id="create-a-cloud-witness" class="xliff"></a>
+### <a name="create-a-cloud-witness"></a>创建云见证
 
 云见证是 Azure 存储 Blob 中存储的新型群集仲裁见证。 使用云见证就无需单独使用一个 VM 来托管见证共享。
 
@@ -275,8 +265,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") -StaticAddr
 
 1. 配置故障转移群集仲裁见证。 请参阅 [在用户界面中配置仲裁见证]。(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)。
 
-### 添加存储
-<a id="add-storage" class="xliff"></a>
+### <a name="add-storage"></a>添加存储
 
 S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘，请遵循[此指南中的步骤](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks)。
 
@@ -304,13 +293,11 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 
    ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-## 步骤 3：测试故障转移群集故障转移
-<a id="step-3-test-failover-cluster-failover" class="xliff"></a>
+## <a name="step-3-test-failover-cluster-failover"></a>步骤 3：测试故障转移群集故障转移
 
 在故障转移群集管理器中，验证是否可将存储资源移到另一个群集节点。 如果可使用**故障转移群集管理器**连接到故障转移群集并可在两个不同的节点之间移动存储，则可以配置 FCI。
 
-## 步骤 4：创建 SQL Server FCI
-<a id="step-4-create-sql-server-fci" class="xliff"></a>
+## <a name="step-4-create-sql-server-fci"></a>步骤 4：创建 SQL Server FCI
 
 配置故障转移群集和所有群集组件（包括存储）后，可创建 SQL Server FCI。
 
@@ -318,17 +305,17 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 
 1. 在“故障转移群集管理器”中，确保所有群集核心资源位于第一个虚拟机上。 如有必要，请将所有资源移到此虚拟机。
 
-1. 找到安装媒体。 如果虚拟机使用某个 Azure 应用商店映像，该媒体将位于 `C:\SQLServer_<version number>_Full`。 单击“设置”。
+1. 找到安装媒体。 如果虚拟机使用某个 Azure Marketplace 映像，该媒体将位于 `C:\SQLServer_<version number>_Full`。 单击“设置”。
 
 1. 在“SQL Server 安装中心”中单击“安装”。
 
 1. 单击“新建 SQL Server 故障转移群集安装”。 遵照向导中的说明安装 SQL Server FCI。
 
-   FCI 数据目录需位于群集存储中。 使用 S2D 时，该存储不是共享磁盘，而是每个服务器上的卷的装入点。 S2D 将在两个节点之间同步该卷。 该卷以群集共享卷的形式提供给群集。 使用数据目录的 CSV 装入点。
+   FCI 数据目录需位于群集存储中。 使用 S2D 时，该存储不是共享磁盘，而是每个服务器上的卷的装入点。 S2D 会在两个节点之间同步该卷。 该卷以群集共享卷的形式提供给群集。 使用数据目录的 CSV 装入点。
 
    ![DataDirectories](./media/virtual-machines-windows-portal-sql-create-failover-cluster/20-data-dicrectories.png)
 
-1. 完成向导中的操作后，安装程序将在第一个节点上安装 SQL Server FCI。
+1. 完成向导中的操作后，安装程序在第一个节点上安装 SQL Server FCI。
 
 1. 安装程序在第一个节点上成功安装 FCI 后，请使用 RDP 连接到第二个节点。
 
@@ -339,15 +326,13 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
    >[!NOTE]
    >如果使用了包含 SQL Server 的 Azure 应用商店库映像，该映像已随附 SQL Server 工具。 如果未使用此映像，需单独安装 SQL Server 工具。 请参阅 [Download SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx)（下载 SQL Server Management Studio (SSMS)）。
 
-## 步骤 5：创建 Azure 负载均衡器
-<a id="step-5-create-azure-load-balancer" class="xliff"></a>
+## <a name="step-5-create-azure-load-balancer"></a>步骤 5：创建 Azure 负载均衡器
 
 在 Azure 虚拟机上，群集使用负载均衡器来保存每次都需要位于一个群集节点上的 IP 地址。 在此解决方案中，负载均衡器保存 SQL Server FCI 的 IP 地址。
 
 [创建并配置 Azure 负载均衡器](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 
-### 在 Azure 门户中创建负载均衡器
-<a id="create-the-load-balancer-in-the-azure-portal" class="xliff"></a>
+### <a name="create-the-load-balancer-in-the-azure-portal"></a>在 Azure 门户中创建负载均衡器
 
 若要创建负载均衡器，请执行以下操作：
 
@@ -364,15 +349,17 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
    - **虚拟网络**：虚拟机所在的同一网络。
    - **子网**：虚拟机所在的同一子网。
    - **专用 IP 地址**：分配给 SQL Server FCI 群集网络资源的同一 IP 地址。
-   - **订阅**：你的 Azure 订阅。
-   - **资源组**：使用你的虚拟机所在的同一资源组。
-   - **位置**：使用你的虚拟机所在的同一 Azure 位置。
-   参阅下图：
+   - 
+            **订阅**：Azure 订阅。
+   - 
+            **资源组**：使用虚拟机所在的同一资源组。
+   - 
+               **位置**：使用虚拟机所在的同一 Azure 位置。
+参阅下图：
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
 
-### 配置负载均衡器后端池
-<a id="configure-the-load-balancer-backend-pool" class="xliff"></a>
+### <a name="configure-the-load-balancer-backend-pool"></a>配置负载均衡器后端池
 
 1. 返回到虚拟机所在的 Azure 资源组，找到新的负载均衡器。 可能需要在资源组中刷新视图。 单击该负载均衡器。
 
@@ -398,8 +385,7 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 
 1. 单击“确定”两次。
 
-### 配置负载均衡器运行状况探测
-<a id="configure-a-load-balancer-health-probe" class="xliff"></a>
+### <a name="configure-a-load-balancer-health-probe"></a>配置负载均衡器运行状况探测
 
 1. 在负载均衡器边栏选项卡中，单击“运行状况探测”。
 
@@ -415,8 +401,7 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 
 1. 单击“确定”。
 
-### 设置负载均衡规则
-<a id="set-load-balancing-rules" class="xliff"></a>
+### <a name="set-load-balancing-rules"></a>设置负载均衡规则
 
 1. 在负载均衡器边栏选项卡中，单击“负载均衡规则”。
 
@@ -436,8 +421,7 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 
 1. 单击 **“确定”**。
 
-## 步骤 6：为探测配置群集
-<a id="step-6-configure-cluster-for-probe" class="xliff"></a>
+## <a name="step-6-configure-cluster-for-probe"></a>步骤 6：为探测配置群集
 
 在 PowerShell 中设置群集探测端口参数。
 
@@ -454,8 +438,7 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
 ```
 
-## 步骤 7：测试 FCI 故障转移
-<a id="step-7-test-fci-failover" class="xliff"></a>
+## <a name="step-7-test-fci-failover"></a>步骤 7：测试 FCI 故障转移
 
 测试 FCI 的故障转移以验证群集功能。 执行以下步骤：
 
@@ -469,20 +452,17 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 
 “故障转移群集管理器”将显示该角色及其资源已脱机。 然后资源将会移动，并在另一个节点上联机。
 
-### 测试连接
-<a id="test-connectivity" class="xliff"></a>
+### <a name="test-connectivity"></a>测试连接
 
 若要测试连接，请登录到同一虚拟网络中的另一个虚拟机。 打开“SQL Server Management Studio”并连接到 SQL Server FCI 名称。
 
 >[!NOTE]
 >如果需要，可以[下载 SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx)。
 
-## 限制
-<a id="limitations" class="xliff"></a>
+## <a name="limitations"></a>限制
 Azure 虚拟机上的 FCI 不支持 Microsoft 分布式事务处理协调器 (DTC)，因为负载均衡器不支持 RPC 端口。
 
-## 另请参阅
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>另请参阅
 
 [Setup S2D with remote desktop (Azure)](http://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)（使用远程桌面设置 S2D (Azure)）
 

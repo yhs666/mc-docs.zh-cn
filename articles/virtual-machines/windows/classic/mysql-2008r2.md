@@ -3,8 +3,8 @@ title: "创建运行 MySQL 的经典 Azure VM | Azure"
 description: "使用经典部署模型创建运行 Windows Server 2012 R2 和 MySQL 数据库的 Azure 虚拟机。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 98fa06d2-9b92-4d05-ac16-3f8e9fd4feaa
@@ -14,16 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 8cb0964a5f0d5e5f23542ee7f2bcd6e41b72745a
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 54f8859474b73d64560d2f5eb0ae045b3d3dd0c3
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/29/2017
 ---
-# 在使用经典部署模型创建的运行 Windows Server 2016 的虚拟机上安装 MySQL
-<a id="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016" class="xliff"></a>
+# <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>在使用经典部署模型创建的运行 Windows Server 2016 的虚拟机上安装 MySQL
 [MySQL](https://www.mysql.com) 是一种常用的开源 SQL 数据库。 本教程说明如何安装并运行 **MySQL 5.7.18 社区版**作为运行 **Windows Server 2016** 的虚拟机上的 MySQL 服务器。 其他版本的 MySQL 或 Windows Server 所带来的体验可能略有不同。
 
 有关如何在 Linux 上安装 MySQL 的说明，请参阅：[如何在 Azure 上安装 MySQL](../../linux/mysql-install.md)。
@@ -31,22 +30,18 @@ ms.lasthandoff: 06/23/2017
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
 
-## 创建运行 Windows Server 2016 的虚拟机
-<a id="create-a-virtual-machine-running-windows-server-2016" class="xliff"></a>
+## <a name="create-a-virtual-machine-running-windows-server-2016"></a>创建运行 Windows Server 2016 的虚拟机
 如果还没有一台运行 Windows Server 2016 的 VM，可使用本[教程](./tutorial.md)创建虚拟机。
 
-## 附加数据磁盘
-<a id="attach-a-data-disk" class="xliff"></a>
+## <a name="attach-a-data-disk"></a>附加数据磁盘
 创建虚拟机后，可有选择地附加数据磁盘。 添加数据磁盘是生产工作负荷的推荐操作，这样做还可以避免包含操作系统的 OS 驱动器 (C:) 空间不足。
 
-请参阅[如何将数据磁盘附加到 Windows 虚拟机](../attach-disk-portal.md)，然后按说明附加一个空磁盘。 将主机缓存设置设为“无”或“只读”。
+请参阅[如何将数据磁盘附加到 Windows 虚拟机](../attach-managed-disk-portal.md)，然后按说明附加一个空磁盘。 将主机缓存设置设为“无”或“只读”。
 
-## 登录到虚拟机
-<a id="log-on-to-the-virtual-machine" class="xliff"></a>
+## <a name="log-on-to-the-virtual-machine"></a>登录到虚拟机
 接下来，将[登录到虚拟机](./connect-logon.md)，以便安装 MySQL。
 
-## 在虚拟机上安装和运行 MySQL Community Server
-<a id="install-and-run-mysql-community-server-on-the-virtual-machine" class="xliff"></a>
+## <a name="install-and-run-mysql-community-server-on-the-virtual-machine"></a>在虚拟机上安装和运行 MySQL Community Server
 按照下列步骤操作可安装、配置和运行社区版 MySQL Server：
 
 > [!NOTE]
@@ -88,8 +83,7 @@ ms.lasthandoff: 06/23/2017
     ![](./media/mysql-2008r2/MySQL_CommandPrompt.png)
 21. 还可以对服务器配置的默认设置进行配置，例如基本目录和数据目录以及驱动器。 有关详细信息，请参阅 [6.1.2 服务器配置的默认值](https://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html)。
 
-## 配置终结点
-<a id="configure-endpoints" class="xliff"></a>
+## <a name="configure-endpoints"></a>配置终结点
 
 为了使 MySQL 服务可供 Internet 上的客户端计算机使用，必须为 TCP 端口配置终结点，并创建 Windows 防火墙规则。 MySQL 服务器服务在其上侦听 MySQL 客户端的端口的默认值为 3306。 只要端口与“类型与网络”页上提供的值（前面过程的步骤 11）一致，便可指定其他端口。
 
@@ -106,14 +100,12 @@ ms.lasthandoff: 06/23/2017
 4. 选择“TCP”作为协议。
 5. 在“公用端口”和“专用端口”中键入端口号（例如 **3306**），然后单击“确定”。
 
-## 添加 Windows 防火墙规则以允许 MySQL 流量
-<a id="add-a-windows-firewall-rule-to-allow-mysql-traffic" class="xliff"></a>
+## <a name="add-a-windows-firewall-rule-to-allow-mysql-traffic"></a>添加 Windows 防火墙规则以允许 MySQL 流量
 若要添加 Windows 防火墙规则以允许来自 Internet 的 MySQL 流量，请在 MySQL 服务器虚拟机上_提升的 Windows PowerShell 命令提示符_下运行以下命令。
 
     New-NetFirewallRule -DisplayName "MySQL57" -Direction Inbound -Protocol TCP -LocalPort 3306 -Action Allow -Profile Public
 
-## 测试远程连接
-<a id="test-your-remote-connection" class="xliff"></a>
+## <a name="test-your-remote-connection"></a>测试远程连接
 若要测试运行 MySQL 服务器服务的 Azure VM 的远程连接，必须提供包含 VN 的云服务的 DNS 名称。
 
 1. 在 Azure 门户中，单击“虚拟机(经典)”、单击 MySQL 服务器虚拟机的名称，然后单击“概述”。
@@ -128,6 +120,5 @@ ms.lasthandoff: 06/23/2017
 
         mysql -u dbadmin3 -p -h testmysql.chinacloudapp.cn
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 若要了解有关运行 MySQL 的详细信息，请参阅 [MySQL 文档](http://dev.mysql.com/doc/)。

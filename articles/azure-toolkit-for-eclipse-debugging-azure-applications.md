@@ -15,33 +15,31 @@ ms.topic: article
 origin.date: 12/22/2016
 ms.date: 02/14/2017
 ms.author: v-junlch
-ms.openlocfilehash: 57cae6756395b6255f49331c10c02d097ad273db
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 1710a254fa6a5540f79e38504f6eda80a335d3f7
+ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/30/2017
 ---
-# 在 Eclipse 中调试 Azure 应用程序
-<a id="debugging-azure-applications-in-eclipse" class="xliff"></a>
+# <a name="debugging-azure-applications-in-eclipse"></a>在 Eclipse 中调试 Azure 应用程序
 使用 Azure Toolkit for Eclipse，无论你的应用程序是在 Azure 中运行还是在计算模拟器中运行（如果你将 Windows 用作操作系统），都可进行调试。 下图显示了用于启用远程调试的“调试”属性对话框： 
 
 ![][ic719504]
 
-本教程假设你已成功创建了一个应用程序，并且熟悉计算模拟器，知道如何部署到 Azure。
+本教程假设已成功创建了一个应用程序，并且熟悉计算模拟器，知道如何部署到 Azure。
 
-我们将使用 [在 JSP 中使用 Azure 服务运行时库][Using the Azure Service Runtime Library in JSP] 教程中的应用程序作为本主题的起点。 在继续操作之前，请创建该应用程序（如果尚未这样做）。
+我们使用 [ 在 JSP 中使用 Azure 服务运行时库][Using the Azure Service Runtime Library in JSP] 教程中的应用程序作为本主题的起点。 在继续操作之前，请创建该应用程序（如果尚未这样做）。
 
-## 在 Azure 中运行应用程序时调试应用程序
-<a id="to-debug-your-application-while-running-in-azure" class="xliff"></a>
+## <a name="to-debug-your-application-while-running-in-azure"></a>在 Azure 中运行应用程序时调试应用程序
 
 >[!WARNING]
-> 该工具包当前对远程 Java 调试的支持主要适用于在 Azure 计算模拟器中运行的部署。 由于调试连接不安全，因此你不应在生产部署中启用远程调试。 如果你需要调试 Azure 云中运行的应用程序，请使用过渡部署，但应该认识到，如果有人知道你云部署（即使是过渡部署）的 IP 地址，则可能会在未经授权的情况下访问你的调试会话。
+> 该工具包当前对远程 Java 调试的支持主要适用于在 Azure 计算模拟器中运行的部署。 由于调试连接不安全，因此，不应在生产部署中启用远程调试。 如果需要调试 Azure 云中运行的应用程序，请使用过渡部署，但应该认识到，如果有人知道你云部署（即使是过渡部署）的 IP 地址，则可能会在未经授权的情况下访问调试会话。
 
 1. 生成项目以在模拟器中进行测试：在 Eclipse 的项目资源管理器中，右键单击“MyAzureProject”，单击“属性”，单击“Azure”，然后将“生成目的”设置为“部署到云”。
 2. 重新生成项目：在 Eclipse 菜单中，单击“项目”，然后单击“全部生成”。
-3. 将应用程序部署到 Azure 中的 *过渡* 环境。
+3. 将应用程序部署到 Azure 中的*过渡*环境。
     >[!IMPORTANT]
-    > 如前所述，强烈建议你在大多数情况下都通过计算模拟器进行调试，仅当需要进一步调试时才在过渡环境中调试。 不建议在生产环境中进行调试。
+    > 如前所述，强烈建议在大多数情况下都通过计算模拟器进行调试，仅当需要进一步调试时才在过渡环境中调试。 不建议在生产环境中进行调试。
 4. 准备好部署到 Azure 后，请从 [Azure 管理门户][Azure Management Portal]获取部署的 DNS 名称。 过渡部署的 DNS 名称格式为 http://*&lt;guid&gt;*.cloudapp.net，其中，*&lt;guid&gt;* 是 Azure 分配的 GUID 值。
 5. 在 Eclipse 的项目资源管理器中，右键单击“WorkerRole1”，单击“Azure”，然后单击“调试”。
 6. 在“WorkerRole1 调试属性”对话框中： 
@@ -49,7 +47,7 @@ ms.lasthandoff: 06/21/2017
    2. 对于“要使用的输入终结点”，请使用“调试(public:8090,private:8090)”。
    3. 确保已取消选中“以暂停模式启动 JVM，等待连接调试器”。
        >[!IMPORTANT]
-       > “以暂停模式启动 JVM，等待连接调试器”选项仅适用于在计算模拟器中进行的高级调试方案（而不适用于云部署）。  如果使用了“以暂停模式启动 JVM，等待连接调试器”选项，它将会暂停服务器的启动进程，直到 Eclipse 调试器已连接到其 JVM。 尽管可以使用此选项来完成通过计算模拟器进行的调试会话，但请不要使用它来完成云部署中进行的调试会话。 服务器的初始化在 Azure 启动任务中发生，在完成启动任务之前，Azure 云不会使公共终结点可用。 因此，如果在云部署中启用此选项，启动进程将不成功完成，因为它无法接收来自外部 Eclipse 客户端的连接。
+       > “以暂停模式启动 JVM，等待连接调试器”选项仅适用于在计算模拟器中进行的高级调试方案（而不适用于云部署）。  如果使用了“以暂停模式启动 JVM，等待连接调试器”选项，它将会暂停服务器的启动进程，直到 Eclipse 调试器已连接到其 JVM。 尽管可以使用此选项来完成通过计算模拟器进行的调试会话，但请不要使用它来完成云部署中进行的调试会话。 服务器的初始化在 Azure 启动任务中发生，在完成启动任务之前，Azure 云不会使公共终结点可用。 因此，如果在云部署中启用此选项，启动进程不会成功完成，因为它无法接收来自外部 Eclipse 客户端的连接。
    4. 单击“创建调试配置”。
 7. 在“Azure 调试配置”对话框中： 
    1. 对于“要调试的 Java 项目”，请选择“MyHelloWorld”项目。
@@ -60,32 +58,31 @@ ms.lasthandoff: 06/21/2017
 9. 单击“确定”关闭“WorkerRole1 调试属性”对话框。
 10. 如果尚未在 index.jsp 中设置断点，现在请设置它：
     1. 在 Eclipse 的项目资源管理器中，依次展开“MyHelloWorld”和“WebContent”，然后双击“index.jsp”。
-    2. 在 index.jsp 中，右键单击 Java 代码左侧的蓝色条形，然后单击“切换断点”，如下图所示： ![][ic551537]
+    2. 在 index.jsp 中，右键单击 Java 代码左侧的蓝色条形，然后单击“切换断点”，如下图所示：![][ic551537]
 11. 在 Eclipse 的菜单中，单击“运行”，然后单击“调试配置”。
 12. 在“调试配置”对话框的左窗格中，展开“远程 Java 应用程序”，选择“Azure 云(WorkerRole1)”，然后单击“调试”。
 13. 在浏览器中运行过渡应用程序 **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**，使用 DNS 名称中的 GUID 取代 *&lt;guid&gt;*。 如果“确认角度切换”对话框有提示，请单击“是”。 现在，调试会话应该执行到设置了断点的代码行。
 
 >[!NOTE]
-> 如果你正在尝试与包含多个运行中角色实例的部署建立远程调试连接，则目前你无法控制调试器最初要连接到的实例，因为 Azure 负载均衡器将随机选取一个实例。 不过，一旦与该实例建立连接，你就可以继续调试同一个实例。 另请注意，如果连接保持非活动状态 4 分钟以上（例如，在某个断点处停止太长的时间），Azure 可能会关闭该连接。
+> 如果你正在尝试与包含多个运行中角色实例的部署建立远程调试连接，则目前你无法控制调试器最初要连接到的实例，因为 Azure 负载均衡器会随机选取一个实例。 不过，一旦与该实例建立连接，便可以继续调试同一个实例。 另请注意，如果连接保持非活动状态 4 分钟以上（例如，在某个断点处停止太长的时间），Azure 可能会关闭该连接。
 
 ## 调试多实例部署中的特定角色实例<a name="debugging_specific_role_instance"></a>
-当你的部署在云中运行时，你很可能会在多个计算或角色实例中运行该部署。 这样，你便可以利用 Azure 99.95% 的可用性保证，并扩大你的应用程序。
+当部署在云中运行时，很可能会在多个计算或角色实例中运行该部署。 这样，便可以利用 Azure 99.95% 的可用性保证，并扩大应用程序。
 
-在这种情况下，你可能需要远程调试特定角色实例中的 Java 应用程序。 但是，如果你只是为调试启用了常规输入终结点，则 Azure 负载均衡器基本上不允许你将调试器连接到特定的角色实例。 它会将你连接到它随机选取的角色实例。
+在这种情况下，可能需要远程调试特定角色实例中的 Java 应用程序。 但是，如果只是为调试启用了常规输入终结点，则 Azure 负载均衡器基本上不允许将调试器连接到特定的角色实例。 它会你将连接到它随机选取的角色实例。
 
 这是利用实例输入终结点简化特定角色实例调试的方案类型。
 
 假设你打算运行部署的最多 5 个角色实例。 请使用角色属性对话框中的“终结点”属性页创建实例输入终结点，并为其分配一个公用端口范围而不是一个端口号。 例如，在“公用端口”输入框中指定 **81-85**。
 
-在你使用此实例终结点部署应用程序后，Azure 将为每个角色实例分配此范围中的唯一端口号。 然后，若要找出为哪个实例分配了哪个端口号，可以使用工具包在部署中自动分配（例如，在网页页脚中返回值，以便在浏览时读取它）的 *InstanceEndpointName***_PUBLICPORT** 环境变量（其中，*InstanceEndpointName* 是创建实例终结点时分配的名称）。
+在你使用此实例终结点部署应用程序后，Azure 会为每个角色实例分配此范围中的唯一端口号。 然后，若要找出为哪个实例分配了哪个端口号，可以使用工具包在部署中自动分配（例如，在网页页脚中返回值，以便在浏览时读取它）的 *InstanceEndpointName***_PUBLICPORT** 环境变量（其中，*InstanceEndpointName* 是创建实例终结点时分配的名称）。
 
 在了解为实例分配的公用端口号后，可以通过将它附加到服务主机名，在 Eclipse 中的调试配置中引用该端口号。 这样，Eclipse 调试器便可以连接到该特定实例，而不是任何其他实例。
 
-## 仅限 Windows：在计算模拟器中运行应用程序时调试应用程序
-<a id="windows-only-to-debug-your-application-while-running-in-the-compute-emulator" class="xliff"></a>
+## <a name="windows-only-to-debug-your-application-while-running-in-the-compute-emulator"></a>仅限 Windows：在计算模拟器中运行应用程序时调试应用程序
 
 >[!NOTE]
-> Azure 模拟器仅在 Windows 上可用。 如果你使用的是非 Windows 操作系统，请跳过本部分。 
+> Azure 模拟器仅在 Windows 上可用。 如果使用的是非 Windows 操作系统，请跳过本部分。 
 
 1. 生成项目以在模拟器中进行测试：在 Eclipse 的项目资源管理器中，右键单击“MyAzureProject”，单击“属性”，单击“Azure”，然后将“生成目的”设置为“在模拟器中测试”。
 2. 重新生成项目：在 Eclipse 菜单中，单击“项目”，然后单击“全部生成”。
@@ -95,7 +92,7 @@ ms.lasthandoff: 06/21/2017
    2. 对于“要使用的输入终结点”，请使用工具包自动生成的默认终结点，它列为“调试(public:8090,private:8090)”。
    3. 确保已取消选中“以暂停模式启动 JVM，等待连接调试器”选项。
        >[!IMPORTANT]
-       > “以暂停模式启动 JVM，等待连接调试器”选项仅适用于在计算模拟器中进行的高级调试方案（而不适用于云部署）。  如果使用了“以暂停模式启动 JVM，等待连接调试器”选项，它将会暂停服务器的启动进程，直到 Eclipse 调试器已连接到其 JVM。 尽管可以使用此选项来完成通过计算模拟器进行的调试会话，但请不要使用它来完成云部署中进行的调试会话。 服务器的初始化在 Azure 启动任务中发生，在完成启动任务之前，Azure 云不会使公共终结点可用。 因此，如果在云部署中启用此选项，启动进程将不成功完成，因为它无法接收来自外部 Eclipse 客户端的连接。
+       > “以暂停模式启动 JVM，等待连接调试器”选项仅适用于在计算模拟器中进行的高级调试方案（而不适用于云部署）。  如果使用了“以暂停模式启动 JVM，等待连接调试器”选项，它将会暂停服务器的启动进程，直到 Eclipse 调试器已连接到其 JVM。 尽管可以使用此选项来完成通过计算模拟器进行的调试会话，但请不要使用它来完成云部署中进行的调试会话。 服务器的初始化在 Azure 启动任务中发生，在完成启动任务之前，Azure 云不会使公共终结点可用。 因此，如果在云部署中启用此选项，启动进程不会成功完成，因为它无法接收来自外部 Eclipse 客户端的连接。
    4. 单击“创建调试配置”。
 5. 在“Azure 调试配置”对话框中： 
    1. 对于“要调试的 Java 项目”，请选择“MyHelloWorld”项目。
@@ -105,7 +102,7 @@ ms.lasthandoff: 06/21/2017
 8. 在 Index.jsp 中设置一个断点：
 
    1. 在 Eclipse 的项目资源管理器中，依次展开“MyHelloWorld”和“WebContent”，然后双击“index.jsp”。
-   2. 在 index.jsp 中，右键单击 Java 代码左侧的蓝色条形，然后单击“切换断点”，如下图所示： ![][ic551537]
+   2. 在 index.jsp 中，右键单击 Java 代码左侧的蓝色条形，然后单击“切换断点”，如下图所示：![][ic551537]
 
       如果在 Java 代码左侧的蓝色栏中看到断点图标，则表示已设置断点。
 9. 在计算模拟器中的 Azure 工具栏上单击“在 Azure 模拟器中运行”按钮，以启动应用程序。
@@ -115,15 +112,13 @@ ms.lasthandoff: 06/21/2017
      如果“确认角度切换”对话框有提示，请单击“是”。
      现在，调试会话应该执行到设置了断点的代码行。
 
-本部分说明了如何在计算模拟器中进行调试；下一部分将说明如何调试已部署到 Azure 的应用程序。
+本部分说明了如何在计算模拟器中进行调试；下一部分说明如何调试已部署到 Azure 的应用程序。
 
-## 调试说明
-<a id="debugging-notes" class="xliff"></a>
+## <a name="debugging-notes"></a>调试说明
 * 调试后，可以将透视图从“调试”切换到“Java”，方法是单击 Eclipse 的菜单，单击“窗口”、“打开透视图”，然后选择要使用的透视图。
 * 若要在 GlassFish 中启用远程调试，请不使用 Azure Toolkit for Eclipse 的远程调试配置功能， 而要手动配置 GlassFish。 由于 GlassFish 处理环境变量中预定义的 Java 选项的方式问题，该工具包的远程调试配置功能不能在 GlassFish 上正常工作。 如果已启用该工具包的远程调试配置功能，则它可能会阻止 GlassFish 启动。
 
-## 另请参阅
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>另请参阅
 [适用于 Eclipse 的 Azure 工具包][Azure Toolkit for Eclipse]
 
 [在 Eclipse 中为 Azure 创建 Hello World 应用程序][Creating a Hello World Application for Azure in Eclipse]
@@ -137,7 +132,7 @@ ms.lasthandoff: 06/21/2017
 [Azure Java Developer Center]:/develop/java/
 [Azure Management Portal]: https://manage.windowsazure.cn
 [Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
-[Creating a Hello World Application for Azure in Eclipse]:./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
+[Creating a Hello World Application for Azure in Eclipse]:/app-service-web/app-service-web-eclipse-create-hello-world-web-app
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Using the Azure Service Runtime Library in JSP]: /develop/java/
 

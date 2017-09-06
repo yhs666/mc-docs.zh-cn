@@ -1,8 +1,8 @@
 ---
 title: "使用 REST 管理媒体服务实体 | Azure"
 description: "了解如何使用 REST API 管理媒体服务实体。"
-author: juliako
-manager: dwrede
+author: hayley244
+manager: digimobile
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,39 +12,40 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/09/2017
-ms.date: 03/10/2017
-ms.author: v-johch
-ms.openlocfilehash: 8f306819d976ed840dded00878dbacb9b55c0b47
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+origin.date: 08/10/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: a8df725191435dd51b1635f54a9b2198cd6deaca
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="managing-media-services-entities-with-rest"></a>使用 REST 管理媒体服务实体 
-
 > [!div class="op_single_selector"]
->- [REST](./media-services-rest-manage-entities.md)
->- [.NET](./media-services-dotnet-manage-entities.md)
+> * [REST](media-services-rest-manage-entities.md)
+> * [.NET](media-services-dotnet-manage-entities.md)
+> 
+> 
 
-Microsoft Azure 媒体服务是一项以 OData v3 为基础的基于 REST 的服务。 因此，可以像在任何其他 OData 服务上一样添加、查询、更新和删除实体。 适用时，标注例外情况。 有关 OData 的详细信息，请参阅 [开放数据协议文档](http://www.odata.org/documentation/)。
+Azure 媒体服务是一项以 OData v3 为基础的基于 REST 的服务。 可以像在任何其他 OData 服务上一样添加、查询、更新和删除实体。 适用时，标注例外情况。 有关 OData 的详细信息，请参阅 [开放数据协议文档](http://www.odata.org/documentation/)。
 
 本主题介绍如何使用 REST 管理 Azure 媒体服务实体。
 
 >[!NOTE]
 > 从 2017 年 4 月 1 日开始，用户帐户中任何超过 90 天的作业记录及其关联的任务记录都会被系统自动删除，即使记录总数低于最大配额。 例如，在 2017 年 4 月 1 日，用户帐户中 2016 年 12 月 31 日以前的任何作业记录都会被系统自动删除。 若需存档作业/任务信息，可使用本主题所述代码。
 
-## <a name="considerations-when-working-with-ams-rest"></a>使用 AMS REST 时的注意事项
+## <a name="considerations"></a>注意事项  
 
->[!NOTE]
-> 使用媒体服务 REST API 时，需注意以下事项：
->
->访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](./media-services-rest-how-to-use.md)。
+访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
 
->成功连接到 https://media.chinacloudapi.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须按[使用 REST 访问 Azure 媒体服务 API](./media-services-rest-connect-with-aad.md) 中所述对新的 URI 执行后续调用。 
+## <a name="connect-to-media-services"></a>连接到媒体服务
 
-##<a name="adding-entities"></a>添加实体
+若要了解如何连接到 AMS API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
+
+
+## <a name="adding-entities"></a>添加实体
 媒体服务中的每个实体都通过 POST HTTP 请求添加到实体集（如资产）中。
 
 以下示例说明了如何创建 AccessPolicy。
@@ -128,11 +129,12 @@ Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidenti
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
->[!NOTE]
->媒体服务不支持 $expand 操作以及“LINQ 注意事项（WCF Data Services）”中所述的不受支持的 LINQ 方法。
+> [!NOTE]
+> 媒体服务不支持 $expand 操作以及“LINQ 注意事项（WCF Data Services）”中所述的不受支持的 LINQ 方法。
+> 
+> 
 
-##<a name="enumerating-through-large-collections-of-entities"></a>枚举实体的大型集合
-
+## <a name="enumerating-through-large-collections-of-entities"></a>枚举实体的大型集合
 查询实体时，一次返回的实体数限制为 1000 个，因为公共 REST v2 将查询结果数限制为 1000 个。 使用 skip 和 top 枚举大型实体集合。 
 
 以下示例说明如何使用 skip 和 top 来跳过前 2000 个作业并获取后 1000 个作业。  
@@ -148,9 +150,8 @@ Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidenti
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
-##<a name="updating-entities"></a>更新实体
-
-根据实体类型及其所处的状态，可以通过 PATCH、PUT 或 MERGE HTTP 请求更新该实体上的属性。 有关这些操作的详细信息，请参阅 [PATCH/PUT/MERGE](https://msdn.microsoft.com/zh-cn/library/dd541276.aspx)。
+## <a name="updating-entities"></a>更新实体
+根据实体类型及其所处的状态，可以通过 PATCH、PUT 或 MERGE HTTP 请求更新该实体上的属性。 有关这些操作的详细信息，请参阅 [PATCH/PUT/MERGE](https://msdn.microsoft.com/library/dd541276.aspx)。
 
 以下代码示例演示如何更新资产实体上的名称属性。
 
@@ -169,8 +170,7 @@ Expect: 100-continue
 {"Name" : "NewName" }
 ```
 
-##<a name="deleting-entities"></a>删除实体
-
+## <a name="deleting-entities"></a>删除实体
 可以使用 DELETE HTTP 请求在媒体服务中删除实体。 删除实体的顺序可能很重要，具体视实体而定。 例如，资产等实体要求先撤消（或删除）引用该特定资产的所有定位符，然后再删除资产。
 
 以下示例演示如何删除用于将文件上传到 blob 存储的定位符。
@@ -186,3 +186,4 @@ Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidenti
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 0
 ```
+<!--Update_Description: add "Connect to Media Services" section-->

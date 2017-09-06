@@ -1,31 +1,32 @@
 ---
-title: "什么是云服务模型和包 | Azure"
+title: "什么是云服务模型和包 | Microsoft Docs"
 description: "描述 Azure 中的云服务模型（.csdef、.cscfg）和包 (.cspkg)"
 services: cloud-services
-documentationCenter: 
-authors: Thraka
+documentationcenter: 
+author: Thraka
 manager: timlt
 editor: 
+ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/06/2016
+origin.date: 07/05/2017
 ms.author: v-yiso
-ms.date: 01/03/2017
-ms.openlocfilehash: 69d19a90e67f12747af0ada5ed97edc4aa8d391e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 09/11/2017
+ms.openlocfilehash: f193e1d0eb41bf445953f21cfd73a5d60113619b
+ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/01/2017
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>什么是云服务模型，如何将其打包？
-云服务由以下三个组件创建：服务定义 (.csdef)、服务配置 (.cscfg) 和服务包 (.cspkg)。 ServiceDefinition.csdef 和 ServiceConfig.cscfg 文件都基于 XML，同时介绍云服务的结构及其配置方式；统称为模型。 ServicePackage.cspkg 是基于 ServiceDefinition.csdef 和其他文件生成的 zip 文件，包含所有必需的基于二进制的依赖项。 Azure 可从 ServicePackage.cspkg 和 ServiceConfig.cscfg 两者创建云服务。
+云服务由以下三个组件创建：服务定义 (.csdef)、服务配置 (.cscfg) 和服务包 (.cspkg)。 ServiceDefinition.csdef 和 ServiceConfig.cscfg 文件都基于 XML，同时介绍云服务的结构及其配置方式；统称为模型。 **ServicePackage.cspkg** 是基于 **ServiceDefinition.csdef** 和其他文件生成的 zip 文件，它包含所有必需的基于二进制的依赖项。 Azure 可从 ServicePackage.cspkg 和 ServiceConfig.cscfg 两者创建云服务。
 
 云服务在 Azure 中开始运行后，可以通 **ServiceConfig.cscfg** 文件重新进行配置，但不能更改定义。
 
-## <a name="what-would-you-like-to-know-more-about"></a>你想了解哪方面的详细信息？
+## <a name="what-would-you-like-to-know-more-about"></a>想了解哪方面的详细信息？
 
 * 我想了解有关 [ServiceDefinition.csdef](#csdef) 和 [ServiceConfig.cscfg](#cscfg) 文件的详细信息。
 * 我知道了，请提供有关可配置内容的 [示例](#next-steps) 。
@@ -117,7 +118,7 @@ ms.lasthandoff: 06/21/2017
 
 <a name="cscfg"></a>
 ## <a name="serviceconfigurationcscfg"></a>ServiceConfiguration.cscfg
-云服务设置配置由 **ServiceConfiguration.cscfg** 文件中的值确定。 指定要为此文件中每个角色部署的实例数。 在服务定义文件中定义的配置设置值将添加到服务配置文件。 与云服务相关联的所有管理证书的指纹也将添加到该文件。 [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/zh-cn/library/azure/ee758710.aspx)（Azure 服务配置架构（.cscfg 文件））为服务配置文件提供允许的格式。
+云服务设置配置由 **ServiceConfiguration.cscfg** 文件中的值确定。 指定要为此文件中每个角色部署的实例数。 在服务定义文件中定义的配置设置值会添加到服务配置文件。 与云服务相关联的所有管理证书的指纹也会添加到该文件。 [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/zh-cn/library/azure/ee758710.aspx)（Azure 服务配置架构（.cscfg 文件））为服务配置文件提供允许的格式。
 
 服务配置文件不与应用程序一起打包，而是作为单独的文件上传到 Azure 并用于配置云服务。 无需重新部署云服务即可上传新的服务配置文件。 云服务正在运行时可以更改云服务的配置值。 以下示例显示了可为 Web 角色和辅助角色定义的配置设置：
 
@@ -152,8 +153,10 @@ ms.lasthandoff: 06/21/2017
 
 <p/>
 
- >[!NOTE]
- > 证书的指纹可通过使用文本编辑器添加到配置文件中，或可在 Visual Studio 中角色“属性”页的“证书”选项卡上添加值。
+> [!NOTE]
+> 通过使用文本编辑器，可以将证书的指纹添加到配置文件中。 或者，可以在 Visual Studio 中角色的“属性”页的“证书”选项卡上添加值。
+> 
+> 
 
 ## <a name="defining-ports-for-role-instances"></a>定义角色实例的端口
 Azure 仅允许 Web 角色有一个入口点。 即所有通信都通过一个 IP 地址完成。 可以通过配置主机头使请求指向正确的位置来配置网站共享一个端口。 此外，可将应用程序配置为侦听 IP 地址上的已知端口。
@@ -182,7 +185,7 @@ Azure 仅允许 Web 角色有一个入口点。 即所有通信都通过一个 I
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" <mark>hostheader="mail.mysite.chinacloudapp.cn"</mark> />
+      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.cn" />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">
@@ -208,9 +211,9 @@ Azure 仅允许 Web 角色有一个入口点。 即所有通信都通过一个 I
 [Azure 运行时库](https://msdn.microsoft.com/zh-cn/library/azure/mt419365.aspx)包括 [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.aspx) 命名空间，它为与 Azure 环境（来自角色实例中运行的代码）的交互提供类。 [RoleEnvironment](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) 类定义在配置更改前后引发的以下事件：
 
 - [Changing](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) 事件  
-此事件发生在配置更改应用于某个角色的指定实例之前，使你有机会记下角色实例（如有必要）。
+  此事件发生在配置更改应用于某个角色的指定实例之前，使你有机会记下角色实例（如有必要）。
 - [Changed](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) 事件  
-发生在配置更改已应用于某个角色的指定实例之后。
+  发生在配置更改已应用于某个角色的指定实例之后。
 
 > [!NOTE]
 > 由于证书更改始终使角色实例处于脱机状态，因此不会引发 RoleEnvironment.Changing 或 RoleEnvironment.Changed 事件。
@@ -227,7 +230,7 @@ CSPack 位于
 >[!NOTE]
 CSPack.exe（在 Windows 中）可通过运行随 SDK 一起安装的“Azure 命令提示符”快捷方式使用。  
 >  
->运行 CSPack.exe 程序来查看有关所有可能的开关和命令的文档。
+> 运行 CSPack.exe 程序本身来查看有关所有可能的开关和命令的文档。
 
 <p />
 

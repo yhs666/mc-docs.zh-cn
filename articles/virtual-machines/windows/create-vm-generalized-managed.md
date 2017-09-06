@@ -3,8 +3,8 @@ title: "从 Azure 中的托管 VM 映像创建 VM | Azure"
 description: "在 Resource Manager 部署模型中，使用 Azure PowerShell 从通用托管 VM 映像创建 Windows 虚拟机。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: b3f8367b3d243ad7a4237bc0bf194747c4223d2a
-ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: a6c45a360b1ee7e7ff2b58d50a8305d3cfc7ae92
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>从托管映像创建 VM
 
@@ -30,10 +30,10 @@ ms.lasthandoff: 07/10/2017
 
 必须已[创建托管 VM 映像](capture-image-resource.md)以用于创建新 VM。 
 
-请确保你有最新版本的 AzureRM.Compute PowerShell 模块。 运行以下命令来安装该模块。
+请确保具有最新版本的 AzureRM.Compute 和 AzureRM.Network PowerShell 模块。 以管理员身份打开 PowerShell 提示符，并运行以下命令进行安装。
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute,AzureRM.Network
 ```
 有关详细信息，请参阅 [Azure PowerShell 版本控制](https://docs.microsoft.com/powershell/azure/overview)。
 

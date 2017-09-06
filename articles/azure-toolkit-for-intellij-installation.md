@@ -1,10 +1,10 @@
 ---
-title: "安装 Azure Toolkit for IntelliJ | Azure"
+title: "安装用于 IntelliJ 的 Azure 工具包 | Microsoft Docs"
 description: "了解如何安装 Azure Toolkit for IntelliJ IDEA。"
 services: 
 documentationcenter: java
-author: rmcmurray
-manager: erikre
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: c6817c7b-f28c-4c06-8216-41c7a8117de3
 ms.service: multiple
@@ -12,95 +12,99 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-origin.date: 12/22/2016
-ms.date: 02/14/2017
+origin.date: 04/14/2017
+ms.date: 08/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: f19340a813b4b23d1abd09d30065907abb0051c9
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 17925e9f89443cf9b472d64120615707ca1e0d92
+ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/30/2017
 ---
-# 安装 Azure Toolkit for IntelliJ
-<a id="installing-the-azure-toolkit-for-intellij" class="xliff"></a>
-借助 Azure Toolkit for IntelliJ 提供的模板和功能，你可以轻松使用 IntelliJ IDEA 开发环境来创建、开发、测试和部署 Azure 应用程序。 Azure Toolkit for IntelliJ 是一个开放源代码项目，其源代码可从 GitHub 上项目站点的 MIT 许可证下获取，URL 为：
+# <a name="installing-the-azure-toolkit-for-intellij"></a>安装 Azure Toolkit for IntelliJ
+借助 Azure Toolkit for IntelliJ 提供的模板和功能，可以轻松使用 IntelliJ IDEA 开发环境来创建、开发、测试和部署 Azure 应用程序。 Azure Toolkit for IntelliJ 是一个开放源代码项目，其源代码可从 GitHub 上项目站点的 MIT 许可证下获取，URL 为：
 
 <https://github.com/microsoft/azure-tools-for-java>
 
-安装 Azure Toolkit for IntelliJ 的方法有两种，一种是从“设置”对话框安装，另一种是从开始屏幕上的“配置”菜单安装；下列步骤将演示这两种安装方法。
+安装 Azure Toolkit for IntelliJ 的方法有两种，一种是从“设置”对话框安装，另一种是从开始屏幕上的“配置”菜单安装；下列步骤会演示这两种安装方法。
 
 [!INCLUDE [azure-toolkit-for-IntelliJ-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## 从“设置”对话框安装 Azure Toolkit for IntelliJ 的步骤
-<a id="to-install-the-azure-toolkit-for-intellij-from-the-settings-dialog-box" class="xliff"></a>
+## <a name="to-install-the-azure-toolkit-for-intellij-from-the-settings-dialog-box"></a>从“设置”对话框安装 Azure Toolkit for IntelliJ 的步骤
 1. 启动 IntelliJ IDEA。
 2. IntelliJ IDEA 打开后，单击“文件”，然后单击“设置”。
-
+   
     ![打开 IntelliJ IDEA 的“设置”对话框][01a]
 3. 在“设置”对话框中，单击“插件”，然后单击“浏览存储库”。
-
+   
     ![IntelliJ IDEA 的“设置”对话框][02a]
 4. 在“浏览存储库”  对话框的搜索框中键入“Azure”。 突出显示“用于 IntelliJ 的 Azure 工具包”，然后单击“安装”。
-
+   
     ![搜索 Azure Toolkit for IntelliJ][03]
-
-    IntelliJ IDEA 将在一个对话框中显示安装进度。
-
+   
+    IntelliJ IDEA 在一个对话框中显示安装进度。
+   
     ![安装进度][04]
 5. 安装完成后，单击“重新启动 IntelliJ IDEA” 。
-
+   
     ![重新启动 IntelliJ IDEA][05]
 6. 单击“确定”  以关闭“设置”对话框。
-
+   
     ![关闭 IntelliJ IDEA 的“设置”对话框][06]
 7. 当系统提示是重新启动 IntelliJ IDEA 还是推迟时，请单击“重新启动” 。
-
+   
     ![重新启动 IntelliJ IDEA][07]
 
-## 从开始屏幕安装 Azure Toolkit for IntelliJ 的步骤
-<a id="to-install-the-azure-toolkit-for-intellij-from-the-start-screen" class="xliff"></a>
+## <a name="to-install-the-azure-toolkit-for-intellij-from-the-start-screen"></a>从开始屏幕安装 Azure Toolkit for IntelliJ 的步骤
 1. 启动 IntelliJ IDEA。
 2. IntelliJ IDEA 开始屏幕出现后，单击“配置”，然后单击“插件”。
-
+   
     ![安装 IntelliJ IDEA 插件][01b]
 3. 在“插件”对话框中，单击“浏览存储库”。
-
+   
     ![浏览 IntelliJ IDEA 插件存储库][02b]
 4. 在“浏览存储库”  对话框的搜索框中键入“Azure”。 突出显示“用于 IntelliJ 的 Azure 工具包”，然后单击“安装”。
-
+   
     ![搜索 Azure Toolkit for IntelliJ][03]
-
-    IntelliJ IDEA 将在一个对话框中显示安装进度。
-
+   
+    IntelliJ IDEA 在一个对话框中显示安装进度。
+   
     ![安装进度][04]
 5. 安装完成后，单击“重新启动 IntelliJ IDEA” 。
-
+   
     ![重新启动 IntelliJ IDEA][05]
 6. 当系统提示是重新启动 IntelliJ IDEA 还是推迟时，请单击“重新启动” 。
-
+   
     ![重新启动 IntelliJ IDEA][07]
 
-## 另请参阅
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>另请参阅
 有关 Azure Toolkits for Java IDE 的详细信息，请参阅以下链接：
 
-* [适用于 Eclipse 的 Azure 工具包]
-  * [安装 Azure Toolkit for Eclipse]
-  * [Azure Toolkit for Eclipse 的新增功能]
-* [Azure Toolkit for IntelliJ]
-  * *安装用于 IntelliJ 的 Azure 工具包（本文）*
-  * [Azure Toolkit for IntelliJ 中的新增功能]
+- [适用于 Eclipse 的 Azure 工具包]
+  - [用于 Eclipse 的 Azure 工具包的新增功能]
+  - [安装 Azure Toolkit for Eclipse]
+  - [用于 Eclipse 的 Azure 工具包的登录说明]
+  - [在 Eclipse 中创建 Azure 的 Hello World Web 应用]
+- [适用于 IntelliJ 的 Azure 工具包]
+  - [用于 IntelliJ 的 Azure 工具包的新增功能]
+  - *安装用于 IntelliJ 的 Azure 工具包（本文）*
+  - [用于 IntelliJ 的 Azure 工具包的登录说明]
+  - [在 IntelliJ 中创建 Azure 的 Hello World Web 应用]
 
 有关将 Azure 与 Java 配合使用的详细信息，请参阅 [Azure Java 开发人员中心]。
 
 <!-- URL List -->
 
-[适用于 Eclipse 的 Azure 工具包]:./azure-toolkit-for-eclipse.md
-[Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij.md
-[安装 Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-installation.md
-[Installing the Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij-installation.md
-[Azure Toolkit for Eclipse 的新增功能]:./azure-toolkit-for-eclipse-whats-new.md
-[Azure Toolkit for IntelliJ 中的新增功能]:./azure-toolkit-for-intellij-whats-new.md
+[适用于 Eclipse 的 Azure 工具包]: ./azure-toolkit-for-eclipse.md
+[适用于 IntelliJ 的 Azure 工具包]: ./azure-toolkit-for-intellij.md
+[在 Eclipse 中创建 Azure 的 Hello World Web 应用]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[在 IntelliJ 中创建 Azure 的 Hello World Web 应用]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[安装 Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[用于 Eclipse 的 Azure 工具包的登录说明]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[用于 IntelliJ 的 Azure 工具包的登录说明]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[用于 Eclipse 的 Azure 工具包的新增功能]: ./azure-toolkit-for-eclipse-whats-new.md
+[用于 IntelliJ 的 Azure 工具包的新增功能]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java 开发人员中心]: /develop/java/
 
@@ -115,3 +119,4 @@ ms.lasthandoff: 06/21/2017
 [05]: ./media/azure-toolkit-for-intellij-installation/05-restart-intellij.png
 [06]: ./media/azure-toolkit-for-intellij-installation/06-intellij-settings-dialog.png
 [07]: ./media/azure-toolkit-for-intellij-installation/07-restart-intellij.png
+

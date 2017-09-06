@@ -3,8 +3,8 @@ title: "使用 .NET 按需传送内容入门 | Microsoft Docs"
 description: "本教程引导你完成使用 Azure 媒体服务和 .NET 实施点播内容传送应用程序的步骤。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 07/16/2017
-ms.date: 08/07/2017
+origin.date: 07/31/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: ec1700e0d408f339922d0e97d66bc3a7495abdb8
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: 6ed6c904ed1eec005f21c188714086bdb977ef56
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/04/2017
 以下是完成本教程所需具备的条件：
 
 * 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。 
-* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[如何创建媒体服务帐户](./media-services-create-account.md)。
+* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * .NET Framework 4.0 或更高版本。
 * Visual Studio。
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 08/04/2017
 
 使用采用 .NET 的媒体服务时，必须将 **CloudMediaContext** 类用于大多数媒体服务编程任务：连接到媒体服务帐户；创建、更新、访问和删除以下对象：资产、资产文件、作业、访问策略、定位符等等。
 
-使用以下代码覆盖默认程序类。 该代码演示如何从 App.config 文件中读取连接值，以及如何创建 **CloudMediaContext** 对象以连接到媒体服务。 有关连接到媒体服务的详细信息，请参阅[使用 .NET 访问 Azure 媒体服务 API](./media-services-dotnet-get-started-with-aad.md)。
+使用以下代码覆盖默认程序类。 该代码演示如何从 App.config 文件中读取连接值，以及如何创建 **CloudMediaContext** 对象以连接到媒体服务。 有关详细信息，请参阅[连接到媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。
 
 请确保将文件名和路径更新为媒体文件所在位置。
 
@@ -95,28 +95,20 @@ ms.lasthandoff: 08/04/2017
             **Main** 函数调用会在本部分中进一步定义的方法。
 
 > [!NOTE]
->在添加所有函数的定义前，会一直收到编译错误。
+> 在添加所有函数的定义前，会一直收到编译错误。
 
-```
-class Program
-{
-    // Read values from the App.config file.
-    private static readonly string _AADTenantDomain =
-    private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
-
-    // Azure China uses a different API server and a different ACS Base Address from the Global.
-    private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
-    private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
-
+    class Program
+    {
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
         ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
-    private static CloudMediaContext _context = null;
-    private static Uri _apiServer = null;
+        private static CloudMediaContext _context = null;
 
-    static void Main(string[] args)
-    {
+        static void Main(string[] args)
+        {
         try
         {
             var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
@@ -125,12 +117,12 @@ class Program
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
             // Add calls to methods defined in this section.
-    // Make sure to update the file name and path to where you have your media file.
+            // Make sure to update the file name and path to where you have your media file.
             IAsset inputAsset =
-                UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
+            UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
             IAsset encodedAsset =
-                EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
+            EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
 
             PublishAssetGetURLs(encodedAsset);
         }
@@ -146,9 +138,8 @@ class Program
         {
             Console.ReadLine();
         }
+        }
     }
-}
-```
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>创建新资产并上传视频文件
 
@@ -171,25 +162,23 @@ class Program
 
 将以下方法添加到 Program 类。
 
-```
-static public IAsset UploadFile(string fileName, AssetCreationOptions options)
-{
-    IAsset inputAsset = _context.Assets.CreateFromFile(
-        fileName,
-        options,
-        (af, p) =>
-        {
-            Console.WriteLine("Uploading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
-        });
+    static public IAsset UploadFile(string fileName, AssetCreationOptions options)
+    {
+        IAsset inputAsset = _context.Assets.CreateFromFile(
+            fileName,
+            options,
+            (af, p) =>
+            {
+                Console.WriteLine("Uploading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
+            });
 
-    Console.WriteLine("Asset {0} created.", inputAsset.Id);
+        Console.WriteLine("Asset {0} created.", inputAsset.Id);
 
-    return inputAsset;
-}
-```
+        return inputAsset;
+    }
 
-##<a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>将源文件编码为一组自适应比特率 MP4 文件
 
+## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>将源文件编码为一组自适应比特率 MP4 文件
 将资产引入媒体服务后，即可对媒体进行编码、传输复用、打水印等处理，并将其传送至客户端。 根据多个后台角色实例调度把那个运行这些活动，以确保较高的性能和可用性。 这些活动称为作业，每个作业由原子任务构成，这些原子任务在资产文件上完成具体的工作。
 
 如前所述，使用 Azure 媒体服务时最常见的方案之一是将自适应比特率流传送至客户端。 媒体服务可以将一组自适应比特率 MP4 文件动态打包为以下其中一种格式：HTTP Live Streaming (HLS)、平滑流式处理和 MPEG DASH。
@@ -202,42 +191,41 @@ static public IAsset UploadFile(string fileName, AssetCreationOptions options)
 
 将以下方法添加到 Program 类。
 
-```
-static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
-{
+    static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
+    {
 
-    // Prepare a job with a single task to transcode the specified asset
-    // into a multi-bitrate asset.
+        // Prepare a job with a single task to transcode the specified asset
+        // into a multi-bitrate asset.
 
-    IJob job = _context.Jobs.CreateWithSingleTask(
-        "Media Encoder Standard",
-        "Adaptive Streaming",
-        asset,
-        "Adaptive Bitrate MP4",
-        options);
+        IJob job = _context.Jobs.CreateWithSingleTask(
+            "Media Encoder Standard",
+            "Adaptive Streaming",
+            asset,
+            "Adaptive Bitrate MP4",
+            options);
 
-    Console.WriteLine("Submitting transcoding job...");
+        Console.WriteLine("Submitting transcoding job...");
 
-    // Submit the job and wait until it is completed.
-    job.Submit();
 
-    job = job.StartExecutionProgressTask(
-        j =>
-        {
-            Console.WriteLine("Job state: {0}", j.State);
-            Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
-        },
-        CancellationToken.None).Result;
+        // Submit the job and wait until it is completed.
+        job.Submit();
 
-    Console.WriteLine("Transcoding job finished.");
+        job = job.StartExecutionProgressTask(
+            j =>
+            {
+                Console.WriteLine("Job state: {0}", j.State);
+                Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
+            },
+            CancellationToken.None).Result;
 
-    IAsset outputAsset = job.OutputMediaAssets[0];
+        Console.WriteLine("Transcoding job finished.");
 
-    return outputAsset;
-}
-```
+        IAsset outputAsset = job.OutputMediaAssets[0];
 
-##<a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>发布资产并获取用于流式处理和渐进式下载的 URL
+        return outputAsset;
+    }
+
+## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>发布资产并获取用于流式处理和渐进式下载的 URL
 
 要流处理或下载资产，必须先创建定位符来“发布”资产。 定位符提供对资产中所含文件的访问权限。 媒体服务支持两种类型的定位符：用于流媒体（例如 MPEG DASH、HLS、或平滑流式处理）的 OnDemandOrigin 定位符，或是用于下载媒体文件的访问签名 (SAS) 定位符（有关 SAS 定位符的详细信息，请参阅[此](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/)博客）。
 
@@ -275,72 +263,72 @@ static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOpti
 
 将以下方法添加到 Program 类。
 
-```
-static public void PublishAssetGetURLs(IAsset asset)
-{
-    // Publish the output asset by creating an Origin locator for adaptive streaming,
-    // and a SAS locator for progressive download.
-
-    _context.Locators.Create(
-        LocatorType.OnDemandOrigin,
-        asset,
-        AccessPermissions.Read,
-        TimeSpan.FromDays(30));
-
-    _context.Locators.Create(
-        LocatorType.Sas,
-        asset,
-        AccessPermissions.Read,
-        TimeSpan.FromDays(30));
-
-    IEnumerable<IAssetFile> mp4AssetFiles = asset
-            .AssetFiles
-            .ToList()
-            .Where(af => af.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase));
-
-    // Get the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming,
-    // and the Progressive Download URL.
-    Uri smoothStreamingUri = asset.GetSmoothStreamingUri();
-    Uri hlsUri = asset.GetHlsUri();
-    Uri mpegDashUri = asset.GetMpegDashUri();
-
-    // Get the URls for progressive download for each MP4 file that was generated as a result
-    // of encoding.
-    List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
-
-    // Display  the streaming URLs.
-    Console.WriteLine("Use the following URLs for adaptive streaming: ");
-    Console.WriteLine(smoothStreamingUri);
-    Console.WriteLine(hlsUri);
-    Console.WriteLine(mpegDashUri);
-    Console.WriteLine();
-
-    // Display the URLs for progressive download.
-    Console.WriteLine("Use the following URLs for progressive download.");
-    mp4ProgressiveDownloadUris.ForEach(uri => Console.WriteLine(uri + "\n"));
-    Console.WriteLine();
-
-    // Download the output asset to a local folder.
-    string outputFolder = "job-output";
-    if (!Directory.Exists(outputFolder))
+    static public void PublishAssetGetURLs(IAsset asset)
     {
-        Directory.CreateDirectory(outputFolder);
+        // Publish the output asset by creating an Origin locator for adaptive streaming,
+        // and a SAS locator for progressive download.
+
+        _context.Locators.Create(
+            LocatorType.OnDemandOrigin,
+            asset,
+            AccessPermissions.Read,
+            TimeSpan.FromDays(30));
+
+        _context.Locators.Create(
+            LocatorType.Sas,
+            asset,
+            AccessPermissions.Read,
+            TimeSpan.FromDays(30));
+
+
+        IEnumerable<IAssetFile> mp4AssetFiles = asset
+                .AssetFiles
+                .ToList()
+                .Where(af => af.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase));
+
+        // Get the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming,
+        // and the Progressive Download URL.
+        Uri smoothStreamingUri = asset.GetSmoothStreamingUri();
+        Uri hlsUri = asset.GetHlsUri();
+        Uri mpegDashUri = asset.GetMpegDashUri();
+
+        // Get the URls for progressive download for each MP4 file that was generated as a result
+        // of encoding.
+        List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
+
+        // Display  the streaming URLs.
+        Console.WriteLine("Use the following URLs for adaptive streaming: ");
+        Console.WriteLine(smoothStreamingUri);
+        Console.WriteLine(hlsUri);
+        Console.WriteLine(mpegDashUri);
+        Console.WriteLine();
+
+        // Display the URLs for progressive download.
+        Console.WriteLine("Use the following URLs for progressive download.");
+        mp4ProgressiveDownloadUris.ForEach(uri => Console.WriteLine(uri + "\n"));
+        Console.WriteLine();
+
+        // Download the output asset to a local folder.
+        string outputFolder = "job-output";
+        if (!Directory.Exists(outputFolder))
+        {
+            Directory.CreateDirectory(outputFolder);
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("Downloading output asset files to a local folder...");
+        asset.DownloadToFolder(
+            outputFolder,
+            (af, p) =>
+            {
+                Console.WriteLine("Downloading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
+            });
+
+        Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
 
-    Console.WriteLine();
-    Console.WriteLine("Downloading output asset files to a local folder...");
-    asset.DownloadToFolder(
-        outputFolder,
-        (af, p) =>
-        {
-            Console.WriteLine("Downloading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
-        });
-
-    Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
-}
-```
-
 ## <a name="test-by-playing-your-content"></a>通过播放内容进行测试
+
 在执行上一部分中定义的程序后，控制台窗口中会显示如下所示的 URL。
 
 自适应流 URL：
@@ -383,15 +371,18 @@ https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b3
 https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 ```
 
-要流式传输视频，请将 URL 粘贴到 [Azure 媒体服务播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)的“URL”文本框中。
+要流式传输视频，请将 URL 粘贴到 [Azure 媒体服务播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)的 URL 文本框中。
 
 若要测试渐进式下载，请将 URL 粘贴到浏览器（例如 Internet Explorer、Chrome 或 Safari）中。
 
 有关详细信息，请参阅以下主题：
 
-- [使用现有播放器播放内容](./media-services-playback-content-with-existing-players.md)
-- [开发视频播放器应用程序](./media-services-develop-video-players.md)
-- [使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频](./media-services-embed-mpeg-dash-in-html5.md)
+- [使用现有播放器播放内容](media-services-playback-content-with-existing-players.md)
+- [开发视频播放器应用程序](media-services-develop-video-players.md)
+- [使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频](media-services-embed-mpeg-dash-in-html5.md)
+
+## <a name="download-sample"></a>下载示例
+下面的代码示例包含本教程中创建的代码：[示例](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)。
 
 <!-- Anchors. -->
 
@@ -399,4 +390,4 @@ https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b3
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.cn/
 
-<!--Update_Description: update word & code-->
+<!--Update_Description: update code to use AAD token instead of ACS-->

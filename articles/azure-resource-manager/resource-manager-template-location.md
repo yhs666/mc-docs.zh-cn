@@ -4,7 +4,7 @@ description: "演示如何在 Azure Resource Manager 模板中设置资源位置
 services: azure-resource-manager
 documentationcenter: 
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 ms.assetid: 
 ms.service: azure-resource-manager
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/03/2017
-ms.date: 03/03/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: d21aa820f36227143e3dea7742acfca1f58c823f
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 25644dd40109c6b273a57d56719b661bc0df2408
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="set-resource-location-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 模板中设置资源位置
 部署模板时，必须提供每个资源的位置。 本主题说明如何确定可用于每种资源类型的订阅的位置。
 
 ## <a name="determine-supported-locations"></a>确定支持的位置
 
-有关每种资源类型支持的位置的完整列表，请参阅 [可用产品（按区域）](https://azure.microsoft.com/regions/services/)。 但是，你的订阅可能无法访问该列表中的所有位置。 若要查看可用于订阅的位置的自定义列表，请使用 Azure PowerShell 或 Azure CLI。 
+有关每种资源类型支持的位置的完整列表，请参阅 [可用产品（按区域）](https://www.azure.cn/support/service-dashboard)。 但是，订阅可能无法访问该列表中的所有位置。 若要查看可用于订阅的位置的自定义列表，请使用 Azure PowerShell 或 Azure CLI。 
 
 以下示例使用 PowerShell 获取 `Microsoft.Web\sites` 资源类型的位置：
 
@@ -100,4 +100,6 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 有关如何创建模板的建议，请参阅[创建 Azure Resource Manager 模板的最佳实践](./resource-manager-template-best-practices.md)。
+* 有关如何创建模板的建议，请参阅[创建 Azure Resource Manager 模板的最佳实践](resource-manager-template-best-practices.md)。
+
+<!--Update_Description: update link-->

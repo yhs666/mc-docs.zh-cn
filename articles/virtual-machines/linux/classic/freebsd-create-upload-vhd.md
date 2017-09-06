@@ -3,8 +3,8 @@ title: "创建和上传 FreeBSD VM 映像 | Azure"
 description: "了解如何创建和上传包含 FreeBSD 操作系统的虚拟硬盘 (VHD) 以创建 Azure 虚拟机。"
 services: virtual-machines-linux
 documentationcenter: 
-author: KylieLiang
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: 1ef30f32-61c1-4ba8-9542-801d7b18e9bf
@@ -14,28 +14,26 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/08/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 4e5acd300bb27cec3cd428637926799c17fa8ae0
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: bff4ca4024f25144fc299d3dc582d6cfcc9065c1
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/29/2017
 ---
-# 创建 FreeBSD VHD 并将其上传到 Azure
-<a id="create-and-upload-a-freebsd-vhd-to-azure" class="xliff"></a>
+# <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>创建 FreeBSD VHD 并将其上传到 Azure
 本文说明如何创建和上传包含 FreeBSD 操作系统的虚拟硬盘 (VHD)。 将其上传后，可以使用它作为自己的映像在 Azure 中创建虚拟机 (VM)。
 
 > [!IMPORTANT] 
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关使用 Resource Manager 模型上传 VHD 的信息，请参阅[此文](../upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 本文假定你拥有以下项目：
 
 * **Azure 订阅** - 如果没有帐户，只需几分钟即可创建一个。 了解如何[创建试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。  
 * **Azure PowerShell 工具** - 必须安装 Azure PowerShell 模块并将其配置为使用你的 Azure 订阅。 若要下载该模块，请参阅 [Azure 下载](/downloads/)。 可在此处获取介绍如何安装和配置该模块的教程。 使用 [Azure 下载](/downloads/) cmdlet 上传 VHD。
-* **安装在 .vhd 文件中的 FreeBSD 操作系统** - 必须将受支持的 FreeBSD 操作系统安装到虚拟硬盘中。 可使用多个工具创建 .vhd 文件。 例如，可使用虚拟化解决方案（如 Hyper-V）创建 .vhd 文件并安装操作系统。 有关如何安装和使用 Hyper-V 的说明，请参阅[安装 Hyper-V 和创建虚拟机](http://technet.microsoft.com/library/hh846766.aspx)。
+* **安装在 .vhd 文件中的 FreeBSD 操作系统** - 必须将受支持的 FreeBSD 操作系统安装到虚拟硬盘中。 可使用多个工具创建 .vhd 文件。 例如，可使用 Hyper-V 等虚拟化解决方案创建 .vhd 文件并安装操作系统。 有关如何安装和使用 Hyper-V 的说明，请参阅[安装 Hyper-V 和创建虚拟机](http://technet.microsoft.com/library/hh846766.aspx)。
 
 > [!NOTE]
 > Azure 不支持更新的 VHDX 格式。 可使用 Hyper-V 管理器或 [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx) cmdlet 将磁盘转换为 VHD 格式。 此外，MSDN 上还有[有关如何将 FreeBSD 与 Hyper-V 配合使用的教程](http://blogs.msdn.com/b/kylie/archive/2014/12/25/running-freebsd-on-hyper-v.aspx)。
@@ -44,8 +42,7 @@ ms.lasthandoff: 06/23/2017
 
 此任务包括以下五个步骤：
 
-## 步骤 1：准备要上传的映像
-<a id="step-1-prepare-the-image-for-upload" class="xliff"></a>
+## <a name="step-1-prepare-the-image-for-upload"></a>步骤 1：准备要上传的映像
 在安装了 FreeBSD 操作系统的虚拟机中，完成以下过程：
 
 1. 启用 DHCP。
@@ -54,7 +51,7 @@ ms.lasthandoff: 06/23/2017
         # service netif restart
 2. 启用 SSH。
 
-    请确保已安装 SSH 服务器且已将其配置为在引导时启动。 从 FreeBSD 光盘安装后，将默认启用它。 
+    请确保已安装 SSH 服务器且将其配置为在引导时启动。 从 FreeBSD 光盘安装后，将默认启用它。 
 3. 设置串行控制台。
 
         # echo 'console="comconsole vidconsole"' >> /boot/loader.conf
@@ -118,8 +115,7 @@ ms.lasthandoff: 06/23/2017
 
     现在可以关闭 VM。
 
-## 步骤 2：在 Azure 中创建存储帐户
-<a id="step-2-create-a-storage-account-in-azure" class="xliff"></a>
+## <a name="step-2-create-a-storage-account-in-azure"></a>步骤 2：在 Azure 中创建存储帐户
 需要在 Azure 中具有存储帐户才能上传 .vhd 文件，以便可以使用它创建虚拟机。 可使用 Azure 经典管理门户创建存储帐户。
 
 1. 登录 [Azure 经典管理门户](https://manage.windowsazure.cn)。
@@ -131,7 +127,7 @@ ms.lasthandoff: 06/23/2017
 
    * 在“URL”字段中，键入要在存储帐户 URL 中使用的子域名称。 该条目可能包含 3 到 24 个数字和小写字母。 此名称将成为用于对订阅的 Azure Blob 存储、Azure 队列存储或 Azure 表存储资源进行寻址的 URL 中的主机名。
    * 在“位置/地缘组”下拉菜单中，选择存储帐户的**位置或地缘组**。 使用地缘组可将云服务和存储放在同一数据中心。
-   * 在“复制”字段中，决定是否要对存储帐户使用**异地冗余**复制。 默认情况下启用异地复制。 此选项会将你的数据免费复制到辅助位置，以便在主位置发生严重故障时将你的存储故障转移到该位置。 将自动分配辅助位置，并且无法对其进行更改。 如果你因法律要求或组织策略需要更好地控制基于云的存储的位置，可以关闭异地复制。 但是，请注意，如果稍后你打开异地复制，则将现有数据复制到辅助位置时将向你收取一次性数据传输费用。 不具有异地复制的存储服务将以优惠价提供。 有关管理存储帐户的异地复制的更多详细信息，可在此处找到：[Azure 存储复制](../../../storage/storage-redundancy.md)。
+   * 在“复制”字段中，决定是否要对存储帐户使用**异地冗余**复制。 默认情况下启用异地复制。 此选项会将数据免费复制到辅助位置，以便在主位置发生严重故障时会存储故障转移到该位置。 将自动分配辅助位置，并且无法对其进行更改。 如果你因法律要求或组织策略需要更好地控制基于云的存储的位置，可以关闭异地复制。 但是，请注意，如果稍后你打开异地复制，则将现有数据复制到辅助位置时将向你收取一次性数据传输费用。 不具有异地复制的存储服务将以优惠价提供。 有关管理存储帐户的异地复制的更多详细信息，可在此处找到：[Azure 存储复制](../../../storage/common/storage-redundancy.md)。
 
      ![输入存储帐户详细信息](./media/freebsd-create-upload-vhd/Storage-create-account.png)
 5. 选择“创建存储帐户”。 该帐户现在将出现在“存储”下。
@@ -152,12 +148,10 @@ ms.lasthandoff: 06/23/2017
    >
    >
 
-## 步骤 3：准备连接到 Azure
-<a id="step-3-prepare-the-connection-to-azure" class="xliff"></a>
+## <a name="step-3-prepare-the-connection-to-azure"></a>步骤 3：准备连接到 Azure
 首先需要在计算机和 Azure 订阅之间建立一个安全连接，然后才能上传 .vhd 文件。 可以使用 Azure Active Directory (Azure AD) 方法或证书方法来执行此操作。
 
-### 使用 Azure AD 方法上传 .vhd 文件
-<a id="use-the-azure-ad-method-to-upload-a-vhd-file" class="xliff"></a>
+### <a name="use-the-azure-ad-method-to-upload-a-vhd-file"></a>使用 Azure AD 方法上传 .vhd 文件
 1. 打开 Azure PowerShell 控制台。
 2. 输入以下命令：  
     `Add-AzureAccount -Environment AzureChinaCloud`
@@ -167,22 +161,20 @@ ms.lasthandoff: 06/23/2017
     ![PowerShell 窗口](./media/freebsd-create-upload-vhd/add_azureaccount.png)
 3. Azure 将对凭据信息进行身份验证和保存。 然后它将关闭该窗口。
 
-### 使用证书方法上传 .vhd 文件
-<a id="use-the-certificate-method-to-upload-a-vhd-file" class="xliff"></a>
+### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>使用证书方法上传 .vhd 文件
 1. 打开 Azure PowerShell 控制台。
-2. 键入： `Get-AzurePublishSettingsFile`。
+2. 键入：`Get-AzurePublishSettingsFile`。
 3. 此时将打开一个浏览器窗口，并提示下载 .publishsettings 文件。 此文件包含 Azure 订阅的信息和证书。
 
     ![浏览器下载页面](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 4. 保存 .publishsettings 文件。
-5. 键入： `Import-AzurePublishSettingsFile <PathToFile>`，其中 `<PathToFile>` 是 .publishsettings 文件的完整路径。
+5. 键入：`Import-AzurePublishSettingsFile <PathToFile>`，其中 `<PathToFile>` 是 .publishsettings 文件的完整路径。
 
-   有关详细信息，请参阅 [Azure cmdlet 入门](http://msdn.microsoft.com/library/azure/jj554332.aspx)。
+   有关详细信息，请参阅 [Azure cmdlet 入门](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)。
 
    有关安装和配置 PowerShell 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
-## 步骤 4：上传 .vhd 文件
-<a id="step-4-upload-the-vhd-file" class="xliff"></a>
+## <a name="step-4-upload-the-vhd-file"></a>步骤 4：上传 .vhd 文件
 在上传 .vhd 文件时，可以将该文件放置在 Blob 存储中的任何位置。 以下是上传该文件时将使用的一些术语：
 
 * **BlobStorageURL** 是在步骤 2 中创建的存储帐户的 URL。
@@ -194,8 +186,7 @@ ms.lasthandoff: 06/23/2017
 
         Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
-## 步骤 5：使用上传的 .vhd 文件创建 VM
-<a id="step-5-create-a-vm-with-the-uploaded-vhd-file" class="xliff"></a>
+## <a name="step-5-create-a-vm-with-the-uploaded-vhd-file"></a>步骤 5：使用上传的 .vhd 文件创建 VM
 上传 .vhd 文件后，可以将其作为映像添加到与订阅关联的自定义映像列表中，并使用此自定义映像创建虚拟机。
 
 1. 从你在上一步中使用的 Azure PowerShell 窗口中，键入：
@@ -216,3 +207,4 @@ ms.lasthandoff: 06/23/2017
 5. 完成预配后，你将看到 FreeBSD VM 在 Azure 中运行。
 
     ![azure 中的 FreeBSD 映像](./media/freebsd-create-upload-vhd/freebsdimageinazure.png)
+<!--Update_Description: update storage link-->

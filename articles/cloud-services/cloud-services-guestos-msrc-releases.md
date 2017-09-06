@@ -12,17 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 07/07/2017
+origin.date: 08/03/2017
 ms.author: v-yiso
-ms.date: 07/31/2017
-ms.openlocfilehash: e3a33690bf99b10fd5c3a4edf046ef2af13f227d
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/11/2017
+ms.openlocfilehash: 2dd902b093ed254f868a00068b7a91d2b9e119b4
+ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/01/2017
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
-下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 若要确定特定的更新是否适用于你使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
+下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
+
+## <a name="july-guest-os"></a>7 月来宾 OS
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| --- | --- | --- | --- | --- |
+| Rel 17-07 | [4025339] |Windows 10 更新 |5.9 |2017 年 7 月 11 日 |
+| Rel 17-07 | [4025337] |仅 Windows 安全性 |2.64 |2017 年 7 月 11 日 |
+| Rel 17-07 | [4025333] |仅 Windows 安全性 |4.44 |2017 年 7 月 11 日 |
+| Rel 17-07 | [4025343] |仅 Windows 安全性 |3.51 |2017 年 7 月 11 日 |
+| Rel 17-07 | [4025376] |闪烁 |3.51, 4.44, 5.9 |2017 年 7 月 11 日 |
+| Rel 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |2017 年 7 月 11 日 |
+| 不适用 | [4020322] |时区更新 |2.64, 3.51, 4.44 |2017 年 7 月 11 日 |
+| 不适用 | [4022719] |6 月非安全性汇总 |2.64 |2017 年 7 月 11 日 |
+| 不适用 | [4022724] |6 月非安全性汇总 |3.51 |2017 年 7 月 11 日 |
+| 不适用 | [4022726] |6 月非安全性汇总 |4.44 |2017 年 7 月 11 日 |
 
 ## <a name="june-guest-os"></a>6 月来宾 OS
 | 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
@@ -485,7 +499,7 @@ ms.lasthandoff: 07/28/2017
 ## <a name="december-guest-os"></a>12 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
-| 不适用 |[3013776] |当你使用域帐户来启动应用程序时，系统将会冻结 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
+| 不适用 |[3013776] |使用域帐户来启动应用程序时，系统会冻结 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 | 不适用 |[3013043] |在包含多个 NUMA 节点的基于 Windows 的计算机上，文件系统数据损坏 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 | 不适用 |[3012712] |扩展差异 VHD 时，新数据块无法正常初始化 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 | 不适用 |[3004905] |适用于文件系统大于 2 TB 的 Linux 虚拟机的 Windows Hyper-V 功能改进 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
@@ -497,6 +511,16 @@ ms.lasthandoff: 07/28/2017
 | 不适用 |[2999802] |在 Windows 中打印时，虚线变成实线 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 | 不适用 |[2896881] |在 Windows 中登录期间使用 AddPrinterConnection VBScript 命令映射用户的打印机时，登录时间过长 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 
+[4025339]: http://support.microsoft.com/zh-cn/kb/4025337
+[4025337]: http://support.microsoft.com/zh-cn/kb/4025333
+[4025333]: http://support.microsoft.com/zh-cn/kb/4025343
+[4025343]: http://support.microsoft.com/zh-cn/kb/4025376
+[4025252]: http://support.microsoft.com/zh-cn/kb/4025252
+[4025376]: http://support.microsoft.com/zh-cn/kb/4025376
+[4020322]: http://support.microsoft.com/zh-cn/kb/4020322
+[4022719]: http://support.microsoft.com/zh-cn/kb/4022719
+[4022724]: http://support.microsoft.com/zh-cn/kb/4022724
+[4022726]: http://support.microsoft.com/zh-cn/kb/4022726
 [4022722]: http://support.microsoft.com/zh-cn/kb/4022722
 [4022717]: http://support.microsoft.com/zh-cn/kb/4022717
 [4022718]: http://support.microsoft.com/zh-cn/kb/4022718

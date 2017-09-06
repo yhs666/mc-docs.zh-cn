@@ -1,10 +1,10 @@
 ---
 title: "如何创建媒体处理器 | Microsoft Docs"
-description: "了解如何创建一个媒体处理器组件用来为 Azure 媒体服务编码、转换格式、加密或解密媒体内容。"
+description: "了解如何创建一个媒体处理器组件来为 Azure 媒体服务编码、转换格式、加密或解密媒体内容。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
 ms.service: media-services
@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2017
-ms.author: v-johch
-ms.openlocfilehash: 2d92239e857dc10cd00f91924e1a7e5f4b98fd87
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+origin.date: 08/10/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: bd63a7021fb582d67ec2317c836b8144bc23867d
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>如何：获取媒体处理器实例
+# <a name="how-to-get-a-media-processor-instance"></a>如何获取媒体处理器实例
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
@@ -30,27 +31,22 @@ ms.lasthandoff: 08/04/2017
 ## <a name="overview"></a>概述
 在媒体服务中，媒体处理器是完成特定处理任务（例如，对媒体内容进行编码、格式转换、加密或解密）的组件。 通常，创建一个任务以便对媒体内容进行编码、加密或格式转换时，就需要创建一个媒体处理器。
 
-下表提供了每个可用媒体处理器的名称和说明。
+## <a name="azure-media-processors"></a>Azure 媒体处理器 
 
-| 媒体处理器名称 | 说明 | 更多信息 |
-| --- | --- | --- |
-| Media Encoder Standard |为按需编码提供标准功能。 |[简要介绍并比较 Azure 点播媒体编码器](media-services-encode-asset.md) |
-| Azure Media Indexer |使媒体文件和内容可搜索，以及生成隐藏字幕跟踪和关键字。 |[Azure Media Indexer](media-services-index-content.md) |
-| Azure Media Hyperlapse（预览） |使你能够通过视频防抖动功能消除视频中的“晃动”。 也可使将内容制作为可用剪辑的速度加快。 |[Azure Media Hyperlapse](media-services-hyperlapse-content.md) |
-| Azure Media Encoder |已放弃 | |
-| 存储解密 |已放弃 | |
-| Azure 媒体包装器 |已放弃 | |
-| Azure 媒体加密器 |已放弃 | |
+以下主题提供媒体处理器列表：
 
-## <a name="get-mediaprocessor"></a>获取 MediaProcessor
-> [!NOTE]
-> 使用媒体服务 REST API 时，需注意以下事项：
-> 
-> 访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
-> 
-> 必须按[使用 REST 访问 Azure 媒体服务 API](./media-services-rest-connect-with-aad.md) 中所述对 URI 执行后续调用。 
-> 
-> 
+* [编码媒体处理器](scenarios-and-availability.md#encoding-media-processors)
+* [分析媒体处理器](scenarios-and-availability.md#analytics-media-processors)
+
+>[!NOTE]
+>访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
+
+## <a name="connect-to-media-services"></a>连接到媒体服务
+
+若要了解如何连接到 AMS API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
+
+
+## <a name="get-a-media-processor"></a>获取媒体处理器
 
 以下 REST 调用演示了如何按名称获取媒体处理器实例（在本例中为 **Media Encoder Standard**）。 
 
@@ -90,4 +86,4 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 ## <a name="next-steps"></a>后续步骤
 了解如何获取媒体处理器实例后，请转到[如何对资产进行编码](media-services-rest-get-started.md)主题，其中说明了如何使用 Media Encoder Standard 对资产进行编码。
-
+<!--Update_Description: add section "Azure media processors" and "Connect to Media Services"-->

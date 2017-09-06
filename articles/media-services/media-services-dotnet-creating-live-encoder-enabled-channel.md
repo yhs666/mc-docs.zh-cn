@@ -1,10 +1,10 @@
 ---
 title: "如何使用 Azure 媒体服务实时传送视频流以通过 .NET 创建多比特率流 | Azure"
-description: "本教程将指导你使用 .NET SDK 完成创建通道的步骤，该通道接收单比特率实时流，并将其编码为多比特率流。"
+description: "本教程指导使用 .NET SDK 完成创建通道的步骤，该通道接收单比特率实时流，并将其编码为多比特率流。"
 services: media-services
 documentationcenter: 
-author: anilmur
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services
@@ -12,39 +12,35 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 01/05/2017
-ms.date: 02/24/2017
-ms.author: v-johch
-ms.openlocfilehash: d0e7b388afd8a30e82c9dd6ff231b73069710194
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 07/17/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 31b8009a6d4c2e4733cc2a5a4cff4f2c8eca3212
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/31/2017
 ---
-#<a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>如何使用 Azure 媒体服务执行实时流式处理以通过 .NET 创建多比特率流
-
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>如何使用 Azure 媒体服务执行实时流式处理以通过 .NET 创建多比特率流
 > [!div class="op_single_selector"]
->- [门户](./media-services-portal-creating-live-encoder-enabled-channel.md)
->- [.NET](./media-services-dotnet-creating-live-encoder-enabled-channel.md)
->- [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
-
+> * [门户](media-services-portal-creating-live-encoder-enabled-channel.md)
+> * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 >[!NOTE]
-> 若要完成本教程，你需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。 
+> 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。 
 
-##<a name="overview"></a>概述
+## <a name="overview"></a>概述
+本教程介绍了创建**通道**的步骤，该通道接收单比特率实时流，并将其编码为多比特率流。
 
-本教程将指导你完成创建 **通道** 的步骤，该通道接收单比特率实时流，并将其编码为多比特率流。
+有关为实时编码启用的通道的更多相关概念信息，请参阅[使用 Azure 媒体服务实时传送视频流以创建多比特率流](media-services-manage-live-encoder-enabled-channels.md)。
 
-有关为实时编码启用的通道的更多相关概念信息，请参阅[使用 Azure 媒体服务实时传送视频流以创建多比特率流](./media-services-manage-live-encoder-enabled-channels.md)。
-
-##<a name="common-live-streaming-scenario"></a>常见的实时流方案
-
+## <a name="common-live-streaming-scenario"></a>常见的实时流方案
 以下步骤介绍创建常见的实时流式处理应用程序时涉及的任务。
 
 >[!NOTE]
-> 目前，实时事件的最大建议持续时间为 8 小时。 如果你需要运行一个需要更长时间的通道，请通过 Azure.cn 联系 amslived。
+> 目前，实时事件的最大建议持续时间为 8 小时。 如果需要运行一个需要更长时间的通道，请通过 Azure.cn 联系 amslived。
 
-1. 将视频摄像机连接到计算机。 启动并配置可以通过以下协议之一输出单比特率流的本地实时编码器：RTMP、平滑流式处理或 RTP (MPEG-TS)。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](https://azure.microsoft.com/zh-cn/blog/azure-media-services-rtmp-support-and-live-encoders/)。
+1. 将视频摄像机连接到计算机。 启动并配置可以通过以下协议之一输出单比特率流的本地实时编码器：RTMP、平滑流式处理或 RTP (MPEG-TS)。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](http://go.microsoft.com/fwlink/?LinkId=532824)。
 
     此步骤也可以在创建通道后执行。
 
@@ -58,11 +54,11 @@ ms.lasthandoff: 06/21/2017
     使用此 URL 来验证通道是否正常接收实时流。
 
 5. 创建资源。
-6. 如果你想让资源在播放期间进行动态加密，请执行以下操作：
+6. 如果想让资源在播放期间进行动态加密，请执行以下操作：
 7. 创建内容密钥。
 8. 配置内容密钥授权策略。
 9. 配置资产传送策略（由动态打包和动态加密使用）。
-10. 创建节目并指定使用你创建的资产。
+10. 创建节目并指定使用创建的资产。
 11. 通过创建按需定位器发布与节目关联的资产。
 
     >[!NOTE]
@@ -74,100 +70,73 @@ ms.lasthandoff: 06/21/2017
 15. 删除节目（并选择性地删除资产）。
 
 ## <a name="what-youll-learn"></a>学习内容
-本主题演示如何使用适用于 .NET 的媒体服务 SDK 对通道和节目执行不同操作。 由于许多操作都长时间运行，因此将使用管理长时间运行的操作的 .NET API。
+本主题演示如何使用适用于 .NET 的媒体服务 SDK 对通道和节目执行不同操作。 由于许多操作都长时间运行，因此使用管理长时间运行的操作的 .NET API。
 
 本主题显示如何执行以下任务：
 
-1. 创建并启动通道。 将使用长时间运行的 API。
+1. 创建并启动通道。 会使用长时间运行的 API。
 2. 获取频道引入（输入）终结点。 应将此终结点提供给可以发送单比特率实时流的编码器。
 3. 获取预览终结点。 此终结点用于预览流。
-4. 创建将用于存储你的内容的资源。 还应配置资源传送策略，如此示例中所示。
-5. 创建节目并指定使用你先前创建的资源。 启动该节目。 将使用长时间运行的 API。
+4. 创建用于存储你的内容的资源。 还应配置资源传送策略，如此示例中所示。
+5. 创建节目并指定使用先前创建的资源。 启动该节目。 会使用长时间运行的 API。
 6. 为资源创建定位器，以便发布内容，并可以将内容流式传输到客户端。
-7. 显示和隐藏清单。 启动和停止广告。 将使用长时间运行的 API。
+7. 显示和隐藏清单。 启动和停止广告。 会使用长时间运行的 API。
 8. 清理通道及所有关联的资源。
 
 ## <a name="prerequisites"></a>先决条件
 以下是完成本教程所需具备的条件。
 
-- 若要完成本教程，你需要一个 Azure 帐户。 
+* 一个 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。 获取可用来尝试付费版 Azure 服务的信用额度。 即使在信用额度用完后，也可保留帐户并使用免费的 Azure 服务和功能，例如 Azure 应用服务中的 Web 应用功能。
+* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[创建帐户](media-services-portal-create-account.md)。
+* Visual Studio 2010 SP1（Professional、Premium、Ultimate 或 Express）或更高版本。
+* 必须使用适用于 .NET 的媒体服务 SDK 版本 3.2.0.0 或更高版本。
+* 可以发送单比特率实时流的摄像头和编码器。
 
-    如果你没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。 获取可用来尝试付费版 Azure 服务的信用额度。 即使在信用额度用完后，也可保留帐户并使用免费的 Azure 服务和功能，例如 Azure 应用服务中的 Web 应用功能。
-- 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[创建帐户](./media-services-create-account.md)。
-- Visual Studio 2010 SP1（Professional、Premium、Ultimate 或 Express）或更高版本。
-- 必须使用适用于 .NET 的媒体服务 SDK 版本 3.2.0.0 或更高版本。
-- 可以发送单比特率实时流的摄像头和编码器。
-
-##<a name="considerations"></a>注意事项
-
-* 目前，实时事件的最大建议持续时间为 8 小时。 如果你需要运行一个需要更长时间的通道，请通过 Azure.cn 联系 amslived。
+## <a name="considerations"></a>注意事项
+* 目前，实时事件的最大建议持续时间为 8 小时。 如果需要运行一个需要更长时间的通道，请通过 Azure.cn 联系 amslived。
 * 不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies)主题。
 
-##<a name="download-sample"></a>下载示例
+## <a name="download-sample"></a>下载示例
 
-从 [此处](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/)获取并运行示例。
+可以从[此处](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/)下载本主题所述的示例。
 
-##<a name="set-up-for-development-with-media-services-sdk-for-net"></a>使用用于 .NET 的媒体服务 SDK 进行开发设置
+## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>使用用于 .NET 的媒体服务 SDK 进行开发设置
 
-1. 使用 Visual Studio 创建控制台应用程序。
-2. 使用媒体服务 NuGet 包将适用于 .NET 的媒体服务 SDK 添加到控制台应用程序。
+设置开发环境，并在 app.config 文件中填充连接信息，如[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述。 
 
-##<a name="connect-to-media-services"></a>连接到媒体服务
-最佳做法是，应使用 app.config 文件来存储媒体服务名称和帐户密钥。
+## <a name="code-example"></a>代码示例
 
->[!NOTE]
->若要查找 Name 和 Key 值，请转到 Azure 门户，然后选择帐户。 “设置”窗口在右侧显示。 在“设置”窗口中，选择“密钥”。 单击每个文本框旁边的图标将值复制到系统剪贴板中。
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.IO;
+    using System.Linq;
+    using System.Net;
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 
-在 app.config 文件中添加 appSettings 部分，并设置媒体服务帐户名称和帐户密钥的值。
-
-```
-<?xml version="1.0"?>
-<configuration>
-  <appSettings>
-      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
-      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
-  </appSettings>
-</configuration>
-```
-
-##<a name="code-example"></a>代码示例
-
-```
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-using System.Linq;
-using System.Net;
-using Microsoft.WindowsAzure.MediaServices.Client;
-using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
-
-namespace EncodeLiveStreamWithAmsClear
-{
-    class Program
+    namespace EncodeLiveStreamWithAmsClear
     {
+        class Program
+        {
         private const string ChannelName = "channel001";
         private const string AssetlName = "asset001";
         private const string ProgramlName = "program001";
 
         // Read values from the App.config file.
-        private static readonly string _mediaServicesAccountName =
-            ConfigurationManager.AppSettings["MediaServicesAccountName"];
-        private static readonly string _mediaServicesAccountKey =
-            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+        private static readonly string _AADTenantDomain =
+        ConfigurationManager.AppSettings["AADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
-        // Field for service context.
         private static CloudMediaContext _context = null;
-        private static MediaServicesCredentials _cachedCredentials = null;
 
         static void Main(string[] args)
         {
-            // Create and cache the Media Services credentials in a static class variable.
-            _cachedCredentials = new MediaServicesCredentials(
-                            _mediaServicesAccountName,
-                            _mediaServicesAccountKey);
-            // Used the cached credentials to create CloudMediaContext.
-            _context = new CloudMediaContext(_cachedCredentials);
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
             IChannel channel = CreateAndStartChannel();
 
@@ -187,9 +156,9 @@ namespace EncodeLiveStreamWithAmsClear
             // The thumbnail is exposed via the same end-point as the Channel Preview URL.
             string thumbnailUri = new UriBuilder
             {
-                Scheme = Uri.UriSchemeHttps,
-                Host = channel.Preview.Endpoints.FirstOrDefault().Url.Host,
-                Path = "thumbnails/input.jpg"
+            Scheme = Uri.UriSchemeHttps,
+            Host = channel.Preview.Endpoints.FirstOrDefault().Url.Host,
+            Path = "thumbnails/input.jpg"
             }.Uri.ToString();
 
             Console.WriteLine("Thumbain URL: {0}", thumbnailUri);
@@ -207,7 +176,6 @@ namespace EncodeLiveStreamWithAmsClear
 
             // Once you are done streaming, clean up your resources.
             Cleanup(channel);
-
         }
 
         public static IChannel CreateAndStartChannel()
@@ -218,11 +186,11 @@ namespace EncodeLiveStreamWithAmsClear
 
             ChannelCreationOptions options = new ChannelCreationOptions
             {
-                EncodingType = ChannelEncodingType.Standard,
-                Name = ChannelName,
-                Input = channelInput,
-                Preview = channePreview,
-                Encoding = channelEncoding
+            EncodingType = ChannelEncodingType.Standard,
+            Name = ChannelName,
+            Input = channelInput,
+            Preview = channePreview,
+            Encoding = channelEncoding
             };
 
             Log("Creating channel");
@@ -246,19 +214,19 @@ namespace EncodeLiveStreamWithAmsClear
         {
             return new ChannelInput
             {
-                StreamingProtocol = StreamingProtocol.RTPMPEG2TS,
-                AccessControl = new ChannelAccessControl
+            StreamingProtocol = StreamingProtocol.RTPMPEG2TS,
+            AccessControl = new ChannelAccessControl
+            {
+                IPAllowList = new List<IPRange>
                 {
-                    IPAllowList = new List<IPRange>
+                    new IPRange
                     {
-                        new IPRange
-                        {
-                            Name = "TestChannelInput001",
-                            Address = IPAddress.Parse("0.0.0.0"),
-                            SubnetPrefixLength = 0
-                        }
+                    Name = "TestChannelInput001",
+                    Address = IPAddress.Parse("0.0.0.0"),
+                    SubnetPrefixLength = 0
                     }
                 }
+            }
             };
         }
 
@@ -270,18 +238,18 @@ namespace EncodeLiveStreamWithAmsClear
         {
             return new ChannelPreview
             {
-                AccessControl = new ChannelAccessControl
+            AccessControl = new ChannelAccessControl
+            {
+                IPAllowList = new List<IPRange>
                 {
-                    IPAllowList = new List<IPRange>
+                    new IPRange
                     {
-                        new IPRange
-                        {
-                            Name = "TestChannelPreview001",
-                            Address = IPAddress.Parse("0.0.0.0"),
-                            SubnetPrefixLength = 0
-                        }
+                    Name = "TestChannelPreview001",
+                    Address = IPAddress.Parse("0.0.0.0"),
+                    SubnetPrefixLength = 0
                     }
                 }
+            }
             };
         }
 
@@ -293,11 +261,11 @@ namespace EncodeLiveStreamWithAmsClear
         {
             return new ChannelEncoding
             {
-                SystemPreset = "Default720p",
-                IgnoreCea708ClosedCaptions = false,
-                AdMarkerSource = AdMarkerSource.Api,
-                // You can only set audio if streaming protocol is set to StreamingProtocol.RTPMPEG2TS.
-                AudioStreams = new List<AudioStream> { new AudioStream { Index = 103, Language = "eng" } }.AsReadOnly()
+            SystemPreset = "Default720p",
+            IgnoreCea708ClosedCaptions = false,
+            AdMarkerSource = AdMarkerSource.Api,
+            // You can only set audio if streaming protocol is set to StreamingProtocol.RTPMPEG2TS.
+            AudioStreams = new List<AudioStream> { new AudioStream { Index = 103, Language = "eng" } }.AsReadOnly()
             };
         }
 
@@ -310,9 +278,9 @@ namespace EncodeLiveStreamWithAmsClear
             IAsset asset = _context.Assets.Create(AssetlName, AssetCreationOptions.None);
 
             IAssetDeliveryPolicy policy =
-                _context.AssetDeliveryPolicies.Create("Clear Policy",
-                AssetDeliveryPolicyType.NoDynamicEncryption,
-                AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
+            _context.AssetDeliveryPolicies.Create("Clear Policy",
+            AssetDeliveryPolicyType.NoDynamicEncryption,
+            AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
 
             asset.DeliveryPolicies.Add(policy);
 
@@ -346,18 +314,18 @@ namespace EncodeLiveStreamWithAmsClear
         /// <returns></returns>
         public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
         {
-             // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
+            // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
             var locator = _context.Locators.CreateLocator
+            (
+                LocatorType.OnDemandOrigin,
+                asset,
+                _context.AccessPolicies.Create
                 (
-                    LocatorType.OnDemandOrigin,
-                    asset,
-                    _context.AccessPolicies.Create
-                        (
-                            "Live Stream Policy",
-                            ArchiveWindowLength,
-                            AccessPermissions.Read
-                        )
-                );
+                    "Live Stream Policy",
+                    ArchiveWindowLength,
+                    AccessPermissions.Read
+                )
+            );
 
             return locator;
         }
@@ -410,35 +378,35 @@ namespace EncodeLiveStreamWithAmsClear
             IAsset asset;
             if (channel != null)
             {
-                foreach (var program in channel.Programs)
+            foreach (var program in channel.Programs)
+            {
+                asset = _context.Assets.Where(se => se.Id == program.AssetId)
+                            .FirstOrDefault();
+
+                Log("Stopping program");
+                var programStopOperation = program.SendStopOperation();
+                TrackOperation(programStopOperation, "Program stop");
+
+                program.Delete();
+
+                if (asset != null)
                 {
-                    asset = _context.Assets.Where(se => se.Id == program.AssetId)
-                                            .FirstOrDefault();
+                Log("Deleting locators");
+                foreach (var l in asset.Locators)
+                    l.Delete();
 
-                    Log("Stopping program");
-                    var programStopOperation = program.SendStopOperation();
-                    TrackOperation(programStopOperation, "Program stop");
-
-                    program.Delete();
-
-                    if (asset != null)
-                    {
-                        Log("Deleting locators");
-                        foreach (var l in asset.Locators)
-                            l.Delete();
-
-                        Log("Deleting asset");
-                        asset.Delete();
-                    }
+                Log("Deleting asset");
+                asset.Delete();
                 }
+            }
 
-                Log("Stopping channel");
-                var channelStopOperation = channel.SendStopOperation();
-                TrackOperation(channelStopOperation, "Channel stop");
+            Log("Stopping channel");
+            var channelStopOperation = channel.SendStopOperation();
+            TrackOperation(channelStopOperation, "Channel stop");
 
-                Log("Deleting channel");
-                var channelDeleteOperation = channel.SendDeleteOperation();
-                TrackOperation(channelDeleteOperation, "Channel delete");
+            Log("Deleting channel");
+            var channelDeleteOperation = channel.SendDeleteOperation();
+            TrackOperation(channelDeleteOperation, "Channel delete");
             }
         }
 
@@ -456,9 +424,9 @@ namespace EncodeLiveStreamWithAmsClear
             Log("starting to track ", null, operation.Id);
             while (isCompleted == false)
             {
-                operation = _context.Operations.GetOperation(operation.Id);
-                isCompleted = IsCompleted(operation, out entityId);
-                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
+            operation = _context.Operations.GetOperation(operation.Id);
+            isCompleted = IsCompleted(operation, out entityId);
+            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
             }
             // If we got here, the operation succeeded.
             Log(description + " in completed", operation.TargetEntityId, operation.Id);
@@ -477,27 +445,26 @@ namespace EncodeLiveStreamWithAmsClear
         /// <returns>Returns false if the operation is still in progress; otherwise, true.</returns> 
         private static bool IsCompleted(IOperation operation, out string entityId)
         {
-
             bool completed = false;
 
             entityId = null;
 
             switch (operation.State)
             {
-                case OperationState.Failed:
-                    // Handle the failure. 
-                    // For example, throw an exception. 
-                    // Use the following information in the exception: operationId, operation.ErrorMessage.
-                    Log("operation failed", operation.TargetEntityId, operation.Id);
-                    break;
-                case OperationState.Succeeded:
-                    completed = true;
-                    entityId = operation.TargetEntityId;
-                    break;
-                case OperationState.InProgress:
-                    completed = false;
-                    Log("operation in progress", operation.TargetEntityId, operation.Id);
-                    break;
+            case OperationState.Failed:
+                // Handle the failure. 
+                // For example, throw an exception. 
+                // Use the following information in the exception: operationId, operation.ErrorMessage.
+                Log("operation failed", operation.TargetEntityId, operation.Id);
+                break;
+            case OperationState.Succeeded:
+                completed = true;
+                entityId = operation.TargetEntityId;
+                break;
+            case OperationState.InProgress:
+                completed = false;
+                Log("operation in progress", operation.TargetEntityId, operation.Id);
+                break;
             }
             return completed;
         }
@@ -505,12 +472,12 @@ namespace EncodeLiveStreamWithAmsClear
         private static void Log(string action, string entityId = null, string operationId = null)
         {
             Console.WriteLine(
-                "{0,-21}{1,-51}{2,-51}{3,-51}",
-                DateTime.Now.ToString("yyyy'-'MM'-'dd HH':'mm':'ss"),
-                action,
-                entityId ?? string.Empty,
-                operationId ?? string.Empty);
+            "{0,-21}{1,-51}{2,-51}{3,-51}",
+            DateTime.Now.ToString("yyyy'-'MM'-'dd HH':'mm':'ss"),
+            action,
+            entityId ?? string.Empty,
+            operationId ?? string.Empty);
+        }
         }
     }
-}
-```
+<!--Update_Description: update code to use AAD token instead of ACS-->

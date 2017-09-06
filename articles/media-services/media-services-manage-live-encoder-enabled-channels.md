@@ -3,8 +3,8 @@ title: "使用 Azure 媒体服务执行实时流式处理以创建多比特率�
 description: "本主题介绍如何设置通道，以从本地编码器接收单比特率实时流，并使用媒体服务执行实时编码以将其转换为自适应比特率流。 然后，该流可使用以下自适应流式传输协议之一，通过一个或多个流式传输终结点传送给客户端播放应用程序：HLS、平滑流、MPEG DASH。"
 services: media-services
 documentationcenter: 
-author: anilmur
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2017
-ms.date: 02/24/2017
-ms.author: v-johch
-ms.openlocfilehash: 5a26ff156e0c3b0030316277248d63552a07542b
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+origin.date: 08/09/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: fb2c2e2f27a32152d0308c2955bd1c89320db9f4
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒体服务执行实时流式处理以创建多比特率流
 
@@ -27,24 +27,24 @@ ms.lasthandoff: 08/04/2017
 
 在 Azure 媒体服务 (AMS) 中，频道表示用于处理实时传送视频流内容的管道。 **通道** 采用以下两种方式之一接收实时输入流：
 
-- 本地实时编码器（采用以下格式之一：RTP (MPEG-TS)、RTMP 或平滑流式处理（分片 MP4））将单比特率流发送至能够使用媒体服务执行实时编码的频道。 然后，频道将对传入的单比特率流执行实时编码，使之转换为多比特率（自适应）视频流。 收到请求时，媒体服务会将该流传送给客户。
-
-- 本地实时编码器将多比特率 RTMP 或平滑流式处理（分片 MP4）发送到无法通过 AMS 进行实时编码的频道。 引入流会通过 “通道”，但不会进行任何进一步处理。 这种方法称为 **直通**。 可以使用以下输出多比特率平滑流式处理的实时编码器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco、Elemental。 以下实时编码器输出 RTMP：Adobe Flash Media Live Encoder (FMLE)、Telestream Wirecast、Haivision、Teradek 和 Tricaster 编码器。  实时编码器也可将单比特率流发送到并未启用实时编码的通道，但不建议这样做。 收到请求时，媒体服务会将该流传送给客户。
-
+* 本地实时编码器（采用以下格式之一：RTP (MPEG-TS)、RTMP 或平滑流式处理（分片 MP4））将单比特率流发送至能够使用媒体服务执行实时编码的频道。 然后，频道将对传入的单比特率流执行实时编码，使之转换为多比特率（自适应）视频流。 收到请求时，媒体服务会将该流传送给客户。
+* 本地实时编码器将多比特率 RTMP 或平滑流式处理（分片 MP4）发送到无法通过 AMS 进行实时编码的频道。 引入流会通过 “通道”，但不会进行任何进一步处理。 这种方法称为 **直通**。 可以使用以下输出多比特率平滑流式处理的实时编码器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco、Elemental。 以下实时编码器输出 RTMP：Adobe Flash Media Live Encoder (FMLE)、Telestream Wirecast、Haivision、Teradek 和 Tricaster 编码器。  实时编码器也可将单比特率流发送到并未启用实时编码的通道，但不建议这样做。 收到请求时，媒体服务会将该流传送给客户。
+  
     >[!NOTE]
     > 实时传送视频流时，使用直通方法是最经济的。
 
 从媒体服务2.10 发行版开始，创建通道时，可以指定希望通道接收输入流的方式，以及是否希望通道对流执行实时编码。 可以使用两个选项：
 
-- 无 - 如果计划使用输出多比特率流（直通流）的本地实时编码器，请指定此值。 在这种情况下，传入流将传递到输出，而不会进行任何编码。 这是 2.10 发行版以前的通道行为。  有关使用此类型频道的详细信息，请参阅[使用创建多比特率流的本地编码器执行实时传送视频流](./media-services-live-streaming-with-onprem-encoders.md)。
+* **无** - 如果计划使用输出多比特率流（直通流）的本地实时编码器，请指定此值。 在这种情况下，传入流将传递到输出，而不会进行任何编码。 这是 2.10 发行版以前的通道行为。  有关使用此类型频道的详细信息，请参阅[使用创建多比特率流的本地编码器执行实时传送视频流](media-services-live-streaming-with-onprem-encoders.md)。
+* 
+            **标准** - 如果打算使用媒体服务将单比特率实时流编码为多比特率流，请选择此值。 请注意，实时编码会影响计费，应记住，将实时编码通道保持为“正在运行”状态会产生费用。  建议在实时流式处理事件完成之后立即停止正在运行的通道，以避免产生额外的小时费用。
 
-- 
-            **标准** - 如果你打算使用媒体服务将单比特率实时流编码为多比特率流，请选择此值。 请注意，实时编码会影响计费，应记住，将实时编码通道保持为“正在运行”状态会产生费用。  建议在实时流式处理事件完成之后立即停止正在运行的通道，以避免产生额外的小时费用。
-
->[!NOTE]
->本主题讨论为执行实时编码（标准编码类型）启用的频道的属性。 若要了解如何使用无法执行实时编码的频道，请参阅[使用创建多比特率流的本地编码器执行实时传送视频流](./media-services-live-streaming-with-onprem-encoders.md)。
->
->请务必仔细阅读[注意事项](./media-services-manage-live-encoder-enabled-channels.md#Considerations)部分。
+> [!NOTE]
+> 本主题讨论为执行实时编码（标准编码类型）启用的频道的属性。 若要了解如何使用无法执行实时编码的频道，请参阅[使用创建多比特率流的本地编码器执行实时传送视频流](media-services-live-streaming-with-onprem-encoders.md)。
+> 
+> 请务必仔细阅读 [注意事项](media-services-manage-live-encoder-enabled-channels.md#Considerations) 部分。
+> 
+> 
 
 ## <a name="billing-implications"></a>计费影响
 
@@ -66,12 +66,12 @@ ms.lasthandoff: 08/04/2017
 
 下表显示通道状态如何映射到计费模式。
 
-通道状态|门户 UI 指示器|是否计费？
----|---|---
-正在启动|正在启动|否（暂时状态）
-正在运行|准备就绪（没有正在运行的节目）<br/>或<br/>流式处理（至少有一个正在运行的节目）|是
-正在停止|正在停止|否（暂时状态）
-已停止|已停止|否
+| 通道状态 | 门户 UI 指示器 | 是否计费？ |
+| --- | --- | --- |
+| 正在启动 |正在启动 |否（暂时状态） |
+| 正在运行 |准备就绪（没有正在运行的节目）<br/>或<br/>流式处理（至少有一个正在运行的节目） |是 |
+| 正在停止 |正在停止 |否（暂时状态） |
+| 已停止 |已停止 |否 |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>自动关闭未使用的通道
 
@@ -155,19 +155,9 @@ ms.lasthandoff: 08/04/2017
   * MPEG Audio（层 II 和层 III）
     * Mono、Stereo
 * 推荐的广播编码器包括：
-  * Ateme AM2102
-  * Ericsson AVP2000
-  * eVertz 3480
-  * Ericsson RX8200
+  
   * Imagine Communications Selenio ENC 1
   * Imagine Communications Selenio ENC 2
-  * AdTec EN-30
-  * AdTec EN-91P
-  * AdTec EN-100
-  * Harmonic ProStream 1000
-  * Thor H-2 4HD-EM
-  * eVertz 7880 SLKE
-  * Cisco Spinnaker
   * Elemental Live
 
 #### <a id="single_bitrate_RTMP"></a>单比特率 RTMP
@@ -189,7 +179,6 @@ ms.lasthandoff: 08/04/2017
 * 推荐的编码器包括：
 * Telestream Wirecast
 * Flash 媒体实时编码器
-* Tricaster
 
 #### <a name="single-bitrate-fragmented-mp4-smooth-streaming"></a>单比特率分片 MP4（平滑流式处理）
 
@@ -199,7 +188,7 @@ ms.lasthandoff: 08/04/2017
 
 注意事项：
 
-这同样适用于[单比特率 RTMP](./media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP)。
+这同样适用于[单比特率 RTMP](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP)。
 
 #### <a name="other-considerations"></a>其他注意事项
 
@@ -241,8 +230,10 @@ ms.lasthandoff: 08/04/2017
 
 本部分介绍当频道的“编码类型”设为“标准”时，如何调整频道内的实时编码器的设置。
 
->[!NOTE]
->在 Azure 中输入多个语言轨迹和执行实时编码时，多语言输入仅支持 RTP。 使用 MPEG-2 TS over RTP 最多可以定义 8 个音频流。 当前不支持使用 RTMP 或平滑流引入多个音频轨迹。 使用[本地实时编码](./media-services-live-streaming-with-onprem-encoders.md)执行实时编码时，不存在这种限制，因为发送到 AMS 的任何数据都会通过频道，而不做进一步的处理。
+> [!NOTE]
+> 在 Azure 中输入多个语言轨迹和执行实时编码时，多语言输入仅支持 RTP。 使用 MPEG-2 TS over RTP 最多可以定义 8 个音频流。 当前不支持使用 RTMP 或平滑流引入多个音频轨迹。 使用[本地实时编码](media-services-live-streaming-with-onprem-encoders.md)执行实时编码时，不存在这种限制，因为发送到 AMS 的任何数据都会通过频道，而不做进一步的处理。
+> 
+> 
 
 ### <a name="ad-marker-source"></a>Ad 标记源
 
@@ -320,8 +311,7 @@ ms.lasthandoff: 08/04/2017
 商业广告的唯一 ID，下游应用程序将使用它来执行相应操作。 必须是一个正整数。 可以将此值设为任意随机正整数，或使用上游系统跟踪提示 ID。 通过 API 提交之前，请确保将任何 ID 规范化为正整数。
 
 ### <a name="show-slate"></a>显示静态图像
-
-可选。 指示实时编码器在商业广告期间切换到[默认盖板](./media-services-manage-live-encoder-enabled-channels.md#default_slate)图像并隐藏传入视频源。 插入静态图像期间音频也会静音。 默认值为 **false**。
+可选。 指示实时编码器在商业广告期间切换到[默认盖板](media-services-manage-live-encoder-enabled-channels.md#default_slate)图像并隐藏传入视频源。 插入静态图像期间音频也会静音。 默认值为 **false**。 
 
 所用图像将是在创建通道时通过默认静态图像资产 ID 属性指定的图像。 将对静态图像进行拉伸以适合显示图像大小。 
 
@@ -401,38 +391,37 @@ ms.lasthandoff: 08/04/2017
 
 ## <a id="Considerations"></a>注意事项
 
-- 当某个编码类型为**标准**的通道出现输入源/贡献源丢失的情况时，该通道会采取相应的补偿措施，将源视频/音频替换为表示错误的静态图像和静音。 该通道会持续发出静态图像，直到输入/贡献源恢复。 我们建议不要让实时通道处于此类状态的时间超过 2 小时。 如果超出该限制，该通道无法保证输入重新连接时的行为，也无法保证其响应重置命令时的行为。 这种情况下必须停止通道并将其删除，并创建一个新的。
-- 通道或其关联的节目正在运行时，无法更改输入协议。 如果需要不同的协议，应当针对每个输入协议创建单独的通道。
-- 每次重新配置实时编码器后，请对通道调用 **重置** 方法。 重置通道之前，必须停止节目。 重置通道后，重新启动节目。
-- 只有当通道处于“正在运行”状态且通道中的所有节目都已停止时才能停止通道。
-- 默认情况下，只能向媒体服务帐户添加 5 个通道。 这是所有新帐户的软配额。 有关详细信息，请参阅[配额和限制](./media-services-quotas-and-limitations.md)。
-- 通道或其关联的节目正在运行时，无法更改输入协议。 如果需要不同的协议，应当针对每个输入协议创建单独的通道。
-- 仅当通道处于“正在运行”  状态时才会收取费用。 有关详细信息，请参阅[此](./media-services-manage-live-encoder-enabled-channels.md#states)部分。
-- 目前，实时事件的最大建议持续时间为 8 小时。 
-- 确保使要从中流式传输内容的流式处理终结点处于“正在运行”状态。
-- 在 Azure 中输入多个语言轨迹和执行实时编码时，多语言输入仅支持 RTP。 使用 MPEG-2 TS over RTP 最多可以定义 8 个音频流。 当前不支持使用 RTMP 或平滑流引入多个音频轨迹。 使用[本地实时编码](./media-services-live-streaming-with-onprem-encoders.md)执行实时编码时，不存在这种限制，因为发送到 AMS 的任何数据都会通过频道，而不做进一步的处理。
-- 编码预设使用“最大帧速率”30 fps 的思路。 因此，如果输入为 60fps/59.97i，则输入帧修剪/反交错为 30/29.97 fps。 如果输入为 50fps/50i，则输入帧将修剪/反交错为 25 fps。 如果输入为 25 fps，则输出将保持为 25 fps。
-- 完成后请不要忘记关闭通道。 否则会继续计费。
+* 当某个编码类型为**标准**的通道出现输入源/贡献源丢失的情况时，该通道会采取相应的补偿措施，将源视频/音频替换为表示错误的静态图像和静音。 该通道会持续发出静态图像，直到输入/贡献源恢复。 我们建议不要让实时通道处于此类状态的时间超过 2 小时。 如果超出该限制，该通道无法保证输入重新连接时的行为，也无法保证其响应重置命令时的行为。 这种情况下必须停止通道并将其删除，并创建一个新的。
+* 通道或其关联的节目正在运行时，无法更改输入协议。 如果需要不同的协议，应当针对每个输入协议创建单独的通道。
+* 每次重新配置实时编码器后，请对通道调用 **重置** 方法。 重置通道之前，必须停止节目。 重置通道后，重新启动节目。
+* 只有当通道处于“正在运行”状态且通道中的所有节目都已停止时才能停止通道。
+* 默认情况下，只能向媒体服务帐户添加 5 个通道。 这是所有新帐户的软配额。 有关详细信息，请参阅[配额和限制](media-services-quotas-and-limitations.md)。
+* 通道或其关联的节目正在运行时，无法更改输入协议。 如果需要不同的协议，应当针对每个输入协议创建单独的通道。
+* 仅当通道处于“正在运行”  状态时才会收取费用。 有关详细信息，请参阅[此](media-services-manage-live-encoder-enabled-channels.md#states)部分。
+* 目前，实时事件的最大建议持续时间为 8 小时。 
+* 确保使要从中流式传输内容的流式处理终结点处于“正在运行”状态。
+* 在 Azure 中输入多个语言轨迹和执行实时编码时，多语言输入仅支持 RTP。 使用 MPEG-2 TS over RTP 最多可以定义 8 个音频流。 当前不支持使用 RTMP 或平滑流引入多个音频轨迹。 使用[本地实时编码](media-services-live-streaming-with-onprem-encoders.md)执行实时编码时，不存在这种限制，因为发送到 AMS 的任何数据都会通过频道，而不做进一步的处理。
+* 编码预设使用“最大帧速率”30 fps 的思路。 因此，如果输入为 60fps/59.97i，则输入帧修剪/反交错为 30/29.97 fps。 如果输入为 50fps/50i，则输入帧将修剪/反交错为 25 fps。 如果输入为 25 fps，则输出将保持为 25 fps。
+* 完成后请不要忘记关闭通道。 否则会继续计费。
 
 ## <a name="known-issues"></a>已知问题
-
-- 通道启动时间已改善为平均 2 分钟，但有时因为需求提高，可能仍然需要长达 20 分钟以上的时间。
-- RTP 支持迎合专业的广播装置。 请查看 [此](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) 博客中有关 RTP 的说明。
-- 盖板图像应符合[此处](./media-services-manage-live-encoder-enabled-channels.md#default_slate)所述的限制。 如果想要尝试创建默认静态图像大于 1920x1080 的通道，最终请求会出错。
-- 再次强调，完成流式处理后请不要忘记关闭通道。 否则会继续计费。
+* 通道启动时间已改善为平均 2 分钟，但有时因为需求提高，可能仍然需要长达 20 分钟以上的时间。
+* RTP 支持迎合专业的广播装置。 请查看 [此](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) 博客中有关 RTP 的说明。
+* 盖板图像应符合[此处](media-services-manage-live-encoder-enabled-channels.md#default_slate)所述的限制。 如果想要尝试创建默认静态图像大于 1920x1080 的通道，最终请求会出错。
+* 再次强调，完成流式处理后请不要忘记关闭通道。 否则会继续计费。
 
 ## <a name="related-topics"></a>相关主题
+[使用 Azure 媒体服务传送实时传送视频流事件](media-services-overview.md)
 
-[使用 Azure 媒体服务传送实时传送视频流事件](./media-services-overview.md)
+[创建频道，通过门户执行从单比特率到自适应比特率流的实时编码](media-services-portal-creating-live-encoder-enabled-channel.md)
 
-[创建频道，通过门户执行从单比特率到自适应比特率流的实时编码](./media-services-portal-creating-live-encoder-enabled-channel.md)
-
-[创建频道，通过 NET SDK 执行从单比特率到自适应比特率流的实时编码](./media-services-dotnet-creating-live-encoder-enabled-channel.md)
+[创建频道，通过 NET SDK 执行从单比特率到自适应比特率流的实时编码](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 [Manage channels with REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
+ 
+[媒体服务概念](media-services-concepts.md)
 
-[媒体服务概念](./media-services-concepts.md)
-
-[Azure 媒体服务分片 MP4 实时引入规范](./media-services-fmp4-live-ingest-overview.md)
+[Azure 媒体服务分片 MP4 实时引入规范](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
+<!--Update_Description: remove several recommended encoder-->

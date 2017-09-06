@@ -2,35 +2,44 @@
 title: "如何使用 REST API 检查作业进度 | Azure"
 description: "了解如何跟踪作业进度。"
 services: media-services
-documentationCenter: 
-authors: Juliako
-manager: erikre
+documentationcenter: 
+author: hayley244
+manager: digimobile
 editor: 
+ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: v-johch
-ms.openlocfilehash: e238ccd0bca430b8fd03f99198ac0dcf888b36ef
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 08/10/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: b16edf9969f20284facffb71d1d4bcad0782dbd5
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/31/2017
 ---
-#<a name="how-to-check-job-progress"></a>如何：检查作业进度
-
+# <a name="how-to-check-job-progress"></a>如何：检查作业进度
 > [!div class="op_single_selector"]
->- [门户](./media-services-portal-check-job-progress.md)
->- [.NET](./media-services-check-job-progress.md)
->- [REST](./media-services-rest-check-job-progress.md)
+> * [门户](media-services-portal-check-job-progress.md)
+> * [.NET](media-services-check-job-progress.md)
+> * [REST](media-services-rest-check-job-progress.md)
+> 
+> 
 
-当你运行作业时，通常需要采用某种方式来跟踪作业进度。 你可以使用作业的 State 属性来查看该作业的状态。 有关 State 属性的详细信息，请参阅 [作业实体属性](https://msdn.microsoft.com/zh-cn/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties)。
+运行作业时，通常需要采用某种方式跟踪作业进度。 可以使用作业的 State 属性来查看该作业的状态。 有关 State 属性的详细信息，请参阅 [作业实体属性](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties)。
 
-请求：
+## <a name="connect-to-media-services"></a>连接到媒体服务
 
+若要了解如何连接到 AMS API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
+
+
+## <a name="check-job-progress"></a>检查作业进度
 ```
+Request:
+
 GET https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs()?$filter=Id%20eq%20'nb%3Ajid%3AUUID%3Af3c43f94-327f-2347-90bb-3bf79f8559f1'&$top=1 HTTP/1.1
 DataServiceVersion: 1.0;NetFx
 MaxDataServiceVersion: 3.0;NetFx
@@ -58,3 +67,8 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 
 {"odata.metadata":"https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Jobs","value":[{"Id":"nb:jid:UUID:f3c43f94-327f-2347-90bb-3bf79f8559f1","Name":"Encoding BigBuckBunny into to H264 Adaptive Bitrate MP4 Set 720p","Created":"2015-02-11T01:46:08.897","LastModified":"2015-02-11T01:46:08.897","EndTime":null,"Priority":0,"RunningDuration":0.0,"StartTime":"2015-02-11T01:46:16.58","State":2,"TemplateId":null,"JobNotificationSubscriptions":[]}]}
 ```
+
+## <a name="see-also"></a>另请参阅
+
+[媒体服务操作 REST API 概述](media-services-rest-how-to-use.md)
+<!--Update_Description: update to use AAD token to connect media service-->

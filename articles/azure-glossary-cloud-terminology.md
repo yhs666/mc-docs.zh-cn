@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/23/2017
-ms.date: 08/01/2017
+origin.date: 08/16/2017
+ms.date: 08/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: da53c09965027fbfa21a0376bd1189cc16605a63
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 0524de90a5ed6e3aef4118ae654a6b205b560d7d
+ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/30/2017
 ---
 # <a name="azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Azure 词汇表：Azure 平台上的云术语字典
 
@@ -30,8 +30,8 @@ Azure 词汇表是适用于 Azure 平台的简短云术语字典。 另请参阅
 - [云计算术语](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - 常规行业云术语。
 
 ## <a name="account"></a>帐户
-工作或学校帐户，或者个人 Microsoft 帐户，可用于访问和管理 Azure 订阅。  
-请参阅 [Azure 订阅与 Azure Active Directory 的关联方式](active-directory/active-directory-how-subscriptions-associated-directory.md)
+用于访问和管理 Azure 订阅的帐户。 它通常称为 Azure 帐户，尽管帐户可以是以下任何一个：现有的工作、学校或个人 Microsoft 帐户，或 Office 365 用户名和密码。 注册[试用版](https://www.azure.cn/pricing/1rmb-trial)时，还可以创建一个帐户来管理 Azure 订阅。  
+请参阅[可用于登录的帐户](active-directory/active-directory-how-subscriptions-associated-directory.md#accounts-that-you-can-use-to-sign-in)。
 
 ## <a name="api-app"></a>API 应用
 又叫[应用服务应用](#app-service-app)。
@@ -110,11 +110,11 @@ Resource Manager 中的容器，用于保存应用程序的相关资源。 资�
 请参阅[服务级别协议](https://www.azure.cn/support/legal/sla/)
 
 ## <a name="sas"></a>共享访问签名 (SAS)
-使用该签名能够在不公开帐户密钥的情况下，授予对资源的有限访问权限。 例如，[Azure 存储使用 SAS](storage/storage-dotnet-shared-access-signature-part-1.md) 授予客户端对 Blob 等对象的访问权限。 [IoT 中心使用 SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) 授予设备发送遥测数据的权限。
+使用该签名能够在不公开帐户密钥的情况下，授予对资源的有限访问权限。 例如，[Azure 存储使用 SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) 授予客户端对 Blob 等对象的访问权限。 [IoT 中心使用 SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) 授予设备发送遥测数据的权限。
 
 ## <a name="storage-account"></a>存储帐户
 该帐户可授予对 Azure 存储中的 Azure Blob、队列、表和文件服务的访问权限。 存储帐户名称定义 Azure 存储数据对象的唯一命名空间。  
-请参阅[关于 Azure 存储帐户](storage/storage-create-storage-account.md)
+请参阅[关于 Azure 存储帐户](storage/common/storage-create-storage-account.md)
 
 ## <a name="subscription"></a>订阅
 客户与 Microsoft 之间的协议，可让客户获取 Azure 服务。 订阅的定价和相关条款由为订阅选择的产品/服务控制。

@@ -3,8 +3,8 @@ title: "如何使用 .NET 通过本地编码器执行实时传送视频流 | Azu
 description: "本主题演示如何使用 .NET 通过本地编码器执行实时编码。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
 ms.service: media-services
@@ -12,92 +12,80 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 08/07/2017
+origin.date: 07/18/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 97b19d6df4fa70fd4e2901b2ef7c7eeab0a00b94
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: 005783376ff7200844292b71a11b997643454404
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-net"></a>如何使用 .NET 通过本地编码器执行实时传送视频流
-
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>如何使用 .NET 通过本地编码器执行实时传送视频流
 > [!div class="op_single_selector"]
->- [.NET](./media-services-dotnet-live-encode-with-onpremises-encoders.md)
->- [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [门户](media-services-portal-live-passthrough-get-started.md)
+> * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> 
+> 
 
 本教程逐步演示如何使用 Azure 媒体服务 .NET SDK 创建为实现直通传送而配置的 **频道** 。 
 
 ## <a name="prerequisites"></a>先决条件
 以下是完成本教程所需具备的条件：
 
-- 一个 Azure 帐户。
-- 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](/documentation/articles/media-services-create-account/)。
-- 设置开发环境。 有关详细信息，请参阅[设置环境](./media-services-set-up-computer.md)。
-- 网络摄像机。 例如， [Telestream Wirecast 编码器](http://www.telestream.net/wirecast/overview.htm)。
+* 一个 Azure 帐户。
+* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](media-services-portal-create-account.md)。
+* 设置开发环境。 有关详细信息，请参阅[设置环境](media-services-set-up-computer.md)。
+* 网络摄像机。 例如， [Telestream Wirecast 编码器](http://www.telestream.net/wirecast/overview.htm)。
 
 建议阅读以下文章：
 
-- [Azure 媒体服务 RTMP 支持和实时编码器](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
+* [Azure 媒体服务 RTMP 支持和实时编码器](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [使用可创建多比特率流的本地编码器实时传送视频流](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>创建和配置 Visual Studio 项目
 
-1. 设置开发环境，并在 app.config 文件中填充连接信息，如[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述。 
-2. 创建新的文件夹（文件夹可以位于本地驱动器上的任何位置），然后复制需要编码和流式处理或渐进式下载的 .mp4 文件。 在此示例中，使用了“C:\VideoFiles”路径。
+设置开发环境，并在 app.config 文件中填充连接信息，如[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述。 
 
 ## <a name="example"></a>示例
 下面的代码示例演示如何完成以下任务：
 
-- 连接到媒体服务
-- 创建频道
-- 更新频道
-- 检索频道的输入终结点。 应向本地实时编码器提供输入终结点。 实时编码器将相机的信号转换为流，以便发送到通道的输入（插入）终结点。
-- 检索频道的预览终结点
-- 创建并启动节目
-- 创建访问该节目所需的定位符
-- 创建并启动 StreamingEndpoint
-- 更新流式处理终结点
-- 获取所有流式处理终结点的定位符
-- 关闭资源
+* 连接到媒体服务
+* 创建频道
+* 更新频道
+* 检索频道的输入终结点。 应向本地实时编码器提供输入终结点。 实时编码器将相机的信号转换为流，以便发送到通道的输入（插入）终结点。
+* 检索频道的预览终结点
+* 创建并启动节目
+* 创建访问该节目所需的定位符
+* 创建并启动 StreamingEndpoint
+* 更新流式处理终结点
+* 关闭资源
 
 >[!IMPORTANT]
 >确保要从中流式传输内容的流式处理终结点处于“正在运行”状态。 
-    
     
 >[!NOTE]
 >不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies)主题。
 
 有关如何配置实时编码器的信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)。
 
-```
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.WindowsAzure.MediaServices.Client;
-using Newtonsoft.Json.Linq;
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Linq;
+    using System.Net;
+    using System.Security.Cryptography;
+    using Microsoft.WindowsAzure.MediaServices.Client;
 
-namespace AMSLiveTest
-{
-    class Program
+    namespace AMSLiveTest
     {
+        class Program
+        {
         private const string StreamingEndpointName = "streamingendpoint001";
         private const string ChannelName = "channel001";
         private const string AssetlName = "asset001";
         private const string ProgramlName = "program001";
-
-        private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
-
-        // Azure China uses a different API server and a different ACS Base Address from the Global.
-        private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
-        private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
@@ -119,14 +107,13 @@ namespace AMSLiveTest
             // Set the Live Encoder to point to the channel's input endpoint:
             string ingestUrl = channel.Input.Endpoints.FirstOrDefault().Url.ToString();
 
-            // Use the previewEndpoint to preview and verify 
-            // that the input from the encoder is actually reaching the Channel. 
+            // Use the previewEndpoint to preview and verify
+            // that the input from the encoder is actually reaching the Channel.
             string previewEndpoint = channel.Preview.Endpoints.FirstOrDefault().Url.ToString();
 
             IProgram program = CreateAndStartProgram(channel);
             ILocator locator = CreateLocatorForAsset(program.Asset, program.ArchiveWindowLength);
-            IStreamingEndpoint streamingEndpoint = CreateAndStartStreamingEndpoint();
-            GetLocatorsInAllStreamingEndpoints(program.Asset);
+            IStreamingEndpoint streamingEndpoint = CreateAndStartStreamingEndpoint(false);
 
             // Once you are done streaming, clean up your resources.
             Cleanup(streamingEndpoint, channel);
@@ -137,12 +124,12 @@ namespace AMSLiveTest
             //If you want to change the Smooth fragments to HLS segment ratio, you would set the ChannelCreationOptions’s Output property.
 
             IChannel channel = _context.Channels.Create(
-                new ChannelCreationOptions
-                {
-                    Name = ChannelName,
-                    Input = CreateChannelInput(),
-                    Preview = CreateChannelPreview()
-                });
+            new ChannelCreationOptions
+            {
+            Name = ChannelName,
+            Input = CreateChannelInput(),
+            Preview = CreateChannelPreview()
+            });
 
             //Starting and stopping Channels can take some time to execute. To determine the state of operations after calling Start or Stop, query the IChannel.State .
 
@@ -155,21 +142,21 @@ namespace AMSLiveTest
         {
             return new ChannelInput
             {
-                StreamingProtocol = StreamingProtocol.RTMP,
-                AccessControl = new ChannelAccessControl
-                {
-                    IPAllowList = new List<IPRange>
+            StreamingProtocol = StreamingProtocol.RTMP,
+            AccessControl = new ChannelAccessControl
+            {
+                IPAllowList = new List<IPRange>
                     {
-                        new IPRange
-                        {
-                            Name = "TestChannelInput001",
-                            // Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
-                            // will allow access to IP addresses.
-                            Address = IPAddress.Parse("0.0.0.0"),
-                            SubnetPrefixLength = 0
-                        }
+                    new IPRange
+                    {
+                    Name = "TestChannelInput001",
+                    // Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
+                    // will allow access to IP addresses.
+                    Address = IPAddress.Parse("0.0.0.0"),
+                    SubnetPrefixLength = 0
                     }
                 }
+            }
             };
         }
 
@@ -177,42 +164,42 @@ namespace AMSLiveTest
         {
             return new ChannelPreview
             {
-                AccessControl = new ChannelAccessControl
+            AccessControl = new ChannelAccessControl
+            {
+                IPAllowList = new List<IPRange>
                 {
-                    IPAllowList = new List<IPRange>
+                    new IPRange
                     {
-                        new IPRange
-                        {
-                            Name = "TestChannelPreview001",
-                            // Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
-                            // will allow access to IP addresses.
-                            Address = IPAddress.Parse("0.0.0.0"),
-                            SubnetPrefixLength = 0
-                        }
+                    Name = "TestChannelPreview001",
+                    // Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
+                    // will allow access to IP addresses.
+                    Address = IPAddress.Parse("0.0.0.0"),
+                    SubnetPrefixLength = 0
                     }
                 }
+            }
             };
         }
 
         public static void UpdateCrossSiteAccessPoliciesForChannel(IChannel channel)
         {
             var clientPolicy =
-                @"<?xml version=""1.0"" encoding=""utf-8""?>
+            @"<?xml version=""1.0"" encoding=""utf-8""?>
             <access-policy>
                 <cross-domain-access>
-                    <policy>
-                        <allow-from http-request-headers=""*"" http-methods=""*"">
-                            <domain uri=""*""/>
-                        </allow-from>
-                        <grant-to>
-                            <resource path=""/"" include-subpaths=""true""/>
-                        </grant-to>
-                    </policy>
+                <policy>
+                    <allow-from http-request-headers=""*"" http-methods=""*"">
+                    <domain uri=""*""/>
+                    </allow-from>
+                    <grant-to>
+                       <resource path=""/"" include-subpaths=""true""/>
+                    </grant-to>
+                </policy>
                 </cross-domain-access>
             </access-policy>";
 
             var xdomainPolicy =
-                @"<?xml version=""1.0"" ?>
+            @"<?xml version=""1.0"" ?>
             <cross-domain-policy>
                 <allow-access-from domain=""*"" />
             </cross-domain-policy>";
@@ -240,22 +227,25 @@ namespace AMSLiveTest
             // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 
             var locator = _context.Locators.CreateLocator
+            (
+                LocatorType.OnDemandOrigin,
+                asset,
+                _context.AccessPolicies.Create
                 (
-                    LocatorType.OnDemandOrigin,
-                    asset,
-                    _context.AccessPolicies.Create
-                    (
-                        "Live Stream Policy",
-                        ArchiveWindowLength,
-                        AccessPermissions.Read
-                    )
-                );
+                "Live Stream Policy",
+                ArchiveWindowLength,
+                AccessPermissions.Read
+                )
+            );
 
             return locator;
         }
 
-        public static IStreamingEndpoint CreateAndStartStreamingEndpoint()
+        public static IStreamingEndpoint CreateAndStartStreamingEndpoint(bool createNew)
         {
+            IStreamingEndpoint streamingEndpoint = null;
+            if (createNew)
+            {
             var options = new StreamingEndpointCreationOptions
             {
                 Name = StreamingEndpointName,
@@ -264,7 +254,15 @@ namespace AMSLiveTest
                 CacheControl = GetCacheControl()
             };
 
-            IStreamingEndpoint streamingEndpoint = _context.StreamingEndpoints.Create(options);
+            streamingEndpoint = _context.StreamingEndpoints.Create(options);
+            }
+            else
+            {
+            streamingEndpoint = _context.StreamingEndpoints.FirstOrDefault();
+            }
+
+
+            if (streamingEndpoint.State == StreamingEndpointState.Stopped)
             streamingEndpoint.Start();
 
             return streamingEndpoint;
@@ -274,24 +272,24 @@ namespace AMSLiveTest
         {
             return new StreamingEndpointAccessControl
             {
-                IPAllowList = new List<IPRange>
+            IPAllowList = new List<IPRange>
                 {
-                    new IPRange
-                    {
-                        Name = "Allow all",
-                        Address = IPAddress.Parse("0.0.0.0"),
-                        SubnetPrefixLength = 0
-                    }
+                new IPRange
+                {
+                    Name = "Allow all",
+                    Address = IPAddress.Parse("0.0.0.0"),
+                    SubnetPrefixLength = 0
+                }
                 },
 
-                AkamaiSignatureHeaderAuthenticationKeyList = new List<AkamaiSignatureHeaderAuthenticationKey>
+            AkamaiSignatureHeaderAuthenticationKeyList = new List<AkamaiSignatureHeaderAuthenticationKey>
                 {
-                    new AkamaiSignatureHeaderAuthenticationKey
-                    {
-                        Identifier = "My key",
-                        Expiration = DateTime.UtcNow + TimeSpan.FromDays(365),
-                        Base64Key = Convert.ToBase64String(GenerateRandomBytes(16))
-                    }
+                new AkamaiSignatureHeaderAuthenticationKey
+                {
+                    Identifier = "My key",
+                    Expiration = DateTime.UtcNow + TimeSpan.FromDays(365),
+                    Base64Key = Convert.ToBase64String(GenerateRandomBytes(16))
+                }
                 }
             };
         }
@@ -301,7 +299,7 @@ namespace AMSLiveTest
             var bytes = new byte[length];
             using (var rng = new RNGCryptoServiceProvider())
             {
-                rng.GetBytes(bytes);
+            rng.GetBytes(bytes);
             }
 
             return bytes;
@@ -311,29 +309,29 @@ namespace AMSLiveTest
         {
             return new StreamingEndpointCacheControl
             {
-                MaxAge = TimeSpan.FromSeconds(1000)
+            MaxAge = TimeSpan.FromSeconds(1000)
             };
         }
 
         public static void UpdateCrossSiteAccessPoliciesForStreamingEndpoint(IStreamingEndpoint streamingEndpoint)
         {
             var clientPolicy =
-                @"<?xml version=""1.0"" encoding=""utf-8""?>
+            @"<?xml version=""1.0"" encoding=""utf-8""?>
             <access-policy>
                 <cross-domain-access>
-                    <policy>
-                        <allow-from http-request-headers=""*"" http-methods=""*"">
-                            <domain uri=""*""/>
-                        </allow-from>
-                        <grant-to>
-                            <resource path=""/"" include-subpaths=""true""/>
-                        </grant-to>
-                    </policy>
+                <policy>
+                    <allow-from http-request-headers=""*"" http-methods=""*"">
+                    <domain uri=""*""/>
+                    </allow-from>
+                    <grant-to>
+                       <resource path=""/"" include-subpaths=""true""/>
+                    </grant-to>
+                </policy>
                 </cross-domain-access>
             </access-policy>";
 
             var xdomainPolicy =
-                @"<?xml version=""1.0"" ?>
+            @"<?xml version=""1.0"" ?>
             <cross-domain-policy>
                 <allow-access-from domain=""*"" />
             </cross-domain-policy>";
@@ -344,30 +342,13 @@ namespace AMSLiveTest
             streamingEndpoint.Update();
         }
 
-        public static void GetLocatorsInAllStreamingEndpoints(IAsset asset)
-        {
-            var locators = asset.Locators.Where(l => l.Type == LocatorType.OnDemandOrigin);
-            var ismFile = asset.AssetFiles.AsEnumerable().FirstOrDefault(a => a.Name.EndsWith(".ism"));
-            var template = new UriTemplate("{contentAccessComponent}/{ismFileName}/manifest");
-            var urls = locators.SelectMany(l =>
-                        _context
-                            .StreamingEndpoints
-                            .AsEnumerable()
-                            .Where(se => se.State == StreamingEndpointState.Running)
-                            .Select(
-                                se =>
-                                    template.BindByPosition(new Uri("http://" + se.HostName),
-                                    l.ContentAccessComponent,
-                                        ismFile.Name)))
-                        .ToArray();
-
-        }
-
-        public static void Cleanup(IStreamingEndpoint streamingEndpoint, IChannel channel)
+        public static void Cleanup(IStreamingEndpoint streamingEndpoint,
+                        IChannel channel)
         {
             if (streamingEndpoint != null)
             {
-                streamingEndpoint.Stop();
+            streamingEndpoint.Stop();
+            if(streamingEndpoint.Name != "default")
                 streamingEndpoint.Delete();
             }
 
@@ -375,28 +356,29 @@ namespace AMSLiveTest
             if (channel != null)
             {
 
-                foreach (var program in channel.Programs)
+            foreach (var program in channel.Programs)
+            {
+                asset = _context.Assets.Where(se => se.Id == program.AssetId)
+                            .FirstOrDefault();
+
+                program.Stop();
+                program.Delete();
+
+                if (asset != null)
                 {
-                    asset = _context.Assets.Where(se => se.Id == program.AssetId).FirstOrDefault();
+                foreach (var l in asset.Locators)
+                    l.Delete();
 
-                    program.Stop();
-                    program.Delete();
-
-                    if (asset != null)
-                    {
-                        foreach (var l in asset.Locators)
-                            l.Delete();
-
-                        asset.Delete();
-                    }
+                asset.Delete();
                 }
+            }
 
-                channel.Stop();
-                channel.Delete();
+            channel.Stop();
+            channel.Delete();
             }
         }
+        }
     }
-}
-```
 
-<!--Update_Description: update word & code-->
+
+<!--Update_Description: update code to use AAD token instead of ACS-->

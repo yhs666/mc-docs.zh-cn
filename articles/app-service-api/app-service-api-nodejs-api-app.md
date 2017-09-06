@@ -1,5 +1,5 @@
 ---
-title: "Azure 应用服务中的 Node.js API 应用 | Azure"
+title: "Azure 应用服务中的 Node.js API 应用 | Microsoft Docs"
 description: "了解如何创建 Node.js RESTful API 并将其部署到 Azure 应用服务中的 API 应用。"
 services: app-service\api
 documentationcenter: node
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: get-started-article
 origin.date: 06/13/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
-ms.openlocfilehash: 71c85596defc63de0bca738ac5d2823c7fffd7c6
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.author: v-yiso
+ms.date: 09/11/2017
+ms.openlocfilehash: 8aaa10403da698c278e066845cf692fb10151212
+ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/01/2017
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>构建 Node.js RESTful API 并将它部署到 Azure 中的 API 应用
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-此快速入门教程演示如何使用 [Swagger](http://swagger.io/) 定义创建 [Express](http://expressjs.com/) 框架 Node.js REST API，并在 Azure 上将其部署为 [API 应用](app-service-api-apps-why-best-platform.md)。 使用命令行工具创建应用，使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 配置资源，并使用 Git 部署该应用。  完成后，即可获得一个在 Azure 上运行的有效示例 REST API。
+本快速入门介绍如何使用 [Swagger](http://swagger.io/) 定义创建以 Node.js [Express](http://expressjs.com/) 编写的 REST API，并在 Azure 上将其部署为 [API 应用](app-service-api-apps-why-best-platform.md)。 使用命令行工具创建应用，使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 配置资源，并使用 Git 部署该应用。  完成后，即可获得一个在 Azure 上运行的有效示例 REST API。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -136,6 +136,9 @@ Tell us a bit about your application
     var swaggerize = require('swaggerize-express');
     var swaggerUi = require('swaggerize-ui'); 
     var path = require('path');
+    var fs = require("fs");
+    
+    fs.existsSync = fs.existsSync || require('path').existsSync;
 
     var app = express();
 
@@ -292,4 +295,4 @@ az group delete --name myResourceGroup
 > [!div class="nextstepaction"]
 > [借助 CORS 从 JavaScript 客户端使用 API 应用](app-service-api-cors-consume-javascript.md)
 
-<!--Update_Description: add note about Azure CLI 2.0 version-->
+<!--Update_Description: update some code-->

@@ -1,64 +1,59 @@
 ---
-title: "如何创建媒体处理器 | Azure"
+title: "如何使用用于 .NET 的 Azure 媒体服务 SDK 创建媒体处理器 | Microsoft Docs"
 description: "了解如何创建一个媒体处理器组件来为 Azure 媒体服务编码、转换格式、加密或解密媒体内容。 代码示例用 C# 编写且使用适用于 .NET 的媒体服务 SDK。"
 services: media-services
-documentationCenter: 
-authors: juliako
-manager: erikre
+documentationcenter: 
+author: hayley244
+manager: digimobile
 editor: 
+ms.assetid: dbf9496f-c6f0-42a7-aa36-70f89dcb8ea2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: v-johch
-ms.openlocfilehash: 0b5fc3fc8784355a96fe920e3d0a7f9bf3ed04da
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+origin.date: 07/31/2017
+ms.date: 09/04/2017
+ms.author: juliako
+ms.openlocfilehash: 0bff049878395eb7e63544ba464579330f9f48e9
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
-#<a name="how-to-get-a-media-processor-instance"></a>如何：获取媒体处理器实例
-
+# <a name="how-to-get-a-media-processor-instance"></a>如何：获取媒体处理器实例
 > [!div class="op_single_selector"]
->- [.NET](./media-services-get-media-processor.md)
->- [REST](./media-services-rest-get-media-processor.md)
+> * [.NET](media-services-get-media-processor.md)
+> * [REST](media-services-rest-get-media-processor.md)
+> 
+> 
 
-##<a name="overview"></a>概述
-
+## <a name="overview"></a>概述
 在媒体服务中，媒体处理器是完成特定处理任务（例如，对媒体内容进行编码、格式转换、加密或解密）的组件。 通常，创建一个任务以便对媒体内容进行编码、加密或格式转换时，就需要创建一个媒体处理器。
 
-下表提供了每个可用媒体处理器的名称和说明。
+## <a name="azure-media-processors"></a>Azure 媒体处理器 
 
-媒体处理器名称|说明|更多信息
----|---|---
-Media Encoder Standard|为按需编码提供标准功能。 |[简要介绍并比较 Azure 点播媒体编码器](./media-services-encode-asset.md)
-媒体编码器高级工作流|允许使用媒体编码器高级工作流运行编码任务。|[简要介绍并比较 Azure 点播媒体编码器](./media-services-encode-asset.md)
-Azure Media Indexer| 使媒体文件和内容可搜索，以及生成隐藏字幕跟踪和关键字。|[Azure Media Indexer](./media-services-index-content.md)
-Azure Media Hyperlapse（预览）|使你能够通过视频防抖动功能消除视频中的“晃动”。 也可使将内容制作为可用剪辑的速度加快。|[Azure Media Hyperlapse](./media-services-hyperlapse-content.md)
-Azure Media Encoder|已过时
-存储解密| 已过时|
-Azure 媒体包装器|已过时|
-Azure 媒体加密器|已过时|
+以下主题提供媒体处理器列表：
 
-##<a name="get-media-processor"></a>获取媒体处理器
+* [编码媒体处理器](scenarios-and-availability.md#encoding-media-processors)
+* [分析媒体处理器](scenarios-and-availability.md#analytics-media-processors)
 
-以下方法演示了如何获取媒体处理器实例。 该代码示例假设使用名为“_context”的模块级变量来引用[使用 .NET 访问 Azure 媒体服务 API](./media-services-dotnet-get-started-with-aad.md) 部分中所述的服务器上下文。
+## <a name="get-media-processor"></a>获取媒体处理器
 
-```
-private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-{
-    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+以下方法演示了如何获取媒体处理器实例。 该代码示例假设使用名为“_context”的模块级变量来引用 [如何：以编程方式连接到媒体服务](media-services-use-aad-auth-to-access-ams-api.md)部分中描述的服务器上下文。
 
-    if (processor == null)
-    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+    private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+    {
+        var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
-    return processor;
-}
-```
+        if (processor == null)
+        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
-##<a name="next-steps"></a>后续步骤
+        return processor;
+    }
 
-了解如何获取媒体处理器实例后，请转到[如何对资产进行编码](./media-services-dotnet-encode-with-media-encoder-standard.md)主题，其中说明了如何使用 Media Encoder Standard 对资产进行编码。
+
+## <a name="next-steps"></a>后续步骤
+了解如何获取媒体处理器实例后，请转到[如何对资产进行编码](media-services-dotnet-encode-with-media-encoder-standard.md)主题，其中说明了如何使用 Media Encoder Standard 对资产进行编码。
+<!--Update_Description: udpate two links-->

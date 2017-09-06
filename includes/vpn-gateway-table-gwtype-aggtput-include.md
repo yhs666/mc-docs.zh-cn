@@ -1,23 +1,17 @@
-下表显示网关类型和预计的网关 SKU 聚合吞吐量。 此表适用于 Resource Manager 部署模型和经典部署模型。 
+Azure 提供以下 VPN 网关 SKU：
 
-定价因网关 SKU 而异。 有关详细信息，请参阅 [VPN 网关定价](https://www.azure.cn/pricing/details/vpn-gateway/)。
+|**SKU**   | **S2S/VNet 到 VNet<br>隧道** | **P2S<br>连接** | **聚合<br>吞吐量基准** |
+|---       | ---                             | ---                    | ---                         |
+|**VpnGw1**| 最大 30                         | 最大 128               | 650 Mbps                    |
+|**VpnGw2**| 最大 30                         | 最大 128               | 1 Gbps                      |
+|**VpnGw3**| 最大 30                         | 最大 128               | 1.25 Gbps                   |
+|**基本** | 最大 10                         | 最大 128               | 100 Mbps                    | 
+|          |                                 |                        |                             | 
 
-请注意，UltraPerformance 网关 SKU 未在此表中表示。 有关 UltraPerformance SKU 的信息，请参阅 [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) 文档。
+- 聚合吞吐量基准基于对通过单个网关聚合的多个隧道的测量。 受 Internet 流量情况和应用程序行为影响，该吞吐量无法保证。
 
-|  | **VPN 网关吞吐量 (1)** | **VPN 网关最大 IPsec 隧道数 (2)** | **ExpressRoute 网关吞吐量** | **VPN 网关和 ExpressRoute 共存** |
-| --- | --- | --- | --- | --- |
-| **基本 SKU (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |否 |
-| **标准 SKU (4)(5)** |100 Mbps |10 |1000 Mbps |是 |
-| **高性能 SKU (4)** |200 Mbps |30 |2000 Mbps |是 |
+- 可在 [定价](https://www.azure.cn/pricing/details/vpn-gateway) 页上找到定价信息。
 
-(1) VPN 吞吐量是根据同一 Azure 区域 VNet 之间的度量进行的粗略估计。 这不是 Internet 上跨地点连接的保证吞吐量。 这是可能的最大吞吐量度量。
+- 可在 [SLA](https://www.azure.cn/support/sla/vpn-gateway/) 页上查看 SLA（服务级别协议）信息。
 
-(2) 隧道数量是指 RouteBased VPN。 PolicyBased VPN 只能支持一个站点到站点 VPN 隧道。
-
-(3) 基本 SKU 不支持 BGP。
-
-(4) 此 SKU 不支持 PolicyBased VPN。 仅基本 SKU 支持它们。
-
-(5) 此 SKU 不支持主动-主动 S2S VPN 网关连接。 只有 HighPerformance SKU 才支持主动-主动连接。
-
-(6) 用于 ExpressRoute 的基本 SKU 已弃用。
+<!-- ms.date: 09/01/2017 -->

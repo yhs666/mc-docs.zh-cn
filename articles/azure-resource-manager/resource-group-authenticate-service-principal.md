@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 05/15/2017
-ms.date: 08/21/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3cf6fe891a47b7942f0050bb8e91f851ed21fa64
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 9b99061b56cc9e4975d18d01269e63e1d1c3f482
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>使用 Azure PowerShell 创建服务主体来访问资源
 
@@ -411,12 +411,12 @@ Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 
 创建服务主体时，可能会遇到以下错误：
 
-* “Authentication_Unauthorized”或“在上下文中找不到订阅”。 - 如果帐户不具有在 Azure Active Directory 上注册应用[所需的权限](#required-permissions)，会收到此错误。 通常，当仅 Azure Active Directory 中的管理员用户可注册应用且帐户不是管理员帐户时，会看到此错误。 可要求管理员分配管理员角色，或者允许用户注册应用。
+* “Authentication_Unauthorized”或“在上下文中找不到订阅”。 - 如果帐户不具有在 Azure Active Directory 上注册应用[所需的权限](#required-permissions)，会收到此错误。 通常，当仅 Azure Active Directory 中的管理员用户可注册应用且帐户不是管理员帐户时，会看到此错误。可要求管理员分配管理员角色，或者允许用户注册应用。
 
 * 帐户“无权对作用域 '/subscriptions/{guid}' 执行 'Microsoft.Authorization/roleAssignments/write' 操作。”- 当帐户没有足够权限，无法为标识分配角色时，会出现此错误。 可要求订阅管理员将你添加到“用户访问管理员”角色。
 
 ## <a name="sample-applications"></a>示例应用程序
-以下示例应用程序演示如何以服务主体身份登录。
+有关在不同平台上通过应用程序登录的信息，请参阅：
 
 **.NET**
 
@@ -427,21 +427,25 @@ Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 
 * [资源入门 - 在 Java 中使用 Azure Resource Manager 模板部署资源](https://github.com/Azure-Samples/resources-java-deploy-using-arm-template/)
 * [资源入门 - 在 Java 中管理资源组](https://github.com/Azure-Samples/resources-java-manage-resource-group/)
+* [Java](https://docs.azure.cn/java/java-sdk-azure-authenticate)
 
 **Python**
 
 * [在 Python 中使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-python-template-deployment/)
 * [使用 Python 管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-python-resources-and-groups/)
+* [Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 
 **Node.js**
 
 * [在 Node.js 中使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-node-template-deployment/)
 * [使用 Node.js 管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-node-resources-and-groups/)
+* [Node.js](https://docs.microsoft.com/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
 
 **Ruby**
 
 * [在 Ruby 中使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/)
 * [使用 Ruby 管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
+* [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>后续步骤
 * 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅 [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md)（使用 Azure 资源管理器 API 进行授权的开发人员指南）。

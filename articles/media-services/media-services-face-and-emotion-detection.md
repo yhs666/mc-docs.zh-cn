@@ -3,8 +3,8 @@ title: "使用 Azure 媒体分析检测面部和情绪 | Azure"
 description: "本主题演示如何使用 Azure 媒体分析检测人脸和情感。"
 services: media-services
 documentationcenter: 
-author: juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/11/2017
-ms.date: 08/07/2017
+origin.date: 07/18/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: c7c8614728e8b61cf5ee29862389eb1a7a7451d8
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: 65f18dde68b69150fc371515bb57114995cbdb1c
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>使用 Azure 媒体分析检测面部和情绪
 
@@ -333,21 +333,24 @@ ms.lasthandoff: 08/04/2017
 * 对于每个视频，返回的面部数上限为 64。
 * 某些面部可能因技术难题而无法检测，例如非常大的面部角度（头部姿势），以及较大的阻挡物。 正面和接近正面的面部可提供最佳效果。
 
-## <a name="sample-code"></a>代码示例
+## <a name="net-sample-code"></a>.NET 示例代码
 
 以下程序演示如何：
 
 1. 创建资产并将媒体文件上传到资产。
-1. 使用人脸检测任务创建一个作业，所根据的配置文件包含以下 json 预设。
+2. 使用人脸检测任务创建一个作业，所根据的配置文件包含以下 json 预设。 
+   
+        {
+            "version": "1.0"
+        }
+3. 下载输出 JSON 文件。 
 
-    ```
-    {
-        "version": "1.0"
-    }
-    ```
+#### <a name="create-and-configure-a-visual-studio-project"></a>创建和配置 Visual Studio 项目
 
-1. 下载输出 JSON 文件。
-    ```.net
+设置开发环境，并在 app.config 文件中填充连接信息，如[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述。 
+
+#### <a name="example"></a>示例
+
     using System;
     using System.Configuration;
     using System.IO;
@@ -360,40 +363,24 @@ ms.lasthandoff: 08/04/2017
     {
         class Program
         {
-            // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-            private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
-
-            // Azure China uses a different API server and a different ACS Base Address from the Global.
-            private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
-            private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
+            private static readonly string _AADTenantDomain =
+                      ConfigurationManager.AppSettings["AADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                      ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
-            private static Uri _apiServer = null;
 
             static void Main(string[] args)
             {
+                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                        _mediaServicesAccountName,
-                        _mediaServicesAccountKey,
-                        _defaultScope,
-                        _chinaAcsBaseAddressUrl);
-
-                // Create the API server Uri
-                _apiServer = new Uri(_chinaApiServerUrl);
-
-                // Used the chached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_apiServer, _cachedCredentials);
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
                 // Run the FaceDetection job.
-                var asset = RunFaceDetectionJob(@"C:\supportFiles\FaceDetection\BigBuckBunny.mp4", @"C:\supportFiles\FaceDetection\config.json");
+                var asset = RunFaceDetectionJob(@"C:\supportFiles\FaceDetection\BigBuckBunny.mp4",
+                                            @"C:\supportFiles\FaceDetection\config.json");
 
                 // Download the job output asset.
                 DownloadAsset(asset, @"C:\supportFiles\FaceDetection\Output");
@@ -482,7 +469,8 @@ ms.lasthandoff: 08/04/2017
                     .LastOrDefault();
 
                 if (processor == null)
-                    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                    throw new ArgumentException(string.Format("Unknown media processor",
+                                                               mediaProcessorName));
 
                 return processor;
             }
@@ -517,14 +505,13 @@ ms.lasthandoff: 08/04/2017
                         break;
                 }
             }
-
         }
     }
-    ```
+
 
 ## <a name="related-links"></a>相关链接
+[Azure 媒体服务分析概述](media-services-analytics-overview.md)
 
-[Azure 媒体服务分析概述](media-services-analytics-overview.md)  
-[Azure Media Analytics demos（Azure 媒体分析演示）](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos（Azure 媒体分析演示）](http://amslabs.azurewebsites.net/demos/Analytics.html)
 
-<!--Update_Description: wording update add a include link-->
+<!--Update_Description: update code to use AAD token instead of ACS-->

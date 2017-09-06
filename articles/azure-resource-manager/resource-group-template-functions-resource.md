@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/13/2017
-ms.date: 07/03/2017
+origin.date: 08/09/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: ff5d26d7e19912758802b23fddb54cf9673deeff
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 0a95691d35e47ae1d35f5228928c88769d9f5f15
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/31/2017
 ---
-# 用于 Azure Resource Manager 模板的资源函数
-<a id="resource-functions-for-azure-resource-manager-templates" class="xliff"></a>
+# <a name="resource-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的资源函数
 
 Resource Manager 提供以下用于获取资源值的函数：
 
@@ -38,24 +37,21 @@ Resource Manager 提供以下用于获取资源值的函数：
 <a id="listkeys" />
 <a id="list" />
 
-## listKeys 和 list{Value}
-<a id="listkeys-and-listvalue" class="xliff"></a>
+## <a name="listkeys-and-listvalue"></a>listKeys 和 list{Value}
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
 返回支持 list 操作的任何资源类型的值。 最常见的用法是 `listKeys`。 
 
-### Parameters
-<a id="parameters" class="xliff"></a>
+### <a name="parameters"></a>Parameters
 
 | 参数 | 必选 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | resourceName 或 resourceIdentifier |是 |字符串 |资源的唯一标识符。 |
 | apiVersion |是 |字符串 |资源运行时状态的 API 版本。 通常采用 **yyyy-mm-dd**格式。 |
 
-### 返回值
-<a id="return-value" class="xliff"></a>
+### <a name="return-value"></a>返回值
 
 ListKeys 返回的对象采用以下格式：
 
@@ -78,10 +74,11 @@ ListKeys 返回的对象采用以下格式：
 
 其他列表函数具有不同的返回格式。 若要查看函数的格式，请将其包含在 outputs 节中，如示例模板所示。 
 
-### 备注
-<a id="remarks" class="xliff"></a>
+### <a name="remarks"></a>备注
 
-以 **list** 开头的任何操作都可用作模板中的函数。 可用操作不仅包括 listKeys，也包括 `list`、`listAdminKeys` 和 `listStatus` 等操作。 若要确定哪些资源类型具有列表操作，请使用以下选项：
+以 **list** 开头的任何操作都可用作模板中的函数。 可用操作不仅包括 listKeys，也包括 `list`、`listAdminKeys` 和 `listStatus` 等操作。 但是，不能使用请求正文中需要值的“list”操作。 例如，[列出帐户 SAS](https://docs.microsoft.com/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) 操作需要 signedExpiry 等请求正文参数，因此不能在模板中使用它。
+
+若要确定哪些资源类型具有列表操作，请使用以下选项：
 
 * 查看资源提供程序的 [REST API 操作](https://docs.microsoft.com/rest/api/)，并查找列表操作。 例如，存储帐户具有 [listKeys 操作](https://docs.microsoft.com/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys)。
 * 使用 [Get-AzureRmProviderOperation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermprovideroperation) PowerShell cmdlet。 以下示例获取存储帐户的所有列表操作：
@@ -97,8 +94,7 @@ ListKeys 返回的对象采用以下格式：
 
 使用 [resourceId 函数](#resourceid)或格式 `{providerNamespace}/{resourceType}/{resourceName}` 指定资源。
 
-### 示例
-<a id="example" class="xliff"></a>
+### <a name="example"></a>示例
 
 以下示例演示如何从 outputs 节中的存储帐户返回主密钥和辅助密钥。
 
@@ -123,22 +119,19 @@ ListKeys 返回的对象采用以下格式：
 
 <a id="providers" />
 
-## providers
-<a id="providers" class="xliff"></a>
+## <a name="providers"></a>providers
 `providers(providerNamespace, [resourceType])`
 
-返回有关资源提供程序及其支持的资源类型的信息。 如果未提供资源类型，该函数将返回资源提供程序支持的所有类型。
+返回有关资源提供程序及其支持的资源类型的信息。 如果未提供资源类型，该函数返回资源提供程序支持的所有类型。
 
-### Parameters
-<a id="parameters" class="xliff"></a>
+### <a name="parameters"></a>Parameters
 
 | 参数 | 必选 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |是 |字符串 |提供程序的命名空间 |
 | resourceType |否 |字符串 |指定的命名空间中的资源类型。 |
 
-### 返回值
-<a id="return-value" class="xliff"></a>
+### <a name="return-value"></a>返回值
 
 将使用以下格式返回支持的每个类型： 
 
@@ -152,8 +145,7 @@ ListKeys 返回的对象采用以下格式：
 
 不保证返回值的数组排序。
 
-### 示例
-<a id="example" class="xliff"></a>
+### <a name="example"></a>示例
 
 以下示例演示了如何使用 provider 函数：
 
@@ -193,27 +185,23 @@ ListKeys 返回的对象采用以下格式：
 
 <a id="reference" />
 
-## reference
-<a id="reference" class="xliff"></a>
+## <a name="reference"></a>reference
 `reference(resourceName or resourceIdentifier, [apiVersion])`
 
 返回表示资源的运行时状态的对象。
 
-### Parameters
-<a id="parameters" class="xliff"></a>
+### <a name="parameters"></a>Parameters
 
 | 参数 | 必选 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | resourceName 或 resourceIdentifier |是 |字符串 |资源的名称或唯一标识符。 |
 | apiVersion |否 |字符串 |指定的资源的 API 版本。 如果资源不是在同一模板中预配的，请包含此参数。 通常采用 **yyyy-mm-dd**格式。 |
 
-### 返回值
-<a id="return-value" class="xliff"></a>
+### <a name="return-value"></a>返回值
 
 每种资源类型返回 reference 函数的不同属性。 该函数不返回单个预定义的格式。 若要查看资源类型的属性，请返回 outputs 节中的对象，如示例所示。
 
-### 备注
-<a id="remarks" class="xliff"></a>
+### <a name="remarks"></a>备注
 
 reference 函数从运行时状态派生其值，因此不能在 variables 节中使用。 可以在模板的 outputs 节中使用它。 
 
@@ -236,8 +224,7 @@ reference 函数从运行时状态派生其值，因此不能在 variables 节�
 }
 ```
 
-### 示例
-<a id="example" class="xliff"></a>
+### <a name="example"></a>示例
 
 若要部署并引用同一模板中的资源，请使用：
 
@@ -292,7 +279,7 @@ reference 函数从运行时状态派生其值，因此不能在 variables 节�
 }
 ```
 
-以下示例引用未部署在此模板中，但存在于同一资源组中的存储帐户。
+以下示例引用未部署到此模板中的存储帐户。 同一资源组内已存在该存储帐户。
 
 ```json
 {
@@ -315,14 +302,12 @@ reference 函数从运行时状态派生其值，因此不能在 variables 节�
 
 <a id="resourcegroup" />
 
-## resourceGroup
-<a id="resourcegroup" class="xliff"></a>
+## <a name="resourcegroup"></a>resourceGroup
 `resourceGroup()`
 
 返回表示当前资源组的对象。 
 
-### 返回值
-<a id="return-value" class="xliff"></a>
+### <a name="return-value"></a>返回值
 
 返回的对象采用以下格式：
 
@@ -339,8 +324,7 @@ reference 函数从运行时状态派生其值，因此不能在 variables 节�
 }
 ```
 
-### 备注
-<a id="remarks" class="xliff"></a>
+### <a name="remarks"></a>备注
 
 resourceGroup 函数的一个常见用途是在与资源组相同的位置中创建资源。 以下示例使用资源组位置来分配网站的位置。
 
@@ -356,8 +340,7 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 ]
 ```
 
-### 示例
-<a id="example" class="xliff"></a>
+### <a name="example"></a>示例
 
 以下模板返回资源组的属性。
 
@@ -390,14 +373,12 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 
 <a id="resourceid" />
 
-## resourceId
-<a id="resourceid" class="xliff"></a>
+## <a name="resourceid"></a>resourceId
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
 返回资源的唯一标识符。 如果资源名称不确定或未设置在相同的模板内，请使用此函数。 
 
-### Parameters
-<a id="parameters" class="xliff"></a>
+### <a name="parameters"></a>Parameters
 
 | 参数 | 必选 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -407,17 +388,15 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 | resourceName1 |是 |字符串 |资源的名称。 |
 | resourceName2 |否 |字符串 |下一个资源名称段（如果资源是嵌套的）。 |
 
-### 返回值
-<a id="return-value" class="xliff"></a>
+### <a name="return-value"></a>返回值
 
-将使用以下格式返回标识符：
+使用以下格式返回标识符：
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-### 备注
-<a id="remarks" class="xliff"></a>
+### <a name="remarks"></a>备注
 
 指定的参数值取决于资源是否位于与当前部署相同的订阅和资源组中。
 
@@ -445,7 +424,7 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
-通常，在替代资源组中使用存储帐户或虚拟网络时，需要使用此函数。 存储帐户或虚拟网络可能用于多个资源组中；因此，你不想要在删除单个资源组时删除它们。 以下示例演示了如何轻松使用外部资源组中的资源：
+通常，在替代资源组中使用存储帐户或虚拟网络时，需要使用此函数。 以下示例演示了如何轻松使用外部资源组中的资源：
 
 ```json
 {
@@ -490,8 +469,7 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 }
 ```
 
-### 示例
-<a id="example" class="xliff"></a>
+### <a name="example"></a>示例
 
 以下示例返回资源组中存储帐户的资源 ID：
 
@@ -532,14 +510,12 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 
 <a id="subscription" />
 
-## 订阅
-<a id="subscription" class="xliff"></a>
+## <a name="subscription"></a>订阅
 `subscription()`
 
 返回有关当前部署的订阅的详细信息。 
 
-### 返回值
-<a id="return-value" class="xliff"></a>
+### <a name="return-value"></a>返回值
 
 该函数返回以下格式：
 
@@ -552,8 +528,7 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 }
 ```
 
-### 示例
-<a id="example" class="xliff"></a>
+### <a name="example"></a>示例
 
 以下示例显示了在 outputs 节中调用的 subscription 函数。 
 
@@ -571,9 +546,10 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 }
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 有关 Azure Resource Manager 模板中各部分的说明，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
 * 若要合并多个模板，请参阅[将链接的模板与 Azure Resource Manager 配合使用](resource-group-linked-templates.md)。
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 若要查看如何部署已创建的模板，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
+
+<!--Update_Description: wording update-->

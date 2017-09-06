@@ -1,10 +1,10 @@
 ---
-title: "生成和导出点到站点证书：MakeCert：Azure | Azure"
+title: "为点到站点连接生成和导出证书：Makecert：Azure | Microsoft Docs"
 description: "本文包含使用 MakeCert 创建自签名根证书、导出公钥和生成客户端证书的步骤。"
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,20 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/19/2017
-ms.date: 07/17/2017
-ms.author: v-dazen
-ms.openlocfilehash: c1b6a1175285c3772358c89f41f4301da82abb22
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/09/2017
+ms.date: 08/31/2017
+ms.author: v-junlch
+ms.openlocfilehash: cd3520e2b0312a2e75be518ca09bb8b15237ed06
+ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/01/2017
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>使用 MakeCert 为点到站点连接生成并导出证书
-
-> [!NOTE]
-> 仅在无法访问运行 Windows 10 的计算机时，使用本文中的说明生成证书。 其他情况，建议改用[使用 Windows 10 PowerShell 生成自签名证书](vpn-gateway-certificates-point-to-site.md)一文。
->
 
 点到站点连接使用证书进行身份验证。 本文说明如何使用 MakeCert 创建自签名根证书以及生成客户端证书。 如果正在寻找点到站点配置步骤（例如，如何上传根证书），请从下面的列表选择一篇关于“配置点到站点”的文章：
 
@@ -41,8 +37,7 @@ ms.lasthandoff: 07/14/2017
 
 虽然我们建议使用 [Windows 10 PowerShell 步骤](vpn-gateway-certificates-point-to-site.md)来创建证书，但提供这些 MakeCert 说明作为备选方法。 使用任一方法生成的证书均可安装在[支持的所有客户端操作系统](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)上。 然而，MakeCert 具有以下限制：
 
-* MakeCert 无法生成 SHA-2 证书，只能生成 SHA-1 证书。 SHA-1 证书对于点到站点连接仍然有效，但 SHA-1 使用的加密哈希不及 SHA-2 使用的强。
-* 已弃用 MakeCert。 这意味着此工具随时可能被删除。 如果 MakeCert 不再可用，使用 MakeCert 生成的所有证书不会受到任何影响。 MakeCert 仅用于生成证书，不用作验证机制。
+- 已弃用 MakeCert。 这意味着此工具随时可能被删除。 当 MakeCert 不再可用时，已使用 MakeCert 生成的所有证书均不会受到任何影响。 MakeCert 仅用于生成证书，不用作验证机制。
 
 ## <a name="rootcert"></a>创建自签名根证书
 
@@ -54,10 +49,10 @@ ms.lasthandoff: 07/14/2017
   ```cmd
   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
   ```
-3. 在计算机上的“个人”证书存储中创建并安装证书。 以下示例将创建一个相应的 .cer 文件，在配置 P2S 时需要将此文件上传到 Azure。 使用想要用于证书的名称替换“P2SRootCert”和“P2SRootCert.cer”。 该证书将位于“证书”-“当前用户\个人\证书”中。
+3. 在计算机上的“个人”证书存储中创建并安装证书。 以下示例将创建一个相应的 .cer 文件，在配置 P2S 时需要将此文件上传到 Azure。 使用想要用于证书的名称替换“P2SRootCert”和“P2SRootCert.cer”。 该证书位于“Certificates - Current User\Personal\Certificates”中。
 
   ```cmd
-  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha1 -len 2048 -ss My
+  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
   ```
 
 ## <a name="cer"></a>导出公钥 (.cer)
@@ -68,7 +63,7 @@ exported.cer 文件必须上传到 Azure。 请参阅[配置点到站点连接](
 
 ### <a name="export-the-self-signed-certificate-and-private-key-to-store-it-optional"></a>导出自签名证书和用于存储它的私钥（可选）
 
-你可能想要导出自签名根证书并将它存储在安全位置。 如果需要，可以稍后在另一台计算机上安装此自签名证书，然后生成更多客户端证书，或导出另一个 .cer 文件。 若要将自签名根证书导出为 .pfx，请选择该根证书，然后使用[导出客户端证书](#clientexport)中所述的步骤导出。
+可能想要导出自签名根证书并将它存储在安全位置。 如果需要，可以稍后在另一台计算机上安装此自签名证书，并生成更多客户端证书，或导出另一个 .cer 文件。 如果要将自签名根证书导出为 .pfx，请选择该根证书，并使用[导出客户端证书](#clientexport)中所述的步骤导出。
 
 ## <a name="create-and-install-client-certificates"></a>创建和安装客户端证书
 
@@ -76,19 +71,19 @@ exported.cer 文件必须上传到 Azure。 请参阅[配置点到站点连接](
 
 ### <a name="clientcert"></a>生成客户端证书
 
-在使用点到站点连接连接到 VNet 的每台客户端计算机上，必须安装客户端证书。 可以从自签名根证书生成客户端证书，然后导出并安装该客户端证书。 如果不安装客户端证书，身份验证将会失败。 
+在使用点到站点连接连接到 VNet 的每台客户端计算机上，必须安装客户端证书。 可以从自签名根证书生成客户端证书，导出并安装该客户端证书。 如果不安装客户端证书，身份验证会失败。 
 
-以下步骤引导你完成从自签名根证书生成客户端证书的过程。 可以从相同根证书生成多个客户端证书。 使用以下步骤生成客户端证书时，客户端证书将自动安装在用于生成该证书的计算机上。 如果想要在另一台客户端计算机上安装客户端证书，可以导出该证书。
-
+以下步骤引导完成从自签名根证书生成客户端证书的过程。 可以从相同根证书生成多个客户端证书。 使用以下步骤生成客户端证书时，客户端证书自动安装在用于生成该证书的计算机上。 如果想要在另一台客户端计算机上安装客户端证书，可以导出该证书。
+ 
 1. 在用于创建自签名证书的同一台计算机上，以管理员身份打开命令提示符。
 2. 修改并运行示例，生成客户端证书。
-  * 将“P2SRootCert”更改为生成客户端证书所用的自签名根证书。 确保使用创建自签名根时指定的根证书名称（无论“CN=”的值为何）。
-  * 将 P2SChildCert 更改为生成客户端证书所用的名称。
+  - 将“P2SRootCert”更改为生成客户端证书所用的自签名根证书的名称。 确保使用创建自签名根时指定的根证书名称（无论“CN=”的值为何）。
+  - 将 P2SChildCert 更改为希望生成的客户端证书使用的名称。
 
   如果未经修改就运行以下示例，个人证书存储中将有一个从根证书 P2SRootCert 生成的客户端证书，名为 P2SChildcert。
 
   ```cmd
-  makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha1
+  makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
   ```
 
 ### <a name="clientexport"></a>导出客户端证书
@@ -103,5 +98,7 @@ exported.cer 文件必须上传到 Azure。 请参阅[配置点到站点连接](
 
 继续使用点到站点配置。 
 
-* 有关 **Resource Manager** 部署模型步骤，请参阅 [Configure a Point-to-Site connection to a VNet](vpn-gateway-howto-point-to-site-resource-manager-portal.md)（配置与 VNet 的点到站点连接）。
-* 有关**经典**部署模型步骤，请参阅 [Configure a Point-to-Site VPN connection to a VNet (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)（配置与 VNet 的点到站点 VPN 连接（经典））。
+- 有关 **Resource Manager** 部署模型步骤，请参阅 [Configure a Point-to-Site connection to a VNet](vpn-gateway-howto-point-to-site-resource-manager-portal.md)（配置与 VNet 的点到站点连接）。
+- 有关**经典**部署模型步骤，请参阅 [Configure a Point-to-Site VPN connection to a VNet (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)（配置与 VNet 的点到站点 VPN 连接（经典））。
+
+<!--Update_Description: wording update --> 

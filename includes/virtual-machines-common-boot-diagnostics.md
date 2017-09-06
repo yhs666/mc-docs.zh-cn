@@ -12,8 +12,23 @@ Azure 现在提供对两种调试功能的支持：控制台输出和屏幕截�
 
 所有区域的 Azure 虚拟机都支持这两项功能。 请注意，屏幕截图和输出可能需要长达 10 分钟的时间才能显示在存储帐户中。
 
-## 对新虚拟机启用诊断
-<a id="enable-diagnostics-on-a-new-virtual-machine" class="xliff"></a>
+## <a name="common-boot-errors"></a>常见的启动错误
+
+- [0xC000000E](https://support.microsoft.com/help/4010129)
+- [0xC000000F](https://support.microsoft.com/help/4010130)
+- [0xC0000011](https://support.microsoft.com/help/4010134)
+- [0xC0000034](https://support.microsoft.com/help/4010140)
+- [0xC0000098](https://support.microsoft.com/help/4010137)
+- [0xC00000BA](https://support.microsoft.com/help/4010136)
+- [0xC000014C](https://support.microsoft.com/help/4010141)
+- [0xC0000221](https://support.microsoft.com/help/4010132)
+- [0xC0000225](https://support.microsoft.com/help/4010138)
+- [0xC0000359](https://support.microsoft.com/help/4010135)
+- [0xC0000605](https://support.microsoft.com/help/4010131)
+- [找不到操作系统](https://support.microsoft.com/help/4010142)
+- [启动故障或 INACCESSIBLE_BOOT_DEVICE](https://support.microsoft.com/help/4010143)
+
+## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>对新虚拟机启用诊断
 1. 从门户创建新的虚拟机时，请从部署模型下拉列表中选择“Azure Resource Manager”：
 
     ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
@@ -46,8 +61,7 @@ Azure 现在提供对两种调试功能的支持：控制台输出和屏幕截�
 
 若要部署启用了启动诊断功能的示例虚拟机，请在此处查看我们的存储库。
 
-## 更新现有虚拟机
-<a id="update-an-existing-virtual-machine" class="xliff"></a> ##
+## <a name="update-an-existing-virtual-machine"></a>更新现有虚拟机 ##
 
 若要通过门户启用启动诊断功能，还可以通过门户更新现有虚拟机。 选择“启动诊断”选项，然后选择“保存”。 重启 VM，使设置生效。
 

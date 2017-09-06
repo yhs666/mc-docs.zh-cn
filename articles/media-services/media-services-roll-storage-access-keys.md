@@ -1,10 +1,10 @@
 ---
 title: "更改存储访问密钥后更新媒体服务 | Azure"
-description: "此文将提供有关在轮转存储访问密钥后如何更新媒体服务的指导。"
+description: "此文提供有关在轮转存储访问密钥后如何更新媒体服务的指导。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/28/2017
-ms.date: 03/10/2017
-ms.author: v-johch
-ms.openlocfilehash: e42c120e3f11e47bf9e681aa6e832c7e4064c135
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 08/09/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 204ae4b4ea6f41ba499ed98e7c8fedef362bb882
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/31/2017
 ---
-#<a name="update-media-services-after-rolling-storage-access-keys"></a>更改存储访问密钥后更新媒体服务
+# <a name="update-media-services-after-rolling-storage-access-keys"></a>更改存储访问密钥后更新媒体服务
 
 创建新的 Azure 媒体服务 (AMS) 帐户时，系统还会要求选择用于存储媒体内容的 Azure 存储帐户。 可将多个存储帐户添加到媒体服务帐户。 本主题介绍如何轮换存储密钥。 此外，介绍如何将存储帐户添加到媒体帐户。 
 
@@ -29,12 +29,12 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="overview"></a>概述
 
-创建新的存储帐户后，Azure 将生成两个 512 位存储访问密钥，用于对对存储帐户的访问进行身份验证。 为保持存储连接更加安全，建议定期重新生成并轮转存储访问密钥。 将提供两个访问密钥（主密钥和辅助密钥），以便在你重新生成其中一个访问密钥时，始终能够使用另一个访问密钥连接到存储帐户。 此过程也称为“轮转访问密钥”。
+创建新的存储帐户后，Azure 会生成两个 512 位存储访问密钥，用于对对存储帐户的访问进行身份验证。 为保持存储连接更加安全，建议定期重新生成并轮转存储访问密钥。 将提供两个访问密钥（主密钥和辅助密钥），以便在你重新生成其中一个访问密钥时，始终能够使用另一个访问密钥连接到存储帐户。 此过程也称为“轮转访问密钥”。
 
 媒体服务依赖于向其提供的存储密钥。 具体而言，用于流式处理或下载资产的定位符依赖于指定的存储访问密钥。 创建 AMS 帐户后，它默认依赖于主存储访问密钥，但用户可以更新 AMS 的存储密钥。 必须遵循本主题中所述的步骤，确保媒体服务知道要使用哪个密钥。  
 
 >[!NOTE]
-> 若有多个存储帐户，请对每个存储帐户执行此过程。 存储密钥的轮换顺序不是固定的。 可以先轮换辅助密钥，然后再轮换主密钥，反之亦然。
+> 若有多个存储帐户，请对每个存储帐户执行此过程。 存储密钥的轮换顺序不是固定的。 可以先轮换辅助密钥，并再轮换主密钥，反之亦然。
 >
 >在对生产帐户执行本主题中所述的步骤之前，请确保对生产前帐户测试这些步骤。
 
@@ -70,4 +70,4 @@ Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -Accou
 
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>将存储帐户添加到 AMS 帐户的步骤
 
-以下主题介绍了如何将存储帐户添加到 AMS 帐户： [将多个存储帐户附加到媒体服务帐户](./meda-services-managing-multiple-storage-accounts.md)。
+以下主题介绍如何将存储帐户添加到 AMS 帐户：[将多个存储帐户附加到媒体服务帐户](meda-services-managing-multiple-storage-accounts.md)。

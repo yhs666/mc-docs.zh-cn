@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 11/30/2016
+origin.date: 07/26/2017
 ms.author: v-yiso
-ms.date: 05/22/2017
-ms.openlocfilehash: 0f11372151640be9863a3dba7cd398386582ba6c
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 09/11/2017
+ms.openlocfilehash: a47a114ec1e2a087f2ce47b5fb27895cce4d0c64
+ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/01/2017
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>导致角色回收的常见问题
 
-本文将讨论部署问题的一些常见原因，并提供故障排除技巧以帮助你解决这些问题。 角色实例无法启动，或者在“正在初始化”、“忙”和“正在停止”状态之间循环时，即指示应用程序存在问题。
+本文讨论部署问题的一些常见原因，并提供故障排除技巧以帮助你解决这些问题。 角色实例无法启动，或者在“正在初始化”、“忙”和“正在停止”状态之间循环时，即指示应用程序存在问题。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-runtime-dependencies"></a>缺少运行时依赖项
 
-如果应用程序中的某个角色依赖于某个程序集，而该程序集不属 .NET Framework 或 Azure 托管库的一部分，则必须在应用程序包中显式包括该程序集。 请记住，默认情况下，其他 Microsoft 框架在 Azure 上不可用。 如果你的角色依赖于此类框架，则必须将这些程序集添加到应用程序包。
+如果应用程序中的某个角色依赖于某个程序集，而该程序集不属 .NET Framework 或 Azure 托管库的一部分，则必须在应用程序包中显式包括该程序集。 请记住，默认情况下，其他 Microsoft 框架在 Azure 上不可用。 如果角色依赖于此类框架，则必须将这些程序集添加到应用程序包。
 
 生成和打包应用程序之前，请验证以下各项：
 
@@ -55,18 +55,17 @@ Azure 是一个 64 位的环境。 因此，针对 32 位目标编译的 .NET �
 
 如果应用程序使用 Azure 诊断，则服务配置文件必须指定 `DiagnosticsConnectionString` 配置设置。 此设置应在 Azure 中指定一个连接到存储帐户的 HTTPS 连接。
 
-将应用程序包部署到 Azure 之前，若要确保你的 `DiagnosticsConnectionString` 设置正确，请验证以下内容：  
+将应用程序包部署到 Azure 之前，要确保 `DiagnosticsConnectionString` 设置正确，请验证以下内容：  
 
 - `DiagnosticsConnectionString` 设置指向 Azure 中的有效存储帐户。  
-  默认情况下，此设置指向模拟的存储帐户中，因此必须在部署应用程序包之前显式更改此设置。 如果不更改此设置，则角色实例尝试启动诊断监视器时，将引发异常。 这可能导致角色实例无限期回收。
-
-- 连接字符串是使用以下[格式](../storage/storage-configure-connection-string.md)指定的。 （协议必须指定为 HTTPS。）将 MyAccountName 替换为存储帐户名称，将 MyAccountKey 替换为访问密钥：    
+  默认情况下，此设置指向模拟的存储帐户中，因此必须在部署应用程序包之前显式更改此设置。 如果不更改此设置，则角色实例尝试启动诊断监视器时，会引发异常。 这可能导致角色实例无限期回收。
+* 连接字符串是使用以下[格式](../storage/common/storage-configure-connection-string.md)指定的。 （协议必须指定为 HTTPS。）将 MyAccountName 替换为存储帐户名称，将 MyAccountKey 替换为访问密钥：    
 
     ```
     DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
     ```
 
-  如果使用 Azure Tools for Microsoft Visual Studio 开发应用程序，则可使用 [属性页](https://msdn.microsoft.com/zh-cn/library/ee405486) 设置此值。
+  如果要使用 Microsoft Azure Visual Studio 的 Azure 工具来开发应用程序，则可使用属性页设置此值。
 
 ## <a name="exported-certificate-does-not-include-private-key"></a>导出的证书不含私钥
 

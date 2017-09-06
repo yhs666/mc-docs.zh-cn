@@ -3,8 +3,8 @@ title: "从 Windows VM 分离磁盘 | Azure"
 description: "了解如何从使用经典部署模型的 Azure 虚拟机分离磁盘。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: b6406768-1726-41bb-9451-1fda0905cc24
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/24/2017
-ms.date: 04/27/2017
-ms.author: v-dazen
-ms.openlocfilehash: 4a12871e0ee6f4683a964b4056e3837a6e8e8ecf
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: a4ca7ac2b20bc633ac74bdd664904702630b54d3
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-detach-a-disk-from-a-windows-virtual-machine"></a>如何从 Windows 虚拟机分离磁盘
 > [!IMPORTANT]
@@ -29,6 +29,6 @@ ms.lasthandoff: 06/21/2017
 [!INCLUDE [howto-detach-disk-windows-linux](../../../../includes/howto-detach-disk-windows-linux.md)]
 
 ## <a name="additional-resources"></a>其他资源
-[关于虚拟机的磁盘和 VHD](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+[关于虚拟机的磁盘和 VHD](../about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [如何将数据磁盘附加到 Windows 虚拟机](attach-disk.md)

@@ -1,6 +1,6 @@
 # 概述
 ## [关于虚拟机](../../virtual-machines-windows-about.md)
-## [磁盘和 VHD](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+## [磁盘和 VHD](../about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [虚拟网络](../../../virtual-network/virtual-networks-overview.md)
 ## [常见问题](faq.md)
 ## [VM、网站和云服务对比](../../../app-service-web/choose-web-site-cloud-service-vm.md)
@@ -66,9 +66,6 @@
 #### [将作业从本地提交到 Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
-### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
-####[配置 Oracle Data Guard for Azure](configure-oracle-data-guard.md)
-####[配置 Oracle GoldenGate for Azure](configure-oracle-goldengate.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
 
@@ -78,7 +75,8 @@
 ### [对应用程序的访问权限](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [新建 VM 时遇到的经典部署问题](troubleshoot-deployment-new-vm.md)
 ### [重新启动现有 VM 或调整其大小时遇到的经典部署问题](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [重置 RDP 密码](reset-rdp.md)
+### [重置 RDP 密码](reset-rdp.md)
+### [将虚拟硬盘附加到故障排除 VM](troubleshoot-recovery-disks-portal.md)
 
 # 引用
 ## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)

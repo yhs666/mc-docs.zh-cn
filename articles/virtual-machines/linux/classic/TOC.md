@@ -4,19 +4,20 @@
 ## [可用性](configure-availability.md)
 ## [常见问题](faq.md)
 
-# [入门](../opensource-links.md)
+# 入门
 ## [使用门户创建 Linux VM](createportal.md)
 ## [安装 Azure CLI](../../../cli-install-nodejs.md)
 ## [创建 SSH 密钥](../mac-create-ssh-keys.md)
 
 # 如何
-## [计算](../intro-on-azure.md)
+## 计算
 ### [创建自定义 VM](create-custom.md)
 ### [捕获 VM](capture-image.md)
 ### [将远程桌面与 Linux VM 一起使用](remote-desktop.md)
 ### [管理 VM 扩展](manage-extensions.md)
 ### [使用 Visual Studio 管理 VM](manage-visual-studio.md)
 ### [使用诊断 VM 扩展监视 VM](../diagnostic-extension.md)
+### [使用诊断 VM 扩展的 2.x 版监视 VM](diagnostic-extension-v2.md)
 ### [注入自定义数据](inject-custom-data.md)
 ### [重置 Linux 密码或密钥、修复 SSH 并检查磁盘](reset-access.md)
 ### [维护](planned-maintenance-schedule.md)
@@ -52,13 +53,13 @@
 ## 故障排除
 ### [VM 部署](troubleshoot-deployment-new-vm.md)
 ### [重启 VM 或调整其大小](restart-resize-error-troubleshooting.md)
+### [将虚拟硬盘附加到故障排除 VM](troubleshoot-recovery-disks-portal.md)
 
 # 引用
 ## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
 ## [Java](https://docs.azure.cn/zh-cn/java/api/overview/)
 ## [创建 Resource Manager 模板](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-## [社区模板](https://github.com/Azure/azure-quickstart-templates)
 ## [计算 REST](https://docs.microsoft.com/rest/api/compute)
 ## [网络 REST](https://docs.microsoft.com/rest/api)
 ## [存储 REST](https://docs.microsoft.com/rest/api/storageservices)

@@ -3,8 +3,8 @@ title: "如何使用 Packer 创建 Linux Azure VM 映像 | Azure"
 description: "了解如何使用 Packer 在 Azure 中创建 Linux 虚拟机映像"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,24 +13,23 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 06/12/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: f33c64a73a5b92e7685503a74f613de7e70b7c29
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+origin.date: 08/18/2017
+ms.date: 09/04/2017
+ms.author: iainfou
+ms.openlocfilehash: c1fde63557564ec7792bf7b418a47d7278155411
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/29/2017
 ---
-# 如何使用 Packer 在 Azure 中创建 Linux 虚拟机映像
-<a id="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure" class="xliff"></a>
+# <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>如何使用 Packer 在 Azure 中创建 Linux 虚拟机映像
 从定义 Linux 分发版和操作系统版本的映像创建 Azure 中的每个虚拟机 (VM)。 映像可以包括预安装的应用程序和配置。 Azure 应用商店为最常见的分发和应用程序环境提供了许多第一和第三方映像，或者用户可根据需求创建自己的自定义映像。 本文详细介绍如何使用开源工具 [Packer](https://www.packer.io/) 在 Azure 中定义和生成自定义映像。
 
-## 创建支持性 Azure 资源
-<a id="create-supporting-azure-resources" class="xliff"></a>
-生成过程中，Packer 将在生成源 VM 时创建临时 Azure 资源。 若要捕获该源 VM 用作映像，必须定义资源组和存储帐户。 Packer 生成过程的输出存储于此资源组和存储帐户中。
 
-首先，使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
+## <a name="create-azure-resource-group"></a>创建 Azure 资源组
+生成过程中，Packer 将在生成源 VM 时创建临时 Azure 资源。 要捕获该源 VM 用作映像，必须定义资源组。 Packer 生成过程的输出存储在此资源组中。
+
+使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -38,17 +37,8 @@ ms.lasthandoff: 06/30/2017
 az group create -n myResourceGroup -l chinaeast
 ```
 
-接下来，使用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) 创建存储帐户。 存储帐户名称必须唯一，长度为 3 到 24 个字符，并且只能包含数字和小写字母。 以下示例创建一个名为 mystorageaccount 的存储帐户：
 
-```azurecli
-az storage account create \
-    --resource-group myResourceGroup \
-    --name mystorageaccount \
-    --sku Standard_LRS
-```
-
-## 创建 Azure 凭据
-<a id="create-azure-credentials" class="xliff"></a>
+## <a name="create-azure-credentials"></a>创建 Azure 凭据
 使用服务主体通过 Azure 对 Packer 进行身份验证。 Azure 服务主体是可与应用、服务和自动化工具（如 Packer）结合使用的安全性标识。 用户控制和定义服务主体可在 Azure 中执行的操作的权限。
 
 通过 [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp#create-for-rbac) 创建服务主体并输出 Packer 需要的凭据：
@@ -73,20 +63,20 @@ az account show --query [id] --output tsv
 
 在下一步中使用这两个命令的输出。
 
-## 定义 Packer 模板
-<a id="define-packer-template" class="xliff"></a>
+## <a name="define-packer-template"></a>定义 Packer 模板
 若要生成映像，请创建一个模板作为 JSON 文件。 在模板中，定义执行实际生成过程的生成器和设置程序。 Packer 具有 [Azure 设置程序](https://www.packer.io/docs/builders/azure.html)，允许定义 Azure 资源，如在前一步骤中创建的服务主体凭据。
 
 创建名为 ubuntu.json 的文件并粘贴以下内容。 为以下内容输入自己的值：
 
-| 参数       | 获取位置 |
-|-----------------|----------------------------------------------------|
-| client_id      | `az ad sp` 创建命令的第一行输出 - appId |
-| client_secret  | `az ad sp` 创建命令的第二行输出 - password |
-| tenant_id      | `az ad sp` 创建命令的第三行输出 - tenant |
-| subscription_id | `az account show` 命令的输出 |
-| storage_account | 在 `az storage account create` 中指定的名称 |
-| cloud_environment_name | 它是 `AzureChinaCloud` |
+| 参数                           | 获取位置 |
+|-------------------------------------|----------------------------------------------------|
+| client_id                         | `az ad sp` 创建命令的第一行输出 - appId |
+| client_secret                     | `az ad sp` 创建命令的第二行输出 - password |
+| tenant_id                         | `az ad sp` 创建命令的第三行输出 - tenant |
+| subscription_id                   | `az account show` 命令的输出 |
+| *managed_image_resource_group_name* | 在第一步中创建的资源组的名称 |
+| *managed_image_name*                | 创建的托管磁盘映像的名称 |
+
 
 ```json
 {
@@ -98,16 +88,13 @@ az account show --query [id] --output tsv
     "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
     "subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
 
-    "resource_group_name": "myResourceGroup",
-    "storage_account": "mystorageaccount",
-
-    "capture_container_name": "images",
-    "capture_name_prefix": "packer",
+    "managed_image_resource_group_name": "myResourceGroup",
+    "managed_image_name": "myPackerImage",
 
     "os_type": "Linux",
     "image_publisher": "Canonical",
     "image_offer": "UbuntuServer",
-    "image_sku": "16.04.0-LTS",
+    "image_sku": "16.04-LTS",
 
     "azure_tags": {
         "dept": "Engineering",
@@ -139,8 +126,8 @@ az account show --query [id] --output tsv
 > 如果在此模板上进行扩展以便设置用户凭据，请将取消设置 Azure 代理的设置程序命令调整为读取 `-deprovision` 而非 `deprovision+user`。
 > `+user` 标志从源 VM 中删除所有用户帐户。
 
-## 生成 Packer 映像
-<a id="build-packer-image" class="xliff"></a>
+
+## <a name="build-packer-image"></a>生成 Packer 映像
 如果本地计算机上尚未安装 Packer，请[按照 Packer 安装说明](https://www.packer.io/docs/install/index.html)进行安装。
 
 按如下所述指定 Packer 模板文件，生成映像：
@@ -157,87 +144,68 @@ azure-arm output will be in this color.
 ==> azure-arm: Running builder ...
     azure-arm: Creating Azure Resource Manager (ARM) client ...
 ==> azure-arm: Creating resource group ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
 ==> azure-arm:  -> Location          : 'China East'
 ==> azure-arm:  -> Tags              :
-==> azure-arm:  ->> dept : engineering
-==> azure-arm:  ->> task : image deployment
+==> azure-arm:  ->> dept : Engineering
+==> azure-arm:  ->> task : Image deployment
 ==> azure-arm: Validating deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> DeploymentName    : 'pkrdphlz1xtcy8n'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> DeploymentName    : ‘pkrdpswtxmqm7ly’
 ==> azure-arm: Deploying deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> DeploymentName    : 'pkrdphlz1xtcy8n'
-==> azure-arm: Getting the VM's IP address ...
-==> azure-arm:  -> ResourceGroupName   : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> PublicIPAddressName : 'packerPublicIP'
-==> azure-arm:  -> NicName             : 'packerNic'
-==> azure-arm:  -> Network Connection  : 'PublicEndpoint'
-==> azure-arm:  -> IP Address          : '13.90.250.248'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> DeploymentName    : ‘pkrdpswtxmqm7ly’
+==> azure-arm: Getting the VM’s IP address ...
+==> azure-arm:  -> ResourceGroupName   : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> PublicIPAddressName : ‘packerPublicIP’
+==> azure-arm:  -> NicName             : ‘packerNic’
+==> azure-arm:  -> Network Connection  : ‘PublicEndpoint’
+==> azure-arm:  -> IP Address          : ‘40.76.218.147’
 ==> azure-arm: Waiting for SSH to become available...
 ==> azure-arm: Connected to SSH!
-==> azure-arm: Provisioning with shell script: /tmp/packer-shell529418469
-    azure-arm: Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
-    azure-arm: Hit:2 http://azure.archive.ubuntu.com/ubuntu xenial InRelease
-    azure-arm: Get:3 http://azure.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
-    azure-arm: Get:4 http://azure.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
-    [snip]
+==> azure-arm: Provisioning with shell script: /var/folders/h1/ymh5bdx15wgdn5hvgj1wc0zh0000gn/T/packer-shell868574263
     azure-arm: WARNING! The waagent service will be stopped.
     azure-arm: WARNING! Cached DHCP leases will be deleted.
     azure-arm: WARNING! root password will be disabled. You will not be able to login as root.
     azure-arm: WARNING! /etc/resolvconf/resolv.conf.d/tail and /etc/resolvconf/resolv.conf.d/original will be deleted.
     azure-arm: WARNING! packer account and entire home directory will be deleted.
-==> azure-arm: Querying the machine's properties ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> ComputeName       : 'pkrvmhlz1xtcy8n'
-==> azure-arm:  -> OS Disk           : 'https://mystorageaccount.blob.core.chinacloudapi.cn/images/pkroshlz1xtcy8n.vhd'
+==> azure-arm: Querying the machine’s properties ...
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> ComputeName       : ‘pkrvmswtxmqm7ly’
+==> azure-arm:  -> Managed OS Disk   : ‘/subscriptions/guid/resourceGroups/packer-Resource-Group-swtxmqm7ly/providers/Microsoft.Compute/disks/osdisk’
 ==> azure-arm: Powering off machine ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> ComputeName       : 'pkrvmhlz1xtcy8n'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> ComputeName       : ‘pkrvmswtxmqm7ly’
 ==> azure-arm: Capturing image ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> ComputeName       : 'pkrvmhlz1xtcy8n'
+==> azure-arm:  -> Compute ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> Compute Name              : ‘pkrvmswtxmqm7ly’
+==> azure-arm:  -> Compute Location          : ‘China East’
+==> azure-arm:  -> Image ResourceGroupName   : ‘myResourceGroup’
+==> azure-arm:  -> Image Name                : ‘myPackerImage’
+==> azure-arm:  -> Image Location            : ‘chinaeast’
 ==> azure-arm: Deleting resource group ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
 ==> azure-arm: Deleting the temporary OS disk ...
-==> azure-arm:  -> OS Disk : 'https://mystorageaccount.blob.core.chinacloudapi.cn/images/pkroshlz1xtcy8n.vhd'
-Build 'azure-arm' finished.
+==> azure-arm:  -> OS Disk : skipping, managed disk was used...
+Build ‘azure-arm’ finished.
 
 ==> Builds finished. The artifacts of successful builds are:
 --> azure-arm: Azure.ResourceManagement.VMImage:
 
-StorageAccountLocation: chinaeast
-OSDiskUri: https://mystorageaccount.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/images/packer-osDisk.643f37d7-5a5d-43bf-96ed-2d598ada6e65.vhd
-OSDiskUriReadOnlySas: https://mystorageaccount.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/images/packer-osDisk.643f37d7-5a5d-43bf-96ed-2d598ada6e65.vhd?se=2017-07-08T20%3A57%3A53Z&sig=yl1yl3I2gKnO0I%2B7paw%2FQzKT5dawf5i%2B
-LPmATMt5ot4%3D&sp=r&sr=b&sv=2015-02-21
-TemplateUri: https://mystorageaccount.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/images/packer-vmTemplate.643f37d7-5a5d-43bf-96ed-2d598ada6e65.json
-TemplateUriReadOnlySas: https://mystorageaccount.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/images/packer-vmTemplate.643f37d7-5a5d-43bf-96ed-2d598ada6e65.json?se=2017-07-08T20%3A57%3A53Z&sig=GB1iSl0hhw1ZYG4nl%2BCfR9WEaquCF
-OEhNtKlvp%2B5TdE%3D&sp=r&sr=b&sv=2015-02-21
+ManagedImageResourceGroupName: myResourceGroup
+ManagedImageName: myPackerImage
+ManagedImageLocation: chinaeast
 ```
 
-## 创建 Azure 映像
-<a id="create-azure-image" class="xliff"></a>
-Packer 生成过程的输出是指定的存储帐户中的虚拟硬盘 (VHD)。 通过 [az image create](https://docs.microsoft.com/cli/azure/image#create) 从此 VHD 中创建 Azure 映像，并指定在 Packer 生成输出的末尾处注明的 `OSDiskUri` 路径。 下例创建一个名为 `myImage` 的映像：
 
-```azurecli
-az image create \
-    --resource-group myResourceGroup \
-    --name myImage \
-    --os-type linux \
-    --source https://mystorageaccount.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/images/packer-osDisk.643f37d7-5a5d-43bf-96ed-2d598ada6e65.vhd
-```
-
-此映像可用于在整个 Azure 订阅中创建 VM。 不限于在与源映像相同的资源组中创建 VM。
-
-## 从 Azure 映像创建 VM
-<a id="create-vm-from-azure-image" class="xliff"></a>
-现在可以通过 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 从映像创建 VM。 指定通过 `--image` 参数创建的映像。 以下示例从 myImage 创建名为 myVM 的 VM，并生成 SSH 密钥（如果它们尚不存在）：
+## <a name="create-vm-from-azure-image"></a>从 Azure 映像创建 VM
+现在可以通过 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 从映像创建 VM。 指定通过 `--image` 参数创建的映像。 以下示例从 myPackerImage 创建一个名为 myVM 的 VM，并生成 SSH 密钥（如果它们尚不存在）：
 
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image myImage \
+    --image myPackerImage \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
@@ -253,14 +221,14 @@ az vm open-port \
     --port 80
 ```
 
-## 测试 VM 和 NGINX
-<a id="test-vm-and-nginx" class="xliff"></a>
+## <a name="test-vm-and-nginx"></a>测试 VM 和 NGINX
 现可打开 Web 浏览器，并在地址栏中输入 `http://publicIpAddress`。 在 VM 创建过程中提供自己的公共 IP 地址。 默认 NGINX 页如下例所示：
 
 ![NGINX 默认站点](./media/build-image-with-packer/nginx.png) 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
-在此示例中，是在已安装 NGINX 的情况下使用 Packer 创建 VM 映像。 可将此 VM 映像与现有部署工作流一起使用，如将应用部署到通过 Chef 或 puppet 从映像创建的 VM。
+
+## <a name="next-steps"></a>后续步骤
+在此示例中，是在已安装 NGINX 的情况下使用 Packer 创建 VM 映像。 可以将此 VM 映像与现有部署工作流配合使用，例如将应用部署到使用 Ansible、Chef 或 Puppet 基于映像创建的 VM。
 
 有关其他 Linux 发行版的更多示例 Packer 模板，请参阅[此 GitHub 存储库](https://github.com/hashicorp/packer/tree/master/examples/azure)。
+<!--Update_Description: update scripts for managed disks-->

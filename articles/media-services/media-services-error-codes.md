@@ -1,8 +1,8 @@
 ---
 title: "Azure 媒体服务错误代码 | Azure"
 description: "本主题概述 Azure 媒体服务错误代码。"
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/10/2017
-ms.date: 02/24/2017
-ms.author: v-johch
-ms.openlocfilehash: 393d533408d3e31cafc38ab2abdf2fbfd0202ad2
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+origin.date: 07/31/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 95d529f28b67030930b69ed4dfc8a77dd5a40d1e
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="azure-media-services-error-codes"></a>Azure 媒体服务错误代码
 使用 Azure 媒体服务时，可能会从服务收到因问题而异的 HTTP 错误代码，例如身份验证令牌到期或媒体服务不支持操作。 以下是媒体服务可能返回的 **HTTP 错误代码** 及其可能原因的列表。  
@@ -27,8 +27,8 @@ ms.lasthandoff: 08/04/2017
 ## <a name="400-bad-request"></a>400 错误的请求
 请求包含无效的信息，并出于以下原因之一被拒绝：
 
-* 指定了不受支持的 API 版本。 有关当前版本，请参阅[媒体服务 REST API 开发的设置](./media-services-rest-how-to-use.md)。
-* 未指定媒体服务的 API 版本。 有关如何指定 API 版本的信息，请参阅[使用 REST 访问 Azure 媒体服务 API](./media-services-rest-connect-with-aad.md)。
+* 指定了不受支持的 API 版本。 有关当前版本，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
+* 未指定媒体服务的 API 版本。 若要了解如何指定 API 版本，请参阅[媒体服务操作 REST API 参考](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)。
 
   > [!NOTE]
   >如果使用 .NET 或 Java SDK 连接到媒体服务，则无论何时尝试并执行针对媒体服务的操作，都会指定 API 版本。
@@ -47,8 +47,8 @@ ms.lasthandoff: 08/04/2017
 
 * 缺少身份验证标头。
 * 身份验证标头值错误。
-  * 令牌已过期。 如果直接使用 REST API，请参阅[使用 REST 访问 Azure 媒体服务 API](./media-services-rest-connect-with-aad.md)，了解如何生成新的身份验证令牌。 如果使用 .NET 或 Java SDK，请创建用于生成令牌的 CloudMediaContext 或 MediaContract 对象。 有关如何执行此操作的详细信息，请参阅[使用 .NET 访问 Azure 媒体服务 API](./media-services-dotnet-get-started-with-aad.md)。
-  * 令牌包含无效签名。</li></ul></li></ul>
+  * 令牌已过期。 
+  * 令牌包含无效签名。
 
 ## <a name="403-forbidden"></a>403 禁止访问
 出于以下原因之一，不允许该请求：
@@ -62,7 +62,7 @@ ms.lasthandoff: 08/04/2017
   * 尝试更新媒体服务定义的 JobTemplate。
   * 尝试覆盖某些其他媒体服务帐户的定位符。
   * 尝试覆盖某些其他媒体服务帐户的 ContentKey。
-* 由于已达到媒体服务帐户的服务配额，无法创建资源。 有关服务配额的详细信息，请参阅[配额和限制](./media-services-quotas-and-limitations.md)。
+* 由于已达到媒体服务帐户的服务配额，无法创建资源。 有关服务配额的详细信息，请参阅[配额和限制](media-services-quotas-and-limitations.md)。
 
 ## <a name="404-not-found"></a>404 未找到
 出于以下原因之一，资源不允许该请求：
@@ -106,10 +106,10 @@ ms.lasthandoff: 08/04/2017
 * “服务器正忙。 每秒超过 {0} 个请求可能会受到限制。”
 * “服务器正忙。 {1} 秒内超过 {0} 个请求可能会受到限制。”
 
-若要处理此错误，我们建议使用指数回退重试逻辑。 这意味着在连续错误响应的重试之间使用渐进式长等待。  有关详细信息，请参阅 [临时故障处理应用程序块](https://msdn.microsoft.com/zh-cn/library/hh680905.aspx)。
+若要处理此错误，我们建议使用指数回退重试逻辑。 这意味着在连续错误响应的重试之间使用渐进式长等待。  有关详细信息，请参阅 [临时故障处理应用程序块](https://msdn.microsoft.com/library/hh680905.aspx)。
 
 > [!NOTE]
 >如果使用 [用于 .NET 的 Azure 媒体服务 SDK](https://github.com/Azure/azure-sdk-for-media-services/tree/master)，503 错误的重试逻辑由 SDK 实现。  
 
 ## <a name="see-also"></a>另请参阅
-[媒体服务管理错误代码](http://msdn.microsoft.com/zh-cn/library/windowsazure/dn167016.aspx)
+[媒体服务管理错误代码](http://msdn.microsoft.com/library/windowsazure/dn167016.aspx)

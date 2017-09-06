@@ -3,8 +3,8 @@ title: "在 Azure 中的 Linux VM 上使用 Docker Compose | Azure"
 description: "如何通过 Azure CLI 在 Linux 虚拟机上使用 Docker 和 Compose"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 02ab8cf9-318d-4a28-9d0c-4a31dccc2a84
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/11/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 4f0eeaf98a88d208a4216d983bad62b9b1412961
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 04207db674ec16bccd4d88865c45f694788879a0
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>使用 Docker 和 Compose 在 Azure 中定义和运行多容器应用程序入门
 借助 [Compose](http://github.com/docker/compose)，可以使用简单的文本文件定义由多个 Docker 容器组成的应用程序。 然后，使用单个命令启动应用程序，该命令会执行部署定义环境的所有操作。 作为示例，本文说明如何在 Ubuntu VM 上使用后端 MariaDB SQL 数据库快速设置 WordPress 博客。 也可以使用 Compose 设置更复杂的应用程序。
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/14/2017
 >[!NOTE]
 > 必须修改从 GitHub 存储库“azure-quickstart-templates”部署的模板，以适应 Azure 中国云环境。 例如，替换某些终结点 -- 将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”。
 
-使用 Docker VM 扩展时，VM 将自动设置为 Docker 主机，并且已安装 Compose。
+使用 Docker VM 扩展时，VM 自动设置为 Docker 主机，并且已安装 Compose。
 
 ### <a name="create-docker-host-with-azure-cli-20"></a>使用 Azure CLI 2.0 创建 Docker 主机
 安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 并使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录到 Azure 帐户。
@@ -52,12 +52,12 @@ az group deployment create --resource-group myResourceGroup \
     "adminUsername": {"value": "azureuser"},
     "adminPassword": {"value": "P@ssw0rd!"},
     "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
-  --template-file /path/to/azuredeploy.json
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-需要几分钟才能完成部署。 部署完成后，请[转到下一步](#verify-that-compose-is-installed)，通过 SSH 连接到 VM。 
+需要几分钟才能完成部署。 部署完成后，[移到下一步](#verify-that-compose-is-installed)，通过 SSH 连接到 VM。 
 
-（可选）若要重新通过提示符进行控制并让部署在后台继续运行，请将 `--no-wait` 标志添加到前一个命令。 使用此过程可在 CLI 中执行其他操作，同时让部署持续几分钟。 可以使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#show) 查看有关 Docker 主机状态的详细信息。 以下示例在名为 *myResourceGroup* 的资源组中检查名为 *myDockerVM*（模板中的默认名称 - 请不要更改该名称）的 VM 的状态：
+（可选）要重新通过提示符进行控制并让部署在后台继续运行，请将 `--no-wait` 标志添加到前一个命令。 使用此过程可在 CLI 中执行其他操作，同时让部署持续几分钟。 然后，可以使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#show) 查看有关 Docker 主机状态的详细信息。 以下示例在名为 *myResourceGroup* 的资源组中检查名为 *myDockerVM*（模板中的默认名称 - 请不要更改该名称）的 VM 的状态：
 
 ```azurecli
 az vm show \
@@ -88,7 +88,7 @@ docker-compose --version
 > 如果使用另一种方法创建 Docker 主机，而且需要自行安装 Compose，请参阅 [Compose 文档](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md)。
 
 ## <a name="create-a-docker-composeyml-configuration-file"></a>创建 docker-compose.yml 配置文件
-接下来，创建 `docker-compose.yml` 文件，它只是一个文本配置文件，用于定义要在 VM 上运行的 Docker 容器。 该文件指定要在每个容器中运行的映像（或者它可能从 Dockerfile 生成）、必要的环境变量和依赖关系、端口以及容器之间的链接。 有关 yml 文件语法的详细信息，请参阅 [Compose 文件参考](http://docs.docker.com/compose/yml/)。
+接下来，创建 `docker-compose.yml` 文件，它只是一个文本配置文件，用于定义要在 VM 上运行的 Docker 容器。 该文件指定要在每个容器中运行的映像（或者它可能从 Dockerfile 生成）、必要的环境变量和依赖关系、端口以及容器之间的链接。 有关 yml 文件语法的详细信息，请参阅 [Compose 文件参考](https://docs.docker.com/compose/compose-file/)。
 
 创建 *docker-compose.yml* 文件，如下所示：
 
@@ -136,7 +136,7 @@ Creating wordpress_wordpress_1...
 > [!NOTE]
 > 启动时请务必使用 **-d** 选项，使容器在后台继续运行。
 
-若要验证容器是否已启动，请键入 `docker-compose ps`。 你应看到类似如下的内容：
+若要验证容器是否已启动，请键入 `docker-compose ps`。 应看到类似如下的内容：
 
 ```bash
         Name                       Command               State         Ports
@@ -145,7 +145,7 @@ azureuser_db_1          docker-entrypoint.sh mysqld      Up      3306/tcp
 azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/tcp
 ```
 
-现在可以在 VM 的端口 80 上直接连接到 WordPress。 打开 Web 浏览器并输入 VM 的 DNS 名称（如 `http://mypublicdns.chinanorth.chinacloudapp.cn`）。 现在，你应看到 WordPress 开始屏幕，你可以在其中完成安装并开始使用应用程序。
+现在可以在 VM 的端口 80 上直接连接到 WordPress。 打开 Web 浏览器并输入 VM 的 DNS 名称（如 `http://mypublicdns.chinanorth.chinacloudapp.cn`）。 现在，应看到 WordPress 开始屏幕，可以在其中完成安装并开始使用应用程序。
 
 ![WordPress 开始屏幕][wordpress_start]
 
@@ -158,3 +158,4 @@ azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/
 <!--Image references-->
 
 [wordpress_start]: media/docker-compose-quickstart/WordPress.png
+<!--Update_Description: update cli sample-->

@@ -3,8 +3,8 @@ title: "适用于 Linux 的虚拟机扩展和功能 | Azure"
 description: "了解可为 Azure 虚拟机提供的扩展，这些虚拟机扩展按它们提供或改进的功能进行分组。"
 services: virtual-machines-linux
 documentationcenter: 
-author: neilpeterson
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/26/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: b9ea3be95bde6a58276a2bd8c98373705727aff5
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 70537bc454270b0588d2dcd73293b070be6dee19
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>适用于 Linux 的虚拟机扩展和功能
 
@@ -33,13 +33,12 @@ Azure 虚拟机扩展是小型应用程序，可在Azure 虚拟机上提供部�
 有许多不同的 Azure VM 扩展可用，每个都有特定用例。 下面是一些示例：
 
 - 使用适用于 Linux 的 DSC 扩展将 PowerShell 所需状态配置应用于虚拟机。 有关详细信息，请参阅 [Azure Desired State configuration extension](https://github.com/Azure/azure-linux-extensions/tree/master/DSC)（Azure Desired State Configuration 扩展）。
-- 使用 Microsoft 监视代理 VM 扩展配置虚拟机监视功能。 有关详细信息，请参阅 [Enable or disable VM monitoring](vm-monitoring.md)（启用或禁用 VM 监视）。
+- 使用 Microsoft 监视代理 VM 扩展配置虚拟机监视功能。 有关详细信息，请参阅[如何监视 Linux VM](tutorial-monitoring.md)。
 - 使用 Datadog 扩展配置 Azure 基础结构监视功能。 有关详细信息，请参阅 [Datadog 博客](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
 - 使用 Docker VM 扩展在 Azure 虚拟机上配置 Docker 主机。 有关详细信息，请参阅 [Docker VM extension](dockerextension.md)（Docker VM 扩展）。
 
 除了进程特定的扩展外，自定义脚本扩展也可用于 Windows 和 Linux 虚拟机。 适用于 Linux 的“自定义脚本”扩展允许在虚拟机上运行任何 Bash 脚本。 在设计需要本机 Azure 工具无法提供的配置的 Azure 部署时，自定义脚本很有用。 有关详细信息，请参阅 [Linux VM Custom Script extension](extensions-customscript.md)（Linux VM“自定义脚本”扩展）。
 
-要浏览在端到端应用程序部署中使用 VM 扩展的示例，请参阅[将应用程序自动部署到 Azure 虚拟机](../linux/dotnet-core-1-landing.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -132,7 +131,7 @@ VM 扩展可添加到 Azure Resource Manager 模板，并在部署模板的过�
 }
 ```
 
-有关详细信息，请参阅 [Authoring Azure Resource Manager templates with Linux VM extensions](../linux/extensions-authoring-templates.md)（使用 Linux VM 扩展创作 Azure Resource Manager 模板）。
+有关详细信息，请参阅[创作 Azure 资源管理器模板](../windows/template-description.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#extensions)。
 
 ## <a name="secure-vm-extension-data"></a>保护 VM 扩展数据
 
@@ -245,3 +244,4 @@ az vm extension delete --name customScript --resource-group myResourceGroup --vm
 | VM 访问扩展 |重新获取对 Azure 虚拟机的访问权限 |[VM 访问扩展](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure 诊断扩展 |管理 Azure 诊断 |[Azure 诊断扩展](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM 访问扩展 |管理用户和凭据 |[适用于 Linux 的 VM 访问扩展](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+<!--Update_Description: update one link-->

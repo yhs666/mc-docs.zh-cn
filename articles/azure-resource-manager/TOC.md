@@ -7,10 +7,11 @@
 
 # 入门
 ## [导出模板](resource-manager-export-template.md)
-## [创建第一个模板](resource-manager-create-first-template.md)
+## [创建和部署模板](resource-manager-create-first-template.md)
 ## [Visual Studio 与 Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # 示例
+## [代码示例](https://azure.microsoft.com/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [部署模板](resource-manager-samples-powershell-deploy.md)
 
@@ -89,6 +90,10 @@
 ## 故障排除
 ### [常见部署错误](resource-manager-common-deployment-errors.md)
 ### [了解部署错误](resource-manager-troubleshoot-tips.md)
+### [RequestDisallowedByPolicy 错误](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### 虚拟机部署错误
+#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # 引用
 <!-- Not Available ## [Template format](/templates/) -->
@@ -96,6 +101,7 @@
 ### [数组和对象函数](resource-group-template-functions-array.md)
 ### [比较函数](resource-group-template-functions-comparison.md)
 ### [部署函数](resource-group-template-functions-deployment.md)
+### [逻辑函数](resource-group-template-functions-logical.md)
 ### [数值函数](resource-group-template-functions-numeric.md)
 ### [资源函数](resource-group-template-functions-resource.md)
 ### [字符串函数](resource-group-template-functions-string.md)
@@ -123,6 +129,8 @@
 
 # 资源
 <!-- Not Available ## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager) -->
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
+## [服务更新](https://www.azure.cn/what-is-new/)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [限制请求](resource-manager-request-limits.md)
 ## [跟踪异步操作](resource-manager-async-operations.md)
