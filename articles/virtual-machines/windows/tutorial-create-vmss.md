@@ -3,8 +3,8 @@ title: "在 Azure 中为 Windows 创建虚拟机规模集 | Azure"
 description: "使用虚拟机规模集在 Windows VM 上创建和部署高度可用的应用程序"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,18 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-origin.date: 05/02/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+origin.date: 08/11/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 999d1cbfc9ae9efb723f5bd663ba8c7500c381d3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 63b0f5a2a969d2365522ada385a1b1a2dd10122b
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>在 Windows 上创建虚拟机规模集和部署高度可用的应用
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则以根据 CPU 使用率、内存需求或网络流量进行自动缩放。 在本教程中，将在 Azure 中部署虚拟机规模集。 你将学习如何执行以下操作：
 
@@ -35,7 +33,7 @@ ms.lasthandoff: 06/09/2017
 > * 增加或减少规模集中的实例数
 > * 创建自动缩放规则
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 ` Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 ## <a name="scale-set-overview"></a>规模集概述
 规模集使用的概念与前一教程中有关[创建高度可用的 VM](tutorial-availability-sets.md) 的概念类似。 规模集中的 VM 分布在容错和更新域之间，就像可用性集中的 VM 那样。
@@ -199,7 +197,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Loop through the instanaces in your scale set
-for ($i=0; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
+for ($i=1; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
     Get-AzureRmVmssVM -ResourceGroupName myResourceGroupScaleSet `
       -VMScaleSetName myScaleSet `
       -InstanceId $i
@@ -237,7 +235,7 @@ Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
 
 ```powershell
 # Define your scale set information
-$mySubscriptionId = (Get-AzureRmSubscription).SubscriptionId
+$mySubscriptionId = (Get-AzureRmSubscription).Id
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "China North"
@@ -299,4 +297,3 @@ Add-AzureRmAutoscaleSetting `
 
 > [!div class="nextstepaction"]
 > [对虚拟机进行负载均衡](tutorial-load-balancer.md)
-

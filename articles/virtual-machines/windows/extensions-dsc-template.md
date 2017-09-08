@@ -3,8 +3,8 @@ title: "Desired State Configuration Resource Manager 模板 | Azure"
 description: "Azure 中 Desired State Configuration 的 Resource Manager 模板定义，提供示例和故障排除方法"
 services: virtual-machines-windows
 documentationcenter: 
-author: zjalexander
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-service-management,azure-resource-manager
 keywords: 
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 09/15/2016
-ms.date: 01/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: cf9bf5e8f2399bbeb40c6303ec6b716edd531f8f
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 22062f4b1d6951f8741b2963c7b078021ba07437
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="windows-vmss-and-desired-state-configuration-with-azure-resource-manager-templates"></a>在 Azure Resource Manager 模板中使用 Windows VMSS 和 Desired State Configuration
 本文介绍 [Desired State Configuration 扩展处理程序](extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)的 Resource Manager 模板。 
@@ -56,6 +56,7 @@ ms.lasthandoff: 06/21/2017
                   "protectedSettings": {
                       "configurationUrlSasToken": "[parameters('_artifactsLocationSasToken')]"
                   }
+              }
 
 ```
 
@@ -89,6 +90,7 @@ VMSS 节点具有“properties”节，其中包含“VirtualMachineProfile”�
                     }
                 }
             ]
+        }
 ```
 
 ## <a name="detailed-settings-information"></a>详细设置信息
@@ -171,7 +173,7 @@ Azure Resource Manager 模板中 Azure DSC 扩展的“设置”部分会使用�
 
 ## <a name="example"></a>示例
 以下示例摘自[“DSC 扩展处理程序概述”页](extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中的“入门”部分。
-此示例使用 Resource Manager 模板而不是cmdlet 来部署该扩展。 保存“IisInstall.ps1”配置，将它放在 .ZIP 文件中，然后将该文件上传到可访问的 URL 中。 此示例使用 Azure Blob 存储，但可以从任意位置下载 .ZIP 文件。
+此示例使用 Resource Manager 模板而不是cmdlet 来部署该扩展。 保存“IisInstall.ps1”配置，将它放在 .ZIP 文件中，并将该文件上传到可访问的 URL 中。 此示例使用 Azure Blob 存储，但可以从任意位置下载 .ZIP 文件。
 
 在 Azure Resource Manager 模板中，以下代码指示 VM 下载正确的文件并运行适当的 PowerShell 函数：
 

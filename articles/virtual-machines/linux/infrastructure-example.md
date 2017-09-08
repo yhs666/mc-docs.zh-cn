@@ -3,8 +3,8 @@ title: "示例 Azure 基础结构演练 | Azure"
 description: "了解用于在 Azure 中部署示例基础结构的关键设计和实施准则。"
 documentationcenter: 
 services: virtual-machines-linux
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e014829f05ecbe6d3d0f9c8e27fbfa28cef42b7
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 11e91c590612bc40cc221f7efb2abc28b07dc552
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>适用于 Linux VM 的 Azure 示例基础结构演练
 
@@ -118,8 +118,4 @@ Adventure Works Cycles 决定为其 Azure VM 使用以下名称：
 * 用于从 Internet 到 Web 服务器的基于 HTTPS 的 Web 流量的外部负载均衡集
 * 用于从 Web 服务器到应用程序服务器的未加密 Web 流量的内部负载均衡集
 * 单个资源组
-
-## <a name="next-steps"></a>后续步骤
-[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-<!--Update_Description: update meta data-->
+<!--Update_Description: remove next steps-->

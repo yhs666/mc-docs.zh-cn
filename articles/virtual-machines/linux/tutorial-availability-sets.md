@@ -3,8 +3,8 @@ title: "Azure 中 Linux VM 的可用性集教程 | Azure"
 description: "了解 Azure 中 Linux VM 的可用性集。"
 documentationcenter: 
 services: virtual-machines-linux
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
-ms.openlocfilehash: 79cd283364d9d433e6d7cc3fb8457d247d11c4d9
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: a6958cc3351419f4caf9d192ad439ea7c72d7ab0
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-use-availability-sets"></a>如何使用可用性集
 
@@ -92,7 +92,7 @@ done
 
 ## <a name="check-for-available-vm-sizes"></a>检查可用的 VM 大小 
 
-稍后可向可用性集添加更多 VM，但需了解在硬件上可用的 VM 大小。 使用 [az vm availability-set list-sizes](https://docs.microsoft.com/cli/azure/vm/availability-set#list-sizes) 列出可用性集的硬件群集上所有可用的大小。
+稍后可向可用性集添加更多 VM，但需了解在硬件上可用的 VM 大小。 使用 [az vm availability-set list-sizes](https://docs.microsoft.com/cli/azure/availability-set#list-sizes) 列出可用性集的硬件群集上所有可用的大小。
 
 ```azurecli 
 az vm availability-set list-sizes \
@@ -115,4 +115,3 @@ az vm availability-set list-sizes \
 > [!div class="nextstepaction"]
 > [创建 VM 规模集](tutorial-create-vmss.md)
 
-<!--Update_Description: wording update-->

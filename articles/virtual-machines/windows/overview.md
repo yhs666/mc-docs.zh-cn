@@ -3,8 +3,8 @@ title: "Windows 虚拟机概述 | Azure"
 description: "了解如何在 Azure 中创建和管理 Windows 虚拟机。"
 services: virtual-machines-windows
 documentationcenter: 
-author: davidmu1
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
-ms.openlocfilehash: 00d6ddb10b3e1e44adb97b5888bb3d6d2642e3eb
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 1cf8f87a89f6bc05ac851ee8b50de9706b86b3de
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虚拟机概述
 
@@ -38,7 +38,7 @@ Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源
 可以根据需要，将应用程序使用的 VM 纵向和横向扩展为任意数目。
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>在创建 VM 之前需要考虑哪些因素？
-在 Azure 中构建应用程序基础结构时，始终要考虑多种[设计注意事项](infrastructure-virtual-machine-guidelines.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 在开始之前，必须考虑到 VM 的以下重要方面：
+在 Azure 中构建应用程序基础结构时，始终要考虑多种[设计注意事项](https://docs.microsoft.com/architecture/reference-architectures/virtual-machines-linux?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 在开始之前，必须考虑到 VM 的以下重要方面：
 
 * 应用程序资源的名称
 * 资源的存储位置
@@ -49,7 +49,7 @@ Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源
 * VM 所需的相关资源
 
 ### <a name="naming"></a>命名
-虚拟机有一个分配的[名称](infrastructure-naming-guidelines.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，另外，它还配置有一个在操作系统中使用的计算机名称。 VM 的名称最多可包含 15 个字符。
+虚拟机有一个分配的[名称](https://docs.microsoft.com/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，另外，它还配置有一个在操作系统中使用的计算机名称。 VM 的名称最多可包含 15 个字符。
 
 如果使用 Azure 创建操作系统磁盘，计算机名称与虚拟机名称相同。 如果[上传包含以前配置的操作系统的自有映像](upload-generalized-managed.md)并使用它来创建虚拟机，则名称可以不同。 建议在上传自己的映像文件时，使操作系统中的计算机名称与虚拟机名称保持相同。
 
@@ -73,7 +73,7 @@ Azure 根据 VM 的大小和操作系统[按小时进行收费](https://www.azur
 订阅附带默认的[配额限制](../../azure-subscription-service-limits.md)，在为项目部署大量 VM 时，这些限制可能会造成影响。 每个订阅的当前限制是每区域 20 个 VM。 可以开具支持票证来请求提高限制。
 
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
-虚拟机使用[虚拟硬盘 (VHD)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。 
+虚拟机使用[虚拟硬盘 (VHD)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。 
 
 Azure 提供许多应用商店映像，这些映像可配合各种版本和类型的 Windows Server 操作系统使用。 应用商店映像由映像发布者、产品、SKU 和版本（通常指定为最新版本）标识。 
 
@@ -102,11 +102,11 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 | 资源 | 必选 | 说明 |
 | --- | --- | --- |
 | [资源组](../../azure-resource-manager/resource-group-overview.md) |是 |VM 必须包含在资源组中。 |
-| [存储帐户](../../storage/storage-create-storage-account.md) |是 |VM 需要使用存储帐户来存储其虚拟硬盘。 |
+| [存储帐户](../../storage/common/storage-create-storage-account.md) |是 |VM 需要使用存储帐户来存储其虚拟硬盘。 |
 | [虚拟网络](../../virtual-network/virtual-networks-overview.md) |是 |VM 必须是虚拟网络的成员。 |
 | [公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |否 |可以向 VM 分配一个公共 IP 地址，以便远程访问它。 |
 | [网络接口](../../virtual-network/virtual-network-network-interface.md) |是 |VM 需要使用网络接口在网络中通信。 |
-| [数据磁盘](attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |否 |VM 可以包含数据磁盘，以便扩展存储功能。 |
+| [数据磁盘](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |否 |VM 可以包含数据磁盘，以便扩展存储功能。 |
 
 ## <a name="how-do-i-create-my-first-vm"></a>如何创建第一个 VM？
 可以选择多种方法创建 VM。 选择哪种方法取决于所在的环境。 
@@ -142,7 +142,7 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 ### <a name="manage-availability"></a>管理可用性
 了解如何[确保应用程序的高可用性](manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，这一点很重要。 此配置涉及到创建多个 VM，确保至少有一个 VM 在运行。
 
-为了使部署符合 VM 运行时间达到 99.95% 的服务级别协议，必须在[可用性集](infrastructure-availability-sets-guidelines.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中部署两个或更多个运行工作负荷的 VM。 此配置可确保 VM 分布到多个容错域，并使用不同的维护时段部署到主机上。 完整 [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) 说明了 Azure 作为整体的保证可用性。
+为了使部署符合 VM 运行时间达到 99.95% 的服务级别协议，必须在[可用性集](tutorial-availability-sets.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中部署两个或更多个运行工作负荷的 VM。 此配置可确保 VM 分布到多个容错域，并使用不同的维护时段部署到主机上。 完整 [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) 说明了 Azure 作为整体的保证可用性。
 
 ### <a name="back-up-the-vm"></a>备份 VM
 [恢复服务保管库](../../backup/backup-introduction-to-azure-backup.md)用于保护 Azure 备份和 Azure Site Recovery 服务中的数据与资产。 可以使用恢复服务保管库，[通过 PowerShell 来部署和管理采用 Resource Manager 模型部署的 VM 备份](../../backup/backup-azure-vms-automation.md)。 
@@ -150,6 +150,5 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 ## <a name="next-steps"></a>后续步骤
 * 如果打算使用 Linux VM，请查看 [Azure 和 Linux](../linux/overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 * 若要深入了解有关设置基础结构的指导，请参阅[示例 Azure 基础结构演练](infrastructure-example.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-* 请务必遵循[在 Azure 上运行 Windows VM 的最佳做法](guidance-compute-single-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: update storage and managed disk links-->

@@ -3,8 +3,8 @@ title: "使用 SCP 将文件移到 Azure Linux VM 和从 Azure Linux VM 移动�
 description: "使用 SCP 和 SSH 密钥对安全地将文件移到 Azure Linux VM 和从 Azure Linux VM 移动文件。"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: 54a793b42b9cf1bda8e6708a62bca0cfda442b46
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: d090628ece7fe6952df2a220c6aefbc74692b57c
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>使用 SCP 将文件移到 Linux VM 和从 Linux VM 移动文件
 
@@ -77,6 +77,5 @@ scp -r azureuser@myserver.chinaeast.chinacloudapp.cn:/home/azureuser/logs/. /tmp
 ## <a name="next-steps"></a>后续步骤
 
 * [管理用户、SSH，并使用 VMAccess 扩展检查或修复 Azure Linux VM 上的磁盘](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-* [通过配置 SSHD 禁用 Linux VM 上的 SSH 密码](mac-disable-ssh-password-usage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: remove one link-->

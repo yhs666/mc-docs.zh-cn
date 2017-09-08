@@ -3,8 +3,8 @@ title: "如何将 Azure 存储用于 SQL Server 备份和还原 | Azure"
 description: "了解如何将 SQL Server 备份到 Azure 存储。 说明将 SQL 数据库备份到 Azure 存储的好处。"
 services: virtual-machines-windows
 documentationcenter: 
-author: MikeRayMSFT
-manager: jhubbard
+author: hayley244
+manager: digimobile
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/31/2017
-ms.date: 03/28/2017
-ms.author: v-dazen
-ms.openlocfilehash: d014af11cce68366197ad017a57ad36879b4db8d
-ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: e63254aa7107dedb4712018aba64f6465ad0ddaf
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>将 Azure 存储用于 SQL Server 备份和还原
 ## <a name="overview"></a>概述
@@ -32,7 +32,7 @@ SQL Server 2016 引入了新功能；可以使用[文件快照备份](http://msd
 ## <a name="benefits-of-using-the-azure-blob-service-for-sql-server-backups"></a>使用 Azure Blob 服务执行 SQL Server 备份的优点
 备份 SQL Server 时，会面临多项挑战。 这些挑战包括存储管理、存储故障产生的风险、访问场外存储以及硬件配置。 这些挑战当中许多都是通过使用 Azure Blob 存储服务进行 SQL Server 备份来解决的。 请考虑以下好处：
 
-* **易用性**：在 Azure Blob 中存储备份非常方便、灵活且可轻松访问场外存储。 为 SQL Server 备份创建场外存储就像修改现有脚本/作业以使用 **BACKUP TO URL** 语法一样简单。 场外存储通常应当远离生产数据库位置，以防止某个灾难可能同时影响场外和生产数据库位置。 通过选择[异地复制 Azure blob](../../../storage/storage-redundancy.md)，可以在发生可能影响整个区域的灾难时进一步加强保护。
+* **易用性**：在 Azure Blob 中存储备份非常方便、灵活且可轻松访问场外存储。 为 SQL Server 备份创建场外存储就像修改现有脚本/作业以使用 **BACKUP TO URL** 语法一样简单。 场外存储通常应当远离生产数据库位置，以防止某个灾难可能同时影响场外和生产数据库位置。 通过选择[异地复制 Azure blob](../../../storage/common/storage-redundancy.md)，可以在发生可能影响整个区域的灾难时进一步加强保护。
 * **备份存档**：对备份进行存档时，Azure Blob 存储服务提供可替代常用磁带存储方式的更好方式。 选择磁带存储时可能需要将数据实际运输到场外设施，并且需要采取一些介质保护措施。 在 Azure Blob 存储中存储备份可提供即时、具有高可用性且持久的存档方式。
 * **受管理的硬件**：使用 Azure 服务没有硬件管理开销。 Azure 服务可管理硬件并提供地域异地复制和硬件故障防护。
 * **无限制的存储空间**：通过启用直接备份到 Azure Blob，可以访问几乎无限制的存储空间。 或者，还可以选择备份到 Azure 虚拟机磁盘，所受的限制取决于计算机的大小。 只能将有限数量的磁盘附加到用于备份的 Azure 虚拟机。 对特大实例的限制为 16 个磁盘；对较小实例的磁盘限制数更少。
@@ -42,7 +42,7 @@ SQL Server 2016 引入了新功能；可以使用[文件快照备份](http://msd
 
 有关更多详细信息，请参阅[使用 Azure Blob 存储服务执行 SQL Server 备份和还原](http://go.microsoft.com/fwlink/?LinkId=271617)。
 
-接下来两节将介绍 Azure Blob 存储服务，包括必要的 SQL Server 组件。 若要从 Azure Blob 存储服务成功进行备份和还原，一定要了解这些组件及其交互。
+接下来两节介绍 Azure Blob 存储服务，包括必要的 SQL Server 组件。 若要从 Azure Blob 存储服务成功进行备份和还原，一定要了解这些组件及其交互。
 
 ## <a name="azure-blob-storage-service-components"></a>Azure Blob 存储服务组件
 备份到 Azure Blob 存储服务时，会使用以下 Azure 组件。
@@ -50,7 +50,7 @@ SQL Server 2016 引入了新功能；可以使用[文件快照备份](http://msd
 | 组件 | 说明 |
 | --- | --- |
 | **存储帐户** |存储帐户是所有存储服务的起点。 若要访问 Azure Blob 存储服务，请先创建一个 Azure 存储帐户。 有关 Azure Blob 存储服务的详细信息，请参阅[如何使用 Azure Blob 存储服务](/storage/storage-dotnet-how-to-use-blobs) |
-| **容器** |容器提供一组 Blob 集，并且可存储无限数量的 Blob。 若要将 SQL Server 备份写入到 Azure Blob 服务，必须创建至少一个根容器。 |
+| **容器** |容器提供一组 Blob 集，并且可存储无限数量的 Blob。 要将 SQL Server 备份写入到 Azure Blob 服务，必须创建至少一个根容器。 |
 | **Blob** |任何类型和大小的文件。 可使用以下 URL 格式对 Blob 进行寻址：**https://[storage account].blob.core.chinacloudapi.cn/[container]/[blob]**。 有关页 Blob 的详细信息，请参阅[了解块 Blob 和页 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>SQL Server 组件
@@ -68,7 +68,7 @@ SQL Server 2016 引入了新功能；可以使用[文件快照备份](http://msd
 
 ## <a name="next-steps"></a>后续步骤
 1. 创建 Azure 帐户（如果还没有帐户）。 如果你正在评估 Azure，请考虑使用[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-2. 接着，完成以下教程之一，这些教程会引导你创建存储帐户以及执行还原。
+2. 接着，完成以下教程之一，这些教程会引导创建存储帐户以及执行还原。
 
    * **SQL Server 2014**：[教程：SQL Server 2014 备份和还原到 Azure Blob 存储服务](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx)。
    * **SQL Server 2016**：[教程：将 Azure Blob 存储服务用于 SQL Server 2016 数据库](https://msdn.microsoft.com/library/dn466438.aspx)
@@ -77,3 +77,4 @@ SQL Server 2016 引入了新功能；可以使用[文件快照备份](http://msd
 如果有任何问题，请查看 [SQL Server 备份到 URL 最佳实践和故障排除](https://msdn.microsoft.com/library/jj919149.aspx)主题。
 
 有关其他 SQL Server 备份和还原选项，请参阅 [Azure 虚拟机中 SQL Server 的备份和还原](virtual-machines-windows-sql-backup-recovery.md)。
+<!--Update_Description: update storage links-->

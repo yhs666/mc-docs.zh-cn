@@ -3,8 +3,8 @@ title: "使用 CLI 2.0 在 Azure 中捕获 Linux VM 的映像 | Azure"
 description: "使用 Azure CLI 2.0 捕获 Azure VM 的映像以用于批量部署。"
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 07/10/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: a1d61947388c0c977334381aa65f3a0d97be0ca6
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: c3e2341103985386edd9de218ef65c66bc30d570
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何创建虚拟机或 VHD 的映像
 
@@ -35,7 +34,7 @@ ms.lasthandoff: 08/18/2017
 ## <a name="before-you-begin"></a>开始之前
 确保符合以下先决条件：
 
-* 需要使用托管磁盘在资源管理器部署模型中创建 Azure VM。 如果尚未创建 Linux VM，则可以使用[门户](quick-create-portal.md)、[Azure CLI](quick-create-cli.md) 或[资源管理器模板](cli-deploy-templates.md)。 根据需要配置 VM。 例如， [添加数据磁盘](add-disk.md)、应用更新和安装应用程序。 
+* 需要使用托管磁盘在资源管理器部署模型中创建 Azure VM。 如果尚未创建 Linux VM，则可以使用[门户](quick-create-portal.md)、[Azure CLI](quick-create-cli.md) 或[资源管理器模板](create-ssh-secured-vm-from-template.md)。 根据需要配置 VM。 例如， [添加数据磁盘](add-disk.md)、应用更新和安装应用程序。 
 
 * 还需要安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 并已使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录到 Azure 帐户。
 
@@ -64,7 +63,7 @@ ms.lasthandoff: 08/18/2017
 ## <a name="step-2-create-vm-image"></a>步骤 2：创建 VM 映像
 使用 Azure CLI 2.0 将 VM 标记为通用化并捕获映像。 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myVnet* 和 *myVM*。
 
-1. 对使用 [az vm deallocate](https://docs.microsoft.com/cli//azure/vm#deallocate) 取消设置的 VM 解除分配。 以下示例在名为 myResourceGroup 的资源组中解除分配名为 myVM 的 VM：
+1. 对使用 [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate) 取消设置的 VM 解除分配。 以下示例在名为 myResourceGroup 的资源组中解除分配名为 myVM 的 VM：
 
     ```azurecli
     az vm deallocate \

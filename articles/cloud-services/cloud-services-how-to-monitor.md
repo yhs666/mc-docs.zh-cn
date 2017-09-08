@@ -2,20 +2,24 @@
 title: "如何监视云服务 | Microsoft Azure"
 description: "了解如何使用 Azure 经典门户监视云服务。"
 services: cloud-services
-documentationCenter: 
-authors: rboucher
+documentationcenter: 
+author: thraka
 manager: timlt
 editor: 
+ms.assetid: 5c48d2fb-b8ea-420f-80df-7aebe2b66b1b
 ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
 origin.date: 12/07/2015
-ms.date: 01/03/2017
+ms.date: 09/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: d0faedbe6a0efc34205b25a5fcf09a3acf2851e1
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 2b5cd21800e20f0c56651762423143a2e891791d
+ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/01/2017
 ---
 #<a name="how-to-monitor-cloud-services"></a>如何监视云服务
 
@@ -29,18 +33,17 @@ Azure 经典门户中的监视显示信息是高度可配置的。 可在“监�
 
 默认情况下，将使用从角色实例（虚拟机）的主机操作系统收集的性能计数器对新的云服务进行最低监视。 最低监视度量值限于“CPU 百分比”、“输入数据量”、“输出数据量”、“磁盘读取吞吐量”以及“磁盘写入吞吐量”。 通过配置详细监视，可根据虚拟机（角色实例）中的性能数据设定其他度量值。 详细监视度量值可对应用程序运行期间出现的问题进行进一步分析。
 
-默认情况下，将每隔 3 分钟从角色实例中收集和传输一次性能计数器数据。 当你启用详细监视时，将每隔 5 分钟、1 小时和 12 小时为每个角色实例，以及每个角色的所有角色实例汇总一次原始性能计数器数据。 该汇总数据将在 10 天之后清除。
+默认情况下，将每隔 3 分钟从角色实例中收集和传输一次性能计数器数据。 启用详细监视时，将每隔 5 分钟、1 小时和 12 小时为每个角色实例，以及每个角色的所有角色实例汇总一次原始性能计数器数据。 该汇总数据将在 10 天之后清除。
 
-在启用详细监视后，汇总后的监视数据存储在你的存储帐户中的相应表中。 若要为某个角色启用详细监视，必须配置链接到该存储帐户的诊断连接字符串。 可对不同的角色使用不同的存储帐户。
+在启用详细监视后，汇总后的监视数据存储在存储帐户中的相应表中。 若要为某个角色启用详细监视，必须配置链接到该存储帐户的诊断连接字符串。 可对不同的角色使用不同的存储帐户。
 
-启用详细监视将增加与数据存储、数据传输和存储事务相关的存储成本。 最低监视不需要存储帐户。 即使你将监视级别设置为“详细监视”，在最低监视级别公开的度量值数据也不会存储在你的存储帐户中。
+启用详细监视会增加与数据存储、数据传输和存储事务相关的存储成本。 最低监视不需要存储帐户。 即使你将监视级别设置为“详细监视”，在最低监视级别公开的度量值数据也不会存储在你的存储帐户中。
 
 ## <a name="how-to-configure-monitoring-for-cloud-services"></a>如何：为云服务配置监视
 可使用以下过程在 Azure 经典门户中配置详细监视或最低监视。 
 
 ### <a name="before-you-begin"></a>开始之前
-
-* 创建用于存储监视数据的 *经典* 存储帐户。 可对不同的角色使用不同的存储帐户。 有关详细信息，请参阅[如何创建存储帐户](../storage/storage-create-storage-account.md#create-a-storage-account)。
+* 创建用于存储监视数据的 *经典* 存储帐户。 可对不同的角色使用不同的存储帐户。 有关详细信息，请参阅[如何创建存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
 
 * 为云服务角色启用 Azure 诊断。 请参阅[配置云服务诊断](./cloud-services-dotnet-diagnostics.md)。
 
@@ -55,7 +58,7 @@ Azure 经典门户中的监视显示信息是高度可配置的。 可在“监�
 2. 双击“角色”打开“角色”设计器，然后选择“设置”选项卡
 3. 查找名为 **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**的设置。 
 4. 如果此设置不存在，请单击“添加设置”按钮将该设置添加到配置中，并将新设置的类型更改为 ConnectionString
-5. 单击“...”按钮设置连接字符串的值  。 这将会打开用于选择存储帐户的对话框。
+5. 单击“...”按钮设置连接字符串的值  。 这会打开用于选择存储帐户的对话框。
 
     ![Visual Studio 设置](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioDiagnosticsConnectionString.png)
 
@@ -100,12 +103,13 @@ Azure 经典门户中的监视显示信息是高度可配置的。 可在“监�
 
     > [!TIP]
     > 在详细监视中，度量值列表可以包含几十个度量值。 要显示滚动条，请将鼠标指针悬停于对话框右侧。 若要筛选列表，请单击搜索图标，并在搜索框中输入文本，如下所示。
-
+    > 
+    > 
     ![添加度量值搜索](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics_Search.png)
 
 3. 在选择度量值后，请单击“确定”（复选标记）。
 
-    所选度量值将添加到度量值表中，如下所示。
+    所选度量值会添加到度量值表中，如下所示。
 
     ![监视度量值](./media/cloud-services-how-to-monitor/CloudServices_Monitor_UpdatedMetrics.png)
 
@@ -133,8 +137,8 @@ Azure 经典门户中的监视显示信息是高度可配置的。 可在“监�
     <SampleRateInSeconds>180</SampleRateInSeconds>
     </PerformanceCounterConfiguration>
     ```
-4. 保存所做的更改，然后将配置文件上传回到相同位置，并覆盖 Blob 中的现有文件。
-5. 在 Azure 经典门户配置中切换到“详细”模式。 如果已处于“详细”模式，请切换到“最低”，然后再切换回到“详细”模式。
+4. 保存所做的更改，并将配置文件上传回到相同位置，并覆盖 Blob 中的现有文件。
+5. 在 Azure 经典门户配置中切换到“详细”模式。 如果已处于“详细”模式，请切换到“最低”，再切换回到“详细”模式。
 6. 自定义性能计数器即会出现在“添加度量值”对话框中  。 
 
 ## <a name="how-to-customize-the-metrics-chart"></a>如何：自定义度量值图表
@@ -151,7 +155,7 @@ Azure 经典门户中的监视显示信息是高度可配置的。 可在“监�
 
     ![监视器显示时段](./media/cloud-services-how-to-monitor/CloudServices_Monitor_DisplayPeriod.png)
 
-    在仪表板度量值图表中，显示度量值的方式是不同的。 将显示一组标准度量值，并且可通过选择度量值标题来添加或删除度量值。
+    在仪表板度量值图表中，显示度量值的方式是不同的。 会显示一组标准度量值，并且可通过选择度量值标题来添加或删除度量值。
 
 ### <a name="to-customize-the-metrics-chart-on-the-dashboard"></a>在仪表板上自定义度量值图表
 
@@ -168,7 +172,7 @@ Azure 经典门户中的监视显示信息是高度可配置的。 可在“监�
 4. 选择要显示 1 小时、24 小时还是 7 天的数据。
 
 ## <a name="how-to-access-verbose-monitoring-data-outside-the-azure-classic-portal"></a>如何：在 Azure 经典门户外部访问详细监视数据
-详细监视数据存储在你为每个角色指定的存储帐户中的相应表中。 对于每个云服务部署，将为角色创建 6 个表。 即，将为每 5 分钟、1 小时和 12 小时的数据创建 2 个表。 其中一个表存储角色级别的汇总数据；其他表存储角色实例的汇总数据。 
+详细监视数据存储在为每个角色指定的存储帐户中的相应表中。 对于每个云服务部署，为角色创建 6 个表。 即，将为每 5 分钟、1 小时和 12 小时的数据创建 2 个表。 其中一个表存储角色级别的汇总数据；其他表存储角色实例的汇总数据。 
 
 表名称采用以下格式：
 
@@ -186,7 +190,7 @@ WAD*deploymentID*PT*aggregation_interval*[R|RI]Table
 
 - RI = 角色实例的汇总
 
-例如，下表将存储在 1 小时时间间隔内汇总的详细监视数据。
+例如，下表存储在 1 小时时间间隔内汇总的详细监视数据。
 
 ```
 WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)

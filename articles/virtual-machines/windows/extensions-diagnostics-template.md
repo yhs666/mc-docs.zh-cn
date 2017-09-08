@@ -3,8 +3,8 @@ title: "向 Azure 虚拟机添加监视和诊断 | Azure"
 description: "使用 Azure Resource Manager 模板新建具有 Azure 诊断扩展的 Windows 虚拟机。"
 services: virtual-machines-windows
 documentationcenter: 
-author: sbtron
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
@@ -14,21 +14,19 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76514d97ed92297b848ee1c9c3b67bf20c785cad
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 9ccb3a58f4cd815ff9a67386a7920a0409420db2
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/29/2017
 ---
-# 将监视和诊断与 Windows VM 和 Azure Resource Manager 模板配合使用
-<a id="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates" class="xliff"></a>
-Azure 诊断扩展可在基于 Windows 的 Azure 虚拟机上提供监视和诊断功能。 通过将该扩展纳入为 Azure Resource Manager 模板的一部分，可以在虚拟机上启用这些功能。 有关将任何扩展纳入为虚拟机模板一部分的详细信息，请参阅[使用 VM 扩展创作 Azure Resource Manager 模板](extensions-authoring-templates.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 本文介绍了如何将 Azure 诊断扩展添加到 Windows 虚拟机模板中。  
+# <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>将监视和诊断与 Windows VM 和 Azure Resource Manager 模板配合使用
+Azure 诊断扩展可在基于 Windows 的 Azure 虚拟机上提供监视和诊断功能。 通过将该扩展纳入为 Azure Resource Manager 模板的一部分，可以在虚拟机上启用这些功能。 有关将任何扩展纳入为虚拟机模板一部分的详细信息，请参阅[使用 VM 扩展创作 Azure Resource Manager 模板](template-description.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json#extensions)。 本文介绍了如何将 Azure 诊断扩展添加到 Windows 虚拟机模板中。  
 
-## 将 Azure 诊断扩展添加到 VM 资源定义中
-<a id="add-the-azure-diagnostics-extension-to-the-vm-resource-definition" class="xliff"></a>
+## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>将 Azure 诊断扩展添加到 VM 资源定义中
 若要在 Windows 虚拟机上启用诊断扩展，需要将该扩展添加为 Resource Manager 模板中的 VM 资源。
 
 对于基于 Resource Manager 的简单虚拟机，请将扩展配置添加到该虚拟机的 *resources* 数组： 
@@ -82,8 +80,7 @@ Azure 诊断扩展可在基于 Windows 的 Azure 虚拟机上提供监视和诊�
 
 *protectedSettings* 中的属性（有时称为专用配置）可设置，但在设置之后无法读回。 *protectedSettings* 的只写性质使其非常适合存储类似存储帐户密钥（写入诊断数据的位置）这样的密码。    
 
-## 将诊断存储帐户指定为参数
-<a id="specifying-diagnostics-storage-account-as-parameters" class="xliff"></a>
+## <a name="specifying-diagnostics-storage-account-as-parameters"></a>将诊断存储帐户指定为参数
 上述诊断扩展 json 代码段采用两个参数：*existingdiagnosticsStorageAccountName* 和 *existingdiagnosticsStorageResourceGroup*，指定将存储诊断数据的诊断存储帐户。 将诊断存储帐户指定为参数可让你轻松地跨不同环境更改诊断存储帐户，例如，你可能想要使用不同诊断存储帐户进行测试，并且使用另外一个进行生产部署。  
 
         "existingdiagnosticsStorageAccountName": {
@@ -106,8 +103,7 @@ Azure 诊断扩展可在基于 Windows 的 Azure 虚拟机上提供监视和诊�
 > 
 > 
 
-## 诊断配置变量
-<a id="diagnostics-configuration-variables" class="xliff"></a>
+## <a name="diagnostics-configuration-variables"></a>诊断配置变量
 上述诊断扩展 json 代码段定义了一个 *accountid* 变量，从而简化了获取诊断存储的存储帐户密钥的过程：   
 
     "accountid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',parameters('existingdiagnosticsStorageResourceGroup'), '/providers/','Microsoft.Storage/storageAccounts/', parameters('existingdiagnosticsStorageAccountName'))]"
@@ -145,8 +141,7 @@ Azure 诊断扩展可在基于 Windows 的 Azure 虚拟机上提供监视和诊�
 
 MetricAggregation 值 *PT1H* 和 *PT1M* 表示一分钟的聚合和一小时的聚合。
 
-## 存储中的 WADMetrics 表
-<a id="wadmetrics-tables-in-storage" class="xliff"></a>
+## <a name="wadmetrics-tables-in-storage"></a>存储中的 WADMetrics 表
 上述指标配置将在你的诊断存储帐户中生成具有以下命名约定的表：
 
 * **WADMetrics**：所有 WADMetrics 表的标准前缀
@@ -168,8 +163,7 @@ MetricAggregation 值 *PT1H* 和 *PT1M* 表示一分钟的聚合和一小时的�
 * **Count**：针对性能计数器报告的值总数。
 * **Average**：聚合期间性能计数器的平均（总计/计数）值。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 有关具有诊断扩展的 Windows 虚拟机的完整示例模板，请参阅 [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
-* 使用 [Azure PowerShell](ps-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 或 [Azure 命令行](../linux/cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)部署 Resource Manager 模板
+* 使用 [Azure PowerShell](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 或 [Azure 命令行](../linux/create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)部署 Resource Manager 模板
 * 了解有关[创作 Azure Resource Manager 模板](../../resource-group-authoring-templates.md)的详细信息

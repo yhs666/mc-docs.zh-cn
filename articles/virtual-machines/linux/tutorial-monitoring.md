@@ -3,8 +3,8 @@ title: "监视 Azure 中的 Linux 虚拟机 | Azure"
 description: "了解如何在 Azure 中的 Linux 虚拟机上监视启动诊断和性能指标"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
-ms.openlocfilehash: 789e42d1df6c4a6d91f6275c1710dece9c93d155
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: e8a7c5b7f1cd9eb988c6064f212d55c4e8e68f2a
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>如何监视 Azure 中的 Linux 虚拟机
 
@@ -146,9 +146,3 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 > * 在 VM 上启用诊断扩展
 > * 基于诊断指标创建警报
 
-请访问以下链接，查看预先生成的虚拟机脚本示例。
-
-> [!div class="nextstepaction"]
-> [Linux 虚拟机脚本示例](./cli-samples.md)
-
-<!--Update_Description: wording update-->

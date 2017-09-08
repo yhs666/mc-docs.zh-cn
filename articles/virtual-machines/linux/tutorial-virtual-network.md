@@ -3,8 +3,8 @@ title: "Azure 虚拟网络和 Linux 虚拟机 | Azure"
 description: "教程 - 使用 Azure CLI 管理 Azure 虚拟网络和 Linux 虚拟机"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
-ms.openlocfilehash: 68940cbef36d55691f36a692bb35485cbda4bf47
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 0526af70178d319f87cc1305e5f44da4990754c5
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>使用 Azure CLI 管理 Azure 虚拟网络和 Linux 虚拟机
 
@@ -307,9 +307,4 @@ Deny      *                           *                       Inbound      denyA
 > * 保护传入的 Internet 流量
 > * 保护 VM 到 VM 的流量
 
-请转到下一教程，了解如何监视虚拟机。
 
-> [!div class="nextstepaction"]
-> [监视虚拟机](tutorial-monitoring.md)
-
-<!--Update_Description: wording update-->

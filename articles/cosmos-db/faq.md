@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 05/29/2017
 ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: d67b8b61b088ec00b604153e839af1f45675a134
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 4794864b6233a6af9f9a7d0d51fc00fa5926d7a1
+ms.sourcegitcommit: fa7ac9d4e888435ef9e0c3251a90c9506571bc87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常见问题解答
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基础知识
@@ -230,7 +230,7 @@ Azure Cosmos DB：表 API（预览）是 Azure Cosmos DB 的一款高级产品�
 可以使用容量估算器来计算操作所需的 TableThroughput。 有关详细信息，请参阅 [Estimate Request Units and Data Storage](https://www.documentdb.com/capacityplanner)（估算请求单位和数据存储）。 通常，可以将实体表示为 JSON，并为操作提供所需数量。 
 
 ### <a name="can-i-use-the-new-table-api-preview-sdk-locally-with-the-emulator"></a>是否可在本地将新的表 API（预览）SDK 与模拟器配合使用？
-是的，使用新 SDK 时，可以在本地模拟器中使用表 API（预览）。 若要下载新的模拟器，请参阅[将 Azure Cosmos DB 模拟器用于本地开发和测试](local-emulator.md)。 app.config 中的 StorageConnectionString 值必须是 `DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=https://localhost:8081`。 
+是的，使用新 SDK 时，可以在本地模拟器中使用表 API（预览）。 若要下载新的模拟器，请参阅[将 Azure Cosmos DB 模拟器用于本地开发和测试](local-emulator.md)。 app.config 中的 StorageConnectionString 值必须是 `DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=https://localhost:8081;EndpointSuffix=core.chinacloudapi.cn`。 
 
 ### <a name="can-my-existing-application-work-with-the-table-api-preview"></a>现有的应用程序能否使用表 API（预览）？ 
 在 .NET API 中执行创建、删除、更新、查询操作时，新表 API（预览）的外围应用与现有的 Azure 标准表 SDK 兼容。 确保有一个行键，因为表 API（预览）需要分区键和行键。 我们还计划在正式推出此服务产品时，添加更多的 SDK 支持。

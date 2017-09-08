@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 08/28/2017
 ms.date: 
 ms.author: v-yeche
-ms.openlocfilehash: 3d8bacfcd879b85b098f4ba7fbeb739124c321b7
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 088fb04273d0a175f28670bff22f26ca86c6811e
+ms.sourcegitcommit: fa7ac9d4e888435ef9e0c3251a90c9506571bc87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="how-to-use-table-storage-from-java"></a>如何通过 Java 使用表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/25/2017
 ## <a name="create-a-java-application"></a>创建 Java 应用程序
 本指南会使用存储功能，这些功能可在本地 Java 应用程序中运行，或在 Azure 的 Web 角色或辅助角色中通过运行的代码来运行。
 
-为此，需要安装 Java 开发工具包 (JDK)，并在 Azure 订阅中创建一个 Azure 存储帐户。 完成此操作后，需要验证开发系统是否满足最低要求和 GitHub 上的[用于 Java 的 Microsoft Azure 存储 SDK][Microsoft Azure Storage SDK for Java] 存储库中列出的依赖项。 如果系统满足这些要求，可以按照说明下载和安装系统中该存储库的用于 Java 的 Azure 存储库。 完成这些任务后，便能够创建一个 Java 应用程序，以使用本文中的示例。
+为此，需要安装 Java 开发工具包 (JDK)，并在 Azure 订阅中创建一个 Azure 存储帐户。 完成此操作后，需要验证开发系统是否满足最低要求和 GitHub 上的[用于 Java 的 Microsoft Azure 存储 SDK][Microsoft Azure Storage SDK for Java] 存储库中列出的依赖项。 如果系统满足这些要求，可以按照说明下载和安装系统中该存储库的 Azure Storage Libraries for Java。 完成这些任务后，便能够创建一个 Java 应用程序，以使用本文中的示例。
 
 ## <a name="configure-your-application-to-access-table-storage"></a>配置应用程序以访问表存储
 将下列 import 语句添加到需要在其中使用 Azure 存储 API 访问表的 Java 文件的顶部：
@@ -57,7 +57,8 @@ Azure 存储客户端使用存储连接字符串来存储用于访问数据管�
 public static final String storageConnectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
-    "AccountKey=your_storage_account_key";
+    "AccountKey=your_storage_account_key;" +
+    "EndpointSuffix=core.chinacloudapi.cn";
 ```
 
 在 Azure 的角色中运行的应用程序中，此字符串可存储在服务配置文件 *ServiceConfiguration.cscfg*中，并可通过调用 **RoleEnvironment.getConfigurationSettings** 方法进行访问。 下面是从服务配置文件中名为 **StorageConnectionString** 的 *Setting* 元素中获取连接字符串的示例：

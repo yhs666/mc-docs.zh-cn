@@ -3,8 +3,8 @@ title: "创建和使用适用于 Azure 中 Linux VM 的 SSH 密钥对 | Azure"
 description: "如何创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对，提高身份验证过程的安全性。"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 03/07/2017
-ms.date: 04/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 5a90976e5dda403170e6964b0d7bed79593baee3
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+origin.date: 08/14/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 1792e8860212c2f49d111aa9e387a376aa2a4157
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>如何创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对
 使用安全外壳 (SSH) 密钥对，可以在 Azure 上创建使用 SSH 密钥进行身份验证的虚拟机 (VM)，从而无需密码即可登录。 本文介绍如何快速生成和使用适用于 Linux VM 的 SSH 协议版本 2 RSA 公钥和私钥文件对。 如需更详细的步骤和其他示例，请参阅[创建 SSH 密钥对和证书的详细步骤](create-ssh-keys-detailed.md)。

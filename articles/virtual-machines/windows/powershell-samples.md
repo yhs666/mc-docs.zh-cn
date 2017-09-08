@@ -3,8 +3,8 @@ title: "Azure 虚拟机 PowerShell 示例 | Azure"
 description: "Azure 虚拟机 PowerShell 示例"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 
@@ -14,17 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/05/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
-ms.openlocfilehash: 0308fd5869f7df44d5ecd4b729742f83cb568201
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: 20d4d13b3e5dd2299ba39bd90192dfab0364fca3
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/29/2017
 ---
-# Azure 虚拟机 PowerShell 示例
-<a id="azure-virtual-machine-powershell-samples" class="xliff"></a>
+# <a name="azure-virtual-machine-powershell-samples"></a>Azure 虚拟机 PowerShell 示例
 
 下表包含用于创建和管理 Windows 虚拟机的 PowerShell 脚本示例的链接。
 
@@ -39,12 +38,13 @@ ms.lasthandoff: 06/30/2017
 | [从托管 OS 磁盘创建 VM](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 通过将现有托管磁盘附加为 OS 磁盘来创建虚拟机。 |
 | [从快照创建 VM](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 先从快照创建托管磁盘，然后将新的托管磁盘附加为 OS 磁盘来从快照创建虚拟机。 |
 |**管理存储**||
-| [从相同或不同订阅中的 VHD 创建托管磁盘](./../../storage/scripts/storage-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 从相同或不同订阅中作为 OS 磁盘的专用 VHD 或作为数据磁盘的数据 VHD 创建托管磁盘。  |
-| [从快照创建托管磁盘](./../../storage/scripts/storage-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 从快照创建托管磁盘。 |
-| [将托管磁盘复制到相同或不同的订阅](./../../storage/scripts/storage-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | 将托管磁盘复制到相同或不同的订阅，但与父级托管磁盘位于同一区域。 
-| [将快照作为 VHD 导出到存储帐户](./../../storage/scripts/storage-windows-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 将托管快照作为 VHD 导出到不同区域中的存储帐户。 |
-| [从 VHD 创建快照](./../../storage/scripts/storage-windows-powershell-sample-create-snapshot-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 从 VHD 创建快照以在短时间内从快照创建多个相同的托管磁盘。  |
-| [将快照复制到相同或不同的订阅中](./../../storage/scripts/storage-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 将快照复制到相同或不同的订阅，但与父级快照位于同一区域。 |
+| [从相同或不同订阅中的 VHD 创建托管磁盘](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 从相同或不同订阅中作为 OS 磁盘的专用 VHD 或作为数据磁盘的数据 VHD 创建托管磁盘。  |
+| [从快照创建托管磁盘](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 从快照创建托管磁盘。 |
+| [将托管磁盘复制到相同或不同的订阅](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | 将托管磁盘复制到相同或不同的订阅，但与父级托管磁盘位于同一区域。 
+| [将快照作为 VHD 导出到存储帐户](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 将托管快照作为 VHD 导出到不同区域中的存储帐户。 |
+| [从 VHD 创建快照](../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 从 VHD 创建快照以在短时间内从快照创建多个相同的托管磁盘。  |
+| [将快照复制到相同或不同的订阅中](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 将快照复制到相同或不同的订阅，但与父级快照位于同一区域。 |
 |**保护虚拟机安全**||
 | [加密 VM 和数据磁盘](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | 创建 Azure Key Vault、加密密钥和服务主体，然后对 VM 进行加密。 |
 | | |
+<!--Update_Description: update VM scripts links-->

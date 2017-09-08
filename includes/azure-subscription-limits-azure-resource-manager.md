@@ -1,6 +1,6 @@
 | 资源 | 默认限制 | 最大限制 |
 | --- | --- | --- |
-| 每个订阅的[存储帐户数](../articles/storage/storage-create-storage-account.md) |200 |200<sup>2</sup> |
+| 每个订阅的[存储帐户数](../articles/storage/common/storage-create-storage-account.md) |200 |200<sup>2</sup> |
 | 每个订阅的[资源组数](../articles/azure-resource-manager/resource-group-overview.md) |800 |800 |
 | 每个订阅的[可用性集数](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |每个区域 2,000 个 |每个区域 2,000 个 |
 | Resource Manager API 读取次数 |每小时 15,000 次 |每小时 15,000 次 |
@@ -26,3 +26,4 @@
 > 
 
 
+<!--ms.date: 08/29/2017-->

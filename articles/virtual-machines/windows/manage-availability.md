@@ -3,8 +3,8 @@ title: "在 Azure 中管理 Windows VM 的可用性 | Azure"
 description: "了解如何使用多个虚拟机确保 Azure 中 Windows 应用程序的高可用性"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 02351953-7b6a-4657-b9e1-de2ea8f6aa05
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/21/2017
-ms.date: 05/31/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 502915df294ff02df9ac13dbe53adf5d0e35be94
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 57aa168196bafc29a7de9ba29d41d63043907c01
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>在 Azure 中管理 Windows 虚拟机的可用性 
 
@@ -34,4 +34,4 @@ ms.lasthandoff: 07/13/2017
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 
 ## <a name="next-steps"></a>后续步骤
-若要了解对虚拟机进行负载均衡的详细信息，请参阅[对虚拟机进行负载均衡](load-balance.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+若要了解对虚拟机进行负载均衡的详细信息，请参阅[对虚拟机进行负载均衡](tutorial-load-balancer.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。

@@ -3,8 +3,8 @@ title: "排查 Azure 中的 Windows 虚拟机部署问题 | Azure"
 description: "排查在 Azure 资源管理器部署模型中部署 Windows 虚拟机时遇到的问题。"
 services: virtual-machines-windows
 documentationcenter: 
-author: genlin
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/22/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
-ms.openlocfilehash: 9883cefec1cf74b4c9368f18da0a11b531c68a92
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 57219aebdf051a74acc6f1c37c6ed95d2d78796b
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Windows 虚拟机部署问题
 
@@ -68,7 +68,8 @@ productPesIds="1234, 5678"
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>能否将现有经典 VM 添加到可用性集？
 
-是的。 可以将现有经典 VM 添加到新的或现有的可用性集。 有关详细信息，请参阅[将现有虚拟机添加到可用性集](classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set)。
+是的。 可以将现有经典 VM 添加到新的或现有的可用性集。 有关详细信息，请参阅[将现有虚拟机添加到可用性集](classic/configure-availability.md#addmachine)。
+
 
 ## <a name="next-steps"></a>后续步骤
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。

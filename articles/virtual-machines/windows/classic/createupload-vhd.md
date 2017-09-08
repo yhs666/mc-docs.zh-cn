@@ -3,8 +3,8 @@ title: "使用 Powershell 创建和上传 VM 映像 | Azure"
 description: "了解如何使用经典部署模型和 Azure Powershell 创建并上传通用化 Windows Server 映像 (VHD)。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 8c4a08fe-7714-4bf0-be87-c728a7806d3f
@@ -14,23 +14,21 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 185fe68f76256a4734decfad029f4b26a6176805
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: a9c13cad70b349498d769522da32d4cfedd340d5
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/29/2017
 ---
-# 创建 Windows Server VHD 并将其上传到 Azure
-<a id="create-and-upload-a-windows-server-vhd-to-azure" class="xliff"></a>
-本文说明如何上传自己的通用化 VM 映像作为虚拟硬盘 (VHD)，以便使用它来创建虚拟机。 有关 Azure 中的磁盘和 VHD 的更多详细信息，请参阅 [About Disks and VHDs for Virtual Machines](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（关于虚拟机的磁盘和 VHD）。
+# <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>创建 Windows Server VHD 并将其上传到 Azure
+本文说明如何上传自己的通用化 VM 映像作为虚拟硬盘 (VHD)，以便使用它来创建虚拟机。 有关 Azure 中的磁盘和 VHD 的更多详细信息，请参阅 [About Disks and VHDs for Virtual Machines](../about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（关于虚拟机的磁盘和 VHD）。
 
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 也可以使用 Resource Manager 模型来[上传](../upload-generalized-managed.md)虚拟机。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 本文假定你具备以下条件：
 
 * **Azure 订阅** - 如果没有，可以[建立一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
@@ -38,10 +36,9 @@ ms.lasthandoff: 06/23/2017
 * **.VHD 文件** - 存储在 .vhd 文件中并附加到虚拟机的受支持 Windows 操作系统。 检查 Sysprep 是否支持 VHD 上运行的服务器角色。 有关详细信息，请参阅 [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)（Sysprep 对服务器角色的支持）。
 
     > [!IMPORTANT]
-    > Azure 不支持 VHDX 格式。 可使用 Hyper-V 管理器或 [Convert-VHD cmdlet](http://technet.microsoft.com/library/hh848454.aspx)将磁盘转换为 VHD 格式。 有关详细信息，请参阅此 [blogpost](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx)。
+    > Azure 不支持 VHDX 格式。 可使用 Hyper-V 管理器或 [Convert-VHD cmdlet](http://technet.microsoft.com/library/hh848454.aspx) 将磁盘转换为 VHD 格式。 有关详细信息，请参阅此 [blogpost](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx)。
 
-## 步骤 1：准备 VHD
-<a id="step-1-prep-the-vhd" class="xliff"></a>
+## <a name="step-1-prep-the-vhd"></a>步骤 1：准备 VHD
 在将 VHD 上传到 Azure 之前，需要使用 Sysprep 工具对 VHD 进行一般化。 这样就可以将 VHD 作为映像使用。 有关 Sysprep 的详细信息，请参阅[如何使用 Sysprep：简介](http://technet.microsoft.com/library/bb457073.aspx)。 在运行 Sysprep 之前备份 VM。
 
 在操作系统已安装到的虚拟机中，完成以下过程：
@@ -57,9 +54,8 @@ ms.lasthandoff: 06/23/2017
 5. 在“关机选项”中选择“关机”。
 6. 单击 **“确定”**。
 
-## 步骤 2：创建存储帐户和容器
-<a id="step-2-create-a-storage-account-and-a-container" class="xliff"></a>
-你需要一个 Azure 存储帐户，以便有一个可向其上传 .vhd 文件的位置。 此步骤演示了如何创建一个帐户，或如何从现有帐户获取需要的信息。 将 &lsaquo; 和 &rsaquo; 括号中的变量替换为自己的信息。
+## <a name="step-2-create-a-storage-account-and-a-container"></a>步骤 2：创建存储帐户和容器
+需要一个 Azure 存储帐户，以便有一个可向其上传 .vhd 文件的位置。 此步骤演示了如何创建一个帐户，或如何从现有帐户获取需要的信息。 将 &lsaquo; 和 &rsaquo; 括号中的变量替换为自己的信息。
 
 1. 登录
 
@@ -67,7 +63,7 @@ ms.lasthandoff: 06/23/2017
     Add-AzureAccount -Environment AzureChinaCloud
     ```
 
-2. 设置你的 Azure 订阅。
+2. 设置 Azure 订阅。
 
     ```powershell
     Select-AzureSubscription -SubscriptionName <SubscriptionName>
@@ -91,8 +87,7 @@ ms.lasthandoff: 06/23/2017
     New-AzureStorageContainer -Name <ContainerName> -Permission Off
     ```
 
-## 步骤 3：上传 .vhd 文件
-<a id="step-3-upload-the-vhd-file" class="xliff"></a>
+## <a name="step-3-upload-the-vhd-file"></a>步骤 3：上传 .vhd 文件
 使用 [Add-AzureVhd](https://docs.microsoft.com/powershell/module/azure/add-azurevhd) 上传 VHD。
 
 在上一步骤使用的 Azure PowerShell 窗口中键入以下命令，并将 &lsaquo; 和 &rsaquo; 括号中的变量替换为自己的信息。
@@ -101,14 +96,12 @@ ms.lasthandoff: 06/23/2017
 Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.chinacloudapi.cn/<ContainerName>/<vhdName>.vhd" -LocalFilePath <LocalPathtoVHDFile>
 ```
 
-## 步骤 4：将映像添加到自定义映像列表
-<a id="step-4-add-the-image-to-your-list-of-custom-images" class="xliff"></a>
+## <a name="step-4-add-the-image-to-your-list-of-custom-images"></a>步骤 4：将映像添加到自定义映像列表
 使用 [Add-AzureVMImage](https://docs.microsoft.com/powershell/module/azure/add-azurevmimage) cmdlet 将映像添加到自定义映像列表。
 
 ```powershell
 Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.chinacloudapi.cn/<ContainerName>/<vhdName>.vhd" -OS "Windows"
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 现在可以使用上传的映像来[创建自定义的 VM](createportal.md)。

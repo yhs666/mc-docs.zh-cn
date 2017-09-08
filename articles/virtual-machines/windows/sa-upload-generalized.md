@@ -3,8 +3,8 @@ title: "上传通用化 VHD 以在 Azure 中创建多个 VM | Azure"
 description: "将通用化 VHD 上传到 Azure 存储帐户，创建要用于资源管理器部署模型的 Windows VM。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
-ms.openlocfilehash: c839b49151b190354c7c5777c1b192530fb32b89
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 6eb5c44dd173ec3b23eb8ab0e6b5408b8da6801a
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>将通用化 VHD 上传到 Azure 以创建新 VM
 
@@ -281,4 +281,4 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ## <a name="next-steps"></a>后续步骤
-若要使用 Azure PowerShell 管理新虚拟机，请参阅[使用 Azure Resource Manager 与 PowerShell 来管理虚拟机](ps-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+若要使用 Azure PowerShell 管理新虚拟机，请参阅[使用 Azure Resource Manager 与 PowerShell 来管理虚拟机](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。

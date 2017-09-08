@@ -1,8 +1,8 @@
 ---
 title: "Azure 媒体服务输出元数据架构 | Azure"
 description: "本主题概述 Azure 媒体服务输出元数据架构。"
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/26/2016
-ms.date: 12/12/2016
-ms.author: v-johch
-ms.openlocfilehash: 5a7dfc22f116600f416dc05be0b638b940be3a4d
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 07/19/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 91be00231eb1dfe9378e21de38634341af16be94
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="output-metadata"></a>输出元数据
 ## <a name="overview"></a>概述
 编码作业与要执行部分编码任务的输入资产相关联。 例如，将 MP4 文件编码为 H.264 MP4 自适应比特率集；创建缩略图；创建叠加。 完成任务后，会生成一个输出资产。  该输出资产包含视频、音频、缩略图等。输出资产还包含提供输出资产相关元数据的文件。 元数据 XML 文件的名称采用下列格式：&lt;source_file_name&gt;_manifest.xml（例如，BigBuckBunny_manifest.xml）。  
 
-若要检查元数据文件，可以创建 **SAS** 定位器并将文件下载到本地计算机。  
+要检查元数据文件，可以创建 **SAS** 定位器并将文件下载到本地计算机。  
 
-本主题讨论作为输出元数据 (&lt; source_file_name &gt; _manifest.xml) 的基础的 XML架构的元素和类型。 若要了解包含有关输入资产元数据的文件信息，请参阅[输入元数据](./media-services-input-metadata-schema.md)。  
+本主题讨论作为输出元数据 (&lt; source_file_name &gt; _manifest.xml) 的基础的 XML架构的元素和类型。 若要了解包含有关输入资产元数据的文件信息，请参阅[输入元数据](media-services-input-metadata-schema.md)。  
 
 > [!NOTE]
 >可以在本主题末尾找到完整架构代码 XML 示例。  
@@ -38,10 +38,10 @@ ms.lasthandoff: 06/21/2017
 ### <a name="child-elements"></a>子元素
 | 名称 | 说明 |
 | --- | --- |
-| AssetFile<br/><br/> minOccurs="0" maxOccurs="1" |[AssetFile 元素](./media-services-output-metadata-schema.md)是 AssetFiles 集合的一部分。 |
+| AssetFile<br/><br/> minOccurs="0" maxOccurs="1" |[AssetFile 元素](media-services-output-metadata-schema.md)是 AssetFiles 集合的一部分。 |
 
 ## <a name="AssetFile "></a> AssetFile 元素
-可以找到 XML 示例，请参阅 [XML 示例](./media-services-output-metadata-schema.md#xml)。  
+可以找到 XML 示例，请参阅 [XML 示例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>属性
 | 名称 | 类型 | 说明 |
@@ -53,24 +53,24 @@ ms.lasthandoff: 06/21/2017
 ### <a name="child-elements"></a>子元素
 | 名称 | 说明 |
 | --- | --- |
-| **源** |输入/源媒体文件的集合，处理该集合以生成此 AssetFile。 有关详细信息，请参阅[源元素](./media-services-output-metadata-schema.md)。 |
-| VideoTracks<br/><br/> minOccurs="0" maxOccurs="1" |每个物理 AssetFile 可以包含零个或以上交错到相应容器格式的视频轨道。 这是所有这些视频轨道的集合。 有关详细信息，请参阅 [VideoTracks 元素](./media-services-output-metadata-schema.md)。 |
-| AudioTracks<br/><br/> minOccurs="0" maxOccurs="1" |每个物理 AssetFile 可以包含零个或以上交错到相应容器格式的音频轨道。 这是所有这些音频轨道的集合。 有关详细信息，请参阅 [AudioTracks 元素](./media-services-output-metadata-schema.md)。 |
+| **源** |输入/源媒体文件的集合，处理该集合以生成此 AssetFile。 有关详细信息，请参阅[源元素](media-services-output-metadata-schema.md)。 |
+| VideoTracks<br/><br/> minOccurs="0" maxOccurs="1" |每个物理 AssetFile 可以包含零个或以上交错到相应容器格式的视频轨道。 这是所有这些视频轨道的集合。 有关详细信息，请参阅 [VideoTracks 元素](media-services-output-metadata-schema.md)。 |
+| AudioTracks<br/><br/> minOccurs="0" maxOccurs="1" |每个物理 AssetFile 可以包含零个或以上交错到相应容器格式的音频轨道。 这是所有这些音频轨道的集合。 有关详细信息，请参阅 [AudioTracks 元素](media-services-output-metadata-schema.md)。 |
 
 ## <a name="Sources "></a> Sources 元素
 输入/源媒体文件的集合，处理该集合以生成此 AssetFile。  
 
-可以找到 XML 示例，请参阅 [XML 示例](./media-services-output-metadata-schema.md#xml)。  
+可以找到 XML 示例，请参阅 [XML 示例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="child-elements"></a>子元素
 | 名称 | 说明 |
 | --- | --- |
-| Source<br/><br/> minOccurs="1" maxOccurs="unbounded" |生成此资产时所使用的输入/源文件。 有关详细信息，请参阅[源元素](./media-services-output-metadata-schema.md)。 |
+| Source<br/><br/> minOccurs="1" maxOccurs="unbounded" |生成此资产时所使用的输入/源文件。 有关详细信息，请参阅[源元素](media-services-output-metadata-schema.md)。 |
 
 ## <a name="Source "></a> Source 元素
 生成此资产时所使用的输入/源文件。  
 
-可以找到 XML 示例，请参阅 [XML 示例](./media-services-output-metadata-schema.md#xml)。  
+可以找到 XML 示例，请参阅 [XML 示例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>属性
 | 名称 | 类型 | 说明 |
@@ -80,24 +80,24 @@ ms.lasthandoff: 06/21/2017
 ## <a name="VideoTracks "></a> VideoTracks 元素
 每个物理 AssetFile 可以包含零个或以上交错到相应容器格式的视频轨道。 这是所有这些视频轨道的集合。  
 
-可以找到 XML 示例，请参阅 [XML 示例](./media-services-output-metadata-schema.md#xml)。  
+可以找到 XML 示例，请参阅 [XML 示例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="child-elements"></a>子元素
 | 名称 | 说明 |
 | --- | --- |
-| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父 AssetFile 中的特定视频轨道。 有关详细信息，请参阅 [VideoTrack 元素](./media-services-output-metadata-schema.md#VideoTrack)。 |
+| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父 AssetFile 中的特定视频轨道。 有关详细信息，请参阅 [VideoTrack 元素](media-services-output-metadata-schema.md#VideoTrack)。 |
 
 ## <a name="VideoTrack"></a> VideoTrack 元素
 父 AssetFile 中的特定视频轨道。  
 
-可以找到 XML 示例，请参阅 [XML 示例](./media-services-output-metadata-schema.md#xml)。  
+可以找到 XML 示例，请参阅 [XML 示例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>属性
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| Id<br/><br/> minInclusive ="0"<br/><br/> 必需 |**xs:int** |此视频轨道从零开始的索引。 注意：这不一定是 MP4 文件中使用的 TrackID。 |
+| Id<br/><br/> minInclusive ="0"<br/><br/> 必需 |**xs:int** |此视频轨道从零开始的索引。注意：这不一定是 MP4 文件中使用的 TrackID。 |
 | FourCC<br/><br/> 必选 |**xs:string** |视频编解码器 FourCC 代码。 |
-| Profile |**xs:string** |H264 配置文件（仅适用于 H264 编解码器）。 |
+| **配置文件** |**xs:string** |H264 配置文件（仅适用于 H264 编解码器）。 |
 | Level |**xs:string** |H264 级别（仅适用于 H264 编解码器）。 |
 | Width<br/><br/> minInclusive ="0"<br/><br/> 必需 |**xs:int** |以像素为单位的编码视频宽度。 |
 | Height<br/><br/> minInclusive ="0"<br/><br/> 必需 |**xs:int** |以像素为单位的编码视频高度。 |
@@ -112,22 +112,22 @@ ms.lasthandoff: 06/21/2017
 ## <a name="AudioTracks "></a> AudioTracks 元素
 每个物理 AssetFile 可以包含零个或以上交错到相应容器格式的音频轨道。 这是所有这些音频轨道的集合。  
 
-可以找到 XML 示例，请参阅 [XML 示例](./media-services-output-metadata-schema.md#xml)。  
+可以找到 XML 示例，请参阅 [XML 示例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="child-elements"></a>子元素
 | 名称 | 说明 |
 | --- | --- |
-| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父 AssetFile 中的特定音频轨道。 有关详细信息，请参阅 [AudioTrack 元素](./media-services-output-metadata-schema.md)。 |
+| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父 AssetFile 中的特定音频轨道。 有关详细信息，请参阅 [AudioTrack 元素](media-services-output-metadata-schema.md)。 |
 
 ## <a name="AudioTrack "></a> AudioTrack 元素
 父 AssetFile 中的特定音频轨道。  
 
-可以找到 XML 示例，请参阅 [XML 示例](./media-services-output-metadata-schema.md#xml)。  
+可以找到 XML 示例，请参阅 [XML 示例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>属性
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| Id<br/><br/> minInclusive ="0"<br/><br/> 必需 |**xs:int** |此音频轨道从零开始的索引。 注意：这不一定是 MP4 文件中使用的 TrackID。 |
+| Id<br/><br/> minInclusive ="0"<br/><br/> 必需 |**xs:int** |此音频轨道从零开始的索引。注意：这不一定是 MP4 文件中使用的 TrackID。 |
 | **Codec** |**xs:string** |音频轨道编解码器字符串。 |
 | **EncoderVersion** |**xs:string** |可选的编码器版本字符串，对于 EAC3 是必需的。 |
 | 通道<br/><br/> minInclusive ="0"<br/><br/> 必需 |**xs:int** |音频通道数。 |
@@ -138,12 +138,12 @@ ms.lasthandoff: 06/21/2017
 ### <a name="child-elements"></a>子元素
 | 名称 | 说明 |
 | --- | --- |
-| LoudnessMeteringResultParameters<br/><br/> minOccurs="0" maxOccurs="1" |响度测量结果参数。 有关详细信息，请参阅 [LoudnessMeteringResultParameters 元素](./media-services-output-metadata-schema.md)。 |
+| LoudnessMeteringResultParameters<br/><br/> minOccurs="0" maxOccurs="1" |响度测量结果参数。 有关详细信息，请参阅 [LoudnessMeteringResultParameters 元素](media-services-output-metadata-schema.md)。 |
 
 ## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters 元素
 响度测量结果参数。  
 
-可以找到 XML 示例，请参阅 [XML 示例](./media-services-output-metadata-schema.md#xml)。  
+可以找到 XML 示例，请参阅 [XML 示例](media-services-output-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>属性
 | 名称 | 类型 | 说明 |

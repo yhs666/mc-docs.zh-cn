@@ -3,8 +3,8 @@ title: "通过 Azure 门户使用本地编码器实时传送视频流 | Azure"
 description: "本教程指导你完成相关步骤，以便创建经配置后可以进行直通传递的“通道”。"
 services: media-services
 documentationcenter: 
-author: juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 01/23/2017
-ms.date: 08/07/2017
+origin.date: 08/09/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: f74bdfbf4de61812433405132b1eed1f2dce9f8b
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: bfb50f6df623cc1f141cd55f54410d92b7383d3f
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>如何通过 Azure 门户使用本地编码器实时传送视频流
 > [!div class="op_single_selector"]
@@ -147,4 +147,3 @@ ms.lasthandoff: 08/04/2017
 
 ![资产](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-<!--Update_Description:new file-->

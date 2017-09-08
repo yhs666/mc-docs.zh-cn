@@ -3,8 +3,8 @@ title: "Azure 快速入门 - 创建 Windows VM CLI | Azure"
 description: "快速了解如何使用 Azure CLI 创建 Windows 虚拟机。"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/11/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
-ms.openlocfilehash: 22ac7d3a5875d243783d770211059fdd16453db8
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: d691cee3854f605b1ceccaf9a0bd6205c28c2cdb
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 创建 Windows 虚拟机
 
@@ -116,5 +116,3 @@ az group delete --name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [Azure Windows 虚拟机教程](./tutorial-manage-vm.md)
-
-<!--Update_Description: wording update-->

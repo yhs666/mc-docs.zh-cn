@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 07/17/2017
+ms.date: 09/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: 34725790edd6d54671efeb6361c6bbe5b319da49
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 6ec2cfe6a1e649ea1b6832a18d2e1cff865163c2
+ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/01/2017
 ---
 # <a name="how-to-use-service-management-from-python"></a>如何从 Python 使用服务管理
 本指南说明如何以编程方式从 Python 执行常见服务管理任务。 [用于 Python 的 Azure SDK](https://github.com/Azure/azure-sdk-for-python) 中的 ServiceManagementService 类支持以编程方式访问 [Azure 经典门户][management-portal]中提供的众多与服务管理相关的功能（例如创建、更新和删除云服务、部署、数据管理服务和虚拟机）。 此功能可用于构建需要以编程方式访问服务管理的应用程序。
 
 ## <a name="WhatIs"> </a>什么是服务管理？
-利用服务管理 API，可以编程方式访问通过 [Azure 经典管理门户][management-portal]提供的众多服务管理功能。 Azure SDK for Python 允许你管理云服务和存储帐户。
+利用服务管理 API，可以编程方式访问通过 [Azure 经典管理门户][management-portal]提供的众多服务管理功能。 Azure SDK for Python 允许管理云服务和存储帐户。
 
 若要使用服务管理 API，需要[创建 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
@@ -36,7 +36,7 @@ Azure SDK for Python 可包装 [Azure 服务管理 API][svc-mgmt-rest-api]，后
 `azure-servicemanagement-legacy` 包中提供本文介绍的所有功能，可以使用 pip 安装该包。 有关安装的详细信息（例如，如果刚开始接触 Python），请参阅此文：[安装 Python 和 Azure SDK](../python-how-to-install.md)
 
 ## <a name="Connect"> </a>如何：连接到服务管理
-若要连接到服务管理终结点，你需要 Azure 订阅 ID 和有效管理证书。 可以通过 [Azure 经典管理门户][management-portal]获取订阅 ID。
+要连接到服务管理终结点，需要 Azure 订阅 ID 和有效管理证书。 可以通过 [Azure 经典管理门户][management-portal]获取订阅 ID。
 
 > [!NOTE]
 > 现在，在 Windows 上运行时可以使用通过 OpenSSL 创建的证书。  需要 Python 2.7.4 或更高版本。 我们建议用户使用 OpenSSL 而不是 .pfx，因为将来可能会取消对 .pfx 证书的支持。
@@ -186,8 +186,7 @@ sms.delete_deployment('myhostedservice', 'v1')
 ```
 
 ## <a name="CreateStorageService"> </a>如何：创建存储服务
-
-利用[存储服务](../storage/storage-create-storage-account.md)，可以访问 Azure [Blob](../storage/storage-python-how-to-use-blob-storage.md)、[表](../storage/storage-python-how-to-use-table-storage.md)和[队列](../storage/storage-python-how-to-use-queue-storage.md)。 若要创建存储服务，需要提供服务名称（3 至 24 个小写字符且在 Azure 中唯一）、说明、标签（最多 100 个字符，自动编码为 base64）以及位置。 下面的示例演示如何通过指定位置来创建存储服务。
+利用[存储服务](../storage/common/storage-create-storage-account.md)，可以访问 Azure [Blob](../storage/blobs/storage-python-how-to-use-blob-storage.md)、[表](../cosmos-db/table-storage-how-to-use-python.md)和[队列](../storage/queues/storage-python-how-to-use-queue-storage.md)。 若要创建存储服务，需要提供服务名称（3 至 24 个小写字符且在 Azure 中唯一）、说明、标签（最多 100 个字符，自动编码为 base64）以及位置。 下面的示例演示如何通过指定位置来创建存储服务。
 
 ```
 from azure import *

@@ -3,8 +3,8 @@ title: "通过 PowerShell 迁移到 Resource Manager | Azure"
 description: "本文介绍如何在支持的平台上使用 Azure PowerShell 命令将 IaaS 资源（例如虚拟机 (VM)、虚拟网络 (VNET) 和存储帐户）从经典部署模型迁移到 Azure Resource Manager (ARM) 部署模型"
 services: virtual-machines-windows
 documentationcenter: 
-author: singhkays
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 2b3dff9b-2e99-4556-acc5-d75ef234af9c
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: e02f1156ce88bdb21c2de630d1f55023a3f033ff
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: a746506ea34701450c80a1185a27883943571234
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>使用 Azure PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
 以下步骤演示了如何使用 Azure PowerShell 命令将基础结构即服务 (IaaS) 资源从经典部署模型迁移到 Azure Resource Manager 部署模型。
@@ -77,13 +77,13 @@ ms.lasthandoff: 08/18/2017
 使用以下命令获取可用订阅：
 
 ```powershell
-    Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+    Get-AzureRMSubscription | Sort Name | Select Name
 ```
 
 设置当前会话的 Azure 订阅。 此示例将默认订阅名称设置为 **My Azure Subscription**。 使用自己的订阅名称替换示例名称。
 
 ```powershell
-    Select-AzureRmSubscription -SubscriptionName "My Azure Subscription"
+    Select-AzureRmSubscription –SubscriptionName "My Azure Subscription"
 ```
 
 > [!NOTE]
@@ -351,4 +351,3 @@ Get-AzureRmVMUsage -Location "China North"
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!--Update_Description: use the new portal instead of the classic portal-->

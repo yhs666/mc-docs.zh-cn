@@ -3,8 +3,8 @@ title: "使用远程桌面连接到 Azure 中的 Linux VM | Azure"
 description: "了解如何使用图形工具安装和配置远程桌面 (xrdp) 以连接到 Azure 中的 Linux VM"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/22/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: 88cfe8df3605de8bc30920cc19455cbfc6061879
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 54a69c8f115a1f5bdac134aac4d0a80ec7c30e7b
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>安装和配置远程桌面以连接到 Azure 中的 Linux VM
 通常使用安全外壳 (SSH) 连接从命令行管理 Azure 中的 Linux 虚拟机 (VM)。 如果不熟悉 Linux，或者要快速进行故障排除，使用远程桌面可能会更方便。 本文详细介绍如何使用 Resource Manager 部署模型为 Linux VM 安装和配置桌面环境 ([xfce](https://www.xfce.org)) 和远程桌面 ([xrdp](http://www.xrdp.org))。
@@ -140,4 +140,3 @@ tail -f /var/log/syslog
 
 有关从 Windows 使用 SSH 的信息，请参阅[如何在 Windows 中使用 SSH 密钥](ssh-from-windows.md)。
 
-<!--Update_Description: wording update-->

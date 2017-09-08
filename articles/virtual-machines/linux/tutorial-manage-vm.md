@@ -3,8 +3,8 @@ title: "使用 Azure CLI 创建和管理 Linux VM | Azure"
 description: "教程 - 使用 Azure CLI 创建和管理 Linux VM"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
-ms.openlocfilehash: b6de613ebb84a5afdfefb55f25efa8bdd3a325d1
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 47f2a21749bd82d79e6a2910e17dd80b679be187
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>使用 Azure CLI 创建和管理 Linux VM
 
@@ -315,5 +315,3 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 > [!div class="nextstepaction"]
 > [创建和管理 VM 磁盘](./tutorial-manage-disks.md)
-
-<!--Update_Description: wording update-->

@@ -3,8 +3,8 @@ title: "从 Azure 中的专用磁盘创建 VM | Azure"
 description: "通过在 Resource Manager 部署模型中附加专用非托管磁盘创建新 VM。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: 84bc53a83d594059f8c14c03ae37f5539a6d7f00
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: c5958ab8e18dc80456e9bdb155e4e5fd287f8e41
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>从存储帐户中的专用 VHD 创建 VM
 
@@ -115,7 +115,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 请确保：
 
 * 获取有关**源和目标存储帐户**的信息。 对于源 VM，需要具有存储帐户和容器名称。 通常，容器名称为 **vhds**。 还需要获取目标存储帐户。 如果尚未拥有存储帐户，可以使用门户（“更多服务”>“存储帐户”>“添加”）或使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet 创建一个存储帐户。 
-* 已下载并安装 [AzCopy 工具](../../storage/storage-use-azcopy.md)。 
+* 已下载并安装 [AzCopy 工具](../../storage/common/storage-use-azcopy.md)。 
 
 ### <a name="deallocate-the-vm"></a>解除分配 VM
 解除分配 VM，释放要复制的 VHD。 
@@ -142,7 +142,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## <a name="get-the-storage-access-keys"></a>获取存储访问密钥
-查找源和目标存储帐户的访问密钥。 有关访问密钥的详细信息，请参阅[关于 Azure 存储帐户](../../storage/storage-create-storage-account.md)。
+查找源和目标存储帐户的访问密钥。 有关访问密钥的详细信息，请参阅[关于 Azure 存储帐户](../../storage/common/storage-create-storage-account.md)。
 
 * 门户：单击“更多服务” > “存储帐户” > “存储帐户” > “访问密钥”。 复制标记为 **key1** 的密钥。
 * Powershell：使用 [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 获取资源组 myResourceGroup 中存储帐户 mystorageaccount 的存储密钥。 复制标记为 key1 的密钥。

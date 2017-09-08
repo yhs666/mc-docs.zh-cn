@@ -3,8 +3,8 @@ title: "从 AWS 和其他平台迁移到 Azure 中的托管磁盘 | Azure"
 description: "在 Azure 中使用从其他云（如 AWS 或其他虚拟化平台）上传的 VHD 并利用 Azure 托管磁盘创建 VM。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,17 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/07/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d55ea6fa58a3878049913c6c6b98eb1c00bf98a0
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: c0d13cbbe0f347062e2bca617871bdc35675cbad
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/29/2017
 ---
-# 从 Amazon Web Services (AWS) 和其他平台迁移到 Azure 中的托管磁盘
-<a id="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure" class="xliff"></a>
+# <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>从 Amazon Web Services (AWS) 和其他平台迁移到 Azure 中的托管磁盘
 
 可将 VHD 文件从 AWS 或本地虚拟化解决方案上传到 Azure，以创建可利用托管磁盘的 VM。 Azure 托管磁盘不需要为 Azure IaaS VM 管理存储帐户。 仅需指定类型（高级或标准）以及所需的磁盘大小，Azure 将为你创建和管理磁盘。 
 
@@ -33,43 +32,38 @@ ms.lasthandoff: 06/23/2017
 - **专用 VHD** - 保留原始 VM 中的用户帐户、应用程序和其他状态数据。 
 
 > [!IMPORTANT]
-> 将任何 VHD 上传到 Azure 之前，应按照[准备要上传到 Azure 的 Windows VHD 或 VHDX](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 进行操作
+> 将任何 VHD 上传到 Azure 之前，应该遵循[准备要上传到 Azure 的 Windows VHD 或 VHDX](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 >
 >
 
 | 方案                                                                                                                         | 文档                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| 你有一个现有的 AWS EC2 实例，你想要将它迁移到 Azure 托管磁盘                                     | [将 VM 从 Amazon Web Services (AWS) 移到 Azure](aws-to-azure.md)                           |
-| 你有一个来自任何其他虚拟化平台的 VM，你想要将该 VM 作为映像使用，以便创建多个 Azure VM。 | [上传通用 VHD 并使用它在 Azure 中创建新 VM](upload-generalized-managed.md) |
-| 你有一个唯一自定义 VM，你想要在 Azure 中重新创建它。                                                      | [将专用 VHD 上传到 Azure 并创建新 VM](create-vm-specialized.md)         |
+| 有一个现有的 AWS EC2 实例，你想要将它迁移到 Azure 托管磁盘                                     | [将 VM 从 Amazon Web Services (AWS) 移到 Azure](aws-to-azure.md)                           |
+| 有一个来自任何其他虚拟化平台的 VM，你想要将该 VM 作为映像使用，以便创建多个 Azure VM。 | [上传通用 VHD 并使用它在 Azure 中创建新 VM](upload-generalized-managed.md) |
+| 有一个唯一自定义 VM，你想要在 Azure 中重新创建它。                                                      | [将专用 VHD 上传到 Azure 并创建新 VM](create-vm-specialized.md)         |
 
-## 托管磁盘概述
-<a id="overview-of-managed-disks" class="xliff"></a>
+## <a name="overview-of-managed-disks"></a>托管磁盘概述
 
 Azure 托管磁盘无需管理存储帐户，从而简化了 VM 管理。 托管磁盘还受益于可用性集中 VM 的更佳可靠性。 它可确保可用性集中不同 VM 的磁盘完全相互隔离，以避免出现单点故障。 它会自动将可用性集中不同 VM 的磁盘置于不同的存储缩放单位（戳），限制由于硬件和软件故障引起的单个存储缩放单位故障影响。 根据需求，可以从两种类型的存储选项中进行选择： 
 
-- [高级托管磁盘](../../storage/storage-premium-storage.md)是基于固态硬盘 (SSD) 的存储介质，它为运行 I/O 密集型工作负荷的虚拟机提供高性能、低延迟的磁盘支持。 可以通过迁移到高级托管磁盘，充分利用这些磁盘的速度和性能。  
+- [高级托管磁盘](../../storage/common/storage-premium-storage.md)是基于固态硬盘 (SSD) 的存储介质，它为运行 I/O 密集型工作负荷的虚拟机提供高性能、低延迟的磁盘支持。 可以通过迁移到高级托管磁盘，充分利用这些磁盘的速度和性能。  
 
-- [标准托管磁盘](../../storage/storage-standard-storage.md)使用基于硬盘驱动器 (HDD) 的存储媒体，最适合用于对性能变化不太敏感的开发/测试和其他不频繁的访问工作负荷。  
+- [标准托管磁盘](../../storage/common/storage-standard-storage.md)使用基于硬盘驱动器 (HDD) 的存储媒体，最适合用于对性能变化不太敏感的开发/测试和其他不频繁的访问工作负荷。  
 
-## 计划迁移到托管磁盘
-<a id="plan-for-the-migration-to-managed-disks" class="xliff"></a>
+## <a name="plan-for-the-migration-to-managed-disks"></a>计划迁移到托管磁盘
 
 本部分可帮助你针对 VM 和磁盘类型做出最佳决策。
 
-### 位置
-<a id="location" class="xliff"></a>
+### <a name="location"></a>位置
 
 选取 Azure 托管磁盘可用位置。 如果要迁移到高级托管磁盘，还应确保高级存储在计划迁移到的目标区域中可用。
 
-### VM 大小
-<a id="vm-sizes" class="xliff"></a>
+### <a name="vm-sizes"></a>VM 大小
 
 如果要迁移到高级托管磁盘，需要将 VM 的大小更新为该 VM 所在区域中支持高级存储的可用大小。 查看支持高级存储的 VM 大小。 [虚拟机大小](sizes.md)中列出了 Azure VM 大小规范。
 查看适用于高级存储的虚拟机的性能特征并选择最适合工作负荷的 VM 大小。 确保 VM 上有足够的带宽来驱动磁盘通信。
 
-### 磁盘大小
-<a id="disk-sizes" class="xliff"></a>
+### <a name="disk-sizes"></a>磁盘大小
 
 **高级托管磁盘**
 
@@ -91,19 +85,16 @@ Azure 托管磁盘无需管理存储帐户，从而简化了 VM 管理。 托管
 | 每个磁盘的 IOPS       | 500              | 500              | 500              | 500              | 500              |
 | 每个磁盘的吞吐量 | 每秒 60 MB | 每秒 60 MB | 每秒 60 MB | 每秒 60 MB | 每秒 60 MB |
 
-### 磁盘缓存策略
-<a id="disk-caching-policy" class="xliff"></a> 
+### <a name="disk-caching-policy"></a>磁盘缓存策略 
 
 **高级托管磁盘**
 
 默认情况下，所有高级数据磁盘的磁盘缓存策略都是“只读”，所有附加到 VM 的高级操作系统都是“读写”。 为使应用程序的 IO 达到最佳性能，建议使用此配置设置。 对于频繁写入或只写的磁盘（例如 SQL Server 日志文件），禁用磁盘缓存可获得更佳的应用程序性能。
 
-### 定价
-<a id="pricing" class="xliff"></a>
+### <a name="pricing"></a>定价
 
 查看[托管磁盘定价](https://www.azure.cn/pricing/details/managed-disks/)。 高级托管磁盘的定价与高级非托管磁盘相同。 但是，标准托管磁盘的定价不同于标准非托管磁盘。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
-- 将任何 VHD 上传到 Azure 之前，应按照[准备要上传到 Azure 的 Windows VHD 或 VHDX](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 进行操作
+- 将任何 VHD 上传到 Azure 之前，应该遵循[准备要上传到 Azure 的 Windows VHD 或 VHDX](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

@@ -3,8 +3,8 @@ title: " 使用 Azure 门户将文件上传到媒体服务帐户 | Azure"
 description: "本教程指导完成利用 Azure 门户将文件上传到媒体服务帐户中的步骤"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-oringin.date: 02/13/2017
-ms.date: 08/07/2017
+oringin.date: 08/07/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: f02a4135d20c630b207f10b17fbd11aa0dbba687
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: c399afef5e8e6da03ab03d2c5f8bf24440f8ffbe
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-azure-portal"></a>使用 Azure 门户将文件上传到媒体服务帐户
 > [!div class="op_single_selector"]
@@ -62,4 +62,3 @@ ms.lasthandoff: 08/04/2017
 
 也可使用 Azure Functions 根据到达已配置容器的文件触发编码作业。 有关详细信息，请参阅[此示例](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ )。
 
-<!--Update_Description: new file-->

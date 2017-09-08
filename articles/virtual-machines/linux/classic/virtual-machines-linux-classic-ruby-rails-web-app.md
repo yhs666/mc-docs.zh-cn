@@ -3,8 +3,8 @@ title: "在 Linux VM 上托管 Ruby on Rails 网站 | Azure"
 description: "在 Azure 上使用 Linux 虚拟机设置和托管基于 Ruby on Rails 的网站。"
 services: virtual-machines-linux
 documentationcenter: ruby
-author: rmcmurray
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: aad32685-3550-4bff-9c73-beb8d70b3291
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
-ms.openlocfilehash: 54bb24413ebbaeafdd0709d998e5c7b7fb24fd52
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: b4a10d393f39b825212769a586197fb7a0a8100b
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM 上的 Ruby on Rails Web 应用程序
 本教程介绍如何在 Azure 中使用 Linux 虚拟机托管 Ruby on Rails 网站。  
@@ -140,9 +140,9 @@ ms.lasthandoff: 08/07/2017
 * [使用内容传送网络提供高带宽内容][cdn-howto]
 
 <!-- WA.com links -->
-[blobs]:../../../storage/storage-ruby-how-to-use-blob-storage.md
+[blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:/develop/ruby/app-services/
-[tables]:../../../storage/storage-ruby-how-to-use-table-storage.md
+[tables]:../../../cosmos-db/table-storage-how-to-use-ruby.md
 [vm-instructions]:createportal.md
 
 <!-- External Links -->
@@ -157,4 +157,4 @@ ms.lasthandoff: 08/07/2017
 [new-endpoint]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
 [new-endpoint1]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!--Update_Description: update new portal instead of classic portal-->
+<!--Update_Description: update storage links-->

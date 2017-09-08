@@ -3,8 +3,8 @@ title: "示例 Azure 基础结构演练 | Azure"
 description: "了解用于在 Azure 中部署示例基础结构的关键设计和实施准则。"
 documentationcenter: 
 services: virtual-machines-windows
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e0d9dd6ce342526d6b0ea4604ddc6bbaddd65fe
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 7ad87d564b1ec4e65cdbd6c4cbe152a7109c3918
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>适用于 Windows VM 的 Azure 示例基础结构演练
 
@@ -118,8 +118,3 @@ Adventure Works Cycles 决定为其 Azure VM 使用以下名称：
 * 用于从 Internet 到 Web 服务器的基于 HTTPS 的 Web 流量的外部负载均衡集
 * 用于从 Web 服务器到应用程序服务器的未加密 Web 流量的内部负载均衡集
 * 单个资源组
-
-## <a name="next-steps"></a>后续步骤
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-<!--Update_Description: update meta data-->

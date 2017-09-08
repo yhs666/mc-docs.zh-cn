@@ -3,8 +3,8 @@ title: "使用 Azure CLI 2.0 上传或复制自定义 Linux VM | Azure"
 description: "使用资源管理器部署模型和 Azure CLI 2.0 上传或复制自定义的虚拟机"
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/06/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
-ms.openlocfilehash: fb49425bd54e513018c4fab4b91f363c8e844de5
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 87f278419b84cf729f5889086b84bc2fe42c2643
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 从自定义磁盘创建 Linux VM
 
@@ -91,7 +91,7 @@ Azure 支持各种 Linux 分发（请参阅[认可的分发](endorsed-distros.md
 
 在上传自定义磁盘和创建 VM 之前，首先需要使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建一个资源组。
 
-以下示例在 *chinaeast* 位置创建名为 *myResourceGroup* 的资源组：[Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md)
+以下示例在 *chinaeast* 位置创建名为 *myResourceGroup* 的资源组：[Azure 托管磁盘概述](../windows/managed-disks-overview.md)
 ```azurecli
 az group create \
     --name myResourceGroup \
@@ -114,7 +114,7 @@ az storage account create \
 ```
 
 ### <a name="list-storage-account-keys"></a>列出存储帐户密钥
-Azure 为每个存储帐户生成两个 512 位的访问密钥。 在向存储帐户进行身份验证以执行操作（例如执行写入操作）时，会使用这些访问密钥。 从此处了解有关[管理对存储的访问](../../storage/storage-create-storage-account.md#manage-your-storage-account)的详细信息。 可以使用 [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list)查看访问密钥。
+Azure 为每个存储帐户生成两个 512 位的访问密钥。 在向存储帐户进行身份验证以执行操作（例如执行写入操作）时，会使用这些访问密钥。 从此处了解有关[管理对存储的访问](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)的详细信息。 可以使用 [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list)查看访问密钥。
 
 查看创建的存储帐户的访问密钥：
 
@@ -227,4 +227,3 @@ az vm create \
 ## <a name="next-steps"></a>后续步骤
 准备好并上传自定义虚拟磁盘之后，可以阅读有关[使用 Resource Manager 和模板](../../azure-resource-manager/resource-group-overview.md)的详细信息。 可能还需要向新 VM [添加数据磁盘](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果需要访问在 VM 上运行的应用程序，请务必[打开端口和终结点](nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-<!--Update_Description: wording update-->

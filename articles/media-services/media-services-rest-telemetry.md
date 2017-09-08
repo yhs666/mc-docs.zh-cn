@@ -3,8 +3,8 @@ title: "使用 REST 配置 Azure 媒体服务遥测 |Azure"
 description: "本文介绍如何通过 REST API 使用 Azure 媒体服务遥测..."
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/12/2017
-ms.date: 02/24/2017
-ms.author: v-johch
-ms.openlocfilehash: 1d1dbd3315b035eead1b3308b8d28e49a1eb0065
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 08/09/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: b0baac32f525e9de58f1ee5c72a39df31fba347b
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>使用 REST 配置 Azure 媒体服务遥测
 
 本主题介绍使用 REST API 配置 Azure 媒体服务 (AMS) 遥测可采取的常规步骤。 
 
 >[!NOTE]
->有关 AMS 遥测定义和使用方法的详细介绍，请参阅[概述](./media-services-telemetry-overview.md)主题。
+>有关 AMS 遥测定义和使用方法的详细介绍，请参阅[概述](media-services-telemetry-overview.md)主题。
 
 本主题中所述步骤如下：
 
@@ -236,10 +236,6 @@ Date: Wed, 02 Dec 2015 05:10:43 GMT
 {"d":{"__metadata":{"id":"https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')","uri":"https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.MonitoringConfiguration"},"Id":"nb:mcid:UUID:1a8931ae-799f-45fd-8aeb-9641740295c2","NotificationEndPointId":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4","Created":"2015-12-02T05:10:43.7680396Z","LastModified":"2015-12-02T05:10:43.7680396Z","Settings":{"__metadata":{"type":"Collection(Microsoft.Cloud.Media.Vod.Rest.Data.Models.ComponentMonitoringSettings)"},"results":[{"Component":"Channel","Level":"Normal"},{"Component":"StreamingEndpoint","Level":"Disabled"}]}}}
 ```
 
-## <a name="consuming-telemetry-information"></a>使用遥测信息
-
-有关使用遥测信息的信息，请参阅 [此主题](./media-services-telemetry-overview.md)。
-
 ## <a name="stop-telemetry"></a>停止遥测
 
 ###<a name="request"></a>请求
@@ -254,3 +250,7 @@ Authorization: (redacted)
 Content-Type: application/json; charset=utf-8
 Host: wamsbjbclus001rest-hs.chinacloudapp.cn
 ```
+## <a name="consuming-telemetry-information"></a>使用遥测信息
+
+有关使用遥测信息的信息，请参阅 [此主题](media-services-telemetry-overview.md)。
+

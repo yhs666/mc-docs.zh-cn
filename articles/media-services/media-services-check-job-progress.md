@@ -3,8 +3,8 @@ title: "使用 .NET 监视作业进度"
 description: "了解如何使用事件处理程序代码来跟踪作业进度并发送状态更新。 代码示例用 C# 编写，并使用用于 .NET 的媒体服务 SDK。"
 services: media-services
 documentationcenter: 
-author: juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e
 ms.service: media-services
@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
-ms.author: v-johch
-ms.openlocfilehash: fc24d60631dd618653ad5877f06462709f038fb7
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 07/20/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 4f1a2a424f49ee7a9602d01c305ac3188497bab7
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="monitor-job-progress-using-net"></a>使用 .NET 监视作业进度
 > [!div class="op_single_selector"]
@@ -28,11 +29,11 @@ ms.lasthandoff: 06/21/2017
 > 
 > 
 
-当你运行作业时，通常需要采用某种方式来跟踪作业进度。 可以通过定义 StateChanged 事件处理程序（如本主题中所述）或使用 Azure 队列存储监视媒体服务作业通知（如[此主题](media-services-dotnet-check-job-progress-with-queues.md)中所述）来检查进度。
+运行作业时，通常需要采用某种方式跟踪作业进度。 可以通过定义 StateChanged 事件处理程序（如本主题中所述）或使用 Azure 队列存储监视媒体服务作业通知（如[此主题](media-services-dotnet-check-job-progress-with-queues.md)中所述）来检查进度。
 
 ##<a id="statechange_event_handler"></a>定义 StateChanged 事件处理程序以监视作业进度
 
-以下代码示例定义了 StateChanged 事件处理程序。 此事件处理程序将跟踪作业进度，并根据现状提供更新的状态。 该代码还定义了 LogJobStop 方法。 此 helper 方法记录错误详细信息。
+以下代码示例定义了 StateChanged 事件处理程序。 此事件处理程序跟踪作业进度，并根据现状提供更新的状态。 该代码还定义了 LogJobStop 方法。 此 helper 方法记录错误详细信息。
 
 ```
 private static void StateChanged(object sender, JobStateChangedEventArgs e)

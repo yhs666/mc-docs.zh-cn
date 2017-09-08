@@ -3,8 +3,8 @@ title: "Azure 中的 Windows VM 大小 | Azure"
 description: "列出 Azure 中 Windows 虚拟机的不同可用大小。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: aabf0d30-04eb-4d34-b44a-69f8bfb84f22
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 07/12/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: 7b720fb224e176d24047099263fbaf242fd49ad9
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+origin.date: 07/28/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: dc50408aad70715cb068d42e9c49fd8f43ad5dfb
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -58,4 +58,5 @@ ms.lasthandoff: 08/18/2017
 - [计算优化](sizes-compute.md)
 - [内存优化](../virtual-machines-windows-sizes-memory.md)
 
-<!--Update_Description: update meta data-->
+
+

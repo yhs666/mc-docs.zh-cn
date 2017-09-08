@@ -3,8 +3,8 @@ title: "使用 Azure CLI 2.0 复制 Linux VM | Azure"
 description: "了解如何使用 Azure CLI 2.0 和托管磁盘创建 Azure Linux VM 的副本。"
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 tags: azure-resource-manager
 ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 03/10/2017
-ms.date: 04/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: daae6970e9c87c59df10c341c027c1c2b28fba3e
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 21efec0486988966f0a627c079394f276d69f25e
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-20-and-managed-disks"></a>使用 Azure CLI 2.0 和托管磁盘创建 Azure Linux VM 的副本
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 06/23/2017
 
 -   使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录到一个 Azure 帐户。
 
--   使用一个 Azure VM 作为你的副本的来源。
+-   使用一个 Azure VM 作为副本的来源。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -50,7 +50,7 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 
 若要复制 VM，请创建基础虚拟硬盘的副本。 此过程将一个专用 VHD 创建为托管磁盘，其中包含与源 VM 相同的配置和设置。
 
-有关 Azure 托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md)。 
+有关 Azure 托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../windows/managed-disks-overview.md)。 
 
 1.  使用 [az vm list](https://docs.microsoft.com/cli/azure/vm#list) 列出每个 VM 及其 OS 磁盘的名称。 以下示例列出了名为 **myResourceGroup** 的资源组中的所有 VM：
 
@@ -126,3 +126,4 @@ az vm create --resource-group myResourceGroup --name myCopiedVM \
 ## <a name="next-steps"></a>后续步骤
 
 若要了解如何使用 Azure CLI 管理新 VM，请参阅 [Azure Resource Manager 的 Azure CLI 命令](../azure-cli-arm-commands.md)。
+<!--Update_Description: update managed disk links from storage links to VM links-->

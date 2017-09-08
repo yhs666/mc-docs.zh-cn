@@ -3,8 +3,8 @@ title: "Windows Azure VM 大小 - 内存 | Azure"
 description: "列出 Azure 中适用于 Windows 虚拟机的各种内存优化大小。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 
@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 03/22/2017
-ms.date: 05/15/2017
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: dbba0b77976493e3ca1ac7dd085c95cffae7332e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+origin.date: 07/28/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: c9943dc2dad6347d0c63578a7a4a1f27aa00fe82
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="memory-optimized"></a>内存优化
 
 [!INCLUDE [virtual-machines-common-sizes-memory](../../../includes/virtual-machines-common-sizes-memory.md)]
@@ -36,4 +33,4 @@ ms.lasthandoff: 05/05/2017
 - [计算优化](sizes-compute.md)
 
 ## <a name="next-steps"></a>后续步骤
-了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
+了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。

@@ -3,8 +3,8 @@ title: "Azure 虚拟网络和 Windows 虚拟机 | Azure"
 description: "教程 - 使用 Azure PowerShell 管理 Azure 虚拟网络和 Windows 虚拟机"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,17 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 5400410c19fa41662fe5c0f1510e137d571e9bca
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 2e2b33210b6cc353d042e276b999afcfc7371bb7
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 虚拟网络和 Windows 虚拟机
 
 Azure 虚拟机使用 Azure 网络进行内部和外部网络通信。 本教程介绍了如何在虚拟网络中创建多个虚拟机 (VM)，以及如何在虚拟机之间配置网络连接。 你将学习如何执行以下操作：
@@ -35,11 +33,11 @@ Azure 虚拟机使用 Azure 网络进行内部和外部网络通信。 本教程
 > * 使用网络安全组控制网络流量
 > * 查看流量规则的实际运行情况
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 ` Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 ## <a name="create-vnet"></a>创建 VNet
 
-VNet 是你自己的网络在云中的表示形式。 VNet 是对专用于你的订阅的 Azure 云进行的逻辑隔离。 在 VNet 中，可以找到子网、连接到这些子网的规则，以及从 VM 到子网的连接。
+VNet 是自己的网络在云中的表示形式。 VNet 是对专用于订阅的 Azure 云进行的逻辑隔离。 在 VNet 中，可以找到子网、连接到这些子网的规则，以及从 VM 到子网的连接。
 
 创建任何其他 Azure 资源前，需要使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建一个资源组。 以下示例在 ChinaEast 位置创建名为 myRGNetwork 的资源组：
 
@@ -247,7 +245,7 @@ $backendVM = Set-AzureRmVMOperatingSystem `
 $backendVM = Set-AzureRmVMSourceImage `
   -VM $backendVM `
   -PublisherName MicrosoftSQLServer `
-  -Offer SQL2016-WS2016 `
+  -Offer SQL2016SP1-WS2016 `
   -Skus Enterprise `
   -Version latest
 $backendVM = Set-AzureRmVMOSDisk `
@@ -277,7 +275,4 @@ New-AzureRmVM `
 > * 使用网络安全组控制网络流量
 > * 查看流量规则的实际运行情况
 
-请转到下一教程，了解如何监视虚拟机。
 
-> [!div class="nextstepaction"]
-> [监视虚拟机](tutorial-monitoring.md)

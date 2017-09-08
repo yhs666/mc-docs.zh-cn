@@ -3,8 +3,8 @@ title: "如何在 Azure 中均衡 Windows 虚拟机负载 | Azure"
 description: "了解如何使用 Azure 负载均衡器在三个 Windows VM 之间创建具有高可用性和安全性的应用程序"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 05/02/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+origin.date: 08/11/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
-ms.openlocfilehash: 3f025ea085988646c0f089a47b3c6f7047fbc8d7
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 1b8720bb78ab09e51b91cf75eb53de500441ea55
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>如何在 Azure 中均衡 Windows 虚拟机负载以创建具有高可用性的应用程序
 负载均衡通过将传入请求分布到多个虚拟机来提供更高级别的可用性。 本教程介绍了 Azure 负载均衡器的不同组件，这些组件用于分发流量和提供高可用性。 你将学习如何执行以下操作：
@@ -353,5 +353,3 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 > [!div class="nextstepaction"]
 > [管理 VM 和虚拟网络](./tutorial-virtual-network.md)
-
-<!--Update_Description: wording update-->

@@ -16,11 +16,11 @@ origin.date: 05/10/2017
 ms.date: 08/07/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 257e3dd9a9b8763f6e1b8f841924ebfe23a60c30
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: fa22a5d78696c8526d31d29bfcd1f40aa8054855
+ms.sourcegitcommit: fa7ac9d4e888435ef9e0c3251a90c9506571bc87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB：在 .NET 中使用表 API 进行开发
 
@@ -105,10 +105,10 @@ Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduct
 
 2. 在 Visual Studio 中，打开 app.config 文件。 
 
-3. 使用复制按钮从门户中复制 URI 值，并使其成为 app.config 中的 account-key 的值。 使用 app.config 中之前为 account-name 创建的帐户名。
+3. 使用复制按钮从门户中复制 URI 值，并使其成为 app.config 中的 account-key 的值。使用 app.config 中之前为 account-name 创建的帐户名。
 
 ```
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;TableEndpoint=https://account-name.documents.azure.cn" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;TableEndpoint=https://account-name.documents.azure.cn;EndpointSuffix=core.chinacloudapi.cn" />
 ```
 
 > [!NOTE]
@@ -130,7 +130,7 @@ Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduct
 
 > [!NOTE]
 > 若要将此应用与 Azure Cosmos DB 模拟器配合使用，只需更改 `app.config file` 中的连接字符串。 将以下值用于模拟器。 <br>
->`<add key="StorageConnectionString" value=DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=<insertkey>==;TableEndpoint=https://localhost -->`
+>`<add key="StorageConnectionString" value=DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=<insertkey>==;TableEndpoint=https://localhost;EndpointSuffix=core.chinacloudapi.cn />`
 > 
 >
 
@@ -158,7 +158,7 @@ Azure Cosmos DB 支持大量 Azure 表存储 API 中不可用的功能。 可以
     </startup>
     <appSettings>
       <!-- Client options -->
-      <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.cn" />
+      <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.cn;EndpointSuffix=core.chinacloudapi.cn" />
       <add key="TableConnectionMode" value="Direct"/>
       <add key="TableConnectionProtocol" value="Tcp"/>
       <add key="TablePreferredLocations" value="China East, China North"/>

@@ -3,8 +3,8 @@ title: "利用 Azure 门户创建 Azure 媒体服务帐户 | Azure"
 description: "本教程指导你完成利用 Azure 门户创建 Azure 媒体服务帐户的步骤。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: c551e158-aad6-47b4-931e-b46260b3ee4c
 ms.service: media-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/10/2017
-ms.date: 08/07/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 6e8381d0bd1590f185cc1d5b3326f7fb52dbf156
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: c29dc6ab21dfa0f1839f90e71d92358c82a8acdd
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>利用 Azure 门户创建 Azure 媒体服务帐户
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ ms.lasthandoff: 08/04/2017
    4. 在“位置”中，选择用于存储媒体服务帐户的媒体和元数据记录的地理区域。 此区域用于处理和流式传输媒体。 下拉列表中仅显示可用的媒体服务区域。 
    5. 在“存储帐户”中，选择一个存储帐户以便为媒体服务帐户中的媒体内容提供 Blob 存储。 可选择媒体服务帐户所在的地理区域内的现有存储帐户，也可创建存储帐户。 在同一区域内会创建一个新的存储帐户。 适用于存储帐户名的规则对媒体服务帐户同样适用。
 
-       单击[此处](../storage/storage-introduction.md)了解有关存储的详细信息。
+       单击[此处](../storage/common/storage-introduction.md)了解有关存储的详细信息。
    6. 选择“固定到仪表板”以查看帐户部署进度。
 4. 单击窗体底部的“创建”。
 
@@ -82,4 +82,4 @@ ms.lasthandoff: 08/04/2017
 
 如果计划以编程方式访问 AMS API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。
 
-<!--Update_Description: new file-->
+<!--Update_Description: update storage link-->

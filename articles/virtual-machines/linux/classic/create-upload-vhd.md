@@ -3,8 +3,8 @@ title: "在 Azure 中创建和上传 Linux VHD | Azure"
 description: "使用经典部署模型创建和上传包含 Linux 操作系统的 Azure 虚拟硬盘 (VHD)"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 8058ff98-db03-4309-9bf4-69842bd64dd4
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2016
-ms.date: 01/20/2017
-ms.author: v-dazen
-ms.openlocfilehash: f0a710cf5bf7e05b06e32a8661ede8d9dbb265c3
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 09/04/2016
+ms.author: v-haiqya
+ms.openlocfilehash: 3b693155de211cbcaad45e364082e0889ad32f5e
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>创建并上传包含 Linux 操作系统的虚拟硬盘
 > [!IMPORTANT] 
@@ -36,14 +36,14 @@ ms.lasthandoff: 06/23/2017
   * 也可以在 [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) 或 [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx) 上使用 Hyper-V。
 
 > [!NOTE]
-> Azure 不支持更新的 VHDX 格式。 创建 VM 时，请将 VHD 指定为映像格式。 如果需要，可以使用 [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) 或 [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet 将 VHDX 磁盘转换为 VHD。 此外，Azure 不支持上传动态 VHD，因此，上传之前，你需要将此类磁盘转换为静态 VHD。 可以使用 [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) 等工具在上传到 Azure 的过程中转换动态磁盘。
+> Azure 不支持更新的 VHDX 格式。 创建 VM 时，请将 VHD 指定为格式。 如果需要，可以使用 [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) 或 [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet 将 VHDX 磁盘转换为 VHD。 此外，Azure 不支持上传动态 VHD，因此，上传之前，需要将此类磁盘转换为静态 VHD。 可以使用 [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) 等工具在上传到 Azure 的过程中转换动态磁盘。
 
 * **Azure 命令行接口** - 安装最新的 [Azure 命令行接口](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)以上传 VHD。
 
 <a id="prepimage"> </a>
 
 ## <a name="step-1-prepare-the-image-to-be-uploaded"></a>步骤 1：准备要上传的映像
-Azure 支持各种 Linux 分发（请参阅[认可的分发](../endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)）。 以下文章将指导用户如何准备 Azure 上支持的各种 Linux 分发。 完成以下指南中的步骤后，返回到此处，你应该有了一个可以上传到 Azure 的 VHD 文件：
+Azure 支持各种 Linux 分发（请参阅[认可的分发](../endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)）。 以下文章指导用户如何准备 Azure 上支持的各种 Linux 分发。 完成以下指南中的步骤后，返回到此处，应该有了一个可以上传到 Azure 的 VHD 文件：
 
 * **[基于 CentOS 的分发版](../create-upload-centos.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](../debian-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -72,7 +72,7 @@ azure login -e AzureChinaCloud
 <a id="upload"> </a>
 
 ## <a name="step-3-upload-the-image-to-azure"></a>步骤 3：向 Azure 上传映像
-需要一个存储帐户，以便向其上传 VHD 文件。 可以选取现有存储帐户，也可以[创建新的存储帐户](../../../storage/storage-create-storage-account.md)。
+需要一个存储帐户，以便向其上传 VHD 文件。 可以选取现有存储帐户，也可以[创建新的存储帐户](../../../storage/common/storage-create-storage-account.md)。
 
 在 Azure CLI 中使用以下命令来上传映像：
 
@@ -113,3 +113,4 @@ azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
 [Step 1: Prepare the image to be uploaded]:#prepimage
 [Step 2: Prepare the connection to Azure]:#connect
 [Step 3: Upload the image to Azure]:#upload
+<!--Update_Description: update storage link-->

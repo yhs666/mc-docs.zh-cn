@@ -3,8 +3,8 @@ title: "在 Azure 中排查 Windows VM 部署问题 | Azure"
 description: "排查在 Azure 中新建 Windows 虚拟机时遇到的 Resource Manager 部署问题"
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: 
-author: JiangChen79
-manager: willchen
+author: hayley244
+manager: digimobile
 editor: 
 tags: top-support-issue, azure-resource-manager
 ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa428d8285f4c1e2d8eafb3f5f433e41f359143e
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: a67d521fdb3819ffb9ccdc93eeb8e5686d4db0ec
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>排查在 Azure 中新建 Windows VM 时遇到的部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -64,7 +64,7 @@ ms.lasthandoff: 08/18/2017
 
 **解决方法**
 
-若要解决这两个错误，请从门户中删除当前映像，并[从当前 VHD 重新捕获映像](vhd-copy.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，其设置与 OS 的设置相同（通用/专用）。
+若要解决这两个错误，请从门户中删除当前映像，并[从当前 VHD 重新捕获映像](create-vm-specialized.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，其设置与 OS 的设置相同（通用/专用）。
 
 ## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>问题：自定义/库/应用商店映像；分配失败
 当新的 VM 请求被固定到不支持所请求的 VM 大小、或没有可用空间可处理请求的群集时，便会发生此错误。
@@ -92,4 +92,4 @@ ms.lasthandoff: 08/18/2017
 ## <a name="next-steps"></a>后续步骤
 如果在 Azure 中启动已停止的 Windows VM 或调整现有 Windows VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的 Resource Manager 部署问题](restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-<!--Update_Description: add section "Top Issues"-->
+<!--Update_Description: update one link-->

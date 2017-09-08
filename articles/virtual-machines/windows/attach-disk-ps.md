@@ -3,8 +3,8 @@ title: "使用 PowerShell 将数据磁盘附加到 Azure 中的 Windows VM | Azu
 description: "如何通过 Resource Manager 部署模型使用 PowerShell 将新磁盘或现有数据磁盘附加到 Windows VM。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/07/2017
-ms.date: 04/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 7a2a6d75aeaac05eb41c966a11de3d43a605a79f
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: b5dbfed1633d77e39368b68d5a1934b9f542dcc2
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>使用 PowerShell 将数据磁盘附加到 Windows VM
 
-本文介绍如何使用 PowerShell 将新磁盘和现有磁盘附加到 Windows 虚拟机。 如果 VM 使用托管磁盘，则可以附加其他托管数据磁盘。 此外还可以将非托管数据磁盘附加到存储帐户中使用非托管磁盘的 VM。
+本文介绍如何使用 PowerShell 将新磁盘和现有磁盘附加到 Windows 虚拟机。 如果 VM 使用托管磁盘，则可以附加其他托管数据磁盘。 还可以将非托管数据磁盘附加到使用存储帐户中非托管磁盘的 VM。
 
 在开始之前，请查看以下提示：
 * 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-* 若要使用高级存储，需要支持高级存储的 VM 大小，如 DS 系列或 GS 系列虚拟机。 可以用高级存储帐户和标准存储帐户将磁盘用于这些虚拟机。 高级存储只在某些区域可用。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../storage/storage-premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 若要使用高级存储，需要支持高级存储的 VM 大小，如 DS 系列或 GS 系列虚拟机。 可以从高级存储帐户和标准存储帐户通过这些虚拟机使用磁盘。 高级存储只在某些区域可用。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../storage/common/storage-premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ## <a name="before-you-begin"></a>开始之前
 如果使用 PowerShell，请确保使用的是最新版本的 AzureRM.Compute PowerShell 模块。 运行以下命令来安装该模块。
@@ -40,7 +40,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>将空数据磁盘添加到虚拟机
 
-此示例演示了如何将空数据磁盘添加到现有虚拟机。
+此示例演示了如何将空数据磁盘添加到现有的虚拟机。
 
 ### <a name="using-managed-disks"></a>使用托管磁盘
 
@@ -72,7 +72,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="initialize-the-disk"></a>初始化磁盘
 
-添加空磁盘后，需要对其进行初始化。 若要初始化磁盘，可以登录到 VM，然后使用磁盘管理进行初始化。 如果在创建 VM 时在其上启用了 WinRM 和证书，则可以通过远程 PowerShell 初始化该磁盘。 还可以使用自定义脚本扩展： 
+添加空磁盘后，需要对其进行初始化。 如果要初始化磁盘，可以登录到 VM，并使用磁盘管理进行初始化。 如果在创建 VM 时在其上启用了 WinRM 和证书，则可以通过远程 PowerShell 初始化该磁盘。 还可以使用自定义脚本扩展： 
 
 ```powershell
     $location = "location-name"

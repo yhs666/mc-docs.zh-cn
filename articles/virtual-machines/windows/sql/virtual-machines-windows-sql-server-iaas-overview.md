@@ -3,8 +3,8 @@ title: "Azure 虚拟机中的 SQL Server 概述 | Azure"
 description: "了解如何在 Azure 虚拟机上运行完整的 SQL Server 版本。 获取所有 SQL Server VM 映像和相关内容的直接链接。"
 services: virtual-machines-windows
 documentationcenter: 
-author: rothja
-manager: jhubbard
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 06/27/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: 5ddff2ad6ec6d79b53a918df97b4825fe0de0cf8
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+orgin.date: 08/07/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 6bd6895936006c89de909d7198da608be4f9cd6e
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 概述
 本主题介绍了在 Azure 虚拟机 (VM) 上运行 SQL Server 的选项，提供了[门户映像链接](#option-1-create-a-sql-vm-with-per-minute-licensing)，同时概述了[常见任务](#manage-your-sql-vm)。
@@ -111,4 +111,3 @@ Azure VM 可以使用[自动修补](virtual-machines-windows-sql-automated-patch
 
 其他问题？ 请先参阅 [Azure 虚拟机中的 SQL Server 常见问题解答](virtual-machines-windows-sql-server-iaas-faq.md)。 同时将问题或看法添加到任何 SQL VM 主题的底部，以便与 Azure.cn 和社区互动。
 
-<!--Update_Description: wording update-->

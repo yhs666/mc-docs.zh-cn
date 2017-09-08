@@ -3,8 +3,8 @@ title: "创建适用于 Azure 中 Linux VM 的 SSH 密钥对的详细步骤 | Az
 description: "了解如何通过其他步骤创建适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对，以及如何将特定证书用于不同的情况。"
 services: virtual-machines-linux
 documentationcenter: 
-author: dlepow
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: 
 ms.assetid: 
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/28/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: 44a138a73ca871be30df2589c2af5a80c7428078
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 5cc2a17630ef4ae91933528d489a4ea473466139
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>详细演练了如何为 Azure 中的 Linux VM 创建 SSH 密钥对和其他证书
 使用 SSH 密钥对，可以在 Azure 上创建默认为使用 SSH 密钥进行身份验证的虚拟机，从而无需密码即可登录。 密码有可能被猜到，并允许 VM 不间断地尝试密码破解来猜测密码。 使用 Azure CLI 或 Resource Manager 模板创建的 VM 可以在部署过程中提供 SSH 公钥，从而删除对 SSH 禁用密码中的发布部署配置步骤。 本文提供的详细步骤和其他示例介绍了如何生成具有特定用途（例如适用于 Linux 虚拟机）的证书。 如需快速创建和使用 SSH 密钥对，请参阅[如何创建适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对](mac-create-ssh-keys.md)。
@@ -218,4 +218,4 @@ ssh fedora22
 * [使用 Azure 门户创建安全 Linux VM](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [使用 Azure CLI 创建安全 Linux VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!--Update_Description: wording update-->
+<!--Update_Description:-->

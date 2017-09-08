@@ -3,8 +3,8 @@ title: "使用 Azure CLI 2.0 上传自定义 Linux 磁盘 | Azure"
 description: "使用资源管理器部署模型和 Azure CLI 2.0 创建虚拟硬盘 (VHD) 并将其上传到 Azure"
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/10/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: 7b13c0a0550d33f24936fbf58346e581e2aee6f6
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 45f2f10e186281862fe09ab2e65e7d68bb019c33
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 上传自定义磁盘并从其创建 Linux VM
 本文说明如何使用 Azure CLI 2.0 将虚拟硬盘 (VHD) 上传到 Azure 存储帐户，并从此自定义磁盘创建 Linux VM。 还可以使用 [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。 此功能可让用户安装并配置 Linux 分发以满足用户的需求，并使用该 VHD 快速创建 Azure 虚拟机 (VM)。
@@ -143,7 +143,7 @@ az storage account create --resource-group myResourceGroup --location chinanorth
 ```
 
 ## <a name="list-storage-account-keys"></a>列出存储帐户密钥
-Azure 为每个存储帐户生成两个 512 位的访问密钥。 在向存储帐户进行身份验证以执行操作（例如执行写入操作）时，会使用这些访问密钥。 从此处了解有关[管理对存储的访问](../../storage/storage-create-storage-account.md#manage-your-storage-account)的详细信息。 可以使用 [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list)查看访问密钥。
+Azure 为每个存储帐户生成两个 512 位的访问密钥。 在向存储帐户进行身份验证以执行操作（例如执行写入操作）时，会使用这些访问密钥。 从此处了解有关[管理对存储的访问](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)的详细信息。 可以使用 [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list)查看访问密钥。
 
 查看创建的存储帐户的访问密钥：
 

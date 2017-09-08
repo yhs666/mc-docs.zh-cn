@@ -1,8 +1,8 @@
 ---
 title: "用于 .NET 的媒体服务 SDK 中的重试逻辑 | Azure"
 description: "本主题概述了用于 .NET 的媒体服务 SDK 中的重试逻辑。"
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/25/2016
-ms.date: 12/12/2016
-ms.author: v-johch
-ms.openlocfilehash: 2ccc937d1669ae3b2324e4b54c6e0bb5300746a5
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 07/21/2017
+ms.date: 09/04/2016
+ms.author: v-haiqya
+ms.openlocfilehash: 4e796538cec4b124724a704a1b8187d4e9f96fca
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>用于 .NET 的媒体服务 SDK 中的重试逻辑
 使用 Azure 服务时，可能会发生暂时性故障。 如果发生暂时性故障，在大多数情况下，重试几次后操作即可成功。 用于 .NET 的媒体服务 SDK 可实现重试逻辑，用于处理与异常和错误相关的暂时性故障，引起这些异常和错误的原因包括 Web 请求、执行查询、保存更改和存储操作。  默认情况下，再次引发应用程序异常之前，用于 .NET 的媒体服务 SDK 将重试 4 次。 应用程序中的代码稍后必须正确处理此异常。  
@@ -38,10 +38,10 @@ ms.lasthandoff: 06/21/2017
 
 | 异常 | Web 请求 | 存储 | 查询 | SaveChanges |
 | --- | --- | --- | --- | --- |
-| WebException<br/>有关详细信息，请参阅 [WebException 状态代码](./media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus)部分。 |是 |是 |是 |是 |
-| DataServiceClientException<br/> 有关详细信息，请参阅 [HTTP 错误和状态代码](./media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |是 |是 |是 |
-| DataServiceQueryException<br/> 有关详细信息，请参阅 [HTTP 错误和状态代码](./media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |是 |是 |是 |
-| DataServiceRequestException<br/> 有关详细信息，请参阅 [HTTP 错误和状态代码](./media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |是 |是 |是 |
+| WebException<br/>有关详细信息，请参阅 [WebException 状态代码](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus)部分。 |是 |是 |是 |是 |
+| DataServiceClientException<br/> 有关详细信息，请参阅 [HTTP 错误和状态代码](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |是 |是 |是 |
+| DataServiceQueryException<br/> 有关详细信息，请参阅 [HTTP 错误和状态代码](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |是 |是 |是 |
+| DataServiceRequestException<br/> 有关详细信息，请参阅 [HTTP 错误和状态代码](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |否 |是 |是 |是 |
 | DataServiceTransportException |否 |否 |是 |是 |
 | TimeoutException |是 |是 |是 |否 |
 | SocketException |是 |是 |是 |是 |
@@ -49,7 +49,7 @@ ms.lasthandoff: 06/21/2017
 | IOException |否 |是 |否 |否 |
 
 ### <a name="WebExceptionStatus"></a> WebException 状态代码
-下表介绍了针对其实现重试逻辑的 WebException 错误代码。 [WebExceptionStatus](http://msdn.microsoft.com/zh-cn/library/system.net.webexceptionstatus.aspx) 枚举定义状态代码。  
+下表介绍了针对其实现重试逻辑的 WebException 错误代码。 [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) 枚举定义状态代码。  
 
 | 状态 | Web 请求 | 存储 | 查询 | SaveChanges |
 | --- | --- | --- | --- | --- |
@@ -64,7 +64,7 @@ ms.lasthandoff: 06/21/2017
 | ReceiveFailure |是 |是 |是 |否 |
 | RequestCanceled |是 |是 |是 |否 |
 | 超时 |是 |是 |是 |否 |
-| ProtocolError <br/>ProtocolError 的重试受控于 HTTP 状态代码处理。 有关详细信息，请参阅 [HTTP 错误和状态代码](./media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |是 |是 |是 |是 |
+| ProtocolError <br/>ProtocolError 的重试受控于 HTTP 状态代码处理。 有关详细信息，请参阅 [HTTP 错误和状态代码](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)。 |是 |是 |是 |是 |
 
 ### <a name="HTTPStatusCode"></a> HTTP 错误状态代码
 如果 Query 和 SaveChanges 操作引发 DataServiceClientException、DataServiceQueryException 或 DataServiceQueryException，则 StatusCode 属性中返回 HTTP 错误状态代码。  下表介绍了为哪些错误代码实现了重试逻辑。  

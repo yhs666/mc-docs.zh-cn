@@ -3,8 +3,8 @@ title: "Windows Server Azure VM 上的 Django Web 应用 | Azure"
 description: "了解如何使用经典部署模型在 Azure 中使用 Windows Server 2012 R2 Datacenter VM 托管基于 Django 的网站。"
 services: virtual-machines-windows
 documentationcenter: python
-author: huguesv
-manager: wpickett
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: e36484d1-afbf-47f5-b755-5e65397dc1c3
@@ -14,25 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: python
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
-ms.openlocfilehash: 42ab6cceefe06e923e63cca1ecbcb64c9d95b338
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: ee88be306175c043af608ae03d847664486e4230
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Windows Server VM 上的 Django Hello World Web 应用
-> [!div class="op_single_selector"]
-> * [Windows](python-django-web-app.md)
-> * [Mac/Linux](../../linux/python-django-web-app.md)
-> 
-> 
-
-<br>
 
 > [!IMPORTANT] 
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure 资源管理器和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍经典部署模型。 我们建议在大多数新部署中使用 Resource Manager 模型。 有关可用于部署 Django 的资源管理器模板，请参阅[部署 Django 应用](https://github.com/Azure/azure-quickstart-templates/tree/master/django-app/)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure 资源管理器和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍经典部署模型。 我们建议在大多数新部署中使用 Resource Manager 模型。
 
 本教程演示如何在 Azure 虚拟机的 Windows Server 中托管基于 Django 的网站。 本教程假设读者以前没有使用过 Azure。 完成本教程后，即可在云中启动和运行基于 Django 的应用程序。
 
@@ -184,4 +177,4 @@ ms.lasthandoff: 08/07/2017
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!--Update_Description: wording update-->
+<!--Update_Description: remove selector-->

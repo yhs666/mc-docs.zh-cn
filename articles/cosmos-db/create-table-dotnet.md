@@ -16,11 +16,11 @@ ms.topic: hero-article
 origin.date: 06/22/2017
 ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: d6f4a61be9a61bc9054c44975eee82ba11d7a3aa
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 956dd8f1e23faf59c9d12ee3040bfe6d6679b676
+ms.sourcegitcommit: fa7ac9d4e888435ef9e0c3251a90c9506571bc87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB：使用表 API 生成 .NET 应用程序
 
@@ -113,7 +113,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 3. 将值粘贴到 app.config 文件中，充当 PremiumStorageConnectionString 的值。 
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.cn" />`    
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.cn;EndpointSuffix=core.chinacloudapi.cn" />`    
 
     可以让 StandardStorageConnectionString 保留原样。
 

@@ -3,8 +3,8 @@ title: "Azure 媒体服务编码错误代码 | Azure"
 description: "本主题列出了在执行编码任务期间发生错误时可能返回的错误代码。"
 services: media-services
 documentationcenter: 
-author: juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: ce4e939f-5aee-41f9-859d-e4429815e9f2
 ms.service: media-services
@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
-ms.date: 03/10/2017
-ms.author: v-johch
-ms.openlocfilehash: e43a9d5c69261eda48a309f6c354befbfa19feed
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 08/09/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: e4c1ffda6edea6089d3ebad2249ceb83ffb356c7
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="encoding-error-codes"></a>编码错误代码
 
-下表列出了在执行编码任务期间发生错误的情况下可能返回的错误代码。  若要获取 .NET 代码中的错误详细信息，请使用 [ErrorDetails](http://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) 类。 若要获取 REST 代码中的错误详细信息，请使用 [ErrorDetail](https://msdn.microsoft.com/zh-cn/library/jj853026.aspx) REST API。
+下表列出了在执行编码任务期间发生错误的情况下可能返回的错误代码。  若要获取 .NET 代码中的错误详细信息，请使用 [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) 类。 若要获取 REST 代码中的错误详细信息，请使用 [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST API。
 
 | ErrorDetail.Code | 出错的可能原因 |
 | --- | --- |
@@ -39,8 +39,8 @@ ms.lasthandoff: 06/21/2017
 | TransientError |包含暂时性问题的错误类别（例如 Azure 存储的临时网络问题） |
 
 ## <a name="related-articles"></a>相关文章
-* [通过自定义 Media Encoder Standard 预设执行高级编码任务](./media-services-custom-mes-presets-with-dotnet.md)
-* [配额和限制](./media-services-quotas-and-limitations.md)
+* [通过自定义 Media Encoder Standard 预设执行高级编码任务](media-services-custom-mes-presets-with-dotnet.md)
+* [配额和限制](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
 [1]: https://www.azure.cn/pricing/details/media-services/

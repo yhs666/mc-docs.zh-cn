@@ -1,8 +1,8 @@
 ---
 title: "MES (Media Encoder Standard) 的任务预设 | Microsoft Docs"
 description: "本主题概述了 MES (Media Encoder Standard) 的任务预设。"
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 08/07/2017
+origin.date: 07/19/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 5577b3260aa6b4115cefead649936bdfc5e60db4
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: f2c4475317698c2cd13608fbf88300d31d5cbd82
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="task-presets-for-mes-media-encoder-standard"></a>MES (Media Encoder Standard) 的任务预设
 

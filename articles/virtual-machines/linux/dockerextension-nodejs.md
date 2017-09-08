@@ -3,8 +3,8 @@ title: "将 Azure Docker VM 扩展与 Azure CLI 1.0 配合使用 | Azure"
 description: "了解如何使用 Docker VM 扩展快速安全地在 Azure 中通过 Resource Manager 模板部署 Docker 环境。"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/11/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: af2063b456d19b04022f7efa2fff333fd9d57ba6
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 4eb922ad1fa9555375b33a857ecb2f6fb12d0fa2
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension-with-the-azure-cli-10"></a>在 Azure 中通过 Azure CLI 1.0 使用 Docker VM 扩展创建 Docker 环境
 Docker 是流行的容器管理和映像处理平台，可让你在 Linux（和 Windows）上快速操作容器。 在 Azure 中，可以根据需要使用各种方式部署 Docker。 本文重点介绍如何使用 Docker VM 扩展和 Azure Resource Manager 模板。 

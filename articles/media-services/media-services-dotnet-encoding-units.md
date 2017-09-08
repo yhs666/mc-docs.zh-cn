@@ -3,8 +3,8 @@ title: "通过添加编码单元缩放媒体处理 - Azure |  Microsoft Docs"
 description: "了解如何使用 .NET 添加编码单位"
 services: media-services
 documentationcenter: 
-author: juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
 ms.service: media-services
@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: v-johch
-ms.openlocfilehash: 63e7f5dade66c5904eb39f518882ac0958c047b4
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 08/09/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 3ff01c3f643d2100d48a2f8993058eb56271dc64
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>如何使用 .NET SDK 缩放编码
 > [!div class="op_single_selector"]
+> * [门户](media-services-portal-scale-media-processing.md)
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -37,30 +39,14 @@ ms.lasthandoff: 06/21/2017
 
 若要使用 .NET SDK 更改保留单位类型和编码保留单位数目，请执行以下操作：
 
-```
-IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
-encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
-encodingS1ReservedUnit.Update();
-Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
+    IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
+    encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
+    encodingS1ReservedUnit.Update();
+    Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
 
-encodingS1ReservedUnit.CurrentReservedUnits = 2;
-encodingS1ReservedUnit.Update();
+    encodingS1ReservedUnit.CurrentReservedUnits = 2;
+    encodingS1ReservedUnit.Update();
 
-Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
-```
+    Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
-## <a name="opening-a-support-ticket"></a>开具支持票证
-默认情况下，每个媒体服务帐户最多可缩放到 25 个编码保留单位和 5 个按需串流保留单位。 你可以通过开具支持票证申请更高的限制。
-
-### <a name="open-a-support-ticket"></a>开具支持票证
-若要开具支持票证，请执行以下操作：
-
-1. 单击 [获取支持](https://manage.windowsazure.cn/?getsupport=true)。 如果你尚未登录，系统将提示你输入凭据。
-2. 选择你的订阅。
-3. 在支持类型下，选择“技术”。
-4. 单击“创建票证”。
-5. 在下一页显示的产品列表中选择“Azure 媒体服务”。
-6. 选择适合你的问题的“问题类型”。
-7. 单击“继续”。
-8. 根据下一页上的说明进行操作，然后输入问题的详细信息。
-9. 单击“提交”以开具该票证。
+<!--Update_Description: remove support ticket related content-->

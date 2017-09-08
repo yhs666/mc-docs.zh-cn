@@ -3,8 +3,8 @@ title: "将 Azure 高级存储用于 SQL Server | Azure"
 description: "本文使用通过经典部署模型创建的资源并介绍如何将 Azure 高级存储用于 Azure 虚拟机上运行的 SQL Server。"
 services: virtual-machines-windows
 documentationcenter: 
-author: danielsollondon
-manager: jhubbard
+author: hayley244
+manager: digimobile
 editor: monicar
 tags: azure-service-management
 ms.assetid: 7ccf99d7-7cce-4e3d-bbab-21b751ab0e88
@@ -14,22 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/01/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 1aef18e1292bba898aedfd4be722bf679cb28d20
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 572043c8060713bbb7bbb04e7261e7ca68c6d0e7
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>将 Azure 高级存储用于虚拟机上的 SQL Server
 ## <a name="overview"></a>概述
-[Azure 高级存储](../../../storage/storage-premium-storage.md)是下一代提供低延迟和高吞吐量 IO 的存储。 它最适用于关键 IO 密集型工作负荷，例如 IaaS [虚拟机](https://www.azure.cn/home/features/virtual-machines/)上的 SQL Server。
+[Azure 高级存储](../../../storage/common/storage-premium-storage.md)是下一代提供低延迟和高吞吐量 IO 的存储。 它最适用于关键 IO 密集型工作负荷，例如 IaaS [虚拟机](https://www.azure.cn/home/features/virtual-machines/)上的 SQL Server。
 
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
 
-本文提供迁移运行 SQL Server 的虚拟机以使用高级存储的规划和指南。 这包括 Azure 基础结构（网络、存储）以及来宾 Windows VM 步骤。 要全面了解端到端迁移，熟知如何将迁移较大 VM 以通过 PowerShell 利用改进的本地 SSD 存储，请参阅[附录](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的示例。
+本文提供迁移运行 SQL Server 的虚拟机以使用高级存储的规划和指南。 这包括 Azure 基础结构（网络、存储）以及来宾 Windows VM 步骤。 要全面了解端到端迁移，熟知如何将迁移较大 VM 以通过 PowerShell 利用改进的本地 SSD 存储，请参阅[附录](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)中的示例。
 
 请务必了解将 Azure 高级存储用于 IAAS VM 上的 SQL Server 的端到端过程。 这包括：
 
@@ -144,7 +144,7 @@ ms.lasthandoff: 08/07/2017
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>VM 存储带宽和 VHD 存储吞吐量
 存储量性能取决于指定的 DS* VM 大小和 VHD 大小。 VM 针对可附加的 VHD 数量以及它们支持的最大带宽（MB/秒）提供不同限额。 有关特定带宽数字，请参阅 [Azure 的虚拟机和云服务大小](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-较大的磁盘大小可提高 IOPS。 考虑迁移路径时，应考虑这一点。 有关详细信息，[请参阅 IOPS 和磁盘类型的表](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets)。
+较大的磁盘大小可提高 IOPS。 考虑迁移路径时，应考虑这一点。 有关详细信息，[请参阅 IOPS 和磁盘类型的表](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets)。
 
 最后，考虑到 VM 具有不同的最大磁盘带宽，它们会支持所有附加磁盘。 在高负载下可使可供该 VM 角色大小使用的最大磁盘带宽饱和。 例如，Standard_DS14 将最多支持 512MB/秒；因此，使用三个 P30 磁盘可使 VM 的磁盘带宽饱和。 但在此示例中，可以超出吞吐量限制，具体取决于读取和写入 IO 的组合。
 
@@ -1092,7 +1092,7 @@ ms.lasthandoff: 08/07/2017
     ![Appendix15][25]
 
 ## <a name="additional-resources"></a>其他资源
-* [Azure 高级存储](../../../storage/storage-premium-storage.md)
+* [Azure 高级存储](../../../storage/common/storage-premium-storage.md)
 * [虚拟机](https://www.azure.cn/home/features/virtual-machines/)
 * [Azure 虚拟机中的 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 

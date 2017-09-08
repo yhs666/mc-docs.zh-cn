@@ -3,8 +3,8 @@ title: "将 Azure 中的 Linux 虚拟机从非托管磁盘转换为托管磁盘 
 description: "如何在资源管理器部署模型中使用 Azure CLI 2.0 将 Linux VM 从非托管磁盘转换为托管磁盘"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 06/23/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
-ms.openlocfilehash: 1c34afdcda7a2279e73aa67f97b219b7a9de3b23
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 09/04/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 29c4e5ccd52819152ec8a3c8d14fc130d62d4e57
+ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>将 Linux 虚拟机从非托管磁盘转换为托管磁盘
 
-如果有使用非托管磁盘的现有 Linux 虚拟机 (VM)，可通过 [Azure 托管磁盘](../../storage/storage-managed-disks-overview.md)服务转换 VM 以使用托管磁盘。 此过程将同时转换 OS 磁盘和任何附加的数据磁盘。
+如果有使用非托管磁盘的现有 Linux 虚拟机 (VM)，可通过 [Azure 托管磁盘](../windows/managed-disks-overview.md)服务转换 VM 以使用托管磁盘。 此过程将同时转换 OS 磁盘和任何附加的数据磁盘。
 
 本文介绍如何使用 Azure CLI 转换 VM。 如果需要对其进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 
@@ -97,18 +97,7 @@ ms.lasthandoff: 08/07/2017
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-## <a name="managed-disks-and-azure-storage-service-encryption"></a>托管磁盘和 Azure 存储服务加密
-如果非托管磁盘所在的存储帐户曾使用 [Azure 存储服务加密](../../storage/storage-service-encryption.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)进行了加密，则无法使用之前的步骤将该非托管磁盘转换为托管磁盘。 下列步骤详细说明了如何复制和使用曾位于加密存储帐户中的非托管磁盘：
-
-1. 使用 [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#start) 将 VHD 复制到从未启用过 Azure 存储服务加密的存储帐户。
-
-2. 通过以下任一方式使用复制的 VM：
-
-   * 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建使用托管磁盘的 VM 并在创建期间指定该 VHD 文件。
-
-   * 使用 [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) 将复制的 VHD 附加到正在运行且使用托管磁盘的 VM。
-
 ## <a name="next-steps"></a>后续步骤
-有关存储选项的详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md)。
+有关存储选项的详细信息，请参阅 [Azure 托管磁盘概述](../windows/managed-disks-overview.md)。
 
-<!--Update_Description: add Section "Managed disks and Azure Storage Service Encryption"-->
+<!--Update_Description: remove Section "Managed disks and Azure Storage Service Encryption";update managed disk links from storage links to VM links-->

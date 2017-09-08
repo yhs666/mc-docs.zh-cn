@@ -3,8 +3,8 @@ title: "Azure 媒体服务遥测 | Azure"
 description: "本文概述了 Azure 媒体服务遥测。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: 
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
 ms.service: media-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/29/2017
-ms.date: 08/07/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 0411aa9d734684f20e38be27a698316880601f89
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: 7909ca7201c96c15f4632e3d7774e00c6f8037e5
+ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 ---
 # <a name="azure-media-services-telemetry"></a>Azure 媒体服务遥测
 
@@ -37,9 +37,9 @@ ms.lasthandoff: 08/04/2017
 
 以下主题说明如何启用遥测：
 
-[通过 .NET 启用遥测](./media-services-dotnet-telemetry.md) 
+[通过 .NET 启用遥测](media-services-dotnet-telemetry.md) 
 
-[通过 REST 启用遥测](./media-services-rest-telemetry.md)
+[通过 REST 启用遥测](media-services-rest-telemetry.md)
 
 ## <a name="consuming-telemetry-information"></a>使用遥测信息
 
@@ -47,11 +47,12 @@ ms.lasthandoff: 08/04/2017
 
 可通过以下方式之一使用遥测数据：
 
-- 直接从 Azure 表存储中读取数据（例如使用存储 SDK）。 有关遥测存储表的说明，请参阅 **此主题** 中的 [使用遥测信息](https://msdn.microsoft.com/zh-cn/library/mt742089.aspx) 。
+- 直接从 Azure 表存储中读取数据（例如使用存储 SDK）。 有关遥测存储表的说明，请参阅 **此主题** 中的 [使用遥测信息](https://msdn.microsoft.com/library/mt742089.aspx) 。
 
 或
 
-- 使用媒体服务 .NET SDK 中支持的内容来读取存储数据，如[本主题](./media-services-dotnet-telemetry.md)中所述。 
+- 使用媒体服务 .NET SDK 中支持的内容来读取存储数据，如[本主题](media-services-dotnet-telemetry.md)中所述。 
+
 
 下述遥测架构的设计目的是在 Azure 表存储限制内提供良好性能：
 
@@ -209,5 +210,3 @@ Healthy|如果 FragmentDiscardedCount == 0 且 ArchiveAcquisitionError == False�
 ### <a name="how-to-manage-data-retention"></a>如何管理数据保留期？
 
 遥测系统不提供数据保留期管理，也不会自动删除旧记录。 因此，请在存储表中手动管理和删除旧记录。 可参阅存储 SDK 以了解如何执行此操作。
-
-<!--Update_Description: update metadata-->
