@@ -11,14 +11,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-origin.date: 05/09/2017
-ms.date: 07/17/2017
+origin.date: 08/10/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: d4ae7c5e97d49800bfbb74ee7db24bbef47d05df
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: a2bd909895cd1c23f19bd0fa511ab947b2cf3f57
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>使用反向代理连接到安全服务
 
@@ -195,3 +195,5 @@ Service Fabric 支持为服务配置多个终结点。 请参阅[在服务清单
 * [使用 Reliable Services 远程控制执行远程过程调用](service-fabric-reliable-services-communication-remoting.md)
 * [Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)
 * [管理群集证书](service-fabric-cluster-security-update-certs-azure.md)
+
+<!--Update_Description: update meta properties-->

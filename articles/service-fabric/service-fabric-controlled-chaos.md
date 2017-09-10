@@ -3,8 +3,8 @@ title: "在 Service Fabric 群集中引入混沌测试 | Azure"
 description: "使用故障注入和群集分析服务 API 管理群集中的混沌测试。"
 services: service-fabric
 documentationcenter: .net
-author: motanv
-manager: anmola
+author: rockboyfor
+manager: digimobile
 editor: motanv
 ms.assetid: 2bd13443-3478-4382-9a5a-1f6c6b32bfc9
 ms.service: service-fabric
@@ -12,18 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/11/2017
-ms.author: v-johch
-ms.openlocfilehash: 91b9eb24dfe7012f0f1929d332850c2d08887281
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 08/09/2017
+ms.date: 09/11/2017
+ms.author: v-yeche
+ms.openlocfilehash: 691edce05bb10ee8dfa72d9bf3cf8be557d02067
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>在 Service Fabric 群集中引入受控的混沌测试
 大规模分布式系统，例如云基础结构，在本质上都是不可靠的。 Azure Service Fabric 可让开发人员在不可靠的基础结构之上编写可靠的分布式服务。 若要在不可靠的基础结构之上编写可靠的分布式服务，开发人员应能够在不可靠的底层基础结构因故障而进行复杂的状态转换时，测试其服务的稳定性。
 
-[故障注入和群集分析服务](service-fabric-testability-overview.md)（也称为故障分析服务）使开发人员能够引入故障来测试其服务。 这些定向模拟故障（如[重新启动分区](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps)）可以帮助执行最常见的状态转换。 但是，定向模拟故障易被定义左右，因此可能会漏掉仅在一系列难以预测、持续时间长且复杂的状态转换中出现的 bug。 若要进行无偏测试，可以使用混沌测试。
+[故障注入和群集分析服务](/service-fabric/service-fabric-testability-overview)（也称为故障分析服务）使开发人员能够引入故障来测试其服务。 这些定向模拟故障（如[重新启动分区](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps)）可以帮助执行最常见的状态转换。 但是，定向模拟故障易被定义左右，因此可能会漏掉仅在一系列难以预测、持续时间长且复杂的状态转换中出现的 bug。 若要进行无偏测试，可以使用混沌测试。
 
 混沌测试在整个群集模拟定期交叉出现的故障，包括常规故障和非常规故障，时间跨度很长。 配置混沌测试的故障率和故障类型后，就可以通过 C# 或 PowerShell API 启动该测试，开始在群集和服务中生成故障。 可以将混沌测试配置为运行一段指定的时间（例如运行一个小时），此时间段过后，混沌测试自动停止，也可以随时调用 StopChaos API（C# 或 Powershell）来停止混沌测试。
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 06/21/2017
 > 从目前来看，混沌测试只会引入安全的故障，这意味着，在没有外部故障的情况下，绝对不会发生仲裁丢失或数据丢失。
 >
 
-混沌测试在运行时，将生成不同的事件来捕获当前的运行状态。 例如，ExecutingFaultsEvent 包含混沌测试决定在该迭代中执行的所有故障。 ValidationFailedEvent 包含群集验证期间发现的验证故障（运行状况或稳定性问题）的详细信息。 可以调用 GetChaosReport API（C# 或 Powershell）来获取混沌测试运行报告。 这些事件保存在一个 [Reliable Dictionary](service-fabric-reliable-services-reliable-collections.md) 中，该字典的截断策略由两项配置决定：MaxStoredChaosEventCount（默认值为 25000）和 StoredActionCleanupIntervalInSeconds（默认值为 3600）。 混沌测试每隔 StoredActionCleanupIntervalInSeconds 进行一次检查，从 Reliable Dictionary 中清除除最新 MaxStoredChaosEventCount 事件以外的所有事件。
+混沌测试在运行时，会生成不同的事件来捕获当前的运行状态。 例如，ExecutingFaultsEvent 包含混沌测试决定在该迭代中执行的所有故障。 ValidationFailedEvent 包含群集验证期间发现的验证故障（运行状况或稳定性问题）的详细信息。 可以调用 GetChaosReport API（C# 或 Powershell）来获取混沌测试运行报告。 这些事件保存在一个 [Reliable Dictionary](/service-fabric/service-fabric-reliable-services-reliable-collections.md) 中，该字典的截断策略由两项配置决定：MaxStoredChaosEventCount（默认值为 25000）和 StoredActionCleanupIntervalInSeconds（默认值为 3600）。 混沌测试每隔 StoredActionCleanupIntervalInSeconds 进行一次检查，从 Reliable Dictionary 中清除除最新 MaxStoredChaosEventCount 事件以外的所有事件。
 
 ## <a name="faults-induced-in-chaos"></a>在混沌测试中引入的故障
 混沌测试在整个 Service Fabric 群集中生成故障，将几个月或几年内出现的故障压缩成几小时。 通过将各种具有高故障率的交叉故障组合在一起，能够找出很有可能被忽视的极端状况。 运行这种混沌测试会使服务的代码质量得到显著提高。
@@ -45,16 +46,12 @@ ms.lasthandoff: 06/21/2017
 * 移动主副本（可配置）
 * 移动辅助副本（可配置）
 
-混沌测试在多个迭代中运行。 每个迭代包含指定时间段的故障和群集验证。 可以配置使群集达到稳定状态以及成功完成验证所用的时间。 如果在群集验证中发现故障，混沌测试将生成并保留一个包含 UTC 时间戳与故障详细信息的 ValidationFailedEvent。 例如，假设某个混沌测试实例设置为运行 1 小时，并且最多有 3 个并发故障。 该混沌测试将引入三个故障，然后验证群集运行状况。 它会循环访问上一步骤，直到通过 StopChaosAsync API 或者在一小时后将它显式停止。 如果在任何一次迭代中群集变得不正常（即在传入的 MaxClusterStabilizationTimeout 内不稳定），混沌测试会生成 ValidationFailedEvent。 此事件指明系统出现问题，可能需要进一步调查。
+混沌测试在多个迭代中运行。 每个迭代包含指定时间段的故障和群集验证。 可以配置使群集达到稳定状态以及成功完成验证所用的时间。 如果在群集验证中发现故障，混沌测试会生成并保留一个包含 UTC 时间戳与故障详细信息的 ValidationFailedEvent。 例如，假设某个混沌测试实例设置为运行 1 小时，并且最多有 3 个并发故障。 该混沌测试将引入三个故障，并验证群集运行状况。 它会循环访问上一步骤，直到通过 StopChaosAsync API 或者在一小时后将它显式停止。 如果在任何一次迭代中群集变得不正常（即在传入的 MaxClusterStabilizationTimeout 内不稳定），混沌测试会生成 ValidationFailedEvent。 此事件指明系统出现问题，可能需要进一步调查。
 
 若要获取混沌测试引入的故障，可以使用 GetChaosReport API（powershell 或 C#）。 该 API 根据传入的继续标记或传入的时间范围获取混沌测试报告的下一段。 可以指定 ContinuationToken 以获取混沌测试报告的下一段或者通过 StartTimeUtc 和 EndTimeUtc 指定时间范围，但不能在同一调用中同时指定 ContinuationToken 和时间范围。 如果发生了 100 个以上的混沌测试事件，混沌测试报告会分段返回，每一段包含的混沌测试事件均不能超过 100 个。
 
 ## <a name="important-configuration-options"></a>重要的配置选项
 * **TimeToRun**：混沌测试在成功完成之前的总运行时间。 在混沌测试运行了 TimeToRun 这段时间之前，可以通过 StopChaos API 将它停止。
-
-> [!NOTE]
-> TimeToRun 结束后，混沌测试可能仍在运行，可能需要再运行一段时间（约为 MaxClusterStabilizationTime + MaxConcurrentFaults * WaitTimeBetweenFaults + WaitTimeBetweenIterations）才会自动停止。
->
 
 * MaxClusterStabilizationTimeout：在生成 ValidationFailedEvent 之前，等待群集变得正常的最长时间。 等待这段时间的目的是在恢复时减少群集上的负载。 执行的检查包括：
   * 群集运行状况是否正常
@@ -206,3 +203,5 @@ while($true)
 
 Stop-ServiceFabricChaos
 ```
+
+<!--Update_Description: wording update-->

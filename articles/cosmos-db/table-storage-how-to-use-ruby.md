@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 08/28/2017
 ms.date: 
 ms.author: v-yeche
-ms.openlocfilehash: e38674de51f1bba2d4d483d3676d65c320be0f4f
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 4757a6b7751f8c1285ac783d4b3a3ede01911cad
+ms.sourcegitcommit: c0d234cae3e93848d235b9292bb4a9c3096aa963
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-ruby"></a>如何通过 Ruby 使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -55,6 +55,7 @@ Azure 模块会读取环境变量 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORA
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
 Azure.config.storage_access_key = "<your azure storage access key>"
+Azure.config.storage_endpoint_suffix = "core.chinacloudapi.cn"
 ```
 
 从 Azure 门户中的经典或 Resource Manager 存储帐户中获取这些值：

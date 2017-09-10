@@ -3,8 +3,8 @@ title: "监视 NSG 的操作、事件和计数器 | Azure"
 description: "了解如何为 NSG 启用计数器、事件和操作日志记录"
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 2e699078-043f-48bd-8aa8-b011a32d98ca
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/31/2017
-ms.date: 03/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 730b557b295590b5b7c273f638a46359e38f67bc
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 09/04/2017
+ms.author: v-yeche
+ms.openlocfilehash: a05409fa50b7529702df47b3abf60ccacdba01ca
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>网络安全组 (NSG) 的日志分析
 
@@ -44,6 +44,7 @@ ms.lasthandoff: 06/23/2017
 ## <a name="enable-diagnostic-logging"></a>启用诊断日志记录
 
 对于 *每个* 需要为其收集数据的 NSG，必须启用诊断日志记录。 如果还没有 NSG，请完成[创建网络安全组](virtual-networks-create-nsg-arm-pportal.md)一文中的步骤创建一个。 可以使用以下任意方法启用 NSG 诊断日志记录：
+<!-- Not Avaialble [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) -->
 
 ### <a name="azure-portal"></a>Azure 门户
 
@@ -51,21 +52,21 @@ ms.lasthandoff: 06/23/2017
 
 ### <a name="powershell"></a>PowerShell
 
-评估以下信息，然后输入文中的一个命令：
+评估以下信息，并输入文中的一个命令：
 
 - 可以根据需要替换以下 [text]，然后输入命令 `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]` 来确定要用于 `-ResourceId` 参数的值。 命令的 ID 输出看起来类似于 */subscriptions/[Subscription Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG name]*。
 - 如果只想收集日志类别的数据，请在本文中命令的末尾添加 `-Categories [category]`，其中 category 是 *NetworkSecurityGroupEvent* 或 *NetworkSecurityGroupRuleCounter*。 如果不使用 `-Categories` 参数，则可为两种日志类别启用数据收集。
 
 ### <a name="azure-command-line-interface-cli"></a>Azure 命令行接口 (CLI)
 
-评估以下信息，然后输入文中的一个命令：
+评估以下信息，并输入文中的一个命令：
 
 - 可以根据需要替换以下 [text]，然后输入命令 `azure network nsg show [resource-group-name] [nsg-name]` 来确定要用于 `-ResourceId` 参数的值。 命令的 ID 输出看起来类似于 */subscriptions/[Subscription Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG name]*。
 - 如果只想收集日志类别的数据，请在本文中命令的末尾添加 `-Categories [category]`，其中 category 是 *NetworkSecurityGroupEvent* 或 *NetworkSecurityGroupRuleCounter*。 如果不使用 `-Categories` 参数，则可为两种日志类别启用数据收集。
 
 ## <a name="logged-data"></a>记录的数据
 
-将为两种日志写入 JSON 格式的数据。 针对每个日志类型写入的特定数据将列在以下各节：
+为两种日志写入 JSON 格式的数据。 针对每个日志类型写入的特定数据列在以下各节：
 
 ### <a name="event-log"></a>事件日志
 此日志包含的信息涉及哪些 NSG 规则根据 MAC 地址应用到 VM 和云服务角色实例。 以下示例数据是针对每个事件记录的：
@@ -120,3 +121,7 @@ ms.lasthandoff: 06/23/2017
         }
 }
 ```
+
+<!-- Not Avaialble ## View and analyze logs -->
+
+<!--Update_Description: wording update-->

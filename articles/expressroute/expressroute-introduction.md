@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 07/05/2017
 ms.author: v-yiso
 ms.date: 08/21/2017
-ms.openlocfilehash: 25066fcf06cfe63ebc6d1ae1bd2add57599e4be3
-ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
+ms.openlocfilehash: 31f41d6efae7ebc446f09236b286ef6f223d7b4b
+ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 概述
 使用 Azure ExpressRoute 可通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。 使用 ExpressRoute 可与 Microsoft Azure、Office 365 和 Dynamics 365 等 Microsoft 云服务建立连接。
@@ -96,7 +96,7 @@ Microsoft 为特殊的地缘政治地区和客户群提供隔离的云环境。 
 - **计量数据**。 ExpressRoute 线路按月计费。 所有入站数据传输免费。 出站数据传输按每 GB 数据传输计费。 数据传输费率根据区域不同而异。
 - **ExpressRoute 高级版附加组件**。 ExpressRoute 高级版是 ExpressRoute 线路上的附加组件。 ExpressRoute 高级版附加组件提供以下功能： 
     - 提高 Azure 公共和 Azure 专用对等互连的路由限制，从4,000 路由提升至 10,000 路由。
-    - 服务的全球连接。 在任何区域（国家/地区云除外）创建的 ExpressRoute 线路都会能够访问位于全球其他区域的资源。 例如，创建于欧洲西部的虚拟网络可以通过在硅谷设置的 ExpressRoute 线路进行访问。
+    - 服务的全球连接。 在任何区域（国家/地区云除外）创建的 ExpressRoute 线路都会能够访问位于全球其他区域的资源。 
     - 增加了每个 ExpressRoute 线路的 VNet 链接数量，从 10 增加至更大的限制，具体取决于线路的带宽。
 
 ## <a name="faq"></a>常见问题

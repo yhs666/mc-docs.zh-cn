@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 08/28/2017
 ms.date: 
 ms.author: v-yeche
-ms.openlocfilehash: f5fdfeaad0859f669fec5a616848c41edd832a85
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 900e860d3cc86a99d739d8b9f51c172d384db4ad
+ms.sourcegitcommit: 06019e3df5b85811e1f45f29d415dc666305166f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="how-to-use-table-storage-from-c"></a>如何通过 C++ 使用表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -60,7 +60,7 @@ Azure 存储客户端使用存储连接字符串来存储用于访问数据管�
 
 ```cpp
 // Define the connection string with your values.
-const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
+const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key;EndpointSuffix=core.chinacloudapi.cn"));
 ```
 
 若要在基于 Windows 的本地计算机中测试应用程序，可以使用随 [Azure SDK](/downloads/) 一起安装的 Azure [存储模拟器](../storage/common/storage-use-emulator.md)。 存储模拟器是一种用于模拟本地开发计算机上提供的 Azure Blob、队列和表服务的实用程序。 以下示例演示如何声明一个静态字段以将连接字符串保存到本地存储模拟器：  

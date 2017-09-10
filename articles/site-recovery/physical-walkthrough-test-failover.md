@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/27/2017
 ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9d2228663be514d7b6ea98732ba1fb3e2605e498
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 09a8057e06d78943a576b8d9dc3d40f87ef40a9e
+ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="step-11-run-a-test-failover-of-physical-servers-to-azure"></a>步骤 11：运行测试故障转移以便将物理服务器复制到 Azure
 
@@ -77,7 +77,6 @@ ms.lasthandoff: 08/25/2017
 - 若要在运行故障转移后使用 RDP 连接到 Azure VM，请[做好连接准备](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)。
  - 若要全面测试，需要在测试环境中复制 Active Directory 和 DNS。 [了解详细信息](site-recovery-active-directory.md#test-failover-considerations)。
  - 有关测试故障转移的完整信息，请参阅[此文](site-recovery-test-failover-to-azure.md)。
-- 在开始之前，请观看视频概述：
 
 <!-- Not Available VIDEO -->
 现在，运行故障转移：
@@ -106,7 +105,8 @@ ms.lasthandoff: 08/25/2017
 
 如果已成功完成测试故障转移，物理服务器将会进行复制（已检查过它们可以故障转移到 Azure）。 现在，可以根据组织要求来运行故障转移。 
 
-请注意，暂无法从 Azure 故障回复到物理服务器。 必须故障回复到 VMware VM。 也就是说，必须有本地 VMware 基础结构，才能进行故障回复。 [详细了解](site-recovery-failback-azure-to-vmware.md)如何将 Azure VM 故障回复到 VMware。
+请注意，暂无法从 Azure 故障回复到物理服务器。 必须故障回复到 VMware VM。 也就是说，必须有本地 VMware 基础结构，才能进行故障回复。
+<!-- Not Available [Learn more](site-recovery-failback-azure-to-vmware.md) about failing back Azure VMs to VMware.-->
 
 ## <a name="next-steps"></a>后续步骤
 

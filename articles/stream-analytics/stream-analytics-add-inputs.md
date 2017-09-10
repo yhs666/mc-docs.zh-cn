@@ -6,7 +6,7 @@ documentationcenter:
 services: stream-analytics
 author: rockboyfor
 manager: digimobile
-editor: cgronlun
+editor: 
 ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,18 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/24/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: e2e45cc723a73d5e2d9d2283764b426747cec97c
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 88d696a6f5c13d6578cf6dfbee92f2e632ae79f4
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>向流分析作业添加流数据输入或引用数据
 了解如何通过事件中心将数据源作为流数据挂接到流分析作业，或者通过 Blob 存储挂接引用数据。
 
-Azure 流分析作业可以连接到一个或多个数据输入，每个数据输入都定义了一个到现有数据源的连接。 将数据发送到数据源时，流分析作业会使用该数据并将其作为流数据进行实时处理。 流分析在作业订阅内外都与 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)和 [Azure Blob 存储](../storage/storage-dotnet-how-to-use-blobs.md)进行高级集成。
+Azure 流分析作业可以连接到一个或多个数据输入，每个数据输入都定义了一个到现有数据源的连接。 将数据发送到数据源时，流分析作业会使用该数据并将其作为流数据进行实时处理。 流分析在作业订阅内外都与 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)和 [Azure Blob 存储](../storage/blobs/storage-dotnet-how-to-use-blobs.md)进行高级集成。
 <!-- Not Available [Stream Analytics learning path](/documentation/learning-paths/stream-analytics/) even in global ACOM -->
 
 ## <a name="data-input-streaming-data-and-reference-data"></a>数据输入：流数据和引用数据
@@ -63,9 +63,9 @@ Azure 流分析作业可以连接到一个或多个数据输入，每个数据�
     * 要确保查询按你期望的方式进行，请指定传入数据的 **事件序列化格式**。  支持的序列化格式为 JSON、CSV 和 Avro。
     * 验证数据的 **编码** 。  目前只支持 UTF-8 这种编码格式。
 
-    ![针对数据输入的数据序列化设置](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
+     ![针对数据输入的数据序列化设置](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
 
-    ![针对数据输入的数据序列化设置](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)  
+     ![针对数据输入的数据序列化设置](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)  
 6. 输入创建完成后，流分析会验证是否可以连接到输入源。  可以在通知中心查看测试连接操作的状态。
 
     ![测试流式数据输入的连接](./media/stream-analytics-add-inputs/6-stream-analytics-add-inputs.png)  
@@ -82,4 +82,4 @@ Azure 流分析作业可以连接到一个或多个数据输入，每个数据�
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, update link -->

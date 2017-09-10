@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/24/2017
-ms.date: 08/14/2017
+origin.date: 08/10/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 76ea8732e985a9ff2c44ff12f92ea1fa32a741ca
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: bf86b4a04b4d0335d3f3ba95d975d301d2f60145
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>创建在 Windows Server 上运行的独立群集
 可以使用 Azure Service Fabric 在运行 Windows Server 的任何虚拟机或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组相互连接的 Windows Server 计算机的任何环境（无论是本地环境还是任何云提供商所提供的环境）中部署和运行 Service Fabric 应用程序。 Service Fabric 提供了一个安装程序包，用于创建名为“Windows Server 独立包”的 Service Fabric 群集。
@@ -113,9 +113,9 @@ ms.lasthandoff: 08/11/2017
 运行时包可从另一台连接到 Internet 的计算机单独下载：[下载链接 - Service Fabric 运行时 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)。 将运行时包复制到部署脱机群集的位置，并通过运行 `CreateServiceFabricCluster.ps1` 与 `-FabricRuntimePackagePath` 参数创建群集，如下所示： 
 
 ```powershell
-CreateServiceFabricCluster.ps1 -ClusterConfigurationFilePath <path to ClusterConfig.json> -FabricRuntimePackagePath <path to MicrosoftAzureServiceFabric.cab>
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
 ```
-其中 `<path to ClusterConfig.json>` 和 `<path to MicrosoftAzureServiceFabric.cab>` 分别是群集配置和运行时 .cab 文件的路径。
+其中 `.\ClusterConfig.json` 和 `.\MicrosoftAzureServiceFabric.cab` 分别是群集配置和运行时 .cab 文件的路径。
 
 ### <a name="step-2-connect-to-the-cluster"></a>步骤 2：连接到群集
 若要连接到安全群集，请参阅 [Service Fabric 连接到安全群集](service-fabric-connect-to-secure-cluster.md)。
@@ -124,7 +124,9 @@ CreateServiceFabricCluster.ps1 -ClusterConfigurationFilePath <path to ClusterCon
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
-
+```
+示例：
+```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
 ### <a name="step-3-bring-up-service-fabric-explorer"></a>步骤 3：打开 Service Fabric Explorer
@@ -202,4 +204,4 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->

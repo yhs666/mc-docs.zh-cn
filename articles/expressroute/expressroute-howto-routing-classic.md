@@ -15,22 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/21/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 1174c62459d95edfe748b74e44fd2f6f1afa0852
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 09/18/2017
+ms.openlocfilehash: 6ab492adda672661b72a541a2f35cf1ec4950aa5
+ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>创建和修改 ExpressRoute 线路的对等互连（经典）
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure 门户](./expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](./expressroute-howto-routing-arm.md)
-> * [经典 - PowerShell](./expressroute-howto-routing-classic.md)
->
+> * [Azure CLI](howto-routing-cli.md)
+> * [PowerShell（经典）](expressroute-howto-routing-classic.md)
+> 
 >
 
-本文将指导你执行相关步骤，以便使用 PowerShell 和经典部署模型创建和管理 ExpressRoute 线路的路由配置。 下面的步骤还将说明如何查看状态，以及如何更新、删除和取消预配 ExpressRoute 线路的对等互连。
+本文指导你执行相关步骤，以便使用 PowerShell 和经典部署模型创建和管理 ExpressRoute 线路的路由配置。 下面的步骤还会说明如何查看状态，以及如何更新、删除和取消预配 ExpressRoute 线路的对等互连。
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -48,11 +49,11 @@ ms.lasthandoff: 07/14/2017
 > 
 > 
 
-可以为 ExpressRoute 线路配置一到三个对等互连（Azure 专用、Azure 公共）。 可以按照所选的任意顺序配置对等互连。 但是，你必须确保一次只完成一个对等互连的配置。 
+可以为 ExpressRoute 线路配置一到三个对等互连（Azure 专用、Azure 公共）。 可以按照所选的任意顺序配置对等互连。 但是，必须确保一次只完成一个对等互连的配置。 
 
 
 ### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>登录到 Azure 帐户并选择订阅
-1. 使用提升的权限打开 PowerShell 控制台，然后连接到帐户。 使用下面的示例来帮助连接：
+1. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用下面的示例来帮助连接：
 
         Login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
 
@@ -84,7 +85,7 @@ ms.lasthandoff: 07/14/2017
 
 2. **创建 ExpressRoute 线路。**
 
-    请按说明创建 [ExpressRoute 线路](./expressroute-howto-circuit-classic.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 专用对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果你的连接服务提供商不为你管理路由，请在创建线路之后遵循以下说明。 
+    请按说明创建 [ExpressRoute 线路](./expressroute-howto-circuit-classic.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 专用对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不管理路由，请在创建线路后遵循以下说明。 
 
 3. **检查 ExpressRoute 线路以确保它已预配。**
 
@@ -94,9 +95,9 @@ ms.lasthandoff: 07/14/2017
    
         Bandwidth                        : 200
         CircuitName                      : MyTestCircuit
-        Location                         : Silicon Valley
+        Location                         : Beijing
         ServiceKey                       : *********************************
-        ServiceProviderName              : equinix
+        ServiceProviderName              : Beijing Telecom Ethernet
         ServiceProviderProvisioningState : Provisioned
         Sku                              : Standard
         Status                           : Enabled
@@ -151,7 +152,7 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="to-update-azure-private-peering-configuration"></a>更新 Azure 专用对等互连配置
 
-可以使用以下 cmdlet 更新配置的任何部分。 在以下示例中，线路的 VLAN ID 将从 100 更新为 500。
+可以使用以下 cmdlet 更新配置的任何部分。 在以下示例中，线路的 VLAN ID 从 100 更新为 500。
 
     Set-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 500 -SharedKey "A1B2C3D4"
 
@@ -180,9 +181,8 @@ ms.lasthandoff: 07/14/2017
         Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
         Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 2. **创建 ExpressRoute 线路**
-
-    请按说明创建 [ExpressRoute 线路](./expressroute-howto-circuit-classic.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 专用对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果你的连接服务提供商不为你管理路由，请在创建线路之后遵循以下说明。
-
+   
+    请按说明创建 [ExpressRoute 线路](expressroute-howto-circuit-classic.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 公共对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不管理路由，请在创建线路后遵循以下说明。
 3. **检查 ExpressRoute 线路以确保它已预配**
 
     首先必须检查 ExpressRoute 线路是否已预配并已启用。 请参阅以下示例。
@@ -191,9 +191,9 @@ ms.lasthandoff: 07/14/2017
    
         Bandwidth                        : 200
         CircuitName                      : MyTestCircuit
-        Location                         : Silicon Valley
+        Location                         : Beijing 
         ServiceKey                       : *********************************
-        ServiceProviderName              : equinix
+        ServiceProviderName              : Beijing Telecom Ethernet
         ServiceProviderProvisioningState : Provisioned
         Sku                              : Standard
         Status                           : Enabled
@@ -250,7 +250,7 @@ ms.lasthandoff: 07/14/2017
 
     Set-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 600 -SharedKey "A1B2C3D4"
 
-在上述示例中，线路的 VLAN ID 将从 200 更新为 600。
+在上面的示例中，线路的 VLAN ID 将从 200 更新为 600。
 
 ### <a name="to-delete-azure-public-peering"></a>删除 Azure 公共对等互连
 可以运行以下 cmdlet 来删除对等互连配置

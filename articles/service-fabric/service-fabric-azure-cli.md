@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/14/2017
+origin.date: 08/09/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4aa0c876fbb9b93f05410518ec39929b74df5642
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: f19b98f8f7032152335792505611d5b842ba1303
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="using-the-xplat-cli-to-interact-with-a-service-fabric-cluster"></a>使用 XPlat CLI 与 Service Fabric 群集交互
 
@@ -151,7 +151,7 @@ azure servicefabric application create [applicationName] [applicationTypeName] [
 接下来，可以使用以下命令启动应用程序升级：
 
 ```sh
- azure servicefabric application upgrade start -–application-name fabric:/MySFApp -–target-application-type-version 2.0 --rolling-upgrade-mode UnmonitoredAuto
+ azure servicefabric application upgrade start --application-name fabric:/MySFApp --target-application-type-version 2.0 --rolling-upgrade-mode UnmonitoredAuto
 ```
 
 现在，可以使用 SFX 监视应用程序升级。 应用程序在几分钟内即可完成更新。 还可以尝试出现错误的更新应用程序，检查 Service Fabric 中的自动回滚功能。
@@ -214,4 +214,4 @@ sudo service sshd reload
 
 * [Service Fabric 和 Azure CLI 2.0 入门](service-fabric-azure-cli-2-0.md)
 
-<!--Update_Description: update meta properties, update reference link -->
+<!--Update_Description: wording update-->

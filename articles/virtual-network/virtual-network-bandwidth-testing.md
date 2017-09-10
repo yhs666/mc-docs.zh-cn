@@ -3,8 +3,8 @@ title: "测试 Azure VM 网络吞吐量 | Azure"
 description: "了解如何测试 Azure 虚拟机的网络吞吐量。"
 services: virtual-network
 documentationcenter: na
-author: steveesp
-manager: Gerald DeGrace
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: virtual-network
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/21/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 21f18a4b480e112e05cdf1b44c5ab48876bc24c2
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 07/21/2017
+ms.date: 09/04/2017
+ms.author: v-yeche
+ms.openlocfilehash: ae3b93174ae89dea9684a5a128c7aefe680515b5
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>带宽/吞吐量测试 (NTTTCP)
 
@@ -164,3 +164,5 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 ## <a name="next-steps"></a>后续步骤
 * 根据得到的结果，也许能够为方案[优化网络吞吐量计算机](virtual-network-optimize-network-bandwidth.md)。
 * 通过 [Azure 虚拟网络常见问题解答 (FAQ)](virtual-networks-faq.md) 了解详细信息
+
+<!--Update_Description: update meta properties-->

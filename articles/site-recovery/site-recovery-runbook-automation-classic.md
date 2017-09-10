@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 08/11/2017
 ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7ee26b12b07583d2be469d3e0cd4422a9c027810
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 36cbb9adb6dfdb643730abed65ec2f3e821209ef
+ms.sourcegitcommit: 06019e3df5b85811e1f45f29d415dc666305166f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans-in-the-classic-management-portal"></a>在经典管理门户中将 Azure 自动化 Runbook 添加到恢复计划
 本教程介绍 Azure Site Recovery 如何与 Azure 自动化集成以便为恢复计划提供可扩展性。 恢复计划可以协调使用 Azure Site Recovery 保护的虚拟机的恢复，以便复制到辅助云和 Azure 方案。 恢复计划还有助于实现恢复的“一致准确性”、“可重复性”和“自动化”。 如果要将虚拟机故障转移到 Azure，则与 Azure 自动化集成可扩展恢复计划，并允许执行 Runbook，从而可以执行强大的自动化任务。
@@ -279,7 +279,7 @@ ASR 会将上下文变量传递给 Runbook，以帮助你编写确定性的脚�
 尽管我们在本教程中演练的是一个常见任务，那就是向 Azure 虚拟机添加终结点，但是，可以使用 Azure 自动化完成其他许多功能强大的自动化任务。 Microsoft 和 Azure 自动化社区提供了示例 Runbook，可帮助你开始创建自己的解决方案和实用 Runbook，可用作更大自动化任务的构建基块。 可从库中开始使用这些 Runbook，通过 Azure Site Recovery 为应用程序生成强大的单击式恢复计划。
 
 ## <a name="additional-resources"></a>其他资源
-[Azure 自动化概述](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure 自动化概述")
+[Azure 自动化概述](https://docs.azure.cn/zh-cn/automation/ "Azure 自动化概述")
 
 [Azure 自动化示例脚本](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure 自动化示例脚本")
 

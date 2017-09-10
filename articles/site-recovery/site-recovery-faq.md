@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 05/22/2017
 ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2b0953f46202496851044033e549bff78534b28f
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: a4b4e2c4ca56d87aa39e44310d826846575443fd
+ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常见问题解答 (FAQ)
 
@@ -88,7 +88,7 @@ Site Recovery 许可证费用根据受保护的实例收取，实例可以是 VM
 - 在执行测试故障转移或故障转移以前，不创建任何磁盘。 在复制状态下，“页 Blob 和磁盘”类别下的存储费用将基于每个[存储定价计算器](https://www.azure.cn/zh-cn/pricing/calculator/)收取。 这些费用的执行基于高级/标准存储类型以及 LRS、GRS、RA-GRS 等数据冗余类型。
 - 如果选择“在故障转移时使用托管磁盘”，则在进行故障转移/测试故障转移后，会产生[托管磁盘费用](https://azure.microsoft.com/en-inhttps://www.azure.cn/pricing/details/managed-disks/)。 复制期间不会产生托管磁盘费用。
 - 如果未选择“在故障转移时使用托管磁盘”，则在进行故障转移后，根据[存储定价计算器](https://azure.microsoft.com/en-in/pricing/calculator/)在“页 blob 和磁盘”类别下会产生存储费用。 这些费用基于高级/标准存储类型和数据冗余类型 - LRS、GRS、RA-GRS 等。
-<!-- URL matching  https://aka.ms/premium-storage-pricing -- ../storage/storage-premium-storage.md#pricing-and-billing -->
+<!-- URL matching  https://aka.ms/premium-storage-pricing -- ../storage/common/storage-premium-storage.md#pricing-and-billing -->
 <!-- Not Available Managed disks and premium storage content block -->
 - 将在稳定状态的复制期间以及故障转移/测试故障转移之后针对常规 VM 操作收取存储事务的费用。 但这些费用非常少，几乎可以忽略不计。
 

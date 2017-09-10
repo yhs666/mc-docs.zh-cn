@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 08/28/2017
 ms.date: 
 ms.author: v-yeche
-ms.openlocfilehash: a93c5a457c2ace75d2077368307ae4ebcc5ba71e
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 0abd30163f3c6bb44eb5e7a97c3b4e6d4c55dc4b
+ms.sourcegitcommit: 06019e3df5b85811e1f45f29d415dc666305166f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="how-to-use-table-storage-in-python"></a>如何在 Python 中使用表存储
 
@@ -49,7 +49,7 @@ from azure.storage.table import TableService, Entity
 创建 [TableService][py_TableService] 对象，传入存储帐户名和帐户密钥。 将 `myaccount` 和 `mykey` 替换为帐户名和密钥，并调用[create_table][py_create_table]，在 Azure 存储中创建表。
 
 ```python
-table_service = TableService(account_name='myaccount', account_key='mykey')
+table_service = TableService(account_name='myaccount', account_key='mykey',endpoint_suffix='core.chinacloudapi.cn')
 
 table_service.create_table('tasktable')
 ```
@@ -188,7 +188,7 @@ table_service.delete_table('tasktable')
 ## <a name="next-steps"></a>后续步骤
 
 * [用于 Python API 的 Microsoft Azure 存储 SDK 参考](https://azure-storage.readthedocs.io/en/latest/index.html)
-* [用于 Python 的 Microsoft Azure 存储 SDK](https://github.com/Azure/azure-storage-python)
+* [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 * [Python 开发人员中心](/develop/python/)
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)：一款跨平台的免费应用程序，用于直观处理 Windows、MacOS 和 Linux 上的 Azure 存储数据。
 

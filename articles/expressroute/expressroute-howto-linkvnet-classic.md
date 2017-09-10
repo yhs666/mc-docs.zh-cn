@@ -15,18 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/28/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
-ms.openlocfilehash: 4c0ee460ea4f34b6382f688a4464941f4e23bd36
-ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
+ms.date: 09/18/2017
+ms.openlocfilehash: ffb88b17097b84fa94952166e6e9725e9042a18e
+ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 将虚拟网络连接到 ExpressRoute 线路（经典）
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure 门户](./expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](./expressroute-howto-linkvnet-arm.md)
-> * [经典 - PowerShell](./expressroute-howto-linkvnet-classic.md)
+> * [Azure 门户](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Azure CLI](howto-linkvnet-cli.md)
+> * [PowerShell（经典）](expressroute-howto-linkvnet-classic.md)
 >
 >
 

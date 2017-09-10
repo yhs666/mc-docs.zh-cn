@@ -3,8 +3,8 @@ title: "Azure 流量管理器地理路由类型使用的国家/地区层次结�
 description: "本文列出了 Azure 流量管理器地理路由类型使用的国家/地区层次结构"
 services: traffic-manager
 documentationcenter: 
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: traffic-manager
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/22/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 7ad4e3d0147db662bac48f7c367ce076044c4f96
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 09/11/2017
+ms.date: 09/11/2017
+ms.author: v-yeche
+ms.openlocfilehash: 9f637732d757ba12c93dde2059f17db3f245f01c
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Azure 流量管理器将国家/地区层次结构用于地理流量路由方法
 
@@ -702,3 +702,5 @@ ms.lasthandoff: 07/14/2017
 ## <a name="next-steps"></a>后续步骤
 
 - 深入了解 [Azure 流量管理器中的地理流量路由方法](traffic-manager-routing-methods.md#geographic)。
+
+<!--Update_Description: update meta properties-->

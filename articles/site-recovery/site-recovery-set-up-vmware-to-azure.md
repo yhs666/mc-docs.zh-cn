@@ -15,16 +15,16 @@ ms.workload: storage-backup-recovery
 origin.date: 06/29/2017
 ms.date: 08/28/2017
 ms.author: v-johch
-ms.openlocfilehash: 001ad1a906567238b842b9a38e9499f6774977d4
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 214f823199d34496e9acb36900cc8407d5b5e31f
+ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>设置源环境（VMware 到 Azure）
 > [!div class="op_single_selector"]
 > * [VMware 到 Azure](./site-recovery-set-up-vmware-to-azure.md)
-> * [物理机到 Azure](./site-recovery-set-up-physical-to-azure.md)
+<!-- Not Available > * [Physical to Azure](./site-recovery-set-up-physical-to-azure.md)-->
 
 本文介绍如何设置本地环境，以便开始将 VMware 上运行的虚拟机复制到 Azure。
 

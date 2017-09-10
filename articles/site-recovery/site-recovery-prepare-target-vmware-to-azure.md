@@ -15,16 +15,16 @@ ms.workload: backup-recovery
 origin.date: 05/31/2017
 ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4736812f4d486bcfef3a48ab7a1081ec24d1f16f
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: fd42810b7cb336e067c22590dc79d7ca86885329
+ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="prepare-target-vmware-to-azure"></a>准备目标（VMware 到 Azure）
 > [!div class="op_single_selector"]
 > * [VMware 到 Azure](./site-recovery-prepare-target-vmware-to-azure.md)
-> * [物理机到 Azure](./site-recovery-prepare-target-physical-to-azure.md)
+<!-- Not Available > * [Physical to Azure](./site-recovery-prepare-target-physical-to-azure.md)-->
 
 本文介绍如何准备 Azure 环境，以便开始将 VMware 虚拟机复制到 Azure 中。
 

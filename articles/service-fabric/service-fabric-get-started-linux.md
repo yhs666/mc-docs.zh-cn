@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 6/28/2017
-ms.date: 08/14/2017
+origin.date: 08/10/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6e08bafc3e711414bc00493b12d9b6a622c37b2e
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 1864a3fae9d4775303008f293902c8cce5822621
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -63,6 +63,7 @@ ms.lasthandoff: 08/11/2017
 5. 向 APT Keyring 添加官方的 Docker GPG 密钥。
 
     ```bash
+    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
@@ -91,8 +92,8 @@ ms.lasthandoff: 08/11/2017
     >   [!TIP]
     >   以下命令自动接受 Service Fabric 包的许可证：
     >   ```bash
-    >   echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
-    >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    >   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
+    >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
     >   ```
 
 2. 运行 SDK 安装脚本。
@@ -209,7 +210,7 @@ Java SDK 提供使用 Java 生成 Service Fabric 服务所需的库和模板。
 
 6. 完成安装步骤，并接受最新用户许可协议。
 
-如果已安装 Service Fabric Eclipse 插件，请确保使用最新版本。 可以通过选择“帮助” > “安装详细信息”并在已安装插件的列表中搜索 Service Fabric 来进行检查。 如果可以使用更新的版本，请选择“更新”。
+如果已安装 Service Fabric Eclipse 插件，请确保使用最新版本。 可以通过选择“帮助” > “安装详细信息”并在已安装插件的列表中搜索 Service Fabric 来进行检查。如果可以使用更新的版本，请选择“更新”。
 
 有关详细信息，请参阅[使用适用于 Eclipse 的 Service Fabric 插件开发 Java 应用程序](service-fabric-get-started-eclipse.md)。
 

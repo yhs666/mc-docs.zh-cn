@@ -15,22 +15,22 @@ ms.workload: storage-backup-recovery
 origin.date: 06/29/2017
 ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 60689aa7fdea7c69371c7f0627d0ed99651f81dc
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: aed8dbe10101fa2525e6aa632f9dc27d9ad8c431
+ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>管理在 Azure（资源管理器）中运行的进程服务器
 > [!div class="op_single_selector"]
 > * [Resource Manager](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
-> * [经典](./site-recovery-vmware-setup-azure-ps-classic.md)
+<!-- Not Avaialble > * [Classic ](./site-recovery-vmware-setup-azure-ps-classic.md)-->
 
 故障回复期间，如果 Azure 虚拟网络与本地网络之间存在高延迟，建议在 Azure 中部署进程服务器。 本文介绍如何设置、配置和管理在 Azure 中运行的进程服务器。
 
 > [!NOTE]
-> 本文适用于在故障转移期间使用 **Resource Manager** 作为虚拟机部署模型的情况。 如果已使用“经典”作为部署模型，请按照[如何设置和配置故障回复进程服务器（经典）](./site-recovery-vmware-setup-azure-ps-classic.md)中的步骤进行操作
-
+> 本文适用于在故障转移期间使用 **Resource Manager** 作为虚拟机部署模型的情况。
+<!--  If you used **Classic** as the deployment model, follow the steps in [How to set up & configure a Failback process server (Classic)](./site-recovery-vmware-setup-azure-ps-classic.md) -->
 ## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]

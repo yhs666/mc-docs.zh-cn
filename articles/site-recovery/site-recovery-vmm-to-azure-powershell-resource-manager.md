@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/05/2017
 ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3319ff9a8d4d796f161892a213a7823282c00cd6
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: e10cae26ab8632b8d14b66021f3895302897d8b7
+ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>使用 PowerShell 和 Azure Resource Manager 将 VMM 云中的 Hyper-V 虚拟机复制到 Azure
 
@@ -78,7 +78,7 @@ Azure Site Recovery 可在许多部署方案中安排虚拟机的复制、故障
     * 源 Hyper-V 服务器上有一个或多个虚拟机。
 * 了解有关设置 VMM 云的更多信息：
     * 在 [System Center 2012 R2 VMM 中私有云的新增功能](http://go.microsoft.com/fwlink/?LinkId=324952)及 [VMM 2012 和云](http://go.microsoft.com/fwlink/?LinkId=324956)中阅读有关私有 VMM 云的详细信息。
-  * 了解有关 [配置 VMM 云结构](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)的信息
+  * 了解有关 [配置 VMM 云结构](https://msdn.microsoft.com/library/azure/dn469075.aspx)的信息
   * 准备好云结构元素后，通过[在 VMM 中创建私有云](http://go.microsoft.com/fwlink/p/?LinkId=324953)和 [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM（演练：使用 System Center 2012 SP1 VMM 创建私有云）](http://go.microsoft.com/fwlink/p/?LinkId=324954)，了解如何创建私有云。
 
 ### <a name="hyper-v-prerequisites"></a>Hyper-V 先决条件

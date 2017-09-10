@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 08/28/2017
 ms.date: 
 ms.author: v-yeche
-ms.openlocfilehash: b67d7fa638aa512277a12e7376bfeed690e63f0d
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 5b6a8829a6438754639bb14829238030e83dbc86
+ms.sourcegitcommit: 06019e3df5b85811e1f45f29d415dc666305166f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="how-to-use-table-storage-from-php"></a>如何通过 PHP 使用表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -66,7 +66,7 @@ use WindowsAzure\Common\ServicesBuilder;
 若要访问实时服务：
 
 ```php
-DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
+DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey];EndpointSuffix=core.chinacloudapi.cn
 ```
 
 若要访问模拟器存储：

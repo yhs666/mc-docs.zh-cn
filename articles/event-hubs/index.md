@@ -11,16 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 07/03/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8bf671d769d2c1322ef8cd8f98a8f91f8f6941f1
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 1c74796bea277c7bb0983b8734552045cda8702d
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 09/04/2017
 ---
-# 事件中心文档
-<a id="event-hubs-documentation" class="xliff"></a>
+# <a name="event-hubs-documentation"></a>事件中心文档
 
 了解如何使用事件中心从连接的 IoT 设备和应用程序每秒收集和管理数百万事件。 教程、API 参考和其他文档介绍了如何针对各种平台上的事件设置可伸缩性引入。
 

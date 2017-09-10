@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/27/2017
 ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: d95793b8417f841c27de3cd46f63e9d35519c717
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 6d8e4d492893b74c8285dae9cace01eead547113
+ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="step-12-run-a-test-failover-to-azure-for-vmware-vms"></a>步骤 12：运行 VMware VM 到 Azure 的测试故障转移
 
@@ -79,9 +79,7 @@ ms.lasthandoff: 08/25/2017
 - 若要在运行故障转移后使用 RDP 连接到 Azure VM，请[做好连接准备](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)。
  - 若要全面测试，需要在测试环境中复制 Active Directory 和 DNS。 [了解详细信息](site-recovery-active-directory.md#test-failover-considerations)。
  - 有关测试故障转移的完整信息，请参阅[此文](site-recovery-test-failover-to-azure.md)。
-- 在开始之前，请观看视频概述：
-
-     >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
+<!-- Not Available on Video-->
 
 现在，运行故障转移：
 
@@ -105,6 +103,6 @@ ms.lasthandoff: 08/25/2017
 
 - [详细了解](site-recovery-failover.md)不同类型的故障转移，以及如何运行它们。
 - 若要迁移计算机而不执行复制和故障回复，请[阅读详细信息](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers)。
-- [了解故障回复](site-recovery-failback-azure-to-vmware.md)，以便将 Azure VM 故障回复和复制回本地主站点。
+<!-- Not Available - - [Read about failback](site-recovery-failback-azure-to-vmware.md), to fail back and replicate Azure VMs back to the primary on-premises site.-->
 
 <!--Update_Description: new articles on site recovery test failover from vmware to azure-->

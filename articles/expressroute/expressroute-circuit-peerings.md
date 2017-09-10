@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 6/14/2017
+origin.date: 08/03/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 362e3f01037208df826388d0df05e2e12167f553
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 09/18/2017
+ms.openlocfilehash: b9a8d98cbc8b07d083cedb919ee9d845cbb17848
+ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute 线路和路由域
 
- 你必须订购一条 *ExpressRoute 线路* ，以通过连接提供商将你的本地基础结构连接到 Microsoft。 下图提供了你的 WAN 与 Microsoft 之间的连接的逻辑表示形式。  
+ 必须订购一条 *ExpressRoute 线路*，以通过连接提供商将本地基础结构连接到 Microsoft。 下图提供了 WAN 与 Microsoft 之间的连接的逻辑表示形式。  
 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 ## <a name="expressroute-circuits"></a>ExpressRoute 线路
-*ExpressRoute 线路* 表示通过连接提供商在本地基础结构与 Microsoft 云服务之间建立的逻辑连接。 你可以订购多条 ExpressRoute 线路。 每条线路可以位于相同或不同的区域，且可以通过不同的连接提供商连接到各个场所。 
+*ExpressRoute 线路* 表示通过连接提供商在本地基础结构与 Microsoft 云服务之间建立的逻辑连接。 可以订购多条 ExpressRoute 线路。 每条线路可以位于相同或不同的区域，且可以通过不同的连接提供商连接到各个场所。 
 
 ExpressRoute 线路不会映射到任何物理实体。 线路由称为服务密钥 (s-key) 的标准 GUID 进行唯一标识。 服务密钥是在 Microsoft、连接提供商与你之间唯一交换的一条信息。 s-key 不是用于保证安全的机密。 ExpressRoute 线路与 s-key 之间存在 1:1 映射。
 
@@ -54,11 +54,11 @@ ExpressRoute 线路最多可以有三个独立的对等互连：Azure 公共、A
 
 ### <a name="public-peering"></a>公共对等互连
 
-Azure 存储、SQL 数据库和网站等服务是通过公共 IP 地址提供的。 你可以通过公共对等路由域私下连接到公共 IP 地址（包括云服务的 VIP）上托管的服务。 可以将公共对等域连接到外围网络，并从 WAN 连接到公共 IP 地址上的所有 Azure 服务，而无需通过 Internet 连接。 
+Azure 存储、SQL 数据库和网站等服务是通过公共 IP 地址提供的。 可以通过公共对等路由域私下连接到公共 IP 地址（包括云服务的 VIP）上托管的服务。 可以将公共对等域连接到外围网络，并从 WAN 连接到公共 IP 地址上的所有 Azure 服务，而无需通过 Internet 连接。 
 
-始终会从 WAN 发起到 Microsoft Azure 服务的连接。 Microsoft Azure 服务无法通过此路由域发起到你网络的连接。 启用公共对等互连后，你将能够连接到所有 Azure 服务。 我们不允许选择要将路由播发到的服务。 可以在 [Microsoft Azure 数据中心 IP 范围](http://www.microsoft.com/download/details.aspx?id=41653)页上查看我们通过此对等互连播发给你的前缀列表。 该页每周更新。
+始终会从 WAN 发起到 Microsoft Azure 服务的连接。 Microsoft Azure 服务无法通过此路由域发起到网络的连接。 启用公共对等互连后，能够连接到所有 Azure 服务。 我们不允许选择要将路由播发到的服务。 可以在 [Microsoft Azure 数据中心 IP 范围](http://www.microsoft.com/download/details.aspx?id=41653) 页上查看我们通过此对等互连播发给前缀列表。 该页每周更新。
 
-你可以在网络中定义自定义路由筛选器，以只使用所需的路由。 有关路由配置的详细信息，请参阅[路由](expressroute-routing.md)页。 
+可以在网络中定义自定义路由筛选器，以只使用所需的路由。 有关路由配置的详细信息，请参阅[路由](expressroute-routing.md)页。 
 
 有关通过公共对等路由域支持的服务的更多详细信息，请参阅[常见问题解答页](./expressroute-faqs.md)。 
 
@@ -70,20 +70,19 @@ Azure 存储、SQL 数据库和网站等服务是通过公共 IP 地址提供的
 ||**专用对等互连**|**公共对等互连**|
 |---|---|---|---|
 |每个对等互连支持的最大前缀数|默认情况下为 4000，而 ExpressRoute 高级版支持 10,000|200|
-|**支持的 IP 地址范围**|你的 WAN 中任何有效的 IPv4 地址。|由你或你的连接提供商拥有的公共 IPv4 地址。|
+|**支持的 IP 地址范围**|WAN 中任何有效的 IPv4 地址。|由你或连接提供商拥有的公共 IPv4 地址。|
 |**AS 编号要求**|专用和公共 AS 编号。 如果选择使用公共 AS 编号，必须拥有该编号。 | 专用和公共 AS 编号。 但是，必须证明对公共 IP 地址的所有权。|
 |**路由接口 IP 地址**|RFC1918 和公共 IP 地址|在路由注册表中向你注册的公共 IP 地址。|
 |**MD5 哈希支持**| 是|是|
 
-可以选择启用一个或多个路由域作为 ExpressRoute 线路的一部分。 若要将这些路由域合并成单个路由域，可以选择将所有路由域放置在同一个 VPN 中。 此外，还可以如图所示，将它们放置在不同的路由域中。 建议的配置是将专用对等链路直接连接到核心网络，并将公共对等链路连接到外围网络。
+可以选择启用一个或多个路由域作为 ExpressRoute 线路的一部分。 要将这些路由域合并成单个路由域，可以选择将所有路由域放置在同一个 VPN 中。 此外，还可以如图所示，将它们放置在不同的路由域中。 建议的配置是将专用对等链路直接连接到核心网络，并将公共对等链路连接到外围网络。
 
-如果选择所有三个对等会话，需要使用三对 BGP 会话（每队用于一个对等类型）。 BGP 会话对提供高度可用的链接。 如果你要通过第 2 层连接提供商进行连接，则需要负责配置和管理路由。 可以通过查看设置 ExpressRoute 的[工作流](./expressroute-workflows.md)了解更多详细信息。
+如果选择所有三个对等会话，需要使用三对 BGP 会话（每队用于一个对等类型）。 BGP 会话对提供高度可用的链接。 如果要通过第 2 层连接提供商进行连接，则需要负责配置和管理路由。 可以通过查看设置 ExpressRoute 的[工作流](./expressroute-workflows.md)了解更多详细信息。
 
 ## <a name="next-steps"></a>后续步骤
+* 查找服务提供商。 请参阅 [ExpressRoute 服务提供商和位置](expressroute-locations.md)。
+* 确保符合所有先决条件。 请参阅 [ExpressRoute 先决条件](expressroute-prerequisites.md)。
+* 配置 ExpressRoute 连接。
+  * [创建和管理 ExpressRoute 线路](expressroute-howto-circuit-portal-resource-manager.md)
+  * [配置 ExpressRoute 线路的路由（对等互连）](expressroute-howto-routing-portal-resource-manager.md)
 
-- 查找服务提供商。 请参阅 [ExpressRoute 服务提供商和位置](./expressroute-locations.md)。
-- 确保符合所有先决条件。 请参阅 [ExpressRoute 先决条件](./expressroute-prerequisites.md)。
-- 配置 ExpressRoute 连接。
-    - [创建 ExpressRoute 线路](./expressroute-howto-circuit-classic.md)
-    - [配置路由（线路对等互连）](./expressroute-howto-routing-classic.md)
-    - [将 VNet 链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-classic.md)

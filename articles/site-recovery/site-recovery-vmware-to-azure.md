@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2017
 ms.author: v-johch
-ms.openlocfilehash: 68c91d5e202db31cc6af7c972ce090d86bf7ae9d
-ms.sourcegitcommit: 6e849d15b7c5aaa554668195eef2e58ae1de10bb
+ms.openlocfilehash: 8c8af2c9367809dd171075574093af265c7a0c6e
+ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="replicate-vmware-virtual-machines-to-azure-with--site-recovery"></a>通过 Site Recovery 将 VMware 虚拟机复制到 Azure
 >[!div class="op_single_selector"]
@@ -68,7 +68,7 @@ ms.lasthandoff: 08/23/2017
     - 在故障转移后创建 Azure VM 时，Azure VM 置于此网络中。
     - 可以在 [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) 中设置网络，也可以在经典模式下设置网络。
 
-2. 设置用于所复制数据的 [Azure 存储帐户](../storage/storage-create-storage-account.md#create-a-storage-account)。
+2. 设置用于所复制数据的 [Azure 存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
     - 该帐户可以是标准帐户或[高级](../storage/storage-premium-storage.md)帐户。
     - 可以在 Resource Manager 中设置帐户，也可以在经典模式下设置帐户。
 

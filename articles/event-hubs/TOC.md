@@ -56,10 +56,12 @@
 ## [配额](event-hubs-quotas.md)
 
 # 资源
-## [Azure 路线图](https://azure.microsoft.com/roadmap/)
+<!-- Not Available ## [Azure Roadmap](https://azure.microsoft.com/roadmap/) -->
 ## [代码示例](event-hubs-samples.md)
-## [学习路径](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
-## [定价](https://www.azure.cn/pricing/details/event-hubs/)
-## [服务更新](https://azure.microsoft.com/updates/?product=event-hubs)
+<!-- Not Available ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/) -->
+## [价格](https://www.azure.cn/pricing/details/event-hubs/)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
+## [服务更新](https://www.azure.cn/what-is-new/)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-eventhub)
 
+<!--Update_Description: update link-->

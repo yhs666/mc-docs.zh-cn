@@ -12,27 +12,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/03/2017
-ms.date: 07/03/2017
+origin.date: 08/15/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 374ff97d56d71a6470438b4d6738db5f278a5c9c
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 81e91ae50a9d6a491bf29e7d48133a41e2f77685
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 09/04/2017
 ---
-# 事件中心 .NET Framework API 概述
-<a id="event-hubs-net-framework-api-overview" class="xliff"></a>
+# <a name="event-hubs-net-framework-api-overview"></a>事件中心 .NET Framework API 概述
 本文汇总了一些重要的事件中心 .NET Framework 客户端 API。 有两个类别：管理 API 和运行时 API。 运行时 API 包括发送和接收消息所需的全部操作。 借助管理操作，可以通过创建、更新和删除实体来管理事件中心实体状态。
 
-监视方案跨越管理操作和运行时操作。 有关 .NET API 的详细参考文档，请参阅[服务总线 .NET](https://docs.microsoft.com/dotnet/api) 和 [EventProcessorHost API](https://docs.microsoft.com/dotnet/api) 参考。
+监视方案跨越管理操作和运行时操作。 有关 .NET API 的详细参考文档，请参阅[服务总线 .NET](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging) 和 [EventProcessorHost API](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 参考。
 
-## 管理 API
-<a id="management-apis" class="xliff"></a>
+## <a name="management-apis"></a>管理 API
 若要执行以下管理操作，必须对事件中心命名空间具有 **管理** 权限：
 
-### 创建
-<a id="create" class="xliff"></a>
+### <a name="create"></a>创建
 ```csharp
 // Create the event hub
 var ehd = new EventHubDescription(eventHubName);
@@ -40,9 +37,7 @@ ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
-### 更新
-<a id="update" class="xliff"></a>
-
+### <a name="update"></a>更新
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
 
@@ -54,23 +49,19 @@ ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new A
 await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
-### 删除
-<a id="delete" class="xliff"></a>
+### <a name="delete"></a>删除
 ```csharp
 await namespaceManager.DeleteEventHubAsync("Event Hub name");
 ```
 
-## 运行时 API
-<a id="run-time-apis" class="xliff"></a>
-### 创建发布者
-<a id="create-publisher" class="xliff"></a>
+## <a name="run-time-apis"></a>运行时 API
+### <a name="create-publisher"></a>创建发布者
 ```csharp
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
 var eventHubClient = EventHubClient.Create("Event Hub name");
 ```
 
-### 发布消息
-<a id="publish-message" class="xliff"></a>
+### <a name="publish-message"></a>发布消息
 ```csharp
 // Create the device/temperature metric
 var info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
@@ -88,8 +79,7 @@ data.Properties.Add("Type", "Telemetry_" + DateTime.Now.ToLongTimeString());
 await client.SendAsync(data);
 ```
 
-### 创建使用者
-<a id="create-consumer" class="xliff"></a>
+### <a name="create-consumer"></a>创建使用者
 ```csharp
 // Create the Event Hubs client
 var eventHubClient = EventHubClient.Create(EventHubName);
@@ -107,8 +97,7 @@ var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index
 var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index,startingOffset:-1); 
 ```
 
-### 使用消息
-<a id="consume-message" class="xliff"></a>
+### <a name="consume-message"></a>使用消息
 ```csharp
 var message = await consumer.ReceiveAsync();
 
@@ -120,8 +109,7 @@ var info = message.GetBytes();
 msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
-## 事件处理程序主机 API
-<a id="event-processor-host-apis" class="xliff"></a>
+## <a name="event-processor-host-apis"></a>事件处理程序主机 API
 这些 API 通过在可用工作进程之间分布分区，为可能变为不可用的工作进程提供复原能力。
 
 ```csharp
@@ -181,8 +169,7 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 若要了解有关事件中心方案的详细信息，请访问以下链接：
 
 * [什么是 Azure 事件中心？](event-hubs-what-is-event-hubs.md)
@@ -192,3 +179,5 @@ public class SimpleEventProcessor : IEventProcessor
 
 * [Microsoft.ServiceBus.Messaging](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging)
 * [Microsoft.Azure.EventHubs.EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)
+
+<!--Update_Description: update meta properties, update reference link-->

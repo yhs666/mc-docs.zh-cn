@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 07/25/2017
 ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: cfa9dd5701689bc87df48d5968d8b34802db3f0a
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: fec16ef68b90f8817a84c5414342cbe1a12c3bb8
+ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="step-11-run-a-test-failover-for-hyper-v-replication-with-vmm-to-azure"></a>步骤 11：为执行 Hyper-V 到 Azure 的复制（使用 VMM）运行测试故障转移
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/25/2017
 - 只有在发生到 Azure 的故障转移时，才会创建托管磁盘并将其附加到 VM。 启用保护后，本地 VM 中的数据将复制到存储帐户。
 - 只能为使用 Resource Manager 部署模型部署的 VM 创建托管磁盘。
 - 使用托管磁盘的虚拟机目前不支持从 Azure 故障回复到本地 Hyper-V 环境。 只有仅执行迁移时（故障转移到 Azure 且不进行故障回复）才应当将“使用托管磁盘”设置为“是”
-- 启用此设置后，仅可以选择启用了“使用托管磁盘”的资源组中的可用性集。 包含托管磁盘的 VM 必须位于“使用托管磁盘”设置为“是”的可用性集中。 如果没有为 VM 启用此设置，那么仅可以选择未启用“使用托管磁盘”的资源组中的可用性集。 [了解详细信息](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)。
+- 启用此设置后，仅可以选择启用了“使用托管磁盘”的资源组中的可用性集。 包含托管磁盘的 VM 必须位于“使用托管磁盘”设置为“是”的可用性集中。 如果没有为 VM 启用此设置，那么仅可以选择未启用“使用托管磁盘”的资源组中的可用性集。 [了解详细信息](../virtual-machines/windows/manage-availability.md)。
 - - 如果已使用存储服务加密加密用于复制的存储帐户，则无法在故障转移期间创建托管磁盘。 在这种情况下，要么不要启用托管磁盘，要么为 VM 禁用保护功能，并重新启用为使用未启用加密的存储帐户。 [了解详细信息](../virtual-machines/windows/managed-disks-overview.md#managed-disks-and-encryption)。
 
 ## <a name="network-considerations"></a>网络注意事项

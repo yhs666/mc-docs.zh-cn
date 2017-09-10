@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/05/2017
-ms.date: 08/21/2017
+origin.date: 08/01/2017
 ms.author: v-yiso
-ms.openlocfilehash: 44ca0b8f7c998f9b090a8018675bb91140ba9880
-ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
+ms.date: 09/18/2017
+ms.openlocfilehash: 333071a54beafa1165bad5401407a5f45204fb5e
+ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>验证 ExpressRoute 连接
 ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络扩展到 Microsoft 云中，涉及以下三个不同的网络区域：
@@ -252,10 +252,6 @@ At line:1 char:1
         + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 ```
 
->[!IMPORTANT]
->如果服务提供商设置了第 3 层对等互连，则通过门户或 PowerShell 设置 ExpressRoute 对等互连会覆盖服务提供商设置。 重置提供商这一侧的对等互连设置需要服务提供商的支持。 如果确定服务提供商只提供第 2 层服务，则只修改 ExpressRoute 对等互连！
->
->
 
 <p/>
 >[!NOTE]

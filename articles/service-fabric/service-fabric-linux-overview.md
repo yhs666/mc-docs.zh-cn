@@ -12,14 +12,14 @@ ms.devlang: Java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/28/2017
-ms.date: 08/21/2017
+origin.date: 08/09/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: eedd6970d84412da4e1a1c19e1ab621a61ce7966
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 1dbc8b84ce43e2588696ee2a33c77db422057231
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="service-fabric-on-linux"></a>Linux 上的 Service Fabric
 如同在 Windows 上一样，可以使用 Linux 上的 Service Fabric 预览版在 Linux 上构建、部署和管理高可用性、高度可缩放的应用程序。 Service Fabric 框架（Reliable Services 和 Reliable Actors）除了可在 C# (.NET Core) 中使用以外，也能在 Java on Linux 中使用。  还可以使用任何语言或框架来构建[来宾可执行的服务](service-fabric-deploy-existing-app.md)。 此外，预览版还支持协调 Docker 容器。 Docker 容器可以运行使用 Service Fabric 框架的来宾可执行文件或本机 Service Fabric 服务。
@@ -46,4 +46,4 @@ Linux 版 Service Fabric 在概念上等同于 Windows 版 Service Fabric（OS �
 5. [使用 Jenkins 和 GitHub 设置 Service Fabric 持续集成和部署](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 6. [Service Fabric Windows/Linux 差异](service-fabric-linux-windows-differences.md)
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties-->

@@ -3,8 +3,8 @@ title: "Azure 虚拟网络 (VNet) 规划和设计指南 | Azure"
 description: "了解如何基于隔离、连接性和位置要求规划和设计 Azure 中的虚拟网络。"
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/08/2016
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: ed04e2ead359eb31cd20422e2dedcae257438597
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/04/2017
+ms.author: v-yeche
+ms.openlocfilehash: 34fe30a712fff99faca0e59993dcbce407fa549b
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>规划和设计 Azure 虚拟网络
 创建要用于试验的 VNet 非常简单，但却可能是，你将在一段时间内部署多个 VNet 以支持组织的生产需要。 通过进行一些规划和设计，你将能够更有效地部署 VNet 和连接所需的资源。 如果你不熟悉 VNet，我们建议你先[了解 VNet](virtual-networks-overview.md) 以及[如何部署](virtual-networks-create-vnet-arm-pportal.md) VNet，然后再继续阅读本文。
@@ -35,7 +35,7 @@ ms.lasthandoff: 07/28/2017
 * 可以使用以下方式将虚拟网络相互连接：
     * **[虚拟网络对等互连](virtual-network-peering-overview.md)**：虚拟网络必须位于同一 Azure 区域。 对等虚拟网络中的资源之间的带宽是相同的，就像资源已连接到同一个虚拟网络一样。
     * **Azure [VPN 网关](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)**：虚拟网络可以位于相同或不同的 Azure 区域中。 通过 VPN 网关连接的虚拟网络中资源之间的带宽受限于 VPN 网关带宽。
-* 可以使用 Azure 中提供的一种[连接选项](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)，将 VNet 连接到本地网络。
+* 可以使用 Azure 中提供的一种[连接选项](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)，将 VNet 连接到本地网络。
 * 不同的资源可以集中归入[资源组](../azure-resource-manager/resource-group-overview.md#resource-groups)，这样可便于将资源作为一个单元来管理。 资源组可以包含多个区域中的资源，只要资源属于同一订阅即可。
 
 ### <a name="define-requirements"></a>定义要求
@@ -123,7 +123,7 @@ VNet 包含以下属性。
 
 * **用于子网中的所有 NIC 的专用 IP 地址不足**。 如果你的子网地址空间未包含子网中的 NIC 数所对应的足够 IP 地址，则需要创建多个子网。 请记住，Azure 保留每个子网中的 5 个专用 IP 地址，这些 IP 地址不能使用：地址空间的第一个和最后一个地址（用于子网地址和多播）和 3 个要内部使用的地址（用于 DHCP 和 DNS 目的）。
 * **安全性**。 可以使用子网将 VM 组彼此分离，以用于具有多层结构的工作负荷，并对这些子网应用不同的[网络安全组 (NSG)](virtual-networks-nsg.md#subnets)。
-* **混合连接**。 可以使用 VPN 网关和 ExpressRoute 线路将 VNet 彼此[连接](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)，并连接到本地数据中心。 VPN 网关和 ExpressRoute 线路需要创建其自己的子网。
+* **混合连接**。 可以使用 VPN 网关和 ExpressRoute 线路将 VNet 彼此[连接](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)，并连接到本地数据中心。 VPN 网关和 ExpressRoute 线路需要创建其自己的子网。
 * **虚拟设备**。 可以在 Azure VNet 中使用虚拟设备，如防火墙、WAN 加速器或 VPN 网关。 这样做时，需要[将流量路由](virtual-networks-udr-overview.md)到这些设备，并将其隔离在它们自己的子网中。
 
 ### <a name="subnet-and-nsg-design-patterns"></a>子网和 NSG 设计模式
@@ -244,6 +244,6 @@ VNet 包含以下属性。
 * 根据方案[部署虚拟网络](virtual-networks-create-vnet-arm-template-click.md)。
 * 了解如何对 IaaS VM 进行[负载均衡](../load-balancer/load-balancer-overview.md)，以及如何[管理通过多个 Azure 区域的路由](../traffic-manager/traffic-manager-overview.md)。
 * 详细了解 [NSG 以及如何规划和设计 NSG 解决方案](virtual-networks-nsg.md)。
-* 详细了解[跨界连接和 VNet 连接选项](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)。
+* 详细了解[跨界连接和 VNet 连接选项](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update reference link-->

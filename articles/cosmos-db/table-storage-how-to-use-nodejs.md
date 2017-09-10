@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 08/28/2017
 ms.date: 
 ms.author: v-yeche
-ms.openlocfilehash: 45526558fb8c4600313d4d472b3c98c2bcf65ca7
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 98f5379cccc55a47e52c9f83e8dfb46c26571477
+ms.sourcegitcommit: c0d234cae3e93848d235b9292bb4a9c3096aa963
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>如何通过 Node.js 使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/25/2017
 
 本主题中的代码示例假定用户已拥有 Node.js 应用程序。 有关如何在 Azure 中创建 Node.js 应用程序的信息，请参阅以下任何主题：
 
-* [在 Azure 应用服务中创建 Node.js Web 应用](../app-service-web/app-service-web-get-started-nodejs.md)
+* [在 Azure App Service 中创建 Node.js Web 应用](../app-service-web/app-service-web-get-started-nodejs.md)
 * [使用 WebMatrix 构建 Node.js Web 应用并将其部署到 Azure](../app-service-web/web-sites-nodejs-use-webmatrix.md)
 * [构建 Node.js 应用程序并将其部署到 Azure 云服务](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)（使用 Windows PowerShell）
 
@@ -65,7 +65,7 @@ var azure = require('azure-storage');
 ```
 
 ## <a name="set-up-an-azure-storage-connection"></a>设置 Azure 存储连接
-Azure 模块将读取环境变量 AZURE\_STORAGE\_ACCOUNT 和 AZURE\_STORAGE\_ACCESS\_KEY，或 AZURE\_STORAGE\_CONNECTION\_STRING 以获取连接到 Azure 存储帐户所需的信息。 如果未设置这些环境变量，则必须在调用 **TableService**时指定帐户信息。
+Azure 模块会读取环境变量 AZURE_STORAGE_ACCOUNT 和 AZURE_STORAGE_ACCESS_KEY 或 AZURE_STORAGE_CONNECTION_STRING，获取连接到 Azure 存储帐户所需的信息。 如果未设置这些环境变量，则必须在调用 **TableService**时指定帐户信息。
 
 有关在 [Azure 门户](https://portal.azure.cn)中为 Azure 网站设置环境变量的示例，请参阅[使用 Azure 表服务的 Node.js Web 应用](../app-service-web/storage-nodejs-use-table-storage-web-site.md)。
 
@@ -103,7 +103,7 @@ function (returnObject, finalCallback, next)
 
 在此回调中并且在处理 returnObject（来自对服务器请求的响应）后，回调需要调用 next（如果它已存在）以继续处理其他筛选器或只调用 finalCallback 以便结束服务调用。
 
-用于 Node.js 的 Azure SDK 中附带了两个实现了重试逻辑的筛选器，分别是 **ExponentialRetryPolicyFilter** 和 **LinearRetryPolicyFilter**。 以下代码将创建使用 ExponentialRetryPolicyFilter 的 TableService 对象:
+Azure SDK for Node.js 中附带了两个实现了重试逻辑的筛选器，分别是 **ExponentialRetryPolicyFilter** 和 **LinearRetryPolicyFilter**。 以下代码将创建使用 ExponentialRetryPolicyFilter 的 TableService 对象:
 
 ```nodejs
 var retryOperations = new azure.ExponentialRetryPolicyFilter();

@@ -3,8 +3,8 @@ title: "创建首个 Azure 虚拟网络 | Azure"
 description: "了解如何创建 Azure 虚拟网络 (VNet)、将两个虚拟机 (VM) 连接到 VNet，以及如何连接到 VM。"
 services: virtual-network
 documentationcenter: 
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,13 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/27/2016
-ms.date: 03/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: d5bc517ce9cf7e730f20d55d0460033c9217d0f3
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 09/04/2017
+ms.author: v-yeche
+ms.openlocfilehash: 9b7adb3d663ea3a957a52c4159cfbdcbf9e18c4e
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="create-your-first-virtual-network"></a>创建首个虚拟网络
 
@@ -159,7 +159,7 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 
     ![资源组内容](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-若要详细了解 VM、磁盘和存储帐户，请阅读[虚拟机](../virtual-machines/windows/overview.md?toc=%2fvirtual-network%2ftoc.json)、[磁盘](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-network%2ftoc.json)和[存储帐户](../storage/storage-introduction.md?toc=%2fvirtual-network%2ftoc.json)这三篇概述文章。 可看到门户代为创建的两个默认 NSG。 还可以看到门户创建了两个网络接口 (NIC) 资源。 其中一个 NIC 允许 VM 通过 VNet 连接到其他资源。 若要详细了解 NIC，请阅读 [NIC](virtual-network-network-interface.md) 一文。 门户还创建了一个公共 IP 地址资源。 公共 IP 地址是针对公共 IP 地址资源的一种设置。 若要详细了解公共 IP 地址，请阅读 [IP 地址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)一文。
+若要详细了解 VM、磁盘和存储帐户，请阅读[虚拟机](../virtual-machines/windows/overview.md?toc=%2fvirtual-network%2ftoc.json)、[磁盘](../virtual-machines/windows/about-disks-and-vhds.md?toc=%2fvirtual-network%2ftoc.json)和[存储帐户](../storage/common/storage-introduction.md?toc=%2fvirtual-network%2ftoc.json)这三篇概述文章。 可看到门户代为创建的两个默认 NSG。 还可以看到门户创建了两个网络接口 (NIC) 资源。 其中一个 NIC 允许 VM 通过 VNet 连接到其他资源。 若要详细了解 NIC，请阅读 [NIC](virtual-network-network-interface.md) 一文。 门户还创建了一个公共 IP 地址资源。 公共 IP 地址是针对公共 IP 地址资源的一种设置。 若要详细了解公共 IP 地址，请阅读 [IP 地址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)一文。
 
 ## <a name="connect-to-from-vms"></a>连接到 VM
 
@@ -252,3 +252,5 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 - [网络接口](virtual-network-network-interface.md)
 - [网络安全组](virtual-networks-nsg.md)
 - [虚拟机](../virtual-machines/windows/overview.md?toc=%2fvirtual-network%2ftoc.json)
+
+<!--Update_Description: update reference link-->

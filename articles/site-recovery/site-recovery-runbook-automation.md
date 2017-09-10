@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 06/23/2017
 ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: bfc390e3cea70c26178bb89609f21961d9461882
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: d4b3aee77948fc49c916316cb12919fbe6601567
+ms.sourcegitcommit: 06019e3df5b85811e1f45f29d415dc666305166f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>将 Azure 自动化 Runbook 添加到恢复计划
 本文将介绍 Azure Site Recovery 如何与 Azure 自动化集成，以便扩展恢复计划。 恢复计划可以安排恢复受 Site Recovery 保护的 VM。 恢复计划支持复制到辅助云和复制到 Azure。 恢复计划还有助于实现恢复的**一致准确性**、**可重复性**和**自动化**。 如果从 VM 故障转移到 Azure，与 Azure 自动化集成可以扩展恢复计划。 可用于执行 Runbook，从而提供功能强大的自动化任务。
@@ -252,7 +252,7 @@ workflow AddPublicIPAndNSG {
 
 ## <a name="additional-resources"></a>其他资源
 <!-- Not Available automation-sec-configure-azure-runas-account.md -->
-[Azure 自动化概述](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure 自动化概述")
+[Azure 自动化概述](https://docs.azure.cn/zh-cn/automation/ "Azure 自动化概述")
 * [Azure 自动化示例脚本](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure 自动化示例脚本")
 
 <!--Update_Description: update meta properties, wording update-->

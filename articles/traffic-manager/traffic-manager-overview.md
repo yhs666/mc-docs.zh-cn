@@ -1,10 +1,10 @@
 ---
 title: "什么是流量管理器  | Azure"
-description: "本文将有助于你了解什么是流量管理器，以及流量管理器是否是适合你应用程序的流量路由选择"
+description: "本文有助于你了解什么是流量管理器，以及流量管理器是否是适合你应用程序的流量路由选择"
 services: traffic-manager
 documentationcenter: 
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/15/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 12028f00ff02bb7c0df8c58439d04cb4d7846fba
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 09/11/2017
+ms.date: 09/11/2017
+ms.author: v-yeche
+ms.openlocfilehash: 6a64373562134065400e2d54314f735572af0bb7
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="overview-of-traffic-manager"></a>流量管理器概述
 
@@ -81,13 +81,13 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 是 htt
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>客户端如何使用流量管理器进行连接
 
-沿用前面的示例，当客户端请求页面 https://partners.contoso.com/login.aspx 时，将会执行以下步骤来解析 DNS 名称并建立连接：
+沿用前面的示例，当客户端请求页面 https://partners.contoso.com/login.aspx 时，会执行以下步骤来解析 DNS 名称并建立连接：
 
 ![使用流量管理器建立连接][2]
 
 1. 客户端向已配置的递归 DNS 服务发送 DNS 查询，以解析名称“partners.contoso.com”。 递归 DNS 服务有时称为“本地 DNS”服务，并不直接托管 DNS 域。 客户端将联系各种权威 DNS 服务的工作负荷转移到 Internet，以便解析 DNS 名称。
 2. 为了解析 DNS 名称，递归 DNS 服务将查找“contoso.com”域的名称服务器。 然后，它会联系这些名称服务器以请求“partners.contoso.com”DNS 记录。 contoso.com DNS 服务器返回指向 contoso.trafficmanager.cn 的 CNAME 记录。
-3. 接下来，递归 DNS 服务查找“trafficmanager.cn”域的名称服务器，这些服务器由 Azure 流量管理器服务提供。 然后，将针对“contoso.trafficmanager.cn”DNS 记录发出的请求发送到这些 DNS 服务器。
+3. 接下来，递归 DNS 服务查找“trafficmanager.cn”域的名称服务器，这些服务器由 Azure 流量管理器服务提供。 然后，针对“contoso.trafficmanager.cn”DNS 记录发出的请求发送到这些 DNS 服务器。
 4. 流量管理器名称服务器接收该请求。 终结点的选择依据为：
 
     - 每个终结点的已配置状态（不返回已禁用的终结点）
@@ -97,7 +97,7 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 是 htt
 5. 选择的终结点以另一个 DNS CNAME 记录的形式返回。 在本例中，假设返回的是 contoso-us.chinacloudapp.cn is returned。
 6. 接下来，递归 DNS 服务将查找“chinacloudapp.cn”域的名称服务器。 它会联系这些名称服务器以请求“contoso-us.chinacloudapp.cn”DNS 记录。 返回的 DNS“A”记录包含位于美国的服务终结点的 IP 地址。
 7. 递归 DNS 服务将结果合并，向客户端返回单个 DNS 响应。
-8. 客户端接收 DNS 结果，然后连接到给定的 IP 地址。 客户端直接连接到应用程序服务终结点，而不是通过流量管理器连接。 由于这是一个 HTTPS 终结点，客户端将执行必要的 SSL/TLS 握手，然后针对“/login.aspx”页面发出 HTTP GET 请求。
+8. 客户端接收 DNS 结果，并连接到给定的 IP 地址。 客户端直接连接到应用程序服务终结点，而不是通过流量管理器连接。 由于这是一个 HTTPS 终结点，客户端将执行必要的 SSL/TLS 握手，并针对“/login.aspx”页面发出 HTTP GET 请求。
 
 递归 DNS 服务缓存它所收到的 DNS 响应。 客户端设备上的 DNS 解析程序也会缓存结果。 通过缓存可以加快后续 DNS 查询的响应速度，因为使用的是缓存中的数据，不需要查询其他名称服务器。 缓存的持续时间取决于每个 DNS 记录的“生存时间”(TTL) 属性。 该属性值越小，缓存过期时间就越短，因此访问流量管理器名称服务器所需的往返次数就越多。 如果指定较大的值，则意味着从故障终结点定向流量需要更长的时间。 使用流量管理器，可以将流量管理器 DNS 响应中使用的 TTL 配置为低至 0 秒、高至 2,147,483,647 秒（符合 [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt) 的最大范围），从而可通过选择值对应用程序的需求进行最佳平衡。
 
@@ -115,6 +115,10 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 是 htt
 
 详细了解流量管理器[流量路由方法](traffic-manager-routing-methods.md)。
 
+<!-- Not Available [networking capabilities](../networking/networking-overview.md) of Azure.-->
+
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
+
+<!--Update_Description: update meta properties-->

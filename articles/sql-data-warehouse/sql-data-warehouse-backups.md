@@ -16,11 +16,11 @@ ms.custom: backup-restore
 origin.date: 10/31/2016
 ms.date: 07/24/2017
 ms.author: v-yeche
-ms.openlocfilehash: 282296dd82b8832b8fc92b069752b71c100657f4
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 3b503a259639a285d22a4178db80a1c8259a7bb7
+ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="sql-data-warehouse-backups"></a>SQL 数据仓库备份
 SQL 数据仓库的数据仓库备份功能分为本地备份和异地备份， 其中包括 Azure 存储 Blob 快照和异地冗余存储。 使用数据仓库备份可以将数据仓库还原到主要区域的某个还原点，或者还原到另一地理区域。 本文介绍了在 SQL 数据仓库中进行备份的细节。
@@ -36,7 +36,7 @@ SQL 数据仓库还可以通过将数据存储在本地冗余 (LRS) Azure 高级
 详细了解以下内容：
 
 * 有关 Azure 高级存储的信息，请参阅 [Azure 高级存储简介](../storage/storage-premium-storage.md)。
-* 有关本地冗余存储的信息，请参阅 [Azure 存储复制](../storage/storage-redundancy.md#locally-redundant-storage)。
+* 有关本地冗余存储的信息，请参阅 [Azure 存储复制](../storage/common/storage-redundancy.md#locally-redundant-storage)。
 
 ## <a name="azure-storage-blob-snapshots"></a>Azure 存储 Blob 快照
 使用 Azure 高级存储的好处是，SQL 数据仓库可以使用 Azure 存储 Blob 快照在本地备份数据仓库。 可以将数据仓库还原到某个快照还原点。 快照至少每 8 小时启动一次，可供使用 7 天。  
@@ -46,7 +46,7 @@ SQL 数据仓库还可以通过将数据存储在本地冗余 (LRS) Azure 高级
 * 有关 Azure Blob 快照的信息，请参阅[创建 Blob 快照](../storage/storage-blob-snapshots.md)。
 
 ## <a name="geo-redundant-backups"></a>异地冗余备份
-SQL 数据仓库将完整的数据仓库存储在“标准”存储中，每隔 24 小时存储一次。 将根据上次快照的时间创建完整的数据仓库。 标准存储属于具有读取访问权限 (RA-GRS) 的异地冗余存储帐户。
+SQL 数据仓库将完整的数据仓库存储在“标准”存储中，每隔 24 小时存储一次。 此时会根据上次快照的时间创建完整的数据仓库。 标准存储属于具有读取访问权限 (RA-GRS) 的异地冗余存储帐户。
 <!-- Not Available [paired data center](../best-practices-availability-paired-regions.md).  -->
 
 此功能默认启用。 如果不想使用异地冗余备份，可以 [选择禁用] (https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicy?redirectedfrom=msdn)。 
@@ -63,8 +63,8 @@ SQL 数据仓库将完整的数据仓库存储在“标准”存储中，每隔 
 
 详细了解以下内容：
 
-* 有关异地冗余存储的信息，请参阅 [Azure 存储复制](../storage/storage-redundancy.md)。
-* 有关 RA-GRS 存储的信息，请参阅[读取访问异地冗余存储](../storage/storage-redundancy.md#read-access-geo-redundant-storage)。
+* 有关异地冗余存储的信息，请参阅 [Azure 存储复制](../storage/common/storage-redundancy.md)。
+* 有关 RA-GRS 存储的信息，请参阅[读取访问异地冗余存储](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage)。
 
 ## <a name="data-warehouse-backup-schedule-and-retention-period"></a>数据仓库备份计划和保留期
 SQL 数据仓库每隔 4 到 8 小时创建一次联机数据仓库的快照，每个快照保留 7 天的时间。 可以将联机数据库还原到过去 7 天的某个还原点。 

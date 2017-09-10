@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/27.017
 ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8b15ad6babad75433ea127caf2beaae57a395bb3
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 2d30be86168590c7fa96a949fe8ddc123ff5d2e9
+ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="step-1-review-the-architecture-for-vmware-replication-to-azure"></a>步骤1：查看执行 VMware 到 Azure 的复制的体系结构
 
@@ -65,7 +65,8 @@ ms.lasthandoff: 08/25/2017
 1. 在验证测试故障转移可以按预期工作后，可以根据需要运行到 Azure 的计划外故障转移。 不支持计划内故障转移。
 2. 可以故障转移单台计算机，或创建[恢复计划](site-recovery-create-recovery-plans.md)来故障转移多台 VM。
 3. 运行故障转移时，会在 Azure 中创建副本 VM。 提交故障转移，开始从副本 Azure VM 访问工作负荷。
-4. 当本地主站点再次可用时，便可以故障回复。 设置故障回复基础结构，开始将计算机从辅助站点复制到主站点，并从辅助站点运行计划外故障转移。 提交此故障转移后，数据回到本地，此时需要再次启用目标为 Azure 的复制。 [了解详细信息](site-recovery-failback-azure-to-vmware.md)
+4. 当本地主站点再次可用时，便可以故障回复。 设置故障回复基础结构，开始将计算机从辅助站点复制到主站点，并从辅助站点运行计划外故障转移。 提交此故障转移后，数据回到本地，此时需要再次启用目标为 Azure 的复制。
+<!--Not Available [Learn more](site-recovery-failback-azure-to-vmware.md)-->
 
 故障回复有以下几项要求：
 

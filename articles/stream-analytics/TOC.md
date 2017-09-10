@@ -65,8 +65,11 @@
 ## [博客](http://blogs.msdn.com/b/streamanalytics/)
 <!-- Not Available ## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics) -->
 ## [论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
-## [定价](https://www.azure.cn/pricing/details/stream-analytics/)
+## [价格](https://www.azure.cn/pricing/details/stream-analytics/)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
 <!-- Not Available ## [Release notes](stream-analytics-release-notes.md)  -->
-## [服务更新](https://azure.microsoft.com/updates/?product=stream-analytics)
+## [服务更新](https://www.azure.cn/what-is-new/)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics) -->
+
+<!--Update_Description: update link-->
