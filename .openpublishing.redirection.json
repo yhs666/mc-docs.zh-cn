@@ -778,7 +778,7 @@
     {
         "source_path": "articles/service-fabric/service-fabric-diagnostic-collect-logs-without-an-agent.md",
         "redirect_url": "/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow",
-        "redirect_document_id": false
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/service-fabric/service-fabric-diagnostic-how-to-use-elasticsearch.md",
@@ -1267,7 +1267,7 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-restore-database-powershell.md",
-      "redirect_url": "/sql-database/scripts/sql-database-restore-database-powershell",
+      "redirect_url": "/sql-database/sql-database-recovery-using-backups",
       "redirect_document_id": "false"
     },
     {
@@ -1513,6 +1513,11 @@
     {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-create.md",
       "redirect_url": "/virtual-machine-scale-sets/virtual-machine-scale-sets-create",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines-error-messages.md",
+      "redirect_url": "/virtual-machines/windows/error-messages",
       "redirect_document_id": "false"
     },
     {
@@ -1793,6 +1798,11 @@
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-configure-sshd-on-azure-linux-vms.md",
       "redirect_url": "/virtual-machines/linux/configure-sshd-on-azure-linux-vms",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks",
+      "redirect_url": "/virtual-machines/linux/convert-unmanaged-to-managed-disks",
       "redirect_document_id": "false"
     },
     {
@@ -2331,6 +2341,11 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md",
+      "redirect_url": "/virtual-machines/linux/update-infrastructure-redhat",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-linux-update-agent.md",
       "redirect_url": "/virtual-machines/linux/update-agent",
       "redirect_document_id": "false"
@@ -2428,6 +2443,11 @@
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-capture-image.md",
       "redirect_url": "/virtual-machines/windows/capture-image",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-capture-image-resource.md",
+      "redirect_url": "/virtual-machines/windows/capture-image-resource",
       "redirect_document_id": "false"
     },
     {
@@ -2696,6 +2716,11 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-client-images.md",
+      "redirect_url": "/virtual-machines/windows/client-images",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-windows-cli-deploy-templates.md",
       "redirect_url": "/virtual-machines/windows/cli-deploy-templates",
       "redirect_document_id": "false"
@@ -2731,6 +2756,11 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md",
+      "redirect_url": "/virtual-machines/windows/convert-unmanaged-to-managed-disks",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md",
       "redirect_url": "/virtual-machines/windows/create-aad-work-id",
       "redirect_document_id": "false"
@@ -2748,6 +2778,16 @@
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-create-vm-specialized.md",
       "redirect_url": "/virtual-machines/windows/create-vm-specialized",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-create-managed-disk-ps.md",
+      "redirect_url": "/virtual-machines/windows/create-managed-disk-ps",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-create-vm-generalized-managed.md",
+      "redirect_url": "/virtual-machines/windows/create-vm-generalized-managed",
       "redirect_document_id": "false"
     },
     {
@@ -2991,6 +3031,16 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-migrate-single-classic-to-resource-manager.md",
+      "redirect_url": "/virtual-machines/windows/migrate-single-classic-to-resource-manager",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md",
+      "redirect_url": "/virtual-machines/windows/migrate-to-managed-disks",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-windows-manage-using-azure-automation.md",
       "redirect_url": "/virtual-machines/windows/manage-using-azure-automation",
       "redirect_document_id": "false"
@@ -3053,6 +3103,11 @@
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-overview.md",
       "redirect_url": "/virtual-machines/windows/overview",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-on-prem-to-azure.md",
+      "redirect_url": "/virtual-machines/windows/on-prem-to-azure",
       "redirect_document_id": "false"
     },
     {
@@ -3236,6 +3291,11 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md",
+      "redirect_url": "/virtual-machines/windows/snapshot-copy-managed-disk",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-windows-sql-automated-backup.md",
       "redirect_url": "/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup",
       "redirect_document_id": "false"
@@ -3351,6 +3411,11 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-upload-generalized-managed.md",
+      "redirect_url": "/virtual-machines/windows/upload-generalized-managed",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-windows-use-storage-sql-server-backup-restore.md",
       "redirect_url": "/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore",
       "redirect_document_id": "false"
@@ -3381,6 +3446,11 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/virtual-machines/linux/planned-maintenance-schedule.md",
+      "redirect_url": "/virtual-machines/linux/classic/planned-maintenance-schedule",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/virtual-machines/linux/classic/diagnostic-extension.md",
       "redirect_url": "/virtual-machines/linux/diagnostic-extension",
       "redirect_document_id": "false"
@@ -3391,13 +3461,48 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/virtual-machines/windows/capture-image.md",
+      "redirect_url": "/virtual-machines/windows/sa-copy-generalized",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/virtual-machines/windows/create-vm-generalized.md",
       "redirect_url": "/virtual-machines/windows/sa-copy-generalized",
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/virtual-machines/windows/csharp-manage.md",
+      "redirect_url": "/virtual-machines/windows/csharp",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/generalize-vhd.md",
+      "redirect_url": "/virtual-machines/windows/upload-generalized-managed",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/upload-image.md",
+      "redirect_url": "/virtual-machines/windows/upload-generalized-managed",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/virtual-machines/windows/ps-manage.md",
       "redirect_url": "/virtual-machines/windows/tutorial-manage-vm",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/upload-specialized.md",
+      "redirect_url": "/virtual-machines/windows/create-vm-specialized",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/vhd-copy.md",
+      "redirect_url": "/virtual-machines/windows/create-vm-specialized",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/planned-maintenance-schedule.md",
+      "redirect_url": "/virtual-machines/windows/classic/planned-maintenance-schedule",
       "redirect_document_id": "false"
     },
     {
@@ -3503,7 +3608,7 @@
     {
         "source_path": "articles/virtual-network/virtual-networks-create-vnetpeering-arm-portal.md",
         "redirect_url": "/virtual-network/virtual-network-create-peering",
-        "redirect_document_id": false
+        "redirect_document_id": "false"
     },
     {
       "source_path": "articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md",
@@ -3518,1177 +3623,1272 @@
     {
       "source_path": "articles/documentdb/documentdb-automation-region-management.md",
       "redirect_url": "/cosmos-db/cli-samples",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-automation-resource-manager-cli-nodejs.md",
       "redirect_url": "/cosmos-db/cli-samples",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-automation-resource-manager-cli.md",
       "redirect_url": "/cosmos-db/cli-samples",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-change-feed.md",
       "redirect_url": "/cosmos-db/change-feed",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-community.md",
       "redirect_url": "/cosmos-db/community",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-connect-mongodb-account.md",
       "redirect_url": "/cosmos-db/connect-mongodb-account",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-cpp-get-started.md",
       "redirect_url": "/cosmos-db/documentdb-cpp-get-started",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-consistency-levels.md",
       "redirect_url": "/cosmos-db/consistency-levels",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-create-account.md",
       "redirect_url": "/cosmos-db/create-documentdb-dotnet",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-create-collection.md",
       "redirect_url": "/cosmos-db/create-documentdb-dotnet#create-collection",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-create-database.md",
       "redirect_url": "/cosmos-db/create-documentdb-dotnet#create-collection",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-create-documentdb-website.md",
       "redirect_url": "/cosmos-db/create-website",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-create-mongodb-account.md",
       "redirect_url": "/cosmos-db/create-mongodb-dotnet#create-account",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-distribute-data-globally.md",
       "redirect_url": "/cosmos-db/distribute-data-globally",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-developing-with-multiple-regions.md",
       "redirect_url": "/cosmos-db/tutorial-global-distribution-documentdb",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-dotnet-application.md",
       "redirect_url": "/cosmos-db/documentdb-dotnet-application",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-dotnet-samples.md",
       "redirect_url": "/cosmos-db/documentdb-dotnet-samples",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-dotnetcore-get-started.md",
       "redirect_url": "/cosmos-db/documentdb-dotnetcore-get-started",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-faq.md",
       "redirect_url": "/cosmos-db/faq",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-firewall-support.md",
       "redirect_url": "/cosmos-db/firewall-support",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-geospatial.md",
       "redirect_url": "/cosmos-db/geospatial",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-get-started-quickstart.md",
       "redirect_url": "/cosmos-db/create-documentdb-dotnet",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-import-data.md",
       "redirect_url": "/cosmos-db/import-data",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-get-started.md",
       "redirect_url": "/cosmos-db/documentdb-get-started",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-increase-limits.md",
       "redirect_url": "/cosmos-db/request-units",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/cosmos-db/request-units-per-minute.md",
       "redirect_url": "/cosmos-db/request-units",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-indexing-policies.md",
       "redirect_url": "/cosmos-db/indexing-policies",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-indexing.md",
       "redirect_url": "/cosmos-db/indexing-policies",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-introduction.md",
       "redirect_url": "/cosmos-db/documentdb-introduction",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-java-application.md",
       "redirect_url": "/cosmos-db/documentdb-java-application",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-java-get-started.md",
       "redirect_url": "/cosmos-db/documentdb-java-get-started",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-key-value-store-cost.md",
       "redirect_url": "/cosmos-db/key-value-store-cost",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-manage-account-with-powershell.md",
       "redirect_url": "/cosmos-db/manage-account-with-powershell",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-limits.md",
       "redirect_url": "/cosmos-db/",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-manage-account.md",
       "redirect_url": "/cosmos-db/manage-account",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-manage.md",
       "redirect_url": "/cosmos-db/manage-account",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-mobile-apps-with-xamarin.md",
       "redirect_url": "/cosmos-db/mobile-apps-with-xamarin",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-modeling-data.md",
       "redirect_url": "/cosmos-db/modeling-data",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-mongodb-application.md",
       "redirect_url": "/cosmos-db/tutorial-develop-mongodb",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-mongodb-migrate.md",
       "redirect_url": "/cosmos-db/mongodb-migrate",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-mongodb-mongochef.md",
       "redirect_url": "/cosmos-db/mongodb-mongochef",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-mongodb-robomongo.md",
       "redirect_url": "/cosmos-db/mongodb-robomongo",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-mongodb-samples.md",
       "redirect_url": "/cosmos-db/mongodb-samples",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-multi-region-writers.md",
       "redirect_url": "/cosmos-db/multi-region-writers",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-monitor-accounts.md",
       "redirect_url": "/cosmos-db/monitor-accounts",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-nodejs-application.md",
       "redirect_url": "/cosmos-db/documentdb-nodejs-application",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-nodejs-get-started.md",
       "redirect_url": "/cosmos-db/documentdb-nodejs-get-started",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-nodejs-samples.md",
       "redirect_url": "/cosmos-db/documentdb-nodejs-samples",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-nosql-database-encryption-at-rest.md",
       "redirect_url": "/cosmos-db/database-encryption-at-rest",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-nosql-database-security.md",
       "redirect_url": "/cosmos-db/database-security",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-nosql-local-emulator.md",
       "redirect_url": "/cosmos-db/local-emulator",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-nosql-odbc-driver.md",
       "redirect_url": "/cosmos-db/odbc-driver",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-nosql-vs-sql.md",
       "redirect_url": "/cosmosdb/",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-online-backup-and-restore.md",
       "redirect_url": "/cosmos-db/online-backup-and-restore",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-orderby.md",
       "redirect_url": "/cosmos-db/",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-partition-data.md",
       "redirect_url": "/cosmos-db/partition-data",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-performance-levels.md",
       "redirect_url": "/cosmos-db/performance-levels",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-performance-testing.md",
       "redirect_url": "/cosmos-db/performance-testing",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-portal-global-replication.md",
       "redirect_url": "/cosmos-db/tutorial-global-distribution-documentdb#portal",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-performance-tips.md",
       "redirect_url": "/cosmos-db/performance-tips",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-portal-troubleshooting.md",
       "redirect_url": "/cosmos-db/manage-account",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-powerbi-visualize.md",
       "redirect_url": "/cosmos-db/powerbi-visualize",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-programming.md",
       "redirect_url": "/cosmos-db/programming",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-protocol-mongodb.md",
       "redirect_url": "/cosmos-db/mongodb-introduction",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-python-application.md",
       "redirect_url": "/cosmos-db/documentdb-python-application",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-query-collections-query-explorer.md",
       "redirect_url": "/cosmos-db/create-documentdb-dotnet#add-sample-data",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-python-samples.md",
       "redirect_url": "/cosmos-db/documentdb-python-samples",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-regional-failovers.md",
       "redirect_url": "/cosmos-db/regional-failover",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-request-units.md",
       "redirect_url": "/cosmos-db/request-units",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-resources.md",
       "redirect_url": "/cosmos-db/documentdb-resources",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-run-hadoop-with-hdinsight.md",
       "redirect_url": "/cosmos-db/run-hadoop-with-hdinsight",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-sdk-dotnet-core.md",
       "redirect_url": "/cosmos-db/documentdb-sdk-dotnet-core",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-sdk-dotnet.md",
       "redirect_url": "/cosmos-db/documentdb-sdk-dotnet",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-sdk-java.md",
       "redirect_url": "/cosmos-db/documentdb-sdk-java",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-sdk-node.md",
       "redirect_url": "/cosmos-db/documentdb-sdk-node",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-sdk-python.md",
       "redirect_url": "/cosmos-db/documentdb-sdk-python",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-secure-access-to-data.md",
       "redirect_url": "/cosmos-db/secure-access-to-data",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-set-throughput.md",
       "redirect_url": "/cosmos-db/set-throughput",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-sharding.md",
       "redirect_url": "/cosmos-db/partition-data",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-social-media-apps.md",
       "redirect_url": "/cosmos-db/social-media-apps",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-spark-connector.md",
       "redirect_url": "/cosmos-db/spark-connector",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-sql-query-cheat-sheet.md",
       "redirect_url": "/cosmos-db/documentdb-sql-query-cheat-sheet",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-sql-query.md",
       "redirect_url": "/cosmos-db/documentdb-sql-query",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-supercharge-your-account.md",
       "redirect_url": "/cosmos-db/performance-levels",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-use-cases.md",
       "redirect_url": "/cosmos-db/use-cases",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-view-json-document-explorer.md",
       "redirect_url": "/cosmos-db/create-documentdb-dotnet",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-time-to-live.md",
       "redirect_url": "/cosmos-db/time-to-live",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-view-scripts.md",
       "redirect_url": "/cosmos-db/create-documentdb-dotnet#add-sample-data",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-whitepaper-chappell.md",
       "redirect_url": "/cosmos-db/",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/documentdb-working-with-dates.md",
       "redirect_url": "/cosmos-db/working-with-dates",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/fundamentals-data-management-nosql-chappell.md",
       "redirect_url": "/cosmos-db/",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
       "source_path": "articles/documentdb/index.md",
       "redirect_url": "/cosmos-db/",
-      "redirect_document_id": false
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/automation-manage-storage.md",
-        "redirect_url": "/storage/common/storage-manage-with-automation",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-create-storage-account-classic-portal.md",
+      "redirect_url": "/storage/common/storage-create-storage-account",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-about-disks-and-vhds-linux.md",
-        "redirect_url": "/virtual-machines/linux/about-disks-and-vhds",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-e2e-troubleshooting-classic-portal.md",
+      "redirect_url": "/storage/common/storage-e2e-troubleshooting",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-about-disks-and-vhds-windows.md",
-        "redirect_url": "/virtual-machines/windows/about-disks-and-vhds",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-enable-and-view-metrics-classic-portal.md",
+      "redirect_url": "/storage/common/storage-enable-and-view-metrics",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-analytics.md",
-        "redirect_url": "/storage/common/storage-analytics",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-java-use-blob-storage-on-premises-app.md",
+      "redirect_url": "/storage/blobs/storage-java-how-to-use-blob-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-azure-cli-nodejs.md",
-        "redirect_url": "/storage/common/storage-azure-cli-nodejs",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-monitoring-diagnosing-troubleshooting-classic-portal.md",
+      "redirect_url": "/storage/common/storage-monitoring-diagnosing-troubleshooting",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-azure-cli.md",
-        "redirect_url": "/storage/common/storage-azure-cli",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-use-store-apps.md",
+      "redirect_url": "/storage/index",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-backup-and-disaster-recovery-for-azure-iaas-disks.md",
-        "redirect_url": "/storage/common/storage-backup-and-disaster-recovery-for-azure-iaas-disks",
-        "redirect_document_id": false
+      "source_path": "articles/storage/automation-manage-storage.md",
+      "redirect_url": "/storage/common/storage-manage-with-automation",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-blob-snapshots.md",
-        "redirect_url": "/storage/blobs/storage-blob-snapshots",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-about-disks-and-vhds-linux.md",
+      "redirect_url": "/virtual-machines/linux/about-disks-and-vhds",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-blob-storage-tiers.md",
-        "redirect_url": "/storage/blobs/storage-blob-storage-tiers",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-about-disks-and-vhds-windows.md",
+      "redirect_url": "/virtual-machines/windows/about-disks-and-vhds",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-c-plus-plus-enumeration.md",
-        "redirect_url": "/storage/common/storage-c-plus-plus-enumeration",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-analytics.md",
+      "redirect_url": "/storage/common/storage-analytics",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-c-plus-plus-how-to-use-files.md",
-        "redirect_url": "/storage/files/storage-c-plus-plus-how-to-use-files",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-azure-cli-nodejs.md",
+      "redirect_url": "/storage/common/storage-azure-cli-nodejs",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-c-plus-plus-how-to-use-blobs.md",
-        "redirect_url": "/storage/blobs/storage-c-plus-plus-how-to-use-blobs",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-azure-cli.md",
+      "redirect_url": "/storage/common/storage-azure-cli",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-c-plus-plus-how-to-use-queues.md",
-        "redirect_url": "/storage/queues/storage-c-plus-plus-how-to-use-queues",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-backup-and-disaster-recovery-for-azure-iaas-disks.md",
+      "redirect_url": "/storage/common/storage-backup-and-disaster-recovery-for-azure-iaas-disks",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-c-plus-plus-how-to-use-tables.md",
-        "redirect_url": "/cosmos-db/table-storage-how-to-use-c-plus",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-blob-snapshots.md",
+      "redirect_url": "/storage/blobs/storage-blob-snapshots",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-client-side-encryption-java.md",
-        "redirect_url": "/storage/common/storage-client-side-encryption-java",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-blob-storage-tiers.md",
+      "redirect_url": "/storage/blobs/storage-blob-storage-tiers",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-client-side-encryption-python.md",
-        "redirect_url": "/storage/common/storage-client-side-encryption-python",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-c-plus-plus-enumeration.md",
+      "redirect_url": "/storage/common/storage-c-plus-plus-enumeration",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-client-side-encryption.md",
-        "redirect_url": "/storage/common/storage-client-side-encryption",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-c-plus-plus-how-to-use-files.md",
+      "redirect_url": "/storage/files/storage-c-plus-plus-how-to-use-files",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-concurrency.md",
-        "redirect_url": "/storage/common/storage-concurrency",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-c-plus-plus-how-to-use-blobs.md",
+      "redirect_url": "/storage/blobs/storage-c-plus-plus-how-to-use-blobs",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-configure-connection-string.md",
-        "redirect_url": "/storage/common/storage-configure-connection-string",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-c-plus-plus-how-to-use-queues.md",
+      "redirect_url": "/storage/queues/storage-c-plus-plus-how-to-use-queues",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-cors-support.md",
-        "redirect_url": "/storage/common/storage-cors-support",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-c-plus-plus-how-to-use-tables.md",
+      "redirect_url": "/cosmos-db/table-storage-how-to-use-c-plus",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-create-storage-account.md",
-        "redirect_url": "/storage/common/storage-create-storage-account",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-client-side-encryption-java.md",
+      "redirect_url": "/storage/common/storage-client-side-encryption-java",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-custom-domain-name.md",
-        "redirect_url": "/storage/blobs/storage-custom-domain-name",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-client-side-encryption-python.md",
+      "redirect_url": "/storage/common/storage-client-side-encryption-python",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-decide-blobs-files-disks.md",
-        "redirect_url": "/storage/common/storage-decide-blobs-files-disks",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-client-side-encryption.md",
+      "redirect_url": "/storage/common/storage-client-side-encryption",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-designing-ha-apps-with-ragrs.md",
-        "redirect_url": "/storage/common/storage-designing-ha-apps-with-ragrs",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-concurrency.md",
+      "redirect_url": "/storage/common/storage-concurrency",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-disaster-recovery-guidance.md",
-        "redirect_url": "/storage/common/storage-disaster-recovery-guidance",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-configure-connection-string.md",
+      "redirect_url": "/storage/common/storage-configure-connection-string",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-dotnet-how-to-use-blobs.md",
-        "redirect_url": "/storage/blobs/storage-dotnet-how-to-use-blobs",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-cors-support.md",
+      "redirect_url": "/storage/common/storage-cors-support",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-dotnet-how-to-use-files.md",
-        "redirect_url": "/storage/files/storage-dotnet-how-to-use-files",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-create-storage-account.md",
+      "redirect_url": "/storage/common/storage-create-storage-account",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-dotnet-how-to-use-queues.md",
-        "redirect_url": "/storage/queues/storage-dotnet-how-to-use-queues",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-custom-domain-name.md",
+      "redirect_url": "/storage/blobs/storage-custom-domain-name",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-dotnet-how-to-use-tables.md",
-        "redirect_url": "/cosmos-db/table-storage-how-to-use-dotnet",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-decide-blobs-files-disks.md",
+      "redirect_url": "/storage/common/storage-decide-blobs-files-disks",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-dotnet-shared-access-signature-part-1.md",
-        "redirect_url": "/storage/common/storage-dotnet-shared-access-signature-part-1",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-designing-ha-apps-with-ragrs.md",
+      "redirect_url": "/storage/common/storage-designing-ha-apps-with-ragrs",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-dotnet-shared-access-signature-part-2.md",
-        "redirect_url": "/storage/blobs/storage-dotnet-shared-access-signature-part-2",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-disaster-recovery-guidance.md",
+      "redirect_url": "/storage/common/storage-disaster-recovery-guidance",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-e2e-troubleshooting.md",
-        "redirect_url": "/storage/common/storage-e2e-troubleshooting",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-dotnet-how-to-use-blobs.md",
+      "redirect_url": "/storage/blobs/storage-dotnet-how-to-use-blobs",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-enable-and-view-metrics.md",
-        "redirect_url": "/storage/common/storage-enable-and-view-metrics",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-dotnet-how-to-use-files.md",
+      "redirect_url": "/storage/files/storage-dotnet-how-to-use-files",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
-        "redirect_url": "/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-dotnet-how-to-use-queues.md",
+      "redirect_url": "/storage/queues/storage-dotnet-how-to-use-queues",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-explorer-troubleshooting.md",
-        "redirect_url": "/storage/common/storage-explorer-troubleshooting",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-dotnet-how-to-use-tables.md",
+      "redirect_url": "/cosmos-db/table-storage-how-to-use-dotnet",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-explorers.md",
-        "redirect_url": "/storage/common/storage-explorers",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-dotnet-shared-access-signature-part-1.md",
+      "redirect_url": "/storage/common/storage-dotnet-shared-access-signature-part-1",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-faq-for-disks.md",
-        "redirect_url": "/virtual-machines/windows/faq-for-disks",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-dotnet-shared-access-signature-part-2.md",
+      "redirect_url": "/storage/blobs/storage-dotnet-shared-access-signature-part-2",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-file-how-to-create-file-share.md",
-        "redirect_url": "/storage/files/storage-how-to-create-file-share",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-e2e-troubleshooting.md",
+      "redirect_url": "/storage/common/storage-e2e-troubleshooting",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-file-how-to-use-files-mac.md",
-        "redirect_url": "/storage/files/storage-how-to-use-files-mac",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-enable-and-view-metrics.md",
+      "redirect_url": "/storage/common/storage-enable-and-view-metrics",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-file-how-to-use-files-portal.md",
-        "redirect_url": "/storage/files/storage-how-to-use-files-portal",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-encrypt-decrypt-blobs-key-vault.md",
+      "redirect_url": "/storage/blobs/storage-encrypt-decrypt-blobs-key-vault",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-file-how-to-use-files-powershell.md",
-        "redirect_url": "/storage/files/storage-how-to-use-files-powershell",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-explorer-troubleshooting.md",
+      "redirect_url": "/storage/common/storage-explorer-troubleshooting",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-file-how-to-use-files-windows.md",
-        "redirect_url": "/storage/files/storage-how-to-use-files-windows",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-explorers.md",
+      "redirect_url": "/storage/common/storage-explorers",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-files-faq.md",
-        "redirect_url": "/storage/files/storage-files-faq",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-faq-for-disks.md",
+      "redirect_url": "/virtual-machines/windows/faq-for-disks",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-files-introduction.md",
-        "redirect_url": "/storage/files/storage-files-introduction",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-file-how-to-create-file-share.md",
+      "redirect_url": "/storage/files/storage-how-to-create-file-share",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-how-to-use-files-linux.md",
-        "redirect_url": "/storage/files/storage-how-to-use-files-linux",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-file-how-to-use-files-mac.md",
+      "redirect_url": "/storage/files/storage-how-to-use-files-mac",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-backing-up-drive-manifests.md",
-        "redirect_url": "/storage/common/storage-import-export-backing-up-drive-manifests",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-file-how-to-use-files-portal.md",
+      "redirect_url": "/storage/files/storage-how-to-use-files-portal",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-cancelling-and-deleting-jobs.md",
-        "redirect_url": "/storage/common/storage-import-export-cancelling-and-deleting-jobs",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-file-how-to-use-files-powershell.md",
+      "redirect_url": "/storage/files/storage-how-to-use-files-powershell",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-creating-an-export-job.md",
-        "redirect_url": "/storage/common/storage-import-export-creating-an-export-job",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-file-how-to-use-files-windows.md",
+      "redirect_url": "/storage/files/storage-how-to-use-files-windows",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-creating-an-import-job.md",
-        "redirect_url": "/storage/common/storage-import-export-creating-an-import-job",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-files-faq.md",
+      "redirect_url": "/storage/files/storage-files-faq",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-diagnostics-and-error-recovery.md",
-        "redirect_url": "/storage/common/storage-import-export-diagnostics-and-error-recovery",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-files-introduction.md",
+      "redirect_url": "/storage/files/storage-files-introduction",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-enumerating-jobs.md",
-        "redirect_url": "/storage/common/storage-import-export-enumerating-jobs",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-how-to-use-files-linux.md",
+      "redirect_url": "/storage/files/storage-how-to-use-files-linux",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-file-format-log.md",
-        "redirect_url": "/storage/common/storage-import-export-file-format-log",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-https-custom-domain-cdn.md",
+      "redirect_url": "/storage/blobs/storage-https-custom-domain-cdn",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-file-format-manifest.md",
-        "redirect_url": "/storage/common/storage-import-export-file-format-manifest",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-backing-up-drive-manifests.md",
+      "redirect_url": "/storage/common/storage-import-export-backing-up-drive-manifests",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-file-format-metadata-and-properties.md",
-        "redirect_url": "/storage/common/storage-import-export-file-format-metadata-and-properties",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-cancelling-and-deleting-jobs.md",
+      "redirect_url": "/storage/common/storage-import-export-cancelling-and-deleting-jobs",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-service.md",
-        "redirect_url": "/storage/common/storage-import-export-service",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-creating-an-export-job.md",
+      "redirect_url": "/storage/common/storage-import-export-creating-an-export-job",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-how-to-v1.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-how-to-v1",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-creating-an-import-job.md",
+      "redirect_url": "/storage/common/storage-import-export-creating-an-import-job",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-how-to.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-how-to",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-diagnostics-and-error-recovery.md",
+      "redirect_url": "/storage/common/storage-import-export-diagnostics-and-error-recovery",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-preparing-hard-drives-import-v1.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-enumerating-jobs.md",
+      "redirect_url": "/storage/common/storage-import-export-enumerating-jobs",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-preparing-hard-drives-import.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-preparing-hard-drives-import",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-file-format-log.md",
+      "redirect_url": "/storage/common/storage-import-export-file-format-log",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-previewing-drive-usage-export-v1.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-file-format-manifest.md",
+      "redirect_url": "/storage/common/storage-import-export-file-format-manifest",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-quick-reference-v1.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-quick-reference-v1",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-file-format-metadata-and-properties.md",
+      "redirect_url": "/storage/common/storage-import-export-file-format-metadata-and-properties",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-quick-reference.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-quick-reference",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-service.md",
+      "redirect_url": "/storage/common/storage-import-export-service",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-repairing-an-export-job-v1.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-repairing-an-export-job-v1",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-how-to-v1.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-how-to-v1",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-repairing-an-import-job-v1.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-repairing-an-import-job-v1",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-how-to.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-how-to",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-reviewing-job-status-v1.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-reviewing-job-status-v1",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-preparing-hard-drives-import-v1.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-preparing-hard-drives-import.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-preparing-hard-drives-import",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-previewing-drive-usage-export-v1.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-setting-properties-metadata-import-v1.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-setting-properties-metadata-import-v1",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-quick-reference-v1.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-quick-reference-v1",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-setting-properties-metadata-import.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-setting-properties-metadata-import",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-quick-reference.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-quick-reference",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-setup-v1.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-setup-v1",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-repairing-an-export-job-v1.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-repairing-an-export-job-v1",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-setup.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-setup",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-repairing-an-import-job-v1.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-repairing-an-import-job-v1",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-tool-troubleshooting-v1.md",
-        "redirect_url": "/storage/common/storage-import-export-tool-troubleshooting-v1",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-reviewing-job-status-v1.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-reviewing-job-status-v1",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-import-export-using-the-rest-api.md",
-        "redirect_url": "/storage/common/storage-import-export-using-the-rest-api",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-incremental-snapshots.md",
-        "redirect_url": "/virtual-machines/windows/incremental-snapshots",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-introduction.md",
-        "redirect_url": "/storage/common/storage-introduction",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-setting-properties-metadata-import-v1.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-setting-properties-metadata-import-v1",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-ios-how-to-use-blob-storage.md",
-        "redirect_url": "/storage/blobs/storage-ios-how-to-use-blob-storage",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-setting-properties-metadata-import.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-setting-properties-metadata-import",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-java-how-to-use-blob-storage.md",
-        "redirect_url": "/storage/blobs/storage-java-how-to-use-blob-storage",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-setup-v1.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-setup-v1",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-java-how-to-use-file-storage.md",
-        "redirect_url": "/storage/files/storage-java-how-to-use-file-storage",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-setup.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-setup",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-java-how-to-use-queue-storage.md",
-        "redirect_url": "/storage/queues/storage-java-how-to-use-queue-storage",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-tool-troubleshooting-v1.md",
+      "redirect_url": "/storage/common/storage-import-export-tool-troubleshooting-v1",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-java-how-to-use-table-storage.md",
-        "redirect_url": "/cosmos-db/table-storage-how-to-use-java",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-import-export-using-the-rest-api.md",
+      "redirect_url": "/storage/common/storage-import-export-using-the-rest-api",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-java-hudson-continuous-integration-solution.md",
-        "redirect_url": "/storage/common/storage-java-hudson-continuous-integration-solution",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-incremental-snapshots.md",
+      "redirect_url": "/virtual-machines/windows/incremental-snapshots",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-java-jenkins-continuous-integration-solution.md",
-        "redirect_url": "/storage/common/storage-java-jenkins-continuous-integration-solution",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-introduction.md",
+      "redirect_url": "/storage/common/storage-introduction",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-manage-access-to-resources.md",
-        "redirect_url": "/storage/blobs/storage-manage-access-to-resources",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-ios-how-to-use-blob-storage.md",
+      "redirect_url": "/storage/blobs/storage-ios-how-to-use-blob-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-managed-disks-overview.md",
-        "redirect_url": "/virtual-machines/windows/managed-disks-overview",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-java-how-to-use-blob-storage.md",
+      "redirect_url": "/storage/blobs/storage-java-how-to-use-blob-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-migrate-to-premium-storage-using-azure-site-recovery.md",
-        "redirect_url": "/storage/common/storage-migrate-to-premium-storage-using-azure-site-recovery",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-java-how-to-use-file-storage.md",
+      "redirect_url": "/storage/files/storage-java-how-to-use-file-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-migration-to-premium-storage.md",
-        "redirect_url": "/storage/common/storage-migration-to-premium-storage",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-java-how-to-use-queue-storage.md",
+      "redirect_url": "/storage/queues/storage-java-how-to-use-queue-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-monitor-storage-account.md",
-        "redirect_url": "/storage/common/storage-monitor-storage-account",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-java-how-to-use-table-storage.md",
+      "redirect_url": "/cosmos-db/table-storage-how-to-use-java",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-monitoring-diagnosing-troubleshooting.md",
-        "redirect_url": "/storage/common/storage-monitoring-diagnosing-troubleshooting",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-java-hudson-continuous-integration-solution.md",
+      "redirect_url": "/storage/common/storage-java-hudson-continuous-integration-solution",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-moving-data.md",
-        "redirect_url": "/storage/common/storage-moving-data",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-java-jenkins-continuous-integration-solution.md",
+      "redirect_url": "/storage/common/storage-java-jenkins-continuous-integration-solution",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-nodejs-how-to-use-blob-storage.md",
-        "redirect_url": "/storage/blobs/storage-nodejs-how-to-use-blob-storage",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-manage-access-to-resources.md",
+      "redirect_url": "/storage/blobs/storage-manage-access-to-resources",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-nodejs-how-to-use-queues.md",
-        "redirect_url": "/storage/queues/storage-nodejs-how-to-use-queues",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-managed-disks-overview.md",
+      "redirect_url": "/virtual-machines/windows/managed-disks-overview",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-nodejs-how-to-use-table-storage.md",
-        "redirect_url": "/cosmos-db/table-storage-how-to-use-nodejs",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-migrate-to-premium-storage-using-azure-site-recovery.md",
+      "redirect_url": "/storage/common/storage-migrate-to-premium-storage-using-azure-site-recovery",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-nodejs-use-table-storage-cloud-service-app.md",
-        "redirect_url": "/cosmos-db/table-storage-cloud-service-nodejs",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-migration-to-premium-storage.md",
+      "redirect_url": "/storage/common/storage-migration-to-premium-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-performance-checklist.md",
-        "redirect_url": "/storage/common/storage-performance-checklist",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-monitor-storage-account.md",
+      "redirect_url": "/storage/common/storage-monitor-storage-account",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-php-how-to-use-blobs.md",
-        "redirect_url": "/storage/blobs/storage-php-how-to-use-blobs",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-monitoring-diagnosing-troubleshooting.md",
+      "redirect_url": "/storage/common/storage-monitoring-diagnosing-troubleshooting",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-php-how-to-use-queues.md",
-        "redirect_url": "/storage/queues/storage-php-how-to-use-queues",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-moving-data.md",
+      "redirect_url": "/storage/common/storage-moving-data",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-php-how-to-use-table-storage.md",
-        "redirect_url": "/cosmos-db/table-storage-how-to-use-php",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-nodejs-how-to-use-blob-storage.md",
+      "redirect_url": "/storage/blobs/storage-nodejs-how-to-use-blob-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-powershell-guide-full.md",
-        "redirect_url": "/storage/common/storage-powershell-guide-full",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-nodejs-how-to-use-queues.md",
+      "redirect_url": "/storage/queues/storage-nodejs-how-to-use-queues",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-premium-storage-performance.md",
-        "redirect_url": "/storage/common/storage-premium-storage-performance",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-nodejs-how-to-use-table-storage.md",
+      "redirect_url": "/cosmos-db/table-storage-how-to-use-nodejs",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-premium-storage.md",
-        "redirect_url": "/storage/common/storage-premium-storage",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-nodejs-use-table-storage-cloud-service-app.md",
+      "redirect_url": "/cosmos-db/table-storage-cloud-service-nodejs",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-properties-metadata.md",
-        "redirect_url": "/storage/blobs/storage-properties-metadata",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-performance-checklist.md",
+      "redirect_url": "/storage/common/storage-performance-checklist",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-python-how-to-use-blob-storage.md",
-        "redirect_url": "/storage/blobs/storage-python-how-to-use-blob-storage",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-php-how-to-use-blobs.md",
+      "redirect_url": "/storage/blobs/storage-php-how-to-use-blobs",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-python-how-to-use-file-storage.md",
-        "redirect_url": "/storage/files/storage-python-how-to-use-file-storage",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-php-how-to-use-queues.md",
+      "redirect_url": "/storage/queues/storage-php-how-to-use-queues",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-python-how-to-use-queue-storage.md",
-        "redirect_url": "/storage/queues/storage-python-how-to-use-queue-storage",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-php-how-to-use-table-storage.md",
+      "redirect_url": "/cosmos-db/table-storage-how-to-use-php",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-python-how-to-use-table-storage.md",
-        "redirect_url": "/cosmos-db/table-storage-how-to-use-python",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-powershell-guide-full.md",
+      "redirect_url": "/storage/common/storage-powershell-guide-full",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-redundancy.md",
-        "redirect_url": "/storage/common/storage-redundancy",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-premium-storage-performance.md",
+      "redirect_url": "/storage/common/storage-premium-storage-performance",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-require-secure-transfer.md",
-        "redirect_url": "/storage/common/storage-require-secure-transfer",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-premium-storage.md",
+      "redirect_url": "/storage/common/storage-premium-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
-        "redirect_url": "/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-properties-metadata.md",
+      "redirect_url": "/storage/blobs/storage-properties-metadata",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-ruby-how-to-use-blob-storage.md",
-        "redirect_url": "/storage/blobs/storage-ruby-how-to-use-blob-storage",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-python-how-to-use-blob-storage.md",
+      "redirect_url": "/storage/blobs/storage-python-how-to-use-blob-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-ruby-how-to-use-queue-storage.md",
-        "redirect_url": "/storage/queues/storage-ruby-how-to-use-queue-storage",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-python-how-to-use-file-storage.md",
+      "redirect_url": "/storage/files/storage-python-how-to-use-file-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-ruby-how-to-use-table-storage.md",
-        "redirect_url": "/cosmos-db/table-storage-how-to-use-ruby",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-python-how-to-use-queue-storage.md",
+      "redirect_url": "/storage/queues/storage-python-how-to-use-queue-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-samples-dotnet.md",
-        "redirect_url": "/storage/common/storage-samples-dotnet",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-python-how-to-use-table-storage.md",
+      "redirect_url": "/cosmos-db/table-storage-how-to-use-python",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-samples-java.md",
-        "redirect_url": "/storage/common/storage-samples-java",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-redundancy.md",
+      "redirect_url": "/storage/common/storage-redundancy",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-samples.md",
-        "redirect_url": "/storage/common/storage-samples",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-require-secure-transfer.md",
+      "redirect_url": "/storage/common/storage-require-secure-transfer",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-scalability-targets.md",
-        "redirect_url": "/storage/common/storage-scalability-targets",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
+      "redirect_url": "/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-security-guide.md",
-        "redirect_url": "/storage/common/storage-security-guide",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-ruby-how-to-use-blob-storage.md",
+      "redirect_url": "/storage/blobs/storage-ruby-how-to-use-blob-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-service-encryption.md",
-        "redirect_url": "/storage/common/storage-service-encryption",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-ruby-how-to-use-queue-storage.md",
+      "redirect_url": "/storage/queues/storage-ruby-how-to-use-queue-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-standard-storage.md",
-        "redirect_url": "/storage/common/storage-standard-storage",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-ruby-how-to-use-table-storage.md",
+      "redirect_url": "/cosmos-db/table-storage-how-to-use-ruby",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-table-design-guide.md",
-        "redirect_url": "/cosmos-db/table-storage-design-guide",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-samples-dotnet.md",
+      "redirect_url": "/storage/common/storage-samples-dotnet",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-troubleshoot-linux-file-connection-problems.md",
-        "redirect_url": "/storage/files/storage-troubleshoot-linux-file-connection-problems",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-samples-java.md",
+      "redirect_url": "/storage/common/storage-samples-java",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-troubleshoot-windows-file-connection-problems.md",
-        "redirect_url": "/storage/files/storage-troubleshoot-windows-file-connection-problems",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-samples.md",
+      "redirect_url": "/storage/common/storage-samples",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-use-azcopy-linux.md",
-        "redirect_url": "/storage/common/storage-use-azcopy-linux",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-scalability-targets.md",
+      "redirect_url": "/storage/common/storage-scalability-targets",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-use-azcopy.md",
-        "redirect_url": "/storage/common/storage-use-azcopy",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-security-guide.md",
+      "redirect_url": "/storage/common/storage-security-guide",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-use-data-movement-library.md",
-        "redirect_url": "/storage/common/storage-use-data-movement-library",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-service-encryption-customer-managed-keys.md",
+      "redirect_url": "/storage/common/storage-service-encryption-customer-managed-keys",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-use-emulator.md",
-        "redirect_url": "/storage/common/storage-use-emulator",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-service-encryption.md",
+      "redirect_url": "/storage/common/storage-service-encryption",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-using-managed-disks-template-deployments.md",
-        "redirect_url": "/virtual-machines/windows/using-managed-disks-template-deployments",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-standard-storage.md",
+      "redirect_url": "/storage/common/storage-standard-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/storage-xamarin-blob-storage.md",
-        "redirect_url": "/storage/blobs/storage-xamarin-blob-storage",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-table-design-guide.md",
+      "redirect_url": "/cosmos-db/table-storage-design-guide",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-aspnet-getting-started-blobs.md",
-        "redirect_url": "/visual-studio/vs-storage-aspnet-getting-started-blobs",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-troubleshoot-linux-file-connection-problems.md",
+      "redirect_url": "/storage/files/storage-troubleshoot-linux-file-connection-problems",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-aspnet-getting-started-queues.md",
-        "redirect_url": "/visual-studio/vs-storage-aspnet-getting-started-queues",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-troubleshoot-windows-file-connection-problems.md",
+      "redirect_url": "/storage/files/storage-troubleshoot-windows-file-connection-problems",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-aspnet-getting-started-tables.md",
-        "redirect_url": "/visual-studio/vs-storage-aspnet-getting-started-tables",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-use-azcopy-linux.md",
+      "redirect_url": "/storage/common/storage-use-azcopy-linux",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-aspnet-what-happened.md",
-        "redirect_url": "/visual-studio/vs-storage-aspnet-what-happened",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-use-azcopy.md",
+      "redirect_url": "/storage/common/storage-use-azcopy",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-aspnet5-getting-started-blobs.md",
-        "redirect_url": "/visual-studio/vs-storage-aspnet5-getting-started-blobs",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-use-data-movement-library.md",
+      "redirect_url": "/storage/common/storage-use-data-movement-library",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-aspnet5-getting-started-queues.md",
-        "redirect_url": "/visual-studio/vs-storage-aspnet5-getting-started-queues",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-use-emulator.md",
+      "redirect_url": "/storage/common/storage-use-emulator",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-aspnet5-getting-started-tables.md",
-        "redirect_url": "/visual-studio/vs-storage-aspnet5-getting-started-tables",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-using-managed-disks-template-deployments.md",
+      "redirect_url": "/virtual-machines/windows/using-managed-disks-template-deployments",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-aspnet5-what-happened.md",
-        "redirect_url": "/visual-studio/vs-storage-aspnet5-what-happened",
-        "redirect_document_id": false
+      "source_path": "articles/storage/storage-xamarin-blob-storage.md",
+      "redirect_url": "/storage/blobs/storage-xamarin-blob-storage",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-cloud-services-getting-started-blobs.md",
-        "redirect_url": "/visual-studio/vs-storage-cloud-services-getting-started-blobs",
-        "redirect_document_id": false
+      "source_path": "articles/storage/vs-storage-aspnet-getting-started-blobs.md",
+      "redirect_url": "/visual-studio/vs-storage-aspnet-getting-started-blobs",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-cloud-services-getting-started-queues.md",
-        "redirect_url": "/visual-studio/vs-storage-cloud-services-getting-started-queues",
-        "redirect_document_id": false
+      "source_path": "articles/storage/vs-storage-aspnet-getting-started-queues.md",
+      "redirect_url": "/visual-studio/vs-storage-aspnet-getting-started-queues",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-cloud-services-getting-started-tables.md",
-        "redirect_url": "/visual-studio/vs-storage-cloud-services-getting-started-tables",
-        "redirect_document_id": false
+      "source_path": "articles/storage/vs-storage-aspnet-getting-started-tables.md",
+      "redirect_url": "/visual-studio/vs-storage-aspnet-getting-started-tables",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-cloud-services-what-happened.md",
-        "redirect_url": "/visual-studio/vs-storage-cloud-services-what-happened",
-        "redirect_document_id": false
+      "source_path": "articles/storage/vs-storage-aspnet-what-happened.md",
+      "redirect_url": "/visual-studio/vs-storage-aspnet-what-happened",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-webjobs-getting-started-blobs.md",
-        "redirect_url": "/visual-studio/vs-storage-webjobs-getting-started-blobs",
-        "redirect_document_id": false
+      "source_path": "articles/storage/vs-storage-aspnet5-getting-started-blobs.md",
+      "redirect_url": "/visual-studio/vs-storage-aspnet5-getting-started-blobs",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-webjobs-getting-started-queues.md",
-        "redirect_url": "/visual-studio/vs-storage-webjobs-getting-started-queues",
-        "redirect_document_id": false
+      "source_path": "articles/storage/vs-storage-aspnet5-getting-started-queues.md",
+      "redirect_url": "/visual-studio/vs-storage-aspnet5-getting-started-queues",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-webjobs-getting-started-tables.md",
-        "redirect_url": "/visual-studio/vs-storage-webjobs-getting-started-tables",
-        "redirect_document_id": false
+      "source_path": "articles/storage/vs-storage-aspnet5-getting-started-tables.md",
+      "redirect_url": "/visual-studio/vs-storage-aspnet5-getting-started-tables",
+      "redirect_document_id": "false"
     },
     {
-        "source_path": "articles/storage/vs-storage-webjobs-what-happened.md",
-        "redirect_url": "/visual-studio/vs-storage-webjobs-what-happened",
-        "redirect_document_id": false
+      "source_path": "articles/storage/vs-storage-aspnet5-what-happened.md",
+      "redirect_url": "/visual-studio/vs-storage-aspnet5-what-happened",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/vs-storage-cloud-services-getting-started-blobs.md",
+      "redirect_url": "/visual-studio/vs-storage-cloud-services-getting-started-blobs",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/vs-storage-cloud-services-getting-started-queues.md",
+      "redirect_url": "/visual-studio/vs-storage-cloud-services-getting-started-queues",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/vs-storage-cloud-services-getting-started-tables.md",
+      "redirect_url": "/visual-studio/vs-storage-cloud-services-getting-started-tables",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/vs-storage-cloud-services-what-happened.md",
+      "redirect_url": "/visual-studio/vs-storage-cloud-services-what-happened",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/vs-storage-webjobs-getting-started-blobs.md",
+      "redirect_url": "/visual-studio/vs-storage-webjobs-getting-started-blobs",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/vs-storage-webjobs-getting-started-queues.md",
+      "redirect_url": "/visual-studio/vs-storage-webjobs-getting-started-queues",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/vs-storage-webjobs-getting-started-tables.md",
+      "redirect_url": "/visual-studio/vs-storage-webjobs-getting-started-tables",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/vs-storage-webjobs-what-happened.md",
+      "redirect_url": "/visual-studio/vs-storage-webjobs-what-happened",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
+      "redirect_url": "/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/scripts/storage-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md",
+      "redirect_url": "/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/scripts/storage-linux-cli-sample-copy-snapshot-to-storage-account.md",
+      "redirect_url": "/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-storage-account",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/scripts/storage-linux-cli-sample-create-managed-disk-from-snapshot.md",
+      "redirect_url": "/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/scripts/storage-linux-cli-sample-create-managed-disk-from-vhd.md",
+      "redirect_url": "/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/scripts/storage-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md",
+      "redirect_url": "/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/scripts/storage-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
+      "redirect_url": "/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/scripts/storage-windows-powershell-sample-copy-snapshot-to-storage-account.md",
+      "redirect_url": "/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/scripts/storage-windows-powershell-sample-create-managed-disk-from-snapshot.md",
+      "redirect_url": "/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/scripts/storage-windows-powershell-sample-create-managed-disk-from-vhd.md",
+      "redirect_url": "/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/storage/scripts/storage-windows-powershell-sample-create-snapshot-from-vhd.md",
+      "redirect_url": "/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd",
+      "redirect_document_id": "false"
     }
   ]
 }
