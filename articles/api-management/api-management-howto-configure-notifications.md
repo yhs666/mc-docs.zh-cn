@@ -1,0 +1,122 @@
+---
+title: "在 Azure API 管理中配置通知和电子邮件模板 | Azure"
+description: "了解如何在 Azure API 管理中配置通知和电子邮件模板。"
+services: api-management
+documentationcenter: 
+author: steved0x
+manager: erikre
+editor: 
+ms.assetid: ee25f26d-4752-433b-af9c-3817db38aed5
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 01/23/2017
+ms.author: v-yiso
+ms.date: 
+ms.openlocfilehash: d21116b6224265cf8cc2b8b0d0b83eb3e11a7d06
+ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/08/2017
+---
+# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>如何在 Azure API 管理中配置通知和电子邮件模板
+API 管理提供的功能为特定事件配置通知，以及配置用于与 API 管理实例的管理员及开发人员通信的电子邮件模板。 本主题演示如何为可用事件配置通知，并提供配置用于这些事件的电子邮件模板的概述。
+
+## <a name="publisher-notifications"> </a>配置发布者通知
+要配置通知，请在 Azure 门户中单击 API 管理服务的“发布者门户”。 这会转到 API 管理发布者门户。
+
+![发布者门户][api-management-management-console]
+
+> [!NOTE] 
+> 如果尚未创建 API 管理服务实例，请参阅 [Azure API 管理入门][Get started with Azure API Management]教程中的[创建 API 管理服务实例][Create an API Management service instance]。
+
+单击左侧“API 管理”菜单中的“通知”查看可用通知。
+
+![发布者通知][api-management-publisher-notifications]
+
+可为通知配置以下事件列表。
+
+* **订阅请求(需要批准)** - 指定的电子邮件收件人和用户将收到关于需要批准的 API 产品的订阅请求的电子邮件通知。
+* **新订阅** - 指定的电子邮件收件人和用户将收到关于新 API 产品订阅的电子邮件通知。
+* **应用程序库请求** - 指定的电子邮件收件人和用户会在新的应用程序提交到应用程序库时收到电子邮件通知。
+* **BCC** - 指定的电子邮件收件人和用户将收到发送给开发人员的所有电子邮件的电子邮件密件副本。
+* **新的问题或评论** - 在开发人员门户上提交新问题或评论时，指定的电子邮件收件人和用户将收到电子邮件通知。
+* **关闭帐户消息** - 指定的电子邮件收件人和用户会在关闭帐户时收到电子邮件通知。
+* **接近订阅配额限制** - 以下电子邮件收件人和用户会在订阅使用量接近使用量配额时收到电子邮件通知。
+
+对于每个事件，可以指定电子邮件收件人（使用电子邮件地址文本框，或从列表中选择用户）。
+
+要指定被通知的电子邮件地址，请在电子邮件地址文本框中输入。 如果有多个电子邮件地址，请使用逗号分隔。
+
+![通知收件人][api-management-email-addresses]
+
+要指定被通知的用户，请单击“添加收件人”，选中要通知的用户旁边的框，并单击“确定”。
+
+> [!NOTE] 
+> 只有管理员才会显示在列表中。
+
+
+配置通知收件人后，单击“保存”应用更新后的通知收件人。
+
+> [!NOTE] 
+> 如果导航离开“发布者通知”选项卡，发布者门户会在存在未保存更改时发出警报。
+
+
+## <a name="email-templates"> </a>配置电子邮件模板
+API 管理提供了在管理和使用服务的过程中发送的电子邮件的电子邮件模板。 提供以下电子邮件模板。
+
+* 批准的应用程序库提交
+* 开发人员告别字母
+* 开发人员配额限制接近通知
+* 邀请用户
+* 添加到问题的新注释
+* 接收到的新问题
+* 激活的新订阅
+* 订阅续订确认
+* 订阅请求拒绝
+* 接收的订阅请求
+
+可按需修改这些模板。
+
+要查看和配置 API 管理实例的电子邮件模板，请单击左侧“API 管理”菜单的“通知”，并选择“电子邮件模板”选项卡。
+
+![电子邮件模板][api-management-email-templates]
+
+若要查看或修改特定模板，可以从“模板”下拉列表中选择它。
+
+![电子邮件模板列表][api-management-email-templates-list]
+
+每个电子邮件模板都有纯文本格式的主题，和 HTML 格式的正文定义。 可按需自定义每一项。
+
+![电子邮件模板编辑器][api-management-email-template]
+
+“参数”列表包含参数列表，插入到主题或正文时，会在发送电子邮件时替换为指定的值。 要插入一个参数，将光标置于要存放参数的位置，然后单击参数名称左侧的箭头。
+
+单击“预览”或“发送测试”，了解电子邮件的外观或发送测试电子邮件。
+
+> [!NOTE] 
+> 预览或发送测试时该参数不会替换为实际值。
+
+要将更改保存到电子邮件模板，请单击“保存”；要取消更改，请单击“取消”。
+ 
+
+[api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
+[api-management-publisher-notifications]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png
+[api-management-email-addresses]: ./media/api-management-howto-configure-notifications/api-management-email-addresses.png
+
+
+[api-management-email-templates]: ./media/api-management-howto-configure-notifications/api-management-email-templates.png
+[api-management-email-templates-list]: ./media/api-management-howto-configure-notifications/api-management-email-templates-list.png
+[api-management-email-template]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
+
+
+[Configure publisher notifications]: #publisher-notifications
+[Configure email templates]: #email-templates
+
+[How to create and use groups]: ./api-management-howto-create-groups.md
+[How to associate groups with developers]: ./api-management-howto-create-groups.md#associate-group-developer
+
+[Get started with Azure API Management]: ./api-management-get-started.md
+[Create an API Management service instance]: ./api-management-get-started.md#create-service-instance

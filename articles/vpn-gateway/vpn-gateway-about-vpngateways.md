@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/05/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
-ms.openlocfilehash: 17267f6e4dbea1c8db8b3ebf14ec970b3c4e6edc
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 09/08/2017
+ms.author: v-junlch
+ms.openlocfilehash: 1f5a416153bf3545e8f83a455803ff884e9b0caf
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="about-vpn-gateway"></a>关于 VPN 网关
 
@@ -64,7 +64,7 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 使用图示和描述来帮助选择符合要求的连接拓扑。 这些图示显示主要基准拓扑，但也可以使用这些图示作为指导来构建更复杂的配置。
 
-## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>站点到站点和多站点（IPsec/IKE VPN 隧道）
+## <a name="s2smulti"></a>站点到站点和多站点（IPsec/IKE VPN 隧道）
 
 ### <a name="S2S"></a>站点到站点
 

@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 09/08/2017
 ms.author: v-haiqya
-ms.openlocfilehash: baa8d01bd6e84f1bf0a7662c13e02d2c44e492f6
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 68e72aafb449c34eec48afd18c08fa221a50e8e1
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL 数据库资源限制
 ## <a name="overview"></a>概述

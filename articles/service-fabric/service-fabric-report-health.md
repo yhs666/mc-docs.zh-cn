@@ -3,8 +3,8 @@ title: "添加自定义 Service Fabric 运行状况报告 | Azure"
 description: "介绍如何将自定义运行状况报告发送至 Azure Service Fabric 运行状况实体。 为设计和实现优质运行状况报告提供建议。"
 services: service-fabric
 documentationcenter: .net
-author: oanapl
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
 ms.service: service-fabric
@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
-ms.author: v-johch
-ms.openlocfilehash: d5a9e6d33c100d2727606f0a2dbae004b2eb3a91
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 07/19/2017
+ms.date: 09/11/2017
+ms.author: v-yeche
+ms.openlocfilehash: b9343d1ec25ae355f39dbc3181a26825c06ae177
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>添加自定义 Service Fabric 运行状况报告
-Azure Service Fabric 引入了[运行状况模型](service-fabric-health-introduction.md)，用于在特定实体上标记不正常的群集和应用程序状态。 运行状况模型使用**运行状况报告器**（系统组件和监视器）。 其目标是实现轻松快捷的诊断和修复。 服务编写人员必须预先考虑运行状况。 应报告任何可能会影响运行状况的条件，尤其是如果它有助于标记出接近根源的问题。 在云（私有云或 Azure）中大规模启动并运行服务后，运行状况信息可以大幅减少调试和调查工作所需的时间和精力。
+Azure Service Fabric 引入了[运行状况模型](service-fabric-health-introduction.md)，用于在特定实体上标记不正常的群集和应用程序状态。 运行状况模型使用**运行状况报告器**（系统组件和监视器）。 其目标是实现轻松快捷的诊断和修复。 服务编写人员必须预先考虑运行状况。 应报告任何可能会影响运行状况的条件，尤其是如果它有助于标记出接近根源的问题。 运行状况信息可节省调试和调查的时间和精力。 该服务在云中（私有云或 Azure 云）大规模启动并运行后，好处格外明显。
 
 Service Fabric 报告器可监视感兴趣的已标识条件。 它们会根据其本地视图报告这些条件。 [运行状况存储](service-fabric-health-introduction.md#health-store)可汇总所有报告器发送的运行状况数据，从而确定实体的全局运行状况是否正常。 该模型应具有功能丰富、灵活且易于使用的特点。 运行状况报告的质量决定了群集运行状况视图的准确度。 错误显示不正常问题的误报会对升级或其他使用运行状况数据的服务产生负面影响。 修复服务和警报机制就是此类服务的例子。 因此，提供报表时需多加考量，才能让其以尽可能最佳的方式捕获感兴趣的条件。
 
@@ -46,7 +47,7 @@ Service Fabric 报告器可监视感兴趣的已标识条件。 它们会根据�
 > 
 > 
 
-只要运行状况报告的设计清晰明了，发送运行状况报告就十分容易。 如果群集不[安全](service-fabric-cluster-security.md)或 Fabric 客户端拥有管理员权限，可以使用 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 报告运行状况。 可以使用 [FabricClient.HealthManager.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) 通过 API 来完成，或者通过 PowerShell 或 REST 来完成。 配置旋钮 Batch 报告可提升性能。
+只要运行状况报告的设计清晰明了，发送运行状况报告就十分容易。 如果群集不[安全](service-fabric-cluster-security.md)或 Fabric 客户端拥有管理员权限，可以使用 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 报告运行状况。 可以使用 [FabricClient.HealthManager.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) 通过 API 进行报告，或者通过 PowerShell 或 REST 来完成。 配置旋钮 Batch 报告可提升性能。
 
 > [!NOTE]
 > 报告运行状况会同步处理，并且只代表客户端上的验证工作。 运行状况客户端或者 `Partition` 或 `CodePackageActivationContext` 对象接受报告的事实并不表示该报告已应用于存储中。 它以异步方式发送并可能与其他报告一起进行批处理。 服务器上的处理仍可能失败：序号可能已过时、必须应用报告的实体已被删除，等等。
@@ -66,9 +67,9 @@ Service Fabric 报告器可监视感兴趣的已标识条件。 它们会根据�
 > 
 
 客户端上的缓冲会将报告的唯一性纳入考虑范围。 例如，如果特定的错误报告器针对相同实体的相同属性每秒报告 100 个报告，则会以最后一个版本取代所有报告。 客户端队列中最多存在一个这样的报告。 如果配置了批处理，则发送到运行状况存储的报告数目仅为每个发送间隔发送一份报告。 这是最后添加的报告，可反映实体的最新状态。
-通过传递 [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings)（包含与运行状况相关的实体的相应值）创建 `FabricClient` 时，可以指定所有配置参数。
+创建 `FabricClient` 时，通过传递 [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) 及运行状况相关实体的所需值来指定配置参数。
 
-以下命令将创建结构客户端，并指定在添加报告后尽快发送。 可重试的错误或超时发生时，每 40 秒重试一次。
+以下示例创建结构客户端，并指定添加报告后尽快发送。 可重试的错误或超时发生时，每 40 秒重试一次。
 
 ```csharp
 var clientSettings = new FabricClientSettings()
@@ -80,7 +81,9 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-通过 PowerShell 创建与群集的连接时，可以指定相同的参数。 以下命令将启动与本地群集的连接：
+建议保留默认结构客户端设置，将 `HealthReportSendInterval` 设为 30 秒。 此设置确保通过批处理获得最佳性能。 对于必须尽快发送关键报告，请在 [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API 中对 `HealthReportSendOptions` 使用 Immediate `true`。 即时报告会绕过批处理间隔。 请小心使用此标志；我们想尽可能利用运行状况客户端批处理。 结构客户端即将关闭（例如，进程已确定无效状态并需要关闭以预防副作用）时，即时发送也很有用。 它确保尽量发送累积的报告。 如果某个报告添加有“即时”标志，运行状况客户端对自上次发送积累的所有报告进行批处理。
+
+通过 PowerShell 创建与群集的连接时，可以指定相同的参数。 以下示例启动与本地群集的连接：
 
 ```powershell
 PS C:\> Connect-ServiceFabricCluster -HealthOperationTimeoutInSec 120 -HealthReportSendIntervalInSec 0 -HealthReportRetrySendIntervalInSec 40
@@ -108,64 +111,70 @@ GatewayInformation   : {
                        }
 ```
 
+与 API 类似，可以使用 `-Immediate` 开关立即发送报告，无需考虑 `HealthReportSendInterval` 值。
+
+对于 REST，报告发送到 Service Fabric 网关，它具有内部结构客户端。 默认情况下，此客户端被配置为每隔 30 秒发送批处理的报告。 可以使用 `HttpGateway` 上的群集配置设置 `HttpGatewayHealthReportSendInterval` 来更改批处理间隔。 如上所述，更好的选择是在 `Immediate` 为 true 时发送报告。 
+
 > [!NOTE]
-> 若要确保未授权的服务无法针对群集中的实体报告运行状况，可将服务器配置为只接受来自受保护客户端的请求。 用于报告的 `FabricClient` 必须启用安全性才能与群集通信（例如使用 Kerberos 或证书身份验证）。 详细了解[群集安全性](service-fabric-cluster-security.md)。
+> 要确保未授权的服务无法针对群集中的实体报告运行状况，请将服务器配置为只接受来自受保护客户端的请求。 用于报告的 `FabricClient` 必须启用安全性才能与群集通信（例如使用 Kerberos 或证书身份验证）。 详细了解[群集安全性](service-fabric-cluster-security.md)。
 > 
 > 
 
 ## <a name="report-from-within-low-privilege-services"></a>在低特权的服务内进行报告
-在对群集不具有管理员访问权限的 Service Fabric 服务内，你可以通过 `Partition` 或 `CodePackageActivationContext`，报告来自当前上下文的实体的运行状况。
+如果 Service Fabric 服务对群集没有管理员访问权限，可以通过 `Partition` 或 `CodePackageActivationContext`，报告来自当前上下文的实体的运行状况。
 
 * 对于无状态服务，使用 [IStatelessServicePartition.ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) 报告当前服务实例的运行状况。
 * 对于有状态服务，使用 [IStatefulServicePartition.ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) 报告当前副本的运行状况。
 * 使用 [IServicePartition.ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) 报告当前分区实体的运行状况。
 * 使用 [CodePackageActivationContext.ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) 报告当前应用程序的运行状况。
 * 使用 [CodePackageActivationContext.ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) 报告当前节点上部署的当前应用程序的运行状况。
-* 使用 [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) 报告当前节点上部署的当前应用程序的服务包的运行状况。
+* 使用 [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) 报告当前节点上部署的应用程序的服务包的运行状况。
 
 > [!NOTE]
-> 就内部而言，`Partition` 和 `CodePackageActivationContext` 会保留使用默认设置配置的运行状况客户端。 注意事项对[运行状况客户端](service-fabric-report-health.md#health-client)同样适用 - 由于报告是通过计时器进行批处理和发送，因此对象应保持可用状态，才有机会发送报告。
+> 就内部而言，`Partition` 和 `CodePackageActivationContext` 会保留使用默认设置配置的运行状况客户端。 如同就[运行状况客户端](service-fabric-report-health.md#health-client)进行的阐释那样，对报告进行批处理并根据计时器发送。 对象应保持活动状态，以便有机会发送报告。
 > 
 > 
+
+通过 `Partition` 和 `CodePackageActivationContext` 运行状况 API 发送报告时，可指定 `HealthReportSendOptions`。 如有必须尽快发送的关键报告，请对 `HealthReportSendOptions` 使用 Immediate `true`。 即时报告绕开内部运行状况客户端的批处理间隔。 如前所述，请小心使用此标志；我们想尽可能利用运行状况客户端批处理。
 
 ## <a name="design-health-reporting"></a>设计运行状况报告
 生成高质量报告的第一步是识别可能影响服务运行状况的条件。 在条件启动甚至发生之前，任何有助于在服务或群集中标记问题的条件，都有可能节约数十亿元的费用。 优点包括故障时间变少，晚上花在调查和修复问题上的时间变少，客户满意度自然也会更高。
 
-识别条件后，监视器编写人员需要找出最佳的监视方式，以实现开销和实用性的平衡。 例如，设想某个服务使用某个共享上的一些临时文件进行复杂计算。 监视器可以监视该共享，以确保有足够空间可用。 它可以侦听文件或目录更改通知。 它可以在达到预先阈值时报告警告，在共享已满时报告错误。 报告警告时，修复系统可以开始清理共享上较旧的文件。 报告错误时，修复系统可将服务副本移至另一个节点。 请注意依据运行状况描述条件状态的方式：何种条件状态可视为正常，何种条件状态可视为不正常（警告或错误）。
+识别条件后，监视器编写人员需要找出最佳的监视方式，以实现开销和实用性的平衡。 例如，设想某个服务使用某个共享上的一些临时文件进行复杂计算。 监视器可以监视该共享，以确保有足够空间可用。 它可以侦听文件或目录更改通知。 它可以在达到预先阈值时报告警告，在共享已满时报告错误。 报告警告时，修复系统可以开始清理共享上较旧的文件。 报告错误时，修复系统可将服务副本移至另一个节点。 请注意依据运行状况描述条件状态的方式：何种条件状态可视为正常（没问题），何种条件状态可视为不正常（警告或错误）。
 
-设定好监视的详细信息之后，监视器编写人员需要了解如何实现监视器。 如果条件可在服务内确定，则监视器可以成为受监视服务本身的一部分。 例如，服务代码可以在本地结构客户端每次尝试写入文件时，检查并报告共享使用量。 这个方法的优点是报告变得轻而易举。 为避免监视器的 bug 影响到服务功能，必须多加留意。
+设定好监视的详细信息之后，监视器编写人员需要了解如何实现监视器。 如果条件可在服务内确定，则监视器可以成为受监视服务本身的一部分。 例如，服务代码可在每次尝试写入文件时，检查并报告共享使用量。 这个方法的优点是报告变得轻而易举。 为避免监视器 bug 影响到服务功能，必须多加留意。
 
-并非一定要在受监视的服务内报告。 服务中的监视程序可能无法检测状态。 可能没有逻辑或数据可供做出判断。 监视状态的开销可能很高。 状态也可能不特定于某项服务，而会影响服务之间的交互。 也可以选择在群集中将监视器作为独立进程。 监视器只监视条件和报告，不会以任何方式影响主要服务。 例如，这些监视器可在相同应用程序中以无状态服务的形式实现，或在所有节点或相同节点上作为服务部署。
+并非一定要在受监视的服务内报告。 服务中的监视程序可能无法检测状态。 可能没有逻辑或数据可供做出判断。 监视状态的开销可能很高。 状态也可能不特定于某项服务，而会影响服务之间的交互。 也可以选择在群集中将监视器作为独立进程。 监视器监视条件和报告，不以任何方式影响主要服务。 例如，这些监视器可在相同应用程序中以无状态服务的形式实现，或在所有节点或相同节点上作为服务部署。
 
-有时，也并非一定要在群集中运行监视器。 如果受监视的条件是用户所见的服务可用性或功能，监视器最好能与用户客户端位于相同的位置。 这样，就可以采用与用户调用操作相同的方式来测试操作。 例如，监视器可以存留于群集外部并对服务发出请求，然后检查结果的延迟和正确性。 （例如在计算器服务中，2+2 是否在合理的时间内返回 4？）
+有时，也并非一定要在群集中运行监视器。 如果受监视的条件是用户所见的服务可用性或功能，监视器最好能与用户客户端位于相同的位置。 这样，就可以采用与用户调用操作相同的方式来测试操作。 例如，监视器可以存留于群集外部、对服务发出请求，并检查结果的延迟和正确性。 （例如在计算器服务中，2+2 是否在合理的时间内返回 4？）
 
-确定监视器详细信息后，应该确定可唯一标识它的源 ID。 如果多个相同类型的监视器存留于群集中，它们必须报告不同的实体，如果它们报告相同的实体，请确保源 ID 或属性不相同。 这样报告才能共存。 运行状况报告的属性应捕获受监视的条件。 （对于上述示例，属性可以是 **ShareSize**。）如果多个报告应用于同一条件，该属性应包含一些动态信息，才可让报告共存。 例如，如果需要监视多个共享，属性名称可以是 **ShareSize-sharename**。
+确定监视器详细信息后，应该确定可唯一标识它的源 ID。 如果多个相同类型的监视器存留于群集中，它们必须报告不同的实体，如果它们报告相同的实体，请使用不同的源 ID 或属性。 这样报告才能共存。 运行状况报告的属性应捕获受监视的条件。 （对于上述示例，属性可以是 **ShareSize**。）如果多个报告应用于同一条件，该属性应包含一些动态信息，才可让报告共存。 例如，如果需要监视多个共享，属性名称可以是 **ShareSize-sharename**。
 
 > [!NOTE]
-> 运行状况存储*不得*用于保存状态信息。 只有与运行状况相关的信息才应作为运行状况进行报告，即影响实体运行状况评估的信息。 运行状况存储并非设计作为一般用途的存储。 它使用运行状况评估逻辑将所有数据聚合到运行状况中。 发送与运行状况无关的信息（例如，报告运行状况为“正常”的状态）不会影响聚合的运行状态，但可能对运行状况存储的性能造成负面影响。
+> 请勿将运行状况存储用于保存状态信息。 只有与运行状况相关的信息才应作为运行状况进行报告，即影响实体运行状况评估的信息。 运行状况存储并非设计作为一般用途的存储。 它使用运行状况评估逻辑将所有数据聚合到运行状况中。 发送与运行状况无关的信息（例如，报告运行状况为“正常”的状态）不会影响聚合的运行状况，但可能对运行状况存储的性能造成负面影响。
 > 
 > 
 
-下一个决策点就是需要报告的实体。 大多数情况下，显然是依据条件而定。 应该选择具有最佳粒度的实体。 如果条件影响到某个分区中的所有副本，则报告该分区，而非服务。 以下是需要仔细考虑的极端案例。 如果条件影响到实体（例如副本），但需要将条件标记为超过副本生存期，则应报告分区。 否则，删除副本时，与其相关的所有报告都会从存储中清除。 这意味着监视器编写人员也必须将实体和报告的生存期纳入考虑范围。 必须清楚说明应从存储中清除报告的时间点（例如，针对实体报告的错误不再适用时）。
+下一个决策点就是需要报告的实体。 大多数情况下，该条件清楚地标识实体。 选择具有最佳粒度的实体。 如果条件影响到某个分区中的所有副本，则报告该分区，而非服务。 以下是需要仔细考虑的极端案例。 如果条件影响到实体（例如副本），但需要将条件标记为超过副本生存期，则应报告分区。 否则，删除副本时，运行状况存储会清除其所有报告。 监视器编写器必须将实体和报告的生存期纳入考虑范围。 必须清楚说明应从存储中清除报告的时间点（例如，针对实体报告的错误不再适用时）。
 
-让我们以一个例子解释上述要点。 假设在所有节点上部署一个 Service Fabric 应用程序，该应用程序由一个主要的有状态持久性服务和多个次要的无状态服务组成（每种任务类型具有一种次要服务类型）。 主服务有一个处理队列，队列中包含次要服务需要执行的命令。 次要服务执行传入请求，并发回确认信号。 可以监视的条件之一是主要服务的处理队列长度。 如果主服务队列长度达到阈值，则报告警告。 该警告指出辅助服务无法处理负载。 如果队列达到长度上限，而且命令已删除，则会因为服务无法恢复而报告错误。 可以针对属性 **QueueStatus**发送报告。 监视器位于服务内部，它会在主要服务的主要副本上定期发送报告。 生存时间为 2 分钟，将每隔 30 秒定期发送一次报告。 如果主要副本发生故障，报告会自动从存储中清除。 如果服务副本已启用，但发生死锁或有其他问题，该报告将在运行状况存储中过期。 在这种情况下，将会错误地评估实体。
+让我们以一个例子解释上述要点。 假设在所有节点上部署一个 Service Fabric 应用程序，该应用程序由一个主要的有状态持久性服务和多个次要的无状态服务组成（每种任务类型具有一种次要服务类型）。 主服务有一个处理队列，队列中包含次要服务需要执行的命令。 次要服务执行传入请求，并发回确认信号。 可以监视的条件之一是主要服务的处理队列长度。 如果主服务队列长度达到阈值，则报告警告。 该警告指出辅助服务无法处理负载。 如果队列达到长度上限，而且命令已删除，则会因为服务无法恢复而报告错误。 可以针对属性 **QueueStatus**发送报告。 监视器位于服务内部，它会在主要服务的主要副本上定期发送报告。 生存时间为 2 分钟，每隔 30 秒定期发送一次报告。 如果主要副本发生故障，报告会自动从存储中清除。 如果服务副本已启用，但发生死锁或有其他问题，该报告会在运行状况存储中过期。 在这种情况下，会错误地评估实体。
 
-另一个可监视的条件是任务执行时间。 主服务会根据任务类型将任务分发给次要服务。 根据设计，主服务可以轮询次要服务以获取任务状态。 它也可以等待次要服务在完成时发回确认信号。 在第二种情况中，必须注意检测次要服务停止运行或消息丢失的情况。 一种方法是主服务向同一个次要服务发送 Ping 请求，然后次要服务发回其状态。 如果未收到状态，主服务将此视为失败并重新安排任务。 此行为假设任务采用幂等模式。
+另一个可监视的条件是任务执行时间。 主服务会根据任务类型将任务分发给次要服务。 根据设计，主服务可以轮询次要服务以获取任务状态。 它也可以等待次要服务在完成时发回确认信号。 在第二种情况中，必须注意检测次要服务停止运行或消息丢失的情况。 一种方法是主服务向同一个次要服务发送 Ping 请求，并次要服务发回其状态。 如果未收到状态，主服务将此视为失败并重新安排任务。 此行为假设任务采用幂等模式。
 
 如果任务未在特定时间（**t1**，例如 10 分钟）内完成，监视的条件可翻译为警告。 如果任务未按时（**t2**，例如 20 分钟）完成，监视的条件可翻译为错误。 此报告可以多种方式完成：
 
 * 主服务的主要副本定期报告自身情况。 针对队列中的所有挂起任务可以有一个属性。 如果至少有一个任务耗时较长，则 **PendingTasks** 属性的报告状态为警告或错误（视情况而定）。 如果没有挂起的任务或所有任务已开始执行，报告状态为“正常”。 任务是持久性的。 如果主要副本发生故障，新升级的主要副本可继续适当地进行报告。
 * 云或外部的另一个监视器进程检查任务（根据所需的任务结果从外部检查），以查看它们是否已完成。 如果它们不采用阈值，则发送有关主服务的报告。 此外还会发送有关每个任务的报告，其中包含任务标识符（例如 **PendingTask+taskId**）。 只有在状况不正常时才应发送报告。 将生存时间设置为几分钟，并将报告标记为到期时删除，以确保进行清理。
-* 如果任务运行时间超出预期，执行任务的次要服务将发送报告。 它会报告 **PendingTasks**属性上的服务实例。 报告将指出有问题的服务实例，但它不会捕获实例停止运行的情况。 因为那时报告已清除完毕。 它可能会报告次要服务。 如果次要服务完成任务，次要实例将从存储中清除报告。 报告不会捕获确认消息丢失的情况，从主要服务的角度来看，任务并未完成。
+* 如果任务运行时间超出预期，执行任务的次要服务将发送报告。 它会报告 **PendingTasks**属性上的服务实例。 报告将指出有问题的服务实例，但它不会捕获实例停止运行的情况。 因为那时报告已清除完毕。 它可能会报告次要服务。 如果次要服务完成任务，备用实例将从存储中清除报告。 报告不会捕获确认消息丢失的情况，从主要服务的角度来看，任务并未完成。
 
-不过，上述情况中的报告已完成，评估运行状况时，将在应用程序运行状况中捕获这些报告。
+不过，上述情况中的报告已完成，评估运行状况时，会在应用程序运行状况中捕获这些报告。
 
 ## <a name="report-periodically-vs-on-transition"></a>定期报告与转换时报告
 使用运行状况报告模型，监视器可以定期发送报告，也可以在转换时发送报告。 建议定期发送监视器报告，因为代码要简单得多，不容易发生错误。 监视器必须尽可能简单，以免出现触发误报的 bug。 不正确的不正常  报告会影响运行状况评估以及基于运行状况的情况（包括升级）。 不正确的正常  报告会隐藏群集中的问题，我们不希望发生这种情况。
 
-针对定期报告，可以使用计时器实现监视器。 计时器回调时，监视器可以检查状态并根据当前状态发送报告。 不需要查看先前发送的报告或在消息传送方面进行任何优化。 运行状况客户端具有批处理逻辑，有助于提高性能。 运行状况客户端保持活动状态时，将在内部不断重试，直到运行状况存储确认报告，或者监视器生成具有相同实体、属性和源的较新报告。
+针对定期报告，可以使用计时器实现监视器。 计时器回调时，监视器可以检查状态并根据当前状态发送报告。 不需要查看先前发送的报告或在消息传送方面进行任何优化。 运行状况客户端具有批处理逻辑，有助于提高性能。 运行状况客户端保持活动状态时，会在内部不断重试，直到运行状况存储确认报告，或者监视器生成具有相同实体、属性和源的较新报告。
 
-转换时报告需要注意状态处理。 监视器会监视某些条件，仅当这些条件改变时才报告。 此方法的优点是需要较少的报告。 缺点是监视器的逻辑很复杂。 监视器必须维护条件或报告，以便对其进行检查，判断状态变更。 故障转移时，必须注意是否发送先前可能未发送的报告（已加入队列，但尚未发送至运行状况存储）。 序列号必须不断递增。 否则，报告将因为过时而被拒绝。 在造成数据丢失的少数情况下，可能需要同步报告器的状态与运行状况存储的状态。
+转换时报告需要注意状态处理。 监视器会监视某些条件，仅当这些条件改变时才报告。 此方法的优点是需要较少的报告。 缺点是监视器的逻辑很复杂。 监视器必须维护条件或报告，以便对其进行检查，判断状态变更。 故障转移时，必须注意添加的但尚未发送至运行状况存储的报告。 序列号必须不断递增。 否则，报告将因为过时而被拒绝。 在造成数据丢失的少数情况下，可能需要同步报告器的状态与运行状况存储的状态。
 
 通过 `Partition` 或 `CodePackageActivationContext` 进行转换报告，对服务自行报告而言较为合理。 删除本地对象（副本或已部署的服务包/已部署的应用程序）时，也会删除它的所有报告。 这种自动清理会放宽在报告器和运行状况存储之间同步的需求。 如果报告针对的是父分区或父应用程序，则在故障转移时必须小心谨慎，以免在运行状况存储中产生过时的报告。 必须添加逻辑来维护正确的状态，并从存储中清除不再需要的报告。
 
@@ -293,7 +302,7 @@ HealthEvents          :
 通过 REST 使用 POST 请求发送运行状况报告，这些请求将发送到所需的实体，其正文中包含运行状况报告描述。 如需示例，请参阅有关如何发送 REST [群集运行状况报告](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster)或[服务运行状况报告](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)的文档。 支持所有实体。
 
 ## <a name="next-steps"></a>后续步骤
-根据运行状况数据，服务编写人员和群集/应用程序管理员可以思考使用这些信息的方法。 例如，他们可以根据运行状态设置警报，以便在出现导致服务中断的严重问题之前就将其捕获。 管理员还可以设置修复系统以便自动修复问题。
+根据运行状况数据，服务编写人员和群集/应用程序管理员可以思考使用这些信息的方法。 例如，他们可以根据运行状态设置警报，以便在出现导致服务中断的严重问题之前就会其捕获。 管理员还可以设置修复系统以便自动修复问题。
 
 [Service Fabric 运行状况监视简介](service-fabric-health-introduction.md)
 
@@ -307,3 +316,4 @@ HealthEvents          :
 
 [Service Fabric 应用程序升级](service-fabric-application-upgrade.md)
 
+<!--Update_Description: update meta properties, wording update-->
