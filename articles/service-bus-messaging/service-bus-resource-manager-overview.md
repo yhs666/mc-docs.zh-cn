@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 04/18/2017
+origin.date: 08/07/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: 648a42046b937e52960541301d2498dbb330e19c
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 09/18/2017
+ms.openlocfilehash: 711c2f398c0d127d3a0235234645378226b29941
+ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 模板创建服务总线资源
 
@@ -47,7 +47,7 @@ Azure Resource Manager 模板可帮助你定义要为解决方案部署的资源
 
 1. 安装 PowerShell。
 2. 创建模板和（可选）参数文件。
-2. 在 PowerShell 中，登录到你的 Azure 帐户。
+2. 在 PowerShell 中，登录到 Azure 帐户。
 3. 创建新资源组（如果不存在）。
 4. 测试部署。
 5. 如果需要，设置部署模式。
@@ -160,7 +160,7 @@ Azure Resource Manager 模板可帮助你定义要为解决方案部署的资源
 Login-AzureRmAccount
 ```
 
-系统将提示你登录到 Azure 帐户。 登录后，运行以下命令以查看可用订阅。
+系统会提示你登录到 Azure 帐户。 登录后，运行以下命令以查看可用订阅。
 
 ```powershell
 Get-AzureRMSubscription
@@ -176,7 +176,7 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 如果没有现有的资源组，请使用 **New-AzureRmResourceGroup** 命令创建新的资源组。 提供资源组的名称，以及要使用的位置。 例如：
 
 ```powershell
-New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
+New-AzureRmResourceGroup -Name MyDemoRG -Location "China East"
 ```
 
 如果成功，则会显示新的资源组的摘要。
@@ -191,7 +191,7 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### <a name="test-the-deployment"></a>测试部署
 
-通过运行 `Test-AzureRmResourceGroupDeployment` cmdlet 验证你的部署。 测试部署时，请提供与执行部署时所提供的完全相同的参数。
+通过运行 `Test-AzureRmResourceGroupDeployment` cmdlet 验证部署。 测试部署时，请提供与执行部署时所提供的完全相同的参数。
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -200,7 +200,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 ### <a name="create-the-deployment"></a>创建部署
 若要创建新部署，请运行 `New-AzureRmResourceGroupDeployment` cmdlet，并在出现提示时提供必需的参数。 参数包括部署的名称、资源组的名称，以及模板文件的路径或 URL。 如果未指定 Mode 参数，则将使用默认值 Incremental。 有关详细信息，请参阅 [增量部署和完整部署](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments)。
 
-以下命令会提示你在 PowerShell 窗口中输入三个参数：
+以下命令会提示在 PowerShell 窗口中输入三个参数：
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -226,7 +226,7 @@ New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -Resour
 
 ### <a name="verify-the-deployment"></a>验证部署
 
-如果资源已成功部署，将在 PowerShell 窗口中显示部署的摘要：
+如果资源已成功部署，会在 PowerShell 窗口中显示部署的摘要：
 
 ```powershell
 DeploymentName    : MyDemoDeployment
@@ -246,7 +246,7 @@ Parameters        :
 
 ## <a name="next-steps"></a>后续步骤
 
-你现在已了解用于部署 Azure Resource Manager 模板的基本工作流和命令。 有关更多详细信息，请访问以下链接：
+现在已了解用于部署 Azure Resource Manager 模板的基本工作流和命令。 有关更多详细信息，请访问以下链接：
 
 - [Azure Resource Manager 概述][Azure Resource Manager overview]
 - [使用 Resource Manager 模板和 Azure PowerShell 部署资源][Deploy resources with Azure Resource Manager templates]

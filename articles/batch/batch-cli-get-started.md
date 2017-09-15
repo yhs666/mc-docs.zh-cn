@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-origin.date: 05/11/2017
-ms.date: 07/03/2017
+origin.date: 07/20/2017
+ms.date: 09/06/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57b63f444c4d4725a3690ceda629b3f88679661a
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 24ec0579c88ec29bf8199457e6f5dfe37102146a
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 资源
 
@@ -78,7 +78,7 @@ az cloud set -n AzureChinaCloud
 az login
 ```
 
-`az login` 命令返回一个用于身份验证的令牌，如下所示。 请按提供的说明打开网页，并将令牌提交到 Azure：
+`az login` 命令返回一个可用于身份验证的令牌，如下所示。 请按提供的说明打开网页，并将令牌提交到 Azure：
 
 ![登录 Azure](./media/batch-cli-get-started/az-login.png)
 
@@ -119,6 +119,10 @@ az login
     ```
 
 [示例 shell 脚本](#sample-shell-scripts)部分列出的示例演示了如何在使用 Azure AD 和共享密钥的情况下，通过 Azure CLI 登录到 Batch 帐户。
+
+## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>使用 Azure Batch CLI 模板和文件传输（预览版）
+
+可以在不编写代码的情况下，使用 Azure CLI 运行端到端的 Batch 作业。 Batch 模板文件支持使用 Azure CLI 创建池、作业和任务。 也可使用 Azure CLI 将作业输入文件上传到与 Batch 帐户关联的 Azure 存储帐户，以及从中下载作业输出文件。 有关详细信息，请参阅[使用 Azure Batch CLI 模板和文件传输（预览）](batch-cli-templates.md)。
 
 ## <a name="sample-shell-scripts"></a>示例 shell 脚本
 
@@ -186,10 +190,11 @@ az batch task list --job-id job001
 
 - 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 - 有关 Batch 资源的详细信息，请参阅[适用于开发人员的 Azure Batch 概述](batch-api-basics.md)。
-- 请参阅 [Application deployment with Azure Batch application packages](batch-application-packages.md) （使用 Azure Batch 应用程序包部署应用程序），了解如何使用此功能来管理和部署 Batch 计算节点上执行的应用程序。
+- 若要详细了解如何在不编写代码的情况下使用 Batch 模板来创建池、作业和任务，请参阅[使用 Azure Batch CLI 模板和文件传输（预览）](batch-cli-templates.md)。
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
+<!-- Update_Description: wording update -->

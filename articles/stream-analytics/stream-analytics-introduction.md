@@ -13,24 +13,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-origin.date: 06/16/2017
-ms.date: 07/24/2017
+origin.date: 08/08/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 33551d4175c8142af6aac5d29e8cbf7053d82647
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 448d19cb97aa573007d7250b376d5c59e8fbc58a
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="what-is-stream-analytics"></a>什么是流分析？
 
 Azure 流分析是完全托管的事件处理引擎，可以用来设置针对流式处理数据的实时分析计算。 数据可能来自设备、传感器、网站、社交媒体源、应用程序、基础结构系统等。 
 
-## <a name="what-can-i-use-stream-analytics-for"></a>流分析有什么用途？
+## <a name="what-can-i-do-with-stream-analytics"></a>流分析有什么用途？
 
 可以使用流分析检查来自设备或进程的大量数据流，从数据流提取信息，以及查找模式、趋势和关系。 然后，可以根据数据中的信息执行应用程序任务。 例如，可以引发警报、启动自动化工作流、向报告工具馈送信息，或者将数据存储起来，供以后调查之用。 
+<!-- Not Available Power BI output -->
 
-流分析方案的示例包括：
+示例:
 
 * 由金融服务公司提供的个性化实时股票交易分析和提醒。
 * 通过检查事务数据来实时检测欺诈事件。 
@@ -41,13 +42,13 @@ Azure 流分析是完全托管的事件处理引擎，可以用来设置针对�
 
 ## <a name="how-does-stream-analytics-work"></a>流分析工作原理
 
-下图绘制的是流式分析管道，说明了如何引入和分析数据，然后发送数据进行演示或操作。 
+下图绘制的是流分析管道，说明了如何引入和分析数据，然后发送数据进行演示或操作。 
 
 ![流分析管道](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
 
 流分析一开始需要流式处理数据源。 可以使用 Azure 事件中心或 IoT 中心将数据从设备引入 Azure。 也可从数据存储（例如 Azure Blob 存储）拉取数据。 
 
-若要检查流，可创建一项流式分析作业，以便指定数据的来源。 该作业还指定了转换&mdash;如何查找数据、模式或关系。 就此任务来说，流式分析支持类似 SQL 的查询语言，该语言用于对某个时段的流式处理数据进行筛选、排序、聚合和联接。
+若要检查流，可创建一项流分析作业，以便指定数据的来源。 该作业还指定了转换&mdash;如何查找数据、模式或关系。 就此任务来说，流分析支持类似 SQL 的查询语言，该语言用于对某个时段的流式处理数据进行筛选、排序、聚合和联接。
 
 最后，该作业会指定一个输出，以便向其发送转换的数据。 这样就可以针对所分析的信息来控制后续操作。 例如，可以针对分析执行以下操作：
 
@@ -69,8 +70,8 @@ Azure 流分析是完全托管的事件处理引擎，可以用来设置针对�
 
 作业输入也可包括引用数据（静态数据或缓慢变化的数据）。 可以通过将流式处理数据联接到该引用数据来执行查找操作，其方式与数据库查询方式相同。
 
-可以多向路由流分析作业的输出。 可以将其写入存储，例如 Azure 存储 Blob 或表、Azure SQL 数据库。 可以在该处通过 Azure HDInsight 对数据进行批处理分析。 可以将输出发送到供其他进程使用的其他服务，例如事件中心、Azure 服务总线主题或队列。 可以将输出发送到 Power BI，使之可视化。
-<!-- Not Available Data Lake Store, Azure Cosmos Db-->
+在多个方向路由流分析作业输出。 可以将其写入存储，例如 Azure 存储 Blob 或表、Azure SQL 数据库。 可以在该处通过 Azure HDInsight 对数据进行批处理分析。 可以将输出发送到供其他进程使用的其他服务，例如事件中心、Azure 服务总线主题或队列。 可以将输出发送到 Power BI，使之可视化。
+<!-- Not Available Data Lake Store, Azure Cosmos Db as output-->
 
 ### <a name="ease-of-use"></a>易于使用
 
@@ -80,6 +81,8 @@ Azure 流分析是完全托管的事件处理引擎，可以用来设置针对�
 
 可以通过定义和调用其他函数来扩展查询语言的功能。 也可集成 JavaScript 用户定义函数 (UDF)，以便在流分析查询过程中执行复杂的计算。
 <!-- Not Available Azure Machine Learning --> 
+
+<!--Update_Description: update meta properties, wording update-->
 
 ### <a name="scalability"></a>可伸缩性
 

@@ -13,16 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/15/2017
-ms.date: 08/14/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9398ed26cd7cebd666fba9a2ec077ba0048c6291
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 0f156968d93823eb1288a6535b4405b40bbe720c
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自定义 Service Fabric 群集设置和结构升级策略
 本文档说明如何为 Service Fabric 群集自定义各种结构设置和结构升级策略。 可以使用门户或 Azure Resource Manager 模板完成自定义。
+
+> [!NOTE]
+> 并非所有设置都可通过门户进行验证。 如果不能通过门户使用下面列出的设置，请使用 Azure 资源管理器模板对其进行自定义。
+> 
 <!-- Not Avaialable ## Customizing Service Fabric cluster settings using Azure Resource Manager templates -->
 
 ## <a name="fabric-settings-that-you-can-customize"></a>可以自定义的结构设置
@@ -237,6 +241,7 @@ ms.lasthandoff: 08/11/2017
 |IsEnabled|Bool，默认值为 false | 启用/禁用 httpgateway。 默认情况下，禁用 Httpgateway，需要设置此配置以启用 Httpgateway。 |
 |ActiveListeners |Uint，默认值为 50 | 要发布到 http 服务器队列的读取数。 此配置控制 HttpGateway 可以满足的并发请求数。 |
 |MaxEntityBodySize |Uint，默认值为 4194304 |  提供可预期的 http 请求正文的最大大小。 默认值为 4MB。 如果请求的正文大小大于此值，Httpgateway 将无法满足该请求。 最小读取块区大小为 4096 个字节。 因此，该值必须 > = 4096。 |
+|HttpGatewayHealthReportSendInterval |以秒为单位的时间，默认值为 30 | 指定以秒为单位的时间跨度。 HTTP 网关将累积的运行状况报告发送至运行状况管理器的时间间隔。 |
 
 ### <a name="section-name-ktllogger"></a>节名称：KtlLogger
 | **参数** | **允许的值** | **指导或简短说明** |
@@ -253,10 +258,10 @@ ms.lasthandoff: 08/11/2017
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 |IsEnabled |Bool，默认值为 false | 启用/禁用 HttpApplicationGateway。 默认情况下，禁用 HttpApplicationGateway，需要设置此配置以启用 HttpApplicationGateway。 |
-|NumberOfParallelOperations | Uint，默认值为 1000 | 要发布到 http 服务器队列的读取数。 此配置控制 HttpGateway 可以满足的并发请求数。 |
-|DefaultHttpRequestTimeout |以秒为单位的时间。 默认值为 60 |指定以秒为单位的时间跨度。  提供用于 http 应用网关中正在处理的 http 请求的默认请求超时时间。 |
+|NumberOfParallelOperations | Uint，默认值为 5000 | 要发布到 http 服务器队列的读取数。 此配置控制 HttpGateway 可以满足的并发请求数。 |
+|DefaultHttpRequestTimeout |以秒为单位的时间。 默认值为 120 |指定以秒为单位的时间跨度。  提供用于 http 应用网关中正在处理的 http 请求的默认请求超时时间。 |
 |ResolveServiceBackoffInterval |以秒为单位的时间，默认值为 5 |指定以秒为单位的时间跨度。  提供重试失败的解析服务操作之前的默认回退时间间隔。 |
-|BodyChunkSize |Uint，默认值为 4096 |  提供用于读取正文的区块大小（以字节为单位）。 |
+|BodyChunkSize |Uint，默认值为 16384 |  提供用于读取正文的区块大小（以字节为单位）。 |
 |GatewayAuthCredentialType |string，默认值为“None” | 指示在 http 应用网关终结点处使用的安全凭据的类型，有效值为“None/X509”。 |
 |GatewayX509CertificateStoreName |string，默认值为“My” | 包含 http 应用网关证书的 X.509 证书存储的名称。 |
 |GatewayX509CertificateFindType |string，默认值为“FindByThumbprint” | 指示如何在由 GatewayX509CertificateStoreName 支持的值（FindByThumbprint、FindBySubjectName）指定的存储中搜索证书。 |
@@ -591,4 +596,4 @@ ms.lasthandoff: 08/11/2017
 
 [在 Azure 群集中添加、滚动更新和删除证书 ](service-fabric-cluster-security-update-certs-azure.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, update parameters setting.-->

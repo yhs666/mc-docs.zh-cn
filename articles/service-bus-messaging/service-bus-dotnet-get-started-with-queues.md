@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 06/26/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
-ms.openlocfilehash: 3c6e59c44a859aa6084443e6318acfcda8d94c18
-ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
+ms.date: 09/18/2017
+ms.openlocfilehash: 2121fa9256deafd176d31ca148e9a8db4c14bb4a
+ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="get-started-with-service-bus-queues"></a>服务总线队列入门
 
@@ -34,13 +34,13 @@ ms.lasthandoff: 08/14/2017
 4. 编写一个控制台应用程序，用于接收在上一步发送的消息。
 
 ## <a name="prerequisites"></a>先决条件
-1. [Visual Studio 2015 或更高版本](http://www.visualstudio.com)。 本教程中的示例使用 Visual Studio 2015。
+1. [Visual Studio 2015 或更高版本](http://www.visualstudio.com)。 本教程中的示例使用 Visual Studio 2017。
 2. Azure 订阅。
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="1-create-a-namespace-using-the-azure-portal"></a>1.使用 Azure 门户创建命名空间
-如果已创建服务总线消息传递命名空间，请跳转到[使用 Azure 门户创建队列](#2-create-a-queue-using-the-azure-portal)部分。
+如果已创建服务总线消息命名空间，请跳转到[使用 Azure 门户创建队列](#2-create-a-queue-using-the-azure-portal)部分。
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -78,7 +78,6 @@ ms.lasthandoff: 08/14/2017
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
     var message = new BrokeredMessage("This is a test message!");
 
-    Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
     Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
     client.Send(message);
@@ -109,7 +108,6 @@ ms.lasthandoff: 08/14/2017
                 var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
                 var message = new BrokeredMessage("This is a test message!");
 
-                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
                 Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
                 client.Send(message);

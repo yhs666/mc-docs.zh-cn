@@ -3,8 +3,8 @@ title: "Azure 中的网络安全组 | Azure"
 description: "了解如何使用网络安全组，通过 Azure 中的分布式防火墙隔离和控制虚拟网络内的通信流。"
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 20e850fc-6456-4b5f-9a3f-a8379b052bc9
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/11/2016
-ms.date: 05/02/2017
-ms.author: v-dazen
-ms.openlocfilehash: ea72e54728be5da183a75b6db79e47a2f111f87a
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 09/04/2017
+ms.author: v-yeche
+ms.openlocfilehash: 67e3cddf65b6d6e8209ebf739badfd0103f4af54
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>使用网络安全组筛选网络流量
 
@@ -33,13 +33,13 @@ NSG 包含以下属性：
 
 | 属性 | 说明 | 约束 | 注意事项 |
 | --- | --- | --- | --- |
-| Name |NSG 的名称 |必须在区域内唯一。<br/>可以包含字母、数字、下划线、句点和连字符。<br/>必须以字母或数字开头。<br/>必须以字母、数字或下划线结尾。<br/>不能超过 80 个字符。 |由于你可能需要创建多个 NSG，因此请确保设置命名约定，以便轻松标识 NSG 的功能。 |
+| Name |NSG 的名称 |必须在区域内唯一。<br/>可以包含字母、数字、下划线、句点和连字符。<br/>必须以字母或数字开头。<br/>必须以字母、数字或下划线结尾。<br/>不能超过 80 个字符。 |由于可能需要创建多个 NSG，因此请确保设置命名约定，以便轻松标识 NSG 的功能。 |
 | 区域 |在其中创建 NSG 的 Azure 区域。 |只能将多个 NSG 关联到该 NSG 所在区域中的资源。 |若要了解一个区域可以有多少 NSG，请阅读 [Azure 限制](../azure-subscription-service-limits.md#virtual-networking-limits-classic)一文。|
 | 资源组 |NSG 所在的[资源组](../azure-resource-manager/resource-group-overview.md#resource-groups)。 |虽然 NSG 存在于一个资源组中，但可将其关联到任意资源组中的资源，只要该资源与 NSG 属于同一 Azure 区域。 |资源组用于以部署单元的形式集中管理多个资源。<br/>可以考虑将 NSG 与相关联的资源组合在一起。 |
 | 规则 |入站或出站规则，用于定义允许或拒绝的具体流量。 | |请参阅本文的 [NSG 规则](#Nsg-rules)部分。 |
 
 > [!NOTE]
-> 不支持将基于终结点的 ACL 和网络安全组置于相同 VM 实例上。 如果你想要使用 NSG，但已有了终结点 ACL，则请先删除该终结点 ACL。 若要了解如何删除 ACL，请阅读[使用 PowerShell 管理终结点的访问控制列表 (ACL)](virtual-networks-acl-powershell.md) 一文。
+> 不支持将基于终结点的 ACL 和网络安全组置于相同 VM 实例上。 如果想要使用 NSG，但已有了终结点 ACL，则请先删除该终结点 ACL。 若要了解如何删除 ACL，请阅读[使用 PowerShell 管理终结点的访问控制列表 (ACL)](virtual-networks-acl-powershell.md) 一文。
 > 
 
 ### <a name="nsg-rules"></a>NSG 规则
@@ -49,12 +49,12 @@ NSG 规则包含以下属性：
 | --- | --- | --- | --- |
 | **Name** |规则的名称。 |必须在区域内唯一。<br/>可以包含字母、数字、下划线、句点和连字符。<br/>必须以字母或数字开头。<br/>必须以字母、数字或下划线结尾。<br/>不能超过 80 个字符。 |一个 NSG 中可以有多个规则，因此请确保遵循命名约定，以便标识规则的功能。 |
 | **协议** |要与规则匹配的协议。 |TCP、UDP 或 * |使用 * 作为协议时，会包括 ICMP（仅限东西通信），以及 UDP 和 TCP，可能会减少所需规则的数量。<br/>同时，使用 * 可能是过于宽泛的方法，因此建议只在必要时使用 *。 |
-| **Source port range** |要与规则匹配的源端口范围。 |单个端口号（从 1 到 65535）、端口范围（示例：1-65635）、或 *（表示所有端口）。 |源端口可以是暂时的。 除非客户端程序在使用特定端口，否则请在大多数情况下使用 *。<br/>尽可能尝试使用端口范围，这样就不需使用多个规则。<br/>不能使用逗号对多个端口或端口范围分组。 |
+| **Source port range** |要与规则匹配的源端口范围。 |单个端口号（从 1 到 65535）、端口范围（示例：1-65535）或 *（表示所有端口）。 |源端口可以是暂时的。 除非客户端程序在使用特定端口，否则请在大多数情况下使用 *。<br/>尽可能尝试使用端口范围，这样就不需使用多个规则。<br/>不能使用逗号对多个端口或端口范围分组。 |
 | **Destination port range** |要与规则匹配的目标端口范围。 |单个端口号（从 1 到 65535）、端口范围（示例：1-65535）、或 \*（表示所有端口）。 |尽可能尝试使用端口范围，这样就不需使用多个规则。<br/>不能使用逗号对多个端口或端口范围分组。 |
 | **Source address prefix** |要与规则匹配的源地址前缀或标记。 |单个 IP 地址（示例：10.10.10.10）、IP 子网（示例：192.168.1.0/24）、[默认标记](#default-tags)或 *（表示所有地址）。 |考虑使用范围、默认标记和 * 来减少规则数。 |
 | **Destination address prefix** |要与规则匹配的目标地址前缀或标记。 | 单个 IP 地址（示例：10.10.10.10）、IP 子网（示例：192.168.1.0/24）、[默认标记](#default-tags)或 *（表示所有地址）。 |考虑使用范围、默认标记和 * 来减少规则数。 |
-| **Direction** |要与规则匹配的流量方向。 |入站或出站。 |入站和出站规则将根据方向分别处理。 |
-| **Priority** |将按优先级顺序来检查规则。 一旦应用某个规则，将不再检查其他规则的匹配情况。 | 介于 100 到 4096 之间的数字。 | 考虑以 100 为增量，为每个规则创建规则跳转优先级，为将来可能创建的新规则留出空间。 |
+| **Direction** |要与规则匹配的流量方向。 |入站或出站。 |入站和出站规则根据方向分别处理。 |
+| **Priority** |将按优先级顺序来检查规则。 一旦应用某个规则，不再检查其他规则的匹配情况。 | 介于 100 到 4096 之间的数字。 | 考虑以 100 为增量，为每个规则创建规则跳转优先级，为将来可能创建的新规则留出空间。 |
 | **Access** |规则匹配时要应用的访问类型。 | 允许或拒绝。 | 请记住，如果找不到某个数据包的允许规则，则会丢弃该数据包。 |
 
 NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的优先级必须保持唯一。 
@@ -67,7 +67,7 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 默认标记是系统提供的针对某类 IP 地址的标识符。 可以使用任何规则的**源地址前缀**和**目标地址前缀**属性中的默认标记。 有三个可使用的默认标记：
 
 * **VirtualNetwork** (Resource Manager)（如果是经典部署模型，则为 **VIRTUAL_NETWORK**）：此标记包括虚拟网络地址空间（Azure 中定义的 CIDR 范围）、所有连接的本地地址空间，以及连接的 Azure VNet（本地网络）。
-* **AzureLoadBalancer** (Resource Manager)（如果是经典部署模型，则为 **AZURE_LOADBALANCER**）：此标记表示 Azure 的基础结构负载均衡器。 此标记将转换为 Azure 数据中心 IP，Azure 的运行状况探测源于该 IP。
+* **AzureLoadBalancer** (Resource Manager)（如果是经典部署模型，则为 **AZURE_LOADBALANCER**）：此标记表示 Azure 的基础结构负载均衡器。 此标记会转换为 Azure 数据中心 IP，Azure 的运行状况探测源于该 IP。
 * **Internet** (Resource Manager)（如果是经典部署模型，则为 **INTERNET**）：此标记表示虚拟网络外部的 IP 地址空间，可以通过公共 Internet 进行访问。 范围包括 [Azure 拥有的公共 IP 空间](https://www.microsoft.com/download/details.aspx?id=42064)。
 
 ### <a name="default-rules"></a>默认规则
@@ -133,23 +133,23 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 ## <a name="planning"></a>规划
 实施 NSG 之前，需要回答以下问题：
 
-1. 你想要使用什么类型的资源来筛选出入流量？ 可以连接多种资源，例如 NIC (Resource Manager)、VM（经典）、云服务、应用程序服务环境以及 VM 规模集。 
+1. 想要使用什么类型的资源来筛选出入流量？ 可以连接多种资源，例如 NIC (Resource Manager)、VM（经典）、云服务、应用程序服务环境以及 VM 规模集。 
 2. 需要过滤其出入流量的资源是否连接到现有 VNet 中的子网？
 
 ## <a name="design-considerations"></a>设计注意事项
-了解[规划](#Planning)部分问题的答案以后，请查看以下部分的内容，然后再定义 NSG：
+了解[规划](#Planning)部分问题的答案以后，请查看以下部分的内容，再定义 NSG：
 
 ### <a name="limits"></a>限制
 订阅中的 NSG 数目以及每个 NSG 的规则数目均存在限制。 有关限制的详细信息，请阅读 [Azure limits](../azure-subscription-service-limits.md#networking-limits)（Azure 限制）一文。
 
 ### <a name="vnet-and-subnet-design"></a>VNet 和子网设计
-由于 NSG 可以应用于子网，因此你可以通过按子网来组合资源以及将 NSG 应用到子网来尽量减少 NSG 的数量。  如果你决定将 NSG 应用到子网，你可能会发现，现有的 VNet 和子网不是通过所要的 NSG 定义的。 为了支持 NSG 设计以及将新资源部署到新子网，可能需要定义新的 VNet 和子网。 然后，你才能定义一个迁移策略，将现有资源移到新子网。 
+由于 NSG 可以应用于子网，因此可以通过按子网来组合资源以及将 NSG 应用到子网来尽量减少 NSG 的数量。  如果决定将 NSG 应用到子网，你可能会发现，现有的 VNet 和子网不是通过所要的 NSG 定义的。 为了支持 NSG 设计以及将新资源部署到新子网，可能需要定义新的 VNet 和子网。 然后，用户才能定义一个迁移策略，将现有资源移到新子网。 
 
 ### <a name="special-rules"></a>特殊规则
 如果阻止以下规则允许的流量，则基础结构无法与基本的 Azure 服务通信：
 
 * **主机节点的虚拟 IP：**基本的基础结构服务（例如 DHCP、DNS 和运行状况监视）是通过虚拟化主机 IP 地址 168.63.129.16 提供的。 此公共 IP 地址属于 Microsoft，是唯一用于所有区域的虚拟化 IP 地址，而且没有其他用途。 此 IP 地址映射到托管 VM 的服务器计算机（主机节点）的物理 IP 地址。 主机节点充当 DHCP 中继、DNS 递归解析器，以及进行负载均衡器运行状况探测和计算机运行状况探测的探测源。 与此 IP 地址的通信不是攻击。
-* **许可（密钥管理服务）：**在 VM 中运行的 Windows 映像必须获得许可。 为了确保许可，将会向处理此类查询的密钥管理服务主机服务器发送请求。 该请求是通过端口 1688 以出站方式提出的。
+* **许可（密钥管理服务）：**在 VM 中运行的 Windows 映像必须获得许可。 为了确保许可，会向处理此类查询的密钥管理服务主机服务器发送请求。 该请求是通过端口 1688 以出站方式提出的。
 
 ### <a name="icmp-traffic"></a>ICMP 通信
 当前的 NSG 规则只允许使用 *TCP* 或 *UDP* 协议。 没有 *ICMP*的特定标记。 但在 VNet 中，AllowVNetInBound 默认规则允许 ICMP 流量，即允许流量出入 VNet 中的任何端口和协议。
@@ -157,17 +157,17 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 ### <a name="subnets"></a>子网
 * 考虑工作负荷所需的层数。 可以通过使用子网来隔离每个层，并可将 NSG 应用到该子网。 
 * 如需针对 VPN 网关或 ExpressRoute 线路实现一个子网，请**勿**将 NSG 应用到该子网。 否则，可能无法进行跨 VNet 或跨界连接。 
-* 如需实现一个网络虚拟设备 (NVA)，请将该 NVA 连接到其自身的子网并创建出入该 NVA 的用户定义的路由 (UDR)。 你可以实现一个子网级 NSG，以便筛选进出该子网的流量。 若要详细了解 UDR，请阅读[用户定义的路由](virtual-networks-udr-overview.md)一文。
+* 如需实现一个网络虚拟设备 (NVA)，请将该 NVA 连接到其自身的子网并创建出入该 NVA 的用户定义的路由 (UDR)。 可以实现一个子网级 NSG，以便筛选进出该子网的流量。 若要详细了解 UDR，请阅读[用户定义的路由](virtual-networks-udr-overview.md)一文。
 
 ### <a name="load-balancers"></a>负载均衡器
 * 考虑为每个工作负荷所使用的每个负载均衡器设置负载均衡和网络地址转换 (NAT) 规则。 NAT 规则绑定到一个后端池，其中包含 NIC (Resource Manager) 或 VM/云服务角色实例（经典）。 考虑为每个后端池创建一个 NSG，只允许通过负载均衡器中实施的规则映射的流量。 为每个后端池创建一个 NSG 可确保直接进入（而不是通过负载均衡器进入）后端池的流量也会得到筛选。
-* 在经典部署中，你创建的终结点会将负载均衡器上的端口映射到 VM 或角色实例上的端口。 还可以通过 Resource Manager 创建自己的单个公用负载均衡器。 传入流量的目标端口是 VM 或角色实例中的实际端口，不是负载均衡器公开的端口。 到 VM 的连接的源端口和地址是 Internet 中远程计算机的端口和地址，不是负载均衡器公开的端口和地址。
+* 在经典部署中，创建的终结点会将负载均衡器上的端口映射到 VM 或角色实例上的端口。 还可以通过 Resource Manager 创建自己的单个公用负载均衡器。 传入流量的目标端口是 VM 或角色实例中的实际端口，不是负载均衡器公开的端口。 到 VM 的连接的源端口和地址是 Internet 中远程计算机的端口和地址，不是负载均衡器公开的端口和地址。
 * 通过创建 NSG 来筛选经过内部负载均衡器 (ILB) 的流量时，所应用的源端口和地址范围来自原始计算机，不是来自负载均衡器。 目标端口和地址范围是目标计算机的，而不是负载均衡器的。
 
 ### <a name="other"></a>其他
-* 不支持将基于终结点的访问控制列表 (ACL) 和 NSG 置于相同的 VM 实例上。 如果你想要使用 NSG，但已有了终结点 ACL，则请先删除该终结点 ACL。 有关如何删除终结点 ACL 的信息，请参阅[管理终结点 ACL](virtual-networks-acl-powershell.md) 一文。
+* 不支持将基于终结点的访问控制列表 (ACL) 和 NSG 置于相同的 VM 实例上。 如果想要使用 NSG，但已有了终结点 ACL，则请先删除该终结点 ACL。 有关如何删除终结点 ACL 的信息，请参阅[管理终结点 ACL](virtual-networks-acl-powershell.md) 一文。
 * 在 Resource Manager 中，可以将与 VM 的 NIC 关联的 NSG 用于多个 NIC，以便通过 NIC 进行管理（远程访问）。 将唯一 NSG 关联到每个 NIC 可以跨 NIC 分隔流量类型。
-* 与使用负载均衡器类似，在筛选来自其他 VNet 的流量时，你必须使用远程计算机的源地址范围，而不能使用连接 VNet 的网关。
+* 与使用负载均衡器类似，在筛选来自其他 VNet 的流量时，必须使用远程计算机的源地址范围，而不能使用连接 VNet 的网关。
 * 许多 Azure 服务无法连接到 VNet。 如果某个 Azure 资源未连接到 VNet，则不能使用 NSG 筛选进入该资源的流量。  请阅读所用服务的文档，确定该服务能否连接到 VNet。
 
 ## <a name="sample-deployment"></a>部署示例
@@ -261,3 +261,5 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 * [部署 NSG（经典）](virtual-networks-create-nsg-classic-ps.md)。
 * [管理 NSG 日志](virtual-network-nsg-manage-log.md)。
 * [对 NSG 进行故障排除](virtual-network-nsg-troubleshoot-portal.md)
+
+<!--Update_Description: wording update-->

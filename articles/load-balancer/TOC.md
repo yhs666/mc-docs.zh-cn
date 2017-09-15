@@ -24,7 +24,7 @@
 ### [配置面向 Internet 的负载均衡器 (CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [配置面向 Internet 的负载均衡器（模板）](load-balancer-get-started-internet-arm-template.md)
 
-## [配置面向 Internet 的负载均衡器（经典门户）](load-balancer-get-started-internet-classic-portal.md)
+## [配置面向 Internet 的负载均衡器（经典管理门户）](load-balancer-get-started-internet-classic-portal.md)
 ### [配置面向 Internet 的负载均衡器（经典云）](load-balancer-get-started-internet-classic-cloud.md)
 ### [配置面向 Internet 的负载均衡器（经典 PS）](load-balancer-get-started-internet-classic-ps.md)
 ### [配置面向 Internet 的负载均衡器（经典 CLI）](load-balancer-get-started-internet-classic-cli.md)
@@ -54,7 +54,7 @@
 ## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
-## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
 ## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # 相关内容
@@ -68,6 +68,7 @@
 
 # 资源
 ## [价格](https://www.azure.cn/pricing/details/load-balancer/)
-## [服务更新](https://azure.microsoft.com/updates/?product=load-balancer)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
+## [服务更新](https://www.azure.cn/what-is-new/)
 
-<!--Update_Description: update link of load-balancer-troubleshoot.md -->
+<!--Update_Description: wording update, update link -->

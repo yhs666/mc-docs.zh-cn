@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/30/2017
-ms.date: 08/14/2017
+origin.date: 07/17/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1aa1f10b959e7fcbfb2b7eca0c7c4c43ce79c5f6
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: cc5f987b59448903ef1f3a14143022539e7b2eef
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 诊断聚合和集合事件
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="log-and-event-sources"></a>日志和事件源
 
-### <a name="service-fabric-infrastructure-events"></a>Service Fabric 基础结构事件
+### <a name="service-fabric-platform-events"></a>Service Fabric 平台事件
 如[此文](service-fabric-diagnostics-event-generation-infra.md)所述，可使用一些现成的日志通道设置 Service Fabric，下列通道能轻松配置 WAD，发送监视和诊断数据到存储表或其他位置：
   * 操作事件：Service Fabric 平台执行的更高水平操作。 示例包括创建应用程序和服务、节点状态更改和升级信息。 这些会以 Windows 事件跟踪 (ETW) 日志的形式发出
   * [Reliable Actors 编程模型事件](service-fabric-reliable-actors-diagnostics.md)
@@ -176,7 +176,7 @@ ms.lasthandoff: 08/11/2017
 
 从 Service Fabric 5.4 版开始，可以收集运行状况和负载指标事件。 这些事件反映了由系统或代码使用 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 或 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx) 等运行状况或加载报告 API 生成的事件。 这样就可以随着时间的推移聚合和查看系统运行状况，以及基于运行状况或负载事件触发警报。 要在 Visual Studio 的诊断事件查看器中查看这些事件，请将“Microsoft-ServiceFabric:4:0x4000000000000008”添加到 ETW 提供程序列表。
 
-若要收集事件，请修改 Resource Manager 模板以包括
+若要收集这些事件，请修改资源管理器模板以包括
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -190,6 +190,47 @@ ms.lasthandoff: 08/11/2017
       }
     }
 ```
+
+## <a name="collect-reverse-proxy-events"></a>收集反向代理事件
+
+从 5.7 版本的 Service Fabric 开始，可收集[反向代理](service-fabric-reverseproxy.md)事件。
+反向代理会将事件发到两个通道，其中一个包含反映请求处理故障的错误事件，而另一个包含关于在反向代理处理的所有请求的详细事件。 
+
+1. 收集错误事件：若要查看这些事件，请在 Visual Studio 的诊断事件查看器中将“Microsoft-ServiceFabric:4:0x4000000000000010”添加到 ETW 提供程序列表。
+若要从 Azure 群集收集这些事件，请修改资源管理器模板以包括
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387920",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+
+2. 收集所有请求处理事件：在 Visual Studio 的诊断事件查看器中，将 ETW 提供程序列表中的 Microsoft-ServiceFabric 条目更新为“Microsoft-ServiceFabric:4:0x4000000000000020”。
+对于 Azure Service Fabric 群集，请修改资源管理器模板以包括
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387936",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+> 建议谨慎启用从此通道收集事件，因为这将收集通过反向代理的所有流量，且可能会快速消耗存储容量。
+
+对于 Azure Service Fabric 群集，所有节点中的事件均在 SystemEventTable 中进行收集和聚合。
+有关反向代理事件的详细故障排除，请参阅[反向代理诊断指南](service-fabric-reverse-proxy-diagnostics.md)。
 
 ## <a name="collect-from-new-eventsource-channels"></a>从新的 EventSource 通道收集
 
@@ -249,4 +290,4 @@ ms.lasthandoff: 08/11/2017
 * [使用 Application Insights 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [使用 OMS 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-oms.md)
 
-<!--Update_Description: update meta properties, wording update, add new feature on Collect performance Counters-->
+<!--Update_Description: update meta properties, wording update-->

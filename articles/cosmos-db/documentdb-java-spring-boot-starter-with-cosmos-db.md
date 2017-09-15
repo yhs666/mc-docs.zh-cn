@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 08/28/2017
 ms.date: 
 ms.author: v-yeche
-ms.openlocfilehash: 0ff496a0239a9d03272d491f0173cb0803fd20b9
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 068985459bed3a08e01df11f5a7bcb265160fea4
+ms.sourcegitcommit: c0d234cae3e93848d235b9292bb4a9c3096aa963
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="how-to-use-the-spring-boot-starter-with-azure-cosmos-db-documentdb-api"></a>如何将 Spring Boot Starter 与 Azure Cosmos DB DocumentDB API 配合使用
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/25/2017
 
 **[Spring Framework]** 是一种开放源代码解决方案，可帮助 Java 开发人员创建企业级应用程序。 基于该平台构建的其中一个更常用的项目是 [Spring Boot]，该项目提供了一种用于创建独立 Java 应用程序的简化方法。 为帮助开发人员开始使用 Spring Boot，在 <https://github.com/spring-guides/> 网站中提供了几个 Spring Boot 包。 除了从基本的 Spring Boot 项目列表中选择之外，**[Spring Initializr]** 也可帮助开发人员开始创建自定义 Spring Boot 应用程序。
 
-Azure Cosmos DB 是一种全球分布式数据库服务，它允许开发人员使用各种标准 API（如 Cosmos DB、MongoDB、图形和表 API）处理数据。 Microsoft 的 Spring Boot Starter 允许开发人员使用 Spring Boot 应用程序，利用 Cosmos DB API 可轻松地将 Spring Boot 应用程序与 Azure Cosmos DB 集成。
+Azure Cosmos DB 是一种全球分布式数据库服务，它允许开发人员使用各种标准 API（如 Cosmos DB、MongoDB 和表 API）处理数据。 Microsoft 的 Spring Boot Starter 允许开发人员使用 Spring Boot 应用程序，利用 Cosmos DB API 可轻松地将 Spring Boot 应用程序与 Azure Cosmos DB 集成。
 
 本文演示如何使用 Azure 门户创建 Azure Cosmos DB，如何使用 **Spring Initializr** 创建自定义 Java 应用程序，以及如何将 Spring Boot Starter 功能添加到自定义应用程序中以使用 Cosmos DB API 在 Azure Cosmos DB 中执行数据的存储和检索操作。
 
@@ -36,7 +36,8 @@ Azure Cosmos DB 是一种全球分布式数据库服务，它允许开发人员�
 
 为遵循本文介绍的步骤，需要以下先决条件：
 
-* Azure 订阅；如果没有 Azure 订阅，可激活 [MSDN 订阅者权益]或注册 [Azure 试用帐户]。
+* 一个 Azure 订阅；如果你没有 Azure 订阅，可以注册[试用 Azure 帐户]。
+<!--Not Available [MSDN subscriber benefits] -->
 
 * [Java 开发工具包 (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/) 1.7 版或更高版本。
 
@@ -319,9 +320,9 @@ Azure Cosmos DB 是一种全球分布式数据库服务，它允许开发人员�
 [Azure Cosmos DB 文档]: /cosmos-db/
 [Azure Java 开发人员中心]: /develop/java/
 [Build a DocumentDB API app with Java]: /cosmos-db/create-documentdb-java
-[Azure 试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
+[试用 Azure 帐户]: https://www.azure.cn/pricing/1rmb-trial/
 [用于 Visual Studio Team Services 的 Java 工具]: https://java.visualstudio.com/
-[MSDN 订阅者权益]: https://www.azure.cn/pricing/member-offers/msdn-benefits-details/
+<!-- Not Available [MSDN subscriber benefits]: https://www.azure.cn/pricing/member-offers/msdn-benefits-details/-->
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/

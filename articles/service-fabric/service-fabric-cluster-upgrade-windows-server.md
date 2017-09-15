@@ -13,16 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/30/2017
-ms.date: 08/14/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 297b7a7dd807b91bea2b427be0d06e9e20b9b1b5
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 9cc8551f09f6f6f2f31cffc20f141622ff446f33
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-on-windows-server-cluster"></a>升级 Windows Server 群集上的独立 Azure Service Fabric
-
 > [!div class="op_single_selector"]
 > * [Azure 群集](service-fabric-cluster-upgrade.md)
 > * [独立群集](service-fabric-cluster-upgrade-windows-server.md)
@@ -191,6 +190,23 @@ ms.lasthandoff: 08/11/2017
 解决造成回滚的问题后，请遵循前面所述的相同步骤再次启动升级。
 
 ## <a name="upgrade-the-cluster-configuration"></a>升级群集配置
+启动配置升级前，可通过运行独立程序包中的 powershell 脚本来测试新群集配置 json。
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File>
+
+```
+或
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
+
+```
+
+某些配置不能升级（如终结点、群集名称、节点 IP 等）。这将针对旧配置测试新的群集配置 json ，并在出现问题时在 Powershell 窗口中引发错误。
+
 若要升级群集配置，请运行 **Start-ServiceFabricClusterConfigurationUpgrade**。 按升级域逐个处理配置升级。
 
 ```powershell
@@ -201,10 +217,11 @@ ms.lasthandoff: 08/11/2017
 
 ### <a name="cluster-certificate-config-upgrade"></a>群集证书配置升级  
 群集证书用于群集节点之间的身份验证，因此执行证书切换时应额外小心，因为失败会阻止群集节点间的通信。  
-从技术上讲，支持两个选项：  
+从技术上讲，支持三种选择：  
 
 1. 单个证书升级：升级路径为“证书 A（主证书）-> 证书 B（主证书）-> 证书 C（主证书）-> ...”。   
 2. 双证书升级：升级路径为“证书 A（主证书）-> 证书 A（主证书）和证书 B（辅助证书）-> 证书 B（主证书）-> 证书 B（主证书）和证书 C（辅助证书）-> 证书 C（主证书）-> ...”。
+3. 证书类型升级：“基于指纹的证书配置 <-> 基于 CommonName 的证书配置”。 例如，“证书指纹 A（主证书）和指纹 B（辅助证书）-> 证书 CommonName C”。
 
 ## <a name="next-steps"></a>后续步骤
 * 了解如何自定义某些 [Service Fabric 群集设置](service-fabric-cluster-fabric-settings.md)。
@@ -214,4 +231,4 @@ ms.lasthandoff: 08/11/2017
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->

@@ -12,31 +12,41 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/03/2017
-ms.date: 08/14/2017
-wacn.date: 
+origin.date: 08/09/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 12c56327dfcf7d239fb85102e844044c540cdc68
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: e637d046a2d3576f0ed205d29afcafda7b6b540e
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>将应用程序部署到 Azure 中的合作群集
-本教程介绍如何将 Azure Service Fabric 应用程序部署到 Azure 中的合作群集。
+本教程是一个系列的第二部分，介绍如何将 Azure Service Fabric 应用程序部署到 Azure 中的合作群集。
 
-本教程部分介绍如何：
+在该系列教程的第二部分中，学习如何：
 > [!div class="checklist"]
 > * 使用 Visual Studio 将应用程序部署到远程群集
 > * 使用 Service Fabric Explorer 从群集中删除应用程序
 
-本教程已拆分为三篇文章，本文是教程系列中的第二篇文章。
+在此系列教程中，学习如何：
+> [!div class="checklist"]
+> * [构建 .NET Service Fabric 应用程序](service-fabric-tutorial-create-dotnet-app.md)
+> * 将应用程序部署到远程群集
+> * [使用 Visual Studio Team Services 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 ## <a name="prerequisites"></a>先决条件
 在开始学习本教程之前：
 - 如果没有 Azure 订阅，请创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
 - [安装 Visual Studio 2017](https://www.visualstudio.com/)，并安装 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
 - [安装 Service Fabric SDK](service-fabric-get-started.md)
+
+## <a name="download-the-voting-sample-application"></a>下载投票示例应用程序
+如果未生成[本系列教程的第一部分](service-fabric-tutorial-create-dotnet-app.md)中的投票示例应用程序，可以下载它。 在命令窗口中，运行以下命令，将示例应用存储库克隆到本地计算机。
+
+```
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
+```
 
 ## <a name="set-up-a-party-cluster"></a>设置合作群集
 合作群集是在 Azure 上托管的、由 Service Fabric 团队运行的免费限时 Service Fabric 群集，任何人都可以在其中部署应用程序及了解平台的情况。 免费！
@@ -46,24 +56,36 @@ ms.lasthandoff: 08/11/2017
 > [!NOTE]
 > 合作群集不受保护，因此，在其中放置的应用程序和任何数据可能会被其他人看到。 请勿部署不希望其他人看到的任何内容。 请务必仔细阅读我们的使用条款，了解所有详细信息。
 
-## <a name="make-your-application-ready-for-deployment"></a>让应用程序做好部署准备
-由于我们的 ASP.NET Core Web API 服务充当此应用程序的前端并接受外部流量，因此，我们要将此服务绑定到已知的固定端口。 在服务的 **ServiceManifest.xml** 文件中指定端口。
+## <a name="configure-the-listening-port"></a>配置侦听端口
+创建 VotingWeb 前端服务后，Visual Studio 会随机选择服务侦听的端口。  VotingWeb 服务充当此应用程序的前端并接受外部流量，因此让我们将该服务绑定到已知的固定端口。 在解决方案资源管理器中，打开“VotingWeb/PackageRoot/ServiceManifest.xml”。  在“Resources”节中找到“Endpoint”资源，并将“Port”值更改为 80。
 
-1. 在解决方案资源管理器中，打开“WebAPIFrontEnd”->“PackageRoot”->“ServiceManifest.xml”。
-2. 将现有 **Endpoint** 元素的 **Port** 属性更改为 **80**，保存更改。
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+    </Endpoints>
+  </Resources>
+```
+
+此外，更新投票项目中的应用程序 URL 属性值，使 Web 浏览器在用户使用“F5”进行调试时打开到正确的端口。  在解决方案资源管理器中，选择“投票”项目并更新“应用程序 URL”属性。
+
+![应用程序 URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ## <a name="deploy-the-app-to-the-azure"></a>将应用部署到 Azure
 应用程序准备就绪后，可以直接从 Visual Studio 将其部署到合作群集。
 
-1. 在解决方案资源管理器中右键单击“MyApplication”，选择“发布”。
+1. 在解决方案资源管理器中，右键单击“投票”，再选择“发布”。
 
-    ![发布对话框](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![“发布”对话框](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
 2. 在“连接终结点”字段中键入合作群集的连接终结点，单击“发布”。
 
     完成发布后，应该可以通过浏览器向应用程序发送请求。
 
-3. 打开首选的浏览器，键入群集地址（不带端口信息的连接终结点 - 例如 win1kw5649s.chinanorth.chinacloudapp.cn），将 `/api/values` 添加到 URL。
+3. 打开首选的浏览器，键入群集地址（不带端口信息的连接终结点 - 例如 win1kw5649s.chinanorth.chinacloudapp.cn）。
 
     现在，应会看到在本地运行该应用程序时所看到的相同结果。
 
@@ -72,21 +94,22 @@ ms.lasthandoff: 08/11/2017
 ## <a name="remove-the-application-from-a-cluster-using-service-fabric-explorer"></a>使用 Service Fabric Explorer 从群集中删除应用程序
 Service Fabric Explorer 是用于浏览和管理 Service Fabric 群集中的应用程序的图形用户界面。
 
-若要删除已部署到合作群集的应用程序，请执行以下操作：
+若要从合作群集删除应用程序，请执行以下操作：
 
 1. 使用合作群集注册页提供的链接浏览到 Service Fabric Explorer。 例如 http://win1kw5649s.chinanorth.chinacloudapp.cn:19080/Explorer/index.html。
 
-2. 在 Service Fabric Explorer 中，导航到左侧树视图中的“fabric://MyApplication”节点。
+2. 在 Service Fabric Explorer 中，导航到左侧树视图中的“fabric://Voting”节点。
 
 3. 在右侧的“概要”窗格中单击“操作”按钮，选择“删除应用程序”。 确认删除该应用程序实例，随即会删除群集中运行的应用程序实例。
 
 ![在 Service Fabric Explorer 中删除应用程序](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
 
+## <a name="remove-the-application-type-from-a-cluster-using-service-fabric-explorer"></a>使用 Service Fabric Explorer 从群集中删除应用程序类型
 应用程序在 Service Fabric 群集中部署为应用程序类型，因此，我们可以在群集中运行该应用程序的多个实例和版本。 删除正在运行的应用程序实例后，还可以删除类型，以完成部署的清理。
 
 有关 Service Fabric 中的应用程序模型的详细信息，请参阅[在 Service Fabric 中为应用程序建模](service-fabric-application-model.md)。
 
-1. 在树视图中导航到“MyApplicationType”节点。
+1. 在树视图中导航到“VotingType”节点。
 
 2. 在右侧的“概要”窗格中单击“操作”按钮，选择“取消预配类型”。 确认取消预配应用程序类型。
 
@@ -104,3 +127,5 @@ Service Fabric Explorer 是用于浏览和管理 Service Fabric 群集中的应�
 转到下一教程：
 > [!div class="nextstepaction"]
 > [使用 Visual Studio Team Services 设置持续集成](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+
+<!--Update_Description: update meta properties, wording update-->

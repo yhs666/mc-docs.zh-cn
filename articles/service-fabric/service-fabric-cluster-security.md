@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/28/2017
-ms.date: 08/14/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 78e7d15aa02640ee394d3817be99a148343baf94
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 2a22f060044587cc85891aa0dce452cfd19319d5
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric 群集安全方案
 Service Fabric 群集是你拥有的资源。 必须保护群集，防止未经授权的用户连接到群集，特别是群集上正在运行生产工作负荷时。 尽管可以创建不安全的群集，但这种群集在公共 Internet 上公开管理终结点时，匿名用户可与它建立连接。 
@@ -57,7 +57,7 @@ Service Fabric 群集是你拥有的资源。 必须保护群集，防止未经�
 在 Azure 上运行的群集或在 Windows 上运行的独立群集可以使用[证书安全性](https://msdn.microsoft.com/library/ff649801.aspx)或 [Windows 安全性](https://msdn.microsoft.com/library/ff649396.aspx)。
 
 ### <a name="client-to-node-certificate-security"></a>客户端到节点的证书安全性
- 客户端到节点的证书安全性通过指定管理员客户端证书和/或用户客户端证书在使用 Azure 门户、Resource Manager 模板或独立的 JSON 模板创建群集时配置。  指定的管理员客户端证书和用户客户端证书应该不同于为 [节点到节点安全性](#node-to-node-security)指定的主要证书和辅助证书。
+ 客户端到节点的证书安全性通过指定管理员客户端证书和/或用户客户端证书在使用 Azure 门户、Resource Manager 模板或独立的 JSON 模板创建群集时配置。  最佳做法是，指定的管理员客户端证书和用户客户端证书应该不同于为[节点到节点安全性](#node-to-node-security)指定的主证书和辅助证书。 默认情况下，用于实现节点到节点安全性的群集证书会添加到允许的客户端管理员证书列表中。
 
 客户端如果使用管理员证书连接到群集，则拥有对管理功能的完全访问权限。  客户端如果使用只读用户客户端证书连接到群集，则只拥有对管理功能的只读访问权限。 换而言之，这些证书用于本文稍后所述的基于角色的访问控制 (RBAC)。
 
@@ -118,4 +118,4 @@ X.509 数字证书通常用于验证客户端与服务器，以及对消息进�
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update reference link-->

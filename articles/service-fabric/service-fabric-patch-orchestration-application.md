@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 5/9/2017
-ms.date: 08/21/2017
+origin.date: 05/09/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8e62fdfce76da6b0fd9e9ab1b5efd6fd71f7f148
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 4f6bc394ebab4b42304852af8954b75910619b2b
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>在 Service Fabric 群集中修补 Windows 操作系统
 
@@ -69,9 +69,14 @@ ms.lasthandoff: 08/17/2017
 
 银级持久层中的 Azure 群集默认启用“修复管理器”服务。 黄金级持久层中的 Azure 群集可能启用或不启用“修复管理器”服务，具体取决于这些群集的创建时间。 铜级持久层中的 Azure 群集默认不启用“修复管理器”服务。 如果已启用该服务，可以看到它在 Service Fabric Explorer 的系统服务部分运行。
 
-可使用 [Azure Resource Manager 模板](/service-fabric/service-fabric-cluster-creation-via-arm)在新的和现有的 Service Fabric 群集上启用“修复管理器”服务。 获取要部署的群集的模板。 可以使用示例模板，或者创建自定义 Resource Manager 模板。 
+##### <a name="azure-portal"></a>Azure 门户
+在设置群集时，可以从 Azure 门户启用修复管理器。 配置群集时，选择“`Add on features`”下的“`Include Repair Manager`”选项。
+![从 Azure 门户启用修复管理器的图像](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-启用“修复管理器”服务：
+##### <a name="azure-resource-manager-template"></a>Azure Resource Manager 模板
+或者可以使用 [Azure 资源管理器模板](/service-fabric/service-fabric-cluster-creation-via-arm)在新的和现有 Service Fabric 群集上启用修复管理器服务。 获取要部署的群集的模板。 可以使用示例模板，或者创建自定义 Resource Manager 模板。 
+
+若要使用 [Azure 资源管理器模板](/service-fabric/service-fabric-cluster-creation-via-arm)启用修复管理器服务，请执行以下操作：
 
 1. 首先，检查 `apiversion` 是否针对 `Microsoft.ServiceFabric/clusters` 资源设置为 `2017-07-01-preview`，如以下代码片段所示。 如果不同，需要将 `apiVersion` 更新为值 `2017-07-01-preview`：
 
@@ -134,9 +139,11 @@ ms.lasthandoff: 08/17/2017
 
 ### <a name="optional-enable-azure-diagnostics"></a>可选：启用 Azure 诊断
 
-修补业务流程应用的日志在每个群集节点上以本地方式进行收集。 此外，对于运行 Service Fabric 运行时版本 `5.6.220.9494` 及更高版本的群集，其日志会作为 Service Fabric 日志的一部分进行收集。
+运行版本 `5.6.220.9494` 及更高版本的 Service Fabric 运行时的群集会收集修补业务流程应用日志，以构成 Service Fabric 日志。
+如果在 Service Fabric 运行时版本 `5.6.220.9494` 和更高版本上运行群集，则可以跳过此步骤。
 
-对于运行的 Service Fabric 运行时版本低于 `5.6.220.9494` 的群集，建议配置 Azure 诊断，将日志从所有节点上传到中心位置。
+对于运行版本低于 `5.6.220.9494` 的 Service Fabric 运行时的群集，会在每个群集节点上本地收集修补业务流程应用的日志。
+我们建议配置 Azure 诊断，将日志从所有节点上传到中心位置。
 
 有关启用 Azure 诊断的详细信息，请参阅[使用 Azure 诊断收集日志](/service-fabric/service-fabric-diagnostics-how-to-setup-wad)。
 
@@ -292,7 +299,7 @@ ms.lasthandoff: 08/17/2017
 
 #### <a name="locally-on-each-node"></a>在每个节点本地
 
-在每个 Service Fabric 群集节点本地收集日志。 日志的访问位置为 \[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs。
+如果 Service Fabric 运行时版本低于 `5.6.220.9494`，则会在每个 Service Fabric 群集节点上本地收集日志。 日志的访问位置为 \[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs。
 
 例如：如果 Service Fabric 安装在 D 驱动器上，则路径为 D:\\PatchOrchestrationApplication\\logs。
 
@@ -352,6 +359,10 @@ A. 修补业务流程应用所需的时长主要取决于以下因素：
 - 下载和安装更新所需的平均时间，只需数小时。
 - VM 的性能和网络带宽。
 
+问： 为什么某些更新会出现在通过 REST API 获得的 Windows 更新结果中，而不是在计算机的 Windows 更新历史记录下？
+
+A. 某些产品更新需要签入其各自的更新/修补历史记录。 例如：Windows Defender 更新未显示在 Windows Server 2016 的 Windows 更新历史记录中。
+
 ## <a name="disclaimers"></a>免责声明
 
 - 修补业务流程应用代表用户接受 Windows 更新的最终用户许可协议。 可以选择在应用程序的配置中关闭该设置。
@@ -390,4 +401,6 @@ Windows 更新发生故障时，会使特定节点或升级域上的应用程序
 
 管理员必须介入，并判断为何 Windows 更新会导致应用程序或群集运行不正常。
 
-<!--Update_Description: update meta properties, wording update-->
+<!-- Not Available ## Release Notes :-->
+
+<!--Update_Description: update meta properties, wording update, add new feature of Enable the repair manager service in Azure Portal -->

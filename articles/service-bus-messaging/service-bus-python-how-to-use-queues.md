@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 04/30/2017
+origin.date: 08/10/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: 8a9cba357cc25d8d5e63d615f8de46381a57be87
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 09/18/2017
+ms.openlocfilehash: c352747921d6d23c49b9ce541f67f8052ee8e9e7
+ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="how-to-use-service-bus-queues"></a>如何使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -57,7 +57,7 @@ SAS 密钥名称的值和值可以在 [Azure 门户][Azure portal]连接信息�
 bus_service.create_queue('taskqueue')
 ```
 
-“create_queue” 还支持其他选项，通过这些选项可以替代默认队列设置，例如消息生存时间 (TTL) 或最大队列大小。 以下示例将最大队列大小设置为 5 GB，将 TTL 值设置为 1 分钟：
+`create_queue` 方法还支持其他选项，通过这些选项可以重写默认队列设置，例如消息生存时间 (TTL) 或最大队列大小。 以下示例将最大队列大小设置为 5 GB，将 TTL 值设置为 1 分钟：
 
 ```python
 queue_options = Queue()
@@ -68,16 +68,16 @@ bus_service.create_queue('taskqueue', queue_options)
 ```
 
 ## <a name="send-messages-to-a-queue"></a>向队列发送消息
-若要向服务总线队列发送消息，应用程序需对“ServiceBusService”对象调“发送”**\_队列\_消息**的方法。
+要向服务总线队列发送消息，应用程序需对 ServiceBusService 对象调用 `send_queue_message` 方法。
 
-下面的示例演示如何以名为“taskqueue”的队列使用“发送”**\_队列\_消息**发送一条测试消息：
+以下示例演示如何使用 `send_queue_message` 向名为 `taskqueue` 的队列发送一条测试消息：
 
 ```python
 msg = Message(b'Test Message')
 bus_service.send_queue_message('taskqueue', msg)
 ```
 
-在标准层，服务总线队列支持的最大消息大小为 256 KB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小在创建时定义，上限为 5 GB。 有关配额的详细信息，请参阅 [服务总线配额][]。
+服务总线队列在标准层中支持的最大消息大小为 256 KB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小在创建时定义，上限为 5 GB。 有关配额的详细信息，请参阅 [服务总线配额][]。
 
 ## <a name="receive-messages-from-a-queue"></a>从队列接收消息
 
@@ -92,7 +92,7 @@ print(msg.body)
 
 在接收过程中读取并删除消息的行为是最简单的模式，并且最适合应用程序允许出现故障时不处理消息的情况。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
 
-如果将 peek\_lock 参数设置为“True”，则接收将变成一个两阶段操作，从而可支持无法容忍遗漏消息的应用程序。 当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，然后将该消息返回到应用程序。 应用程序处理完消息（或安全存储该消息以供将来处理）后，会通过对 **Message** 对象调用“删除”方法来完成接收过程的第二个阶段。 **delete** 方法会将消息标记为“已使用”并将其从队列中删除。
+如果将 peek\_lock 参数设置为“True”，则接收将变成一个两阶段操作，从而可支持无法容忍遗漏消息的应用程序。 当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，并将该消息返回到应用程序。 应用程序处理完消息（或安全存储该消息以供将来处理）后，会通过对 **Message** 对象调用“删除”方法来完成接收过程的第二个阶段。 **delete** 方法会将消息标记为“已使用”并将其从队列中删除。
 
 ```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
@@ -103,11 +103,11 @@ msg.delete()
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>如何处理应用程序崩溃和不可读消息
 
-Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或消息处理问题中恢复。 如果接收方应用程序因某种原因无法处理消息，则可对 **Message** 对象调用 **unlock** 方法。 这将导致 Service Bus 解锁队列中的消息并使其能够重新被同一个正在使用的应用程序或其他正在使用的应用程序接收。
+Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或消息处理问题中恢复。 如果接收方应用程序因某种原因无法处理消息，则可对 **Message** 对象调用 **unlock** 方法。 这会导致 Service Bus 解锁队列中的消息并使其能够重新被同一个正在使用的应用程序或其他正在使用的应用程序接收。
 
-还存在与队列中已锁定消息关联的超时，并且如果应用程序无法在锁定超时到期之前处理消息（例如，如果应用程序崩溃），Service Bus 将自动解锁该消息并使它可再次被接收。
+还存在与队列中已锁定消息关联的超时，并且如果应用程序无法在锁定超时到期之前处理消息（例如，如果应用程序崩溃），Service Bus 会自动解锁该消息并使它可再次被接收。
 
-如果应用程序在处理消息之后，但在调用 **delete** 方法之前崩溃，则在应用程序重新启动时，该消息将重新传送给应用程序。 此情况通常称作 **至少处理一次**，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 这通常可以通过消息的 **MessageId** 属性来实现，该属性在多次传送尝试中保持不变。
+如果应用程序在处理消息之后，但在调用 **delete** 方法之前崩溃，则在应用程序重新启动时，该消息会重新传送给应用程序。 此情况通常称作**至少处理一次**，即每条消息至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 这通常可以通过消息的 **MessageId** 属性来实现，该属性在多次传送尝试中保持不变。
 
 ## <a name="next-steps"></a>后续步骤
 现在，已了解有关服务总线队列的基础知识，请参阅以下文章了解详细信息。

@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/30/2017
-ms.date: 08/21/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3c4b2dc5f7b80f17fc74d119e8b8774ae886d60b
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: e7a9fa20ff876729d088b8e7f95711a32931782f
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 生命周期概述
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ ms.lasthandoff: 08/17/2017
 
 1. 并行
     - 关闭所有已打开的侦听器（针对每个侦听器调用 `CommunicationListener.closeAsync()`）
-    - 取消传递给 `runAsync()` 的取消标记（检查取消标记的 `isCancelled` 属性是否返回 true，如果调用标记的 `throwIfCancellationRequested` 方法，则会返回 `CancellationException`）
+    - 取消传递给 `runAsync()` 的取消令牌（检查取消令牌的 `isCancelled` 属性是否返回 true，如果调用令牌的 `throwIfCancellationRequested` 方法，则会引发 `CancellationException`）
 2. 针对每个侦听器完成 `closeAsync()` 并且完成 `runAsync()` 后，会调用服务的 `StatelessService.onCloseAsync()` 方法（如果存在）（这也是一种不常见的重写）。
 3. 完成 `StatelessService.onCloseAsync()` 后，销毁服务对象
 
@@ -80,4 +80,4 @@ ms.lasthandoff: 08/17/2017
 * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services 高级用法](service-fabric-reliable-services-advanced-usage.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: wording update-->

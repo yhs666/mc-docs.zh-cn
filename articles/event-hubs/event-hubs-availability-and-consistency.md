@@ -12,20 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/11/2017
-ms.date: 07/03/2017
+origin.date: 08/15/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3f52b08ede3367edc7b58d9e11ce3bfc1f2faac0
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: f09f51465756d0f6b3eede2afcacfb0d52d65637
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 09/04/2017
 ---
-# 事件中心内的可用性和一致性
-<a id="availability-and-consistency-in-event-hubs" class="xliff"></a>
+# <a name="availability-and-consistency-in-event-hubs"></a>事件中心内的可用性和一致性
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 Azure 事件中心使用[分区模型](event-hubs-features.md#partitions)在单个事件中心内提高可用性和并行化。 例如，如果事件中心具有四个分区，并且其中一个分区要在负载均衡操作中从一台服务器移动到另一台服务器，则仍可以通过其他三个分区进行发送和接收。 此外，具有更多分区可以让更多并发读取器处理数据，从而提高聚合吞吐量。 了解分布式系统中分区和排序的意义是解决方案设计的重要方面。
 
 为了帮助说明排序与可用性之间的权衡，请参阅 [CAP 定理](https://en.wikipedia.org/wiki/CAP_theorem)（也称为 Brewer 的定理）。 此定理论述了如何在一致性、可用性和分区容差之间进行选择。
@@ -35,18 +33,15 @@ Brewer 的定理按如下所示定义一致性和可用性：
 * 可用性：非故障节点在合理时间内返回合理响应（没有错误或超时）。
 * 一致性：保证读取针对给定客户端返回最新写入。
 
-## 分区容差
-<a id="partition-tolerance" class="xliff"></a>
+## <a name="partition-tolerance"></a>分区容差
 事件中心在分区数据模型的基础上构建。 可以在设置过程中配置事件中心内的分区数，但以后无法更改此值。 由于必须对事件中心使用分区，因此需要在应用程序的可用性和一致性方面进行决策。
 
-## 可用性
-<a id="availability" class="xliff"></a>
+## <a name="availability"></a>可用性
 开始使用事件中心的最简单方法是使用默认行为。 如果创建新的 `EventHubClient` 对象并使用 `Send` 方法，会自动在事件中心内的各个分区之间分发这些事件。 此行为可实现最大运行时间量。
 
 对于需要最大运行时间的用例，此模型是首选模型。
 
-## 一致性
-<a id="consistency" class="xliff"></a>
+## <a name="consistency"></a>一致性
 在某些方案中，事件的排序可能十分重要。 例如，可能希望后端系统在删除命令之前处理更新命令。 在此情况下，可以对事件设置分区键，也可以使用 `PartitionSender` 对象仅将事件发送到特定分区。 这样做可确保从分区读取这些事件时，按顺序读取它们。
 
 使用此配置，请记住，如果发送到的特定分区不可用，则会收到错误响应。 作为对比，如果未与单个分区关联，则事件中心服务会将事件发送到下一个可用分区。
@@ -66,9 +61,10 @@ await eventHubClient.SendAsync(data);
 
 此示例将事件发送到事件中心内的一个可用分区，并从应用程序设置对应序号。 此解决方案要求处理应用程序保持状态，不过会为发送者提供更可能可用的终结点。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 访问以下链接可以了解有关事件中心的详细信息：
 
 * [事件中心服务概述](event-hubs-what-is-event-hubs.md)
 * [创建事件中心](event-hubs-create.md)
+
+<!--Update_Description: update meta properties, wording update-->

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 5/16/2017
-ms.date: 08/14/2017
+origin.date: 05/16/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2d05270c07643db9382229df48eecba096507e74
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: c5648b482638cd085250dc0eb4337649a85982c0
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 和容器
 > [!NOTE]
@@ -47,14 +47,13 @@ Service Fabric 支持 Linux 和 Windows 上的容器，也支持 Windows 上的 
 
 ### <a name="docker-containers-on-linux"></a>Linux 上的 Docker 容器
 Docker 提供高级 API 来创建和管理位于 Linux 内核容器顶层的容器。 Docker 中心是一个用于存储和检索容器映像的中心存储库。
-有关教程，请参阅[将 Docker 容器部署到 Service Fabric](service-fabric-deploy-container-linux.md)。
+有关教程，请参阅[将 Docker 容器部署到 Service Fabric](service-fabric-get-started-containers-linux.md)。
 
 ### <a name="windows-server-containers"></a>Windows Server 容器
 Windows Server 2016 提供两种不同类型的容器，它们的隔离程度有所不同。 Windows Server 容器和 Docker 容器相似，因为两者都具有命名空间和文件系统隔离，但与它们运行所在的主机共享内核。 在 Linux 上，这种隔离一贯是由 `cgroups` 和 `namespaces` 提供的，Windows Server 容器的行为与此类似。
 
 Windows Hyper-V 容器提供更高程度的隔离性和安全性，因为每个容器彼此之间或者与主机之间并不共享操作系统内核。 由于具有这么高的安全性隔离，Hyper-V 容器适合用于对付恶意的多租户场景。
-
-<!-- Not Available[Deploy a Windows container to Service Fabric](service-fabric-deploy-container.md). -->
+有关教程，请参阅[将 Windows 容器部署到 Service Fabric](service-fabric-get-started-containers.md)。
 
 下图显示了可在操作系统中使用的各种不同类型的虚拟化和隔离级别。
 ![Service Fabric 平台][Image1]
@@ -88,10 +87,10 @@ Service Fabric 提供多种容器功能，可帮助用户构建由容器化的�
 ## <a name="next-steps"></a>后续步骤
 可以在本文中了解容器，Service Fabric 是一个容器协调器，并且 Service Fabric 具有支持容器的功能。 接下来，我们演示其中的每项功能并说明其用法。
 
-<!-- Not Available [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-deploy-container.md) -->
+[将 Windows 容器部署到 Windows Server 2016 上的 Service Fabric](service-fabric-get-started-containers.md)
 
 [将 Docker 容器部署到 Linux 上的 Service Fabric](service-fabric-deploy-container-linux.md)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update reference link -->

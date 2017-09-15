@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/31/2017
-ms.date: 09/04/2017
+ms.date: 09/07/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 78bc1b0aab77346d7e2d110642da56ef31d138b4
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.openlocfilehash: 84c514b6afe80f7f2f573ba639584489469a2906
+ms.sourcegitcommit: 88cc0e0f5b316a52bc602e60cf9dc8a782812f58
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>使用 Azure 媒体分析进行面部修订
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/31/2017
 
 本主题提供有关 **Azure 媒体修订器**的详细信息，并演示如何通过适用于 .NET 的媒体服务 SDK 使用它。
 
-**Azure 媒体修订器** MP 目前以预览版提供。 它在所有公共 Azure 区域以及美国政府和中国数据中心中可用。 当前，此预览版免费。 
+**Azure 媒体编修器** MP 已正式发布。 它在所有公共 Azure 区域以及美国政府和中国数据中心中可用。
 
 ## <a name="face-redaction-modes"></a>面部修订模式
 

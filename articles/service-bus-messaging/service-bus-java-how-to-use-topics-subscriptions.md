@@ -14,14 +14,14 @@ ms.devlang: Java
 ms.topic: article
 origin.date: 06/28/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
-ms.openlocfilehash: 35f4d1bfa431d94ec807983b52acf0585c7207fc
-ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
+ms.date: 09/18/2017
+ms.openlocfilehash: c2f942bbe71723381e38fef28778ff7d5b561049
+ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/08/2017
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions"></a>如何使用服务总线主题和订阅
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>如何通过 Java 使用服务总线主题和订阅
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 

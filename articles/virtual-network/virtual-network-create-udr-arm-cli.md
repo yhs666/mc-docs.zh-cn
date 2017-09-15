@@ -3,8 +3,8 @@ title: "使用 Azure CLI 2.0 控制路由和虚拟设备 | Azure"
 description: "了解如何使用 Azure CLI 2.0 控制路由和虚拟设备。"
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 5452a0b8-21a6-4699-8d6a-e2d8faf32c25
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/12/2017
-ms.date: 03/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 354e98cc788082c16829547ba7946db3331924ae
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 09/04/2017
+ms.author: v-yeche
+ms.openlocfilehash: f5b4fd212b6c6711928ba143a7bedbee77ccb02b
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建用户定义的路由 (UDR)
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/14/2017
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-下面的示例 Azure CLI 命令需要一个已经基于上述方案创建的简单环境。 若要运行本文档中所显示的命令，请首先通过部署[此模板](http://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR-Before)构建测试环境，单击“**部署至 Azure**”，根据需要替换默认参数值，然后按照门户中的说明进行操作。
+下面的示例 Azure CLI 命令需要一个已经基于上述方案创建的简单环境。 如果要运行本文档中所显示的命令，请首先通过部署[此模板](http://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR-Before)构建测试环境，单击“**部署至 Azure**”，根据需要替换默认参数值，并按照门户中的说明进行操作。
 
 ## <a name="create-the-udr-for-the-front-end-subnet"></a>为前端子网创建 UDR
 若要根据上述方案为前端子网创建所需的路由表和路由，请按照下面的步骤操作。
@@ -228,3 +228,5 @@ ms.lasthandoff: 07/14/2017
     参数：
 
     **--ip-forwarding**：*true* 或 *false*。
+    
+<!--Update_Description: update meta properties-->

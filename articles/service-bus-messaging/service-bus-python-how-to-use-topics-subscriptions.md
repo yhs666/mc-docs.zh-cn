@@ -1,35 +1,36 @@
 ---
-title: "如何通过 Python 使用服务总线主题 | Azure"
+title: "如何通过 Python 使用 Azure 服务总线主题 | Microsoft Docs"
 description: "了解如何使用 Python 中的 Azure 服务总线主题和订阅"
 services: service-bus
 documentationCenter: python
 authors: sethmanheim
 manager: timlt
 editor: 
+ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 04/27/2017
+origin.date: 08/10/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: d7038ef11d1ab6a299315c0007d7e9f176544f5c
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 09/18/2017
+ms.openlocfilehash: fb51e2d96d50172f4b9b05bdfce2b197cfef8dad
+ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions"></a>如何使用服务总线主题和订阅
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>如何通过 Python 使用服务总线主题和订阅
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-本文介绍了如何使用服务总线主题和订阅。 相关示例是使用 Python 编写的，并使用 [Python Azure 包][]。 涉及的应用场景包括**创建主题和订阅**、**创建订阅筛选器**、**将消息发送到主题**、**从订阅接收消息**以及**删除主题和订阅**。 有关主题和订阅的详细信息，请参阅 [后续步骤](#next-steps) 部分。
+本文介绍了如何使用服务总线主题和订阅。 相关示例采用 Python 编写，并使用了 [Azure Python SDK 包][Azure Python package]。 涉及的应用场景包括**创建主题和订阅**、**创建订阅筛选器**、**将消息发送到主题**、**从订阅接收消息**以及**删除主题和订阅**。 有关主题和订阅的详细信息，请参阅 [后续步骤](#next-steps) 部分。
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 > [!NOTE] 
-> 如果需要安装 Python 或 [Python Azure 包][Python Azure 包]，请参阅 [Python 安装指南](../python-how-to-install.md)。
+> 如果需要安装 Python 或 [Azure Python 包][Azure Python package]，请参阅 [Python 安装指南](../python-how-to-install.md)。
 
 ## <a name="create-a-topic"></a>创建主题
 可以通过 **ServiceBusService** 对象处理主题。 将以下代码添加到任何 Python 文件的顶部附近，你希望在其中以编程方式访问服务总线：
@@ -47,13 +48,13 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-可从 [Azure 门户][]获取 SAS 密钥名称值和其值。
+可从 [Azure 门户][Azure portal]获取 SAS 密钥名称和密钥值。
 
 ```python
 bus_service.create_topic('mytopic')
 ```
 
-create\_topic 还支持其他选项，以此允许重写默认主题设置，例如消息生存时间或最大主题大小。 以下示例将最大主题大小设置为 5 GB，将生存时间 (TTL) 值设置为 1 分钟：
+`create_topic` 方法还支持其他选项，通过这些选项可以重写默认主题设置，例如消息生存时间或最大主题大小。 以下示例将最大主题大小设置为 5 GB，将生存时间 (TTL) 值设置为 1 分钟：
 
 ```python
 topic_options = Topic()
@@ -73,8 +74,7 @@ bus_service.create_topic('mytopic', topic_options)
 > 
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>创建具有默认 (MatchAll) 筛选器的订阅
-
-**MatchAll** 筛选器是默认筛选器，在创建新订阅时未指定筛选器的情况下使用。 使用 **MatchAll** 筛选器时，发布到主题的所有消息都将置于订阅的虚拟队列中。 以下示例创建名为“AllMessages”的订阅，并使用默认的 **MatchAll** 筛选器。
+**MatchAll** 筛选器是默认筛选器，在创建新订阅时未指定筛选器的情况下使用。 使用 **MatchAll** 筛选器时，发布到主题的所有消息都会置于订阅的虚拟队列中。 以下示例创建名为 `AllMessages` 的订阅，并使用默认的 **MatchAll** 筛选器。
 
 ```python
 bus_service.create_subscription('mytopic', 'AllMessages')
@@ -84,16 +84,16 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 还可以定义筛选器，以指定发送到主题的哪些消息应该在特定主题订阅中显示。
 
-订阅支持的最灵活的一种筛选器是 **SqlFilter**，它实现了一部分 SQL92 功能。 SQL 筛选器将对发布到主题的消息的属性进行操作。 有关可用于 SQL 筛选器的表达式的详细信息，请参阅 [SqlFilter.SqlExpression][] 语法。
+订阅支持的最灵活的一种筛选器是 **SqlFilter**，它实现了一部分 SQL92 功能。 SQL 筛选器对发布到主题的消息的属性进行操作。 有关可用于 SQL 筛选器的表达式的详细信息，请参阅 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 语法。
 
-可使用 ServiceBusService 对象的 create\_rule 方法向订阅添加筛选器。 此方法允许你向现有订阅中添加新筛选器。
+可使用 ServiceBusService 对象的 create\_rule 方法向订阅添加筛选器。 此方法允许向现有订阅中添加新筛选器。
 
 > [!NOTE]
-> 由于默认筛选器会自动应用到所有新订阅，因此，你必须首先删除默认筛选器，否则 **MatchAll** 会替代你可能指定的任何其他筛选器。 可使用 ServiceBusService 对象的 delete\_rule 方法删除默认规则。
+> 由于默认筛选器会自动应用到所有新订阅，因此，必须首先删除默认筛选器，否则 **MatchAll** 会替代你可能指定的任何其他筛选器。 可以使用 ServiceBusService 对象的 `delete_rule` 方法删除默认规则。
 > 
 > 
 
-以下示例创建了一个名为 `HighMessages` 的订阅（带有只选择自定义 messagenumber 属性大于 3 的消息的 SqlFilter）：
+以下示例创建一个名为 `HighMessages` 的订阅，该订阅包含一个 SqlFilter，它仅选择自定义 `messagenumber` 属性大于 3 的消息：
 
 ```python
 bus_service.create_subscription('mytopic', 'HighMessages')
@@ -106,7 +106,7 @@ bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 ```
 
-类似地，以下示例创建一个名为 `LowMessages` 的订阅，其 SqlFilter 只选择 messagenumber 属性小于或等于 3 的消息：
+同样，以下示例创建一个名为 `LowMessages` 的订阅，该订阅包含一个 SqlFilter，它仅选择 `messagenumber` 属性小于或等于 3 的消息：
 
 ```python
 bus_service.create_subscription('mytopic', 'LowMessages')
@@ -146,7 +146,7 @@ print(msg.body)
 
 在接收过程中读取并删除消息的行为是最简单的模式，并且最适合应用程序允许出现故障时不处理消息的情况。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
 
-如果将 peek\_lock 参数设置为“True”，则接收将变成一个两阶段操作，从而可支持无法容忍遗漏消息的应用程序。 当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，然后将该消息返回到应用程序。 应用程序处理完消息（或安全存储该消息以供将来处理）后，会通过对 Message 对象调用 delete 方法来完成接收过程的第二个阶段。 **delete** 方法会将消息标记为已使用，并从订阅中删除它。
+如果将 peek\_lock 参数设置为“True”，则接收将变成一个两阶段操作，从而可支持无法容忍遗漏消息的应用程序。 当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，并将该消息返回到应用程序。 应用程序处理完消息（或安全存储该消息以供将来处理）后，会通过对 Message 对象调用 delete 方法来完成接收过程的第二个阶段。 **delete** 方法会将消息标记为已使用，并将其从订阅中删除。
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
@@ -161,11 +161,10 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 
 另外，还存在与订阅中已锁定消息关联的超时，并且如果应用程序无法在锁定超时到期之前处理消息（例如，如果应用程序崩溃），则服务总线将自动解锁该消息并使其可再次被接收。
 
-如果应用程序在处理消息之后，但在调用 **delete** 方法之前崩溃，则在应用程序重新启动时，该消息将重新传送给应用程序。 此情况通常称作 **至少处理一次**，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 这通常可以通过使用消息的 **MessageId** 属性来实现，该属性在多次传送尝试中保持不变。
+如果应用程序在处理消息之后，但在调用 **delete** 方法之前崩溃，则在应用程序重新启动时，该消息会重新传送给应用程序。 此情况通常称作**至少处理一次**，即每条消息至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 这通常可以通过使用消息的 **MessageId** 属性来实现，该属性在多次传送尝试中保持不变。
 
 ## <a name="delete-topics-and-subscriptions"></a>删除主题和订阅
-
-主题和订阅具有持久性，必须通过 [Azure 经典门户][]或以编程方式显式删除。 以下示例演示如何删除名为 `mytopic`的主题：
+主题和订阅具有持久性，必须通过 [Azure 门户][Azure portal]或以编程方式显式删除。 以下示例演示如何删除名为 `mytopic`的主题：
 
 ```python
 bus_service.delete_topic('mytopic')
@@ -179,13 +178,13 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 
 ## <a name="next-steps"></a>后续步骤
 
-现在，你已了解有关 Service Bus 主题的基础知识，单击下面的链接可了解更多信息。
+现在，已了解有关 Service Bus 主题的基础知识，单击下面的链接可了解更多信息。
 
 -   请参阅 [队列、主题和订阅][]。
 -   [SqlFilter.SqlExpression][]参考。
 
-[Azure 门户]: https://portal.azure.cn
-[Python Azure 包]: https://pypi.python.org/pypi/azure  
+[Azure portal]: https://portal.azure.cn
+[Azure Python package]: https://pypi.python.org/pypi/azure  
 [队列、主题和订阅]: ./service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [服务总线配额]: ./service-bus-quotas.md

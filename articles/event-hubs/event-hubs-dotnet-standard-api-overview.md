@@ -12,39 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/09/2017
-ms.date: 07/03/2017
+origin.date: 08/15/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: c408e584534ba860d0cce581d3c4b80209325ec3
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 5e59ede594f4a912f79eba57f038b4a05646f99b
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 09/04/2017
 ---
-# 事件中心 .NET Standard API 概述
-<a id="event-hubs-net-standard-api-overview" class="xliff"></a>
+# <a name="event-hubs-net-standard-api-overview"></a>事件中心 .NET Standard API 概述
 本文汇总了一些重要的事件中心 .NET Standard 客户端 API。 目前，有两个 .NET Standard 客户端库：
 * [Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs)
   *  此库提供所有基本运行时操作。
 * [Microsoft.Azure.EventHubs.Processor](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)
   * 此库添加了一项附加功能，该功能可用于跟踪已处理的事件，是从事件中心读取事件的最简单方法。
 
-## 事件中心客户端
-<a id="event-hub-client" class="xliff"></a>
-[**EventHubClient**](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 是发送事件、创建接收器，以及获取运行时信息时使用的主对象。 此客户端链接到特定事件中心，并创建与事件中心终结点的新连接。
+## <a name="event-hubs-client"></a>事件中心客户端
+[EventHubClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 是发送事件、创建接收器，以及获取运行时信息时使用的主对象。 此客户端链接到特定事件中心，并创建与事件中心终结点的新连接。
 
-### 创建事件中心客户端
-<a id="create-an-event-hub-client" class="xliff"></a>
-[**EventHubClient**](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 对象从连接字符串创建。 以下示例演示实例化新客户端的最简单方法：
+### <a name="create-an-event-hubs-client"></a>创建事件中心客户端
+[EventHubClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 对象从连接字符串创建。 以下示例演示实例化新客户端的最简单方法：
 
 ```csharp
-var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hub connection string}");
+var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hubs connection string}");
 ```
 
-若要以编程方式编辑连接字符串，可以使用 [**EventHubsConnectionStringBuilder**](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) 类，并将连接字符串作为参数传递给 [**EventHubClient.CreateFromConnectionString**](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_)。
+若要以编程方式编辑连接字符串，可以使用 [EventHubsConnectionStringBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) 类，并将连接字符串作为参数传递给 [EventHubClient.CreateFromConnectionString](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_)。
 
 ```csharp
-var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hub connection string}")
+var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hubs connection string}")
 {
     EntityPath = EhEntityPath
 };
@@ -52,9 +49,8 @@ var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hub c
 var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
 ```
 
-### 发送事件
-<a id="send-events" class="xliff"></a>
-若要将事件发送到事件中心，请使用 [**EventData**](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata) 类。 主体必须是 `byte` 数组，或 `byte` 数组段。
+### <a name="send-events"></a>发送事件
+若要将事件发送到事件中心，请使用 [EventData](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata) 类。 主体必须是 `byte` 数组，或 `byte` 数组段。
 
 ```csharp
 // Create a new EventData object by encoding a string as a byte array
@@ -65,16 +61,13 @@ data.Properties.Add("Type", "Informational");
 await eventHubClient.SendAsync(data);
 ```
 
-### 接收事件
-<a id="receive-events" class="xliff"></a>
-从事件中心接收事件的建议方法是使用 [**EventProcessorHost**](##Event-Processor-Host-APIs)，它提供相关功能来自动跟踪偏移量和分区信息。 但是，在某些情况下，可能需要利用核心事件中心库的灵活性来接收事件。
+### <a name="receive-events"></a>接收事件
+从事件中心接收事件的建议方法是使用 [Event Processor Host](#event-processor-host-apis)，它提供相关功能来自动跟踪偏移量和分区信息。 但是，在某些情况下，可能需要利用核心事件中心库的灵活性来接收事件。
 
-#### 创建接收器
-<a id="create-a-receiver" class="xliff"></a>
-接收器将绑定到特定分区，因此为了接收事件中心内的所有事件，将需要创建多个实例。 一般来说，好的做法是以编程方式获取分区信息，而不是对分区 ID 进行硬编码。 为此，可以使用 [**GetRuntimeInformationAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) 方法。
+#### <a name="create-a-receiver"></a>创建接收器
+接收器将绑定到特定分区，因此为了接收事件中心内的所有事件，将需要创建多个实例。 一般来说，好的做法是以编程方式获取分区信息，而不是对分区 ID 进行硬编码。 为此，可以使用 [GetRuntimeInformationAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) 方法。
 
 ```csharp
-
 // Create a list to keep track of the receivers
 var receivers = new List<PartitionReceiver>();
 // Use the eventHubClient created above to get the runtime information
@@ -89,12 +82,12 @@ foreach (var partitionId in runTimeInformation.PartitionIds)
 }
 ```
 
-由于事件永远不会从事件中心删除（只会过期），因此需要指定正确的起始点。 以下示例介绍可能的组合。
+由于事件永远不会从事件中心删除（而只会过期），因此需要指定正确的起始点。 以下示例介绍可能的组合。
 
 ```csharp
 // partitionId is assumed to come from GetRuntimeInformationAsync()
 
-// Using the constant 'PartitionReceiver.EndOfStream' will only receive all messages from this point forward.
+// Using the constant PartitionReceiver.EndOfStream only receives all messages from this point forward.
 var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, PartitionReceiver.EndOfStream);
 
 // All messages available
@@ -104,9 +97,7 @@ var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGr
 var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, DateTime.Now.AddDays(-1));
 ```
 
-#### 使用事件
-<a id="consume-an-event" class="xliff"></a>
-
+#### <a name="consume-an-event"></a>使用事件
 ```csharp
 // Receive a maximum of 100 messages in this call to ReceiveAsync
 var ehEvents = await receiver.ReceiveAsync(100);
@@ -122,11 +113,10 @@ if (ehEvents != null)
         var customType = ehEvent.Properties["Type"];
         // Implement processing logic here
     }
-}        
+}       
 ```
 
-## 事件处理程序主机 API
-<a id="event-processor-host-apis" class="xliff"></a>
+## <a name="event-processor-host-apis"></a>事件处理程序主机 API
 这些 API 通过在可用工作进程之间分布分区，为可能变为不可用的工作进程提供复原能力。
 
 ```csharp
@@ -134,7 +124,7 @@ if (ehEvents != null)
 
 // Read these connection strings from a secure location
 var ehConnectionString = "{Event Hubs connection string}";
-var ehEntityPath = "{Event Hub path/name}";
+var ehEntityPath = "{event hub path/name}";
 var storageConnectionString = "{Storage connection string}";
 var storageContainerName = "{Storage account container name}";
 
@@ -188,8 +178,7 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 若要了解有关事件中心方案的详细信息，请访问以下链接：
 
 * [什么是 Azure 事件中心？](event-hubs-what-is-event-hubs.md)
@@ -199,3 +188,5 @@ public class SimpleEventProcessor : IEventProcessor
 
 * [Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs)
 * [Microsoft.Azure.EventHubs.Processor](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)
+
+<!--Update_Description: update meta properties, wording update-->

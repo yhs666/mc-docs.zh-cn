@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/22/2017
-ms.date: 08/14/2017
+origin.date: 08/10/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: e0c78376133ddef3df58d7b6176cd2f43209e403
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: ffb3b7259051c29572f14ae5350e923bc95a05e3
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>升级 Azure Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/11/2017
 对于任何新式系统而言，为可升级性做好规划是实现产品长期成功的关键所在。 Azure Service Fabric 群集是你拥有的，但部分由 Azure 管理的资源。 本文说明自动管理的项目以及可以自行配置的项目。
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>控制群集中运行的结构版本
-可以将群集设置为在 Azure 发布新版本时接收自动结构升级，或选择想要群集运行的受支持结构版本。
+可以将群集设置为 21ViaNet 发布自动结构升级时接收该升级，也可以选择想要群集安装的受支持结构版本。
 
 为此，请门户上设置“upgradeMode”群集配置，或者在创建时或稍后在实时群集上使用 Resource Manager 进行设置。 
 
@@ -224,4 +224,4 @@ Azure 将维护 Azure 群集中运行的结构代码和配置。 我们根据需
 [Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
 [Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->

@@ -12,15 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/15/2017
-ms.date: 08/14/2017
-wacn.date: 
+origin.date: 08/09/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 670c49d470dba5c8852c22c8f4bccc66d6b69c40
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 09a2b8af9ff74cae727635b1e1d30b842343a5ff
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>在 Azure 中创建 .NET Service Fabric 应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
@@ -39,7 +38,7 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 > * 跨多个节点横向扩展应用程序
 > * 执行应用程序滚动升级
 
-## <a name="getting-started"></a>入门
+## <a name="prerequisites"></a>先决条件
 若要完成本快速入门教程，需先执行以下操作：
 1. [安装 Visual Studio 2017](https://www.visualstudio.com/)，其中包含 Azure 开发以及 ASP.NET 和 Web 开发工作负荷。
 2. [安装 Git](https://git-scm.com/)
@@ -48,10 +47,12 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```
-5. 将示例应用存储库克隆到本地计算机。 在终端窗口中运行以下命令：
-    ```
-    git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
-    ```
+
+## <a name="download-the-sample"></a>下载示例
+在命令窗口中，运行以下命令，将示例应用存储库克隆到本地计算机。
+```
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
+```
 
 ## <a name="run-the-application-locally"></a>在本地运行应用程序
 右键单击“开始”菜单中的 Visual Studio 图标，再选择“以管理员身份运行”。 若要将调试程序附加到服务，需要以管理员身份运行 Visual Studio。
@@ -92,12 +93,18 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 2. 打开 VoteDataController.cs 文件，并在此 Web API 的 Put 方法（第 50 行）中设置断点。
 
 3. 返回到浏览器，再单击投票选项或添加新的投票选项。 点击 Web 前端 API 控制器中的第一个断点。
-    - 此时，浏览器中的 JavaScript 将请求发送到前端服务中的 Web API 控制器。 然后，前端服务中的控制器使用 ReverseProxy 将 PUT 请求发送给后端服务。
+    - 此时，浏览器中的 JavaScript 将请求发送到前端服务中的 Web API 控制器。
+
+    ![添加投票前端服务](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
+
+    - 首先，为后端服务构造 ReverseProxy (1) 的 URL。
+    - 然后我们将向 ReverseProxy (2) 发送 HTTP PUT 请求。
+    - 最后，将后端服务的响应返回到客户端 (3)。
 
 4. 按 F5 继续操作
     - 此时到达后端服务中的断点。
 
-    ![添加投票异步方法](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+    ![添加投票后端服务](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
     - 在方法的第一行（图中标识为 1）中，我们将使用 `StateManager` 获取或添加 `counts` 可靠字典。
     - 与可靠字典中的值进行的所有交互都需要使用事务，这个 using 语句（图中标识为2）负责创建此事务。
@@ -107,7 +114,9 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 若要停止调试会话，请按 Shift+F5。
 
 ## <a name="deploy-the-application-to-azure"></a>将应用程序部署到 Azure
-若要将应用程序部署到 Azure 群集，可以创建自己的群集，也可以使用合作群集。 若要获取合作群集的访问权限，请浏览到此站点：http://aka.ms/tryservicefabric，并遵照说明获取群集访问权限。 需要一个 Facebook 或 GitHub 帐户才能获取合作群集的访问权限。
+若要将应用程序部署到 Azure 群集，可以创建自己的群集，也可以使用合作群集。
+
+合作群集是在 Azure 上托管的、由 Service Fabric 团队运行的免费限时 Service Fabric 群集，任何人都可以在其中部署应用程序及了解平台的情况。 若要使用合作群集，请[按照说明操作](http://aka.ms/tryservicefabric)。 
 
 若要了解如何创建自己的群集，请参阅[在 Azure 上创建你的第一个 Service Fabric 群集](service-fabric-get-started-azure-cluster.md)。
 
@@ -195,3 +204,5 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 若要详细了解 Service Fabric 和 .NET，请查看以下教程：
 > [!div class="nextstepaction"]
 > [Service Fabric 上的 .NET 应用程序](service-fabric-tutorial-create-dotnet-app.md)
+
+<!--Update_Description: update meta properties, wording update-->

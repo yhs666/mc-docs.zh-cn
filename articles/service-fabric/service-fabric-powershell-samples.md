@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-origin.date: 06/26/2017
-ms.date: 08/14/2017
+origin.date: 08/16/2017
+ms.date: 09/11/2017
 wacn.date: 
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 61964e4cf84be532fe6a6277f39543d6498debe5
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 32610f9885caa8352ecb445e6d748d13a5598f3e
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 示例
 
@@ -31,9 +31,12 @@ ms.lasthandoff: 08/11/2017
 | | |
 |-|-|
 | 创建群集 ||
-| 创建安全群集| 创建 Azure Service Fabric 群集。 |
+| [创建安全群集](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| 创建 Azure Service Fabric 群集。 |
 | **管理群集** ||
-| 添加应用程序证书| 将应用程序 X.509 证书添加到群集中的所有节点。 |
+| [添加应用程序证书](./scripts/service-fabric-powershell-add-application-certificate.md)| 将应用程序 X.509 证书添加到群集中的所有节点。 |
 | **管理应用程序** ||
-| 部署应用程序| 将应用程序部署到群集。|
-| 删除应用程序| 从群集中删除应用程序。|
+| [部署应用程序](./scripts/service-fabric-powershell-deploy-application.md)| 将应用程序部署到群集。|
+| [删除应用程序](./scripts/service-fabric-powershell-remove-application.md)| 从群集中删除应用程序。|
+| [打开负载均衡器的端口](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | 打开 Azure 负载均衡器中的应用程序端口。 |
+
+<!--Update_Description: update meta properties, update reference link of PS sample-->

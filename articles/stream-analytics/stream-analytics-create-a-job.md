@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/24/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: fafc0c9558f5dbe7439eb958f971e53fee07dcfe
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 9efc42a912694a8b2b6b04c446fdd571bae96797
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>如何为流分析创建数据分析处理作业
 在 Azure 流分析中的最上层资源是一个流分析作业。  它包含一个或多个输入数据源、一个表达数据转换的查询以及一个或多个结果写入的输出目标。 用户可以利用所有这些元素，针对流式数据方案进行数据分析处理。
@@ -44,11 +44,11 @@ ms.lasthandoff: 07/26/2017
     ![数据分析处理作业通知中心](./media/stream-analytics-create-a-job/2-stream-analytics-create-a-job.png)  
 
     ![Azure 门户数据分析处理作业创建作业](./media/stream-analytics-create-a-job/5-stream-analytics-create-a-job.png)  
-5. 新作业在显示时的状态为 **“已创建”**。 请注意，“启动”  按钮被禁用。 用户必须先配置作业输入、查询和输出，才能启动作业。
+5. 新作业显示的状态为“已创建”。 请注意，“启动”  按钮被禁用。 启动作业之前，先配置作业输入、查询和输出。
 
-    ![数据分析处理作业作业状态](./media/stream-analytics-create-a-job/3-stream-analytics-create-a-job.png)  
+    ![数据分析处理作业状态](./media/stream-analytics-create-a-job/3-stream-analytics-create-a-job.png)  
 
-    ![Azure 门户数据分析处理作业作业状态](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)  
+    ![Azure 门户数据分析处理作业状态](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)  
 
 ## <a name="get-help"></a>获取帮助
 如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
@@ -60,4 +60,4 @@ ms.lasthandoff: 07/26/2017
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

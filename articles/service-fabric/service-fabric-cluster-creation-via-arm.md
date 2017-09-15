@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/22/2017
-ms.date: 08/14/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 845520283955c8823c5d74cdcf93fba1c0336cf2
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 8dfe0e2aa6f14c02eb919f7f5ffe396d0025b620
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 创建 Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/11/2017
 
 安全的群集可防止未经授权访问管理操作。 包括部署、升级和删除应用程序、服务及其所包含的数据。 不安全的群集是任何人都可以随时连接并执行管理操作的群集。 虽然可创建不安全的群集，但强烈建议一开始就创建安全的群集。 因为不安全的群集无法在事后受到保护 - 若要保护群集，必须创建新群集。
 
-无论是 Linux 或 Windows 群集，创建安全群集的概念是相同的。
+无论是 Linux 或 Windows 群集，创建安全群集的概念是相同的。 有关创建安全的 Linux 群集的详细信息和协助脚本，请参阅[在 Linux 上创建安全群集](#secure-linux-clusters)。
 
 ## <a name="sign-in-to-your-azure-account"></a>登录到 Azure 帐户
 本指南使用 [Azure PowerShell][azure-powershell]。 开始新的 PowerShell 会话时，请登录到 Azure 帐户并选择订阅，并执行 Azure 命令。
@@ -175,7 +175,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployme
 
 ```powershell
 
- Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName chinaeast-mykeyvault -Location "China East" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
+ Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName chinaeast-mykeyvault -Location "China East" -VaultName mychinaeastvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
 
 ```
 
@@ -452,7 +452,7 @@ Service Fabric 群集提供其管理功能的各种入口点，包括基于 Web 
 }
 ```
 
-### <a "configure-arm" ></a>配置 Resource Manager 模板参数
+### <a name="configure-arm" ></a>配置资源管理器模板参数
 最后，使用密钥保管库和 Azure AD PowerShell 命令的输出值填充参数文件：
 
 ```json
@@ -530,7 +530,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 <a name="assign-roles"></a>
 
 ## <a name="assign-users-to-roles"></a>将用户分配到角色
-创建用于表示群集的应用程序后，请将用户分配到 Service Fabric 支持的角色：只读和管理员。 可通过使用 [Azure 经典管理门户][azure-classic-portal]来分配角色。
+创建用于表示群集的应用程序后，请将用户分配到 Service Fabric 支持的角色：只读和管理员。可通过使用 [Azure 经典管理门户][azure-classic-portal]来分配角色。
 
 1. 在 Azure 门户中，转到自己的租户，并选择“应用程序”。
 2. 选择名称类似于 `myTestCluster_Cluster` 的 Web 应用程序。
@@ -610,8 +610,8 @@ FabricClient 和 FabricGateway 执行相互身份验证。 使用 Azure AD 身�
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/develop/active-directory-howto-tenant.md
-[service-fabric-visualizing-your-cluster]: ./service-fabric-visualizing-your-cluster.md
-[service-fabric-manage-application-in-visual-studio]: ./service-fabric-manage-application-in-visual-studio.md
+[service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
+[service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.chinacloudapi.cn/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/

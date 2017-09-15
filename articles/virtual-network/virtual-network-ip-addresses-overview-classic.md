@@ -3,8 +3,8 @@ title: "Azure 中的 IP 地址类型（经典）| Azure"
 description: "了解 Azure 中的公共 IP 地址和专用 IP 地址（经典）。"
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 2f8664ab-2daf-43fa-bbeb-be9773efc978
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/11/2016
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 74bd0d1f5410568b3bdfb08b6f04b656a78ca92a
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/04/2017
+ms.author: v-yeche
+ms.openlocfilehash: 88c04fce323ce059224059a698bfc093539b5b34
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 地址类型和分配方法（经典）
-可以将 IP 地址分配给 Azure 资源，以便与其他 Azure 资源、本地网络和 Internet 通信。 可以在 Azure 中使用两种类型的 IP 地址：公共地址和专用地址。
+可以将 IP 地址分配到与其他 Azure 资源通信的 Azure 资源，也可以将其分配到本地网络和 Internet。 可以在 Azure 中使用两种类型的 IP 地址：公共地址和专用地址。
 
 公共 IP 地址用于与 Internet 通信，这些通信中包括面向公众的 Azure 服务。
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 07/28/2017
 > Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager。 请阅读 [IP 地址](virtual-network-ip-addresses-overview-arm.md) 一文，了解 Resource Manager 中的 IP 地址。
 
 ## <a name="public-ip-addresses"></a>公共 IP 地址
-公共 IP 地址可让 Azure 资源与 Internet 以及面向公众的 Azure 服务（例如 [Azure Redis 缓存](https://www.azure.cn/home/features/redis-cache/)、[Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)、[SQL 数据库](../sql-database/sql-database-technical-overview.md)和 [Azure 存储](../storage/storage-introduction.md)）通信。
+公共 IP 地址可让 Azure 资源与 Internet 以及面向公众的 Azure 服务（例如 [Azure Redis 缓存](https://www.azure.cn/home/features/redis-cache/)、[Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)、[SQL 数据库](../sql-database/sql-database-technical-overview.md)和 [Azure 存储](../storage/common/storage-introduction.md)）通信。
 
 公共 IP 地址与以下资源类型相关联：
 
@@ -52,10 +52,10 @@ ms.lasthandoff: 07/28/2017
 > 
 
 ### <a name="dns-hostname-resolution"></a>DNS 主机名解析
-在创建云服务或 IaaS VM 时，你需要提供在 Azure 的所有资源中唯一的云服务 DNS 名称。 这在 Azure 托管的 DNS 服务器中创建 *dnsname*.chinacloudapp.cn 到资源的公共 IP 地址的映射。 例如，创建云服务 DNS 名称为 **contoso** 的云服务时，完全限定域名 (FQDN) **contoso.chinacloudapp.cn** 将解析为该云服务的公共 IP 地址 (VIP)。 可以使用此 FQDN 创建指向 Azure 中的公共 IP 地址的自定义域 CNAME 记录。
+在创建云服务或 IaaS VM 时，需要提供在 Azure 的所有资源中唯一的云服务 DNS 名称。 这在 Azure 托管的 DNS 服务器中创建 *dnsname*.chinacloudapp.cn 到资源的公共 IP 地址的映射。 例如，创建云服务 DNS 名称为 **contoso** 的云服务时，完全限定域名 (FQDN) **contoso.chinacloudapp.cn** 将解析为该云服务的公共 IP 地址 (VIP)。 可以使用此 FQDN 创建指向 Azure 中的公共 IP 地址的自定义域 CNAME 记录。
 
 ### <a name="cloud-services"></a>云服务
-云服务始终具有一个称为虚拟 IP 地址 (VIP) 的公共 IP 地址。 你可以在云服务中创建终结点，以便将 VIP 中的不同端口关联到 VM 中的内部端口以及云服务中的角色实例。 
+云服务始终具有一个称为虚拟 IP 地址 (VIP) 的公共 IP 地址。 可以在云服务中创建终结点，以便将 VIP 中的不同端口关联到 VM 中的内部端口以及云服务中的角色实例。 
 
 云服务可以包含多个 IaaS VM 或 PaaS 角色实例，通过同一云服务 VIP 公开。 还可以[向云服务分配多个 VIP](../load-balancer/load-balancer-multivip.md)，这样可以启用多 VIP 方案，如包含基于 SSL 的网站的多租户环境。
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 07/28/2017
 * 使用链接到 IP 地址的 SSL 证书。
 
 > [!NOTE]
-> 创建经典 VM 时，Azure 创建的容器*云服务*具有虚拟 IP 地址 (VIP)。 通过门户创建时，由门户配置默认 RDP 或 SSH *终结点* ，使用户可通过云服务 VIP 连接到 VM。 可以保留此云服务 VIP，它能够有效地提供保留 IP 地址以便连接到 VM。 你可以通过配置多个终结点打开其他端口。
+> 创建经典 VM 时，Azure 创建的容器*云服务*具有虚拟 IP 地址 (VIP)。 通过门户创建时，由门户配置默认 RDP 或 SSH *终结点* ，使用户可通过云服务 VIP 连接到 VM。 可以保留此云服务 VIP，它能够有效地提供保留 IP 地址以便连接到 VM。 可以通过配置多个终结点打开其他端口。
 > 
 > 
 
@@ -130,12 +130,12 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 #### <a name="internal-dns-hostname-resolution"></a>内部 DNS 主机名解析
 所有 Azure VM 和 PaaS 角色实例都默认配置了 [Azure 托管的 DNS 服务器](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution)（除非显式配置了自定义 DNS 服务器）。 这些 DNS 服务器为驻留在同一个 VNet 或云服务内的 VM 和角色实例提供内部名称解析。
 
-创建 VM 时，主机名到其专用 IP 地址的映射将添加到 Azure 托管的 DNS 服务器。 使用多 NIC VM 时，主机名将映射到主 NIC 的专用 IP 地址。 但是，此映射信息将限制为同一云服务或 VNet 中的资源。
+创建 VM 时，主机名到其专用 IP 地址的映射会添加到 Azure 托管的 DNS 服务器。 使用多 NIC VM 时，主机名映射到主 NIC 的专用 IP 地址。 但是，此映射信息将限制为同一云服务或 VNet 中的资源。
 
 如果是  独立云服务，则只能解析同一云服务内的所有 VM/角色实例的主机名。 如果是 VNet 中的云服务，则可以解析该 VNet 中的所有 VM/角色实例的主机名。
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>内部负载均衡器 (ILB) 和应用程序网关
-可以将专用 IP 地址分配到 [Azure 内部负载均衡器](../load-balancer/load-balancer-internal-overview.md) (ILB) 或 [Azure 应用程序网关](../application-gateway/application-gateway-introduction.md)的**前端**配置。 此专用 IP 地址将用作内部终结点，仅供其虚拟网络 (VNet) 和连接到该 VNet 的远程网络中的资源访问。 可以将动态或静态专用 IP 地址分配给前端配置。 还可以分配多个专用 IP 地址以启用多 vip 方案。
+可以将专用 IP 地址分配到 [Azure 内部负载均衡器](../load-balancer/load-balancer-internal-overview.md) (ILB) 或 [Azure 应用程序网关](../application-gateway/application-gateway-introduction.md)的**前端**配置。 此专用 IP 地址将用作内部终结点，仅供其虚拟网络 (VNet) 和连接到该 VNet 的远程网络中的资源访问。 可以将动态或静态专用 IP 地址分配到前端配置。 还可以分配多个专用 IP 地址以启用多 vip 方案。
 
 ### <a name="at-a-glance"></a>速览
 下表显示了具有可能分配方法（动态/静态）的每种资源类型以及它是否具有分配多个专用 IP 地址的能力。
@@ -170,14 +170,14 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 | --- | --- | --- | --- |
 | **公共 IP 地址** |***VM*** |称为 ILPIP（仅限动态） |称为公共 IP（动态或静态） |
 |  ||分配到 IaaS VM 或 PaaS 角色实例 |与 VM 的 NIC 关联 | |
-| |***面向 Internet 的负载均衡器*** |称为 VIP（动态）或保留 IP（静态） |称为公共 IP（动态或静态） | |
+|  |***面向 Internet 的负载均衡器*** |称为 VIP（动态）或保留 IP（静态） |称为公共 IP（动态或静态） | |
 |  ||分配到云服务 |与负载均衡器的前端配置关联 | |
 |  | | | |
 | **专用 IP 地址** |***VM*** |称为 DIP |称为专用 IP 地址 |
 |  ||分配到 IaaS VM 或 PaaS 角色实例 |分配到 VM 的 NIC | |
-| |***内部负载均衡器 (ILB)*** |分配到 ILB（动态或静态） |分配到 ILB 的前端配置（动态或静态） | |
+|  |***内部负载均衡器 (ILB)*** |分配到 ILB（动态或静态） |分配到 ILB 的前端配置（动态或静态） | |
 
 ## <a name="next-steps"></a>后续步骤
 * 通过 Azure 门户[部署具有静态专用 IP 地址的 VM](virtual-networks-static-private-ip-classic-pportal.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update reference link-->

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 05/26/2017
-ms.date: 07/17/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8ebcd8625a08be99f9ab8ff296dedabc38ca0270
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 759f8028d9fa34db2cc5f9701e6b175ab835b4bb
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>使用 OMS 进行事件分析和可视化
 
@@ -37,7 +37,7 @@ Log Analytics 从托管资源（包括 Azure 存储表或代理）收集数据�
 
 ## <a name="setting-up-an-oms-workspace-with-the-service-fabric-solution"></a>使用 Service Fabric 解决方案设置 OMS 工作区
 
-建议将 Service Fabric 解决方案包括在 OMS 工作区中，因其提供有用的仪表板，可显示来自基础结构和应用程序级别的各种传入日志通道，以及用于查询 Service Fabric 特定日志的表。 相对简单的 Service Fabric 解决方案如下所示，群集上部署了一个应用程序：
+建议将 Service Fabric 解决方案添加到 OMS 工作区中，因为它提供有用的仪表板，可显示来自平台和应用程序级别的各种传入日志通道，并能查询 Service Fabric 特定日志。 相对简单的 Service Fabric 解决方案如下所示，群集上部署了一个应用程序：
 
 ![OMS SF 解决方案](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
@@ -50,7 +50,7 @@ Log Analytics 从托管资源（包括 Azure 存储表或代理）收集数据�
 >[!NOTE]
 >为此，必须启用诊断，以便 OMS/Log Analytics 从存在的 Azure 存储表读取信息。
 
-[此处](https://azure.microsoft.com/resources/templates/service-fabric-oms/)是示例模板，可根据需求使用和修改，以便执行上述操作。 如果想要更多选择，可在 [Service Fabric 和 OMS 模板](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS)中查看更多模板，这些模板会根据你在设置 OMS 工作区时所处的阶段为你提供不同的选项。
+[此处](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-oms/)是示例模板，可根据需求使用和修改，以便执行上述操作。 如果想要更多选择，可在 [Service Fabric 和 OMS 模板](https://github.com/Azure/azure-quickstart-templates/?term=service+fabric+OMS)中查看更多模板，这些模板会根据你在设置 OMS 工作区时所处的阶段为你提供不同的选项。
 
 ### <a name="deploying-oms-using-through-azure-marketplace"></a>通过 Azure 应用商店部署 OMS
 
@@ -65,7 +65,7 @@ Log Analytics 从托管资源（包括 Azure 存储表或代理）收集数据�
 建议使用 EventFlow 和 WAD 作为聚合解决方案，因为它们允许使用更加模块化的方法，方便诊断和监视。 例如，若要更改 EventFlow 的输出，不需更改实际检测，只需对配置文件进行简单修改。 然而，如果你决定投资 OMS 的使用（不需要是所使用的唯一平台，但至少要是所使用的平台之一），且愿意继续使用它进行事件分析，建议尝试设置 OMS 代理。
 <!-- Not Available [OMS agent](/log-analytics/log-analytics-windows-agents) -->
 
-执行此操作的过程相对容易，只需在 Resource Manager 模板中添加代理作为虚拟机规模集扩展，确保其安装在每个节点上。 可在[此处](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample)找到使用 Service Fabric 解决方案（如上所述）部署 OMS 工作区并将代理添加到节点的示例 Resource Manager 模板。
+执行此操作的过程相对容易，只需在 Resource Manager 模板中添加代理作为虚拟机规模集扩展，确保其安装在每个节点上。 可以为运行 [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) 或 [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) 的群集找到使用 Service Fabric 解决方案（如上所述）部署 OMS 工作区并将代理添加到节点的示例资源管理器模板。
 
 这样做的好处有：
 
@@ -109,4 +109,4 @@ Log Analytics 从托管资源（包括 Azure 存储表或代理）收集数据�
 <!-- Not Available * Configure OMS to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics -->
 <!-- Not Available * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics -->
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update reference link-->

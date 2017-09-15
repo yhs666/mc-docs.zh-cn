@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/20/2017
-ms.date: 08/14/2017
+origin.date: 08/10/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1e3568195897c22d8770feb962f838e42be2db3d
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 2b42448c9a49d205435410db0eb5d5df90ed79ac
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="prepare-your-development-environment"></a>准备开发环境
 > [!div class="op_single_selector"]
@@ -63,16 +63,11 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发和管理工作负�
 * [安装 Azure Service Fabric SDK][core-sdk]
 
 当前版本包括：
-* Service Fabric SDK 2.6.220
-* Service Fabric 运行时 5.6.220
-* Visual Studio 2015 工具 1.6.50508.2
-* Visual Studio 2017 Update 2
-
-当前预览版本包括：
-* Service Fabric SDK 255.255.2718.255
-* Service Fabric 运行时 255.255.5718.255
-* Visual Studio 2015 工具 1.6.50509.5
-* Visual Studio 2017 Update 3 Preview 1
+* Service Fabric SDK 2.7.198
+* Service Fabric 运行时 5.7.198
+* 用于 Visual Studio 2015 1.7.50721 的 Service Fabric 工具
+* Visual Studio 2017 Update 2 包括用于 Visual Studio 1.6.20170504 的 Service Fabric 工具
+* Visual Studio 2017 Update 3 Preview 7 (15.3.0 Preview 7.0) 包括用于 Visual Studio 1.7.20170721 的 Service Fabric 工具
 
 有关支持的版本列表，请参阅 [Service Fabric 支持](service-fabric-support.md)
 
@@ -100,6 +95,6 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 链接"
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 链接"
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 链接"
-[powershell5-download]:https://www.microsoft.com/en-US/download/details.aspx?id=50395
+[powershell5-download]:https://www.microsoft.com/download/details.aspx?id=50395
 
 <!--Update_Description: update meta properties, wording update-->

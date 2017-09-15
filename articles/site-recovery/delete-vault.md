@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 07/04/2017
 ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4d7f7dea4e9e1d16adbadf169b93352b3725d365
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 6e15da86fb2bb952d95050a24f4dd4b0cce53a7e
+ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="delete-a-site-recovery-vault"></a>删除 Site Recovery 保管库
 依赖项可能会阻止删除 Azure Site Recovery 保管库。 需要采取的措施因 Site Recovery 方案而异：VMware 到 Azure、Hyper-V（含和不含 System Center Virtual Machine Manager）到 Azure 和 Azure 备份。 若要删除用于 Azure 备份的保管库，请参阅[删除 Azure 备份保管库](../backup/backup-azure-delete-vault.md)。
@@ -52,7 +52,8 @@ ms.lasthandoff: 08/25/2017
 
 3. 按照[删除 vCenter](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery) 中的步骤操作，删除对 vCenter 的引用。
 
-4. 按照[解除配置服务器授权](site-recovery-vmware-to-azure-manage-configuration-server.md##decommissioning-a-configuration-server)中的步骤操作，删除配置服务器。
+4. 按照“解除配置服务器授权”中的步骤操作，删除配置服务器。
+<!--Not Available (site-recovery-vmware-to-azure-manage-configuration-server.md##decommissioning-a-configuration-server)-->
 
 5. 删除保管库。
 

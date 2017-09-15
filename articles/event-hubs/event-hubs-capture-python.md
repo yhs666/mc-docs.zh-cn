@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/28/2017
-ms.date: 07/24/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: a8a26055f9c938ac74bc48ff63599776d507c3d3
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 3ece7ef03310dc5aead7401f0e26cfc01c1bd94f
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>事件中心捕获演练：Python
 
@@ -171,8 +171,10 @@ ms.lasthandoff: 07/26/2017
 [Azure portal]: https://portal.azure.cn/
 [Overview of Event Hubs Capture]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
-[About Azure storage accounts]: ../storage/storage-create-storage-account.md
+[About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+
+<!--Update_Description: update meta properties, update reference link-->

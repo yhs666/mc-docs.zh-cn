@@ -1,6 +1,6 @@
 ---
 title: "在 Service Fabric 中管理多个环境 | Azure"
-description: "Service Fabric 应用程序可以在规模为一台计算机到数千台计算机的群集上运行。 在某些情况下，你需要以不同的方式针对各种环境配置你的应用程序。 本文介绍如何为每个环境定义不同的应用程序参数。"
+description: "Service Fabric 应用程序可以在规模为一台计算机到数千台计算机的群集上运行。 在某些情况下，需要以不同的方式针对各种环境配置应用程序。 本文介绍如何为每个环境定义不同的应用程序参数。"
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/07/2017
-ms.date: 07/17/2017
+origin.date: 08/18/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1498d46d6df3aaaeee7218fae1232a703299b6ea
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 1704d38451d7e83eeafed3070054ffdc82e7be75
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="manage-application-parameters-for-multiple-environments"></a>管理多个环境的应用程序参数
 可以从任何位置，使用任意数量的计算机（从一台到数千台）来创建 Service Fabric 群集。 尽管无需针对各种环境进行修改即可运行应用程序二进制文件，但通常会根据所要部署的计算机数目，以不同的方式配置应用程序。
@@ -54,7 +54,7 @@ Service Fabric 应用程序由服务实例的集合组成。 尽管你可以先�
 
 ```xml
 <Parameters>
-    <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
+    <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
     <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
 </Parameters>
@@ -98,7 +98,7 @@ DefaultValue 属性指定给定环境缺少更具体的参数时所要使用的�
 > 
 
 ### <a name="setting-and-using-environment-variables"></a>设置和使用环境变量 
-可以先在 ServiceManifest.xml 文件中指定和设置环境变量，然后在 ApplicationManifest.xml 文件中逐个实例地将其重写。
+可以先在 ServiceManifest.xml 文件中指定和设置环境变量，并在 ApplicationManifest.xml 文件中逐个实例地将其重写。
 下面的示例演示了两个环境变量：一个具有值集合，另一个被重写。 可以使用应用程序参数设置环境变量值，其方式与使用这些参数进行配置重写相同。
 
 ```xml
@@ -170,8 +170,7 @@ Service Fabric 针对每个服务实例设置内置的环境变量。 环境变�
 * FabricPackageFileName
 
 下列代码说明如何列出 Service Fabric 环境变量
-
-```csharp
+ ```csharp
     foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
     {
         if (de.Key.ToString().StartsWith("Fabric"))
@@ -180,7 +179,6 @@ Service Fabric 针对每个服务实例设置内置的环境变量。 环境变�
         }
     }
 ```
-
 以下是应用程序类型称为 `GuestExe.Application`、服务类型称为 `FrontEndService` 的应用在本地开发计算机上运行时环境变量的示例。
 
 * **Fabric_ApplicationName = fabric:/GuestExe.Application**
@@ -197,13 +195,12 @@ Service Fabric 应用程序项目可以包含一个或多个应用程序参数�
 
 <Application Name="fabric:/Application1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
     <Parameters>
-        <Parameter Name ="Stateful1_MinReplicaSetSize" Value="2" />
+        <Parameter Name ="Stateful1_MinReplicaSetSize" Value="3" />
         <Parameter Name="Stateful1_PartitionCount" Value="1" />
         <Parameter Name="Stateful1_TargetReplicaSetSize" Value="3" />
     </Parameters>
 </Application>
 ```
-
 默认情况下，新应用程序包含三个应用程序参数文件，分别名为 Local.1Node.xml、Local.5Node.xml 和 Cloud.xml：
 
 ![解决方案资源管理器中的应用程序参数文件][app-parameters-solution-explorer]
@@ -226,10 +223,11 @@ Service Fabric 应用程序项目可以包含一个或多个应用程序参数�
   ```
 
 ## <a name="next-steps"></a>后续步骤
-
 若要深入了解本主题中所述的某些核心概念，请参阅 [Service Fabric 技术概述](service-fabric-technical-overview.md)。 有关 Visual Studio 中其他可用应用管理功能的信息，请参阅[在 Visual Studio 中管理 Service Fabric 应用程序](service-fabric-manage-application-in-visual-studio.md)。
 
 <!-- Image references -->
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]:./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
+
+<!--Update_Description: update meta properties, wording update-->

@@ -3,8 +3,8 @@ title: "Azure 虚拟网络常见问题 | Azure"
 description: "有关 Azure 虚拟网络的常见问题的解答。"
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 54bee086-a8a5-4312-9866-19a1fba913d0
 ms.service: virtual-network
@@ -13,26 +13,26 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/18/2017
-ms.date: 03/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: c21a6a34699b9f936cfb9e561063a8701b3122f5
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 09/04/2017
+ms.author: v-yeche
+ms.openlocfilehash: 79fefb3036b31648a37bba95b8f3421d47c46fbc
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 
 ## <a name="virtual-network-basics"></a>虚拟网络基础知识
 
 ### <a name="what-is-an-azure-virtual-network-vnet"></a>Azure 虚拟网络 (VNet) 是什么？
-Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它是对专用于你的订阅的 Azure 云进行的逻辑隔离。 你可以使用 VNet 设置和管理 Azure 中的虚拟专用网络 (VPN)，或者链接 VNet 与 Azure 中的其他 VNet，或链接你的本地 IT 基础结构，以创建混合或跨界解决方案。 创建的每个 VNet 具有其自身的 CIDR 块，只要 CIDR 块不重叠，即可链接到其他 VNet 和本地网络。 还可以控制 VNet 的 DNS 服务器设置并将 VNet 分离到子网中。
+Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它是对专用于订阅的 Azure 云进行的逻辑隔离。 你可以使用 VNet 设置和管理 Azure 中的虚拟专用网络 (VPN)，或者链接 VNet 与 Azure 中的其他 VNet，或链接你的本地 IT 基础结构，以创建混合或跨界解决方案。 创建的每个 VNet 具有其自身的 CIDR 块，只要 CIDR 块不重叠，即可链接到其他 VNet 和本地网络。 还可以控制 VNet 的 DNS 服务器设置并将 VNet 分离到子网中。
 
 使用 VNet：
 
-* 创建私有云专用的 VNet：有时，不需要对解决方案使用跨界配置。 创建 VNet 时，VNet 中的服务和 VM 可以在云中安全地互相直接通信。 这可以在 VNet 内安全地保存流量，但仍允许你为需要 Internet 通信的 VM 和服务配置终结点连接，作为解决方案的一部分。
+* 创建私有云专用的 VNet：有时，不需要对解决方案使用跨界配置。 创建 VNet 时，VNet 中的服务和 VM 可以在云中安全地互相直接通信。 这可以在 VNet 内安全地保存流量，但仍允许为需要 Internet 通信的 VM 和服务配置终结点连接，作为解决方案的一部分。
 * 安全地扩展数据中心：借助 VNet，可以构建传统的站点到站点 (S2S) VPN，以便安全缩放数据中心的容量。 S2S VPN 使用 IPSEC 提供企业 VPN 网关和 Azure 之间的安全连接。
-* 实现混合云方案：利用 VNet 可以灵活支持一系列混合云方案。 你可以安全地将基于云的应用程序连接到任何类型的本地系统，例如大型机和 Unix 系统。
+* 实现混合云方案：利用 VNet 可以灵活支持一系列混合云方案。 可以安全地将基于云的应用程序连接到任何类型的本地系统，例如大型机和 Unix 系统。
 
 ### <a name="how-do-i-know-if-i-need-a-vnet"></a>如何知道是否需要 VNet？
 [虚拟网络概述](virtual-networks-overview.md)一文提供了一份决策表，可帮助你确定最佳的网络设计选项。
@@ -58,7 +58,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 * Azure CLI（用于经典 VNet 和 Resource Manager VNet）。
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>在我的 VNet 中可以使用哪些地址范围？
-你可以使用 [RFC 1918](http://tools.ietf.org/html/rfc1918)中定义的公共 IP 地址范围和任何 IP 地址范围。
+[RFC 1918](http://tools.ietf.org/html/rfc1918) 中定义的任何 IP 地址范围。 例如 10.0.0.0/16。
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>我的 VNet 中是否可以有公共 IP 地址？
 可以。 有关公共 IP 地址范围的详细信息，请参阅[虚拟网络中的公共 IP 地址空间](virtual-networks-public-ip-within-vnet.md)一文。 无法从 Internet 直接访问公共 IP 地址。
@@ -70,7 +70,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 可以。 Azure 会保留每个子网中的某些 IP 地址。 子网的第一个和最后一个 IP 地址仅为协议一致性而保留，其他 3 个地址用于 Azure 服务。
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>VNet 和子网的最小和最大容量是多少？
-我们支持的最小子网为 /29，最大为 /8（使用 CIDR 子网定义）。
+支持的最小子网为 /29，最大为 /8（使用 CIDR 子网定义）。
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>是否可以使用 VNet 将 VLAN 引入 Azure 中？
 否。 VNet 是第 3 层重叠。 Azure 不支持任何第 2 层语义。
@@ -119,7 +119,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 使用 [VM 和角色实例的名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)页上的决策表，可引导用户浏览可用的所有 DNS 选项。
 
 ### <a name="can-i-specify-dns-servers-for-a-vnet"></a>是否可以为 VNet 指定 DNS 服务器？
-是的。 可以在 VNet 设置中指定 DNS 服务器 IP 地址。 这将作为 VNet 中的所有 VM 的默认 DNS 服务器进行应用。
+是的。 可以在 VNet 设置中指定 DNS 服务器 IP 地址。 这将作为 VNet 中所有 VM 的默认 DNS 服务器进行应用。
 
 ### <a name="how-many-dns-servers-can-i-specify"></a>可以指定多少 DNS 服务器？
 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。
@@ -136,7 +136,7 @@ Azure 提供的 DNS 是由 Microsoft 提供的多租户 DNS 服务。 Azure 在�
 > 
 
 ### <a name="can-i-override-my-dns-settings-on-a-per-vm--service-basis"></a>是否可以基于每个 VM/服务重写 DNS 设置？
-是的。 你可以基于每个云服务设置 DNS 服务器，以重写默认网络设置。 但是，我们建议你使用尽可能多的整个网络的 DNS。
+是的。 可以基于每个云服务设置 DNS 服务器，以重写默认网络设置。 但是，我们建议使用尽可能多的整个网络的 DNS。
 
 ### <a name="can-i-bring-my-own-dns-suffix"></a>是否可以引入我自己的 DNS 后缀？
 否。 不能为 VNet 指定自定义的 DNS 后缀。
@@ -180,6 +180,7 @@ Azure 提供的 DNS 是由 Microsoft 提供的多租户 DNS 服务。 Azure 在�
 是的。 可以使用 ASE（应用服务环境）在 VNet 中部署 Web 应用。 如果为 VNet 配置了点到站点连接，Web 应用可以安全地连接和访问 Azure VNet 中的资源。 有关详细信息，请参阅以下文章：
 
 * [将应用与 Azure 虚拟网络进行集成](../app-service-web/web-sites-integrate-with-vnet.md)
+* [将 VNet 集成和混合连接用于 Web 应用](../app-service-web/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>是否可以在 VNet 中部署云服务与 Web 和辅助角色 (PaaS)？
 是的。 （可选）可在 VNet 中部署云服务角色实例。 为此，请在服务配置的网络配置部分中指定 VNet 名称和角色/子网映射。 不需要更新任何二进制文件。
@@ -212,5 +213,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间完�
 ### <a name="is-there-tooling-support-for-vnets"></a>是否有 VNet 的工具支持？
 可以。 详细了解以下操作：
 - 使用 Azure 门户通过 [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) 和[经典](virtual-networks-create-vnet-classic-pportal.md)部署模型部署 VNet。
-- 使用 PowerShell 来管理通过 [Resource Manager](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network) 和[经典](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)部署模型部署的 VNet。
+- 使用 PowerShell 来管理通过 [Resource Manager](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) 和[经典](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)部署模型部署的 VNet。
 - 使用 [Azure 命令行接口 (CLI)](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) 来管理通过这两种部署模型部署的 VNet。
+
+<!--Update_Description: wording update, update reference link-->

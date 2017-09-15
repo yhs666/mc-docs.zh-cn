@@ -1,24 +1,25 @@
 ---
-title: "使用 Resource Manager 模板创建服务总线命名空间 | Azure"
+title: "使用 Azure 资源管理器模板创建服务总线命名空间 | Microsoft Docs"
 description: "使用 Azure Resource Manager 模板创建服务总线命名空间"
 services: service-bus
 documentationCenter: .net
-authors: sethmanheim
+author: sethmanheim
 manager: timlt
 editor: 
+ms.assetid: dc0d6482-6344-4cef-8644-d4573639f5e4
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 04/15/2016
+origin.date: 08/07/2017
 ms.author: v-yiso
-ms.date: 05/22/2017
-ms.openlocfilehash: af02c25a37edd129c72b931bfeb6f54009363d51
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 09/18/2017
+ms.openlocfilehash: 135fff4acaddeafb5a944b9854205cab163c4491
+ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建服务总线命名空间
 本文介绍如何使用 Azure Resource Manager 模板创建包含标准/基本 SKU 的类型为 **Messaging** 的服务总线命名空间。 本文还定义了为执行部署指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。
@@ -37,7 +38,7 @@ ms.lasthandoff: 06/21/2017
 >
 >若要检查最新模板，请访问 [Azure 快速启动模板][] 库并搜索服务总线。
 
-## <a name="what-will-you-deploy"></a>你将部署什么内容？
+## <a name="what-will-you-deploy"></a>将部署什么内容？
 
 使用此模板，可以部署包含[基本、标准或高级](https://www.azure.cn/pricing/details/messaging/) SKU 的服务总线命名空间。
 
@@ -47,15 +48,15 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="parameters"></a>Parameters
 
-使用 Azure Resource Manager，可以定义在部署模板时想要指定的值的参数。 该模板具有一个名为 `Parameters` 的部分，其中包含所有参数值。 你应该为随着要部署的项目或要部署到的环境而变化的值定义参数。 不要为永远保持不变的值定义参数。 每个参数值可在模板中用来定义所部署的资源。
+使用 Azure Resource Manager，可以定义在部署模板时想要指定的值的参数。 该模板具有一个名为 `Parameters` 的部分，其中包含所有参数值。 应该为随着要部署的项目或要部署到的环境而变化的值定义参数。 不要为永远保持不变的值定义参数。 每个参数值可在模板中用来定义所部署的资源。
 
-模板定义以下参数。
+此模板定义以下参数。
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 
 要创建的服务总线命名空间的名称。
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string",
 "metadata": { 
@@ -68,7 +69,7 @@ ms.lasthandoff: 06/21/2017
 
 要创建的服务总线 [SKU](https://www.azure.cn/pricing/details/messaging/) 的名称。
 
-```
+```json
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
@@ -85,13 +86,13 @@ ms.lasthandoff: 06/21/2017
 
 模板定义此参数允许的值（Basic、Standard 或 Premium），如果未指定任何值，则分配默认值 (Standard)。
 
-有关服务总线定价的详细信息，请参阅 [服务总线和定价][]。
+有关服务总线定价的详细信息，请参阅[服务总线定价和计费][Service Bus pricing and billing]。
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 
 模板的服务总线 API 版本。
 
-```
+```json
 "serviceBusApiVersion": { 
        "type": "string", 
        "defaultValue": "2015-08-01", 
@@ -106,7 +107,7 @@ ms.lasthandoff: 06/21/2017
 
 创建类型为“Messaging” 的标准服务总线命名空间。
 
-```
+```json
 "resources": [
     {
         "apiVersion": "[parameters('serviceBusApiVersion')]",
@@ -129,14 +130,12 @@ ms.lasthandoff: 06/21/2017
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-
-```
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
-
-```
+```azurecli
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
@@ -151,6 +150,6 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
   [创作 Azure Resource Manager 模板]: ../azure-resource-manager/resource-group-authoring-templates.md
   [服务总线命名空间模板]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
   [Azure 快速启动模板]: https://azure.microsoft.com/documentation/templates/
-  [服务总线和定价]: ./service-bus-pricing-billing.md
+  [Service Bus pricing and billing]: ./service-bus-pricing-billing.md
   [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

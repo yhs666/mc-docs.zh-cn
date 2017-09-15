@@ -9,14 +9,14 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-origin.date: 05/05/2017
-ms.date: 07/03/2017
+origin.date: 07/21/2017
+ms.date: 09/06/2017
 ms.author: v-junlch
-ms.openlocfilehash: a1026c40990f6f567466a5160d3b3ef7b1f57847
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 6e1fab954ab5c522e7eb9fd91b70f66622e9da82
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="use-low-priority-vms-with-batch-preview"></a>使用 Batch 中的低优先级 VM（预览版）
 
@@ -26,7 +26,9 @@ Azure Batch 提供优先级别虚拟机 (VM) 来降低 Batch 工作负荷的成�
 
 使用低优先级 VM 的弊端是，当 Azure 中没有多余的容量时，这些 VM 可能会被取代。 出于此原因，低优先级 VM 最适合用于某些类型的工作负荷。 对于作业完成时间很灵活且工作分布在多个 VM 上的批处理和异步处理工作负荷，可以使用低优先级 VM。
 
-有关低优先级 VM 的更多介绍，请参阅通告博客文章：[Batch computing at a fraction of the price](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/preview/)（以少量的成本享受批量计算）。
+低优先级 VM 的成本远远低于专用 VM。 有关价格详细信息，请参阅 [Batch 定价](https://www.azure.cn/pricing/details/batch/)。
+
+有关低优先级 VM 的更多介绍，请参阅通告博客文章：[Batch computing at a fraction of the price](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/)（以少量的成本享受批量计算）。
 
 > [!IMPORTANT]
 > 低优先级 VM 目前以预览版提供，仅适用于在 Batch 中运行的工作负荷。 
@@ -73,6 +75,11 @@ Azure Batch 提供多种功能来方便你使用低优先级 VM 并从中受益�
 
 -   低优先级 VM 的核心配额不同于专用 VM 的配额。 
     低优先级 VM 的配额比专用 VM 要高，因为低优先级 VM 的成本更低。 有关详细信息，请参阅 [Batch 服务配额和限制](batch-quota-limit.md#resource-quotas)。    
+
+> [!NOTE]
+> 池分配模式设置为“用户订阅”的 Batch 帐户目前不支持低优先级 VM。
+>
+>
 
 ## <a name="create-and-update-pools"></a>创建和更新池
 
@@ -164,8 +171,25 @@ VM 有时会被取代；如果发生这种情况，Batch 将执行以下操作�
 -   池将不断地尝试用完低优先级节点的可用目标数量。 如果找到替代容量，节点将保留其 ID 但会被重新初始化，依次经历“正在创建”和“正在启动”状态，然后供任务计划使用。
 -   Azure 门户将以指标形式提供取代计数。
 
+## <a name="metrics"></a>指标
+
+[Azure 门户](https://portal.azure.cn)提供了低优先级节点的新指标。 这些指标是：
+
+- 低优先级节点计数
+- 低优先级核心计数 
+- 已占用节点计数
+
+在 Azure 门户中查看指标：
+
+1. 在门户中导航到 Batch 帐户，查看此帐户设置。
+2. 从“监视”部分选择“指标”。
+3. 从“可用指标”列表选择所需指标。
+
+![低优先级节点的指标](./media/batch-low-pri-vms/low-pri-metrics.png)
+
 ## <a name="next-steps"></a>后续步骤
 
-- 对于准备使用 Batch 的任何人，有必要阅读 [面向开发人员的 Batch 功能概述](batch-api-basics.md)了解基本信息。 本文中包含有关 Batch 服务资源（如池、节点、作业和任务）以及生成你的 Batch 应用程序时可以使用的许多 API 功能的更多详细信息。
+- 对于准备使用 Batch 的任何人，有必要阅读 [面向开发人员的 Batch 功能概述](batch-api-basics.md)了解基本信息。 本文中包含有关 Batch 服务资源（如池、节点、作业和任务）以及生成 Batch 应用程序时可以使用的许多 API 功能的更多详细信息。
 - 了解适用于生成批处理解决方案的[批处理 API 和工具](batch-apis-tools.md)。
 
+<!-- Update_Description: wording update -->

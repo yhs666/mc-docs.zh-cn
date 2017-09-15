@@ -1,5 +1,5 @@
 ---
-title: "Azure Key Vault 开发人员指南 | Microsoft Docs"
+title: "Azure 密钥保管库开发人员指南"
 description: "开发人员可以使用 Azure 密钥保管库来管理 Azure 环境中的加密密钥。"
 services: key-vault
 author: alexchen2016
@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-origin.date: 06/06/2017
-ms.date: 08/02/2017
+origin.date: 08/04/2017
+ms.date: 09/07/2017
 ms.author: v-junlch
-ms.openlocfilehash: 0c9556d398f58c19a0718c51069a2fd73f5e9bb4
-ms.sourcegitcommit: d50ba5d6f934de899a9b35f0f3c1f3be164ba1ee
+ms.openlocfilehash: 461dc27f5a1286c2d33c5344579f1074f101a8d5
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 密钥保管库开发人员指南
 
@@ -98,8 +98,9 @@ ms.lasthandoff: 08/25/2017
 - [如何将 Key Vault 中的证书部署到 VM](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - 在 Azure 上的 VM 中运行的云应用程序需要一个证书。 现在，如何将此证书部署到此 VM 中？
 - [如何使用端到端密钥轮换和审核设置 Key Vault](key-vault-key-rotation-log-monitoring.md) - 逐步介绍如何设置 Azure Key Vault 的密钥轮换和审核。
 - [通过 Key Vault 部署 Azure Web 应用证书]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)提供有关部署作为[应用服务证书](https://azure.microsoft.com/blog/internals-of-app-service-certificate/)产品的一部分存储在 Key Vault 中的证书的分步说明。
-
-如需更多将 Key Vault 与 Azure 集成和结合使用的特定于任务的指导，请参阅 [Ryan Jones Azure Resource Manager template examples for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)（针对 Key Vault 的 Ryan Jones Azure 资源管理器模板示例）。
+- 如需更多将 Key Vault 与 Azure 集成和结合使用的特定于任务的指导，请参阅 [Ryan Jones Azure Resource Manager template examples for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)（针对 Key Vault 的 Ryan Jones Azure 资源管理器模板示例）。
+- [如何将 Key Vault 软删除与 CLI 配合使用](key-vault-soft-delete-cli.md)介绍了 Key Vault 的使用和生命周期以及各种已启用软删除的 Key Vault 对象。
+- [如何将 Key Vault 软删除与 PowerShell 配合使用](key-vault-soft-delete-powershell.md)介绍了 Key Vault 的使用和生命周期以及各种已启用软删除的 Key Vault 对象。
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault 概述和概念
 

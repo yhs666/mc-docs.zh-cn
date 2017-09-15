@@ -22,10 +22,6 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [模板](virtual-networks-create-vnet-arm-template-click.md)
-#### 经典
-##### [门户](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### 网络安全组
 #### [门户](virtual-networks-create-nsg-arm-pportal.md)
@@ -44,7 +40,11 @@
 ##### [PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [CLI](virtual-network-create-udr-classic-cli.md)
 
-### [虚拟网络对等互连](virtual-network-create-peering.md)
+### 虚拟网络对等互连
+#### [同一部署模型 - 同一订阅](virtual-network-create-peering.md)
+#### [同一部署模型 - 不同订阅](create-peering-different-subscriptions.md)
+#### [不同部署模型 - 同一订阅](create-peering-different-deployment-models.md)
+#### [不同部署模型 - 不同订阅](create-peering-different-deployment-models-subscriptions.md)
 
 ### 虚拟机
 #### 创建具有静态公共 IP 地址的 VM
@@ -77,11 +77,14 @@
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [模板](virtual-network-multiple-ip-addresses-template.md)
 
+#### [创建具有加速网络的 VM](virtual-network-create-vm-accelerated-networking.md)
+
 ### 连接方案
 #### [虚拟网络 (VNet) 到 VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fvirtual-network%2ftoc.json)
 #### [VNet (Resource Manager) 到 VNet（经典）](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fvirtual-network%2ftoc.json)
 #### [VNet 到本地网络 (VPN)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)
 #### [VNet 到本地网络 (ExpressRoute)](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fvirtual-network%2ftoc.json)
+<!-- Not Available #### [Highly available hybrid network architecture](../guidance/guidance-hybrid-network-expressroute-vpn-failover.md?toc=%2fvirtual-network%2ftoc.json)-->
 
 ### 安全方案
 #### [使用虚拟设备保护网络](virtual-network-scenario-udr-gw-nva.md)
@@ -89,6 +92,12 @@
 ##### [使用防火墙和 NSG 的外围网络](virtual-networks-dmz-nsg-fw-asm.md)
 ##### [使用防火墙、UDR 和 NSG 的外围网络](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [示例应用程序](virtual-networks-sample-app.md)
+
+### 经典
+#### [虚拟网络](create-virtual-network-classic.md)
+##### [门户](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ## 配置
 ### 虚拟机
@@ -150,3 +159,5 @@
 ## [网络博客](https://www.azure.cn/blog/tags/虚拟网络)
 ## [网络论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [价格](https://www.azure.cn/pricing/details/networking/)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
+## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-virtual-network)

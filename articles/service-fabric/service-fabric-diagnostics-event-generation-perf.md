@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/30/2017
-ms.date: 08/14/2017
-wacn.date: 
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 94d7be6885bff799dead21888cf2c510ceefc561
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 6d4ec164391c22bad98a4eb4b7f21e0948d14587
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="performance-metrics"></a>性能指标
 
@@ -32,16 +31,10 @@ ms.lasthandoff: 08/11/2017
 
 | 计数器类别 | 计数器名称 |
 | --- | --- |
-| PhysicalDisk(Total) | 平均值 磁盘读取队列长度 |
-| PhysicalDisk(Total) | 平均值 磁盘写入队列长度 |
-| PhysicalDisk(Total) | 磁盘读取数/秒 |
-| PhysicalDisk(Total) | 磁盘读取字节数/秒 |
-| PhysicalDisk(Total) | 磁盘写入数/秒 |
-| PhysicalDisk(Total) | 磁盘写入字节数/秒 |
-| PhysicalDisk(per Disk) | 平均值 磁盘读取队列长度 |
-| PhysicalDisk(per Disk) | 平均值 磁盘写入队列长度 |
-| PhysicalDisk(per Disk) | 平均值 磁盘秒数/读取 |
-| PhysicalDisk(per Disk) | 平均值 磁盘秒数/写入 |
+| PhysicalDisk(per Disk) | 平均值磁盘读取队列长度 |
+| PhysicalDisk(per Disk) | 平均值磁盘写入队列长度 |
+| PhysicalDisk(per Disk) | 平均值磁盘秒数/读取 |
+| PhysicalDisk(per Disk) | 平均值磁盘秒数/写入 |
 | PhysicalDisk(per Disk) | 磁盘读取数/秒 |
 | PhysicalDisk(per Disk) | 磁盘读取字节数/秒 |
 | PhysicalDisk(per Disk) | 磁盘写入数/秒 |
@@ -84,5 +77,7 @@ Service Fabric 生成大量自定义性能计数器。 如果已安装 SDK，可
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解 Service Fabric 中的[基础结构级事件生成](service-fabric-diagnostics-event-generation-infra.md)
+* 详细了解 Service Fabric 中的[平台级事件生成情况](service-fabric-diagnostics-event-generation-infra.md)
 * 通过 [Azure 诊断](service-fabric-diagnostics-event-aggregation-wad.md)收集性能指标
+
+<!--Update_Description: update meta properties, wording update-->

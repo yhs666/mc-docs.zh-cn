@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/27/2017
-ms.date: 07/24/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: a2f8b15fca34c8261214b787da73c54fc1992e9e
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: d5e649152b759740fd6b8496e401826cccf05c89
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>选择流分析平台：Apache Storm 与 Azure 流分析的比较
 Azure 提供了多种用于流数据分析的解决方案：[Azure 流分析](/stream-analytics/)和 Azure HDInsight 上的 Apache Storm。 这两个分析平台都具备 PaaS 解决方案的优势。 但这些平台的功能以及配置和管理方式却存在一些显著差异。 
@@ -69,7 +69,7 @@ Azure 提供了多种用于流数据分析的解决方案：[Azure 流分析](/s
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>是否由 Microsoft 提供支持？</strong>
+                    <strong>Azure 支持？</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -125,8 +125,7 @@ Azure 提供了多种用于流数据分析的解决方案：[Azure 流分析](/s
                 <p>
 按照处理的数据量以及作业每小时运行所需的流式处理单元数来定价。 
                 </p>
-                <p>
-有关详细信息，请参阅<a href="https://www.azure.cn/pricing/details/stream-analytics/">流分析定价</a>。</p>
+                    <p>有关详细信息，请参阅<a href="https://www.azure.cn/pricing/details/stream-analytics/">流分析定价</a>。</p>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -333,7 +332,7 @@ Avro、JSON、CSV </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Storm 在拓扑中支持多种输出，每种输出都可以具有用于下游处理的自定义逻辑。 Storm 包括适用于 Power BI、Azure 事件中心、Azure Blob 存储、SQL 和 HBase 的连接器。 用户可使用自定义代码创建其他连接器。    
+Storm 在拓扑中支持多种输出，每种输出都可以具有用于下游处理的自定义逻辑。 Storm 包括适用于 Power BI、Azure 事件中心、Azure Blob 存储、Azure Cosmos DB、SQL 和 HBase 的连接器。 用户可使用自定义代码创建其他连接器。    
                 </p>
             </td>
         </tr>
@@ -556,7 +555,7 @@ Azure Blob 存储提供引用数据，内存中缓存最大大小为 100 MB。 �
             </td>
             <td width="246" valign="top">
                 <p>
-数据大小没有限制。 连接器适用于 HBase、SQL Server 和 Azure。 用户可使用自定义代码创建其他连接器。 必须使用自定义代码刷新引用数据。
+数据大小没有限制。 连接器适用于 HBase、Azure Cosmos DB、SQL Server 和 Azure。 用户可使用自定义代码创建其他连接器。 必须使用自定义代码刷新引用数据。
                 </p>
             </td>
         </tr>
@@ -580,4 +579,4 @@ Azure Blob 存储提供引用数据，内存中缓存最大大小为 100 MB。 �
     </tbody>
 </table>
 
-<!--Update_Description: update meta properties,wording update-->
+<!--Update_Description: wording update-->

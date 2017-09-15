@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 06/29/2017
 ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: 355da4056a00ac013f4920ae4493848bb632bf07
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 5ab58171c0c0da207fcee2027cc13b4108bf9ae3
+ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery Deployment Planner 用户指南。
@@ -311,7 +311,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 >
 >  3. 检查本地存储特征，确定能否改进硬件（例如，从 HDD 升级到 SSD）。
 >
->  4. 更改进程服务器中的 Site Recovery 设置，[增大用于复制的网络带宽量](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth)。
+>  4. 更改进程服务器中的 Site Recovery 设置，增大用于复制的网络带宽量。
 
 ## <a name="recommendations-with-desired-rpo-as-input"></a>用作输入的所需 RPO 建议
 
@@ -355,7 +355,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 3. 检查本地存储特征，确定能否改进硬件（例如，从 HDD 升级到 SSD）。
 
-4. 更改进程服务器中的 Site Recovery 设置，[增大用于复制的网络带宽量](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth)。
+4. 更改进程服务器中的 Site Recovery 设置，增大用于复制的网络带宽量。
 
 如果是在其 VM 已经受保护的配置服务器或进程服务器上运行该工具，请运行该工具多次。 已实现的吞吐量数字会更改，具体取决于在该时间点处理的数据更改量。
 

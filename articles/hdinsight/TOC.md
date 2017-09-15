@@ -4,6 +4,7 @@
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
+## [Kafka（预览版）](hdinsight-apache-kafka-introduction.md)
 ## 发行说明
 ### [最近](hdinsight-release-notes.md)
 ### [存档](hdinsight-release-notes-archive.md)
@@ -14,6 +15,7 @@
 ## [HBase 和 NoSQL 入门](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Storm 入门](hdinsight-apache-storm-tutorial-get-started-linux.md)
 ## [Interactive Hive（预览版）入门](hdinsight-hadoop-use-interactive-hive.md)
+## [Kafka（预览版）入门](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop 沙盒](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake 工具与 Hortonworks 沙盒](hdinsight-hadoop-emulator-visual-studio.md)
 ## [适用于 Visual Studio 的工具](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -84,6 +86,14 @@
 #### [处理车辆传感器数据](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [关联各个时间的事件](hdinsight-storm-correlation-topology.md)
 #### [使用 Python 开发拓扑](hdinsight-storm-develop-python-topology.md)
+## 使用 Kafka（预览版）
+### [复制 Kafka 数据](hdinsight-apache-kafka-mirroring.md)
+### [配置 Kafka 的存储和可伸缩性](hdinsight-apache-kafka-scalability.md)
+### [配置数据的高可用性](hdinsight-apache-kafka-high-availability.md)
+### [与虚拟网络配合使用](hdinsight-apache-kafka-connect-vpn-gateway.md)
+### [与 Spark 配合使用（结构化流）](hdinsight-apache-kafka-spark-structured-streaming.md)
+### [与 Spark 配合使用 (DStream)](hdinsight-apache-spark-with-kafka.md)
+### [与 Storm 配合使用](hdinsight-apache-storm-with-kafka.md)
 ## 开发
 ### [开发 C# 流式处理 MapReduce 程序](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [开发 Java MapReduce 程序](hdinsight-develop-deploy-java-mapreduce-linux.md)
@@ -123,7 +133,7 @@
 #### [安装自定义应用](hdinsight-apps-install-custom-applications.md)
 #### [使用 REST 安装应用](https://msdn.microsoft.com/library/mt706515.aspx)
 ## 安全
-### [将 Pig 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)
+### [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [使用 SSH 隧道](hdinsight-linux-ambari-ssh-tunnel.md)
 ### [限制数据访问](hdinsight-storage-sharedaccesssignature-permissions.md)
 ## 管理

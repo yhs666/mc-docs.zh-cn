@@ -13,23 +13,28 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/14/2017
-ms.date: 06/30/2017
+origin.date: 08/02/2017
+ms.date: 09/04/2017
 ms.author: v-junlch
-ms.openlocfilehash: 08bcb6a086863eac556e1531bc44157b674c2196
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 2f6711a0554390bac98e9f5fb2a154bc5a36711a
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="back-up-azure-virtual-machines-classic-management-portal"></a>备份 Azure 虚拟机（经典管理门户）
+> [!div class="op_single_selector"]
+> * [将 VM 备份到恢复服务保管库](backup-azure-arm-vms.md)
+> * [将 VM 备份到备份保管库](backup-azure-vms.md)
+>
+>
 
-本文提供了将经典部署的 Azure 虚拟机 (VM) 备份到备份保管库的过程。 需要先执行几个任务，然后才能备份 Azure 虚拟机。 如果尚未这样做，请完成[先决条件](backup-azure-vms-prepare.md)部分，在环境中做好 VM 备份的准备。
+本文提供了将经典部署的 Azure 虚拟机 (VM) 备份到备份保管库的过程。 需要先执行几个任务，才能备份 Azure 虚拟机。 如果尚未这样做，请完成[先决条件](backup-azure-vms-prepare.md)部分，在环境中做好 VM 备份的准备。
 
 有关其他信息，请参阅[在 Azure 中规划 VM 备份基础结构](./backup-azure-vms-introduction.md)和 [Azure 虚拟机](../virtual-machines/index.md)。
 
 > [!NOTE]
-> Azure 有两种用于创建和使用资源的部署模型： [Resource Manager 部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 备份保管库只能保护经典部署 VM。 无法使用备份保管库保护使用 Resource Manager 部署的 VM。 有关使用恢复服务保管库的详细信息，请参阅《将 VM 备份到恢复服务保管库》。
+> Azure 有两种用于创建和使用资源的部署模型： [Resource Manager 部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 备份保管库只能保护经典部署 VM。 无法使用备份保管库保护使用 Resource Manager 部署的 VM。 有关使用恢复服务保管库的详细信息，请参阅[将 VM 备份到恢复服务保管库](backup-azure-arm-vms.md)。
 >
 >
 
@@ -40,10 +45,15 @@ ms.lasthandoff: 07/14/2017
 > [!NOTE]
 > 备份虚拟机是在本地完成的过程。 不能将一个区域的虚拟机备份到另一个区域的备份保管库。 因此，必须在每个要备份 VM 的 Azure 区域中创建一个备份保管库。
 >
+> [!IMPORTANT]
+> 从 2017 年 3 月开始，无法再使用经典管理门户来创建备份保管库。
+> 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> 2017 年 10 月 15 日之后，将无法使用 PowerShell 创建备份保管库。 2017 年 11 月 1 日之前：
+>- 其余所有备份保管库都将自动升级到恢复服务保管库。
+>- 无法在经典管理门户中访问备份数据。 应使用 Azure 门户在恢复服务保管库中访问备份数据。
 >
 
 ## <a name="step-1---discover-azure-virtual-machines"></a>步骤 1 - 发现 Azure 虚拟机
-为了确保在注册前能够识别任何添加到订阅中的新虚拟机 (VM)，请先运行发现过程。 该过程将在 Azure 上查询订阅中的虚拟机列表和其他信息，例如云服务名称、区域等。
+为了确保在注册前能够识别任何添加到订阅中的新虚拟机 (VM)，请先运行发现过程。 该过程会在 Azure 上查询订阅中的虚拟机列表和其他信息，例如云服务名称、区域等。
 
 1. 登录到 [经典管理门户](http://manage.windowsazure.cn/)
 2. 在 Azure 服务列表中，单击“恢复服务”打开备份和 Site Recovery 保管库列表。
@@ -54,7 +64,7 @@ ms.lasthandoff: 07/14/2017
 
     ![打开“已注册的项”菜单](./media/backup-azure-vms/vault-quick-start.png)
 
-    如果以前已配置了该保管库，门户将打开最近使用的菜单。
+    如果以前已配置了该保管库，门户会打开最近使用的菜单。
 4. 在保管库菜单（位于页面顶部）中，单击“已注册的项”。
 
     ![打开“已注册的项”菜单](./media/backup-azure-vms/vault-menu.png)
@@ -64,7 +74,7 @@ ms.lasthandoff: 07/14/2017
 6. 单击页面底部的“**发现**”。
     ![发现按钮](./media/backup-azure-vms/discover-button-only.png)
 
-    发现过程可能会需要几分钟，将以表格显示虚拟机。 屏幕底部有一个通知，让你知道系统正在运行发现过程。
+    在以表格显示虚拟机时，发现过程可能会需要几分钟。 屏幕底部有一个通知，让你知道系统正在运行发现过程。
 
     ![发现 VM](./media/backup-azure-vms/discovering-vms.png)
 
@@ -83,7 +93,7 @@ ms.lasthandoff: 07/14/2017
     ![选择工作负荷](./media/backup-azure-vms/discovery-select-workload.png)
 3. 单击页面底部的“**注册**”。
     ![注册按钮](./media/backup-azure-vms/register-button-only.png)
-4. 在“**注册项**”快捷菜单中，选择你要注册的虚拟机。 如果存在两个或两个以上的同名虚拟机，请使用云服务进行区别。
+4. 在“注册项”快捷菜单中，选择要注册的虚拟机。 如果存在两个或两个以上的同名虚拟机，请使用云服务进行区别。
 
    > [!TIP]
    > 可以一次注册多个虚拟机。
@@ -140,7 +150,7 @@ ms.lasthandoff: 07/14/2017
 
     ![使用弹性保留期进行保护](./media/backup-azure-vms/policy-retention.png)
 
-    保留策略指定存储备份的时间长短。 你可以根据备份的时间指定不同的保留策略。 例如，每天创建的备份点（用作操作恢复点）可能需保留 90 天。 相比而言，在每个季末创建的备份点可能需要保留数月甚至数年时间（用于审核目的）。
+    保留策略指定存储备份的时间长短。 可以根据备份的时间指定不同的保留策略。 例如，每天创建的备份点（用作操作恢复点）可能需保留 90 天。 相比而言，在每个季末创建的备份点可能需要保留数月甚至数年时间（用于审核目的）。
 
     ![已使用恢复点备份虚拟机](./media/backup-azure-vms/long-term-retention.png)
 
@@ -163,7 +173,7 @@ ms.lasthandoff: 07/14/2017
 
 1. 在“受保护的项”页面底部，单击“立即备份”。
 
-    Azure 备份服务将为初始备份操作创建备份作业。
+    Azure 备份服务为初始备份操作创建备份作业。
 2. 单击“**作业**”选项卡查看作业列表。
 
     ![备份进行中](./media/backup-azure-vms/protect-inprogress.png)
@@ -188,6 +198,7 @@ ms.lasthandoff: 07/14/2017
 如果在备份虚拟机时遇到问题，请参阅 [VM 故障排除文章](backup-azure-vms-troubleshoot.md)获取帮助。
 
 ## <a name="next-steps"></a>后续步骤
-- [管理和监视你的虚拟机](./backup-azure-manage-vms-classic.md)
+- [管理和监视虚拟机](backup-azure-manage-vms.md)
 - [恢复虚拟机](backup-azure-restore-vms.md)
 
+<!--Update_Description: wording update -->

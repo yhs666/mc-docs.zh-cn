@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/10/2017
-ms.date: 07/24/2017
+origin.date: 08/15/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 869384a8c2683e716bf9c66313aaed2219250d7f
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: e39941887d03e66665b6ca4a118334478b84d7e6
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="event-hubs-management-libraries"></a>事件中心管理库
 
@@ -39,13 +39,13 @@ ms.lasthandoff: 07/26/2017
 * [使用 Azure PowerShell 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [使用 Azure CLI 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-这些教程将提供 `AppId`（客户端 ID）、`TenantId` 和 `ClientSecret`（身份验证密钥），这些都会用于管理库进行的身份验证。 必须具有要在其中运行的资源组的“所有者”权限。
+这些教程提供 `AppId`（客户端 ID）、`TenantId` 和 `ClientSecret`（身份验证密钥），这些都将用于管理库进行的身份验证。 若要对资源组运行命令，必须拥有“所有者”权限。
 
 ## <a name="programming-pattern"></a>编程模式
 
 所有事件中心资源的操纵模式都遵循常用协议：
 
-1. 使用 `Microsoft.IdentityModel.Clients.ActiveDirectory` 库从 Azure Active Directory 获取令牌。
+1. 使用 `Microsoft.IdentityModel.Clients.ActiveDirectory` 库从 AAD 获取令牌。
     ```csharp
     var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
@@ -84,4 +84,4 @@ ms.lasthandoff: 07/26/2017
 * [.NET 管理示例](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Microsoft.Azure.Management.EventHub 引用](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.EventHub)
 
-<!--Update_Description: wording update and command style update-->
+<!--Update_Description: update meta properties, wording update-->

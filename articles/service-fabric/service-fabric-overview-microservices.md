@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/02/2017
-ms.date: 08/21/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: a6a3589d2207d496d24cfa9bf98ae83f236175c5
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 9c3d41a1caf87ff724d5aca78e69e7f7c1beb114
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>为什么通过微服务的方法生成应用程序？
 作为软件开发人员，我们已知道思考如何将应用程序因数分解成组件部分。 这是对象导向、软件抽象和组件化的中心模式。 现在，这种因数分解往往以共享库和技术层之间的类与接口呈现。 后端存储、中间层业务逻辑和前端用户界面 (UI) 通常采用一种分层方法。 过去几年来 *的* 变化是身为开发人员的我们开始为业务驱动的云生成分布式应用程序。
@@ -45,7 +45,7 @@ ms.lasthandoff: 08/17/2017
 
 微服务解决了这些缺点，更密切配合上述业务要求，但它们本身也都有优缺点。 微服务的优点是通常各自封装较为简单的业务功能，可独立增加或减少、测试、部署和管理。 微服务方法的一个重要优点是团队倾向于以业务方案为导向，而不是以分层方法建议的技术为导向。 实际上，较小的团队可以根据客户方案开发微服务，采用他们选择的任何技术。 
 
-换句话说，组织不需要为了维护单一式应用程序而将技术标准化。 拥有服务的单独团队可以根据团队的专业知识，或什么最适合解决问题，各自发挥所长。 实际上，最好使用一组建议的技术，例如特定的 NoSQL 存储或 Web 应用程序框架。
+换句话说，组织不需要为了维护微服务应用程序而将技术标准化。 拥有服务的单独团队可以根据团队的专业知识，或什么最适合解决问题，各自发挥所长。 实际上，最好使用一组建议的技术，例如特定的 NoSQL 存储或 Web 应用程序框架。
 
 微服务的缺点包括需要管理越来越多的独立实体、处理更复杂的部署和版本控制。 微服务之间的网络流量以及相应的网络延迟不断增加。 可以通过大量琐碎但却精细的服务来解决性能问题。 如果没有工具帮助查看这些依赖性，很难“看到”整个系统。 
 
@@ -156,7 +156,7 @@ Service Fabric 的关键方法是重用现有代码，可以通过新的微服�
 
 ![迁移到微服务][Image3]
 
-务必再次强调，可以**在任意阶段开始和停止操作**，不强制一定要移到下一阶段。 现在，让我们来看看每个阶段的示例。
+务必再次强调，可以在任意阶段开始和停止操作，不强制要求移到下一阶段。 现在，让我们来看看每个阶段的示例。
 
 **直接迁移** - 许多公司出于以下两个原因，将现有单一式应用程序直接迁移到容器中：
 
@@ -188,4 +188,4 @@ Service Fabric 的目标是将使用微服务方法生成应用程序时的复�
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 [Image3]: media/service-fabric-overview-microservices/microservices-migration.png
 
-<!--Update_Description: update meta properties, wording update, new feature about migrating existing app to service fabric-->
+<!--Update_Description: update meta properties, wording update-->

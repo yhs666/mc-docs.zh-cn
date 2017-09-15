@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/15/2017
-ms.date: 07/24/2017
+origin.date: 08/17/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 21d68eaf4e9ba178dbaf4e10d7024a5132c7a2e1
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: a82066093fabc5f55afd4cec183777c91407cb71
+ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/04/2017
 ---
 # <a name="event-hubs-features-overview"></a>事件中心功能概述
 
@@ -33,17 +33,17 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 ### <a name="publishing-an-event"></a>发布事件
 
-可以通过 AMQP 1.0 或 HTTPS 发布事件。 服务总线提供了[客户端库和类](event-hubs-dotnet-framework-api-overview.md)，用于从 .NET 客户端将事件发布到事件中心。 对于其他运行时和平台，你可以使用任何 AMQP 1.0 客户端，例如 [Apache Qpid](http://qpid.apache.org/)。 可以逐个或者批量发送事件。 单个发布（事件数据实例）限制为 256 KB，无论其为单个事件还是批量事件。 发布大于此限制的事件将导致出错。 发布者最好是不知道事件中心内的分区数，而只是通过其 SAS 令牌指定“分区键”（如下一部分所述）或其标识。
+可以通过 AMQP 1.0 或 HTTPS 发布事件。 服务总线提供了[客户端库和类](event-hubs-dotnet-framework-api-overview.md)，用于从 .NET 客户端将事件发布到事件中心。 对于其他运行时和平台，可以使用任何 AMQP 1.0 客户端，例如 [Apache Qpid](http://qpid.apache.org/)。 可以逐个或者批量发送事件。 单个发布（事件数据实例）限制为 256 KB，无论其为单个事件还是批量事件。 发布大于此限制的事件将导致出错。 发布者最好是不知道事件中心内的分区数，而只是通过其 SAS 令牌指定“分区键”（如下一部分所述）或其标识。
 
 是要使用 AMQP 还 HTTPS 根据具体的使用方案而定。 AMQP 除了需要使用传输级别安全 (TLS) 或 SSL/TLS 以外，还需要建立持久的双向套接字。 初始化会话时，AMQP 具有较高的网络成本，但是 HTTPS 需要为每个请求使用额外的 SSL 开销。 对于活动频繁的发布者，AMQP 的性能更高。
 
 ![事件中心](./media/event-hubs-features/partition_keys.png)
 
-事件中心可确保按顺序将共享分区键值的所有事件传送到同一分区。 如果将分区键与发布者策略结合使用，则发布者的标识与分区键的值必须匹配。 否则将会出错。
+事件中心可确保按顺序将共享分区键值的所有事件传送到同一分区。 如果将分区键与发布者策略结合使用，则发布者的标识与分区键的值必须匹配。 否则会出错。
 
 ### <a name="publisher-policy"></a>发布者策略
 
-事件中心可让你通过 *发布者策略*对事件发布者进行精细控制。 发布者策略是运行时功能，旨在为大量的独立事件发布者提供方便。 借助发布者策略，每个发布者在使用以下机制将事件发布到事件中心时可以使用自身的唯一标识符：
+使用事件中心可以通过*发布者策略*对事件发布者进行精细控制。 发布者策略是运行时功能，旨在为大量的独立事件发布者提供方便。 借助发布者策略，每个发布者在使用以下机制将事件发布到事件中心时可以使用自身的唯一标识符：
 
 ```
 //[my namespace].servicebus.chinacloudapi.cn/[event hub name]/publishers/[my publisher name]
@@ -87,13 +87,13 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 ## <a name="event-consumers"></a>事件使用者
 
-从事件中心读取事件数据的任何实体称为“事件使用者”。 所有事件中心使用者都通过 AMQP 1.0 会话进行连接，事件将在可用时通过该会话传送。 客户端不需要轮询数据可用性。
+从事件中心读取事件数据的任何实体称为“事件使用者”。 所有事件中心使用者都通过 AMQP 1.0 会话进行连接，事件会在可用时通过该会话传送。 客户端不需要轮询数据可用性。
 
 ### <a name="consumer-groups"></a>使用者组
 
 事件中心的发布/订阅机制通过“使用者组”启用。 使用者组是整个事件中心视图（状态、位置或偏移量）。 使用者组使多个消费应用程序都有各自独立的事件流视图，并按自身步调和偏移量独立读取流。
 
-在流处理体系结构中，每个下游应用程序相当于一个使用者组。 如果要将事件数据写入长期存储，则该存储写入器应用程序就是一个使用者组。 然后，复杂的事件处理可由另一个独立的使用者组执行。 你只能通过使用者组访问分区。 每个分区一次只能有一个 **来自给定使用者组** 的活动读取者。 事件中心内始终有一个默认的使用者组，最多可为一个标准层事件中心创建 20 个使用者组。
+在流处理体系结构中，每个下游应用程序相当于一个使用者组。 如果要将事件数据写入长期存储，则该存储写入器应用程序就是一个使用者组。 然后，复杂的事件处理可由另一个独立的使用者组执行。 只能通过使用者组访问分区。 每个使用者组的分区上最多可以有 5 个并发读取者，但是**建议每个使用者组的分区上只有一个活动接收者**。 事件中心内始终有一个默认的使用者组，最多可为一个标准层事件中心创建 20 个使用者组。
 
 以下是使用者组 URI 约定的示例：
 
@@ -120,7 +120,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 ### <a name="common-consumer-tasks"></a>常见的使用者任务
 
-所有事件中心使用者都通过 AMQP 1.0 会话和状态感知双向信道进行连接。 每个分区都提供一个 AMQP 1.0 会话，方便传输按分区隔离的事件。
+所有事件中心使用者都通过 AMQP 1.0 会话，一种状态感知型双向信道进行连接。 每个分区都提供一个 AMQP 1.0 会话，方便传输按分区隔离的事件。
 
 #### <a name="connect-to-a-partition"></a>连接到分区
 
@@ -128,7 +128,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 #### <a name="read-events"></a>读取事件
 
-为特定分区建立 AMQP 1.0 会话和链接后，事件中心服务会将事件传送到 AMQP 1.0 客户端。 与 HTTP GET 等基于提取的机制相比，此传送机制可以实现更高的吞吐量和更低的延迟。 将事件发送到客户端时，每个事件数据实例将包含重要的元数据，例如，用于简化对事件序列执行的检查点操作的偏移量和序列号。
+为特定分区建立 AMQP 1.0 会话和链接后，事件中心服务会将事件传送到 AMQP 1.0 客户端。 与 HTTP GET 等基于提取的机制相比，此传送机制可以实现更高的吞吐量和更低的延迟。 将事件发送到客户端时，每个事件数据实例包含重要的元数据，例如，用于简化对事件序列执行的检查点操作的偏移量和序列号。
 
 事件数据：
 * Offset
@@ -150,7 +150,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 * 入口：最高每秒 1 MB 或每秒 1000 个事件（以先达到的限制为准）
 * 出口：最高每秒 2 MB
 
-若超过所购买吞吐量单位的容量，将限制入口流入量并返回 [ServerBusyException](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) 。 出口不会出现限制异常，但仍受限于所购买吞吐量单位的容量。 如果收到发布速率异常或者预期看到更高的出口，请务必检查为命名空间购买的吞吐量单位数量。 可以在 [Azure 门户](https://portal.azure.cn)中命名空间的“规模”边栏选项卡上管理吞吐量单位。 也可使用[事件中心 API](event-hubs-api-overview.md) 以编程方式管理吞吐量单位。
+超出所购吞吐量单位的容量时，入口受限，返回 [ServerBusyException](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)。 出口不会出现限制异常，但仍受限于所购买吞吐量单位的容量。 如果收到发布速率异常或者预期看到更高的出口，请务必检查为命名空间购买的吞吐量单位数量。 可以在 [Azure 门户](https://portal.azure.cn)中命名空间的“规模”边栏选项卡上管理吞吐量单位。 也可使用[事件中心 API](event-hubs-api-overview.md) 以编程方式管理吞吐量单位。
 
 吞吐量单位按小时计费，需提前购买。 购买后，吞吐量单位的最短计费时限为一小时。 最多可为事件中心命名空间购买 20 个吞吐量单位，并在命名空间中的所有事件中心之间共享。
 
@@ -168,9 +168,9 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 * [事件中心编程指南](event-hubs-programming-guide.md)
 * [事件中心中的可用性和一致性](event-hubs-availability-and-consistency.md)
 * [事件中心常见问题](event-hubs-faq.md)
-* [使用事件中心的示例应用程序][]
+* [事件中心示例][]
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
-[使用事件中心的示例应用程序]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[事件中心示例]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 
-<!--Update_Description: update meta properties, add capture feature in event hubs-->
+<!--Update_Description: update meta properties, wording update, update reference link->

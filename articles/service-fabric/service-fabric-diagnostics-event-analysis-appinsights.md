@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 05/26/2017
-ms.date: 07/17/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 278ad44a3552e983e7116dc8cf14d51510a64bc7
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 6823b0fc25bc15f24b89a957913a92d6145066b6
+ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>使用 Application Insights 分析和可视化事件
 
@@ -75,7 +75,7 @@ Azure Application Insights 是用于应用程序监视和诊断的可扩展平�
 
 在上面两个代码片段中，名称“applicationInsights”用于描述接收器。 不一定非要使用此名称；只要将接收器包含在“sinks”中，就可以将名称设置为任何字符串。
 
-目前，来自群集的日志将以跟踪的形式显示在 AI 的日志查看器中。 由于来自基础结构级别的大多数跟踪的类型为“信息”，因此，你也可以考虑将接收器配置更改为只发送“关键”或“错误”类型的日志。
+目前，来自群集的日志将以跟踪的形式显示在 AI 的日志查看器中。 由于来自平台的大部分跟踪信息都是“参考”级别，因此还可以考虑将接收器配置更改为仅发送类型为“关键”或“错误”的日志。
 <!-- Not Available [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md). -->
 
 >[!NOTE]
@@ -120,3 +120,5 @@ Azure Application Insights 是用于应用程序监视和诊断的可扩展平�
 
 <!-- Not Available * [Set up Alerts in AI](../application-insights/app-insights-alerts.md) to be notified about changes in performance or usage -->
 <!-- Not Available * [Smart Detection in Application Insights](../application-insights/app-insights-proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to AI to warn you of potential performance problems -->
+
+<!--Update_Description: wording update-->
