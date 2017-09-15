@@ -406,6 +406,11 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/azure-resource-manager/resource-manager-quickstart-deploy.md",
+      "redirect_url": "/azure-resource-manager/resource-manager-create-first-template",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/azure-resource-manager/resource-manager-resource-explorer.md",
       "redirect_url": "/azure-resource-manager/resource-manager-rest-api",
       "redirect_document_id": "false"
@@ -766,6 +771,11 @@
       "redirect_document_id": "false"
     },
     {
+        "source_path": "articles/service-fabric/service-fabric-automate-powershell.md",
+        "redirect_url": "/service-fabric/service-fabric-deploy-remove-applications",
+        "redirect_document_id": "false"
+    },
+    {
         "source_path": "articles/service-fabric/service-fabric-cluster-creation-via-visual-studio.md",
         "redirect_url": "/service-fabric/service-fabric-cluster-creation-via-arm",
         "redirect_document_id": "false"
@@ -773,6 +783,26 @@
     {
         "source_path": "articles/service-fabric/service-fabric-cluster-creation-with-windows-azure-vms.md",
         "redirect_url": "/service-fabric/service-fabric-cluster-creation-via-arm",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/service-fabric/service-fabric-deploy-container.md",
+        "redirect_url": "/service-fabric/service-fabric-get-started-containers",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/service-fabric/service-fabric-deploy-container-linux.md",
+        "redirect_url": "/service-fabric/service-fabric-get-started-containers-linux",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/service-fabric/service-fabric-diagnostics-how-to-setup-lad.md",
+        "redirect_url": "/service-fabric/service-fabric-diagnostics-event-aggregation-lad",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/service-fabric/service-fabric-diagnostics-how-to-setup-wad.md",
+        "redirect_url": "/service-fabric/service-fabric-diagnostics-event-aggregation-wad",
         "redirect_document_id": "false"
     },
     {
@@ -1396,69 +1426,74 @@
       "redirect_document_id": "false"
     },
     {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-sql-server-with-azcopy.md",
+        "redirect_url": "/sql-data-warehouse/sql-data-warehouse-overview-load",
+        "redirect_document_id": "false"
+    },
+    {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-backup.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-disable.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-enable-database.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/enable-stretch-database-for-a-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-enable-table.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/enable-stretch-database-for-a-table",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-identify-databases.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-limitations.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/limitations-for-stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-manage.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-overview.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-monitor.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-pause.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-restore.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-predicate-function.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-wizard.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
       "source_path": "articles/storage/storage-troubleshoot-file-connection-problems.md",
@@ -3586,6 +3621,11 @@
       "redirect_document_id": "false"
     },
     {
+        "source_path": "articles/virtual-network/virtual-network-accelerated-networking-powershell.md",
+        "redirect_url": "/virtual-network/virtual-network-create-vm-accelerated-networking",
+        "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/virtual-network/virtual-network-network-interface-overview.md",
       "redirect_url": "/virtual-network/virtual-network-network-interface",
       "redirect_document_id": "false"
@@ -3607,6 +3647,16 @@
     },
     {
         "source_path": "articles/virtual-network/virtual-networks-create-vnetpeering-arm-portal.md",
+        "redirect_url": "/virtual-network/virtual-network-create-peering",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnetpeering-arm-ps.md",
+        "redirect_url": "/virtual-network/virtual-network-create-peering",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md",
         "redirect_url": "/virtual-network/virtual-network-create-peering",
         "redirect_document_id": "false"
     },
