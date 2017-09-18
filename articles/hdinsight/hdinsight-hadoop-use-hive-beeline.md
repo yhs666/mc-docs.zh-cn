@@ -16,13 +16,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/26/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: b73baa0dbbaf9e4fa530380b634e6cb7dcafb5de
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 7efbfdcdd6eef5f4f54a126ca5ad4415f372f4c1
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>将 Beeline 客户端与 Apache Hive 配合使用
 
@@ -70,7 +70,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
     此命令启动 Beeline 客户端，并连接到群集头节点上的 HiveServer2。 命令完成后，将出现 `jdbc:hive2://headnodehost:10001/>` 提示符。
 
-2. Beeline 命令以 `!` 字符开头，例如，`!help` 将显示帮助。 但是，`!` 对于某些命令可以省略。 例如，`help` 也是有效的。
+2. Beeline 命令以 `!` 字符开头，例如，`!help` 会显示帮助。 但是，`!` 对于某些命令可以省略。 例如，`help` 也是有效的。
 
     有一个 `!sql`，用于执行 HiveQL 语句。 但是，由于 HiveQL 非常流行，因此可以省略前面的 `!sql`。 以下两个语句等效：
 
@@ -83,7 +83,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
 3. 使用以下命令显示 hivesampletable 的架构：
 
-    ```bash
+    ```hiveql
     describe hivesampletable;
     ```
 
@@ -113,7 +113,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
     DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+    STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
     ```
 
@@ -166,7 +166,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
 ## <a id="file"></a>使用 Beeline 运行 HiveQL 文件
 
-使用以下步骤创建文件，然后使用 Beeline 运行该文件。
+使用以下步骤创建文件，并使用 Beeline 运行该文件。
 
 1. 使用以下命令创建一个名为 **query.hql** 的文件：
 
@@ -185,12 +185,12 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
     * **CREATE TABLE IF NOT EXISTS** - 创建表（如果该表尚不存在）。 因为未使用 **EXTERNAL** 关键字，此语句创建内部表。 内部表存储在 Hive 数据仓库中，由 Hive 全权管理。
     * **STORED AS ORC**：以优化行纵栏表 (ORC) 格式存储数据。 ORC 格式是高度优化且有效的 Hive 数据存储格式。
-    * **INSERT OVERWRITE ...SELECT** - 从包含 **[ERROR]** 的 **log4jLogs** 表中选择行，然后将数据插入 **errorLogs** 表中。
+    * **INSERT OVERWRITE ...SELECT** - 从包含 **[ERROR]** 的 **log4jLogs** 表中选择行，并将数据插入 **errorLogs** 表中。
 
     > [!NOTE]
     > 与外部表不同，删除内部表会同时删除基础数据。
 
-3. 若要保存文件，请使用 **Ctrl**+**_X**，然后输入 **Y**，最后按 **Enter**。
+3. 要保存文件，请使用 **Ctrl**+**_X**，并输入 **Y**，最后按 **Enter**。
 
 4. 使用以下命令通过 Beeline 运行该文件：
 
@@ -280,4 +280,4 @@ Spark 提供自己的 HiveServer2 实现（通常称为 Spark Thrift 服务器�
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: update code change 'wasbs' into 'wasb'-->

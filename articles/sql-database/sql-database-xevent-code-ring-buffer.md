@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/03/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: f02de9286b3265d6c4b23ab0ee4b8e56d3d2058b
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: b02759eb973ecf1246ec7ce04c1365bceaa1107d
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL 数据库中扩展事件的环形缓冲区目标代码
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 07/28/2017
 
 &nbsp;
 
-```tsql
+```sql
 GO
 ----  Transact-SQL.
 ---- Step set 1.
@@ -308,7 +308,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 处理完环形缓冲区后，可以发出 **ALTER** 将它删除并释放其资源，如下所示：
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     DROP TARGET package0.ring_buffer;
@@ -317,7 +317,7 @@ GO
 
 事件会话的定义会更新，但不会删除。 然后可以将环形缓冲区的另一个实例添加到事件会话：
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     ADD TARGET
@@ -344,4 +344,4 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update (tsql->sql)-->

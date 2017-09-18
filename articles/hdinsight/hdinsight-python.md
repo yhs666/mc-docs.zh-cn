@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiyqa
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: bf60baabf06a11077038737982d18a7b8fc11858
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 76801f044bcee0c3df3b0516e5cb465e148da453
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>在 HDInsight 中通过 Hive 和 Pig 使用 Python 用户定义的函数 (UDF)
 
@@ -60,7 +60,7 @@ ORDER BY clientid LIMIT 50;
 **基于 Windows 的 HDInsight**
 
 ```hiveql
-add file wasbs:///hiveudf.py;
+add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'D:\Python27\python.exe hiveudf.py' AS
@@ -118,7 +118,7 @@ while True:
 在整个 `GENERATE` 语句中，Python 脚本可用作 Pig 中的 UDF。 可以使用 Jython 或 C Python 运行此脚本。
 
 * Jython 在 JVM 上运行，并且原本就能从 Pig 调用。
-* C Python 是外部进程，因此 JVM 上的 Pig 中的数据将发送到 Python 进程中运行的脚本。 Python 脚本的输出将发回到 Pig。
+* C Python 是外部进程，因此，JVM 上的 Pig 中的数据将发送到 Python 进程中运行的脚本。 Python 脚本的输出将发回到 Pig 中。
 
 若要指定 Python 解释器，请在引用 Python 脚本时使用 `register`。 以下示例将脚本作为 `myfuncs` 注册到 Pig：
 
@@ -131,7 +131,7 @@ while True:
 通过注册后，此示例的 Pig Latin 对于两个脚本是相同的：
 
 ```pig
-LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
 LOG = FILTER LOGS by LINE is not null;
 DETAILS = FOREACH LOG GENERATE myfuncs.create_structure(LINE);
 DUMP DETAILS;
@@ -191,7 +191,7 @@ def create_structure(input):
 
 有关使用 SSH 的详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-1. 使用 `scp` 将文件复制到 HDInsight 群集。 例如，以下命令将文件复制到名为 **mycluster**的群集。
+1. 使用 `scp` 将文件复制到 HDInsight 群集。 例如，以下命令会将文件复制到名为 **mycluster** 的群集。
 
     ```bash
     scp hiveudf.py pigudf.py myuser@mycluster-ssh.azurehdinsight.cn:
@@ -219,7 +219,7 @@ def create_structure(input):
 2. 在 `hive>` 提示符下输入以下查询：
 
    ```hive
-   add file wasbs:///hiveudf.py;
+   add file wasb:///hiveudf.py;
    SELECT TRANSFORM (clientid, devicemake, devicemodel)
        USING 'python hiveudf.py' AS
        (clientid string, phoneLabel string, phoneHash string)
@@ -242,8 +242,8 @@ def create_structure(input):
 2. 在 `grunt>` 提示符下输入以下语句：
 
    ```pig
-   Register wasbs:///pigudf.py using jython as myfuncs;
-   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+   Register wasb:///pigudf.py using jython as myfuncs;
+   LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
    DUMP DETAILS;
@@ -269,13 +269,13 @@ def create_structure(input):
     #from pig_util import outputSchema
     ```
 
-    完成更改后，使用 Ctrl+X 退出编辑器。 选择“Y”，然后按 Enter 保存更改。
+    完成更改后，使用 Ctrl+X 退出编辑器。 选择“Y”，并按 Enter 保存更改。
 
 6. 使用 `pig` 命令再次启动 shell。 在 `grunt>` 提示符下，使用以下命令运行带有 Jython 解释器的 Python 脚本。
 
    ```pig
    Register 'pigudf.py' using streaming_python as myfuncs;
-   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+   LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
    DUMP DETAILS;
@@ -360,7 +360,7 @@ $creds=Get-Credential -Message "Enter the login for the cluster"
 
 # If using a Windows-based HDInsight cluster, change the USING statement to:
 # "USING 'D:\Python27\python.exe hiveudf.py' AS " +
-$HiveQuery = "add file wasbs:///hiveudf.py;" +
+$HiveQuery = "add file wasb:///hiveudf.py;" +
                 "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
                 "USING 'python hiveudf.py' AS " +
                 "(clientid string, phoneLabel string, phoneHash string) " +
@@ -420,8 +420,8 @@ if(-not($sub))
 $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
 $creds=Get-Credential -Message "Enter the login for the cluster"
 
-$PigQuery = "Register wasbs:///pigudf.py using jython as myfuncs;" +
-            "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
+$PigQuery = "Register wasb:///pigudf.py using jython as myfuncs;" +
+            "LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);" +
             "LOG = FILTER LOGS by LINE is not null;" +
             "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
             "DUMP DETAILS;"
@@ -469,7 +469,7 @@ Get-AzureRmHDInsightJobOutput `
 
 此问题可能是由 Python 文件中的行尾结束符号导致的。 许多 Windows 编辑器默认为使用 CRLF 作为行尾结束符号，但 Linux 应用程序通常应使用 LF。
 
-可以使用以下 PowerShell 语句删除 CR 字符，然后再将文件上传到 HDInsight：
+可以使用 PowerShell 语句删除 CR 字符，然后再将文件上传到 HDInsight：
 
 ```powershell
 $original_file ='c:\path\to\hiveudf.py'
@@ -479,7 +479,7 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 
 ### <a name="powershell-scripts"></a>PowerShell 脚本
 
-用于运行示例的两个示例 PowerShell 脚本都包含一个带注释的行，该行显示作业的错误输出。 如果你未看到作业的预期输出，请取消注释以下行，并查看错误信息中是否指明了问题。
+用于运行示例的两个示例 PowerShell 脚本都包含一个带注释的行，该行显示作业的错误输出。 如果未看到作业的预期输出，请取消注释以下行，并查看错误信息中是否指明了问题。
 
 ```powershell
 # Get-AzureRmHDInsightJobOutput `
@@ -498,7 +498,7 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 
 ## <a name="next"></a>后续步骤
 
-如果需要加载默认情况下未提供的 Python 模块，请参阅 [How to deploy a module to Azure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx)（如何将模块部署到 Azure HDInsight）。
+如果需要加载默认情况下未提供的 Python 模块，请参阅[如何将模块部署到 Azure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx)。
 
 若要了解使用 Pig 和 Hive 的其他方式以及如何使用 MapReduce，请参阅以下文档：
 
@@ -506,4 +506,4 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: change 'wasbs' into 'wasb'-->

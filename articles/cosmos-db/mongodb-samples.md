@@ -1,6 +1,6 @@
 ---
 title: "使用 MongoDB API 生成 Azure Cosmos DB 应用 | Azure"
-description: "使用 MongoDB 的 DocumentDB API 创建联机数据库的教程。"
+description: "使用适用于 MongoDB 的 Azure Cosmos DB API 创建联机数据库的教程。"
 keywords: "mongodb 示例"
 services: cosmos-db
 author: rockboyfor
@@ -14,16 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: acee11b7bfb9b174bdd28ccf23373acd069c2f6c
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: c01ad9391b9e1522b2f3330f3933b7460b9a3b86
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 09/13/2017
 ---
-# 使用 Node.js 生成 Azure Cosmos DB: API for MongoDB 应用
-<a id="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs" class="xliff"></a>
+# <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>使用 Node.js 生成 Azure Cosmos DB: API for MongoDB 应用
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -41,8 +40,7 @@ ms.lasthandoff: 07/07/2017
 * [创建](create-mongodb-dotnet.md#create-account) Azure Cosmos DB: API for MongoDB 帐户。
 * 检索 MongoDB [连接字符串](connect-mongodb-account.md)信息。
 
-## 创建应用程序
-<a id="create-the-app" class="xliff"></a>
+## <a name="create-the-app"></a>创建应用程序
 
 1. 创建 app.js 文件，并复制粘贴以下代码。
 
@@ -50,7 +48,7 @@ ms.lasthandoff: 07/07/2017
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.cn:10250/?ssl=true';
+    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.cn:10255/?ssl=true';
 
     var insertDocument = function(db, callback) {
     db.collection('families').insertOne( {
@@ -128,11 +126,12 @@ ms.lasthandoff: 07/07/2017
 2. 按照帐户设置修改 app.js 文件中的以下变量（了解如何查找[连接字符串](connect-mongodb-account.md)）：
 
     ```nodejs
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.cn:10250/?ssl=true';
+    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.cn:10255/?ssl=true';
     ```
 
-3. 打开偏爱的终端，运行 **npm install mongodb --save**，然后使用 **node app.js** 运行应用程序
+3. 打开偏爱的终端，运行 **npm install mongodb --save**，并使用 **node app.js** 运行应用程序
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
-* 了解如何[将 MongoChef 用于](mongodb-mongochef.md) Azure Cosmos DB: API for MongoDB 帐户。
+## <a name="next-steps"></a>后续步骤
+* 了解如何配合[使用 MongoChef](mongodb-mongochef.md) 与 Azure Cosmos DB: API for MongoDB 帐户。
+
+<!--Update_Description: wording update-->

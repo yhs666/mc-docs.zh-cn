@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 07/17/2017
 ms.date: 08/01/2017
 ms.author: v-junlch
-ms.openlocfilehash: e7d81ac262056885d14aadccdae6d65d8cf9424b
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 0a34dc3f692f53d13c237de40e461b6165e7e63f
+ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>存储资源管理器（预览版）入门
 ## <a name="overview"></a>概述
@@ -152,7 +152,7 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 2. 在确认消息中，选择“是”确认从外部存储帐户中分离。
 
 ## <a name="attach-a-storage-account-by-using-an-sas"></a>使用 SAS 附加存储帐户
-Azure 订阅的管理员可以通过 [SAS](storage/storage-dotnet-shared-access-signature-part-1.md) 授予存储帐户的临时访问权限，不需提供 Azure 订阅凭据。
+Azure 订阅的管理员可以通过 [SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) 授予存储帐户的临时访问权限，不需提供 Azure 订阅凭据。
 
 为了说明这一情形，假设 UserA 是 Azure 订阅的管理员，UserA 想要允许 UserB 在有限的时间内使用特定权限访问某个存储帐户：
 

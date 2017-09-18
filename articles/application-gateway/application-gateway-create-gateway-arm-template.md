@@ -1,25 +1,24 @@
 ---
-title: "创建 Azure 应用程序网关 - 模板 | Azure"
+title: "创建 Azure 应用程序网关 - 模板 | Microsoft Docs"
 description: "本页提供有关使用 Azure Resource Manager 模板创建 Azure 应用程序网关的说明"
 documentationcenter: na
 services: application-gateway
-author: georgewallace
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: tysonn
-ms.assetid: 8192ee25-d9f0-4b32-a45e-1d74629c54e5
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/23/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
-ms.openlocfilehash: 591e6191e0d0b57148ef25620a39f09caca05a21
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+origin.date: 07/31/2017
+ms.date: 09/13/2017
+ms.author: v-junlch
+ms.openlocfilehash: e4a6f4cf8f699d3c4ebf6bac5e8d94dac0acca8c
+ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建应用程序网关
 
@@ -30,12 +29,11 @@ ms.lasthandoff: 08/04/2017
 > * [Azure Resource Manager 模板](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之间提供故障转移和性能路由 HTTP 请求，而不管它们是在云中还是在本地。
-应用程序网关提供许多应用程序传送控制器 (ADC) 功能，包括 HTTP 负载均衡、基于 cookie 的会话相关性、安全套接字层 (SSL) 卸载、自定义运行状况探测、多站点支持，以及许多其他功能。
+Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地​​的服务器间提供故障转移和性能路由 HTTP 请求。 应用程序网关提供许多应用程序传送控制器 (ADC) 功能，包括 HTTP 负载均衡、基于 Cookie 的会话相关性、安全套接字层 (SSL) 卸载、自定义运行状况探测、多站点支持，以及许多其他功能。 
 
-若要查找支持功能的完整列表，请参阅[应用程序网关概述](application-gateway-introduction.md)
+若要查找受支持功能的完整列表，请访问[应用程序网关概述](application-gateway-introduction.md)
 
-了解如何从 GitHub 下载并修改现有 Azure Resource Manager 模板，以及如何通过 GitHub、PowerShell 和 Azure CLI 部署该模板。
+本文介绍如何从 GitHub 下载并修改现有 Azure 资源管理器模板，以及如何通过 GitHub、PowerShell 和 Azure CLI 部署该模板。
 
 如果只是直接从 GitHub 部署 Azure Resource Manager 模板，而不进行任何更改，请跳到“从 GitHub 部署模板”。
 
@@ -43,10 +41,10 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 在此方案中，将要：
 
-* 创建具有 Web 应用程序防火墙的应用程序网关。
-* 创建名为 VirtualNetwork1 且包含 10.0.0.0/16 保留 CIDR 块的虚拟网络。
-* 创建名为 Appgatewaysubnet 且使用 10.0.0.0/28 作为其 CIDR 块的子网。
-* 为需要用来进行流量负载均衡的 Web 服务器设置两个先前已配置的后端 IP。 在此模板示例中，后端 IP 是 10.0.1.10 和 10.0.1.11。
+- 创建具有 Web 应用程序防火墙的应用程序网关。
+- 创建名为 VirtualNetwork1 且包含 10.0.0.0/16 保留 CIDR 块的虚拟网络。
+- 创建名为 Appgatewaysubnet 且使用 10.0.0.0/28 作为其 CIDR 块的子网。
+- 为需要用来进行流量负载均衡的 Web 服务器设置两个先前已配置的后端 IP。 在此模板示例中，后端 IP 是 10.0.1.10 和 10.0.1.11。
 
 > [!NOTE]
 > 这些设置是适用于此模板的参数。 若要自定义模板，可更改 azuredeploy.json 文件中的规则、侦听程序、SSL 以及其他选项。
@@ -77,9 +75,9 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 1. 检查 **resources** 下的内容，并注意以下属性：
 
-   * **type**。 模板创建的资源的类型。 在这种情况下，类型为 `Microsoft.Network/applicationGateways`，它表示应用程序网关。
-   * **name**。 资源的名称。 请注意 `[parameters('applicationGatewayName')]`的使用，这意味着该名称是在部署过程中由用户或参数文件作为输入提供的。
-   * **properties**。 资源的属性列表。 此模板在应用程序网关创建过程中，使用虚拟网络与公共 IP 地址。
+   - **type**。 模板创建的资源的类型。 在这种情况下，类型为 `Microsoft.Network/applicationGateways`，它表示应用程序网关。
+   - **name**。 资源的名称。 请注意 `[parameters('applicationGatewayName')]`的使用，这意味着该名称是在部署过程中由用户或参数文件作为输入提供的。
+   - **properties**。 资源的属性列表。 此模板在应用程序网关创建过程中，使用虚拟网络与公共 IP 地址。
 
    > [!NOTE]
    > 有关模板的详细信息，请参阅：[Resource Manager 模板参考](https://github.com/Azure/azure-quickstart-templates/)
@@ -251,4 +249,4 @@ az group delete --name appgatewayRG
 * [Azure 负载均衡器](/load-balancer/)
 * [Azure 流量管理器](/traffic-manager/)
 
-<!--Update_Description: add script for getting cert in macOS-->
+<!--Update_Description: wording update-->

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 1ba316b4b7742912280cb282e49dbebeaa0a4bab
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 91cdd9a81c809151c6adddd88f9ad522698c337f
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>创建 HDInsight 群集时添加自定义 Hive 库
 
@@ -59,12 +59,12 @@ ms.lasthandoff: 07/28/2017
 
 * 在创建期间，包含 jar 文件的库的存储帐户 **必须** 链接到 HDInsight 群集。 它必须是默认的存储帐户，或通过 __可选配置__添加的帐户。
 
-* 必须指定容器的 WASB 路径作为脚本操作的参数。 例如，如果 jar 存储在名为 **mystorage** 的存储帐户上名为 **libs** 的容器中，则该参数应为 **wasbs://libs@mystorage.blob.core.chinacloudapi.cn/**。
+* 必须指定容器的 WASB 路径作为脚本操作的参数。 例如，如果 jar 存储在名为 **mystorage** 的存储帐户上名为 **libs** 的容器中，则该参数应为 **wasb://libs@mystorage.blob.core.chinacloudapi.cn/**。
 
   > [!NOTE]
   > 本文档假定你已创建存储帐户、blob 容器，并已将文件上传到该容器。
   >
-  > 如果尚未创建存储帐户，可以通过 [Azure 门户](https://portal.azure.cn)创建该帐户。 然后可以使用实用工具（如 [Azure 存储资源管理器](http://storageexplorer.com/) ）在帐户中创建容器并将文件上传到该容器。
+  > 如果尚未创建存储帐户，可以通过 [Azure 门户](https://portal.azure.cn)创建该帐户。 然后可以使用实用程序（如 [Azure 存储资源管理器](http://storageexplorer.com/)）在帐户中创建一个容器并将文件上传到该容器。
 
 ## <a name="create-a-cluster-using-the-script"></a>使用脚本创建群集。
 
@@ -85,9 +85,9 @@ ms.lasthandoff: 07/28/2017
 
    * **工作节点**：选中此选项。
 
-   * **ZOOKEEPER**：将此项留空。
+   * **ZOOKEEPER**：将此选项留空。
 
-   * **参数**：输入包含 jar 的容器和存储帐户的 WASB 地址。 例如，**wasbs://libs@mystorage.blob.core.chinacloudapi.cn/**。
+   * **参数**：输入包含 jar 的容器和存储帐户的 WASB 地址。 例如，**wasb://libs@mystorage.blob.core.chinacloudapi.cn/**。
 
 3. 在“脚本操作”的底部，使用“选择”按钮保存配置。
 
@@ -103,4 +103,4 @@ ms.lasthandoff: 07/28/2017
 
 有关使用 Hive 的详细信息，请参阅[将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: change 'wasbs' into 'wasb'-->

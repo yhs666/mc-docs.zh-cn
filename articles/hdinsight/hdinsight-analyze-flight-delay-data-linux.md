@@ -1,10 +1,10 @@
 ---
 title: "在 HDInsight 上使用 Hive 分析航班延误数据 - Azure | Azure"
-description: "了解如何在基于 Linux 的 HDInsight 上使用 Hive 分析航班数据，然后使用 Sqoop 将数据导出到 SQL 数据库中。"
+description: "了解如何在基于 Linux 的 HDInsight 上使用 Hive 分析航班数据，并使用 Sqoop 将数据导出到 SQL 数据库中。"
 services: hdinsight
 documentationcenter: 
-author: Blackmist
-manager: jhubbard
+author: hayley244
+manager: digimobile
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/04/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 07/31/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 9880153d9730530571b3a313678cea72e4fbd1d7
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: b0d512d442e1bcde59f5319eb6e7f69682c0a3bf
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 07/28/2017
 
     此命令会提取约为 60 MB 的 .csv 文件。
 
-4. 使用以下命令在 HDInsight 存储上创建一个目录，然后将该文件复制到此目录：
+4. 使用以下命令在 HDInsight 存储上创建一个目录，并将该文件复制到此目录：
 
     ```
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
@@ -88,7 +88,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="create-and-run-the-hiveql"></a>创建并运行 HiveQL
 
-使用以下步骤将 CSV 文件中的数据导入到名为 **Delays**的 Hive 表中。
+使用以下步骤将 CSV 文件中的数据导入到名为 **Delays** 的 Hive 表中。
 
 1. 使用以下命令创建名为 **flightdelays.hql**的新文件并编辑它：
 
@@ -163,7 +163,7 @@ ms.lasthandoff: 07/28/2017
 3. 若要启动 Hive 并运行 **flightdelays.hql** 文件，请使用以下命令：
 
     ```
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
    > [!NOTE]
@@ -172,7 +172,7 @@ ms.lasthandoff: 07/28/2017
 4. __flightdelays.hql__ 脚本完成运行后，使用以下命令打开交互式 Beeline 会话：
 
     ```
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
 5. 收到 `jdbc:hive2://localhost:10001/>` 提示时，请使用以下查询从导入的航班延误数据中检索数据。
@@ -187,7 +187,7 @@ ms.lasthandoff: 07/28/2017
     GROUP BY origin_city_name;
     ```
 
-    此查询将检索遇到天气延迟的城市的列表和平均延迟时间，并将其保存到 `/tutorials/flightdelays/output` 中。 稍后，Sqoop 将从此位置读取数据并将其导出到 Azure SQL 数据库中。
+    此查询将检索遇到天气延迟的城市的列表和平均延迟时间，并将其保存到 `/tutorials/flightdelays/output` 中。 稍后，Sqoop 会从该位置读取数据并将其导出到 Azure SQL 数据库中。
 
 6. 若要退出 Beeline，请在提示符处输入 `!quit` 。
 
@@ -263,7 +263,7 @@ ms.lasthandoff: 07/28/2017
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433 --username <adminLogin> --password <adminPassword>
     ```
 
-    此命令会返回数据库列表，其中包括你此前创建的 delays 表所在的数据库。
+    此命令会返回数据库列表，其中包括此前创建的 delays 表所在的数据库。
 
 2. 使用以下命令将 hivesampletable 中的数据导出到 mobiledata 表：
 
@@ -320,3 +320,4 @@ ms.lasthandoff: 07/28/2017
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+<!--Update_Description: update code-->

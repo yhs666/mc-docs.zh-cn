@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30dbb5bb36dbc049c151766c39b939950d96c346
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 70568de4b260097b85bdf71d80738df2569c5d0f
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 分层资源模型和核心概念
 Azure Cosmos DB 管理的数据库实体被称为**资源**。 每个资源都通过逻辑 URI 进行唯一标识。 可以使用标准 HTTP 谓词、请求/响应标头和状态代码与资源进行交互。 
@@ -35,10 +35,10 @@ Azure Cosmos DB 管理的数据库实体被称为**资源**。 每个资源都�
 * 如何使用存储过程、触发器和用户自定义函数 (UDF)？
 
 ## <a name="hierarchical-resource-model"></a>分层资源模型
-如下面的关系图所示，Azure Cosmos DB 分层**资源模型**由数据库帐户下的数组资源构成，每个帐户可通过一个逻辑且稳定的 URI 进行寻址。 本文将一组资源称为一个**源** 。 
+如下面的关系图所示，Azure Cosmos DB 分层**资源模型**由数据库帐户下的数组资源构成，每个帐户可通过一个逻辑且稳定的 URI 进行寻址。 本文将一组资源称为一个**源**。 
 
 > [!NOTE]
-> Cosmos DB 提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 [DocumentDB .NET 客户端 API](documentdb-sdk-dotnet.md) 获得。
+> Azure Cosmos DB 提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 [DocumentDB .NET 客户端 API](documentdb-sdk-dotnet.md) 获得。
 > 
 > 
 
@@ -164,7 +164,7 @@ Cosmos DB 数据库是一个或多个集合和用户的逻辑容器，如下面�
 数据库可以包含集合中分布的几乎无限的文档存储。
 
 ### <a name="elastic-scale-of-a-cosmos-db-database"></a>Cosmos DB 数据库的弹性缩放
-Cosmos DB 数据库默认情况下具有弹性：从几个 GB 到几个 PB 的受 SSD 支持的文档存储和预配吞吐量。 
+Cosmos DB 数据库默认情况下是弹性的 - SSD 支持的文档存储和预配的吞吐量范围从几个 GB 到几个 PB。 
 
 与传统的 RDBMS 中的数据库不同，Cosmos DB 中的数据库范围不限于单台计算机。 使用 Cosmos DB，随着应用程序的缩放需求的不断增长，可以创建更多集合和/或数据库。 实际上，在 Microsoft 内部，各种第一方应用程序已在以使用者规模使用 Cosmos DB，其方式是通过创建非常大的 Cosmos DB 数据库，每个数据库包含具有 TB 级别的文档存储的数千个集合。 可以通过添加或删除集合来扩大或收缩数据库，以满足应用程序的缩放要求。 
 
@@ -222,7 +222,7 @@ Cosmos DB 查询模型尝试在功能、效率和简单性之间取得平衡。 
 
 直接在与缓冲池位于相同地址空间内的数据库引擎中执行 JavaScript 的能力可实现针对集合的文档的数据库操作的高性能和事务性执行。 此外，Cosmos DB 数据库引擎还致力于针对 JSON 和 JavaScript 消除应用程序和数据库类型系统之间的任何阻抗失配。   
 
-创建集合之后即可使用 [REST API](https://docs.microsoft.com/rest/api/documentdb/)或任一[客户端 SDK](documentdb-sdk-dotnet.md) 向集合注册存储过程、触发器和 UDF。 注册后，可以引用并执行它们。 请考虑完全以 JavaScript 编写的以下存储过程，下面的代码采用两个参数（书名和作者姓名）创建一个新文档，对文档进行查询后再对其进行更新 - 所有这一切都是在一个隐式的 ACID 事务内完成。 在执行期间的任何时刻，如果引发 JavaScript 异常，则中止整个事务。
+创建集合之后即可使用 [REST API](https://docs.microsoft.com/rest/api/documentdb/)或任一[客户端 SDK](documentdb-sdk-dotnet.md) 向集合注册存储过程、触发器和 UDF。 注册后，可以引用并执行它们。 请考虑以下完全使用 JavaScript 编写的存储过程，此代码采用两个参数（书名和作者姓名），并创建了一个新文档，对文档进行查询，并更新文档 — 所有这些操作都是在一个隐式的 ACID 事务内完成。 在执行期间的任何时刻，如果引发 JavaScript 异常，则中止整个事务。
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -463,4 +463,4 @@ Cosmos DB 用户是指对权限进行分组的逻辑命名空间。 Cosmos DB �
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update, update link-->

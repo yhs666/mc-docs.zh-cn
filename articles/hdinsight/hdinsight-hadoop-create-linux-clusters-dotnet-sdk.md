@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/27/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: 6d1be9906349a2f619d87c675b518222e1e50344
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/16/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 0007a807b3a716a7ba1765999a33dee0ab20597b
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/14/2017
 HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用程序使用 HDInsight 的操作。 本文演示如何使用 .NET SDK 创建基于 Linux 的 HDInsight 群集。
 
 > [!IMPORTANT]
-> 本文中的步骤创建了包含一个工作节点的群集。 如果你计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
+> 本文中的步骤创建了包含一个工作节点的群集。 如果计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
 >
 > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
@@ -39,14 +39,14 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* **一个 Azure 存储帐户**。 请参阅[创建存储帐户](../storage/storage-create-storage-account.md#create-a-storage-account)。
+* **一个 Azure 存储帐户**。 请参阅[创建存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
 * **Visual Studio 2013、Visual Studio 2015 或 Visual Studio 2017**。
 
 ## <a name="create-clusters"></a>创建群集
 
 1. 打开 Visual Studio 2017。
 2. 创建新的 Visual C# 控制台应用程序。
-3. 在“工具”菜单中，单击“Nuget 程序包管理器”，然后单击“程序包管理器控制台”。
+3. 在“工具”菜单中，单击“Nuget 程序包管理器”，并单击“程序包管理器控制台”。
 4. 在控制台中运行下列命令以安装程序包：
 
     ```powershell
@@ -56,7 +56,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
     ```
 
     这些命令将 .NET 库以及对这些库的引用添加到当前 Visual Studio 项目中。
-5. 在解决方案资源管理器中双击 **Program.cs** 将它打开，粘贴以下代码，并提供变量的值：
+5. 在解决方案资源管理器中双击“Program.cs”将它打开，粘贴以下代码，并提供变量的值：
 
     ```csharp
     using System;
@@ -193,7 +193,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
     ```
 
 6. 替换类成员值。
-7. 按 **F5** 运行应用程序。 控制台窗口应打开并显示应用程序的状态。 系统还会提示你输入 Azure 帐户凭据。 创建一个 HDInsight 群集可能需要几分钟时间，通常为 15 分钟。
+7. 按 **F5** 运行应用程序。 控制台窗口应打开并显示应用程序的状态。 系统还会提示输入 Azure 帐户凭据。 创建一个 HDInsight 群集可能需要几分钟时间，通常为 15 分钟。
 
 ## <a name="use-bootstrap"></a>使用 bootstrap
 
@@ -230,7 +230,7 @@ static void Main(string[] args)
 
     var coreConfigs = new Dictionary<string, string>
     {
-        {"fs.defaultFS", string.Format("wasbs://{0}@{1}", ExistingBlobContainer, ExistingStorageName)},
+        {"fs.defaultFS", string.Format("wasb://{0}@{1}", ExistingBlobContainer, ExistingStorageName)},
         {
             string.Format("fs.azure.account.key.{0}", ExistingStorageName),
             ExistingStorageKey
@@ -405,3 +405,4 @@ static void Main(string[] args)
 * [使用.NET SDK 在 HDInsight 中运行 Pig 作业](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 * [使用.NET SDK 在 HDInsight 中运行 Sqoop 作业](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 * [在 HDInsight 中运行 Oozie 作业](hdinsight-use-oozie.md)
+<!--Update_Description: update storage link and change 'wasbs' into 'wasb'-->

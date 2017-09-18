@@ -15,15 +15,15 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 91bf3c6a0bffecd144843669237cf19e201beaa9
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: ae08f97692e2e5cb68f46ae1c497453e08e5cb6d
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/11/2017
 ---
-# <a name="use-azure-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>使用 Azure CLI 在 Azure SQL 数据库中缩放 SQL 弹性池
+# <a name="use-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>使用 CLI 在 Azure SQL 数据库中缩放 SQL 弹性池
 
 此 Azure CLI 脚本示例创建 SQL 弹性池，移动入池数据库，并更改弹性池性能级别。 
 

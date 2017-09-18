@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/05/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 8a23585e50a4b3ef2793c5c82c2be9774ea7c396
-ms.sourcegitcommit: 486760e5ee9518b2ad0a3e181450a64825e6ec83
+ms.openlocfilehash: 6712a00dc70bd5fbe78de9be285633023f9812f5
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/11/2017
 ---
-# <a name="learn-about-sql-database-backups"></a>了解 SQL 数据库备份
+# <a name="learn-about-automatic-sql-database-backups"></a>了解 SQL 数据库自动备份
 <!------------------
 This topic is annotated with TEMPLATE guidelines for FEATURE TOPICS.
 

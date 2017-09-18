@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/03/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: 625288cf26d2863d5a81120a5c54e8b40bb883b4
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 07/31/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 00bddb5d205b096fce3d9d97587bdb8ae40b5c1f
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>使用 REST 通过 HDInsight 上的 Hadoop 运行 Pig 作业
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a id="results"></a>查看结果
 
-在作业的状态更改为 **SUCCEEDED**时，你可以从群集使用的默认存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中，该位置为 `/example/pigcurl`。
+当作业的状态更改为“成功”后，可检索作业结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中，该位置为 `/example/pigcurl`。
 
 HDInsight 可以使用 Azure 存储作为默认数据存储。 有关详细信息，请参阅[基于 Linux 的 HDInsight 信息](hdinsight-hadoop-linux-information.md#hdfs-and-azure-storage)文档的存储部分。
 
@@ -122,6 +122,6 @@ HDInsight 可以使用 Azure 存储作为默认数据存储。 有关详细信�
 
 有关 HDInsight 上的 Hadoop 的其他使用方法的信息：
 
-* 
-            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
+<!--Update_Description: wording update-->

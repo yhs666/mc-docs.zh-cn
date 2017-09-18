@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 origin.date: 07/05/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: d44fce8a4df16835e0d253f51d671a26539adf29
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: c44414c136a020cc760674912705efb2aee6952a
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>使用 Node.js 查询 Azure SQL 数据库
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 07/28/2017
 获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称、数据库名称和登录信息。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
+2. 从左侧菜单中选择“SQL 数据库”，并单击“SQL 数据库”页上的数据库。 
 3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 将鼠标悬停在服务器名称上即可打开“通过单击进行复制”选项。 
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
@@ -139,9 +139,9 @@ ms.lasthandoff: 07/28/2017
 
 - 了解[用于 SQL Server 的 Microsoft Node.js 驱动程序](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
 - 了解如何在 Windows/Linux/macOS 中[使用 .NET Core 连接和查询 Azure SQL 数据库](sql-database-connect-query-dotnet-core.md)。  
-- 了解[在 Windows/Linux/macOS 中通过命令行使用 .NET Core 入门](https://docs.microsoft.com/dotnet/core/tutorials/using-with-xplat-cli.md)。
+- 了解[在 Windows/Linux/macOS 中通过命令行使用 .NET Core 入门](https://docs.microsoft.com/dotnet/core/tutorials/using-with-xplat-cli)。
 - 了解如何[使用 SSMS 设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)，或者如何[使用 .NET 设计第一个 Azure SQL 数据库](sql-database-design-first-database-csharp.md)。
 - 了解如何[使用 SSMS 进行连接和查询](sql-database-connect-query-ssms.md)
 - 了解如何[使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。
 
-<!--Update_Description: update word & code : deleted insert, update, delete sample code-->
+<!--Update_Description: update link-->

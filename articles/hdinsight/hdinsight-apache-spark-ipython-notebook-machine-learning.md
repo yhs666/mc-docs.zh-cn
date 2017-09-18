@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: b7733599da284e48b2ca2b117323b07df829dc5e
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 880e0be8d1fcedb7dfb346525f6d414147d84d0e
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上生成 Apache Spark 机器学习应用程序
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/14/2017
 
 **先决条件：**
 
-你必须具有以下各项：
+必须满足以下条件：
 
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](hdinsight-apache-spark-jupyter-spark-sql.md)。 
 
@@ -59,10 +59,10 @@ ms.lasthandoff: 07/14/2017
 3. 创建新的笔记本。 单击“新建”，然后单击“PySpark”。
 
     ![创建用于 Spark 机器学习示例的 Jupyter notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/spark-machine-learning-create-notebook.png "创建用于 Spark 机器学习示例的 Jupyter notebook")
-4. 随即创建新笔记本，并以 Untitled.pynb 名称打开。 单击顶部的笔记本名称，然后输入一个友好名称。
+4. 随即创建新笔记本，并以 Untitled.pynb 名称打开。 在顶部单击笔记本名称，并输入一个友好名称。
 
     ![提供用于 Spark 机器学习示例的笔记本名称](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/spark-machine-learning-notebook-name.png "提供用于 Spark 机器学习示例的笔记本名称")
-5. 使用笔记本是使用 PySpark 内核创建的，因此不需要显式创建任何上下文。 运行第一个代码单元格时，系统将自动创建 Spark 和 Hive 上下文。 首先，可以导入此方案所需的类型。 将以下代码段粘贴到空白单元格中，然后按 **SHIFT + ENTER**。 
+5. 使用笔记本是使用 PySpark 内核创建的，因此不需要显式创建任何上下文。 运行第一个代码单元格时，系统自动创建 Spark 和 Hive 上下文。 首先，可以导入此方案所需的类型。 将以下代码段粘贴到空白单元格中，并按 **SHIFT + ENTER**。 
 
         from pyspark.ml import Pipeline
         from pyspark.ml.classification import LogisticRegression
@@ -78,7 +78,7 @@ ms.lasthandoff: 07/14/2017
         from numpy import array
 6. 现在必须加载数据 (hvac.csv)，分析数据，并使用它来训练模型。 为此，需要定义检查建筑物实际温度是否高于目标温度的函数。 如果实际温度较高，则表示建筑物处于高温状态，用值 **1.0**表示。 如果实际温度较低，则表示建筑物处于低温状态，用值 **0.0**表示。 
 
-    将以下代码段粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
+    将以下代码段粘贴到空白单元格中，并按 **SHIFT + ENTER**。
 
         # List the structure of data for better understanding. Because the data will be
         # loaded as an array, this structure makes it easy to understand what each element
@@ -108,23 +108,23 @@ ms.lasthandoff: 07/14/2017
             return LabeledDocument((values[6]), textValue, hot)
 
         # Load the raw HVAC.csv file, parse it using the function
-        data = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
         documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
         training = documents.toDF()
 
 1. 设置包括三个阶段的 Spark 机器学习管道：tokenizer、hashingTF 和 lr。 有关管道介绍及其工作原理的详细信息，请参阅 <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark 机器学习管道</a>。
 
-    将以下代码段粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
+    将以下代码段粘贴到空白单元格中，并按 **SHIFT + ENTER**。
 
         tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
         hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
         lr = LogisticRegression(maxIter=10, regParam=0.01)
         pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
-2. 将管道拟合到培训文档中。 将以下代码段粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
+2. 将管道拟合到培训文档中。 将以下代码段粘贴到空白单元格中，并按 **SHIFT + ENTER**。
 
         model = pipeline.fit(training)
-3. 验证训练文档以根据应用程序进度创建检查点。 将以下代码段粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
+3. 验证训练文档以根据应用程序进度创建检查点。 将以下代码段粘贴到空白单元格中，并按 **SHIFT + ENTER**。
 
         training.show()
 
@@ -163,7 +163,7 @@ ms.lasthandoff: 07/14/2017
 
 1. 准备要对其运行训练模型的数据集。 为此，我们传递了系统 ID 和系统年数（以训练输出中的 **SystemInfo** 表示），模型将预测具有该系统 ID 和系统年数的建筑物的温度是较高（以 1.0 表示）还是较低（以 0.0 表示）。
 
-   将以下代码段粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
+   将以下代码段粘贴到空白单元格中，并按 **SHIFT + ENTER**。
 
        # SystemInfo here is a combination of system ID followed by system age
        Document = Row("id", "SystemInfo")
@@ -174,14 +174,14 @@ ms.lasthandoff: 07/14/2017
                      (5L, "17 10"),
                      (6L, "7 22")]) \
            .map(lambda x: Document(*x)).toDF() 
-2. 最后，对测试数据进行预测。 将以下代码段粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
+2. 最后，对测试数据进行预测。 将以下代码段粘贴到空白单元格中，并按 **SHIFT + ENTER**。
 
         # Make predictions on test documents and print columns of interest
         prediction = model.transform(test)
         selected = prediction.select("SystemInfo", "prediction", "probability")
         for row in selected.collect():
             print row
-3. 你应该会看到与下面类似的输出：
+3. 应该会看到与下面类似的输出：
 
        Row(SystemInfo=u'20 25', prediction=1.0, probability=DenseVector([0.4999, 0.5001]))
        Row(SystemInfo=u'4 15', prediction=0.0, probability=DenseVector([0.5016, 0.4984]))
@@ -210,7 +210,7 @@ HDInsight 上的 Apache Spark 群集包含 Anaconda 库， 还包含适用于机
 * [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和扩展
-* [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [使用用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-zeppelin-notebook.md)
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
@@ -231,4 +231,5 @@ HDInsight 上的 Apache Spark 群集包含 Anaconda 库， 还包含适用于机
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
+<!--Update_Description: update storage link and change 'wasbs' into 'wasb'-->

@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/13/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: eeb7b5f05d75a5594e52dfb3d6665315e8db1418
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: c05d665f3a74769d03a1657d42f4cf434333a550
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/13/2017
 ---
 <!--with not avaliable VM context-->
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>高性价比标准存储以及非托管和托管 Azure VM 磁盘
@@ -149,6 +149,6 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 
 * [使用 Resource Manager 和 PowerShell 创建 VM](/virtual-machines/windows/quick-create-powershell.md)
 
-* [使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md)
+* [使用 Azure CLI 2.0 创建 Linux VM](../../virtual-machines/linux/quick-create-cli.md)
 
 <!--Update_Description: update link-->

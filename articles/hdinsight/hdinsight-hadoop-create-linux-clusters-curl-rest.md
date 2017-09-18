@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/17/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 817959b97d357dd57743646623392ad5ba8b1e22
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 08/10/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 45f99615185a98842ca0e2a56ac95888fdfbef62
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>使用 Azure REST API 创建 Hadoop 群集
 
@@ -378,3 +378,4 @@ curl -X "GET" "https://management.chinacloudapi.cn/subscriptions/$SUBSCRIPTIONID
 * [为 Storm on HDInsight 开发 Java 拓扑](hdinsight-storm-develop-java-topology.md)
 * [在 Storm on HDInsight 中使用 Python 组件](hdinsight-storm-develop-python-topology.md)
 * [使用 Storm on HDInsight 部署和监视拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)
+<!--Update_Description: update metadata-->

@@ -16,13 +16,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/06/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: ccf738bab72800543ffcc4e4c4c87670929e28ef
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 09c01a207997eadfad183ed9e70eb451e827d90e
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-and-more"></a>在 HDInsight 中设置包含 Hadoop、Spark 和其他组件的群集
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 07/28/2017
 Hadoop 群集由用于对任务进行分布式处理的多个虚拟机（节点）组成。 Azure HDInsight 对各个节点的安装和配置的实现细节进行处理，因此你只需提供常规配置信息。 
 
 > [!IMPORTANT]
->HDInsight 群集计费在创建群集之后便会开始，删除群集后才会停止。 HDInsight 群集按分钟收费，因此不再需要使用群集时，应将其删除。 了解如何[删除群集](hdinsight-delete-cluster.md)。
+>HDInsight 群集计费在创建群集之后便会开始，删除群集后才会停止。 群集以每分钟按比例收费，因此无需再使用群集时，应始终将其删除。 了解如何[删除群集](hdinsight-delete-cluster.md)。
 >
 
 ## <a name="cluster-setup-methods"></a>群集设置方法
@@ -100,7 +100,7 @@ Azure HDInsight 目前提供以下群集类型，每种类型都具有一组用�
 ## <a name="cluster-login-and-ssh-user-name"></a>群集登录名和 SSH 用户名
 使用 HDInsight 群集时，可以在群集创建期间配置两个用户帐户：
 
-* HTTP 用户：默认用户名为 *admin*。 它使用 Azure 门户上的基本配置。 有时称为“群集用户”。
+* HTTP 用户：默认用户名为 *admin*。它使用 Azure 门户上的基本配置。 有时称为“群集用户”。
 * SSH 用户（Linux 群集）：用于通过 SSH 连接到群集。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 ## <a name="location"></a>群集和存储的位置（区域）
@@ -117,6 +117,8 @@ Hadoop 的本地安装对群集上的存储使用 Hadoop 分布式文件系统 (
 在配置期间，请为默认存储终结点指定 Azure 存储帐户的某个 Blob 容器。 默认存储包含应用程序日志和系统日志。 也可以选择指定群集可访问的其他 Azure 存储链接帐户。 HDInsight 群集和相关的存储帐户必须在同一个 Azure 位置。
 
 ![群集存储设置：HDFS 兼容的存储终结点](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
+
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
 ### <a name="optional-metastores"></a>可选元存储
 可创建可选的 Hive 或 Oozie 元存储。 但是，并非所有群集类型都支持元存储，并且 Azure SQL 数据仓库与元存储不兼容。 
@@ -188,7 +190,7 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 
 ## <a name="advanced-settings-script-actions"></a>高级设置：脚本操作
 
-你可以在创建期间通过使用脚本安装其他组件或自定义群集配置。 此类脚本可通过 **脚本操作**调用，脚本操作是一种配置选项，可通过 Azure 门户、HDInsight Windows PowerShell cmdlet 或 HDInsight .NET SDK 使用。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
+可以在创建期间通过使用脚本安装其他组件或自定义群集配置。 此类脚本可通过 **脚本操作**调用，脚本操作是一种配置选项，可通过 Azure 门户、HDInsight Windows PowerShell cmdlet 或 HDInsight .NET SDK 使用。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 某些本机 Java 组件（如 Mahout 和 Cascading）可以在群集上作为 Java 存档 (JAR) 文件运行。 可以使用 Hadoop 作业提交机制将这些 JAR 文件分发到 Azure 存储，然后提交到 HDInsight 群集。 有关详细信息，请参阅[以编程方式提交 Hadoop 作业](hdinsight-submit-hadoop-jobs-programmatically.md)。
 
@@ -235,3 +237,4 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 - [HDInsight、Hadoop 生态系统和 Hadoop 群集是什么？](hdinsight-hadoop-introduction.md)
 - [开始在 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [在 Windows 电脑中操作 Hadoop on HDInsight](hdinsight-hadoop-windows-tools.md)
+<!--Update_Description: add a include-->

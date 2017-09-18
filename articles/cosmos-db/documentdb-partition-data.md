@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7525869db77392b75776651ef420eb6efd225684
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 1de242293d138694edb0d53c566d1d0c5f63a6c6
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>使用 DocumentDB API 在 Azure Cosmos DB 中分区
 
@@ -42,7 +42,10 @@ ms.lasthandoff: 08/04/2017
 <a name="partition-keys"></a>
 <a name="single-partition-and-partitioned-collections"></a>
 <a name="migrating-from-single-partition"></a>
-## 分区键在 DocumentDB API 中，可以通过 JSON 路径的形式指定分区键定义。 下表显示分区键定义以及与每个定义相对应的值的示例。 分区键指定为路径，例如，`/department` 表示物业部门。 
+
+## <a name="partition-keys"></a>分区键
+
+在 DocumentDB API 中，可以通过 JSON 路径形式指定分区键定义。 下表显示分区键定义以及与每个定义相对应的值的示例。 分区键指定为路径，例如，`/department` 表示物业部门。 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -76,8 +79,8 @@ ms.lasthandoff: 08/04/2017
 
 让我们看看所选的分区键如何影响应用程序的性能。
 
-## <a name="working-with-the-documentdb-sdks"></a>使用 DocumentDB SDK
-Azure Cosmos DB 增加了对 [REST API 版本 2015-12-16](https://docs.microsoft.com/rest/api/documentdb/) 的自动分区支持。 为了创建已分区容器，必须在支持的 SDK 平台（.NET、Node.js、Java、Python、MongoDB）之一下载 SDK 1.6.0 或更高版本。 
+## <a name="working-with-the-azure-cosmos-db-sdks"></a>使用 Azure Cosmos DB SDK
+Azure Cosmos DB 通过 [REST API 版本 2015-12-16](https://docs.microsoft.com/rest/api/documentdb/) 增加了对自动分区的支持。 为了创建已分区容器，必须在支持的 SDK 平台（.NET、Node.js、Java、Python、MongoDB）之一下载 SDK 1.6.0 或更高版本。 
 
 ### <a name="creating-containers"></a>创建容器
 下面的示例演示的 .NET 代码片段用于创建容器，以存储吞吐量为 20,000 个请求单位/秒的设备遥测数据。 SDK 将设置 OfferThroughput 值（从而设置 REST API 中的 `x-ms-offer-throughput` 请求标头）。 这里，我们将 `/deviceId` 设为分区键。 所选分区键随容器元数据（如名称和索引策略）的其余部分一起保存。
@@ -143,7 +146,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-请按分区键和 ID 读取项，对其进行更新，最后通过分区键和 ID 将其删除。 请注意，读取包括 PartitionKey 值（对应 REST API 中的 `x-ms-documentdb-partitionkey` 请求标头）。
+请按分区键和 ID 读取项，对其进行更新，最后通过分区键和 ID 将其删除。请注意，读取包括 PartitionKey 值（对应 REST API 中的 `x-ms-documentdb-partitionkey` 请求标头）。
 
 ```csharp
 // Read document. Needs the partition key and the ID to be specified
@@ -206,7 +209,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 * 通过设置 `MaxDegreeOfParallelism`，可以控制并行度，即，与容器的分区同时进行的网络连接的最大数量。 如果将此参数设置为 -1，则由 SDK 管理并行度。 如果 `MaxDegreeOfParallelism` 未指定或设置为 0（默认值），则与容器的分区的网络连接只有一个。
 * 通过设置 `MaxBufferedItemCount`，可以权衡查询延迟和客户端内存使用率。 如果省略此参数或将此参数设置为 -1，则由 SDK 管理并行查询执行过程中缓冲的项目数。
 
-如果给定相同状态的集合，并行查询会以与串行执行相同的顺序返回结果。 执行包含排序（ORDER BY 和/或 TOP）的跨分区查询时，DocumentDB SDK 跨分区发出并行查询，并合并客户端中的部分排序结果，以生成全局范围内有序的结果。
+如果给定相同状态的集合，并行查询会以与串行执行相同的顺序返回结果。 执行包含排序（ORDER BY 和/或 TOP）的跨分区查询时，Azure Cosmos DB SDK 跨分区发出并行查询，并合并客户端中的部分排序结果，以生成全局范围内有序的结果。
 
 ### <a name="executing-stored-procedures"></a>执行存储过程
 还可以对具有相同设备 ID 的文档执行原子事务，例如，如果要在单个项中维护聚合或设备的最新状态，则可以执行该操作。 
@@ -221,10 +224,10 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 在下一部分，介绍如何从单分区容器移动到已分区容器。
 
 ## <a name="next-steps"></a>后续步骤
-本文概述了如何使用 DocumentDB API 处理对 Cosmos DB 容器的分区。 另请参阅[分区和水平缩放](../cosmos-db/partition-data.md)，大致了解使用任何 Azure Cosmos DB API 进行分区的概念和最佳做法。 
+本文概述了如何使用 DocumentDB API 对 Azure Cosmos DB 容器进行分区。 有关使用任何 Azure Cosmos DB API 进行分区的概念和最佳做法概述，另请参阅[分区和水平缩放](../cosmos-db/partition-data.md)。 
 
-* 使用 Cosmos DB 执行缩放和性能测试。 有关示例，请参阅[使用 Azure Cosmos DB 执行性能和规模测试](performance-testing.md)。
+* 使用 Azure Cosmos DB 执行规模和性能测试。 有关示例，请参阅[执行 Azure Cosmos DB 缩放和性能测试](performance-testing.md)。
 * 使用 [SDK](documentdb-sdk-dotnet.md) 或 [REST API](https://docs.microsoft.com/rest/api/documentdb/) 的编码入门
 * 了解 [Azure Cosmos DB 中的预配吞吐量](request-units.md)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, wording update-->

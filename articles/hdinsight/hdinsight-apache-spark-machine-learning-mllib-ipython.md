@@ -16,20 +16,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 620d86087882eca6d10853ee08f52e5041647cbc
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 160c52aded2848feb034aa441390fa77d87e4d17
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>使用 Spark MLlib 生成机器学习应用程序和分析数据集
 
 了解如何使用 Spark **MLlib** 创建机器学习应用程序，用于对开放数据集执行简单的预测分析。 本示例摘自 Spark 的内置机器学习库，它通过逻辑回归使用分类。 
 
 > [!TIP]
-> 本示例也以在 HDInsight 中创建的 Spark (Linux) 群集上的 Jupyter Notebook 的形式提供。 笔记本体验将通过笔记本本身运行 Python 代码段。 若要在 Notebook 中执行本教程，请创建 Spark 群集并启动 Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.cn/jupyter`)。 然后，运行 **Python** 文件夹下的 Notebook“Spark 机器学习 - 使用 MLlib.ipynb 对食品检测数据进行预测分析”。
+> 本示例也以在 HDInsight 中创建的 Spark (Linux) 群集上的 Jupyter Notebook 的形式提供。 笔记本体验允许通过笔记本本身运行 Python 代码段。 若要在 Notebook 中执行本教程，请创建 Spark 群集并启动 Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.cn/jupyter`)。 然后，运行 **Python** 文件夹下的 Notebook“Spark 机器学习 - 使用 MLlib.ipynb 对食品检测数据进行预测分析”。
 >
 >
 
@@ -43,16 +43,16 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
 * 假设测试和计算示例统计信息
 
 ## <a name="what-are-classification-and-logistic-regression"></a>分类和逻辑回归是什么？
-“分类”是一种很常见的机器学习任务，是将输入数据归入各类别的过程。 分类算法的作用是找出如何为提供的输入数据分配“标签”。 例如，可以想到一种机器学习算法，它接受股票信息作为输入，然后将股票分为两类：应该销售的股票和应该保留的股票。
+“分类”是一种很常见的机器学习任务，是将输入数据归入各类别的过程。 分类算法的作用是找出如何为提供的输入数据分配“标签”。 例如，可以联想机器学习算法，该算法接受股票信息作为输入并将股票划分为两个类别：应该卖出的股票和应该保留的股票。
 
-逻辑回归是用于分类的算法。 Spark 的逻辑回归 API 可用于“二元分类” ，或将输入数据分类为两个组之一。 有关逻辑回归的详细信息，请参阅 [维基百科](https://en.wikipedia.org/wiki/Logistic_regression)。
+逻辑回归是用于分类的算法。 Spark 的逻辑回归 API 可用于 *二元分类*，或将输入数据归类到两组中的一组。 有关逻辑回归的详细信息，请参阅 [维基百科](https://en.wikipedia.org/wiki/Logistic_regression)。
 
 总之，逻辑回归过程会产生“逻辑函数”  ，该函数可用于预测输入向量属于其中一个组的概率。  
 
 ## <a name="predictive-analysis-example-on-food-inspection-data"></a>对食品检测数据进行预测分析的示例
 本示例使用 Spark 对食品检测数据 (**Food_Inspections1.csv**) 执行一些预测分析，这些数据通过 [City of Shanghai data portal](https://data.cityofchicago.org/)（上海市数据门户）获取。 此数据集包含在上海执行的食品检验的相关信息，包括被检查的每个食品机构的信息、发现的违规行为（如果有）以及检验结果。 CSV 数据文件在与群集（位于 **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**）关联的存储帐户中可用。
 
-在下面的步骤中，将开发一个模型来了解决定食品检验通过或不通过的因素。
+在以下步骤中，将开发一个模型以查看如何通过食物检测或为何失败。
 
 ## <a name="start-building-a-spark-mmlib-machine-learning-app"></a>开始生成 Spark MMLib 机器学习应用
 1. 在 [Azure 门户](https://portal.azure.cn/)上的启动板中，单击 Spark 群集的磁贴（如果已将它固定到启动板）。 也可以单击“全部浏览” > “HDInsight 群集”导航到群集。   
@@ -67,10 +67,10 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
 1. 创建 Notebook。 单击“新建”，然后单击“PySpark”。
 
     ![创建新的 Jupyter Notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-create-jupyter.png "创建新的 Jupyter Notebook")
-1. 随即创建新笔记本，并以 Untitled.pynb 名称打开。 单击顶部的笔记本名称，然后输入一个友好名称。
+1. 随即创建新笔记本，并以 Untitled.pynb 名称打开。 单击顶部的笔记本名称，并输入一个友好名称。
 
     ![提供笔记本的名称](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-name-jupyter.png "提供笔记本的名称")
-1. 使用笔记本是使用 PySpark 内核创建的，因此不需要显式创建任何上下文。 运行第一个代码单元格时，系统将自动为你创建 Spark 和 Hive 上下文。 可以通过导入此方案所需的类型来开始构建机器学习应用程序。 为此，请将光标放在单元格中，然后按 **SHIFT + ENTER**。
+1. 使用笔记本是使用 PySpark 内核创建的，因此不需要显式创建任何上下文。 运行第一个代码单元格时，系统自动为你创建 Spark 和 Hive 上下文。 可以通过导入此方案所需的类型来开始构建机器学习应用程序。 为此，请将光标放在单元格中，并按 **SHIFT + ENTER**。
 
         from pyspark.ml import Pipeline
         from pyspark.ml.classification import LogisticRegression
@@ -82,7 +82,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
 ## <a name="construct-an-input-dataframe"></a>构造输入数据帧
 可以使用 `sqlContext` 对结构化数据执行转换。 第一个任务是将示例数据 ((**Food_Inspections1.csv**)) 加载到 Spark SQL 数据帧中。
 
-1. 因为原始数据是 CSV 格式，所以需要使用 Spark 上下文将文件的每一行拉入内存中作为非结构化文本；然后，便可以使用 Python 的 CSV 库来单独分析每一行。
+1. 由于原始数据是 CSV 格式，所以需要使用 Spark 上下文将文件的每一行拉取到内存中作为非结构化文本，并使用 Python 的 CSV 库单独分析每一行。
 
         def csvParse(s):
             import csv
@@ -92,13 +92,13 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
             sio.close()
             return value
 
-        inspections = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+        inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
 1. 我们现在有 CSV 文件，可用作 RDD。  若要了解数据的架构，请从 RDD 中检索一行。
 
         inspections.take(1)
 
-    你应该看到如下输出：
+    应该看到如下输出：
 
         # -----------------
         # THIS IS AN OUTPUT
@@ -121,7 +121,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
           '41.97583445690982',
           '-87.7107455232781',
           '(41.97583445690982, -87.7107455232781)']]
-1. 上面的输出让我们对输入文件架构有了一定理解。 该文件包含每个机构的名称、机构的类型、地址、检测数据和位置等等。 选择几个对我们的预测分析有用的列，并将结果归为一个数据帧，接下来会用它来创建一个临时表。
+1. 上面的输出让我们对输入文件架构有了一定理解。 该文件包含每个机构的名称、机构的类型、地址、检测数据和位置等等。 选择可用于预测分析的几个列，将结果分组为数据帧，然后用该数据帧创建临时表。
 
         schema = StructType([
         StructField("id", IntegerType(), False),
@@ -137,7 +137,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
 
         df.show(5)
 
-    你应该看到如下输出：
+    应该看到如下输出：
 
         # -----------------
         # THIS IS AN OUTPUT
@@ -158,7 +158,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
 
         df.select('results').distinct().show()
 
-    你应该看到如下输出：
+    应该看到如下输出：
 
         # -----------------
         # THIS IS AN OUTPUT
@@ -173,14 +173,14 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
         |  Pass w/ Conditions|
         |     Out of Business|
         +--------------------+
-1. 快速可视化可以帮助我们推断这些结果的分布。 我们已将数据导入临时表 **CountResults**中。 可以对表运行以下 SQL 查询，以更好地了解结果的分布情况。
+1. 快速可视化可以帮助我们推断这些结果的分布。 临时表 **CountResults** 中已存在数据。 可以对表运行以下 SQL 查询，以更好地了解结果的分布情况。
 
         %%sql -o countResultsdf
         SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
 
-    后接 `-o countResultsdf` 的 `%%sql` magic 可确保查询输出本地保存在 Jupyter 服务器上（通常在群集的头节点）。 输出将保存为具有指定名称 [countResultsdf](http://pandas.pydata.org/) 的 **Pandas**数据帧。
+    后接 `-o countResultsdf` 的 `%%sql` magic 可确保查询输出本地保存在 Jupyter 服务器上（通常在群集的头节点）。 输出将作为 [Pandas](http://pandas.pydata.org/) 数据帧进行保存，指定名称为 **countResultsdf**。
 
-    你应该看到如下输出：
+    应该会显示如下输出：
 
     ![SQL 查询输出](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "SQL 查询输出")
 
@@ -197,7 +197,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
         plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
         plt.axis('equal')
 
-    你应该看到如下输出：
+    应该看到如下输出：
 
     ![Spark 机器学习应用程序输出 - 包含五种不同检测结果的饼图](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Spark 机器学习结果输出")
 1. 可以看到，检测可有 5 种不同的结果：
@@ -209,7 +209,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
    * 停业
 
      让我们开发一个模型，它可以猜测食品检测的结果，假设是违规的情况。 由于逻辑回归是二元分类方法，因此有必要将数据分为两个类别：“失败”和“通过”。 “有条件通过”仍然属于通过，所以在定型模型时，会将这两个结果视为等效。 得到其他结果（“未找到企业”或“停止经营”）的数据没有用，所以将其从训练集中删除。 由于这两个类别占结果很小的比例，所以这样操作应该没有问题。
-1. 继续操作并将现有数据帧 (`df`) 转换为新的数据帧，其中每个检测以“违规行为标签对”表示。 在本例中，`0.0` 标签表示失败，`1.0` 标签表示成功，`-1.0` 标签表示除了这两个以外的结果。 在计算新的数据帧时，我们将筛选出这些其他结果。
+1. 继续操作并将现有数据帧 (`df`) 转换为新的数据帧，其中每个检测以“违规行为标签对”表示。 在本例中，`0.0` 标签表示失败，`1.0` 标签表示成功，`-1.0` 标签表示除了这两个以外的结果。 计算新数据帧时，将筛选出这些其他结果。
 
         def labelForResults(s):
             if s == 'Fail':
@@ -225,7 +225,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
 
         labeledData.take(1)
 
-    你应该看到如下输出：
+    应该看到如下输出：
 
         # -----------------
         # THIS IS AN OUTPUT
@@ -234,11 +234,11 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
         [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>从输入数据帧创建逻辑回归模型
-我们的最终任务是将标记的数据转换为可以通过逻辑回归分析的格式。 逻辑回归算法的输入应为一组“标签特征向量对”，其中“特征向量”是表示输入点的数字向量。 因此，我们需要将“违规”列（它是半结构化的，并且包含大量自定义文本形式的注释）转换为机器容易理解的实数数组。
+最后一项任务是将标签数据转换为逻辑回归可分析的格式。 逻辑回归算法的输入应为一组“标签特征向量对”，其中“特征向量”是表示输入点的数字向量。 因此，我们需要将“违规”列（它是半结构化的，并且包含大量自定义文本形式的注释）转换为机器容易理解的实数数组。
 
-用于处理自然语言的一种标准机器学习方法是为每个不同的单词分配一个“索引”，然后将一个向量传递给机器学习算法，以使每个索引的值包含该词在文本字符串中的相对频率。
+用于处理自然语言的一种标准机器学习方法是为每个不同的单词分配一个“索引”，并将一个向量传递给机器学习算法，以使每个索引的值包含该词在文本字符串中的相对频率。
 
-MLlib 提供了执行此操作的一种简单方法。 首先，“标记”每个违规字符串以获取每个字符串中的各个单词。 然后使用 `HashingTF` 将每组标记转换为特征向量，随后可将其传递给逻辑回归算法以构建模型。 我们将使用“管道”按顺序执行所有这些步骤。
+MLlib 提供了执行此操作的一种简单方法。 首先，“标记”每个违规字符串以获取每个字符串中的各个单词。 然后使用 `HashingTF` 将每组标记转换为特征向量，随后可将其传递给逻辑回归算法以构建模型。 将使用“管道”按顺序执行所有这些步骤。
 
     tokenizer = Tokenizer(inputCol="violations", outputCol="words")
     hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
@@ -252,7 +252,7 @@ MLlib 提供了执行此操作的一种简单方法。 首先，“标记”每�
 
 1. 以下代码段创建新的数据帧 **predictionsDf**，其中包含模型生成的预测。 该代码段还基于数据帧创建名为 **Predictions** 的临时表。
 
-        testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+        testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                  .map(csvParse) \
                  .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
         testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -260,7 +260,7 @@ MLlib 提供了执行此操作的一种简单方法。 首先，“标记”每�
         predictionsDf.registerTempTable('Predictions')
         predictionsDf.columns
 
-    你应该看到如下输出：
+    应该看到如下输出：
 
         # -----------------
         # THIS IS AN OUTPUT
@@ -352,7 +352,7 @@ MLlib 提供了执行此操作的一种简单方法。 首先，“标记”每�
 * [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和扩展
-* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [使用用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-zeppelin-notebook.md)
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
@@ -362,3 +362,4 @@ MLlib 提供了执行此操作的一种简单方法。 首先，“标记”每�
 ### <a name="manage-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](hdinsight-apache-spark-job-debugging.md)
+<!--Update_Description: change 'wasbs' into 'wasb'-->

@@ -13,16 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: article
-origin.date: 05/23/2017
-ms.date: 08/07/2017
+origin.date: 08/14/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: c047281a4137df9c541006a2cfb7ed561781a90c
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: e1498e718721266414f5598842581157b18ea129
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
-# <a name="nodejs-tutorial-documentdb-nodejs-console-application"></a>Node.js 教程：DocumentDB Node.js 控制台应用程序
+# <a name="nodejs-tutorial-use-the-documentdb-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js 教程：在 Azure Cosmos DB 中使用 DocumentDB API 创建 Node.js 控制台应用程序
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -83,19 +83,19 @@ ms.lasthandoff: 08/04/2017
 ## <a id="Config"></a>步骤 3：设置应用的配置
 在喜爱的文本编辑器中打开 ```config.js``` 。
 
-然后，复制并粘贴以下代码片段，并将属性 ```config.endpoint``` 和 ```config.primaryKey``` 设置为 DocumentDB 终结点 URI 和主密钥。 这两项配置都可以在 [Azure 门户](https://portal.azure.cn)中找到。
+然后，复制并粘贴以下代码片段，并将属性 ```config.endpoint``` 和 ```config.primaryKey``` 设置为 Azure Cosmos DB 终结点 URI 和主密钥。 这两项配置都可以在 [Azure 门户](https://portal.azure.cn)中找到。
 
 ![Node.js 教程 - Azure 门户的屏幕截图，显示了一个 Azure Cosmos DB 帐户，在“Azure Cosmos DB 帐户”边栏选项卡上突出显示了“ACTIVE”中心、“密钥”按钮，在“密钥”边栏选项卡上突出显示了 URI、主密钥、辅助密钥的值 - Node 数据库][keys]
 
     // ADD THIS PART TO YOUR CODE
     var config = {}
 
-    config.endpoint = "~your DocumentDB endpoint uri here~";
+    config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
 复制 ```database id```、```collection id``` 和 ```JSON documents``` 并将其粘贴到在其中设置了 ```config.endpoint``` 和 ```config.authKey``` 属性的 ```config``` 对象下面。 如果已有要在数据库中存储的数据，则可以使用 Azure Cosmos DB 的[数据迁移工具](import-data.md)而不是添加文档定义。
 
-    config.endpoint = "~your DocumentDB endpoint uri here~";
+    config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
     // ADD THIS PART TO YOUR CODE
@@ -164,9 +164,9 @@ ms.lasthandoff: 08/04/2017
         }
     };
 
-数据库、集合和文档定义将充当 DocumentDB ```database id```、```collection id``` 和文档的数据。
+数据库、集合和文档定义将充当 Azure Cosmos DB ```database id```、```collection id``` 和文档的数据。
 
-最后，导出 ```config``` 对象，以便在 ```app.js``` 文件中引用。
+最后，导出 ```config``` 对象，以便可以在 ```app.js``` 文件中引用。
 
             },
             "isRegistered": false
@@ -194,10 +194,10 @@ ms.lasthandoff: 08/04/2017
     // ADD THIS PART TO YOUR CODE
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
 
-现已获得用于初始化 documentdb 客户端的代码，接下来让我们看看如何使用 DocumentDB 资源。
+现已获得用于初始化 Azure Cosmos DB 客户端的代码，接下来请看如何使用 Azure Cosmos DB 资源。
 
 ## <a name="step-5-create-a-node-database"></a>步骤 5：创建节点数据库
-复制并粘贴以下代码，以设置“找不到”消息的 HTTP 状态、数据库 URL 和集合 URL。 这些 URL 可让 DocumentDB 客户端查找正确的数据库和集合。
+复制并粘贴以下代码，以设置“找不到”消息的 HTTP 状态、数据库 URL 和集合 URL。 通过这些 URL，可了解 Azure Cosmos DB 客户端如何查找正确的数据库和集合。
 
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
 
@@ -313,10 +313,10 @@ ms.lasthandoff: 08/04/2017
 
 在终端中，找到 ```app.js``` 文件并运行命令：```node app.js```
 
-祝贺！ 已成功创建 DocumentDB 集合。
+祝贺！ 已成功创建 Azure Cosmos DB 集合。
 
 ## <a id="CreateDoc"></a>步骤 7：创建文档
-可以使用 **DocumentClient** 类的 [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函数创建[文档](documentdb-resources.md#documents)。 文档为用户定义的（任意）JSON 内容。 现在，可以将文档插入 DocumentDB。
+可以使用 **DocumentClient** 类的 [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函数创建[文档](documentdb-resources.md#documents)。 文档为用户定义的（任意）JSON 内容。 现在，可以将文档插入 Azure Cosmos DB 中。
 
 将 **getFamilyDocument** 函数复制并粘贴到 **getCollection** 函数下面，创建包含 ```config``` 对象中保存的 JSON 数据的文档。 同样，我们首先检查以确保不存在具有相同 ID 的文档。
 
@@ -365,14 +365,14 @@ ms.lasthandoff: 08/04/2017
 
 在终端中，找到 ```app.js``` 文件并运行命令：```node app.js```
 
-祝贺！ 已成功创建 DocumentDB 文档。
+祝贺！ 已成功创建 Azure Cosmos DB 文档。
 
-![Node.js 教程 - 说明帐户、数据库、集合和文档间层次关系的关系图 - 节点数据库](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
+![Node.js 教程 - 说明帐户、数据库、集合和文档间层次关系的关系图 - 节点数据库](./media/documentdb-nodejs-get-started/node-js-tutorial-cosmos-db-account.png)
 
 ## <a id="Query"></a>步骤 8：查询 Azure Cosmos DB 资源
 Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行[各种查询](documentdb-sql-query.md)。 下面的示例代码演示可针对集合中文档运行的查询。
 
-将 **queryCollection** 函数复制并粘贴到 app.js 文件中的 **getFamilyDocument** 函数下面。 DocumentDB 支持类似 SQL 的查询，如下所示。 有关构建复杂查询的详细信息，请参阅 [Query Playground](https://www.documentdb.com/sql/demo)（查询演练）和[查询文档](documentdb-sql-query.md)。
+将 **queryCollection** 函数复制并粘贴到 app.js 文件中的 **getFamilyDocument** 函数下面。 Azure Cosmos DB 支持类似 SQL 的查询，如下所示。 有关构建复杂查询的详细信息，请参阅[查询演练](https://www.documentdb.com/sql/demo)和[查询文档](documentdb-sql-query.md)。
 
                 } else {
                     resolve(result);
@@ -403,11 +403,11 @@ Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行[各种查
         });
     };
 
-下图说明了如何对创建的集合调用 DocumentDB SQL 查询语法。
+下图说明了如何针对所创建的集合调用 Azure Cosmos DB SQL 查询语法。
 
 ![Node.js 教程 - 说明查询的范围和含义的关系图 - 节点数据库](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
-查询中的 [FROM](documentdb-sql-query.md#FromClause) 关键字是可选的，因为 DocumentDB 查询的范围已限制为单个集合。 因此，“FROM Families f”可与“FROM root r”或者任何其他所选变量名进行交换。 默认情况下，DocumentDB 会推断你选择的 Families、root 或变量名，并默认引用当前集合。
+查询中的关键字 [FROM](documentdb-sql-query.md#FromClause) 是可选项，因为 Azure Cosmos DB 查询已限制为单个集合。 因此，“FROM Families f”可与“FROM root r”或者任何其他所选变量名进行交换。 Azure Cosmos DB 将推断所选 Families、root 或变量名，并默认引用当前集合。
 
 将以下代码复制并粘贴到对 **getFamilyDocument** 的调用下面，以执行 **queryCollection** 函数。
 
@@ -629,4 +629,4 @@ Azure Cosmos DB 支持删除 JSON 文档。
 [create-account]: create-documentdb-dotnet.md#create-account
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->

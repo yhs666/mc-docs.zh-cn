@@ -15,13 +15,13 @@ ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 05/30/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 3dfc19cf6c49632f2595abc9944ae5869f5fe215
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 7003144c7657f0a5ec4dfcbe45320af19a1740a9
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>在 Azure 门户中创建 Azure SQL 数据库
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 07/28/2017
 
 1. 单击 Azure 门户左上角的“新建”按钮。
 
-2. 从“新建”页中选择“数据库”，然后从“数据库”页中选择“SQL 数据库”。
+2. 从“新建”页中选择“数据库”，并从“数据库”页中选择“SQL 数据库”。
 
    ![创建数据库 - 1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -57,7 +57,16 @@ ms.lasthandoff: 07/28/2017
    > 必须选择此表单中的示例数据库，因为本快速入门中的其余部分会用到它。
    > 
 
-4. 单击“服务器”，填写“新建服务器”表单，指定全局唯一的服务器名称，提供服务器管理员登录名，并指定所选的密码。 
+4. 在“服务器”下，单击“配置所需设置”，并在“SQL Server (逻辑服务器)”窗体中填写以下信息，如下图所示：   
+
+   | 设置       | 建议的值 | 
+   | ------------ | ------------------ | 
+   | **服务器名称** | 任何全局唯一名称 | 
+   | **服务器管理员登录名** | 任何有效的名称 |
+   | **密码** | 任何有效的密码 |
+   | **订阅** | 你的订阅 |
+   | **资源组** | MyResourceGroup |
+   | **位置** | 任何有效的位置 |
 
    > [!IMPORTANT]
    > 在此处指定的服务器管理员登录名和密码是以后在本快速入门中登录到服务器及其数据库所必需的。 请牢记或记录此信息，以后会使用到它。 
@@ -80,7 +89,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="create-a-server-level-firewall-rule"></a>创建服务器级防火墙规则
 
-SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防火墙规则来为特定的 IP 地址打开防火墙，否则会阻止外部应用程序和工具连接到服务器或服务器上的任何数据库。 按照以下步骤为客户端 IP 地址创建 [SQL 数据库服务器级防火墙规则](sql-database-firewall-configure.md)，只允许通过 SQL 数据库防火墙进行外部连接，而该防火墙只对你的 IP 地址开放。 
+SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防火墙规则来为特定的 IP 地址打开防火墙，否则会阻止外部应用程序和工具连接到服务器或服务器上的任何数据库。 按照以下步骤为客户端 IP 地址创建 [SQL 数据库服务器级防火墙规则](sql-database-firewall-configure.md)，并只允许通过针对你的 IP 地址打开的 SQL 数据库防火墙建立外部连接。 
 
 > [!NOTE]
 > 通过端口 1433 进行的 SQL 数据库通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到 Azure SQL 数据库服务器，除非 IT 部门打开了端口 1433。
@@ -147,7 +156,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 如果不需要将这些资源用于其他快速入门/教程（请参阅[后续步骤](#next-steps)），则可通过以下操作将其删除：
 
 1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击“myResourceGroup”。 
-2. 在资源组页上单击“删除”，在文本框中键入 **myResourceGroup**，然后单击“删除”。
+2. 在资源组页上单击“删除”，在文本框中键入 **myResourceGroup**，并单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -162,4 +171,4 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
 
-<!--Update_Description: update image link references-->
+<!--Update_Description: update link references-->

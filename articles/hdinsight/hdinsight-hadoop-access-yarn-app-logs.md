@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ROBOTS: NOINDEX
-ms.openlocfilehash: da199b624fb50ce1f98badc6c10cb18468461cea
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 406cb91cdbee7c4c71781460250f875f440b2eb2
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 上访问 YARN 应用程序日志
 本主题说明如何访问 Azure HDInsight 中基于 Windows 的 Hadoop 群集上已完成的 YARN (Yet Another Resource Negotiator) 应用程序的日志
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/28/2017
 * 尝试完成应用程序的相关信息
 * 任何给定应用程序尝试所用的容器
 
-在 HDInsight 群集上，Azure Resource Manager 将此信息存储到默认存储帐户默认容器中的历史记录存储。 可以通过 REST API 检索有关完成应用程序的此类通用数据：
+在 HDInsight 群集上，由 Azure Resource Manager 将这项信息存储到默认存储帐户的默认容器中的历史记录存储中。 可以通过 REST API 检索有关完成应用程序的此类通用数据：
 
     GET on https://<cluster-dns-name>.azurehdinsight.cn/ws/v1/applicationhistory/apps
 
@@ -55,9 +55,9 @@ YARN 通过将资源管理与应用程序计划/监视相分离，来支持多�
 
 此外，每个应用程序可能包含多个 *应用程序尝试* ，以便在应用程序崩溃或因 AM 与 RM 之间通信中断时完成应用程序。 因此，容器是授予应用程序的特定尝试。 在某种意义上，容器提供 YARN 应用程序运行的基本工作单位的内容，而在容器的上下文中完成的所有工作都在分配给该容器的单个辅助节点上运行。 请参阅 [YARN 的概念][YARN-concepts]，以获取更多参考信息。
 
-应用程序日志（和关联的容器日志）在对有问题的 Hadoop 应用程序进行调试上相当重要。 YARN 提供一个良好的框架，通过使用[日志聚合][log-aggregation]功能收集、聚合和储应用程序日志。 日志聚合功能让访问应用程序日志更具确定性，因为该功能可聚合辅助节点上所有容器的日志，并在应用程序完成后，将它们按每个辅助节点一个聚合日志的方式存储在默认文件系统上。 应用程序可能使用数百或数千个容器，但在单个辅助节点上运行的所有容器的日志将始终聚合成单个文件，从而为应用程序所用的每个辅助节点生成一个日志。 默认情况下，日志聚合已在 HDInsight 群集（3.0 和更高版本）上启用，在群集的默认容器中，可以找到聚合的日志，位置如下：
+应用程序日志（和关联的容器日志）在对有问题的 Hadoop 应用程序进行调试上相当重要。 YARN 提供一个良好的框架，通过使用[日志聚合][log-aggregation]功能收集、聚合和储应用程序日志。 日志聚合功能让访问应用程序日志更具确定性，因为它会聚合辅助节点上所有容器的日志，并在应用程序完成之后，将它们按每个辅助节点一个聚合日志的方式存储在默认文件系统上。 应用程序可能使用数百或数千个容器，但在单个辅助节点上运行的所有容器的日志将一律聚合成单个文件，也就是为应用程序所用的每个辅助节点生成一个日志。 默认情况下，日志聚合已在 HDInsight 群集（3.0 和更高版本）上启用，在群集的默认容器中，可以找到聚合的日志，位置如下：
 
-    wasbs:///app-logs/<user>/logs/<applicationId>
+    wasb:///app-logs/<user>/logs/<applicationId>
 
 在该位置中，*user* 是启动应用程序的用户名，*applicationId* 是 YARN RM 分配的应用程序唯一标识符。
 
@@ -71,7 +71,7 @@ YARN ResourceManager UI 在群集头节点上运行，可以通过 Azure 门户�
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 在左侧菜单中，依次单击“浏览”、“HDInsight 群集”和要在其上访问 YARN 应用程序日志的基于 Windows 的群集。
-3. 在顶部菜单中，单击“仪表板” 。 你将看到在新的浏览器标签页上打开一个称为“HDInsight 查询控制台” 的页面。
+3. 在顶部菜单中，单击“仪表板” 。 将看到在新的浏览器选项卡上打开名为“HDInsight 查询控制台”页面。
 4. 在“HDInsight 查询控制台”中单击“Yarn UI”。
 
 [YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
@@ -79,3 +79,4 @@ YARN ResourceManager UI 在群集头节点上运行，可以通过 Azure 门户�
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]:http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
+<!--Update_Description: change 'wasbs' into 'wasb'-->

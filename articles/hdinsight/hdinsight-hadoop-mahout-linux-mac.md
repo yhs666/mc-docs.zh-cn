@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 8c50d2187640dc69e791fcf0b21300c882853c04
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 08/15/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 5f1c7d68fc712e37cfa207324fda5586d0b0b7c0
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>通过 HDInsight (SSH) 中基于 Linux 的 Hadoop 使用 Apache Mahout 生成电影推荐
 
@@ -39,6 +39,8 @@ Mahout 是适用于 Apache Hadoop 的 [计算机学习][ml] 库。 Mahout 包含
 
 > [!IMPORTANT]
 > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+
+* SSH 客户端。 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)文档。
 
 ## <a name="mahout-versioning"></a>Mahout 版本控制
 
@@ -89,7 +91,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
     hdfs dfs -text /example/data/mahoutout/part-r-00000
     ```
 
-    输出将如下所示：
+    输出如下所示：
 
         1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
         2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
@@ -105,7 +107,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
     hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
     ```
 
-    此命令会将输出数据以及电影数据文件复制到当前目录中名为 **recommendations.txt** 的文件。
+    此命令会将输出数据复制到当前目录中名为 **recommendations.txt** 的文件以及电影数据文件。
 
 3. 使用如下命令创建 Python 脚本，该脚本查找电影名称中是否存在建议输出中的数据：
 
@@ -169,16 +171,10 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     按 **Ctrl-X**、**Y**，最后按 **Enter** 来保存数据。
 
-4. 使用以下命令以使该文件成为可执行文件：
+4. 运行 Python 脚本。 以下命令假设用户处于内含所有已下载文件的目录中：
 
     ```bash
-    chmod +x show_recommendations.py
-    ```
-
-5. 运行 Python 脚本。 以下命令假设用户处于内含所有已下载文件的目录中：
-
-    ```bash
-    ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
+    python show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
 
     此命令查看为用户 ID 4 生成的建议。
@@ -235,3 +231,4 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
+<!--Update_Description: update code-->

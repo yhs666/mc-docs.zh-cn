@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/03/2017
-ms.date: 04/27/2017
-ms.author: v-dazen
-ms.openlocfilehash: 92f705e6b02916758dc80f7692fe4207bae1acae
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/15/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 2091ebd0401b96f828283bbc357f49d52dcff857
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 运行 MapReduce 作业
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -34,9 +34,9 @@ ms.lasthandoff: 07/14/2017
 > 
 
 ## <a name="prerequisites"></a>先决条件
-开始阅读本文之前，必须具备以下条件：
+在开始阅读本文前，必须具有以下项：
 
-* **HDInsight 中的 Hadoop 群集**。 请参阅[在 HDInsight 中开始使用基于 Linux 的 Hadoop](hdinsight-use-sqoop.md#create-cluster-and-sql-database)。
+* **HDInsight 中的 Hadoop 群集**。 请参阅[在 HDInsight 中开始使用基于 Linux 的 Hadoop](./hdinsight-hadoop-linux-tutorial-get-started.md)。
 * **Visual Studio 2013/2015/2017**。
 
 ## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 提交 MapReduce 作业
@@ -45,7 +45,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
 **提交作业**
 
 1. 在 Visual Studio 中创建 C# 控制台应用程序。
-2. 通过 Nuget 包管理器控制台运行以下命令。
+2. 通过 Nuget 包管理器控制台运行以下命令：
 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. 使用以下代码：
@@ -57,6 +57,8 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
         using Microsoft.Azure.Management.HDInsight.Job;
         using Microsoft.Azure.Management.HDInsight.Job.Models;
         using Hyak.Common;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Blob;
 
         namespace SubmitHDInsightJobDotNet
         {
@@ -64,22 +66,25 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
             {
                 private static HDInsightJobManagementClient _hdiJobManagementClient;
 
-                private const string ExistingClusterName = "<Your HDInsight Cluster Name>";
-                private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.cn";
-                private const string ExistingClusterUsername = "<Cluster Username>";
-                private const string ExistingClusterPassword = "<Cluster User Password>";
+                private const string existingClusterName = "<Your HDInsight Cluster Name>";
+                private const string existingClusterUri = existingClusterName + ".azurehdinsight.cn";
+                private const string existingClusterUsername = "<Cluster Username>";
+                private const string existingClusterPassword = "<Cluster User Password>";
 
-                private const string DefaultStorageAccountName = "<Default Storage Account Name>"; //<StorageAccountName>.blob.core.chinacloudapi.cn
+                private const string defaultStorageAccountName = "<Default Storage Account Name>"; //<StorageAccountName>.blob.core.chinacloudapi.cn
                 private const string StorageAccountSuffix = "core.chinacloudapi.cn";
-                private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
-                private const string DefaultStorageContainerName = "<Default Blob Container Name>";
+                private const string defaultStorageAccountKey = "<Default Storage Account Key>";
+                private const string defaultStorageContainerName = "<Default Blob Container Name>";
+
+                private const string sourceFile = "/example/data/gutenberg/davinci.txt";  
+                private const string outputFolder = "/example/data/davinciwordcount";
 
                 static void Main(string[] args)
                 {
                     System.Console.WriteLine("The application is running ...");
 
-                    var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
-                    _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
+                    var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = existingClusterUsername, Password = existingClusterPassword };
+                    _hdiJobManagementClient = new HDInsightJobManagementClient(existingClusterUri, clusterCredentials);
 
                     SubmitMRJob();
 
@@ -115,18 +120,47 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
                     }
 
                     // Get job output
-                    var storageAccess = new AzureStorageAccess(DefaultStorageAccountName, DefaultStorageAccountKey,
-                        DefaultStorageContainerName, StorageAccountSuffix);
-                    var output = (jobDetail.ExitValue == 0)
-                        ? _hdiJobManagementClient.JobManagement.GetJobOutput(jobId, storageAccess) // fetch stdout output in case of success
-                        : _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); // fetch stderr output in case of failure
-
                     System.Console.WriteLine("Job output is: ");
+                    var storageAccess = new AzureStorageAccess(defaultStorageAccountName, defaultStorageAccountKey,
+                        defaultStorageContainerName, StorageAccountSuffix);
 
-                    using (var reader = new StreamReader(output, Encoding.UTF8))
+                    if (jobDetail.ExitValue == 0)
                     {
-                        string value = reader.ReadToEnd();
-                        System.Console.WriteLine(value);
+                        // Create the storage account object
+                        CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=" + 
+                            defaultStorageAccountName + 
+                            ";AccountKey=" + defaultStorageAccountKey + "; Endsuffix=" + StorageAccountSuffix);
+
+                        // Create the blob client.
+                        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+                        // Retrieve reference to a previously created container.
+                        CloudBlobContainer container = blobClient.GetContainerReference(defaultStorageContainerName);
+
+                        CloudBlockBlob blockBlob = container.GetBlockBlobReference(outputFolder.Substring(1) + "/part-r-00000");
+
+                        using (var stream = blockBlob.OpenRead())
+                        {
+                            using (StreamReader reader = new StreamReader(stream))
+                            {
+                                while (!reader.EndOfStream)
+                                {
+                                    System.Console.WriteLine(reader.ReadLine());
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // fetch stderr output in case of failure
+                        var output = _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); 
+
+                        using (var reader = new StreamReader(output, Encoding.UTF8))
+                        {
+                            string value = reader.ReadToEnd();
+                            System.Console.WriteLine(value);
+                        }
+
                     }
                 }
             }
@@ -135,13 +169,14 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
 
 若要重新运行该作业，必须更改作业输出文件夹名称，在此示例中，它是“/example/data/davinciwordcount”。
 
-作业成功完成后，输出将为空白。 若要查看 MapReduce 作业的结果，请使用 Azure 门户浏览 Blob 存储中的默认存储容器。  文件名为“part-r-00000”。
+作业成功完成后，应用程序将打印输出文件的内容“part-r-00000”。
 
 ## <a name="next-steps"></a>后续步骤
-在本文中，你已经学习了几种创建 HDInsight 群集的方法。 若要了解更多信息，请参阅下列文章：
+在本文中，已经学习了几种创建 HDInsight 群集的方法。 若要了解更多信息，请参阅下列文章：
 
 * 有关提交 Hive 作业，请参阅[使用 HDInsight .NET SDK 运行 Hive 查询](hdinsight-hadoop-use-hive-dotnet-sdk.md)。
 * 有关创建 HDInsight 群集，请参阅[在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 * 有关管理 HDInsight 群集，请参阅[在 HDInsight 中管理 Hadoop 群集](hdinsight-administer-use-portal-linux.md)。
 * 有关学习 HDInsight.NET SDK，请参阅 [HDInsight.NET SDK 参考](https://msdn.microsoft.com/library/mt271028.aspx)。
 * 有关向 Azure 进行非交互式身份验证，请参阅[创建非交互式身份验证 .NET HDInsight 应用程序](hdinsight-create-non-interactive-authentication-dotnet-applications.md)。
+<!--Update_Description: update code-->

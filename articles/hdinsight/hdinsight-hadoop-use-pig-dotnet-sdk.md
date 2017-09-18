@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 1df9be755283b511040900a556cf6b26a35c02e3
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 08/15/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 9dcd75f57b5f8d469f1126a241811d782ce61475
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>使用 HDInsight 中的 .NET SDK for Hadoop 运行 Pig 作业
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/28/2017
 
 了解如何使用 .NET SDK for Hadoop 将 Apache Pig 作业提交到 Azure HDInsight 上的 Hadoop。
 
-HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsight 群集的操作。 Pig 可让你通过为一系列数据转换建模，创建 MapReduce 操作。 本文档介绍如何使用基本 C# 应用程序将 Pig 作业提交到 HDInsight 群集。
+HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsight 群集的操作。 Pig 可让你通过为一系列数据转换建模，来创建 MapReduce 操作。 本文档介绍如何使用基本 C# 应用程序将 Pig 作业提交到 HDInsight 群集。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -64,7 +64,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-6. 在“解决方案资源管理器”中，双击 **Program.cs** 将其打开。 将现有代码替换为以下内容。
+6. 在“解决方案资源管理器”中，双击“Program.cs”将其打开。 将现有代码替换为以下内容。
 
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;
@@ -137,3 +137,4 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.cn/
+<!--Update_Description: update metadata-->

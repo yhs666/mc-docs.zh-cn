@@ -1,6 +1,6 @@
 ---
 title: "在 HDInsight 上将 DataFu 与 Pig 配合使用 - Azure | Azure"
-description: "DataFu 是适用于 Hadoop 的库的集合。 了解如何在 HDInsight 群集上将 DataFu 与 pig 配合使用。"
+description: "DataFu 是适用于 Hadoop 的库的集合。 了解如何在 HDInsight 群集上通过 Pig 使用 DataFu。"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/04/2017
+origin.date: 07/31/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: b695552c1f8d719002f77d6adbc3fc8f66ca131b
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: cefe42e49848681f340c4d9f7fc4e64812074a23
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
-# <a name="use-datafu-with-pig-on-hdinsight"></a>在 HDInsight 上将 DataFu 与 pig 配合使用
+# <a name="use-datafu-with-pig-on-hdinsight"></a>在 HDInsight 上通过 pig 使用 DataFu
 
 了解如何将 DataFu 与 HDInsight 配合使用。 DataFu 是适用于 Hadoop 上的 Pig 的开放源代码库集合。
 
@@ -41,16 +41,16 @@ ms.lasthandoff: 07/28/2017
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-> [!NOTE]
-> DataFu 安装在基于 Linux 的群集 3.3 版和更高版本上，以及基于 Windows 的群集上。 它不会安装在早于 3.3 版的基于 Linux 的群集上。
+> [!IMPORTANT]
+> DataFu 安装在基于 Linux 的群集 3.3 版和更高版本上，以及基于 Windows 的群集上。 该程序未安装在早于 3.3 的基于 Linux 的群集上。
 >
-> 如果使用的是基于 Linux 的群集 3.3 版或更高版本或者基于 Windows 的群集，则可以跳过本部分。
+> 如果使用的是基于 Windows 的群集，或基于 Linux 的群集（3.3 以上版本），请跳过本部分。
 
-可以从 Maven 存储库下载和安装 DataFu。 使用以下步骤将 DataFu 添加到 HDInsight 群集：
+可从 Maven 存储库下载和安装 DataFu。 使用以下步骤将 DataFu 添加到 HDInsight 群集：
 
 1. 使用 SSH 连接到基于 Linux 的 HDInsight 群集。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
-2. 使用以下命令通过 wget 实用程序下载 DataFu jar 文件，或者将链接复制并粘贴到浏览器中以开始下载。
+2. 使用以下命令通过 wget 实用程序下载 DataFu jar 文件，或将链接复制并粘贴到浏览器以开始下载。
 
     ```
     wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
@@ -65,58 +65,57 @@ ms.lasthandoff: 07/28/2017
     > [!NOTE]
     > 前一命令将 jar 存储在 `/example/jars` 中，因为此目录已存在于群集存储上。 可以使用 HDInsight 群集存储中所需的任何位置。
 
-## <a name="use-datafu-with-pig"></a>将 DataFu 与 Pig 配合使用
+## <a name="use-datafu-with-pig"></a>通过 Pig 使用 DataFu
 
 本部分中的步骤假定你熟悉如何在 HDInsight 上使用 Pig。 有关将 Pig 与 HDInsight 配合使用的详细信息，请参阅[将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)。
 
 > [!IMPORTANT]
-> 在基于 Linux 的 HDInsight 群集上通过 Pig 使用 DataFu 时，必须先注册 jar 文件。
+> 如果使用上一节中的步骤手动安装了 DataFu，则必须先注册，再使用。
 >
-> 如果群集使用 Azure 存储，请使用 `wasb://` 路径。 例如，`register wasb:///example/jars/datafu-1.2.0.jar`。
->
-> 默认情况下，会在基于 Windows 的 HDInsight 群集上注册 DataFu。
+> * 如果群集使用 Azure 存储，请使用 `wasb://` 路径。 例如，`register wasb:///example/jars/datafu-1.2.0.jar`。
 
-通常会为 DataFu 函数定义别名。 例如：
-
-    DEFINE SHA datafu.pig.hash.SHA();
-
-此语句为 SHA 哈希函数定义名为 `SHA` 的别名。 然后，可以在 Pig Latin 脚本中使用此别名生成输入数据的哈希值。 例如，以下代码将输入数据中的名称替换为哈希值：
+通常要为 DataFu 函数定义别名。 以下示例定义了 `SHA` 的别名：
 
 ```piglatin
-raw = LOAD '/data/raw/' USING PigStorage(',') AS  
-    (name:chararray,
-    int1:int,
-    int2:int,
-    int3:int);
-mask = FOREACH raw GENERATE SHA(name), int1, int2, int3;
+DEFINE SHA datafu.pig.hash.SHA();
+```
+
+然后，可以在 Pig Latin 脚本中使用此别名生成输入数据的哈希值。 例如，以下代码将输入数据中的位置替换为哈希值：
+
+```piglatin
+raw = LOAD '/HdiSamples/HdiSamples/SensorSampleData/building/building.csv' USING
+    org.apache.pig.piggybank.storage.CSVExcelStorage(',', 'NO_MULTILINE', 'UNIX', 'SKIP_INPUT_HEADER') AS
+    (int1:int,
+     id1:chararray,
+     int2:int,
+     id2:chararray,
+     location:chararray);
+mask = FOREACH raw GENERATE int1, id1, int2, id2, SHA(location);
 DUMP mask;
 ```
 
-如果此代码用于以下输入数据：
+这会生成以下输出：
 
-    Lana Zemljaric,5,9,1
-    Qiong Zhong,9,3,6
-    Sandor Harsanyi,0,7,3
-    Roko Petkovic,2,6,2
-    Tibor Rozsa,8,0,0
-    Lea Hrastovsek,6,3,6
-    Regina Toth,2,1,2
-    Eva Makay,8,9,2
-    Shi Liao,4,6,0
-    Tjasa Zemljaric,0,2,5
-
-它会生成以下输出：
-
-    (c1a743b0f34d349cfc2ce00ef98369bdc3dba1565fec92b4159a9cd5de186347,5,9,1)
-    (713d030d621ab69aa3737c8ea37a2c7c724a01cd0657a370e103d8cdecac6f99,9,3,6)
-    (7a5f5abdd281f68168199319d98a1a662535f988d1443b3a3c497010937bac89,0,7,3)
-    (a94818e93807e12079c4b35f8f3c8c8ef8e8acd1954e7f0476bc1a3a86fc96a9,2,6,2)
-    (894ead4f48af91df7e088241218a23157bede7c52115272e417e95c046d48902,8,0,0)
-    (6f99f163af3448fda672087db306f363e27a98a9e49c1f274a0860e303f8aec4,6,3,6)
-    (a03de92a28be3c6a984c7a153fa9ed81c0413f76a9401955b5f7e04a5dd0ab9f,2,1,2)
-    (6ceab977c8fb48d9ad0dc413e6bc646cabd89f22e7ab97a6b0133f3d225c6013,8,9,2)
-    (fa9c436469096ff1bd297e182831f460501b826272ae97e921f5f6e3f54747e8,4,6,0)
-    (bc22db7c238b86c37af79a62c78f61a304b35143f6087eb99c34040325865654,0,2,5)
+    (1,M1,25,AC1000,aa5ab35a9174c2062b7f7697b33fafe5ce404cf5fecf6bfbbf0dc96ba0d90046)
+    (2,M2,27,FN39TG,7a1ca4ef7515f7276bae7230545829c27810c9d9e98ab2c06066bee6270d5153)
+    (3,M3,28,JDNS77,07f62b021771d3cf67e2e1faf18769cc5e5c119ad7d4d1847a11e11d6d5a7ecb)
+    (4,M4,17,GG1919,aed8f531aa7e785be255bc435e2582e74c58defedebcb629eeabf365b809bd6f)
+    (5,M5,3,ACMAX22,1ed8c7e56c947bebc0cfcf88c4ea0f02c944568f71df893a99970e4f0c78cddc)
+    (6,M6,9,AC1000,c96dd81db196cca5f57bd4270bbb9d9e9d1b242d67f9364005ee1dfdc2632523)
+    (7,M7,13,FN39TG,3e049d78d958038ac6bd5dcf038075cc73362b4956aaf7308c3a69c8eca76297)
+    (8,M8,25,JDNS77,c1ef40ce0484c698eb4bd27fe56c1e7b68d74f9780ed674210d0e5013dae45e9)
+    (9,M9,11,GG1919,a7d355b26bda6bf1196ccffead0b2cf2b81f0a9de5b4876b44407f1dc07e51e6)
+    (10,M10,23,ACMAX22,10436829032f361a3de50048de41755140e581467bc1895e6c1a17f423e42d10)
+    (11,M11,14,AC1000,348841ef53dbd5a64008a86be432973db790774fb28b59b0d99702a3188b3705)
+    (12,M12,26,FN39TG,aed8f531aa7e785be255bc435e2582e74c58defedebcb629eeabf365b809bd6f)
+    (13,M13,25,JDNS77,ed9ad13611d7164839dd3feaf9a7f6a75a4138f389e0d45f8e07fa38da1116a2)
+    (14,M14,17,GG1919,80db4ccdca106d37b920206331fcfe3e9e50a9e763d89b54ce3ad5ac8cf30f03)
+    (15,M15,19,ACMAX22,3552ac0c032467fbf592cb4d10c5c9267800c01e343ad8ca557256d882ae9327)
+    (16,M16,23,AC1000,07c67d76ef92ac9853588e098983fefba4ba5965f8fec95f42ab0d04c27865ba)
+    (17,M17,11,FN39TG,557c1599d9a04895d3817d293e0806a4419a14de31958386182798d0d2ed3a56)
+    (18,M18,25,JDNS77,dbc74a36d8e7439c45c64d856388506cc9b1218619cef979c3d605115a7a4546)
+    (19,M19,14,GG1919,be55ef3f4c4e6c2d9c2afe2a33ac90ad0f50d4de7f9163999877e2a9ca5a54f8)
+    (20,M20,19,ACMAX22,ea0b937ea317101ee2c26b03a4843a19ceced8a2b9673c3cf409a726ca2b0fd8)
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -124,3 +123,4 @@ DUMP mask;
 
 * [Apache DataFu Pig 指南](http://datafu.incubator.apache.org/docs/datafu/guide.html)。
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
+<!--Update_Description: update code-->

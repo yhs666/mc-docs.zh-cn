@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 origin.date: 06/07/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3ffc92d309b5356e4a68869b9b27de80a5de5240
-ms.sourcegitcommit: a813e6e98367a9ef389a05c8e050fc38812a13b1
+ms.openlocfilehash: ff50cd2fc8592eb75601f839a2901fedba09f486
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
 
@@ -45,6 +45,6 @@ ms.lasthandoff: 08/15/2017
 |[将 Web 应用连接到 Azure Cosmos DB](/app-service-web/scripts/app-service-cli-app-service-documentdb.md)|创建并连接 Azure Cosmos DB 数据库和 Azure Web 应用。|
 |||
 
-<!-- Not Available ?toc=%2fcli%2fazure%2ftoc.json in docs.microsoft.com website -->
+<!-- Not Available ?toc=%2fcli%2fazure%2ftoc.json in docs.microsoft.com website(extenal site) -->
 
 <!--Update_Description: update meta properties-->

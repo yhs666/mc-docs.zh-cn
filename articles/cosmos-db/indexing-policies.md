@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-origin.date: 05/22/2017
-ms.date: 08/07/2017
+origin.date: 08/17/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2f4935aaf078abe62bcd53e8a8b9db5fff9c8d28
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 440bbf2f1720638c7a0fb3ab374f90b33407be23
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何为数据编制索引？
 
@@ -58,6 +58,10 @@ ms.lasthandoff: 08/04/2017
 > 默认情况下，Azure Cosmos DB 总是使用哈希索引对文档中的所有字符串属性执行索引，并使用范围索引对数值属性执行索引。  
 > 
 > 
+
+### <a name="customizing-the-indexing-policy-using-the-portal"></a>使用门户自定义索引策略
+
+可以使用 Azure 门户更改集合的索引策略。 在 Azure 门户中打开 Azure Cosmos DB 帐户，选择集合，在左侧导航菜单中单击“设置”，然后单击“索引策略”。 在“索引策略”边栏选项卡中，更改索引策略，然后单击“确定”保存所做的更改。 
 
 ### <a id="indexing-modes"></a>数据库索引模式
 Azure Cosmos DB 支持三种索引模式，可通过索引策略对 Azure Cosmos DB 集合进行配置：一致、延迟和无。
@@ -222,7 +226,7 @@ Azure Cosmos DB 还支持每个路径的空间索引种类，可为 Point、Poly
 
 关闭自动索引后，仍然可以选择性地只将特定的文档添加到索引中。 相反，可以保留自动索引，并选择只排除特定的文档。 当只需要查询一个文档子集时，索引开/关配置非常有用。
 
-例如，下面的示例演示如何使用 [DocumentDB API .NET SDK](https://github.com/Azure/azure-documentdb-java) 和 [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) 属性来显式包括文档。
+例如，下面的示例演示如何使用 [DocumentDB API .NET SDK](/cosmos-db/documentdb-sdk-dotnet) 和 [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) 属性来显式包括文档。
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -236,11 +240,11 @@ Azure Cosmos DB 还支持每个路径的空间索引种类，可为 Point、Poly
 
 **联机索引转换**
 
-![索引的工作原理：Azure Cosmos DB 联机索引转换](./media/indexing-policies/index-transformations.png)
+![索引工作原理 - Azure Cosmos DB 联机索引转换](./media/indexing-policies/index-transformations.png)
 
 在联机状态下执行索引转换，这意味着按照旧策略索引的文档可以按照新策略有效转换， **而不会影响集合的写入可用性或预配的吞吐量** 。 在索引转换过程中，使用 REST API、SDK 或在存储的过程和触发器中执行读取和写入操作的一致性不会受到影响。 这就意味着，在更改索引策略时，应用程序的性能不会下降，也没有停机时间。
 
-但是，无论索引模式配置如何（一致或延迟），在执行索引转换期间查询始终一致。 这适用于使用所有接口（REST API、SDK 或从存储过程和触发器中）进行的查询。 与延迟索引一样，使用特定副本可用的备用资源在后台以异步方式对副本执行索引转换。 
+但是，无论索引模式配置如何（一致或延迟），在执行索引转换期间查询始终一致。 这同样适用于所有接口（REST API、SDK 或从存储过程和触发器中）发出的查询。 与延迟索引一样，使用特定副本可用的备用资源在后台以异步方式对副本执行索引转换。 
 
 索引转换还会就地进行，即 Azure Cosmos DB 不维护索引的两个副本，而是用新索引代替旧索引。 这意味着，执行索引转换时集合中不需要也不占用额外的磁盘空间。
 
@@ -404,4 +408,4 @@ JSON 规范中实现了以下更改：
 2. [DocumentDB API REST 集合操作](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [使用 SQL 进行查询](documentdb-sql-query.md)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, wording update-->

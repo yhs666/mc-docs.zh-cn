@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/12/2017
-ms.date: 01/25/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ROBOTS: NOINDEX
-ms.openlocfilehash: fe2094c7a0bcea1232a0a270cf00e0652e99ce68
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: a6d57ab516f81d3a3ab7f60cbad75105ea5cf114
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面在 HDInsight 上的 Hadoop 中使用 MapReduce
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -50,14 +50,14 @@ ms.lasthandoff: 07/28/2017
 1. 从 HDInsight 桌面启动“Hadoop 命令行”。 这将在 c:\apps\dist\hadoop-&lt;version number> 目录中打开新的命令提示符。
 
    > [!NOTE]
-   > Hadoop 更新时，版本号也会发生变化。 HADOOP_HOME 环境变量可用于查找路径。 例如， `cd %HADOOP_HOME%` 会将目录更改为 Hadoop 目录，而不需要你知道版本号。
+   > Hadoop 更新时，版本号也会发生变化。 HADOOP_HOME 环境变量可用于查找路径。 例如，`cd %HADOOP_HOME%` 会将目录更改为 Hadoop 目录，而不需要你知道版本号。
    >
    >
 2. 若要使用 **Hadoop** 命令运行示例 MapReduce 作业，请使用以下命令：
 
-        hadoop jar hadoop-mapreduce-examples.jar wordcount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/WordCountOutput
+        hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-    这将启动 wordcount 类（包含在当前目录中的 hadoop-mapreduce-examples.jar 文件内）。 作为输入，它会使用 wasbs://example/data/gutenberg/davinci.txt 文档，输出将存储到：wasbs:///example/data/WordCountOutput。
+    这将启动 wordcount 类（包含在当前目录中的 hadoop-mapreduce-examples.jar 文件内）。 作为输入，它使用 wasbs://example/data/gutenberg/davinci.txt 文档，输出的存储位置：wasbs:///example/data/WordCountOutput。
 
    > [!NOTE]
    > 有关此 MapReduce 作业和示例数据的详细信息，请参阅<a href="hdinsight-use-mapreduce.md">在 HDInsight Hadoop 中使用 MapReduce</a>。
@@ -69,9 +69,9 @@ ms.lasthandoff: 07/28/2017
         Bytes Read=1395666
         File Output Format Counters
         Bytes Written=337623
-4. 作业完成之后，请使用以下命令行列出存储在 wasbs://example/data/WordCountOutput 的输出文件：
+4. 作业完成之后，使用以下命令行列出存储在 **wasbs://example/data/WordCountOutput** 的输出文件：
 
-        hadoop fs -ls wasbs:///example/data/WordCountOutput
+        hadoop fs -ls wasb:///example/data/WordCountOutput
 
     这应会显示两个文件：**_SUCCESS** 和 **part-r-00000**。 **part-r-00000** 文件包含此作业的输出。
 
@@ -81,9 +81,9 @@ ms.lasthandoff: 07/28/2017
    >
 5. 若要查看输出，请使用以下命令：
 
-        hadoop fs -cat wasbs:///example/data/WordCountOutput/part-r-00000
+        hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-    这会显示 wasbs://example/data/gutenberg/davinci.txt 文件中包含的单词列表，以及每个单词的出现次数。 下面是要包含在文件中的数据示例：
+    这会显示 **wasbs://example/data/gutenberg/davinci.txt** 文件中包含的单词列表，以及每个单词的出现次数。 下面是要包含在文件中的数据示例：
 
         wreathed        3
         wreathing       1
@@ -103,6 +103,6 @@ Hadoop 命令提供了一种简单方法，可在 HDInsight 群集上运行 MapR
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* 
-            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
+<!--Update_Description: change 'wasbs' into 'wasb'-->

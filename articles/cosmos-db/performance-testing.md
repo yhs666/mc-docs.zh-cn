@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/19/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 043b782dca957996aa3e4f7ea34c3de4fe79c914
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: b84272a36693c8cbf5b3582b718cbe4d32bde57a
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 执行性能和规模测试
 性能和规模测试是应用程序开发过程中的关键步骤。 对许多应用程序而言，数据库层对整体性能和伸缩性具有相当重大的影响，因此是性能测试的关键组件。 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 是为了实现弹性缩放和性能可预测而构建的，因此非常适合需要高性能数据库层的应用程序。 
@@ -49,11 +49,11 @@ ms.lasthandoff: 08/04/2017
 **步骤 2：**在 App.config 中修改 EndpointUrl、AuthorizationKey、CollectionThroughput 和 DocumentTemplate（可选）的设置。
 
 > [!NOTE]
-> 为集合预配高吞吐量之前，请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)以估算每个集合的成本。 Cosmos DB 根据存储和吞吐量单独按小时计费，因此可以通过在测试后删除或降低 DocumentDB 集合的吞吐量来节省成本。
+> 为集合预配高吞吐量之前，请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)以估算每个集合的成本。 Azure Cosmos DB 根据存储和吞吐量单独按小时计费，因此可通过在测试后消除或减少 Azure Cosmos DB 集合的吞吐量来节省成本。
 > 
 > 
 
-**步骤 3：** 从命令行编译并运行控制台应用。 应会看到如下输出：
+**步骤 3：**从命令行编译并运行控制台应用。 应会看到如下输出：
 
     Summary:
     ---------------------------------------------------------------------

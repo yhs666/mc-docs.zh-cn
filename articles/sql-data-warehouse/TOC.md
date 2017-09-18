@@ -81,18 +81,22 @@
 
 ## 加载
 
-### [概述](sql-data-warehouse-overview-load.md)
-### [样本数据](sql-data-warehouse-load-sample-databases.md)
-<!-- Not Available ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md) -->
-### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
-### [BCP](sql-data-warehouse-load-with-bcp.md)
-<!-- Not Available ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)-->
-### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-### [PolyBase 指南](sql-data-warehouse-load-polybase-guide.md)
-### [从 Blob 存储使用 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [从 SQL Server 使用 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-### [RedGate](sql-data-warehouse-load-with-redgate.md)
-### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+### 概念
+#### [概述](sql-data-warehouse-overview-load.md)
+#### [PolyBase 指南](sql-data-warehouse-load-polybase-guide.md)
+
+### 教程
+#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+
+### 操作指南
+#### [样本数据](sql-data-warehouse-load-sample-databases.md)
+<!-- Not Available #### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)-->
+#### [BCP](sql-data-warehouse-load-with-bcp.md)
+<!-- Not Available #### [Data Factory](sql-data-warehouse-load-with-data-factory.md)-->
+#### [从 Blob 存储使用 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+#### [从 SQL Server 使用 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+#### [RedGate](sql-data-warehouse-load-with-redgate.md)
+#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
 ## 迁移
 
@@ -121,7 +125,7 @@
 ## “安全”
 
 ### [概述](sql-data-warehouse-overview-manage-security.md)
-<!-- Not Available ### [Auditing](sql-data-warehouse-auditing-overview.md)-->
+### [审核](sql-data-warehouse-auditing-overview.md)
 <!-- Not Available ### [Auditing for down-level clients](sql-data-warehouse-auditing-downlevel-clients.md)-->
 ### [身份验证](sql-data-warehouse-authentication.md)
 ### [加密](sql-data-warehouse-encryption-tde.md)
@@ -139,10 +143,11 @@
 ## [PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # 资源
-## [Azure 路线图](https://azure.microsoft.com/roadmap/)
-## [论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+
+## [论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [定价](https://www.azure.cn/pricing/details/sql-data-warehouse/)
-## [服务更新](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
+## [服务更新](https://www.azure.cn/what-is-new/)
 ## [堆栈溢出](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse) -->
 

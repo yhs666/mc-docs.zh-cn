@@ -13,14 +13,14 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: hero-article
-origin.date: 07/10/2017
-ms.date: 07/31/2017
+origin.date: 08/08/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 71e72c34a75ce7f02525128e3c22a147ac7715ae
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: dec89a4b2181eed62d1c180d3911098731b2bb9b
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>使用 PHP 查询 Azure SQL 数据库
 
@@ -40,16 +40,16 @@ ms.lasthandoff: 07/28/2017
 
 - 已为操作系统安装 PHP 和相关软件。
 
-    - **MacOS**：安装 Homebrew 和 PHP，安装 ODBC 驱动程序和 SQLCMD，再安装用于 SQL Server 的 PHP 驱动程序。 请参阅[步骤 1.2、1.3 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/)。
-    - **Ubuntu**：安装 PHP 和其他所需包，然后安装用于 SQL Server 的 PHP 驱动程序。 请参阅[步骤 1.2 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/)。
-    - **Windows**：安装最新版的 PHP for IIS Express、最新版的 Microsoft Drivers for SQL Server（位于 IIS Express 中）、Chocolatey、ODBC 驱动程序以及 SQLCMD。 请参阅[步骤 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/)。    
+    - **MacOS**：安装 Homebrew 和 PHP，接着安装 ODBC 驱动程序和 SQLCMD，再安装 PHP Driver for SQL Server。 请参阅[步骤 1.2、1.3 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/)。
+    - **Ubuntu**：安装 PHP 和其他所需包，然后安装 PHP Driver for SQL Server。 请参阅[步骤 1.2 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)。
+    - **Windows**：安装最新版的 PHP for IIS Express、最新版的 Microsoft Drivers for SQL Server（位于 IIS Express 中）、Chocolatey、ODBC 驱动程序以及 SQLCMD。 请参阅[步骤 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/)。    
 
 ## <a name="sql-server-connection-information"></a>SQL Server 连接信息
 
 获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称、数据库名称和登录信息。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
+2. 从左侧菜单中选择“SQL 数据库”，并单击“SQL 数据库”页上的数据库。 
 3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 将鼠标悬停在服务器名称上即可打开“通过单击进行复制”选项。  
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
@@ -61,40 +61,37 @@ ms.lasthandoff: 07/28/2017
 1. 在常用的文本编辑器中，创建一个新文件 **sqltest.php**。  
 
 2. 将内容替换为以下代码，为服务器、数据库、用户和密码添加相应的值。
-
-```PHP
-<?php
-$serverName = "your_server.database.chinacloudapi.cn";
-$connectionOptions = array(
-    "Database" => "your_database",
-    "Uid" => "your_username",
-    "PWD" => "your_password"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-     FROM [SalesLT].[ProductCategory] pc
-     JOIN [SalesLT].[Product] p
-     ON pc.productcategoryid = p.productcategoryid";
-$getResults= sqlsrv_query($conn, $tsql);
-echo ("Reading data from table" . PHP_EOL);
-if ($getResults == FALSE)
-    echo (sqlsrv_errors());
-while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-    echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
-}
-sqlsrv_free_stmt($getResults);
-?>
-```
-
+    ```PHP
+    <?php
+    $serverName = "your_server.database.chinacloudapi.cn";
+    $connectionOptions = array(
+        "Database" => "your_database",
+        "Uid" => "your_username",
+        "PWD" => "your_password"
+    );
+    //Establishes the connection
+    $conn = sqlsrv_connect($serverName, $connectionOptions);
+    $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+        FROM [SalesLT].[ProductCategory] pc
+        JOIN [SalesLT].[Product] p
+        ON pc.productcategoryid = p.productcategoryid";
+    $getResults= sqlsrv_query($conn, $tsql);
+    echo ("Reading data from table" . PHP_EOL);
+    if ($getResults == FALSE)
+        echo (sqlsrv_errors());
+    while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+        echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
+    }
+    sqlsrv_free_stmt($getResults);
+    ?>
+    ```
+    
 ## <a name="run-the-code"></a>运行代码
 
 1. 在命令提示符下运行以下命令：
-
-```PHP
-   php sqltest.php
-```
-
+    ```PHP
+    php sqltest.php
+    ```
 2. 验证是否已返回前 20 行，然后关闭应用程序窗口。
 
 ## <a name="next-steps"></a>后续步骤
@@ -102,4 +99,4 @@ sqlsrv_free_stmt($getResults);
 - [用于 SQL Server 的 Microsoft PHP 驱动程序](https://github.com/Microsoft/msphpsql/)
 - [报告问题或提出问题](https://github.com/Microsoft/msphpsql/issues)
 
-<!--Update_Description: update word & code : deleted insert, update, delete sample code-->
+<!--Update_Description: update link-->

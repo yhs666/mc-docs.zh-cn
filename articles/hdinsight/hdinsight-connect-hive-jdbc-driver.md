@@ -14,14 +14,14 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/22/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 404bf69597503a1185a2ca65349100e673a6634b
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 08/14/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 684ee08bafef7b937f38c0103e7ea343a98de0ce
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中通过 JDBC 驱动程序查询 Hive
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="jdbc-connection-string"></a>JDBC 连接字符串
 
-JDBC 通过 443 连接到 Azure 上的 HDInsight 群集，并使用 SSL 保护通信安全。 公用网关（群集位于其后）会将通信重定向到 HiveServer2 实际进行侦听的端口。 下面是一个连接字符串示例：
+JDBC 通过 443 连接到 Azure 上的 HDInsight 群集，并使用 SSL 保护通信安全。 公用网关（群集位于其后）会将通信重定向到 HiveServer2 在其上进行实际侦听的端口。 下面是一个连接字符串示例：
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.cn:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
@@ -94,7 +94,7 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
 
             选择“连接”后，将会下载 .rdp 文件。 使用此文件来启动远程桌面客户端。 出现提示时，使用输入的用户名和密码进行远程桌面访问。
 
-        3. 连接后，将以下文件从远程桌面会话复制到本地计算机。 将其放置在名为 `hivedriver`的本地目录中。
+        3. 连接后，将以下文件从远程桌面会话复制到本地计算机上。 将其置于名为 `hivedriver` 的本地目录中。
 
             * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-standalone.jar
             * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-common-2.6.0.2.2.9.1-7.jar
@@ -136,7 +136,7 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
 
     * **URL**：jdbc:hive2://CLUSTERNAME.azurehdinsight.cn:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
-        将 **CLUSTERNAME** 替换为 HDInsight 群集的名称。
+        将 **CLUSTERNAME** 替换为 HDInsight 群集名。
 
     * **用户名**：HDInsight 群集的群集登录帐户名。 默认为 `admin`。
 
@@ -187,7 +187,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
         scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-codec*.jar ./commons-codec.jar
 
-2. 退出 SQuirreL，然后转到系统上安装 SQuirreL 的目录。 在 SquirreL 目录的 `lib` 目录下，将现有的 commons-codec.jar 替换为从 HDInsight 群集下载的文件。
+2. 退出 SQuirreL，并转到系统上安装 SQuirreL 的目录。 在 SquirreL 目录的 `lib` 目录下，将现有的 commons-codec.jar 替换为从 HDInsight 群集下载的文件。
 
 3. 重新启动 SQuirreL。 连接到 HDInsight 上的 Hive 时，应不再会出现该错误。
 
@@ -199,3 +199,4 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 * [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 作业与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
+<!--Update_Description: update metadata-->

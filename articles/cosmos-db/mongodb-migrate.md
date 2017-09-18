@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/12/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f3e30f8e6d5d412c70d90bc913b31899b46caf95
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 8a7e8f32b72f22268a68698c72c4efe6bdcaeb68
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB：导入 MongoDB 数据 
 
 若要将数据从 MongoDB 迁移到 Azure Cosmos DB 帐户，以与 MongoDB API 配合使用，必须执行以下操作：
 
 * 从 [MongoDB 下载中心](https://www.mongodb.com/download-center)下载 *mongoimport.exe* 或 *mongorestore.exe*。
-* 获取 [API for MongoDB 连接字符串](connect-mongodb-account.md)。
+* 获取[适用于 MongoDB 的 API 连接字符串](connect-mongodb-account.md)。
 
-若要从 MongoDB 导入数据，并计划将导入数据与 DocumentDB API 配合使用，应使用[数据迁移工具](import-data.md)导入数据。
+如果要从 MongoDB 导入数据，并计划将其与 Azure Cosmos DB 搭配使用，则应使用[数据迁移工具](import-data.md)来导入数据。
 
 本教程涵盖以下任务：
 

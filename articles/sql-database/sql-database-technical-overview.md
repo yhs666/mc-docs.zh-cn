@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 06/30/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: beeb8820a506fcdebe9ce4e91457bbb50f29844d
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: c007b267e74b8ee7b8e4c8a77b84058706a00e61
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什么是 Azure SQL 数据库服务？ 
 
-SQL 数据库是 Azure 中通用的关系型数据库服务，支持关系数据、JSON、空间和 XML 等结构。 它提供[动态可缩放性能](sql-database-service-tiers.md)，并提供[列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)（用于极端分析和报告）和[内存中 OLTP](sql-database-in-memory.md)（用于极端事务处理）等选项。 Microsoft 可无缝处理 SQL 代码库的所有修补和更新，并避开底层基础结构的所有管理。 SQL 数据库在多个服务级别提供可预测的、动态可缩放的性能，主要表现在：无停机时间、内置智能优化、全局可伸缩性和可用性，以及高级安全选项 - 一切几乎不用人工管理。 凭借这些功能，客户可将注意力集中在如何快速进行应用开发、加快推向市场，而无需将宝贵的时间和资源投入在管理虚拟机和基础结构上。 
+SQL 数据库是 Azure 中通用的关系型数据库服务，支持关系数据、JSON、空间和 XML 等结构。 它提供[动态可缩放性能](sql-database-service-tiers.md)，并提供[列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)（用于极端分析和报告）和[内存中 OLTP](sql-database-in-memory.md)（用于极端事务处理）等选项。 Microsoft 可无缝处理 SQL 代码库的所有修补和更新，并避开底层基础结构的所有管理。 SQL 数据库在多个服务级别提供可预测的、动态可缩放的性能，主要表现在：无停机时间、内置智能优化、全局可伸缩性和可用性，以及高级安全选项 - 一切几乎不用人工管理。 借助这些功能，用户可将注意力集中在如何快速进行应用开发、加快推向市场，而不需要投入宝贵的时间和资源来管理虚拟机与基础结构。
 
 > [!NOTE]
 > 有关 Azure 平台安全性的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/)。
@@ -87,7 +87,7 @@ SQL 数据库中有两个自动优化方面：
 
 ### <a name="adaptive-query-processing"></a>自适应查询处理
 
-我们还将向 SQL 数据库添加[自适应查询处理](https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing.md)系列功能，包括交错执行多语句表值函数，批处理模式内存授予反馈和批处理模式自适应联接。 每个自适应查询处理功能均应用类似的“学习和适应”技巧，帮助进一步解决与历史上棘手的查询优化问题相关的性能问题。
+我们还将向 SQL 数据库添加[自适应查询处理](https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing)系列功能，包括交错执行多语句表值函数，批处理模式内存授予反馈和批处理模式自适应联接。 每个自适应查询处理功能均应用类似的“学习和适应”技巧，帮助进一步解决与历史上棘手的查询优化问题相关的性能问题。
 
 ### <a name="intelligent-threat-detection"></a>智能威胁检测
 
@@ -150,4 +150,4 @@ SQL 数据库支持在 MacOS、Linux 和 Windows 上使用 Python、Java、Node.
   - [适用于 SQL 数据库的 Azure CLI 示例](sql-database-cli-samples.md)
   - [适用于 SQL 数据库的 Azure PowerShell 示例](sql-database-powershell-samples.md)
 
-<!--Update_Description: update word & link references-->
+<!--Update_Description: update link references-->

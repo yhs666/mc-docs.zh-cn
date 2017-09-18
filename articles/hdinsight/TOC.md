@@ -11,7 +11,12 @@
 
 # 入门
 ## [Hadoop 入门](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Spark 入门](hdinsight-apache-spark-jupyter-spark-sql.md)
+## Spark 入门
+### [创建 Spark 群集](hdinsight-apache-spark-jupyter-spark-sql.md)
+### [在 Spark 群集上运行查询](hdinsight-apache-spark-load-data-run-query.md)
+### [使用 BI 工具分析数据](hdinsight-apache-spark-use-bi-tools.md)
+### [管理群集资源](hdinsight-apache-spark-resource-manager.md)
+### [调试 Spark 作业](hdinsight-apache-spark-job-debugging.md)
 ## [HBase 和 NoSQL 入门](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Storm 入门](hdinsight-apache-storm-tutorial-get-started-linux.md)
 ## [Interactive Hive（预览版）入门](hdinsight-hadoop-use-interactive-hive.md)
@@ -60,13 +65,11 @@
 ### [使用 Microsoft 认知工具包](hdinsight-apache-spark-microsoft-cognitive-toolkit.md)
 ### [使用 Zeppelin 笔记本](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter 笔记本内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-### [通过单元 magic 将外部包与 Jupyter 配合使用](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [通过单元 Magic 将外部包与 Jupyter 配合使用](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [通过脚本操作将外部包与 Jupyter 配合使用](hdinsight-apache-spark-python-package-installation.md)
 ### [使用本地 Jupyter 笔记本](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [远程作业与 Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [使用 IntelliJ 通过 VPN 远程调试作业](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-### [管理资源](hdinsight-apache-spark-resource-manager.md)
-### [跟踪和调试作业](hdinsight-apache-spark-job-debugging.md)
 ### [已知问题](hdinsight-apache-spark-known-issues.md)
 ## 使用 HBase
 ### [使用 Phoenix 和 SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
@@ -83,7 +86,6 @@
 #### [使用 Java 拓扑处理事件](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [在拓扑中使用 Power BI](hdinsight-storm-power-bi-topology.md)
 #### [分析实时传感器数据](hdinsight-storm-sensor-data-analysis.md)
-#### [处理车辆传感器数据](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [关联各个时间的事件](hdinsight-storm-correlation-topology.md)
 #### [使用 Python 开发拓扑](hdinsight-storm-develop-python-topology.md)
 ## 使用 Kafka（预览版）
@@ -115,6 +117,7 @@
 ### [使用 Mahout 生成建议](hdinsight-hadoop-mahout-linux-mac.md)
 ### [使用 Hive 分析网站日志](hdinsight-hive-analyze-website-log.md)
 ## 扩展群集
+### [使用启用安全传输的存储帐户](hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)
 ### [使用 Bootstrap 自定义群集](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [使用脚本操作自定义群集](hdinsight-hadoop-customize-cluster-linux.md)
 ### [将 HDInsight 连接到本地网络](connect-on-premises-network.md)
@@ -133,7 +136,7 @@
 #### [安装自定义应用](hdinsight-apps-install-custom-applications.md)
 #### [使用 REST 安装应用](https://msdn.microsoft.com/library/mt706515.aspx)
 ## 安全
-### [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)
+### [将 Pig 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [使用 SSH 隧道](hdinsight-linux-ambari-ssh-tunnel.md)
 ### [限制数据访问](hdinsight-storage-sharedaccesssignature-permissions.md)
 ## 管理
@@ -176,15 +179,15 @@
 #### [Hadoop 内存和性能](hdinsight-hadoop-stack-trace-error-messages.md)
 #### [在 Linux 上访问 Hadoop YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 #### [为 Hadoop 服务启用堆转储](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-#### [分析 HDInsight 日志](hdinsight-debug-jobs.md)
 #### [了解和解决 WebHCat 错误](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
 #### [通过 Hive 设置解决内存不足错误](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [使用 Ambari 视图调试 Tez 作业](hdinsight-debug-ambari-tez-view.md)
 #### [优化 Hive 查询](hdinsight-hadoop-optimize-hive-query.md)
 
 # 引用
+## [代码示例](https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight)
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.hdinsight)
-## [.NET (Hadoop)](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight)
+## [.NET (Hadoop)](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
 ## [REST](https://docs.microsoft.com/rest/api/hdinsight/)
@@ -211,6 +214,6 @@
 ### [使用 Ambari API 监视群集](hdinsight-monitor-use-ambari-api.md)
 
 # 资源
-## [在论坛上获取帮助](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)
+## [在论坛上获取帮助](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Microsoft 大数据专业程序](https://academy.microsoft.com/professional-program/big-data/)
 ## [用于 HDInsight 的 Windows 工具](hdinsight-hadoop-windows-tools.md)

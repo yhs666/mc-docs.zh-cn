@@ -13,13 +13,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 origin.date: 07/14/2017
-ms.date: 07/24/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7ea0b167f63103687cae28b327c68b8c455b7309
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 939252617851a008884bc468a339851ad957ca68
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>有关在 Azure SQL 数据仓库中使用复制的表的设计指南
 本文提供了有关在 SQL 数据仓库架构中设计复制的表的建议。 可以使用这些建议通过减少数据移动和降低查询复杂性来提高查询性能。
@@ -42,18 +42,18 @@ ms.lasthandoff: 07/26/2017
 
 下图显示了可在每个计算节点上访问的复制表。 在 SQL 数据仓库中，复制的表将完整复制到每个计算节点上的分发数据库。 
 
-![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table")  
+![Replicated table](media/guidance-for-using-replicated-tables/replicated-table.png "Replicated table")  
 
 复制的表比较适合星型架构中的小型维度表。 通常情况下，维度表的大小让存储并维护多个副本变得可行。 维度存储着不常更改的描述性数据，例如，客户名称和地址以及产品详细信息。 该数据的缓变本性使复制的表不会经历太多的重新生成。 
 
 在下列情况下，请考虑使用复制的表：
 
-- 磁盘上的表大小小于 2 GB，无论有多少行。 若要查明表的大小，可以使用 [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) 命令：`DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`。 
+- 磁盘上的表大小小于 2 GB，无论有多少行。 若要查明表的大小，可以使用 [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) 命令：`DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`。 
 - 表用于不采用复制的表时将要求移动数据的联接中。 例如，当联接列不同于分布列时，针对哈希分布式表的联接将要求移动数据。 如果其中一个哈希分布式表很小，请考虑使用复制的表。 针对循环表的联接要求移动数据。 大多数情况下，我们建议使用复制的表而非循环表。 
 
 在下列情况下，请考虑将现有分布式表转换为复制的表：
 
-- 查询计划使用了将数据广播到所有计算节点的数据移动操作。 BroadcastMoveOperation 代价高昂并且会降低查询性能。 若要查看查询计划中的数据移动操作，请使用 [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)。
+- 查询计划使用了将数据广播到所有计算节点的数据移动操作。 BroadcastMoveOperation 代价高昂并且会降低查询性能。 若要查看查询计划中的数据移动操作，请使用 [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)。
 
 在下列情况下，复制的表可能不会产生最佳查询性能：
 
@@ -82,7 +82,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>将现有的循环表转换为复制的表
 如果已经具有循环表，如果它们满足本文中列出的条件，建议将其转换为复制的表。 与循环表相比，复制的表可以提高性能，因为它们不要求移动数据。  循环表始终要求为联接移动数据。 
 
-此示例使用 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 将 DimSalesTerritory 表更改为复制的表。 无论 DimSalesTerritory 是哈希分布式表还是循环表，此示例都是可行的。
+此示例使用 [CTAS](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 将 DimSalesTerritory 表更改为复制的表。 无论 DimSalesTerritory 是哈希分布式表还是循环表，此示例都是可行的。
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]   
@@ -110,7 +110,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### <a name="query-performance-example-for-round-robin-versus-replicated"></a>循环表与复制的表的查询性能对比示例 
 
-复制的表不要求为联接移动任何数据，因为整个表已存在于每个计算节点上。 如果维度表是循环分布式的，则联接会将维度表整个复制到每个计算节点。 为了移动数据，查询计划包含了一个名为 BroadcastMoveOperation 的操作。 此类数据移动操作会降低查询性能，使用复制的表可以避免。 若要查看查询计划步骤，请使用 [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) 系统目录视图。 
+复制的表不要求为联接移动任何数据，因为整个表已存在于每个计算节点上。 如果维度表是循环分布式的，则联接会将维度表整个复制到每个计算节点。 为了移动数据，查询计划包含了一个名为 BroadcastMoveOperation 的操作。 此类数据移动操作会降低查询性能，使用复制的表可以避免。 若要查看查询计划步骤，请使用 [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) 系统目录视图。 
 
 例如，在针对 AdventureWorks 架构的以下查询中，` FactInternetSales` 表是哈希分布式的。 `DimDate` 和 `DimSalesTerritory` 表是较小的维度表。 此查询返回 2004 会计年度在北美的总销售额：
 
@@ -174,7 +174,7 @@ SQL 数据仓库通过维护表的主版本来实现复制的表。 它将主版
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>在批量加载后重新生成复制的表
 为确保一致的查询执行时间，建议在批量加载后强制刷新复制的表。 否则，首个查询必须等待表进行刷新，这包括重新生成索引。 这对性能的影响可能比较显著，具体取决于受影响的复制的表的大小和数量。  
 
-以下查询使用 [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV 列出已修改但未重新生成的复制的表。
+以下查询使用 [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV 列出已修改但未重新生成的复制的表。
 
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
@@ -196,7 +196,9 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ## <a name="next-steps"></a>后续步骤 
 若要创建复制的表，请使用下列语句之一：
 
-- [CREATE TABLE（Azure SQL 数据仓库）](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT（Azure SQL 数据仓库）](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE（Azure SQL 数据仓库）](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT（Azure SQL 数据仓库）](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 有关分布式表的概述，请参阅[分布式表](sql-data-warehouse-tables-distribute.md)。
+
+<!--Update_Description: wording update, update reference link-->

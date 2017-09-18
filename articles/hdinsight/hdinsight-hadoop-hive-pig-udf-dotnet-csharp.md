@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 3668a0bf4d84ebe6b7e04f9d41a86be7239e1a7c
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 7b64f10ccd28a854b3add959a4c5e3434ae14ee9
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>在 HDInsight 中的 Hadoop 上将 C# 用户定义函数与 Hive 和 Pig 流式处理配合使用
 
@@ -161,7 +161,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
     }
     ```
 
-    此应用程序将分析发送自 Pig 的行，并对以 `java.lang.Exception`开头的行重新设置格式。
+    此应用程序将分析发送自 Pig 的行，并对以 `java.lang.Exception` 开头的行重新设置格式。
 
 3. 保存 **Program.cs**，并生成项目。
 
@@ -199,7 +199,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
-    -- add file wasbs:///HiveCSharp.exe;
+    -- add file wasb:///HiveCSharp.exe;
 
     SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'HiveCSharp.exe' AS
@@ -213,7 +213,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
     此查询将从 `hivesampletable` 中选择 `clientid`、`devicemake` 和 `devicemodel` 字段并将这些字段传递到 HiveCSharp.exe 应用程序。 该查询预期应用程序返回三个字段，它们存储为 `clientid`、`phoneLabel` 和 `phoneHash`。 该查询还预期在默认存储容器的根目录中找到 HiveCSharp.exe。
 
-5. 单击“提交”将作业提交到 HDInsight 群集  。 此时会打开“Hive 作业摘要”窗口  。
+5. 单击“提交”将作业提交到 HDInsight 群集。 此时会打开“Hive 作业摘要”窗口  。
 
 6. 单击“刷新”以刷新摘要，直到“作业状态”更改为“已完成”。 若要查看作业输出，请单击“作业输出”。
 
@@ -269,4 +269,4 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: change 'wasbs' into 'wasb'-->

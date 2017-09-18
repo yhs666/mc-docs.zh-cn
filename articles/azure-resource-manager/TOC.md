@@ -90,7 +90,8 @@
 ## 故障排除
 ### [常见部署错误](resource-manager-common-deployment-errors.md)
 ### [了解部署错误](resource-manager-troubleshoot-tips.md)
-### [RequestDisallowedByPolicy 错误](resource-manager-policy-requestdisallowedbypolicy-error.md)
+<!-- Not Available ### [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md)-->
+
 ### 虚拟机部署错误
 #### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 #### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/12/2017
-ms.date: 01/25/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6312badc38ce646429696441082d030bb44bba23
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: a84f955d7e086f4d443b12d0e36b20435ecf4e8a
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>使用查询控制台运行 Hive 查询
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
@@ -53,7 +53,7 @@ ms.lasthandoff: 07/28/2017
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+        STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     这些语句可执行以下操作：
@@ -70,7 +70,7 @@ ms.lasthandoff: 07/28/2017
    * **ROW FORMAT**：告知 Hive 如何设置数据的格式。 在此情况下，每个日志中的字段以空格分隔。
    * STORED AS TEXTFILE LOCATION：告知 Hive 数据的存储位置（example/data 目录），并且告知数据已存储为文本
    * SELECT：选择其列 t4 包含值 [ERROR] 的所有行的计数。 这应会返回值 **3** ，因为有三个行包含此值。
-   * **INPUT__FILE__NAME LIKE '%.log'** - 告诉 Hive，我们只应返回以 .log 结尾的文件中的数据。 此项将搜索限定于包含数据的 sample.log 文件，并阻止搜索返回与所定义架构不匹配的其他示例数据文件中的数据。
+   * **INPUT__FILE__NAME LIKE '%.log'** - 告诉 Hive，我们只应返回以 .log 结尾的文件中的数据。 此项将搜索限定于包含数据的 sample.log 文件，使搜索不会返回与所定义架构不符的其他示例数据文件中的数据。
 3. 单击“提交” 。 页面底部的“作业会话”应显示作业的详细信息。
 4. 当“状态”字段更改为“已完成”时，请选择与作业对应的“查看详细信息”。 在详细信息页上，“作业输出”包含 `[ERROR]    3`。 可以使用此字段下面的“下载”按钮下载包含作业输出的文件。
 
@@ -82,8 +82,7 @@ ms.lasthandoff: 07/28/2017
 ## <a id="nextsteps"></a>后续步骤
 有关 HDInsight 中的 Hive 的一般信息：
 
-* 
-            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
@@ -123,3 +122,4 @@ ms.lasthandoff: 07/28/2017
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
+<!--Update_Description: change 'wasbs' into 'wasb'-->

@@ -15,41 +15,36 @@ ms.workload: multiple
 origin.date: 11/11/2016
 ms.date: 03/30/2017
 ms.author: v-junlch
-ms.openlocfilehash: 10b86f4854e04c4d4b771f84ac6e4e0118a508f6
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 0cb87bf95aa422327885898542a819321f181682
+ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/15/2017
 ---
-# 准备从 Visual Studio 发布或部署 Azure 应用程序
-<a id="prepare-to-publish-or-deploy-an-azure-application-from-visual-studio" class="xliff"></a>
-## 概述
-<a id="overview" class="xliff"></a>
+# <a name="prepare-to-publish-or-deploy-an-azure-application-from-visual-studio"></a>准备从 Visual Studio 发布或部署 Azure 应用程序
+## <a name="overview"></a>概述
 在发布云服务项目之前，必须先设置以下服务：
 
-- 一个 **云服务** ，用于在 Azure 环境中运行你的角色。
+- 一个**云服务**，用于在 Azure 环境中运行角色。
 - 一个 **存储帐户** ，提供对 Blob、队列和表服务的访问权限。
 
 使用以下过程设置这些服务并配置应用程序：
 
-## 创建云服务
-<a id="create-a-cloud-service" class="xliff"></a>
-若要将云服务发布到 Azure，首先必须创建一个云服务，它将在 Azure 环境中运行你的角色。 你可以在 [Azure 经典管理门户](https://manage.windowsazure.cn)中创建云服务，如本主题稍后的 **使用 Azure 经典管理门户创建云服务**部分中所述。 当你使用发布向导时，还可以在 Visual Studio 中创建云服务。
+## <a name="create-a-cloud-service"></a>创建云服务
+要将云服务发布到 Azure，首先必须创建一个云服务，它将在 Azure 环境中运行你的角色。 可以在 [Azure 经典管理门户](https://manage.windowsazure.cn)中创建云服务，如本主题稍后的 **使用 Azure 经典管理门户创建云服务**部分中所述。 使用发布向导时，还可以在 Visual Studio 中创建云服务。
 
-### 使用 Visual Studio 创建云服务
-<a id="to-create-a-cloud-service-by-using-visual-studio" class="xliff"></a>
+### <a name="to-create-a-cloud-service-by-using-visual-studio"></a>使用 Visual Studio 创建云服务
 1. 打开 Azure 项目的快捷菜单，然后选择“发布”。
 
     ![VST_PublishMenu](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/vst-publish-menu.png)
-2. 如果你尚未登录，请使用与 Azure 订阅关联的 Microsoft 帐户或组织帐户的用户名和密码登录。
+2. 如果尚未登录，请使用与 Azure 订阅关联的 Microsoft 帐户或组织帐户的用户名和密码登录。
 3. 选择“下一步”按钮进入“设置”页。
 
     ![发布向导通用设置](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/publish-settings-page.png)
 4. 在“云服务”列表中，选择“新建”。 此时将显示“创建 Azure 服务”对话框。
 5. 输入云服务的名称。 该名称构成服务的 URL 部分，因此必须是全局唯一的。 该名称不区分大小写。
 
-### 使用 Azure 经典管理门户创建云服务
-<a id="to-create-a-cloud-service-by-using-the-azure-classic-management-portal" class="xliff"></a>
+### <a name="to-create-a-cloud-service-by-using-the-azure-classic-management-portal"></a>使用 Azure 经典管理门户创建云服务
 1. 在 Microsoft 网站上，登录到 [Azure 经典管理门户](http://go.microsoft.com/fwlink/?LinkId=253103) 。
 2. （可选）若要显示已创建云服务的列表，请从页面左侧选择“云服务”链接。
 3. 选择左下角的 + 图标，然后在显示的菜单中选择“云服务”。 随即显示另一个屏幕，其中有“快速创建”和“自定义创建”两个选项。 如果选择“快速创建”，则只需指定云服务的 URL 和实际承载区域，便可创建云服务。 如果选择“自定义创建”，可以通过指定包（.cspkg 文件）、配置（.cscfg 文件）和证书，立即发布云服务。 若要使用 Azure 项目中的“发布”命令发布云服务，则无需选择“自定义创建”。 Azure 项目的快捷菜单上提供了“发布”命令。
@@ -58,48 +53,43 @@ ms.lasthandoff: 06/21/2017
 6. 在列表中，选择大多数用户所在的区域。
 7. 在窗口底部，选择“创建云服务”链接。
 
-## 创建存储帐户
-<a id="create-a-storage-account" class="xliff"></a>
-存储帐户提供对 Blob、队列和表服务的访问权限。 你可以使用 Visual Studio 或 [Azure 经典管理门户](http://go.microsoft.com/fwlink/?LinkId=253103)创建存储帐户。
+## <a name="create-a-storage-account"></a>创建存储帐户
+存储帐户提供对 Blob、队列和表服务的访问权限。 可以使用 Visual Studio 或 [Azure 经典管理门户](http://go.microsoft.com/fwlink/?LinkId=253103)创建存储帐户。
 
-### 使用 Visual Studio 创建存储帐户
-<a id="to-create-a-storage-account-by-using-visual-studio" class="xliff"></a>
+### <a name="to-create-a-storage-account-by-using-visual-studio"></a>使用 Visual Studio 创建存储帐户
 1. 在“解决方案资源管理器”中，打开“存储”节点的快捷菜单，然后选择“创建存储帐户”。
 
     ![创建新的 Azure 存储帐户](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/IC744166.png)
 2. 在“创建存储帐户”对话框中选择或输入新存储帐户的以下信息。
 
-   - 要将存储帐户添加到的 Azure 订阅。
+   - 要添加存储帐户的 Azure 订阅。
    - 要用于新存储帐户的名称。
    - 区域或地缘组（如中国北部或中国东部）。
    - 要用于存储帐户的复制类型，如“异地冗余”。
 3. 完成后，选择“创建”。新存储帐户将显示在“服务器资源管理器”的“存储”列表中。
 
-### 使用 Azure 经典管理门户创建存储帐户
-<a id="to-create-a-storage-account-by-using-the-azure-classic-management-portal" class="xliff"></a>
+### <a name="to-create-a-storage-account-by-using-the-azure-classic-management-portal"></a>使用 Azure 经典管理门户创建存储帐户
 1. 在 Microsoft 网站上，登录到 [Azure 经典管理门户](http://go.microsoft.com/fwlink/?LinkId=253103) 。
 2. （可选）若要查看存储帐户，请在页面左侧的面板上，选择“存储”链接。
 3. 在该页左下角，选择 + 图标。
 4. 在显示的菜单上，选择“存储”，然后选择“快速创建”。
-5. 为存储帐户提供一个名称，这将生成一个唯一 URL。
+5. 为存储帐户提供一个名称，这会生成一个唯一 URL。
 6. 为云服务提供一个名称。 完整 URL 显示在名称旁边。
 7. 在区域列表中，选择大多数用户所在的区域。
-8. 指定是否启用异地复制。 如果启用异地复制，数据将保存在多个物理位置，降低丢失的机率。 此功能会提高存储成本，但在创建存储帐户时启用地理位置，而非稍后添加此功能，便可以降低成本。 有关详细信息，请参阅 [Geo-replication](http://go.microsoft.com/fwlink/?LinkId=253108)（异地复制）。
+8. 指定是否启用异地复制。 如果启用异地复制，数据会保存在多个物理位置，降低丢失的机率。 此功能会提高存储成本，但在创建存储帐户时启用地理位置，而非稍后添加此功能，便可以降低成本。 有关详细信息，请参阅 [Geo-replication](http://go.microsoft.com/fwlink/?LinkId=253108)（异地复制）。
 9. 在窗口底部，选择“创建存储帐户”链接。
 
-创建存储帐户之后，你将会看到可用于访问每个 Azure 存储服务中的资源的 URL，同时可看到帐户的主访问密钥和辅助访问密钥。 可使用这些访问密钥验证对存储服务发出的请求。
+创建存储帐户之后，你会看到可用于访问每个 Azure 存储服务中的资源的 URL，同时可看到帐户的主访问密钥和辅助访问密钥。 可使用这些访问密钥验证对存储服务发出的请求。
 
 > [!NOTE]
-> 辅助访问密钥提供的对存储帐户的访问权与主访问密钥提供的对存储帐户的访问权相同，并在主访问密钥出现问题的情况下作为备份。 此外，建议定期重新生成访问密钥。 可在重新生成主密钥时，修改连接字符串设置以使用辅助密钥，然后可在重新生成辅助密钥时修改连接字符串以便重新生成主密钥。
+> 辅助访问密钥提供的对存储帐户的访问权与主访问密钥提供的对存储帐户的访问权相同，并在主访问密钥出现问题的情况下作为备份。 此外，建议定期重新生成访问密钥。 可在重新生成主密钥时，修改连接字符串设置以使用辅助密钥，并可在重新生成辅助密钥时修改连接字符串以便重新生成主密钥。
 >
 >
 
-## 将应用配置为使用存储帐户提供的服务
-<a id="configure-your-app-to-use-services-provided-by-the-storage-account" class="xliff"></a>
-必须配置访问存储服务以使用你创建的 Azure 存储服务的任何角色。 为此，可为 Azure 项目使用多个服务配置。 默认情况下，其中两个配置是在 Azure 项目中创建的。 通过使用多个服务配置，你可以在代码中使用相同的连接字符串，但在每个服务配置中为连接字符串使用不同的值。 例如，你可以使用一个服务配置通过本地 Azure 存储模拟器来运行和调试应用程序，并使用另一个服务配置将应用程序发布到 Azure。 有关服务配置的详细信息，请参阅[使用多种服务配置来配置 Azure 项目](./vs-azure-tools-multiple-services-project-configurations.md)。
+## <a name="configure-your-app-to-use-services-provided-by-the-storage-account"></a>将应用配置为使用存储帐户提供的服务
+必须配置访问存储服务以使用所创建的 Azure 存储服务的任何角色。 为此，可为 Azure 项目使用多个服务配置。 默认情况下，其中两个配置是在 Azure 项目中创建的。 通过使用多个服务配置，可以在代码中使用相同的连接字符串，但在每个服务配置中为连接字符串使用不同的值。 例如，可以使用一个服务配置通过本地 Azure 存储模拟器来运行和调试应用程序，并使用另一个服务配置将应用程序发布到 Azure。 有关服务配置的详细信息，请参阅[使用多种服务配置来配置 Azure 项目](./vs-azure-tools-multiple-services-project-configurations.md)。
 
-### 将应用程序配置为使用存储帐户提供的服务
-<a id="to-configure-your-application-to-use-services-that-the-storage-account-provides" class="xliff"></a>
+### <a name="to-configure-your-application-to-use-services-that-the-storage-account-provides"></a>将应用程序配置为使用存储帐户提供的服务
 1. 在 Visual Studio 中打开 Azure 解决方案。 在解决方案资源管理器中，在访问存储服务的 Azure 项目中打开每个角色的快捷菜单，并选择“属性”。 包含角色名称的页将显示在 Visual Studio 编辑器中。 该页面显示“配置”选项卡的字段。
 2. 在角色的属性页中，选择“设置”。
 3. 在“服务配置”列表中，选择要编辑的服务配置名称。 若要对角色的所有服务配置进行更改，则可选择“所有配置”。  若要深入了解如何更新服务配置，请参阅主题[使用 Visual Studio 配置 Azure 云服务的角色](./vs-azure-tools-configure-roles-for-cloud-service.md)中的**管理存储帐户的连接字符串**部分。
@@ -127,11 +117,10 @@ ms.lasthandoff: 06/21/2017
        - **指定自定义终结点** 。 然后，可将这些终结点键入特定服务的字段中。
 
          > [!NOTE]
-         > 如果你创建自定义终结点，则可以创建更复杂的连接字符串。 当你使用此字符串格式时，可以指定包含已为 Blob 服务的存储帐户注册的自定义域名存储服务终结点。 你还可以通过共享访问签名只授予对单个容器中的 Blob 资源的访问权限。 有关如何创建自定义终结点的详细信息，请参阅[配置 Azure 存储连接字符串](./storage/storage-configure-connection-string.md)。
+         > 如果创建自定义终结点，则可以创建更复杂的连接字符串。 当使用此字符串格式时，可以指定包含已为 Blob 服务的存储帐户注册的自定义域名存储服务终结点。 还可以通过共享访问签名只授予对单个容器中的 Blob 资源的访问权限。 有关如何创建自定义终结点的详细信息，请参阅[配置 Azure 存储连接字符串](./storage/common/storage-configure-connection-string.md)。
          >
          >
 11. 若要保存这些连接字符串更改，请选择“确定”按钮，然后选择工具栏上的“保存”按钮。 保存这些更改后，可以通过在代码中使用 [GetConfigurationSettingValue](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) 获取此连接字符串的值。 将应用程序发布到 Azure 时，请选择包含连接字符串的 Azure 存储帐户的服务配置。 发布应用程序后，验证应用程序是否按预期方式针对 Azure 存储服务正常工作
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 若要详细了解如何将应用从 Visual Studio 发布到 Azure，请参阅[使用 Azure Tools 发布云服务](./vs-azure-tools-publishing-a-cloud-service.md)。

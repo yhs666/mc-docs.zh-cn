@@ -3,8 +3,8 @@ title: "使用 Azure CLI 管理 Hadoop 群集 - Azure HDInsight | Azure"
 description: "了解如何使用 Azure 命令行接口管理 Azure HDInsight 中的 Hadoop 群集。 Azure CLI 适用于 Windows、Mac 和 Linux。"
 services: hdinsight
 editor: cgronlun
-manager: jhubbard
-author: mumian
+manager: digimobile
+author: hayley244
 tags: azure-portal
 documentationcenter: 
 ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 293842ba2938cb08cfaa95115301b9f6a35b24a4
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 240f954d2cc3e47bcb858ae4d8eb9c2c4b6609cd
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>使用 Azure CLI 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -35,7 +35,7 @@ ms.lasthandoff: 07/14/2017
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ## <a name="prerequisites"></a>先决条件
-在开始阅读本文前，你必须具有：
+在开始阅读本文前，必须具有：
 
 * **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * Azure CLI - 有关安装和配置信息，请参阅[安装和配置 Azure CLI](../cli-install-nodejs.md)。
@@ -68,7 +68,7 @@ ms.lasthandoff: 07/14/2017
 
     azure hdinsight cluster delete <Cluster Name>
 
-还可以通过删除包含群集的资源组来删除群集。 请注意，这将删除包括默认存储帐户的组中的所有资源。
+还可以通过删除包含群集的资源组来删除群集。 请注意，这会删除包括默认存储帐户的组中的所有资源。
 
     azure group delete <Resource Group Name>
 
@@ -94,8 +94,8 @@ ms.lasthandoff: 07/14/2017
 * [如何使用 Azure CLI][azure-command-line-tools]
 
 [azure-command-line-tools]: ../cli-install-nodejs.md
-[azure-create-storageaccount]: ../storage-create-storage-account.md
-[azure-purchase-options]: https://www.azure.cn/pricing/overview/
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
+[azure-purchase-options]: https://www.azure.cn/pricing/purchase-options/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
@@ -107,3 +107,4 @@ ms.lasthandoff: 07/14/2017
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "列出并显示群集"
+<!--Update_Description: update link ref-->

@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 26160281c04962241421c839749596f83e744ee6
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: cf3fd43f39fc69f487870280eac97eee646d4c69
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>使用 Curl 在 HDInsight 中的 Hadoop 上运行 Sqoop 作业
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
@@ -48,7 +48,7 @@ ms.lasthandoff: 07/14/2017
 > 
 > 对本部分中的所有命令，请将 **USERNAME**替换为在群集上进行身份验证的用户，并将 **PASSWORD** 替换为用户帐户的密码。 将 **CLUSTERNAME** 替换为群集名称。
 > 
-> REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 你始终应该使用安全 HTTP (HTTPS) 来发出请求，以确保安全地将凭据发送到服务器。
+> REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 始终应该使用安全 HTTP (HTTPS) 来发出请求，以确保安全地将凭据发送到服务器。
 > 
 > 
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 07/14/2017
 
         curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
 
-    你应会收到类似于下面的响应：
+    应会收到类似于下面的响应：
 
         {"status":"ok","version":"v1"}
 
@@ -65,10 +65,10 @@ ms.lasthandoff: 07/14/2017
    * **-u** - 用来对请求进行身份验证的用户名和密码。
    * **-G** - 指出这是 GET 请求。
 
-     所有请求的 URL 开头都是 https://CLUSTERNAME.azurehdinsight.cn/templeton/v1。 路径 **/status** 指示请求将返回服务器的 WebHCat（也称为 Templeton）状态。 
+     所有请求的 URL 开头都是 https://CLUSTERNAME.azurehdinsight.cn/templeton/v1。 路径 **/status** 指示请求会返回服务器的 WebHCat（也称为 Templeton）状态。 
 2. 使用以下命令 sqoop 作业：
 
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.chinacloudapi.cn;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /tutorials/usesqoop/data --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasbs:///example/curl" https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/sqoop
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.chinacloudapi.cn;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /tutorials/usesqoop/data --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/sqoop
 
     此命令中使用的参数如下：
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 07/14/2017
    > 此 Curl 请求返回具有作业相关信息的 JavaScript 对象表示法 (JSON) 文档；使用 jq 可以仅检索状态值。
    > 
    > 
-2. 在作业的状态更改为“SUCCEEDED”后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在这种情况下，位置为 wasbs:///example/curl。 此地址会将作业的输出存储在 HDInsight 群集所用的默认存储容器的 example/curl 目录中。
+2. 在作业的状态更改为“SUCCEEDED”后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中，位置为 wasb:///example/curl。 此地址会将作业的输出存储在 HDInsight 群集所用的默认存储容器的 **example/curl** 目录中。
 
     可以使用 [Azure CLI](../cli-install-nodejs.md) 列出并下载这些文件。 例如，若要列出 **example/curl**中的文件，请使用以下命令：
 
@@ -113,10 +113,10 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="limitations"></a>限制
 * 批量导出 - 在基于 Linux 的 HDInsight 上，用于将数据导出到 Microsoft SQL Server 或 Azure SQL 数据库的 Sqoop 连接器目前不支持批量插入。
-* 批处理 - 在基于 Linux 的 HDInsight 上，如果执行插入时使用 `-batch` 开关，Sqoop 将执行多次插入而不是批处理插入操作。
+* 批处理 - 在基于 Linux 的 HDInsight 上，如果执行插入时使用 `-batch` 开关，Sqoop 会执行多次插入而不是批处理插入操作。
 
 ## <a name="summary"></a>摘要
-如本文档中所示，你可以使用原始 HTTP 请求来运行、监视和查看 HDInsight 群集上的 Sqoop 作业的结果。
+如本文档中所示，可以使用原始 HTTP 请求来运行、监视和查看 HDInsight 群集上的 Sqoop 作业的结果。
 
 有关本文中使用的 REST 接口的详细信息，请参阅 <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">Sqoop REST API 指南</a>。
 
@@ -151,3 +151,4 @@ ms.lasthandoff: 07/14/2017
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+<!--Update_Description: change 'wasbs' into 'wasb'-->

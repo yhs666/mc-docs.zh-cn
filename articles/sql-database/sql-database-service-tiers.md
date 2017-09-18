@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 06/30/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: addac1b04729021488a6cdd6f3dcf42b965630c8
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 22c2d5c0d8376d377be519d5d50933b974345f40
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="what-performance-options-are-available-for-an-azure-sql-database"></a>针对 Azure SQL 数据库提供了哪些性能选项
 
@@ -93,8 +93,9 @@ ms.lasthandoff: 07/28/2017
 
 * 如果要升级到较高的服务层或性能级别，除非显式指定了较大的最大大小，否则，最大数据库大小不会增大。
 * 若要对数据库进行降级，数据库必须小于目标服务层允许的最大大小。 
-* 在启用了[异地复制](sql-database-geo-replication-portal.md)的情况下升级数据库时，请先将辅助数据库升级到所需的性能层，然后再升级主数据库（一般原则）。
-* 从**高级**服务层降级到较低服务层时，必须先终止所有异地复制关系。 可以按照[在中断后恢复](sql-database-disaster-recovery.md)主题中所述的步骤停止主数据库与辅助数据库之间的复制过程。
+* 在启用了[异地复制](sql-database-geo-replication-portal.md)的情况下升级数据库时，请先将辅助数据库升级到所需的性能层，然后再升级主数据库（一般原则）。 在升级到另一版本时，必须首先升级辅助数据库。 
+* 在启用了[异地复制](sql-database-geo-replication-portal.md)的情况下降级数据库时，请先将主数据库降级到所需的性能层，然后再降级辅助数据库（一般原则）。 在降级到另一版本时，必须首先降级主数据库。 
+
 * 各服务层提供的还原服务各不相同。 降级到**基本**层会缩短备份保留期 - 请参阅 [Azure SQL 数据库备份](sql-database-automated-backups.md)。
 * 更改完成前不会应用数据库的新属性。
 
@@ -165,7 +166,7 @@ ms.lasthandoff: 07/28/2017
 | --- | --- |
 |[CREATE DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/create-database-azure-sql-database)|新建数据库。 必须连接到 master 数据库才能新建数据库。|
 | [ALTER DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) |修改 Azure SQL 数据库。 |
-|[sys.database_service_objectives（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|返回 Azure SQL 数据库或 Azure SQL 数据仓库的版本（服务层）、服务目标（定价层）和弹性池名称（若有）。 如果已登录 Azure SQL 数据库服务器中的 master 数据库，返回所有数据库的相关信息。 对于 Azure SQL 数据仓库，必须连接到 master 数据库。|
+|[sys.database_service_objectives（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|返回 Azure SQL 数据库或 Azure SQL 数据仓库的版本（服务层）、服务目标（定价层）和弹性池名称（若有）。 如果已登录到 Azure SQL 数据库服务器中的 master 数据库，则会返回所有数据库的相关信息。 对于 Azure SQL 数据仓库，必须连接到 master 数据库。|
 |[sys.database_usage（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|列出 Azure SQL 数据库服务器上的数据库的数目、类型和持续时间。|
 
 以下示例演示如何使用 ALTER DATABASE 命令更改最大大小：
@@ -184,4 +185,4 @@ ALTER DATABASE <myDatabaseName>
 * 了解有关 [DTU](sql-database-what-is-a-dtu.md) 的详细信息。
 * 若要了解有关监视 DTU 使用情况的信息，请参阅[监视和性能优化](sql-database-troubleshoot-performance.md)。
 
-<!--Update_Description: update word & link references-->
+<!--Update_Description: update word-->

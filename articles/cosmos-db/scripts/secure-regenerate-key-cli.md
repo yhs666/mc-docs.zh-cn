@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 023e6be56e518739c7e8e17798d86e4419974d66
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: e1aa14872a67f47e394ead1b242a501bd7c1de83
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-the-azure-cli"></a>使用 Azure CLI 重新生成 Azure Cosmos DB 帐户密钥
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 08/04/2017
 
 ## <a name="sample-script"></a>示例脚本
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Set variables for the new account, database, and collection
@@ -73,7 +73,7 @@ az documentdb regenerate-key \
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
@@ -86,7 +86,7 @@ az group delete --name myResourceGroup
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | 更新 Azure Cosmos DB 帐户。 |
 | [az cosmosdb regenerate-key](https://docs.microsoft.com/cli/azure/cosmosdb/regenerate-key) | 重新生成 Azure Cosmos DB 帐户密钥。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/resource#delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

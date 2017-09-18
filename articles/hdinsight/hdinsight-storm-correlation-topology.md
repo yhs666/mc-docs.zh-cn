@@ -13,23 +13,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 03/01/2017
-ms.date: 03/31/2017
-ms.author: v-dazen
+origin.date: 08/07/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a299521e0231eb76ab691dd254748211e7297137
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 1e97298d726f8c3e27c99316279009793d9b83ef
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
-# <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>使用 Storm 和 HBase 将不同时间到达的事件关联起来
+# <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>使用 Storm 和 HBase 关联在不同时间到达的事件
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-通过使用 Apache Storm 的持久数据存储，可以将不同时间到达的数据条目关联起来。 例如，将用户会话的登录事件和注销事件关联起来，即可计算该会话的持续时间。
+通过使用 Apache Storm 的持久数据存储，可以将不同时间到达的数据条目关联起来。 例如，将用户会话的登录事件和注销事件关联起来即可计算该会话的持续时间。
 
-本文档介绍如何创建基本的 C# Storm 拓扑，该拓扑用于跟踪用户会话的登录事件和注销事件并计算会话的持续时间。 拓扑使用 HBase 作为永久性数据存储。 HBase 还允许你对历史数据执行批处理查询，以生成更多见解。 例如，在特定时间段内开始或结束了多少用户会话。
+本文档介绍如何创建基本的 C# Storm 拓扑，该拓扑用于跟踪用户会话的登录事件和注销事件并计算会话的持续时间。 拓扑使用 HBase 作为永久性数据存储。 HBase 还允许对历史数据执行批处理查询，以生成更多见解。 例如，在特定时间段内开始或结束了多少用户会话。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -37,15 +37,15 @@ ms.lasthandoff: 07/28/2017
 
 * Apache Storm on HDInsight 群集（基于 Windows）。
 
-  > [!IMPORTANT]
-  > 虽然 2016 年 10 月 28 日之后创建的基于 Linux 的 Storm 群集支持 SCP.NET 拓扑，但是 2016 年 10 月 28 日前提供的 HBase SDK for .NET 包无法在 Linux 上正常工作。
+  > [!WARNING]
+  > 尽管在 2016/10/28 之后创建的基于 Linux 的 Storm 群集支持 SCP.NET 拓扑，但是在 2016/10/28 之后可用的 HBase SDK for .NET 包在基于 Linux 的 HDInsight 上无法正常工作
 
 * HDInsight 群集上的 Apache HBase（基于 Linux 或 Windows）。
 
   > [!IMPORTANT]
   > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-* [Java](https://java.com) 1.7 或更高版本，适用于开发环境。 将拓扑提交到 HDInsight 群集时，可以使用 Java 将拓扑打包。
+* [Java](https://java.com) 1.7 或更高版本，适用于开发环境。 将拓扑提交到 HDInsight 群集时，Java 用于打包拓扑。
 
   * JAVA_HOME 环境变量必须指向包含 Java 的目录。
   * 路径中必须包含 %JAVA_HOME%/bin 目录
@@ -73,7 +73,7 @@ ms.lasthandoff: 07/28/2017
 
 ### <a name="storm-topology"></a>Storm 拓扑
 
-会话启动时， **开始** 事件将通过拓扑接收，然后记录到 HBase。 在收到结束事件时，拓扑会检索开始事件并计算两个事件之间的时间。 然后会将此持续时间值存储到 HBase 中，同时存储的还有结束事件信息。
+会话启动时， **开始** 事件将通过拓扑接收，并记录到 HBase。 在收到结束事件时，拓扑会检索开始事件并计算两个事件之间的时间。 然后会将此持续时间值存储到 HBase 中，同时存储的还有结束事件信息。
 
 > [!IMPORTANT]
 > 虽然此拓扑演示了基本的模式，但生产型解决方案需要针对以下情况进行设计：
@@ -86,9 +86,9 @@ ms.lasthandoff: 07/28/2017
 
 * Session.cs：通过创建随机会话 ID、开始时间以及会话持续时间来模拟用户会话。
 
-* Spout.cs：创建 100 个会话，发出一个开始事件，等待每个会话随机超时，然后发出一个结束事件。 然后回收结束的会话，以便生成新会话。
+* Spout.cs：创建 100 个会话，发出一个开始事件，等待每个会话随机超时，并发出一个结束事件。 然后回收结束的会话，以便生成新会话。
 
-* HBaseLookupBolt.cs：使用会话 ID 查找 HBase 中的会话信息。 处理结束事件时，它会查找相应的开始事件，然后计算会话的持续时间。
+* HBaseLookupBolt.cs：使用会话 ID 查找 HBase 中的会话信息。 处理结束事件时，它会查找相应的开始事件，并计算会话的持续时间。
 
 * HBaseBolt.cs：将信息存储到 HBase。
 
@@ -168,13 +168,13 @@ ms.lasthandoff: 07/28/2017
    > [!IMPORTANT]
    > 请勿更改 HBaseTableColumnNames，因为其默认值是 **SessionInfo** 用来检索数据的名称。
 
-4. 保存属性，然后生成项目。
+4. 保存属性，并生成项目。
 
 5. 在“解决方案资源管理器”中，右键单击项目，然后选择“提交到 Storm on HDInsight”。 如果出现提示，请输入 Azure 订阅的凭据。
 
    ![提交到 storm 菜单项的图像](./media/hdinsight-storm-correlation-topology/submittostorm.png)
 
-6. 在“提交拓扑”对话框中，选择要将此拓扑部署到的 Storm 群集  。
+6. 在“提交拓扑”对话框中，选择要将此拓扑部署到的 Storm 群集。
 
    > [!NOTE]
    > 第一次提交拓扑时，可能需要几秒钟来检索 HDInsight 群集名称。
@@ -223,3 +223,4 @@ ms.lasthandoff: 07/28/2017
 ## <a name="next-steps"></a>后续步骤
 
 如需更多 Storm 示例，请参阅 [Storm on HDInsight 拓扑示例](hdinsight-storm-example-topology.md)。
+<!--Update_Description: wording update-->

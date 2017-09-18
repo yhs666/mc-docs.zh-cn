@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 05/22/2017
-ms.date: 08/07/2017
+origin.date: 08/16/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 22ea0a42b4cafcadf038bd11dcb73d9247ba7574
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 35a262f86d085fd4de97783ccb430674e76dde77
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB：DocumentDB API 入门教程
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 08/04/2017
 >  
 > 
 
-欢迎使用 Azure Cosmos DB DocumentDB API 入门教程！ 学习本教程后，你会有一个可创建并查询 DocumentDB 资源的控制台应用程序。
+欢迎使用 Azure Cosmos DB DocumentDB API 入门教程！ 学习本教程后，将拥有一个可创建并查询 Azure Cosmos DB 资源的控制台应用程序。
 
 我们介绍：
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 08/04/2017
 
 * 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
     * 另外，对于本教程，也可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)。
-* [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/)。
+* [Visual Studio Community 2017](http://www.visualstudio.com/)。
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>步骤 1：创建 Azure Cosmos DB 帐户
 创建 Azure Cosmos DB 帐户。 如果已经有一个想要使用的帐户，可以跳到 [设置 Visual Studio 解决方案](#SetupVS)。 如果使用 Azure Cosmos DB 模拟器，请遵循 [Azure Cosmos DB 模拟器](local-emulator.md)中的步骤设置该模拟器，并直接跳到[设置 Visual Studio 解决方案](#SetupVS)。
@@ -66,7 +66,7 @@ ms.lasthandoff: 08/04/2017
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a>第 2 步：设置 Visual Studio 解决方案
-1. 在计算机上打开 **Visual Studio 2015** 。
+1. 在计算机上打开 **Visual Studio 2017**。
 2. 在“文件”菜单中，依次选择“新建”、“项目”。
 3. 在“新建项目”对话框中，选择“模板” / “Visual C#” / “控制台应用程序”，为项目命名，并单击“确定”。
    ![“新建项目”窗口屏幕截图](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
@@ -212,9 +212,9 @@ ms.lasthandoff: 08/04/2017
 祝贺！ 已成功创建了 Azure Cosmos DB 文档集合。  
 
 ## <a id="CreateDoc"></a>步骤 6：创建 JSON 文档
-可以通过使用 **DocumentClient** 类的 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 方法创建[文档](documentdb-resources.md#documents)。 文档为用户定义的（任意）JSON 内容。 现在，我们可以插入一个或多个文档。 如果已有要在数据库中存储的数据，则可以使用 DocumentDB 的[数据迁移工具](import-data.md)，将数据导入数据库。
+可以通过使用 **DocumentClient** 类的 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 方法创建[文档](documentdb-resources.md#documents)。 文档为用户定义的（任意）JSON 内容。 现在，我们可以插入一个或多个文档。 如果已有要在数据库中存储的数据，则可以使用 Azure Cosmos DB 的[数据迁移工具](import-data.md)将数据导入数据库。
 
-在本例中，首先需要创建 Family 类来表示存储在 Azure Cosmos DB 中的对象。 此外还将创建 **Family** 中使用的 **Parent**、**Child**、**Pet** 和 **Address** 子类。 请注意，文档必须将 **ID** 属性序列化为 JSON 格式的 **ID**。 通过在 **GetStartedDemo** 方法后添加以下内部子类来创建这些类。
+在本例中，首先需要创建 **Family** 类来表示存储在 Azure Cosmos DB 中的对象。 此外还将创建 **Family** 中使用的 **Parent**、**Child**、**Pet** 和 **Address** 子类。 请注意，文档必须将 **ID** 属性序列化为 JSON 格式的 **ID**。 通过在 **GetStartedDemo** 方法后添加以下内部子类来创建这些类。
 
 将 **Family**、**Parent**、**Child**、**Pet** 和 **Address** 类复制并粘贴到 **WriteToConsoleAndPromptToContinue** 方法后面。
 
@@ -424,9 +424,9 @@ Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行各种[查
 
 下图说明了如何对已创建的集合调用 Azure Cosmos DB SQL 查询语法，相同的逻辑也适用于 LINQ 查询。
 
-![说明 NoSQL 教程创建 C# 控制台应用程序所用查询的范围和意义的图表](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![说明 NoSQL 教程创建 C# 控制台应用程序所用查询的范围和意义的图表。](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
-查询中的 [FROM](documentdb-sql-query.md#FromClause) 关键字是可选的，因为 DocumentDB 查询的范围已限制为单个集合。 因此，“FROM Families f”可与“FROM root r”或者任何其他所选变量名进行交换。 默认情况下，DocumentDB 会推断你选择的 Families、root 或变量名，并默认引用当前集合。
+查询中的关键字 [FROM](documentdb-sql-query.md#FromClause) 是可选项，因为 Azure Cosmos DB 查询已限制为单个集合。 因此，“FROM Families f”可与“FROM root r”或者任何其他所选变量名进行交换。 Azure Cosmos DB 将推断所选 Families、root 或变量名，并默认引用当前集合。
 
 ## <a id="ReplaceDocument"></a>步骤 8：替换 JSON 文档
 Azure Cosmos DB 支持替换 JSON 文档。  
@@ -503,7 +503,7 @@ Azure Cosmos DB 支持删除 JSON 文档。
 ## <a id="Run"></a>步骤 11：一起运行 C# 控制台应用程序！
 在 Visual Studio 中按 F5，即可在调试模式下构建应用程序。
 
-应该看到已启动应用的输出。 输出会显示我们所添加的查询的结果，并且应与下面的示例文本相匹配。
+应会在控制台窗口中看到已启动应用的输出。 输出会显示我们所添加的查询的结果，并且应与下面的示例文本相匹配。
 
     Created FamilyDB
     Press any key to continue ...
@@ -534,21 +534,21 @@ Azure Cosmos DB 支持删除 JSON 文档。
 若要生成 GetStarted 解决方案，需要以下各项：
 
 * 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-* [Azure Cosmos DB 帐户][cosmos-db-create-account]。
+* 一个 [Azure Cosmos DB 帐户][cosmos-db-create-account]。
 * GitHub 上提供的 [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) 解决方案。
 
-若要在 Visual Studio 中还原 DocumentDB.NET SDK 引用，请在解决方案资源管理器中右键单击“GetStarted”解决方案，并单击“启用 NuGet 包还原”。 接下来，按照[连接到 Azure Cosmos DB 帐户](#Connect)中所述的方法在 App.config 文件中更新 EndpointUrl 和 AuthorizationKey 值。
+若要在 Visual Studio 中还原 Azure Cosmos DB .NET SDK 的引用，请在解决方案资源管理器中右键单击“GetStarted”解决方案，并单击“启用 NuGet 程序包还原”。 接下来，按照[连接到 Azure Cosmos DB 帐户](#Connect)中所述的方法在 App.config 文件中更新 EndpointUrl 和 AuthorizationKey 值。
 
 就这么简单，生成以后即可开始操作！
 
 ## <a name="next-steps"></a>后续步骤
-* 需要更复杂的 ASP.NET MVC 教程？ 请参阅[使用 Azure Cosmos DB 构建具有 ASP.NET MVC 的 Web 应用程序](documentdb-dotnet-application.md)。
-* 希望使用 Azure Cosmos DB 执行规模和性能测试？ 请参阅[使用 Azure Cosmos DB 执行性能和规模测试](performance-testing.md)
-* 了解如何[监视 Azure Cosmos DB 帐户](monitor-accounts.md)。
+* 需要更复杂的 ASP.NET MVC 教程？ 请参阅 [ASP.NET MVC 教程：使用 Azure Cosmos DB 开发 Web 应用程序](documentdb-dotnet-application.md)。
+* 希望使用 Azure Cosmos DB 执行规模和性能测试？ 请参阅[使用 Azure Cosmos DB 执行性能和扩展测试](performance-testing.md)
+* 了解如何[监视 Azure Cosmos DB 请求、使用情况和存储](monitor-accounts.md)。
 * 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
-* 在 [Azure Cosmos DB 文档页](/documentdb/)的“开发”部分了解有关编程模型的详细信息。
+* 若要了解有关 Azure Cosmos DB 的详细信息，请参阅[欢迎使用 Azure Cosmos DB](/cosmos-db/introduction)。
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 [cosmos-db-create-account]: create-documentdb-dotnet.md#create-account
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->

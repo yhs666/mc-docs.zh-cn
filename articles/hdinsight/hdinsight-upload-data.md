@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/12/2017
-ms.date: 04/27/2017
-ms.author: v-dazen
-ms.openlocfilehash: 16ba0df2b147356d2cefa93d5e783eae3041cb95
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: ae2d7708953e439c4cb18626be546c9d2a812e92
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上传 Hadoop 作业的数据
-Azure HDInsight 在 Azure Blob 存储之上提供了一个功能完备的 Hadoop 分布式文件系统 (HDFS)。 该系统为一个 HDFS 扩展，可为客户提供无缝体验。 在该系统的帮助下，Hadoop 生态系统中的整套组件能够直接操作其管理的数据。 Azure Blob 存储和 HDFS 是独立的文件系统，并且已针对数据的存储和计算进行了优化。 有关使用 Azure Blob 存储的益处，请参阅 [将 Azure Blob 存储与 HDInsight 配合使用][hdinsight-storage]。
+Azure HDInsight 在 Azure Blob 存储之上提供了一个功能完备的 Hadoop 分布式文件系统 (HDFS)。 该系统为一个 HDFS 扩展，可为客户提供无缝体验。 在该系统的帮助下，Hadoop 生态系统中的整套组件能够直接操作其管理的数据。 Azure Blob 存储和 HDFS 是独立的文件系统，并且已针对数据的存储和计算进行了优化。 有关使用 Azure Blob 存储的益处，请参阅[将 Azure Blob 存储与 HDInsight 配合使用][hdinsight-storage]。
 
 **先决条件**
 
@@ -34,10 +34,10 @@ Azure HDInsight 在 Azure Blob 存储之上提供了一个功能完备的 Hadoop
 * 一个 Azure HDInsight 群集。 有关说明，请参阅 [Azure HDInsight 入门][hdinsight-get-started] 或 [预配 HDInsight 群集][hdinsight-provision]。
 
 ## <a name="why-blob-storage"></a>为什么使用 Blob 存储？
-通常，为了执行 MapReduce 作业，会部署 Azure HDInsight 群集，但这些作业完成后，就会删除这些群集。 完成计算后将数据保存在 HDFS 群集中是一种成本很高的数据存储方法。 针对使用 HDInsight 处理的数据，选择使用 Azure Blob 存储具有高度可用、可高度缩放、大容量、低成本的优势。 在 Blob 中存储数据，可以安全地释放用于计算的 HDInsight 群集而不丢失数据。
+通常，为了执行 MapReduce 作业，会部署 Azure HDInsight 群集，但这些作业完成后，就会删除这些群集。 在完成计算后将数据保存在 HDFS 群集中是一种成本很高的数据存储方法。 针对使用 HDInsight 处理的数据，选择使用 Azure Blob 存储具有高度可用、可高度缩放、大容量、低成本的优势。 在 Blob 中存储数据，可以安全地释放用于计算的 HDInsight 群集而不丢失数据。
 
 ### <a name="directories"></a>目录
-Azure Blob 存储容器将数据存储为键值对，没有目录层次结构。 不过，可在键名称中使用“/”字符，使其看起来像存储在目录结构中的文件。 HDInsight 将这些键名称视为实际的目录。
+Azure Blob 存储容器将数据存储为键值对，没有目录层次结构。 不过，可在键名称中使用“/”字符，使其看起来像存储在目录结构中的文件。 HDInsight 将这些字符视为实际的目录。
 
 例如，Blob 的键可以是 *input/log1.txt*。 不存在实际的“input”目录，但键名称中包含“/”字符，所以看起来像一个文件路径。
 
@@ -57,7 +57,7 @@ Microsoft 提供了以下实用程序让你使用 Azure Blob 存储：
 | [Hadoop 命令](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> 虽然可从 Azure 外部使用 Azure CLI、Azure PowerShell 和 AzCopy，但是 Hadoop 命令只能在 HDInsight 群集上使用，而且只能将数据从本地文件系统加载到 Azure Blob 存储。
+> 尽管 Azure CLI、Azure PowerShell 和 AzCopy 都可从 Azure 外部使用，但是 Hadoop 命令只能在 HDInsight 群集上使用，而且只能将数据从本地文件系统加载到 Azure Blob 存储。
 >
 >
 
@@ -67,7 +67,7 @@ Azure CLI 是一个跨平台工具，可用于管理 Azure 服务。 使用以�
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 1. [安装和配置适用于 Mac、Linux 和 Windows 的 Azure CLI](../cli-install-nodejs.md)。
-2. 打开命令提示符、bash 或其他 shell，然后使用以下方法对 Azure 订阅进行身份验证。
+2. 打开命令提示符、bash 或其他 shell，并使用以下方法对 Azure 订阅进行身份验证。
 
         azure login -e AzureChinaCloud
 
@@ -75,7 +75,7 @@ Azure CLI 是一个跨平台工具，可用于管理 Azure 服务。 使用以�
 3. 输入以下命令，列出订阅的存储帐户：
 
         azure storage account list
-4. 选择包含你要使用的 Blob 的存储帐户，然后使用以下命令检索此帐户的密钥：
+4. 选择包含用户要使用的 Blob 的存储帐户，并使用以下命令检索此帐户的密钥：
 
         azure storage account keys list <storage-account-name>
 
@@ -124,7 +124,7 @@ Azure PowerShell 是一个脚本编写环境，可用于在 Azure 中控制和�
 
         # Copy the file from local workstation to the Blob container
         Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -context $destContext
-3. 将脚本粘贴到 Azure PowerShell 控制台，然后运行以复制文件。
+3. 将脚本粘贴到 Azure PowerShell 控制台中，以运行它来复制文件。
 
 有关创建用来使用 HDInsight 的 PowerShell 脚本示例，请参阅 [HDInsight 工具](https://github.com/blackmist/hdinsight-tools)。
 
@@ -153,11 +153,11 @@ AzCopy 语法为：
 
 由于 HDInsight 的默认文件系统在 Azure Blob 存储中，/example/data.txt 实际是在 Azure Blob 存储中。 也可以将该文件表示为：
 
-    wasbs:///example/data/data.txt
+    wasb:///example/data/data.txt
 
 或
 
-    wasbs://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/example/data/davinci.txt
+    wasb://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/example/data/davinci.txt
 
 有关用于处理文件的其他 Hadoop 命令列表，请参阅 [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
@@ -202,14 +202,14 @@ AzCopy 语法为：
     上传完文件后，可以通过 HDInsight 群集中的作业来使用该文件。
 
 ## <a name="mount-azure-blob-storage-as-local-drive"></a>将 Azure Blob 存储装载为本地驱动器
-请参阅 [将 Azure Blob 存储装载为本地驱动器](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx)。
+请参阅[将 Azure Blob 存储装载为本地驱动器](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx)。
 
 ## <a name="services"></a>服务
 
 ### <a id="sqoop"></a>Apache Sqoop
 Sqoop 是一种专用于在 Hadoop 和关系数据库之间传输数据的工具。 可以使用此工具将数据从关系数据库管理系统 (RDBMS)（如 SQL Server、MySQL 或 Oracle）中导入到 Hadoop 分布式文件系统 (HDFS)，在 Hadoop 中使用 MapReduce 或 Hive 转换数据，然后回过来将数据导出到 RDBMS。
 
-有关详细信息，请参阅 [将 Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]。
+有关详细信息，请参阅[将 Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]。
 
 ## <a name="development-sdks"></a>开发 SDK
 还可以使用 Azure SDK 通过以下编程语言来访问 Azure Blob 存储：
@@ -247,9 +247,9 @@ Sqoop 是一种专用于在 Hadoop 和关系数据库之间传输数据的工具
             at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
             ... 7 more
 
-**原因**：HBase on HDInsight 群集在写入 Azure 存储时默认阻止 256KB 大小的块。 尽管这对于 HBase API 或 REST API 正常工作，但在使用 `hadoop` 或 `hdfs dfs` 命令行实用程序时将导致错误。
+**原因**：HBase on HDInsight 群集在写入 Azure 存储时默认阻止 256KB 大小的块。 尽管这对 HBase API 或 REST API 来说可良好运行，但使用 `hadoop` 或 `hdfs dfs` 命令行实用程序时则会导致错误。
 
-解决方法：使用 `fs.azure.write.request.size` 指定更大的块大小。 可以使用 `-D` 参数基于使用情况执行此操作。 以下是将此参数与 `hadoop` 命令配合使用的一个示例：
+解决方法：使用 `fs.azure.write.request.size` 指定更大的块大小。 可以使用 `-D` 参数基于使用情况执行此操作。 以下是将此参数用于 `hadoop` 命令的示例：
 
     hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
 
@@ -259,7 +259,7 @@ Sqoop 是一种专用于在 Hadoop 和关系数据库之间传输数据的工具
 
     出现提示时，输入群集的管理员名称和密码。
 2. 在屏幕左侧选择“HDFS”，然后选择“配置”选项卡。
-3. 在“筛选...”字段中输入 `fs.azure.write.request.size`。 这将在页中间显示该字段和当前值。
+3. 在“筛选...”字段中输入 `fs.azure.write.request.size`。 这会在页中间显示该字段和当前值。
 4. 将值从 262144 (256KB) 更改为新的值。 例如，4194304 (4MB)。
 
 ![通过 Ambari Web UI 更改值的图像](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
@@ -267,7 +267,7 @@ Sqoop 是一种专用于在 Hadoop 和关系数据库之间传输数据的工具
 有关如何使用 Ambari 的详细信息，请参阅[使用 Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)。
 
 ## <a name="next-steps"></a>后续步骤
-现在，你已了解如何将数据导入 HDInsight，请阅读以下文章了解如何执行分析：
+现在，已了解如何将数据导入 HDInsight，请阅读以下文章了解如何执行分析：
 
 * [Azure HDInsight 入门][hdinsight-get-started]
 * [以编程方式提交 Hadoop 作业][hdinsight-submit-jobs]
@@ -278,9 +278,9 @@ Sqoop 是一种专用于在 Hadoop 和关系数据库之间传输数据的工具
 [azure-powershell]: http://msdn.microsoft.com/library/azure/jj152841.aspx
 
 [azure-storage-client-library]: /storage/storage-dotnet-how-to-use-blobs
-[azure-create-storage-account]: ../storage/storage-create-storage-account.md
-[azure-azcopy-download]: ../storage/storage-use-azcopy.md
-[azure-azcopy]: ../storage/storage-use-azcopy.md
+[azure-create-storage-account]:../storage/common/storage-create-storage-account.md
+[azure-azcopy-download]:../storage/common/storage-use-azcopy.md
+[azure-azcopy]:../storage/common/storage-use-azcopy.md
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 
@@ -303,3 +303,4 @@ Sqoop 是一种专用于在 Hadoop 和关系数据库之间传输数据的工具
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
+<!--Update_Description: update storage link and change 'wasbs' into 'wasb'-->

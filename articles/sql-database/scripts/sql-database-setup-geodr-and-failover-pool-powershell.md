@@ -14,14 +14,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 06/23/2017
-ms.date: 07/31/2017
+origin.date: 07/25/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 1af29fe14f4e141b9396acf77a922eb913f7501e
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: e8c0e6465ec14ac0443829c25e3377e32b772eae
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-azure-sql-database"></a>使用 PowerShell 为入池 Azure SQL 数据库配置活动异地复制
 
@@ -161,4 +161,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update metadata-->

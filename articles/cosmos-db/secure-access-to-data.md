@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8a510cda5b1e14123cfa6187665344d92bac76dc
-ms.sourcegitcommit: f219d4fb1900676a4c86e7d9776c65bbc6b0f6f3
+ms.openlocfilehash: fbff516f9c02c35555c22d5d96cf9578ed824308
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>保护对 Azure Cosmos DB 数据的访问
 本文概述了如何保护对存储在 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 中的数据的访问。
@@ -58,7 +58,7 @@ Azure Cosmos DB 帐户除了有两个主密钥以外，还有两个只读密钥�
 以下代码示例演示如何使用 Cosmos DB 帐户终结点和主密钥来实例化 DocumentClient 并创建数据库。 
 
 ```csharp
-//Read the DocumentDB endpointUrl and authorization keys from config.
+//Read the Azure Cosmos DB endpointUrl and authorization keys from config.
 //These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
 //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
@@ -105,7 +105,7 @@ Cosmos DB 资源令牌提供一种安全的替代方案，使客户端能够根�
 
     ![Azure Cosmos DB 资源令牌工作流](./media/secure-access-to-data/resourcekeyworkflow.png)
 
-资源令牌的生成和管理由本机 Cosmos DB 客户端库处理；但是，如果使用 REST，必须构造请求/身份验证标头。 有关为 REST 创建身份验证标头的详细信息，请参阅 [Cosmos DB 资源的访问控制](https://docs.microsoft.com/zh-cn/rest/api/documentdb/access-control-on-documentdb-resources)或 [SDK 源代码](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js)。
+资源令牌的生成和管理由本机 Cosmos DB 客户端库处理；但是，如果使用 REST，必须构造请求/身份验证标头。 有关为 REST 创建身份验证标头的详细信息，请参阅 [Cosmos DB 资源的访问控制](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources)或 [SDK 源代码](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js)。
 
 有关用于生成或代理资源令牌的中间层服务的示例，请参阅 [ResourceTokenBroker 应用](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers)。
 
@@ -183,4 +183,6 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ## <a name="next-steps"></a>后续步骤
 * 若要详细了解 Cosmos DB 数据库安全性，请参阅 [Cosmos DB：数据库安全性](database-security.md)。
 * 若要了解如何管理主密钥和只读密钥，请参阅[如何管理 Azure Cosmos DB 帐户](manage-account.md#keys)。
-* 若要了解如何构造 Azure Cosmos DB 授权令牌，请参阅 [Azure Cosmos DB 资源的访问控制](https://docs.microsoft.com/zh-cn/rest/api/documentdb/access-control-on-documentdb-resources)。
+* 若要了解如何构造 Azure Cosmos DB 授权令牌，请参阅 [Azure Cosmos DB 资源的访问控制](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources)。
+
+<!--Update_Description: wording update-->

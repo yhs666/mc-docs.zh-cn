@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fa22a5d78696c8526d31d29bfcd1f40aa8054855
-ms.sourcegitcommit: fa7ac9d4e888435ef9e0c3251a90c9506571bc87
+ms.openlocfilehash: f6d321897b1af815185de329886e959cdb584aa0
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB：在 .NET 中使用表 API 进行开发
 
@@ -42,7 +42,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 ## <a name="tables-in-azure-cosmos-db"></a>Azure Cosmos DB 中的表 
 
-Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduction.md)（预览），这些应用程序需要采用无架构设计的键-值存储。 [Azure 表存储](../storage/storage-introduction.md) SDK 和 REST API 可用于处理 Azure Cosmos DB。 可以使用 Azure Cosmos DB 创建具有高吞吐量要求的表。 Azure Cosmos DB 当前在公共预览版中支持吞吐量优化表（非正式地称为“高级表”）。 
+Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduction.md)（预览），这些应用程序需要采用无架构设计的键-值存储。 [Azure 表存储](../storage/common/storage-introduction.md) SDK 和 REST API 可用于处理 Azure Cosmos DB。 可以使用 Azure Cosmos DB 创建具有高吞吐量要求的表。 Azure Cosmos DB 当前在公共预览版中支持吞吐量优化表（非正式地称为“高级表”）。 
 
 可以继续对具有高存储和低吞吐量要求的表使用 Azure 表存储。 Azure Cosmos DB 会在将来更新中引入对存储优化表的支持，并且现有和新的 Azure 表存储帐户将无缝升级到 Azure Cosmos DB。
 
@@ -61,10 +61,10 @@ Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduct
 若要详细了解复杂的 Azure 表存储任务，请参阅：
 
 * [Azure Cosmos DB 简介：表 API](table-introduction.md)
-* 有关可用 API 的完整详细信息的表服务参考文档[用于 .NET 的存储客户端库参考](https://msdn.microsoft.com/library/mt347887.aspx)
+* 有关可用 API 的完整详细信息的表服务参考文档[用于 .NET 的存储客户端库参考](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
 ### <a name="about-this-tutorial"></a>关于本教程
-本教程供熟悉 Azure 表存储 SDK 并想要通过 Azure Cosmos DB 使用高级功能的开发人员使用。 本教程基于[通过 .NET 开始使用 Azure 表存储](../storage/storage-dotnet-how-to-use-tables.md)，并演示如何利用辅助索引、预配的吞吐量和多宿主等附加功能。 涵盖如何使用 Azure 门户创建 Azure Cosmos DB 帐户，然后生成并部署表应用程序。 还会演练用于创建和删除表，以及插入、更新、删除和查询表数据的 .NET 示例。 
+本教程供熟悉 Azure 表存储 SDK 并想要通过 Azure Cosmos DB 使用高级功能的开发人员使用。 本教程基于[通过 .NET 开始使用 Azure 表存储](table-storage-how-to-use-dotnet.md)，并演示如何利用辅助索引、预配的吞吐量和多宿主等附加功能。 涵盖如何使用 Azure 门户创建 Azure Cosmos DB 帐户，然后生成并部署表应用程序。 还会演练用于创建和删除表，以及插入、更新、删除和查询表数据的 .NET 示例。 
 
 如果尚未安装 Visual Studio 2017，可以下载并使用**免费的** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
 

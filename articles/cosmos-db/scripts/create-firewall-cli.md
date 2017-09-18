@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5b62439ccea64e7b922c0b3d374bed91e2a3362c
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: b924ba288e2fb7a131e3a6c8dd760eaa63b439cf
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-cosmos-db-create-a-firewall-using-the-azure-cli"></a>Azure Cosmos DB：使用 Azure CLI 创建防火墙
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 08/04/2017
 
 ## <a name="sample-script"></a>示例脚本
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Set variables for the new account, database, and collection
@@ -84,7 +84,7 @@ az cosmosdb update \
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
@@ -96,8 +96,8 @@ az group delete --name myResourceGroup
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | 创建 Azure CosmosDB 帐户。 |
-| [az cosmosdb update](https://docs.microsoft.com/cli/azure/sql/server#create) | 更新 Azure CosmosDB 帐户，将防火墙设置加入其中。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/resource#delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#update) | 更新 Azure CosmosDB 帐户，将防火墙设置加入其中。 |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

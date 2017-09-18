@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-data
-origin.date: 04/26/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: 327bcbd42b1a2345831a06dfb65baae1d5eaa0cf
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/15/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 0b8dafe2d4d7750faa496841b41dc0d8fb85b63f
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>HDInsight 中的 Hadoop 索引疑难解答文章
 这些文章已按错误类型进行组织。
@@ -35,7 +35,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="more-troubleshooting-articles"></a>更多疑难解答文章
 * [有关在 Linux 上使用 HDInsight 的信息](hdinsight-hadoop-linux-information.md)
-* [在 HDInsight 中调试 Hadoop：查看日志和解释错误消息](hdinsight-debug-jobs.md)
 * [在 HDInsight 上基于 Linux 的 Hadoop 中访问 YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [在基于 Linux 的 HDInsight 上为 Hadoop 服务启用堆转储](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Azure HDInsight 上的 Hadoop 组件发行说明](hdinsight-release-notes.md)
+<!--Update_Description: wording update: delete a link ref-->

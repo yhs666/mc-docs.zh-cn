@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 04/10/2017
 ms.date: 05/22/2017
 ms.author: v-dazen
-ms.openlocfilehash: 62db4deb32de5a59e9ff6fb00ce69aaa1a6a96ef
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: b7ccca04fb795c350726e28216f0941fda76c7ab
+ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何验证到达虚拟网络的 VPN 吞吐量
 
@@ -124,7 +124,7 @@ VPN 网关连接涉及以下组件：
 
 - 文件复制应用程序（如 Windows 资源管理器和 RDP）在复制文件时没有使用多个线程。 为了提高性能，请通过多线程文件复制应用程序（如 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx)）使用 16 或 32 个线程来复制文件。 若要更改 Richcopy 中的文件复制线程数目，请单击“操作” > “复制选项” > “文件复制”。<br><br>
 ![文件复制速度缓慢问题](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
-- VM 磁盘读/写速度不够快。 有关详细信息，请参阅 [Azure 存储故障排除](../storage/storage-e2e-troubleshooting.md)。
+- VM 磁盘读/写速度不够快。 有关详细信息，请参阅 [Azure 存储故障排除](../storage/common/storage-e2e-troubleshooting.md)。
 
 ## <a name="on-premises-device-external-facing-interface"></a>本地设备上的对外接口
 如果 Azure 中的[本地网络](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)定义中包含本地 VPN 设备面向 Internet 的 IP 地址，则可能会出现 VPN 无法显示、偶发性断连或性能问题。

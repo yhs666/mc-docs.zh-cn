@@ -1,6 +1,6 @@
 ---
 title: "在 HDInsight 中将 Hadoop Hive 与远程桌面配合使用 - Azure | Azure"
-description: "学习如何通过使用远程桌面连接到 HDInsight 中的 Hadoop 群集，然后通过使用 Hive 命令行界面运行 Hive 查询。"
+description: "学习如何通过使用远程桌面连接到 HDInsight 中的 Hadoop 群集，并通过使用 Hive 命令行界面运行 Hive 查询。"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/12/2017
-ms.date: 01/25/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2f1343359445e6854eae38c7ad5fbfb913b76829
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: e995bf8efd268a6dd25bf7d83d98c5e782051656
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面将 Hive 与 HDInsight 上的 Hadoop 配合使用
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
@@ -59,7 +59,7 @@ ms.lasthandoff: 07/28/2017
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+        STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     这些语句可执行以下操作：
@@ -76,7 +76,7 @@ ms.lasthandoff: 07/28/2017
    * **ROW FORMAT**：告知 Hive 如何设置数据的格式。 在此情况下，每个日志中的字段以空格分隔。
    * STORED AS TEXTFILE LOCATION：告知 Hive 数据的存储位置（example/data 目录），以及数据已存储为文本。
    * SELECT：选择其列 t4 包含值 [ERROR] 的所有行的计数。 这应会返回值 **3** ，因为有三个行包含此值。
-   * **INPUT__FILE__NAME LIKE '%.log'** - 告诉 Hive，我们只应返回以 .log 结尾的文件中的数据。 此项将搜索限定于包含数据的 sample.log 文件，并阻止搜索返回与所定义架构不匹配的其他示例数据文件中的数据。
+   * **INPUT__FILE__NAME LIKE '%.log'** - 告诉 Hive，我们只应返回以 .log 结尾的文件中的数据。 此项将搜索限定于包含数据的 sample.log 文件，使搜索不会返回与所定义架构不符的其他示例数据文件中的数据。
 4. 使用以下语句创建名为 **errorLogs**的新“内部”表：
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -105,8 +105,7 @@ Hive 命令提供了一种简单的方法，可以交互方式在 HDInsight 群�
 ## <a id="nextsteps"></a>后续步骤
 有关 HDInsight 中的 Hive 的一般信息：
 
-* 
-            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
@@ -141,3 +140,4 @@ Hive 命令提供了一种简单的方法，可以交互方式在 HDInsight 群�
 
 [Powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+<!--Update_Description: change 'wasbs' into 'wasb'-->

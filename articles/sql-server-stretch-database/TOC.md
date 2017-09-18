@@ -16,9 +16,11 @@
 ### [暂停和继续迁移](https://docs.microsoft.com/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database)
 ### [管理和故障排除](https://docs.microsoft.com/sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database)
 ### [备份](https://docs.microsoft.com/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database)
+### [还原](https://docs.microsoft.com/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database)
 ### [禁用 Stretch Database](https://docs.microsoft.com/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # 资源
-## [价格](https://www.azure.cn/pricing/details/sql-server-stretch-database/)
 ## [博客](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
+## [定价](https://www.azure.cn/pricing/details/sql-server-stretch-database/)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [服务更新](https://www.azure.cn/what-is-new/)

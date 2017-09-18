@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 07/05/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 32b9c6e4aa709c608c7130845954381b9f266683
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 70c2fea14518e7b58f33da4db912f8dd7c10ac59
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>使用 .NET (C#) 和 Visual Studio 连接和查询 Azure SQL 数据库
 
@@ -74,7 +74,6 @@ ms.lasthandoff: 07/28/2017
 8. 如果显示“接受许可证”窗口，则单击“我接受”。
 
 ## <a name="insert-code-to-query-sql-database"></a>插入用于查询 SQL 数据库的代码
-
 1. 切换到 Program.cs（或者必要时将其打开）
 
 2. 将 Program.cs 的内容替换为以下代码，为服务器、数据库、用户和密码添加相应的值。
@@ -141,6 +140,7 @@ namespace sqltest
 ## <a name="next-steps"></a>后续步骤
 
 - 了解如何在 Windows/Linux/macOS 中[使用 .NET Core 连接和查询 Azure SQL 数据库](sql-database-connect-query-dotnet-core.md)。  
-- 了解[在 Windows/Linux/macOS 中通过命令行使用 .NET Core 入门](https://docs.microsoft.com/dotnet/core/tutorials/using-with-xplat-cli.md)。
+- 了解[在 Windows/Linux/macOS 中通过命令行使用 .NET Core 入门](https://docs.microsoft.com/dotnet/core/tutorials/using-with-xplat-cli)。
 - 了解如何[使用 SSMS 设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)，或者如何[使用 .NET 设计第一个 Azure SQL 数据库](sql-database-design-first-database-csharp.md)。
 - 有关 .NET 的详细信息，请参阅 [.NET 文档](https://docs.microsoft.com/dotnet/)。
+<!--Update_Description: update link-->

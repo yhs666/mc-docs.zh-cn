@@ -16,11 +16,11 @@ origin.date: 06/20/2017
 ms.date: 08/02/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 086cc223fdffba4c6cb6e04afa0d8080973f8015
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 9ee1b2da486cbe2bacaed46180ad939caaabffdb
+ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 门户创建 Batch 帐户
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 08/18/2017
 ![创建“常规用途”存储帐户][storage_account]
 
 > [!NOTE]
-> Azure Batch 目前仅支持常规用途的存储帐户类型。 有关此帐户类型，请参见[关于 Azure 存储帐户](../storage/storage-create-storage-account.md)的步骤 5：[创建存储帐户](../storage/storage-create-storage-account.md#create-a-storage-account)。
+> Azure Batch 目前仅支持常规用途的存储帐户类型。 有关此帐户类型，请参见[关于 Azure 存储帐户](../storage/common/storage-create-storage-account.md)的步骤 5：[创建存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
 >
 >
 

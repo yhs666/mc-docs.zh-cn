@@ -15,17 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: d04873c334f3fdc4262168e2013156c8e4414399
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: b033c762c98b4e80678b3bb933e21c45139ca786
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/11/2017
 ---
-# <a name="create-elastic-pools-and-move-databases-between-pools-and-out-of-a-pool-using-powershell"></a>使用 PowerShell 创建弹性池，并将数据库在池之间移动和移出池
+# <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>使用 PowerShell 创建弹性池，并在弹性池之间移动数据库
 
-此 PowerShell 脚本示例创建两个弹性池，将数据库从一个弹性池移到另一个弹性池中，再将数据库移出弹性池，以实现单一数据库性能级别。 
+以下 PowerShell 脚本示例创建两个弹性池，将数据库从一个弹性池移到另一个弹性池中，再将数据库移出弹性池，以实现单一数据库性能级别。 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

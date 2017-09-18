@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: d6099b7523d4d663816049962e77c1738eece1e3
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 9924372a0131fde49f4b176476c2d026815d1b7e
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>HDInsight 中的 HBase 是什么：为 Hadoop 提供类似于 BigTable 的功能的 NoSQL 数据库
 Apache HBase 是一种开源 NoSQL 数据库，它构建于 Hadoop 基础之上，并基于 Google BigTable 模型化。 HBase 针对按列系列组织的无架构数据库中的大量非结构化和结构化数据提供随机访问和强一致性。
@@ -80,8 +80,8 @@ HDInsight 实施利用 HBase 的横向扩展架构来提供表自动分片、使
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [azure-management-portal]: https://portal.azure.cn/
-[azure-create-storageaccount]: ../storage/storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: update storage link ref-->

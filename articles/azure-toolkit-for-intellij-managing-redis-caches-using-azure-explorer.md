@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/14/2017
 ms.date: 08/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: 49769c46ac8f42bb97f1ed85eabaa8c592d1a5d7
-ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
+ms.openlocfilehash: 290378fa144ded5907f0d6abe88bd4549be202dc
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="managing-redis-caches-using-the-azure-explorer-for-intellij"></a>使用用于 IntelliJ 的 Azure 资源管理器管理 Redis 缓存
 
@@ -45,17 +45,17 @@ Azure 资源管理器是用于 IntelliJ 的 Azure 工具包的一部分，它为
 
    a. **DNS 名称**：为新的 Redis 缓存指定 DNS 子域，该子域名称将添加到“.redis.cache.chinacloudapi.cn”之前，例如：*wingtiptoys.redis.cache.chinacloudapi.cn*。
 
-   b. **订阅**：为新的 Redis 缓存指定要使用的 Azure 订阅。
+   b. 订阅：指定要用于新的 redis 缓存的 Azure 订阅。
 
-   c. **资源组**：为 Redis 缓存指定资源组；需要选择以下选项之一：
-      - **新建**：指定要创建新的资源组。
-      - **使用现有**：指定将从列表中选择与 Azure 帐户关联的资源组。
+   c. 资源组：为 redis 缓存指定资源组；需要选择以下一种选项：
+      - 新建：指定要创建新的资源组。
+      - 使用现有资源组：指定将从与 Azure 帐户关联的资源组列表中选择。
 
-   d.单击“下一步”。 **位置**：指定创建 redis 缓存的位置，例如：美国西部。
+   d.单击“下一步”。 位置：指定创建 redis 缓存的位置，例如：美国西部。
 
    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 定价层： 指定 redis 缓存使用的定价层；此设置将确定客户端连接数。 （有关详细信息，请参阅 [Redis 缓存定价]。）
 
-   f.单击“保存”以保存设置。 非 SSL 端口：指定 redis 缓存是否允许非 SSL 连接；默认情况下，仅允许 SSL 连接。
+   f. 非 SSL 端口：指定 redis 缓存是否允许非 SSL 连接；默认情况下，仅允许 SSL 连接。
 
 1. 指定 redis 缓存的所有设置后，单击“确定”。
 
@@ -101,8 +101,8 @@ redis 缓存创建完成后，将显示在 Azure 资源管理器中。
 
 <!-- URL List -->
 
-[Redis 缓存定价]: https://www.azure.cn/pricing/details/cache/
-[Azure Redis 缓存]: https://azure.microsoft.com/services/cache/
+[Redis 缓存定价]: https://www.azure.cn/pricing/details/redis-cache/
+[Azure Redis 缓存]: /redis-cache
 [Redis 缓存文档]: ./redis-cache/index.md
 [如何配置 Azure Redis 缓存]: ./redis-cache/cache-configure.md
 [用于 IntelliJ 的 Azure 工具包的登录说明]: ./azure-toolkit-for-intellij-sign-in-instructions.md

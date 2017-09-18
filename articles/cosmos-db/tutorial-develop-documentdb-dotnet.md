@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1417196935a4d073b61983a42be9a8025c3417af
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 462985ec03b5259e4d334aa4072d61e845ec606b
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-documentdb-api-in-net"></a>Azure Cosmos DB：在 .NET 中使用 DocumentDB API 进行开发
 
@@ -42,11 +42,13 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > * 删除数据库
 
 ## <a name="prerequisites"></a>先决条件
-请确保你具有以下内容：
+请确保具有以下内容：
 
 * 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
     * 如果出于开发目的要使用模拟 Azure DocumentDB 服务的本地环境，则可在本教程中改用 [Azure Cosmos DB 模拟器](local-emulator.md)。
 * [Visual Studio](http://www.visualstudio.com/)。
+
+<!--Update_Description: wording update-->
 
 ## <a name="create-an-azure-cosmos-db-account"></a>创建 Azure Cosmos DB 帐户
 
@@ -55,7 +57,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > [!TIP]
 > * 已有一个 Azure Cosmos DB 帐户？ 如果有，请跳到[设置 Visual Studio 解决方案](#SetupVS)
 > * 是否具有 Azure DocumentDB 帐户？ 如果有，则该帐户现为 Azure Cosmos DB 帐户，可以直接跳到[设置 Visual Studio 解决方案](#SetupVS)。  
-> * 如果使用 Azure Cosmos DB 模拟器，请遵循 [Azure Cosmos DB 模拟器](local-emulator.md)中的步骤设置该模拟器，然后直接跳到[设置 Visual Studio 解决方案](#SetupVS)。 
+> * 如果使用 Azure Cosmos DB 模拟器，请遵循 [Azure Cosmos DB 模拟器](local-emulator.md)中的步骤设置该模拟器，并直接跳到[设置 Visual Studio 解决方案](#SetupVS)。 
 >
 >
 
@@ -63,16 +65,16 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 ## <a id="SetupVS"></a>设置 Visual Studio 解决方案
 1. 在计算机上打开 Visual Studio。
-2. 在“文件”菜单中，选择“新建”，然后选择“项目”。
-3. 在“新建项目”对话框中，选择“模板” / “Visual C#” / “控制台应用(.NET Framework)”，为项目命名，然后单击“确定”。
+2. 在“文件”菜单中，依次选择“新建”、“项目”。
+3. 在“新建项目”对话框中，选择“模板” / “Visual C#” / “控制台应用(.NET Framework)”，为项目命名，并单击“确定”。
    ![“新建项目”窗口屏幕截图](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-new-project-2.png)
 
-4. 在“解决方案资源管理器”中，右键单击 Visual Studio 解决方案下方的新控制台应用程序，然后单击“管理 NuGet 包...”
+4. 在“解决方案资源管理器”中，右键单击 Visual Studio 解决方案下方的新控制台应用程序，并单击“管理 NuGet 包...”
 
     ![“项目”右键菜单屏幕截图](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-manage-nuget-pacakges.png)
-5. 在“NuGet”选项卡上，单击“浏览”，然后在搜索框中输入“documentdb”。
+5. 在“NuGet”选项卡上，单击“浏览”，并在搜索框中输入“documentdb”。
 <!---stopped here--->
-6. 在结果中找到 **Microsoft.Azure.DocumentDB**，然后单击“安装”。
+6. 在结果中找到 **Microsoft.Azure.DocumentDB**，并单击“安装”。
    Azure Cosmos DB 客户端库的程序包 ID 是 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)。
    ![用于查找 Azure Cosmos DB 客户端 SDK 的 NuGet 菜单的屏幕截图](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-manage-nuget-pacakges-2.png)
 
@@ -105,9 +107,9 @@ private DocumentClient client;
 
 在 Azure 门户中，导航到 Azure Cosmos DB 帐户，单击“密钥”，然后单击“读写密钥”。
 
-从门户中复制该 URI 并将它粘贴到 program.cs 文件中的 `<your endpoint URL>`。 然后从门户中复制“主密钥”并粘贴到 `<your primary key>`。 请务必删除值中的 `<` 和 `>`。
+从门户中复制该 URI 并将它粘贴到 program.cs 文件中的 `<your endpoint URL>`。 然后从门户中复制“主密钥”并将它粘贴到 `<your primary key>`。 请务必删除值中的 `<` 和 `>`。
 
-![NoSQL 教程用于创建 C# 控制台应用程序的 Azure 门户的屏幕截图。 显示一个 Azure Cosmos DB 帐户，其中在“Azure Cosmos DB 帐户”边栏选项卡中突出显示了“密钥”按钮，以及在“密钥”边栏选项卡上突出显示了 URI 和主密钥的值][密钥]
+![NoSQL 教程用于创建 C# 控制台应用程序的 Azure 门户的屏幕截图。 显示一个 Azure Cosmos DB 帐户，其中在 Azure Cosmos DB 帐户边栏选项卡中突出显示了“密钥”，以及在“密钥”边栏选项卡上突出显示了 URI 和 PRIMARY KEY 值](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-keys.png)
 
 ## <a id="instantiate"></a>实例化 DocumentClient
 
@@ -119,7 +121,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>创建数据库
 
-接下来，从 [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) 使用 DocumentClient 类的 [CreateDatabaseAsync](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 方法或 [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) 方法创建一个 Azure Cosmos DB [数据库](documentdb-resources.md#databases)。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。
+接下来，从 [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) 使用 DocumentClient 类的 [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 方法或 [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) 方法创建一个 Azure Cosmos DB [数据库](documentdb-resources.md#databases)。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -128,15 +130,15 @@ await client.CreateDatabaseAsync(new Database { Id = "db" });
 
 集合是存储文档的容器。 集合是逻辑资源，可以[跨一个或多个物理分区](partition-data.md)。 [分区键](documentdb-partition-data.md)是文档内用于在服务器或分区间分发数据的属性（或路径）。 具有相同分区键的所有文档都存储在同一分区中。 
 
-确定分区键非常重要，需在创建集合前进行。 分区键是文档内可供 Azure Cosmos DB 用于在多个服务器或分区间分发数据的属性（或路径）。 Cosmos DB 对分区键值进行哈希处理，并使用经过哈希处理的结果来确定将在其中存储文档的分区。 具有相同分区键的所有文档都存储在同一分区中，创建集合后将无法更改分区键。 
+确定分区键非常重要，需在创建集合前进行。 分区键是文档内可供 Azure Cosmos DB 用于在多个服务器或分区间分发数据的属性（或路径）。 Cosmos DB 对分区键值进行哈希处理，并使用经过哈希处理的结果来确定会在其中存储文档的分区。 具有相同分区键的所有文档都存储在同一分区中，创建集合后将无法更改分区键。 
 
-本教程将分区键设置为 `/deviceId`，以便单个设备的所有数据都存储在单个分区中。 请选择具有大量值的分区键，以相同频率使用每个值，以确保 Cosmos DB 能在数据增加时保持负载均衡并达到集合的全部吞吐量。 
+本教程会分区键设置为 `/deviceId`，以便单个设备的所有数据都存储在单个分区中。 请选择具有大量值的分区键，以相同频率使用每个值，以确保 Cosmos DB 能在数据增加时保持负载均衡并达到集合的全部吞吐量。 
 
 有关分区的详细信息，请参阅[如何在 Azure Cosmos DB 中进行分区和缩放？](partition-data.md) 
 
 ## <a id="CreateColl"></a>创建集合 
 
-了解完分区键 `/deviceId` 后，使用 **DocumentClient** 的 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 方法或 [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) 方法创建[集合](documentdb-resources.md#collections)。 集合是 JSON 文档和任何相关联的 JavaScript 应用程序逻辑的容器。 
+了解完分区键 `/deviceId` 后，使用 **DocumentClient** 的 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 方法或 [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) 方法创建[集合](documentdb-resources.md#collections)。 集合是 JSON 文档和任何相关联的 JavaScript 应用程序逻辑的容器。 
 
 > [!WARNING]
 > 创建集合会影响定价，因为要保留应用程序的吞吐量才能与 Azure Cosmos DB 进行通信。 有关详细信息，请访问[定价页](https://www.azure.cn/pricing/details/cosmos-db/)
@@ -161,7 +163,7 @@ await client.CreateDocumentCollectionAsync(
 此方法可对 Azure Cosmos DB 进行 REST API 调用，且该服务基于所请求的吞吐量设置分区数。 根据性能需求的发展，可以使用 SDK 或 [Azure 门户](set-throughput.md)更改集合的吞吐量。
 
 ## <a id="CreateDoc"></a>创建 JSON 文档
-向 Azure Cosmos DB 中插入一些 JSON 文档。 可以通过使用 **DocumentClient** 类的 [CreateDocumentAsync](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 方法创建[文档](documentdb-resources.md#documents)。 文档是用户定义的（任意）JSON 内容。 此示例类包含设备读取和对 CreateDocumentAsync 的调用，可将新设备读数插入到集合。
+向 Azure Cosmos DB 中插入一些 JSON 文档。 可以通过使用 **DocumentClient** 类的 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 方法创建[文档](documentdb-resources.md#documents)。 文档是用户定义的（任意）JSON 内容。 此示例类包含设备读取和对 CreateDocumentAsync 的调用，可将新设备读数插入到集合。
 
 ```csharp
 public class DeviceReading
@@ -239,7 +241,7 @@ await client.DeleteDocumentAsync(
 ```
 ## <a name="query-partitioned-collections"></a>查询已分区集合
 
-在已分区集合中查询数据时，Azure Cosmos DB 会自动将查询路由到筛选器（如果有）中所指定分区键值对应的分区。 例如，此查询将只路由到包含分区键“XMS-0001”的分区。
+当在已分区集合中查询数据时，Azure Cosmos DB 会自动将查询路由到筛选器（如果有）中所指定分区键值对应的分区。 例如，此查询将只路由到包含分区键“XMS-0001”的分区。
 
 ```csharp
 // Query using partition key
@@ -275,7 +277,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 * 通过设置 `MaxDegreeOfParallelism`，可以控制并行度，即，与集合的分区同时进行的网络连接的最大数量。 如果将此参数设置为 -1，则由 SDK 管理并行度。 如果 `MaxDegreeOfParallelism` 未指定或设置为 0（默认值），则与集合的分区的网络连接将有一个。
 * 通过设置 `MaxBufferedItemCount`，可以权衡查询延迟和客户端内存使用率。 如果省略此参数或将此参数设置为 -1，则由 SDK 管理并行查询执行过程中缓冲的项目数。
 
-如果给定相同状态的集合，并行查询将以串行执行相同的顺序返回结果。 执行包含排序（ORDER BY 和/或 TOP）的跨分区查询时，DocumentDB SDK 跨分区发出并行查询，并合并客户端中的部分排序结果，以生成全局范围内有序的结果。
+如果给定相同状态的集合，并行查询会以与串行执行相同的顺序返回结果。 执行包含排序（ORDER BY 和/或 TOP）的跨分区查询时，DocumentDB SDK 跨分区发出并行查询，并合并客户端中的部分排序结果，以生成全局范围内有序的结果。
 
 ## <a name="execute-stored-procedures"></a>执行存储过程
 最后，通过将以下代码添加到项目中，可以对具有相同设备 ID 的文档执行原子事务，例如，如果要在单个文档中维护聚合或设备的最新状态。
@@ -294,7 +296,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 如果不打算继续使用此应用，请删除本教程在 Azure 门户中创建的所有资源，步骤如下：
 
 1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击创建的资源的唯一名称。 
-2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，然后单击“删除”。
+2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 

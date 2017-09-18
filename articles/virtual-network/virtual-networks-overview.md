@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 03/23/2017
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2795012d9e59c190f743de2c73ebc1be9d525c2d
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: d5990f59d7ca49bf0a6ec41d0a32f6f22ad41fc2
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-virtual-network"></a>Azure 虚拟网络
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 09/04/2017
 
 ## <a name = "isolation"></a>网络隔离和细分
 
-可在每个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和 Azure [区域](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#region)中实现多个 VNet。 每个 VNet 与其他 VNet 隔离。 对于每个 VNet，可执行以下操作：
+可在每个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和 Azure [区域](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json)中实现多个 VNet。 每个 VNet 与其他 VNet 隔离。 对于每个 VNet，可执行以下操作：
 - 使用公共和专用 (RFC 1918) 地址指定自定义专用 IP 地址空间。 Azure 从分配的地址空间中向连接到 VNet 的资源分配一个专用 IP 地址。
 - 将 VNet 细分为一个或多个子网，并向每个子网分配一部分 VNet 地址空间。
 - 使用 Azure 提供的名称解析或指定自己的 DNS 服务器以供连接到 VNet 的资源使用。 若要了解 VNet 中名称解析的详细信息，请阅读 [VM 和云服务的名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)一文。
@@ -88,7 +88,7 @@ VNet 之间可相互连接，因此，连接到任意一个 VNet 的资源都可
 
 ## <a name="next-steps"></a>后续步骤
 
-- 完成[创建首个虚拟网络](virtual-network-get-started-vnet-subnet.md)一文中的步骤，创建自己的首个 VNet，并将几个 VM 连接到此网络。
+- 完成[创建首个虚拟网络](virtual-network-get-started-vnet-subnet.md)一文中的步骤，创建自己的首个虚拟网络，并将几个 VM 连接到此网络。
 - 完成[配置点到站点连接](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)一文中的步骤，为 VNet 创建一个点到站点连接。
 <!-- Not Available [network capabilities](../networking/networking-overview.md)-->
 

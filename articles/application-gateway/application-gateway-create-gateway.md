@@ -1,10 +1,10 @@
 ---
-title: "创建、启动或删除应用程序网关 | Azure"
+title: "创建、启动或删除应用程序网关 | Microsoft Docs"
 description: "此页提供有关创建、配置、启动和删除 Azure 应用程序网关的说明"
 documentationcenter: na
 services: application-gateway
-author: georgewallace
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
 ms.service: application-gateway
@@ -13,14 +13,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-origin.date: 12/12/2016
-ms.date: 01/25/2017
-ms.author: v-dazen
-ms.openlocfilehash: 5bfbcaab22097fde41c5aeaf617af7f0db395ba3
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+origin.date: 07/31/2017
+ms.date: 09/13/2017
+ms.author: v-junlch
+ms.openlocfilehash: 957dccaded0fdfb60423f0740a0aee5ab14ad74f
+ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>使用 PowerShell 创建、启动或删除应用程序网关 
 
@@ -33,13 +33,13 @@ ms.lasthandoff: 07/13/2017
 
 Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之间提供故障转移和性能路由 HTTP 请求，而不管它们是在云中还是本地。 应用程序网关提供许多应用程序传送控制器 (ADC) 功能，包括 HTTP 负载均衡、基于 Cookie 的会话相关性、安全套接字层 (SSL) 卸载、自定义运行状况探测、多站点支持，以及许多其他功能。 若要查找支持的功能的完整列表，请参阅[应用程序网关概述](application-gateway-introduction.md)
 
-本文将指导你完成创建、配置、启动和删除应用程序网关的步骤。
+本文指导你完成创建、配置、启动和删除应用程序网关的步骤。
 
 ## <a name="before-you-begin"></a>开始之前
 
 1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。 可以从[下载页](/downloads/)的“Windows PowerShell”部分下载并安装最新版本。
-2. 如果你有现有的虚拟网络，请选择现有一个空子网，或者在现有虚拟网络中创建一个新子网，专门供应用程序网关使用。 应用程序网关部署到的虚拟网络必须与要部署在应用程序网关后面的资源相同，除非使用 vnet 对等互连。 若要了解详细信息，请访问 [Vnet 对等互连](../virtual-network/virtual-network-peering-overview.md)
-3. 请确认你已创建包含有效子网、可正常运行的虚拟网络。 请确保没有虚拟机或云部署正在使用子网。 应用程序网关必须单独位于虚拟网络子网中。
+2. 如果有现有的虚拟网络，请选择现有一个空子网，或者在现有虚拟网络中创建一个新子网，专门供应用程序网关使用。 应用程序网关部署到的虚拟网络必须与要部署在应用程序网关后面的资源相同，除非使用 vnet 对等互连。 若要了解详细信息，请访问 [Vnet 对等互连](../virtual-network/virtual-network-peering-overview.md)
+3. 请确认已创建包含有效子网、可正常运行的虚拟网络。 请确保没有虚拟机或云部署正在使用子网。 应用程序网关必须单独位于虚拟网络子网中。
 4. 必须存在配置为使用应用程序网关的服务器，或者必须在虚拟网络中为其创建终结点，或者必须为其分配公共 IP/VIP。
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>创建应用程序网关需要什么？
@@ -48,11 +48,12 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 有效值为：
 
-* **后端服务器池：** 后端服务器的 IP 地址列表。 列出的 IP 地址应属于虚拟网络子网，或者是公共 IP/VIP。
-* **后端服务器池设置：** 每个池都有一些设置，例如端口、协议和基于 Cookie 的关联性。 这些设置绑定到池，并会应用到池中的所有服务器。
-* **前端端口：** 此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，然后重定向到后端服务器之一。
-* **侦听器：**侦听器具有前端端口、协议（Http 或 Https，这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
-* **规则：** 规则将会绑定侦听器和后端服务器池，并定义当流量抵达特定侦听器时应定向到的后端服务器池。
+- **后端服务器池：** 后端服务器的 IP 地址列表。 列出的 IP 地址应属于虚拟网络子网，或者是公共 IP/VIP。
+- **后端服务器池设置：** 每个池都有一些设置，例如端口、协议和基于 Cookie 的关联性。 这些设置绑定到池，并会应用到池中的所有服务器。
+- **前端端口：** 此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，并重定向到后端服务器之一。
+- **侦听器：**侦听器具有前端端口、协议（Http 或 Https，这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
+- 
+            **规则：** 规则会绑定侦听器和后端服务器池，并定义当流量抵达特定侦听器时应定向到的后端服务器池。
 
 ## <a name="create-an-application-gateway"></a>创建应用程序网关
 
@@ -69,7 +70,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 ### <a name="create-an-application-gateway-resource"></a>创建应用程序网关资源
 
-若要创建网关，请使用 `New-AzureApplicationGateway` cmdlet，并将值替换为你自己的值。 此时不会开始计收网关的费用。 计费将在后面已成功启动网关时开始。
+要创建网关，请使用 `New-AzureApplicationGateway` cmdlet，并将值替换为你自己的值。 此时不会开始计收网关的费用。 计费会在后面已成功启动网关时开始。
 
 以下示例使用名为“testvnet1”的虚拟网络和名为“subnet-1”的子网创建应用程序网关：
 
@@ -98,7 +99,7 @@ DnsName       :
 ```
 
 > [!NOTE]
-> *InstanceCount* 的默认值为 2，最大值为 10。 *GatewaySize* 的默认值为 Medium。 你可以选择 Small、Medium 或 Large。
+> *InstanceCount* 的默认值为 2，最大值为 10。 *GatewaySize* 的默认值为 Medium。 可以选择 Small、Medium 或 Large。
 
 VirtualIPs 和 DnsName 显示为空白，因为网关尚未启动。 这些值在网关进入运行状态后立即创建。
 
@@ -221,7 +222,7 @@ Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 
 ### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>使用配置对象配置应用程序网关
 
-以下示例演示如何使用配置对象配置应用程序网关。 必须单独配置所有的配置项，然后将其添加到应用程序网关配置对象。 创建配置对象之后，使用 `Set-AzureApplicationGateway` 命令将配置提交到前面创建的应用程序网关资源。
+以下示例演示如何使用配置对象配置应用程序网关。 必须单独配置所有的配置项，并将其添加到应用程序网关配置对象。 创建配置对象之后，使用 `Set-AzureApplicationGateway` 命令将配置提交到之前创建的应用程序网关资源。
 
 > [!NOTE]
 > 在为每个配置对象分配值之前，需要声明 PowerShell 用于存储的对象类型。 创建各项的第一行定义了所使用的 `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)`。
@@ -344,7 +345,7 @@ $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
 ### <a name="step-3"></a>步骤 3
-使用 `Set-AzureApplicationGatewayConfig`将配置对象提交到应用程序网关资源。
+使用 `Set-AzureApplicationGatewayConfig` 将配置对象提交到应用程序网关资源。
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
@@ -446,3 +447,5 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 * [Azure 流量管理器](/traffic-manager/)
 
 [scenario]: ./media/application-gateway-create-gateway/scenario.png
+
+<!--Update_Description: metadata properties update-->

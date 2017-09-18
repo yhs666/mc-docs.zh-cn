@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/03/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
+origin.date: 07/31/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a9514409cb7a350d33a770c0c3e672af40c9f163
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 1d062221126f28480734a88bdf7c965d89d02fc0
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>使用浏览器、PowerShell 或 Azure CLI 删除 HDInsight 群集
 
-HDInsight 群集计费在创建群集之后便会开始，删除群集后才会停止。 HDInsight 群集按分钟收费，因此不再需要使用群集时，应将其删除。 本文档介绍如何使用 Azure 门户、Azure PowerShell 和 Azure CLI 1.0 删除群集。
+HDInsight 群集计费在创建群集之后便会开始，删除群集后才会停止。 群集以每分钟按比例收费，因此无需再使用群集时，应始终将其删除。 本文档介绍如何使用 Azure 门户、Azure PowerShell 和 Azure CLI 1.0 删除群集。
 
 > [!IMPORTANT]
-> 删除 HDInsight 群集不会删除与该群集关联的 Azure 存储帐户。 这使你可以在将来重复使用数据。
+> 删除 HDInsight 群集不会删除与该群集关联的 Azure 存储帐户。 可重新使用以后存储在这些服务中的数据。
 
 ## <a name="azure-portal"></a>Azure 门户
 
@@ -45,12 +45,16 @@ HDInsight 群集计费在创建群集之后便会开始，删除群集后才会�
 
     Remove-AzureRmHDInsightCluster -ClusterName CLUSTERNAME
 
-将 **CLUSTERNAME** 替换为 HDInsight 群集的名称。
+将 **CLUSTERNAME** 替换为 HDInsight 群集名。
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli-10"></a>Azure CLI 1.0
 
 在提示符处，使用以下命令删除群集：
 
     azure hdinsight cluster delete CLUSTERNAME
 
-将 **CLUSTERNAME** 替换为 HDInsight 群集的名称。
+将 **CLUSTERNAME** 替换为 HDInsight 群集名。
+
+> [!NOTE]
+> Azure CLI 2.0 目前不支持删除 HDInsight 群集（2017 年 7 月 31 日）。
+<!--Update_Description: update words: add a note-->

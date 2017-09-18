@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing - page
 origin.date: 07/06/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: dc920c324beb603a564c5c777ba7c068d643778e
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 5ae7f8a5f7f23a49df3614ea98ceccdedfe2d995
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="azure-hdinsight-troubleshooting"></a>Azure HDInsight 故障排除
 
@@ -36,6 +36,7 @@ ms.lasthandoff: 07/28/2017
 | 有关以下方面的信息 | 请参阅以下资源 |
 | --- | --- |
 | HDInsight on Linux 和优化 | [有关在 Linux 上使用 HDInsight 的信息](hdinsight-hadoop-linux-information.md)<br>[Hadoop 内存和性能](hdinsight-hadoop-stack-trace-error-messages.md)<br>[Hive 查询性能](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
-| 日志和转储 | [在 Linux 上访问 Hadoop YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>[为 Hadoop 服务启用堆转储](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>[分析 HDInsight 日志](hdinsight-debug-jobs.md)|
+| 日志和转储 | [在 Linux 上访问 Hadoop YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>[为 Hadoop 服务启用堆转储](hdinsight-hadoop-collect-debug-heap-dump-linux.md)|
 | 错误 | [了解和解决 WebHCat 错误](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>[通过 Hive 设置解决内存不足错误](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | 工具 | [使用 Ambari 视图调试 Tez 作业](hdinsight-debug-ambari-tez-view.md)<br>[优化 Hive 查询](hdinsight-hadoop-optimize-hive-query.md) |
+<!--Update_Description: delete a link ref-->

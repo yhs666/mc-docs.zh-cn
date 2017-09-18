@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/03/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 09e41a63565315ac840460f03228c9ba5ccb4938
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 07/31/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 04d882bfc197115bd16e532b7bb0c23baafbe124
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>为 HDInsight 开发 Python 流式处理 MapReduce 程序
 
-了解如何在流式处理 MapReduce 操作中使用 Python。 Hadoop 为 MapReduce 提供了一个流式处理 API，这样，除 Java 外，你还能使用其他语言编写映射和化简函数。 本文档中的步骤实现 Python 中的映射和化简组件。
+了解如何在流式处理 MapReduce 操作中使用 Python。 Hadoop 为 MapReduce 提供了一个流式处理 API，这样，除 Java 外，还能使用其他语言编写映射和化简函数。 本文档中的步骤实现 Python 中的映射和化简组件。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -79,7 +79,7 @@ Python 可以使用 `sys` 模块从 STDIN 读取数据，并使用 `print` 输�
    def main(separator='\t'):
        # Read the data using read_input
        data = read_input(sys.stdin)
-       # Process each words returned from read_input
+       # Process each word returned from read_input
        for words in data:
            # Process each word
            for word in words:
@@ -260,10 +260,10 @@ switch ($defaultStoreageType)
 
     将 `username` 替换为群集的 SSH 用户名，并将 `clustername` 替换为群集的名称。
 
-    此命令会将文件从本地系统复制到头节点。
+    此命令会将两个文件从本地系统复制到头节点。
 
     > [!NOTE]
-    > 如果使用了密码来保护 SSH 帐户，系统会提示输入密码。 如果使用了 SSH 密钥，则可能需要使用 `-i` 参数和私钥路径，例如 `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.cn:`。
+    > 如果使用了密码来保护 SSH 帐户，系统会提示输入密码。 如果使用了 SSH 密钥，可能必须使用 `-i` 参数和私钥的路径。 例如，`scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.cn:`。
 
 2. 通过使用 SSH 连接到群集：
 
@@ -323,3 +323,4 @@ switch ($defaultStoreageType)
 * [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 作业与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
+<!--Update_Description: wording update-->

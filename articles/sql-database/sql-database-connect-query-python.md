@@ -13,14 +13,14 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-origin.date: 07/11/2017
-ms.date: 07/31/2017
+origin.date: 08/08/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 2564a920fe9afbf020be403e45f2481a32c97086
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 412bb2f8924fe8fd26128f412a9070202a476c5d
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>使用 Python 查询 Azure SQL 数据库
 
@@ -40,16 +40,16 @@ ms.lasthandoff: 07/28/2017
 
 - 已为操作系统安装 Python 和相关软件。
 
-    - **MacOS**：安装 Homebrew 和 Python，安装 ODBC 驱动程序和 SQLCMD，再安装用于 SQL Server 的 Python 驱动程序。 请参阅[步骤 1.2、1.3 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/Python/mac/)。
-    - **Ubuntu**：安装 Python 和其他所需包，然后安装用于 SQL Server 的 Python 驱动程序。 请参阅[步骤 1.2 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/)。
-    - **Windows**：安装最新版的 Python（现已配置环境变量），安装 ODBC 驱动程序和 SQLCMD，然后安装用于 SQL Server 的 Python 驱动程序。 请参阅[步骤 1.2、1.3 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/node/windows/)。 
+    - **MacOS**：安装 Homebrew 和 Python，接着安装 ODBC 驱动程序和 SQLCMD，再安装 Python Driver for SQL Server。 请参阅[步骤 1.2、1.3 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/mac/)。
+    - **Ubuntu**：安装 Python 和其他所需包，然后安装 Python Driver for SQL Server。 请参阅[步骤 1.2、1.3 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/)。
+    - **Windows**：安装最新版的 Python（现已为你配置环境变量），安装 ODBC 驱动程序和 SQLCMD，然后安装 Python Driver for SQL Server。 请参阅[步骤 1.2、1.3 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/windows/)。 
 
 ## <a name="sql-server-connection-information"></a>SQL Server 连接信息
 
 获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称、数据库名称和登录信息。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
+2. 从左侧菜单中选择“SQL 数据库”，并单击“SQL 数据库”页上的数据库。 
 3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 将鼠标悬停在服务器名称上即可打开“通过单击进行复制”选项。  
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
@@ -61,30 +61,28 @@ ms.lasthandoff: 07/28/2017
 1. 在常用的文本编辑器中，创建一个新文件 **sqltest.py**。  
 
 2. 将内容替换为以下代码，为服务器、数据库、用户和密码添加相应的值。
-
-```Python
-import pyodbc
-server = 'your_server.database.chinacloudapi.cn'
-database = 'your_database'
-username = 'your_username'
-password = 'your_password'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
-row = cursor.fetchone()
-while row:
-    print (str(row[0]) + " " + str(row[1]))
+    ```Python
+    import pyodbc
+    server = 'your_server.database.chinacloudapi.cn'
+    database = 'your_database'
+    username = 'your_username'
+    password = 'your_password'
+    driver= '{ODBC Driver 13 for SQL Server}'
+    cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+    cursor = cnxn.cursor()
+    cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
     row = cursor.fetchone()
-```
+    while row:
+        print (str(row[0]) + " " + str(row[1]))
+        row = cursor.fetchone()
+    ```
 
 ## <a name="run-the-code"></a>运行代码
 
 1. 在命令提示符下运行以下命令：
-
-```Python
-   python sqltest.py
-```
+    ```Python
+    python sqltest.py
+    ```
 
 2. 验证是否已返回前 20 行，然后关闭应用程序窗口。
 
@@ -94,4 +92,4 @@ while row:
 - [用于 SQL Server 的 Microsoft Python 驱动程序](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
 - [Python 开发人员中心](/develop/python/)
 
-<!--Update_Description: update word & code : deleted insert, update, delete sample code-->
+<!--Update_Description: update link-->

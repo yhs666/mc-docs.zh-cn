@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 04/14/2017
 ms.date: 08/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: 46aa1404b45e7a734b5eb713d8a3f164e3b33d29
-ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
+ms.openlocfilehash: 232d70bce3973a2b475991c132e4554a2180095a
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="manage-storage-accounts-by-using-the-azure-explorer-for-eclipse"></a>使用用于 Eclipse 的 Azure 资源管理器管理存储帐户
 
@@ -35,7 +35,7 @@ Azure 资源管理器是用于 Eclipse 的 Azure 工具包的一部分，它为 
 
 1. 按照[用于 Eclipse 的 Azure 工具包的登录说明]中的步骤登录到 Azure 帐户。
 
-2. 在“Azure 资源管理器”视图中，展开 Azure 节点，右键单击“存储帐户”，并单击“创建存储帐户”。
+2. 在“Azure 资源管理器”视图中，展开 Azure 节点，右键单击“存储帐户”，然后单击“创建存储帐户”。
 
    ![“创建存储帐户”命令][CS01]
 
@@ -47,7 +47,8 @@ Azure 资源管理器是用于 Eclipse 的 Azure 工具包的一部分，它为 
 
    - **订阅**：指定要用于新存储帐户的 Azure 订阅。
 
-   - **资源组**：指定虚拟机的资源组。 选择以下选项之一：
+   - 
+            **资源组**：指定虚拟机的资源组。 选择以下选项之一：
       - **新建**：指定要创建新的资源组。
       - **使用现有**：指定将从与 Azure 帐户关联的资源组列表中进行选择。
 
@@ -55,9 +56,9 @@ Azure 资源管理器是用于 Eclipse 的 Azure 工具包的一部分，它为 
 
    - **帐户类型**：指定要创建的存储帐户的类型（例如“Blob 存储”）。 有关详细信息，请参阅[关于 Azure 存储帐户]。
 
-   - **性能**：指定要使用哪一个从所选发布者提供的存储帐户（例如，“高级”）。 有关详细信息，请参阅 [Azure 存储可伸缩性和性能目标]。
+   - 性能：指定要使用哪一个从所选发布者提供的存储帐户（例如，“高级”）。 有关详细信息，请参阅 [Azure 存储可伸缩性和性能目标]。
 
-   - **复制**：指定存储帐户的复制（例如“区域冗余”）。 有关详细信息，请参阅 [Azure 存储复制]。
+   - 复制：指定存储帐户的复制（例如“区域冗余”）。 有关详细信息，请参阅 [Azure 存储复制]。
 
 4. 指定了上述所有选项后，单击“创建”。
 
@@ -69,7 +70,7 @@ Azure 资源管理器是用于 Eclipse 的 Azure 工具包的一部分，它为 
 
    ![“创建 blob 容器”命令][CC01]
 
-2. 在“创建 Blob 容器”对话框中，指定容器的名称，并单击“确定”。 有关命名存储容器的详细信息，请参阅[命名和引用容器、Blob 和元数据]。
+2. 在“创建 Blob 容器”对话框中，指定容器的名称，然后单击“确定”。 有关命名存储容器的详细信息，请参阅[命名和引用容器、Blob 和元数据]。
 
    ![“创建 blob 容器”对话框][CC02]
 
@@ -95,7 +96,7 @@ Azure 资源管理器是用于 Eclipse 的 Azure 工具包的一部分，它为 
 
 2. 在确认窗口中，单击“确定”。
 
-   ![“删除存储帐户确认”窗口][DS02]
+   ![删除存储帐户确认窗口][DS02]
 
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 存储帐户大小和定价的详细信息，请参阅以下资源：
@@ -111,12 +112,12 @@ Azure 资源管理器是用于 Eclipse 的 Azure 工具包的一部分，它为 
 
 有关用于 Java IDE 的 Azure 工具包的详细信息，请参阅以下资源：
 
-- [适用于 Eclipse 的 Azure 工具包]
+- [用于 Eclipse 的 Azure 工具包]
   - [用于 Eclipse 的 Azure 工具包的新增功能]
-  - [安装 Azure Toolkit for Eclipse]
+  - [安装用于 Eclipse 的 Azure 工具包]
   - [用于 Eclipse 的 Azure 工具包的登录说明]
   - [在 Eclipse 中创建适用于 Azure 的 Hello World Web 应用]
-- [适用于 IntelliJ 的 Azure 工具包]
+- [用于 IntelliJ 的 Azure 工具包]
   - [用于 IntelliJ 的 Azure 工具包的新增功能]
   - [安装用于 IntelliJ 的 Azure 工具包]
   - [用于 IntelliJ 的 Azure 工具包的登录说明]
@@ -126,11 +127,11 @@ Azure 资源管理器是用于 Eclipse 的 Azure 工具包的一部分，它为 
 
 <!-- URL List -->
 
-[适用于 Eclipse 的 Azure 工具包]: ./azure-toolkit-for-eclipse.md
-[适用于 IntelliJ 的 Azure 工具包]: ./azure-toolkit-for-intellij.md
+[用于 Eclipse 的 Azure 工具包]: ./azure-toolkit-for-eclipse.md
+[用于 IntelliJ 的 Azure 工具包]: ./azure-toolkit-for-intellij.md
 [在 Eclipse 中创建适用于 Azure 的 Hello World Web 应用]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [在 IntelliJ 中创建适用于 Azure 的 Hello World Web 应用]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[安装 Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[安装用于 Eclipse 的 Azure 工具包]: ./azure-toolkit-for-eclipse-installation.md
 [安装用于 IntelliJ 的 Azure 工具包]: ./azure-toolkit-for-intellij-installation.md
 [用于 Eclipse 的 Azure 工具包的登录说明]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
 [用于 IntelliJ 的 Azure 工具包的登录说明]: ./azure-toolkit-for-intellij-sign-in-instructions.md
@@ -138,18 +139,18 @@ Azure 资源管理器是用于 Eclipse 的 Azure 工具包的一部分，它为 
 [用于 IntelliJ 的 Azure 工具包的新增功能]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java 开发人员中心]: /develop/java/
-[用于 Visual Studio Team Services 的 Java 工具]: https://java.visualstudio.com/
+[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
-[Azure 存储简介]: /azure/storage/storage-introduction
-[关于 Azure 存储帐户]: /azure/storage/storage-create-storage-account
-[Azure 存储复制]: /azure/storage/storage-redundancy
-[Azure 存储可伸缩性和性能目标]: /azure/storage/storage-scalability-targets
-[命名和引用容器、Blob 和元数据]: http://go.microsoft.com/fwlink/?LinkId=255555
+[Azure 存储简介]: /storage/common/storage-introduction
+[关于 Azure 存储帐户]: /storage/common/storage-create-storage-account
+[Azure 存储复制]: /storage/common/storage-redundancy
+[Azure 存储可伸缩性和性能目标]: /storage/common/storage-scalability-targets
+[命名和引用容器、Blob 与元数据]: http://go.microsoft.com/fwlink/?LinkId=255555
 
-[Azure 中 Windows 存储帐户的大小]: /azure/virtual-machines/virtual-machines-windows-sizes
-[Azure 中 Linux 存储帐户的大小]: /azure/virtual-machines/virtual-machines-linux-sizes
-[Windows 存储帐户定价]: /pricing/details/virtual-machines/windows/
-[Linux 存储帐户定价]: /pricing/details/virtual-machines/linux/
+[Azure 中的 Windows 存储帐户的大小]: /virtual-machines/virtual-machines-windows-sizes
+[Azure 中的 Linux 存储帐户的大小]: /virtual-machines/virtual-machines-linux-sizes
+[Windows 存储帐户定价]: https://www.azure.cn/pricing/details/virtual-machines/
+[Linux 存储帐户定价]: https://www.azure.cn/pricing/details/virtual-machines/
 
 <!-- IMG List -->
 

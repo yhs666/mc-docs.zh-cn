@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 origin.date: 03/06/2017
-ms.date: 07/10/2017
+ms.date: 09/18/2017
 ms.author: v-johch
-ms.openlocfilehash: a654aa6616595eb54975d223396d8fc55550c0b2
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: eb57167b7912ad9bb985282195a1c4635ccfa718
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>使用 C 和 C++ 连接到 SQL 数据库
 本文面向尝试连接到 Azure SQL DB 的 C 和 C++ 开发人员， 它分为多个部分，方便大家选择最感兴趣的部分进行查看。 
@@ -41,7 +41,7 @@ Azure 目前有两个用于托管 SQL Server 工作负荷的选项：Azure SQL �
 连接到 Azure SQL DB 没有任何不同，且当前有两种方法连接到数据库：ODBC（开放数据库连接）和 OLE DB（对象链接和嵌入数据库）。 最近几年，Microsoft 已在使用 [ODBC 进行本地关系数据访问](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/)。 ODBC 相对简单，并且比 OLE DB 快得多。 唯一需要说明的是，ODBC 使用的是旧的 C 样式 API。 
 
 ## <a id="Create"></a>步骤 1：创建 Azure SQL 数据库
-请参阅[入门页](sql-database-get-started-portal.md)，以了解如何创建示例数据库。  
+请参阅[入门页](sql-database-get-started-portal.md)，以了解如何创建示例数据库。
 
 ## <a id="ConnectionString"></a>步骤 2：获取连接字符串
 预配 Azure SQL 数据库后，需要执行以下步骤，确定连接信息及添加用于防火墙访问的客户端 IP。 
@@ -52,7 +52,7 @@ Azure 目前有两个用于托管 SQL Server 工作负荷的选项：Azure SQL �
 
 ![ODBCConnectionStringProps](./media/sql-database-develop-cplusplus-simple/dbconnection.png)
 
-复制 **ODBC (包括 Node.js) [SQL 身份验证]** 字符串的内容。 稍后，我们将使用此字符串从 C++ ODBC 命令行解释程序进行连接。 此字符串提供驱动程序、服务器和其他数据库连接参数等详细信息。 
+复制 **ODBC (包括 Node.js) [SQL 身份验证]** 字符串的内容。 稍后，我们使用此字符串从 C++ ODBC 命令行解释程序进行连接。 此字符串提供驱动程序、服务器和其他数据库连接参数等详细信息。 
 
 ## <a id="Firewall"></a>步骤 3：将 IP 添加到防火墙
 转到数据库服务器的防火墙部分，并[使用以下步骤将客户端 IP 添加到防火墙](sql-database-configure-firewall-settings.md)，以确保我们可以建立成功的连接： 
@@ -62,7 +62,7 @@ Azure 目前有两个用于托管 SQL Server 工作负荷的选项：Azure SQL �
 此时，已配置好 Azure SQL DB，并已准备好通过 C++ 代码连接。 
 
 ## <a id="Windows"></a>步骤 4：从 Windows C/C++ 应用程序连接
-可以 [使用通过 Visual Studio 生成的此示例在 Windows 上轻松连接到使用 ODBC 的 Azure SQL DB](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28windows%29) 。 该示例实现可用于连接到 Azure SQL DB 的 ODBC 命令行解释器。 此示例将数据库源名称文件 (DSN) 文件作为命令行参数，或采用我们先前从 Azure 门户复制的详细连接字符串。 打开此项目的属性页，然后将连接字符串作为命令行参数粘贴，如下所示： 
+可以 [使用通过 Visual Studio 生成的此示例在 Windows 上轻松连接到使用 ODBC 的 Azure SQL DB](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28windows%29) 。 该示例实现可用于连接到 Azure SQL DB 的 ODBC 命令行解释器。 此示例将数据库源名称文件 (DSN) 文件作为命令行参数，或采用我们先前从 Azure 门户复制的详细连接字符串。 打开此项目的属性页，并将连接字符串作为命令行参数粘贴，如下所示： 
 
 ![DSN Propsfile](./media/sql-database-develop-cplusplus-simple/props.png)
 
@@ -76,14 +76,14 @@ Azure 目前有两个用于托管 SQL Server 工作负荷的选项：Azure SQL �
 
 ![创建 DSN 文件](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
-祝贺你！ 现在已成功在 Windows 上使用 C++和 ODBC 连接到 Azure SQL。 可以继续阅读如何为 Linux 平台执行相同操作的内容。 
+祝贺！ 现在已成功在 Windows 上使用 C++和 ODBC 连接到 Azure SQL。 可以继续阅读如何为 Linux 平台执行相同操作的内容。 
 
 ## <a id="Linux"></a>步骤 5：从 Linux C/C++ 应用程序连接
 也许你还不知道，Visual Studio 现在也允许开发 C++ Linux 应用程序。 可以在 [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) （用于 Linux 开发的 Visual C++）博客中阅读关于此新方案的信息。 若要为 Linux 生成，需要运行 Linux 分发的远程计算机。 如果没有可用的远程计算机，可以使用 [Linux Azure 虚拟机](../virtual-machines/linux/quick-create-cli.md)快速设置。 
 
 对于本教程，我们假设已设置好 Ubuntu 16.04 Linux 分发。 此处的步骤还适用于 Ubuntu 15.10、Red Hat 6 和 Red Hat 7。 
 
-按照以下步骤安装你的发行版 SQL 和 ODBC 所需的库：
+按照以下步骤安装发行版 SQL 和 ODBC 所需的库：
 
 ```
 sudo su
@@ -102,7 +102,7 @@ apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 
 ![新建项目模板](./media/sql-database-develop-cplusplus-simple/template.png)
 
-然后，可以添加 [新的 C 源文件，并将其替换为此内容](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29/odbcconnector/odbcconnector.c)。 使用 ODBC API SQLAllocHandle、SQLSetConnectAttr 和 SQLDriverConnect 时，应能够初始化并建立与数据库的连接。 和 Windows ODBC 示例一样，需要使用数据库连接字符串参数的详细信息（之前从 Azure 门户复制）替换 SQLDriverConnect 调用。 
+然后，可以添加 [ 新的 C 源文件，并将其替换为此内容](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29/odbcconnector/odbcconnector.c)。 使用 ODBC API SQLAllocHandle、SQLSetConnectAttr 和 SQLDriverConnect 时，应能够初始化并建立与数据库的连接。 和 Windows ODBC 示例一样，需要使用数据库连接字符串参数的详细信息（之前从 Azure 门户复制）替换 SQLDriverConnect 调用。 
 
 ```
  retcode = SQLDriverConnect(
@@ -112,7 +112,7 @@ apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
     SQL_NTS, outstr, sizeof(outstr), &outstrlen, SQL_DRIVER_NOPROMPT);
 ```
 
-编译前需要完成的最后一步是将 **odbc** 作为库依赖项添加： 
+编译之前的最后一步是将 **odbc** 添加为库依赖项： 
 
 ![将 ODBC 作为输入库添加](./media/sql-database-develop-cplusplus-simple/lib.png)
 
@@ -124,7 +124,7 @@ apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 
 ![Linux 控制台窗口输出](./media/sql-database-develop-cplusplus-simple/linuxconsolewindow.png)
 
-祝贺你！ 已成功完成本教程，现在可在 Windows 和 Linux 平台上通过 C++ 连接到 Azure SQL DB。
+祝贺！ 已成功完成本教程，现在可在 Windows 和 Linux 平台上通过 C++ 连接到 Azure SQL DB。
 
 ## <a id="GetSolution"></a>获取完整的 C/C++ 教程解决方案
 可在 GitHub 中找到包含本文所有示例的 GetStarted 解决方案：
@@ -139,3 +139,4 @@ apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 ## <a name="additional-resources"></a>其他资源
 * [包含 Azure SQL 数据库的多租户 SaaS 应用程序的设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * 浏览所有 [SQL 数据库的功能](https://www.azure.cn/home/features/sql-database/)。
+<!--Update_Description: update metadata-->

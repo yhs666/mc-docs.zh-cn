@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 07/06/2017
-ms.date: 08/07/2017
+origin.date: 08/14/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 59cd5e7507904a66b4fa0925d4c86acbdd6d909d
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: cd566f9e667d3a9f267f7747aadda4b6239c2b11
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="_Toc395783175"></a>使用 Azure Cosmos DB 生成 Node.js Web 应用程序
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 08/04/2017
 
 本 Node.js 教程展示了如何使用 Azure Cosmos DB 和 DocumentDB API，通过在 Azure 网站上托管的 Node.js Express 应用程序存储和访问数据。 用户会生成一个简单的基于 Web 的任务管理应用程序（ToDo 应用），用于创建、检索和完成任务。 任务存储为 Azure Cosmos DB 中的 JSON 文档。 本教程指导完成创建和部署应用的过程，并说明每个片段中发生的情况。
 
-![在本 Node.js 教程中创建的 My Todo List 应用程序的屏幕截图](./media/documentdb-nodejs-application/image1.png)
+![在本 Node.js 教程中创建的 My Todo List 应用程序的屏幕截图](./media/documentdb-nodejs-application/cosmos-db-node-js-mytodo.png)
 
 没有时间完成本教程且只想获取完整的解决方案？ 没有问题，可以从 [GitHub][GitHub]获得完整的示例解决方案。 只需读取[自述](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md)文件，了解如何运行该应用。
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 08/04/2017
         npm start
 6. 在浏览器中导航到 [http://localhost:3000](http://localhost:3000) 即可查看新应用程序。
 
-    ![了解 Node.js - 浏览器窗口中 Hello World 应用程序的屏幕截图](./media/documentdb-nodejs-application/image12.png)
+    ![了解 Node.js - 浏览器窗口中 Hello World 应用程序的屏幕截图](./media/documentdb-nodejs-application/cosmos-db-node-js-express.png)
 
     然后，如果要停止应用程序，请在终端窗口中按 CTRL + C，并单击 **y** 终止批处理作业。
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 08/04/2017
 1. 返回终端，通过 npm 安装 **async** 模块。
 
         npm install async --save
-2. 通过 npm 安装 **documentdb** 模块。 这是 DocumentDB 所有奇迹发生的模块。
+2. 通过 npm 安装 **documentdb** 模块。 这是所有 Azure Cosmos DB magic 发生的模块。
 
         npm install documentdb --save
 3. 快速检查应用程序的 **package.json** 文件应显示其他模块。 此文件通知 Azure 当运行应用程序时要下载并安装的程序包。 它应类似于下面的示例。
@@ -190,12 +190,6 @@ ms.lasthandoff: 08/04/2017
 
         module.exports = DocDBUtils;
 
-   > [!TIP]
-   > createCollection 采用一个用以指定集合 Offer 类型的可选 requestOptions 参数。 如果没有提供任何 requestOptions.offerType 值，则使用默认 Offer 类型创建集合。
-   > 
-   > 有关 Azure Cosmos DB 产品/服务类型的详细信息，请参阅 [Azure Cosmos DB 中的性能级别](performance-levels.md) 
-   > 
-   > 
 5. 保存并关闭 **docdbUtils.js** 文件。
 6. 在 **taskDao.js** 文件的开头添加以下代码，引用前面创建的 **DocumentDBClient** 和 **docdbUtils.js**：
 
@@ -390,8 +384,8 @@ ms.lasthandoff: 08/04/2017
 
         var config = {}
 
-        config.host = process.env.HOST || "[the URI value from the DocumentDB Keys blade on http://portal.azure.cn]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the DocumentDB Keys blade on http://portal.azure.cn]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.cn]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.cn]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
 
@@ -485,52 +479,33 @@ ms.lasthandoff: 08/04/2017
                 td #{month + "/" + day + "/" + year}
                 td
                   input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-        button.btn(type="submit") Update tasks
+             button.btn.btn-primary(type="submit") Update tasks
       hr
       form.well(action="/addtask", method="post")
-        label Item Name:
-        input(name="name", type="textbox")
-        label Item Category:
-        input(name="category", type="textbox")
-        br
-        button.btn(type="submit") Add item
+         .form-group
+           label(for="name") Item Name:
+           input.form-control(name="name", type="textbox")
+         .form-group
+           label(for="category") Item Category:
+           input.form-control(name="category", type="textbox")
+         br
+         button.btn(type="submit") Add item
     ```
 
-    这将扩展布局，并为先前在 **layout.jade** 文件中看到的 **content** 占位符提供内容。
+这将扩展布局，并为先前在 **layout.jade** 文件中看到的 **content** 占位符提供内容。
 
-    在此布局中，我们创建了两个 HTML 窗体。
+在此布局中，我们创建了两个 HTML 窗体。
 
-    第一个窗体中的表包含我们的数据和按钮，该按钮允许我们通过发布控制器的 **/completetask** 方法更新项。
+第一个窗体中的表包含我们的数据和按钮，该按钮允许我们通过发布控制器的 **/completetask** 方法更新项。
 
-    第二个窗体包含两个输入字段和一个按钮，该按钮允许我们通过发布控制器的 **/addtask** 方法来新建项。
+第二个窗体包含两个输入字段和一个按钮，该按钮允许我们通过发布控制器的 **/addtask** 方法来新建项。
 
-    这应该是应用程序工作所需的所有内容了。
-4. 打开 **public\stylesheets** 目录中的 **style.css** 文件并替换为以下代码：
-
-        body {
-          padding: 50px;
-          font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-        }
-        a {
-          color: #00B7FF;
-        }
-        .well label {
-          display: block;
-        }
-        .well input {
-          margin-bottom: 5px;
-        }
-        .btn {
-          margin-top: 5px;
-          border: outset 1px #C8C8C8;
-        }
-
-    保存并关闭此 **style.css** 文件。
+这应该是应用程序工作所需的所有内容了。
 
 ## <a name="_Toc395783181"></a>步骤 6：在本地运行应用程序
 1. 若要在本地计算机上测试应用程序，请在终端中运行 `npm start` 以启动应用程序，然后刷新 [http://localhost:3000](http://localhost:3000) 浏览器页。 该页面现在应类似下图：
 
-    ![浏览器窗口中 MyTodo List 应用程序的屏幕截图](./media/documentdb-nodejs-application/image18.png)
+    ![浏览器窗口中 MyTodo List 应用程序的屏幕截图](./media/documentdb-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
     > 如果收到有关 layout.jade 文件或 index.jade 文件的缩进错误，请确保这两个文件的前两行已经左对齐且没有空格。 如果前两行前面有空格，请删除空格并保存这两个文件，并刷新浏览器窗口。 
@@ -538,7 +513,7 @@ ms.lasthandoff: 08/04/2017
 2. 使用“项”、“项名称”和“类别”字段输入新任务，并单击“添加项” 。 这会在 Azure Cosmos DB 中创建具有这些属性的文档。 
 3. 页面应更新为在 ToDo 列表中显示新建项。
 
-    ![ToDo 列表中具有新项的应用程序的屏幕截图](./media/documentdb-nodejs-application/image19.png)
+    ![ToDo 列表中具有新项的应用程序的屏幕截图](./media/documentdb-nodejs-application/cosmos-db-node-js-added-task.png)
 4. 若要完成任务，只需选中“完成”列中的复选框，然后单击“更新任务”即可。 此操作会更新已经创建的文档。
 
 5. 如果要停止应用程序，请在终端窗口中按 CTRL + C，并单击 **Y** 终止批处理作业。

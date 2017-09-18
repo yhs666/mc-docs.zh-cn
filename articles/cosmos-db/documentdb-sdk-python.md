@@ -1,6 +1,6 @@
 ---
 title: "Azure Cosmos DB Python API、SDK 和资源 | Azure"
-description: "了解有关 Python API 和 SDK 的全部信息，包括发布日期、停用日期和 DocumentDB Python SDK 各版本之间所做的更改。"
+description: "了解有关 Python API 和 SDK 的全部信息，包括发布日期、停用日期和 Azure Cosmos DB Python SDK 各版本之间所做的更改。"
 services: cosmos-db
 documentationcenter: python
 author: rockboyfor
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2e7322b9dda841e8945268e562ae10e3833d6e6
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 91466e2382736b50975e4fb0633dd27556310cf8
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
-# <a name="documentdb-python-sdk-release-notes-and-resources"></a>DocumentDB Python SDK：发行说明和资源
+# <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Azure Cosmos DB Python SDK：发行说明和资源
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET 更改源](documentdb-sdk-dotnet-changefeed.md)
@@ -61,4 +61,4 @@ ms.lasthandoff: 08/04/2017
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

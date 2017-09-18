@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 06/26/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: adfdddb11f9cdd3daab047c3cd46455211bb456f
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 07/28/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: dfc68efbde7f48825fec735dcbc87b309f1c36f9
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight 中 Hadoop 群集的可用性和可靠性
 
@@ -37,12 +37,10 @@ Hadoop 通过将服务和数据复制到群集中的多个节点来实现高可�
 
 ## <a name="availability-and-reliability-of-nodes"></a>节点的可用性和可靠性
 
-HDInsight 群集中的节点是使用 Azure 虚拟机实现的。 如果一个节点发生故障，该节点将会脱机，同时会创建一个新节点来取代有故障的节点。 当节点脱机时，将使用相同类型的另一个节点，直到新节点联机。
+HDInsight 群集中的节点是使用 Azure 虚拟机实现的。 以下部分介绍可配合 HDInsight 使用的节点类型。 
 
 > [!NOTE]
-> 如果节点发生故障时正在分析数据，其作业进度将会丢失。 作业将重新提交到另一个节点。
-
-以下部分介绍可配合 HDInsight 使用的节点类型。 并非所有节点类型都可用于某个群集类型。 例如，Hadoop 群集类型就没有任何 Nimbus 节点。 有关 HDInsight 群集类型使用的节点详细信息，请参阅[在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md#cluster-types)文档的“群集类型”部分。
+> 并非所有节点类型都可用于某个群集类型。 例如，Hadoop 群集类型就没有任何 Nimbus 节点。 有关 HDInsight 群集类型使用的节点详细信息，请参阅[在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md#cluster-types)文档的“群集类型”部分。
 
 ### <a name="head-nodes"></a>头节点
 
@@ -172,7 +170,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 #### <a name="service-components"></a>服务组件
 
-服务可能包含你想要单独检查状态的组件。 例如，HDFS 包含 NameNode 组件。 若要查看有关组件的信息，请使用以下命令：
+服务可能包含想要单独检查其状态的组件。 例如，HDFS 包含 NameNode 组件。 若要查看有关组件的信息，请使用以下命令：
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 
@@ -186,7 +184,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 通过 SSH 连接到头节点时，可以在 **/var/log**中找到日志文件。 例如， **/var/log/hadoop-yarn/yarn** 包含 YARN 的日志。
 
-每个头节点可能具有唯一的日志条目，因此你应该检查两个头节点上的日志。
+每个头节点可能具有唯一的日志条目，因此应该检查两个头节点上的日志。
 
 ### <a name="sftp"></a>SFTP
 
@@ -194,7 +192,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 与使用 SSH 客户端一样，在连接到群集时，必须提供 SSH 用户帐户名和群集的 SSH 地址。 例如，`sftp username@mycluster-ssh.azurehdinsight.cn`。 在出现提示时，提供帐户密码或使用 `-i` 参数提供公钥。
 
-建立连接后，会出现 `sftp>` 提示符。 在此提示符下，可以更改目录以及上传和下载文件。 例如：以下命令将目录切换到 **/var/log/hadoop/hdfs** 目录，然后下载该目录中的所有文件。
+建立连接后，会出现 `sftp>` 提示符。 在此提示符下，可以更改目录以及上传和下载文件。 例如：以下命令将目录切换到 **/var/log/hadoop/hdfs** 目录，并下载该目录中的所有文件。
 
     cd /var/log/hadoop/hdfs
     get *
@@ -209,7 +207,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 > [!NOTE]
 > 若要通过 Ambari 访问日志文件，必须使用 SSH 隧道。 单个服务的 Web 界面不在 Internet 上公开。 有关使用 SSH 隧道的信息，请参阅[使用 SSH 隧道](hdinsight-linux-ambari-ssh-tunnel.md)文档。
 
-在 Ambari Web UI 中选择要查看其日志的服务（例如 YARN）。 然后，使用“快速链接”选择要查看其日志的头节点。
+在 Ambari Web UI 中选择要查看其日志的服务（例如 YARN）。 然后使用“快速链接”选择要查看其日志的头节点。
 
 ![使用快速链接查看日志](./media/hdinsight-high-availability-linux/viewlogs.png)
 
@@ -241,4 +239,4 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 [azure-powershell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [azure-cli]: ../cli-install-nodejs.md
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: wording update-->

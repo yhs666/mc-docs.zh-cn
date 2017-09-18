@@ -10,14 +10,13 @@ Azure Cosmos DB 在全球范围的所有 [Azure 区域][azureregions]中推出�
 1. 在 [Azure 门户](https://portal.azure.cn/)的左侧栏中，单击“Azure Cosmos DB”。
 2. 在“Azure Cosmos DB”边栏选项卡中，选择要修改的数据库帐户。
 3. 在“帐户”边栏选项卡上的菜单中单击“全局复制数据”。
-4. 在“全局复制数据”边栏选项卡中，通过单击地图中的区域选择要添加或删除的区域，然后单击“保存”。 添加区域会产生费用，有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/documentdb/)或[使用 DocumentDB 全局分发数据](../articles/documentdb/documentdb-distribute-data-globally.md)。
+4. 在“全局复制数据”边栏选项卡中，通过单击地图中的区域选择要添加或删除的区域，并单击“保存”。 添加区域会产生费用，有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/documentdb/)或[使用 DocumentDB 全局分发数据](../articles/documentdb/documentdb-distribute-data-globally.md)。
 
     ![单击图中的区域可以添加或删除区域][1]
 
 添加第二个区域后，门户中的“全局复制数据”边栏选项卡上会启用“手动故障转移”选项。 可以使用此选项测试故障转移过程或更改主写入区域。 添加第三个区域后，会启用同一边栏选项卡上的“故障转移优先级”  选项，以便用户能够更改读取的故障转移顺序。  
 
-### 选择全局数据库区域
-<a id="selecting-global-database-regions" class="xliff"></a>
+### <a name="selecting-global-database-regions"></a>选择全局数据库区域
 配置两个或更多区域有两个常见方案：
 
 1. 向最终用户提供对数据的低延迟访问，而无论用户位于全球范围内的何位置
@@ -29,7 +28,7 @@ Azure Cosmos DB 在全球范围的所有 [Azure 区域][azureregions]中推出�
 
 <!--
 
-## <a id="selectwriteregion"></a>Select the write region
+## <a name="selectwriteregion"></a>Select the write region
 
 While all regions associated with your Cosmos DB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. To set the active write region, do the following  
 

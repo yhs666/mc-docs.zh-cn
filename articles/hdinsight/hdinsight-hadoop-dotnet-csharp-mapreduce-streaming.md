@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 4cdb7c1c561d7d0e64b48fc68cb42d57726d75a8
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 17f1ecd4ff71fc8161d69c781fd3467b9961491c
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>在 HDInsight 中的 Hadoop 上将 C# 与 MapReduce 流式处理配合使用
 
@@ -185,7 +185,7 @@ namespace reducer
     使用 __Azure 存储__作为默认存储：
 
     ```bash
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasbs:///mapper.exe,wasbs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
     ```
 
     下表描述每个参数的作用：
@@ -315,4 +315,4 @@ Get-AzureStorageBlobContent `
 
 有关在 HDInsight 上将 C# 与 Storm 配合使用的信息，请参阅[为 HDInsight 上的 Storm 开发 C# 拓扑](hdinsight-storm-develop-csharp-visual-studio-topology.md)。
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: change 'wasbs' into 'wasb'-->

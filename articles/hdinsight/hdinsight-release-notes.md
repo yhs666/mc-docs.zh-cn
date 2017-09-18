@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 4e76cca1a345cab1dfc1d3c7b59175ea12dead3f
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 08/04/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: fc5a133b23438d1b9669c1b5d764e1b3aa31fb98
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight 上的 Hadoop 组件发行说明
 
@@ -31,6 +31,17 @@ ms.lasthandoff: 07/28/2017
 
 > [!IMPORTANT]
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 版本控制文章](hdinsight-component-versioning.md)。
+
+## <a name="notes-for-08012017-release-of-hdinsight"></a>HDInsight 08/01/2017 版发行说明
+
+| 标题 | 说明 | 受影响的区域  | 群集类型  | 
+| --- | --- | --- | --- | --- |
+| 发布 HDInsight 上的 Microsoft R Server 9.1 |HDInsight 现在支持在 HDInsight 上设置 R Server 9.1 群集。 有关 Microsoft R Server 9.1 版本的详细信息，请参阅[此博客](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/)。 |服务 |R Server |
+| HDInsight 3.6 现在包含较新版本的 Hadoop 堆栈|<ul><li>有关更新版本的详细列表，请参阅 [HDInsight 中可用的 Hadoop 组件版本](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions)。</li><li>有关在 Hadoop 堆栈最新版本中修复的 bug 的列表，请参阅 [Apache 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html)。</li><li>有关 HDP 2.6.1（现在可在 HDInsight 3.6 中使用）之间的重大更改的列表，请参阅 [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html)。</li><li>有关 HDP 2.6.1 中的已知问题的列表，请参阅[已知问题](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html)。</li></ul> |服务 |全部 |不适用 |
+| Interactive Hive（预览版）群集的更新 |<ul><li><b>功能改进。</b> 实现了缓存元存储，它可通过缓存元数据来减少后端 SQL 上的负载降低并为所有元数据操作提高性能。  此改进现在是所有 Interactive Hive 群集上的默认设置。 有关详细信息，请参阅 [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520)。</li><li><b>功能改进。</b> 动态分区加载进行了优化。 有关详细信息，请参阅 [https://issues.apache.org/jira/browse/HIVE-14204](https://issues.apache.org/jira/browse/HIVE-14204)。</li><li><b>功能改进。</b> Linux 上的 HDInsight 的配置优化。</li><li><b>Bug 修复。</b> `CredentialProviderFactory$getProviders` 不是线程安全的。 此问题现在已修复。 有关详细信息，请参阅 [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195)。</li><li><b>Bug 修复。</b> WASB 驱动程序 `liststatus` API 的高 CPU 使用率导致 ATS 性能低下。 此问题现在已修复。 有关详细信息，请参阅 [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154)。</li></ul> |服务 |交互式 Hive（预览版） |
+| Hadoop 群集的更新 |Templeton 作业操作可靠性得到提高。 有关详细信息，请参阅 [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |服务 |Hadoop |
+| YARN 更新 | HDInsight 现在创建 250 GB Ambari 数据库（而不增加成本），这会形成更好的客户体验。 此更改应防止填满 ATS，并且可能具有更好的性能。 |服务 |全部 |
+| Spark 更新 | 发布 Spark 2.1.1。 有关详细信息，请参阅 [Spark 版本 2.1.1](https://spark.apache.org/releases/spark-release-2-1-1.html)。 | 服务 | Spark |
 
 ## <a name="general-availability-of-hdinsight-36"></a>HDInsight 3.6 公开上市
 
@@ -46,7 +57,7 @@ ms.lasthandoff: 07/28/2017
 
 * **Hive LLAP 性能增强**。 有关详细信息，请参阅 [Hortonworks 文档](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/)。
 
-* **Hive 中的新增功能**。 有关详细信息，请参阅 [Hortonworks 文档](https://hortonworks.com/apache/hive/#section_4)。
+* **Hive 中的新增功能**。 请参阅 [Hortonworks 文档](https://hortonworks.com/apache/hive/#section_4)。
 
 * **Hive CLI 弃用**：已弃用 Hive CLI，建议客户改为使用 Beeline。 有关详细信息，请参阅 [Apache 文档](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline)。 有关如何将 Beeline 与 HDInsight 配合使用的说明，请参阅[将 Beeline 与 HDInsight Hadoop 群集配合使用](hdinsight-hadoop-use-hive-beeline.md)。
 
@@ -74,7 +85,7 @@ Spark 2.0.1 现已在 Spark 群集（HDInsight 版本 3.5）上发行。
 
 ## <a name="release-of-r-server-90-on-hdinsight-35-spark-20"></a>发布 R Server 9.0 on HDInsight 3.5 (Spark 2.0)
 *   R Server 群集现在包括适用于两个版本的选项：R Server 9.0 on HDI 3.5 (Spark 2.0) 和 R Server 8.0 on HDI 3.4 (Spark 1.6)。
-*   R Server 9.0 on HDI 3.5 (Spark 2.0) 以 R 3.3.2 为基础构建，包括名为 RxHiveData 和 RxParquetData 的全新 ScaleR 数据源功能，可以将数据从 Hive 和 Parquet 直接加载到 Spark DataFrames 供 ScaleR 分析。 有关详细信息，请通过使用 **?RxHiveData** 和 **?RxParquetData** 命令在 R 中查看关于这些函数的内联帮助。
+*   R Server 9.0 on HDI 3.5 (Spark 2.0) 是基于 R 3.3.2 构建的，包括新 ScaleR 数据源函数（称为 RxHiveData 和 RxParquetData），用于将数据直接从 Hive 和 Parquet 加载到 Spark DataFrames，由 ScaleR 分析。 有关详细信息，请通过使用 ?RxHiveData 和 ?RxParquetData 命令在 R 中查看关于这些函数的内联帮助。
 *   现在，作为预配流的一部分，RStudio Server 社区版（通过选择退出选项）默认安装在“群集预配”边栏选项卡上。
 
 ## <a name="--release-of-spark-20-on-hdinsight"></a>- 发布 Spark 2.0 on HDInsight
@@ -83,7 +94,7 @@ Spark 2.0.1 现已在 Spark 群集（HDInsight 版本 3.5）上发行。
 ## <a name="--release-of-r-server-on-hdinsight"></a>- 发布 R Server on HDInsight
 * 进行边缘节点访问的 URI 已更改为 **clustername**-ed-ssh.azurehdinsight.cn
 * R Server on HDInsight 群集预配已简化。
-* R Server on HDInsight 现已作为常用的 HDInsight“R Server”群集类型推出，不再作为单独的 HDInsight 应用程序安装。 边缘节点和 R Server 二进制文件现在会在 R Server 群集部署过程中进行预配。 这将提高预配的速度和可靠性。 R Server 的定价模型会相应地进行更新。
+* R Server on HDInsight 现已作为常用的 HDInsight“R Server”群集类型推出，不再作为单独的 HDInsight 应用程序安装。 边缘节点和 R Server 二进制文件现在会在 R Server 群集部署过程中进行预配。 这会提高预配的速度和可靠性。 R Server 的定价模型会相应地进行更新。
 
 ## <a name="release-of-r-server-on-hdinsight"></a>发布 R Server on HDInsight
 随此版本一起部署的基于 Linux 的 HDInsight 群集的所有版本号：
@@ -104,4 +115,4 @@ Spark 2.0.1 现已在 Spark 群集（HDInsight 版本 3.5）上发行。
 | 3.2 |3.2.7.1033.2559206 |2.2 |2.2.9.1-11 |
 | 3.3 |3.3.0.1033.2559206 |2.3 |2.3.3.1-25 |
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: wording update-->

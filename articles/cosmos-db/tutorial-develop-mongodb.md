@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 06c5d7b0f07f638d5d86b15c10722b4a9d64084d
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: b2a2d3aa81f6441f9c84df34fd6921d18ae6686a
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB：使用 .NET 连接到 MongoDB 应用
 
@@ -130,7 +130,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
             private IMongoCollection<MyTask> GetTasksCollection()
             {
                 MongoClientSettings settings = new MongoClientSettings();
-                settings.Server = new MongoServerAddress(host, 10250);
+                settings.Server = new MongoServerAddress(host, 10255);
                 settings.UseSsl = true;
                 settings.SslSettings = new SslSettings();
                 settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
@@ -152,7 +152,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
             private IMongoCollection<MyTask> GetTasksCollectionForEdit()
             {
                 MongoClientSettings settings = new MongoClientSettings();
-                settings.Server = new MongoServerAddress(host, 10250);
+                settings.Server = new MongoServerAddress(host, 10255);
                 settings.UseSsl = true;
                 settings.SslSettings = new SslSettings();
                 settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
@@ -210,7 +210,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 如果不打算继续使用此应用，请使用以下步骤删除本教程在 Azure 门户中创建的所有资源。 
 
 1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。 
-2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，然后单击“删除”。
+2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -225,3 +225,5 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 > [!div class="nextstepaction"]
 > [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
+
+<!--Update_Description: wording update-->

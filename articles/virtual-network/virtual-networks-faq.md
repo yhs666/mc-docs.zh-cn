@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 01/18/2017
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 79fefb3036b31648a37bba95b8f3421d47c46fbc
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 68d094214c18ecd02df5f1fb0d3e77a08d373c07
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 
@@ -58,7 +58,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 * Azure CLI（用于经典 VNet 和 Resource Manager VNet）。
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>在我的 VNet 中可以使用哪些地址范围？
-[RFC 1918](http://tools.ietf.org/html/rfc1918) 中定义的任何 IP 地址范围。 例如 10.0.0.0/16。
+[RFC 1918](http://tools.ietf.org/html/rfc1918)中定义的任何 IP 地址范围。 例如 10.0.0.0/16。
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>我的 VNet 中是否可以有公共 IP 地址？
 可以。 有关公共 IP 地址范围的详细信息，请参阅[虚拟网络中的公共 IP 地址空间](virtual-networks-public-ip-within-vnet.md)一文。 无法从 Internet 直接访问公共 IP 地址。
@@ -91,7 +91,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 否。
 
 ### <a name="can-i-add-subnets-after-the-vnet-is-created"></a>创建 VNet 后是否可以添加子网？
-是的。 只要子网地址不属于 VNet 中另一个子网的一部分，就能随时将子网添加到 VNet 中。
+是的。 只要子网地址不属于 VNet 中另一个子网的一部分，就能随时会子网添加到 VNet 中。
 
 ### <a name="can-i-modify-the-size-of-my-subnet-after-i-create-it"></a>创建后是否可以修改子网的大小？
 可以。 如果子网中未部署任何 VM 或服务，可以添加、删除、扩展或收缩该子网。
@@ -169,7 +169,7 @@ Azure 提供的 DNS 是由 Microsoft 提供的多租户 DNS 服务。 Azure 在�
 否。 MAC 地址不能以静态方式配置。
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-it-has-been-created"></a>创建 MAC 后，其地址是否在 VM 中保持不变？
-是的，通过 Resource Manager 和经典部署模型部署的 VM 在被删除之前，其 MAC 地址将保持不变。 以前，如果停止（解除分配）VM，将会释放 MAC 地址，但现在，即使 VM 处于解除分配状态，也会保留其 MAC 地址。
+是的，通过资源管理器和经典部署模型部署的 VM 在被删除之前，其 MAC 地址将保持不变。 以前，如果停止（解除分配）VM，将会释放 MAC 地址，但现在，即使 VM 处于解除分配状态，也会保留其 MAC 地址。
 
 ### <a name="can-i-connect-to-the-internet-from-a-vm-in-a-vnet"></a>是否可以通过 VNet 中的 VM 连接到 Internet？
 可以。 VNet 中部署的所有 VM 和云服务角色实例都可连接到 Internet。
@@ -180,7 +180,8 @@ Azure 提供的 DNS 是由 Microsoft 提供的多租户 DNS 服务。 Azure 在�
 是的。 可以使用 ASE（应用服务环境）在 VNet 中部署 Web 应用。 如果为 VNet 配置了点到站点连接，Web 应用可以安全地连接和访问 Azure VNet 中的资源。 有关详细信息，请参阅以下文章：
 
 * [将应用与 Azure 虚拟网络进行集成](../app-service-web/web-sites-integrate-with-vnet.md)
-* [将 VNet 集成和混合连接用于 Web 应用](../app-service-web/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
+* [将 VNet 集成和混合连接用于 Web 应用](../app-service-web/web-sites-integrate-with-vnet.md)
+<!-- Not Avaialble hybrid-connections-and-app-service-environments-->
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>是否可以在 VNet 中部署云服务与 Web 和辅助角色 (PaaS)？
 是的。 （可选）可在 VNet 中部署云服务角色实例。 为此，请在服务配置的网络配置部分中指定 VNet 名称和角色/子网映射。 不需要更新任何二进制文件。
@@ -189,7 +190,7 @@ Azure 提供的 DNS 是由 Microsoft 提供的多租户 DNS 服务。 Azure 在�
 是的。 必须将 VMSS 连接到 VNet。
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>是否可以将服务移入和移出 VNet？
-否。 无法将服务移入和移出 VNet。 必须删除并重新部署该服务，以将其移动到另一个 VNet 中。
+否。 不能将服务移入和移出 VNet。 必须删除并重新部署该服务，以将其移动到另一个 VNet 中。
 
 ## <a name="security"></a>“安全”
 
@@ -202,7 +203,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间完�
 ### <a name="can-i-implement-a-firewall-between-vnet-connected-resources"></a>是否可在与 VNet 连接的资源之间实施防火墙？
 可以。 可以通过 Azure 应用商店部署许多供应商提供 [防火墙网络虚拟设备](https://azure.microsoft.com/marketplace/?term=firewall) 。
 
-### <a name="is-there-information-available-about-securing-vnets"></a>你们是否提供了有关保护 VNet 的信息？
+### <a name="is-there-information-available-about-securing-vnets"></a>是否有介绍如何保护 VNet 的信息？
 可以。 有关详细信息，请参阅 [Azure 网络安全概述](../security/security-network-overview.md)一文。
 
 ## <a name="apis-schemas-and-tools"></a>API、架构和工具

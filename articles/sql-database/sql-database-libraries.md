@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 9524208d816dc17d4e510178eb4e74a9d540d7d9
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: dea92acd81410bd5a0ffa6d2d59878a0d6ddb007
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>适用于 Microsoft SQL Server 的连接库和框架
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/28/2017
 | 语言 | 平台 | 其他资源 | 下载 | 入门 |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows、Linux、macOS | [用于 SQL Server 的 Microsoft ADO.NET](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [下载](https://www.microsoft.com/net/download/) | [入门](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows、Linux、macOS | [用于 SQL Server 的 Microsoft JDBC 驱动程序](http://msdn.microsoft.com/library/mt484311.aspx) | [下载](http://go.microsoft.com/fwlink/?LinkId=245496) |  [入门](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| Java | Windows、Linux、macOS | [用于 SQL Server 的 Microsoft JDBC 驱动程序](http://msdn.microsoft.com/library/mt484311.aspx) | [下载](https://go.microsoft.com/fwlink/?linkid=852460) |  [入门](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
 | PHP | Windows、Linux、macOS| [适用于 SQL Server 的 PHP SQL 驱动程序](http://msdn.microsoft.com/library/dn865013.aspx) | 操作系统： <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [入门](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu)
 | Node.js | Windows、Linux、macOS | [用于 SQL Server 的 Node.js 驱动程序](http://msdn.microsoft.com/library/mt652093.aspx) | [安装](https://msdn.microsoft.com/library/mt652094.aspx) |  [入门](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
 | Python | Windows、Linux、macOS | [Python SQL 驱动程序](http://msdn.microsoft.com/library/mt652092.aspx) | 安装选项： <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [入门](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
@@ -58,4 +58,4 @@ ms.lasthandoff: 07/28/2017
 - [使用 Python 连接到 SQL 数据库](sql-database-connect-query-python.md)
 - [使用 Ruby 连接到 SQL 数据库](sql-database-connect-query-ruby.md)
 
-<!--Update_Description: update word & link references : added 'Get Started' column in table, added a new table to display Platform and ORM(s)-->
+<!--Update_Description: update link references-->

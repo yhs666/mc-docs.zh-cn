@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: f18384ef88d5ded320eadb14b57390dd4b336491
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 7e3f561500b6e2b16c9bc3a70196aef13b2312c1
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>使用 REST 在 HDInsight 上通过 Hadoop 运行 MapReduce 作业
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 07/28/2017
 >
 > 对本部分中的命令，请将 **USERNAME** 替换为要对群集进行身份验证的用户，并将 **PASSWORD** 替换为用户帐户的密码。 将 **CLUSTERNAME** 替换为群集名称。
 >
-> REST API 使用 [基本访问身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 应始终使用 HTTPS 发出请求，确保安全地将凭据发送到服务器。
+> REST API 使用 [基本访问身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 应该始终通过使用 HTTPS 来发出请求，以确保安全地将凭据发送到服务器。
 
 1. 在命令行中，使用以下命令验证你是否可以连接到 HDInsight 群集。
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 07/28/2017
 
 4. 在作业的状态更改为 `SUCCEEDED` 后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置。 在本示例中，位置为 `/example/curl`。 此地址在群集默认存储的 `/example/curl` 中存储作业的输出。
 
-使用 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) 可以列出和下载这些文件。 有关从 Azure CLI 中使用 blob 的详细信息，请参阅[将 Azure CLI 2.0 与 Azure 存储配合使用](../storage/storage-azure-cli.md#create-and-manage-blobs)文档。
+使用 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) 可以列出和下载这些文件。 有关从 Azure CLI 中使用 blob 的详细信息，请参阅[将 Azure CLI 2.0 与 Azure 存储配合使用](../storage/common/storage-azure-cli.md#create-and-manage-blobs)文档。
 
 ## <a id="nextsteps"></a>后续步骤
 
@@ -107,10 +107,9 @@ ms.lasthandoff: 07/28/2017
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* 
-            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 
 有关本文中使用的 REST 接口的详细信息，请参阅 [WebHCat Reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference)（WebHCat 参考）。
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: update storage link-->

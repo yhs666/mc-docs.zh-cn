@@ -42,6 +42,7 @@ C# 程序包含：
 >
 
 <a name="cs_1_connect"/>
+
 ### <a name="c-block-1-connect-by-using-adonet"></a>C# 块 1：通过 ADO.NET 进行连接
 
 - [下一步](#cs_2_createtables)
@@ -53,78 +54,82 @@ using System.Data.SqlClient;   // System.Data.dll
 
 namespace csharp_db_test
 {
-   class Program
-   {
-      static void Main(string[] args)
+      class Program
       {
-         try
-         {
-            var cb = new SqlConnectionStringBuilder();
-            cb.DataSource = "your_server.database.chinacloudapi.cn";
-            cb.UserID = "your_user";
-            cb.Password = "your_password";
-            cb.InitialCatalog = "your_database";
-
-            using (var connection = new SqlConnection(cb.ConnectionString))
+            static void Main(string[] args)
             {
-               connection.Open();
+                  try
+                  {
+                        var cb = new SqlConnectionStringBuilder();
+                        cb.DataSource = "your_server.database.chinacloudapi.cn";
+                        cb.UserID = "your_user";
+                        cb.Password = "your_password";
+                        cb.InitialCatalog = "your_database";
 
-               Submit_Tsql_NonQuery(connection, "2 - Create-Tables",
-                  Build_2_Tsql_CreateTables());
+                        using (var connection = new SqlConnection(cb.ConnectionString))
+                        {
+                        connection.Open();
 
-               Submit_Tsql_NonQuery(connection, "3 - Inserts",
-                  Build_3_Tsql_Inserts());
+                        Submit_Tsql_NonQuery(connection, "2 - Create-Tables",
+                              Build_2_Tsql_CreateTables());
 
-               Submit_Tsql_NonQuery(connection, "4 - Update-Join",
-                  Build_4_Tsql_UpdateJoin(),
-                  "@csharpParmDepartmentName", "Accounting");
+                        Submit_Tsql_NonQuery(connection, "3 - Inserts",
+                              Build_3_Tsql_Inserts());
 
-               Submit_Tsql_NonQuery(connection, "5 - Delete-Join",
-                  Build_5_Tsql_DeleteJoin(),
-                  "@csharpParmDepartmentName", "Legal");
+                        Submit_Tsql_NonQuery(connection, "4 - Update-Join",
+                              Build_4_Tsql_UpdateJoin(),
+                              "@csharpParmDepartmentName", "Accounting");
 
-               Submit_6_Tsql_SelectEmployees(connection);
+                        Submit_Tsql_NonQuery(connection, "5 - Delete-Join",
+                              Build_5_Tsql_DeleteJoin(),
+                              "@csharpParmDepartmentName", "Legal");
+
+                        Submit_6_Tsql_SelectEmployees(connection);
+                        }
+                  }
+                  catch (SqlException e)
+                  {
+                        Console.WriteLine(e.ToString());
+                  }
+                  Console.WriteLine("View the report output here, then press any key to end the program...");
+                  Console.ReadKey();
             }
-         }
-         catch (SqlException e)
-         {
-            Console.WriteLine(e.ToString());
-         }
-         Console.WriteLine("View the report output here, then press any key to end the program...");
-         Console.ReadKey();
       }
+
+}
 ```
 
 <a name="cs_2_createtables"/>
+
 ### <a name="c-block-2-t-sql-to-create-tables"></a>C# 块 2：用于创建表的 T-SQL
 
 - [上一步](#cs_1_connect) &nbsp; / &nbsp; [下一步](#cs_3_insert)
 
 ```csharp
-      static string Build_2_Tsql_CreateTables()
-      {
-         return @"
-DROP TABLE IF EXISTS tabEmployee;
-DROP TABLE IF EXISTS tabDepartment;  -- Drop parent table last.
+static string Build_2_Tsql_CreateTables()
+{
+      return @"
+            DROP TABLE IF EXISTS tabEmployee;
+            DROP TABLE IF EXISTS tabDepartment;  -- Drop parent table last.
 
-CREATE TABLE tabDepartment
-(
-   DepartmentCode  nchar(4)          not null
-      PRIMARY KEY,
-   DepartmentName  nvarchar(128)     not null
-);
+            CREATE TABLE tabDepartment
+            (
+            DepartmentCode  nchar(4)          not null
+            PRIMARY KEY,
+            DepartmentName  nvarchar(128)     not null
+            );
 
-CREATE TABLE tabEmployee
-(
-   EmployeeGuid    uniqueIdentifier  not null  default NewId()
-      PRIMARY KEY,
-   EmployeeName    nvarchar(128)     not null,
-   EmployeeLevel   int               not null,
-   DepartmentCode  nchar(4)              null
-      REFERENCES tabDepartment (DepartmentCode)  -- (REFERENCES would be disallowed on temporary tables.)
-);
-";
-      }
+            CREATE TABLE tabEmployee
+            (
+            EmployeeGuid    uniqueIdentifier  not null  default NewId()
+            PRIMARY KEY,
+            EmployeeName    nvarchar(128)     not null,
+            EmployeeLevel   int               not null,
+            DepartmentCode  nchar(4)              null
+            REFERENCES tabDepartment (DepartmentCode)  -- (REFERENCES would be disallowed on temporary tables.)
+            );
+            ";
+}
 ```
 
 #### <a name="entity-relationship-diagram-erd"></a>实体关系图 (ERD)
@@ -136,115 +141,120 @@ CREATE TABLE tabEmployee
 ![ERD，显示外键](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
 <a name="cs_3_insert"/>
+
 ### <a name="c-block-3-t-sql-to-insert-data"></a>C# 块 3：用于插入数据的 T-SQL
 
 - [上一步](#cs_2_createtables) &nbsp; / &nbsp; [下一步](#cs_4_updatejoin)
 
 ```csharp
-      static string Build_3_Tsql_Inserts()
-      {
-         return @"
--- The company has these departments.
-INSERT INTO tabDepartment
-   (DepartmentCode, DepartmentName)
-      VALUES
-   ('acct', 'Accounting'),
-   ('hres', 'Human Resources'),
-   ('legl', 'Legal');
+static string Build_3_Tsql_Inserts()
+{
+      return @"
+            -- The company has these departments.
+            INSERT INTO tabDepartment
+            (DepartmentCode, DepartmentName)
+            VALUES
+            ('acct', 'Accounting'),
+            ('hres', 'Human Resources'),
+            ('legl', 'Legal');
 
--- The company has these employees, each in one department.
-INSERT INTO tabEmployee
-   (EmployeeName, EmployeeLevel, DepartmentCode)
-      VALUES
-   ('Alison'  , 19, 'acct'),
-   ('Barbara' , 17, 'hres'),
-   ('Carol'   , 21, 'acct'),
-   ('Deborah' , 24, 'legl'),
-   ('Elle'    , 15, null);
-";
-      }
+            -- The company has these employees, each in one department.
+            INSERT INTO tabEmployee
+            (EmployeeName, EmployeeLevel, DepartmentCode)
+            VALUES
+            ('Alison'  , 19, 'acct'),
+            ('Barbara' , 17, 'hres'),
+            ('Carol'   , 21, 'acct'),
+            ('Deborah' , 24, 'legl'),
+            ('Elle'    , 15, null);
+            ";
+}
 ```
 
 <a name="cs_4_updatejoin"/>
+
 ### <a name="c-block-4-t-sql-to-update-join"></a>C# 块 4：用于更新-联接的 T-SQL
 
 - [上一步](#cs_3_insert) &nbsp; / &nbsp; [下一步](#cs_5_deletejoin)
 
 ```csharp
-      static string Build_4_Tsql_UpdateJoin()
-      {
-         return @"
-DECLARE @DName1  nvarchar(128) = @csharpParmDepartmentName;  --'Accounting';
+static string Build_4_Tsql_UpdateJoin()
+{
+      return @"
+            DECLARE @DName1  nvarchar(128) = @csharpParmDepartmentName;  --'Accounting';
 
--- Promote everyone in one department (see @parm...).
-UPDATE empl
-   SET
-      empl.EmployeeLevel += 1
-   FROM
-      tabEmployee   as empl
-      INNER JOIN
-      tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
-   WHERE
-      dept.DepartmentName = @DName1;
-";
-      }
+            -- Promote everyone in one department (see @parm...).
+            UPDATE empl
+            SET
+            empl.EmployeeLevel += 1
+            FROM
+            tabEmployee   as empl
+            INNER JOIN
+            tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
+            WHERE
+            dept.DepartmentName = @DName1;
+            ";
+}
 ```
 
 <a name="cs_5_deletejoin"/>
+
 ### <a name="c-block-5-t-sql-to-delete-join"></a>C# 块 5：用于删除-联接的 T-SQL
 
 - [上一步](#cs_4_updatejoin) &nbsp; / &nbsp; [下一步](#cs_6_selectrows)
 
 ```csharp
-      static string Build_5_Tsql_DeleteJoin()
-      {
-         return @"
-DECLARE @DName2  nvarchar(128);
-SET @DName2 = @csharpParmDepartmentName;  --'Legal';
+static string Build_5_Tsql_DeleteJoin()
+{
+      return @"
+            DECLARE @DName2  nvarchar(128);
+            SET @DName2 = @csharpParmDepartmentName;  --'Legal';
 
--- Right size the Legal department.
-DELETE empl
-   FROM
-      tabEmployee   as empl
-      INNER JOIN
-      tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
-   WHERE
-      dept.DepartmentName = @DName2
+            -- Right size the Legal department.
+            DELETE empl
+            FROM
+            tabEmployee   as empl
+            INNER JOIN
+            tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
+            WHERE
+            dept.DepartmentName = @DName2
 
--- Disband the Legal department.
-DELETE tabDepartment
-   WHERE DepartmentName = @DName2;
-";
-      }
+            -- Disband the Legal department.
+            DELETE tabDepartment
+            WHERE DepartmentName = @DName2;
+            ";
+}
 ```
 
 <a name="cs_6_selectrows"/>
+
 ### <a name="c-block-6-t-sql-to-select-rows"></a>C# 块 6：用于选择行的 T-SQL
 
 - [上一步](#cs_5_deletejoin) &nbsp; / &nbsp; [下一步](#cs_6b_datareader)
 
 ```csharp
-      static string Build_6_Tsql_SelectEmployees()
-      {
-         return @"
--- Look at all the final Employees.
-SELECT
-      empl.EmployeeGuid,
-      empl.EmployeeName,
-      empl.EmployeeLevel,
-      empl.DepartmentCode,
-      dept.DepartmentName
-   FROM
-      tabEmployee   as empl
-      LEFT OUTER JOIN
-      tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
-   ORDER BY
-      EmployeeName;
-";
-      }
+static string Build_6_Tsql_SelectEmployees()
+{
+      return @"
+            -- Look at all the final Employees.
+            SELECT
+            empl.EmployeeGuid,
+            empl.EmployeeName,
+            empl.EmployeeLevel,
+            empl.DepartmentCode,
+            dept.DepartmentName
+            FROM
+            tabEmployee   as empl
+            LEFT OUTER JOIN
+            tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
+            ORDER BY
+            EmployeeName;
+            ";
+}
 ```
 
 <a name="cs_6b_datareader"/>
+
 ### <a name="c-block-6b-executereader"></a>C# 块 6b：ExecuteReader
 
 - [上一步](#cs_6_selectrows) &nbsp; / &nbsp; [下一步](#cs_7_executenonquery)
@@ -252,33 +262,34 @@ SELECT
 此方法旨在运行 T-SQL SELECT 语句，该语句通过 **Build_6_Tsql_SelectEmployees** 方法生成。
 
 ```csharp
-      static void Submit_6_Tsql_SelectEmployees(SqlConnection connection)
+static void Submit_6_Tsql_SelectEmployees(SqlConnection connection)
+{
+      Console.WriteLine();
+      Console.WriteLine("=================================");
+      Console.WriteLine("Now, SelectEmployees (6)...");
+
+      string tsql = Build_6_Tsql_SelectEmployees();
+
+      using (var command = new SqlCommand(tsql, connection))
       {
-         Console.WriteLine();
-         Console.WriteLine("=================================");
-         Console.WriteLine("Now, SelectEmployees (6)...");
-
-         string tsql = Build_6_Tsql_SelectEmployees();
-
-         using (var command = new SqlCommand(tsql, connection))
-         {
             using (SqlDataReader reader = command.ExecuteReader())
             {
-               while (reader.Read())
-               {
+                  while (reader.Read())
+                  {
                   Console.WriteLine("{0} , {1} , {2} , {3} , {4}",
-                     reader.GetGuid(0),
-                     reader.GetString(1),
-                     reader.GetInt32(2),
-                     (reader.IsDBNull(3)) ? "NULL" : reader.GetString(3),
-                     (reader.IsDBNull(4)) ? "NULL" : reader.GetString(4));
-               }
+                        reader.GetGuid(0),
+                        reader.GetString(1),
+                        reader.GetInt32(2),
+                        (reader.IsDBNull(3)) ? "NULL" : reader.GetString(3),
+                        (reader.IsDBNull(4)) ? "NULL" : reader.GetString(4));
+                  }
             }
-         }
       }
+}
 ```
 
 <a name="cs_7_executenonquery"/>
+
 ### <a name="c-block-7-executenonquery"></a>C# 块 7：ExecuteNonQuery
 
 - [上一步](#cs_6b_datareader) &nbsp; / &nbsp; [下一步](#cs_8_output)
@@ -286,35 +297,28 @@ SELECT
 如果操作需修改表的数据内容而不返回任何数据行，则会调用此方法。
 
 ```csharp
-      static void Submit_Tsql_NonQuery(
-         SqlConnection connection,
-         string tsqlPurpose,
-         string tsqlSourceCode,
-         string parameterName = null,
-         string parameterValue = null
-         )
-      {
-         Console.WriteLine();
-         Console.WriteLine("=================================");
-         Console.WriteLine("T-SQL to {0}...", tsqlPurpose);
+static void Submit_Tsql_NonQuery(SqlConnection connection, string tsqlPurpose, string tsqlSourceCode, string parameterName = null, string parameterValue = null)
+{
+      Console.WriteLine();
+      Console.WriteLine("=================================");
+      Console.WriteLine("T-SQL to {0}...", tsqlPurpose);
 
-         using (var command = new SqlCommand(tsqlSourceCode, connection))
-         {
+      using (var command = new SqlCommand(tsqlSourceCode, connection))
+      {
             if (parameterName != null)
             {
-               command.Parameters.AddWithValue(  // Or, use SqlParameter class.
+                  command.Parameters.AddWithValue(  // Or, use SqlParameter class.
                   parameterName,
                   parameterValue);
             }
-            int rowsAffected = command.ExecuteNonQuery();
-            Console.WriteLine(rowsAffected + " = rows affected.");
-         }
+      int rowsAffected = command.ExecuteNonQuery();
+      Console.WriteLine(rowsAffected + " = rows affected.");
       }
-   } // EndOfClass
-}
+} // EndOfClass
 ```
 
 <a name="cs_8_output"/>
+
 ### <a name="c-block-8-actual-test-output-to-the-console"></a>C# 块 8：控制台的实际测试输出
 
 - [上一步](#cs_7_executenonquery)

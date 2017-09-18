@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 07/05/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 9e2c9c6bdec96ce1eb3343e8ae8b0e62c4321a55
-ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
+ms.openlocfilehash: c076bb0dcbfe69122686b0deef70aea3cc03656b
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>创建并管理 Azure SQL 数据库服务器和数据库
 
@@ -63,7 +63,7 @@ Azure 数据库逻辑服务器：
 - 是数据库、弹性池和数据仓库的父资源
 - 为数据库、弹性池和数据仓库提供命名空间
 - 是具有强生存期语义的逻辑容器。也就是说，删除服务器也会随之删除包含的数据库、弹性池和数据仓库
-- 参与 [Azure 基于角色的访问控制 (RBAC)](/active-directory/role-based-access-control-what-is.md)。也就是说，服务器中的数据库、弹性池和数据库从服务器继承访问权限
+- 参与 [Azure 基于角色的访问控制 (RBAC)](/active-directory/role-based-access-control-what-is)。也就是说，服务器中的数据库、弹性池和数据库从服务器继承访问权限
 - 是位置靠前的数据库、弹性池和数据仓库标识元素，用于管理 Azure 资源（请参阅“数据库和池的 URL 方案”）
 - 在区域中并置资源
 - 为数据库访问提供连接终结点 (<serverName>.database.chinacloudapi.cn)

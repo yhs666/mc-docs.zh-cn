@@ -15,17 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 1d0b619632358e841d8b66f7c3875568b9930fa0
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 259ace0718479052b4c1b9b2cc91f3095c35194e
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/11/2017
 ---
-# <a name="monitor-and-scale-a-single-sql-database-using-powershell"></a>使用 PowerShell 监视和缩放单个 SQL 数据库
+# <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>使用 PowerShell 监视和缩放单个 SQL 数据库
 
-此 PowerShell 脚本示例监视数据库的性能指标，将数据库缩放为实现更高性能级别，并根据性能指标之一创建预警规则。 
+以下 PowerShell 脚本示例监视数据库的性能指标，将数据库缩放为实现更高性能级别，并根据性能指标之一创建警报规则。 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

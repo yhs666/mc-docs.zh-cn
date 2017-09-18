@@ -1,6 +1,6 @@
 ---
 title: "运行 HDInsight 上的 Hadoop MapReduce 示例 - Azure | Azure"
-description: "开始使用 HDInsight 包含的 jar 文件中的 MapReduce 示例。 使用 SSH 连接到群集，然后使用 Hadoop 命令来运行示例作业。"
+description: "开始使用 HDInsight 包含的 jar 文件中的 MapReduce 示例。 使用 SSH 连接到群集，然后使用 Hadoop 命令运行示例作业。"
 keywords: "hadoop 示例 jar,hadoop 示例 jar,hadoop mapreduce 示例,mapreduce 示例"
 services: hdinsight
 documentationcenter: 
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 94a48c81df8b8360c9e20c82dd5ceb19b6717301
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 3b43d36fffc5ef9d9821b66112d461eb7bb768ae
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>运行 HDInsight 包含的 MapReduce 示例
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 07/28/2017
 **Source code**：这些示例的源代码包含在 `/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples` 处的 HDInsight 群集上。
 
 > [!NOTE]
-> 路径中的 `2.2.4.9-1` 是 HDInsight 群集的 Hortonworks 数据平台的版本，对于你的群集，该版本可能会不同。
+> 路径中的 `2.2.4.9-1` 是 HDInsight 群集的 Hortonworks 数据平台的版本，对于群集，该版本可能会不同。
 
 ## <a name="run-the-wordcount-example"></a>运行 wordcount 示例
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 07/28/2017
     将从 `/example/data/gutenberg/davinci.txt` 读取此作业的输入。 此示例的输出存储于 `/example/data/davinciwordcount` 中。 两个路径皆位于群集的默认存储，而不是本地文件系统。
 
    > [!NOTE]
-   > 如字数统计示例帮助中所述，你还可以指定多个输入文件。 例如， `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` 会计算 davinci.txt 和 ulysses.txt 中单词的数目。
+   > 如字数统计示例帮助中所述，还可以指定多个输入文件。 例如， `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` 会计算 davinci.txt 和 ulysses.txt 中单词的数目。
 
 5. 作业完成后，使用以下命令查看输出：
 
@@ -187,13 +187,13 @@ GraySort 是一种基准排序。 该指标是在给大量数据（通常至少 
 
 * **TeraSort**：以输入数据为例，使用 MapReduce 将数据排序到总序中
 
-    TeraSort 是标准的 MapReduce 排序，但自定义的分区程序除外。 此分区程序使用 N-1 个抽样键（用于定义每次简化的键范围）的排序列表。 具体说来，sample[i-1] <= key < sample[i] 的所有键都将会发送到化简变量 i。 此分区程序可确保化简变量 i 的输出全都小于化简变量 i+1 的输出。
+    TeraSort 是标准的 MapReduce 排序，但自定义的分区程序除外。 此分区程序使用 N-1 个抽样键（用于定义每次简化的键范围）的排序列表。 具体说来，sample[i-1] <= key < sample[i] 的所有键都会发送到化简变量 i。 此分区程序可确保化简变量 i 的输出全都小于化简变量 i+1 的输出。
 
 * **TeraValidate**：一个 MapReduce 程序，用于验证输出是否已全局排序
 
     它在输出目录中对于每个文件创建一个映射，每个映射都确保每个键均小于或等于前一个键。 此映射函数生成每个文件第一个和最后一个键的记录。 化简函数确保文件 i 的第一个键大于文件 i-1 的最后一个键。 任何问题都会报告为包含故障键的化简阶段的输出结果。
 
-使用以下步骤来生成数据，排序，然后对输出进行验证：
+使用以下步骤来生成数据，排序，并对输出进行验证：
 
 1. 生成 10 GB 数据，这些数据被存储到 HDInsight 群集在 `/example/data/10GB-sort-input` 处的默认存储：
 
@@ -201,7 +201,7 @@ GraySort 是一种基准排序。 该指标是在给大量数据（通常至少 
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
     ```
 
-    `-Dmapred.map.tasks` 告诉 Hadoop 多少个映射任务用于此作业。 最后两个参数指示作业创建 10 GB 大小的数据并将其存储在 `/example/data/10GB-sort-input` 处。
+    `-Dmapred.map.tasks` 告诉 Hadoop 多少个映射任务用于此作业。 最后两个参数指示作业创建 10 GB 数据并将其存储在 `/example/data/10GB-sort-input` 处。
 
 2. 使用以下命令对数据排序：
 
@@ -219,13 +219,12 @@ GraySort 是一种基准排序。 该指标是在给大量数据（通常至少 
 
 ## <a name="next-steps"></a>后续步骤
 
-在本文中，你学习了如何运行基于 Linux 的 HDInsight 群集附带的示例。 有关将 Pig、Hive 和 MapReduce 用于 HDInsight 的教程，请参阅以下主题：
+在本文中，学习了如何运行基于 Linux 的 HDInsight 群集附带的示例。 有关 Pig、Hive 和 MapReduce 如何与 HDInsight 配合使用的教程，请参阅以下主题：
 
-* [将 Pig 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-pig]
-* [将 Hive 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-hive]
-* [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-mapreduce]
+* [将 Pig 与 Hadoop on HDInsight 配合使用][hdinsight-use-pig]
+* [将 Hive 与 Hadoop on HDInsight 配合使用][hdinsight-use-hive]
+* [将 MapReduce 与 Hadoop on HDInsight 配合使用][hdinsight-use-mapreduce]
 
-[hdinsight-errors]: hdinsight-debug-jobs.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 

@@ -16,11 +16,11 @@ origin.date: 06/08/2017
 ms.date: 06/29/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8589b22e106b4ac69852a221b81800a29a018b61
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 2c9ac084b8fbac0cd88ccc4182a0ab3f2228b783
+ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>使用 AzureRM.RecoveryServices.Backup cmdlet 来备份虚拟机
 > [!div class="op_single_selector"]
@@ -36,10 +36,10 @@ ms.lasthandoff: 07/14/2017
 >
 >
 
-本文将逐步指导用户使用 PowerShell 来保护 VM，以及从恢复点还原数据。
+本文逐步指导用户使用 PowerShell 来保护 VM，以及从恢复点还原数据。
 
 ## <a name="concepts"></a>概念
-如果你不熟悉 Azure 备份服务，请查看[什么是 Azure 备份？](backup-introduction-to-azure-backup.md)，即可大致了解该服务。 在开始之前，请确保你已掌握与系统必备组件相关的基础知识（这些必备组件是使用 Azure 备份所必需的），并了解当前 VM 备份解决方案的限制。
+如果不熟悉 Azure 备份服务，请查看[什么是 Azure 备份？](backup-introduction-to-azure-backup.md)，即可大致了解该服务。 在开始之前，请确保已掌握与系统必备组件相关的基础知识（这些必备组件是使用 Azure 备份所必需的），并了解当前 VM 备份解决方案的限制。
 
 若要有效地使用 PowerShell，必须了解对象的层次结构以及从何处开始。
 
@@ -98,14 +98,14 @@ Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      Az
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
-以下步骤将引导用户创建恢复服务保管库。 恢复服务保管库不同于备份保管库。
+以下步骤引导用户创建恢复服务保管库。 恢复服务保管库不同于备份保管库。
 
 1. 如果你是首次使用 Azure 备份，必须使用 **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet 将 Azure 恢复服务提供程序注册到订阅。
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-2. 恢复服务保管库是一种 Resource Manager 资源，因此需要将它放在资源组中。 你可以使用现有的资源组，也可以使用 **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)** cmdlet 创建资源组。 创建资源组时，请指定资源组的名称和位置。  
+2. 恢复服务保管库是一种 Resource Manager 资源，因此需要将它放在资源组中。 可以使用现有的资源组，也可以使用 **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)** cmdlet 创建资源组。 创建资源组时，请指定资源组的名称和位置。  
 
     ```
     PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "China North"
@@ -115,7 +115,7 @@ Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      Az
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "China North"
     ```
-4. 指定要使用的存储冗余类型；你可以使用[本地冗余存储 (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) 或[异地冗余存储 (GRS)](../storage/storage-redundancy.md#geo-redundant-storage)。 以下示例显示，testvault 的 -BackupStorageRedundancy 选项设置为 GeoRedundant。
+4. 指定要使用的存储冗余类型；可以使用[本地冗余存储 (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) 或[异地冗余存储 (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage)。 以下示例显示，testvault 的 -BackupStorageRedundancy 选项设置为 GeoRedundant。
 
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testvault"
@@ -155,7 +155,7 @@ PS C:\> Get-AzureRmRecoveryServicesVault -Name "testvault" | Set-AzureRmRecovery
 ```
 
 ### <a name="create-a-protection-policy"></a>创建保护策略
-在创建恢复服务保管库时，它附带了默认的保护和保留策略。 默认保护策略在每天的指定时间触发备份作业。 默认保留策略将每日恢复点保留 30 天。 可以使用默认策略快速保护你的 VM，以后再使用不同的详细信息编辑该策略。
+在创建恢复服务保管库时，它附带了默认的保护和保留策略。 默认保护策略在每天的指定时间触发备份作业。 默认保留策略将每日恢复点保留 30 天。 可以使用默认策略快速保护 VM，以后再使用不同的详细信息编辑该策略。
 
 若要查看保管库中的保护策略，请使用 **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupprotectionpolicy)**。 可以使用此 cmdlet 获取特定策略，或者查看与某个工作负荷类型关联的策略。 以下示例获取适用于工作负荷类型 AzureVM 的策略。
 
@@ -167,7 +167,7 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 ```
 
 > [!NOTE]
-> PowerShell 中 BackupTime 字段的时区是 UTC。 但是，在 Azure 门户中显示备份时间时，时间将根据本地时区调整。
+> PowerShell 中 BackupTime 字段的时区是 UTC。 但是，在 Azure 门户中显示备份时间时，时间根据本地时区调整。
 >
 >
 
@@ -238,7 +238,7 @@ V2VM              Backup               InProgress            4/23/2016 5:00:30 P
 ```
 
 > [!NOTE]
-> PowerShell 中 StartTime 和 EndTime 字段的时区是 UTC。 但是，在 Azure 门户中显示时间时，时间将根据本地时区调整。
+> PowerShell 中 StartTime 和 EndTime 字段的时区是 UTC。 但是，在 Azure 门户中显示时间时，时间根据本地时区调整。
 >
 >
 
@@ -281,7 +281,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 若要还原备份数据，请确定已备份项目以及保留了时间点数据的恢复点。 使用 **[Restore-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)** cmdlet 将数据从保管库还原到客户的帐户。
 
 ### <a name="select-the-vm"></a>选择 VM
-若要获取用于标识正确备份项的 PowerShell 对象，请从保管库中的容器开始，按对象层次结构进行操作。 若要选择代表 VM 的容器，请使用 **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** cmdlet，然后通过管道将其传递给 **[Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)** cmdlet。
+若要获取用于标识正确备份项的 PowerShell 对象，请从保管库中的容器开始，按对象层次结构进行操作。 要选择代表 VM 的容器，请使用 **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** cmdlet，然后通过管道将其传递给 **[Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)** cmdlet。
 
 ```
 PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"

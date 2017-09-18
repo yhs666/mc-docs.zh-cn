@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 7ac41b6025b7e524f19cabed07d67db139c25544
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 08/14/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: e8ce38c57d80e552e3cebd30428a122922e81fd4
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>将 Apache Mahout 与 HDInsight (PowerShell) 中的 Hadoop 配合使用生成电影推荐
 
@@ -176,9 +176,9 @@ Get-AzureStorageBlobContent -blob "HdiSamples/HdiSamples/MahoutMovieData/user-ra
 ```
 
 > [!NOTE]
-> Mahout 作业不删除在处理作业时创建的临时数据。 在示例作业中指定 `--tempDir` 参数，以将临时文件隔离到特定目录中。
+> Mahout 作业不删除在处理作业时创建的临时数据。 在示例作业中指定 `--tempDir` 参数，将临时文件隔离到特定目录中。
 
-Mahout 作业不会将输出返回到 STDOUT。 而是会将其作为 **part-r-00000**存储在指定的输出目录中。 该脚本将此文件下载到工作站上的当前目录中的 **output.txt** 中。
+Mahout 作业不会将输出返回到 STDOUT。 而是会将其作为 **part-r-00000** 存储在指定的输出目录中。 该脚本将此文件下载到工作站上的当前目录中的 **output.txt** 中。
 
 以下文本是此文件内容的示例：
 
@@ -404,3 +404,4 @@ foreach($blob in $blobs)
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
+<!--Update_Description: update metadata-->

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/03/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: f8cd89de1166d697f867b2f54ae77869f681f291
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 07/31/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: ef1f7a066ff2b8b09e38dcaa79db0d5f37bd45da
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>通过 SSH 将 MapReduce 与 HDInsight 上的 Hadoop 配合使用
 
@@ -45,11 +45,15 @@ ms.lasthandoff: 07/28/2017
 
 使用 SSH 连接到群集。 例如，以下命令将连接到名为 **myhdinsight** 的群集：
 
-    ssh admin@myhdinsight-ssh.azurehdinsight.cn
+```bash
+ssh admin@myhdinsight-ssh.azurehdinsight.cn
+```
 
 **如果使用用于 SSH 身份验证的证书密钥**，则可能需要指定客户端系统上的私钥位置，例如：
 
-    ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.cn
+```bash
+ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.cn
+```
 
 **如果使用用于 SSH 身份验证的密码**，则需要根据提示提供密码。
 
@@ -92,7 +96,7 @@ ms.lasthandoff: 07/28/2017
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    此命令会显示 **wasbs://example/data/gutenberg/davinci.txt** 文件中包含的单词以及每个单词出现的次数的列表。 以下文本是文件中所含数据的示例：
+    此命令会显示一个列表，其内容为 wasb://example/data/gutenberg/davinci.txt 文件中包含的单词以及每个单词出现的次数。 以下文本是文件中所含数据的示例：
 
         wreathed        3
         wreathing       1
@@ -114,6 +118,6 @@ ms.lasthandoff: 07/28/2017
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* 
-            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
+<!--Update_Description: update code type and change 'wasbs' into 'wasb'-->

@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/16/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 391fa41e2a698459ab41c8ff6e8c2fd839607d61
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 6766b0d0d502c2374435fa1c60617701beea6b5c
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="run-hive-queries-using-powershell"></a>使用 PowerShell 运行 Hive 查询
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/28/2017
 本文档提供使用 Azure 资源组模式中的 Azure PowerShell 在 HDInsight 群集上的 Hadoop 中运行 Hive 查询的示例。
 
 > [!NOTE]
-> 本文档未详细描述示例中使用的 HiveQL 语句的作用。 有关此示例中使用的 HiveQL 的信息，请参阅 [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)。
+> 本文档未详细描述示例中使用的 HiveQL 语句的作用。 有关此示例中使用的 HiveQL 的信息，请参阅[将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)。
 
 **先决条件**
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="run-hive-queries-using-azure-powershell"></a>使用 Azure PowerShell 运行 Hive 查询
 
-Azure PowerShell 提供 *cmdlet* ，可让你在 HDInsight 上远程运行 Hive 查询。 cmdlet 在内部对 HDInsight 群集上的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) 进行 REST 调用。
+Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 Hive 查询。 cmdlet 在内部对 HDInsight 群集上的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) 进行 REST 调用。
 
 在远程 HDInsight 群集上运行 Hive 查询时，使用以下 Cmdlet：
 
@@ -153,9 +153,9 @@ Azure PowerShell 提供 *cmdlet* ，可让你在 HDInsight 上远程运行 Hive 
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
    > [!NOTE]
-   > 对于较长的 HiveQL 查询，可以使用 Azure PowerShell **Here-Strings** cmdlet 或 HiveQL 脚本文件。 以下代码段显示了如何使用 **Invoke-Hive** cmdlet 来运行 HiveQL 脚本文件。 必须将 HiveQL 脚本文件上传到 wasb://。
+   > 对于较长的 HiveQL 查询，可以使用 Azure PowerShell **Here-Strings** cmdlet 或 HiveQL 脚本文件。 以下代码段显示了如何使用 **Invoke-Hive** cmdlet 来运行 HiveQL 脚本文件。 HiveQL 脚本文件必须上传到 wasb://。
    >
-   > `Invoke-AzureRmHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+   > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
    > 有关 **Here-Strings** 的详细信息，请参阅<a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">使用 Windows PowerShell Here-Strings</a>。
 
@@ -182,10 +182,10 @@ Get-AzureRmHDInsightJobOutput `
 
 有关 HDInsight 中的 Hive 的一般信息：
 
-* 
-            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
+<!--Update_Description: change 'wasbs' into 'wasb'-->

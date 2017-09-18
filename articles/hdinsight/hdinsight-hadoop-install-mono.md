@@ -12,15 +12,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/01/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
+origin.date: 07/31/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ms.custom: hdinsightactive
-ms.openlocfilehash: a2077f892e15890fd90d8c003b47ca633cc41369
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: e618c1e18145c3ac67318864b4c515bce5918d07
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>在 HDInsight 上安装或更新 Mono
 
@@ -69,3 +69,4 @@ __要求__：
 * [将 .NET 解决方案迁移到基于 Linux 的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 
 有关使用脚本操作的详细信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)
+<!--Update_Description: update metadata-->

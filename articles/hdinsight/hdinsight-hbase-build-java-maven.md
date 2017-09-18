@@ -1,6 +1,6 @@
 ---
 title: "为基于 Windows 的 Azure HDInsight 构建 Java HBase 应用程序 | Azure"
-description: "了解如何使用 Apache Maven 构建基于 Java 的 Apache HBase 应用程序，然后将其部署到基于 Windows 的 Azure HDInsight 群集。"
+description: "了解如何使用 Apache Maven 构建基于 Java 的 Apache HBase 应用程序，并将其部署到基于 Windows 的 Azure HDInsight 群集。"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/05/2017
-ms.date: 03/10/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4ec52ec5b5654456fe569c0180cab9536b7a60f3
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 8a426ca0de8fd4830c6baa3bada49d7321925329
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>借助 Maven 构建可将 HBase 与基于 Windows 的 HDInsight (Hadoop) 配合使用的 Java 应用程序
 了解如何通过使用 Apache Maven 在 Java 中创建和构建 [Apache HBase](http://hbase.apache.org/) 应用程序。 然后，将该应用程序用于 Azure HDInsight (Hadoop)。
@@ -133,7 +133,7 @@ ms.lasthandoff: 07/28/2017
     `<resources>` 部分将配置包含与 HBase 有关的配置信息的资源 (conf\hbase-site.xml)。
 
    > [!NOTE]
-   > 你也可以通过代码设置配置值。 有关如何完成此操作的说明，请参阅所采用的 **CreateTable** 示例中的注释。
+   > 也可以通过代码设置配置值。 有关如何完成此操作的说明，请参阅所采用的 **CreateTable** 示例中的注释。
    >
    >
 
@@ -190,7 +190,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="create-the-application"></a>创建应用程序
 1. 转到 hbaseapp\src\main\java\com\microsoft\examples 目录，然后将 app.java 文件重命名为 CreateTable.java。
-2. 打开 **CreateTable.java** 文件，将现有内容替换为以下代码：
+2. 打开 **CreateTable.java** 文件，并将现有内容替换为以下代码：
 
         package com.microsoft.examples;
         import java.io.IOException;
@@ -331,7 +331,7 @@ ms.lasthandoff: 07/28/2017
           }
         }
 
-    **SearchByEmail** 类可用于按电子邮件地址查询行。 由于它使用正则表达式筛选器，因此，你可以在使用类时提供字符串或正则表达式。
+    **SearchByEmail** 类可用于按电子邮件地址查询行。 由于它使用正则表达式筛选器，因此，可以在使用类时提供字符串或正则表达式。
 5. 保存 **SearchByEmail.java** 文件。
 6. 在 hbaseapp\src\main\hava\com\microsoft\examples 目录中，创建名为 DeleteTable.java 的新文件。 使用以下代码作为此文件的内容：
 
@@ -364,7 +364,7 @@ ms.lasthandoff: 07/28/2017
 
         mvn clean package
 
-    这将清除任何以前构建的项目，下载任何尚未安装的依赖项，然后构建和打包应用程序。
+    这将清除任何以前构建的项目，下载任何尚未安装的依赖项，并构建和打包应用程序。
 3. 完成该命令后，hbaseapp/target 目录将包含名为 hbaseapp-1.0-SNAPSHOT.jar 的文件。
 
    > [!NOTE]
@@ -427,7 +427,7 @@ ms.lasthandoff: 07/28/2017
         $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
 
         # The JAR
-        $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
+        $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
         # The job definition
         $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -581,7 +581,7 @@ ms.lasthandoff: 07/28/2017
 
         PS C:\ Import-Module c:\path\to\hbase-runner.psm1
 
-    将路径切换到前面创建的 **hbase-runner.psm1** 文件所在的位置。 这将为此 Azure PowerShell 会话注册模块。
+    将路径切换到前面创建的 **hbase-runner.psm1** 文件所在的位置。 这会为此 Azure PowerShell 会话注册模块。
 4. 使用以下命令将 **hbaseapp-1.0-SNAPSHOT.jar** 上传到 HDInsight 群集。
 
         Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
@@ -600,7 +600,7 @@ ms.lasthandoff: 07/28/2017
 
     将 **hdinsightclustername** 替换为 HDInsight 群集的名称。
 
-    此命令使用 **SearchByEmail** 类搜索任何 **contactinformation** 列系列和 **email** 列包含字符串 **contoso.com** 的行。 你应该会收到以下结果：
+    此命令使用 **SearchByEmail** 类搜索任何 **contactinformation** 列系列和 **email** 列包含字符串 **contoso.com** 的行。应该会收到以下结果：
 
           Franklin Holtz - ID: 2
           Franklin Holtz - franklin@contoso.com - ID: 2
@@ -621,3 +621,4 @@ ms.lasthandoff: 07/28/2017
 ## <a name="troubleshooting"></a>故障排除
 ### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>使用 Start-HBaseExample 时无结果或意外结果
 使用 `-showErr` 参数可查看运行作业时生成的标准错误 (STDERR)。
+<!--Update_Description: change 'wasbs' into 'wasb'-->

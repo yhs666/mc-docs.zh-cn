@@ -16,11 +16,11 @@ origin.date: 06/16/2017
 ms.date: 07/03/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b14f844cff52a5fb701815bbde74a798d52e9ea
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 3f4200d4795fc2cb0bd66c5ae142bb604c4bb025
+ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net-to-persist"></a>使用适用于 .NET 的 Batch 文件约定库将作业和任务数据持久保存到 Azure 存储 
 
@@ -68,10 +68,10 @@ Azure Batch 提供多种持久保存任务输出的方式。 文件约定库最�
 
 若要使用文件约定库来持久保存作业和任务输出数据，请在 Azure 存储中创建一个容器，然后将输出保存到该容器。 在任务代码中使用[适用于 .NET 的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage)，将任务输出上传到容器。 
 
-若要详细了解如何在 Azure 存储中使用容器和 Blob，请参阅[通过 .NET 使用 Azure Blob 存储入门](../storage/storage-dotnet-how-to-use-blobs.md)。
+若要详细了解如何在 Azure 存储中使用容器和 Blob，请参阅[通过 .NET 使用 Azure Blob 存储入门](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。
 
 > [!WARNING]
-> 使用文件约定库持久保存的所有作业和任务输出都存储在同一容器中。 如果大量任务同时尝试持久保存文件，则可能会强制实施[存储限制](../storage/storage-performance-checklist.md#blobs)。
+> 使用文件约定库持久保存的所有作业和任务输出都存储在同一容器中。 如果大量任务同时尝试持久保存文件，则可能会强制实施[存储限制](../storage/common/storage-performance-checklist.md#blobs)。
 > 
 > 
 
@@ -116,7 +116,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 
 [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) 方法的 `kind` 参数可以将持久保存的文件分类。 有四种预定义的 [TaskOutputKind][net_taskoutputkind] 类型：`TaskOutput`、`TaskPreview`、`TaskLog`、`TaskIntermediate.`也可定义输出的自定义类别。
 
-以后在 Batch 中查询给定任务的已保存输出时，可以使用这些输出类型来指定要列出哪种类型的输出。 换而言之，当你列出某个任务的输出时，可以根据某种输出类型来筛选列表。 例如，“列出任务 *109* 的预览输出。” 本文稍后的[检索输出](#retrieve-output)部分中会详细介绍如何列出和检索输出。
+以后在 Batch 中查询给定任务的已保存输出时，可以使用这些输出类型来指定要列出哪种类型的输出。 换而言之，列出某个任务的输出时，可以根据某种输出类型来筛选列表。 例如，“列出任务 *109* 的预览输出。” 本文稍后的[检索输出](#retrieve-output)部分中会详细介绍如何列出和检索输出。
 
 > [!TIP]
 > 输出类型还决定了特定的文件显示在 Azure 门户中的哪个位置：TaskOutput 类别的文件显示在“任务输出文件”下，TaskLog 文件显示在“任务日志”下。
@@ -125,7 +125,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 
 ### <a name="store-job-outputs"></a>存储作业输出
 
-除了存储任务输出以外，你还可以存储与整个作业关联的输出。 例如，在电影渲染作业的合并任务中，可以将完全渲染的电影保存为作业输出。 作业完成后，客户端应用程序即可列出并检索该作业的输出，不需查询各个任务。
+除了存储任务输出以外，还可以存储与整个作业关联的输出。 例如，在电影渲染作业的合并任务中，可以将完全渲染的电影保存为作业输出。 作业完成后，客户端应用程序即可列出并检索该作业的输出，不需查询各个任务。
 
 通过调用 [JobOutputStorage][net_joboutputstorage].[SaveAsync][net_joboutputstorage_saveasync] 方法存储作业输出，并指定 [JobOutputKind][net_joboutputkind] 和文件名：
 
@@ -143,7 +143,7 @@ await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4"
 
 除了在任务或作业完成时将文件持久保存到持久性存储以外，还可能需要持久保存在执行某个任务期间更新的文件 &mdash; 例如，日志文件或 `stdout.txt` 和 `stderr.txt`。 为此，Azure Batch 文件约定库提供了 [TaskOutputStorage][net_taskoutputstorage].[SaveTrackedAsync][net_savetrackedasync] 方法。 使用 [SaveTrackedAsync][net_savetrackedasync]，可以跟踪对节点上的文件所做的更新（按照指定的间隔），并将这些更新保持到 Azure 存储。
 
-在以下代码片段中，我们将在执行任务期间，每隔 15 秒使用 [SaveTrackedAsync][net_savetrackedasync] 更新 Azure 存储中的 `stdout.txt`：
+在以下代码片段中，我们会在执行任务期间，每隔 15 秒使用 [SaveTrackedAsync][net_savetrackedasync] 更新 Azure 存储中的 `stdout.txt`：
 
 ```csharp
 TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
@@ -179,7 +179,7 @@ using (ITrackedSaveOperation stdout =
 
 ## <a name="retrieve-output-data"></a>检索输出数据
 
-使用 Azure Batch 文件约定库检索保存的输出时，将以任务和作业为中心的方式执行此操作。 可以请求给定任务或作业的输出，而无需知道输出在 Azure 存储中的路径，甚至不需要知道其文件名。 与之相反，可以按任务或作业 ID 请求输出文件。
+使用 Azure Batch 文件约定库检索保存的输出时，以任务和作业为中心的方式执行此操作。 可以请求给定任务或作业的输出，而无需知道输出在 Azure 存储中的路径，甚至不需要知道其文件名。 与之相反，可以按任务或作业 ID 请求输出文件。
 
 以下代码片段将循环访问某个作业的任务，列显有关该任务的输出文件的一些信息，然后从存储下载该任务的文件。
 
@@ -205,7 +205,7 @@ Azure 门户显示使用 [Batch 文件约定标准](https://github.com/Azure/azu
 
 若要在门户中显示输出文件，必须满足以下要求：
 
-1. [将 Azure 存储帐户链接](#requirement-linked-storage-account) 到你的 Batch 帐户。
+1. [将 Azure 存储帐户链接](#requirement-linked-storage-account)到 Batch 帐户。
 2. 保存输出时遵循存储容器和文件的预定义命名约定。 可在文件约定库的[自述文件][github_file_conventions_readme]中找到这些约定的定义。 如果使用 [Azure Batch 文件约定][nuget_package]库来持久保存输出，则按文件约定标准来持久保存文件。
 
 若要在 Azure 门户中查看任务输出文件和日志，请导航到要查看其输出的任务，然后单击“保存的输出文件”或“保存的日志”。 下图显示了 ID 为“007”的任务的“保存的输出文件”：

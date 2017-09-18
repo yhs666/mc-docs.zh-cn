@@ -13,11 +13,11 @@ ms.workload: big-compute
 origin.date: 06/16/2017
 ms.date: 07/03/2017
 ms.author: v-junlch
-ms.openlocfilehash: 01d63696911e03cf5aaf0a6f6596bc61e5498761
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 838c945fdee78a689635faba4eb1cc5ac617b479
+ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>使用 Batch 服务 API 将任务数据持久保存到 Azure 存储
 
@@ -51,7 +51,7 @@ await conainer.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>获取容器的共享访问签名
 
-创建容器以后，请获取对容器具有写访问权限的共享访问签名 (SAS)。 SAS 提供对容器的委托访问权限。 SAS 通过指定一组权限和指定时间间隔授予访问权限。 Batch 服务需要具有写权限的 SAS，以便将任务输出写入容器。 有关 SAS 的详细信息，请参阅[在 Azure 存储中使用共享访问签名 \(SAS\)](../storage/storage-dotnet-shared-access-signature-part-1.md)。
+创建容器以后，请获取对容器具有写访问权限的共享访问签名 (SAS)。 SAS 提供对容器的委托访问权限。 SAS 通过指定一组权限和指定时间间隔授予访问权限。 Batch 服务需要具有写权限的 SAS，以便将任务输出写入容器。 有关 SAS 的详细信息，请参阅[在 Azure 存储中使用共享访问签名 \(SAS\)](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 
 使用 Azure 存储 API 获取 SAS 时，该 API 会返回 SAS 令牌字符串。 此令牌字符串包含 SAS 的所有参数，其中包括权限以及 SAS 生效的时间间隔。 若要使用 SAS 来访问 Azure 存储中的容器，需将 SAS 令牌字符串追加到资源 URI。 可以联合使用 URI 与追加的 SAS 令牌对 Azure 存储进行经身份验证的访问。
 
@@ -143,7 +143,7 @@ https://myaccount.blob.core.chinacloudapi.cn/mycontainer/task1/output.txt
 https://myaccount.blob.core.chinacloudapi.cn/mycontainer/task2/output.txt
 ```
 
-有关 Azure 存储中虚拟目录的详细信息，请参阅[列出容器中的 Blob](../storage/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container)。
+有关 Azure 存储中虚拟目录的详细信息，请参阅[列出容器中的 Blob](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container)。
 
 
 ## <a name="diagnose-file-upload-errors"></a>诊断文件上传错误

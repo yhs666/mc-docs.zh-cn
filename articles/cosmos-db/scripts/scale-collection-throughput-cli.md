@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4f7a14fbc56a7e6b15d4cabe9a77dba56d57ee5c
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 4fe403e81620c4cdcd7cd8401f8524610e5ac573
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>使用 Azure CLI 缩放 Azure Cosmos DB 容器吞吐量
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 08/04/2017
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 <!-- Not Available [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
 
-本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 
 ## <a name="sample-script"></a>示例脚本
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Set variables for the new account, database, and collection
@@ -72,7 +72,7 @@ az cosmosdb collection create \
     --name $name \
     --db-name $databaseName \
     --resource-group $resourceGroupName \
-    --througput $originalThrougput
+    --throughput $originalThrougput
 
 # Scale throughput
 az cosmosdb collection update \
@@ -88,7 +88,7 @@ az cosmosdb collection update \
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
@@ -100,7 +100,7 @@ az group delete --name myResourceGroup
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#update) | 更新 Azure Cosmos DB 帐户。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/resource#delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

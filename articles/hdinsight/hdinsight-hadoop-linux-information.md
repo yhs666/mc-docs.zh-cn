@@ -15,17 +15,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: d116ce5172857611514c97c91e823ed3431dfb5a
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: c8df9582ecd658dd86a7a2f73bbda272ae5b8ab9
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>有关在 Linux 上使用 HDInsight 的信息
 
-Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运行的 Hadoop。 在大多数情况下，它的工作方式应该与其他任何 Hadoop-on-Linux 安装完全相同。 本文档指出了你应该注意的具体差异。
+Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运行的 Hadoop。 在大多数情况下，它的工作方式应该与其他任何 Hadoop-on-Linux 安装完全相同。 本文档指出了应注意的具体差异。
 
 > [!IMPORTANT]
 > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -42,7 +42,7 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
 
 ## <a name="users"></a>用户
 
-应将 HDInsight 视为**单用户**系统。 使用群集时，将创建单个具有管理员级别权限的 SSH 用户帐户。 可以创建其他 SSH 帐户，但这些帐户也具有对群集的管理员访问权限。
+应将 HDInsight 视为**单用户**系统。 使用群集时，会创建单个具有管理员级别权限的 SSH 用户帐户。 可以创建其他 SSH 帐户，但这些帐户也具有对群集的管理员访问权限。
 
 ## <a name="domain-names"></a>域名
 
@@ -52,7 +52,7 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-将 **PASSWORD** 替换为管理员帐户的密码，并将 **CLUSTERNAME** 替换为你的群集名称。 此命令返回包含群集中主机列表的 JSON 文档。 Jq 用于为每个主机提取 `host_name` 元素值。
+将 **PASSWORD** 替换为管理员帐户的密码，并将 **CLUSTERNAME** 替换为群集名称。 此命令返回包含群集中主机列表的 JSON 文档。 Jq 用于为每个主机提取 `host_name` 元素值。
 
 若需查找特定服务的节点的名称，可查询 Ambari 以获取该组件。 例如，若需查找 HDFS 名称节点的主机，请使用以下命令：
 
@@ -64,14 +64,14 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
 
 * **Ambari (web)** - https://&lt;群集名称>.azurehdinsight.cn
 
-    使用群集管理员用户和密码进行身份验证，然后登录到 Ambari。
+    使用群集管理员用户和密码进行身份验证，并登录到 Ambari。
 
     身份验证是纯文本身份验证 - 始终使用 HTTPS 来帮助确保连接是安全的。
 
     > [!IMPORTANT]
     > 某些 Web UI 可使用内部域名通过 Ambari 访问节点。 内部域名不可通过 Internet 公开访问。 在尝试通过 Internet 访问某些功能时，可能会收到“找不到服务器”错误。
     >
-    > 若要使用 Ambari web UI 的全部功能，请使用 SSH 隧道通过代理将 Web 流量传送到群集头节点。 请参阅[使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
+    > 要使用 Ambari web UI 的全部功能，请使用 SSH 隧道通过代理将 Web 流量传送到群集头节点。 请参阅[使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;群集名称>.azurehdinsight.cn/ambari
 
@@ -121,28 +121,28 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 
 ### <a name="uri-and-scheme"></a>URI 和方案
 
-在访问文件时，一些命令可能需要用户将方案指定为 URI 的一部分。 例如，Storm-HDFS 组件需要用户指定方案。 使用非默认存储（作为“附加”存储添加到群集的存储）时，必须始终将方案作为 URI 的一部分来使用。
+某些命令可能需要你在访问文件时会方案指定为 URI 的一部分。 例如，Storm-HDFS 组件需要用户指定方案。 使用非默认存储（作为“附加”存储添加到群集的存储）时，必须始终将方案作为 URI 的一部分来使用。
 
 使用 __Azure 存储__时，可以使用以下 URI 方案之一：
 
 * `wasb:///`：使用未经加密的通信访问默认存储。
 
-* `wasbs:///`：使用加密通信访问默认存储。
+* `wasbs:///`：使用加密通信访问默认存储。  仅 HDInsight 3.6 及以上版本支持 wasbs 方案。
 
-* `wasbs://<container-name>@<account-name>.blob.core.chinacloudapi.cn/`：与非默认存储帐户通信时使用。 例如，具有其他存储帐户或访问可公开访问的存储帐户中存储的数据时。
+* `wasb://<container-name>@<account-name>.blob.core.chinacloudapi.cn/`：与非默认存储帐户通信时使用。 例如，具有其他存储帐户或访问可公开访问的存储帐户中存储的数据时。
 
 ### <a name="what-storage-is-the-cluster-using"></a>群集使用的是哪种存储
 
-可以使用 Ambari 来检索群集的默认存储配置。 使用以下命令可使用 curl 检索 HDFS 配置信息，然后使用 [jq](https://stedolan.github.io/jq/) 进行筛选：
+可以使用 Ambari 来检索群集的默认存储配置。 使用以下命令可使用 curl 检索 HDFS 配置信息，并使用 [jq](https://stedolan.github.io/jq/) 进行筛选：
 
 ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
 
 > [!NOTE]
-> 这将返回应用到服务器的第一个配置 (`service_config_version=1`)，其中包含此信息。 可能需要列出所有配置版本，才能找到最新版本。
+> 这会返回应用到服务器的第一个配置 (`service_config_version=1`)，其中包含此信息。 可能需要列出所有配置版本，才能找到最新版本。
 
 此命令返回类似于以下 URI 的值：
 
-* `wasbs://<container-name>@<account-name>.blob.core.chinacloudapi.cn` 。
+* `wasb://<container-name>@<account-name>.blob.core.chinacloudapi.cn` 。
 
     帐户名称是 Azure 存储帐户的名称，容器名称是作为群集存储的根的 Blob 容器。
 
@@ -176,7 +176,7 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 
 不同的群集类型会受缩放操作影响，如下所示：
 
-* **Hadoop**：减少群集中的节点数时，群集中的某些服务将重新启动。 缩放操作会导致正在运行或挂起的作业在缩放操作完成时失败。 你可以在操作完成后重新提交这些作业。
+* **Hadoop**：减少群集中的节点数时，群集中的某些服务将重新启动。 缩放操作会导致正在运行或挂起的作业在缩放操作完成时失败。 可以在操作完成后重新提交这些作业。
 * **HBase**：在完成缩放操作后的几分钟内，区域服务器会自动进行平衡。 若要手动平衡区域服务器，请使用以下步骤：
 
     1. 使用 SSH 连接到 HDInsight 群集。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
@@ -189,18 +189,18 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 
             balancer
 
-* **Storm**：你应在执行缩放操作后重新平衡任何正在运行的 Storm 拓扑。 重新平衡允许拓扑根据群集中的新节点数重新调整并行度设置。 若要重新平衡正在运行的拓扑，请使用下列选项之一：
+* **Storm**：应在执行缩放操作后重新平衡任何正在运行的 Storm 拓扑。 重新平衡允许拓扑根据群集中的新节点数重新调整并行度设置。 若要重新平衡正在运行的拓扑，请使用下列选项之一：
 
     * **SSH**：连接到服务器并使用以下命令来重新平衡拓扑：
 
             storm rebalance TOPOLOGYNAME
 
-        你还可以指定参数来替代拓扑原来提供的并行度提示。 例如，`storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` 会将拓扑重新配置为 5 个辅助角色进程，蓝色的 BlueSpout 组件有 3 个 executor，黄色 YellowBolt 组件有 10 个 executor。
+        还可以指定参数来替代拓扑原来提供的并行度提示。 例如，`storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` 会将拓扑重新配置为 5 个辅助角色进程，蓝色的 BlueSpout 组件有 3 个 executor，黄色 YellowBolt 组件有 10 个 executor。
 
     * **Storm UI**：使用以下步骤来重新平衡使用 Storm UI 的拓扑。
 
         1. 在 Web 浏览器中打开 **https://CLUSTERNAME.azurehdinsight.cn/stormui**，其中“CLUSTERNAME”是 Storm 群集的名称。 如果出现提示，请输入在创建 HDInsight 群集时指定的群集管理员用户名和密码。
-        2. 选择要重新平衡的拓扑，然后选择“重新平衡”按钮。 输入执行重新平衡操作前的延迟。
+        2. 选择要重新平衡的拓扑，并选择“重新平衡”按钮。 输入执行重新平衡操作前的延迟。
 
 有关缩放 HDInsight 群集的特定信息，请参阅：
 
@@ -220,13 +220,13 @@ HDInsight 是托管服务。 如果 Azure 检测到群集存在问题，则可�
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
 
-有关开发你自己的脚本操作的信息，请参阅 [使用 HDInsight 进行脚本操作开发](hdinsight-hadoop-script-actions-linux.md)。
+有关开发自己的脚本操作的信息，请参阅[使用 HDInsight 进行脚本操作开发](hdinsight-hadoop-script-actions-linux.md)。
 
 ### <a name="jar-files"></a>Jar 文件
 
 某些 Hadoop 技术以自包含 jar 文件形式提供，这些文件包含某些函数，这些函数用作 MapReduce 作业的一部分，或来自 Pig 或 Hive 内部。 这些技术可以使用脚本操作安装，但通常不需任何设置，在预配后上传到群集即可直接使用。 如需确保组件在群集重置映像后仍存在，可将 jar 文件存储在群集的默认存储（WASB 或 ADL）中。
 
-例如，如果要使用 [DataFu](http://datafu.incubator.apache.org/) 的最新版本，可以下载包含项目的 jar，并将其上传到 HDInsight 群集。 然后按照 DataFu 文档的说明通过 Pig 或 Hive 使用它。
+例如，如果要使用 [DataFu](http://datafu.incubator.apache.org/) 的最新版本，可以下载包含项目的 jar，并将其上传到 HDInsight 群集。 然后按照 DataFu 文档（关于如何从 Pig 或 Hive 中使用它）操作。
 
 > [!IMPORTANT]
 > 某些属于独立 jar 文件的组件通过 HDInsight 提供，但不在路径中。 若要查找特定组件，可使用以下命令在群集上搜索：
@@ -238,7 +238,7 @@ HDInsight 是托管服务。 如果 Azure 检测到群集存在问题，则可�
 要使用不同版本的组件，请上传所需版本，并在作业中使用它。
 
 > [!WARNING]
-> 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门将帮助找出并解决与这些组件相关的问题。
+> 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门帮助找出并解决与这些组件相关的问题。
 >
 > 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 
@@ -249,4 +249,4 @@ HDInsight 是托管服务。 如果 Azure 检测到群集存在问题，则可�
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 作业与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: change 'wasbs' into 'wasb'-->

@@ -14,14 +14,14 @@ ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/12/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: cb05f9eab1f239bb0fa2c96f449ab50681a5fcd8
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 08/04/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: c08c07c7ac43d26aff3f25d4ea72dbee70451f12
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>在 HDInsight 上使用 Python 开发 Apache Storm 拓扑
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/28/2017
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> 本文档中的信息已使用 Storm on HDInsight 3.5 进行测试。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 本文档中的信息已使用 Storm on HDInsight 3.6 进行测试。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 此项目的代码位于 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)。
 
@@ -155,3 +155,4 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 
 * [如何使用 Python 流式处理 MapReduce 作业](hdinsight-hadoop-streaming-python.md)
 * [如何在 Pig 和 Hive 中使用 Python 用户定义函数 (UDF) ](hdinsight-python.md)
+<!--Update_Description: wording update-->

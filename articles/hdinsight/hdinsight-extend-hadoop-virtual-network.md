@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/11/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: fa2ce29076a308f205313bde831e9a45639a4fc7
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 08/10/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: bbf60f37ff0b272ccbf526a3ddac7f55f4f3c061
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -55,9 +55,12 @@ ms.lasthandoff: 07/28/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-执行本部分的步骤，了解如何将 HDInsight 添加到现有的 Azure 虚拟网络。
+使用本部分中的步骤，了解如何将 HDInsight 添加到现有 Azure 虚拟网络。
 
-1. 是否对虚拟网络使用经典或 Resource Manager 部署模型？
+> [!NOTE]
+> 无法将现有 HDInsight 群集添加到虚拟网络中。
+
+1. 对虚拟网络使用经典模式还是资源管理器部署模式？
 
     HDInsight 3.4 及更高版本需要 Resource Manager 虚拟网络。 早期版本的 HDInsight 需要经典虚拟网络，但这些版本已经停用或很快就要停用。
 
@@ -106,6 +109,16 @@ ms.lasthandoff: 07/28/2017
 
         有关详细信息，请参阅[排查路由问题](../virtual-network/virtual-network-routes-troubleshoot-portal.md)文档。
 
+4. 创建一个 HDInsight 群集，并在配置过程中选择 Azure 虚拟网络。 使用以下文档中的步骤了解群集创建过程：
+
+    * [Create HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md)（使用 Azure 门户创建 HDInsight）
+    * [Create HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)（使用 Azure PowerShell 创建 HDInsight）
+    * [使用 Azure CLI 1.0 创建 HDInsight](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [使用 Azure 资源管理器模板创建 HDInsight](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+
+  > [!IMPORTANT]
+  > 向虚拟网络添加 HDInsight 是一项可选的配置步骤。 请确保在配置群集时选择虚拟网络。
+
 ## <a id="multinet"></a>连接多个网络
 
 多网络配置的最大难题是在网络之间进行名称解析。
@@ -140,13 +153,13 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
         * 自定义 DNS（位于虚拟网络中）：
 
-            * 将针对虚拟网络 DNS 后缀的请求转发到 Azure 递归解析程序 (168.63.129.16)。 Azure 处理虚拟网络中资源之间的请求。
+            * 将虚拟网络 DNS 后缀的请求转发到 Azure 递归解析程序 (168.63.129.16)。 Azure 处理虚拟网络中资源的请求
 
-            * 将所有其他请求转发到本地 DNS 服务器。 本地 DNS 处理所有其他的名称解析请求，甚至包括 Internet 资源（例如 Microsoft.com）的请求。
+            * 将其他所有请求转发到本地 DNS 服务器。 本地 DNS 处理所有其他名称解析请求，甚至是 Internet 资源（如 microsoft.com）的请求。
 
-        * 本地 DNS：将针对虚拟网络 DNS 后缀的请求转发到 Azure 递归解析程序 (168.63.129.16)。 Azure 递归解析程序处理虚拟网络中资源的名称解析。
+        * __本地 DNS__： 将虚拟网络 DNS 后缀的请求转发到自定义 DNS 服务器。 然后，自定义 DNS 服务器转发给 Azure 递归解析程序。
 
-        此配置将完全限定的域名（其中包含虚拟网络的 DNS 后缀）的请求路由到自定义 DNS 服务器。 所有其他请求（甚至包括对公共 Internet 地址的请求）由本地 DNS 服务器处理。
+        此配置将包含虚拟网络 DNS 后缀的完全限定的域名请求路由至自定义 DNS 服务器。 所有其他请求（甚至包括对公共 Internet 地址的请求）由本地 DNS 服务器处理。
 
     * 如果远程网络为另一 Azure 虚拟网络，请将 DNS 配置如下：
 
@@ -162,13 +175,13 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
 有关详细信息，请参阅 [VM 和角色实例的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)文档。
 
-## <a name="directly-connect-to-hdinsight"></a>直接连接到 HDInsight
+## <a name="directly-connect-to-hadoop-services"></a>直接连接到 Hadoop 服务
 
 HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 例如，这些文档假定你可以连接到 https://CLUSTERNAME.azurehdinsight.cn 上的群集。 此地址使用公共网关，如果你使用了 NSG 或 UDR 限制来自 Internet 的访问，则该网关不可用。
 
-若要通过虚拟网络直接连接到 HDInsight，请使用以下步骤：
+若要通过虚拟网络连接到 Ambari 以及其他网页，请使用以下步骤：
 
-1. 若要发现 HDInsight 群集节点的内部完全限定的域名 (FQDN)，请使用以下方法之一：
+1. 若要发现 HDInsight 群集节点的内部完全限定的域名 (FQDN)，请使用以下其中一种方法：
 
     ```powershell
     $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
@@ -190,12 +203,12 @@ HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 �
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    可以使用返回的 FQDN 直接从虚拟网络或已连接网络连接到群集。
-
-2. 若要确定在其上提供服务的端口，请参阅[由 HDInsight 上的 Hadoop 服务使用的端口](./hdinsight-hadoop-port-settings-for-services.md)文档。
+    在返回的节点列表中，查找头节点的 FQDN，并使用它们来连接到 Ambari 和其他 Web 服务。 例如，使用 `http://<headnode-fqdn>:8080` 访问 Ambari。
 
     > [!IMPORTANT]
-    > 托管在头节点上的某些服务一次只能在一个节点上处于活动状态。 如果尝试在一个头节点上访问某个服务时失败，请切换到其他头节点。
+    > 在头节点上托管的一些服务一次只能在一个节点上处于活动状态。 如果尝试在一个头节点上访问服务并且它返回 404 错误，请切换到其他头节点。
+
+2. 若要确定服务可用的节点和端口，请参阅 [HDInsight 的 Hadoop 服务所用的端口](./hdinsight-hadoop-port-settings-for-services.md)一文。
 
 ## <a id="networktraffic"></a> 控制网络流量
 
@@ -367,7 +380,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
     在创建组后，将收到有关新组的信息。
 
-2. 使用以下命令将规则添加新网络安全组，以允许从 Azure HDInsight 运行状况和管理服务通过端口 443 发起的入站通信。 将 **RESOURCEGROUPNAME** 替换为包含 Azure 虚拟网络的资源组的名称。
+2. 使用以下命令将规则添加新的网络安全组，这些规则允许从 Azure HDInsight 运行状况和管理服务通过端口 443 发起的入站通信。 将 **RESOURCEGROUPNAME** 替换为包含 Azure 虚拟网络的资源组的名称。
 
     > [!IMPORTANT]
     > 更改此示例中使用的 IP 地址，使之与要使用的 Azure 区域匹配。 有关此方面的信息，可参阅 [HDInsight 与网络安全组和用户定义路由](#hdinsight-ip)部分。
@@ -399,7 +412,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     此命令完成后，即可将 HDInsight 安装到虚拟网络中。
 
 > [!IMPORTANT]
-> 这些步骤只会实现对 Azure 云中 HDInsight 运行状况和管理服务的访问。 任何从虚拟网络外部对 HDInsight 群集的其他访问将会被阻止。 若要从虚拟网络之外启用访问，必须添加其他的虚拟网络安全组规则。
+> 这些步骤只会实现对 Azure 云中 HDInsight 运行状况和管理服务的访问。 任何从虚拟网络外部对 HDInsight 群集的其他访问会被阻止。 若要从虚拟网络之外启用访问，必须添加其他的虚拟网络安全组规则。
 >
 > 以下示例演示了如何从 Internet 启用 SSH 访问：
 >
@@ -434,7 +447,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     az network nic list --resource-group $RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. 在虚拟网络的自定义 DNS 服务器上，使用以下文本作为 `/etc/bind/named.config.local` 文件的内容：
+2. 在虚拟网络的自定义 DNS 服务器上，使用以下文本作为 `/etc/bind/named.conf.local` 文件的内容：
 
     ```
     // Forward requests for the virtual network suffix to Azure recursive resolver

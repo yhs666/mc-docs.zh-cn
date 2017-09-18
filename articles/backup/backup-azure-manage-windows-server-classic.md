@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/14/2017
 ms.date: 06/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: f24e5a1904ca75e479d8e9028507fac673a317e8
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 09eb9c7c9b040959cbbb9942971f3315cdd3c8c2
+ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>使用经典部署模型管理 Azure 备份保管库和服务器
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="management-portal-tasks"></a>管理门户任务
 1. 登录到 [管理门户](https://manage.windowsazure.cn)。
-2. 单击“恢复服务”，然后单击备份保管库的名称以查看“快速启动”页 。
+2. 单击“恢复服务”，并单击备份保管库的名称以查看“快速启动”页 。
 
     ![恢复服务](./media/backup-azure-manage-windows-server-classic/rs-left-nav.png)
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 07/14/2017
 
 可从该处执行以下任务：
 
-- 允许重新注册 - 在为服务器选择该选项时，可使用本地 Azure 备份代理中的“注册向导”再一次将服务器注册到备份保管库。 由于证书中存在错误或者如果必须重新构建服务器，你可能需要重新注册。
+- 允许重新注册 - 在为服务器选择该选项时，可使用本地 Azure 备份代理中的“注册向导”再一次将服务器注册到备份保管库。 由于证书中存在错误或者如果必须重新构建服务器，可能需要重新注册。
 - **删除** - 从备份保管库中删除服务器。 将立即删除与服务器关联的所有已存储数据。
 
     ![已注册的项任务](./media/backup-azure-manage-windows-server-classic/registered-items-tasks.png)
@@ -76,13 +76,13 @@ ms.lasthandoff: 07/14/2017
 从“配置”选项卡中，可以选择适当的存储冗余选项。 选择存储冗余选项的最佳时机是在创建保管库之后、将任何计算机注册到保管库之前。
 
 > [!WARNING]
-> 将某个项注册到保管库后，存储冗余选项将会锁定且不能修改。
+> 将某个项注册到保管库后，存储冗余选项锁定且不能修改。
 >
 >
 
 ![配置](./media/backup-azure-manage-windows-server-classic/configure.png)
 
-有关[存储冗余](../storage/storage-redundancy.md)的详细信息，请参阅此文。
+有关[存储冗余](../storage/common/storage-redundancy.md)的详细信息，请参阅此文。
 
 ## <a name="azure-backup-agent-tasks"></a>Azure 备份代理任务
 ### <a name="console"></a>控制台
