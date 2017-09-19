@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/30/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 5e9f8914df4d8cff780241f715d3c40657070755
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/21/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: c035ad508f721338a56b20d4e77914b4a7208009
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>使用 SSH 隧道访问 Ambari Web UI、JobHistory、NameNode、Oozie 和其他 Web UI
 
@@ -39,6 +39,9 @@ Ambari 中的多个菜单只能通过 SSH 隧道工作。 这些菜单依赖于�
 * HBase Master 和日志 UI
 
 如果使用脚本操作来自定义群集，则安装的任何服务或实用工具都需要 SSH 隧道才能公开 Web UI。 例如，如果使用脚本操作安装 Hue，则必须使用 SSH 隧道来访问 Hue Web UI。
+
+> [!IMPORTANT]
+> 如果可以通过虚拟网络直接访问 HDInsight，则不需要使用 SSH 隧道。 有关通过虚拟网络直接访问 HDInsight 的示例，请参阅[将 HDInsight 连接到本地网络](connect-on-premises-network.md)一文。
 
 ## <a name="what-is-an-ssh-tunnel"></a>什么是 SSH 隧道
 
@@ -83,9 +86,9 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) 是适用于 Windows 的图形 SSH 客户端。 执行以下步骤可使用 PuTTY 创建 SSH 隧道：
 
-1. 打开 PuTTY 并输入你的连接信息。 如果不熟悉 PuTTY，请参阅 [PuTTY 文档 (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)。
+1. 打开 PuTTY 并输入连接信息。 如果不熟悉 PuTTY，请参阅 [PuTTY 文档 (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)。
 
-2. 在对话框左侧的“类别”部分中，依次展开“连接”和“SSH”，然后选择“隧道”。
+2. 在对话框左侧的“类别”部分中，依次展开“连接”和“SSH”，并选择“隧道”。
 
 3. 提供以下有关“用于控制 SSH 端口转发的选项”窗体的信息：
 
@@ -97,7 +100,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
      ![隧道选项图像](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
 
-4. 单击“添加”以添加设置，然后单击“打开”以打开 SSH 连接。
+4. 单击“添加”以添加设置，并单击“打开”以打开 SSH 连接。
 
 5. 出现提示时，登录到服务器。
 
@@ -113,7 +116,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
    > [!NOTE]
    > 通过选择“远程 DNS”，可使用 HDInsight 群集解析域名系统 (DNS) 请求。 此设置使用群集的头节点解析 DNS。
 
-2. 请通过访问某个站点（例如 [http://www.whatismyip.com/](http://www.whatismyip.com/)）来验证隧道的工作状态。 如果正确配置了代理，则返回的 IP 地址来自 Azure 数据中心内的某台计算机。
+2. 请通过访问某个站点（例如 [http://www.whatismyip.com/](http://www.whatismyip.com/)）来验证隧道的工作状态。 返回的 IP 应是 Azure 数据中心使用的 IP。
 
 ## <a name="verify-with-ambari-web-ui"></a>Ambari Web UI 访问验证
 
@@ -128,14 +131,14 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
     ![已选择“HDFS”的截图](./media/hdinsight-linux-ambari-ssh-tunnel/hdfsservice.png)
 
-3. 显示 HDFS 服务信息时，请选择“快速链接”。 将显示群集头节点列表。 选择其中一个头节点，然后选择“NameNode UI”。
+3. 显示 HDFS 服务信息时，请选择“快速链接”。 将显示群集头节点列表。 选择其中一个头节点，并选择“NameNode UI”。
 
     ![已展开“快速链接”菜单的截图](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
    > [!NOTE]
-   > 选择“快速链接”时，可能会看到等待指示器。 如果 Internet 连接速度较慢，则可能会发生这种情况。 请等待一两分钟，让系统从服务器接收数据，然后再次尝试列出节点列表。
+   > 选择“快速链接”时，可能会看到等待指示器。 如果 Internet 连接速度慢，则可能会出现此情况。 请等待一两分钟，让系统从服务器接收数据，然后再次尝试列出节点列表。
    >
-   > “快速链接”菜单中的某些项可能在屏幕右侧截断。 如果是这样，请使用鼠标展开菜单，然后使用向右箭头键向右滚动屏幕，查看菜单的余下内容。
+   > “快速链接”菜单中的某些项可能在屏幕右侧截断。 如果是这样，请使用鼠标展开菜单，然后使用向右键向右滚动屏幕，查看菜单的余下内容。
 
 4. 随后将显示类似于下图的页面：
 
@@ -151,3 +154,4 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 * [使用 Ambari 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)
 
 有关将 SSH 与 HDInsight 配合使用的详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
+<!--Update_Description: wording update-->

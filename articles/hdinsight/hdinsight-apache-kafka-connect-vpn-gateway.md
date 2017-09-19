@@ -1,5 +1,5 @@
 ---
-title: "使用虚拟网络连接到 Kafka - Azure HDInsight | Microsoft Docs"
+title: "使用虚拟网络连接到 Kafka - Azure HDInsight | Azure"
 description: "了解如何通过 Azure 虚拟网络直接连接到 Kafka on HDInsight。 了解如何使用 VPN 网关从开发客户端连接到 Kafka，或使用 VPN 网关设备从本地网络中的客户端连接到 Kafka。"
 services: hdinsight
 documentationCenter: 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/01/2017
-ms.date: 09/04/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: b572d3439619d29bd0ed618b4c92f7cd178589af
-ms.sourcegitcommit: a4340bc6d6d8bdb5aee029cc66cfcea558d18c89
+ms.openlocfilehash: 44002122562e745f367a29714e46a0e293cb5eb4
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>通过 Azure 虚拟网络连接到 Kafka on HDInsight（预览版）
 
@@ -61,7 +61,7 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
     > * 每个客户端必须使用 VPN 软件客户端建立连接。 Azure 仅提供基于 Windows 的客户端。
     > * 客户端不会向虚拟网络传递名称解析请求，因此必须使用 IP 地址与 Kafka 通信。 IP 通信需要在 Kafka 群集上完成其他配置。
 
-若要详细了解如何在虚拟网络中使用 HDInsight，请参阅[使用 Azure 虚拟网络扩展 HDInsight](./hdinsight-extend-hadoop-virtual-network.md)。
+有关在 Azure 虚拟网络中使用 HDInsight 的详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight](./hdinsight-extend-hadoop-virtual-network.md)。
 
 ## <a id="on-premises"></a> 连接到本地网络中的 Kafka
 
@@ -90,7 +90,7 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
 
 1. 遵循[为点到站点连接使用自签名证书](../vpn-gateway/vpn-gateway-certificates-point-to-site.md)文档中所述的步骤。 本文档创建网关所需的证书。
 
-2. 打开 PowerShell 提示符，然后使用下列代码登录 Azure 订阅：
+2. 打开 PowerShell 提示符，并使用下列代码登录 Azure 订阅：
 
     ```powershell
     Add-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -230,7 +230,7 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
         -Version $hdiVersion `
         -HttpCredential $adminCreds `
         -SshCredential $sshCreds `
-        -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
+        -DefaultStorageAccountName "$storageName.blob.core.chinacloudapi.cn" `
         -DefaultStorageAccountKey $defaultStorageKey `
         -DefaultStorageContainer $defaultContainerName `
         -VirtualNetworkId $network.Id `
@@ -300,13 +300,13 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
 
 ### <a name="connect-to-the-vpn-gateway"></a>连接到 VPN 网关
 
-要从 __Windows 客户端__连接到 VPN 网关，请按[配置点到站点连接](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#clientcertificate)文档中__连接到 Azure__ 部分进行操作。
+要从 Windows 客户端连接到 VPN 网关，请按[配置点到站点连接](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#clientcertificate)文档中“连接到 Azure”部分进行操作。
 
 ## <a id="python-client"></a> 示例：Python 客户端
 
 若要验证与 Kafka 的连接，请使用以下步骤来创建并运行 Python 生成者和使用者：
 
-1. 使用以下方法之一检索 Kafka 群集中节点的完全限定的域名 (FQDN) 和 IP 地址：
+1. 使用以下方法之一检索 Kafka 群集中节点的完全限定域名 (FQDN) 和 IP 地址：
 
     ```powershell
     $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
@@ -333,20 +333,19 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
     保存返回的信息供后续步骤使用。
 
 2. 使用下列命令安装 [kafka-python](http://kafka-python.readthedocs.io/) 客户端：
-
-        pip install kafka-python
-
+    ```
+    pip install kafka-python
+    ```
 3. 要将数据发送到 Kafka，请使用下列 Python 代码：
 
-  ```python
-  from kafka import KafkaProducer
-  # Replace the `ip_address` entries with the IP address of your worker nodes
-  # NOTE: you don't need the full list of worker nodes, just one or two.
-  producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
-  for _ in range(50):
-      producer.send('testtopic', b'test message')
-  ```
-
+    ```python
+    from kafka import KafkaProducer
+    # Replace the `ip_address` entries with the IP address of your worker nodes
+    # NOTE: you don't need the full list of worker nodes, just one or two.
+    producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
+    for _ in range(50):
+        producer.send('testtopic', b'test message')
+    ```
     将 `'kafka_broker'` 条目替换为本部分中步骤 1 返回的地址：
 
     * 如果使用__软件 VPN 客户端__，请将 `kafka_broker` 条目替换为工作节点的 IP 地址。

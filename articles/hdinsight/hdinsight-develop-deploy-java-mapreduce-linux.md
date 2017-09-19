@@ -14,25 +14,28 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-origin.date: 05/17/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 8b239402df56e381e058763926168051cfb4a73b
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/07/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 37e77ba3bee16798ccd17e84145804facac23271
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>为 HDInsight 上的 Hadoop 开发 Java MapReduce 程序
 
-了解如何使用 Apache Maven 创建基于 Java 的 MapReduce 应用程序，然后使用 Azure HDInsight 中的 Hadoop 运行它。
+了解如何使用 Apache Maven 创建基于 Java 的 MapReduce 应用程序，并使用 Azure HDInsight 中的 Hadoop 运行它。
+
+> [!NOTE]
+> 此示例最近在 HDInsight 3.6 上进行了测试。
 
 ## <a name="prerequisites"></a>先决条件
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 或更高版本（或类似程序，如 OpenJDK）...
+* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 或更高版本（或类似程序，如 OpenJDK）。
 
     > [!NOTE]
-    > HDInsight 版本 3.4 及更早版本使用 Java 7。 HDInsight 3.5 使用 Java 8。
+    > HDInsight 版本 3.4 及更早版本使用 Java 7。 HDInsight 3.5 及更高版本使用 Java 8。
 
 * [Apache Maven](http://maven.apache.org/)
 
@@ -59,6 +62,11 @@ ms.lasthandoff: 07/14/2017
    ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
+
+    > [!NOTE]
+    > 如果使用 PowerShell，必须将 `-D` 参数用双引号引起来。
+    >
+    > `mvn archetype:generate "-DgroupId=org.apache.hadoop.examples" "-DartifactId=wordcountjava" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
     此命令将使用 `artifactID` 参数指定的名称（此示例中为 **wordcountjava**）创建目录。此目录包含以下项：
 
@@ -93,7 +101,7 @@ ms.lasthandoff: 07/14/2017
     </dependency>
    ```
 
-    这会定义具有特定版本（在 &lt;version\> 中列出）的库（在 &lt;artifactId\> 中列出）。 在编译时，会从默认 Maven 存储库下载这些依赖项。 你可以使用 [Maven 存储库搜索](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) 来查看详细信息。
+    这会定义具有特定版本（在 &lt;version\> 中列出）的库（在 &lt;artifactId\> 中列出）。 在编译时，会从默认 Maven 存储库下载这些依赖项。 可以使用 [Maven 存储库搜索](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) 来查看详细信息。
 
     `<scope>provided</scope>` 会告知 Maven 这些依赖项不应与此应用程序一起打包，因为它们在运行时由 HDInsight 群集提供。
 
@@ -142,15 +150,15 @@ ms.lasthandoff: 07/14/2017
     第二个插件配置目标 Java 版本。
 
     > [!NOTE]
-    > HDInsight 3.4 及更早版本使用 Java 7。 HDInsight 3.5 使用 Java 8。
+    > HDInsight 3.4 及更早版本使用 Java 7。 HDInsight 3.5 及更高版本使用 Java 8。
 
 3. 保存 `pom.xml` 文件。
 
 ## <a name="create-the-mapreduce-application"></a>创建 MapReduce 应用程序
 
-1. 转到 `wordcountjava/src/main/java/org/apache/hadoop/examples` 目录，并将 `App.java` 文件重命名为 `WordCount.java`。
+1. 转到 `wordcountjava/src/main/java/org/apache/hadoop/examples` 目录并将 `App.java` 文件重命名为 `WordCount.java`。
 
-2. 在文本编辑器中打开 `WordCount.java` 文件，然后将其内容替换为以下文本：
+2. 在文本编辑器中打开 `WordCount.java` 文件，并将其内容替换为以下文本：
 
    ```java
    package org.apache.hadoop.examples;
@@ -237,9 +245,9 @@ ms.lasthandoff: 07/14/2017
    mvn clean package
    ```
 
-    此命令将清除任何以前构建的项目，下载任何尚未安装的依赖项，然后生成并打包应用程序。
+    此命令将清除任何以前构建的项目，下载任何尚未安装的依赖项，并生成并打包应用程序。
 
-3. 命令完成后，`wordcountjava/target` 目录将包含一个名为 `wordcountjava-1.0-SNAPSHOT.jar` 的文件。
+3. 命令完成后，`wordcountjava/target` 目录包含一个名为 `wordcountjava-1.0-SNAPSHOT.jar` 的文件。
 
    > [!NOTE]
    > `wordcountjava-1.0-SNAPSHOT.jar` 文件是一种 uberjar，其中不仅包含 WordCount 作业，还包含作业在运行时需要的依赖项。
@@ -249,16 +257,16 @@ ms.lasthandoff: 07/14/2017
 使用以下命令将该 jar 文件上传到 HDInsight 头节点：
 
 ```bash
-scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
+scp target/wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
 ```
 
-将 __USERNAME__ 替换为群集的 SSH 用户名。 将 __CLUSTERNAME__ 替换为 HDInsight 群集名称。
+将 __USERNAME__ 替换为群集的 SSH 用户名。 将“CLUSTERNAME”替换为 HDInsight 群集名。
 
 此命令会将文件从本地系统复制到头节点。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 ## <a name="run"></a>在 Hadoop 上运行 MapReduce 作业
 
-1. 使用 SSH 连接到 HDInsight。 有关信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
+1. 使用 SSH 连接到 HDInsight。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 2. 在 SSH 会话中，使用以下命令运行 MapReduce 应用程序：
 
@@ -282,7 +290,7 @@ scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
 
 ## <a id="nextsteps"></a>后续步骤
 
-在本文档中，你学习了如何开发 Java MapReduce 作业。 请参阅以下文档，了解使用 HDInsight 的其他方式。
+在本文档中，学习了如何开发 Java MapReduce 作业。 请参阅以下文档，了解使用 HDInsight 的其他方式。
 
 * [将 Hive 与 HDInsight 配合使用][hdinsight-use-hive]
 * [将 Pig 与 HDInsight 配合使用][hdinsight-use-pig]
@@ -305,3 +313,4 @@ scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
+<!--Update_Description: wording update-->

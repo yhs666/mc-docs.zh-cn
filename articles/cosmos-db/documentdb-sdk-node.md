@@ -1,6 +1,6 @@
 ---
-title: "Azure DocumentDB Node.js API、SDK 和资源 | Azure"
-description: "了解有关 Node.js API 和 SDK 的全部信息，包括发布日期、停用日期和 DocumentDB Node.js SDK 各版本之间所做的更改。"
+title: "Azure Cosmos DB Node.js API、SDK 和资源 | Azure"
+description: "了解有关 Node.js API 和 SDK 的全部信息，包括发布日期、停用日期和 Azure Cosmos DB Node.js SDK 各版本之间所做的更改。"
 services: cosmos-db
 documentationcenter: nodejs
 author: rockboyfor
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 05/24/2017
-ms.date: 08/07/2017
+origin.date: 08/14/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0139d600e5b79978b7c7aa24cfcccc3a9e049abc
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 1135c58ee5a9cb20ad1722bfc21cfd68d47c4dda
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
-# <a name="documentdb-nodejs-sdk-release-notes-and-resources"></a>DocumentDB Node.js SDK：发行说明和资源
+# <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK：发行说明和资源
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET 更改源](documentdb-sdk-dotnet-changefeed.md)
@@ -51,7 +51,7 @@ ms.lasthandoff: 08/04/2017
 
 <tr><td>**入门教程**</td><td>[Node.js SDK 入门](documentdb-nodejs-get-started.md)</td></tr>
 
-<tr><td>**Web 应用教程**</td><td>[使用 DocumentDB 生成 Node.js Web 应用程序](documentdb-nodejs-application.md)</td></tr>
+<tr><td>**Web 应用教程**</td><td>[使用 Azure Cosmos DB 创建 Node.js Web 应用程序](documentdb-nodejs-application.md)</td></tr>
 
 <tr><td>**当前受支持的平台**</td><td>
 [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
@@ -70,4 +70,4 @@ ms.lasthandoff: 08/04/2017
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, wroding update -->

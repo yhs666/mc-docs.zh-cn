@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 07/17/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: cb760158f0290df369544e923d798f5b7ef92a6d
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: db8bb656aa4e2c721dac9255a3d246985375dbab
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虚拟网络中的 HDInsight 上创建 HBase 群集
 了解如何在 [Azure 虚拟网络][1]中创建 Azure HDInsight HBase 群集。
@@ -75,7 +75,7 @@ ms.lasthandoff: 07/28/2017
    * 我同意上述条款和条件：（选择）
 3. 单击“购买” 。 创建群集大约需要 20 分钟时间。 创建群集之后，便可以在门户中单击群集边栏选项卡以打开它。
 
-完成教程之后，可能要删除群集。 有了 HDInsight，可将数据存储在 Azure 存储，以便在不使用群集时可将其安全删除。 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用高于存储空间费用数倍，因此在不使用群集时将其删除可以节省费用。 有关删除群集的说明，请参阅[使用 Azure 门户在 HDInsight 中管理 Hadoop 群集](hdinsight-administer-use-management-portal.md#delete-clusters)。
+完成教程之后，可能要删除群集。 有了 HDInsight，便可以将数据存储在 Azure 存储中，因此可以在群集不用时安全地删除群集。 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用数倍于存储空间费用，因此在群集不用时删除群集可以节省费用。 有关删除群集的说明，请参阅[使用 Azure 门户在 HDInsight 中管理 Hadoop 群集](hdinsight-administer-use-management-portal.md#delete-clusters)。
 
 要开始处理新 HBase 群集，可以按照[开始在 HDInsight 中将 HBase 与 Hadoop 配合使用](hdinsight-hbase-tutorial-get-started.md)中的步骤操作。
 
@@ -92,123 +92,127 @@ ms.lasthandoff: 07/28/2017
 
    使用这些值可将虚拟机放置在与 HDInsight 群集相同的虚拟网络和子网中。 此配置让它们能够直接相互通信。 有一种方法可使用空的边缘节点创建 HDInsight 群集。 该边缘节点可用于管理群集。  有关详细信息，请参阅[在 HDInsight 中使用空边缘节点](hdinsight-apps-use-edge-node.md)。
 
-2. 使用 Java 应用程序远程连接到 HBase 时，必须使用完全限定的域名 (FQDN)。 若要确定这一点，你必须获取 HBase 群集的连接特定的 DNS 后缀。 为此，可以使用以下方法之一：
+2. 使用 Java 应用程序远程连接到 HBase 时，必须使用完全限定的域名 (FQDN)。 要确定这一点，必须获取 HBase 群集的连接特定的 DNS 后缀。 为此，可以使用以下方法之一：
 
    * 使用 Web 浏览器发出 Ambari 调用：
 
-     浏览到 https://&lt;ClusterName>.azurehdinsight.cn/api/v1/clusters/&lt;ClusterName>/hosts?minimal_response=true。 随后将返回带有 DNS 后缀的 JSON 文件。
+     浏览到 https://&lt;ClusterName>.azurehdinsight.cn/api/v1/clusters/&lt;ClusterName>/hosts?minimal_response=true。 随后返回带有 DNS 后缀的 JSON 文件。
    * 使用 Ambari 网站：
 
      1. 浏览到 https://&lt;ClusterName>.azurehdinsight.cn。
      2. 在顶部菜单中单击 **主机** 。
    * 使用 Curl 发出 REST 调用：
 
-         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.cn/ambari/api/v1/clusters/<clustername>.azurehdinsight.cn/services/hbase/components/hbrest
+    ```bash
+    curl -u <username>:<password> -k https://<clustername>.azurehdinsight.cn/ambari/api/v1/clusters/<clustername>.azurehdinsight.cn/services/hbase/components/hbrest
+    ```
 
      在返回的 JavaScript 对象表示法 (JSON) 数据中，找到“host_name”条目。 此条目包含群集中的节点的 FQDN。 例如：
 
-         ...
-         "host_name": "wordkernode0.<clustername>.b1.chinacloudapp.cn
-         ...
+        ...    "host_name": "wordkernode0.<clustername>.b1.chinacloudapp.cn    ...
 
      以群集名称开头的域名的部分是 DNS 后缀。 例如，mycluster.b1.chinacloudapp.cn。
    * 使用 Azure PowerShell
 
      使用以下 Azure PowerShell 脚本注册 **Get-ClusterDetail** 函数，该函数可用于返回 DNS 后缀：
 
-         function Get-ClusterDetail(
-             [String]
-             [Parameter( Position=0, Mandatory=$true )]
-             $ClusterDnsName,
-             [String]
-             [Parameter( Position=1, Mandatory=$true )]
-             $Username,
-             [String]
-             [Parameter( Position=2, Mandatory=$true )]
-             $Password,
-             [String]
-             [Parameter( Position=3, Mandatory=$true )]
-             $PropertyName
-             )
-         {
-         <#
-             .SYNOPSIS
-              Displays information to facilitate an HDInsight cluster-to-cluster scenario within the same virtual network.
-             .Description
-              This command shows the following 4 properties of an HDInsight cluster:
-              1. ZookeeperQuorum (supports only HBase type cluster)
-                 Shows the value of HBase property "hbase.zookeeper.quorum".
-              2. ZookeeperClientPort (supports only HBase type cluster)
-                 Shows the value of HBase property "hbase.zookeeper.property.clientPort".
-              3. HBaseRestServers (supports only HBase type cluster)
-                 Shows a list of host FQDNs that run the HBase REST server.
-              4. FQDNSuffix (supports all cluster types)
-                 Shows the FQDN suffix of hosts in the cluster.
-             .EXAMPLE
-              Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName ZookeeperQuorum
-              This command shows the value of HBase property "hbase.zookeeper.quorum".
-             .EXAMPLE
-              Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName ZookeeperClientPort
-              This command shows the value of HBase property "hbase.zookeeper.property.clientPort".
-             .EXAMPLE
-              Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName HBaseRestServers
-              This command shows a list of host FQDNs that run the HBase REST server.
-             .EXAMPLE
-              Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName FQDNSuffix
-              This command shows the FQDN suffix of hosts in the cluster.
-         #>
+    ```powershell
+    function Get-ClusterDetail(
+        [String]
+        [Parameter( Position=0, Mandatory=$true )]
+        $ClusterDnsName,
+        [String]
+        [Parameter( Position=1, Mandatory=$true )]
+        $Username,
+        [String]
+        [Parameter( Position=2, Mandatory=$true )]
+        $Password,
+        [String]
+        [Parameter( Position=3, Mandatory=$true )]
+        $PropertyName
+        )
+    {
+    <#
+        .SYNOPSIS
+        Displays information to facilitate an HDInsight cluster-to-cluster scenario within the same virtual network.
+        .Description
+        This command shows the following 4 properties of an HDInsight cluster:
+        1. ZookeeperQuorum (supports only HBase type cluster)
+            Shows the value of HBase property "hbase.zookeeper.quorum".
+        2. ZookeeperClientPort (supports only HBase type cluster)
+            Shows the value of HBase property "hbase.zookeeper.property.clientPort".
+        3. HBaseRestServers (supports only HBase type cluster)
+            Shows a list of host FQDNs that run the HBase REST server.
+        4. FQDNSuffix (supports all cluster types)
+            Shows the FQDN suffix of hosts in the cluster.
+        .EXAMPLE
+        Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName ZookeeperQuorum
+        This command shows the value of HBase property "hbase.zookeeper.quorum".
+        .EXAMPLE
+        Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName ZookeeperClientPort
+        This command shows the value of HBase property "hbase.zookeeper.property.clientPort".
+        .EXAMPLE
+        Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName HBaseRestServers
+        This command shows a list of host FQDNs that run the HBase REST server.
+        .EXAMPLE
+        Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName FQDNSuffix
+        This command shows the FQDN suffix of hosts in the cluster.
+    #>
 
-             $DnsSuffix = ".azurehdinsight.cn"
+        $DnsSuffix = ".azurehdinsight.cn"
 
-             $ClusterFQDN = $ClusterDnsName + $DnsSuffix
-             $webclient = new-object System.Net.WebClient
-             $webclient.Credentials = new-object System.Net.NetworkCredential($Username, $Password)
+        $ClusterFQDN = $ClusterDnsName + $DnsSuffix
+        $webclient = new-object System.Net.WebClient
+        $webclient.Credentials = new-object System.Net.NetworkCredential($Username, $Password)
 
-             if($PropertyName -eq "ZookeeperQuorum")
-             {
-                 $Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum"
-                 $Response = $webclient.DownloadString($Url)
-                 $JsonObject = $Response | ConvertFrom-Json
-                 Write-host $JsonObject.items[0].properties.'hbase.zookeeper.quorum'
-             }
-             if($PropertyName -eq "ZookeeperClientPort")
-             {
-                 $Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.property.clientPort"
-                 $Response = $webclient.DownloadString($Url)
-                 $JsonObject = $Response | ConvertFrom-Json
-                 Write-host $JsonObject.items[0].properties.'hbase.zookeeper.property.clientPort'
-             }
-             if($PropertyName -eq "HBaseRestServers")
-             {
-                 $Url1 = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.rest.port"
-                 $Response1 = $webclient.DownloadString($Url1)
-                 $JsonObject1 = $Response1 | ConvertFrom-Json
-                 $PortNumber = $JsonObject1.items[0].properties.'hbase.rest.port'
+        if($PropertyName -eq "ZookeeperQuorum")
+        {
+            $Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum"
+            $Response = $webclient.DownloadString($Url)
+            $JsonObject = $Response | ConvertFrom-Json
+            Write-host $JsonObject.items[0].properties.'hbase.zookeeper.quorum'
+        }
+        if($PropertyName -eq "ZookeeperClientPort")
+        {
+            $Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.property.clientPort"
+            $Response = $webclient.DownloadString($Url)
+            $JsonObject = $Response | ConvertFrom-Json
+            Write-host $JsonObject.items[0].properties.'hbase.zookeeper.property.clientPort'
+        }
+        if($PropertyName -eq "HBaseRestServers")
+        {
+            $Url1 = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.rest.port"
+            $Response1 = $webclient.DownloadString($Url1)
+            $JsonObject1 = $Response1 | ConvertFrom-Json
+            $PortNumber = $JsonObject1.items[0].properties.'hbase.rest.port'
 
-                 $Url2 = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/hbase/components/hbrest"
-                 $Response2 = $webclient.DownloadString($Url2)
-                 $JsonObject2 = $Response2 | ConvertFrom-Json
-                 foreach ($host_component in $JsonObject2.host_components)
-                 {
-                     $ConnectionString = $host_component.HostRoles.host_name + ":" + $PortNumber
-                     Write-host $ConnectionString
-                 }
-             }
-             if($PropertyName -eq "FQDNSuffix")
-             {
-                 $Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/YARN/components/RESOURCEMANAGER"
-                 $Response = $webclient.DownloadString($Url)
-                 $JsonObject = $Response | ConvertFrom-Json
-                 $FQDN = $JsonObject.host_components[0].HostRoles.host_name
-                 $pos = $FQDN.IndexOf(".")
-                 $Suffix = $FQDN.Substring($pos + 1)
-                 Write-host $Suffix
-             }
-         }
+            $Url2 = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/hbase/components/hbrest"
+            $Response2 = $webclient.DownloadString($Url2)
+            $JsonObject2 = $Response2 | ConvertFrom-Json
+            foreach ($host_component in $JsonObject2.host_components)
+            {
+                $ConnectionString = $host_component.HostRoles.host_name + ":" + $PortNumber
+                Write-host $ConnectionString
+            }
+        }
+        if($PropertyName -eq "FQDNSuffix")
+        {
+            $Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/YARN/components/RESOURCEMANAGER"
+            $Response = $webclient.DownloadString($Url)
+            $JsonObject = $Response | ConvertFrom-Json
+            $FQDN = $JsonObject.host_components[0].HostRoles.host_name
+            $pos = $FQDN.IndexOf(".")
+            $Suffix = $FQDN.Substring($pos + 1)
+            Write-host $Suffix
+        }
+    }
+    ```
 
-     运行 Azure PowerShell 脚本后，使用以下命令通过 **Get-ClusterDetail** 函数来返回 DNS 后缀。 使用此命令时，指定你的 HDInsight HBase 群集名称、管理员名称和管理员密码。
+     运行 Azure PowerShell 脚本后，使用以下命令通过 **Get-ClusterDetail** 函数来返回 DNS 后缀。 使用此命令时，指定 HDInsight HBase 群集名称、管理员名称和管理员密码。
 
-         Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
+    ```powershell
+    Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
+    ```
 
      此命令返回 DNS 后缀。 例如， **yourclustername.b4.internal.chinacloudapp.cn**。
 
@@ -260,7 +264,7 @@ ms.lasthandoff: 07/28/2017
 [vm-create]: ../virtual-machines/virtual-machines-windows-hero-tutorial.md
 
 [azure-portal]: https://portal.azure.cn
-[azure-create-storageaccount]: ../storage/storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/

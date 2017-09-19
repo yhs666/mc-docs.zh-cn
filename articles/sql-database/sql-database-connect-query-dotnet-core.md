@@ -1,6 +1,6 @@
 ---
 title: "使用 .NET Core 查询 Azure SQL 数据库 | Azure"
-description: "本主题介绍如何使用 .NET Core 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。"
+description: "本主题介绍如何使用 .NET Core 创建连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。"
 services: sql-database
 documentationcenter: 
 author: Hayley244
@@ -16,15 +16,15 @@ ms.topic: hero-article
 origin.date: 07/05/2017
 ms.date: 07/31/2017
 ms.author: v-haiqya
-ms.openlocfilehash: b993bf7ce7a55c56c215077cf95e0a371ffd1e29
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: ca75879b325b3a30560c8bdf547a2f0aa04bafb6
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>使用 .NET Core (C#) 查询 Azure SQL 数据库
 
-本快速入门教程演示了如何在 Windows/Linux/macOS 中使用 [.NET Core](https://www.microsoft.com/net/) 创建可连接到 Azure SQL 数据库的 C# 程序，并使用 Transact-SQL 语句查询数据。
+本快速入门教程演示了如何在 Windows/Linux/macOS 中使用 [.NET Core](https://www.microsoft.com/net/) 来创建连接到 Azure SQL 数据库的 C# 程序，并使用 Transact-SQL 语句来查询数据。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -150,7 +150,8 @@ namespace sqltest
 
 ## <a name="next-steps"></a>后续步骤
 
-- [在 Windows/Linux/macOS 中通过命令行使用 .NET Core 入门](https://docs.microsoft.com/dotnet/core/tutorials/using-with-xplat-cli.md)。
+- [在 Windows/Linux/macOS 中通过命令行使用 .NET Core 入门](https://docs.microsoft.com/dotnet/core/tutorials/using-with-xplat-cli)。
 - 了解如何[使用 .NET Framework 和 Visual Studio 连接和查询 Azure SQL 数据库](sql-database-connect-query-dotnet-visual-studio.md)。  
 - 了解如何[使用 SSMS 设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)，或者如何[使用 .NET 设计第一个 Azure SQL 数据库](sql-database-design-first-database-csharp.md)。
 - 有关 .NET 的详细信息，请参阅 [.NET 文档](https://docs.microsoft.com/dotnet/)。
+<!--Update_Description: wording update-->

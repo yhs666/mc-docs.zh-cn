@@ -17,11 +17,11 @@ origin.date: 07/31/2017
 ms.date: 09/04/2017
 ms.author: v-yeche
 ms.custom: 
-ms.openlocfilehash: e338b08bb6acfb76ae542331c0f317577a427f3d
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: ed1500fcd6633c6fa365966a59b9b86734d2ae4b
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>创建包含多个子网的虚拟网络（经典）
 
@@ -33,7 +33,8 @@ ms.lasthandoff: 09/04/2017
 详细了解所有[虚拟网络](virtual-network-manage-network.md)和[子网](virtual-network-manage-subnet.md)设置。
 
 > [!WARNING]
-> [禁用订阅](../billing/billing-subscription-become-disable.md?toc=%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit)后，Azure 会立即删除虚拟网络（经典）。 不管虚拟网络（经典）中是否存在资源，都会删除虚拟网络。 如果以后重新启用订阅，必须重新创建虚拟网络中存在的资源。
+> 禁用订阅后，Azure 会立即删除虚拟网络（经典）。 不管虚拟网络（经典）中是否存在资源，都会删除虚拟网络。 如果以后重新启用订阅，必须重新创建虚拟网络中存在的资源。
+<!-- Not Available (../billing/billing-subscription-become-disable.md?toc=%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit)-->
 
 可以使用 [Azure 门户](#portal)、[Azure 命令行接口 (CLI) 1.0](#azure-cli) 或 [PowerShell](#powershell) 创建虚拟网络（经典）。
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 09/04/2017
     |订阅和位置|选择订阅和位置。
 
     如果你不熟悉 Azure，请详细了解[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)、[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和[位置](https://www.azure.cn/regions)（也称为“区域”）。
-4. 在门户中创建虚拟网络时，只能创建一个子网。 本教程将在创建虚拟网络后创建第二个子网。 随后可在“公共”子网中创建可通过 Internet 访问的资源。 还可以在“专用”子网中创建无法通过 Internet 访问的资源。 若要创建第二个子网，请在页面顶部的“搜索资源”框中输入 **myVnet**。 单击显示在搜索结果中的“myVnet”。
+4. 在门户中创建虚拟网络时，只能创建一个子网。 在本教程中，将在创建虚拟网络之后创建第二个子网。 随后可在“公共”子网中创建可通过 Internet 访问的资源。 还可以在“专用”子网中创建无法通过 Internet 访问的资源。 若要创建第二个子网，请在页面顶部的“搜索资源”框中输入 **myVnet**。 单击显示在搜索结果中的“myVnet”。
 5. 在显示的“创建虚拟网络(经典)”边栏选项卡中单击“子网”（在“设置”部分中）。
 6. 在显示的“myVnet - 子网”边栏选项卡中单击“+添加”。
 7. 在“添加子网”边栏选项卡中，为“名称”输入“专用”。 为“地址范围”输入 **10.0.1.0/24**。  单击 **“确定”**。
@@ -67,7 +68,7 @@ ms.lasthandoff: 09/04/2017
 
 ## <a name="azure-cli"></a>Azure CLI
 
-1. 可以[安装并配置 Azure CLI](../cli-install-nodejs.md?toc=%2fvirtual-network%2ftoc.json)，或者在 Azure Cloud Shell 中使用 CLI。 Azure Cloud Shell 是可直接在 Azure 门户中运行的免费 Bash shell。 它预安装有 Azure CLI 并将其配置为与你的帐户一起使用。 若要获取 CLI 命令的帮助，请键入 `azure <command> --help`。 
+1. 可以[安装并配置 Azure CLI](../cli-install-nodejs.md?toc=%2fvirtual-network%2ftoc.json)，或者在 Azure Cloud Shell 中使用 CLI。 Azure Cloud Shell 是可直接在 Azure 门户中运行的免费 Bash shell。 它预安装有 Azure CLI 并将其配置与你的帐户一起使用。 若要获取 CLI 命令的帮助，请键入 `azure <command> --help`。 
 2. 在 CLI 会话中，使用以下命令登录到 Azure。 如果在下框中单击“试用”，则会打开 Cloud Shell。 无法输入以下命令即可登录到 Azure 订阅：
 
     ```azurecli
@@ -162,7 +163,7 @@ ms.lasthandoff: 09/04/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要了解有关所有虚拟网络和子网设置的信息，请参阅[管理虚拟网络](virtual-network-manage-network.md)和[管理虚拟网络子网](virtual-network-manage-subnet.md)。 可以根据不同的要求，通过多种选项在生产环境中使用虚拟网络和子网。
+- 若要了解有关所有虚拟网络和子网设置的信息，请参阅[管理虚拟网络](virtual-network-manage-network.md)和[管理虚拟网络子网](virtual-network-manage-subnet.md)。 在生产环境中有使用虚拟网络和子网的多种选项，以满足不同的要求。
 - 若要筛选入站和出站子网流量，请创建[网络安全组](virtual-networks-nsg.md)并将其应用到子网。
 - 创建 [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fvirtual-network%2ftoc.json) 虚拟机，并将其连接到现有的虚拟网络。
 - 若要在同一 Azure 位置连接两个虚拟网络，请在虚拟网络之间创建[虚拟网络对等互连](create-peering-different-deployment-models.md)。 可将虚拟网络（资源管理器）对等互连到虚拟网络（经典），但不能在两个虚拟网络（经典）之间创建对等互连。

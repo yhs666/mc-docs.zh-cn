@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/26/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: 929d2e7d948002f3161078513d08753f6b97bce4
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: e1c99f2a9a80d364965620af37e39390949bc12a
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="process-and-analyze-json-documents-using-hive-in-hdinsight"></a>使用 HDInsight 中的 Hive 处理和分析 JSON 文档
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 07/28/2017
         ]
     }
 
-可以在 wasbs://processjson@hditutorialdata.blob.core.windows.net/上找到该文件。 有关将 Azure Blob 存储与 HDInsight 配合使用的详细信息，请参阅[将 HDFS 兼容的 Azure Blob 存储与 HDInsight 中的 Hadoop 配合使用](hdinsight-hadoop-use-blob-storage.md)。 可以将该文件复制到群集的默认容器。
+可以在 wasb://processjson@hditutorialdata.blob.core.windows.net/上找到该文件。 有关将 Azure Blob 存储与 HDInsight 配合使用的详细信息，请参阅[将 HDFS 兼容的 Azure Blob 存储与 HDInsight 中的 Hadoop 配合使用](hdinsight-hadoop-use-blob-storage.md)。 可以将该文件复制到群集的默认容器。
 
 在本教程中，将使用 Hive 控制台。  有关打开 Hive 控制台的说明，请参阅[通过远程桌面将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-hadoop-use-hive-remote-desktop.md)。
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 07/28/2017
 
     SELECT * FROM StudentsOneLine
 
-原始 JSON 文件位于 **wasbs://processjson@hditutorialdata.blob.core.windows.net/**。 *StudentsRaw* Hive 表指向原始的未平展 JSON 文档。
+原始 JSON 文件位于 **wasb://processjson@hditutorialdata.blob.core.windows.net/**。 *StudentsRaw* Hive 表指向原始的未平展 JSON 文档。
 
 *StudentsOneLine* Hive 表将数据存储在 HDInsight 默认文件系统中的 */json/students/* 路径下。
 
@@ -168,7 +168,7 @@ SerDe 是用于分析嵌套 JSON 文档的最佳选择，不但可定义 JSON �
 
     ![克隆项目][image-hdi-hivejson-serde]
 
-4. 转到将此包下载到其中的文件夹，然后键入“mvn package”。 这将创建必要的 jar 文件，然后可以将其复制到群集。
+4. 转到此包下载到的文件夹，然后键入“mvn package”。 这将创建必要的 jar 文件，然后可以将其复制到群集。
 
 5. 转到根文件夹下存放所下载包的目标文件夹。 将 json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar 文件上传到群集的头节点。 通常，将该文件放置在 hive bin 文件夹下：C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin 或类似文件夹。
 
@@ -262,3 +262,4 @@ SerDe 是用于分析嵌套 JSON 文档的最佳选择，不但可定义 JSON �
 [image-hdi-hivejson-serde_query2]: ./media/hdinsight-using-json-in-hive/serde_query2.png
 [image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
+<!--Update_Description: change 'wasbs' into 'wasb'-->

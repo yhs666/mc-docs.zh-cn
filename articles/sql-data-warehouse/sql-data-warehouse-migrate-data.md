@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 origin.date: 06/29/2017
-ms.date: 07/24/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: bfa5ecbc1c05659929217fa6ca7cc8b2016f8f09
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 0e6803c4d7c75d8e6e9e7284b38ee196ce6ab7df
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="migrate-your-data"></a>迁移数据
-数据可以使用各种工具从不同源移动到 SQL 数据仓库中。  ADF 复制、SSIS 和 bcp 都可用来实现此目标。 但是，随着数据量的增加，你应该考虑将数据迁移过程划分成多个步骤。 这样，你便有机会优化每个步骤以提高性能和弹性，确保顺利迁移数据。
+数据可以使用各种工具从不同源移动到 SQL 数据仓库中。 SSIS 和 bcp 都可用来实现此目标。 但是，随着数据量的增加，应该考虑将数据迁移过程划分成多个步骤。 这样，便有机会优化每个步骤以提高性能和弹性，确保顺利迁移数据。
 
 本文首先讨论 SSIS 和 bcp 的简单迁移方案。 然后稍微深入讨论如何优化迁移。
 <!-- Not Available ## Azure Data Factory (ADF) copy-->
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/26/2017
 > 
 > 
 
-SSIS 将连接到 SQL 数据仓库，就像连接到 SQL Server 部署一样。 但是，你的连接需要使用 ADO.NET 连接管理器。 你还应谨慎配置“可用时使用批量插入”设置，以最大化吞吐量。 请参阅 [ADO.NET 目标适配器][ADO.NET destination adapter] 一文以深入了解此属性
+SSIS 连接到 SQL 数据仓库，就像连接到 SQL Server 部署一样。 但是，连接需要使用 ADO.NET 连接管理器。 还应谨慎配置“可用时使用批量插入”设置，以最大化吞吐量。 请参阅 [ADO.NET 目标适配器][ADO.NET destination adapter] 一文以深入了解此属性
 
 > [!NOTE]
 > 不支持使用 OLEDB 连接到 Azure SQL 数据仓库。
@@ -128,11 +128,11 @@ Azure 导入和导出服务是一个数据传输进程，用于将大量 (GB++) 
 3. 使用 [Azure 导入/导出工具] 将数据复制到 3.5 英寸 SATA II/III 硬盘驱动器
 4. 使用 Azure 导入和导出服务，并提供 [Azure 导入/导出工具] 生成的日记文件，创建导入作业
 5. 将磁盘寄送到指定的 Azure 数据中心
-6. 你的数据将传输到 Azure Blob 存储容器
+6. 数据将传输到 Azure Blob 存储容器
 7. 使用 PolyBase 将数据载入 SQLDW
 
 ### <a name="azcopyazcopy-utility"></a>[AZCopy][AZCopy] 实用工具
-[AZCopy][AZCopy] 实用程序是将数据传输到 Azure 存储 Blob 的一个极佳工具。 它旨在用于少量 (MB++) 到极大量 (GB++) 的数据传输。 将数据传输到 Azure 时，[AZCopy] 还能提供高度灵活的吞吐量，因此是数据传输措施的理想选择。 传输后，你可以使用 PolyBase 将数据载入 SQL 数据仓库。 你还可以使用“执行进程”任务将 AZCopy 合并到 SSIS 包中。
+[AZCopy][AZCopy] 实用程序是将数据传输到 Azure 存储 Blob 的一个极佳工具。 它旨在用于少量 (MB++) 到极大量 (GB++) 的数据传输。 [AZCopy] 还能提供高度灵活的吞吐量，因此是数据传输措施的理想选择。 传输后，可以使用 PolyBase 将数据载入 SQL 数据仓库。 还可以使用“执行进程”任务将 AZCopy 合并到 SSIS 包中。
 
 若要使用 AZCopy，必须先下载并安装它。 可用版本包括[生产版][production version]和[预览版][preview version]。
 
@@ -152,15 +152,15 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.chinacloudapi.cn/my
 提供的完整文档： [AZCopy][AZCopy]的一部分。
 
 ## <a name="optimizing-data-export"></a>优化数据导出
-除了确保导出符合 PolyBase 规定的要求外，你还可以设法优化数据导出，以进一步改善过程。
+除了确保导出符合 PolyBase 规定的要求外，还可以设法优化数据导出，以进一步改善过程。
 
 ### <a name="data-compression"></a>数据压缩
-PolyBase 可以读取 gzip 压缩数据。 如果你可以将数据压缩成 gzip 文件，就能将网络上推送的数据量减到最少。
+PolyBase 可以读取 gzip 压缩数据。 如果可以将数据压缩成 gzip 文件，就能将网络上推送的数据量减到最少。
 
 ### <a name="multiple-files"></a>多个文件
 将大型表分割成多个文件不仅有助于改善导出速度，还有助于重新开始传输，以及数据进入 Azure Blob 存储之后的整体易管理性。 PolyBase 的众多优点之一是可以读取文件夹内的所有文件，并将其视为一个表。 因此，最好将每个表的文件隔离到它自身的文件夹中。
 
-PolyBase 还支持名为“递归文件夹遍历”的功能。 你可以使用此功能进一步增强所导出数据的组织方式，以改善数据管理。
+PolyBase 还支持名为“递归文件夹遍历”的功能。 可以使用此功能来进一步增强所导出数据的组织方式，以改善数据管理。
 
 要深入了解如何使用 PolyBase 加载数据，请参阅[使用 PolyBase 将数据载入 SQL 数据仓库][Use PolyBase to load data into SQL Data Warehouse]。
 
@@ -171,7 +171,7 @@ PolyBase 还支持名为“递归文件夹遍历”的功能。 你可以使用�
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy]: ../storage/storage-use-azcopy.md
+[AZCopy]:../storage/common/storage-use-azcopy.md
 <!-- Not Available [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md -->
 <!-- Not Available [ADF samples]: ../data-factory/data-factory-samples.md-->
 <!-- Not Available [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md-->
@@ -185,7 +185,7 @@ PolyBase 还支持名为“递归文件夹遍历”的功能。 你可以使用�
 
 <!--Other Web references-->
 <!-- Not Available [Azure Data Factory]: http://azure.microsoft.com/services/data-factory/-->
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[ExpressRoute]: https://www.azure.cn/home/features/expressroute/
 [ExpressRoute documentation]: /expressroute/
 
 [production version]: http://aka.ms/downloadazcopy/
@@ -193,4 +193,4 @@ PolyBase 还支持名为“递归文件夹遍历”的功能。 你可以使用�
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update reference link-->

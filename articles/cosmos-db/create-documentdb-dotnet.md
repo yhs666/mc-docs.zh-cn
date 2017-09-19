@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 05/10/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: c47da281c9cc524df54c90a3e57d8a740d84f033
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 0a908885fbfadfff7f3e8d4030059360d92ce4ae
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB：使用 .NET 和 Azure 门户生成 DocumentDB API Web 应用
 
-Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
+Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档及键/值，这两者都受益于 Azure Cosmos DB 核心的全球分发和水平缩放功能。 
 
 本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户、文档数据库和集合。 然后，生成并部署基于 [DocumentDB .NET API](documentdb-sdk-dotnet.md) 构建的“待办事项列表”Web 应用，如以下屏幕截图中所示。 
 
@@ -55,7 +55,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
     ![在 Azure 门户的数据资源管理器中创建新文档](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
 
-2. 现在将具有以下结构的几个文档添加到集合，在其中插入每个文档的 ID 的唯一值，并根据需要更改其他属性。 新文档可以具有所需的任何结构，因为 Azure Cosmos DB 不对数据施加任何架构。
+2. 现在，将文档添加到具有以下结构的集合。
 
     ```json
     {
@@ -66,17 +66,20 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
          "isComplete": false
     }
     ```
-3. 将 json 添加到“文档”选项卡以后，单击“保存”。
+
+3. 将 json 添加到“文档”选项卡以后，即可单击“保存”。
 
     ![通过复制添加 json 数据，然后在 Azure 门户的数据资源管理器中单击“保存”](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
-     现在可以在数据资源管理器中使用查询来检索数据。 默认情况下，数据资源管理器使用 `SELECT * FROM c` 来检索集合中的所有文档，但可以将其更改为 `SELECT * FROM c ORDER BY c.name ASC`，按 name 属性的字母升序返回所有文档。 
+4.  再创建并保存一个文档，在其中插入 `id` 属性的唯一值，并将其他属性更改为适当值。 新文档可以具有所需的任何结构，因为 Azure Cosmos DB 不对数据施加任何架构。
+
+     现在可以在数据资源管理器中使用查询来检索数据。 默认情况下，数据资源管理器使用 `SELECT * FROM c` 来检索集合中的所有文档，但可以将其更改为其他 [SQL 查询](documentdb-sql-query.md)（例如 `SELECT * FROM c ORDER BY c._ts DESC`），根据时间戳按升序返回所有文档。
 
      还可以使用数据资源管理器创建存储过程、UDF 和触发器以执行服务器端业务逻辑和缩放吞吐量。 数据资源管理器公开 API 中提供的所有内置编程数据访问，但你可以使用它轻松访问 Azure 门户中的数据。
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在，我们从 github 克隆 DocumentDB API 应用、设置连接字符串，并运行该应用。 你会看到以编程方式处理数据是多么容易。 
+现在，让我们转到如何使用代码上来。 从 GitHub 克隆 DocumentDB API 应用，设置连接字符串，并运行该应用。 会看到以编程方式处理数据是多么容易。 
 
 1. 打开 git 终端窗口（例如 git bash）并使用 `CD` 切换到工作目录。  
 
@@ -127,7 +130,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
     `<add key="endpoint" value="FILLME" />`
 
-4. 然后从门户复制“主密钥”的值，并在 web.config 中将其设为 authKey 的值。 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
+4. 然后从门户复制“主密钥”的值，并在 web.config 中将其设为 authKey 的值。现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
 
     `<add key="authKey" value="FILLME" />`
 

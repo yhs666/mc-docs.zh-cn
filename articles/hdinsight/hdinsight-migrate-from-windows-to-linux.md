@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 8a609902d25b92aa0e9a4f13645f457bdeb3c8d4
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 78f72393862da48bca2eee8eb38b90c0d57d5819
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>从基于 Windows 的 HDInsight 群集迁移到基于 Linux 的群集
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 07/28/2017
 
 验证一切都按预期工作后，请为迁移安排停机时间。 在停机期间，请执行以下操作：
 
-1. 备份所有存储在本地群集节点上的暂时性数据。 例如，如果你的数据直接存储在头节点上。
+1. 备份所有存储在本地群集节点上的暂时性数据。 例如，如果数据直接存储在头节点上。
 
 2. 删除基于 Windows 的群集。
 
@@ -82,10 +82,10 @@ ms.lasthandoff: 07/28/2017
 
 5. 创建群集后，使用 **SSH** 连接到该群集。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
-6. 从 SSH 会话中，使用以下命令来将文件从链接的存储帐户复制到新的默认存储帐户。 将 CONTAINER 替换为 PowerShell 所返回的容器信息。 将 __ACCOUNT__ 替换为帐户名称。 将数据的路径替换为数据文件的路径。
+6. 从 SSH 会话中，使用以下命令来将文件从链接的存储帐户复制到新的默认存储帐户。 将 CONTAINER 替换为 PowerShell 返回的容器信息。 将 __ACCOUNT__ 替换为帐户名称。 将数据的路径替换为数据文件的路径。
 
     ```bash
-    hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.chinacloudapi.cn/path/to/old/data /path/to/new/location
+    hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.chinacloudapi.cn/path/to/old/data /path/to/new/location
     ```
 
     > [!NOTE]
@@ -99,7 +99,7 @@ ms.lasthandoff: 07/28/2017
 
 #### <a name="direct-copy-between-blobs-in-azure-storage"></a>在 Azure 存储的 blob 之间直接复制
 
-或者，你可能想要使用 `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet 在 HDInsight 以外的存储帐户之间复制 Blob。 有关详细信息，请参阅“Using Azure PowerShell with Azure Storage”（在 Azure 存储中使用 Azure PowerShell）一文中的“How to manage Azure Blobs”（如何管理 Azure Blob）部分。
+或者，可能想要使用 `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet 在 HDInsight 以外的存储帐户之间复制 Blob。 有关详细信息，请参阅“Using Azure PowerShell with Azure Storage”（在 Azure 存储中使用 Azure PowerShell）一文中的“How to manage Azure Blobs”（如何管理 Azure Blob）部分。
 
 ## <a name="client-side-technologies"></a>客户端技术
 
@@ -109,12 +109,12 @@ ms.lasthandoff: 07/28/2017
 
 下表提供了迁移特定于 Windows 的服务器端组件的指南。
 
-| 如果你使用此技术... | 请执行此操作... |
+| 如果使用此技术... | 请执行此操作... |
 | --- | --- |
 | **PowerShell**（服务器端脚本，包含群集创建期间使用的脚本操作） |重新编写为 Bash 脚本。 有关脚本操作的信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)和[针对基于 Linux 的 HDInsight 的脚本操作开发](hdinsight-hadoop-script-actions-linux.md)。 |
 | **Azure CLI**（服务器端脚本） |尽管 Azure CLI 可在 Linux 上使用，但它并没有预先安装在 HDInsight 群集头节点上。 有关安装 Azure CLI 的详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。 |
 | **.NET 组件** |.NET 在基于 Linux 的 HDInsight 上通过 [Mono](http://mono-project.com) 受支持。 有关详细信息，请参阅[将 .NET 解决方案迁移到基于 Linux 的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)。 |
-| **Win32 组件或其他仅限 Windows 的技术** |指南取决于组件或技术。 你可以找到与 Linux 兼容的版本，或者你可能需要查找替代解决方案或重新编写此组件。 |
+| **Win32 组件或其他仅限 Windows 的技术** |指南取决于组件或技术。 可以找到与 Linux 兼容的版本，或者可能需要查找替代解决方案或重新编写此组件。 |
 
 > [!IMPORTANT]
 > HDInsight 管理 SDK 与 Mono 完全不兼容。 此时它不应用作部署到 HDInsight 群集的解决方案的一部分。
@@ -129,7 +129,7 @@ ms.lasthandoff: 07/28/2017
 
 在群集创建期间，必须提供 SSH 用户，以及**密码**或**公钥证书**进行身份验证。
 
-我们建议使用公钥证书，因为它比密码更安全。 证书身份验证将生成已签名的公钥/私钥对，然后在创建群集时提供公钥。 使用 SSH 连接到服务器时，客户端上的私钥将会为连接提供身份验证。
+我们建议使用公钥证书，因为它比密码更安全。 证书身份验证会生成已签名的公钥/私钥对，然后在创建群集时提供公钥。 使用 SSH 连接到服务器时，客户端上的私钥会为连接提供身份验证。
 
 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
@@ -158,14 +158,14 @@ ms.lasthandoff: 07/28/2017
 
 ### <a name="ambari-alerts"></a>Ambari 警报
 
-Ambari 提供能够通知群集潜在问题的警报系统。 警报将以红色或黄色条目出现在 Ambari Web UI 中，你也可以通过 REST API 检索警报。
+Ambari 提供能够通知群集潜在问题的警报系统。 警报以红色或黄色条目出现在 Ambari Web UI 中，你也可以通过 REST API 检索警报。
 
 > [!IMPORTANT]
 > Ambari 警报表示可能有问题，而不表示已发生问题。 例如，你可能会收到无法访问 HiveServer2 的警报，但实际上仍可以正常访问它。
 >
 > 许多警报都是针对某项服务实现为基于间隔的查询，并预期在特定的时间范围内收到响应。 因此警报本身并不代表服务已关闭，而只是单纯表示该服务没有在预期时间范围内返回结果。
 
-应该先评估某个警报是否已长时间持续发生，或者反映了已报告的用户问题，然后对它采取措施。
+应该先评估某个警报是否已长时间持续发生，或者反映了已报告的用户问题，并对它采取措施。
 
 ## <a name="file-system-locations"></a>文件系统位置
 
@@ -178,7 +178,7 @@ Linux 群集文件系统的布局与基于 Windows 的 HDInsight 群集不同。
 | Hortonworks 数据平台 (HDP) |`/usr/hdp`。此处有两个目录，一个是当前 HDP 版本，另一个是 `current`。 `current` 目录包含位于版本号目录中的文件和目录的符号链接。 由于版本号随 HDP 版本的更新而更改，因此可将 `current` 目录作为访问 HDP 文件的便利方式。 |
 | hadoop-streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
 
-一般而言，如果你知道文件的名称，则可以从 SSH 会话使用以下命令来查找文件路径：
+一般而言，如果知道文件的名称，则可以从 SSH 会话使用以下命令来查找文件路径：
 
     find / -name FILENAME 2>/dev/null
 
@@ -254,13 +254,13 @@ Oozie 工作流支持 shell 操作。 shell 操作将默认 shell 用于操作�
 
 ### <a name="line-endings"></a>行尾
 
-一般情况下，基于 Windows 的系统上的行尾使用 CRLF，而基于 Linux 的系统使用 LF。 如果你生成的数据带有 CRLF 行尾或者你预期会出现这种行尾，可能需要修改生成器或使用方才能处理 LF 行尾。
+一般情况下，基于 Windows 的系统上的行尾使用 CRLF，而基于 Linux 的系统使用 LF。 如果生成的数据带有 CRLF 行尾或者预期会出现这种行尾，可能需要修改生成器或使用方才能处理 LF 行尾。
 
-例如，使用 Azure PowerShell 在基于 Windows 的群集上查询 HDInsight 时，将返回带有 CRLF 的数据。 在基于 Linux 的群集上使用相同的查询将返回 LF。 在迁移到基于 Linux 的群集之前应进行测试，以查看行尾是否会导致解决方案出现问题。
+例如，使用 Azure PowerShell 在基于 Windows 的群集上查询 HDInsight，将返回带有 CRLF 的数据。 在基于 Linux 的群集上使用相同的查询将返回 LF。 在迁移到基于 Linux 的群集之前应进行测试，以查看行尾是否会导致解决方案出现问题。
 
-如果有直接在 Linux 群集节点上执行的脚本，你应始终使用 LF 作为行结束符。 如果使用 CRLF，可能会在基于 Linux 的群集上运行脚本时遇到错误。
+如果有直接在 Linux 群集节点上执行的脚本，应始终使用 LF 作为行结束符。 如果使用 CRLF，可能会在基于 Linux 的群集上运行脚本时遇到错误。
 
-如果你知道脚本中不存在内嵌 CR 字符的字符串，可以使用以下方法之一来批量更改行尾：
+如果知道脚本中不存在内嵌 CR 字符的字符串，可以使用以下方法之一来批量更改行尾：
 
 * **在上传到群集前**：在将脚本上传到群集前，使用以下 PowerShell 语句将行尾从 CRLF 更改为 LF。
 
@@ -273,9 +273,9 @@ Oozie 工作流支持 shell 操作。 shell 操作将默认 shell 用于操作�
 * **在上传到群集后**：使用基于 Linux 的群集中 SSH 会话的以下命令修改脚本。
 
     ```bash
-    hdfs dfs -get wasbs:///path/to/script.py oldscript.py
+    hdfs dfs -get wasb:///path/to/script.py oldscript.py
     tr -d '\r' < oldscript.py > script.py
-    hdfs dfs -put -f script.py wasbs:///path/to/script.py
+    hdfs dfs -put -f script.py wasb:///path/to/script.py
     ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -284,4 +284,4 @@ Oozie 工作流支持 shell 操作。 shell 操作将默认 shell 用于操作�
 * [使用 SSH 连接到 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [使用 Ambari 管理基于 Linux 的群集](hdinsight-hadoop-manage-ambari.md)
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: change 'wasbs' into 'wasb'-->

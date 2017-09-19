@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 origin.date: 06/19/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5db578a71a34baa01aabc2d71862f6c6eddede1c
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: a46bb9e3041f673847b837337a6f4527422901a2
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB：迁移现有的 Node.js MongoDB Web 应用 
 
-Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
+Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档及键/值，这两者都受益于 Azure Cosmos DB 核心的全球分发和水平缩放功能。 
 
 本快速入门演示如何使用以 Node.js 编写的现有 [MongoDB](mongodb-introduction.md) 应用，并将其连接到支持 MongoDB 客户端连接的 Azure Cosmos DB 数据库。 换而言之，Node.js 应用程序仅知道它要使用 MongoDB API 连接到某个数据库。 应用程序完全知道数据存储在 Azure Cosmos DB 中。
 
@@ -64,18 +64,17 @@ npm start
 如果使用已安装的 Azure CLI，请使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令登录到 Azure 订阅，按屏幕说明操作。
 
 ```azurecli
-az configure            # Azure CLI 2.0
-// Update the cloud name with AzureChinaCloud in specific configureation file with default name of C:\Users\{USER NAME}\.azure\config
-// [cloud]
-// name = AzureChinaCloud
+az cloud set -n AzureChinaCloud
 az login
+#az cloud set -n AzureCloud
+#return to global azure 
 ``` 
 
 ## <a name="add-the-azure-cosmos-db-module"></a>添加 Azure Cosmos DB 模块
 
 如果使用已安装的 Azure CLI，请运行 `az` 命令，检查是否已安装 `cosmosdb` 组件。 如果 `cosmosdb` 在基本命令列表中，请继续执行下一个命令。
 
-如果 `cosmosdb` 不在基本命令列表中，请重装 [Azure CLI 2.0](https://docs.microsoft.com/zh-cn/cli/azure/install-azure-cli)。
+如果 `cosmosdb` 不在基本命令列表中，请重装 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -85,7 +84,7 @@ az login
 
 如果使用 Azure Cloud Shell，请单击“试用”，按照屏幕提示登录，然后将命令复制到命令提示符中。
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location "China East"
 ```
 
@@ -95,13 +94,16 @@ az group create --name myResourceGroup --location "China East"
 
 在以下命令中，请将 `<cosmosdb-name>` 占位符替换成自己的唯一 Azure Cosmos DB 帐户名。 此唯一名称将用作 Azure Cosmos DB 终结点 (`https://<cosmosdb-name>.documents.azure.cn/`) 的一部分，因此需要在 Azure 中的所有 Azure Cosmos DB 帐户之间保持唯一。 
 
-```azurecli-interactive
+```azurecli
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
 ```
 
 `--kind MongoDB` 参数启用 MongoDB 客户端连接。
 
-创建 Azure Cosmos DB 帐户后，Azure CLI 会显示类似于以下示例的信息。 
+创建 Azure Cosmos DB 帐户后，Azure CLI 会显示类似于以下示例的信息： 
+
+> [!NOTE]
+> 此示例使用 JSON 作为 Azure CLI 输出格式，此为默认设置。 若要使用其他输出格式，请参阅 [Azure CLI 2.0 命令的输出格式](https://docs.microsoft.com/cli/azure/format-output-azure-cli)。
 
 ```json
 {
@@ -151,7 +153,7 @@ DB/databaseAccounts/<cosmosdb-name>",
 
 module.exports = {
   db: {
-    uri: 'mongodb://<cosmosdb-name>:<primary_master_key>@<cosmosdb-name>.documents.azure.cn:10250/mean-dev?ssl=true&sslverifycertificate=false'
+    uri: 'mongodb://<cosmosdb-name>:<primary_master_key>@<cosmosdb-name>.documents.azure.cn:10255/mean-dev?ssl=true&sslverifycertificate=false'
   }
 };
 ```
@@ -160,7 +162,7 @@ module.exports = {
 
 若要连接到 Azure Cosmos DB 数据库，需要使用数据库密钥。 使用 [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) 命令检索主键。
 
-```azurecli-interactive
+```azurecli
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
 ```
 
@@ -211,7 +213,7 @@ MEAN.js 示例应用程序将用户数据存储在数据库中。 如果上述�
 在 `db` 对象中，如以下示例所示替换 `uri` 的值。 请务必按上文所述替换占位符。
 
 ```javascript
-'mongodb://<cosmosdb-name>:<primary_master_key>@<cosmosdb-name>.documents.azure.cn:10250/mean?ssl=true&sslverifycertificate=false',
+'mongodb://<cosmosdb-name>:<primary_master_key>@<cosmosdb-name>.documents.azure.cn:10255/mean?ssl=true&sslverifycertificate=false',
 ```
 
 > [!NOTE] 

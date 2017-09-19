@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/09/2017
-ms.date: 08/07/2017
+origin.date: 08/16/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 10b3cd01294b6fb6b7c6a94ec86ca7fe7280d11c
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: cd51d99b519664755de672f437766ab1e2ba3717
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
@@ -145,7 +145,7 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 > 在 Azure Cosmos DB 模拟器的一个版本中创建的数据不保证在使用不同版本时可以访问。 如果需要长期保存数据，建议将该数据存储在 Azure Cosmos DB 帐户中，而不是存储在 Azure Cosmos DB 模拟器中。 
 
 ## <a name="authenticating-requests"></a>对请求进行身份验证
-与云中的 Azure 文档一样，针对 Azure Cosmos DB 模拟器的每个请求都必须进行身份验证。 Azure Cosmos DB 模拟器使用一个固定的帐户和公开的身份验证密钥进行主密钥身份验证。 此帐户和密钥是允许用于 Azure Cosmos DB 模拟器的唯一凭据。 它们具有以下特点：
+与云中的 Azure Cosmos DB 一样，针对 Azure Cosmos DB 模拟器的每个请求都必须进行身份验证。 Azure Cosmos DB 模拟器使用一个固定的帐户和公开的身份验证密钥进行主密钥身份验证。 此帐户和密钥是允许用于 Azure Cosmos DB 模拟器的唯一凭据。 它们具有以下特点：
 
     Account name: localhost:<port>
     Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
@@ -153,7 +153,16 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 > [!NOTE]
 > Azure Cosmos DB 模拟器支持的主密钥仅用于模拟器。 不能在 Azure Cosmos DB 模拟器中使用生产 Azure Cosmos DB 帐户和密钥。 
 
+> [!NOTE] 
+> 如果使用“/Key”选项启动仿真器，请使用生成的密钥而不是“C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==”
+
 此外，与 Azure Cosmos DB 服务一样，Azure Cosmos DB 模拟器仅支持采用 SSL 的安全通信。
+
+## <a name="running-the-emulator-on-a-local-network"></a>在本地网络中运行仿真器
+
+可在本地网络中运行仿真器。 要启用网络访问，请在[命令行](#command-line-syntax)中指定 /AllowNetworkAccess 选项（同时还需指定 /Key=key_string 或 /KeyFile=file_name）。 可使用 /GenKeyFile=file_name 提前生成具有随机密钥的文件。  然后可将其传递至 /KeyFile=file_name 或 /Key=contents_of_file。
+
+首次启用网络访问时，用户应关闭模拟器，并删除模拟器的数据目录 (C:\Users\user_name\AppData\Local\CosmosDBEmulator)。
 
 ## <a name="developing-with-the-emulator"></a>通过模拟器进行开发
 在桌面上运行 Azure Cosmos DB 模拟器以后，可以使用任何支持的 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 或 [Azure Cosmos DB REST API](https://docs.microsoft.com/rest/api/documentdb/) 与模拟器进行交互。 Azure Cosmos DB 模拟器还包括内置数据资源管理器，可以利用它在不编写任何代码的情况下为 DocumentDB 和 MongoDB API 创建集合，以及查看和编辑文档。   
@@ -165,11 +174,14 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 
 如果使用 [Azure Cosmos DB 的 MongoDB 协议支持](mongodb-introduction.md)，请使用以下连接字符串：
 
-    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10250/admin?ssl=true&3t.sslSelfSignedCerts=true
+    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true&3t.sslSelfSignedCerts=true
 
-可以使用现有工具如 [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) 连接到 Azure Cosmos DB 模拟器。 用户还可以使用 [Azure Cosmos DB 数据迁移工具](https://github.com/azure/azure-documentdb-datamigrationtool)在 Azure Cosmos DB 模拟器和 Azure Cosmos DB 服务之间迁移数据。
+可以使用现有工具如 [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) 连接到 Azure Cosmos DB 模拟器。 还可以通过 [Azure Cosmos DB 数据迁移工具](https://github.com/azure/azure-documentdb-datamigrationtool)在 Azure Cosmos DB 模拟器和 Azure Cosmos DB 服务之间迁移数据。
 
-默认情况下，使用 Azure Cosmos DB 模拟器，可创建多达 25 个单区集合或 1 个已分区集合。 有关如何更改此值的详细信息，请参阅[设置 PartitionCount 值](#set-partitioncount)。
+> [!NOTE] 
+> 如果使用“/Key”选项启动仿真器，请使用生成的密钥而不是“C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==”
+
+默认情况下，使用 Azure Cosmos DB 模拟器，可创建多达 25 个单分区集合或 1 个已分区集合。 有关如何更改此值的详细信息，请参阅[设置 PartitionCount 值](#set-partitioncount)。
 
 ## <a name="export-the-ssl-certificate"></a>导出 SSL 证书
 
@@ -231,7 +243,7 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 </tr>
 <tr>
   <td>MongoPort</td>
-  <td>指定用于 MongoDB 兼容性 API 的端口号。 默认值为 10250。</td>
+  <td>指定用于 MongoDB 兼容性 API 的端口号。 默认为 10255。</td>
   <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;：单个端口号</td>
 </tr>
@@ -276,6 +288,42 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
   <td>指定已分区的集合的最大数。 有关详细信息，请参阅[更改集合数](#set-partitioncount)。</td>
   <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
   <td>&lt;partitioncount&gt;：允许的单分区集合的最大数量。 默认值为 25。 允许的最大值为 250。</td>
+</tr>
+<tr>
+  <td>DefaultPartitionCount</td>
+  <td>指定分区集合的默认分区数。</td>
+  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
+  <td>&lt;defaultpartitioncount&gt; 默认值为 25。</td>
+</tr>
+<tr>
+  <td>AllowNetworkAccess</td>
+  <td>通过网络启用对仿真器的访问。 要启用网络访问，还必须传递 /Key=&lt;key_string&gt; 或 /KeyFile=&lt;file_name&gt;。</td>
+  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>或<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
+  <td></td>
+</tr>
+<tr>
+  <td>NoFirewall</td>
+  <td>在使用 /AllowNetworkAccess 时，请勿调整防火墙规则。</td>
+  <td>CosmosDB.Emulator.exe /NoFirewall</td>
+  <td></td>
+</tr>
+<tr>
+  <td>GenKeyFile</td>
+  <td>生成新的授权密钥并保存至指定文件。 所生成的密钥可与 /Key 或 /KeyFile 选项配合使用。</td>
+  <td>CosmosDB.Emulator.exe  /GenKeyFile=&lt;path to key file&gt;</td>
+  <td></td>
+</tr>
+<tr>
+  <td>一致性</td>
+  <td>为帐户设置默认一致性级别。</td>
+  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
+  <td>&lt;一致性&gt;：值必须是下列[一致性级别](consistency-levels.md)之一：Session、Strong、Eventual 或 BoundedStaleness。  默认值为“Session”。</td>
+</tr>
+<tr>
+  <td>?</td>
+  <td>显示帮助消息。</td>
+  <td></td>
+  <td></td>
 </tr>
 </table>
 
@@ -352,4 +400,4 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 > [!div class="nextstepaction"]
 > [导出 Azure Cosmos DB 模拟器证书](local-emulator-export-ssl-certificates.md)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, update link, add command syntax command parameters-->

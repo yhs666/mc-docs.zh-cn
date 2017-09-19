@@ -7,19 +7,18 @@ manager: digimobile
 editor: mimig1
 ms.service: cosmos-db
 ms.topic: hero-article
-origin.date: 06/22/2017
-ms.date: 08/07/2017
-wacn.date: 
+origin.date: 07/21/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9cb96fcd4050cdad8ff449cf554b25bc540a7781
-ms.sourcegitcommit: a813e6e98367a9ef389a05c8e050fc38812a13b1
+ms.openlocfilehash: 9c64ee48a0c73a204e7ea83f5843435223f82634
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB：使用 Golang 和 Azure 门户生成 MongoDB API 控制台应用
 
-Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档及键/值，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。
+Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档及键/值，这两者都受益于 Azure Cosmos DB 核心的全球分发和水平缩放功能。
 
 本快速入门演示如何使用以 [Golang](https://golang.org/) 编写的现有 [MongoDB](/cosmos-db/mongodb-introduction) 应用，并将其连接到支持 MongoDB 客户端连接的 Azure Cosmos DB 数据库。
 
@@ -91,8 +90,8 @@ Azure Cosmos DB 支持启用了 SSL 的 MongoDB。 若要连接到启用了 SSL 
 dialInfo := &mgo.DialInfo{
     Addrs:    []string{"golang-couch.documents.azure.cn:10255"}, // Get HOST + PORT
     Timeout:  60 * time.Second,
-    Database: "golang-coach", // It can be anything
-    Username: "golang-coach", // Username
+    Database: "database", // It can be anything
+    Username: "username", // Username
     Password: "Azure database connect password from Azure Portal", // PASSWORD
     DialServer: func(addr *mgo.ServerAddr) (net.Conn, error) {
         return tls.Dial("tcp", addr.String(), &tls.Config{})
@@ -123,7 +122,7 @@ session.SetSafe(&mgo.Safe{})
 可以使用 **DialWIthInfo{}** 对象的实例来创建会话对象。 建立会话以后，即可使用以下代码片段访问集合：
 
 ```go
-collection := session.DB("golang-couch").C("package")
+collection := session.DB("database").C("package")
 ```
 
 <a id="create-document"></a>
@@ -244,4 +243,4 @@ if err != nil {
 > [!div class="nextstepaction"]
 > [将 MongoDB API 的数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: new articles on operate the Mongodb data to Cosmos DB using Go lanuage -->
+<!--Update_Description: wording update -->

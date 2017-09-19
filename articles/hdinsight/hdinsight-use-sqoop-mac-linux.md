@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/14/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: 00012d239102c420d87c70a39afc91ebb0416b9a
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 07/19/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 474ffb7a90790446acfe52dae56ad7061224d384
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>使用 Apache Sqoop 在 Hadoop on HDInsight 与 SQL 数据库之间进行导入和导出
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/28/2017
 2. 使用以下命令安装 FreeTDS：
 
     ```bash
-    sudo apt install --assume-yes install freetds-dev freetds-bin
+    sudo apt --assume-yes install freetds-dev freetds-bin
     ```
 
     在多个步骤中使用 FreeTDS 连接到 SQL 数据库。
@@ -109,28 +109,30 @@ ms.lasthandoff: 07/28/2017
 1. 通过 SSH 连接到群集后，使用以下命令验证 Sqoop 是否可以看到 SQL 数据库：
 
     ```bash
-    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433 --username <adminLogin> --password <adminPassword>
+    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433 --username <adminLogin> -P
     ```
+    出现提示时，输入 SQL 数据库登录名的密码。
 
     此命令将返回数据库列表，其中包括之前创建的 **sqooptest** 数据库。
 
 2. 若要将数据从 **hivesampletable** 导出到 **mobiledata** 表，请使用以下命令：
 
     ```bash
-    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
+    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433;database=sqooptest' --username <adminLogin> -P --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
     ```
 
-    此命令指示 Sqoop 连接到 **sqooptest** 数据库。 然后，Sqoop 将数据从 **wasbs:///hive/warehouse/hivesampletable** 导出到 **mobiledata** 表。
+    此命令指示 Sqoop 连接到 **sqooptest** 数据库。 Sqoop 随后将数据从 wasb:///hive/warehouse/hivesampletable 导出到 mobiledata 表。
 
 3. 该命令完成后，使用以下命令通过 TSQL 连接到数据库：
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
+    TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <adminLogin> -P -p 1433 -D sqooptest
     ```
 
     连接成功以后，使用以下语句验证数据是否已导出到 **mobiledata** 表：
 
     ```sql
+    SET ROWCOUNT 50;
     SELECT * FROM mobiledata
     GO
     ```
@@ -139,10 +141,10 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="sqoop-import"></a>Sqoop 导入
 
-1. 使用以下命令将数据从 SQL 数据库中的 **mobiledata** 表导入 HDInsight 上的 **wasbs:///tutorials/usesqoop/importeddata** 目录：
+1. 使用以下命令将数据从 SQL 数据库中的 mobiledata 表导入 HDInsight 上的 wasb:///tutorials/usesqoop/importeddata 目录：
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
     数据中的字段将通过制表符分隔，并且相关行由换行符终止。
@@ -159,10 +161,7 @@ ms.lasthandoff: 07/28/2017
 
 * HDInsight 和 SQL Server 必须位于同一 Azure 虚拟网络上。
 
-    在数据中心使用 SQL Server 时，必须将虚拟网络配置为“站点到站点”或“点到站点”。
-
-  > [!NOTE]
-  > 使用**点到站点**虚拟网络时，SQL Server 必须运行 VPN 客户端配置应用程序。 VPN 客户端可在 Azure 虚拟网络配置的**仪表板**中使用。
+    有关示例，请参阅[将 HDInsight 连接到本地网络](./connect-on-premises-network.md)文档。
 
     有关通过 Azure 虚拟网络使用 HDInsight 的详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight](hdinsight-extend-hadoop-virtual-network.md) 文档。 有关 Azure 虚拟网络的详细信息，请参阅[虚拟网络概述](../virtual-network/virtual-networks-overview.md)文档。
 
@@ -192,7 +191,7 @@ ms.lasthandoff: 07/28/2017
 * 在从 HDInsight 连接到 SQL Server 时，可能需要使用 SQL Server 的 IP 地址。 例如：
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
 ## <a name="limitations"></a>限制
@@ -226,3 +225,4 @@ ms.lasthandoff: 07/28/2017
 [powershell-script]: http://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
+<!--Update_Description: update storage link and change 'wasbs' into 'wasb'-->

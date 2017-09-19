@@ -1,10 +1,10 @@
 ---
-title: "如何监视 Azure Redis 缓存 | Azure"
+title: "如何监视 Azure Redis 缓存 | Microsoft Docs"
 description: "了解如何监视 Azure Redis 缓存实例的运行状况和性能"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
@@ -12,17 +12,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 0718066cf7b92cb684c745f8b35dc88177e84b6f
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 07/13/2017
+ms.date: 09/14/2017
+ms.author: v-junlch
+ms.openlocfilehash: 6b838a7e1a1e1b9a92e1e93678377c34157426f8
+ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>如何监视 Azure Redis 缓存
-Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用于监视缓存实例的几个选项。 可以查看度量值、将度量值图表固定到启动板、自定义监视图表的日期和时间范围、在图表中添加和删除度量值，以及设置符合特定条件时发出的警报。 借助这些工具，可以监视 Azure Redis 缓存实例的运行状况，以及管理缓存应用程序。
+Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用于监视缓存实例的几个选项。 可以查看度量值、将度量值图表固定到启动面板、自定义监视图表的日期和时间范围、在图表中添加和删除度量值，以及设置符合特定条件时发出的警报。 借助这些工具，可以监视 Azure Redis 缓存实例的运行状况，以及管理缓存应用程序。
 
 将使用 Redis [INFO](http://redis.io/commands/info) 命令每隔大约一分钟收集 Azure Redis 缓存实例的指标两次，并自动将其存储 30 天（请参阅[导出缓存指标](#export-cache-metrics)来配置不同的保留策略），以便将其显示在指标图表中，或者由警报规则评估。 有关用于每个缓存度量值的不同 INFO 值的详细信息，请参阅 [可用度量值和报告间隔](#available-metrics-and-reporting-intervals)。
 
@@ -36,8 +36,8 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 
 “概述”边栏选项卡中提供以下预配置的监视图表。
 
-* [监视图表](#monitoring-charts)
-* [图表使用情况](#usage-charts)
+- [监视图表](#monitoring-charts)
+- [图表使用情况](#usage-charts)
 
 ### <a name="monitoring-charts"></a>监视图表
 “概述”边栏选项卡中的“监视”部分包含“命中数和未命中数”、“获取数和设置数”、“连接数”以及“总命令数”图表。
@@ -63,7 +63,7 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 
 若要配置缓存指标的存储帐户，请执行以下操作：
 
-1. 在“Redis 缓存”边栏选项卡上的“设置”中单击“诊断”。
+1. 在“Redis 缓存”边栏选项卡上的“监视”中单击“诊断”。
 2. 单击“打开”。
 3. 选中“存档到存储帐户”。
 4. 选择要在其中存储缓存指标的存储帐户。
@@ -78,7 +78,7 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 > 
 
 ## <a name="available-metrics-and-reporting-intervals"></a>可用指标和报告间隔
-将使用多个报告间隔报告缓存指标，其中包括“前一小时”、“今天”、“前一周”和“自定义”。 每个度量值图表的“度量值”  边栏选项卡将在图表中显示每个度量值的平均值、最小值和最大值，并且一些度量值将显示总报告间隔。 
+将使用多个报告间隔报告缓存指标，其中包括“前一小时”、“今天”、“前一周”和“自定义”。 每个度量值图表的“度量值”  边栏选项卡在图表中显示每个度量值的平均值、最小值和最大值，并且一些度量值会显示总报告间隔。 
 
 每个度量值均包含两个版本。 一个指标测量整个缓存的性能以及使用[群集](cache-how-to-premium-clustering.md)的缓存的性能，名称中包含 `(Shard 0-9)` 的另一指标版本则测量缓存中单个分片的性能。 例如，如果缓存有 4 个分片，`Cache Hits` 就是整个缓存的命中总数，而 `Cache Hits (Shard 3)` 就只是该缓存分片的命中数。
 
@@ -96,7 +96,7 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 | 过期的密钥数 |指定的报告间隔期间，缓存中过期的项目数。 此值映射到 Redis INFO 命令输出中的 `expired_keys` 。 |
 | 总密钥数  | 在上一个报告时段缓存中的最大密钥数。 此值映射到 Redis INFO 命令输出中的 `keyspace`。 由于基础指标系统存在限制，对于已启用群集的缓存，“总密钥数”将返回在上一个报告时段内密钥数最多的分片的最大密钥数。  |
 | 获取数 |指定的报告间隔期间，缓存中的获取操作数。 此值是以下 Redis INFO 所有命令中的值的总和：`cmdstat_get`、`cmdstat_hget`、`cmdstat_hgetall`、`cmdstat_hmget`、`cmdstat_mget`、`cmdstat_getbit` 和 `cmdstat_getrange`，并且等效于报告间隔期间缓存命中和未命中数的总和。 |
-| Redis 服务器负载 |Redis 服务器忙于处理消息并且非空闲等待消息的周期百分比。 如果此计数器达到 100，则意味着 Redis 服务器已达到性能上限并且 CPU 无法更快地工作。 如果看到高 Redis 服务器负载，则将在客户端看到超时异常。 在这种情况下，应该考虑将数据扩大或分区到多个缓存。 |
+| Redis 服务器负载 |Redis 服务器忙于处理消息并且非空闲等待消息的周期百分比。 如果此计数器达到 100，则意味着 Redis 服务器已达到性能上限并且 CPU 无法更快地工作。 如果看到高 Redis 服务器负载，则会在客户端看到超时异常。 在这种情况下，应该考虑将数据扩大或分区到多个缓存。 |
 | 设置数 |指定的报告间隔期间，对缓存的设置操作数。 此值是以下 Redis INFO 所有命令中的值的总和：`cmdstat_set`、`cmdstat_hset`、`cmdstat_hmset`、`cmdstat_hsetnx`、`cmdstat_lset`、`cmdstat_mset`、`cmdstat_msetnx`、`cmdstat_setbit`、`cmdstat_setex`、`cmdstat_setrange` 和 `cmdstat_setnx`。 |
 | 总操作数 |指定的报告间隔期间，由缓存服务器处理的命令总数。 此值映射到 Redis INFO 命令输出中的 `total_commands_processed` 。 注意，当 Azure Redis 缓存纯粹用于发布/订阅时，将不存在 `Cache Hits`、`Cache Misses`、`Gets` 或 `Sets` 的指标，但存在 `Total Operations` 指标，该指标反映发布/订阅操作的缓存使用情况。 |
 | 已用内存 |在指定报告间隔期间，缓存中的键/值对所用的缓存内存量（以 MB 为单位）。 此值映射到 Redis INFO 命令输出中的 `used_memory` 。 这不包括元数据或碎片。 |
@@ -105,19 +105,6 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 | 缓存读取量 |指定报告间隔期间，从缓存中读取的数据量，以每秒兆字节数（MB/秒）为单位。 此值来源于支持虚拟机的网络接口卡，该虚拟机托管缓存，但并不特定于 Redis。 **此值对应于该缓存使用的网络带宽。如果要针对服务器端网络带宽限制设置警报，则可使用此 `Cache Read` 计数器来创建警报。请参阅[此表](cache-faq.md#cache-performance)，了解各种缓存定价层和大小所遵循的带宽限制。** |
 | 缓存写入量 |指定报告间隔期间，写入缓存中的数据量，以每秒兆字节数（MB/秒）为单位。 此值来源于支持虚拟机的网络接口卡，该虚拟机托管缓存，但并不特定于 Redis。 此值对应于从客户端发送到缓存的数据的网络带宽。 |
 
-<a name="operations-and-alerts"></a>
-## <a name="alerts"></a>警报
-可配置为基于指标和活动日志接收警报。 通过 Azure Monitor 可配置警报，使警报触发时执行以下操作：
-
-* 发送电子邮件通知
-* 调用 Webhook
-* 调用 Azure 逻辑应用
-
-若要配置缓存的警报规则，请在“设置”中单击“警报规则”。
-
-![监视](./media/cache-how-to-monitor/redis-cache-monitoring.png)
-
-有关配置和使用警报的详细信息，请参阅[警报概述](../monitoring-and-diagnostics/insights-alerts-portal.md)。
 
 ## <a name="activity-logs"></a>活动日志
 活动日志提供针对 Azure Redis 缓存实例执行的操作的详细信息。 活动日志以前称为“审核日志”或“操作日志”。 通过活动日志，可确定对 Azure Redis 缓存实例执行的任何写入操作（PUT、POST、DELETE）的“操作内容、操作人员和操作时间”。 
@@ -127,6 +114,17 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 >
 >
 
-若要查看缓存的活动日志，请在“设置”中单击“活动日志”。
+若要查看缓存的活动日志，请在“概述”中单击“活动日志”。
 
-有关活动日志的详细信息，请参阅 [Azure 活动日志概述](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。
+<!--Update_Description: wording update-->
+
+
+
+
+
+
+
+
+
+
+

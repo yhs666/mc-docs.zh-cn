@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 06/23/2017
-ms.date: 08/07/2017
+origin.date: 08/11/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: deb19f63f210e85bccd83fce69fe7607244245ae
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 251c3fb73393331bba55aaecc04dc70411efa376
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行自动联机备份和还原
 Azure Cosmos DB 可以定期自动备份所有数据。 自动备份不会影响数据库操作的性能或可用性。 所有备份单独存储在另一个存储服务中并在全球复制，针对区域性的灾难提供复原能力。 假设你不小心删除了 Cosmos DB 容器，事后需要用到数据恢复或灾难恢复解决方案，此时，自动备份便可派上用场。  
@@ -49,18 +49,21 @@ Cosmos DB 旨在实现数据[全局分布](distribute-data-globally.md) - 它允
 
 ![GRS Azure 存储中所有 Cosmos DB 实体的定期完整备份](./media/online-backup-and-restore/automatic-backup.png)
 
-## <a name="retention-period-for-a-given-snapshot"></a>给定快照的保留期
-如上所述，每 4 小时生成一次数据快照，最后两个快照的保持期为 30 天。 根据我们的符合性规定，将在 90 天后清除快照。
+## <a name="backup-retention-period"></a>备份保留期
+如上所述，Azure Cosmos DB 每四小时获取一次数据快照，并将每个分区的两个最新快照保留 30 天。 根据我们的符合性规定，将在 90 天后清除快照。
 
 若要保留自己的快照，可以使用 Azure Cosmos DB [数据迁移工具](import-data.md#export-to-json-file)中的“导出到 JSON”选项，计划其他备份。 
 
-## <a name="restore-database-from-the-online-backup"></a>从联机备份还原数据库
-如果意外删除了数据，可以[提交支持票证](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)或[联系 Azure 支持](https://www.azure.cn/support/contact/)，从上一次自动备份中还原数据。 若要还原特定的备份快照，Cosmos DB 要求相应数据至少在该快照的备份周期持续时间之内。
+## <a name="restoring-a-database-from-an-online-backup"></a>从联机备份还原数据库
+如果意外删除了数据库或集合，可以[提交支持票证](https://www.azure.cn/support/support-azure/)或[联系 Azure 支持](https://www.azure.cn/support/contact/)，从上一次自动备份中还原数据。 如果由于数据损坏而需要还原数据库，请参阅[处理数据损坏](#handling-data-corruption)，因为你需要采取其他步骤，以防止损坏的数据渗透到备份中。 对于要还原备份的特定快照，Cosmos DB 要求数据在该快照的备份周期的持续时间内可用。
+
+## <a name="handling-data-corruption"></a>处理数据损坏
+Azure Cosmos DB 保留系统中每个分区的两个最新备份。 当意外删除容器（文档、表的集合）或数据库时，该模型可以很好地处理这种情况，因为它可以还原其中一个最新版本。 然而，在用户可能引入数据损坏问题的情况下，Azure Cosmos DB 可能不知道数据损坏，并且损坏可能已经渗透到备份中。 一旦检测到损坏情况，应删除损坏的容器（集合/表），以防止备份被损坏的数据覆盖。 由于上次备份可能是四个小时前，用户可以使用[更改源](change-feed.md)来捕获并存储删除容器之前的最近四小时的数据。
 
 ## <a name="next-steps"></a>后续步骤
 
 若要在多个数据中心复制数据库，请参阅[使用 Cosmos DB 全局分配数据](distribute-data-globally.md)。 
 
-若要联系 Azure 支持，请 [从 Azure 门户开具票证](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+若要联系 Azure 支持，请 [从 Azure 门户开具票证](https://www.azure.cn/support/support-azure/)。
 
 <!--Update_Description: update meta properties, wording update-->

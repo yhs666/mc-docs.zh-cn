@@ -1,5 +1,5 @@
 ---
-title: "什么是 Apache Hive 和 HiveQL？ - Azure HDInsight | Azure"
+title: "什么是 Apache Hive 和 HiveQL - Azure HDInsight | Azure"
 description: "Apache Hive 是适用于 Hadoop 的数据仓库系统。 可以使用 HiveQL（类似于 Transact-SQL）查询 Hive 中存储的数据。 本文档介绍了如何在 Azure HDInsight 中使用 Hive 和 HiveQL。"
 keywords: "hiveql,什么是 hive,hadoop hiveql,如何使用 hive,了解 hive,hive 是什么"
 services: hdinsight
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/12/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: 60f9769cc437131049e216fcfaf5b6a7b2ddcc08
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 08/03/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 2cd06b107e54e238cbc9654047a930dd2d47f817
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>什么是 Azure HDInsight 中的 Apache Hive 和 HiveQL？
 
 [Apache Hive](http://hive.apache.org/) 是适用于 Hadoop 的数据仓库系统。 使用 Hive 可以汇总、查询和分析数据。 Hive 查询使用 HiveQL 编写，它是类似于 SQL 的查询语言。
 
-Hive 允许你在很大程度上未结构化的数据上投影结构。 定义结构后，可以使用 HiveQL 来查询这些数据，而无需具备 Java 或 MapReduce 方面的知识。
+Hive 允许在很大程度上未结构化的数据上投影结构。 定义结构后，可以使用 HiveQL 来查询这些数据，而无需具备 Java 或 MapReduce 方面的知识。
 
 HDInsight 提供了已针对特定工作负荷进行了优化的多种群集类型。 以下群集类型最常用于 Hive 查询：
 
@@ -99,7 +99,7 @@ Hive 还支持对复杂或不规则的结构化数据使用自定义**序列化�
 
 ## <a name="user-defined-functions-udf"></a>用户定义函数 (UDF)
 
-还可以通过**用户定义函数 (UDF)** 扩展 Hive。 UDF 允许你实现 HiveQL 中不容易建模的功能或逻辑。 有关将 UDF 与 Hive 配合使用的示例，请参阅以下文档：
+还可以通过**用户定义函数 (UDF)** 扩展 Hive。 UDF 允许实现 HiveQL 中不容易建模的功能或逻辑。 有关将 UDF 与 Hive 配合使用的示例，请参阅以下文档：
 
 * [将 Java 用户定义函数与 Hive 配合使用](hdinsight-hadoop-hive-java-udf.md)
 
@@ -176,7 +176,7 @@ Hive on HDInsight 中预先加载了名为 `hivesampletable` 的内部表。 HDI
 [Apache Tez](http://tez.apache.org) 是让数据密集型应用程序（例如 Hive）能够大规模高效运行的框架。 默认情况下，已经为基于 Linux 的 HDInsight 群集启用了 Tez。
 
 > [!NOTE]
-> 对于基于 Windows 的 HDInsight 群集来说，Tez 目前默认处于关闭状态，因此必须启用。 若要充分利用 Tez，你必须设置 Hive 查询的以下值：
+> 对于基于 Windows 的 HDInsight 群集来说，Tez 目前默认处于关闭状态，因此必须启用。 要充分利用 Tez，必须设置 Hive 查询的以下值：
 >
 > `set hive.execution.engine=tez;`
 >
@@ -210,7 +210,7 @@ HDInsight 在交互式 Hive 群集类型中提供 LLAP。 有关详细信息，�
 
 ## <a id="nextsteps"></a>后续步骤
 
-现在，你已了解什么是 Hive，以及如何将它与 HDInsight 中的 Hadoop 配合使用，请使用以下链接来学习 Azure HDInsight 的其他用法。
+现在，已了解什么是 Hive，以及如何将它与 HDInsight 中的 Hadoop 配合使用，请使用以下链接来学习 Azure HDInsight 的其他用法。
 
 * [将数据上传到 HDInsight][hdinsight-upload-data]
 * [将 Pig 与 HDInsight 配合使用][hdinsight-use-pig]
@@ -246,3 +246,4 @@ HDInsight 在交互式 Hive 群集类型中提供 LLAP。 有关详细信息，�
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+<!--Update_Description: update metadata-->

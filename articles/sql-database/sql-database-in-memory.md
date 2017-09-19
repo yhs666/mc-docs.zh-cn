@@ -13,24 +13,25 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 07/03/2017
-ms.author: v-johch
-ms.openlocfilehash: efd1fbe602ec7bc4c2b5a9f8ea21b7cf27ba4282
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+origin.date: 07/24/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 9f95ee98cca71564aa98887517a50590b7750138
+ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/11/2017
 ---
-# 在 SQL 数据库中使用内存中技术优化性能
-<a id="optimize-performance-by-using-in-memory-technologies-in-sql-database" class="xliff"></a>
+# <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>在 SQL 数据库中使用内存中技术优化性能
 
 使用 Azure SQL 数据库中的内存中技术可提升各种工作负荷的性能：事务工作负荷（联机事务处理 (OLTP)）、分析工作负荷（联机分析处理 (OLAP)）和混合工作负荷（混合事务/分析处理 (HTAP)）。 由于查询和事务处理的效率提升，内存中技术还可降低成本。 用户通常不需要升级数据库的定价层即可实现性能提升。 在某些情况下，即使是降低定价层，使用内存中技术也能实现性能改善。
 
-以下两个示例演示了如何借助内存中 OLTP 大幅提升性能：
+以下两个示例演示了如何借助内存中 OLTP 大幅改善性能：
 
-- 使用内存中 OLTP，[仲裁商业解决方案能够使其工作负荷增加一倍，同时节省 70% 的 DTU（即资源消耗）](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)。
-- 以下视频使用示例工作负荷演示资源消耗方面的重大改进：[In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)（“Azure SQL 数据库中的内存中 OLTP”视频）。 有关更多详细信息，请参阅博客文章：[In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)（“Azure SQL 数据库中的内存中 OLTP”博客文章）
+- 使用内存中 OLTP，[仲裁商业解决方案能够使其工作负荷增加一倍，同时节省 70% 的 DTU](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)。
+    - DTU 表示“数据库吞吐量单位”，包括资源消耗量的测量值。
+- 以下视频使用示例工作负荷演示资源消耗方面的重大改进：[In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)（“Azure SQL 数据库中的内存中 OLTP”视频）。
+    - 有关更多详细信息，请参阅博客文章：[In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)（“Azure SQL 数据库中的内存中 OLTP”博客文章）
 
 可在高级层中的所有数据库（包括高级弹性池中的数据库）内使用内存中技术。
 
@@ -44,12 +45,15 @@ Azure SQL 数据库采用以下内存中技术：
 
 -  内存中 OLTP 可提升吞吐量并降低事务处理的延迟。 可受益于内存中 OLTP 的情况包括：高吞吐量事务处理（例如贸易和游戏）、从事件或 IoT 设备引入数据、缓存、数据加载以及临时表和表变量等情况。
 - 聚集列存储索引，可减少存储占用（高达 10 倍）并提高报告和分析查询的性能。 将其与数据集市中的事实数据表结合使用，可在数据库中容纳更多数据并提升性能。 此外，将其与操作数据库中的历史数据结合使用，可存档并查询高达 10 倍的额外数据。
-- 用于 HTAP 的非聚集列存储索引通过直接查询操作数据库来帮助获取对业务的实时见解，无需运行开销不菲的提取、转换和加载 (ETL) 过程，也无需等待填充数据仓库。 非聚集列存储索引，允许非常快速地对 OLTP 数据库执行分析查询，同时减少对操作工作负荷的影响。
-- 也可将内存中 OLTP 和列存储结合使用。 可以使用包含列存储索引的内存优化表。 这样，便可以针对相同的数据极快执行事务处理和运行分析查询。
+- 用于 HTAP 的非聚集列存储索引通过直接查询操作数据库来帮助获取对业务的实时见解，无需运行开销不菲的提取、转换和加载 (ETL) 过程，也无需等待填充数据仓库。 非聚集列存储索引允许非常快速地对 OLTP 数据库执行分析查询，同时减少对操作工作负荷的影响。
+- 也可以使用内存优化表与列存储的组合。 使用这种组合可以针对相同的数据极快执行事务处理和并发运行分析查询。
 
-列存储索引和内存中 OLTP 分别在 2012 年和 2014 年加入 SQL Server 产品。 Azure SQL 数据库和 SQL Server 共享内存中技术的相同实现。 今后，这些技术的新功能将首先在 Azure SQL 数据库中发布，然后在 SQL Server 中发布。
+列存储索引和内存中 OLTP 分别在 2012 年和 2014 年加入 SQL Server 产品。 Azure SQL 数据库和 SQL Server 共享内存中技术的相同实现。 今后，这些技术的新功能将首先在 Azure SQL 数据库中发布，再加入到下一个版本的 SQL Server。
 
-本主题全面介绍特定于 Azure SQL 数据库的内存中 OLTP 和列存储索引，并提供示例。 首先介绍这些技术对存储和数据大小限制的影响。 然后介绍如何控制使用这些技术的数据库在不同定价层之间的移动。 最后介绍两个示例，演示如何使用 Azure SQL 数据库中的内存中 OLTP 和列存储索引。
+本主题全面介绍特定于 Azure SQL 数据库的内存中 OLTP 和列存储索引，并提供示例：
+- 介绍这些技术对存储和数据大小限制的影响。
+- 介绍如何控制使用这些技术的数据库在不同定价层之间的移动。
+- 介绍两个示例，演示如何使用 Azure SQL 数据库中的内存中 OLTP 和列存储索引。
 
 有关详细信息，请参阅以下资源。
 
@@ -65,14 +69,12 @@ Azure SQL 数据库采用以下内存中技术：
 深入介绍这些技术的视频：
 
 - [Azure SQL 数据库中的内存中 OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)（包含性能优势的演示和自行重现这些结果的步骤）
-- [In-Memory OLTP Videos: What it is and When/How to use it（内存中 OLTP 相关视频：定义及其适用时间和使用方法）](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
-- [Columnstore Index: In-Memory Analytics (i.e. columnstore index) Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)（列存储索引：来自 Ignite 2016 的内存中分析（即列存储索引）相关视频）
+- [In-Memory OLTP Videos: What it is and When/How to use it](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)（内存中 OLTP 相关视频：定义及其适用时间和使用方法）
+- [Columnstore Index: In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)（列存储索引：来自 Ignite 2016 的内存中分析相关视频）
 
-## 存储和数据大小
-<a id="storage-and-data-size" class="xliff"></a>
+## <a name="storage-and-data-size"></a>存储和数据大小
 
-### 内存中 OLTP 的数据大小和存储上限
-<a id="data-size-and-storage-cap-for-in-memory-oltp" class="xliff"></a>
+### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>内存中 OLTP 的数据大小和存储上限
 
 内存中 OLTP 包括用于存储用户数据的内存优化表。 这些表必需在内存可容纳的范围内。 由于内存是直接在 SQL 数据库服务中管理的，因此我们提出了用户数据配额的概念。 这种概念称为“内存中 OLTP 存储”。
 
@@ -80,42 +82,40 @@ Azure SQL 数据库采用以下内存中技术：
 
 对于每个受支持的独立数据库和弹性池定价层可用的内存中 OLTP 存储，[SQL 数据库服务层](sql-database-service-tiers.md)一文提供了正式列表。
 
-以下内容计入内存中 OLTP 存储上限：
+以下各项计入内存中 OLTP 存储上限：
 
 - 内存优化表中的活动用户数据行和表变量。 请注意，旧行版本不计入上限。
 - 内存优化表中的索引。
 - ALTER TABLE 操作的运营开销。
 
-如果达到上限，用户将收到超出配额错误，且无法再插入或更新数据。 缓解方法是删除数据或提升数据库或池的定价层。
+如果达到上限，将会出现超出配额错误，且无法再插入或更新数据。 若要解决此错误，可删除数据或提升数据库或池的定价层。
 
 有关监视内存中 OLTP 存储利用率及配置即将达到上限时的警报的详细信息，请参阅[监视内存中存储](sql-database-in-memory-oltp-monitoring.md)。
 
-#### 关于弹性池
-<a id="about-elastic-pools" class="xliff"></a>
+#### <a name="about-elastic-pools"></a>关于弹性池
 
 使用弹性池时，池中的所有数据库共享内存中 OLTP 存储。 因此一个数据库中的使用量可能对其他数据库造成影响。 对此，有两个缓解方法：
 
-- 为低于池的 eDTU 计数的数据库整体配置最大 eDTU。 这会将池中任意数据库中的内存中 OLTP 存储利用率限制为与 eDTU 计数对应的大小。
-- 配置大于 0 的最小 eDTU。 这可保证池中的每个数据库都有与配置的最小 eDTU 对应的可用内存中 OLTP 存储量。
+- 为低于池的 eDTU 计数的数据库整体配置最大 eDTU。 此最大值将池中任意数据库中的内存中 OLTP 存储利用率限制为与 eDTU 计数对应的大小。
+- 配置大于 0 的最小 eDTU。 此最小值可保证池中的每个数据库都有与配置的最小 eDTU 对应的可用内存中 OLTP 存储量。
 
-### 列存储索引的数据大小和存储
-<a id="data-size-and-storage-for-columnstore-indexes" class="xliff"></a>
+### <a name="data-size-and-storage-for-columnstore-indexes"></a>列存储索引的数据大小和存储
 
 列存储索引不需要在内存可容纳的范围内。 因此，索引大小的唯一上限是最大整体数据库大小，此大小在 [SQL 数据库服务层](sql-database-service-tiers.md)一文中有述。
 
-使用聚集列存储索引时，对基础表存储使用列式压缩。 这可显著减少用户数据的存储占用，意味着数据库中可容纳更多数据。 使用[列式存档压缩](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression)可进一步增大容量。 可实现的压缩量取决于数据的性质，但 10 倍压缩并不少见。
+使用聚集列存储索引时，对基础表存储使用列式压缩。 这种压缩可显著减少用户数据的存储占用，意味着数据库中可容纳更多数据。 使用[纵栏表存档压缩](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression)可进一步提高压缩率。 可实现的压缩量取决于数据的性质，但 10 倍压缩并不少见。
 
 例如，如果数据库的最大大小为 1 TB，则使用列存储索引实现 10 倍压缩时，该数据库中可容纳总共 10 TB 的用户数据。
 
 使用非聚集列存储索引时，仍以传统行存储格式存储基表。 因此节省的存储空间小于使用聚集列存储索引节省的空间。 但是，如果使用单个列存储索引取代众多传统非聚集索引，则仍可整体减少表的存储占用。
 
-## 在定价层之间移动使用内存中技术的数据库
-<a id="moving-databases-that-use-in-memory-technologies-between-pricing-tiers" class="xliff"></a>
+## <a name="moving-databases-that-use-in-memory-technologies-between-pricing-tiers"></a>在定价层之间移动使用内存中技术的数据库
 
-为使用内存中技术的数据库提升定价层无需进行任何特殊考量，因为更高的定价层总是能够提供更多的功能和资源。 降低定价层可能会影响数据库。 尤其是从高级定价层移到标准或基本定价层时，以及将利用内存中 OLTP 的数据库移到较低的高级层时。 降低弹性池的定价层或将使用内存中技术的数据库移动到标准或基本弹性池时，也应考虑这些问题。
+升级到更高的定价层时（例如，从标准层升级到高级层），绝对不会出现任何不兼容性或其他问题。 可用的功能和资源只会增加。
 
-### 内存中 OLTP
-<a id="in-memory-oltp" class="xliff"></a>
+但是，降级定价层可能会对数据库造成负面影响。 如果数据库包含内存中 OLTP 对象，则从高级层降级到标准或基本层时，影响就尤为明显。 降级后，内存优化表和列存储索引不可用（即使它们保持可见）。 降低弹性池的定价层或将使用内存中技术的数据库移动到标准或基本弹性池时，也应考虑这些问题。
+
+### <a name="in-memory-oltp"></a>内存中 OLTP
 
 降级到基本/标准层：标准或基本层中的数据库不支持内存中 OLTP。 此外，不能将包含任何内存中 OLTP 对象的数据库移到标准或基本层。
 
@@ -129,23 +129,21 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 如果查询返回 **1**，则此数据库支持内存中 OLTP。
 
-降级到较低的高级层：内存优化表中的数据必须在（与数据库的定价层相关或在弹性池中可用的）内存中 OLTP 存储范围内。 如果尝试降低定价层或将数据库移动到可用内存中 OLTP 存储不足的池，操作将失败。
+*降级到较低的高级层*：内存优化表中的数据必须在（与数据库的定价层相关或在弹性池中可用的）内存中 OLTP 存储范围内。 如果尝试降低定价层或将数据库移动到可用内存中 OLTP 存储不足的池，操作会失败。
 
-### 列存储索引
-<a id="columnstore-indexes" class="xliff"></a>
+### <a name="columnstore-indexes"></a>列存储索引
 
-降级到基本/标准层：标准或基本层中的数据库不支持列存储索引。 将数据降级到标准/基本层时，列存储索引不再可用。 如果使用聚集列存储索引，则意味着整个表都不再可用。
+*降级到基本或标准层*：只有高级定价层支持列存储索引，标准或基本层则不支持。 将数据库降级到标准或基本层后，列存储索引不可用。 系统会保留列存储索引，但永远不会利用索引。 如果后来又升级回到高级层，列存储索引立即可供再次利用。
 
-将数据库降级到标准/基本层之前，请删除所有聚集列存储索引。
+如果有**聚集**列存储索引，则降级层后，整个表不可用。 因此，我们建议在将数据库降级到高级层以下之前，先删除所有聚集列存储索引。
 
-降级到较低的高级层：此操作成功的条件是，数据库整体处于目标定价层的最大数据库大小或弹性池中可用存储空间的范围内。 列存储索引不会造成特殊影响。
+*降级到较低的高级层*：如果整个数据库处于目标定价层的最大数据库大小或弹性池中可用存储的范围内，则此降级操作会成功。 列存储索引不会造成特殊影响。
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
 &nbsp;
 
-## 1.安装内存中 OLTP 示例
-<a id="1-install-the-in-memory-oltp-sample" class="xliff"></a>
+## <a name="1-install-the-in-memory-oltp-sample"></a>1.安装内存中 OLTP 示例
 
 在 [Azure 门户](https://portal.azure.cn/)中按几下鼠标，即可创建 AdventureWorksLT 示例数据库。 本部分中的步骤说明如何使用内存中 OLTP 对象项目扩充 AdventureWorksLT 数据库，并演示性能优势。
 
@@ -154,16 +152,15 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 - 版本： [in-memory-oltp-demo-v1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
 - 源代码： [in-memory-oltp-demo-source-code](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/in-memory/ticket-reservations)
 
-#### 安装步骤
-<a id="installation-steps" class="xliff"></a>
+#### <a name="installation-steps"></a>安装步骤
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，在服务器上创建一个高级数据库。 将“源”设置为 AdventureWorksLT 示例数据库。 有关详细说明，请参阅[创建第一个 Azure SQL 数据库](sql-database-get-started-portal.md)。
 
 2. 使用 SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx) 连接到该数据库。
 
-3. 将 [In-Memory OLTP Transact-SQL 脚本](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) 复制到剪贴板。 T-SQL 脚本在步骤 1 创建的 AdventureWorksLT 示例数据库中创建所需的内存中对象。
+3. 将 内存中 [OLTP Transact-SQL 脚本](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql)复制到剪贴板。 T-SQL 脚本在步骤 1 创建的 AdventureWorksLT 示例数据库中创建所需的内存中对象。
 
-4. 将 T-SQL 脚本粘贴到 SSMS，然后执行该脚本。 `MEMORY_OPTIMIZED = ON` 子句 CREATE TABLE 语句至关重要。 例如：
+4. 将 T-SQL 脚本粘贴到 SSMS，并执行该脚本。 `MEMORY_OPTIMIZED = ON` 子句 CREATE TABLE 语句至关重要。 例如：
 
 ```
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
@@ -172,8 +169,7 @@ CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
 ) WITH (MEMORY_OPTIMIZED = ON);
 ```
 
-#### 错误 40536
-<a id="error-40536" class="xliff"></a>
+#### <a name="error-40536"></a>错误 40536
 
 如果运行 T-SQL 脚本时收到错误 40536，请运行以下 T-SQL 脚本来验证数据库是否支持内存中功能：
 
@@ -183,8 +179,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 
 结果“0”表示不支持内存中，结果“1”表示支持。 若要诊断问题，请确保数据库位于高级服务层。
 
-#### 关于创建的内存优化项
-<a id="about-the-created-memory-optimized-items" class="xliff"></a>
+#### <a name="about-the-created-memory-optimized-items"></a>关于创建的内存优化项
 
 **表**：此示例包含以下内存优化表：
 
@@ -214,8 +209,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 &nbsp;
 
-### 运行示例 OLTP 工作负荷
-<a id="run-the-sample-oltp-workload" class="xliff"></a>
+### <a name="run-the-sample-oltp-workload"></a>运行示例 OLTP 工作负荷
 
 以下两个 *存储过程* 的唯一差别在于，第一个过程使用内存优化表版本，而第二个过程使用普通磁盘表：
 
@@ -231,12 +225,11 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 但是，建议从较小的值（-n10 和 -r50）开始，确保一切运行正常。
 
-### Ostress.exe 的脚本
-<a id="script-for-ostressexe" class="xliff"></a>
+### <a name="script-for-ostressexe"></a>Ostress.exe 的脚本
 
 本部分显示 ostress.exe 命令行中内嵌的 T-SQL 脚本。 此脚本使用前面安装的 T-SQL 脚本所创建的项。
 
-以下脚本将在以下内存优化 *表*中插入包含 5 个细目的示例销售订单：
+以下脚本会在以下内存优化*表*中插入包含 5 个细目的示例销售订单：
 
 - SalesLT.SalesOrderHeader_inmem
 - SalesLT.SalesOrderDetail_inmem
@@ -264,12 +257,11 @@ begin;
 end
 ```
 
-若要创建上述适用于 ostress.exe 的 T-SQL 脚本的 _ondisk 版本，只需将两处出现的 _inmem 子字符串替换为 _ondisk。 这种替换将影响表和存储过程的名称。
+若要创建上述适用于 ostress.exe 的 T-SQL 脚本的 *_ondisk* 版本，请将两处出现的 *_inmem* 子字符串替换为 *_ondisk*。 这种替换将影响表和存储过程的名称。
 
-### 安装 RML 实用工具和 ostress
-<a id="install-rml-utilities-and-ostress" class="xliff"></a>
+### <a name="install-rml-utilities-and-ostress"></a>安装 RML 实用工具和 ostress
 
-最好规划在 Azure 虚拟机 (VM) 上运行 ostress.exe。 在 AdventureWorksLT 数据库所在的同一 Azure 地理区域中创建 [Azure VM](/virtual-machines/)。 你也可以改为在便携式计算机上运行 ostress.exe。
+最好规划在 Azure 虚拟机 (VM) 上运行 ostress.exe。 在 AdventureWorksLT 数据库所在的同一 Azure 地理区域中创建 [Azure VM](/virtual-machines/)。 但可以改为在便携式计算机上运行 ostress.exe。
 
 在 VM 或选择的任何主机上，安装重放标记语言 (RML) 实用工具。 这些实用工具包括 ostress.exe。
 
@@ -288,8 +280,7 @@ whereas for SQL 2016+
 (http://msdn.microsoft.com/library/mt465764.aspx)
 -->
 
-### 首先运行 _inmem 压力工作负荷
-<a id="run-the-inmem-stress-workload-first" class="xliff"></a>
+### <a name="run-the-inmem-stress-workload-first"></a>首先运行 _inmem 压力工作负荷
 
 可以使用 *RML 命令提示符* 窗口来运行 ostress.exe 命令行。 命令行参数将指示 ostress：
 
@@ -302,10 +293,11 @@ ostress.exe -n100 -r50 -S<servername>.database.chinacloudapi.cn -U<login> -P<pas
 
 若要运行上述 ostress.exe 命令行：
 
-1. 在 SSMS 中运行以下命令重置数据库数据内容，删除前面运行的命令所插入的所有数据：
-```
-EXECUTE Demo.usp_DemoReset;
-```
+1. 请在 SSMS 中运行以下命令重置数据库数据内容，以删除前面运行的命令所插入的所有数据：
+
+    ``` tsql
+    EXECUTE Demo.usp_DemoReset;
+    ```
 
 2. 将上述 ostress.exe 命令行的文本复制到剪贴板。
 
@@ -313,15 +305,13 @@ EXECUTE Demo.usp_DemoReset;
 
 4. 在 RML Cmd 窗口中运行编辑后的命令行。
 
-#### 结果是一个持续时间
-<a id="result-is-a-duration" class="xliff"></a>
+#### <a name="result-is-a-duration"></a>结果是一个持续时间
 
 ostress.exe 完成时，将在 RML 命令窗口中写入运行持续时间作为输出的最后一行。 例如，一个较短的测试回合持续大约 1.5 分钟：
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
-#### 重置，编辑 _ondisk，然后重新运行
-<a id="reset-edit-for-ondisk-then-rerun" class="xliff"></a>
+#### <a name="reset-edit-for-ondisk-then-rerun"></a>重置，编辑 _ondisk，然后重新运行
 
 在获得 _inmem 运行结果之后，请针对 _ondisk 运行执行以下步骤：
 
@@ -336,8 +326,7 @@ EXECUTE Demo.usp_DemoReset;
 
 4. 再次重置数据库（可靠地删除大量测试数据）。
 
-#### 预期比较结果
-<a id="expected-comparison-results" class="xliff"></a>
+#### <a name="expected-comparison-results"></a>预期比较结果
 
 在与数据库处于同一 Azure 区域的 Azure VM 上运行 ostress，内存中测试已显示此简化工作负荷大约有 9 倍的性能改善。
 
@@ -345,15 +334,13 @@ EXECUTE Demo.usp_DemoReset;
 
 &nbsp;
 
-## 2.安装内存中分析示例
-<a id="2-install-the-in-memory-analytics-sample" class="xliff"></a>
+## <a name="2-install-the-in-memory-analytics-sample"></a>2.安装内存中分析示例
 
 本部分比较使用列存储索引与传统 b 树索引时的 IO 和统计信息结果。
 
 通常，在对 OLTP 工作负荷进行实时分析时，最好是使用非群集列存储索引。 有关详细信息，请参阅[列存储索引介绍](http://msdn.microsoft.com/library/gg492088.aspx)。
 
-### 准备列存储分析测试
-<a id="prepare-the-columnstore-analytics-test" class="xliff"></a>
+### <a name="prepare-the-columnstore-analytics-test"></a>准备列存储分析测试
 
 1. 使用 Azure 门户基于示例创建全新的 AdventureWorksLT 数据库。
  - 使用相同的名称。
@@ -364,21 +351,19 @@ EXECUTE Demo.usp_DemoReset;
  - 该脚本将创建维度表和两个事实表。 每个事实表中填充了 350 万行。
  - 该脚本可能需要 15 分钟才能完成。
 
-3. 将 T-SQL 脚本粘贴到 SSMS，然后执行该脚本。 CREATE INDEX 语句中的 COLUMNSTORE 关键字至关重要，如下所示：<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
+3. 将 T-SQL 脚本粘贴到 SSMS，并执行该脚本。 CREATE INDEX 语句中的 COLUMNSTORE 关键字至关重要，如下所示：<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
 4. 将 AdventureWorksLT 设置为兼容级别 130：<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
 
     级别 130 并不与内存中功能直接相关。 但级别 130 通常提供比级别 120 更快的查询性能。
 
-#### 关键表和列存储索引
-<a id="key-tables-and-columnstore-indexes" class="xliff"></a>
+#### <a name="key-tables-and-columnstore-indexes"></a>关键表和列存储索引
 
 - dbo.FactResellerSalesXL_CCI 是具有群集列存储索引的表，已在数据级别进一步压缩。
 
 - dbo.FactResellerSalesXL_PageCompressed 是具有等效常规群集索引的表，只在页面级别压缩。
 
-#### 用于比较列存储索引的关键查询
-<a id="key-queries-to-compare-the-columnstore-index" class="xliff"></a>
+#### <a name="key-queries-to-compare-the-columnstore-index"></a>用于比较列存储索引的关键查询
 
 [可以运行多种 T-SQL 查询类型](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql)来查看性能改进情况。 在 T-SQL 脚本的步骤 2 中，请注意这一对查询。 这一对查询只是在一行上有所不同：
 
@@ -452,8 +437,7 @@ GO
 
 在采用 P2 定价层的数据库中，与传统索引相比，使用聚集列存储索引时，此查询预期可获得约 9 倍的性能提升。 对于 P15，使用列存储索引有望获得约 57 倍的性能提升。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 - [快速入门 1：通过内存中 OLTP 技术加速 T-SQL 性能](http://msdn.microsoft.com/library/mt694156.aspx)
 
@@ -461,11 +445,9 @@ GO
 
 - [监视内存中 OLTP 存储](sql-database-in-memory-oltp-monitoring.md)（适用于内存中 OLTP）
 
-## 其他资源
-<a id="additional-resources" class="xliff"></a>
+## <a name="additional-resources"></a>其他资源
 
-#### 深入信息
-<a id="deeper-information" class="xliff"></a>
+#### <a name="deeper-information"></a>深入信息
 
 - [了解 Quorum 如何通过使用 SQL 数据库的内存中 OLTP，在关键数据库工作负荷加倍的情况下，将 DTU 降低 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
@@ -479,18 +461,18 @@ GO
 
 - 请参阅[有关常用工作负荷模式和迁移注意事项](http://msdn.microsoft.com/library/dn673538.aspx)（介绍内存中 OLTP 往往能够在其中提供显著性能改善的工作负荷模式）
 
-#### 应用程序设计
-<a id="application-design" class="xliff"></a>
+#### <a name="application-design"></a>应用程序设计
 
 - [内存中 OLTP（内存中优化）](http://msdn.microsoft.com/library/dn133186.aspx)
 
 - [在现有的 Azure SQL 应用程序中使用内存中 OLTP](sql-database-in-memory-oltp-migration.md)
 
-#### 工具
-<a id="tools" class="xliff"></a>
+#### <a name="tools"></a>工具
 
 - [Azure 门户](https://portal.azure.cn/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
 - [SQL Server Data Tools (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx)
+
+<!--Update_Description: wording update-->

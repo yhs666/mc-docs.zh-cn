@@ -13,19 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/08/2017
-ms.date: 08/07/2017
+origin.date: 07/25/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 099e5ad9efa6c5e2f1c7aad6c63e4b38314e7aa5
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: d05c45e41870356701c907ed56c489cab2aba787
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB DocumentDB API 的 SQL 查询
 Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言来支持查询文档。 Cosmos DB 是真正无架构的。 凭借其对数据库引擎内 JSON 数据模型的直接承诺，它可以提供 JSON 文档的自动索引，而无需显式架构或创建辅助索引。 
 
-设计 Cosmos DB 的查询语言时，我们有两个目标：
+在设计 Cosmos DB 的查询语言时，我们有两个目标：
 
 * 我们希望支持 SQL，而不是发明一种新的 JSON 查询语言。 SQL 是最常见和最常用的查询语言之一。 Cosmos DB SQL 提供一种正式的编程模型，用于对 JSON 文档进行丰富的查询。
 * 由于 JSON 文档数据库能够在数据库引擎中直接执行 JavaScript，我们希望将 JavaScript 的编程模型用作查询语言的基础。 DocumentDB API SQL 植根于 JavaScript 的类型系统、表达式计算和函数调用中。 而这反过来为关系投影、跨 JSON 文档的分层导航、自联接、空间查询以及调用完全采用 JavaScript 编写的用户定义的函数 (UDF) 和其他功能提供了自然编程模型。 
@@ -34,10 +34,10 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
 
 <!-- Not Available [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player] -->
 
-然后，返回到本文中，我们将从 SQL 查询教程开始，指导用户完成一些简单的 JSON 文档和 SQL 命令。
+然后，返回到本文中，我们将从 SQL 查询教程开始，指导完成一些简单的 JSON 文档和 SQL 命令。
 
 ## <a id="GettingStarted"></a>Cosmos DB 中的 SQL 命令入门
-为了解 Cosmos DB SQL 在工作时的情况，让我们以一些简单的 JSON 文档开始，并对它完成一些简单的查询。 考虑以下两个关于两个家庭的 JSON 文档。 请注意，使用 Cosmos DB，我们不需要显式创建任何架构或辅助索引。 我们只需将 JSON 文档插入到 Cosmos DB 集合中并随后进行查询。 这里，我们有一个包含 Andersen 家庭、父母、子女（以及他们的宠物）、地址和注册信息的简单 JSON 文档。 该文档拥有字符串、数字、布尔、数组和嵌套属性。 
+为了解 Cosmos DB SQL 在工作时的情况，让我们以一些简单的 JSON 文档开始，并对它完成一些简单的查询。 考虑以下两个关于两个家庭的 JSON 文档。 使用 Cosmos DB 时不需要显式创建任何架构或辅助索引。 只需将 JSON 文档插入 Cosmos DB 集合中并随后进行查询。 这里，我们有一个包含 Andersen 家庭、父母、子女（以及他们的宠物）、地址和注册信息的简单 JSON 文档。 该文档拥有字符串、数字、布尔、数组和嵌套属性。 
 
 **文档**  
 
@@ -63,7 +63,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
 }
 ```
 
-下面是另一个有着细微差异的文档 - 其中使用了 `givenName` 和 `familyName`，而不是 `firstName` 和 `lastName`。
+下面是另一个有着细微差异的文档 — 使用了 `givenName` 和 `familyName`，而不是 `firstName` 和 `lastName`。
 
 **文档**  
 
@@ -96,7 +96,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
 }
 ```
 
-现在，让我们尝试对此数据执行一些查询来了解 DocumentDB API SQL 的一些主要方面。 例如，下面的查询返回 ID 字段与 `AndersenFamily` 匹配的文档。 由于它是 `SELECT *`，因此该查询的输出为完整的 JSON 文档：
+现在尝试对此数据执行一些查询，了解 DocumentDB API SQL 的一些主要方面。 例如，以下查询返回其中的 ID 字段与 `AndersenFamily` 匹配的文档。 由于它是 `SELECT *`，因此该查询的输出为完整的 JSON 文档：
 
 **查询**
 
@@ -162,11 +162,11 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
 
 * 由于 DocumentDB API SQL 适用于 JSON 值，因此它可以处理三种形式的实体，而不是行和列。 因此，使用该语言可在任意深度引用树的节点，如 `Node1.Node2.Node3…..Nodem`，这类似于引用 `<table>.<column>` 的两个部分引用的关系型 SQL。   
 * 结构化查询语言适用于无架构的数据。 因此，需要动态绑定类型系统。 相同的表达式在不同文档上可能会产生不同的类型。 查询的结果是一个有效的 JSON 值，但不保证它为固定的架构。  
-* Cosmos DB 仅支持严格的 JSON 文档。 这意味着类型系统和表达式仅限于处理 JSON 类型。 有关更多详细信息，请参阅 [JSON specification](http://www.json.org/) （JSON 规范）。  
+* Cosmos DB 仅支持严格的 JSON 文档。 这意味着类型系统和表达式仅限于处理 JSON 类型。 有关更多详细信息，请参阅 [JSON 规范](http://www.json.org/)。  
 * Cosmos DB 集合是 JSON 文档的一个无架构容器。 集合中，文档内和跨文档的数据实体的关系是按包含关系隐式捕获的，而不是按主键和外键关系。 考虑到稍后会在本文中讨论文档内联接，因此这是一个值得注意的重要方面。
 
 ## <a id="Indexing"></a> Cosmos DB 索引
-在我们开始了解 DocumentDB API SQL 语法前，值得先探索一下 Cosmos DB API API 中的索引设计。 
+了解 DocumentDB API SQL 语法前，有必要先了解 Cosmos DB 中的索引设计。 
 
 数据库索引的目的是在提供良好的吞吐量和低延迟的同时，以最小的资源消耗（如 CPU 和输入/输出）提供各种形式的查询。 通常，为查询数据库选择正确的索引需要大量的计划和试验。 此方法对数据不符合严格的架构并且快速发展的无架构数据库来说是一个挑战。 
 
@@ -194,10 +194,10 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
 一个类似 `SELECT * FROM Families` 的查询指示整个家庭集合是要枚举的源。 特殊标识符 ROOT 可以用来表示集合，而不使用集合名称来表示。 以下列表包含每个查询需要强制执行的规则：
 
 * 集合可以使用别名，如 `SELECT f.id FROM Families AS f` 或只需为 `SELECT f.id FROM Families f`。 此处，`f` 等效于 `Families`。 `AS` 是可选的关键字，用于为标识符取别名。
-* 请注意，一旦有了别名，则无法绑定原始的源。 例如，由于再也无法解析标识符“Families”，因此 `SELECT Families.id FROM Families f` 在语法上无效。
+* 一旦有了别名，则无法绑定原始的源。 例如，由于再也无法解析标识符“Families”，因此 `SELECT Families.id FROM Families f` 在语法上无效。
 * 所有需要引用的属性都必须是完全限定的。 在没有遵循严格架构的情况下，会强制性地执行这一点以避免任何不确定的绑定。 因此，由于未绑定 `id` 属性，因此 `SELECT id FROM Families f` 在语法上无效。
 
-### <a name="sub-documents"></a>子文档
+### <a name="subdocuments"></a>子文档
 也可以将源缩小为更小的子集。 例如，要在每个文档中仅枚举子树，则子根可能变成源，如下例所示。
 
 **查询**
@@ -236,7 +236,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
       ]
     ]
 
-虽然上面的示例中使用数组作为源，但也可以使用对象作为源，如下例所示。 在源中可以找到的任何有效的 JSON 值（不是未定义的）都会被视为包含在查询的结果中。 如果一些家庭没有 `address.state` 值，则会将他们排除在查询结果之外。
+虽然上面的示例中使用数组作为源，但也可以使用对象作为源，如下例所示：在源中可以找到的任何有效 JSON 值（非未定义）都被视为包含在查询的结果中。 如果一些家庭没有 `address.state` 值，则会将他们排除在查询结果之外。
 
 **查询**
 
@@ -520,7 +520,7 @@ Undefined </td>
 
 了更快地执行查询，请记得创建索引策略，该策略对在 BETWEEN 子句中筛选的任何数值属性/路径使用范围索引类型。 
 
-在 DocumentDB API 与在 ANSI SQL 中使用 BETWEEN 的主要不同之处在于，前者支持对混合类型的属性执行快速范围查询 - 例如，可以在某些文档中将“grade”设置为数字 (5)，并在其他文档中将其设置为字符串（“grade4”）。 在这些情况下（如在 JavaScript 中），在两种不同类型之间进行比较的结果为“undefined”，会跳过文档。
+在 DocumentDB API 与 ANSI SQL 中使用 BETWEEN 的主要不同之处在于是否可以对混合类型的属性执行快速的范围查询 — 例如，在某些文档中将“grade”设置为数字 (5)，而在其他文档中将其设置为字符串（“grade4”）。 在这些情况下（如在 JavaScript 中），在两种不同类型之间进行比较的结果为“undefined”，会跳过文档。
 
 ### <a name="logical-and-or-and-not-operators"></a>逻辑（AND、OR 和 NOT）运算符
 逻辑运算符对布尔值进行运算。 下表显示了这些运算符的逻辑真值表。
@@ -569,7 +569,7 @@ IN 关键字可用于检查指定的值是否与列表中的任意值匹配。 �
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
 
-与其他查询运算符一样，如果任何文档中缺少条件表达式的引用属性，或者如果正在进行比较的类型不同，那么这些文档会被排除在查询结果之外。
+如同使用其他查询运算符一样，如果任何文档中缺少条件表达式的引用属性，或者如果正在进行比较的类型不同，那么这些文档会被排除在查询结果之外。
 
 联合 (??) 运算符可用于有效地检查文档中是否存在属性（也称为 已定义）。 这在对半结构化数据或混合类型的数据执行查询时很有用。 例如，此查询返回“lastName”（如果存在）或“surname”（如果不存在）。
 
@@ -620,7 +620,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
       "city": "seattle"
     }]
 
-投影也支持 JSON 表达式，如下例所示。
+投影也支持 JSON 表达式，如下例所示：
 
 **查询**
 
@@ -660,7 +660,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
     }]
 
 ### <a name="aliasing"></a>别名
-现在让我们使用值的显示别名对上面的示例进行扩展。 AS 是用于别名的关键字。 请注意，将第二个值投影为 `NameInfo` 时，它如显示的那样是可选的。 
+现在让我们使用值的显示别名对上面的示例进行扩展。 AS 是用于别名的关键字。 在将第二个值投影为 `NameInfo` 时，它如显示的那样是可选的。 
 
 如果查询包含两个具有相同名称的属性，则必须使用别名以重命名其中一个属性或两个属性，以便可以在投影的结果中消除它们的歧义。
 
@@ -728,7 +728,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
     ]
 
 ### <a name="object-and-array-creation"></a>对象和数组创建
-DocumentDB API SQL 的另一个重要功能是数组/对象创建。 请注意，在上一个示例中，我们已创建了一个新的 JSON 对象。 同样，也可以构造数组，如下例所示。
+DocumentDB API SQL 的另一个重要功能是数组/对象创建。 请注意，在上一个示例中，我们已创建了一个新的 JSON 对象。 同样，也可以构造数组，如下例所示：
 
 **查询**
 
@@ -907,7 +907,7 @@ TOP 关键字可用于限制来自查询中的值的数量。 将 TOP 与 ORDER 
 | MAX   | 在表达式中返回最大值。 |
 | 平均值   | 在表达式中返回多个值的平均值。 |
 
-也可基于数组迭代的结果进行聚合。 有关更多详细信息，请参阅[查询中的数组迭代](#Iteration)。
+也可基于数组迭代的结果进行聚合。 有关详细信息，请参阅[查询中的数组迭代](#Iteration)。
 
 > [!NOTE]
 > 请注意，使用 Azure 门户的查询浏览器时，聚合查询可能会通过查询页返回部分聚合的结果。 SDK 跨所有页面生成单个累计值。 
@@ -1027,7 +1027,7 @@ TOP 关键字可用于限制来自查询中的值的数量。 将 TOP 与 ORDER 
       }
     ]
 
-这可用于对数组的单个实体执行进一步筛选，如下例所示。
+这可用于对数组的单个实体执行进一步筛选，如下例所示：
 
 **查询**
 
@@ -1057,7 +1057,7 @@ TOP 关键字可用于限制来自查询中的值的数量。 将 TOP 与 ORDER 
     ]
 
 ### <a id="Joins"></a>联接
-在关系数据库中，跨表联接的要求是非常重要的。 设计规范化的架构是一项逻辑要求。 与此相反，DocumentDB API 处理无架构文档的非规范化数据模型。 这在逻辑上等效于“自联接”。
+在关系型数据库中，跨表联接的要求是非常重要的。 设计规范化的架构是一项逻辑要求。 与此相反，DocumentDB API 处理无架构文档的非规范化数据模型。 这在逻辑上等效于“自联接”。
 
 语言支持的语法为 <from_source1> JOIN <from_source2> JOIN ...JOIN <from_sourceN>。 总体而言，此语法返回一组 **N** 元组（带有 **N** 个值的元组）。 每个元组拥有通过对它们相应的集遍历所有集合别名所产生的值。 换言之，这是加入联接的集的完整叉积。
 
@@ -1074,7 +1074,7 @@ TOP 关键字可用于限制来自查询中的值的数量。 将 TOP 与 ORDER 
     [{
     }]
 
-下面的示例中，联接位于文档根和 `children` 子根之间。 这是两个 JSON 对象之间的叉积。 子女是一个数组的事实在 JOIN 中无效，因为我们正在处理的是子女数组的单一根。 因此，由于每个带有数组的文档的叉积仅生成一个文档，因此结果仅包含两个结果。
+在下面的示例中，联接位于文档根和 `children` 子根之间。 这是两个 JSON 对象之间的叉积。 子女是一个数组的事实在 JOIN 中无效，因为我们正在处理的是子女数组的单一根。 因此，由于每个带有数组的文档的叉积仅生成一个文档，因此结果仅包含两个结果。
 
 **查询**
 
@@ -1121,9 +1121,9 @@ TOP 关键字可用于限制来自查询中的值的数量。 将 TOP 与 ORDER 
 * 应用具有文档 **f** 的根的叉积，这些文档具有已在第一步中合并的每个子元素 **c**。
 * 最后，单独投影根对象 **f** 名称属性。 
 
-第一个文档 (`AndersenFamily`) 仅包含一个子元素，因此结果集仅包含与此文档对应的单个对象。 第二个文档 (`WakefieldFamily`) 包含两个子元素。 因此，叉积会为每个子女生成单独的对象，从而产生两个对象，每个对象分别与此文档对应。 请注意，这两个文档中的根字段会是相同的，就如你在叉积中所预期的一样。
+第一个文档 (`AndersenFamily`) 仅包含一个子元素，因此结果集仅包含与此文档对应的单个对象。 第二个文档 (`WakefieldFamily`) 包含两个子元素。 因此，叉积会为每个子女生成单独的对象，从而产生两个对象，每个对象分别与此文档对应。 这两个文档中的根字段会是相同的，正如在叉积中所预期的一样。
 
-JOIN 真正实用的地方是通过以其他方式难以投影的形式基于叉积生成元组。 此外，就如我们会在下面的示例中看见的那样，可以对元组组合进行筛选，总体上由用户选择元组满足的条件。
+JOIN 真正实用的地方通过以其他方式难以投影的形式基于叉积生成元组。 此外，就如我们会在下面的示例中看见的那样，可以对元组组合进行筛选，总体上由用户选择元组满足的条件。
 
 **查询**
 
@@ -1156,7 +1156,7 @@ JOIN 真正实用的地方是通过以其他方式难以投影的形式基于叉
       }
     ]
 
-此示例是前面示例的自然扩展，且执行双联接。 因此，可将叉积视为下面的伪代码。
+此示例是前面示例的自然扩展，且执行双联接。 因此，可将叉积视为下面的伪代码：
 
     for-each(Family f in Families)
     {    
@@ -1172,7 +1172,7 @@ JOIN 真正实用的地方是通过以其他方式难以投影的形式基于叉
         }
     }
 
-`AndersenFamily` 有一个拥有一只宠物的孩子。 因此，叉积从此家庭中生成一行 (1\*1\*1)。 尽管 WakefieldFamily 有两个孩子，但只有一个孩子“Jesse”拥有宠物。 Jesse 拥有 2 只宠物。 因此叉积从此家庭中生成 1\*1\*2 = 2 行。
+`AndersenFamily` 有一个拥有一只宠物的孩子。 因此，叉积从此家庭中生成一行 (1\*1\*1)。 尽管 WakefieldFamily 有两个孩子，但只有一个孩子“Jesse”拥有宠物。 不过，Jesse 有 2 只宠物。 因此叉积从此家庭中生成 1\*1\*2 = 2 行。
 
 在接下来的示例中，可以根据 `pet`进行额外的筛选。 这排除了宠物名称不是“Shadow”的所有元组。 请注意，我们能够从数组中生成元组，根据元组的任意元素进行筛选以及投影元素的任何组合。 
 
@@ -1202,10 +1202,10 @@ JOIN 真正实用的地方是通过以其他方式难以投影的形式基于叉
 Azure Cosmos DB 根据存储过程和触发器，为对集合直接执行基于 JavaScript 的应用程序逻辑提供编程模型。 这允许以下两种情况：
 
 * 借助直接在数据库引擎内深度集成 JavaScript 运行时，能够对集合中的文档执行高性能事务性 CRUD 操作和查询。 
-* 控制流、变量范围和分配的自然建模和将异常处理基元与数据库事务集成。 有关 Azure Cosmos DB 对 JavaScript 集成的支持的更多详细信息，请参阅《JavaScript 服务器端可编程性》文档。
+* 控制流、变量范围和分配的自然建模和将异常处理基元与数据库事务集成。 有关 Azure Cosmos DB 对 JavaScript 集成的支持的更多详细信息，请参阅“JavaScript 服务器端可编程性”文档。
 
 ### <a id="UserDefinedFunctions"></a>用户定义的函数 (UDF)
-除了本文中已定义的类型外，DocumentDB API SQL 也对用户定义的函数 (UDF) 提供支持。 具体而言，支持标量 UDF，开发人员可在其中传入零个或许多参数并返回单个参数结果。 检查每个参数是否为合法的 JSON 值。  
+除了本文中已定义的类型外，DocumentDB API SQL 也对用户定义的函数 (UDF) 提供支持。 具体而言，支持标量 UDF，开发人员可在其中传入零个或许多参数并返回单个参数结果。 检查每个参数是否是合法的 JSON 值。  
 
 扩展 DocumentDB API SQL 语法，以支持使用这些用户定义的函数的自定义应用程序逻辑。 可使用 DocumentDB API 注册 UDF，并作为 SQL 查询的一部分引用这些函数。 事实上，UDF 经过精心设计，可由查询调用。 作为此选择的必然结果，UDF 不能访问其他 JavaScript 类型（存储过程和触发器）所拥有的上下文对象。 由于查询以只读方式执行，因此它们可以在主要或次要副本上运行。 因此，UDF 设计为在次要副本上运行，这与其他 JavaScript 类型不同。
 
@@ -1248,7 +1248,7 @@ Azure Cosmos DB 根据存储过程和触发器，为对集合直接执行基于 
       }
     ]
 
-也可在 UDF 中使用筛选器，这同样要使用“udf.”前缀进行限定， 如下例所示：
+也可在 UDF 中使用筛选器，这同样要使用“udf.”前缀进行限定， 前缀：
 
 **查询**
 
@@ -1314,9 +1314,9 @@ DocumentDB API SQL 在处理 UDF 当前阶段（WHERE 子句或 SELECT 子句）
 总而言之，UDF 是作为查询的一部分处理复杂业务逻辑重要的工具。
 
 ### <a name="operator-evaluation"></a>运算符评估
-Cosmos DB 是一个 JSON 数据库，与 JavaScript 运算符以及其评估语义具有许多相似之处。 就 JSON 支持而言，Cosmos DB 尝试保留 JavaScript 语义时，操作评估在某些实例中有所偏移。
+Cosmos DB 是一个 JSON 数据库，与 JavaScript 运算符以及其评估语义具有许多相似之处。 就 JSON 支持而言，当 Cosmos DB 尝试保留 JavaScript 语义时，操作评估在某些实例中有所偏移。
 
-在 DocumentDB API SQL 中，与在传统 SQL 中不同，实际从数据库中检索出值之前，值类型经常是未知的。 为了高效执行查询，大多数运算符具有严格的类型要求。 
+在传统 SQL 不同，在 DocumentDB API SQL 中，在从数据库中检索出值之前，值类型经常是未知的。 为了高效执行查询，大多数运算符具有严格的类型要求。 
 
 不同于 JavaScript，DocumentDB API SQL 不会执行隐式转换。 例如，类似 `SELECT * FROM Person p WHERE p.Age = 21` 的查询与包含值为 21 的 Age 属性的文档相匹配。 任何其他 Age 属性与字符串“21”匹配或包含其他无数可能的变量（“021”、“21.0”、“0021”和“00021”等等）的文档则不匹配。 这与 JavaScript 相反，在 JavaScript 中，字符串会隐式转换为数字（基于运算符 ex: ==）。 此选择对于 DocumentDB API SQL 中的高效索引匹配至关重要。 
 
@@ -1361,10 +1361,10 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 | 数组函数         | ARRAY_CONCAT、ARRAY_CONTAINS、ARRAY_LENGTH 和 ARRAY_SLICE                                                                                         |
 | 空间函数       | ST_DISTANCE、ST_WITHIN、ST_INTERSECTS、ST_ISVALID 和 ST_ISVALIDDETAILED                                                                           | 
 
-如果当前正使用内置函数适用的用户定义的函数 (UDF)，那么应使用相应的内置函数，因为它会更快更有效地运行。 
+如果当前正使用内置函数现在可用的用户定义函数 (UDF)，那么应使用相应的内置函数，因为它会更快更有效地运行。 
 
 ### <a name="mathematical-functions"></a>数学函数
-每个数学函数均执行一个计算，通常基于作为参数提供的输出值，并返回数值。 以下是支持的内置数学函数表。
+每个数学函数均执行一个计算，基于作为参数提供的输出值，并返回数值。 以下是支持的内置数学函数表。
 
 | 使用情况 | 说明 |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1533,7 +1533,7 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |返回指定数组表达式的元素数。 |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |返回一个数组，该数组是连接两个或更多数组值的结果。 |
-| [ARRAY_CONTAINS (arr_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |返回一个布尔，它指示数组是否包含指定的值。 |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |返回一个布尔，它指示数组是否包含指定的值。 可以指定是要执行完全还是部分匹配。 |
 | [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |返回部分数组表达式。 |
 
 数组函数可用于在 JSON 内操纵数组。 例如，下面的查询返回其中一位父母是“Robin Wakefield”的所有文档。 
@@ -1543,6 +1543,20 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
     SELECT Families.id 
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin", familyName: "Wakefield" })
+
+**结果**
+
+    [{
+      "id": "WakefieldFamily"
+    }]
+
+可以指定一个部分片段来匹配数组中的元素。 以下查询查找 `givenName` 为 `Robin` 的所有父母。
+
+**查询**
+
+    SELECT Families.id 
+    FROM Families 
+    WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
 
 **结果**
 
@@ -1617,12 +1631,12 @@ Cosmos DB 支持以下用于查询地理空间的开放地理空间信息联盟 
 ## <a id="Linq"></a>LINQ 到 DocumentDB API SQL
 LINQ 是一个 .NET 编程模型，它将计算表示为对对象流的查询。 Cosmos DB 提供一个客户端库，通过促进 JSON 与 .NET 对象之间的转换，以及从 LINQ 查询的子集到 Cosmos DB 查询的映射，来与 LINQ 进行交互。 
 
-下面的图片展示了使用 Cosmos DB 支持 LINQ 查询的体系结构。  使用 Cosmos DB 客户端，开发人员可以创建直接查询 Cosmos DB 查询提供程序的 **IQueryable** 对象，该提供程序随后会将 LINQ 查询转换为 Cosmos DB 查询。 随后会将该查询传递到 Cosmos DB 服务器以检索一组 JSON 格式的结果。 在客户端上，返回的结果会反序列化为 .NET 对象的流。
+下面的图片显示了支持使用 Cosmos DB 的 LINQ 查询的体系结构。  使用 Cosmos DB 客户端，开发人员可以创建直接查询 Cosmos DB 查询提供程序的 **IQueryable** 对象，该提供程序随后会将 LINQ 查询转换为 Cosmos DB 查询。 随后会将该查询传递到 Cosmos DB 服务器以检索一组 JSON 格式的结果。 在客户端上，返回的结果会反序列化为 .NET 对象的流。
 
 ![支持使用 DocumentDB API 的 LINQ 查询的体系结构 - SQL语法、JSON 查询语言、数据库概念和 SQL 查询][1]
 
 ### <a name="net-and-json-mapping"></a>.NET 和 JSON 映射
-.NET 对象与 JSON 文档之间的映射是自然的 - 每个数据成员字段映射到 JSON 对象，其中字段名称映射到对象的“key”部分，并且"value"部分以递归方式映射到该对象的值部分。 请考虑以下示例。 创建的 Family 对象会映射到 JSON 文档，如下所示。 反之亦然，JSON 文档会映射回 .NET 对象。
+.NET 对象与 JSON 文档之间的映射是自然的 - 每个数据成员字段映射到 JSON 对象，其中字段名称映射到对象的“key”部分，并且"value"部分以递归方式映射到该对象的值部分。 考虑以下示例：创建的 Family 对象会映射到 JSON 文档，如下所示。 反之亦然，JSON 文档会映射回 .NET 对象。
 
 **C# 类**
 
@@ -1703,10 +1717,10 @@ LINQ 是一个 .NET 编程模型，它将计算表示为对对象流的查询。
 ### <a name="linq-to-sql-translation"></a>LINQ 到 SQL 转换
 Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最有效映射。 在以下描述中，我们假设读者对 LINQ 已经有了一个基本的了解。
 
-首先，对于类型系统，我们支持所有 JSON 基元类型 – 数值类型、布尔、字符串和 null。 仅支持这些 JSON 类型。 支持以下的标量表达式。
+首先，对于类型系统，我们支持所有 JSON 基元类型 — 数值类型、布尔、字符串和 null。 仅支持这些 JSON 类型。 支持以下的标量表达式。
 
-* 常量值 – 这些包含评估查询时基元数据类型的常量值。
-* 属性/数组索引表达式 – 这些表达式引用对象或数组元素的属性。
+* 常量值 - 这些包含评估查询时基元数据类型的常量值。
+* 属性/数组索引表达式 — 这些表达式引用对象或数组元素的属性。
 
      family.Id;    family.children[0].familyName;    family.children[0].grade;    family.children[n].grade; //n is an int variable
 * 算术表达式 - 这些表达式包含数值和布尔值上的常用算术表达式。 有关完整列表，请参阅 SQL 规范。
@@ -1717,7 +1731,7 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
      mother.familyName == "Smith";    child.givenName == s; //s is a string variable
 * 对象/数组创建表达式 - 这些表达式返回复合值类型或匿名类型的对象，或此类对象组成的数组。 可以嵌套这些值。
 
-     new Parent { familyName = "Smith", givenName = "Joe" }; new { first = 1, second = 2 }; //an anonymous type with 2 fields              
+     new Parent { familyName = "Smith", givenName = "Joe" }; new { first = 1, second = 2 }; //an anonymous type with two fields              
      new int[] { 3, child.grade, 5 };
 
 ### <a id="SupportedLinqOperators"></a>支持的 LINQ 运算符列表
@@ -1904,16 +1918,16 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
     WHERE c.familyName = f.parents[0].familyName
 
 ## <a id="ExecutingSqlQueries"></a>执行 SQL 查询
-Cosmos DB 通过一个 REST API 来公开资源，任何可以发出 HTTP/HTTPS 请求的语言都可以调用该 REST API。 此外，Cosmos DB 还为多种常用语言（如 .NET、Node.js、JavaScript 和 Python）提供编程库。 REST API 和各种库均支持通过 SQL 进行查询。 除了 SQL 之外，.NET SDK 还支持 LINQ 查询。
+Cosmos DB 通过一个 REST API 公开资源，任何可以发出 HTTP/HTTPS 请求的语言都可以调用该 REST API。 此外，Cosmos DB 还提供多种常用语言（如 .NET、Node.js、JavaScript 和 Python）的编程库。 REST API 和各种库均支持通过 SQL 进行查询。 除了 SQL 之外，.NET SDK 还支持 LINQ 查询。
 
 以下示例演示了如何对 Cosmos DB 数据库帐户创建和提交该查询。
 
 ### <a id="RestAPI"></a>REST API
-Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 可以使用 Azure 订阅预配数据库帐户。 Cosmos DB 资源模型由数据库帐户下的一组资源组成，每个资源都可使用逻辑和稳定的 URI 进行寻址。 本文档中将一组资源称为一个源。 数据库帐户由一组数据库组成，每个数据库包含多个集合，而每个集合又包含文档、UDF 和其他资源类型。
+Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 可以使用 Azure 订阅预配数据库帐户。 Cosmos DB 资源模型由数据库帐户下的一组资源组成，可使用一个稳定的逻辑 URI 对每个资源进行寻址。 本文档中将一组资源称为一个源。 数据库帐户由一组数据库组成，每个数据库包含多个集合，而每个集合又包含文档、UDF 和其他资源类型。
 
-这些资源的基本交互模型借助采用其标准解释的 HTTP 谓词 GET、PUT、POST 和 DELETE。 POST 谓词用于创建新的资源、执行存储过程或发出 Cosmos DB 查询。 查询始终为只读操作，且无任何副作用。
+这些资源的基本交互模型借助采用其标准解释的 HTTP 谓词 GET、PUT、POST 和 DELETE。 POST 谓词用于创建新资源、执行存储过程或发出 Cosmos DB 查询。 查询始终为只读操作，且无任何副作用。
 
-以下示例演示了针对包含我们目前看到的两个示例文档的集合，使用 POST 进行 DocumentDB API 查询。 查询对 JSON 名称属性进行简单的筛选。 请注意，使用 `x-ms-documentdb-isquery` 和 Content-Type: `application/query+json` 标头表示该操作是一个查询。
+以下示例说明如何针对包含我们目前查看的两个示例文档的集合，使用 POST 进行 DocumentDB API 查询。 查询对 JSON 名称属性进行简单的筛选。 请注意，使用 `x-ms-documentdb-isquery` 和 Content-Type: `application/query+json` 标头表示该操作是一个查询。
 
 **请求**
 
@@ -2033,9 +2047,11 @@ Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 可以使用 Azure
 
 如果查询的结果无法包含在一页内，那么 REST API 通过 `x-ms-continuation-token` 响应标头返回继续标记。 客户端可以通过在后续结果中包含该标头对结果进行分页。 可以通过 `x-ms-max-item-count` 数量标头控制每页的结果数。 如果指定的查询有一个聚合函数（例如 `COUNT`），则查询页可能会通过结果页返回部分聚合的值。 若要生成最终结果，客户端必须对这些结果执行二级聚合，例如，对各个页面中返回的计数进行总计，以便返回总的计数。
 
-若要管理查询的数据一致性策略，请使用 `x-ms-consistency-level` 标头（如所有的 REST API 请求）。 对于会话一致性，还需要回显查询请求中最新的 `x-ms-session-token` Cookie 标头。 请注意，查询集合的索引策略也可以影响查询结果的一致性。 使用默认的索引策略设置，集合的索引始终与文档内容保持同步，且查询结果将与为数据选择的一致性匹配。 如果索引策略太放松而具有延迟，那么查询会返回过时的结果。 有关详细信息，请参阅 [Azure Cosmos DB 一致性级别][consistency-levels]。
+若要管理查询的数据一致性策略，请使用 `x-ms-consistency-level` 标头（如所有的 REST API 请求）。 对于会话一致性，还需要回显查询请求中最新的 `x-ms-session-token` Cookie 标头。 查询集合的索引策略也可以影响查询结果的一致性。 使用默认的索引策略设置，集合的索引始终与文档内容保持同步，且查询结果将与为数据选择的一致性匹配。 如果索引策略太放松而具有延迟，那么查询会返回过时的结果。 有关详细信息，请参阅 [Azure Cosmos DB 一致性级别][consistency-levels]。
 
-如果为集合配置的索引策略不能支持指定的查询，那么 Azure Cosmos DB 服务器会返回 400“错误的请求”。 在对为哈希（等式）查找配置的路径，以及从索引中显式排除的路径进行范围查询时，返回此内容。 当索引不可用时，可通过指定 `x-ms-documentdb-query-enable-scan` 标头以允许查询执行扫描。
+如果集合上配置的索引策略不能支持指定的查询，Azure Cosmos DB 服务器会返回 400“错误请求”。 在对为哈希（等式）查找配置的路径，以及从索引中显式排除的路径进行范围查询时，返回此内容。 当索引不可用时，可通过指定 `x-ms-documentdb-query-enable-scan` 标头以允许查询执行扫描。
+
+可通过将 `x-ms-documentdb-populatequerymetrics` 标头设置为 `True` 获取有关查询执行的详细指标。 有关详细信息，请参阅 [Azure Cosmos DB DocumentDB API 的 SQL 查询指标](documentdb-sql-query-metrics.md)。
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 .NET SDK 支持 LINQ 和 SQL 查询。 以下示例演示了如何执行本文档之前介绍的简单筛选查询。
@@ -2124,10 +2140,6 @@ Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 可以使用 Azure
 
 有关包含查询的更多示例，请参阅 [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-documentdb-net)。 
 
-> [!NOTE]
-> 若要执行聚合查询，用户需 SDK 1.12.0 或更高版本。 目前不提供针对聚合函数的 LINQ 支持，但会在 .NET SDK 1.13.0 中提供。
->
-
 ### <a id="JavaScriptServerSideApi"></a>JavaScript 服务器端 API
 Cosmos DB 使用存储过程和触发器，为对集合直接执行基于 JavaScript 的应用程序逻辑提供编程模型。 集合级别上注册的 JavaScript 逻辑稍后可以对针对给定集合的文档的操作发出数据库操作。 这些操作包装在环境 ACID 事务中。
 
@@ -2182,4 +2194,4 @@ Cosmos DB 使用存储过程和触发器，为对集合直接执行基于 JavaSc
 [introduction]: introduction.md
 [consistency-levels]: consistency-levels.md
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

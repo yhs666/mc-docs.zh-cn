@@ -13,16 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 origin.date: 06/13/2017
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 97de6d2ebea57550cb6db301cdae92acaca54d12
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 7eadd4abf2f206cab8313c03fcd72677b9f2a972
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 09/13/2017
 ---
-# Azure Cosmos DB DocumentDB API：SQL 语法参考
-<a id="azure-cosmos-db-documentdb-api-sql-syntax-reference" class="xliff"></a>
+# <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>Azure Cosmos DB DocumentDB API：SQL 语法参考
 
 Azure Cosmos DB DocumentDB API 支持使用熟悉的 SQL（结构化查询语言）风格的语法对分层 JSON 文档执行文档查询，不需要使用显式架构或创建辅助索引。 本主题提供了 DocumentDB API SQL 查询语言的参考文档。
 
@@ -30,8 +29,7 @@ Azure Cosmos DB DocumentDB API 支持使用熟悉的 SQL（结构化查询语言
 
 建议你访问 [Query Playground](http://www.documentdb.com/sql/demo)（查询板块），可以在该板块中试用 Azure Cosmos DB，并对数据集运行 SQL 查询。  
 
-## SELECT 查询
-<a id="select-query" class="xliff"></a>  
+## <a name="select-query"></a>SELECT 查询  
 从数据库检索 JSON 文档。 支持表达式计算、投影、筛选和联接。  语法约定部分中以表格方式显示了用于描述 SELECT 语句的约定。  
 
 **语法**  
@@ -77,7 +75,7 @@ SELECT 语句中的子句必须采用上面显示的顺序。 任何可选子句
 
 -   SQL 语句 `-- comment text [newline]`  
 
-虽然空格字符和注释在语法中没有任何意义，但必须使用它们来分隔标记。 例如：`-1e5` 是一个单一数字标记，而 `: – 1 e5` 是一个减号标记，后跟数字 1 和标识符 e5。  
+虽然空格字符和注释在语法中没有任何意义，但必须使用它们来分隔标记。 例如：`-1e5` 是一个单一数字标记，而 `: - 1 e5` 是一个减号标记，后跟数字 1 和标识符 e5。  
 
 ##  <a name="bk_select_query"></a> SELECT 子句  
 SELECT 语句中的子句必须采用上面显示的顺序。 任何可选子句都可以省略。 但是，如果使用可选子句，则它们必须以正确的顺序出现。  
@@ -426,7 +424,7 @@ ORDER BY <sort_specification>
 -   `input_alias`  
 
      表示由 `FROM` 子句中引入的 `input_alias` 定义的值。  
-    此值可以保证不是**未定义的** – 将跳过输入中的**未定义**值。  
+    此值可以保证不是**未定义的** -- 将跳过输入中的**未定义**值。  
 
 -   `<scalar_expression>.property_name`  
 
@@ -1671,7 +1669,7 @@ IS_NULL(<expression>)
 
  **示例**  
 
- 以下示例使用 IS_NULL 函数检查 JSON 布尔、数字、字符串、null、对象、数组和 undefined 类型的对象。  
+ 以下示例使用 IS_NUMBER 函数检查 JSON 布尔、数字、字符串、null、对象、数组和 undefined 类型的对象。  
 
 ```  
 SELECT   
@@ -2521,7 +2519,7 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])
 ```  
 
 ####  <a name="bk_array_slice"></a> ARRAY_SLICE  
- 返回一个布尔，它指示数组是否包含指定的值。  
+ 返回部分数组表达式。
 
  **语法**  
 
@@ -2769,7 +2767,8 @@ SELECT ST_ISVALIDDETAILED({
 }]  
 ```  
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>  
+## <a name="next-steps"></a>后续步骤  
  [Azure Cosmos DB 的 SQL 语法和 SQL 查询](documentdb-sql-query.md)   
  [Azure Cosmos DB 文档](/cosmos-db/)
+ 
+ <!--Update_Description: wording update-->

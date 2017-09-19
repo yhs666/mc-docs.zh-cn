@@ -1,6 +1,6 @@
 ---
-title: "Azure DocumentDB Java API、SDK 和资源 | Azure"
-description: "了解有关 Java API 和 SDK 的全部信息，包括发布日期、停用日期和 DocumentDB Java SDK 各版本之间所做的更改。"
+title: "Azure Cosmos DB：Cosmos DB Java API、SDK 和资源 | Azure"
+description: "了解有关 Java API 和 SDK 的所有信息，包括发布日期、停用日期和 Azure Cosmos DB DocumentDB Java SDK 各版本之间所做的更改。"
 services: cosmos-db
 documentationcenter: java
 author: rockboyfor
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-origin.date: 05/24/2017
-ms.date: 08/07/2017
+origin.date: 07/11/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e00a5d6667238595fe20e35698e78e4ecefa7364
-ms.sourcegitcommit: bfdbf6df593eb9ea6ad7372375db671886055a12
+ms.openlocfilehash: d4af47ed05d5a61fb80a2a8ccbd50289254eb951
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/13/2017
 ---
-# <a name="documentdb-java-sdk-release-notes-and-resources"></a>DocumentDB Java SDK：发行说明和资源
+# <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB：DocumentDB Java SDK 发行说明和资源
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET 更改源](documentdb-sdk-dotnet-changefeed.md)
@@ -47,7 +47,7 @@ ms.lasthandoff: 08/24/2017
 
 <tr><td>**入门**</td><td>[Java SDK 入门](documentdb-java-get-started.md)</td></tr>
 
-<tr><td>**Web 应用教程**</td><td>[使用 DocumentDB 开发 Web 应用程序](documentdb-java-application.md)</td></tr>
+<tr><td>**Web 应用教程**</td><td>[使用 Azure Cosmos DB 进行 Web 应用程序开发](documentdb-java-application.md)</td></tr>
 
 <tr><td>**当前受支持的运行时**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
@@ -61,4 +61,4 @@ ms.lasthandoff: 08/24/2017
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, wroding update, update link-->

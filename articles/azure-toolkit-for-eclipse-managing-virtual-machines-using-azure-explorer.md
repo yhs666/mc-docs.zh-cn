@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 04/14/2017
 ms.date: 08/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: dffbbf28558bf5b1b4c77c51aa9e33d5c6a4c76c
-ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
+ms.openlocfilehash: eac9bacdc608605785e5512d993db8260ef3671b
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="manage-virtual-machines-by-using-the-azure-explorer-for-eclipse"></a>使用用于 Eclipse 的 Azure 资源管理器管理虚拟机
 
@@ -46,7 +46,7 @@ Azure 资源管理器是用于 Eclipse 的 Azure 工具包的一部分，它为 
 
 4. 在“选择虚拟机映像”窗口中输入以下信息：
 
-   - 位置：指定要创建虚拟机的位置（例如“美国西部”）。
+   - 位置：指定要创建虚拟机的位置（例如“中国北部”）。
 
    - 发布者：指定创建了用于创建虚拟机的映像的发布者（例如“Microsoft”）。
 
@@ -151,12 +151,12 @@ Azure 资源管理器是用于 Eclipse 的 Azure 工具包的一部分，它为 
 
 有关用于 Java IDE 的 Azure 工具包的详细信息，请参阅以下资源：
 
-- [适用于 Eclipse 的 Azure 工具包]
+- [用于 Eclipse 的 Azure 工具包]
   - [用于 Eclipse 的 Azure 工具包的新增功能]
-  - [安装 Azure Toolkit for Eclipse]
+  - [安装用于 Eclipse 的 Azure 工具包]
   - [用于 Eclipse 的 Azure 工具包的登录说明]
   - [在 Eclipse 中创建适用于 Azure 的 Hello World Web 应用]
-- [适用于 IntelliJ 的 Azure 工具包]
+- [用于 IntelliJ 的 Azure 工具包]
   - [用于 IntelliJ 的 Azure 工具包的新增功能]
   - [安装用于 IntelliJ 的 Azure 工具包]
   - [用于 IntelliJ 的 Azure 工具包的登录说明]
@@ -166,11 +166,11 @@ Azure 资源管理器是用于 Eclipse 的 Azure 工具包的一部分，它为 
 
 <!-- URL List -->
 
-[适用于 Eclipse 的 Azure 工具包]: ./azure-toolkit-for-eclipse.md
-[适用于 IntelliJ 的 Azure 工具包]: ./azure-toolkit-for-intellij.md
+[用于 Eclipse 的 Azure 工具包]: ./azure-toolkit-for-eclipse.md
+[用于 IntelliJ 的 Azure 工具包]: ./azure-toolkit-for-intellij.md
 [在 Eclipse 中创建适用于 Azure 的 Hello World Web 应用]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [在 IntelliJ 中创建适用于 Azure 的 Hello World Web 应用]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[安装 Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[安装用于 Eclipse 的 Azure 工具包]: ./azure-toolkit-for-eclipse-installation.md
 [安装用于 IntelliJ 的 Azure 工具包]: ./azure-toolkit-for-intellij-installation.md
 [用于 Eclipse 的 Azure 工具包的登录说明]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
 [用于 IntelliJ 的 Azure 工具包的登录说明]: ./azure-toolkit-for-intellij-sign-in-instructions.md
@@ -180,10 +180,10 @@ Azure 资源管理器是用于 Eclipse 的 Azure 工具包的一部分，它为 
 [Azure Java 开发人员中心]: /develop/java/
 [用于 Visual Studio Team Services 的 Java 工具]: https://java.visualstudio.com/
 
-[Azure 中 Windows 虚拟机的大小]: /azure/virtual-machines/virtual-machines-windows-sizes
-[Azure 中 Linux 虚拟机的大小]: /azure/virtual-machines/virtual-machines-linux-sizes
-[Windows 虚拟机定价]: /pricing/details/virtual-machines/windows/
-[Linux 虚拟机定价]: /pricing/details/virtual-machines/linux/
+[Azure 中 Windows 虚拟机的大小]: /virtual-machines/virtual-machines-windows-sizes
+[Azure 中 Linux 虚拟机的大小]: /virtual-machines/virtual-machines-linux-sizes
+[Windows 虚拟机定价]: https://www.azure.cn/pricing/details/virtual-machines/
+[Linux 虚拟机定价]: https://www.azure.cn/pricing/details/virtual-machines/
 
 <!-- IMG List -->
 

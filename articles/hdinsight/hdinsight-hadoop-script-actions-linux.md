@@ -1,6 +1,6 @@
 ---
 title: "使用基于 Linux 的 HDInsight 进行脚本操作开发 - Azure | Azure"
-description: "如何使用脚本操作自定义基于 Linux 的 HDInsight 群集。 使用脚本操作可以通过指定群集配置设置，或者在群集上安装额外的服务、工具或其他软件，来自定义 Azure HDInsight 群集。 "
+description: "了解如何使用 Bash 脚本自定义基于 Linux 的 HDInsight 群集。 利用 HDInsight 的脚本操作功能，可在群集创建期间或之后运行脚本。 脚本可用于更改群集配置设置或安装其他软件。"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/02/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: d73ccdc3f9a7bdf383060f25c278b2ec50eabc6d
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 07/31/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: fc85fd6fcd67ed7bcbcd240b618b44f4b45ce9f6
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 进行脚本操作开发
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 07/28/2017
 * [使用重试逻辑从暂时性错误中恢复](#bps9)
 
 > [!IMPORTANT]
-> 脚本操作必须在 60 分钟内完成。 否则脚本将会失败。 在节点预配期间，脚本将与其他安装和配置进程一同运行。 争用 CPU 时间和网络带宽等资源可能导致完成脚本所需的时间要长于在开发环境中所需的时间。
+> 脚本操作必须在 60 分钟内完成，否则进程将失败。 在节点预配期间，脚本将与其他安装和配置进程一同运行。 争用 CPU 时间和网络带宽等资源可能导致完成脚本所需的时间要长于在开发环境中所需的时间。
 
 ### <a name="bPS1"></a>选择目标 Hadoop 版本
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 07/28/2017
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-基于 Linux 的 HDInsight 取决于 Ubuntu Linux 分发版。 不同版本的 HDInsight 依赖不同版本的 Ubuntu，这可能会改变脚本的行为方式。 例如，HDInsight 3.4 及更低版本基于使用 Upstart 的 Ubuntu 版本。 3.5 版本取决于使用 Systemd 的 Ubuntu 16.04。 Systemd 和 Upstart 采用不同的命令，因此你编写的脚本应能与这两者配合使用。
+基于 Linux 的 HDInsight 取决于 Ubuntu Linux 分发版。 不同版本的 HDInsight 依赖不同版本的 Ubuntu，这可能会改变脚本的行为方式。 例如，HDInsight 3.4 及更低版本基于使用 Upstart 的 Ubuntu 版本。 3.5 版本取决于使用 Systemd 的 Ubuntu 16.04。 Systemd 和 Upstart 依赖不同的命令，因此编写的脚本应该同时使用两者。
 
 HDInsight 3.4 和 3.5 的另一个重要区别在于 `JAVA_HOME` 现在能够指向 Java 8。
 
@@ -121,11 +121,11 @@ fi
 > [!IMPORTANT]
 > 使用的存储帐户必须是群集的默认存储帐户，或其他任何存储帐户的公共只读容器。
 
-例如，Microsoft 提供的示例存储在 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 存储帐户中，这是 HDInsight 团队维护的公共只读容器。
+例如，Microsoft 提供的示例存储在 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 存储帐户中。 这是 HDInsight 团队维护的一个公共只读容器。
 
 ### <a name="bPS4"></a>使用预编译的资源
 
-若要减少运行脚本所花费的时间，请避免使用从源代码编译资源的操作。 请预编译这些资源，并将其存储在 Azure Blob 存储中，使之能够快速下载。
+若要减少运行脚本所花费的时间，请避免使用从源代码编译资源的操作。 例如，对资源进行预编译并将其存储在与 HDInsight 相同的数据中心的 Azure 存储帐户 blob 中。
 
 ### <a name="bPS3"></a>确保群集自定义脚本是幂等的
 
@@ -135,7 +135,7 @@ fi
 
 ### <a name="bPS5"></a>确保群集体系结构的高可用性
 
-基于 Linux 的 HDInsight 群集提供在群集中保持活动状态的两个头节点，而脚本操作将针对这两个节点运行。 如果安装的组件只应使用一个头节点，请不要在两个头节点上安装组件。
+基于 Linux 的 HDInsight 群集提供在群集中保持活动状态的两个头节点，而脚本操作会同时在这两个节点上运行。 如果安装的组件只有一个头节点，请不要在两个头节点上安装组件。
 
 > [!IMPORTANT]
 > 作为 HDInsight 一部分提供的服务旨在根据需要在两个头节点之间进行故障转移。 此功能未扩展到通过脚本操作安装的自定义组件。 如果需要为自定义组件提供高可用性，必须实现自己的故障转移机制。
@@ -295,7 +295,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 ### <a name="checking-the-operating-system-version"></a>检查操作系统版本
 
-不同版本的 HDInsight 依赖于特定版本的 Ubuntu。 你的脚本必须查看的 OS 版本之间可能存在差异。 例如，可能需要安装与 Ubuntu 版本相关的二进制文件。
+不同版本的 HDInsight 依赖于特定版本的 Ubuntu。 不同 OS 版本之间存在不同，必须在脚本中检查。 例如，可能需要安装与 Ubuntu 版本相关的二进制文件。
 
 若要检查 OS 版本，请使用 `lsb_release`。 例如，以下脚本演示如何根据 OS 版本引用特定的 tar 文件：
 
@@ -356,7 +356,7 @@ Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。 参阅�
 
 | 命令 | 说明 |
 | --- | --- |
-| `unix2dos -b INFILE` |原始文件将以 .BAK 扩展名备份 |
+| `unix2dos -b INFILE` |原始文件以 .BAK 扩展名备份 |
 | `tr -d '\r' < INFILE > OUTFILE` |OUTFILE 包含只带 LF 行尾的版本 |
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | 直接修改文件 |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE 包含只带 LF 行尾的版本。 |
@@ -376,3 +376,4 @@ Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。 参阅�
 * 了解如何[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)
 * 通过 [HDInsight.NET SDK 参考](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight)详细了解如何创建用于管理 HDInsight 的 .NET 应用程序
 * 使用 [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) 了解如何通过 REST 在 HDInsight 群集上执行管理操作。
+<!--Update_Description: wording update-->

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 01/17/2017
 ms.date: 07/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: 9c8fe16af8f58f2a403994f6f9c6dad69eb7a815
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: f5f4af30659c48424e9715a47e5acaeb20f6e703
+ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>应用程序网关的后端运行状况、诊断日志和指标
 
@@ -95,12 +95,12 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 }
 ```
 
-## <a name="diagnostic-logs"></a>诊断日志
+## 诊断日志 <a name="diagnostic-logging"></a>
 
 可在 Azure 中使用不同类型的日志来对应用程序网关进行管理和故障排除。 可通过门户访问其中某些日志。 可从 Azure Blob 存储提取所有日志并在 Excel 和 Power BI 等各种工具中查看。 可从以下列表了解有关不同类型日志的详细信息：
 
-* 活动日志：可以使用 [Azure 活动日志](../monitoring-and-diagnostics/insights-debugging-with-events.md)（以前称为操作日志和审核日志）查看提交到 Azure 订阅的所有操作及其状态。 默认情况下会收集活动日志条目，可在 Azure 门户中查看这些条目。
-* 访问日志：可以使用此日志来查看应用程序网关访问模式并分析重要信息，包括调用方的 IP、请求的 URL、响应延迟、返回代码、输入和输出字节数。 每隔 300 秒会收集一次访问日志。 此日志包含每个应用程序网关实例的一条记录。 应用程序网关实例可以由 instanceId 属性标识。
+* 活动日志：可以使用 Azure 活动日志（以前称为操作日志和审核日志）查看提交到 Azure 订阅的所有操作及其状态。 默认情况下会收集活动日志条目，可在 Azure 门户中查看这些条目。
+* 访问日志：可以使用此日志来查看应用程序网关访问模式并分析重要信息，包括调用方的 IP、请求的 URL、响应延迟、返回代码、输入和输出字节数。每隔 300 秒会收集一次访问日志。 此日志包含每个应用程序网关实例的一条记录。 应用程序网关实例可以由 instanceId 属性标识。
 * 防火墙日志：可以使用此日志来查看通过应用程序网关的检测或阻止模式（通过 Web 应用程序防火墙配置）记录的请求。
 
 > [!NOTE]
@@ -157,7 +157,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ### <a name="activity-log"></a>活动日志
 
-默认情况下，Azure 生成活动日志。 日志在 Azure 事件日志存储中保留 90 天。 若要详细了解这些日志，请阅读[查看事件和活动日志](../monitoring-and-diagnostics/insights-debugging-with-events.md)一文。
+默认情况下，Azure 生成活动日志。 日志在 Azure 事件日志存储中保留 90 天。 
 
 ### <a name="access-log"></a>访问日志
 

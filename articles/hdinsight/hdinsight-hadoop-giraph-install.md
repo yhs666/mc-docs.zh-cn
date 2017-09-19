@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/05/2016
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0c8918ce38ec850338935cbcaa34b3e49cb62e70
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 199135179abcc1839b973ffb48a2c8d6cff01614
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>在基于 Windows 的 HDInsight 群集上安装并使用 Giraph
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/28/2017
 * [为 HDInsight 开发脚本操作脚本](hdinsight-hadoop-script-actions.md)。
 
 ## <a name="what-is-giraph"></a>什么是 Giraph？
-<a href="http://giraph.apache.org/" target="_blank">Apache Giraph</a> 可让你使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。 图形可为对象之间的关系建模，例如，为 Internet 之类的大型网络上的路由器之间的连接建模，或者为社交网络上的人物之间的关系建模（有时称为社交图形）。 通过图形处理，可以推理图形中对象之间的关系，例如：
+<a href="http://giraph.apache.org/" target="_blank">Apache Giraph</a> 允许使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。 图形可为对象之间的关系建模，例如，为 Internet 之类的大型网络上的路由器之间的连接建模，或者为社交网络上的人物之间的关系建模（有时称为社交图形）。 通过图形处理，可以推理图形中对象之间的关系，例如：
 
 * 根据当前的关系识别潜在的朋友。
 * 识别网络中两台计算机之间的最短路由。
@@ -64,7 +64,7 @@ ms.lasthandoff: 07/28/2017
             <td>根据脚本的需要，请指定参数。 用于安装 Giraph 的脚本不需要任何参数，因此可以将此字段留空。</td></tr>
     </table>
 
-    你可以添加多个脚本操作，以在群集上安装多个组件。 添加脚本后，单击复选标记即可开始创建群集。
+    可以添加多个脚本操作，以在群集上安装多个组件。 添加脚本后，单击复选标记即可开始创建群集。
 
 ## <a name="use-giraph"></a>使用 Giraph
 我们将使用 SimpleShortestPathsComputation 示例演示有关查找图形中对象之间最短路径的基本 <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> 实现。 请执行以下步骤，以上传示例数据和示例 jar，使用 SimpleShortestPathsComputation 示例运行作业，然后查看结果。
@@ -79,7 +79,7 @@ ms.lasthandoff: 07/28/2017
 
     将 tiny_graph.txt 文件上传到 HDInsight 群集的主存储。 有关如何上传数据的说明，请参阅[在 HDInsight 中上传 Hadoop 作业的数据](hdinsight-upload-data.md)。
 
-    此数据使用 [source\_id, source\_value,[[dest\_id], [edge\_value],...]] 格式，描述有向图中对象之间的关系。 每一行代表 source\_id 对象与一个或多个 dest\_id 对象之间的关系。 edge\_value（或权重）可被视为 source_id 和 dest\_id 之间的连接强度或距离。
+    此数据使用 [source\_id, source\_value,[[dest\_id], [edge\_value],...]] 格式，描述有向图中对象之间的关系。每一行代表 source\_id 对象与一个或多个 dest\_id 对象之间的关系。 edge\_value（或权重）可被视为 source_id 和 dest\_id 之间的连接强度或距离。
 
     使用表示对象间距离的值（或权重）绘制图形后，上述数据可能与下面类似。
 
@@ -89,19 +89,19 @@ ms.lasthandoff: 07/28/2017
     > [!IMPORTANT]
     > 使用 Azure Service Manager 管理 HDInsight 资源的 Azure PowerShell 支持**已弃用**，已在 2017 年 1 月 1 日删除。 本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
     >
-    > 请按照 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) （安装和配置 Azure PowerShell）中的步骤安装最新版本的 Azure PowerShell。 如果你的脚本需要修改后才能使用与 Azure Resource Manager 兼容的新 cmdlet，请参阅 [迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具](hdinsight-hadoop-development-using-azure-resource-manager.md) ，了解详细信息。
+    > 请按照 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) （安装和配置 Azure PowerShell）中的步骤安装最新版本的 Azure PowerShell。 如果脚本需要修改才能使用与 Azure Resource Manager 兼容的新 cmdlet，请参阅[迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具](hdinsight-hadoop-development-using-azure-resource-manager.md)，了解详细信息。
 
     ```powershell
     $clusterName = "clustername"
     # Giraph examples jar
-    $jarFile = "wasbs:///example/jars/giraph-examples.jar"
+    $jarFile = "wasb:///example/jars/giraph-examples.jar"
     # Arguments for this job
     $jobArguments = "org.apache.giraph.examples.SimpleShortestPathsComputation",
                     "-ca", "mapred.job.tracker=headnodehost:9010",
                     "-vif", "org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat",
-                    "-vip", "wasbs:///example/data/tiny_graph.txt",
+                    "-vip", "wasb:///example/data/tiny_graph.txt",
                     "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
-                    "-op",  "wasbs:///example/output/shortestpaths",
+                    "-op",  "wasb:///example/output/shortestpaths",
                     "-w", "2"
     # Create the definition
     $jobDefinition = New-AzureHDInsightMapReduceJobDefinition
@@ -120,7 +120,7 @@ ms.lasthandoff: 07/28/2017
     ```
 
     在上面的示例中，请将 **clustername** 替换为已装有 Giraph 的 HDInsight 群集的名称。
-3. 查看结果。 完成该作业后，结果将存储在 wasbs:///example/out/shotestpaths 文件夹中的两个输出文件中。 这些文件名为 part-m-00001 和 part-m-00002。 执行以下步骤，下载和查看输出：
+3. 查看结果。 完成该作业后，结果将存储在 **wasbs:///example/out/shotestpaths** 文件夹中的两个输出文件中。 这些文件名为 **part-m-00001** 和 **part-m-00002**。 执行以下步骤，下载和查看输出：
 
     ```powershell
     $subscriptionName = "<SubscriptionName>"       # Azure subscription name
@@ -182,3 +182,4 @@ ms.lasthandoff: 07/28/2017
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+<!--Update_Description: change 'wasbs' into 'wasb'-->

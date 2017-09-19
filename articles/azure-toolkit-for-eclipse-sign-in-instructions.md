@@ -15,109 +15,22 @@ ms.topic: article
 origin.date: 04/14/2017
 ms.date: 08/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: 9bc5644a0262f98742aff32b15bf836b4acaa976
-ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
+ms.openlocfilehash: 2c2bae89dcd672ec18302fd1b9ff6ef899e057e9
+ms.sourcegitcommit: 98dcd975d4c18b9f2b125edf5d9760914ef8136c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="azure-sign-in-instructions-for-the-azure-toolkit-for-eclipse"></a>用于 Eclipse 的 Azure 工具包的 Azure 登录说明
 
 用于 Eclipse 的 Azure 工具包提供了两种用于登录到 Azure 帐户的方法：
 
-  - 交互式 - 如果使用此方法，每次登录 Azure 帐户时，都需要输入 Azure 凭据。
+  - 交互式 - 如果使用此方法，每次登录 Azure 帐户时，都需要输入 Azure 凭据。 目前此方式不支持 Azure 中国区帐户。
   - 自动 - 如果使用此方法，将创建一个包含服务主体数据的凭据文件，然后即可使用该凭据文件自动登录到 Azure 帐户。
 
-以下部分中的步骤介绍如何使用每个方法。
+以下部分中的步骤介绍如何使用**自动**方法。
 
 [!INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
-
-## <a name="signing-into-your-azure-account-interactively"></a>以交互方式登录到 Azure 帐户
-
-以下步骤将说明如何通过手动输入 Azure 凭据登录到 Azure。
-
-1. 使用 Eclipse 打开项目。
-
-2. 依次单击“工具”、“Azure”、“登录”。
-
-   ![用于 Azure 登录的 Eclipse 菜单][I01]
-
-3. 显示“Azure 登录”对话框时，选择“交互式”，并单击“登录”。
-
-   ![“登录”对话框][I02]
-
-4. 显示“Azure 登录”对话框时，输入 Azure 凭据，并单击“登录”。
-
-   ![“Azure 登录”对话框][I03]
-
-5. 显示“选择订阅”对话框时，选择要使用的订阅，并单击“确定”。
-
-   ![“选择订阅”对话框][I04]
-
-> [!IMPORTANT]
-> Azure 中国帐户目前不支持“交互”方式。 只能使用全局帐户登录。 
-
-## <a name="signing-out-of-your-azure-account-when-you-signed-in-interactively"></a>已以交互方式登录时，从 Azure 帐户中注销
-
-按照上一部分中的步骤配置后，每次重启 Eclipse 时，都会自动从 Azure 帐户中注销。 但是，如果要在不重启 Eclipse 的情况下注销 Azure 帐户，请使用以下步骤。
-
-1. 在 Eclipse 中，依次单击“工具”、“Azure”、“注销”。
-
-   ![用于 Azure 注销的 Eclipse 菜单][L01]
-
-1. 显示“Azure 注销”对话框时，单击“是”。
-
-   ![“注销”对话框][L02]
-
-## <a name="signing-into-your-azure-account-automatically-and-creating-a-credentials-file-to-use-in-the-future"></a>自动登录到 Azure 帐户并创建凭据文件，以便在将来使用
-
-以下步骤介绍如何创建一个包含服务主体数据的凭据文件。 完成这些步骤后，每次打开项目时，Eclipse 都会自动使用凭据文件自动登录到 Azure。
-
-1. 使用 Eclipse 打开项目。
-
-2. 依次单击“工具”、“Azure”、“登录”。
-
-   ![用于 Azure 登录的 Eclipse 菜单][A01]
-
-3. 显示“Azure 登录”对话框时，选择“自动”，并单击“新建”。
-
-   ![“登录”对话框][A02]
-
-4. 显示“Azure 登录”对话框时，输入 Azure 凭据，并单击“登录”。
-
-   ![“Azure 登录”对话框][A03]
-
-    > [!IMPORTANT]
-    > 目前不支持你在单击“新建”进行登录的情况下在此处使用 Azure 中国帐户。
-    > 可以[创建凭据文件](#create-a-credentials-file)，以便使用 Azure 中国帐户登录。
-
-5. 显示“创建身份验证文件”对话框时，选择要使用的订阅，选择目标目录，并单击“启动”。
-
-   ![“Azure 登录”对话框][A04]
-
-6. 此时会显示“服务主体创建状态”对话框，成功创建文件后，单击“确定”。
-
-   ![“服务主体创建状态”对话框][A05]
-
-7. 显示“Azure 登录”对话框时，单击“登录”。
-
-   ![“Azure 登录”对话框][A06]
-
-8. 显示“选择订阅”对话框时，选择要使用的订阅，并单击“确定”。
-
-   ![“选择订阅”对话框][A07]
-
-## <a name="signing-out-of-your-azure-account-when-you-signed-in-automatically"></a>已自动登录时，从 Azure 帐户中注销
-
-按照上一部分中的步骤配置后，每次重启 Eclipse 时，Azure 工具包都会将你自动登录到 Azure 帐户。 但是，若要注销 Azure 帐户并禁止 Azure 工具包将你自动登录，请使用以下步骤。
-
-1. 在 Eclipse 中，依次单击“工具”、“Azure”、“注销”。
-
-   ![用于 Azure 注销的 Eclipse 菜单][L01]
-
-1. 显示“Azure 注销”对话框时，单击“是”。
-
-   ![“注销”对话框][L03]
 
 ## 如何创建 Azure 帐户的凭据文件 <a name="create-a-credentials-file"></a>
 
@@ -149,15 +62,27 @@ ms.lasthandoff: 08/30/2017
 
    ![“选择订阅”对话框][A07]
 
+## <a name="signing-out-of-your-azure-account-when-you-signed-in-automatically"></a>已自动登录时，从 Azure 帐户中注销
+
+按照上一部分中的步骤配置后，每次重启 Eclipse 时，Azure 工具包都会将你自动登录到 Azure 帐户。 但是，若要注销 Azure 帐户并禁止 Azure 工具包将你自动登录，请使用以下步骤。
+
+1. 在 Eclipse 中，依次单击“工具”、“Azure”、“注销”。
+
+   ![用于 Azure 注销的 Eclipse 菜单][L01]
+
+1. 显示“Azure 注销”对话框时，单击“是”。
+
+   ![“注销”对话框][L03]
+
 ## <a name="see-also"></a>另请参阅
 有关 Azure Toolkits for Java IDE 的详细信息，请参阅以下链接：
 
 - [适用于 Eclipse 的 Azure 工具包]
   - [用于 Eclipse 的 Azure 工具包的新增功能]
-  - [安装 Azure Toolkit for Eclipse]
-  - 用于 Eclipse 的 Azure 工具包的登录说明（本文）
+  - [安装用于 Eclipse 的 Azure 工具包]
+  - *用于 Eclipse 的 Azure 工具包的登录说明（本文）*
   - [在 Eclipse 中创建 Azure 的 Hello World Web 应用]
-- [适用于 IntelliJ 的 Azure 工具包]
+- [用于 IntelliJ 的 Azure 工具包]
   - [用于 IntelliJ 的 Azure 工具包的新增功能]
   - [安装用于 IntelliJ 的 Azure 工具包]
   - [用于 IntelliJ 的 Azure 工具包的登录说明]
@@ -167,7 +92,7 @@ ms.lasthandoff: 08/30/2017
 
 <!-- URL List -->
 
-[适用于 Eclipse 的 Azure 工具包]: ./azure-toolkit-for-eclipse.md
+[用于 Eclipse 的 Azure 工具包]: ./azure-toolkit-for-eclipse.md
 [适用于 IntelliJ 的 Azure 工具包]: ./azure-toolkit-for-intellij.md
 [在 Eclipse 中创建 Azure 的 Hello World Web 应用]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [在 IntelliJ 中创建 Azure 的 Hello World Web 应用]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
@@ -179,7 +104,7 @@ ms.lasthandoff: 08/30/2017
 [用于 IntelliJ 的 Azure 工具包的新增功能]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java 开发人员中心]: /develop/java/
-[用于 Visual Studio Team Services 的 Java 工具]: https://java.visualstudio.com/
+[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
 <!-- IMG List -->
 

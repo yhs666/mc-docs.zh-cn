@@ -1,5 +1,5 @@
 ---
-title: "Apache Kafka on HDInsight 简介 - Azure | Microsoft Docs"
+title: "Apache Kafka on HDInsight 简介 - Azure | Azure"
 description: "了解 Apache Kafka on HDInsight：它的涵义和用途以及在何处可找到示例和入门信息。"
 services: hdinsight
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.workload: big-data
 origin.date: 06/15/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 884820b006e5edc1c55964ddb483c7565de33610
-ms.sourcegitcommit: a4340bc6d6d8bdb5aee029cc66cfcea558d18c89
+ms.openlocfilehash: e2b222daf81ee7a7fdcb2565fb083289911051ce
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Apache Kafka on HDInsight（预览版）简介
 
@@ -32,13 +32,13 @@ Kafka 提供以下功能：
 
 * 发布-订阅消息模式：Kafka 提供生成者 API 用于向 Kafka 主题发布记录。 订阅某个主题时，会用到使用者 API。
 
-* 流式处理：执行实时流处理时，往往会将 Kafka 与 Apache Storm 或 Spark 配合使用。 Kafka 0.10.0.0（HDInsight 版本 3.5）中引入了流式处理 API，可用于构建流式处理解决方案，而无需使用 Storm 或 Spark。
+* 流处理：Kafka 通常与 Apache Storm 或 Spark 配合使用，以实现实时流式处理。 Kafka 0.10.0.0（HDInsight 版本 3.5）中引入了流式处理 API，可用于构建流式处理解决方案，而无需使用 Storm 或 Spark。
 
-* 横向缩放：Kafka 可在 HDInsight 群集中的节点之间对流进行分区。 使用者进程可与单个分区相关联，在使用记录时提供负载均衡。
+* 水平规模：Kafka 分区可对 HDInsight 群集中节点进行流式处理。 使用者进程可与单个分区相关联，在使用记录时提供负载均衡。
 
 * 有序传送：在每个分区内，记录按接收顺序存储在流中。 通过在使用者进程与分区之间建立一对一的关联，可以保证记录按顺序处理。
 
-* 容错：可以在节点之间复制分区以提供容错能力。
+* 容错：可在节点之间复制分区以提供容错。
 
 * 与 Azure 托管磁盘集成：托管磁盘为 HDInsight 群集中虚拟机使用的磁盘提供更高的规模和吞吐量。
 

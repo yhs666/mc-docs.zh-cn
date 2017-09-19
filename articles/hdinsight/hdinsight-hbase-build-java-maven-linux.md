@@ -1,5 +1,5 @@
 ---
-title: "Java HBase 应用程序 - Azure HDInsight | Azure"
+title: "Java HBase 客户端 - Azure HDInsight | Azure"
 description: "了解如何使用 Apache Maven 构建基于 Java 的 Apache HBase 应用程序，然后将其部署到 Azure HDInsight 上的 HBase。"
 services: hdinsight
 documentationcenter: 
@@ -13,20 +13,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/17/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: aa629d4ff5808655b186438d3b9c481ffbda2539
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 08/07/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: f3550b0354ede966673e12f6a01b3fb27f700c21
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>构建适用于 Apache HBase 的 Java 应用程序
 
 了解如何使用 Java 创建 [Apache HBase](http://hbase.apache.org/) 应用程序。 然后，将该应用程序用于 Azure HDInsight 上的 HBase。
 
 本文档中的步骤使用 [Maven](http://maven.apache.org/) 创建和构建项目。 Maven 是一种软件项目管理和综合工具，可用于为 Java 项目构建软件、文档和报告。
+
+> [!NOTE]
+> 本文档中的步骤最近通过 HDInsight 3.6 进行了测试。
 
 > [!IMPORTANT]
 > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -38,7 +41,7 @@ ms.lasthandoff: 07/28/2017
 * [Java 平台 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 或更高版本。
 
     > [!NOTE]
-    > HDInsight 3.5 需要 Java 8。 早期的 HDInsight 版本需要 Java 7。
+    > HDInsight 3.5 及更高版本要求 Java 8。 早期版本的 HDInsight 需要 Java 7。
 
 * [Maven](http://maven.apache.org/)
 
@@ -49,7 +52,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="create-the-project"></a>创建项目
 
-1. 在开发环境中，通过命令行将目录更改为要创建项目的位置，例如 `cd code/hdinsight`。
+1. 在开发环境中，通过命令行将目录更改为要创建项目的位置，例如 `cd code\hbase`。
 
 2. 使用随同 Maven 一起安装的 **mvn** 命令，为项目生成基架。
 
@@ -57,10 +60,15 @@ ms.lasthandoff: 07/28/2017
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
+    > [!NOTE]
+    > 如果使用 PowerShell，必须将 `-D` 参数用双引号引起来。
+    >
+    > `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=hbaseapp" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
+
     此命令使用与 **artifactID** 参数相同的名称（此示例中为 **hbaseapp**）创建目录。此目录包含以下项：
 
    * **pom.xml**：项目对象模型 ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html))，其中包含用于生成项目的信息和配置详细信息。
-   * **src**：包含 **main/java/com/microsoft/examples** 目录的目录，用户将在其中创作应用程序。
+   * **src**：包含 **main/java/com/microsoft/examples** 目录的目录，用户会在其中创作应用程序。
 
 3. 删除 `src/test/java/com/microsoft/examples/apptest.java` 文件。 此示例不使用该文件。
 
@@ -81,7 +89,7 @@ ms.lasthandoff: 07/28/2017
     </dependency>
    ```
 
-    此部分指示项目需要 **hbase-client** 和 **phoenix-core** 组件。 在编译时，会从默认 Maven 存储库下载这些依赖项。 你可以使用 [Maven 中央存储库](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) 搜索来了解有关此依赖性的详细信息。
+    此部分指示项目需要 **hbase-client** 和 **phoenix-core** 组件。 在编译时，会从默认 Maven 存储库下载这些依赖项。 可以使用 [Maven 中央存储库](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar)搜索来了解有关此依赖项的详细信息。
 
    > [!IMPORTANT]
    > hbase-client 的版本号必须与 HDInsight 群集随附的 HBase 版本匹配。 可以使用下表来查找正确的版本号。
@@ -89,7 +97,7 @@ ms.lasthandoff: 07/28/2017
    | HDInsight 群集版本 | 要使用的 HBase 版本 |
    | --- | --- |
    | 3.2 |0.98.4-hadoop2 |
-   | 3.3、3.4 和 3.5 |1.1.2 |
+   | 3.3、3.4、3.5 和 3.6 |1.1.2 |
 
     有关 HDInsight 版本和组件的详细信息，请参阅 [HDInsight 提供哪些不同的 Hadoop 组件](hdinsight-component-versioning.md)。
 
@@ -143,7 +151,7 @@ ms.lasthandoff: 07/28/2017
     此部分将配置包含与 HBase 有关的配置信息的资源 (`conf/hbase-site.xml`)。
 
    > [!NOTE]
-   > 你也可以通过代码设置配置值。 请参阅 `CreateTable` 示例中的注释。
+   > 也可以通过代码设置配置值。 请参阅 `CreateTable` 示例中的注释。
 
     此部分还将配置 [Maven 编译器插件](http://maven.apache.org/plugins/maven-compiler-plugin/)和 [Maven 阴影插件](http://maven.apache.org/plugins/maven-shade-plugin/)。 该编译器插件用于编译拓扑。 该阴影插件用于防止在由 Maven 构建的 JAR 程序包中复制许可证。 此插件用于防止在 HDInsight 群集上运行时出现“重复的许可证文件”错误。 将 maven-shade-plugin 用于 `ApacheLicenseResourceTransformer` 实现可防止发生此错误。
 
@@ -155,7 +163,9 @@ ms.lasthandoff: 07/28/2017
 
 6. 使用以下命令将 HBase 配置从 HBase 群集复制到 `conf` 目录。 将 `USERNAME` 替换为你的 SSH 登录名。 将 `CLUSTERNAME` 替换为你的 HDInsight 群集名：
 
-        scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
+    ```bash
+    scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
+    ```
 
    有关使用 `ssh` 和 `scp` 的详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -314,7 +324,7 @@ ms.lasthandoff: 07/28/2017
     }
    ```
 
-    **SearchByEmail** 类可用于按电子邮件地址查询行。 由于它使用正则表达式筛选器，因此，你可以在使用类时提供字符串或正则表达式。
+    **SearchByEmail** 类可用于按电子邮件地址查询行。 由于它使用正则表达式筛选器，因此，可以在使用类时提供字符串或正则表达式。
 
 5. 保存 `SearchByEmail.java` 文件。
 
@@ -375,7 +385,9 @@ ms.lasthandoff: 07/28/2017
 
 2. 若要连接到 HBase 群集，请使用以下命令：
 
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
+    ```
 
     将 `USERNAME` 替换为你的 SSH 登录名。 将 `CLUSTERNAME` 替换为你的 HDInsight 群集名。
 
@@ -401,6 +413,8 @@ ms.lasthandoff: 07/28/2017
         Rae Schroeder - rae@contoso.com - ID: 4
         Gabriela Ingram - ID: 6
         Gabriela Ingram - gabriela@contoso.com - ID: 6
+
+5. 若要删除表，请使用以下命令：
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>上传 JAR 并运行作业 (PowerShell)
 
@@ -459,7 +473,7 @@ ms.lasthandoff: 07/28/2017
     $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
 
     # The JAR
-    $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
+    $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
     # The job definition
     $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -646,7 +660,7 @@ ms.lasthandoff: 07/28/2017
 
     将 `hdinsightclustername` 替换为群集的名称。
 
-    此命令使用 `SearchByEmail` 类搜索 `contactinformation` 列系列和 `email` 列包含字符串 `contoso.com` 的任何行。 你应该会收到以下结果：
+    此命令使用 `SearchByEmail` 类搜索 `contactinformation` 列系列和 `email` 列包含字符串 `contoso.com` 的任何行。 应该会收到以下结果：
 
           Franklin Holtz - ID: 2
           Franklin Holtz - franklin@contoso.com - ID: 2
@@ -667,7 +681,7 @@ ms.lasthandoff: 07/28/2017
 
 __从 `ssh` 会话__：
 
-`hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
+`yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
 
 __从 Azure PowerShell__：
 
@@ -676,3 +690,4 @@ __从 Azure PowerShell__：
 ## <a name="next-steps"></a>后续步骤
 
 [了解如何将 SQuirreL SQL 与 HBase 配合使用](hdinsight-hbase-phoenix-squirrel-linux.md)
+<!--Update_Description: wording update and change 'wasbs' into 'wasb'-->

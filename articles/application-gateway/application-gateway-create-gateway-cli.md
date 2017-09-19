@@ -1,10 +1,10 @@
 ---
-title: "创建 Azure 应用程序网关 - Azure CLI 2.0 | Azure"
+title: "创建 Azure 应用程序网关 - Azure CLI 2.0 | Microsoft 文档"
 description: "了解如何在 Resource Manager 中使用 Azure CLI 2.0 创建应用程序网关"
 services: application-gateway
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/03/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: abf579ddb59e55a082288e4467d78b63a39cb8c0
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+origin.date: 07/31/2017
+ms.date: 09/13/2017
+ms.author: v-junlch
+ms.openlocfilehash: ab89579a9b2ab310a6cf58ec97159cd5893469dd
+ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建应用程序网关
 
@@ -32,23 +32,21 @@ ms.lasthandoff: 08/04/2017
 > * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
 > * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 
-Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之间提供故障转移和性能路由 HTTP 请求，而不管它们是在云中还是本地。 应用程序网关具有以下应用程序传递功能：HTTP 负载均衡、基于 Cookie 的会话相关性、安全套接字层 (SSL) 卸载、自定义运行状况探测，以及多站点支持。
+应用程序网关是一个专用的虚拟设备，以服务形式提供应用程序传送控制器 (ADC)，为应用程序提供各种第 7 层负载均衡功能。
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 
 可使用以下 CLI 版本之一完成任务：
 
-* [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md) - 适用于经典部署模型和资源管理部署模型的 CLI。
-* [Azure CLI 2.0](application-gateway-create-gateway-cli.md) - 适用于资源管理部署模型的下一代 CLI
+- [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md) - 适用于经典部署模型和资源管理部署模型的 CLI。
+- [Azure CLI 2.0](application-gateway-create-gateway-cli.md) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>先决条件：安装 Azure CLI 2.0
 
-若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2)。
+若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)。
 
 > [!NOTE]
 > 如果没有 Azure 帐户，则需要注册一个。 请[在此处注册试用版](../active-directory/sign-up-organization.md)。
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="scenario"></a>方案
 
@@ -56,12 +54,9 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 此方案将：
 
-* 创建包含两个实例的中型应用程序网关。
-* 创建名为 AdatumAppGatewayVNET 且包含 10.0.0.0/16 保留 CIDR 块的虚拟网络。
-* 创建名为 Appgatewaysubnet 且使用 10.0.0.0/28 作为其 CIDR 块的子网。
-* 配置进行 SSL 卸载的证书。
-
-![方案示例][scenario]
+- 创建包含两个实例的中型应用程序网关。
+- 创建名为 AdatumAppGatewayVNET 且包含 10.0.0.0/16 保留 CIDR 块的虚拟网络。
+- 创建名为 Appgatewaysubnet 且使用 10.0.0.0/28 作为其 CIDR 块的子网。
 
 > [!NOTE]
 > 针对应用程序网关进行的其他配置（包括自定义运行状况探测、后端池地址以及其他规则）是在对应用程序网关配置以后配置的，不是在初始部署期间配置的。
@@ -75,6 +70,7 @@ Azure 应用程序网关需要自己的子网。 在创建虚拟网络时，请�
 打开 **Azure 命令提示符**，并登录。 
 
 ```azurecli
+az cloud set -n AzureChinaCloud
 az login -u "username"
 ```
 
@@ -82,8 +78,6 @@ az login -u "username"
 > 还可以使用不带开关的 `az login` 进行设备登录，登录时需要在 aka.ms/deviceloginchina 输入代码。
 
 键入前述示例后，会提供代码。 在浏览器中导航到 https://aka.ms/deviceloginchina，继续登录过程。
-
-![显示设备登录信息的 cmd][1]
 
 在浏览器中，输入收到的代码。 将重定向至登录页。
 
@@ -98,55 +92,100 @@ az login -u "username"
 在创建应用程序网关前，会创建资源组以包含应用程序网关。 以下显示该命令。
 
 ```azurecli
-az resource group create --name myresourcegroup --location "China North"
-```
-
-## <a name="create-a-virtual-network-and-subnet"></a>创建虚拟网络和子网
-
-创建资源组后，会为应用程序网关创建虚拟网络。  在以下示例中，地址空间为 10.0.0.0/16（为虚拟网络定义），10.0.0.0/28 用于子网，如前面的方案说明中所示。
-
-```azurecli
-az network vnet create \
---name AdatumAppGatewayVNET \
---address-prefix 10.0.0.0/16 \
---subnet-name Appgatewaysubnet \
---subnet-prefix 10.0.0.0/28 \
---resource-group AdatumAppGateway \
---location chinaeast
+az group create --name myresourcegroup --location "China North"
 ```
 
 ## <a name="create-the-application-gateway"></a>创建应用程序网关
 
-创建虚拟网络和子网后，即已满足应用程序网关的先决条件。 此外，以下步骤还需要之前导出的 .pfx 证书和证书密码：用于后端的 IP 地址是后端服务器的 IP 地址。 这些值可以是虚拟网络中的专用 IP、公共 IP 或后端服务器的完全限定域名。
+用于后端的 IP 地址是后端服务器的 IP 地址。 这些值可以是虚拟网络中的专用 IP、公共 IP 或后端服务器的完全限定域名。 以下示例使用用于 http 设置、端口和规则的其他配置设置创建应用程序网关。
 
 ```azurecli
 az network application-gateway create \
---name AdatumAppGateway \
---location chinaeast \
---resource-group AdatumAppGatewayRG \
---vnet-name AdatumAppGatewayVNET \
---vnet-address-prefix 10.0.0.0/16 \
---subnet Appgatewaysubnet \
---subnet-address-prefix 10.0.0.0/28 \
+--name "AdatumAppGateway" \
+--location "chinaeast" \
+--resource-group "myresourcegroup" \
+--vnet-name "AdatumAppGatewayVNET" \
+--vnet-address-prefix "10.0.0.0/16" \
+--subnet "Appgatewaysubnet" \
+--subnet-address-prefix "10.0.0.0/28" \
 --servers 10.0.0.4 10.0.0.5 \
---cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
---cert-password P@ssw0rd \
 --capacity 2 \
 --sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
---public-ip-address AdatumAppGatewayPIP \
---frontend-port 443 \
+--frontend-port 80 \
 --routing-rule-type Basic \
---http-settings-port 80
+--http-settings-port 80 \
+--public-ip-address "pip2" \
+--public-ip-address-allocation "dynamic" \
 
 ```
 
-> [!NOTE]
-> 如需在创建过程中能够提供的参数的列表，请运行以下命令： **az network application-gateway create --help**。
+前面的示例展示创建应用程序网关期间不需要的许多属性。 以下代码示例创建含所需信息的应用程序网关。
 
-此示例会创建基本的应用程序网关，提供的默认设置适用于侦听器、后端池、后端 http 设置以及规则。 它还会配置 SSL 卸载。 预配成功后，即可根据部署修改这些设置。
+```azurecli
+az network application-gateway create \
+--name "AdatumAppGateway" \
+--location "chinaeast" \
+--resource-group "myresourcegroup" \
+--vnet-name "AdatumAppGatewayVNET" \
+--vnet-address-prefix "10.0.0.0/16" \
+--subnet "Appgatewaysubnet \
+--subnet-address-prefix "10.0.0.0/28" \
+--servers "10.0.0.5"  \
+--public-ip-address pip
+```
+ 
+> [!NOTE]
+> 如需在创建过程中能够提供的参数的列表，请运行以下命令：`az network application-gateway create --help`。
+
+此示例会创建基本的应用程序网关，提供的默认设置适用于侦听器、后端池、后端 http 设置以及规则。 预配成功后，即可根据部署修改这些设置。
 如果在之前的步骤中已使用后端池定义 Web 应用程序，则在创建后，负载均衡即会开始。
+
+## <a name="get-application-gateway-dns-name"></a>获取应用程序网关 DNS 名称
+
+创建网关后，下一步是配置用于通信的前端。 使用公共 IP 时，应用程序网关需要动态分配的 DNS 名称，这会造成不方便。 若要确保最终用户能够访问应用程序网关，可以使用 CNAME 记录指向应用程序网关的公共终结点。 若要配置别名，可使用附加到应用程序网关的 PublicIPAddress 元素检索应用程序网关及其关联的 IP/DNS 名称的详细信息。 应使用应用程序网关的 DNS 名称来创建 CNAME 记录，使两个 Web 应用程序都指向此 DNS 名称。 不建议使用 A 记录，因为重新启动应用程序网关后 VIP 可能会变化。
+
+
+```azurecli
+az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
+```
+
+```
+{
+  "dnsSettings": {
+    "domainNameLabel": null,
+    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.chinacloudapp.cn",
+    "reverseFqdn": null
+  },
+  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
+  "idleTimeoutInMinutes": 4,
+  "ipAddress": "40.121.167.250",
+  "ipConfiguration": {
+    "etag": null,
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
+    "name": null,
+    "privateIpAddress": null,
+    "privateIpAllocationMethod": null,
+    "provisioningState": null,
+    "publicIpAddress": null,
+    "resourceGroup": "AdatumAppGatewayRG",
+    "subnet": null
+  },
+  "location": "chinaeast",
+  "name": "pip2",
+  "provisioningState": "Succeeded",
+  "publicIpAddressVersion": "IPv4",
+  "publicIpAllocationMethod": "Dynamic",
+  "resourceGroup": "AdatumAppGatewayRG",
+  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
+  "tags": {
+    "cli[2] owner[administrator]": ""
+  },
+  "type": "Microsoft.Network/publicIPAddresses"
+}
+```
 
 ## <a name="delete-all-resources"></a>删除所有资源
 
@@ -168,3 +207,5 @@ az group delete --name AdatumAppGatewayRG
 [1]: ./media/application-gateway-create-gateway-cli/figure1.png
 [2]: ./media/application-gateway-create-gateway-cli/figure2.png
 [3]: ./media/application-gateway-create-gateway-cli/figure3.png
+
+<!--Update_Description: wording update-->

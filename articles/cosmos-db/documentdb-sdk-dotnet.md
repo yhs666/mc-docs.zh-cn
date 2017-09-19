@@ -1,6 +1,6 @@
 ---
-title: "Azure DocumentDB .NET SDK 和资源 | Azure"
-description: "了解有关 .NET API 和 SDK 的全部信息，包括发布日期、停用日期和 DocumentDB.NET SDK 各版本之间的更改。"
+title: "Azure Cosmos DB .NET SDK 和资源 | Azure"
+description: "了解有关 .NET API 和 SDK 的所有信息，包括发布日期、停用日期和 Azure Cosmos DB .NET SDK 各版本之间所做的更改。"
 services: cosmos-db
 documentationcenter: .net
 author: rockboyfor
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/05/2017
-ms.date: 08/07/2017
+origin.date: 08/11/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51b4a1593cff628f01ccbc63b603a4fdcadd7837
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 1fd099ebf1dfd3d53c574da476a3f701b6a4468e
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
-# <a name="documentdb-net-sdk-download-and-release-notes"></a>DocumentDB .NET SDK：下载和发行说明
+# <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK：下载和发行说明
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET 更改源](documentdb-sdk-dotnet-changefeed.md)
@@ -44,7 +44,7 @@ ms.lasthandoff: 08/04/2017
 
 <tr><td>**示例**</td><td>[.NET代码示例](documentdb-dotnet-samples.md)</td></tr>
 
-<tr><td>**入门**</td><td>[开始使用 DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
+<tr><td>**入门**</td><td>[Azure Cosmos DB .NET SDK 入门](documentdb-get-started.md)</td></tr>
 
 <tr><td>**Web 应用教程**</td><td>[使用 Azure Cosmos DB 开发 Web 应用程序](documentdb-dotnet-application.md)</td></tr>
 
@@ -61,4 +61,4 @@ ms.lasthandoff: 08/04/2017
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update ->

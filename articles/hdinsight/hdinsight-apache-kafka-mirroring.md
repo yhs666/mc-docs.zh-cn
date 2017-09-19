@@ -1,5 +1,5 @@
 ---
-title: "镜像 Apache Kafka 主题 - Azure HDInsight | Microsoft Docs"
+title: "镜像 Apache Kafka 主题 - Azure HDInsight | Azure"
 description: "了解如何使用 Apache Kafka 的镜像功能，通过在辅助群集中创建主题的镜像，保留一个 Kafka on HDInsight 群集的副本。"
 services: hdinsight
 documentationcenter: 
@@ -14,22 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/13/2017
-ms.date: 09/04/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: bc0f9657ae85c56ce8f6b5631d132872483eeb77
-ms.sourcegitcommit: a4340bc6d6d8bdb5aee029cc66cfcea558d18c89
+ms.openlocfilehash: a8f9f78ba90cc73110a7714cd1f726698e942b4a
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight-preview"></a>使用 MirrorMaker 通过 Kafka on HDInsight（预览）复制 Apache Kafka 主题
 
-了解如何使用 Apache Kafka 镜像功能将主题复制到辅助群集。 镜像可以作为连续的进程运行，或者间接用作将数据从一个群集复制到另一个群集的方法。
+了解如何使用 Apache Kafka 镜像功能将主题复制到辅助群集。 镜像可以作为连续进程运行，也可间断式地用作将数据从一个群集迁移到另一个群集的方法。
 
 在此示例中，镜像用于在两个 HDInsight 群集之间复制主题。 这两个群集位于同一区域的 Azure 虚拟网络中。
 
 > [!WARNING]
-> 不应将镜像视为一种实现容错的方式。 主题中项的偏移在源群集与目标群集之间有所不同，因此客户端不能换用这两种群集。
+> 不应将镜像视为实现容错的方法。 主题中项的偏移在源群集与目标群集之间有所不同，因此客户端不能换用这两种群集。
 >
 > 如果关心容错能力，应该为群集中的主题设置复制。 有关详细信息，请参阅 [Kafka on HDInsight 入门](hdinsight-apache-kafka-get-started.md)。
 
@@ -39,17 +39,17 @@ ms.lasthandoff: 08/31/2017
 
 下图演示了镜像过程：
 
-![镜像过程示意图](./media/hdinsight-apache-kafka-mirroring/kafka-mirroring.png)
+![镜像过程图示](./media/hdinsight-apache-kafka-mirroring/kafka-mirroring.png)
 
-Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的权限。 Kafka 生成者或使用者必须与 Kafka 群集中的节点在同一 Azure 虚拟网络中。 在本示例中，Kafka 源群集和目标群集位于同一个 Azure 虚拟网络中。 下图显示了这两个群集之间的通信流：
+Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的权限。 Kafka 生成者或使用者必须与 Kafka 群集中的节点在同一 Azure 虚拟网络中。 对于此示例，Kafka 源和目标群集都位于 Azure 虚拟网络中。 下图显示了这两个群集之间的通信流：
 
-![Azure 虚拟网络中的 Kafka 源群集和目标群集示意图](./media/hdinsight-apache-kafka-mirroring/spark-kafka-vnet.png)
+![Azure 虚拟网络中的源和目标 Kafka 群集的图示](./media/hdinsight-apache-kafka-mirroring/spark-kafka-vnet.png)
 
-源群集与目标群集在节点和分区数目方面可以不同，主题中的偏移也可以不同。 镜像将维护用于分区的键值，因此，会根据键保留记录顺序。
+源和目标集群在节点数和分区数上可能不同，并且主题内的偏移量也不同。 镜像维护用于分区的密钥值，因此会按密钥来保留记录顺序。
 
 ### <a name="mirroring-across-network-boundaries"></a>跨网络边界执行镜像操作
 
-如果需要在不同网络中的 Kafka 群集之间镜像，请注意以下附加事项：
+如果需要在不同网络中的 Kafka 群集之间执行镜像操作，还需要考虑以下注意事项：
 
 * **网关**：网络必须能够在 TCPIP 级别通信。
 
@@ -58,32 +58,32 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
     创建 Azure 虚拟网络时，请不要使用网络提供的自动 DNS，必须指定一台自定义 DNS 服务器以及该服务器的 IP 地址。 创建虚拟网络后，必须创建使用该 IP 地址的 Azure 虚拟机，并在该虚拟机上安装并配置 DNS 软件。
 
     > [!WARNING]
-    > 请先创建并配置自定义 DNS 服务器，此后再将 HDInsight 安装到虚拟网络中。 无需对 HDInsight 进行其他配置即可使用针对虚拟网络配置的 DNS 服务器。
+    > 在将 HDInsight 安装到虚拟网络之前，需先创建和配置自定义 DNS 服务器。 无需对 HDInsight 进行其他配置即可使用针对虚拟网络配置的 DNS 服务器。
 
 有关连接两个 Azure 虚拟网络的详细信息，请参阅[配置 VNet 到 VNet 的连接](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
 
 ## <a name="create-kafka-clusters"></a>创建 Kafka 群集
 
-尽管可以手动创建 Azure 虚拟网络和 Kafka 群集，但使用 Azure Resource Manager 模板会更容易。 使用以下步骤将 Azure 虚拟网络和两个 Kafka 群集部署到 Azure 订阅。
+虽然可手动创建 Azure 虚拟网络和 Kafka 群集，但使用 Azure Resource Manager 模板会更简单。 使用以下步骤将 Azure 虚拟网络和两个 Kafka 群集部署到 Azure 订阅。
 
 1. 使用以下按钮登录到 Azure，并在 Azure 门户中打开模板。
-   
+
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
-   
+
     Azure 资源管理器模板位于 https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json 中。
 
     > [!WARNING]
-    > 若要确保 Kafka on HDInsight 的可用性，群集必须至少包含三个工作节点。 此模板创建的 Kafka 群集包含三个工作节点。
+    > 若要确保 Kafka on HDInsight 的可用性，群集必须至少包含三个工作节点。 此模板创建的 Kafka 群集包含三个辅助角色节点。
 
-2. 使用以下信息填充“自定义部署”  边栏选项卡上的条目：
-    
+2. 使用以下信息来填充“自定义部署”边栏选项卡上的项：
+
     ![HDInsight 自定义部署](./media/hdinsight-apache-kafka-mirroring/parameters.png)
-    
+
     * **资源组**：创建一个组或选择现有组。 此组包含 HDInsight 群集。
 
-    * **位置**：选择离你近的地理位置。
-     
-    * **基群集名称**：此值用作 Kafka 群集的基名称。 例如，输入 **hdi** 会创建名为 **source-hdi** 和 **dest-hdi** 的群集。
+    * **位置**：选择在地理上邻近的位置。
+
+    * **基群集名称**：此值将用作 Kafka 群集的基名称。 例如，输入 **hdi** 会创建名为 **source-hdi** 和 **dest-hdi** 的群集。
 
     * **群集登录用户名**：Kafka 源群集和目标群集的管理员用户名。
 
@@ -91,13 +91,13 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
     * **SSH 用户名**：要为 Kafka 源群集和目标群集创建的 SSH 用户。
 
-    * **SSH 密码**：Kafka 源群集和目标群集的 SSH 用户的密码。
+    * **SSH 密码**：源和目标 Kafka 群集的 SSH 用户的密码。
 
 3. 阅读“条款和条件”，并选择“我同意上述条款和条件”。
 
 4. 最后，选中“固定到仪表板”，并选择“购买”。 创建群集大约需要 20 分钟时间。
 
-创建资源后，会重定向到包含群集和 Web 仪表板的资源组的边栏选项卡。
+创建资源后，会重定向到包含群集和 Web 仪表板的资源组边栏选项卡。
 
 ![虚拟网络和群集的“资源组”边栏选项卡](./media/hdinsight-apache-kafka-mirroring/groupblade.png)
 
@@ -112,7 +112,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
     ssh sshuser@source-BASENAME-ssh.azurehdinsight.cn
     ```
 
-    将 **sshuser** 替换为创建群集时使用的 SSH 用户名。 将 **BASENAME** 替换为创建群集时使用的基名称。
+    用创建群集时使用的 SSH 用户名替换 **sshuser**。 将 **BASENAME** 替换为创建群集时使用的基名称。
 
     有关信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -123,7 +123,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
     sudo apt -y install jq
     # get the zookeeper hosts for the source cluster
     export SOURCE_ZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    
+
     Replace `$PASSWORD` with the password for the cluster.
 
     Replace `$CLUSTERNAME` with the name of the source cluster.
@@ -148,7 +148,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
     echo $SOURCE_ZKHOSTS
     ```
 
-    此命令返回类似于以下文本的信息：
+    这会返回类似于以下文本的信息：
 
     `zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:2181`
 
@@ -162,7 +162,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
     ssh sshuser@dest-BASENAME-ssh.azurehdinsight.cn
     ```
 
-    将 **sshuser** 替换为创建群集时使用的 SSH 用户名。 将 **BASENAME** 替换为创建群集时使用的基名称。
+    用创建群集时使用的 SSH 用户名替换 **sshuser**。 将 **BASENAME** 替换为创建群集时使用的基名称。
 
     有关信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -181,11 +181,11 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
     将 **SOURCE_ZKHOSTS** 替换为**源**群集中的 Zookeeper 主机信息。
 
-    此文件说明从 Kafka 源群集读取记录时要使用的使用者信息。 有关使用者配置的详细信息，请参阅 kafka.apache.org 上的 [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) （使用者配置）。
+    此文件说明从 Kafka 源群集读取记录时要使用的使用者信息。 有关使用者配置的详细信息，请参阅 kafka.apache.org 中的[使用者配置](https://kafka.apache.org/documentation#consumerconfigs)。
 
     若要保存文件，请使用 Ctrl+X、Y，然后按 Enter。
 
-3. 在配置用来与目标群集通信的生成者之前，必须查找 **目标** 群集的中转站主机。 使用以下命令检索此信息：
+3. 配置与目标群集通信的创建器之前，必须找到**目标**群集的中转站主机。 使用以下命令检索此信息：
 
     ```bash
     sudo apt -y install jq
@@ -236,7 +236,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
     * **--num.streams**：要创建的使用者线程数。
 
- 启动后，MirrorMaker 返回类似于以下文本的信息：
+    启动时，MirrorMaker 返回类似于以下文本的信息：
 
     ```json
     {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
@@ -275,7 +275,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-由于本文档中的步骤在同一 Azure 资源组中创建两个群集，因此可在 Azure 门户中删除该资源组。 删除资源组会删除按照本文档创建的所有资源（Azure 虚拟网络和群集使用的存储帐户）。
+由于本文档中的步骤在相同的 Azure 资源组中创建两个群集，因此可在 Azure 门户中删除资源组。 删除资源组会删除按照本文档创建的所有资源（Azure 虚拟网络和群集使用的存储帐户）。
 
 ## <a name="next-steps"></a>后续步骤
 

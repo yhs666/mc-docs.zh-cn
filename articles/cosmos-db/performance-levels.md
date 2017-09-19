@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eb7a3b8f4e09da49a56677eef5a7a8b106c5f7b0
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 90a7e02d91724174f6ea38064b10371ec616d5c6
+ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
 
@@ -34,12 +34,12 @@ ms.lasthandoff: 08/04/2017
 - [单区集合和分区集合与 S1、S2、S3 性能级别有哪些区别？](#compare)
 - [我需要做些什么才能确保不间断地访问我的数据？](#uninterrupted-access)
 - [迁移后，集合会发生怎样的变化？](#collection-change)
-- [迁移到单区集合后，计费会发生怎样的变化？](#billing-change)
+<!-- Not Available - [How will my billing change after I'm migrated to single partition collections?](#billing-change)-->
 - [如果需要 10 GB 以上的存储，应该怎么做？](#more-storage-needed)
 - [在 2017 年 8 月 1 日之前，是否可以在 S1、S2 和 S3 性能级别之间切换？](#change-before)
 - [如何了解集合已迁移？](#when-migrated)
 - [如何自行从 S1、S2、S3 性能级别迁移到单区集合？](#migrate-diy)
-- [EA 客户会受到怎样的影响？](#ea-customer)
+<!-- Not Available- [How am I impacted if I'm an EA customer?](#ea-customer)-->
 
 <a name="why-retired"></a>
 
@@ -58,9 +58,9 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 |最大吞吐量|不受限制|10K RU/s|250 RU/s|1 K RU/s|2.5 K RU/秒|
 |最小吞吐量|2.5K RU/秒|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/秒|
 |最大存储|不受限制|10 GB|10 GB|10 GB|10 GB|
-|价格|吞吐量：6 美元/100 RU/s<br><br>存储：0.25 美元/GB|吞吐量：6 美元/100 RU/s<br><br>存储：0.25 美元/GB|25 美元|50 美元|100 美元|
+<!-- 不可用 |价格|吞吐量：6 美元/100 RU/s<br><br>存储：0.25 美元/GB|吞吐量：6 美元/100 RU/s<br><br>存储：0.25 美元/GB|25 美元|50 美元|100 美元|-->
 
-是 EA 客户吗？ 如果是，请参阅 [如果我是 EA 客户，我会受到怎样的影响？](#ea-customer)
+<!-- Not Avaialbel Are you an EA customer? If so, see [How am I impacted if I'm an EA customer?](#ea-customer) -->
 
 <a name="uninterrupted-access"></a>
 
@@ -84,11 +84,8 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 <a name="billing-change"></a>
 
-## <a name="how-will-my-billing-change-after-im-migrated-to-the-single-partition-collections"></a>迁移到单分区集合后，计费会发生怎样的变化？
+<!--Not Available ## How will my billing change after I'm migrated to the single partition collections?-->
 
-假设你在中国东部区域使用 10 个 S1 集合，其中每个集合的存储为 1 GB，现在要将这 10 个 S1 集合迁移到吞吐量为 400 RU/秒（最低级别）的 10 个单分区集合。 如果将 10 个单分区集合保留一整月，帐单将如下所示：
-
-![比较 10 个 S1 定价集合与 10 个使用单区集合定价的集合](./media/performance-levels/s1-vs-standard-pricing.png)
 
 <a name="more-storage-needed"></a>
 
@@ -169,9 +166,8 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 <a name="ea-customer"></a>
 
-## <a name="how-am-i-impacted-if-im-an-ea-customer"></a>EA 客户会受到怎样的影响？
+<!-- Not Available ## How am I impacted if I'm an EA customer?-->
 
-EA 客户在当前合同到期之前，价格将受到保护。
 
 ## <a name="next-steps"></a>后续步骤
 若要了解更多有关 Azure Cosmos DB 的定价和管理数据的信息，请浏览以下资源：
@@ -180,4 +176,4 @@ EA 客户在当前合同到期之前，价格将受到保护。
 2.  [Cosmos DB 定价](https://www.azure.cn/pricing/details/cosmos-db/)。 了解预配吞吐量和使用存储的费用。
 3.  [请求单位](request-units.md)。 了解不同操作类型（例如读取、写入和查询）的吞吐量消耗。
 
-<!--Update_Description: update link-->
+<!--Update_Description: update link, wording update -->

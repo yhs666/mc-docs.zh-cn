@@ -1,5 +1,5 @@
 ---
-title: "什么是 Azure HDInsight、Hadoop 技术堆栈和群集？ | Azure"
+title: "什么是 HDInsight、Hadoop 技术堆栈和群集？ - Azure | Azure"
 description: "介绍了 HDInsight 以及 Hadoop 技术堆栈和组件，其中包括适用于大数据分析的 Spark、Hive、HBase。"
 keywords: "azure hadoop, hadoop azure, hadoop 简介, hadoop 技术堆栈, 什么是 hadoop 群集, hadoop 的用途"
 services: hdinsight
@@ -14,60 +14,55 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/11/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: 91ebf20fc3a7b93e1974620c815e6c8d00b79c4f
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 07/20/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 2f6fcb73cba3f7233296716094af5873c6c6762f
+ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-technology-stack-and-hadoop-clusters"></a>Azure HDInsight、Hadoop 技术堆栈和 Hadoop 群集简介
  本文介绍了 Azure HDInsight，Hadoop 技术堆栈的云发行版， 同时还介绍了什么是 Hadoop 群集，以及何时使用该群集。 
 
 ## <a name="what-is-hdinsight-and-the-hadoop-technology-stack"></a>什么是 HDInsight 和 Hadoop 技术堆栈？ 
-Azure HDInsight 是 **Hortonworks Data Platform (HDP)** 提供的 Hadoop 组件的云发行版。 [Apache Hadoop](http://hadoop.apache.org/) 是原始的开源框架，适用于对计算机群集上的大数据集进行分布式处理和分析。 
+Azure HDInsight 是 [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/) 提供的 Hadoop 组件的云发行版。 [Apache Hadoop](http://hadoop.apache.org/) 是原始的开源框架，适用于对计算机群集上的大数据集进行分布式处理和分析。 
 
-HDInsight 使 Hadoop 技术更易于使用，体现在以下方面：
-
-*   减少了设置和配置工作。 请参阅[在 HDInsight 中预配 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
-*   提高了可用性和可靠性。 请参阅 [HDInsight 可用性和可靠性](hdinsight-high-availability-linux.md)。
-*   在不中断作业的情况下进行动态缩放
-*   使用组件更新和当前版本。 请参阅 [HDInsight 上的 Hadoop 组件和版本][component-versioning]。
-*   与其他 Azure 服务（包括 [Web 应用](/app-service-web/)和 [SQL 数据库](/sql-database/)）集成
-
-Hadoop 技术堆栈包括相关的软件和实用程序（Apache Hive、HBase、Spark 等）。 若要详细了解 HDInsight 中的 Hadoop，请参阅 [Azure 上介绍了 HDInsight 功能的页面](https://www.azure.cn/home/features/hdinsight/)。
+Hadoop 技术堆栈包括相关的软件和实用程序（Apache Hive、HBase、Spark、Kafka 等）。 若要查看 HDInsight 上的可用 Hadoop 技术堆栈组件，请参阅[可以与 HDInsight 配合使用的组件和版本][component-versioning]。 若要详细了解 HDInsight 中的 Hadoop，请参阅 [HDInsight 的 Azure 功能页](https://www.azure.cn/home/features/hdinsight/)。
 
 ## <a name="what-is-a-hadoop-cluster-and-when-do-you-use-it"></a>什么是 Hadoop 群集？何时使用它？
-Hadoop 一词也指一类包含以下项的群集：
+*Hadoop* 也是一种群集类型，它包含：
 
-* Hadoop 分布式文件系统 (HDFS)
 * 适用于作业计划和资源管理的 YARN
 * 适用于并行处理的 MapReduce
+* Hadoop 分布式文件系统 (HDFS)
 
-Hadoop 最常用于已存储数据的批处理。 HDInsight 中的其他种类的群集具有其他功能，例如进行速度更快的内存中处理，或者针对流式处理消息队列进行处理。 有关详细信息，请参阅 [HDInsight 上的群集类型](#overview)。
+Hadoop 最常用于已存储数据的批处理。 HDInsight 中的其他种类的群集具有其他功能：Spark 因其速度更快的内存中处理功能而日益受人欢迎。 有关详细信息，请参阅 [HDInsight 上的群集类型](#overview)。
 
 ## <a name="what-is-big-data"></a>什么是大数据？
 大数据描述任何大型的数字信息，例如：
 
-* Twitter 新闻源
 * 工业设备提供的传感器数据
 * 从网站收集的客户活动
+* Twitter 新闻源
 
-大数据可以是历史数据（即已存储的数据），也可以是实时数据（即从数据源流式传输的数据）。 大数据的收集量日益增加，收集速度越来越快，收集格式也越来越多。
+大数据的收集量在增加，收集速度在加快，收集格式在增多。 大数据可以是历史数据（即已存储的数据），也可以是实时数据（即从数据源流式传输的数据）。 
 
 ## <a name="overview"></a>HDInsight 中的群集类型
-HDInsight 是快速扩展的适用于大数据分析的 Apache Hadoop 技术堆栈在 Azure 上的云分发。 它包括特定的群集类型和群集自定义功能，例如添加组件、实用程序和语言。
+HDInsight 包括特定的群集类型和群集自定义功能，例如添加组件、实用程序和语言。
 
 ### <a name="spark-interactive-hive-hbase-customized-and-other-cluster-types"></a>Spark、Interactive Hive、HBase、自定义群集以及其他群集类型
 HDInsight 提供以下群集类型：
 
-* **[Apache Hadoop](https://wiki.apache.org/hadoop)**：使用 [HDFS](#hdfs)、[YARN](#yarn) 资源管理和简单的 [MapReduce](#mapreduce) 编程模型并行处理和分析数据。
+* **[Apache Hadoop](https://wiki.apache.org/hadoop)**：使用 [HDFS](#hdfs)、[YARN](#yarn) 资源管理和简单的 [MapReduce](#mapreduce) 编程模型并行处理和分析批处理数据。
 * **[Apache Spark](http://spark.apache.org/)**：一种并行处理框架，支持内存中处理，提升大数据分析应用程序的性能；Spark 适用于 SQL、流式数据处理和机器学习。 请参阅[什么是 HDInsight 中的 Apache Spark？](hdinsight-apache-spark-overview.md)
 * **[Apache HBase](http://hbase.apache.org/)**：构建于 Hadoop 上的 NoSQL 数据库，用于为大量非结构化和半结构化数据（可能为数十亿行乘以数百万列）提供随机访问和高度一致性。 请参阅[什么是 HBase on HDInsight？](hdinsight-hbase-overview.md)
 * **[Apache Storm](https://storm.incubator.apache.org/)**：分布式实时计算系统，用于快速处理大型数据流。 Storm 以 HDInsight 中的托管群集形式提供。 请参阅 [使用 Storm 和 Hadoop 分析实时传感器数据](hdinsight-storm-sensor-data-analysis.md)。
 * **[Apache 交互式 Hive 预览版（AKA：Live Long and Process）](https://cwiki.apache.org/confluence/display/Hive/LLAP)**：内存中缓存，用于实现交互式且更快的 Hive 查询。 请参阅 [Use Interactive Hive in HDInsight](hdinsight-hadoop-use-interactive-hive.md)（在 HDInsight 中使用交互式 Hive）。
+* **[Apache Kafka](https://kafka.apache.org/)**：一种开源平台，用于生成流式处理的数据管道和应用程序。 Kafka 还提供了消息队列功能，可用于发布和订阅数据流。 请参阅 [Apache Kafka on HDInsight 简介](hdinsight-apache-kafka-introduction.md)。
+
+还可以使用以下方法配置群集：
 * **[具有脚本操作的自定义集群](hdinsight-hadoop-customize-cluster-linux.md)**：脚本在预配期间运行且安装其他组件的群集。
 
 ### <a name="example-cluster-customization-scripts"></a>群集自定义脚本示例
@@ -79,7 +74,7 @@ HDInsight 提供以下群集类型：
 * **[Giraph](hdinsight-hadoop-giraph-install-linux.md)**：通过图形处理对事物或人员之间的关系建模。
 * **[Solr](hdinsight-hadoop-solr-install-linux.md)**：一个企业级搜索平台，可对数据进行全文搜索。
 
-有关开发你自己的脚本操作的信息，请参阅 [使用 HDInsight 进行脚本操作开发](hdinsight-hadoop-script-actions-linux.md)。
+有关开发自己的脚本操作的信息，请参阅[使用 HDInsight 进行脚本操作开发](hdinsight-hadoop-script-actions-linux.md)。
 
 ## <a name="components-and-utilities-on-hdinsight-clusters"></a>HDInsight 群集上的组件和实用程序
 HDInsight 群集包含以下组件和实用程序：
@@ -113,9 +108,9 @@ Microsoft .NET Library for Avro 针对 Microsoft.NET 环境序列化实现了 Ap
 Hadoop 分布式文件系统 (HDFS) 是一种文件系统，采用 YARN 和 MapReduce，是 Hadoop 技术的核心。 它是 HDInsight 上 Hadoop 群集的标准文件系统。 请参阅[从 HDFS 兼容存储查询数据](hdinsight-hadoop-use-blob-storage.md)。
 
 ### <a name="hive"></a>Hive 和 HCatalog
-<a target="_blank" href="http://hive.apache.org/">Apache Hive</a> 是构建于 Hadoop 上的一个数据仓库软件，允许使用类似于 SQL 的语言（称为 HiveQL）来查询和管理分布式存储中的大型数据集。 Hive 与 Pig 一样，是基于 MapReduce 的抽象，可将查询转换为一系列 MapReduce 作业。 Hive 比 Pig 更接近于关系数据库管理系统，适用于结构化程度更高的数据。 对于非结构化数据，Pig 是更佳的选择。 请参阅 [将 Hive 与 HDInsight 中的 Hadoop 配合使用](hdinsight-use-hive.md)。
+<a target="_blank" href="http://hive.apache.org/">Apache Hive</a> 是构建于 Hadoop 上的一个数据仓库软件，允许使用类似于 SQL 的语言（称为 HiveQL）来查询和管理分布式存储中的大型数据集。 Hive 与 Pig 一样，是基于 MapReduce 的抽象，可将查询转换为一系列 MapReduce 作业。 Hive 比 Pig 更接近于关系数据库管理系统，适用于结构化程度更高的数据。 对于非结构化数据，Pig 是更佳的选择。 请参阅[将 Hive 与 HDInsight 中的 Hadoop 配合使用](hdinsight-use-hive.md)。
 
-<a target="_blank" href="https://cwiki.apache.org/confluence/display/Hive/HCatalog/">Apache HCatalog</a> 是 Hadoop 的表和存储管理层，为用户提供数据的关系视图。 在 HCatalog 中，可以读取和写入采用可以写入 Hive SerDe（序列化程序-反序列化程序）的任何格式的文件。
+<a target="_blank" href="https://cwiki.apache.org/confluence/display/Hive/HCatalog/">Apache HCatalog</a> 是 Hadoop 的表和存储管理层，为用户提供数据的关系视图。 在 HCatalog 中读取和写入文件时，可以采用任何适用于 Hive SerDe（序列化程序-反序列化程序）的格式。
 
 ### <a name="mahout"></a>Mahout
 <a target="_blank" href="https://mahout.apache.org/">Apache Mahout</a> 是一个库，包含在 Hadoop 上运行的机器学习算法。 计算机学习应用程序采用统计学原理，使系统学习数据并使用以往的结果来确定将来的行为。 请参阅 [使用 Hadoop 上的 Mahout 生成电影推荐](hdinsight-mahout.md)。
@@ -127,13 +122,13 @@ MapReduce 是一个旧软件框架，用于编写并行批量处理大数据集�
 <a target="_blank" href="http://oozie.apache.org/">Apache Oozie</a> 是一个管理 Hadoop 作业的工作流协调系统。 它与 Hadoop 堆栈集成，支持 MapReduce、Pig、Hive 和 Sqoop 的 Hadoop 作业。 它也能用于安排特定于某系统的作业，例如 Java 程序或 shell 脚本。 请参阅 [Use Oozie with Hadoop](hdinsight-use-oozie-linux-mac.md)（将 Oozie 与 Hadoop 配合使用）。
 
 ### <a name="phoenix"></a>Phoenix
-<a  target="_blank" href="http://phoenix.apache.org/">Apache Phoenix</a> 是基于 HBase 的关系数据库层。 Phoenix 提供 JDBC 驱动程序以允许用户直接查询和管理 SQL 表。 Phoenix 将查询和其他语句转换为本机 NoSQL API 调用（而不是使用 MapReduce），因此可以在 NoSQL 存储之上实现更快的应用程序。 请参阅 [将 Apache Phoenix 和 SQuirreL 与 HBase 群集配合使用](hdinsight-hbase-phoenix-squirrel.md)。
+<a  target="_blank" href="http://phoenix.apache.org/">Apache Phoenix</a> 是基于 HBase 的关系数据库层。 Phoenix 提供 JDBC 驱动程序以允许用户直接查询和管理 SQL 表。 Phoenix 将查询和其他语句转换为本机 NoSQL API 调用（而不是使用 MapReduce），因此可以在 NoSQL 存储之上实现更快的应用程序。 请参阅[将 Apache Phoenix 和 SQuirreL 与 HBase 群集配合使用](hdinsight-hbase-phoenix-squirrel.md)。
 
 ### <a name="pig"></a>Pig
 <a  target="_blank" href="http://pig.apache.org/">Apache Pig</a> 是一个高级平台，可以使用一种简单脚本语言（称为 Pig Latin）对大型数据集执行复杂的 MapReduce 转换。 Pig 转换 Pig Latin 脚本，使其可以在 Hadoop 内运行。 可以创建用户定义的函数 (UDF) 来扩充 Pig Latin。 请参阅 [Use Pig with Hadoop](hdinsight-use-pig.md)（将 Pig 与 Hadoop 配合使用）。
 
 ### <a name="sqoop"></a>Sqoop
-<a  target="_blank" href="http://sqoop.apache.org/">Apache Sqoop</a> 是一种工具，可以在 Hadoop 和关系数据库（如 SQL）或其他结构化数据存储之间尽可能高效地传输批量数据。 请参阅 [将 Sqoop 与 Hadoop 配合使用](hdinsight-use-sqoop.md)。
+<a  target="_blank" href="http://sqoop.apache.org/">Apache Sqoop</a> 是一种工具，可以在 Hadoop 和关系数据库（如 SQL）或其他结构化数据存储之间尽可能高效地传输批量数据。 请参阅[将 Sqoop 与 Hadoop 配合使用](hdinsight-use-sqoop.md)。
 
 ### <a name="tez"></a>Tez
 <a  target="_blank" href="http://tez.apache.org/">Apache Tez</a> 是构建于 Hadoop YARN 之上的应用程序框架，用于执行复杂的非循环常规图形数据处理。 它是 MapReduce 框架的更灵活、功能更强大的后继，允许数据密集型进程（如 Hive）更高效地大规模运行。 请参阅[“使用 Hive 和 HiveQL”中的“使用 Apache Tez 提高性能”](hdinsight-use-hive.md#usetez)。
@@ -156,7 +151,7 @@ HDInsight 群集 - Spark、HBase、Hadoop 和其他群集 - 支持多种编程�
 可以使用[脚本操作](hdinsight-hadoop-script-actions-linux.md)来安装其他语言。
 
 ### <a name="java-virtual-machine-jvm-languages"></a>Java 虚拟机 (JVM) 语言
-除了 Java 外，许多语言可以使用 Java 虚拟机 (JVM) 运行；但是，运行其中某些语言可能需要在群集上安装其他组件。
+除了 Java 外，许多语言可以在 Java 虚拟机 (JVM) 上运行；但是，运行其中某些语言可能需要在群集上安装其他组件。
 
 HDInsight 群集支持以下基于 JVM 的语言：
 
@@ -173,7 +168,7 @@ HDInsight 群集支持以下特定于 Hadoop 技术堆栈的语言：
 ## <a name="microsoft-business-intelligence-and-hdinsight"></a>Microsoft 商业智能和 HDInsight
 大家熟悉的商业智能 (BI) 工具使用 Power Query 外接程序或 Microsoft Hive ODBC 驱动程序来检索、分析和报告与 HDInsight 集成的数据：
 
-* [使用 Power Query 将 Excel 连接到 Hadoop](hdinsight-connect-excel-power-query.md)：了解如何使用 Microsoft Power Query for Excel，将 Excel 连接到存储 HDInsight 群集关联数据的 Azure 存储帐户。 所需的 Windows 工作站。 
+* [使用 Power Query 将 Excel 连接到 Hadoop](hdinsight-connect-excel-power-query.md)：了解如何使用 Microsoft Power Query for Excel，将 Excel 连接到存储 HDInsight 群集数据的 Azure 存储帐户。 所需的 Windows 工作站。 
 * [使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 Hadoop](hdinsight-connect-excel-hive-odbc-driver.md)：了解如何使用 Microsoft Hive ODBC 驱动程序从 HDInsight 导入数据。 所需的 Windows 工作站。 
 * [Microsoft 云平台](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx)：了解有关 Power BI for Office 365、下载 SQL Server 试用版，以及设置 SharePoint Server 2013 和 SQL Server BI 的信息。
 * [SQL Server Analysis Services](http://msdn.microsoft.com/library/hh231701.aspx)
@@ -187,3 +182,4 @@ HDInsight 群集支持以下特定于 Hadoop 技术堆栈的语言：
 
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
+<!--Update_Description: wording update-->
