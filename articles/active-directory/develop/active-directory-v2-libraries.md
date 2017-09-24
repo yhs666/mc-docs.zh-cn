@@ -12,23 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/01/2017
-ms.date: 06/26/2017
+origin.date: 08/22/2017
+ms.date: 09/20/2017
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 3476375799dad177e600807d37c9367f03b872ed
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 02a12d69d747439e14bb061f47daedf86d7610b2
+ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/21/2017
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 身份验证库
-Azure Active Directory (Azure AD) v2.0 终结点支持行业标准 OAuth 2.0 和 OpenID Connect 1.0 协议。 可以对 v2.0 终结点使用 Microsoft 和其他组织提供的各种库。
+[Azure Active Directory (Azure AD) v2.0 终结点](/active-directory/develop/active-directory-v2-compare)支持行业标准 OAuth 2.0 和 OpenID Connect 1.0 协议。 可以对 v2.0 终结点使用 Microsoft 和其他组织提供的各种库。
 
 在构建使用 v2.0 终结点的应用程序时，建议使用协议领域的专家根据安全开发生命周期 (SDL) 方法（例如 [Microsoft 遵循的方法][Microsoft-SDL]）编写的库。 如果决定手动编写协议支持，建议遵循 SDL 方法并认真对待每个协议的标准规范中的安全注意事项。
 
+> [!NOTE]
+> 是否在寻找 Azure AD v1.0 库 (ADAL)？ 请查看 [ADAL 库指南](/active-directory/develop/active-directory-authentication-libraries)。 
+> 
+> 
+
 ## <a name="types-of-libraries"></a>库的类型
-Azure AD v2.0 适用于两类库：
+Azure AD v2.0 终结点适用于两种类型的库：
 
 - **客户端库**。 本机客户端和服务器使用客户端库获取用于调用某个资源（例如 Microsoft Graph）的访问令牌。
 - **服务器中间件库**。 Web 应用使用服务器中间件库进行用户登录。 Web API 使用服务器中间件库验证本机客户端或其他服务器发送的令牌。
@@ -126,3 +131,4 @@ Azure AD v2.0 适用于两类库：
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
 [ServerLib-Node-Sample]: active-directory-v2-devquickstarts-node-web.md
 
+<!--Update_Description: wording update-->

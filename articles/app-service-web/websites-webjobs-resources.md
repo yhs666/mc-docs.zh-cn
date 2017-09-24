@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/25/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: eafeee9f6c1f904d4ae83596fc0c6f1533b50a6a
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 10/09/2017
+ms.author: v-yiso
+ms.openlocfilehash: 2e97fd4facd5287a1ba88d458665dc087196cb97
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-webjobs-documentation-resources"></a>Azure Web 作业文档资源
 ## <a name="overview"></a>概述
@@ -60,7 +60,7 @@ Azure 门户中的 Web 作业仪表板提供了强大的管理功能，可让你
 
 ## <a name="schedule"></a>计划 Web 作业
 * [“添加 Azure Web 作业”对话框](websites-dotnet-deploy-webjobs.md#configure)
-* [在 Azure 门户中创建计划的 Web 作业](web-sites-create-web-jobs.md#CreateScheduled)
+* [在 Azure 门户中创建计划的 Web 作业](web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [将计划程序作业挂接到 Web 作业](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [通过 cron 表达式计划 Azure Web 作业](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [使用 WebJobs SDK TimerTrigger 计划单个 Web 作业函数](websites-dotnet-webjobs-sdk.md#schedule)
@@ -73,7 +73,7 @@ Azure 门户中的 Web 作业仪表板提供了强大的管理功能，可让你
 * [谁写入了 Blob？](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [在云中托管交互式代码](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [在 Azure Web 作业中添加跟踪](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
-* [对 Azure 存储进行监视、诊断和故障排除](../storage/storage-monitoring-diagnosing-troubleshooting.md)
+* [监视、诊断和排查 Microsoft Azure 存储问题](../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 
 ## <a name="scale"></a>缩放 Web 作业
 * [缩放 Azure 网站上的 Web 应用程序](http://msdn.microsoft.com/magazine/dn786914.aspx)
@@ -110,5 +110,5 @@ Azure 门户中的 Web 作业仪表板提供了强大的管理功能，可让你
 ## <a name="gethelp"></a>获取有关 Web 作业的帮助
 
 * [Azure 和 ASP.NET 论坛](http://forums.asp.net/1247.aspx)
-* [Azure 应用服务 Web 应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazurewebsitespreview)
+* [Azure 应用服务 Web 应用论坛](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [报告 WebJobs 错误或问题](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)

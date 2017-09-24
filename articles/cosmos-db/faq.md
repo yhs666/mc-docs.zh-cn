@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/31/2017
-ms.date: 09/18/2017
+origin.date: 09/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: e4eabc4990e9f02baffa0ff26c0311e4b26520ed
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: c3e8a65bea4ba6de0b52c5eb38dd31a2572c4b66
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常见问题解答
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基础知识
@@ -66,13 +66,15 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 <!-- Not Avaialbe  Graph API graph -->
 
 ### <a name="is-a-free-account-available"></a>有免费帐户吗？
-如果不熟悉 Azure，可以注册 [Azure 免费帐户](https://www.azure.cn/pricing/1rmb-trial/)，这样可以得到 30 天试用期和信用额度，让你试用所有 Azure 服务。 
+<!-- Not Available [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
+如果不熟悉 Azure，可以注册 [Azure 免费帐户](https://www.azure.cn/pricing/1rmb-trial/)，这样可以得到 30 天试用期和信用额度，让你试用所有 Azure 服务。 如果你有 Visual Studio 订阅，则还有资格[免费获取 Azure 信用额度](https://www.azure.cn/support/legal/offer-rate-plans/)，可用于任何 Azure 服务。 
 
-也可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)在本地免费开发和测试应用程序，无需创建 Azure 订阅。 如果对应用程序在 Azure Cosmos DB 模拟器中的工作情况感到满意，则可以切换到在云中使用 Azure Cosmos DB 帐户。
+也可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)在本地免费开发和测试应用程序，而无需创建 Azure 订阅。 如果对应用程序在 Azure Cosmos DB 模拟器中的工作情况感到满意，则可以切换到在云中使用 Azure Cosmos DB 帐户。
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>如何获取 Azure Cosmos DB 的更多帮助？
 如需任何帮助，请在 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) 或 [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDocumentDB)上联系我们，或者通过向 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) 发送邮件安排与 Azure Cosmos DB 工程团队进行一对一交谈。 
 
+<!-- Not Avaialble ## Try Azure Cosmos DB subscriptions-->
 ## <a name="set-up-azure-cosmos-db"></a>设置 Azure Cosmos DB
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>如何注册 Azure Cosmos DB？
 可以在 Azure 门户中注册 Azure Cosmos DB。 首先，注册 Azure 订阅。 注册后即可将 DocumentDB API、表 API（预览）或 MongoDB API 帐户添加到 Azure 订阅。
@@ -381,6 +383,7 @@ Azure Cosmos DB 在 2010 年以“Project Florence”的名义开始解决 Micro
 自此之后，我们添加了新的特性，并引入了重要的新功能。 成果就是 Azure Cosmos DB。 此版本的一项功能是允许 DocumentDB 客户自动且无缝地成为 Azure Cosmos DB 客户，不会丢失其数据。 这些功能涉及的领域包括核心数据库引擎以及全局分发、弹性可伸缩性，并享有行业领先的全面 SLA 保障。 具体而言，我们已改进了 Azure Cosmos DB 数据库引擎，使其能够有效地将所有热门数据模型、类型系统和 API 映射到 Azure Cosmos DB 的基础数据模型。 
 
 对于开发人员而言，此项工作的最新成果包括对[表存储 API](../cosmos-db/table-introduction.md) 的全新支持。 而这只是开端。 我们计划不断添加其他常用 API 和更新的数据模型，为全球规模的性能和存储技术带来更多进步。 
+<!-- Not Available [Gremlin](../cosmos-db/graph-introduction.md)-->
 
 必须指出的是，DocumentDB 的 [SQL 语言](../documentdb/documentdb-sql-query.md)始终是基础 Azure Cosmos DB 能够支持的多种 API 之一。 开发人员使用 Azure Cosmos DB 等完全托管的服务时，该服务的唯一接口就是该服务公开的 API。 现有 DocumentDB 客户在操作时与以往其实并无不同。 Azure Cosmos DB 提供的 SQL API 与 DocumentDB 提供的完全相同。 我们会在现在（以及未来）向你提供以前接触不到的其他功能。 
 

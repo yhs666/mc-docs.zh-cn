@@ -6,22 +6,22 @@ keywords: "Active Directory 密码管理, 密码管理, Azure AD 自助密码重
 documentationcenter: 
 author: alexchen2016
 manager: digimobile
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 07/18/2017
+origin.date: 08/28/2017
+ms.date: 09/20/2017
 ms.author: v-junlch
 ms.custom: it-pro
-ms.openlocfilehash: 445961fd8d20d8a6a0d6b2aa444b295347aa1a20
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 4df10d0c41230a170daa3c084432ea84347d26bf
+ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/21/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory 中的密码策略和限制
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="set-password-expiration-policies-in-azure-active-directory"></a>在 Azure Active Directory 中设置密码过期策略
 
-Microsoft 云服务的全局管理员可使用用于 Windows PowerShell 的 Azure Active Directory 模块将用户密码设置为永不过期。 你还可以使用 Windows PowerShell cmdlet 删除永不过期配置，或者查看已将哪些用户密码设置为永不过期。 本指南适用于其他提供程序（如 Microsoft Intune 和 Office 365），这些提供程序也依赖于 Azure Active Directory 提供标识和目录服务。
+Microsoft 云服务的全局管理员可使用用于 Windows PowerShell 的 Azure Active Directory 模块将用户密码设置为永不过期。 还可以使用 Windows PowerShell cmdlet 删除永不过期配置，或者查看已将哪些用户密码设置为永不过期。 本指南适用于其他提供程序（如 Microsoft Intune 和 Office 365），这些提供程序也依赖于 Azure Active Directory 提供标识和目录服务。
 
 > [!NOTE]
 > 只能将未通过目录同步进行同步的用户帐户的密码配置为永不过期。 有关目录同步的详细信息，请参阅[将 AD 与 Azure AD 连接](connect/active-directory-aadconnect.md)。
@@ -88,6 +88,6 @@ Microsoft 云服务的全局管理员可使用用于 Windows PowerShell 的 Azur
 2. 执行以下命令之一：
 
    - 若要将某一个用户的密码设置为永不过期，请使用用户主体名称 (UPN) 或该用户的用户 ID 运行以下 cmdlet：`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
-   - 若要将组织中所有用户的密码设置为永不过期，请运行以下 cmdlet： `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+   - 要将组织中所有用户的密码设置为永不过期，请运行以下 cmdlet： `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
-<!--Update_Description: wording update-->   
+<!--Update_Description: update meta properties -->   

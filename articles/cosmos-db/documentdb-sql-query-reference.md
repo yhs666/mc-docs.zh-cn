@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 origin.date: 06/13/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7eadd4abf2f206cab8313c03fcd72677b9f2a972
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: d550c72afc1640017317c651f388d08025f9b7cf
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>Azure Cosmos DB DocumentDB API：SQL 语法参考
 
@@ -2026,7 +2026,7 @@ SELECT LEFT("abc", 1), LEFT("abc", 2)
  下面是结果集。  
 
 ```  
-[{"$1": "ab", "$2": "ab"}]  
+[{"$1": "a", "$2": "ab"}]  
 ```  
 
 ####  <a name="bk_length"></a> LENGTH  

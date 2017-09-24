@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 08/29/2016
-ms.date: 11/21/2016
-ms.author: v-dazen
-ms.openlocfilehash: 9f516e7b0307e188a6f6657913320d88b7189a8e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 10/09/2017
+ms.author: v-yiso
+ms.openlocfilehash: 85315527a1dcd2ca26e9a27eba9dbd251054c504
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权
 ## <a name="what-is-app-service-authentication--authorization"></a>什么是应用服务身份验证/授权？
@@ -31,12 +31,11 @@ ms.lasthandoff: 06/21/2017
 
 * [将身份验证添加到 iOS 应用][iOS]（或 [Android]、[Windows]、[Xamarin.iOS]、[Xamarin.Android]、[Xamarin.Forms] 或 [Cordova] 应用）
 * [User authentication for API Apps in Azure 应用服务][apia-user]
-* [Get started with Azure 应用服务- Part 2][web-getstarted]
 
 ## <a name="how-authentication-works-in-app-service"></a>应用服务中的身份验证机制
 若要使用其中某个标识提供者进行身份验证，首先需对标识提供者进行配置，使之了解应用程序。 然后，标识提供者会提供 ID 和机密，再由用户将其提供给应用服务。 这样即可确立信任关系，使应用服务能够验证标识提供者提供的用户声明，例如身份验证令牌。
 
-若要使用其中某个提供者来登录用户，必须将用户重定向到一个终结点，通过该终结点来登录该提供者的用户。 如果客户使用的是 Web 浏览器，则可让应用服务将所有未经身份验证的用户自动定向到允许用户登录的终结点。 否则需将用户定向到 `{your App Service base URL}/.auth/login/<provider>`，其中 `<provider>` 的值为下列值之一：aad 或 microsoft。 本文后面部分介绍移动方案和 API 方案。
+要使用其中某个提供者来登录用户，必须将用户重定向到一个终结点，通过该终结点来登录该提供者的用户。 如果客户使用的是 Web 浏览器，则可让应用服务将所有未经身份验证的用户自动定向到允许用户登录的终结点。 否则需将用户定向到 `{your App Service base URL}/.auth/login/<provider>`，其中 `<provider>` 的值为下列值之一：aad 或 microsoft。 本文后面部分介绍移动方案和 API 方案。
 
 通过 Web 浏览器与应用程序交互的用户会设置一个 Cookie，因此在浏览应用程序时其身份可以保持已验证状态。 对于其他客户端类型，例如移动客户端类型，则会向客户端颁发 JSON Web 令牌 (JWT)，后者应存在于 `X-ZUMO-AUTH` 标头中。 移动应用客户端 SDK 会为用户处理这种情况。 也可以在 `Authorization` 标头中以 [持有者令牌](https://tools.ietf.org/html/rfc6750)的形式直接包含 Azure Active Directory 标识令牌或访问令牌。
 
@@ -45,7 +44,7 @@ ms.lasthandoff: 06/21/2017
 ### <a name="mobile-authentication-with-a-provider-sdk"></a>通过提供者 SDK 进行移动身份验证
 在后端配置完所有项目以后，即可修改移动客户端，通过应用服务进行登录。 可以使用下述两种方式：
 
-* 使用给定标识提供者发布的 SDK 来建立标识，然后即可获得应用服务的访问权限。
+* 使用给定标识提供者发布的 SDK 来建立标识，即可获得应用服务的访问权限。
 * 使用单行代码即可让移动应用客户端 SDK 登录用户。
 
 > [!TIP]
@@ -60,7 +59,7 @@ ms.lasthandoff: 06/21/2017
 ### <a name="mobile-authentication-without-a-provider-sdk"></a>不通过提供者 SDK 进行移动身份验证
 如果不希望设置提供者 SDK，可以利用 Azure 应用服务的移动应用功能进行登录。 移动应用客户端 SDK 会针对所选提供者打开一个 Web 视图，方便用户登录。 在博客和论坛上，偶尔也会看到此过程被称为“服务器流”或“服务器定向流”，因为服务器管理用户登录过程，而客户端 SDK 从来不会收到提供者令牌。
 
-启动此流程的代码包括在每个平台的身份验证教程中。 在流程结束时，客户端 SDK 将拥有一个应用服务令牌，该令牌自动附加到针对应用程序后端的所有请求。
+启动此流程的代码包括在每个平台的身份验证教程中。 在流程结束时，客户端 SDK 拥有一个应用服务令牌，该令牌自动附加到针对应用程序后端的所有请求。
 
 ### <a name="service-to-service-authentication"></a>服务到服务身份验证
 虽然可以为用户提供应用程序访问权限，但是也可以委托其他应用程序调用自己的 API。 例如，可以让一个 Web 应用调用另一个 Web 应用中的 API。 在这种情况下，可使用服务帐户凭据而非用户凭据来获取令牌。 在 Azure Active Directory 用语中，服务帐户也称为“服务主体”，使用此类帐户的身份验证也称为“服务到服务方案”。

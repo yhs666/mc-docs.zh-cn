@@ -88,6 +88,8 @@
 
 ### 安全方案
 #### [使用虚拟设备保护网络](virtual-network-scenario-udr-gw-nva.md)
+<!-- Not Available #### [DMZ between Azure and the Internet](../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fvirtual-network%2ftoc.json)-->
+<!-- Not Available #### [Cloud service and network security](../best-practices-network-security.md?toc=%2fvirtual-network%2ftoc.json)-->
 ##### [使用 NSG 的简单外围网络](virtual-networks-dmz-nsg-asm.md)
 ##### [使用防火墙和 NSG 的外围网络](virtual-networks-dmz-nsg-fw-asm.md)
 ##### [使用防火墙、UDR 和 NSG 的外围网络](virtual-networks-dmz-nsg-fw-udr-asm.md)
@@ -138,6 +140,7 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [吞吐量测试](virtual-network-bandwidth-testing.md)
 ### [无法删除虚拟网络](virtual-network-troubleshoot-cannot-delete-vnet.md)
+### [VM 到 VM 连接问题](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
 # 引用
 ## [PowerShell (Resource Manager)](https://docs.microsoft.com/powershell/module/azurerm.network)
@@ -158,6 +161,8 @@
 # 资源
 ## [网络博客](https://www.azure.cn/blog/tags/虚拟网络)
 ## [网络论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [价格](https://www.azure.cn/pricing/details/networking/)
+## [定价](https://www.azure.cn/pricing/details/networking/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-virtual-network)
+
+<!--Update_Description: update meta properties, update link-->

@@ -3,7 +3,7 @@ title: "开始使用 REST 按需传送内容 | Azure"
 description: "本教程介绍了使用 Azure 媒体服务和 REST API 实现点播内容传送应用程序的步骤。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 88194b59-e479-43ac-b179-af4f295e3780
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 57189ffffb5b1c4d5a1000702d8cc1ee9aff9234
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 09/05/2017
+ms.date: 09/25/2017
+ms.author: v-johch
+ms.openlocfilehash: 02e9d7b7859d186554adfd93adcbc3ae7596f9f1
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>开始使用 REST 传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/31/2017
 
 本教程介绍了基本的媒体服务工作流，以及进行媒体服务开发需要用到的最常见编程对象和任务。 完成本教程后，就可以流式传输或渐进下载已上传、编码和下载的示例媒体文件。
 
-开发针对媒体服务 OData 模型的 VoD 应用程序时，以下图像会显示某些最常用的对象。
+下图显示了在针对媒体服务 OData 模型开发 VoD 应用程序时，某些最常用的对象。
 
 单击图像查看其完整大小。  
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 08/31/2017
 
 本快速入门教程中说明了以下任务。
 
-1. 启动流式处理终结点（使用 Azure 门户）。
+1. 启动流式处理终结点（使用 Azure 门户）
 2. 使用 REST API 连接到媒体服务帐户。
 3. 使用 REST API 创建新资产并上传视频文件。
 4. 使用 REST API 将源文件编码为一组自适应比特率 MP4 文件。
@@ -54,7 +54,7 @@ ms.lasthandoff: 08/31/2017
 >[!NOTE]
 >不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies)主题。
 
-若要深入了解本主题中使用的 AMS REST 实体，请参阅 [Azure 媒体服务 REST API 参考](https://docs.microsoft.com/rest/api/media/services/azure-media-services-rest-api-reference)。 也可参阅 [Azure 媒体服务概念](media-services-concepts.md)。
+若要深入了解本主题中使用的 AMS REST 实体，请参阅 [Azure 媒体服务 REST API 参考](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)。 也可参阅 [Azure 媒体服务概念](media-services-concepts.md)。
 
 >[!NOTE]
 >访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
@@ -344,7 +344,7 @@ Date: Mon, 19 Jan 2015 03:01:29 GMT
 ```
 
 ### <a name="upload-a-file-into-a-blob-storage-container"></a>将文件上传到 Blob 存储容器
-设置 AccessPolicy 和定位符后，即可使用 Azure 存储 REST API 将具体的文件上传到 Azure Blob 存储容器。 必须将文件作为块 blob 上传。 页 blob 不受 Azure 媒体服务支持。  
+设置 AccessPolicy 和定位符后，即可使用 Azure 存储 REST API 将具体的文件上传到 Azure Blob 存储容器。 必须以块 blob 形式上传文件。 页 blob 不受 Azure 媒体服务支持。  
 
 >[!NOTE]
 > 必须将要上传的文件的文件名添加到上一部分中收到的定位符 **Path** 值中。 例如，https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 。 。 。 
@@ -976,4 +976,4 @@ http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-
 若要流式处理视频，请使用 [Azure 媒体服务播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。
 
 要测试渐进式下载，请将 URL 粘贴到浏览器（例如 IE、Chrome、Safari）中。
-<!--Update_Description: remove ACS related content-->
+<!--Update_Description: update one link-->

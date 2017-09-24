@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/28/2017
-ms.date: 07/24/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 58f1614c6d6c20098f61135112ef1194175f6ac7
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: c3fa6ad757f4e39342ae861926dc16ab0df185fa
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -36,6 +36,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 有关定价层的详细信息（包括专用事件中心），请参阅[事件中心定价详细信息](https://www.azure.cn/pricing/details/event-hubs/)。
 
 ### <a name="what-are-event-hubs-throughput-units"></a>什么是事件中心吞吐量单元？
+
 通过 Azure 门户或事件中心 Resource Manager 模板明确选择事件中心吞吐量单位。 吞吐量单位适用于事件中心命名空间中的所有事件中心，每个吞吐量单位为命名空间赋予以下功能：
 
 * 入口事件（发送到事件中心的事件）最多达每秒 1 MB，但每秒不超过 1000 个入口事件、管理操作或控制 API 调用。
@@ -56,7 +57,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 可以，但前提是所有事件中心都在同一个命名空间中。
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>事件的最长保留期有多久？
-事件中心标准目前支持的最长保留期为 7 天。 请注意，事件中心并不是永久性的数据存储区。 大于 24 小时的保留期适用于将事件流重播到相同系统中的情形；例如，为了基于现有数据来培训或验证新机器学习模型。 如果需要将消息保留 7 天以上，那么启用事件中心的[事件中心捕获](/event-hubs/event-hubs-archive-overview)功能，可将数据从事件中心拉取到选定的存储。 启用捕获功能会基于购买的吞吐量单位进行计价。
+事件中心标准目前支持的最长保留期为 7 天。 请注意，事件中心并不是永久性的数据存储区。 大于 24 小时的保留期适用于将事件流重播到相同系统中的情形；例如，为了基于现有数据来培训或验证新计算机学习模型。 如果需要将消息保留 7 天以上，那么启用事件中心的[事件中心捕获](/event-hubs/event-hubs-capture-overview)功能，可将数据从事件中心拉取到选定的存储。 启用捕获功能会基于购买的吞吐量单位进行计价。
 
 ### <a name="where-is-azure-event-hubs-available"></a>Azure 事件中心在哪些区域可用？
 在所有支持的 Azure 区域中都可使用 Azure 事件中心。 有关列表，请访问 [Azure 区域](https://www.azure.cn/support/service-dashboard/)页。  

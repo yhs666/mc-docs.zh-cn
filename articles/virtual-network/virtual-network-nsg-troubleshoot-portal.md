@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 09/23/2016
 ms.date: 11/14/2016
 ms.author: v-dazen
-ms.openlocfilehash: c78be97ce70a40ccccff7d6935e5626e5abbbb7c
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: ea8470fb1ef45e3c78c557c139fbe6c9332e009a
+ms.sourcegitcommit: 7a743646d9bb794032e9938b4b578fb05da048bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>使用 Azure 门户排查网络安全组问题
 > [!div class="op_single_selector"]
@@ -58,7 +58,7 @@ ms.lasthandoff: 07/14/2017
     ![](./media/virtual-network-nsg-troubleshoot-portal/image2.png)
 
     在建议的步骤列表中单击“有效的安全组规则”。
-6. 此时将显示“获取有效的安全规则”边栏选项卡，如下图所示： 
+6. 此时显示“获取有效的安全规则”边栏选项卡，如下图所示： 
 
     ![](./media/virtual-network-nsg-troubleshoot-portal/image3.png)
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 07/14/2017
 
     ![](./media/virtual-network-nsg-troubleshoot-portal/image4.png)
 
-    请注意 *denyRDP* **入站** 规则。 对网络接口应用规则之前，将评估对子网应用的入站规则。 由于对子网应用了拒绝规则，永远不会评估 NIC 上的允许规则，因此连接到 TCP 3389 的请求将会失败。 
+    请注意 *denyRDP* **入站** 规则。 对网络接口应用规则之前，将评估对子网应用的入站规则。 由于对子网应用了拒绝规则，永远不会评估 NIC 上的允许规则，因此连接到 TCP 3389 的请求会失败。 
 
     *denyRDP* 规则是 RDP 连接失败的原因。 删除此规则应可解决问题。
 
@@ -110,7 +110,8 @@ ms.lasthandoff: 07/14/2017
    > 
 4. 可以直接编辑与 NIC 和子网关联的 NSG 的规则。 若要了解操作方法，请阅读 **查看虚拟机的有效安全规则** 部分中的步骤 8。
 
-## <a name="nsg"></a>查看网络安全组 (NSG) 的有效安全规则
+<a name="nsg"></a>
+## <a name="view-effective-security-rules-for-a-network-security-group-nsg"></a>查看网络安全组 (NSG) 的有效安全规则
 修改 NSG 规则时，可以查看在特定 VM 上添加规则产生的影响。 可以查看应用了给定 NSG 的所有 NIC 的完整有效安全规则列表，而无需从给定 NSG 的边栏选项卡切换上下文。 若要排查 NSG 中有效规则的问题，请完成以下步骤：
 
 1. 登录到位于 https://portal.azure.cn 的 Azure 门户。
@@ -122,7 +123,8 @@ ms.lasthandoff: 07/14/2017
     请注意上图中的以下部分：
 
    * **范围：** 设置为选定的 NSG。
-   * **虚拟机：** 向某个子网应用某个 NSG 时，将会向附加到与该子网连接的所有 VM 的所有网络接口应用该 NSG。 此列表显示此 NSG 应用到的所有 VM。 可以从列表中选择任一 VM。
+   * 
+            **虚拟机：** 向某个子网应用某个 NSG 时，会向附加到与该子网连接的所有 VM 的所有网络接口应用该 NSG。 此列表显示此 NSG 应用到的所有 VM。 可以从列表中选择任一 VM。
 
      > [!NOTE]
      > 如果只向空子网应用了 NSG，则不会列出 VM。 如果将 NSG 应用到不与 VM 相关联的 NIC，也不会列出这些 NIC。 

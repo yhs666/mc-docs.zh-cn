@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 08/21/2017
-ms.date: 08/28/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0f642ed4d2d1efcbbb1bcc01ce834965014ea589
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 86b246cd28977383815c21669d04d3cca84943a4
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>使用 Azure 本地数据网关连接到本地数据源
-本地数据网关的作用好似一架桥，提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了适用于同一区域中的多个 Azure Analysis Services 服务器以外，最新版本的网关还适用于 Azure 逻辑应用、Power BI、Power 应用和 Microsoft Flow。 可将同一区域中的多个服务与单个网关相关联。 
+本地数据网关的作用好似一架桥，提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了在同一区域中使用多个 Azure Analysis Services 服务器，最新版本的网关也适用于 Azure 逻辑应用、Power BI、Power Apps 和 Microsoft Flow。 可将同一区域中的多个服务与单个网关相关联。 
 
  Azure Analysis Services 要求同一区域中具有相应的网关资源。 例如，如果中国东部区域有 Azure Analysis Services 服务器，则中国东部区域需有一个网关资源。 中国东部的多个服务器可以使用同一个网关。
 
@@ -39,28 +39,28 @@ ms.lasthandoff: 08/25/2017
 
 为订阅配置网关资源后，可将多个服务器和其他服务连接到该资源。 如果在不同的区域拥有服务器或其他服务，只需安装不同的网关并创建附加的网关资源。
 
-若要立即开始，请参阅[安装并配置本地数据网关](analysis-services-gateway-install.md)。
+若要立即开始，请参阅[安装和配置本地数据网关](analysis-services-gateway-install.md)。
 
 ## <a name="how-it-works"></a>工作原理
-在组织中的计算机上安装的网关以 Windows 服务（**本地数据网关**）的形式运行。 此本地服务已通过 Azure 服务总线注册到网关云服务。 然后，可为 Azure 订阅创建网关资源网关云服务。 Azure Analysis Services 服务器随后会连接到网关资源。 如果服务器上的模型需要连接到本地数据源以执行查询或处理，查询和数据流会遍历网关资源、Azure 服务总线、本地数据网关服务和数据源。 
+在你组织中的计算机上安装的网关作为 Windows 服务（本地数据网关）运行。 此本地服务已通过 Azure 服务总线注册到网关云服务。 然后，可为 Azure 订阅创建网关资源网关云服务。 Azure Analysis Services 服务器随后会连接到网关资源。 如果服务器上的模型需要连接到本地数据源以执行查询或处理，查询和数据流会遍历网关资源、Azure 服务总线、本地数据网关服务和数据源。 
 
 ![工作原理](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 查询和数据流：
 
-1. 查询是云服务使用本地数据源的加密凭据创建的。 查询随后会发送到队列让网关处理。
+1. 查询是通过使用本地数据源的加密凭据进行创建的。 查询随后会发送到队列让网关处理。
 2. 网关云服务分析该查询，并将请求推送到 [Azure 服务总线](/service-bus/)。
 3. 本地数据网关会针对挂起的请求轮询 Azure 服务总线。
 4. 网关获取查询，对凭据进行解密，并使用这些凭据连接到数据源。
 5. 网关将查询发送到数据源以便执行。
 6. 结果会从数据源返回到网关，并返回到云服务和服务器。
 
-## <a name="windows-service-account"></a>Windows 服务帐户
+## <a name="windows-service-account"> </a>Windows 服务帐户
 本地数据网关配置为将 *NT SERVICE\PBIEgwService* 用于 Windows 服务登录凭据。 默认情况下，它有权作为服务登录；这位于正在安装网关的计算机的上下文中。 此凭据与用于连接到本地数据源或 Azure 帐户的帐户不相同。  
 
 如果由于身份验证，代理服务器遇到问题，建议将 Windows 服务帐户更改为域用户或托管服务帐户。
 
-## <a name="ports"></a>端口
+## <a name="ports"> </a>端口
 网关会创建与 Azure 服务总线之间的出站连接。 它在以下出站端口上进行通信：TCP 443（默认值）、5671、5672、9350 到 9354。  网关不需要入站端口。
 
 我们建议在防火墙中将数据区域的 IP 地址列入允许列表。 可以下载 [Azure 数据中心 IP 列表](https://www.microsoft.com/download/details.aspx?id=42064)。 该列表每周都会进行更新。
@@ -86,6 +86,7 @@ ms.lasthandoff: 08/25/2017
 | *.msftncsi.com |443 |在 Power BI 服务无法访问网关时用于测试 Internet 连接。 |
 | *.microsoftonline-p.com |443 |用于根据配置进行身份验证。 |
 
+<a name="force-https"></a>
 ### <a name="forcing-https-communication-with-azure-service-bus"></a>强制与 Azure 服务总线进行 HTTPS 通信
 可以强制网关使用 HTTPS 而非直接 TCP 与 Azure 服务总线进行通信，但此操作可能会显著降低性能。 若要修改 *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* 文件，可将值从 `AutoDetect` 更改为 `Https`。 此文件通常位于 *C:\Program Files\On-premises data gateway*。
 
@@ -100,11 +101,11 @@ ms.lasthandoff: 08/25/2017
 
 ### <a name="general"></a>常规
 
-**问**：对于云中的数据源（如 SQL Azure），是否需要网关？ <br/>
-**答**：不需要。 网关只连接到本地数据源。
+问：对于云中的数据源（如 Azure SQL 数据库），是否需要网关？ <br/>
+**答**：否。 网关只连接到本地数据源。
 
 **问**：网关是否必须安装在与数据源相同的计算机上？ <br/>
-**答**：不是。 网关使用提供的连接信息连接到数据源。 从这种意义上讲，可将网关视为客户端应用程序。 网关只需能够连接到提供的服务器名称即可。
+**答**：不是。 网关使用提供的连接信息连接到数据源。 从这种意义上讲，可将网关视为客户端应用程序。 网关只需能够连接到提供的服务器名称即可，通常在同一个网络上。
 
 <a name="why-azure-work-school-account"></a>
 
@@ -131,11 +132,12 @@ ms.lasthandoff: 08/25/2017
 **答**：查看网关使用的端口和主机。
 
 **问**：实际 Windows 服务的名称是什么？<br/>
-**答**：在“服务”中，网关名为“Power BI 企业网关服务”。
+**答**：在“服务”中，网关名为“本地数据网关服务”。
 
 **问**：是否可以使用 Azure Active Directory 帐户运行网关 Windows 服务？ <br/>
 **答**：否。 该 Windows 服务必须具有有效的 Windows 帐户。 默认情况下，服务使用服务 SID“NT SERVICE\PBIEgwService”来运行。
 
+<a name="high-availability"></a>
 ### <a name="high-availability-and-disaster-recovery"></a>高可用性和灾难恢复
 
 **问**：有哪些选项可用于灾难恢复？ <br/>
@@ -152,8 +154,9 @@ ms.lasthandoff: 08/25/2017
 还可以查看数据源用于跟踪查询的工具。 例如，可以使用 SQL Server 的扩展事件或 SQL 事件探查器以及 Analysis Services。
 
 **问**：网关日志在何处？ <br/>
-**答**：请参阅本主题稍后所述的“工具”。
+**答**：请参阅本主题后面的“日志”。
 
+<a name="update"></a>
 ### <a name="update-to-the-latest-version"></a>更新到最新版本
 
 如果网关版本过时，可能会出现很多问题。 良好的常规做法是确保使用最新版本。 如果有一个月或更长时间未更新网关，可能要考虑安装最新版本的网关，并确定是否可以重现问题。
@@ -162,38 +165,28 @@ ms.lasthandoff: 08/25/2017
 
 如果尝试在不受支持的域控制器上安装网关，可能会收到此错误。 请确保将网关部署在不是域控制器的计算机上。
 
-## <a name="tools"></a>工具
+## <a name="logs"></a>日志
 
-### <a name="collect-logs-from-the-gateway-configurer"></a>从网关配置器收集日志
-
-可以为网关收集多个日志。 始终从日志开始！
-
-#### <a name="installer-logs"></a>安装程序日志
-
-`%localappdata%\Temp\Power_BI_Gateway_-Enterprise.log`
-
-#### <a name="configuration-logs"></a>配置日志
-
-`%localappdata%\Microsoft\Power BI Enterprise Gateway\GatewayConfigurator.log`
+进行故障排除时，日志文件是一项重要资源。
 
 #### <a name="enterprise-gateway-service-logs"></a>企业网关服务日志
 
-`C:\Users\PBIEgwService\AppData\Local\Microsoft\Power BI Enterprise Gateway\EnterpriseGateway.log`
+`C:\Users\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway\<yyyyymmdd>.<Number>.log`
+
+#### <a name="configuration-logs"></a>配置日志
+
+`C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
 
 #### <a name="event-logs"></a>事件日志
 
 可在“应用程序和服务日志”下找到数据管理网关和 PowerBIGateway 日志。
 
-### <a name="fiddler-trace"></a>Fiddler 跟踪
-
-[Fiddler](http://www.telerik.com/fiddler) 是 Telerik 提供的一种免费工具，可监视 HTTP 流量。 可在客户端计算机中查看 Power BI 服务发生的此流量。 此服务可能会显示错误和其他相关信息。
-
-### <a name="telemetry"></a>遥测
-遥测可用于监视和排错。 
+## <a name="telemetry"></a>遥测
+遥测可用于监视和排错。 默认情况下
 
 **启用遥测**
 
-1.  查看计算机上的本地数据网关客户端目录。 通常为 **%systemdrive%\Program Files\On-premises data gateway**。 或者可以打开服务控制台，并查看可执行文件（本地数据网关服务的属性之一）的路径。
+1.  查看计算机上的本地数据网关客户端目录。 通常为 %systemdrive%\Program Files\On-premises data gateway。 或者可以打开服务控制台，并查看可执行文件（本地数据网关服务的属性之一）的路径。
 2.  在客户端目录的 Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config 文件中， 将 SendTelemetry 设置更改为 true。
 
     ```
@@ -208,4 +201,4 @@ ms.lasthandoff: 08/25/2017
 * [管理 Analysis Services](analysis-services-manage.md)
 * [从 Azure Analysis Services 获取数据](analysis-services-connect.md)
 
-<!--Update_Description: add new feature about FAQ and troubleshoting-->
+<!--Update_Description: wording update-->

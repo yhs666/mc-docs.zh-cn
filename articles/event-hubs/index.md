@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 09/04/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1c74796bea277c7bb0983b8734552045cda8702d
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 3a14d7cd818abb09dae0117aa1cb63af45077ebb
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="event-hubs-documentation"></a>事件中心文档
 

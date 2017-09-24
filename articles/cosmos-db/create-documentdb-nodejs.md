@@ -12,21 +12,21 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: d74c229340510a7615ff274402b3cd8f93487de5
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 2c4dbf44600bb8680d4647e00642979039c2ec5c
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB：使用 Node.js 和 Azure 门户生成 DocumentDB API 应用
 
 Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
 
-本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户、文档数据库和集合。 然后将生成并运行基于 [DocumentDB Node.js API](documentdb-sdk-node.md) 构建的控制台应用。
+本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户、文档数据库和集合。 然后会生成并运行基于 [DocumentDB Node.js API](documentdb-sdk-node.md) 构建的控制台应用。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -34,7 +34,8 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
     * [Node.js](https://nodejs.org/en/) 版本 v0.10.29 或更高版本
     * [Git](http://git-scm.com/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>创建数据库帐户
 
@@ -60,7 +61,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 快速查看应用中发生的情况。 打开 `app.js` 文件，会发现以下代码行创建 Azure Cosmos DB 资源。 
 
-* 将对 `documentClient` 进行初始化。
+* 对 `documentClient` 进行初始化。
 
     ```nodejs
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
@@ -93,7 +94,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
     });
     ```
 
-* 将对 JSON 执行 SQL 查询。
+* 对 JSON 执行 SQL 查询。
 
     ```nodejs
     client.queryDocuments(
@@ -146,7 +147,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 如果不打算继续使用此应用，请删除本快速入门教程在 Azure 门户中创建的所有资源，步骤如下：
 
 1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。 
-2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，然后单击“删除”。
+2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -154,3 +155,5 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
+
+<!--Update_Description: add include file named cosmos-db-emulator-docdb-api.md-->

@@ -16,7 +16,7 @@
     设置|建议的值|说明
     ---|---|---
     ID|*唯一值*|标识此 Azure Cosmos DB 帐户的唯一名称。 由于 documents.azure.cn 将追加到所提供的 ID 后面以创建 URI，因此，请使用唯一但可识别的 ID。 ID 只能包含小写字母、数字和连字符 (-) 字符，并且必须包含 3 到 50 个字符。
-    API|SQL (DocumentDB)|在本文的后面部分中，我们将针对 [DocumentDB API](../articles/documentdb/documentdb-introduction.md) 编程。|
+    API|SQL (DocumentDB)|在本文的后面部分中，我们将针对 [DocumentDB API](../articles/cosmos-db/documentdb-introduction.md) 编程。|
     订阅|用户的订阅|要用于此 Azure Cosmos DB 帐户的 Azure 订阅。 
     资源组|*与 ID 相同的值*|帐户的新资源组名称。 为简单起见，可以使用与 ID 相同的名称。 
     位置|
@@ -28,6 +28,6 @@
 
 6.  当“通知”窗口指示部署成功后，请关闭通知窗口，然后从仪表板上的“所有资源”磁贴打开新帐户。 
 
-    ![“所有资源”磁贴中的 DocumentDB 帐户](./media/cosmos-db-create-dbaccount/all-resources.png)
-<!--Update_Description: wording update-->
-<!--ms.date: 09/18/2017-->
+    ![“所有资源”磁贴中的 Azure Cosmos DB 帐户](./media/cosmos-db-create-dbaccount/all-resources.png)
+<!--Update_Description: wording update, update link-->
+<!--ms.date: 09/25/2017-->

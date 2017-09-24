@@ -12,18 +12,17 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3b48a85c67db5d3ea2c2b1db65251784ae022f92
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 3c4a934dc52f3c63aba111d3c93a7e923c9a4881
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 09/22/2017
 ---
-# 如何使用表 API 设置 Azure Cosmos DB 全局分发
-<a id="how-to-setup-azure-cosmos-db-global-distribution-using-the-table-api" class="xliff"></a>
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-table-api"></a>如何使用表 API 设置 Azure Cosmos DB 全局分发
 
 本文介绍如何使用 Azure 门户设置 Azure Cosmos DB 全局分发，然后使用表 API（预览版）进行连接。
 
@@ -35,8 +34,7 @@ ms.lasthandoff: 07/07/2017
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## 使用表 API 连接到首选区域
-<a id="connecting-to-a-preferred-region-using-the-table-api" class="xliff"></a>
+## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>使用表 API 连接到首选区域
 
 为了利用[全局分发](distribute-data-globally.md)，客户端应用程序可以指定要用于执行文档操作的区域优先顺序列表。 对于预览版 Microsoft Azure 存储 SDK，这可通过在应用配置中设置 `TablePreferredLocations` 配置值完成。 Azure 存储 SDK 会根据 Azure Cosmos DB 帐户配置、当前区域可用性和指定的优先顺序列表，选择最佳的终结点来执行写入和读取操作。
 
@@ -58,8 +56,7 @@ SDK 会自动将所有写入请求发送到当前写入区域。
 
 本教程到此结束。 阅读 [Azure Cosmos DB 中的一致性级别](consistency-levels.md)，了解如何管理全局复制帐户的一致性。 若要深入了解 Azure Cosmos DB 中全局数据库复制的工作原理，请参阅[使用 Azure Cosmos DB 全局分发数据](distribute-data-globally.md)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 在本教程中已完成以下操作：
 
@@ -71,3 +68,5 @@ SDK 会自动将所有写入请求发送到当前写入区域。
 
 > [!div class="nextstepaction"]
 > [通过模拟器在本地开发](local-emulator.md)
+
+<!--Update_Description: update meta properties-->

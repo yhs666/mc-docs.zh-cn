@@ -3,7 +3,7 @@ title: "使用 PowerShell 和模板部署资源 | Azure"
 description: "使用 Azure Resource Manager 和 Azure PowerShell 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 ms.assetid: 55903f35-6c16-4c6d-bf52-dbf365605c3f
@@ -15,13 +15,11 @@ ms.workload: na
 origin.date: 05/15/2017
 ms.date: 06/05/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: cbe4c40035641dde40d499a4d9881b66759c68a7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 13593472a01c2dc23d3320f35594193acdfe88b2
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 模板和 Azure PowerShell 部署资源
 
@@ -31,7 +29,8 @@ ms.lasthandoff: 05/26/2017
 
 [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install.md)]
 
-## <a id="deploy-local-template"></a> 从本地计算机部署模板
+<a id="deploy-local-template"></a> 
+## <a name="deploy-a-template-from-your-local-machine"></a> 从本地计算机部署模板
 
 将资源部署到 Azure 时，执行以下操作：
 
@@ -51,7 +50,7 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 
-部署可能需要几分钟才能完成。 完成之后，你将看到一条包含以下结果的消息：
+部署可能需要几分钟才能完成。 完成后，会看到一条包含结果的消息：
 
 ```powershell
 ProvisioningState       : Succeeded
@@ -109,9 +108,9 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 
 可以在同一部署操作中使用内联参数和本地参数文件。 例如，可以在本地参数文件中指定某些值，并在部署期间添加其他内联值。 如果同时为本地参数文件中的参数和内联参数提供值，则内联值优先。
 
-但是，使用外部参数文件时，不能传递是内联值的或本地文件中的其他值。 如果在 **TemplateParameterUri** 参数中指定参数文件，则将忽略所有内联参数。 提供外部文件中的所有参数值。 如果模板包括参数文件中无法包括的敏感值，可将该值添加到密钥保管库，或者动态地以内联方式提供所有参数值。
+但是，使用外部参数文件时，不能传递是内联值的或本地文件中的其他值。 如果在 **TemplateParameterUri** 参数中指定参数文件，则忽略所有内联参数。 提供外部文件中的所有参数值。 如果模板包括参数文件中无法包括的敏感值，可将该值添加到密钥保管库，或者动态地以内联方式提供所有参数值。
 
-如果模板包括的一个参数与 PowerShell 命令中的某个参数同名，PowerShell 使用后缀 FromTemplate 显示模板的参数。 例如，模板中名为 **ResourceGroupName** 的参数与 [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet 中的 **ResourceGroupName** 参数冲突。 系统会提示提供 **ResourceGroupNameFromTemplate** 的值。 通常，不应将参数命名为与用于部署操作的参数的名称相同以避免这种混乱。
+如果模板包括的一个参数与 PowerShell 命令中的某个参数同名，PowerShell 使用后缀 FromTemplate 显示模板的参数。 例如，模板中名为 **ResourceGroupName** 的参数与 [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet 中的 **ResourceGroupName** 参数冲突。 系统会提示提供 **ResourceGroupNameFromTemplate** 的值。 通常，为避免此类混乱，不应按部署操作所用的参数名称命令参数。
 
 ## <a name="test-a-template-deployment"></a>测试模板部署
 

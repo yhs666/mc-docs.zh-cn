@@ -7,10 +7,10 @@
 
     设置|建议的值|说明
     ---|---|---
-    表 ID|sample-table|新表的 ID。 表名称与数据库 ID 的字符要求相同。 `/ \ # ?` 或尾随空格。
+    表 ID|sample-table|新表的 ID。 表名称与数据库 ID 的字符要求相同。 数据库名称的长度必须为 1 到 255 个字符，不能包含 `/ \ # ?` 或尾随空格。
     存储容量| 10 GB|保留默认值。 这是数据库的存储容量。
     吞吐量|400 RU|保留默认值。 如果想要减少延迟，以后可以增加[吞吐量](../articles/cosmos-db/request-units.md)。
-    RU/m|关闭|使用默认值。 可以在以后需要处理高峰工作负荷时，启用 [RU/m](../articles/cosmos-db/request-units-per-minute.md) 功能。
 
 3. 填写表单后，请单击“确定”。
-<!--Update_Description: wording update, update link-->
+<!--Update_Description: wording update-->
+<!--ms.date: 09/18/2017-->

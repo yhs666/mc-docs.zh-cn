@@ -3,8 +3,8 @@ title: "筛选器和动态清单 | Azure"
 description: "本主题介绍如何创建筛选器，以便客户端能够使用它们来流式传输流的特定部分。 媒体服务会创建动态清单来存档此选择性的流。"
 services: media-services
 documentationcenter: 
-author: cenkdin
-manager: erikre
+author: forester123
+manager: digimobile
 editor: 
 ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
 ms.service: media-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 06/29/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
-ms.openlocfilehash: a0edf509928a5cf1758ea4c4e77504296ffdea9c
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.date: 09/25/2017
+ms.author: v-johch
+ms.openlocfilehash: 80e16ffef56b53cbdd0fc71cbf5d86615e21c924
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="filters-and-dynamic-manifests"></a>筛选器和动态清单
 
@@ -71,15 +71,14 @@ ms.lasthandoff: 08/04/2017
 ```
 
 ### <a name="dynamic-manifests"></a>动态清单
+在某些[情况](media-services-dynamic-manifest-overview.md#scenarios)下，默认资产的清单文件中描述的内容无法满足客户端所需的灵活性。 例如：
 
-在某些[情况](./media-services-dynamic-manifest-overview.md#scenarios)下，默认资产的清单文件中描述的内容无法满足客户端所需的灵活性。 例如：
+* 特定于设备：只传送内容播放设备所支持的指定再现内容和/或指定的语言轨迹（“再现内容筛选”）。 
+* 缩小清单以显示实时事件的子剪辑（“子剪辑筛选”）。
+* 修剪视频开头（“修剪视频”）。
+* 调整演播窗口 (DVR)，以便在播放器中提供长度有限的 DVR 窗口（“调整演播窗口”）。
 
-- 特定于设备：只传送内容播放设备所支持的指定再现内容和/或指定的语言轨迹（“再现内容筛选”）。
-- 缩小清单以显示实时事件的子剪辑（“子剪辑筛选”）。
-- 修剪视频开头（“修剪视频”）。
-- 调整演播窗口 (DVR)，以便在播放器中提供长度有限的 DVR 窗口（“调整演播窗口”）。
-
-为实现这种灵活性，媒体服务会根据预定义的[筛选器](./media-services-dynamic-manifest-overview.md#filters)提供动态清单。  定义筛选器后，客户端会使用筛选器来流式传输视频的特定再现内容或子剪辑。 客户端将在流 URL 中指定筛选器。 筛选器可应用到[动态打包](./media-services-dynamic-packaging-overview.md)支持的自适应比特率流式处理协议：HLS、MPEG-DASH 和平滑流式处理。 例如：
+为实现这种灵活性，媒体服务会根据预定义的[筛选器](media-services-dynamic-manifest-overview.md#filters)提供动态清单。  定义筛选器后，客户端会使用筛选器来流式传输视频的特定再现内容或子剪辑。 客户端将在流 URL 中指定筛选器。 筛选器可应用到[动态打包](media-services-dynamic-packaging-overview.md)支持的自适应比特率流式处理协议：HLS、MPEG-DASH 和平滑流式处理。 例如：
 
 包含筛选器的 MPEG DASH URL
 
@@ -93,27 +92,27 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
 ```
 
-有关如何传送内容和构建流 URL 的详细信息，请参阅[传送内容概述](./media-services-deliver-content-overview.md)。
+有关如何传送内容和构建流 URL 的详细信息，请参阅[传送内容概述](media-services-deliver-content-overview.md)。
 
->[!NOTE]
->请注意，动态清单不会更改资产和该资产的默认清单。 客户端可以选择请求包含或不包含筛选器的流。
+> [!NOTE]
+> 请注意，动态清单不会更改资产和该资产的默认清单。 客户端可以选择请求包含或不包含筛选器的流。 
+> 
+> 
 
-### <a name="filters"></a>筛选器
+### <a id="filters"></a>筛选器
+有两种类型的资产筛选器： 
 
-有两种类型的资产筛选器：
-
-- 全局筛选器（可以应用到 Azure 媒体服务帐户中所有的资产，拥有帐户的生存期）和
-- 本地筛选器（在创建后只能应用到与筛选器关联的资产，拥有资产的生存期）。
+* 全局筛选器（可以应用到 Azure 媒体服务帐户中所有的资产，拥有帐户的生存期）和 
+* 本地筛选器（在创建后只能应用到与筛选器关联的资产，拥有资产的生存期）。 
 
 全局和本地筛选器类型具有完全相同的属性。 两者的主要差异在于它们更适合哪些方案。 全局筛选器通常适用于设备配置文件（再现内容筛选），而本地筛选器可用于修剪特定的资产。
 
-## <a name="common-scenarios"></a>常见方案
-
+## <a id="scenarios"></a>常见方案
 如前所述，在将内容传送到客户（流式传输实时事件或视频点播）时，你的目标就是：将优质视频传递到处于不同网络条件下的各种设备。 此外，可能在筛选资产与使用 **动态清单**方面具有其他的要求。 以下部分提供了不同筛选方案的简要概述。
 
-- 仅指定某些设备可以处理的音频和视频再现内容子集（而不是与该资产关联的所有再现内容）。
-- 仅播放视频的某个部分（而不是整个视频）。
-- 调整 DVR 演播窗口。
+* 仅指定某些设备可以处理的音频和视频再现内容子集（而不是与该资产关联的所有再现内容）。 
+* 仅播放视频的某个部分（而不是整个视频）。
+* 调整 DVR 演播窗口。
 
 ## <a name="rendition-filtering"></a>再现内容筛选
 
@@ -129,7 +128,7 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 
 ## <a name="removing-language-tracks"></a>删除语言音轨
 
-你的资产可能包含多种音频语言，例如英语、西班牙语、法语等。通常，播放器 SDK 管理器会按默认选择音频轨迹，并根据用户的选择来选择可用音频轨迹。 开发此类播放器 SDK 相当有挑战性，因为各个设备特定的播放器框架之间需要不同的实现。 此外，播放器 API 在某些平台上受到限制，且不包含音频选择功能，因此用户无法选择或更改默认的音频轨迹。 使用资产筛选器，可以通过创建只包含所需音频语言的筛选器来控制行为。
+你的资产可能包含多种音频语言，例如英语、西班牙语、法语等。通常，播放器 SDK 管理器会按默认选择音频轨迹，并根据用户的选择来选择可用音频轨迹。 开发此类播放器 SDK 相当有挑战性，因为各个设备特定的播放器框架之间需要不同的实现。 此外，播放器 API 在某些平台上受到限制，且不包含音频选择功能，因此用户无法选择或更改默认的音频轨迹。使用资产筛选器，可以通过创建只包含所需音频语言的筛选器来控制行为。
 
 ![语言音轨筛选][language_filter]
 
@@ -175,7 +174,7 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 
 以下主题讨论与筛选器相关的媒体服务实体。 该主题还说明如何以编程方式创建筛选器。
 
-[使用 REST API 创建筛选器](./media-services-rest-dynamic-manifest.md)。
+[使用 REST API 创建筛选器](media-services-rest-dynamic-manifest.md)。
 
 ## <a name="combining-multiple-filters-filter-composition"></a>组合多个筛选器（筛选器组合）
 
@@ -183,9 +182,9 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 
 以下方案演示了可能需要组合多个筛选器的原因：
 
-1. 你需要筛选视频质量（目的是限制视频质量）以供 Android 或 iPAD 之类的移动设备使用。 若要删除质量不符合要求的视频，可以创建一个适用于设备配置文件的全局筛选器。 如上所述，全局筛选器可用于在同一媒体服务帐户下的所有资产，这些资产并没有更多的其他联系。
-1. 还可以修改资产的开始时间和结束时间。 为此，可以创建一个本地筛选器并设置开始/结束时间。
-1. 你希望能够将这些筛选器组合起来（如果不组合的话，则需要将质量筛选添加到进行修改的筛选器上，这会导致筛选器的使用很困难）。
+1. 你需要筛选视频质量（目的是限制视频质量）以供 Android 或 iPAD 之类的移动设备使用。 若要删除质量不符合要求的视频，可以创建一个适用于设备配置文件的全局筛选器。 如上所述，全局筛选器可用于在同一媒体服务帐户下的所有资产，这些资产并没有更多的其他联系。 
+2. 还可以修改资产的开始时间和结束时间。 为此，可以创建一个本地筛选器并设置开始/结束时间。 
+3. 你希望能够将这些筛选器组合起来（如果不组合的话，则需要将质量筛选添加到进行修改的筛选器上，这会导致筛选器的使用很困难）。
 
 若要组合筛选器，需要在清单/播放列表 URL 中设置筛选器名称，用分号对名称进行分隔。 假设你有一个名为 MyMobileDevice 的筛选器，用于筛选质量，另外还有一个名为 MyStartTime 的筛选器，用于设置具体的开始时间。 可将它们组合成下面这样：
 
@@ -198,14 +197,12 @@ http://teststreaming.streaming.mediaservices.chinacloudapi.cn/3d56a4d-b71d-489b-
 有关详细信息，请参阅 [此博客](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 。
 
 ## <a name="know-issues-and-limitations"></a>已知问题和限制
-
-- 动态清单在 GOP 边界（主键帧）内运行，因此修剪后具有精确的 GOP。
-- 可以对本地和全局筛选器使用相同的筛选器名称。 请注意，本地筛选器的优先顺序更高，会取代全局筛选器。
-- 如果更新筛选器，则流式处理终结点需要最多 2 分钟来刷新规则。 如果内容是通过使用某些筛选器提供的（并在代理和 CDN 缓存中缓存），则更新这些筛选器会导致播放器失败。 建议在更新筛选器之后清除缓存。 如果此选项不可用，请考虑使用其他筛选器。
+* 动态清单在 GOP 边界（主键帧）内运行，因此修剪后具有精确的 GOP。 
+* 可以对本地和全局筛选器使用相同的筛选器名称。 请注意，本地筛选器的优先顺序更高，会取代全局筛选器。
+* 如果更新筛选器，则流式处理终结点需要最多 2 分钟来刷新规则。 如果内容是通过使用某些筛选器提供的（并在代理和 CDN 缓存中缓存），则更新这些筛选器会导致播放器失败。 建议在更新筛选器之后清除缓存。 如果此选项不可用，请考虑使用其他筛选器。
 
 ## <a name="see-also"></a>另请参阅
-
-[将内容传送到客户概述](./media-services-deliver-content-overview.md)
+[将内容传送到客户概述](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png
 [renditions2]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter2.png
@@ -226,4 +223,4 @@ http://teststreaming.streaming.mediaservices.chinacloudapi.cn/3d56a4d-b71d-489b-
 [dvr_filter]: ./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: add two bookmarks;wording update-->

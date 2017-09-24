@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 05/26/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: a80a5809a4e924c9f0719fd1ba55f7aa415d9d2a
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: 8e0274598a53b791629cddb0484a7d1d0e615797
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="supplemental-lesson---detail-rows"></a>补充课程 - 详细信息行
 
@@ -85,3 +85,5 @@ ms.lasthandoff: 08/02/2017
 [SELECTCOLUMNS 函数 (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
 [补充课程 - 动态安全性](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [补充课程 - 不规则层次结构](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
+
+<!--Update_Description: update meta properties-->

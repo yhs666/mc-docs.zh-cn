@@ -3,7 +3,7 @@ title: "使用 Azure 媒体分析进行面部修订 | Azure"
 description: "本主题演示如何使用 Azure 媒体分析检测面部。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 5b6d8b8c-5f4d-4fef-b3d6-dc22c6b5a0f5
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/31/2017
+origin.date: 09/03/2017
 ms.date: 09/07/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 84c514b6afe80f7f2f573ba639584489469a2906
-ms.sourcegitcommit: 88cc0e0f5b316a52bc602e60cf9dc8a782812f58
+ms.author: v-johch
+ms.openlocfilehash: 1cb5a84c6d7184aecf6e557abc9603a4dae0dda8
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>使用 Azure 媒体分析进行面部修订
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 09/08/2017
 **Azure 媒体修订器**是一种 [Azure 媒体分析](media-services-analytics-overview.md)媒体处理器 (MP)，可用于在云中进行可缩放的面部修订。 使用面部修订，可对视频进行修改，使所选个人的面部模糊显示。 用户可能想要在公共安全和新闻媒体场景中使用面部修订服务。 对于时长仅几分钟但包含多张面孔的镜头，进行手动面部修订可能需要几个小时，但使用此服务仅需几个简单步骤即可完成该过程。 有关详细信息，请参阅[此](https://azure.microsoft.com/blog/azure-media-redactor/)博客。
 
 本主题提供有关 **Azure 媒体修订器**的详细信息，并演示如何通过适用于 .NET 的媒体服务 SDK 使用它。
-
-**Azure 媒体编修器** MP 已正式发布。 它在所有公共 Azure 区域以及美国政府和中国数据中心中可用。
 
 ## <a name="face-redaction-modes"></a>面部修订模式
 
@@ -140,14 +138,45 @@ ms.lasthandoff: 09/08/2017
      1
      2
      3
+
+## <a name="blur-types"></a>模糊类型
+
+在“组合”或“修订”模式中，可通过 JSON 输入配置在 5 种不同的模糊类型中选择：“低”、“中”、“高”、“调试”和“黑色”。 默认情况下使用“中”。
+
+可以查找以下模糊类型的示例。
+
+### <a name="example-json"></a>示例 JSON：
+
+    {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+
+#### <a name="low"></a>低
+
+![低](./media/media-services-face-redaction/blur1.png)
  
+#### <a name="med"></a>中
+
+![中](./media/media-services-face-redaction/blur2.png)
+
+#### <a name="high"></a>高
+
+![高](./media/media-services-face-redaction/blur3.png)
+
+#### <a name="debug"></a>调试
+
+![调试](./media/media-services-face-redaction/blur4.png)
+
+#### <a name="black"></a>黑色
+
+![黑色](./media/media-services-face-redaction/blur5.png)
+
 ## <a name="elements-of-the-output-json-file"></a>输出 JSON 文件中的元素
 
 修订 MP 提供高精确度的面部位置检测和跟踪功能，可在一个视频帧中检测到最多 64 张人脸。 正面的面部可提供最佳效果，而检测和跟踪侧面的面部和较小的面部（小于或等于 24x24 像素）可能具有一定难度。
 
 [!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
 
-## <a name="sample-code"></a>代码示例
+## <a name="net-sample-code"></a>.NET 示例代码
+
 以下程序演示如何：
 
 1. 创建资产并将媒体文件上传到资产。
@@ -158,7 +187,7 @@ ms.lasthandoff: 09/08/2017
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>创建和配置 Visual Studio 项目
 
-设置开发环境，并在 app.config 文件中填充连接信息，如[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述。 
+设置开发环境，并根据[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述，在 app.config 文件中填充连接信息。 
 
 #### <a name="example"></a>示例
 
@@ -327,4 +356,4 @@ ms.lasthandoff: 09/08/2017
 
 [Azure Media Analytics demos（Azure 媒体分析演示）](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--Update_Description: update output examples; update code to use AAD token instead if ACS-->
+<!--Update_Description: add "Blur Type" section-->

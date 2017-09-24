@@ -3,8 +3,8 @@ title: "配置 FMLE 编码器以发送单比特率实时流 | Microsoft Docs"
 description: "本主题说明了如何配置 Flash Media Live Encoder (FMLE) 编码器，以便将单比特率流发送到 AMS 频道进行实时编码。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: 
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
 ms.service: media-services
@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+origin.date: 01/05/2017
+ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 2ac418ce2a59771073d674a12f813db09245c1e6
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 5f5bf6f09fbed79799d37e0d2c10f7bf29c4e2d9
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>使用 FMLE 编码器发送单比特率实时流
 > [!div class="op_single_selector"]
@@ -29,15 +30,15 @@ ms.lasthandoff: 06/21/2017
 >
 >
 
-本主题说明如何配置 [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) 编码器，以便将单比特率流发送到 AMS 频道进行实时编码。 有关详细信息，请参阅[使用能够通过 Azure 媒体服务执行实时编码的频道](./media-services-manage-live-encoder-enabled-channels.md)。
+本主题说明如何配置 [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) 编码器，以便将单比特率流发送到 AMS 频道进行实时编码。 有关详细信息，请参阅[使用能够通过 Azure 媒体服务执行实时编码的频道](media-services-manage-live-encoder-enabled-channels.md)。
 
-本教程演示了如何通过 Azure 媒体服务浏览器 (AMSE) 工具管理 Azure 媒体服务 (AMS)。 此工具仅在 Windows 电脑上运行。 如果使用 Mac 或 Linux，则可使用 Azure 门户创建[频道](./media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[节目](./media-services-portal-creating-live-encoder-enabled-channel.md)。
+本教程演示了如何通过 Azure 媒体服务浏览器 (AMSE) 工具管理 Azure 媒体服务 (AMS)。 此工具仅在 Windows 电脑上运行。 如果使用的是 Mac 或 Linux，则可使用 Azure 门户创建[频道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[节目](media-services-portal-creating-live-encoder-enabled-channel.md)。
 
-请注意，本教程介绍如何使用 AAC。 但在默认情况下，FMLE 不支持 AAC。 你需要购买一个用于 AAC 编码的插件，例如由 MainConcept 提供的 [AAC 插件](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+请注意，本教程介绍如何使用 AAC。 但在默认情况下，FMLE 不支持 AAC。 需要购买一个用于 AAC 编码的插件，例如由 MainConcept 提供的 [AAC 插件](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>先决条件
-* [创建 Azure 媒体服务帐户](media-services-create-account.md)
-* 确保运行流式处理终结点。
+* [创建 Azure 媒体服务帐户](media-services-portal-create-account.md)
+* 确保运行流式处理终结点。 有关详细信息，请参阅[在媒体服务帐户中管理流式处理终结点](media-services-portal-manage-streaming-endpoints.md)
 * 安装最新版本的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 * 启动该工具并连接到 AMS 帐户。
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 06/21/2017
 * 使用基于软件的编码器时，请关闭任何不需要的程序。
 
 ## <a name="create-a-channel"></a>创建频道
-1. 在 AMSE 工具中，导航到“实时”  选项卡，然后右键单击频道区域。 从菜单中选择“创建频道…”  。
+1. 在 AMSE 工具中，导航到“实时”  选项卡，并右键单击频道区域。 从菜单中选择“创建频道…”  。
 
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
@@ -114,14 +115,14 @@ ms.lasthandoff: 06/21/2017
    * 比特率：192 kbps
 
      ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
-4. 获取频道的输入 URL，以便将其分配给 FMLE 的“RTMP 终结点” 。
+4. 获取频道的输入 URL，以便将其分配给 FMLE 的“RTMP 终结点”。
 
     导航回 AMSE 工具，查看频道完成状态。 一旦状态从“正在启动”变为“正在运行”，即可获取输入 URL。
 
     频道正在运行时，右键单击频道名称，向下导航，将鼠标悬停在“将输入 URL 复制到剪贴板”上方，然后选择“主要输入 URL”。  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
-5. 将此信息粘贴到输出部分的“FMS URL”  字段，然后指定一个流名称。
+5. 将此信息粘贴到输出部分的“FMS URL”  字段，并指定一个流名称。
 
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
 
@@ -136,7 +137,7 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="test-playback"></a>测试播放
 
-导航回 AMSE 工具，然后右键单击要测试的频道。 在菜单中，将鼠标悬停在“播放预览”上方，然后选择“使用 Azure Media Player”。  
+导航回 AMSE 工具，并右键单击要测试的频道。 在菜单中，将鼠标悬停在“播放预览”上方，然后选择“使用 Azure Media Player”。  
 
 
 ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
@@ -150,7 +151,7 @@ ms.lasthandoff: 06/21/2017
 1. 确认频道可以播放后，即可创建节目。 在 AMSE 工具的“实时”选项卡下，右键单击节目区域，然后选择“新建节目”。  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
-2. 为节目命名，然后根据需要调整“存档时段长度”（默认为 4 小时）。 你还可以指定存储位置，也可以将其保留为默认值。  
+2. 为节目命名，然后根据需要调整“存档时段长度”（默认为 4 小时）。 还可以指定存储位置，也可以将其保留为默认值。  
 3. 选中“立即启动节目”  框。
 4. 单击“创建节目” 。  
 
@@ -164,5 +165,5 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="troubleshooting"></a>故障排除
 请参阅[故障排除](media-services-troubleshooting-live-streaming.md)主题以获取相关指导。
-
+<!--Update_Description:update links-->
 

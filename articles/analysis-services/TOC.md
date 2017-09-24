@@ -3,7 +3,7 @@
 ## [支持的数据源](analysis-services-datasource.md)
 ## [身份验证和用户权限](analysis-services-manage-users.md)
 ## [连接到本地数据源](analysis-services-gateway.md)
-## [兼容级别](analysis-services-compat-level.md)
+## [兼容性级别](analysis-services-compat-level.md)
 ## [高可用性](analysis-services-bcdr.md)
 
 # 入门
@@ -16,6 +16,7 @@
 ## [管理服务器](analysis-services-manage.md)
 ## [管理数据库用户](analysis-services-database-users.md)
 ## [管理服务器管理员](analysis-services-server-admins.md)
+## [监视服务器指标](analysis-services-monitor.md)
 ## [安装并配置本地数据网关](analysis-services-gateway-install.md)
 ## [获取客户端库](analysis-services-data-providers.md)
 ## [备份和还原](analysis-services-backup.md)
@@ -52,10 +53,10 @@
 ## [GitHub 上的 Analysis Services 代码示例](https://github.com/Microsoft/Analysis-Services)
 ## [Analysis Services 团队博客](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
-## [Azure 路线图](https://azure.microsoft.com/roadmap/)
+<!-- Not Availabel ## [Azure Roadmap](https://www.azure.cn/roadmap/?category=intelligence-analytics)-->
 ## [Azure 状态](https://www.azure.cn/support/service-dashboard/)
 ## [反馈](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [价格](https://www.azure.cn/pricing/details/analysis-services/)
+## [定价](https://www.azure.cn/pricing/details/analysis-services/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-analysis-services)
-<!-- Not Available ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest) -->
+<!-- Not Availabel ## [Videos](https://www.azure.cn/video-center/&sort=newest)-->

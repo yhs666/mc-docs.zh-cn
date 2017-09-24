@@ -21,6 +21,9 @@
     - name: Analysis Services
       tocHref: /analysis-services/
       topicHref: /analysis-services/
+    - name: API 管理
+      tocHref: /api-management/
+      topicHref: /api-management/
     - name: 应用服务
       tocHref: /app-service/
       topicHref: /app-service/

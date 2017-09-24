@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2016
-ms.date: 07/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: 400beba51f292471e888afebc3d076af7098ab1a
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/09/2017
+ms.author: v-yiso
+ms.openlocfilehash: 19af9480bd8685d907749745fa48df7a73a6505a
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
-本教程说明如何将应用从本地计算机上的 Git 存储库部署到 [Azure 应用服务] 。 应用服务支持结合 [Azure 门户]中的“本地 Git”部署选项使用此方法。  
-在根据[此处](app-service-web-get-started.md)所述使用 [Azure 命令行接口]创建应用服务应用时，将自动执行本文中所述的许多 Git 命令。
+本教程说明如何将应用从本地计算机上的 Git 存储库部署到 [Azure Web 应用](app-service-web-overview.md)。 应用服务支持结合 [Azure 门户]中的“本地 Git”部署选项使用此方法。  
+在根据[此处](app-service-web-get-started-dotnet.md)所述使用 [Azure 命令行接口]创建应用服务应用时，会自动执行本文中所述的许多 Git 命令。
 
 ## <a name="prerequisites"></a>先决条件
-若要完成本教程，你需要：
+要完成本教程，需要：
 
 * Git。 可在 [此处](http://www.git-scm.com/downloads)下载二进制安装文件。  
 * 对 Git 有一个基本的了解。
-* 一个 Azure 帐户。 如果你没有帐户，可以[注册试用版](https://www.azure.cn/pricing/1rmb-trial)。
+* 一个 Azure 帐户。 如果没有帐户，可以 [注册试用版](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="Step1"></a>步骤 1：创建本地存储库
 执行下列任务可创建新的 Git 存储库。
@@ -68,8 +68,8 @@ git init
 2. 在应用服务应用的边栏选项卡中，单击“设置”>“部署源”。 依次单击“选择源”、“本地 Git 存储库”、“确定”。  
 
     ![本地 Git 存储库](./media/app-service-deploy-local-git/local_git_selection.png)
-3. 如果这是你第一次在 Azure 中设置存储库，则需要为其创建登录凭据。 你将使用它们从本地 Git 存储库登录到 Azure 存储库并推送更改。 在应用的边栏选项卡中，单击“部署”>“部署凭据”，然后配置部署用户名和密码。 完成后，单击“保存”。
-
+3. 如果这是你第一次在 Azure 中设置存储库，则需要为其创建登录凭据。 你将使用它们从本地 Git 存储库登录到 Azure 存储库并推送更改。 在应用的边栏选项卡中，单击“设置”>“部署凭据”，并配置部署用户名和密码。 完成后，单击“保存”。
+   
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
 ## <a name="Step4"></a>步骤 4：部署项目
@@ -93,7 +93,7 @@ git init
     ```bash  
     git push azure master
     ```
-    当你在 Azure 门户中重置部署凭据时，系统将提示你输入以前创建的密码。 输入该密码（请注意，在键入密码时，Gitbash 不会将星号回显到控制台）。 
+    当你在 Azure 门户中重置部署凭据时，系统会提示你输入以前创建的密码。 输入该密码（请注意，在键入密码时，Gitbash 不会将星号回显到控制台）。 
 5. 返回到 Azure 门户中的应用。 最近推送的日志条目应显示在“部署”边栏选项卡中。 
 
     ![](./media/app-service-deploy-local-git/deployment_history.png)
@@ -169,12 +169,11 @@ git config --global http.postBuffer 524288000
 * [如何使用适用于 Azure 的 PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [如何使用 Azure 命令行接口](../cli-install-nodejs.md)
 
-[Azure 应用服务]: /app-service-web/app-service-changes-existing-services/
 [Azure Developer Center]: /develop/overview/
 [Azure 门户]: https://portal.azure.cn
 [Git website]: http://git-scm.com
-[Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
-[Azure 命令行接口]: /azure-resource-manager/xplat-cli-azure-resource-manager/
+[Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[Azure 命令行界面]: /azure-resource-manager/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

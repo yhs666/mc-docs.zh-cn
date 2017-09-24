@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-origin.date: 06/19/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/30/2017
+ms.date: 10/09/2017
+ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 29dd593d8463585bf008c31b31844314f9f9025c
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 3f17b5dc9d55ed5833c30b380fc5b7135996d0f0
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="connect-a-web-app-to-a-redis-cache"></a>将 Web 应用连接到 Redis 缓存
 
@@ -66,12 +66,12 @@ az webapp config appsettings set --settings "REDIS_URL=${redis[0]}" "REDIS_PORT=
 
 | 命令 | 说明 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |
-| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | 创建 Azure Web 应用。 |
-| [az redis create](https://docs.microsoft.com/cli/azure/redis#create) | 创建新的 Redis 缓存实例。 这是数据存储位置。 |
-| [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys) | 列出 Redis 缓存实例的访问密钥。 |
-| [az webapp config appsettings set](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#set) | 创建或更新 Azure Web 应用的应用设置。 应用设置将作为应用的环境变量公开。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | 创建 Azure Web 应用。 |
+| [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) | 创建新的 Redis 缓存实例。 这是数据存储位置。 |
+| [az redis list-keys](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_list_keys) | 列出 Redis 缓存实例的访问密钥。 |
+| [az webapp config appsettings set](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | 创建或更新 Azure Web 应用的应用设置。 应用设置将作为应用的环境变量公开。 |
 
 ## <a name="next-steps"></a>后续步骤
 

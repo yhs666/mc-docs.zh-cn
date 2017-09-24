@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: d06f50bd60024d2c13f118427e1a6a0beeb08b0c
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: ea03a68bfe4645b81f629fda52a52be5b0d7275e
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="nosql-tutorial-build-a-documentdb-api-java-console-application"></a>NoSQL 教程：构建 DocumentDB API Java 控制台应用程序
 > [!div class="op_single_selector"]
@@ -54,8 +54,11 @@ ms.lasthandoff: 09/13/2017
 ## <a name="prerequisites"></a>先决条件
 确保具有以下内容：
 
-* 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 另外，对于本教程，也可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)。
-* [Git](https://git-scm.com/downloads)
+* 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* [Git](https://git-scm.com/downloads)。
 * [Java 开发工具包 (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
 * [Maven](http://maven.apache.org/download.cgi)。
 
@@ -82,11 +85,11 @@ ms.lasthandoff: 09/13/2017
 ## <a id="Connect"></a>步骤 3：连接到 Azure Cosmos DB 帐户
 接下来，回到 [Azure 门户](https://portal.azure.cn) ，检索终结点和主要主密钥。 Azure Cosmos DB 终结点和主密钥是必需的，可让应用程序知道要连接的对象，使 Azure Cosmos DB 信任应用程序的连接。
 
-在 Azure 门户中，导航到 Azure Cosmos DB 帐户，并单击“密钥”。 从门户复制 URI，并将其粘贴到 Program.java 文件的 `<your endpoint URI>` 中。 然后从门户中复制“主密钥”并将它粘贴到 `<your key>`。
+在 Azure 门户中，导航到 Azure Cosmos DB 帐户，并单击“密钥”。 从门户复制 URI，并将其粘贴到 Program.java 文件的 `https://FILLME.documents.azure.cn` 中。 然后从门户中复制“主密钥”并将它粘贴到 `FILLME`。
 
     this.client = new DocumentClient(
-        "<your endpoint URI>",
-        "<your key>"
+        "https://FILLME.documents.azure.cn",
+        "FILLME"
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 

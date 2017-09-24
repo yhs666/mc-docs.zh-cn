@@ -12,15 +12,15 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 05/10/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: d3a8675324230823193afed66731b1be2f4d6d94
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 94f5a9639bb3c2b37cd8200104732db0469babeb
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB：使用 Java 和 Azure 门户生成 MongoDB API 控制台应用
 
@@ -34,7 +34,8 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
    * JDK 1.7+（如果没有 JDK，请运行 `apt-get install default-jdk`）
    * Maven（如果没有 Maven，请运行 `apt-get install maven`）
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## <a name="create-a-database-account"></a>创建数据库帐户
 
@@ -44,7 +45,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 将新数据库命名为 **db**，将新集合命名为 **coll**。
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)] [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
@@ -128,4 +129,4 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > [!div class="nextstepaction"]
 > [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, add include file named cosmos-db-emulator-mongodb.md-->

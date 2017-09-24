@@ -15,35 +15,109 @@ ms.topic: article
 origin.date: 04/25/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
-ms.openlocfilehash: b01a8ad22adb4d4d4c485a0a4e018ad8680ff213
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: bc1655f3e153bc8439e0197d5433c19e7e700667
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="create-a-basic-azure-web-app-in-intellij"></a>在 IntelliJ 中创建基本的 Azure Web 应用
-本教程说明如何使用 [Azure Toolkit for IntelliJ] 创建一个基本的 Hello World 应用程序，并将其部署到 Azure 作为 Web 应用。 为简单起见显示了一个基本 JSP 示例，但就 Azure 部署而言，相似的步骤也适用于 Java servlet。
 
-完成本教程后，应用程序会在 Web 浏览器中如下图所示：
+本教程介绍如何使用[用于 IntelliJ 的 Azure 工具包]创建基本 Hello World 应用程序，并将其作为 Web 应用部署到 Azure。
 
-![示例网页][01]
+> [!NOTE]
+> 
+> 用于 IntelliJ 的 Azure 工具包于 2017 年 8 月进行了更新，采用了不同工作流。 基于这一点，本文包含了两个不同的部分：
+>
+> * 第一部分详述如何通过用于 IntelliJ 的 Azure 工具包 2017 年 8 月版（或更高版本）来创建 Hello World Web 应用。
+>
+> * 本文的第二部分介绍如何通过 2017 年 4 月版（或更早版本）的工具包来创建 Hello World Web 应用。
+> 
 
-## <a name="prerequisites"></a>先决条件
-* Java 开发人员工具包 (JDK) 1.8 或更高版本。
-* IntelliJ IDEA 旗舰版。 可从 <https://www.jetbrains.com/idea/download/index.html> 下载。
-* 一个基于 Java 的 Web 服务器或应用程序服务器（例如 [Apache Tomcat] 或 [Jetty]）的分发。
-* 一个 Azure 订阅，可从 <https://www.azure.cn/pricing/1rmb-trial/> 或 <http://www.azure.cn/pricing/overview/> 获取。
-* [Azure Toolkit for IntelliJ]。 有关安装 Azure 工具包的信息，请参阅 [安装适用于 IntelliJ 的 Azure 工具包]。
+[!INCLUDE [azure-toolkit-for-intellij-prerequisites](../../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-[!INCLUDE [azure-intellij-login-guide](../../includes/azure-intellij-login-guide.md)]
+## <a name="create-a-hello-world-web-app-by-using-the-version-307-or-later-toolkit"></a>使用 3.0.7 版或更高版本的工具包创建 Hello World Web 应用
 
-## <a name="to-create-a-hello-world-application"></a>创建 Hello World 应用程序
-首先，我们从创建 Java 项目开始。
+### <a name="create-a-new-web-app-project"></a>创建新 Web 应用项目
+
+1. 启动 IntelliJ，并按照 [用于 IntelliJ 的 Azure 工具包的登录说明] 一文中的步骤登录 Azure 帐户。
+
+1. 依次单击“文件”菜单、“新建”、“项目”。
+   
+   ![创建新项目][file-new-project]
+
+1. 在“新建项目”对话框中，选择 Maven，然后选择 maven-archetype-webapp，然后单击“下一步”。
+   
+   ![选择 Maven archetype webapp][maven-archetype-webapp]
+   
+1. 为 Web 应用指定 GroupId 和 ArtifactId，然后单击“下一步”。
+   
+   ![指定 GroupId 和 ArtifactId][groupid-and-artifactid]
+
+1. 自定义任何 Maven 设置或接受默认设置，然后单击“下一步”。
+   
+   ![指定 Maven 设置][maven-options]
+
+1. 指定项目名称和位置，并单击“完成”。
+   
+   ![指定项目名称][project-name]
+
+1. 在 IntelliJ 的项目资源管理器视图中，依次展开 src、main、webapp，然后双击 index.jsp。
+   
+   ![打开索引页面][open-index-page]
+
+1. 在 IntelliJ 中打开 index.jsp 文件后，添加文本以将 **Hello World!** 动态显示 现有 `<body>` 元素中。 更新后的 `<body>` 内容应类似于以下示例：
+   
+   ```java
+   <body><b><% out.println("Hello World!"); %></b></body>
+   ``` 
+
+   ![编辑索引页面][edit-index-page]
+
+1. 保存 index.jsp。
+
+### <a name="deploy-your-web-app-to-azure"></a>将 Web 应用部署到 Azure
+
+1. 在 IntelliJ 的项目资源管理器视图中，右键单击项目，选择“Azure”，然后选择“在 Web 应用上运行”。
+   
+   ![“在 Web 应用上运行”菜单][run-on-web-app-menu]
+
+1. 在“在 Web 应用上运行”对话框中，可选择以下任一选项：
+
+   * 选择现有 Web 应用（如果有），然后单击“运行”。
+
+      ![“在 Web 应用上运行”对话框][run-on-web-app-dialog]
+
+   * 单击“创建新 Web 应用”。 如果选择创建新 Web 应用，请为 Web 应用指定必要信息，然后单击“运行”。
+
+      ![创建新 Web 应用][create-new-web-app-dialog]
+
+1. 成功部署 Web 应用后，该工具包会显示一条状态消息，其中还含有所部署 Web 应用的 URL。
+
+   ![成功部署][successfully-deployed]
+
+1. 可使用状态消息中提供的链接转到 Web 应用。
+
+   ![转到你的 Web 应用][browse-web-app]
+
+1. 发布 Web 应用后，所做设置会保存为默认设置，可单击工具栏上的绿色箭头图标在 Azure 上运行应用程序。 可通过单击 Web 应用的下拉菜单来修改设置，然后单击“编辑配置”。
+
+   ![“编辑配置”菜单][edit-configuration-menu]
+
+1. 出现“运行/调试配置”对话框后，可修改任意默认设置，然后单击“确定”。
+
+   ![“编辑配置”对话框][edit-configuration-dialog]
+
+<hr />
+
+## <a name="create-a-hello-world-web-app-by-using-the-version-306-or-earlier-toolkit"></a>使用 3.0.6 版或更早版本的工具包创建 Hello World Web 应用
+
+### <a name="create-a-new-web-app-project"></a>创建新 Web 应用项目
 
 1. 启动 IntelliJ，然后依次单击“文件”菜单、“新建”和“项目”。
 
     ![文件新建项目][02]
-2. 在“新建项目”对话框中，依次选择“Java”和“Web 应用程序”，然后单击“新建”以添加项目 SDK。
+2. 在“新建项目”对话框中，依次选择 Java 和“Web 应用程序”，并单击“新建”以添加项目 SDK。
 
     ![新建项目对话框][03a]
 
@@ -57,12 +131,15 @@ ms.lasthandoff: 08/25/2017
 
     ![打开索引页][05c]
 6. 在 IntelliJ 中打开 index.jsp 文件后，添加文本以将 **Hello World!** 动态显示 现有 `<body>` 元素中。 更新后的 `<body>` 内容应类似于以下示例：
+   
+   ```java
+   <body><b><% out.println("Hello World!"); %></b></body>
+   ```
 
-    `<body><b><% out.println("Hello World!"); %></b></body>` 
 7. 保存 index.jsp。
 
-## <a name="to-deploy-your-application-to-an-azure-web-app-container"></a>将应用程序部署到 Azure Web 应用容器
-有多种方式可以将 Java Web 应用程序部署到 Azure。 本教程说明其中一个最简单的方式：将应用程序部署到 Azure Web 应用容器，无需特殊的项目类型或额外的工具。 Azure 为提供 JDK 及 Web 容器软件，因此不需要自己上传；只需要 Java Web 应用。 这样，应用程序的发布过程只需数秒，连一分钟都不用。
+### <a name="deploy-your-web-app-to-azure"></a>将 Web 应用部署到 Azure
+有多种方式可将 Java Web 应用部署到 Azure。 本教程说明其中一个最简单的方式：将应用程序部署到 Azure Web 应用容器，无需特殊的项目类型或额外的工具。 Azure 为提供 JDK 及 Web 容器软件，因此不需要自己上传；只需要 Java Web 应用。 这样，应用程序的发布过程只需数秒，连一分钟都不用。
 
 在发布应用程序之前，首先需要配置模块设置。 为此，请使用以下步骤：
 
@@ -82,7 +159,8 @@ ms.lasthandoff: 08/25/2017
 
 1. 在 IntelliJ 的项目资源管理器中，右键单击 **Java-Web-App-On-Azure** 项目。 出现上下文菜单时，请选择“Azure”，然后单击“发布为 Azure Web 应用...”
    
-    ![Azure 发布上下文菜单][06]
+   ![Azure 发布上下文菜单][06]
+
 2. 如果尚未从 IntelliJ 登录到 Azure，系统会提示登录 Azure 帐户。 （如果有多个 Azure 帐户，部分提示会在登录过程中显示多次，即使这些提示看起来是相同的。 发生此情况时，请继续遵循登录指示进行操作。）
    
     ![对话框中的 Azure 日志][07]
@@ -93,26 +171,32 @@ ms.lasthandoff: 08/25/2017
 
     ![应用容器][09]
 5. 如果前面尚未创建 Azure Web 应用容器，或你想要将应用程序发布到新的容器，请使用以下步骤。 否则，请选择现有的 Web 应用容器，并跳到下面的步骤 6。
+   
+   a. 单击 + 号。
+      
+      ![添加应用容器][10]
 
-   1. 在“新建项目”对话框中单击“下一步” **+**
+   b. 此时将显示“新建 Web 应用容器”对话框，该对话框将用来进行接下来的几个步骤。
+      
+      ![新建应用容器][11a]
+   
+   c. 为 Web 应用容器输入“DNS 标签”；这是在 Azure 中的 Web 应用程序构成主机 URL 的叶 DNS 标签。 请注意该名称必须是可用的，且符合 Azure Web 应用命名要求。
 
-       ![添加应用容器][10]
-   2. 此时将显示“新建 Web 应用容器”对话框，该对话框将用来进行接下来的几个步骤。
+   d.单击“下一步”。 在“Web 容器”下拉菜单中，为应用程序选择适当的软件。
+      
+      当前，可以从 Tomcat 8、Tomcat 7 或 Jetty 9 中选择。 Azure 将提供所选软件的最新分发版，并且该版本基于由 JDK 8 创建并由 Azure 提供的 JDK 最新分发版运行。
 
-       ![新建应用容器][11a]
-   3. 为 Web 应用容器输入“DNS 标签”；这是在 Azure 中的 Web 应用程序构成主机 URL 的叶 DNS 标签。 请注意该名称必须是可用的，且符合 Azure Web 应用命名要求。
-   4. 在“Web 容器”下拉菜单中，为应用程序选择适当的软件。
+   e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 在“订阅”下拉菜单中，选择要用于此部署的订阅。
 
-       当前，可以从 Tomcat 8、Tomcat 7 或 Jetty 9 中选择。 Azure 将提供所选软件的最新分发版，并且该版本基于由 JDK 8 创建并由 Azure 提供的 JDK 最新分发版运行。
-   5. 在“订阅”下拉菜单中，选择要用于此部署的订阅。
-   6. 在“资源组”下拉菜单中，选择要与 Web 应用关联的资源组。 （使用 Azure 资源组可以将相关资源组织在一起，以便于将它们一起删除。）
-
-       可以选择现有资源组（如果有）并跳到下面的步骤 g，或者按照以下步骤创建新的资源组：
-
+   f.单击“保存”以保存设置。 在“资源组”下拉菜单中，选择要与 Web 应用关联的资源组。 （使用 Azure 资源组可以将相关资源组织在一起，以便于将它们一起删除。）
+      
+      可以选择现有资源组（如果有）并跳到下面的步骤 g，或者按照以下步骤创建新的资源组：
+      
       * 在“资源组”下拉菜单中选择“&lt;&lt;新建资源组&gt;&gt;”。
       * 此时显示“新建资源组”对话框： 
+        
+         ![新建资源组][12]
 
-          ![新建资源组][12]
       * 在“名称”文本框中，为新的资源组指定名称。
       * 在“区域”下拉菜单中，为资源组选择适当的 Azure 数据中心位置。
       * 单击 **“确定”**。
@@ -122,8 +206,9 @@ ms.lasthandoff: 08/25/2017
 
       * 在“应用服务计划”下拉菜单中选择“&lt;&lt;创建新的应用服务计划&gt;&gt;”。
       * 此时显示“新建应用服务计划”对话框： 
+        
+         ![新建应用服务计划][13]
 
-          ![新建应用服务计划][13]
       * 在“名称”文本框中，为新的应用服务计划指定名称。
       * 在“位置”下拉菜单中，为计划选择适当的 Azure 数据中心位置。
       * 在“定价层”下拉菜单中，为计划选择适当的定价。 对于测试，可以选择“免费”。
@@ -144,22 +229,22 @@ ms.lasthandoff: 08/25/2017
        ![新建应用容器][14]
    10. 单击“确定”完成创建新的 Web 应用容器。
 
-        等待 Web 应用容器列表刷新，这需要几秒，之后用户新创建的 Web 应用容器应在列表中处于选中状态。
+        等待 Web 应用容器列表刷新，这需要几秒，然后，新创建的 Web 应用容器应在列表中处于选中状态。
 6. 现已准备好完成 Web 应用到 Azure 的初始部署；单击“确定”将 Java 应用程序部署到选定的 Web 应用容器。 默认情况下，应用程序部署为应用程序服务器的子目录。 如果想要将其部署为根应用程序，请选中“部署到根”复选框，然后单击“确定”。
 
     ![部署到 Azure][15]
 7. 接下来，应会看到“Azure 活动日志”视图，其中指示了 Web 应用的部署状态。
+   
+   ![进度指示器][16]
+   
+   将 Web 应用部署到 Azure 的过程只需几秒钟即可完成。 应用程序准备就绪后，可在“状态”列中看到名为“已发布”的链接。 单击该链接时，它将转到已部署 Web 应用的主页；也可以使用下一节中的步骤浏览到 Web 应用。
 
-    ![进度指示器][16]
-
-    将 Web 应用部署到 Azure 的过程只需几秒钟即可完成。 当应用程序准备就绪时，可在“状态”列中看到名为“已发布”的链接。 单击该链接时，它将转到已部署 Web 应用的主页；也可以使用下一节中的步骤浏览到 Web 应用。
-
-## <a name="browsing-to-your-web-app-on-azure"></a>浏览到 Azure 上的 Web 应用
+### <a name="browsing-to-your-web-app-on-azure"></a>浏览到 Azure 上的 Web 应用
 若要浏览到 Azure 上的 Web 应用，可以使用“Azure 资源管理器”视图  。
 
 如果“Azure 资源管理器”视图尚未打开，可以依次单击 IntelliJ 中的“视图”菜单、“工具窗口”和“服务资源管理器”将它打开。 如果事先未尚未登录，系统将提示登录。
 
-显示“Azure 资源管理器”视图后，使用以下步骤浏览到 Web 应用：  
+显示“Azure 资源管理器”视图后，按以下步骤浏览到 Web 应用： 
 
 1. 展开“Azure”节点。
 2. 展开“Web 应用”节点。 
@@ -168,7 +253,7 @@ ms.lasthandoff: 08/25/2017
 
     ![浏览 Web 应用][17]
 
-## <a name="updating-your-web-app"></a>更新 Web 应用
+### <a name="updating-your-web-app"></a>更新 Web 应用
 更新现有运行中的 Azure Web 应用是一个快速而简单的过程，可以使用两个更新选项：
 
 * 可以更新现有 Java Web 应用的部署。
@@ -182,12 +267,12 @@ ms.lasthandoff: 08/25/2017
 
 几秒钟后，“Azure 活动日志”视图会将已更新的部署显示为“已发布”，可以在 Web 浏览器中验证已更新的应用程序。
 
-## <a name="starting-stopping-or-restarting-an-existing-web-app"></a>启动、停止或重启现有 Web 应用
+### <a name="starting-stopping-or-restarting-an-existing-web-app"></a>启动、停止或重启现有 Web 应用
 若要启动或停止现有的 Azure Web 应用容器（包括其中所有已部署的 Java 应用程序），可以使用“Azure 资源管理器”视图。
 
 如果“Azure 资源管理器”视图尚未打开，可以依次单击 IntelliJ 中的“视图”菜单、“工具窗口”和“服务资源管理器”将它打开。 如果事先未尚未登录，系统将提示登录。
 
-显示“Azure 资源管理器”视图后，使用以下步骤来启动或停止 Web 应用：  
+显示“Azure 资源管理器”视图后，按以下步骤启动或停止 Web 应用： 
 
 1. 展开“Azure”节点。
 2. 展开“Web 应用”节点。 
@@ -197,36 +282,23 @@ ms.lasthandoff: 08/25/2017
     ![停止 Web 应用][18]
 
 ## <a name="next-steps"></a>后续步骤
-有关 Azure Toolkits for Java IDE 的详细信息，请参阅以下链接：
 
-* [适用于 Eclipse 的 Azure 工具包]
-  * [安装 Azure Toolkit for Eclipse]
-  * [在 Eclipse 中创建 Azure 的 Hello World Web 应用]
-  * [Azure Toolkit for Eclipse 的新增功能]
-* [Azure Toolkit for IntelliJ]
-  * [安装适用于 IntelliJ 的 Azure 工具包]
-  * *在 IntelliJ 中创建 Azure 的 Hello World Web 应用（本文）*
-  * [Azure Toolkit for IntelliJ 中的新增功能]
-
-<a name="see-also"></a>
-
-## <a name="see-also"></a>另请参阅
-有关将 Azure 与 Java 配合使用的详细信息，请参阅 [Azure Java 开发人员中心]。
+[!INCLUDE [azure-toolkit-additional-resources](../../includes/azure-toolkit-additional-resources.md)]
 
 有关创建 Azure Web 应用的其他信息，请参阅 [Web 应用概述]。
 
 <!-- URL List -->
 
-[适用于 Eclipse 的 Azure 工具包]: ../azure-toolkit-for-eclipse.md
-[Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij.md
-[在 Eclipse 中创建 Azure 的 Hello World Web 应用]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
+[适用于 IntelliJ 的 Azure 工具包]: ../azure-toolkit-for-intellij.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
-[安装 Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse-installation.md
-[安装适用于 IntelliJ 的 Azure 工具包]: ../azure-toolkit-for-intellij-installation.md
-[Azure Toolkit for Eclipse 的新增功能]: ../azure-toolkit-for-eclipse-whats-new.md
-[Azure Toolkit for IntelliJ 中的新增功能]: ../azure-toolkit-for-intellij-whats-new.md
+[Installing the Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij-installation.md
+[What's New in the Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
+[What's New in the Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij-whats-new.md
 
-[Azure Java 开发人员中心]: /develop/java/
+[Azure Java Developer Center]: /develop/java/
 [Web 应用概述]: ./app-service-web-overview.md
 [Apache Tomcat]: http://tomcat.apache.org/
 [Jetty]: http://www.eclipse.org/jetty/
@@ -255,3 +327,18 @@ ms.lasthandoff: 08/25/2017
 [16]: ./media/app-service-web-intellij-create-hello-world-web-app/16-Progress-Indicator.png
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
+
+[file-new-project]: ./media/app-service-web-intellij-create-hello-world-web-app/file-new-project.png
+[maven-archetype-webapp]: ./media/app-service-web-intellij-create-hello-world-web-app/maven-archetype-webapp.png
+[groupid-and-artifactid]: ./media/app-service-web-intellij-create-hello-world-web-app/groupid-and-artifactid.png
+[maven-options]: ./media/app-service-web-intellij-create-hello-world-web-app/maven-options.png
+[project-name]: ./media/app-service-web-intellij-create-hello-world-web-app/project-name.png
+[open-index-page]: ./media/app-service-web-intellij-create-hello-world-web-app/open-index-page.png
+[edit-index-page]: ./media/app-service-web-intellij-create-hello-world-web-app/edit-index-page.png
+[run-on-web-app-menu]: ./media/app-service-web-intellij-create-hello-world-web-app/run-on-web-app-menu.png
+[run-on-web-app-dialog]: ./media/app-service-web-intellij-create-hello-world-web-app/run-on-web-app-dialog.png
+[create-new-web-app-dialog]: ./media/app-service-web-intellij-create-hello-world-web-app/create-new-web-app-dialog.png
+[successfully-deployed]: ./media/app-service-web-intellij-create-hello-world-web-app/successfully-deployed.png
+[browse-web-app]: ./media/app-service-web-intellij-create-hello-world-web-app/browse-web-app.png
+[edit-configuration-menu]: ./media/app-service-web-intellij-create-hello-world-web-app/edit-configuration-menu.png
+[edit-configuration-dialog]: ./media/app-service-web-intellij-create-hello-world-web-app/edit-configuration-dialog.png

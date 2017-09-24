@@ -6,20 +6,19 @@ documentationcenter: na
 author: rockboyfor
 manager: digimobile
 editor: tysonn
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/15/2017
-ms.date: 09/04/2017
+origin.date: 09/08/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 557add3f8962e0dcb29c4eebd05761dc042fb0e0
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.openlocfilehash: 72760efee92372e64f00cf0d6d9bf7ad15d9cb3b
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体
 
@@ -32,34 +31,44 @@ ms.lasthandoff: 08/31/2017
 本主题演示如何通过门户执行这些步骤。 重点介绍单租户应用程序，其中应用程序只应在一个组织内运行。 通常会将单租户应用程序作为在组织中运行的业务线应用程序使用。
 
 ## <a name="required-permissions"></a>所需的权限
+
 为完成本主题，必须具有足够的权限向 Azure AD 租户注册应用程序，并将应用程序分配到 Azure 订阅中的角色。 请确保拥有适当的权限来执行这些步骤。
 
 ### <a name="check-azure-active-directory-permissions"></a>检查 Azure Active Directory 权限
+
 1. 通过 [Azure 门户](https://portal.azure.cn)登录 Azure 帐户。
-2. 选择“Azure Active Directory” 。
+
+2. 选择“Azure Active Directory”。
 
     ![选择 azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
+
 3. 在 Azure Active Directory 中，选择“用户设置”。
 
     ![选择用户设置](./media/resource-group-create-service-principal-portal/select-user-settings.png)
+
 4. 检查“应用注册”  设置。 如果设置为“是” ，则非管理员用户可以注册 AD 应用。 此设置意味着 Active AD 租户中的任何用户都可以注册应用。 可继续转到 [检查 Azure 订阅权限](#check-azure-subscription-permissions)。
 
     ![查看应用注册](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
-5. 如果应用注册设置已设置为“否” ，则只有管理员用户可以注册应用。 需要检查帐户是否为 Active AD 租户的管理员。 从快速任务选择“概述”和“查找用户”。
+
+5. 如果应用注册设置已设置为“否” ，则只有管理员用户可以注册应用。 检查帐户是否为 Active AD 租户的管理员。 从快速任务选择“概述”和“查找用户”。
 
     ![查找用户](./media/resource-group-create-service-principal-portal/find-user.png)
+
 6. 搜索帐户，在找到帐户后选择它。
 
     ![搜索用户](./media/resource-group-create-service-principal-portal/show-user.png)
-7. 对于帐户，选择“目录角色”。 
+
+7. 对于帐户，选择“目录角色”。
 
     ![目录角色](./media/resource-group-create-service-principal-portal/select-directory-role.png)
+
 8. 在 Azure AD 中查看分配的目录角色。 如果帐户分配到“用户”角色，但（前面的步骤中设置的）应用注册设置仅限于管理员用户，请要求管理员为你分配管理员角色或允许用户注册应用。
 
     ![查看角色](./media/resource-group-create-service-principal-portal/view-role.png)
 
 ### <a name="check-azure-subscription-permissions"></a>检查 Azure 订阅权限
-在 Azure 订阅中，帐户必须具有 `Microsoft.Authorization/*/Write` 访问权限才能向角色分配 AD 应用。 通过[所有者](../active-directory/role-based-access-built-in-roles.md#owner)角色或[用户访问管理员](../active-directory/role-based-access-built-in-roles.md#user-access-administrator)角色授权此操作。 如果帐户分配到“参与者”  角色，则权限不足。 尝试将服务主体分配到角色时，将收到错误。 
+
+在 Azure 订阅中，帐户必须具有 `Microsoft.Authorization/*/Write` 访问权限才能向角色分配 AD 应用。 通过[所有者](../active-directory/role-based-access-built-in-roles.md#owner)角色或[用户访问管理员](../active-directory/role-based-access-built-in-roles.md#user-access-administrator)角色授权此操作。 如果帐户分配到“参与者”  角色，则权限不足。 尝试将服务主体分配到角色时，将收到错误。
 
 检查订阅权限的方法如下：
 
@@ -68,48 +77,56 @@ ms.lasthandoff: 08/31/2017
 2. 查找 Azure AD 帐户。 从快速任务选择“概述”和“查找用户”。
 
     ![查找用户](./media/resource-group-create-service-principal-portal/find-user.png)
+
 3. 搜索帐户，在找到帐户后选择它。
 
-    ![搜索用户](./media/resource-group-create-service-principal-portal/show-user.png) 
+    ![搜索用户](./media/resource-group-create-service-principal-portal/show-user.png)
 
 4. 选择“Azure 资源” 。
 
-    ![选择资源](./media/resource-group-create-service-principal-portal/select-azure-resources.png) 
-5. 查看分配到的角色，确定你是否拥有足够的权限来向角色分配 AD 应用。 如果没有，请要求订阅管理员将你添加到用户访问管理员角色。 在下图中，用户分配到了两个订阅的“所有者”角色，这意味着该用户具有足够的权限。 
+    ![选择资源](./media/resource-group-create-service-principal-portal/select-azure-resources.png)
+
+5. 查看分配到的角色，确定你是否拥有足够的权限来向角色分配 AD 应用。 如果没有，请要求订阅管理员将你添加到用户访问管理员角色。 在下图中，用户分配到了两个订阅的“所有者”角色，这意味着该用户具有足够的权限。
 
     ![显示权限](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
 ## <a name="create-an-azure-active-directory-application"></a>创建 Azure Active Directory 应用程序
+
 1. 通过 [Azure 门户](https://portal.azure.cn)登录 Azure 帐户。
-2. 选择“Azure Active Directory” 。
+2. 选择“Azure Active Directory”。
 
     ![选择 azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-3. 选择“应用注册” 。   
+3. 选择“应用注册” 。
 
-    ![选择应用注册](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
-4. 选择“设置” （应用程序对象和服务主体对象）。
+   ![选择应用注册](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
 
-    ![添加应用](./media/resource-group-create-service-principal-portal/select-add-app.png)
+4. 选择“新建应用程序注册”。
+
+   ![添加应用](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
 5. 为应用提供名称和 URL。 选择“Web 应用/API”或“本机”作为要创建的应用程序的类型。 。
 
-    ![命名应用程序](./media/resource-group-create-service-principal-portal/create-app.png)
+   ![命名应用程序](./media/resource-group-create-service-principal-portal/create-app.png)
 
 已创建应用程序。
 
 ## <a name="get-application-id-and-authentication-key"></a>获取应用程序 ID 和身份验证密钥
+
 以编程方式登录时，需要使用应用程序的 ID 和身份验证密钥。 若要获取这些值，请使用以下步骤：
 
 1. 从 Azure Active Directory 中的“应用注册”，选择应用程序。
 
     ![选择应用程序](./media/resource-group-create-service-principal-portal/select-app.png)
-2. 复制“应用程序 ID”并将其存储在应用程序代码中。 [示例应用程序](#sample-applications) 部分的应用程序引用此值作为客户端 ID。
+
+2. 复制“应用程序 ID”并将其存储在应用程序代码中。 [示例应用程序](#sample-applications)部分的应用程序引用此值作为客户端 ID。
 
     ![客户端 ID](./media/resource-group-create-service-principal-portal/copy-app-id.png)
+
 3. 若要生成身份验证密钥，请选择“密钥” 。
 
     ![选择密钥](./media/resource-group-create-service-principal-portal/select-keys.png)
+
 4. 提供密钥说明和密钥持续时间。 完成后，选择“保存” 。
 
     ![保存密钥](./media/resource-group-create-service-principal-portal/save-key.png)
@@ -119,20 +136,26 @@ ms.lasthandoff: 08/31/2017
     ![保存的密钥](./media/resource-group-create-service-principal-portal/copy-key.png)
 
 ## <a name="get-tenant-id"></a>获取租户 ID
-以编程方式登录时，需要随身份验证请求传递租户 ID。 
 
-1. 若要获取租户 ID，请选择 Azure AD 租户的“属性”。 
+以编程方式登录时，需要随身份验证请求传递租户 ID。
+
+1. 选择“Azure Active Directory” 。
+
+    ![选择 azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
+
+2. 若要获取租户 ID，请选择 Azure AD 租户的“属性”。
 
     ![选择 Azure AD 属性](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
 
-2. 复制“目录 ID” 。 此值即为租户 ID。
+3. 复制“目录 ID” 。 此值即为租户 ID。
 
     ![租户 ID](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
 
 ## <a name="assign-application-to-role"></a>将应用程序分配到角色
+
 要访问订阅中的资源，必须将应用程序分配到角色。 决定哪个角色表示应用程序的相应权限。 若要了解有关可用角色的信息，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。
 
-可将作用域设置为订阅、资源组或资源级别。 较低级别的作用域会继承权限。 例如，将某个应用程序添加到资源组的“读取者”角色意味着该应用程序可以读取该资源组及其包含的所有资源。
+可将作用域设置为订阅、资源组或资源级别。 较低级别的作用域将继承权限。 例如，将某个应用程序添加到资源组的“读取者”角色意味着该应用程序可以读取该资源组及其包含的所有资源。
 
 1. 导航到要将应用程序分配到的作用域级别。 例如，若要在订阅范围内分配角色，选择“订阅” 。 可改为选择资源组或资源。
 
@@ -149,14 +172,15 @@ ms.lasthandoff: 08/31/2017
 4. 选择“设置” （应用程序对象和服务主体对象）。
 
     ![选择添加](./media/resource-group-create-service-principal-portal/select-add.png)
-6. 选择要分配到应用程序的角色。 下图显示“读者”  角色。
+5. 选择要分配到应用程序的角色。 下图显示“读者”  角色。
 
     ![选择角色](./media/resource-group-create-service-principal-portal/select-role.png)
 
-8. 搜索用户的应用程序，并选择它。
+6. 搜索用户的应用程序，并选择它。
 
-    ![搜索应用](./media/resource-group-create-service-principal-portal/search-app.png)
-9. 选择“确定”  完成角色分配。 该应用程序会显示在分配到该范围角色的用户列表中。
+   ![搜索应用](./media/resource-group-create-service-principal-portal/search-app.png)
+
+7. 选择“保存”完成角色分配。 该应用程序会显示在分配到该范围角色的用户列表中。
 
 ## <a name="log-in-as-the-application"></a>作为应用程序登录
 
@@ -165,15 +189,14 @@ ms.lasthandoff: 08/31/2017
 * [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
 * [Azure CLI](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)
 * [REST](https://docs.microsoft.com/rest/api/#create-the-request)
-* [在 .NET 中使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-dotnet-template-deployment/)
-* [使用 .NET 管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-dotnet-resources-and-groups/)
+* [.NET](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](https://docs.azure.cn/java/java-sdk-azure-authenticate)
 * [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
 * [Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>后续步骤
-* 若要设置多租户应用程序，请参阅 [使用 Azure Resource Manager API 进行授权的开发人员指南](resource-manager-api-authentication.md)。
+* 若要设置多租户应用程序，请参阅[使用 Azure Resource Manager API 进行授权的开发人员指南](resource-manager-api-authentication.md)。
 * 若要了解如何指定安全策略，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-configure.md)。  
 * 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure Resource Manager 资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。
 

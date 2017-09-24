@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 
+origin.date: 12/08/2016
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 98f5379cccc55a47e52c9f83e8dfb46c26571477
-ms.sourcegitcommit: c0d234cae3e93848d235b9292bb4a9c3096aa963
+ms.openlocfilehash: c191a3368ea0f8015cc76b4c7aeb47b9d2b12013
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>如何通过 Node.js 使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -66,8 +66,6 @@ var azure = require('azure-storage');
 
 ## <a name="set-up-an-azure-storage-connection"></a>设置 Azure 存储连接
 Azure 模块会读取环境变量 AZURE_STORAGE_ACCOUNT 和 AZURE_STORAGE_ACCESS_KEY 或 AZURE_STORAGE_CONNECTION_STRING，获取连接到 Azure 存储帐户所需的信息。 如果未设置这些环境变量，则必须在调用 **TableService**时指定帐户信息。
-
-有关在 [Azure 门户](https://portal.azure.cn)中为 Azure 网站设置环境变量的示例，请参阅[使用 Azure 表服务的 Node.js Web 应用](../app-service-web/storage-nodejs-use-table-storage-web-site.md)。
 
 ## <a name="create-a-table"></a>创建表
 下面的代码创建 **TableService** 对象并使用它来创建一个新表。 将以下代码添加到 **server.js** 的顶部附近。
@@ -454,3 +452,5 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 * GitHub 上的[用于 Node 的 Microsoft Azure 存储 SDK](https://github.com/Azure/azure-storage-node) 存储库。
 * [Node.js 开发人员中心](/develop/nodejs/)
 * [创建 Node.js 应用程序并将其部署到 Azure 网站](../app-service-web/app-service-web-get-started-nodejs.md)
+
+<!--Update_Description: update meta properties， wording update-->

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 08/18/2017
-ms.date: 08/24/2017
+origin.date: 09/06/2017
+ms.date: 09/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: 3cae3d5015554e4202bb738fb128b1d2268a09b8
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 665e4a4f778a215eba24ad762c75f8f6d754b262
+ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/21/2017
 ---
 # <a name="connector-version-release-history"></a>连接器版本发行历史记录
 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接器会经常更新。
@@ -39,7 +39,7 @@ Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接�
 - [Lotus Domino 连接器](active-directory-aadconnectsync-connector-domino.md)参考文档
 
 
-## <a name="116040-aadconnect-11xxx0"></a>1.1.604.0 (AADConnect 1.1.XXX.0)
+## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
 
 
 ### <a name="fixed-issues"></a>已解决的问题：
@@ -69,12 +69,12 @@ Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接�
       - ou
       - altcommonname
 
-  - “允许组织/组织单位的自定义认证者”选项已启用，但所需认证者仍为空时，会发生 KeyNotFoundException。
+  - 如果启用“允许组织/组织单位的自定义认证者”选项，但所需认证者仍为空，则会出现 KeyNotFoundException 错误。
 
 ### <a name="enhancements"></a>增强功能：
 
 - 泛型 SQL：
-  - **方案：已重新实施：**“*”功能
+  - **方案：重新设计实现：** "*"功能
   - **解决方案说明：**已更改[多值引用属性处理](active-directory-aadconnectsync-connector-genericsql.md)的方法。
 
 

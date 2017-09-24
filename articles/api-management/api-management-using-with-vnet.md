@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2016
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 87cf49adc9baf3f0cedf60e6fcb375f1f78039cb
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 10/09/2017
+ms.openlocfilehash: 6456b6bf892cb3650d73b17ead2a6a619015846f
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何将 Azure API 管理与虚拟网络配合使用
 使用 Azure 虚拟网络 (VNET) 可将你的任何 Azure 资源置于可以控制其访问权限但无法通过 Internet 路由的网络中。 然后，可以使用各种 VPN 技术将这些网络连接到本地网络。 若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息：[Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
@@ -99,7 +99,7 @@ ms.lasthandoff: 09/08/2017
 
 在 VNET 中托管 API 管理服务实例时，将使用下表中的端口。
 
-| 源/目标端口 | 方向 | 传输协议 | 目的 | 源/目标 | 访问类型 |
+| 源 / 目标端口 | 方向 | 传输协议 | 目的 | 源/目标 | 访问类型 |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |入站 |TCP |客户端与 API 管理的通信 |INTERNET/VIRTUAL_NETWORK |外部 |
 | * / 3443 |入站 |TCP |Azure 门户和 Powershell 的管理终结点 |INTERNET/VIRTUAL_NETWORK |外部和内部 |
@@ -108,7 +108,7 @@ ms.lasthandoff: 09/08/2017
 | * / 11000 - 11999 |出站 |TCP |与 Azure SQL V12 的依赖关系 |VIRTUAL_NETWORK/INTERNET |外部和内部 |
 | * / 14000 - 14999 |出站 |TCP |与 Azure SQL V12 的依赖关系 |VIRTUAL_NETWORK/INTERNET |外部和内部 |
 | * / 5671 |出站 |AMQP |事件中心策略日志和监视代理的依赖项 |VIRTUAL_NETWORK/INTERNET |外部和内部 |
-| 6381 - 6383 / 6381 - 6383 |入站和出站 |UDP |与 Redis 缓存的依赖关系 |VIRTUAL_NETWORK/VIRTUAL_NETWORK |外部和内部 |-
+| * / 6381 - 6383 |入站和出站 |TCP |与 Redis 缓存的依赖关系 |VIRTUAL_NETWORK/VIRTUAL_NETWORK |外部和内部 |
 | * / 445 |出站 |TCP |与适用于 GIT 的 Azure 文件共享的依赖关系 |VIRTUAL_NETWORK/INTERNET |外部和内部 |
 | * / * | 入站 |TCP |Azure 基础结构负载均衡器 | AZURE_LOAD_BALANCER/VIRTUAL_NETWORK |外部和内部 |
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 09/08/2017
 * **ExpressRoute 设置**：一种常见的客户配置是定义其自己的默认路由 (0.0.0.0/0)，以强制出站 Internet 流量改为流向本地。 此流量流一定会中断与 Azure API 管理的连接，因为出站流量会在本地被阻止，或者通过“网络地址转换”功能发送到不再与各种 Azure 终结点一起工作的一组无法识别的地址。 解决方案是在包含 Azure API 管理的子网上定义一个（或多个）用户定义的路由 ([UDR][UDRs])。 UDR 定义了要遵循的子网特定路由，而不是默认路由。
   如果可能，建议使用以下配置：
  * ExpressRoute 配置播发 0.0.0.0/0 并默认使用强制隧道将所有输出流量发送到本地。
- * 应用于包含 Azure API 管理的子网的 UDR 将“Internet”作为下一个跃点类型来定义 0.0.0.0/0。
+ * 应用于包含 Azure API 管理的子网的 UDR 定义 0.0.0.0/0 以及 Internet 的下一个跃点类型。
  这些步骤的组合效应是子网级 UDR 将优先于 ExpressRoute 强制隧道，从而确保来自 Azure API 管理的出站 Internet 访问。
 
 >[!WARNING]  

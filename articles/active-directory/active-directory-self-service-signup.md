@@ -3,8 +3,8 @@ title: "什么是 Azure 的自助服务注册？ | Microsoft Docs"
 description: "概述 Azure 的自助注册、如何管理注册过程以及如何接管 DNS 域名。"
 services: active-directory
 documentationcenter: 
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/08/2017
-ms.date: 06/12/2017
+origin.date: 08/28/2017
+ms.date: 09/20/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 87a4b48fec4d4240293cdcc67bed485df515348b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.reviewer: elkuzmen
+ms.custom: it-pro
+ms.openlocfilehash: 77e55ac935babc4141d93d0bf74466518a0b11ee
+ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/21/2017
 ---
 # <a name="what-is-self-service-signup-for-azure"></a>什么是 Azure 的自助服务注册？
 本主题介绍自助注册过程以及如何接管 DNS 域名。  
@@ -40,23 +40,23 @@ ms.lasthandoff: 05/26/2017
 ## <a name="user-experience"></a>用户体验
 假设电子邮件地址为 Dan@BellowsCollege.com 用户要通过电子邮件接收机密文件。 这些文件将由 Azure Rights Management (Azure RMS) 保护。 但是，Dan 的组织 Bellows College 未注册 Azure RMS，并且未部署 Active Directory RMS。 在这种情况下，Dan 可以个人注册 RMS 的免费订阅，以便能够阅读受保护的文件。
 
-如果 Dan 是使用 BellowsCollege.com 的电子邮件地址注册此自助服务产品的第一个用户，那么，将在 Azure AD 中为 BellowsCollege.com 创建一个非托管目录。 如果来自 BellowsCollege.com 域的其他用户注册了此产品或类似的自助服务产品，则也会在 Azure 的同一个非托管目录中创建电子邮件验证的用户帐户。
+如果 Dan 是使用 BellowsCollege.com 的电子邮件地址注册此自助服务产品的第一个用户，那么，会在 Azure AD 中为 BellowsCollege.com 创建一个非托管目录。 如果来自 BellowsCollege.com 域的其他用户注册了此产品或类似的自助服务产品，则也会在 Azure 的同一个非托管目录中创建电子邮件验证的用户帐户。
 
 ## <a name="admin-experience"></a>管理员体验
 拥有非托管 Azure 目录 DNS 域名的管理员可以在证明所有权后接管或合并目录。 以下部分更详细地介绍了管理员体验，不过本文只会提供摘要：
 
-- 接管某个非托管 Azure 目录后，你就会成为该非托管目录的全局管理员。 这有时称为内部接管。
+- 接管某个非托管 Azure 目录后，就会成为该非托管目录的全局管理员。 这有时称为内部接管。
 - 在合并非托管 Azure 目录时，会将非托管目录的 DNS 域名添加到托管 Azure 目录，并创建用户到资源的映射，以便用户可以继续访问服务而不会遇到中断。 这有时称为外部接管。
 
-## <a name="what-gets-created-in-azure-active-directory"></a>将在 Azure Active Directory 中创建哪些项目？
+## <a name="what-gets-created-in-azure-active-directory"></a>在 Azure Active Directory 中创建哪些项目？
 #### <a name="directory"></a>目录
-- 将为每个域创建一个 Azure Active Directory 目录。
+- 为每个域创建一个 Azure Active Directory 目录。
 - Azure AD 目录没有全局管理员。
 
 #### <a name="users"></a>用户
-- 对于注册的每个用户，将在 Azure AD 目录中创建一个用户对象。
+- 对于注册的每个用户，会在 Azure AD 目录中创建一个用户对象。
 - 每个用户对象均标记为外部。
-- 将为每个用户授予访问其所注册的服务的权限。
+- 为每个用户授予访问其所注册的服务的权限。
 
 ### <a name="how-do-i-claim-a-self-service-azure-ad-directory-for-a-domain-i-own"></a>如何对我拥有的域声明自助服务 Azure AD 目录？
 可以通过执行域验证来声明自助服务 Azure AD 目录。 域验证会通过创建 DNS 记录证明你拥有该域。
@@ -66,13 +66,13 @@ ms.lasthandoff: 05/26/2017
 - 内部接管（管理员发现非托管 Azure 目录，并想要转变为托管目录）
 - 外部接管（管理员尝试将新域添加到其托管 Azure 目录）
 
-你可能想要验证你是否拥有某个域，因为你要在用户执行自助注册后接管非托管目录；或者，你可能要向现有的托管目录添加新域。 例如，你有一个名为 contoso.com 的域，并想要添加名为 contoso.co.uk 或 contoso.uk 的新域。
+可能想要验证你是否拥有某个域，你要在用户执行自助注册后接管非托管目录；或者，可能要向现有的托管目录添加新域。 例如，有一个名为 contoso.com 的域，并想要添加名为 contoso.co.uk 或 contoso.uk 的新域。
 
 ## <a name="what-is-domain-takeover"></a>什么是域接管？
 本部分介绍如何验证你是否拥有某个域
 
 ### <a name="what-is-domain-validation-and-why-is-it-used"></a>什么是域验证，为何使用域验证？
-为了对目录执行操作，Azure AD 要求你验证 DNS 域的所有权。  验证域后，你可以声明目录，并将自助服务目录提升为托管目录，或者将自助服务目录合并到现有的托管目录。
+为了对目录执行操作，Azure AD 要求验证 DNS 域的所有权。  验证域后，可以声明目录，并将自助服务目录提升为托管目录，或者将自助服务目录合并到现有的托管目录。
 
 ## <a name="examples-of-domain-validation"></a>域验证示例
 有两种方法可以实现目录的 DNS 接管：
@@ -81,27 +81,27 @@ ms.lasthandoff: 05/26/2017
 - 外部接管（例如，管理员尝试将新域添加到托管目录）
 
 ### <a name="internal-takeover---promote-a-self-service-unmanaged-directory-to-be-a-managed-directory"></a>内部接管 — 将自助服务非托管目录提升为托管目录
-当你执行内部接管时，目录将从非托管目录转换为托管目录。 你需要完成 DNS 域名验证，并在验证时在 DNS 区域中创建 MX 记录或 TXT 记录。 该操作将会：
+当你执行内部接管时，目录将从非托管目录转换为托管目录。 需要完成 DNS 域名验证，并在验证时在 DNS 区域中创建 MX 记录或 TXT 记录。 该操作会：
 
 - 验证你是否拥有该域
 - 将目录转变为托管目录
-- 将你设为目录的全局管理员
+- 设为目录的全局管理员
 
-假设 Bellows College 的 IT 管理员发现该校的用户已注册自助服务产品。 作为 DNS 名称 BellowsCollege.com 的注册所有者，该 IT 管理员可以在 Azure 中验证 DNS 名称的所有权，然后接管非托管目录。 然后，目录将成为托管目录，并且 IT 管理员将获得 BellowsCollege.com 目录的全局管理员角色。
+假设 Bellows College 的 IT 管理员发现该校的用户已注册自助服务产品。 作为 DNS 名称 BellowsCollege.com 的注册所有者，该 IT 管理员可以在 Azure 中验证 DNS 名称的所有权，并接管非托管目录。 然后，目录将成为托管目录，并且 IT 管理员将获得 BellowsCollege.com 目录的全局管理员角色。
 
 ### <a name="external-takeover---merge-a-self-service-directory-into-an-existing-managed-directory"></a>外部接管 — 将自助服务目录合并到现有的托管目录
-在外部接管中，你已经有一个托管目录，并希望非托管目录中的所有用户和组都加入该托管目录，而不是拥有两个独立的目录。
+在外部接管中，已经有一个托管目录，并希望非托管目录中的所有用户和组都加入该托管目录，而不是拥有两个独立的目录。
 
-作为托管目录的管理员，你可以添加一个域，而该域恰好有一个关联的非托管目录。
+作为托管目录的管理员，可以添加一个域，而该域恰好有一个关联的非托管目录。
 
-假设你是 IT 管理员并且已有 Contoso.com（你的组织注册的域名）的托管目录。 你发现组织中的用户使用电子邮件域名 user@contoso.co.uk（你的组织拥有的另一个域名）自助注册了某个产品。 这些用户当前在 contoso.co.uk 的非托管目录中拥有帐户。
+假设你是 IT 管理员并且已有 Contoso.com（组织注册的域名）的托管目录。 发现组织中的用户使用电子邮件域名 user@contoso.co.uk（组织拥有的另一个域名）自助注册了某个产品。 这些用户当前在 contoso.co.uk 的非托管目录中拥有帐户。
 
-你不希望管理两个独立的目录，因此，你要将 contoso.co.uk 的非托管目录合并到 contoso.com 的现有 IT 托管目录。
+不希望管理两个独立的目录，因此，要将 contoso.co.uk 的非托管目录合并到 contoso.com 的现有 IT 托管目录。
 
 外部接管遵循的 DNS 验证过程与内部接管相同。  差别在于：用户和服务将重新映射到 IT 托管目录。
 
 #### <a name="whats-the-impact-of-performing-an-external-takeover"></a>执行外部接管会造成什么影响？
-执行外部接管时，会创建用户到资源的映射，以便用户可以继续访问服务而不会遇到中断。 许多应用程序（包括面向个人的 RMS）可能很好地处理用户到资源的映射，用户可以像平常一样继续访问这些服务。 如果应用程序不能有效地处理用户到资源的映射，你可以显式阻止外部接管以防止给用户带来不好的体验。
+执行外部接管时，会创建用户到资源的映射，以便用户可以继续访问服务而不会遇到中断。 许多应用程序（包括面向个人的 RMS）可能很好地处理用户到资源的映射，用户可以像平常一样继续访问这些服务。 如果应用程序不能有效地处理用户到资源的映射，可以显式阻止外部接管以防止给用户带来不好的体验。
 
 #### <a name="directory-takeover-support-by-service"></a>服务支持的目录接管
 目前，以下服务支持接管：
@@ -121,9 +121,9 @@ ms.lasthandoff: 05/26/2017
 
 1. Azure 管理门户
 
-   通过添加域来触发接管。  如果域已经存在一个目录，则你可以选择执行外部接管。
+   通过添加域来触发接管。  如果域已经存在一个目录，则可以选择执行外部接管。
 
-   使用你的凭据登录到 Azure 门户。  导航到现有目录，然后选择“添加域” 。
+   使用凭据登录到 Azure 门户。  导航到现有目录，并选择“添加域” 。
 2. Office 365
 
    在 Office 365 中，可以使用[管理域](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/)页上的选项来处理域和 DNS 记录。 请参阅[在 Office 365 中验证域](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/)。
@@ -164,7 +164,7 @@ ms.lasthandoff: 05/26/2017
         MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
 5. 在公共 DNS 命名空间中，创建包含你在上一步复制的值的 DNS txt 记录。
 
-    此记录的名称即是父域的名称，因此，如果你要使用 Windows Server 中的 DNS 角色创建此资源记录，请将记录名称保留空白，而只在文本框中粘贴该值
+    此记录的名称即是父域的名称，因此，如果要使用 Windows Server 中的 DNS 角色创建此资源记录，请将记录名称保留空白，而只在文本框中粘贴该值
 6. 运行 Confirm-MsolDomain cmdlet 以验证质询：
 
         Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
@@ -173,7 +173,7 @@ ms.lasthandoff: 05/26/2017
 
         Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
 
-如果质询成功，你将返回到提示符，且不会显示错误。
+如果质询成功，你会返回到提示符，且不会显示错误。
 
 ## <a name="how-do-i-control-self-service-settings"></a>如何控制自助服务设置？
 目前，管理员有两种自助服务控制方式。 他们可以控制：
@@ -207,4 +207,4 @@ ms.lasthandoff: 05/26/2017
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-
+<!--Update_Description: update meta properties -->  

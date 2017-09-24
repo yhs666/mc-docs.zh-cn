@@ -11,20 +11,19 @@ ms.assetid:
 ms.service: cosmos-db
 ms.custom: tutorial-develop
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5586cf3db2f26e20fb2d027404ae5278b0f3783b
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 6da7519034693d03b77cd574073815abf4547317
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 09/22/2017
 ---
-# Azure Cosmos DB：如何使用 SQL 进行查询？
-<a id="azure-cosmos-db-how-to-query-using-sql" class="xliff"></a>
+# <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB：如何使用 SQL 进行查询？
 
 Azure Cosmos DB [DocumentDB API](documentdb-introduction.md) 支持使用 SQL 查询文档。 本文提供一个示例文档和两个示例 SQL 查询和结果。
 
@@ -33,8 +32,7 @@ Azure Cosmos DB [DocumentDB API](documentdb-introduction.md) 支持使用 SQL �
 > [!div class="checklist"]
 > * 使用 SQL 查询数据
 
-## 示例文档
-<a id="sample-document" class="xliff"></a>
+## <a name="sample-document"></a>示例文档
 
 本文中的 SQL 查询使用下面的示例文档。
 
@@ -66,23 +64,20 @@ Azure Cosmos DB [DocumentDB API](documentdb-introduction.md) 支持使用 SQL �
   "isRegistered": false
 }
 ```
-## 可在何处运行 SQL 查询？
-<a id="where-can-i-run-sql-queries" class="xliff"></a>
+## <a name="where-can-i-run-sql-queries"></a>可在何处运行 SQL 查询？
 
 通过 [REST API 和 SDK](documentdb-sdk-dotnet.md) 或[查询演练](https://www.documentdb.com/sql/demo)（它对现有示例数据集运行查询），可在 Azure 门户中使用数据资源管理器运行查询。
 
 有关 SQL 查询的详细信息，请参阅：
 * [SQL 查询和 SQL 语法](documentdb-sql-query.md)
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 
-本教程假定你已拥有 Azure Cosmos DB 帐户和集合。 没有这些内容？ 请学习 [5 分钟快速入门](create-mongodb-nodejs.md)或[开发人员教程](tutorial-develop-mongodb.md)，创建帐户和集合。
+本教程假定已拥有 Azure Cosmos DB 帐户和集合。 没有这些内容？ 请学习 [5 分钟快速入门](create-mongodb-nodejs.md)或[开发人员教程](tutorial-develop-mongodb.md)，创建帐户和集合。
 
-## 示例查询 1
-<a id="example-query-1" class="xliff"></a>
+## <a name="example-query-1"></a>示例查询 1
 
-若使用上述示例家庭文档，则以下 SQL 查询将返回其 ID 字段匹配 `WakefieldFamily` 的文档。 由于它是 `SELECT *` 语句，因此该查询的输出为完整的 JSON 文档：
+若使用上述示例家庭文档，则以下 SQL 查询返回其 ID 字段匹配 `WakefieldFamily` 的文档。 由于它是 `SELECT *` 语句，因此该查询的输出为完整的 JSON 文档：
 
 **查询**
 
@@ -121,10 +116,9 @@ Azure Cosmos DB [DocumentDB API](documentdb-introduction.md) 支持使用 SQL �
 }
 ```
 
-## 示例查询 2
-<a id="example-query-2" class="xliff"></a>
+## <a name="example-query-2"></a>示例查询 2
 
-下一查询将返回家族中所有 ID 匹配 `WakefieldFamily` 的子女的名字（按匹配得分排序）。
+下一查询返回家族中所有 ID 匹配 `WakefieldFamily` 的子女的名字（按匹配得分排序）。
 
 **查询**
 
@@ -141,8 +135,7 @@ Azure Cosmos DB [DocumentDB API](documentdb-introduction.md) 支持使用 SQL �
       { "givenName": "Lisa"}
     ]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 在本教程中，已完成以下内容：
 
@@ -153,3 +146,5 @@ Azure Cosmos DB [DocumentDB API](documentdb-introduction.md) 支持使用 SQL �
 
 > [!div class="nextstepaction"]
 > [全局分发数据](tutorial-global-distribution-documentdb.md)
+
+<!--Update_Description: update meta properties-->

@@ -15,22 +15,15 @@ ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
 ms.date: 
-ms.openlocfilehash: 53743c605448049fdec2a28449b090ff391fd432
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.openlocfilehash: 25bab7d9797562b242bc3adf9f997207aab8f89f
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="api-management-policy-expressions"></a>API 管理策略表达式
 策略表达式语法为 C# 6.0 版。 每个表达式都可以访问隐式提供的[上下文](./api-management-policy-expressions.md#ContextVariables)变量以及允许的 .NET Framework 类型[子集](./api-management-policy-expressions.md#CLRTypes)。  
   
- 
->  -   10:30 - 了解如何应用 API 级策略，以便使用[设置查询字符串参数](./api-management-transformation-policies.md#SetQueryStringParameter)和[设置 HTTP 标头](./api-management-transformation-policies.md#SetHTTPheader)策略将上下文信息提供给后端服务。 在 12:10 处有一个演示，演示了如何在开发人员门户中调用操作，以便在其中查看这些生效的策略。  
-> -   13:50 - 了解如何使用[验证 JWT](./api-management-access-restriction-policies.md#ValidateJWT) 策略根据令牌声明预先授予操作访问权限。 快进到 15:00，观看在策略编辑器中配置的策略，然后快进到 18:50，观看对使用和不使用所需授权令牌从开发人员门户调用操作的演示。  
-> -   21:00 - 了解如何使用 [API 检查器](./api-management-howto-api-inspector.md)跟踪查看策略求值方法和求值结果。  
-> -   25:25 - 了解如何针对[从缓存获取](./api-management-caching-policies.md#GetFromCache)和[存储到缓存](./api-management-caching-policies.md#StoreToCache)策略使用策略表达式，以便配置 API 管理响应缓存持续时间，使之匹配由后端服务的 `Cache-Control` 指令指定的后端服务响应缓存。  
-> -   34:30 - 了解如何进行内容筛选，所用方法为删除从后端服务接收的响应中的数据元素，所用策略为[控制流](./api-management-advanced-policies.md#choose)和[设置正文](./api-management-transformation-policies.md#SetBody)。 若要大致了解用于此演示的 [Dark Sky Forecast API](https://developer.forecast.io/)，请从 31:50 开始观看。  
-> -   若要下载此视频中使用的策略语句，请参阅 [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) github 存储库。  
   
   
 ##  <a name="Syntax"></a> 语法  
@@ -169,7 +162,7 @@ ms.lasthandoff: 09/08/2017
   
 |上下文变量|允许的方法、属性和参数值|  
 |----------------------|-------------------------------------------------------|  
-|context|Api：IApi<br /><br /> Deployment<br /><br /> LastError<br /><br /> Operation<br /><br /> Product<br /><br /> Request<br /><br /> RequestId：string<br /><br /> Response<br /><br /> Subscription<br /><br /> Tracing：bool<br /><br /> User<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message：string)|  
+|上下文|Api: IApi<br /><br /> 部署<br /><br /> LastError<br /><br /> 操作<br /><br /> 产品<br /><br /> 请求<br /><br /> RequestId: Guid<br /><br /> 响应<br /><br /> 订阅<br /><br /> Tracing：布尔值<br /><br /> 用户<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message：string)|  
 |context.Api|Id：string<br /><br /> Name：string<br /><br /> Path：string<br /><br /> ServiceUrl：IUrl|  
 |context.Deployment|Region：string<br /><br /> ServiceName：string|  
 |context.LastError|Source：string<br /><br /> Reason：string<br /><br /> Message：string<br /><br /> Scope：string<br /><br /> Section：string<br /><br /> Path：string<br /><br /> PolicyId：string<br /><br /> 有关 context.LastError 的详细信息，请参阅[错误处理](./api-management-error-handling-policies.md)。|  

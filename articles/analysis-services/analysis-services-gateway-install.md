@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 08/17/2017
-ms.date: 08/28/2017
+origin.date: 08/22/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 930b42c0cba55acdb3386aac0834ccf29bb04f37
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: bf46675f70bce49b2a0d1ec786c4bb8ae65e1be6
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安装并配置本地数据网关
 当同一区域中的一个或多个 Azure Analysis Services 服务器连接到本地数据源时，需要本地数据网关。 若要了解有关网关的详细信息，请参阅[本地数据网关](analysis-services-gateway.md)。
@@ -64,8 +64,11 @@ ms.lasthandoff: 08/25/2017
 
    ![输入用于登录 Azure 的帐户](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
+   > [!NOTE]
+   > 如果你使用域帐户登录，它将映射到你在 Azure AD 中的组织帐户。 你的组织帐户将用作网关管理员。
+
 ## <a name="register"></a>注册
-若要在 Azure 中创建网关资源，必须将安装的本地实例注册到网关云服务。 
+若要在 Azure 中创建网关资源，则必须在网关云服务中注册你安装的本地实例。 
 
 1.  选择“在此计算机上注册新网关”。
 
@@ -75,6 +78,7 @@ ms.lasthandoff: 08/25/2017
 
    ![注册](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
+<a name="create-resource"></a>
 ## <a name="create-an-azure-gateway-resource"></a>创建 Azure 网关资源
 安装并注册网关后，需在 Azure 订阅中创建网关资源。 使用注册网关时所用的同一帐户登录到 Azure。
 
@@ -99,6 +103,7 @@ ms.lasthandoff: 08/25/2017
 
     完成后，单击“创建”。
 
+<a name="connect-servers"></a>
 ## <a name="connect-servers-to-the-gateway-resource"></a>将服务器连接到网关资源
 
 1. 在 Azure Analysis Services 服务器概述中，单击“本地数据网关”。
@@ -109,10 +114,13 @@ ms.lasthandoff: 08/25/2017
 
    ![将服务器连接到网关资源](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 
+    > [!NOTE]
+    > 如果列表中不显示你的网关，很可能是你的服务器与你注册网关时指定的区域不在同一个区域。 
+
 就这么简单。 如需打开端口或执行任何故障排除，请务必查看[本地数据网关](analysis-services-gateway.md)。
 
 ## <a name="next-steps"></a>后续步骤
 * [管理 Analysis Services](analysis-services-manage.md)   
 * [从 Azure Analysis Services 获取数据](analysis-services-connect.md)
 
-<!--Update_Description: new articles about install gateway in analysis serices -->
+<!--Update_Description: update meta properties, wording update -->

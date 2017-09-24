@@ -3,7 +3,7 @@ title: "Azure 媒体服务遥测 | Azure"
 description: "本文概述了 Azure 媒体服务遥测。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/29/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 7909ca7201c96c15f4632e3d7774e00c6f8037e5
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.date: 09/25/2017
+ms.author: v-johch
+ms.openlocfilehash: 165a4e467861ef019af595314330c0432b3c81c4
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="azure-media-services-telemetry"></a>Azure 媒体服务遥测
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 08/31/2017
 属性|值|示例/说明
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>帐户 ID 包括在分区键中，可简化将多个媒体服务帐户写入同一存储帐户的工作流。
-RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>行键以距午夜的秒数开头，可允许分区内的前 n 个样式查询。 有关详细信息，请参阅[本文](../storage/storage-table-design-guide.md#log-tail-pattern)。 
+RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>行键以距午夜的秒数开头，可允许分区内的前 n 个样式查询。 有关详细信息，请参阅[本文](../cosmos-db/table-storage-design-guide.md#log-tail-pattern)。 
 Timestamp|日期/时间|Azure 表中的自动时间戳 2016-09-09T22:43:42.241Z
 类型|提供遥测数据的实体类型|Channel/StreamingEndpoint/Archive<br/><br/>事件类型只是一个字符串值。
 名称|遥测事件的名称|ChannelHeartbeat/StreamingEndpointRequestLog
@@ -210,3 +210,4 @@ Healthy|如果 FragmentDiscardedCount == 0 且 ArchiveAcquisitionError == False�
 ### <a name="how-to-manage-data-retention"></a>如何管理数据保留期？
 
 遥测系统不提供数据保留期管理，也不会自动删除旧记录。 因此，请在存储表中手动管理和删除旧记录。 可参阅存储 SDK 以了解如何执行此操作。
+<!--Update_Description:update one link-->

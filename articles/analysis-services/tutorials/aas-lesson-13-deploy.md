@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 07/17/2017
-ms.date: 08/28/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1353aa8fdda070507291201bc7da23be8b52ec00
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 5f7a1810b506467184f26193376a4d7486b36ec0
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="lesson-13-deploy"></a>第 13 课：部署
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 08/25/2017
 
 1.  在“解决方案资源管理器”中，右键单击“AW Internet 销售”项目，并单击“属性”。  
 
-2.  在“AW Internet 销售属性页”对话框中，“部署服务器”下的“服务器”属性中输入完整的服务器名称。  
+2.  在“AW Internet 销售属性页”对话框中，在“部署服务器”下的“服务器”属性中输入完整的服务器名称。  
 
     ![aas-lesson13-deploy-property](../tutorials/media/aas-lesson13-deploy-property.png)
 
@@ -80,4 +80,4 @@ ms.lasthandoff: 08/25/2017
 [补充课程 - 详细信息行](../tutorials/aas-supplemental-lesson-detail-rows.md)   
 [补充课程 - 不规则层次结构](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties-->

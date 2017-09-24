@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: b3a206bb719ec7f4bbddda85712ddad1b68afa20
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 128d8be3e992de8aad9655941c5fad35db6afffd
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
 生活在大规模互连的社会中，这意味着有时候你也成了社交网络中的一部分。 我们使用社交网络与朋友、同事和家人保持联系，有时还会与有共同兴趣的人分享我们的激情。
@@ -136,7 +136,7 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
     }
 
 <!-- Not Available [Gremlin Graph API](../cosmos-db/graph-introduction.md) -->
-
+仍然可以使用用户统计信息文档在 UI 或快速配置文件预览中创建卡片。
 
 ## <a name="the-ladder-pattern-and-data-duplication"></a>“阶梯”模式和数据重复
 可能已注意到，在引用帖子的 JSON 文档中，某个用户出现了多次。 而且你猜得没错，这意味着鉴于这种非规范化，表示用户的信息可能显示在多处。
@@ -230,14 +230,12 @@ Cosmos DB 根据给定的**分区键**（定义为文档中的一个属性）自
 
 通过 Cosmos DB，只需单击数次即可通过透明方式[全局复制数据](../cosmos-db/tutorial-global-distribution-documentdb.md)，并从[客户端代码](../cosmos-db/tutorial-global-distribution-documentdb.md)中自动选择可用区域。 这也意味着可以拥有[多个故障转移区域](regional-failover.md)。 
 
-全局复制数据时，需确保客户端可以利用该数据。 如果要使用 Web 前端或从移动客户端访问 API，则可以部署 [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)并在所有所需区域克隆 Azure 应用服务（方法是通过使用[性能配置](../app-service-web/web-sites-traffic-manager.md)支持扩展的全球覆盖范围）。 客户端访问前端或 API 时，将被路由到最近的应用服务，而该应用服务将连接到本地的 Cosmos DB 副本。
+全局复制数据时，需确保客户端可以利用该数据。 如果要使用 Web 前端或从移动客户端访问 API，则可以部署 [Microsoft Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)并在所有所需区域克隆 Azure 应用服务（方法是通过使用性能配置支持扩展的全球覆盖范围）。 客户端访问前端或 API 时，将被路由到最近的应用服务，而该应用服务将连接到本地的 Cosmos DB 副本。
 
 ![将全球覆盖范围添加到社交平台](./media/social-media-apps/social-media-apps-global-replicate.png)
 
 ## <a name="conclusion"></a>结束语
 本文尝试说明一种完全在 Azure 上创建具有低成本服务社交网络，并可通过鼓励使用多层存储解决方案和称为“阶梯”的数据分布得到良好结果的替代方法。
-
-<!--Update_Description: wording update-->
 
 ![社交网络中各 Azure 服务之间的交互关系图](./media/social-media-apps/social-media-apps-azure-solution.png)
 
@@ -245,3 +243,5 @@ Cosmos DB 根据给定的**分区键**（定义为文档中的一个属性）自
 
 ## <a name="next-steps"></a>后续步骤
 若要详细了解 Cosmos DB 用例，请参阅[常见 Cosmos DB 用例](use-cases.md)。
+
+<!--Update_Description: update meta properties, update link, wording update-->

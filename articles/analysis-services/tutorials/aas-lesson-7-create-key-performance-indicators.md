@@ -14,19 +14,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 05/26/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 775cf26aec52136cfed6313c643e05824d921959
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: 9ebdcf4f480b9c24dcdd596642c28b0f7a1d7b78
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>第 7 课：创建关键绩效指标
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-在本课中，将创建关键绩效指标 (KPI)。 KPI 用于衡量由基本度量值定义的某个值的绩效（与同样由度量值或绝对值定义的目标值进行对比）。 在报告客户端应用程序中，KPI 可以为业务专业人员提供一种快速简单的方法来了解业务成功摘要情况或查明趋势。 若要了解详细信息，请参阅 [KPI](/sql/analysis-services/tabular-models/kpis-ssas-tabular)
+在本课中，将创建关键绩效指标 (KPI)。 KPI 用于衡量由基本度量值定义的某个值的绩效（与同样由度量值或绝对值定义的目标值进行对比）。 在报告客户端应用程序中，KPI 可以为业务专业人员提供一种快速简单的方法来了解业务成功摘要情况或查明趋势。 若要了解详细信息，请参阅 [KPI](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)
 
 本课预计完成时间：**15 分钟**  
 
@@ -86,3 +86,5 @@ ms.lasthandoff: 08/02/2017
 
 ## <a name="whats-next"></a>后续步骤
 [第 8 课：创建透视](../tutorials/aas-lesson-8-create-perspectives.md)。
+
+<!--Update_Description: update meta properties, update link-->

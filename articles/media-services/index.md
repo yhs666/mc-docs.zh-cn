@@ -2,21 +2,22 @@
 title: "Azure 媒体服务文档 - 教程和 API 参考 | Microsoft 文档"
 description: "了解如何使用媒体服务（一个可缩放的云平台）安全地流式传输广播质量的点播或直播视频。 教程、API 参考和其他资源。"
 services: media-services
-author: carolz
-manager: carolz
+author: forester123
+manager: digimobile
 layout: LandingPage
 ms.assetid: 
 ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+origin.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: f53bb364c53a51e60b52815b9616446116816faa
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 386ac6713e59995cce273ac3d559c2ae7d6959d1
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="media-services-documentation"></a>媒体服务文档
 
@@ -41,8 +42,27 @@ ms.lasthandoff: 06/21/2017
         </div>
         </a>
     </li>
+
     <li>
-        <a href="/media-services/media-services-create-account">
+        <a href="/media-services/media-services-portal-create-account">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/portal.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>通过 Azure 门户开始使用 Azure 媒体服务</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/media-services/media-services-portal-create-account">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -59,7 +79,24 @@ ms.lasthandoff: 06/21/2017
         </div>
         </a>
     </li>
-<li>
+    <li>
+        <a href="/media-services/media-services-portal-vod-get-started">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/portal.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>使用 Azure 门户开始传送内容</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li><li>
         <a href="/media-services/media-services-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">

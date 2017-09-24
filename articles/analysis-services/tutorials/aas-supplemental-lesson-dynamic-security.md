@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 05/26/2017
-ms.date: 08/28/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7d9c792a8d065f3ef5a5948c9951ef8857df46e6
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: c174b158d3cfa20acaabd2d04abd927ba73890ee
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>补充课程 - 动态安全性
 
@@ -191,4 +191,4 @@ AdventureWorksDW 示例数据库中的 DimEmployee 表包含 AdventureWorks 域�
 [LOOKUPVALUE 函数 (DAX)](https://msdn.microsoft.com/library/gg492170.aspx)  
 [CUSTOMDATA 函数 (DAX)](https://msdn.microsoft.com/library/hh213140.aspx)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties-->

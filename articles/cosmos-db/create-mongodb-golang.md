@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 editor: mimig1
 ms.service: cosmos-db
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 07/21/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9c64ee48a0c73a204e7ea83f5843435223f82634
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: cf9059087fc7ad496068410868edbcf04eec84e1
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB：使用 Golang 和 Azure 门户生成 MongoDB API 控制台应用
 
@@ -26,7 +26,10 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- Azure 订阅。 如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+
+  [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+
 - [Go](https://golang.org/dl/) 以及 [Go](https://golang.org/) 语言的基础知识。
 - IDE — [Gogland](https://www.jetbrains.com/go/)（由 Jetbrains 开发）、[Visual Studio Code](https://code.visualstudio.com/)（由 Microsoft 开发）或 [Atom](https://atom.io/)。 本教程使用 Goglang。
 
@@ -243,4 +246,4 @@ if err != nil {
 > [!div class="nextstepaction"]
 > [将 MongoDB API 的数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, add include file named cosmos-db-emulator-mongodb.md-->

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 08/03/2017
+origin.date: 09/14/2017
 ms.author: v-yiso
-ms.date: 09/11/2017
-ms.openlocfilehash: 2ff402bdccf6aa19b7a870b2cda6d54c95c1d10e
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.date: 10/09/2017
+ms.openlocfilehash: d6839bf0543673da679668cd7bade02cecb9338d
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 来宾 OS 版本和 SDK 兼容性对照表
 提供适用于云服务的最新 Azure 来宾 OS 版本的最新信息。 此信息可帮助在禁用来宾 OS 之前规划升级路径。 如果根据 [Azure 来宾 OS 更新设置][Azure Guest OS Update Settings]中所述将角色配置为使用自动进行来宾 OS 更新，则不一定要阅读本页面。
@@ -38,6 +38,11 @@ ms.lasthandoff: 09/01/2017
 不太确定什么是来宾 OS 或者来宾 OS 的工作原理？ 请阅读 [此部分](#how-it-works) 。
 
 ## <a name="news-updates"></a>新闻更新
+###### <a name="september-14-2017"></a>2017 年 9 月 14 日
+9 月版来宾 OS 在 9 月 14 日开始推出，预计于 10 月 9 日正式发行。
+
+###### <a name="august-24-2017"></a>**2017 年 8 月 24 日**
+8 月版来宾 OS 已发布。
 
 ###### <a name="august-3-2017"></a>**2017 年 8 月 3 日**
 7 月版来宾 OS 已发布。
@@ -45,7 +50,7 @@ ms.lasthandoff: 09/01/2017
 ###### <a name="july-19-2017"></a>**2017 年 7 月 19 日**
 7 月版来宾 OS 将从 7 月 19 日开始推出，预计于 8 月 8 日正式发行。
 
-###### <a name="july-7-2017"></a>**2017 年 7 月 7 日**
+###### <a name="july-7-2017"></a>**2017 年 7 月7 日**
 6 月版来宾 OS 已发行。
 
 ###### <a name="june-16-2017"></a>**2017 年 6 月 16 日**
@@ -63,12 +68,6 @@ ms.lasthandoff: 09/01/2017
 ###### <a name="april-18-2017"></a>**2017 年 4 月 18 日**
 4 月版来宾 OS 将从 4 月 18 日开始推出，预计于 5 月 9 日正式发行。
 
-###### <a name="april-10-2017"></a>**2017 年 4 月 10 日**
-3 月版来宾 OS 已于 2017 年 3 月 14 日开始推出，已于 2017 年 4 月 10 日发行。
-
-###### <a name="january-10-2017"></a>**2017 年 1 月 10 日**
-1 月来宾 OS 包含仅影响 OS 系列 2 (Windows 2008 Server R2) 的修补程序。 因此，本月仅发布了 OS 系列 2 映像 (WA-GUEST-OS-2.59_201701-01)。 对于所有其他 OS 系列，12 月版 OS (201612-01) 仍为最新版。
-
 
 ## <a name="releases"></a>发行版本
 ## <a name="family-5-releases"></a>系列 5 发行版本
@@ -84,12 +83,13 @@ ms.lasthandoff: 09/01/2017
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.9_201707-01 |2017 年 8 月 3 日 |5.11 发行后 |TBD |
+| WA-GUEST-OS-5.10_201708-01 |2017 年 8 月 24 日 |5.12 版发行后 |TBD |
+| WA-GUEST-OS-5.9_201707-01 |2017 年 8 月 3 日 |5.11 版发行后 |TBD |
 | WA-GUEST-OS-5.8_201706-01 |2017 年 7 月 7 日 |5.10 发行后 |TBD |
-| WA-GUEST-OS-5.7_201705-01 |2017 年 6 月 5 日 |5.9 发行后 |TBD |
+|~~WA-GUEST-OS-5.7_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
-|~~WA-GUEST-OS-5.4_201612-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5 日|TBD |
+|~~WA-GUEST-OS-5.4_201612-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5日|TBD |
 |~~WA-GUEST-OS-5.3_201611-01~~ |2016 年 12 月 14 日 |2017 年 5 月 9 日 |TBD |
 |~~WA-GUEST-OS-5.2_201610-02~~ |2016 年 11 月 1 日 |2017 年 4 月 10 日 |TBD |
 
@@ -105,12 +105,13 @@ ms.lasthandoff: 09/01/2017
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.44_201707-01 |2017 年 8 月 3 日 |4.46 发行后 |TBD |
+| WA-GUEST-OS-4.45_201708-01 |2017 年 8 月 24 日 |4.47 版发行后 |TBD |
+| WA-GUEST-OS-4.44_201707-01 |2017 年 8 月 3 日 |4.46 版发行后 |TBD |
 | WA-GUEST-OS-4.43_201706-01 |2017 年 7 月 7 日 |4.45 发行后 |TBD |
-| WA-GUEST-OS-4.42_201705-01 |2017 年 6 月 5 日 |4.44 发行后 |TBD |
+|~~WA-GUEST-OS-4.42_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
-|~~WA-GUEST-OS-4.39_201612-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5 日 |TBD |
+|~~WA-GUEST-OS-4.39_201612-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5日 |TBD |
 |~~WA-GUEST-OS-4.38_201611-01~~ |2016 年 12 月 14 日 |2017 年 5 月 9 日 |TBD |
 |~~WA-GUEST-OS-4.37_201610-02~~ |2016 年 11 月 16 日 |2017 年 4 月 10 日 |TBD |
 |~~WA-GUEST-OS-4.36_201609-01~~ |2016 年 10 月 13 日 |2017 年 1 月 14 日 |TBD |
@@ -130,12 +131,13 @@ ms.lasthandoff: 09/01/2017
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.51_201707-01 |2017 年 8 月 3 日 |3.53 发行后 |TBD |
+| WA-GUEST-OS-3.52_201708-01 |2017 年 8 月 24 日 |3.54 版发行后 |TBD |
+| WA-GUEST-OS-3.51_201707-01 |2017 年 8 月 3 日 |3.53 版发行后 |TBD |
 | WA-GUEST-OS-3.50_201706-01 |2017 年 7 月 7 日 |3.52 发行后 |TBD |
-| WA-GUEST-OS-3.49_201705-01 |2017 年 6 月 5 日 |3.51 发行后 |TBD |
+|~~WA-GUEST-OS-3.49_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
-|~~WA-GUEST-OS-3.46_201612-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5 日 |TBD |
+|~~WA-GUEST-OS-3.46_201612-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5日 |TBD |
 |~~WA-GUEST-OS-3.45_201611-01~~ |2016 年 12 月 14 日 |2017 年 5 月 9 日 |TBD |
 |~~WA-GUEST-OS-3.44_201610-02~~ |2016 年 11 月 16 日 |2017 年 5 月 1 日 |TBD |
 |~~WA-GUEST-OS-3.43_201609-01~~ |2016 年 10 月 13 日 |2017 年 1 月 14 日 |TBD |
@@ -155,12 +157,13 @@ ms.lasthandoff: 09/01/2017
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.64_201707-01 |2017 年 8 月 3 日 |2.66 发行后 |TBD |
+| WA-GUEST-OS-2.65_201708-01 |2017 年 8 月 24 日 |2.67 版发行后 |TBD |
+| WA-GUEST-OS-2.64_201707-01 |2017 年 8 月 3 日 |2.66 版发行后 |TBD |
 | WA-GUEST-OS-2.63_201706-01 |2017 年 7 月 7 日 |2.65 发行后 |TBD |
-| WA-GUEST-OS-2.62_201705-01 |2017 年 6 月 5 日 |2.64 发行后 |TBD |
+|~~WA-GUEST-OS-2.62_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
 |~~WA-GUEST-OS-2.60_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
-|~~WA-GUEST-OS-2.59_201701-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5 日 |TBD |
+|~~WA-GUEST-OS-2.59_201701-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5日 |TBD |
 |~~WA-GUEST-OS-2.58_201612-01~~ |2017 年 1 月 10 日 |2017 年 5 月 9 日|TBD |
 |~~WA-GUEST-OS-2.57_201611-01~~ |2016 年 12 月 14 日 |2017 年 4 月 10 日 |TBD |
 |~~WA-GUEST-OS-2.56_201610-02~~ |2016 年 11 月 16 日 |2017 年 2 月 10 日 |TBD |
@@ -187,14 +190,14 @@ ms.lasthandoff: 09/01/2017
 ## <a name="guest-os-release-information"></a>来宾 OS 版本信息
 来宾 OS 发行版有三个重要的日期：**发行日期**、**停用日期**和**失效日期**。 来宾 OS 在门户中可用，并可选作目标来宾 OS。 当来宾 OS 到达**停用**日期时，将从 Azure 中删除。 但是，面向该来宾 OS 的任何云服务仍会正常运行。
 
-在**停用**日期与**失效**日期之间有一个缓冲期，可让你轻松地从一个来宾 OS 版本转换到新的版本。 如果正在使用*自动更新版*的来宾 OS，则始终可以获得最新版本，而无需担心失效的问题。
+在停用日期与失效日期之间有一个缓冲期，可让你轻松地从一个来宾 OS 版本转换到新的版本。 如果正在使用*自动更新版*的来宾 OS，则始终可以获得最新版本，而无需担心失效的问题。
 
-**到期**日期过后，仍旧使用该来宾 OS 的所有云服务将被停止、删除或强行升级。 可以在 [此处][retirepolicy]了解有关停用策略的详细信息。
+**到期**日期过后，仍旧使用该来宾 OS 的所有云服务将被停止、删除或强行升级。 可在[此处][retirepolicy]了解有关停用策略的详细信息。
 
 ## <a name="guest-os-family-version-explanation"></a>来宾 OS 系列版本解释
 来宾 OS 系列基于发布的 Microsoft Windows Server 版本。 来宾 OS 是运行 Azure 云服务的基本操作系统。 每个来宾 OS 都具有系列、版本和版本号。
 
-* **Guest OS family**  
+* **来宾 OS 系列**  
   ：来宾 OS 所基于的 Windows Server 操作系统发行版。 例如， *系列 3* 基于 Windows Server 2012。
 * **来宾 OS 版本**  
   来宾 OS 系列映像和在生成新的来宾 OS 版本时提供的相关 [Microsoft 安全响应中心 (MSRC)][msrc] 修补程序。 并非提供了所有修补程序。 
@@ -209,7 +212,7 @@ ms.lasthandoff: 09/01/2017
 
 **此发行版本的配置字符串** - WA-GUEST-OS-2.12_201208-02
 
-来宾 OS 的配置字符串嵌入了该相同信息，以及显示考虑为该发行版本包括哪些 MSRC 修补程序的日期。 在此示例中，考虑包括 2012 年 8 月之前（含该日期）为 Windows Server 2008 R2 开发的 MSRC 修补程序。 仅包括专门应用于该版本的 Windows Server 的修补程序。 例如，如果某个 MSRC 修补程序应用于 Microsoft Office，则它不会包括在内，因为该产品不属于 Windows Server 基本映像。 
+来宾 OS 的配置字符串嵌入了该相同信息，以及显示考虑为该发行版本包括哪些 MSRC 修补程序的日期。 在此示例中，考虑包括 2012 年 8 月之前（含该日期）为 Windows Server 2008 R2 开发的 MSRC 修补程序。 仅包括专门应用于该版本的 Windows Server 的修补程序。 例如，如果某个 MSRC 修补程序应用于 Microsoft Office，则它将不包括在内，因为该产品不属于 Windows Server 基本映像。 
 
 ## <a name="guest-os-system-update-process"></a>来宾 OS 系统更新过程
 本页包含有关即将发布的来宾 OS 版本的信息。 客户已表明想知道什么时候发行版本，因为如果未设为“自动”更新，他们的云服务角色将重新启动。 来宾 OS 发行版本通常会在每月第二个星期二发布 MSRC 更新之后的至少五 (5) 天发布。 新版本包含针对每个来宾 OS 系列的所有相关 MSRC 修补程序。
@@ -243,6 +246,6 @@ Azure 不断地发布更新。 来宾 OS 只不过是此类更新的其中一种
 [patches]:./cloud-services-guestos-msrc-releases.md
 [retirepolicy]:./cloud-services-guestos-retirement-policy.md
 [fam1retire]:./cloud-services-guestos-family1-retirement.md
-[修补程序]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[修复]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
 
 <!--Update_Description: update wording-->

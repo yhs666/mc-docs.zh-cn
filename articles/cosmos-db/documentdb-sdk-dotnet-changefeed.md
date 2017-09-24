@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 08/14/2017
-ms.date: 09/18/2017
+origin.date: 08/29/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1c8bce28dfb042dd6a604f9dffb05844b1504c9a
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: e0672213fddc60e9a861b20df311f33fc611f3b2
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>DocumentDB .NET 更改源处理器 SDK：下载和发行说明
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 09/13/2017
 > * [Python](documentdb-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](../cosmos-db/documentdb-sql-query-reference.md)
 > 
 > 
 
@@ -55,4 +55,4 @@ ms.lasthandoff: 09/13/2017
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

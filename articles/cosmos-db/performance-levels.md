@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/24/2017
-ms.date: 09/18/2017
+origin.date: 08/28/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90a7e02d91724174f6ea38064b10371ec616d5c6
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: ee2f09a88e45f1a27466a610c7f73dbbe8ab157b
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 09/13/2017
 > 本文所述的 S1、S2 和 S3 性能级别即将停用，不再适用于新的 DocumentDB API 帐户。
 >
 
-本文概述 S1、S2 和 S3 性能级别，并介绍在 2017 年 8 月 1 日，如何将使用这些性能级别的集合迁移到单区集合。 阅读本文后，可以回答以下问题：
+本文概述 S1、S2 和 S3 性能级别，并介绍在 2017 年下旬如何将使用这些性能级别的集合迁移到单分区集合。 阅读本文后，可以回答以下问题：
 
 - [为何要停用 S1、S2 和 S3 性能级别？](#why-retired)
 - [单区集合和分区集合与 S1、S2、S3 性能级别有哪些区别？](#compare)
@@ -36,7 +36,7 @@ ms.lasthandoff: 09/13/2017
 - [迁移后，集合会发生怎样的变化？](#collection-change)
 <!-- Not Available - [How will my billing change after I'm migrated to single partition collections?](#billing-change)-->
 - [如果需要 10 GB 以上的存储，应该怎么做？](#more-storage-needed)
-- [在 2017 年 8 月 1 日之前，是否可以在 S1、S2 和 S3 性能级别之间切换？](#change-before)
+- [在计划的迁移期限之前，是否可以在 S1、S2 和 S3 性能级别之间切换？](#change-before)
 - [如何了解集合已迁移？](#when-migrated)
 - [如何自行从 S1、S2、S3 性能级别迁移到单区集合？](#migrate-diy)
 <!-- Not Available- [How am I impacted if I'm an EA customer?](#ea-customer)-->
@@ -66,13 +66,13 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 ## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>我需要做些什么才能确保不间断地访问我的数据？
 
-不需要执行任何操作，Cosmos DB 会代你处理迁移。 如果有 S1、S2 或 S3 集合，当前集合将在 2017 年 7 月 31 日迁移到单区集合。 
+不需要执行任何操作，Cosmos DB 会代你处理迁移。 如果正在使用 S1、S2 或 S3 集合，当前集合会在 2017 年下旬迁移到单分区集合。 
 
 <a name="collection-change"></a>
 
 ## <a name="how-will-my-collection-change-after-the-migration"></a>迁移后，集合会发生怎样的变化？
 
-如果有 S1 集合，该集合将迁移到吞吐量为 400 RU/s 的单区集合。 400 RU/s 是单区集合提供的最低吞吐量。 但是，单分区集合中 400 RU/秒吞吐量的费用大致与 S1 集合中 250 RU/秒吞吐量的费用相同 - 因此，不需要为额外的 150 RU/秒付费。
+如果有 S1 集合，该集合将迁移到吞吐量为 400 RU/s 的单区集合。 400 RU/s 是单区集合提供的最低吞吐量。 但是，单区集合中 400 RU/s 吞吐量的费用与 S1 集合中 250 RU/s 吞吐量的费用大致相等 - 因此不需要为额外的 150 RU/s 付费。
 
 如果有 S2 集合，该集合将迁移到吞吐量为 1 K RU/s 的单区集合。 吞吐量级别没有可见变化。
 
@@ -95,15 +95,15 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 <a name="change-before"></a>
 
-## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-august-1-2017"></a>在 2017 年 8 月 1 日之前，是否可以在 S1、S2 和 S3 性能级别之间切换？
+## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-the-planned-migration"></a>在计划的迁移期限之前，是否可以在 S1、S2 和 S3 性能级别之间切换？
 
-只有 S1、S2 和 S3 性能级别的现有帐户才能通过门户或编程方式更改和切换性能级别层。 从 2017 年 8 月 1 日开始，S1、S2 和 S3 性能级别不再可用。 如果从 S1、S3 或 S3 切换到了单区集合，则无法恢复到 S1、S2 或 S3 性能级别。
+只有 S1、S2 和 S3 性能级别的现有帐户才能通过门户或编程方式更改和切换性能级别层。 如果从 S1、S3 或 S3 切换到了单区集合，则无法恢复到 S1、S2 或 S3 性能级别。
 
 <a name="when-migrated"></a>
 
 ## <a name="how-will-i-know-when-my-collection-has-migrated"></a>如何了解集合已迁移？
 
-迁移会在 2017 年 7 月 31 日进行。 如果有使用 S1、S2 或 S3 性能级别的集合，Cosmos DB 团队会在进行迁移前通过电子邮件与你联系。 2017 年 8 月 1 日完成迁移后，Azure 门户会显示你的集合使用标准定价。
+迁移会在 2017 年下旬进行。 如果有使用 S1、S2 或 S3 性能级别的集合，Cosmos DB 团队会在进行迁移前通过电子邮件与你联系。 完成迁移后，Azure 门户会显示集合使用的是标准定价。
 
 ![如何确认集合已迁移到标准定价层](./media/performance-levels/portal-standard-pricing-applied.png)
 
@@ -111,7 +111,7 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 ## <a name="how-do-i-migrate-from-the-s1-s2-s3-performance-levels-to-single-partition-collections-on-my-own"></a>如何自行从 S1、S2、S3 性能级别迁移到单区集合？
 
-可通过 Azure 门户或编程方式从 S1、S2 和 S3 性能级别迁移到单区集合。 可在 8 月 1 日之前自行执行此操作，以享用单区集合提供的灵活吞吐量选项；否则，我们会在 2017 年 7 月 31 日代你迁移集合。
+可通过 Azure 门户或编程方式从 S1、S2 和 S3 性能级别迁移到单区集合。 可以在计划的迁移期限之前自行执行此操作，即可享用单分区集合提供的灵活吞吐量选项；或者，我们会在 2017 年下旬代客户迁移集合。
 
 **使用 Azure 门户迁移到单区集合**
 
@@ -139,9 +139,9 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 **使用 .NET SDK 迁移到单区集合**
 
-另一个更改集合的性能级别的选项便是通过我们的 SDK 进行操作。 本节只介绍使用 [.NET SDK](https://msdn.microsoft.com/zh-cn/library/azure/dn948556.aspx) 更改集合的性能级别，但对于其他 [SDK](https://msdn.microsoft.com/zh-cn/library/azure/dn781482.aspx)，过程也是相似的。 .NET SDK 的新手可以访问[入门教程](documentdb-get-started.md)。
+另一个更改集合的性能级别的选项便是通过我们的 SDK 进行操作。 本部分只介绍了使用 [DocumentDB .NET API](documentdb-sdk-dotnet.md) 更改集合的性能级别，但对于其他 SDK，过程也是相似的。
 
-以下代码片段可将集合吞吐量更改为每秒 5,000 个请求单位：
+下面是可将集合吞吐量更改为每秒 5,000 个请求单位的代码片段：
 
 ```C#
     //Fetch the resource to be updated
@@ -176,4 +176,4 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 2.  [Cosmos DB 定价](https://www.azure.cn/pricing/details/cosmos-db/)。 了解预配吞吐量和使用存储的费用。
 3.  [请求单位](request-units.md)。 了解不同操作类型（例如读取、写入和查询）的吞吐量消耗。
 
-<!--Update_Description: update link, wording update -->
+<!--Update_Description: update meta properties, update link, wording update -->

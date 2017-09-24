@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/16/2017
-ms.date: 09/18/2017
+origin.date: 08/22/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: cd51d99b519664755de672f437766ab1e2ba3717
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: e03ea3aeea464a731a5a85a7605ea69185a3284e
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
@@ -361,6 +361,8 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 
 使用以下提示来帮助解决使用 Azure Cosmos DB 模拟器时遇到的问题：
 
+- 如果安装了新版本的模拟器并遇到错误，请务必重置数据。 重置数据的方法如下：在系统任务栏上右键单击“Azure Cosmos DB 模拟器”图标，然后单击“重置数据...”。 如果这样做无法修复错误，则可卸载并重新安装该应用。 有关说明，请参阅[卸载本地模拟器](#uninstall)。
+
 - 如果 Azure Cosmos DB 模拟器崩溃，请从 c:\Users\user_name\AppData\Local\CrashDumps 文件夹收集转储文件、进行压缩并将其附加到电子邮件，发送至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)。
 
 - 如果在 CosmosDB.StartupEntryPoint.exe 中遇到崩溃，请从管理员命令提示符运行以下命令：`lodctr /R` 
@@ -382,6 +384,13 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 6. 导航到 `%ProgramFiles%\Azure Cosmos DB Emulator`，查找 docdbemulator_000001.etl 文件。
 7. 将 .etl 文件和重现步骤一起发送至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) 进行调试。
 
+### <a id="uninstall"></a>卸载本地模拟器
+
+1. 通过在系统任务栏上右键单击“Azure Cosmos DB 模拟器”图标，然后单击“退出”，退出所有打开的本地模拟器实例。 退出所有实例可能需要一分钟。
+2. 在 Windows 搜索框中，键入“应用和功能”，然后单击“应用和功能(系统设置)”结果。
+3. 在应用列表中，滚动到“Azure Cosmos DB 模拟器”并将其选中，单击“卸载”，然后确认并再次单击“卸载”。
+4. 卸载应用后，导航到 C:\Users\<user>\AppData\Local\CosmosDBEmulator 并删除该文件夹。 
+
 ## <a name="next-steps"></a>后续步骤
 
 在本教程中已完成以下操作：
@@ -400,4 +409,4 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 > [!div class="nextstepaction"]
 > [导出 Azure Cosmos DB 模拟器证书](local-emulator-export-ssl-certificates.md)
 
-<!--Update_Description: update meta properties, update link, add command syntax command parameters-->
+<!--Update_Description: update meta properties, wording update , add uninstall the local enulator-->

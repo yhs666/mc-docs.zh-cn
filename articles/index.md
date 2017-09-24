@@ -2,16 +2,15 @@
 layout: HubPage
 hide_bc: True
 title: "Azure 文档和资源"
-description: "了解如何使用 Microsoft Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
-ms.openlocfilehash: d3ce1ed30be4046b305aefa1e456106236f1a8dc
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+description: "了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
+ms.openlocfilehash: aa5f2ddc68e0c24dd6fd38c4ec020ff009ee5799
+ms.sourcegitcommit: b6b000de56b7e4d68e09d8d1091f94a9310f28b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/20/2017
 ---
 <div id="main" class="v2">
     <div class="container">
-        <h1 class="screenReader">Azure 文档</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
                 <a href="/articles/">
@@ -70,6 +69,7 @@ ms.lasthandoff: 08/25/2017
         </ul>
     </div>
     <div class="container">
+        <h1 class="screenReader">Azure 文档</h1>
         <ul class="pivots">
             <li>
                 <a href="#get-started">入门</a>
@@ -104,43 +104,33 @@ ms.lasthandoff: 08/25/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>开发应用</h3>
-                                                <div class="ico48Link">
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet">
-                                                        <img src="media/index/logo_NET.svg" alt="">
-                                                        <span>.NET</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">
-                                                        <img src="media/index/logo_nodejs.svg" alt="">
-                                                        <span>Node.js</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/app-service-web/app-service-web-get-started-php">
-                                                        <img src="media/index/logo_PHP.svg" alt="">
-                                                        <span>PHP</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a target="_blank" href="/java/">
-                                                        <img src="media/index/logo_java.svg" alt="">
-                                                        <span>Java</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a target="_blank" href="https://docs.microsoft.com/python/azure/">
-                                                        <img src="media/index/logo_python.svg" alt="">
-                                                        <span>Python</span>
-                                                    </a>
-                                                </div>
-                                                <div>
-                                                    <h4>应用模型</h4>
-                                                    <ul class="noBullet">
-                                                        <li><a class="barLink" href="/app-service-web/">Web 应用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                                                        <li><a class="barLink" href="/service-fabric/">将微服务与 Service Fabric 配合使用</a></li>
-                                                    </ul>
-                                                </div>
+                                                <ul class="noBullet">
+                                                    <li>
+                                                        <a class="barLink" target="_blank" href="https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet">
+                                                            <img src="media/index/logo_NET.svg" alt=""> .NET</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" target="_blank href="https://docs.microsoft.com/python/azure/">
+                                                            <img src="media/index/logo_python.svg" alt=""> Python</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/java/">
+                                                            <img src="media/index/logo_java.svg" alt=""> Java</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/app-service-web/app-service-web-get-started-php">
+                                                            <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" target="_blank href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">
+                                                            <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
+                                                    </li>
+                                                </ul>
+                                                <h4>应用模型</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/app-service-web/">Web 应用</a></li>
+                                                    <li><a class="barLink" href="/service-fabric/">将微服务与 Service Fabric 配合使用</a></li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -159,7 +149,7 @@ ms.lasthandoff: 08/25/2017
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/cosmos-db/">Cosmos DB</a></li>
+                                                    <li><a class="barLink" href="/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
                                                 <h4>AI 和认知服务</h4>
                                                 <ul class="noBullet">
@@ -177,16 +167,16 @@ ms.lasthandoff: 08/25/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>命令行工具</h3>
-                                                <div class="cols">
-                                                    <div>
+                                                <ul class="noBullet">
+                                                    <li>
                                                         <a class="barLink" target="_blank" href="https://docs.microsoft.com/cli/azure/overview">
                                                             <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI</a>
-                                                    </div>
-                                                    <div>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" target="_blank" href="https://docs.microsoft.com/powershell/azure/overview">
                                                             <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell</a>
-                                                    </div>
-                                                </div>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -333,6 +323,12 @@ ms.lasthandoff: 08/25/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/api-management/">
+                                                <img src="media/index/APIManagement.svg" alt="" />
+                                                <p>API 管理</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/sql-server-stretch-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
                                                 <p>SQL Server Stretch Database</p>
@@ -405,6 +401,12 @@ ms.lasthandoff: 08/25/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/virtual-machines/disks/">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>磁盘</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
                                                 <p>文件存储</p>
@@ -447,6 +449,15 @@ ms.lasthandoff: 08/25/2017
                                             <a href="/power-bi-embedded/">
                                                 <img src="media/index/PowerBIEmbedded.svg" alt="" />
                                                 <p>Power BI Embedded</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>开发人员工具</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/api-management/">
+                                                <img src="media/index/APIManagement.svg" alt="" />
+                                                <p>API 管理</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -502,13 +513,13 @@ ms.lasthandoff: 08/25/2017
                                         <li>
                                             <a href="/app-service-mobile/">
                                                 <img src="media/index/app-service-mobile.svg" alt="" />
-                                                <p>移动应用</p>
+                                                <p>Mobile Apps</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/app-service-api/">
                                                 <img src="media/index/app-service-api.svg" alt="" />
-                                                <p>API 应用</p>
+                                                <p>API Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -710,7 +721,7 @@ ms.lasthandoff: 08/25/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>批处理</h3>
-                                                    <p>使用容器运行计算作业</p>
+                                                    <p>云规模的作业计划和计算管理</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -937,6 +948,25 @@ ms.lasthandoff: 08/25/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/virtual-machines/windows/managed-disks-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>磁盘</h3>
+                                                    <p>VM 的磁盘存储</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/storage/files/storage-files-introduction/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1047,7 +1077,7 @@ ms.lasthandoff: 08/25/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>移动应用</h3>
+                                                    <h3>Mobile Apps</h3>
                                                     <p>生成和托管任何移动应用的后端</p>
                                                 </div>
                                             </div>
@@ -1066,7 +1096,7 @@ ms.lasthandoff: 08/25/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>API 应用</h3>
+                                                    <h3>API Apps</h3>
                                                     <p>轻松生成和使用云 API</p>
                                                 </div>
                                             </div>
@@ -1167,7 +1197,7 @@ ms.lasthandoff: 08/25/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>批处理</h3>
-                                                    <p>使用容器运行计算作业</p>
+                                                    <p>云规模的作业计划和计算管理</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1266,8 +1296,8 @@ ms.lasthandoff: 08/25/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cosmos DB</h3>
-                                                    <p>托管的 NoSQL 文档数据库即服务</p>
+                                                    <h3>Azure Cosmos DB</h3>
+                                                    <p>适用于任何规模的全球分布式多模型数据库</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1518,6 +1548,25 @@ ms.lasthandoff: 08/25/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/api-management/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/APIManagement.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>API 管理</h3>
+                                                    <p>将 API 安全发布到开发人员、合作伙伴和员工，可进行扩展</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/sql-server-stretch-database/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1611,6 +1660,30 @@ ms.lasthandoff: 08/25/2017
                                                 <div class="cardText">
                                                     <h3>安全信息</h3>
                                                     <p>了解 Azure 如何提供用于生成云解决方案的安全基础结构</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#devtools">开发人员工具</a>
+                        <ul id="devtools" class="cardsA">
+                            <li>
+                                <a href="/api-management/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/APIManagement.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>API 管理</h3>
+                                                    <p>将 API 安全发布到开发人员、合作伙伴和员工，可进行扩展</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1834,13 +1907,13 @@ ms.lasthandoff: 08/25/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="/java/java-sdk-azure-install">获取用于 Java 的 Azure 库</a>
+                                                    <a href="/java/java-sdk-azure-install">获取用于 Java 的 Azure 库</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="/java">入门</a>
+                                                    <a href="/java">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="/java/api/overview">API 参考</a>
+                                                    <a href="/java/api/overview">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>

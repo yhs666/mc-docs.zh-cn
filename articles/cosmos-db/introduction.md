@@ -11,22 +11,23 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 origin.date: 07/14/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4f9bdab7855563aa206dbc16522a40275ef7a2ab
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 0452805d8eb9118404b6464c7da2751eb09e4a82
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
 
 Azure Cosmos DB 是由 Microsoft 提供的全球分布式多模型数据库。 只需单击一个按钮，即可通过 Azure Cosmos DB 跨任意数量的 Azure 地理区域弹性且独立地缩放吞吐量和存储。 它通过综合[服务级别协议](https://aka.ms/acdbsla) (SLA) 提供吞吐量、延迟、可用性和一致性保证，这是其他数据库服务无法提供的。
 
 ![Azure Cosmos DB 是 Microsoft 的全球分布式数据库服务，可以弹性扩展，已保证低延迟，有五个一致性模型，并且已保证满足综合 SLA](./media/introduction/azure-cosmos-db.png)
+<!-- Not Avaialble [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>受益于 Azure Cosmos DB 的解决方案
 
@@ -97,4 +98,4 @@ Azure Cosmos DB 提供关系数据库和非关系数据库的最佳功能。
 <!-- Not Available * [Get started with Azure Cosmos DB's Graph API](create-graph-dotnet.md) -->
 * [开始使用 Azure Cosmos DB 的表 API](create-table-dotnet.md)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update link, wording update-->

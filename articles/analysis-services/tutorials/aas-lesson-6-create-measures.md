@@ -14,19 +14,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 06/01/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: b203a05feb1a0a5337c8999c2ca4a28f4e940170
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: b859d3397fa00c60a8921e40e6b00bfb80d60c40
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="lesson-6-create-measures"></a>第 6 课：创建度量值
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-在本课中，将创建要在模型中包括的度量值。 类似于创建的计算列，度量是使用 DAX 公式创建的计算。 但与计算列不同，度量值基于用户所选筛选器进行计算。 例如，添加到数据透视表中“行标签”字段的特定一列或切片器。 然后，所应用的度量值会计算筛选器中每个单元格的值。 度量值是强大而灵活的计算，在几乎所有表格模型中都希望包括这类计算来对数值数据执行动态计算。 若要了解详细信息，请参阅[度量值](/sql/analysis-services/tabular-models/measures-ssas-tabular)。
+在本课中，将创建要在模型中包括的度量值。 类似于创建的计算列，度量是使用 DAX 公式创建的计算。 但与计算列不同，度量值基于用户所选筛选器进行计算。 例如，添加到数据透视表中“行标签”字段的特定一列或切片器。 然后，所应用的度量值会计算筛选器中每个单元格的值。 度量值是强大而灵活的计算，在几乎所有表格模型中都希望包括这类计算来对数值数据执行动态计算。 若要了解详细信息，请参阅[度量值](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular)。
 
 若要创建度量值，需要使用度量值网格。 默认情况下，每个表都有一个空的度量值网格；不过，通常不会为每个表都创建度量值。 在模型设计器的“数据视图”中，度量值网格显示在表下方。 要隐藏或显示表的度量值网格，请单击“表”菜单，并单击“显示度量值网格”。  
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 08/02/2017
 
     请注意，左上角的单元格现在包含度量值名称“DaysCurrentQuarterToDate”，后面跟有结果 **92**。
 
-      ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
+    ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
 
     与计算列不同，使用度量值公式时，可以依次键入度量值名称、一个冒号和公式表达式。
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 08/02/2017
 
     “自动求和”功能会自动使用 DistinctCount 标准聚合公式为所选的列创建一个度量值。  
 
-       ![aas-lesson6-newmeasure2](../tutorials/media/aas-lesson6-newmeasure2.png)
+    ![aas-lesson6-newmeasure2](../tutorials/media/aas-lesson6-newmeasure2.png)
 
 4.  在度量值网格中，单击新的度量值，并在“属性”窗口中，在“度量值名称”中将度量值重命名为 **InternetDistinctCountSalesOrder**。 
 
@@ -102,31 +102,33 @@ ms.lasthandoff: 08/02/2017
 
 2.  通过单击度量值网格中的某个空单元格并使用公式栏，按顺序创建并命名以下度量值：  
 
-      ```
-      InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))
-      ```
+    ```
+    InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))
+    ```
 
-      ```
-      InternetCurrentQuarterMargin:=TOTALQTD([InternetTotalMargin],'DimDate'[Date])
-      ```
+    ```
+    InternetCurrentQuarterMargin:=TOTALQTD([InternetTotalMargin],'DimDate'[Date])
+    ```
 
-      ```
-      InternetPreviousQuarterMarginProportionToQTD:=[InternetPreviousQuarterMargin]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])
-      ```
+    ```
+    InternetPreviousQuarterMarginProportionToQTD:=[InternetPreviousQuarterMargin]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])
+    ```
 
-      ```
-      InternetPreviousQuarterSales:=CALCULATE([InternetTotalSales],PREVIOUSQUARTER('DimDate'[Date]))
-      ```
+    ```
+    InternetPreviousQuarterSales:=CALCULATE([InternetTotalSales],PREVIOUSQUARTER('DimDate'[Date]))
+    ```
 
-      ```
-      InternetCurrentQuarterSales:=TOTALQTD([InternetTotalSales],'DimDate'[Date])
-      ```
+    ```
+    InternetCurrentQuarterSales:=TOTALQTD([InternetTotalSales],'DimDate'[Date])
+    ```
 
-      ```
-      InternetPreviousQuarterSalesProportionToQTD:=[InternetPreviousQuarterSales]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])
-      ```
+    ```
+    InternetPreviousQuarterSalesProportionToQTD:=[InternetPreviousQuarterSales]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])
+    ```
 
 为 FactInternetSales 表创建的度量值可以用来为由用户选择的筛选器定义的项分析关键财务数据，例如销售额、成本和利润率。  
 
 ## <a name="whats-next"></a>后续步骤
 [第 7 课：创建关键绩效指标](../tutorials/aas-lesson-7-create-key-performance-indicators.md)。
+
+<!--Update_Description: update meta properties, update link-->

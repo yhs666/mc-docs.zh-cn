@@ -10,18 +10,18 @@ tags:
 ms.assetid: 
 ms.service: cosmos-db
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 origin.date: 05/10/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 462985ec03b5259e4d334aa4072d61e845ec606b
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 25cde04ec88568b41046c708285b70a127a4c194
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-documentdb-api-in-net"></a>Azure Cosmos DB：在 .NET 中使用 DocumentDB API 进行开发
 
@@ -45,10 +45,10 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 请确保具有以下内容：
 
 * 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
-    * 如果出于开发目的要使用模拟 Azure DocumentDB 服务的本地环境，则可在本教程中改用 [Azure Cosmos DB 模拟器](local-emulator.md)。
-* [Visual Studio](http://www.visualstudio.com/)。
 
-<!--Update_Description: wording update-->
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* 如果尚未安装 Visual Studio 2017，可以下载并使用**免费的** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
 
 ## <a name="create-an-azure-cosmos-db-account"></a>创建 Azure Cosmos DB 帐户
 
@@ -116,7 +116,7 @@ private DocumentClient client;
 现在创建 DocumentClient 的新实例。
 
 ```csharp
-DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
+DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 ```
 
 ## <a id="create-database"></a>创建数据库
@@ -316,3 +316,5 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
+
+<!--Update_Description: wording update-->

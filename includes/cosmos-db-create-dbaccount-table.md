@@ -30,6 +30,6 @@
 
 6.  部署完成后，请从“所有资源”磁贴打开新帐户。 
 
-    ![“所有资源”磁贴中的 DocumentDB 帐户](./media/cosmos-db-create-dbaccount-table/all-resources.png)
+    ![“所有资源”磁贴中的 Azure Cosmos DB 帐户](./media/cosmos-db-create-dbaccount-table/all-resources.png)
 <!--Update_Description: wording update-->
-<!--ms.date: 09/18/2017-->
+<!--ms.date: 09/25/2017-->

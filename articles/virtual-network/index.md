@@ -1,9 +1,9 @@
 ---
 title: "Azure 虚拟网络文档 - 教程和 API 参考 | Azure"
-description: "了解如何在云中使用虚拟网络。 文档介绍了如何部署 VNet、使用它来启动资源，以及将它与本地网络集成。"
+description: "了解如何在云中使用虚拟网络。 文档介绍了如何部署 VNet、使用它来启动资源，以及与本地网络集成。"
 services: virtual-network
-author: carolz
-manager: carolz
+author: rockboyfor
+manager: digimobile
 layout: LandingPage
 ms.assetid: 
 ms.service: virtual-network
@@ -11,16 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 06/20/2017
-ms.author: v-dazen
-ms.openlocfilehash: 7129604f50ce325fe044fda4cd32556814aa0e0b
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 09/25/2017
+ms.author: v-yeche
+ms.openlocfilehash: 14e47e75de226c0c0ec59fa5b38483f0b968b4f3
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 09/22/2017
 ---
-# 虚拟网络文档
-<a id="virtual-network-documentation" class="xliff"></a>
+# <a name="virtual-network-documentation"></a>虚拟网络文档
 
 了解如何使用虚拟网络 (VNet)，即网络在云中的逻辑表示形式。 文档演示如何设置和管理 VNet、使用它启动虚拟机或云服务、将 VNet 连接到本地网络以及将网络扩展到云，同时保持对资源进行控制。
 
@@ -98,3 +97,4 @@ ms.lasthandoff: 06/23/2017
         </a>
     </li>
 </ul>
+<!--Update_Description: update meta properties-->

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1d6bab63fb3a91d6b54506e0aa49b49afa909e3b
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: d38b5e88149f948bac3c21a7cec568a82caee4d6
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Azure Cosmos DB 常见用例
 本文概述了 Azure Cosmos DB 的几个常见用例。  本文中的建议可以作为使用 Cosmos DB 开发应用程序的一个起点。   
@@ -61,15 +61,19 @@ IoT 用例在引入、处理和存储数据方法方面通常具有相同的模�
 有关 Azure IoT 产品/服务的详细信息，请参阅[创建物联网](http://www.microsoft.com/server-cloud/internet-of-things.aspx)。 
 
 ## <a name="retail-and-marketing"></a>零售和营销
-Azure Cosmos DB 广泛用于 Microsoft 旗下运行 Windows 应用商店和 XBox Live 的电子商务平台。 它还在零售行业中用于存储目录数据。 目录数据使用方案涉及存储和查询人员、地点、产品等实体的一组属性。  目录数据的部分示例包括用户帐户、产品目录、IoT 的设备注册表和物料系统清单。  此数据的属性可能会随时间的推移而发生变化和更改以满足应用程序要求。  
+Azure Cosmos DB 广泛用于 Microsoft 旗下运行 Windows 应用商店和 XBox Live 的电子商务平台。 它还在零售业中用于存储目录数据，以及在订单处理管道中用于事件寻源。
+
+目录数据使用方案涉及存储和查询人员、地点、产品等实体的一组属性。 目录数据的部分示例包括用户帐户、产品目录、IoT 设备注册表和物料系统清单。 此数据的属性可能会随时间的推移而发生变化和更改以满足应用程序要求。
 
 以汽车部件供应商的产品目录为例。 除所有部件共有的常见属性外，每个部件可能都具有其自己的属性。  而且，某个特定部件的属性还可能会在发布新型号之后的第二年发生变化。  Azure Cosmos DB 支持灵活的架构和分层数据，因此非常适用于存储产品目录数据。
 
 ![Azure Cosmos DB 零售目录参考体系结构](./media/use-cases/product-catalog.png)
 
-此外，Azure Cosmos DB 中存储的数据可与 HDInsight 集成，通过 Pig、Hive 或 Map/Reduce 作业进行大数据分析。 有关 Azure Cosmos DB 的 Hadoop 连接器的详细信息，请参阅[使用 Cosmos DB 和 HDInsight 运行 Hadoop 作业](run-hadoop-with-hdinsight.md)。
+Azure Cosmos DB 通常用于事件寻源，可使用其[更改源](change-feed.md)功能为事件驱动的体系结构提供动力。 更改源使下游微服务能够可靠地以增量方式读取针对 Azure Cosmos DB 所做的插入和更新（例如订单事件）。 利用此功能可以提供一个持久性的事件存储作为状态不断变化的事件的消息中转站，并驱动许多微服务之间的订单处理工作流（可实现为[无服务器 Azure Functions](http://azure.com/serverless)）。
 
-为使处理专门基于 Cosmos DB 中的新更改，内置更改源显示持久、有序的更改日志。 若要了解详细信息，请参阅：[使用更改源](/cosmos-db/change-feed)。 
+![Azure Cosmos DB 订单管道参考体系结构](./media/use-cases/event-sourcing.png)
+
+此外，Azure Cosmos DB 中存储的数据可与 HDInsight 集成，通过 Apache Spark 作业进行大数据分析。 有关 Azure Cosmos DB 的 Spark 连接器的详细信息，请参阅[使用 Cosmos DB 和 HDInsight 运行 Spark 作业](spark-connector.md)。
 
 ## <a name="gaming"></a>游戏
 数据库层是游戏应用程序的关键组件。 新式游戏可在移动/控制台客户端执行图形处理，但需依赖云传输自定义的个性化内容，例如游戏中的统计数据、社交媒体集成以及高分排行榜。 游戏通常需要单毫秒的读取和写入延迟，从而带来具有吸引力的游戏体验。 新游戏启动和功能更新期间，游戏数据库需要具备很快的速度，并且要能够处理请求速率中的大量峰值。
@@ -85,10 +89,10 @@ Azure Cosmos DB 用于 [Next Games](http://www.nextgames.com/) 推出的 [The Wa
 ![Azure Cosmos DB 游戏参考体系结构](./media/use-cases/gaming.png)
 
 ## <a name="web-and-mobile-applications"></a>Web 和移动应用程序
-Azure Cosmos DB 通常用于 Web 和移动应用程序内部，尤其适用于社交互动建模、与第三方服务集成和积累丰富的个性化体验。 可以使用 Cosmos DB SDK 构建使用常用 [Xamarin 框架](mobile-apps-with-xamarin.md)的丰富 iOS 和 Android 应用程序。  
+Azure Cosmos DB 通常用于 Web 和移动应用程序内部，非常适用于社交互动建模、与第三方服务集成和积累丰富的个性化体验。 可以使用 Cosmos DB SDK 构建使用常用 [Xamarin 框架](mobile-apps-with-xamarin.md)的丰富 iOS 和 Android 应用程序。  
 
 ### <a name="social-applications"></a>社交应用程序
-Azure Cosmos DB 的一个常见用例就是存储和查询 Web 和移动应用程序，尤其是社交媒体应用程序的用户生成内容 (UGC)。 UGC 的部分示例包括聊天会话、推文、博客文章、评级和评论。 通常情况下，社交媒体应用程序中的 UGC 混合了不受刚性结构约束的自由格式文本、属性、标记和关系。 可将聊天、评论和帖子等内容存储在 Cosmos DB 中，无需转换或复杂对象关系映射层。  可以轻易添加或修改数据属性以满足开发人员遍历应用程序代码的要求，从而促进快速开发。  
+Azure Cosmos DB 的一个常见用例就是存储和查询 Web、移动和社交媒体应用程序的用户生成内容 (UGC)。 UGC 的部分示例包括聊天会话、推文、博客文章、评级和评论。 通常情况下，社交媒体应用程序中的 UGC 混合了不受刚性结构约束的自由格式文本、属性、标记和关系。 可将聊天、评论和帖子等内容存储在 Cosmos DB 中，无需转换或复杂对象关系映射层。  可以轻易添加或修改数据属性以满足开发人员遍历应用程序代码的要求，从而促进快速开发。  
 
 与第三方社交网络集成的应用程序必须响应这些网络中不断更改的架构。 由于 Cosmos DB 中的数据默认自动编制索引，因此可以随时查询数据。 因此，这些应用程序可以根据其各自的需求灵活地检索投影。
 
@@ -104,7 +108,7 @@ Cosmos DB 支持的 JSON 格式是一种用于呈现 UI 布局数据的有效格
 ![Azure Cosmos DB Web 应用参考体系结构](./media/use-cases/personalization.png)
 
 ## <a name="next-steps"></a>后续步骤
-若要使用 Azure Cosmos DB，请遵循[快速入门](create-documentdb-dotnet.md)教程，其中逐步讲解了如何创建帐户以及如何开始使用 Cosmos DB。 
+可以根据[快速入门](create-documentdb-dotnet.md)开始使用 Azure Cosmos DB，其中逐步讲解了如何创建帐户并开始使用 Cosmos DB。 
 
 或者，如果想要了解有关使用 Cosmos DB 的客户的详细信息，可参阅以下客户案例：
 
@@ -114,8 +118,8 @@ Cosmos DB 支持的 JSON 格式是一种用于呈现 UI 布局数据的有效格
 * [Citrix](https://customers.microsoft.com/story/citrix)。 Citrix 使用 Azure Service Fabric 和 Azure Cosmos DB 开发单一登录解决方案
 * [TEXA](https://customers.microsoft.com/story/texaspa) TEXA 的革新性 IoT 解决方案可帮助车主节省时间、资金和燃气 - 同时有助于保护其安全。
 * [Domino's Pizza](https://www.dominos.com)。 Domino's Pizza Inc. 是美国的一家披萨连锁餐馆。
-* [Johnson Controls](http://www.johnsoncontrols.com)。 Johnson Controls 是全球性的多样化技术和多行业领先企业，为 150 多个国家/地区的众多客户提供服务。
-* [Microsoft Windows、通用应用商店、Azure IoT 中心、Xbox Live 和其他 Internet 规模的服务](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/)。 Microsoft 如何使用 Azure Cosmos DB 构建高度可缩放的服务。
+* [Johnson Controls](http://www.johnsoncontrols.com)。 Johnson Controls 是一家全球性多元化科技公司，在多个行业占据领先地位，为 150 多个国家或地区的大量用户提供服务。
+* [Microsoft Windows、通用应用商店、Azure IoT 中心、Xbox Live 和其他 Internet 级服务](https://www.azure.cn/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/)。 Microsoft 如何使用 Azure Cosmos DB 构建高度可缩放的服务。
 * [Microsoft 数据和分析团队](https://customers.microsoft.com/story/microsoftdataandanalytics)。 Microsoft 数据和分析团队使用 Azure Cosmos DB 实现全球规模的大数据收集
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india)。Sulekha 使用 Azure Cosmos DB 连接整个印度的客户和企业。
 * [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb)。 NewOrbit 使用了 Azure Cosmos DB。
@@ -134,4 +138,4 @@ Cosmos DB 支持的 JSON 格式是一种用于呈现 UI 布局数据的有效格
 * [Real Madrid](https://customers.microsoft.com/story/real-madrid-brings-the-stadium-closer-to-450-million-f)。 皇家马德里足球俱乐部借助 Microsoft 云拉近体育场与全球 4.5 亿粉丝之间的距离。
 * [Tuku](https://customers.microsoft.com/story/tuku-makes-car-buying-fun-with-help-from-azure-services)。 TUKU 借助 Azure 服务增加购买汽车的乐趣
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link-->

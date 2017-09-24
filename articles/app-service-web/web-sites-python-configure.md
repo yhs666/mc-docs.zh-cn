@@ -14,43 +14,38 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 02/26/2016
-ms.date: 01/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: d47212bddc707120136c7c25ee469e35d95830a9
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.date: 10/09/2017
+ms.author: v-yiso
+ms.openlocfilehash: d5e437499b9273fd81225403c1ee94ce526cc6fe
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/22/2017
 ---
-# 使用 Azure 应用服务 Web 应用配置 Python
-<a id="configuring-python-with-azure-app-service-web-apps" class="xliff"></a>
+# <a name="configuring-python-with-azure-app-service-web-apps"></a>使用 Azure 应用服务 Web 应用配置 Python
 本教程介绍在 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。
 
 其中讲解了 Git 部署的一些功能，如使用 requirements.txt 安装虚拟环境和包。
 
-## Bottle、Django 还是 Flask？
-<a id="bottle-django-or-flask" class="xliff"></a>
-如果你正在 Azure 应用服务中开发第一个 Web 应用，或者不熟悉 Git，我们建议你遵循以下教程之一，其中包括有关从 Windows 或 Mac 使用 Git 部署从库生成工作应用程序的分步说明：
+## <a name="bottle-django-or-flask"></a>Bottle、Django 还是 Flask？
+Azure 应用商店包含用于 Bottle、Django 和 Flask 框架的模板。 如果正在开发 Azure 应用服务中的第一个 Web 应用，可以通过 Azure 门户快速创建一个：
 
 * [使用 Bottle 创建 Web 应用](web-sites-python-create-deploy-bottle-app.md)
 * [使用 Django 创建 Web 应用](web-sites-python-create-deploy-django-app.md)
 * [使用 Flask 创建 Web 应用](web-sites-python-create-deploy-flask-app.md)
 
-## 在 Azure 门户上创建 Web 应用
-<a id="web-app-creation-on-azure-portal" class="xliff"></a>
+## <a name="web-app-creation-on-azure-portal"></a>在 Azure 门户上创建 Web 应用
 本教程假设已有 Azure 订阅和 Azure 门户访问权限。
 
-如果没有现成的 Web 应用，则可从 [Azure 门户](https://portal.azure.cn)中创建一个。  单击左上角的“新建”按钮，然后依次单击“Web + 移动” > “Web 应用”。
+如果没有现成的 Web 应用，则可从 [Azure 门户](https://portal.azure.cn)中创建一个。  单击左上角的“新建”按钮，并依次单击“Web + 移动” > “Web 应用”。
 
-## Git 发布
-<a id="git-publishing" class="xliff"></a>
+## <a name="git-publishing"></a>Git 发布
 按照 [从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)的说明为新创建的 Web 应用配置 Git 发布。 本教程使用 Git 来创建、管理 Python Web 应用以及将其发布到 Azure 应用服务。
 
-在设置 Git 发布之后，将创建 Git 存储库并使其与你的 Web 应用相关联。 随即会显示该存储库的 URL，之后其可用于将数据从本地开发环境推送到云。 若要通过 Git 发布应用程序，请确保还安装了 Git 客户端，并按照提供的说明将 Web 应用内容推送到 Azure 应用服务。
+在设置 Git 发布之后，会创建 Git 存储库并使其与你的 Web 应用相关联。 随即会显示该存储库的 URL，之后其可用于将数据从本地开发环境推送到云。 要通过 Git 发布应用程序，请确保还安装了 Git 客户端，并按照提供的说明将 Web 应用内容推送到 Azure 应用服务。
 
-## 应用程序概述
-<a id="application-overview" class="xliff"></a>
-接下来几节将创建以下文件。 这些文件应放在 Git 存储库的根目录中。
+## <a name="application-overview"></a>应用程序概述
+接下来几节会创建以下文件。 这些文件应放在 Git 存储库的根目录中。
 
     app.py
     requirements.txt
@@ -58,8 +53,7 @@ ms.lasthandoff: 06/30/2017
     web.config
     ptvs_virtualenv_proxy.py
 
-## WSGI 处理程序
-<a id="wsgi-handler" class="xliff"></a>
+## <a name="wsgi-handler"></a>WSGI 处理程序
 WSGI 是 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) 所述的 Python 标准，用于定义 Web 服务器和 Python 之间的接口。 它提供了使用 Python 编写各种 Web 应用程序和框架所需的标准化接口。 当今常用的 Python Web 框架都使用 WSGI。 Azure 应用服务 Web 应用支持任何此类框架；此外，高级用户可以创作自己的框架，只要自定义处理程序遵循 WSGI 规范准则即可。
 
 下面是定义自定义处理程序的 `app.py` 的一个示例：
@@ -77,36 +71,32 @@ WSGI 是 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) 所述的 Python �
         httpd = make_server('localhost', 5555, wsgi_app)
         httpd.serve_forever()
 
-可以使用 `python app.py` 在本地运行此应用程序，然后在 Web 浏览器中浏览到 `http://localhost:5555`。
+可以使用 `python app.py` 在本地运行此应用程序，并在 Web 浏览器中浏览到 `http://localhost:5555`。
 
-## 虚拟环境
-<a id="virtual-environment" class="xliff"></a>
-尽管上述示例应用程序不需要任何外部包，但你的应用程序很可能需要一些外部包。
+## <a name="virtual-environment"></a>虚拟环境
+尽管上述示例应用程序不需要任何外部包，但应用程序很可能需要一些外部包。
 
 为了便于管理外部包依赖项，Azure Git 部署支持创建虚拟环境。
 
-当 Azure 在存储库的根目录中检测到 requirements.txt 文件时，将自动创建名为 `env`的虚拟环境。 仅第一次部署会执行此操作，也可以在所选的 Python 运行时发生更改后进行任何部署的过程中执行此操作。
+当 Azure 在存储库的根目录中检测到 requirements.txt 文件时，自动创建名为 `env`的虚拟环境。 仅第一次部署会执行此操作，也可以在所选的 Python 运行时发生更改后进行任何部署的过程中执行此操作。
 
-你可能需要创建虚拟环境用于开发，但不将其包括在 Git 存储库中。
+可能需要创建虚拟环境用于开发，但不将其包括在 Git 存储库中。
 
-## 包管理
-<a id="package-management" class="xliff"></a>
-Requirements.txt 中列出的包将使用 pip 自动安装到虚拟环境中。 每次部署时都会发生这种情况，但如果已安装包，则 pip 将跳过安装。
+## <a name="package-management"></a>包管理
+Requirements.txt 中列出的包将使用 pip 自动安装到虚拟环境中。 每次部署时都会发生这种情况，但如果已安装包，则 pip 会跳过安装。
 
 示例 `requirements.txt`：
 
     azure==0.8.4
 
-## Python 版本
-<a id="python-version" class="xliff"></a>
+## <a name="python-version"></a>Python 版本
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 示例 `runtime.txt`：
 
     python-2.7
 
-## Web.config
-<a id="webconfig" class="xliff"></a>
+## <a name="webconfig"></a>Web.config
 需要创建一个 web.config 文件以指定服务器处理请求的方式。
 
 请注意，如果存储库中有一个 Web.x.y 文件，其中 x.y 与所选的 Python 运行时匹配，则 Azure 会自动将相应的文件复制为 web.config。
@@ -209,16 +199,16 @@ Python 3.4 的示例 `web.config` ：
       </system.webServer>
     </configuration>
 
-静态文件将由 Web 服务器直接处理，无需通过 Python 代码，从而提高性能。
+静态文件由 Web 服务器直接处理，无需通过 Python 代码，从而提高性能。
 
 在上述示例中，磁盘上静态文件的位置应与 URL 中的位置匹配。 也就是说，`http://pythonapp.chinacloudsites.cn/static/site.css` 的请求将为磁盘上 `\static\site.css` 处的文件服务。
 
 `WSGI_ALT_VIRTUALENV_HANDLER` 是指定 WSGI 处理程序的位置。 在上述示例中，该位置为 `app.wsgi_app`，因为处理程序是根文件夹中 `app.py` 中的一个名为 `wsgi_app` 的函数。
 
-可以自定义 `PYTHONPATH`，但是，如果通过在 requirements.txt 中指定将所有依赖项全部安装到虚拟环境中，则不需要更改。
 
-## 虚拟环境代理
-<a id="virtual-environment-proxy" class="xliff"></a>
+            `PYTHONPATH`，但是，如果通过在 requirements.txt 中指定将所有依赖项全部安装到虚拟环境中，则不需要更改。
+
+## <a name="virtual-environment-proxy"></a>虚拟环境代理
 使用以下脚本可检索 WSGI 处理程序、激活虚拟环境以及记录错误。 该脚本是通用的，无需修改即可使用。
 
 `ptvs_virtualenv_proxy.py`的内容：
@@ -346,22 +336,17 @@ Python 3.4 的示例 `web.config` ：
         log('Got handler: %r\n' % handler)
         return handler
 
-## 自定义 Git 部署
-<a id="customize-git-deployment" class="xliff"></a>
+## <a name="customize-git-deployment"></a>自定义 Git 部署
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-deployment.md)]
 
-## 故障排除 - 软件包安装
-<a id="troubleshooting---package-installation" class="xliff"></a>
+## <a name="troubleshooting---package-installation"></a>故障排除 - 软件包安装
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## 故障排除 - 虚拟环境
-<a id="troubleshooting---virtual-environment" class="xliff"></a>
+## <a name="troubleshooting---virtual-environment"></a>故障排除 - 虚拟环境
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅 [Python 开发人员中心](/develop/python/)。
 
-## 更改内容
-<a id="whats-changed" class="xliff"></a>
+## <a name="whats-changed"></a>更改内容
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)

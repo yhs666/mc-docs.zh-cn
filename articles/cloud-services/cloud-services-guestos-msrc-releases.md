@@ -1,6 +1,6 @@
 ---
-title: "适用于 Azure 来宾 OS 的更新列表 | Azure"
-description: "适用于来宾 OS 版本的更新列表"
+title: "适用于 Azure 来宾 OS 的更新列表 | Microsoft Docs"
+description: "适用于 Azure 来宾 OS 版本的更新列表"
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -12,17 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 08/03/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: 09/11/2017
-ms.openlocfilehash: 2dd902b093ed254f868a00068b7a91d2b9e119b4
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.date: 10/09/2017
+ms.openlocfilehash: 8afdc95382d7acb3c79700f2a36ccd70f82dc0bd
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
+
+## <a name="august-guest-os"></a>8 月来宾 OS
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| --- | --- | --- | --- | --- |
+| Rel 17-07 | [4034658] |Windows 10 更新 |5.10 |2017 年 8 月 8 日 |
+| Rel 17-07 | [4034679] |仅 Windows 安全性 |2.65 |2017 年 8 月 8 日 |
+| Rel 17-07 | [4034672] |仅 Windows 安全性 |4.45 |2017 年 8 月 8 日 |
+| Rel 17-07 | [4034666] |仅 Windows 安全性 |3.52 |2017 年 8 月 8 日 |
+| Rel 17-07 | [4034733] |Internet Explorer |2.65、3.52、4.45、5.10 |2017 年 8 月 8 日 |
+| Rel 17-07 | [4034664], [4034665], [4034681] |Windows 每月汇总 |2.65、3.52、4.45 |2017 年 8 月 8 日 |
+| Rel 17-07 | [4034668]、[4034660]、[4034658]、[4034674] |重新发布 CVE-2017-0071，重新发布 CVE-2017-0228 |5.10 |2017 年 8 月 8 日 |
+| Rel 17-07 | [4025341] |7 月非安全性汇总 |2.65 |2017 年 8 月 8 日 |
+| Rel 17-07 | [4025331] |7 月非安全性汇总 |3.52 |2017 年 8 月 8 日 |
+| Rel 17-07 | [4025336] |7 月非安全性汇总 |4.45 |2017 年 8 月 8 日 |
 
 ## <a name="july-guest-os"></a>7 月来宾 OS
 | 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
@@ -511,6 +525,22 @@ ms.lasthandoff: 09/01/2017
 | 不适用 |[2999802] |在 Windows 中打印时，虚线变成实线 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 | 不适用 |[2896881] |在 Windows 中登录期间使用 AddPrinterConnection VBScript 命令映射用户的打印机时，登录时间过长 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 
+
+[4034658]: http://support.microsoft.com/zh-cn/kb/4034658
+[4034679]: http://support.microsoft.com/zh-cn/kb/4034679
+[4034672]: http://support.microsoft.com/zh-cn/kb/4034672
+[4034666]: http://support.microsoft.com/zh-cn/kb/4034666
+[4034733]: http://support.microsoft.com/zh-cn/kb/4034733
+[4034664]: http://support.microsoft.com/zh-cn/kb/4034664
+[4034665]: http://support.microsoft.com/zh-cn/kb/4034665
+[4034681]: http://support.microsoft.com/zh-cn/kb/4034681
+[4034668]: http://support.microsoft.com/zh-cn/kb/4034668
+[4034660]: http://support.microsoft.com/zh-cn/kb/4034660
+[4034658]: http://support.microsoft.com/zh-cn/kb/4034658
+[4034674]: http://support.microsoft.com/zh-cn/kb/4034674
+[4025341]: http://support.microsoft.com/zh-cn/kb/4025341
+[4025331]: http://support.microsoft.com/zh-cn/kb/4025331
+[4025336]: http://support.microsoft.com/zh-cn/kb/4025336
 [4025339]: http://support.microsoft.com/zh-cn/kb/4025337
 [4025337]: http://support.microsoft.com/zh-cn/kb/4025333
 [4025333]: http://support.microsoft.com/zh-cn/kb/4025343

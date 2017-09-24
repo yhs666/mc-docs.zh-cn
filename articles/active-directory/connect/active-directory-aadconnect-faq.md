@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/13/2017
-ms.date: 07/31/2017
+origin.date: 08/12/2017
+ms.date: 09/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: 1bfce0064889a6e0eb08d04c31dcf4ba122ca9d8
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 64e939b67fae4a6b1267be4459e00ff0d0c1e6ce
+ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/21/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>有关 Azure Active Directory Connect 的常见问题
 
@@ -67,10 +67,10 @@ Azure AD Connect 不支持 NetBios 名称包含句点“.”的本地林/域。
 
 还可以根据 [Azure AD Connect 同步服务功能](active-directory-aadconnectsyncservice-features.md)中所述配置 Azure AD，以允许同步引擎更新 userPrincipalName。
 
-**问：是否支持将本地 AD 组/联系人对象与现有的 Azure AD 组/联系人对象进行软匹配？**  
+**问：是否支持本地 AD 组/联系人对象与现有 Azure AD 组/联系人对象的软匹配？**  
 否，目前不支持。
 
-**问：是否支持在现有的 Azure AD 组/联系人对象上手动设置 ImmutableId 属性，以便将其与本地 AD 组/联系人对象进行硬匹配？**  
+**问：是否支持手动设置现有 Azure AD 组/联系人对象的 ImmutableId 属性，以将其硬匹配到本地 AD 组/联系人对象？**  
 否，目前不支持。
 
 
@@ -104,9 +104,7 @@ Azure AD Connect 不支持 NetBios 名称包含句点“.”的本地林/域。
 
 - 单击 [此处](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)，在社区中搜索和浏览技术问题与答案，或提出自己的问题。
 
-[Azure AD Connect 客户支持](https://manage.windowsazure.cn/?getsupport=true)
-
 - 使用此链接通过 Azure 门户获取支持。
 
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update-->

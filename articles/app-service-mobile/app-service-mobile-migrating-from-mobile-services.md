@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/03/2016
 ms.author: v-yiso
-ms.date: 07/31/2017
-ms.openlocfilehash: fadf855c029ee6ec34218c63f69514b686bdbaf6
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/09/2017
+ms.openlocfilehash: 2d7be15e949fd62922f2d95af172103425e9a809
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="article-top"></a>将现有的 Azure 移动服务迁移到 Azure 应用服务
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="what-does-migration-do"></a>迁移对站点有何作用
 
-迁移 Azure 移动服务可使移动服务变成 [Azure 应用服务] 应用，且不会对代码造成影响。  通知中心、SQL 数据连接、身份验证设置、计划作业和域名都将保持不变。  使用 Azure 移动服务的移动客户端仍可正常运行。  迁移操作将服务传输到 Azure 应用服务之后，服务会重新启动。
+迁移 Azure 移动服务可使移动服务变成 [Azure 应用服务] 应用，且不会对代码造成影响。  通知中心、SQL 数据连接、身份验证设置、计划作业和域名将保持不变。  使用 Azure 移动服务的移动客户端仍可正常运行。  迁移操作将服务传输到 Azure 应用服务之后，服务会重新启动。
 
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
@@ -36,7 +36,6 @@ ms.lasthandoff: 07/28/2017
 Microsoft 建议迁移 Azure 移动服务来利用 Azure 应用服务的各项功能，其中包括：
 
   *  新的主机功能，包括 [Web 作业]和[自定义域名]。
-  * 除混合连接外，还可使用 [VNet] 连接到本地资源。
   *  内置的 DevOps 工具，包括[暂存槽]、回滚和生产环境内测试。
   *  [自动缩放]、负载均衡和[性能监视]。
 
@@ -100,7 +99,7 @@ Microsoft 建议迁移 Azure 移动服务来利用 Azure 应用服务的各项�
 > 
 
 ### <a name="review-migration-scheduler-jobs"></a>查看已迁移的计划程序作业
-计划程序作业在迁移后约 30 分钟内不会显示。  计划的作业将在后台持续运行。
+计划程序作业在迁移后约 30 分钟内不会显示。  计划的作业会继续在后台运行。
 若要在计划的作业再次显示后进行查看，请执行以下操作：
 
 1. 登录到 [Azure 门户]。
@@ -109,9 +108,9 @@ Microsoft 建议迁移 Azure 移动服务来利用 Azure 应用服务的各项�
 迁移后可用的计划程序作业数量有所限制。  查看使用情况和 [Azure 计划程序计划]。
 
 ### <a name="configure-cors"></a>根据需要配置 CORS
-跨域资源共享是可以让网站访问不同域上的 Web API 的技术。  如果使用的 Azure 移动服务具有关联的网站，则需要将 CORS 配置为迁移的一部分。  如果从移动设备以独占方式访问 Azure 移动服务，则在绝大多数情况下都不需要配置 CORS。
+跨域资源共享是可以让网站访问不同域上的 Web API 的技术。  如果将 Azure 移动服务与相关联的网站一起使用，则需要将 CORS 配置为迁移的一部分。  如果从移动设备以独占方式访问 Azure 移动服务，则在绝大多数情况下都不需要配置 CORS。
 
-已迁移的 CORS 设置可用作 MS_CrossDomainWhitelist 应用设置。  若要将站点迁移到应用服务CORS 设施，请执行以下操作：
+已迁移的 CORS 设置可用作 MS_CrossDomainWhitelist 应用设置。  要将站点迁移到应用服务CORS 设施，请执行以下操作：
 
   1.  登录到 [Azure 门户]。
   2.  选择“所有资源”或“应用服务”，然后单击已迁移的移动服务的名称。
@@ -154,7 +153,7 @@ PublishSettings 文件将下载到计算机。  此文件通常名为 _站点名
   2. 选择“所有资源”或“应用服务”，然后单击已迁移的移动服务的名称。
   3. 默认打开“设置”边栏选项卡。
   4. 在“发布”菜单中单击“部署凭据”  。
-  5. 在提供的框中输入新部署凭据，然后单击“保存”按钮。
+  5. 在提供的框中输入新部署凭据，并单击“保存”按钮。
 
 可以使用这些凭据通过 git 克隆站点，或者从 GitHub、TFS 或 Mercurial 设置自动化部署。  有关详细信息，请参阅 [Azure 应用服务部署文档]。
 
@@ -235,7 +234,7 @@ PublishSettings 文件将下载到计算机。  此文件通常名为 _站点名
   4. 单击“设置”。
   5. 单击“管理”下的“计划程序作业”  。
 
-计划的作业以迁移之前指定的频率列出。  按需作业将禁用。  若要运行按需作业，请执行以下操作：
+计划的作业以迁移之前指定的频率列出。  按需作业会被禁用。  若要运行按需作业，请执行以下操作：
 
   1. 选择想要运行的作业。
   2. 如果需要，请单击“启用”  以启用该作业。
@@ -339,13 +338,13 @@ Azure 应用服务中通常会禁用诊断日志记录。  若要启用诊断日
   3. 单击“工具”  按钮
   4. 在“观察”菜单下选择“日志流”。
 
-生成日志后，会将其显示在窗口中。  还可以下载日志，以便后续使用部署凭据进行分析。 有关详细信息，请参阅 [日志记录] 文档。
+日志生成后会显示在窗口中。  还可以下载日志，以便后续使用部署凭据进行分析。 有关详细信息，请参阅 [日志记录] 文档。
 
 ## <a name="known-issues"></a>已知问题
 
 ### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>删除迁移的移动应用副本会导致站点中断
 
-如果使用 Azure PowerShell 克隆迁移的移动服务，然后又删除该副本，则会删除生产服务的 DNS 项。  不能再从 Internet 访问该站点。  
+如果使用 Azure PowerShell 克隆迁移的移动服务，又删除该副本，则会删除生产服务的 DNS 项。  不能再从 Internet 访问该站点。  
 
 解决方案：如果想要克隆站点，请使用门户。
 
@@ -377,11 +376,11 @@ Azure 应用服务中通常会禁用诊断日志记录。  若要启用诊断日
 
 ## <a name="next-steps"></a>后续步骤
 
-除了将应用程序迁移到应用服务以外，还可使用其他一些功能：
+现已将应用程序迁移到应用服务，有更多的功能可以使用：
 
   * 使用部署[暂存槽]可以暂存站点更改，以及执行 A/B 测试。
   * [Web 作业] 可以取代按需计划作业。
-  * 可通过将站点链接到 GitHub、TFS 或 Mercurial [连续部署] 站点。
+  * 可以通过将站点链接到 GitHub、TFS 或 Mercurial 来[连续部署]站点。
   * 以相同的代码为网站和移动 API 提供服务。
 
 ### <a name="upgrading-your-site"></a>将移动服务站点升级到 Azure 移动应用 SDK
@@ -399,24 +398,24 @@ Azure 应用服务中通常会禁用诊断日志记录。  若要启用诊断日
 [应用服务定价]: https://www.azure.cn/pricing/details/app-service/
 [自动缩放]: ../app-service-web/web-sites-scale.md
 [Azure 应用服务]: ../app-service/app-service-value-prop-what-is.md
-[Azure 应用服务部署文档]: ../app-service-web/web-sites-deploy.md
+[Azure App Service 部署文档]: ../app-service-web/web-sites-deploy.md
 [Azure 经典管理门户]: https://manage.windowsazure.cn
-[Azure 门户]: https://portal.azure.cn
+[Azure Portal]: https://portal.azure.cn
 [Azure 计划程序计划]: ../scheduler/scheduler-plans-billing.md
-[连续部署]: ../app-service-web/app-service-continuous-deployment.md
+[持续部署]: ../app-service-web/app-service-continuous-deployment.md
 [convert your Mixed namespaces]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [自定义域名]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
-[Azure 应用服务正式版]: https://www.azure.cn/blog/announcing-general-availability-of-app-service-mobile-apps/
+[Azure App Service 正式发布版]: https://www.azure.cn/blog/announcing-general-availability-of-app-service-mobile-apps/
 
 [日志记录]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [移动应用 Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [移动服务与应用服务]: ./app-service-mobile-value-prop-migration-from-mobile-services.md
-[Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
+[通知中心]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [性能监视]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[暂存槽]: ../app-service-web/web-sites-staged-publishing.md
+[暂存槽位]: ../app-service-web/web-sites-staged-publishing.md
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [Web 作业]: ../app-service-web/websites-webjobs-resources.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples

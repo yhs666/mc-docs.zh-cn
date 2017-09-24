@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 05/26/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 063f56ad7362088aff9c573aad3e508e9d3a9ff0
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: 04c7625b184c0194f3538e3f9b31ff37363193e8
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>补充课程 - 不规则层次结构
 
@@ -130,3 +130,5 @@ ms.lasthandoff: 08/02/2017
 [第 9 课：创建层次结构](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [补充课程 - 动态安全性](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [补充课程 - 详细信息行](../tutorials/aas-supplemental-lesson-detail-rows.md)
+
+<!--Update_Description: update meta properties-->

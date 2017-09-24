@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 08/11/2017
-ms.date: 09/18/2017
+origin.date: 08/28/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 251c3fb73393331bba55aaecc04dc70411efa376
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 04da4f039216bd9042d6f879f6b9194a694ecf38
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行自动联机备份和还原
 Azure Cosmos DB 可以定期自动备份所有数据。 自动备份不会影响数据库操作的性能或可用性。 所有备份单独存储在另一个存储服务中并在全球复制，针对区域性的灾难提供复原能力。 假设你不小心删除了 Cosmos DB 容器，事后需要用到数据恢复或灾难恢复解决方案，此时，自动备份便可派上用场。  
@@ -66,4 +66,4 @@ Azure Cosmos DB 保留系统中每个分区的两个最新备份。 当意外删
 
 若要联系 Azure 支持，请 [从 Azure 门户开具票证](https://www.azure.cn/support/support-azure/)。
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties-->

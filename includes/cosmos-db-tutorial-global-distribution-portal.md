@@ -1,8 +1,5 @@
-可以通过此 Azure Friday 视频，与 Scott Hanselman 和工程（主管）经理 Karthik Raman 一起，了解 Azure Cosmos DB 全局分发的相关信息。
-
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
-
-有关 Cosmos DB 中全局数据库复制工作原理的详细信息，请参阅[使用 Cosmos DB 全局分配数据](../articles/documentdb/documentdb-distribute-data-globally.md)。
+<!-- Not Available >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  -->
+有关 Azure Cosmos DB 中全局数据库复制工作原理的详细信息，请参阅[使用 Cosmos DB 全局分配数据](../articles/cosmos-db/distribute-data-globally.md)。
 
 ## <a id="addregion"></a>使用 Azure 门户添加全局数据库区域
 Azure Cosmos DB 在全球范围的所有 [Azure 区域][azureregions]中推出。 为数据库帐户选择默认的一致性级别后，可以关联一个或多个区域（具体取决于所选的默认一致性级别和全局分发需求）。
@@ -10,7 +7,7 @@ Azure Cosmos DB 在全球范围的所有 [Azure 区域][azureregions]中推出�
 1. 在 [Azure 门户](https://portal.azure.cn/)的左侧栏中，单击“Azure Cosmos DB”。
 2. 在“Azure Cosmos DB”边栏选项卡中，选择要修改的数据库帐户。
 3. 在“帐户”边栏选项卡上的菜单中单击“全局复制数据”。
-4. 在“全局复制数据”边栏选项卡中，通过单击地图中的区域选择要添加或删除的区域，并单击“保存”。 添加区域会产生费用，有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/documentdb/)或[使用 DocumentDB 全局分发数据](../articles/documentdb/documentdb-distribute-data-globally.md)。
+4. 在“全局复制数据”边栏选项卡中，通过单击地图中的区域选择要添加或删除的区域，并单击“保存”。 添加区域会产生费用，有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)或[使用 Azure Cosmos DB 全局分发数据](../articles/cosmos-db/distribute-data-globally.md)。
 
     ![单击图中的区域可以添加或删除区域][1]
 
@@ -49,5 +46,8 @@ While all regions associated with your Cosmos DB database account can serve read
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: /best-practices-availability-paired-regions/
 [consistency]: ../articles/cosmos-db/consistency-levels.md
-[azureregions]: https://azure.microsoft.com/regions/#services
-[offers]: https://www.azure.cn/pricing/details/documentdb/
+[azureregions]: https://www.azure.cn/support/service-dashboard/#services
+[offers]: https://www.azure.cn/pricing/details/cosmos-db/
+
+<!--Update_Description: wording update-->
+<!--ms.date: 09/25/2017-->

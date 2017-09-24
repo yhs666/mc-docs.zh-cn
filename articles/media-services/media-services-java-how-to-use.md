@@ -1,10 +1,10 @@
 ---
 title: "开始使用 Java 传送点播内容 | Azure"
-description: "本教程将引导用户完成相关步骤，利用 Java 和 Azure 媒体服务 (AMS) 应用程序实现基本的点播视频 (VoD) 内容传送服务。"
+description: "本教程引导用户完成相关步骤，利用 Java 和 Azure 媒体服务 (AMS) 应用程序实现基本的点播视频 (VoD) 内容传送服务。"
 services: media-services
 documentationcenter: java
-author: juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: 
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
 ms.service: media-services
@@ -13,26 +13,26 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
 origin.date: 01/10/2017
-ms.date: 02/24/2017
+ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 31e26cad6e056dfa3e9e8a0c23c77e9e0e525fee
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 77f3c746c0ed8a8271e80cc0e333100e1dbd145e
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>开始使用 Java 传送点播内容
 
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-本教程将引导用户完成相关步骤，利用 Java 和 Azure 媒体服务 (AMS) 应用程序实现基本的点播视频 (VoD) 内容传送服务。
+本教程介绍了在 Java 中使用 Azure 媒体服务 (AMS) 应用程序实施基本的视频点播 (VoD) 内容传送服务的步骤。
 
 ## <a name="prerequisites"></a>先决条件
 
 以下是完成本教程所需具备的条件：
 
 * 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。 
-* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[如何创建媒体服务帐户](./media-services-create-account.md)。
+* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * 适用于 Java 的 Azure 库，可以从 [Azure Java 开发人员中心][Azure Java Developer Center]安装。
 
 ##<a if="connect"></a>如何将媒体服务与 Java 结合使用
@@ -40,11 +40,14 @@ ms.lasthandoff: 06/21/2017
 >[!NOTE]
 >创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
 
+>[!NOTE]
+>不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies)主题。
+
 以下代码演示了如何创建资产、如何将媒体文件上传到该资产、如何使用任务运行作业以转换资产，以及如何创建定位符来流式传输视频。
 
-使用此代码前，需设置一个媒体服务帐户。 有关设置帐户的信息，请参阅[如何创建媒体服务帐户](./media-services-create-account.md)。
+使用此代码前，需设置一个媒体服务帐户。 有关设置帐户的信息，请参阅[如何创建媒体服务帐户](media-services-portal-create-account.md)。
 
-将“clientId”和“clientSecret”变量替换为你自己的值。 该代码还依赖于本地存储的文件。 需要提供自己的文件以供使用。
+将“clientId”和“clientSecret”变量替换成自己的值。 该代码还依赖于本地存储的文件。 需要提供自己的文件以供使用。
 
 ```
 import java.io.*;
@@ -259,7 +262,7 @@ public class HelloMediaServices
 
 ## <a name="additional-resources"></a>其他资源
 有关媒体服务 Javadoc 文档，请参阅 [适用于 Java 的 Azure 库文档][Azure Libraries for Java documentation]。
-
+<!--Update_Description:update two links;add one note about AMS policy limitations-->
 <!-- URLs. -->
 
   [Azure Java Developer Center]: /develop/java/

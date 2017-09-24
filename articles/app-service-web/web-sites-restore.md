@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/06/2016
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 1e2b72421b4d944b35e4700feec8b4fc62fdaf41
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 10/09/2017
+ms.author: v-yiso
+ms.openlocfilehash: 88c412dff54cd36d91e24e06d6d6b8fcf433b590
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="restore-an-app-in-azure"></a>在 Azure 中还原应用
-本文将演示如何在 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)中还原已事先备份的应用（请参阅[在 Azure 中备份应用](web-sites-backup.md)）。 可以根据需要将应用及其链接的数据库还原到以前的状态，或者基于原始应用的备份之一创建新的应用。 Azure 应用服务支持用于备份和还原的以下数据库：
+本文演示如何在 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)中还原已事先备份的应用（请参阅[在 Azure 中备份应用](web-sites-backup.md)）。 可以根据需要将应用及其链接的数据库还原到以前的状态，或者基于原始应用的备份之一创建新的应用。 Azure 应用服务支持用于备份和还原的以下数据库：
 - [SQL 数据库](https://www.azure.cn/home/features/sql-database/)
 - MySQL 应用内产品
 
@@ -38,27 +38,27 @@ ms.lasthandoff: 07/14/2017
 
     ![](./media/web-sites-restore/021ChooseSource1.png)
 
-    “应用备份”  选项显示当前应用的所有现有备份，使你能够轻松地选择一个。
-    “存储”  选项使你能够从任何现有 Azure 存储帐户和订阅中的容器中选择任何备份 ZIP 文件。
+    “应用备份”选项显示当前应用的所有现有备份，使你能够轻松地选择一个。
+    “存储”选项使你能够从任何现有 Azure 存储帐户和订阅中的容器中选择任何备份 ZIP 文件。
     如果正在尝试还原其他应用的备份，请使用“存储”  选项。
 3. 然后，在“还原目标”中指定应用还原的目标。
 
     ![](./media/web-sites-restore/022ChooseDestination1.png)
 
    > [!WARNING]
-   > 如果选择“覆盖”，将清除并覆盖当前应用中所有的现有数据。 在单击“确定”之前，请确保该操作正是想要执行的操作。
+   > 如果选择“覆盖”，则会清除并覆盖当前应用中所有的现有数据。 在单击“确定”之前，请确保该操作正是想要执行的操作。
    > 
    > 
 
-    可选择“现有应用”  将应用备份还原到同一资源组中的其他应用。 使用此选项之前，应已使用应用备份中定义的镜像数据库配置在资源组中创建了其他应用。 还可以创建一个**新**应用，以便将内容还原到其中。
+    可选择“现有应用”将应用备份还原到同一资源组中的其他应用。 使用此选项之前，应已使用应用备份中定义的镜像数据库配置在资源组中创建了其他应用。 还可以创建一个**新**应用，以便将内容还原到其中。
 
 4. 单击 **“确定”**。
 
 <a name="StorageAccount"></a>
 
 ## <a name="download-or-delete-a-backup-from-a-storage-account"></a>从存储帐户中下载或删除备份
-1. 在 Azure 门户的主“浏览”边栏选项卡中，选择“存储帐户”。 将显示现有存储帐户的列表。
-2. 选择包含要下载或删除的备份的存储帐户。将显示该存储帐户的边栏选项卡。
+1. 在 Azure 门户的主“浏览”边栏选项卡中，选择“存储帐户”。 会显示现有存储帐户的列表。
+2. 选择包含要下载或删除的备份的存储帐户。显示该存储帐户的边栏选项卡。
 3. 在存储帐户边栏选项卡中，选择所需的容器
 
     ![查看容器][ViewContainers]
@@ -72,12 +72,13 @@ ms.lasthandoff: 07/14/2017
 ## <a name="monitor-a-restore-operation"></a>监视还原操作
 若要查看有关应用还原操作成功与否的详细信息，请导航到 Azure 门户中的“活动日志”边栏选项卡。  
 
-向下滚动以查找所需的还原操作，然后单击以选中。
+向下滚动以查找所需的还原操作，并单击以选中。
 
-“详细信息”边栏选项卡将显示与还原操作相关的可用信息。
+“详细信息”边栏选项卡显示与还原操作相关的可用信息。
 
-## <a name="next-steps"></a>后续步骤
-可使用 REST API 备份和还原应用服务应用（请参阅[使用 REST 备份和还原应用服务应用](websites-csm-backup.md)）。
+<!-- ## Next Steps
+You can backup and restore App Service apps using REST API. -->
+
 
 <!-- IMAGES -->
 [ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow1.png

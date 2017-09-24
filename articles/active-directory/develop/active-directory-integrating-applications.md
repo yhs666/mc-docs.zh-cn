@@ -1,10 +1,10 @@
 ---
-title: "将应用程序与 Azure Active Directory 集成 | Azure"
+title: "将应用程序与 Azure Active Directory 集成 | Microsoft Docs"
 description: "有关如何在 Azure Active Directory (Azure AD) 中添加、更新或删除应用程序的详细信息。"
 services: active-directory
 documentationcenter: 
-author: bryanla
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: mbaldwin
 ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/08/2017
-ms.date: 03/13/2017
+origin.date: 07/20/2017
+ms.date: 09/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: 06ce18ceb168944e433a7b56b146ecf04f41e5f3
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: ba78c66f01306de58bb16f0f65ddc0f1f0cfba5e
+ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/21/2017
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>将应用程序与 Azure Active Directory 集成
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -146,7 +146,7 @@ ms.lasthandoff: 08/25/2017
 
 #### <a name="to-verify-the-web-api-is-exposed-to-other-applications-in-your-directory"></a>验证 Web API 是否已公开给目录中的其他应用程序
 1. 在顶部菜单中，单击“应用程序”，选择想要为其配置 Web API 访问权限的客户端应用程序，然后单击“配置”。
-2. 向下滚动到“对其他应用程序的权限”部分。 单击“选择应用程序”下拉菜单，便可以选择用户刚刚为其公开了权限的 Web API。 从“委托的权限”下拉菜单中选择新的权限。
+2. 向下滚动到“对其他应用程序的权限”部分。 单击“选择应用程序”下拉菜单，并便可以选择刚刚为其公开了权限的 Web API。 从“委托的权限”下拉菜单中选择新的权限。
 
 ![显示“待办事项”权限](./media/active-directory-integrating-applications/listpermissions.png)
 
@@ -251,3 +251,5 @@ Web 应用程序也可为用户提供注册体验。 如果确实提供注册体
 - 若要了解有关应用程序清单扮演的角色的详细信息，请参阅[了解 Azure Active Directory 应用程序清单](./active-directory-application-manifest.md)
 - 请参阅[Azure AD 开发人员术语表](./active-directory-dev-glossary.md)了解 Azure Active Directory (AD) 开发人员某些核心概念的定义。
 - 请参阅 [Active Directory 开发人员指南](./active-directory-developers-guide.md)了解与开发人员相关的所有内容的概述。
+
+<!--Update_Description: update meta properties -->  

@@ -12,18 +12,17 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 65d981ac65ba7f6937f2c76cb6c8cd38427467da
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: cd29453524a38d7b925df3efbff8b46b9db52198
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 09/22/2017
 ---
-# 如何使用 DocumentDB API 设置 Azure Cosmos DB 全局分发
-<a id="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api" class="xliff"></a>
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>如何使用 DocumentDB API 设置 Azure Cosmos DB 全局分发
 
 本文介绍了如何使用 Azure 门户设置 Azure Cosmos DB 全局分发，然后使用 DocumentDB API 进行连接。
 
@@ -36,10 +35,9 @@ ms.lasthandoff: 07/07/2017
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## 使用 DocumentDB API 连接到首选区域
-<a id="connecting-to-a-preferred-region-using-the-documentdb-api" class="xliff"></a>
+## <a name="connecting-to-a-preferred-region-using-the-documentdb-api"></a>使用 DocumentDB API 连接到首选区域
 
-为了利用[全局分发](distribute-data-globally.md)，客户端应用程序可以指定要用于执行文档操作的区域优先顺序列表。 可通过设置连接策略来实现此目的。 DocumentDB SDK 将会根据 Azure Cosmos DB 帐户配置、当前区域可用性和指定的优先顺序列表，选择最佳的终结点来执行写入和读取操作。
+为了利用[全局分发](distribute-data-globally.md)，客户端应用程序可以指定要用于执行文档操作的区域优先顺序列表。 可通过设置连接策略来实现此目的。 DocumentDB SDK 会根据 Azure Cosmos DB 帐户配置、当前区域可用性和指定的优先顺序列表，选择最佳的终结点来执行写入和读取操作。
 
 此优先顺序列表是在使用 DocumentDB SDK 初始化连接时指定的。 SDK 接受可选参数“PreferredLocations”，这是 Azure 区域的顺序列表。
 
@@ -53,8 +51,7 @@ SDK 只会尝试读取 PreferredLocations 中指定的区域。 例如，如果�
 
 如果未设置 PreferredLocations 属性，则会从当前写入区域为所有请求提供服务。
 
-## .NET SDK
-<a id="net-sdk" class="xliff"></a>
+## <a name="net-sdk"></a>.NET SDK
 无需进行任何代码更改即可使用该 SDK。 在此情况下，SDK 会自动将读取和写入请求定向到当前写入区域。
 
 在 .NET SDK 1.8 和更高版本中，DocumentClient 构造函数的 ConnectionPolicy 参数有一个名为 Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations 的属性。 此属性的类型为 Collection `<string>` ，应包含区域名称的列表。 字符串值已根据 [Azure 区域][regions] 页上的“区域名称”列设置格式，其第一个字符的前面和最后一个字符的后面均没有空格。
@@ -87,11 +84,10 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## NodeJS、JavaScript 和 Python SDK
-<a id="nodejs-javascript-and-python-sdks" class="xliff"></a>
+## <a name="nodejs-javascript-and-python-sdks"></a>NodeJS、JavaScript 和 Python SDK
 无需进行任何代码更改即可使用该 SDK。 在此情况下，SDK 会自动将读取和写入请求定向到当前写入区域。
 
-在每个 SDK 的 1.8 和更高版本中，DocumentClient 构造函数的 ConnectionPolicy 参数有一个名为 DocumentClient.ConnectionPolicy.PreferredLocations 的新属性。 此参数是采用区域名称列表的字符串数组。 名称已根据 [Azure 区域][regions] 页中的“区域名称”列设置格式。 你也可以在便捷对象 AzureDocuments.Regions 中使用预定义的常量
+在每个 SDK 的 1.8 和更高版本中，DocumentClient 构造函数的 ConnectionPolicy 参数有一个名为 DocumentClient.ConnectionPolicy.PreferredLocations 的新属性。 此参数是采用区域名称列表的字符串数组。 名称已根据 [Azure 区域][regions] 页中的“区域名称”列设置格式。 也可以在便捷对象 AzureDocuments.Regions 中使用预定义的常量
 
 当前写入终结点和读取终结点分别在 DocumentClient.getWriteEndpoint 和 DocumentClient.getReadEndpoint 中提供。
 
@@ -115,13 +111,12 @@ connectionPolicy.PreferredLocations = ['China North', 'China East'];
 var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
 ```
 
-## REST
-<a id="rest" class="xliff"></a>
+## <a name="rest"></a>REST
 数据库帐户在多个区域中可用后，客户端可以通过对以下 URI 执行 GET 请求来查询该帐户的可用性。
 
     https://{databaseaccount}.documents.azure.cn/
 
-服务将返回副本的区域及其对应 Azure Cosmos DB 终结点 URI 的列表。 当前写入区域将在响应中指示。 然后，客户端可为所有其他 REST API 请求选择适当的终结点，如下所示。
+服务返回副本的区域及其对应 Azure Cosmos DB 终结点 URI 的列表。 当前写入区域会在响应中指示。 然后，客户端可为所有其他 REST API 请求选择适当的终结点，如下所示。
 
 示例响应
 
@@ -158,14 +153,13 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 * 所有 PUT、POST 和 DELETE 请求必须转到指示的写入 URI
 * 所有 GET 和其他只读请求（例如查询）都可以转到客户端选择的任何终结点
 
-向只读区域发出的写入请求将会失败并出现 HTTP 错误代码 403（“禁止”）。
+向只读区域发出的写入请求会失败并出现 HTTP 错误代码 403（“禁止”）。
 
-如果在客户端初始发现阶段过后写入区域发生更改，则向先前写入区域进行的后续写入将会失败并出现 HTTP 错误代码 403（“禁止”）。 然后，客户端应再次对区域列表执行 GET 以获取更新的写入区域。
+如果在客户端初始发现阶段过后写入区域发生更改，则向先前写入区域进行的后续写入会失败并出现 HTTP 错误代码 403（“禁止”）。 然后，客户端应再次对区域列表执行 GET 以获取更新的写入区域。
 
 本教程到此结束。 阅读 [Azure Cosmos DB 中的一致性级别](consistency-levels.md)，了解如何管理全局复制帐户的一致性。 若要深入了解 Azure Cosmos DB 中全局数据库复制的工作原理，请参阅[使用 Azure Cosmos DB 全局分发数据](distribute-data-globally.md)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 在本教程中已完成以下操作：
 
@@ -179,3 +173,5 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 > [通过模拟器在本地开发](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
+
+<!--Update_Description: update meta properties-->

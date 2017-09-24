@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 04/19/2017
 ms.author: v-yiso
 ms.date: 09/11/2017
-ms.openlocfilehash: 638d7e99c1d0babbb1c5c2ae55bd0f0d3b70d1d5
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.openlocfilehash: f6bf30969e282e70024b318607dda738a1398372
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 云服务证书概述
 证书在 Azure 中用于云服务（[服务证书](#what-are-service-certificates)）以及用于通过管理 API 进行身份验证（[管理证书](#what-are-management-certificates)，适用于使用 Azure 经典门户而不是非经典 Azure 门户的情况）。 本主题提供了这两种证书类型的一般概述，并说明了如何[创建](#create)并将其[部署](#deploy)到 Azure。
@@ -28,9 +28,9 @@ Azure 中使用的证书是 x.509 v3 证书，可自签名或由另一个受信�
 Azure 使用的证书可以包含一个私钥或公钥。 证书具有指纹，它提供了一种明确识别证书的方法。 该指纹在 Azure [配置文件](./cloud-services-configure-ssl-certificate.md)中用于识别云服务应使用的证书。 
 
 ## <a name="what-are-service-certificates"></a>什么是服务证书？
-将服务证书添加到云服务后可在服务之间实现安全通信。 例如，如果部署了 Web 角色，则需要提供可对公开 HTTPS 终结点进行身份验证的证书。 在服务定义中定义的服务证书会自动部署到运行角色实例的虚拟机。 
+服务证书被附加到云服务，可实现与服务之间的安全通信。 例如，如果部署了 Web 角色，则需要提供可对公开 HTTPS 终结点进行身份验证的证书。 在服务定义中定义的服务证书会自动部署到运行角色实例的虚拟机。 
 
-使用 Azure 经典门户或经典部署模型可将服务证书上传到 Azure 经典门户。 服务证书与特定的云服务相关联。 它们将分配给服务定义文件中的部署。
+使用 Azure 经典门户或经典部署模型可将服务证书上传到 Azure 经典门户。 服务证书与特定的云服务相关联。 它们在服务定义文件中分配给部署。
 
 服务证书可与服务分开管理，且可由不同的人员管理。 例如，开发人员上传的服务包可以使用 IT 管理员以前上传到 Azure 的证书。 IT 管理员可以管理并续订该证书（更改服务配置）而无需上传新的服务包。 在没有新服务包的情况下更新之所以可能是因为证书的逻辑名称、存储名称和存储位置是在服务定义文件中指定的，而证书指纹则是在服务配置文件中指定的。 若要更新证书，只需上传新证书并更改服务配置文件中的指纹值。
 
@@ -85,9 +85,6 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 
 ### <a name="internet-information-services-iis"></a>Internet Information Services (IIS)
 Internet 上有许多关于如何使用 IIS 实现此操作的信息。 [此页面](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) 就是示例之一，其阐述非常清楚。 
-
-### <a name="java"></a>Java
-可以使用 Java [创建证书](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate)。
 
 ### <a name="linux"></a>Linux
 [本文](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)介绍如何通过 SSH 创建证书。

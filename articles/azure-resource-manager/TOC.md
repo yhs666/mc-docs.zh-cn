@@ -6,8 +6,8 @@
 <!-- Not Available ## [Managed Applications](managed-application-overview.md)-->
 
 # 入门
-## [导出模板](resource-manager-export-template.md)
 ## [创建和部署模板](resource-manager-create-first-template.md)
+## [模板的 VS Code 扩展](resource-manager-vscode-extension.md)
 ## [Visual Studio 与 Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # 示例
@@ -20,8 +20,8 @@
 
 # 如何
 ## 创建模板
-### [模板最佳实践](resource-manager-template-best-practices.md)
 ### [模板节](resource-group-authoring-templates.md)
+### [模板最佳实践](resource-manager-template-best-practices.md)
 ### [链接到其他模板](resource-group-linked-templates.md)
 ### [定义资源之间的依赖关系](resource-group-define-dependencies.md)
 ### [创建多个实例](resource-group-create-multiple.md)
@@ -42,7 +42,9 @@
 #### [部署模板](resource-group-template-deploy-cli.md)
 #### [使用 SAS 令牌部署专用模板](resource-manager-cli-sas-token.md)
 #### [导出模板并进行重新部署](resource-manager-export-template-cli.md)
-### [门户](resource-group-template-deploy-portal.md)
+### 门户
+#### [部署资源](resource-group-template-deploy-portal.md)
+#### [导出模板](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [跨资源组部署](resource-manager-cross-resource-group-deployment.md)
 ### [与 Visual Studio Team Services 的持续集成](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure-resource-manager%2ftoc.json)
@@ -81,6 +83,8 @@
 <!-- Not Available ## Use managed applications -->
 <!-- Not Available ### [Publish service catalog application](managed-application-publishing.md) -->
 <!-- Not Available ### [Consume service catalog application](managed-application-consumption.md) -->
+<!-- Not Available ### [Publish marketplace application](managed-application-author-marketplace.md)-->
+<!-- Not Available ### [Consume marketplace application](managed-application-consume-marketplace.md)-->
 <!-- Not Available ### [Create UI definitions](managed-application-createuidefinition-overview.md) -->
 
 ## 审核
@@ -129,7 +133,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/resources/)
 
 # 资源
-<!-- Not Available ## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager) -->
+<!-- Not Available ## [Azure Roadmap] -->
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [服务更新](https://www.azure.cn/what-is-new/)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-resource-manager)

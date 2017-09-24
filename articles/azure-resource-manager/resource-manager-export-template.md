@@ -11,23 +11,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 origin.date: 07/06/2017
-ms.date: 08/21/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 69aa197bbd88ce299208a286f76cb4d6a224eac2
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 737e84f262c7643d1f2d8ff80c13c4a7c35f3993
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>从现有资源导出 Azure Resource Manager 模板
-本文介绍如何从订阅中的现有资源导出资源管理器模板。 可以使用该生成的模板更好地了解模板语法。
+本文介绍如何从订阅中的现有资源导出 Resource Manager 模板。 可以使用该生成的模板更好地了解模板语法。
 
 可以通过两种方式来导出模板：
 
-* 可以导出**用于部署的实际模板**。 导出的模板中包括的所有参数和变量与原始模板中显示的完全一样。 在已通过门户部署资源的情况下，若需了解如何通过模板来创建这些资源，则可使用此方法。 此模板可随时使用。 
-* 可以导出**已生成的表示资源组当前状态的模板**。 导出的模板不基于任何已用于部署的模板。 与之相反，它所创建的模板为资源组的快照。 导出的模板会有许多硬编码的值，其参数可能没有定义的那么多。 如果已在部署后修改资源组，则可使用此方法。 此模板通常需要修改才能使用。
+* 可以导出用于部署的实际模板。 导出的模板中包括的所有参数和变量与原始模板中显示的完全一样。 在已通过门户部署资源的情况下，若需了解如何通过模板来创建这些资源，则可使用此方法。 此模板可随时使用。 
+* 可以导出已生成的表示资源组当前状态的模板。 导出的模板不基于任何已用于部署的模板。 与之相反，它所创建的模板为资源组的快照。 导出的模板会有许多硬编码的值，其参数可能没有定义的那么多。 如果已在部署后修改资源组，则可使用此方法。 此模板通常需要修改才能使用。
 
 本主题通过门户演示这两种方法。
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 08/17/2017
 
       ![提供 Web 和 SQL 值](./media/resource-manager-export-template/provide-web-values.png)
 
-部署可能需要一分钟的时间。 部署完成后，订阅会包含解决方案。
+部署可能需要几分钟时间。 部署完成后，订阅将包含解决方案。
 
 ## <a name="view-template-from-deployment-history"></a>在部署历史记录中查看模板
 1. 转到新资源组的资源组边栏选项卡。 可以看到，该边栏选项卡列出了上次部署的结果。 选择此链接。
@@ -64,7 +64,7 @@ ms.lasthandoff: 08/17/2017
 4. Resource Manager 检索以下七个文件：
 
     1. **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
-    2. **参数** - 可用于在部署过程中传入值的参数文件。 它包含首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
+    2. **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
     3. **CLI** - 可用于部署该模板的 Azure 命令行界面 (CLI) 脚本文件。
     4. **CLI 2.0** - 可用于部署该模板的 Azure 命令行界面 (CLI) 脚本文件。
     5. **PowerShell** - 可用于部署该模板的 Azure PowerShell 脚本文件。
@@ -89,10 +89,10 @@ ms.lasthandoff: 08/17/2017
 
     ![导出资源组](./media/resource-manager-export-template/select-automation.png)
 
-    资源管理器会评估资源组中的资源，并为这些资源生成一个模板。 并非所有资源类型都支持导出模板功能。 可能会出现一个错误，指出导出存在问题。 [修复导出问题](#fix-export-issues) 部分介绍了如何处理这些问题。
-2. 会再次出现六个可用于重新部署解决方案的文件。 但是，这一次模板稍有不同。 请注意，生成的模板包含的参数少于前一部分的模板所包含的。 另外，在此模板中，许多值（例如位置和 SKU 值）是硬编码的，并不接受参数值。 在重用该模板之前，可能需要对其进行编辑，以便更好地使用参数。 
+    Resource Manager 会评估资源组中的资源，并为这些资源生成一个模板。 并非所有资源类型都支持导出模板功能。 可能会出现一个错误，指出导出存在问题。 [修复导出问题](#fix-export-issues) 部分介绍了如何处理这些问题。
+2. 将会再次出现六个可用于重新部署解决方案的文件。 但是，这一次模板稍有不同。 请注意，生成的模板包含的参数少于前一部分的模板所包含的。 另外，在此模板中，许多值（例如位置和 SKU 值）是硬编码的，并不接受参数值。 在重用该模板之前，可能需要对其进行编辑，以便更好地使用参数。 
 
-3. 可以通过多个选项继续使用此模板。 可以下载模板，并通过 JSON 编辑器在本地使用该模板。 也可以将模板保存到库，并通过门户使用该模板。
+3. 可通过几个选项继续使用此模板。 可以下载模板，并使用 JSON 编辑器本地使用它。 也可将模板保存到库，并通过门户使用它。
 
     如果喜欢使用 [VS Code](https://code.visualstudio.com/) 或 [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 等 JSON 编辑器，可本地下载模板并使用该编辑器。 若要在本地使用，请选择“下载”。
 
@@ -102,10 +102,10 @@ ms.lasthandoff: 08/17/2017
 
     ![添加到库](./media/resource-manager-export-template/add-to-library.png)
 
-    将模板添加到库时，请为模板提供名称和说明，然后选择“保存”。 Then, select **Save**.
+    将模板添加到库时，请为模板提供名称和说明。 Then, select **Save**.
 
     ![设置模板值](./media/resource-manager-export-template/save-library-template.png)
-4. 若要查看库中保存的模板，请选择“更多服务”，键入“模板”以筛选结果，并选择“模板”。
+4. 要查看库中保存的模板，请选择“更多服务”，并键入“模板”以筛选结果，并选择“模板”。
 
     ![查找模板](./media/resource-manager-export-template/find-templates.png)
 5. 选择使用已保存名称的模板。
@@ -113,15 +113,15 @@ ms.lasthandoff: 08/17/2017
     ![选择模板](./media/resource-manager-export-template/select-saved-template.png)
 
 ## <a name="customize-the-template"></a>自定义模板
-若要为每个部署创建相同的 Web 应用和 SQL 数据库，则导出的模板可满足要求。 不过，也可利用 Resource Manager 提供的相关选项对模板进行灵活得多的部署。 本文介绍如何针对数据库管理员名称和密码来添加参数。 可以通过这个相同的方法，提高模板中其他值的灵活性。
+若要为每个部署创建相同的 Web 应用和 SQL 数据库，则导出的模板可满足要求。 但是，Resource Manager 提供相关选项，因此使用它可以更灵活地部署模板。 本文介绍如何针对数据库管理员名称和密码来添加参数。 可以通过这个相同的方法，提高模板中其他值的灵活性。
 
-1. 若要自定义模板，请选择“编辑” 。
+1. 若要自定义模板，请选择“编辑”。
 
     ![显示模板](./media/resource-manager-export-template/select-edit.png)
 2. 选择模板。
 
     ![编辑模板](./media/resource-manager-export-template/select-added-template.png)
-3. 请将下面的两个参数添加到模板中的 **parameters** 节，以便传递可能需要在部署过程中指定的值：
+3. 请将下面的两个参数添加到模板中的 parameters 节，以便传递可能需要在部署过程中指定的值：
 
     ```json
     "administratorLogin": {
@@ -132,7 +132,7 @@ ms.lasthandoff: 08/17/2017
     },
     ```
 
-4. 若要使用新参数，请替换 **resources** 节中的 SQL Server 定义。 请注意，**administratorLogin** 和 **administratorLoginPassword** 现在使用参数值。
+4. 若要使用新参数，请替换 **resources** 节中的 SQL Server 定义。 请注意，administratorLogin 和 administratorLoginPassword 现在使用参数值。
 
     ```json
     {
@@ -162,7 +162,7 @@ ms.lasthandoff: 08/17/2017
 9. 提供参数值，并选择要将资源部署到其中的资源组。
 
 ## <a name="fix-export-issues"></a>修复导出问题
-并非所有资源类型都支持导出模板功能。 要解决此问题，请手动将缺少的资源添加回模板。 错误消息包含无法导出的资源类型。 请在[模板引用](/templates/)中查找该资源类型。 例如，若要手动添加虚拟网络网关，请参阅 [Microsoft.Network/virtualNetworkGateways 模板引用](/templates/microsoft.network/virtualnetworkgateways)。
+并非所有资源类型都支持导出模板功能。 要解决此问题，请手动将缺少的资源添加回模板。 错误消息包含无法导出的资源类型。 请在[模板引用](/templates/)中查找该资源类型。 例如，若要手动添加虚拟网关，请参阅 [Microsoft.Network/virtualNetworkGateways 模板引用](/templates/microsoft.network/virtualnetworkgateways)。
 
 > [!NOTE]
 > 仅当从资源组而不是从部署历史记录中导出时，才会遇到导出问题。 如果上一个部署能够准确地代表资源组的当前状态，则应从部署历史记录而非资源组中导出模板。 只有在已对资源组进行更改且该更改未在单个模板中定义的情况下，才应从资源组导出。
@@ -176,4 +176,4 @@ ms.lasthandoff: 08/17/2017
 * 要了解如何通过 PowerShell 导出模板，请参阅 [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)（将 Azure PowerShell 与 Azure 资源管理器配合使用）。
 * 要了解如何通过 Azure CLI 导出模板，请参阅 [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md)（将用于 Mac、Linux 和 Windows 的 Azure CLI 与 Azure 资源管理器配合使用）。
 
-<!--Update_Description: update meta properties, wording update, remove the unnessary json template sample-->
+<!--Update_Description: update meta properties-->

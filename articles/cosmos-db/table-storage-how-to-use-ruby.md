@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 
+origin.date: 12/08/2016
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4757a6b7751f8c1285ac783d4b3a3ede01911cad
-ms.sourcegitcommit: c0d234cae3e93848d235b9292bb4a9c3096aa963
+ms.openlocfilehash: 5e472ed544675211ab39883b053d4bef5c168faa
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-ruby"></a>如何通过 Ruby 使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -66,14 +66,6 @@ Azure.config.storage_endpoint_suffix = "core.chinacloudapi.cn"
 4. 在显示的“访问密钥”边栏选项卡中，可看到访问密钥 1 和访问密钥 2。 可以使用其中任意一个密钥。
 5. 单击复制图标以将密钥复制到剪贴板。
 
-从经典 Azure 门户中的经典存储帐户中获取这些值：
-
-1. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)。
-2. 导航到要使用的存储帐户。
-3. 单击导航窗格底部的“管理访问密钥”  。
-4. 在弹出对话框中，会看到存储帐户名称、主访问密钥和辅助访问密钥。 对于访问密钥，可以使用主访问密钥，也可以使用辅助访问密钥。
-5. 单击复制图标以将密钥复制到剪贴板。
-
 ## <a name="create-a-table"></a>创建表
 使用 **Azure::TableService** 对象可用于处理表和条目。 若要创建表，请使用 create\_table() 方法。 以下示例创建表或输出存在的错误。
 
@@ -96,14 +88,14 @@ azure_table_service.insert_entity("testtable", entity)
 ```
 
 ## <a name="update-an-entity"></a>更新条目
-可使用多种方法来更新现有条目：
+可使用多种方法来更新现有实体：
 
 * **update\_entity()：**通过替换更新现有实体。
 * **merge\_entity()：**通过将新属性值合并到现有实体来更新现有实体。
 * **insert\_or\_merge\_entity()：**通过替换更新现有实体。 如果不存在条目，则插入新条目：
 * **insert\_or\_replace\_entity()：**通过将新属性值合并到现有实体来更新现有实体。 如果不存在条目，则插入新条目。
 
-以下示例演示如何使用 **update\_entity()** 更新实体：
+以下示例演示使用 **update\_entity()** 更新实体：
 
 ```ruby
 entity = { "content" => "test entity with updated content",
@@ -113,8 +105,8 @@ azure_table_service.update_entity("testtable", entity)
 
 使用 **update\_entity()** 和 **merge\_entity()** 时，如果要更新的实体不存在，则更新操作会失败。 因此，如果希望存储某个实体而不用考虑它是否已存在，则应改用 **insert\_or\_replace\_entity()** 或 **insert\_or\_merge\_entity()**。
 
-## <a name="work-with-groups-of-entities"></a>处理条目组
-有时，有必要成批地同时提交多项操作以确保通过服务器进行原子处理。 若要完成此操作，首先要创建一个 **Batch** 对象，然后对 **TableService** 使用 **execute\_batch()** 方法。 以下示例演示在一个批次中提交 RowKey 为 2 和 3 的两个条目。 请注意，此操作仅适用于具有相同 PartitionKey 的条目。
+## <a name="work-with-groups-of-entities"></a>使用实体组
+有时，有必要批量同时提交多项操作以确保通过服务器进行原子处理。 要完成此操作，首先要创建一个 **Batch** 对象，然后对 **TableService** 使用 **execute\_batch()** 方法。 下面的示例演示在一个批次中提交 RowKey 为 2 和 3 的两个实体。 请注意，此操作仅适用于具有相同 PartitionKey 的条目。
 
 ```ruby
 azure_table_service = Azure::TableService.new
@@ -126,7 +118,7 @@ end
 results = azure_table_service.execute_batch(batch)
 ```
 
-## <a name="query-for-an-entity"></a>查询条目
+## <a name="query-for-an-entity"></a>查询实体
 若要查询表中的实体，请使用 **get\_entity()** 方法并传递表名称、**PartitionKey** 和 **RowKey**。
 
 ```ruby
@@ -134,8 +126,8 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
     "1")
 ```
 
-## <a name="query-a-set-of-entities"></a>查询一组条目
-若要查询表中的一组实体，请创建查询哈希对象并使用 **query\_entities()** 方法。 以下示例演示如何获取具有相同 **PartitionKey**的所有条目：
+## <a name="query-a-set-of-entities"></a>查询实体集
+若要查询表中的一组实体，请创建查询哈希对象并使用 **query\_entities()** 方法。 以下示例演示如何获取具有相同 **PartitionKey** 的所有实体：
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'" }
@@ -157,7 +149,7 @@ result, token = azure_table_service.query_entities("testtable", query)
 ```
 
 ## <a name="delete-an-entity"></a>删除实体
-若要删除实体，请使用 **delete\_entity()** 方法。 需要传入包含该条目的表的名称、条目的 PartitionKey 和 RowKey。
+若要删除实体，请使用 **delete\_entity()** 方法。 需要传入包含该实体的表的名称、实体的 PartitionKey 和 RowKey。
 
 ```ruby
 azure_table_service.delete_entity("testtable", "test-partition-key", "1")
@@ -174,3 +166,5 @@ azure_table_service.delete_table("testtable")
 
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 * [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) 存储库
+
+<!--Update_Description: wording update-->

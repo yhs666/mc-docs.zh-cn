@@ -3,8 +3,8 @@ title: "使用 Azure 媒体服务来保护内容 | Microsoft Docs"
 description: "本文概述了如何使用媒体服务来保护内容。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: 
 ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
 ms.service: media-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/29/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 7eb990496756cf54ec013238a133aae59193a646
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.date: 09/25/2017
+ms.author: v-johch
+ms.openlocfilehash: 673e71c1a788557630a2036d189e33ce8452dce7
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="protecting-content-overview"></a>保护内容概述
 使用 Microsoft Azure 媒体服务，可以在媒体从离开计算机到存储、处理和传送的整个过程中确保其安全。 借助媒体服务，可以传送使用高级加密标准（AES，使用 128 位加密密钥）或任何主要 DRM（Microsoft PlayReady、Google Widevine 和 Apple FairPlay）动态加密的实时和请求内容。 媒体服务还提供了用于向已授权客户端传送 AES 密钥和 DRM（PlayReady、Widevine 和 FairPlay）许可证的服务。 
@@ -61,7 +61,7 @@ Azure 媒体服务支持传送使用 AES 明文密钥和 DRM 加密（Microsoft 
 如果想要使用 AES-128 明文密钥保护内容，可使用此选项。 如果想要更高的安全级别，可选择本主题中列出的其中一个 DRM。 
 
 ## <a name="licenses-and-keys-delivery-service"></a>许可证和密钥传送服务
-媒体服务提供用于向已授权客户端传送 DRM（PlayReady、Widevine 和 FairPlay）许可证和 AES 明文密钥的服务。 可以使用 Azure 门户 、REST API 或用于 .NET 的媒体服务 SDK 来配置许可证和密钥的授权与身份验证策略。
+媒体服务提供用于向已授权客户端传送 DRM（PlayReady、Widevine 和 FairPlay）许可证和 AES 明文密钥的服务。 可以使用 [Azure 门户](media-services-portal-protect-content.md)、REST API 或适用于 .NET 的媒体服务 SDK 来配置许可证和密钥的授权与身份验证策略。
 
 ## <a name="token-restriction"></a>令牌限制
 内容密钥授权策略可能受到一种或多种授权限制：开放或令牌限制。 令牌限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。 媒体服务支持采用简单 Web 令牌 (SWT) 格式和 JSON Web 令牌 (JWT) 格式的令牌。 媒体服务不提供安全令牌服务。 可以创建自定义 STS 或利用 Microsoft Azure ACS 来颁发令牌。 必须将 STS 配置为创建令牌，该令牌使用指定密钥以及在令牌限制配置中指定的颁发声明进行签名。 如果令牌有效，而且令牌中的声明与为密钥（或许可证）配置的声明相匹配，则媒体服务密钥传送服务会将请求的密钥（或许可证）返回到客户端。
@@ -111,4 +111,4 @@ Azure 媒体服务支持传送使用 AES 明文密钥和 DRM 加密（Microsoft 
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: add one link-->

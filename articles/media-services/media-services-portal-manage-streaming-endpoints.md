@@ -3,7 +3,7 @@ title: "使用 Azure 门户管理流式处理终结点 | Azure"
 description: "本主题说明如何使用 Azure 门户管理流式处理终结点。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: forester123
 writer: juliako
 manager: digimobile
 editor: 
@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 817f1ea092ea895947b923b1796d29070eee796c
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 09/10/2017
+ms.date: 09/25/2017
+ms.author: v-johch
+ms.openlocfilehash: aff9b813ef99b68f9989855561dfaced1fb74d42
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>使用 Azure 门户管理流式处理终结点
 
@@ -85,4 +85,4 @@ ms.lasthandoff: 08/31/2017
 ## <a name="scale-your-premium-streaming-endpoint"></a>缩放高级流式处理终结点
 
 有关详细信息，请参阅[此](media-services-portal-scale-streaming-endpoints.md)主题。
-<!--Update_Description: remove CDN integration related content since not support in MC-->
+<!--Update_Description: wording update-->

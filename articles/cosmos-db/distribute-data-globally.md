@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/14/2017
-ms.date: 09/18/2017
+origin.date: 09/13/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: c74bc6427b5b3c46f35a4ed30116ee7d98153702
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: d771b9a9e3d63301f1e261944859d1bc7397bbf0
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>如何使用 Azure Cosmos DB 在全球范围内分发数据
 Azure 无处不在 - 它的足迹遍布全球 30 多个地理区域，并且还在不断扩展。 遍及全球的 Azure 为开发人员提供一种差异化功能，让他们轻松构建、部署和管理全球分布的应用程序。 
@@ -65,9 +65,6 @@ Azure Cosmos DB 允许在任何时间点向数据库帐户添加（关联）或�
 **Azure Cosmos DB 的租户可对与数据库帐户关联的区域配置故障转移优先级顺序（右窗格）**
 
 ![通过 Azure Cosmos DB 配置故障转移优先级](./media/distribute-data-globally/failover-priorities.png)
-
-### <a id="OfflineRegions"></a>以动态方式使区域“离线”
-Azure Cosmos DB 允许让数据库帐户在特定区域离线，之后再让其重新上线。 标记为“离线”的区域不主动参与复制，且不包括在故障转移顺序中。 这样，用户便可以在具有潜在风险的升级推出到应用程序之前，在一个读取区域中冻结上一个已知良好的数据库映像。
 
 ### <a id="ConsistencyLevels"></a>用于全局复制数据库的多个完善定义的一致性模型
 Azure Cosmos DB 会公开由 SLA 提供支持的[多个定义完善的一致性级别](consistency-levels.md)。 可根据工作负荷/方案选择特定的一致性模型（从可用的选项列表选择）。 

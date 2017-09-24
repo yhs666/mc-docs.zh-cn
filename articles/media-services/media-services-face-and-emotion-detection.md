@@ -3,7 +3,7 @@ title: "使用 Azure 媒体分析检测面部和情绪 | Azure"
 description: "本主题演示如何使用 Azure 媒体分析检测人脸和情感。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/18/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 65f18dde68b69150fc371515bb57114995cbdb1c
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 09/18/2017
+ms.date: 09/25/2017
+ms.author: v-johch
+ms.openlocfilehash: 875215226482583f4f7cb1571cdb30f9d0672893
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>使用 Azure 媒体分析检测面部和情绪
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 08/31/2017
 
 下面是聚合窗口和间隔设置的建议值。 AggregateEmotionWindowMs 应该超过 AggregateEmotionIntervalMs。
 
-|| 默认值 | 最小值 | 最大值 |
+|| 默认值 | 最大值 | 最小值 |
 |--- | --- | --- | --- |
 | AggregateEmotionWindowMs |0.5 |2 |0.25|
 | AggregateEmotionIntervalMs |0.5 |1 |0.25|
@@ -347,7 +347,7 @@ ms.lasthandoff: 08/31/2017
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>创建和配置 Visual Studio 项目
 
-设置开发环境，并在 app.config 文件中填充连接信息，如[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述。 
+设置开发环境，并根据[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述，在 app.config 文件中填充连接信息。 
 
 #### <a name="example"></a>示例
 
@@ -514,4 +514,4 @@ ms.lasthandoff: 08/31/2017
 
 [Azure Media Analytics demos（Azure 媒体分析演示）](http://amslabs.azurewebsites.net/demos/Analytics.html)
 
-<!--Update_Description: update code to use AAD token instead of ACS-->
+<!--Update_Description: update Aggregate defaults table-->

@@ -40,14 +40,11 @@
 - name: 概念
   items:
     - name: 应用服务工作方式
-      href: >-
-        ../app-service/app-service-how-works-readme.md?toc=%2fapp-service-web%2ftoc.json
+      href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: 应用服务计划
-      href: >-
-        ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fapp-service-web%2ftoc.json
+      href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: 身份验证和授权
-      href: >-
-        ../app-service/app-service-authentication-overview.md?toc=%2fapp-service-web%2ftoc.json
+      href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: 使用本地 AD 进行身份验证
       href: web-sites-authentication-authorization.md
 - name: 操作指南
@@ -66,14 +63,8 @@
               href: app-service-web-php-get-started.md
             - name: 设置 PHP 项目
               href: web-sites-php-configure.md
-            - name: 设置 WordPress Multisite
-              href: web-sites-php-convert-wordpress-multisite.md
         - name: Node.js
           items:
-            - name: 将 Sails.js 应用与 NOSQL DB 配合使用
-              href: app-service-web-nodejs-sails.md
-            - name: 使用 io.js
-              href: web-sites-nodejs-iojs.md
             - name: 调试 Node.js 应用
               href: web-sites-nodejs-debug.md
         - name: Java
@@ -82,14 +73,8 @@
               href: app-service-web-eclipse-create-hello-world-web-app.md
             - name: 使用 IntelliJ 开发 Java 应用
               href: app-service-web-intellij-create-hello-world-web-app.md
-            - name: 使用用于 Java 的 Azure SDK
-              href: java-create-azure-website-using-java-sdk.md
             - name: 上传现有应用
               href: web-sites-java-add-app.md
-        - name: Python
-          items:
-            - name: 将 Django 应用与 MySQL 配合使用
-              href: web-sites-python-ptvs-django-mysql.md
         - name: 配置运行时
           items:
             - name: Windows 上的 PHP
@@ -125,10 +110,10 @@
               href: web-sites-traffic-manager-custom-domain-name.md
             - name: 迁移活动域
               href: app-service-custom-domain-name-migrate.md
-        - name: 在生产中测试
-          href: app-service-web-test-in-production-get-start.md
-        - name: 将功能添加到 Web 应用
-          href: app-service-web-get-started-2.md
+        - name: 使用 Maven 插件将 Spring Boot 应用部署到 Azure Web 应用
+          href: app-service-web-deploy-spring-boot-app-with-maven-plugin.md
+        - name: 使用 Maven 插件部署容器化的 Spring Boot 应用
+          href: app-service-web-deploy-containerized-spring-boot-app-with-maven-plugin.md
     - name: 连接到数据库/资源
       items:
         - name: 连接到 Azure VNet
@@ -142,11 +127,9 @@
         - name: 对用户进行身份验证
           items:
             - name: 使用 Azure AD 进行身份验证
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: 使用 Microsoft 帐户进行身份验证
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: 使用本地 AD 进行身份验证
               href: web-sites-authentication-authorization.md
             - name: 将应用与多租户数据库配合使用
@@ -160,17 +143,11 @@
         - name: 纵向扩展
           href: web-sites-scale.md
         - name: 向外扩展
-          href: >-
-            ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fapp-service-web%2ftoc.json
-        - name: 使用流量管理器进行负载均衡
-          href: web-sites-traffic-manager.md
+          href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: 通过 Memcache 连接到 Redis 缓存
           href: web-sites-connect-to-redis-using-memcache-protocol.md
         - name: 创建 Redis 缓存
-          href: >-
-            ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fapp-service-web%2ftoc.json
-        - name: 使用 Azure Redis 缓存管理会话状态
-          href: web-sites-dotnet-session-state-caching.md
+          href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: 监视
       items:
         - name: 监视应用
@@ -185,8 +162,6 @@
           href: web-sites-backup.md
         - name: 从备份还原应用
           href: web-sites-restore.md
-        - name: 使用 REST API 进行备份
-          href: websites-csm-backup.md
     - name: 管理应用资源
       items:
         - name: 使用 PowerShell 克隆应用
@@ -195,10 +170,6 @@
           href: app-service-web-app-cloning-portal.md
         - name: 移动资源
           href: app-service-move-resources.md
-        - name: 将 Azure Resource Manager 与 PowerShell 配合使用
-          href: app-service-web-app-azure-resource-manager-powershell.md
-        - name: 使用 Azure 自动化管理应用
-          href: automation-manage-web-app.md
 - name: 引用
   items:
     - name: CLI 2.0
@@ -222,8 +193,7 @@
         - name: 常见问题
           items:
             - name: 可用性、性能和应用程序常见问题解答
-              href: >-
-                app-service-web-availability-performance-application-issues-faq.md
+              href: app-service-web-availability-performance-application-issues-faq.md
             - name: 部署常见问题解答
               href: app-service-web-deployment-faq.md
             - name: 开放源代码技术常见问题解答

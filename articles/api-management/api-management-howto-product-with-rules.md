@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 origin.date: 12/15/2016
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 3f6d3628d8984ee7d81a79b09ddefa8a15b49d4a
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 10/09/2017
+ms.openlocfilehash: 07a6698f8a742ee376614cbb511d0a34a23705d5
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>使用 Azure API 管理借助速率限制保护 API
 本指南演示如何通过使用 Azure API 管理配置速率限制和配额策略轻松地为后端 API 添加保护。
@@ -102,15 +102,15 @@ API 管理中的产品可以是受保护的产品，也可以是开放的产品�
 
 ![产品策略][api-management-product-policy]
 
-单击“添加策略”导入策略模板，并开始创建速率限制和配额策略。
+单击“添加策略”导入策略模板，并开始创建速率限制和配额策略  。
 
 ![添加策略][api-management-add-policy]
 
-速率限制和配额策略是入站策略，因此请将光标置于入站元素中。
+速率限制和配额策略是入站的策略，因此将光标定位在入站元素中。
 
 ![策略编辑器][api-management-policy-editor-inbound]
 
-策略 滚动策略列表，找到“限制每个订阅的调用速率”策略条目。
+滚动访问策略列表，找到“限制每个订阅的调用速率”策略条目。
 
 ![策略语句][api-management-limit-policies]
 
@@ -148,7 +148,7 @@ API 管理中的产品可以是受保护的产品，也可以是开放的产品�
 </quota>
 ```
 
-“设置每个订阅的使用配额”策略类似于“限制每个订阅的调用速率”策略，允许对产品的 API 和操作设置上限。 在本教程中，我们不会使用该功能，因此请从 **quota** 元素中删除 **api** 和 **operation** 元素，如以下示例所示。
+与“限制每个订阅的调用速率”策略类似，“设置每个订阅的使用配额”策略也允许对产品的 API 和操作进行设置限制。 在本教程中，我们不会使用该功能，因此请从 **quota** 元素中删除 **api** 和 **operation** 元素，如以下示例所示。
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">

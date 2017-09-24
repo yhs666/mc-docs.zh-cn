@@ -2,8 +2,8 @@
 title: "Azure 流量管理器文档 - 教程和 API 参考 | Azure"
 description: "了解如何管理传入流量，以获得最佳应用程序性能。 文档说明如何将流量分发到 Azure 或外部服务终结点。"
 services: traffic-manager
-author: carolz
-manager: carolz
+author: rockboyfor
+manager: digimobile
 layout: LandingPage
 ms.assetid: 
 ms.service: traffic-manager
@@ -11,16 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 06/20/2017
-ms.author: v-dazen
-ms.openlocfilehash: cb39ebdbfc132896dd54dac32e39a3efd058ca62
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 09/25/2017
+ms.author: v-yeche
+ms.openlocfilehash: 7028afef540cfc896307f1a23cafb62181e27a2b
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 09/22/2017
 ---
-#流量管理器文档
-<a id="traffic-manager-documentation" class="xliff"></a>
+#<a name="traffic-manager-documentation"></a>流量管理器文档
 
 了解如何使用流量管理器来路由传入流量，以获得最佳应用程序性能和可靠性。 教程、API 参考以及其他文档说明如何管理 Azure 或外部服务终结点的流量。
 
@@ -80,3 +79,4 @@ ms.lasthandoff: 06/23/2017
         </a>
     </li>
 </ul>
+<!--Update_Description: update meta properties-->

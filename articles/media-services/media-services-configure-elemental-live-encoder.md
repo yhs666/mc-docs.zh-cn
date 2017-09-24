@@ -3,8 +3,8 @@ title: "配置 Elemental Live 编码器以发送单比特率实时流 | Microsof
 description: "本主题说明了如何配置 Elemental Live 编码器，以便将单比特率流发送到 AMS 频道进行实时编码。"
 services: media-services
 documentationcenter: 
-author: cenkdin
-manager: erikre
+author: forester123
+manager: digimobile
 editor: 
 ms.assetid: 9c6bf6a9-6273-4fdd-9477-f0e565280b5b
 ms.service: media-services
@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+origin.date: 01/05/2017
+ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: db7b0a447c7fc93a217a6c11ab1d8fdc4c501478
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 80f39d62ac642b8e8bdfc3f35089dbf7f882436a
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="use-the-elemental-live-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Elemental Live 编码器发送单比特率实时流
 > [!div class="op_single_selector"]
@@ -29,14 +30,14 @@ ms.lasthandoff: 06/21/2017
 >
 >
 
-本主题说明了如何配置 [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) 编码器，以便将单比特率流发送到 AMS 频道进行实时编码。  有关详细信息，请参阅[使用能够通过 Azure 媒体服务执行实时编码的频道](media-services-manage-live-encoder-enabled-channels.md)。
+本主题说明如何配置 [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) 编码器，以便将单比特率流发送到用于实时编码的 AMS 频道。  有关详细信息，请参阅[使用能够通过 Azure 媒体服务执行实时编码的频道](media-services-manage-live-encoder-enabled-channels.md)。
 
 本教程演示了如何通过 Azure 媒体服务浏览器 (AMSE) 工具管理 Azure 媒体服务 (AMS)。 此工具仅在 Windows 电脑上运行。 如果使用的是 Mac 或 Linux，则可使用 Azure 门户创建[频道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[节目](media-services-portal-creating-live-encoder-enabled-channel.md)。
 
 ## <a name="prerequisites"></a>先决条件
 * 必须具有实践知识，了解如何使用 Elemental Live Web 界面来创建实时事件。
-* [创建 Azure 媒体服务帐户](media-services-create-account.md)
-* 确保运行流式处理终结点。 
+* [创建 Azure 媒体服务帐户](media-services-portal-create-account.md)
+* 确保运行流式处理终结点。 有关详细信息，请参阅[在媒体服务帐户中管理流式处理终结点](media-services-portal-manage-streaming-endpoints.md)。
 * 安装最新版本的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 * 启动该工具并连接到 AMS 帐户。
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 06/21/2017
 
 ### <a name="create-a-channel"></a>创建频道
 
-1. 在 AMSE 工具中，导航到“实时”  选项卡，然后右键单击频道区域。 从菜单中选择“创建频道…”  。
+1. 在 AMSE 工具中，导航到“实时”  选项卡，并右键单击频道区域。 从菜单中选择“创建频道…”  。
 
     ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental1.png)
 
@@ -125,7 +126,7 @@ ms.lasthandoff: 06/21/2017
 
     ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental6.png)
 
-2. 将此信息粘贴到 Elemental 的“主目标”  字段中。 所有其他设置可以保留默认值。
+2. 将此信息粘贴到 Elemental 的“主目标”字段中。 所有其他设置可以保留默认值。
 
     ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental14.png)
 
@@ -143,7 +144,7 @@ ms.lasthandoff: 06/21/2017
 
 ### <a name="test-playback"></a>测试播放
 
-导航回 AMSE 工具，然后右键单击要测试的频道。 在菜单中，将鼠标悬停在“播放预览”上方，然后选择“使用 Azure Media Player”。  
+导航回 AMSE 工具，并右键单击要测试的频道。 在菜单中，将鼠标悬停在“播放预览”上方，然后选择“使用 Azure Media Player”。  
 
 
 ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental8.png)
@@ -157,7 +158,7 @@ ms.lasthandoff: 06/21/2017
 1. 确认频道可以播放后，即可创建节目。 在 AMSE 工具的“实时”选项卡下，右键单击节目区域，然后选择“新建节目”。  
 
     ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental9.png)
-2. 为节目命名，然后根据需要调整“存档时段长度”（默认为 4 小时）。 你还可以指定存储位置，也可以将其保留为默认值。  
+2. 为节目命名，然后根据需要调整“存档时段长度”（默认为 4 小时）。 还可以指定存储位置，也可以将其保留为默认值。  
 3. 选中“立即启动节目”  框。
 4. 单击“创建节目” 。  
 
@@ -171,5 +172,5 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="troubleshooting"></a>故障排除
 请参阅[故障排除](media-services-troubleshooting-live-streaming.md)主题以获取相关指导。
-
+<!--Update_Description: update links-->
 

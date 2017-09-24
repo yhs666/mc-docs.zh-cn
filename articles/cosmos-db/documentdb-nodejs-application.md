@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 08/14/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: cd566f9e667d3a9f267f7747aadda4b6239c2b11
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 10cafaf31811a0214550a7f20dc6a84df082842d
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="_Toc395783175"></a>使用 Azure Cosmos DB 生成 Node.js Web 应用程序
 > [!div class="op_single_selector"]
@@ -43,13 +43,12 @@ ms.lasthandoff: 09/13/2017
 > 
 > 
 
-在按照本文中的说明操作之前，应确保已具备以下先决条件：
+在按照本文中的说明操作之前，应确保已拥有下列项：
 
-* 有效的 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
-   或
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-   本地安装的 [Azure Cosmos DB 模拟器](local-emulator.md)（仅限 Windows）。
 * [Node.js][Node.js] 版本 v0.10.29 或更高版本。
 * [Express 生成器](http://www.expressjs.com/starter/generator.html)（可以通过 `npm install express-generator -g` 安装）
 * [Git][Git]。
@@ -526,7 +525,7 @@ ms.lasthandoff: 09/13/2017
 3. 通过推送到远程进行部署。
 
         git push azure master
-4. 在几秒钟内，git 将完成 Web 应用程序发布并启动浏览器，可从中查看在 Azure 中运行的简单作品！
+4. 在几秒钟内，git 将完成 Web 应用程序发布并启动浏览器，从中可查看在 Azure 中运行的简单作品！
 
     祝贺！ 刚才构建了第一个使用 Azure Cosmos DB 的 Node.js Express Web 应用程序并将其发布到了 Azure 网站。
 
@@ -543,4 +542,4 @@ ms.lasthandoff: 09/13/2017
 [Git]: http://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update-->

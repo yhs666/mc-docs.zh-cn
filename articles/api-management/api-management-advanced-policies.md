@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
 ms.date: 
-ms.openlocfilehash: 3dae935b127223cfe97859806d95c68c3a17e836
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.openlocfilehash: 17224f3348f69ccc7623669ff6c08d13850abf25
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="api-management-advanced-policies"></a>API 管理高级策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -29,6 +29,7 @@ ms.lasthandoff: 09/08/2017
 -   [控制流](./api-management-advanced-policies.md#choose) - 根据布尔[表达式](./api-management-policy-expressions.md)的求值结果，有条件地应用策略语句。  
   
 -   [转发请求](#ForwardRequest) - 将请求转发到后端服务。  
+-   [限制并发](#LimitConcurrency) - 阻止括住的策略一次执行超过指定数量的请求。
   
 -   [记录到事件中心](#log-to-eventhub) - 将指定格式的消息发送到记录器实体定义的事件中心。 
 
@@ -147,7 +148,7 @@ ms.lasthandoff: 09/08/2017
 |---------------|-----------------|--------------|  
 |condition="布尔表达式 &#124; 布尔常量"|对包含 `when` 的策略语句求值时需求值的布尔表达式或常量。|是|  
   
-###  <a name="ChooseUsage"></a> 使用情况  
+###  <a name="ChooseUsage"></a> 用法  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
 -   **策略节：**入站、出站、后端、错误时  
@@ -265,6 +266,56 @@ ms.lasthandoff: 09/08/2017
   
 -   **策略范围：**所有范围  
   
+##  <a name="LimitConcurrency"></a> 限制并发  
+ `limit-concurrency` 策略阻止括住的策略在给定时间执行超过指定数量的请求。 超过阈值时，会向队列中添加新的请求，直到达到最大队列长度。 队列排满后，新请求将立即失败。
+  
+###  <a name="LimitConcurrencyStatement"></a> 策略语句  
+  
+```xml  
+<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+        <!— nested policy statements -->  
+</limit-concurrency>
+``` 
+
+### <a name="examples"></a>示例  
+  
+####  <a name="ChooseExample"></a> 示例  
+ 下例演示了如何基于上下文变量的值限制转发到后端的请求数。
+ 
+```xml  
+<policies>
+  <inbound>…</inbound>
+  <backend>
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+      <forward-request timeout="120"/>
+    <limit-concurrency/>
+  </backend>
+  <outbound>…</outbound>
+</policies>
+```
+
+### <a name="elements"></a>元素  
+  
+|元素|说明|必选|  
+|-------------|-----------------|--------------|    
+|limit-concurrency|根元素。|是|  
+  
+### <a name="attributes"></a>属性  
+  
+|属性|说明|必选|默认|  
+|---------------|-----------------|--------------|--------------|  
+|key|一个字符串。 允许使用表达式。 指定并发作用域。 可以由多个策略共享。|是|不适用|  
+|max-count|一个整数。 指定允许输入策略的最大请求数。|是|不适用|  
+|timeout|一个整数。 允许使用表达式。 指定在失败并出现“429 请求数过多”消息之前请求进入作用域应等待的秒数|否|Infinity|  
+|max-queue-length|一个整数。 允许使用表达式。 指定最大队列长度。 队列已满时，尝试进入此策略的传入请求将被立即终止，并出现“429 请求数过多”消息。|否|Infinity|  
+  
+###  <a name="ChooseUsage"></a> 用法  
+ 此策略可在以下策略[节](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[范围](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)中使用。  
+  
+-   **策略节：**入站、出站、后端、错误时  
+  
+-   **策略范围：**所有范围  
+
 ##  <a name="log-to-eventhub"></a> 记录到事件中心  
  `log-to-eventhub` 策略将指定格式的消息发送到记录器实体定义的事件中心。 从名称可以看出，此策略用于保存所选请求或响应上下文信息，以便进行联机或脱机分析。  
   
@@ -348,7 +399,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |属性|说明|必选|默认|  
 |---------------|-----------------|--------------|--------------|  
-|status-code|指定响应状态代码，并用于选择相应的示例或架构。|否|200|  
+|status-code|指定响应状态代码并用于选择相应的示例或架构。|否|200|  
 |content-type|指定 `Content-Type` 响应标头值，并用于选择相应的示例或架构。|否|无|  
   
 ### <a name="usage"></a>使用情况  
@@ -405,7 +456,7 @@ status code and media type. If no example or schema found, the content is empty.
 |属性|说明|必选|默认|  
 |---------------|-----------------|--------------|-------------|  
 |条件|一个布尔文本或[表达式](./api-management-policy-expressions.md)，指定是应停止重试 (`false`) 还是应继续重试 (`true`)。|是|不适用|  
-|计数|一个正数，指定进行尝试时的最大重试次数。|是|不适用|  
+|count|一个正数，指定进行尝试时的最大重试次数。|是|不适用|  
 |interval|一个以秒为单位的正数，指定两次重试之间的等待时间。|是|不适用|  
 |max-interval|一个以秒为单位的正数，指定两次重试之间的最长等待时间， 用于实现指数重试算法。|否|不适用|  
 |delta|一个以秒为单位的正数，指定等待时间间隔增量， 用于实现线性和指数重试算法。|否|不适用|  
@@ -655,7 +706,7 @@ status code and media type. If no example or schema found, the content is empty.
 |password="string"|要用于向代理进行身份验证的密码。|否|不适用|  
 
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
+ 此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
 -   **策略节：**入站  
   
@@ -884,7 +935,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |属性|说明|必选|默认|  
 |---------------|-----------------|--------------|-------------|  
-|source|对跟踪查看器有意义的字符串文本，指定消息的源。|是|不适用|  
+|源|对跟踪查看器有意义的字符串文本，指定消息的源。|是|不适用|  
   
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
@@ -951,7 +1002,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |属性|说明|必选|默认|  
 |---------------|-----------------|--------------|-------------|  
-|for|确定 `wait` 策略是等待所有直接子策略完成，还是只等待其中之一完成。 允许值包括：<br /><br /> -   `all` - 等待所有直接子策略完成<br />-   any - 等待任一直接子策略完成。 第一个直接子策略完成后，`wait` 策略即告完成，同时会终止执行任何其他直接子策略。|否|all|  
+|for|确定 `wait` 策略是等待所有直接子策略完成，还是只等待其中之一完成。 允许值包括：<br /><br /> -   `all` - 等待所有直接子策略完成<br />-   any - 等待任一直接子策略完成。 第一个直接子策略完成后，`wait` 策略即告完成，同时会终止执行任何其他直接子策略。|否|本应返回的所有记录的总数，|  
   
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  

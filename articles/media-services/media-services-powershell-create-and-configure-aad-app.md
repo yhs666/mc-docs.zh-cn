@@ -3,8 +3,8 @@ title: "使用 PowerShell 创建 Azure AD 应用以访问 Azure 媒体服务 API
 description: "了解如何使用 PowerShell 创建 Azure Active Directory (Azure AD) 应用，并安装该应用以访问 Azure 媒体服务 API。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: 
 ms.service: media-services
 ms.workload: media
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/17/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 4a7775b09048a11db9971f7c42160d56930ff84d
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.date: 09/25/2017
+ms.author: v-johch
+ms.openlocfilehash: 3e11b61b55172c14ed57c10bac934d74cbd1e851
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>使用 PowerShell 创建要与 Azure 媒体服务 API 配合使用的 Azure AD 应用
 
@@ -55,6 +55,7 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 
 有关详细信息，请参阅以下文章：
 
+- [使用 Azure PowerShell 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 - [使用 Azure PowerShell 管理基于角色的访问控制](../active-directory/role-based-access-control-manage-access-powershell.md)
 - [如何使用证书手动配置守护程序应用](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad)
 
@@ -62,4 +63,4 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 
 开始[将文件上传到帐户](media-services-portal-upload-files.md)。
 
-<!--Update_Description:new file-->
+<!--Update_Description:add one link-->

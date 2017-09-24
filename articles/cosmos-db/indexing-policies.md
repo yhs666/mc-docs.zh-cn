@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 08/17/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 440bbf2f1720638c7a0fb3ab374f90b33407be23
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: afbddf2a2b2aa4111b5e9ca33033b7c81b93e26a
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何为数据编制索引？
 
@@ -76,8 +76,6 @@ Azure Cosmos DB 支持三种索引模式，可通过索引策略对 Azure Cosmos
 > 将索引策略配置为“无”时，删除任何现有索引会产生不良影响。 如果访问模式只需要“ID”和/或“自助链接”，请使用此选项。
 > 
 > 
-
-下面的示例演示如何使用 .NET SDK 借助针对所有文档插入的一致自动索引创建 Azure Cosmos DB 集合。
 
 下表显示了基于为集合配置的索引模式（一致和延迟）和为查询请求指定的一致性级别进行的查询的一致性。 这适用于使用任何接口（REST API、SDK 或在存储过程和触发器中）进行的查询。 
 
@@ -408,4 +406,4 @@ JSON 规范中实现了以下更改：
 2. [DocumentDB API REST 集合操作](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [使用 SQL 进行查询](documentdb-sql-query.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update-->

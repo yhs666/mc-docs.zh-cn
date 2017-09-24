@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/29/2017
 ms.date: 08/07/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 909aa8354b8c78df6faf4895e0dbdc9f4b51021d
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: 1893158c44f07146fd1204191c2228e3d2a11ee0
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="deliver-content-to-customers"></a>向客户传送内容
 向客户传送流或视频点播内容时，目标在于向处于不同网络条件下的各种设备传送优质视频。
@@ -144,7 +144,7 @@ https://test001.blob.core.chinacloudapi.cn/asset-ca7a4c3f-9eb5-4fd8-a898-459cb17
 
 ## <a name="streaming-endpoints"></a>流式处理终结点
 
-流式处理终结点表示一个流服务，该服务可以直接将内容传送给客户端播放器应用程序，也可以直接将内容传送给内容交付网络 (CDN) 以进一步分发。 流式处理终结点服务的出站流可以是实时流，也可以是媒体服务帐户中的视频点播资产。
+流式处理终结点表示一个流服务，该服务可以直接将内容传送给客户端播放器应用程序，也可以直接将内容传送给内容交付网络 (CDN) 以进一步分发。 流式处理终结点服务的出站流可以是实时流，也可以是媒体服务帐户中的视频点播资产。 有两种类型的流式处理终结点，**标准**和**高级**。 有关详细信息，请参阅[流式处理终结点概述](media-services-streaming-endpoints-overview.md)。
 
 >[!NOTE]
 >创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
@@ -180,4 +180,4 @@ https://test001.blob.core.chinacloudapi.cn/asset-ca7a4c3f-9eb5-4fd8-a898-459cb17
 
 [轮转存储密钥后更新媒体服务定位符](./media-services-roll-storage-access-keys.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: add Premium Streaming endpoint information-->

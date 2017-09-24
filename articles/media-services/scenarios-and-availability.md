@@ -3,8 +3,8 @@ title: "Azure 媒体服务功能的跨数据中心方案和可用性 | Azure"
 description: "本主题概述 Azure 媒体服务功能和服务的跨数据中心方案和可用性。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: 
 ms.service: media-services
 ms.workload: media
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 07/10/2017
-ms.date: 
-ms.author: v-haiqya
-ms.openlocfilehash: 20e96aca25a40817c5c9338556a5aaea05cdb4bc
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.date: 09/25/2017
+ms.author: v-johch
+ms.openlocfilehash: 3c973322d76414d37823d8f0c13e96d0fc026e79
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>媒体服务功能的跨数据中心方案和可用性
 
@@ -193,6 +193,7 @@ AMS 提供两个按需编码器：**Media Encoder Standard** 和 **Media Encoder
 |媒体处理器名称|状态|数据中心
 |---|---|---|
 |Media Encoder Standard|GA|全部|
+|媒体编码器高级工作流|GA|除中国以外|
 
 ### <a name="analytics-media-processors"></a>分析媒体处理器
 
@@ -210,6 +211,7 @@ AMS 提供两个按需编码器：**Media Encoder Standard** 和 **Media Encoder
 |Azure 媒体编修器|预览|全部|
 |Azure 媒体稳定器|预览|全部|
 |Azure 媒体视频缩略图|预览|全部|
+|Azure Media Indexer 2|预览|除中国和联邦政府区域以外|
 
 ### <a name="protection"></a>保护
 
@@ -223,6 +225,7 @@ AMS 提供两个按需编码器：**Media Encoder Standard** 和 **Media Encoder
 |AES-128 密钥|GA|全部|
 |Fairplay|GA|全部|
 |PlayReady|GA|全部|
+|Widevine|GA|德国、美国联邦政府和中国除外。
 
 ### <a name="reserved-units-rus"></a>保留单位 (RU)
 
@@ -248,4 +251,4 @@ AMS 提供两个按需编码器：**Media Encoder Standard** 和 **Media Encoder
 |S2|GA|巴西南部和印度西部除外|
 |S3|GA|印度西部除外|
 
-<!--Update_Description:new file-->
+<!--Update_Description:update three tables-->

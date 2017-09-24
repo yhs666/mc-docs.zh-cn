@@ -12,35 +12,35 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 
+origin.date: 12/08/2016
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 93b10d9f35066e3a3c616ae85b00baa247c4fa9b
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: d60ae0566f32555f65ef912da6cacd7daca26ac2
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="nodejs-web-application-using-storage"></a>使用存储构建 Node.js Web 应用程序
 ## <a name="overview"></a>概述
-在本教程中会将用于 Node.js 的 Microsoft Azure 客户端库与数据管理服务配合使用，来扩展在[使用 Express 生成 Node.js Web 应用程序]教程中创建的应用程序。 你将扩展你的应用程序以创建可部署到 Azure 的基于 Web 的任务列表应用程序。 用户可以通过任务列表来检索任务、添加新任务以及将任务标记为已完成。
+本教程通过用于 Node.js 的 Microsoft Azure 客户端库与数据管理服务配合使用，来扩展在[使用 Express 生成 Node.js Web 应用程序]教程中创建的应用程序。 将扩展应用程序以创建可部署到 Azure 的基于 Web 的任务列表应用程序。 用户可以通过任务列表来检索任务、添加新任务以及将任务标记为已完成。
 
-任务项存储在 Azure 存储中。 Azure 存储提供了具有容错能力且可用性非常好的非结构化数据存储。 Azure 存储包含一些可用来存储和访问数据的数据结构，可以通过用于 Node.js 的 Azure SDK 中包含的 API 或通过 REST API 利用存储服务。 有关详细信息，请参阅 [在 Azure 中存储和访问数据]。
+任务项存储在 Azure 存储中。 Azure 存储提供了具有容错能力且可用性非常好的非结构化数据存储。 Azure 存储包含一些可用来存储和访问数据的数据结构。 可以通过用于 Node.js 的 Azure SDK 中包含的 API 或通过 REST API 来使用存储服务。 有关详细信息，请参阅 [在 Azure 中存储和访问数据]。
 
 本教程假定已完成 [Node.js Web 应用程序]和[使用 Express 的 Node.js][使用 Express 生成 Node.js Web 应用程序] 教程。
 
-学习内容：
+其中包含以下信息：
 
 * 如何操作 Jade 模板引擎
 * 如何操作 Azure 数据管理服务
 
-以下是已完成应用程序的屏幕快照：
+以下屏幕截图显示已完成的应用程序：
 
 ![Internet Explorer 中已完成的网页](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>在 Web.Config 中设置存储凭据
-要访问 Azure 存储，需要传入存储凭据。 为此，你使用 web.config 应用程序设置。
-这些设置作为环境变量传递给 Node，此后再由 Azure SDK 进行读取。
+必须传入存储凭据才能访问 Azure 存储。 为此，可利用 web.config 应用程序设置。
+web.config 设置作为环境变量传递给 Node，并再由 Azure SDK 进行读取。
 
 > [!NOTE]
 > 仅在将应用程序部署到 Azure 时才使用存储凭据。 应用程序在模拟器中运行时会使用存储模拟器。
@@ -51,13 +51,13 @@ ms.lasthandoff: 08/25/2017
 
 1. 如果尚未打开 Azure PowerShell，请通过“开始”菜单展开“所有程序”、“Azure”，右键单击“Azure PowerShell”，然后选择“以管理员身份运行”启动 Azure PowerShell。
 2. 将目录更改到包含应用程序的文件夹。 例如，C:\\node\\tasklist\\WebRole1。
-3. 从 Azure Powershell 窗口中，输入以下 cmdlet 以检索存储帐户信息：
+3. 在 Azure Powershell 窗口中，输入以下 cmdlet 以检索存储帐户信息：
 
     ```powershell
     PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
     ```
 
-   这样可以检索与托管服务关联的存储帐户和帐户密钥的列表。
+   上述 cmdlet 可以检索与托管服务关联的存储帐户和帐户密钥的列表。
 
    > [!NOTE]
    > 由于在部署服务时 Azure SDK 会创建一个存储帐户，因此在前面的指南中部署应用程序之后应当已存在一个存储帐户。
@@ -107,11 +107,11 @@ ms.lasthandoff: 08/25/2017
   ```
 
 ## <a name="using-the-table-service-in-a-node-application"></a>在 Node 应用程序中使用表服务
-本节中将通过添加一个包含任务模型的 task.js 文件来扩展 express 命令创建的基本应用程序。 还将修改现有 app.js 并创建使用该模型的新 tasklist.js 文件。
+本部分通过添加一个包含任务模型的 **task.js** 文件来扩展 **express** 命令创建的基本应用程序。 修改现有 **app.js** 并创建使用该模型的新 **tasklist.js** 文件。
 
 ### <a name="create-the-model"></a>创建模型
 1. 在 WebRole1 目录中，创建一个名为 models 的新目录。
-2. 在 **models** 目录中，创建一个名为 **task.js** 的新文件。 此文件包含你的应用程序创建的任务的模型。
+2. 在 **models** 目录中，创建一个名为 **task.js** 的新文件。 此文件包含应用程序创建的任务的模型。
 3. 在 **task.js** 文件的开头，添加以下代码来引用所需的库：
 
     ```nodejs
@@ -120,7 +120,7 @@ ms.lasthandoff: 08/25/2017
     var entityGen = azure.TableUtilities.entityGenerator;
     ```
 
-4. 接下来，你添加代码以定义和导出 Task 对象。 此对象负责与表连接。
+4. 接下来，添加代码以定义和导出 Task 对象。 Task 对象负责与表连接。
 
     ```nodejs
     module.exports = Task;
@@ -195,7 +195,7 @@ ms.lasthandoff: 08/25/2017
 
 ### <a name="create-the-controller"></a>创建控制器
 1. 在 WebRole1/routes 目录中，创建一个名为 **tasklist.js** 的新文件，并在文本编辑器中将其打开。
-2. 将以下代码添加到 **tasklist.js**。 这会加载 **tasklist.js**使用的 azure 和 async 模块。 这还将定义 **TaskList** 函数，会向该函数传递我们之前定义的 **Task** 对象的一个实例：
+2. 将以下代码添加到 **tasklist.js**。 此代码加载 **tasklist.js** 使用的 azure 和 async 模块，并定义 **TaskList** 函数，会向该函数传递我们之前定义的 **Task** 对象的一个实例：
 
     ```nodejs
     var azure = require('azure-storage');
@@ -273,7 +273,7 @@ ms.lasthandoff: 08/25/2017
     app.use('/users', users);
     ```
 
-    将上面的行替换为下面显示的代码。 这会通过连接到你的存储帐户来初始化 <strong>Task</strong> 的实例。 这是 <strong>TaskList</strong>的密码，TaskList 使用该密码与表服务进行通信：
+    将上面的行替换为以下代码。 此代码通过连接到存储帐户来初始化 <strong>Task</strong> 的实例。 <strong>Task</strong> 传递给 <strong>TaskList</strong>，后者使用它来与表服务通信：
 
     ```nodejs
     var TaskList = require('./routes/tasklist');
@@ -290,7 +290,7 @@ ms.lasthandoff: 08/25/2017
 
 ### <a name="modify-the-index-view"></a>修改索引视图
 1. 将目录更改为 views 目录，并在文本编辑器中打开 index.jade 文件。
-2. 将 **index.jade** 文件的内容替换为以下代码。 这会定义用于显示现有任务的视图，以及用于添加新任务和将现有任务标记为已完成的表单。
+2. 将 **index.jade** 文件的内容替换为以下代码。 此代码会定义用于显示现有任务的视图，以及用于添加新任务和将现有任务标记为已完成的表单。
 
     ```
     extends layout
@@ -334,10 +334,10 @@ ms.lasthandoff: 08/25/2017
 3. 保存并关闭 **index.jade** 文件。
 
 ### <a name="modify-the-global-layout"></a>修改全局布局
-**views** 目录中的 **layout.jade** 文件用作其他 **.jade** 文件的全局模板。 在此步骤中，将对其进行修改以使用 [Twitter Bootstrap](https://github.com/twbs/bootstrap)（一个可以轻松设计美观网站的工具包）。
+**views** 目录中的 **layout.jade** 文件用作其他 **.jade** 文件的全局模板。 在此步骤中，修改 **layout.jade** 文件以使用 [Twitter Bootstrap](https://github.com/twbs/bootstrap)（一个可以轻松设计美观网站的工具包）。
 
 1. 下载并提取 [Twitter Bootstrap](http://getbootstrap.com/) 的文件。 将 bootstrap.min.css 文件从 bootstrap\\dist\\css 文件夹复制到 tasklist 应用程序的 public\\stylesheets 目录中。
-2. 从 views 文件夹中，用文本编辑器打开 layout.jade 并将其内容替换为以下代码：
+2. 在 **views** 文件夹中，用文本编辑器打开 **layout.jade** 文件并将其内容替换为以下代码：
 
     doctype html  html    head      title= title      link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')      link(rel='stylesheet', href='/stylesheets/style.css')    body.app      nav.navbar.navbar-default        div.navbar-header          a.navbar-brand(href='/') My Tasks      block content
 
@@ -350,7 +350,7 @@ ms.lasthandoff: 08/25/2017
 PS C:\node\tasklist\WebRole1> start-azureemulator -launch
 ```
 
-浏览器将打开并显示以下页面：
+浏览器会打开并显示以下页面：
 
 ![标题为 My Task List 的网页，其中所含的表包含任务和用于添加新任务的字段。](./media/table-storage-cloud-service-nodejs/node44.png)
 
@@ -382,7 +382,7 @@ PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -lo
   WARNING: 2:22:50 PM - Created Website URL: http://tasklist.chinacloudapp.cn/.
 ```
 
-与先前一样，由于指定了 **-launch** 选项，因此在发布完成后，浏览器将打开并显示正在 Azure 中运行的应用程序。
+由于在前面的 cmdlet 中指定了 **-launch** 选项，因此在发布完成后，浏览器会打开并显示正在 Azure 中运行的应用程序。
 
 ![浏览器窗口中显示 My Task List 页面。 URL 表明该页面现在托管在 Azure 上。](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
@@ -390,7 +390,7 @@ PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -lo
 在部署应用程序后，可能希望禁用它，以避免在试用期内产生费用，或者生成和部署其他应用程序。
 
 Azure 按使用的服务器小时数对 Web 角色实例进行计费。
-应用程序部署后即开始使用服务器时间，即使相关实例未运行并处于停止状态。
+应用程序部署之后就会开始使用服务器时间，即使相关实例并未运行且处于停止状态也是如此。
 
 以下步骤演示了如何停止和删除应用程序。
 
@@ -410,8 +410,10 @@ Azure 按使用的服务器小时数对 Web 角色实例进行计费。
 
    在出现提示时，输入 **Y** 以删除服务。
 
-   删除服务可能需要花费几分钟时间。 删除服务后，将收到一条指示服务已被删除的消息。
+   删除服务可能需要花费几分钟时间。 删除服务后，会收到一条指示服务已被删除的消息。
 
 [使用 Express 生成 Node.js Web 应用程序]: /develop/nodejs/tutorials/web-app-with-express/
 [在 Azure 中存储和访问数据]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Node.js Web 应用程序]: http://azure.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
+
+<!--Update_Description: update link-->

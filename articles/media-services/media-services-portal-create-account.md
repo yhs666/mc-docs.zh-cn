@@ -3,7 +3,7 @@ title: "利用 Azure 门户创建 Azure 媒体服务帐户 | Azure"
 description: "本教程指导你完成利用 Azure 门户创建 Azure 媒体服务帐户的步骤。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: c551e158-aad6-47b4-931e-b46260b3ee4c
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: c29dc6ab21dfa0f1839f90e71d92358c82a8acdd
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 09/03/2017
+ms.date: 09/25/2017
+ms.author: v-johch
+ms.openlocfilehash: da2b5c19b2832ee07b72edc60acbac6001e372e7
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>利用 Azure 门户创建 Azure 媒体服务帐户
 > [!div class="op_single_selector"]
@@ -36,6 +36,9 @@ ms.lasthandoff: 08/31/2017
 
 本文介绍了一些常见概念，展示了如何利用 Azure 门户创建媒体服务帐户。
 
+> [!NOTE]
+> 若要了解 Azure 媒体服务功能在不同区域的可用性，请参阅 [AMS 功能的跨数据中心可用性](scenarios-and-availability.md#availability)。
+
 ## <a name="concepts"></a>概念
 访问媒体服务需要两个关联的帐户：
 
@@ -43,8 +46,8 @@ ms.lasthandoff: 08/31/2017
 
 * 一个 Azure 存储帐户。 存储帐户必须位于媒体服务帐户所在的地理区域内。 创建媒体服务帐户时，可以选择位于同一区域内的现有存储帐户，也可以在同一区域内创建新的存储帐户。 如果删除媒体服务帐户，相关存储帐户中的 Blob 不会被删除。
 
-> [!NOTE]
-> 若要了解 Azure 媒体服务功能在不同区域的可用性，请参阅 [AMS 功能的跨数据中心可用性](scenarios-and-availability.md#availability)。
+  > [!NOTE]
+  > 媒体服务将主存储帐户限制为拥有表、队列的**常规用途存储**帐户。 有关存储类型的详细信息，请参阅[关于 Azure 存储帐户](/storage/common/storage-create-storage-account)。
 
 ## <a name="create-an-ams-account"></a>创建 AMS 帐户
 本部分中的步骤说明如何创建 AMS 帐户。
@@ -82,4 +85,4 @@ ms.lasthandoff: 08/31/2017
 
 如果计划以编程方式访问 AMS API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。
 
-<!--Update_Description: update storage link-->
+<!--Update_Description: add note for Media Services features availability-->

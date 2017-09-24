@@ -3,8 +3,8 @@ title: "调整媒体处理的规模概述 | Microsoft Docs"
 description: "本主题概述了如何使用 Azure 媒体服务调整媒体处理的规模。"
 services: media-services
 documentationcenter: 
-author: juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: 
 ms.assetid: 780ef5c2-3bd6-4261-8540-6dee77041387
 ms.service: media-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/04/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 5a75f823ed297b74f7ae664b6c7763d5adc2ec76
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.date: 09/25/2017
+ms.author: v-johch
+ms.openlocfilehash: d4ca614ea8e39a6335bd877834c6568e8b8e7c3c
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="scaling-media-processing-overview"></a>调整媒体处理的规模概述
 此页概述了如何以及为何调整媒体处理的规模。 
@@ -59,9 +59,10 @@ ms.lasthandoff: 08/04/2017
 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
+> * [门户](media-services-portal-scale-media-processing.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 
-<!--Update_Description: update metadata-->
+<!--Update_Description: add one link-->

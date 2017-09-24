@@ -3,8 +3,8 @@ title: "如何设置计算机以使用 .NET 进行媒体服务开发"
 description: "了解使用适用于 .NET 的媒体服务 SDK 进行媒体服务开发所要满足的先决条件。 此外，了解如何创建 Visual Studio 应用程序。"
 services: media-services
 documentationcenter: 
-author: juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: 
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/16/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
-ms.openlocfilehash: e4cc97b53bd55e4de7c10fbed71697354ce81369
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+origin.date: 08/23/2017
+ms.date: 09/25/2017
+ms.author: v-johch
+ms.openlocfilehash: 2844a6aca179edd348679c9c17bf21b9e8f04516
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 进行媒体服务开发
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/04/2017
             **Azure 媒体服务 .NET SDK** 库允许使用 .NET 为媒体服务编程。 为了进一步方便使用 .NET 进行开发，提供了 **Azure 媒体服务 .NET SDK 扩展**库。 此库包含一组扩展方法和帮助器函数，可简化 .NET 代码。 这两个库都通过 **NuGet** 和 **GitHub** 提供。
 
 ## <a name="prerequisites"></a>先决条件
-* 在新的或现有的 Azure 订阅中拥有一个媒体服务帐户。 请参阅主题[如何创建媒体服务帐户](media-services-create-account.md)。
+* 在新的或现有的 Azure 订阅中拥有一个媒体服务帐户。 请参阅主题[如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * 操作系统：Windows 10、Windows 7、Windows 2008 R2 或 Windows 8。
 * .NET Framework 4.5。
 * Visual Studio。
@@ -67,7 +67,7 @@ ms.lasthandoff: 08/04/2017
     如果使用[用户身份验证](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication)，配置文件可能具有 Azure AD 租户域和 AMS REST API 终结点的值。
 
     >[!Important]
-    >Azure 媒体服务文档集中的示例使用用户（交互）类型的身份验证连接到 AMS API。 此身份验证方法非常适合于管理或监视本机应用：移动应用、Windows 应用和控制台应用程序。 此身份验证方法不适合服务器、Web 服务、API 类型的应用程序。  有关详细信息，请参阅[通过 Azure AD 身份验证访问 AMS API](media-services-use-aad-auth-to-access-ams-api.md)。
+    >Azure 媒体服务文档集中的大多数代码示例都使用用户（交互）类型的身份验证连接到 AMS API。 此身份验证方法非常适合于管理或监视本机应用：移动应用、Windows 应用和控制台应用程序。 此身份验证方法不适合服务器、Web 服务、API 类型的应用程序。  有关详细信息，请参阅[通过 Azure AD 身份验证访问 AMS API](media-services-use-aad-auth-to-access-ams-api.md)。
 
         <configuration>
         ...
@@ -123,4 +123,4 @@ ms.lasthandoff: 08/04/2017
 现在[可以连接到 AMS API](media-services-use-aad-auth-to-access-ams-api.md) 并开始[开发](media-services-dotnet-get-started.md)。
 
 
-<!--Update_Description: update word & coding-->
+<!--Update_Description: add one link-->

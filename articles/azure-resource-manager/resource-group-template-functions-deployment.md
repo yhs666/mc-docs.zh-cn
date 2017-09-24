@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/13/2017
-ms.date: 09/04/2017
+origin.date: 09/05/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8f4183742378684e1f424c980526c1ce09cbc3f4
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.openlocfilehash: d3a3f3a37c27fe580debd4e121ebfbb677836b74
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的部署函数 
 
@@ -98,7 +98,7 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 
 ### <a name="example"></a>示例
 
-下面的示例返回部署对象：
+下面的[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json)返回部署对象：
 
 ```json
 {
@@ -136,6 +136,18 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
     "provisioningState": "Accepted"
   }
 }
+```
+
+要使用 Azure CLI 部署此示例模板，请使用：
+
+```azurecli
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
+```
+
+要使用 PowerShell 部署此示例模板，请使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
 <a id="parameters" />
@@ -177,7 +189,7 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 
 ### <a name="example"></a>示例
 
-以下示例演示了 parameters 函数的简化用法。
+以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json)演示了 parameters 函数的简化用法。
 
 ```json
 {
@@ -232,7 +244,7 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 }
 ```
 
-采用默认值，前面示例的输出为：
+上述示例中使用默认值的输出为：
 
 | 名称 | 类型 | 值 |
 | ---- | ---- | ----- |
@@ -241,6 +253,18 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 | objectOutput | 对象 | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | 选项 1 |
+
+要使用 Azure CLI 部署此示例模板，请使用：
+
+```azurecli
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+```
+
+要使用 PowerShell 部署此示例模板，请使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+```
 
 <a id="variables" />
 
@@ -285,7 +309,7 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 
 ### <a name="example"></a>示例
 
-示例模板返回不同的变量值。
+以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json)返回了不同的变量值。
 
 ```json
 {
@@ -323,7 +347,7 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 }
 ```
 
-采用默认值，前面示例的输出为：
+上述示例中使用默认值的输出为：
 
 | 名称 | 类型 | 值 |
 | ---- | ---- | ----- |
@@ -332,10 +356,22 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  对象 | {"property1": "value1", "property2": "value2"} |
 
+要使用 Azure CLI 部署此示例模板，请使用：
+
+```azurecli
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+```
+
+要使用 PowerShell 部署此示例模板，请使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+```
+
 ## <a name="next-steps"></a>后续步骤
-* 有关 Azure Resource Manager 模板中各部分的说明，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
+* 有关 Azure Resource Manager 模板中各部分的说明，请参阅 [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)（创作 Azure Resource Manager 模板）。
 * 若要合并多个模板，请参阅[将链接的模板与 Azure Resource Manager 配合使用](resource-group-linked-templates.md)。
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 若要查看如何部署已创建的模板，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, add azure cli and powershell command example block-->

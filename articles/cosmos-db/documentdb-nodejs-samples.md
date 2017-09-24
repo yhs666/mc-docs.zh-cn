@@ -14,16 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 07/17/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 615bae7549386cef043ba5d306c9dc5289eaf26a
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 061fb1727fb3a9573cd876a00c44bf0b60fb8c2e
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 09/22/2017
 ---
-# Azure Cosmos DB Node.js 示例
-<a id="azure-cosmos-db-nodejs-examples" class="xliff"></a>
+# <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js 示例
 > [!div class="op_single_selector"]
 > * [.NET 示例](documentdb-dotnet-samples.md)
 > * [Node.js 示例](documentdb-nodejs-samples.md)
@@ -39,18 +38,20 @@ ms.lasthandoff: 07/07/2017
 
 **先决条件**
 
-1. 需要一个 Azure 帐户才能使用这些 Node.js 示例：
-   * 可以[注册一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)：获取可用来试用付费版 Azure 服务的信用额度，甚至在用完信用额度后，仍可以保留帐户和使用免费的 Azure 服务（如网站）。 不会对信用卡收取任何费用，除非明确更改设置并要求收费。
-     * 可以[激活 Visual Studio 订户权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)：Visual Studio 订阅每月为用户提供可用于付费版 Azure 服务的信用额度。
-2. 还需要 [Node.js SDK](documentdb-sdk-node.md)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+- 可以[激活 Visual Studio 订户权益](https://www.azure.cn/pricing/member-offers/msdn-benefits-details/)：Visual Studio 订阅每月为用户提供可用于付费版 Azure 服务的信用额度。
+
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+还需要 [Node.js SDK](documentdb-sdk-node.md)。
 
    > [!NOTE]
    > 每个示例都是独立的，自行对自身进行设置并在完成后自行进行清理。 因此，这些示例对 [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection)发出多个调用。 每次执行完此操作，均会按照正在创建的集合的性能层，向订阅收取使用 1 小时的费用。
    > 
    > 
 
-## 数据库示例
-<a id="database-examples" class="xliff"></a>
+## <a name="database-examples"></a>数据库示例
 [DatabaseManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/DatabaseManagement) 项目的 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DatabaseManagement/app.js) 文件演示如何执行以下任务。
 
 | 任务 | API 参考 |
@@ -61,8 +62,7 @@ ms.lasthandoff: 07/07/2017
 | [列出帐户的数据库](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DatabaseManagement/app.js#L111-L119) |[DocumentClient.readDatabases](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readDatabases) |
 | [删除数据库](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DatabaseManagement/app.js#L133-L144) |[DocumentClient.deleteDatabase](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteDatabase) |
 
-## 集合示例
-<a id="collection-examples" class="xliff"></a>
+## <a name="collection-examples"></a>集合示例
 [CollectionManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/CollectionManagement) 项目的 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/CollectionManagement/app.js) 文件演示如何执行以下任务。
 
 | 任务 | API 参考 |
@@ -75,8 +75,7 @@ ms.lasthandoff: 07/07/2017
 | [更改集合的性能层](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L188-L202) |[DocumentClient.replaceOffer](http://azure.github.io/azure-documentdb-node/DocumentClient.html#replaceOffer) |
 | [删除集合](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L204-L215) |[DocumentClient.deleteCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteCollection) |
 
-## 文档示例
-<a id="document-examples" class="xliff"></a>
+## <a name="document-examples"></a>文档示例
 [DocumentManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/DocumentManagement) 项目的 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DocumentManagement/app.js) 文件演示如何执行以下任务。
 
 | 任务 | API 参考 |
@@ -90,8 +89,7 @@ ms.lasthandoff: 07/07/2017
 | [使用条件 ETag 检查替换文档](https://github.com/Azure/azure-documentdb-node/blob/0778eadea7abb2af41e8c22a239dc872c584f421/samples/DocumentManagement/app.js#L147-L164) |[DocumentClient.replaceDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#replaceDocument)<br/>[RequestOptions.accessCondition](http://azure.github.io/azure-documentdb-node/global.html#RequestOptions) |
 | [删除文档](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L122-L133) |[DocumentClient.deleteDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteDocument) |
 
-## 索引示例
-<a id="indexing-examples" class="xliff"></a>
+## <a name="indexing-examples"></a>索引示例
 [IndexManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/IndexManagement) 项目的 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/IndexManagement/app.js) 文件演示如何执行以下任务。
 
 | 任务 | API 参考 |
@@ -104,12 +102,12 @@ ms.lasthandoff: 07/07/2017
 | [从索引中排除某些路径](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L427-L450) |[IndexingPolicy.ExcludedPath](http://azure.github.io/azure-documentdb-node/global.html#IndexingPolicy) |
 | [允许在范围操作期间扫描字符串路径](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L271-L347) |[FeedOptions.EnableScanInQuery](http://azure.github.io/azure-documentdb-node/global.html#FeedOptions) |
 | [在字符串路径上创建范围索引](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L349-L425) |[IndexKind.Range](http://azure.github.io/azure-documentdb-node/global.html#IndexKind)、[IndexingPolicy](http://azure.github.io/azure-documentdb-node/global.html#IndexingPolicy)、[DocumentClient.queryDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#queryDocument) |
-| [使用默认 indexPolicy 创建集合，然后联机进行更新](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L519-L614) |[DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection)<br> [DocumentClient.replaceCollection#replaceCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html) |
+| 
+            [使用默认 indexPolicy 创建集合，并联机进行更新](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L519-L614) |[DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection)<br> [DocumentClient.replaceCollection#replaceCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html) |
 
 有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
 
-## 服务器端编程示例
-<a id="server-side-programming-examples" class="xliff"></a>
+## <a name="server-side-programming-examples"></a>服务器端编程示例
 [ServerSideScripts](https://github.com/Azure/azure-documentdb-node/tree/master/samples/ServerSideScripts) 项目的 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/ServerSideScripts/app.js) 文件演示如何执行以下任务。
 
 | 任务 | API 参考 |
@@ -119,8 +117,7 @@ ms.lasthandoff: 07/07/2017
 
 有关服务器端编程的详细信息，请参阅 [Azure Cosmos DB 服务器端编程：存储过程、数据库触发器和 UDF](programming.md)。
 
-## 分区示例
-<a id="partitioning-examples" class="xliff"></a>
+## <a name="partitioning-examples"></a>分区示例
 [Partitioning](https://github.com/Azure/azure-documentdb-node/tree/master/samples/Partitioning) 项目的 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/Partitioning/app.js) 文件演示如何执行以下任务。
 
 | 任务 | API 参考 |
@@ -128,3 +125,5 @@ ms.lasthandoff: 07/07/2017
 | [使用 HashPartitionResolver](https://github.com/Azure/azure-documentdb-node/blob/ce0fc3c4e70b0279091a1e03620a668d93a14fc2/samples/Partitioning/app.js#L53-L103) |[HashPartitionResolver](http://azure.github.io/azure-documentdb-node/HashPartitionResolver.html) |
 
 有关在 Azure Cosmos DB 中对数据进行分区的详细信息，请参阅[对 Azure Cosmos DB 中的数据进行分区和扩展](partition-data.md)。
+
+<!--Update_Description: wording update-->

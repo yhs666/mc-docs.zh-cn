@@ -1,7 +1,4 @@
 + [应用服务身份验证/授权概述](../articles/app-service/app-service-authentication-overview.md)
-
-+ [向 Web 应用添加身份验证](../articles/app-service-web/app-service-web-get-started-2.md#authenticate-your-users)
-
 + 将身份验证添加到移动应用：[iOS][ios-get-started-users]、[Android][android-get-started-users]、[Windows 通用][windows-get-started-users]、[Xamarin.Android][xamarin-android-get-started-users]、[Xamarin.iOS][xamarin-ios-get-started-users]、[Xamarin.Forms][xamarin-forms-get-started-users]、[Cordova][cordova-get-started-users]  
 了解如何将应用服务身份验证添加到移动应用。
 

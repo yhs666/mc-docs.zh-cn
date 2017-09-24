@@ -14,19 +14,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 05/26/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: d4fa96e87a9ba18a8ea3183c675a37befd42c864
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: 8b4ac13daa96e8a6aa31b2628d46cc741daeba14
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="lesson-8-create-perspectives"></a>第 8 课：创建透视
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-在本课中，将创建“Internet 销售”透视。 透视定义模型的可查看子集，它提供集中的特定于业务的或特定于应用程序的视点。 当用户使用某个透视连接到模型时，他们只能看到该透视中作为字段定义的那些模型对象（表、列、度量值、层次结构和 KPI）。 若要了解详细信息，请参阅[透视](/sql/analysis-services/tabular-models/perspectives-ssas-tabular)。
+在本课中，将创建“Internet 销售”透视。 透视定义模型的可查看子集，它提供集中的特定于业务的或特定于应用程序的视点。 当用户使用某个透视连接到模型时，他们只能看到该透视中作为字段定义的那些模型对象（表、列、度量值、层次结构和 KPI）。 若要了解详细信息，请参阅[透视](https://docs.microsoft.com/sql/analysis-services/tabular-models/perspectives-ssas-tabular)。
 
 本课中创建的“Internet 销售”透视将排除 DimCustomer 表对象。 创建从视图中排除某些对象的透视时，该对象仍然存在于模型中。 但是，它在报告客户端字段列表中不可见。 仍然可以基于排除的对象数据计算透视中包括或未包括的计算列和度量值。  
 
@@ -55,3 +55,5 @@ ms.lasthandoff: 08/02/2017
 
 ## <a name="whats-next"></a>后续步骤
 [第 9 课：创建层次结构](../tutorials/aas-lesson-9-create-hierarchies.md)。
+
+<!--Update_Description: update meta properties, update link-->

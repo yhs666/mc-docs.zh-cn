@@ -14,13 +14,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 07/10/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 3e7886695e200c491435fd637caadb95602530ea
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/09/2017
+ms.author: v-yiso
+ms.openlocfilehash: d098b51122d94343895bc6ececeace29597ccb28
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 
@@ -105,8 +105,11 @@ ms.lasthandoff: 07/28/2017
 3. 选择“所有设置” > “诊断日志”。
 4. 对于“失败的请求跟踪”，选择“打开”。
 5. 选择“保存”。
-6. 在 Web 应用边栏选项卡上，选择“开发工具”下的“应用服务编辑器(预览版)”。
-10. 选择“Web.config”。
+6. 在 Web 应用边栏选项卡，选择“工具”。
+7. 选择“Visual Studio Online”。
+8. 如果设置不是“打开”，则选择“打开”。
+9. 选择“转到”。
+10. 选择 **Web.config**。
 11. 在 system.webServer 中，添加此配置（以捕获特定的 URL）：
 
     ```
@@ -171,7 +174,7 @@ WebJobs 专用于后台处理。 可在 WebJobs 中执行任意数量的后台�
 
 如果使用应用服务的本地缓存功能，应用服务实例“LogFiles 和数据”文件夹的文件夹结构会受到影响。 使用本地缓存时，将在存储 LogFiles 和数据文件夹中创建子文件夹。 子文件夹使用“唯一标识符”+ 时间戳的命名模式。 每个子文件夹对应于一个 VM 实例，其中的 Web 应用正在运行或已运行。
 
-若要确定是否是在本地缓存，请检查应用服务的“应用程序设置”选项卡。 如果在使用本地缓存，应用设置 `WEBSITE_LOCAL_CACHE_OPTION` 设置为 `Always`。 有关本地缓存的详细信息，请参阅[应用服务本地缓存概述](/app-service/app-service-local-cache)。
+若要确定是否是在本地缓存，请检查应用服务的“应用程序设置”选项卡。如果在使用本地缓存，应用设置 `WEBSITE_LOCAL_CACHE_OPTION` 设置为 `Always`。 有关本地缓存的详细信息，请参阅[应用服务本地缓存概述](/app-service/app-service-local-cache)。
 
 如果未使用本地缓存，并且遇到此问题，请提交支持请求。
 

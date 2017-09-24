@@ -17,11 +17,11 @@ ms.topic: support-article
 origin.date: 07/25/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: d0fde9335ae6a69bd4dcdaf657abac9d8b24e197
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 3778b5c8dc20fb7277cbdc549924260cc0f77b60
+ms.sourcegitcommit: b6b000de56b7e4d68e09d8d1091f94a9310f28b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>排查 Azure 虚拟机的远程桌面连接问题
 与基于 Windows 的 Azure 虚拟机 (VM) 的远程桌面协议 (RDP) 连接可能会因各种原因而失败，使用户无法访问 VM。 问题可能出在 VM 上的远程桌面服务、网络连接或主计算机上的远程桌面客户端。 本文介绍解决 RDP 连接问题的一些最常见方法。 
@@ -37,10 +37,10 @@ ms.lasthandoff: 08/29/2017
 2. 检查网络安全组规则/云服务终结点。
 3. 查看 VM 控制台日志。
 4. 重置 VM 的 NIC。
-5. 检查 VM 资源运行状况。
-6. 重置 VM 密码。
-7. 重新启动 VM。
-8. 重新部署 VM。
+<!--Not Available 5. Check the VM Resource Health.-->
+5. 重置 VM 密码。
+6. 重新启动 VM。
+7. 重新部署 VM。
 
 如需更详细的步骤和说明，请继续阅读余下的内容。 请确保本地网络设备（如路由器和防火墙）未阻止出站 TCP 端口 3389，如 [RDP 详细故障排除方案](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中所述。
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 08/29/2017
 
 * [Azure 门户](#using-the-azure-portal) - 如果需要快速重置 RDP 配置或用户凭据，并且没有安装 Azure 工具，则很适合使用此方法。
 * 
-            [Azure PowerShell](#using-azure-powershell) - 如果很熟练 PowerShell 提示符，可以使用 Azure PowerShell cmdlet 快速重置 RDP 配置或用户凭据。
+            [Azure PowerShell](#using-azure-powershell) - 如果熟悉 PowerShell 提示符，可使用 Azure PowerShell cmdlet 快速重置 RDP 配置或用户凭据。
 
 还可以查找有关针对使用 [经典部署模型](#troubleshoot-vms-created-using-the-classic-deployment-model)创建的 VM 进行故障排除的步骤。
 
@@ -68,27 +68,24 @@ ms.lasthandoff: 08/29/2017
     ![在 Azure 门户中重置 RDP 配置](./media/troubleshoot-rdp-connection/reset-rdp.png)
 2. **验证网络安全组规则**。 可以查看生效的安全组规则，确保入站“允许”NSG 规则存在并已针对 RDP 端口（默认为 3389）设置优先级。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow)。
 
-3. **检查 VM 启动诊断**。 此故障排除步骤检查 VM 控制台日志，确定 VM 是否报告了问题。 并非所有 VM 都已启用启动诊断，因此，此故障排除步骤可能是可选的。
+3. **查看 VM 启动诊断**。 此故障排除步骤检查 VM 控制台日志，确定 VM 是否报告了问题。 并非所有 VM 都已启用启动诊断，因此，此故障排除步骤可能是可选的。
 
-    本文未介绍具体的故障排除步骤，而是指出会影响 RDP 连接的更广泛问题。 有关查看控制台日志和 VM 屏幕截图的详细信息，请参阅 [Boot Diagnostics for VMs](boot-diagnostics.md)（VM 的启动诊断）。
+    本文未介绍具体的故障排除步骤，而是指出会影响 RDP 连接的更广泛问题。 有关查看控制台日志和 VM 屏幕截图的详细信息，请参阅 [VM 启动诊断](boot-diagnostics.md)。
 
 4. **重置 VM 的 NIC**。 有关详细信息，请参阅[如何重置 Azure Windows VM 的 NIC](reset-network-interface.md)。
-5. **检查 VM 资源运行状况**。 此故障排除步骤验证 Azure 平台上是否未出现任何可能影响 VM 连接的已知问题。
+<!-- Not Availble **Check the VM Resource Health**.  -->
 
-    在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“资源运行状况”按钮。 A healthy VM reports as being **Available**:
-
-    ![在 Azure 门户中查看 VM 资源运行状况](./media/troubleshoot-rdp-connection/check-resource-health.png)
-6. **重置用户凭据**。 不确定或者忘了凭据时，可以使用此故障排除步骤重置本地管理员帐户的密码。
+5. **重置用户凭据**。 不确定或忘记凭据时，此故障排除步骤将重置本地管理员帐户的密码。
 
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“重置密码”按钮。 确保“模式”已设置为“重置密码”，然后输入用户名和新密码。 Finally, click the **Update** button:
 
     ![在 Azure 门户中重置用户凭据](./media/troubleshoot-rdp-connection/reset-password.png)
-7. **重新启动 VM**。 此故障排除步骤可以解决 VM 本身存在的任何基本问题。
+6. **重新启动 VM**。 此故障排除步骤可以解决 VM 本身存在的任何基本问题。
 
     在 Azure 门户中选择 VM，并单击“概述”选项卡。
 
     ![在 Azure 门户中重启 VM](./media/troubleshoot-rdp-connection/restart-vm.png)
-8. **重新部署 VM**。 此故障排除步骤可将 VM 重新部署到 Azure 中的另一台主机，从而解决平台或网络的任何基本问题。
+7. **重新部署 VM**。 此故障排除步骤将 VM 重新部署到 Azure 内的另一台主机，以更正任何基础平台或网络问题。
 
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。 单击“重新部署”按钮，然后单击“重新部署”：
 
@@ -101,7 +98,7 @@ ms.lasthandoff: 08/29/2017
 ## <a name="troubleshoot-using-azure-powershell"></a>使用 Azure PowerShell 进行故障排除
 如果尚未执行该操作，请[安装并配置最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
-以下示例使用 `myResourceGroup`、`myVM`、`myVMAccessExtension` 之类的变量。 请将这些变量名称和位置替换为自己的值。
+以下示例使用 `myResourceGroup`、`myVM`、`myVMAccessExtension` 之类的变量。 将这些变量名称和位置替换为自己的值。
 
 > [!NOTE]
 > 使用 [Set-AzureRmVMAccessExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet 重置用户凭据和 RDP 配置。 在以下示例中， `myVMAccessExtension` 是在重置过程中指定的名称。 如果以前使用过 VMAccessAgent，可以使用 `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` 检查 VM 的属性，从而获取现有的扩展名称。 若要查看名称，请查看输出的“Extensions”节中的内容。
@@ -118,7 +115,7 @@ ms.lasthandoff: 08/29/2017
     ```
 2. **验证网络安全组规则**。 此故障排除步骤验证网络安全组中是否存在允许 RDP 流量的规则。 RDP 的默认端口为 TCP 端口 3389。 创建 VM 时，可能不会自动创建允许 RDP 流量的规则。
 
-    首先，将网络安全组的所有配置数据分配到 `$rules` 变量。 以下示例将在名为 `myResourceGroup` 的资源组中获取关于名为 `myNetworkSecurityGroup` 的网络安全组的信息：
+    首先，将网络安全组的所有配置数据都指定给 `$rules` 变量。 以下示例将在名为 `myResourceGroup` 的资源组中获取关于名为 `myNetworkSecurityGroup` 的网络安全组的信息：
 
     ```powershell
     $rules = Get-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
@@ -150,9 +147,9 @@ ms.lasthandoff: 08/29/2017
     ```
 
     如果不存在允许 RDP 通信的规则，请[创建网络安全组规则](nsg-quickstart-powershell.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 允许 TCP 端口 3389。
-3. **重置用户凭据**。 不确定或者忘了凭据时，可以使用此故障排除步骤重置指定的本地管理员帐户的密码。
+3. **重置用户凭据**。 不确定或忘记凭据时，此故障排除步骤将重置所指定本地管理员帐户的密码。
 
-    首先，通过将凭据分配到 `$cred` 变量来指定用户名和新密码，如下所示：
+    首先，通过为 `$cred` 变量分配凭据来指定用户名和新密码，如下所示：
 
     ```powershell
     $cred=Get-Credential
@@ -173,7 +170,7 @@ ms.lasthandoff: 08/29/2017
     ```powershell
     Restart-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
-5. **重新部署 VM**。 此故障排除步骤可将 VM 重新部署到 Azure 中的另一台主机，从而解决平台或网络的任何基本问题。
+5. **重新部署 VM**。 此故障排除步骤将 VM 重新部署到 Azure 内的另一台主机，以更正任何基础平台或网络问题。
 
     以下示例重新部署 `ChinaNorth` 位置和 `myResourceGroup` 资源组中名为 `myVM` 的 VM：
 
@@ -208,7 +205,7 @@ ms.lasthandoff: 08/29/2017
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“资源运行状况”按钮。 A healthy VM reports as being **Available**:
 
     ![在 Azure 门户中查看 VM 资源运行状况](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
-5. **重置用户凭据**。 不确定或者忘了凭据时，可以使用此故障排除步骤重置指定的本地管理员帐户的密码。
+5. **重置用户凭据**。 不确定或忘记凭据时，此故障排除步骤将重置所指定本地管理员帐户的密码。
 
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“重置密码”按钮。 输入用户名和新密码。 最后，单击“保存”按钮： 
 

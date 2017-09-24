@@ -12,26 +12,26 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/28/2017
-ms.date: 08/21/2017
+origin.date: 08/25/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 89050c3080d798ac3a90d3e4715e51d35d7faf1e
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: bcd696d7db18dfda177be404d2a12f762d65a9f2
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
-本主题说明如何将资源移到新订阅或同一订阅的新资源组中。 可以使用门户、PowerShell、Azure CLI 或 REST API 移动资源。 本主题中的移动操作无需任何 Azure 支持的协助即可供使用。
+此主题说明如何将资源移到新订阅，或移到同一个订阅中的新资源组。 可以使用门户、PowerShell、Azure CLI 或 REST API 移动资源。 本主题中的移动操作无需任何 Azure 支持的协助即可供使用。
 
-移动资源时，源组和目标组会被锁定，直到移动操作完成。 在完成移动之前，将阻止对资源组执行写入和删除操作。 此锁意味着用户无法添加、更新或删除资源组中的资源，但并不意味着资源处于冻结状态。 例如，如果将 SQL Server 及其数据库移到新的资源组中，使用数据库的应用程序体验不到停机， 仍可读取和写入到数据库。
+在移动资源的过程中，源组和目标组都会锁定。 在完成移动之前，将阻止对资源组执行写入和删除操作。 此锁意味着用户无法添加、更新或删除资源组中的资源，但并不意味着资源处于冻结状态。 例如，如果将 SQL Server 及其数据库移动到新的资源组中，则使用该数据库的应用程序将不会遇到停机的情况。 仍可读取和写入到数据库。
 
 不能更改该资源的位置。 移动资源仅能够将其移动到新的资源组。 新的资源组可能有不同的位置，但这不会更改该资源的位置。
 
 > [!NOTE]
 > 本文介绍如何在现有 Azure 帐户产品/服务中移动资源。
-> 
-> 
+>
+>
 <!-- Not Available [Switch your Azure subscription to another offer](../billing/billing-how-to-switch-azure-offer.md) -->
 
 ## <a name="checklist-before-moving-resources"></a>移动资源前需查看的清单
@@ -69,9 +69,10 @@ ms.lasthandoff: 08/18/2017
 有以下需要时，请致电支持人员：
 
 * 将资源移到新 Azure 帐户（和 Azure Active Directory 租户）。
-* 移动经典资源，但遇到限制问题。
+* 移动经典资源时遇到限制方面的问题。
 
-## <a name="services-that-support-move"></a>允许移动的服务
+<a name="services-that-support-move"></a>
+## <a name="services-that-enable-move"></a>支持移动的服务
 就目前而言，支持移动到新资源组和订阅的服务包括：
 
 * API 管理
@@ -96,13 +97,14 @@ ms.lasthandoff: 08/18/2017
 * Service Fabric
 * 存储
 * 存储（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
-* 流分析
+* 流分析 - 当流分析作业处于运行状态时，则无法进行移动。
 * SQL 数据库服务器 - 数据库和服务器必须位于同一个资源组中。 移动 SQL 服务器时，也会移动其所有数据库。
 * 流量管理器
 * 虚拟机
-* 证书存储在 Key Vault 中的虚拟机 - 支持移到同一订阅中的新资源组，但不支持跨订阅移动。
+* 证书存储在密钥保管库中的虚拟机 - 支持移到同一订阅中的新资源组，但不支持跨订阅移动。
 * 虚拟机（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
-* 虚拟网络 - 当前无法移动对等虚拟网络，直到禁用了 VNet 对等互连为止。 禁用后，即可成功移动虚拟网络，并可启用 VNet 对等互连。 此外，如果虚拟网络包含具有资源导航链接的任何子网，则虚拟网络不能移到其他订阅。 例如，当 Microsoft.Cache redis 资源部署到虚拟网络子网时，此子网具有资源导航链接。
+* 虚拟机规模集
+* 虚拟网络 - 当前无法移动对等虚拟网络，直到禁用了 VNet 对等互连为止。 禁用后，即可成功移动虚拟网络，并可启用 VNet 对等互连。 此外，如果虚拟网络包含具有资源导航链接的任何子网，则虚拟网络不能移到其他订阅。 例如，将 Microsoft.Cache redis 资源部署到虚拟网络子网时，此子网包含资源导航链接。
 * VPN 网关
 
 ## <a name="services-that-do-not-enable-move"></a>不支持移动的服务
@@ -116,7 +118,7 @@ ms.lasthandoff: 08/18/2017
 * 从托管磁盘创建的映像
 * 托管磁盘
 * 恢复服务保管库：也不会移动与恢复服务保管库关联的计算、网络和存储资源，请参阅 [恢复服务限制](#recovery-services-limitations)。
-* “安全”
+* 安全
 * 从托管磁盘创建的快照
 * 带托管磁盘的虚拟机
 * 虚拟网络（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
@@ -167,15 +169,15 @@ ms.lasthandoff: 08/18/2017
 
 ## <a name="hdinsight-limitations"></a>HDInsight 限制
 
-可以将 HDInsight 群集移到新订阅或资源组。 但是，不能跨订阅移动链接到 HDInsight 群集的网络资源（例如虚拟网络、NIC 或负载均衡器）。 此外，也无法将已附加到群集的虚拟机的 NIC 移至新资源组。
+可以将 HDInsight 群集移到新订阅或资源组。 但是，不能跨订阅移动链接到 HDInsight 群集的网络资源（例如虚拟网络、NIC 或负载均衡器）。 此外，无法将连接到群集的虚拟机的网卡移到新的资源组。
 
-将 HDInsight 群集移至新订阅时，请先移动其他资源（例如存储帐户）。 然后移动 HDInsight 群集本身。
+将 HDInsight 群集移到新的订阅时，首先移动其他资源（如存储帐户）。 然后移动 HDInsight 群集本身。
 
 ## <a name="classic-deployment-limitations"></a>经典部署限制
 移动通过经典模型部署的资源时，其选项各不相同，具体取决于是在订阅内移动资源，还是将资源移到新的订阅。
 
 ### <a name="same-subscription"></a>同一订阅
-在同一订阅内将资源从一个资源组移动到另一个资源组时，存在以下限制：
+在同一订阅内将资源从一个资源组移到另一个资源组时存在以下限制：
 
 * 不能移动虚拟网络（经典）。
 * 虚拟机（经典）必须与云服务一起移动。
@@ -187,7 +189,7 @@ ms.lasthandoff: 08/18/2017
 若要将经典资源移到同一订阅内的新资源组，请通过[门户](#use-portal)、[Azure PowerShell](#use-powershell)、[Azure CLI](#use-azure-cli) 或 [REST API](#use-rest-api) 使用标准移动操作。 使用的操作应与移动 Resource Manager 资源时所用的操作相同。
 
 ### <a name="new-subscription"></a>新订阅
-将资源移动到新订阅时，存在以下限制：
+将资源移到新订阅时存在以下限制：
 
 * 必须在同一操作中移动订阅中的所有经典资源。
 * 目标订阅不得包含任何其他经典资源。
@@ -236,7 +238,7 @@ ms.lasthandoff: 08/18/2017
     ```
 
     响应的格式与源订阅验证的响应格式相同。
-3. 如果两个订阅都通过了验证，可使用以下操作将所有经典资源从一个订阅移动到另一个订阅：
+3. 如果两个订阅都通过了验证，可使用以下操作将所有经典资源从一个订阅移到另一个订阅：
 
     ```HTTP
     POST https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
@@ -257,7 +259,7 @@ ms.lasthandoff: 08/18/2017
 
 ![移动资源](./media/resource-group-move-resources/select-move.png)
 
-选择是要将资源移到新资源组还是移到新订阅。
+选择是要将资源移到新资源组还是新订阅。
 
 选择要移动的资源和目标资源组。 确认需要更新这些资源的脚本，选择“确定” 。 如果在上一步中已选择“编辑订阅”图标，则还必须选择目标订阅。
 
@@ -291,7 +293,7 @@ Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Res
 
 若要移到新订阅，请包含 `DestinationSubscriptionId` 参数的值。
 
-系统会要求确认是否想要移动指定的资源。
+系统将要求确认是否想要移动指定的资源。
 
 ```powershell
 Confirm
@@ -303,14 +305,15 @@ Are you sure you want to move these resources to the resource group
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 ```
 
-## <a name="use-azure-cli"></a>使用 Azure CLI 2.0
+<a name="use-azure-cli"></a>
+## <a name="use-azure-cli-20"></a>使用 Azure CLI 2.0
 要将现有资源移到另一个资源组或订阅，请使用 `az resource move` 命令。 提供要移动的资源的资源 ID。 可以使用以下命令获取资源 ID：
 
 ```azurecli
 az resource show -g sourceGroup -n storagedemo --resource-type "Microsoft.Storage/storageAccounts" --query id
 ```
 
-以下示例说明如何将存储帐户移动到新的资源组。 在 `--ids` 参数中，提供要移动的资源 ID 的空格分隔列表。
+以下示例演示如何将一个存储帐户移到新资源组。 在 `--ids` 参数中，提供要移动的资源 ID 的空格分隔列表。
 
 ```azurecli
 az resource move --destination-group newgroup --ids "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo"
@@ -344,7 +347,7 @@ azure resource list -g sourceGroup --json
 ]
 ```
 
-以下示例说明如何将存储帐户移动到新的资源组。 在 `-i` 参数中，提供要移动的资源 ID 的逗号分隔列表。
+以下示例演示如何将一个存储帐户移到新资源组。 在 `-i` 参数中，提供要移动的资源 ID 的逗号分隔列表。
 
 ```azurecli
 azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
@@ -367,4 +370,4 @@ POST https://management.chinacloudapi.cn/subscriptions/{source-subscription-id}/
 * 若要了解管理订阅所需的门户功能，请参阅[使用 Azure 门户管理资源](resource-group-portal.md)。
 * 若要了解如何向资源应用逻辑组织，请参阅[使用标记组织资源](resource-group-using-tags.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

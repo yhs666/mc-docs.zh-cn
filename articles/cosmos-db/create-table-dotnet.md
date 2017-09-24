@@ -12,15 +12,15 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 06/22/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 956dd8f1e23faf59c9d12ee3040bfe6d6679b676
-ms.sourcegitcommit: fa7ac9d4e888435ef9e0c3251a90c9506571bc87
+ms.openlocfilehash: 7727cdfa9623022b1f0ad589623132f073defff0
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB：使用表 API 生成 .NET 应用程序
 
@@ -113,9 +113,10 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 3. 将值粘贴到 app.config 文件中，充当 PremiumStorageConnectionString 的值。 
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.cn;EndpointSuffix=core.chinacloudapi.cn" />`    
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.cn" />`    
+<!-- Not Need to add EndpointSuffix=core.chinacloudapi.cn-->
 
-    可以让 StandardStorageConnectionString 保留原样。
+    You can leave the StandardStorageConnectionString as is.
 
 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
 

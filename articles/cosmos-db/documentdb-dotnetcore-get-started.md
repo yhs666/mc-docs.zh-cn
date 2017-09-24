@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 86f04be8af62d5af6c278fe626db863bb6d33444
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 058abe6cd7f7c0a3f6932cec76a2e0ef25552496
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-documentdb-api-and-net-core"></a>Azure Cosmos DB：DocumentDB API 和 .NET Core 入门
 > [!div class="op_single_selector"]
@@ -59,8 +59,10 @@ ms.lasthandoff: 09/13/2017
 请确保具有以下内容：
 
 * 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
-    * 另外，对于本教程，也可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)。
-* [Visual Studio 2017](https://www.visualstudio.com/vs/) 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)] 
     * 如果在 MacOS 或 Linux 上操作，可以通过安装适用于所选平台的 [.NET Core SDK](https://www.microsoft.com/net/core#macos)，从命令行开发 .NET Core 应用。 
     * 如果在 Windows 上操作，可以通过安装 [.NET Core SDK](https://www.microsoft.com/net/core#windows)，从命令行开发 .NET Core 应用。 
     * 可以使用自己的编辑器或者下载免费的 [Visual Studio Code](https://code.visualstudio.com/)，并在 Windows、Linux 和 MacOS 上操作。 
@@ -116,9 +118,9 @@ class Program
     private DocumentClient client;
 ```
 
-接下来，转到 [Azure 门户](https://portal.azure.cn) 检索 URI 和主密钥。 Azure Cosmos DB URI 和主密钥是必需的，可让应用程序知道要连接的对象，使 Azure Cosmos DB 信任应用程序的连接。
+接下来，转到 [Azure 门户](https://portal.azure.cn)，检索 URI 和主密钥。 Azure Cosmos DB URI 和主密钥是必需的，可让应用程序知道要连接的对象，使 Azure Cosmos DB 信任应用程序的连接。
 
-在 Azure 门户中，导航到 Azure Cosmos DB 帐户，并单击“密钥”。
+在 Azure 门户中，导航到 Azure Cosmos DB 帐户，然后单击“密钥”。
 
 从门户中复制该 URI 并将它粘贴到 program.cs 文件中的 `<your endpoint URI>`。 然后从门户中复制“主密钥”并将它粘贴到 `<your key>`。 如果使用 Azure Cosmos DB 模拟器，请将 `https://localhost:8081` 用作终结点，并使用[如何使用 Azure Cosmos DB 模拟器进行开发](local-emulator.md)中明确定义的授权密钥。 请务必删除 < 和 >，但保留终结点和密钥的双引号。
 
@@ -599,4 +601,4 @@ End of demo, press any key to exit.
 [create-documentdb-dotnet.md#create-account]: create-documentdb-dotnet.md#create-account
 [keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update-->

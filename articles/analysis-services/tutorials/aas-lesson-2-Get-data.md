@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 06/01/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 137b94f50f3dd3502d8680e22bb8886145b645e0
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: a8531ce98d7b66019823938f9e1215b9319855ad
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="lesson-2-get-data"></a>第 2 课：获取数据
 
@@ -154,3 +154,5 @@ AdventureWorksDW2014 示例数据库中的表具有不需要包括在模型中�
 
 ## <a name="whats-next"></a>后续步骤
 [第 3 课：标记为日期表](../tutorials/aas-lesson-3-mark-as-date-table.md)。
+
+<!--Update_Description: update meta properties-->

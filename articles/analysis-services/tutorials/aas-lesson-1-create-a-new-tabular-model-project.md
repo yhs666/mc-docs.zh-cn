@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 06/01/2017
-ms.date: 08/28/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: cfa3a12dcd4e12e71c772c8edc72a8dd904b5201
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 8eb892dc29371b078cff6e7b87cfebfa3ff369ab
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="lesson-1-create-a-tabular-model-project"></a>第 1 课：创建表格模型项目
 

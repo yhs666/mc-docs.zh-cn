@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 06/19/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 10/09/2017
+ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: bb783193b3710df9696b8db727521eee14d8bf18
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 9cce826f4166f036c8d4cece9ca96fc11a743b27
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="monitor-a-web-app-with-web-server-logs"></a>使用 Web 服务器日志监视 Web 应用
 
@@ -69,11 +69,11 @@ az webapp log download --name $webappname --resource-group myResourceGroup
 
 | 命令 | 说明 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |
-| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | 创建 Azure Web 应用。 |
-| [az webapp log config](https://docs.microsoft.com/cli/azure/webapp/log#config) | 配置 Azure Web 应用将持久保留的日志。 |
-| [az webapp log download](https://docs.microsoft.com/cli/azure/webapp/log#download) | 将 Azure Web 应用的日志下载到本地计算机。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | 创建 Azure Web 应用。 |
+| [az webapp log config](https://docs.microsoft.com/cli/azure/webapp/log#az_webapp_log_config) | 配置 Azure Web 应用将持久保留的日志。 |
+| [az webapp log download](https://docs.microsoft.com/cli/azure/webapp/log#az_webapp_log_download) | 将 Azure Web 应用的日志下载到本地计算机。 |
 
 ## <a name="next-steps"></a>后续步骤
 

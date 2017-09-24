@@ -12,15 +12,15 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 52e71f0325910e3ff4da1fc5cf96ae5880bf0043
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 3761e037f4738dc76f82e7b2ab17fe2c59389825
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>如何使用 MongoDB API 设置 Azure Cosmos DB 全局分发
 
@@ -107,4 +107,4 @@ collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode
 > [!div class="nextstepaction"]
 > [通过模拟器在本地开发](local-emulator.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties,wording update-->

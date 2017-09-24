@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 08/02/2017
 ms.date: 09/04/2017
 ms.author: v-junlch
-ms.openlocfilehash: ed89e34d762d2fb6f93885bde5757193e0be4448
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: cf8c6764a4bdece2552915dc54ad1187a8233af0
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>使用 DPM 准备将工作负荷备份到 Azure
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ ms.lasthandoff: 09/08/2017
 System Center DPM 备份文件和应用程序数据。 备份到 DPM 的数据可以存储在磁带、磁盘上，或者使用 Azure Backup 备份到 Azure。 DPM 可与 Azure 备份交互，如下所述：
 
 - **部署为物理服务器或本地虚拟机的 DPM** - 如果 DPM 部署为物理服务器或本地 Hyper-V 虚拟机，则除了磁盘和磁带备份外，还可以将数据备份到 Azure 备份保管库。
-- **部署为 Azure 虚拟机的 DPM** - 通过 System Center 2012 R2 Update 3，可以将 DPM 部署为 Azure 虚拟机。 如果 DPM 部署为 Azure 虚拟机部署，则可以将数据备份到附加到 DPM Azure 虚拟机的 Azure 磁盘，也可以通过将数据备份到 Azure 备份保管库来卸载数据存储。
+- **部署为 Azure 虚拟机的 DPM** — 通过 System Center 2012 R2 Update 3，可以将 DPM 部署为 Azure 虚拟机。 如果 DPM 部署为 Azure 虚拟机部署，则可以将数据备份到附加到 DPM Azure 虚拟机的 Azure 磁盘，也可以通过将数据备份到 Azure 备份保管库来卸载数据存储。
 
 ## <a name="why-backup-your-dpm-servers"></a>为何要备份 DPM 服务器？
 使用 Azure 备份来备份 DPM 服务器所带来的业务好处包括：
@@ -64,15 +64,14 @@ System Center DPM 备份文件和应用程序数据。 备份到 DPM 的数据�
 
 1. **创建备份保管库**。 如果尚未在订阅中创建备份保管库，请参阅[为使用 DPM 将工作负荷备份到 Azure 做准备](backup-azure-dpm-introduction.md)一文的 Azure 门户版本。
 
-  > [!IMPORTANT]
-  > 从 2017 年 3 月开始，无法再使用经典管理门户来创建备份保管库。
-  > 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> 2017 年 10 月 15 日之后，将无法使用 PowerShell 创建备份保管库。 2017 年 11 月 1 日之前：
-  >- 其余所有备份保管库都将自动升级到恢复服务保管库。
-  >- 无法在经典管理门户中访问备份数据。 应使用 Azure 门户在恢复服务保管库中访问备份数据。
-  >
+    > [!IMPORTANT]
+    > 从 2017 年 3 月开始，无法再使用经典管理门户来创建备份保管库。
+    > 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> 2017 年 10 月 15 日之后，将无法使用 PowerShell 创建备份保管库。 2017 年 11 月 1 日之前：
+    >- 其余所有备份保管库都将自动升级到恢复服务保管库。
+    >- 无法在经典管理门户中访问备份数据。 应使用 Azure 门户在恢复服务保管库中访问备份数据。
+    >
 
-2. 
-            **下载保管库凭据** — 在 Azure 备份中，将创建的管理证书上传到保管库。
+2. **下载保管库凭据** — 在 Azure 备份中，将你创建的管理证书上传到保管库。
 3. **安装 Azure 备份代理并注册服务器** — 通过 Azure 备份，在每个 DPM 服务器上安装代理，并在备份保管库中注册 DPM 服务器。
 
 [!INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]

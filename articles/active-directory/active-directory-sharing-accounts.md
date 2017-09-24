@@ -3,8 +3,8 @@ title: "使用 Azure AD 共享帐户 | Microsoft Docs"
 description: "介绍组织如何使用 Azure Active Directory 来安全共享本地应用和使用者云服务的帐户。"
 services: active-directory
 documentationcenter: 
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: e2d77104-d978-46a3-bfea-03ffdf3b61e6
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/04/2017
+origin.date: 08/28/2017
+ms.date: 09/20/2017
 ms.author: v-junlch
-ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: c37c95515c3f570d91855854b4ad06cc425be0cd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.reviewer: jeffsta
+ms.custom: it-pro
+ms.openlocfilehash: 3ba30dca9768653a047b6ad491a3b969af04c2f7
+ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/21/2017
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>使用 Azure AD 共享帐户
 ## <a name="overview"></a>概述
@@ -36,9 +36,9 @@ ms.lasthandoff: 05/26/2017
 
 - 要使所有人都能访问新的应用程序，需要向他们分发凭据。
 - 每个共享的应用程序可能都需要唯一的一组共享凭据，从而要求用户记住多组凭据。 当用户必须记住许多凭据时，他们会采取有风险的做法，风险就会随之增加。 （例如写下密码）。
-- 你不知道谁有权访问应用程序。
-- 你不知道谁 *访问了* 应用程序。
-- 当你需要删除某个应用程序的访问权限时，必须更新凭据，并将凭据重新分发给需要访问该应用程序的所有人。
+- 不知道谁有权访问应用程序。
+- 不知道谁 *访问了* 应用程序。
+- 当需要删除某个应用程序的访问权限时，必须更新凭据，并将凭据重新分发给需要访问该应用程序的所有人。
 
 ## <a name="azure-active-directory-account-sharing"></a>Azure Active Directory 帐户共享
 Azure AD 提供使用共享帐户的新方法，从而可以消除这些缺点。
@@ -53,22 +53,23 @@ Azure AD 支持任何企业移动性套件 (EMS)、高级或基本许可用户�
 
 支持帐户共享的 Azure AD 功能包括：
 
-- [密码单一登录](./active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
+- [密码单一登录](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
 - 密码单一登录代理
 - 自定义密码应用
 - 最终用户访问门户
 - [Active Directory 应用商店](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## <a name="sharing-an-account"></a>共享帐户
-若要使用 Azure AD 来共享帐户，你需要：
+要使用 Azure AD 来共享帐户，需要：
 
 - 添加应用程序[应用库](https://azure.microsoft.com/marketplace/active-directory/)或[自定义应用程序](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)
 - 将应用程序配置为使用密码单一登录 (SSO)
-- 可选：在某些应用程序（例如 Facebook、Twitter 或 LinkedIn）中，你可以启用 [Azure AD 自动轮换密码](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
+- 可选：在某些应用程序（例如 Facebook、Twitter 或 LinkedIn）中，可以启用 [Azure AD 自动轮换密码](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
 
 还可以使用多重身份验证 (MFA) 更安全地生成共享帐户（了解有关[使用 Azure AD 保护应用程序](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)的详细信息）。
 
 ## <a name="related-articles"></a>相关文章
+- [有关 Azure Active Directory 中应用程序管理的文章索引](active-directory-apps-index.md)
 
-- [有关 Azure Active Directory 中应用程序管理的文章索引](./active-directory-apps-index.md)
+<!--Update_Description: wording update-->
 

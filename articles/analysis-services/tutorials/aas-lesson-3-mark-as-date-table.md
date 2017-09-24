@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 06/01/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: f80d68232cf8dc67a557fa986c50a31fecf5fbf0
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: d9db860c73274a5a673067b7ee48487e876dc246
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="lesson-3-mark-as-date-table"></a>第 3 课：标记为日期表
 
@@ -57,3 +57,5 @@ ms.lasthandoff: 08/02/2017
 
 ## <a name="whats-next"></a>后续步骤
 [第 4 课：创建关系](../tutorials/aas-lesson-4-create-relationships.md)。
+
+<!--Update_Description: update meta properties-->

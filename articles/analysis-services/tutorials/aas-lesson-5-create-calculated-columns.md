@@ -14,23 +14,23 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 06/01/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8129470c7295281d2bc84fb2f6e7a34820d933c6
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: 2fd1ae0c5fb42d2719c78f2d897929c20bc43803
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="lesson-5-create-calculated-columns"></a>第 5 课：创建计算列
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-在本课中，将通过添加计算列在模型中创建数据。 可以在使用“获取数据”时（通过使用查询编辑器）或稍后在模型设计器中（按照本教程中介绍的步骤）创建计算列（作为自定义列）。 若要了解详细信息，请参阅[计算列](/sql/analysis-services/tabular-models/ssas-calculated-columns)。
+在本课中，将通过添加计算列在模型中创建数据。 可以在使用“获取数据”时（通过使用查询编辑器）或稍后在模型设计器中（按照本教程中介绍的步骤）创建计算列（作为自定义列）。 若要了解详细信息，请参阅[计算列](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns)。
 
 将在三个不同的表中创建五个新的计算列。 每个任务的执行步骤稍有不同，说明可通过多种方法创建列、对其进行重命名，以及将其放置在表中的各种位置。  
 
-还将在本课中首次使用数据分析表达式 (DAX)。 DAX 是一种特殊语言，用于为表格模型创建可高度自定义的公式表达式。 在本教程中，将使用 DAX 创建计算列、度量值和角色筛选器。 若要了解详细信息，请参阅[表格模型中的 DAX](/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular)。 
+还将在本课中首次使用数据分析表达式 (DAX)。 DAX 是一种特殊语言，用于为表格模型创建可高度自定义的公式表达式。 在本教程中，将使用 DAX 创建计算列、度量值和角色筛选器。 若要了解详细信息，请参阅[表格模型中的 DAX](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular)。 
 
 本课预计完成时间：**15 分钟**  
 
@@ -134,3 +134,5 @@ ProductCategoryName 计算列用于在 DimProduct 表中创建层次结构，该
 
 ## <a name="whats-next"></a>后续步骤
 [第 6 课：创建度量值](../tutorials/aas-lesson-6-create-measures.md)。
+
+<!--Update_Description: update meta properties, update link-->

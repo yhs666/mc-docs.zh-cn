@@ -14,19 +14,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 05/26/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 72e9c9b0abc96eba8388a8a1edb5c25947c5ffde
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: 595368b9c63b9f5958267c89e3b9ddfdaa34ac3d
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="lesson-4-create-relationships"></a>第 4 课：创建关系
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-本课程介绍如何验证导入数据时自动创建的关系，以及在不同的表之间添加新关系。 关系是两个表之间的连接，规定如何关联这些表中的数据。 例如，在 DimProduct 表与 DimProductSubcategory 表之间，基于每种产品属于某个子类别这一事实建立了关系。 若要了解详细信息，请参阅[关系](/sql/analysis-services/tabular-models/relationships-ssas-tabular)。
+本课程介绍如何验证导入数据时自动创建的关系，以及在不同的表之间添加新关系。 关系是两个表之间的连接，规定如何关联这些表中的数据。 例如，在 DimProduct 表与 DimProductSubcategory 表之间，基于每种产品属于某个子类别这一事实建立了关系。 若要了解详细信息，请参阅[关系](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular)。
 
 本课预计完成时间：**10 分钟**  
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 08/02/2017
 
 ![aas-lesson4-edit](../tutorials/media/aas-lesson4-edit.png)
 
-这些功能用于高级数据建模，不在本教程的范畴内。 若要了解详细信息，请参阅 [Analysis Services 中表格模型的双向交叉筛选器](/sql/analysis-services/tabular-models/bi-directional-cross-filters-tabular-models-analysis-services)。
+这些功能用于高级数据建模，不在本教程的范畴内。 若要了解详细信息，请参阅 [Analysis Services 中表格模型的双向交叉筛选器](https://docs.microsoft.com/sql/analysis-services/tabular-models/bi-directional-cross-filters-tabular-models-analysis-services)。
 
 在某些情况下，可能需要在模型中的表之间创建更多关系，以支持特定的业务逻辑。 对于本教程，需要在 FactInternetSales 表与 DimDate 表之间创建 3 个额外的关系。  
 
@@ -99,3 +99,5 @@ ms.lasthandoff: 08/02/2017
 
 ## <a name="whats-next"></a>后续步骤
 [第 5 课：创建计算列](../tutorials/aas-lesson-5-create-calculated-columns.md)。
+
+<!--Update_Description: update meta properties, update link-->

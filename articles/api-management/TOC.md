@@ -11,6 +11,8 @@
 ### [添加操作](./api-management-howto-add-operations.md)
 ### [创建 API](./api-management-howto-create-apis.md)
 ### [导入 API 定义](./api-management-howto-import-api.md)
+### [修订版本入门](api-management-get-started-revise-api.md)
+### [版本入门](api-management-get-started-publish-versions.md)
 ## 保护后端
 ### [使用 AAD 保护 Web API 后端](./api-management-howto-protect-backend-with-aad.md)
 ### [连接到虚拟网络](./api-management-using-with-vnet.md)
@@ -31,7 +33,6 @@
 ### [自定义页面元素的样式](./api-management-customize-styles.md)
 ### [使用模板自定义系统页面](./api-management-developer-portal-templates.md)
 ### [使用 AAD 进行身份验证](./api-management-howto-aad.md)
-### [使用 AAD B2C 进行身份验证](./api-management-howto-aad-b2c.md)
 ### [委托身份验证](./api-management-howto-setup-delegation.md)
 ### [电子邮件通知和模板](./api-management-howto-configure-notifications.md)
 ### [启用控制台 OAuth 支持](./api-management-howto-oauth2.md)
@@ -48,7 +49,7 @@
 ### [使用基于角色的访问控制](./api-management-role-based-access-control.md)
 ### 与 Service Fabric 集成
 #### [概述](../service-fabric/service-fabric-api-management-overview.md)
-#### [快速启动](../service-fabric/service-fabric-api-management-quick-start.md)
+#### [快速入门](../service-fabric/service-fabric-api-management-quick-start.md)
 # 引用
 ## [PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
@@ -75,8 +76,6 @@
 ### [页面控件](./api-management-page-controls.md)
 ### [模板资源](./api-management-template-resources.md)
 # 资源
-## [API 设计指南](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
-## [API 实现指南](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [API 管理 - 与其他 Azure 服务完美配合](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
 ## [适用于 SmartBear Ready! API 的API 管理插件](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 ## [将事件中心连接到 API 管理](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)

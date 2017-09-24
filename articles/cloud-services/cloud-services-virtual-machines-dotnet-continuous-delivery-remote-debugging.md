@@ -1,21 +1,25 @@
 ---
-title: "使用持续交付启用远程调试 | Azure"
+title: "使用持续交付启用远程调试 | Microsoft Docs"
 description: "了解在使用持续交付部署到 Azure 时如何启用远程调试"
 services: cloud-services
-documentationCenter: .net
-authors: TomArcher
-manager: douge
+documentationcenter: .net
+author: kraigb
+manager: ghogen
 editor: 
+ms.assetid: 7d423639-3b2f-4ca5-ac5a-9ac19a217c29
 ms.service: cloud-services
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-multiple
+ms.devlang: dotnet
 ms.topic: article
 origin.date: 11/18/2016
-ms.date: 04/24/2017
+ms.date: 10/09/2017
 ms.author: v-yiso
-ms.openlocfilehash: 15e70441927e7d8439999145c3e09b37cac4e2aa
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 209079d1b1a28e26e056705decd31deb2f25ee89
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>使用持续交付功能发布到 Azure 时如何启用远程调试
 
@@ -27,8 +31,8 @@ ms.lasthandoff: 07/13/2017
 
     * [用于 Visual Studio 2017 的远程工具](https://go.microsoft.com/fwlink/?LinkId=746570)
     * [用于 Visual Studio 2015 的远程工具](https://go.microsoft.com/fwlink/?LinkId=615470)
-
-
+    * [用于 Visual Studio 2013 Update 5 的远程工具](https://www.microsoft.com/download/details.aspx?id=48156)
+    
     或者，也可以从装有 Visual Studio 的系统复制远程调试二进制文件。
 
 3. 根据 [Azure 云服务的证书概述](cloud-services-certs-create.md)中所述创建证书。 保留 .pfx 和 RDP 证书指纹，并将证书上传到目标云服务。
@@ -39,15 +43,16 @@ ms.lasthandoff: 07/13/2017
     ```
 
     `VSX64RemoteDebuggerPath` 是 Visual Studio 远程工具中 msvsmon.exe 所在的文件夹的路径。
-    `RemoteDebuggerConnectorVersion` 是你的云服务中的 Azure SDK 版本。 它也应与随 Visual Studio 一起安装的版本匹配。
+    
+            `RemoteDebuggerConnectorVersion` 是云服务中的 Azure SDK 版本。 它也应与随 Visual Studio 一起安装的版本匹配。
 
 5. 使用上一步中生成的包和 .cscfg 文件发布到目标云服务。
 6. 将证书（.pfx 文件）导入到装有 Visual Studio 和 Azure SDK for .NET 的计算机。 请确保导入到 `CurrentUser\My` 证书存储，否则附加到 Visual Studio 中的调试器会失败。
 
 ## <a name="enabling-remote-debugging-for-virtual-machines"></a>为虚拟机启用远程调试
 
-1. 创建一个 Azure 虚拟机。 请参阅[创建运行 Windows Server 的虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md)或[在 Visual Studio 中创建和管理 Azure 虚拟机](../virtual-machines/virtual-machines-windows-classic-manage-visual-studio.md)。
-2. 在 [Azure 经典门户页](http://go.microsoft.com/fwlink/p/?LinkID=269851)上的虚拟机仪表板中，查看虚拟机的“**RDP 证书指纹**”。 扩展配置中的 `ServerThumbprint` 值将使用此值。
+1. 创建一个 Azure 虚拟机。 请参阅[创建运行 Windows Server 的虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)或[在 Visual Studio 中创建和管理 Azure 虚拟机](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+2. 在 [Azure 经典门户页](http://go.microsoft.com/fwlink/p/?LinkID=269851)上的虚拟机仪表板中，查看虚拟机的“**RDP 证书指纹**”。 扩展配置中的 `ServerThumbprint` 值使用此值。
 3. 根据 [Azure 云服务的证书概述](./cloud-services-certs-create.md)中所述创建客户端证书（保留 .pfx 和 RDP 证书指纹）。
 4. 根据[如何安装和配置 Azure PowerShell](../powershell-install-configure.md) 中所述安装 Azure Powershell（0.7.4 或更高版本）。
 5. 运行以下脚本以启用 RemoteDebug 扩展。 将路径和个人数据替换为自己的数据，例如，订阅名称、服务名称和指纹。
@@ -78,12 +83,7 @@ ms.lasthandoff: 07/13/2017
     $version = "1.*"
     $publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
 
-    $vm | Set-AzureVMExtension `
-    -ReferenceName $referenceName `
-    -Publisher $publisher `
-    -ExtensionName $extensionName `
-    -Version $version `
-    -PublicConfiguration $publicConfiguration
+    $vm | Set-AzureVMExtension -ReferenceName $referenceName -Publisher $publisher -ExtensionName $extensionName -Version $version -PublicConfiguration $publicConfiguration
 
     foreach($extension in $vm.VM.ResourceExtensionReferences)
     {

@@ -14,19 +14,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 05/26/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2c0a123b3218be0e2acdc0ad9bf9ef429ba82935
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: 2c8d2cb3f53eee2dab552fabc1e58ebc358c3486
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="lesson-10-create-partitions"></a>第 10 课：创建分区
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-在本课中，将创建分区来将 FactInternetSales 表拆分为较小的逻辑部件，然后可以彼此独立地处理（刷新）各个逻辑部件。 默认情况下，模型中包含的每个表都有一个分区，该分区包括该表的所有列和行。 对于 FactInternetSales 表，我们希望按年份拆分数据；每个分区包含表中每五年的数据。 可以独立处理每个分区。 若要了解详细信息，请参阅[分区](/sql/analysis-services/tabular-models/partitions-ssas-tabular)。 
+在本课中，将创建分区来将 FactInternetSales 表拆分为较小的逻辑部件，然后可以彼此独立地处理（刷新）各个逻辑部件。 默认情况下，模型中包含的每个表都有一个分区，该分区包括该表的所有列和行。 对于 FactInternetSales 表，我们希望按年份拆分数据；每个分区包含表中每五年的数据。 可以独立处理每个分区。 若要了解详细信息，请参阅[分区](https://docs.microsoft.com/sql/analysis-services/tabular-models/partitions-ssas-tabular)。 
 
 本课预计完成时间：**15 分钟**  
 
@@ -115,3 +115,5 @@ ms.lasthandoff: 08/02/2017
 
  ## <a name="whats-next"></a>后续步骤
 转到下一课：[第 11 课：创建角色](../tutorials/aas-lesson-11-create-roles.md)。
+
+<!--Update_Description: update meta properties, update link-->
