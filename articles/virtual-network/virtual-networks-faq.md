@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 01/18/2017
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 68d094214c18ecd02df5f1fb0d3e77a08d373c07
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 2abdc190b080ead12579fdca9abde1264fa0d414
+ms.sourcegitcommit: 7a743646d9bb794032e9938b4b578fb05da048bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 

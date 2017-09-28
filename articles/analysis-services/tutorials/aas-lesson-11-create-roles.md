@@ -14,30 +14,30 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 05/26/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: cda16c84be901a236aa744da2d1baef9e9de0ef4
-ms.sourcegitcommit: 0ae1832a7d337618605b0c50cc25265b472f569c
+ms.openlocfilehash: a981443d1519a0412626a5fc8b6fe1404c0bfa18
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="lesson-11-create-roles"></a>第 11 课：创建角色
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-在本课中，将创建角色。 角色通过仅允许属于角色成员的用户进行访问，提供模型数据库对象和数据安全性。 每个角色都定义有单一权限：无、读取、读取和处理、处理，或管理员。 在创作模型期间，可以使用角色管理器来定义角色。 在部署模型后，可以使用 SQL Server Management Studio (SSMS) 来管理角色。 若要了解详细信息，请参阅[角色](/sql/analysis-services/tabular-models/roles-ssas-tabular)。
+在本课中，将创建角色。 角色通过仅允许属于角色成员的用户进行访问，提供模型数据库对象和数据安全性。 每个角色都定义有单一权限：无、读取、读取和处理、处理，或管理员。 在创作模型期间，可以使用角色管理器来定义角色。 在部署模型后，可以使用 SQL Server Management Studio (SSMS) 来管理角色。 若要了解详细信息，请参阅[角色](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular)。
 
 > [!NOTE]  
 > 创建角色不是完成本教程所必需的。 默认情况下，当前用来登录的帐户具有对模型的管理员权限。 不过，若要允许组织中的其他用户使用某个报告客户端来进行浏览，则必须至少创建一个具有读取权限的角色并将那些用户添加为其成员。  
 
 需创建三个角色：  
 
--   **Sales Manager** – 此角色可以包括组织中希望其对所有模型对象和数据具有读取权限的用户。  
+-   **Sales Manager** - 此角色可以包括组织中希望其对所有模型对象和数据具有读取权限的用户。  
 
--   **Sales Analyst US** – 此角色可以包括组织中希望其只能浏览与在美国的销售相关的数据的用户。 对于此角色，使用 DAX 公式来定义行筛选器，该筛选器将成员限制为只能浏览有关美国的数据。  
+-   **Sales Analyst US** - 此角色可以包括组织中希望其只能浏览与在美国的销售相关的数据的用户。 对于此角色，使用 DAX 公式来定义行筛选器，该筛选器将成员限制为只能浏览有关美国的数据。  
 
--   **Administrator** – 此角色可以包括希望其具有管理员权限的用户，具有管理员权限时可以不受限制地进行访问并且有权对模型数据库执行管理任务。  
+-   **Administrator** - 此角色可以包括希望其具有管理员权限的用户，具有管理员权限时可以不受限制地进行访问并且有权对模型数据库执行管理任务。  
 
 因为组织中的 Windows 用户和组帐户具有唯一性，所以可以将特定组织中的帐户添加为成员。 不过，对于本教程，也可以将成员保留为空。 可在后面的“第 12 课：在 Excel 中分析”中测试每个角色的效果。  
 
@@ -93,3 +93,5 @@ ms.lasthandoff: 08/02/2017
 
 ## <a name="whats-next"></a>后续步骤
 [第 12 课：在 Excel 中分析](../tutorials/aas-lesson-12-analyze-in-excel.md)。
+
+<!--Update_Description: update meta properties, update link-->

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 origin.date: 12/25/2016
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9b513c0b8a53d2a372683bdf55f4af222a6124f4
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 3ba2cf1e1f9b55508575f427795f6543c3792a57
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-documentdb-api"></a>Azure Cosmos DB：适用于 DocumentDB API 的 C++ 控制台应用程序教程
 > [!div class="op_single_selector"]
@@ -57,15 +57,19 @@ ms.lasthandoff: 08/04/2017
 ## <a name="prerequisites-for-the-c-tutorial"></a>C++ 教程的先决条件
 请确保具有以下内容：
 
-* 有效的 Azure 帐户。 如果没有，可以注册 [Azure 免费试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* [Visual Studio](https://www.visualstudio.com/downloads/)，安装了 C++ 语言组件。
+* 有效的 Azure 帐户。 如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/)，其中已安装 C++ 语言组件。 如果尚未安装 Visual Studio 2017，可以下载并使用**免费的** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>步骤 1：创建 Azure Cosmos DB 帐户
-创建一个 Azure Cosmos DB 帐户。 如果已经有想要使用的帐户，可以跳到 [安装 C++ 应用程序](#SetupNode)。
+创建一个 Azure Cosmos DB 帐户。 如果已经有想要使用的帐户，可以跳到 [安装 C++ 应用程序](#SetupC++)。
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupC++"></a>步骤 2：设置 C++ 应用程序
+<a id="SetupC++"></a>
+## <a name="step-2-set-up-your-c-application"></a>步骤 2：设置 C++ 应用程序
 1. 打开 Visual Studio，在“文件”菜单中单击“新建”，然后单击“项目”。 
 2. 在“新建项目”窗口的“已安装”窗格内，展开“Visual C++”，单击“Win32”，然后单击“Win32 控制台应用程序”。 将项目命名为 hellodocumentdb，再单击“确定” 。 
 
@@ -80,7 +84,8 @@ ms.lasthandoff: 08/04/2017
 
     将包添加到项目后，我们已准备好开始编写一些代码。   
 
-## <a id="Config"></a>步骤 3：从 Azure 门户复制 Azure Cosmos DB 数据库的连接详细信息
+<a id="Config"></a>
+## <a name="step-3-copy-connection-details-from-azure-portal-for-your-azure-cosmos-db-database"></a>步骤 3：从 Azure 门户复制 Azure Cosmos DB 数据库的连接详细信息
 打开 [Azure 门户](https://portal.azure.cn)，浏览到已创建的 Azure Cosmos DB 数据库帐户。 下一步需要 Azure 门户中的 URI 和主要密钥，以便使用 C++ 代码片段建立连接。 
 
 ![Azure 门户中的 Azure Cosmos DB URI 和密钥](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
@@ -289,4 +294,4 @@ Azure Cosmos DB 支持删除 JSON 文档，为此，可以复制以下代码并�
 
 [create-account]: create-documentdb-dotnet.md#create-account
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: wording update-->

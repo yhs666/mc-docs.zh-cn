@@ -3,8 +3,8 @@ title: "Azure 流量管理器 - 常见问题 | Azure"
 description: "本文提供有关流量管理器的常见问题解答"
 services: traffic-manager
 documentationcenter: 
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/15/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 4ef8c4d7c03f122ce2bc8506eb5d349a2d8f80aa
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 09/25/2017
+ms.author: v-yeche
+ms.openlocfilehash: 3e7a2d7539734cff572836706abeebe52a6b70a9
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 
@@ -47,11 +47,11 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>使用流量管理器对性能有什么影响？
 
-如[流量管理器工作原理](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)中所述，流量管理器在 DNS 级别工作。 由于客户端直接连接到你的服务终结点，因此在使用流量管理器时，一旦建立连接就没有性能影响。
+如[流量管理器工作原理](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)中所述，流量管理器在 DNS 级别工作。 由于客户端直接连接到服务终结点，因此在使用流量管理器时，一旦建立连接就没有性能影响。
 
-由于流量管理器在 DNS 级别与应用程序集成，因此需要将额外的 DNS 查找插入 DNS 解析链中。 流量管理器对 DNS 解析时间的影响微乎其微。 流量管理器使用全局性的名称服务器网络，并使用 [任播](https://en.wikipedia.org/wiki/Anycast) 网络来确保始终将 DNS 查询路由到最靠近的可用名称服务器。 此外，对 DNS 响应进行缓存意味着，因使用流量管理器而导致的额外的 DNS 延迟仅出现在部分会话中。
+由于流量管理器在 DNS 级别与应用程序集成，因此需要将额外的 DNS 查找插入 DNS 解析链中。 流量管理器对 DNS 解析时间的影响微乎其微。 流量管理器使用全局性的名称服务器网络，并使用[任播](https://en.wikipedia.org/wiki/Anycast)网络来确保始终将 DNS 查询路由到最靠近的可用名称服务器。 此外，对 DNS 响应进行缓存意味着，因使用流量管理器而导致的额外的 DNS 延迟仅出现在部分会话中。
 
-“性能”方法将流量路由到最靠近的可用终结点。 最终结果是，与此方法相关的整体性能影响将会减到最小。 通过减小与终结点之间的网络延迟，应该可以抵消 DNS 延迟增大造成的影响。
+“性能”方法将流量路由到最靠近的可用终结点。 最终结果是，与此方法相关的整体性能影响会减到最小。 通过减小与终结点之间的网络延迟，应该可以抵消 DNS 延迟增大造成的影响。
 
 ### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>流量管理器允许使用什么应用程序协议？
 
@@ -63,13 +63,13 @@ ms.lasthandoff: 07/14/2017
 
 流量管理器需要使用一条 DNS CNAME 记录来映射虚构 DNS 名称。 例如，将 www.contoso.com 映射到流量管理器配置文件 DNS 名称 contoso.trafficmanager.cn。 此外，流量管理器配置文件还会返回另一条 DNS CNAME 来指示客户端应连接到的终结点。
 
-若要解决此问题，我们建议使用 HTTP 重定向将流量从裸域名定向到不同的 URL，然后即可使用流量管理器。 例如，裸域“contoso.com”可将用户重定向到指向流量管理器 DNS 名称的 CNAME“www.contoso.com”。
+要解决此问题，我们建议使用 HTTP 重定向将流量从裸域名定向到不同的 URL，然后即可使用流量管理器。 例如，裸域“contoso.com”可将用户重定向到指向流量管理器 DNS 名称的 CNAME“www.contoso.com”。
 
 在流量管理器中实现对裸域的完全支持已列入我们的待开发功能中。 请[在我们的社区反馈站点上投票](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly)，表达对此项功能的支持。
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>处理 DNS 查询时流量管理器是否会考虑客户端子网地址？ 
-不会。目前流量管理器仅考虑其接收的 DNS 查询的源 IP 地址，该地址通常是查找地理路由方法和性能路由方法时 DNS 解析程序的 IP 地址。  
-具体而言，[RFC 7871 - DNS 查询中的客户端子网](https://tools.ietf.org/html/rfc7871)可提供 [DNS (EDNS0) 的扩展机制](https://tools.ietf.org/html/rfc2671)，将客户端子网地址从支持该机制的解析器传递到 DNS 服务器，但流量管理器目前不支持该客户端子网。 通过[社区反馈站点](https://feedback.azure.com/forums/217313-networking)可以表达对此项功能的支持。
+会，除了流量管理器收到的 DNS 查询的源 IP 地址（通常是 DNS 解析程序的 IP 地址）外，在执行地理和性能路由方法的查找时，流量管理器还会考虑客户端子网地址（如果该地址包含在解析程序代表最终用户发出请求的查询中）。  
+具体而言，[RFC 7871 - DNS 查询中的客户端子网](https://tools.ietf.org/html/rfc7871)可提供 [DNS (EDNS0) 的扩展机制](https://tools.ietf.org/html/rfc2671)，可通过客户端子网地址从支持该机制的解析器传递该机制。
 
 ### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>什么是 DNS TTL，它如何影响我的用户？
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic"></a>尝试将现有配置文件的路由方法更改为地理路由时，为何会出现错误？
 
-使用地理路由时，配置文件中的所有终结点都至少需要将一个区域映射到其中。 若要将现有配置文件转换为地理路由类型，首先需使用 [Azure 流量管理器 REST API](https://docs.microsoft.com/rest/api/trafficmanager/) 将地理区域关联到所有终结点，然后再将路由类型更改为地理路由。 如果使用门户，请先删除终结点，将配置文件的路由方法更改为地理路由，然后再添加终结点及其地理区域映射。 
+使用地理路由时，配置文件中的所有终结点都至少需要将一个区域映射到其中。 要将现有配置文件转换为地理路由类型，首先需使用 [Azure 流量管理器 REST API](https://docs.microsoft.com/rest/api/trafficmanager/) 将地理区域关联到所有终结点，然后再将路由类型更改为地理路由。 如果使用门户，请先删除终结点，将配置文件的路由方法更改为地理路由，然后再添加终结点及其地理区域映射。 
 
 ###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>为何强烈建议客户创建嵌套式配置文件，而不是将终结点直接置于启用了地理路由的配置文件中？ 
 
@@ -135,7 +135,7 @@ ms.lasthandoff: 07/14/2017
 
 流量管理器当前不提供 IPv6 可寻址的名称服务器。 但是，IPv6 客户端仍可使用流量管理器连接到 IPv6 终结点。 客户端不会直接向流量管理器发出 DNS 请求， 而是使用递归 DNS 服务。 仅使用 IPv6 的客户端通过 IPv6 向递归 DNS 服务发送请求。 然后，该递归服务应该能够使用 IPv4 联系流量管理器名称服务器。
 
-流量管理器使用终结点的 DNS 名称做出响应。 若要支持 IPv6 终结点，必须有一条可将终结点 DNS 名称指向 IPv6 地址的 DNS AAAA 记录。 流量管理器运行状况检查仅支持 IPv4 地址。 服务需要在相同的 DNS 名称中公开 IPv4 终结点。
+流量管理器使用终结点的 DNS 名称做出响应。 要支持 IPv6 终结点，必须有一条可将终结点 DNS 名称指向 IPv6 地址的 DNS AAAA 记录。 流量管理器运行状况检查仅支持 IPv4 地址。 服务需要在相同的 DNS 名称中公开 IPv4 终结点。
 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>流量管理器是否可用于同一区域中的多个 Web 应用？
 
@@ -156,7 +156,7 @@ ms.lasthandoff: 07/14/2017
 
 流量管理器属于单一的全局性服务， 而不是区域性服务。 选择资源组位置对部署在该资源组中的流量管理器配置文件没有影响。
 
-Azure Resource Manager 要求所有资源组指定一个位置，这决定了部署在该资源组中的资源的默认位置。 创建流量管理器配置文件时，将在资源组中创建该配置文件。 所有流量管理器配置文件使用“**全局**”作为位置，覆盖资源组的默认值。
+Azure Resource Manager 要求所有资源组指定一个位置，这决定了部署在该资源组中的资源的默认位置。 创建流量管理器配置文件时，会在资源组中创建该配置文件。 所有流量管理器配置文件使用“**全局**”作为位置，覆盖资源组的默认值。
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>如何确定每个终结点的当前运行状况？
 
@@ -245,7 +245,7 @@ Azure 不提供有关过去终结点运行状况的历史信息，也不提供�
 
 | 子配置文件监视器状态 | 父级终结点监视器状态 | 说明 |
 | --- | --- | --- |
-| 已禁用。 子配置文件已禁用。 |已停止 |父级终结点状态为“已停止”，而不是“已禁用”。 “已禁用”状态保留用于指示你已在父配置文件中禁用了终结点。 |
+| 已禁用。 子配置文件已禁用。 |已停止 |父级终结点状态为“已停止”，而不是“已禁用”。 “已禁用”状态保留用于指示已在父配置文件中禁用了终结点。 |
 | 已降级。 至少一个子配置文件终结点处于“已降级”状态。 |联机：子配置文件中处于“联机”状态的终结点的数目至少是 MinChildEndpoints 的值。<BR>正在检查终结点：子配置文件中处于“联机”和“正在检查终结点”状态的终结点的数目至少是 MinChildEndpoints 的值。<BR>已降级：其他。 |流量将路由到状态为“正在检查终结点”的终结点。 如果将 MinChildEndpoints 设置得过高，终结点将始终处于降级状态。 |
 | 联机。 至少一个子配置文件终结点处于“联机”状态。 没有任何终结点处于“已降级”状态。 |见上。 | |
 | 正在检查终结点。 至少一个子配置文件终结点处于“正在检查终结点”状态。 没有任何终结点处于“联机”或“已降级”状态 |同上。 | |
@@ -254,3 +254,5 @@ Azure 不提供有关过去终结点运行状况的历史信息，也不提供�
 ## <a name="next-steps"></a>后续步骤：
 - 详细了解流量管理器[终结点监视和自动故障转移](../traffic-manager/traffic-manager-monitoring.md)。
 - 详细了解流量管理器[流量路由方法](../traffic-manager/traffic-manager-routing-methods.md)。
+
+<!--Update_Description: wording update-->

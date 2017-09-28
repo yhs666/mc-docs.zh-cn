@@ -12,18 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/28/2017
-ms.date: 07/24/2017
+origin.date: 08/21/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6f2f6fc20bad59ce1110122ddf8735c3bf0321ae
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: dcabbf5431b05cc61d51bf1a6f783fb5a993bbba
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-event-hubs-capture"></a>Azure 事件中心捕获
 
-使用 Azure 事件中心捕获，可以按指定的时间间隔或大小差异将事件中心中的流式处理数据自动传送到所选 Blob 存储帐户。 设置捕获极其简单，无需管理费用即可运行它，并且可以使用事件中心[吞吐量单位](event-hubs-features.md#capacity)自动进行缩放。 事件中心捕获是在 Azure 中加载流式处理数据的最简单方法，并可让用户专注于数据处理，而不是数据捕获。
+使用 Azure 事件中心捕获，可以更灵活地按指定的时间间隔或大小间隔将事件中心中的流数据自动传送到所选 [Azure Blob 存储](https://www.azure.cn/home/features/storage/)。 设置捕获极其简单，无需管理费用即可运行它，并且可以使用事件中心[吞吐量单位](event-hubs-features.md#capacity)自动进行缩放。 事件中心捕获是在 Azure 中加载流式处理数据的最简单方法，并可让用户专注于数据处理，而不是数据捕获。
+<!-- Not Avaialble [Azure Data Lake Store](https://www.azure.cn/home/features/data-lake-store/)-->
 
 使用事件中心捕获可在同一个流上处理实时和基于批处理的管道。 这意味着可以构建随着时间的推移随用户的需要增长的解决方案。 无论用户现在正在构建基于批处理的系统并着眼于将来进行实时处理，还是要将高效的冷路径添加到现有的实时解决方案，事件中心捕获都可以使流式处理数据处理更加简单。
 
@@ -32,12 +33,13 @@ ms.lasthandoff: 07/28/2017
 事件中心是遥测数据入口的时间保留持久缓冲区，类似于分布式日志。 缩小事件中心的关键在于[分区使用者模式](event-hubs-features.md#partitions)。 每个分区是独立的数据段，并单独使用。 根据可配置的保留期，随着时间的推移此数据会过时。 因此，给定的事件中心永远不会装得“太满”。
 
 事件中心捕获可让用户指定自己的 Azure Blob 存储帐户和容器（用于存储已捕获数据）。 此帐户可以与事件中心在同一区域中，也可以在另一个区域中，从而增加了事件中心捕获功能的灵活性。
+<!-- Not available Azure Data Lake Store account-->
 
 已捕获数据以 [Apache Avro][Apache Avro] 格式写入；该格式是紧凑、便捷的二进制格式，并使用内联架构提供丰富的数据结构。 这种格式广泛用于 Hadoop 生态系统、流分析和 Azure 数据工厂。 在本文后面提供了有关如何使用 Avro 的详细信息。
 
 ### <a name="capture-windowing"></a>捕获窗口
 
-事件中心捕获可让用户设置用于控制捕获的窗口。 此窗口使用最小大小并具有使用“第一个获胜”策略的时间配置，这意味着遇到的第一个触发器将触发捕获操作。 如果使用 15 分钟，100 MB 的捕获窗口，且发送速度为每秒 1 MB，则大小窗口将在时间窗口之前触发。 每个分区独立捕获，并在捕获时写入已完成的块 blob，在遇到捕获间隔时针对时间进行命名。 存储命名约定如下所示：
+使用事件中心捕获，用户可以设置用于控制捕获的窗口。 此窗口使用最小大小并具有使用“第一个获胜”策略的时间配置，这意味着遇到的第一个触发器将触发捕获操作。 如果使用 15 分钟，100 MB 的捕获窗口，且发送速度为每秒 1 MB，则大小窗口将在时间窗口之前触发。 每个分区独立捕获，并在捕获时写入已完成的块 blob，在遇到捕获间隔时针对时间进行命名。 存储命名约定如下所示：
 
 ```
 [namespace]/[event hub]/[partition]/[YYYY]/[MM]/[DD]/[HH]/[mm]/[ss]
@@ -58,7 +60,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="exploring-the-captured-files-and-working-with-avro"></a>浏览已捕获的文件和使用 Avro
 
-事件中心捕获在配置的时间窗口中指定的 Azure 存储帐户和容器中创建文件。 可以在任何工具（例如 [Azure 存储资源管理器][Azure Storage Explorer]）中查看这些文件。 可以本地下载这些文件以进行处理。
+事件中心捕获以在配置的时间窗口中指定的 Avro 格式创建文件。 可以在任何工具（例如 [Azure 存储资源管理器][Azure Storage Explorer]）中查看这些文件。 可以本地下载这些文件以进行处理。
 
 事件中心捕获生成的文件具有以下 Avro 架构：
 
@@ -93,7 +95,7 @@ java -jar avro-tools-1.8.2.jar getschema \<name of capture file\>
 
 若要执行更高级的处理，请下载并安装适用于所选平台的 Avro。 在撰写本文时，有可用于 C、C++、C\#、Java、NodeJS、Perl、PHP、Python 和 Ruby 的实现。
 
-Apache Avro 针对 [Java][Java] 和 [Python][Python] 提供了完整的快速入门指南。 还可以阅读[事件中心捕获入门](event-hubs-archive-python.md)一文。
+Apache Avro 针对 [Java][Java] 和 [Python][Python] 提供了完整的快速入门指南。 还可以参阅[事件中心捕获入门](event-hubs-capture-python.md)一文。
 
 ## <a name="how-event-hubs-capture-is-charged"></a>Azure 事件中心捕获的收费方式
 
@@ -105,17 +107,16 @@ Apache Avro 针对 [Java][Java] 和 [Python][Python] 提供了完整的快速入
 
 访问以下链接可以了解有关事件中心的详细信息：
 
-* [使用事件中心的完整示例应用程序][sample application that uses Event Hubs]。
-* [使用事件中心扩大事件处理][Scale out Event Processing with Event Hubs] 示例。
+* [开始发送和接收事件](event-hubs-dotnet-framework-getstarted-send.md)
 * [事件中心概述][Event Hubs overview]
 
 [Apache Avro]: http://avro.apache.org/
-[support request]: https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
+[support request]: https://www.azure.cn/support/support-azure/
 [Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
 [Avro Tools]: http://www-us.apache.org/dist/avro/avro-1.8.2/java/avro-tools-1.8.2.jar
 [Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+
+<!--Update_Description: update meta properties, wording update-->

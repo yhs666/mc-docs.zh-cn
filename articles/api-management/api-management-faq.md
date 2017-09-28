@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: c4e9941a6f7370aea3c72a26c33b421c056f9025
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 10/09/2017
+ms.openlocfilehash: c9ebf14a1afb17be9d1476a47d3fc397e71a044a
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常见问题解答
 了解有关 Azure API 管理的常见问题解答、模式和最佳做法。
@@ -29,7 +29,7 @@ ms.lasthandoff: 09/08/2017
 
 
 ## <a name="frequently-asked-questions"></a>常见问题
-* [功能处于预览状态意味着什么？](#what-does-it-mean-when-a-feature-is-in-preview)
+* [功能处于预览中意味着什么？](#what-does-it-mean-when-a-feature-is-in-preview)
 * [如何确保 API 管理网关和后端服务之间的连接安全？](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 * [如何将 API 管理服务实例复制到新实例？](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
 * [是否可以编程方式管理 API 管理实例？](#can-i-manage-my-api-management-instance-programmatically)
@@ -69,7 +69,7 @@ ms.lasthandoff: 09/08/2017
 * 将 API 管理实例连接到 Azure 虚拟网络。
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>如何将 API 管理服务实例复制到新实例？
-如果要将 API 管理实例复制到新实例，则有多个选项可用。 可以：
+如果要将 API 管理实例复制到新实例，则有多个选项。 可以：
 
 * 使用 API 管理中的备份和还原功能。 有关详细信息，请参阅[如何使用 Azure API 管理中的服务备份和还原实现灾难恢复](./api-management-howto-disaster-recovery-backup-restore.md)。
 * 使用 [API 管理 REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx) 创建自己的备份和还原功能。 使用 REST API 保存和还原所需服务实例中的实体。
@@ -107,7 +107,7 @@ ms.lasthandoff: 09/08/2017
 * 如果希望在 API 的服务 URL 中保留“默认”版本段，请在选定操作上设置使用[设置后端服务](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService)策略的策略以更改后端请求路径。
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>如何在单个 API 中设置多个环境？
-若要在单个 API 中设置多个环境（例如，一个测试环境和一个生产环境），则有两个选项可用。 可以：
+若要在单个 API 中设置多个环境（例如，一个测试环境和一个生产环境），则有两个选项。 可以：
 
 * 在同一租户上托管不同的 API。
 * 在不同租户上托管相同的 API。
@@ -134,14 +134,23 @@ ms.lasthandoff: 09/08/2017
 ### <a name="what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations"></a>向多个地理位置进行部署时，API 管理使用何种路由方法？
 向多个地理位置进行部署时，API 管理使用[性能流量路由方法](../traffic-manager/traffic-manager-routing-methods.md#priority)。 传入流量将路由到最近的 API 网关。 如果一个区域处于脱机状态，则传入流量会自动路由到下一个最近的网关。 在[流量管理器路由方法](../traffic-manager/traffic-manager-routing-methods.md)中了解有关路由方法的详细信息。
 
-### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>是否可以使用 Azure 资源管理器模板创建 API 管理服务实例？
+### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>是否可以使用 Azure Resource Manager 模板创建 API 管理服务实例？
 是的。 请参阅 [Azure API 管理服务](http://aka.ms/apimtemplate)快速入门模板。
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>是否可以为后端使用自签名 SSL 证书？
-是的。 下面是为后端使用自签名安全套接字层 (SSL) 证书的方法：
+是的。 可以通过 PowerShell 或直接提交到 API 来完成此操作。 这将禁用证书链验证，并将允许在从 API 管理与后端服务进行通信时使用自签名或私人签名证书。
 
-1. 使用 API 管理创建[后端](https://msdn.microsoft.com/library/azure/dn935030.aspx)实体。
-2. 将“skipCertificateChainValidation”属性设置为“true”。
+#### <a name="powershell-method"></a>Powershell 方法 ####
+使用 [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend)（适用于新后端）或 [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend)（适用于现有后端）PowerShell cmdlet 并将 `-SkipCertificateChainValidation` 参数设置设为 `True`。 
+
+```
+$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+```
+
+#### <a name="direct-api-update-method"></a>直接 API 更新方法 ####
+1. 使用 API 管理创建[后端](https://msdn.microsoft.com/library/azure/dn935030.aspx)实体。       
+2. 将“skipCertificateChainValidation”属性设置为“true”。     
 3. 如果不再希望允许自签名证书，请删除后端实体，或将“skipCertificateChainValidation”属性设置为“false”。
 
 ### <a name="why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository"></a>为何在尝试克隆 Git 存储库时出现身份验证失败？

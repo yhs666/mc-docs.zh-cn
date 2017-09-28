@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 08/02/2017
 ms.date: 09/04/2017
 ms.author: v-junlch
-ms.openlocfilehash: 10708036cc4bcd57013acbbea968fdf0e7c76088
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 2ed3fbabc7548b0a30d9c161a9da8f5046bb21f8
+ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>准备使用 Azure 备份服务器来备份工作负荷
 > [!div class="op_single_selector"]
@@ -102,14 +102,14 @@ ms.lasthandoff: 09/08/2017
 1. 单击“Azure 备份”启动安装向导。
 
     ![Azure 备份安装向导](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
-2. 在“欢迎”屏幕上单击“**下一步**”按钮。 随后将转到“先决条件检查”部分。 在此屏幕上单击“**检查**”按钮，以确定是否符合 Azure 备份服务器的硬件和软件先决条件。 如果完全符合所有先决条件，将有一条消息指出计算机符合要求。 单击“**下一步**”按钮。
+2. 在“欢迎”屏幕上单击“**下一步**”按钮。 随后将转到“*先决条件检查*”部分。 在此屏幕上单击“**检查**”按钮，以确定是否符合 Azure 备份服务器的硬件和软件先决条件。 如果完全符合所有先决条件，将有一条消息指出计算机符合要求。 单击“**下一步**”按钮。
 
     ![Azure 备份服务器 - 欢迎页和先决条件检查](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 3. Azure 备份服务器需要 SQL Server Standard，Azure 备份服务器安装包会根据需要随附相应的 SQL Server 二进制文件。 在开始全新安装 Azure 备份服务器时，应该选择“使用此安装程序安装新的 SQL Server 实例”，然后单击“检查并安装”按钮。 成功安装必备组件后，单击“**下一步**”。
 
     ![Azure 备份服务器 - SQL 检查](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    如果发生故障并且系统建议重启计算机，请按说明操作，然后单击“再次检查”。
+    如果发生故障并且系统建议重新启动计算机，请按说明操作，并单击“**再次检查**”。
 
    > [!NOTE]
    > Azure 备份服务器不能与远程 SQL Server 实例配合使用。 Azure 备份服务器使用的实例需在本地。
@@ -177,16 +177,16 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 
 - www.msftncsi.com
 - \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
+- \*.WindowsAzure.cn
+- \*.microsoftonline.cn
 - \*.chinacloudapi.cn
 
 在 Azure 备份服务器计算机上还原与 Azure 的连接之后，可执行的操作取决于 Azure 订阅状态。 上表详细列出了有关计算机在“连接”之后允许的操作的信息。
 
 ### <a name="handling-subscription-states"></a>处理订阅状态
-可以将 Azure 订阅从“已过期”或“已取消预配”状态更改为“活动”状态。 但是，当状态不是“*活动*”时，此操作对产品的行为会造成某些影响：
+可以将 Azure 订阅从“*已过期*”或“*已取消预配*”状态更改为“*活动*”状态。 但是，当状态不是“*活动*”时，此操作对产品的行为会造成某些影响：
 
-- “已取消预配”的订阅在取消预配的这段期间将失去功能。 切换为“活动”后，将恢复产品的备份/还原功能。 此外，只要以够长的保留期来保存本地磁盘上的备份数据，则还可以检索这些数据。 但是，一旦订阅进入“*已取消预配*”状态，Azure 中的备份数据便会丢失且不可检索。
+- “*已取消预配*”的订阅在取消预配的这段期间将失去功能。 切换为“*活动*”后，将恢复产品的备份/还原功能。 此外，只要以够长的保留期来保存本地磁盘上的备份数据，则还可以检索这些数据。 但是，一旦订阅进入“*已取消预配*”状态，Azure 中的备份数据便会丢失且不可检索。
 - “*已过期*”的订阅只会在恢复“*活动*”状态之前失去功能。 在订阅处于“*已过期*”期间计划的任何备份都不会运行。
 
 ## <a name="troubleshooting"></a>故障排除

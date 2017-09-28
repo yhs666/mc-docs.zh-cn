@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/28/2016
-ms.date: 04/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 3ed629d41d9f3e3d74ad6e54fb8a6ca55e23780a
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/09/2017
+ms.author: v-yiso
+ms.openlocfilehash: 563f3388da6e6275e8749a2547f2c977640304e7
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>连续部署到 Azure 应用服务
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程说明如何为 [Azure 应用服务]应用配置连续部署工作流。 将应用服务与 GitHub 集成可以实现一种连续部署工作流，在其中，Azure 可以从发布到其中一种服务的项目中拉取最近的更新。 连续部署选项非常适合用于频繁集成多个分发内容的项目。
+本教程说明如何为 [Azure Web 应用](app-service-web-overview.md)配置持续部署工作流。 将应用服务与 GitHub 集成可以实现一种连续部署工作流，在其中，Azure 可以从发布到其中一种服务的项目中拉取最近的更新。 连续部署选项非常适合用于频繁集成多个分发内容的项目。
 
 若要了解如何通过 Azure 门户中未列出的云存储库（如 [GitLab](https://gitlab.com/)）手动配置连续部署，请参阅[使用手动步骤设置连续部署](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)。
 
@@ -37,8 +37,8 @@ ms.lasthandoff: 07/28/2017
 
     以下步骤仅适用于 GitHub 存储库。 有关 GitHub 以外的存储库，请参阅 [手动触发部署](https://github.com/projectkudu/kudu/wiki/Manually-triggering-a-deployment) 以设置 Webhook。
 
-2. 访问 [Azure 门户]，在应用的菜单边栏选项卡中单击“应用部署”>“部署选项”。 单击“选择源”，然后选择“外部存储库”。
-2. 输入 GitHub 存储库的 URL 并输入要跟踪的分支。 将“存储库类型”保留为“Git”，并单击“确定”
+2. 访问 [Azure 门户]，在应用的菜单边栏选项卡中单击“应用部署”>“部署选项”。 单击“选择源”，并选择“外部存储库”。
+2. 输入 GitHub 存储库的 URL 并输入要跟踪的分支。将“存储库类型”保留为“Git”，并单击“确定”
 
     > [!NOTE]
     > Azure 中国目前只支持公共存储库，因为我们无法输入 Web 应用的 Git 凭据。
@@ -51,9 +51,9 @@ ms.lasthandoff: 07/28/2017
     userName="$<YOUR_WEB_APP>" userPWD="<SOME_BIG_RANDOM_TOKEN>"
     ```
 5. 在 GitHub 存储库页面上，单击“设置”，选择“Webhook 与服务”，并单击“添加 Webhook”
-6. 在“有效负载 URL”中，输入 `https://$<YOUR_WEB_APP>:<SOME_BIG_RANDOM_TOKEN>@<YOUR_WEB_APP>.scm.chinacloudsites.cn/deploy`，按原样保留所有其他项目，然后单击“添加 Webhook”以保存新的 Webhook。
+6. 在“有效负载 URL”中，输入 `https://$<YOUR_WEB_APP>:<SOME_BIG_RANDOM_TOKEN>@<YOUR_WEB_APP>.scm.chinacloudsites.cn/deploy`，按原样保留所有其他项目，并单击“添加 Webhook”以保存新的 Webhook。
 5. 若要验证是否已成功部署应用，请在 Azure 门户的应用边栏选项卡顶部单击“URL”。
-6. 若要验证是否能够在从所选存储库进行连续部署，请将更改推送到该存储库。 推送到存储库完成后，应用应该很快更新以反映更改。 可在应用的“部署选项”边栏选项卡中验证是否已拉取更新。
+6. 要验证是否能够在从所选存储库进行连续部署，请将更改推送到该存储库。 推送到存储库完成后，应用应该很快更新以反映更改。 可在应用的“部署选项”边栏选项卡中验证是否已拉取更新。
 
 ## <a name="VSsolution"></a>连续部署 Visual Studio 解决方案
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 07/28/2017
 
 将 Visual Studio 解决方案推送到 Azure 应用服务就像推送简单的 index.html 文件一样容易。 应用服务部署过程简化了所有细节，包括还原 NuGet 依赖项和生成应用程序二进制文件。 可以按照仅在 Git 存储库中维护代码的源控件最佳实践操作，并让应用服务部署处理其余工作。
 
-将 Visual Studio 解决方案推送到应用服务的步骤与 [上一部分](#overview)中的步骤相同，前提是按以下方式配置解决方案和存储库：
+将 Visual Studio 解决方案推送到应用服务的步骤与[上一部分](#overview)中的步骤相同，前提是按以下方式配置解决方案和存储库：
 
 * 使用 Visual Studio 源代码管理选项生成如下图所示的 `.gitignore` 文件，或者在内容存储库根目录中手动添加一个 `.gitignore` 文件，其内容类似于此 [.gitignore 示例](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)。
 
@@ -86,10 +86,10 @@ ms.lasthandoff: 07/28/2017
 * [项目 Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Use Azure to automatically generate a CI/CD pipeline to deploy an ASP.NET 4 app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)（使用 Azure 自动生成部署 ASP.NET 4 应用的 CI/CD 管道）
 
-[Azure 应用服务]: /app-service-web/app-service-changes-existing-services/
+
 [Azure 门户]: https://portal.azure.cn
 [VSTS Portal]: https://www.visualstudio.com/products/visual-studio-team-services-vs.aspx
-[Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
+[Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [如何使用适用于 Azure 的 PowerShell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [如何使用针对 Mac 和 Linux 的 Azure 命令行工具]:../cli-install-nodejs.md
 [Git 文档]: http://git-scm.com/documentation
@@ -97,4 +97,3 @@ ms.lasthandoff: 07/28/2017
 [创建存储库 (GitHub)]: https://help.github.com/articles/create-a-repo
 [Create a repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Get started with VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
-[Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md

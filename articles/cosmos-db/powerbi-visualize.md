@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/16/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: ee1dd104848680ef981ebefb47292eb51a44c608
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 1f376d92fecd3a71582dc20f152d892c1aa97977
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>针对 Azure Cosmos DB 的 Power BI 教程：使用 Power BI 连接器来将数据可视化
 
@@ -39,6 +39,9 @@ ms.lasthandoff: 09/13/2017
 > [!NOTE]
 > 用于 Azure Cosmos DB 连接到 Power BI Desktop 以获取和转换数据的 Power BI 连接器。 在 Power BI Desktop 中创建的报表随后可以发布到 PowerBI.com。无法在 PowerBI.com 中执行 Azure Cosmos DB 数据的直接提取和转换。 
 
+> [!NOTE]
+> 若要使用 MongoDB API 将 Azure Cosmos DB 连接到 Power BI，必须使用 [Simba MongoDB ODBC 驱动程序](http://www.simba.com/drivers/mongodb-odbc-jdbc/)。
+
 ## <a name="prerequisites"></a>先决条件
 在按照此 Power BI 教程中的说明操作之前，请确保已拥有对以下资源的访问权限：
 
@@ -47,7 +50,8 @@ ms.lasthandoff: 09/13/2017
   * 演示帐户使用本教程中显示的火山数据填充。 此演示帐户未被任何 SLA 绑定且只用于演示意图。  我们保留对此演示帐户进行修改的权利，包括但不限于在任何时间无需提前通知或理由而终止帐户、更改密钥、限制访问、更改和删除数据。
     * URL：https://analytics.documents.azure.cn
     * 只读密钥：MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
-  * 或者，若要创建自己的帐户，请参阅[使用 Azure 门户创建 Azure Cosmos DB 数据库帐户](/create-account/)。 然后，要获取类似于本教程中使用的示例火山数据（但不包含 GeoJSON 块），请参阅 [NOAA 站点](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5)，并使用 [Azure Cosmos DB 数据迁移工具](import-data.md)导入数据。
+  * 或者，若要创建自己的帐户，请参阅“使用 Azure 门户创建 Azure Cosmos DB 数据库帐户”。 然后，要获取类似于本教程中使用的示例火山数据（但不包含 GeoJSON 块），请参阅 [NOAA 站点](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5)，并使用 [Azure Cosmos DB 数据迁移工具](import-data.md)导入数据。
+<!-- Not Avaialble (https://azure.microsoft.com/documentation/articles/create-account/) -->
 
 要在 PowerBI.com 中共享报表，必须在 PowerBI.com 中拥有帐户。若要了解更多有关 Power BI 免费版和 Power BI Pro 的信息，请访问 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)。
 
@@ -225,4 +229,4 @@ ms.lasthandoff: 09/13/2017
 * 有关 Power BI 的详细信息，请参阅 [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)（Power BI 入门）。
 * 有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB 文档登陆页](/documentdb/)。
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link-->

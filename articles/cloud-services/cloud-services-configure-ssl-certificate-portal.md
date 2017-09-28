@@ -1,6 +1,6 @@
 ---
 title: "为云服务配置 SSL | Azure"
-description: "了解如何为 Web 角色指定 HTTPS 终结点以及如何上传 SSL 证书来保护您的应用程序。 这些示例使用 Azure 门户。"
+description: "了解如何为 Web 角色指定 HTTPS 终结点以及如何上传 SSL 证书来保护应用程序。 这些示例使用 Azure 门户。"
 services: cloud-services
 documentationCenter: .net
 authors: Thraka
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/26/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: 644cf0d7b7a5034d85e9f4176fb462f523ff77cf
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/09/2017
+ms.openlocfilehash: 30003b0a50b20f521920ed79eee0d5ac0cd3d5ff
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>在 Azure 中为应用程序配置 SSL
 
@@ -37,8 +37,6 @@ ms.lasthandoff: 07/14/2017
 
 如果尚未创建云服务，请首先阅读[此文](./cloud-services-how-to-create-deploy-portal.md)。
 
-[!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
-
 ## <a name="step-1-get-an-ssl-certificate"></a>步骤 1：获取 SSL 证书
 若要为应用程序配置 SSL，首先需要获取已由证书颁发机构 (CA)（出于此目的颁发证书的受信任的第三方）签署的 SSL 证书。 如果尚未获取 SSL 证书，需要从销售 SSL 证书的公司购买一个 SSL 证书。
 
@@ -46,10 +44,10 @@ ms.lasthandoff: 07/14/2017
 
 -   证书必须包含私钥。
 -   必须为密钥交换创建证书，并且该证书可导出到个人信息交换 (.pfx) 文件。
--   证书的使用者名称必须与用于访问云服务的域匹配。 无法从证书颁发机构 (CA) 处获取针对 chinacloudapp.cn 域的 SSL 证书。 必须获取在访问服务时要使用的自定义域名。 从 CA 处请求证书时，该证书的使用者名称必须与用于访问应用程序的自定义域名匹配。 例如，如果自定义域名为 **contoso.com**，则将要从 CA 请求用于 ***.contoso.com** 或 **www.contoso.com** 的证书。
+-   证书的使用者名称必须与用于访问云服务的域匹配。 无法从证书颁发机构 (CA) 处获取针对 chinacloudapp.cn 域的 SSL 证书。 必须获取在访问服务时要使用的自定义域名。 从 CA 处请求证书时，该证书的使用者名称必须与用于访问应用程序的自定义域名匹配。 例如，如果自定义域名为 contoso.com，则将要从 CA 请求用于 *.contoso.com 或 www.contoso.com 的证书。
 -   该证书必须使用至少 2048 位加密。
 
-出于测试目的，可以[创建](./cloud-services-certs-create.md)和使用自签名的证书。 自签名证书不通过 CA 进行身份验证，并且可以使用 chinacloudapp.cn 域作为网站 URL。 例如，以下任务使用公用名 (CN) 为 **sslexample.chinacloudapp.cn** 的自签名证书。
+出于测试目的，可以[创建](./cloud-services-certs-create.md)和使用自签名的证书。 自签名证书不通过 CA 进行身份验证，并且可以使用 chinacloudapp.cn 域作为网站 URL。 例如，以下任务使用公用名 (CN) 为 sslexample.chinacloudapp.cn 的自签名证书。
 
 接下来，必须在服务定义和服务配置文件中包含有关此证书的信息。
 
@@ -58,7 +56,7 @@ ms.lasthandoff: 07/14/2017
 
 必须将应用程序配置为使用该证书，并且必须添加 HTTPS 终结点。 因此，需要更新服务定义和服务配置文件。
 
-1.  在开发环境中，打开服务定义文件 (CSDEF)，在 **WebRole** 节中添加 **Certificates** 节，并包含以下关于证书（和中间证书）的信息：
+1.  在开发环境中，打开服务定义文件 (CSDEF)，在 WebRole 部分中添加“证书”部分，并包含以下关于证书（和中间证书）的信息：
 
     ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -90,10 +88,10 @@ ms.lasthandoff: 07/14/2017
 
    | 权限值 | 说明 |
    | --- | --- |
-   | limitedOrElevated |**（默认）**所有角色进程都可以访问该私钥。 |
+   | limitedOrElevated |（默认）所有角色进程都可以访问该私钥。 |
    | 提升的 |仅提升的进程可以访问该私钥。 |
 
-2.  在服务定义文件中，在 **Endpoints** 节中添加 **InputEndpoint** 元素以启用 HTTPS：
+2.  在服务定义文件中，在“终结点”部分中添加 InputEndpoint 元素以启用 HTTPS：
 
     ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -172,7 +170,7 @@ ms.lasthandoff: 07/14/2017
 2.  在 Web 浏览器中，修改链接以使用 **https** 而不是 **http**，然后访问该页。
 
    > [!NOTE]
-   > 如果使用自签名证书，浏览到与自签名证书关联的 HTTPS 终结点时，浏览器中可能会显示一个证书错误。 使用由受信任证书颁发机构签名的证书可消除此问题；同时，可以忽略此错误。 （也可以将自签名证书添加到用户的受信任证书颁发机构证书存储中。）
+   > 如果使用自签名证书，浏览到与自签名证书关联的 HTTPS 终结点时，浏览器中可能会显示一个证书错误。 使用由受信任证书颁发机构签名的证书可消除此问题；同时，你可以忽略此错误。 （也可以将自签名证书添加到用户的受信任证书颁发机构证书存储中。）
    >
    >
 

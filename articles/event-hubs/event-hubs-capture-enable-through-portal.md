@@ -12,33 +12,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/28/2017
-ms.date: 07/24/2017
+origin.date: 08/28/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: dadf5ec62fcdccf7e60cdccbbca7022913192d73
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: 743087beb6c43e8b8418262a9bf672fc84bab1be
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>通过 Azure 门户启用事件中心捕获
 
-可以使用 [Azure 门户](https://portal.azure.cn)在创建事件中心时配置捕获。 在“创建事件中心”门户边栏选项卡中单击“启用”按钮即可启用捕获。 然后，单击边栏选项卡的“容器”部分即可配置存储帐户和容器。 由于事件中心捕获对存储使用服务到服务身份验证，因此无需指定存储连接字符串。 资源选取器自动为存储帐户选择资源 URI。 如果使用 Azure Resource Manager，必须以字符串形式显式提供此 URI。
+Azure [事件中心捕获][capture-overview]用于自动将事件中心中的流数据传送到所选 [Azure Blob 存储](https://www.azure.cn/home/features/storage/)帐户。
+<!-- Not Available [Azure Data Lake Store](https://www.azure.cn/home/features/data-lake-store/) -->
+
+可以使用 [Azure 门户](https://portal.azure.cn)在创建事件中心时配置捕获。 可以将数据捕获到 Azure [Blob 存储](https://www.azure.cn/home/features/storage/)容器。
+<!-- Not Available [Azure Data Lake Store](https://www.azure.cn/home/features/data-lake-store/) account.-->
+
+有关详细信息，请参阅[事件中心捕获概述][capture-overview]。
+
+## <a name="capture-data-to-an-azure-storage-account"></a>将数据捕获到 Azure 存储帐户  
+
+创建事件中心以后，即可在“创建事件中心”门户屏幕中单击“启用”按钮，以便启用捕获。 然后在“捕获提供程序”框中单击“Azure 存储”，指定存储帐户和容器。 由于事件中心捕获对存储使用服务到服务身份验证，因此无需指定存储连接字符串。 资源选取器自动为存储帐户选择资源 URI。 如果使用 Azure Resource Manager，必须以字符串形式显式提供此 URI。
 
 默认时间窗口为 5 分钟。 最小值为 1，最大值为 15。 **大小** 窗口的范围为 10-500 MB。
 
 ![][1]
 
-## <a name="adding-capture-to-an-existing-event-hub"></a>将捕获添加到现有的事件中心
+<!-- Not Available ## Capture data to an Azure Data Lake Store account-->
+## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>在现有的事件中心添加或配置捕获
 
-可以在事件中心命名空间中的现有事件中心上配置捕获。 较早的“消息”类型或“混合”类型命名空间中未提供此功能。 若要对现有的事件中心启用“捕获”功能，或者要更改“捕获”设置，请单击命名空间以加载“概要”边栏选项卡，然后单击要启用或更改“捕获”设置的事件中心。 最后，单击打开的边栏选项卡的“属性”部分，如下图所示：
+可以在事件中心命名空间中的现有事件中心配置捕获。 若要对现有的事件中心启用“捕获”功能，或者要更改“捕获”设置，请单击命名空间以加载“概要”屏幕，然后单击要启用或更改“捕获”设置的事件中心。 最后，单击已打开页面的“属性”部分，然后编辑“捕获”设置，如下图所示：
+
+### <a name="azure-blob-storage"></a>Azure Blob 存储
 
 ![][2]
 
+<!-- Not Available ### Azure Data Lake Store-->
 [1]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture1.png
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png
+[3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
+[4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
 
 ## <a name="next-steps"></a>后续步骤
 
-还可以通过 Azure Resource Manager 模板配置事件中心捕获。
-<!-- Not Avialble [Enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md). -->
+- 阅读[事件中心捕获概述][capture-overview]，详细了解事件中心捕获。
+<!--Not available - You can also configure Event Hubs Capture using Azure Resource Manager templates. For more information, see [Enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).-->
+<!--Not available - [Get started with Azure Data Lake Store using the Azure portal](../data-lake-store/data-lake-store-get-started-portal.md)-->
+[capture-overview]: event-hubs-capture-overview.md
+
+<!--Update_Description: update meta properties, wording update-->

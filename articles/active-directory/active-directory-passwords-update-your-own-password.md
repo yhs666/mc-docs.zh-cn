@@ -13,26 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 07/18/2017
+origin.date: 08/28/2017
+ms.date: 09/20/2017
 ms.author: v-junlch
 ms.custom: end-user
-ms.openlocfilehash: 612036f0dc63b67d8d90f45219af91d7bdf00ef1
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 8cf5dc2cdbe1e2648ae6e05784c1e697b1d375bb
+ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/21/2017
 ---
 # <a name="help-i-forgot-my-password"></a>帮帮我，我忘记了密码
 
-如果你是属于以下情形，则我们可以提供帮助
+如果是属于以下情形，则我们可以提供帮助
 
 - 不确定如何访问帐户，也不记得密码
 - 没有指定密码，管理员你将引导到这里
 
 ## <a name="unlock-my-account"></a>解锁我的帐户
 
-如果在这里是要解锁自己的帐户，请执行下面的步骤。 在下面的步骤 6 看到“选择新密码”时，即可解锁或更改密码，然后你的帐户就解锁了。
+如果在这里是要解锁自己的帐户，请执行下面的步骤。 在下面的步骤 6 看到“选择新密码”时，即可解锁或更改密码，用户的帐户就解锁了。
 
 ## 重置密码 <a name="how-to-reset-your-password"></a>
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 07/28/2017
             **拨打我的移动电话** - 拨打移动电话或身份验证电话（由你选择）。 按 # 键确认呼叫。
     - 
             **拨打我的办公电话** - 拨打办公电话。 按 # 键确认呼叫。
-    - **回答我的安全问题** - 显示预先注册的需要你回答的安全问题。
+    - **回答我的安全问题** - 显示预先注册的要回答的安全问题。
 
     请参阅下图中的**向我的备用电子邮件发送电子邮件**示例：
 

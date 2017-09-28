@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 08/09/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fea7b9ab390d6199b39057035ec75082b5882315
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: e6ed0daa7933784873fdff05ac81437a69b4e1b6
+ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>构建使用 Azure Cosmos DB 的 Python Flask Web 应用程序
 > [!div class="op_single_selector"]
@@ -48,14 +48,13 @@ ms.lasthandoff: 09/13/2017
 ## <a name="database-tutorial-prerequisites"></a>数据库教程先决条件
 在按照本文中的说明操作之前，应确保已安装下列项：
 
-* 有效的 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
+* 如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
-    或 
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-    本地安装的 [Azure Cosmos DB 模拟器](local-emulator.md)。
-* [Microsoft Visual Studio Community 2017](http://www.visualstudio.com/)。  
+* 如果尚未安装 Visual Studio 2017，可以下载并使用免费的 [Visual Studio Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。  
 * [针对 Visual Studio 的 Python 工具](https://github.com/Microsoft/PTVS/)。  
-* [Azure SDK for Python 2.7](https://www.azure.cn/downloads/)。 
+* [用于 Python 的 Azure SDK 2.7]https://www.azure.cn/downloads/。 
 * [Python 2.7.13](https://www.python.org/downloads/windows/)。 
 
 > [!IMPORTANT]
@@ -68,7 +67,7 @@ ms.lasthandoff: 09/13/2017
 * [Microsoft Visual C++ Compiler for Python 2.7](https://www.microsoft.com/download/details.aspx?id=44266)。
 
 ## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>步骤 1：创建 Azure Cosmos DB 数据库帐户
-首先创建一个 Cosmos DB 帐户。 如果已有一个帐户，或者要在本教程中使用 Azure Cosmos DB 模拟器，可以跳到[步骤 2：创建新的 Python Flask 应用程序](#step-2:-create-a-new-python-flask-web-application)。
+首先创建一个 Cosmos DB 帐户。 如果已有一个帐户，或者要在本教程中使用 Azure Cosmos DB 模拟器，可以跳到[步骤 2：创建新的 Python Flask 应用程序](#step-2-create-a-new-python-flask-web-application)。
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -402,4 +401,4 @@ def vote():
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [Azure portal]: http://portal.azure.cn
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update-->

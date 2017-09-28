@@ -15,18 +15,20 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.author: v-yiso
 ms.date: 
-ms.openlocfilehash: 22b613b7779f78f9014442aa5502a80a816df0fa
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.openlocfilehash: eee48f5aea945c73d50dd680359eae8f5bf2f048
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/22/2017
 ---
+> [!WARNING]
+> 仅在“开发人员”和“高级”层提供 Azure Active Directory 集成。
+
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>如何在 Azure API 管理中使用 Azure Active Directory 向开发人员帐户授权
 ## <a name="overview"></a>概述
-本指南介绍了如何为 Azure Active Directory 中的用户启用对开发人员门户的访问。 本指南还介绍了如何通过添加包含 Azure Active Directory 用户的外部组来管理 Azure Active Directory 用户组。
+本指南介绍如何为 Azure Active Directory 中的用户启用对开发人员门户的访问。 本指南还介绍了如何通过添加包含 Azure Active Directory 用户的外部组来管理 Azure Active Directory 用户组。
 
 > 若要完成本指南中的步骤，必须先有一个 Azure Active Directory，用于在其中创建应用程序。
-> 
 > 
 
 ## <a name="how-to-authorize-developer-accounts-using-azure-active-directory"></a>如何使用 Azure Active Directory 向开发人员帐户授权
@@ -96,13 +98,13 @@ ms.lasthandoff: 09/08/2017
 
 ![密钥][api-management-aad-key-before-save]
 
-单击“保存”以保存配置并显示密钥。 将该密钥复制到剪贴板。
+单击“保存”保存配置并显示密钥。 将该密钥复制到剪贴板。
 
 > 记下此密钥。 关闭 Azure Active Directory 配置窗口后，无法再次显示密钥。
 > 
 > 
 
-![密钥][api-management-aad-key-after-save]
+![键][api-management-aad-key-after-save]
 
 切换回发布者门户并将密钥粘贴到“客户端密码”文本框中。
 
@@ -166,7 +168,7 @@ ms.lasthandoff: 09/08/2017
 
 ![管理组][api-management-groups]
 
-从此处，可以编辑组的“名称”和“说明”。
+从此处，可编辑组的“名称”和“说明”。
 
 ![编辑组][api-management-edit-group]
 
@@ -177,11 +179,11 @@ ms.lasthandoff: 09/08/2017
 
 ![开发人员门户][api-management-dev-portal-signin]
 
-在 Azure Active Directory 中输入某个用户的凭据，并单击“登录”。
+在 Azure Active Directory 中输入用户之一的凭据，并单击“登录”。
 
 ![登录][api-management-aad-signin]
 
-如果需要其他信息，可能会通过注册表单进行提示。 完成注册表单并单击“登录”。
+如果需要其他信息，可能出现注册表单的提示。 完成注册表单并单击“登录”。
 
 ![注册][api-management-complete-registration]
 

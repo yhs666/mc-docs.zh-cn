@@ -11,26 +11,26 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 origin.date: 01/04/2017
-ms.date: 05/02/2017
-ms.author: v-dazen
+ms.date: 10/09/2017
+ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 8fd20ae763431e0d9b5b204860ad4d3622d0672d
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 669018e8c67e3b9a21b330ccb31a35cd31f772dc
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="web-apps-overview"></a>Web 应用概述
-*应用服务 Web 应用* 是一个完全托管的计算平台，非常适合用来托管网站和 Web 应用程序。 Azure 提供的这个 [平台即服务](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) 产品，使你可以在 Azure 维护用于运行和扩展应用的基础结构时，重点关注业务逻辑。
+*应用服务 Web 应用* 是一个完全托管的计算平台，非常适合用来托管网站和 Web 应用程序。 使用 Azure 提供的这一[平台即服务](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) 产品，可以在 Azure 维护用于运行和缩放应用的基础结构时，重点关注业务逻辑。
 
 ## <a name="what-is-a-web-app-in-app-service"></a>应用服务中的 Web 应用是什么？
 在应用服务中， *Web 应用* 是 Azure 提供用来托管网站或 Web 应用程序的计算资源。  
 
-该计算资源可能位于共享虚拟机 (VM) 上，也可能位于专用虚拟机上，具体取决于你选择的定价层。 你的应用程序代码在独立于其他客户的托管 VM 中运行。
+该计算资源可能位于共享虚拟机 (VM) 上，也可能位于专用虚拟机上，具体取决于选择的定价层。 应用程序代码在独立于其他客户的托管 VM 中运行。
 
-你的代码可以使用 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)支持的任何语言或框架，例如 ASP.NET、Node.js、Java、PHP 或 Python。 也可以在 Web 应用中运行使用 [PowerShell 和其他脚本语言](web-sites-create-web-jobs.md#acceptablefiles) 的脚本。
+代码可以使用 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)支持的任何语言或框架，例如 ASP.NET、Node.js、Java、PHP 或 Python。 也可以在 Web 应用中运行使用 [PowerShell 和其他脚本语言](web-sites-create-web-jobs.md#acceptablefiles) 的脚本。
 
 有关可使用 Web 应用的典型应用程序的应用场景示例，请参阅 **Azure 应用服务、虚拟机、Service Fabric 和云服务的比较**的[应用场景和建议](choose-web-site-cloud-service-vm.md#scenarios)部分。
 
@@ -38,10 +38,10 @@ ms.lasthandoff: 07/14/2017
 以下是适用于 Web 应用的一些主要应用服务功能：
 
 * **多种语言和框架** — 应用服务为 ASP.NET、Node.js、Java、PHP 和 Python 提供一流支持。 也可以在应用服务 VM 上运行 [PowerShell 和其他脚本或可执行文件](web-sites-create-web-jobs.md) 。
-* **DevOps 优化** - 使用 GitHub 设置[持续集成和部署](app-service-continuous-deployment.md)。 通过 [测试和过渡环境](web-sites-staged-publishing.md)提升更新。 执行 [A/B 测试](app-service-web-test-in-production-get-start.md)。 在应用服务中，利用 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 或[跨平台命令行接口 (CLI)](../cli-install-nodejs.md) 来管理应用。
+* **DevOps 优化** — 使用 Visual Studio Team Services、GitHub 或 BitBucket 设置 [持续集成和部署](app-service-continuous-deployment.md) 。 通过 [测试和过渡环境](web-sites-staged-publishing.md)提升更新。 在应用服务中，利用 [Azure PowerShell](/powershell/azureps-cmdlets-docs) 或[跨平台命令行接口 (CLI)](../cli-install-nodejs.md) 来管理应用。
 * **具有高可用性的全局缩放** - 以手动或自动方式进行[增大](web-sites-scale.md)或[扩大](../monitoring-and-diagnostics/insights-how-to-scale.md)。 在 Azure.cn 的全国数据中心基础结构中的任意位置托管应用，并且应用服务 [SLA](https://www.azure.cn/support/sla/app-service/) 承诺高可用性。
 * **连接到本地数据** - 使用 [Azure 虚拟网络](web-sites-integrate-with-vnet.md)访问本地数据。
-* **安全性和合规性** - 应用服务符合 [ISO、SOC 和 PCI](https://www.trustcenter.cn/)的要求。
+* **安全性和合规性** - 应用服务符合 [ISO、SOC 和 PCI](https://www.microsoft.com/TrustCenter/)的要求。
 * **Visual Studio 集成** — Visual Studio 中的专用工具可简化创建、部署和调试工作。
 
 此外，Web 应用可利用 [API 应用](../app-service-api/app-service-api-apps-why-best-platform.md)提供的 CORS 支持等功能和[移动应用](../app-service-mobile/app-service-mobile-value-prop.md)提供的推送通知等功能。 有关应用服务中应用类型的详细信息，请参阅 [Azure 应用服务概述](../app-service/app-service-value-prop-what-is.md)。

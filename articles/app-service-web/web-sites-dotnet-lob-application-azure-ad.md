@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 09/01/2016
-ms.date: 03/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 96349860e49becff2054daeca0f84dc8c3681236
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 10/09/2017
+ms.author: v-yiso
+ms.openlocfilehash: e65cb864b70d1b7f3cea7ea8d483c7b33d9f5daf
+ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>使用 Azure Active Directory 身份验证创建业务线 Azure 应用
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 07/14/2017
 ## <a name="what-you-need"></a>需要什么
 [!INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-若要完成本教程，你需要以下项目：
+要完成本教程，需要以下项目：
 
 * 一个 Azure Active Directory 租户，其中的用户已分配到不同的组
 * 在 Azure Active Directory 租户上创建应用程序的权限
@@ -58,22 +58,22 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="create-and-deploy-a-web-app-to-azure"></a>创建 Web 应用并将其部署到 Azure
 1. 在 Visual Studio 中，依次单击“文件” > “新建” > “项目”。
-2. 选择“ASP.NET Web 应用程序”、为项目命名，然后单击“确定”。
-3. 选择“MVC”模板，然后将身份验证更改为“无身份验证”。 确保已选中“在云中托管”，然后单击“确定”。
+2. 选择“ASP.NET Web 应用程序”、为项目命名，并单击“确定”。
+3. 选择“MVC”模板，并将身份验证更改为“无身份验证”。 确保已选中“在云中托管”，并单击“确定”。
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/1-create-mvc-no-authentication.png)
-4. 在“创建应用服务”对话框中，单击“添加帐户”（然后单击下拉列表中的“添加帐户”），以登录到你的 Azure 帐户。
+4. 在“创建应用服务”对话框中，单击“添加帐户”（然后单击下拉列表中的“添加帐户”），以登录到 Azure 帐户。
 5. 登录后，即可配置 Web 应用。 单击相应的“新建”按钮即可创建资源组和新的应用服务计划。 单击“浏览其他 Azure 服务”以继续。
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/2-create-app-service.png)
-6. 在“服务”选项卡中，单击“+”为你的应用添加 SQL 数据库。 
+6. 在“服务”选项卡中，单击“+”为应用添加 SQL 数据库。 
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/3-add-sql-database.png)
 7. 在“配置 SQL 数据库”中，单击“新建”以创建 SQL Server 实例。
-8. 在“配置 SQL Server”中，配置你的 SQL Server 实例。 然后，依次单击“确定”、“确定”和“创建”以开始在 Azure 中创建应用。
-9. 在“Azure 应用服务活动”中，可以看到应用创建何时完成。 然后，单击“**立即将 &lt;*appname*> 发布到此 Web 应用”，然后单击“**发布**”。 
+8. 在“配置 SQL Server”中，配置 SQL Server 实例。 然后，依次单击“确定”、“确定”和“创建”以开始在 Azure 中创建应用。
+9. 在“Azure 应用服务活动”中，可以看到应用创建何时完成。 然后，单击 **立即将 &lt;*应用名称*> 发布到此 Web 应用**，然后单击“发布”。 
 
-    Visual Studio 完成后，将在浏览器中打开发布应用。 
+    Visual Studio 完成后，会在浏览器中打开发布应用。 
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/4-published-shown-in-browser.png)
 
@@ -106,62 +106,32 @@ ms.lasthandoff: 07/14/2017
    单击“保存” 。
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/10-configure-aad-application.png)
-10. 保存设置后，向上重新滚动到“密钥”部分，然后单击“复制”按钮来复制客户端密钥。 
+10. 保存设置后，向上重新滚动到“密钥”部分，并单击“复制”按钮来复制客户端密钥。 
 
      ![](./media/web-sites-dotnet-lob-application-azure-ad/11-get-app-key.png)
 
     > [!IMPORTANT]
     > 如果现在离开此页，将无法再次访问此客户端密钥。
-1. 使用 REST API 配置应用：从以下 URL 获取。
-
-    ```
-    https://management.chinacloudapi.cn/subscriptions/<Subscription id>/resourceGroups/<resource group>/providers/Microsoft.Web/sites/<you app>/config/authsettings/list?api-version=2015-08-01
-    ```
-2. 将出现类似于下面的内容：
-
-    ```json
-    {
-    "id": "/subscriptions/<Subscription id>/resourceGroups/<resource group>/providers/Microsoft.Web/sites/<you app>/config/authsettings",
-    "name": "authsettings",
-    "type": "Microsoft.Web/sites/config",
-    "location": "China East",
-    "tags": {
-        "hidden-related:/subscriptions/<Subscription id>/resourcegroups/<resource group>/providers/Microsoft.Web/serverfarms/<app service plan>": "empty"
-    },
-    "properties": {
-        "enabled": false,
-        "httpApiPrefixPath": null,
-        "unauthenticatedClientAction": null,
-        "tokenStoreEnabled": null,
-        "allowedExternalRedirectUrls": null,
-        "defaultProvider": null,
-        "clientId": null,
-        "clientSecret": null,
-        "issuer": null,
-        "allowedAudiences": null,
-        "additionalLoginParams": null,
-        "isAadAutoProvisioned": false,
-        "googleClientId": null,
-        "googleClientSecret": null,
-        "googleOAuthScopes": null,
-        "facebookAppId": null,
-        "facebookAppSecret": null,
-        "facebookOAuthScopes": null,
-        "twitterConsumerKey": null,
-        "twitterConsumerSecret": null,
-        "microsoftAccountClientId": null,
-        "microsoftAccountClientSecret": null,
-        "microsoftAccountOAuthScopes": null
-    }
-    ```
-15. 按如下所示更新 `clientSecret` 和 `additionalLoginParams` 属性。
-
+    > 
+    > 
+11. 接下来，需要使用此密钥来配置 Web 应用。 使用 Azure 帐户登录到 [Azure 资源浏览器](https://resources.azure.com)。
+12. 在页面顶部，单击“读/写”以在 Azure 资源浏览器中进行更改。
+    
+    ![](./media/web-sites-dotnet-lob-application-azure-ad/12-resource-manager-writable.png)
+13. 找到你的应用的身份验证设置，它位于以下位置：subscriptions > **&lt;*订阅名称*>** > **resourceGroups** > **&lt;*资源组名称*>** > **providers** > **Microsoft.Web** > **sites** > **&lt;*应用名称*>** > **config** > **authsettings**。
+14. 单击“编辑”。
+    
+    ![](./media/web-sites-dotnet-lob-application-azure-ad/13-edit-authsettings.png)
+15. 在编辑窗格中，设置 `clientSecret` 和 `additionalLoginParams` 属性，如下所示。
+    
         ...
         "clientSecret": "<client key from the Azure Active Directory application>",
         ...
         "additionalLoginParams": ["response_type=code id_token", "resource=https://graph.chinacloudapi.cn"],
         ...
-8. 将 json 放置在 URL 的上面。
+16. 单击顶部的“放入”即可提交更改。
+    
+    ![](./media/web-sites-dotnet-lob-application-azure-ad/14-edit-parameters.png)
 17. 现在，若要测试是否获得了用于访问 Azure Active Directory 图形 API 的授权令牌，请在浏览器中导航到 **https://&lt;*appname*>.chinacloudsites.cn/.auth/me**。 如果一切都配置正确，应会在 JSON 响应中看到 `access_token` 属性。
 
     `~/.auth/me` URL 路径由应用服务身份验证/授权进行管理，提供与经过身份验证的会话相关的所有信息。 有关详细信息，请参阅 [Azure 应用服务中的身份验证和授权](../app-service/app-service-authentication-overview.md)。
@@ -201,10 +171,10 @@ ms.lasthandoff: 07/14/2017
             Resolved,
             Closed
         }
-2. 生成项目，以便能够通过 Visual Studio 中的基架逻辑访问你的新模型。
-3. 将新的基架项 `WorkItemsController` 添加到 ~\Controllers 文件夹（右键单击“控制器”、指向“添加”，然后选择“新建基架项”）。 
+2. 生成项目，以便能够通过 Visual Studio 中的基架逻辑访问新模型。
+3. 将新的基架项 `WorkItemsController` 添加到 ~\Controllers 文件夹（右键单击“控制器”、指向“添加”，并选择“新建基架项”）。 
 4. 选择“使用实体框架的包含视图的 MVC 5 控制器”并单击“添加”。
-5. 选择创建的模型，依次单击“+”和“添加”来添加数据上下文，然后单击“添加”。
+5. 选择创建的模型，依次单击“+”和“添加”来添加数据上下文，并单击“添加”。
 
    ![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)
 6. 在 ~\Views\WorkItems\Create.cshtml（自动搭建基架的项）中查找 `Html.BeginForm` 帮助器方法，并根据以下突出显示的内容进行更改：  
@@ -313,16 +283,16 @@ ms.lasthandoff: 07/14/2017
    > ``` 
    > 
 7. 对 ~\Views\WorkItems\Edit.cshtml 进行相同的更改。
-8. `AadPicker` 对象在需要添加到项目的脚本中定义。 右键单击 ~\Scripts 文件夹、指向“添加”，然后单击“JavaScript 文件”。 键入 `AadPickerLibrary` 作为文件名，然后单击“确定”。
+8. `AadPicker` 对象在需要添加到项目的脚本中定义。 右键单击 ~\Scripts 文件夹、指向“添加”，并单击“JavaScript 文件”。 键入 `AadPickerLibrary` 作为文件名，并单击“确定”。
 9. 将[此处](https://raw.githubusercontent.com/cephalin/active-directory-dotnet-webapp-roleclaims/master/WebApp-RoleClaims-DotNet/Scripts/AadPickerLibrary.js)的内容复制到 ~\Scripts\AadPickerLibrary.js。
 
    在脚本中，`AadPicker` 对象调用 [Azure Active Directory 图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 来搜索与输入内容匹配的用户和组。  
-10. ~\Scripts\AadPickerLibrary.js 还使用 [jQuery UI 自动填充小组件](https://jqueryui.com/autocomplete/)。 因此，需要将 jQuery UI 添加到项目。 右键单击项目，然后单击“管理 NuGet 包”。
-11. 在 NuGet 包管理器中单击“浏览”，在搜索栏中键入 **jquery-ui**，然后单击“jQuery.UI.Combined”。
+10. ~\Scripts\AadPickerLibrary.js 还使用 [jQuery UI 自动填充小组件](https://jqueryui.com/autocomplete/)。 因此，需要将 jQuery UI 添加到项目。 右键单击项目，并单击“管理 NuGet 包”。
+11. 在 NuGet 包管理器中单击“浏览”，在搜索栏中键入 **jquery-ui**，并单击“jQuery.UI.Combined”。
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/17-add-jquery-ui-nuget.png)
-12. 在右窗格中单击“安装”，然后单击“确定”继续。
-13. 打开 ~\App_Start\BundleConfig.cs，然后根据以下突出显示的内容进行更改：  
+12. 在右窗格中单击“安装”，并单击“确定”继续。
+13. 打开 ~\App_Start\BundleConfig.cs，并根据以下突出显示的内容进行更改：  
 
     <pre class="prettyprint">
     public static void RegisterBundles(BundleCollection bundles)
@@ -365,8 +335,8 @@ ms.lasthandoff: 07/14/2017
     > `ClaimTypes.NameIdentifies` 指定 Azure Active Directory 提供的声明 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`。  
     > 
     > 
-15. 现在，请发布更改。 右键单击项目，然后单击“发布”。
-16. 单击“设置”，确保提供 SQL 数据库的连接字符串，选择“更新数据库”更改模型的架构，然后单击“发布”。
+15. 现在，请发布更改。 右键单击项目，并单击“发布”。
+16. 单击“设置”，确保提供 SQL 数据库的连接字符串，选择“更新数据库”更改模型的架构，并单击“发布”。
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/18-publish-crud-changes.png)
 17. 在浏览器中，导航到 https://&lt;*appname*>.chinacloudsites.cn/workitems，然后单击“新建”。
@@ -380,7 +350,7 @@ ms.lasthandoff: 07/14/2017
 <a name="next"></a>
 
 ## <a name="next-step"></a>后续步骤
-如果 Azure 中的业务线应用需要基于角色的访问控制 (RBAC)，请参阅 [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) 获取 Azure Active Directory 团队提供的示例。 该示例演示了如何为 Azure Active Directory 应用程序启用角色，然后使用 `[Authorize]` 装饰为用户授权。
+如果 Azure 中的业务线应用需要基于角色的访问控制 (RBAC)，请参阅 [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) 获取 Azure Active Directory 团队提供的示例。 该示例演示了如何为 Azure Active Directory 应用程序启用角色，并使用 `[Authorize]` 装饰为用户授权。
 
 <a name="bkmk_resources"></a>
 
