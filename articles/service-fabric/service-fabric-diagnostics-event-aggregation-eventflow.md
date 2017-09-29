@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/30/2017
-ms.date: 08/14/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8e2dad5308df42c25c23c9754f87426e0e74065a
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: ec87ec0b3af7da6b35dbaa1983897ea83a361427
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>使用 EventFlow 聚合和收集事件
 

@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4f405202664692c299a88f9736c71890ba54e69a
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 6dbd0350dfbd2f76d098611b2c460d1acd91ae13
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>在流分析的输入流中使用引用数据或查找表
 <!-- Not Available [any number of cloud-based and on-premises data stores](../data-factory/data-factory-data-movement-activities.md) -->
@@ -77,11 +77,10 @@ ms.lasthandoff: 07/26/2017
 </table>
 
 ## <a name="generating-reference-data-on-a-schedule"></a>按计划生成引用数据
-
 如果引用数据是缓慢变化的数据集，则使用 {date} 和 {time} 替换令牌在输入配置中指定路径模式即可实现对刷新引用数据的支持。 流分析根据此路径模式选取更新的引用数据定义。 例如，使用 `sample/{date}/{time}/products.csv` 模式时，日期格式为**“YYYY-MM-DD”**，时间格式为**“HH-mm”**，可指示流分析在 2015 年 4 月 16 日下午 5:30（UTC 时区）提取更新的 Blob`sample/2015-04-16/17-30/products.csv`。
 
 > [!NOTE]
-> 当前，流分析作业仅在计算机时间提前于 blob 名称中的编码时间时才查找 blob 刷新。 例如，该作业将尽可能查找 `sample/2015-04-16/17-30/products.csv` ，但不会早于 2015 年 4 月 16 日下午 5:30（UTC 时区）。 它*永远不会*查找编码时间早于发现的上一个 blob 的 blob。
+> 当前，流分析作业仅在计算机时间提前于 blob 名称中的编码时间时才查找 blob 刷新。 例如，该作业将尽可能查找 `sample/2015-04-16/17-30/products.csv`，但不会早于 2015 年 4 月 16 日下午 5:30（UTC 时区）。 它*永远不会*查找编码时间早于发现的上一个 blob 的 blob。
 > 
 > 例如 作业找到 blob `sample/2015-04-16/17-30/products.csv` 后，它将忽略编码日期早于 2015 年 4 月 16 日下午 5:30 的任何文件，因此如果晚到达的 `sample/2015-04-16/17-25/products.csv` blob 在同一容器中创建，该作业不会使用它。
 > 
@@ -99,7 +98,7 @@ ms.lasthandoff: 07/26/2017
 3. 有时，作业必须按时返回，因此不能变更或删除引用数据 Blob。
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>后续步骤
 我们已经向你介绍了流分析，这是一种托管服务，适用于对物联网的数据进行流式分析。 若要了解有关此服务的详细信息，请参阅：
@@ -117,4 +116,4 @@ ms.lasthandoff: 07/26/2017
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

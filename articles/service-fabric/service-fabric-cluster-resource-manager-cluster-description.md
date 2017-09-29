@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: ad52c6df2ced982d6bdb0662c36cfd537cd9341c
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 9a39fda68c66195f53d804d53bd29ddab4a176a2
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="describing-a-service-fabric-cluster"></a>描述 Service Fabric 群集
 Service Fabric 群集 Resource Manager 提供多种用于描述群集的的机制。 在运行时，群集 Resource Manager 使用此信息来确保群集中运行的服务的高可用性。 实施这些重要规则时，群集资源管理器还会尝试优化群集中的资源消耗。
@@ -35,7 +35,7 @@ Service Fabric 群集 Resource Manager 提供多种用于描述群集的的机�
 ## <a name="fault-domains"></a>容错域
 容错域是协调故障的任何区域。 单一计算机就是一个容错域（因为它本身可能出于各种原因而发生故障，包括电源故障、驱动器故障、NIC 固件错误，等等）。 连接到同一以太网交换机的计算机位于同一个容错域中，共享一个电源或一个位置的计算机也是如此。 硬件故障在性质上是重叠的，因此容错域原本就有层次性，在 Service Fabric 中以 URI 的形式表示。
 
-对容错域进行正确设置很重要，因为 Service Fabric 根据此信息来安全放置服务。 Service Fabric 不希望在放置服务后，容错域的丢失（由某个组件的故障而导致）会造成服务关闭。 在 Azure 环境中，Service Fabric 利用环境提供的容错域信息，代表用户正确配置群集中的节点。 对于独立的 Service Fabric，会在设置群集时定义容错域。 
+对容错域进行正确设置很重要，因为 Service Fabric 根据此信息来安全放置服务。 Service Fabric 不希望在放置服务后，容错域的丢失（由某个组件的故障而导致）会造成服务关闭。 在 Azure 环境中，Service Fabric 利用环境提供的容错域信息，代表用户正确配置群集中的节点。 对于独立的 Service Fabric，将在设置群集时定义容错域 
 
 > [!WARNING]
 > 请务必确保提供给 Service Fabric 的容错域信息准确无误。 例如，假设 Service Fabric 群集的节点在 5 个物理主机上运行的 10 台虚拟机中运行。 在此情况下，虽然有 10 台虚拟机，却只有 5 个不同的（顶层）容错域。 共享同一物理主机会导致 VM 共享同一个根容错域，因此如果物理主机发生故障，共享主机的 VM 也会同时相应发生故障。  
@@ -264,7 +264,7 @@ ClusterManifest.xml
 Service Fabric 定义了一些默认节点属性，无需用户进行定义，系统即会自动使用这些属性。 在每个节点上定义的默认属性是 **NodeType** 和 **NodeName**。 因此举例而言，可以将放置约束编写为 `"(NodeType == NodeType03)"`。 通常来说，我们发现 NodeType 是最常用的属性之一。 它很有用，因为它与计算机的类型之间存在一一对应关系。 每种计算机类型都与一种传统 n 层应用程序的工作负荷类型相对应。
 
 <center>
-![Placement Constraints and Node Properties][Image6]
+![放置约束和节点属性][Image6]
 </center>
 
 ## <a name="placement-constraint-and-node-property-syntax"></a>放置约束和节点属性语法 

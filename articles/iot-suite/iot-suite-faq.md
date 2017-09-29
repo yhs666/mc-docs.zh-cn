@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/15/2017
+origin.date: 09/15/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 4d25c3e175dc11b15cb79a31d863f0abfcc4ee1e
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/16/2017
+ms.openlocfilehash: 0e1266182fba4665616c3341e2a0a7e3091591c1
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>有关 IoT 套件的常见问题
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 07/14/2017
 请参阅[自定义预配置解决方案][lnk-customize]一文的[向模拟器添加新方法的支持][lnk-add-method]部分。
 
 ### <a name="the-simulated-device-is-ignoring-my-desired-property-changes-why"></a>模拟设备忽略所需属性更改，这是什么原因？
-在远程监视预配置解决方案中，模拟设备代码仅使用所需的属性 **Desired.Config.TemperatureMeanValue** 和**Desired.Config.TelemetryInterval** 来更新报告的属性。 将忽略所有其他的所需属性更改请求。
+在远程监视预配置解决方案中，模拟设备代码仅使用所需的属性 **Desired.Config.TemperatureMeanValue** 和**Desired.Config.TelemetryInterval** 来更新报告的属性。 忽略所有其他的所需属性更改请求。
 
 ### <a name="my-device-does-not-appear-in-the-list-of-devices-in-the-solution-dashboard-why"></a>我的设备未显示在解决方案仪表板的设备列表中，这是什么原因？
 解决方案仪表板中的设备列表使用查询来返回设备列表。 目前，查询返回的设备数不能超过 10000。 可以尝试让查询的搜索条件更具限制性。
@@ -60,7 +60,7 @@ ms.lasthandoff: 07/14/2017
 1. 从 [Azure 门户][lnk-azure-portal]获取用于企业的必应地图 API 查询密钥： 
    
    1. 在 [Azure 门户][lnk-azure-portal]中导航到用于企业的必应地图 API 所处的资源组。
-   2. 单击“所有设置”，然后单击“密钥管理”。 
+   2. 单击“所有设置”，并单击“密钥管理”。 
    3. 可以看到两个密钥：**主密钥**和**查询密钥**。 复制**查询密钥**的值。
       
       > [!NOTE]
@@ -84,7 +84,7 @@ ms.lasthandoff: 07/14/2017
 请参阅 Eric Golpe 的博客文章 [删除 Azure AD 租户的演练][lnk-delete-aad-tennant]。
 
 ### <a name="next-steps"></a>后续步骤
-你还可以浏览 IoT 套件预配置的解决方案的一些其他特性和功能：
+还可以浏览 IoT 套件预配置的解决方案的一些其他特性和功能：
 
 * [预见性维护预配置解决方案概述][lnk-predictive-overview]
 * [从头开始保障 IoT 安全][lnk-security-groundup]

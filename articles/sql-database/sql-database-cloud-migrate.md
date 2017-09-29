@@ -4,7 +4,7 @@ description: "了解如何将 SQL Server 数据库迁移到云中的 Azure SQL �
 keywords: "数据库迁移, SQL Server 数据库迁移, 数据库迁移工具, 迁移数据库, 迁移 SQL 数据库"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
@@ -15,22 +15,21 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 origin.date: 02/08/2017
-ms.date: 07/03/2017
+ms.date: 10/02/2017
 ms.author: v-johch
-ms.openlocfilehash: 286ca90bfc29c90824f56922b0df1c313b310d6b
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: e308b924b10fb15b5c00117b25f4912419e55ab8
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/28/2017
 ---
-# 将 SQL Server 数据库迁移到云中的 SQL 数据库
-<a id="sql-server-database-migration-to-sql-database-in-the-cloud" class="xliff"></a>
+# <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>将 SQL Server 数据库迁移到云中的 SQL 数据库
 本文介绍两种将 SQL Server 2005 或更高版本的数据库迁移到 Azure SQL 数据库的主要方法。 第一种方法相对简单，但迁移过程中需要一段时间（可能较长）的停机。 第二种方法更复杂，但在迁移过程中的停机时间大大缩短。
 
 两种方法均需使用 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) 确保源数据库与 Azure SQL 数据库兼容。 SQL 数据库 V12 除了要解决服务器级操作和跨数据库操作的相关问题之外，还要解决与 SQL Server 的[功能对等性](sql-database-features.md)问题。 依赖[部分支持或不受支持的函数](sql-database-transact-sql-information.md)的数据库和应用程序需要进行某种程度的[重新设计来修复这些不兼容性](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues)，然后才能迁移 SQL Server 数据库。
 
 > [!NOTE]
-> 若要将非 SQL Server 数据库（包括 Microsoft Access、Sybase、MySQL Oracle 和 DB2）迁移到 Azure SQL 数据库，请参阅 [SQL Server 迁移助手](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/)。
+> 要将非 SQL Server 数据库（包括 Microsoft Access、Sybase、MySQL Oracle 和 DB2）迁移到 Azure SQL 数据库，请参阅 [SQL Server 迁移助手](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/)。
 > 
 
 ##<a name="migrate-a-compatible-sql-server-database-to-sql-database"></a>方法 1：在迁移过程中需要停机的迁移
@@ -48,29 +47,26 @@ ms.lasthandoff: 06/30/2017
 5. 将数据库副本[导出](sql-database-export.md)到本地驱动器上的 .BACPAC 文件。
 6. 使用多个 BACPAC 导入工具中的任何一个（若要获得最佳性能，建议使用 SQLPackage.exe 工具），以新 Azure SQL 数据库的形式[导入](sql-database-import.md) .BACPAC 文件。
 
-### 优化迁移过程中的数据传输性能
-<a id="optimizing-data-transfer-performance-during-migration" class="xliff"></a> 
+### <a name="optimizing-data-transfer-performance-during-migration"></a>优化迁移过程中的数据传输性能 
 
-以下列表包含的建议可帮助你在导入过程中获得最佳性能。
+以下列表包含的建议可帮助用户在导入过程中获得最佳性能。
 
-* 若要获得最高的传输性能，请在预算允许范围内选择最高的服务级别和性能层。 为了节省资金，可以在迁移完成后缩减规模。 请参阅[使用 Azure 门户更改单一数据库的服务层和性能级别](sql-database-manage-single-databases-portal.md)、[使用 PowerShell 更改单一数据库的服务层和性能级别](sql-database-manage-single-databases-powershell.md)、[使用 Transact-SQL 更改单一数据库的服务层和性能级别](sql-database-manage-single-databases-tsql.md)
+* 若要获得最高的传输性能，请在预算允许范围内选择最高的服务级别和性能层。 为了节省资金，可以在迁移完成后缩减规模。 
 * 尽量缩短 .BACPAC 文件与目标数据中心之间的距离。
 * 在迁移过程中禁用自动统计
-* 将表和索引分区
+* 分区表和索引
 * 删除已编制索引的视图，在完成后重新创建这些视图
 * 将很少查询的历史数据转移到其他数据库，将这些历史数据迁移到单独的 Azure SQL 数据库。 然后即可使用[弹性查询](sql-database-elastic-query-overview.md)查询该历史数据。
 
-### 迁移完成后优化性能
-<a id="optimize-performance-after-the-migration-completes" class="xliff"></a>
+### <a name="optimize-performance-after-the-migration-completes"></a>迁移完成后优化性能
 
 在迁移完成后[更新统计信息](https://msdn.microsoft.com/library/ms187348.aspx)并进行完全扫描。
 
-## 方法 2：使用事务复制
-<a id="method-2-use-transactional-replication" class="xliff"></a>
+## <a name="method-2-use-transactional-replication"></a>方法 2：使用事务复制
 
-如果在发生迁移时你无法承受从生产中删除 SQL Server 数据库的后果，可以使用 SQL Server 事务复制作为你的迁移解决方案。 若要使用此方法，源数据库必须满足[事务复制要求](https://msdn.microsoft.com/library/mt589530.aspx)且兼容 Azure SQL 数据库。 
+如果在发生迁移时你无法承受从生产中删除 SQL Server 数据库的后果，可以使用 SQL Server 事务复制作为迁移解决方案。 若要使用此方法，源数据库必须满足[事务复制要求](https://msdn.microsoft.com/library/mt589530.aspx)且兼容 Azure SQL 数据库。 有关使用 AlwaysOn 的 SQL 复制的信息，请参阅[配置 AlwaysOn 可用性组 (SQL Server) 的复制](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server)。
 
-若要使用此解决方案，请将 Azure SQL 数据库配置为要迁移的 SQL Server 实例的订阅服务器。 在新的事务不断发生时，事务复制分发器将对要同步的数据库（发布服务器）中的数据进行同步。 
+要使用此解决方案，请将 Azure SQL 数据库配置为要迁移的 SQL Server 实例的订阅服务器。 在新的事务不断发生时，事务复制分发器将对要同步的数据库（发布服务器）中的数据进行同步。 
 
 使用事务复制时，对数据或架构所做的所有更改都会显示在 Azure SQL 数据库中。 同步完成后，如果已准备好进行迁移，则可更改应用程序的连接字符串，使其指向 Azure SQL 数据库。 一旦事务复制清空保留在源数据库中的任何更改，并且所有应用程序都指向 Azure DB，即可卸载事务复制。 Azure SQL 数据库现在是用户的生产系统。
 
@@ -80,8 +76,7 @@ ms.lasthandoff: 06/30/2017
 > 还可以使用事务复制来迁移源数据库的子集。 复制到 Azure SQL 数据库的发布可以限制为复制的数据库中表的子集。 对于所复制的每一个表，可以将数据限制为行的子集和/或列的子集。
 >
 
-### 使用事务复制工作流迁移到 SQL 数据库
-<a id="migration-to-sql-database-using-transaction-replication-workflow" class="xliff"></a>
+### <a name="migration-to-sql-database-using-transaction-replication-workflow"></a>使用事务复制工作流迁移到 SQL 数据库
 
 > [!IMPORTANT]
 > 使用最新版本的 SQL Server Management Studio 以与 Azure 和 SQL 数据库的更新保持同步。 较旧版本的 SQL Server Management Studio 不能将 SQL 数据库设置为订阅服务器。 [更新 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。
@@ -97,8 +92,7 @@ ms.lasthandoff: 06/30/2017
    -  [使用 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
    -  [使用 Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
 
-### 有关迁移到 SQL 数据库的一些提示和差异
-<a id="some-tips-and-differences-for-migrating-to-sql-database" class="xliff"></a>
+### <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>有关迁移到 SQL 数据库的一些提示和差异
 
 1. 使用本地分发服务器 
    - 这会对服务器的性能造成影响。 
@@ -119,8 +113,7 @@ ms.lasthandoff: 06/30/2017
 
 除了搜索 Internet 和使用这些资源，还可以使用 [MSDN SQL Server 社区论坛](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver)或 [StackOverflow](http://stackoverflow.com/)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 使用 Azure SQL EMEA 工程师博客中的脚本来 [监视迁移过程中的 tempdb 使用情况](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/)。
 * 使用 Azure SQL EMEA 工程师博客中的脚本来 [监视发生迁移时数据库的事务日志空间](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0)。
 * 如需 SQL Server 客户顾问团队编写的有关使用 BACPAC 文件进行迁移的博客，请参阅 [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)（使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库）。

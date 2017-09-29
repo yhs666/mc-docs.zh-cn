@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/15/2017
+origin.date: 08/30/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: 528cd7dd5487c027d4d732c429fe4b7cca52a237
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/16/2017
+ms.openlocfilehash: c868e188542f8b94f05013917a514eaebde2a567
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="service-bus-messaging-samples"></a>服务总线消息传送示例
 

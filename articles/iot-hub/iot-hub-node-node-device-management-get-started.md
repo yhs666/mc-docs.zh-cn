@@ -12,17 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/30/2016
-ms.date: 07/10/2017
+origin.date: 08/25/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
-ms.openlocfilehash: 112972327eec3d80d24357aa08c62b57abfa9cf1
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.openlocfilehash: 14a7f96cc3f67c9726b8f60b24173bf5318febff
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/29/2017
 ---
-# 设备管理入门 (Node)
-<a id="get-started-with-device-management-node" class="xliff"></a>
+# <a name="get-started-with-device-management-node"></a>设备管理入门 (Node)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
@@ -32,7 +31,7 @@ ms.lasthandoff: 06/28/2017
 * 创建包含重新启动该设备的直接方法的模拟设备应用。 直接方法是从云中调用的。
 * 创建一个 Node.js 控制台应用，其通过 IoT 中心直接重启模拟设备应用。
 
-在本教程结束时，将会创建两个 Node.js 控制台应用：
+本教程结束时，会创建两个 Node.js 控制台应用：
 
 **dmpatterns_getstarted_device.js**，它使用先前创建的设备标识连接到 IoT 中心，接收重新启动直接方法，模拟物理重新启动，并报告上次重新启动的时间。
 
@@ -47,8 +46,7 @@ ms.lasthandoff: 06/28/2017
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## 创建模拟设备应用程序
-<a id="create-a-simulated-device-app" class="xliff"></a>
+## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
 在本部分，用户需
 
 * 创建一个 Node.js 控制台应用，用于响应通过云调用的直接方法
@@ -138,8 +136,7 @@ ms.lasthandoff: 06/28/2017
    >[!NOTE]
    > 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按 MSDN 文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数性的回退）。
 
-## 使用直接方法在设备上触发远程重新启动
-<a id="trigger-a-remote-reboot-on-the-device-using-a-direct-method" class="xliff"></a>
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>使用直接方法在设备上触发远程重新启动
 本部分中会创建一个 Node.js 控制台应用，该应用使用直接方法在设备上初始化远程重启。 该应用使用设备孪生查询来搜索该设备的上次重新启动时间。
 
 1. 创建一个名为 **triggerrebootondevice** 的空文件夹。  在 **triggerrebootondevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
@@ -219,8 +216,7 @@ ms.lasthandoff: 06/28/2017
     ```
 9. 保存并关闭 **dmpatterns_getstarted_service.js** 文件。
 
-## 运行应用
-<a id="run-the-apps" class="xliff"></a>
+## <a name="run-the-apps"></a>运行应用
 现在，已准备就绪，可以运行应用。
 
 1. 在 **manageddevice** 文件夹的命令提示符处，运行以下命令进行直接重启方法的侦听。

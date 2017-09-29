@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 中心 HA 和 DR | Azure"
+title: "Azure IoT 中心的高可用性和灾难恢复 | Microsoft Docs"
 description: "介绍了Azure 和 IoT 中心功能，这些功能有助于构建带灾难恢复功能的 Azure IoT 高可用性解决方案。"
 services: iot-hub
 documentationcenter: 
@@ -15,14 +15,14 @@ ms.workload: na
 origin.date: 11/16/2016
 ms.date: 01/13/2017
 ms.author: v-yiso
-ms.openlocfilehash: 19266eeeabfc5955329716c410259a491441997e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 49c689e164d594986597220328525a32948110a5
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT 中心高可用性和灾难恢复
-作为一项 Azure 服务，IoT 中心在 Azure 区域级别使用冗余来提供高可用性 (HA)，而解决方案不需要执行任何额外的工作。 Microsoft Azure 平台还包含了相关功能来帮助你构建提供灾难恢复 (DR) 功能或跨区域可用性的解决方案。 若要向设备或用户提供全局跨区域的高可用性，必须妥善设计并准备好解决方案，以便利用这些 Azure DR 功能。 [Azure 业务连续性技术指南](../resiliency/resiliency-technical-guidance.md) 一文描述了针对业务连续性和 DR 的 Azure 内置功能。 [Azure 应用程序的灾难恢复和高可用性][Disaster recovery and high availability for Azure applications] 一文针对 Azure 应用程序的 HA 和 DR 实现策略提供了体系结构指导。
+作为一项 Azure 服务，IoT 中心在 Azure 区域级别使用冗余来提供高可用性 (HA)，而解决方案不需要执行任何额外的工作。 Microsoft Azure 平台还包含了相关功能来帮助你构建提供灾难恢复 (DR) 功能或跨区域可用性的解决方案。 若要向设备或用户提供全局跨区域的高可用性，必须妥善设计并准备好解决方案，以便利用这些 Azure DR 功能。 [Azure 应用程序的灾难恢复和高可用性][Disaster recovery and high availability for Azure applications] 一文针对 Azure 应用程序的 HA 和 DR 实现策略提供了体系结构指导。
 
 ## <a name="azure-iot-hub-dr"></a>Azure IoT 中心 DR
 除了区域内部的 HA，IoT 中心还实施了无需用户干预的灾难恢复故障转移机制。 IoT 中心 DR 自行启动，其恢复时间目标 (RTO) 为 2 到 26 小时，恢复点目标 (RPO) 如下所示。
@@ -39,7 +39,7 @@ ms.lasthandoff: 06/21/2017
 ## <a name="regional-failover-with-iot-hub"></a>IoT 中心区域故障转移
 本文不讨论 IoT 解决方案中部署拓扑的完整处理方式。 本文讨论了用于实现高可用性和灾难恢复的 *区域故障转移* 部署模型。
 
-在区域故障转移模型中，该解决方案后端主要在一个数据中心位置运行，次要 IoT 中心和后端则部署在另一数据中心位置。 应对的情况是主数据中心的 IoT 中心出现服务中断，或者设备到主数据中心之间断开网络连接。 每当无法连接主要网关时，设备将使用辅助服务终结点。 使用跨区域故障转移功能可改善解决方案的可用性，使其优于单个区域的高可用性。
+在区域故障转移模型中，该解决方案后端主要在一个数据中心位置运行，次要 IoT 中心和后端则部署在另一数据中心位置。 应对的情况是主数据中心的 IoT 中心出现服务中断，或者设备到主数据中心之间断开网络连接。 每当无法连接主要网关时，设备会使用辅助服务终结点。 使用跨区域故障转移功能可改善解决方案的可用性，使其优于单个区域的高可用性。
 
 从较高层面上讲，为了实现 IoT 中心的区域故障转移模型，需要做好以下准备：
 
@@ -54,7 +54,6 @@ ms.lasthandoff: 06/21/2017
 - [Azure IoT 中心是什么？][]
 
 [Disaster recovery and high availability for Azure applications]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
-[Azure Business Continuity Technical Guidance]: ../resiliency/resiliency-technical-guidance.md
 [Azure Traffic Manager]: ../traffic-manager/index.md
 [IoT Hub Developer Guide - identity registry]: ./iot-hub-devguide-identity-registry.md
 

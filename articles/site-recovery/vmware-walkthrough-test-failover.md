@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 08/28/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6d8e4d492893b74c8285dae9cace01eead547113
-ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
+ms.openlocfilehash: 10014d5ea1a5bea56a6d1a510a579d355ea9e13f
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="step-12-run-a-test-failover-to-azure-for-vmware-vms"></a>步骤 12：运行 VMware VM 到 Azure 的测试故障转移
 
@@ -35,11 +35,11 @@ ms.lasthandoff: 09/04/2017
 
 [托管磁盘](../virtual-machines/windows/managed-disks-overview.md)通过管理与 VM 磁盘关联的存储帐户简化了 Azure VM 的磁盘管理。 
 
-- 为 VM 启用保护后，VM 数据将复制到存储帐户中。 只有当故障转移发生时，才会创建托管磁盘，并将它附加到 VM。
-- 只能为使用资源管理器模型部署的 VM 创建托管磁盘。  
-- 启用此设置后，仅可以选择启用了“使用托管磁盘”的资源组中的可用性集。 包含托管磁盘的 VM 必须位于“使用托管磁盘”设置为“是”的可用性集中。 如果没有为 VM 启用此设置，那么仅可以选择未启用“使用托管磁盘”的资源组中的可用性集。
+- 当启用 VM 保护时，VM 数据将复制到存储帐户。 只有在发生故障转移时，才会创建托管磁盘并将其附加到 VM。
+- 只能为使用 Resource Manager 模型部署的 VM 创建托管磁盘。  
+- 启用此设置后，仅可以选择启用了“使用托管磁盘”的资源组中的可用性集。 包含托管磁盘的 VM 必须位于“使用托管磁盘”设置为“是”的可用性集中。 如果 VM 尚未启用此设置，那么只能选择资源组中未启用“使用托管磁盘”的可用性集。
 - [详细了解](/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set)托管磁盘和可用性集。
-- 如果已使用存储服务加密加密用于复制的存储帐户，则无法在故障转移期间创建托管磁盘。 在这种情况下，要么不要启用托管磁盘，要么为 VM 禁用保护功能，并重新启用为使用未启用加密的存储帐户。 [了解详细信息](/storage/storage-managed-disks-overview#managed-disks-and-encryption)。
+- 如果已使用存储服务加密来加密用于复制的存储帐户，无法在故障转移期间创建托管磁盘。 在这种情况下，要么不要启用托管磁盘，要么为 VM 禁用保护功能，并重新启用为使用未启用加密的存储帐户。 [了解详细信息](/storage/storage-managed-disks-overview#managed-disks-and-encryption)。
 
 ## <a name="network-considerations"></a>网络注意事项
 
@@ -54,15 +54,15 @@ ms.lasthandoff: 09/04/2017
      - 如果源虚拟机的适配器数目大于目标大小允许的数目，则使用目标大小允许的最大数目。
      - 例如，如果源计算机有两个网络适配器，而目标计算机大小支持四个，则目标计算机有两个适配器。 如果源计算机有两个适配器，但支持的目标大小只支持一个，则目标计算机只有一个适配器。     
    - 如果虚拟机有多个网络适配器，它们会全部连接到同一个网络。
-   - 如果虚拟机有多个网络适配器，列表中显示的第一个适配器成为 Azure 虚拟机中的*默认*网络适配器。
+   - 如果虚拟机有多个网络适配器，列表中显示的第一个适配器将成为 Azure 虚拟机中的*默认*网络适配器。
  - [详细了解](vmware-walkthrough-network.md) IP 地址。
 
 ## <a name="view-and-modify-vm-settings"></a>查看并修改 VM 设置
 
-在运行故障转移之前，我们建议验证源计算机的属性。
+在运行故障转移之前，建议你验证源计算机的属性。
 
-1. 在“受保护的项”中，单击“复制的项”，然后单击此 VM。
-2. 在“复制的项”窗格中，可以看到 VM 信息、运行状况状态和最新可用恢复点的摘要。 单击“属性”，查看详细信息。
+1. 在“受保护的项”中，单击“复制的项”，然后单击 VM。
+2. 在“复制的项”窗格中，你可以看到 VM 信息、运行状况状态和最新可用恢复点的摘要。 单击“属性”可查看更多详细信息。
 3. 在“计算和网络”中，可执行以下操作：
     - 修改 Azure VM 名称。 名称必须符合 [Azure 要求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
     - 指定故障转移后的[资源组]。
@@ -97,12 +97,12 @@ ms.lasthandoff: 09/04/2017
 
 6. 如果已准备好故障转移后的连接，应该能够连接到 Azure VM。
 
-7. 完成后，在恢复计划中单击“清理测试故障转移”。 在“说明”中，记录并保存与测试故障转移相关联的任何观测结果。 这将删除在执行测试故障转移期间创建的 VM。
+7. 完成后，在恢复计划中单击“清理测试故障转移”。 在“说明”中，记录并保存与测试性故障转移相关联的任何观测结果。 这将删除在执行测试故障转移期间创建的 VM。
 
 ## <a name="next-steps"></a>后续步骤
 
 - [详细了解](site-recovery-failover.md)不同类型的故障转移，以及如何运行它们。
-- 若要迁移计算机而不执行复制和故障回复，请[阅读详细信息](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers)。
-<!-- Not Available - - [Read about failback](site-recovery-failback-azure-to-vmware.md), to fail back and replicate Azure VMs back to the primary on-premises site.-->
+- 如果要迁移计算机而不执行复制和故障回复，请[阅读详细信息](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers)。
+- [详细了解故障回复](site-recovery-failback-azure-to-vmware.md)，以便将 Azure VM 故障回复和复制回本地主站点。
 
-<!--Update_Description: new articles on site recovery test failover from vmware to azure-->
+<!--Update_Description: wording update-->

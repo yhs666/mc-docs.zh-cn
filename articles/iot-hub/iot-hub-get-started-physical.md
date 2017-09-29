@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/02/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: 47a30f7ee0fdae7782322c305707ea8d60200033
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 09/25/2017
+ms.openlocfilehash: 37d6851714c2d99740eeefc41595fae4ff9d9bc9
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Azure IoT 中心及物理设备入门教程
 
@@ -27,7 +27,8 @@ ms.lasthandoff: 08/04/2017
 
 | IoT 设备                       | 编程语言 |
 |---------------------------------|----------------------|
-| Raspberry Pi                    | [Node.js][Pi_Nd]、[C][Pi_C]           |
+| Raspberry Pi                    | [Node.js][Pi_Nd]、[C][Pi_C]、[Python][Pi_Py]           |
+| IoT DevKit                      | [VSCode 中的 Arduino][DevKit]     |
 | Intel Edison                    | [Node.js][Ed_Nd]、[C][Ed_C]           |
 | Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
@@ -44,6 +45,8 @@ ms.lasthandoff: 08/04/2017
 
 [Pi_Nd]: ./iot-hub-raspberry-pi-kit-node-get-started.md
 [Pi_C]: ./iot-hub-raspberry-pi-kit-c-get-started.md
+[Pi_Py]: ./iot-hub-raspberry-pi-kit-python-get-started.md
+[DevKit]: ./iot-hub-arduino-iot-devkit-az3166-get-started.md
 [Ed_Nd]: ./iot-hub-intel-edison-kit-node-get-started.md
 [Ed_C]: ./iot-hub-intel-edison-kit-c-get-started.md
 [Hu_Ard]: ./iot-hub-arduino-huzzah-esp8266-get-started.md

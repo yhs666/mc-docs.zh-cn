@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 05/10/2017
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 795322751636e53e18cde84ced55b93d81c3bd07
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 15eb018d297593d491a6e617d29ded661303ebe5
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>创建、更改或删除虚拟网络
 
@@ -196,6 +196,6 @@ ms.lasthandoff: 09/04/2017
 - 若要创建 VM 然后将其连接到虚拟网络，请参阅[创建虚拟网络并连接 VM](virtual-network-get-started-vnet-subnet.md#create-vms)。
 - 若要筛选虚拟网络中子网之间的网络流量，请参阅[创建网络安全组](virtual-networks-create-nsg-arm-pportal.md)。
 - 若要将虚拟网络对等互连到另一个虚拟网络，请参阅[创建虚拟网络对等互连](virtual-network-create-peering.md#portal)。
-- 若要了解用于将虚拟网络连接到本地网络的选项，请参阅[关于 VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#diagrams)。
+- 若要了解用于将虚拟网络连接到本地网络的选项，请参阅[关于 VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)。
 
 <!--Update_Description: update reference link-->

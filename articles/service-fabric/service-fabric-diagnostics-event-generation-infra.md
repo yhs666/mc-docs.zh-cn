@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/17/2017
-ms.date: 09/11/2017
+origin.date: 08/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 59c8d5e96b6507dd3f40c333f7520741addd1b71
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: abf1c859bf4f61f74dcbaaf517c908731c3f5d88
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>平台级别事件和日志生成
 
@@ -27,10 +27,12 @@ ms.lasthandoff: 09/08/2017
 
 在平台级别进行监视以确定硬件和群集的运行情况是否符合预期是非常重要的。 在硬件发生故障期间，Service Fabric 可保持应用程序运行，但用户仍需要诊断错误是在应用程序中还是底层基础结构中发生。 还应该监视群集以便更好地规划容量，帮助决定添加或删除硬件。
 
-Service Fabric 提供五个现成的不同日志通道，可以生成以下事件：
+Service Fabric 提供了五个现成的不同日志通道，可以生成以下事件：
 
 * 操作通道：由 Service Fabric 和群集执行的高级操作，包括出现节点事件、部署新应用程序或 SF 升级回滚等。
-* 客户信息渠道：运行状况报告和负载均衡决策
+* 操作通道 - 详细信息：运行状况报告和负载均衡决策
+* 数据和消息通道：消息（当前仅限 ReverseProxy）和数据路径（可靠的服务模型）中生成的关键日志和事件
+* 数据和消息通道 - 详细信息：包含群集中的数据和消息提供的所有非关键日志的详细通道（此通道的事件量非常大）   
 * [Reliable Services 事件](service-fabric-reliable-services-diagnostics.md)：特定于编程模型的事件
 * [Reliable Actors 事件](service-fabric-reliable-actors-diagnostics.md)：特定于编程模型事件和性能计数器
 * 支持日志：Service Fabric 生成的系统日志，仅当我们提供支持时使用
@@ -78,9 +80,9 @@ if (!result.HasValue)
 
 ## <a name="enabling-diagnostics-for-a-cluster"></a>启用群集诊断
 
-为了充分利用这些日志，我们强烈建议在群集创建过程中启用“诊断”。 如果开启诊断，部署群集时，Windows Azure 诊断就可确认运行 Operational、Reliable Services 和 Reliable Actors 通道，并按照**此处**所述存储数据。
+为了充分利用这些日志，我们强烈建议在群集创建过程中启用“诊断”。 如果开启诊断，部署群集时，Windows Azure 诊断就可确认运行 Operational、Reliable Services 和 Reliable Actors 通道，并按照[通过 Azure 诊断聚合事件](service-fabric-diagnostics-event-aggregation-wad.md)中所述存储数据。
 
-如上图所示，还存在一个用于添加 Application Insights (AppInsights) 检测密钥的可选字段。 如果选择使用 AppInsights 对所有事件进行分析（阅读**此处**的详细信息），请在此处添加 AppInsights 资源检测密钥 (GUID)。
+如上图所示，还存在一个用于添加 Application Insights (AI) 检测密钥的可选字段。 如果选择使用 AI 对所有事件进行分析（阅读[通过 Application Insights 进行事件分析](service-fabric-diagnostics-event-analysis-appinsights.md)了解相关详细信息），请在此处添加 AppInsights resource instrumentationKey (GUID)。
 
 如果要将容器部署到群集中，通过将此代码添加到“WadCfg > DiagnosticMonitorConfiguration”，启用 WAD 来读取 docker 统计信息：
 
@@ -110,4 +112,4 @@ if (!result.HasValue)
 
 需要将日志和事件聚合后，才能将其发送到任何分析平台。 阅读有关 [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 和 [WAD](service-fabric-diagnostics-event-aggregation-wad.md) 的信息，更好地了解一些推荐的选项。
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link-->

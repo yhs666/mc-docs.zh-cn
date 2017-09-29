@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 04/20/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: bbb24da9ac44a00e0aaa1d37b57001fd7167ecf0
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: ebad12f6806f1642464d657007eff1de1bb50755
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="optimize-your-job-to-use-streaming-units-efficiently"></a>优化作业以高效使用流式处理单位
 
@@ -86,4 +86,4 @@ impressions on impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties -->

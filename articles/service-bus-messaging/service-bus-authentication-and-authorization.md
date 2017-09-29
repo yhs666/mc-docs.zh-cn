@@ -14,28 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/09/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
-ms.openlocfilehash: 6db023fd7c38cef2bf0a36c157dfbbb2f7ecc532
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 10/16/2017
+ms.openlocfilehash: 38952c6bed2e3fb1257652c3fd7641d9d2daa9da
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="service-bus-authentication-and-authorization"></a>服务总线身份验证和授权
 
-应用程序可以使用共享访问签名 (SAS) 身份验证向 Azure 服务总线进行身份验证。 通过共享访问签名身份验证，应用程序能够使用在命名空间或在关联了特定权限的实体上配置的访问密钥向服务总线进行身份验证。 然后可以使用此密钥生成共享访问签名令牌，客户端可用它向服务总线进行身份验证。
+应用程序使用共享访问签名 (SAS) 令牌身份验证获取对 Azure 服务总线功能的访问权限。 通过 SAS，应用程序向服务总线提供一个由对称密钥签名的令牌，该对称密钥对令牌颁发者和服务总线是已知的（“共享的”），且直接与授予特定访问权限的规则相关联（例如接收/侦听/发送消息的权限）。 SAS 规则既可在命名空间中配置，也可直接在队列或主题等实体中配置，从而支持细化的访问控制。
+
+SAS 令牌既可由服务总线客户端直接生成，也可由某些颁发与客户端进行交互的终结点的中间令牌生成。 例如，系统可能要求客户端调用受 Active Directory 授权保护的 Web 服务终结点，以证明其标识和系统访问权限，Web 服务随之返回相应的服务总线令牌。 可使用 SDK 中的服务总线令牌提供程序轻松生成此 SAS 令牌。 
 
 > [!IMPORTANT]
-> 应使用 SAS 而非 Azure Active Directory 访问控制（又称为访问控制服务或 ACS），因为 ACS 将被弃用。 SAS 为服务总线提供了一种简单、灵活且易于使用的身份验证方案。 当应用程序不需要管理授权“用户”这一概念时，可以使用 SAS。 
+> 如果结合使用 Azure Active Directory 访问控制（又称为访问控制服务或 ACS）与服务总线，请注意当前提供给此方法的支持有限，应将应用程序迁移至使用 SAS。 有关详细信息，请参阅 [此博客文章](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)。
 
 ## <a name="shared-access-signature-authentication"></a>共享访问签名身份验证
 通过 [SAS 身份验证](service-bus-sas.md)可向具有特定权限的用户授予对服务总线资源的访问权限。 服务总线中的 SAS 身份验证涉及配置具有服务总线资源相关权限的加密密钥。 客户端随后即可通过提供 SAS 令牌获取该资源的访问权限，该令牌由要访问的资源 URI 和签有已配置密钥的过期时间组成。
 
-可以在服务总线命名空间上配置用于 SAS 的密钥。 该密钥应用于该命名空间中的所有消息传送实体。 还可在服务总线队列和主题上配置密钥。 [Azure 中继](../service-bus-relay/relay-authentication-and-authorization.md)也支持 SAS。
+可以在服务总线命名空间上配置用于 SAS 的密钥。 该密钥应用于该命名空间中的所有消息传送实体。 可在服务总线队列和主题上配置密钥。 [Azure 中继](../service-bus-relay/relay-authentication-and-authorization.md)也支持 SAS。
 
 若要使用 SAS，可以为命名空间、队列或主题配置 [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 对象。 此规则由以下元素组成：
 
-- *KeyName* ，用于标识规则。
+- 标识此规则的 KeyName。
 
 - *PrimaryKey* ，是用于对 SAS 令牌进行签名/验证的加密密钥。
 
@@ -50,5 +52,6 @@ ms.lasthandoff: 09/08/2017
 Azure .NET SDK 2.0 版和更高版本支持服务总线的 SAS 身份验证。 SAS 支持 [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)。 允许将连接字符串作为参数的所有 API 都支持 SAS 连接字符串。
 
 ## <a name="next-steps"></a>后续步骤
-有关 SAS 的详细信息，请继续阅读[使用共享访问签名进行服务总线身份验证](./service-bus-sas.md)。
-有关 Azure 中继身份验证和授权的相关信息，请参阅 [Azure 中继身份验证和授权](../service-bus-relay/relay-authentication-and-authorization.md)。 
+- 有关 SAS 的详细信息，请继续阅读[使用共享访问签名进行服务总线身份验证](./service-bus-sas.md)。
+- [更改为启用 ACS 的命名空间。](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)
+- 有关 Azure 中继身份验证和授权的相关信息，请参阅 [Azure 中继身份验证和授权](../service-bus-relay/relay-authentication-and-authorization.md)。 

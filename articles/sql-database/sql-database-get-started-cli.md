@@ -4,7 +4,7 @@ description: "了解如何使用 Azure CLI 创建 SQL 数据库逻辑服务器�
 keywords: "SQL 数据库教程：创建 SQL 数据库"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 
@@ -13,32 +13,22 @@ ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 04/17/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 00ac3ad2daab57aa4d7b49488718396f2d6c0359
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 3bc300c2cb9ed657d5cd7fc568fb0d1e1cd734ac
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>使用 Azure CLI 创建单一 Azure SQL 数据库
 
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本指南详述了如何使用 Azure CLI 在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)的 [Azure SQL 数据库逻辑服务器](sql-database-features.md)中部署 Azure SQL 数据库。
 
-若要完成本快速入门教程，请确保已安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
-
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
 
-## <a name="log-in-to-azure"></a>登录 Azure
-
-使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
-
-```azurecli
-az cloud set -n AzureChinaCloud
-az login 
-```
 
 ## <a name="define-variables"></a>定义变量
 
@@ -123,4 +113,4 @@ az group delete --name $resourcegroupname
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
 
-<!--Update_Description: update code-->
+

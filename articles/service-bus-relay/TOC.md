@@ -13,6 +13,7 @@
 # 如何
 ## 规划和设计
 ### [身份验证和安全性](relay-authentication-and-authorization.md)
+#### [从 ACS 迁移到 SAS](relay-migrate-acs-sas.md)
 ### [混合连接协议](relay-hybrid-connections-protocol.md)
 ## 开发
 ### [可用 API](relay-api-overview.md)
@@ -30,6 +31,6 @@
 
 
 ## [博客](https://blogs.msdn.microsoft.com/servicebus/)
-## [价格](https://www.azure.cn/pricing/details/messaging/)
+## [定价](https://www.azure.cn/pricing/details/messaging/)
 ## [示例](https://github.com/azure/azure-relay/tree/master/samples)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

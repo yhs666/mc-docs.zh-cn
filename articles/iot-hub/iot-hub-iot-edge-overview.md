@@ -11,24 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/02/2017
+origin.date: 09/04/2017
 ms.author: v-yiso
-ms.date: 07/03/2017
-ms.openlocfilehash: 53119335474f4a84f23838c6afae9b9cabb8d0e2
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.date: 10/16/2017
+ms.openlocfilehash: 52f53bba80167ddeb48a247e729426714c371905
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 09/29/2017
 ---
-# Azure IoT Edge 体系结构概念
-<a id="azure-iot-edge-architectural-concepts" class="xliff"></a>
+# <a name="azure-iot-edge-architectural-concepts"></a>Azure IoT Edge 体系结构概念
 
 在查看任何示例代码或使用 IoT Edge 创建自己的现场网关之前，应该了解支撑 IoT Edge 体系结构的重要概念。
 
-## IoT Edge 模块
-<a id="iot-edge-modules" class="xliff"></a>
+## <a name="iot-edge-modules"></a>IoT Edge 模块
 
-通过创建 *IoT Edge 模块*并对其进行组合，可使用 Azure IoT Edge 生成网关。 模块通过 *消息* 来相互交换数据。 一个模块收到一条消息，对其执行某些操作，选择性地将其转换为新的消息，然后将其发布，供其他模块处理。 某些模块可能只生成新消息，不处理传入消息。 一系列的模块会生成一个数据处理管道，每个模块在该管道的某个点对数据进行转换。
+通过创建 *IoT Edge 模块*并对其进行组合，可使用 Azure IoT Edge 生成网关。 模块通过 *消息* 来相互交换数据。 一个模块收到一条消息，对其执行某些操作，选择性地将其转换为新的消息，并将其发布，供其他模块处理。 某些模块可能只生成新消息，不处理传入消息。 一系列的模块会生成一个数据处理管道，每个模块在该管道的某个点对数据进行转换。
 
 ![使用 Azure IoT Edge 构建的网关中的模块链][1]
 
@@ -42,8 +40,7 @@ IoT Edge 包含以下组件：
 
 ![Azure IoT Edge 抽象层][2]
 
-## 消息
-<a id="messages" class="xliff"></a>
+## <a name="messages"></a>消息
 
 虽然可以通过思考模块互相传递消息的方式来了解网关运行过程中的概念，但这种思考过程并不能准确地反映实际发生的情况。 IoT Edge 模块间使用中转站进行通信。 模块通过总线或发布/订阅等消息传递模式将消息发布到中转站，然后让中转站将消息路由到连接到该中转站的模块。
 
@@ -51,8 +48,7 @@ IoT Edge 包含以下组件：
 
 ![Azure IoT Edge 中的中转站角色][3]
 
-## 消息路由和筛选
-<a id="message-routing-and-filtering" class="xliff"></a>
+## <a name="message-routing-and-filtering"></a>消息路由和筛选
 
 可通过两种方法将消息定向到正确的 IoT Edge 模块：
 
@@ -61,8 +57,7 @@ IoT Edge 包含以下组件：
 
 模块仅应在消息是其适用对象的情况下对消息执行操作。 链接和消息筛选实际上创建了消息管道。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 若要查看这些适用于可运行示例的概念，请参阅[浏览 Azure IoT Edge 体系结构][lnk-hello-world]。
 

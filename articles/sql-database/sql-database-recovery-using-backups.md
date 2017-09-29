@@ -3,7 +3,7 @@ title: "从备份还原 Azure SQL 数据库 | Azure"
 description: "了解有关时间点还原的信息，它让你能够将 Azure SQL 数据库回滚到之前的时间点（最多 35 天）。"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: monicar
 ms.assetid: fd1d334d-a035-4a55-9446-d1cf750d9cf7
@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/15/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 20e8ce1df15da97356619a405c66397da5797606
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 08/25/2017
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 04a630af957954900b188ef0d7d7113281c40ac9
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自动数据库备份恢复 Azure SQL 数据库
 SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为数据库恢复提供三个选项。 可从数据库备份还原到：
@@ -33,7 +33,16 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为
 > 还原期间无法覆盖现有数据库。
 >
 
-还可以使用[自动数据库备份](sql-database-automated-backups.md)在任何区域中的逻辑服务器上创建[数据库副本](sql-database-copy.md)。 
+在遇到下列情况时，已还原数据库将产生额外的存储费用： 
+- 如果数据库最大大小超过 500 GB，将 P11–P15 还原为 S4-S12 或 P1–P6。
+- 如果数据库最大大小超过 250 GB，将 P1–P6 或 PRS1–PRS6 还原为 S4-S12。
+
+由于已还原数据库的最大大小超出了该性能级别附送的存储量，因此将产生额外费用，针对超出附送量的额外预配存储收取。  有关额外存储定价的详细信息，请参阅 [SQL 数据库定价页面](https://www.azure.cn/pricing/details/sql-database/)。  如果实际使用的空间量小于附送的存储量，只要将数据库最大大小减少到附送的量，就能避免此项额外费用。 有关数据库存储大小和更改数据库最大大小的详细信息，请参阅[单一数据库资源限制](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels)。  
+
+> [!NOTE]
+> 在创建[数据库副本](sql-database-copy.md)时，将用到[自动数据库备份](sql-database-automated-backups.md)。 
+>
+
 
 ## <a name="recovery-time"></a>恢复时间
 使用自动数据库备份还原数据库的恢复时间受几个因素的影响： 
@@ -55,17 +64,17 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为
 
 ## <a name="point-in-time-restore"></a>时间点还原
 
-通过使用 Azure 门户、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 或 [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)，可将现有数据库还原到早期的时间点，作为同一逻辑服务器上的新数据库。 
+通过使用 Azure 门户、[PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/restore-azurermsqldatabase) 或 [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)，可将现有数据库还原到早期的时间点，作为同一逻辑服务器上的新数据库。 
 
 > [!TIP]
-> 有关展示如何执行数据库的时间点还原的示例 PowerShell 脚本，请参阅[使用 PowerShell 还原 SQL 数据库](scripts/sql-database-restore-database-powershell.md)。
+> 有关展示了如何执行数据库的时间点还原的示例 PowerShell 脚本，请参阅[使用 PowerShell 还原 SQL 数据库](scripts/sql-database-restore-database-powershell.md)。
 >
 
 可将数据库还原到任何服务层或性能级别或还原到弹性池内，并用作单一数据库。 确保要将数据库还原到其中的逻辑服务器上或弹性池内有足够的资源。 还原完成后，还原的数据库应是一个完全可联机访问的正常数据库。 还原的数据库将基于其服务层和性能级别按正常费率计费。 在数据库还原完成之前，不会产生费用。
 
-通常，为恢复目的将数据库还原到较早点。 这样做时，可以将还原的数据库作为原始数据库的替代数据库，或使用它来检索数据，然后更新原始数据库。 
+为了恢复目的，通常会将数据库还原到一个较早的点。 这样做时，可以将还原的数据库作为原始数据库的替代数据库，或使用它来检索数据，并更新原始数据库。 
 
-* ***数据库替换***：如果还原的数据库旨在替换原始数据库，那么应验证性能级别和/或服务层是否合适，如有必要，还应调整该数据库的规模。 你可以使用 T-SQL 中的 ALTER DATABASE 命令来重命名原始数据库，然后为还原的数据库指定原有的名称。 
+* ***数据库替换***：如果还原的数据库旨在替换原始数据库，那么应验证性能级别和/或服务层是否合适，如有必要，还应调整该数据库的规模。 用户可以使用 T-SQL 中的 ALTER DATABASE 命令来重命名原始数据库，并为还原的数据库指定原有的名称。 
 * ***数据恢复：***如果打算从还原的数据库检索数据以从用户或应用程序错误中恢复，则需要编写和执行要从还原的数据库将数据提取到原始数据库时所必需的数据恢复脚本。 尽管还原操作可能需要很长时间才能完成，但整个还原过程中，都可在数据库列表中看到还原数据库。 如果在还原期间删除数据库，将取消还原操作，则不会针对未完成还原的数据库向你收费。 
 
 ### <a name="azure-portal"></a>Azure 门户
@@ -75,7 +84,7 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为
 ![时间点还原](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## <a name="deleted-database-restore"></a>已删除的数据库还原
-通过使用 Azure 门户、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 或 [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)，可将已删除的数据库还原到同一逻辑服务器上已删除的数据库的删除时间。 
+通过使用 Azure 门户、[PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/restore-azurermsqldatabase) 或 [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)，可将已删除的数据库还原到同一逻辑服务器上已删除的数据库的删除时间。 
 
 > [!TIP]
 > 有关展示如何还原已删除数据库的示例 PowerShell 脚本，请参阅[使用 PowerShell 还原 SQL 数据库](scripts/sql-database-restore-database-powershell.md)。
@@ -96,7 +105,7 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为
 ## <a name="geo-restore"></a>异地还原
 可在任何 Azure 区域的任何服务器上从最新异地复制的完整备份和差异备份中还原 SQL 数据库。 异地还原使用异地冗余备份作为源，即使由于停电而无法访问数据库或数据中心，也依然能够使用它来恢复数据库。 
 
-当你的数据库因其所在的区域发生事故而不可用时，异地还原是默认的恢复选项。 如果区域中出现的大规模事件导致你的数据库应用程序不可用，你可以从异地复制的备份中将数据库还原到任何其他区域中的服务器。 提取差异备份和将其异地复制到其他区域中的 Azure blob 之间会有延迟。 此延迟可能长达一小时，因此发生灾难时，会有长达 1 小时的数据丢失风险。 下图显示的是从其他区域中的最后一个可用备份中还原数据库。
+当数据库因其所在的区域发生事故而不可用时，异地还原是默认的恢复选项。 如果区域中出现的大规模事件导致数据库应用程序不可用，可以从异地复制的备份中将数据库还原到任何其他区域中的服务器。 提取差异备份和将其异地复制到其他区域中的 Azure blob 之间会有延迟。 此延迟可能长达一小时，因此发生灾难时，会有长达 1 小时的数据丢失风险。 下图显示的是从其他区域中的最后一个可用备份中还原数据库。
 
 ![异地还原](./media/sql-database-geo-restore/geo-restore-2.png)
 
@@ -104,10 +113,10 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为
 > 有关展示如何执行异地还原的示例 PowerShell 脚本，请参阅[使用 PowerShell 还原 SQL 数据库](scripts/sql-database-restore-database-powershell.md)。
 > 
 
-有关使用异地还原在中断后恢复的详细信息，请参阅[在中断后恢复](sql-database-disaster-recovery.md)
+当前，异地辅助数据库上不支持时间点还原。 仅主数据库支持时间点还原。 有关使用异地还原在中断后恢复的详细信息，请参阅[在中断后恢复](sql-database-disaster-recovery.md)。
 
 > [!IMPORTANT]
-> 从备份中还原是 SQL 数据库中提供的最基本的灾难恢复解决方案，具有最长的 RPO 和估计恢复时间 (ERT)。 对于最大为 2GB 的基本数据库，异地还原提供了 ERT 为 12 小时的合理灾难恢复解决方案。 对于较大的标准或高级数据库，如果需要在较短时间内恢复，或要减少数据丢失的可能性，应考虑使用活动异地复制。 活动异地复制可提供低得多的 RPO 和 ERT，因为它只需要你启动故障转移，以故障转移到连续复制的辅助数据库。 有关详细信息，请参阅[活动异地复制](sql-database-geo-replication-overview.md)。
+> 从备份中还原是 SQL 数据库中提供的最基本的灾难恢复解决方案，具有最长的 RPO 和估计恢复时间 (ERT)。 对于使用基本数据库的解决方案，异地还原通常是 ERT 为 12 小时的合理灾难恢复解决方案。 对于使用较大标准或高级数据库、需要更短恢复时间的解决方案，应考虑使用[活动地域复制](sql-database-geo-replication-overview.md)。 活动异地复制可提供低得多的 RPO 和 ERT，因为它只需要启动故障转移，即可故障转移到连续复制的辅助数据库。 有关业务连续性选项的详细信息，请参阅[业务连续性概述](sql-database-business-continuity.md)。
 > 
 
 ### <a name="azure-portal"></a>Azure 门户
@@ -140,5 +149,4 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为
 * 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)
 * 若要了解 Azure SQL 数据库的自动备份，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)
 * 若要了解更快的恢复选项，请参阅[活动异地复制](sql-database-geo-replication-overview.md)  
-
 <!--Update_Description: wording update-->

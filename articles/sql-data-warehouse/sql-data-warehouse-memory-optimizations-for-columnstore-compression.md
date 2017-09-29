@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 origin.date: 06/02/2017
-ms.date: 09/18/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: cfeaa27395da588b365ad5b69795ab9e8fc0b9d1
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 7d185f6f5809a8a1df9bf3020d3faadaf0283424
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>最大化列存储的行组质量
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 09/13/2017
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>在压缩过程中，可对行组进行修剪
 
-批量加载或重建列存储索引期间，有时可能因内存不足而无法压缩为每个行组指定的所有行。 如果出现内存压力，列存储索引将修剪行组大小，以便能成功将行组压缩到列存储中。
+批量加载或重建列存储索引期间，有时可能因内存不足而无法压缩为每个行组指定的所有行。 如果出现内存压力，列存储索引将修剪行组大小，以便能成功将行组压缩到列存储中。 
 
 如果内存不足，无法将至少 10,000 个行压缩到每个行组中，SQL 数据仓库会生成错误。
 
@@ -140,7 +140,7 @@ OPTION (MAXDOP 1);
 DWU 大小和用户资源类共同确定用户查询可用的内存量。 若要增加加载查询的内存授予，可增加 DWU 的数量或增加资源类。
 
 - 若要增加 DWU，请参阅[如何进行性能缩放？](sql-data-warehouse-manage-compute-overview.md#scale-compute)
-- 若要更改查询的资源类，请参阅[更改用户资源类示例](sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example)。
+- 若要更改查询的资源类，请参阅[更改用户资源类示例](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example)。
 
 例如，使用 DWU 100 时，smallrc 资源类中的用户在每次分发时可使用 100 MB 的内存。 有关详细信息，请参阅 [SQL 数据仓库中的并发](sql-data-warehouse-develop-concurrency.md)。
 
@@ -161,4 +161,4 @@ DWU 大小和用户资源类共同确定用户查询可用的内存量。 若要
 
 <!--Other Web references-->
 
-<!--Update_Description: update meta properties, add new feature on monitor rowgroup quanlity-->
+<!--Update_Description: update meta properties, wording update-->

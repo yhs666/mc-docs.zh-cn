@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 08/10/2017
 ms.author: v-yiso
 ms.date: 09/18/2017
-ms.openlocfilehash: 4fad15facf3992202cfc26ed8a96965be227533a
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.openlocfilehash: 30b5d019ed58f635c03c590161ae9e01043d7e40
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>如何通过 Java 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -56,7 +56,7 @@ import javax.xml.datatype.*;
                 "HowToSample",
                 "RootManageSharedAccessKey",
                 "SAS_key_value",
-                ".servicebus.windows.net"
+                ".servicebus.chinacloudapi.cn"
                 );
 
 ServiceBusContract service = ServiceBusService.create(config);

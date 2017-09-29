@@ -12,14 +12,14 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/25/2017
+origin.date: 07/25/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 3d685c2234e8a059f59cfcc872bb0428f7cb8cb6
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 09/25/2017
+ms.openlocfilehash: 6d5f1f277e30a023053b729e69a5113c47f34caf
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c"></a>使用 C 将 Raspberry Pi 3 连接到远程监视解决方案并启用远程固件更新
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="overview"></a>概述
 
-在本教程中，将完成以下步骤：
+本教程会完成以下步骤：
 
 - 将远程监视预配置解决方案的实例部署到 Azure 订阅。 此步骤会自动部署并配置多个 Azure 服务。
 - 将设备和传感器设置为与计算机和远程监视解决方案通信。
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/14/2017
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> 远程监视解决方案在 Azure 订阅中预配一组 Azure 服务。 部署反映实际企业体系结构。 若要避免产生不必要的 Azure 使用费用，请在使用完预配置解决方案的实例后，在 azureiotsuite.com 上将其删除。 如果再次需要预配置解决方案，可以轻松地重新创建它。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。
+> 远程监视解决方案在 Azure 订阅中预配一组 Azure 服务。 部署反映实际企业体系结构。 要避免产生不必要的 Azure 使用费用，请在使用完预配置解决方案的实例后，在 azureiotsuite.com 上将其删除。 如果再次需要预配置解决方案，可以轻松地重新创建它。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-solution](../../includes/iot-suite-raspberry-pi-kit-view-solution.md)]
 
@@ -63,15 +63,18 @@ ms.lasthandoff: 07/14/2017
 
 如果尚未这样做，请通过在 Pi 上运行以下命令，克隆所需的存储库：
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git`
+```sh
+cd ~
+git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git
+```
 
 ### <a name="update-the-device-connection-string"></a>更新设备连接字符串
 
 使用以下命令在 **nano** 编辑器中打开示例配置文件：
 
-`nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/config/deviceinfo`
+```sh
+nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/config/deviceinfo
+```
 
 将占位符值替换为在本教程开始时创建并保存的设备 ID 和 IoT 中心信息。
 
@@ -82,25 +85,29 @@ yourdeviceid
 HostName=youriothubname.azure-devices.cn;DeviceId=yourdeviceid;SharedAccessKey=yourdevicekey
 ```
 
-保存所做的更改（按 **Ctrl-O**，然后按 **Enter**），然后退出编辑器（按 **Ctrl-X**）。
+保存所做的更改（按 **Ctrl-O**，并按 **Enter**），退出编辑器（按 **Ctrl-X**）。
 
 ## <a name="build-the-sample"></a>生成示例
 
 如果尚未这样做，请通过在 Raspberry Pi 上的终端中运行以下命令，为适用于 C 的 Microsoft Azure IoT 设备 SDK 安装必备组件包：
 
-`sudo apt-get update`
-
-`sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev`
+```sh
+sudo apt-get update
+sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev
+```
 
 现在可以在 Raspberry Pi 上生成示例解决方案：
 
-`chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh`
-
-`~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh`
+```sh
+chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh
+~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh
+```
 
 现在可以在 Raspberry Pi 上运行示例程序。 输入以下命令：
 
-  `sudo ~/cmake/remote_monitoring/remote_monitoring`
+  ```sh
+  sudo ~/cmake/remote_monitoring/remote_monitoring
+  ```
 
 以下示例输出是在 Raspberry Pi 的命令提示符下看到的输出示例：
 
@@ -118,7 +125,7 @@ HostName=youriothubname.azure-devices.cn;DeviceId=yourdeviceid;SharedAccessKey=y
 
 1. 在“FWPackageURI”字段中，输入 **https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit/raw/master/advanced/2.0/package/remote_monitoring.zip**。 此存档文件包含固件版本 2.0 的实现。
 
-1. 选择“InvokeMethod”。 Raspberry Pi 上的应用会将确认发送回解决方案仪表板。 然后，它通过下载新版本的固件启动固件更新过程：
+1. 选择“InvokeMethod”。 Raspberry Pi 上的应用会将确认发送回解决方案仪表板。 然后，它通过下载新版本的固件来启动固件更新过程：
 
     ![显示方法历史记录][img-method-history]
 
@@ -131,7 +138,7 @@ HostName=youriothubname.azure-devices.cn;DeviceId=yourdeviceid;SharedAccessKey=y
     ![显示更新进度][img-update-progress]
 
     > [!NOTE]
-    > 更新完成时，远程监视应用将以无提示方式重新启动。 使用 `ps -ef` 命令验证它是否正在运行。 如果要终止该过程，请使用带过程 ID 的 `kill` 命令。
+    > 更新完成时，远程监视应用以无提示方式重新启动。 使用 `ps -ef` 命令验证它是否正在运行。 如果要终止该过程，请使用带过程 ID 的 `kill` 命令。
 
 1. 可以在解决方案门户中查看设备报告的固件更新状态。 以下屏幕截图显示更新过程的每个阶段的状态和持续时间，以及新的固件版本：
 
@@ -140,7 +147,7 @@ HostName=youriothubname.azure-devices.cn;DeviceId=yourdeviceid;SharedAccessKey=y
     如果导航回仪表板，则可以验证固件更新后设备是否仍发送遥测数据。
 
 > [!WARNING]
-> 如果让远程监视解决方案在 Azure 帐户中保持运行状态，系统会按其运行时间计费。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。 请在用完预配置的解决方案后将其从 Azure 帐户中删除。
+> 如果让远程监视解决方案在 Azure 帐户中保持运行状态，系统会按其运行时间计费。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。 请在用完后从 Azure 帐户中删除预配置的解决方案。
 
 ## <a name="next-steps"></a>后续步骤
 

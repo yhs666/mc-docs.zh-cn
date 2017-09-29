@@ -9,27 +9,27 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: e637d046a2d3576f0ed205d29afcafda7b6b540e
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 365b123028d79e66b28ef893f7bdfbb46c36928b
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>将应用程序部署到 Azure 中的合作群集
 本教程是一个系列的第二部分，介绍如何将 Azure Service Fabric 应用程序部署到 Azure 中的合作群集。
 
-在该系列教程的第二部分中，学习如何：
+在该系列教程的第二部分中，你会学习如何：
 > [!div class="checklist"]
 > * 使用 Visual Studio 将应用程序部署到远程群集
 > * 使用 Service Fabric Explorer 从群集中删除应用程序
 
-在此系列教程中，学习如何：
+在此系列教程中，你会学习如何：
 > [!div class="checklist"]
 > * [构建 .NET Service Fabric 应用程序](service-fabric-tutorial-create-dotnet-app.md)
 > * 将应用程序部署到远程群集
@@ -128,4 +128,4 @@ Service Fabric Explorer 是用于浏览和管理 Service Fabric 群集中的应�
 > [!div class="nextstepaction"]
 > [使用 Visual Studio Team Services 设置持续集成](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties-->

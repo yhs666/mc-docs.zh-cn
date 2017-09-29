@@ -12,30 +12,27 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/09/2017
-ms.date: 07/10/2017
+origin.date: 08/24/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
-ms.openlocfilehash: 052eaa2a9942cdced02f1cf8150fe08b9cb94f47
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.openlocfilehash: f12a3e7734381ab3b993eb5105abcd0003cd6956
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/29/2017
 ---
-# 使用 IoT 中心进行设备管理的概述
-<a id="overview-of-device-management-with-iot-hub" class="xliff"></a>
-## 介绍
-<a id="introduction" class="xliff"></a>
+# <a name="overview-of-device-management-with-iot-hub"></a>使用 IoT 中心进行设备管理的概述
+## <a name="introduction"></a>介绍
 Azure IoT 中心提供功能和可扩展性模型，使设备和后端开发人员可以构建功能强大的设备管理解决方案。 设备范围扩大，从受约束的传感器和单一用途微控制器变为功能强大的可路由设备组通信的网关。  此外，在不同行业中，IoT 操作员的用例和要求也显著不同。  尽管有此不同，但使用 IoT 中心进行设备管理提供了功能、模式和代码库，以满足不同设备和最终用户的需要。
 
-创建成功的企业 IoT 解决方案的一个重要部分，是提供操作员如何处理其设备集合的日常管理的策略。 IoT 操作员需要简单且可靠的工具和应用程序，使他们能够重点处理其工作的更具战略意义方面。 本文将提供：
+创建成功的企业 IoT 解决方案的一个重要部分，是提供操作员如何处理其设备集合的日常管理的策略。 IoT 操作员需要简单且可靠的工具和应用程序，使他们能够重点处理其工作的更具战略意义方面。 本文提供：
 
 - Azure IoT 中心设备管理方法的简要概述。
 - 常见设备管理原则的说明。
 - 设备生命周期的说明。
 - 常见设备管理模式的概述。
 
-## 设备管理原则
-<a id="device-management-principles" class="xliff"></a>
+## <a name="device-management-principles"></a>设备管理原则
 IoT 带来了一系列独特的设备管理难题，每个企业级解决方案必须满足以下原则：
 
 ![设备管理原则图形][img-dm_principles]
@@ -50,8 +47,7 @@ IoT 带来了一系列独特的设备管理难题，每个企业级解决方案�
     * 设备地理位置
 * **为许多角色提供服务**：支持 IoT 操作角色的独特工作流和进程至关重要。 操作人员必须与给定约束的内部 IT 部门协调工作。  他们还必须找到可持续方法将实时设备操作信息传递给主管和其他业务管理角色。
 
-## 设备生命周期
-<a id="device-lifecycle" class="xliff"></a>
+## <a name="device-lifecycle"></a>设备生命周期
 有一组所有企业 IoT 项目通用的常规设备管理阶段。 在 Azure IoT 中，设备生命周期有五个阶段：
 
 ![Azure IoT 设备生命周期的五个阶段：计划、预配、配置、监视、停用][img-device_lifecycle]
@@ -74,8 +70,7 @@ IoT 带来了一系列独特的设备管理难题，每个企业级解决方案�
 
     *其他阅读材料*：[如何使用设备孪生属性][lnk-twin-properties]、[管理设备标识][lnk-identity-registry]
 
-## 设备管理模式
-<a id="device-management-patterns" class="xliff"></a>
+## <a name="device-management-patterns"></a>设备管理模式
 IoT 中心启用以下设备管理模式集。  [设备管理教程][lnk-get-started]更详细地介绍如何扩展这些模式以适合具体方案，以及如何基于这些核心模板设计新模式。
 
 - **重启** - 后端应用通过直接方法通知设备它已启动重启。  设备使用报告属性来更新设备的重新启动状态。
@@ -87,15 +82,14 @@ IoT 中心启用以下设备管理模式集。  [设备管理教程][lnk-get-sta
 - **配置** - 后端应用使用所需属性来配置设备上运行的软件。  设备使用报告属性来更新设备的配置状态。
 
     ![设备管理配置模式图形][img-config_pattern]
-- **固件更新** - 后端应用通过直接方法通知设备它已启动固件更新。  设备将启动一个多步骤过程，用于下载固件图片、应用固件图片，最后重新连接到 IoT 中心服务。  在整个多步骤过程中，设备使用报告属性来更新设备的进度和状态。
+- **固件更新** - 后端应用通过直接方法通知设备它已启动固件更新。  设备启动一个多步骤过程，用于下载固件图片、应用固件图片，最后重新连接到 IoT 中心服务。  在整个多步骤过程中，设备使用报告属性来更新设备的进度和状态。
 
     ![设备管理固件更新模式图形][img-fwupdate_pattern]
 - **报告进度和状态** - 解决方案后端在一组设备上运行设备孪生查询，以报告设备上运行的操作的状态和进度。
 
     ![设备管理报告进度和状态模式图形][img-report_progress_pattern]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 可以使用 IoT 中心设备管理提供的功能、模式和代码库，在每个设备生命周期阶段创建满足企业 IoT 操作员需求的 IoT 应用程序。
 
 若要继续了解 IoT 中心设备管理功能，请参阅[设备管理入门][lnk-get-started]教程。

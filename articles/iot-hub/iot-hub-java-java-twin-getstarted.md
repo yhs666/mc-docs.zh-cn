@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/04/2017
 ms.author: dobett
-ms.date: 08/07/2017
-ms.openlocfilehash: b6ac1e2990fc93c08b5d0d1ffac5590e6b1ac3eb
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/25/2017
+ms.openlocfilehash: c249c4df94a24ad2f37e6a0422f6edc9d23dab24
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="get-started-with-device-twins-java"></a>设备孪生入门 (Java)
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 07/28/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -219,7 +219,7 @@ ms.lasthandoff: 07/28/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 

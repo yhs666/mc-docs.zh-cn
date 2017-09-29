@@ -3,7 +3,7 @@ title: "PowerShell 示例 - 复制 - Azure SQL 数据库 - 新服务器 | Azure"
 description: "将 SQL 数据库复制到新服务器的 Azure PowerShell 示例脚本"
 services: sql-database
 documentationcenter: sql-database
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 2a599333f02f417dcd2039d23a0d3c2c65eb4b3b
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: bd2c1d0f1d1e352a6bd7c85ae94832df976382c2
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>使用 PowerShell 将 SQL 数据库复制到新服务器
 
@@ -99,7 +99,8 @@ $databasecopy = New-AzureRmSqlDatabaseCopy -ResourceGroupName $sourceresourcegro
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $sourceresourcegroupname
+Remove-AzureRmResourceGroup -ResourceGroupName $targetresourcegroupname
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -121,4 +122,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update "Clean up deployment" script-->

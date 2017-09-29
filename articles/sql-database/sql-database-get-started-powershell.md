@@ -1,34 +1,35 @@
 ---
-title: "Azure PowerShell：创建 SQL 数据库 | Azure"
-description: "了解如何在 Azure 门户中创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库，"
+title: "Azure PowerShell：创建 SQL 数据库 | Microsoft Docs"
+description: "了解如何在 Azure 门户中创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库。"
 keywords: "SQL 数据库教程：创建 SQL 数据库"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start create
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 04/17/2017
 ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 844f827122b240a28d45219722cfdf3a8b526d88
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.author: v-johch
+ms.openlocfilehash: ab790663ad9d6c3b125e124632fbe4701ff936c8
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>使用 PowerShell 创建单一 Azure SQL 数据库
 
 PowerShell 用于从命令行或脚本创建和管理 Azure 资源。 本指南详述了如何使用 PowerShell 在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)的 [Azure SQL 数据库逻辑服务器](sql-database-features.md)中部署 Azure SQL 数据库。
+
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-若要完成本教程，请确保已安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 
+本教程需要 Azure PowerShell 模块 4.0 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -128,4 +129,3 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
 
-<!--Update_Description: update code-->

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/09/2017
+origin.date: 08/23/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 8d6fd6875fc8ad2d1348fc99417d434f27d640bb
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/16/2017
+ms.openlocfilehash: a7dcdf3d872b09f6e272625e37c09e8258b3995c
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="azure-relay-exceptions"></a>Azure 中继异常
 
@@ -52,9 +52,9 @@ ms.lasthandoff: 07/14/2017
 | [操作已取消](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |尝试对已关闭、中止或释放的对象调用某个操作。 在极少数情况下，环境事务已释放。 |检查代码并确保代码不会对已释放的对象调用操作。 |重试不会解决问题。 |
 | [未授权访问](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |[TokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.tokenprovider) 对象无法获取令牌，该令牌无效，或者令牌不包含执行操作所需的声明。 |确保使用正确的值创建令牌提供程序。 检查访问控制服务的配置。 |在某些情况下，重试可能会有帮助；在代码中添加重试逻辑。 |
 | [参数异常](https://msdn.microsoft.com/library/system.argumentexception.aspx)；<br /> [参数为 Null](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)；<br />[参数超出范围](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) |出现下述一个或多个情况：<br />提供给该方法的一个或多个参数均无效。<br /> 提供给 [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) 或 [Create](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) 的 URI 包含一个或多个路径段。<br /> 提供给 [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) 或 [Create](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) 的 URI 方案无效。 <br />属性值大于 32KB。 |检查调用代码并确保参数正确。 |重试不会解决问题。 |
-| [服务器忙](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) |服务目前无法处理请求。 |客户端可以等待一段时间，然后重试操作。 |客户端可以在特定的时间间隔后重试。 如果重试导致其他异常，请检查该异常的重试行为。 |
+| [服务器忙](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) |服务目前无法处理请求。 |客户端可以等待一段时间，并重试操作。 |客户端可以在特定的时间间隔后重试。 如果重试导致其他异常，请检查该异常的重试行为。 |
 | [超出配额](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |消息实体已达到其最大允许大小。 |通过从实体或其子队列接收消息在该实体中创建空间。 请参阅[QuotaExceededException](#quotaexceededexception)。 |如果同时已删除消息，则重试可能会有帮助。 |
-| [超出消息大小](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |消息有效负载超出 256 KB 限制。 请注意，256 KB 限制是指总消息大小。 总消息大小可能包括系统属性和任何 Microsoft .NET 开销。 |减少消息负载的大小，然后重试操作。 |重试不会解决问题。 |
+| [超出消息大小](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |消息有效负载超出 256 KB 限制。 请注意，256 KB 限制是指总消息大小。 总消息大小可能包括系统属性和任何 Microsoft .NET 开销。 |减少消息负载的大小，并重试操作。 |重试不会解决问题。 |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
 
@@ -75,7 +75,8 @@ ms.lasthandoff: 07/14/2017
 示例：
 
 ```
-'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10. The time allotted to this operation may have been a portion of a longer timeout.
+'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10.
+The time allotted to this operation may have been a portion of a longer timeout.
 ```
 
 ### <a name="common-causes"></a>常见原因
@@ -86,7 +87,7 @@ ms.lasthandoff: 07/14/2017
     运行条件下的操作超时值可能太小。 客户端 SDK 的操作超时默认值为 60 秒。 请查看代码中的值是否设置过小。 请注意，CPU 使用率和网络条件可能会影响操作完成时间。 最好是不要将操作超时设置为很小的值。
 *   **临时服务错误**
 
-    有时，中继在处理请求时可能会遇到延迟。 例如，在流量高峰时段可能会发生这种情况。 如果发生这种情况，可以在延迟后重试操作，直到操作成功为止。 如果多次尝试同一操作后仍然失败，请访问 [Azure 服务状态站点](https://azure.microsoft.com/status/)，看是否有已知的服务中断。
+    有时，中继服务在处理请求时可能会遇到延迟。 例如，在流量高峰时段可能会发生这种情况。 如果发生这种情况，可以在延迟后重试操作，直到操作成功为止。 如果多次尝试同一操作后仍然失败，请访问 [Azure 服务状态站点](https://azure.microsoft.com/status/)，看是否有已知的服务中断。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 中继常见问题](./relay-faq.md)

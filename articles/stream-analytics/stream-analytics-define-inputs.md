@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 07/05/2017
-ms.date: 09/04/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: cbd34a06a2ecef98c990793fedd6ee95c2151ff9
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 825ed353fd7d4c32863b62dd1019a814ae772884
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>数据连接：了解从事件到流分析的数据流输入
 与流分析作业的数据连接是数据源提供的事件流，这称为“输入”。 流分析与包括 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)、[Azure IoT 中心](https://www.azure.cn/home/features/iot-hub/)和 [Azure Blob 存储](https://www.azure.cn/home/features/storage/blobs/)在内的 Azure 数据流源具有一流的集成。 这些输入源可以来自与分析作业相同的 Azure 订阅，也可以来自其他订阅。
@@ -125,7 +125,7 @@ Azure Iot 中心是已针对 IoT 进行优化，具有高度伸缩性的发布-�
 CSV 格式的输入需要标头行，以便为数据集定义字段。 此外，所有标头行字段都必须唯一。
 
 > [!NOTE]
-> 流分析不支持将内容添加到现有 Blob。 流分析将仅查看 Blob 一次，并且在作业读取数据后对 Blob 所做的任何更改都不会得到处理。 最佳做法是一次性上传所有数据，然后不向该 Blob 存储添加任何事件。
+> 流分析不支持将内容添加到现有 blob 文件。 流分析将仅查看每个文件一次，并且在作业读取数据后对文件所做的任何更改都不会得到处理。 最佳做法是立即上传 blob 文件的全部数据，然后将其他较新的事件添加到其他全新的 blob 文件中。
 > 
 
 ### <a name="configure-blob-storage-as-a-data-stream-input"></a>将 Blob 存储配置为数据流输入

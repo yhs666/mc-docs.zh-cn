@@ -13,16 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/25/2017
-ms.date: 07/10/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
-ms.openlocfilehash: f016f0d97692c9ca22816e8a3550bc8f2f8a6d10
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.openlocfilehash: 5830d19db715c503779036eeb78e2c9822bf9419
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/29/2017
 ---
-# 从设备到云通信指南
-<a id="device-to-cloud-communications-guidance" class="xliff"></a>
+# <a name="device-to-cloud-communications-guidance"></a>从设备到云通信指南
 将信息从设备应用发送到解决方案后端时，IoT 中心会公开三个选项：
 
 * [设备到云消息][lnk-d2c]，用于时序遥测和警报。
@@ -37,9 +36,9 @@ ms.lasthandoff: 06/28/2017
 | 存储和检索 | 通过 IoT 中心临时进行存储，最多存储 7 天。 仅顺序读取。 | 通过 IoT 中心存储在设备孪生中。 可使用 [IoT 中心查询语言][lnk-query]检索。 | 存储在用户提供的 Azure 存储帐户中。 |
 | 大小 | 最多 256KB 的消息。 | 报告的属性大小最大为 8KB。 | Azure Blob 存储支持的最大文件大小。 |
 | 频率 | 高。 有关详细信息，请参阅 [IoT 中心限制][lnk-quotas]。 | 中。 有关详细信息，请参阅 [IoT 中心限制][lnk-quotas]。 | 低。 有关详细信息，请参阅 [IoT 中心限制][lnk-quotas]。 |
-| 协议 | 在所有协议上可用。 | 目前仅在使用 MQTT 时提供。 | 不管使用什么协议都提供，但要求在设备上启用 HTTP。 |
+| 协议 | 在所有协议上可用。 | 使用 MQTT 或 AMQP 时可用。 | 不管使用什么协议都提供，但要求在设备上启用 HTTP。 |
 
-应用程序可能需要将信息作为遥测时序或警报发送，并且使其在设备孪生中可用。 在这种情况下，你可以选择以下选项之一：
+可能出现的情况是，应用程序既要求将信息以遥测时间系列或警报方式发送，又要求以设备孪生方式提供。 在这种情况下，可以选择以下选项之一：
 
 * 设备应用发送一条设备到云消息并报告属性更改。
 * 解决方案后端在收到消息时可将信息存储在设备孪生的标记中。

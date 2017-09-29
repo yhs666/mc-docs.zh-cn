@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/04/2017
+origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: 98b063390c0227a11742b9583a4b5b52b4718757
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 10/16/2017
+ms.openlocfilehash: 223e718e187100dd11ea7d83359a54e7ee752d81
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>使用 Azure CLI 配置 IoT 中心文件上传
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 08/04/2017
 
 以下步骤假设已使用 **Resource Manager** 部署模型而不**经典**部署模型创建了存储帐户。
 
-需要 IoT 中心所在订阅中 Azure 存储帐户的连接字符串，以配置从设备进行的文件上传。 还需要存储帐户中 Blob 容器的名称。 使用以下命令检索存储帐户密钥：
+若要从设备配置文件上传，需要 Azure 存储帐户的连接字符串。 存储帐户必须与 IoT 中心位于同一订阅中。 还需要存储帐户中 Blob 容器的名称。 使用以下命令检索存储帐户密钥：
 
 ```azurecli
 az storage account show-connection-string --name {your storage account name} --resource-group {your storage account resource group}
@@ -134,7 +134,7 @@ az iot hub show --name {your iot hub name}
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 IoT 中心文件上传功能的详细信息，请参阅 IoT 中心开发人员指南中的 [从设备上传文件][lnk-upload] 。
+有关 IoT 中心文件上传功能的详细信息，请参阅[从设备上传文件][lnk-upload]。
 
 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
@@ -172,8 +172,8 @@ az iot hub show --name {your iot hub name}
 [lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
 [lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
 [lnk-iot-pricing]: https://www.azure.cn/pricing/details/iot-hub/
-[lnk-manage-storage]: ../storage/storage-azure-cli.md#manage-storage-accounts
-[lnk-portal-storage]: ../storage/storage-create-storage-account.md
-[lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#create
+[lnk-manage-storage]:../storage/common/storage-azure-cli.md#manage-storage-accounts
+[lnk-portal-storage]:../storage/common/storage-create-storage-account.md
+[lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#az_iot_hub_create
 
 <!--Update_Description: update meta data only-->

@@ -10,7 +10,7 @@
 ## [初级教程](sql-data-warehouse-get-started-tutorial.md)
 ## [最佳实践](sql-data-warehouse-best-practices.md)
 ## [管理](sql-data-warehouse-overview-manage.md)
-<!-- Not Available ## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)-->
+
 
 # 如何
 
@@ -137,10 +137,12 @@
 # 引用
 
 ## [容量限制](sql-data-warehouse-service-capacity-limits.md)
-## [T-SQL 语言元素](sql-data-warehouse-reference-tsql-language-elements.md)
-## [T-SQL 语句](sql-data-warehouse-reference-tsql-statements.md)
-## [T-SQL 系统视图](sql-data-warehouse-reference-tsql-system-views.md)
-## [PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)
+## T-SQL
+### [完整参考信息](https://docs.microsoft.com/sql/t-sql/language-reference/)
+### [SQL DW 语言元素](sql-data-warehouse-reference-tsql-language-elements.md)
+### [SQL DW 语句](sql-data-warehouse-reference-tsql-statements.md)
+## [系统视图](sql-data-warehouse-reference-tsql-system-views.md)
+## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # 资源
 
@@ -150,7 +152,7 @@
 ## [服务更新](https://www.azure.cn/what-is-new/)
 ## [堆栈溢出](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse) -->
-
+<!-- Not Available ## [Videos](https://www.azure.cn/documentation/videos/index/?services=sql-data-warehouse)-->
 <!-- Not Available ## Partners -->
 <!-- Not Available ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)-->
 <!-- Not Available ### [Data integration](sql-data-warehouse-partner-data-integration.md)-->

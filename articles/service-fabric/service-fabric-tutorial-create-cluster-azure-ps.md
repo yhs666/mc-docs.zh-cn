@@ -9,17 +9,18 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/13/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 03fac1b1ba123a1de4262464af3a7dbc4b5c4bb8
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.custom: mvc
+ms.openlocfilehash: bc253bdf76a92b81caf4c822bf2106ce5f031a59
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="create-a-secure-cluster-on-azure-using-powershell"></a>使用 PowerShell 在 Azure 中创建安全群集
 本教程介绍如何创建一个在 Azure 中运行的 Service Fabric 群集（Windows 或 Linux）。 完成本教程后，云中会运行一个可在其中部署应用程序的群集。
@@ -71,7 +72,7 @@ ms.lasthandoff: 09/08/2017
 5. 运行以下命令创建群集及其证书：
 
    ```powershell
-      New-AzureRmServiceFabricCluster
+      New-AzureRmServiceFabricCluster `
           -TemplateFile C:\Users\me\Desktop\azuredeploy.json `
           -ParameterFile C:\Users\me\Desktop\azuredeploy.parameters.json `
           -CertificateOutputFolder C:\Users\me\Desktop\ `

@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure IoT 中心的直接方法 (.NET/Node) | Azure"
+title: "使用 Azure IoT 中心的直接方法 (Java) | Microsoft Docs"
 description: "如何使用 Azure IoT 中心直接方法。 使用适用于 Java 的 Azure IoT 设备 SDK 实现包含直接方法的模拟设备应用，并使用适用于 Java 的 Azure IoT 服务 SDK 实现调用直接方法的服务应用。"
 services: iot-hub
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/12/2017
+origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: 6770d36822e0834925d0edd6c2aab0584933d832
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 10/16/2017
+ms.openlocfilehash: a1225b5cf4738a66a33b55240931f14521c13297
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="use-direct-methods-java"></a>使用直接方法 (Java)
 
@@ -28,13 +28,10 @@ ms.lasthandoff: 08/04/2017
 在本教程中，你将创建两个 Java 控制台应用：
 
 * **invoke-direct-method**：一个 Java 后端应用，它调用模拟设备应用上的方法并显示响应。
-* **模拟设备**：一个 Java 应用，它模拟使用你创建的设备标识连接到 IoT 中心的设备，并对从后端直接调用的方法做出响应。
+* **模拟设备**：一个 Java 应用，它模拟使用创建的设备标识连接到 IoT 中心的设备。 此应用对后端直接调用做出响应。
 
 > [!NOTE]
-> [Azure IoT SDK][lnk-hub-sdks] 文章介绍了 Azure IoT SDK，这些 SDK 可用于构建在设备和解决方案后端运行的应用程序。
->
->
-
+> 有关 SDK 的信息（可以使用这些 SDK 构建在设备和解决方案后端上运行的应用程序），请参阅 [Azure IoT SDK][lnk-hub-sdks]。
 
 要完成本教程，需要：
 
@@ -52,11 +49,11 @@ ms.lasthandoff: 08/04/2017
 
 1. 创建一个名为 iot-java-direct-method 的空文件夹。
 
-1. 在命令提示符下使用以下命令，在 iot-java-direct-method 文件夹中创建一个名为 **simulated-device** 的 Maven 项目。 请注意，这是一条很长的命令：
+1. 在命令提示符下使用以下命令，在 iot-java-direct-method 文件夹中创建一个名为 **simulated-device** 的 Maven 项目。 以下命令是一条很长的命令：
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. 在命令提示符下，浏览到 simulated-device 文件夹。
+1. 在命令提示符下，导航到 simulated-device 文件夹。
 
 1. 使用文本编辑器，打开 simulated-device 文件夹中的 pom.xml 文件，并在 **dependencies** 节点中添加以下依赖项。 此依赖项使得你可以使用应用中的 iot-device-client 包来与 IoT 中心进行通信：
 
@@ -64,7 +61,7 @@ ms.lasthandoff: 08/04/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 
@@ -104,7 +101,7 @@ ms.lasthandoff: 08/04/2017
     import java.util.Scanner;
     ```
 
-1. 将以下类级变量添加到 **App** 类。 将 **{youriothubname}** 替换为 IoT 中心名称，将 **{yourdevicekey}** 替换为在*创建设备标识*部分中生成的设备密钥值：
+1. 将以下类级变量添加到 **App** 类。 将 `{youriothubname}` 替换为 IoT 中心名称，将 `{yourdevicekey}` 替换为在“创建设备标识”部分中生成的设备密钥值：
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.cn;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -114,9 +111,9 @@ ms.lasthandoff: 08/04/2017
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    本示例应用在实例化 **DeviceClient** 对象时使用 **protocol** 变量。 目前，若要使用直接方法，必须使用 MQTT 协议。
+    本示例应用在实例化 **DeviceClient** 对象时使用 **protocol** 变量。 
 
-1. 向 **App** 类中添加以下嵌套类，用以向 IoT 中心返回状态代码：
+1. 若要向 IoT 中心返回状态代码，向 App 类添加以下嵌套类：
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -128,7 +125,7 @@ ms.lasthandoff: 08/04/2017
     }
     ```
 
-1. 向 **App** 类中添加以下嵌套类，用以处理从解决方案后端进行的直接方法调用：
+1. 若要处理从解决方案后端进行的直接方法调用，向 App 类添加以下嵌套类：
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -157,7 +154,7 @@ ms.lasthandoff: 08/04/2017
     }
     ```
 
-1. 向 **App** 类中添加一个 **main** 方法，用以创建 **DeviceClient** 并侦听直接方法调用：
+1. 若要创建 DeviceClient 并侦听直接方法调用，将一个 main 方法添加到 App 类中：
 
     ```java
     public static void main(String[] args)
@@ -197,9 +194,9 @@ ms.lasthandoff: 08/04/2017
 
 ## <a name="call-a-direct-method-on-a-device"></a>在设备上调用直接方法
 
-在本部分中，你将创建一个 .Java 控制台应用，用以调用模拟设备应用中的一个直接方法并显示响应。 此控制台应用连接到 IoT 中心来调用该直接方法。
+在本部分中，创建一个 Java 控制台应用，用以调用一个直接方法并显示响应。 此控制台应用连接到 IoT 中心来调用该直接方法。
 
-1. 在命令提示符下使用以下命令，在 iot-java-direct-method 文件夹中创建一个名为 **invoke-direct-method** 的 Maven 项目。 请注意，这是一条很长的命令：
+1. 在命令提示符下使用以下命令，在 iot-java-direct-method 文件夹中创建一个名为 **invoke-direct-method** 的 Maven 项目。 以下命令是一条很长的命令：
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=invoke-direct-method -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -211,7 +208,7 @@ ms.lasthandoff: 08/04/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -252,7 +249,7 @@ ms.lasthandoff: 08/04/2017
     import java.util.concurrent.TimeUnit;
     ```
 
-1. 将以下类级变量添加到 **App** 类。 将 {youriothubconnectionstring} 替换为在“创建 IoT 中心”部分记下的 IoT 中心连接字符串：
+1. 将以下类级变量添加到 **App** 类。 将 `{youriothubconnectionstring}` 替换为在“创建 IoT 中心”部分记下的 IoT 中心连接字符串：
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -264,7 +261,7 @@ ms.lasthandoff: 08/04/2017
     public static final String payload = "a line to be written";
     ```
 
-1. 在 **main** 方法中添加以下代码，用以在模拟设备上调用该方法：
+1. 若要在模拟设备上调用该方法，将以下代码在添加到 main 方法中：
 
     ```java
     System.out.println("Starting sample...");

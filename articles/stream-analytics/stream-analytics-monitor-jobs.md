@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 04/20/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8871ca6a2366b8fc8f6f84e4ed2ff69a833297d8
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: e8dd499210e85d836a08edf15923ecf9f6a27e32
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>以编程方式创建流分析作业监视器
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/26/2017
 在开始此过程之前，必须具备以下条件：
 
 * Visual Studio 2017 或 2015
-* 已下载并安装了 [Azure.NET SDK](/downloads/)
+* 已下载并安装了 [Azure.NET SDK](https://www.azure.cn/downloads/)
 * 需要已启用监视功能的现有流分析作业
 
 ## <a name="create-a-project"></a>创建一个项目
@@ -177,7 +177,7 @@ ms.lasthandoff: 07/26/2017
 
 ## <a name="get-support"></a>获取支持
 
-如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
+如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -187,4 +187,4 @@ ms.lasthandoff: 07/26/2017
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update -->

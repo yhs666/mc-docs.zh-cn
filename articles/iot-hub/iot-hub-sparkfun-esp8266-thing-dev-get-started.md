@@ -13,14 +13,14 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/15/2017
+origin.date: 08/16/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: 8e8622757e80312e6595673391cfba82d8c41ee4
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 09/25/2017
+ms.openlocfilehash: 4d4e8de99c38a3df93df3ec7cfa16ba5bcbae5bd
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>将 Sparkfun ESP8266 Thing Dev 连接到云中的 Azure IoT 中心
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 08/04/2017
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>` 是在上一步骤中获取的组所有者名称。 `<username>` 是你的 Ubuntu 用户名。
+   `<group-owner-name>` 是在上一步骤中获取的组所有者名称。 `<username>` 是 Ubuntu 用户名。
 
 1. 从 Ubuntu 中注销，并再次登录，使更改生效。
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 08/04/2017
 
    ![已安装 esp8266 包](./media/iot-hub-sparkfun-thing-dev-get-started/12_arduino-ide-esp8266-installed.png)
 
-1. 单击“Tools”（工具） > “Board”（开发板） > “Adafruit HUZZAH ESP8266”。
+1. 单击“Tools”（工具） > “Board”（开发板） > “Sparkfun ESP8266 Thing Dev”。
 
 ### <a name="install-necessary-libraries"></a>安装所需的库
 
@@ -191,6 +191,14 @@ ms.lasthandoff: 08/04/2017
 
 1. 在 Arduino IDE 中，单击“Tool”（工具） > “Port”（端口），然后单击 Sparkfun ESP8266 Thing Dev 的串行端口。
 1. 单击 “Sketch” > “Upload”（上传），生成示例应用程序并将其部署到 Sparkfun ESP8266 Thing Dev。
+
+> [!Note]
+> 如果你使用 macOS，那么可能会在上传期间看到以下消息。 `warning: espcomm_sync failed`,`error: espcomm_open failed`. 请打开终端窗口，然后完成以下操作来解决此问题。
+> ```bash
+> cd /System/Library/Extensions/IOUSBFamily.kext/Contents/PlugIns
+> sudo mv AppleUSBFTDI.kext AppleUSBFTDI.disabled
+> sudo touch /System/Library/Extensions
+> ```
 
 ### <a name="enter-your-credentials"></a>输入凭据
 

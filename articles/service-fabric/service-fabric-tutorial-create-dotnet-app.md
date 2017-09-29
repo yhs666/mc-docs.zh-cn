@@ -9,17 +9,18 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8177a489d06b61516cc3863aff321811ee739b94
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.custom: mvc
+ms.openlocfilehash: be8d38a9522e6e42463d524b257f67f4e8830dd0
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>使用 ASP.NET Core Web API 前端服务和有状态后端服务创建和部署应用程序
 本教程是一个系列中的第一部分。  其中介绍了如何使用 ASP.NET Core Web API 前端和有状态后端服务创建 Azure Service Fabric 应用程序以存储数据。 完成后，将生成一个投票应用程序，其中包含 ASP.NET Core Web 前端，用于将投票结果保存到群集的有状态后端服务中。 如果不想手动创建投票应用程序，可以[下载已完成应用程序的源代码](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)，跳到[大致了解投票示例应用程序](#walkthrough_anchor)。
@@ -532,10 +533,10 @@ namespace VotingData.Controllers
 
     2. 首先，为后端服务的 ReverseProxy 构造 URL **(1)**。
     3. 然后我们向 ReverseProxy 发送 HTTP PUT 请求 **(2)**。
-    4. 最后，将后端服务的响应返回到客户端 **(3)**。
+    4. 最后，将后端服务的响应返回到客户端 (3)。
 
-4. 按 F5 继续操作
-    1. 此时到达后端服务中的断点。
+4. 按 F5 以继续操作
+    1. 此时，到达后端服务中的断点。
 
     ![添加投票后端服务](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
@@ -558,4 +559,4 @@ namespace VotingData.Controllers
 > [!div class="nextstepaction"]
 > [将应用程序部署到 Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 
-<!--Update_Description: update meta properties， add the Angula JS and Visual Studio Core content in service fabric app-->
+<!--Update_Description: update meta properties-->

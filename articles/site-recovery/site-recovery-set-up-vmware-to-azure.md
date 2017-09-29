@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/29/2017
-ms.date: 08/28/2017
-ms.author: v-johch
-ms.openlocfilehash: 214f823199d34496e9acb36900cc8407d5b5e31f
-ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
+ms.date: 10/02/2017
+ms.author: v-yeche
+ms.openlocfilehash: ff067863a56798cb627560ac93efd9b32b08b0b4
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>设置源环境（VMware 到 Azure）
 > [!div class="op_single_selector"]
 > * [VMware 到 Azure](./site-recovery-set-up-vmware-to-azure.md)
-<!-- Not Available > * [Physical to Azure](./site-recovery-set-up-physical-to-azure.md)-->
+> * [物理机到 Azure](./site-recovery-set-up-physical-to-azure.md)
 
 本文介绍如何设置本地环境，以便开始将 VMware 上运行的虚拟机复制到 Azure。
 
@@ -36,7 +36,11 @@ ms.lasthandoff: 09/04/2017
 - 用于安装配置服务器的虚拟机。
 
 ## <a name="configuration-server-minimum-requirements"></a>配置服务器的最低要求
-应在高度可用的 VMware 虚拟机上部署配置服务器软件。 下表列出了配置服务器的最低硬件、软件和网络要求。
+下表列出了配置服务器的最低硬件、软件和网络要求。
+
+> [!IMPORTANT]
+> 部署配置服务器以保护 VMware 虚拟机时，我们建议将其部署为高可用性 (HA) 虚拟机。
+
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]
@@ -65,7 +69,7 @@ ms.lasthandoff: 09/04/2017
     ![设置源](./media/site-recovery-set-up-vmware-to-azure/set-source1.png)
 2. 在“添加服务器”边栏选项卡中，检查“配置服务器”是否已出现在“服务器类型”中。
 4. 下载站点恢复统一安装程序安装文件。
-5. 下载保管库注册密钥。 运行统一安装程序时需要使用该注册密钥。 生成的密钥有效期为 5 天。
+5. 下载保管库注册密钥。 运行统一安装程序时，需要注册密钥。 生成的密钥有效期为 5 天。
 
     ![设置源](./media/site-recovery-set-up-vmware-to-azure/set-source2.png)
 6. 在用作配置服务器的计算机上，运行 **Azure Site Recovery 统一安装程序**安装配置服务器、进程服务器和主目标服务器。
@@ -78,7 +82,7 @@ ms.lasthandoff: 09/04/2017
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> 可通过命令行安装配置服务器。 有关详细信息，请参阅 [使用命令行工具安装配置服务器](http://aka.ms/installconfigsrv)。
+> 可以通过命令行安装配置服务器。 有关详细信息，请参阅[使用命令行工具安装配置服务器](http://aka.ms/installconfigsrv)。
 
 #### <a name="add-the-vmware-account-for-automatic-discovery"></a>添加用于自动发现的 VMware 帐户
 
@@ -96,3 +100,5 @@ ms.lasthandoff: 09/04/2017
 
 ## <a name="next-steps"></a>后续步骤
 在 Azure 中[设置目标环境](./site-recovery-prepare-target-vmware-to-azure.md)。
+
+<!--Update_Description: update meta properties， update link -->

@@ -9,18 +9,18 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/13/2017
-ms.date: 08/14/2017
+ms.date: 10/02/2017
 wacn.date: 
 ms.author: v-yeche
-ms.openlocfilehash: 7eb0b04cedea82314ab4222258487f7dbf629466
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 9bf3bc9266f22d4b572fd7792cc4d574d5bc6837
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>在 Azure Service Fabric 上托管 Node.js 应用程序
 
@@ -151,3 +151,5 @@ Visual Studio 会创建应用程序项目和执行组件服务项目，并在解
 
 [download-sample]: https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/service-fabric-node-website.zip
 [create-account]: https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F
+
+<!--Update_Description: update meta properties-->

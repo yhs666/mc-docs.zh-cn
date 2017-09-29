@@ -3,7 +3,7 @@ title: "PowerShell 示例 - 活动异地复制 - 单一 Azure SQL 数据库 | Az
 description: "为单个 Azure SQL 数据库设置活动异地复制的 Azure PowerShell 示例脚本"
 services: sql-database
 documentationcenter: sql-database
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 3f6b9ad52aca48e89a22e0899962e3463b5b29b6
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 3421802a1156931a9782a8fe6f9ed97bf7937ef8
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>使用 PowerShell 为单一 Azure SQL 数据库配置活动异地复制
 
@@ -99,8 +99,8 @@ $secondaryLink | Remove-AzureRmSqlDatabaseSecondary
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
-Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $primaryresourcegroupname
+Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -127,4 +127,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update "Clean up deployment" script-->

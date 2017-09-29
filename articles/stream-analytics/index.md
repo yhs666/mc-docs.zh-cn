@@ -11,16 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 05/23/2017
-ms.date: 07/10/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5e8957ba2bddf1cc39bed8de0a0c000678989d4e
-ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.openlocfilehash: 3abeb75380ce1a3dc6025e7f972a2a4ddab8b884
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 09/28/2017
 ---
-# 流分析文档
-<a id="stream-analytics-documentation" class="xliff"></a>
+# <a name="stream-analytics-documentation"></a>流分析文档
 
 了解如何使用流分析（完全托管的事件处理引擎）在云中运行物联网 (IoT) 分析。 教程和其他文档介绍了如何实时分析来自应用程序、传感器、设备、社交媒体等的数据。 
 

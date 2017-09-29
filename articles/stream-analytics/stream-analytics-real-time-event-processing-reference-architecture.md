@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/24/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: a8e2e3cbd22f4b9984dddf105daaaebb60c71358
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 6ba74c193a2d61b08764517de92f4b989c427980
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="reference-architecture-real-time-event-processing-with-azure-stream-analytics"></a>参考体系结构：使用 Azure 流分析进行实时事件处理
 通过 Azure 流分析进行实时事件处理的参考体系结构的用途是提供一个通用的蓝图，以便通过 Azure 部署实时平台即服务 (PaaS) 流式处理解决方案。
@@ -31,7 +31,6 @@ ms.lasthandoff: 07/26/2017
 Azure 提供了各种类别的分析技术，支持一系列不同的解决方案和要求。 由于提供的产品/服务的多样性，因此选择为端到端解决方案部署何种 Azure 服务并不那么容易。 本文旨在介绍各种支持事件流式处理解决方案的 Azure 服务的功能和互操作性。 本文还介绍了允许客户充分利用此类方法的某些方案。
 
 ## <a name="contents"></a>内容
-
 * 执行摘要
 * 实时分析简介
 * Azure 中实时数据的价值定位
@@ -53,7 +52,7 @@ Azure 提供了各种类别的分析技术，支持一系列不同的解决方�
 **下载：** [使用 Azure 流分析进行实时事件处理](http://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
@@ -62,4 +61,4 @@ Azure 提供了各种类别的分析技术，支持一系列不同的解决方�
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update -->

@@ -1,5 +1,5 @@
 ---
-title: "从头开始保障你的物联网的安全 | Azure"
+title: "从头开始保障物联网的安全 | Azure"
 description: "本文介绍了 Azure IoT 套件的内置安全功能"
 services: 
 suite: iot-suite
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/31/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: 03/31/2017
-ms.openlocfilehash: 49f7ba1b9c4cc84961dae8768ce466e4acfdd367
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/16/2017
+ms.openlocfilehash: 443a112ca3918fcaef4068b4a39664f2dc23163f
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>物联网安全基础知识
 物联网 (IoT) 使全球企业面临独特的安全、隐私权与合规性挑战。 不同于传统网络技术（这些问题是以软件及其实现方式为中心），IoT 在意的是当网络与物理世界融合时将发生什么情况。 保护 IoT 解决方案要求确保安全预配设备，保护这些设备与云之间的连接，以及在处理和存储期间保护云中数据的安全。 但是，针对此类功能运行的是资源受限的设备、根据地理位置分布的部署，以及解决方案中的大量设备。
 
 本文探讨 Microsoft Azure IoT 套件如何提供安全且专用的物联网云解决方案。 Azure IoT 套件提供完整的端对端解决方案，彻底为每个阶段内置安全性。 在 Microsoft，开发安全的软件是软件工程实务的一部分，这立足于我们数十年来长时间开发安全软件的经验。 为了确保这一点，安全开发周期 (SDL) 是基础的开发方法，再加上基础结构级别安全服务的主机，例如运行安全保证 (OSA)，以及 Microsoft 反数字犯罪部门、Microsoft 安全响应中心和 Microsoft 恶意软件防护中心。 
 
-Azure IoT 套件提供独特的功能，从 IoT 设备预配、连接到及存储数据是简单且明确的，而最棒的是安全。 在本文中，我们将了解 Azure IoT 套件的安全功能和部署策略，以确保能够迎接安全、隐私权与合规性挑战。 
+Azure IoT 套件具有独特的功能，使得从 IoT 设备预配、连接和存储数据变得轻松、透明，还有最重要的是安全。 在本文中，我们将仔细了解 Azure IoT 套件的安全功能和部署策略，以确保能够迎接安全性、私密性与合规性挑战。 
 
 ## <a name="introduction"></a>介绍
 物联网 (IoT) 是将来的主流，可为企业提供实时且真实世界的商机，以降低成本、提高营收，并使其业务转型。 但是，许多企业因为顾虑到安全、隐私与合规性，对组织中部署 IoT 而有所迟疑。 主要的忧虑来自 IoT 基础结构的独特性，它将网络与物理世界合并在一起，将这两个世界中固有的各个风险混合。 IoT 的安全是关于确保在设备上运行的代码完整性、为设备和用户提供身份验证、定义设备（以及此类设备所生成的数据）的明确所有权，以及针对网络与物理攻击进行复原。 
 
 其次，还有隐私问题。 公司希望数据收集过程透明化，例如，要收集哪些数据及原因、可查看数据的人员、可控制访问的人员等。 最后，还有关于设备及操作人员的一般安全问题，以及保持行业标准合规性的问题。
 
-假如存在安全、隐私权、透明性与合规性忧虑，选择正确的 IoT 解决方案提供商仍是一项挑战。 将由各种不同厂商所提供的 IoT 软件和服务的各个部分联接在一起，将在很难检测到的安全、隐私权、透明性与合规性中生成隔阂，让我们单独进行修正。 选择正确的 IoT 软件和服务提供商的根据是，查找具有跨越多个纵向市场和地理位置运行的丰富经验，但也能以安全且透明的方式进行缩放的提供商。 同样地，它对于有数十年在全球无数台计算机上运行安全软件的体验的卓越提供商非常实用，并且能够鉴别由此物联网的新世界所导致的威胁面。
+假如存在安全、隐私权、透明性与合规性忧虑，选择正确的 IoT 解决方案提供商仍是一项挑战。 由各种不同厂商所提供的 IoT 软件和服务的各个部分联接在一起，将在很难检测到的安全、隐私权、透明性与合规性中生成隔阂，让我们单独进行修正。 选择正确的 IoT 软件和服务提供商的根据是，查找具有跨越多个纵向市场和地理位置运行的丰富经验，但也能以安全且透明的方式进行缩放的提供商。 同样地，它对于有数十年在全球无数台计算机上运行安全软件的体验的卓越提供商非常实用，并且能够鉴别由此物联网的新世界所导致的威胁面。
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>安全基础结构基础知识
 [Microsoft 云](https://www.microsoft.com/enterprise/microsoftcloud/default.aspx#fbid=WzBsRQi6aGk) 基础结构支持 127 个国家/地区十亿个以上的客户。 使用我们数十年之久构建企业软件的体验，并在世界各地运行一些大型在线服务，相较于多数客户可自行实现，我们提供更高级别的增强安全、隐私权、合规性及威胁缓解实践。
 
 我们的[安全开发生命周期 (SDL)](https://www.microsoft.com/sdl/) 提供了必要的全企业开发过程，将安全要求嵌入整个软件生命周期中。 为了帮助确保运行活动遵循一致的安全优先级，我们使用运行安全保证 (OSA) 流程中规定的严苛安全指导方针。 我们还与第三方审核机构合作以持续验证我们符合法规遵循义务，并通过创建卓越的中心（包括 Microsoft 反数字犯罪部门、Microsoft 安全响应中心和 Microsoft 恶意软件防护中心），致力于产生广泛的安全成果。
 
-## <a name="microsoft-azure---secure-iot-infrastructure-for-your-business"></a>Microsoft Azure - 适用于你的企业的安全 IoT 基础结构
-Microsoft Azure 提供完整的云解决方案，其中结合了持续成长的集成式云服务（分析、Microsoft R Server、存储、安全、网络功能和 Web）集合，通过行业领先的承诺来为数据提供保护与隐私。 我们的 [假设性违规](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) 策略将通过由软件安全专家组成的专属“红队”，来模拟攻击、测试要检测的 Azure 能力、防范新兴威胁，以及从违规中恢复。 我们的 [全球事件响应](https://www.microsoft.com/TrustCenter/Security/DesignOpSecurity) 团队夜以继日地工作，以减缓攻击与恶意活动造成的影响。 该团队遵循事件管理、通信和恢复所创建的过程，并与内部和外部伙伴合作来使用可探索且可预测的接口。
+## <a name="microsoft-azure---secure-iot-infrastructure-for-your-business"></a>Microsoft Azure - 适用于企业的安全 IoT 基础结构
+Microsoft Azure 提供完整的云解决方案，其中结合了持续成长的集成式云服务（分析、Microsoft R Server、存储、安全、网络功能和 Web）集合，通过行业领先的承诺来为数据提供保护与隐私。 我们的[假设性违规](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/)策略将通过由软件安全专家组成的专属“红队”，来模拟攻击、测试要检测的 Azure 能力、防范新兴威胁，以及从违规中恢复。 我们的 [全球事件响应](https://www.microsoft.com/TrustCenter/Security/DesignOpSecurity) 团队夜以继日地工作，以减缓攻击与恶意活动造成的影响。 该团队遵循事件管理、通信和恢复所创建的过程，并与内部和外部伙伴合作来使用可探索且可预测的接口。
 
 我们的系统提供持续的入侵检测和防护、服务攻击预防、定期渗透测试和法医式工具帮助识别与缓解威胁。 [多重身份验证](../multi-factor-authentication/multi-factor-authentication.md)可为访问网络的最终用户提供额外的安全层。 此外，对于应用程序和主机提供程序，我们提供访问控制、监视、反恶意软件、漏洞扫描、修补和配置管理。
 
@@ -81,7 +81,7 @@ Microsoft Azure IoT 套件使用内置于 Azure 平台的安全和隐私功能�
 * Azure IoT 中心永久存储设备的消息，并等待连接设备。 这些命令将存储两天，使设备能够基于电源或连接因素偶而进行连接来接收这些命令。 Azure IoT 中心维护每个设备的设备队列。
 
 ### <a name="secure-processing-and-storage-in-the-cloud"></a>安全处理和云中存储
-通过加密通信以处理云中的数据，Azure IoT 套件有助于确保数据安全。 这将提供弹性来实现额外加密并管理安全密钥。 使用 Azure Active Directory (AAD) 进行用户身份验证和授权，Azure IoT 套件可以针对在云中的数据提供以策略为基础的授权模型，启用可审核和审查的轻松访问管理。 此模型还能够以接近实时的方式吊销对云中数据以及连接到 Azure IoT 套件的设备的访问权限。
+通过加密通信以处理云中的数据，Azure IoT 套件有助于确保数据安全。 这会提供弹性来实现额外加密并管理安全密钥。 使用 Azure Active Directory (AAD) 进行用户身份验证和授权，Azure IoT 套件可以针对在云中的数据提供以策略为基础的授权模型，启用可审核和审查的轻松访问管理。 此模型还能够以接近实时的方式吊销对云中数据以及连接到 Azure IoT 套件的设备的访问权限。
 
 将数据移到云中之后，可以在任何用户定义工作流中处理和存储数据。 访问数据的每个部分根据所用的存储服务通过 Azure Active Directory 来控制。
 
@@ -107,13 +107,14 @@ Microsoft Azure IoT 套件根据设计内建安全措施，启用安全的资产
 
 - [IoT 安全最佳实践][lnk-security-best-practices]
 - [IoT 安全体系结构][lnk-security-architecture]
-- [保护你的 IoT 部署][lnk-security-deployment]
+- 
+            [保护 IoT 部署][lnk-security-deployment]
 
 [lnk-security-best-practices]: ./iot-security-best-practices.md
 [lnk-security-architecture]: ./iot-security-architecture.md
 [lnk-security-deployment]: ./iot-suite-security-deployment.md
 
-你还可以浏览 IoT 套件预配置的解决方案的一些其他特性和功能：
+还可以浏览 IoT 套件预配置的解决方案的一些其他特性和功能：
 
 - [预测性维护预配置解决方案概述][lnk-predictive-overview]
 - [有关 IoT 套件的常见问题解答][lnk-faq]

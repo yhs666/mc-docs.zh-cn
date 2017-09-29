@@ -4,24 +4,24 @@ description: "获取 SQL 数据库简介：Microsoft 在云中的关系数据库
 keywords: "SQL 简介, 什么是 SQL 数据库"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview
+ms.custom: overview, mvc
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 06/30/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: c007b267e74b8ee7b8e4c8a77b84058706a00e61
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 1692a1d73696f85d1c580137f30be30070400592
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什么是 Azure SQL 数据库服务？ 
 
@@ -50,7 +50,7 @@ SQL 数据库提供四个服务层，支持轻型到重型数据库工作负荷�
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>混合使用单一数据库与入池数据库
 
-不管采用哪种方式 - 单一数据库或弹性池 - 都不会受到限制。 可将单一数据库与弹性池混合使用，快速轻松地更改单一数据库和弹性池的服务层来适应自己的情况。 此外，凭借 Azure 的功能和作用范围，可将其他 Azure 服务与 SQL 数据库搭配使用以满足独特的应用程序设计需求，提高成本和资源效益，发掘新的商机。
+不管采用哪种方式 - 单一数据库或弹性池 - 都不会受到限制。 可将单一数据库与弹性池混合使用，快速轻松地更改单一数据库和弹性池的服务层来适应自己的情况。 凭借 Azure 的功能和作用范围，可将其他 Azure 服务与 SQL 数据库搭配使用以满足独特的应用设计需求，提高成本和资源效益，发掘新的商机。
 
 ### <a name="extensive-monitoring-and-alerting-capabilities"></a>集中监视和警报功能
 
@@ -150,4 +150,4 @@ SQL 数据库支持在 MacOS、Linux 和 Windows 上使用 Python、Java、Node.
   - [适用于 SQL 数据库的 Azure CLI 示例](sql-database-cli-samples.md)
   - [适用于 SQL 数据库的 Azure PowerShell 示例](sql-database-powershell-samples.md)
 
-<!--Update_Description: update link references-->
+<!--Update_Description: wording update-->

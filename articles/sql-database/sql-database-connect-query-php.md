@@ -3,7 +3,7 @@ title: "使用 PHP 查询 Azure SQL 数据库 | Azure"
 description: "本主题介绍如何使用 PHP 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 4e71db4a-a22f-4f1c-83e5-4a34a036ecf3
@@ -12,15 +12,15 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 08/08/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: dec89a4b2181eed62d1c180d3911098731b2bb9b
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 82d41cffff0fb6cc85fb141a1614cd4571d38ce9
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>使用 PHP 查询 Azure SQL 数据库
 
@@ -32,9 +32,9 @@ ms.lasthandoff: 09/11/2017
 
 - Azure SQL 数据库。 此快速入门使用以下某个快速入门中创建的资源： 
 
-- [创建 DB - 门户](sql-database-get-started-portal.md)
-- [创建 DB - CLI](sql-database-get-started-cli.md)
-- [创建 DB - PowerShell](sql-database-get-started-powershell.md)
+   - [创建 DB - 门户](sql-database-get-started-portal.md)
+   - [创建 DB - CLI](sql-database-get-started-cli.md)
+   - [创建 DB - PowerShell](sql-database-get-started-powershell.md)
 
 - 针对用于本快速入门教程的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
 
@@ -98,5 +98,3 @@ ms.lasthandoff: 09/11/2017
 - [设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)
 - [用于 SQL Server 的 Microsoft PHP 驱动程序](https://github.com/Microsoft/msphpsql/)
 - [报告问题或提出问题](https://github.com/Microsoft/msphpsql/issues)
-
-<!--Update_Description: update link-->

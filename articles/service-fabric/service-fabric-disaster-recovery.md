@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: d3e81302014dfabf2f3b7d430b5c6b9e8f445536
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: f2740580727c13a851a68f493e717d23e3680d8b
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service Fabric 中的灾难恢复
 提供高可用性的关键一环是确保服务能够经受各种不同类型的故障。 对于计划外和不受控制的故障，这一点尤其重要。 本文介绍一些常见的故障模式，如果未正确建模和管理，这些故障可能成为灾难。 本文还介绍发生灾难时应采取的缓解措施和行动。 目标是在发生计划内或其他故障时，限制或消除停机或数据丢失风险。
@@ -37,7 +37,7 @@ Service Fabric 的主要目标是帮助针对环境和服务进行建模，使�
 
 在此类跨区模式下运行时，仍可能发生某些类型的同步故障，但系统会自动处理特定类型的单个甚至多个故障（不包括：单个 VM 或网络链接故障），且这些故障不再是“灾难”。 Service Fabric 提供许多用于扩展群集的机制，并处理失败节点和服务的返回。 使用 Service Fabric 还可以运行许多服务实例，以避免这些类型的计划外故障变成真正的灾难。
 
-一些原因导致通过运行足够大的部署来跨越故障并不可行。 例如，相对于发生故障的可能性，需要的硬件资源可能超过愿意支付的数目。 处理分布式应用程序时，不同地理距离之间的附加通信跃点或状态复制成本可能导致不可接受的延迟。 具体界限因不同的应用程序而异。 具体而言，软件故障可能发生在尝试缩放的服务中。 在这种情况下，运行多个副本不能防止灾难发生，因为故障条件与所有实例相关。
+一些原因导致通过运行足够大的部署来跨越故障并不可行。 例如，相对于发生故障的可能性，需要的硬件资源可能超过你愿意支付的数目。 处理分布式应用程序时，不同地理距离之间的附加通信跃点或状态复制成本可能导致不可接受的延迟。 具体界限因不同的应用程序而异。 具体而言，软件故障可能发生在尝试缩放的服务中。 在这种情况下，运行多个副本不能防止灾难发生，因为故障条件与所有实例相关。
 
 ### <a name="operational-faults"></a>操作故障
 即使服务遍布全球且存在许多冗余，仍然可能遇到灾难性事件。 例如，如果有人意外重新配置或彻底删除了服务的 DNS 名称。 举例来说，假设有一个有状态 Service Fabric 服务，有人意外删除了该服务。 除非有一些其他的缓解措施，否则该服务及其所有状态现在就不复存在了。 这些类型的操作灾难（“事故”）需要采取不同于常规计划外故障的缓解措施和步骤才能恢复。 
@@ -153,4 +153,4 @@ Service Fabric 具有种子节点的概念。 种子节点可以维护基础群�
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 
-<!--Update_Description: update meta properties， wording update-->
+<!--Update_Description: update meta properties-->

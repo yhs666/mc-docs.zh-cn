@@ -13,31 +13,34 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 origin.date: 06/29/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7fcd50b399be8d4004ac3b990377f2e3a0d930ee
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 0d35bb3081c8b016e756068746d5b3701b5c21d2
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="manage-a-configuration-server"></a>管理配置服务器
 
 配置服务器充当 Site Recovery 服务与本地基础结构之间的协调器。 本文介绍如何设置、配置和管理配置服务器。
 
-## <a name="prerequisites"></a>先决条件
-下面是设置配置服务器所需的最低硬件、软件和网络配置。
-
 > [!NOTE]
 > [容量规划](site-recovery-capacity-planner.md)是一个重要步骤，可确保使用符合负载要求的配置部署配置服务器。 阅读有关 [配置服务器大小要求](#sizing-requirements-for-a-configuration-server)的详细信息。
+
+## <a name="prerequisites"></a>先决条件
+下面是设置配置服务器所需的最低硬件、软件和网络配置。
+> [!IMPORTANT]
+> 部署配置服务器以保护 VMware 虚拟机时，我们建议将其部署为高可用性 (HA) 虚拟机。
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## <a name="downloading-the-configuration-server-software"></a>下载配置服务器软件
-1. 登录到 Azure 门户并浏览到恢复服务保管库。
-2. 浏览到“Site Recovery 基础结构” > “配置服务器”（在“针对 VMware 和物理计算机”下面）。
 
-  ![“添加服务器”页](./media/site-recovery-vmware-to-azure-manage-configuration-server/AddServers.png)
+1. 登录 Azure 门户并浏览到恢复服务保管库。
+2. 浏览到“Site Recovery 基础结构” > “配置服务器”（在“适用于 VMware 和物理计算机”下面）。
+
+  ![添加服务器页](./media/site-recovery-vmware-to-azure-manage-configuration-server/AddServers.png)
 3. 单击“+服务器”按钮。
 4. 在“添加服务器”页中，单击“下载”按钮下载注册密钥。 在安装配置服务器的过程中，需要使用此密钥将它注册到 Azure Site Recovery 服务。
 5. 单击“下载 Azure Site Recovery 统一安装程序”链接，下载最新版本的配置服务器。
@@ -107,7 +110,7 @@ ProxyPassword="Password"
 ## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>将配置服务器重新注册到同一个恢复服务保管库
   1. 登录到配置服务器。
   2. 使用桌面上的快捷方式启动 cspsconfigtool.exe。
-  3. 单击“保管库注册”  选项卡。
+  3. 单击“保管库注册”选项卡。
   4. 从门户下载新的注册文件，并将其作为输入提供给该工具。
         ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
   5. 提供代理服务器的详细信息，并单击“注册”按钮  。  
@@ -155,7 +158,7 @@ net stop dra
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>从 Azure 门户中删除配置服务器
 1. 在 Azure 门户中，从“保管库”菜单浏览到“Site Recovery 基础结构” > “配置服务器”。
-2. 单击需要解除的配置服务器。
+2. 单击想要解除的配置服务器。
 3. 在配置服务器的详细信息页中，单击“删除”按钮。
 
   ![delete-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
@@ -177,7 +180,7 @@ net stop dra
   * Azure Site Recovery 配置服务器/进程服务器
   * Azure Site Recovery 配置服务器依赖项
   * MySQL Server 5.5
-4. 在管理员命令提示符下运行以下命令。
+4. 在管理员命令提示窗口中运行以下命令。
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
   ```
@@ -224,4 +227,4 @@ net stop dra
 ## <a name="common-issues"></a>常见问题
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
-<!--Update_Description: new articles on vmware to azure manager config server in site recovery -->
+<!--Update_Description: update meta properties, wording update -->

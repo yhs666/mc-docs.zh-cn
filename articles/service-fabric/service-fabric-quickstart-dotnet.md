@@ -9,17 +9,18 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started
+ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 09a2b8af9ff74cae727635b1e1d30b842343a5ff
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.custom: mvc
+ms.openlocfilehash: 4f9b72a0754c2f8817b5968dcc4f5305793b8ce3
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>在 Azure 中创建 .NET Service Fabric 应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
@@ -39,7 +40,7 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 > * 执行应用程序滚动升级
 
 ## <a name="prerequisites"></a>先决条件
-若要完成本快速入门教程，需先执行以下操作：
+完成本快速入门教程：
 1. [安装 Visual Studio 2017](https://www.visualstudio.com/)，其中包含 Azure 开发以及 ASP.NET 和 Web 开发工作负荷。
 2. [安装 Git](https://git-scm.com/)
 3. [安装 Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
@@ -49,7 +50,7 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
     ```
 
 ## <a name="download-the-sample"></a>下载示例
-在命令窗口中，运行以下命令，将示例应用存储库克隆到本地计算机。
+在命令窗口中，运行以下命令，将示例应用程序存储库克隆到本地计算机。
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
@@ -97,12 +98,12 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
     ![添加投票前端服务](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    - 首先，为后端服务构造 ReverseProxy (1) 的 URL。
-    - 然后我们将向 ReverseProxy (2) 发送 HTTP PUT 请求。
+    - 首先，为后端服务的 ReverseProxy 构造 URL **(1)**。
+    - 然后我们向 ReverseProxy 发送 HTTP PUT 请求 **(2)**。
     - 最后，将后端服务的响应返回到客户端 (3)。
 
-4. 按 F5 继续操作
-    - 此时到达后端服务中的断点。
+4. 按 F5 以继续操作
+    - 此时，到达后端服务中的断点。
 
     ![添加投票后端服务](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
@@ -138,7 +139,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ![应用程序前端](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>在群集中缩放应用程序和服务
-可以跨群集轻松缩放 Service Fabric 服务，以便适应服务负载变化。 可以通过更改群集中运行的实例数量来缩放服务。 服务缩放方式有多种，可以使用 PowerShell 或 Azure CLI 2.0 脚本/命令。 在此示例中，我们使用的是 Service Fabric Explorer。
+可以跨群集轻松缩放 Service Fabric 服务，以便适应服务负载变化。 可以通过更改群集中运行的实例数量来缩放服务。 服务缩放方式有多种，可以使用 PowerShell 或 Service Fabric CLI (sfctl) 脚本/命令。 在此示例中，我们使用的是 Service Fabric Explorer。
 
 Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过浏览器进行访问，访问方法是转到群集 HTTP 管理端口 19080（例如，`http://winh1x87d1d.chinanorth.chinacloudapp.cn:19080`）。
 
@@ -205,4 +206,4 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 > [!div class="nextstepaction"]
 > [Service Fabric 上的 .NET 应用程序](service-fabric-tutorial-create-dotnet-app.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, update link -->

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-origin.date: 10/31/2016
-ms.date: 09/18/2017
+origin.date: 08/23/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 51db0a7492031083134308b09609997c4127a97f
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: b2daddd6718ce61841ebbe7632eafc86b6a9b83c
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>SQL 数据仓库中的并发性和工作负荷管理
 若要大规模提供可预测性能，可以通过 Azure SQL 数据仓库控制并发级别和资源分配（例如内存和 CPU 优先级）。 本文介绍并发性和工作负荷管理的概念，说明如何实现这两种功能，以及如何在数据仓库中控制它们。 SQL 数据仓库工作负荷管理旨在协助你提供多用户环境支持。 它不适用于多租户工作负荷。
@@ -53,14 +53,14 @@ SQL 数据仓库允许多达 1,024 个并发连接。 所有 1,024 个连接都�
 
 满足其中一个阈值时，就会按“先进先出”原则排队执行新查询。  如果查询已经完成且查询和槽的数目降至限制以下，则会释放排队的查询。 
 
-> [!NOTE]
+> [!NOTE]  
 > 以独占方式在动态管理视图 (DMV) 或目录视图上执行的 *Select* 查询不受任何并发限制的约束。 用户可以对系统进行监视，而不用考虑在系统中执行的查询的数目。
 > 
 > 
 
 ## <a name="resource-classes"></a>资源类
 资源类有助于控制针对查询的内存分配和 CPU 周期。 可以数据库角色的形式向用户分配两种资源类。 这两种资源类如下：
-1. 动态资源类（**smallrc、mediumrc、largerc、xlargerc**）根据当前 DWU 分配可变内存量。 这意味着，如果纵向扩展到更大的 DWU，则查询会自动获得更多的内存。 
+1. 动态资源类（**smallrc、mediumrc、largerc、xlargerc**）根据当前 DWU 分配可变内存量。 这意味着，如果扩展到更大的 DWU，则查询可自动获得更多的内存。 
 2. 静态资源类（**staticrc10、staticrc20、staticrc30、staticrc40、staticrc50、staticrc60、staticrc70、staticrc80**）分配相同的内存量，而不管当前 DWU 是多少（前提是 DWU 本身提供足够的内存）。 这意味着，DWU 越大，在每个资源类中可并发运行的查询就越多。
 
 **smallrc** 和 **staticrc10** 中的用户获得的内存量较小，但是可以利用更高的并发性。 与之相反，分配给 **xlargerc** 或 **staticrc80** 的用户获得的内存量大，因此可以并发运行的查询数较少。
@@ -73,15 +73,15 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 
 ### <a name="queries-that-do-not-honor-resource-classes"></a>不遵循资源类的查询
 
-有几种类型的查询不会得益于更大的内存分配。 系统将忽略其资源类分配，而始终运行小资源类中的这些查询。 如果这些查询始终在小资源类中运行，则当并发槽数紧张时仍可以运行这些查询，它们不会占用比所需的更多的槽。 有关详细信息，请参阅 [资源类例外](#query-exceptions-to-concurrency-limits) 。
+有几种类型的查询不会得益于更大的内存分配。 系统会忽略其资源类分配，而始终运行小资源类中的这些查询。 如果这些查询始终在小资源类中运行，则当并发槽数紧张时仍可以运行这些查询，它们不会占用比所需的更多的槽。 有关详细信息，请参阅 [资源类例外](#query-exceptions-to-concurrency-limits) 。
 
 ## <a name="details-on-resource-class-assignment"></a>有关资源类分配的详细信息
 
 关于资源类的更多详细信息：
 
-* *更改角色* 权限才能更改用户的资源类。  
-* 虽然可将用户添加到一个或多个更高级别的资源类，但动态资源类会优先于静态资源类。 也就是说，如果将某个用户同时分配到 **mediumrc**（动态）和 **staticrc80**（静态），则 **mediumrc** 是采用的资源类。
- * 如果将某个用户分配到特定资源类类型中的多个资源类（多个动态资源类或多个静态资源类），则会采用级别最高的资源类。 也就是说，如果将某个用户同时分配到 mediumrc 和 largerc，则会采用级别更高的资源类（即 largerc）。 如果将某个用户同时分配到 **staticrc20** 和 **statirc80**，则会采用 **staticrc80**。
+* *更改角色* 权限才能更改用户的资源类。
+* 虽然可将用户添加到一个或多个更高级别的资源类，但动态资源类优先于静态资源类。 也就是说，如果将某个用户同时分配到 **mediumrc**（动态）和 **staticrc80**（静态），则 **mediumrc** 是遵循的资源类。
+ * 如果将某个用户分配到特定资源类类型中的多个资源类（多个动态资源类或多个静态资源类），则遵循级别最高的资源类。 也就是说，如果将某个用户同时分配到 mediumrc 和 largerc，则遵循级别更高的资源类 (largerc)。 如果将某个用户同时分配到 **staticrc20** 和 **statirc80**，则遵循 **staticrc80**。
 * 不能更改系统管理用户的资源类。
 
 有关详细的示例，请参阅 [更改用户资源类示例](#changing-user-resource-class-example)。
@@ -107,7 +107,7 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 | DW3000 |100 |1,600 |3,200 |6,400 |
 | DW6000 |100 |3,200 |6,400 |12,800 |
 
-下表将所分配的内存与按 DWU 和静态资源类划分的每种分布情况进行了映射。 请注意，级别较高的资源类会减少内存，以遵守全局 DWU 限制。
+下表将所分配的内存与按 DWU 和静态资源类划分的每种分布情况进行了映射。 请注意，级别较高的资源类减少了内存，以遵守全局 DWU 限制。
 
 ### <a name="memory-allocations-per-distribution-for-static-resource-classes-mb"></a>静态资源类的按分布情况进行的内存分配 (MB)
 | DWU | staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
@@ -147,10 +147,10 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 
 可对静态资源类运用相同的计算。
 
-## <a name="concurrency-slot-consumption"></a>并发槽使用量
-SQL 数据仓库对在更高资源类级别中运行的查询赋予了更多内存。 内存是固定的资源。  因此，每个查询分配的内存越多，可以执行的并发查询数就越少。 下表在单个视图中重述了上述所有概念，显示了按 DWU 分配的并发槽数，以及每个资源类使用的槽数。
+## <a name="concurrency-slot-consumption"></a>并发槽使用量  
+SQL 数据仓库对在更高资源类级别中运行的查询赋予了更多内存。 内存是固定的资源。  因此，每个查询分配的内存越多，可以执行的并发查询数就越少。 下表在单个视图中重述了上述所有概念，显示了按 DWU 分配的并发槽数，以及每个资源类使用的槽数。  
 
-### <a name="allocation-and-consumption-of-concurrency-slots"></a>分配和使用并发槽
+### <a name="allocation-and-consumption-of-concurrency-slots-for-dynamic-resource-classes"></a>动态资源类并发槽的分配和使用  
 | DWU | 并发查询数上限 | 分配的并发槽数 | smallrc 使用的槽数 | mediumrc 使用的槽数 | largerc 使用的槽数 | xlargerc 使用的槽数 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |1 |2 |4 |
@@ -166,7 +166,7 @@ SQL 数据仓库对在更高资源类级别中运行的查询赋予了更多内�
 | DW3000 |32 |120 |1 |16 |32 |64 |
 | DW6000 |32 |240 |1 |32 |64 |128 |
 
-### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>静态资源类并发槽的分配和使用
+### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>静态资源类并发槽的分配和使用  
 | DWU | 并发查询数上限 | 分配的并发槽数 |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |2 |4 |4 |4 |4 |4 |4 |
@@ -184,9 +184,9 @@ SQL 数据仓库对在更高资源类级别中运行的查询赋予了更多内�
 
 从这些表格中可以看到，以 DW1000 运行的 SQL 数据仓库可分配最多 32 个并发查询和总共 40 个并发槽。 如果所有用户都在 smallrc 中运行，则允许 32 个并发查询，因为每个查询只使用 1 个并发槽。 如果 DW1000 上的所有用户均在 mediumrc 中运行，则在每个分布中对每个查询分配 800 MB 内存，每个查询将总共被分配 47 GB 内存，同时将用户的并发数限制为 5 个（40 个并发槽 / 每个 mediumrc 用户 8 个槽）。
 
-## <a name="selecting-proper-resource-class"></a>选择合适的资源类
+## <a name="selecting-proper-resource-class"></a>选择合适的资源类  
 较好的做法是将用户永久分配给资源类，而不是更改用户的资源类。 例如，加载到聚集列存储表时，如果分配了更多的内存，则可创建质量更高的索引。 为了确保加载项能够访问更多的内存，可创建一个用户来专门加载数据，并将该用户永久分配给更高级的资源类。
-此处需要遵循几项最佳做法。 如上所述，SQL DW 支持两种资源类类型：静态资源类和动态资源类。
+此处需要遵循几项最佳做法。 如上所述，SQL 数据仓库支持两种资源类类型：静态资源类和动态资源类。
 ### <a name="loading-best-practices"></a>有关加载的最佳做法
 1.  如果预期负载中包含恒定的数据量，则静态资源类是个不错的选择。 以后进行扩展以获得更大的计算能力时，数据仓库可以现成地运行更多并发查询，因为负载用户不会消耗更多的内存。
 2.  如果预期在某些场合下会出现较大的负载，则动态资源类是个不错的选择。 以后进行扩展以获得更大的计算能力时，负载用户可以现成地获得更多内存，因此可以加快负载的执行速度。
@@ -202,46 +202,44 @@ SQL 数据仓库对在更高资源类级别中运行的查询赋予了更多内�
 
 根据查询需求选择适当的内存授予也很重要，因为这取决于许多因素，例如，查询的数据量、表架构的性质，以及各种联接、选择和组合谓词。 从常规角度来看，分配更多的内存可让查询更快完成，但同时会降低整体并发性。 如果并发性不是个问题，则过度分配内存不会带来坏处。 若要优化吞吐量，可能需要尝试不同种类的资源类。
 
-可以使用以下存储过程，根据给定的 SLO 推算每个资源类的并发性和内存授予，以及根据给定的资源类推算对非分区 CCI 表执行内存密集型 CCI 操作时的最接近最佳资源类。
+可以使用以下存储过程，根据给定的 SLO 推算每个资源类的并发性和内存授予，以及根据给定的资源类推算对非分区 CCI 表执行内存密集型 CCI 操作时可用的尽量最佳资源类：
 
-```sql
-/* 
-Description: 
-       There are two purpose of this storedproc as mentioned below.
+#### <a name="description"></a>说明:  
+下面是此存储过程的用途：  
+1. 帮助用户根据给定的 SLO 推算每个资源类的并发性和内存授予。 如以下示例中所示，用户需要为架构和表名提供 NULL。  
+2. 帮助用户根据给定的资源类推算对非分区 CCI 表执行内存密集型 CCI 操作（加载、复制表、重建索引等）时可用的尽量最佳资源类。 该存储过程使用表架构来找出所需的内存授予。
 
-       1. To help user find out concurrency and memory grant per resource class at a given SLO. User need to provide NULL for both schema and tablename for this as shown in the example below.
-       2. To help user find out the closest best resoruce class for the memory intensed CCI operations (load, copy table, rebuild index, etc.) on non partitioned CCI table at a given resource class. 
-          The stored proc uses table schema to find out the required memory grant for this.
+#### <a name="dependencies--restrictions"></a>依赖关系和限制：
+- 此存储过程并不旨在计算分区 CCI 表的内存要求。    
+- 此存储过程不会针对 CTAS/INSERT-SELECT 的 SELECT 部分考虑内存要求，而是假设它是一个简单的 SELECT。
+- 此存储过程使用临时表，因此，可在创建此存储过程的会话中使用。    
+- 此存储过程依赖于当前的供应值（例如硬件配置、DMS 配置），如果其中的任何值发生更改，则此存储过程无法正常工作。  
+- 此存储过程依赖于现有提供的并发限制，如果此限制发生更改，则此存储过程无法正常工作。  
+- 此存储过程依赖于现有的资源类供应值，如果这些值发生更改，则此存储过程无法正常工作。  
 
-Dependencies & Restrictions:
-       * This stored proc is not designed to calculate memory requirement for partitioned-cci table
-          * This stored proc doesn't take memeroy requirement into the account for the SELECT part of CTAS/INSERT-SELECT and assumes it to be a simple SELECT
-          * This stored proc using a temp table so this can be used in the session where this stored proc was created
-       * This stored proc depends on the current offerings (e.g. hardware configuration, DMS config) and if any of that changes then this stored proc would not work correctly
-       * This stored proc depends on offered concurrency limit and if that changes then this stored proc would not work correctly
-       * This stored proc depends on existing resrouce class offerings and if that changes then this stored proc wuold not work correctly
+>  [!NOTE]  
+>  如果结合提供的参数执行存储过程后未获得输出，则可能存在两种情况。 <br />1.DW 参数包含无效的 SLO 值 <br />2.或者，在提供了表名的情况下，CCI 操作没有匹配的资源类。 <br />例如，在 DW100 级别，可用的最高内存授予是 400MB。如果表架构很宽，则就会超过 400MB 的要求。
 
-Note: If you are not getting output after executing stored procedure with parameters provided then there could be two cases.
-              1. Either DW Parameter contains invalid SLO value
-              2. OR there are no matching resource class for CCI operation if table name was provided. 
-                 For example, at DW100, highest memory grant available is 400MB and if table schema is wide enough to cross the requirement of 400MB
+#### <a name="usage-example"></a>用法示例：
+语法：  
+`EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
+1. @DWU: 提供 NULL 参数，以便从 DW DB 提取当前 DWU，或者以“DW100”格式提供任何受支持的 DWU
+2. @SCHEMA_NAME: 提供表的架构名称
+3. @TABLE_NAME: 提供相关的表名
 
-Usage example:
-Syntax :  EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)
-1. @DWU: Either provide a NULL parameter to extract the current DWU from the DW DB or provide any supported DWU in the form of 'DW100'
-2. @SCHEMA_NAME: Provide a schema name of the table
-3. @TABLE_NAME: Provide a table name of the interest
+有关执行此存储过程的示例：  
+```sql  
+EXEC dbo.prc_workload_management_by_DWU 'DW2000', 'dbo', 'Table1';  
+EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';  
+EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;  
+EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
+```
 
-Examples:
-create a table: create table foobar (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);
-example 1: EXEC dbo.prc_workload_management_by_DWU 'DW2000', 'dbo', 'foobar'
-example 2: EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'foobar'
-example 3: EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL
-example 4: EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL
+可按如下所示创建上述示例中使用的 Table1：  
+`CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
 
- */
--------------------------------------------------------------------------------
-
+#### <a name="heres-the-stored-procedure-definition"></a>下面是存储过程定义：
+```sql  
 -------------------------------------------------------------------------------
 -- Dropping prc_workload_management_by_DWU procedure if it exists.
 -------------------------------------------------------------------------------
@@ -427,9 +425,9 @@ WHERE   up1 = up2
 AND     up1 = up3
 ;
 -- Getting current info about workload groups.
-WITH
-dmv
-AS
+WITH  
+dmv  
+AS  
 (
   SELECT
           rp.name                                           AS rp_name
@@ -683,7 +681,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - REDISTRIBUTE
 -->
 
-## <a name="change-a-user-resource-class-example"></a>更改用户资源类示例
+##  <a name="changing-user-resource-class-example"></a> 更改用户资源类示例
 1. **创建登录名：**在托管 SQL 数据仓库数据库的 SQL Server 上建立与 **master** 数据库的连接，然后执行以下命令。
 
     ```sql
@@ -841,8 +839,8 @@ FROM    sys.dm_pdw_wait_stats w;
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]: https://msdn.microsoft.com/library/azure/ee336235.aspx
+[Managing Databases and Logins in Azure SQL Database]:../sql-database/sql-database-manage-logins.md
 
 <!--Other Web references-->
 
-<!--Update_Description: wording update, update reference link-->
+<!--Update_Description: update meta properties, wording update, update reference link-->

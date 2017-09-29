@@ -3,7 +3,7 @@ title: "Azure SQL 数据库功能概述 | Azure"
 description: "本页概述 Azure SQL 数据库逻辑服务器和数据库，并提供带有每个列出功能的链接的功能支持矩阵。"
 services: sql-database
 documentationcenter: na
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
@@ -13,33 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 03/03/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: f2f15e1c45795c46aaccba53d8a32a2db1f8ee07
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+origin.date: 08/25/2017
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 6e1b324fa13aea8067342feb912c872e415d91f1
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL 数据库功能
-本主题概述 Azure SQL 数据库逻辑服务器和数据库，并提供带有每个列出功能的链接的功能支持矩阵。 
-## <a name="what-is-an-azure-sql-database-logical-server"></a>什么是 Azure SQL 数据库逻辑服务器？
-Azure SQL 数据库逻辑服务器充当多个数据库的中心管理点。 在 SQL 数据库中，服务器是一个逻辑构造，它不同于在本地环境中可能很熟悉的 SQL Server 实例。 具体而言，SQL 数据库服务对数据库相对于其逻辑服务器的位置不做出任何保证，并且不公开任何实例级访问权限或功能。 有关 Azure SQL 逻辑服务器的详细信息，请参阅[逻辑服务器](sql-database-server-overview.md)。 
 
-## <a name="what-is-an-azure-sql-database"></a>什么是 Azure SQL 数据库？
-Azure SQL 数据库中的每个数据库都与逻辑服务器相关联。 数据库可以是：
-- 具有其[自己的一组资源](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU) 的单一数据库
-- [共享一组资源](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU) 的[数据库池](sql-database-elastic-pool.md)的一部分
-- [向外扩展的一组共享数据库](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling)的一部分，可以是单一数据库，也可以是入池数据库
-- 参与[多租户 SaaS 设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)的一组数据库的一部分，该模式中可以包含单一数据库或池中的数据库（或两者）。有关 Azure SQL 数据库的详细信息，请参阅 [SQL 数据库](sql-database-overview.md)。
-
-## <a name="what-features-are-supported"></a>支持的功能
 Azure SQL 数据库与 SQL Server 共享通用基本代码，并在数据库级别支持大多数相同功能。 Azure SQL 数据库和 SQL Server 之间的主要功能差异存在于实例级别。 
-
-> [!TIP]
-> 要测试现有数据库与 Azure SQL 数据库的兼容性，请参阅[将 SQL Server 数据库迁移到 Azure](sql-database-cloud-migrate.md)。
->
 
 
 ## <a name="sql-server-and-sql-database-feature-support"></a>SQL Server 和 SQL 数据库功能支持
@@ -88,6 +73,7 @@ Azure SQL 数据库与 SQL Server 共享通用基本代码，并在数据库级�
 | [文件流](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | 否 |
 | [全文搜索](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) | 不支持第三方断字符 |
 | [函数](https://docs.microsoft.com/sql/t-sql/functions/functions) | 大多数 - 请参阅单个函数 |
+| [图形处理](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | 是 |
 | [内存中优化](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 是 - [仅限 Premium Edition](sql-database-in-memory.md) |
 | [JSON 数据支持](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | 是 |
 | [语言元素](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | 大多数 - 请参阅单个元素 |  

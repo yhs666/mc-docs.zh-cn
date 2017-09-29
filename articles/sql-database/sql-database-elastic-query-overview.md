@@ -4,7 +4,7 @@ description: "弹性查询功能概述"
 services: sql-database
 documentationCenter: 
 manager: digimobile
-author: Hayley244
+author: forester123
 ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
 ms.custom: scale out apps
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/27/2016
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 22cec8e630a3280e4708fa264356d99f23c1fc1c
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: b0b24c8135878d8521dffeb6b82a3febb67ebcaf
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL 数据库弹性查询概述（预览版）
 使用弹性查询功能（处于预览状态）可以跨 Azure SQL 数据库中的多个数据库运行 Transact-SQL 查询。 它允许你执行跨数据库查询以访问远程表，以及连接 Microsoft 和第三方工具（Excel、PowerBI、Tableau 等）以跨多个数据库的数据层进行查询。 使用此功能，可以将查询横向扩展到 SQL 数据库中的较大数据层，并直观显示商业智能 (BI) 报表中的结果。
@@ -140,8 +140,6 @@ ms.lasthandoff: 09/11/2017
 * 除了 nvarchar (max) 外，外部表定义也不支持 LOB 类型。 一种解决方法是，可以在远程数据库上创建将 LOB 类型强制转换为 nvarchar(max) 的视图，通过该视图（而不是基表）定义外部表，然后在查询中将其强制转换回原始 LOB 类型。
 * 当前不支持外部表上的列统计信息。 支持表统计信息，但需要手动创建。
 
-## <a name="feedback"></a>反馈
-请在下面的 Disqus、MSDN 论坛或 Stackoverflow 上与我们共享有关你使用弹性查询的体验的反馈。 我们对有关该服务的所有类型反馈（缺陷、未完善处、功能差距）感兴趣。
 
 ## <a name="next-steps"></a>后续步骤
 

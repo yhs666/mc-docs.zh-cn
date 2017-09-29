@@ -12,14 +12,14 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/24/2017
+origin.date: 07/25/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 0865cade0a36006c97211bd03f78c8e4e3fc823d
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 09/25/2017
+ms.openlocfilehash: 98de329730f812ce6d1e3dc481feb3412857fa3c
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-telemetry-from-a-real-sensor-using-nodejs"></a>使用 Node.js 将 Raspberry Pi 3 连接到远程监视解决方案，并从实际传感器发送遥测数据
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="overview"></a>概述
 
-在本教程中，将完成以下步骤：
+本教程会完成以下步骤：
 
 - 将远程监视预配置解决方案的实例部署到 Azure 订阅。 此步骤会自动部署并配置多个 Azure 服务。
 - 将设备和传感器设置为与计算机和远程监视解决方案通信。
@@ -43,7 +43,7 @@ ms.lasthandoff: 07/14/2017
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> 远程监视解决方案在 Azure 订阅中预配一组 Azure 服务。 部署反映实际企业体系结构。 若要避免产生不必要的 Azure 使用费用，请在使用完预配置解决方案的实例后，在 azureiotsuite.com 上将其删除。 如果再次需要预配置解决方案，可以轻松地重新创建它。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。
+> 远程监视解决方案在 Azure 订阅中预配一组 Azure 服务。 部署反映实际企业体系结构。 要避免产生不必要的 Azure 使用费用，请在使用完预配置解决方案的实例后，在 azureiotsuite.com 上将其删除。 如果再次需要预配置解决方案，可以轻松地重新创建它。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-solution](../../includes/iot-suite-raspberry-pi-kit-view-solution.md)]
 
@@ -59,33 +59,44 @@ ms.lasthandoff: 07/14/2017
 
 1. 使用以下命令更新 Raspberry Pi：
 
-    `sudo apt-get update`
+    ```sh
+    sudo apt-get update
+    ```
 
 1. 使用以下命令将 Node.js 二进制文件下载到 Raspberry Pi 上：
 
-    `wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. 使用以下命令安装二进制文件：
 
-    `sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. 使用以下命令验证是否已成功安装 Node.js v6.10.2：
 
-    `node --version`
+    ```sh
+    node --version
+    ```
 
 ### <a name="clone-the-repositories"></a>克隆存储库
 
 如果尚未这样做，请通过在 Pi 上运行以下命令，克隆所需的存储库：
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
+```sh
+cd ~
+git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
+```
 
 ### <a name="update-the-device-connection-string"></a>更新设备连接字符串
 
 使用以下命令在 **nano** 编辑器中打开示例源文件：
 
-`nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js`
+```sh
+nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js
+```
 
 查找行：
 
@@ -93,19 +104,22 @@ ms.lasthandoff: 07/14/2017
 var connectionString = 'HostName=[Your IoT hub name].azure-devices.cn;DeviceId=[Your device id];SharedAccessKey=[Your device key]';
 ```
 
-将占位符值替换为在本教程开始时创建并保存的设备和 IoT 中心信息。 保存所做的更改（按 **Ctrl-O**，然后按 **Enter**），然后退出编辑器（按 **Ctrl-X**）。
+将占位符值替换为在本教程开始时创建并保存的设备和 IoT 中心信息。 保存所做的更改（按 **Ctrl-O**，并按 **Enter**），退出编辑器（按 **Ctrl-X**）。
 
 ## <a name="run-the-sample"></a>运行示例
 
 运行以下命令以安装示例的必备组件包：
 
-`cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic`
-
-`npm install`
+```sh
+cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic
+npm install
+```
 
 现在可以在 Raspberry Pi 上运行示例程序。 输入以下命令：
 
-`sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js`
+```sh
+sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js
+```
 
 以下示例输出是在 Raspberry Pi 的命令提示符下看到的输出示例：
 

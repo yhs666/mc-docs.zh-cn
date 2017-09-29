@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 08/08/2017
-ms.date: 09/04/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 448d19cb97aa573007d7250b376d5c59e8fbc58a
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 66c3c842745aea00be0831a3c48bc7f7b2017e43
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="what-is-stream-analytics"></a>什么是流分析？
 
@@ -82,8 +82,6 @@ Azure 流分析是完全托管的事件处理引擎，可以用来设置针对�
 可以通过定义和调用其他函数来扩展查询语言的功能。 也可集成 JavaScript 用户定义函数 (UDF)，以便在流分析查询过程中执行复杂的计算。
 <!-- Not Available Azure Machine Learning --> 
 
-<!--Update_Description: update meta properties, wording update-->
-
 ### <a name="scalability"></a>可伸缩性
 
 流分析每秒可处理多达 1 GB 的传入数据。 与 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)和 [Azure IoT 中心](https://www.azure.cn/home/features/iot-hub/)集成后，即可通过作业每秒引入数百万个来自已连接设备、点击流、日志文件等的事件。 使用事件中心的分区功能，可以将计算分成多个逻辑步骤，每个步骤还可以进一步细分，以提高可伸缩性。
@@ -98,11 +96,11 @@ Azure 流分析是完全托管的事件处理引擎，可以用来设置针对�
 
 ## <a name="next-steps"></a>后续步骤
 
-* 入门途径：[在 IoT 设备中试验输入和查询](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)。
-* 构建[端到端流式分析解决方案](stream-analytics-real-time-fraud-detection.md)，通过检查电话元数据来找出欺诈性电话。
+* 入门方式：[在 IoT 设备中试验输入和查询](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)。
+* 构建[端到端流分析解决方案](stream-analytics-real-time-fraud-detection.md)，通过检查电话元数据来找出欺诈性电话。
 * 了解适用于流分析且类似 SQL 的查询语言，以及独特的概念（例如[开窗函数](stream-analytics-window-functions.md)）。
-* 了解如何[缩放流式分析作业](stream-analytics-scale-jobs.md)。 
-<!-- Not Available * Learn how to [integrate Streaming Analytics and Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md). -->
-* 在 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)中查找流分析问题的答案。
+* 了解如何[缩放流分析作业](stream-analytics-scale-jobs.md)。 
+<!-- Not Available * Learn how to [integrate Stream Analytics and Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md). -->
+* 在 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)中查找流分析问题的答案。
 
 <!--Update_Description: update meta properties, wording update-->

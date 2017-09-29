@@ -13,16 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/29/2017
-ms.date: 08/21/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: a6ea979515f075b3ded6abc6e9f9ceceeb76759c
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 46a94bbb17234f0ef77c4570f643ba4a4d5670ab
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services 入门
-
 > [!div class="op_single_selector"]
 > * [Windows 上的 C#](service-fabric-reliable-services-quick-start.md)
 > * [Linux 上的 Java](service-fabric-reliable-services-quick-start-java.md)
@@ -114,7 +113,7 @@ Service Fabric 会管理此业务流程，以便保持服务的高度可用和�
 `runAsync()` 不应以同步方式阻止。 RunAsync 实现应返回 CompletableFuture，以允许运行时继续执行。 如果工作负荷需要实现应在 CompletableFuture 内部完成的长时间运行任务。
 
 #### <a name="cancellation"></a>取消
-取消工作负荷是一项由所提供的取消标记协调的协同操作。 系统会等任务结束后（成功完成、取消或出现故障）再执行下一步操作。 当系统请求取消时，请务必接受取消标记，完成所有任务，并尽快退出 `runAsync()` 。 以下示例演示如何处理取消事件：
+取消工作负荷是一项由所提供的取消标记协调的协同操作。 系统会等任务结束后（成功完成、取消或出现故障）再执行下一步操作。 当系统请求取消时，请务必接受取消标记，完成所有任务，并尽快退出 `runAsync()`。 以下示例演示如何处理取消事件：
 
 ```java
     @Override
@@ -165,23 +164,18 @@ Yeoman 基架包含用于生成应用程序的 gradle 脚本，以及用于部�
 $ gradle
 ```
 
-这会生成可以使用 Service Fabric Azure CLI 部署的 Service Fabric 应用程序包。
+这会生成可以使用 Service Fabric CLI 部署的 Service Fabric 应用程序包。
 
-### <a name="deploy-with-xplat-cli"></a>使用 XPlat CLI 进行部署
+### <a name="deploy-with-service-fabric-cli"></a>使用 Service Fabric CLI 部署
 
-如果使用的是 XPlat CLI，则 Install.sh 脚本包含用于部署应用程序包所必需的 Azure CLI 命令。 运行 install.sh 脚本以部署此应用程序。
+Install.sh 脚本包含用于部署应用程序包的 Service Fabric CLI 命令。 运行 install.sh 脚本以部署此应用程序。
 
 ```bash
 $ ./install.sh
 ```
 
-### <a name="deploy-with-azure-cli-20"></a>使用 Azure CLI 2.0 进行部署
+## <a name="next-steps"></a>后续步骤
 
-如果使用的是 Azure CLI 2.0，请参阅[使用 Azure CLI 2.0 管理应用程序生命周期](service-fabric-application-lifecycle-azure-cli-2-0.md)的参考文档。
+* [Service Fabric CLI 入门](service-fabric-cli.md)
 
-## <a name="related-articles"></a>相关文章
-
-* [Service Fabric 和 Azure CLI 2.0 入门](service-fabric-azure-cli-2-0.md)
-* [Service Fabric XPlat CLI 入门](service-fabric-azure-cli.md)
-
-<!--Update_Description: update meta properties, add reference feature on deploy with XPlat CLI and Azure CLI 2.0-->
+<!--Update_Description: update meta properties, add reference feature on deploy with service fabric CLI  -->

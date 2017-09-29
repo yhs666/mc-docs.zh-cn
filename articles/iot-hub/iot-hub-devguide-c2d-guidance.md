@@ -12,17 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/09/2017
-ms.date: 04/17/2017
+origin.date: 05/25/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 2ef9074e17dce993e7d3c4f47f78de99d31cea67
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 818cfdac9ca142b58d4d4b725aed2cb8f0b6bd90
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/29/2017
 ---
-
 # <a name="cloud-to-device-communications-guidance"></a>从云到设备通信指南
 IoT 中心提供三个选项，允许设备应用向后端应用公开功能：
 
@@ -32,7 +30,7 @@ IoT 中心提供三个选项，允许设备应用向后端应用公开功能：
 
 下面详细比较了各种从云到设备的通信选项。
 
-|  | 直接方法 | 孪生的所需属性 | 云到设备的消息 |
+|  | 直接方法 | 克隆的所需属性 | 云到设备的消息 |
 | ---- | ------- | ---------- | ---- |
 | 方案 | 需要立即确认的命令，例如打开风扇。 | 旨在将设备置于某个所需状态的长时间运行命令。 例如，将遥测发送间隔设置为 30 分钟。 | 提供给设备应用的单向通知。 |
 | 数据流 | 双向。 设备应用可以立即响应方法。 解决方案后端根据上下文接收请求结果。 | 单向。 设备应用接收更改了属性的通知。 | 单向。 设备应用接收消息
@@ -40,7 +38,7 @@ IoT 中心提供三个选项，允许设备应用向后端应用公开功能：
 | 目标 | 通过 **deviceId**与单个设备通信，或通过 [作业][lnk-jobs]与多个设备通信。 | 通过 **deviceId**与单个设备通信，或通过 [作业][lnk-jobs]与多个设备通信。 | 通过 **deviceId**与单个设备通信。 |
 | 大小 | 最多 8KB 请求和 8KB 响应。 | 所需属性大小最大为 8KB。 | 最多为 64KB 的消息。 |
 | 频率 | 高。 有关详细信息，请参阅 [IoT 中心限制][lnk-quotas]。 | 中。 有关详细信息，请参阅 [IoT 中心限制][lnk-quotas]。 | 低。 有关详细信息，请参阅 [IoT 中心限制][lnk-quotas]。 |
-| 协议 | 目前仅在使用 MQTT 时提供。 | 目前仅在使用 MQTT 时提供。 | 在所有协议上可用。 在使用 HTTP 时，设备必须轮询。 |
+| 协议 | 使用 MQTT 或 AMQP 时可用。 | 使用 MQTT 或 AMQP 时可用。 | 在所有协议上可用。 在使用 HTTP 时，设备必须轮询。 |
 
 在以下教程中学习如何使用直接方法、所需属性以及从云到设备的消息：
 
@@ -52,7 +50,7 @@ IoT 中心提供三个选项，允许设备应用向后端应用公开功能：
 [lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
 [lnk-query]: ./iot-hub-devguide-query-language.md
 [lnk-jobs]: ./iot-hub-devguide-jobs.md
-[lnk-c2d]: ./iot-hub-devguide-messaging.md#cloud-to-device-messages
+[lnk-c2d]: ./iot-hub-devguide-messages-c2d.md
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md
 [lnk-twin-properties]: ./iot-hub-node-node-twin-how-to-configure.md

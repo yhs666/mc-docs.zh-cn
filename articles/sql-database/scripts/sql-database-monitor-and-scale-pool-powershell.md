@@ -3,7 +3,7 @@ title: "PowerShell 示例 - 监视 - 缩放 - SQL 弹性池 - Azure SQL 数据�
 description: "用于在 Azure SQL 数据库中监视和缩放 SQL 弹性池的 Azure PowerShell 脚本示例"
 services: sql-database
 documentationcenter: sql-database
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: fd2ddce48e066a2ffc3a5edc44e0525bed9f4b74
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 4a24effa26a8173242d4b7664ad1d4a19642eca9
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>使用 PowerShell 在 Azure SQL 数据库中监视和缩放 SQL 弹性池
 
@@ -121,7 +121,7 @@ Add-AzureRMMetricAlertRule -ResourceGroup $resourcegroupname `
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -147,4 +147,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update "Clean up deployment" script-->

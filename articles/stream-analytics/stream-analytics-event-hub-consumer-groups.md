@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 04/20/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 465b5aa8b8a5e280a6db294b615212d07881773a
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 9b8265807619f1db585dc5386a6cb46dea4f6b79
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>使用事件中心接收器调试 Azure 流分析
 
@@ -89,4 +89,4 @@ FROM data
 * [流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties -->

@@ -12,17 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/24/2017
-ms.date: 05/08/2017
+origin.date: 05/04/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 638ae9df2ea5f097681b499eb38abeff56ce2691
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.date: 09/25/2017
+ms.openlocfilehash: e8451e0de390915114bfefa387a6ad1506f31536
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/29/2017
 ---
-
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>使用 Azure CLI 创建 IoT 中心
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -46,13 +44,16 @@ azure --version
 > [!NOTE]
 > Azure 提供了用于创建和使用资源的两个不同部署模型：[Azure Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。 Azure CLI 必须处于 Azure Resource Manager 模式：
 >
+> ```azurecli
+> azure config mode arm
+> ```
 
 ## <a name="set-your-azure-account-and-subscription"></a>设置 Azure 帐户和订阅
 
 1. 在命令提示符处键入以下命令登录：
 
    ```azurecli
-    azure login -e AzureChinaCloud
+    azure login
    ```
 
    使用建议的 Web 浏览器和代码进行身份验证。
@@ -93,6 +94,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **sku-name**。 sku 的名称，以下值之一：[F1, S1, S2, S3]。 有关最新的完整列表，请参阅 IoT 中心的定价页。
 * **units**。 预配的单位数。 范围：F1 [1-1]: S1、S2 [1-200] : S3 [1-10]。 IoT Hub 单位数基于总消息计数和要连接的设备数。
 
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
 若要查看所有可以创建的参数，可以在命令提示符处使用帮助命令：
 
 ```azurecli
@@ -102,7 +105,7 @@ azure iothub create -h
 快速示例：若要在资源组 **exampleResourceGroup** 中创建名为 **exampleIoTHubName** 的 IoT 中心，请运行以下命令：
 
 ```azurecli
-azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l chinaeast -k s1 -u 1
+azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
 ```
 
 > [!NOTE]
@@ -128,8 +131,9 @@ azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l chinaeast -k
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
+[lnk-status]: https://azure.microsoft.com/status/
 [lnk-CLI-install]:../cli-install-nodejs.md
-
+[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-CLI-arm]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 [lnk-sdks]: ./iot-hub-devguide-sdks.md

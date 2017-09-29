@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/16/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: d3dbb4281ab43ebb1474753fcff035fc06a2f35a
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 09/25/2017
+ms.openlocfilehash: 7667faf6c870392d1585ee88e82cb55083382309
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建 IoT 中心
 
@@ -74,18 +74,21 @@ ms.lasthandoff: 08/04/2017
     ```
 
     > [!TIP]
-    > 上一示例在美国西部位置创建资源组。 可运行 `az account list-locations -o table`命令，查看可用位置的列表。
+    > 上一示例在美国西部位置创建资源组。 可运行 `az account list-locations -o table` 命令，查看可用位置的列表。
     >
     >
 
-2. 运行以下 [命令，在资源组中创建 IoT 中心][lnk-az-iot-command] ：
-
+2. 运行以下[命令，使用 IoT 中心的全局唯一名称在资源组中创建 IoT 中心][lnk-az-iot-command]：
+    
     ```azurecli
     az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1
     ```
 
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
+
 > [!NOTE]
-> IoT 中心的名称必须全局唯一。 上一命令在计费的 S1 定价层中创建 IoT 中心。 有关详细信息，请参阅 [Azure IoT 中心定价][lnk-iot-pricing]。
+> 上一命令在计费的 S1 定价层中创建 IoT 中心。 有关详细信息，请参阅 [Azure IoT 中心定价][lnk-iot-pricing]。
 >
 >
 

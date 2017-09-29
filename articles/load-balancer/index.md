@@ -11,16 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 06/20/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0d5956ad6a1fd81b69a1146995852d3e77b9ba68
-ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.openlocfilehash: d6bb0d5adc4606432795390c721c196095e39c9d
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 09/28/2017
 ---
-#负载均衡器文档
-<a id="load-balancer-documentation" class="xliff"></a>
+#<a name="load-balancer-documentation"></a>负载均衡器文档
 
 了解如何配置 Azure 负载均衡器可提高应用程序的可用性和网络性能。 文档介绍了如何对传入和传出虚拟机、云资源和跨界虚拟网络的流量进行负载均衡。
 
@@ -80,3 +79,4 @@ ms.lasthandoff: 06/26/2017
         </a>
     </li>
 </ul>
+<!--Update_Description: update meta properties-->

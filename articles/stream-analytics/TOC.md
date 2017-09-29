@@ -13,6 +13,7 @@
 <!-- Not Available ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md) -->
 <!-- Not Available ### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md) -->
 ### [实时事件处理](stream-analytics-real-time-event-processing-reference-architecture.md)
+<!-- Not Available ### [Anomaly detection in Azure usage guide (preview)](stream-analytics-machine-learning-anomaly-detection.md)-->
 
 ## 创建作业
 ### [创建输入](stream-analytics-define-inputs.md)
@@ -65,7 +66,7 @@
 ## [博客](http://blogs.msdn.com/b/streamanalytics/)
 <!-- Not Available ## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics) -->
 ## [论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
-## [价格](https://www.azure.cn/pricing/details/stream-analytics/)
+## [定价](https://www.azure.cn/pricing/details/stream-analytics/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 <!-- Not Available ## [Release notes](stream-analytics-release-notes.md)  -->
 ## [服务更新](https://www.azure.cn/what-is-new/)

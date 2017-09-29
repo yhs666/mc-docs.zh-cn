@@ -1,28 +1,30 @@
 ---
 title: "性能建议 - Azure SQL 数据库 | Azure"
-description: "Azure SQL 数据库顾问为你的现有 SQL 数据库提供建议，这样可以提高当前的查询性能。"
+description: "Azure SQL 数据库提供有关 SQL 数据库的建议，以提升当前的查询性能。"
 services: sql-database
 documentationCenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: monicar
+ms.assetid: 1db441ff-58f5-45da-8d38-b54dc2aa6145
 ms.service: sql-database
+ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 07/05/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: fdb53cdd9283368ae4cfe2b15e6ae7b816377da8
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: e904066334a1b507c7669cc6b6235e1c7458985b
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="performance-recommendations"></a>性能建议
 
-Azure SQL 数据库可以学习和适应你的应用程序并提供自定义的建议，使你能够将 SQL 数据库的性能最大化。 将通过分析 SQL 数据库使用情况历史记录持续对性能进行评估。 提供的建议基于数据库特有工作负荷模式并改进其性能。
+Azure SQL 数据库可以学习和适应应用程序并提供自定义的建议，使你能够将 SQL 数据库的性能最大化。 将通过分析 SQL 数据库使用情况历史记录持续对性能进行评估。 提供的建议基于数据库特有工作负荷模式并改进其性能。
 
 > [!NOTE]
 > 推荐使用建议的方式是在数据库上启用“自动优化”。 有关详细信息，请参阅[自动优化](sql-database-automatic-tuning.md)。
@@ -54,7 +56,7 @@ Azure SQL 数据库持续监视执行的查询并找出可以改进性能的索�
 
 为了帮助你估计此建议的影响，将为你提供实际 CPU 使用率和预计 CPU 使用率（就像已应用建议一样）之间的比较。 除了节省 CPU 外，查询持续时间会因编译花费的时间而减少。 计划缓存上的开销也会更低，从而允许大部分计划保留在缓存中并可重复使用。 可以通过单击“应用”命令来快速轻松地应用此建议。 
 
-应用此建议后，它将在几分钟之内对数据库启用强制参数化，并将启动监视进程（大约持续 24 小时）。 经过这段时间后，即可看到验证报告，该报表显示应用此建议之前和之后的 24 小时内数据库的 CPU 使用率。 SQL 数据库顾问具有安全机制，在检测到性能衰退的情况下，可以自动还原已应用的建议。
+应用此建议后，它在几分钟之内对数据库启用强制参数化，并将启动监视进程（大约持续 24 小时）。 经过这段时间后，即可看到验证报告，该报表显示应用此建议之前和之后的 24 小时内数据库的 CPU 使用率。 SQL 数据库顾问具有安全机制，在检测到性能衰退的情况下，可以自动还原已应用的建议。
 
 ## <a name="fix-schema-issues-recommendations"></a>修复架构问题建议
 
@@ -83,5 +85,3 @@ Azure SQL 数据库持续监视执行的查询并找出可以改进性能的索�
 * [查询存储](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)
-
-<!--Update_Description: update link references-->

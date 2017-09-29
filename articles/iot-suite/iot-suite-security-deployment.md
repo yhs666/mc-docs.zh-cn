@@ -1,6 +1,6 @@
 ---
 title: "保护物联网部署 | Azure"
-description: "本文详细说明如何保护你的 IoT 部署"
+description: "本文详细说明如何保护 IoT 部署"
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/04/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: 06/13/2017
-ms.openlocfilehash: 2a6c958e82e85f431142dbe3f757f93df8aa8972
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/16/2017
+ms.openlocfilehash: 426869ee83f2d7d724e30005438eef43ad6debd5
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
-# <a name="secure-your-iot-deployment"></a>保护你的 IoT 部署
+# <a name="secure-your-iot-deployment"></a>保护 IoT 部署
 本文提供保护基于 Azure IoT 的物联网 (IoT) 基础结构的进一步详细信息。 它链接到配置和部署每个组件的实现级别详细信息。 还提供多种竞争方式间的比较和选择。
 
 保护 Azure IoT 部署可分为以下三个安全区域：
@@ -46,7 +46,7 @@ IoT 中心使用安全令牌对设备和服务进行身份验证，以避免在�
 可在以下文章中找到有关安全令牌结构及其用法的详细信息：
 
 * [安全令牌结构][lnk-security-tokens]
-* [将 SAS 令牌当做设备使用][lnk-sas-tokens]
+* [将 SAS 令牌用作设备][lnk-sas-tokens]
 
 每个 IoT 中心都有一个 [标识注册表][lnk-identity-registry] ，用于在服务中创建各设备的资源（例如包含即时云到设备消息的队列），以及允许访问面向设备的终结点。 IoT 中心标识注册表针对解决方案为设备标识和安全密钥提供安全存储。 可将单个或一组设备标识添加到允许列表或方块列表，以便完全控制设备访问。 以下文章提供有关标识注册表的结构和受支持操作的详细信息。
 
@@ -56,7 +56,7 @@ IoT 中心使用安全令牌对设备和服务进行身份验证，以避免在�
 * MQTT：CONNECT 包将 {deviceId} 用作 {ClientId}，“用户名”字段中为 {IoThubhostname}/{deviceId}；在“密码”字段中为 SAS 令牌。
 * HTTP：有效令牌位于授权请求标头中。
 
-IoT 中心标识注册表可用于配置每个设备的安全凭据和访问控制。 如果 IoT 解决方案已大幅投资于 [自定义设备标识注册表和/或身份验证方案][lnk-custom-auth]中具有，则可通过创建令牌服务，将该解决方案集成到具有 IoT 中心的现有基础结构中。
+IoT 中心标识注册表可用于配置每个设备的安全凭据和访问控制。 如果 IoT 解决方案已大幅投资于[自定义设备标识注册表和/或身份验证方案][lnk-custom-auth]，则可通过创建令牌服务，将该解决方案集成到具有 IoT 中心的现有基础结构中。
 
 ### <a name="x509-certificate-based-device-authentication"></a>基于 X.509 证书的设备身份验证
 使用 [基于设备的 X.509 证书][lnk-protocols] 及其关联的私钥和公钥允许在物理层进行其他身份验证。 私钥安全存储在设备中，无法在设备外发现。 X.509 证书包含有关设备的信息（例如设备 ID）以及其他组织详细信息。 使用公钥生成证书签名。
@@ -114,7 +114,7 @@ Azure IoT 中心引入的数据可供多种服务（例如 Azure 流分析和 Az
 本文概述了使用 Azure IoT 来设计和部署 IoT 基础结构的实现级别的详细信息。 将每个组件配置为安全状态是保护 IoT 总体基础结构安全的关键。 Azure IoT 中可用的设计选择提供了一定程度的灵活性和选择性；但是，每个选择都可能具有安全隐患。 推荐通过风险/成本评估对这些选择进行评估。
 
 ## <a name="see-also"></a>另请参阅
-你还可以浏览 IoT 套件预配置的解决方案的一些其他特性和功能：
+还可以浏览 IoT 套件预配置的解决方案的一些其他特性和功能：
 
 - [预见性维护预配置解决方案概述][lnk-predictive-overview]
 - [有关 IoT 套件的常见问题][lnk-faq]

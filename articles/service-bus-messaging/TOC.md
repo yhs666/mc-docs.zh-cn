@@ -36,6 +36,7 @@
 ### [使用队列的应用](service-bus-create-queues.md)
 ### [使用主题/订阅的应用](service-bus-create-topics-subscriptions.md)
 ### [身份验证和授权](service-bus-authentication-and-authorization.md)
+#### [从 ACS 迁移到 SAS](service-bus-migrate-acs-sas.md)
 #### [使用共享访问签名进行身份验证](service-bus-sas.md)
 ### [分区的队列和主题](service-bus-partitioning.md)
 ### [死信队列](service-bus-dead-letter-queues.md)
@@ -50,6 +51,11 @@
 ## 管理
 ### [服务总线管理库](service-bus-management-libraries.md)
 ### [使用 Azure Resource Manager 模板](service-bus-resource-manager-overview.md)
+#### [创建命名空间](service-bus-resource-manager-namespace.md)
+#### [创建命名空间和队列](service-bus-resource-manager-namespace-queue.md)
+#### [创建包含主题和订阅的命名空间](service-bus-resource-manager-namespace-topic.md)
+#### [创建命名空间和队列的授权规则](service-bus-resource-manager-namespace-auth-rule.md)
+#### [创建包含主题、订阅和规则的命名空间](service-bus-resource-manager-namespace-topic-with-rule.md)
 ### [使用 PowerShell 预配实体](service-bus-manage-with-ps.md)
 
 # 引用
@@ -67,7 +73,7 @@
 ## [博客](https://blogs.msdn.microsoft.com/servicebus/)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [定价详细信息](service-bus-pricing-billing.md)
-## [价格](https://www.azure.cn/pricing/details/messaging/)
+## [定价](https://www.azure.cn/pricing/details/messaging/)
 ## [示例](service-bus-samples.md)
 ## [服务总线资源管理器](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [服务更新](https://azure.microsoft.com/updates/?product=service-bus)

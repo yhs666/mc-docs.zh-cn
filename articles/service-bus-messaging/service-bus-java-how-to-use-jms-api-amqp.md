@@ -15,23 +15,23 @@ ms.topic: article
 origin.date: 04/27/2017
 ms.author: v-yiso
 ms.date: 07/17/2017
-ms.openlocfilehash: 42ac3e5c0148d2a35f3b30ad1fa3e4561d705840
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 58c2e2d2b755a6331a690da7937b2ce17a1ac6b3
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>如何将 Java 消息服务 (JMS) API 用于服务总线和 AMQP 1.0
 
 高级消息队列协议 (AMQP) 1.0 是一个高效、可靠的线级消息传送协议，可用于构建可靠的跨平台消息传送应用程序。
 
-服务总线支持 AMQP 1.0，这意味着，可以通过一系列使用有效二进制协议的平台来使用队列和发布/订阅中转消息传送功能。 此外，你还可以生成由结合使用多个语言、框架和操作系统构建的组件组成的应用程序。
+服务总线支持 AMQP 1.0，这意味着，可以通过一系列使用有效二进制协议的平台来使用队列和发布/订阅中转消息传送功能。 此外，还可以生成由结合使用多个语言、框架和操作系统构建的组件组成的应用程序。
 
 本文说明了如何使用采用常用 Java 消息服务 (JMS) API 标准的 Java 应用程序中的服务总线消息传送功能（队列和发布/订阅主题）。 此处的[随附文章](./service-bus-amqp-dotnet.md)解释如何使用服务总线 .NET API 来执行相同操作的操作。 使用 AMQP 1.0，可以同时使用以下两个指南来了解跨平台消息。
 
 ## <a name="get-started-with-service-bus"></a>服务总线入门
 
-此指南假定你已有包含名为“queue1” 的队列的服务总线命名空间。 如果没有，则可以使用 [Azure 经典门户](https://portal.azure.cn)[创建命名空间和队列](service-bus-create-namespace-portal.md)。 有关如何创建服务总线命名空间和队列的详细信息，请参阅[服务总线队列入门](./service-bus-dotnet-get-started-with-queues.md)。
+此指南假定已具有包含名为 **queue1** 的队列的服务总线命名空间。 如果没有，则可以使用 [Azure 经典门户](https://portal.azure.cn)[创建命名空间和队列](service-bus-create-namespace-portal.md)。 有关如何创建服务总线命名空间和队列的详细信息，请参阅[服务总线队列入门](./service-bus-dotnet-get-started-with-queues.md)。
 > [!NOTE]
 > 分区队列和主题也支持 AMQP。 有关详细信息，请参阅[分区消息实体](./service-bus-partitioning.md)和[针对服务总线分区队列和主题的 AMQP 1.0 支持](./service-bus-amqp-protocol-guide.md)。
 > 
@@ -49,14 +49,14 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="coding-java-applications"></a>为 Java 应用程序编码
 ### <a name="java-naming-and-directory-interface-jndi"></a>Java 命名和目录接口 (JNDI)
-JMS 使用 Java 命名和目录接口 (JNDI) 创建逻辑名称和物理名称之间的分隔。 将使用 JNDI 解析以下两种类型的 JMS 对象：ConnectionFactory 和 Destination。 JNDI 使用一个提供程序模型，你可以在其中插入不同目录服务来处理名称解析任务。 Apache Qpid JMS AMQP 1.0 库附带一个使用以下格式的属性文件配置的、基于属性文件的简单 JNDI 提供程序。
+JMS 使用 Java 命名和目录接口 (JNDI) 创建逻辑名称和物理名称之间的分隔。 使用 JNDI 解析以下两种类型的 JMS 对象：ConnectionFactory 和 Destination。 JNDI 使用一个提供程序模型，可以在其中插入不同目录服务来处理名称解析任务。 Apache Qpid JMS AMQP 1.0 库附带一个使用以下格式的属性文件配置的、基于属性文件的简单 JNDI 提供程序。
 
 ```
 # servicebus.properties - sample JNDI configuration
 
 # Register a ConnectionFactory in JNDI using the form:
 # connectionfactory.[jndi_name] = [ConnectionURL]
-connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
+connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.chinacloudapi.cn
 
 # Register some queues in JNDI using the form
 # queue.[jndi_name] = [physical_name]
@@ -79,7 +79,7 @@ connectionfactory.[jndi_name] = [ConnectionURL]
 **ConnectionURL** 的格式如下：
 
 ```
-amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
+amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.chinacloudapi.cn
 ```
 其中 [namespace]、[SASPolicyName] 和 [SASPolicyKey] 具有以下含义：
 
@@ -117,10 +117,10 @@ topic.[jndi_name] = [physical_name]
 > 
 
 ### <a name="write-the-jms-application"></a>编写 JMS 应用程序
-将 JMS 用于服务总线时不需要特殊的 API 或选项。 但是，有一些限制，我们将在后面说明。 与使用任何 JMS 应用程序一样，若要解析 **ConnectionFactory** 和目标，首先要做的事情是配置 JNDI 环境。
+将 JMS 用于服务总线时不需要特殊的 API 或选项。 但是，有一些限制，我们会在后面说明。 与使用任何 JMS 应用程序一样，若要解析 **ConnectionFactory** 和目标，首先要做的事情是配置 JNDI 环境。
 
 #### <a name="configure-the-jndi-initialcontext"></a>配置 JNDI InitialContext
-JNDI 环境是通过将配置信息的哈希表传入到 javax.naming.InitialContext 类的构造函数中来配置的。 哈希表中的两个必需元素是初始上下文工厂的类名称和提供程序 URL。 以下代码演示了如何配置 JNDI 环境以将基于 Qpid 属性文件的 JNDI 提供程序用于名为 **servicebus.properties**的属性文件。
+JNDI 环境是通过将配置信息的哈希表传入到 javax.naming.InitialContext 类的构造函数中来配置的。 哈希表中的两个必需元素是初始上下文工厂的类名称和提供程序 URL。 以下代码演示了如何配置 JNDI 环境以将基于 Qpid 属性文件的 JNDI 提供程序用于名为 **servicebus.properties** 的属性文件。
 
 ```java
 Hashtable<String, String> env = new Hashtable<String, String>(); 
@@ -130,7 +130,7 @@ InitialContext context = new InitialContext(env);
 ``` 
 
 ### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>使用服务总线队列的简单 JMS 应用程序
-以下示例程序将 JMS TextMessages 发送到 JNDI 逻辑名称为 QUEUE 的 Service Bus 队列，然后接收返回的消息。
+以下示例程序将 JMS TextMessages 发送到 JNDI 逻辑名称为 QUEUE 的 Service Bus 队列，并接收返回的消息。
 
 ```java
 // SimpleSenderReceiver.java
@@ -231,7 +231,7 @@ public class SimpleSenderReceiver implements MessageListener {
 
 ### <a name="run-the-application"></a>运行应用程序
 
-运行应用程序将产生以下形式的输出：
+运行应用程序会产生以下形式的输出：
 
 ```
 > java SimpleSenderReceiver
@@ -290,7 +290,7 @@ exit
 
 * 使用“sendonly”命令行参数启动 .NET 示例应用程序。 在此模式下，应用程序不会从队列接收消息，而只会发送消息。
 * 启动 Java 示例应用程序而不使用任何命令行参数。
-* 在 .NET 应用程序控制台中按 **Enter** 多次，这将导致消息发送。
+* 在 .NET 应用程序控制台中按 **Enter** 多次，这会导致消息发送。
 * 这些消息由 Java 应用程序接收。
 
 #### <a name="output-from-net-application"></a>从 .NET 应用程序输出

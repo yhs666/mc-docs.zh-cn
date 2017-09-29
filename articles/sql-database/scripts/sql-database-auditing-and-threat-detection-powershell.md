@@ -3,7 +3,7 @@ title: "PowerShell 示例 - 审核 - 威胁检测 - Azure SQL 数据库 | Azure"
 description: "在 Azure SQL 数据库中配置审核和威胁检测的 Azure PowerShell 示例脚本"
 services: sql-database
 documentationcenter: sql-database
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 06/23/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 141d95d8adc1bf219da35e4ac5d4c5bd9129ced3
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 09/08/2017
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 7e8f7974a7817af0678acf40f0c4dcafe61aabe4
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>使用 PowerShell 配置 SQL 数据库审核和威胁检测
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 07/28/2017
 # Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 # Set the resource group name and location for your server
 $resourcegroupname = "myResourceGroup-$(Get-Random)"
-$location = "China East"
+$location = "China North"
 # Set an admin login and password for your server
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
@@ -47,7 +47,7 @@ $databasename = "mySampleDatabase"
 $startip = "0.0.0.0"
 $endip = "0.0.0.0"
 # The storage account name has to be unique in the system
-$storageaccountname = $("sql$($(Get-AzureRMContext).Subscription.Id)").substring(0,23).replace("-", "")
+$storageaccountname = $("sql$(Get-Random)")
 # Specify the email recipients for the threat detection alerts
 $notificationemailreceipient = "changeto@your.email;changeto@your.email"
 
@@ -69,7 +69,7 @@ $serverfirewallrule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $resou
 $database = New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename -RequestedServiceObjectiveName "S0"
-
+    
 # Create a Storage Account 
 $storageaccount = New-AzureRmStorageAccount -ResourceGroupName $resourcegroupname `
     -AccountName $storageaccountname `
@@ -77,21 +77,23 @@ $storageaccount = New-AzureRmStorageAccount -ResourceGroupName $resourcegroupnam
     -Type "Standard_LRS"
 
 # Set an auditing policy
-$auditpolicy = Set-AzureRmSqlDatabaseAuditingPolicy -ResourceGroupName $resourcegroupname `
+Set-AzureRmSqlDatabaseAuditing -State Enabled `
+    -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename `
-    -StorageAccountName $storageaccountname `
+    -StorageAccountName $storageaccountname 
 
 # Set a threat detection policy
-#threatdetectionpolicy = Set-AzureRmSqlDatabaseThreatDetectionPolicy -ResourceGroupName $resourcegroupname `
+Set-AzureRmSqlDatabaseThreatDetectionPolicy -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -DatabaseName $databasename`
+    -DatabaseName $databasename `
     -StorageAccountName $storageaccountname `
     -NotificationRecipientsEmails $notificationemailreceipient `
     -EmailAdmins $False
 
 # Clean up deployment 
 # Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -99,7 +101,7 @@ $auditpolicy = Set-AzureRmSqlDatabaseAuditingPolicy -ResourceGroupName $resource
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -123,4 +125,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: wording update-->

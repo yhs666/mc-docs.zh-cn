@@ -3,24 +3,24 @@ title: "使用 Python 查询 Azure SQL 数据库 | Azure"
 description: "本主题介绍如何使用 Python 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 08/08/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 412bb2f8924fe8fd26128f412a9070202a476c5d
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: c5e141feb769bca4d393c0940db5a4629f6c2f16
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>使用 Python 查询 Azure SQL 数据库
 
@@ -32,9 +32,9 @@ ms.lasthandoff: 09/11/2017
 
 - Azure SQL 数据库。 此快速入门使用以下某个快速入门中创建的资源： 
 
-- [创建 DB - 门户](sql-database-get-started-portal.md)
-- [创建 DB - CLI](sql-database-get-started-cli.md)
-- [创建 DB - PowerShell](sql-database-get-started-powershell.md)
+   - [创建 DB - 门户](sql-database-get-started-portal.md)
+   - [创建 DB - CLI](sql-database-get-started-cli.md)
+   - [创建 DB - PowerShell](sql-database-get-started-powershell.md)
 
 - 针对用于本快速入门教程的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
 
@@ -92,4 +92,3 @@ ms.lasthandoff: 09/11/2017
 - [用于 SQL Server 的 Microsoft Python 驱动程序](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
 - [Python 开发人员中心](/develop/python/)
 
-<!--Update_Description: update link-->

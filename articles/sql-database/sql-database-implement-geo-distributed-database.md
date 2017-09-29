@@ -3,7 +3,7 @@ title: "实现地理分散的 Azure SQL 数据库解决方案 | Azure"
 description: "了解如何配置 Azure SQL 数据库和应用程序以便故障转移到复制的数据库，以及如何测试故障转移。"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 tags: 
@@ -11,17 +11,17 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: mvc,business continuity
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 origin.date: 05/26/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 409cd3671e328352c346c39b03adb6cf023c87d5
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 4643354ea23adf4a54e65263df30a87fe4f026c2
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="implement-a-geo-distributed-database"></a>实现地理分散的数据库
 
@@ -384,8 +384,7 @@ sudo apt-get install maven
       -ServerName $mydrservername
    $fileovergroup.ReplicationRole
    ```
-## <a name="next-steps"></a>后续步骤 
+
+## <a name="next-steps"></a>后续步骤
 
 有关详细信息，请参阅[活动异地复制和故障转移组](sql-database-geo-replication-overview.md)。
-
-<!--Update_Description: wording update-->

@@ -12,19 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/24/2017
-ms.date: 05/08/2017
+origin.date: 08/25/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: b12293a470ef1b0c9dc079ac0a1ee44f71a3c141
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.date: 10/16/2017
+ms.openlocfilehash: b9bb9000840633bb0f32b430504703d0c33bb7c4
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/29/2017
 ---
-
 # <a name="iot-hub-operations-monitoring"></a>IoT 中心操作监视
-IoT 中心操作监视可让你实时监视其 IoT 中心上的操作状态。 IoT 中心可跨多个类别的操作跟踪事件。 可选择将一个或多个类别的事件发送到 IoT 中心终结点进行处理。 你可以监视数据中是否有错误，或根据数据模式设置更复杂的处理行为。
+IoT 中心操作监视可让你实时监视其 IoT 中心上的操作状态。 IoT 中心可跨多个类别的操作跟踪事件。 可选择将一个或多个类别的事件发送到 IoT 中心终结点进行处理。 可以监视数据中是否有错误，或根据数据模式设置更复杂的处理行为。
 
 IoT 中心监视 6 种类别的事件：
 
@@ -43,7 +41,7 @@ IoT 中心监视 6 种类别的事件：
 
     ![访问门户中的操作监视配置][1]
 
-1. 选择要监视的监视类别，然后单击“**保存**”。 可以从“**监视设置**”中所列的与事件中心兼容的终结点读取事件。 IoT 中心终结点称为 `messages/operationsmonitoringevents`。
+1. 选择要监视的监视类别，并单击“保存”。 可以从“**监视设置**”中所列的与事件中心兼容的终结点读取事件。 IoT 中心终结点称为 `messages/operationsmonitoringevents`。
 
     ![在 IoT 中心配置操作监视][2]
 
@@ -219,7 +217,7 @@ IoT 中心上的监视终结点是与事件中心兼容的终结点。 可使用
 
     ![“与事件中心兼容的终结点”值][img-endpoints]
 
-1. 选择“共享访问策略”，然后选择“服务”。 记下“主密钥”值：
+1. 选择“共享访问策略”，并选择“服务”。 记下“主密钥”值：
 
     ![服务共享访问策略主密钥][img-service-key]
 
@@ -286,8 +284,8 @@ class Program
 ## <a name="next-steps"></a>后续步骤
 若要进一步探索 IoT 中心的功能，请参阅：
 
-- [IoT 中心开发人员指南][lnk-devguide]
-- [使用 IoT 网关 SDK 模拟设备][lnk-gateway]
+* [IoT 中心开发人员指南][lnk-devguide]
+* [使用 Azure IoT Edge 模拟设备][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: ./media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -301,6 +299,8 @@ class Program
 [lnk-dr]: ./iot-hub-ha-dr.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-dotnet-standard-getstarted-send.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+
+<!--Update_Description:update meta properties only-->

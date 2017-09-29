@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 739c14bf9786cb85d4707529ff75e422ede03c85
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: f3db4e839b28381bf4025fe253bdbda23c7ddd38
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器网络模式
 
@@ -334,8 +334,8 @@ Service Fabric 群集中提供的容器服务的默认网络模式是 `nat` 网�
 本文介绍了 Service Fabric 提供的网络模式。  
 
 * [Service Fabric 应用程序模型](service-fabric-application-model.md)
-* [Service Fabric 服务清单资源](service-fabric-application-model.md)
+* [Service Fabric 服务清单资源](/service-fabric/service-fabric-service-manifest-resources)
 * [将 Windows 容器部署到 Windows Server 2016 上的 Service Fabric](service-fabric-get-started-containers.md)
 * [将 Docker 容器部署到 Linux 上的 Service Fabric](service-fabric-get-started-containers-linux.md)
 
-<!--Update_Description: new articles of networking modes in service fabric -->
+<!--Update_Description: update reference link -->

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/16/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9fcf6e45cf6cdc5477150f08989a08529940a46f
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 5802cb3799a903116e1ea8ca6c52677d537eacb4
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>使用 X.509 证书在 Windows 上保护独立群集
 本文介绍如何使用 X.509 证书保护独立 Windows 群集的各个节点之间的通信，以及如何对连接到此群集的客户端进行身份验证。 这可确保只有经过授权的用户才能访问该群集和部署的应用程序，以及执行管理任务。  创建群集时，应在该群集上启用证书安全性。  
@@ -97,7 +97,6 @@ ms.lasthandoff: 09/08/2017
 
 该部分描述保护独立 Windows 群集所需的证书。 如果指定群集证书，请将 **ClusterCredentialType** 的值设置为 _**X509**_。 如果为外部连接指定服务器证书，请将 **ServerCredentialType** 设置为 _**X509**_。 虽然并非强制，但为了妥善保护群集，我们建议同时拥有这两个证书。 如果将这些值设置为 *X509*，还必须指定相应的证书，否则 Service Fabric 将引发异常。 在某些情况下，仅需要指定 _ClientCertificateThumbprints_ 或 _ReverseProxyCertificate_。 在这些情况下，不需要将 _ClusterCredentialType_ 或 _ServerCredentialType_ 设置为 _X509_。
 
-
 > [!NOTE]
 > [指纹](https://en.wikipedia.org/wiki/Public_key_fingerprint)是证书的主要标识。 请阅读[如何检索证书的指纹](https://msdn.microsoft.com/library/ms734695.aspx)，找到创建的证书的指纹。
 > 
@@ -111,7 +110,7 @@ ms.lasthandoff: 09/08/2017
 | ClusterCertificateCommonNames |建议用于生产环境。 需要使用此证书保护群集上节点之间的通信。 可以使用一个或两个群集证书公用名称。 |
 | ServerCertificate |建议用于测试环境。 当客户端尝试连接到此群集时，系统会向客户端提供此证书。 为方便起见，可以选择对 *ClusterCertificate* 和 *ServerCertificate* 使用相同的证书。 可以使用两个不同的服务器证书（一个主证书和一个辅助证书）进行升级。 在 **Thumbprint** 部分中设置主证书的指纹，在 **ThumbprintSecondary** 变量中设置辅助证书的指纹。 |
 | ServerCertificateCommonNames |建议用于生产环境。 当客户端尝试连接到此群集时，系统会向客户端提供此证书。 为方便起见，可以选择对 ClusterCertificateCommonNames 和 ServerCertificateCommonNames 使用相同的证书。 可以使用一个或两个服务器证书公用名称。 |
-| ClientCertificateThumbprints |这是需要在经过身份验证的客户端上安装的一组证书。 可以在想要允许其访问群集的计算机上安装许多不同的客户端证书。 在 **CertificateThumbprint** 变量中设置每个证书的指纹。 如果将 **IsAdmin** 设置为 *true*，安装了此证书的客户端可以针对群集执行管理员管理活动。 如果 **IsAdmin** 设置为 *false*，则使用此证书的客户端只能执行用户有权执行的操作（通常为只读）。 有关角色的详细信息，请阅读[基于角色的访问控制 (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac) |
+| ClientCertificateThumbprints |这是需要在经过身份验证的客户端上安装的一组证书。 可以在想要允许其访问群集的计算机上安装许多不同的客户端证书。 在 **CertificateThumbprint** 变量中设置每个证书的指纹。 如果 **IsAdmin** 设置为 *true*，则安装了此证书的客户端可以在群集上执行管理员管理活动。 如果 **IsAdmin** 设置为 *false*，则使用此证书的客户端只能执行用户有权执行的操作（通常为只读）。 有关角色的详细信息，请阅读[基于角色的访问控制 (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac) |
 | ClientCertificateCommonNames |在 **CertificateCommonName**中设置第一个客户端证书的公用名。 **CertificateIssuerThumbprint** 是此证书的颁发者的指纹。 请阅读[使用证书](https://msdn.microsoft.com/library/ms731899.aspx)，详细了解公用名称和颁发者。 |
 | ReverseProxyCertificate |建议用于测试环境。 如果想要保护[反向代理](service-fabric-reverseproxy.md)，可以选择指定此证书。 如果使用此证书，请确保在 nodeTypes 中设置了 reverseProxyEndpointPort。 |
 | ReverseProxyCertificateCommonNames |建议用于生产环境。 如果想要保护[反向代理](service-fabric-reverseproxy.md)，可以选择指定此证书。 如果使用此证书，请确保在 nodeTypes 中设置了 reverseProxyEndpointPort。 |
@@ -322,5 +321,4 @@ Connect-ServiceFabricCluster $ConnectArgs
 > 证书配置不正确会导致在部署时看不到群集。 若要对安全性问题进行自我诊断，请查看事件查看器组（*应用程序和服务日志* > *Microsoft-Service Fabric*）。
 > 
 > 
-
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

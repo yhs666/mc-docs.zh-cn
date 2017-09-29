@@ -3,26 +3,28 @@ title: "应用性能建议 - Azure SQL 数据库 | Azure"
 description: "可以使用 Azure 门户查找可优化 Azure SQL 数据库性能或纠正在工作负荷中识别的某种问题的性能建议。"
 services: sql-database
 documentationCenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: monicar
+ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
 ms.service: sql-database
+ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 07/05/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 79d22fa286681f9e47270ea11361a0ff08f124d2
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 1c2414ba45319fe8b644e743a93b54732056971c
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
-# <a name="sql-database-advisor-using-the-azure-portal"></a>在 Azure 门户中使用 SQL 数据库顾问
+# <a name="find-and-apply-performance-recommendations"></a>查找并应用性能建议
 
-可以使用 Azure 门户查找可优化 Azure SQL 数据库性能或纠正在工作负荷中识别的某种问题的性能建议。 使用 Azure 门户中的“性能建议”页可以根据建议的潜在影响查找最重要的建议。 
+可以使用 Azure 门户查找可优化 Azure SQL 数据库或更正工作负载中发现的一些问题的性能建议。 使用 Azure 门户中的“性能建议”页可以根据建议的潜在影响查找最重要的建议。 
 
 ## <a name="viewing-recommendations"></a>查看建议
 
@@ -31,10 +33,10 @@ ms.lasthandoff: 07/28/2017
 在 Azure 门户中使用以下步骤查找性能建议：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 单击“更多服务” > “SQL 数据库”，然后选择数据库。
-3. 单击“性能建议”查看适用于所选数据库的可用建议。
+2. 转到“更多服务” > “SQL 数据库”，然后选择数据库。
+3. 导航到“性能建议”，查看适用于所选数据库的可用建议。
 
-类似于下图所示的表中显示了性能建议：
+性能建议会显示在类似于下图的表中：
 
 ![建议](./media/sql-database-advisor-portal/recommendations.png)
 
@@ -50,14 +52,14 @@ ms.lasthandoff: 07/28/2017
 > Azure SQL 数据库至少需要监视一天的活动才能识别某些建议。 Azure SQL 数据库优化一致的查询模式比优化随机的突发活动更加轻松。 如果建议目前不可用，“性能建议”页会提供一条解释原因的消息。
 > 
 
-你还可以查看历史操作的状态。 选择一条建议或状态即可查看详细信息。
+还可以查看历史操作的状态。 选择一条建议或状态即可查看详细信息。
 
 下面是 Azure 门户中“创建索引”建议的示例。
 
 ![创建索引](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
 ## <a name="applying-recommendations"></a>应用建议
-SQL 数据库顾问允许通过以下三个选项之一全权控制建议的启用方式。 
+Azure SQL 数据库允许通过以下三个选项之一完全控制建议的启用方式： 
 
 * 一次应用一个建议。
 * 启用自动优化以自动应用建议。
@@ -68,7 +70,7 @@ SQL 数据库顾问允许通过以下三个选项之一全权控制建议的启�
 应用建议时，数据库将保持联机状态 -- 使用性能建议或自动优化不会使数据库脱机。
 
 ### <a name="apply-an-individual-recommendation"></a>应用单个建议
-你可以逐个查看和接受建议。
+可以逐个查看和接受建议。
 
 1. 在“建议”边栏选项卡上选择某个建议。
 2. 在“详细信息”边栏选项卡上单击“应用”按钮。
@@ -83,14 +85,15 @@ SQL 数据库顾问允许通过以下三个选项之一全权控制建议的启�
 1. 选择“建议”列表中的建议打开详细信息。
 2. 单击“详细信息”边栏选项卡上的“放弃”。
 
-可以根据需要将已放弃的项重新添加到“建议”列表中： 
+可以根据需要将已放弃的项重新添加到“建议”列表中：
 
 1. 在“建议”边栏选项卡上单击“查看已放弃的项”。
 2. 从列表中选择一个放弃的项，查看其详细信息。
 3. （可选）单击“撤消放弃”，将索引重新添加到“建议”的主列表。
 
-### <a name="enable-automatic-index-management"></a>启用自动索引管理
-可以将 SQL 数据库顾问设置为自动实施建议。 建议一出现就会自动应用。 对于该服务所管理的所有索引操作，如果存在负面的性能影响，则会还原所受到的影响。
+
+### <a name="enable-automatic-tuning"></a>启用自动优化
+可以将 Azure SQL 数据库设置为自动实施建议。 建议一出现就会自动应用。 对于该服务所管理的所有建议，如果存在负面的性能影响，则会还原应用的建议。
 
 1. 在“建议”边栏选项卡上单击“自动化”：
 
@@ -111,7 +114,7 @@ SQL 数据库顾问允许通过以下三个选项之一全权控制建议的启�
 2. 单击“取消”可中止应用建议的过程。
 
 ## <a name="monitoring-operations"></a>监视操作
-可能不会立刻应用建议。 该门户提供了有关建议操作状态的详细信息。 以下是索引可能处于的状态：
+可能不会立刻应用建议。 该门户提供了有关建议状态的详细信息。 以下是索引可能处于的状态：
 
 | 状态 | 说明 |
 |:--- |:--- |
@@ -128,7 +131,7 @@ SQL 数据库顾问允许通过以下三个选项之一全权控制建议的启�
 ![建议的索引](./media/sql-database-advisor-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>正在还原建议
-如果你使用了性能建议来应用建议（即并没有手动运行 T-SQL 脚本），那么顾问会在发现性能影响为负面时自动还原该建议。 如果你因故需要还原建议，可执行以下操作：
+如果你使用了性能建议来应用建议（即并没有手动运行 T-SQL 脚本），那么顾问会在发现性能影响为负面时自动还原该建议。 如果因故需要还原建议，可执行以下操作：
 
 1. 在“优化历史记录”区域中选择已成功应用的建议。
 2. 单击“建议详细信息”边栏选项卡上的“还原”。
@@ -155,4 +158,4 @@ Azure SQL 数据库提供可提高 SQL 数据库性能的建议。 提供 T-SQL 
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)
 
-<!--Update_Description: update word & link-->
+<!--Update_Description: wording update-->

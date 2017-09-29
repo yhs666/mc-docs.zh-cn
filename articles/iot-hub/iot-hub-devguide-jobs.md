@@ -12,31 +12,27 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/30/2016
-ms.date: 07/10/2017
+origin.date: 08/29/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
-ms.openlocfilehash: 2f142a31571e4914e1c9e66da5cd32cf9ad14563
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.openlocfilehash: 63588bd093421cefb2227f534b414cf9ebca0006
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/29/2017
 ---
-# 在多个设备上计划作业
-<a id="schedule-jobs-on-multiple-devices" class="xliff"></a>
-## 概述
-<a id="overview" class="xliff"></a>
+# <a name="schedule-jobs-on-multiple-devices"></a>在多个设备上计划作业
+## <a name="overview"></a>概述
 如前面的文章所述，Azure IoT 中心可启用多个构建基块（[设备孪生属性和标记][lnk-twin-devguide]和[直接方法][lnk-dev-methods]）。  通常情况下，后端应用允许设备管理员和操作员在计划的时间批量更新 IoT 设备并与之交互。  作业在计划的时间针对一组设备封装设备孪生更新和直接方法的执行。  例如，操作员可使用用于启动和跟踪作业的后端应用程序在不会中断大楼运作的时间重新启动 43 号大楼第 3 层中的一组设备。
 
-### 何时使用
-<a id="when-to-use" class="xliff"></a>
+### <a name="when-to-use"></a>使用时机
 在以下情况下请考虑使用作业：解决方案后端需要计划并跟踪一组设备中的以下任何活动的进度：
 
 * 更新所需属性
 * 更新标记
 * 调用直接方法
 
-## 作业生命周期
-<a id="job-lifecycle" class="xliff"></a>
+## <a name="job-lifecycle"></a>作业生命周期
 作业由解决方案后端启动，并由 IoT 中心维护。  可以通过面向服务的 URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) 启动作业，并通过面向服务的 URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`) 查询正在执行的作业的进度。  启动作业后，查询作业将使后端应用能够刷新正在运行的作业的状态。
 
 > [!NOTE]
@@ -44,12 +40,10 @@ ms.lasthandoff: 06/28/2017
 > 
 > 
 
-## 参考主题：
-<a id="reference-topics" class="xliff"></a>
+## <a name="reference-topics"></a>参考主题：
 以下参考主题提供有关使用作业的详细信息。
 
-## 用于执行直接方法的作业
-<a id="jobs-to-execute-direct-methods" class="xliff"></a>
+## <a name="jobs-to-execute-direct-methods"></a>用于执行直接方法的作业
 下面是使用作业在一组设备上执行 [直接方法][lnk-dev-methods] 的 HTTP 1.1 请求详细信息：
 
     ```
@@ -83,8 +77,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 ```
 [IoT 中心查询语言][lnk-query] 格外详细地介绍了 IoT 中心查询语言。
 
-## 用于更新设备孪生属性的作业
-<a id="jobs-to-update-device-twin-properties" class="xliff"></a>
+## <a name="jobs-to-update-device-twin-properties"></a>用于更新设备孪生属性的作业
 下面是使用作业更新设备孪生属性的 HTTP 1.1 请求详细信息：
 
     ```
@@ -104,8 +97,7 @@ queryCondition = "deviceId IN ['MyDevice1']
     }
     ```
 
-## 查询作业的进度
-<a id="querying-for-progress-on-jobs" class="xliff"></a>
+## <a name="querying-for-progress-on-jobs"></a>查询作业的进度
 下面是用于[查询作业][lnk-query]的 HTTP 1.1 请求详细信息：
 
     ```
@@ -119,8 +111,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 
 从响应提供 continuationToken。  
 
-## 作业属性
-<a id="jobs-properties" class="xliff"></a>
+## <a name="jobs-properties"></a>作业属性
 下面是属性和相应说明的列表，在查询作业或作业结果时可使用这些属性。
 
 | 属性 | 说明 |
@@ -133,7 +124,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 | **scheduledDeviceMethod**：用于对一组设备孪生调用设备方法的作业。 | |
 | **status** |作业的当前状态。 可能的状态值： |
 | **挂起** ：已计划并等待作业服务选取。 | |
-| **已计划** ：计划在将来某个时间。 | |
+| **已计划**：计划在将来某个时间。 | |
 | **正在运行** ：当前活动的作业。 | |
 | **已取消** ：已取消作业。 | |
 | **失败** ：作业失败。 | |
@@ -150,8 +141,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 | **deviceJobStatistics.runningCount** |当前正在运行作业的设备数。 |
 | **deviceJobStatistics.pendingCount** |等待运行作业的设备数。 |
 
-### 其他参考资料
-<a id="additional-reference-material" class="xliff"></a>
+### <a name="additional-reference-material"></a>其他参考资料
 IoT 中心开发人员指南中的其他参考主题包括：
 
 * [IoT 中心终结点][lnk-endpoints] ，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
@@ -160,9 +150,8 @@ IoT 中心开发人员指南中的其他参考主题包括：
 * [用于设备孪生、作业和消息路由的 IoT 中心查询语言][lnk-query]介绍了可用来从 IoT 中心检索设备孪生和作业相关信息的 IoT 中心查询语言。
 * [IoT 中心 MQTT 支持][lnk-devguide-mqtt] 提供有关 IoT 中心对 MQTT 协议的支持的详细信息。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
-如果要尝试本文中介绍的一些概念，你可能对以下 IoT 中心教程感兴趣：
+## <a name="next-steps"></a>后续步骤
+如果要尝试本文中介绍的一些概念，可能对以下 IoT 中心教程感兴趣：
 
 * [计划和广播作业][lnk-jobs-tutorial]
 

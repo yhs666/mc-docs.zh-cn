@@ -12,33 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/23/2017
-ms.date: 06/05/2017
+origin.date: 08/08/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 11ff6991ce38debbedb040258a8eee52465b40b7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.date: 09/25/2017
+ms.openlocfilehash: 451a5a914bdaf9c83130429f1d098de05fcec71a
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>使用 PowerShell 配置 IoT 中心文件上传
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-若要使用 [IoT 中心的文件上传功能][lnk-upload]，必须先将 Azure 存储帐户与 IoT 中心关联。 可以使用现有存储帐户，也可以创建新的存储帐户。
+要使用 [IoT 中心的文件上传功能][lnk-upload]，必须先将 Azure 存储帐户与 IoT 中心关联。 可以使用现有存储帐户，也可以创建新的存储帐户。
 
 若要完成本教程，需要以下各项：
 
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 * [Azure PowerShell cmdlet][lnk-powershell-install]。
-* Azure IoT 中心。 如果你没有 IoT 中心，可以使用 [New-AzureRmIoTHub cmdlet][lnk-powershell-iothub] 创建一个，或使用门户[创建 IoT 中心][lnk-portal-hub]。
-* 一个 Azure 存储帐户。 如果你没有 Azure 存储帐户，可以使用 [Azure 存储 PowerShell cmdlet][lnk-powershell-storage] 创建一个，或使用门户[创建存储帐户][lnk-portal-storage]。
+* Azure IoT 中心。 如果没有 IoT 中心，可以使用 [New-AzureRmIoTHub cmdlet][lnk-powershell-iothub] 创建一个，或使用门户[创建 IoT 中心][lnk-portal-hub]。
+* 一个 Azure 存储帐户。 如果没有 Azure 存储帐户，可以使用 [Azure 存储 PowerShell cmdlet][lnk-powershell-storage] 创建一个，或使用门户[创建存储帐户][lnk-portal-storage]。
 
 ## <a name="sign-in-and-set-your-azure-account"></a>登录并设置 Azure 帐户
 
-登录到你的 Azure 帐户，然后选择你的订阅。
+登录到 Azure 帐户，并选择订阅。
 
 1. 在 PowerShell 提示符下，运行 **Login-AzureRmAccount** cmdlet：
 
@@ -46,7 +44,7 @@ ms.lasthandoff: 05/26/2017
     Login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
     ```
 
-1. 如果你有多个 Azure 订阅，则访问 Azure 即有权访问与凭据关联的所有 Azure 订阅。 使用以下命令，列出可供使用的 Azure 订阅：
+1. 如果有多个 Azure 订阅，则访问 Azure 即有权访问与凭据关联的所有 Azure 订阅。 使用以下命令，列出可供使用的 Azure 订阅：
 
     ```powershell
     Get-AzureRMSubscription
@@ -63,7 +61,7 @@ ms.lasthandoff: 05/26/2017
 
 以下步骤假设已使用 **Resource Manager** 部署模型而不**经典**部署模型创建了存储帐户。
 
-如 IoT 中心配置文件将上传从设备，需要 Azure 存储帐户相同的订阅中的连接字符串。 还需要存储帐户中 Blob 容器的名称。 使用以下命令检索存储帐户密钥：
+若要从设备配置文件上传，需要 Azure 存储帐户的连接字符串。 存储帐户必须与 IoT 中心位于同一订阅中。 还需要存储帐户中 Blob 容器的名称。 使用以下命令检索存储帐户密钥：
 
 ```powershell
 Get-AzureRmStorageAccountKey `
@@ -127,7 +125,8 @@ Set-AzureRmIotHub `
 ```
 
 ## <a name="next-steps"></a>后续步骤
-有关 IoT 中心文件上传功能的详细信息，请参阅 IoT 中心开发人员指南中的 [从设备上传文件][lnk-upload] 。
+
+有关 IoT 中心文件上传功能的详细信息，请参阅[从设备上传文件][lnk-upload]。
 
 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
@@ -138,7 +137,7 @@ Set-AzureRmIotHub `
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南][lnk-devguide]
-* [使用 IoT Edge 模拟设备][lnk-gateway]
+* [使用 IoT Edge 模拟设备][lnk-iotedge]
 * [从根本上保护 IoT 解决方案][lnk-securing]
 
 [lnk-upload]: ./iot-hub-devguide-file-upload.md
@@ -148,7 +147,7 @@ Set-AzureRmIotHub `
 [lnk-monitor]: ./iot-hub-operations-monitoring.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: ./iot-hub-security-ground-up.md
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/

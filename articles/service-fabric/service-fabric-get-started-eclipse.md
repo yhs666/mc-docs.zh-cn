@@ -12,14 +12,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2016
-ms.date: 08/14/2017
+origin.date: 08/21/2016
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: ce9624f7c718af4d06d7555cbfbf5197d6d8f9e3
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: ec51644cc829e24f5a917621d68c1380c38d655d
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>使用适用于 Eclipse 的 Service Fabric 插件开发 Java 应用程序
 Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一。 本文介绍如何设置适用于 Azure Service Fabric 的 Eclipse 开发环境。 了解如何安装 Service Fabric 插件、创建 Service Fabric 应用程序，以及将 Service Fabric 应用程序部署到 Eclipse Neon 中的本地或远程 Service Fabric 群集。
@@ -146,6 +146,9 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
 
 应用程序升级需要几分钟时间。 可在 Service Fabric Explorer 中监视应用程序升级状态。
 
+## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>迁移要与 Maven 配合使用的旧式 Service Fabric Java 应用程序
+我们最近已将 Service Fabric Java 库从 Service Fabric Java SDK 移至 Maven 存储库。 虽然使用 Eclipse 生成的新应用程序会生成最近更新的项目（会兼容 Maven），但你可以对现有的 Service Fabric 无状态或执行组件 Java 应用程序（此前使用 Service Fabric Java SDK）进行更新，使之能够使用 Maven 提供的 Service Fabric Java 依赖项。 请按[此处](service-fabric-migrate-old-javaapp-to-use-maven.md)提及的步骤操作，确保旧版应用程序兼容 Maven。
+
 <!-- Images -->
 
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png
@@ -168,4 +171,4 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
 <!-- Links -->
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update meta properties, add feature on migrate old service java application-->

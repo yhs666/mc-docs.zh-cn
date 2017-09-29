@@ -16,12 +16,12 @@ ms.workload: na
 origin.date: 07/12/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 08/14/2017
-ms.openlocfilehash: a0887070c7e6603a36989092f5914376b8adb59e
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 09/25/2017
+ms.openlocfilehash: b9195af8dbcf7f9df38398abf5f7f8b9070a878b
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (C)
 
@@ -32,10 +32,10 @@ ms.lasthandoff: 08/04/2017
 
 ## <a name="what-you-do"></a>准备工作
 
-* 设置 Raspberry Pi。
 * 创建 IoT 中心。
 * 在 IoT 中心内为 Pi 注册设备。
-* 在 Pi 上运行示例应用程序，将传感器数据发送到 IoT 中心。
+* 设置 Raspberry Pi。
+* 在 Pi 上运行示例应用程序，以将传感器数据发送到 IoT 中心。
 
 将 Raspberry Pi 连接到所创建的 IoT 中心。 然后，在 Pi 上运行示例应用程序，从 BME280 传感器收集温度和湿度数据。 最后，将传感器数据发送到 IoT 中心。
 
@@ -80,8 +80,8 @@ ms.lasthandoff: 08/04/2017
 准备用于安装 Raspbian 映像的 microSD 卡。
 
 1. 下载 Raspbian。
-   1. [下载 Raspbian Jessie with Pixel](https://www.raspberrypi.org/downloads/raspbian/)（.zip 文件）。
-   1. 将 Raspbian 映像解压缩到计算机的某个文件夹中。
+   1. [下载 Raspbian Jessie with Desktop](https://www.raspberrypi.org/downloads/raspbian/)（.zip 文件）。
+   1. 将 Raspbian 映像提取到计算机上的一个文件夹中。
 1. 将 Raspbian 安装到 microSD 卡。
    1. [下载并安装 Etcher SD 卡刻录机实用工具](https://etcher.io/)。
    1. 运行 Etcher 并选择已在步骤 1 中解压缩的 Raspbian 映像。
@@ -106,7 +106,7 @@ ms.lasthandoff: 08/04/2017
 
 ### <a name="connect-the-sensor-to-pi"></a>将传感器连接到 Pi
 
-使用试验板和跳线，将 LED 灯和 BME280 连接到 Pi，如下所示。 如果没有该传感器，请跳过此部分。
+使用试验板和跳线，将 LED 灯和 BME280 连接到 Pi，如下所示。 如果没有该传感器，请[跳过此部分](#connect-pi-to-the-network)。
 
 ![Raspberry Pi 和传感器连接](./media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png) BME280 传感器可以收集温度和湿度数据。 如果设备和云之间存在通信，LED 将闪烁。 
 
@@ -129,6 +129,7 @@ ms.lasthandoff: 08/04/2017
 
 ![连接在一起的 Pi 和 BME280](./media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
 
+### <a name="connect-pi-to-the-network"></a>将 Pi 连接到网络
 使用 USB 微电缆和电源开启 Pi。 使用以太网电缆将 Pi 连接到有线网络，或者按照 [Raspberry Pi Foundation 中的说明](https://www.raspberrypi.org/learning/software-guide/wifi/)将 Pi 连接到无线网络。
 
 ![已连接到有线网络](./media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
@@ -139,8 +140,18 @@ ms.lasthandoff: 08/04/2017
 ### <a name="install-the-prerequisite-packages"></a>安装必备组件包
 
 1. 使用主计算机的以下任一 SSH 客户端连接到 Raspberry Pi。
-    - [PuTTY](http://www.putty.org/) for Windows。
-    - Ubuntu 或 macOS 上的内置 SSH 客户端。
+   
+   **Windows 用户**
+   1. 下载并安装 [PuTTY](http://www.putty.org/) for Windows。 
+   1. 将 Pi 的 IP 地址复制到主机名（或 IP 地址）部分，并选择 SSH 作为连接类型。
+   
+   ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
+   
+   **Mac 和 Ubuntu 用户**
+   
+   使用 Ubuntu 或 macOS 上的内置 SSH 客户端。 可能需要运行 `ssh pi@<ip address of pi>`，以通过 SSH 连接 Pi。
+   > [!NOTE] 
+   默认用户名是 `pi`，密码是 `raspberry`。
 
 1. 通过运行以下命令，为适用于 C 和 Cmake 的 Microsoft Azure IoT 设备 SDK 安装必备组件包：
 
@@ -172,7 +183,7 @@ ms.lasthandoff: 08/04/2017
 
    ![配置文件](./media/iot-hub-raspberry-pi-kit-c-get-started/6_config-file.png)
 
-   此文件中有两个可配置的宏。 第一个是 `INTERVAL`，它确定发送到云的两条消息之间的时间间隔。 第二个是 `SIMULATED_DATA`，它是一个布尔值，指示是否使用模拟的传感器数据。
+   此文件中有两个可配置的宏。 第一个是 `INTERVAL`，它确定发送到云的两条消息之间的时间间隔（以毫秒为单位）。 第二个是 `SIMULATED_DATA`，它是一个布尔值，指示是否使用模拟的传感器数据。
 
    如果**没有传感器**，请将 `SIMULATED_DATA` 值设置为 `1`，使示例应用程序创建和使用模拟的传感器数据。
 
@@ -203,7 +214,7 @@ ms.lasthandoff: 08/04/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-此时已运行示例应用程序，收集传感器数据并将其发送到 IoT 中心。
+此时已运行示例应用程序，以收集传感器数据并将其发送到 IoT 中心。 若要查看 Raspberry Pi 已发送到 IoT 中心的消息，或若要在命令行接口中将消息发送到 Raspberry Pi，请参阅[使用 iothub-explorer 管理云设备消息传送教程](./iot-hub-explorer-cloud-device-messaging.md)。
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

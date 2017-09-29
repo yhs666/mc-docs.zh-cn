@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/27/2017
-ms.date: 09/04/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: d5e649152b759740fd6b8496e401826cccf05c89
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 0b7b23901ace0b110018844c91c3dfb0be2e8f06
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>选择流分析平台：Apache Storm 与 Azure 流分析的比较
 Azure 提供了多种用于流数据分析的解决方案：[Azure 流分析](/stream-analytics/)和 Azure HDInsight 上的 Apache Storm。 这两个分析平台都具备 PaaS 解决方案的优势。 但这些平台的功能以及配置和管理方式却存在一些显著差异。 
@@ -232,29 +232,12 @@ Azure 提供了多种用于流数据分析的解决方案：[Azure 流分析](/s
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>对用户定义函数 (UDF) 的支持</strong>
-                </p>
-            </td>
-            <td width="204" valign="top">
-                <p>
-查询支持 JavaScript UDF。 有关详细信息，请参阅 <a href="/stream-analytics/stream-analytics-javascript-user-defined-functions">JavaScript UDF 集成</a>。
-                </p>
-            </td>
-            <td width="246" valign="top">
-                <p>
-可使用 C#、Java 或任何其他语言编写 UDF。
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="174" valign="top">
-                <p>
                     <strong>是否支持使用自定义代码的可扩展性？</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-否。 没有在流分析中提供可扩展代码支持。
+部分支持 JavaScript UDF。 有关详细信息，请参阅 <a href="/stream-analytics/stream-analytics-javascript-user-defined-functions">JavaScript UDF 集成</a>。
                 </p>
             </td>
             <td width="246" valign="top">

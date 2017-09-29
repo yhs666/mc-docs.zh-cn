@@ -13,16 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/04/2017
-ms.date: 08/21/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5c44490743e9a131c78c33bc9b4502cc7183312f
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 0f679cd9855e30ef86138c9f669bb0d904567ab0
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 入门
-
 > [!div class="op_single_selector"]
 > * [Windows 上的 C#](service-fabric-reliable-actors-get-started.md)
 > * [Linux 上的 Java](service-fabric-reliable-actors-get-started-java.md)
@@ -102,11 +101,9 @@ HelloWorldActorApplication/
 ```
 
 ## <a name="reliable-actors-basic-building-blocks"></a>Reliable Actors 基本构建基块
-
 前面所述的基本概念可以转化为 Reliable Actor 服务的基本构建块。
 
 ### <a name="actor-interface"></a>执行组件接口
-
 包含执行组件的接口定义。 此接口定义执行组件实现和调用执行组件的客户端所共享的执行组件协定，因此合理的做法是在独立于执行组件实现的某个位置定义接口，并且其他多个服务或客户端应用程序可以共享接口。
 
 `HelloWorldActorInterface/src/reliableactor/HelloWorldActor.java`：
@@ -152,7 +149,6 @@ public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActo
 ```
 
 ### <a name="actor-registration"></a>执行组件注册
-
 执行组件服务必须使用 Service Fabric 运行时中的服务类型注册。 为了使执行组件服务能够运行执行组件实例，还必须向执行组件服务注册执行组件类型。 `ActorRuntime` 注册方法为执行组件执行此操作。
 
 `HelloWorldActor/src/reliableactor/HelloWorldActorHost`：
@@ -176,11 +172,9 @@ public class HelloWorldActorHost {
 ```
 
 ### <a name="test-client"></a>测试客户端
-
 这是一个简单的测试客户端应用程序，可以单独从 Service Fabric 应用程序运行它来测试执行组件服务。 这是可以使用 ActorProxy 激活执行组件实例以及与执行组件实例通信的示例场合。 它不会部署到服务中。
 
-### <a name="the-application"></a>应用程序 
-
+### <a name="the-application"></a>应用程序
 最后，应用程序将打包执行组件服务，以及将来可能要为部署添加的其他任何服务。 其中包含执行组件服务包的 *ApplicationManifest.xml* 和占位符。
 
 ## <a name="run-the-application"></a>运行应用程序
@@ -193,21 +187,17 @@ $ gradle
 
 这会生成可以使用 Service Fabric CLI 工具部署的 Service Fabric 应用程序包。
 
-### <a name="deploy-with-xplat-cli"></a>使用 XPlat CLI 进行部署
+### <a name="deploy-service-fabric-cli"></a>部署 Service Fabric CLI
 
-如果使用的是 XPlat CLI，则 Install.sh 脚本包含用于部署应用程序包所必需的 Azure CLI 命令。 运行 install.sh 脚本以部署此应用程序。
+Install.sh 脚本包含用于部署应用程序包的 Service Fabric CLI (sfctl) 命令。
+运行 install.sh 脚本以部署此应用程序。
 
 ```bash
 $ ./install.sh
 ```
 
-### <a name="deploy-with-azure-cli-20"></a>使用 Azure CLI 2.0 进行部署
+## <a name="next-steps"></a>后续步骤
 
-如果使用的是 Azure CLI 2.0，请参阅[使用 Azure CLI 2.0 管理应用程序生命周期](service-fabric-application-lifecycle-azure-cli-2-0.md)的参考文档。
+* [Service Fabric CLI 入门](service-fabric-cli.md)
 
-## <a name="related-articles"></a>相关文章
-
-* [Service Fabric 和 Azure CLI 2.0 入门](service-fabric-azure-cli-2-0.md)
-* [Service Fabric XPlat CLI 入门](service-fabric-azure-cli.md)
-
-<!--Update_Description: update meta properties, add new feature on deploy with Azure CLI 2.0-->
+<!--Update_Description: update meta properties, add new feature on deploy with service fabric CLI(sfctl) -->

@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 06/22/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 74d33cf8eb746bfbe990824f2bc658e76cf7077c
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: ad8cdb9984c694ce4ceaf451f8a1d3a29609b081
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase-stream-data-processing-throughput"></a>扩展 Azure 流分析作业，增加流数据处理吞吐量
 本文介绍如何优化流分析查询，增加流分析作业的吞吐量。 了解如何通过配置输入分区、优化分析查询定义，以及计算和设置作业流式处理单位 (SU) 来缩放流分析作业。 
@@ -88,7 +88,6 @@ ms.lasthandoff: 07/26/2017
 此查询具有分组键。 因此，相同的键需要由同一个查询实例进行处理，这意味着必须以分区的方式将事件发送到事件中心。 但是，应使用哪个键？ **PartitionId** 是作业逻辑概念。 我们真正关心的键是 **TollBoothId**，因此事件数据的 **PartitionKey** 值应为 **TollBoothId**。 为此，请在查询中将 **Partition By** 设置为 **PartitionId**。 由于输出是 Blob 存储，因此如要求 #4 所述，无需担心如何配置分区键值。
 
 ### <a name="multi-step-query-with-a-grouping-key"></a>带分组键的多步骤查询
-
 * 输入：具有 8 个分区的事件中心
 * 输出：具有 8 个分区的事件中心实例
 
@@ -118,7 +117,6 @@ ms.lasthandoff: 07/26/2017
 
 <!-- Not Available ### Not using event hubs or blob storage as output-->
 ### <a name="multi-step-query-with-different-partition-by-values"></a>使用不同的“分区依据”值的多步骤查询
-
 * 输入：具有 8 个分区的事件中心
 * 输出：具有 8 个分区的事件中心
 
@@ -224,7 +222,7 @@ ms.lasthandoff: 07/26/2017
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-对查询进行分区后，将在独立的分区组中处理和聚合输入事件。 此外，还会为每个组生成输出事件。 在输入数据流中，当 **GROUP BY** 字段不是分区键时，执行分区可能会导致某些意外的结果。 例如，在前面的查询中，**TollBoothId** 字段不是 **Input1** 的分区键。 因此，可以将 TollBooth #1 中的数据分布到多个分区。
+对查询进行分区后，会在独立的分区组中处理和聚合输入事件。 此外，还会为每个组生成输出事件。 在输入数据流中，当 **GROUP BY** 字段不是分区键时，执行分区可能会导致某些意外的结果。 例如，在前面的查询中，**TollBoothId** 字段不是 **Input1** 的分区键。 因此，可以将 TollBooth #1 中的数据分布到多个分区。
 
 流分析会分开处理每个 **Input1** 分区。 因此，将在相同的翻转窗口为同一收费亭创建多个关于车辆数的记录。 如果不能更改输入分区键，则可通过添加不分区步骤来解决此问题，如下例所示：
 
@@ -332,7 +330,7 @@ ms.lasthandoff: 07/26/2017
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
@@ -359,4 +357,4 @@ ms.lasthandoff: 07/26/2017
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!--Update_Description: update meta properties, update link, wording update-->
+<!--Update_Description: update meta properties, wording update-->

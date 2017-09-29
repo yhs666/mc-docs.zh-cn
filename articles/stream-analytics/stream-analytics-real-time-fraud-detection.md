@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/10/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: bcc3989199a660539666c316e9e0448a570873f0
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 144a87d2a4a19297fccfee3deab0cfaac7c8acf4
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure 流分析入门：实时检测欺诈行为
 
@@ -47,8 +47,8 @@ ms.lasthandoff: 07/26/2017
 * 一个 Azure 帐户。
 * 呼叫事件生成器应用。 可通过从 Microsoft 下载中心下载 [TelcoGenerator.zip 文件](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)来获取此应用。 将此包解压缩到计算机上的文件夹中。 如果想要查看源代码，并在调试程序中运行该应用，可从 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator) 获取应用源代码。 
 
-    > [!NOTE]
-    > Windows 可能会阻止下载的 .zip 文件。 如果无法将其解压缩，请右键单击该文件，然后选择“属性”。 如果看到“此文件来自其他计算机，可能被阻止以帮助保护该计算机”的消息，则选择“取消阻止”选项，然后单击“应用”。
+    >[!NOTE]
+    >Windows 可能会阻止下载的 .zip 文件。 如果无法将其解压缩，请右键单击该文件，然后选择“属性”。 如果看到“此文件来自其他计算机，可能被阻止以帮助保护该计算机”的消息，则选择“取消阻止”选项，然后单击“应用”。
 
 如果想要检查流分析作业的结果，还需要一种用于查看 Azure Blob 存储容器内容的工具。 如果使用 Visual Studio，则可以使用 [Azure Tools for Visual Studio](/vs-azure-tools-storage-resources-server-explorer-browse-manage) 或 [Visual Studio Cloud Explorer](/vs-azure-tools-resources-managing-with-cloud-explorer)。 或者，可以安装独立工具，如 [Azure 存储资源管理器](http://storageexplorer.com/)或 [Azure 资源管理器](http://www.cerebrata.com/products/azure-explorer/introduction)。 
 
@@ -56,31 +56,30 @@ ms.lasthandoff: 07/26/2017
 
 若要分析数据流，请将其引入到 Azure 中。 引入数据的典型方式是使用 [Azure 事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)，该中心每秒可以引入数百万个事件，从而使用户能够处理并存储事件信息。 本教程将创建事件中心，然后让呼叫事件生成器应用将呼叫数据发送至该事件中心。 有关事件中心的详细信息，请参阅 [Azure 服务总线文档](/service-bus/)。
 
-> [!NOTE]
-> 有关此过程的更详细版本，请参阅[使用 Azure 门户创建事件中心命名空间和事件中心](../event-hubs/event-hubs-create.md)。 
+>[!NOTE]
+>有关此过程的更详细版本，请参阅[使用 Azure 门户创建事件中心命名空间和事件中心](../event-hubs/event-hubs-create.md)。 
 
 ### <a name="create-a-namespace-and-event-hub"></a>创建命名空间和事件中心
-
 在此过程中，首先创建事件中心命名空间，然后将事件中心添加到该命名空间。 事件中心命名空间用于逻辑分组相关的事件总线实例。 
 
 1. 登录到 Azure 门户，然后单击“新建” > “物联网” > “事件中心”。 
 
 2. 在“创建命名空间”边栏选项卡中，输入命名空间名称，例如 `<yourname>-eh-ns-demo`。 可以对命名空间使用任何名称，但该名称必须对 URL 有效，并且在 Azure 中必须唯一。 
-
+    
 3. 选择订阅并创建或选择一个资源组，然后单击“创建”。 
 
     ![创建事件中心命名空间](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png)
-
+ 
 4. 完成部署命名空间后，在 Azure 资源列表中找到事件中心命名空间。 
 
 5. 单击新的命名空间，然后在“命名空间”边栏选项卡中，单击“+&nbsp;事件中心”。 
 
     ![用于创建新事件中心的“添加事件中心”按钮 ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
-
+ 
 6. 将新事件中心命名为 `sa-eh-frauddetection-demo`。 可以使用其他名称。 如果使用其他名称，请记下该名称，稍后会用到。 不需要立即为事件中心设置任何其他选项。
 
     ![用于创建新事件中心的边栏选项卡](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
-
+    
 7. 单击“创建” 。
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>授予对事件中心的访问权限，并获取连接字符串
@@ -406,7 +405,7 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 ## <a name="get-support"></a>获取支持
 
-如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
+如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>后续步骤
 <!-- Not Avaialble * [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](stream-analytics-power-bi-dashboard.md). This article shows you how to send the TelCo output of the Stream Analytics job to Power BI for real-time visualization and analysis.-->

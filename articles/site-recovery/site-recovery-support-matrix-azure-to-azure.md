@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 06/10/2017
-ms.date: 08/28/2017
+origin.date: 08/31/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 79d1b9edf795cc1e5aea9300676da8cc86f90dc4
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: d2b769037d0219aa1d0c67b8f385f8423a8da9cf
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>从 Azure 复制到 Azure 的 Azure Site Recovery 支持矩阵
 
@@ -53,6 +53,13 @@ ms.lasthandoff: 08/25/2017
 **经典** | 支持 | 只可复制经典虚拟机并将其恢复为经典虚拟机。 无法将其恢复为 Resource Manager 虚拟机。 如果直接向 Azure 区域中部署一个没有虚拟网络的经典 VM，该 VM 不受支持。
 **Resource Manager** | 支持 |
 
+>[!NOTE]
+>
+> 1. 不支持将 Azure 虚拟机从一个订阅复制到另一个订阅的灾难恢复方案。
+> 2. 不支持在多个订阅之间迁移 Azure 虚拟机。
+> 3. 不支持在同一区域内迁移 Azure 虚拟机。
+> 4. 不支持将 Azure 虚拟机从经典部署模型迁移到资源管理器部署模型。
+
 ## <a name="support-for-replicated-machine-os-versions"></a>复制计算机 OS 版本支持
 
 以下支持适用于在相应 OS 上运行的任何工作负荷。
@@ -70,12 +77,15 @@ ms.lasthandoff: 08/25/2017
 
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7、6.8、7.0、7.1、7.2、7.3
-- CentOS 6.5、6.6、6.7、6.8、7.0、7.1、7.2、7.3
+- Red Hat Enterprise Linux 6.7、6.8、6.9、7.0、7.1、7.2、7.3
+- CentOS 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2、7.3
 - Ubuntu 14.04 LTS 服务器[（受支持的内核版本）](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS 服务器[（受支持的内核版本）](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Oracle Enterprise Linux 6.4、6.5（运行 Red Hat 兼容内核或 Unbreakable Enterprise Kernel Release 3 (UEK3)）
 - SUSE Linux Enterprise Server 11 SP3
+- SUSE Linux Enterprise Server 11 SP4
+
+（不支持复制计算机从 SLES 11 SP3 升级到 SLES 11 SP4。 如果已将复制计算机从 SLES 11SP3 升级到 SLES 11 SP4，则需要禁用复制，并在升级后再次对计算机启用保护。）
 
 >[!NOTE]
 >
@@ -87,7 +97,9 @@ ms.lasthandoff: 08/25/2017
 --- | --- | --- |
 14.04 LTS | 9.9 | 3.13.0-24-generic 到 3.13.0-117-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic 到 3.13.0-121-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-81-generic |
+14.04 LTS | 9.11 | 3.13.0-24-generic 到 3.13.0-125-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-83-generic |
 16.04 LTS | 9.10 | 4.4.0-21-generic 到 4.4.0-81-generic、<br/>4.8.0-34-generic 到 4.8.0-56-generic、<br/>4.10.0-14-generic 到 4.10.0-24-generic |
+16.04 LTS | 9.11 | 4.4.0-21-generic 到 4.4.0-83-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-27-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>运行 Linux OS 的 Azure 虚拟机上支持的文件系统和来宾存储配置
 

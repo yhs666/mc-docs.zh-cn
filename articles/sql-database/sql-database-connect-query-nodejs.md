@@ -3,7 +3,7 @@ title: "使用 Node.js 查询 Azure SQL 数据库 | Azure"
 description: "本主题介绍如何使用 Node.js 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 53f70e37-5eb4-400d-972e-dd7ea0caacd4
@@ -12,15 +12,15 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 07/05/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: c44414c136a020cc760674912705efb2aee6952a
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 6d5fa459d90e4a3438cff46eae269d028c8dbb44
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>使用 Node.js 查询 Azure SQL 数据库
 
@@ -32,9 +32,9 @@ ms.lasthandoff: 09/11/2017
 
 - Azure SQL 数据库。 此快速入门使用以下某个快速入门中创建的资源： 
 
-- [创建 DB - 门户](sql-database-get-started-portal.md)
-- [创建 DB - CLI](sql-database-get-started-cli.md)
-- [创建 DB - PowerShell](sql-database-get-started-powershell.md)
+   - [创建 DB - 门户](sql-database-get-started-portal.md)
+   - [创建 DB - CLI](sql-database-get-started-cli.md)
+   - [创建 DB - PowerShell](sql-database-get-started-powershell.md)
 
 - 针对用于本快速入门教程的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
 - 已为操作系统安装 Node.js 和相关软件。
@@ -144,4 +144,3 @@ ms.lasthandoff: 09/11/2017
 - 了解如何[使用 SSMS 进行连接和查询](sql-database-connect-query-ssms.md)
 - 了解如何[使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。
 
-<!--Update_Description: update link-->

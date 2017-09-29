@@ -11,16 +11,16 @@ ms.assetid:
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 origin.date: 06/20/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 60c8287e8bf3ac127facc4e86f8167e2b65285f3
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 5f165e6e6f2f616626d741488d72a18e080e0176
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster"></a>从 Service Fabric 群集中删除应用程序
 
@@ -69,4 +69,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString fabric:ImageS
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Powershell 示例。
 
-<!--Update_Description: new articles of remove application with PS in service fabric -->
+<!--Update_Description: update meta properties -->

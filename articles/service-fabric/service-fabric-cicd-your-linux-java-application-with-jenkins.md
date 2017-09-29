@@ -12,14 +12,14 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/14/2017
+origin.date: 08/23/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: c989670a28d3791a1beae574b208eb6e2e95ab84
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: f866fc0756cf2194ef0bd577daa276e3f32d97af
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>使用 Jenkins 生成和部署 Linux Java 应用程序
 Jenkins 是流行的应用持续集成和部署工具。 本文介绍如何使用 Jenkins 生成和部署 Azure Service Fabric 应用程序。
@@ -48,7 +48,7 @@ Jenkins 是流行的应用持续集成和部署工具。 本文介绍如何使�
 
 3. 需要 Azure 存储文件共享的连接选项详细信息，以便持久保存 Jenkins 容器实例的状态。 如果使用 Azure 门户实现同样的目标，请执行以下步骤 - 创建一个 Azure 存储帐户，例如 ``sfjenkinsstorage1``。 在该存储帐户下创建一个文件共享，例如 ``sfjenkins``。 针对文件共享单击“连接”，并记下它在“从 Linux 进行连接”下显示的值，如下所示 -
     ```sh
-    sudo mount -t cifs //sfjenkinsstorage1.file.core.chinacloudapi.cn/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777
+    sudo mount -t cifs //sfjenkinsstorage1.file.core.chinacloudapi.cn/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
     ```
 
 4. 使用对应的 azure-storage 详细信息更新 ```setupentrypoint.sh``` 脚本中的占位符值。
@@ -59,8 +59,8 @@ Jenkins 是流行的应用持续集成和部署工具。 本文介绍如何使�
 将 ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` 替换为前面的第 3 点内容中的值 ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777``。
 
 5. 连接到群集并安装容器应用程序。
-    ```sh
-    azure servicefabric cluster connect http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
+    ```azurecli
+    sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
     bash Scripts/install.sh
     ```
 这会在群集上安装 Jenkins 容器，可以使用 Service Fabric Explorer 监视该容器。
@@ -106,7 +106,7 @@ Jenkins 是流行的应用持续集成和部署工具。 本文介绍如何使�
 ### <a name="steps"></a>步骤
 1. 拉取 Service Fabric Jenkins 容器映像：``docker pull raunakpandya/jenkins:v1``
 2. 运行容器映像：``docker run -itd -p 8080:8080 raunakpandya/jenkins:v1``
-3. 获取容器映像实例的 ID。 可以使用命令 ``docker ps –a`` 列出所有 Docker 容器
+3. 获取容器映像实例的 ID。 可以使用命令 ``docker ps -a`` 列出所有 Docker 容器
 4. 执行以下步骤，登录到 Jenkins 门户：
 
     ```sh

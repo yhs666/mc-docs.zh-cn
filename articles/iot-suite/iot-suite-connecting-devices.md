@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/25/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: 03/28/2017
-ms.openlocfilehash: 9ec45a0d5ae33be16f1ac7870c474388906ba023
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/16/2017
+ms.openlocfilehash: c78e047ebf032ed0bf2a9023f0d615370b1d5ae9
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>将设备连接到远程监视预配置解决方案 (Windows)
 
@@ -34,8 +34,8 @@ ms.lasthandoff: 07/14/2017
 1. 在 Visual Studio 中，使用 Visual C++ **Win32 控制台应用程序** 模板创建一个 C 控制台应用程序。 将该项目命名为 **RMDevice**。
 2. 在“Win32 应用程序向导”中的“应用程序设置”页上，确保选中“控制台应用程序”，并取消选中“预编译标头”和“安全开发生命周期(SDL)检查”。
 3. 在“解决方案资源管理器” 中，删除文件 stdafx.h、targetver.h 和 stdafx.cpp。
-4. 在“解决方案资源管理器” 中，将文件 RMDevice.cpp 重命名为 RMDevice.c。
-5. 在“解决方案资源管理器”中，右键单击e RMDevice 项目，然后单击“管理 NuGet 包”。 单击“浏览”，然后搜索并安装以下 NuGet 包： 
+4. 在“**解决方案资源管理器**”中，将文件 RMDevice.cpp 重命名为 RMDevice.c。
+5. 在“解决方案资源管理器”中，右键单击e RMDevice 项目，然后单击“管理 NuGet 包”。 单击“浏览”，搜索并安装以下 NuGet 包：
 
    * Microsoft.Azure.IoTHub.Serializer
    * Microsoft.Azure.IoTHub.IoTHubClient

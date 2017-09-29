@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/08/2017
-ms.date: 09/04/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 02e1fd75de201a80c726b96976d7bb1a90084fd4
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 01e175b3e709f66b22490ac1f0b2e50fc943433a
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>常用流分析使用模式的查询示例
 ## <a name="introduction"></a>介绍
@@ -28,7 +28,7 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询�
 
 ## <a name="query-example-convert-data-types"></a>查询示例：转换数据类型
 **说明**：定义输入流中的属性类型。
-例如，在输入流中，车重是字符串，需要将它转换为 **INT** 类型才能执行 **SUM** 运算。
+例如，在输入流中，车重是字符串，需要将它转换为 INT 类型才能执行 SUM 运算。
 
 **输入**：
 
@@ -43,7 +43,7 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询�
 | --- | --- |
 | Honda |3000 |
 
-**解决方案**：
+**解决方案**；
 
     SELECT
         Make,
@@ -54,7 +54,7 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询�
         Make,
         TumblingWindow(second, 10)
 
-**说明**：在“权重”字段中使用 **CAST** 语句来指定它的数据类型。 请参阅[数据类型（Azure 流分析）](https://msdn.microsoft.com/library/azure/dn835065.aspx)中支持的数据类型列表。
+**说明**：在“重量”字段中使用 CAST 语句来指定它的数据类型。 请参阅[数据类型（Azure 流分析）](https://msdn.microsoft.com/library/azure/dn835065.aspx)中支持的数据类型列表。
 
 ## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>查询示例：使用 Like/Not like 进行模式匹配
 **说明**：检查事件上的字段值是否与特定的模式相匹配。
@@ -75,7 +75,7 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询�
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
-**解决方案**：
+**解决方案**；
 
     SELECT
         *
@@ -84,7 +84,7 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询�
     WHERE
         LicensePlate LIKE 'A%9'
 
-**说明**：使用 **LIKE** 语句检查 **LicensePlate** 字段的值。 它应当以 A 开头，其中包含零个或多个字符的任意字符串，并以 9 结尾。 
+**说明**：使用 LIKE 语句检查 LicensePlate 字段的值。 它应当以 A 开头，其中包含零个或多个字符的任意字符串，并以 9 结尾。 
 
 ## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>查询示例：指定不同案例/值的逻辑（CASE 语句）
 **说明**：根据某些特定条件对字段进行各种计算。
@@ -105,7 +105,7 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询�
 | 1 辆 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 辆 Toyota |2015-01-01T00:00:10.0000000Z |
 
-**解决方案**：
+**解决方案**；
 
     SELECT
         CASE
@@ -119,11 +119,11 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询�
         Make,
         TumblingWindow(second, 10)
 
-**说明**：可通过 **CASE** 子句根据某些条件（在此示例中为聚合窗口中车辆的计数）提供不同的计算操作。
+**说明**：可通过 CASE 子句根据某些条件（在此示例中为聚合窗口中车辆的计数）提供不同的计算操作。
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>查询示例：将数据发送到多个输出
 **说明**：从单个作业中将数据发送到多个输出目标。
-例如，分析基于阈值的警报数据，并将所有事件存档到 Blob 存储。
+例如，分析基于阈值的警报数据，并将所有事件保存到 blob 存储。
 
 **输入**：
 
@@ -151,7 +151,7 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询�
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
-**解决方案**：
+**解决方案**；
 
     SELECT
         *
@@ -174,7 +174,7 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询�
     HAVING
         [Count] >= 3
 
-**说明**：**INTO** 子句告知流分析哪一个输出可通过此语句写入数据。
+**说明**：INTO 子句告知流分析哪一个输出可通过此语句写入数据。
 第一个查询将我们接收到的数据传递到名为 **ArchiveOutput** 的输出。
 第二个查询进行了一些简单的聚合和筛选操作，并将结果发送到下游的警报系统。
 
@@ -225,7 +225,7 @@ GROUP BY
 ```
 
 **说明：**
-**COUNT(DISTINCT Make)** 返回时间范围内的“制造商”列的非重复值数目。
+COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值数目。
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>查询示例：确定某个值是否已更改
 **说明**：可通过查看前一个值来确定它与当前的值是否相同。
@@ -244,7 +244,7 @@ GROUP BY
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
-**解决方案**：
+**解决方案**；
 
     SELECT
         Make,
@@ -254,7 +254,7 @@ GROUP BY
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 
-**说明**：使用 **LAG** 来查看后退一个事件之后的输入流，并获得“制造商”字段的值。 然后，将它与当前事件的“制造商”字段进行比较，如果二者不同，则输出该事件。
+**说明**：使用 LAG 来查看后退一个事件之后的输入流，并获得“制造商”字段的值。 然后，将它与当前事件的“制造商”字段进行比较，如果二者不同，则输出该事件。
 
 ## <a name="query-example-find-the-first-event-in-a-window"></a>查询示例：查找时间范围内的第一个事件
 **说明**：查找每 10 分钟时间间隔内的第一辆汽车。
@@ -299,7 +299,7 @@ GROUP BY
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
 
-**解决方案**：
+**解决方案**；
 
     SELECT 
         LicensePlate,
@@ -332,7 +332,7 @@ GROUP BY
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
 
-**解决方案**：
+**解决方案**；
 
     WITH LastInWindow AS
     (
@@ -374,7 +374,7 @@ GROUP BY
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
-**解决方案**：
+**解决方案**；
 
     SELECT
         Make,
@@ -387,7 +387,7 @@ GROUP BY
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 
-**说明**：使用 **LAG** 来查看后退一个事件之后的输入流，并获得“制造商”字段的值。 将它与当前事件的“制造商”字段进行比较，如果二者相同，则输出该事件。 还可使用 **LAG** 获取前一辆汽车的数据。
+**说明**：使用 LAG 来查看后退一个事件之后的输入流，并获得“制造商”字段的值。 将它与当前事件的“制造商”字段进行比较，如果二者相同，则输出该事件。 还可使用 **LAG** 获取前一辆汽车的数据。
 
 ## <a name="query-example-detect-the-duration-between-events"></a>查询示例：检测事件之间的持续时间
 **说明**：查找给定事件的持续时间。 例如：给定一个 Web 点击流，确定某项功能花费的时间。
@@ -405,7 +405,7 @@ GROUP BY
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
-**解决方案**：
+**解决方案**；
 
 ```
     SELECT
@@ -415,7 +415,7 @@ GROUP BY
         Event = 'end'
 ```
 
-**说明**：使用 **LAST** 函数检索上次事件类型为“开始”时的时间值。 **LAST** 函数使用 **PARTITION BY [user]** 指示结果应按唯一用户计算。 该查询在“开始”和“停止”事件之间有 1 小时的最大时差阈值，但也可按需配置 **(LIMIT DURATION(hour, 1)**。
+**说明**：使用 LAST 函数检索上次事件类型为“开始”时的时间值。 **LAST** 函数使用 **PARTITION BY [user]** 指示结果应按唯一用户计算。 该查询在“开始”和“停止”事件之间有 1 小时的最大时差阈值，但也可按需配置 **(LIMIT DURATION(hour, 1)**。
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>查询示例：检测某个条件的持续时间
 **说明**：查看某个条件的持续时间。
@@ -440,7 +440,7 @@ GROUP BY
 | --- | --- |
 | 2015-01-01T00:00:02.000Z |2015-01-01T00:00:07.000Z |
 
-**解决方案**：
+**解决方案**；
 
 ```
     WITH SelectPreviousEvent AS
@@ -461,10 +461,10 @@ GROUP BY
         AND previousWeight > 20000
 ```
 
-**说明**：使用 **LAG** 查看 24 小时内的输入流并查找因重量 < 20000 而持续的 **StartFault** 和 **StopFault** 实例。
+**说明**：使用 LAG 查看 24 小时内的输入流并查找因重量 < 20000 而持续的 StartFault 和 StopFault 实例。
 
 ## <a name="query-example-fill-missing-values"></a>查询示例：填充缺失值
-**说明**：对于带有缺失值的事件流，以固定的间隔生成事件流。
+**说明**：对于值缺失的事件流，以固定的间隔生成事件流。
 例如，每间隔 5 秒生成一个事件，报告最新发现的数据点。
 
 **输入**：
@@ -493,7 +493,7 @@ GROUP BY
 | 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6 |
 | 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6 |
 
-**解决方案**：
+**解决方案**；
 
     SELECT
         System.Timestamp AS windowEnd,
@@ -514,4 +514,4 @@ GROUP BY
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

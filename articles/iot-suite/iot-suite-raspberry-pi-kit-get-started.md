@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/26/2017
+origin.date: 07/26/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 6ecb002dc496d31774439c8de13e962d6a60b30c
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 09/25/2017
+ms.openlocfilehash: 32f7bfb0ad6c07f7acac8ca6b79f7a8f53b4f4ba
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="connect-your-microsoft-azure-iot-raspberry-pi-3-starter-kit-to-the-remote-monitoring-solution"></a>将 Microsoft Azure IoT Raspberry Pi 3 初学者工具包连接到远程监视解决方案
 

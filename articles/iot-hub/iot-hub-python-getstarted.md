@@ -10,15 +10,15 @@ ms.devlang: python
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/22/2017
+origin.date: 08/25/2017
 ms.author: v-yiso
 ms.custom: na
-ms.date: 08/14/2017
-ms.openlocfilehash: c6f3a8a219c0f40dc1a8ee6132a2717e9d105374
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 10/16/2017
+ms.openlocfilehash: 5dfec3003a17958a75b4fb7cdc0dc75e4828b99d
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>使用 Python 将模拟设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -76,6 +76,8 @@ ms.lasthandoff: 08/04/2017
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 3. 添加以下函数，输出部分设备信息。
 
     ```python

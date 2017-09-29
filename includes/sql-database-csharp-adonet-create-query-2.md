@@ -297,24 +297,32 @@ static void Submit_6_Tsql_SelectEmployees(SqlConnection connection)
 如果操作需修改表的数据内容而不返回任何数据行，则会调用此方法。
 
 ```csharp
-static void Submit_Tsql_NonQuery(SqlConnection connection, string tsqlPurpose, string tsqlSourceCode, string parameterName = null, string parameterValue = null)
-{
-      Console.WriteLine();
-      Console.WriteLine("=================================");
-      Console.WriteLine("T-SQL to {0}...", tsqlPurpose);
-
-      using (var command = new SqlCommand(tsqlSourceCode, connection))
+      static void Submit_Tsql_NonQuery(
+         SqlConnection connection,
+         string tsqlPurpose,
+         string tsqlSourceCode,
+         string parameterName = null,
+         string parameterValue = null
+         )
       {
+         Console.WriteLine();
+         Console.WriteLine("=================================");
+         Console.WriteLine("T-SQL to {0}...", tsqlPurpose);
+
+         using (var command = new SqlCommand(tsqlSourceCode, connection))
+         {
             if (parameterName != null)
             {
-                  command.Parameters.AddWithValue(  // Or, use SqlParameter class.
+               command.Parameters.AddWithValue(  // Or, use SqlParameter class.
                   parameterName,
                   parameterValue);
             }
-      int rowsAffected = command.ExecuteNonQuery();
-      Console.WriteLine(rowsAffected + " = rows affected.");
+            int rowsAffected = command.ExecuteNonQuery();
+            Console.WriteLine(rowsAffected + " = rows affected.");
+         }
       }
-} // EndOfClass
+   } // EndOfClass
+}
 ```
 
 <a name="cs_8_output"/>
@@ -330,28 +338,24 @@ static void Submit_Tsql_NonQuery(SqlConnection connection, string tsqlPurpose, s
 >> csharp_db_test.exe
 
 =================================
-T-SQL to 2 - Create-Tables...
--1 = rows affected.
+Now, CreateTables (10)...
 
 =================================
-T-SQL to 3 - Inserts...
-8 = rows affected.
+Now, Inserts (20)...
 
 =================================
-T-SQL to 4 - Update-Join...
-2 = rows affected.
+Now, UpdateJoin (30)...
+2 rows affected, by UpdateJoin.
 
 =================================
-T-SQL to 5 - Delete-Join...
-2 = rows affected.
+Now, DeleteJoin (40)...
 
 =================================
-Now, SelectEmployees (6)...
-f924dc8b-d30c-4d78-bdf6-fa30317308a7 , Alison , 20 , acct , Accounting
-0c6241ea-8cd7-49a1-a039-76b43d9409af , Barbara , 17 , hres , Human Resources
-cc075453-a263-4383-b5cc-ae4872ab5492 , Carol , 22 , acct , Accounting
-933177f3-24da-473b-8a82-64c649897405 , Elle , 15 , NULL , NULL
-View the report output here, then press any key to end the program...
+Now, SelectEmployees (50)...
+0199be49-a2ed-4e35-94b7-e936acf1cd75 , Alison , 20 , acct , Accounting
+f0d3d147-64cf-4420-b9f9-76e6e0a32567 , Barbara , 17 , hres , Human Resources
+cf4caede-e237-42d2-b61d-72114c7e3afa , Carol , 22 , acct , Accounting
+cdde7727-bcfd-4f72-a665-87199c415f8b , Elle , 15 , NULL , NULL
 
 
 [C:\csharp_db_test\csharp_db_test\bin\Debug\]

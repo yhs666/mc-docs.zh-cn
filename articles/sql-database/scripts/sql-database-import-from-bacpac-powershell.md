@@ -1,9 +1,9 @@
 ---
-title: "PowerShell 示例 - 导入 bacpac 文件 - Azure SQL 数据库 | Azure"
-description: "将 bacpac 文件导入 SQL 数据库的 Azure PowerShell 示例脚本"
+title: "将 BACPAC 文件导入 Azure SQL 数据库的PowerShell 示例 | Microsoft Docs"
+description: "将 BACPAC 文件导入 SQL 数据库的 Azure PowerShell 示例脚本"
 services: sql-database
 documentationcenter: sql-database
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: caf06e44fcf7014a66cfe584ba69069006e282a6
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: a2277461445af6726d6fd82cfbc799a680604bb6
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
-# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>使用 PowerShell 将 bacpac 文件导入 Azure SQL 数据库
+# <a name="use-powershell-to-import-a-pacpac-file-into-an-azure-sql-database"></a>使用 PowerShell 将 PACPAC 文件导入 Azure SQL 数据库
 
-以下 PowerShell 脚本示例将数据库从 bacpac 文件导入 Azure SQL 数据库。  
+以下 PowerShell 脚本示例将数据库从 BACPAC 文件导入 Azure SQL 数据库。  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -127,7 +127,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourcegroupname `
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -139,7 +139,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | 创建用于托管 SQL 数据库的逻辑服务器。 |
 | [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) | 创建一个防火墙规则，以允许从输入的 IP 地址范围访问服务器上的所有 SQL 数据库。 |
-| [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) | 导入 .bacpac 文件，并在服务器上创建一个新数据库。 |
+| [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) | 导入 BACPAC 文件，并在服务器上创建一个新数据库。 |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: f5cd4bf4a5ca58e6cefc47820e22d66ad9a93a29
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: ae57da6d22729ecdc2c13e2fcf52f3b5d9c50528
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>均衡 Service Fabric 群集
 Service Fabric 群集资源管理器支持动态负载更改、对添加或删除节点或服务做出反应。 还会自动更正约束冲突和主动重新均衡群集。 但这些操作的执行频率是多少，又是什么触发了这些操作？
@@ -175,6 +175,10 @@ ClusterManifest.xml
 ```
 
 均衡和活动阈值都绑定到具体指标，只有在同一个指标的均衡阈值和活动阈值都超过时才触发均衡。
+
+> [!NOTE]
+> 如未指定，则指标的均衡阈值为 1，活动阈值为 0。 这表示对于任何给定的负载，群集资源管理器将尝试使该指标保持完美平衡。 如果正在使用自定义指标，则建议显式定义指标的均衡和活动阈值。 
+>
 
 ## <a name="balancing-services-together"></a>一起平衡服务
 群集是否非均衡是从整个群集来看。 但解决这种情况的方法是移动单个服务副本和实例。 这种说法很合理，是吗？ 如果内存堆积在某一个节点上，可能是由多个副本或实例造成的。 修复不均衡需要移动所有使用不均衡指标的有状态副本或无状态实例。

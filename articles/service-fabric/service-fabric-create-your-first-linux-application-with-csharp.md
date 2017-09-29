@@ -12,14 +12,14 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/09/2017
-ms.date: 09/11/2017
+origin.date: 08/21/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: b25666197f06be38a0b4958b5ec64d0dc5719441
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 6833fddc3a30cd858abc459e4eb52285980d50c5
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>创建第一个 Azure Service Fabric 应用程序
 > [!div class="op_single_selector"]
@@ -34,10 +34,29 @@ Service Fabric 提供用于在 Linux 上使用 .NET Core 和 Java 构建服务�
 ## <a name="prerequisites"></a>先决条件
 开始之前，请确保已[设置 Linux 开发环境](service-fabric-get-started-linux.md)。 如果使用的是 Mac OS X，则可以[使用 Vagrant 在虚拟机中设置 Linux 单机环境](service-fabric-get-started-mac.md)。
 
-此外还需配置 [Azure CLI 2.0](service-fabric-azure-cli-2-0.md)（推荐）或 [XPlat CLI](service-fabric-azure-cli.md)，以便部署应用程序。
+还需要安装 [Service Fabric CLI](service-fabric-cli.md)
+
+### <a name="install-and-set-up-the-generators-for-csharp"></a>安装和设置适用于 CSharp 的生成器
+Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模板生成器从终端创建 Service Fabric CSharp 应用程序。 请执行以下步骤，确保已经有可以在计算机上运行的适用于 CSharp 的 Service Fabric yeoman 模板生成器。
+1. 在计算机上安装 nodejs 和 NPM
+
+    ```bash
+    sudo apt-get install npm
+    sudo apt install nodejs-legacy
+    ```
+2. 通过 NPM 在计算机上安装 [Yeoman](http://yeoman.io/) 模板生成器
+
+    ```bash
+    sudo npm install -g yo
+    ```
+3. 通过 NPM 安装 Service Fabric Yeo Java 应用程序生成器
+
+    ```bash
+    sudo npm install -g generator-azuresfcsharp
+    ```
 
 ## <a name="create-the-application"></a>创建应用程序
-Service Fabric 应用程序可以包含一个或多个服务，每个服务都在提供应用程序功能时具有特定角色。 适用于 Linux 的 Service Fabric SDK 包含 [Yeoman](http://yeoman.io/) 生成器，使用它可以轻松创建第一个服务并在以后添加更多服务。 让我们使用 Yeoman 创建包含单个服务的应用程序。
+Service Fabric 应用程序可以包含一个或多个服务，每个服务都在提供应用程序功能时具有特定角色。 用于 CSharp 的 Service Fabric [Yeoman](http://yeoman.io/) 生成器是在上一步安装的，利用它可以轻松地创建第一个服务，以及在以后添加其他服务。 让我们使用 Yeoman 创建包含单个服务的应用程序。
 
 1. 在终端中，键入以下命令开始构建基架： `yo azuresfcsharp`
 2. 为应用程序命名。
@@ -61,12 +80,10 @@ cd myapp
 ## <a name="deploy-the-application"></a>部署应用程序
 生成应用程序后，可以将其部署到本地群集。
 
-### <a name="using-xplat-cli"></a>使用 XPlat CLI
-
 1. 连接到本地 Service Fabric 群集。
 
     ```bash
-    azure servicefabric cluster connect
+    sfctl cluster select --endpoint http://localhost:19080
     ```
 
 2. 运行模板中提供的安装脚本可将应用程序包复制到群集的映像存储区、注册应用程序类型和创建应用程序实例。
@@ -75,14 +92,11 @@ cd myapp
     ./install.sh
     ```
 
-### <a name="using-azure-cli-20"></a>使用 Azure CLI 2.0
-
-部署生成的应用程序时，其方式与部署任何其他 Service Fabric 应用程序相同。 如需详细的说明，请参阅相关文档，了解如何[使用 Azure CLI 管理 Service Fabric 应用程序](service-fabric-application-lifecycle-azure-cli-2-0.md)。
+部署生成的应用程序时，其方式与部署任何其他 Service Fabric 应用程序相同。 如需详细的说明，请参阅相关文档，了解如何[使用 Service Fabric CLI 管理 Service Fabric 应用程序](service-fabric-application-lifecycle-sfctl.md)。
 
 这些命令的参数可以在应用程序包内的生成清单中找到。
 
-应用程序部署完以后，请打开浏览器并导航到 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)，其地址为 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)。
-然后，展开“应用程序”节点，注意现在有一个条目是用于应用程序类型，另一个条目用于该类型的第一个实例。
+应用程序部署完以后，请打开浏览器并导航到 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)，其地址为 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)。 然后，展开“应用程序”节点，注意现在有一个条目是用于应用程序类型，另一个条目用于该类型的第一个实例。
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>启动测试客户端并执行故障转移
 执行组件项目没有任何属于自己的项。 它们需要其他服务或客户端发送消息给它们。 执行组件模板包含简单的测试脚本，可用于与执行组件服务交互。
@@ -100,7 +114,7 @@ cd myapp
 
 ## <a name="adding-more-services-to-an-existing-application"></a>将更多服务添加到现有应用程序
 
-要将另一个服务添加到使用 `yo` 创建的应用程序，请执行以下步骤： 
+要将另一个服务添加到使用 `yo` 创建的应用程序，请执行以下步骤：
 1. 将目录更改为现有应用程序的根目录。  例如 `cd ~/YeomanSamples/MyApplication`（如果 `MyApplication` 是 Yeoman 创建的应用程序）。
 2. 运行 `yo azuresfcsharp:AddService`
 
@@ -111,16 +125,12 @@ cd myapp
 
 ## <a name="next-steps"></a>后续步骤
 * [了解有关 Reliable Actors 的详细信息](service-fabric-reliable-actors-introduction.md)
-* [使用 Azure CLI 与 Service Fabric 群集交互](service-fabric-azure-cli.md)
+* [使用 Service Fabric CLI 与 Service Fabric 群集交互](service-fabric-cli.md)
 * 了解 [Service Fabric 支持选项](service-fabric-support.md)
-
-## <a name="related-articles"></a>相关文章
-
-* [Service Fabric 和 Azure CLI 2.0 入门](service-fabric-azure-cli-2-0.md)
-* [Service Fabric XPlat CLI 入门](service-fabric-azure-cli.md)
+* [Service Fabric CLI 入门](service-fabric-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-csharp/sfx-primary.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update reference link-->

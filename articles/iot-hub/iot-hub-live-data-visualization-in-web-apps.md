@@ -13,14 +13,14 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/29/2017
+origin.date: 08/16/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: 5efa65744c198ec4da473499120b72624f47e16a
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 09/25/2017
+ms.openlocfilehash: 43b619d07110f372be41e0c18835ddf53fe036e4
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>使用 Azure 应用服务的 Web 应用功能可视化 Azure IoT 中心的实时传感器数据
 
@@ -111,6 +111,9 @@ ms.lasthandoff: 08/04/2017
 此时应会看到 IoT 中心的实时温度和湿度数据。
 
 ![显示实时温度和湿度的 Web 应用页](./media/iot-hub-live-data-visualization-in-web-apps/9_web-app-page-show-real-time-temperature-humidity-azure.png)
+
+> [!NOTE]
+> 确保示例应用程序正在设备上运行。 如果没有，将会得到空白图表，可参考[设置设备](iot-hub-raspberry-pi-kit-node-get-started.md)中的教程。
 
 ## <a name="next-steps"></a>后续步骤
 现已成功使用 Web 应用可视化 IoT 中心的实时传感器数据。

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/05/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: d73ea741b5a2205258abd8e6cbd08f3a393152de
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/16/2017
+ms.openlocfilehash: 300dcdccfac924d96c7b40ce4f0a18190c265410
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>将设备连接到远程监视预配置解决方案 (Linux)
 
@@ -29,14 +29,14 @@ ms.lasthandoff: 07/14/2017
 ## <a name="build-and-run-a-sample-c-client-linux"></a>生成并运行示例 C 客户端 Linux
 以下步骤说明如何创建一个客户端应用程序来与远程监视预配置解决方案通信。 此应用程序以 C 编写，在 Ubuntu Linux 上生成和运行。
 
-若要完成这些步骤，你需要一个运行 Ubuntu 版本 15.04 或 15.10 的设备。 继续操作之前，请使用以下命令在 Ubuntu 设备上安装必备组件包：
+要完成这些步骤，需要一个运行 Ubuntu 版本 15.04 或 15.10 的设备。 继续操作之前，请使用以下命令在 Ubuntu 设备上安装必备组件包：
 
 ```
 sudo apt-get install cmake gcc g++
 ```
 
 ## <a name="install-the-client-libraries-on-your-device"></a>在设备上安装客户端库
-Azure IoT 中心客户端库以包的形式提供，你可以使用 **apt get** 命令在 Ubuntu 设备上安装该包。 完成以下步骤，在 Ubuntu 计算机上安装包含 IoT 中心客户端库和标头文件的包：
+Azure IoT 中心客户端库以包的形式提供，可以使用 **apt get** 命令在 Ubuntu 设备上安装该包。 完成以下步骤，在 Ubuntu 计算机上安装包含 IoT 中心客户端库和标头文件的包：
 
 1. 在外壳程序中，向计算机添加 AzureIoT 存储库：
 

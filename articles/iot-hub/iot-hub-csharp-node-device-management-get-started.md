@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/17/2016
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 17bc03f3f6fffec33470f419873c3bf3bfbb6338
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: ac3bbf0315febc2ee3a18273d84e03a2a9558a3c
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="get-started-with-device-management-netnode"></a>设备管理入门 (.NET/Node)
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 07/13/2017
 
 **TriggerReboot**，它在模拟设备应用中调用直接方法、显示响应以及显示更新的报告属性。
 
-若要完成本教程，您需要以下各项：
+要完成本教程，需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
 * Node.js 版本 0.12.x 或更高版本， <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
@@ -48,22 +48,21 @@ ms.lasthandoff: 07/13/2017
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>使用直接方法在设备上触发远程重新启动
-在本部分中，你将创建一个 .NET 控制台应用（使用 C#）以使用直接方法在设备上启动远程重新启动。 该应用使用设备孪生查询来搜索该设备的上次重新启动时间。
+在本部分中，你创建一个 .NET 控制台应用（使用 C#）以使用直接方法在设备上启动远程重新启动。 该应用使用设备孪生查询来搜索该设备的上次重新启动时间。
 
-1. 在 Visual Studio 中，使用“控制台应用(.NET Framework)”项目模板将 Visual C# Windows 经典桌面项目添加到新解决方案。 确保 .NET Framework 版本为 4.5.1 或更高。 将项目命名为 **TriggerReboot**。
+1. 在 Visual Studio 中，使用“控制台应用(.NET Framework)”项目模板将 Visual C# Windows 经典桌面项目添加到新解决方案。 确保 .NET Framework 版本为 4.5.1 或更高。 **TriggerReboot**。
 
     ![新的 Visual C# Windows 经典桌面项目][img-createapp]
 
-2. 在“解决方案资源管理器”中，右键单击“TriggerReboot”项目，然后单击“管理 NuGet 包”。
-3. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，然后接受使用条款。 该过程将下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
+2. 在“解决方案资源管理器”中，右键单击“TriggerReboot”项目，并单击“管理 NuGet 包”。
+3. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，并接受使用条款。 此过程会下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
 
     ![“NuGet 包管理器”窗口][img-servicenuget]
 4. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
-
-    ```
-    using Microsoft.Azure.Devices;
-    ```
-
+   
+        using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices.Shared;
+        
 5. 将以下字段添加到 **Program** 类。 将占位符值替换为在上一部分和目标设备中为中心创建的 IoT 中心连接字符串。
 
     ```
@@ -209,7 +208,7 @@ ms.lasthandoff: 07/13/2017
     ```
     node dmpatterns_getstarted_device.js
     ```
-2. 运行 C# 控制台应用 **TriggerReboot**。 右键单击“TriggerReboot”项目，选择“调试”，然后选择“启动新实例”。
+2. 运行 C# 控制台应用 **TriggerReboot**。 右键单击“TriggerReboot”项目，选择“调试”，并选择“启动新实例”。
 
 3. 可以在控制台中看到设备对直接方法的响应。
 

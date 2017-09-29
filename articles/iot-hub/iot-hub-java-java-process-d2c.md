@@ -12,14 +12,14 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/25/2017
+origin.date: 06/29/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
-ms.openlocfilehash: 60c5b57e261704b5dd0d235459cf860eceb732e4
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 09/25/2017
+ms.openlocfilehash: 33cef1c821f497fce2d9551f8971f2fd42f95ea5
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-java"></a>处理 IoT 中心设备到云的消息 (Java)
 
@@ -49,8 +49,8 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 
 应具备 [Azure 存储]和 [Azure 服务总线]的一些基础知识。
 
-## <a name="send-interactive-messages-from-a-simulated-device-app"></a>从模拟设备应用发送交互式消息
-在本部分中，会修改 [simulated-device]教程中创建的模拟设备应用，不定期发送需要立即处理的消息。
+## <a name="send-interactive-messages-from-a-device-app"></a>从设备应用发送交互式消息
+在本部分中，会修改在 [simulated-device]教程中创建的设备应用，不定期发送需要立即处理的消息。
 
 1. 使用文本编辑器打开 simulated-device\src\main\java\com\mycompany\app\App.java 文件。 本文件包含用于 **IoT 中心入门** 教程中创建的 [simulated-device] 应用的代码。
 2. 使用以下代码替换 **MessageSender** 类：
@@ -200,7 +200,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 [lnk-sb-queues-java]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 
 [Azure 存储]: /storage/
-[Azure 服务总线]: /service-bus-messaging/
+[Azure 服务总线]: /service-bus/
 
 [IoT 中心开发人员指南]: ./iot-hub-devguide.md
 [lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md

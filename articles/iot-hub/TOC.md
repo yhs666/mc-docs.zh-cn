@@ -15,8 +15,11 @@
 ### [使用联机模拟器](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ### [使用物理设备](iot-hub-get-started-physical.md)
+#### [将 Raspberry Pi 与 Python 配合使用](iot-hub-raspberry-pi-kit-python-get-started.md)
 #### [将 Raspberry Pi 与 Node.js 配合使用](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [将 Raspberry Pi 与 C 配合使用](iot-hub-raspberry-pi-kit-c-get-started.md)
+
+#### [将 MXChip IoT DevKit 与 Arduino 配合使用](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 
 #### [将 Intel Edison 与 Node.js 配合使用](iot-hub-intel-edison-kit-node-get-started.md)
 #### [将 Intel Edison 与 C 配合使用](iot-hub-intel-edison-kit-c-get-started.md)
@@ -81,13 +84,16 @@
 #### [Node.js 后端/Node.js 设备](iot-hub-node-node-twin-getstarted.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java 后端/Java 设备](iot-hub-java-java-twin-getstarted.md)
 ### 使用直接方法
 #### [Node.js 后端/Node.js 设备](iot-hub-node-node-direct-methods.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-direct-methods.md)
+#### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java 后端/Java 设备](iot-hub-java-java-direct-methods.md)
 ### 设备管理入门
 #### [Node.js 后端/Node.js 设备](iot-hub-node-node-device-management-get-started.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-device-management-get-started.md)
+#### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java 后端/Java 设备](iot-hub-java-java-device-management-getstarted.md)
 ### 如何使用孪生属性
 #### [Node.js 后端/Node.js 设备](iot-hub-node-node-twin-how-to-configure.md)
@@ -99,6 +105,7 @@
 ### 计划和广播作业
 #### [Node.js 后端/Node.js 设备](iot-hub-node-node-schedule-jobs.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-schedule-jobs.md)
+#### [Java](iot-hub-java-java-schedule-jobs.md)
 ## 管理
 ### 创建 IoT 中心 
 #### [使用门户](iot-hub-create-through-portal.md)
@@ -120,7 +127,7 @@
 ### [安全基础知识](iot-hub-security-ground-up.md)
 ### [安全最佳实践](iot-hub-security-best-practices.md)
 ### [安全体系结构](iot-hub-security-architecture.md)
-### [保护你的 IoT 部署](iot-hub-security-deployment.md)
+### [保护 IoT 部署](iot-hub-security-deployment.md)
 ## Azure IoT Edge
 ### [概述](iot-hub-iot-edge-overview.md)
 ### 入门

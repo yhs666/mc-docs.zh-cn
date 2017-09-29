@@ -12,22 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/05/2017
-ms.date: 05/08/2017
+origin.date: 08/25/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: b28f398b50145202513c2aa5189ce9fd75f698e5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.date: 10/16/2017
+ms.openlocfilehash: eae165b1e4eb1661aa4e2d1d369ac94be057f196
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="use-direct-methods-on-your-iot-device-with-nodejs"></a>通过 Node.js 使用 IoT 设备上的直接方法
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-在本教程结束时，将会创建两个 Node.js 控制台应用：
+本教程结束时，会创建两个 Node.js 控制台应用：
 
 * **CallMethodOnDevice.js**，用于在模拟设备应用上调用方法并显示响应。
 * **SimulatedDevice.js**，可使用前面创建的设备标识连接到 IoT 中心，并响应通过云调用的方法。
@@ -183,7 +181,7 @@ ms.lasthandoff: 04/28/2017
     ![][9]
 
 ## <a name="next-steps"></a>后续步骤
-本教程中，在 Azure 门户中配置了新的 IoT 中心，然后在 IoT 中心的标识注册表中创建了设备标识。 你已通过此设备标识启用模拟设备应用的相关功能，使之能够响应通过云调用的方法。 你还创建了一个应用，用于调用设备上的方法并显示来自设备的响应。 
+本教程中，在 Azure 门户中配置了新的 IoT 中心，并在 IoT 中心的标识注册表中创建了设备标识。 已通过此设备标识启用模拟设备应用的相关功能，使之能够响应通过云调用的方法。 还创建了一个应用，用于调用设备上的方法并显示来自设备的响应。 
 
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 

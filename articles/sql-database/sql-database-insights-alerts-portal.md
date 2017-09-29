@@ -1,7 +1,7 @@
 ---
 title: "使用 Azure 门户创建 SQL 数据库警报 | Azure"
 description: "使用 Azure 门户创建 SQL 数据库警报，该警报可在满足指定的条件时触发通知或自动化操作。"
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 services: sql-database
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 8be59210e3e9e1d09bea828c3e6d475bc9a75db1
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 5f5a338f796398b2f3d8d6fe81cfed02d94e6f91
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>使用 Azure 门户为 Azure SQL 数据库和数据仓库创建警报
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/28/2017
 
 可以根据监控指标或事件接收 Azure 服务的警报。
 
-* **指标值** - 当指定指标的值在任一方向越过了指定的阈值时警报将触发。 也就是说，当条件先是满足以及之后不再满足该条件时，警报都会触发。    
+* **指标值** - 指定指标的值超过在任一方向分配的阈值时，将触发警报。 也就是说，当条件先是满足以及之后不再满足该条件时，警报都会触发。    
 * **活动日志事件** - 警报可以在发生 *每个* 事件时都触发，也可以仅在发生特定数量的事件时触发。
 
 可以配置警报以在其触发时执行以下操作：
@@ -47,9 +47,9 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>使用 Azure 门户创建指标的警报规则
 1. 在此[门户](https://portal.azure.cn/)，查找想要监视的资源并选中它。
-2. 对于 SQL 数据库和弹性池与 SQL 数据仓库，此步骤是不同的： 
+2. SQL DB 和弹性池与 SQL DW 的此步骤是不同的： 
 
-- **仅 SQL 数据库和弹性池**：在“监视”部分下，选择“警报”或“警报规则”。 对于不同的资源，文本和图标可能会略有不同。  
+   - **仅 SQL DB 和弹性池**：在“监视”部分下，选择“警报”或“警报规则”。 对于不同的资源，文本和图标可能会略有不同。  
 
     ![监视](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 07/28/2017
 
     ![添加警报](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
 4. **命名**警报规则，并选择也在通知电子邮件中显示的“说明”。
-5. 选择想要监视的“指标”为该指标选择一个“条件”和“阈值”。 还选择了触发警报前指标规则必须满足的时间**段**。 例如，如果使用了时间“PT5M”，并且警报监视使用率高于  80% 的 CPU，则当 CPU 的使用率持续高于 80% 达 5 分钟时，该警报将触发。 在发生第一次触发后，当 CPU 使用率保持低于 80% 达到 5 分钟时，该触发器将再次触发。 每 1 分钟对 CPU 进行一次测量。   
+5. 选择想要监视的“指标”为该指标选择一个“条件”和“阈值”。 还选择触发警报前指标规则必须满足的时间段。 例如，如果使用时间段"PT5M"，且警报针对 CPU 高于 80% 的情况，则平均 CPU 高于 80% 达到 5 分钟时触发警报。 第一次触发结束后，当平均 CPU 低于 80% 的时间超过 5 分钟时，将再次触发。 每 1 分钟对 CPU 进行一次测量。 请参阅下表，了解支持的时间窗口和每个警报使用的聚合类型（并非所有警报都使用平均值）。   
 6. 如果触发警报时希望向管理员和共同管理员发送电子邮件，则选择“向所有者发送电子邮件...”。
 7. 触发警报时，如果希望其他电子邮件收到通知，请将其添加到“其他管理员电子邮件”字段下。 用分号隔开多个电子邮件 - *email@contoso.com;email2@contoso.com*
 8. 触发警报时，如果希望调用有效的 URI，请将其放入“Webhook”字段。
@@ -125,4 +125,4 @@ ms.lasthandoff: 07/28/2017
 * 
             [大致了解指标收集](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。
 
-<!--Update_Description: wording update: added sql DW parts in step guidence-->
+<!--Update_Description: wording update-->

@@ -11,16 +11,16 @@ ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 origin.date: 06/20/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 553b47ef50078e834841d3a60fc5791214037e9d
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: c6365481864ec133c6ed7a1a725de9a548bcc555
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="create-a-service-fabric-cluster"></a>创建 Service Fabric 群集
 
@@ -86,4 +86,4 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Azure Powershell 示例。
 
-<!--Update_Description: new articles of create secure cluster with ps in service fabric -->
+<!--Update_Description: update meta properties -->

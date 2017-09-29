@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/03/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: 94f0cd57067de967d8aa725160f14109463a80b8
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 09/25/2017
+ms.openlocfilehash: 629effe31d971a2f249fe1120f2fead57cde31c4
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>批量管理 IoT 中心设备标识
 
 每个 IoT 中心都有一个标识注册表，可以使用该注册表在服务中创建每设备资源。 标识注册表还可用于控制对面向设备的终结点的访问。 本文介绍如何从标识注册表批量导入和导出设备标识。
 
-*作业*的上下文中发生导入和导出操作，可允许你对 IoT 中心执行批量服务操作。
+导入和导出操作在 *作业* 的上下文中进行，可让用户对 IoT 中心执行批量服务操作。
 
 **RegistryManager** 类包括使用**作业**框架的 **ExportDevicesAsync** 和 **ImportDevicesAsync** 方法。 这些方法可以导出、导入和同步整个 IoT 中心标识注册表。
 
@@ -72,7 +72,7 @@ while(true)
 
 ## <a name="export-devices"></a>导出设备
 
-使用 **ExportDevicesAsync** 方法，将整个 IoT 中心标识注册表导出到使用[共享访问签名](../storage/storage-security-guide.md#data-plane-security)的 [Azure 存储](../storage/index.md) Blob 容器。
+使用 **ExportDevicesAsync** 方法，将整个 IoT 中心标识注册表导出到使用[共享访问签名](../storage/common/storage-security-guide.md#data-plane-security)的 [Azure 存储](../storage/index.md) Blob 容器。
 
 使用此方法可在所控制的 Blob 容器中创建可靠的设备信息备份。
 
@@ -375,7 +375,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>获取容器 SAS URI
 
-下面的代码示例演示如何使用 Blob 容器的读取、写入和删除权限生成 [SAS URI](../storage/storage-dotnet-shared-access-signature-part-2.md)：
+下面的代码示例演示如何使用 Blob 容器的读取、写入和删除权限生成 [SAS URI](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)：
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)

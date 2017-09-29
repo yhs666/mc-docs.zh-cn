@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/08/2017
-ms.date: 08/14/2017
+origin.date: 08/08/2017
+ms.date: 09/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: d283f586ef2a1cf505ae5b04619a7087364bdaeb
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 8f28c8798684e253fe6b21bca585e5bdd2d10485
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>使用 .NET 将设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -94,9 +94,10 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
             Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data);
         }
     }
-   ```
-   
-    此方法使用 **EventHubReceiver** 实例接收来自所有 IoT 中心设备到云接收分区的消息。 请注意在创建 **EventHubReceiver** 对象时传递 `DateTime.Now` 参数的方式，使它仅接收启动后发送的消息。 此筛选器在测试环境中非常有用，因为这样可以看到当前的消息集。 在生产环境中，代码需保证处理所有消息。 有关详细信息，请参阅 [《如何处理 IoT 中心设备到云的消息》][lnk-process-d2c-tutorial] 教程。
+    ```
+
+    此方法使用 **EventHubReceiver** 实例接收来自所有 IoT 中心设备到云接收分区的消息。 请注意在创建 **EventHubReceiver** 对象时传递 `DateTime.Now` 参数的方式，使它仅接收启动后发送的消息。 此筛选器在测试环境中非常有用，因为这样可以看到当前的消息集。 在生产环境中，代码应确保处理所有消息。 有关详细信息，请参阅教程[如何处理 IoT 中心设备到云的消息][lnk-process-d2c-tutorial]。
+
 7. 最后，在 **Main** 方法中添加以下行：
    
    ```csharp
@@ -136,7 +137,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
    using Microsoft.Azure.Devices.Client;
    using Newtonsoft.Json;
    ```
-5. 将以下字段添加到 **Program** 类。 将占位符值替换为在“创建 IoT 中心”部分中检索到的 IoT 中心主机名，以及在“创建设备标识”部分中检索到的设备密钥。
+5. 将以下字段添加到 **Program** 类。 将 `{iot hub hostname}` 替换为在“创建 IoT 中心”部分检索的 IoT 中心主机名。 将 `{device key}` 替换为在“创建设备标识”部分检索的设备密钥。
    
    ```csharp
    static DeviceClient deviceClient;
@@ -188,7 +189,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
    Console.ReadLine();
    ```
    
-   默认情况下，.NET Framework 应用中的 **Create** 方法会创建一个 **DeviceClient** 实例，该实例使用 AMQP 协议与 IoT 中心通信（UWP 和 PCL 客户端默认使用 HTTP）。若要使用 MQTT 或 HTTP 协议，请使用 **Create** 方法的重写，它使用户能够指定协议。 如果使用 HTTP 协议，则还应在项目中添加 **Microsoft.AspNet.WebApi.Client** NuGet 包，以包含 **System.Net.Http.Formatting** 命名空间。
+    默认情况下，.NET Framework 应用中的 Create 方法将创建使用 AMQP 协议来与 IoT 中心通信的 DeviceClient 实例。 若要使用 MQTT 或 HTTP 协议，请使用 **Create** 方法的重写，它使用户能够指定协议。 UWP 和 PCL 客户端默认使用 HTTP 协议。 如果使用 HTTP 协议，则还应在项目中添加 **Microsoft.AspNet.WebApi.Client** NuGet 包，以包含 **System.Net.Http.Formatting** 命名空间。
 
 本教程逐步讲解如何创建 IoT 中心设备应用。 也可以使用 [Azure IoT 中心的连接服务][lnk-connected-service] Visual Studio 扩展将所需的代码添加到设备应用。
 

@@ -11,16 +11,16 @@ ms.assetid:
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 origin.date: 06/20/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 99ce00cd8f03ed048f4bfce8f8e4fdd46d995e6f
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 1c19f91cb08ad4fe17c35e16e9d4a89e60697d3c
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>将应用程序部署到 Service Fabric 群集
 
@@ -55,7 +55,7 @@ New-ServiceFabricApplication -ApplicationName fabric:/MyApplication -Application
 
 ## <a name="clean-up-deployment"></a>清理部署 
 
-运行脚本示例后，可以使用[删除应用程序](service-fabric-powershell-remove-application.md)中的脚本删除应用程序实例，注销应用程序类型，并从映像存储区中删除应用程序包。
+运行脚本示例后，可以使用[删除应用程序](service-fabric-powershell-remove-application.md)中的脚本删除应用程序实例，取消注册应用程序类型，并从映像存储中删除应用程序包。
 
 ## <a name="script-explanation"></a>脚本说明
 
@@ -65,7 +65,7 @@ New-ServiceFabricApplication -ApplicationName fabric:/MyApplication -Application
 |---|---|
 | [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | 将应用程序包复制到群集映像存储区。  |
 |[Register-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| 在群集上注册应用程序类型和版本。 |
-|[New-ServiceFabricApplication](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| 基于注册的应用程序类型创建应用程序。 |
+|[New-ServiceFabricApplication](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| 从注册的应用程序类型创建应用程序。 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -73,4 +73,4 @@ New-ServiceFabricApplication -ApplicationName fabric:/MyApplication -Application
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Powershell 示例。
 
-<!--Update_Description: new articles of deploy application with PS in service fabric -->
+<!--Update_Description: update meta properties -->

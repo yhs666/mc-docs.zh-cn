@@ -3,7 +3,7 @@ title: "Azure SQL 数据库连接体系结构 | Azure"
 description: "本文档从 Azure 内或 Azure 外介绍 Azure SQLDB 连接体系结构。"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: monicar
 ms.assetid: 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 06/05/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 2735d2dc5adabce23472fd4a064a495663a4da49
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 37f172fdcf7dbee1ef5f1fe7b1f2ce71cc5e50a4
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL 数据库连接体系结构 
 
@@ -37,13 +37,13 @@ ms.lasthandoff: 07/28/2017
 - Azure 内部或 Azure 外部的客户端连接到 SLB，后者具有公共 IP 地址并侦听端口 1433。
 - SLB 将流量定向到 Azure SQL 数据库网关。
 - 网关将流量重定向到正确的代理中间件。
-- 代理中间件再将流量重定向到相应的 Azure SQL 数据库。
+- 代理中间件将流量重定向到相应的 Azure SQL 数据库。
 
 > [!IMPORTANT]
-> 所有这些组件都在网络和应用层内置了分布式拒绝服务 (DDoS) 保护。
+> 其中每个组件都具有内置于网络和应用层的分布式拒绝服务 (DDoS) 保护。
 >
 
-## <a name="connectivity-from-within-azure"></a>从 Azure 内连接
+## <a name="connectivity-from-within-azure"></a>从 Azure 内部连接
 
 如果从 Azure 内连接，连接默认具有“重定向”连接策略。 “重定向”策略表示 TCP 会话与 Azure SQL 数据库建立连接后，会通过将目标虚拟 IP 从 Azure SQL 数据库网关的 IP 更改为代理中间件的 IP，将客户端会话重定向到该代理中间件。 此后，所有后续数据包都直接通过该代理中间件流动，绕过 Azure SQL 数据库网关。 下图演示了此流量流。
 
@@ -71,15 +71,33 @@ ms.lasthandoff: 07/28/2017
 以下 PowerShell 脚本演示如何更改连接策略。
 
 ```powershell
-import-module azureRm
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+Select-AzureRmSubscription -SubscriptionName <Subscription Name>
 
-$tenantId =  #your AAD tenant ID
-$subscriptionId = #Azure SubscriptionID
-$uri = #AAD uri
-$authUrl = "https://login.chinacloudapi.cn/$tenantId"
-$serverName = #sqldb server name 
-$resourceGroupName=#sqldb resource group
+# Azure Active Directory ID
+$tenantId = "<Azure Active Directory GUID>"
+$authUrl = "https://login.partner.microsoftonline.cn/$tenantId"
+
+# Subscription ID
+$subscriptionId = "<Subscription GUID>"
+
+# Create an App Registration in Azure Active Directory.  Ensure the application type is set to NATIVE
+# Under Required Permissions, add the API:  Windows Azure Service Management API
+
+# Specify the redirect URL for the app registration
+$uri = "<NATIVE APP - REDIRECT URI>"
+
+# Specify the application id for the app registration
+$clientId = "<NATIVE APP - APPLICATION ID>"
+
+# Logical SQL Server Name
+$serverName = "<LOGICAL DATABASE SERVER - NAME>"
+
+# Resource Group where the SQL Server is located
+$resourceGroupName= "<LOGICAL DATABASE SERVER - RESOURCE GROUP NAME>"
+
+
+# Login and acquire a bearer token
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
 
 $result = $AuthContext.AcquireToken("https://management.core.chinacloudapi.cn/",
@@ -92,13 +110,14 @@ $authHeader = @{
 'Authorization'=$result.CreateAuthorizationHeader()
 }
 
-#getting the current connection property
+#Get current connection Policy
 Invoke-RestMethod -Uri "https://management.chinacloudapi.cn/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method GET -Headers $authHeader
 
-#setting the property to 'Proxy'
+#Set connection policy to Proxy
 $connectionType="Proxy" <#Redirect / Default are other options#>
 $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 
+# Apply Changes
 Invoke-RestMethod -Uri "https://management.chinacloudapi.cn/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
@@ -108,4 +127,4 @@ Invoke-RestMethod -Uri "https://management.chinacloudapi.cn/subscriptions/$subsc
 - 若要了解使用 ADO.NET 4.5 或更高版本的客户端的 Azure SQL 数据库连接行为，请参阅[用于 ADO.NET 4.5 的非 1433 端口](sql-database-develop-direct-route-ports-adonet-v12.md)。
 - 若要了解常规应用程序开发的概述信息，请参阅[SQL 数据库应用程序开发概述](sql-database-develop-overview.md)。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update "Script to change connection settings" -->

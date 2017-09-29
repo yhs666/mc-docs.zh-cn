@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/02/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9be7e523d121dba52fec158c4af1e54e47a06fa3
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 5c2c1f4ddb42fc8d47b84187708849b70aff8baa
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>Windows 独立群集的配置设置
 本文介绍如何使用 ***ClusterConfig.JSON*** 文件来配置独立的 Service Fabric 群集。 可以使用此文件指定 Service Fabric 群集的信息，例如 Service Fabric 节点及其 IP 地址、群集上不同类型的节点、安全配置，以及使用独立群集的容错域/升级域定义的网络拓扑。
@@ -150,8 +150,8 @@ reliabilityLevel 的概念定义可在群集的主节点上运行的 Service Fab
 * *leaseDriverEndpointPort* 是群集租用驱动程序用来判断节点是否仍处于活动状态的端口。 
 * *serviceConnectionEndpointPort* 是节点上部署的应用程序和服务用来与该特定节点上的 Service Fabric 客户端通信的端口。
 * *httpGatewayEndpointPort* 是 Service Fabric Explorer 用来连接群集的端口。
-* *ephemeralPorts* 替代 [OS 使用的动态端口](https://support.microsoft.com/kb/929851)。 Service Fabric 使用其中的一部分端口作为应用程序端口，剩余的端口供 OS 使用。 它还会将此范围映射到 OS 中的现有范围，因此，无论何时，都可以使用示例 JSON 文件中指定的范围。 需要确保起始端口与结束端口至少相差 255。 如果差值太低，可能会遇到冲突，因为此范围是与操作系统共享的。 运行 `netsh int ipv4 show dynamicport tcp`，查看配置的动态端口范围。
-* *applicationPorts* 是 Service Fabric 应用程序使用的端口。 应用程序端口范围的大小应足以满足应用程序的终结点要求。 此范围在计算机上的动态端口范围中应是独占的，即按配置中设置的 *ephemeralPorts* 范围。  每当需要新端口时，Service Fabric 会使用这些端口，并负责为这些端口打开防火墙。 
+* *ephemeralPorts* 替代 [OS 使用的动态端口](https://support.microsoft.com/kb/929851)。 Service Fabric 将使用其中的一部分端口作为应用程序端口，剩余的端口供 OS 使用。 它还会将此范围映射到 OS 中的现有范围，因此，无论何时，都可以使用示例 JSON 文件中指定的范围。 需要确保起始端口与结束端口至少相差 255。 如果差值太低，可能会遇到冲突，因为此范围是与操作系统共享的。 运行 `netsh int ipv4 show dynamicport tcp`，查看配置的动态端口范围。
+* *applicationPorts* 是 Service Fabric 应用程序使用的端口。 应用程序端口范围的大小应足以满足应用程序的终结点要求。 此范围在计算机上的动态端口范围中应是独占的，即按配置中设置的 *ephemeralPorts* 范围。  每当需要新端口时，Service Fabric 将使用这些端口，并负责为这些端口打开防火墙。 
 * *reverseProxyEndpointPort* 是可选的反向代理终结点。 有关详细信息，请参阅 [Service Fabric 反向代理](service-fabric-reverseproxy.md)。 
 
 ### <a name="log-settings"></a>日志设置
@@ -196,7 +196,6 @@ reliabilityLevel 的概念定义可在群集的主节点上运行的 Service Fab
 若要为 Windows Server 容器和独立群集的 Hyper-V 容器启用容器支持，需要启用“DnsService”附加功能。
 
 ## <a name="next-steps"></a>后续步骤
-
 根据独立群集设置配置一个完整的 ClusterConfig.JSON 文件后，可以遵循[创建独立 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)一文中所述步骤部署群集，然后继续[使用 Service Fabric Explorer 可视化群集](service-fabric-visualizing-your-cluster.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

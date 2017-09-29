@@ -3,24 +3,24 @@ title: "SQL 数据库安全概述 | Azure"
 description: "了解有关 Azure SQL 数据库和 SQL Server 安全性的信息，包括云与本地 SQL Server 在身份验证、授权、连接安全性、加密和合规性方面的差异。"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 origin.date: 07/05/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 8bff820faf7de6213d87fe563a2314ef6aa70bcd
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 7ab12713dc50344064c7071df65dfded169923f5
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="securing-your-sql-database"></a>保护 SQL 数据库
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/28/2017
 有关 SQL 各版本上提供的安全功能的完整概述，请参阅 [SQL Server 数据库引擎和 Azure SQL 数据库安全中心](https://msdn.microsoft.com/library/bb510589)。 [安全与 Azure SQL 数据库技术白皮书](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF) 中提供了其他信息。
 
 ## <a name="protect-data"></a>保护数据
-SQL 数据库可以保护数据。对于动态数据，它使用[传输层安全性](https://support.microsoft.com/kb/3135244)提供加密；对于静态数据，使用[透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)提供加密；对于使用中的数据，将使用 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) 提供加密。 
+SQL 数据库可以保护数据。对于动态数据，它使用[传输层安全性](https://support.microsoft.com/kb/3135244)提供加密；对于静态数据，使用[透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)提供加密；对于使用中的数据，将使用 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) 提供加密。 
 
 > [!IMPORTANT]
 >在与数据库相互“传输”数据时，与 Azure SQL 数据库建立的所有连接都需要经过加密 (SSL/TLS)。 必须在应用程序连接字符串中指定用于加密连接的参数，而“不要”信任服务器证书（服务器证书用于将连接字符串复制到 Azure 经典门户外部），否则，连接将不会验证服务器的身份，并且容易受到“中间人”攻击。 例如，对于 ADO.NET 驱动程序，这些连接字符串参数为 **Encrypt=True** 和 **TrustServerCertificate=False**。 
@@ -56,7 +56,7 @@ SQL 数据库身份验证是指连接到数据库时如何证明用户的身份�
 * **Azure Active Directory 身份验证**，使用 Azure Active Directory 管理的标识，并支持托管域和集成域。 请[尽可能](https://msdn.microsoft.com/library/ms144284.aspx)使用 Active Directory 身份验证（集成安全性）。 如果想要使用 Azure Active Directory 身份验证，则必须创建名为“Azure AD 管理员”的另一个服务器管理员，用于管理 Azure AD 用户和组。 此管理员还能执行普通服务器管理员可以执行的所有操作。 有关如何创建 Azure AD 管理员以启用 Azure Active Directory 身份验证的演练，请参阅[通过使用 Azure Active Directory 身份验证连接到 SQL 数据库](sql-database-aad-authentication.md)。
 
 ### <a name="authorization"></a>授权
-授权是指用户可以在 Azure SQL 数据库中执行哪些操作，这由用户帐户的数据库角色成员身份和对象级权限来控制。 作为最佳实践，你应向用户授予所需的最低权限。 用于连接的服务器管理员帐户是 db_owner 所有者的成员，该帐户有权在数据库中执行任何操作。 请保存此帐户，以便部署架构升级并执行其他管理操作。 权限受到更多限制的“ApplicationUser”帐户可让用户使用应用程序所需的最低权限从应用程序连接到数据库。
+授权是指用户可以在 Azure SQL 数据库中执行哪些操作，这由用户帐户的数据库角色成员身份和对象级权限来控制。 作为最佳实践，应向用户授予所需的最低权限。 用于连接的服务器管理员帐户是 db_owner 所有者的成员，该帐户有权在数据库中执行任何操作。 请保存此帐户，以便部署架构升级并执行其他管理操作。 权限受到更多限制的“ApplicationUser”帐户可让用户使用应用程序所需的最低权限从应用程序连接到数据库。
 
 ### <a name="row-level-security"></a>行级别安全性
 行级别安全性使客户能够根据执行查询的用户的特征（例如，组成员身份或执行上下文），控制对数据库表中的行的访问。 有关详细信息，请参阅[行级别安全性](https://msdn.microsoft.com/library/dn765131)。
@@ -74,15 +74,13 @@ Azure SQL 数据库审核可跟踪数据库活动，通过将数据库事件记�
 威胁检测是审核的补充，它在 Azure SQL 数据库服务中提供一个内置的附加安全智能层，用于检测企图访问或使用数据库的异常的潜在有害尝试。 出现可疑活动、潜在漏洞、 SQL 注入攻击和异常数据库访问模式时，它会发出警报。 可在 [Azure 安全中心](https://www.azure.cn/home/features/security-center/)查看威胁检测警报，此警报提供可疑活动的详细信息以及如何调查和缓解威胁的建议操作。 威胁检测费用为每服务器每月 15 美元。 前 60 天可免费使用。 有关详细信息，请参阅 [SQL 数据库威胁检测入门](sql-database-threat-detection.md)。
 
 ### <a name="data-masking"></a>数据屏蔽 
-SQL 数据库动态数据屏蔽通过向无特权用户掩码敏感数据来控制此类数据的透漏。 动态数据屏蔽可自动发现 Azure SQL 数据库中潜在的敏感数据，提供可行的建议来屏蔽这些字段，对应用程序层造成的影响可忽略不计。 它的工作原理是在针对指定的数据库字段运行查询后返回的结果集中隐藏敏感数据，同时保持数据库中的数据不变。 有关详细信息，请参阅 [SQL 数据库动态数据掩码入门](sql-database-dynamic-data-masking-get-started.md)。
-
+SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来限制此类数据的泄露。 动态数据掩码可自动发现 Azure SQL 数据库中潜在的敏感数据，提供可行的建议来掩码这些字段，对应用程序层造成的影响可忽略不计。 它的工作原理是在针对指定的数据库字段运行查询后返回的结果集中隐藏敏感数据，同时保持数据库中的数据不变。 有关详细信息，请参阅 [SQL 数据库动态数据过滤入门](sql-database-dynamic-data-masking-get-started.md)
+ 
 ## <a name="compliance"></a>合规性
-除了上述可帮助应用程序符合各项安全法规要求的特性和功能以外，Azure SQL 数据库还定期参与审核，并已通过许多法规标准的认证。 有关详细信息，请参阅 [Microsoft Azure 信任中心](https://www.trustcenter.cn/)，可以从中找到 [SQL 数据库法规认证](https://www.trustcenter.cn/zh-cn/compliance/default.html)的最新列表。
+除了上述有助于应用程序符合各项安全要求的特性和功能以外，Azure SQL 数据库还定期参与审核，并已通过许多法规标准的认证。 有关详细信息，请参阅 [Microsoft Azure 信任中心](https://www.trustcenter.cn/)，可以从中找到 [SQL 数据库法规认证](https://www.trustcenter.cn/zh-cn/compliance/default.html)的最新列表。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 有关使用 SQL 数据库中的访问控制功能的介绍，请参阅[控制访问](sql-database-control-access.md)。
 - 有关数据库审核的讨论，请参阅 [SQL 数据库审核](sql-database-auditing.md)。
 - 有关威胁检测的介绍，请参阅 [SQL 数据库威胁检测](sql-database-threat-detection.md)。
-
-<!--Update_Description: update link references-->

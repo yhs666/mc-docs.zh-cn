@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: f762494042131490382e9c4cb344f9f212d8ddac
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: f5a00c2481180a0ddc03a9b3daf2ab38f47015cf
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Linux 上的 Service Fabric（预览版）与 Windows 上的 Service Fabric（正式版）之间的差异
 
@@ -105,6 +105,6 @@ Windows 和 Linux 的开发工具也不相同。 VisualStudio、Powershell、VST
 * [使用 Yeoman 在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-create-your-first-linux-application-with-java.md)
 * [使用适用于 Eclipse 的 Service Fabric 插件在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-get-started-eclipse.md)
 * [在 Linux 上创建第一个 CSharp 应用程序](service-fabric-create-your-first-linux-application-with-csharp.md)
-* [使用 Azure CLI 管理 Service Fabric 应用程序](service-fabric-azure-cli.md)
+* [使用 Service Fabric CLI 管理应用程序](service-fabric-application-lifecycle-sfctl.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update link-->

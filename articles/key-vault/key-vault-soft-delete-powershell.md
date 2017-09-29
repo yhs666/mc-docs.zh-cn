@@ -8,25 +8,30 @@ manager: digimobile
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-origin.date: 08/04/2017
-ms.date: 09/07/2017
+origin.date: 08/21/2017
+ms.date: 09/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: f96e51e2dc84a8402aded0df2417651d3860ccd6
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: f479e5d79dda018ac8c55c570c3251350c5490b9
+ms.sourcegitcommit: c13aee6f5e18d15bcc29fae1eefd2b72f2558dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>如何将 Key Vault 软删除与 PowerShell 配合使用
 
-Azure Key Vault 的软删除功能可以恢复已删除的保管库和保管库对象。 具体而言，软删除可解决以下方案：
+Azure Key Vault 的软删除功能可以恢复已删除的保管库和保管库对象。 软删除将具体探讨以下方案：
 
 - 支持 Key Vault 的可恢复删除
-- 支持 Key Vault 对象、密钥、机密和证书的可恢复删除
+- 支持密钥保管库对象、密钥、机密和证书的可恢复删除
 
 ## <a name="prerequisites"></a>先决条件
 
 - Azure PowerShell 4.0.0 或更高版本 - 若尚未安装此产品，请安装 Azure PowerShell 并将其与 Azure 订阅相关联，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 
+
+>[!NOTE]
+> 环境中可能加载了过期版本的 Key Vault PowerShell 输出格式化文件，而没有加载正确版本。 预期 PowerShell 的更新版本将包含输出格式所需的更正，届时将更新此主题。 如果遇到此格式问题，当前的解决方法是：
+> - 如果发现未看到此主题中所述的已启用软删除的属性，请使用以下查询：`$vault = Get-AzureRmKeyVault -VaultName myvault; $vault.EnableSoftDelete`。
+
 
 有关适用于 PowerShell 的 Key Vault 特定引用信息，请参阅 [Azure Key Vault PowerShell 引用](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0)。
 
@@ -36,9 +41,9 @@ Key Vault 操作通过基于角色的访问控制 (RBAC) 权限单独管理，�
 
 | 操作 | 说明 | 用户权限 |
 |:--|:--|:--|
-|列出|列出已删除的 Key Vault。|Microsoft.KeyVault/deletedVaults/read|
+|列出|列出已删除的密钥保管库。|Microsoft.KeyVault/deletedVaults/read|
 |恢复|还原已删除的 Key Vault。|Microsoft.KeyVault/vaults/write|
-|清除|永久删除已删除的 Key Vault 及其所有内容。|Microsoft.KeyVault/locations/deletedVaults/purge/action|
+|清除|永久移除已删除的 Key Vault 及其所有内容。|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
 有关权限和访问控制的详细信息，请参阅[保护 Key Vault](key-vault-secure-your-key-vault.md)。
 
@@ -108,7 +113,7 @@ Scheduled Purge Date : 8/7/2017 12:14:14 AM
 Tags                 :
 ```
 
-输出中的“资源 ID”是指该保管库的原始资源 ID。 由于此 Key Vault 现在处于已删除状态，因此该资源 ID 不存在任何资源。 *Id* 字段可用于在恢复或清除时识别资源。 “计划清除日期”字段指示如果不对此已删除的保管库执行任何操作，会永久删除（清除）该保管库的时间。 用于计算“计划清除日期”的默认保留期是 90 天。
+输出中的“Resource ID”是指该保管库的原始资源 ID。 由于此 Key Vault 现在处于已删除状态，因此该资源 ID 不存在任何资源。 “Id”字段可用于在恢复或清除时识别资源。 “Scheduled Purge Date”字段指示如果不对此已删除的保管库执行任何操作，会永久删除（清除）该保管库的时间。 用于计算“Scheduled Purge Date”的默认保留期是 90 天。
 
 ## <a name="recovering-a-key-vault"></a>恢复 Key Vault
 
@@ -157,7 +162,7 @@ Get-AzureKeyVaultKey -VaultName ContosoVault -InRemovedState
 
 ### <a name="using-soft-delete-with-key-vault-objects"></a>将软删除用于 Key Vault 对象
 
-就像 Key Vault 一样，除非恢复或清除已删除的密钥、机密或证书，否则它会保持已删除状态最多 90 天。 
+就像密钥保管库一样，除非恢复或清除已删除的密钥、机密或证书，否则它将保持已删除状态最多 90 天。 
 
 #### <a name="keys"></a>密钥
 
@@ -192,24 +197,24 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@
 像密钥一样，Key Vault 中的机密都用自己的命令进行操作。 以下是删除、列出、恢复和清除机密的命令。
 
 - 删除名为 SQLPassword 的机密： 
-```powershell
-Remove-AzureKeyVaultSecret -VaultName ContosoVault -name SQLPassword
-```
+  ```powershell
+  Remove-AzureKeyVaultSecret -VaultName ContosoVault -name SQLPassword
+  ```
 
 - 列出 Key Vault 中所有已删除的机密： 
-```powershell
-Get-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState
-```
+  ```powershell
+  Get-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState
+  ```
 
 - 恢复处于已删除状态的机密： 
-```powershell
-Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
-```
+  ```powershell
+  Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
+  ```
 
 - 清除处于已删除状态的机密： 
-```powershell
-Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
-```
+  ```powershell
+  Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
+  ```
 
 >[!NOTE]
 >清除机密会永久删除，这意味着无法恢复。
@@ -237,10 +242,10 @@ Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location ChinaNo
 
 ### <a name="scheduled-purge"></a>计划清除
 
-列出已删除的 Key Vault 对象会显示 Key Vault 计划将其清除的时间。 “计划清除日期”字段指示如果不采取任何操作，会永久删除 Key Vault 对象的时间。 默认情况下，已删除的 Key Vault 对象的保留期为 90 天。
+列出已删除的 Key Vault 对象会显示 Key Vault 计划将其清除的时间。 “Scheduled Purge Date”字段指示如果不采取任何操作，会永久删除 Key Vault 对象的时间。 默认情况下，已删除的 Key Vault 对象的保留期为 90 天。
 
 >[!NOTE]
->已清除的保管库对象（由“计划清除日期”字段触发清除操作）将被永久删除。 不可恢复。
+>已清除的保管库对象（由“Scheduled Purge Date”字段触发清除操作）将被永久删除。 不可恢复。
 
 ## <a name="other-resources"></a>其他资源
 
@@ -248,3 +253,4 @@ Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location ChinaNo
 - 有关 Azure Key Vault 使用情况的综述，请参阅 [Azure Key Vault 入门](key-vault-get-started.md)。
 
 
+<!--Update_Description: wording update-->

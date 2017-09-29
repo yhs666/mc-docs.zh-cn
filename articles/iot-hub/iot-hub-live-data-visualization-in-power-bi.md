@@ -13,14 +13,14 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/29/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: 8b248a002e3f2317d5b8112d2d65e93f510fd8eb
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 10/16/2017
+ms.openlocfilehash: 3fdfaa97d5c453011c38dd302aa218aca856d726
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>使用 Power BI 可视化 Azure IoT 中心的实时传感器数据
 
@@ -136,7 +136,7 @@ ms.lasthandoff: 08/04/2017
    1. 将 **EventEnqueuedUtcTime** 拖至“可视化效果”窗格中的“轴”。
    1. 将“温度”拖至“值”。
 
-      现在创建了一个折线图。 图表的 X 轴显示 UTC 时区的日期和时间。 Y 轴显示来自传感器的温度。
+      现在创建了一个折线图。 X 轴显示 UTC 时区的日期和时间。 Y 轴显示来自传感器的温度。
 
       ![向 Microsoft Power BI 报表添加温度折线图](./media/iot-hub-live-data-visualization-in-power-bi/8_add-line-chart-for-temperature-to-power-bi-report-microsoft.png)
 
@@ -161,4 +161,4 @@ Microsoft 还提供 [Power BI 移动应用](https://powerbi.microsoft.com/en-us/
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
-<!--Update_Description:update meta properties only-->
+<!--Update_Description:update meta properties and wording-->

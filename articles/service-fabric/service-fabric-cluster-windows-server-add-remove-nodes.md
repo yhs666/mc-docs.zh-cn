@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/02/2017
-ms.date: 07/17/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 812bc73230e00822f82c7f944d2a718ac505dcbf
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 8347257b8f219c06ffd99e62a9282f223831bc98
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>向在 Windows Server 上运行的独立 Service Fabric 群集添加或删除节点
 
@@ -125,9 +125,11 @@ ms.lasthandoff: 07/14/2017
 删除节点类型前，请仔细检查是否存在任何引用该节点类型的节点。 请在删除相应节点类型之前删除这些节点。 删除所有相应节点后，可从群集配置中删除 NodeType 并使用 [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) 开始配置升级。
 
 ### <a name="replace-primary-nodes-of-your-cluster"></a>替换群集的主节点
-应顺次执行主节点的替换，而不是成批删除，然后成批添加。
+应顺次执行主节点的替换，而不是成批删除，并成批添加。
 
 ## <a name="next-steps"></a>后续步骤
 * [独立 Windows 群集的配置设置](service-fabric-cluster-manifest.md)
 * [使用 X509 证书保护 Windows 上的独立群集](service-fabric-windows-cluster-x509-security.md)
 * [使用运行 Windows 的 Azure VM 创建独立 Service Fabric 群集](service-fabric-cluster-creation-with-windows-azure-vms.md)
+
+<!--Update_Description: update meta properties-->

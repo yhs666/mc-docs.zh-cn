@@ -12,21 +12,20 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/13/2016
-ms.date: 07/10/2017
+origin.date: 09/07/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
-ms.openlocfilehash: f307aeb3bd0b4daa8afffbb550e3a03eb500c2d4
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.openlocfilehash: b1c6527a72ad9dddbedf164b4a0336769ac4d995
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/29/2017
 ---
-# 使用所需属性配置设备 (Node)
-<a id="use-desired-properties-to-configure-devices-node" class="xliff"></a>
+# <a name="use-desired-properties-to-configure-devices-node"></a>使用所需属性配置设备 (Node)
 
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-在本教程结束时，你将拥有两个 Node.js 控制台应用：
+在本教程结束时，将拥有两个 Node.js 控制台应用：
 
 * **SimulateDeviceConfiguration.js**，一个模拟设备应用，它等待所需配置更新并报告模拟配置更新过程的状态。
 * **SetDesiredConfigurationAndQuery.js**（Node.js 后端应用），用于在设备上设置所需配置并查询配置更新过程。
@@ -36,9 +35,9 @@ ms.lasthandoff: 06/28/2017
 > 
 > 
 
-完成本教程需具备以下条件：
+若要完成本教程，需要满足以下条件：
 
-+ Node.js 版本 0.10.x 或更高版本。
++ Node.js 版本 4.0.x 或更高版本。
 
 + 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
@@ -48,9 +47,8 @@ ms.lasthandoff: 06/28/2017
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## 创建模拟设备应用
-<a id="create-the-simulated-device-app" class="xliff"></a>
-在此部分，用户需创建一个 Node.js 控制台应用，该应用可作为 **myDeviceId**连接到中心并等待所需配置更新，然后针对模拟配置更新过程报告更新。
+## <a name="create-the-simulated-device-app"></a>创建模拟设备应用
+在此部分，用户需创建一个 Node.js 控制台应用，该应用可作为 **myDeviceId**连接到中心并等待所需配置更新，并针对模拟配置更新过程报告更新。
 
 1. 新建名为 **simulatedeviceconfiguration**的空文件夹。 在命令提示符下的 **simulatedeviceconfiguration** 文件夹中，使用以下命令创建新的 package.json 文件。 接受所有默认值：
 
@@ -97,9 +95,9 @@ ms.lasthandoff: 06/28/2017
             }
         });
    
-    **客户端**对象公开从设备与设备孪生进行交互所需的所有方法。 上面的代码在初始化 **Client** 对象后会检索 **myDeviceId** 的设备孪生，并在所需属性上附加用于更新的处理程序。 该处理程序通过比较 configId 验证是否有实际的配置更改，然后调用用于启动配置更改的方法。
+    **客户端**对象公开从设备与设备孪生进行交互所需的所有方法。 上面的代码在初始化 **Client** 对象后会检索 **myDeviceId** 的设备孪生，并在所需属性上附加用于更新的处理程序。 该处理程序通过比较 configId 来验证是否存在实际配置更改请求，并调用启动配置更改的方法。
    
-    请注意，为简单起见，前面的代码对初始配置使用硬编码默认值。 实际应用可能会从本地存储加载该配置。
+    请注意，为简单起见，上一代码对初始配置使用硬编码默认值。 实际的应用可能会从本地存储加载该配置。
    
    > [!IMPORTANT]
    > 所需属性更改事件始终在设备连接时发出一次，请确保在执行任何操作之前检查所需属性中是否存在实际更改。
@@ -160,8 +158,7 @@ ms.lasthandoff: 06/28/2017
    
     此时会显示消息 `retrieved device twin`。 使应用保持运行状态。
 
-## 创建服务应用
-<a id="create-the-service-app" class="xliff"></a>
+## <a name="create-the-service-app"></a>创建服务应用
 在此部分，会创建一个 Node.js 控制台应用，它会使用新的遥测配置对象更新与 *myDeviceId* 关联的设备孪生的 **所需属性** 。 该应用随后会查询存储在 IoT 中心的设备孪生，并显示设备的所需配置与报告配置之间的差异。
 
 1. 新建名为 **setdesiredandqueryapp**的空文件夹。 在命令提示符下，使用以下命令在 **setdesiredandqueryapp** 文件夹中创建新的 package.json 文件。 接受所有默认值：
@@ -174,7 +171,7 @@ ms.lasthandoff: 06/28/2017
     ```
     npm install azure-iothub node-uuid --save
     ```
-3. 使用文本编辑器，在 **addtagsandqueryapp** 文件夹中创建新的 **SetDesiredAndQuery.js** 文件。
+3. 使用文本编辑器，在 setdesiredandqueryapp 文件夹中新建 SetDesiredAndQuery.js 文件。
 4. 将以下代码添加到 **SetDesiredAndQuery.js** 文件，并将 **{iot hub connection string}** 占位符替换为创建中心时复制的 IoT 中心连接字符串：
    
         'use strict';
@@ -251,8 +248,7 @@ ms.lasthandoff: 06/28/2017
    > 
    > 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 在本教程中，从后端应用将所需配置设置为所需属性，并编写一个模拟设备应用来检测该更改及模拟多步骤更新过程（将其状态作为报告属性报告给设备孪生）。
 
 充分利用以下资源：
@@ -282,3 +278,6 @@ ms.lasthandoff: 06/28/2017
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 [lnk-how-to-configure-createapp]: ./iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
+
+
+<!--Update_Description:update meta properties and wording-->

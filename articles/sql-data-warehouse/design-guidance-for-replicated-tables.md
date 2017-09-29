@@ -13,13 +13,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 origin.date: 07/14/2017
-ms.date: 09/18/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 939252617851a008884bc468a339851ad957ca68
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 7427518fe3695d241c08531250c4d999d77d76d9
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>有关在 Azure SQL 数据仓库中使用复制的表的设计指南
 本文提供了有关在 SQL 数据仓库架构中设计复制的表的建议。 可以使用这些建议通过减少数据移动和降低查询复杂性来提高查询性能。
@@ -126,11 +126,11 @@ WHERE d.FiscalYear = 2004
 ```
 我们已将 `DimDate` 和 `DimSalesTerritory` 重新创建为循环表。 因此，查询显示了以下查询计划，该计划具有多个广播移动操作： 
 
-![循环查询计划](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "循环查询计划") 
+![轮循查询计划](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg) 
 
 我们将 `DimDate` 和 `DimSalesTerritory` 重新创建为复制的表，然后再次运行了查询。 得到的查询计划短了很多，而且没有任何广播移动。
 
-![复制的查询计划](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg "循环查询计划") 
+![复制查询计划](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg) 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>修改复制的表时的性能注意事项
 SQL 数据仓库通过维护表的主版本来实现复制的表。 它将主版本复制到每个计算节点上的一个分发数据库。 当发生更改时，SQL 数据仓库首先更新主表。 然后，它要求在每个计算节点上重新生成该表。 重新生成复制的表包括将该表复制到每个计算节点并重新生成索引。
@@ -201,4 +201,4 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 
 有关分布式表的概述，请参阅[分布式表](sql-data-warehouse-tables-distribute.md)。
 
-<!--Update_Description: wording update, update reference link-->
+<!--Update_Description: wording update-->

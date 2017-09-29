@@ -12,13 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/17/2017
+origin.date: 08/30/2017
 ms.author: v-yiso
-ms.openlocfilehash: 5288b72ccb3803da9405c7f1ca4875b536f2a621
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.date: 10/16/2017
+ms.openlocfilehash: 046d9c7b96dd9398fe9160aff1eef7f96e8ebc15
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>使用设备管理启动设备固件更新 (.NET/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
@@ -52,12 +53,12 @@ ms.lasthandoff: 07/13/2017
 ## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>使用直接方法在设备上触发远程固件更新
 在本部分中，用户创建一个 .NET 控制台应用（使用 C#），以便在设备上启动远程固件更新。 该应用使用直接方法来启动更新，并使用设备孪生查询定期获取活动固件更新的状态。
 
-1. 在 Visual Studio 中，使用“ **控制台应用程序** ”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 将项目命名为 **TriggerFWUpdate**。
+1. 在 Visual Studio 中，使用“**控制台应用程序**”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 **TriggerFWUpdate**。
 
     ![新的 Visual C# Windows 经典桌面项目][img-createapp]
 
-2. 在“解决方案资源管理器”中，右键单击“TriggerFWUpdate”项目，然后单击“管理 NuGet 包”。
-3. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，然后接受使用条款。 该过程将下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
+2. 在“解决方案资源管理器”中，右键单击“TriggerFWUpdate”项目，并单击“管理 NuGet 包”。
+3. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，并接受使用条款。 此过程会下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
 
     ![“NuGet 包管理器”窗口][img-servicenuget]
 1. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
@@ -120,7 +121,7 @@ ms.lasthandoff: 07/13/2017
     ```
     node dmpatterns_fwupdate_device.js
     ```
-2. 在 Visual Studio 中，右键单击“TriggerFWUpdate”项目运行 C# 控制台应用，依次选择“调试”和“启动新实例”。
+2. 在 Visual Studio 中，右键单击“TriggerFWUpdate”项目，依次选择“调试”和“启动新实例”。
 
 3. 可在控制台查看对直接方法的设备响应。
 

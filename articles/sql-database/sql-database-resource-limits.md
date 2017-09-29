@@ -3,7 +3,7 @@ title: "Azure SQL 数据库资源限制 | Azure"
 description: "本页介绍 Azure SQL 数据库的一些常见资源限制。"
 services: sql-database
 documentationcenter: na
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
@@ -13,66 +13,126 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 07/12/2017
-ms.date: 09/08/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 68e72aafb449c34eec48afd18c08fa221a50e8e1
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+origin.date: 08/25/2017
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: f3a7f05d7e7d7d89dbf4e26f7524713529f744f9
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL 数据库资源限制
-## <a name="overview"></a>概述
-Azure SQL 数据库使用两种不同的机制管理可用于数据库的资源：**资源调控**和**强制限制**。 本主题介绍了资源管理的这两个主要方面。
 
-## <a name="resource-governance"></a>资源调控
-基本、标准、高级和高级 RS 服务层的设计目标之一是为了让 Azure SQL 数据库的行为与数据库运行在其自己的计算机上相同，独立于其他数据库。 资源调控模拟了此行为。 如果聚合资源利用率达到分配给数据库的最大可用 CPU、内存、日志 I/O 和数据 I/O 资源数，资源调控会将执行中的查询排队，并在资源释放时将资源分配给排队的查询。
+## <a name="single-database-storage-sizes-and-performance-levels"></a>单一数据库：存储大小和性能级别
 
-由于在专用计算机上，利用所有可用资源会导致当前执行的查询的执行时间较长，这可能会导致客户端上的命令超时。 达到并发请求数限制后，如果尝试执行新查询，具有积极重试逻辑的应用程序以及对数据库执行查询的应用程序遇到错误消息的频率会很高。
-
-### <a name="recommendations"></a>建议：
-在接近数据库的最大利用率时，监视查询的资源利用率以及平均响应时间。 在遇到较长的查询延迟时，通常有三个选择：
-
-1. 减少数据库的传入请求数以防止请求超时和请求积累。
-2. 为数据库分配更高的性能级别。
-3. 优化查询，以减少每个查询的资源利用率。 有关详细信息，请参阅“Azure SQL 数据库性能指南”一文中的“查询优化/提示”部分。
-
-## <a name="enforcement-of-limits"></a>强制限制
-CPU、内存、日志 I/O 和数据 I/O 以外的资源在达到限制时，会通过拒绝新请求来强制实施。 当数据库达到所配置的最大大小限制时，无法执行会增加数据大小的插入和更新操作，但仍可执行选择和删除操作。 客户端根据已达到的限制收到[错误消息](sql-database-develop-error-messages.md)。
-
-例如，会限制与 SQL 数据库的连接数以及可处理的并发请求数。 SQL 数据库允许与数据库的连接数大于并发请求数以支持连接池。 虽然应用程序可以轻松地控制可用的连接数，但并行请求数通常难于估计和控制。 特别是在负载峰值期间，应用程序发送过多请求或数据库达到其资源限制，并且由于长时间运行查询，开始堆积工作线程，可能会遇到错误。
-
-## <a name="service-tiers-and-performance-levels"></a>服务层和性能级别
-单一数据库和弹性池都有服务层和性能级别。
-
-### <a name="single-databases"></a>单一数据库
-对于单一数据库，数据库服务层和性能级别定义了数据库限制。 下表描述了基本、标准、高级和高级 RS 数据库在不同性能级别上的特征。
+对于单一数据库，下表显示了可用于每个服务层和性能级别的单一数据库的资源。 可通过 [Azure 门户](#manage-single-database-resources-using-the-azure-portal)、[Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql)、[PowerShell](sql-database-single-database-resources.md#manage-single-database-resources-using-powershell)、[Azure CLI](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-cli) 或 [REST API](sql-database-single-database-resources.md#manage-single-database-resources-using-the-rest-api) 为单一数据库设置服务层、性能级别和存储量。
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-### <a name="elastic-pools"></a>弹性池
-[弹性池](sql-database-elastic-pool.md)共享池中数据库中的资源。 下表描述了“基本”、“标准”、“高级”和“高级 RS”弹性池的特征。
+## <a name="single-database-change-storage-size"></a>单一数据库：更改存储大小
 
-[!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
+- 单一数据库的 DTU 价格附送了一定容量的存储，无需额外费用。 超出附送的量后，可花费额外的费用预配额外的存储，但不能超过存储上限，不超过 1 TB 时，以 250 GB 为增量进行预配，超出 1 TB 时，以 256 GB 为增量进行预配。 有关附送存储量和大小上限，请参阅[单一数据库：存储大小和性能级别](#single-database-storage-sizes-and-performance-levels)。
+- 可通过 [Azure portal](#manage-single-database-resources-using-the-azure-portal)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](https://docs.microsoft.com/cli/azure/sql/db#update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 为单一数据库增加大小上限，以预配额外存储。
+- 单一数据库的额外存储价格等于额外存储量乘以服务层的额外存储单价。 有关额外存储价格的详细信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。
 
-有关上述表中列出的每个资源的扩展定义，请参阅[服务层功能和限制](sql-database-performance-guidance.md#service-tier-capabilities-and-limits)中的描述。 有关服务层的概述，请参阅 [Azure SQL 数据库服务层和性能级别](sql-database-service-tiers.md)。
+## <a name="single-database-change-dtus"></a>单一数据库：更改 DTU
 
-## <a name="other-sql-database-limits"></a>其他 SQL 数据库限制
-| 区域 | 限制 | 说明 |
-| --- | --- | --- |
-| 使用按订阅自动导出的数据库 |10 |自动导出可创建自定义计划来备份 SQL 数据库。 此功能的预览于 2017 年 3 月 1 日结束。  |
-| 每个服务器的数据库数 |最多 5000 个 |每个服务器最多允许使用 5000 个数据库。 |
-| 每个服务器的 DTU |45000 |允许每个服务器有 45000 个 DTU 可用于预配独立数据库和弹性池。 每台服务器允许的独立数据库和池的总数仅受服务器 DTU 数限制。  
+首先选择服务层、性能级别和存储量，然后使用 [Azure portal](#manage-single-database-resources-using-the-azure-portal)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples)、 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](https://docs.microsoft.com/cli/azure/sql/db#update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)，根据实际体验动态扩展或缩减单一数据库。 
+
+下面视频演示了如何动态更改性能层以增加单一数据库的可用 DTU。
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+>
+
+更改数据库的服务层和/或性能级别将在新的性能级别创建原始数据库的副本，并将连接切换到副本。 当我们切换到副本时，在此过程中不会丢失任何数据，但在短暂的瞬间，将禁用与数据库的连接，因此可能回滚某些处于进行状态的事务。 用于切换的时间长度因情况而异，但通常为 4 秒以下，并且 99% 的情况下少于 30 秒。 如果在禁用连接的那一刻有大量的事务正在进行，则用于切换的时间长度可能会更长。 
+
+整个扩展过程的持续时间同时取决于更改前后数据库的大小和服务层。 例如，一个正在更改到标准服务层、从标准服务层更改或在标准服务层内更改的 250 GB 的数据库应在六小时内完成。 如果数据库与正在高级服务层内更改性能级别的大小相同，应在三小时内完成扩展。
+
+> [!TIP]
+> 若要检查正在进行的 SQL 数据库缩放操作的状态，可以使用以下查询：```select * from sys.dm_operation_status```。
+>
+
+* 如果要升级到更高的服务层或性能级别，除非显式指定了更大的大小（最大），否则，最大数据库大小不会增大。
+* 若要对数据库进行降级，数据库所用空间必须小于目标服务层和性能级别允许的最大大小。 
+* 从高级或高级 RS 降级至标准层时，如果同时满足 (1) 目标性能级别支持该数据库的最大大小，(2) 最大大小超出目标性能级别附送的存储量，那么将产生额外存储费用。 例如，如果将最大大小为 500 GB 的 P1 数据库缩小至 S3，那么将产生额外的存储费用，因为 S3 支持的最大大小为 500 GB，而它的附送存储量仅为 250 GB。 因此，额外存储量为 500 GB – 250 GB = 250 GB。 有关额外存储定价的信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。 如果实际使用的空间量小于附送的存储量，只要将数据库最大大小减少到附送的量，就能避免此项额外费用。 
+* 在启用了[异地复制](sql-database-geo-replication-portal.md)的情况下升级数据库时，请先将辅助数据库升级到所需的性能层，然后再升级主数据库（一般原则）。 在升级到另一版本时，必须首先升级辅助数据库。
+* 在启用了[异地复制](sql-database-geo-replication-portal.md)的情况下降级数据库时，请先将主数据库降级到所需的性能层，然后再降级辅助数据库（一般原则）。 在降级到另一版本时，必须首先降级主数据库。
+* 各服务层提供的还原服务各不相同。 如果要降级到基本层，则备份保留期也将减少 - 请参阅 [Azure SQL 数据库备份](sql-database-automated-backups.md)。
+* 更改完成前不会应用数据库的新属性。
 
 
+## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>弹性池：存储大小和性能级别
 
+对于 SQL 数据库弹性池，下表显示了在每个服务层和性能级别可用的资源。 可通过 [Azure 门户](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal)、[PowerShell](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-powershell)、[Azure CLI](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-cli) 或 [REST API](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-rest-api) 设置服务层、性能级别和存储量。
 
-## <a name="resources"></a>资源
-[Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)
+> [!NOTE]
+> 弹性池中各个数据库的资源限制通常与池外部基于 DTU 和服务层的各个数据库相同。 例如，S2 数据库的最大并发辅助进程数为 120 个。 因此，如果池中每个数据库的最大 DTU 是 50 个 DTU（这等效于 S2），则标准池中数据库的最大并发辅助进程数也是 120 个辅助进程。
+>
 
-[Azure SQL 数据库服务层和性能级别](sql-database-service-tiers.md)
+[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
-[SQL 数据库客户端程序的错误消息](sql-database-develop-error-messages.md)
+如果使用了弹性池的所有 DTU，那么池中的每个数据库将接收相同数量的资源来处理查询。 SQL 数据库服务通过确保相等的计算时间片段，在数据库之间提供资源共享的公平性。 弹性池资源共享公平性是在将每个数据库的 DTU 最小值设为非零值时，对另外为每个数据库保证的任意资源量的补充。
 
-<!--Update_Description: update meta properties-->
+### <a name="database-properties-for-pooled-databases"></a>入池数据库的数据库属性
+
+下表介绍了入池数据库的属性。
+
+| 属性 | 说明 |
+|:--- |:--- |
+| 每个数据库的最大 eDTU 数 |根据池中其他数据库的 eDTU 使用率，池中任何数据库可以使用的 eDTU 的最大数目。 每个数据库的 eDTU 上限并不是数据库的资源保障。 这是应用于池中所有数据库的全局设置。 将每个数据库的最大 eDTU 数设置得足够高，以处理数据库使用高峰情况。 因为池通常会假定数据库存在热使用模式和冷使用模式，在这些模式中并非所有数据库同时处于高峰使用状态，所以预期会存在某种程度的过量使用情况。 例如，假设每个数据库的高峰使用量为 20 个 eDTU，并且池中 100 个数据库仅有 20% 同时处于高峰使用中。 如果将每个数据库的 eDTU 最大值设为 20 个 eDTU，则可以认为超量 5 倍使用该池是合理的，并且将每个池的 eDTU 数设为 400。 |
+| 每个数据库的最小 eDTU 数 |池中任何数据库可以保证的 eDTU 最小数目。 这是应用于池中所有数据库的全局设置。 每个数据库的最小 eDTU 可能设为 0，这也是默认值。 此属性值可以设置为介于 0 和每个数据库的平均 eDTU 使用量之间的任意值。 池中数据库的数目和每个数据库的 eDTU 下限的积不能超过每个池的 eDTU 数。 例如，如果一个池有 20 个数据库，每个数据库的 eDTU 最小值设为 10 个 eDTU，则池的 eDTU 数目必须大于或等于 200 个 eDTU。 |
+| 每个数据库的最大存储 |池中一个数据库的最大存储空间。 入池数据库共享池的存储空间，因此数据库存储空间限制为小于池的剩余存储空间和每个数据库的最大存储空间。 每个数据库的最大存储是指数据文件的最大大小，不包括日志文件使用的空间。 |
+|||
+ 
+## <a name="elastic-pool-change-storage-size"></a>弹性池：更改存储大小
+
+- 弹性池的 eDTU 价格附送了一定容量的存储，无需额外费用。 超出附送的量后，可花费额外的费用预配额外的存储，但不能超过存储上限，不超过 1 TB 时，以 250 GB 为增量进行预配，超出 1 TB 时，以 256 GB 为增量进行预配。 有关附送存储量和大小上限，请参阅[弹性池：存储大小和性能级别](#elastic-pool-storage-sizes-and-performance-levels)。
+- 可通过 [Azure 门户](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](https://docs.microsoft.com/cli/azure/sql/elastic-pool#update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools#Update) 为弹性池增加大小上限，以预配额外存储。
+- 弹性池的额外存储价格等于额外存储量乘以服务层的额外存储单价。 有关额外存储价格的详细信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。
+
+## <a name="elastic-pool-change-edtus"></a>弹性池：更改 eDTU
+
+可按资源需求，通过 [Azure portal](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](https://docs.microsoft.com/cli/azure/sql/elastic-pool#update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools#Update) 增加或减少弹性池可用的资源。
+
+- 重新缩放池 eDTU 时，将暂时停止数据库连接。 此行为与重新缩放单一数据库（而非在池中）的 DTU 时的行为相同。 有关在重新缩放操作执行期间，停止数据库连接的持续时间和影响的详细信息，请参阅[重新缩放单一数据库的 DTU](#single-database-change-storage-size)。 
+- 重新缩放池 eDTU 的持续时间取决于池中所有数据库使用的总存储空间量。 一般而言，每 100 GB 重新缩放的平均延迟时间不超过 90 分钟。 例如，如果池中所有数据库使用的总空间为 200 GB，则重新缩放池的预计延迟时间将不超过 3 小时。 对标准层或基本层中的某些事例而言，重新缩放延迟时间可能不超过五分钟，不考虑所用空间量的影响。
+- 一般而言，更改每个数据库的最小 eDTU 或最大 eDTU 的持续时间将不超过五分钟。
+- 当缩小池 eDTU 时，池所用空间必须小于目标服务层和池 eDTU 所允许的最大大小。
+- 当重新缩放池 eDTU 时，如果 (1) 目标池支持池的存储上限，(2) 存储上限超过了目标池附送的存储量，将产生额外存储费用。 例如，如果最大大小为 100 GB 的 100 eDTU 标准池缩小为 50 eDTU 标准池，那么将产生额外存储费用，因为目标池支持的最大大小为 100 GB，其附送的存储量仅为 50 GB。 因此，额外存储量为 100 GB – 50 GB = 50 GB。 有关额外存储定价的信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。 如果实际使用的空间量小于附送的存储量，只要将数据库最大大小减少到附送的量，就能避免此项额外费用。 
+
+## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>当数据库和弹性池资源到达限制时会如何？
+
+### <a name="compute-dtus-and-edtus"></a>计算（DTU 和 eDTU）
+
+当数据库计算使用率（由 DTU 和 eDTU 计量）变高时，查询的延长时间也会增加，甚至可能出现超时。在上述情况下，服务可能对查询排队，并在资源可用时向查询提供资源以用于执行。
+计算使用率变高时，风险缓解选项包括：
+
+- 提升数据库或弹性池的性能级别，向数据库提供更多 DTU 或 eDTU。 请参阅[单一数据库：更改 DUT](#single-database-change-dtus) 和[弹性池：更改 eDTU](#elastic-pool-change-edtus)。
+- 优化查询，减少每个查询的资源使用率。 有关详细信息，请参阅[查询优化/提示](sql-database-performance-guidance.md#query-tuning-and-hinting)。
+
+### <a name="storage"></a>存储
+
+当使用的数据库空间到达上限时，将无法进行增加数据大小的数据库插入和更新操作，客户端会收到[错误消息](sql-database-develop-error-messages.md)。 数据库的选择和删除操作不受影响。
+
+空间使用率变高时，风险缓解选项包括：
+
+- 增加数据库或弹性池的大小上限或更改性能级别，以包含更多已添加的存储。 请参阅 [SQL 数据库资源限制](sql-database-resource-limits.md)。
+- 如果数据库在弹性池内，那么可选择将数据库移出弹性池，从而避免与其他数据库共享存储空间。
+
+### <a name="sessions-and-workers-requests"></a>会话和辅助角色（请求） 
+
+并发会话和辅助角色的数目上限由服务层和性能级别（DTU 和 eDTU）决定。  当到达会话或辅助角色上限时，新的请求将被拒绝，客户端将收到错误消息。 虽然应用程序可以轻松地控制可用的连接数，但并行辅助角色数通常更难以估计和控制。 在负荷高峰期，当数据库资源达到上限，辅助角色由于较长时间运行查询而堆积时，这种情况尤其突出。 
+
+会话或辅助角色使用率变高时，风险缓解选项包括：
+- 增加数据库或弹性池的服务层或性能级别。 请参阅[单一数据库：更改存储大小](#single-database-change-storage-size)、[单一数据库：更改 DUT](#single-database-change-dtus)、[弹性池：更改存储大小](#elastic-pool-change-storage-size)和[弹性池：更改 eDTU](#elastic-pool-change-edtus)。
+- 如果争用计算资源造成了辅助角色使用率上升，请优化查询，以降低每项查询的资源使用率。 有关详细信息，请参阅[查询优化/提示](sql-database-performance-guidance.md#query-tuning-and-hinting)。
+
+## <a name="next-steps"></a>后续步骤
+
+- 有关服务层的信息，请参阅[服务层](sql-database-service-tiers.md)。
+- 有关单一数据库的信息，请参阅[单一数据库资源](sql-database-resource-limits.md)。
+- 有关弹性池的信息，请参阅[弹性池](sql-database-elastic-pool.md)。
+- 有关常规 Azure 限制的相关信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
+- 有关 DTU 和 eDTU 的信息，请参阅 [DTU 和 eDTU](sql-database-what-is-a-dtu.md)。
+<!--Update_Description: whole content update-->

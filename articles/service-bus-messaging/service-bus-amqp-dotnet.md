@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/19/2017
+origin.date: 08/28/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: 424a16a29f96882660ff8ca03d19ca447f3ff6f8
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/16/2017
+ms.openlocfilehash: 75ef74a698a14ac44bcc9b6c31ef2b7c814379cc
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="using-service-bus-from-net-with-amqp-10"></a>使用 AMQP 1.0 通过 .NET 使用服务总线
 
 ## <a name="downloading-the-service-bus-sdk"></a>下载服务总线 SDK
-AMQP 1.0 支持在服务总线 SDK 2.1 版或更高版本中提供。 为确保使用最新版本，你可以从 [NuGet][NuGet]下载服务总线安装包。
+AMQP 1.0 支持在服务总线 SDK 2.1 版或更高版本中提供。 为确保使用最新版本，可以从 [NuGet][NuGet]下载服务总线安装包。
 
 ## <a name="configuring-net-applications-to-use-amqp-10"></a>将 .NET 应用程序配置为使用 AMQP 1.0
 默认情况下，Service Bus .NET 客户端库使用基于 SOAP 的专用协议与 Service Bus 服务通信。 若要使用 AMQP 1.0 而非默认协议，需要对服务总线连接字符串进行显式配置，如下一部分所述。 除了此更改之外，在使用 AMQP 1.0 时应用程序代码基本保持不变。
 
-在当前版本中，有一些在使用 AMQP 时不受支持的 API 功能。 这些不受支持的功能将在后面的 [不支持的功能、限制和行为差异](#unsupported-features-restrictions-and-behavioral-differences)部分中列出。 在使用 AMQP 时，一些高级配置设置还具有不同的含义。
+在当前版本中，有一些在使用 AMQP 时不受支持的 API 功能。 这些不受支持的功能会在后面的[不支持的功能、限制和行为差异](#unsupported-features-restrictions-and-behavioral-differences)部分中列出。 在使用 AMQP 时，一些高级配置设置还具有不同的含义。
 
 ### <a name="configuration-using-appconfig"></a>使用 App.config 进行配置
 
@@ -47,16 +47,16 @@ AMQP 1.0 支持在服务总线 SDK 2.1 版或更高版本中提供。 为确保�
 
 `Microsoft.ServiceBus.ConnectionString` 设置的值是用于配置服务总线连接的服务总线连接字符串。 其格式如下所示：
 
-`Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
+`Endpoint=sb://[namespace].servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
-其中 `[namespace]` 和 `SharedAccessKey` 是在创建服务总线命名空间时从 [Azure 门户][Azure portal]获取的。 有关详细信息，请参阅[使用 Azure 门户创建服务总线命名空间][Create a Service Bus namespace using the Azure portal]。
+其中 `namespace` 和 `SAS key` 是在创建服务总线命名空间时从 [Azure 门户][Azure portal]获取的。 有关详细信息，请参阅[使用 Azure 门户创建服务总线命名空间][Create a Service Bus namespace using the Azure portal]。
 
-使用 AMQP 时，在连接字符串后面追加 `;TransportType=Amqp`。 此表示法将指示客户端库使用 AMQP 1.0 连接到服务总线。
+使用 AMQP 时，在连接字符串后面追加 `;TransportType=Amqp`。 此表示法使客户端库使用 AMQP 1.0 连接到服务总线。
 
 ## <a name="message-serialization"></a>消息序列化
-使用默认协议时，.NET 客户端库的默认序列化行为是使用 [DataContractSerializer][DataContractSerializer] 类型序列化 [BrokeredMessage][BrokeredMessage] 实例，以便在客户端库和服务总线服务之间进行传输。 使用 AMQP 传输模式时，客户端库使用 AMQP 类型系统将 [中转消息][BrokeredMessage] 序列化为 AMQP 消息。 此序列化使得消息能够由可能在不同平台上运行的接收应用程序接收和解释，例如，使用 JMS API 来访问服务总线的 Java 应用程序。
+使用默认协议时，.NET 客户端库的默认序列化行为是使用 [DataContractSerializer][DataContractSerializer] 类型序列化 [BrokeredMessage][BrokeredMessage] 实例，以便在客户端库和服务总线服务之间进行传输。 使用 AMQP 传输模式时，客户端库使用 AMQP 类型系统将[中转消息][BrokeredMessage]序列化为 AMQP 消息。 此序列化使得消息能够由可能在不同平台上运行的接收应用程序接收和解释，例如，使用 JMS API 来访问服务总线的 Java 应用程序。
 
-构造 [BrokeredMessage][BrokeredMessage] 实例时，你可以提供 .NET 对象作为构造函数的参数以充当消息的正文。 对于可映射到 AMQP 基元类型的对象，正文将序列化为 AMQP 数据类型。 如果该对象不能直接映射到 AMQP 基元类型（即，应用程序定义的自定义类型），则将使用 [DataContractSerializer][DataContractSerializer]序列化对象，并且已序列化的字节将在 AMQP 数据消息中发送。
+构造 [BrokeredMessage][BrokeredMessage] 实例时，可以提供 .NET 对象作为构造函数的参数以充当消息的正文。 对于可映射到 AMQP 基元类型的对象，正文序列化为 AMQP 数据类型。 如果该对象不能直接映射到 AMQP 基元类型（即，应用程序定义的自定义类型），则使用 [DataContractSerializer][DataContractSerializer]序列化对象，并且已序列化的字节会在 AMQP 数据消息中发送。
 
 为了便于使用非 .NET 客户端进行互操作，仅在消息的正文中使用可直接序列化为 AMQP 类型的 .NET 类型。 下表详细介绍了这些类型以及到 AMQP 类型系统的相应映射。
 
@@ -103,7 +103,7 @@ AMQP 1.0 支持在服务总线 SDK 2.1 版或更高版本中提供。 为确保�
 
 在使用 AMQP 时，与默认协议相比，在服务总线 .NET API 的行为方面也有一些细微的差异：
 
-- 将忽略 [OperationTimeout][OperationTimeout] 属性。
+- 忽略 [OperationTimeout][OperationTimeout] 属性。
 
 - `MessageReceiver.Receive(TimeSpan.Zero)` 是以 `MessageReceiver.Receive(TimeSpan.FromSeconds(10))` 的形式实现的。
 - 通过锁定令牌完成消息只能由最初收到消息的消息接收方完成。
@@ -121,7 +121,7 @@ AMQP 1.0 支持在服务总线 SDK 2.1 版或更高版本中提供。 为确保�
 准备好了解详细信息？ 请访问以下链接：
 
 - [服务总线 AMQP 概述]
-- [针对服务总线分区队列和主题的 AMQP 1.0 支持]
+- [AMQP 1.0 协议指南]
 - [适用于 Windows Server 的服务总线中的 AMQP]
 
 [Create a Service Bus namespace using the Azure portal]: ./service-bus-create-namespace-portal.md
@@ -132,5 +132,5 @@ AMQP 1.0 支持在服务总线 SDK 2.1 版或更高版本中提供。 为确保�
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.cn
 [服务总线 AMQP 概述]: ./service-bus-amqp-overview.md
-[针对服务总线分区队列和主题的 AMQP 1.0 支持]: ./service-bus-amqp-protocol-guide.md
+[AMQP 1.0 协议指南]: ./service-bus-amqp-protocol-guide.md
 [适用于 Windows Server 的服务总线中的 AMQP]: https://msdn.microsoft.com/zh-cn/library/dn574799.aspx

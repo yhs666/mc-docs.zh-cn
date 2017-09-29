@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/28/2017
 ms.author: dobett
-ms.date: 08/07/2017
-ms.openlocfilehash: daa639254d8d15ec7a7e4484f89132885a87f4ad
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 09/25/2017
+ms.openlocfilehash: 16b267c08102e9530d393fdb882ebcf0c926a522
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 07/28/2017
 
 在本教程的最后，会运行两个 Java 控制台应用：
 
-* **simulated-device**，这是 [使用 IoT 中心发送云到设备的消息] 教程中创建的应用的修改版本。 此应用使用 IoT 中心提供的 SAS URI 将文件上传到存储。
+* **simulated-device**，这是 [使用 IoT 中心发送云到设备的消息] 教程中创建的应用的修改版本。 该应用使用 IoT 中心提供的 SAS URI 将文件上传到存储。
 * **read-file-upload-notification**，它可以接收来自 IoT 中心的文件上传通知。
 
 > [!NOTE]
@@ -141,7 +141,7 @@ ms.lasthandoff: 07/28/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
     </dependency>
     ```
 
@@ -287,7 +287,7 @@ mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 [Azure IoT 开发人员中心]: http://www.azure.cn/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Azure Storage]:../storage/common/storage-create-storage-account.md#create-a-storage-account
 [lnk-configure-upload]: ./iot-hub-configure-file-upload.md
 [Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://www.azure.cn/pricing/1rmb-trial/

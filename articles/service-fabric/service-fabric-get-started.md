@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/10/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2b42448c9a49d205435410db0eb5d5df90ed79ac
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 16a1d18a765a8707676198e4fc7ea2c20cf7b0d7
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="prepare-your-development-environment"></a>准备开发环境
 > [!div class="op_single_selector"]
@@ -66,8 +66,8 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发和管理工作负�
 * Service Fabric SDK 2.7.198
 * Service Fabric 运行时 5.7.198
 * 用于 Visual Studio 2015 1.7.50721 的 Service Fabric 工具
-* Visual Studio 2017 Update 2 包括用于 Visual Studio 1.6.20170504 的 Service Fabric 工具
-* Visual Studio 2017 Update 3 Preview 7 (15.3.0 Preview 7.0) 包括用于 Visual Studio 1.7.20170721 的 Service Fabric 工具
+* Visual Studio 2017 Update 3 包括用于 Visual Studio 1.7.20170817 的 Service Fabric 工具
+* Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) 包括用于 Visual Studio 1.7.20170721 的 Service Fabric 工具
 
 有关支持的版本列表，请参阅 [Service Fabric 支持](service-fabric-support.md)
 
@@ -87,7 +87,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 * [了解编程模型：Reliable Services 和 Reliable Actors](service-fabric-choose-framework.md)
 * [在 GitHub 上检查 Service Fabric 代码示例](https://aka.ms/servicefabricsamples)
 * [使用 Service Fabric 资源管理器可视化群集](service-fabric-visualizing-your-cluster.md)
-* [按照 Service Fabric 学习路径获取平台的概括性介绍](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+<!-- Not Avaialble * [Follow the Service Fabric learning path to get a broad introduction to the platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)-->
 * 了解 [Service Fabric 支持选项](service-fabric-support.md)
 
 [1]: https://www.azure.cn/home/features/service-fabric "Service Fabric 活动页"

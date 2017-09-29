@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 05/01/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 26bbc12b90a2411c689a5e7104ee10e3177d2d65
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 48543e4a7134c8eb11f3bdc55b2b1d997f8cf029
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>使用作业关系图进行数据驱动调试
 
@@ -86,7 +86,7 @@ QueryLastProcessedTime 指标指示特定步骤收到数据的时间。 通过�
 *   **InputEventsSourcesBackloggedTotal** 告知还需要为事件中心和 Azure IoT 中心输入读取多少条消息。
 
 ## <a name="get-help"></a>获取帮助
-若要获取更多帮助，请访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
+若要获取更多帮助，请访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>后续步骤
 * [流分析简介](stream-analytics-introduction.md)
@@ -95,4 +95,4 @@ QueryLastProcessedTime 指标指示特定步骤收到数据的时间。 通过�
 * [流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties-->

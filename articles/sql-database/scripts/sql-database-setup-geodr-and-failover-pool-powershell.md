@@ -3,7 +3,7 @@ title: "PowerShell 示例 - 活动异地复制 - 入池 Azure SQL 数据库 | Az
 description: "为入池 Azure SQL 数据库设置活动异地复制的 Azure PowerShell 示例脚本"
 services: sql-database
 documentationcenter: sql-database
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 07/25/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: e8c0e6465ec14ac0443829c25e3377e32b772eae
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: e242a3ff5b69ca823c265828cff43f3a4688610f
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-azure-sql-database"></a>使用 PowerShell 为入池 Azure SQL 数据库配置活动异地复制
 
-此 PowerShell 脚本示例为弹性池中的 Azure SQL 数据库配置活动异地复制，并将其故障转移到 Azure SQL 数据库的次要副本。
+以下 PowerShell 脚本示例为弹性池中的 Azure SQL 数据库配置活动异地复制，并将其故障转移到 Azure SQL 数据库的次要副本。
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -133,8 +133,8 @@ $database | Get-AzureRmSqlDatabaseReplicationLink -PartnerResourceGroupName $pri
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
-Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $primaryresourcegroupname
+Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -161,4 +161,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
 
-<!--Update_Description: update metadata-->
+<!--Update_Description: update "Clean up deployment" script-->

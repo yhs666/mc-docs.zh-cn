@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/08/2017
-ms.date: 08/14/2017
+origin.date: 08/24/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
-ms.openlocfilehash: 482f133191a36ae8ea2f7b6c91775b38c0fe3d25
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 385f4811128f634be627be50c5be873b938576fe
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中心 (.NET) 将消息从云发送到设备
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -137,7 +137,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     SendCloudToDeviceMessageAsync().Wait();
     Console.ReadLine();
     ```
-8. 在 Visual Studio 中，右键单击解决方案并选择“**设置启动项目...**”。 选择“多个启动项目”，并同时针对 **ReadDeviceToCloudMessages**、**SimulatedDevice** 和 **SendCloudToDevice** 选择“启动”操作。
+8. 在 Visual Studio 中，右键单击解决方案并选择“**设置启动项目...**”。选择“多个启动项目”，并同时针对 **ReadDeviceToCloudMessages**、**SimulatedDevice** 和 **SendCloudToDevice** 选择“启动”操作。
 9. 按 **F5**。 这三个应用程序应该都会启动。 选择“**SendCloudToDevice**”窗口并按 **Enter**。 应会看到设备应用正在接收的消息。
    
    ![应用接收消息][21]

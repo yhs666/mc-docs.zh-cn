@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 50acd9cc6e9adc78cf4f997845791195c12a3a8c
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: ded4dcb2b64b0ed1df5bed9b5cad15da1135fe91
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="application-upgrade-parameters"></a>应用程序升级参数
 本文介绍 Azure Service Fabric 应用程序升级期间应用的各种参数。 参数包括应用程序的名称和版本。 它们可用于控制升级期间应用的超时和运行状况检查，还可指定在升级失败时必须应用的策略。
@@ -65,7 +65,7 @@ MaxPercentUnhealthyServices、MaxPercentUnhealthyPartitionsPerService 和 MaxPer
 
 [使用 Powershell 升级应用程序](service-fabric-application-upgrade-tutorial-powershell.md)逐步讲解了如何使用 PowerShell 进行应用程序升级。
 
-[在 Linux 上使用 Azure CLI 升级应用程序](service-fabric-azure-cli.md#upgrading-your-application)介绍如何使用 Azure CLI 完成应用程序升级。
+[在 Linux 上使用 Service Fabric CLI 升级应用程序](service-fabric-application-lifecycle-sfctl.md#upgrade-application)介绍如何使用 Service Fabric CLI 完成应用程序升级。
 
 [使用 Service Fabric Eclipse 插件升级应用程序](service-fabric-get-started-eclipse.md#upgrade-your-service-fabric-java-application)
 
@@ -75,4 +75,4 @@ MaxPercentUnhealthyServices、MaxPercentUnhealthyPartitionsPerService 和 MaxPer
 
 参考[对应用程序升级进行故障排除](service-fabric-application-upgrade-troubleshooting.md)中的步骤来解决应用程序升级时的常见问题。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update reference link-->

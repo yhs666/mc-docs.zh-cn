@@ -3,25 +3,25 @@ title: "保护 Azure SQL 数据库 | Azure"
 description: "介绍保护 Azure SQL 数据库的技术和功能。"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-secure
+ms.custom: mvc,security
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 origin.date: 06/28/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 66cc625d63959740732d517bdf09d586b4ce5d7b
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 2433329891b75a068ff7e8d997603137baf92a5f
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="secure-your-azure-sql-database"></a>保护 Azure SQL 数据库
 
@@ -187,7 +187,7 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 5. 单击“保存” 。
 
 > [!IMPORTANT]
-> 若要自定义审核的事件，可以使用 PowerShell 或 REST API - 有关更多详细信息，请参阅[自动化 (PowerShell/REST API)](sql-database-auditing.md#subheading-7) 部分。
+> 如果希望自定义审核事件，可通过 PowerShell 或 REST API 实现 - 请参阅 [SQL 数据库审核](sql-database-auditing.md)了解详细信息。
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>启用 SQL 数据库威胁检测
@@ -238,7 +238,7 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 11. 结果将显示在“SQL 审核日志”工作表中，使你能够对检测到的异常活动运行更深入的分析，并缓解应用程序中安全事件造成的影响。
 
 ## <a name="next-steps"></a>后续步骤
-只需几个简单的步骤，即可大大提升数据库抵御恶意用户或未经授权的访问的能力。 本教程介绍以下内容： 
+学习本教程后，只需几个简单的步骤，即可大大提升数据库抵御恶意用户或未经授权的访问的能力。  你已了解如何： 
 
 > [!div class="checklist"]
 > * 为服务器和/或数据库设置防火墙规则
@@ -248,7 +248,9 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 > * 启用 SQL 数据库审核
 > * 启用 SQL 数据库威胁检测
 
-> [!div class="nextstepaction"]
->[提高 SQL 数据库性能](sql-database-performance-tutorial.md)
+请转到下一教程，了解如何实施分布式数据库。
 
-<!--Update_Description: removed a tip -->
+> [!div class="nextstepaction"]
+>[实现地理分散的数据库](sql-database-implement-geo-distributed-database.md)
+
+<!--Update_Description: wording updates -->

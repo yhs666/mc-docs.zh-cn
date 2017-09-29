@@ -11,14 +11,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/12/2017
+origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: 3a2c791c89efbb80062dc4520732ad6e0dca491a
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 10/16/2017
+ms.openlocfilehash: e2be03703bf9140964d84e651645193b82666bb5
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="get-started-with-device-management-java"></a>设备管理入门 (Java)
 
@@ -43,10 +43,10 @@ trigger-reboot。 此应用：
 
 * 在模拟设备应用中调用直接方法。
 * 显示对模拟设备发出的直接方法调用做出的响应
-* 显示已更新的报告属性。
+* 显示更新的报告属性。
 
 > [!NOTE]
-> [Azure IoT SDK][lnk-hub-sdks] 文章介绍了 Azure IoT SDK，这些 SDK 可用于构建在设备和解决方案后端运行的应用程序。
+> 有关 SDK 的信息（可以使用这些 SDK 构建在设备和解决方案后端上运行的应用程序），请参阅 [Azure IoT SDK][lnk-hub-sdks]。
 
 要完成本教程，需要：
 
@@ -60,11 +60,17 @@ trigger-reboot。 此应用：
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>使用直接方法在设备上触发远程重新启动
 
-在本部分中，创建一个 .Java 控制台应用，用以调用模拟设备应用中的重新启动直接方法并显示响应。 随后，应用会对设备发出的报告属性进行轮询，从而确定重新启动过程何时完成。 此控制台应用连接到 IoT 中心，调用该直接方法并读取报告属性。
+本部分将创建一个进行如下操作的 Java 控制台应用：
+
+1. 在模拟设备应用中调用重启直接方法。
+1. 显示响应。
+1. 轮询设备发送的报告属性，以确定重启的完成时间。
+
+此控制台应用连接到 IoT 中心，以便调用该直接方法并读取报告属性。
 
 1. 创建名为 dm-get-started 的空文件夹。
 
-1. 在 dm-get-started 文件夹的命令提示符处，使用以下命令创建名为 trigger-reboot 的 Maven 项目。 请注意，这是一条很长的命令：
+1. 使用命令提示符中的以下命令，在 dm-get-started 文件夹中创建名为 trigger-reboot 的 Maven 项目。 以下内容演示了一条很长的命令：
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -76,7 +82,7 @@ trigger-reboot。 此应用：
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -121,7 +127,7 @@ trigger-reboot。 此应用：
     import java.util.concurrent.ExecutorService;
     ```
 
-1. 将以下类级变量添加到 **App** 类。 将 {youriothubconnectionstring} 替换为在“创建 IoT 中心”部分记下的 IoT 中心连接字符串：
+1. 将以下类级变量添加到 **App** 类。 将 `{youriothubconnectionstring}` 替换为在“创建 IoT 中心”部分记下的 IoT 中心连接字符串：
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -151,6 +157,12 @@ trigger-reboot。 此应用：
         }
       }
     }
+    ```
+
+1. 将 main 方法签名修改为抛出以下异常：
+
+    ```java
+    public static void main(String[] args) throws IOException
     ```
 
 1. 若要在模拟设备上调用重新启动直接方法，请在“main”方法中添加以下代码：
@@ -205,11 +217,11 @@ trigger-reboot。 此应用：
 
 本部分介绍如何创建模拟设备的 Java 控制台应用。 此应用侦听来自 IoT 中心的重新启动直接方法调用，并立即对该调用做出响应。 之后，此应用会休眠一段时间，以模拟重新启动过程，然后使用报告属性，通知 trigger-reboot 后端应用重新启动已完成。
 
-1. 在 dm-get-started 文件夹的命令提示符处，使用以下命令创建名为 simulated-device 的 Maven 项目。 请注意，这是一条很长的命令：
+1. 使用命令提示符中的以下命令，在 dm-get-started 文件夹中创建名为 simulated-device 的 Maven 项目。 以下内容是一条很长的命令：
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. 在命令提示符下，浏览到 simulated-device 文件夹。
+1. 在命令提示符下，导航到 simulated-device 文件夹。
 
 1. 使用文本编辑器，打开 simulated-device 文件夹中的 pom.xml 文件，并在 dependencies 节点中添加以下依赖项。 此依赖项使得你可以使用应用中的 iot-service-client 包来与 IoT 中心进行通信：
 
@@ -217,7 +229,7 @@ trigger-reboot。 此应用：
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 
@@ -260,7 +272,7 @@ trigger-reboot。 此应用：
     import java.util.HashSet;
     ```
 
-1. 将以下类级变量添加到 **App** 类。 将 {yourdeviceconnectionstring} 替换为在“创建设备标识”部分记下的设备连接字符串：
+1. 将以下类级变量添加到 **App** 类。 使用“创建设备标识”部分所述的设备连接字符串替换 `{yourdeviceconnectionstring}`：
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -271,7 +283,7 @@ trigger-reboot。 此应用：
     private static DeviceClient client;
     ```
 
-1. 若要实现直接方法状态事件的回调处理程序，请将以下嵌套类添加到“App”类：
+1. 若要为直接方法状态事件实现回调处理程序，请将以下嵌套类添加到 App 类：
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -361,20 +373,20 @@ trigger-reboot。 此应用：
     }
     ```
 
-1. 修改 main 方法的签名，引发以下异常：
+1. 修改 main 方法的签名以引发以下异常：
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-1. 将以下代码添加到 main 方法，实例化 DeviceClient：
+1. 若要实例化 DeviceClient，请将以下代码添加到 main 方法：
 
     ```java
     System.out.println("Starting device client sample...");
     client = new DeviceClient(connString, protocol);
     ```
 
-1. 将以下代码添加到 main 方法，开始侦听直接方法调用：
+1. 若要开始侦听直接方法调用，请将以下代码添加到 main 方法：
 
     ```java
     try
@@ -392,7 +404,7 @@ trigger-reboot。 此应用：
     }
     ```
 
-1. 将以下代码添加到 main 方法，关闭设备模拟器：
+1. 若要关闭设备模拟器，请将以下代码添加到 main 方法：
 
     ```java
     System.out.println("Press any key to exit...");
@@ -446,4 +458,4 @@ trigger-reboot。 此应用：
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
 [lnk-maven-device-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
 
-<!--Update_Description:update wording-->
+<!--Update_Description:update code-->

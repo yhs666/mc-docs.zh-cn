@@ -13,14 +13,14 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/12/2017
+origin.date: 8/16/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: 27dc0a894115140c21006624a14e464f7065ec25
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 09/25/2017
+ms.openlocfilehash: 0620d9327b9ab41b05b3106b3808b48090fcfdc3
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>将 Adafruit Feather M0 WiFi 连接到云中的 Azure IoT 中心
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -158,7 +158,7 @@ ms.lasthandoff: 08/04/2017
 1. 单击“文件” > “首选项”(Windows/Linux) 或“Arduino” > “首选项”(Mac)，将以下链接复制并粘贴到 Arduino IDE 首选项中的“其他开发板管理器 URL”选项中。
    
    ```
-   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json, https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
    ```
 
 1. 依次单击“工具” > “开发板” > “开发板管理器”，然后安装 `Arduino SAMD Boards` 版本 `1.6.2` 或更高版本。 

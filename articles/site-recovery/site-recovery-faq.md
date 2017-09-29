@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 05/22/2017
 ms.date: 08/28/2017
 ms.author: v-yeche
-ms.openlocfilehash: a4b4e2c4ca56d87aa39e44310d826846575443fd
-ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
+ms.openlocfilehash: 4061d68e8577858a91e70f5021a11f728e7a16da
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常见问题解答 (FAQ)
 
@@ -52,9 +52,9 @@ Site Recovery 在 Azure 门户中可用，并支持 Resource Manager。 Site Rec
 * 若要复制到 Azure，Site Recovery 支持 [Azure 支持的](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)所有来宾操作系统。
 
 ### <a name="can-i-protect-vms-when-hyper-v-is-running-on-a-client-operating-system"></a>当 Hyper-V 在客户端操作系统上运行时，我可以保护 VM 吗？
-不可以。VM 必须位于在支持的 Windows 服务器计算机上运行的 Hyper-V 主机服务器上。 如果需要保护客户端计算机，可以将其作为物理计算机复制到 [Azure](site-recovery-vmware-to-azure.md) 或[辅助数据中心](site-recovery-vmware-to-vmware.md)。
+不可以。VM 必须位于在受支持的 Windows 服务器计算机上运行的 Hyper-V 主机服务器上。 如果需要保护客户端计算机，可以将其作为物理计算机复制到 [Azure](site-recovery-vmware-to-azure.md) 或[辅助数据中心](site-recovery-vmware-to-vmware.md)。
 
-### <a name="what-workloads-can-i-protect-with-site-recovery"></a>可以使用 Site Recovery 来保护哪些工作负荷？
+### <a name="what-workloads-can-i-protect-with-site-recovery"></a>我可以使用站点恢复来保护哪些工作负荷？
 可以使用 Site Recovery 来保护在支持的 VM 或物理服务器上运行的大多数工作负荷。 Site Recovery 为应用程序感知型复制提供支持，因此，应用可以恢复为智能状态。 它除了与 Microsoft 应用程序（例如 SharePoint、Exchange、Dynamics、SQL Server 及 Active Directory）集成之外，还能与行业领先的供应商（包括 Oracle、SAP、IBM 及 Red Hat）紧密配合。 [详细了解](site-recovery-workload.md)工作负荷保护。
 
 ### <a name="do-hyper-v-hosts-need-to-be-in-vmm-clouds"></a>Hyper-V 主机是否需要位于 VMM 云中？
@@ -84,13 +84,13 @@ Site Recovery 在 Azure 门户中可用，并支持 Resource Manager。 Site Rec
 Site Recovery 许可证费用根据受保护的实例收取，实例可以是 VM 或物理服务器。
 
 - 如果将 VM 磁盘复制到标准存储帐户，Azure 存储费用根据存储消耗量收取。 例如，如果源磁盘大小为 1 TB，使用了其中的 400 GB，则 Site Recovery 会在 Azure 中创建 1 TB VHD，但存储费用根据 400 GB（加上复制日志使用的存储空间量）收取。
-- 如果将 VM 磁盘复制到高级存储帐户，Azure 存储费用将按照预配的存储大小（已根据最接近的高级存储磁盘选项舍入）收取。 例如，如果源磁盘大小为 50 GB，则 Site Recovery 会在 Azure 中创建 50 GB 磁盘，Azure 会将此大小映射到最近的高级存储磁盘 (P10)。  费用将按照 P10 计算，而不是按照 50 GB 磁盘大小计算。  [了解详细信息](../storage/storage-premium-storage.md#pricing-and-billing)。  如果使用高级存储，则还需要为复制日志记录使用一个标准存储帐户，用于这些日志的标准存储空间量也会计费。
-- 在执行测试故障转移或故障转移以前，不创建任何磁盘。 在复制状态下，“页 Blob 和磁盘”类别下的存储费用将基于每个[存储定价计算器](https://www.azure.cn/zh-cn/pricing/calculator/)收取。 这些费用的执行基于高级/标准存储类型以及 LRS、GRS、RA-GRS 等数据冗余类型。
-- 如果选择“在故障转移时使用托管磁盘”，则在进行故障转移/测试故障转移后，会产生[托管磁盘费用](https://azure.microsoft.com/en-inhttps://www.azure.cn/pricing/details/managed-disks/)。 复制期间不会产生托管磁盘费用。
+- 如果将 VM 磁盘复制到高级存储帐户，Azure 存储费用将按照预配的存储大小（已根据最接近的高级存储磁盘选项舍入）收取。 例如，如果源磁盘大小为 50 GB，则 Site Recovery 会在 Azure 中创建 50 GB 磁盘，Azure 会将此大小映射到最近的高级存储磁盘 (P10)。  费用将按照 P10 计算，而不是按照 50 GB 磁盘大小计算。  [了解详细信息](../storage/common/storage-premium-storage.md#pricing-and-billing)。  如果使用高级存储，则还需要为复制日志记录使用一个标准存储帐户，用于这些日志的标准存储空间量也会计费。
+- 在执行测试故障转移或故障转移以前，不创建任何磁盘。 在复制状态下，“页 Blob 和磁盘”类别下的存储费用将基于每个[存储定价计算器](https://www.azure.cn/zh-cn/pricing/calculator/)收取。 这些费用基于高级/标准存储类型和数据冗余类型 - LRS、GRS、RA-GRS 等。
+- 如果选择在故障转移时使用托管磁盘，则在进行故障转移/测试故障转移后，会产生[托管磁盘费用](https://azure.microsoft.com/en-inhttps://www.azure.cn/pricing/details/managed-disks/)。 复制期间不会产生托管磁盘费用。
 - 如果未选择“在故障转移时使用托管磁盘”，则在进行故障转移后，根据[存储定价计算器](https://azure.microsoft.com/en-in/pricing/calculator/)在“页 blob 和磁盘”类别下会产生存储费用。 这些费用基于高级/标准存储类型和数据冗余类型 - LRS、GRS、RA-GRS 等。
 <!-- URL matching  https://aka.ms/premium-storage-pricing -- ../storage/common/storage-premium-storage.md#pricing-and-billing -->
 <!-- Not Available Managed disks and premium storage content block -->
-- 将在稳定状态的复制期间以及故障转移/测试故障转移之后针对常规 VM 操作收取存储事务的费用。 但这些费用非常少，几乎可以忽略不计。
+- 在稳定状态复制期间会发生存储交易费用，且在进行故障转移/测试故障转移后，针对常规 VM 操作也会发生存储交易费用。 但这些费用非常少，几乎可以忽略不计。
 
 测试故障转移期间也会产生 VM、存储、传出流量和存储事务方面的费用。
 
@@ -104,7 +104,7 @@ Site Recovery 已通过 ISO 27001:2013、27018、HIPAA、DPA 认证，目前正�
 ### <a name="for-compliance-reasons-even-our-on-premises-metadata-must-remain-within-the-same-geographic-region-can-site-recovery-help-us"></a>为了遵从法规，即使是本地的元数据，也必须保留在同一个地理区域。 Site Recovery 可以帮助我们吗？
 是的。 在某个区域中创建 Site Recovery 保管库时，我们确保启用和协调复制与故障转移时所需的一切元数据都保留在该区域的地理边界范围内。
 
-### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery 是否将复制数据加密？
+### <a name="does-site-recovery-encrypt-replication"></a>站点恢复是否将复制数据加密？
 在本地站点之间复制虚拟机和物理服务器时，支持传输中加密。 将虚拟机和物理服务器复制到 Azure 时，同时支持传输中加密和[静态加密（Azure 中）](/storage/storage-service-encryption)。
 
 ## <a name="replication"></a>复制
@@ -120,16 +120,16 @@ Azure Site Recovery 通过公共终结点将数据复制到 Azure 存储帐户�
 
 Azure 用户帐户需要具有某些[权限](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)，才能启用新的虚拟机到 Azure 的复制。
 
-### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>可以将 Hyper-V 第 2 代虚拟机复制到 Azure 吗？
-是的。 Site Recovery 在故障转移过程中将从第 2 代转换成第 1 代。 在故障回复时，计算机将转换回到第 2 代。 [了解详细信息](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。
+### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>我可以将 Hyper-V 第 2 代虚拟机复制到 Azure 吗？
+是的。 站点恢复在故障转移过程中将从第 2 代转换成第 1 代。 在故障回复时，计算机将转换回到第 2 代。 [了解详细信息](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。
 
 ### <a name="if-i-replicate-to-azure-how-do-i-pay-for-azure-vms"></a>如果复制到 Azure，要支付哪些 Azure VM 费用？
 在常规复制期间，数据将复制到异地冗余的 Azure 存储，不需要支付任何 Azure IaaS 虚拟机费用（提供一个明显的优势）。 当故障转移到 Azure 时，Site Recovery 自动创建 Azure IaaS 虚拟机，此后，需要为在 Azure 中使用的计算资源付费。
 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>是否可以使用 SDK 自动执行 Site Recovery 方案？
-是的。 可以使用 Rest API、PowerShell 或 Azure SDK 将 Site Recovery 工作流自动化。 当前支持的使用 PowerShell 部署 Site Recovery 的方案：
+是的。 可以使用 Rest API、PowerShell 或 Azure SDK 将站点恢复工作流自动化。 当前支持的使用 PowerShell 部署 Site Recovery 的方案：
 
-* [将 VMM 云中的 Hyper-V VM 复制到 Azure PowerShell 资源管理器](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+* [将 VMM 云中的 Hyper-V VM 复制到 Azure PowerShell Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 * [将 Hyper-V VM 复制（不使用 VMM）到 Azure PowerShell Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>如果要复制到 Azure，需要哪种存储帐户？
@@ -137,10 +137,10 @@ Azure 用户帐户需要具有某些[权限](site-recovery-role-based-linked-acc
 * **Azure 经典门户**：若要在 Azure 门户中部署 Site Recovery，需要一个 LRS 或 GRS 存储帐户。 建议使用 GRS，以便在发生区域性故障或无法恢复主要区域时，能够复原数据。 该帐户必须位于与恢复服务保管库相同的区域中。 在 Azure 门户中部署 Site Recovery 时，VMware VM、Hyper-V VM 和物理服务器复制现在支持高级存储。
 
 ### <a name="how-often-can-i-replicate-data"></a>可以多久复制数据一次？
-* **Hyper-V**：可以每隔 30 秒（高级存储除外）、5 分钟或 15 分钟复制一次 Hyper-V VM。 如果已设置 SAN 复制，则复制是同步的。
+* **Hyper-V**：可以每隔 30 秒（高级存储除外）、5 分钟或 15 分钟复制一次 Hyper-V VM。 如果已设置 SAN 复制，则复制将是同步的。
 * **VMware 和物理服务器：** 复制频率无关紧要。 复制是连续的。
 
-### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>可以将复制从现有的恢复站点扩展到其他站点吗？
+### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>我可以将复制从现有的恢复站点扩展到其他站点吗？
 不支持扩展扩展或链式复制。
 
 ### <a name="can-i-do-an-offline-replication-the-first-time-i-replicate-to-azure"></a>在首次复制到 Azure 时可以进行脱机复制吗？
@@ -150,9 +150,9 @@ Azure 用户帐户需要具有某些[权限](site-recovery-role-based-linked-acc
 使用 Azure 门户将 [VMware VM 和 Hyper-V VM 复制](site-recovery-exclude-disk.md)到 Azure 时支持此操作。
 
 ### <a name="can-i-replicate-virtual-machines-with-dynamic-disks"></a>可以使用动态磁盘来复制虚拟机吗？
-复制 Hyper-V 虚拟机时，支持使用动态磁盘。 将 VMware VM 和物理机复制到 Azure 时，支持使用动态磁盘。 操作系统磁盘必须是基本磁盘。
+复制 Hyper-V 虚拟机时，支持使用动态磁盘。 将 VMware VM 和物理计算机复制到 Azure 时也支持使用动态磁盘。 操作系统磁盘必须是基本磁盘。
 
-### <a name="can-i-add-a-new-machine-to-an-existing-replication-group"></a>能否将新计算机添加到现有的复制组中？
+### <a name="can-i-add-a-new-machine-to-an-existing-replication-group"></a>我能否将新计算机添加到现有的复制组中？
 支持将新计算机添加到现有的复制组。 要进行此操作，请从“已复制项目”边栏选项卡中，选择复制组并右键单击/选择复制组中的上下文菜单，然后选择相应的选项。
 
 ![添加到复制组](./media/site-recovery-faq/add-server-replication-group.png)
@@ -180,7 +180,7 @@ Azure 具有复原能力。 Site Recovery 已经能够根据需要故障转移�
 
 故障转移不是自动的。 可以在门户中单击一下来启动故障转移，或者使用[站点恢复 PowerShell](https://docs.microsoft.com/powershell/module/azurerm.siterecovery) 来触发故障转移。 在 Site Recovery 门户中可以轻松进行故障回复。
 
-如果要自动化，可以使用本地 Orchestrator 或 Operations Manager 来检测虚拟机故障，并使用 SDK 来触发故障转移。
+要自动化，可以使用本地 Orchestrator 或 Operations Manager 来检测虚拟机故障，并使用 SDK 来触发故障转移。
 
 * [详细了解](site-recovery-create-recovery-plans.md)恢复计划。
 * [了解详细信息](site-recovery-failover.md) 阅读更多有关故障转移的信息。
@@ -205,7 +205,7 @@ Azure 具有复原能力。 Site Recovery 已经能够根据需要故障转移�
 
 在服务提供商拥有的站点之间进行复制时，永远不会将应用程序数据发送到 Azure。 数据进行传输中加密并直接在服务提供商站点之间复制。
 
-如果是复制到 Azure，应用程序数据将发送到 Azure 存储而不是 Site Recovery 服务。 数据进行传输中加密并在 Azure 中保持加密状态。
+如果是复制到 Azure，应用程序数据将发送到 Azure 存储而不是站点恢复服务。 数据进行传输中加密并在 Azure 中保持加密状态。
 
 ### <a name="will-my-tenants-receive-a-bill-for-any-azure-services"></a>我的租户会收到来自 Azure 服务的帐单吗？
 
@@ -225,7 +225,7 @@ Azure 具有复原能力。 Site Recovery 已经能够根据需要故障转移�
 
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>是否支持单一 Azure Pack 和单一 VMM 服务器部署？
 
-是，可将 Hyper-V 虚拟机复制到 Azure，或者在服务提供商站点之间复制。  请注意，如果在服务提供商站点之间复制，则无法使用 Azure Runbook 集成。
+是，可将 Hyper-V 虚拟机复制到 Azure，或者在服务提供商站点之间复制。  请注意，如果在服务提供商站点之间复制，将无法使用 Azure Runbook 集成。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -13,19 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/30/2016
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 5da9a43993d19a7f2019fe3e385a5c74e84fe64a
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.openlocfilehash: 627400c8a0cb9ebd04dc65ac6b2cebaec4ee57d2
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/29/2017
 ---
-# 计划和广播作业 (Node)
-<a id="schedule-and-broadcast-jobs-node" class="xliff"></a>
+# <a name="schedule-and-broadcast-jobs-node"></a>计划和广播作业 (Node)
 
-## 介绍
-<a id="introduction" class="xliff"></a>
+[!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
+
 Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟踪用于计划和更新数百万台设备的作业。  作业可以用于以下操作：
 
 * 更新所需属性
@@ -44,7 +43,7 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
 * 创建一个模拟设备应用，该应用具有可由解决方法后端调用来实现 **lockDoor** 的直接方法。
 * 创建一个 Node.js 控制台应用，该应用使用作业调用模拟设备应用中的 **lockDoor** 直接方法，并使用设备作业更新所需属性。
 
-在本教程结束时，将会创建两个 Node.js 控制台应用：
+在本教程结束时，会创建两个 Node.js 控制台应用：
 
 **simDevice.js**，它使用设备标识连接到 IoT 中心，并接收 **lockDoor** 直接方法。
 
@@ -59,9 +58,8 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## 创建模拟设备应用程序
-<a id="create-a-simulated-device-app" class="xliff"></a>
-在本部分中，创建响应云调用的直接方法的 Node.js 控制台应用，这将触发模拟的设备重新启动并使用报告属性启用设备孪生查询，以标识设备和及其上次重新启动的时间。
+## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
+在本部分中，创建响应云调用的直接方法的 Node.js 控制台应用，这会触发模拟的设备重新启动并使用报告属性启用设备孪生查询，以标识设备和及其上次重新启动的时间。
 
 1. 新建名为 **simDevice**的空文件夹。  在 **simDevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
 
@@ -124,8 +122,7 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
 > 
 > 
 
-## 安排作业，用于调用直接方法和更新设备孪生的属性
-<a id="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties" class="xliff"></a>
+## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>安排作业，用于调用直接方法和更新设备孪生的属性
 在此部分中，会创建一个 Node.js 控制台应用，它使用直接方法对设备启动远程 **lockDoor** 并更新设备孪生的属性。
 
 1. 新建名为 **scheduleJobService**的空文件夹。  在 **scheduleJobService** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
@@ -240,9 +237,8 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
     ```
 9. 保存并关闭 **scheduleJobService.js** 文件。
 
-## 运行应用程序
-<a id="run-the-applications" class="xliff"></a>
-现在，你已准备就绪，可以运行应用程序了。
+## <a name="run-the-applications"></a>运行应用程序
+现在，已准备就绪，可以运行应用程序了。
 
 1. 在 simDevice 文件夹的命令提示符处，运行以下命令以开始侦听重启直接方法。
    
@@ -256,8 +252,7 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
     ```
 3. 可以在控制台中看到设备对直接方法的响应。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 在本教程中，使用了作业来安排用于设备的直接方法以及设备孪生属性的更新。
 
 若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅：

@@ -3,8 +3,8 @@ title: "使用 Azure 基于角色的访问控制管理备份 | Microsoft 文档"
 description: "使用基于角色的访问控制来管理对恢复服务保管库中的备份管理操作的访问。"
 services: backup
 documentationcenter: 
-author: trinadhk
-manager: shreeshd
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 3bd46b97-4b29-47a5-b5ac-ac174dd36760
 ms.service: backup
@@ -12,17 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+origin.date: 08/22/2017
+ms.date: 09/21/2017
 ms.author: v-junlch
-ms.openlocfilehash: a924fd6950bd21cde57956d69c3d76070bab697c
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: b9875345356e57588c1830a355123cb7ce4fd075
+ms.sourcegitcommit: c13aee6f5e18d15bcc29fae1eefd2b72f2558dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/29/2017
 ---
-# 使用基于角色的访问控制管理 Azure 备份恢复点
-<a id="use-role-based-access-control-to-manage-azure-backup-recovery-points" class="xliff"></a>
-Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访问管理。 使用 RBAC，你可以在团队中对职责进行分配，仅向用户授予执行作业所需的访问权限。
+# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>使用基于角色的访问控制管理 Azure 备份恢复点
+Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访问管理。 使用 RBAC，可以在团队中对职责进行分配，仅向用户授予执行作业所需的访问权限。
 
 > [!IMPORTANT]
 > Azure 备份提供的角色仅限于可在 Azure 门户或恢复服务保管库 PowerShell cmdlet 中执行的操作。 这些角色对在 Azure 备份代理客户端 UI、System Center Data Protection Manager UI 或 Azure 备份服务器 UI 中执行的操作不具有控制权。
@@ -37,8 +37,7 @@ Azure 备份提供 3 个用于控制备份管理操作的内置角色。 详细�
 
 
 
-## 将备份内置角色映射到备份管理操作
-<a id="mapping-backup-built-in-roles-to-backup-management-actions" class="xliff"></a>
+## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>将备份内置角色映射到备份管理操作
 下表包含备份管理操作和执行这些操作所需的最低 RBAC 角色。
 
 | 管理操作 | 所需的最低 RBAC 角色 |
@@ -46,7 +45,7 @@ Azure 备份提供 3 个用于控制备份管理操作的内置角色。 详细�
 | 创建恢复服务保管库 | 保管库资源组上的参与者 |
 | 启用 Azure VM 备份 | 保管库上的备份操作员，VM 上的虚拟机参与者 |
 | 按需备份 VM | 备份操作员 |
-| 还原 VM | 备份操作员，将在其中部署 VM 和 Vnet 的|资源组参与者 |
+| 还原 VM | 将对其部署 VM 和 Vnet 的备份操作员、资源组参与者 |
 | 从 VM 备份还原磁盘及单个文件 | 备份操作员 |
 | 创建 Azure VM 备份的备份策略 | 备份参与者 |
 | 修改 Azure VM 备份的备份策略 | 备份参与者 |
@@ -55,11 +54,12 @@ Azure 备份提供 3 个用于控制备份管理操作的内置角色。 详细�
 | 注册本地 Windows Server/客户端/SCDPM 或 Azure 备份服务器 | 备份操作员 |
 | 删除已注册的本地 Windows Server/客户端/SCDPM 或 Azure 备份服务器 | 备份参与者 |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 - [基于角色的访问控制](../active-directory/role-based-access-control-configure.md)：Azure 门户中的 RBAC 入门。
 - 了解如何通过以下方式管理访问权限：
   - [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   - [Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   - [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 - [基于角色的访问控制故障排除](../active-directory/role-based-access-control-troubleshooting.md)：获取解决常见问题的建议。
+
+<!--Update_Description: update meta properties --> 

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/02/2017
-ms.date: 08/21/2017
+origin.date: 08/30/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: bd72b2200e992df08b3e2758f8724bff5a45bbe7
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: ae742db4b7df88899b8e6d1b325947b432915e1d
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric 术语概述
 Service Fabric 是一种分布式系统平台，可让用户轻松打包、部署和管理可缩放、可靠的微服务。 本主题详细介绍 Service Fabric 所使用的术语，帮助了解文档中使用的术语。
@@ -47,7 +47,7 @@ Service Fabric 是一种分布式系统平台，可让用户轻松打包、部�
 有两种类型的服务：
 
 * **无状态：**服务的持久状态存储在 Azure 存储、Azure SQL 数据库、Azure Cosmos DB 等外部存储服务中时，请使用无状态服务。 当服务根本没有永久性存储时，请使用无状态服务。 以计算器服务为例，首先要将值传递给该服务，然后服务使用这些值执行计算并返回结果。
-* **有状态：** 如果要让 Service Fabric 通过其 Reliable Collections 或 Reliable Actors 编程模型管理服务状态，请使用有状态服务。 创建命名服务时，请指定你要将状态分布于其中的分区的数量（实现可伸缩性）。 此外，指定跨节点复制状态的次数（实现可靠性）。 每个命名服务都有一个主要副本和多个次要副本。 通过写入主要副本修改命名服务的状态。 然后，Service Fabric 会将此状态复制到所有次要副本以使状态保持同步。 当主要副本失败时，Service Fabric 会自动检测到此状态，并将现有的次要副本升级为主要副本。 然后，Service Fabric 会创建新的次要副本。  
+* **有状态：** 如果要让 Service Fabric 通过其 Reliable Collections 或 Reliable Actors 编程模型管理服务状态，请使用有状态服务。 创建命名服务时，请指定你要将状态分布于其中的分区的数量（实现可伸缩性）。 此外，指定跨节点复制状态的次数（实现可靠性）。 每个命名服务都有一个主要副本和多个次要副本。 通过写入主要副本修改命名服务的状态。 然后，Service Fabric 会将此状态复制到所有次要副本以使状态保持同步。当主要副本失败时，Service Fabric 会自动检测到此状态，并将现有的次要副本升级为主要副本。 然后，Service Fabric 会创建新的次要副本。  
 
 **服务包**：一个磁盘目录，其中包含服务类型的 `ServiceManifest.xml` 文件。 此文件引用服务类型的代码、静态数据和配置包。 应用程序类型的 `ApplicationManifest.xml` 文件引用服务包目录中的文件。 例如，服务包可能引用构成数据库服务的代码、静态数据和配置包。
 
@@ -64,7 +64,7 @@ Service Fabric 是一种分布式系统平台，可让用户轻松打包、部�
 
 **容器**：默认情况下，Service Fabric 以进程形式部署和激活服务。 Service Fabric 还可在容器映像中部署服务。 容器是在应用程序中将基础操作系统虚拟化的一种虚拟化技术。 每个应用程序及其运行时、依赖项和系统库都在容器中运行，并且对容器自身的隔离的操作系统构造拥有完全专属的访问权限。 Service Fabric 支持 Linux 和 Windows Server 容器上的 Docker 容器。  有关详细信息，请参阅 [Service Fabric 和容器](service-fabric-containers-overview.md)。
 
-**分区方案**：创建命名服务时，需要指定一个分区方案。 包含大量状态的服务跨分区拆分数据，将状态分散在群集的节点上。 这样，命名服务的状态便可缩放。 在分区中，无状态命名服务具有实例，而有状态命名服务具有副本。 通常，无状态命名服务只有一个分区，因为它们没有内部状态。 分区实例提供可用性；如果一个实例失败，其他实例可继续正常运行，Service Fabric 将创建新的实例。 有状态命名服务在副本中保持其状态，每个分区都有自身的副本集，其中包含保持同步的所有状态。 如果某个副本失败，Service Fabric 将从现有副本创建新副本。
+**分区方案**：创建命名服务时，需要指定一个分区方案。 包含大量状态的服务跨分区拆分数据，将状态分散在群集的节点上。 这样，命名服务的状态便可缩放。 在分区中，无状态命名服务具有实例，而有状态命名服务具有副本。 通常，无状态命名服务只有一个分区，因为它们没有内部状态。 分区实例提供可用性；如果一个实例失败，其他实例可继续正常运行，Service Fabric 将创建新的实例。 有状态命名服务在副本中保持其状态，每个分区都有自身的副本集，其中包含保持同步的所有状态。如果某个副本失败，Service Fabric 将从现有副本创建新副本。
 
 有关详细信息，请阅读 [Service Fabric Reliable Services 分区](service-fabric-concepts-partitioning.md)一文。
 

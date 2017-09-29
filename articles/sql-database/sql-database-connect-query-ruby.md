@@ -3,7 +3,7 @@ title: "使用 Ruby 查询 Azure SQL 数据库 | Azure"
 description: "本主题介绍如何使用 Ruby 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 94fec528-58ba-4352-ba0d-25ae4b273e90
@@ -12,15 +12,15 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 07/14/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 8e898f5824130fa5911b879a1e26d27a3ef262c4
-ms.sourcegitcommit: c8b577c85a25f9c9d585f295b682e835fa861dd0
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: b15346627bf2058bc6efefdf7aec1717f50b940e
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="use-ruby-to-query-an-azure-sql-database"></a>使用 Ruby 查询 Azure SQL 数据库
 
@@ -32,9 +32,9 @@ ms.lasthandoff: 08/09/2017
 
 - Azure SQL 数据库。 此快速入门使用以下某个快速入门中创建的资源： 
 
-- [创建 DB - 门户](sql-database-get-started-portal.md)
-- [创建 DB - CLI](sql-database-get-started-cli.md)
-- [创建 DB - PowerShell](sql-database-get-started-powershell.md)
+   - [创建 DB - 门户](sql-database-get-started-portal.md)
+   - [创建 DB - CLI](sql-database-get-started-cli.md)
+   - [创建 DB - PowerShell](sql-database-get-started-powershell.md)
 
 - 针对用于本快速入门教程的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
 - 为操作系统安装了 Ruby 和相关软件。
@@ -97,5 +97,3 @@ ruby sqltest.rb
 - [TinyTDS 的 GitHub 存储库](https://github.com/rails-sqlserver/tiny_tds)
 - [针对 TinyTDS 报告问题或提出问题](https://github.com/rails-sqlserver/tiny_tds/issues)
 - [用于 SQL Server 的 Ruby 驱动程序](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
-
-<!--Update_Description: update word & code : deleted insert, update, delete sample code-->

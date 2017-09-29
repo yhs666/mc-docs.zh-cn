@@ -43,11 +43,7 @@
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - 保护 SQL DB
       href: sql-database-security-tutorial.md
-    - name: 4 - 提高 SQL DB 性能
-      href: sql-database-performance-tutorial.md
-    - name: 5 - 实现多租户应用
-      href: sql-database-multi-tenant-application.md
-    - name: 6 - 实现地理分散的数据库
+    - name: 4 - 实现地理分散的数据库
       href: sql-database-implement-geo-distributed-database.md
 - name: 示例
   items:
@@ -57,25 +53,43 @@
       href: sql-database-powershell-samples.md
 - name: 概念
   items:
-    - name: 数据库和服务器
+    - name: 服务功能
       items:
         - name: 概述
           href: sql-database-servers-databases.md
         - name: 服务层
           href: sql-database-service-tiers.md
+        - name: 资源限制
+          href: sql-database-resource-limits.md
+        - name: 单一数据库
+          href: sql-database-single-database-resources.md
         - name: 弹性池
           href: sql-database-elastic-pool.md
         - name: 连接体系结构
           href: sql-database-connectivity-architecture.md
+        - name: 防火墙规则
+          href: sql-database-firewall-configure.md
         - name: DTU 和 eDTU
           href: sql-database-what-is-a-dtu.md
         - name: DTU 基准
           href: sql-database-benchmark-overview.md
-        - name: 限制
-          href: sql-database-resource-limits.md
         - name: PaaS 或 IaaS
           href: sql-database-paas-vs-sql-server-iaas.md
-        - name: 功能
+        - name: 审核
+          href: sql-database-auditing.md
+        - name: 威胁检测
+          href: sql-database-threat-detection.md
+        - name: 数据库备份
+          href: sql-database-automated-backups.md
+        - name: 故障转移组
+          href: sql-database-geo-replication-overview.md
+        - name: 弹性客户端库
+          href: sql-database-elastic-database-client-library.md
+        - name: 弹性查询
+          href: sql-database-elastic-query-overview.md
+        - name: 弹性事务
+          href: sql-database-elastic-transactions-overview.md
+        - name: SQL Server 常用功能
           href: sql-database-features.md
     - name: “安全”
       items:
@@ -83,32 +97,22 @@
           href: sql-database-security-overview.md
         - name: 访问控制
           href: sql-database-control-access.md
-        - name: 防火墙规则
-          href: sql-database-firewall-configure.md
         - name: Azure AD
           href: sql-database-aad-authentication.md
         - name: 登录名和用户
           href: sql-database-manage-logins.md
         - name: 多重身份验证
           href: sql-database-ssms-mfa-authentication.md
-        - name: 审核
-          href: sql-database-auditing.md
         - name: 表审核和 TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: 威胁检测
-          href: sql-database-threat-detection.md
         - name: 数据屏蔽
           href: sql-database-dynamic-data-masking-get-started.md
     - name: 业务连续性
       items:
         - name: 概述
           href: sql-database-business-continuity.md
-        - name: 数据库备份
-          href: sql-database-automated-backups.md
         - name: 数据库恢复
           href: sql-database-recovery-using-backups.md
-        - name: 故障转移组
-          href: sql-database-geo-replication-overview.md
         - name: 配置安全性
           href: sql-database-geo-replication-security-config.md
         - name: 应用设计和恢复
@@ -153,16 +157,10 @@
           href: sql-database-compatibility-level-query-performance-130.md
         - name: 监视内存中存储
           href: sql-database-in-memory-oltp-monitoring.md
-    - name: 横向扩展应用
+    - name: 向外扩展
       items:
         - name: 概述
           href: sql-database-elastic-scale-introduction.md
-        - name: SaaS 设计模式
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-        - name: SaaS 应用安全性
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-        - name: 弹性客户端库
-          href: sql-database-elastic-database-client-library.md
         - name: 分片映射
           href: sql-database-elastic-scale-shard-map-management.md
         - name: 查询路由
@@ -179,14 +177,12 @@
           href: sql-database-elastic-scale-working-with-dapper.md
         - name: 弹性工具常见问题
           href: sql-database-elastic-scale-faq.md
-        - name: 弹性查询
-          href: sql-database-elastic-query-overview.md
-        - name: 水平数据
-          href: sql-database-elastic-query-horizontal-partitioning.md
-        - name: 垂直数据
-          href: sql-database-elastic-query-vertical-partitioning.md
-        - name: 事务
-          href: sql-database-elastic-transactions-overview.md
+    - name: 多租户 SaaS
+      items:
+        - name: SaaS 设计模式
+          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+        - name: SaaS 应用安全
+          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
     - name: 开发数据库
       items:
         - name: JSON 数据
@@ -217,6 +213,16 @@
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: 操作指南
   items:
+    - name: 服务功能
+      items:
+        - name: 升级弹性数据库客户端库
+          href: sql-database-elastic-scale-upgrade-client-library.md
+        - name: 查询垂直分区的数据
+          href: sql-database-elastic-query-getting-started-vertical.md
+        - name: 跨横向扩展的数据层进行报告
+          href: sql-database-elastic-query-horizontal-partitioning.md
+        - name: 在具有不同架构的表中进行查询
+          href: sql-database-elastic-query-vertical-partitioning.md
     - name: “安全”
       items:
         - name: 配置 Azure AD 身份验证
@@ -233,13 +239,9 @@
       items:
         - name: 异地复制 - 门户
           href: sql-database-geo-replication-portal.md
-        - name: 异地复制 - T-SQL - 配置
-          href: sql-database-geo-replication-transact-sql.md
-        - name: 异地复制 - T-SQL - 故障转移
-          href: sql-database-geo-replication-failover-transact-sql.md
         - name: 恢复单个表
           href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-    - name: 移动数据
+    - name: 加载和移动数据
       items:
         - name: 使用 BCP 加载数据
           href: sql-database-load-from-csv-with-bcp.md
@@ -265,10 +267,12 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure 自动化
           href: sql-database-manage-automation.md
-    - name: 横向扩展应用
+    - name: 向外扩展
       items:
         - name: 创建分片应用
           href: sql-database-elastic-scale-get-started.md
+        - name: 查询水平分片数据
+          href: sql-database-elastic-query-getting-started.md
         - name: 移动分片数据
           href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
         - name: 安全配置
@@ -283,12 +287,6 @@
           href: sql-database-elastic-database-perf-counters.md
         - name: 使用实体框架
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-        - name: 升级客户端
-          href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: 查询水平数据
-          href: sql-database-elastic-query-getting-started.md
-        - name: 查询垂直数据
-          href: sql-database-elastic-query-getting-started-vertical.md
     - name: 开发应用
       items:
         - name: C 和 C ++
@@ -308,40 +306,40 @@
     - name: Java
       href: 'https://docs.azure.cn/java/api/com.microsoft.azure.management.sql'
     - name: Node.js
-      href: 'https://msdn.microsoft.com/library/mt652093.aspx'
+      href: 'https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server'
     - name: Python
-      href: 'https://msdn.microsoft.com/library/mt652092.aspx'
+      href: 'https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server'
     - name: Ruby
-      href: 'https://msdn.microsoft.com/library/mt691981.aspx'
+      href: 'https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server'
     - name: PHP
-      href: 'https://msdn.microsoft.com/library/dn865013.aspx'
+      href: 'https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server'
     - name: T-SQL
-      href: 'https://msdn.microsoft.com/library/bb510741.aspx'
+      href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
     - name: REST
-      href: 'https://msdn.microsoft.com/library/mt163571.aspx'
+      href: 'https://docs.microsoft.com/rest/api/sql/'
     - name: SQL Server 工具
-      href: 'https://msdn.microsoft.com/library/mt238365.aspx'
+      href: 'https://docs.microsoft.com/sql/tools/overview-sql-tools'
     - name: SQL Server Management Studio (SSMS)
-      href: 'https://msdn.microsoft.com/library/mt238290.aspx'
+      href: 'https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms'
     - name: SQL Server Data Tools (SSDT)
-      href: 'https://msdn.microsoft.com/library/mt204009.aspx'
+      href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
     - name: BCP
-      href: 'https://msdn.microsoft.com/library/ms162802.aspx'
+      href: 'https://docs.microsoft.com/sql/tools/bcp-utility'
     - name: SQLCMD
-      href: 'https://msdn.microsoft.com/library/ms162773.aspx'
+      href: 'https://docs.microsoft.com/sql/tools/sqlcmd-utility'
     - name: SqlPackage
       href: 'https://msdn.microsoft.com/hh550080.aspx'
     - name: SQL 数据库管理库包
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Sql'
     - name: SQL Server 驱动程序
-      href: 'https://msdn.microsoft.com/library/mt654049.aspx'
+      href: 'https://docs.microsoft.com/sql/connect/sql-server-drivers'
       items:
         - name: ADO.NET
-          href: 'https://msdn.microsoft.com/library/mt657768.aspx'
+          href: 'https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server'
         - name: JDBC
-          href: 'https://msdn.microsoft.com/library/mt484311.aspx'
+          href: 'https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server'
         - name: ODBC
-          href: 'https://msdn.microsoft.com/library/mt654048.aspx'
+          href: 'https://docs.microsoft.com/sql/connect/odbc/microsoft-odbc-driver-for-sql-server'
 - name: 资源
   items:
     - name: 常见问题
@@ -356,15 +354,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/sql-azure'
-    - name: 客户实现
-      href: sql-database-customer-implementations.md
-    - name: 示例应用程序
-      items:
-        - name: Tailspin Surveys
-          href: 'https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md'
-        - name: Contoso Clinic
-          href: 'https://github.com/Microsoft/azure-sql-security-sample'
-        - name: 弹性池遥测
-          href: 'https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools'
-        - name: 弹性池自定义仪表板
-          href: 'https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard'
+    - name: 体系结构中心
+      href: /azure/architecture/
+    - name: 客户案例
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

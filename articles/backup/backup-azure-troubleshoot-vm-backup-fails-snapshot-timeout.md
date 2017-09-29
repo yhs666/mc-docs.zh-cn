@@ -1,6 +1,6 @@
 ---
 title: "Azure 备份故障排除：来宾代理状态不可用 | Microsoft Docs"
-description: "与错误相关的 Azure 备份失败的症状、原因与解决方法：无法与 VM 代理通信"
+description: "与代理、扩展、磁盘相关的 Azure 备份失败的症状、原因及解决方法"
 services: backup
 documentationcenter: 
 author: alexchen2016
@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/17/2017
-ms.date: 09/04/2017
+origin.date: 09/08/2017
+ms.date: 09/21/2017
 ms.author: v-junlch
-ms.openlocfilehash: 2b1a616b63f87246affcdd96cd470f2335d13bcc
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: bce1528531175ef27e9512b5d1deea9ff707b0c3
+ms.sourcegitcommit: c13aee6f5e18d15bcc29fae1eefd2b72f2558dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure 备份故障排除：代理和/或扩展的问题
 
@@ -66,6 +66,10 @@ ms.lasthandoff: 09/08/2017
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>原因 3：[VM 中安装的代理已过时（针对 Linux VM）](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>原因 4：[无法检索快照状态或无法拍摄快照](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>原因 5：[备份扩展无法更新或加载](#the-backup-extension-fails-to-update-or-load)
+
+## <a name="the-specified-disk-configuration-is-not-supported"></a>不支持指定的磁盘配置
+
+当前 Azure 备份不支持大于 1023 GB 的磁盘大小。 请拆分磁盘，确保磁盘大小小于此限制。 要拆分磁盘，需要将数据从大于 1023 GB 的磁盘复制到新创建的小于 1023 GB 的磁盘。
 
 
 ## <a name="causes-and-solutions"></a>原因和解决方案
@@ -113,15 +117,15 @@ VM 代理可能已损坏或服务可能已停止。 重新安装 VM 代理能够
 
 1. 按照[更新 Linux VM 代理](../virtual-machines/linux/update-agent.md)的说明进行操作。
 
- >[!NOTE]
- >*强烈建议* 只通过分发存储库更新代理。 建议不要直接从 GitHub 下载代理代码并将其更新。 如果分发没有可用的最新代理，请联系分发支持部门，了解如何安装最新代理。 若要检查最新代理，请转到 GitHub 存储库中的 [Azure Linux 代理](https://github.com/Azure/WALinuxAgent/releases) 页。
+    >[!NOTE]
+    >*强烈建议* 只通过分发存储库更新代理。 不建议直接从 GitHub 下载代理代码进行更新。 如果分发没有可用的最新代理，请联系分发支持部门，了解如何安装最新代理。 若要检查最新代理，请转到 GitHub 存储库中的 [Azure Linux 代理](https://github.com/Azure/WALinuxAgent/releases) 页。
 
 2. 运行以下命令，确保 Azure 代理可在 VM 上运行： `ps -e`
 
- 如果该进程未运行，请使用以下命令进行重启：
+    如果该进程未运行，请使用以下命令进行重启：
 
- - 对于 Ubuntu： `service walinuxagent start`
- - 对于其他分发版： `service waagent start`
+    - 对于 Ubuntu： `service walinuxagent start`
+    - 对于其他分发版： `service waagent start`
 
 3. [配置自动重新启动代理](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash)。
 4. 运行新的测试备份。 如果错误仍然存在，请从客户的 VM 收集以下日志：

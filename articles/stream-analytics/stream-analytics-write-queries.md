@@ -14,19 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2978bba6a1168753d324b550e53b7f93abdf3e8d
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 24114f07abe00a582830ae9f79032973e21d2bc7
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="how-to-write-queries-in-stream-analytics"></a>如何使用流分析编写查询
 针对 Azure 流分析中的流处理逻辑编写查询将作为一种“现有查询”来实施，该查询在作业启动前定义并在数据抵达作业时对数据执行。 使用一种类似于 SQL 的查询语言来表示数据转换，这种语言大部分是 T-SQL 的一个子集，但增加了某些用于表示临时语义的语言扩展，例如 [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx)。
 
 ## <a name="writing-queries"></a>编写查询：
-1. 在 Azure 管理门户上的流分析作业中，单击“查询”。
+1. 在 Azure 门户中的流分析作业中，单击“查询”。
 
     ![选择查询](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)  
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 07/26/2017
 > 
 > 
 
-1. 确保查询没有任何错误（否则“测试”按钮将被禁用），然后单击“测试”按钮。  
+1. 确保查询没有任何错误（否则“测试”按钮将被禁用），并单击“测试”按钮。  
 
     ![查询数据测试](./media/stream-analytics-write-queries/3-stream-analytics-write-queries.png)  
-2. 系统会提示你为查询中引用的每个输入指定文件。 在本示例中，模板查询保持原样，因此对话框提示提供一个名为 "yourinputalias" 的输入。  
+2. 系统会提示为查询中引用的每个输入指定文件。 在本示例中，模板查询保持原样，因此对话框提示提供一个名为 "yourinputalias" 的输入。
 
     ![测试数据查询](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)  
 3. 浏览到一个测试文件。 
@@ -63,7 +63,7 @@ ms.lasthandoff: 07/26/2017
     ![查询摘要](./media/stream-analytics-write-queries/6-stream-analytics-write-queries.png)  
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
@@ -72,4 +72,4 @@ ms.lasthandoff: 07/26/2017
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update -->

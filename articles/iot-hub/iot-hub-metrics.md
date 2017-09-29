@@ -12,17 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/22/2017
-ms.date: 04/24/2017
+origin.date: 08/25/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 0ef732686486a2af9fca01f202d5dc4fd00abcb3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 13ab3b1915095a46b87b9dd7f0188826442e516d
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/29/2017
 ---
-
 # <a name="understand-iot-hub-metrics"></a>了解 IoT 中心指标
 IoT 中心度量值提供更棒的数据，清晰显示 Azure 订阅中的 Azure IoT 资源状态。 通过 IoT 中心度量值，可评估 IoT 中心服务及其所连接的设备的总体运行状况。 面向用户的统计信息非常重要，因为它们可以帮助了解 IoT 中心的情况，并可以帮助在不联系 Azure 支持人员的情况下解决根本问题。
 
@@ -33,7 +31,7 @@ IoT 中心度量值提供更棒的数据，清晰显示 Azure 订阅中的 Azure
 2. 打开 IoT 中心的边栏选项卡。 在此处单击“度量值” 。
 
     ![][1]
-3. 在“度量值”边栏选项卡中，可查看 IoT 中心的度量值并创建度量值的自定义视图。 单击“诊断设置” ，即可选择将度量值数据发送到事件中心终结点或 Azure 存储帐户。
+3. 在“度量值”边栏选项卡中，可查看 IoT 中心的度量值并创建度量值的自定义视图。 单击“诊断设置”，即可选择将指标数据发送到事件中心终结点或 Azure 存储帐户。
 
     ![][2]
 
@@ -102,7 +100,7 @@ IoT 中心提供多个度量值，帮助你大致了解中心的运行状况以�
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南][lnk-devguide]
-* [使用 IoT 网关 SDK 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 模拟设备][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: ./media/iot-hub-metrics/enable-metrics-1.png
@@ -116,4 +114,4 @@ IoT 中心提供多个度量值，帮助你大致了解中心的运行状况以�
 [lnk-monitor]: ./iot-hub-operations-monitoring.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md

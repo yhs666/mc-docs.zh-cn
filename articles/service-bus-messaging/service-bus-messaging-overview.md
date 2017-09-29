@@ -3,7 +3,7 @@ title: "服务总线消息传送概述 | Azure"
 description: "服务总线消息传递和 Azure 中继的说明"
 services: service-bus
 documentationCenter: .net
-authors: sethmanheim
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-origin.date: 05/25/2017
+origin.date: 08/30/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: 1855a1876e6cd60b898f1563df0041c431390cc9
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/16/2017
+ms.openlocfilehash: 4092988311b20000094c5b2990c97d6ee7e07184
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="service-bus-messaging-flexible-data-delivery-in-the-cloud"></a>服务总线消息传送：在云中灵活传送数据
 
@@ -42,9 +42,10 @@ Azure 中继的 [WCF 中继](../service-bus-relay/relay-what-is-it.md)组件是�
 WCF 中继提供许多好处，但是为了发送和接收消息，需要服务器和客户端同时处于联机状态。 这对于 HTTP 方式的通信并非最佳（在这种方式下，请求通常可能无法长期存在），对仅偶尔连接的客户端（例如浏览器和移动应用程序等）也同样如此。 中转消息传送支持分离式通信，且具有自身的优势；客户端和服务器可以根据需要进行连接并以异步方式执行其操作。
 
 ## <a name="Brokered-messaging"></a>中转消息传送
-与中继方案不同，可认为服务总线消息传送或 [中转消息传送](./service-bus-queues-topics-subscriptions.md) 是异步的，或者“暂时分离的”。 消息生产者（发送者）和使用者（接收者）不必同时处于联机状态。 消息传送基础结构将消息可靠地存储在“中转站”中（例如一个队列），直到使用方准备好接收它们。 这将允许分布式应用程序的组件断开连接，例如，为进行维护而自动断开，或因组件故障断开连接，而不会影响整个系统。 此外，接收应用程序可能仅需在一天中某个时间处于联机状态，例如库存管理系统只需在工作日结束时运行。
 
-服务总线中转消息传送基础结构的核心组件是队列、主题和订阅。  两者的主要差别在于，主题支持可用于基于内容的复杂路由和传送逻辑的发布/订阅功能，包括发送到多个接收方。 这些组件支持新的异步消息传送方案，例如临时分离、发布/订阅和负载均衡。 有关消息传送实体的详细信息，请参阅 [服务总线队列、主题和订阅](service-bus-queues-topics-subscriptions.md)。
+与中继方案不同，可认为[队列、主题和订阅](service-bus-queues-topics-subscriptions.md)的服务总线消息传送是异步的，或者是“暂时分离的”。 消息生产者（发送者）和使用者（接收者）不必同时处于联机状态。 消息传送基础结构将消息可靠地存储在“中转站”（例如队列）中，直到使用方准备好接收它们。 这样即可让分布式应用程序的组件断开连接，例如，为进行维护而自动断开，或因组件故障断开连接，而不会影响整个系统。 此外，接收应用程序可能仅需在一天中某个时间处于联机状态，例如库存管理系统只需在工作日结束时运行。
+
+服务总线消息传送基础结构的核心组件是队列、主题和订阅。 两者的主要差别在于，主题支持可用于基于内容的复杂路由和传送逻辑的发布/订阅功能，包括发送到多个接收方。 这些组件支持新的异步消息传送方案，例如临时分离、发布/订阅和负载均衡。 有关消息传送实体的详细信息，请参阅 [服务总线队列、主题和订阅](service-bus-queues-topics-subscriptions.md)。
 
 与 WCF 中继基础结构一样，中转消息传送功能是为 WCF 和 .NET Framework 程序员提供的，并且也是通过 REST 提供的。
 
@@ -53,5 +54,5 @@ WCF 中继提供许多好处，但是为了发送和接收消息，需要服务�
 
 - [服务总线基础知识](./service-bus-fundamentals-hybrid-solutions.md)
 - [服务总线队列、主题和订阅](./service-bus-queues-topics-subscriptions.md)
-- [如何使用服务总线队列](./service-bus-dotnet-get-started-with-queues.md)
+* [服务总线队列入门](./service-bus-dotnet-get-started-with-queues.md)
 - [如何使用服务总线主题和订阅](./service-bus-dotnet-how-to-use-topics-subscriptions.md)

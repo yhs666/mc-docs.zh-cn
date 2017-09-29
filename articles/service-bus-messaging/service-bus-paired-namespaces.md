@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/25/2017
+origin.date: 08/30/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: 2d2c0224ebd96afc0231148238cea9e36dc55545
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/16/2017
+ms.openlocfilehash: 3019a93a14dd82d936f4c70814af2ce8ec69f19f
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>配对命名空间实现详细信息和成本影响
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 07/14/2017
 4.  从主体接收。
 
 ## <a name="closefault-behavior"></a>关闭/故障行为
-在托管管道的应用程序中，一旦主要或辅助 [MessagingFactory][MessagingFactory] 发生故障或关闭，同时其伙伴队列并未发生故障/关闭，且管道检测到此状态，则管道将发挥作用。 如果其他 [MessagingFactory][MessagingFactory] 在 5 秒内未关闭，管道将导致仍处于打开状态的 [MessagingFactory][MessagingFactory] 发生故障。
+在托管管道的应用程序中，一旦主要或辅助 [MessagingFactory][MessagingFactory] 发生故障或关闭，同时其合作伙伴队列并未发生故障或关闭，且管道检测到此状态，则管道将发挥作用。 如果其他 [MessagingFactory][MessagingFactory] 在 5 秒内未关闭，管道将导致仍处于打开状态的 [MessagingFactory][MessagingFactory] 发生故障。
 
 ## <a name="next-steps"></a>后续步骤
 有关服务总线异步消息传送的详细讨论，请参阅[异步消息传递模式和高可用性][Asynchronous messaging patterns and high availability]。 

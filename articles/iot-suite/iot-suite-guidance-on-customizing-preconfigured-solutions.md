@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/15/2017
+origin.date: 09/15/2017
 ms.author: v-yiso
-ms.date: 06/13/2017
-ms.openlocfilehash: 758767193d722e82d7aa882f15d73fc1538a74b8
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/16/2017
+ms.openlocfilehash: b192357ea86da9187d63098fabf15b2a3ee59267
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="customize-a-preconfigured-solution"></a>自定义预配置解决方案
 Azure IoT 套件提供的预配置解决方案演示了套件中的服务如何协力提供端到端解决方案。 从这个起点开始，有多个地方可以针对特定应用场景扩展和自定义解决方案。 以下各节描述了这些常见的自定义点。
@@ -32,7 +32,7 @@ Azure IoT 套件提供的预配置解决方案演示了套件中的服务如何�
 * 预见性维护： [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 * 连接的工厂：[https://github.com/Azure/azure-iot-connected-factory](https://github.com/Azure/azure-iot-connected-factory)
 
-提供预配置解决方案源代码的目的，在于演示实现使用 Azure IoT 套件的 IoT 解决方案的端到端功能时所采用的模式和做法。 你可以找到有关如何在 GitHub 存储库中生成和部署解决方案的详细信息。
+提供预配置解决方案源代码的目的，在于演示实现使用 Azure IoT 套件的 IoT 解决方案的端到端功能时所采用的模式和做法。 可以找到有关如何在 GitHub 存储库中生成和部署解决方案的详细信息。
 
 ## <a name="change-the-preconfigured-rules"></a>更改预配置规则
 
@@ -40,7 +40,7 @@ Azure IoT 套件提供的预配置解决方案演示了套件中的服务如何�
 
 [远程监视预配置解决方案演练](./iot-suite-remote-monitoring-sample-walkthrough.md)深入介绍了这三个流分析作业及其语法。 
 
-你可以直接编辑这些作业以更改逻辑，或添加特定于你的方案的逻辑。 你可以按以下方式查找流分析作业：
+可以直接编辑这些作业以更改逻辑，或添加特定于方案的逻辑。 可以按以下方式查找流分析作业：
 
 1. 转到 [Azure 门户](https://portal.azure.cn)。
 2. 导航到名称与 IoT 解决方案相同的资源组。 
@@ -61,7 +61,7 @@ Azure IoT 套件提供的预配置解决方案演示了套件中的服务如何�
 
 ## <a name="customize-devices"></a>自定义设备
 
-最常见的扩展活动之一是使用方案特定的设备。 使用设备的方法有数种。 这些方法包括更改模拟设备以符合你的方案，或使用 [IoT 设备 SDK][IoT Device SDK] 将物理设备连接到解决方案。
+最常见的扩展活动之一是使用方案特定的设备。 使用设备的方法有数种。 这些方法包括更改模拟设备以符合方案，或使用 [IoT 设备 SDK][IoT Device SDK] 将物理设备连接到解决方案。
 
 有关添加设备的分步指南，请参阅 [Iot 套件连接设备](./iot-suite-connecting-devices.md)一文和[远程监视 C SDK 示例](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring)。 本示例旨在配合远程监视预配置解决方案使用。
 
@@ -74,7 +74,7 @@ Azure IoT 套件提供的预配置解决方案演示了套件中的服务如何�
 默认的位置集为美国华盛顿州西雅图/雷德蒙德。 可以 [SampleDeviceFactory.cs][lnk-sample-device-factory]中更改这些位置。
 
 ### <a name="add-a-desired-property-update-handler-to-the-simulator"></a>将所需的属性更新处理程序添加到模拟器
-可在解决方案门户中设置设备所需属性的值。 当设备检索所需的属性值时，由设备负责处理属性更改请求。 若要通过所需的属性添加属性值更改支持，需要将一个处理程序添加到模拟器。
+可在解决方案门户中设置设备所需属性的值。 当设备检索所需的属性值时，由设备负责处理属性更改请求。 要通过所需的属性添加属性值更改支持，需要将一个处理程序添加到模拟器。
 
 模拟器包含 **SetPointTemp** 和 **TelemetryInterval** 属性的处理程序，可以通过在解决方案门户中设置所需值来更新这些属性。
 
@@ -90,7 +90,7 @@ protected async Task OnSetPointTempUpdate(object value)
 }
 ```
 
-此方法更新遥测点温度，然后通过设置报告的属性向 IoT 中心报告更改。
+此方法更新遥测点温度，并通过设置报告的属性向 IoT 中心报告更改。
 
 可以遵循前一示例中的模式，为自己的属性添加自己的处理程序。
 
@@ -127,7 +127,7 @@ InitiateFirmwareUpate--FwPackageURI-string: "description of method"
 
 有关受支持的参数类型的列表，请参阅 Infrastructure 项目中的 **CommandTypes** 类。
 
-若要删除某个方法，请在报告的属性中将方法签名设置为 `null` 。
+要删除某个方法，请在报告的属性中将方法签名设置为 `null` 。
 
 > [!NOTE]
 > 从设备接收 *设备信息* 消息时，解决方案后端只会更新有关受支持方法的信息。
@@ -207,7 +207,7 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 - 立即返回“FirmwareUpdate 已接受”消息，指出设备已接受请求。
 
 ### <a name="build-and-use-your-own-physical-device"></a>构建并使用自己的（物理）设备
-[Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) 提供用于将各种设备类型（语言和操作系统）连接到 IoT 解决方案的库。
+[Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) 提供用于将各种设备类型（语言和操作系统）连接到 IoT 解决方案中的库。
 
 ## <a name="modify-dashboard-limits"></a>修改仪表板限制
 ### <a name="number-of-devices-displayed-in-dashboard-dropdown"></a>仪表板下拉列表中显示的设备数
@@ -232,9 +232,9 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 
 4. 单击“应用程序”。
 
-5. 单击与预配置解决方案名称匹配的应用程序名称。 如果在列表中看不到你的应用程序，请选择“显示”下拉列表中的“我公司拥有的应用程序”，然后单击复选标记。
+5. 单击与预配置解决方案名称匹配的应用程序名称。 如果在列表中看不到应用程序，请选择“**显示**”下拉列表中的“**我公司拥有的应用程序**”，然后单击复选标记。
 
-6.  在页面底部，单击“管理清单”，然后单击“下载清单”。
+6.  在页面底部，单击“**管理清单**”，并单击“**下载清单**”。
 
 7. 此过程会将一个 .json 文件下载到本地计算机。 在所选的文本编辑器中打开此文件进行编辑。
 8. 在 .json 文件的第三行中，可看到：
@@ -268,10 +268,10 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
    } ],
    ```
 9. 保存更新后的 .json 文件（可以覆盖现有文件）。
-10. 在 Azure 经典门户中，选择页面底部的“管理清单”，然后选择“上传清单”上传在上一步保存的 .json 文件。
+10. 在 Azure 经典门户中，选择页面底部的“管理清单”，并选择“上传清单”上传在上一步保存的 .json 文件。
 11. 现在已将 **Admin** 和 **ReadOnly** 角色添加到应用程序中。
 
-12. 若要将其中一个角色分配给你目录中的用户，请参阅 [azureiotsuite.com 站点上的权限][lnk-permissions]。
+12. 要将其中一个角色分配给你目录中的用户，请参阅 [azureiotsuite.com 站点上的权限][lnk-permissions]。
 
 ## <a name="feedback"></a>反馈
 本文档是否涵盖你感兴趣的自定义内容？ 请在 [用户之声](https://feedback.azure.com/forums/321918-azure-iot)中添加功能建议，或对本文发表评论。 

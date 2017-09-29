@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/28/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 158692406f2c892723fd72e2474cb610be9e7200
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: a9e0905643cbd6dcc49a25199de2f975fac928d6
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 上创建第一个 Service Fabric 容器应用程序
 > [!div class="op_single_selector"]
@@ -32,6 +32,7 @@ ms.lasthandoff: 09/08/2017
 * 一台运行以下软件的开发计算机：
   * [Service Fabric SDK 和工具](service-fabric-get-started-linux.md)。
   * [适用于 Linux 的 Docker CE](https://docs.docker.com/engine/installation/#prior-releases)。 
+  * [Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Not Available [Create a container registry](../container-registry/container-registry-get-started-portal.md) -->
 
@@ -201,12 +202,12 @@ gradle
 ```
 
 ## <a name="deploy-the-application"></a>部署应用程序
-构建应用程序后，可以使用 Azure CLI 将它部署到本地群集。
+生成应用程序后，可以使用 Service Fabric CLI 将其部署到本地群集。
 
 连接到本地 Service Fabric 群集。
 
 ```bash
-azure servicefabric cluster connect
+sfctl cluster select --endpoint http://localhost:19080
 ```
 
 使用模板中提供的安装脚本，将应用程序包复制到群集的映像存储、注册应用程序类型，并创建应用程序的实例。
@@ -323,7 +324,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 ## <a name="adding-more-services-to-an-existing-application"></a>将更多服务添加到现有应用程序
 
-若要将其他容器服务添加到已使用 yeoman 创建的应用程序，请执行以下步骤：
+若要将其他容器服务添加到使用 yeoman 创建的应用程序，请执行以下步骤：
 
 1. 将目录更改为现有应用程序的根目录。  例如 `cd ~/YeomanSamples/MyApplication`（如果 `MyApplication` 是 Yeoman 创建的应用程序）。
 2. 运行 `yo azuresfcontainer:AddService`
@@ -375,4 +376,4 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
 
-<!--Update_Description: update meta properties, add feature of adding more service in existing application.-->
+<!--Update_Description: update meta properties, wording update.-->

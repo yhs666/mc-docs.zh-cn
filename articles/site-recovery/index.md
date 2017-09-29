@@ -11,16 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 06/05/2017
-ms.date: 07/10/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 92fddc6e17fabd29567b317765847b016f42a026
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: e5f5200da80a08bc4b224840a013d2b7739c053d
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/28/2017
 ---
-# Site Recovery 文档
-<a id="site-recovery-documentation" class="xliff"></a>
+# <a name="site-recovery-documentation"></a>Site Recovery 文档
 
 了解如何使用 Site Recovery 提高业务连续性和完善灾难恢复策略，使应用和工作负荷在停机期间仍可运行。 教程和其他文章演示了如何规划、部署和管理本地计算机以及 Azure VM 的复制、故障转移和恢复。
 

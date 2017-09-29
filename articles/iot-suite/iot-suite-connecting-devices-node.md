@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/15/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: 06/13/2017
-ms.openlocfilehash: a940fad15578b5758d9f1ebb97005b7aa4138a34
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/16/2017
+ms.openlocfilehash: c31a33307a7356978f5c983e187cf3447de6236b
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>将设备连接到远程监视预配置解决方案 (Node.js)
 
@@ -144,7 +144,7 @@ ms.lasthandoff: 07/14/2017
         // Complete the response
         response.send(200, "Rebooting device", function(err) {
             if(!!err) {
-                console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }
@@ -161,7 +161,7 @@ ms.lasthandoff: 07/14/2017
         // Complete the response
         response.send(200, "Firmware update initiated", function(err) {
             if(!!err) {
-                console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }
