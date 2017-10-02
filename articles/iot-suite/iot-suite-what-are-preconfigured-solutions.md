@@ -7,30 +7,31 @@ documentationCenter:
 author: dominicbetts
 manager: timlt
 editor: 
+ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/24/2017
+origin.date: 07/25/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: f6d96a1eec63a1e46928ea27584cd0265401dc72
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 09/25/2017
+ms.openlocfilehash: f5376eccfa75ff16524aa1ca17cc305afa2c9d27
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Azure IoT 套件预配置解决方案是什么？
 
-Azure IoT 套件预配置解决方案是你可以使用订阅部署到 Azure 的常见 IoT 解决方案模式的实现。 你可以使用预配置解决方案实现以下目的：
+Azure IoT 套件预配置解决方案是可以使用订阅部署到 Azure 的常见 IoT 解决方案模式的实现。 可以使用预配置解决方案实现以下目的：
 
 - 将其用作自己的 IoT 解决方案的起点。
 - 了解 IoT 解决方案设计和开发中的常见模式。
 
 每个预配置解决方案是使用模拟设备生成遥测数据的完整的端到端实现。
 
-除了在 Azure 中部署和运行解决方案，你还可以下载完整的源代码，然后自定义并扩展解决方案以满足特定的 IoT 要求。
+可以下载完整的源代码，以便根据具体的 IoT 要求来自定义和扩展解决方案。
 
 > [!NOTE]
 > 要部署其中一个预配置的解决方案，请访问 [Azure IoT 套件][lnk-azureiotsuite]。 [IoT 预配置解决方案入门][lnk-getstarted-preconfigured] 这篇文章介绍了有关如何部署并运行其中一个解决方案的详细信息。
@@ -46,9 +47,9 @@ Azure IoT 套件预配置解决方案是你可以使用订阅部署到 Azure 的
 
 * *数据提取*：向云中大规模输入数据。
 * *设备标识*：管理唯一设备标识，并控制对解决方案的设备访问权限。
-* *设备管理*：管理设备元数据，并执行设备重新启动和固件升级等操作。
-* *命令和控制*：从云中向设备发送消息，使设备采取操作。
-* *规则和操作*：解决方案后端使用规则作用于特定设备到云的数据。
+* *设备管理*管理设备元数据，并执行设备重新启动和固件升级等操作。
+* *命令和控制*：若要使设备采取操作，请从云向设备发送消息。
+* *规则和操作*：若要对特定的设备到云数据采取操作，解决方案后端将使用规则。
 * *预测分析*：解决方案后端对设备到云数据进行分析，由此预测应何时采取特定操作。 例如，分析飞机发动机遥测数据来确定发动机维护何时到期。
 
 ## <a name="remote-monitoring-preconfigured-solution-overview"></a>远程监控预配置解决方案概述
@@ -63,22 +64,22 @@ Azure IoT 套件预配置解决方案是你可以使用订阅部署到 Azure 的
 部署远程监控预配置解决方案时，在该解决方案中预配置了四个模拟冷却设备的设备。 这些模拟设备具有内置的可发出遥测数据的温度和湿度模型。 包含这些模拟设备的目的在于：
 - 演示贯穿整个解决方案的端到端数据流。
 - 提供方便的遥测源。
-- 如果你是后端开发人员，且将解决方案用作自定义实现的起始点，则可为其提供方法或命令的目标。
+- 如果用户是后端开发人员，且将解决方案用作自定义实现的起始点，则可为其提供方法或命令的目标。
 
 解决方案中的模拟设备可以响应以下云到设备的通信：
 
 - 方法（[直接方法][lnk-direct-methods]）：双向通信方法，使用此方法，连接的设备可立即作出响应。
 - 命令（云到设备消息）：单向通信方法，使用此方法，设备会从持久队列中检索命令。
 
-有关这些不同方法的比较，请参阅 [云到设备的通信指南][lnk-c2d-guidance]。
+有关这些不同方法的比较，请参阅[云到设备通信指南][lnk-c2d-guidance]。
 
-在预配置解决方案中，当设备首次连接到 IoT 中心时，会向中心发送设备信息消息，该消息枚举了设备可以响应的方法。 在远程监视预配置解决方案中，模拟设备支持以下方法：
+在预配置解决方案中，当设备首次连接到 IoT 中心时，会向中心发送设备信息消息。 该消息枚举了设备可以响应的方法。 在远程监视预配置解决方案中，模拟设备支持以下方法：
 
 * *启动固件更新*：此方法在设备上启动异步任务以执行固件更新。 此异步任务使用报告的属性将状态更新传送给解决方案仪表板。
 * *重新启动*：此方法使模拟设备重新启动。
-* *FactoryReset*：此方法会触发模拟设备上的出厂设置恢复。
+* FactoryReset：此方法会触发模拟设备上的出厂设置恢复。
 
-在预配置解决方案中，当设备首次连接到 IoT 中心时，会向中心发送设备信息消息，该消息枚举设备可以响应的命令。 在远程监视预配置解决方案中，模拟设备支持以下命令：
+在预配置解决方案中，当设备首次连接到 IoT 中心时，会向中心发送设备信息消息。 该消息枚举了设备可以响应的命令。 在远程监视预配置解决方案中，模拟设备支持以下命令：
 
 * *Ping 设备*：设备通过确认响应此命令。 此命令对于检查设备是否仍然活动且正在侦听很有用。
 * *开始遥测*：指示设备开始发送遥测数据。
@@ -107,21 +108,21 @@ IoT 中心通过服务端遥测数据读取终结点使收到的遥测数据可�
 ## <a name="azure-stream-analytics"></a>Azure 流分析
 此预配置的解决方案使用三种 [Azure 流分析][lnk-asa] (ASA) 作业筛选设备的遥测数据流：
 
-* DeviceInfo 作业 - 将数据输出到事件中心，该中心将特定于设备注册的消息路由到解决方案设备注册表（一种 Azure Cosmos DB 数据库）。 设备第一次连接或者响应 **更改设备状态** 命令时会发送此消息。
+* DeviceInfo 作业 - 将数据输出到事件中心，该中心将特定于设备注册的消息路由到解决方案设备注册表。 此设备注册表是 Azure Cosmos DB 数据库。 设备第一次连接或者响应更改设备状态命令时会发送这些消息。
 * *遥测数据作业* - 将所有原始遥测数据发送到 Azure blob 存储进行冷存储，并计算在解决方案仪表板中显示的遥测汇总数据。
-* 规则作业 - 筛选超出了任何规则阈值的遥测数据流，并将数据输出到事件中心。 触发规则时，解决方案门户仪表板视图会在警报历史记录表中将此事件显示为新行。 这些规则也可以基于解决方案门户中“规则”和“操作”视图上定义的设置来触发操作。
+* *规则作业* -筛选超出了任何规则阈值的遥测数据流，并将数据输出到事件中心。 触发规则时，解决方案门户仪表板视图会在警报历史记录表中将此事件显示为新行。 这些规则也可以基于解决方案门户中“规则”和“操作”视图上定义的设置来触发操作。
 
 在此预配置的解决方案中，ASA 作业是典型的 **IoT 解决方案体系结构** 中 [IoT 解决方案后端][lnk-what-is-azure-iot]的组成部分。
 
 ## <a name="event-processor"></a>事件处理器
 在此预配置的解决方案中，事件处理器是典型的 **IoT 解决方案体系结构** 中 [IoT 解决方案后端][lnk-what-is-azure-iot]的组成部分。
 
-DeviceInfo 和规则 ASA 作业将其输出发送到事件中心以传递到其他后端服务。 该解决方案使用 [Web 作业][lnk-web-job]中运行的 [EventProcessorHost][lnk-event-processor] 实例从这些事件中心读取消息。 **EventProcessorHost** ：
+**DeviceInfo** 和**规则** ASA 作业将其输出发送到事件中心以传递到其他后端服务。 该解决方案使用 [Web 作业][lnk-web-job]中运行的 [EventProcessorHost][lnk-event-processor] 实例从这些事件中心读取消息。 **EventProcessorHost** ：
 - DeviceInfo 数据更新 Cosmos DB 数据库中的设备数据。
-
+- 使用 **规则** 数据调用逻辑应用，并更新解决方案门户中显示的警报。
 
 ## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>设备标识注册表、设备孪生和 Cosmos DB
-每个 IoT 中心都包括存储设备密钥的 [设备标识注册表][lnk-identity-registry] 。 IoT 中心使用此信息对设备进行身份验证 - 设备必须已注册，并具有有效的密钥，然后才能连接到中心。
+每个 IoT 中心都包括存储设备密钥的 [设备标识注册表][lnk-identity-registry] 。 IoT 中心使用此信息对设备进行身份验证 - 设备必须已注册，并具有有效的密钥，才能连接到中心。
 
 [设备孪生][lnk-device-twin] 是由 IoT 中心管理的 JSON 文档。 设备的设备孪生包含：
 
@@ -136,7 +137,7 @@ DeviceInfo 和规则 ASA 作业将其输出发送到事件中心以传递到其�
 ## <a name="solution-portal"></a>解决方案门户
 ![解决方案门户][img-dashboard]
 
-解决方案门户是基于 Web 的 UI，作为预配置解决方案的一部分部署到云。 通过解决方案门户你可以：
+解决方案门户是基于 Web 的 UI，作为预配置解决方案的一部分部署到云。 通过解决方案门户可以：
 
 * 查看仪表板中的遥测数据和警报历史记录。
 * 设置新设备。
@@ -152,7 +153,7 @@ DeviceInfo 和规则 ASA 作业将其输出发送到事件中心以传递到其�
 
 有关 IoT 解决方案体系结构的详细信息，请参阅 [Azure IoT services: Reference Architecture（Azure IoT 服务：参考体系结构）][lnk-refarch]。
 
-现在你已了解什么是预配置解决方案，接下来你可以通过部署 *远程监视* 预配置解决方案来开始入门，请参阅： [Get started with the preconfigured solutions][lnk-getstarted-preconfigured]（预配置解决方案入门）。
+现在你已了解什么是预配置解决方案，接下来可以通过部署 *远程监视* 预配置解决方案来开始入门，请参阅：[Get started with the preconfigured solutions][lnk-getstarted-preconfigured]（预配置解决方案入门）。
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png

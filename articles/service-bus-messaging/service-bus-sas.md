@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/14/2017
-ms.date: 03/20/2017
+origin.date: 08/23/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
-ms.openlocfilehash: d6b01489495dda7c5dc579d339a711d8e61facb4
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 45b8a32ed3ced586e486825ff089ef209720fe9f
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>服务总线的共享访问签名身份验证
 
@@ -44,7 +44,7 @@ SAS 身份验证使用以下元素：
 
 ## <a name="shared-access-policy"></a>共享访问策略
 
-对于 SAS，要了解的一个重点是，它开始于策略。 对于每个策略，需要确定三个信息片段：名称、范围和权限。 **名称** 只是该范围内的唯一名称。 范围也很简单：它是相关资源的 URI。 对于服务总线命名空间，范围是完全限定的域名 (FQDN)，例如 `https://<yournamespace>.servicebus.windows.cn/`。
+对于 SAS，要了解的一个重点是，它开始于策略。 对于每个策略，需要确定三个信息片段：名称、范围和权限。 **名称** 只是该范围内的唯一名称。 范围也很简单：它是相关资源的 URI。 对于服务总线命名空间，范围是完全限定的域名 (FQDN)，例如 `https://<yournamespace>.servicebus.chinacloudapi.cn/`。
 
 策略的可用权限大多数都易于理解：
 
@@ -52,7 +52,7 @@ SAS 身份验证使用以下元素：
 * 侦听
 * 管理
 
-创建策略后，系统将为它分配主密钥和辅助密钥。 它们是加密形式的强密钥。 请勿遗失或泄露这些密钥 - 在 [Azure 门户][Azure portal]中总要用到它们。 你可以使用其中一个生成的密钥，并且随时可以重新生成密钥。 不过，如果你重新生成或更改策略中的主密钥，基于该密钥创建的所有共享访问签名都将失效。
+创建策略后，系统将为它分配主密钥和辅助密钥。 它们是加密形式的强密钥。 请勿遗失或泄露这些密钥 - 在 [Azure 门户][Azure portal]中总要用到它们。 可以使用其中一个生成的密钥，并且随时可以重新生成密钥。 不过，如果你重新生成或更改策略中的主密钥，基于该密钥创建的所有共享访问签名都会失效。
 
 创建服务总线命名空间时，系统将自动为整个命名空间创建名为 RootManageSharedAccessKey 的策略，此策略具有所有权限。 你不会以 root 身份登录，因此除非有适合的理由，否则请勿使用此策略。 可以在门户上的命名空间“配置”选项卡中创建更多的策略。 请务必注意，在服务总线中的单一树级别（命名空间、队列等）中，最多只能附加 12 个策略。
 
@@ -94,14 +94,14 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 哈希类似于以下虚构代码，可返回 32 个字节。
 
 ```
-SHA-256('https://<yournamespace>.servicebus.windows.cn/'+'\n'+ 1438205742)
+SHA-256('https://<yournamespace>.servicebus.chinacloudapi.cn/'+'\n'+ 1438205742)
 ```
 
-非哈希值位于 **SharedAccessSignature** 字符串中，这样，接收方便可以使用相同的参数计算哈希，以确保它返回相同的结果。 URI 指定范围，而密钥名称标识要用于计算哈希的策略。 从安全角度来看，这非常重要。 如果签名与接收方（服务总线）的计算结果不符，则拒绝访问。 此时，你可以确保发送方可访问密钥，并且应该被授予策略中指定的权限。
+非哈希值位于 **SharedAccessSignature** 字符串中，这样，接收方便可以使用相同的参数计算哈希，以确保它返回相同的结果。 URI 指定范围，而密钥名称标识要用于计算哈希的策略。 从安全角度来看，这非常重要。 如果签名与接收方（服务总线）的计算结果不符，则拒绝访问。 此时，可以确保发送方可访问密钥，并且应该被授予策略中指定的权限。
 
-请注意，对此操作应使用编码的资源 URI。 资源 URI 是向其声明访问权限的服务总线资源的完整 URI。 例如，`http://<namespace>.servicebus.windows.net/<entityPath>` 或 `sb://<namespace>.servicebus.windows.net/<entityPath>`；即，`http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`。
+请注意，对此操作应使用编码的资源 URI。 资源 URI 是向其声明访问权限的服务总线资源的完整 URI。 例如，`http://<namespace>.servicebus.chinacloudapi.cn/<entityPath>` 或 `sb://<namespace>.servicebus.chinacloudapi.cn/<entityPath>`；即，`http://contoso.servicebus.chinacloudapi.cn/contosoTopics/T1/Subscriptions/S3`。
 
-用于签名的共享访问授权规则必须在此 URI 指定的实体上，或由其分层父级之一进行配置。 例如，之前示例中的 `http://contoso.servicebus.windows.net/contosoTopics/T1` 或 `http://contoso.servicebus.windows.cn`。
+用于签名的共享访问授权规则必须在此 URI 指定的实体上，或由其分层父级之一进行配置。 例如，之前示例中的 `http://contoso.servicebus.chinacloudapi.cn/contosoTopics/T1` 或 `http://contoso.servicebus.chinacloudapi.cn`。
 
 SAS 令牌对于 `signature-string` 中使用的 `<resourceURI>` 下的所有资源均有效。
 
@@ -109,7 +109,7 @@ SAS 令牌中的 [KeyName](https://docs.microsoft.com/en-us/dotnet/api/microsoft
 
 *URL-encoded-resourceURI* 必须与在签名计算期间签名字符串中使用的 URI 相同。 它应该是 [百分比编码](https://msdn.microsoft.com/zh-cn/library/4fkewx0t.aspx)。
 
-建议你定期重新生成 [SharedAccessAuthorizationRule](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 对象中使用的密钥。 应用程序通常应使用 [PrimaryKey](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) 来生成 SAS 令牌。 在重新生成密钥时，应使用旧主密钥替换 [SecondaryKey](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) ，并生成新密钥作为新主密钥。 这让你可以继续使用通过旧的主密钥颁发的尚未过期的授权令牌。
+建议定期重新生成 [SharedAccessAuthorizationRule](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 对象中使用的密钥。 应用程序通常应使用 [PrimaryKey](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) 来生成 SAS 令牌。 在重新生成密钥时，应使用旧主密钥替换 [SecondaryKey](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) ，并生成新密钥作为新主密钥。 这让可以继续使用通过旧的主密钥颁发的尚未过期的授权令牌。
 
 如果密钥已泄漏，并且必须吊销这些密钥，则可以同时生成 [SharedAccessAuthorizationRule](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 的 [PrimaryKey](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) 和 [SecondaryKey](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey)，并用新的密钥替换它们。 此过程将使得由旧密钥签名的所有令牌失效。
 
@@ -121,19 +121,19 @@ SAS 令牌中的 [KeyName](https://docs.microsoft.com/en-us/dotnet/api/microsoft
 
 ## <a name="access-shared-access-authorization-rules-on-a-namespace"></a>访问命名空间上的共享访问授权规则
 
-在服务总线命名空间根路径上的操作需要证书身份验证。 你必须上传用于 Azure 订阅的管理证书。 若要上传管理证书，请使用[Azure 门户][Azure portal]按照[此处](../cloud-services/cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate)的步骤操作。 有关 Azure 管理证书的详细信息，请参阅 [Azure 证书概述](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates)。
+在服务总线命名空间根路径上的操作需要证书身份验证。 必须上传用于 Azure 订阅的管理证书 若要上传管理证书，请使用[Azure 门户][Azure portal]按照[此处](../cloud-services/cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate)的步骤操作。 有关 Azure 管理证书的详细信息，请参阅 [Azure 证书概述](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates)。
 
 访问服务总线命名空间上的共享访问授权规则的终结点如下所示：
 
 ```http
-https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
+https://management.core.chinacloudapi.cn/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
 若要在服务总线命名空间上创建 [SharedAccessAuthorizationRule](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 对象，在此终结点上使用序列化为 JSON 或 XML 的规则信息执行 POST 操作。 例如：
 
 ```csharp
 // Base address for accessing authorization rules on a namespace
-string baseAddress = @"https://management.core.windows.net/<subscriptionId>/services/ServiceBus/namespaces/<namespace>/AuthorizationRules/";
+string baseAddress = @"https://management.core.chinacloudapi.cn/<subscriptionId>/services/ServiceBus/namespaces/<namespace>/AuthorizationRules/";
 
 // Configure authorization rule with base64-encoded 256-bit key and Send rights
 var sendRule = new SharedAccessAuthorizationRule("contosoSendAll",
@@ -165,7 +165,7 @@ var postResult = httpClient.PostAsJsonAsync("", sendRule).Result;
 若要更新或删除特定的授权规则，请使用以下终结点：
 
 ```http
-https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/{KeyName}
+https://management.core.chinacloudapi.cn/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/{KeyName}
 ```
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>访问实体上的共享访问授权规则
@@ -222,22 +222,22 @@ sendClient.Send(helloMessage);
 
 应用程序还可以通过使用可接受连接字符串的方法中的 SAS 连接字符串来使用 SAS 进行身份验证。
 
-请注意，若要使用服务总线中继的 SAS 授权，你可以使用服务总线命名空间上配置的 SAS 密钥。 如果在命名空间上显式创建中继（[NamespaceManager](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) 与 [RelayDescription](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.relaydescription)）对象，可以只为该中继设置 SAS 规则。 若要使用服务总线订阅的 SAS 授权，你可以使用服务总线命名空间或主题上配置的 SAS 密钥。
+请注意，要使用服务总线中继的 SAS 授权，可以使用服务总线命名空间上配置的 SAS 密钥。 如果在命名空间上显式创建中继（[NamespaceManager](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) 与 [RelayDescription](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.relaydescription)）对象，可以只为该中继设置 SAS 规则。 若要使用服务总线订阅的 SAS 授权，可以使用服务总线命名空间或主题上配置的 SAS 密钥。
 
 ## <a name="use-the-shared-access-signature-at-http-level"></a>使用共享访问签名（在 HTTP 级别）
 
 了解如何为服务总线中的任何实体创建共享访问签名后，便可以执行 HTTP POST：
 
 ```http
-POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
+POST https://<yournamespace>.servicebus.chinacloudapi.cn/<yourentity>/messages
 Content-Type: application/json
-Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.windows.net%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
+Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.chinacloudapi.cn%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
 ContentType: application/atom+xml;type=entry;charset=utf-8
 ``` 
 
 请记住，这适用于所有情况。 可以为队列、主题或订阅创建 SAS。 
 
-如果你为发送方或客户端提供 SAS 令牌，它们不会直接获取密钥，并且无法逆向改编哈希来获取令牌。 因此，你可以控制它们有权访问的项以及访问时长。 要记住的一个重点是，如果你更改策略中的主密钥，基于该密钥创建的所有共享访问签名都将失效。
+如果为发送方或客户端提供 SAS 令牌，它们不会直接获取密钥，并且他们无法逆向改编哈希来获取它。 因此，可以控制它们有权访问的项，以及可访问的时间长短。 要记住的一个重点是，如果你更改策略中的主密钥，基于该密钥创建的所有共享访问签名都会失效。
 
 ## <a name="use-the-shared-access-signature-at-amqp-level"></a>使用共享访问签名（在 AMQP 级别）
 
@@ -245,7 +245,7 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 开始将数据发送到服务总线之前，发布者必须将 AMQP 消息中的 SAS 令牌发送到正确定义的名为 $cbs 的 AMQP 节点（可以将它视为一个由服务使用的“特殊”队列，用于获取和验证所有 SAS 令牌）。 发布者必须在 AMQP 消息中指定 ReplyTo 字段；这是服务向发布者回复令牌验证结果（发布者与服务之间的简单请求/回复模式）时所在的节点。 根据 AMQP 1.0 规范中有关“动态创建远程节点”的论述，此回复节点是“在运行中”创建的。 在检查 SAS 令牌是否有效之后，发布者可以继续将数据发送到服务。
 
-下面的步骤演示如何使用 [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) 库通过 AMQP 协议发送 SAS 令牌。 如果无法使用官方的服务总线 SDK（例如，在 WinRT、.Net Compact Framework、.Net Micro Framework 和 Mono 中）进行 C\# 开发，则这很有用。 当然，此库对于帮助了解基于声明的安全性如何在 AMQP 级别工作非常有用，就如同用户可以了解它如何在 HTTP 级别工作一样（使用 HTTP POST 请求并在“Authorization”标头内部发送 SAS 令牌）。 如果你不需要此类有关 AMQP 的深入知识，可以将官方的服务总线 SDK 用于 .Net Framework 应用程序，该 SDK 会为你执行此操作。
+下面的步骤演示如何使用 [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) 库通过 AMQP 协议发送 SAS 令牌。 如果无法使用官方的服务总线 SDK（例如，在 WinRT、.Net Compact Framework、.Net Micro Framework 和 Mono 中）进行 C\# 开发，则这很有用。 当然，此库对于帮助了解基于声明的安全性如何在 AMQP 级别工作非常有用，就如同用户可以了解它如何在 HTTP 级别工作一样（使用 HTTP POST 请求并在“Authorization”标头内部发送 SAS 令牌）。 如果不需要此类有关 AMQP 的深入知识，可以将官方的服务总线 SDK 用于 .Net Framework 应用程序，该 SDK 会执行此操作。
 
 ### <a name="c35"></a>C&#35;
 
@@ -270,7 +270,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
     request.Properties.ReplyTo = cbsClientAddress;
     request.ApplicationProperties = new ApplicationProperties();
     request.ApplicationProperties["operation"] = "put-token";
-    request.ApplicationProperties["type"] = "servicebus.windows.net:sastoken";
+    request.ApplicationProperties["type"] = "servicebus.chinacloudapi.cn:sastoken";
     request.ApplicationProperties["name"] = Fx.Format("amqp://{0}/{1}", sbNamespace, entity);
     cbsSender.Send(request);
 
@@ -307,7 +307,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 
 接下来，发布者将创建两个 AMQP 链接来发送 SAS 令牌和接收来自服务的回复（此令牌验证结果）。
 
-AMQP 消息包含一组属性，比简单消息包含更多信息。 SAS 令牌是消息的正文（使用其构造函数）。 “ReplyTo”属性设置为用于在接收方链接上接收验证结果的节点名称（可以根据需要更改其名称，该节点将由服务动态创建）。 服务使用最后三个应用程序/自定义属性来指示它需要执行哪种类型的操作。 如 CBS 草案规范中所述，这些属性必须是操作名称 ("put-token")、令牌类型（在此例中为“servicebus.windows.net:sastoken”），以及要应用令牌的受众的“名称”（整个实体）。
+AMQP 消息包含一组属性，比简单消息包含更多信息。 SAS 令牌是消息的正文（使用其构造函数）。 “ReplyTo”属性设置为用于在接收方链接上接收验证结果的节点名称（可以根据需要更改其名称，该节点将由服务动态创建）。 服务使用最后三个应用程序/自定义属性来指示它需要执行哪种类型的操作。 如 CBS 草案规范中所述，这些属性必须是操作名称 ("put-token")、令牌类型（在此例中为“servicebus.chinacloudapi.cn:sastoken”），以及要应用令牌的受众的“名称”（整个实体）。
 
 在发送方链接上发送 SAS 令牌后，发布者必须在接收方链接上读取回复。 回复是一个简单的 AMQP 消息，其中包含一个名为 **status-code** 的应用程序属性，该属性可以包含与 HTTP 状态代码相同的值。
 

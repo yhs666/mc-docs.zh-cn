@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/15/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: 06/13/2017
-ms.openlocfilehash: 8beab96f6ca8339c0c8eaff45238a5f9f73a5cc5
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/16/2017
+ms.openlocfilehash: 56ab1d25e26e474d7d358d0658bee85f300e6dc2
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>远程监视预配置解决方案中的设备信息元数据
-Azure IoT 套件远程监视预配置解决方案演示了管理设备元数据的方法。 本文将概述此解决方案为了帮助你理解内容而采用的方法：
+Azure IoT 套件远程监视预配置解决方案演示了管理设备元数据的方法。 本文概述此解决方案为了帮助你理解内容而采用的方法：
 
 - 解决方案存储哪些设备元数据。
 - 解决方案如何管理设备元数据。
 
 ## <a name="context"></a>上下文
-远程监视预配置解决方案使用 [Azure IoT 中心][lnk-iot-hub] ，使设备能够将数据发送到云。 该解决方案在三个不同的位置存储有关设备的信息：
+远程监视预配置解决方案使用 [Azure IoT 中心][lnk-iot-hub]，使设备能够将数据发送到云。 该解决方案在三个不同的位置存储有关设备的信息：
 
 | 位置 | 存储的信息 | 实现 |
 | -------- | ------------------ | -------------- |
@@ -54,7 +54,7 @@ IoT 中心为连接到远程监视解决方案的每个模拟设备和物理设�
 来自模拟设备的报告属性示例包括制造商、型号、纬度和经度。 模拟设备也以报告属性的形式返回受支持方法的列表。
 
 > [!NOTE]
-> 模拟设备代码仅使用所需的属性 Desired.Config.TemperatureMeanValue 和 Desired.Config.TelemetryInterval 来更新发回给 IoT 中心的报告的属性。 将忽略所有其他的所需属性更改请求。
+> 模拟设备代码仅使用所需的属性 Desired.Config.TemperatureMeanValue 和 Desired.Config.TelemetryInterval 来更新发回给 IoT 中心的报告的属性。 忽略所有其他的所需属性更改请求。
 
 存储在设备注册表 Cosmos DB 数据库中的设备信息元数据 JSON 文档具有以下结构：
 
@@ -82,7 +82,7 @@ IoT 中心为连接到远程监视解决方案的每个模拟设备和物理设�
 
 ## <a name="lifecycle"></a>生命周期
 
-首次在解决方案门户中创建设备时，解决方案将在 Cosmos DB 数据库中创建一个项来存储命令和方法历史记录。 此时，解决方案还会在设备标识注册表中为设备创建一个条目，用于生成设备向 IoT 中心进行身份验证时所用的密钥。 它还会创建设备孪生。
+首次在解决方案门户中创建设备时，解决方案会在 Cosmos DB 数据库中创建一个项来存储命令和方法历史记录。 此时，解决方案还会在设备标识注册表中为设备创建一个条目，用于生成设备向 IoT 中心进行身份验证时所用的密钥。 它还会创建设备孪生。
 
 当设备首次连接到解决方案时，将发送报告的属性和设备信息消息。 报告的属性值自动保存在设备孪生中。 报告的属性包括设备制造商、型号、序列号和受支持方法的列表。 设备信息消息包含设备支持的命令列表，其中包括有关任何命令参数的信息。 当解决方案收到此消息时，将更新 Cosmos DB 数据库中的设备信息。
 
@@ -95,19 +95,19 @@ IoT 中心为连接到远程监视解决方案的每个模拟设备和物理设�
 
 ![设备详细信息窗格][img-device-edit]
 
-可以使用解决方案门户从解决方案中删除设备。 删除某个设备时，解决方案将从标识注册表中删除该设备项，然后删除设备孪生。 解决方案还会从 Cosmos DB 数据库中删除与该设备相关的信息。 必须禁用设备才可删除它。
+可以使用解决方案门户从解决方案中删除设备。 删除某个设备时，解决方案将从标识注册表中删除该设备项，并删除设备孪生。 解决方案还会从 Cosmos DB 数据库中删除与该设备相关的信息。 必须禁用设备才可删除它。
 
 ![删除设备][img-device-remove]
 
 ## <a name="device-information-message-processing"></a>设备信息消息处理
 
-设备发出的设备信息消息不同于遥测消息。 设备信息消息包括设备可响应的命令和任何命令历史记录。 IoT 中心本身不知道设备信息消息中包含的元数据，它以处理任何设备到云消息的相同方式处理消息。 在远程监视解决方案中，[Azure 流分析][lnk-stream-analytics] (ASA) 作业读取来自 IoT 中心的消息。 DeviceInfo 流分析作业筛选包含 "ObjectType": "DeviceInfo" 的消息，并将这些消息转发到 Web 作业中运行的 EventProcessorHost 主机实例。 EventProcessorHost 实例中的逻辑使用设备 ID 来查找特定设备的 Cosmos DB 记录并更新记录。
+设备发出的设备信息消息不同于遥测消息。 设备信息消息包括设备可响应的命令和任何命令历史记录。 IoT 中心本身不知道设备信息消息中包含的元数据，它以处理任何设备到云消息的相同方式处理消息。 在远程监视解决方案中，[Azure 流分析][lnk-stream-analytics] (ASA) 作业读取来自 IoT 中心的消息。 **DeviceInfo** 流分析作业筛选包含 **"ObjectType": "DeviceInfo"** 的消息，并将这些消息转发到 Web 作业中运行的 **EventProcessorHost** 主机实例。 EventProcessorHost 实例中的逻辑使用设备 ID 来查找特定设备的 Cosmos DB 记录并更新记录。
 
 > [!NOTE]
 > 设备信息消息是标准的设备到云消息。 解决方案使用 ASA 查询来区分设备信息消息与遥测消息。
 
 ## <a name="next-steps"></a>后续步骤
-现在你已学习如何自定义预配置解决方案，接下来你可以浏览 IoT 套件预配置的解决方案的一些其他特性和功能：
+现在已学习如何自定义预配置解决方案，接下来可以浏览 IoT 套件预配置的解决方案的一些其他特性和功能：
 
 - [预见性维护预配置解决方案概述][lnk-predictive-overview]
 - [有关 IoT 套件的常见问题][lnk-faq]
@@ -124,6 +124,7 @@ IoT 中心为连接到远程监视解决方案的每个模拟设备和物理设�
 [lnk-docdb]: /documentdb/
 [lnk-stream-analytics]: /stream-analytics/
 [lnk-dynamic-telemetry]: ./iot-suite-dynamic-telemetry.md
+
 [lnk-predictive-overview]: ./iot-suite-predictive-overview.md
 [lnk-faq]: ./iot-suite-faq.md
 [lnk-security-groundup]: ./securing-iot-ground-up.md

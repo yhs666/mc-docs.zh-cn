@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/25/2017
-ms.date: 03/31/2017
+origin.date: 08/24/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
-ms.openlocfilehash: 8dce741555ec373fbf384d939a283961a315d4e4
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 7aaa0f6688a8dd35ead3183f0d51942681502495
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="create-a-custom-rule-in-the-remote-monitoring-preconfigured-solution"></a>在远程监视预配置解决方案中创建自定义规则
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/14/2017
 
 本教程使用模拟 Node.js 的简单设备来生成动态遥测，并发送到预配置解决方案后端。 然后在 **RemoteMonitoring** Visual Studio 解决方案中添加自定义规则，并将此自定义后端部署到 Azure 订阅。
 
-若要完成本教程，你需要：
+要完成本教程，需要：
 
 * 一个有效的 Azure 订阅。 如果没有帐户，只需花费几分钟就能创建一个免费试用帐户。 有关详细信息，请参阅 [Azure 免费试用][lnk_free_trial]。
 * [Node.js][lnk-node] 0.12.x 版本或更高版本，用于创建模拟设备。
@@ -48,7 +48,7 @@ ms.lasthandoff: 07/14/2017
 
 有关规则的信息将保留在两个位置：
 
-* **DeviceRulesNormalizedTable** 表 - 此表存储对由解决方案门户定义的规则的规范化引用。 解决方案门户显示设备规则时，它将查询此表以查找规则定义。
+* **DeviceRulesNormalizedTable** 表 - 此表存储对由解决方案门户定义的规则的规范化引用。 解决方案门户显示设备规则时，它查询此表以查找规则定义。
 * **DeviceRules** blob - 此 blob 存储为所有已注册设备定义的全部规则，并定义为 Azure 流分析作业的引用输入。
  
 在解决方案门户更新现有规则或定义新规则时，表和 blob 都会更新以反映所做的更改。 门户中显示的规则定义来自表存储，而流分析作业引用的规则定义来自 blob。 
@@ -120,7 +120,7 @@ ms.lasthandoff: 07/14/2017
 
 1. 打开提升的命令提示符，并导航到 azure-iot-remote-monitoring 存储库本地副本的根目录。
 
-2. 若要部署更新后的解决方案，请运行以下命令，将 **{deployment name}** 替换为之前记录的预配置解决方案部署的名称：
+2. 要部署更新后的解决方案，请运行以下命令，将 **{deployment name}** 替换为之前记录的预配置解决方案部署的名称：
 
     ```
     build.cmd cloud release {deployment name}
@@ -207,13 +207,13 @@ ms.lasthandoff: 07/14/2017
 
 4. 在“数据字段”中选择 ExternalTemperature。
 
-5. 将“阈值”  设置为 56。 然后单击“保存并查看规则” 。
+5. 将“阈值”设置为 56。 然后单击“保存并查看规则”。 
 
 6. 返回仪表板查看警报历史记录。
 
 7. 在打开的控制台窗口中，启动 Node.js 控制台应用，开始发送 **ExternalTemperature** 遥测数据。
 
-8. 请注意，触发新规则时，“警报历史记录”  表将显示新警报。
+8. 请注意，触发新规则时，“警报历史记录”  表显示新警报。
  
 ## <a name="additional-information"></a>其他信息
 
@@ -228,5 +228,5 @@ ms.lasthandoff: 07/14/2017
 
 [lnk_free_trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-node]: http://nodejs.org
-[lnk-builtin-rule]: ./iot-suite-getstarted-preconfigured-solutions.md#add-a-rule-for-the-new-device
+[lnk-builtin-rule]: ./iot-suite-getstarted-preconfigured-solutions.md#view-alarms
 [lnk-dynamic-telemetry]: ./iot-suite-dynamic-telemetry.md

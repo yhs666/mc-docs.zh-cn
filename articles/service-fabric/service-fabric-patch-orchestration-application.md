@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/09/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4f6bc394ebab4b42304852af8954b75910619b2b
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: bbf056e76bc262f68fe967fb6f5a06a962c1caf3
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>在 Service Fabric 群集中修补 Windows 操作系统
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 09/08/2017
 #### <a name="azure-clusters"></a>Azure 群集
 修补业务流程应用必须在 Service Fabric 运行时版本为 v5.5 或更高的 Azure 群集上运行。
 
-#### <a name="standalone-on-premises-clusters"></a>独立本地群集
+#### <a name="standalone-on-premises-clusters"></a>独立的本地群集
 修补业务流程应用必须在 Service Fabric 运行时版本为 v5.6 或更高的独立群集上运行。
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>启用“修复管理器”服务（如果尚未运行）
@@ -120,7 +120,7 @@ ms.lasthandoff: 09/08/2017
     }
     ```
 
-2. 现在，通过在 `fabricSettings` 节后面添加以下 `addonFeaturres` 节来启用“修复管理器”服务，如下所示：
+2. 现在，通过在 `fabricSettings` 节后面添加以下 `addonFeaturres` 节来启用修复管理器服务，如下所示：
 
     ```json
     "fabricSettings": [
@@ -131,7 +131,7 @@ ms.lasthandoff: 09/08/2017
         ],
     ```
 
-3. 通过这些更改更新群集清单后，使用已更新的群集清单[创建新群集](/service-fabric/service-fabric-cluster-creation-for-windows-server)或[升级群集配置](/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration)。 现在，群集使用已更新的群集清单运行后，就可以看到“修复管理器”系统服务在群集中运行，该服务在 Service Fabric Explorer 中的系统服务部分称为 `fabric:/System/RepairManagerService`。
+3. 通过这些更改更新群集清单后，使用已更新的群集清单[创建新群集](/service-fabric/service-fabric-cluster-creation-for-windows-server)或[升级群集配置](/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration)。 群集使用已更新的群集清单运行后，就可以看到修复管理器系统服务在群集中运行，该服务在 Service Fabric Explorer 中的系统服务部分下被称为 `fabric:/System/RepairManagerService`。
 
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>在所有节点上禁用自动 Windows 更新
 
@@ -154,7 +154,7 @@ ms.lasthandoff: 09/08/2017
 - 24afa313-0d3b-4c7c-b485-1047fd964b60
 - 05dc046c-60e9-4ef7-965e-91660adffa68
 
-在资源管理器模板中，转到 `WadCfg` 下的 `EtwEventSourceProviderConfiguration` 节，并添加以下条目：
+在 Resource Manager 模板中，转到 `WadCfg` 下的 `EtwEventSourceProviderConfiguration` 节，并添加以下条目：
 
 ```json
   {
@@ -273,6 +273,17 @@ ms.lasthandoff: 09/08/2017
   ...
 ]
 ```
+
+下面介绍了 JSON 的字段。
+
+字段 | 值 | 详细信息
+-- | -- | --
+OperationResult | 0 - 已成功<br> 1 - 已成功但有错误<br> 2 - 已失败<br> 3 - 已中止<br> 4 - 已中止，超时 | 指示整个操作的结果（通常涉及一个或多个更新的安装）。
+ResultCode | 与 OperationResult 相同 | 此字段指示单个更新的安装操作的结果。
+OperationType | 1 - 安装<br> 0 - 搜索并下载。| 默认情况下，安装是唯一将显示在结果中的 OperationType。
+WindowsUpdateQuery | 默认值为 "IsInstalled=0" |用来搜索更新的 Windows 更新查询。 有关详细信息，请参阅 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)。
+RebootRequired | true - 需要重新启动<br> true - 不需要重新启动 | 指示是否需要重新启动才能完成更新安装。
+
 如果尚未计划更新，则生成的 JSON 为空。
 
 请登录到群集以查询 Windows 更新结果。 然后找出协调器服务的主终结点的副本地址，并在浏览器中点击此 URL：http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults。
@@ -294,7 +305,7 @@ ms.lasthandoff: 09/08/2017
 
 ### <a name="collect-patch-orchestration-app-logs"></a>收集修补业务流程应用日志
 
-修补业务流程应用日志是作为 Service Fabric（运行时版本至少为 `5.6.220.9494`）日志的一部分收集的。
+修补业务流程应用日志是作为 Service Fabric（运行时版本为 `5.6.220.9494` 及更高版本）日志的一部分进行收集的。
 对于运行 Service Fabric 运行时版本低于 `5.6.220.9494` 的群集，可通过以下方法之一来收集日志。
 
 #### <a name="locally-on-each-node"></a>在每个节点本地
@@ -359,9 +370,9 @@ A. 修补业务流程应用所需的时长主要取决于以下因素：
 - 下载和安装更新所需的平均时间，只需数小时。
 - VM 的性能和网络带宽。
 
-问： 为什么某些更新会出现在通过 REST API 获得的 Windows 更新结果中，而不是在计算机的 Windows 更新历史记录下？
+问： **为什么某些更新会出现在通过 REST API 获得的 Windows 更新结果中，而不是在计算机的 Windows 更新历史记录下？**
 
-A. 某些产品更新需要签入其各自的更新/修补历史记录。 例如：Windows Defender 更新未显示在 Windows Server 2016 的 Windows 更新历史记录中。
+A. 某些产品更新需要签入其各自的更新/修补历史记录。 例如，Windows Defender 更新未显示在 Windows Server 2016 的 Windows 更新历史记录中。
 
 ## <a name="disclaimers"></a>免责声明
 
@@ -403,4 +414,4 @@ Windows 更新发生故障时，会使特定节点或升级域上的应用程序
 
 <!-- Not Available ## Release Notes :-->
 
-<!--Update_Description: update meta properties, wording update, add new feature of Enable the repair manager service in Azure Portal -->
+<!--Update_Description: update meta properties, wording update, add new feature of field description in Json file on API interface-->

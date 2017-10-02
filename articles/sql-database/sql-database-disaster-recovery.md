@@ -4,7 +4,7 @@ description: "了解在发生区域性的数据中心服务中断或故障后，
 services: sql-database
 documentationcenter: 
 author: anosov1960
-manager: Hayley244
+manager: forester123
 editor: digimobile
 ms.assetid: 4800960e-3f9d-40ce-9e55-fb7f2784c067
 ms.service: sql-database
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/14/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 7a1ddb6ccb1f63dd10de7cc48656b1de9b6fc428
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: e4e7a8249bec740fe2a08a04976ea4088fcc569e
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>还原 Azure SQL 数据库或故障转移到辅助数据库
 Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
@@ -30,8 +30,8 @@ Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
 
 若要了解业务连续性方案以及支持这些方案的功能，请参阅[业务连续性](sql-database-business-continuity.md)。
 
-### <a name="prepare-for-the-event-of-an-outage"></a>准备好应对中断事件
-为了使用活动异地复制或异地冗余备份成功恢复到其他数据区域，需要为下一次数据中心服务中断准备服务器，以便在需要时使其成为新的主服务器，还需要记录、测试各项明确定义的步骤，确保顺利恢复数据。 准备步骤包括：
+### <a name="prepare-for-the-event-of-an-outage"></a>准备好应对中断情况
+为了使用活动异地复制或异地冗余备份成功恢复到其他数据区域，需要为下一次数据中心中断准备服务器，以便在需要时使其成为新的主服务器，还需要记录、测试各项明确定义的步骤，确保顺利恢复数据。 准备步骤包括：
 
 * 标识其他区域中要成为新的主服务器的逻辑服务器。 使用活动异地复制时，至少标识一个辅助服务器（可能需要标识每个辅助服务器）。 对于异地还原，此服务器通常位于数据库所在区域的配对区域中。
 * 标识（并选择性定义）用户访问新的主数据库时所需的服务器级防火墙规则。
@@ -39,7 +39,7 @@ Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
 * 标识（并选择性创建）新主服务器的 master 数据库中必须存在的登录信息，并确保这些登录信息在 master 数据库中具有相应权限（若有）。 有关详细信息，请参阅[灾难恢复后的 SQL 数据库安全性](sql-database-geo-replication-security-config.md)
 * 标识需要更新才可映射到新的主数据库的警报规则。
 * 记录当前主数据库上的审核配置
-* 执行[灾难恢复演练](sql-database-disaster-recovery-drills.md)。 若要模拟中断情况进行异地还原，可删除或重命名源数据库以引发应用程序连接失败。 若要模拟服务中断以进行活动异地复制，可禁用连接到数据库的 Web 应用程序或虚拟机，或者故障转移数据库以引发应用程序连接失败。
+* 执行[灾难恢复演练](sql-database-disaster-recovery-drills.md)。 若要模拟中断情况进行异地还原，可删除或重命名源数据库以引发应用程序连接失败。 若要模拟中断进行活动异地复制，可禁用连接到数据库的 Web 应用程序或虚拟机，或者故障转移数据库以引发应用程序连接失败。
 
 ## <a name="when-to-initiate-recovery"></a>何时启动恢复
 恢复操作会影响应用程序。 需更改 SQL 连接字符串或使用 DNS 重定向，可能导致参数数据丢失。 因此，仅当中断的持续时间可能超过应用程序的恢复时间目标时，才应执行此操作。 如果应用程序已部署到生产环境，则应定期监视应用程序的运行状况，并使用以下数据点来声明有必要进行恢复：
@@ -53,7 +53,7 @@ Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
 使用[获取可恢复数据库](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) 获取最新的异地复制还原点。
 
 ## <a name="wait-for-service-recovery"></a>等待服务恢复
-Azure 团队会努力尽快还原服务可用性，但视根本原因而定，有可能需要数小时或数天的时间。  如果应用程序可以容忍长时间停机，则可以等待恢复完成。 在此情况下，不需要采取任何操作。 可在 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)上查看当前服务状态。 区域恢复后，应用程序的可用性将会还原。
+Azure 团队会努力尽快还原服务可用性，但视根本原因而定，有可能需要数小时或数天的时间。  如果应用程序可以容忍长时间停机，则可以等待恢复完成。 在此情况下，不需要采取任何操作。 可在 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)上查看当前服务状态。 在区域恢复后，将会还原应用程序的可用性。
 
 ## <a name="fail-over-to-geo-replicated-secondary-database"></a>故障转移到异地复制的辅助数据库
 如果应用程序停机可能会带来业务责任，则应当在应用程序中使用异地复制的数据库。 这样，应用程序在发生中断时，就可以快速还原其他区域的可用性。 了解如何[配置异地复制](sql-database-geo-replication-portal.md)。
@@ -64,7 +64,7 @@ Azure 团队会努力尽快还原服务可用性，但视根本原因而定，�
 
 * [使用 Azure 门户故障转移到异地复制的辅助数据库](sql-database-geo-replication-portal.md)
 * [使用 PowerShell 故障转移到异地复制的辅助数据库](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-* [使用 T-SQL 故障转移到异地复制的辅助数据库](sql-database-geo-replication-transact-sql.md)
+* [使用 T-SQL 故障转移到异地复制的辅助数据库](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database.md)
 
 ## <a name="recover-using-geo-restore"></a>使用异地还原进行恢复
 如果应用程序停机不会带来业务责任，则可以使用[异地还原](sql-database-recovery-using-backups.md)作为恢复应用程序数据库的方法。 它会从最新的异地冗余备份创建数据库的副本。
@@ -84,7 +84,7 @@ Azure 团队会努力尽快还原服务可用性，但视根本原因而定，�
 需确保应用程序使用的所有登录名都存在于托管已恢复数据库的服务器上。 有关详细信息，请参阅[异地复制的安全性配置](sql-database-geo-replication-security-config.md)。
 
 > [!NOTE]
-> 应在灾难恢复演练期间配置并测试服务器防火墙规则和登录（及其权限）。 服务中断期间，这些服务器级对象及其配置可能不可用。
+> 应在灾难恢复演练期间配置并测试服务器防火墙规则和登录（及其权限）。 在服务中断期间，这些服务器级对象及其配置可能不可用。
 > 
 > 
 
@@ -99,4 +99,4 @@ Azure 团队会努力尽快还原服务可用性，但视根本原因而定，�
 * 若要了解 Azure SQL 数据库的自动备份，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)
 * 若要了解业务连续性设计和恢复方案，请参阅[连续性方案](sql-database-business-continuity.md)
 * 若要了解如何使用自动备份进行恢复，请参阅[从服务启动的备份中还原数据库](sql-database-recovery-using-backups.md)
-<!--Update_Description: wording update-->
+

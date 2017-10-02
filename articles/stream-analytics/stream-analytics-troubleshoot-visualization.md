@@ -14,21 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3aad293ec2dd86f2e095f3acba1373bfad0ff972
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 3739d2cbf15440f47c0e430df3a88927381ddfc9
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>流分析作业的可视化和故障排除
 与其他基于云的技术一样，在流分析中，故障排除有时需要深入了解作业没有生成预期的输出（或者是该问题的任何输出）的原因。 考虑到这一点，流分析提供了可视化流作业的功能。 该功能作为建模工具使用起来也很方便，并且对需要其工作文档的人员来说具有附带好处。
 
-在可视化面板中显示输入和要执行的查询，并是所有配置的输出。 连接或配置问题变得更加明显，对配置的可视化表示形式也很有用。
+可在可视化面板中看到输入以及正在执行的查询和配置的所有输出。 连接或配置问题变得更加明显，对配置的可视化表示形式也很有用。
 
 ## <a name="using-the-diagnosis-diagram-tool"></a>使用诊断关系图工具
-若要访问此可视化工具，只需单击流分析作业的“设置”边栏选项卡中的“诊断关系图”按钮。
+要访问此可视化工具，只需单击流分析作业的“设置”区域中的“诊断关系图”按钮。
 
 ![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
 
@@ -47,4 +47,4 @@ ms.lasthandoff: 07/26/2017
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update -->

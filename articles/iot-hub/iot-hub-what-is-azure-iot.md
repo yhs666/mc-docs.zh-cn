@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/16/2017
+origin.date: 09/15/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: a9b5d708dbfd5f5265519b6c81b540cdab110f53
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 10/16/2017
+ms.openlocfilehash: 4b998a0c7a5ac3ad58d57a0cccc21df32c159420
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/29/2017
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
@@ -31,9 +31,9 @@ Azure IoT 中心是一项 Azure 服务，可在解决方案后端和数百万台
 - 从设备接收文件上传。
 - 将云到设备的消息发送到特定设备。
 
-可以使用 IoT 中心来实现自己的解决方案后端。 此外，IoT 中心还包含标识注册表，可用于预配设备、其安全凭据以及其连接到 IoT 中心的权限。 若要了解有关 IoT 中心的详细信息，请参阅 [IoT 中心是什么？][lnk-iot-hub]。
+可以使用 IoT 中心来实现自己的解决方案后端。 此外，IoT 中心还包含标识注册表，可用于预配设备、其安全凭据以及其连接到 IoT 中心的权限。 若要了解有关 IoT 中心的详细信息，请参阅[什么是 IoT 中心][lnk-iot-hub]。
 
-若要了解 Azure IoT 中心如何实现基于标准的设备管理，从而远程管理、配置和更新设备，请参阅 [IoT 中心设备管理概述][lnk-device-management]。
+若要了解 Azure IoT 中心如何实现基于标准的设备管理，从而远程管理设备，请参阅 [IoT 中心设备管理概述][lnk-device-management]。
 
 若要在各种设备硬件平台和操作系统上实现客户端应用程序，可使用 Azure IoT 设备 SDK。 设备 SDK 包含一些库，有助于将遥测数据发送到 IoT 中心和接收云到设备的消息。 使用设备 SDK 时，多个网络协议可选择用于与 IoT 中心通信。 若要了解详细信息，请参阅 [设备 SDK 的相关信息][lnk-device-sdks]。
 
@@ -48,4 +48,4 @@ Azure IoT 中心是一项 Azure 服务，可在解决方案后端和数百万台
 [lnk-iotdev]: https://www.azure.cn/develop/iot/
 [lnk-device-management]: ./iot-hub-device-management-overview.md
 
-<!--Update_Description:update meta properties and link references-->
+<!--Update_Description:update meta properties and wording-->

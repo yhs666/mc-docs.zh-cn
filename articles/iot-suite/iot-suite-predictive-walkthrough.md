@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/25/2017
-ms.date: 04/27/2017
+origin.date: 07/25/2017
+ms.date: 09/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: a4ccbf26b0c76f9a1d53a828169d7c6ee677b0e3
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: b008198e33b36540ccfecdbd5ba250dbd8814600
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>预见性维护预配置解决方案演练
 
 ## <a name="introduction"></a>介绍
 
-IoT 套件预见性维护预配置解决方案是一个用于商业应用场景的端到端解决方案，可预测可能发生故障的时间点。 可主动使用此预配置解决方案执行维护优化等活动。 该解决方案结合了重要的 Azure IoT 套件服务，例如 IoT 中心、“流分析”工作区。  此工作区包含基于公用示例数据集的模型，用于预测飞机引擎的剩余使用寿命 (RUL)。 此解决方案全面实施 loT 商业应用场景，以此为起点，你可以规划和实施满足自己特定业务需求的解决方案。
+IoT 套件预见性维护预配置解决方案是一个用于商业应用场景的端到端解决方案，可预测可能发生故障的时间点。 可主动使用此预配置解决方案执行维护优化等活动。 该解决方案结合了重要的 Azure IoT 套件服务，例如 IoT 中心、“流分析”工作区。  此工作区包含基于公用示例数据集的模型，用于预测飞机引擎的剩余使用寿命 (RUL)。 此解决方案全面实施了完整的 loT 商业应用场景作为规划和实施解决方案的起点，以满足自己特定的业务需求。
 
 ## <a name="logical-architecture"></a>逻辑体系结构
 
@@ -34,7 +34,7 @@ IoT 套件预见性维护预配置解决方案是一个用于商业应用场景�
 
 ![][img-architecture]
 
-蓝色项是在预配该预配置解决方案时选择的区域中预配的 Azure 服务。 [预配页][lnk-azureiotsuite]显示了可部署预配置解决方案的区域列表。
+蓝色项是在部署预配置解决方案时，在同一区域中预配的 Azure 服务。 [预配页][lnk-azureiotsuite]显示了可部署预配置解决方案的区域列表。
 
 绿色项是表示飞机引擎的模拟设备。 可在以下部分中深入了解这些模拟设备。
 
@@ -58,7 +58,11 @@ IoT 套件预见性维护预配置解决方案是一个用于商业应用场景�
 IoT 中心会提供设备命令确认。
 
 ## <a name="azure-stream-analytics-job"></a>Azure 流分析作业
-**作业：遥测** 会使用两个语句来操作传入设备遥测流。 第一个语句会从设备选择所有遥测，然后将这些数据从在 Web 应用中可视化的位置发送到 blob 存储。 第二个语句会通过两分钟的滑动窗口计算平均传感器值，然后通过事件中心将这些数据发送到 **事件处理器**。
+
+**作业：遥测** 会使用两个语句来操作传入设备遥测流：
+
+* 第一个语句会从设备选择所有遥测，然后将这些数据 从在 Web 应用中可视化的位置发送到 Blob 存储。
+* 第二个语句会通过两分钟的滑动窗口计算平均传感器值，然后通过事件中心将这些数据发送到事件处理器。
 
 ## <a name="event-processor"></a>事件处理器
 **事件处理器主机** 在 Azure Web 作业中运行。 **事件处理器** 获取已完成周期的平均传感器值。 然后，将这些值传递给某个 API，后者可公开用于计算引擎 RUL 的训练模型。 该 API 由预配为解决方案一部分的 R Server 公开。
@@ -69,7 +73,7 @@ R Server 实现使用派生自数据的模型，这些数据是从实际飞机�
 ## <a name="next-steps"></a>后续步骤
 了解预见性维护预配置解决方案的关键组件后，可对其进行自定义。 请参阅 [预配置解决方案自定义指南][lnk-customize]。
 
-你还可以浏览 IoT 套件预配置的解决方案的一些其他特性和功能：
+还可以浏览 IoT 套件预配置的解决方案的一些其他特性和功能：
 
 * [有关 IoT 套件的常见问题][lnk-faq]
 * [从头开始保障 IoT 安全][lnk-security-groundup]

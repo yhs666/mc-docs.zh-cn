@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/15/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: 06/13/2017
-ms.openlocfilehash: 4742c770fec55a77ace8309cfceca8c76637cdcc
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 10/16/2017
+ms.openlocfilehash: 24fc503abd14e8d3df010d63914d42f2cf4edbad
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>远程监视预配置解决方案演练
 
 IoT 套件远程监视[预配置解决方案][lnk-preconfigured-solutions]是适用于在远程位置运行的多个计算机的端到端监视解决方案实现。 该解决方案结合了关键 Azure 服务来提供业务方案的通用实现。 可以将其用作自己实现的起点，并可以根据特定的业务要求[自定义][lnk-customize]该解决方案。
 
-本文将逐步讲解远程监视解决方案的一些关键要素，以帮助你了解其工作原理。 该知识有助于：
+本文逐步讲解远程监视解决方案的一些关键要素，以帮助你了解其工作原理。 该知识有助于：
 
 - 排除解决方案中的问题。
 - 规划如何定制解决方案来满足自身的特定需求。 
@@ -38,7 +38,7 @@ IoT 套件远程监视[预配置解决方案][lnk-preconfigured-solutions]是适
 ![逻辑体系结构](./media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="simulated-devices"></a>模拟设备
-在该预配置解决方案中，模拟设备表示冷却设备（例如建筑物空调或设施空气处理单位）。 部署预配置解决方案时，还会自动预配 4 个在 [Azure WebJob][lnk-webjobs] 中运行的模拟设备。 模拟设备可让你轻松观测解决方案的行为，而不需要部署任何物理设备。 若要部署实际的物理设备，请参阅[将设备连接到远程监视预配置解决方案][lnk-connect-rm]教程。
+在该预配置解决方案中，模拟设备表示冷却设备（例如建筑物空调或设施空气处理单位）。 部署预配置解决方案时，还会自动预配 4 个在 [Azure WebJob][lnk-webjobs] 中运行的模拟设备。 模拟设备可让你轻松观测解决方案的行为，而不需要部署任何物理设备。 要部署实际的物理设备，请参阅[将设备连接到远程监视预配置解决方案][lnk-connect-rm]教程。
 
 ### <a name="device-to-cloud-messages"></a>设备到云的消息
 每个模拟设备可将以下消息类型发送到 IoT 中心：
@@ -74,7 +74,7 @@ IoT 套件远程监视[预配置解决方案][lnk-preconfigured-solutions]是适
 | System.Processor |运行设备的处理器 |
 | System.InstalledRAM |在设备上安装的 RAM 量 |
 
-模拟器会以示例值在模拟设备中植入这些属性。 模拟器每次初始化模拟设备时，设备将以报告的属性的形式向 IoT 中心报告预定义的元数据。 报告的属性只能由设备更新。 若要更改报告的属性，请在解决方案门户中设置所需的属性。 设备负责：
+模拟器会以示例值在模拟设备中植入这些属性。 模拟器每次初始化模拟设备时，设备以报告的属性的形式向 IoT 中心报告预定义的元数据。 报告的属性只能由设备更新。 若要更改报告的属性，请在解决方案门户中设置所需的属性。 设备负责：
 1. 定期从 IoT 中心检索所需的属性。
 2. 使用所需的属性值更新其配置。
 3. 将新值以报告的属性的形式发回到中心。
@@ -132,7 +132,7 @@ SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'Dev
 
 此作业将其输出发送到事件中心做进一步处理。
 
-**作业 2：规则** 会针对每个设备的阈值评估传入温度和湿度遥测值。 阈值在解决方案门户上的规则编辑器中设置。 每个设备/值对按照时间戳存储在 Blob 中，流分析将读入该对作为 **参考数据**。 该作业会针对设备的设置阈值比较任何非空值。 如果超过“>”条件，该作业将输出“警报”事件，表示已超过阈值，并且提供设备、值和时间戳值。 此作业使用以下查询定义来识别应触发警报的遥测消息：
+**作业 2：规则** 会针对每个设备的阈值评估传入温度和湿度遥测值。 阈值在解决方案门户上的规则编辑器中设置。 每个设备/值对按照时间戳存储在 Blob 中，流分析将读入该对作为 **参考数据**。 该作业会针对设备的设置阈值比较任何非空值。 如果超过“>”条件，该作业将输出**警报**事件，表示已超过阈值，并且提供设备、值和时间戳值。 此作业使用以下查询定义来识别应触发警报的遥测消息：
 
 ```
 WITH AlarmsData AS 
@@ -175,7 +175,7 @@ FROM AlarmsData
 
 该作业将其输出发送到事件中心做进一步处理，并将每个警报的详细信息保存到 Blob 存储，解决方案门户可从该位置读取警报信息。
 
-**作业 3：遥测** 会通过两种方法来操作传入设备遥测流。 第一种方法会将设备的所有遥测消息发送到永久性 Blob 存储以进行长期存储。 第二种方法会通过五分钟滑动窗口计算平均、最小和最大湿度值，并将此数据发送到 Blob 存储。 解决方案门户从 Blob 存储读取遥测数据来填充图表。 此作业使用下列查询定义：
+**作业 3：遥测** 会通过两种方法来操作传入设备遥测流。 第一种方法会将设备的所有遥测消息发送到永久性 Blob 存储以进行长期存储。 第二种方法会通过五分钟滑动窗口计算平均值、最小值和最大湿度值，并将此数据发送到 Blob 存储。 解决方案门户从 Blob 存储读取遥测数据来填充图表。 此作业使用下列查询定义：
 
 ```
 WITH 
@@ -219,7 +219,7 @@ GROUP BY
 ```
 
 ## <a name="event-hubs"></a>事件中心
-设备信息和规则 ASA 作业将数据输出到事件中心，以便其可靠地转发给 Web 作业中运行的事件处理器。
+**设备信息**和**规则** ASA 作业将数据输出到事件中心，以便可靠地转发给 Web 作业中运行的**事件处理器**。
 
 ## <a name="azure-storage"></a>Azure 存储
 解决方案使用 Azure Blob 存储来保存解决方案设备中的所有原始数据和汇总的遥测数据。 门户从 Blob 存储读取遥测数据来填充图表。 为了显示警报，解决方案门户将从 Blob 存储读取当遥测值超过设置的阈值时所记录的数据。 解决方案还使用 Blob 存储来记录在解决方案门户中设置的阈值。
@@ -256,7 +256,7 @@ Web 应用中的此页面使用 PowerBI javascript 控件（请参阅 [PowerBI-v
 - [IoT Suite - Under The Hood - Remote Monitoring（IoT 套件 - 幕后 - 远程监视）](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
 - [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices（IoT 套件 - 远程监视 - 添加实时与模拟设备）](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
-你可以通过阅读以下文章继续开始使用 IoT 套件：
+可以通过阅读以下文章继续开始使用 IoT 套件：
 
 - [将设备连接到远程监视预配置解决方案][lnk-connect-rm]
 - [azureiotsuite.com 站点上的权限][lnk-permissions] [lnk-preconfigured-solutions]: ./iot-suite-what-are-preconfigured-solutions.md [lnk-customize]: ./iot-suite-guidance-on-customizing-preconfigured-solutions.md [lnk-iothub]: /iot-hub/ [lnk-asa]: /stream-analytics/ [lnk-webjobs]: ../app-service-web/websites-webjobs-resources.md [lnk-connect-rm]: ./iot-suite-connecting-devices.md [lnk-permissions]: ./iot-suite-permissions.md [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md [lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

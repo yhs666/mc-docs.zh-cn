@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 04/20/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7a25e8921840051693735e0197d6002b2a95b6dd
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 1190d652813a52862e825d9942b9e79edf36c05c
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Azure 流分析故障排除指南
 
@@ -56,7 +56,7 @@ Azure 流分析故障排除可能看上去是一项复杂的工作。 与大量�
 
 7.  使用指标进行调试：
     - 如果在经过预期的持续时间（基于查询）后未获得任何输出，请尝试以下操作：
-        - 在“监视器”选项卡上查看[“监控指标”](stream-analytics-monitoring.md)。 由于值将进行聚合，因此指标会延迟几分钟。
+        - 在“监视器”选项卡上查看[“监控指标”](stream-analytics-monitoring.md)。由于值将进行聚合，因此指标会延迟几分钟。
             - 如果“输入事件数”大于 0，则作业可以读取输入数据。 如果“输入事件”不大于 0，则：
                 - 若要查看数据源是否具有有效数据，请使用[服务总线资源管理器](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a)。 如果作业使用事件中心作为输入，则会应用此检查。
                 - 查看数据序列化格式和数据编码是否符合预期。
@@ -85,11 +85,11 @@ Azure 流分析故障排除可能看上去是一项复杂的工作。 与大量�
     - 若要分析数据流和识别问题，请使用[带有指标的作业关系图](stream-analytics-job-diagram-with-metrics.md)。
 
 11. 提交支持案例：
-    - 最后，如果所有其他方法均失败，请使用包含作业的 SubscriptionID 提交 Microsoft 支持案例。
+    - 最后，如果所有其他方法均失败，请使用包含作业的 SubscriptionID 提交 Azure 支持案例。
 
 ## <a name="get-help"></a>获取帮助
 
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -99,4 +99,4 @@ Azure 流分析故障排除可能看上去是一项复杂的工作。 与大量�
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, wording update -->

@@ -14,20 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 098b7d0cfbf7e92eaade1ec453fb5ec58175d47e
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 0409d9f8cbbc72bad3df6a15033a37a0263eaf50
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>使用用于 Visual Studio 的 Azure 流分析工具
 ## <a name="introduction"></a>介绍
 本教程介绍如何使用用于 Visual Studio 的 Azure 流分析工具来创建、编写、本地测试、管理和调试流分析作业。 
 
-完成本教程之后，你将能够：
-
+完成本教程之后，能够：
 * 熟悉用于 Visual Studio 的流分析工具。
 * 配置和部署流分析作业。
 * 使用本地示例数据在本地测试作业。
@@ -35,7 +34,6 @@ ms.lasthandoff: 07/26/2017
 * 将现有作业导出到项目。
 
 ## <a name="prerequisites"></a>先决条件
-
 若要完成本教程，需要满足以下先决条件：
 * 完成[使用流分析构建 IoT 解决方案教程](/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)中“创建流分析作业”前面的步骤。 
 * 使用 Visual Studio 2015、Visual Studio 2013 Update 4 或 Visual Studio 2012。 支持 Enterprise (Ultimate/Premium)、Professional 和 Community 版本。 不支持 Express 版本。 不支持 Visual Studio 2017。 
@@ -61,7 +59,7 @@ ms.lasthandoff: 07/26/2017
 2. 使用 Azure 帐户登录。 
 
 ## <a name="define-the-input-sources"></a>定义输入源
-1.  在“解决方案资源管理器”中展开“输入”节点，将 **Input.json** 重命名为 **EntryStream.json**。 双击“EntryStream.json”。
+1.  在“解决方案资源管理器”中展开“输入”节点，并将 Input.json 重命名为 EntryStream.json。 双击“EntryStream.json”。
 2.  “输入别名”现在为“EntryStream”。 输入别名用在查询脚本中。 
 3.  在“源类型”中，选择“数据流”。
 4.  在“源”中，选择“事件中心”。
@@ -156,7 +154,7 @@ ms.lasthandoff: 07/26/2017
 
     ![“添加本地输入”窗口](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
 
-    名为 **local_EntryStream.json** 的文件将自动添加到输入文件夹。
+    名为 local_EntryStream.json 的文件将自动添加到输入文件夹。
 
     ![添加到输入文件夹的文件](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-03.png)
 
@@ -225,7 +223,7 @@ ms.lasthandoff: 07/26/2017
 ![“作业指标”窗口](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-metrics-01.png)
 
 ## <a name="list-the-job-in-server-explorer"></a>在服务器资源管理器中列出作业
-在“服务器资源管理器”中单击“流分析作业”，然后单击“刷新”。 作业显示在“流分析作业”下。
+在“服务器资源管理器”中，单击“流分析作业”，然后单击“刷新”。 作业显示在“流分析作业”下。
 
 ![服务器资源管理器中列出的流分析作业](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-list-jobs-01.png)
 
@@ -261,4 +259,4 @@ ms.lasthandoff: 07/26/2017
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties -->

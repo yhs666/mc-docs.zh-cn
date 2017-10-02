@@ -3,29 +3,29 @@ title: "设计第一个 Azure SQL 数据库 - C# | Azure"
 description: "学习设计第一个 Azure SQL 数据库，并使用 ADO.NET 通过 C# 程序连接到它。"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: CarlRabeler
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: develop databases
+ms.custom: develop databases, mvc
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
-origin.date: 07/31/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: f5d8bf1cb379f9ac2fe53c57dc854a1d3da1ba53
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+origin.date: 08/25/2017
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 49130bad3b6444d43b174da866c70e80ae0c8814
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>设计 Azure SQL 数据库，并使用 C# 和 ADO.NET 进行连接
 
-Azure SQL 数据库与 Microsoft 云（“Azure”）中的数据库即服务 (DBaaS) 相关。 本教程介绍如何将 Azure 门户、ADO.NET 与 Visual Studio 结合使用来完成以下操作： 
+Azure SQL 数据库是 Azure 中的关系数据库即服务 (DBaaS)。 本教程介绍如何将 Azure 门户、ADO.NET 与 Visual Studio 结合使用来完成以下操作： 
 
 > [!div class="checklist"]
 > * 在 Azure 门户中创建数据库
@@ -69,4 +69,3 @@ And it starts with a ## H2.
 > [!div class="nextstepaction"]
 >[将 SQL Server 数据库迁移至 Azure SQL 数据库](sql-database-migrate-your-sql-server-database.md)
 
-<!--Update_Description: wording update-->

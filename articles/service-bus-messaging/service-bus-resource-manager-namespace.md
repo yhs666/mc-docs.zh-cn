@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure 资源管理器模板创建服务总线命名空间 | Microsoft Docs"
+title: "使用 Azure Resource Manager 模板创建服务总线命名空间 | Microsoft Docs"
 description: "使用 Azure Resource Manager 模板创建服务总线命名空间"
 services: service-bus
 documentationCenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 08/07/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
-ms.openlocfilehash: 135fff4acaddeafb5a944b9854205cab163c4491
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 10/16/2017
+ms.openlocfilehash: 0752edebd5a5ff1242b212bf38ec68c8d836801a
+ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建服务总线命名空间
 本文介绍如何使用 Azure Resource Manager 模板创建包含标准/基本 SKU 的类型为 **Messaging** 的服务总线命名空间。 本文还定义了为执行部署指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。
@@ -40,7 +40,7 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="what-will-you-deploy"></a>将部署什么内容？
 
-使用此模板，可以部署包含[基本、标准或高级](https://www.azure.cn/pricing/details/messaging/) SKU 的服务总线命名空间。
+使用此模板，将部署包含[基本或标准](https://www.azure.cn/pricing/details/messaging/) SKU 的服务总线命名空间。
 
 若要自动运行部署，请单击以下按钮：
 
@@ -74,8 +74,7 @@ ms.lasthandoff: 09/08/2017
     "type": "string", 
     "allowedValues": [ 
         "Basic", 
-        "Standard",
-        "Premium" 
+        "Standard"
     ], 
     "defaultValue": "Standard", 
     "metadata": { 
@@ -84,7 +83,7 @@ ms.lasthandoff: 09/08/2017
 
 ```
 
-模板定义此参数允许的值（Basic、Standard 或 Premium），如果未指定任何值，则分配默认值 (Standard)。
+模板将定义此参数允许的值（Basic 或 Standard），如果未指定任何值，则分配默认值 (Standard)。
 
 有关服务总线定价的详细信息，请参阅[服务总线定价和计费][Service Bus pricing and billing]。
 

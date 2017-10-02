@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/05/2017
-ms.date: 07/17/2017
+origin.date: 08/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9ca636af5815ab7526f71a1fe69ac441e2e0872b
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: d2daee86653206423021573ddf3ed7198efa1634
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>在 Azure 上创建第一个 Service Fabric 群集
 [Service Fabric 群集](service-fabric-deploy-anywhere.md)是一组通过网络连接在一起的虚拟机或物理计算机，你的微服务将在其中部署和管理。 本快速入门可帮助你在数分钟内通过 [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) 或 [Azure 门户](http://portal.azure.cn)创建一个运行在 Windows 或 Linux 上的五节点型群集。  
@@ -38,9 +38,11 @@ ms.lasthandoff: 07/14/2017
 
     ![群集设置输出][cluster-setup-basics]
 
-4. 填充“群集配置”表单。  对于“节点类型计数”，请输入“1”，而对于[耐久性层](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)，请将其设置为“Bronze”。
+4. 填充“群集配置”表单。  对于“节点类型计数”，请输入“1”。
 
-5. 选择“配置每个节点类型”并填充“节点类型配置”表单。 节点类型定义 VM 大小、VM 数、自定义终结点，以及该类型 VM 的其他设置。 定义的每个节点类型均作为独立的虚拟机规模集设置，用于以集的形式部署和管理虚拟机。 每个节点类型可以独立扩展或缩减、打开不同的端口集，并且可以有不同的容量指标。  第一个节点类型（主节点类型）用于托管 Service Fabric 系统服务，必须包含至少五个 VM。
+5. 选择“节点类型 1 (主)”并填充“节点类型配置”表单。  输入节点类型名称，将 [耐久性层](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) 设置为“Bronze”。  选择 VM 大小。
+
+    节点类型定义 VM 大小、VM 数、自定义终结点，以及该类型 VM 的其他设置。 定义的每个节点类型均作为独立的虚拟机规模集设置，用于以集的形式部署和管理虚拟机。 每个节点类型可以独立扩展或缩减、打开不同的端口集，并且可以有不同的容量指标。  第一个节点类型（主节点类型）用于托管 Service Fabric 系统服务，必须包含至少五个 VM。
 
     对于任何生产部署，[容量规划](service-fabric-cluster-capacity.md)都是一个重要的步骤。  但就此快速入门来说，你不会运行应用程序，因此请选择“DS1_v2 Standard”VM 大小。  请选择“Silver”作为[可靠性层](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)，并选择 5 作为初始虚拟机规模集容量。  
 
@@ -72,9 +74,9 @@ ms.lasthandoff: 07/14/2017
 ![群集状态][cluster-status]
 
 ### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>使用 Service Fabric Explorer 可视化群集
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 是一项很好的工具，适用于可视化群集和管理应用程序。  Service Fabric Explorer 是在群集中运行的一项服务。  可以使用 Web 浏览器对其进行访问，方法是在门户中单击群集“概览”页的“Service Fabric Explorer”链接。  
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 是一项很好的工具，适用于可视化群集和管理应用程序。  Service Fabric Explorer 是在群集中运行的一项服务。  可以使用 Web 浏览器对其进行访问，方法是在门户中单击群集“概览”页的“Service Fabric Explorer”链接。  也可直接在浏览器中输入以下地址：[http://quickstartcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer](http://quickstartcluster.chinaeast.chinacloudapp.cn:19080/Explorer)
 
-群集仪表板提供了群集的概览，包括应用程序和节点运行状况的摘要。 节点视图显示群集的物理布局。 对于给定的节点，你可以检查已在该节点上部署代码的应用程序。
+群集仪表板提供了群集的概览，包括应用程序和节点运行状况的摘要。 节点视图显示群集的物理布局。 对于给定的节点，可以检查已在该节点上部署代码的应用程序。
 
 ![Service Fabric Explorer][service-fabric-explorer]
 
@@ -82,20 +84,20 @@ ms.lasthandoff: 07/14/2017
 使用 PowerShell 进行连接，验证群集是否正在运行。  ServiceFabric PowerShell 模块与 [Service Fabric SDK](service-fabric-get-started.md) 一起安装。  [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet 可建立到群集的连接。   
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
+Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.chinaeast.cloudapp.chinacloudapi.cn:19000
 ```
 有关如何连接到群集的其他示例，请参阅[连接到安全群集](service-fabric-connect-to-secure-cluster.md)。 连接到群集以后，请使用 [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet 显示群集中节点的列表，以及每个节点的状态信息。 每个节点的 **HealthState** 应该为“正常”。
 
 ```powershell
-PS C:\> Get-ServiceFabricNode |Format-Table
+PS C:\Users\sfuser> Get-ServiceFabricNode |Format-Table
 
-NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
--------------------- --------     --------------- --------  ----------- ------------- ---------- ---------- ------------ -----------
-                     _nodetype1_2 10.0.0.6        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_1 10.0.0.5        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_0 10.0.0.4        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_4 10.0.0.8        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_3 10.0.0.7        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
+NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion  ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
+-------------------- --------     --------------- --------  -----------  ------------- ---------- ---------- ------------ -----------
+                     _nodetype1_2 10.0.0.6        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_1 10.0.0.5        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_0 10.0.0.4        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_4 10.0.0.8        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_3 10.0.0.7        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
 ```
 
 ### <a name="remove-the-cluster"></a>删除群集
@@ -104,62 +106,58 @@ Service Fabric 群集由群集资源本身以及其他 Azure 资源组成。 因
 在 Azure 门户中删除资源组：
 1. 导航到要删除的 Service Fabric 群集。
 2. 在群集基本信息页上单击**资源组**名称。
-3. 在“资源组基本信息”页中单击“删除”，然后按照该页上的说明进行操作，以完成资源组的删除。
+3. 在“资源组基本信息”页中单击“删除资源组”，并按照该页上的说明进行操作，以完成资源组的删除。
     ![删除资源组][cluster-delete]
 
 ## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>使用 Azure Powershell 部署安全群集
 
-1) 将 [Azure Powershell 模块 4.0 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)下载到计算机上。
+1. 将 [Azure Powershell 模块 4.0 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)下载到计算机上。
 
-2) 打开 Windows PowerShell 窗口，运行以下命令。 
+2. 打开 Windows PowerShell 窗口，运行以下命令。 
 
-```powershell
+    ```powershell
 
-Get-Command -Module AzureRM.ServiceFabric 
-```
+    Get-Command -Module AzureRM.ServiceFabric 
+    ```
 
-此时会看到类似下面的输出。
+    此时会看到类似下面的输出。
 
-![ps-list][ps-list]
+    ![ps-list][ps-list]
 
-3) 登录到 Azure，选择要创建群集的订阅
+3. 登录到 Azure，选择要创建群集的订阅
 
-```powershell
+    ```powershell
 
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 
-Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    ```
 
-```
+4. 现在，请运行以下命令创建安全群集。 不要忘记对参数进行自定义。 
 
-4) 现在，请运行以下命令创建安全群集。 不要忘记对参数进行自定义。 
+    ```powershell
+    $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+    $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+    $RDPuser="vmadmin"
+    $RGname="mycluster" # this is also the name of your cluster
+    $clusterloc="SouthCentralUS"
+    $subname="$RGname.$clusterloc.cloudapp.chinacloudapi.cn"
+    $certfolder="c:\mycertificates\"
+    $clustersize=1 # can take values 1, 3-99
 
+    New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+    ```
 
-````powershell
+    此命令可能需要 10 到 30 分钟才能完成，在完成后，你会获得类似于以下内容的输出。 可以通过输出了解证书、其所上传到的 KeyVault，以及其所复制到的本地文件夹。 
 
-$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-$RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-$RDPuser="vmadmin"
-$RGname="mycluster" # this is also the name of your cluster
-$clusterloc="SouthCentralUS"
-$subname="$RGname.$clusterloc.cloudapp.chinacloudapi.cn"
-$certfolder="c:\mycertificates\"
-$clustersize=1 # can take values 1, 3-99
+    ![ps-out][ps-out]
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+5. 复制整个输出，将其保存到一个文本文件，因为需要参阅该文件。 从输出中记下以下信息。 
 
-````
-
-此命令可能需要 10 到 30 分钟才能完成，在完成后，你会获得类似于以下内容的输出。 可以通过输出了解证书、其所上传到的 KeyVault，以及其所复制到的本地文件夹。 
-
-![ps-out][ps-out]
-
-5) 复制整个输出，将其保存到一个文本文件，因为需要参阅该文件。 从输出中记下以下信息。
-
-- **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
-- **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
-- **ManagementEndpoint** : https://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19080
-- **ClientConnectionEndpointPort** : 19000
+    - **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
+    - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
+    - **ManagementEndpoint** : https://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19080
+    - **ClientConnectionEndpointPort** : 19000
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>在本地计算机上安装证书
 
@@ -231,3 +229,5 @@ Remove-AzureRmResourceGroup -Name $RGname -Force
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
 [ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
 [ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG
+
+<!--Update_Description: update meta properties, wording update-->

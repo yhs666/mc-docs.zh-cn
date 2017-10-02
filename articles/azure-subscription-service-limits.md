@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/21/2017
-ms.date: 08/29/2017
+origin.date: 09/01/2017
+ms.date: 09/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: 81c699f0f8ee6e0bf1b0543f395ff2af7a092d3b
-ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
+ms.openlocfilehash: 551f0295962c344eb578e992e0085fe8cae7a26e
+ms.sourcegitcommit: c13aee6f5e18d15bcc29fae1eefd2b72f2558dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
@@ -49,7 +49,7 @@ ms.lasthandoff: 08/30/2017
 - [Active Directory](#active-directory-limits)
 - [应用服务](#app-service-limits)
 - [应用程序网关](#application-gateway-limits)
-- [自动化](#automation-limits)
+- [自动化](#automation-limits) 
 - [Azure Cosmos DB](#azure-cosmos-db-limits)
 - [Azure Redis 缓存](#azure-redis-cache-limits)
 - [备份](#backup-limits)
@@ -62,7 +62,7 @@ ms.lasthandoff: 08/30/2017
 - [密钥保管库](#key-vault-limits)
 - [媒体服务](#media-services-limits)
 - [移动服务](#mobile-services-limits)
-- [监视](#monitoring-limits)
+- [监视限制](#monitor-limits)
 - [多重身份验证](#multi-factor-authentication)
 - [联网](#networking-limits)
 - [通知中心服务](#notification-hub-service-limits)
@@ -170,7 +170,7 @@ Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放�
 ### <a name="mobile-services-limits"></a>移动服务限制
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### <a name="monitoring-limits"></a>监视限制
+### <a name="monitor-limits"></a>监视限制
 [!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
 ### <a name="notification-hub-service-limits"></a>通知中心服务限制

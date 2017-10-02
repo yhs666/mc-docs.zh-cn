@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/14/2017
-ms.date: 08/14/2017
+origin.date: 08/30/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 49b283965e66147a247e05a22b8482d50794619b
-ms.sourcegitcommit: bfdbf6df593eb9ea6ad7372375db671886055a12
+ms.openlocfilehash: bf37947746d9073f36e0c818cfd17341e1f92990
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>想要了解 Service Fabric 吗？
 Azure Service Fabric 是一种分布式系统平台，适用于打包、部署和管理可缩放的可靠微服务。  不过，Service Fabric 的外围应用领域广泛，有很多东西需要学习。  本文简要说明了 Service Fabric，并介绍了核心概念、编程模型、应用程序生命周期、测试、群集和运行状况监视。 请参阅[概述](service-fabric-overview.md)和[什么是微服务？](service-fabric-overview-microservices.md)，概览相关信息，并了解如何使用 Service Fabric 创建微服务。 本文包含的内容列表虽不完整，但确实提供了 Service Fabric 每个应用领域的概述和入门文章链接。 
@@ -28,10 +28,10 @@ Azure Service Fabric 是一种分布式系统平台，适用于打包、部署�
 此处介绍基础知识，有关详细概念和介绍，可参阅 [Service Fabric 术语](service-fabric-technical-overview.md)、[应用程序模型](service-fabric-application-model.md)和[支持的编程模型](service-fabric-choose-framework.md)。
 
 <table><tr><th>核心概念</th><th>设计时</th><th>运行时</th></tr>
-<tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
+<tr><td><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
 <img src="./media/service-fabric-content-roadmap/CoreConceptsVid.png" WIDTH="240" HEIGHT="162"></a></td>
-<td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965"><img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td>
-<td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">
+<td><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965"><img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td>
+<td><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">
 <img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td></tr>
 </table>
 
@@ -57,7 +57,7 @@ Azure Service Fabric 是一种分布式系统平台，适用于打包、部署�
 
 有两种服务类型：无状态服务和有状态服务。 无状态服务可将持久状态存储在 Azure 存储、Azure SQL 数据库或 Azure Cosmos DB 等外部存储服务中。 当服务根本没有永久性存储时，请使用无状态服务。 有状态服务使用 Service Fabric 通过其 Reliable Collections 或 Reliable Actors 编程模型管理服务的状态。 
 
-创建命名服务时，需要指定一个分区方案。 包含大量状态的服务将跨分区拆分数据。 每个分区负责服务完整状态的一部分（分布在群集的节点上）。 在分区中，无状态命名服务具有实例，而有状态命名服务具有副本。 通常，无状态命名服务只有一个分区，因为它们没有内部状态。 有状态命名服务在副本中保持其状态，每个分区都有自己的副本集。 在一个副本（以下称为“主副本”）上执行读取和写入操作。 因写入操作发生的状态更改会复制到其他多个副本（以下称为活动辅助副本）。 
+创建命名服务时，需要指定一个分区方案。 包含大量状态的服务将跨分区拆分数据。 每个分区负责服务完整状态的一部分（分布在群集的节点上）。  
 
 下图显示应用程序和服务实例、分区与副本之间的关系。
 
@@ -93,7 +93,10 @@ Service Fabric 提供了多种方法来编写和管理服务。 服务可以使�
 [Reliable Actor](service-fabric-reliable-actors-introduction.md) 框架在 Reliable Services 的基础上构建，是根据执行组件设计模式实现虚拟执行组件模式的应用程序框架。 Reliable Actor 框架使用称为执行组件的单线程执行的独立的计算单元和状态。 Reliable Actor 框架为执行组件提供内置通信，以及提供预设的状态暂留和扩展配置。
 
 ### <a name="aspnet-core"></a>ASP.NET Core
-Service Fabric 与 [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 集成，作为用于生成 Web 和 API 应用程序的第一类编程模型
+Service Fabric 与 [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 集成，作为用于生成 Web 和 API 应用程序的第一类编程模型。  在 Service Fabric 中可通过两种不同方法使用 ASP.NET Core：
+
+- 作为来宾可执行文件托管。 这主要用于在 Service Fabric 上运行现有 ASP.NET Core 应用程序，无需更改代码。
+- 在 Reliable Service 内部运行。 这可改善与 Service Fabric 运行时的集成，实现有状态的 ASP.NET Core 服务。
 
 ### <a name="guest-executables"></a>来宾可执行文件
 [来宾可执行文件](service-fabric-deploy-existing-app.md)是（采用任何语言编写的）任意现有可执行文件，并在 Service Fabric 群集及其他服务上托管。 来宾可执行文件不直接与 Service Fabric API 集成。 不过，它们仍受益于平台提供的功能，如自定义运行状况和负载报表以及服务可发现性（通过调用 REST API）。 它们还具有完整的应用程序生命周期支持。 
@@ -103,7 +106,7 @@ Service Fabric 与 [ASP.NET Core](service-fabric-reliable-services-communication
 
 可以使用 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/ServiceFabric/)、[C# API](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient)、[Java API](https://docs.azure.cn/java/api/system.fabric._application_management_client) 和 [REST API](https://docs.microsoft.com/rest/api/servicefabric/) 管理整个应用生命周期。 还可以使用 [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) 或 [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md) 等工具来设置持续集成/持续部署管道。
 
-以下 Microsoft Virtual Academy 视频介绍了如何管理应用程序生命周期： <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
+以下 Microsoft Virtual Academy 视频介绍了如何管理应用程序生命周期： <center><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -127,7 +130,7 @@ Service Fabric 与 [ASP.NET Core](service-fabric-reliable-services-communication
 
 可在运行 Windows Server 或 Linux 的虚拟机或物理计算机上创建 Service Fabric 群集。 可在包含一组互连 Windows Server 或 Linux 计算机（本地计算机、Azure 计算机或任何云提供商的计算机）的任何环境中部署和运行 Service Fabric 应用程序。
 
-以下 Microsoft Virtual Academy 视频介绍 Service Fabric 群集：<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
+以下 Microsoft Virtual Academy 视频介绍 Service Fabric 群集：<center><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
 <img src="./media/service-fabric-content-roadmap/ClusterOverview.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -186,7 +189,7 @@ Service Fabric 提供了多种方式查看在运行状况存储中聚合的[运�
 * 运行状况查询（通过 [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/)、[C# FabricClient Api](https://docs.microsoft.com/api/system.fabric.fabricclient.healthclient) 和 [Java FabricClient API](https://docs.azure.cn/java/api/system.fabric._health_client) 或 [REST API](https://docs.microsoft.com/rest/api/servicefabric)）。
 * 常规查询，返回将运行状况作为属性之一的实体的列表（通过 PowerShell、API 或 REST）。
 
-以下 Microsoft Virtual Academy 视频介绍 Service Fabric 运行状况模型及其用法：<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+以下 Microsoft Virtual Academy 视频介绍 Service Fabric 运行状况模型及其用法：<center><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -204,4 +207,4 @@ Service Fabric 提供了多种方式查看在运行状况存储中聚合的[运�
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
 
-<!--Update_Description: update meta properties, update reference link -->
+<!--Update_Description: update meta properties, update reference link, wording update -->

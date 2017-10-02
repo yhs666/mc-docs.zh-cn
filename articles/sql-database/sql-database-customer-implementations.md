@@ -3,7 +3,7 @@ title: "Azure SQL 数据库客户实现技术 | Azure"
 description: "了解有关 Azure SQL 数据库的客户实现的技术详细信息以解决业务问题"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/03/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 9d8273c80b071151cadeec8c8deb1f4fcb3c84ac
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/02/2017
+ms.author: v-johch
+ms.openlocfilehash: 6c491a72602e2ba1d40e0c135252940a21063a38
+ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Azure SQL 数据库客户实现技术研究
 
@@ -32,4 +32,10 @@ ms.lasthandoff: 07/28/2017
 
 - [Umbraco](sql-database-implementation-umbraco.md)：为了简化客户部署，Umbraco 添加了 Umbraco 即服务 (UaaS)：一个软件即服务 (SaaS) 产品，它无需本地部署，提供内置缩放，使开发人员能够专注于产品创新而不是解决方案管理，节省了管理开销。 Umbraco 依赖于 Azure 提供的弹性平台即服务 (PaaS) 模型提供所有这些优势。
 
-<!--Update_Description: update meta properties-->
+- [Quorum](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)：Quorum 如何使用 SQL 数据库将关键数据库的工作负荷提高一倍，并将 DTU 降低 70%。
+
+- [Quest](https://customers.microsoft.com/en-US/story/quest)：Quest 通过 SQL Server Enterprise 服务提供其 Spotlight，并且心中有一个目标：向数据库专业人员提供可用来保护数据、四处移动该数据以及监视数据库操作的最佳工具。 有了 Spotlight，SQL Server 数据库管理员无论是坐在办公桌前还是在家中工作，他们都可以使用 Azure 和 Azure SQL 数据库监视、检测和诊断 SQL Server 中的性能问题并提供方法来解决这些问题。
+
+- [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam)：此简短的案例研究重点介绍了在 Dynamics 365 for Operations 产品团队迁移到 Azure SQL 数据库以向客户提供完全托管的软件即服务 (SaaS) 产品/服务的经历中学到的最佳做法和吸取的教训。 使用 Azure SQL 数据库，Dynamics 365 for Operations 团队能够以显著减少的人员来管理和操作该服务，并能够使用现成的可管理性功能（例如自动数据库备份、数据库备份保留、高可用性和灾难恢复功能）轻松进行缩放。 上述功能连同使用细微自动化预配数据库的能力使得 Azure SQL 数据库成为一个可用于打造大型服务的伟大平台。
+
+- [Microsoft OneDrive 和 SharePoint Online](https://customers.microsoft.com/story/microsoft-azure-sql-database-dicrete-manufacturing-united-states)：这是一个关于将 Microsoft OneDrive 和 SharePoint Online 移至 Azure SQL 数据库的简短案例分析，其中介绍此迁移如何实现近乎无限制的弹性容量管理，同时又能大幅降低运营成本和基础结构开支。
