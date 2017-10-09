@@ -1836,7 +1836,7 @@
       "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks",
+      "source_path": "articles/virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md",
       "redirect_url": "/virtual-machines/linux/convert-unmanaged-to-managed-disks",
       "redirect_document_id": "false"
     },
@@ -2453,6 +2453,11 @@
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-allocation-failure.md",
       "redirect_url": "/virtual-machines/windows/allocation-failure",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-agent-user-guide.md",
+      "redirect_url": "/virtual-machines/windows/agent-user-guide",
       "redirect_document_id": "false"
     },
     {
