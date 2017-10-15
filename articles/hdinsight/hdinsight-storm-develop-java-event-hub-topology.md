@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 07/13/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: f60464739d762693baff29d4b384384e8f58976f
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: dd7925a73c550f8f36198e6ec06dfe95ab5b5cdd
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-java"></a>使用 Storm on HDInsight 从 Azure 事件中心处理事件 (Java)
 
@@ -46,7 +46,7 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
 * 文本编辑器或集成开发环境 (IDE)。
 
     > [!NOTE]
-    > 你的编辑器或 IDE 可能具有处理 Maven 的特定功能，但本文档中未提供说明。 有关环境编辑功能的详细信息，请参阅所使用产品的文档。
+    > 编辑器或 IDE 可能具有处理 Maven 的特定功能，但本文档中未提供说明。 有关环境编辑功能的详细信息，请参阅所使用产品的文档。
 
     * SSH 客户端。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
@@ -60,7 +60,7 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
 
 `resources/reader.yaml` 拓扑从事件中心读取数据（EventHubWriter 写入的数据）、分析 JSON 数据，记录 `deviceId` 和 `deviceValue` 数据。
 
-数据在写入事件中心之前已格式化为 JSON 文档，因此读取器会将其从 JSON 解析为元组。 JSON 格式如下：
+数据在写入事件中心之前已格式化为 JSON 文档，在被读取器读取时，将从 JSON 解析成元组。 JSON 格式如下：
 
     { "deviceId": "unique identifier", "deviceValue": some value }
 
@@ -70,7 +70,7 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
 
 #### <a name="event-hub-components"></a>事件中心组件
 
-读取和写入 Azure 事件中心的组件位于 [HDInsight 存储库](https://github.com/hdinsight/mvn-rep)。 `POM.xml` 文件中的以下节从此存储库加载组件
+读取和写入 Azure 事件中心的组件位于 [HDInsight 存储库](https://github.com/hdinsight/mvn-repo)。 `POM.xml` 文件中的以下节从此存储库加载组件
 
 ```xml
 <repositories>
@@ -91,7 +91,7 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
 </dependency>
 ```
 
-此 xml 定义 eventhubs 包的依赖项，它包含用于从事件中心读取数据的 Spout 和用于将数据写入事件中心的 Bolt。
+此 xml 定义 eventhubs 包的依赖性，包含用于从事件中心读取的 Spout 和写入事件中心的 Bolt。
 
 ```xml
 </source>
@@ -272,7 +272,7 @@ eventhub.partitions: 2
 
 ## <a name="configure-environment-variables"></a>配置环境变量
 
-可以在开发工作站上安装 Java 和 JDK 时设置以下环境变量。 不过，你应该检查它们是否存在并且包含系统的正确值。
+可以在开发工作站上安装 Java 和 JDK 时设置以下环境变量。 但应检查其是否存在并且包含相关系统的适当值。
 
 * **JAVA_HOME** - 应该指向已安装 Java 运行时环境 (JRE) 的目录。 例如，在 Unix 或 Linux 分发版中，它的值应该类似于 `/usr/lib/jvm/java-7-oracle`。 在 Windows 中，它的值类似于 `c:\Program Files (x86)\Java\jre1.7`
 * **PATH** - 应该包含以下路径：
@@ -287,7 +287,7 @@ eventhub.partitions: 2
 
 1. 在 [Azure 经典管理门户](https://manage.windowsazure.cn)中，选择“新建” > “服务总线” > “事件中心” > “自定义创建”。
 
-2. 在“添加新事件中心”屏幕中，输入**事件中心名称**。 选择要在其中创建中心的**区域**，然后创建一个命名空间或选择现有命名空间。 最后，单击 **箭头** 以继续。
+2. 在“添加新事件中心”屏幕中，输入**事件中心名称**。 选择要在其中创建中心的 **区域** ，并创建一个命名空间或选择现有命名空间。 最后，单击 **箭头** 以继续。
 
     ![向导页 1](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
 
@@ -298,8 +298,8 @@ eventhub.partitions: 2
 
     ![向导页 2](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz2.png)
 
-4. 创建事件中心之后，请选择命名空间、“事件中心”，然后选择前面创建的事件中心。
-5. 选择“配置”，然后使用以下信息创建两个新的访问策略：
+4. 创建事件中心之后，请选择命名空间、“事件中心”，并选择前面创建的事件中心。
+5. 选择“配置”，并使用以下信息创建两个新的访问策略： 
 
     <table>
     <tr><th>Name</th><th>权限</th></tr>
@@ -323,7 +323,7 @@ eventhub.partitions: 2
 
         mvn package
 
-    此命令下载所需的依赖项，进行生成，然后打包项目。 输出将作为 **EventHubExample-1.0-SNAPSHOT.jar** 存储在 **/target** 目录中。
+    此命令下载所需的依赖项，进行生成，并打包项目。 输出将作为 **EventHubExample-1.0-SNAPSHOT.jar** 存储在 **/target** 目录中。
 
 ## <a name="test-locally"></a>本地测试
 
@@ -346,20 +346,20 @@ eventhub.partitions: 2
 
 ## <a name="deploy-the-topologies"></a>部署拓扑
 
-1. 使用 SCP 将 jar 包复制到 HDInsight 群集。 将 USERNAME 替换为群集的 SSH 用户。 将 CLUSTERNAME 替换为 HDInsight 群集的名称：
+1. 使用 SCP 将 jar 包复制到 HDInsight 群集。 将 USERNAME 替换为群集的 SSH 用户。 将 CLUSTERNAME 替换为 HDInsight 群集名：
 
         scp ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:.
 
-    如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 例如 `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:.`
+    如果使用了 SSH 帐户的密码，则系统会提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 例如 `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:.`
 
     此命令会将文件复制到群集上 SSH 用户的主目录。
 
-2. 上传完文件后，使用 SSH 连接到 HDInsight 群集。 将 **USERNAME** 替换为 SSH 登录名。 将 **CLUSTERNAME** 替换为 HDInsight 群集名称：
+2. 上传完文件后，使用 SSH 连接到 HDInsight 群集。 将 **USERNAME** 替换为 SSH 登录名。 将 **CLUSTERNAME** 替换为 HDInsight 群集名：
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
     > [!NOTE]
-    > 如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 以下示例从 `~/.ssh/id_rsa` 加载私钥：
+    > 如果使用了 SSH 帐户的密码，则系统会提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 以下示例从 `~/.ssh/id_rsa` 加载私钥：
     >
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`
 

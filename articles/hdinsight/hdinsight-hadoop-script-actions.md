@@ -17,11 +17,11 @@ origin.date: 05/25/2017
 ms.date: 09/18/2017
 ms.author: v-haiqya
 ROBOTS: NOINDEX
-ms.openlocfilehash: dab09e976da527d16118f0077f6391da4106d106
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+ms.openlocfilehash: 259f868760d2018c8b4dcbe48981246508be1491
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>为 HDInsight 基于 Windows 的群集开发脚本操作脚本
 了解如何为 HDInsight 编写脚本操作脚本。 有关如何使用脚本操作脚本的信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster.md)。 有关为基于 Linux 的 HDInsight 群集编写的同一篇文章，请参阅[为 HDInsight 开发脚本操作脚本](hdinsight-hadoop-script-actions-linux.md)。
@@ -194,7 +194,7 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装附加组件�
 ### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>访问存储自定义脚本的位置
 用于自定义群集的脚本需要位于群集的默认存储帐户中，或其他任何存储帐户的公共只读容器中。 如果脚本访问位于其他位置的资源，则这些资源需要具有公共可访问性（至少是公共只读性）。 例如，可能需要访问文件，并使用 SaveFile-HDI 命令保存该文件。
 
-    Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.chinacloudapi.cn/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
+    Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
 
 在此示例中，必须确保可公开访问存储帐户“somestorageaccount”中的容器“somecontainer”。 否则，该脚本将引发“未找到”异常并失败。
 
@@ -251,7 +251,7 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装附加组件�
 
 还可以远程连接到群集节点，以查看 STDOUT 和 STDERR 中的自定义脚本。 每个节点上的日志仅特定于该节点，并记录到 C:\HDInsightLogs\DeploymentAgent.log 中。 这些日志文件会记录自定义脚本中的所有输出。 Spark 脚本操作的示例日志代码段如下所示：
 
-    Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.chinacloudapi.cn/sparkconfigactions/spark-installer.ps1.;
+    Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.;
     Version : 2.1.0.0;
     ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
     AzureVMName : HEADNODE0;
@@ -277,7 +277,7 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装附加组件�
     ...
 
     Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand;
-    Details : END: Invoking powershell script https://configactions.blob.core.chinacloudapi.cn/sparkconfigactions/spark-installer.ps1.;
+    Details : END: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.;
     Version : 2.1.0.0;
     ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
     AzureVMName : HEADNODE0;

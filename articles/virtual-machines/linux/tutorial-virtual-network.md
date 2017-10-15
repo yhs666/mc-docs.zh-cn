@@ -3,25 +3,25 @@ title: "Azure 虚拟网络和 Linux 虚拟机 | Azure"
 description: "教程 - 使用 Azure CLI 管理 Azure 虚拟网络和 Linux 虚拟机"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0526af70178d319f87cc1305e5f44da4990754c5
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 592633bee187a8194d22f3376ae9b54c94b5a720
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>使用 Azure CLI 管理 Azure 虚拟网络和 Linux 虚拟机
 
@@ -120,7 +120,7 @@ az vm create \
 az vm deallocate --resource-group myRGNetwork --name myFrontEndVM
 ```
 
-使用 [az network public-ip update](https://docs.microsoft.com/cli/azure/network/public-ip#update) 命令更新分配方法。 在本例中，`--allocaion-metod` 将设置为 *static*。
+使用 [az network public-ip update](https://docs.microsoft.com/cli/azure/network/public-ip#update) 命令更新分配方法。 在本例中，`--allocation-method` 将设置为 *static*。
 
 ```azurecli 
 az network public-ip update --resource-group myRGNetwork --name myFrontEndIP --allocation-method static
@@ -307,4 +307,9 @@ Deny      *                           *                       Inbound      denyA
 > * 保护传入的 Internet 流量
 > * 保护 VM 到 VM 的流量
 
+请继续学习下一教程，了解如何使用 Azure 备份保护虚拟机上的数据。 
 
+> [!div class="nextstepaction"]
+> [在 Azure 中备份 Linux 虚拟机](./tutorial-backup-vms.md)
+
+<!--Update_Description: update meta properties, wording update-->

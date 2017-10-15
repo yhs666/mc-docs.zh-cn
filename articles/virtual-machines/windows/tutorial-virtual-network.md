@@ -3,7 +3,7 @@ title: "Azure 虚拟网络和 Windows 虚拟机 | Azure"
 description: "教程 - 使用 Azure PowerShell 管理 Azure 虚拟网络和 Windows 虚拟机"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2e2b33210b6cc353d042e276b999afcfc7371bb7
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 4ef5df8e29e158bde0af3f6219cb20643ba5f163
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 虚拟网络和 Windows 虚拟机
 
@@ -91,7 +91,7 @@ $frontendNic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 上管理员帐户所需的用户名和密码：
+使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 上管理员帐户所需的用户名和密码。 若要使用这些凭据连接到 VM，请执行其他步骤：
 
 ```powershell
 $cred = Get-Credential
@@ -151,7 +151,7 @@ Get-AzureRmPublicIPAddress `
 mstsc /v:<publicIpAddress>
 ``` 
 
-登录 myFrontendVM 后即可使用单行 PowerShell 安装 IIS，并启用本地防火墙规则以允许 Web 流量。 打开 PowerShell 提示符并运行以下命令：
+登录 myFrontendVM 后即可使用单行 PowerShell 安装 IIS，并启用本地防火墙规则以允许 Web 流量。 打开 VM 上 RDP 会话中的 PowerShell 提示符并运行以下命令：
 
 使用 [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/servermanager/install-windowsfeature) 运行安装 IIS web 服务器的自定义脚本扩展：
 
@@ -273,6 +273,11 @@ New-AzureRmVM `
 > * 创建虚拟网络
 > * 创建虚拟网络子网
 > * 使用网络安全组控制网络流量
-> * 查看流量规则的实际运行情况
+> * 查看正在运行的流量规则
 
+请继续学习下一教程，了解如何使用 Azure 备份监视和保护虚拟机上的数据。 。
 
+> [!div class="nextstepaction"]
+> [在 Azure 中备份 Windows 虚拟机](./tutorial-backup-vms.md)
+
+<!--Update_Description: wording update-->

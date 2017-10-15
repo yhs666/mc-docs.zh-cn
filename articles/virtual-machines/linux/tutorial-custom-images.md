@@ -3,25 +3,25 @@ title: "使用 Azure CLI 创建自定义 VM 映像 | Azure"
 description: "教程 - 使用 Azure CLI 创建自定义 VM 映像。"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/21/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 96cd2f40173216d41344a48e5d6182541494edef
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 55f9040768403d98ea3b81fc7bec7612b6ed86b8
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>使用 CLI 创建 Azure VM 的自定义映像
 
@@ -144,4 +144,4 @@ az image delete \
 > [!div class="nextstepaction"]
 > [创建高度可用的 VM](tutorial-availability-sets.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties-->

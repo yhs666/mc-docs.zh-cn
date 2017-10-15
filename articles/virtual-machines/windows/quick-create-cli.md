@@ -3,7 +3,7 @@ title: "Azure 快速入门 - 创建 Windows VM CLI | Azure"
 description: "快速了解如何使用 Azure CLI 创建 Windows 虚拟机。"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/11/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d691cee3854f605b1ceccaf9a0bd6205c28c2cdb
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 2485026059d4096b542657e60d9abc82c592fd54
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 创建 Windows 虚拟机
 
@@ -45,16 +45,12 @@ az group create --name myResourceGroup --location chinaeast
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 
+使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 创建 VM。 
 
 以下示例创建一个名为 myVM 的 VM。 此示例使用 azureuser 作为管理用户名，使用 myPassword12 作为密码。 更新这些值，使其适用于环境。 创建与虚拟机的连接时，需要这些值。
 
 ```azurecli 
-az vm create `
-  --resource-group myResourceGroup `
-  --name myVM --image win2016datacenter `
-  --admin-username azureuser `
-  --admin-password myPassword12
+az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
 ```
 
 创建 VM 后，Azure CLI 显示类似于以下示例的信息。 记下 `publicIpAaddress`。 此地址用于访问 VM。
@@ -116,3 +112,5 @@ az group delete --name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [Azure Windows 虚拟机教程](./tutorial-manage-vm.md)
+
+<!--Update_Description: wording update-->

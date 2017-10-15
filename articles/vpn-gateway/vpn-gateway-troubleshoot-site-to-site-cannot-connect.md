@@ -1,10 +1,10 @@
 ---
-title: "排查 Azure 站点到站点 VPN 连接无法建立连接的问题 | Azure"
+title: "排查 Azure 站点到站点 VPN 连接无法建立连接的问题 | Microsoft Docs"
 description: "了解如何排查站点到站点 VPN 连接突然停止工作，不能重新建立连接的问题。"
 services: vpn-gateway
 documentationcenter: na
-author: chadmath
-manager: cshepard
+author: alexchen2016
+manager: digimobile
 editor: 
 tags: 
 ms.service: vpn-gateway
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/21/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
-ms.openlocfilehash: f78014e72f6537ae0a654432c61f6974cf5a0baf
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+origin.date: 09/13/2017
+ms.date: 10/09/2017
+ms.author: v-junlch
+ms.openlocfilehash: d29c24e449eec409468dbd3d0e2fb912bbb7fc36
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>故障排除：Azure 站点到站点 VPN 连接无法建立连接并停止工作
 
@@ -38,14 +38,14 @@ ms.lasthandoff: 08/04/2017
 1. 转到 [Azure 门户](https://portal.azure.cn)。
 
 2. 有关类型信息，请查看 VPN 网关的“概述”页。
-
+    
     ![网关概述](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>步骤 1。 检查是否已验证本地 VPN 设备
 
 1. 检查是否使用的是[已验证的 VPN 设备和操作系统版本](vpn-gateway-about-vpn-devices.md#devicetable)。 如果设备是未经验证的 VPN 设备，可能需要与设备制造商联系，了解是否存在兼容性问题。
 
-2. 确保已正确配置 VPN 设备。 有关详细信息，请参阅[编辑设备配置示例](/vpn-gateway-about-vpn-devices.md#editing)。
+2. 确保已正确配置 VPN 设备。 有关详细信息，请参阅[编辑设备配置示例](vpn-gateway-about-vpn-devices.md#editing)。
 
 ### <a name="step-2-verify-the-shared-key"></a>步骤 2. 验证共享密钥
 
@@ -58,8 +58,8 @@ ms.lasthandoff: 08/04/2017
 1. 转到创建的 VPN 网关站点到站点连接。
 
 2. 在“设置”部分中，单击“共享密钥”。
-
-    ![共享密钥](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
+    
+    ![共享密钥](./media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
 **Azure PowerShell**
 
@@ -108,3 +108,5 @@ ms.lasthandoff: 08/04/2017
 
 -   [配置与虚拟网络的站点到站点连接](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [配置站点到站点 VPN 连接的 IPsec/IKE 策略](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+
+<!--Update_Description: wording update --> 

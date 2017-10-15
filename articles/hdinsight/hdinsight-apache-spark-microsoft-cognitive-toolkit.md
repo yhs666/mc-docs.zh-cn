@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 94c1b5d64fe808a0fe19d6ee56e13d11903e1b07
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: f92383cb587927052de65c39b9b829bd659f6950
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>将 Microsoft 认知工具包深入学习模型与 Azure HDInsight Spark 群集配合使用
 
@@ -125,4 +125,3 @@ ms.lasthandoff: 09/12/2017
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
-<!--Update_Description: update storage link--->

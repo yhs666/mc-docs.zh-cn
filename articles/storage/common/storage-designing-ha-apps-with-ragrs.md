@@ -1,10 +1,10 @@
 ---
-title: "使用 Azure 读取访问异地冗余存储 (RA-GRS) 设计高度可用的应用程序 | Azure"
+title: "使用 Azure 读取访问异地冗余存储 (RA-GRS) 设计高度可用的应用程序 | Microsoft Docs"
 description: "如何使用 Azure RA-GRS 存储构建足以灵活处理中断的高度可用的应用程序。"
 services: storage
 documentationcenter: .net
-author: hayley244
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
 ms.service: storage
@@ -12,28 +12,35 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 01/19/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 357bea9228bc960218e3aa19e4897dd7f3b0bec9
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+origin.date: 09/06/2017
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: 48f8d142473263da21bab71f4e70e9e85baace23
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 设计高度可用的应用程序
 
-基于云的基础结构的一个常见功能是提供用于托管应用程序的高度可用平台。 基于云的应用程序开发人员必须仔细考虑如何利用此平台为其用户提供高度可用的应用程序。 本文重点介绍了开发人员如何使用 Azure 存储读取访问权限异地冗余存储 (RA-GRS) 使应用程序可用性更高。
+基于云的基础结构（如 Azure 存储）的一个常见功能是提供用于托管应用程序的高度可用平台。 基于云的应用程序开发人员必须仔细考虑如何利用此平台为其用户提供高度可用的应用程序。 本文重点介绍开发人员如何使用读取访问异地冗余存储 (RA-GRS) 确保其 Azure 存储应用程序高度可用。
 
-有四个冗余选项 - LRS（本地冗余存储）、ZRS（区域冗余存储）、GRS（异地冗余存储）和 RA-GRS（读取访问异地冗余存储）。 本文中讨论 GRS 和 RA-GRS。 使用 GRS 选项，设置存储帐户时，数据的三个副本将保留在所选的主要区域。 其他三个副本会异步保留在 Azure 指定的次要区域中。 RA-GRS 与 GRS 相同，但前者具有对次要副本的读取权限。 有关不同 Azure 存储冗余选项的详细信息，请参阅 [Azure 存储复制](/storage/storage-redundancy)。 有关复制的文章中还介绍了配对的主要和次要区域。
+Azure 存储为存储帐户中的数据冗余提供四个选项：
+
+– LRS（本地冗余存储）
+- ZRS（区域冗余存储空间） 
+- GRS（异地冗余存储）
+- RA-GRS（读取访问异地冗余存储）。 
+
+本文重点介绍 GRS 和 RA-GRS。 使用 GRS 选项，设置存储帐户时，数据的三个副本将保留在所选的主要区域。 其他三个副本会异步保留在 Azure 指定的次要区域中。 RA-GRS 与 GRS 相同，但前者具有对次要副本的读取权限。 有关不同 Azure 存储冗余选项的详细信息，请参阅 [Azure 存储复制](storage-redundancy.md)。 有关复制的文章中还介绍了配对的主要和次要区域。
 
 本文包含代码片段，末尾有完成示例的链接，可以下载并运行。
 
 ## <a name="key-features-of-ra-grs"></a>RA-GRS 的主要功能
 
-在讨论如何使用 RA-GRS 存储之前，首先讨论其属性和行为。
+针对 RA-GRS 设计应用程序时，请记住以下要点：
 
-* Azure 存储会在主要区域中存储的数据的只读副本保留在次要区域中；如上文所述，存储服务确定次要区域的位置。
+* Azure 存储在次要区域中保留主要区域中存储的数据的只读副本。 如上所述，存储服务确定次要区域的位置。
 
 * 只读副本与主要区域中的数据 [最终一致](https://en.wikipedia.org/wiki/Eventual_consistency) 。
 
@@ -43,21 +50,23 @@ ms.lasthandoff: 08/25/2017
 
 * 如果存在影响主要区域中的数据可访问性的主要问题，Azure 团队可能会触发异地故障转移，此时指向主要区域的 DNS 条目更改为指向次要区域。
 
-* 如果发生异地故障转移，Azure 将选择新的次要位置并将数据复制到该位置，并将次要 DNS 条目指向该位置。 存储帐户复制完成之前，辅助终结点都不可用。 有关详细信息，请参阅 [What to do if an Azure Storage outage occurs](/storage/storage-disaster-recovery-guidance)（Azure 存储中断时应采取什么操作）。
+* 如果发生异地故障转移，Azure 将选择新的次要位置并将数据复制到该位置，并将次要 DNS 条目指向该位置。 存储帐户复制完成之前，辅助终结点都不可用。 有关详细信息，请参阅 [What to do if an Azure Storage outage occurs](storage-disaster-recovery-guidance.md)（Azure 存储中断时应采取什么操作）。
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>使用 RA-GRS 时的应用程序设计注意事项
 
-本文旨在介绍：如何设计在主数据中心出现重大灾难时仍可继续使用（有限功能）的应用程序。 可通过下述方法执行此操作：出现问题时，通过从次要区域转换到读取来使应用程序处理暂时或长期问题，并在主要区域可用时再次切换回去。
+本文旨在介绍：如何设计在主数据中心发生重大灾难时仍可继续使用（有限功能）的应用程序。 可以将应用程序设计为在出现问题无法从主要区域读取时，通过从次要区域读取来处理暂时性或长时间运行的问题。 当主要区域重新变为可用时，应用程序可恢复为从主要区域读取。
 
 ### <a name="using-eventually-consistent-data"></a>使用最终一致的数据
 
-此建议的解决方案假定可以返回调用应用程序的过时数据。 由于次要数据是最终一致的，所以有可能数据已写入到主要区域，但到辅助区域的更新尚未完成复制，此时主要区域不可访问。
+此建议的解决方案假定可以向调用方应用程序返回可能过时的数据。 由于次要区域中的数据是最终一致的，因此在对次要区域的更新完成复制前，主要区域可能会变为不可访问。
 
-例如，客户可以提交成功的更新，主要区域可在更新传播到次要区域前关闭。 在这种情况下，如果客户之后要求读取数据，则会收到过时的数据而非更新后的数据。 必须确定数据是否可访问，如果可访问，则需确定如何向客户发送消息。 本文的后面部分介绍了如何在次要数据中查看“上次同步时间”，了解次要区域是否为最新状态。
+例如，假设客户提交更新成功，但在更新传播到次要区域前主要区域发生故障。 当客户要求读取数据时，将从次要区域收到过时的数据而非更新后的数据。 在设计应用程序时，必须确定这是否可接受，如果可接受，如何告知客户。 
+
+本文的后面部分介绍如何查看次要数据的“上次同步时间”，以了解次要区域是否为最新状态。
 
 ### <a name="handling-services-separately-or-all-together"></a>单独或整体处理服务
 
-尽管可能性不大，但当其他服务完全可用时，某一个服务可能不可用。 可单独为每个服务（blob、队列、表）处理重试操作或只读模式，或者以一般方式为所有存储服务统一处理重试操作。
+尽管可能性不大，但当其他服务仍然完全可用时，某一个服务可能不可用。 可单独为每个服务（blob、队列、表）处理重试操作或只读模式，或者以一般方式为所有存储服务统一处理重试操作。
 
 例如，如果在应用程序中使用队列和 Blob，可以使用单独的代码处理每个队列或 Blob 的重试错误。 然后如果从 Blob 服务中重试，但队列服务仍在工作，那么只有应用程序处理 Blob 的部分会受到影响。 如果决定以一般方式处理所有存储服务重试，并使对 Blob 服务的调用返回可重试错误，则对 Blob 服务和队列服务的请求会受到影响。
 
@@ -75,11 +84,11 @@ ms.lasthandoff: 08/25/2017
 
 ## <a name="running-your-application-in-read-only-mode"></a>在只读模式下运行应用程序
 
-若要使用 RA-GRS 存储，必须能够处理失败的读取请求和失败的更新请求（此时的更新指插入、更新和删除）。 如果主数据中心发生故障，读取请求将重定向到备用数据中心，但更新请求不能重定向，因为备用数据中心是只读的。 因此需要使用其他方式在只读模式下运行应用程序。
+若要使用 RA-GRS 存储，必须能够处理失败的读取请求和失败的更新请求（此时的更新指插入、更新和删除）。 如果主数据中心发生故障，读取请求将重定向到备用数据中心， 但更新请求不能重定向到备用数据中心，因为备用数据中心是只读的。 因此，需要将应用程序设计为在只读模式下运行。
 
-例如，可以设置一个标志，在向存储服务提交任何更新前需检查此标志。 当其中一个更新请求成功时，可以跳过它，并向客户返回适当的响应。 在问题解决前，甚至可以禁用某些功能，并通知用户这些功能是暂时不可用。
+例如，可以设置一个标志，在向 Azure 存储提交任何更新请求前需检查此标志。 当其中一个更新请求成功时，可以跳过它，并向客户返回适当的响应。 在问题解决前，甚至可以禁用某些功能，并通知用户这些功能是暂时不可用。
 
-如果决定分别处理每个服务的错误，则还需要处理在只读模式下按服务运行应用程序的能力。 可为可以启用和禁用的每个服务设置只读标志，并在代码中的适当位置处理相应的标志。
+如果决定分别处理每个服务的错误，则还需要处理在只读模式下按服务运行应用程序的能力。 例如，可以为每个可启用和禁用的服务设置只读标志。 然后可以在代码中的适当位置处理该标志。
 
 无法在只读模式下运行应用程序具有另一个连带好处 - 可在主要应用程序升级期间确保有限的功能。 可以触发应用程序在只读模式下运行并指向备用数据中心，确保在升级时没有任何用户访问主要区域中的数据。
 
@@ -147,7 +156,7 @@ ms.lasthandoff: 08/25/2017
 
 *   为传递到存储请求的 [**OperationContext**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) 对象上的[**重试**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx)事件添加处理程序 - 这是本文演示的方法，且在随附的示例中使用了该方法。 每当客户端重试请求时都会触发这些事件，以便跟踪客户端在主终结点上遇到可重试错误的频率。
 
-    ```csharp
+    ```csharp 
     operationContext.Retrying += (sender, arguments) =>
     {
         // Retrying in the primary region
@@ -158,18 +167,18 @@ ms.lasthandoff: 08/25/2017
 
 *   在自定义重试策略的 [**Evaluate**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) 方法中，每次重试时均可运行自定义代码。 除了在重试时进行记录外，还可利用此操作修改重试行为。
 
-    ```csharp
+    ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
     OperationContext operationContext)
     {
         var statusCode = retryContext.LastRequestResult.HttpStatusCode;
         if (retryContext.CurrentRetryCount >= this.maximumAttempts
-        || ((statusCode &gt;= 300 && statusCode &lt; 500 && statusCode != 408)
-        || statusCode == 501 // Not Implemented
-        || statusCode == 505 // Version Not Supported
+            || ((statusCode >= 300 && statusCode < 500 && statusCode != 408)
+            || statusCode == 501 // Not Implemented
+            || statusCode == 505 // Version Not Supported
             ))
         {
-        // Do not retry
+            // Do not retry
             return null;
         }
 
@@ -203,7 +212,7 @@ RA-GRS 的工作方式是将事务从主要区域复制到次要区域。 此复
 | T2       | 事务 B：<br>更新<br> 主要区域中的<br> 员工实体  |                                | T1                 | 事务 B 已写入主要区域，<br> 但尚未复制。  |
 | T3       | 事务 C：<br> 更新 <br>主要区域中的<br>管理员<br>角色实体 |                    | T1                 | 事务 C 已写入主要区域，<br> 但尚未复制。  |
 | *T4*     |                                                       | 事务 C <br>已复制到<br> 次要区域。 | T1         | 事务 C 已复制到次要区域。<br>上次同步时间未更新，因为 <br>事务 B 尚未复制。|
-| *T5*     | 从次要区域 <br>读取实体                           |                                  | T1                 | 得到员工实体的过时值， <br> 因为事务 B <br> 尚未复制。 得到管理员角色实体<br> 的新值，因为 C <br> 已复制。 上次同步时间仍未更新，<br> 因为事务 B<br> 尚未复制。 可以判断出<br>管理员角色实体不一致， <br>因为实体日期/时间晚于 <br>上次同步时间。 |
+| *T5*     | 从次要区域 <br>读取实体                           |                                  | T1                 | 获取员工实体的过时值， <br> 因为事务 B 尚未 <br> 复制。 得到管理员角色实体<br> 的新值，因为 C <br> 复制。 上次同步时间仍未<br> 更新，因为事务 B<br> 尚未复制。 可以判断出<br>管理员角色实体不一致， <br>因为实体日期/时间晚于 <br>上次同步时间。 |
 | *T6*     |                                                      | 事务 B<br> 已复制到<br> 次要区域。 | T6                 | *T6* - 通过 C 的所有事务都已 <br>复制，上次同步时间<br> 已更新。 |
 
 在此示例中，假设客户端切换为在 T5 从次要区域读取。 它此时能够成功读取**管理员角色**实体，但该实体包含的管理员数量值与次要区域中此时标记的**员工**数量不一致。 客户端只需显示此值，并且具有信息不一致的风险。 或者，客户端可能会尝试确定 **管理员角色** 可能是不一致的状态，因为更新是无序进行的，并随后告知用户这一事实。
@@ -232,8 +241,6 @@ static function OnBeforeResponse(oSession: Session) {
 
 ## <a name="next-steps"></a>后续步骤
 
-* 有关读取访问权限异地冗余的详细信息及设置 LastSyncTime 的另一示例，请参阅 [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)（Microsoft Azure 存储冗余选项和读取访问权限异地冗余存储）。
+* 有关读取访问异地冗余的详细信息及如何设置 LastSyncTime 的另一示例，请参阅 [Windows Azure Storage Redundancy Options and Read Access Geo-Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)（Windows Azure 存储冗余选项和读取访问异地冗余存储）。
 
-* 有关如何在主终结点和辅助终结点之间来回切换的完整示例，请参阅 [Azure Samples - Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs)（Azure 示例 - 将断路器模式与 RA-GRS 存储配合使用）。
-
-<!--Update_Description: update link-->
+* 有关如何在主终结点和辅助终结点之间来回切换的完整示例，请参阅 [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs)（Azure 示例 - 将断路器模式与 RA-GRS 存储配合使用）。

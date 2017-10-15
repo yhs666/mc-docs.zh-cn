@@ -14,14 +14,14 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/14/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 684ee08bafef7b937f38c0103e7ea343a98de0ce
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 09/06/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 38974e875b4c907ab81d2e122c33dc4e89be12e9
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中通过 JDBC 驱动程序查询 Hive
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 09/12/2017
 
 ## <a name="jdbc-connection-string"></a>JDBC 连接字符串
 
-JDBC 通过 443 连接到 Azure 上的 HDInsight 群集，并使用 SSL 保护通信安全。 公用网关（群集位于其后）会将通信重定向到 HiveServer2 在其上进行实际侦听的端口。 下面是一个连接字符串示例：
+JDBC 通过 443 连接到 Azure 上的 HDInsight 群集，并使用 SSL 保护通信安全。 公用网关（群集位于其后）会将通信重定向到 HiveServer2 实际进行侦听的端口。 以下连接字符串显示要用于 HDInsight 的格式：
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.cn:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
@@ -68,16 +68,23 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
 
 1. 从 HDInsight 群集复制 Hive JDBC 驱动程序。
 
-    * 对于 **基于 Linux 的 HDInsight**，请使用以下步骤下载所需的 jar 文件。
+    * 对于基于 Linux 的 HDInsight 群集版本 3.5 或 3.6，请使用以下步骤来下载需要的 jar 文件。
 
         1. 创建一个用于包含文件的目录。 例如， `mkdir hivedriver`。
 
         2. 从命令行，使用以下命令从 HDInsight 群集复制文件：
 
             ```bash
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
             scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
             scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libfb*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
             ```
 
             将 `USERNAME` 替换为群集的 SSH 用户帐户名。 将 `CLUSTERNAME` 替换为 HDInsight 群集名称。
@@ -88,9 +95,9 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
 
             ![“远程桌面”图标](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)
 
-        2. 在“远程桌面”边栏选项卡上，使用“连接”  按钮连接到群集。 如果未启用远程桌面，请使用表单提供用户名和密码，并选择“启用”为群集启用远程桌面  。
+        2. 在远程桌面部分中，选择“连接”按钮连接到群集。 如果未启用远程桌面，请使用表单提供用户名和密码，并选择“启用”为群集启用远程桌面  。
 
-            ![“远程桌面”边栏选项卡](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
+            ![远程桌面部分](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
 
             选择“连接”后，将会下载 .rdp 文件。 使用此文件来启动远程桌面客户端。 出现提示时，使用输入的用户名和密码进行远程桌面访问。
 
@@ -144,7 +151,7 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
 
     ![添加别名对话框](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
 
-    使用“测试”按钮验证连接是否有效。 出现“连接到: Hive on HDInsight”对话框时，选择“连接”执行测试。 如果测试成功，将会显示“连接成功”对话框。
+    使用“测试”按钮验证连接是否有效。 出现“连接到: Hive on HDInsight”对话框时，选择“连接”执行测试。 如果测试成功，将会显示“连接成功”对话框。 如果发生错误，请参阅[故障排除](#troubleshooting)。
 
     若要保存连接别名，请使用“添加别名”对话框底部的“确定”按钮。
 
@@ -171,7 +178,7 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-**症状**：连接到 HDInsight 群集 3.3 版或 3.4 版时，可能会遇到意外错误。 此错误的堆栈跟踪的开头为以下行：
+**症状**：连接到 HDInsight 群集版本 3.3 或更高版本时，可能会遇到意外错误。 此错误的堆栈跟踪的开头为以下行：
 
 ```java
 java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
@@ -179,7 +186,7 @@ at java.util.concurrent.FutureTas...(FutureTask.java:122)
 at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 ```
 
-**原因**：之所以出现此错误，是因为 SQuirreL 使用的 common-codec.jar 文件版本与 Hive JDBC 组件所需的文件版本不匹配。
+**可能的原因**：此错误由 SQuirreL 随附的较旧版本 commons-codec.jar 文件引起。
 
 **解决方法**：若要解决此错误，请使用以下步骤：
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-origin.date: 07/13/2017
-ms.date: 09/14/2017
+origin.date: 08/22/2017
+ms.date: 10/09/2017
 ms.author: v-junlch
-ms.openlocfilehash: fc4a3c9f6e711135544614aa0597a9c3327c8ac1
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: 50adc036d0e6519ccec27e7ea5d4fa76a642d8f8
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>如何配置 Azure Redis 缓存
 本主题介绍如何查看和更新 Azure Redis 缓存实例的配置，并介绍了 Azure Redis 缓存实例的默认 Redis 服务器配置。
@@ -64,13 +64,14 @@ ms.lasthandoff: 09/15/2017
  - [Redis 指标](#redis-metrics)
  - [诊断](#diagnostics)
 
+
 ## <a name="overview"></a>概述
 
 **概述**提高有关缓存的基本信息，如名称、端口、定价层和所选缓存度量值等。
 
 ### <a name="activity-log"></a>活动日志
 
-单击“活动日志”可查看已对缓存执行的操作。 也可以使用筛选来展开此视图，以包含其他资源。 有关如何使用审核日志的详细信息，请参阅 [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md)（使用 Resource Manager 执行审核操作）。 
+单击“活动日志”可查看已对缓存执行的操作。 也可以使用筛选来展开此视图，以包含其他资源。 有关如何使用审核日志的详细信息，请参阅 [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md)（使用 Resource Manager 执行审核操作）。 有关监视 Azure Redis 缓存事件的详细信息，请参阅[操作和警报](cache-how-to-monitor.md#operations-and-alerts)。
 
 ### <a name="access-control-iam"></a>访问控制 (IAM)
 
@@ -215,29 +216,13 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 
 
 ### <a name="redis-data-persistence"></a>Redis 数据持久性
-单击“Redis 数据持久性”可启用、禁用或配置高级缓存的数据持久性。
+单击“Redis 数据持久性”可启用、禁用或配置高级缓存的数据持久性。 Azure Redis 缓存通过 [RDB 持久性](cache-how-to-premium-persistence.md#configure-rdb-persistence)或 [AOF 持久性](cache-how-to-premium-persistence.md#configure-aof-persistence)提供 Redis 持久性。
 
-![Redis 数据持久性](./media/cache-configure/redis-cache-persistence-settings.png)
+有关详细信息，请参阅[如何为高级 Azure Redis 缓存配置持久性](cache-how-to-premium-persistence.md)。
 
-若要启用 Redis 暂留，请单击“启用”来启用 RDB（Redis 数据库）备份。 若要禁用 Redis 持久性，请单击“已禁用”。
-
-若要配置备份间隔，请从下拉列表中选择以下“备份频率”项之一。 
-
-- **15 分钟**
-- **30 分钟**
-- **60 分钟**
-- **6 小时**
-- **12 小时**
-- **24 小时**
-
-在上一个备份操作成功完成以后，备份间隔将开始倒计时，同时会启动新的备份。
-
-单击“存储帐户”以选择要使用的存储帐户，并从“存储密钥”下拉列表中选择要使用的“主密钥”或“辅助密钥”。 必须选择与缓存处于相同区域的存储帐户，建议选择“高级存储”帐户，因为高级存储的吞吐量较高。 不管任何时候，只要重新生成了持久性帐户的存储密钥，就必须从“存储密钥”下拉列表中重新选择所需的密钥。
-
-单击“确定”可保存暂留配置。
 
 > [!IMPORTANT]
-> Redis 数据持久性仅适用于高级缓存。 有关详细信息，请参阅[如何为高级 Azure Redis 缓存配置持久性](cache-how-to-premium-persistence.md)。
+> Redis 数据持久性仅适用于高级缓存。 
 > 
 > 
 
@@ -490,4 +475,4 @@ shard1>get myKey
 ## <a name="next-steps"></a>后续步骤
 - 有关使用 Redis 命令的详细信息，请参阅[如何运行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)
 
-
+<!--Update_Description: wording update-->

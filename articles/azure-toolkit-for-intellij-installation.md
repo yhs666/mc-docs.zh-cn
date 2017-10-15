@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 04/14/2017
 ms.date: 08/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: 17925e9f89443cf9b472d64120615707ca1e0d92
-ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
+ms.openlocfilehash: 30b0a9594766f4a1e2b3a59564b67ced9f20db63
+ms.sourcegitcommit: 03b84cb00f3f77dd379463c5db4e85234bdce41a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="installing-the-azure-toolkit-for-intellij"></a>安装 Azure Toolkit for IntelliJ
 借助 Azure Toolkit for IntelliJ 提供的模板和功能，可以轻松使用 IntelliJ IDEA 开发环境来创建、开发、测试和部署 Azure 应用程序。 Azure Toolkit for IntelliJ 是一个开放源代码项目，其源代码可从 GitHub 上项目站点的 MIT 许可证下获取，URL 为：
@@ -82,10 +82,10 @@ ms.lasthandoff: 08/30/2017
 
 - [适用于 Eclipse 的 Azure 工具包]
   - [用于 Eclipse 的 Azure 工具包的新增功能]
-  - [安装 Azure Toolkit for Eclipse]
+  - [安装用于 Eclipse 的 Azure 工具包]
   - [用于 Eclipse 的 Azure 工具包的登录说明]
   - [在 Eclipse 中创建 Azure 的 Hello World Web 应用]
-- [适用于 IntelliJ 的 Azure 工具包]
+- [用于 IntelliJ 的 Azure 工具包]
   - [用于 IntelliJ 的 Azure 工具包的新增功能]
   - *安装用于 IntelliJ 的 Azure 工具包（本文）*
   - [用于 IntelliJ 的 Azure 工具包的登录说明]
@@ -96,10 +96,10 @@ ms.lasthandoff: 08/30/2017
 <!-- URL List -->
 
 [适用于 Eclipse 的 Azure 工具包]: ./azure-toolkit-for-eclipse.md
-[适用于 IntelliJ 的 Azure 工具包]: ./azure-toolkit-for-intellij.md
+[用于 IntelliJ 的 Azure 工具包]: ./azure-toolkit-for-intellij.md
 [在 Eclipse 中创建 Azure 的 Hello World Web 应用]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [在 IntelliJ 中创建 Azure 的 Hello World Web 应用]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[安装 Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[安装用于 Eclipse 的 Azure 工具包]: ./azure-toolkit-for-eclipse-installation.md
 [Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
 [用于 Eclipse 的 Azure 工具包的登录说明]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
 [用于 IntelliJ 的 Azure 工具包的登录说明]: ./azure-toolkit-for-intellij-sign-in-instructions.md

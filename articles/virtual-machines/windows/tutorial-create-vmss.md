@@ -3,7 +3,7 @@ title: "在 Azure 中为 Windows 创建虚拟机规模集 | Azure"
 description: "使用虚拟机规模集在 Windows VM 上创建和部署高度可用的应用程序"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
 origin.date: 08/11/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 63b0f5a2a969d2365522ada385a1b1a2dd10122b
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: eddb6fbc4e7d431b92b6a600e8ab25e181fe9d70
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>在 Windows 上创建虚拟机规模集和部署高度可用的应用
-利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则以根据 CPU 使用率、内存需求或网络流量进行自动缩放。 在本教程中，将在 Azure 中部署虚拟机规模集。 你将学习如何执行以下操作：
+利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 在本教程中，将在 Azure 中部署虚拟机规模集。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
 > * 使用自定义脚本扩展定义要缩放的 IIS 站点
@@ -36,11 +36,11 @@ ms.lasthandoff: 08/29/2017
 本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 ## <a name="scale-set-overview"></a>规模集概述
-规模集使用的概念与前一教程中有关[创建高度可用的 VM](tutorial-availability-sets.md) 的概念类似。 规模集中的 VM 分布在容错和更新域之间，就像可用性集中的 VM 那样。
+利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 规模集中的 VM 将分布在逻辑容错域和更新域的一个或多个*放置组*中。 这些放置组由配置类似的 VM 组成，与[可用性集](tutorial-availability-sets.md)相似。
 
 可以根据需要在规模集中创建 VM。 可以定义自动缩放规则来控制如何以及何时在规模集中添加或删除 VM。 这些规则可以根据 CPU 负载、内存用量或网络流量等指标触发。
 
-使用 Azure 平台映像时，规模集最多支持 1,000 个 VM。 对于有重要安装或 VM 自定义要求的工作负荷，可能需要[创建自定义 VM 映像](tutorial-custom-images.md)。 使用自定义映像时，在规模集中最多可以创建 100 个 VM。
+使用 Azure 平台映像时，规模集最多支持 1,000 个 VM。 对于有重要安装或 VM 自定义要求的工作负荷，可能需要[创建自定义 VM 映像](tutorial-custom-images.md)。 使用自定义映像时，在规模集中最多可以创建 300 个 VM。
 
 ## <a name="create-an-app-to-scale"></a>创建用于缩放的应用
 创建规模集之前，需使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建一个资源组。 以下示例在 ChinaEast 位置创建一个名为 myResourceGroupAutomate 的资源组：
@@ -166,7 +166,7 @@ Add-AzureRmVmssNetworkInterfaceConfiguration `
 New-AzureRmVmss `
   -ResourceGroupName myResourceGroupScaleSet `
   -Name myScaleSet `
-  -VirtualMachineScaleSet $vmssConfig     
+  -VirtualMachineScaleSet $vmssConfig
 ```
 
 创建和配置所有的规模集资源和 VM 需要几分钟时间。
@@ -297,3 +297,5 @@ Add-AzureRmAutoscaleSetting `
 
 > [!div class="nextstepaction"]
 > [对虚拟机进行负载均衡](tutorial-load-balancer.md)
+
+<!--Update_Description: update meta properties-->

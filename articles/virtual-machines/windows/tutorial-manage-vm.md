@@ -3,8 +3,8 @@ title: "使用 Azure PowerShell 模块创建和管理 Windows VM | Azure"
 description: "教程 - 使用 Azure PowerShell 模块创建和管理 Windows VM"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 
@@ -14,17 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 09467aed223a686c429be1261cbe98895066a75c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 7cbad746a17ed0ffc0de452b5ba368f2f1a1ff43
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/13/2017
 ---
-
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>使用 Azure PowerShell 模块创建和管理 Windows VM
 
 Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azure 虚拟机的基本部署项目，例如选择 VM 大小、选择 VM 映像和部署 VM。 你将学习如何执行以下操作：
@@ -71,7 +69,7 @@ $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupVM `
   -Location ChinaEast `
   -Name myVnet `
-  -AddressPrefix 192.168.0.0/16 ` 
+  -AddressPrefix 192.168.0.0/16 `
   -Subnet $subnetConfig
 ```
 ### <a name="create-public-ip-address"></a>创建公共 IP 地址
@@ -79,9 +77,9 @@ $vnet = New-AzureRmVirtualNetwork `
 使用 [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress) 创建一个公共 IP 地址：
 
 ```powershell
-$pip = New-AzureRmPublicIpAddress ` 
+$pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupVM `
-  -Location ChinaEast ` 
+  -Location ChinaEast `
   -AllocationMethod Static `
   -Name myPublicIPAddress
 ```
@@ -255,11 +253,11 @@ Get-AzureRmVMImageSku -Location "ChinaEast" -PublisherName "MicrosoftWindowsServ
 Skus                            Offer         PublisherName          Location
 ----                            -----         -------------          --------
 2008-R2-SP1                     WindowsServer MicrosoftWindowsServer ChinaEast  
-2008-R2-SP1-BYOL                WindowsServer MicrosoftWindowsServer ChinaEast  
+2008-R2-SP1-zhcn                WindowsServer MicrosoftWindowsServer ChinaEast  
 2012-Datacenter                 WindowsServer MicrosoftWindowsServer ChinaEast  
-2012-Datacenter-BYOL            WindowsServer MicrosoftWindowsServer ChinaEast  
+2012-Datacenter-zhcn            WindowsServer MicrosoftWindowsServer ChinaEast  
 2012-R2-Datacenter              WindowsServer MicrosoftWindowsServer ChinaEast  
-2012-R2-Datacenter-BYOL         WindowsServer MicrosoftWindowsServer ChinaEast  
+2012-R2-Datacenter-zhcn         WindowsServer MicrosoftWindowsServer ChinaEast  
 2016-Datacenter                 WindowsServer MicrosoftWindowsServer ChinaEast  
 2016-Datacenter-Server-Core     WindowsServer MicrosoftWindowsServer ChinaEast  
 2016-Datacenter-with-Containers WindowsServer MicrosoftWindowsServer ChinaEast  
@@ -352,7 +350,7 @@ Azure VM 可能会处于多种电源状态之一。 从虚拟机监控程序的�
 
 ```powershell
 Get-AzureRmVM `
-    -ResourceGroupName myResourceGroup `
+    -ResourceGroupName myResourceGroupVM `
     -Name myVM `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
 ```
@@ -367,7 +365,7 @@ PowerState/running
 
 ## <a name="management-tasks"></a>管理任务
 
-在虚拟机生命周期中，你可能需要运行管理任务，例如启动、停止或删除虚拟机。 此外，可能还需要创建脚本来自动执行重复或复杂的任务。 使用 Azure PowerShell，可从命令行或脚本运行许多常见的管理任务。
+在虚拟机生命周期中，可能需要运行管理任务，例如启动、停止或删除虚拟机。 此外，可能还需要创建脚本来自动执行重复或复杂的任务。 使用 Azure PowerShell，可从命令行或脚本运行许多常见的管理任务。
 
 ### <a name="stop-virtual-machine"></a>停止虚拟机
 
@@ -409,3 +407,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroupVM -Force
 > [!div class="nextstepaction"]
 > [创建和管理 VM 磁盘](./tutorial-manage-data-disk.md)
 
+<!--Update_Description: update meta properties, wording update-->

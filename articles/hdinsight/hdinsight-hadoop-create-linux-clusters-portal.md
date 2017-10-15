@@ -1,6 +1,6 @@
 ---
 title: "使用 Web 浏览器创建 Hadoop 群集 - Azure HDInsight | Azure"
-description: "了解如何使用 Web 浏览器和 Azure 门户在 Linux 上创建适用于 HDInsight 的 Hadoop、HBase、Storm 或 Spark 群集。"
+description: "了解如何使用 Web 浏览器和 Azure 预览门户在 Linux 上创建适用于 HDInsight 的 Hadoop、HBase、Storm 或 Spark 群集。"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/10/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: e933cb09101d2f6fd5f431a5c33c4abbbaaf6b82
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: fd03e1cbeb28a4ca0e806e956856e428f6fcdc56
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -64,6 +64,7 @@ Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager �
         * **操作系统**：选择“Linux”。
 
         * **版本**：如果不知道要选择哪个版本，请使用默认版本。 有关详细信息，请参阅 [HDInsight 群集版本](hdinsight-component-versioning.md)。
+    * **群集层**：Azure HDInsight 提供两个类别的大数据云产品：标准层和高级层。 有关详细信息，请参阅 [群集层](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers)。
     * 对于“群集登录用户名”和“群集登录密码”，请分别为管理员用户提供用户名和密码。
 
     * 输入“SSH 用户名”，如果要让 SSH 密码与在前面指定的管理员密码相同，则选中“使用与群集登录相同的密码”复选框。 如果不是，则提供“密码”或“公钥”，这会用于对 SSH 用户验证身份。 建议使用公钥。 单击底部的“选择”  ，保存凭据配置。
@@ -171,4 +172,4 @@ Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager �
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](hdinsight-apache-spark-eventhub-streaming.md)
-<!--Update_Description: wording update: add new include-->
+<!--Update_Description: wording update-->

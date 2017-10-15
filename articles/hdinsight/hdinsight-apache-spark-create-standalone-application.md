@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 09/18/2017
-ms.author: v-dazen
-ms.openlocfilehash: 65afb68fe93fa7af77fdab04c48b7b891d230552
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 08/25/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 3d6334dd5dad65e36eafb26991babe669d0116bf
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>创建要在 HDInsight 上的 Apache Spark 群集中运行的 Scala Maven 应用程序
 
@@ -104,21 +104,21 @@ ms.lasthandoff: 09/12/2017
           }
         }
 9. 更新 pom.xml。
-    1. 在 `<project>\<properties>` 中添加以下内容：
-        ```
-        <scala.version>2.10.4</scala.version>
-        <scala.compat.version>2.10.4</scala.compat.version>
-        <scala.binary.version>2.10</scala.binary.version>
-        ```
-    2. 在 `<project>\<dependencies>` 中添加以下内容：
-        ```
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_${scala.binary.version}</artifactId>
-            <version>1.4.1</version>
-        </dependency>
-        ```
-    将更改保存到 pom.xml。
+   
+   1. 在 `<project>\<properties>` 中添加以下内容：
+      
+          <scala.version>2.10.4</scala.version>
+          <scala.compat.version>2.10.4</scala.compat.version>
+          <scala.binary.version>2.10</scala.binary.version>
+   2. 在 `<project>\<dependencies>` 中添加以下内容：
+      
+           <dependency>
+             <groupId>org.apache.spark</groupId>
+             <artifactId>spark-core_${scala.binary.version}</artifactId>
+             <version>1.4.1</version>
+           </dependency>
+      
+      将更改保存到 pom.xml。
 10. 创建 .jar 文件。 IntelliJ IDEA 允许创建 JAR，作为项目的一个项目 (artifact)。 执行以下步骤。
 
     1. 在“文件”菜单中，单击“项目结构”。
@@ -148,28 +148,10 @@ ms.lasthandoff: 09/12/2017
 * 
             **使用 Livy 将应用程序作业远程提交**到 Spark 群集。 HDInsight 上的 Spark 群集包括 Livy，可公开 REST 终结点以远程提交 Spark 作业。 有关详细信息，请参阅[将 Livy 与 HDInsight 上的 Spark 群集配合使用以远程提交 Spark 作业](hdinsight-apache-spark-livy-rest-interface.md)。
 
-## <a name="seealso"></a>另请参阅
-* [概述：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)
+## <a name="next-step"></a>后续步骤
 
-### <a name="scenarios"></a>方案
-* [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](hdinsight-apache-spark-eventhub-streaming.md)
-* [使用 HDInsight 中的 Spark 分析网站日志](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+本文介绍如何创建 Spark scala 应用程序。 转到下一文章，了解如何使用 Livy 在 HDInsight Spark 群集上运行此应用程序。
 
-### <a name="create-and-run-applications"></a>创建和运行应用程序
-* [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
+> [!div class="nextstepaction"]
+>[使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
 
-### <a name="tools-and-extensions"></a>工具和扩展
-* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-zeppelin-notebook.md)
-* [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="manage-resources"></a>管理资源
-* [管理 Azure HDInsight 中 Apache Spark 群集的资源](hdinsight-apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](hdinsight-apache-spark-job-debugging.md)
-<!--Update_Description: change 'wasbs' -> 'wasb'; update storage link-->

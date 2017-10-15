@@ -1,9 +1,9 @@
 ---
-title: "需要在 Azure 存储中安全传输 | Azure"
+title: "需要在 Azure 存储中安全传输 | Microsoft Docs"
 description: "了解 Azure 存储的“需要安全传输”功能，以及如何启用它。"
 services: storage
 documentationcenter: na
-author: hayley244
+author: forester123
 manager: digimobile
 editor: fhryo-msft
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
 origin.date: 06/20/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: a4f05834af0f784f225819018f51eec1de919984
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: f50b5e55e8c2e51db93b6c7fd3d20d5b8a059f3a
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="require-secure-transfer"></a>需要安全传输
 
@@ -53,15 +53,15 @@ ms.lasthandoff: 08/25/2017
 
 ## <a name="enable-secure-transfer-required-programmatically"></a>以编程方式启用“需要安全传输”
 
-设置名称为存储帐户属性中的 _supportsHttpsTrafficOnly_。 可以使用 REST API、工具或库启用“需要安全传输”设置：
+设置名称为存储帐户属性中的 _supportsHttpsTrafficOnly_。 可通过 REST API、工具或库来启用它：
 
-* REST API（版本：2016-12-01）：[发布包](https://docs.microsoft.com/rest/api/storagerp/storageaccounts)
-* PowerShell（版本：4.1.0）：[发布包](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0)
-* CLI（版本：2.0.11）：[发布包](https://pypi.python.org/pypi/azure-cli-storage/2.0.11)
-* NodeJS（版本：1.1.0）：[发布包](https://www.npmjs.com/package/azure-arm-storage/)
-* .NET SDK（版本：6.3.0）：[发布包](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview)
-* Python SDK（版本：1.1.0）：[发布包](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0)
-* Ruby SDK（版本：0.11.0）：[发布包](https://rubygems.org/gems/azure_mgmt_storage)
+* [REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts)（版本：2016-12-01）
+* [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0)（版本：4.1.0）
+* [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) （版本：2.0.11）
+* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/)（版本：1.1.0）
+* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview)（版本：6.3.0）
+* [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0)（版本：1.1.0）
+* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage)（版本： 0.11.0）
 
 ### <a name="enable-secure-transfer-required-setting-with-rest-api"></a>使用 REST API 启用“需要安全传输”设置
 
@@ -111,4 +111,3 @@ Input.json 示例：
 
 ## <a name="next-steps"></a>后续步骤
 Azure 存储提供一整套安全功能，这些功能相辅相成，可让开发人员共同构建安全的应用程序。 有关详细信息，请访问[存储安全指南](storage-security-guide.md)。
-<!--Update_Description: wording update add "Enable "Secure transfer required" programmatically"-->

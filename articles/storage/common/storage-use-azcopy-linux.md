@@ -1,9 +1,9 @@
 ---
-title: "使用 Linux 上的 AzCopy 将数据复制或移动到 Azure 存储 | Azure"
+title: "使用 Linux 上的 AzCopy 将数据复制或移动到 Azure 存储 | Microsoft Docs"
 description: "使用 Linux 上的 AzCopy 实用程序将数据移动或复制到 blob 和文件内容或从中移动或复制数据。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。"
 services: storage
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 86ff7650b86ca807dc85ae574ccfce484373a001
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: 36712f7f35adafa1dfc95a0eb49ad9e7a89e2c3f
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 Linux 上的 AzCopy 传输数据
 Linux 上的 AzCopy 是一个命令行实用程序，专用于使用具有优化性能的简单命令将数据复制到 Azure Blob 和文件存储以及从这些位置复制数据。 可在存储帐户中将数据从一个对象复制到另一个对象，或者在存储帐户之间复制。
@@ -29,6 +29,8 @@ Linux 上的 AzCopy 是一个命令行实用程序，专用于使用具有优化
 ## <a name="download-and-install-azcopy"></a>下载并安装 AzCopy
 ### <a name="installation-on-linux"></a>Linux 上的安装
 
+本文包括各种版本 Ubuntu 的命令。  使用 `lsb_release -a` 命令确认分发版本和代码名称。 
+
 Linux 上的 AzCopy 在平台上需要 .NET Core Framework。 请参阅 [.NET Core](https://www.microsoft.com/net/core#linuxubuntu) 页面上的安装说明。
 
 例如，在 Ubuntu 16.10 上安装 .NET Core。 有关最新的安装指南，请访问 [Linux 上的 .NET Core](https://www.microsoft.com/net/core#linuxubuntu) 安装页面。
@@ -37,7 +39,7 @@ Linux 上的 AzCopy 在平台上需要 .NET Core Framework。 请参阅 [.NET Co
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.3
+sudo apt-get install dotnet-sdk-2.0.0
 ```
 
 安装 .NET Core 后，下载并安装 AzCopy。
@@ -465,7 +467,7 @@ azcopy \
     --include "abc.txt"
 ```
 
-如果指定的源是 Azure 文件共享，则必须指定确切的文件名（例如 `abc.txt`）以下载单个文件，或者指定选项 `--recursive` 以递归方式下载该共享中的所有文件。 尝试同时指定文件模式和选项 `--recursive` 将导致错误。
+如果指定的源是 Azure 文件共享，则必须指定确切的文件名（例如 `abc.txt`）以下载单个文件，或者指定选项 `--recursive` 以递归方式下载该共享中的所有文件。 尝试同时指定文件模式和选项 `--recursive` 会导致错误。
 
 ### <a name="download-all-files"></a>下载所有文件
 
@@ -631,7 +633,7 @@ azcopy \
 ### <a name="journal-file-folder"></a>日志文件文件夹
 每次向 AzCopy 发出命令时，它都会检查默认文件夹中是否存在日志文件，或者通过此选项指定的文件夹中是否存在日志文件。 如果这两个位置中都不存在日志文件，AzCopy 则会将操作视为新操作并生成一个新的日志文件。
 
-如果存在日志文件，AzCopy 会检查输入的命令行是否与该日志文件中的命令行相匹配。 如果两个命令行相匹配，AzCopy 会恢复未完成的操作。 如果它们不匹配，AzCopy 会提示用户是选择覆盖该日志文件以启动新操作，还是取消当前操作。
+如果存在日志文件，AzCopy 会检查输入的命令行是否与该日志文件中的命令行相匹配。 如果两个命令行相匹配，AzCopy 则将恢复未完成的操作。 如果它们不匹配，AzCopy 会提示用户是选择覆盖该日志文件以启动新操作，还是取消当前操作。
 
 如果想要为日志文件使用默认位置：
 
@@ -655,7 +657,7 @@ azcopy \
     --resume "/mnt/myjournal"
 ```
 
-如果日志文件尚不存在，此示例创建日志文件。 如果它已存在，AzCopy 则根据该日志文件恢复操作。
+如果日志文件尚不存在，此示例将创建日志文件。 如果它已存在，AzCopy 则根据该日志文件恢复操作。
 
 如果希望恢复 AzCopy 操作，请重复相同的命令。 然后 Linux 上的 AzCopy 会提示进行确认：
 
@@ -757,4 +759,4 @@ AzCopy 旨在最大程度上利用计算机资源来加快数据传输，如果�
 * [AzCopy: Transfer data with re-startable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)（AzCopy：使用可重启的模式和 SAS 令牌传输数据）
 * [AzCopy: Using cross-account Copy Blob（AzCopy：使用跨帐户复制 Blob）](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Uploading/downloading files for Azure Blobs（AzCopy：为 Azure Blob 上传/下载文件）](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-<!--Update_Description: update link-->
+

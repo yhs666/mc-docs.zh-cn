@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 32653b12705b9606bb5908a913208a32baf1f36a
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 808ec699cd35119c368ae7adfc26eb2b981077fd
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>开始使用 Hadoop 沙盒, 虚拟机上的模拟器
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 07/28/2017
 
 1. 打开 Oracle VM VirtualBox。
 2. 在“文件”菜单上，单击“导入设备”，然后指定 Hortonworks 沙盒映像。
-1. 选择 Hortonworks 沙盒，依次单击“启动”、“正常启动”。 虚拟机完成启动过程后，将显示登录说明。
+1. 选择 Hortonworks 沙盒，依次单击“启动”、“正常启动”。 虚拟机完成启动过程后，显示登录说明。
 
     ![正常启动](./media/hdinsight-hadoop-emulator-get-started/normal-start.png)
 2. 打开 Web 浏览器并导航到显示的 URL（通常是 http://127.0.0.1:8888）。

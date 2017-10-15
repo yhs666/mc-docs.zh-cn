@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/16/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 09/06/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 234242639dba829fad9805abe06a9f3bea753193
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: c947b5900004cc05bdf5b20746bd1de6cc2aa377
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>使用 Azure PowerShell 通过 HDInsight 运行 Pig 作业
 
@@ -51,12 +51,11 @@ Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 Pig �
 
 在远程 HDInsight 群集上运行 Pig 作业时，使用以下 Cmdlet：
 
-* **Login-AzureRmAccount**：对 Azure 订阅进行 Azure PowerShell 身份验证
-* **New-AzureRmHDInsightPigJobDefinition**：使用指定的 Pig Latin 语句创建 *作业定义*
-* 
-            **Start-AzureRmHDInsightJob**：将作业定义发送到 HDInsight，启动作业，并返回可用来检查作业状态的*作业*对象
+* **Login-AzureRmAccount**：在 Azure 订阅中进行 Azure PowerShell 身份验证。
+* **New-AzureRmHDInsightPigJobDefinition**：使用指定的 Pig Latin 语句创建“作业定义”。
+* **Start-AzureRmHDInsightJob**：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
 * **Wait-AzureRmHDInsightJob**：使用作业对象来检查作业的状态。 它会等到作业完成或超出等待时间。
-* **Get-AzureRmHDInsightJobOutput**：用于检索作业的输出
+* **Get-AzureRmHDInsightJobOutput**：用于检索作业输出。
 
 以下步骤演示了如何使用这些 Cmdlet 在 HDInsight 群集上运行作业。
 
@@ -131,7 +130,7 @@ Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 Pig �
 
 ## <a id="troubleshooting"></a>故障排除
 
-如果作业完成时未返回任何信息，可能表示处理期间发生错误。 如果要查看此作业的错误信息，请将以下命令添加到 **pigjob.ps1** 文件的末尾，保存后重新运行该文件。
+如果作业完成时未返回任何信息，请查看错误日志。 如果要查看此作业的错误信息，请将以下命令添加到 **pigjob.ps1** 文件的末尾，保存后重新运行该文件。
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green
@@ -141,7 +140,7 @@ Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 Pig �
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
-运行作业时，这会返回写入到服务器上的 STDERR 的信息，可用于确定该作业失败的原因。
+作业处理期间，此 cmdlet 返回写入到 STDERR 中的信息。
 
 ## <a id="summary"></a>摘要
 Azure PowerShell 提供了一种简单方法，可在 HDInsight 群集上运行 Pig 作业、监视作业状态，以及检索输出。
@@ -153,6 +152,5 @@ Azure PowerShell 提供了一种简单方法，可在 HDInsight 群集上运行 
 
 有关 HDInsight 上的 Hadoop 的其他使用方法的信息：
 
-* 
-            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)

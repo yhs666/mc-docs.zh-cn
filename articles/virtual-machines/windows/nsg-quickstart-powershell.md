@@ -3,8 +3,8 @@ title: "使用 Azure PowerShell 打开 VM 的端口 | Azure"
 description: "了解如何使用 Azure Resource Manager 部署模型和 Azure PowerShell 在 Windows VM 上打开端口/创建终结点"
 services: virtual-machines-windows
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: cf45f7d8-451a-48ab-8419-730366d54f1e
 ms.service: virtual-machines-windows
@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 05/11/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 16bb7035f673d710ade888dc9f44d715e6e864c0
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+origin.date: 08/21/2017
+ms.date: 10/16/2017
+ms.author: v-yeche
+ms.openlocfilehash: 69b13fd5251698b797b1f46b3e5c25cb3353cb81
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 10/13/2017
 ---
-# 如何在 Azure 中使用 PowerShell 打开 VM 的端口和终结点
-<a id="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell" class="xliff"></a>
+# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>如何在 Azure 中使用 PowerShell 打开 VM 的端口和终结点
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
-## 快速命令
-<a id="quick-commands" class="xliff"></a>
+## <a name="quick-commands"></a>快速命令
 若要创建网络安全组和 ACL 规则，需要[安装最新版本的 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。 也可以[使用 Azure 门户执行这些步骤](nsg-quickstart-portal.md)。
 
 登录 Azure 帐户：
@@ -35,7 +33,7 @@ ms.lasthandoff: 06/23/2017
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 
-在以下示例中，请将示例参数名称替换为你自己的值。 示例参数名称包括了 myResourceGroup、myNetworkSecurityGroup 和 myVnet。
+在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括了 myResourceGroup、myNetworkSecurityGroup 和 myVnet。
 
 使用 [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) 创建规则。 以下示例创建一个名为 myNetworkSecurityGroupRule 的规则，以允许端口 80 上的 tcp 流量：
 
@@ -89,18 +87,16 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
-## 有关网络安全组的详细信息
-<a id="more-information-on-network-security-groups" class="xliff"></a>
-利用此处的快速命令，可以让流向 VM 的流量开始正常运行。 网络安全组提供许多出色的功能和粒度来控制资源的访问。 可以[在此处详细了解如何创建网络安全组和 ACL 规则](../../virtual-network/virtual-networks-create-nsg-arm-ps.md)。
+## <a name="more-information-on-network-security-groups"></a>有关网络安全组的详细信息
+利用此处的快速命令，可以让流向 VM 的流量开始正常运行。 网络安全组提供许多出色的功能和粒度来控制资源的访问。 可以[在此处详细了解如何创建网络安全组和 ACL 规则](tutorial-virtual-network.md#manage-internal-traffic)。
 
-可以将网络安全组和 ACL 规则定义为 Azure Resource Manager 模板的一部分。 详细了解如何[使用模板创建网络安全组](../../virtual-network/virtual-networks-create-nsg-arm-template.md)。
+对于高可用性 Web 应用程序，应将 VM 放置在 Azure 负载均衡器后。 当负载均衡器向 VM 分配流量时，网络安全组可以筛选流量。 有关详细信息，请参阅[如何在 Azure 中均衡 Linux 虚拟机负载以创建高可用性应用程序](tutorial-load-balancer.md)。
 
-如果需要使用端口转发将唯一的外部端口映射至 VM 上的内部端口，则需要使用负载均衡器和网络地址转换 (NAT) 规则。 例如，你可能想对外公开 TCP 端口 8080，然后让流量定向到 VM 上的 TCP 端口 80。 可以了解如何[创建面向 Internet 的负载均衡器](../../load-balancer/load-balancer-get-started-internet-arm-ps.md)。
-
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
-在本示例中，你创建了简单的规则来允许 HTTP 流量。 下列文章更介绍了有关创建更详细环境的信息：
+## <a name="next-steps"></a>后续步骤
+在本示例中，创建了简单的规则来允许 HTTP 流量。 下列文章更介绍了有关创建更详细环境的信息：
 
 * [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)
 * [什么是网络安全组 (NSG)？](../../virtual-network/virtual-networks-nsg.md)
 * [Azure Resource Manager 中负载均衡器的概述](../../load-balancer/load-balancer-arm.md)
+
+<!--Update_Description: update meta properties, wording update, update link-->

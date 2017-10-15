@@ -1,10 +1,10 @@
 ---
-title: "使用 Azure CLI 管理 Hadoop 群集 - Azure HDInsight | Azure"
+title: "使用 Azure CLI 管理 Hadoop 群集 - Azure HDInsight | Microsoft Docs"
 description: "了解如何使用 Azure 命令行接口管理 Azure HDInsight 中的 Hadoop 群集。 Azure CLI 适用于 Windows、Mac 和 Linux。"
 services: hdinsight
 editor: cgronlun
-manager: digimobile
-author: hayley244
+manager: jhubbard
+author: mumian
 tags: azure-portal
 documentationcenter: 
 ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
@@ -14,25 +14,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 240f954d2cc3e47bcb858ae4d8eb9c2c4b6609cd
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 08/25/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 433b3f915307c315daa772670e1ce1a9ba6319e7
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>使用 Azure CLI 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-了解如何使用 [Azure 命令行接口](../cli-install-nodejs.md)管理 Azure HDInsight 中的 Hadoop 群集。 Azure CLI 是以 Node.js 实现的。 可以在支持 Node.js 的任意平台（包括 Windows、Mac 和 Linux）上使用它。
+了解如何使用 [Azure 命令行接口](../cli-install-nodejs.md)管理 Azure HDInsight 中的 Hadoop 群集。 Azure CLI 是以 Node.js 实现的。 可以在支持 Node.js 的任意平台（包括 Windows、Mac 和 Linux）上使用它。 HDInsight 目前不支持 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview)。
 
 本文仅介绍如何将 Azure CLI 与 HDInsight 配合使用。 有关如何使用 Azure CLI 的常规指南，请参阅 [安装和配置 Azure CLI][azure-command-line-tools]。
-
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ## <a name="prerequisites"></a>先决条件
 在开始阅读本文前，必须具有：
@@ -41,16 +39,22 @@ ms.lasthandoff: 09/12/2017
 * Azure CLI - 有关安装和配置信息，请参阅[安装和配置 Azure CLI](../cli-install-nodejs.md)。
 * 使用以下命令**连接到 Azure**：
 
-        azure login -e AzureChinaCloud
-
+    ```cli
+    azure login  -e AzureChinaCloud
+    ```
+  
     有关使用工作或学校帐户进行身份验证的详细信息，请参阅[从 Azure CLI 连接到 Azure 订阅](../xplat-cli-connect.md)。
 * 使用以下命令**切换到 Azure Resource Manager 模式**：
-
-        azure config mode arm
+  
+    ```cli
+    azure config mode arm
+    ```
 
 若要获得帮助，请使用 **-h** 开关。  例如：
 
-    azure hdinsight cluster create -h
+```cli
+azure hdinsight cluster create -h
+```
 
 ## <a name="create-clusters-with-the-cli"></a>使用 CLI 创建群集
 请参阅[使用 Azure CLI 在 HDInsight 中创建群集](hdinsight-hadoop-create-linux-clusters-azure-cli.md)。
@@ -58,32 +62,47 @@ ms.lasthandoff: 09/12/2017
 ## <a name="list-and-show-cluster-details"></a>列出并显示群集详细信息
 使用以下命令列出并显示群集详细信息：
 
-    azure hdinsight cluster list
-    azure hdinsight cluster show <Cluster Name>
+```cli
+azure hdinsight cluster list
+azure hdinsight cluster show <Cluster Name>
+```
 
 ![群集列表的命令行视图][image-cli-clusterlisting]
 
 ## <a name="delete-clusters"></a>删除群集
 使用以下命令来删除群集：
 
-    azure hdinsight cluster delete <Cluster Name>
+```cli
+azure hdinsight cluster delete <Cluster Name>
+```
 
 还可以通过删除包含群集的资源组来删除群集。 请注意，这会删除包括默认存储帐户的组中的所有资源。
 
-    azure group delete <Resource Group Name>
+```cli
+azure group delete <Resource Group Name>
+```
 
 ## <a name="scale-clusters"></a>缩放群集
 若要更改 Hadoop 群集大小，请执行以下操作：
 
-    azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
+```cli
+azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
+```
+
 
 ## <a name="enabledisable-http-access-for-a-cluster"></a>启用/禁用对群集的 HTTP 访问
-    azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
-    azure hdinsight cluster disable-http-access [options] <Cluster Name>
+
+```cli
+azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
+azure hdinsight cluster disable-http-access [options] <Cluster Name>
+```
 
 ## <a name="enabledisable-rdp-access-for-a-cluster"></a>启用/禁用对群集的 RDP 访问
-      azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
-      azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
+
+```cli
+azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
+azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
+```
 
 ## <a name="next-steps"></a>后续步骤
 在本文中，已了解如何执行不同的 HDInsight 群集管理任务。 若要了解更多信息，请参阅下列文章：

@@ -3,7 +3,7 @@ title: "在 Azure 中的 Windows VM 上通过策略强制执行安全措施 | Az
 description: "如何向 Azure Resource Manager Windows 虚拟机应用策略"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 98097c0703826c3fb66528713baf6b7bef72c302
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 10/16/2017
+ms.author: v-yeche
+ms.openlocfilehash: 88cf4555a7a8032c49686774abe17a092865e013
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>使用 Azure 资源管理器向 Windows VM 应用策略
 通过使用策略，组织可以在整个企业中强制实施各种约定和规则。 强制实施所需行为有助于消除风险，同时为组织的成功做出贡献。 本文介绍如何使用 Azure 资源管理器策略，为组织中的虚拟机定义所需的行为。
@@ -60,7 +60,7 @@ ms.lasthandoff: 08/29/2017
             {
               "field": "Microsoft.Compute/imageSku",
               "in": [
-                "2012-Datacenter"
+                "2012-R2-Datacenter"
               ]
             },
             {
@@ -86,6 +86,23 @@ ms.lasthandoff: 08/29/2017
 {
   "field": "Microsoft.Compute/imageSku",
   "like": "*Datacenter"
+}
+```
+
+使用 anyOf 将上述策略修改为允许任何 Windows Server 2012 R2 Datacenter 或更高版本的映像：
+
+```json
+{
+  "anyOf": [
+    {
+      "field": "Microsoft.Compute/imageSku",
+      "like": "2012-R2-Datacenter*"
+    },
+    {
+      "field": "Microsoft.Compute/imageSku",
+      "like": "2016-Datacenter*"
+    }
+  ]
 }
 ```
 
@@ -208,7 +225,6 @@ ms.lasthandoff: 08/29/2017
 }
 ```
 
-
 ## <a name="azure-hybrid-use-benefit"></a>Azure 混合使用权益
 
 如果具有本地许可证，可在虚拟机上保存许可证费用。 如果没有许可证，应禁用此选项。 以下策略禁止使用 Azure 混合使用权益 (AHUB)：
@@ -234,7 +250,7 @@ ms.lasthandoff: 08/29/2017
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 定义策略规则后（如上述示例所示），需要创建策略定义并将其分配给作用域。 作用域可以是订阅、资源组或资源。
+* 有关资源策略的简介，请参阅[资源策略概述](../../azure-resource-manager/resource-manager-policy.md)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](../../azure-resource-manager/resource-manager-subscription-governance.md)。
 
-<!--Update_Description: add section "Images for Virtual Machines", section "Virtual Machine extensions" and "Azure Hybrid Use Benefit"-->
+<!--Update_Description: update meta properties, wording update-->

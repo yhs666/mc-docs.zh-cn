@@ -1,9 +1,9 @@
 ---
-title: "Azure 存储安全指南 | Azure"
+title: "Azure 存储安全指南 | Microsoft Docs"
 description: "详细介绍保护 Azure 存储的多种方法，包括但不限于 RBAC、存储服务加密、客户端加密、SMB 3.0 和 Azure 磁盘加密。"
 services: storage
 documentationcenter: .net
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 2f16907cd96434c2c4230ef2720d8d61e56e0555
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: 727f257c422c738a18301f171ab1f8b3a91acf0a
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 ## <a name="overview"></a>概述
@@ -243,15 +243,7 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
   * [共享访问签名 - 第 2 部分：创建 SAS 并将 SAS 用于 Blob 服务](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     本文包含 SAS 模型的说明、共享访问签名的示例，以及 SAS 用法最佳实践的建议。 此外还介绍了如何吊销授予的权限。
-* 按 IP 地址限制访问权限 (IP ACL)
 
-  * [什么是终结点访问控制列表 (ACL)？](../../virtual-network/virtual-networks-acl.md)
-  * [构造服务 SAS](https://msdn.microsoft.com/library/azure/dn140255.aspx)
-
-    这是适用于服务级别 SAS 的参考文章，其中包括执行 IP ACL 的示例。
-  * [构造帐户 SAS](https://msdn.microsoft.com/library/azure/mt584140.aspx)
-
-    这是适用于帐户级别 SAS 的参考文章，其中包括执行 IP ACL 的示例。
 * 身份验证
 
   * [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)（Azure 存储服务的身份验证）
@@ -268,22 +260,21 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
 在调用 REST API 来访问存储帐户中的对象时，可以通过为存储帐户启用[需要安全传输](../storage-require-secure-transfer.md)来强制使用 HTTPS。 在启用此功能后，使用 HTTP 的连接将被拒绝。
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>传输期间对 Azure 文件共享使用加密
-使用 REST API 时，Azure 文件存储支持 HTTPS，但更通常用作附加到 VM 的 SMB 文件共享。 SMB 2.1 不支持加密，因此只允许在 Azure 中的相同区域内连接。 但是，SMB 3.0 支持加密，并且在 Windows Server 2012 R2、Windows 8、Windows 8.1 和 Windows 10 中可用，允许跨区域访问，甚至允许桌面上的访问。
+使用 REST API 时，Azure 文件支持 HTTPS，但经常用作附加到 VM 的 SMB 文件共享。 SMB 2.1 不支持加密，因此只允许在 Azure 中的相同区域内连接。 但是，SMB 3.0 支持加密，并且在 Windows Server 2012 R2、Windows 8、Windows 8.1 和 Windows 10 中可用，允许跨区域访问，甚至允许桌面上的访问。
 
 请注意，尽管 Azure 文件共享可以与 Unix 配合使用，但 Linux SMB 客户端尚不支持加密，因此只允许在 Azure 区域内访问。 Linux 的加密支持已经在负责 SMB 功能的 Linux 开发人员的路线图上。 当他们添加加密时，必须具有访问 Linux 上 Azure 文件共享的相同能力，就像对于 Windows 所做的一样。
 
 可以通过为存储帐户启用[需要安全传输](../storage-require-secure-transfer.md)来强制对 Azure 文件服务使用加密。 如果使用 REST API，则 HTTPs 是必需的。 对于 SMB，只有支持加密的 SMB 连接将会成功连接。
 
 #### <a name="resources"></a>资源
-* [如何将 Azure 文件存储与 Linux 配合使用](../storage-how-to-use-files-linux.md)
+* [Azure 文件简介](../files/storage-files-introduction.md)
+* [在 Windows 上开始使用 Azure 文件](../files/storage-how-to-use-files-windows.md)
+
+  本文概述 Azure 文件共享，以及如何在 Windows 上装载和使用这些文件共享。
+
+* [如何通过 Linux 使用 Azure 文件](../files/storage-how-to-use-files-linux.md)
 
   此文介绍如何在 Linux 系统上装载 Azure 文件共享，以及上传/下载文件。
-* [在 Windows 上开始使用 Azure 文件存储](../storage-dotnet-how-to-use-files.md)
-
-  此文概述 Azure 文件共享，以及如何通过 PowerShell 与 .NET 来装载和使用这些文件共享。
-* [Inside Azure File storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)（Azure 文件存储内部）
-
-  此文指出 Azure 文件存储已公开发布，并提供有关 SMB 3.0 加密的技术详细信息。
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>使用客户端加密来保护发送到存储的数据
 另一个可帮助确保在客户端应用程序与存储之间传输时数据安全的选项是客户端加密。 数据先经过加密，再传输到 Azure 存储。 从 Azure 存储检索数据时，在客户端上收到数据之后会将其解密。 即使数据在通过连接时已加密，但还是建议使用 HTTPS，因为它内置了数据完整性检查，有助于降低影响数据完整性的网络错误。
@@ -350,7 +341,8 @@ Azure 磁盘加密是一项新功能。 此功能允许加密 IaaS 虚拟机使�
 * 在 Linux IaaS VM 的 OS 驱动器上禁用加密
 * 使用经典 VM 创建方法创建的 IaaS VM
 * 与本地密钥管理服务集成
-* Azure 文件存储（文件共享系统）、网络文件系统 (NFS)、动态卷，以及配置了基于软件的 RAID 系统的 Windows VM
+* Azure 文件（文件共享系统）、网络文件系统 (NFS)、动态卷，以及配置了基于软件的 RAID 系统的 Windows VM
+
 
 > [!NOTE]
 > 以下 Linux 发行版（RHEL 7.2、CentOS 7.2n 和 Ubuntu 16.04）当前支持 Linux OS 磁盘加密。
@@ -366,9 +358,9 @@ Azure 磁盘加密是一项新功能。 此功能允许加密 IaaS 虚拟机使�
 #### <a name="iaas-vms-and-their-vhd-files"></a>IaaS VM 及其 VHD 文件
 对于 IaaS VM 使用的磁盘，建议使用 Azure 磁盘加密。 可以启用 SSE 来加密在 Azure 存储中用于备份这些磁盘的 VHD 文件，但它只加密新写入的数据。 这意味着，如果创建 VM，并对保存 VHD 文件的存储帐户启用 SSE，则只将加密更改，而不会加密原始 VHD 文件。
 
-如果使用 Azure 应用商店创中的映像建 VM，Azure 将在 Azure 存储中对存储帐户执行映像的[浅层复制](https://en.wikipedia.org/wiki/Object_copying) ，并且即使已启用 SSE，也不会将其加密。 创建 VM 并启动更新映像后，SSE 开始加密数据。 出于此原因，如果想要将它们完全加密，最好是在通过 Azure Marketplace 中的映像创建的 VM 上使用 Azure 磁盘加密。
+如果使用 Azure 应用商店创中的映像建 VM，Azure 将在 Azure 存储中对存储帐户执行映像的[浅层复制](https://en.wikipedia.org/wiki/Object_copying) ，并且即使已启用 SSE，也不会将其加密。 创建 VM 并启动更新映像后，SSE 将开始加密数据。 出于此原因，如果你想要将它们完全加密，最好是在通过 Azure Marketplace 中的映像创建的 VM 上使用 Azure 磁盘加密。
 
-如果从本地将预先加密的 VM 带入 Azure 中，就能将加密密钥上传到 Azure Key Vault，并继续针对本地使用的 VM 使用加密。 启用 Azure 磁盘加密即可处理此方案。
+如果通过本地将预先加密的 VM 带入 Azure 中，就能将加密密钥上传到 Azure 密钥保管库，并继续针对使用本地的 VM 使用加密。 启用 Azure 磁盘加密即可处理此方案。
 
 如果本地存在未加密 VHD，可将其作为自定义映像上传到库并从中预配 VM。 如果使用 Resource Manager 模板执行此操作，可以要求它在启动 VM 时打开 Azure 磁盘加密。
 
@@ -533,4 +525,4 @@ Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户
 
   此文介绍如何在较旧的 Windows 计算机中使用 FIPS 模式。
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

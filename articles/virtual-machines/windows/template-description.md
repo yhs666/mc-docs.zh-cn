@@ -3,7 +3,7 @@ title: "Azure Resource Manager 模板中的虚拟机 | Azure"
 description: "详细了解如何在 Azure Resource Manager 模板中定义虚拟机资源。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 9e0b9e95a9c7a2d3d03d5cde017532c44c093e68
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 10/16/2017
+ms.author: v-yeche
+ms.openlocfilehash: 5f73b5fadaca267299e46b4d569a80a468ed43c8
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 模板中的虚拟机
 
@@ -85,8 +85,7 @@ ms.lasthandoff: 08/29/2017
       "diagnosticsProfile": {
         "bootDiagnostics": {
           "enabled": "true",
-          "storageUri": "[concat('https://', variables('storageName'), 
-            '.blob.core.chinacloudapi.cn"
+          "storageUri": "[concat('https://', variables('storageName'), '.blob.core.chinacloudapi.cn')]"
         }
       } 
     },
@@ -165,7 +164,7 @@ ms.lasthandoff: 08/29/2017
 
 - REST API - [列出所有资源提供程序](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
+- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -216,11 +215,11 @@ ms.lasthandoff: 08/29/2017
 }, 
 ```
 
-部署示例模板时，先前创建的存储帐户的名称和标识符使用变量值。 变量还用于提供诊断扩展的设置。 请参阅[创建 Azure Resource Manager 模板的最佳实践](../../resource-manager-template-best-practices.md)来帮助自己确定如何构造模板中的参数和变量。
+部署示例模板时，先前创建的存储帐户的名称和标识符将使用变量值。 变量还用于提供诊断扩展的设置。 请参阅[创建 Azure Resource Manager 模板的最佳实践](../../resource-manager-template-best-practices.md)来帮助自己确定如何构造模板中的参数和变量。
 
 ## <a name="resource-loops"></a>资源循环
 
-如果需要为应用程序创建多个虚拟机，可在模板中使用 copy 元素。 此可选元素根据以参数形式指定的数目反复创建 VM：
+如果需要为应用程序创建多个虚拟机，可在模板中使用 copy 元素。 此可选元素会根据以参数形式指定的数目反复创建 VM：
 
 ```
 "copy": {
@@ -263,7 +262,7 @@ ms.lasthandoff: 08/29/2017
 ],
 ```
 
-Resource Manager 同时部署所有不依赖于其他所要部署的资源的资源。 请谨慎设置依赖关系，因为可能会无意中指定不必要的依赖关系，导致部署速度变慢。 多个资源的依赖关系可能会串联在一起。 例如，网络接口依赖于公共 IP 地址和虚拟网络资源。
+Resource Manager 将同时部署所有不依赖于其他所要部署的资源的资源。 请谨慎设置依赖关系，因为可能会无意中指定不必要的依赖关系，导致部署速度变慢。 多个资源的依赖关系可能会串联在一起。 例如，网络接口依赖于公共 IP 地址和虚拟网络资源。
 
 如何知道是否需要指定依赖关系？ 查看模板中设置的值即可。 如果虚拟机资源定义中的某个元素指向同一模板中部署的另一个资源，则需要指定依赖关系。 例如，示例虚拟机定义了一个网络配置文件：
 
@@ -283,15 +282,15 @@ Resource Manager 同时部署所有不依赖于其他所要部署的资源的资
 定义虚拟机资源时，需要使用几个 profile 元素。 其中一些元素是必需的，还有一些是可选的。 例如，hardwareProfile、osProfile、storageProfile 和 networkProfile 元素是必需的，而 diagnosticsProfile 是可选的。 这些配置文件定义如下所述的设置：
 
 - [大小](sizes.md)
-- [名称](https://docs.microsoft.com/architecture/best-practices/naming-conventions)和凭据
+- [名称](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)和凭据
 - 磁盘和[操作系统设置](cli-ps-findimage.md)
 - [网络接口](../../virtual-network/virtual-networks-multiple-nics.md) 
 - 启动诊断
 
 ## <a name="disks-and-images"></a>磁盘和映像
-   
+
 在 Azure 中，vhd 文件可以表示[磁盘或映像](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 如果 vhd 文件中的操作系统专用于特定的 VM，则该文件称为磁盘。 如果 vhd 文件中的操作系统经过通用化，用于创建许多 VM，则该文件称为映像。   
-    
+
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>从平台映像创建新虚拟机和新磁盘
 
 创建 VM 时，必须确定要使用哪个操作系统。 imageReference 元素用于定义新 VM 的操作系统。 本示例显示了 Windows Server 操作系统的定义：
@@ -328,7 +327,7 @@ Resource Manager 同时部署所有不依赖于其他所要部署的资源的资
 
 ### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>从现有托管磁盘创建新虚拟机
 
-如果要从现有磁盘创建虚拟机，请删除 imageReference 和 osProfile 元素，并定义以下磁盘设置：
+要从现有磁盘创建虚拟机，请删除 imageReference 和 osProfile 元素，并定义以下磁盘设置：
 
 ```
 "osDisk": { 
@@ -343,7 +342,7 @@ Resource Manager 同时部署所有不依赖于其他所要部署的资源的资
 
 ### <a name="create-new-virtual-machines-from-a-managed-image"></a>从托管映像创建新虚拟机
 
-如果要从托管映像创建虚拟机，请更改 imageReference 元素，并定义以下磁盘设置：
+要从托管映像创建虚拟机，请更改 imageReference 元素，并定义以下磁盘设置：
 
 ```
 "storageProfile": { 
@@ -361,7 +360,7 @@ Resource Manager 同时部署所有不依赖于其他所要部署的资源的资
 
 ### <a name="attach-data-disks"></a>附加数据磁盘
 
-可以选择性地将数据磁盘添加到 VM。 [磁盘数目](sizes.md)取决于要使用的操作系统磁盘的大小。 如果 VM 的大小设置为 Standard_DS1_v2，则可添加到 VM 的数据磁盘数目上限为 2。 本示例中向每个 VM 添加一个托管数据磁盘：
+可以选择将数据磁盘添加到 VM。 [磁盘数目](sizes.md)取决于要使用的操作系统磁盘的大小。 如果 VM 的大小设置为 Standard_DS1_v2，则可添加到 VM 的数据磁盘数目上限为 2。 在本示例中，将向每个 VM 添加一个托管数据磁盘：
 
 ```
 "dataDisks": [
@@ -377,7 +376,7 @@ Resource Manager 同时部署所有不依赖于其他所要部署的资源的资
 
 ## <a name="extensions"></a>扩展
 
-尽管[扩展](extensions-features.md)是独立的资源，但它们与 VM 密切相关。 可将扩展添加为 VM 的子资源，或添加为独立的资源。 本示例显示添加到 VM 的[诊断扩展](extensions-diagnostics-template.md)：
+尽管[扩展](extensions-features.md)是独立的资源，但它们与 VM 密切相关。 可将扩展添加为 VM 的子资源，或添加为独立的资源。 本示例显示要将[诊断扩展](extensions-diagnostics-template.md)添加到 VM：
 
 ```
 { 
@@ -455,10 +454,12 @@ start.ps1 脚本可以完成许多配置任务。 例如，在本示例中已添
 
 ![获取部署信息](./media/template-description/virtual-machines-deployment-info.png)
 
-完全可以使用同一个模板来创建资源或更新现有资源。 使用命令部署模板时，可以指定想要使用的[模式](../../resource-group-template-deploy.md)。 模式可设置为“完整”(Complete) 或“增量”(Incremental)。 默认设置为执行增量更新。 请谨慎使用“完整”模式，因为这可能会意外删除资源。 将模式设置为“完整”时，资源管理器会删除资源组中未包含在模板中的所有资源。
+完全可以使用同一个模板来创建资源或更新现有资源。 使用命令部署模板时，可以指定想要使用的[模式](../../resource-group-template-deploy.md)。 模式可设置为“完整”(Complete) 或“增量”(Incremental)。 默认设置为执行增量更新。 请谨慎使用“完整”模式，因为这可能会意外删除资源。 将模式设置为“完整”时，Resource Manager 会删除资源组中不包含在模板内的所有资源。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 参考[创作 Azure Resource Manager 模板](../../resource-group-authoring-templates.md)创建自己的模板。
 - 参考[使用 Resource Manager 模板创建 Windows 虚拟机](ps-template.md)部署创建的模板。
 - 请参阅[使用 Azure PowerShell 模块创建并管理 Windows VM](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，了解如何管理创建的 VM。
+
+<!--Update_Description: update meta properties, update link-->

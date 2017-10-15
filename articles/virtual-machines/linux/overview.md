@@ -3,56 +3,60 @@ title: "Azure 中 Linux VM 的概述 | Azure"
 description: "介绍 Linux 虚拟机上的 Azure 计算、存储和网络服务。"
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
 ms.devlang: NA
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2016
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: c80450452bc3c623ef130d1540c42f0c1bbc7af0
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 112d0c3d25b434a970e7edbd49f1a697e0475ba7
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Azure 正在不断集结各种集成的公有云服务，包括分析、虚拟机、数据库、移动、网络、存储和 Web，因此很适合用于托管解决方案。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。
 
 如果熟悉 Amazon AWS 各项功能的话，可以查看 Azure 与 AWS 的[定义映射文档](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)。
 
+<!-- Not Available ## Regions-->
 ## <a name="availability"></a>可用性
 我们宣布了行业领先的单实例虚拟机服务级别协议：可用性达到 99.9%（前提是为所有磁盘使用高级存储部署 VM）。  为了使部署符合标准 99.95% 的 VM 服务级别协议，仍需要在可用性集中部署两个或更多个运行工作负荷的 VM。 这可确保 VM 分布在我们数据中心内的多个容错域，并使用不同的维护时段部署到主机。 完整 [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) 说明了 Azure 作为整体的保证可用性。
 
 ## <a name="managed-disks"></a>托管磁盘
 
-托管磁盘为用户在后台处理 Azure 存储帐户的创建和管理，确保用户无需担心存储帐户的可伸缩性限制。 用户只需指定磁盘大小和性能层（标准或高级），Azure 就会为用户创建和管理磁盘。 即使是添加磁盘或者扩展和缩减 VM，也无需考虑要使用哪种存储。 如果要创建新的 VM，请[使用 Azure CLI 2.0](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 Azure 门户，通过托管 OS 和数据磁盘创建 VM。 如果 VM 具有非托管磁盘，则可以[将 VM 转换为由托管磁盘支持](convert-unmanaged-to-managed-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+托管磁盘为用户在后台处理 Azure 存储帐户的创建和管理，确保用户无需担心存储帐户的可伸缩性限制。 用户只需指定磁盘大小和性能层（标准或高级），Azure 就会为用户创建和管理磁盘。 即使在添加磁盘或者对 VM 进行上下伸缩的时候，也无需担心所使用的存储。 如果要创建新的 VM，请[使用 Azure CLI 2.0](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 Azure 门户，通过托管 OS 和数据磁盘创建 VM。 如果 VM 具有非托管磁盘，则可以[将 VM 转换为由托管磁盘支持](convert-unmanaged-to-managed-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 用户还可以按 Azure 区域在一个存储帐户中管理自定义映像，并使用这些映像在同一订阅中创建数百台 VM。 有关托管磁盘的详细信息，请参阅[托管磁盘概述](../windows/managed-disks-overview.md)。
 
 ## <a name="azure-virtual-machines--instances"></a>Azure 虚拟机和实例
-Azure 支持运行由多家合作伙伴提供和维护的众多热门 Linux 分发版。  可以在 Azure Marketplace 中找到 CentOS、Debian、Ubuntu、CoreOS、RancherOS、FreeBSD 以及其他分发版。 我们积极与各大 Linux 社区合作以便为 [Azure 认可的 Linux 分发版](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)列表添加更多成员。
+Azure 支持运行由多家合作伙伴提供和维护的众多热门 Linux 分发版。  可以在 Azure 应用商店中找到 CentOS、Debian、Ubuntu、CoreOS、FreeBSD 以及其他分发版。 我们积极与各大 Linux 社区合作以便为 [Azure 认可的 Linux 分发版](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)列表添加更多成员。
+<!-- Not Available on Red Hat Enterprise and RancherOS -->
 
 如果首选的 Linux 分发版目前不在库中，可以通过[在 Azure 中创建和上传 Linux VHD](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 来“自带 Linux”VM。
 
 借助 Azure 虚拟机，用户可以采用灵活的方式部署各种计算解决方案。 几乎可以在任何操作系统（Windows、Linux 或从我们不断增长的合作伙伴列表中的任一合作伙伴自定义创建的操作系统）上部署几乎任何工作负荷和任何语言。 没有找到所需的映像？  别担心，也可以使用本地的自有映像。
 
 ## <a name="vm-sizes"></a>VM 大小
-在 Azure 中部署 VM 时，需要从一系列大小中选择一个适合工作负荷的 VM 大小。 大小还会影响虚拟机的处理能力、内存和存储容量。 收费的依据是 VM 的运行时长及其消耗的分配资源量。 [虚拟机大小](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)的完整列表。
+在 Azure 中部署 VM 时，将从一系列大小中选择一个适合工作负荷的 VM 大小。 大小还会影响虚拟机的处理能力、内存和存储容量。 收费的依据是 VM 的运行时长及其消耗的分配资源量。 [虚拟机大小](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)的完整列表。
 
 下面是从我们提供的系列（A、D 和 DS）之一中选择 VM 大小的基本指导原则。
 * A 系列 VM 是高性价比的入门级 VM，适用于轻度工作负荷和开发/测试方案。 所有区域都广泛提供此系列 VM，它们可用于连接和使用虚拟机可用的所有标准资源。
+<!--Not Available * A-series sizes (A8 - A11) -->
 * D 系列 VM 旨在运行需要更高计算能力和临时磁盘性能的应用程序。 D 系列 VM 为临时磁盘提供更快的处理器、更高的内存内核比和固态驱动器 (SSD)。
 * Dv2 系列是 D 系列的最新版本，具有更强大的 CPU。 Dv2 系列 CPU 比 D 系列 CPU 快大约 35%。 该系列基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haskell) 处理器，通过 Intel Turbo Boost Technology 2.0 可以达到 3.2 GHz。 Dv2 系列的内存和磁盘配置与 D 系列相同。
+<!--Not Available * G-series-->
 
 注意：DS 系列 VM 可以访问高级存储 - 适用于 I/O 密集型工作负荷的以 SSD 为后盾的高性能低延迟存储。 高级存储只在某些区域可用。 有关详细信息，请参阅：
-
+<!-- Not Available on GS-series-->
 * [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../storage/common/storage-premium-storage.md)
 
 ## <a name="automation"></a>自动化
@@ -75,10 +79,12 @@ Microsoft 与合作伙伴紧密合作，以确保及时更新可用映像并针�
 
 * Azure 上的 Linux - [认可的分发](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * SUSE - [Azure 应用商店 - SUSE Linux Enterprise Server](https://portal.azure.cn/#create/SUSE.SUSELinuxEnterpriseServer12SP2)
+<!-- Not Avaialbe * Redhat -->
 * Canonical - [Azure 应用商店 - Ubuntu Server 16.04 LTS](https://portal.azure.cn/#create/Canonical.UbuntuServer1604LTS)
 * Debian - [Azure 应用商店 - Debian 8 "Jessie"](https://portal.azure.cn/#create/credativ.Debian8)
 * FreeBSD - [Azure 应用商店 - FreeBSD 10.3](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM)
 * CoreOS - [Azure 应用商店 - CoreOS (Stable)](https://portal.azure.cn/#create/CoreOS.CoreOSStable)
+<!-- Not Avaialbe * RancherOS -->
 
 ## <a name="getting-started-with-linux-on-azure"></a>开始在 Azure 中使用 Linux
 若要开始使用 Azure，需要 Azure 帐户、已安装 Azure CLI 和一对 SSH 公钥和私钥。
@@ -103,7 +109,7 @@ Microsoft 与合作伙伴紧密合作，以确保及时更新可用映像并针�
 * [使用门户创建 Linux VM](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="login-using-ssh-without-a-password"></a>不使用密码通过 SSH 登录
-VM 现在正在 Azure 上运行，用户可以登录。  通过 SSH 使用密码登录既耗时又不安全，  而使用 SSH 密钥则要安全快捷得多。  通过门户或 CLI 创建 Linux VM 时，有两种身份验证选择。  如果为 SSH 选择密码，则 Azure 会将 VM 配置为允许通过密码登录。  如果选择使用 SSH 公钥，则 Azure 将 VM 配置为只允许通过 SSH 密钥登录，并禁止密码登录。 若要通过只允许 SSH 密钥登录来保护 Linux VM，请在门户或 CLI 中创建 VM 的过程中使用 SSH 公钥选项。
+VM 现在正在 Azure 上运行，用户可以登录。  通过 SSH 使用密码登录既耗时又不安全，  而使用 SSH 密钥则要安全快捷得多。  通过门户或 CLI 创建 Linux VM 时，有两种身份验证选择。  如果为 SSH 选择密码，则 Azure 将 VM 配置为允许通过密码登录。  如果选择使用 SSH 公钥，则 Azure 将 VM 配置为只允许通过 SSH 密钥登录，并禁止密码登录。 若要通过只允许 SSH 密钥登录来保护 Linux VM，请在门户或 CLI 中创建 VM 的过程中使用 SSH 公钥选项。
 
 ## <a name="related-azure-components"></a>相关 Azure 组件
 ## <a name="storage"></a>存储
@@ -117,7 +123,10 @@ VM 现在正在 Azure 上运行，用户可以登录。  通过 SSH 使用密码
 * [在 Azure 中打开 Linux VM 的端口](nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [在 Azure 门户中创建完全限定的域名](portal-create-fqdn.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
+<!-- Not Avaialble ## Containers-->
 ## <a name="next-steps"></a>后续步骤
 现在已概要了解 Azure 上的 Linux。  下一步是进一步的研究，并创建一些 VM 组件！
 
 * [通过 Azure CLI 浏览不断增多的常见任务的示例脚本列表](cli-samples.md)
+
+<!--Update_Description: wording update-->

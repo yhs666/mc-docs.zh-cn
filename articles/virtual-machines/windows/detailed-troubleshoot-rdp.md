@@ -3,7 +3,7 @@ title: "在 Azure 中对远程桌面进行详细故障排除 | Azure"
 description: "查看详细的疑难解答步骤，了解如何处理无法在 Azure 中连接到 Windows 虚拟机的远程桌面问题"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-origin.date: 07/25/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 9999497a5c1ffa866685c0833e244ac574c5461e
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+origin.date: 09/06/2017
+ms.date: 10/16/2017
+ms.author: v-yeche
+ms.openlocfilehash: b54b8f928956e26b405b174a3924bd4d3f5eac67
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>详细故障排除步骤：针对 Azure 中到 Windows VM 的远程桌面连接问题
 本文提供详细的故障排除步骤，用于为基于 Windows 的 Azure 虚拟机诊断和修复复杂的远程桌面错误。
@@ -50,6 +50,7 @@ ms.lasthandoff: 08/29/2017
 
 * 在 Azure 门户中检查虚拟机的状态，查看是否存在任何明显问题。
 * 按照 [基本故障排除指南中常见 RDP 错误的快速修复步骤](troubleshoot-rdp-connection.md#quick-troubleshooting-steps)进行操作。
+* 对于自定义图像，请确保 VHD 在上传之前已准备就绪。 有关详细信息，请参阅[准备好要上传到 Azure 的 Windows VHD 或 VHDX](prepare-for-upload-vhd-image.md)。
 
 在执行这些步骤后，尝试通过远程桌面重新连接到 VM。
 
@@ -112,6 +113,7 @@ ms.lasthandoff: 08/29/2017
 使用网络安全组可以对允许的入站和出站流量进行更好的控制。 可以创建跨 Azure 虚拟网络中的子网和云服务的规则。
 
 可以查看生效的安全组规则，确保入站“允许”NSG 规则存在并已针对 RDP 端口（默认为 3389）设置优先级。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow)。
+<!-- Not Available [IP flow verify](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) -->
 
 ## <a name="source-5-windows-based-azure-vm"></a>来源 5：基于 Windows 的 Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
@@ -128,11 +130,11 @@ ms.lasthandoff: 08/29/2017
 * Windows 防火墙或其他本地防火墙使用阻止远程桌面通信的出站规则。
 * Azure 虚拟机上运行的入侵检测或网络监视软件阻止远程桌面连接。
 
-对于使用经典部署模型创建的 VM，可以使用与 Azure 虚拟机的远程 Azure PowerShell 会话。 首先，需要安装虚拟机托管云服务的证书。 转到[为 Azure 虚拟机配置安全远程 PowerShell 访问](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe)，并将 **InstallWinRMCertAzureVM.ps1** 脚本文件下载到本地计算机。
+对于使用经典部署模型创建的 VM，可以使用与 Azure 虚拟机的远程 Azure PowerShell 会话。 首先，需要安装虚拟机托管云服务的证书。 转到[为 Azure 虚拟机配置安全远程 PowerShell 访问](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe)，将 **InstallWinRMCertAzureVM.ps1** 脚本文件下载到本地计算机。
 
 接下来，安装 Azure PowerShell（如果尚未安装）。 请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
-接下来，打开 Azure PowerShell 命令提示符，并将当前文件夹更改为 **InstallWinRMCertAzureVM.ps1** 脚本文件所在的位置。 若要运行 Azure PowerShell 脚本，必须设置正确的执行策略。 运行 **Get-ExecutionPolicy** 命令，以确定当前的策略级别。 有关设置相应级别的信息，请参阅 [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx)。
+接下来，打开 Azure PowerShell 命令提示符，将当前文件夹更改为 **InstallWinRMCertAzureVM.ps1** 脚本文件所在的位置。 若要运行 Azure PowerShell 脚本，必须设置正确的执行策略。 运行 **Get-ExecutionPolicy** 命令，以确定当前的策略级别。 有关设置相应级别的信息，请参阅 [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx)。
 
 接下来，填写你的 Azure 订阅名称、云服务名称和虚拟机名称（删除 < 和 > 字符），然后运行这些命令。
 
@@ -198,3 +200,5 @@ Exit-PSSession
 [对于基于 Linux 的 Azure 虚拟机的 Secure Shell (SSH) 连接进行故障排除](../linux/troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [对在 Azure 虚拟机上运行的应用程序的访问进行故障排除](../linux/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+
+<!--Update_Description: update meta properties, wording update-->

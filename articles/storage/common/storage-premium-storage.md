@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/27/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 7462a5dd0845328a34e487675bb77c1d5837719a
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: d82eb1fe5732f56a397122fc0c76e78243915de0
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM 的高性能高级存储和托管磁盘
 Azure 高级存储为运行输入/输出 (I/O) 密集型工作负荷的虚拟机 (VM) 提供高性能、低延迟的磁盘支持。 使用高级存储的 VM 磁盘在固态硬盘 (SSD) 上存储数据。 若要利用高级存储磁盘的速度和性能优势，可将现有的 VM 磁盘迁移到高级存储。
@@ -58,7 +58,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 * **高级存储磁盘**
 
-    高级存储支持可附加到特定大小系列 VM 的 VM 磁盘。 高级存储支持 DS 系列、DSv2 系列和 Fs 系列 VM。 可以选择七个磁盘大小：P4 (32GB)、P6 (64GB)、P10 (128GB)、P20 (512GB)、P30 (1024GB)、P40 (2048GB)、P50 (4095GB)。 P4 和 P6 磁盘大小目前只能用于托管磁盘。 每种磁盘大小都有自身的性能规范。 根据应用程序的要求，可将一个或多个磁盘附加到 VM。 [高级存储的可伸缩性和性能目标](#premium-storage-scalability-and-performance-targets)中更详细介绍了规范。
+    高级存储支持可附加到特定大小系列 VM 的 VM 磁盘。 高级存储支持 DS 系列、DSv2 系列和 Fs 系列 VM。 可以选择七个磁盘大小：P4 (32GB)、P6 (64GB)、P10 (128GB)、P20 (512GB)、P30 (1024GB)、P40 (2048GB)、P50 (4095GB)。 P4 和 P6 磁盘大小目前只能用于托管磁盘。 每种磁盘大小都有自身的性能规范。 根据应用程序的要求，可将一个或多个磁盘附加到 VM。 [高级存储的可伸缩性和性能目标](#scalability-and-performance-targets)中更详细介绍了规范。
 
 * **高级页 Blob**
 
@@ -85,7 +85,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 ## <a name="supported-vms"></a>支持的 VM
 高级存储支持 DS 系列、DSv2 系列和 Fs 系列 VM。 可将标准和高级存储磁盘用于这些 VM 类型。 不能在不兼容高级存储的 VM 系列中使用高级存储磁盘。
 
-有关 Azure 中适用于 Windows 的 VM 类型和大小的信息，请参阅 [Windows VM 大小](../../virtual-machines/virtual-machines-windows-sizes-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 有关 Azure 中适用于 Linux 的 VM 类型和大小的信息，请参阅 [Linux VM 大小](../../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+有关 Azure 中适用于 Windows 的 VM 类型和大小的信息，请参阅 [Windows VM 大小](../../virtual-machines/windows/sizes-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 有关 Azure 中适用于 Linux 的 VM 类型和大小的信息，请参阅 [Linux VM 大小](../../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 下面是 DS、DSv2 和 Fs 系列 VM 的一些功能：
 

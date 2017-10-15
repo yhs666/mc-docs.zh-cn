@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: "Azure 文档和资源"
 description: "了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
-ms.openlocfilehash: aa5f2ddc68e0c24dd6fd38c4ec020ff009ee5799
-ms.sourcegitcommit: b6b000de56b7e4d68e09d8d1091f94a9310f28b3
+ms.openlocfilehash: 5644a3453d05a00a3e5376511ee968269fbdfc4c
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 10/13/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -110,7 +110,7 @@ ms.lasthandoff: 09/20/2017
                                                             <img src="media/index/logo_NET.svg" alt=""> .NET</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" target="_blank href="https://docs.microsoft.com/python/azure/">
+                                                        <a class="barLink" target="_blank" href="https://docs.microsoft.com/python/azure/">
                                                             <img src="media/index/logo_python.svg" alt=""> Python</a>
                                                     </li>
                                                     <li>
@@ -122,7 +122,7 @@ ms.lasthandoff: 09/20/2017
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" target="_blank href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">
+                                                        <a class="barLink" target="_blank" href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
                                                     </li>
                                                 </ul>
@@ -379,6 +379,27 @@ ms.lasthandoff: 09/20/2017
                                             <a href="/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
                                                 <p>ExpressRoute</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>AI + 认知服务</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/cognitive-services/computer-vision/">
+                                                <img src="media/index/API_Vis_ComputerVision.svg" alt="" />
+                                                <p>计算机视觉</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/cognitive-services/emotion/home">
+                                                <img src="media/index/API_Vis_Emotion.svg" alt="" />
+                                                <p>情感 API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/cognitive-services/face/">
+                                                <img src="media/index/API_Vis_Face.svg" alt="" />
+                                                <p>人脸 API</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1403,6 +1424,38 @@ ms.lasthandoff: 09/20/2017
                                         </div>
                                     </div>
                                 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#cognitive">AI + 认知服务</a>
+                        <ul id="cognitive" class="cardsA">
+                            <li class="fullSpan">
+                                <h2 style="margin-top:24px;margin-bottom:18px;">认知服务</h2>
+                                <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>影像</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/cognitive-services/computer-vision/"><img src="media/index/API_Vis_ComputerVision.svg" alt="" />计算机视觉</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/cognitive-services/emotion/home"><img src="media/index/API_Vis_Emotion.svg" alt="" /><span>情感 API&nbsp;<sup style="font-size:70%">预览</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/cognitive-services/face/"><img src="media/index/API_Vis_Face.svg" alt="" />人脸 API</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>

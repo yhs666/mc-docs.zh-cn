@@ -1,10 +1,10 @@
 ---
-title: "关于 Azure Windows VM 的磁盘和 VHD | Microsoft Docs"
+title: "关于 Azure Windows VM 的磁盘和 VHD | Azure"
 description: "了解 Azure 中 Windows 虚拟机磁盘和 VHD 的基础知识。"
 services: storage
 documentationcenter: 
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 0142c64d-5e8c-4d62-aa6f-06d6261f485a
 ms.service: storage
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 08/28/2017
-ms.author: robinsh
-ms.openlocfilehash: 2d63637a87af8b9c8e0fff1f1d03bff2978929e7
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/16/2017
+ms.author: v-yeche
+ms.openlocfilehash: d4ce7d1af687a6083b09e21d099e2d06dab50caf
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="about-disks-and-vhds-for-azure-windows-vms"></a>关于 Azure Windows VM 的磁盘和 VHD
 就像其他任何计算机一样，Azure 中的虚拟机将磁盘用作存储操作系统、应用程序和数据的位置。 所有 Azure 虚拟机都至少有两个磁盘，即 Windows 操作系统磁盘和临时磁盘。 操作系统磁盘基于映像创建，操作系统磁盘和该映像都存储在 Azure 存储帐户中的虚拟硬盘 (VHD) 内。 虚拟机还可以有一个或多个数据磁盘，而这些磁盘也存储为 VHD。 
 
-在本文中，我们将讨论磁盘的不同用法，并讨论可以创建和使用的不同磁盘类型。 本文也适用于 [Linux 虚拟机](about-disks-and-vhds.md)。
+在本文中，我们将讨论磁盘的不同用法，并讨论可以创建和使用的不同磁盘类型。 本文也适用于 [Linux 虚拟机](../linux/about-disks-and-vhds.md)。
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -42,7 +42,6 @@ ms.lasthandoff: 08/25/2017
 
 有关 Azure 如何使用临时磁盘的详细信息，请参阅 [Understanding the temporary drive on Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-
 ### <a name="data-disk"></a>数据磁盘
 数据磁盘是附加到虚拟机的 VHD，用于存储应用程序数据或其他需要保留的数据。 数据磁盘注册为 SCSI 驱动器并且带有所选择的字母标记。 每个数据磁盘的最大容量为 4095 GB。 虚拟机的大小决定了可附加的磁盘数目，以及可用来托管磁盘的存储类型。
 
@@ -54,7 +53,6 @@ ms.lasthandoff: 08/25/2017
 
 随时可以将数据磁盘添加到虚拟机，只需将该磁盘**附加** 到虚拟机即可。 可以使用已上传或复制到存储帐户的 VHD，也可以让 Azure 创建 VHD。 附加数据磁盘会将 VHD 文件与 VM 关联，方法是在 VHD 上放置“租约”，因此在仍附加 VHD 时无法从存储中删除它。
 
-
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
 
 ## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>最后一个建议：对非托管标准磁盘使用 TRIM 
@@ -62,7 +60,6 @@ ms.lasthandoff: 08/25/2017
 如果使用非托管标准磁盘 (HDD)，则应启用 TRIM。 TRIM 会放弃磁盘上未使用的块，以便仅对实际使用的存储进行收费。 如果创建了较大的文件，并将其删除，这样可以节省成本。 
 
 可以运行此命令来检查 TRIM 设置。 在 Windows VM 上打开命令提示符，并键入：
-
 
 ```
 fsutil behavior query DisableDeleteNotify
@@ -83,3 +80,4 @@ fsutil behavior set DisableDeleteNotify 0
 * [附加磁盘](attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)可为 VM 添加额外的存储。
 * [更改 Windows 临时磁盘的驱动器号](change-drive-letter.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)，使应用程序能够将 D: 盘用于数据。
 
+<!--Update_Description: update link-->

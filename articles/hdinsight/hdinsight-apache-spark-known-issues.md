@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 7b166e2075e53248833d0d4a290dc01190a74370
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 4ded9a3f0e1eb80c01fd688511190f3c3d5ad3ab
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight 上的 Apache Spark 群集的已知问题
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/14/2017
 
         yarn application -list
 
-    如果作业是通过未指定明确名称的 Livy 交互式会话启动的，则默认的作业名称将是 Livy；对于 Jupyter 笔记本启动的 Livy 会话，作业名称以 remotesparkmagics_* 开头。 
+    如果作业是通过未指定明确名称的 Livy 交互式会话启动的，则默认的作业名称是 Livy；对于 Jupyter 笔记本启动的 Livy 会话，作业名称以 remotesparkmagics_* 开头。 
 3. 运行以下命令以终止这些作业。 
 
         yarn application -kill <Application ID>
@@ -76,7 +76,7 @@ ms.lasthandoff: 07/14/2017
 下面是与 Jupyter 笔记本相关的一些已知问题。
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>笔记本的文件名中包含非 ASCII 字符
-可在 Spark HDInsight 群集中使用的 Jupyter 笔记本的文件名不应包含非 ASCII 字符。 如果你尝试通过 Jupyter UI 上传文件名中包含非 ASCII 字符的文件，操作将会失败且不发出提示（即，Jupyter 不允许你上传该文件，但同时也不引发可视的错误）。 
+可在 Spark HDInsight 群集中使用的 Jupyter 笔记本的文件名不应包含非 ASCII 字符。 如果你尝试通过 Jupyter UI 上传文件名中包含非 ASCII 字符的文件，操作会失败且不发出提示（即，Jupyter 不允许你上传该文件，但同时也不引发可视的错误）。 
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>加载大型笔记本时发生错误
 加载大型笔记本时，可能会看到错误“ **`Error loading notebook`** 。  
@@ -85,11 +85,11 @@ ms.lasthandoff: 07/14/2017
 
 收到此错误并不表示数据已损坏或丢失。  笔记本仍在磁盘上的 `/var/lib/jupyter` 中，可以通过 SSH 连接到群集来访问它。 有关信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-一旦使用 SSH 连接到群集后，即可将笔记本从群集复制到本地计算机（使用 SCP 或 WinSCP）作为备份，以免丢失笔记本中的重要数据。 然后，可以使用端口 8001 通过 SSH 隧道（不通过网关）连接到头节点来访问 Jupyter。  你可以从该处清除笔记本的输出，并将其重新保存，以尽量缩小笔记本的大小。
+一旦使用 SSH 连接到群集后，即可将笔记本从群集复制到本地计算机（使用 SCP 或 WinSCP）作为备份，以免丢失笔记本中的重要数据。 然后，可以使用端口 8001 通过 SSH 隧道（不通过网关）连接到头节点来访问 Jupyter。  可以从该处清除笔记本的输出，并将其重新保存，以尽量缩小笔记本的大小。
 
 若要防止今后发生此错误，必须遵循一些最佳实践：
 
-* 必须保持较小的笔记本大小。 发回到 Jupyter 的所有 Spark 作业输出都将保存在笔记本中。  一般而言，Jupyter 的最佳实践是避免对大型 RDD 或数据帧运行 `.collect()`；如果想要查看 RDD 的内容，请考虑运行 `.take()` 或 `.sample()`，这样，输出便不会太大。
+* 必须保持较小的笔记本大小。 发回到 Jupyter 的所有 Spark 作业输出都会保存在笔记本中。  一般而言，Jupyter 的最佳实践是避免对大型 RDD 或数据帧运行 `.collect()`；如果想要查看 RDD 的内容，请考虑运行 `.take()` 或 `.sample()`，这样，输出便不会太大。
 * 此外，在保存笔记本时，请清除所有输出单元以减小大小。
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>笔记本初次启动花费的时间比预期要长
@@ -125,7 +125,7 @@ ms.lasthandoff: 07/14/2017
 * [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和扩展
-* [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [使用用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-zeppelin-notebook.md)
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)

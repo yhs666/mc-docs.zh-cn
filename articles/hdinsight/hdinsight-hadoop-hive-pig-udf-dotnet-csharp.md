@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 7b64f10ccd28a854b3add959a4c5e3434ae14ee9
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 3c2bb24e33a61a117a7569c3a8409f7896325a9d
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>在 HDInsight 中的 Hadoop 上将 C# 用户定义函数与 Hive 和 Pig 流式处理配合使用
 

@@ -1,9 +1,9 @@
 ---
-title: "使用 .NET 针对 Azure 文件存储进行开发 | Azure"
+title: "使用 .NET 针对 Azure 文件存储进行开发 | Microsoft Docs"
 description: "了解如何开发使用 Azure 文件存储来存储文件数据的 .NET 应用程序和服务。"
 services: storage
 documentationcenter: .net
-author: hayley244
+author: forester123
 manager: aungoo
 editor: tysonn
 ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 05/27/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: e7a28f13a3051eee9f64fe0341ce7688ef34d965
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: 3834bb9a0e7d194a08cd44483b2656d84e4b8ec5
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="develop-for-azure-file-storage-with-net"></a>使用 .NET 针对 Azure 文件存储进行开发 
 > [!NOTE]
@@ -42,6 +42,7 @@ ms.lasthandoff: 08/25/2017
 
 > [!Note]  
 > 由于 Azure 文件存储可以通过 SMB 进行访问，因此可以编写简单的应用程序，通过标准的适用于文件 I/O 的 System.IO 类来访问 Azure 文件共享。 本文介绍如何编写使用 Azure 存储 .NET SDK 的应用程序，该 SDK 使用 [Azure 文件存储 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 与 Azure 文件存储通信。 
+
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>创建控制台应用程序，并获取程序集
 在 Visual Studio 中创建新的 Windows 控制台应用程序。 以下步骤演示如何在 Visual Studio 2017 中创建控制台应用程序，但是，其他 Visual Studio 版本中的步骤是类似的。
@@ -330,6 +331,7 @@ Azure 存储分析现在支持用于 Azure 文件存储的指标。 使用指标
 
 可以通过 [Azure 门户](https://portal.azure.cn)为 Azure 文件存储启用指标。 还可以通过 REST API 或存储客户端库中的类似物之一调用“设置文件服务属性”操作，以编程方式启用指标。
 
+
 下面的代码示例演示如何使用适用于 .NET 的存储客户端库启用 Azure 文件存储的指标。
 
 首先，在添加以上指令后，将以下 `using` 指令添加到 `Program.cs` 文件中：
@@ -400,4 +402,8 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 * [.NET 存储客户端库参考](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [文件服务 REST API 参考](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
-<!--Update_Description: update link-->
+### <a name="blog-posts"></a>博客文章
+* [Azure 文件存储现已正式发布](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Inside Azure File storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)（Azure 文件存储内部）
+* [Introducing Azure File Service（Azure 文件服务简介）](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+* [持久连接到 Azure 文件存储](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

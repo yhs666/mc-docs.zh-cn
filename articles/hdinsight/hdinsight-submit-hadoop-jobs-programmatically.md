@@ -1,6 +1,6 @@
 ---
 title: "在 HDInsight 中提交 Hadoop 作业 | Azure"
-description: "了解如何将 Hadoop 作业提交到 Azure HDInsight Hadoop。"
+description: "了解如何在 Azure HDInsight 中提交 Hadoop 作业。"
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -14,20 +14,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: df4792e7562a008506eb385d38de031193ae5f00
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 09/06/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 353d98df06936addf33b69af0895a97d6911ffed
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中提交 Hadoop 作业
 
-可以使用 .NET SDK、Curl 和 Azure PowerShell 提交 Hadoop 作业：
+可以在 Azure HDInsight 中通过使用用于 HDInsight 的 Microsoft .NET SDK、curl 或 Azure PowerShell 提交 Hadoop 作业。
 
-- 使用 .NET SDK
+## <a name="resources"></a>资源
+
+- .NET SDK：
 
   - [创建非交互式身份验证 .NET 应用程序](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [使用 HDInsight .NET SDK 运行 Hive 查询](hdinsight-hadoop-use-hive-dotnet-sdk.md)
@@ -35,19 +37,19 @@ ms.lasthandoff: 07/14/2017
   - [使用 HDInsight 中的 .NET SDK for Hadoop 运行 Sqoop 作业](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
   - [使用 HDInsight .NET SDK 运行 MapReduce 作业](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
 
-- CURL
+- curl：
 
-  - [使用 Curl 通过 HDInsight 中的 Hadoop 运行 Hive 查询](hdinsight-hadoop-use-hive-curl.md)
-  - [使用 Curl 通过 HDInsight 上的 Hadoop 运行 Pig 作业](hdinsight-hadoop-use-pig-curl.md)
-  - [使用 Curl 通过 HDInsight 中的 Hadoop 运行 Sqoop 作业](hdinsight-hadoop-use-sqoop-curl.md)
-  - [使用 Curl 通过 HDInsight 上的 Hadoop 运行 MapReduce 作业](hdinsight-hadoop-use-mapreduce-curl.md)
+  - [使用 curl 在 HDInsight 中通过 Hadoop 运行 Hive 查询](hdinsight-hadoop-use-hive-curl.md)
+  - [使用 curl 通过 HDInsight 中的 Hadoop 运行 Pig 作业](hdinsight-hadoop-use-pig-curl.md)
+  - [使用 curl 通过 HDInsight 中的 Hadoop 运行 Sqoop 作业](hdinsight-hadoop-use-sqoop-curl.md)
+  - [使用 curl 通过 HDInsight 中的 Hadoop 运行 MapReduce 作业](hdinsight-hadoop-use-mapreduce-curl.md)
 
-- PowerShell
+- PowerShell：
 
   - [使用 PowerShell 运行 Hive 查询](hdinsight-hadoop-use-hive-powershell.md)
   - [使用 PowerShell 运行 Pig 作业](hdinsight-hadoop-use-pig-powershell.md)
   - [将 Sqoop 与 HDInsight 中的 Hadoop 配合使用](hdinsight-hadoop-use-sqoop-powershell.md)
-  - [使用 PowerShell 通过 HDInsight 上的 Hadoop 运行 MapReduce 作业](hdinsight-hadoop-use-mapreduce-powershell.md)
+  - [使用 PowerShell 通过 HDInsight 中的 Hadoop 运行 MapReduce 作业](hdinsight-hadoop-use-mapreduce-powershell.md)
 
 ## <a name="see-also"></a>另请参阅
 

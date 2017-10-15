@@ -1,7 +1,7 @@
 ---
 title: "设置 Azure 导入/导出工具 | Azure"
 description: "了解如何设置 Azure 导入/导出服务的驱动器准备和修复工具。"
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 services: storage
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/29/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 77b20e7dae618c28d9c4fe945105d2ac7ad2b907
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: f1fef946add1b45387897c3598fc14b2952d5d41
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>设置 Azure 导入/导出工具
 
@@ -39,7 +39,7 @@ Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱�
 * 需要准备一台装有 Windows 7、Windows Server 2008 R2 或更高版本的 Windows 操作系统的计算机（“复制计算机”）。
 * 必须在复制计算机上安装 .NET Framework 4。
 * 必须在复制计算机上启用 BitLocker。
-* 需要一个或多个已连接到复制计算机的空 3.5 英寸 SATA 硬盘。
+* 需要一个或多个已连接到复制计算机的空 2.5 英寸或 3.5 英寸 SATA II、III 或 SSD 硬盘。
 * 打算导入的文件必须可从复制计算机访问，无论这些文件是位于网络共享还是本地硬盘驱动器上。
 
 若要尝试修复部分失败的导入，需要：
@@ -215,4 +215,4 @@ Examples:
 * [修复导出作业](../storage-import-export-tool-repairing-an-export-job-v1.md)
 * [排查 Azure 导入/导出工具问题](storage-import-export-tool-troubleshooting-v1.md)
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

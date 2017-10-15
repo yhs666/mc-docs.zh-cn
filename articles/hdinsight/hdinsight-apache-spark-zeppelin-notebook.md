@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 847a52ac759a143eb34b135be2e7e8d6f09529ff
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: fa85928be22d77994704c520bed981a18dea5e88
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上的 Apache Spark 群集中使用 Zeppelin notebook
 
@@ -193,4 +193,4 @@ Zeppelin 笔记本保存在群集头节点。 因此，如果删除群集，笔�
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
-<!--Update_Description: update storage link and change 'wasbs' into 'wasb'-->
+

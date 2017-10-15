@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/21/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 2a8e839303aba9c3263ff2801da889cce46bfafb
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 09/07/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: fc130b6922535af123be8734f0e914929074460d
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>在 Azure HDInsight 中创建 Apache Spark 群集
 
-本文介绍如何在 Azure HDInsight 中创建 Apache Spark 群集。 有关 Spark on HDInsight 的信息，请参阅[概述：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)。
+本文介绍如何在 Azure HDInsight 中创建 Apache Spark 群集，然后针对 Hive 表运行 Spark SQL 查询。 有关 Spark on HDInsight 的信息，请参阅[概述：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)。
 
    ![快速入门示意图，其中描述了在 Azure HDInsight 上创建 Apache Spark 群集的步骤](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "有关在 HDInsight 中使用 Apache Spark 的 Spark 快速入门。示意图中的步骤：创建群集；运行 Spark 交互式查询")
 
@@ -38,14 +38,13 @@ ms.lasthandoff: 09/12/2017
 
 在本部分，你将使用 [Azure Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-spark-linux/)创建 HDInsight Spark 群集。 有关其他群集创建方法，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
-1. 单击下面的图像可在 Azure 门户中打开模板。         
+1. 单击下面的图像即可在 Azure 门户中打开该模板。         
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-spark-linux%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-jupyter-spark-sql/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-    >[!NOTE]
-    > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，将一些终结点 -“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”；将允许的位置更改为“中国北部”和“中国东部”；将 HDInsight Linux 版本更改为 Azure 中国区支持的版本 3.5。
-
 2. 输入以下值：
+
+    ![使用 Azure Resource Manager 模板创建 HDInsight Spark 群集](./media/hdinsight-apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "使用 Azure Resource Manager 模板在 HDInsight 中创建 Spark 群集")
 
     * **订阅**：为此群集选择 Azure 订阅。
     * **资源组**：创建资源组或选择现有的资源组。 使用资源组管理项目的 Azure 资源。
@@ -55,9 +54,9 @@ ms.lasthandoff: 09/12/2017
     * **群集登录名和密码**：默认登录名是 admin。
     * **SSH 用户名和密码**。
 
-   请记下这些值。  本教程后面的步骤中会用到它们。
+   请记下这些值。  本教程后面会用到它们。
 
-3. 选择“固定到仪表板”；在“法律条款”中，单击“购买”；然后，单击“创建”。 会看到一个标题为“为模板部署提交部署”的新磁贴。 创建群集大约需要 20 分钟时间。
+3. 选择“我同意上述条款和条件”，选择“固定到仪表板”，并单击“购买”。 此时会出现一个标题为“为模板部署提交部署”的新磁贴。 创建群集大约需要 20 分钟时间。
 
 如果在创建 HDInsight 群集时遇到问题，可能是因为没有这样做的适当权限。 有关详细信息，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
 
@@ -66,9 +65,15 @@ ms.lasthandoff: 09/12/2017
 >
 >
 
-## <a name="run-a-hive-query-using-spark-sql"></a>使用 Spark SQL 运行 Hive 查询
+## <a name="run-spark-sql-statements-on-a-hive-table"></a>针对 Hive 表运行 Spark SQL 语句
 
-使用为 HDInsight Spark 群集配置的 Jupyter Notebook 时，会获得一个预设的 `sqlContext`，可以使用它通过 Spark SQL 来运行 Hive 查询。 本部分介绍如何启动 Jupyter Notebook 并运行基本的 Hive 查询。
+SQL（结构化查询语言）是用于查询和定义数据的最常见、最广泛使用的语言。 Spark 的创建者试图利用此知识，向更多想要处理 Hadoop 分布式文件系统 (HDFS) 中数据的分析人员受众，开放已知的数据查询语言。 Spark SQL 便是该产品。 它作为 Apache Spark 的扩展使用，可使用熟悉的 SQL 语法处理结构化数据。
+
+Spark SQL 同时支持将 SQL 和 HiveQL 作为查询语言。 其功能包括在 Python、Scala 和 Java 中绑定。 使用它，可以查询存储在多个位置的数据，例如外部数据库、结构化数据文件（示例：JSON）和 Hive 表。
+
+### <a name="running-spark-sql-on-an-hdinsight-cluster"></a>在 HDInsight 群集中运行 Spark SQL
+
+使用为 HDInsight Spark 群集配置的 Jupyter Notebook 时，会获得一个预设的 `sqlContext`，可以使用它通过 Spark SQL 来运行 Hive 查询。 本部分介绍如何启动 Jupyter notebook，然后针对在所有 HDInsight 群集上都可用的现有 Hive 表 (**hivesampletable**) 运行基本 Spark SQL 查询。
 
 1. 打开 [Azure 门户](https://portal.azure.cn/)。
 
@@ -92,9 +97,9 @@ ms.lasthandoff: 09/12/2017
 
    新 Notebook 随即会创建，并以 Untitled(Untitled.pynb) 名称打开。
 
-4. 在顶部单击笔记本名称，并根据需要输入友好名称。
+4. 在顶部单击笔记本名称，并输入一个友好名称（如果需要）。
 
-    ![为要从中运行交互式 Spark 查询的 Jupter Notebook 提供一个名称](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "为要从中运行交互式 Spark 查询的 Jupter Notebook 提供一个名称")
+    ![为要从中运行交互式 Spark 查询的 Jupyter notebook 提供一个名称](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "为要从中运行交互式 Spark 查询的 Jupyter notebook 提供一个名称")
 
 5.  将以下代码粘贴到一个空单元格中，然后按 **SHIFT + ENTER** 来运行这些代码。 在下面的代码中，`%%sql`（称为 sql magic）指示 Jupyter Notebook 使用预设的 `sqlContext` 来运行 Hive 查询。 该查询从默认情况下可以在所有 HDInsight 群集上使用的 Hive 表 (hivesampletable) 中检索前 10 行。
 

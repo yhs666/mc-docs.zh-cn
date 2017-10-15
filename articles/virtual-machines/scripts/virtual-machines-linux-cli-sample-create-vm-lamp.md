@@ -3,8 +3,8 @@ title: "Azure CLI 脚本示例 - 在负载均衡虚拟机规模集中部署 LAMP
 description: "使用自定义脚本扩展在 Azure 上的负载均衡虚拟机规模集中部署 LAMP 堆栈。"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: allclark
-manager: douge
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 
@@ -14,16 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 04/05/2017
-ms.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 66b5de20c1a965a5ca3bae7a4b78e43929f886bd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.date: 10/16/2017
+ms.author: v-yeche
+ms.custom: mvc
+ms.openlocfilehash: 8e17eb98f7a47991c810fb53fdad15a322f13003
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/13/2017
 ---
-
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>在负载均衡虚拟机规模集中部署 LAMP 堆栈
 
 此示例创建一个虚拟机规模集，并应用运行自定义脚本的扩展在规模集中每个虚拟机上部署 LAMP 堆栈。
@@ -89,7 +88,7 @@ echo "You can now reach the scale set by opening your browser to: 'http://${FQDN
 
 运行如下命令来删除资源组、规模集和 VM 以及所有相关资源。
 
-```azurecli
+```azurecli 
 az group delete -n myResourceGroup
 ```
 
@@ -99,14 +98,14 @@ az group delete -n myResourceGroup
 
 | 命令 | 说明 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#create) | 创建虚拟机规模集 |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | 添加负载均衡终结点 |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#set) | 创建对 VM 部署运行自定义脚本的扩展 |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#update-instances) | 在将扩展应用到规模集之前部署的 VM 实例上运行此自定义脚本。 |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) | 通过添加更多 VM 实例来扩大规模集。 部署实例时，在实例上运行此自定义脚本。 |
-| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#list) | 获取示例创建的 VM 的 IP 地址。 |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#show) | 获取负载均衡器使用的前端和后端端口。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | 创建虚拟机规模集 |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | 添加负载均衡终结点 |
+| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | 创建对 VM 部署运行自定义脚本的扩展 |
+| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | 在将扩展应用到规模集之前部署的 VM 实例上运行此自定义脚本。 |
+| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | 通过添加更多 VM 实例来扩大规模集。 部署实例时，在实例上运行此自定义脚本。 |
+| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_list) | 获取示例创建的 VM 的 IP 地址。 |
+| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | 获取负载均衡器使用的前端和后端端口。 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -114,3 +113,4 @@ az group delete -n myResourceGroup
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 
+<!--Update_Description: update link-->

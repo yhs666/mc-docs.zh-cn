@@ -1,6 +1,6 @@
 ---
 title: "通过 Azure 通知中心向 iOS 发送推送通知 | Azure"
-description: "在本教程中，你将了解如何使用 Azure 通知中心将推送通知发送到 iOS 应用程序。"
+description: "在本教程中，将了解如何使用 Azure 通知中心将推送通知发送到 iOS 应用程序。"
 services: notification-hubs
 documentationCenter: ios
 keywords: "推送通知, 推送通知, ios 推送通知"
@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 10/03/2016
 ms.author: v-junlch
 ms.date: 11/22/2016
-ms.openlocfilehash: e6cd27ecbe3023d953658c997e64822b90721719
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 5d8e3b019c7b476c2e784b4bc0ecd83aafece685
+ms.sourcegitcommit: 03b84cb00f3f77dd379463c5db4e85234bdce41a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a>通过 Azure 通知中心向 iOS 发送推送通知
 
@@ -28,11 +28,11 @@ ms.lasthandoff: 07/13/2017
 ## <a name="overview"></a>概述
 
 > [!NOTE]
-> 若要完成本教程，你必须有一个有效的 Azure 帐户。 如果你没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
+> 要完成本教程，必须有一个有效的 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
 
 本教程演示如何使用 Azure 通知中心将推送通知发送到 iOS 应用程序。 你将创建一个空白 iOS 应用，它使用 Apple Push Notification 服务 (APNs) 接收推送通知。 
 
-完成后，你将能够使用通知中心将推送通知广播到运行你的应用的所有设备。
+完成后，你能够使用通知中心将推送通知广播到运行你的应用的所有设备。
 
 ## <a name="before-you-begin"></a>开始之前
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>针对 iOS 推送通知配置通知中心
 
-本部分将引导你使用创建的 **.p12** 推送证书创建新的通知中心并配置 APNS 身份验证。 如果你想要使用已创建的通知中心，可以跳到步骤 5。
+本部分引导你使用创建的 **.p12** 推送证书创建新的通知中心并配置 APNS 身份验证。 如果想要使用已创建的通知中心，可以跳到步骤 5。
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
@@ -73,9 +73,9 @@ ms.lasthandoff: 07/13/2017
 
 &emsp;&emsp;![在 Azure 门户中配置 APNS 证书](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
-你的通知中心现在已配置为使用 APNS，并且你有连接字符串用于注册你的应用和发送推送通知。
+通知中心现在已配置为使用 APNS，并且你有连接字符串用于注册应用和发送推送通知。
 
-## <a name="connect-your-ios-app-to-notification-hubs"></a>将你的 iOS 应用连接到通知中心
+## <a name="connect-your-ios-app-to-notification-hubs"></a>将 iOS 应用连接到通知中心
 
 1. 在 Xcode 中，创建新的 iOS 项目，然后选择“单视图应用程序”模板。
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 07/13/2017
 
     ![解压缩 Azure SDK][10]
 
-5. 将新的标头文件添加到名为 `HubInfo.h`的项目。 此文件将保存通知中心的常量。  添加以下定义，然后将字符串文本占位符替换为中心名称以及前面记下的 DefaultListenSharedAccessSignature。
+5. 将新的标头文件添加到名为 `HubInfo.h` 的项目。 此文件将保存通知中心的常量。  添加以下定义，然后将字符串文本占位符替换为中心名称以及前面记下的 DefaultListenSharedAccessSignature。
 
     ```
     #ifndef HubInfo_h
@@ -117,7 +117,7 @@ ms.lasthandoff: 07/13/2017
      #import "HubInfo.h"
     ```
 
-7. 根据 iOS 版本，在 `AppDelegate.m file` 的 `didFinishLaunchingWithOptions` 方法中添加以下代码。 此代码将向 APNs 注册设备句柄：
+7. 根据 iOS 版本，在 `AppDelegate.m file` 的 `didFinishLaunchingWithOptions` 方法中添加以下代码。 此代码向 APNs 注册设备句柄：
 
     对于 iOS 8：
 
@@ -135,7 +135,7 @@ ms.lasthandoff: 07/13/2017
      [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     ```
 
-8. 在同一文件中，添加以下方法。 此代码将使用你在 HubInfo.h 中指定的连接信息连接到通知中心。 然后，它向通知中心提供设备令牌，使通知中心能够发送通知：
+8. 在同一文件中，添加以下方法。 此代码将使用在 HubInfo.h 中指定的连接信息连接到通知中心。 然后，它向通知中心提供设备令牌，使通知中心能够发送通知：
 
     ```
     - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
@@ -182,9 +182,9 @@ ms.lasthandoff: 07/13/2017
 ## <a name="optional-send-push-notifications-from-the-app"></a>（可选）从应用发送推送通知
 
 >[!IMPORTANT]
-> 提供这个从客户端应用发送通知查询的示例仅供学习。 由于这需要将 `DefaultFullSharedAccessSignature` 呈现在客户端应用中，这使您的通知中心面临这样的风险：即用户可能会获得相应访问权限将未经授权的通知发送到您的客户端。
+> 提供这个从客户端应用发送通知查询的示例仅供学习。 由于这需要将 `DefaultFullSharedAccessSignature` 呈现在客户端应用中，这使通知中心面临这样的风险：即用户可能会获得相应访问权限将未经授权的通知发送到客户端。
 
-如果你要从应用内发送推送通知，本节提供如何使用 REST 接口执行此操作的示例。
+如果要从应用内发送推送通知，本节提供如何使用 REST 接口执行此操作的示例。
 
 1. 在 Xcode 中，打开 `Main.storyboard` 并从对象库添加以下 UI 组件，以允许用户在应用中发送推送通知：
 
@@ -232,7 +232,7 @@ ms.lasthandoff: 07/13/2017
     #import "HubInfo.h"
     ```
 
-5. 在 `ViewController.m` 中，将以下代码添加到接口实现。 此代码将会分析你的 *DefaultFullSharedAccessSignature* 连接字符串。 如 [REST API 参考](http://msdn.microsoft.com/zh-cn/library/azure/dn495627.aspx)中所述，此类已分析的信息将用于生成 **Authorization** 请求标头的 SaS 令牌。
+5. 在 `ViewController.m` 中，将以下代码添加到接口实现。 此代码会分析你的 *DefaultFullSharedAccessSignature* 连接字符串。 如 [REST API 参考](http://msdn.microsoft.com/zh-cn/library/azure/dn495627.aspx)中所述，此类已分析的信息用于生成 **Authorization** 请求标头的 SaS 令牌。
 
     ```
     NSString *HubEndpoint;
@@ -462,9 +462,9 @@ ms.lasthandoff: 07/13/2017
 
 可以在 Apple [本地和推送通知编程指南]中查看所有可能的通知负载。
 
-## <a name="checking-if-your-app-can-receive-push-notifications"></a>检查你的应用能否接收推送通知
+## <a name="checking-if-your-app-can-receive-push-notifications"></a>检查应用能否接收推送通知
 
-若要在 iOS 上测试推送通知，必须将应用部署到物理 iOS 设备。 不能使用 iOS 模拟器发送 Apple 推送通知。
+要在 iOS 上测试推送通知，必须将应用部署到物理 iOS 设备。 不能使用 iOS 模拟器发送 Apple 推送通知。
 
 1. 运行应用并验证注册是否成功，然后按“确定”。
 
@@ -480,7 +480,7 @@ ms.lasthandoff: 07/13/2017
 
 ##后续步骤<a name="next-steps"></a>
 
-在这个简单的示例中，你已将推送通知广播到所有已注册的 iOS 设备。 建议转到 [Azure 通知中心 - 使用 .NET 后端通知 iOS 用户] 教程开始下一步的学习，该教程将引导你使用标记创建后端以发送推送通知。 
+在这个简单的示例中，已将推送通知广播到所有已注册的 iOS 设备。 建议转到 [Azure 通知中心 - 使用 .NET 后端通知 iOS 用户] 教程开始下一步的学习，该教程将引导使用标记创建后端以发送推送通知。 
 
 如果要按兴趣组划分用户，可以进一步阅读 [使用通知中心发送突发新闻] 教程。 
 

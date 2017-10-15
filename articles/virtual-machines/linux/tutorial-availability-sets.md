@@ -3,7 +3,7 @@ title: "Azure 中 Linux VM 的可用性集教程 | Azure"
 description: "了解 Azure 中 Linux VM 的可用性集。"
 documentationcenter: 
 services: virtual-machines-linux
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -12,16 +12,16 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 origin.date: 05/22/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a6958cc3351419f4caf9d192ad439ea7c72d7ab0
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 964e943f0c2e59bfe2409878a7d28257aefd453d
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-use-availability-sets"></a>如何使用可用性集
 
@@ -42,9 +42,9 @@ ms.lasthandoff: 08/29/2017
 
 可用性集是一种逻辑分组功能，在 Azure 中使用它可以确保将 VM 资源部署在 Azure 数据中心后，这些资源相互隔离。 Azure 确保可用性集中部署的 VM 能够跨多个物理服务器、计算机架、存储单元和网络交换机运行。 这样就可以确保当出现硬件或 Azure 软件故障时，只有一部分 VM 会受到影响，整体应用程序仍会保持运行，供客户使用。 如果想要构建可靠的云解决方案，可用性集是要利用的一项关键功能。
 
-假设某个基于 VM 的典型解决方案包含 4 个前端 Web 服务器，以及 2 个托管数据库的后端 VM。 在 Azure 中，需要在部署 VM 之前先定义两个可用性集：一个可用性集用于“Web”层，另一个可用性集用于“数据库”层。 然后，在创建新的 VM 时，可在 az vm create 命令中指定可用性集作为参数，Azure 可自动确保在可用性集中创建的 VM 在多个物理硬件资源之间保持隔离。 这意味着，如果运行某个 Web 服务器或数据库服务器的物理硬件有问题，你可以确信 Web 服务器和数据库 VM 的其他实例会保持正常运行，因为它们位于不同的硬件上。
+假设某个基于 VM 的典型解决方案包含 4 个前端 Web 服务器，以及 2 个托管数据库的后端 VM。 在 Azure 中，需要在部署 VM 之前先定义两个可用性集：一个可用性集用于“Web”层，另一个可用性集用于“数据库”层。 然后，在创建新的 VM 时，可在 az vm create 命令中指定可用性集作为参数，Azure 可自动确保在可用性集中创建的 VM 在多个物理硬件资源之间保持隔离。 这意味着，如果运行某个 Web 服务器或数据库服务器的物理硬件有问题，可以确信 Web 服务器和数据库 VM 的其他实例会保持正常运行，因为它们位于不同的硬件上。
 
-需要在 Azure 中部署可靠的基于 VM 的解决方案时，始终应该使用可用性集。
+在 Azure 中部署可靠的基于 VM 的解决方案时，应当始终使用可用性集。
 
 ## <a name="create-an-availability-set"></a>创建可用性集
 
@@ -66,6 +66,32 @@ az vm availability-set create \
 
 使用可用性集可跨“容错域”和“更新域”隔离资源。 **容错域**代表服务器、网络和存储资源的隔离集合。 前面的示例指出我们想要在部署 VM 时，将可用性集至少分布在两个容错域之间。 此外，还指出要将可用性集分布在两个**更新域**之间。  两个更新域确保当 Azure 执行软件更新时，VM 资源可以隔离，防止 VM 下面运行的所有软件同时更新。
 
+## <a name="configure-virtual-network"></a>配置虚拟网络
+需要先创建提供支持的虚拟网络资源，然后才能部署某些 VM 并测试均衡器。 有关虚拟网络的详细信息，请参阅[管理 Azure 虚拟网络](tutorial-virtual-network.md)教程。
+
+### <a name="create-network-resources"></a>创建网络资源
+使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) 创建虚拟网络。 以下示例创建名为“myVnet”的虚拟网络和一个名为“mySubnet”的子网：
+
+```azurecli 
+az network vnet create \
+    --resource-group myResourceGroupAvailability \
+    --name myVnet \
+    --subnet-name mySubnet
+```
+使用 [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) 创建虚拟 NIC。 以下示例创建三个虚拟 NIC。 （在以下步骤中针对为应用创建的每个 VM 各使用一个虚拟 NIC）。 可随时创建其他虚拟 NIC 和 VM，并将其添加到负载均衡器：
+
+```bash
+for i in `seq 1 3`; do
+    az network nic create \
+        --resource-group myResourceGroupAvailability \
+        --name myNic$i \
+        --vnet-name myVnet \
+        --subnet mySubnet \
+        --lb-name myLoadBalancer \
+        --lb-address-pools myBackEndPool
+done
+```
+
 ## <a name="create-vms-inside-an-availability-set"></a>在可用性集内创建 VM
 
 必须在可用性集中创建 VM，确保它们正确地分布在硬件中。 创建后，无法将现有 VM 添加到可用性集中。 
@@ -78,6 +104,7 @@ for i in `seq 1 2`; do
      --resource-group myResourceGroupAvailability \
      --name myVM$i \
      --availability-set myAvailabilitySet \
+     --nics myNic$i \
      --size Standard_DS1_v2  \
      --image Canonical:UbuntuServer:14.04.4-LTS:latest \
      --admin-username azureuser \
@@ -115,3 +142,4 @@ az vm availability-set list-sizes \
 > [!div class="nextstepaction"]
 > [创建 VM 规模集](tutorial-create-vmss.md)
 
+<!--Update_Description: update meta properties, wording update-->

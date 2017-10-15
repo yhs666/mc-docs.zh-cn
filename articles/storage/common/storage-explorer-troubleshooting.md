@@ -3,7 +3,7 @@ title: "Azure 存储资源管理器故障排除指南 | Azure"
 description: "Azure 两项调试功能的概述"
 services: virtual-machines
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 
@@ -12,18 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/18/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 3642dfb678b974153204b98142e1afccb72eeb7e
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+origin.date: 09/08/2017
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: 6c586281b450af6ffe54b32b12f5b92e767a7d11
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
-
-## <a name="introduction"></a>介绍
 
 Azure 存储资源管理器（预览版）是一款独立应用，可用于在 Windows、macOS 和 Linux 上轻松处理 Azure 存储数据。 该应用可以连接 Azure、 Sovereign Clouds 和 Azure Stack 上托管的存储帐户。
 
@@ -174,6 +172,13 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 
 - 请确认 URL 未过期。
 
-- 如果 SAS URL 基于访问策略，请确认访问策略尚未吊销。
+- 如果 SAS URL建立在访问策略基础上，请验证该访问策略是否被撤销。
 
-<!--Update_Description: update link-->
+## <a name="next-steps"></a>后续步骤
+
+如果以上解决方案均不起作用，可以通过反馈工具提交问题，并提供电子邮件和尽可能多的问题详细信息，以便我们联系你解决问题。
+
+为此，请单击“帮助”菜单，然后单击“发送反馈”。
+
+![反馈](./media/storage-explorer-troubleshooting/4022503_en_1.png)
+<!--Update_Description:add next steps section-->

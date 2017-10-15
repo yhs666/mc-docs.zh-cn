@@ -17,26 +17,24 @@ ms.workload: database
 origin.date: 05/10/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3f27b2a2bf4410490bd8092dafd248b283c67d42
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 4f815cb77b545aeddc1b35481e45e1f9973a7726
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 10/13/2017
 ---
-# Azure Cosmos DB：使用 PowerShell 创建 DocumentDB API 帐户
-<a id="azure-cosmos-db-create-a-documentdb-api-account-using-powershell" class="xliff"></a>
+# <a name="azure-cosmos-db-create-a-documentdb-api-account-using-powershell"></a>Azure Cosmos DB：使用 PowerShell 创建 DocumentDB API 帐户
 
 此示例 PowerShell 脚本创建一个 Azure Cosmos DB API 帐户。 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## 示例脚本
-<a id="sample-script" class="xliff"></a>
+## <a name="sample-script"></a>示例脚本
 
 ```powershell
 # Set the Azure resource group name and location
 $resourceGroupName = "myResourceGroup"
-$resourceGroupLocation = "South Central US"
+$resourceGroupLocation = "China East"
 
 # Create the resource group
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
@@ -45,9 +43,9 @@ New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocati
 $DBName = "testdb"
 
 # Write and read locations and priorities for the database
-$locations = @(@{"locationName"="South Central US"; 
+$locations = @(@{"locationName"="China East"; 
                  "failoverPriority"=0}, 
-               @{"locationName"="North Central US"; 
+               @{"locationName"="China North"; 
                   "failoverPriority"=1})
 
 # IP addresses that can access the database through the firewall
@@ -74,8 +72,7 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ```
 
-## 清理部署
-<a id="clean-up-deployment" class="xliff"></a>
+## <a name="clean-up-deployment"></a>清理部署
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
@@ -83,8 +80,7 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 ```
 
-## 脚本说明
-<a id="script-explanation" class="xliff"></a>
+## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
@@ -95,8 +91,8 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/zh-cn/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 |||
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+
+## <a name="next-steps"></a>后续步骤
 
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/zh-cn/powershell/)。
 

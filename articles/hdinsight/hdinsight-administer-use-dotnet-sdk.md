@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: e7c98b041989ebfa6390254504d5c25c6f209a6c
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/25/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 8a501e430d2c4ccdc4c02577171b181c4d6277dc
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/14/2017
 
 **先决条件**
 
-在开始本文前，你必须具有以下项：
+在开始阅读本文前，必须具有：
 
 * **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -40,20 +40,23 @@ ms.lasthandoff: 07/14/2017
 
 需要以下 Nuget 包：
 
-    Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager -Pre
-    Install-Package Microsoft.Azure.Management.HDInsight
+```
+Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
+Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+Install-Package Microsoft.Azure.Management.HDInsight
+```
 
-以下代码示例演示如何先连接到 Azure，然后管理 Azure 订阅下面的 HDInsight 群集。
+以下代码示例演示如何先连接到 Azure，并管理 Azure 订阅下面的 HDInsight 群集。
 
-    using System;
-    using Microsoft.Azure;
-    using Microsoft.Azure.Management.HDInsight;
-    using Microsoft.Azure.Management.HDInsight.Models;
-    using Microsoft.Azure.Management.ResourceManager;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Rest;
-    using Microsoft.Rest.Azure.Authentication;
+```csharp
+using System;
+using Microsoft.Azure;
+using Microsoft.Azure.Management.HDInsight;
+using Microsoft.Azure.Management.HDInsight.Models;
+using Microsoft.Azure.Management.ResourceManager;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Rest;
+using Microsoft.Rest.Azure.Authentication;
 
     namespace HDInsightManagement
     {
@@ -112,27 +115,31 @@ ms.lasthandoff: 07/14/2017
         }
     }
 
-运行此程序时，将看到提示。  若不想看到提示，请参阅[创建非交互式身份验证 .NET HDInsight 应用程序](hdinsight-create-non-interactive-authentication-dotnet-applications.md)。
+You shall see a prompt when you run this program.  If you don't want to see the prompt, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
-## <a name="create-clusters"></a>创建群集
-请参阅[使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+## Create clusters
+See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
-## <a name="list-clusters"></a>列出群集
-以下代码片段列出了群集和一些属性：
+## List clusters
+The following code snippet lists clusters and some properties:
 
-    var results = _hdiManagementClient.Clusters.List();
-    foreach (var name in results.Clusters) {
-        Console.WriteLine("Cluster Name: " + name.Name);
-        Console.WriteLine("\t Cluster type: " + name.Properties.ClusterDefinition.ClusterType);
-        Console.WriteLine("\t Cluster location: " + name.Location);
-        Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
-    }
+```csharp
+var results = _hdiManagementClient.Clusters.List();
+foreach (var name in results.Clusters) {
+    Console.WriteLine("Cluster Name: " + name.Name);
+    Console.WriteLine("\t Cluster type: " + name.Properties.ClusterDefinition.ClusterType);
+    Console.WriteLine("\t Cluster location: " + name.Location);
+    Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
+}
+```
 
 ## <a name="delete-clusters"></a>删除群集
 使用以下代码片段以同步或异步方式删除群集： 
 
-    _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
-    _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
+```csharp
+_hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
+_hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
+```
 
 ## <a name="scale-clusters"></a>缩放群集
 使用群集缩放功能，可更改 Azure HDInsight 中运行的群集使用的辅助节点数，而无需重新创建群集。
@@ -151,11 +158,13 @@ ms.lasthandoff: 07/14/2017
     减少数据节点数目以缩减 Hadoop 群集时，系统会重新启动群集中的某些服务。 这会导致所有正在运行和挂起的作业在缩放操作完成时失败。 但是，可在操作完成后重新提交这些作业。
 * HBase
 
-    可在 HBase 群集运行时顺利添加或删除节点。 完成缩放操作后的几分钟内，区域服务器将自动平衡。 但也可手动平衡区域服务器，方法是登录到群集的头节点，然后在命令提示符窗口中运行以下命令：
-
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+    可在 HBase 群集运行时顺利添加或删除节点。 完成缩放操作后的几分钟内，区域服务器自动平衡。 但也可手动平衡区域服务器，方法是登录到群集的头节点，并在命令提示符窗口中运行以下命令：
+  
+    ```bash
+    >pushd %HBASE_HOME%\bin
+    >hbase shell
+    >balancer
+    ```
 * Storm
 
     可在 Storm 群集运行时顺利添加或删除数据节点。 但是，缩放操作成功完成后，需要重新平衡拓扑。
@@ -172,16 +181,20 @@ ms.lasthandoff: 07/14/2017
     ![HDInsight Storm 缩放重新平衡](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     以下是有关如何使用 CLI 命令重新平衡 Storm 拓扑的示例：
-
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 以下代码片段显示如何以同步或异步方式调整群集的大小：
 
-    _hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
-    _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
+```csharp
+_hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
+_hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
+```
 
 ## <a name="grantrevoke-access"></a>授予/撤消访问权限
 HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样式的终结点）：
@@ -192,28 +205,32 @@ HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样
 * Oozie
 * Templeton
 
-默认情况下，将授权这些服务进行访问。 你可以撤消/授予访问权限。 若要撤消：
+默认情况下，这些服务会获得访问授权。 可以撤消/授予访问权限。 若要撤消：
 
-    var httpParams = new HttpSettingsParameters
-    {
-        HttpUserEnabled = false,
-        HttpUsername = "admin",
-        HttpPassword = "*******",
-    };
-    _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+```csharp
+var httpParams = new HttpSettingsParameters
+{
+    HttpUserEnabled = false,
+    HttpUsername = "admin",
+    HttpPassword = "*******",
+};
+_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+```
 
 若要授予：
 
-    var httpParams = new HttpSettingsParameters
-    {
-        HttpUserEnabled = enable,
-        HttpUsername = "admin",
-        HttpPassword = "*******",
-    };
-    _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+```csharp
+var httpParams = new HttpSettingsParameters
+{
+    HttpUserEnabled = enable,
+    HttpUsername = "admin",
+    HttpPassword = "*******",
+};
+_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+```
 
 > [!NOTE]
-> 通过授予/撤消访问权限，你将重置群集用户名和密码。
+> 授予/撤消访问权限时，会重设群集用户的用户名和密码。
 > 
 > 
 
@@ -225,11 +242,13 @@ HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样
 ## <a name="find-the-default-storage-account"></a>查找默认存储帐户
 以下代码片段演示如何获取群集的默认存储帐户名称和默认存储帐户密钥。
 
-    var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
-    foreach (var key in results.Configuration.Keys)
-    {
-        Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
-    }
+```csharp
+var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
+foreach (var key in results.Configuration.Keys)
+{
+    Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
+}
+```
 
 ## <a name="submit-jobs"></a>提交作业
 **提交 MapReduce 作业**
@@ -253,7 +272,7 @@ HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样
 请参阅[在 HDInsight 中将 Oozie 与 Hadoop 配合使用以定义和运行工作流](hdinsight-use-oozie-linux-mac.md)。
 
 ## <a name="upload-data-to-azure-blob-storage"></a>将数据上传到 Azure Blob 存储
-请参阅 [将数据上传到 HDInsight][hdinsight-upload-data]。
+请参阅[将数据上传到 HDInsight][hdinsight-upload-data]。
 
 ## <a name="see-also"></a>另请参阅
 * [HDInsight .NET SDK 参考文档](https://msdn.microsoft.com/library/mt271028.aspx)

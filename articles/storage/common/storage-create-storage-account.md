@@ -3,7 +3,7 @@ title: "如何在 Azure 门户中创建、管理或删除存储帐户 | Azure"
 description: "在 Azure 门户中创建新的存储帐户、管理帐户访问密钥或删除存储帐户。 了解标准和高级存储帐户。"
 services: storage
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: 87c37da0-6cc6-4d88-a330-ef2896a1531d
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 01/23/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 5bf65de07b3cfd2b97e28b0a570db33243a12798
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: a5ce45d3b2ea126498f48fb11502a6c691f91b92
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="about-azure-storage-accounts"></a>关于 Azure 存储帐户
 [!INCLUDE [storage-selector-portal-create-storage-account](../../../includes/storage-selector-portal-create-storage-account.md)]
@@ -56,7 +56,7 @@ Azure 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数�
 
 用于访问存储帐户中某个对象的 URL 是通过将对象在存储帐户中的位置追加到终结点后面而构建的。 例如，Blob 地址可能具有以下格式：http://*mystorageaccount*.blob.core.chinacloudapi.cn/*mycontainer*/*myblob*。
 
-此外还可以配置用于存储帐户的自定义域名称。 有关经典存储帐户的详细信息，请参阅[为 Blob 存储终结点配置自定义域名](../blobs/storage-custom-domain-name.md)。 对于 Resource Manager 存储帐户，此功能尚未添加到 [Azure 门户](https://portal.azure.cn)，但你可使用 PowerShell 配置它。 有关详细信息，请参阅 [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet。  
+此外还可以配置用于存储帐户的自定义域名称。 有关详细信息，请参阅[为 Blob 存储终结点配置自定义域名称](../blobs/storage-custom-domain-name.md)。 也可使用 PowerShell 来配置它。 有关详细信息，请参阅 [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) cmdlet。  
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 
@@ -147,22 +147,9 @@ Azure 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数�
 
 > [!WARNING]
 > 无法恢复已删除的存储帐户，也无法检索删除之前该存储帐户包含的任何内容。 删除帐户前请务必备份要保存的任何内容。 对于帐户中的任务资源也是如此 — 一旦你删除了一个 Blob、表、队列或文件 ，则它会被永久删除。
+> 
 
-若要删除与 Azure 虚拟机相关联的存储帐户，必须首先确保已删除所有虚拟机磁盘。 如果不先删除虚拟机磁盘，则尝试删除存储帐户时，将看到如下错误消息：
-
-```
-Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
-```
-
-如果存储帐户使用经典部署模型，可以通过在 [Azure 管理门户](https://manage.windowsazure.cn)中执行以下步骤来删除虚拟机磁盘：
-
-1. 导航到[经典 Azure 门户](https://manage.windowsazure.cn)。
-2. 导航到“虚拟机”选项卡。
-3. 单击“磁盘”选项卡。
-4. 选择用户的数据磁盘，并单击“删除磁盘”。
-5. 如果要删除磁盘映像，请导航到“映像”选项卡，并删除存储在帐户中的任何映像。
-
-有关详细信息，请参阅 [Azure 虚拟机文档](/virtual-machines/)。
+如果尝试删除与 Azure 虚拟机关联的存储帐户，则会显示一条错误消息，指出存储帐户仍在使用。 有关如何排查此错误的帮助，请参阅[排查删除存储帐户时的错误](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。

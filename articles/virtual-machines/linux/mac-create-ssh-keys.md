@@ -3,7 +3,7 @@ title: "创建和使用适用于 Azure 中 Linux VM 的 SSH 密钥对 | Azure"
 description: "如何创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对，提高身份验证过程的安全性。"
 services: virtual-machines-linux
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 08/14/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 1792e8860212c2f49d111aa9e387a376aa2a4157
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 10/16/2017
+ms.author: v-yeche
+ms.openlocfilehash: ed3bd4d5198e01f1f4804af286652eab46e26d86
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>如何创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对
 使用安全外壳 (SSH) 密钥对，可以在 Azure 上创建使用 SSH 密钥进行身份验证的虚拟机 (VM)，从而无需密码即可登录。 本文介绍如何快速生成和使用适用于 Linux VM 的 SSH 协议版本 2 RSA 公钥和私钥文件对。 如需更详细的步骤和其他示例，请参阅[创建 SSH 密钥对和证书的详细步骤](create-ssh-keys-detailed.md)。
@@ -43,10 +43,10 @@ ssh-keygen -t rsa -b 2048
 cat ~/.ssh/id_rsa.pub
 ```
 
-使用 Azure VM 上的公钥，通过 SSH 使用 VM 的 IP 地址或 DNS 名称连接到 VM（记住将下面的 `azureuser` 和 `myvm.chinanorth.chinacloudapp.cn` 替换为管理员用户名和完全限定域名或 IP 地址）：
+使用 Azure VM 上的公钥，通过 SSH 使用 VM 的 IP 地址或 DNS 名称连接到 VM（记住将下面的 `azureuser` 和 `myvm.chinanorth.cloudapp.chinacloudapi.cn` 替换为管理员用户名和完全限定域名或 IP 地址）：
 
 ```bash
-ssh azureuser@myvm.chinanorth.chinacloudapp.cn
+ssh azureuser@myvm.chinanorth.cloudapp.chinacloudapi.cn
 ```
 
 如果在创建密钥对时提供的是通行短语，则在登录过程中遇到提示时，请输入该通行短语。 （服务器添加到 `~/.ssh/known_hosts` 文件夹。系统不会要求再次进行连接，除非更改了 Azure VM 上的公钥，或者从 `~/.ssh/known_hosts` 中删除了服务器名称。）
@@ -58,5 +58,7 @@ ssh azureuser@myvm.chinanorth.chinacloudapp.cn
 可以通过 Azure 门户、CLI 和模板创建使用 SSH 密钥对的 VM：
 
 * [使用 Azure 门户创建安全 Linux VM](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-* [使用 Azure CLI 2.0 创建安全的 Linux VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure CLI 2.0 创建安全 Linux VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [使用 Azure 模板创建安全 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+
+<!--Update_Description: update meta properties, wording update-->

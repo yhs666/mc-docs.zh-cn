@@ -1,9 +1,9 @@
 ---
-title: "在 Windows 中装载 Azure 文件共享并对其进行访问 | Azure"
+title: "在 Windows 中装载 Azure 文件共享并对其进行访问 | Microsoft Docs"
 description: "在 Windows 中装载 Azure 文件共享并对其进行访问。"
 services: storage
 documentationcenter: na
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: 
@@ -13,29 +13,32 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 05/27/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 77d14ee364ab24d3b10af9ba68f177cc7a4332b6
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: a134891f6719af70ad15169eebdb570859f0ee1b
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>在 Windows 中装载 Azure 文件共享并对其进行访问
 [Azure 文件存储](../storage-dotnet-how-to-use-files.md)是 Microsoft 推出的易用云文件系统。 可以在 Windows 和 Windows Server 中装载 Azure 文件共享。 本文介绍了三种在 Windows 中装载 Azure 文件共享的不同方式：使用文件资源管理器 UI、通过 PowerShell，以及通过命令提示符。 
 
 若要将 Azure 文件共享装载到托管其的 Azure 区域之外（例如本地或其他 Azure 区域），OS 必须支持 SMB 3.0。 
 
-Azure 文件共享可以装载在 Windows 计算机上，不管是在本地还是在 Azure VM 中，具体取决于 OS 版本。 下表说明了： 
+可以将 Azure 文件共享装载到在 Azure VM 中或本地运行的 Windows 安装。 下表说明了哪些 OS 版本支持在哪个环境中装载文件共享：
 
-| Windows 版本        | SMB 版本 |可以在 Azure VM 上装载|可以在本地装载|
-|------------------------|-------------|---------------------|---------------------|
-| Windows 7              | SMB 2.1     | 是                 | 否                  |
-| Windows Server 2008 R2 | SMB 2.1     | 是                 | 否                  |
-| Windows 8              | SMB 3.0     | 是                 | 是                 |
-| Windows Server 2012    | SMB 3.0     | 是                 | 是                 |
-| Windows Server 2012 R2 | SMB 3.0     | 是                 | 是                 |
-| Windows 10             | SMB 3.0     | 是                 | 是                 |
+| Windows 版本        | SMB 版本 | 可以在 Azure VM 中装载 | 可以在本地装载 |
+|------------------------|-------------|-----------------------|----------------------|
+| Windows 10<sup>1</sup>  | SMB 3.0 | 是 | 是 |
+| Windows Server 2016    | SMB 3.0     | 是                   | 是                  |
+| Windows 8.1            | SMB 3.0     | 是                   | 是                  |
+| Windows Server 2012 R2 | SMB 3.0     | 是                   | 是                  |
+| Windows Server 2012    | SMB 3.0     | 是                   | 是                  |
+| Windows 7              | SMB 2.1     | 是                   | 否                   |
+| Windows Server 2008 R2 | SMB 2.1     | 是                   | 否                   |
+
+<sup>1</sup>Windows 10 版本 1507、1511、1607、1703
 
 > [!Note]  
 > 我们始终建议使用相对于 Windows 版本来说最新的 KB。
@@ -132,7 +135,12 @@ Azure 文件共享可以装载在 Windows 计算机上，不管是在本地还�
 * [排查 Azure 文件存储问题 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [排查 Azure 文件存储问题 - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
+### <a name="blog-posts"></a>博客文章
+* [Azure 文件存储现已正式发布](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Inside Azure File storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)（Azure 文件存储内部）
+* [Introducing Azure File Service（Azure 文件服务简介）](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+* [将数据迁移到 Azure 文件](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
+
 ### <a name="reference"></a>引用
 * [.NET 存储客户端库参考](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [文件服务 REST API 参考](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-<!--Update_Description: update link-->

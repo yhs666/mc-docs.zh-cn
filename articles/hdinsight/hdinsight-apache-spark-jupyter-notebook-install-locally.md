@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 51c679f80a719bd6adadb83c9dbe431815fa002a
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 453e470b4b401f4b506085dc954914e98512d4ac
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>在计算机上安装 Jupyter notebook 并连接到 HDInsight 上的 Apache Spark
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 07/14/2017
 
 必须先安装 Python，然后才能安装 Jupyter notebook。 Python 和 Jupyter 都作为 [Anaconda 分发版](https://www.continuum.io/downloads)的一部分提供。 安装 Anaconda 时，安装的是某个 Python 发行版。 安装 Anaconda 之后，可通过运行相应命令来添加 Jupyter 安装。
 
-1. 下载适用于你的平台的 [Anaconda 安装程序](https://www.continuum.io/downloads) ，然后运行安装。 运行安装向导时，请确保选择将 Anaconda 添加到 PATH 变量的选项。
+1. 下载适用于用户的平台的 [Anaconda 安装程序](https://www.continuum.io/downloads) ，并运行安装。 运行安装向导时，请确保选择将 Anaconda 添加到 PATH 变量的选项。
 2. 运行以下命令来安装 Jupyter。
 
         conda install jupyter
@@ -64,9 +64,9 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>配置 Spark magic 以连接到 HDInsight Spark 群集
 
-在本部分中，你将配置前面安装的 Spark magic，以连接到 Apache Spark 群集（必须事先在 Azure HDInsight 中创建）。
+在本部分中，会配置前面安装的 Spark magic，以连接到 Apache Spark 群集（必须事先在 Azure HDInsight 中创建）。
 
-1. Jupyter 配置信息通常存储在用户主目录中。 若要在任何 OS 平台上找到你的主目录，请键入以下命令。
+1. Jupyter 配置信息通常存储在用户主目录中。 要在任何 OS 平台上找到主目录，请键入以下命令。
 
     启动 Python shell。 在命令窗口中键入以下命令：
 
@@ -77,8 +77,8 @@ ms.lasthandoff: 07/14/2017
         import os
         print(os.path.expanduser('~'))
 
-2. 导航到主目录，然后创建一个名为 **.sparkmagic** 的文件夹（如果尚不存在）。
-3. 在该文件夹中，创建一个名为 **config.json** 的文件，然后在该文件中添加以下 JSON 代码片段。
+2. 导航到主目录，并创建一个名为 **.sparkmagic** 的文件夹（如果尚不存在）。
+3. 在该文件夹中，创建一个名为 **config.json** 的文件，并在该文件中添加以下 JSON 代码片段。
 
         {
           "kernel_python_credentials" : {
@@ -130,19 +130,19 @@ ms.lasthandoff: 07/14/2017
     如果可以成功检索输出，则表示与 HDInsight 群集的连接已经过测试。
 
     >[!TIP]
-    >如果你想要更新笔记本配置以连接到不同的群集，请使用一组新值更新 config.json，如上述步骤 3 中所示。
+    >如果想要更新笔记本配置以连接到不同的群集，请使用一组新值更新 config.json，如上述步骤 3 中所示。
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>为何要在计算机上安装 Jupyter？
-你可能会出于多种原因而要在计算机上安装 Jupyter，然后将其连接到 HDInsight 上的 Spark 群集。
+用户可能会出于多种原因而要在计算机上安装 Jupyter，并将其连接到 HDInsight 上的 Spark 群集。
 
 * 尽管 Azure HDInsight 中的 Spark 群集上已提供 Jupyter 笔记本，但在计算机上安装 Jupyter 可以选择在本地创建笔记本，根据正在运行的群集测试你的应用程序，然后将笔记本上传到群集。 若要将笔记本上传到群集，可以使用群集上运行的 Jupyter 笔记本来上传，或者将它们保存到与群集关联的存储帐户中的 /HdiNotebooks 文件夹。 有关如何在群集上存储 notebook 的详细信息，请参阅 [Where are Jupyter notebooks stored？](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)（Jupyter notebook 存储在何处？）
 * 使用本地提供的笔记本可以根据应用程序要求连接到不同的 Spark 群集。
-* 你可以使用 GitHub 实施源代码管理系统，并对笔记本进行版本控制。 此外，还可以建立一个协作环境，其中的多个用户可以使用同一个笔记本。
-* 你甚至不需要启动群集就能在本地使用笔记本。 只需创建一个群集以根据它来测试你的笔记本，而不需要手动管理笔记本或开发环境。
-* 配置自己的本地开发环境比在群集上配置 Jupyter 安装更容易。  你可以利用本地安装的所有软件，而不需要配置一个或多个远程群集。
+* 可以使用 GitHub 实施源代码管理系统，并对笔记本进行版本控制。 此外，还可以建立一个协作环境，其中的多个用户可以使用同一个笔记本。
+* 甚至不需要启动群集就能在本地使用笔记本。 只需创建一个群集以根据它来测试笔记本，而不需要手动管理笔记本或开发环境。
+* 配置自己的本地开发环境比在群集上配置 Jupyter 安装更容易。  可以利用本地安装的所有软件，而不需要配置一个或多个远程群集。
 
 > [!WARNING]
-> 在本地计算机上安装 Jupyter 后，多个用户可以同时在同一个 Spark 群集上运行同一个笔记本。 在这种情况下，将会创建多个 Livy 会话。 如果你遇到问题并想要调试，则跟踪哪个 Livy 会话属于哪个用户将是一项复杂的任务。
+> 在本地计算机上安装 Jupyter 后，多个用户可以同时在同一个 Spark 群集上运行同一个笔记本。 在这种情况下，会创建多个 Livy 会话。 如果遇到问题并想要调试，则跟踪哪个 Livy 会话属于哪个用户将是一项复杂的任务。
 >
 >
 

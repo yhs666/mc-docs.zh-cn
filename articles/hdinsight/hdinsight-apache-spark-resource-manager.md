@@ -14,32 +14,30 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/21/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 7ccd0f77989c08308c111be3ffe0079674afaf44
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 2b4efd738e616d783bce449d0f49f08c5ac8970a
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>管理 Azure HDInsight 上 Apache Spark 群集的资源 
 
-在本文中，将了解如何访问与 Spark 群集关联的界面，例如 Ambari UI、YARN UI 和 Spark History Server。 还将了解如何优化群集配置以获得最佳性能。
+本文介绍如何访问与 Spark 群集关联的界面，例如 Ambari UI、YARN UI 和 Spark History Server。 此外，介绍如何优化群集配置以获得最佳性能。
 
 **先决条件：**
-
-必须满足以下条件：
 
 * Azure 订阅。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](hdinsight-apache-spark-jupyter-spark-sql.md)。
 
 ## <a name="how-do-i-launch-the-ambari-web-ui"></a>如何启动 Ambari Web UI？
 1. 在 [Azure 门户](https://portal.azure.cn/)上的启动板中，单击 Spark 群集的磁贴（如果已将它固定到启动板）。 也可以单击“全部浏览” > “HDInsight 群集”导航到群集。
-2. 在 Spark 群集边栏选项卡中，单击“仪表板” 。 出现提示时，输入 Spark 群集的管理员凭据。
+2. 单击 Spark 群集的“仪表板”。 出现提示时，输入 Spark 群集的管理员凭据。
 
     ![启动 Ambari](./media/hdinsight-apache-spark-resource-manager/hdinsight-launch-cluster-dashboard.png "启动 Resource Manager")
-3. 这应启动 Ambari Web UI，如下所示。
+3. 这应会启动 Ambari Web UI，如以下屏幕截图所示。
 
     ![Ambari Web UI](./media/hdinsight-apache-spark-resource-manager/ambari-web-ui.png "Ambari Web UI")   
 
@@ -64,7 +62,7 @@ ms.lasthandoff: 09/12/2017
    >
 
 ## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications"></a>用于运行 Spark 应用程序的最佳群集配置是什么？
-根据应用程序的要求，可用于 Spark 配置的三个关键参数为 `spark.executor.instances`、`spark.executor.cores` 和 `spark.executor.memory`。 执行器是针对 Spark 应用程序启动的进程。 它在工作节点上运行，负责执行应用程序的任务。 执行器的默认数目和每个群集的执行器大小均根据工作节点数目和工作节点大小计算。 这些值存储在群集头节点上的 `spark-defaults.conf` 中。
+根据应用程序的要求，可用于 Spark 配置的三个关键参数为 `spark.executor.instances`、`spark.executor.cores` 和 `spark.executor.memory`。 执行器是针对 Spark 应用程序启动的进程。 它在工作节点上运行，负责执行应用程序的任务。 执行器的默认数目和每个群集的执行器大小均根据工作节点数目和工作节点大小计算。 这些信息存储在群集头节点上的 `spark-defaults.conf` 中。
 
 这三个配置参数可在群集级别配置（适用于群集上运行的所有应用程序），也可以针对每个应用程序指定。
 
@@ -75,12 +73,12 @@ ms.lasthandoff: 09/12/2017
 2. 默认值（在群集上并发运行 4 个 Spark 应用程序）是合理的。 可以从用户界面更改这些值，如下所示。
 
     ![使用 Ambari 设置参数](./media/hdinsight-apache-spark-resource-manager/set-executor-parameters.png)
-3. 单击“保存”  保存配置更改。 在页面顶部，系统会提示是否重新启动所有受影响的服务。 单击“重新启动” 。
+3. 单击“保存”  保存配置更改。 在页面顶部，系统会提示是否重启所有受影响的服务。 单击“重新启动” 。
 
     ![重新启动服务](./media/hdinsight-apache-spark-resource-manager/restart-services.png)
 
 ### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>更改 Jupyter 笔记本中运行的应用程序的参数
-对于在 Jupyter 笔记本中运行的应用程序，可以使用 `%%configure` magic 进行配置更改。 理想情况下，必须先在应用程序开头进行此类更改，再运行第一个代码单元。 这可以确保在创建 Livy 会话时会配置应用到该会话。 如果想要更改处于应用程序中后面某个阶段的配置，必须使用 `-f` 参数。 但是，这样做会使应用程序中的所有进度丢失。
+对于在 Jupyter 笔记本中运行的应用程序，可以使用 `%%configure` magic 进行配置更改。 理想情况下，必须先在应用程序开头进行此类更改，然后再运行第一个代码单元。 这可以确保在创建 Livy 会话时会配置应用到该会话。 如果想要更改处于应用程序中后面某个阶段的配置，必须使用 `-f` 参数。 但是，这样做会使应用程序中的所有进度丢失。
 
 以下片段演示如何更改在 Jupyter 中运行的应用程序的配置。
 
@@ -102,7 +100,7 @@ ms.lasthandoff: 09/12/2017
 ### <a name="how-do-i-change-these-parameters-on-a-spark-thrift-server"></a>如何更改 Spark Thrift 服务器上的这些参数？
 Spark Thrift 服务器提供对 Spark 群集的 JDBC/ODBC 访问，用来为 Spark SQL 查询提供服务。 Power BI、Tableau 等工具 使用 ODBC 协议与 Spark Thrift 服务器通信，以便将 Spark SQL 查询作为 Spark 应用程序执行。 创建 Spark 群集时，将启动 Spark Thrift 服务器的两个实例（每个头节点上各有一个实例）。 在 YARN UI 中，每个 Spark Thrift 服务器显示为一个 Spark 应用程序。
 
-Spark Thrift 服务器使用 Spark 动态执行器分配，因此未使用 `spark.executor.instances` 。 相反，Spark Thrift 服务器使用 `spark.dynamicAllocation.minExecutors` 和 `spark.dynamicAllocation.maxExecutors` 来指定执行器计数。 使用配置参数 `spark.executor.cores` 和 `spark.executor.memory` 可以修改执行器大小。 可按如下所示更改这些参数。
+Spark Thrift 服务器使用 Spark 动态执行器分配，因此未使用 `spark.executor.instances` 。 相反，Spark Thrift 服务器使用 `spark.dynamicAllocation.minExecutors` 和 `spark.dynamicAllocation.maxExecutors` 来指定执行器计数。 使用配置参数 `spark.executor.cores` 和 `spark.executor.memory` 可以修改执行器大小。 可遵循以下步骤更改这些参数。
 
 * 展开“高级 spark-thrift-sparkconf”类别可更新参数 `spark.dynamicAllocation.minExecutors`、`spark.dynamicAllocation.maxExecutors` 和 `spark.executor.memory`。
 
@@ -173,4 +171,3 @@ Spark Thrift 服务器驱动程序内存配置为头节点 RAM 大小的 25%，�
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-<!--Update_Description: update link ref-->

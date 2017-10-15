@@ -6,15 +6,15 @@ metadata:
   title: Azure Linux 虚拟机文档 - 教程和 API 参考
   meta.description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
   services: virtual-machines\linux
-  author: czeumault
-  manager: carolz
+  author: rockboyfor
+  manager: digimobile
   ms.service: virtual-machines-linux
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 08/21/2017
-  ms.author: v-dazen
+  ms.date: 10/16/2017
+  ms.author: v-yeche
 abstract:
   description: Azure Linux 虚拟机使用所选 Red Hat、Ubuntu 或 Linux 分发按需提供具有高可伸缩性且十分安全的虚拟化基础结构。 使用我们的快速入门、教程和示例了解如何创建、配置、管理和缩放 Linux VM。
 sections:
@@ -52,8 +52,12 @@ sections:
           - html: <a href="/virtual-machines/linux/tutorial-create-vmss">创建 VM 规模集</a>
           - html: <a href="/virtual-machines/linux/tutorial-load-balancer">对 VM 进行负载均衡</a>
           - html: <a href="/virtual-machines/linux/tutorial-virtual-network">管理 VM 和虚拟网络</a>
+          - html: <a href="/virtual-machines/linux/tutorial-backup-vms">备份 VM</a>
           - html: <a href="/virtual-machines/linux/tutorial-monitoring">监视 VM</a>
           - html: <a href="/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">使用 Jenkins、Docker 和 GitHub 创建 CI/CD 基础结构</a>
+          - html: <a href="/virtual-machines/linux/tutorial-build-deploy-jenkins">将 CI/CD 与 Team Services 配合使用</a>
+          - html: 使用 <a href="/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>、<a href="/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> 或 <a href="/virtual-machines/linux/tutorial-mean-stack">MEAN</a> 创建 Web 服务器堆栈
+          - html: <a href="/virtual-machines/linux/tutorial-secure-web-server">使用 SSL 保护 Web 服务器</a>
   - title: 示例
     items:
       - type: paragraph

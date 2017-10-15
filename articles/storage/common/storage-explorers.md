@@ -3,8 +3,8 @@ title: "适用于 Azure 存储的工具 | Azure"
 description: "可用于查看 Azure 存储数据或与之交互的工具列表。"
 services: storage
 documentationcenter: 
-author: hayley244
-manager: jahogg
+author: forester123
+manager: digimobile
 editor: tysonn
 ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
 ms.service: storage
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 23b6732f1dd663f5115cb2cf4634706d41a50212
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+origin.date: 09/06/2017
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: 723ca90e26a6fe09a7440aa0ab9265ea80d28b71
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="azure-storage-client-tools"></a>Azure 存储客户端工具
 Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或者与数据交互。 下表列出了可用于实现此目的的多种工具。 在每个能够枚举和/或访问数据抽象的块中打上“X”。 该表还指明了工具是否免费。 “试用”表示存在试用版，但完整版产品不是免费的。 “是/否”表示有一个免费版本，而提供的其他版本需要购买。
@@ -113,20 +113,6 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="http://www.cloudportam.com/">Cloud Portam</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>试用</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
     <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata: Azure Management Studio</a></td>
     <td>X</td>
     <td>X</td>
@@ -155,7 +141,7 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure 存储资源管理器</a></td>
+    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure Web Storage Explorer</a>（Azure Web 存储资源管理器）</td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -169,7 +155,7 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx">CloudBerry Explorer</a></td>
+    <td><a href="http://www.cloudberrylab.com/explorer/microsoft-azure.aspx">CloudBerry Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -221,34 +207,6 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td>试用</td>
     <td></td>
     <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="http://storageexplorer.codeplex.com/">Azure Web Storage Explorer</a>（Azure Web 存储资源管理器）</td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>Y</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://zudio.co/">Zudio</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>试用</td>
-    <td>X</td>
-    <td></td>
     <td></td>
     <td></td>
   </tr>

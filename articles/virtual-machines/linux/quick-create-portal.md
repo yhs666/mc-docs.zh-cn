@@ -3,25 +3,25 @@ title: "Azure 快速入门 - 创建 VM 门户 | Azure"
 description: "Azure 快速入门 - 创建 VM 门户"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 07/15/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2a2258db5e044ce516302b5b3cec126f36c4a68b
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: debc6e4d7251354865713339cdf3a2d02915f5eb
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>使用 Azure 门户创建 Linux 虚拟机
 
@@ -47,7 +47,7 @@ ssh-keygen -t rsa -b 2048
 
 1. 单击 Azure 门户左上角的“新建”按钮。
 
-2. 依次选择“计算”、“Ubuntu Server 16.04 LTS”。 
+2. 选择“计算”，然后选择“Ubuntu Server 16.04 LTS”。 
 
 3. 输入虚拟机信息。 对于“身份验证类型”，请选择“SSH 公钥”。 粘贴“SSH 公钥”时，请务必删除所有前导或尾随空格。 完成后，单击“确定”。
 
@@ -57,17 +57,17 @@ ssh-keygen -t rsa -b 2048
 
     ![显示 VM 大小的屏幕截图](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. 在设置边栏选项卡中保留默认值，并单击“确定”。
+5. 在“设置”下，保留默认值，然后单击“确定”。
 
 6. 在摘要页上，单击“确定”以开始虚拟机部署。
 
-7. VM 将固定到 Azure 门户仪表板。 完成部署后，VM 摘要边栏选项卡将自动打开。
+7. VM 将固定到 Azure 门户仪表板。 完成部署后，会自动打开 VM 摘要。
 
 ## <a name="connect-to-virtual-machine"></a>连接到虚拟机
 
 创建与虚拟机的 SSH 连接。
 
-1. 单击虚拟机边栏选项卡上的“连接”按钮。 单击“连接”按钮后，显示可用于连接到虚拟机的 SSH 连接字符串。
+1. 单击虚拟机属性上的“连接”按钮。 单击“连接”按钮后，显示可用于连接到虚拟机的 SSH 连接字符串。
 
     ![门户 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
@@ -106,13 +106,13 @@ sudo apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>查看 NGINX 欢迎页
 
-安装 NGINX 并向 VM 打开端口 80 以后，即可通过 Internet 访问 webserver。 打开 Web 浏览器，输入 VM 的公共 IP 地址。 该公共 IP 地址可在 Azure 门户的 VM 边栏选项卡上找到。
+安装 NGINX 并向 VM 打开端口 80 以后，即可通过 Internet 访问 webserver。 打开 Web 浏览器，输入 VM 的公共 IP 地址。 该公共 IP 地址可以在 Azure 门户的 VM 属性中找到。
 
 ![NGINX 默认站点](./media/quick-create-cli/nginx.png) 
 
 ## <a name="clean-up-resources"></a>清理资源
 
-不再需要资源组、虚拟机和所有相关的资源时，可将其删除。 为此，请从虚拟机边栏选项卡中选择该资源组，并单击“删除”。
+不再需要资源组、虚拟机和所有相关的资源时，可将其删除。 为此，请选择虚拟机的资源组，然后单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 

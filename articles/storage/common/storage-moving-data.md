@@ -1,9 +1,9 @@
 ---
-title: "将大量数据移进/移出 Azure 中的云存储 | Azure"
+title: "在 Azure 中将大量数据移入/移出云存储 | Microsoft Docs"
 description: "概述将数据移进和移出 Azure 存储的各种方法。"
 services: storage
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/30/2017
-ms.date: 
-ms.author: v-haiqya
-ms.openlocfilehash: 5f7e3b6accc51dcfa7dd1a5c3047a83429eb4eb9
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: a0a8bd76e1e3d251148cc41996b55dfb7c781581
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>将数据移入和移出 Azure 存储
 如果想将本地数据移动到 Azure 存储（或执行相反的操作），有许多种方式可以执行此操作。 最适合的方法因具体情况而异。 本文会提供不同方案以及针对每个方案的适当产品/服务的快速概述。
@@ -75,5 +75,4 @@ Azure CLI 提供了一组开源的跨平台命令，可以用于 Azure 服务。
 请参阅 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) 了解详细信息。
 ### <a name="moving-data-faq"></a>移动数据常见问题：
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>能否在不复制的情况下，将 VHD 从一个区域迁移到另一个区域？
-若要在区域之间复制 VHD，唯一方式是在每个区域的存储帐户之间复制数据。 为此，可以使用 AZCopy。 请参阅“使用 AzCopy 命令行实用程序传输数据”，了解详细信息。 如果是特别大量的数据，也可以使用 Azure 导入/导出。 请参阅 [Azure 导入/导出](/storage/storage-import-export-service)了解详细信息。
-<!--Update_Description: update link-->
+若要在区域之间复制 VHD，唯一方式是在每个区域的存储帐户之间复制数据。 为此，可以使用 AZCopy。 请参阅“使用 AzCopy 命令行实用程序传输数据”，了解详细信息。 如果是特别大量的数据，也可以使用 Azure 导入/导出。 请参阅 [Azure 导入/导出](storage-import-export-service.md)了解详细信息。

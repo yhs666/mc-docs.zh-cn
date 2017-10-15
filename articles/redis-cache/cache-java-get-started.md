@@ -1,10 +1,10 @@
 ---
-title: "如何将 Azure Redis 缓存与 Java 配合使用 | Azure"
+title: "如何将 Azure Redis 缓存与 Java 配合使用 | Microsoft Docs"
 description: "开始将 Azure Redis 缓存与 Java 配合使用"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
 ms.service: cache
@@ -12,14 +12,14 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-origin.date: 04/13/2017
-ms.date: 05/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 818ab2f86a93d147910f55457a118002d94bc261
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/31/2017
+ms.date: 10/09/2017
+ms.author: v-junlch
+ms.openlocfilehash: 6fdf514189ba928e475f9966aebcf3d2d905bcc1
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-use-azure-redis-cache-with-java"></a>如何将 Azure Redis 缓存与 Java 配合使用
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Azure Redis 缓存可让你访问 Azure.cn 管理的专用 Redis 缓存。 可�
 ## <a name="prerequisites"></a>先决条件
 [Jedis](https://github.com/xetorthio/jedis) - Redis 的 Java 客户端
 
-本教程使用 Jedis，但你可以使用 [http://redis.io/clients](http://redis.io/clients)中列出的任何 Java 客户端。
+本教程使用 Jedis，但可以使用 [http://redis.io/clients](http://redis.io/clients)中列出的任何 Java 客户端。
 
 ## <a name="create-a-redis-cache-on-azure"></a>在 Azure 上创建 Redis 缓存
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -83,3 +83,5 @@ Azure Redis 缓存可让你访问 Azure.cn 管理的专用 Redis 缓存。 可�
 ## <a name="next-steps"></a>后续步骤
 * [启用缓存诊断](/redis-cache/cache-how-to-monitor#enable-cache-diagnostics)，以便可以[监视](/redis-cache/cache-how-to-monitor)缓存的运行状况。
 * 阅读官方 [Redis 文档](http://redis.io/documentation)。
+
+<!--Update_Description: update meta properties -->  

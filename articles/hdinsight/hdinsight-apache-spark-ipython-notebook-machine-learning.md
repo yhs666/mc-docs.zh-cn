@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 880e0be8d1fcedb7dfb346525f6d414147d84d0e
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 5699d459202469cff5f05081a2c53ec91083f53c
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上生成 Apache Spark 机器学习应用程序
 
@@ -232,4 +232,3 @@ HDInsight 上的 Apache Spark 群集包含 Anaconda 库， 还包含适用于机
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
-<!--Update_Description: update storage link and change 'wasbs' into 'wasb'-->

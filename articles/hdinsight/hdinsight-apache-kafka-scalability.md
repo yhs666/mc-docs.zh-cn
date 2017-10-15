@@ -3,8 +3,8 @@ title: "Apache Kafka 增加可伸缩性 - Azure HDInsight | Microsoft Docs"
 description: "了解如何在 Azure HDInsight 上为 Apache Kafka 群集配置托管磁盘以提高可伸缩性。"
 services: hdinsight
 documentationcenter: 
-author: hayley244
-manager: digimobile
+author: Blackmist
+manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -12,14 +12,14 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/14/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 0265400b94008a585d932ac8e0aac6583b863dc7
-ms.sourcegitcommit: a4340bc6d6d8bdb5aee029cc66cfcea558d18c89
+origin.date: 09/07/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 67545bc364b96301f9201d4d6b1f8957a48f043a
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>在 HDInsight 上为 Apache Kafka 配置存储和可伸缩性
 
@@ -35,12 +35,12 @@ Kafka on HDInsight 在 HDInsight 群集中使用虚拟机的本地磁盘。 由�
 
 1. 按照[创建 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-portal.md)中的步骤操作，了解使用门户创建群集的常用步骤。 请勿完成门户创建过程。
 
-2. 从“群集大小”边栏选项卡中，使用“每个工作节点的磁盘数”字段来配置磁盘数。
+2. 在“群集大小”部分中，使用“每个工作节点的磁盘数”字段来配置磁盘数。
 
     > [!NOTE]
-    > 托管磁盘的类型可以为“标准”(HDD) 或“高级”(SSD)。 高级磁盘可与 DS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。
+    > 托管磁盘的类型可以为“标准”(HDD) 或“高级”(SSD)。 高级磁盘可与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。
 
-    ![“群集大小”边栏选项卡的图像，其中突出显示每个工作节点的磁盘数](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
+    ![“群集大小”部分的图像，其中突出显示了每个工作节点的磁盘数](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>配置托管磁盘：资源管理器模板
 

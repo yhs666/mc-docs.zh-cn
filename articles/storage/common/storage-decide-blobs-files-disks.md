@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2017
-ms.date: 
+ms.date: 10/16/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 3e3524c6754d79895f6196b0434aeaff133927b7
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 4194734e640b384e22f580650c0cce7548bbf340
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-data-disks"></a>确定何时使用 Azure Blob、Azure 文件或 Azure 数据磁盘
 

@@ -28,6 +28,10 @@
           href: storage-ios-how-to-use-blob-storage.md
         - name: Xamarin
           href: storage-xamarin-blob-storage.md
+        - name: PowerShell
+          href: storage-how-to-use-blobs-powershell.md
+        - name: Azure CLI 2.0
+          href: storage-how-to-use-blobs-cli.md
 - name: 如何
   items:
     - name: 规划和设计
@@ -116,6 +120,8 @@
           href: ../common/storage-e2e-troubleshooting.md?toc=%2fstorage%2fblobs%2ftoc.json
         - name: 监视、诊断和故障排除
           href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fstorage%2fblobs%2ftoc.json
+        - name: 排查在删除存储帐户时出现的错误
+          href: ../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md?toc=%2fstorage%2fblobs%2ftoc.json
         - name: 指标和日志记录
           items:
             - name: 存储分析

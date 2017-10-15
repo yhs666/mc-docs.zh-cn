@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 03/28/2017
-ms.author: v-dazen
-ms.openlocfilehash: 517d12cd83294c50ae3752b7d8873776bc794ce9
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: d5cfaccb58b5344dfe029440f95d0315baef9078
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具
 
@@ -163,7 +163,7 @@ Azure PowerShell ARM cmdlet 可与 ASM cmdlet 一同安装。 两种模式下的
         -ClusterSizeInNodes 2 `
         -ClusterType Hadoop `
         -OSType Linux `
-        -Version "3.5" `
+        -Version "3.2" `
         -Credential $httpCredential `
         -SshCredential $sshCredential
 
@@ -179,7 +179,7 @@ Azure PowerShell ARM cmdlet 可与 ASM cmdlet 一同安装。 两种模式下的
         -ClusterSizeInNodes 2 `
         -ClusterType Hadoop `
         -OSType Linux `
-        -Version "3.5" `
+        -Version "3.2" `
         -HttpCredential $httpcredentials `
         -SshCredential $sshCredentials
 

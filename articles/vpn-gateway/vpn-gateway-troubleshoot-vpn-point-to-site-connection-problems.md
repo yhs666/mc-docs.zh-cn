@@ -1,10 +1,10 @@
 ---
-title: "排查 Azure 点到站点连接问题 | Azure"
+title: "排查 Azure 点到站点连接问题 | Microsoft Docs"
 description: "了解如何排查点到站点连接问题。"
 services: vpn-gateway
 documentationcenter: na
-author: chadmath
-manager: cshepard
+author: alexchen2016
+manager: digimobile
 editor: 
 tags: 
 ms.service: vpn-gateway
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/23/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
-ms.openlocfilehash: 95962bd2e48cfea1fa32a1a5921ecb19057fe1a0
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+origin.date: 08/23/2017
+ms.date: 10/09/2017
+ms.author: v-junlch
+ms.openlocfilehash: 159f24faa3cff66fb0aa0bca3161d7681ac4a754
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>故障排除：Azure 点到站点连接问题
 
@@ -39,9 +39,17 @@ ms.lasthandoff: 08/04/2017
 
 ### <a name="solution"></a>解决方案
 
-请确保已在证书存储 (Certmgr.msc) 的以下位置安装客户端证书：
+若要解决该问题，请执行以下步骤：
 
-**Certificates - Current User\Personal\Certificates**
+1. 请确保已正确的位置安装下列证书：
+
+    | 证书 | 位置 |
+    | ------------- | ------------- |
+    | AzureClient.pfx  | Current User\Personal\Certificates |
+    | Azuregateway-*GUID*.chinacloudapp.cn  | Current User\Trusted Root Certification Authorities|
+    | AzureGateway-*GUID*.chinacloudapp.cn, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
+
+2. 转到 Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>，在用户和计算机的存储上手动安装证书（*.cer 文件）。
 
 若要详细了解如何安装客户端证书，请参阅[为点到站点连接生成并导出证书](vpn-gateway-certificates-point-to-site.md)。
 
@@ -187,7 +195,7 @@ VPN 网关类型必须是 **VPN**，VPN 类型必须是 **RouteBased**。
 尝试下载 VPN 客户端配置包时，看到以下错误消息：
 
 **无法下载文件。错误详细信息: 错误 503。服务器正忙。**
-
+ 
 ### <a name="solution"></a>解决方案
 
 导致此错误发生的原因是临时网络问题。 几分钟后，再次尝试下载 VPN 包。
@@ -246,6 +254,7 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\DisableDomainCreds - Set the value to 1 
 
+
 ## <a name="cannot-find-the-point-to-site-vpn-connection-in-windows-after-reinstalling-the-vpn-client"></a>重新安装 VPN 客户端后，在 Windows 中找不到点到站点 VPN 连接
 
 ### <a name="symptom"></a>症状
@@ -255,3 +264,5 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 ### <a name="solution"></a>解决方案
 
 若要解决此问题，请从 **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections** 删除旧的 VPN 客户端配置文件，再重新运行 VPN 客户端安装程序。
+
+<!--Update_Description: wording update --> 

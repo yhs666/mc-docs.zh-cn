@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/12/2017
-ms.date: 03/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 7283c84495d3371f08e8dec95adc3558d8c9a9f2
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+origin.date: 08/22/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: ba3cbe169e96e2a4af32541bd59d9ac1bbf0e736
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 Azure HDInsight 中的 Hadoop
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/13/2017
 
 Microsoft 的大数据解决方案将 Microsoft 商业智能 (BI) 组件与已由 Azure HDInsight 部署的 Apache Hadoop 群集进行了集成。 此集成的一个例子是，能够使用 Microsoft Hive 开放式数据库连接 (ODBC) 驱动程序将 Excel 连接到 HDInsight 中的 Hadoop 群集的 Hive 数据仓库。
 
-还可以使用用于 Excel 的 Microsoft Power Query 外接程序从 Excel 连接与 HDInsight 群集和其他数据源（包括其他非 HDInsight Hadoop 群集）关联的数据。 有关安装和使用 Power Query 的信息，请参阅 [利用 Power Query 将 Excel 连接到 HDInsight][hdinsight-power-query]。
+还可以使用用于 Excel 的 Microsoft Power Query 外接程序从 Excel 连接与 HDInsight 群集和其他数据源（包括其他非 HDInsight Hadoop 群集）关联的数据。 有关安装和使用 Power Query 的信息，请参阅[利用 Power Query 将 Excel 连接到 HDInsight][hdinsight-power-query]。
 
 > [!NOTE]
 > 尽管可以对基于 Linux 或 Windows 的 HDInsight 群集使用本文中的步骤，但客户端工作站需要 Windows。
@@ -54,7 +54,7 @@ Microsoft 的大数据解决方案将 Microsoft 商业智能 (BI) 组件与已�
 ## <a name="create-hive-odbc-data-source"></a>创建 Hive ODBC 数据源
 下列步骤演示如何创建 Hive ODBC 数据源。
 
-1. 在 Windows 8 或 Windows 10 中，按 Windows 键以打开“开始”屏幕，然后键入“数据源” 。
+1. 在 Windows 8 或 Windows 10 中，按 Windows 键打开“开始”屏幕，并键入“数据源”。
 2. 单击“设置 ODBC 数据源(32 位)”或“设置 ODBC 数据源(64 位)”，具体取决于 Office 版本。 如果使用的是 Windows 7，请从“管理工具”选择“ODBC 数据源(32 位)”或“ODBC 数据源(64 位)”。 这将显示“ODBC 数据源管理器”对话框。
 
     ![ODBC 数据源管理器](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.DataSourceAdmin1.png "使用ODBC 数据源管理器配置 DSN")
@@ -65,13 +65,11 @@ Microsoft 的大数据解决方案将 Microsoft 商业智能 (BI) 组件与已�
 
    | 属性 | 说明 |
    | --- | --- |
-   |  数据源名称 |为你的数据源提供名称 |
+   |  数据源名称 |为数据源提供名称 |
    |  主机 |输入 &lt;HDInsightClusterName>.azurehdinsight.cn。 例如 myHDICluster.azurehdinsight.cn |
    |  端口 |使用 <strong>443</strong>。 （此端口已从 563 更改为 443。） |
    |  数据库 |使用“默认”。<strong></strong> |
-   |  Hive 服务器类型 |选择“Hive Server 2”<strong></strong> |
    |  机制 |选择“Azure HDInsight 服务”<strong></strong> |
-   |  HTTP 路径 |将此字段留空。 |
    |  用户名 |输入 HDInsight 群集 HTTP 用户的用户名。 默认的用户名为 <strong>admin</strong>。 |
    |  密码 |输入 HDInsight 群集用户的密码。 |
 
@@ -79,40 +77,32 @@ Microsoft 的大数据解决方案将 Microsoft 商业智能 (BI) 组件与已�
 
    | 参数 | 说明 |
    | --- | --- |
-   |  使用本机查询 |选择此项时，ODBC 驱动程序将不会尝试将 TSQL 转换为 HiveQL。 只应在 100% 确定提交的是纯 HiveQL 语句时使用此项。 连接 SQL Server 或 Azure SQL 数据库时，应将此项保留为未选中状态。 |
+   |  使用本机查询 |选择此项时，ODBC 驱动程序不会尝试将 TSQL 转换为 HiveQL。 只应在 100% 确定提交的是纯 HiveQL 语句时使用此项。 连接 SQL Server 或 Azure SQL 数据库时，应将此项保留为未选中状态。 |
    |  每块提取的行数 |提取大量记录时，可能需要调整此参数以确保最佳性能。 |
    |  默认字符串列长度、二进制列长度、十进制列小数位数 |数据类型长度和精度可能会影响返回数据的方式。 由于精度损失和/或截断，可能会返回不正确的信息。 |
 
     ![高级选项](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png "高级 DSN 配置选项")
 
-1. 单击“测试”以测试数据源  。 正确配置数据源时，将显示“测试成功完成!” 。
-2. 单击“确定”关闭“测试”对话框  。 现在，新的数据源应该在“ODBC 数据源管理器”中列出 。
+1. 单击“测试”以测试数据源  。 正确配置数据源时，会显示“测试成功完成!” 。
+2. 单击“确定”关闭“测试”对话框  。 此时新的数据源将在“ODBC 数据源管理器”中列出。
 3. 单击“确定”退出向导  。
 
 ## <a name="import-data-into-excel-from-hdinsight"></a>将 HDInsight 中的数据导入到 Excel 中
-下列步骤介绍如何使用在上述步骤中创建的 ODBC 数据源将数据从 Hive 表中导入到 Excel 工作簿。
+下列步骤介绍如何使用在前面部分中创建的 ODBC 数据源将数据从 Hive 表导入到 Excel 工作簿。
 
 1. 在 Excel 中打开新工作簿或现有工作簿。
-2. 在“数据”选项卡中，依次单击“从其他数据源”、“从数据连接向导”以启动“数据连接向导”。
-
+2. 在“数据”选项卡中，依次单击“获取数据”、“从其他源”、“从 ODBC”以启动“数据连接向导”。
+   
     ![打开数据连接向导](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png "打开数据连接向导")
-3. 选择“ODBC DSN”作为数据源，然后单击“下一步”。
-4. 从 ODBC 数据源中，选择你在上一步中创建的数据源名称，然后单击“下一步”。
-5. 在向导中重新输入群集的密码，然后单击“测试”，以再次验证配置。
-6. 单击“确定”关闭测试对话框  。
-7. 单击 **“确定”**。 等待“选择数据库和表”对话框打开  。 此步骤可能需要几秒钟时间。
-8. 选择要导入的表，然后单击“下一步” 。 *hivesampletable* 是 HDInsight 群集随附的示例 Hive 表。  如果你还没有创建表，则可以选择它。 有关运行 Hive 查询和创建 Hive 表的详细信息，请参阅 [将 Hive 与 HDInsight 配合使用][hdinsight-use-hive]。
-9. 单击“完成” 。
-10. 在“导入数据”对话框中，你可以更改或指定查询  。 为此，请单击“属性” 。 此步骤可能需要几秒钟时间。
-11. 单击“定义”选项卡，然后在“命令文本”文本框中的 Hive select 语句后面追加“LIMIT 200”。 此修改将返回的记录集限制为 200。
+4. 选择在上一部分中创建的数据源名称，然后单击“确定”。
+5. 输入 Hadoop 用户名（默认名称为 admin）和密码，然后单击“连接”。
+6. 在导航器中，依次展开“HIVE”、“默认”，依次单击“hivesampletable”、“加载”。 需要几秒钟时间才能将数据导入到 Excel 中。
 
-    ![连接属性](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png "配置 DSN 连接属性")
-12. 单击“确定”关闭“连接属性”对话框  。
-13. 单击“确定”关闭“导入数据”对话框。  
-14. 重新输入密码，然后单击“确定” 。 需要几秒钟时间才能将数据导入到 Excel 中。
+    ![HDInsight Hive ODBC 导航器](./media/hdinsight-connect-excel-hive-ODBC-driver/hdinsight.hive.odbc.navigator.png "打开数据连接向导")
+
 
 ## <a name="next-steps"></a>后续步骤
-本文已介绍如何使用 Microsoft Hive ODBC 驱动程序将来自 HDInsight 服务的数据检索到 Excel 中。 同样地，你也可以将来自 HDInsight 服务的数据检索到 SQL 数据库中。 也可以将数据上传到 HDInsight 服务中。 若要了解更多信息，请参阅以下文章：
+本文已介绍如何使用 Microsoft Hive ODBC 驱动程序将来自 HDInsight 服务的数据检索到 Excel 中。 同样地，也可以将来自 HDInsight 服务的数据检索到 SQL 数据库中。 也可以将数据上传到 HDInsight 服务中。 若要了解更多信息，请参阅以下文章：
 
 * [使用 HDInsight 分析航班延误数据][hdinsight-analyze-flight-data]
 * [将数据上传到 HDInsight][hdinsight-upload-data]

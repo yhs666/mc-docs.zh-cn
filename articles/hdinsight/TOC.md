@@ -43,6 +43,7 @@
 #### [使用 cURL](hdinsight-hadoop-use-mapreduce-curl.md)
 #### [使用 PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
 #### [使用远程桌面](hdinsight-hadoop-use-mapreduce-remote-desktop.md)
+#### [使用 .NET SDK](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
 ### [运行 MapReduce 示例](hdinsight-hadoop-run-samples-linux.md)
 ### [将 Pig 与 Hadoop 配合使用](hdinsight-use-pig.md)
 #### [使用 SSH 和 Pig](hdinsight-hadoop-use-pig-ssh.md)
@@ -51,12 +52,17 @@
 #### [使用 cURL](hdinsight-hadoop-use-pig-curl.md)
 #### [使用远程桌面](hdinsight-hadoop-use-pig-remote-desktop.md)
 ### [将 DataFu 与 Pig 配合使用](hdinsight-hadoop-use-pig-datafu-udf.md)
+### [按需群集](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [提交 Hadoop 作业](hdinsight-submit-hadoop-jobs-programmatically.md)
 ## 使用 Spark 进行内存中处理
-### [使用 BI 工具](hdinsight-apache-spark-use-bi-tools.md)
+### 入门 - Spark 开发人员
+#### [创建独立应用](hdinsight-apache-spark-create-standalone-application.md)
+#### [使用交互式 Spark Shell](hdinsight-spark-shell.md)
+#### [远程作业与 Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [创建独立应用](hdinsight-apache-spark-create-standalone-application.md)
 ### [使用 Eclipse 创建应用](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [使用 IntelliJ 创建应用](hdinsight-apache-spark-intellij-tool-plugin.md)
+### [什么是 Spark 流式处理？](hdinsight-spark-streaming-overview.md)
 ### [处理流事件](hdinsight-apache-spark-eventhub-streaming.md)
 ### [预测 HVAC 性能](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [预测食品检测结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
@@ -68,7 +74,6 @@
 ### [通过单元 Magic 将外部包与 Jupyter 配合使用](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [通过脚本操作将外部包与 Jupyter 配合使用](hdinsight-apache-spark-python-package-installation.md)
 ### [使用本地 Jupyter 笔记本](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-### [远程作业与 Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [使用 IntelliJ 通过 VPN 远程调试作业](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [已知问题](hdinsight-apache-spark-known-issues.md)
 ## 使用 HBase
@@ -108,6 +113,7 @@
 ### [使用 Avro 库将数据序列化](hdinsight-dotnet-avro-serialization.md)
 ### [使用 C# 用户定义的函数](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 ### [将 Python 与 Hive 和 Pig 配合使用](hdinsight-python.md)
+### [创建非交互式身份验证 .NET HDInsight 应用程序](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 ## 分析大数据
 ### [使用 Power Query 进行分析](hdinsight-connect-excel-power-query.md)
 ### [将 Excel 连接到 Hadoop](hdinsight-connect-excel-hive-odbc-driver.md)

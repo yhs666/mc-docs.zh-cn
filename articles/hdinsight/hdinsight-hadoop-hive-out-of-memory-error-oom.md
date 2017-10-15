@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/25/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: 0a0e489a7bd49de79790f595b2a8d0fb98422658
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/17/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: b4336e96cbba951f8072463afe136be58c254b2c
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>解决 Azure HDInsight 中的 Hive 内存不足错误
 
 了解处理大型表时如何通过配置 Hive 内存设置解决 Hive 内存不足错误。
 
-## <a name="scenario-run-a-hive-query-against-large-tables"></a>方案：对大型表运行 Hive 查询
+## <a name="run-hive-query-against-large-tables"></a>针对大型表运行 Hive 查询
 
 客户运行了 Hive 查询：
 
@@ -92,7 +92,7 @@ Hive 查询在 24 节点 A3 HDInsight 群集上用了 26 分钟才完成。 客�
 
     When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesnt take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
 
-hive-site.xml 文件中的 **hive.auto.convert.join.noconditionaltask** 已设置为 **true**：
+hive-site.xml 文件中的 **Hive.auto.convert.join.noconditionaltask** 已设置为 **true**：
 
     <property>
         <name>hive.auto.convert.join.noconditionaltask</name>
@@ -122,10 +122,6 @@ hive-site.xml 文件中的 **hive.auto.convert.join.noconditionaltask** 已设�
 
 使用新设置，查询可在 10 分钟内成功运行。
 
-## <a name="conclusion-oom-errors-and-container-size"></a>结论：OOM 错误和容器大小
-
-遇到 OOM 错误不一定表示容器太小。 相反地，应该配置内存设置，以便将堆大小增加为至少是容器内存大小的 80%。
-
 ## <a name="next-steps"></a>后续步骤
 
-- 有关优化 Hive 查询，请参阅[在 HDInsight 中优化 Hadoop 的 Hive 查询](hdinsight-hadoop-optimize-hive-query.md)。
+遇到 OOM 错误不一定表示容器太小。 相反地，应该配置内存设置，以便将堆大小增加为至少是容器内存大小的 80%。 有关优化 Hive 查询，请参阅[在 HDInsight 中优化 Hadoop 的 Hive 查询](hdinsight-hadoop-optimize-hive-query.md)。

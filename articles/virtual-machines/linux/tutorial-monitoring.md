@@ -3,25 +3,25 @@ title: "监视 Azure 中的 Linux 虚拟机 | Azure"
 description: "了解如何在 Azure 中的 Linux 虚拟机上监视启动诊断和性能指标"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e8a7c5b7f1cd9eb988c6064f212d55c4e8e68f2a
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 2cd943343221fba15f537856dd860929f518b2b9
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>如何监视 Azure 中的 Linux 虚拟机
 
@@ -32,6 +32,8 @@ ms.lasthandoff: 08/29/2017
 > * 查看启动诊断
 > * 在 VM 上启用诊断扩展
 > * 基于诊断指标创建警报
+<!-- Not Available on metrics feature-->
+<!-- Not Available on advanced monitoring-->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -45,7 +47,7 @@ ms.lasthandoff: 08/29/2017
 az group create --name myResourceGroupMonitor --location chinaeast
 ```
 
-现在，请使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 以下示例创建一个名为 myVM 的 VM：
+现在，请使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 创建 VM。 以下示例创建一个名为 myVM 的 VM：
 
 ```azurecli 
 az vm create \
@@ -78,7 +80,7 @@ az storage account create \
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-现在，请使用 [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#enable) 启用启动诊断。 `--storage` 值是在上一步骤中收集的 Blob URI。
+现在，请使用 [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable) 启用启动诊断。 `--storage` 值是在上一步骤中收集的 Blob URI。
 
 ```azurecli 
 az vm boot-diagnostics enable \
@@ -101,11 +103,12 @@ az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-可以使用 [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log) 命令获取 *myVM* 的启动诊断数据，如下所示：
+可以使用 [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log) 命令获取 *myVM* 的启动诊断数据，如下所示：
 
 ```azurecli 
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
 ```
+<!--Not Available ## View host metrics-->
 
 ## <a name="install-diagnostics-extension"></a>安装诊断扩展
 
@@ -123,6 +126,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
     ![查看诊断指标](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
+<!-- Not Available ## View VM metrics-->
 ## <a name="create-alerts"></a>创建警报
 
 可以根据特定的性能指标创建警报。 例如，当平均 CPU 使用率超过特定的阈值或者可用磁盘空间低于特定的空间量时，警报可用于发出通知。 警报显示在 Azure 门户中，也可以通过电子邮件发送。 还可以触发 Azure 自动化 Runbook 或 Azure 逻辑应用来响应生成的警报。
@@ -136,6 +140,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 6. （可选）选中“电子邮件所有者、参与者和读者”对应的框，以便向他们发送电子邮件通知。 默认操作是在门户中显示通知。
 7. 单击“确定”按钮。
 
+<!-- Not Available ## Advanced monitoring -->
 ## <a name="next-steps"></a>后续步骤
 
 在本教程中，你已使用 Azure 安全中心配置并查看了 VM。 你已了解如何：
@@ -146,3 +151,4 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 > * 在 VM 上启用诊断扩展
 > * 基于诊断指标创建警报
 
+<!--Update_Description: update meta properties, wording update, update link-->

@@ -3,25 +3,25 @@ title: "使用 Azure CLI 管理 Azure 磁盘 | Azure"
 description: "教程 - 使用 Azure CLI 管理 Azure 磁盘"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fd75dcc8353fe355abd7da6730798b6301f87081
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 1963d3cf7fc0b5e6d3f26f13a15b81f01d41f861
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>使用 Azure CLI 管理 Azure 磁盘
 
@@ -55,6 +55,7 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 | [常规用途](sizes-general.md) | A 和 D 系列 | 800 |
 | [计算优化](sizes-compute.md) | F 系列 | 800 |
 | [内存优化](../virtual-machines-windows-sizes-memory.md) | D 系列 | 6144 |
+<!-- Not Available on L, N, A and H series-->
 
 ## <a name="azure-data-disks"></a>Azure 数据磁盘
 
@@ -79,6 +80,7 @@ Azure 提供两种类型的磁盘。
 ### <a name="premium-disk"></a>高级磁盘
 
 高级磁盘由基于 SSD 的高性能、低延迟磁盘提供支持。 完美适用于运行生产工作负荷的 VM。 高级存储支持 DS 系列、DSv2 系列和 FS 系列 VM。 高级磁盘分为 3 种类型（P10、P20 和 P30），磁盘大小决定磁盘类型。 选择时，磁盘大小值舍入为下一类型。 例如，如果磁盘大小小于 128 GB，则磁盘类型为 P10。 如果磁盘大小介于 129 GB 和 512 GB 之间，则大小为 P20。 如果超过 512 GB，则大小为 P30。
+<!--Not Available G series-->
 
 ### <a name="premium-disk-performance"></a>高级磁盘性能
 
@@ -96,7 +98,7 @@ Azure 提供两种类型的磁盘。
 
 ### <a name="attach-disk-at-vm-creation"></a>在 VM 创建时附加磁盘
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 命令创建资源组。 
+使用 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 命令创建资源组。 
 
 ```azurecli 
 az group create --name myResourceGroupDisk --location chinaeast
@@ -195,7 +197,7 @@ exit
 
 部署 VM 后，可增加操作系统磁盘或任何附加数据磁盘的大小。 需要更多存储空间或更高级别的性能（P10、P20、P30）时，增加磁盘大小很有用。 请注意，不能降低磁盘大小。
 
-增加磁盘大小之前，需要磁盘 ID 或名称。 使用 [az disk list](https://docs.microsoft.com/cli/azure/vm/disk#list) 命令返回资源组中的所有磁盘。 记下要调整大小的磁盘名称。
+增加磁盘大小之前，需要磁盘 ID 或名称。 使用 [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list) 命令返回资源组中的所有磁盘。 记下要调整大小的磁盘名称。
 
 ```azurecli 
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
@@ -227,7 +229,7 @@ az vm start --resource-group myResourceGroupDisk --name myVM
 
 ### <a name="create-snapshot"></a>创建快照
 
-创建虚拟机磁盘快照前，需要磁盘 ID 或名称。 使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#show) 命令返回磁盘 ID。在此示例中，磁盘 ID 存储在变量中，因此能够在稍后的步骤中使用。
+创建虚拟机磁盘快照前，需要磁盘 ID 或名称。 使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) 命令返回磁盘 ID。在此示例中，磁盘 ID 存储在变量中，因此能够在稍后的步骤中使用。
 
 ```azurecli 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -265,13 +267,13 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 需要将所有数据磁盘重新附加到虚拟机。
 
-先使用 [az disk list](https://docs.microsoft.com/cli/azure/disk#list) 命令找到数据磁盘名称。 此示例将磁盘名称放在名为“datadisk”的变量中，将在下一步中使用该变量。
+先使用 [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list) 命令找到数据磁盘名称。 此示例将磁盘名称放在名为“datadisk”的变量中，将在下一步中使用该变量。
 
 ```azurecli 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-使用 [ az vm disk attach ](https://docs.microsoft.com/cli/azure/vm/disk#attach) 命令附加磁盘。
+使用 [ az vm disk attach ](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) 命令附加磁盘。
 
 ```azurecli 
 az vm disk attach -g myResourceGroupDisk --vm-name myVM --disk $datadisk
@@ -295,4 +297,4 @@ az vm disk attach -g myResourceGroupDisk --vm-name myVM --disk $datadisk
 > [!div class="nextstepaction"]
 > [自动执行 VM 配置](./tutorial-automate-vm-deployment.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

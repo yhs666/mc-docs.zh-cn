@@ -3,41 +3,39 @@ title: "Azure 快速入门 - 创建 VM PowerShell | Azure"
 description: "快速了解如何使用 PowerShell 创建 Linux 虚拟机"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 04/03/2017
-ms.date: 05/15/2017
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: f56805bf76a62a2c3b066eacab15af971de3230d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+origin.date: 05/02/2017
+ms.date: 10/16/2017
+ms.author: v-yeche
+ms.custom: mvc
+ms.openlocfilehash: da717a66ef260453a5f4d23075b32a579e4cbce0
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/13/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>使用 PowerShell 创建 Linux 虚拟机
 
-Azure PowerShell 用于从 PowerShell 命令行或脚本创建和管理 Azure 资源。 本指南详细说明如何使用 PowerShell 创建运行 Ubuntu 14.04 LTS 的 Azure 虚拟机。
+Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Azure 资源。 本指南详细介绍了如何使用 Azure PowerShell 模块部署运行 Ubuntu 服务器的虚拟机。 服务器部署以后，将创建 SSH 连接，并且安装 NGINX webserver。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-另请确保已安装了 Azure PowerShell 模块的最新版本。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
+本快速入门需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
-最后，需要在 Windows 用户配置文件的 `.ssh` 目录中存储名为 `id_rsa.pub` 的公共 SSH 密钥。 有关创建适用于 Azure 的 SSH 密钥的详细信息，请参阅[创建适用于 Azure 的 SSH 密钥](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+最后，需要在 Windows 用户配置文件的 *.ssh* 目录中存储名为 *id_rsa.pub* 的公共 SSH 密钥。 有关创建适用于 Azure 的 SSH 密钥的详细信息，请参阅[创建适用于 Azure 的 SSH 密钥](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-使用 `Login-AzureRmAccount` 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
+使用 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -45,10 +43,10 @@ Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 ## <a name="create-resource-group"></a>创建资源组
 
-创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
+使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location chinanorth
+New-AzureRmResourceGroup -Name myResourceGroup -Location chinaeast
 ```
 
 ## <a name="create-networking-resources"></a>创建网络资源
@@ -60,15 +58,15 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location chinanorth
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location chinanorth `
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location chinaeast `
 -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location chinanorth `
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location chinaeast `
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
-创建网络安全组和网络安全组规则。 网络安全组使用入站和出站规则保护虚拟机。 在本例中，将为端口 22 创建一个入站规则，该规则允许传入的 SSH 连接。 我们还需要为端口 80 创建入站规则，以允许传入的 Web 流量。
+创建网络安全组和网络安全组规则。 网络安全组使用入站和出站规则保护虚拟机。 在本例中，为端口 22 创建一个入站规则，该规则允许传入的 SSH 连接。 我们还需要为端口 80 创建入站规则，以允许传入的 Web 流量。
 
 ```powershell
 # Create an inbound network security group rule for port 22
@@ -82,15 +80,15 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupR
 -DestinationPortRange 80 -Access Allow
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location chinanorth `
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location chinaeast `
 -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-为虚拟机创建网卡。 网卡将虚拟机连接到子网、网络安全组和公共 IP 地址。
+使用 [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface) 为虚拟机创建网卡。 网卡将虚拟机连接到子网、网络安全组和公共 IP 地址。
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location chinanorth `
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location chinaeast `
 -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
@@ -106,7 +104,7 @@ $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $secu
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1 | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName myVM -Credential $cred -DisablePasswordAuthentication | `
-Set-AzureRmVMSourceImage -PublisherName Canonical -Offer UbuntuServer -Skus 14.04.2-LTS -Version latest | `
+Set-AzureRmVMSourceImage -PublisherName Canonical -Offer UbuntuServer -Skus 16.04-LTS -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Configure SSH Keys
@@ -114,29 +112,29 @@ $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-创建虚拟机。
+使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建虚拟机。
 
 ```powershell
-New-AzureRmVM -ResourceGroupName myResourceGroup -Location chinanorth -VM $vmConfig
+New-AzureRmVM -ResourceGroupName myResourceGroup -Location chinaeast -VM $vmConfig
 ```
 
 ## <a name="connect-to-virtual-machine"></a>连接到虚拟机
 
 完成部署后，请与虚拟机建立 SSH 连接。
 
-运行以下命令，返回虚拟机的公共 IP 地址。
+使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 命令返回虚拟机的公共 IP 地址。
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-在装有 SSH 的系统中，使用以下命令连接到虚拟机。 如果在 Windows 上操作，可以使用 [Putty](/virtual-machines/linux/ssh-from-windows?toc=%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) 来创建连接。 
+在装有 SSH 的系统中，使用以下命令连接到虚拟机。 如果在 Windows 上操作，可以使用 [Putty](/virtual-machines/virtual-machines-linux-ssh-from-windows?toc=%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) 来创建连接。 
 
 ```bash 
 ssh <Public IP Address>
 ```
 
-出现提示时，请输入登录用户名 `azureuser`。 如果在创建 SSH 密钥时输入了通行短语，还需要输入此通行短语。
+出现提示时，请输入登录用户名 *azureuser*。 如果在创建 SSH 密钥时输入了密码，还需要输入此密码。
 
 ## <a name="install-nginx"></a>安装 NGINX
 
@@ -154,12 +152,13 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>查看 NGIX 欢迎页
 
-NGINX 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 可以使用所选的 Web 浏览器查看默认的 NGINX 欢迎页。 请务必使用前面记录的 `publicIpAddress` 访问默认页面。 
+NGINX 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 可以使用所选的 Web 浏览器查看默认的 NGINX 欢迎页。 请务必使用前面记录的公共 IP 地址访问默认页面。 
 
 ![NGINX 默认站点](./media/quick-create-cli/nginx.png) 
-## <a name="delete-virtual-machine"></a>删除虚拟机
 
-如果不再需要资源组、VM 和所有相关的资源，可以使用以下命令将其删除。
+## <a name="clean-up-resources"></a>清理资源
+
+如果不再需要资源组、VM 和所有相关的资源，可以使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令将其删除。
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -167,7 +166,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-[创建高可用性虚拟机教程](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+在本快速入门中，部署了一个简单的虚拟机、一条网络安全组规则，并安装了一个 Web 服务器。 若要详细了解 Azure 虚拟机，请继续学习 Linux VM 的教程。
 
-[浏览 VM 部署 PowerShell 示例](../windows/powershell-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+> [!div class="nextstepaction"]
+> [Azure Linux 虚拟机教程](./tutorial-manage-vm.md)
 
+<!--Update_Description: wording update-->

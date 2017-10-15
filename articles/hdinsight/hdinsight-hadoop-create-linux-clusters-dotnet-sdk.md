@@ -14,23 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/16/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 0007a807b3a716a7ba1765999a33dee0ab20597b
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 08/17/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: ed12d7a777a584cfa30aa36549a789ed0ac9c015
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用程序使用 HDInsight 的操作。 本文演示如何使用 .NET SDK 创建基于 Linux 的 HDInsight 群集。
+
+了解如何使用 .NET SDK 在 Azure HDInsight 群集中创建 Hadoop 群集。
 
 > [!IMPORTANT]
-> 本文中的步骤创建了包含一个工作节点的群集。 如果计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
+> 本文中的步骤创建了包含一个工作节点的群集。 如果计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则需要选择至少具有 8 个核心和 14GB RAM 的头节点大小。
 >
 > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
@@ -193,7 +194,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
     ```
 
 6. 替换类成员值。
-7. 按 **F5** 运行应用程序。 控制台窗口应打开并显示应用程序的状态。 系统还会提示输入 Azure 帐户凭据。 创建一个 HDInsight 群集可能需要几分钟时间，通常为 15 分钟。
+7. 按 **F5** 运行应用程序。 控制台窗口应打开并显示应用程序的状态。 系统会提示输入 Azure 帐户凭据。 创建一个 HDInsight 群集可能需要几分钟时间，通常为 15 分钟。
 
 ## <a name="use-bootstrap"></a>使用 bootstrap
 
@@ -405,4 +406,4 @@ static void Main(string[] args)
 * [使用.NET SDK 在 HDInsight 中运行 Pig 作业](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 * [使用.NET SDK 在 HDInsight 中运行 Sqoop 作业](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 * [在 HDInsight 中运行 Oozie 作业](hdinsight-use-oozie.md)
-<!--Update_Description: update storage link and change 'wasbs' into 'wasb'-->
+

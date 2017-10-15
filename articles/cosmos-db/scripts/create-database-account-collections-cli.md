@@ -17,11 +17,11 @@ ms.workload: database
 origin.date: 06/06/2017
 ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8121147caae4cceb9381550e827289fba533a053
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 0e369e90df33c4b6c6fd6f194d3beea01ce8d886
+ms.sourcegitcommit: ac68295ed08ebd9bde695e474056496e0a2911e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="azure-cosmos-db-create-an-documentdb-api-account-using-cli"></a>Azure Cosmos DB：使用 CLI 创建 DocumentDB API 帐户
 
@@ -37,12 +37,14 @@ ms.lasthandoff: 08/04/2017
 ```azurecli-interactive
 #!/bin/bash
 
-# Set variables for the new account, database, and collection
+# Set variables for the new account, database, collection and url 
+# It is mandatory to set url parameter when try to create the database and collection in Azure China. 
 resourceGroupName='myResourceGroup'
 location='chinaeast'
 name='docdb-test'
 databaseName='docdb-test-database'
 collectionName='docdb-test-collection'
+url='https://'${databaseName}'-'${location}'.documents.azure.cn:443/'
 
 # Create a resource group
 az group create \
@@ -61,14 +63,16 @@ az cosmosdb create \
 az cosmosdb database create \
     --name $name \
     --db-name $databaseName \
-    --resource-group $resourceGroupName
+    --resource-group $resourceGroupName \
+    --url-connection $url
 
 # Create a collection
 az cosmosdb collection create \
     --collection-name $collectionName \
     --name $name \
     --db-name $databaseName \
-    --resource-group $resourceGroupName
+    --resource-group $resourceGroupName \
+    --url-connection $url
 
 ```
 
@@ -97,3 +101,4 @@ az group delete --name myResourceGroup
 有关其他 Azure Cosmos DB CLI 脚本示例，请参见 [Azure Cosmos DB CLI 文档](../cli-samples.md)。
 
 <!--Update_Description: update link, wording update-->
+ 

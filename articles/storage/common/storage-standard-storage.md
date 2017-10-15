@@ -1,9 +1,9 @@
 ---
-title: "基于 HD 的高性价比标准存储和 Azure VM 磁盘 | Azure"
+title: "基于 HD 的高性价比标准存储和 Azure VM 磁盘 | Microsoft Docs"
 description: "介绍高性价比标准存储以及非托管和托管 VM 磁盘。"
 services: storage
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
@@ -13,15 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: c05d665f3a74769d03a1657d42f4cf434333a550
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: aaee1308a0d86b9051a8ec5bd6e74e6a307d05a1
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/09/2017
 ---
-<!--with not avaliable VM context-->
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>高性价比标准存储以及非托管和托管 Azure VM 磁盘
 
 Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成本的磁盘支持。 它还支持 Blob、表、队列和文件。 使用标准存储，数据将存储在硬盘驱动器 (HDD) 上。 使用 VM 时，可将标准存储磁盘用于开发/测试方案和不太重要的工作负荷，将高级存储磁盘用于任务关键型生产应用程序。 所有 Azure 区域均提供标准存储。 
@@ -42,14 +41,14 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 
 有关如何使用托管磁盘创建 VM 的信息，请参阅以下文章之一。
 
-* [使用 Resource Manager 和 PowerShell 创建 VM](/virtual-machines/windows/quick-create-powershell.md)
+* [使用 Resource Manager 和 PowerShell 创建 VM](../../virtual-machines/windows/quick-create-powershell.md)
 * [使用 Azure CLI 2.0 创建 Linux VM](../../virtual-machines/windows/quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>标准存储功能 
 
 让我们看一下标准存储的一些功能。 有关详细信息，请参阅 [Azure 存储简介](../storage-introduction.md)。
 
-**标准存储**：Azure 标准存储支持 Azure 磁盘、Azure Blob、Azure 文件存储、Azure 表和 Azure 队列。 要使用标准存储服务，请从[创建 Azure 存储帐户](storage-create-storage-account.md#create-a-storage-account)开始。
+**标准存储**：Azure 标准存储支持 Azure 磁盘、Azure Blob、Azure 文件、Azure 表和 Azure 队列。 要使用标准存储服务，请从[创建 Azure 存储帐户](storage-create-storage-account.md#create-a-storage-account)开始。
 
 **标准存储磁盘** ：可将标准存储磁盘附加到所有 Azure VM，包括与高级存储配合使用的 VM 系列，如 DSv2 和 GS 系列。 标准存储磁盘只能附加到一个 VM。 但是，可以将一个或多个此类磁盘附加到 VM，最多可附加为该 VM 大小定义的最大磁盘计数。 在下一部分“标准存储的可伸缩性和性能目标”中将详细介绍规范。 
 
@@ -136,8 +135,11 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 * [虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)
 * [托管磁盘定价](https://www.azure.cn/pricing/details/managed-disks/)
 
+## <a name="azure-backup-service-support"></a>Azure 备份服务支持 
 
-还可将 Azure 备份服务与托管磁盘配合使用，以创建具有基于时间备份的备份作业、轻松 VM 还原和备份保留策略。 有关详细信息，请参阅[将 Azure 备份服务用于具有托管磁盘的 VM](../../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)。
+可以使用 Azure 备份来备份具有非托管磁盘的虚拟机。 [更多详细信息](../../backup/backup-azure-vms-first-look-arm.md)。
+
+还可将 Azure 备份服务与托管磁盘配合使用，以创建具有基于时间的备份、轻松 VM 还原和备份保留策略的备份作业。 有关详细信息，请参阅[将 Azure 备份服务用于具有托管磁盘的 VM](../../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -147,8 +149,8 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 
 * [托管磁盘概述](../../virtual-machines/windows/managed-disks-overview.md)
 
-* [使用 Resource Manager 和 PowerShell 创建 VM](/virtual-machines/windows/quick-create-powershell.md)
+* [使用 Resource Manager 和 PowerShell 创建 VM](../../virtual-machines/windows/quick-create-powershell.md)
 
-* [使用 Azure CLI 2.0 创建 Linux VM](../../virtual-machines/linux/quick-create-cli.md)
+* [使用 Azure CLI 2.0 创建 Linux VM](../../virtual-machines/windows/quick-create-cli.md)
 
-<!--Update_Description: update link-->
+<!--Update_Description: add Azure Backup service support-->

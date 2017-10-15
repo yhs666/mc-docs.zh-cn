@@ -14,36 +14,36 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: c1eee60698fae71faf313d13245f2f3bde6aee1a
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: bd3f5b205a3cd92756ff41ce6419d56f0c0e3aad
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>将自定义 Python 库与 HDInsight 上的 Spark 群集配合使用来分析网站日志
 
 此笔记本演示如何结合使用自定义库和 HDInsight 上的 Spark 来分析日志数据。 我们使用的自定义库是一个名为 **iislogparser.py**的 Python 库。
 
 > [!TIP]
-> 本教程也以在 HDInsight 中创建的 Spark (Linux) 群集上的 Jupyter notebook 的形式提供。 笔记本体验将通过笔记本本身运行 Python 代码段。 若要从 notebook 内部执行本教程，请创建 Spark 群集，启动 Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.cn/jupyter`)，然后运行 **PySpark** 文件夹下的 notebook“使用自定义 library.ipynb 分析 Spark 的日志”。
+> 本教程也以在 HDInsight 中创建的 Spark (Linux) 群集上的 Jupyter notebook 的形式提供。 笔记本体验允许通过笔记本本身运行 Python 代码段。 若要从 notebook 内部执行本教程，请创建 Spark 群集，启动 Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.cn/jupyter`)，然后运行 **PySpark** 文件夹下的 notebook“使用自定义 library.ipynb 分析 Spark 的日志”。
 >
 >
 
 **先决条件：**
 
-你必须具有以下各项：
+必须满足以下条件：
 
 * Azure 订阅。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](hdinsight-apache-spark-jupyter-spark-sql.md)。
 
 ## <a name="save-raw-data-as-an-rdd"></a>将原始数据另存为 RDD
-在本节中，使用与 HDInsight 中的 Apache Spark 群集关联的 [Jupyter](https://jupyter.org) 笔记本，运行处理原始数据示例并将其保存为 Hive 表的作业。 示例数据是所有群集在默认情况下均会提供的 .csv 文件 (hvac.csv)。
+在本部分中，将使用与 HDInsight 中的 Apache Spark 群集关联的 [Jupyter](https://jupyter.org) 笔记本来运行用于处理原始示例数据并将其保存为 Hive 表的作业。 示例数据是所有群集在默认情况下均会提供的 .csv 文件 (hvac.csv)。
 
-将数据保存为 Hive 表后，下一节将使用 Power BI 和 Tableau 等 BI 工具连接 Hive 表。
+将数据保存为 Hive 表之后，下一部分我们将使用 Power BI 和 Tableau 等 BI 工具来连接该 Hive 表。
 
 1. 在 [Azure 门户](https://portal.azure.cn/)上的启动板中，单击 Spark 群集的磁贴（如果已将它固定到启动板）。 也可以单击“全部浏览” > “HDInsight 群集”导航到群集。   
 2. 在 Spark 群集边栏选项卡中单击“群集仪表板”，然后单击“Jupyter Notebook”。 出现提示时，请输入群集的管理员凭据。
@@ -57,23 +57,24 @@ ms.lasthandoff: 07/14/2017
 3. 创建新的笔记本。 单击“新建”，然后单击“PySpark”。
 
     ![创建新的 Jupyter 笔记本](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "创建新的 Jupyter 笔记本")
-4. 随即创建新笔记本，并以 Untitled.pynb 名称打开。 单击顶部的笔记本名称，然后输入一个友好名称。
+4. 随即创建新笔记本，并以 Untitled.pynb 名称打开。 单击顶部的笔记本名称，并输入一个友好名称。
 
     ![提供笔记本的名称](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "提供笔记本的名称")
-5. 使用笔记本是使用 PySpark 内核创建的，因此不需要显式创建任何上下文。 运行第一个代码单元格时，系统将自动创建 Spark 和 Hive 上下文。 首先，可以导入此方案所需的类型。 将以下代码段粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
+5. 使用笔记本是使用 PySpark 内核创建的，因此不需要显式创建任何上下文。 运行第一个代码单元格时，系统自动创建 Spark 和 Hive 上下文。 首先，可以导入此方案所需的类型。 将以下代码段粘贴到空白单元格中，并按 **SHIFT + ENTER**。
 
         from pyspark.sql import Row
         from pyspark.sql.types import *
 
 1. 使用群集上已可用的示例日志数据创建 RDD。 可以从 **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log** 中访问与群集关联的默认存储帐户中的数据。
 
-        logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
+        logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
+
 
 1. 检索示例日志集以验证上一步是否成功完成。
 
         logs.take(5)
 
-    你应该会看到与下面类似的输出：
+    应该会看到与下面类似的输出：
 
         # -----------------
         # THIS IS AN OUTPUT
@@ -88,9 +89,10 @@ ms.lasthandoff: 07/14/2017
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>使用自定义 Python 库分析日志数据
 1. 在上面的输出中，前几行包括标头信息，其余的每一行均与此标头中描述的架构相匹配。 分析此类日志可能很复杂。 因此，可使用自定义 Python 库 (**iislogparser.py**)，它能使分析这类日志变得容易得多。 默认情况下，此库包含在 **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**处 HDInsight 上的 Spark 群集中。
 
-    但是，此库不在 `PYTHONPATH` 中，因此不能通过 `import iislogparser` 等导入语句来使用它。 若要使用此库，必须将其分发给所有辅助角色节点。 运行以下代码片段。
+    但是，此库不在 `PYTHONPATH` 中，因此不能通过 `import iislogparser` 等导入语句来使用它。 要使用此库，必须将其分发给所有辅助角色节点。 运行以下代码片段。
 
-        sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
+        sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
+
 
 1. 如果日志行是标题行，则 `iislogparser` 提供返回 `None` 的函数 `parse_log_line`，并且在遇到日志行时返回 `LogLine` 类的实例。 使用 `LogLine` 类从 RDD 中仅提取日志行：
 
@@ -116,9 +118,9 @@ ms.lasthandoff: 07/14/2017
        numLines = logLines.count()
        numErrors = errors.count()
        print 'There are', numErrors, 'errors and', numLines, 'log entries'
-       errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
+       errors.map(lambda p: str(p)).saveAsTextFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
 
-   你应该看到如下输出：
+   应该看到如下输出：
 
        # -----------------
        # THIS IS AN OUTPUT
@@ -136,7 +138,7 @@ ms.lasthandoff: 07/14/2017
 
        avgTimeTakenByKey(logLines.map(lambda p: (p.cs_uri_stem, p))).top(25, lambda x: x[1])
 
-   你应该看到如下输出：
+   应该看到如下输出：
 
        # -----------------
        # THIS IS AN OUTPUT
@@ -182,7 +184,7 @@ ms.lasthandoff: 07/14/2017
 
    后接 `-o averagetime` 的 `%%sql` magic 可确保查询输出本地保存在 Jupyter 服务器上（通常在群集的头节点）。 输出作为 [Pandas](http://pandas.pydata.org/) 数据帧进行保存，指定名称为 **averagetime**。
 
-   你应该看到如下输出：
+   应该看到如下输出：
 
    ![SQL 查询输出](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "SQL 查询输出")
 
@@ -197,7 +199,7 @@ ms.lasthandoff: 07/14/2017
        plt.xlabel('Time (min)')
        plt.ylabel('Average time taken for request (ms)')
 
-   你应该看到如下输出：
+   应该看到如下输出：
 
    ![Matplotlib 输出](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Matplotlib 输出")
 8. 完成运行应用程序之后，应该要关闭笔记本以释放资源。 为此，请在 Notebook 的“文件”菜单中，单击“关闭并停止”。 这将会关闭 notebook。

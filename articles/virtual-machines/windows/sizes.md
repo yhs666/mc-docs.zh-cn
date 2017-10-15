@@ -3,7 +3,7 @@ title: "Azure 中的 Windows VM 大小 | Azure"
 description: "列出 Azure 中 Windows 虚拟机的不同可用大小。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 07/28/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: dc50408aad70715cb068d42e9c49fd8f43ad5dfb
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+origin.date: 09/07/2017
+ms.date: 10/16/2017
+ms.author: v-yeche
+ms.openlocfilehash: e9ad2af5dde120def992f993bf60a452d5ec9f38
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -30,7 +30,11 @@ ms.lasthandoff: 08/29/2017
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](sizes-general.md)          | DSv2、Dv2、DS、D、Av2、A0-7 | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
 | [计算优化](sizes-compute.md)        | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
-| [内存优化](../virtual-machines-windows-sizes-memory.md)         | DSv2, DS, Dv2, D   | 高内存与内核之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
+| [内存优化](../virtual-machines-windows-sizes-memory.md)         | DSv2, DS, Dv2, D   | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
+<!-- Not Available B (Preview), Dsv3, Dv3, -->
+<!-- Not Available [Storage optimized] Ls -->
+<!-- Not Available [GPU] NV, NC  -->
+<!-- Not Available [High performance compute] H, A8-11 -->
 
 <br> 
 
@@ -57,6 +61,4 @@ ms.lasthandoff: 08/29/2017
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
 - [内存优化](../virtual-machines-windows-sizes-memory.md)
-
-
-
+<!--Update_Description: update meta properties-->

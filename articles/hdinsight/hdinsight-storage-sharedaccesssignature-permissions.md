@@ -16,11 +16,11 @@ ms.workload: big-data
 origin.date: 08/11/2017
 ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: dcc7b818d7f7896493c3e0105180eb08b16d5080
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+ms.openlocfilehash: 9b69f0c2bf484d68fc49f20cbfe085539ce96bc4
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 存储共享访问签名来限制访问 HDInsight 中的数据
 
@@ -245,7 +245,7 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 2. 使用以下命令验证是否可以读取文件的内容。 如上一步中所述，替换 **SASCONTAINER** 和 **SASACCOUNTNAME**。 将 **FILENAME** 替换为前一个命令中显示的名称：
 
     ```bash
-    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/FILENAME
+    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
     ```
 
     此命令列出文件的内容。
@@ -253,7 +253,7 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 3. 使用以下命令将文件下载到本地文件系统：
 
     ```bash
-    hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/FILENAME testfile.txt
+    hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
     ```
 
     此命令会将文件下载到名为 **testfile.txt** 的本地文件中。
@@ -261,7 +261,7 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 4. 使用以下命令将本地文件上传到 SAS 存储上名为 testupload.txt 的新文件中：
 
     ```bash
-    hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/testupload.txt
+    hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
     ```
 
     将收到类似于以下文本的消息：

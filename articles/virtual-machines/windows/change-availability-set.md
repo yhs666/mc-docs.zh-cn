@@ -4,7 +4,7 @@ description: "了解如何使用 Azure PowerShell 和 Resource Manager 部署模
 keywords: 
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/15/2016
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 16034900c2ffedbbed94770d9aeb968e056d3e0c
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 10/16/2017
+ms.author: v-yeche
+ms.openlocfilehash: d4fa658e89bdb70889f9cc7402c63daaa001289e
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>更改 Windows VM 的可用性集
 以下步骤说明如何使用 Azure PowerShell 来更改 VM 的可用性集。 只能在创建 VM 时将 VM 添加到可用性集。 如果要更改可用性集，必须将虚拟机删除，并重新创建虚拟机。 
@@ -147,8 +147,8 @@ ms.lasthandoff: 08/29/2017
     }
 
     #Add NIC(s)
-    foreach ($nic in $OriginalVM.NetworkInterfaceIDs) {
-        Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic
+    foreach ($nic in $OriginalVM.NetworkProfile.NetworkInterfaces) {
+        Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic.Id
     }
 
     #Create the VM
@@ -157,4 +157,4 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="next-steps"></a>后续步骤
 通过添加附加[数据磁盘](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，向 VM 添加附加存储。
-<!--Update_Description: update managed disk links-->
+<!--Update_Description: update powershell scripts-->

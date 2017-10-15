@@ -1,10 +1,10 @@
 ---
-title: "使用 Azure CLI 2.0 创建具有多个 NIC 的 Linux VM | Azure"
+title: "在 Azure 中创建具有多个 NIC 的 Linux VM | Azure"
 description: "了解如何使用 Azure CLI 2.0 或 Resource Manager 模板创建具有多个 NIC 的 Linux VM。"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
@@ -12,85 +12,151 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 02/10/2017
-ms.date: 05/15/2017
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 65e056610b6edec126672aec1956e1ec8ac93621
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+origin.date: 05/11/2017
+ms.date: 10/16/2017
+ms.author: v-yeche
+ms.openlocfilehash: 7ba21c89dab7ae76ff9dc23ef2ba860265bf7f88
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/13/2017
 ---
-# <a name="create-a-linux-vm-with-multiple-nics"></a>创建具有多个 NIC 的 Linux VM
-可以在 Azure 中创建附有多个虚拟网络接口 (NIC) 的虚拟机 (VM)。 一种常见方案是为前端和后端连接使用不同的子网，或者为监视或备份解决方案使用一个专用网络。 本文提供用于创建附有多个 NIC 的 VM 的快速命令。 有关详细信息（包括如何在自己的 Bash 脚本中创建多个 NIC），请阅读[部署具有多个 NIC 的 VM](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md)。 不同的 [VM 大小](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)支持不同数目的 NIC，因此请相应地调整 VM 的大小。
+# <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>如何在 Azure 中创建具有多个网络接口卡的 Linux 虚拟机
+可以在 Azure 中创建附有多个虚拟网络接口 (NIC) 的虚拟机 (VM)。 一种常见方案是为前端和后端连接使用不同子网，或为监视或备份解决方案使用一个专用网络。 本文详细介绍如何创建具有多个 NIC 的 VM，以及如何在现有 VM 中添加或删除 NIC。 有关详细信息（包括如何在自己的 Bash 脚本中创建多个 NIC），请阅读[部署具有多个 NIC 的 VM](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md)。 不同的 [VM 大小](sizes.md)支持不同数目的 NIC，因此请相应地调整 VM 的大小。
 
-本文详述了如何使用 Azure CLI 2.0 创建具有多个 NIC 的 VM。 还可以使用 [Azure CLI 1.0](multiple-nics-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
+本文详述了如何使用 Azure CLI 2.0 创建具有多个 NIC 的 VM。 还可以使用 [Azure CLI 1.0](multiple-nics-nodejs.md) 执行这些步骤。
 
 ## <a name="create-supporting-resources"></a>创建支持资源
 安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 并使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-在以下示例中，请将示例参数名称替换为自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `myVM`。
+在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 myResourceGroup、mystorageaccount 和 myVM。
 
-首先，使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组。 以下示例在 `ChinaNorth` 位置创建名为 `myResourceGroup` 的资源组：
+首先，使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
 
 ```azurecli
-az group create --name myResourceGroup --location chinanorth
+az group create --name myResourceGroup --location chinaeast
 ```
 
-使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) 创建虚拟网络。 以下示例创建一个名为 `myVnet` 的虚拟网络和名为 `mySubnetFrontEnd` 的子网：
+使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) 创建虚拟网络。 以下示例创建一个名为 myVnet 的虚拟网络和一个名为 mySubnetFrontEnd 的子网：
 
 ```azurecli
-az network vnet create --resource-group myResourceGroup --name myVnet \
-  --address-prefix 192.168.0.0/16 --subnet-name mySubnetFrontEnd --subnet-prefix 192.168.1.0/24
+az network vnet create \
+    --resource-group myResourceGroup \
+    --name myVnet \
+    --address-prefix 192.168.0.0/16 \
+    --subnet-name mySubnetFrontEnd \
+    --subnet-prefix 192.168.1.0/24
 ```
 
-使用 [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#create) 为后端通信流创建子网。 以下示例创建名为 `mySubnetBackEnd`的子网：
+使用 [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#create) 为后端通信流创建子网。 以下示例创建名为 mySubnetBackEnd 的子网：
 
 ```azurecli
-az network vnet subnet create --resource-group myResourceGroup --vnet-name myVnet \
-    --name mySubnetBackEnd --address-prefix 192.168.2.0/24
+az network vnet subnet create \
+    --resource-group myResourceGroup \
+    --vnet-name myVnet \
+    --name mySubnetBackEnd \
+    --address-prefix 192.168.2.0/24
+```
+
+使用 [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) 创建网络安全组。 以下示例创建名为“myNetworkSecurityGroup”的网络安全组：
+
+```azurecli
+az network nsg create \
+    --resource-group myResourceGroup \
+    --name myNetworkSecurityGroup
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>创建和配置多个 NIC
-详细了解如何[使用 Azure CLI 部署多个 NIC](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md)，包括如何编写循环创建所有 NIC 的过程脚本。
-
-通常会创建[网络安全组](../../virtual-network/virtual-networks-nsg.md)或[负载均衡器](../../load-balancer/load-balancer-overview.md)来帮助管理流量以及跨 VM 分布流量。 使用 [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) 创建网络安全组。 以下示例创建名为 `myNetworkSecurityGroup`的网络安全组：
+使用 [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) 创建两个 NIC。 以下示例创建两个连接到网络安全组的 NIC（名为 myNic1 和 myNic2），其中一个 NIC 连接到每个子网：
 
 ```azurecli
-az network nsg create --resource-group myResourceGroup \
-  --name myNetworkSecurityGroup
-```
-
-使用 [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) 创建两个 NIC。 以下示例将创建两个 NIC（名为 `myNic1` 和 `myNic2`），并连接到网络安全组，其中一个 NIC 连接到每个子网：
-
-```azurecli
-az network nic create --resource-group myResourceGroup --name myNic1 \
-  --vnet-name myVnet --subnet mySubnetFrontEnd \
-  --network-security-group myNetworkSecurityGroup
-az network nic create --resource-group myResourceGroup --name myNic2 \
-  --vnet-name myVnet --subnet mySubnetBackEnd \
-  --network-security-group myNetworkSecurityGroup
+az network nic create \
+    --resource-group myResourceGroup \
+    --name myNic1 \
+    --vnet-name myVnet \
+    --subnet mySubnetFrontEnd \
+    --network-security-group myNetworkSecurityGroup
+az network nic create \
+    --resource-group myResourceGroup \
+    --name myNic2 \
+    --vnet-name myVnet \
+    --subnet mySubnetBackEnd \
+    --network-security-group myNetworkSecurityGroup
 ```
 
 ## <a name="create-a-vm-and-attach-the-nics"></a>创建 VM 并附加 NIC
-创建 VM 时，请使用 `--nics`指定所创建的 NIC。 还需要谨慎选择 VM 的大小。 可添加到 VM 的 NIC 数目有限制。 详细了解 [Linux VM 大小](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 
+创建 VM 时，请使用 `--nics`指定所创建的 NIC。 还需要谨慎选择 VM 的大小。 可添加到 VM 的 NIC 数目有限制。 详细了解 [Linux VM 大小](sizes.md)。 
 
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 以下示例使用 Azure 非托管磁盘创建一个名为 `myVM` 的 VM：
+使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 以下示例创建一个名为 myVM 的 VM：
 
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image UbuntuLTS \
-    --size Standard_DS2_v2 \
+    --size Standard_DS3_v2 \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --nics myNic1 myNic2 \
-    --use-unmanaged-disk
+    --generate-ssh-keys \
+    --nics myNic1 myNic2
+```
+
+## <a name="add-a-nic-to-a-vm"></a>将 NIC 添加到 VM
+之前的步骤创建了具有多个 NIC 的 VM。 还可使用 Azure CLI 2.0 将 NIC 添加到现有 VM。 
+
+使用 [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) 创建另一 NIC。 以下示例创建一个名为 myNic3 的 NIC，该 NIC 连接到后端子网和之前步骤中创建的网络安全组：
+
+```azurecli
+az network nic create \
+    --resource-group myResourceGroup \
+    --name myNic3 \
+    --vnet-name myVnet \
+    --subnet mySubnetBackEnd \
+    --network-security-group myNetworkSecurityGroup
+```
+
+若要将 NIC 添加到现有 VM，请先使用 [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate) 解除分配 VM。 以下示例解除分配名为 myVM 的 VM：
+
+```azurecli
+az vm deallocate --resource-group myResourceGroup --name myVM
+```
+
+使用 [az vm nic add](https://docs.microsoft.com/cli/azure/vm/nic#add) 添加 NIC。 以下示例将 myNic3 添加到 myVM：
+
+```azurecli
+az vm nic add \
+    --resource-group myResourceGroup \
+    --vm-name myVM \
+    --nics myNic3
+```
+
+使用 [az vm start](https://docs.microsoft.com/cli/azure/vm#start) 启动 VM：
+
+```azurecli
+az vm start --resource-group myResourceGroup --name myVM
+```
+
+## <a name="remove-a-nic-from-a-vm"></a>从 VM 中删除 NIC
+若要从现有 VM 中删除 NIC，请先使用 [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate) 解除分配 VM。 以下示例解除分配名为 myVM 的 VM：
+
+```azurecli
+az vm deallocate --resource-group myResourceGroup --name myVM
+```
+
+使用 [az vm nic remove](https://docs.microsoft.com/cli/azure/vm/nic#remove) 删除 NIC。 以下示例从 myVM 中删除 myNic3：
+
+```azurecli
+az vm nic remove \
+    --resource-group myResourceGroup \
+    --vm-name myVM 
+    --nics myNic3
+```
+
+使用 [az vm start](https://docs.microsoft.com/cli/azure/vm#start) 启动 VM：
+
+```azurecli
+az vm start --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>使用 Resource Manager 模板创建多个 NIC
@@ -113,5 +179,74 @@ Azure Resource Manager 模板使用声明性 JSON 文件来定义环境。 可�
 
 可以阅读[使用 Resource Manager 模板创建多个 NIC](../../virtual-network/virtual-network-deploy-multinic-arm-template.md) 的完整示例。
 
+## <a name="configure-guest-os-for-multiple-nics"></a>为多个 NIC 配置来宾 OS
+
+当为基于 Linux Guest-OS 的 VM 创建多个 NIC 时，需要创建额外的路由规则，仅限发送和接收属于特定 NIC 的流量。 否则，由于定义的默认路由，将无法正确处理属于 eth1 的流量。  
+
+### <a name="solution"></a>解决方案
+
+首先将两个路由表添加到文件 /etc/iproute2/rt_tables
+
+```bash
+echo "200 eth0-rt" >> /etc/iproute2/rt_tables
+echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+```
+
+要使更改长久有效并在网络堆栈激活期间应用，需要更改 /etc/sysconfig/network-scipts/ifcfg-eth0 和 /etc/sysconfig/network-scipts/ifcfg-eth1 文件。
+将行“NM_CONTROLLED=yes”更改为“NM_CONTROLLED=no”。
+如果不执行此步骤，则添加的其他规则/路由将无法生效。
+
+下一步是扩展路由表。 为了使后续步骤更直观，我们假设进行了如下设置
+
+*路由*
+
+```bash
+default via 10.0.1.1 dev eth0 proto static metric 100
+10.0.1.0/24 dev eth0 proto kernel scope link src 10.0.1.4 metric 100
+10.0.1.0/24 dev eth1 proto kernel scope link src 10.0.1.5 metric 101
+168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
+169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
+```
+
+*接口*
+
+```bash
+lo: inet 127.0.0.1/8 scope host lo
+eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
+eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
+```
+
+使用上述信息，即可以 root 身份创建下列附加文件
+
+*   /etc/sysconfig/network-scripts/rule-eth0
+*   /etc/sysconfig/network-scripts/route-eth0
+*   /etc/sysconfig/network-scripts/rule-eth1
+*   /etc/sysconfig/network-scripts/route-eth1
+
+每个文件的内容如下所示
+```bash
+cat /etc/sysconfig/network-scripts/rule-eth0
+from 10.0.1.4/32 table eth0-rt
+to 10.0.1.4/32 table eth0-rt
+
+cat /etc/sysconfig/network-scripts/route-eth0
+10.0.1.0/24 dev eth0 table eth0-rt
+default via 10.0.1.1 dev eth0 table eth0-rt
+
+cat /etc/sysconfig/network-scripts/rule-eth1
+from 10.0.1.5/32 table eth1-rt
+to 10.0.1.5/32 table eth1-rt
+
+cat /etc/sysconfig/network-scripts/route-eth1
+10.0.1.0/24 dev eth1 table eth1-rt
+default via 10.0.1.1 dev eth1 table eth1-rt
+```
+
+创建并填充文件后，需要重启网络服务 `systemctl restart network`
+
+现在即可从外部连接 eth0 或 eth1
+
 ## <a name="next-steps"></a>后续步骤
-尝试创建具有多个 NIC 的 VM 时，请查看 [Lnux VM 大小](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 注意每个 VM 大小支持的 NIC 数目上限。
+尝试创建具有多个 NIC 的 VM 时，请查看 [Lnux VM 大小](sizes.md)。 注意每个 VM 大小支持的 NIC 数目上限。
+
+<!--Update_Description: add new feature on Configure guest OS for multiple NICs -->

@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/15/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: a2dc7b194c2c7d31c14d2f3303eaca6282051889
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 09/07/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 3f5c8c94b2d75e1dcabbf51fa0b49b80ccb70afb
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Spark 群集上的 Jupyter Notebook 的内核 
 
@@ -40,7 +40,7 @@ HDInsight Spark 群集提供可在 Spark 上的 Jupyter Notebook 中用于测试
 
 ## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>在 Spark HDInsight 上创建 Jupyter Notebook
 
-1. 从 [Azure 门户网站](https://portal.azure.cn/)打开群集。  有关说明，请参阅[列出和显示群集](hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。 群集将在新的门户边栏选项卡中打开。
+1. 从 [Azure 门户网站](https://portal.azure.cn/)打开群集。  有关说明，请参阅[列出和显示群集](hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。 将在新的门户边栏选项卡中打开群集。
 
 2. 在“快速链接”部分中，单击“群集仪表板”打开“群集仪表板”边栏选项卡。  如果没有看到“快速链接”，请从边栏选项卡上的左侧菜单中单击“概述”。
 
@@ -88,8 +88,8 @@ HDInsight Spark 群集提供可在 Spark 上的 Jupyter Notebook 中用于测试
    | help |`%%help` |生成所有可用 magic 的表，其中包含示例和说明 |
    | info |`%%info` |输出当前 Livy 终结点的会话信息 |
    | 配置 |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |配置用于创建会话的参数。 如果已创建会话，则必须指定 force 标志 (-f)，确保删除再重新创建该会话。 有关有效参数的列表，请查看 [Livy's POST /sessions Request Body](https://github.com/cloudera/livy#request-body) （Livy 的 POST /sessions 请求正文）。 参数必须以 JSON 字符串传入，并且必须位于 magic 后面的下一行，如示例列中所示。 |
-   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |针对 sqlContext 执行 Hive 查询。 如果传递了 `-o` 参数，则查询的结果将以 [Pandas](http://pandas.pydata.org/) 数据帧的形式保存在 %%local Python 上下文中。 |
-   | local |`%%local`<br>`a=1` |后续行中的所有代码将在本地执行。 代码必须是有效的 Python2 代码，即使不考虑所使用的内核。 因此，即使在创建 Notebook 时选择了“PySpark3”或“Spark”，但如果在单元中使用 `%%local` magic，该单元也只能包含有效的 Python2 代码。 |
+   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |针对 sqlContext 执行 Hive 查询。 如果传递了 `-o` 参数，则查询的结果以 [Pandas](http://pandas.pydata.org/) 数据帧的形式保存在 %%local Python 上下文中。 |
+   | local |`%%local`<br>`a=1` |后续行中的所有代码在本地执行。 代码必须是有效的 Python2 代码，即使不考虑所使用的内核。 因此，即使在创建 Notebook 时选择了“PySpark3”或“Spark”，但如果在单元中使用 `%%local` magic，该单元也只能包含有效的 Python2 代码。 |
    | 日志 |`%%logs` |输出当前 Livy 会话的日志。 |
    | 删除 |`%%delete -f -s <session number>` |删除当前 Livy 终结点的特定会话。 请注意，无法删除针对内核本身启动的会话。 |
    | cleanup |`%%cleanup -f` |删除当前 Livy 终结点的所有会话，包括此笔记本的会话。 force 标志 -f 是必需的。 |
@@ -120,8 +120,8 @@ HDInsight Spark 群集提供可在 Spark 上的 Jupyter Notebook 中用于测试
 
 * 从 **hivesampletable**中选择所有记录。
 * 由于使用了 -q，因此将关闭自动可视化。
-* 由于使用了 `-m sample -r 0.1 -n 500` ，因此将从 hivesampletable 的行中随机采样 10%，并将结果集的大小限制为 500 行。
-* 最后，由于使用了 `-o query2` ，因此将输出保存到名为 **query2**的数据帧中。
+* 由于使用了 `-m sample -r 0.1 -n 500`，因此将从 hivesampletable 的行中随机采样 10%，并将结果集的大小限制为 500 行。
+* 最后，由于使用了 `-o query2`，因此也会将输出保存到名为 **query2** 的数据帧中。
 
 ## <a name="considerations-while-using-the-new-kernels"></a>使用新内核时的注意事项
 
@@ -138,7 +138,7 @@ HDInsight Spark 群集提供可在 Spark 上的 Jupyter Notebook 中用于测试
 
 ## <a name="where-are-the-notebooks-stored"></a>Notebook 存储在何处？
 
-Jupyter 笔记本保存在与 **/HdiNotebooks** 文件夹下面的群集关联的存储帐户中。  可以从存储帐户访问在 Jupyter 内部创建的 Notebook、文本文件和文件夹。  例如，如果使用 Jupyter 创建文件夹 **myfolder** 和 Notebook **myfolder/mynotebook.ipynb**，可在存储帐户中通过 `/HdiNotebooks/myfolder/mynotebook.ipynb` 访问该 Notebook。  反之亦然，如果直接将 Notebook 上传到 `/HdiNotebooks/mynotebook1.ipynb`中的存储帐户，则可以从 Jupyter 查看该 Notebook。  即使删除了群集，Notebook 也仍会保留在存储帐户中。
+Jupyter 笔记本保存在与 **/HdiNotebooks** 文件夹下面的群集关联的存储帐户中。  可以从存储帐户访问在 Jupyter 内部创建的 Notebook、文本文件和文件夹。  例如，如果使用 Jupyter 创建文件夹 **myfolder** 和 Notebook **myfolder/mynotebook.ipynb**，可在存储帐户中通过 `/HdiNotebooks/myfolder/mynotebook.ipynb` 访问该 Notebook。  反之亦然，如果直接将笔记本上传到 `/HdiNotebooks/mynotebook1.ipynb` 中的存储帐户，则可以从 Jupyter 查看该笔记本。  即使删除了群集，Notebook 也仍会保留在存储帐户中。
 
 将笔记本保存到存储帐户的方式与 HDFS 兼容。 因此，如果通过 SSH 访问群集，可以使用如以下代码片段所示的文件管理命令：
 
@@ -170,7 +170,7 @@ Google Chrome 仅支持 Spark HDInsight 群集中的 Jupyter Notebook。
 * [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和扩展
-* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [使用用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)

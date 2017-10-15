@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 04/18/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: b454a241c8f6c9ea10b5dae1e9e7f9bbf98e3bf5
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: e6b928929cad8f4443869be0a7b36afb1966b326
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="using-shared-access-signatures-sas"></a>使用共享访问签名 (SAS)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/25/2017
 有关此处所述之外的使用 SAS 的其他代码示例，请参阅 [.NET 中的 Azure Blob 存储入门](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/)以及 [Azure 代码示例](https://github.com/Azure-Samples/?service=storage)库提供的其他示例。 可以下载示例应用程序并运行，或在 GitHub 上浏览代码。
 
 ## <a name="what-is-a-shared-access-signature"></a>什么是共享访问签名？
-共享访问签名对存储帐户中的资源提供委托访问。 借助 SAS，可以授予客户端访问存储帐户中的资源的权限，而无需共享帐户密钥。 这是在应用程序中使用共享访问签名的关键之处 - SAS 是用于共享存储资源的一种安全方式，不会危及帐户密钥。
+共享访问签名对存储帐户中的资源提供委托访问。 通过 SAS，可以授予客户端对存储帐户中资源的访问权限，无需共享帐户密钥。 这是在应用程序中使用共享访问签名的关键之处 - SAS 是用于共享存储资源的一种安全方式，不会危及帐户密钥。
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/25/2017
 
 * SAS 有效的时间间隔，包括开始时间和到期时间。
 * SAS 授予的权限。 例如，Blob 的 SAS 可能授予对该 Blob 的读取和写入权限，但不授予删除权限。
-* Azure 存储接受 SAS 的可选的 IP 地址或 IP 地址范围。 例如，你可能指定属于组织的 IP 地址范围。
+* Azure 存储接受 SAS 的可选的 IP 地址或 IP 地址范围。 例如，可以指定属于组织的 IP 地址范围。
 * Azure 存储接受 SAS 所依据的协议。 可通过此可选参数使用 HTTPS 限制对客户端的访问。
 
 ## <a name="when-should-you-use-a-shared-access-signature"></a>何时应使用共享访问签名？
@@ -46,11 +46,11 @@ SAS 通常适用于用户需要在存储帐户中读取和写入其数据的服�
 
 1. 客户端通过执行身份验证的前端代理服务上传和下载数据。 此前端代理服务的优势在于允许验证业务规则，但对于大量数据或大量事务，创建可扩展以匹配需求的服务可能成本高昂或十分困难。
 
-  ![方案示意图：前端代理服务](../media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+  ![方案示意图：前端代理服务](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. 轻型服务按需对客户端进行身份验证，并生成 SAS。 在客户端接收 SAS 后，它们可以直接使用 SAS 定义的权限并且针对 SAS 允许的间隔访问存储帐户资源。 SAS 减少了通过前端代理服务路由所有数据的需要。
 
-  ![方案示意图：SAS 提供程序服务](../media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+  ![方案示意图：SAS 提供程序服务](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 许多实际服务可能会混合使用这两种方法。 例如，可能通过前端代理对某些数据进行处理和验证，同时使用 SAS 直接保存和/或读取其他数据。
 
@@ -71,7 +71,7 @@ SAS 通常适用于用户需要在存储帐户中读取和写入其数据的服�
 
 下面是 SAS URI 的一个示例，其中显示了资源 URI 和 SAS 令牌：
 
-![SAS URI 的组件](../media/storage-dotnet-shared-access-signature-part-1/sas-storage-uri.png)   
+![SAS URI 的组件](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-uri.png)   
 
 SAS 令牌是在客户端侧生成的字符串（请参阅 [SAS 示例](#sas-examples)部分获取代码示例）。 例如，在任何情况下，Azure 存储均不会跟踪使用存储客户端库生成的 SAS 令牌。 可以在客户端上创建不限数量的 SAS 令牌。
 
@@ -231,7 +231,7 @@ catch (StorageException e)
 8. **验证使用 SAS 写入的数据。** 在某一客户端应用程序将数据写入存储帐户时，请记住对于这些数据可能存在问题。 如果应用程序要求在数据可供使用前对数据进行验证或授权，应该在写入数据后、但在应用程序使用这些数据前执行此验证。 这一实践还有助于防止损坏的数据或恶意数据写入帐户，这些数据可能是正常要求 SAS 的用户写入的，也可能是利用泄露的 SAS 的用户写入的。
 9. **不要总是使用 SAS。** 有时候，与针对存储帐户的特定操作相关联的风险要超过 SAS 所带来的好处。 对于此类操作，应创建一个中间层服务，该服务在执行业务规则验证、身份验证和审核后写入存储帐户。 此外，有时候以其他方式管理访问会更简单。 例如，如果想要使某一容器中的所有 Blob 都可以公开读取，则可以使该容器成为公共的，而不是为每个客户端都提供 SAS 以便进行访问。
 10. 
-            **使用存储分析监视应用程序。** 可以使用日志记录和指标来观察由于 SAS 提供程序服务中断或无意中删除存储访问策略而导致身份验证失败的任何高发情形。 有关其他信息，请参阅 [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) 。
+            **使用存储分析监视应用程序。** 可以使用日志记录和指标来观察由于 SAS 提供程序服务中断或无意中删除存储访问策略而导致身份验证失败的任何高发情形。 有关其他信息，请参阅 [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx)。
 
 ## <a name="sas-examples"></a>SAS 示例
 下面是两种类型的共享访问签名（帐户 SAS 和服务 SAS）的一些示例。
@@ -432,5 +432,3 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 * [管理对容器和 blob 的匿名读取访问](../blobs/storage-manage-access-to-resources.md)
 * [使用共享访问签名委托访问](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [介绍表和队列 SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-
-<!--Update_Description: update link-->

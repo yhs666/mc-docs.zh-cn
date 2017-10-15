@@ -3,8 +3,8 @@ title: "Azure 快速入门 - 创建 Windows VM 门户 | Azure"
 description: "Azure 快速入门 - 创建 Windows VM 门户"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 07/15/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5a9052a5fe7a0118b78ec8d61d793eab9cd0297d
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: f310f1659f4e96828eabe8812cb491eb79b2ecec
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>使用 Azure 门户创建 Windows 虚拟机
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/18/2017
 
 1. 单击 Azure 门户左上角的“新建”按钮。
 
-2. 选择“计算”，并选择“Windows Server 2016 Datacenter”。 
+2. 选择“计算”，然后选择“Windows Server 2016 Datacenter”。 
 
 3. 输入虚拟机信息。 在此处输入的用户名和密码用于登录到虚拟机。 完成后，单击“确定”。
 
@@ -47,11 +47,11 @@ ms.lasthandoff: 08/18/2017
 
     ![显示 VM 大小的屏幕截图](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. 在设置边栏选项卡中保留默认值，并单击“确定”。
+5. 在“设置”下，保留默认值，然后单击“确定”。 
 
 6. 在摘要页上，单击“确定”以开始虚拟机部署。
 
-7. VM 将固定到 Azure 门户仪表板。 完成部署后，VM 摘要边栏选项卡将自动打开。
+7. VM 将固定到 Azure 门户仪表板。 完成部署后，会自动打开 VM 摘要。
 
 ## <a name="connect-to-virtual-machine"></a>连接到虚拟机
 
@@ -90,13 +90,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>查看 IIS 欢迎页
 
-安装 IIS 并向 VM 打开端口 80 以后，即可通过 Internet 访问 webserver。 打开 Web 浏览器，输入 VM 的公共 IP 地址。 该公共 IP 地址可在 Azure 门户的 VM 边栏选项卡上找到。
+安装 IIS 并向 VM 打开端口 80 以后，即可通过 Internet 访问 webserver。 打开 Web 浏览器，输入 VM 的公共 IP 地址。 该公共 IP 地址可以在 Azure 门户的“虚拟机”下找到。
 
 ![IIS 默认站点](./media/quick-create-powershell/default-iis-website.png) 
 
 ## <a name="clean-up-resources"></a>清理资源
 
-不再需要资源组、虚拟机和所有相关的资源时，可将其删除。 为此，请从虚拟机边栏选项卡中选择该资源组，并单击“删除”。
+不再需要资源组、虚拟机和所有相关的资源时，可将其删除。 为此，请选择适用于 VM 的资源组，然后单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 

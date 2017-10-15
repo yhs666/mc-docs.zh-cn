@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/16/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 8373ca3d53f1dd61f62caf857a43b79301fd75a7
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 09/06/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: f822af9ffe6336a292c07c09810d28e573d494a6
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>通过 PowerShell 使用 HDInsight 上的 Hadoop 运行 MapReduce 作业
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a id="powershell"></a>使用 Azure PowerShell 运行 MapReduce 作业
 
-Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 MapReduce 作业。 从内部来讲，这是通过使用 REST 调用 HDInsight 群集上运行的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)（以前称为 Templeton）实现的。
+Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 MapReduce 作业。 从内部来讲，PowerShell 将对 HDInsight 群集上运行的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)（以前称为 Templeton）进行 REST 调用。
 
 在远程 HDInsight 群集上运行 MapReduce 作业时，会使用以下 Cmdlet。
 
@@ -50,8 +50,7 @@ Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 MapReduce �
 
 * **New-AzureRmHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 信息创建新 *作业定义* 。
 
-* 
-            **Start-AzureRmHDInsightJob**：将作业定义发送到 HDInsight，启动作业，并返回可用来检查作业状态的 *作业* 对象。
+* **Start-AzureRmHDInsightJob**：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
 
 * **Wait-AzureRmHDInsightJob**：使用作业对象来检查作业的状态。 它等到作业完成或超出等待时间。
 
@@ -133,7 +132,7 @@ Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 MapReduce �
 
         .\mapreducejob.ps1
 
-    运行脚本时，系统会提示输入 HDInsight 群集的名称和群集的 HTTPS/Admin 帐户名称和密码。 还会提示针对 Azure 订阅进行身份验证。
+    运行脚本时，系统会提示输入 HDInsight 群集的名称和该群集的登录名。 还会提示针对 Azure 订阅进行身份验证。
 
 3. 作业完成后，会收到类似于以下文本的输出：
 
@@ -156,14 +155,14 @@ Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 MapReduce �
 
 ### <a name="view-output"></a>查看输出
 
-在文本编辑器中打开 **output.txt** 文件，以查看作业生成的单词和计数。
+若要查看作业生成的单词和计数，请在文本编辑器中打开 output.txt 文件。
 
 > [!NOTE]
 > MapReduce 作业的输出文件是固定不变的。 因此，如果重新运行此示例，需要更改输出文件的名称。
 
 ## <a id="troubleshooting"></a>故障排除
 
-如果作业完成时未返回任何信息，可能表示处理期间发生错误。 如果要查看此作业的错误信息，请将以下命令添加到 **mapreducejob.ps1** 文件的末尾，保存，并重新运行该文件。
+如果作业完成时未返回任何信息，请查看该作业的错误。 如果要查看此作业的错误信息，请将以下命令添加到 **mapreducejob.ps1** 文件的末尾，保存，并重新运行该文件。
 
 ```powershell
 # Print the output of the WordCount job.
@@ -175,7 +174,7 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-在运行作业时，此 cmdlet 返回写入到服务器上的 STDERR 的信息，它可帮助确定该作业失败的原因。
+作业运行期间，此 cmdlet 返回写入到 STDERR 中的信息。
 
 ## <a id="summary"></a>摘要
 
@@ -189,6 +188,5 @@ Azure PowerShell 提供了一种简单方法，可让你在 HDInsight 群集上�
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* 
-            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
