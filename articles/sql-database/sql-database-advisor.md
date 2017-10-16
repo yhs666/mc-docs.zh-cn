@@ -83,5 +83,5 @@ Azure SQL 数据库持续监视执行的查询并找出可以改进性能的索�
 
 ## <a name="additional-resources"></a>其他资源
 * [查询存储](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+* [创建索引](https://msdn.microsoft.com/library/ms188783.aspx)
 * [基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)

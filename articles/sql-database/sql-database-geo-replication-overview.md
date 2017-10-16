@@ -89,8 +89,8 @@ Azure SQL 数据库自动故障转移组（预览）是一项 SQL 数据库功�
    > 在不属于故障转移组的服务器中添加已具有辅助数据库的数据库时，会在辅助服务器中创建新的辅助数据库。 
    >
 
-* 故障转移组读写侦听器：指向当前主服务器 URL 的格式为 **&lt;failover-group-name&gt;.database.chinacloudapi.cn** 的 DNS CNAME 记录。 它允许读写 SQL 应用程序在故障转移发生后主服务器发生更改时，以透明方式重新连接到主数据库。 
-* 故障转移组只读侦听器：指向辅助服务器 URL 的格式为 **&lt;failover-group-name&gt;.secondary.database.chinacloudapi.cn** 的 DNS CNAME 记录。 它允许只读 SQL 应用程序以透明方式使用指定的负载均衡规则连接到辅助数据库。 或者，可以指定是否要在辅助服务器不可用时将只读流量自动重定向到主服务器中。
+* **故障转移组读写侦听器**：指向当前主服务器 URL 的格式为 **&lt;failover-group-name&gt;.database.chinacloudapi.cn** 的 DNS CNAME 记录。 它允许读写 SQL 应用程序在故障转移发生后主服务器发生更改时，以透明方式重新连接到主数据库。 
+* **故障转移组只读侦听器**：指向辅助服务器 URL 的格式为 **&lt;failover-group-name&gt;.secondary.database.chinacloudapi.cn** 的 DNS CNAME 记录。 它允许只读 SQL 应用程序以透明方式使用指定的负载均衡规则连接到辅助数据库。 或者，可以指定是否要在辅助服务器不可用时将只读流量自动重定向到主服务器中。
 * **自动故障转移策略**：默认使用自动故障转移策略配置故障转移组。 检测到故障时，系统将立即触发故障转移。 如果要从应用程序控制故障转移工作流，可以关闭自动故障转移。 
 * **手动故障转移**：可在任何时候手动启动故障转移，而不考虑自动故障转移配置。 如果未配置自动故障转移策略，则需要进行手动故障转移来恢复故障转移组中的数据库。 可通过完整数据同步启动强制或友好的故障转移。 后者可用于将活动服务器重新定位到主要区域。 故障转移完成后，将自动更新 DNS 记录，以确保连接到正确的服务器。
 * **数据丢失宽限期**：因为主数据库和辅助数据库是使用异步复制进行同步的，所以故障转移可能会导致数据丢失。 可以自定义自动故障转移策略，以便反映应用程序对数据丢失的容错。 通过配置 **GracePeriodWithDataLossHours**，可以控制系统启动可能导致数据丢失的故障转移之前的等待时间。 
@@ -105,7 +105,7 @@ Azure SQL 数据库自动故障转移组（预览）是一项 SQL 数据库功�
 
 若要构建使用 Azure SQL 数据库的高可用性服务，应遵循以下准则：
 
-- 使用故障转移组：可在不同区域的两个服务器（主服务器和辅助服务器）之间创建一个或多个故障转移组。 每组可包含一个或多个数据库，这些数据库是在所有或某些主数据库因主要区域中的服务中断而变得不可用时，作为单元恢复的。 故障转移组使用服务目标作为主数据库创建异地辅助数据库。 如果将现有的异地复制关系添加到故障转移组，请确保使用与主数据库相同的服务级别目标来配置异地辅助数据库。
+- **使用故障转移组**：可在不同区域的两个服务器（主服务器和辅助服务器）之间创建一个或多个故障转移组。 每组可包含一个或多个数据库，这些数据库是在所有或某些主数据库因主要区域中的服务中断而变得不可用时，作为单元恢复的。 故障转移组使用服务目标作为主数据库创建异地辅助数据库。 如果将现有的异地复制关系添加到故障转移组，请确保使用与主数据库相同的服务级别目标来配置异地辅助数据库。
 - **使用读写侦听器侦听 OLTP 工作负荷**：执行 OLTP 操作时请使用 **&lt;failover-group-name&gt;.database.chinacloudapi.cn** 作为服务器 URL，连接将自动定向到主数据库。 此 URL 在故障转移后不会更改。  
 请注意，故障转移涉及更新 DNS 记录，以便仅在刷新客户端 DNS 缓存后，客户端连接才会重定向到新的主数据库。
 - **使用只读侦听器侦听只读工作负荷**：如果你有一个在逻辑上隔离的允许某些过时数据的只读工作负荷，则可以在应用程序中使用辅助数据库。 对于只读会话，请使用 **&lt;failover-group-name&gt;.secondary.database.chinacloudapi.cn** 作为服务器 URL，连接将自动定向到辅助数据库。 此外，还建议使用 **ApplicationIntent=ReadOnly** 在连接字符串中指示读取意向。 
@@ -125,13 +125,13 @@ Azure SQL 数据库自动故障转移组（预览）是一项 SQL 数据库功�
 由于广域网的延迟时间较长，连续复制使用了异步复制机制。 在发生故障时，异步复制会不可避免地丢失某些数据。 但是，某些应用程序可能要求不能有数据丢失。 为了保护这些关键更新，应用程序开发人员可以在提交事务后立即调用 [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系统过程。 调用 **sp_wait_for_database_copy_sync** 会阻止调用线程，直到将上次提交的事务传输到辅助数据库。 但是，它不会等待传输的事务提交到辅助数据库进行重播。 **sp_wait_for_database_copy_sync** 的作用域是一个具体的连续复制链路。 对主数据库具有连接权限的任何用户都可以调用此过程。
 
 > [!NOTE]
-> sp_wait_for_database_copy_sync 将在故障转移后防止数据丢失，但它不会保证读取访问的完全同步。 **sp_wait_for_database_copy_sync** 过程调用导致的延迟可能会很明显，具体取决于调用时的事务日志大小。 
+> **sp_wait_for_database_copy_sync** 将在故障转移后防止数据丢失，但它不会保证读取访问的完全同步。 **sp_wait_for_database_copy_sync** 过程调用导致的延迟可能会很明显，具体取决于调用时的事务日志大小。 
 > 
 
 ## <a name="programmatically-managing-failover-groups-and-active-geo-replication"></a>以编程方式管理故障转移组和活动异地复制
 如上所述，也可以使用 Azure PowerShell 和 REST API 以编程方式管理自动故障转移组（预览）和活动异地复制。 下表描述了可用的命令集。
 
-Azure 资源管理器 API 和基于角色的安全性：活动异地复制包括一组用于管理的 Azure 资源管理器 API，其中包括 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/)（Azure SQL 数据库 REST API）和 [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview)。 这些 API 需要使用资源组，并支持基于角色的安全性 (RBAC)。 有关如何实现访问角色的详细信息，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)。
+**Azure 资源管理器 API 和基于角色的安全性**：活动异地复制包括一组用于管理的 Azure 资源管理器 API，其中包括 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/)（Azure SQL 数据库 REST API）和 [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview)。 这些 API 需要使用资源组，并支持基于角色的安全性 (RBAC)。 有关如何实现访问角色的详细信息，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)。
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>使用 Transact-SQL 管理 SQL 数据库故障转移
 
