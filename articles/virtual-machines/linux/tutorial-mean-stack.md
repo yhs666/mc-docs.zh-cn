@@ -1,27 +1,27 @@
 ---
-title: "在 Azure 中的 Linux VM 上创建 MEAN 堆栈 | Microsoft Docs"
+title: "在 Azure 中的 Linux VM 上创建 MEAN 堆栈 | Azure"
 description: "了解如何在 Azure 中的 Linux VM 上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈。"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 08/08/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8a06b788ad8faac1433b31f99433699e55af7189
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 3368b1f7438f179f776c8cd0c1b4c4ced922f027
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>在 Azure 中的 Linux VM 上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈
 
@@ -35,17 +35,17 @@ ms.lasthandoff: 08/25/2017
 > * 使用 AngularJS 访问路由
 > * 运行应用程序
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
-
 ## <a name="create-a-linux-vm"></a>创建 Linux VM
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 命令创建资源组，并使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 命令创建 Linux VM。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
+使用 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 命令创建资源组，并使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 命令创建 Linux VM。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
 以下示例使用 Azure CLI 在“中国北部”位置创建名为 *myResourceGroupMEAN* 的资源组。 将会创建一个包含 SSH 密钥（如果默认密钥位置不存在这些密钥）的、名为 *myVM* 的 VM。 若要使用一组特定的密钥，请使用 --ssh-key-value 选项。
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroupMEAN --location "China North"
 az vm create \
     --resource-group myResourceGroupMEAN \
@@ -59,7 +59,7 @@ az vm open-port --port 3300 --resource-group myResourceGroupMEAN --name myVM
 
 创建 VM 后，Azure CLI 显示类似于以下示例的信息。 
 
-```azurecli-interactive
+```azurecli
 {
   "fqdns": "",
   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroupMEAN/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -100,7 +100,7 @@ sudo apt-get install -y nodejs
     ```
 
 2. 使用密钥更新包管理器。
-  
+
     ```bash
     sudo apt-get update
     ```
@@ -126,7 +126,7 @@ sudo apt-get install -y nodejs
     ```
 
     安装正文分析器包。
-    
+
     ```bash
     sudo npm install body-parser
     ```
@@ -261,7 +261,7 @@ sudo apt-get install -y nodejs
       };
     });
     ```
-    
+
 2. 在 *public* 文件夹中，创建包含所定义的网页的、名为 *index.html* 的文件。
 
     ```html
@@ -353,3 +353,5 @@ sudo apt-get install -y nodejs
 
 > [!div class="nextstepaction"]
 > [使用 SSL 保护 Web 服务器](tutorial-secure-web-server.md)
+
+<!--Update_Description: update meta properties， wording update, update link-->

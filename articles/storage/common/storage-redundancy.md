@@ -1,9 +1,9 @@
 ---
-title: "Azure 存储中的数据复制 | Azure"
+title: "Azure 存储中的数据复制 | Microsoft Docs"
 description: "复制 Azure 存储帐户中的数据，实现持久性和高可用性。 复制选项包括本地冗余存储 (LRS)、区域冗余存储 (ZRS)、异地冗余存储 (GRS) 和读取访问异地冗余存储 (RA-GRS)。"
 services: storage
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: 86bdb6d4-da59-4337-8375-2527b6bdf73f
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/15/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 336ac570c56b6d5d179373147d2cf08057457393
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: 7b440c87a35f31024d6c7bae24fb94f908d8eb7c
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="azure-storage-replication"></a>Azure 存储复制
 
@@ -61,6 +61,7 @@ LRS 的成本最低，与其他选项相比，存储的持久性最低。 如果
 
 * 在 Azure 存储复制选项中，提供最高带宽上限。
 * 如果应用程序存储可轻松重构的数据，则可以选择 LRS。
+* 由于数据治理需要，某些应用程序被限制为只能在一个国家/地区内复制数据。 配对区域可以在另一个国家/地区中。 
 
 ## <a name="zone-redundant-storage"></a>区域冗余存储
 除了像 LRS 一样存储三个副本，区域冗余存储空间 (ZRS) 还会在一两个区域的数据中心之间异步复制数据，提供高于 LRS 的持久性。 即使主数据中心不可用或不可恢复，ZRS 中存储的数据仍持久存在。
@@ -82,15 +83,22 @@ LRS 的成本最低，与其他选项相比，存储的持久性最低。 如果
 注意事项：
 
 * 由于异步复制涉及延迟，因此在遇到区域性灾难时，如果无法从主要区域中恢复数据，则可能会丢失尚未复制到次要区域的更改。
-* 在 Microsoft 启动故障转移到次要区域之前，该副本不可用。 如果 Azure 启动了到次要区域的故障转移，则在故障转移完成以后，用户将对该数据具有读取和写入访问权限。 有关详细信息，请参阅[灾难恢复指南](./storage-disaster-recovery-guidance.md)。 
+* 在 21Vianet 启动到次要区域的故障转移之前，该副本不可用。 如果 21Vianet 启动了到次要区域的故障转移，则在故障转移完成以后，你将拥有该数据的读取和写入访问权限。 有关详细信息，请参阅[灾难恢复指南](../storage-disaster-recovery-guidance.md)。 
 * 如果应用程序想要从次要区域读取，用户应启用 RA-GRS。
 
 创建存储帐户时，可以为帐户选择主要区域。 次要区域是根据主要区域确定的且无法更改。 下表显示了配对的主要区域和次要区域。
 
 | 主要 | 次要 |
 | --- | --- |
-| 中国北部 |中国东部 |
 | 中国东部 |中国北部 |
+| 中国北部 |中国东部 |
+
+有关 Azure 支持的区域的最新信息，请参阅 [Azure 区域](https://azure.microsoft.com/regions/)。
+
+>[!NOTE]  
+> 美国弗吉尼亚州政府次要区域为美国德克萨斯州政府。 以前，美国弗吉尼亚州政府将美国爱荷华州政府用作次要区域。 仍在使用美国爱荷华州政府作为次要区域的存储帐户即将迁移到用作次要区域的美国德克萨斯州政府。 
+> 
+> 
 
 ## <a name="read-access-geo-redundant-storage"></a>读取访问异地冗余存储
 除了在 GRS 所提供的两个区域之间进行复制外，读取访问异地冗余存储 (RA-GRS) 还提供对次要位置中的数据的只读访问权限，从而在最大程度上提高存储帐户的可用性。
@@ -155,4 +163,3 @@ LRS 的成本最低，与其他选项相比，存储的持久性最低。 如果
 * [Azure 存储冗余选项和读取访问异地冗余存储](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 * [SOSP Paper - Azure Storage: A highly available cloud storage service with strong consistency（SOSP 论文 - Azure 存储：具有高度一致性的高可用云存储服务）](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!--Update_Description: update link -->

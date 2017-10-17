@@ -1,6 +1,6 @@
 ---
-title: "将 Apache Phoenix 和 SQuirreL 用于 HBase - Azure HDInsight | Azure"
-description: "了解如何在 HDInsight 中使用 Apache Phoenix，以及如何在工作站上安装和配置 SQuirreL 以连接到 HDInsight 中的 HBase 群集。"
+title: "在 Azure HDInsight 中将 Apache Phoenix 和 SQuirreL 用于 HBase | Microsoft Docs"
+description: "了解如何在 HDInsight 中使用 Apache Phoenix。 此外，了解如何在计算机上安装和设置 SQLLine 以连接到 HDInsight 中的 HBase 群集。"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/26/2017
-ms.date: 07/24/2017
+origin.date: 09/06/2017
+ms.date: 10/23/2017
 ms.author: v-dazen
-ms.openlocfilehash: 68174cfb0dc3a0843391840b4db8be8f7ba395f5
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: c71df1912ccb3badc46194821ad7de7dd972977c
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>将 Apache Phoenix 与 HDinsight 中基于 Linux 的 HBase 群集配合使用
-了解如何在 HDInsight 中使用 [Apache Phoenix](http://phoenix.apache.org/)，以及如何使用 SQLLine。 有关 Phoenix 的详细信息，请参阅[在 15 分钟或更短时间内了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。 有关 Phoenix 语法，请参阅 [Phoenix 语法](http://phoenix.apache.org/language/index.html)。
+了解如何在 Azure HDInsight 中使用 [Apache Phoenix](http://phoenix.apache.org/)，以及如何使用 SQLLine。 有关 Phoenix 的详细信息，请参阅 [在 15 分钟或以下了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。 有关 Phoenix 语法，请参阅 [Phoenix 语法](http://phoenix.apache.org/language/index.html)。
 
 > [!NOTE]
-> 有关 HDInsight 中的 Phoenix 版本信息，请参阅 [HDInsight 提供的 Hadoop 群集版本有有何变化？](hdinsight-component-versioning.md)。
+> 有关 HDInsight 的 Phoenix 版本信息，请参阅 [HDInsight 提供的 Hadoop 群集版本的新增功能](hdinsight-component-versioning.md)。
 >
 >
 
@@ -34,29 +34,29 @@ ms.lasthandoff: 07/14/2017
 [SQLLine](http://sqlline.sourceforge.net/) 是用于执行 SQL 的命令行实用工具。
 
 ### <a name="prerequisites"></a>先决条件
-在使用 SQLLine 之前，必须先准备好以下各项：
+使用 SQLLine 之前，必须先准备好以下各项：
 
 * **HDInsight 中的 HBase 群集**。 有关预配 HBase 群集的信息，请参阅 [HDInsight 中的 Apache HBase 入门][hdinsight-hbase-get-started]。
-* **通过远程桌面协议连接到 HBase 群集**。 有关说明，请参阅[使用 Azure 门户在 HDInsight 中管理 Hadoop 群集][hdinsight-manage-portal]。
+* **通过远程桌面协议连接到 HBase 群集**。 有关详细信息，请参阅[使用 Azure 门户在 HDInsight 中管理 Hadoop 群集][hdinsight-manage-portal]。
 
-连接到 HBase 群集时，需要连接到某一 Zookeeper。 每个 HDInsight 群集有 3 个 Zookeeper。
+在连接到 HBase 群集时，需要连接到 ZooKeeper VM 之一。 每个 HDInsight 群集具有三个 ZooKeeper VM。
 
-**找出 Zookeeper 主机名**
+获取 ZooKeeper 主机名
 
-1. 通过浏览到 **https://<ClusterName>.azurehdinsight.cn** 打开 Ambari。
-2. 输入 HTTP（群集）用户名和密码以登录。
-3. 单击左侧菜单中的 **ZooKeeper**。 将看到列出的三个 **ZooKeeper 服务器**。
-4. 单击列出的其中一个 **ZooKeeper 服务器**。 在“摘要”窗格中，找到**主机名**。 它类似于 *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.chinacloudapp.cn*。
+1. 通过访问 https://\<群集名称\>.azurehdinsight.cn 打开 Ambari。
+2. 要登录，请输入 HTTP（群集）用户名和密码。
+3. 在左侧菜单中，选择“ZooKeeper”。 将列出三个 ZooKeeper Server 实例。
+4. 选择其中一个 ZooKeeper Server 实例。 在“摘要”窗格中，找到主机名。 它看起来类似于 zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.chinacloudapp.cn。
 
 **使用 SQLLine**
 
 1. 使用 SSH 连接到群集。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
-2. 从 SSH 运行以下命令以运行 SQLLine：
+2. 在 SSH 中，运行以下命令以运行 SQLLine：
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin
         ./sqlline.py <ClusterName>:2181:/hbase-unsecure
-3. 运行以下命令以创建 HBase 表，并插入一些数据：
+3. 要创建 HBase 表并插入一些数据，请运行以下命令：
 
         CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
 
@@ -71,14 +71,14 @@ ms.lasthandoff: 07/14/2017
 有关详细信息，请参阅 [SQLLine 手册](http://sqlline.sourceforge.net/#manual)和 [Phoenix 语法](http://phoenix.apache.org/language/index.html)。
 
 ## <a name="next-steps"></a>后续步骤
-在本文中，你已了解如何在 HDInsight 中使用 Apache Phoenix。  若要了解更多信息，请参阅以下文章：
+通过本文，你已了解如何在 HDInsight 中使用 Apache Phoenix。 若要了解更多信息，请参阅下列文章：
 
 * [HDInsight HBase 概述][hdinsight-hbase-overview]：HBase 是构建于 Hadoop 上的 Apache 开源 NoSQL 数据库，用于为大量非结构化和半结构化数据提供随机访问和高度一致性。
-* [在 Azure 虚拟网络上设置 HBase 群集][hdinsight-hbase-provision-vnet]：通过虚拟网络集成，可将 HBase 群集部署到应用程序所在的虚拟网络，以便应用程序直接与 HBase 进行通信。
-* [在 HDInsight 中配置 HBase 复制](hdinsight-hbase-replication.md)：了解如何跨两个 Azure 数据中心配置 HBase 复制。
+* [在 Azure 虚拟网络上预配 HBase 群集][hdinsight-hbase-provision-vnet]：可以通过虚拟网络集成将 HBase 群集部署到应用程序所在的虚拟网络，以便应用程序直接与 HBase 通信。
+* [在 HDInsight 中配置 HBase 复制](hdinsight-hbase-replication.md)。 了解如何跨两个 Azure 数据中心设置 HBase 复制。
 
 [azure-portal]: https://portal.azure.cn
-[vnet-point-to-site-connectivity]: /vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal
+[vnet-point-to-site-connectivity]: ../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md
 
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp

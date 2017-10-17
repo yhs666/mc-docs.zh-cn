@@ -3,25 +3,25 @@ title: "使用 Azure CLI 创建和管理 Linux VM | Azure"
 description: "教程 - 使用 Azure CLI 创建和管理 Linux VM"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 47f2a21749bd82d79e6a2910e17dd80b679be187
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 68fd3b41923f685a7cb55ce06cd99c59e2c4e9ba
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>使用 Azure CLI 创建和管理 Linux VM
 
@@ -40,7 +40,7 @@ Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azu
 
 ## <a name="create-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 命令创建资源组。 
+使用 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 命令创建资源组。 
 
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。 在此示例中，在“chinaeast”区域中创建了名为“myResourceGroupVM”的资源组。 
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroupVM --location chinaeast
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 命令创建虚拟机。 
+使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 命令创建虚拟机。 
 
 创建虚拟机时，可使用多个选项，例如操作系统映像、磁盘大小调整和管理凭据。 在此示例中，创建了一个名为“myVM”的运行 Ubuntu Server 的虚拟机。 
 
@@ -60,7 +60,7 @@ az group create --name myResourceGroupVM --location chinaeast
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-创建 VM 后，Azure CLI 会输出有关 VM 的信息。 请记下 `publicIpAddress`，可以使用此地址访问虚拟机。 
+创建 VM 可能需要几分钟。 创建 VM 后，Azure CLI 会输出有关 VM 的信息。 请记下 `publicIpAddress`，可以使用此地址访问虚拟机。 
 
 ```azurecli 
 {
@@ -77,13 +77,13 @@ az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --
 
 ## <a name="connect-to-vm"></a>连接到 VM
 
-现在可以使用 SSH 连接到 VM。 将示例 IP 地址替换为上一步骤中记下的 `publicIpAddress`。
+现在可以使用 SSH 从本地计算机连接到 VM。 将示例 IP 地址替换为上一步骤中记下的 `publicIpAddress`。
 
 ```bash
 ssh 52.174.34.95
 ```
 
-使用完 VM 后，请关闭 SSH 会话。 
+登录 VM 后，可以安装和配置应用程序。 完成后，可按正常方式关闭 SSH 会话：
 
 ```bash
 exit
@@ -155,6 +155,7 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 | [常规用途](sizes-general.md)         |DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
 | [计算优化](sizes-compute.md)   | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
 | [内存优化](../virtual-machines-windows-sizes-memory.md)    | DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
+<!-- Not Available Dsv3, Ls, G, NV, H series-->
 
 ### <a name="find-available-vm-sizes"></a>查找可用的 VM 大小
 
@@ -202,7 +203,11 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>调整 VM 的大小
 
-部署 VM 后，可调整其大小以增加或减少资源分配。
+部署 VM 后，可调整其大小以增加或减少资源分配。 可通过 [az vm show](https://docs.microsoft.com/cli/azure/vm#show) 查看 VM 的当前大小：
+
+```azurecli
+az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
+```
 
 调整 VM 大小之前，请检查所需的大小在当前 Azure 群集上是否可用。 [az vm list-vm-resize-options](https://docs.microsoft.com/cli/azure/vm#list-vm-resize-options) 命令返回大小列表。 
 
@@ -294,7 +299,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### <a name="delete-resource-group"></a>删除资源组
 
-删除资源组会删除其包含的所有资源。
+删除资源组还会删除其包含的所有资源，例如 VM、虚拟网络和磁盘。 `--no-wait` 参数会使光标返回提示符处，不会等待操作完成。 `--yes` 参数将确认是否希望删除资源，不会显示询问是否删除的额外提示。
 
 ```azurecli 
 az group delete --name myResourceGroupVM --no-wait --yes
@@ -315,3 +320,5 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 > [!div class="nextstepaction"]
 > [创建和管理 VM 磁盘](./tutorial-manage-disks.md)
+
+<!--Update_Description: update meta properties, wording update-->

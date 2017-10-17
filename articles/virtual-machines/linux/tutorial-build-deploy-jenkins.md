@@ -1,25 +1,25 @@
 ---
-title: "使用 Team Services 通过 Jenkins 实现到 Azure VM 的 CI/CD | Microsoft Docs"
+title: "使用 Team Services 通过 Jenkins 实现到 Azure VM 的 CI/CD | Azure"
 description: "通过 Visual Studio Team Services (VSTS) 或 Microsoft Team Foundation Server (TFS) 中的 Release Management 使用 Jenkins 设置到 Azure VM 的 Node.js 应用持续集成 (CI) 和持续部署 (CD)。"
-author: hayley244
-manager: douge
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/15/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d66501b49b3fed62c0931db14a8be4c784b51155
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 3aa51737bb094b225decd87b003ac873b8eaadac
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="deploy-your-app-to-linux-vms-using-jenkins-and-team-services"></a>使用 Jenkins 和 Team Services 将应用部署到 Linux VM
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 08/25/2017
 
 本教程使用 Jenkins 生成一个 **Node.js web 应用**，并使用 Visual Studio Team Services 将其部署到包含 Linux 虚拟机的[部署组](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/)。
 
-用户能够：
+你将执行以下任务：
 
 > [!div class="checklist"]
 > * 采用 Jenkins 生成应用
@@ -139,11 +139,11 @@ ms.lasthandoff: 08/25/2017
    选择“创建”。
 
 Azure 资源组部署任务会在它运行时使用 Azure 资源管理器模板创建并注册 VM。
-不需要自己创建并注册虚拟机。
+你不需要自己创建并注册虚拟机。
 
 ## <a name="create-a-release-definition"></a>创建发布定义
 
-发布定义指定在部署应用将执行的过程。
+发布定义指定 Team Services 在部署应用时执行的流程。
 若要在 Team Services 中创建发布定义，请执行以下操作：
 
 1. 打开“生成和发布”中心的“生成”选项卡，打开发布定义列表中的 **+** 下拉列表，并选择“创建发布定义”。**&amp;** 
@@ -162,7 +162,7 @@ Azure 资源组部署任务会在它运行时使用 Azure 资源管理器模板�
 
 1. Azure 资源组部署任务中使用的参数模板设置用来连接到 VM 的管理员密码。
    通过变量 **$(adminpassword)** 提供此密码：
-   
+
    - 打开“变量”选项卡，在“变量”部分中，输入名称 `adminpassword`。
 
    - 输入管理员密码。
@@ -212,7 +212,7 @@ Azure 资源组部署任务的默认设置是用于创建或更新资源，并�
 * **指定工作目录**：`Checked`
 
 * **工作目录**：`$(System.DefaultWorkingDirectory)/Fabrikam-Node`
-   
+
 ## <a name="rename-and-save-the-release-definition"></a>重命名并保存发布定义
 
 1. 将发布定义的名称编辑为在 Jenkins 的生成的“生成后操作”选项卡中指定的名称。 Jenkins 要求此名称能够在源项目更新时触发新的发布。
@@ -242,11 +242,11 @@ Azure 资源组部署任务的默认设置是用于创建或更新资源，并�
 
 1. 提交更改。
 
-1. 几分钟后，会在 Team Services 或 TFS 的“发布”页面中看到新创建的发布。 打开此发布可以看到部署正在进行。 祝贺！
+1. 几分钟后，会在 Team Services 或 TFS 的“发布”页面中看到新创建的发布。 打开此发布可以看到部署正在进行。 祝贺你！
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程已使用 Jenkins 生成和用于发布的 Team Services 实现了到 Azure 的应用部署自动化。 你已了解如何：
+在本教程中，你已使用 Jenkins 生成和用于发布的 Team Services 实现了到 Azure 的应用部署自动化。 你已了解如何：
 
 > [!div class="checklist"]
 > * 采用 Jenkins 生成应用
@@ -258,3 +258,5 @@ Azure 资源组部署任务的默认设置是用于创建或更新资源，并�
 
 > [!div class="nextstepaction"]
 > [部署 LAMP 堆栈](tutorial-lamp-stack.md)
+
+<!--Update_Description: update meta properties-->

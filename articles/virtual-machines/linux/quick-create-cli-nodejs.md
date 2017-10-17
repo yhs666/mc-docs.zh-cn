@@ -3,7 +3,7 @@ title: "使用 Azure CLI 1.0 创建 Linux VM | Azure"
 description: "使用 Azure CLI 1.0 在 Azure 上创建 Linux VM"
 services: virtual-machines-linux
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/15/2016
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 6edc4cb2681b2a59024541551410221123ef02e7
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 10/16/2017
+ms.author: v-yeche
+ms.openlocfilehash: 0d3020a44a51e0dbc677795ed4aea470e5eca620
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-a-linux-vm-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建 Linux VM
 
@@ -56,6 +56,7 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 | CoreOS |CoreOS |CoreOS |Stable |最新 |
 | Debian |credativ |Debian |8 |最新 |
 | openSUSE |SUSE |openSUSE |13.2 |最新 |
+<!-- Not Available image of RHEL -->
 | UbuntuLTS |Canonical |Ubuntu Server |14.04.4-LTS |最新 |
 
 以下各节对 **ImageURN** 选项 (`-Q`) 使用 `UbuntuLTS` 别名来部署 Ubuntu 14.04.4 LTS Server。
@@ -205,3 +206,5 @@ myAdminUser@myVM:~$
 * [使用模板在 Azure 上创建受 SSH 保护的 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 还可以[将 `docker-machine` Azure 驱动程序与各种命令配合使用，快速创建 Linux VM 作为 docker 主机](docker-machine.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+
+<!--Update_Description: wording update-->

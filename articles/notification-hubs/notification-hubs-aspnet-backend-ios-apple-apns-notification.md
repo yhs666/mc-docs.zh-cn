@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 10/03/2016
 ms.author: v-junlch
 ms.date: 01/19/2017
-ms.openlocfilehash: 46f7766e5a6ebd35d007692fe3df56119aae5684
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 9352428e174086db7c4d582a785ae44d17678d9f
+ms.sourcegitcommit: 03b84cb00f3f77dd379463c5db4e85234bdce41a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="azure-notification-hubs-notify-users-for-ios-with-net-backend"></a>Azure 通知中心 - 使用 .NET 后端通知 iOS 用户
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 07/13/2017
 
 ##<a name="overview"></a>概述
 
-利用 Azure 中的推送通知支持，你可以访问易于使用且向外扩展的多平台推送基础结构，这大大简化了为移动平台的使用者应用程序和企业应用程序实现推送通知的过程。 本教程说明如何使用 Azure 通知中心将推送通知发送到特定设备上的特定应用程序用户。 ASP.NET WebAPI 后端用于对客户端进行身份验证并生成通知，如指南主题[从应用后端注册](./notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend)中所述。
+利用 Azure 中的推送通知支持，可以访问易于使用且向外扩展的多平台推送基础结构，这大大简化了为移动平台的使用者应用程序和企业应用程序实现推送通知的过程。 本教程说明如何使用 Azure 通知中心将推送通知发送到特定设备上的特定应用程序用户。 ASP.NET WebAPI 后端用于对客户端进行身份验证并生成通知，如指南主题[从应用后端注册](./notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend)中所述。
 
 > [!NOTE]
 > 本教程假设已根据[通知中心入门 (iOS)](./notification-hubs-ios-apple-push-notification-apns-get-started.md) 中所述创建并配置了通知中心。 此外，只有在学习本教程后，才可以学习[安全推送 (iOS)](./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) 教程。
@@ -39,7 +39,7 @@ ms.lasthandoff: 07/13/2017
 1. 打开在[通知中心入门 (iOS)](./notification-hubs-ios-apple-push-notification-apns-get-started.md) 教程中创建的“单页视图”应用。
 
     > [!NOTE]
-    > 在本节中我们假定你的项目已配置了空的组织名称。 如果未配置，你将需要在所有类名前面追加组织名称。
+    > 在本节中我们假定项目已配置了空的组织名称。 如果未配置，需要在所有类名前面追加组织名称。
 
 2. 在 Main.storyboard 中添加对象库中的组件，如下面的屏幕截图中所示。
 
@@ -301,9 +301,9 @@ ms.lasthandoff: 07/13/2017
     ```
 
 > [!NOTE]
-> 下面的代码段不是安全的身份验证方案，你应将 **createAndSetAuthenticationHeaderWithUsername:AndPassword:** 的实现替换为你的特定身份验证机制，该机制将生成要供注册客户端类（例如，OAuth、Active Directory）使用的身份验证令牌。
+> 下面的代码段不是安全的身份验证方案，你应将 **createAndSetAuthenticationHeaderWithUsername:AndPassword:** 的实现替换为你的特定身份验证机制，该机制会生成要供注册客户端类（例如，OAuth、Active Directory）使用的身份验证令牌。
 
-9. 然后在 ViewController.m 的 `@implementation` 节中添加以下代码，以添加用于设置设备令牌的实现和身份验证标头。
+9. 然后在 ViewController.m 的 `@implementation` 节中添加以下代码，以添加用于设置设备令牌和身份验证标头的实现。
 
     ```
     -(void) setDeviceToken: (NSData*) deviceToken
@@ -330,7 +330,7 @@ ms.lasthandoff: 07/13/2017
     }
     ```
 
-    请注意设置设备令牌时如何启用登录按钮。 这是因为在登录操作过程中，视图控制器将使用应用后端注册推送通知。 因此，我们不希望在正确设置设备令牌前可以访问登录操作。 可以只要登录在推送注册之前发生，就将前者与后者解耦。
+    请注意设置设备令牌时如何启用登录按钮。 这是因为在登录操作过程中，视图控制器使用应用后端注册推送通知。 因此，我们不希望在正确设置设备令牌前可以访问登录操作。 可以只要登录在推送注册之前发生，就会前者与后者解耦。
 
 10. 在 ViewController.m 中，使用以下代码段实现“登录”按钮的操作方法以及使用 ASP.NET 后端发送通知消息的方法  。
 
@@ -456,7 +456,7 @@ ms.lasthandoff: 07/13/2017
     }
     ```
 
-13. 最后，在 **AppDelegate.m**中，确保你使用了以下方法：
+13. 最后，在 **AppDelegate.m** 中，确保使用了以下方法：
 
     ```
     - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -469,16 +469,16 @@ ms.lasthandoff: 07/13/2017
 
 1. 在 XCode 中，在物理 iOS 设备上运行此应用（推送通知将无法在模拟器中正常工作）。
 
-2. 在 iOS 应用 UI 中，输入用户名和密码。 这些信息可以是任意字符串，但必须是相同的字符串值。 然后，单击“登录” 。
+2. 在 iOS 应用 UI 中，输入用户名和密码。 这些信息可以是任意字符串，但必须是相同的字符串值。 然后，单击“登录”。
 
     ![][2]
 
-3. 你应看到弹出窗口通知你注册成功。 单击 **“确定”**。
+3. 应看到弹出窗口通知你注册成功。 单击 **“确定”**。
 
     ![][3]
 
 4. 在“*收件人用户名标记”文本字段中，输入用于从另一台设备注册的用户名标记。
-5. 输入通知消息，然后单击“发送通知” 。  只有使用该用户名标记注册的设备才会收到通知消息。  该消息将只发送给那些用户。
+5. 输入通知消息，并单击“**发送通知**”。  只有使用该用户名标记注册的设备才会收到通知消息。  该消息将只发送给那些用户。
 
     ![][4]
 

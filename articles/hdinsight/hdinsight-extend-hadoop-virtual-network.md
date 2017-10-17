@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/10/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: bbf60f37ff0b272ccbf526a3ddac7f55f4f3c061
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 08/23/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 640b8b9e2dff3cc047f80606a4bd92a5d9e93d76
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 09/12/2017
 
 1. 对虚拟网络使用经典模式还是资源管理器部署模式？
 
-    HDInsight 3.4 及更高版本需要 Resource Manager 虚拟网络。 早期版本的 HDInsight 需要经典虚拟网络，但这些版本已经停用或很快就要停用。
+    HDInsight 3.4 及更高版本需要 Resource Manager 虚拟网络。 早期版本的 HDInsight 要求使用经典虚拟网络。
 
     如果现有网络是经典虚拟网络，则必须创建 Resource Manager 虚拟网络，然后将这两种网络连接起来。 [将经典 VNet 连接到新的 VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)。
 
@@ -181,7 +181,7 @@ HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 �
 
 若要通过虚拟网络连接到 Ambari 以及其他网页，请使用以下步骤：
 
-1. 若要发现 HDInsight 群集节点的内部完全限定的域名 (FQDN)，请使用以下其中一种方法：
+1. 若要发现 HDInsight 群集节点的内部完全限定的域名 (FQDN)，请使用以下方法之一：
 
     ```powershell
     $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
@@ -203,7 +203,7 @@ HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 �
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    在返回的节点列表中，查找头节点的 FQDN，并使用它们来连接到 Ambari 和其他 Web 服务。 例如，使用 `http://<headnode-fqdn>:8080` 访问 Ambari。
+    在返回的节点列表中，查找头节点的 FQDN，并使用这些 FQDN 连接到 Ambari 和其他 Web 服务。 例如，使用 `http://<headnode-fqdn>:8080` 访问 Ambari。
 
     > [!IMPORTANT]
     > 在头节点上托管的一些服务一次只能在一个节点上处于活动状态。 如果尝试在一个头节点上访问服务并且它返回 404 错误，请切换到其他头节点。
@@ -215,6 +215,9 @@ HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 �
 可以使用以下方法控制 Azure 虚拟网络中的网络流量：
 
 * 网络安全组 (NSG)：用于筛选网络的入站和出站流量。 有关详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/virtual-networks-nsg.md)文档。
+
+    > [!WARNING]
+    > HDInsight 不支持限制出站流量。
 
 * 用户定义路由 (UDR)：定义流量在网络中的资源之间的流动方式。 有关详细信息，请参阅[用户定义路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)文档。
 
@@ -230,7 +233,7 @@ HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必
 
 1. 确定计划用于 HDInsight 的 Azure 区域。
 
-2. 确定 HDInsight 所需的 IP 地址。 应允许的 IP 地址专门用于 HDInsight 群集和虚拟网络所在的区域。 如需按区域列出的 IP 地址，请参阅 [HDInsight 所需的 IP 地址](#hdinsight-ip)部分。
+2. 确定 HDInsight 所需的 IP 地址。 有关详细信息，请参阅 [HDInsight 所需的 IP 地址](#hdinsight-ip)部分。
 
 3. 为计划将 HDInsight 安装到其中的子网创建或修改网络安全组或用户定义路由。
 
@@ -249,20 +252,59 @@ HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必
 
 ## <a id="hdinsight-ip"></a> 所需 IP 地址
 
-以下列表包含用于监视 HDInsight 群集的 Azure 运行状况和监视服务的 IP 地址。 只有在使用网络安全组或用户定义路由的情况下，此列表才重要。 有关详细信息，请参阅[控制网络流量](#networktraffic)部分。
-
-使用下表查找要使用的区域的 IP 地址：
-
-| 区域 | 允许的 IP 地址 | 允许的端口 | 方向 |
-| ---- | ---- | ---- | ----- |
-| 中国北部 | 42.159.96.170</br>139.217.2.219 | 443 | 入站 |
-| 中国东部 | 42.159.198.178</br>42.159.234.157 | 443 | 入站 |
-
 > [!IMPORTANT]
-> HDInsight 不支持限制出站流量，仅可限制入站流量。
+> Azure 运行状况和管理服务必须能够与 HDInsight 通信。 如果使用网络安全组或用户定义路由，则允许来自这些服务的 IP 地址的流量访问 HDInsight。
+>
+> 如果不使用网络安全组或用户定义的路由来控制流量，则可以忽略本部分。
 
-> [!NOTE]
-> 如果在虚拟网络中使用自定义 DNS 服务器，还必须允许从 __168.63.129.16__ 访问。 该地址是 Azure 的递归解析程序。 有关详细信息，请参阅 [VM 和角色实例的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文档。
+如果使用网络安全组或用户定义的路由，则必须允许来自 Azure 运行状况和管理服务的流量发往 HDInsight。 使用以下步骤来查找必须允许的 IP 地址：
+
+1. 必须始终允许来自以下 IP 地址的流量：
+
+    | IP 地址 | 允许的端口 | 方向 |
+    | ---- | ----- | ----- |
+    | 168.61.49.99 | 443 | 入站 |
+    | 23.99.5.239 | 443 | 入站 |
+    | 168.61.48.131 | 443 | 入站 |
+    | 138.91.141.162 | 443 | 入站 |
+
+2. 如果 HDInsight 群集位于以下区域之一，则必须允许针对该区域列出的 IP 地址发出的流量：
+
+    > [!IMPORTANT]
+    > 如果未列出所用的 Azure 区域，则仅使用步骤 1 中所列的四个 IP 地址。
+
+    | 国家/地区 | 区域 | 允许的 IP 地址 | 允许的端口 | 方向 |
+    | ---- | ---- | ---- | ---- | ----- |
+    | 亚洲 | 东亚 | 23.102.235.122</br>52.175.38.134 | 443 | 入站 |
+    | &nbsp; | 东南亚 | 13.76.245.160</br>13.76.136.249 | 443 | 入站 |
+    | 澳大利亚 | 澳大利亚东部 | 104.210.84.115</br>13.75.152.195 | 443 | 入站 |
+    | &nbsp; | 澳大利亚东南部 | 13.77.2.56</br>13.77.2.94 | 443 | 入站 |
+    | 巴西 | 巴西南部 | 191.235.84.104</br>191.235.87.113 | 443 | 入站 |
+    | 加拿大 | 加拿大东部 | 52.229.127.96</br>52.229.123.172 | 443 | 入站 |
+    | &nbsp; | 加拿大中部 | 52.228.37.66</br>52.228.45.222 | 443 | 入站 |
+    | 中国 | 中国北部 | 42.159.96.170</br>139.217.2.219 | 443 | 入站 |
+    | &nbsp; | 中国东部 | 42.159.198.178</br>42.159.234.157 | 443 | 入站 |
+    | 欧洲 | 欧洲北部 | 52.164.210.96</br>13.74.153.132 | 443 | 入站 |
+    | &nbsp; | 西欧| 52.166.243.90</br>52.174.36.244 | 443 | 入站 |
+    | 德国 | 德国中部 | 51.4.146.68</br>51.4.146.80 | 443 | 入站 |
+    | &nbsp; | 德国东北部 | 51.5.150.132</br>51.5.144.101 | 443 | 入站 |
+    | 印度 | 印度中部 | 52.172.153.209</br>52.172.152.49 | 443 | 入站 |
+    | 日本 | 日本东部 | 13.78.125.90</br>13.78.89.60 | 443 | 入站 |
+    | &nbsp; | 日本西部 | 40.74.125.69</br>138.91.29.150 | 443 | 入站 |
+    | 韩国 | 韩国中部 | 52.231.39.142</br>52.231.36.209 | 433 | 入站 |
+    | &nbsp; | 韩国南部 | 52.231.203.16</br>52.231.205.214 | 443 | 入站
+    | 英国 | 英国西部 | 51.141.13.110</br>51.141.7.20 | 443 | 入站 |
+    | &nbsp; | 英国南部 | 51.140.47.39</br>51.140.52.16 | 443 | 入站 |
+    | 美国 | 美国中部 | 13.67.223.215</br>40.86.83.253 | 443 | 入站 |
+    | &nbsp; | 美国中北部 | 157.56.8.38</br>157.55.213.99 | 443 | 入站 |
+    | &nbsp; | 美国中西部 | 52.161.23.15</br>52.161.10.167 | 443 | 入站 |
+    | &nbsp; | 美国西部 2 | 52.175.211.210</br>52.175.222.222 | 443 | 入站 |
+
+    若要获取用于 Azure 政府版的 IP 地址的信息，请参阅 [Azure 政府智能 + 分析](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics)文档。
+
+3. 如果在虚拟网络中使用自定义 DNS 服务器，还必须允许从 __168.63.129.16__ 访问。 该地址是 Azure 的递归解析程序。 有关详细信息，请参阅 [VM 和角色实例的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文档。
+
+有关详细信息，请参阅[控制网络流量](#networktraffic)部分。
 
 ## <a id="hdinsight-ports"></a> 所需端口
 
@@ -293,7 +335,7 @@ HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-使用以下 PowerShell 脚本创建一个虚拟网络，该网络限制入站流量，但允许中国北部区域中来自 HDInsight 所需的 IP 地址的流量。
+使用以下 PowerShell 脚本创建可限制入站流量的虚拟网络，但允许来自中国北部区域的 IP 地址的流量。
 
 > [!IMPORTANT]
 > 更改此示例中使用的 IP 地址，使之与要使用的 Azure 区域匹配。 有关此方面的信息，可参阅 [HDInsight 与网络安全组和用户定义路由](#hdinsight-ip)部分。
@@ -318,25 +360,69 @@ $nsg = New-AzureRmNetworkSecurityGroup `
     -Location $location `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -name "hdirule1" `
-        -Description "HDI health and management address 42.159.96.170" `
+        -Description "HDI health and management address 52.164.210.96" `
         -Protocol "*" `
         -SourcePortRange "*" `
         -DestinationPortRange "443" `
-        -SourceAddressPrefix "42.159.96.170" `
+        -SourceAddressPrefix "52.164.210.96" `
         -DestinationAddressPrefix "VirtualNetwork" `
         -Access Allow `
         -Priority 300 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -Name "hdirule2" `
-        -Description "HDI health and management 139.217.2.219" `
+        -Description "HDI health and management 13.74.153.132" `
         -Protocol "*" `
         -SourcePortRange "*" `
         -DestinationPortRange "443" `
-        -SourceAddressPrefix "139.217.2.219" `
+        -SourceAddressPrefix "13.74.153.132" `
         -DestinationAddressPrefix "VirtualNetwork" `
         -Access Allow `
         -Priority 301 `
+        -Direction Inbound `
+    | Add-AzureRmNetworkSecurityRuleConfig `
+        -Name "hdirule2" `
+        -Description "HDI health and management 168.61.49.99" `
+        -Protocol "*" `
+        -SourcePortRange "*" `
+        -DestinationPortRange "443" `
+        -SourceAddressPrefix "168.61.49.99" `
+        -DestinationAddressPrefix "VirtualNetwork" `
+        -Access Allow `
+        -Priority 302 `
+        -Direction Inbound `
+    | Add-AzureRmNetworkSecurityRuleConfig `
+        -Name "hdirule2" `
+        -Description "HDI health and management 23.99.5.239" `
+        -Protocol "*" `
+        -SourcePortRange "*" `
+        -DestinationPortRange "443" `
+        -SourceAddressPrefix "23.99.5.239" `
+        -DestinationAddressPrefix "VirtualNetwork" `
+        -Access Allow `
+        -Priority 303 `
+        -Direction Inbound `
+    | Add-AzureRmNetworkSecurityRuleConfig `
+        -Name "hdirule2" `
+        -Description "HDI health and management 168.61.48.131" `
+        -Protocol "*" `
+        -SourcePortRange "*" `
+        -DestinationPortRange "443" `
+        -SourceAddressPrefix "168.61.48.131" `
+        -DestinationAddressPrefix "VirtualNetwork" `
+        -Access Allow `
+        -Priority 304 `
+        -Direction Inbound `
+    | Add-AzureRmNetworkSecurityRuleConfig `
+        -Name "hdirule2" `
+        -Description "HDI health and management 138.91.141.162" `
+        -Protocol "*" `
+        -SourcePortRange "*" `
+        -DestinationPortRange "443" `
+        -SourceAddressPrefix "138.91.141.162" `
+        -DestinationAddressPrefix "VirtualNetwork" `
+        -Access Allow `
+        -Priority 305 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -Name "blockeverything" `
@@ -365,7 +451,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 > 以下示例演示了如何从 Internet 启用 SSH 访问：
 >
 > ```powershell
-> Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound
+> Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 > ```
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -386,8 +472,12 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     > 更改此示例中使用的 IP 地址，使之与要使用的 Azure 区域匹配。 有关此方面的信息，可参阅 [HDInsight 与网络安全组和用户定义路由](#hdinsight-ip)部分。
 
     ```azurecli
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "42.159.96.170" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "139.217.2.219" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "13.74.153.132" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.49.99" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 305 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n block --protocol "*" --source-port-range "*" --destination-port-range "*" --source-address-prefix "Internet" --destination-address-prefix "VirtualNetwork" --access "Deny" --priority 500 --direction "Inbound"
     ```
 
@@ -417,7 +507,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 > 以下示例演示了如何从 Internet 启用 SSH 访问：
 >
 > ```azurecli
-> az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
+> az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 > ```
 
 ## <a id="example-dns"></a> 示例：DNS 配置
@@ -587,5 +677,3 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 * 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/virtual-networks-nsg.md)。
 
 * 有关用户定义路由的详细信息，请参阅[用户定义路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)。
-
-<!--Update_Description: wording update-->

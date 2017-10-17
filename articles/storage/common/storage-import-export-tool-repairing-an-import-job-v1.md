@@ -1,7 +1,7 @@
 ---
 title: "修复 Azure 导入/导出服务的导入作业 - v1 | Azure"
 description: "了解如何修复使用 Azure 导入/导出服务创建和运行的导入作业。"
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 services: storage
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 1bc1e76833f788915ced7a16ffa65f562f98c593
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: e5ff092931a394a6a94fd2313d109a7847caf21b
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="repairing-an-import-job"></a>修复导入作业
 Azure 导入/导出服务可能无法将某些文件或某个文件的部分内容复制到 Azure Blob 服务。 失败的部分原因包括：  
@@ -38,8 +38,8 @@ Azure 导入/导出服务可能无法将某些文件或某个文件的部分内�
 
 |||  
 |-|-|  
-|**/r:**<RepairFile\>|**必需。** 修复文件的路径。该文件用于跟踪修复进度，以及恢复已中断的修复。 每个驱动器都必须有且仅有一个修复文件。 在开始对某个给定驱动器进行修复时，会传入尚不存在的某个修复文件的路径。 若要恢复已中断的修复，应传入现有修复文件的名称。 始终必须指定与目标驱动器对应的修复文件。|  
-|/logdir:<LogDirectory\>|**可选。** 日志目录。 详细日志文件将写入此目录。 如果未指定任何日志目录，则使用当前目录作为日志目录。|  
+|**/r:**<RepairFile\>|**必需。** 修复文件的路径。该文件用于跟踪修复进度，以及恢复已中断的修复。 每个驱动器都必须有且仅有一个修复文件。 在开始对给定驱动器进行修复时，会传入尚不存在的修复文件的路径。 若要恢复已中断的修复，应传入现有修复文件的名称。 始终必须指定与目标驱动器对应的修复文件。|  
+|/logdir:<LogDirectory\>|**可选。** 日志目录。 详细日志文件将写入此目录。 如果未指定任何日志目录，将使用当前目录作为日志目录。|  
 |**/d:**<TargetDirectories\>|**必需。** 包含已导入的原始文件的一个或多个目录（以分号分隔）。 也可以使用导入驱动器，但如果原始文件的备用位置可用，则无需使用该驱动器。|  
 |**/bk:**<BitLockerKey\>|**可选。** 如果希望工具将原始文件所在的已加密驱动器解锁，应指定 BitLocker 密钥。|  
 |/sn:<StorageAccountName\>|**必需。** 导入作业的存储帐户的名称。|  
@@ -53,10 +53,10 @@ Azure 导入/导出服务可能无法将某些文件或某个文件的部分内�
 
 ```
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log  
-```
-
-下面是复制日志文件的示例。 在此示例中，为导入作业寄送的驱动器上某个文件的 64K 内容已损坏。 由于这只是指示失败，作业中剩余 Blob 已成功导入。  
-
+```  
+  
+在以下复制日志文件的示例中，为导入作业寄送的驱动器上某个文件的 64K 内容已损坏。 由于这只是指示失败，作业中剩余 Blob 已成功导入。  
+  
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
 <DriveLog>  
@@ -73,16 +73,16 @@ WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bo
  <Status>CompletedWithErrors</Status>  
 </DriveLog>  
 ```
-
-将此复制日志传递给 Azure 导入/导出工具后，该工具将尝试通过网络复制缺少的内容来完成此文件的导入。 根据上面的示例，该工具将在 `C:\Users\bob\Pictures` 和 `X:\BobBackup\photos` 目录中查找原始文件 `\animals\koala.jpg`。 如果文件 `C:\Users\bob\Pictures\animals\koala.jpg` 存在，Azure 导入/导出工具会将缺失的数据部分复制到对应的 Blob `http://bobmediaaccount.blob.core.chinacloudapi.cn/pictures/animals/koala.jpg`。  
-
+  
+将此复制日志传递给 Azure 导入/导出工具后，该工具将尝试通过网络复制缺少的内容来完成此文件的导入。 根据上面的示例，该工具会在两个目录（`C:\Users\bob\Pictures` 和 `X:\BobBackup\photos`）中查找原始文件 `\animals\koala.jpg`。 如果文件 `C:\Users\bob\Pictures\animals\koala.jpg` 存在，Azure 导入/导出工具会将缺少的数据部分复制到对应的 Blob `http://bobmediaaccount.blob.core.chinacloudapi.cn/pictures/animals/koala.jpg`。  
+  
 ## <a name="resolving-conflicts-when-using-repairimport"></a>解决使用 RepairImport 时的冲突  
 在某些情况下，可能会出于以下原因之一，工具无法找到或打开所需的文件：找不到该文件、文件不可访问、文件名不明确，或文件内容不再正确。  
 
 如果工具尝试查找 `\animals\koala.jpg` 并且 `C:\Users\bob\pictures` 和 `X:\BobBackup\photos` 中存在同名的文件，可能会发生歧义错误。 也就是说，`C:\Users\bob\pictures\animals\koala.jpg` 和 `X:\BobBackup\photos\animals\koala.jpg` 都位于导入作业驱动器上。  
-
-使用 `/PathMapFile` 选项可以解决这些错误。 可以指定包含工具无法正确识别的文件列表的文件名称。 下面是可填充 `9WM35C2V_pathmap.txt`的示例命令行：  
-
+  
+使用 `/PathMapFile` 选项可以解决这些错误。 可以指定包含工具无法正确识别的文件列表的文件名称。 以下命令行示例填充 `9WM35C2V_pathmap.txt`：  
+  
 ```
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log /PathMapFile:C:\WAImportExport\9WM35C2V_pathmap.txt  
 ```

@@ -1,8 +1,8 @@
 ---
 title: "使用 Azure 导入/导出服务 REST API | Azure"
 description: "了解可在何处查找使用 Azure 导入/导出服务 REST API 的资源，包括操作说明和参考材料。"
-author: muralikk
-manager: syadav
+author: forester123
+manager: digimobile
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/15/2017
-ms.date: 
-ms.author: v-haiqya
-ms.openlocfilehash: 4c72e5930625c07ceeb71f5740e38a863a151d25
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: 5cd1d2d0f5cf548940ee8e59b1cc512f8355ffba
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>使用 Azure 导入/导出服务 REST API
 
@@ -49,7 +49,7 @@ https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resourceGrou
 
 [枚举作业](../storage-import-export-enumerating-jobs.md)
 
-[取消和删除作业](../storage-import-export-cancelling-and-deleting-jobs.md)
+[取消和删除作业](storage-import-export-cancelling-and-deleting-jobs.md)
 
 [备份驱动器清单](../storage-import-export-backing-up-drive-manifests.md)
 
@@ -58,4 +58,4 @@ https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resourceGrou
 ## <a name="next-steps"></a>后续步骤
 
 * [存储导入/导出 REST](https://docs.microsoft.com/rest/api/storageimportexport)
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

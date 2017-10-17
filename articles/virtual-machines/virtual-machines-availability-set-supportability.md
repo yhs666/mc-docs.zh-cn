@@ -1,10 +1,10 @@
 ---
-title: "将 Azure VM 添加到现有可用性集的可支持性 | Microsoft Docs"
+title: "将 Azure VM 添加到现有可用性集的可支持性 | Azure"
 description: "将 Azure VM 添加到现有可用性集的可支持性。"
 services: virtual-machines-linux
 documentationcenter: 
-author: hayley244
-manager: cshepard
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: virtual-machines
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/15/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 001518dd92a08a57e1c64c9e4bab5343639e0ae6
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/16/2017
+ms.author: v-yeche
+ms.openlocfilehash: 1aa41729e77e357da2107bb7aea6f62e815fbc8c
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>将 Azure VM 添加到现有可用性集的可支持性
 
@@ -37,3 +37,6 @@ ms.lasthandoff: 08/25/2017
 |Dv3||OK|OK|OK|OK|OK|
 
 所有其他系列都不能在同一可用性集中，因为它们需要特定的硬件。
+
+由于专用 RDMA 后端网络的要求，A8/A9 VM 大小不能混合。
+<!--Update_Description: add A8/A9 VM size can not be mixed in Available Set-->

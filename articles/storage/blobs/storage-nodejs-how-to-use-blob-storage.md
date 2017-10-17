@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 08/28/2017
+ms.date: 10/16/2017
 ms.author: v-haiqya
-ms.openlocfilehash: fa44a9aa529c6195091394e624a31e60594e48a0
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 7f36d9252b24a2c4f64314af650948b517d9b626
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>如何通过 Node.js 使用 Blob 存储
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/25/2017
 有关如何创建 Node.js 应用程序的说明，请参阅 [在 Azure 应用服务中创建 Node.js Web 应用]、[使用 Windows PowerShell 构建 Node.js 应用程序并将其部署到 Azure 云服务](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)或[使用 Web Matrix 构建 Node.js Web 应用并将其部署到 Azure](https://www.microsoft.com/web/webmatrix/)。
 
 ## <a name="configure-your-application-to-access-storage"></a>配置应用程序以访问存储
-若要使用 Azure 存储，需要用于 Node.js 的 Azure 存储 SDK，其中包括一组便于与存储 REST 服务进行通信的库。
+若要使用 Azure 存储，需要 Azure Storage SDK for Node.js，其中包括一组便于与存储 REST 服务进行通信的库。
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>使用 Node 包管理器 (NPM) 可获取该程序包
 1. 使用命令行接口（如 PowerShell (Windows)、Terminal (Mac) 或 Bash (Unix)）导航到在其中创建示例应用程序的文件夹。
@@ -45,10 +45,10 @@ ms.lasthandoff: 08/25/2017
 
   azure-storage@0.5.0 node_modules\azure-storage +-- extend@1.2.1 +-- xmlbuilder@0.4.3 +-- mime@1.2.11 +-- node-uuid@1.4.3 +-- validator@3.22.2 +-- underscore@1.4.4 +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1) +-- xml2js@0.2.7 (sax@0.5.2) +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
-3. 可以手动运行 **ls** 命令来验证是否创建了 **node\_modules** 文件夹。 在该文件夹中找到 **azure-storage** 包，其中包含访问存储所需的库。
+3. 可以手动运行 **ls** 命令来验证是否创建了 **node\_modules** 文件夹。 在该文件夹中，找到 **azure-storage** 包，其中包含访问存储所需的库。
 
 ### <a name="import-the-package"></a>导入包
-使用记事本或其他文本编辑器将以下内容添加到要在其中使用存储的应用程序的 **server.js** 文件的顶部：
+使用记事本或其他文本编辑器，将以下内容添加到要在其中使用存储的应用程序的 **server.js** 文件顶部：
 
 ```nodejs
 var azure = require('azure-storage');
@@ -57,10 +57,8 @@ var azure = require('azure-storage');
 ## <a name="set-up-an-azure-storage-connection"></a>设置 Azure 存储连接
 Azure 模块将读取环境变量 `AZURE_STORAGE_ACCOUNT` 和 `AZURE_STORAGE_ACCESS_KEY` 或 `AZURE_STORAGE_CONNECTION_STRING`，获取连接到 Azure 存储帐户所需的信息。 如果未设置这些环境变量，则在调用 **createBlobService**时必须指定帐户信息。
 
-若要了解在 [Azure 门户](https://portal.azure.cn)中为 Azure Web 应用设置环境变量的示例，请参阅[使用 Azure 表服务的 Node.js Web 应用](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)。
-
 ## <a name="create-a-container"></a>创建容器
-使用 **BlobService** 对象可以对容器和 Blob 进行操作。 以下代码创建 **BlobService** 对象。 将以下内容添加到 **server.js** 顶部附近。
+使用 **BlobService** 对象可以对容器和 Blob 进行操作。 以下代码创建 **BlobService** 对象。 将以下代码添加到 **server.js** 的顶部附近：
 
 ```nodejs
 var blobSvc = azure.createBlobService();
@@ -71,7 +69,7 @@ var blobSvc = azure.createBlobService();
 
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-若要创建一个新的容器，请使用 **createContainerIfNotExists**。 以下代码示例创建名为“mycontainer”的新容器：
+若要创建一个新的容器，请使用 **createContainerIfNotExists**。 以下代码示例将创建名为“mycontainer”的新容器：
 
 ```nodejs
 blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
@@ -89,7 +87,7 @@ blobSvc.createContainerIfNotExists('mycontainer', function(error, result, respon
 * **Blob** - 可匿名读取此容器中的 Blob 内容和元数据，但无法匿名读取容器元数据（如列出容器中的所有 Blob）
 * **容器** - 可匿名读取 Blob 内容和元数据，以及容器元数据
 
-以下代码示例演示了如何将访问级别设置为 **Blob**：
+以下代码示例演示如何将访问级别设置为“Blob”：
 
 ```nodejs
 blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
@@ -101,7 +99,7 @@ blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, 
 });
 ```
 
-另外，可以通过使用 **setContainerAcl** 指定访问级别来修改容器的访问级别。 以下代码示例访问级别更改为“容器”：
+另外，可以通过使用 **setContainerAcl** 指定访问级别来修改容器的访问级别。 以下代码示例将访问级别更改为“容器”：
 
 ```nodejs
 blobSvc.setContainerAcl('mycontainer', null /* signedIdentifiers */, {publicAccessLevel : 'container'} /* publicAccessLevel*/, function(error, result, response){
@@ -156,7 +154,7 @@ blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', functi
 });
 ```
 
-这些方法返回的 `result` 包含有关操作的信息，例如 Blob 的 **ETag** 。
+通过这些方法返回的 `result` 包含有关操作的信息，例如，Blob 的 **ETag**。
 
 ### <a name="append-blobs"></a>追加 Blob
 要将数据上传到新的追加 Blob，可使用以下方法：
@@ -164,8 +162,7 @@ blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', functi
 * **createAppendBlobFromLocalFile** - 创建新的追加 Blob 并上传文件的内容
 * **createAppendBlobFromStream** - 创建新的追加 Blob 并上传流的内容
 * **createAppendBlobFromText** - 创建新的追加 Blob 并上传字符串的内容
-* 
-            **createWriteStreamToNewAppendBlob** - 创建新的追加 blob，并向其提供要写入的流
+* **createWriteStreamToNewAppendBlob** - 创建新的追加 blob，并向其提供要写入的流
 
 以下代码示例会将 test.txt 文件的内容上传到 myappendblob 中。
 
@@ -207,8 +204,7 @@ blobSvc.appendFromText('mycontainer', 'myappendblob', 'text to be appended', fun
 * **createPageBlobFromLocalFile** - 创建新的页 Blob 并上传文件的内容
 * **createPageBlobFromStream** - 创建新的页 Blob 并上传流的内容
 * **createWriteStreamToExistingPageBlob** - 向现有页 Blob 提供写入流
-* 
-            **createWriteStreamToNewPageBlob** - 创建新的页 Blob，并向其提供要写入的流
+* **createWriteStreamToNewPageBlob** - 创建新的页 Blob，并向其提供要写入的流
 
 以下代码示例会将 test.txt 文件的内容上传到 mypageblob 中。
 
@@ -296,7 +292,7 @@ blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', { acce
 如果值已修改，则表明在获得 ETag 值后，其他客户端或实例已修改该 Blob 或容器。
 
 ### <a name="lease"></a>租约
-新的租约可使用 **acquireLease** 方法获取，只需指定希望获取其租约的 Blob 或容器即可。 例如，以下代码获取 **myblob**的租约。
+新的租约可使用 **acquireLease** 方法获取，只需指定希望获取其租约的 Blob 或容器即可。 例如，以下代码将获取 **myblob** 的租约。
 
 ```nodejs
 blobSvc.acquireLease('mycontainer', 'myblob', function(error, result, response){
@@ -392,7 +388,7 @@ blobSvc.getBlobAcl('mycontainer', function(error, result, response) {
 });
 ```
 
-设置 ACL 后，可以根据某个策略的 ID 创建共享访问签名。 以下代码示例为“user2”创建新的共享访问签名：
+设置 ACL 后，可以根据某个策略的 ID 创建共享访问签名。 以下代码示例将为“user2”创建新的共享访问签名：
 
 ```nodejs
 blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
@@ -403,12 +399,13 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 
 * [用于 Node API 参考的 Azure 存储 SDK][用于 Node API 参考的 Azure 存储 SDK]
 * [Azure 存储团队博客][Azure 存储团队博客]
-* [用于 Node 的 Azure 存储 SDK][Azure Storage SDK for Node] 存储库
+* [Azure Storage SDK for Node][Azure Storage SDK for Node] 存储库
 * [Node.js 开发人员中心](/develop/nodejs/)
 * [使用 AzCopy 命令行实用程序传输数据](../common/storage-use-azcopy.md?toc=%2fstorage%2fblobs%2ftoc.json)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 
-[使用 Azure 表服务的 Node.js Web 应用](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)    
-[使用 Web Matrix 构建 Node.js Web 应用并将其部署到 Azure]：https://www.microsoft.com/web/webmatrix/  
-[使用 REST API]：http://msdn.microsoft.com/library/azure/hh264518.aspx [Azure 门户]：https://portal.azure.cn [生成 Node.js 应用程序并将其部署到 Azure 云服务](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) [Azure 存储团队博客]：http://blogs.msdn.com/b/windowsazurestorage/ [用于 Node API 参考的 Azure 存储 SDK]：http://dl.windowsazure.com/nodestoragedocs/index.html
+[Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
+[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[Azure portal]: https://portal.azure.cn
+[生成 Node.js 应用程序并将其部署到 Azure 云服务](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) [Azure 存储团队博客]：http://blogs.msdn.com/b/windowsazurestorage/ [用于 Node API 参考的 Azure 存储 SDK]：http://dl.windowsazure.com/nodestoragedocs/index.htmll

@@ -31,11 +31,13 @@
       href: tutorial-load-balancer.md
     - name: 8 - 管理网络
       href: tutorial-virtual-network.md
-    - name: 9 - 监视虚拟机
+    - name: 9 - 备份虚拟机
+      href: tutorial-backup-vms.md
+    - name: 10 - 监视虚拟机
       href: tutorial-monitoring.md
-    - name: 10 - 团队服务 CI/CD
+    - name: 11 - Team Services CI/CD
       href: tutorial-vsts-iis-cicd.md
-    - name: 11 - 使用 SSL 保护 Web 服务器
+    - name: 12 - 使用 SSL 保护 Web 服务器
       href: tutorial-secure-web-server.md
 - name: 示例
   items:
@@ -45,43 +47,23 @@
       href: cli-samples.md
 - name: 概念
   items:
+    - name: Azure Resource Manager
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - name: 区域和可用性
       href: regions-and-availability.md
-    - name: 存储
-      href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: 联网
-      href: network-overview.md
-    - name: VM 规模集
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-        - name: 部署模型
-          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: 用于 VM 的模板
-          href: template-description.md
-    - name: Azure Windows 代理
-      href: agent-user-guide.md
-    - name: 灾难恢复
-      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: 计划内维护
-      href: planned-maintenance.md
-    - name: VM 大小
+    - name: VM 类型和大小
       href: sizes.md
-      items:
-        - name: 常规用途
-          href: sizes-general.md
-        - name: 计算优化
-          href: sizes-compute.md
-        - name: 内存优化
-          href: sizes-memory.md
-        - name: Azure 计算单元 (ACU)
-          href: acu.md
-        - name: 计算基准评分
-          href: compute-benchmark-scores.md
+    - name: 维护和更新
+      href: maintenance-and-updates.md
+    - name: 存储
+      href: about-disks-and-vhds.md
+    - name: 网络
+      href: network-overview.md
+    - name: 备份和恢复
+      href: backup-recovery.md
     - name: 部署注意事项
       items:
-        - name: 示例基本部署
+        - name: 基础结构指南
           href: infrastructure-example.md
 - name: 操作指南
   items:
@@ -91,6 +73,8 @@
           href: csharp.md
         - name: '将模板与 C# 配合使用'
           href: csharp-template.md
+        - name: 使用 Chef 创建 VM
+          href: chef-automation.md
         - name: 使用 Python
           href: python.md
         - name: 使用模板
@@ -288,7 +272,7 @@
           href: reset-rdp.md
         - name: 在不使用 Azure 代理的情况下重置本地密码
           href: reset-local-password-without-agent.md
-        - name: 了解系统重新启动
+        - name: 了解系统重启
           href: understand-vm-reboot.md
         - name: 重置 NIC
           href: reset-network-interface.md
@@ -310,7 +294,7 @@
           href: redeploy-to-new-node.md
         - name: 常见错误消息
           href: error-messages.md
-        - name: VM 恢复访问
+        - name: VM 恢复方法
           items:
             - name: Azure PowerShell
               href: troubleshoot-recovery-disks.md
@@ -327,9 +311,9 @@
     - name: Java
       href: 'https://docs.azure.cn/zh-cn/java/api/overview/'
     - name: Node.js
-      href: '/develop/nodejs/#azure-sdk'
+      href: 'https://www.azure.cn/develop/nodejs/#azure-sdk'
     - name: Python
-      href: /develop/python/
+      href: 'https://www.azure.cn/develop/python/'
     - name: 计算 REST
       href: 'https://docs.microsoft.com/rest/api/compute'
     - name: 托管磁盘 REST

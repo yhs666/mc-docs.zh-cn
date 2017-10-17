@@ -3,25 +3,25 @@ title: "在 Azure 中使用 Jenkins 创建开发管道 | Azure"
 description: "了解如何在 Azure 中创建一个 Jenkins 虚拟机，用于在每次提交代码后从 GitHub 提取数据，并生成新的 Docker 容器来运行应用"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d2426c9e516f1b3652149a25dd9b20d26d54ad0b
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 60bf7393495bf6d60b60f6a0ec46610824ea8e12
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>如何使用 Jenkins、GitHub 和 Docker 在 Azure 中的 Linux VM 上创建开发基础结构
 若要将应用程序开发的生成和测试阶段自动化，可以使用持续集成和部署 (CI/CD) 管道。 本教程介绍如何在 Azure VM 上创建 CI/CD 管道，包括如何：
@@ -41,7 +41,7 @@ ms.lasthandoff: 08/29/2017
 ## <a name="create-jenkins-instance"></a>创建 Jenkins 实例
 在有关[如何在首次启动时自定义 Linux 虚拟机](tutorial-automate-vm-deployment.md)的上一个教程中，你已了解如何使用 cloud-init 自动执行 VM 自定义。 本教程使用 cloud-init 文件在 VM 上安装 Jenkins 和 Docker。 
 
-创建名为 *cloud-init-jenkins.txt* 的 cloud-init 文件并粘贴以下内容：
+创建名为“cloud-init.txt”的文件并粘贴以下配置。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
 
 ```yaml
 #cloud-config
@@ -153,7 +153,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 返回到 GitHub Web UI，选择分叉的存储库，然后单击“index.js”文件。 单击铅笔图标编辑该文件，使第 6 行的内容如下：
 
 ```nodejs
-response.end("Hello World!");`.
+response.end("Hello World!");
 ```
 
 若要提交更改，请单击底部的“提交更改”按钮。
@@ -233,3 +233,5 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 
 > [!div class="nextstepaction"]
 > [使用 Jenkins 和 Team Services 部署应用](tutorial-build-deploy-jenkins.md)
+
+<!--Update_Description: update meta properties, wording update-->

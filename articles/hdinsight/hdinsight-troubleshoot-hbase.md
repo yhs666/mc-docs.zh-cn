@@ -1,6 +1,6 @@
 ---
-title: "HBase 故障排除 - Azure HDInsight | Azure"
-description: "排查区域链中漏洞的原因。"
+title: "使用 Azure HDInsight 对 HBase 进行故障排除 | Microsoft Docs"
+description: "获取有关使用 HBase 和 Azure HDInsight 的常见问题的解答。"
 services: hdinsight
 documentationcenter: 
 author: nitinver
@@ -12,71 +12,66 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 07/07/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: bfcf1ce2d93284f15f466b9d14dd9836aee21277
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: 053c66d93a8712f1532a886d1b37b850531ce197
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 10/13/2017
 ---
-# <a name="hbase-troubleshooting"></a>HBASE 故障排除
+# <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 HBase 进行故障排除
 
-本文介绍处理 Apache Ambari 中的 HBASE 有效负载时遇到的最常见问题及其解决方法。
+了解处理 Apache Ambari 中的 Apache HBase 有效负载时的最常见问题及其解决方法。
 
 ## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>如何对多个未分配区域运行 hbck 命令报告
 
-当 HBase 用户运行“hbase hbck”命令时，会出现“多个区域未分配，或者区域链中出现漏洞”错误消息，这是一个常见问题。
+运行 `hbase hbck` 命令时，可能会出现的一条常见错误消息是“多个区域未分配，或者区域链中出现漏洞”。
 
-用户可以在 HBase Master UI 中看到所有区域服务器中非均衡区域的计数。 然后，用户可以运行“hbase hbck”命令，并且会在区域链中看到漏洞。
+在 HBase Master UI 中，可以看到所有区域服务器中非均衡区域的数目。 然后，可以运行 `hbase hbck` 命令查看区域链中的漏洞。
 
-用户应首先修复分配问题，因为漏洞可能起因于这些区域脱机。 
+漏洞可能是脱机区域造成的，因此请先修复分配问题。 
 
-执行以下步骤，让未分配区域重新回到正常状态：
+若要使未分配的区域恢复正常状态，请完成以下步骤：
 
 1. 使用 SSH 登录到 HDInsight HBase 群集。
-1. 运行“hbase zkcli”命令，使用 zookeeper shell 进行连接。
-1. 运行“rmr /hbase/regions-in-transition”或“rmr /hbase-unsecure/regions-in-transition”命令。
-1. 使用“exit”命令从“hbase zkcli”shell 退出。
-1. 打开 Ambari UI，从 Ambari 重启活动 HBase Master 服务。
-1. 再次运行“hbase hbck”命令（没有任何其他选项）。
+2. 若要使用 ZooKeeper shell 进行连接，请运行 `hbase zkcli` 命令。
+3. 运行 `rmr /hbase/regions-in-transition` 命令或 `rmr /hbase-unsecure/regions-in-transition` 命令。
+4. 若要从 `hbase zkcli` shell 退出，请使用 `exit` 命令。
+5. 打开 Apache Ambari UI，并重启 Active HBase Master 服务。
+6. 再次运行 `hbase hbck` 命令（不带任何选项）。 检查此命令的输出以确保分配了所有区域。
 
-查看步骤 6 中命令的输出，确保所有区域均已分配。
 
----
+## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>使用 hbck 命令进行区域分配时，如何解决超时问题
 
-## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>如何解决用于区域分配的 hbck 命令的超时问题
+### <a name="issue"></a>问题
 
-### <a name="probable-cause"></a>可能的原因
-
-此问题的可能原因是，多个区域长时间处于“过渡”状态。 从 HBase Master UI 中看，这些区域可能显示为脱机。 由于尝试过渡的区域过多，HBase Master 可能会超时，因此无法让这些区域重新回到联机状态。
+使用 `hbck` 命令时出现超时问题的可能原因是多个区域长时间处于“正在转换”状态。 在 HBase Master UI 中可以看到这些区域显示为脱机。 由于有大量区域正在尝试进行转换，因此，HBase Master 可能会超时并且无法使那些区域恢复联机。
 
 ### <a name="resolution-steps"></a>解决步骤
 
-以下是解决 hbck 超时问题的步骤：
-
 1. 使用 SSH 登录到 HDInsight HBase 群集。
-1. 运行“hbase zkcli”命令，使用 zookeeper shell 进行连接。
-1. 运行“rmr /hbase/regions-in-transition”或“rmr /hbase-unsecure/regions-in-transition”命令。
-1. 使用“exit”命令从“hbase zkcli”shell 退出。
-1. 打开 Ambari UI，从 Ambari 重启活动 HBase Master 服务。
-1. 再次运行“hbase hbck -fixAssignments”命令，这样就不会再次超时。
+2. 若要使用 ZooKeeper shell 进行连接，请运行 `hbase zkcli` 命令。
+3. 运行 `rmr /hbase/regions-in-transition` 或 `rmr /hbase-unsecure/regions-in-transition` 命令。
+4. 若要退出 `hbase zkcli` shell，请使用 `exit` 命令。
+5. 在 Ambari UI 中，重启 Active HBase Master 服务。
+6. 再次运行命令 `hbase hbck -fixAssignments`。
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-an-cluster"></a>如何在群集中强制禁用 HDFS 安全模式
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>如何在群集中强制禁用 HDFS 安全模式
 
-### <a name="issue"></a>问题：
+### <a name="issue"></a>问题
 
-本地 HDFS 在 HDInsight 群集中卡在安全模式。   
+本地 Hadoop 分布式文件系统 (HDFS) 在 HDInsight 群集上的安全模式下停止响应。
 
-### <a name="detailed-description"></a>详细说明：
+### <a name="detailed-description"></a>详细说明
 
-无法运行简单的 HDFS 命令，如下所示：
+此错误的原因可能是运行以下 HDFS 命令时发生失败：
 
 ```apache
 hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 ```
 
-尝试运行上述命令时遇到的错误如下所示：
+尝试运行该命令时可能会出现的错误如下所示：
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
@@ -130,58 +125,58 @@ It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode
 mkdir: Cannot create directory /temp. Name node is in safe mode.
 ```
 
-### <a name="probable-cause"></a>可能的原因：
+### <a name="probable-cause"></a>可能的原因
 
-HDInsight 群集已纵向收缩成很少的节点，低于或接近 HDFS 复制因子的要求。
+HDInsight 群集已减少到很少的节点。 节点数低于或接近于 HDFS 复制因子。
 
-### <a name="resolution-steps"></a>解决步骤： 
+### <a name="resolution-steps"></a>解决步骤 
 
-- 使用以下命令报告 HDInsight 群集中 HDFS 的状态：
+1. 运行以下命令获取 HDInsight 群集上的 HDFS 状态：
 
-```apache
-hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-```
+   ```apache
+   hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+   ```
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-Safe mode is ON
-Configured Capacity: 3372381241344 (3.07 TB)
-Present Capacity: 3138625077248 (2.85 TB)
-DFS Remaining: 3102710317056 (2.82 TB)
-DFS Used: 35914760192 (33.45 GB)
-DFS Used%: 1.14%
-Under replicated blocks: 0
-Blocks with corrupt replicas: 0
-Missing blocks: 0
-Missing blocks (with replication factor 1): 0
+   ```apache
+   hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+   Safe mode is ON
+   Configured Capacity: 3372381241344 (3.07 TB)
+   Present Capacity: 3138625077248 (2.85 TB)
+   DFS Remaining: 3102710317056 (2.82 TB)
+   DFS Used: 35914760192 (33.45 GB)
+   DFS Used%: 1.14%
+   Under replicated blocks: 0
+   Blocks with corrupt replicas: 0
+   Missing blocks: 0
+   Missing blocks (with replication factor 1): 0
 
--------------------------------------------------
-Live datanodes (8):
+   -------------------------------------------------
+   Live datanodes (8):
 
-Name: 10.0.0.17:30010 (10.0.0.17)
-Hostname: 10.0.0.17
-Decommission Status : Normal
-Configured Capacity: 421547655168 (392.60 GB)
-DFS Used: 5288128512 (4.92 GB)
-Non DFS Used: 29087272960 (27.09 GB)
-DFS Remaining: 387172253696 (360.58 GB)
-DFS Used%: 1.25%
-DFS Remaining%: 91.85%
-Configured Cache Capacity: 0 (0 B)
-Cache Used: 0 (0 B)
-Cache Remaining: 0 (0 B)
-Cache Used%: 100.00%
-Cache Remaining%: 0.00%
-Xceivers: 2
-Last contact: Wed Apr 05 16:22:00 UTC 2017
-...
+   Name: 10.0.0.17:30010 (10.0.0.17)
+   Hostname: 10.0.0.17
+   Decommission Status : Normal
+   Configured Capacity: 421547655168 (392.60 GB)
+   DFS Used: 5288128512 (4.92 GB)
+   Non DFS Used: 29087272960 (27.09 GB)
+   DFS Remaining: 387172253696 (360.58 GB)
+   DFS Used%: 1.25%
+   DFS Remaining%: 91.85%
+   Configured Cache Capacity: 0 (0 B)
+   Cache Used: 0 (0 B)
+   Cache Remaining: 0 (0 B)
+   Cache Used%: 100.00%
+   Cache Remaining%: 0.00%
+   Xceivers: 2
+   Last contact: Wed Apr 05 16:22:00 UTC 2017
+   ...
 
-```
-- 也可使用以下命令查看 HDInsight 群集中 HDFS 的完整性：
+   ```
+2. 还可以使用以下命令检查 HDInsight 群集上的 HDFS 完整性：
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
-```
+   ```apache
+   hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+   ```
 
 ```apache
 Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.chinacloudapp.cn:30070/fsck?ugi=hdiuser&path=%2F
@@ -210,155 +205,157 @@ FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
 The filesystem under path '/' is HEALTHY
 ```
 
-- 如果确定没有块处于缺失、损坏或复制状态，或者确定可以忽略这块，则请运行以下命令，使指定节点脱离安全模式：
+3. 如果确定没有缺失、损坏或复制不足的块，或者这些块可以忽略，请运行以下命令使名称节点退出安全模式：
 
 ```apache
 hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
 ```
 
-## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>如何解决 Apache Phoenix 的 JDBC 或 sqlline 连接问题
 
-### <a name="resolution-steps"></a>解决步骤：
+## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>如何解决 Apache Phoenix 的 JDBC 或 SQLLine 连接问题
 
-若要使用 Apache Phoenix 进行连接，必须提供活动 zookeeper 节点的 IP。 确保 sqlline.py 尝试连接的 zookeeper 服务已启动并运行。
-1. 执行 SSH 登录，登录到 HDInsight 群集。
-1. 尝试以下命令：
+### <a name="resolution-steps"></a>解决步骤
 
-```apache
-        "/usr/hdp/current/phoenix-client/bin/sqlline.py <IP of machine where Active Zookeeper is running"
-```     
-    Note: The IP of Active Zooker node can be identified from Ambari UI, by following the links to HBase -> "Quick Links" -> "ZK* (Active)" -> "Zookeeper Info". 
+若要与 Phoenix 进行连接，必须提供活动 ZooKeeper 节点的 IP 地址。 确保 sqlline.py 尝试连接的 ZooKeeper 服务已启动且正在运行。
+1. 使用 SSH 登录到 HDInsight 群集。
+2. 输入以下命令：
+                
+   ```apache
+           "/usr/hdp/current/phoenix-client/bin/sqlline.py <IP of machine where Active Zookeeper is running"
+   ```
 
-如果 sqlline.py 连接到 Apache Phoenix 且没有超时，请运行以下命令，验证 Apache Phoenix 的可用性和运行状况：
+   > [!NOTE] 
+   > 可以从 Ambari UI 获取活动 ZooKeeper 节点的 IP 地址。 转到“HBase” > “快速链接” > “ZK (活动)” > “Zookeeper 信息”。**\*** 
 
-```apache
-        !tables
-        !quit
-```      
-- 如果以上命令正常运行，则没有问题。 用户提供的 IP 可能不正确。
+3. 如果 sqlline.py 能够连接到 Phoenix 并且未超时，则运行以下命令来验证 Phoenix 的可用性和运行状况：
 
-    但如果命令暂停很长时间，然后引发下述错误，则请按下面的故障排除指南操作：
+   ```apache
+           !tables
+           !quit
+   ```      
+4. 如果可正常运行此命令，则表示没有问题。 用户提供的 IP 地址可能不正确。 但是，如果命令长时间暂停，随后显示以下错误，请转到步骤 5。
 
 ```apache
         Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings. 
 ```
 
-- 在头节点 (hn0) 中运行以下命令，诊断 Phoenix SYSTEM.CATALOG 表的状况：
+5. 从头节点 (hn0) 运行以下命令来诊断 phoenix SYSTEM.CATALOG 表的情况：
 
 ```apache
         hbase shell
 
         count 'SYSTEM.CATALOG'
 ```        
-- 该命令应返回如下所示的错误： 
+   此命令应返回类似于下方所示的错误： 
 
 ```apache
         ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
 ```
-- 执行以下步骤，在 Ambari UI 中重启所有 zookeeper 节点上的 HMaster 服务：
+6. 在 Ambari UI 中完成以下步骤，在所有 ZooKeeper 节点上重启 HMaster 服务：
 
-    a. 转到 HBase 的摘要部分中的“HBase -> 活动 HBase Master”链接。 
-    a. 在“组件”部分重启 HBase Master 服务。
-    a. 对剩余的“备用 HBase Master”服务重复以上步骤。 
+    1. 在 HBase 的“摘要”部分中，转到“HBase” > “Active HBase Master”。 
+    2. 在“组件”部分中，重启 HBase Master 服务。
+    3. 为所有剩余的“Standby HBase Master”服务重复以上步骤。 
 
-HBase Master 服务稳定下来并完成恢复操作可能需要长达五分钟的时间。 等待数分钟后，重复 sqlline.py 命令，确认系统目录表已启动并可进行查询。 
+HBase Master 服务可能需要花费长达五分钟才能稳定下来并完成恢复过程。 几分钟后，重复 sqlline.py 命令以确认 SYSTEM.CATALOG 表已开启并且可以查询。 
 
-“SYSTEM.CATALOG”表回到正常状态以后，Apache Phoenix 的连接问题应会自动得到解决。
+当 SYSTEM.CATALOG 表恢复正常后，Phoenix 的连接问题应当会自动得以解决。
 
-## <a name="what-causes-a-master-server-to-fail-to-start"></a>哪些因素导致主服务器无法启动
+## <a name="what-causes-a-master-server-to-fail-to-start"></a>导致主服务器无法启动的原因
 
-### <a name="error"></a>错误： 
+### <a name="error"></a>错误 
 
-原子重命名失败
+发生原子重命名失败。
 
-### <a name="detailed-description"></a>详细说明：
+### <a name="detailed-description"></a>详细说明
 
-在启动过程中，HMaster 执行大量的初始化步骤，包括将数据从暂存 (.tmp) 文件夹移动到数据文件夹；它还会查看 WAL（预写日志）文件夹中是否存在任何僵死的区域服务器，等等。 
+在启动过程中，HMaster 会完成大量的初始化步骤。 这些步骤包括将数据从暂存 (.tmp) 文件夹移动到数据文件夹。 HMaster 还会查看预写日志 (WAL) 文件夹中是否存在任何无响应的区域服务器，等等。 
 
-在上述所有情况下，它都会对这些文件夹执行基本的“list”命令。 在任何时候，如果发现这些文件夹的任意一个中存在意外的文件，它会引发一个异常并因此不会启动。  
+在启动期间，HMaster 会对这些文件夹执行基本的 `list` 命令。 在任何时候，如果 HMaster 发现其中任何一个文件夹中存在意外的文件，则会引发异常并且不会启动。  
 
-### <a name="probable-cause"></a>可能的原因：
+### <a name="probable-cause"></a>可能的原因
 
-尝试查明文件创建时间线，并在区域服务器日志中查看在该时间附近是否有任何进程崩溃（可联系任何 HBase 职员来协助执行此操作）。 这样我们就可以提供更可靠的机制来避免出现此 Bug 并确保进程正常关闭。
+在区域服务器日志中，尝试查明文件创建时间线，并查看在该时间附近是否有任何进程崩溃。 （可联系 HBase 支持人员来协助执行此操作。）这可以帮助我们提供更可靠的机制以避免出现此 bug 并确保正常的进程关闭。
 
-### <a name="resolution-steps"></a>解决步骤：
+### <a name="resolution-steps"></a>解决步骤
 
-在这种情况下，请尝试检查调用堆栈并查看哪个文件夹可能导致问题（例如，是 WAL 文件夹还是 .tmp 文件夹）。 然后，通过 Cloud Explorer 或通过 hdfs 命令，尝试找到问题文件 - 通常，这是一个 *-renamePending.json 文件（一个用于在 WASB 驱动程序中实现自动重命名操作的日志文件；由于此实现中的 Bug，在发生进程崩溃之类的问题时，这样的文件可能会保留）。 可以通过 Cloud Explorer 强制删除此文件。 
+检查调用堆栈并尝试确定哪个文件夹可能导致问题（例如，是 WAL 文件夹还是 .tmp 文件夹）。 然后，通过 Cloud Explorer 或 HDFS 命令尝试找到问题文件。 通常，这是一个 \*-renamePending.json 文件。 （\*-renamePending.json 文件是用于在 WASB 驱动程序中实现原子重命名操作的日记文件。 由于此实现中的 bug，在发生进程崩溃之类的问题后，这些文件可能会保留。）可以通过 Cloud Explorer 或 HDFS 命令强制删除此文件。 
 
-此外，有时候在此位置中可能会存在 $$$.$$$ 性质的临时文件，无法通过 Cloud Explorer 看到此文件，只能通过 hdfs ls 命令看到。 可以使用 hdfs 命令“hdfs dfs -rm /<the path>/\$\$\$.\$\$\$”删除此文件。  
+有时，此位置还可能存在名称类似于 *$$$.$$$* 的临时文件。 必须使用 HDFS `ls` 命令查看此文件，而不能在 Cloud Explorer 中查看。 若要删除此文件，请使用 HDFS 命令 `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`。  
 
-执行此操作后，HMaster 应当会立即启动。 
+运行这些命令后，HMaster 应会立即启动。 
 
-### <a name="error-no-server-address-listed-in"></a>错误：未列出服务器地址 
+### <a name="error"></a>错误
 
-区域 xxx 的 hbase: meta 中未列出服务器地址
+区域 xxx 的 *hbase: meta* 中未列出服务器地址。
 
-### <a name="detailed-description"></a>详细说明：
+### <a name="detailed-description"></a>详细说明
 
-客户在 hbase: meta 表未联机的 Linux 群集上遇到问题。 运行 hbck 时报告了“在任何区域中都未发现 hbase: meta 表 replicaId 0”错误。 重启 HBase 后，症状变为 hmaster 无法初始化。 在 hmaster 日志中，它报告了“区域 hbase: backup <region name> 的 hbase: meta 中未列出服务器地址”错误。  
+Linux 群集上可能会出现一条消息，指出 *hbase: meta* 表未联机。 运行 `hbck` 时可能会报告“在任何区域中都未发现 hbase: meta 表 replicaId 0”。 问题可能是重启 HBase 后，HMaster 无法初始化。 HMaster 日志中可能会出现以下消息：“区域 hbase: backup \<区域名称\> 的 hbase: meta 中未列出服务器地址”。  
 
-### <a name="resolution-steps"></a>解决步骤：
+### <a name="resolution-steps"></a>解决步骤
 
-- 在 HBase shell 中键入以下命令（根据情况更改实际值）。  
+1. 在 HBase shell 中输入以下命令（根据情况更改实际值）：  
 
-```apache
-> scan 'hbase:meta'  
-```
+   ```apache
+   > scan 'hbase:meta'  
+   ```
 
-```apache
-> delete 'hbase:meta','hbase:backup <region name>','<column name>'  
-```
+   ```apache
+   > delete 'hbase:meta','hbase:backup <region name>','<column name>'  
+   ```
 
-- 删除 hbase: namespace 条目，因为扫描 hbase: namespace 表时可能会报告相同的错误。
+2. 删除 *hbase: namespace* 条目。 此条目可能是扫描 *hbase: namespace* 表时报告的相同错误。
 
-- 从 Ambari UI 重启活动 HMaster，使 HBase 恢复运行状态。  
+3. 为了使 HBase 恢复运行状态，在 Ambari UI 中重启 Active HMaster 服务。  
 
-- 在 HBase shell 中运行以下命令，使所有脱机表联机：
+4. 在 HBase shell 中，运行以下命令使所有脱机表联机：
 
 ```apache 
 hbase hbck -ignorePreCheckPermission -fixAssignments 
 ```
 
-### <a name="further-reading"></a>延伸阅读：
+### <a name="additional-reading"></a>其他阅读材料
 
-[Unable to process HBase table](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)（无法处理 HBase 表）
+[无法处理 HBase 表](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 
-### <a name="error"></a>错误：
 
-HMaster 超时且出现严重异常，例如，“java.io.IOException: 等待分配命名空间表时超时 300000 毫秒”
+### <a name="error"></a>错误
 
-### <a name="detailed-description"></a>详细说明：
+HMaster 超时且出现类似于“java.io.IOException: 等待分配命名空间表时超时 300000 毫秒”的严重异常。
 
-当客户明显有大量表和区域且在重启 HMaster 服务后未刷新时，就会遇到此问题。 重启失败且出现以上消息。 未发现其他错误。  
+### <a name="detailed-description"></a>详细说明
 
-### <a name="probable-cause"></a>可能的原因：
+如果有大量表和区域且在重启 HMaster 服务时未刷新，则会遇到此问题。 重启可能失败且出现上述错误消息。  
 
-这是 HMaster 的一个已知缺陷（因为尚未分配命名空间表，一般群集启动任务可能会花费很长时间并且 HMaster 会关闭），只有存在大量未刷新的数据且五分钟的超时时间不够用时才会出现此问题。
+### <a name="probable-cause"></a>可能的原因
 
-### <a name="resolution-steps"></a>解决步骤：
+这是 HMaster 服务的已知问题。 一般群集启动任务可能会花费很长时间。 由于命名空间表尚未分配，因此 HMaster 会关闭。 只有存在大量未刷新的数据且五分钟超时时间不够用时，才会出现此问题。
+  
+### <a name="resolution-steps"></a>解决步骤
 
-- 访问 Ambari UI，转到“HBase”->“配置”，在自定义 hbase-site.xml 中添加以下设置： 
+1. 在 Ambari UI 中，转到“HBase” > “配置”。 在自定义 hbase-site.xml 文件中添加以下设置： 
 
-```apache
-Key: hbase.master.namespace.init.timeout Value: 2400000  
-```
+   ```apache
+   Key: hbase.master.namespace.init.timeout Value: 2400000  
+   ```
 
-- 重启所需的服务（主要是 HMaster，可能还有其他 HBase 服务）。  
+2. 重启所需的服务（HMaster，可能还有其他 HBase 服务）。  
 
-## <a name="what-causes-a-restart-failure-on-a-region-server"></a>哪些因素导致在区域服务器上重启失败
+## <a name="what-causes-a-restart-failure-on-a-region-server"></a>导致在区域服务器上重启失败的原因
 
-### <a name="probable-cause"></a>可能的原因：
+### <a name="issue"></a>问题
 
-首先，可以通过以下最佳做法防止此类情况。 在计划重启 HBase 区域服务器时，建议暂停繁重的工作负荷活动。 如果在关闭过程中应用程序继续与区域服务器进行连接，则会将区域服务器重启操作拖慢几分钟。 另外，建议用户参考 [HDInsight HBase: How to Improve HBase cluster restart time by Flushing tables](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)（HDInsight HBase：如何通过刷新表来加快 HBase 群集重启时间）来刷新所有表。
+可以遵循以下最佳做法来防止区域服务器重启失败。 我们建议在计划重启 HBase 区域服务器时，暂停繁重的工作负荷活动。 如果在关闭过程中应用程序继续与区域服务器进行连接，则这会将区域服务器重启操作拖慢几分钟。 另外，最好是先刷新所有表。 有关如何刷新表的参考信息，请参阅 [HDInsight HBase：如何通过刷新表来改善 HBase 群集重启时间](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)。
 
-如果用户通过 Ambari UI 在 HBase 区域服务器上开始重启操作， 就会立即看到区域服务器关闭，且太长时间没有重启。 
+如果通过 Ambari UI 在 HBase 区域服务器上开始重启操作，马上就会看到区域服务器关闭，但不会立即重启。 
 
 下面是幕后发生的情况： 
 
-1. Ambari 代理将向区域服务器发送停止请求。
-1. 然后，Ambari 代理等待 30 秒，让区域服务器正常关闭。 
-1. 如果客户的应用程序继续与区域服务器进行连接，则区域服务器不会立即关闭，因此，30 秒的超时将很快到期。 
-1. 在 30 秒到期后，Ambari 代理将向区域服务器发送强制终止命令 (kill -9)。 可以在 ambari-agent 日志（位于相应 workernode 的 /var/log/ 目录中）查看此情况，如下所示：
+1. Ambari 代理向区域服务器发送停止请求。
+2. Ambari 代理等待 30 秒让区域服务器正常关闭。 
+3. 如果应用程序继续与区域服务器进行连接，该服务器不会立即关闭。 在关闭之前，30 秒超时就会到期。 
+4. 30 秒之后，Ambari 代理向区域服务器发送强制终止 (`kill -9`) 命令。 可以在 ambari-agent 日志（位于相应工作节点的 /var/log/ 目录中）查看此情况：
 
 ```apache
          2017-03-21 13:22:09,171 - Execute['/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh --config /usr/hdp/current/hbase-regionserver/conf stop regionserver'] {'only_if': 'ambari-sudo.sh  -H -E t
@@ -372,7 +369,7 @@ Key: hbase.master.namespace.init.timeout Value: 2400000
          2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
          2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
 ```
-由于此关闭很突然，尽管区域服务器进程已被终止，但与该进程关联的端口可能还没有释放。 此状况可能会导致在启动区域服务器时发生 AddressBindException，如以下日志所示。 可以在启动区域服务器失败时所在工作节点的 /var/log/hbase 目录的 region-server.log 中验证此情况。 
+由于这种突然关闭，尽管区域服务器进程已停止，但与该进程关联的端口可能没有释放。 此状况可能会导致在启动区域服务器时发生 AddressBindException，如以下日志中所示。 可以在区域服务器启动失败的工作节点上的 /var/log/hbase 目录中的 region-server.log 内对此进行验证。 
 
 ```apache
 
@@ -412,13 +409,10 @@ Key: hbase.master.namespace.init.timeout Value: 2400000
        ... 15 more
 ```
 
-### <a name="resolution-steps"></a>解决步骤：
+### <a name="resolution-steps"></a>解决步骤
 
-出现这类情况时，可以尝试以下解决方法： 
-
-- 在开始重启之前尝试降低 HBase 区域服务器上的负载。 
-
-- 另外（如果以上步骤没有帮助），请尝试使用以下命令，手动重启工作节点上的区域服务器：
+1. 在开始重启之前尝试降低 HBase 区域服务器上的负载。 
+2. 另外（如果步骤 1 没有帮助），请尝试使用以下命令手动重启工作节点上的区域服务器：
 
 ```apache
       sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"

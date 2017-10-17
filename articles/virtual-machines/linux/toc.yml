@@ -31,19 +31,21 @@
       href: tutorial-load-balancer.md
     - name: 8 - 管理网络
       href: tutorial-virtual-network.md
-    - name: 9 - 监视虚拟机
+    - name: 9 - 备份虚拟机
+      href: tutorial-backup-vms.md
+    - name: 10 - 监视虚拟机
       href: tutorial-monitoring.md
-    - name: 10 - 部署 Jenkins
+    - name: 11 - 部署 Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 11 - 将 CI/CD 与 Team Services 配合使用
+    - name: 12 - 将 CI/CD 与 Team Services 配合使用
       href: tutorial-build-deploy-jenkins.md
-    - name: 12a - 创建 LAMP 堆栈
+    - name: 13a - 创建 LAMP 堆栈
       href: tutorial-lamp-stack.md
-    - name: 12b - 创建 LEMP 堆栈
+    - name: 13b - 创建 LEMP 堆栈
       href: tutorial-lemp-stack.md
-    - name: 12c - 创建 MEAN 堆栈
+    - name: 13c - 创建 MEAN 堆栈
       href: tutorial-mean-stack.md
-    - name: 13 - 使用 SSL 保护 Web 服务器
+    - name: 14 - 使用 SSL 保护 Web 服务器
       href: tutorial-secure-web-server.md
 - name: 示例
   items:
@@ -53,47 +55,27 @@
       href: powershell-samples.md
 - name: 概念
   items:
-    - name: Azure 认可的分发版
-      href: endorsed-distros.md
+    - name: Azure Resource Manager
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
     - name: 区域和可用性
       href: regions-and-availability.md
+    - name: VM 类型和大小
+      href: sizes.md
+    - name: 认可的发行版
+      href: endorsed-distros.md
+    - name: 维护和更新
+      href: maintenance-and-updates.md
     - name: 存储
       href: azure-vm-storage-overview.md
-    - name: 联网
-      href: azure-vm-network-overview.md
-    - name: VM 规模集
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-    - name: Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-      items:
-        - name: 部署模型
-          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 用于 VM 的模板
-          href: ../windows/template-description.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Azure Linux 代理
-      href: agent-user-guide.md
-    - name: 灾难恢复
-      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-    - name: 计划内维护
-      href: planned-maintenance.md
-    - name: VM 大小
-      items:
-        - name: VM 大小 - 概述
-          href: sizes.md
-          items:
-            - name: 常规用途
-              href: sizes-general.md
-            - name: 计算优化
-              href: sizes-compute.md
-            - name: 内存优化
-              href: sizes-memory.md
-        - name: Azure 计算单元 (ACU)
-          href: acu.md
-        - name: 计算基准评分
-          href: compute-benchmark-scores.md
+    - name: 网络
+      href: network-overview.md
+    - name: 监视
+      href: monitor.md
+    - name: 备份和恢复
+      href: backup-recovery.md
     - name: 部署注意事项
       items:
-        - name: 示例基本部署
+        - name: 基础结构指南
           href: infrastructure-example.md
 - name: 操作指南
   items:
@@ -176,7 +158,7 @@
             - name: OpenBSD
               href: create-upload-openbsd.md
             - name: FreeBSD
-              href: ../virtual-machines-freebsd-intro-on-azure.md
+              href: freebsd-intro-on-azure.md
         - name: 将 VM 捕获到映像
           href: capture-image.md
         - name: 使用 Packer 生成映像
@@ -219,8 +201,6 @@
               href: install-mongodb.md
             - name: PostgreSQL
               href: postgresql-install.md
-            - name: Linux 上的 MS SQL
-              href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: 管理存储
       items:
         - name: 了解托管磁盘
@@ -338,7 +318,7 @@
           href: redeploy-to-new-node.md
         - name: 常见错误消息
           href: error-messages.md
-        - name: VM 恢复访问
+        - name: VM 恢复方法
           items:
             - name: Azure CLI
               href: troubleshoot-recovery-disks.md
@@ -355,9 +335,9 @@
     - name: Java
       href: 'https://docs.azure.cn/zh-cn/java/api/overview/'
     - name: Node.js
-      href: '/develop/nodejs/#azure-sdk'
+      href: 'https://www.azure.cn/develop/nodejs/#azure-sdk'
     - name: Python
-      href: /develop/python/
+      href: 'https://www.azure.cn/develop/python/'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/compute'
 - name: 资源

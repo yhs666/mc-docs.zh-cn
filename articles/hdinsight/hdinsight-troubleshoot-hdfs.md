@@ -1,6 +1,6 @@
 ---
-title: "HDFS 故障排除 - Azure HDinsight | Azure"
-description: "使用 HDFS 常见问题解答，获取有关 Azure HDInsight 平台上 HDFS 的常见问题解答。"
+title: "使用 Azure HDinsight 排除 HDFS 故障 | Microsoft Docs"
+description: "获取有关使用 HDFS 和 Azure HDInsight 的常见问题答案。"
 keywords: "Azure HDInsight, HDFS, 常见问题解答, 故障排除指南, 常见问题"
 services: Azure HDInsight
 documentationcenter: na
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/07/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 150cc24a3bf8a47ccd7c19d4f4a8c57a4ca0dfae
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 10/23/2017
+ms.author: v-yiso
+ms.openlocfilehash: bc480bca3db58188155a21bd25cb2c29f28448c4
+ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 10/13/2017
 ---
-# <a name="hdfs-troubleshooting"></a>HDFS 故障排除
+# <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>使用 Azure HDInsight 排除 HDFS 故障
 
-本文介绍处理 Apache Ambari 中的 HDFS 有效负载时遇到的最常见问题及其解决方法。
+了解在 Apache Ambari 中使用 Hadoop 分布式文件系统 (HDFS) 有效负载时遇到的常见问题及其解决方法。
 
 ## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>如何从群集内访问本地 HDFS
 
-### <a name="issue"></a>问题：
+### <a name="issue"></a>问题
 
-从命令行和应用程序代码而不是从 HDInsight 群集内的 WASB 或 ADLS 访问本地 HDFS。   
+从 HDInsight 群集内通过命令行和应用程序代码（而不是 Azure Blob 存储）访问本地 HDFS。   
 
-### <a name="resolution-steps"></a>解决步骤：
+### <a name="resolution-steps"></a>解决步骤
 
-- 从命令行按原义使用 `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...`，如以下命令中所示：
+1. 在命令提示符下，按原义使用 `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...`，如以下命令中所示：
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
@@ -44,7 +44,7 @@ drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
 drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
 ```
 
-- 从源代码按原义使用 URI `hdfs://mycluster/`，如以下示例应用程序中所示：
+2. 从源代码按原义使用 URI `hdfs://mycluster/`，如以下示例应用程序中所示：
 
 ```csharp
 import java.io.IOException;
@@ -68,7 +68,7 @@ public class JavaUnitTests {
     }
 }
 ```
-- 使用以下命令在 HDInsight 群集上运行已编译的 JAR（例如名为 `java-unit-tests-1.0.jar`）：
+3. 使用以下命令在 HDInsight 群集上运行已编译的 .jar 文件（例如，名为 `java-unit-tests-1.0.jar` 的文件）：
 
 ```apache
 hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
@@ -78,21 +78,22 @@ hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
 hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
 ```
 
+
 ## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>如何在群集中强制禁用 HDFS 安全模式
 
-### <a name="issue"></a>问题：
+### <a name="issue"></a>问题
 
 本地 HDFS 在 HDInsight 群集上的安全模式下停止响应。   
 
-### <a name="detailed-description"></a>详细说明：
+### <a name="detailed-description"></a>详细说明
 
-无法运行简单的 HDFS 命令，如下所示：
+运行以下 HDFS 命令时，将发生错误：
 
 ```apache
 hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 ```
 
-尝试运行上述命令时遇到的错误如下所示：
+运行命令时，会看到以下错误：
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
@@ -146,13 +147,13 @@ It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode
 mkdir: Cannot create directory /temp. Name node is in safe mode.
 ```
 
-### <a name="probable-cause"></a>可能的原因：
+### <a name="probable-cause"></a>可能的原因
 
-HDInsight 群集已纵向收缩成很少的节点，低于或接近 HDFS 复制因子。
+HDInsight 群集已减少到很少的节点。 节点数低于或接近于 HDFS 复制因子。
 
-### <a name="resolution-steps"></a>解决步骤： 
+### <a name="resolution-steps"></a>解决步骤 
 
-- 使用以下命令报告 HDInsight 群集上的 HDFS 状态：
+1. 使用以下命令获取 HDInsight 群集上的 HDFS 状态：
 
 ```apache
 hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
@@ -193,7 +194,7 @@ Last contact: Wed Apr 05 16:22:00 UTC 2017
 ...
 ```
 
-- 使用以下命令检查 HDInsight 群集上的 HDFS 完整性：
+2. 使用以下命令检查 HDInsight 群集上的 HDFS 完整性：
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
@@ -226,7 +227,7 @@ FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
 The filesystem under path '/' is HEALTHY
 ```
 
-- 如果确定没有块处于缺失、损坏或复制状态，或者确定可以忽略这些块，请运行以下命令，使指定节点脱离安全模式：
+3. 如果确定没有缺失、损坏或正在复制的块，或者这些块可以忽略，请运行以下命令使名称节点退出安全模式：
 
 ```apache
 hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave

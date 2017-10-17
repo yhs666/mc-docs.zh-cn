@@ -1,8 +1,8 @@
 ---
 title: "使用 Azure 导入/导出将数据传入/传出 Blob 存储 | Azure"
 description: "了解如何在 Azure 门户中创建导入和导出作业，以便将数据传入/传出 Blob 存储。"
-author: hayley244
-manager: syadav
+author: forester123
+manager: digimobile
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/17/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: fa9784bbeefa01965e0b63bbadeb053b57c46649
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+origin.date: 09/14/2017
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: a62f6724e40b7364744eb11bbfb5c67fa5413abe
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
-# <a name="use-the-azure-importexport-service-to-transfer-data-to-blob-storage"></a>使用 Azure 导入/导出服务可将数据传入 Blob 存储
-使用 Azure 导入/导出服务，可以将硬盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传入 Azure Blob 存储。 用户还可以使用此服务将数据从 Azure Blob 存储传输到硬盘驱动器，再寄送到本地站点。 如果需要在本地站点和 Azure 之间传输数 TB 的数据，而由于带宽限制或网络成本过高，通过网络上传或下载数据不可行，在这种情况下，则可以使用此服务。
+# <a name="use-the-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Azure 导入/导出服务可将数据传输到 Azure 存储
+使用 Azure 导入/导出服务，可以将硬盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传输到 Azure 存储。 还可以使用此服务将数据从 Azure 存储传输到硬盘驱动器，然后再寄送到本地站点。 如果需要在本地站点和 Azure 之间传输数 TB 的数据，而由于带宽限制或网络成本过高，通过网络上传或下载数据不可行，在这种情况下，则可以使用此服务。
 
 服务要求对硬盘驱动器进行 BitLocker 加密以确保数据的安全性。 服务支持所有公共 Azure 区域中的经典和 Azure Resource Manager 存储帐户（标准层和冷层）。 必须将硬盘驱动器寄送到本文后面指定的某个受支持的位置。
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/25/2017
 * 将数据迁移到云：将大量数据快速且经济高效地转移到 Azure。
 * 内容分发：将数据快速发送到客户站点。
 * 备份：将本地数据备份后存储在 Azure Blob 存储中。
-* 数据恢复：恢复存储在 Blob 存储中的大量数据，并将其递送到本地位置。
+* 数据恢复：恢复存储在存储中的大量数据，然后将其递送到本地位置。
 
 ## <a name="prerequisites"></a>先决条件
 本部分列出了使用此服务需要满足的先决条件。 请在寄送驱动器之前仔细查看这些先决条件。
@@ -44,11 +44,11 @@ ms.lasthandoff: 08/25/2017
 ### <a name="storage-account"></a>存储帐户
 必须拥有 Azure 订阅以及一个或多个存储帐户才能使用导入/导出服务。 每个作业只能用于将数据传入/传出一个存储帐户。 换言之，一个导入/导出作业不能跨多个存储帐户。 有关创建新存储帐户的信息，请参阅[如何创建存储帐户](storage-create-storage-account.md#create-a-storage-account)。
 
-### <a name="blob-types"></a>Blob 类型
-可使用 Azure 导入/导出服务将数据复制到块 blob 或页 blob。 与之相反，只能使用此服务从 Azure 存储中导出块 blob、页 blob 或追加 blob。
+### <a name="data-types"></a>数据类型
+可使用 Azure 导入/导出服务将数据复制到块 Blob、页 Blob 或文件中。 与之相反，只能使用此服务从 Azure 存储中导出块 blob、页 blob 或追加 blob。 该服务不支持导出 Azure 文件，只能将文件导入 Azure 存储。
 
 ### <a name="job"></a>作业
-要开始从 Blob 存储进行导入或导出的过程，首先要创建一个“作业”。 作业可以是“导入作业”或“导出作业”：
+要开始从存储进行导入或导出的过程，首先要创建一个“作业”。 作业可以是“导入作业”或“导出作业”：
 
 * 需要将本地数据传输到 Azure 存储帐户中的 Blob 时，请创建导入作业。
 * 在你想要将当前作为 Blob 存储于存储帐户中的数据传输到运送给硬盘驱动器时创建导出作业。
@@ -74,7 +74,7 @@ WAImportExport 工具仅兼容 64 位 Windows 操作系统。 请参阅 [操作�
 >以前的版本：可以[下载 WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) 版本的工具，并参考 [WAImportExpot V1 使用指南](storage-import-export-tool-how-to-v1.md)。 WAImportExpot V1 版本的工具支持在已将数据预先写入磁盘的情况下准备磁盘。 如果唯一可用的密钥是 SAS 密钥，则也需要 WAImportExpot V1 工具。
 
 ### <a name="hard-disk-drives"></a>硬盘驱动器
-只支持将 2.5 英寸 SSD 或者 2.5/3.5 英寸 SATA II 或 III 内部 HDD 用于导入/导出服务。 单个导入/导出作业最多可以有 10 个 HDD/SSD，并且每个 HDD/SSD 可以为任意大小。 大量驱动器可在多个作业中分布，且对可创建的作业数量没有限制。 
+只支持将 2.5 英寸 SSD 或者 2.5/3.5 英寸 SATA II 或 III 内部 HDD 用于导入/导出服务。 单个导入/导出作业最多可以有 10 个 HDD/SSD，并且每个 HDD/SSD 可以为任意大小。 大量驱动器可以分布在多个作业上，并且可创建的作业数没有限制。 
 
 对于导入作业，只会处理驱动器上的第一个数据卷。 该数据卷必须使用 NTFS 进行格式化。
 
@@ -122,7 +122,7 @@ Azure 导入/导出服务支持将数据复制到中国东部或中国北部的 
 > 在寄送物理介质之前，请咨询顾问以验证介质和数据是否可以合法地寄送到所确定的数据中心。 这有助于确保它可以及时到达 Microsoft。 
 
 ## <a name="how-does-the-azure-importexport-service-work"></a>Azure 导入/导出服务是如何工作的？
-可以使用 Azure 导入/导出服务在本地站点和 Azure Blob 存储之间传输数据，只需创建作业，然后将硬盘驱动器寄送到 Azure 数据中心即可。 寄送的每个硬盘驱动器都与单个作业相关联。 每个作业都与单个存储帐户相关联。 请仔细查看 [“先决条件”部分](#pre-requisites) ，以了解此服务的具体情况，例如支持的 Blob 类型、磁盘类型、位置和寄送方式。
+可以使用 Azure 导入/导出服务在本地站点和 Azure 存储之间传输数据，只需创建作业，然后将硬盘驱动器寄送到 Azure 数据中心即可。 寄送的每个硬盘驱动器都与单个作业相关联。 每个作业都与单个存储帐户相关联。 请仔细查看[先决条件](#pre-requisites)部分，以了解此服务的具体情况，例如支持的数据类型、磁盘类型、位置和寄送方式。
 
 此部分深入介绍导入和导出作业所涉及的步骤。 随后，会在[“快速启动”部分](#quick-start)提供分步说明，指导创建导入和导出作业。
 
@@ -130,7 +130,7 @@ Azure 导入/导出服务支持将数据复制到中国东部或中国北部的 
 概括而言，导入作业包括以下步骤：
 
 * 确定要导入的数据，以及所需驱动器数目。
-* 确定 Blob 存储中用于存储数据的目标 Blob 位置。
+* 确定 Azure 存储中用于存储数据的目标 Blob 或文件位置。
 * 使用 WAImportExport 工具将数据复制到一个或多个硬盘驱动器，并使用 BitLocker 进行加密。
 * 使用 Azure 门户或导入/导出 REST API 在目标存储帐户中创建导入作业。 如果使用 Azure 门户，请上传驱动器日记文件。
 * 请提供回寄地址以及快递商帐户号码，以便我们将驱动器寄回给你。
@@ -142,6 +142,10 @@ Azure 导入/导出服务支持将数据复制到中国东部或中国北部的 
     ![图 1：导入作业流](./media/storage-import-export-service/importjob.png)
 
 ### <a name="inside-an-export-job"></a>关于导出作业
+> [!IMPORTANT]
+> 该服务仅支持导出 Azure Blob，不支持导出 Azure 文件。
+> 
+> 
 概括而言，导出作业包括以下步骤：
 
 * 确定要导出的数据，以及所需驱动器数目。
@@ -215,7 +219,7 @@ Azure 门户中的此映像会显示示例作业的驱动器状态：
 将数据导入 Blob 存储没有事务费用。 将数据从 Blob 存储导出时，需支付标准的传出费用。 有关事务费用的更多详细信息，请参阅 [数据传输定价](https://www.azure.cn/pricing/details/data-transfer/)
 
 ## <a name="quick-start"></a>快速启动
-此部分提供创建导入和导出作业的分步说明。 请确保在执行下一步操作之前符合所有 [先决条件](#pre-requisites) 。
+此部分提供创建导入和导出作业的分步说明。 请确保在执行下一步操作之前符合所有[先决条件](#pre-requisites)。
 
 > [!IMPORTANT]
 > 服务支持每个导入或导出作业使用一个标准存储帐户，不支持高级存储帐户。 
@@ -235,15 +239,22 @@ Azure 门户中的此映像会显示示例作业的驱动器状态：
 
     **数据集 CSV 文件**
     
-    下面是数据集 CSV 文件的示例：
+  以下是导入数据作为 Azure Blob 的数据集 CSV 文件示例：
     
     ```
-    BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
+    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
     "F:\50M_original\100M_1.csv.txt","containername/100M_1.csv.txt",BlockBlob,rename,"None",None
     "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
     ```
-   
-    在上面的示例中，100M_1.csv.txt 会复制到名为“containername”的根容器中。 如果名为“containername”的容器不存在，系统会创建一个。 50M_original 下的所有文件和文件夹以递归方式复制到 containername。 文件夹结构保持不变。
+  
+  以下是导入数据作为 Azure 文件的数据集 CSV 文件示例：
+  
+    ```
+    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+    "F:\50M_original\100M_1.csv.txt","fileshare/100M_1.csv.txt",file,rename,"None",None
+    "F:\50M_original\","fileshare/",file,rename,"None",None 
+    ```
+   在上面的示例中，100M_1.csv.txt 将复制到名为“containername”或“fileshare”的根容器中。 如果名为“containername”或“fileshare”的容器不存在，系统会创建一个。 50M_original 下的所有文件和文件夹以递归方式复制到 containername 或 fileshare。 文件夹结构保持不变。
 
     详细了解如何[准备数据集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)。
     
@@ -399,7 +410,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 能否使用 Azure 导入/导出服务复制 Azure 文件存储？
 
-否。Azure 导入/导出服务仅支持块 Blob 和页 Blob。 其他所有存储类型（包括 Azure 文件存储、表存储和队列存储）均不受支持。
+可以，Azure 导入/导出服务支持导入到 Azure 文件存储。 目前它不支持导出 Azure 文件。
 
 **Azure 导入/导出服务是否适用于 CSP 订阅？**
 
@@ -460,7 +471,7 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 
 **寄送驱动器是否存在限制？**
 
-在发运物理介质之前，请咨询顾问以验证介质和数据是否可以合法地发运到所确定的数据中心。 这有助于确保它可以及时到达 21Vianet。
+请注意，发运的物理介质可能需要穿越国界。 应当负责确保物理介质和数据是遵照适用的法律导入和/或导出的。 在发运物理介质之前，请咨询顾问以验证介质和数据是否可以合法地发运到所确定的数据中心。 这有助于确保它可以及时到达 21Vianet。
 
 创建作业时，寄送地址是一个不同于存储帐户位置的位置。我该怎样做？
 

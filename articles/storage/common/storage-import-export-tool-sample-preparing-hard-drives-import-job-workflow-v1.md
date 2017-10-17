@@ -1,7 +1,7 @@
 ---
 title: "为 Azure 导入/导出服务的导入作业准备硬盘驱动器的示例工作流 - v1 | Azure"
 description: "请参阅为 Azure 导入/导出服务中的导入作业准备驱动器的完整过程演练。"
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 services: storage
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: cccb28f97368257190025c2845c0067c72952b79
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.date: 10/16/2017
+ms.author: v-johch
+ms.openlocfilehash: 2d0b9a33e189fb3d512c09f041563b1174a1296f
+ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器的示例工作流
 本主题讲解如何完成为导入作业准备驱动器的整个过程。  
@@ -32,9 +32,9 @@ ms.lasthandoff: 08/25/2017
 |H:\Photo|照片集合，总共 30 GB。|  
 |K:\Temp\FavoriteMovie.ISO|Blu-Ray™ 磁盘映像，25 GB。|  
 |\\\bigshare\john\music|网络共享上的音乐文件集合，总共 10 GB。|  
-
+  
 导入作业将这些数据导入到存储帐户中的以下目标：  
-
+  
 |源|目标虚拟目录或 Blob|  
 |------------|-------------------------------------------|  
 |H:\Video|https://mystorageaccount.blob.core.chinacloudapi.cn/video|  
@@ -48,7 +48,7 @@ ms.lasthandoff: 08/25/2017
 
 `5TB + 30GB + 25GB + 10GB = 5TB + 65GB`  
 
-对于本示例，两个 3TB 的硬盘驱动器应该足够。 但是，由于源目录 `H:\Video` 包含 5TB 数据，而单个硬盘驱动器的容量仅为 3TB，因此在运行 Azure 导入/导出工具之前，需要将 `H:\Video` 分解为两个小目录：`H:\Video1` 和 `H:\Video2`。 此步骤生成以下源目录：  
+对于本示例，两个 3-TB 硬盘驱动器应该足够。 但是，由于源目录 `H:\Video` 包含 5 TB 数据，而单个硬盘驱动器的容量仅为 3 TB，因此在运行 Azure 导入/导出工具之前，需要将 `H:\Video` 分解为两个小目录：`H:\Video1` 和 `H:\Video2`。 此步骤生成以下源目录：  
 
 |位置|大小|目标虚拟目录或 Blob|  
 |--------------|----------|-------------------------------------------|  
@@ -58,10 +58,10 @@ ms.lasthandoff: 08/25/2017
 |K:\Temp\FavoriteMovies.ISO|25GB|https://mystorageaccount.blob.core.chinacloudapi.cn/favorite/FavoriteMovies.ISO|  
 |\\\bigshare\john\music|10GB|https://mystorageaccount.blob.core.chinacloudapi.cn/music|  
 
- 请注意，即使已将 `H:\Video` 目录分解为两个目录，它们也会指向存储帐户中的同一目标虚拟目录。 这样，所有视频文件将保留在存储帐户中的单个 `video` 容器下。  
-
+ 即使已将 `H:\Video` 目录分解为两个目录，它们也会指向存储帐户中的同一目标虚拟目录。 这样，所有视频文件将保留在存储帐户中的单个 `video` 容器下。  
+  
  接下来，将上面的源目录均匀分配到两个硬盘驱动器中：  
-
+  
 ||||  
 |-|-|-|  
 |硬盘驱动器|源目录|总大小|  
@@ -118,16 +118,16 @@ ms.lasthandoff: 08/25/2017
 -   存储帐户 `mystorageaccount` 的密钥为 `8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg==`。  
 
 ## <a name="preparing-disk-for-import-when-data-is-pre-loaded"></a>在预先加载了数据的情况下为导入准备磁盘
-
- 如果要导入的数据已在磁盘上，可以使用标志 /skipwrite。 /t 和 /srcdir 的值都应该指向要为导入准备的磁盘。 如果磁盘上并非所有数据都需要传送到同一个目标虚拟目录或存储帐户根目录，则可针对每个目录单独运行相同的命令，但每次运行需要保持使用相同的 /id 值。
+ 
+ 如果要导入的数据已在磁盘上，可以使用标志 /skipwrite。 /t 和 /srcdir 的值应该指向为导入准备的磁盘。 如果要导入的所有数据并非都传送到同一个目标虚拟目录或存储帐户根目录，则可针对每个目标目录单独运行相同的命令，但每次运行需要保持使用相同的 /id 值。
 
 >[!NOTE] 
 >请不要指定 /format，否则会擦除磁盘上的数据。 可以根据磁盘是否已加密，指定 /encrypt 或 /bk。 
 >
 
-如果数据已在磁盘上，请针对每个驱动器运行以下命令。
 ```
-WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:x:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt /skipwrite
+    When data is already present on the disk for each drive run the following command.
+    WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:x:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt /skipwrite
 ```
 
 ## <a name="copy-sessions---first-drive"></a>复制会话 - 第 1 个驱动器
@@ -170,10 +170,10 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## <a name="copy-session-completion"></a>复制会话完成
 
-复制会话完成后，可断开两个驱动器与复制计算机的连接，并将其寄送到相应的 Microsoft Azure 数据中心。 在 [Windows Azure 管理门户](https://manage.windowsazure.cn/)中创建导入作业时，将上传两个日记文件：`FirstDrive.jrn` 和 `SecondDrive.jrn`。  
+复制会话完成后，可断开两个驱动器与复制计算机的连接，并将其寄送到相应的 Microsoft Azure 数据中心。 在 [Windows Azure 管理门户](https://manage.windowsazure.cn/)中创建导入作业时，上传两个日记文件：`FirstDrive.jrn` 和 `SecondDrive.jrn`。  
 
 ## <a name="next-steps"></a>后续步骤
 
 * [为导入作业准备硬盘驱动器](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [常用命令快速参考](../storage-import-export-tool-quick-reference-v1.md)
-<!--Update_Description: update link-->
+* [常用命令快速参考](../storage-import-export-tool-quick-reference-v1.md) 
+<!--Update_Description: wording update-->
