@@ -17,11 +17,11 @@ origin.date: 06/26/2017
 ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b0edff97be6d662071e348fa7d4566e4a7ab1a7
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 37f734fbee41c42e6e01b1536cab32a73d8aef6e
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-infrastructure-naming-guidelines-for-linux-vms"></a>适用于 Linux VM 的 Azure 基础结构命名准则 
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 08/18/2017
 建议 Azure VM 名称应该与基础操作系统计算机名称相同。
 
 ## <a name="storage-account-names"></a>存储帐户名称
-本节不适用于 [Azure 托管磁盘](../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，因为无需创建单独的存储帐户。 对于非托管磁盘，存储帐户具有适用于其名称的特殊规则。 只能使用小写字母和数字。 有关详细信息，请参阅[创建存储帐户](../../storage/storage-create-storage-account.md#create-a-storage-account)。 此外，存储帐户名称与 core.chinacloudapi.cn 组合在一起应该是一个全局有效的唯一 DNS 名称。 例如，如果存储帐户名为 mystorageaccount，则下面生成的 DNS 名称应该是唯一的：
+本节不适用于 [Azure 托管磁盘](../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，因为无需创建单独的存储帐户。 对于非托管磁盘，存储帐户具有适用于其名称的特殊规则。 只能使用小写字母和数字。 有关详细信息，请参阅[创建存储帐户](../../storage/common/storage-create-storage-account.md#create-a-storage-account)。 此外，存储帐户名称与 core.chinacloudapi.cn 组合在一起应该是一个全局有效的唯一 DNS 名称。 例如，如果存储帐户名为 mystorageaccount，则下面生成的 DNS 名称应该是唯一的：
 
 * mystorageaccount.blob.core.chinacloudapi.cn
 * mystorageaccount.table.core.chinacloudapi.cn

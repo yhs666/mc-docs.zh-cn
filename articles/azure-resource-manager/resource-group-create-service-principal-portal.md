@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/08/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 72760efee92372e64f00cf0d6d9bf7ad15d9cb3b
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 3dc37ce120623bab66f5cf1c8af87a6e302ca512
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体
 
@@ -38,31 +38,31 @@ ms.lasthandoff: 09/22/2017
 
 1. 通过 [Azure 门户](https://portal.azure.cn)登录 Azure 帐户。
 
-2. 选择“Azure Active Directory”。
+1. 选择“Azure Active Directory”。
 
     ![选择 azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-3. 在 Azure Active Directory 中，选择“用户设置”。
+1. 在 Azure Active Directory 中，选择“用户设置”。
 
     ![选择用户设置](./media/resource-group-create-service-principal-portal/select-user-settings.png)
 
-4. 检查“应用注册”  设置。 如果设置为“是” ，则非管理员用户可以注册 AD 应用。 此设置意味着 Active AD 租户中的任何用户都可以注册应用。 可继续转到 [检查 Azure 订阅权限](#check-azure-subscription-permissions)。
+1. 检查“应用注册”  设置。 如果设置为“是” ，则非管理员用户可以注册 AD 应用。 此设置意味着 Active AD 租户中的任何用户都可以注册应用。 可继续转到 [检查 Azure 订阅权限](#check-azure-subscription-permissions)。
 
     ![查看应用注册](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-5. 如果应用注册设置已设置为“否” ，则只有管理员用户可以注册应用。 检查帐户是否为 Active AD 租户的管理员。 从快速任务选择“概述”和“查找用户”。
+1. 如果应用注册设置已设置为“否” ，则只有管理员用户可以注册应用。 检查帐户是否为 Active AD 租户的管理员。 从快速任务选择“概述”和“查找用户”。
 
     ![查找用户](./media/resource-group-create-service-principal-portal/find-user.png)
 
-6. 搜索帐户，在找到帐户后选择它。
+1. 搜索帐户，在找到帐户后选择它。
 
     ![搜索用户](./media/resource-group-create-service-principal-portal/show-user.png)
 
-7. 对于帐户，选择“目录角色”。
+1. 对于帐户，选择“目录角色”。
 
     ![目录角色](./media/resource-group-create-service-principal-portal/select-directory-role.png)
 
-8. 在 Azure AD 中查看分配的目录角色。 如果帐户分配到“用户”角色，但（前面的步骤中设置的）应用注册设置仅限于管理员用户，请要求管理员为你分配管理员角色或允许用户注册应用。
+1. 在 Azure AD 中查看分配的目录角色。 如果帐户分配到“用户”角色，但（前面的步骤中设置的）应用注册设置仅限于管理员用户，请要求管理员为你分配管理员角色或允许用户注册应用。
 
     ![查看角色](./media/resource-group-create-service-principal-portal/view-role.png)
 
@@ -74,40 +74,40 @@ ms.lasthandoff: 09/22/2017
 
 1. 如果未在前述步骤中看到 Azure AD 帐户，请从左窗格中选择“Azure Active Directory”。
 
-2. 查找 Azure AD 帐户。 从快速任务选择“概述”和“查找用户”。
+1. 查找 Azure AD 帐户。 从快速任务选择“概述”和“查找用户”。
 
     ![查找用户](./media/resource-group-create-service-principal-portal/find-user.png)
 
-3. 搜索帐户，在找到帐户后选择它。
+1. 搜索帐户，在找到帐户后选择它。
 
     ![搜索用户](./media/resource-group-create-service-principal-portal/show-user.png)
 
-4. 选择“Azure 资源” 。
+1. 选择“Azure 资源” 。
 
     ![选择资源](./media/resource-group-create-service-principal-portal/select-azure-resources.png)
 
-5. 查看分配到的角色，确定你是否拥有足够的权限来向角色分配 AD 应用。 如果没有，请要求订阅管理员将你添加到用户访问管理员角色。 在下图中，用户分配到了两个订阅的“所有者”角色，这意味着该用户具有足够的权限。
+1. 查看分配到的角色，确定你是否拥有足够的权限来向角色分配 AD 应用。 如果没有，请要求订阅管理员将你添加到用户访问管理员角色。 在下图中，用户分配到了两个订阅的“所有者”角色，这意味着该用户具有足够的权限。
 
     ![显示权限](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
 ## <a name="create-an-azure-active-directory-application"></a>创建 Azure Active Directory 应用程序
 
 1. 通过 [Azure 门户](https://portal.azure.cn)登录 Azure 帐户。
-2. 选择“Azure Active Directory”。
+1. 选择“Azure Active Directory”。
 
     ![选择 azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-3. 选择“应用注册” 。
+1. 选择“应用注册” 。
 
-   ![选择应用注册](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
+    ![选择应用注册](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
 
-4. 选择“新建应用程序注册”。
+1. 选择“新建应用程序注册”。
 
-   ![添加应用](./media/resource-group-create-service-principal-portal/select-add-app.png)
+    ![添加应用](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-5. 为应用提供名称和 URL。 选择“Web 应用/API”或“本机”作为要创建的应用程序的类型。 。
+1. 为应用提供名称和 URL。 选择“Web 应用/API”或“本机”作为要创建的应用程序的类型。 。
 
-   ![命名应用程序](./media/resource-group-create-service-principal-portal/create-app.png)
+    ![命名应用程序](./media/resource-group-create-service-principal-portal/create-app.png)
 
 已创建应用程序。
 
@@ -119,15 +119,15 @@ ms.lasthandoff: 09/22/2017
 
     ![选择应用程序](./media/resource-group-create-service-principal-portal/select-app.png)
 
-2. 复制“应用程序 ID”并将其存储在应用程序代码中。 [示例应用程序](#sample-applications)部分的应用程序引用此值作为客户端 ID。
+1. 复制“应用程序 ID”并将其存储在应用程序代码中。 [示例应用程序](#sample-applications)部分的应用程序引用此值作为客户端 ID。
 
     ![客户端 ID](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 
-3. 若要生成身份验证密钥，请选择“密钥” 。
+1. 若要生成身份验证密钥，请选择“密钥” 。
 
     ![选择密钥](./media/resource-group-create-service-principal-portal/select-keys.png)
 
-4. 提供密钥说明和密钥持续时间。 完成后，选择“保存” 。
+1. 提供密钥说明和密钥持续时间。 完成后，选择“保存” 。
 
     ![保存密钥](./media/resource-group-create-service-principal-portal/save-key.png)
 
@@ -143,11 +143,11 @@ ms.lasthandoff: 09/22/2017
 
     ![选择 azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-2. 若要获取租户 ID，请选择 Azure AD 租户的“属性”。
+1. 若要获取租户 ID，请选择 Azure AD 租户的“属性”。
 
     ![选择 Azure AD 属性](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
 
-3. 复制“目录 ID” 。 此值即为租户 ID。
+1. 复制“目录 ID” 。 此值即为租户 ID。
 
     ![租户 ID](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
 
@@ -161,33 +161,34 @@ ms.lasthandoff: 09/22/2017
 
     ![选择订阅](./media/resource-group-create-service-principal-portal/select-subscription.png)
 
-2. 选择要将应用程序分配到的特定订阅（资源组或资源）。
+1. 选择要将应用程序分配到的特定订阅（资源组或资源）。
 
     ![选择进行分配的订阅](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
 
-3. 选择“访问控制(IAM)”。
+1. 选择“访问控制(IAM)”。
 
     ![选择访问权限](./media/resource-group-create-service-principal-portal/select-access-control.png)
 
-4. 选择“设置” （应用程序对象和服务主体对象）。
+1. 选择“设置” （应用程序对象和服务主体对象）。
 
     ![选择添加](./media/resource-group-create-service-principal-portal/select-add.png)
-5. 选择要分配到应用程序的角色。 下图显示“读者”  角色。
+
+1. 选择要分配到应用程序的角色。 下图显示“读者”  角色。
 
     ![选择角色](./media/resource-group-create-service-principal-portal/select-role.png)
 
-6. 搜索用户的应用程序，并选择它。
+1. 搜索用户的应用程序，并选择它。
 
-   ![搜索应用](./media/resource-group-create-service-principal-portal/search-app.png)
+    ![搜索应用](./media/resource-group-create-service-principal-portal/search-app.png)
 
-7. 选择“保存”完成角色分配。 该应用程序会显示在分配到该范围角色的用户列表中。
+1. 选择“保存”完成角色分配。 该应用程序会显示在分配到该范围角色的用户列表中。
 
 ## <a name="log-in-as-the-application"></a>作为应用程序登录
 
 现已在 Azure Active Directory 中设置应用程序。 可使用 ID 和密钥登录为该应用程序。 应用程序分配到角色，可以该角色身份执行特定操作。 有关在不同平台上通过应用程序登录的信息，请参阅：
 
 * [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
-* [Azure CLI](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)
+* [Azure CLI](resource-group-authenticate-service-principal-cli.md)
 * [REST](https://docs.microsoft.com/rest/api/#create-the-request)
 * [.NET](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](https://docs.azure.cn/java/java-sdk-azure-authenticate)

@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 origin.date: 08/22/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: ddcd3fe0caaddd78b55743a0a3c2b4ba40a60642
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 4ae97205d09ed7d05b14f723136f879cadf328cc
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>使用 Azure Cosmos DB 和 DocumentDB API 构建 Java Web 应用程序
 > [!div class="op_single_selector"]
@@ -48,13 +48,13 @@ ms.lasthandoff: 09/22/2017
 ## <a id="Prerequisites"></a>此 Java Web 应用程序教程的先决条件
 在开始本应用程序开发教程前，必须具有：
 
-*  如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+*  如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Java 开发工具包 (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
 * [Eclipse IDE for Java EE Developers。](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-* [已启用 Java 运行时环境（例如 Tomcat 或 Jetty）的 Azure 网站。](../app-service-web/web-sites-java-get-started.md)
+* [已启用 Java 运行时环境（例如 Tomcat 或 Jetty）的 Azure 网站。](../app-service/app-service-web-get-started-java.md)
 
 如果你是首次安装这些工具，那么可以参考 coreservlets.com 网站的[教程：安装 TomCat7 并将其与 Eclipse 一起使用](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html)文章的 Quick Start 部分提供的安装过程演练。
 

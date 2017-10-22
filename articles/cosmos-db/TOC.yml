@@ -39,7 +39,7 @@
       items:
         - name: DocumentDB
           href: tutorial-develop-documentdb-dotnet.md
-        - name: MongoDB
+        - name: 将 MongoDB 与 .NET 配合使用
           href: tutorial-develop-mongodb.md
         - name: 表
           href: tutorial-develop-table-dotnet.md
@@ -71,14 +71,20 @@
           href: local-emulator.md
         - name: 导出证书
           href: local-emulator-export-ssl-certificates.md
+    - name: 6 - 与 Functions 集成
+      items:
+        - name: HTTP 触发器
+          href: tutorial-functions-http-trigger.md
 - name: 示例
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: cli-samples.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: powershell-samples.md
 - name: 概念
   items:
+    - name: 无服务器的数据库
+      href: serverless-computing-database.md
     - name: 全球分布
       href: distribute-data-globally.md
     - name: 分区
@@ -238,6 +244,8 @@
           href: geospatial.md
         - name: 索引
           href: indexing-policies.md
+        - name: Visual Studio 中的连接服务
+          href: connected-service.md
     - name: 管理
       items:
         - name: 以经济高效的方式读取和写入
@@ -252,6 +260,10 @@
           href: set-throughput.md
         - name: 监视 SLA
           href: monitor-accounts.md
+        - name: 使用指标
+          href: use-metrics.md
+        - name: 诊断日志记录
+          href: logging.md
         - name: 管理密钥和一致性
           href: manage-account.md
         - name: “安全”
@@ -306,6 +318,8 @@
       items:
         - name: .NET
           href: table-sdk-dotnet.md
+        - name: Python
+          href: table-sdk-python.md
 - name: 资源
   items:
     - name: 定价
@@ -315,4 +329,4 @@
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
     - name: 借助棒球阐释的数据一致性
-      href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=20691'
+      href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'

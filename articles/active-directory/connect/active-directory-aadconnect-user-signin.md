@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 08/24/2017
+origin.date: 09/19/2017
+ms.date: 10/19/2017
 ms.author: v-junlch
-ms.openlocfilehash: a47e5bf1803acd6b8a7cb2a586a5f1cd937b1a82
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 939f2d60080300cd01332bd176b6d08c65ed2db8
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 用户登录选项
 Azure Active Directory (Azure AD) Connect 可让用户使用同一组密码登录云和本地资源。 本文介绍每个标识模型的重要概念，以帮助你选择登录到 Azure AD 时想要使用的标识。
@@ -29,9 +29,9 @@ Azure Active Directory (Azure AD) Connect 可让用户使用同一组密码登�
 - [（使用 Active Directory 联合身份验证服务 (AD FS)）联合的 SSO](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>为组织选择用户登录方法
-由于大多数组织只想让用户登录 Office 365、SaaS 应用程序和其他基于 Azure AD 的资源，因此我们建议使用默认的密码同步选项。 然而，由于特别的原因，某些组织不能使用此选项。 他们则可以选择联合登录选项（如 AD FS）或直通身份验证。 可以使用下表来帮助做出正确的选择。
+由于大多数组织只想让用户登录 Office 365、SaaS 应用程序和其他基于 Azure AD 的资源，因此，我们建议使用默认的密码哈希同步选项。 然而，由于特别的原因，某些组织不能使用此选项。 他们则可以选择联合登录选项（如 AD FS）或直通身份验证。 可以使用下表来帮助做出正确的选择。
 
-我需要 | 使用 SSO 的 PS| 使用 SSO 的 PA| AD FS |
+我需要 | 使用 SSO 的 PHS| 使用 SSO 的 PTA| AD FS |
  --- | --- | --- | --- |
 将本地 Active Directory 中的新用户、联系人和组帐户自动同步到云。|x|x|x|
 为 Office 365 混合方案设置我的租户。|x|x|x|
@@ -40,14 +40,13 @@ Azure Active Directory (Azure AD) Connect 可让用户使用同一组密码登�
 确保未在云中存储任何密码。||x*|x|
 启用本地多重身份验证解决方案。|||x|
 
-* 通过轻型连接器。
+*通过轻型代理。
 
-### <a name="password-synchronization"></a>密码同步
-凭借密码同步，可将用户密码的哈希从本地 Active Directory 同步到 Azure AD。 当密码在本地更改或重置时，新密码将立即同步到 Azure AD，以便用户用于访问云资源的密码与访问本地资源的密码始终为同一密码。 密码绝不会被发送到 Azure AD，也不会以明文的形式存储在 Azure AD 中。 可将密码同步与密码写回一起使用，以在 Azure AD 中启用自助密码重置。
+### <a name="password-hash-synchronization"></a>密码哈希同步
+凭借密码哈希同步，可将用户密码的哈希从本地 Active Directory 同步到 Azure AD。 当在本地更改或重置密码时，新密码哈希将立即同步到 Azure AD，以便用户始终可用相同密码访问云资源与本地资源。 密码绝不会被发送到 Azure AD，也不会以明文的形式存储在 Azure AD 中。 你可将密码哈希同步与密码写回一起使用，以在 Azure AD 中启用自助密码重置。
+![密码哈希同步](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-![密码同步](./media/active-directory-aadconnect-user-signin/passwordhash.png)
-
-有关详细信息，请参阅[密码同步](active-directory-aadconnectsync-implement-password-synchronization.md)一文。
+有关详细信息，请参阅[密码哈希同步](active-directory-aadconnectsync-implement-password-synchronization.md)一文。
 
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>在 Windows Server 2012 R2 中使用新的或现有 AD FS 场进行联合身份验证
 凭借联合登录，用户可以使用其本地密码登录到 Azure 基于 AD 的服务。 当用户处于企业网络上时，他们甚至无需输入其密码。 使用 AD FS 的联合身份验证选项，可在 Windows Server 2012 R2 中部署新的或现有的 AD FS 场。 如果选择指定现有场，Azure AD Connect 将在场与 Azure AD 之间配置信任，使你的用户能够登录。
@@ -121,7 +120,7 @@ Azure AD 登录页列出了针对本地 Active Directory 定义的 UPN 后缀，
 
 对于下面的信息，假设我们所关注的是 UPN 后缀 contoso.com，它在本地目录中用作 UPN 的一部分，例如 user@contoso.com。
 
-###### <a name="express-settingspassword-synchronization"></a>快速设置/密码同步
+###### <a name="express-settingspassword-hash-synchronization"></a>快速设置/密码哈希同步
 | 状态 | 对 Azure 用户登录体验的影响 |
 |:---:|:--- |
 | 未添加 |在这种情况下，并未在 Azure AD 目录中针对 contoso.com 添加任何自定义域。 在本地具有后缀 @contoso.com 的 UPN 的用户将无法使用其本地 UPN 来登录 Azure。 他们需要为默认的 Azure AD 目录添加后缀，以改用 Azure AD 向他们提供的新 UPN。 例如，如果要将用户同步到 Azure AD 目录 azurecontoso.partner.onmschina.cn，则为本地用户 user@contoso.com 指定 UPN user@azurecontoso.partner.onmschina.cn。 |
@@ -140,7 +139,7 @@ Azure AD 登录页列出了针对本地 Active Directory 定义的 UPN 后缀，
 | 已验证 |在这种情况下，可以继续进行配置，而不需要采取任何进一步的操作。 |
 
 ## 更改用户登录方法 <a name="changing-user-sign-in-method"></a>
-可以在使用向导完成 Azure AD Connect 的初始配置后，使用 Azure AD Connect 中的可用任务在“联合”、“密码同步”或“直通身份验证”之间更改用户的登录方法。 再次运行 Azure AD Connect 向导，随后将看到可执行的任务列表。 在任务列表中选择“更改用户登录”。
+可以在使用向导完成 Azure AD Connect 的初始配置后，使用 Azure AD Connect 中的可用任务在“联合”、“密码哈希同步”或“直通身份验证”之间更改用户的登录方法。 再次运行 Azure AD Connect 向导，随后将看到可执行的任务列表。 在任务列表中选择“更改用户登录”。
 
 ![更改用户登录](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -153,7 +152,7 @@ Azure AD 登录页列出了针对本地 Active Directory 定义的 UPN 后缀，
 ![连接到 Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2a.png)
 
 > [!NOTE]
-> 如果只是要暂时切换到密码同步，请选中“请勿切换用户帐户”复选框。 不选中该选项会将每个用户转换为联合用户，并且该操作可能需要花费几小时。
+> 如果只是要暂时切换到密码哈希同步，请选中“请勿切换用户帐户”复选框。 不选中该选项会将每个用户转换为联合用户，并且该操作可能需要花费几小时。
 >
 >
 

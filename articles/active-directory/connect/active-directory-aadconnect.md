@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/13/2017
-ms.date: 07/31/2017
+origin.date: 10/02/2017
+ms.date: 10/19/2017
 ms.author: v-junlch
-ms.openlocfilehash: 2730a61003c1042beff4a3f2d135d261b30885da
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: c00e9df263ae567295a181aa5aa4a67938a16cfe
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>将本地目录与 Azure Active Directory 集成
 Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序的用户提供一个通用标识。 本主题指导用户完成规划、部署和操作步骤。 其中统合了与这些操作相关的主题的链接。
@@ -85,7 +85,7 @@ Azure AD Connect 随附了多个可以选择启用或已按默认启用的功能
 
 如果要限制同步到 Azure AD 的对象，可以使用[筛选](active-directory-aadconnectsync-configure-filtering.md)。 默认同步所有用户、联系人、组和 Windows 10 计算机。 可以根据域、OU 或属性更改筛选设置。
 
-[密码同步](active-directory-aadconnectsync-implement-password-synchronization.md)可将 Active Directory 中的密码哈希同步到 Azure AD。 最终用户可以在本地与云中使用相同的密码，且只需在一个位置管理此密码。 由于它使用本地 Active Directory，因此用户还可以使用自己的密码策略。
+[密码同步](active-directory-aadconnectsync-implement-password-synchronization.md) 可将 Active Directory 中的密码哈希同步到 Azure AD。 最终用户可以在本地与云中使用相同的密码，且只需在一个位置管理此密码。 由于它使用本地 Active Directory，因此用户还可以使用自己的密码策略。
 
 [防止意外删除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)功能默认处于打开状态，它可以保护云目录，避免同时进行多次删除。 默认情况下，每运行一次可以进行 500 次删除。 可以根据组织大小更改此设置。
 
@@ -119,6 +119,15 @@ Azure AD Connect 同步随附一个适用于大部分客户和拓扑的默认配
 |更改默认配置 | [更改默认配置的最佳做法](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>配置联合身份验证功能
+
+Azure AD Connect 提供多项功能，简化了使用 AD FS 通过 Azure AD 进行联合身份验证以及管理联合身份验证信任的过程。 Azure AD Connect 支持 Windows Server 2012R2 或更高版本上的 AD FS。
+
+[更新 AD FS 场的 SSL 证书](active-directory-aadconnectfed-ssl-update.md)，即使不使用 Azure AD Connect 来管理联合身份验证信任。
+
+向场[添加 AD FS 服务器](active-directory-aadconnect-federation-management.md#addadfsserver)，以便根据需要扩展场。
+
+[修复信任](active-directory-aadconnect-federation-management.md#repairthetrust)（针对 Azure AD），只需单击数下即可。
+
 可将 ADFS 配置为支持[多个域](active-directory-aadconnect-multiple-domains.md)。 例如，在联合身份验证功能中可能需要使用多个顶级域。
 
 如果 ADFS 服务器未配置为自动更新 Azure AD 中的证书，或者如果使用非 ADFS 解决方案，则在需要[更新证书](active-directory-aadconnect-o365-certs.md)时会收到通知。

@@ -3,8 +3,8 @@ title: "Apache Kafka 入门 - Azure HDInsight | Azure"
 description: "了解如何在 Azure HDInsight 上创建 Apache Kafka 群集。 了解如何创建主题、订阅服务器和使用者。"
 services: hdinsight
 documentationcenter: 
-author: hayley244
-manager: digimobile
+author: Blackmist
+manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
@@ -13,14 +13,14 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/14/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 108fdd7f85f7c42bdfd344847d4ae4d213e34033
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 09/20/2017
+ms.date: 10/30/2017
+ms.author: v-yiso
+ms.openlocfilehash: 464dc4c04c0dfdc0b2982cfab3ba5d48ab28df10
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>HDInsight 上的 Apache Kafka（预览版）入门
 
@@ -48,6 +48,9 @@ ms.lasthandoff: 09/12/2017
     * **资源组**：要在其中创建群集的资源组。
     * **位置**：要在其中创建群集的 Azure 区域。
 
+        > [!IMPORTANT]
+        > 为实现数据的高可用性，我们建议选择包含__三个容错域__的位置（区域）。 有关详细信息，请参阅[数据高可用性](#data-high-availability)部分。
+   
     ![选择订阅](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
 3. 选择“群集类型”，然后在“群集配置”中设置以下值：
@@ -73,12 +76,12 @@ ms.lasthandoff: 09/12/2017
 7. 在“群集大小”中，选择“下一步”继续。
 
     > [!WARNING]
-    > 若要确保 Kafka on HDInsight 的可用性，群集必须至少包含 3 个辅助节点。
+    > 若要确保 Kafka on HDInsight 的可用性，群集必须至少包含 3 个辅助节点。 有关详细信息，请参阅[数据高可用性](#data-high-availability)部分。
 
     ![设置 Kafka 群集大小](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
-    > [!NOTE]
-    > “每个辅助角色节点的磁盘数”条目控制 Kafka on HDInsight 的可伸缩性。 有关详细信息，请参阅[配置 Kafka on HDInsight 的存储和可伸缩性](hdinsight-apache-kafka-scalability.md)。
+    > [!IMPORTANT]
+    > “每个辅助角色节点的磁盘数”条目控制 Kafka on HDInsight 的可伸缩性。 Kafka on HDInsight 在群集中使用虚拟机的本地磁盘。 由于 Kafka 的 I/O 很高，因此会使用 [Azure 托管磁盘](../virtual-machines/windows/managed-disks-overview.md)提供高吞吐量，并为每个节点提供更多存储。 托管磁盘的类型可以为“标准”(HDD) 或“高级”(SSD)。 高级磁盘可与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。
 
 8. 在“高级设置”中，选择“下一步”继续。
 
@@ -340,6 +343,27 @@ Kafka 将记录存储在主题中。 记录由*生成者*生成，由*使用者*
 
 7. 使用 __Ctrl + C__ 让使用者退出，然后使用 `fg` 命令将流式处理后台任务恢复到前台。 另外，请使用 __Ctrl + C__ 退出操作。
 
+## <a name="data-high-availability"></a>数据高可用性
+
+每个 Azure 区域（位置）均提供_容错域_。 容错域是 Azure 数据中心基础硬件的逻辑分组。 每个容错域共享公用电源和网络交换机。 在 HDInsight 群集中实现节点的虚拟机和托管磁盘跨这些容错域分布。 此体系结构可限制物理硬件故障造成的潜在影响。
+
+有关区域中容错域数的信息，请参阅 [Linux 虚拟机的可用性](../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文档。
+
+> [!IMPORTANT]
+> 建议使用包含三个容错域的 Azure 区域，并使用 3 作为复制因子。
+
+如果必须使用只包含两个容错域的区域，请使用 4 作为复制因子，将副本均衡地分布到两个容错域中。
+
+### <a name="kafka-and-fault-domains"></a>Kafka 和容错域
+
+Kafka 不识别容错域。 在创建主题的分区副本时，它可能未针对高可用性正确分发副本。 若要确保高可用性，请使用 [Kafka 分区重新均衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。 必须通过 SSH 会话运行此工具，以便连接到 Kafka 群集的头节点。
+
+若要确保 Kafka 数据的最高可用性，应该在以下时间为主题重新均衡分区副本：
+
+* 创建新主题或分区时
+
+* 纵向扩展群集时
+
 ## <a name="delete-the-cluster"></a>删除群集
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -350,12 +374,11 @@ Kafka 将记录存储在主题中。 记录由*生成者*生成，由*使用者*
 
 ## <a name="next-steps"></a>后续步骤
 
-本文档已介绍有关使用 Apache Kafka on HDInsight 的基础知识。 使用以下内容，详细了解如何使用 Kafka：
+本文档已介绍有关使用 Apache Kafka on HDInsight 的基础知识。 请参阅以下资源了解有关使用 Kafka 的详细信息：
 
-* [通过 HDInsight 上的 Kafka 确保数据的高可用性](hdinsight-apache-kafka-high-availability.md)
-* [通过使用 Kafka on HDInsight 配置托管磁盘增加可伸缩性](hdinsight-apache-kafka-scalability.md)
-* kafka.apache.org 处的 [Apache Kafka 文档](http://kafka.apache.org/documentation.html)。
-* [使用 MirrorMaker 创建 Kafka on HDInsight 的副本](hdinsight-apache-kafka-mirroring.md)
+* [分析 Kafka 日志](apache-kafka-log-analytics-operations-management.md)
+* [在 Kafka 群集之间复制数据](hdinsight-apache-kafka-mirroring.md)
+* [将 Apache Spark 流式处理 (DStream) 与 Kafka on HDInsight 配合使用](hdinsight-apache-spark-with-kafka.md)
+* [将 Apache Spark 结构化流式处理与 Kafka on HDInsight 配合使用](hdinsight-apache-kafka-spark-structured-streaming.md)
 * [将 Apache Storm 与 Kafka on HDInsight 结合使用](hdinsight-apache-storm-with-kafka.md)
-* [将 Apache Spark 与 Kafka on HDInsight 结合使用](hdinsight-apache-spark-with-kafka.md)
 * [通过 Azure 虚拟网络连接到 Kafka](hdinsight-apache-kafka-connect-vpn-gateway.md)

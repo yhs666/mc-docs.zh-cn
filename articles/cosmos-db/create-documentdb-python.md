@@ -8,23 +8,24 @@ manager: digimobile
 editor: 
 ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 05/13/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7d1626943ee5df97f255f8d1aec4de9596d06a6c
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 9199309746a692593971aededc291dea4433dbf2
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB：使用 Python 和 Azure 门户生成 DocumentDB API 应用
 
 Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
+<!-- Not Available on Graph -->
 
 本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户、文档数据库和集合。 然后生成并运行基于 [DocumentDB Python API](documentdb-sdk-python.md) 构建的控制台应用。
 
@@ -164,4 +165,4 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > [!div class="nextstepaction"]
 > [将 DocumentDB API 的数据导入 Azure Cosmos DB](import-data.md)
 
-<!--Update_Description: update meta properties, add include file named cosmos-db-emulator-docdb-api.md-->
+<!--Update_Description: update meta properties-->

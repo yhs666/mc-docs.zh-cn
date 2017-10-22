@@ -215,7 +215,7 @@
 ## 从云服务迁移
 ### [云服务与 Service Fabric 的比较](service-fabric-cloud-services-migration-differences.md)
 ### [迁移到 Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
-### [建议的做法](/azure/architecture/service-fabric/migrate-from-cloud-services)
+### [建议的做法](http://docs.microsoft.com/zh-cn/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## 管理应用程序生命周期
 ### [打包应用程序](service-fabric-package-apps.md)

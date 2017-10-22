@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 05/24/2016
 ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 25cd09d5b4c3979a8d561e74d41c5e6f824a1c26
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: fd3ec8f92c4e5ddb2eb04362c454d0b92e041652
+ms.sourcegitcommit: f2556abb77e9ebe6d45a5666c32aebf8af514485
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 示例
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ ms.lasthandoff: 09/22/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- 可以[激活 Visual Studio 订户权益](https://www.azure.cn/pricing/member-offers/msdn-benefits-details/)：Visual Studio 订阅每月为用户提供可用于付费版 Azure 服务的信用额度。
+- 可以[激活 Visual Studio 订户权益](https://www.azure.cn/support/legal/offer-rate-plans/)：Visual Studio 订阅每月为用户提供可用于付费版 Azure 服务的信用额度。
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

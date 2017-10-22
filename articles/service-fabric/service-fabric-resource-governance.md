@@ -15,17 +15,17 @@ ms.workload: NA
 origin.date: 08/09/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 98bf7c5c575ec20592265891bdde3509c4685f52
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 676da23b10e0b87d826f3b9e5012d49372eec6a2
+ms.sourcegitcommit: 0a59a44bdc09a8b5801180996adfdf68131579c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="resource-governance"></a>资源调控 
 
 在同一节点或群集上运行多项服务时，其中一项服务可能会消耗更多的资源，从而使其他服务得不到足够的资源。 此问题被称为邻近干扰问题。 Service Fabric 允许开发人员指定每个服务的保留和限制，在保证资源的同时限制其资源使用情况。
 
->
+> [!NOTE]
 > 继续阅读此文章之前，应先熟悉 [Service Fabric 应用程序模型](service-fabric-application-model.md)和 [Service Fabric 承载模型](service-fabric-hosting-model.md)。
 >
 

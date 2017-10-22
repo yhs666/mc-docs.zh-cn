@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/25/2017
-ms.date: 08/22/2017
+origin.date: 10/10/2017
+ms.date: 10/18/2017
 ms.author: v-junlch
-ms.openlocfilehash: 06c5d157e6e2bb0dc1948216831223d44824c47a
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.reviewer: elkuzmen
+ms.openlocfilehash: ca39db95ed5fee2c9276ffcd25bdbfc1f98cb4db
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Azure Active Directory 中自定义域名的概念性概述
 域名可以是许多目录资源的重要标识符，作为以下项的一部分：
@@ -48,9 +49,7 @@ Azure AD 通过在域名的域名服务 (DNS) 区域文件中查找特定的条�
 将 DNS 条目添加到域名的区域文件中，并不会影响其他域服务，例如电子邮件或 Web 托管。
 
 ## <a name="federated-and-managed-domain-names"></a>联盟域名和托管域名
-可以配置 Azure AD 中的自定义域名，让用户在本地 Active Directory 与 Azure AD 之间获得联合登录体验。 为联盟配置域除了需要更新 Azure AD 中的特权资源，还需要更新 Windows Server Active Directory。 配置联盟域的操作必须在 Azure AD Connect 中或使用 PowerShell 来完成。 无法从 Azure 经典管理门户启动自定义域联盟操作。 
-
-未联盟的域有时也称为托管域。 Azure AD 目录的初始域会隐式评估为托管域。
+可以配置 Azure AD 中的自定义域名，让用户在本地 Active Directory 与 Azure AD 之间获得联合登录体验。 为联盟配置域除了需要更新 Azure AD 中的特权资源，还需要更新 Windows Server Active Directory。 配置联盟域的操作必须在 Azure AD Connect 中或使用 PowerShell 来完成。 无法从 Azure 经典管理门户启动自定义域联盟操作。 未联盟的域有时也称为托管域。 Azure AD 目录的初始域会隐式评估为托管域。
 
 ## <a name="primary-domain-names"></a>主要域名
 目录的主要域名是管理员在 [Azure 经典管理门户](https://manage.windowsazure.cn/) 或其他门户（例如 Office 365 管理门户）中创建新用户时，预先选择作为用户名“域”部分的默认值的域名。 一个目录只能有一个主要域名。 管理员可以将主要域名更改为任何未联盟的已验证自定义域，或更改为初始域。

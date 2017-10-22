@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: cd29453524a38d7b925df3efbff8b46b9db52198
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: c3a17b8256d1ca1121b453d010eb2e7635420c5c
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>如何使用 DocumentDB API 设置 Azure Cosmos DB 全局分发
 
@@ -172,6 +172,6 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 > [!div class="nextstepaction"]
 > [通过模拟器在本地开发](local-emulator.md)
 
-[regions]: https://azure.microsoft.com/regions/
+[regions]: https://www.azure.cn/support/service-dashboard/
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->

@@ -8,17 +8,18 @@ editor: mimig1
 ms.service: cosmos-db
 ms.topic: quickstart
 origin.date: 07/21/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: cf9059087fc7ad496068410868edbcf04eec84e1
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: e62007ccfbd147569ae276b6696a546e9e0cf801
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB：使用 Golang 和 Azure 门户生成 MongoDB API 控制台应用
 
 Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档及键/值，这两者都受益于 Azure Cosmos DB 核心的全球分发和水平缩放功能。
+<!-- Not Available on Graph -->
 
 本快速入门演示如何使用以 [Golang](https://golang.org/) 编写的现有 [MongoDB](/cosmos-db/mongodb-introduction) 应用，并将其连接到支持 MongoDB 客户端连接的 Azure Cosmos DB 数据库。
 
@@ -26,7 +27,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+- Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
 
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
@@ -246,4 +247,4 @@ if err != nil {
 > [!div class="nextstepaction"]
 > [将 MongoDB API 的数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties, add include file named cosmos-db-emulator-mongodb.md-->
+<!--Update_Description: update meta properties-->

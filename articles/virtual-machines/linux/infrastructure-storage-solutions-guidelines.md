@@ -17,11 +17,11 @@ origin.date: 06/26/2017
 ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d82258bb63146dfcd8200312ca5569fd180e2e0
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: ab94c44ba2581bb5241432b9da5eb7ee53a0b424
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-storage-infrastructure-guidelines-for-linux-vms"></a>适用于 Linux VM 的 Azure 存储基础结构准则
 
@@ -62,7 +62,7 @@ Azure 使用一个操作系统磁盘、一个临时磁盘和零个或更多可�
 * 在给定区域内的 Azure 数据中心之间复制
 * 在不同区域中的 Azure 数据中心之间复制。
 
-了解[有关高可用性复制选项的详细信息](../../storage/storage-introduction.md#replication-for-durability-and-high-availability)。
+了解[有关高可用性复制选项的详细信息](../../storage/common/storage-introduction.md#replication)。
 
 操作系统磁盘和数据磁盘的最大大小为 4TB。 可以使用逻辑卷管理器 (LVM) 来超越此限制，方法是将数据磁盘整合在一起，以向 VM 提供大于 1023 GB 的逻辑卷。
 

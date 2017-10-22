@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 05/26/2017
-ms.date: 09/25/2017
+origin.date: 10/16/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 04c7625b184c0194f3538e3f9b31ff37363193e8
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 95c6ab1c09bdbaf3effdf9813b6c4f00e6f9e9de
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>补充课程 - 不规则层次结构
 
@@ -78,22 +78,22 @@ ms.lasthandoff: 09/22/2017
 
     **Level2** 
     ```
-    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,2)) 
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],2,1)) 
     ```
 
     **Level3** 
     ```
-    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,3)) 
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],3,1)) 
     ```
 
     **Level4** 
     ```
-    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,4)) 
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],4,1)) 
     ```
 
     **Level5** 
     ```
-    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,5)) 
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],5,1)) 
     ```
 
 6.  在“DimEmployee”表中，创建一个名为“Organization”的[层次结构](../tutorials/aas-lesson-9-create-hierarchies.md)。 按顺序添加以下列：“Level1”、“Level2”、“Level3”、“Level4”、“Level5”。
@@ -131,4 +131,4 @@ ms.lasthandoff: 09/22/2017
 [补充课程 - 动态安全性](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [补充课程 - 详细信息行](../tutorials/aas-supplemental-lesson-detail-rows.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

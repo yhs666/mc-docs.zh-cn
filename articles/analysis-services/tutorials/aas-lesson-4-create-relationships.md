@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 05/26/2017
-ms.date: 09/25/2017
+origin.date: 09/20/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 595368b9c63b9f5958267c89e3b9ddfdaa34ac3d
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 94b13aca971c545213f59904d1e4d9669e57ec7a
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="lesson-4-create-relationships"></a>第 4 课：创建关系
 
@@ -34,7 +34,9 @@ ms.lasthandoff: 09/22/2017
 本主题是表格建模教程的一部分，应当按顺序完成。 在执行本课程中的任务之前，应已完成上一课：[第 3 课：标记为日期表](../tutorials/aas-lesson-3-mark-as-date-table.md)。 
 
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>查看现有关系和添加新关系  
-使用“获取数据”导入数据时，可以从 AdventureWorksDW2014 数据库获取 7 个表。 一般情况下，从关系型源导入数据时，现有关系会连同数据一起自动导入。 但是，在继续创作模型之前，应验证是否已正确创建表之间的这些关系。 在本教程中，需添加 3 个新关系。  
+使用“获取数据”导入数据时，可以从 AdventureWorksDW2014 数据库获取 7 个表。 一般情况下，从关系型源导入数据时，现有关系会连同数据一起自动导入。 若要通过“获取数据”自动在数据模型中创建关系，必须在数据源的表之间存在关系。
+
+在继续创作模型之前，应验证是否已正确创建表之间的这些关系。 在本教程中，还需添加三个新关系。  
 
 #### <a name="to-review-existing-relationships"></a>查看现有关系  
 
@@ -44,7 +46,10 @@ ms.lasthandoff: 09/22/2017
 
     ![aas-lesson4-diagram](../tutorials/media/aas-lesson4-diagram.png)
 
-    使用模型设计器右下角的迷你图控件，尽可能包含最多的表。 还可以单击表并将其拖放到不同的位置，使表更加相互靠近，或者按特定的顺序排列它们。 移动表不会影响表之间已有的关系。 若要查看特定表中的所有列，请单击并拖动表的边缘，扩大或缩小该表。  
+    > [!NOTE]
+    > 如果看不到表之间存在任何关系，则可能意味着数据源的这些表之间没有关系。
+
+    使用模型设计器右下角的迷你图控件，尽可能包含最多的表。 还可以单击表并将其拖放到不同的位置，使表更加相互靠近，或者按特定的顺序排列它们。 移动表不会影响表之间的关系。 若要查看特定表中的所有列，请单击并拖动表的边缘，扩大或缩小该表。  
 
 2.  单击 **DimCustomer** 表与 **DimGeography** 表之间的实线。 这两个表之间的实线表明这种关系处于活动状态，也就是说，在计算 DAX 公式时会默认使用此关系。  
 
@@ -63,7 +68,7 @@ ms.lasthandoff: 09/22/2017
     |是|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |是|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
 
-    如果缺少任意关系，请验证模型是否包含以下表：DimCustomer、DimDate、DimGeography、DimProduct、DimProductCategory、DimProductSubcategory 和 FactInternetSales。 如果在不同时间导入同一数据源连接中的表，则无法创建这些表之间的任何关系，而必须手动创建。  
+    如果缺少任意关系，请验证模型是否包含以下表：DimCustomer、DimDate、DimGeography、DimProduct、DimProductCategory、DimProductSubcategory 和 FactInternetSales。 如果在不同时间导入同一数据源连接中的表，则无法创建这些表之间的任何关系，而必须手动创建。 如果没有关系出现，这意味着在数据源中没有任何关系。 可以在数据模型中手动创建它们。
 
 ### <a name="take-a-closer-look"></a>详细查看
 在图示视图中，可看到一个箭头、一个星号，以及显示表之间关系的线条上的数字。
@@ -100,4 +105,4 @@ ms.lasthandoff: 09/22/2017
 ## <a name="whats-next"></a>后续步骤
 [第 5 课：创建计算列](../tutorials/aas-lesson-5-create-calculated-columns.md)。
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, wording update -->

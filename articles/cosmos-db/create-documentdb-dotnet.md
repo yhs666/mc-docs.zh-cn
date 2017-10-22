@@ -8,23 +8,24 @@ manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/10/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0cb432f75db3e122d3b75eee307ac60e104c80d6
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 446bd8cd967d26078c1a040390a867d64bae1d5a
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB：使用 .NET 和 Azure 门户生成 DocumentDB API Web 应用
 
 Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档及键/值，这两者都受益于 Azure Cosmos DB 核心的全球分发和水平缩放功能。 
+<!-- Not Available on Graph -->
 
 本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户、文档数据库和集合。 然后，生成并部署基于 [DocumentDB .NET API](documentdb-sdk-dotnet.md) 构建的“待办事项列表”Web 应用，如以下屏幕截图中所示。 
 
@@ -168,4 +169,4 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
 
-<!--Update_Description: wording update， add include file named cosmos-db-emulator-docdb-api.md-->
+<!--Update_Description: update meta properties, wording update -->

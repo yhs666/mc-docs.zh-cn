@@ -1,4 +1,4 @@
-使用 [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 [Web 应用](../articles/app-service-web/app-service-web-overview.md)。 
+使用 [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 [Web 应用](../articles/app-service/app-service-web-overview.md)。 
 
 该 Web 应用为代码提供托管空间，并提供一个用于查看已部署应用的 URL。
 

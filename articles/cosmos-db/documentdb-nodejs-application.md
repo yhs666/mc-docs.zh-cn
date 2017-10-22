@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 08/14/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 10cafaf31811a0214550a7f20dc6a84df082842d
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: f017199d2cbb523c850f4ec56b4e37cd453aca3e
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="_Toc395783175"></a>使用 Azure Cosmos DB 生成 Node.js Web 应用程序
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 09/22/2017
 
 在按照本文中的说明操作之前，应确保已拥有下列项：
 
-* 如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+* 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

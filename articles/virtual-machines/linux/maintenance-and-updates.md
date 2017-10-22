@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 08/14/2017
-ms.date: 10/16/2017
+origin.date: 09/15/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 094fe98f2fb8bc4b026b83d97e290aa41c5445f0
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: de3f2c36f55e0515960d093c35664fa340f57b84
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="planned-maintenance-for-virtual-machines-in-azure"></a>Azure 中虚拟机的计划内维护
+# <a name="planned-maintenance-for-linux-virtual-machines"></a>Linux 虚拟机的计划维护 
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
 
 ## <a name="next-steps"></a>后续步骤
 
-使用 [Azure 元数据服务](instance-metadata-service.md)可以发现有关 Azure 中托管的虚拟机的信息。
+有关管理计划内维护的信息，请参阅[处理计划内维护通知](maintenance-notifications.md)。
 
-<!--Update_Description: new articles maintenance and update for linux VM-->
+<!--Update_Description: wording update-->

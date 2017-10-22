@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 05/26/2017
-ms.date: 09/25/2017
+origin.date: 09/20/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2c8d2cb3f53eee2dab552fabc1e58ebc358c3486
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: aa5bd94e03bac4d473c0df3f9e25dccb6b6c05c0
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="lesson-10-create-partitions"></a>第 10 课：创建分区
 
@@ -116,4 +116,4 @@ ms.lasthandoff: 09/22/2017
  ## <a name="whats-next"></a>后续步骤
 转到下一课：[第 11 课：创建角色](../tutorials/aas-lesson-11-create-roles.md)。
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

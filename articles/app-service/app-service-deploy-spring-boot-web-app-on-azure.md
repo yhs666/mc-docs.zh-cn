@@ -4,7 +4,7 @@ description: "本教程引导开发人员完成将 Spring Boot 入门 Web 应用
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: multiple
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-origin.date: 05/20/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: bf0769c0c6132862dab9f143c0305fe1f01f277f
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 08/04/2017
+ms.date: 10/30/2017
+ms.author: v-yiso
+ms.openlocfilehash: 4fd31d746b5948b395d1d8b8b992350c100d7759
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="deploy-a-spring-boot-application-to-the-azure-app-service"></a>将 Spring Boot 应用程序部署到 Azure 应用服务
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 07/14/2017
 
    d.单击“下一步”。 为 Web 容器选择“最新的 Tomcat 8.5”。 （实际上并不使用此容器；Azure 将使用 Spring Boot 应用程序中的容器。）
 
-   e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，然后单击“确定”。 单击“保存” 。
+   e. 单击“保存” 。
 
    ![应用程序设置][AZ07]
 
@@ -191,7 +191,7 @@ ms.lasthandoff: 07/14/2017
 
    ![浏览示例应用][SB02]
 
-## <a name="additional-resources"></a>其他资源
+## <a name="next-steps"></a>后续步骤
 
 有关将 Azure 与 Java 配合使用的详细信息，请参阅 [Azure Java 开发人员中心]和[用于 Visual Studio Team Services 的 Java 工具]。
 

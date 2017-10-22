@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 08/29/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9ea231d9b8e343af4d8123a26cbbe4eb981bd875
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: a6ec9134c473b286fbd2a9baf380293df85b2f51
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB：表 API 简介
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 09/22/2017
 | 查询 | 执行查询时使用主键的索引，否则进行扫描。 | 查询可以利用属性的自动索引缩短查询时间。 Azure Cosmos DB 数据库引擎能够支持聚合查询、地理空间查询和排序查询。 |
 | 一致性 | 在主要区域内实现强一致性。 在辅助区域内实现最终一致性。 | [五个定义完善的一致性级别](consistency-levels.md)可基于应用程序需要权衡可用性、延迟、吞吐量和一致性。 |
 | 定价 | 存储优化。 | 吞吐量优化。 |
-| SLA | 99.99% 可用性。 | 在单个区域中达到 99.99% 可用性，并能够添加更多区域以实现更高的可用性。 针对通用版本的[行业领先综合 SLA](https://www.azure.cn/support/sla/cosmos-db/)。 |
+| SLA | 99.99% 可用性。 | 在单个区域中达到 99.99% 可用性，并能够添加更多区域以实现更高的可用性。 针对通用版本的[行业领先综合 SLA](https://www.azure.cn/support/sla/documentdb/)。 |
 
 ## <a name="get-started"></a>入门
 
@@ -60,6 +60,7 @@ ms.lasthandoff: 09/22/2017
 * [在 .NET 中使用表 API 进行开发](tutorial-develop-table-dotnet.md)
 * [使用表 API 查询表数据](tutorial-query-table.md)
 * [了解如何使用表 API 设置 Azure Cosmos DB 全局分发](tutorial-global-distribution-table.md)
-* [用于 .NET 的 Azure Cosmos DB 表 API SDK](table-sdk-dotnet.md)
+* [Azure Cosmos DB 表 .NET API](table-sdk-dotnet.md)
+* [用于 Python 的 Azure Cosmos DB 表 SDK](table-sdk-python.md)
 
 <!--Update_Description: update meta properties, update link, wording update-->

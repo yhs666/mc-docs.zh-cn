@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 09/25/2017
+origin.date: 09/20/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2fd1ae0c5fb42d2719c78f2d897929c20bc43803
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 0ff47e888b1a16949971f80fbadf72ac4d80a403
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="lesson-5-create-calculated-columns"></a>第 5 课：创建计算列
 
@@ -135,4 +135,4 @@ ProductCategoryName 计算列用于在 DimProduct 表中创建层次结构，该
 ## <a name="whats-next"></a>后续步骤
 [第 6 课：创建度量值](../tutorials/aas-lesson-6-create-measures.md)。
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

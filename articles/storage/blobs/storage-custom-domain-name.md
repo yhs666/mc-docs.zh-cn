@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 17698d744538fef859890c345313c2d3f39ed26b
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/23/2017
+ms.author: v-johch
+ms.openlocfilehash: 6fb72c644e649b9f484de3adea9974f6aafbb81a
+ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>为 Blob 存储终结点配置自定义域名
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 08/25/2017
 ## <a name="register-a-custom-domain-using-the-asverify-subdomain"></a>使用 asverify 子域注册自定义域
 如果自定义域当前所支持的应用程序的 SLA 要求没有停机时间，则使用此过程注册自定义域。 可以通过创建从 `asverify.<subdomain>.<customdomain>` 指向 `asverify.<storageaccount>.blob.core.chinacloudapi.cn` 的CNAME 使用 Azure 预注册域。 然后，可以创建第二个从 `<subdomain>.<customdomain>` 指向 `<storageaccount>.blob.core.chinacloudapi.cn` 的 CNAME，指向自定义域的通信量将被定向到 Blob 终结点。
 
-**asverify** 子域是 Azure 能够识别的一个特殊子域。 将 `asverify` 追加到自己的子域，这样可以使 Azure 能够识别自定义域且不需要修改该域的 DNS 记录。 修改该域的 DNS 记录后，它会映射到 Blob 终结点，并且没有停机时间。
+**asverify** 子域是 Azure 能够识别的一个特殊子域。 将 `asverify` 追加到自己的子域，这样可以使 Azure 能够识别自定义域且不需要修改该域的 DNS 记录。 修改该域的 DNS 记录后，它将映射到 Blob 终结点，并且没有故障时间。
 
 1. 在 [Azure 门户](https://portal.azure.cn)中导航到存储帐户。
 1. 在菜单边栏选项卡上的“BLOB 服务”下，选择“自定义域”以打开“自定义域”边栏选项卡。
@@ -119,7 +119,7 @@ ms.lasthandoff: 08/25/2017
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-使用 [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#update) CLI 命令，并为 `--custom-domain` 参数值指定一个空字符串 (`""`) 以删除自定义域注册。
+使用 [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) CLI 命令，并为 `--custom-domain` 参数值指定一个空字符串 (`""`) 以删除自定义域注册。
 
 * 命令格式：
 
@@ -161,4 +161,4 @@ ms.lasthandoff: 08/25/2017
       -CustomDomainName ""
   ```
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

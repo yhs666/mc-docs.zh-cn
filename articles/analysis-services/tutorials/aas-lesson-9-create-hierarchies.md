@@ -13,20 +13,20 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 05/26/2017
-ms.date: 09/25/2017
+origin.date: 09/20/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: c6d50f7f0056f72f6b092f2446f808ced25554f7
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: dc7793b1bd899ea7a14418f7b276185ba5fa39bc
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="lesson-9-create-hierarchies"></a>第 9 课：创建层次结构
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-在本课中，将创建层次结构。 层次结构是按级别排列的列组；例如，“地理区域”层次结构可包含“国家/地区”、“省/市/自治区”、“县”和“城市”子级别。 层次结构在报告客户端应用程序字段列表中可以与其他列分开显示，这使得客户端用户更容易在其中导航以及将其包括在报表中。 若要了解详细信息，请参阅[层次结构](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular)
+在本课中，将创建层次结构。 层次结构是一组组的列，按级别排列。 例如，“地理区域”层次结构可包含“国家/地区”、“省/市/自治区”、“县”和“城市”子级别。 层次结构在报告客户端应用程序字段列表中可以与其他列分开显示，这使得客户端用户更容易在其中导航以及将其包括在报表中。 若要了解详细信息，请参阅[层次结构](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular)
 
 若要创建层次结构，请在“关系图视图”中使用模型设计器。 “数据视图”中不支持创建和管理层次结构。  
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 09/22/2017
 
 2.  单击“ProductCategoryName”列并将其拖动到新的“Category”层次结构。  
 
-3.  在“Category”层次结构中，右键单击“ProductCategoryName” > “重命名”，然后键入“Category”。  
+3.  在“Category”层次结构中，右键单击“ProductCategoryName”，再单击“重命名”，然后键入“Category”。 >   
 
     > [!NOTE]  
     > 重命名层次结构中的某个列不会重命名表中的该列。 层次结构中的列只是表中的该列的一种表示形式。  
@@ -84,4 +84,4 @@ ms.lasthandoff: 09/22/2017
  ## <a name="whats-next"></a>后续步骤
 [第 10 课：创建分区](../tutorials/aas-lesson-10-create-partitions.md)。
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, wording update -->

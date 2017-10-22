@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 09/18/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 68b7ed91e37c2a4107f7eeb156a06a353795bf1f
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 3f8fe3ea695d9b4ea41bd0f996f824ca42b7d863
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位
 现已推出：Azure Cosmos DB [请求单位计算器](https://www.documentdb.com/capacityplanner)。 了解[估计吞吐量需求](request-units.md#estimating-throughput-needs)。
@@ -361,4 +361,4 @@ API for MongoDB 支持使用自定义命令 *getLastRequestStatistics* 来检索
 [5]: ./media/request-units/RUCalculator2.png
 [6]: ./media/request-units/api-for-mongodb-metrics.png
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

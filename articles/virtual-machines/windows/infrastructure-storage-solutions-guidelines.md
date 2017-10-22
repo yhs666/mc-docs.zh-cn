@@ -17,11 +17,11 @@ origin.date: 06/26/2017
 ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 900cb71e874e8b167b27c385cb963338b466e202
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 002435bb5b499e22effe37c5be27afb04886d902
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-storage-infrastructure-guidelines-for-windows-vms"></a>适用于 Windows VM 的 Azure 存储基础结构准则
 
@@ -62,7 +62,7 @@ Azure 使用一个操作系统磁盘、一个临时磁盘和零个或更多可�
 * 在给定区域内的 Azure 数据中心之间复制
 * 在不同区域中的 Azure 数据中心之间复制
 
-了解[有关高可用性复制选项的详细信息](../../storage/storage-introduction.md#replication-for-durability-and-high-availability)。
+了解[有关高可用性复制选项的详细信息](../../storage/common/storage-introduction.md#replication)。
 
 操作系统磁盘和数据磁盘的最大大小为 4TB。 可以使用 Windows Server 2012 或更高版本中的存储空间来超越此限制，方法是将数据磁盘整合在一起，以向 VM 提供大于 4TB 的逻辑卷。
 

@@ -67,6 +67,13 @@
     - name: 认知服务
       tocHref: /cognitive-services/
       topicHref: /cognitive-services/
+      items:
+        - name: 计算机视觉
+          tocHref: /cognitive-services/computer-vision/
+          topicHref: /cognitive-services/computer-vision/
+        - name: 人脸
+          tocHref: /cognitive-services/face/
+          topicHref: /cognitive-services/face/
     - name: CosmosDB
       tocHref: /cosmos-db/
       topicHref: /cosmos-db/
@@ -113,6 +120,9 @@
     - name: Power BI Embedded
       tocHref: /power-bi-embedded/
       topicHref: /power-bi-embedded/
+    - name: Power BI 工作区集合
+      tocHref: /power-bi-workspace-collections/
+      topicHref: /power-bi-workspace-collections/
     - name: Redis 缓存
       tocHref: /redis-cache/
       topicHref: /redis-cache/
@@ -152,6 +162,16 @@
     - name: 存储
       tocHref: /storage/
       topicHref: /storage/
+      items:
+        - name: Blob
+          tocHref: /storage/blobs/
+          topicHref: /storage/blobs/storage-blobs-introduction
+        - name: 文件
+          tocHref: /storage/files/
+          topicHref: /storage/files/storage-files-introduction
+        - name: 队列
+          tocHref: /storage/queues/
+          topicHref: /storage/queues/storage-queues-introduction
     - name: 流分析
       tocHref: /stream-analytics/
       topicHref: /stream-analytics/
@@ -176,14 +196,14 @@
           tocHref: /virtual-machines/linux/
           topicHref: /virtual-machines/linux/
           items:
-            - name: 经典部署
+            - name: Linux 经典部署
               tocHref: /virtual-machines/linux/classic/
               topicHref: /virtual-machines/linux/classic/
         - name: Windows
           tocHref: /virtual-machines/windows/
           topicHref: /virtual-machines/windows/
           items:
-            - name: 经典部署
+            - name: Windows 经典部署
               tocHref: /virtual-machines/windows/classic/
               topicHref: /virtual-machines/windows/classic/
     - name: 虚拟网络

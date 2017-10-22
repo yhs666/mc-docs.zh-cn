@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: c191a3368ea0f8015cc76b4c7aeb47b9d2b12013
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 61d008a9e971b8e26537b52e02beaebd70d0d6dd
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>如何通过 Node.js 使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -31,7 +31,6 @@ ms.lasthandoff: 09/22/2017
 本主题中的代码示例假定用户已拥有 Node.js 应用程序。 有关如何在 Azure 中创建 Node.js 应用程序的信息，请参阅以下任何主题：
 
 * [在 Azure App Service 中创建 Node.js Web 应用](../app-service-web/app-service-web-get-started-nodejs.md)
-* [使用 WebMatrix 构建 Node.js Web 应用并将其部署到 Azure](../app-service-web/web-sites-nodejs-use-webmatrix.md)
 * [构建 Node.js 应用程序并将其部署到 Azure 云服务](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)（使用 Windows PowerShell）
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -453,4 +452,4 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 * [Node.js 开发人员中心](/develop/nodejs/)
 * [创建 Node.js 应用程序并将其部署到 Azure 网站](../app-service-web/app-service-web-get-started-nodejs.md)
 
-<!--Update_Description: update meta properties， wording update-->
+<!--Update_Description: update meta properties，update link -->

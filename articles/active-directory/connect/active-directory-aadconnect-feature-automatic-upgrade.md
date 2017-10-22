@@ -13,20 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 10/19/2017
 ms.author: v-junlch
-ms.openlocfilehash: bef44f17a24c38051e17f77bed199eec37fbe0c4
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: d1d0657ad3b5a25d4add279cd64335167f51abce
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect：自动升级
 此功能是随内部版本 1.1.105.0（于 2016 年 2 月发布）一起推出的。
 
 ## <a name="overview"></a>概述
 使用 **自动升级** 功能是确保 Azure AD Connect 安装始终保持最新状态的最简单方法。 系统默认启用此功能，以便进行快速安装和 DirSync 升级。 发布新版本时，安装会自动升级。
-
 默认情况下，针对以下方案启用自动升级：
 
 - 快速设置安装和 DirSync 升级。
@@ -45,6 +44,7 @@ ms.lasthandoff: 08/04/2017
 可以使用 `Set-ADSyncAutoUpgrade` 在“已启用”与“已禁用”之间切换。 只有系统才能设置“暂停”状态。
 
 自动升级使用 Azure AD Connect Health 作为升级基础结构。 为使自动升级正常工作，请确保根据 **Office 365 URL 和 IP 地址范围** 中所述，在代理服务器中打开 [Azure AD Connect Health](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)的 URL。
+
 
 如果服务器上正在运行 **同步服务管理器** UI，则会暂停升级，直到 UI 关闭为止。
 
@@ -85,13 +85,17 @@ ms.lasthandoff: 08/04/2017
 | UpgradeAbortedSyncExeInUse |服务器上打开了 [Synchronization Service Manager UI](active-directory-aadconnectsync-service-manager-ui.md)。 |
 | UpgradeAbortedSyncOrConfigurationInProgress |安装向导正在运行，或者在计划程序外部计划了同步。 |
 | **UpgradeNotSupported** | |
+| UpgradeNotSupportedAdfsSignInMethod | 已选择 Adfs 作为登录方法。 | 
 | UpgradeNotSupportedCustomizedSyncRules |已将自己的自定义规则添加到配置中。 |
+| UpgradeNotSupportedDeviceWritebackEnabled |已启用设备写回功能。 |
 | UpgradeNotSupportedGroupWritebackEnabled |已启用[组写回](active-directory-aadconnect-feature-preview.md#group-writeback)功能。 |
 | UpgradeNotSupportedInvalidPersistedState |安装不是快速设置或 DirSync 升级。 |
 | UpgradeNotSupportedMetaverseSizeExceeeded |metaverse 中的对象超过 100,000 个。 |
 | UpgradeNotSupportedMultiForestSetup |正在连接到多个林。 快速设置仅连接到一个林。 |
 | UpgradeNotSupportedNonLocalDbInstall |使用的不是 SQL Server Express LocalDB 数据库。 |
 | UpgradeNotSupportedNonMsolAccount |[AD 连接器帐户](active-directory-aadconnect-accounts-permissions.md#active-directory-account)不再是默认的 MSOL_ 帐户。 |
+| UpgradeNotSupportedNotConfiguredSignInMethod | 在设置 AAD Connect 期间，请在选择登录方法时选择“不配置”。 | 
+| UpgradeNotSupportedPtaSignInMethod | 已选择“直通身份验证”作为登录方法。 |
 | UpgradeNotSupportedStagingModeEnabled |服务器已设置为[暂存模式](active-directory-aadconnectsync-operations.md#staging-mode)。 |
 | UpgradeNotSupportedUserWritebackEnabled |已启用[用户写回](active-directory-aadconnect-feature-preview.md#user-writeback)功能。 |
 

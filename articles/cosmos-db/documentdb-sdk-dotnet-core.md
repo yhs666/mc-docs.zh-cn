@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 08/11/2017
-ms.date: 09/18/2017
+origin.date: 10/02/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89cb004ca312885116408cb7ed37413a365ceb9f
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 13212564e4315efe5e15fe55f6711fd1125ea19f
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -32,10 +32,9 @@ ms.lasthandoff: 09/13/2017
 > * [Python](documentdb-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-> * [SQL](documentdb-sql-query-reference.md)
+> * [SQL](../cosmos-db/documentdb-sql-query-reference.md)
 > 
 > 
-<!-- https://msdn.microsoft.com/library/azure/dn782250.aspx redirect to documentdb-sql-query-reference.md -->
 
 <table>
 
@@ -59,4 +58,4 @@ ms.lasthandoff: 09/13/2017
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

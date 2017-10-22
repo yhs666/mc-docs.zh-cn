@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 07/17/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5f7a1810b506467184f26193376a4d7486b36ec0
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: f94f4b79fd13dc4e91a6f332a927e5801d414c65
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="lesson-13-deploy"></a>第 13 课：部署
 

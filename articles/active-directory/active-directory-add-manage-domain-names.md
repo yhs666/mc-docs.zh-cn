@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/26/2017
-ms.date: 08/22/2017
+origin.date: 10/10/2017
+ms.date: 10/18/2017
 ms.author: v-junlch
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: d6b9062fb2bf5cc125c5cf9bed9ca9094ec0f412
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 0d18ab6daa24ff46a0d0e96157d6cb3a46bbee3f
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自定义域名
 域名可以是许多目录资源的重要标识符，作为以下项的一部分：
@@ -41,7 +41,7 @@ Azure Active Directory (Azure AD) 中的资源可包含已验证为目录（包�
 3. 打开目录。
 4. 选择“域”选项卡。
 5. 在命令栏上选择“更改主域名”  按钮。
-6. 选择你想要其作为目录的新主域的域。
+6. 选择要作为目录的新主域的域。
 
 可以将目录的主域名更改为任何未联合的已验证自定义域。 更改目录的主域不会更改任何现有用户的用户名。
 
@@ -76,4 +76,4 @@ Azure Active Directory (Azure AD) 中的资源可包含已验证为目录（包�
 - [管理自定义域名](active-directory-add-manage-domain-names.md)
 
 
-<!--Update_Description: wording update -->   
+<!--Update_Description: update meta properties -->  

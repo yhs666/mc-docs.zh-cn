@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-origin.date: 07/11/2017
-ms.date: 09/18/2017
+origin.date: 10/11/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4af47ed05d5a61fb80a2a8ccbd50289254eb951
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 2ea7eb4ad52becafe3cb04e1d34814e6a2c7d1fd
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB：DocumentDB Java SDK 发行说明和资源
 > [!div class="op_single_selector"]
@@ -32,10 +32,9 @@ ms.lasthandoff: 09/13/2017
 > * [Python](documentdb-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-> * [SQL](documentdb-sql-query-reference.md)
+> * [SQL](../cosmos-db/documentdb-sql-query-reference.md)
 > 
 > 
-<!-- https://msdn.microsoft.com/library/azure/dn782250.aspx redirect to documentdb-sql-query-reference.md -->
 
 <table>
 

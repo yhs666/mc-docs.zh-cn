@@ -70,7 +70,7 @@
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 <!-- Not Available ## [Release notes](stream-analytics-release-notes.md)  -->
 ## [服务更新](https://www.azure.cn/what-is-new/)
-## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
+<!-- Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)-->
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics) -->
 
 <!--Update_Description: update link-->

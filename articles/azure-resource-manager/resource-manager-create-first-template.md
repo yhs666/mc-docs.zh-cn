@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 09/03/2017
+origin.date: 10/02/2017
 ms.topic: get-started-article
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: c042440d1a8190f0dfc2b7b19298ae50ec9285e5
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: c9ff35a86fb3b5432df5ab7d35ffaaaaebf741d7
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>创建和部署第一个 Azure 资源管理器模板
 本主题介绍如何通过相关步骤创建第一个 Azure Resource Manager 模板。 Resource Manager 模板为 JSON 文件，用于定义针对解决方案进行部署时所需的资源。 若要了解与部署和管理 Azure 解决方案相关联的概念，请参阅 [Azure Resource Manager 概述](resource-group-overview.md)。 如果有现成的资源，需要为这些资源获取模板，请参阅[从现有资源导出 Azure Resource Manager 模板](resource-manager-export-template.md)。
@@ -28,7 +28,7 @@ ms.lasthandoff: 09/22/2017
 ## <a name="prerequisites"></a>先决条件
 
 * Visual Studio Code。 根据需要从 [https://code.visualstudio.com/](https://code.visualstudio.com/) 安装。
-* Azure 订阅。 如果还没有 Azure 订阅，可以在开始前创建一个 [免费帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
 ## <a name="create-template"></a>创建模板
 
@@ -394,4 +394,4 @@ az group delete --name examplegroup
 <!-- Not Available (/templates/microsoft.storage/storageaccounts)-->
 * 若要查看许多不同类型的解决方案的完整模型，请参阅 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/)（Azure 快速入门模板）。
 
-<!--Update_Description: update meta properties, wording update, add auto complete feature in VS Code-->
+<!--Update_Description: update meta properties, wording update -->

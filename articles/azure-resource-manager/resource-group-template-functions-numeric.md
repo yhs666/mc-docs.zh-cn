@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/05/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: a35f45593f12c447eea8194ad31fd426c079aaaf
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 59ec515801d0a7ef2ce7cc425e9298c37d701d43
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数值函数
 
@@ -248,12 +248,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
     "properties": {
         ...
         "parameters": {
-        "custom1": {
-            "value": "[float('3.0')]"
-        },
-        "custom2": {
-            "value": "[float(3)]"
-        },
+            "custom1": {
+                "value": "[float('3.0')]"
+            },
+            "custom2": {
+                "value": "[float(3)]"
+            },
 ```
 
 <a id="int" />
@@ -661,4 +661,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 若要查看如何部署已创建的模板，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 
-<!--Update_Description: update meta properties, add azure cli and powershell command example block-->
+<!--Update_Description: update meta properties, wording update-->

@@ -13,30 +13,61 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/17/2017
-ms.date: 09/04/2017
+origin.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4cb00293510203ebb8387edf18a9b95546797dd4
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: c1c09acf198867bd97062407addafd2c6f21aa02
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-same-subscription"></a>创建虚拟网络对等互连 - 资源管理器，同一订阅
 
-本教程介绍如何在通过资源管理器创建的虚拟网络间创建虚拟网络对等互连。 这两个虚拟网络位于同一订阅。 在两个虚拟网络之间建立对等互连可让不同虚拟网络中的资源以相同的带宽和延迟彼此通信，就像这些资源位于同一个虚拟网络中一样。 了解有关[虚拟网络对等互连](virtual-network-peering-overview.md)的详细信息。 
+本教程介绍如何在通过资源管理器创建的虚拟网络间创建虚拟网络对等互连。 这两个虚拟网络在同一个订阅中。 在两个虚拟网络之间建立对等互连可让不同虚拟网络中的资源以相同的带宽和延迟彼此通信，就像这些资源位于同一个虚拟网络中一样。 了解有关[虚拟网络对等互连](virtual-network-peering-overview.md)的详细信息。 
 
 创建虚拟网络对等互连的步骤有所不同，具体取决于虚拟网络是否位于相同订阅，以及创建虚拟网络的 [ Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。 单击下表中的方案，了解如何采用其他方案创建虚拟网络对等互连：
 
 |Azure 部署模型  | Azure 订阅  |
 |--------- |---------|
-|[均为资源管理器模型](create-peering-different-subscriptions.md) |不同|
+|[都是 Resource Manager 模型](create-peering-different-subscriptions.md) |不同|
 |[一个为资源管理器模型，一个为经典模型](create-peering-different-deployment-models.md) |相同|
 |[一个为资源管理器模型，一个为经典模型](create-peering-different-deployment-models-subscriptions.md) |不同|
 
-不能在通过经典部署模型部署的两个虚拟网络之间创建对等互连。 只能在同一 Azure 区域中的两个虚拟网络之间创建虚拟网络对等互连。 如需连接均通过经典部署模型创建的虚拟网络或是位于不同 Azure 区域中的虚拟网络，可使用 Azure [VPN 网关](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)来连接虚拟网络。 
+只能在同一 Azure 区域中的两个虚拟网络之间创建虚拟网络对等互连。
+
+  > [!WARNING]
+  > 预览版中当前支持在不同区域的虚拟网络之间创建虚拟网络对等互连。 可注册订阅获取以下预览版。 采用此方案创建的虚拟网络对等互连与在正式发布版中创建的虚拟网络对等互连相比，二者的可用性和可靠性等级可能不同。 不支持采用此方案创建的虚拟网络对等体互连，其功能可能会受限，且可能无法用于所有 Azure 区域。 有关此功能可用性和状态方面的最新通知，请参阅 [Azure 虚拟网络更新](https://www.azure.cn/what-is-new/)页。
+
+无法在通过经典部署模型部署的两个虚拟网络之间创建虚拟网络对等互连。如需连接均通过经典部署模型创建的虚拟网络，或位于不同 Azure 区域中的虚拟网络，可使用 Azure [VPN 网关](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)连接虚拟网络。 
 
 可以使用 [Azure 门户](#portal)、Azure [命令行接口](#cli) (CLI)、Azure [PowerShell](#powershell)、或 [Azure 资源管理器模板](#template)创建虚拟网络对等互连。 单击以前的任何工具链接即可直接转到使用所选工具创建虚拟网络对等互连的步骤。
+
+## <a name="register"></a>注册全局 VNet 对等互连预览版
+
+若要跨区域建立虚拟网络对等互连，请注册预览版，并完成包含要对等互连的虚拟网络的两个订阅的后续步骤。 唯一可用于注册预览版的工具是 PowerShell。
+
+1. 安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json)。
+2. 使用 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 命令启动 PowerShell 会话并登录到 Azure。
+3. 输入以下命令，注册预览版订阅：
+
+    ```powershell
+    Register-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider `
+      -ProviderNamespace Microsoft.Network
+    ```
+    输入以下命令后，收到的两个订阅的 **RegistrationState** 输出为 **Registered** 后，才能完成本文中在门户、Azure CLI 或 PowerShell 部分中进行的步骤：
+
+    ```powershell    
+    Get-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    ```
+  > [!WARNING]
+  > 预览版中当前支持在不同区域的虚拟网络之间创建虚拟网络对等互连。 采用此方案创建的虚拟网络对等互连可能功能受限，且可能无法用于所有 Azure 区域。 有关此功能可用性和状态方面的最新通知，请参阅 [Azure 虚拟网络更新](https://www.azure.cn/what-is-new/)页。
 
 ## <a name="portal"></a>创建对等互连 - Azure 门户
 
@@ -51,7 +82,7 @@ ms.lasthandoff: 09/04/2017
     - 资源组：选择“新建”并输入 myResourceGroup
     - 位置：中国东部
 4. 再次完成步骤 2-3，在步骤 3 中指定以下值：
-    - 名称：myVnet2
+    - **名称**：*myVnet2*
     - 地址空间：10.1.0.0/16
     - 子网名称：默认值
     - 子网地址范围：10.1.0.0/24
@@ -69,10 +100,10 @@ ms.lasthandoff: 09/04/2017
      - 虚拟网络：单击“选择虚拟网络”，然后单击“myVnet2”。
      - 允许虚拟网络访问：确保选择“启用”。
     本教程不使用其他任何设置。 若要了解所有对等互连设置，请阅读[管理虚拟网络对等互连](virtual-network-manage-peering.md#create-a-peering)。
-10. 在上一步骤中单击“确定”后，“添加对等互连”边栏选项卡将会关闭，并再次出现“myVnet1 - 对等互连”边栏选项卡。 几秒钟后，创建的对等互连将显示在该边栏选项卡中。 所创建的 myVnet1ToMyVnet2 对等互连的“对等互连状态”列中列出了“已启动”。 已将 Vnet1 对等互连到 Vnet2，但现在必须将 myVnet2 对等互连到 myVnet1。 必须朝两个方向创建对等互连才能让虚拟网络中的资源相互通信。
-11. 针对 myVnet2 再次完成步骤 5-10。  将对等互连命名为 myVnet2ToMyVnet1。
-12. 单击“确定”创建 MyVnet2 的对等互连几秒钟后，将会列出刚刚创建的 myVnet2ToMyVnet1 对等互连，“对等互连状态”列中显示“已连接”。
-13. 针对 MyVnet1 再次完成步骤 5-7。 myVnet1ToVNet2 对等互连的“对等互连状态”现在也显示为“已连接”。 对等互连中两个虚拟网络的“对等互连状态”列都显示为“已连接”后，即表示已成功建立对等互连。
+10. 在上一步骤中单击“确定”后，“添加对等互连”边栏选项卡将会关闭，并再次出现“myVnet1 - 对等互连”边栏选项卡。 几秒钟后，创建的对等互连将显示在该边栏选项卡中。 所创建的 **myVnet1ToMyVnet2** 对等互连的“对等互连状态”列中列出了“已启动”。 已将 Vnet1 对等互连到 Vnet2，但现在必须将 myVnet2 对等互连到 myVnet1。 必须朝两个方向创建对等互连才能让虚拟网络中的资源相互通信。
+11. 针对 myVnet2 再次完成步骤 5-10。  将对等互连命名为 *myVnet2ToMyVnet1*。
+12. 单击“确定”创建 MyVnet2 的对等互连几秒钟后，将会列出刚刚创建的 **myVnet2ToMyVnet1** 对等互连，“对等互连状态”列中显示“已连接”。
+13. 针对 MyVnet1 再次完成步骤 5-7。 **myVnet1ToVNet2** 对等互连的“对等互连状态”现在也显示为“已连接”。 对等互连中两个虚拟网络的“对等互连状态”列都显示为“已连接”后，即表示已成功建立对等互连。
 14. 可选：尽管本教程未介绍如何创建虚拟机，但你可以在每个虚拟网络中创建一个虚拟机并将其相互连接，以验证连接性。
 15. 可选：若要删除在本教程中创建的资源，请完成本文[删除资源](#delete-portal)部分所述步骤。
 
@@ -83,7 +114,7 @@ ms.lasthandoff: 09/04/2017
 以下脚本：
 
 - 需要 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version` 命令。 如果需要进行升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fvirtual-network%2ftoc.json)。
-- 可以在 Bash shell 中使用。 有关在 Windows 客户端上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json)。
+- 可以在 Bash shell 中使用。 有关在 Windows 客户端上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json)。 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 <!-- Not Available on Azure Cloud Shell in Azure.cn-->
@@ -150,7 +181,7 @@ ms.lasthandoff: 09/04/2017
       --allow-vnet-access
     ```
 
-3. 执行该脚本后，查看每个虚拟网络的对等互连。 
+3. 执行该脚本后，请检查每个虚拟网络的对等互连。 
 
     ```azurecli
     az network vnet peering list \
@@ -159,18 +190,18 @@ ms.lasthandoff: 09/04/2017
       --output table
     ```
 
-再次运行上述命令，但请将 myVnet1 替换为 myVnet2。 这两条命令的输出将在 PeeringState 列中显示 Connected。
+    再次运行上述命令，但请将 *myVnet1* 替换为 *myVnet2*。 这两条命令的输出将在 **PeeringState** 列中显示 **Connected**。
 
-     Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using default Azure name resolution for the virtual networks, the resources in the virtual networks are not able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server. Learn how to set up [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+    在任一虚拟网络中创建的任何 Azure 资源现在都可通过其 IP 地址相互通信。 如果为虚拟网络使用默认的 Azure 名称解析，则虚拟网络中的资源无法跨虚拟网络解析名称。 若要跨对等互连中的虚拟网络解析名称，必须创建自己的 DNS 服务器。 了解如何[使用自己的 DNS 服务器进行名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)。
 
-4. 可选：尽管本教程未介绍如何创建虚拟机，但你可以在每个虚拟网络中创建一个虚拟机并将其相互连接，以验证连接性。
-5. **可选**：若要删除在本教程中创建的资源，请完成本文的[删除资源](#delete-cli)中所述的步骤。
+4. **可选**：尽管本教程未介绍如何创建虚拟机，但你可以在每个虚拟网络中创建一个虚拟机并将其相互连接，以验证连接性。
+5. 可选：若要删除在本教程中创建的资源，请完成本文的[删除资源](#delete-cli)中所述的步骤。
 
 ## <a name="powershell"></a>创建对等互连 - PowerShell
 
 1. 安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-2. 若要启动 PowerShell 会话，请转到“开始”，输入 **powershell**，然后单击“PowerShell”。
-3. 在 PowerShell 中，输入 `login-azurermaccount` 命令登录 Azure。 用于登录的帐户必须拥有创建虚拟网络对等互连的必要权限。 有关详细信息，请参阅本文的[权限](#permissions)部分。
+2. 若要启动 PowerShell 会话，请转到“开始”，输入“powershell”，然后单击“PowerShell”。
+3. 在 PowerShell 中，输入 `login-azurermaccount` 命令登录到 Azure。 用于登录的帐户必须拥有创建虚拟网络对等互连的必要权限。 有关详细信息，请参阅本文的[权限](#permissions)部分。
 4. 创建一个资源组和两个虚拟网络。 若要执行脚本，请复制以下脚本，将其粘贴到 PowerShell，在屏幕上显示最后一行后按 `Enter`：
 
     ```powershell
@@ -221,7 +252,7 @@ ms.lasthandoff: 09/04/2017
       | Format-Table VirtualNetworkName, PeeringState
     ```
 
-    再次运行上述命令，但请将 myVnet1 替换为 myVnet2。 这两条命令的输出将在 PeeringState 列中显示 Connected。
+    再次运行上述命令，但请将 *myVnet1* 替换为 *myVnet2*。 这两条命令的输出将在 PeeringState 列中显示 Connected。
 7. 可选：尽管本教程未介绍如何创建虚拟机，但你可以在每个虚拟网络中创建一个虚拟机并将其相互连接，以验证连接性。
 8. 可选：若要删除在本教程中创建的资源，请完成本文[删除资源](#delete-powershell)部分所述步骤。
 
@@ -231,7 +262,7 @@ ms.lasthandoff: 09/04/2017
 
 1. 请参考[创建虚拟网络对等互连](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-to-vnet-peering) Resource Manager 模板。 此文提供了相关说明，以及用于通过 Azure 门户、PowerShell 或 Azure CLI 部署模板的模板。 登录到所选的任何工具，以便使用拥有创建虚拟网络对等互连所需的权限的帐户来部署模板。 有关详细信息，请参阅本文的[权限](#permissions)部分。
 2. 可选：尽管本教程未介绍如何创建虚拟机，但你可以在每个虚拟网络中创建一个虚拟机并将其相互连接，以验证连接性。
-3. 可选：若要删除在本教程中创建的资源，请使用 Azure 门户、PowerShell 或 Azure CLI 完成本文[删除资源](#delete)部分所述步骤。
+3. **可选：**若要删除在本教程中创建的资源，请使用 Azure 门户、PowerShell 或 Azure CLI 完成本文的[删除资源](#delete)部分中所述的步骤。
 
 ## <a name="permissions"></a>权限
 
@@ -275,4 +306,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -force
 - 了解所有的[虚拟网络对等互连设置](virtual-network-manage-peering.md#create-a-peering)。
 - 了解如何使用虚拟网络对等互连[创建中心辐射型网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)。
 
-<!--Update_Description: wording update, remove the feature of Peer virtual networks created through different deployment models -->
+<!--Update_Description: wording update, add new feature on Register for the Global VNet Peering preview -->

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: c5cb98944a4879647146adcb303c8a9a5bcc366b
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 6596abab4b62e38992117697889a44dfa980e9a8
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板部署 Azure Cosmos DB 和 Azure 应用服务 Web 应用
 本教程说明如何使用 Azure Resource Manager 模板来部署和集成 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/)、[Azure 应用服务](/app-service-web/app-service-changes-existing-services)、Web 应用以及示例 Web 应用程序。
@@ -130,12 +130,15 @@ ms.lasthandoff: 09/22/2017
 ## <a name="next-steps"></a>后续步骤
 祝贺！ 已使用 Azure Resource Manager 模板部署了 Azure Cosmos DB、应用服务 Web 应用以及示例 Web 应用程序。
 
-* 若要详细了解 Azure Cosmos DB，请参阅 [Azure Cosmos DB 服务页](https://www.azure.cn/home/features/cosmos-db/)。
-* 若要详细了解 Azure 应用服务 Web 应用，请参阅 [Web 应用文档](https://docs.azure.cn/zh-cn/app-service/)。
-* 若要详细了解 Azure 资源管理器模板，请参阅[资源管理器 REST API：部署](https://docs.microsoft.com/rest/api/resources/deployments)。
+* 若要了解有关 Azure Cosmos DB 的详细信息，请单击[此处](https://www.azure.cn/home/features/cosmos-db/)。
+* 若要了解有关 Azure 应用服务 Web 应用的详细信息，请单击[此处](https://docs.azure.cn/zh-cn/app-service/)。
+* 若要了解有关 Azure Resource Manager 模板的详细信息，请单击[此处](https://msdn.microsoft.com/library/azure/dn790549.aspx)。
+
+## <a name="whats-changed"></a>发生的更改
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 > [!NOTE]
-> 如果想要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到[试用应用服务](http://go.microsoft.com/fwlink/?LinkId=523751)，并在其中立即创建一个生存期较短的入门 Web 应用。 不需要使用信用卡，也不需要做出承诺。
+> 如果想要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到[试用应用服务](http://go.microsoft.com/fwlink/?LinkId=523751)，可以通过该页面在应用服务中立即创建一个生存期较短的入门 Web 应用。 不需要使用信用卡，也不需要做出承诺。
 > 
 >
 

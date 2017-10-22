@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 05/26/2017
-ms.date: 09/25/2017
+origin.date: 09/20/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8b4ac13daa96e8a6aa31b2628d46cc741daeba14
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 569f69a43345b1e9667617ebf75ec76d00e2cac5
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="lesson-8-create-perspectives"></a>第 8 课：创建透视
 
@@ -56,4 +56,4 @@ ms.lasthandoff: 09/22/2017
 ## <a name="whats-next"></a>后续步骤
 [第 9 课：创建层次结构](../tutorials/aas-lesson-9-create-hierarchies.md)。
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

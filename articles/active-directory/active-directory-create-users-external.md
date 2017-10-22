@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/25/2017
-ms.date: 08/22/2017
+origin.date: 10/10/2017
+ms.date: 10/18/2017
 ms.author: v-junlch
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: 18d8f743eb8acf84b08ccf55b219b0214cdef25e
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: ee574f1927da3ec375c8d233299e516301e96cc4
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>在 Azure Active Directory 中添加来自其他目录或合作伙伴公司的用户
 
@@ -79,4 +79,4 @@ ms.lasthandoff: 08/25/2017
 - [管理 Azure AD](active-directory-administer.md)
 - [在 Azure AD 中管理密码](active-directory-manage-passwords.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties --> 

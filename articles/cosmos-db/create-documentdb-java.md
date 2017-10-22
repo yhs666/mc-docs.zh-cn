@@ -8,23 +8,24 @@ manager: digimobile
 editor: 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 08/02/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: a661529a851015be8f55ebacda42c074617ddea4
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: d656508f79ea3936c375f9ce328cb9bc22c89747
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB：使用 Java 和 Azure 门户创建文档数据库
 
 Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档及键/值，这两者都受益于 Azure Cosmos DB 核心的全球分发和水平缩放功能。 
+<!-- Not Available on Graph -->
 
 本快速入门通过适用于 Azure Cosmos DB 的 Azure 门户工具创建文档数据库。 本快速入门还介绍了如何使用 [DocumentDB Java API](documentdb-sdk-java.md) 快速创建 Java 控制台应用。 本快速入门中的说明适用于任何能够运行 Java 的操作系统。 完成本快速入门以后，即可熟悉如何通过 UI 或编程方式创建和修改文档数据库资源，具体取决于你首选哪种方式。
 
@@ -202,4 +203,4 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
 
-<!--Update_Description: wording update, add include file named cosmos-db-emulator-docdb-api.md-->
+<!--Update_Description: update meta properties, wording update-->

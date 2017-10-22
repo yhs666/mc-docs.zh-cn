@@ -1,0 +1,77 @@
+---
+title: "为 Azure 应用服务中使用流量管理器进行负载均衡的 Web 应用配置自定义域名。"
+description: "为 Azure 应用服务中包含流量管理器（用于负载均衡）的 Web 应用使用自定义域名。"
+services: app-service\web
+documentationcenter: 
+author: cephalin
+manager: cfowler
+editor: 
+ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 08/17/2017
+ms.date: 10/30/2017
+ms.author: v-yiso
+ms.openlocfilehash: 7f2739ad9f44e037bec68724250d286cc7eaaf75
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/20/2017
+---
+# <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>使用流量管理器为 Azure 应用服务中的 Web 应用配置自定义域名
+[!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
+
+[!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
+
+本文介绍将自定义域名与通过流量管理器进行负载均衡的 Azure 应用服务配合使用的一般说明。
+
+[!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
+
+[!INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
+
+<a name="understanding-records"></a>
+
+## <a name="understanding-dns-records"></a>了解 DNS 记录
+[!INCLUDE [understandingdns](../../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
+
+<a name="bkmk_configsharedmode"></a>
+
+## <a name="configure-your-web-apps-for-standard-mode"></a>将 Web 应用配置为标准模式
+[!INCLUDE [modes](../../includes/custom-dns-web-site-modes-traffic-manager.md)]
+
+<a name="bkmk_configurecname"></a>
+
+## <a name="add-a-dns-record-for-your-custom-domain"></a>为自定义域添加 DNS 记录
+
+
+要将自定义域名与 Azure 应用服务中的 Web 应用关联，必须通过使用向你出售域名的域注册机构所提供的工具在 DNS 表中为自定义域添加新条目。 按照以下步骤找到并使用这些 DNS 工具。
+
+1. 登录到在域注册机构注册的帐户，并查找用于管理 DNS 记录的页面。 查找标为“域名”、“DNS”或“名称服务器管理”的站点链接或区域。 通过查看帐户信息，并查找诸如“我的域”这样的链接，通常可以找到此页面的链接。
+2. 找到域名管理页后，再找允许编辑 DNS 记录的链接。 此链接可能作为“区域文件”、“DNS 记录”或“高级”配置链接列出。
+
+   * 该页将很可能有几条已创建的记录，例如将“@”或“\*”与“域驻留”页关联的条目。 它还可能包含用于常见子域（例如 **www**）的记录。
+   * 该页将涉及 **CNAME 记录**，或者提供用于选择记录类型的下拉列表。 它还可能涉及其他记录，例如 **A 记录**和 **MX 记录**。 在某些情况下，CNAME 记录会通过其他名称（例如**别名记录**）调用。
+   * 该页还提供了用于从**主机名**或**域名****映射** 到另一域名的字段。
+3. 虽然各个注册机构的具体情况不同，但是一般而言，是*从*自定义域名（例如 **contoso.com**）映射*到*用于 Web 应用的流量管理器域名 (**contoso.trafficmanager.cn**)。
+
+   > [!NOTE]
+   > 或者，如果某条记录已被使用并且需要提前将应用绑定到该记录，可以创建其他 CNAME 记录。 例如，要提前将 **www.contoso.com** 绑定到 Web 应用，请创建从 **awverify.www** 到 **contoso.trafficmanager.cn** 的 CNAME 记录。 然后可以将“www.contoso.com”添加到 Web 应用，而无需更改“www”CNAME 记录。
+   > 
+   > 
+4. 在注册机构添加或修改完 DNS 记录后，请保存这些更改。
+
+<a name="enabledomain"></a>
+
+## <a name="enable-traffic-manager"></a>启用流量管理器
+[!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
+
+## <a name="next-steps"></a>后续步骤
+有关详细信息，请参阅 [Node.js 开发人员中心](/develop/nodejs/)。
+
+[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+
+
+<!-- URL List -->

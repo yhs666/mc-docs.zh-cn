@@ -16,11 +16,11 @@ origin.date: 06/20/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c6365481864ec133c6ed7a1a725de9a548bcc555
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 77f48aed976377e99e627abededf4b5667f2293f
+ms.sourcegitcommit: 572acaca6d6da9c686d3d3210752f1acef116eb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-a-service-fabric-cluster"></a>创建 Service Fabric 群集
 
@@ -43,7 +43,7 @@ $adminuser="vmadmin"
 $adminpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
 
 # Variables for common values
-$clusterloc="SouthCentralUS"
+$clusterloc="chinaeast"
 $clustername = "mysfcluster"
 $groupname="mysfclustergroup"       
 $vmsku = "Standard_D2_v2"

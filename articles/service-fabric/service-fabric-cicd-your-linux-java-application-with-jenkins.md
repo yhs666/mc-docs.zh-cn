@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 08/23/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: f866fc0756cf2194ef0bd577daa276e3f32d97af
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 720a20d0eb65706c735b7c673dd971e250ab8f43
+ms.sourcegitcommit: 0a59a44bdc09a8b5801180996adfdf68131579c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>使用 Jenkins 生成和部署 Linux Java 应用程序
 Jenkins 是流行的应用持续集成和部署工具。 本文介绍如何使用 Jenkins 生成和部署 Azure Service Fabric 应用程序。
@@ -96,10 +96,10 @@ Jenkins 是流行的应用持续集成和部署工具。 本文介绍如何使�
 ### <a name="prerequisites"></a>先决条件
 需安装 Docker。 可在终端中使用以下命令安装 Docker：
 
-    ```sh
-    sudo apt-get install wget
-    wget -qO- https://get.docker.io/ | sh
-    ```
+```sh
+sudo apt-get install wget
+wget -qO- https://get.docker.io/ | sh
+```
 
 现在，在终端中运行 ``docker info`` 时，输出中应会显示 Docker 服务正在运行。
 
@@ -155,15 +155,15 @@ Jenkins 是流行的应用持续集成和部署工具。 本文介绍如何使�
 
     f.单击“保存”以保存设置。 在“生成”部分下面，从“添加生成步骤”下拉列表中选择“调用 Gradle 脚本”。 在出现的小组件中，为应用程序指定“根生成脚本”的路径。 该脚本将从指定的路径中选择 build.gradle，并执行相应的操作。 如果创建名为 ``MyActor`` 的项目（使用 Eclipse 插件或 Yeoman 生成器），则根生成脚本应包含 ``${WORKSPACE}/MyActor``。 有关工作方式的示例，请参阅以下屏幕截图：
 
-        ![Service Fabric Jenkins Build action][build-step]
+    ![Service Fabric Jenkins 生成操作][build-step]
 
     g. 在“生成后操作”下拉列表中，选择“部署 Service Fabric 项目”。 此处需要提供有关在何处部署 Jenkins 编译的 Service Fabric 应用程序的群集详细信息。 还可以提供其他用于部署应用程序的应用程序详细信息。 有关工作方式的示例，请参阅以下屏幕截图：
 
-        ![Service Fabric Jenkins Build action][post-build-step]
+    ![Service Fabric Jenkins 生成操作][post-build-step]
 
-        > [!NOTE]
-        > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.
-        >
+    > [!NOTE]
+    > 如果使用 Service Fabric 部署 Jenkins 容器映像，此处的群集可与托管 Jenkins 容器应用程序的群集相同。
+    >
 
 ## <a name="next-steps"></a>后续步骤
 现已配置 GitHub 和 Jenkins。 请考虑对存储库示例 https://github.com/sayantancs/SFJenkins 中的 ``MyActor`` 项目进行一些示例更改。 将更改推送到远程 ``master`` 分支（或配置使用的任何分支）。 这会触发配置的 Jenkins 作业 ``MyJob``。 它会从 GitHub 提取更改、生成这些更改并将应用程序部署到在生成后操作中指定的群集终结点。  

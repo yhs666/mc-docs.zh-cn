@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 05/26/2017
-ms.date: 09/25/2017
+origin.date: 09/20/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9ebdcf4f480b9c24dcdd596642c28b0f7a1d7b78
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 15911bc466d22e270b419c7c7ddb6599d7d61fae
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>第 7 课：创建关键绩效指标
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 09/22/2017
 
     此度量值用作 KPI 的基本度量值。  
 
-4.  右键单击“InternetCurrentQuarterSalesPerformance”，并单击“创建 KPI”。 >    
+4.  在度量值网格中，右键单击“InternetCurrentQuarterSalesPerformance” > “创建 KPI”。   
 
 5.  在“关键绩效指标 (KPI)”对话框中，在“目标”中选择“绝对值”，并键入“1.1”。  
 
@@ -87,4 +87,4 @@ ms.lasthandoff: 09/22/2017
 ## <a name="whats-next"></a>后续步骤
 [第 8 课：创建透视](../tutorials/aas-lesson-8-create-perspectives.md)。
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, wording update -->

@@ -4,7 +4,7 @@ description: "使用 Azure Resource Manager 和 Azure PowerShell 将资源部署
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 ms.assetid: 55903f35-6c16-4c6d-bf52-dbf365605c3f
 ms.service: azure-resource-manager
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/15/2017
-ms.date: 06/05/2017
+origin.date: 10/23/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 13593472a01c2dc23d3320f35594193acdfe88b2
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: a1cfcf62e436fb5cc6ce76ca1a4f064daba0910b
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 模板和 Azure PowerShell 部署资源
 
@@ -44,6 +44,8 @@ ms.lasthandoff: 09/22/2017
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+
+Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
 
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "China East"
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -206,3 +208,5 @@ New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
 * 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
 * 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-powershell-sas-token.md)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
+
+<!--Update_Description: update meta properties, wording update -->

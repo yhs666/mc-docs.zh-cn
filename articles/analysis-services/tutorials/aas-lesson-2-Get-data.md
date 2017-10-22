@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 09/25/2017
+origin.date: 09/19/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: a8531ce98d7b66019823938f9e1215b9319855ad
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: c9923ef68929f4ac34a9a588d7fefc597db29354
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="lesson-2-get-data"></a>第 2 课：获取数据
 
@@ -29,6 +29,9 @@ ms.lasthandoff: 09/22/2017
 在本课中，可以使用 SSDT 中的“获取数据”功能来连接到 AdventureWorksDW2014 示例数据库，选择数据，预览并筛选，并将数据导入到模型工作区。  
 
 使用“获取数据”，可以从各种源导入数据：Azure SQL 数据库、Oracle、Sybase、OData Feed、Teradata，文件和其他源。 还可以使用 Power Query M 公式表达式查询数据。
+
+> [!NOTE]
+> 本教程中的任务和映像演示了如何连接到本地服务器上的 AdventureWorksDW2014 数据库。 某些情况下，Azure 上的 AdventureWorksDW2014 数据库可能有所不同。
 
 本课预计完成时间：**10 分钟**  
 
@@ -69,7 +72,7 @@ AdventureWorksDW2014 示例数据库中的表具有不需要包括在模型中�
 
 #### <a name="to-filter-the-table-data-before-importing"></a>在导入之前筛选表数据  
 
-1.  在查询编辑器中，选择 **DimCustomer** 表。 此时会显示数据源（AdventureWorksDWQ2014 示例数据库）中的 DimCustomer 表的一个视图。 
+1.  在查询编辑器中，选择 **DimCustomer** 表。 此时会显示数据源（AdventureWorksDW2014 示例数据库）中的 DimCustomer 表的一个视图。 
 
 2.  以多选方式（在按住 Ctrl 的情况下单击）选择 **SpanishEducation**、**FrenchEducation**、**SpanishOccupation**、**FrenchOccupation**，并单击右键并单击“删除列”。 
 
@@ -77,13 +80,18 @@ AdventureWorksDW2014 示例数据库中的表具有不需要包括在模型中�
 
     因为这些列的值与 Internet 销售分析无关，因此不需要导入这些列。 消除不需要的列可以使模型更小更高效。  
 
+    > [!TIP]
+    > 如果犯错，可以进行备份，方法是删除“已应用步骤”中的一个步骤。   
+
+    ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-step.png)
+
 4.  对剩余的表进行筛选，删除每个表中的以下列：  
 
     **DimDate**
 
       |列|  
       |--------|  
-      |DateKey|  
+      |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
       |**FrenchDayNameOfWeek**|  
       |**SpanishMonthName**|  
@@ -128,11 +136,7 @@ AdventureWorksDW2014 示例数据库中的表具有不需要包括在模型中�
 
     **FactInternetSales**
 
-      |列|  
-      |------------------|  
-      |**OrderDateKey**|  
-      |**DueDateKey**|  
-      |**ShipDateKey**|   
+      不删除任何列。
 
 ## <a name="Import"></a>导入所选的表和列数据  
 现在，已预览并筛选掉了不需要的数据，可以导入确实需要的剩余数据了。 向导将导入表数据以及各个表之间的关系。 将在模型中创建新的表和列，并且不会导入已筛选掉的数据。  
@@ -155,4 +159,4 @@ AdventureWorksDW2014 示例数据库中的表具有不需要包括在模型中�
 ## <a name="whats-next"></a>后续步骤
 [第 3 课：标记为日期表](../tutorials/aas-lesson-3-mark-as-date-table.md)。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties， wording update -->

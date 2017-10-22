@@ -12,7 +12,7 @@
 
 # 示例
 ## [代码示例](https://azure.microsoft.com/resources/samples/?service=azure-resource-manager)
-## PowerShell
+## Azure PowerShell
 ### [部署模板](resource-manager-samples-powershell-deploy.md)
 
 ## Azure CLI
@@ -34,7 +34,7 @@
 ### [用于设计模板的模式](best-practices-resource-manager-design-templates.md)
 
 ## 部署
-### PowerShell
+### Azure PowerShell
 #### [部署模板](resource-group-template-deploy.md)
 #### [使用 SAS 令牌部署专用模板](resource-manager-powershell-sas-token.md)
 #### [导出模板并进行重新部署](resource-manager-export-template-powershell.md)
@@ -42,7 +42,7 @@
 #### [部署模板](resource-group-template-deploy-cli.md)
 #### [使用 SAS 令牌部署专用模板](resource-manager-cli-sas-token.md)
 #### [导出模板并进行重新部署](resource-manager-export-template-cli.md)
-### 门户
+### Azure 门户
 #### [部署资源](resource-group-template-deploy-portal.md)
 #### [导出模板](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
@@ -51,9 +51,9 @@
 ### [在部署期间传递安全值](resource-manager-keyvault-parameter.md)
 
 ## 管理
-### [PowerShell](powershell-azure-resource-manager.md)
+### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [门户](resource-group-portal.md)
+### [Azure 门户](resource-group-portal.md)
 ### [REST API](resource-manager-rest-api.md)
 ### [使用标记来组织资源](resource-group-using-tags.md)
 ### [将资源移到新组或订阅](resource-group-move-resources.md)
@@ -61,10 +61,9 @@
 
 ## 控制访问
 ### 创建服务主体
-#### [PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
-#### [门户](resource-group-create-service-principal-portal.md)
+#### [Azure PowerShell](resource-group-authenticate-service-principal.md)
+#### [Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure-resource-manager%2ftoc.json)
+#### [Azure 门户](resource-group-create-service-principal-portal.md)
 ### [用于访问订阅的身份验证 API](resource-manager-api-authentication.md)
 ### [锁定资源](resource-group-lock-resources.md)
 
@@ -94,11 +93,24 @@
 ## 故障排除
 ### [常见部署错误](resource-manager-common-deployment-errors.md)
 ### [了解部署错误](resource-manager-troubleshoot-tips.md)
-<!-- Not Available ### [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md)-->
-
+### 解决错误
+#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
+#### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
+#### [NotFound](resource-manager-not-found-errors.md)
+#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+<!-- Not Avaible #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)-->
+#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### 虚拟机部署错误
-#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+#### Linux
+##### [部署问题](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+##### [预配和分配问题](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+##### [常见错误消息](../virtual-machines/linux/error-messages.md)
+#### Windows
+##### [部署问题](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+##### [预配和分配问题](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+##### [常见错误消息](../virtual-machines/windows/error-messages.md)
 
 # 引用
 <!-- Not Available ## [Template format](/templates/) -->
@@ -136,7 +148,8 @@
 <!-- Not Available ## [Azure Roadmap] -->
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [服务更新](https://www.azure.cn/what-is-new/)
-## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+<!-- Not Available## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)-->
 ## [限制请求](resource-manager-request-limits.md)
 ## [跟踪异步操作](resource-manager-async-operations.md)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager) -->
+<!--ms.date: 10/23/2017-->

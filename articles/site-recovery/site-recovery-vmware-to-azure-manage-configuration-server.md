@@ -15,11 +15,11 @@ ms.workload: backup-recovery
 origin.date: 06/29/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0d35bb3081c8b016e756068746d5b3701b5c21d2
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 5dfd103f035c5e429b38c31f19303fbfe4fbc2ad
+ms.sourcegitcommit: 0a59a44bdc09a8b5801180996adfdf68131579c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="manage-a-configuration-server"></a>管理配置服务器
 
@@ -168,8 +168,8 @@ net stop dra
   如果有任何虚拟机、复制策略或 vCenter 服务器/vSphere 主机与此配置服务器关联，则无法删除此服务器。 请先删除这些实体，再尝试删除保管库。
 
 ### <a name="uninstall-the-configuration-server-software-and-its-dependencies"></a>卸载配置服务器软件及其依赖项
-  > [!TIP]
-  如果打算再次结合 Azure Site Recovery 重新使用该配置服务器，可以直接跳到步骤 4
+> [!TIP]
+> 如果打算再次结合 Azure Site Recovery 重新使用该配置服务器，可以直接跳到步骤 4
 
 1. 以管理员身份登录到配置服务器。
 2. 打开“控制面板”>“程序”>“卸载程序”

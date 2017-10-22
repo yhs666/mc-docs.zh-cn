@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 08/28/2017
-ms.date: 
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 315c7c9bc3df56acb817776e0697c119891a0521
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: ff3eead64ee28b48f833b89e3ec09e14bb5235f1
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>通过 .NET 开始使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -92,7 +92,7 @@ CloudTable table = tableClient.GetTableReference("people");
 table.CreateIfNotExists();
 ```
 
-## <a name="add-an-entity-to-a-table"></a>向表中添加条目
+## <a name="add-an-entity-to-a-table"></a>将实体添加到表
 实体使用派生自 [TableEntity][dotnet_TableEntity] 的自定义类映射到 C# 对象。 要将实体添加到表，请创建用于定义实体的属性的类。 以下代码定义将客户的名字和姓氏分别用作行键和分区键的实体类。 实体的分区键和行键共同唯一地标识表中的实体。 查询分区键相同的实体的速度快于查询分区键不同的实体的速度，但使用不同的分区键可实现更高的并行操作可伸缩性。 需要存储在表中的实体必须是受支持的类型，例如，必须派生自 [TableEntity][dotnet_TableEntity] 类。 要存储在表中的实体属性必须是相应类型的公共属性，并且允许获取和设置值。 此外，实体类型*必须*公开不带参数的构造函数。
 
 ```csharp
@@ -265,7 +265,7 @@ else
 ```
 
 ## <a name="replace-an-entity"></a>替换实体
-要更新实体，请从表服务中检索它，修改实体对象，然后将更改保存回表服务。 以下代码更改现有客户的电话号码。 此代码使用 [Replace][dotnet_TableOperation_Replace]，而不是调用 [Insert][dotnet_TableOperation_Insert]。 [Replace][dotnet_TableOperation_Replace] 会导致在服务器上完全替换该实体，除非服务器上的该实体自检索到它以后发生更改，在此情况下，该操作将失败。 操作失败将防止应用程序无意中覆盖应用程序的其他组件在检索与更新之间所做的更改。 正确处理此失败问题的方法是再次检索实体，进行更改（如果仍有效），然后再次执行 [Replace][dotnet_TableOperation_Replace] 操作。 下一节将演示如何重写此行为。
+要更新实体，请从表服务中检索它，修改实体对象，然后将更改保存回表服务。 以下代码将更改现有客户的电话号码。 此代码使用 [Replace][dotnet_TableOperation_Replace]，而不是调用 [Insert][dotnet_TableOperation_Insert]。 [Replace][dotnet_TableOperation_Replace] 会导致在服务器上完全替换该实体，除非服务器上的该实体自检索到它以后发生更改，在此情况下，该操作将失败。 操作失败将防止应用程序无意中覆盖应用程序的其他组件在检索与更新之间所做的更改。 正确处理此失败问题的方法是再次检索实体，进行更改（如果仍有效），然后再次执行 [Replace][dotnet_TableOperation_Replace] 操作。 下一节将演示如何重写此行为。
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -307,7 +307,7 @@ else
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>插入或替换实体
-如果该实体自从服务器中检索到它以后已发生更改，则 [Replace][dotnet_TableOperation_Replace] 操作将失败。 此外，必须首先从服务器中检索该实体，[Replace][dotnet_TableOperation_Replace] 操作才能成功。 但是，有时你不知道服务器上是否存在该实体以及存储在其中的当前值是否无关。 更新操作会将其全部覆盖。 为此，应使用 [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] 操作。 如果该条目不存在，此操作会插入它，如果存在则替换它，而不考虑上次更新时间。
+如果该实体自从服务器中检索到它以后已发生更改，则 [Replace][dotnet_TableOperation_Replace] 操作将失败。 此外，必须首先从服务器中检索该实体，[Replace][dotnet_TableOperation_Replace] 操作才能成功。 但是，有时你不知道服务器上是否存在该实体以及存储在其中的当前值是否无关。 更新操作会将其全部覆盖。 为此，应使用 [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] 操作。 如果该实体不存在，此操作将插入它，如果存在，则替换它，而不管上次更新是何时进行的。
 
 在下面的代码示例中，创建了“Fred Jones”的客户实体并将其插入了“people”表中。 接下来，我们使用 [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] 操作通过相同的分区键 (Jones) 和行键 (Fred) 将实体保存到服务器，此次为 PhoneNumber 属性设置了其他值。 我们使用 [InsertOrReplace][dotnet_TableOperation_InsertOrReplace]，因此其所有属性值被替换。 但是，如果表中部不存在“Fred Jones”实体，则会将其插入。
 
@@ -417,7 +417,7 @@ else
 ```
 
 ## <a name="delete-a-table"></a>删除表
-最后，以下代码示例从存储帐户中删除表。 在删除表之后的一段时间内无法重新创建它。
+最后，以下代码示例将从存储帐户中删除表。 在删除表之后的一段时间内无法重新创建它。
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -469,7 +469,7 @@ do
 * 查看表服务参考文档，了解有关可用 API 的完整详情：
 * [.NET 存储客户端库参考](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 * [REST API 参考](http://msdn.microsoft.com/library/azure/dd179355)
-* 了解如何使用 [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
+* 了解如何使用 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * 查看更多功能指南，以了解在 Azure 中存储数据的其他方式。
 * [通过 .NET 开始使用 Azure Blob 存储](../storage/blobs/storage-dotnet-how-to-use-blobs.md) 来存储非结构化数据。
 * [使用.NET (C#) 连接到 SQL 数据库](../sql-database/sql-database-develop-dotnet-simple.md)，存储关系数据。
@@ -496,3 +496,4 @@ do
 [dotnet_TableQuery]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablequery.aspx
 [dotnet_TableResult]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.aspx
 [dotnet_TableResult_Result]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.result.aspx
+<!--Update_Description: update link-->

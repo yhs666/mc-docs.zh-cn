@@ -3,8 +3,8 @@ title: "如何通过 Java 使用 Azure Blob 存储（对象存储）| Azure"
 description: "使用 Azure Blob 存储（对象存储）将非结构化数据存储在云中。"
 services: storage
 documentationcenter: java
-author: mmacy
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 ms.assetid: 2e223b38-92de-4c2f-9254-346374545d32
 ms.service: storage
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 3404fd9a8ffb82060e4d6bd8a4dba74d25d479b1
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/23/2017
+ms.author: v-johch
+ms.openlocfilehash: b926bfc1ad1a82eefa368347f1affffc8c4668aa
+ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="how-to-use-blob-storage-from-java"></a>如何通过 Java 使用 Blob 存储
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/25/2017
 ## <a name="overview"></a>概述
 Azure Blob 存储是一种将非结构化数据作为对象/Blob 存储在云中的服务。 Blob 存储可以存储任何类型的文本或二进制数据，例如文档、媒体文件或应用程序安装程序。 Blob 存储也称为对象存储。
 
-本文介绍如何使用 Azure Blob 存储执行常见任务。 这些示例用 Java 编写并使用[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java]。 涉及的任务包括上传、列出、下载和删除 Blob。 有关 Blob 的详细信息，请参阅[后续步骤](#Next-Steps)部分。
+本文介绍如何使用 Azure Blob 存储执行常见任务。 这些示例用 Java 编写并使用 [Azure Storage SDK for Java][Azure Storage SDK for Java]。 涉及的任务包括上传、列出、下载和删除 Blob。 有关 Blob 的详细信息，请参阅[后续步骤](#Next-Steps)部分。
 
 > [!NOTE]
 > SDK 提供给在 Android 设备上使用 Azure 存储的开发人员。 有关详细信息，请参阅[用于 Android 的 Azure 存储 SDK][Azure Storage SDK for Android]。
@@ -41,7 +41,7 @@ Azure Blob 存储是一种将非结构化数据作为对象/Blob 存储在云中
 ## <a name="create-a-java-application"></a>创建 Java 应用程序
 本文涉及使用存储功能，这些功能可在本地 Java 应用程序中运行，或在 Azure 的 Web 角色或辅助角色中通过运行的代码来运行。
 
-为此，需要安装 Java 开发工具包 (JDK)，并在 Azure 订阅中创建一个 Azure 存储帐户。 完成此操作后，需要验证开发系统是否满足最低要求和 GitHub 上的[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java] 存储库中列出的依赖项。 如果系统满足这些要求，可以按照说明下载和安装系统中该存储库的用于 Java 的 Azure 存储库。 完成这些任务后，便能够创建一个 Java 应用程序，以便使用本文中的示例。
+为此，需要安装 Java 开发工具包 (JDK)，并在 Azure 订阅中创建一个 Azure 存储帐户。 完成此操作后，需要验证开发系统是否满足最低要求和 GitHub 上的 [Azure Storage SDK for Java][Azure Storage SDK for Java] 存储库中列出的依赖项。 如果系统满足这些要求，可以按照说明下载和安装系统中该存储库的 Azure Storage Libraries for Java。 完成这些任务后，便能够创建一个 Java 应用程序，以便使用本文中的示例。
 
 ## <a name="configure-your-application-to-access-blob-storage"></a>配置应用程序以访问 Blob 存储
 将下列导入语句添加到要在其中使用 Azure 存储 API 以访问 Blob 的 Java 文件的顶部：
@@ -91,13 +91,13 @@ try
     CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
     // Create the blob client.
-   CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+    CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-   // Get a reference to a container.
-   // The container name must be lower case
-   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+    // Get a reference to a container.
+    // The container name must be lower case
+    CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 
-   // Create the container if it does not exist.
+    // Create the container if it does not exist.
     container.createIfNotExists();
 }
 catch (Exception e)
@@ -133,7 +133,7 @@ try
     // Create the blob client.
     CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-   // Retrieve reference to a previously created container.
+    // Retrieve reference to a previously created container.
     CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 
     // Define the path to a local file.
@@ -168,8 +168,8 @@ try
 
     // Loop over blobs within the container and output the URI to each of them.
     for (ListBlobItem blobItem : container.listBlobs()) {
-       System.out.println(blobItem.getUri());
-   }
+        System.out.println(blobItem.getUri());
+    }
 }
 catch (Exception e)
 {
@@ -191,19 +191,19 @@ catch (Exception e)
 try
 {
     // Retrieve storage account from connection-string.
-   CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
+    CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-   // Create the blob client.
-   CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+    // Create the blob client.
+    CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-   // Retrieve reference to a previously created container.
-   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+    // Retrieve reference to a previously created container.
+    CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 
-   // Loop through each blob item in the container.
-   for (ListBlobItem blobItem : container.listBlobs()) {
-       // If the item is a blob, not a virtual directory.
-       if (blobItem instanceof CloudBlob) {
-           // Download the item and save it to a file with the same name.
+    // Loop through each blob item in the container.
+    for (ListBlobItem blobItem : container.listBlobs()) {
+        // If the item is a blob, not a virtual directory.
+        if (blobItem instanceof CloudBlob) {
+            // Download the item and save it to a file with the same name.
             CloudBlob blob = (CloudBlob) blobItem;
             blob.download(new FileOutputStream("C:\\mydownloads\\" + blob.getName()));
         }
@@ -222,20 +222,20 @@ catch (Exception e)
 ```java
 try
 {
-   // Retrieve storage account from connection-string.
-   CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
+    // Retrieve storage account from connection-string.
+    CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-   // Create the blob client.
-   CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+    // Create the blob client.
+    CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-   // Retrieve reference to a previously created container.
-   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+    // Retrieve reference to a previously created container.
+    CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 
-   // Retrieve reference to a blob named "myimage.jpg".
-   CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
+    // Retrieve reference to a blob named "myimage.jpg".
+    CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
 
-   // Delete the blob.
-   blob.deleteIfExists();
+    // Delete the blob.
+    blob.deleteIfExists();
 }
 catch (Exception e)
 {
@@ -250,17 +250,17 @@ catch (Exception e)
 ```java
 try
 {
-   // Retrieve storage account from connection-string.
-   CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
+    // Retrieve storage account from connection-string.
+    CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-   // Create the blob client.
-   CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+    // Create the blob client.
+    CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-   // Retrieve reference to a previously created container.
-   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+    // Retrieve reference to a previously created container.
+    CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 
-   // Delete the blob container.
-   container.deleteIfExists();
+    // Delete the blob container.
+    container.deleteIfExists();
 }
 catch (Exception e)
 {
@@ -272,18 +272,18 @@ catch (Exception e)
 ## <a name="next-steps"></a>后续步骤
 现在，已了解有关 Blob 存储的基础知识，可单击下面的链接来了解更复杂的存储任务。
 
-* [用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java]
+* [Azure Storage SDK for Java][Azure Storage SDK for Java]
 * [CloudBlobContainer.listBlobs][CloudBlobContainer.listBlobs]
 * [Azure Storage REST API（Azure 存储 REST API）][Azure Storage REST API]
 * [Azure 存储团队博客][Azure Storage Team Blog]
 
-有关详细信息，另请参阅[面向 Java 开发人员的 Azure](/develop/java/)。
+有关详细信息，另请参阅[面向 Java 开发人员的 Azure](/java/)。
 
-[Azure SDK for Java]: /develop/java/
+[Azure SDK for Java]: /java/
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [CloudBlobContainer.listBlobs]: http://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/zh-cn/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!--Update_Description: update link-->
+<!--Update_Description: update Java Dev Center link-->

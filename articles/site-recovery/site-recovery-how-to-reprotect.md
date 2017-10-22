@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 06/05/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: baac8a6e80e1224de601bf759d8f42847199aaee
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: f42f881e5eb8ad05f975a77aabd135fe2d88cb80
+ms.sourcegitcommit: 0a59a44bdc09a8b5801180996adfdf68131579c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>在本地站点中重新保护 Azure 上的虚拟机
 
@@ -33,9 +33,7 @@ ms.lasthandoff: 09/28/2017
 
 请在本文末尾或者在 [Azure 恢复服务论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr)中发表任何评论或问题。
 
-有关快速概述，请观看以下有关如何从 Azure 故障转移到本地站点的视频。
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
-
+<!--Not Available VIDEO-->
 ## <a name="prerequisites"></a>先决条件
 在准备重新保护虚拟机时，请执行或注意以下先决条件操作：
 
@@ -148,17 +146,6 @@ ms.lasthandoff: 09/28/2017
 * 主目标服务器在磁盘上不能具有任何快照。 如果具有快照，则重新保护和故障回复会失败。
 
 * 主目标不能具有半虚拟化 SCSI 控制器。 控制器只能是 LSI 逻辑控制器。 如果没有 LSI 逻辑控制器，重新保护会失败。
-
-<!--
-### Failback policy
-To replicate back to on-premises, you will need a failback policy. This policy get automatically created when you create a forward direction policy. Note that
-
-1. This policy gets auto associated with the configuration server during creation.
-2. This policy is not editable.
-3. The set values of the policy are (RPO Threshold = 15 Mins, Recovery Point Retention = 24 Hours, App Consistency Snapshot Frequency = 60 Mins)
-   ![](./media/site-recovery-failback-azure-to-vmware-new/failback-policy.png)
-
--->
 
 ## <a name="steps-to-reprotect"></a>重新保护的步骤
 

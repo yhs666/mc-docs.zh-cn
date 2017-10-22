@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/31/2017
-ms.date: 09/04/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: fd9288f36002c6f4c24aebfcf4258efae7d5bc35
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.openlocfilehash: c3b561a3fd2b681674bd50bf4293d9f64cebfd63
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
@@ -53,7 +53,7 @@ az group deployment create \
     --parameters storageAccountType=Standard_GRS
 ```
 
-部署可能需要几分钟才能完成。 完成之后，会看到一条包含以下结果的消息：
+部署可能需要几分钟才能完成。 完成后，会看到一条包含结果的消息：
 
 ```azurecli
 "provisioningState": "Succeeded",
@@ -61,7 +61,7 @@ az group deployment create \
 
 ## <a name="deploy-external-template"></a>部署外部模板
 
-你可能更愿意将 Resource Manager 模板存储在外部位置，而不是存储在本地计算机上。 可以将模板存储在源控件存储库（例如 GitHub）中。 另外，还可以将其存储在 Azure 存储帐户中，以便在组织中共享访问。
+可能更愿意将 Resource Manager 模板存储在外部位置，而不是将它们存储在本地计算机上。 可以将模板存储在源控件存储库（例如 GitHub）中。 另外，还可以将其存储在 Azure 存储帐户中，以便在组织中共享访问。
 
 若要部署外部模板，请使用 **template-uri** 参数。 使用示例中的 URI 从 GitHub 部署示例模板。
 
@@ -232,4 +232,4 @@ az group deployment create \
 * 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-cli-sas-token.md)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, wording update -->

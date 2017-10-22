@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 09/25/2017
+origin.date: 09/20/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: b859d3397fa00c60a8921e40e6b00bfb80d60c40
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 61f4fc13f159ddc0486dea6ace122ad9deb708e6
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="lesson-6-create-measures"></a>第 6 课：创建度量值
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 09/22/2017
     DaysCurrentQuarterToDate:=COUNTROWS( DATESQTD( 'DimDate'[Date])) 
     ```
 
-    请注意，左上角的单元格现在包含度量值名称“DaysCurrentQuarterToDate”，后面跟有结果 **92**。
+    请注意，左上角的单元格现在包含度量值名称“DaysCurrentQuarterToDate”，后面跟有结果 **92**。 此时的结果不相关，因为尚未应用用户筛选器。
 
     ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 09/22/2017
     |TaxAmt|InternetTotalTaxAmt|Sum|=SUM([TaxAmt])|  
     |Freight|InternetTotalFreight|Sum|=SUM([Freight])|  
 
-2.  通过单击度量值网格中的某个空单元格并使用公式栏，按顺序创建并命名以下度量值：  
+2.  通过单击度量值网格中的某个空单元格并使用公式栏，按顺序创建以下自定义度量值：  
 
     ```
     InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))
@@ -131,4 +131,4 @@ ms.lasthandoff: 09/22/2017
 ## <a name="whats-next"></a>后续步骤
 [第 7 课：创建关键绩效指标](../tutorials/aas-lesson-7-create-key-performance-indicators.md)。
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, wording update-->
