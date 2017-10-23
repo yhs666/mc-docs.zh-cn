@@ -37,8 +37,7 @@
 # 引用
 ## [安全体系结构](iot-security-architecture.md)
 ## [安全最佳实践](iot-security-best-practices.md)
-## 
-            [保护 IoT 部署](iot-suite-security-deployment.md)
+## [保护 IoT 部署](iot-suite-security-deployment.md)
 ## [安全基础知识](securing-iot-ground-up.md)
 
 # 相关内容
