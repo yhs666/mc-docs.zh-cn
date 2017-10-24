@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 08/30/2017
-ms.date: 09/20/2017
+origin.date: 10/03/2017
+ms.date: 10/19/2017
 ms.author: v-junlch
-ms.openlocfilehash: ab6eafa0b36417ebda9c31657ea2ee87c68a4670
-ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
+ms.openlocfilehash: 8cd5b9c2ddbe2ed23203d254511d69c27f6598d9
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本发布历史记录
 Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特性和功能。 并非所有的新增内容都适用于所有受众。
 
 本文旨在帮助跟踪已发布的版本，并了解是否需要更新为最新版本。
+
+>[!IMPORTANT]
+>从版本 1.1.484 开始，Azure AD Connect 引入了一个回归 bug，导致需要 sysadmin 权限才能升级 SQL 数据库。  此 bug 在最新版本 1.1.614 中仍然存在。  若要升级到此版本，需要 sysadmin 权限。  Dbo 权限是不够的。  如果尝试在没有 sysadmin 权限的情况下升级 Azure AD Connect，升级将失败，之后 Azure AD Connect 将不再正常工作。  Microsoft 已意识到此问题，并在努力更正此问题。
 
 下面是相关主题的列表：
 

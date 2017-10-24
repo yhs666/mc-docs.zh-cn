@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 08/31/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2257af92644c8e51ce5679b02a854d619deaaae1
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 57f0ec3abac20edb3213d47cd4a1ab52cab3b87e
+ms.sourcegitcommit: 0a59a44bdc09a8b5801180996adfdf68131579c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="networking-guidance-for-replicating-azure-virtual-machines"></a>有关复制 Azure 虚拟机的网络指南
 
@@ -143,7 +143,8 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
   - 源虚拟网络和 ExpressRoute 线路。
   - 目标虚拟网络和 ExpressRoute 线路。
 
-- ExpressRoute 标准规定，可以在同一地缘政治区域创建线路。 若要在不同的地缘政治区域创建 ExpressRoute 线路，则需使用 Azure ExpressRoute 高级版，这会增加成本。 （如果已在使用 ExpressRoute 高级版，则不必支付额外费用。）有关更多详细信息，请参阅 [ExpressRoute 位置文档](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region)和 [ExpressRoute 定价](https://www.azure.cn/pricing/details/expressroute/)。
+- ExpressRoute 标准规定，可以在同一地缘政治区域创建线路。 若要在不同的地缘政治区域创建 ExpressRoute 线路，则需使用 Azure ExpressRoute 高级版，这会增加成本。 （如果已在使用 ExpressRoute 高级版，则不必支付额外费用。）有关更多详细信息，请参阅 [ExpressRoute 定价](https://www.azure.cn/pricing/details/expressroute/)。
+<!-- Not Available [ExpressRoute locations document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) -->
 
 - 建议在源区域和目标区域中使用不同的 IP 范围。 ExpressRoute 线路无法同时连接两个使用相同 IP 范围的 Azure 虚拟网络。
 

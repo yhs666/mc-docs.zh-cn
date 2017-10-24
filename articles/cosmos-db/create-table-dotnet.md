@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 06/22/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7727cdfa9623022b1f0ad589623132f073defff0
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 20f13e6d4f17b3375a90f9584d4f5c9ce9d1a3bb
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB：使用表 API 生成 .NET 应用程序
 
 Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
+<!-- Not Available Graph-->
 
 本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户，以及如何在该帐户内创建表。 然后将编写代码来插入、更新和删除条目，以及使用 NuGet 中的新 [Windows Azure 存储高级表](https://aka.ms/premiumtablenuget)（预览版）包运行某些查询。 此库与公共 [Microsoft Azure 存储 SDK](https://www.nuget.org/packages/WindowsAzure.Storage) 具有相同的类和方法签名，但还具有使用[表 API](table-introduction.md)（预览版）连接到 Azure Cosmos DB 帐户的功能。 
 
@@ -87,17 +88,21 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
     table.CreateIfNotExists();
     ```
 
-* 创建一个新的表容器。 你会注意到，该代码非常类似于常规的 Azure 表存储 SDK。 
+* 使用 `TableOperation` 类对表执行一系列步骤。
 
     ```csharp
-    CustomerEntity item = new CustomerEntity()
-                {
-                    PartitionKey = Guid.NewGuid().ToString(),
-                    RowKey = Guid.NewGuid().ToString(),
-                    Email = $"{GetRandomString(6)}@contoso.com",
-                    PhoneNumber = "425-555-0102",
-                    Bio = GetRandomString(1000)
-                };
+    TableOperation insertOperation = TableOperation.Insert(item);
+    table.Execute(insertOperation);
+    ```
+
+    ```csharp
+    TableOperation retrieveOperation = TableOperation.Retrieve<T>(items[i].PartitionKey, items[i].RowKey);
+    table.Execute(retrieveOperation);
+    ```
+
+    ```csharp
+    TableOperation deleteOperation = TableOperation.Delete(items[i]);
+    table.Execute(deleteOperation);
     ```
 
 ## <a name="update-your-connection-string"></a>更新连接字符串
@@ -113,14 +118,14 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 3. 将值粘贴到 app.config 文件中，充当 PremiumStorageConnectionString 的值。 
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.cn" />`    
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.cn;EndpointSuffix=core.chinacloudapi.cn" />`    
 <!-- Not Need to add EndpointSuffix=core.chinacloudapi.cn-->
 
     You can leave the StandardStorageConnectionString as is.
 
 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
 
-## <a name="run-the-web-app"></a>运行 Web 应用
+## <a name="run-the-console-app"></a>运行控制台应用
 
 1. 在 Visual Studio 中，右键单击**解决方案资源管理器**中的 **PremiumTableGetStarted** 项目，然后单击“管理 NuGet 包”。 
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/02/2016
-ms.date: 08/07/2017
-ms.author: v-dazen
-ms.openlocfilehash: 198c50d8ad80cacf0c5c72e93f73d351849ef673
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 10/30/2017
+ms.author: v-yiso
+ms.openlocfilehash: 737259fdcfd2fb27f08dbaf2fbc99cc81573dbbc
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-app-service-plans-in-depth-overview"></a>Azure 应用服务计划深入概述
 
@@ -33,20 +33,20 @@ ms.lasthandoff: 08/04/2017
 - 实例大小（小、中、大）
 - SKU（免费、共享、基本、标准、高级）
 
-[Azure 应用服务](/app-service-web/app-service-changes-existing-services)中的 Web 应用、移动应用、API 应用均在应用服务计划中运行。  同一订阅、区域和资源组中的应用可共享应用服务计划。 
+[Azure 应用服务](/app-service-web/app-service-changes-existing-services)中的 Web 应用、移动应用、API 应用均在应用服务计划中运行。  同一订阅和区域中的应用可共享应用服务计划。 
 
 分配到**应用服务计划**的所有应用程序共享该计划定义的资源。 在单个应用服务计划中托管多个应用时，此共享操作可节省成本。
 
-**应用服务计划**可以从**免费**和**共享** SKU 扩展到**基本**、**标准**和 **高级** SKU，让用户随着不断的发展访问更多的资源和功能。
+**应用服务计划**可以从**免费**和**共享**层扩展到**基本**、**标准**和**高级** SKU，让用户访问更多资源和功能。
 
-如果应用服务计划设置为**基本** SKU 或更高版本，则可控制 VM 的**大小**和规模计数。
+如果应用服务计划设置为“基本”层或更高级别，则可以控制 VM 的**大小**和规模计数。
 
-例如，如果计划配置为使用标准服务层的两个“小型”实例，则与该计划关联的所有应用都会在这两个实例上运行。 应用还可访问标准服务层功能。 运行应用的计划实例是完全托管的，且可用性高。
+例如，如果计划配置为使用“标准”层中的两个“小型”实例，则该计划中的所有应用都会在这两个实例上运行。 这些应用还可访问“标准”层功能。 运行应用的计划实例是完全托管的，且可用性高。
 
 > [!IMPORTANT]
-> 应用服务计划的 **SKU** 和**规模**确定成本，而不是托管的应用数目。
+> 应用服务计划的定价层 (SKU) 确定成本，而不是其中托管的应用数。
 
-本文介绍应用服务计划的主要特征（例如层和缩放），以及在管理应用时这些特征如何起作用。
+本文探讨应用服务计划的主要特征（如定价层和缩放），以及在管理应用时这些特征的工作方式。
 
 ## <a name="apps-and-app-service-plans"></a>应用和应用服务计划
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 08/04/2017
 
 ## <a name="create-an-app-service-plan-or-use-existing-one"></a>创建应用服务计划或使用现有应用服务计划
 
-创建应用时，应考虑创建资源组。 另一方面，如果该应用是另一个更大型应用程序的组件，则应在后者所属的资源组内创建前者。
+在应用服务中创建新的 Web 应用时，可以通过将应用放到现有应用服务计划中来共享托管资源。 若要确定新的应用是否包含所需的资源，需要了解现有应用服务计划的容量，以及新应用预期的负载。 过度分配资源可能会导致新应用和现有应用停机。
 
 无论应用是完整的新应用程序还是更大型应用程序的一部分，均可选择使用现有计划进行托管，或选择创建新计划。 该决定主要取决于容量和预期的负载。
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 08/04/2017
 
 ## <a name="create-an-app-service-plan"></a>创建应用服务计划
 
-可以在浏览应用服务计划或创建应用的过程中创建空的应用服务计划。
+可以在创建应用时创建一个空的应用服务计划。
 
 在 [Azure 门户](https://portal.azure.cn)中，单击“新建” > “Web + 移动”，然后选择“Web 应用”或其他应用服务应用类型。
 
@@ -100,16 +100,7 @@ ms.lasthandoff: 08/04/2017
 - 在“菜单”中，查找“应用服务计划”部分。
 - 选择“更改应用服务计划”启动该过程。
 
-“更改应用服务计划”将打开“应用服务计划”选择器。 此时，用户可以选取现有计划，并将该应用移到其中。
-
-> [!IMPORTANT]
-> 根据下列条件筛选所选的应用服务计划 UI：
-> - 存在于同一资源组内
-> - 存在于同一地理区域中
-> - 存在于同一 Web 空间里
->
-> Web 空间是应用服务中的逻辑构造，用于定义服务器资源的分组。 地理区域（例如中国北部）包含诸多 Web 空间，旨在通过应用服务分配客户。 当前无法在 Web 空间之间移动应用服务资源。
->
+“更改应用服务计划”将打开“应用服务计划”选择器。 此时，用户可以选取现有计划，并将该应用移到其中。 仅显示同一资源组和同一区域中的计划。
 
 ![应用服务计划选择器。][change]
 
@@ -122,7 +113,7 @@ ms.lasthandoff: 08/04/2017
 可以在菜单的“开发工具”部分找到“克隆应用”。
 
 > [!IMPORTANT]
-> 克隆有一些限制，详见[使用 Azure 门户进行 Azure 应用服务应用克隆](../app-service-web/app-service-web-app-cloning-portal.md)。
+> 克隆有一些限制，详见 [Azure 应用服务应用克隆](app-service-web-app-cloning.md)。
 
 ## <a name="scale-an-app-service-plan"></a>缩放应用服务计划
 
@@ -141,7 +132,7 @@ ms.lasthandoff: 08/04/2017
 > [!IMPORTANT]
 > 未与任何应用关联的**应用服务计划**仍会产生费用，因为它们继续保留计算容量。
 
-若要避免意想不到的费用，当应用服务计划中托管的最后一个应用被删除时，也要删除此空的应用服务计划。
+为了避免产生意想不到的费用，当应用服务计划中托管的最后一个应用被删除时，默认情况下也会删除生成的空应用服务计划。
 
 ## <a name="summary"></a>摘要
 
@@ -149,7 +140,7 @@ ms.lasthandoff: 08/04/2017
 
 ## <a name="whats-changed"></a>发生的更改
 
-- 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
+- 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](app-service-web-overview.md)
 
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png

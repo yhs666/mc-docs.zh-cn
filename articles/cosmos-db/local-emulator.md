@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/22/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: e03ea3aeea464a731a5a85a7605ea69185a3284e
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: b4751af6aecc295c1be6b3420134efe98f8eab70
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
@@ -52,11 +52,7 @@ ms.lasthandoff: 09/22/2017
 > * 从命令行调用模拟器
 > * 收集跟踪文件
 
-建议通过观看以下视频来入门，Kirill Gavrylyuk 在视频中演示了如何开始使用 Azure Cosmos DB 模拟器。 请注意，视频将模拟器称为 DocumentDB 模拟器，但自从录制该视频以来，该工具本身已重命名为 Azure Cosmos DB 模拟器。 视频中的所有信息对于 Azure Cosmos DB 模拟器而言仍然准确。 
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
-> 
-> 
+<!-- Not Available on VIDEO -->
 
 ## <a name="how-the-emulator-works"></a>模拟器的工作原理
 Azure Cosmos DB 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它支持和 Azure Cosmos DB 相同的功能，包括支持创建和查询 JSON 文档、预配集合和调整集合的规模，以及执行存储过程和触发器。 可以使用 Azure Cosmos DB 模拟器开发和测试应用程序，并通过对 Azure Cosmos DB 的连接终结点进行单一配置更改将其部署到全球范围的 Azure。
@@ -85,7 +81,7 @@ Azure Cosmos DB 模拟器具有以下硬件和软件要求：
 
 可以在用于 Windows 的 Docker 上运行 Azure Cosmos DB 模拟器。 该模拟器不适合于用于 Oracle Linux 的 Docker。
 
-安装了[用于 Windows 的 Docker](https://www.docker.com/docker-windows) 之后，可以通过从喜爱的 shell（cmd.exe、PowerShell 等）运行以下命令，从 Docker 中心请求模拟器映像。
+安装了[用于 Windows 的 Docker](https://www.docker.com/docker-windows) 并切换到 Windows 容器之后，可以通过从喜爱的 shell（cmd.exe、PowerShell 等）运行以下命令，从 Docker 中心拉取模拟器映像。
 
 ```      
 docker pull microsoft/azure-cosmosdb-emulator 
@@ -94,7 +90,7 @@ docker pull microsoft/azure-cosmosdb-emulator
 
 ``` 
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>nul
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i microsoft/azure-cosmosdb-emulator 
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 响应类似于以下内容：
@@ -174,7 +170,7 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 
 如果使用 [Azure Cosmos DB 的 MongoDB 协议支持](mongodb-introduction.md)，请使用以下连接字符串：
 
-    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true&3t.sslSelfSignedCerts=true
+    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
 
 可以使用现有工具如 [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) 连接到 Azure Cosmos DB 模拟器。 还可以通过 [Azure Cosmos DB 数据迁移工具](https://github.com/azure/azure-documentdb-datamigrationtool)在 Azure Cosmos DB 模拟器和 Azure Cosmos DB 服务之间迁移数据。
 
@@ -409,4 +405,4 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 > [!div class="nextstepaction"]
 > [导出 Azure Cosmos DB 模拟器证书](local-emulator-export-ssl-certificates.md)
 
-<!--Update_Description: update meta properties, wording update , add uninstall the local enulator-->
+<!--Update_Description: update meta properties, wording update, update link-->

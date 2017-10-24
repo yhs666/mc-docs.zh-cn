@@ -1,10 +1,10 @@
 ---
-title: "了解 Azure AD 中的 OAuth 2.0 授权代码流 | Azure"
+title: "了解 Azure AD 中的 OAuth 2.0 授权代码流 | Microsoft Docs"
 description: "本文介绍如何使用 Azure Active Directory 和 OAuth 2.0，通过 HTTP 消息来授权访问租户中的 Web 应用程序和 Web API。"
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
 ms.service: active-directory
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/08/2017
-ms.date: 03/13/2017
+ms.date: 10/19/2017
 ms.author: v-junlch
-ms.openlocfilehash: f041d9ce1afb046aca8bde0b106ad3dc5f6821e1
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.custom: aaddev
+ms.openlocfilehash: 55443314a803edd301a1150c9e30c68ef969bcbe
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 10/20/2017
 ---
 # 使用 OAuth 2.0 和 Azure Active Directory 来授权访问 Web 应用程序
 Azure Active Directory (Azure AD) 使用 OAuth 2.0，使你能够授权访问 Azure AD 租户中的 Web 应用程序和 Web API。 本指南与语言无关，介绍在不使用我们的任何开放源代码库的情况下，如何发送和接收 HTTP 消息。
@@ -35,12 +36,12 @@ Azure Active Directory (Azure AD) 使用 OAuth 2.0，使你能够授权访问 Az
 ![OAuth 授权代码流](./media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## 请求授权代码
-授权代码流始于客户端将用户定向到 `/authorize` 终结点。 在此请求中，客户端指示了用户需要提供的权限。 可以在 Azure 经典管理门户的应用程序页中，通过底部抽屉中的“查看终结点”按钮获取 OAuth 2.0 终结点。
+授权代码流始于客户端将用户定向到的 `/authorize` 终结点。 在此请求中，客户端指示了用户需要提供的权限。 可以在 Azure 经典管理门户的应用程序页中，通过底部抽屉中的“查看终结点”按钮获取 OAuth 2.0 终结点。
 
 ```
 // Line breaks for legibility only
 
-https://login.microsoftonline.com/{tenant}/oauth2/authorize?
+https://login.partner.microsoftonline.cn/{tenant}/oauth2/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
@@ -52,12 +53,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 参数 |  | 说明 |
 | --- | --- | --- |
 | tenant |必填 |请求路径中的 `{tenant}` 值可用于控制哪些用户可以登录应用程序。  允许值为租户标识符，例如独立于租户令牌的 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`、`contoso.partner.onmschina.cn` 或 `common` |
-| client_id |必填 |将应用注册到 Azure AD 时，分配给应用的应用程序 ID。 可以在 Azure 经典管理门户中找到该值。 依次单击“Active Directory”和目录，选择应用程序，然后单击“配置” |
+| client_id |必填 |将应用注册到 Azure AD 时，分配给应用的应用程序 ID。 可以在 Azure 门户中找到该值。 依次单击“Active Directory”和目录，选择应用程序，然后单击“配置” |
 | response_type |必填 |必须包括授权代码流的 `code` 。 |
 | redirect_uri |建议 |应用的 redirect_uri，应用可向其发送及从其接收身份验证响应。  它必须完全符合在门户中注册的其中一个 redirect_uris，否则必须是编码的 url。  对于本机和移动应用，应使用默认值 `urn:ietf:wg:oauth:2.0:oob`。 |
 | response_mode |建议 |指定将生成的令牌送回到应用程序所应该使用的方法。  可以是 `query` 或 `form_post`。 |
 | state |建议 |同时随令牌响应返回的请求中所包含的值。 随机生成的唯一值通常用于 [防止跨站点请求伪造攻击](http://tools.ietf.org/html/rfc6749#section-10.12)。  该状态也用于在身份验证请求出现之前，于应用中编码用户的状态信息，例如之前所在的网页或视图。 |
-| resource |可选 |Web API 的应用 ID URI（受保护的资源）。 若要查找 Web API 的应用 ID URI，请在 Azure 经典管理门户中，依次单击“Active Directory”、目录、应用程序和“配置”。 |
+| resource |可选 |Web API 的应用 ID URI（受保护的资源）。 若要查找该 Web API 的应用 ID URI，请在 Azure 门户中，依次单击“Active Directory”、该目录、该应用程序和“配置”。 |
 | prompt |可选 |表示需要的用户交互类型。<p> 有效值是： <p> login：应该提示用户重新进行身份验证。 <p> consent：用户同意已授予，但需要进行更新。 应该提示用户授予同意。 <p> admin_consent：应该提示管理员代表组织中的所有用户授予同意 |
 | login_hint |可选 |如果事先知道用户名，可用于预先填充用户登录页的用户名/电子邮件地址字段。  通常，应用在重新身份验证期间使用此参数，并且已经使用 `preferred_username` 声明从前次登录提取用户名。 |
 | domain_hint |可选 |提供有关用户应该用于登录的租户或域的提示。 domain_hint 的值是租户的已注册域。 如果该租户与本地目录联合，则 AAD 将重定向到指定的租户联合服务器。 |
@@ -67,10 +68,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 >
 >
 
-此时，系统会要求用户输入凭据并许可 `scope` 查询参数中指定的权限。 用户经过身份验证并授权许可后，Azure AD 将在请求的 `redirect_uri` 地址中向应用发送响应。
+此时，系统会要求用户输入凭据并许可 `scope` 查询参数中指定的权限。 用户经过身份验证并授权许可后，Azure AD 会在请求的 `redirect_uri` 地址中向应用发送响应。
 
 ### 成功的响应
-
 成功的响应如下所示：
 
 ```
@@ -114,13 +114,13 @@ error=access_denied
 | invalid_resource |目标资源无效，原因是它不存在，Azure AD 找不到它，或者未正确配置。 |这表示未在租户中配置该资源（如果存在）。 应用程序可以提示用户，并说明如何安装应用程序并将其添加到 Azure AD。 |
 
 ## 使用授权代码请求访问令牌
-你已获取授权代码并获得用户授权，现在可以通过将 POST 请求发送到 `/token` 终结点，使用该代码兑换所需资源的访问令牌：
+已获取授权代码并获得用户授权，现在可以通过将 POST 请求发送到 `/token` 终结点，使用该代码兑换所需资源的访问令牌：
 
 ```
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/token HTTP/1.1
-Host: https://login.microsoftonline.com
+Host: https://login.partner.microsoftonline.cn
 Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code
 &client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
@@ -139,7 +139,7 @@ grant_type=authorization_code
 | grant_type |必填 |必须是授权代码流的 `authorization_code` 。 |
 | code |必填 |在上一部分中获取的 `authorization_code` |
 | redirect_uri |必填 |用于获取 `authorization_code` 的相同 `redirect_uri` 值。 |
-| client_secret |必填（对于 Web 应用） |在应用注册门户中为应用创建的应用程序机密。  它不应用于本机应用，因为设备无法可靠地存储 client_secrets。  对于能够将 `client_secret` 安全地存储在服务器端的 Web 应用和 Web API 为必填参数。 |
+| client_secret |必填（对于 Web 应用） |在应用注册门户中为应用创建的应用程序机密。  它不应用于本机应用，因为设备无法可靠地存储 client_secrets。  Web 应用和 Web API 都需要应用程序机密，能够将 `client_secret` 安全地存储在服务器端。 |
 | resource |如果已在授权代码请求中指定，则为必需参数，否则为可选参数 |Web API 的应用 ID URI（受保护的资源）。 |
 
 若要查找应用 ID URI，请在 Azure 管理门户中，依次单击“Active Directory”、目录、应用程序和“配置”。
@@ -159,9 +159,10 @@ grant_type=authorization_code
   "expires_on": "1388444763",
   "resource": "https://service.contoso.com/",
   "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA",
-  "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
-"id_token": " eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83ZmU4MTQ0Ny1kYTU3LTQzODUtYmVjYi02ZGU1N2YyMTQ3N2UvIiwiaWF0IjoxMzg4NDQwODYzLCJuYmYiOjEzODg0NDA4NjMsImV4cCI6MTM4ODQ0NDc2MywidmVyIjoiMS4wIiwidGlkIjoiN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlIiwib2lkIjoiNjgzODlhZTItNjJmYS00YjE4LTkxZmUtNTNkZDEwOWQ3NGY1IiwidXBuIjoiZnJhbmttQGNvbnRvc28uY29tIiwidW5pcXVlX25hbWUiOiJmcmFua21AY29udG9zby5jb20iLCJzdWIiOiJKV3ZZZENXUGhobHBTMVpzZjd5WVV4U2hVd3RVbTV5elBtd18talgzZkhZIiwiZmFtaWx5X25hbWUiOiJNaWxsZXIiLCJnaXZlbl9uYW1lIjoiRnJhbmsifQ.”
+  "scope": "https%3A%2F%2Fgraph.chinacloudapi.cn%2Fmail.read",
+  "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83ZmU4MTQ0Ny1kYTU3LTQzODUtYmVjYi02ZGU1N2YyMTQ3N2UvIiwiaWF0IjoxMzg4NDQwODYzLCJuYmYiOjEzODg0NDA4NjMsImV4cCI6MTM4ODQ0NDc2MywidmVyIjoiMS4wIiwidGlkIjoiN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlIiwib2lkIjoiNjgzODlhZTItNjJmYS00YjE4LTkxZmUtNTNkZDEwOWQ3NGY1IiwidXBuIjoiZnJhbmttQGNvbnRvc28uY29tIiwidW5pcXVlX25hbWUiOiJmcmFua21AY29udG9zby5jb20iLCJzdWIiOiJKV3ZZZENXUGhobHBTMVpzZjd5WVV4U2hVd3RVbTV5elBtd18talgzZkhZIiwiZmFtaWx5X25hbWUiOiJNaWxsZXIiLCJnaXZlbl9uYW1lIjoiRnJhbmsifQ."
 }
+
 ```
 
 | 参数 | 说明 |
@@ -207,7 +208,7 @@ grant_type=authorization_code
 | 声明类型 | 说明 |
 | --- | --- |
 | aud |令牌的受众。 如果向客户端应用程序颁发令牌，则受众是客户端的 `client_id` 。 |
-| exp |过期时间。 令牌的过期时间。 对于要生效的令牌，当前日期/时间必须小于或等于 `exp` 值。 该时间表示为自 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 至令牌颁发时间的秒数。 |
+| exp |过期时间。 令牌的过期时间。 对于要生效的令牌，当前日期/时间必须小于或等于 `exp` 值。 该时间表示为自 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 至令牌失效时间的秒数。|
 | family_name |用户的姓氏。 应用程序可以显示此值。 |
 | given_name |用户的名字。 应用程序可以显示此值。 |
 | iat |颁发时间。 颁发 JWT 的时间。 该时间表示为自 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 至令牌颁发时间的秒数。 |
@@ -238,7 +239,6 @@ grant_type=authorization_code
   "correlation_id": "a8125194-2dc8-4078-90ba-7b6592a7f231"
 }
 ```
-
 | 参数 | 说明 |
 | --- | --- |
 | error |可用于分类发生的错误类型与响应错误的错误码字符串。 |
@@ -267,14 +267,13 @@ grant_type=authorization_code
 | invalid_client |客户端身份验证失败。 |客户端凭据无效。 若要修复，应用程序管理员应更新凭据。 |
 | unsupported_grant_type |授权服务器不支持权限授予类型。 |更改请求中的授权类型。 这种类型的错误应该只在开发过程中发生，并且应该在初始测试过程中检测到。 |
 | invalid_resource |目标资源无效，原因是它不存在，Azure AD 找不到它，或者未正确配置。 |这表示未在租户中配置该资源（如果存在）。 应用程序可以提示用户，并说明如何安装应用程序并将其添加到 Azure AD。 |
-| interaction_required |请求需要用户交互。 例如，需要额外的身份验证步骤。 |使用同一资源重试请求。 |
+| interaction_required |请求需要用户交互。 例如，需要额外的身份验证步骤。 | 请对同一资源使用交互式授权请求进行重试，而不是非交互式请求。 |
 | temporarily_unavailable |服务器暂时繁忙，无法处理请求。 |重试请求。 客户端应用程序可向用户说明，其响应由于临时状况而延迟。 |
 
 ## 使用访问令牌访问资源
 已经成功获取 `access_token`，现在可以通过在 `Authorization` 标头中包含令牌，在 Web API 的请求中使用令牌。 [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) 规范说明了如何使用 HTTP 请求中的持有者令牌访问受保护的资源。
 
 ### 示例请求
-
 ```
 GET /data HTTP/1.1
 Host: service.contoso.com
@@ -282,19 +281,19 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ### 错误响应
-实现 RFC 6750 的受保护资源会发出 HTTP 状态代码。 如果请求不包含身份验证凭据或缺少令牌，则响应将包含 `WWW-Authenticate` 标头。 当某个请求失败时，资源服务器将使用 HTTP 状态代码和错误代码做出响应。
+实现 RFC 6750 的受保护资源会发出 HTTP 状态代码。 如果请求不包含身份验证凭据或缺少令牌，则响应包含 `WWW-Authenticate` 标头。 当某个请求失败时，资源服务器将使用 HTTP 状态代码和错误代码做出响应。
 
 以下是当客户端请求不包含持有者令牌时的不成功响应示例：
 
 ```
 HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Bearer authorization_uri="https://login.window.net/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
+WWW-Authenticate: Bearer authorization_uri="https://login.partner.microsoftonline.cn/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
 ```
 
 #### 错误参数
 | 参数 | 说明 |
 | --- | --- |
-| authorization_uri |授权服务器的 URI（物理终结点）。 此值还用作查找键，可从发现终结点获取有关服务器的详细信息。 <p><p> 客户端必须验证授权服务器是否受信任。 由 Azure AD 对资源进行保护时，只需验证 URL 是否以 Azure AD 支持的 https://login.chinacloudapi.cn 或其他主机名开头即可。 特定于租户的资源应始终返回特定于租户的授权 URI。 |
+| authorization_uri |授权服务器的 URI（物理终结点）。 此值还用作查找键，可从发现终结点获取有关服务器的详细信息。 <p><p> 客户端必须验证授权服务器是否受信任。 由 Azure AD 对资源进行保护时，只需验证 URL 是否以 Azure AD 支持的 https://login.partner.microsoftonline.cn 或其他主机名开头即可。 特定于租户的资源应始终返回特定于租户的授权 URI。 |
 | error |[OAuth 2.0 授权框架](http://tools.ietf.org/html/rfc6749)第 5.2 部分中定义的错误代码值。 |
 | error_description |错误的更详细说明。 此消息不是最终用户友好的。 |
 | resource_id |返回资源的唯一标识符。 客户端应用程序在请求资源的令牌时，可以使用此标识符作为 `resource` 参数的值。 <p><p> 对于客户端应用程序，验证此值非常重要，否则恶意服务可能会引发 elevation-of-privileges 攻击 <p><p> 防止攻击的建议策略是验证 `resource_id` 是否与正在访问的 Web API URL 基部分相匹配。 例如，如果正在访问 https://service.contoso.com/data，`resource_id` 可以是 htttps://service.contoso.com/。 客户端应用程序必须拒绝不以基 URL 开头的 `resource_id` ，除非存在可靠的替代方法来验证该 ID。 |
@@ -305,7 +304,7 @@ RFC 6750 规范为在响应中使用 WWW-Authenticate 标头和持有者方案�
 | HTTP 状态代码 | 错误代码 | 说明 | 客户端操作 |
 | --- | --- | --- | --- |
 | 400 |invalid_request |请求格式不正确。 例如，请求可能缺少某个参数或者使用了同一参数两次。 |修复错误并重试请求。 这种类型的错误应该只在开发过程中发生，并且应该在初始测试中检测到。 |
-| 401 |invalid_token |访问令牌缺失、无效或被吊销。 error_description 参数的值提供了更多详细信息。 |从授权服务器请求新令牌。 如果新令牌失败，则表示发生了意外的错误。 向用户发送一条错误消息，然后在随机延迟后重试。 |
+| 401 |invalid_token |访问令牌缺失、无效或被吊销。 error_description 参数的值提供了更多详细信息。 |从授权服务器请求新令牌。 如果新令牌失败，则表示发生了意外的错误。 向用户发送一条错误消息，并在随机延迟后重试。 |
 | 403 |insufficient_scope |访问令牌不包含访问资源所需的模拟权限。 |将新的授权请求发送到授权终结点。 如果响应包含 scope 参数，则在对资源的请求中使用 scope 值。 |
 | 403 |insufficient_access |令牌的使用者没有访问该资源所需的权限。 |提示用户使用其他帐户或请求对指定资源的权限。 |
 
@@ -322,7 +321,7 @@ RFC 6750 规范为在响应中使用 WWW-Authenticate 标头和持有者方案�
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/token HTTP/1.1
-Host: https://login.microsoftonline.com
+Host: https://login.partner.microsoftonline.cn
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
@@ -331,16 +330,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
-
-| 参数 | 说明 |
-| --- | --- |
-| access_token |所请求的新访问令牌。 |
-| expires_in |令牌的剩余生存期，以秒为单位。 典型值为 3600（1 小时）。 |
-| expires_on |令牌过期的日期和时间。 该日期表示为自 1970-01-01T0:0:0Z UTC 至过期时间的秒数。 |
-| refresh_token |一个新的 OAuth 2.0 refresh_token，可用于在此响应中的令牌过期时请求新的访问令牌。 |
-| resource |标识可使用访问令牌访问的受保护资源。 |
-| scope |向本机客户端应用程序授予的模拟权限。 默认权限是 user_impersonation。 目标资源的所有者可在 Azure AD 中注册备用值。 |
-| token_type |令牌类型。 唯一支持的值为 **bearer**。 |
 
 ### 成功的响应
 成功的令牌响应如下：
@@ -355,6 +344,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
+| 参数 | 说明 |
+| --- | --- |
+| token_type |令牌类型。 唯一支持的值为 **bearer**。 |
+| expires_in |令牌的剩余生存期，以秒为单位。 典型值为 3600（1 小时）。 |
+| expires_on |令牌过期的日期和时间。 该日期表示为自 1970-01-01T0:0:0Z UTC 至过期时间的秒数。 |
+| resource |标识可使用访问令牌访问的受保护资源。 |
+| scope |向本机客户端应用程序授予的模拟权限。 默认权限是 user_impersonation。 目标资源的所有者可在 Azure AD 中注册备用值。 |
+| access_token |所请求的新访问令牌。 |
+| refresh_token |一个新的 OAuth 2.0 refresh_token，可用于在此响应中的令牌过期时请求新的访问令牌。 |
 
 ### 错误响应
 下面是一个示例错误响应：
@@ -382,3 +380,5 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | correlation_id |可帮助跨组件诊断的请求唯一标识符。 |
 
 有关错误代码的描述和建议的客户端操作，请参阅 [令牌终结点错误的错误代码](#error-codes-for-token-endpoint-errors)。
+
+<!--Update_Description: wording update-->

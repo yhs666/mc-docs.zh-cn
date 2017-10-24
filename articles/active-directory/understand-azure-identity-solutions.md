@@ -7,18 +7,18 @@ manager: digimobile
 ms.reviewer: jsnow
 ms.author: v-junlch
 origin.date: 07/17/2017
-ms.date: 07/28/2017
+ms.date: 10/18/2017
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 7860a1c7878fcf936a6fb12ab2343e13fa63ba2b
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 6123d0fb4da74e43835d1fa29513fedea4d9a315
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>了解 Azure 标识解决方案
 Azure Active Directory (Azure AD) 是一个标识和访问管理云解决方案，它提供目录服务、标识监管和应用程序访问管理功能。 Azure AD 可以快速启用到 [Azure AD 应用程序库](https://azure.microsoft.com/marketplace/active-directory/all/)中的 1,000 个预先集成的商业和自定义应用的单一登录 (SSO)。 你可能已在使用其中的许多应用，例如 Office 365、Salesforce.com、Box、ServiceNow 和 Workday。
@@ -40,8 +40,8 @@ Azure 根据每个组织的需求提供复杂程度不一的多种方式来利�
 |Azure AD 目录 | 每个 Azure 租户都有一个专用的受信任 Azure AD 目录，其中包含该租户的用户、组和应用程序。 该目录用于针对租户资源执行标识和访问管理功能。 由于注册 Azure、Microsoft Intune 或 Office 365 等 Microsoft 云服务时会自动预配一个唯一的 Azure AD 目录来代表组织，因此，术语“租户”、“Azure AD”和“Azure AD 目录”有时会换用。 |
 |自定义域 | 首次注册 Microsoft 云服务订阅时，你的租户（组织）使用 *.partner.onmschina.cn* 域名。 但是，大多数组织有一个或多个用于执行业务以及由最终用户用来访问公司资源的域名。 可以将自定义域名添加到 Azure AD，使用户能够轻松记住该域名，例如，使用 *alice@contoso.com* 而不要使用 *alice@contoso.partner.onmschina.cn*。 |
 |Azure AD 帐户 | 这是使用 Azure AD 或其他 Microsoft 云服务（例如 Office 365）创建的标识。 它们存储在 Azure AD 中，可供组织的任何云服务订阅访问。 |
-|Azure 订阅管理员| 帐户管理员是注册或购买 Azure 订阅的人员。 他们可以使用[帐户中心](https://account.windowsazure.cn/Home/Index)来执行各种管理任务，例如创建订阅、取消订阅、更改订阅的计费信息，或者更改服务管理员。 |
-|Azure AD 全局管理员 | Azure AD 全局管理员对所有 Azure AD 管理功能拥有完全访问权限。 默认情况下，注册 Microsoft 云服务订阅的人员将成为自动全局管理员。 可以分配多个全局管理员 |
+|Azure 订阅管理员| 帐户管理员是注册或购买 Azure 订阅的人员。 他们可以使用[帐户中心](https://account.windowsazure.cn/Subscriptions)来执行各种管理任务，例如创建订阅、取消订阅、更改订阅的计费信息，或者更改服务管理员。 |
+|Azure AD 全局管理员 | Azure AD 全局管理员对所有 Azure AD 管理功能拥有完全访问权限。 默认情况下，注册 Microsoft 云服务订阅的人员将成为自动全局管理员。 可以分配多个全局管理员。 |
 |Microsoft 帐户 | Microsoft 帐户（由你创建供个人使用）提供对面向使用者的 Microsoft 产品和云服务（例如 Outlook (Hotmail)、OneDrive、Xbox LIVE 或 Office 365）的访问。 这些标识在 Microsoft 运行的 Microsoft 使用者标识帐户系统中创建和存储。|
 |工作或学校帐户 | 工作或学校帐户（由管理员针对商业/学术用途颁发）提供对企业级 Microsoft 云服务（例如 Azure、Intune 或 Office 365）的访问。|
 
@@ -88,8 +88,16 @@ Azure 允许以多种方式管理用户的标识，不管这些标识是完全�
 
 |标识方案| 建议|
 |-----|-----|
+|我的业务立足于云，我们未投资购置任何本地标识解决方案。| 对于只在云中开展业务，对本地解决方案未做任何投资的企业而言，[Azure Active Directory](/active-directory/active-directory-whatis) 是最佳选择。|
 |我需要在 Azure 中支持少量的虚拟机，但公司仍在本地 Active Directory (AD DS) 方面做了大量投资。|需要支持少量的虚拟机并在本地 AD DS 方面做了大笔投资时，可以通过 [DIY AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx) 来使用 Azure VM。 |
 
+## <a name="where-can-i-learn-more"></a>可以从何处了解详细信息？
+我们提供了大量的优秀在线资源，以帮助用户了解 Azure AD 的方方面面。 下面是一些有助于快速入门的优秀文章：
+
+- [使用 Azure AD Connect 启用目录的混合管理](active-directory-aadconnect.md)
+- [在互联世界中提高安全性](../multi-factor-authentication/multi-factor-authentication.md)
+- [从任意位置管理密码](active-directory-passwords.md)
+- [Azure Active Directory 的应用程序访问与单一登录是什么？](active-directory-appssoaccess-whatis.md)
 
 ## <a name="next-steps"></a>后续步骤
 

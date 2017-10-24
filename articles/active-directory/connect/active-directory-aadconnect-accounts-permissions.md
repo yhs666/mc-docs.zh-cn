@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/27/2017
-ms.date: 08/23/2017
+origin.date: 10/03/2017
+ms.date: 10/19/2017
 ms.author: v-junlch
-ms.openlocfilehash: e94240f7b9f3d1efdc01f821734f8e133aff1c45
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 645643d40c5eecdca9fb8b90e900bcd7475fb666
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帐户和权限
 Azure AD Connect 安装向导提供提供两种不同的路径：
@@ -67,7 +67,7 @@ Azure AD Connect 安装向导提供提供两种不同的路径：
 | 重置密码 |准备启用密码写回 |
 
 ## <a name="custom-settings-installation"></a>自定义设置安装
-Azure AD Connect 版本 1.1.524.0 及更高版本提供了相应选项，让 Azure AD Connect 向导创建用于连接 Active Directory 的帐户。  早期版本需要在安装之前创建该帐户。 授予此帐户的权限可在 [创建 AD DS 帐户](#create-the-ad-ds-account)中找到。 
+Azure AD Connect 版本 1.1.524.0 及更高版本提供了相应选项，让 Azure AD Connect 向导创建用于连接 Active Directory 的帐户。  早期版本需要在安装之前创建该帐户。 有关需授予该帐户的权限，可查看[创建 AD DS 帐户](#create-the-ad-ds-account)。 
 
 | 向导页 | 收集的凭据 | 所需的权限 | 用途 |
 | --- | --- | --- | --- |
@@ -95,6 +95,10 @@ Azure AD Connect 版本 1.1.524.0 及更高版本提供了相应选项，让 Azu
 ## <a name="upgrade"></a>升级
 从 Azure AD Connect 的一个版本升级到新版本时，需要拥有以下权限：
 
+>[!IMPORTANT]
+>从版本 1.1.484 开始，Azure AD Connect 引入了一个回归 bug，导致需要 sysadmin 权限才能升级 SQL 数据库。  此 bug 在最新版本 1.1.614 中仍然存在。  若要升级到此版本，需要 sysadmin 权限。  Dbo 权限是不够的。  如果尝试在没有 sysadmin 权限的情况下升级 Azure AD Connect，升级将失败，之后 Azure AD Connect 将不再正常工作。  Microsoft 已意识到此问题，并在努力更正此问题。
+
+
 | 主体 | 所需的权限 | 用途 |
 | --- | --- | --- |
 | 运行安装向导的用户 |本地服务器的管理员 |更新二进制文件 |
@@ -114,7 +118,7 @@ Azure AD Connect 版本 1.1.524.0 及更高版本提供了相应选项，让 Azu
 
 | 帐户的类型 | 安装选项 | 说明 |
 | --- | --- | --- |
-| [虚拟服务帐户](#virtual-service-account) | 2017 年 4 月版和更高版本中的快速和自定义安装 | 此选项用于所有快速安装，但域控制器上的安装除外。 对于自定义安装，除非使用了其他选项，否则它便是默认选项。 |
+| [虚拟服务帐户](#virtual-service-account) | 2017 年 4 月版和更高版本中的快速和自定义安装 | 此选项适用于所有快速安装，在域控制器上的安装除外。 对于自定义安装，除非使用了其他选项，否则它便是默认选项。 |
 | [组托管服务帐户](#group-managed-service-account) | 2017 年 4 月版和更高版本中的自定义安装 | 如果使用远程 SQL 服务器，则我们建议使用组托管服务帐户。 |
 | [用户帐户](#user-account) | 2017 年 4 月版和更高版本中的快速和自定义安装 | 仅当在 Windows Server 2008 和域控制器上安装时，才会在安装期间创建带有 AAD_ 前缀的用户帐户。 |
 | [用户帐户](#user-account) | 2017 年 3 月版和更低版本中的快速和自定义安装 | 安装期间创建带有 AAD_ 前缀的本地帐户。 使用自定义安装时，可以指定另一个帐户。 |
@@ -153,11 +157,11 @@ VSA 适用于同步引擎与 SQL 位于同一台服务器上的场合。 如果�
 此功能需要 Windows Server 2008 R2 或更高版本。 如果在 Windows Server 2008 上安装 Azure AD Connect，则安装将回退以改用[用户帐户](#user-account)。
 
 #### <a name="group-managed-service-account"></a>组托管服务帐户
-如果使用远程 SQL Server，则建议使用**组托管服务帐户**。 有关如何为组托管服务帐户准备 Active Directory 的详细信息，请参阅[组托管服务帐户概述](https://technet.microsoft.com/library/hh831782.aspx)。
+如果使用远程 SQL Server，则建议使用**组托管服务帐户**。 若要详细了解如何为组托管服务帐户准备 Active Directory ，请参阅 [Group Managed Service Accounts Overview](https://technet.microsoft.com/library/hh831782.aspx)（组托管服务帐户概述）。
 
 若要使用此选项，请[安装所需的组件](active-directory-aadconnect-get-started-custom.md#install-required-components)页上选择“使用现有的服务帐户”，然后选择“托管服务帐户”。  
 ![VSA](./media/active-directory-aadconnect-accounts-permissions/serviceaccount.png)  
-也支持使用[独立的托管服务帐户](https://technet.microsoft.com/library/dd548356.aspx)。 但是，这些帐户只能在本地计算机上使用，因此使用这些帐户相对默认虚拟服务帐户而言并没有好处。
+还支持使用[独立托管服务帐户](https://technet.microsoft.com/library/dd548356.aspx)。 但是，这些帐户只能在本地计算机上使用，因此使用这些帐户相对默认虚拟服务帐户而言并没有好处。
 
 此功能需要 Windows Server 2012 或更高版本。 如果需要使用早期的操作系统并使用远程 SQL，则必须使用[用户帐户](#user-account)。
 

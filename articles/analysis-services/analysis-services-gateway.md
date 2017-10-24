@@ -13,33 +13,29 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 08/21/2017
-ms.date: 09/25/2017
+origin.date: 10/11/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 86b246cd28977383815c21669d04d3cca84943a4
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 5b739e2a4b1bc9488ea127eb29d5e8350d3a9e21
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>使用 Azure 本地数据网关连接到本地数据源
 本地数据网关的作用好似一架桥，提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了在同一区域中使用多个 Azure Analysis Services 服务器，最新版本的网关也适用于 Azure 逻辑应用、Power BI、Power Apps 和 Microsoft Flow。 可将同一区域中的多个服务与单个网关相关联。 
 
- Azure Analysis Services 要求同一区域中具有相应的网关资源。 例如，如果中国东部区域有 Azure Analysis Services 服务器，则中国东部区域需有一个网关资源。 中国东部的多个服务器可以使用同一个网关。
-
 首次安装网关的过程由四个部分组成：
 
-- **下载并运行安装程序** - 此步骤在组织中的计算机上安装网关服务。
+- **下载并运行安装程序** - 此步骤在组织中的计算机上安装网关服务。 还在[租户的](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD 中使用帐户登录到 Azure。 不支持 Azure B2B（来宾）帐户。
 
-- **注册网关** - 在此步骤中指定网关的名称和恢复密钥，选择区域，并将网关注册到网关云服务。
+- **注册网关** - 在此步骤中指定网关的名称和恢复密钥，选择区域，并将网关注册到网关云服务。 网关资源**必须在 Analysis Services 服务器所在的同一区域中注册**。 
 
 - **在 Azure 中创建网关资源** - 此步骤在 Azure 订阅中创建网关资源。
 
-- **将服务器连接到网关资源** - 在订阅中创建网关资源后，可以开始将服务器连接到该资源。
+- **将服务器连接到网关资源** - 在订阅中创建网关资源后，可以开始将服务器连接到该资源。 可以将多个服务器和其他资源连接到它，前提是它们在该区域中。
 
-为订阅配置网关资源后，可将多个服务器和其他服务连接到该资源。 如果在不同的区域拥有服务器或其他服务，只需安装不同的网关并创建附加的网关资源。
-
-若要立即开始，请参阅[安装和配置本地数据网关](analysis-services-gateway-install.md)。
+若要立即开始，请参阅[安装并配置本地数据网关](analysis-services-gateway-install.md)。
 
 ## <a name="how-it-works"></a>工作原理
 在你组织中的计算机上安装的网关作为 Windows 服务（本地数据网关）运行。 此本地服务已通过 Azure 服务总线注册到网关云服务。 然后，可为 Azure 订阅创建网关资源网关云服务。 Azure Analysis Services 服务器随后会连接到网关资源。 如果服务器上的模型需要连接到本地数据源以执行查询或处理，查询和数据流会遍历网关资源、Azure 服务总线、本地数据网关服务和数据源。 
@@ -102,15 +98,15 @@ ms.lasthandoff: 09/22/2017
 ### <a name="general"></a>常规
 
 问：对于云中的数据源（如 Azure SQL 数据库），是否需要网关？ <br/>
-**答**：否。 网关只连接到本地数据源。
+**答**：否。 如果仅连接到本地数据源，则网关是必需的。
 
 **问**：网关是否必须安装在与数据源相同的计算机上？ <br/>
-**答**：不是。 网关使用提供的连接信息连接到数据源。 从这种意义上讲，可将网关视为客户端应用程序。 网关只需能够连接到提供的服务器名称即可，通常在同一个网络上。
+**答**：否。 网关只需能够连接到服务器即可，通常在同一个网络上。
 
 <a name="why-azure-work-school-account"></a>
 
 **问**：为何需要使用工作或学校帐户登录？ <br/>
-**答**：安装本地数据网关时只能使用 Azure 工作或学校帐户。 登录帐户存储在由 Azure Active Directory (Azure AD) 管理的租户中。 通常，Azure AD 帐户的用户主体名称 (UPN) 与电子邮件地址匹配。
+**答**：安装本地数据网关时只能使用组织工作或学校帐户。 而且，该帐户必须与要在其中配置网关资源的订阅在同一租户中。 登录帐户存储在由 Azure Active Directory (Azure AD) 管理的租户中。 通常，Azure AD 帐户的用户主体名称 (UPN) 与电子邮件地址匹配。
 
 **问**：凭据存储在何处？ <br/>
 **答**：为数据源输入的凭据会加密，并存储在网关云服务中。 凭据在本地数据网关中解密。
@@ -148,13 +144,16 @@ ms.lasthandoff: 09/22/2017
 
 ## <a name="troubleshooting"></a>故障排除
 
+**Q**：尝试在 Azure 中创建网关资源时，为什么在网关实例列表中看不到我的网关？ <br/>
+**答**：有两种可能的原因。 第一种可能性是已在当前或某个其他订阅中为该网关创建了资源。 若要消除该可能性，请从门户枚举“本地数据网关”类型的资源。 枚举所有资源时，请确保选择所有订阅。 请注意，创建资源后，该网关将不会出现在“创建网关资源”门户体验的网关实例列表中。 第二种可能性是安装了该网关的用户的 Azure AD 标识与登录到 Azure 门户的用户不同。 若要解决此问题，请使用与安装了网关的用户相同的帐户登录到门户。
+
 **问**：如何查看正在发送到本地数据源的查询？ <br/>
 **答**：可以启用查询跟踪，包括要发送的查询。 请记得在完成故障排除后将查询跟踪改回原始值。 一直保持启用查询跟踪会创建大量的日志。
 
 还可以查看数据源用于跟踪查询的工具。 例如，可以使用 SQL Server 的扩展事件或 SQL 事件探查器以及 Analysis Services。
 
 **问**：网关日志在何处？ <br/>
-**答**：请参阅本主题后面的“日志”。
+**答**：请参阅本文中后面的“日志”。
 
 <a name="update"></a>
 ### <a name="update-to-the-latest-version"></a>更新到最新版本
@@ -190,15 +189,16 @@ ms.lasthandoff: 09/22/2017
 2.  在客户端目录的 Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config 文件中， 将 SendTelemetry 设置更改为 true。
 
     ```
-        <setting name="SendTelemetry" serializeAs="String">
-                    <value>true</value>
-        </setting>
+    <setting name="SendTelemetry" serializeAs="String">
+        <value>true</value>
+    </setting>
     ```
 
 3.  保存更改并重启 Windows 服务：本地数据网关服务。
 
 ## <a name="next-steps"></a>后续步骤
+* [安装并配置本地数据网关](analysis-services-gateway-install.md)。   
 * [管理 Analysis Services](analysis-services-manage.md)
 * [从 Azure Analysis Services 获取数据](analysis-services-connect.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

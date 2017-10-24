@@ -14,14 +14,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/22/2017
-ms.date: 08/07/2017
+origin.date: 10/12/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0b6786f02bb713a2ed2470ce66074558cd676188
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: bd7acfc95448a6714c2cbb4b15e013fcb0583ba6
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB 防火墙支持
 为保护存储在 Azure Cosmos DB 数据库帐户的数据，Azure Cosmos DB 已提供对基于机密的[授权模型](https://msdn.microsoft.com/library/azure/dn783368.aspx)的支持，该模型利用强大的基于哈希的消息验证代码 (HMAC)。 现在，除了基于机密的授权模型以外，Azure Cosmos DB 还支持针对入站防火墙支持的基于 IP 的策略驱动访问控制。 此模型与传统数据库系统的防火墙规则非常类似，并且对 Azure Cosmos DB 数据库帐户提供额外的安全级别。 利用此模型，现可将 Azure Cosmos DB 数据库帐户配置为仅可从一组已批准的计算机和/或云服务进行访问。 从该组已批准的计算机和服务访问 Azure Cosmos DB 资源仍要求调用方提供有效的授权令牌。
@@ -66,10 +66,10 @@ ms.lasthandoff: 08/04/2017
 > 启用 IP 访问控制策略时，需要添加 Azure 门户的 IP 地址以维护访问。 门户 IP 地址是：
 > |区域|IP 地址|
 > |------|----------|
-> |所有区域（下面指定的这些区域除外）| 104.42.195.92|
-> |德国|51.4.229.218|
-> |中国|139.217.8.252|
-> |美国亚利桑那州政府|52.244.48.71|
+> |所有区域（下面指定的这些区域除外）|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
+
+> |中国 | 139.217.8.252 |
+
 >
 
 ![此屏幕截图显示了如何在 Azure 门户中配置防火墙设置](./media/firewall-support/azure-portal-firewall-configure.png)
@@ -86,4 +86,4 @@ ms.lasthandoff: 08/04/2017
 ## <a name="next-steps"></a>后续步骤
 有关网络相关性能技巧的信息，请参阅[性能提示](performance-tips.md)。
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, update link-->

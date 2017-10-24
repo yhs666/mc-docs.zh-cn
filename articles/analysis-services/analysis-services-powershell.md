@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/19/2017
-ms.date: 08/28/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: a6827405bda9f2a66606554d7e103b3b6bea367d
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 82d5d1286de44b0977a083fbb6bc0421517b0f16
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 
@@ -37,12 +37,13 @@ Azure Analysis Services cmdlet 包含在 [AzureRM.AnalysisServices](https://www.
 
 |Cmdlet|说明| 
 |------------|-----------------| 
-|[Export-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|将日志导出到文件。| 
+|[Add-AzureAnalysisServicesAccount](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/add-azureanalysisservicesaccount)|添加要用于 Azure Analysis Services 服务器 cmdlet 请求的经过身份验证帐户。| 
 |[Get-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|获取服务器实例的详细信息。|  
-|[New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|创建服务器实例。|
+|[New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|创建服务器实例。|   
 |[Remove-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|删除服务器实例。|  
-|[Suspend-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|暂停服务器实例。| 
+|[Restart-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|在当前登录的环境中重新启动 Analysis Services 服务器的实例；在 Add-AzureAnalysisServicesAccount 命令中指定。|  
 |[Resume-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|恢复服务器实例。|  
+|[Suspend-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|暂停服务器实例。| 
 |[Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|修改服务器实例。|   
 |[Test-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|测试服务器实例是否存在。| 
 
@@ -71,4 +72,4 @@ SqlServer 模块提供任务特定的数据库管理 cmdlet，以及接受表格
 * [PowerShell 库中的 SqlServer 模块](https://www.powershellgallery.com/packages/SqlServer)    
 * [Tabular Model Programming for Compatibility Level 1200 and higher](https://msdn.microsoft.com/library/mt712541.aspx)（适用于兼容级别 1200 及更高级别的表格模型编程）
 
-<!--Update_Description: add cmdlet of Export-AzureAnalysisServicesInstance -->
+<!--Update_Description:Update meta propreties, wording update -->

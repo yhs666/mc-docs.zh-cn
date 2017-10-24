@@ -1,13 +1,13 @@
 ---
 layout: HubPage
 hide_bc: True
-title: "Azure 文档和资源"
+title: "Azure 文档"
 description: "了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
-ms.openlocfilehash: 5644a3453d05a00a3e5376511ee968269fbdfc4c
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: cf71f5ae40f37e3804990e2d895407d60ca86524
+ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/18/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/13/2017
                 </a>
             </li>
             <li>
-                <a href="/articles/developerdifferences">
+                <a href="/guides/developer/azure-developer-guide">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/13/2017
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">中国区 Azure 应用程序的开发人员说明</span>
+                                    <span class="likeAnH3">中国区 Azure 开发人员入门指南</span>
                                 </div>
                             </div>
                         </div>
@@ -97,6 +97,20 @@ ms.lasthandoff: 10/13/2017
                                         </div>
                                     </div>
                                 </div>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>管理资源</h3>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/monitoring-and-diagnostics/">Azure Monitor</a></li>
+                                                    <li><a class="barLink" href="/backup/">Azure 备份</a></li>
+                                                    <li><a class="barLink" href="/site-recovery/">Azure Site Recovery</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
                             <li>
                                 <div class="cardSize">
@@ -104,6 +118,7 @@ ms.lasthandoff: 10/13/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>开发应用</h3>
+                                                <table cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top-color:transparent!important;padding-left:0;">
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" target="_blank" href="https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet">
@@ -116,7 +131,7 @@ ms.lasthandoff: 10/13/2017
                                                     <li>
                                                         <a class="barLink" href="/java/">
                                                             <img src="media/index/logo_java.svg" alt=""> Java</a>
-                                                    </li>
+                                                    </li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/app-service-web/app-service-web-get-started-php">
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
@@ -125,8 +140,8 @@ ms.lasthandoff: 10/13/2017
                                                         <a class="barLink" target="_blank" href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
                                                     </li>
-                                                </ul>
-                                                <h4>应用模型</h4>
+                                                </ul></td></tr></table>
+                                               <h4>应用模型</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/app-service-web/">Web 应用</a></li>
                                                     <li><a class="barLink" href="/service-fabric/">将微服务与 Service Fabric 配合使用</a></li>
@@ -151,10 +166,14 @@ ms.lasthandoff: 10/13/2017
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
+                                                <h4>存储</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/storage/">Blob 存储</a></li>
+                                                </ul>
                                                 <h4>AI 和认知服务</h4>
                                                 <ul class="noBullet">
-                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">计算机视觉 API</a></li>
-                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236">人脸 API</a></li>
+                                                    <li><a class="barLink" href="/cognitive-services/computer-vision/">计算机视觉 API</a></li>
+                                                    <li><a class="barLink" href="/cognitive-services/face/">人脸 API</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -170,11 +189,11 @@ ms.lasthandoff: 10/13/2017
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" target="_blank" href="https://docs.microsoft.com/cli/azure/overview">
-                                                            <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI</a>
+                                                            <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" target="_blank" href="https://docs.microsoft.com/powershell/azure/overview">
-                                                            <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell</a>
+                                                            <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -182,6 +201,7 @@ ms.lasthandoff: 10/13/2017
                                     </div>
                                 </div>
                             </li>
+
                             <li></li>
                             <li></li>
                             <li></li>
@@ -190,14 +210,13 @@ ms.lasthandoff: 10/13/2017
                                 <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">查看所有中国区 Azure 服务<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
                                 </a>
                             </li>
-                            </li>
                         </ul>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#services">服务</a>
-                <ul id="services">
+                <a href="#products">产品</a>
+                <ul id="products">
                     <li>
                         <a href="#all">全部</a>
                         <ul id="all" class="directory">
@@ -263,6 +282,12 @@ ms.lasthandoff: 10/13/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/mysql/">
+                                                <img src="media/index/MySQL.svg" alt="" />
+                                                <p>Azure Database for MySQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/sql-data-warehouse/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
                                                 <p>SQL 数据仓库</p>
@@ -277,13 +302,13 @@ ms.lasthandoff: 10/13/2017
                                         <li>
                                             <a href="/cosmos-db/">
                                                 <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Cosmos DB</p>
+                                                <p>Azure Cosmos DB</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/mysql/">
-                                                <img src="media/index/MySQL.svg" alt="" />
-                                                <p>MySQL</p>
+                                            <a href="/cosmos-db/table-storage-overview">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>表存储</p>
                                             </a>
                                         </li>
                                         <li>
@@ -299,12 +324,6 @@ ms.lasthandoff: 10/13/2017
                                             <a href="/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>应用服务</p>
                                             </a>
                                         </li>
                                         <li>
@@ -366,7 +385,7 @@ ms.lasthandoff: 10/13/2017
                                         <li>
                                             <a href="/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                <p>CDN</p>
+                                                <p>内容传送网络</p>
                                             </a>
                                         </li>
                                         <li>
@@ -422,9 +441,9 @@ ms.lasthandoff: 10/13/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/virtual-machines/disks/">
-                                                <img src="media/index/Disks-color.svg" alt="" />
-                                                <p>磁盘</p>
+                                            <a href="/storage/queues/storage-queues-introduction/">
+                                                <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                <p>队列存储</p>
                                             </a>
                                         </li>
                                         <li>
@@ -434,9 +453,9 @@ ms.lasthandoff: 10/13/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/storage/queues/storage-queues-introduction/">
-                                                <img src="media/index/logo_azure-storage-q.svg" alt="" />
-                                                <p>队列存储</p>
+                                            <a href="/virtual-machines/disks/">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>磁盘存储</p>
                                             </a>
                                         </li>
                                         <li>
@@ -464,6 +483,24 @@ ms.lasthandoff: 10/13/2017
                                             <a href="/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>流分析</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/analysis-services/">
+                                                <img src="media/index/AnalysisServices.svg" alt="" />
+                                                <p>Analysis Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/event-hubs/">
+                                                <img src="media/index/eventhubs.svg" alt="" />
+                                                <p>事件中心</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/sql-data-warehouse/">
+                                                <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                <p>SQL 数据仓库</p>
                                             </a>
                                         </li>
                                         <li>
@@ -509,15 +546,21 @@ ms.lasthandoff: 10/13/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/stream-analytics/">
+                                                <img src="media/index/StreamAnalytics.svg" alt="" />
+                                                <p>流分析</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
                                                 <p>通知中心</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/stream-analytics/">
-                                                <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>流分析</p>
+                                            <a href="/cosmos-db/">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>Azure Cosmos DB</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -546,7 +589,7 @@ ms.lasthandoff: 10/13/2017
                                         <li>
                                             <a href="/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                <p>CDN</p>
+                                                <p>内容传送网络</p>
                                             </a>
                                         </li>
                                         <li>
@@ -592,9 +635,9 @@ ms.lasthandoff: 10/13/2017
                                     <h3>监视 + 管理</h3>
                                     <ul>
                                         <li>
-                                            <a href="/automation/">
-                                                <img src="media/index/Automation.svg" alt="" />
-                                                <p>自动化</p>
+                                            <a href="/monitoring-and-diagnostics/">
+                                                <img src="media/index/AzureMonitoring.svg" alt="" />
+                                                <p>Azure Monitor</p>
                                             </a>
                                         </li>
                                         <li>
@@ -610,20 +653,20 @@ ms.lasthandoff: 10/13/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/automation/">
+                                                <img src="media/index/automation.svg" alt="" />
+                                                <p>自动化</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/scheduler/">
                                                 <img src="media/index/Scheduler.svg" alt="" />
                                                 <p>计划程序</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/monitoring-and-diagnostics/">
-                                                <img src="media/index/AzureMonitoring.svg" alt="" />
-                                                <p>Azure Monitor</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure-resource-manager/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                <img src="media/index/azuredefaultblack.svg" alt="" />
                                                 <p>Azure Resource Manager</p>
                                             </a>
                                         </li>
@@ -842,7 +885,8 @@ ms.lasthandoff: 10/13/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>应用程序网关</h3>
-                                                    <p>具有内置 HTTP 负载均衡和传送控件的第 7 层负载均衡器</p>
+                                                    <p>
+具有内置 HTTP 负载均衡和传送控件的第 7 层负载均衡器 </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -879,8 +923,8 @@ ms.lasthandoff: 10/13/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>CDN</h3>
-                                                    <p>通过全球数据中心的稳定网络向最终用户传送内容 </p>
+                                                    <h3>内容传送网络</h3>
+                                                    <p>通过全球数据中心的稳定网络向最终用户传送内容</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -969,18 +1013,18 @@ ms.lasthandoff: 10/13/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/virtual-machines/windows/managed-disks-overview">
+                                <a href="/storage/queues/storage-queues-introduction/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                        <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>磁盘</h3>
-                                                    <p>VM 的磁盘存储</p>
+                                                    <h3>队列存储</h3>
+                                                    <p>用于大容量云服务的持久队列</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1007,18 +1051,18 @@ ms.lasthandoff: 10/13/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/storage/queues/storage-queues-introduction/">
+                                <a href="/virtual-machines/windows/managed-disks-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                        <img src="media/index/Disks-color.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>队列存储</h3>
-                                                    <p>用于大容量云服务的持久队列</p>
+                                                    <h3>磁盘存储</h3>
+                                                    <p>VM 的磁盘存储</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1056,7 +1100,7 @@ ms.lasthandoff: 10/13/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>站点恢复</h3>
-                                                    <p>协调私有云的保护和恢复</p>
+                                                    <p>协调 Azure VM 以及本地 VM 和物理服务器的灾难恢复</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1136,7 +1180,7 @@ ms.lasthandoff: 10/13/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>CDN</h3>
+                                                    <h3>内容传送网络</h3>
                                                     <p>通过全球数据中心的稳定网络向最终用户传送内容 </p>
                                                 </div>
                                             </div>
@@ -1188,18 +1232,18 @@ ms.lasthandoff: 10/13/2017
                         <a href="#containers">容器</a>
                         <ul id="containers" class="cardsA">
                             <li>
-                                <a href="/app-service/">
+                                <a href="/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
+                                                        <img src="media/index/Fabric.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>应用服务</h3>
-                                                    <p>在 Linux 上使用容器部署 Web 应用</p>
+                                                    <h3>Service Fabric</h3>
+                                                    <p>在 Windows 或 Linux 上开发微服务和协调容器</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1225,25 +1269,6 @@ ms.lasthandoff: 10/13/2017
                                     </div>
                                 </a>
                             </li>
-                            <li>
-                                <a href="/service-fabric/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Fabric.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Service Fabric</h3>
-                                                    <p>在 Windows 或 Linux 上开发微服务和协调容器</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
                         </ul>
                     </li>
                     <li>
@@ -1262,6 +1287,25 @@ ms.lasthandoff: 10/13/2017
                                                 <div class="cardText">
                                                     <h3>SQL 数据库</h3>
                                                     <p>托管的关系数据库即服务</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/mysql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MySQL.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Database for MySQL</h3>
+                                                    <p>面向应用开发人员的托管 MySQL 数据库服务</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1326,18 +1370,18 @@ ms.lasthandoff: 10/13/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/mysql/">
+                                <a href="/cosmos-db/table-storage-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/MySQL.svg" alt="" />
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>MySQL</h3>
-                                                    <p>面向应用开发人员的托管 MySQL 数据库服务</p>
+                                                    <h3>表存储</h3>
+                                                    <p>适用于任何规模的全球分布式多模型数据库</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1400,6 +1444,63 @@ ms.lasthandoff: 10/13/2017
                                                 <div class="cardText">
                                                     <h3>流分析</h3>
                                                     <p>实时处理来自数百万台 IoT 设备的数据流</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/analysis-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AnalysisServices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Analysis Services</h3>
+                                                    <p>云中的企业级数据建模</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/event-hubs/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/eventhubs.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>事件中心</h3>
+                                                    <p>从数百万个设备接收遥测数据</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sql-data-warehouse/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>SQL 数据仓库</h3>
+                                                    <p>具有企业级功能的弹性数据仓库即服务</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1511,7 +1612,7 @@ ms.lasthandoff: 10/13/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure IoT 套件</h3>
+                                                    <h3>IoT 套件</h3>
                                                     <p>捕获并分析未使用的数据，以改善业务成果</p>
                                                 </div>
                                             </div>
@@ -1526,7 +1627,7 @@ ms.lasthandoff: 10/13/2017
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/EventHubs.svg" alt="" />
+                                                        <img src="media/index/eventhubs.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1570,6 +1671,25 @@ ms.lasthandoff: 10/13/2017
                                                 <div class="cardText">
                                                     <h3>通知中心</h3>
                                                     <p>快速发送数百万条消息的可缩放推送通知引擎</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cosmos-db/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Cosmos DB</h3>
+                                                    <p>适用于任何规模的全球分布式多模型数据库</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1749,18 +1869,18 @@ ms.lasthandoff: 10/13/2017
                         <a href="#mgmt">监视 + 管理</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
-                                <a href="/automation/">
+                                <a href="/monitoring-and-diagnostics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Automation.svg" alt="" />
+                                                        <img src="media/index/AzureMonitoring.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>自动化</h3>
-                                                    <p>使用流程自动化来简化云管理</p>
+                                                    <h3>Azure Monitor</h3>
+                                                    <p>对任何 Azure 资源进行高精度的实时数据监视</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1806,18 +1926,18 @@ ms.lasthandoff: 10/13/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/scheduler/">
+                                <a href="/automation/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Scheduler.svg" alt="" />
+                                                        <img src="media/index/automation.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>计划程序</h3>
-                                                    <p>根据简单或复杂的定期计划运行作业</p>
+                                                    <h3>自动化</h3>
+                                                    <p>使用流程自动化来简化云管理</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1825,18 +1945,18 @@ ms.lasthandoff: 10/13/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/monitoring-and-diagnostics/">
+                                <a href="/scheduler/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureMonitoring.svg" alt="" />
+                                                        <img src="media/index/scheduler.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Monitor</h3>
-                                                    <p>对任何 Azure 资源进行高精度的实时数据监视</p>
+                                                    <h3>计划程序</h3>
+                                                    <p>根据简单或复杂的定期计划运行作业</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1850,7 +1970,7 @@ ms.lasthandoff: 10/13/2017
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/azuredefaultblack.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2036,7 +2156,8 @@ ms.lasthandoff: 10/13/2017
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0 </h3>
+                                                <h3>
+Azure CLI 2.0 </h3>
                                                 <p>
                                                     <a target="_blank" href="https://docs.microsoft.com/cli/azure/overview">入门</a>
                                                 </p>
@@ -2086,7 +2207,8 @@ ms.lasthandoff: 10/13/2017
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI </h3>
+                                                <h3>
+Azure CLI </h3>
                                                 <p>
                                                     <a href="/xplat-cli-install?toc=%2fvirtual-machines%2flinux%2ftoc.json">入门</a>
                                                 </p>
@@ -2119,7 +2241,9 @@ ms.lasthandoff: 10/13/2017
                         <ul id="architecture1" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p>为云应用程序建议的一组体系结构。 每种体系结构包括建议的做法、说明性的步骤以及体现建议内容的可执行组件。</p>
+                                    <p>
+为云应用程序建议的一组体系结构。 每种体系结构包括建议的做法、说明性的步骤以及体现建议内容的可执行组件。
+                                    </p>
                                 </div>
                             </li>
                             <li>
@@ -2191,34 +2315,16 @@ ms.lasthandoff: 10/13/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>云应用程序最佳做法</h3>
-                                                    <p>适用于云应用程序的一套最佳做法，涉及自动缩放、缓存、数据分区、API 设计和监视等多个方面。</p>
+                                                    <p>
+适用于云应用程序的一套最佳做法，涉及自动缩放、缓存、数据分区、API 设计和监视等多个方面。
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </li>
-<!--                            <li>
-                                <a href="https://docs.microsoft.com/azure/architecture/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_scenarios.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Scenario Guides</h3>
-                                                    <p>Guidance for various end-to-end application scenarios in the cloud. Includes
-                                                        written guidance and reference implementations.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
--->                     </ul>
+                        </ul>
                     </li>
                 </ul>
             </li>

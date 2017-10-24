@@ -16,11 +16,11 @@ origin.date: 07/12/2017
 ms.date: 08/14/2017
 wacn.date: 
 ms.author: v-yeche
-ms.openlocfilehash: c9ec62e49c76bf8e0efcebe489b63cd0928de155
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: e0cf2ef2714c5ddfe266f3aa2ab0c85175e47423
+ms.sourcegitcommit: 0a59a44bdc09a8b5801180996adfdf68131579c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>将具有 CI/CD 的应用程序部署到 Service Fabric 群集
 本教程介绍如何使用 Visual Studio Team Services 为 Azure Service Fabric 应用程序设置持续集成和部署。  需要一个现有的 Service Fabric 应用程序，并使用在[生成 .NET 应用程序](service-fabric-tutorial-create-dotnet-app.md)中创建的应用程序作为示例。
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/11/2017
 ## <a name="prerequisites"></a>先决条件
 在开始学习本教程之前：
 - 如果没有 Azure 订阅，请创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
-- [安装 Visual Studio 2017](https://www.visualstudio.com/)，并安装 Azure 开发以及 ASP.NET 和 Web 开发工作负荷。
+- [安装 Visual Studio 2017](https://www.visualstudio.com/)，并安装 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
 - [安装 Service Fabric SDK](service-fabric-get-started.md)
 - 创建一个 Service Fabric 应用程序，例如[根据此教程](service-fabric-tutorial-create-dotnet-app.md)创建。 
 - 在 Azure 上创建一个 Windows Service Fabric 群集，例如[根据此教程](service-fabric-tutorial-create-cluster-azure-ps.md)创建
@@ -90,8 +90,8 @@ ms.lasthandoff: 08/11/2017
     ![“新建服务终结点”对话框][new-service-endpoint-dialog]
 
     1. 输入连接名称。
-    2. 在“群集终结点”字段中输入群集的管理终结点（例如，“tcp://mycluster.chinaeast.chinacloudapp.cn:19000”）。 指定“tcp://”作为协议。  默认管理终结点端口为 19000。
-    3. 输入服务器证书指纹。  可以通过打开群集的 Service Fabric Explorer (https://mycluster.chinaeast.chinacloudapp.cn:19080) 来获取指纹。
+    2. 在“群集终结点”字段中输入群集的管理终结点（例如，“tcp://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19000”）。 指定“tcp://”作为协议。  默认管理终结点端口为 19000。
+    3. 输入服务器证书指纹。  可以通过打开群集的 Service Fabric Explorer (https://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19080) 来获取指纹。
         - 在树视图中选择“群集”节点，然后在右侧窗格中选择“清单”选项卡。
         - 在 XML 文件中查找 <ServerCertificate> 元素并复制 X509FindValue 属性的内容。
     4. 在“客户端证书”字段中，以 Base64 编码的字符串形式输入客户端证书，这是在生成代理上安装证书所必需的：
@@ -126,7 +126,7 @@ ms.lasthandoff: 08/11/2017
 
 若要检查生成进度，请在 Visual Studio 中切换到“团队资源管理器”中的“生成”选项卡。  在验证生成成功执行后，定义用于将应用程序部署到群集的发布定义。
 
-验证部署是否已成功以及应用程序是否正在群集中运行。  打开 Web 浏览器并导航到 [http://mysftestcluster.chinanorth.chinacloudapp.cn:19080/Explorer/](http://mysftestcluster.chinanorth.chinacloudapp.cn:19080/Explorer/)。  记下应用程序版本，在本例中为“1.0.0.20170616.3”。
+验证部署是否已成功以及应用程序是否正在群集中运行。  打开 Web 浏览器并导航到 [http://mysftestcluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/](http://mysftestcluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/)。  记下应用程序版本，在本例中为“1.0.0.20170616.3”。
 
 ![Service Fabric Explorer][sfx1]
 

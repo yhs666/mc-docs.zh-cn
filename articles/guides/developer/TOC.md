@@ -1,14 +1,13 @@
 # 概述
-## [开发人员指南](azure-developer-guide.md) 
-### [什么是 Azure？](azure-developer-guide.md#what-is-azure)
-### [从哪里开始？](azure-developer-guide.md#where-do-i-start)
-### [Azure 区域](azure-developer-guide.md#azure-regions)
-### [如何管理应用程序和项目？](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [了解帐户、订阅和计费](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
-## [Azure 服务概述](/fundamentals-introduction-to-azure?toc=%2fdeveloper-guide%2ftoc.json)
-## [门户概述](/azure-portal-overview?toc=%2fdeveloper-guide%2ftoc.json)
+## [开发人员指南](azure-developer-guide.md)
+## [Azure 服务概述](/fundamentals-introduction-to-azure?toc=%2fguides%2fdeveloper%2ftoc.json)
+## [门户概述](/azure-portal-overview?toc=%2fguides%2fdeveloper%2ftoc.json)
 ## [SDK 和工具](/index#pivot=sdkstools)
+## [Azure 帐户、平台和服务概述](/articles/others/azure-for-aliyun-overview?toc=%2fguides%2fdeveloper%2ftoc.json)
+## [Azure 和阿里云服务比较](/articles/others/azure-for-aliyun-service-comparison?toc=%2fguides%2fdeveloper%2ftoc.json)
+## [Azure 和 AWS 服务比较](https://docs.microsoft.com/zh-cn/azure/architecture/aws-professional/services)
+## [中国区 Azure 应用程序开发说明](/articles/others/developerdifferences?toc=%2fguides%2fdeveloper%2ftoc.json)
+
 
 # 快速入门
 ## [Web 应用](/app-service-web/app-service-web-get-started-html)

@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 08/28/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4352de83210385af94a703240b167602d16cb598
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: f5e5fd40ae782cb470cffceab4e89fd48a8c2d2c
+ms.sourcegitcommit: 0a59a44bdc09a8b5801180996adfdf68131579c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery Deployment Planner 用户指南。
@@ -586,7 +586,7 @@ OS 类型：VM 的 OS 类型。 可以是 Windows、Linux 或其他。
 
 * 添加了针对每个虚拟机的启动类型（BIOS 或 EFI）检查，用于确定虚拟机是否兼容相应的保护措施。
 * 在“兼容的 VM”和“不兼容的 VM”工作表中添加了针对每个虚拟机的 OS 类型信息。
-* Azure 美国政府版和中国区域现在支持 GetThroughput 操作。
+* 中国区 Azure 现在支持 GetThroughput 操作。
 * 添加了针对 vCenter 和 ESXi Server 的更多先决条件检查。
 * 将区域设置设置为非英语语言时，会生成不正确的报告。
 
@@ -604,7 +604,7 @@ OS 类型：VM 的 OS 类型。 可以是 Windows、Linux 或其他。
 Azure Site Recovery Deployment Planner 公共预览版 1.0 存在以下已知问题（会在以后的更新中解决）：
 
 * 该工具仅适用于 VMware 到 Azure 的方案，而不适用于 Hyper-V 到 Azure 的部署。 对于 Hyper-V 到 Azure 的方案，请使用 [Hyper-V Capacity Planner 工具](./site-recovery-capacity-planning-for-hyper-v-replication.md)。
-* Azure 美国政府版和中国区域不支持 GetThroughput 操作。
+* 中国区 Azure 不支持 GetThroughput 操作。
 * 如果 vCenter 服务器中有两个或更多个 VM 跨不同的 ESXi 主机使用相同的名称或 IP 地址，则该工具无法分析 VM。 在此版本中，该工具将跳过 VMListFile 中针对重复 VM 名称或 IP 地址的分析。 解决方法是使用 ESXi 主机而不是 vCenter 服务器来分析 VM。 必须针对每个 ESXi 主机运行一个实例。
 
 <!--Update_Description: update meta properties, update link -->

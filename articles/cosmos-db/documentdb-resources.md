@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31caf03c1f9ff732ef1229d54babd4d4a88fa254
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: b04a590854841460e88de28596365dd28f792adc
+ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 分层资源模型和核心概念
 Azure Cosmos DB 管理的数据库实体被称为**资源**。 每个资源都通过逻辑 URI 进行唯一标识。 可以使用标准 HTTP 谓词、请求/响应标头和状态代码与资源进行交互。 
@@ -460,4 +460,4 @@ Azure Cosmos DB 用户是指对权限进行分组的逻辑命名空间。 Azure 
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!--Update_Description: wording update, update link-->
+<!--Update_Description: wording update -->

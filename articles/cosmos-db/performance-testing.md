@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 08/29/2017
 ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 44c29977b588c8abb19f75834cf50a89cc948bfa
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 904993b87a2895aab6f9fa401c0d0fcc2349b5d2
+ms.sourcegitcommit: f2556abb77e9ebe6d45a5666c32aebf8af514485
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 执行性能和规模测试
 性能和规模测试是应用程序开发过程中的关键步骤。 对许多应用程序而言，数据库层对整体性能和可伸缩性有重大影响。 因此，它是性能测试的关键组成部分。 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 专为弹性缩放和可预测性能而构建。 这些功能使它非常适合需要高性能数据库层的应用程序。 
@@ -95,7 +95,7 @@ ms.lasthandoff: 09/22/2017
     DocumentDBBenchmark completed successfully.
     Press any key to exit...
 
-**步骤 4（如有必要）：**工具报告的吞吐量（RU/秒）应该等于或大于预配的集合吞吐量。 如果情况并非如此，以较小的增量提高 DegreeOfParallelism 可帮助达到该限制。 如果客户端应用的吞吐量达到持平状态，请在其他客户端计算机上启动多个应用实例。 如需此步骤的帮助，请向 askcosmosdb@microsoft.com 发送电子邮件，或通过 [Azure 门户](https://portal.azure.cn)开具支持票证。
+**步骤 4（如有必要）：**工具报告的吞吐量（RU/秒）应该等于或大于预配的集合吞吐量。 如果情况并非如此，以较小的增量提高 DegreeOfParallelism 可帮助达到该限制。 如果客户端应用的吞吐量达到持平状态，请在其他客户端计算机上启动多个应用实例。 如需此步骤的帮助，请通过 [Azure 门户](https://portal.azure.cn)开具支持票证。
 
 应用处于运行状态后，可以尝试不同的[编制索引策略](indexing-policies.md)和[一致性级别](consistency-levels.md)，以了解它们对吞吐量和延迟的影响。 用户也可以查看源代码，并在自己的测试套件或生产应用程序中实施类似的配置。
 

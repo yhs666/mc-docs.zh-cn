@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-origin.date: 09/14/2017
-ms.date: 09/25/2017
+origin.date: 10/06/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 032027f0b8208ae7a6579d199135600c44c3d057
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: b931dd26c314e90f39d297ae95df0e71e0f5e344
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>使用 Azure CLI 管理 Azure 资源和资源组
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 09/22/2017
 
 本文不演示如何将 Resource Manager 模板部署到订阅。 有关该信息，请参阅[使用资源管理器模板和 Azure CLI 部署资源](resource-group-template-deploy-cli.md)。
 
-<!-- Not Available [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]-->
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 若要在本地安装和使用 CLI，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
@@ -79,6 +79,7 @@ az account show
 ```
 
 ## <a name="create-a-resource-group"></a>创建资源组
+
 将任何资源部署到订阅之前，必须先创建要包含资源的资源组。
 
 若要创建资源组，请使用 **az group create** 命令。 该命令使用 **name** 参数指定资源组的名称，并使用 **location** 参数指定其位置。
@@ -115,6 +116,7 @@ az group list
 ```
 
 ## <a name="add-resources-to-a-resource-group"></a>将资源添加到资源组
+
 要将资源添加到资源组中，可使用 **az resource create** 命令或特定于要创建的资源类型的命令（例如 **az storage account create**）。 使用特定于资源类型的命令可能更轻松，因为它包含新资源所需属性的参数。 要使用 **az resource create**，必须了解不会提示而要设置的所有属性。
 
 但是，通过脚本添加资源可能导致将来出现混乱，因为新的资源不存在于资源管理器模板中。 通过模板，可以可靠地重复部署解决方案。
@@ -133,7 +135,7 @@ az storage account show --name myuniquestorage --resource-group TestRG1
 
 ## <a name="add-a-tag"></a>添加标记
 
-标记可用于根据属性组织资源。 例如，可能有不同资源组中的多项资源属于同一部门。 可对这些资源应用部门标签和值，将其标记为属于同一类别。 也可标记资源是用于生产环境还是测试环境。 在本主题中，只对一项资源应用标记，但在环境最好向所有资源应用标记。
+标记可用于根据属性组织资源。 例如，可能有不同资源组中的多项资源属于同一部门。 可对这些资源应用部门标签和值，将其标记为属于同一类别。 也可标记资源是用于生产环境还是测试环境。 在本文中，只对一项资源应用标记，但在环境中最好向所有资源应用标记。
 
 以下命令将向存储帐户应用两个标记：
 
@@ -176,6 +178,14 @@ az resource tag --tags $rt Project=Redesign -g TestRG1 -n myuniquestorage --reso
   ```azurecli
   az resource list --resource-type "Microsoft.Storage/storageAccounts"
   ```
+
+## <a name="get-resource-id"></a>获取资源 ID
+
+很多命令采用资源 ID 作为参数。 若要获取资源 ID 并将其存储在变量中，请使用：
+
+```azurecli
+webappID=$(az resource show -g exampleGroup -n exampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
+```
 
 ## <a name="lock-a-resource"></a>锁定资源
 

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 08/22/2017
-ms.date: 09/25/2017
+origin.date: 10/09/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: bf46675f70bce49b2a0d1ec786c4bb8ae65e1be6
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: b2beb2b7a9e42637665d54cdcdf09b12d2168234
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安装并配置本地数据网关
 当同一区域中的一个或多个 Azure Analysis Services 服务器连接到本地数据源时，需要本地数据网关。 若要了解有关网关的详细信息，请参阅[本地数据网关](analysis-services-gateway.md)。
@@ -44,6 +44,7 @@ ms.lasthandoff: 09/22/2017
 * 一台计算机上只能安装一个网关。
 * 在计算机处于开启但未处于休眠状态下安装网关。
 * 不要在使用无线网络连接的计算机上安装网关。 否则，可能会降低性能。
+* 在 Azure AD 中使用与要在其中注册网关的订阅相同[租户](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)的帐户登录到 Azure。 安装和注册网关时不支持 Azure B2B（来宾）帐户。
 
 ## <a name="download"></a>下载
  [下载网关](https://aka.ms/azureasgateway)
@@ -56,16 +57,12 @@ ms.lasthandoff: 09/22/2017
 
    ![安装位置和许可条款](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. 选择“本地数据网关(建议)”。 Azure Analysis Services 不支持个人模式。
+3. 登录 Azure。 该帐户必须在租户的 Azure Active Directory 中。 这是网关管理员使用的帐户。 安装和注册网关时不支持 Azure B2B（来宾）帐户。
 
-   ![选择网关类型](media/analysis-services-gateway-install/aas-gateway-installer-shared.png)
-
-4. 输入用于登录 Azure 的帐户。 该帐户必须在租户的 Azure Active Directory 中。 这是网关管理员使用的帐户。 
-
-   ![输入用于登录 Azure 的帐户](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![登录 Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
-   > 如果你使用域帐户登录，它将映射到你在 Azure AD 中的组织帐户。 你的组织帐户将用作网关管理员。
+   > 如果使用域帐户登录，它将映射到你在 Azure AD 中的组织帐户。 你的组织帐户将用作网关管理员。
 
 ## <a name="register"></a>注册
 若要在 Azure 中创建网关资源，则必须在网关云服务中注册你安装的本地实例。 
@@ -91,7 +88,6 @@ ms.lasthandoff: 09/22/2017
     * **名称**：输入网关资源的名称。 
 
     * **订阅**：选择要与网关资源关联的 Azure 订阅。 
-    此订阅应是服务器所在的同一个订阅。
 
       默认订阅取决于用来登录的 Azure 帐户。
 
