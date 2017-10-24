@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/02/2017
-ms.date: 09/04/2017
+origin.date: 10/09/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 118b5a85648b2be90e10232cb0a8fbaea2a8674f
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.openlocfilehash: eb9a335c4cc0d98a707b210145515c82a0de15fd
+ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="resource-policy-overview"></a>资源策略概述
-使用资源策略可在组织中建立资源约定。 通过定义约定，可以控制成本并更轻松地管理资源。 例如，可指定仅允许特定类型的虚拟机。 或者，可要求所有资源都拥有特定标记。 策略由所有子资源继承。 因此，如果将策略应用到资源组，则其适用于该资源组中的所有资源。
+使用资源策略可在组织中建立资源约定。 通过定义约定，可以控制成本并更轻松地管理资源。 例如，可指定仅允许特定类型的虚拟机。 或者，可要求所有资源都拥有特定标记。 策略由所有子资源继承。 因此，如果将策略应用到资源组，则会将其应用到该资源组中的所有资源。
 
 了解策略的两个概念：
 
@@ -33,24 +33,19 @@ ms.lasthandoff: 08/31/2017
 
 在创建和更新资源（PUT 和 PATCH 操作）时会评估策略。
 
-> [!NOTE]
-> 当前，策略不对不支持标记、种类和位置的资源类型进行评估，例如 Microsoft.Resources/deployments 资源类型。 将来会添加此支持。 若要避免向后兼容问题，创作策略时应显式指定类型。 例如，未指定类型的标记策略应用于所有类型。 在此情况下，如果有嵌套资源不支持标记，并且部署资源类型已添加到策略评估中，则模板部署可能会失败。 
-> 
-> 
-
 ## <a name="how-is-it-different-from-rbac"></a>策略与 RBAC 有什么不同？
-策略和基于角色的访问控制 (RBAC) 之间存在一些主要区别。 RBAC 关注不同范围内的**用户**操作。 例如，你将添加到所需范围的资源组的参与者角色后，便可以对该资源组做出更改。 策略关注部署期间的 **资源** 属性。 例如，可通过策略控制能够预配的资源类型。 或者，可限制能够预配资源的位置。 不同于 RBAC，策略是默认的允许和明确拒绝系统。 
+策略和基于角色的访问控制 (RBAC) 之间存在一些主要区别。 RBAC 关注不同范围内的**用户**操作。 例如，你将添加到所需范围的资源组的参与者角色后，可对该资源组做出更改。 策略关注部署期间的“资源”属性。 例如，可通过策略控制能够预配的资源类型。 或者，可限制能够预配资源的位置。 不同于 RBAC，策略是默认的允许和明确拒绝系统。 
 
 若要使用策略，用户必须通过 RBAC 进行身份验证。 具体而言，帐户需要：
 
 * `Microsoft.Authorization/policydefinitions/write` 权限
 * `Microsoft.Authorization/policyassignments/write` 权限 
 
-**参与者** 角色不包括这些权限。
+**参与者**角色中未包括这些权限。
 
 ## <a name="built-in-policies"></a>内置策略
 
-Azure 提供一些内置的策略定义，可减少需要定义的策略数目。 继续进行策略定义之前，应考虑内置策略是否已提供所需的定义。 内置策略定义：
+Azure 提供了一些可降低必须要定义的策略数目的内置策略定义。 继续进行策略定义之前，应考虑内置策略是否已提供所需的定义。 内置策略定义：
 
 * 允许的位置
 * 允许的资源类型
@@ -69,6 +64,7 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 ## <a name="policy-definition-structure"></a>策略定义结构
 使用 JSON 创建策略定义。 策略定义包含以下各项的元素：
 
+* 模式
 * 参数
 * 显示名称
 * description
@@ -81,6 +77,7 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 ```json
 {
   "properties": {
+    "mode": "all",
     "parameters": {
       "allowedLocations": {
         "type": "array",
@@ -108,7 +105,13 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 }
 ```
 
-## <a name="parameters"></a>参数
+## <a name="mode"></a>Mode
+
+建议将 `mode` 设置为 `all`。 将其设置为 all 时，会评估该策略的资源组和所有资源类型。 对于所有策略，门户都使用 all。 如果使用 PowerShell 或 Azure CLI，需指定 `mode` 参数，将其设置为 all。
+
+以前仅针对支持 tags 和 location 的资源类型来评估策略。 `indexed` 模式继续此行为。 如果使用 **all** 模式，则还会针对不支持 tags 和 location 的资源类型来评估策略。 [虚拟网络子网](https://github.com/Azure/azure-policy-samples/tree/master/samples/Network/enforce-nsg-on-subnet)是新添加类型的一个示例。 另外，将 mode 设置为 all 时，还会评估资源组。 例如，可以[在资源组上强制 tags](https://github.com/Azure/azure-policy-samples/tree/master/samples/ResourceGroup/enforce-resourceGroup-tags)。 
+
+## <a name="parameters"></a>Parameters
 使用参数可减少策略定义的数量，有助于简化策略管理。 为资源属性定义策略（如限制资源部署的位置），并在定义中包含参数。 然后，通过在分配策略时传递不同的值（例如为订阅指定一组位置），针对不同的方案重复使用该策略定义。
 
 在创建策略定义时声明参数。
@@ -213,13 +216,15 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 * 属性别名 - 若要查看列表，请参阅[别名](#aliases)。
 
 ### <a name="effect"></a>效果
-策略支持三种类型的效果 - `deny`、`audit` 和 `append`。 
+策略支持三种类型的效果 - `deny`、`audit`、`append`、`AuditIfNotExists`、`DeployIfNotExists`。 
 
 * 
             **Deny** 在审核日志中生成一个事件，并使请求失败
 * 
             **Audit** 会在审核日志中生成一个警告事件，但不会使请求失败
 * **Append** 会将定义的字段集添加到请求 
+* **AuditIfNotExists** - 在某个资源不存在的情况下启用审核
+* **DeployIfNotExists** - 在某个资源不存在的情况下部署该资源。 目前只能通过内置的策略来支持此效果。
 
 对于 **append**，必须提供以下详细信息：
 
@@ -235,11 +240,15 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 
 值可以是字符串或 JSON 格式对象。 
 
+使用 AuditIfNotExists 和 DeployIfNotExists 时，可以评估某个子资源是否存在，并在该资源不存在的情况下应用某项规则。 例如，可以要求为所有虚拟网络部署网络观察程序。
+
+如需在虚拟机扩展未部署时进行审核的示例，请参阅[审核 VM 扩展](https://github.com/Azure/azure-policy-samples/blob/master/samples/Compute/audit-vm-extension/azurepolicy.json)。
+
 ## <a name="aliases"></a>别名
 
-使用属性别名来访问资源类型的特定属性。 通过别名，可限制允许用于特定资源属性的值和条件。 每个别名会映射到给定资源类型不同 API 版本的路径。 在策略评估期间，策略引擎会获取该 API 版本的属性路径。
+可以使用属性别名来访问资源类型的特定属性。 通过别名，可限制允许用于特定资源属性的值和条件。 每个别名会映射到给定资源类型不同 API 版本的路径。 在策略评估期间，策略引擎会获取该 API 版本的属性路径。
 
-Microsoft.Cache/Redis
+**Microsoft.Cache/Redis**
 
 | 别名 | 说明 |
 | ----- | ----------- |
@@ -351,18 +360,96 @@ Microsoft.Storage/storageAccounts
 | Microsoft.Storage/storageAccounts/sku.name | 设置 SKU 名称。 |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | 设置为仅允许 https 流量访问存储服务。 |
 
-## <a name="policy-examples"></a>策略示例
+## <a name="policy-sets"></a>策略集
 
-以下主题包含策略示例：
+策略集用于将多个相关的策略定义组合到一起。 策略集可以简化分配和管理过程，因为只需使用单个项：组。 例如，可以在单个策略集中将所有相关的标记策略组合到一起。 可以应用策略集，而不必单独分配每个策略。
 
-<!-- Not Available on  resource-manager-policy-tags.md -->
-<!-- Not Available on  resource-manager-policy-naming-convention.md -->
-<!-- Not Available on  resource-manager-policy-storage -->
-* 有关虚拟机策略的示例，请参阅[将资源策略应用于 Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure-resource-manager%2ftoc.json) 和[将资源策略应用于 Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure-resource-manager%2ftoc.json)
+以下示例演示了如何创建一个策略集，以便处理两个标记（costCenter 和 productName）。 该示例使用两个内置的策略来应用默认标记值，以及强制标记值。 策略集声明两个参数：costCenterValue 和 productNameValue，以实现可重用性。 它使用不同的参数来多次引用这两个内置的策略定义。 对于每个参数，既可提供一个固定值（参见 tagName），也可提供策略集中的参数（参见 tagValue）。
+
+```json
+{
+    "properties": {
+        "displayName": "Billing Tags Policy",
+        "policyType": "Custom",
+        "description": "Specify cost Center tag and product name tag",
+        "parameters": {
+            "costCenterValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for Cost Center tag"
+                }
+            },
+            "productNameValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for product Name tag"
+                }
+            }
+        },
+        "policyDefinitions": [
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            }
+        ]
+    },
+    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
+    "type": "Microsoft.Authorization/policySetDefinitions",
+    "name": "billingTagsPolicy"
+}
+```
+
+可以通过 New-AzureRMPolicySetDefinition PowerShell 命令来添加策略集。
+
+对于 REST 操作，请使用 2017-06-01-preview API 版本，如以下示例所示：
+
+```
+PUT /subscriptions/<subId>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicySet?api-version=2017-06-01-preview
+```
 
 ## <a name="next-steps"></a>后续步骤
 <!-- Not Available on resource-manager-policy-portal.md /  resource-manager-policy-create-assign.md-->
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
 * 该策略架构已在 [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json)中发布。
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, add mode parameter-->
