@@ -1,5 +1,5 @@
 ## <a name="overview"></a>概述
-在资源组中通过从 Azure 应用商店部署映像来创建新的虚拟机 (VM) 时，默认的 OS 驱动器空间为 127 GB。 尽管可以将数据磁盘添加到 VM（数量取决于所选择的 SKU），并且我们建议将应用程序和需要大量 CPU 的工作负荷安装在这些附加的磁盘上，但客户有时候还是需要扩展 OS 驱动器以支持特定的方案，例如：
+在资源组中通过从 [Azure Marketplace](https://market.azure.cn/) 部署映像来创建新的虚拟机 (VM) 时，默认的 OS 驱动器通常为 127 GB（默认情况下，某些映像的 OS 磁盘大小更小）。 尽管用户可以将数据磁盘添加到 VM（数量取决于所选择的 SKU），并且我们建议将应用程序和需要大量 CPU 的工作负荷安装在这些附加的磁盘上，但客户有时候还是必须扩展 OS 驱动器以支持特定的方案，例如：
 
 1. 支持将组件安装在 OS 驱动器上的传统应用程序。
 2. 从本地迁移具有较大 OS 驱动器的物理电脑或虚拟机。
@@ -12,7 +12,7 @@
 ## <a name="resize-the-os-drive"></a>调整 OS 驱动器的大小
 本文将使用 [Azure Powershell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)的 Resource Manager 模块，完成调整 OS 驱动器大小的任务。 在管理模式下打开 Powershell ISE 或 Powershell 窗口，并遵循以下步骤：
 
-1. 在资源管理模式下登录你的 Microsoft Azure 帐户，然后选择你的订阅，如下所示：
+1. 在资源管理模式下登录用户的 Microsoft Azure 帐户，并选择用户的订阅，如下所示：
 
    ```Powershell
    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -42,7 +42,7 @@
    ```
 
    > [!WARNING]
-   > 新大小应该大于现有磁盘大小。 允许的最大值为 1023 GB。
+   > 新大小应该大于现有磁盘大小。 允许的最大值为 2048 GB。 （可以扩展 VHD Blob，使之超出该大小，但 OS 只能使用空间的头 2048 GB。）
    > 
    > 
 6. 更新 VM 可能需要几秒钟时间。 命令完成执行后，请重新启动 VM，如下所示：
@@ -54,7 +54,7 @@
 大功告成！ 现在，请通过 RDP 访问 VM，打开“计算机管理”（或“磁盘管理”），然后使用刚刚分配的空间扩展驱动器。
 
 ## <a name="summary"></a>摘要
-在本文中，我们已使用 Powershell 的 Azure Resource Manager 模块扩展 IaaS 虚拟机的 OS 驱动器。 以下重现了完整的脚本供你参考：
+在本文中，我们已使用 Powershell 的 Azure Resource Manager 模块扩展 IaaS 虚拟机的 OS 驱动器。 下面重新生成了完整脚本，供你参考：
 
 ```Powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -74,10 +74,13 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
-同样，你可以使用如上所示的索引，或如下所示的磁盘 ```Name``` 属性，引用附加到 VM 的其他数据磁盘：
+同样，用户可以使用如上所示的索引，或如下所示的磁盘 ```Name``` 属性，引用附加到 VM 的其他数据磁盘：
 
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-如果想要了解如何将磁盘附加到 Azure Resource Manager VM，请参阅[此文](../articles/virtual-machines/windows/attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+如果想要了解如何将磁盘附加到 Azure Resource Manager VM，请参阅[此文](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+
+<!--Update_Description: wording update-->
+<!--ms.date: 10/16/2017-->

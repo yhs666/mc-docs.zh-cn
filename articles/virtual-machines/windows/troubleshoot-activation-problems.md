@@ -3,23 +3,23 @@ title: "排查 Azure 中的 Windows 虚拟机激活问题 | Azure"
 description: "介绍用于修复 Azure 中的 Windows 虚拟机激活问题的疑难解答步骤"
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: 
-author: genlin
-manager: willchen
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 05/26/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
-ms.openlocfilehash: 074355bfdefc8a22272390e89bf407966fc78a8b
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: c47d309c14ec537c80658d88ca4f273dec70919a
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 
@@ -111,7 +111,11 @@ ms.lasthandoff: 08/07/2017
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>我从 Azure Marketplace 创建了 Windows Server 2016。 是否需要配置用于激活 Windows Server 2016 的 KMS 密钥？ 
 
-不可以。 Azure Marketplace 中的映像已配置了相应的 KMS 客户端安装密钥。 
+不可以。 Azure 应用商店中的映像已配置了相应的 KMS 客户端安装密钥。 
+
+### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>无论 VM 是否使用 Azure 混合使用权益 (HUB)，Windows 激活的工作方式是否都一样？ 
+
+是的。 
 
 ### <a name="what-happens-if-windows-activation-period-expires"></a>如果 Windows 激活已过期，会出现什么情况？ 
 
@@ -119,3 +123,4 @@ ms.lasthandoff: 08/07/2017
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
 如果仍需要帮助，可 [联系支持人员](https://www.azure.cn/support/support-azure/) 来快速解决问题。
+<!--Update_Description: update meta properties-->

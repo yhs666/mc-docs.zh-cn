@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/19/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 94a228a843c813f20a2986fb867d06626de921b3
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 7f44bf988658a8a9f0216adcd1216ad4295cf180
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-cli"></a>使用 CLI 将托管快照作为 VHD 导出/复制到不同区域中的存储帐户
 
@@ -73,8 +73,8 @@ az storage blob copy start --destination-blob $destinationVHDFileName --destinat
 
 | 命令 | 说明 |
 |---|---|
-| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_grant_access) | 生成只读 SAS，用于将基础 VHD 文件复制到存储帐户或将其下载到本地  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#az_storage_blob_copy_start) | 以异步方式将 blob 从一个存储帐户复制到另一个存储帐户 |
+| [az snapshot grant-access](https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az_snapshot_grant_access) | 生成只读 SAS，用于将基础 VHD 文件复制到存储帐户或将其下载到本地  |
+| [az storage blob copy start](https://docs.azure.cn/zh-cn/cli/storage/blob/copy?view=azure-cli-latest#az_storage_blob_copy_start) | 以异步方式将 blob 从一个存储帐户复制到另一个存储帐户 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -82,8 +82,8 @@ az storage blob copy start --destination-blob $destinationVHDFileName --destinat
 
 [从托管磁盘创建虚拟机](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
 
-可以在 [Azure Linux VM 文档](../../app-service-web/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
+可以在 [Azure Linux VM 文档](../../app-service/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, update link-->

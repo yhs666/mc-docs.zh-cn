@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/19/2017
-ms.date: 10/16/2017
+origin.date: 10/08/2017
+ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 6d278521a4eba4d38e99c297902728d7fe128d20
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: ecd4e34bab82abfb78cd1dcff72a06d15348c502
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="introduction-to-azure-files"></a>Azure 文件简介
 Azure 文件在云中提供可以通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)（也称为通用 Internet 文件系统，简称 CIFS）访问的完全托管文件共享。 Azure 文件共享可由云或者 Windows、Linux 和 macOS 的本地部署同时装载。 此外，可以使用 Azure 文件同步（预览版）将 Azure 文件共享缓存在 Windows  Server 上，以加快访问速度（与在数据使用位置进行访问的速度相当）。
@@ -57,4 +57,3 @@ Azure 文件共享可用于：
 * [在 Windows 上进行连接和装载](storage-how-to-use-files-windows.md)
 * [在 Linux 上进行连接和装载](storage-how-to-use-files-linux.md)
 * [在 macOS 上进行连接和装载](storage-how-to-use-files-mac.md)
-<!--Update_Descriotion:whole content refine-->

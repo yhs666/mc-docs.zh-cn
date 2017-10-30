@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 08/21/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
-ms.openlocfilehash: 09bcc30ace3184232389ef2e155f8c9a4b432623
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: adc064472cc41140758007754534cfe144e96daa
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>如何使用启动诊断排查 Azure 中 Linux 虚拟机的故障
 
@@ -81,4 +81,4 @@ Azure 现在提供对两种调试功能的支持：控制台输出和屏幕截�
 
 ![更新现有 VM](./media/boot-diagnostics/screenshot5.png)
 
-<!--Update_Description: update meta properties, new articles of how to use boot diagnostics to troubleshoot Linux virtual machines in Azure-->
+<!--Update_Description: update meta properties-->

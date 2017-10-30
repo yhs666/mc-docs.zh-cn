@@ -3,7 +3,7 @@ title: "适用于 Azure 虚拟网络的常见 PowerShell 命令 | Azure"
 description: "可用于为 VM 创建虚拟网络及其关联资源的常用 PowerShell 命令。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 9a5c0773a34c6ac239879487d6ed0d8750ae91f1
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: d21c8cc1ebcf44f07502d35ea30fed6821be84be
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>适用于 Azure 虚拟网络的常见 PowerShell 命令
 
@@ -44,8 +44,8 @@ ms.lasthandoff: 08/29/2017
 | 创建前端 IP 配置 |$frontendIP = [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig) -Name "myFrontendIP" -PublicIpAddress $pip<BR><BR>前端配置包括前面针对传入网络流量创建的公共 IP 地址。 |
 | 创建后端地址池 |$beAddressPool = [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig) -Name "myBackendAddressPool"<BR><BR>提供可通过网络接口访问的负载均衡器后端内部地址。 |
 | 创建探测 |$healthProbe = [New-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerprobeconfig) -Name "myProbe" -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2<BR><BR>包含用于检查后端地址池中虚拟机实例的可用性的运行状况探测。 |
-| 创建负载均衡规则 |$lbRule = [New-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerruleconfig) -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80<BR><BR>包含将负载均衡器上公用端口分配给后端地址池中端口的规则。 |
-| 创建入站 NAT 规则 |$inboundNATRule = [New-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerinboundnatruleconfig) -Name "myInboundRule1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389<BR><BR>包含将负载均衡器上公用端口映射到后端地址池中特定虚拟机端口的规则。 |
+| 创建负载均衡规则 |$lbRule = [New-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerruleconfig) -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80<BR><BR>包含可将负载均衡器上的公共端口分配到后端地址池中的端口的规则。 |
+| 创建入站 NAT 规则 |$inboundNATRule = [New-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerinboundnatruleconfig) -Name "myInboundRule1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389<BR><BR>包含将负载均衡器上的公共端口映射到后端地址池中特定虚拟机的端口的规则。 |
 | 创建负载均衡器 |$loadBalancer = [New-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancer) -ResourceGroupName $myResourceGroup -Name "myLoadBalancer" -Location $location -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule -LoadBalancingRule $lbRule -BackendAddressPool $beAddressPool -Probe $healthProbe |
 | 创建网络接口 |$nic1= [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface) -ResourceGroupName $myResourceGroup -Name "myNIC" -Location $location -PrivateIpAddress XX.X.X.X -Subnet $subnet2 -LoadBalancerBackendAddressPool $loadBalancer.BackendAddressPools[0] -LoadBalancerInboundNatRule $loadBalancer.InboundNatRules[0]<BR><BR>创建一个使用前面所创建公共 IP 地址和虚拟网络子网的网络接口。 |
 
@@ -75,5 +75,5 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="next-steps"></a>后续步骤
 * 使用[创建 VM](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 时创建的网络接口。
-* 了解如何[创建具有多个网络接口的 VM](../../virtual-network/virtual-networks-multiple-nics.md)。
-<!--Update_Description: update two links-->
+* 了解如何[创建具有多个网络接口的 VM](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md)。
+<!--Update_Description: update links-->

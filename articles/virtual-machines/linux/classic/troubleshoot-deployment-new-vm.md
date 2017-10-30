@@ -3,8 +3,8 @@ title: "排查 Linux VM 经典部署问题 | Azure"
 description: "排查在 Azure 中新建 Linux 虚拟机时遇到的经典部署问题"
 services: virtual-machines-linux
 documentationcenter: 
-author: JiangChen79
-manager: felixwu
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: top-support-issue
 ms.assetid: c8a963fa-6b2a-4c7a-a1f4-7793adb02b19
@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 09/06/2016
-ms.date: 01/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: 59caada1a8f167dde8a04d31d2613466188a5007
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: 5edb5ba77f60f6db81cb13b293db205f97a82b74
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>排查在 Azure 中新建 Linux 虚拟机时遇到的经典部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -47,7 +47,7 @@ ms.lasthandoff: 06/23/2017
 
 **N<sup>1</sup>：**如果 OS 是通用的 Linux，但是以专用设置上传的，则会发生预配超时错误，并且 VM 会卡在预配阶段。
 
-**N<sup>2</sup>：**如果 OS 是专用的 Linux，但是以专用设置上传的，则会发生预配失败错误，因为新 VM 是以原始计算机名称、用户名和密码运行的。
+**N<sup>2</sup>：**如果 OS 是专用的 Linux，但是以通用设置上传的，则会发生预配失败错误，因为新 VM 是以原始计算机名称、用户名和密码运行的。
 
 **解决方法：**
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 06/23/2017
 
 **N<sup>3</sup>：**如果 OS 是通用的 Linux，但是以专用设置捕获的，则会发生预配超时错误，因为标记为通用的原始 VM 不可用。
 
-**N<sup>4</sup>：**如果 OS 是专用的 Linux，但是以专用设置捕获的，则会发生预配失败错误，因为新 VM 是以原始计算机名称、用户名和密码运行的。 此外，标记为专用的原始 VM 不可用。
+**N<sup>4</sup>：**如果 OS 是专用的 Linux，但是以通用设置捕获的，则会发生预配失败错误，因为新 VM 是以原始计算机名称、用户名和密码运行的。 此外，标记为专用的原始 VM 不可用。
 
 **解决方法：**
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 06/23/2017
   如果在尝试创建新的云服务时收到错误，请稍后再试一次，或更改云服务的区域。
 
 > [!IMPORTANT]
-> 如果尝试在现有的云服务中创建新的 VM，但无法创建，而又必须为新的 VM 创建新的云服务，则可以选择合并相同云服务中的所有 VM。 为此，请删除现有云服务中的 VM，然后从它们位于新云服务中的磁盘重新撷取它们。 然而，请务必记得新的云服务将有新的名称和 VIP，因此需要为所有目前将此信息用于现有云服务的依赖性更新该信息。
+> 如果尝试在现有的云服务中创建新的 VM，但无法创建，而又必须为新的 VM 创建新的云服务，则可以选择合并相同云服务中的所有 VM。 为此，请删除现有云服务中的 VM，并从它们位于新云服务中的磁盘重新撷取它们。 然而，请务必记住，新的云服务有新的名称和 VIP，因此需要为所有目前将此信息用于现有云服务的依赖项更新该信息。
 > 
 > 
 
@@ -87,7 +87,9 @@ ms.lasthandoff: 06/23/2017
 
 * 创建新的区域虚拟网络。
 * 在新的虚拟网络中创建新 VM。
-* [将现有虚拟网络连接到](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) 新虚拟网络。 详细了解 [区域虚拟网络](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。 此外，你也可以 [将基于地缘组的虚拟网络迁移到区域虚拟网络](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，然后创建新 VM。
+* 
+            [将现有虚拟网络连接到](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)新虚拟网络。 详细了解 [区域虚拟网络](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。 此外，用户也可以 [将基于地缘组的虚拟网络迁移到区域虚拟网络](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，并创建新 VM。
 
 ## <a name="next-steps"></a>后续步骤
 如果你在 Azure 中启动已停止的 Linux VM 或调整现有 Linux VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动现有 Linux 虚拟机或调整其大小时遇到的经典部署问题](restart-resize-error-troubleshooting.md)。
+<!--Update_Description: update meta properties-->

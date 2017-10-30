@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5f73b5fadaca267299e46b4d569a80a468ed43c8
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 976869d89d8fb6bc8ed58fa9863af4552c16684b
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 模板中的虚拟机
 
@@ -164,7 +164,7 @@ ms.lasthandoff: 10/13/2017
 
 - REST API - [列出所有资源提供程序](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+- Azure CLI 2.0 - [az provider show](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#az_provider_show)
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -284,7 +284,7 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
 - [大小](sizes.md)
 - [名称](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)和凭据
 - 磁盘和[操作系统设置](cli-ps-findimage.md)
-- [网络接口](../../virtual-network/virtual-networks-multiple-nics.md) 
+- [网络接口](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - 启动诊断
 
 ## <a name="disks-and-images"></a>磁盘和映像

@@ -3,8 +3,8 @@ title: "排查 Windows VM 经典部署问题 | Azure"
 description: "排查在 Azure 中新建 Windows 虚拟机时遇到的经典部署问题"
 services: virtual-machines-windows
 documentationcenter: 
-author: JiangChen79
-manager: felixwu
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: top-support-issue
 ms.assetid: 9f01d237-ba39-4c32-b72d-18f5f505d43a
@@ -12,15 +12,15 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 12/16/2016
-ms.date: 01/25/2017
-ms.author: v-dazen
-ms.openlocfilehash: 0145b9b69951752db051c3a5e24db22e42ae8af3
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: 1e8b93355a9875b3220a11d0d59bcb41a8e7041f
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>排查在 Azure 中新建 Windows 虚拟机时遇到的经典部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -61,7 +61,7 @@ ms.lasthandoff: 06/23/2017
 
 **解决方法：**
 
-若要解决这两个错误，请从门户中删除当前映像，并[从当前 VHD 重新捕获映像](capture-image.md)，该映像具有与该 OS（通用/专用）相同的设置。
+若要解决这两个错误，请从门户中删除当前映像，并[从当前 VHD 重新捕获映像](capture-image.md)，其设置与 OS 的设置相同（通用/专用）。
 
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>问题：自定义/库/应用商店映像；分配失败
 当新的 VM 请求被发送到没有可用空间可处理请求、或不支持所请求的 VM 大小的群集，便发生此错误。 在相同的云服务中不可混合不同系列的 VM。 因此，如果想要创建和云服务可支持大小不同的新 VM，计算请求将失败。
@@ -77,7 +77,7 @@ ms.lasthandoff: 06/23/2017
   如果在尝试创建新的云服务时收到错误，请稍后再试一次，或更改云服务的区域。
 
 > [!IMPORTANT]
-> 如果尝试在现有的云服务中创建新的 VM，但无法创建，而又必须为新的 VM 创建新的云服务，则可以选择合并相同云服务中的所有 VM。 为此，请删除现有云服务中的 VM，然后从它们位于新云服务中的磁盘重新撷取它们。 然而，请务必记得新的云服务将有新的名称和 VIP，因此需要为所有目前将此信息用于现有云服务的依赖性更新该信息。
+> 如果尝试在现有的云服务中创建新的 VM，但无法创建，而又必须为新的 VM 创建新的云服务，则可以选择合并相同云服务中的所有 VM。 为此，请删除现有云服务中的 VM，并从它们位于新云服务中的磁盘重新撷取它们。 然而，请务必记住，新的云服务有新的名称和 VIP，因此需要为所有目前将此信息用于现有云服务的依赖项更新该信息。
 > 
 > 
 
@@ -87,7 +87,9 @@ ms.lasthandoff: 06/23/2017
 
 * 创建新的区域虚拟网络。
 * 在新的虚拟网络中创建新 VM。
-* [将现有虚拟网络连接到](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) 新虚拟网络。 详细了解 [区域虚拟网络](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。 此外，你也可以 [将基于地缘组的虚拟网络迁移到区域虚拟网络](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，然后创建新 VM。
+* 
+            [将现有虚拟网络连接到](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)新虚拟网络。 详细了解 [区域虚拟网络](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。 此外，用户也可以 [将基于地缘组的虚拟网络迁移到区域虚拟网络](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，并创建新 VM。
 
 ## <a name="next-steps"></a>后续步骤
 如果在 Azure 中启动已停止的 Windows VM 或调整现有 Windows VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的经典部署问题](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)。
+<!--Update_Description: update meta properties-->

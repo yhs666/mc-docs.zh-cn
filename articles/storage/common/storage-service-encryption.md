@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 05/09/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 2973a1071b1390d3384a755666fb309b767a940c
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: a34eeb1792753dc2f5707cc96eabdf8caa9c3c34
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>静态数据的 Azure 存储服务加密
 静态数据的 Azure 存储服务加密 (SSE) 可用于保护数据，使组织能够信守在安全性与合规性方面所做的承诺。 使用此功能，Azure 存储可以先自动加密数据，再将数据保存到存储，并在检索之前解密数据。 加密、解密和密钥管理对于用户而言是完全透明的。
@@ -84,7 +84,8 @@ AzCopy 是一个 Windows 命令行实用工具，专用于使用具有优化性�
 有关详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)。
 
 #### <a name="using-smb"></a>使用 SMB
-Azure 文件存储使用标准 SMB 协议在云中提供文件共享。 可以从本地客户端或在 Azure 中装载文件共享。 装载后，可以使用 Robocopy 等工具将文件复制到 Azure 文件共享。 有关详细信息，请参阅[如何在 Windows 上装载 Azure 文件共享](../files/storage-how-to-use-files-windows.md)和[如何在 Linux 上装载 Azure 文件共享](../storage-how-to-use-files-linux.md)。
+Azure 文件在云端通过标准 SMB 协议提供文件共享。 可以从本地客户端或在 Azure 中装载文件共享。 装载后，可以使用 Robocopy 等工具将文件复制到 Azure 文件共享。 有关详细信息，请参阅[如何在 Windows 上装载 Azure 文件共享](../files/storage-how-to-use-files-windows.md)和[如何在 Linux 上装载 Azure 文件共享](../files/storage-how-to-use-files-linux.md)。
+
 
 #### <a name="using-the-storage-client-libraries"></a>使用存储客户端库
 可以使用我们丰富的存储客户端库集，包括 .NET、C++、Java、Android、Node.js、PHP、Python 和 Ruby，在 Blob 存储或存储帐户之间相互复制 Blob 或文件数据。
@@ -188,4 +189,4 @@ Azure 文件存储使用标准 SMB 协议在云中提供文件共享。 可以�
 ## <a name="next-steps"></a>后续步骤
 Azure 存储提供配套的安全性功能，这些功能相辅相成，可让开发人员共同构建安全的应用程序。 有关详细信息，请访问[存储安全指南](../storage-security-guide.md)。
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

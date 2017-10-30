@@ -1,9 +1,9 @@
 ---
-title: "如何使用 PowerShell 管理 Azure 文件存储 | Azure"
-description: "了解如何使用 PowerShell 管理 Azure 文件存储。"
+title: "如何使用 PowerShell 管理 Azure 文件 | Microsoft Docs"
+description: "了解如何使用 PowerShell 管理 Azure 文件。"
 services: storage
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: 
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/27/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: e824009dbeac229567c51fd83b4a0553f76af713
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+origin.date: 09/19/2017
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: ddd0e2340c627433471de1c8e212de2c89b161fd
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/23/2017
 ---
-# <a name="how-to-use-powershell-to-manage-azure-file-storage"></a>如何使用 PowerShell 管理 Azure 文件存储
+# <a name="how-to-use-powershell-to-manage-azure-files"></a>如何使用 PowerShell 管理 Azure 文件
 可以使用 Azure PowerShell 创建和管理文件共享。
 
 ## <a name="install-the-powershell-cmdlets-for-azure-storage"></a>为 Azure 存储安装 PowerShell cmdlet
@@ -96,9 +96,9 @@ Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt 
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 ## <a name="next-steps"></a>后续步骤
-请参阅以下链接以获取有关 Azure 文件存储的更多信息。
+请参阅以下链接，获取有关 Azure 文件的更多信息。
 
 * [常见问题](../storage-files-faq.md)
 * [在 Windows 上进行故障排除](storage-troubleshoot-windows-file-connection-problems.md)      
-* [在 Linux 上进行故障排除](storage-troubleshoot-linux-file-connection-problems.md)
-<!--Update_Description: update link-->
+* [在 Linux 上进行故障排除](storage-troubleshoot-linux-file-connection-problems.md)    
+<!--Update_Description: wording update-->

@@ -3,7 +3,7 @@ title: "准备好要上传到 Azure 的 Windows VHD | Azure"
 description: "上传到 Azure 前如何准备 Windows VHD 或 VHDX"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -12,15 +12,15 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 08/01/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 1026540123e6829df5448e72b6965077a643e7e8
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: 573e48cdb945da62cdc12b8f5ad103ae1a1854db
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>准备好要上传到 Azure 的 Windows VHD 或 VHDX
 在将 Windows 虚拟机 (VM) 从本地上传到 Azure 之前，必须准备好虚拟硬盘（VHD 或 VHDX）。 Azure 仅支持采用 VHD 文件格式且具有固定大小磁盘的第 1 代 VM。 VHD 允许的最大大小为 1,023 GB。 可以将第 1 代 VM 从 VHDX 文件系统转换成 VHD 文件系统，以及从动态扩展磁盘转换成固定大小磁盘， 但无法更改 VM 的代次。 有关详细信息，请参阅 [Should I create a generation 1 or 2 VM in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)（应该在 Hyper-V 中创建第 1 代还是第 2 代 VM？）。
@@ -67,7 +67,7 @@ Convert-VHD -Path c:\test\MY-VM.vhdx -DestinationPath c:\test\MY-NEW-VM.vhd -VHD
 1. 删除路由表中的所有静态持久性路由：
 
    * 若要查看路由表，请在命令提示符处运行 `route print`。
-   * 请查看 **持久性路由** 部分。 如果有持久性路由，请使用 [route delete](https://technet.microsoft.com/library/cc739598.apx) 将它删除。
+   * 请查看**持久性路由**部分。 如果有持久性路由，请使用 [route delete](https://technet.microsoft.com/library/cc739598.apx) 将它删除。
 2. 删除 WinHTTP 代理：
 
     ```PowerShell
@@ -269,7 +269,7 @@ Set-Service -Name RemoteRegistry -StartupType Auto
 
     > [!Note]
     > 确保在提升权限的 CMD 窗口上运行这些命令，不要在 PowerShell 上运行：
-   
+
    ```CMD
    bcdedit /set {bootmgr} integrityservices enable
 
@@ -311,7 +311,6 @@ Set-Service -Name RemoteRegistry -StartupType Auto
     - 计算机配置\Windows 设置\安全设置\本地策略\用户权限分配\拒绝从网络访问这台计算机
 
     - 计算机配置\Windows 设置\安全设置\本地策略\用户权限分配\拒绝通过远程桌面服务登录
-
 
 8. 重启 VM，确保 Windows 仍可正常运行，并可使用 RDP 连接来访问。 此时，可能需要在本地 Hyper-V 中创建一个 VM，确保该 VM 完全启动，然后测试是否可以通过 RDP 来访问它。
 
@@ -357,7 +356,7 @@ Set-Service -Name RemoteRegistry -StartupType Auto
 |                         |                   |                                    | KB4012216                                   |                                      | KB4013198                            | KB4013198                  |
 |                         |                   | KB4012215                          | KB4012214                                   | KB4012216                            | KB4013429                            | KB4013429                  |
 |                         |                   |                                    | KB4012217                                   |                                      | KB4013429                            | KB4013429                  |
-       
+
 ### 何时使用 sysprep <a id="step23"></a>    
 
 Sysprep 是一个可以在 Windows 安装过程中运行的进程，它会重置系统安装，并会删除所有个人数据和重置多个组件，从而为你提供“全新安装体验”。 通常情况下，这样做的前提是，需要创建一个模板，以便通过该模板部署多个具有特定配置的其他 VM。 这称为“通用化映像”。
@@ -428,4 +427,4 @@ Sysprep 是一个可以在 Windows 安装过程中运行的进程，它会重置
 ## <a name="next-steps"></a>后续步骤
 * [将 Windows VM 映像上传到 Azure 以进行 Resource Manager 部署](upload-generalized-managed.md)
 
-<!--Update_Description: update powershell scripts; update windows update table-->
+<!--Update_Description: update meta properties, wording update-->

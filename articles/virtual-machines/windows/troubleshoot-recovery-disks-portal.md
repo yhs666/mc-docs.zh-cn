@@ -3,22 +3,22 @@ title: "在 Azure 门户中使用 Windows 故障排除 VM | Azure"
 description: "了解如何通过使用 Azure 门户将 OS 磁盘连接到恢复 VM，对 Azure 中的 Windows 虚拟机问题进行故障排除"
 services: virtual-machines-windows
 documentationCenter: 
-authors: genlin
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/26/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 06862624431d2cb1bf620d3e31232872a44cb5af
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: 6cfe462a74c14b496f96bf95db766e5f90ff17a7
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>通过使用 Azure 门户将 OS 磁盘附加到恢复 VM，对 Windows VM 进行故障排除
 如果 Windows 虚拟机 (VM) 在 Azure 中遇到启动或磁盘错误，可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是应用程序更新失败，使 VM 无法成功启动。 本文详细介绍如何使用 Azure 门户将虚拟硬盘连接到另一个 Windows VM 来修复所有错误，然后重新创建原始 VM。
@@ -44,7 +44,7 @@ ms.lasthandoff: 07/14/2017
 ## <a name="view-existing-virtual-hard-disk-details"></a>查看现有虚拟硬盘的详细信息
 在将虚拟硬盘附加到另一个 VM 之前，需要标识虚拟硬盘 (VHD) 的名称。 
 
-在门户中选择资源组，然后选择存储帐户。 单击“Blob”，如以下示例中所示： 
+在门户中选择资源组，并选择存储帐户。 单击“Blob”，如以下示例中所示： 
 
 ![选择存储 Blob](./media/troubleshoot-recovery-disks-portal/storage-account-overview.png)
 
@@ -59,18 +59,18 @@ ms.lasthandoff: 07/14/2017
 ## <a name="delete-existing-vm"></a>删除现有 VM
 虚拟硬盘和 VM 在 Azure 中是两个不同的资源。 虚拟硬盘是操作系统本身，存储应用程序和配置。 VM 本身只是定义大小或位置的元数据，引用虚拟硬盘或虚拟网络接口卡 (NIC) 等资源。 每个虚拟硬盘在附加到 VM 时分配有一个租约。 尽管 VM 正在运行时也可以附加和分离数据磁盘，但是，若要分离 OS 磁盘，则必须删除 VM 资源。 即使 VM 处于停止和解除分配状态，租约也继续将 OS 磁盘与 VM 相关联。
 
-恢复 VM 的第一步是删除 VM 资源本身。 删除 VM 时会将虚拟硬盘留在存储帐户中。 删除 VM 后，可将虚拟硬盘附加到另一个 VM，以排查和解决这些错误。
+恢复 VM 的第一步是删除 VM 资源本身。 删除 VM 时会将虚拟硬盘留在存储帐户中。 删除 VM 后，可将虚拟硬盘附加到另一个 VM，以进行故障排除和解决这些错误。
 
-在门户中选择你的 VM，然后单击“删除”： 
+在门户中选择用户的 VM，并单击“删除”： 
 
 ![显示启动错误的 VM 启动诊断屏幕截图](./media/troubleshoot-recovery-disks-portal/stop-delete-vm.png)
 
-等到 VM 完成删除，然后将虚拟硬盘附加到另一个 VM。 虚拟硬盘上将其与 VM 关联的租约需要释放，然后才能将虚拟硬盘附加到另一个 VM。
+等到 VM 已完成删除，再将虚拟硬盘附加到另一个 VM。 虚拟硬盘上将其与 VM 关联的租约需要释放，才能将虚拟硬盘附加到另一个 VM。
 
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>将现有虚拟硬盘附加到另一个 VM
-在后续几个步骤中，将使用另一个 VM 进行故障排除。 将现有虚拟硬盘附加到此故障排除 VM，以便浏览和编辑磁盘的内容。 例如，此过程允许用户更正任何配置错误或者查看其他应用程序或系统日志文件。 选择或创建另一个 VM 用于故障排除。
+在后续几个步骤中，使用另一个 VM 进行故障排除。 将现有虚拟硬盘附加到此故障排除 VM，以便浏览和编辑磁盘的内容。 例如，此过程允许用户更正任何配置错误或者查看其他应用程序或系统日志文件。 选择或创建另一个 VM 用于故障排除。
 
-1. 在门户中选择资源组，然后选择故障排除 VM。 选择“磁盘”，然后单击“附加现有磁盘”：
+1. 在门户中选择资源组，并选择故障排除 VM。 选择“磁盘”，然后单击“附加现有磁盘”：
 
     ![在门户中附加现有磁盘](./media/troubleshoot-recovery-disks-portal/attach-existing-disk.png)
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 07/14/2017
 
     ![浏览现有 VHD](./media/troubleshoot-recovery-disks-portal/select-vhd-location.png)
 
-3. 选择存储帐户和容器，然后单击现有的 VHD。 单击“选择”按钮确认所做的选择： 
+3. 选择存储帐户和容器，并单击现有的 VHD。 单击“选择”按钮确认所做的选择： 
 
     ![选择现有 VHD](./media/troubleshoot-recovery-disks-portal/select-vhd.png)
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 07/14/2017
 
     ![确认附加现有虚拟硬盘](./media/troubleshoot-recovery-disks-portal/attach-disk-confirm.png)
 
-5. 几秒钟后，VM 的“磁盘”窗格将列出作为数据磁盘连接的现有虚拟硬盘： 
+5. 几秒钟后，VM 的“磁盘”窗格列出作为数据磁盘连接的现有虚拟硬盘： 
 
     ![现有虚拟硬盘已附加为数据磁盘](./media/troubleshoot-recovery-disks-portal/attached-disk.png)
 
@@ -114,25 +114,27 @@ ms.lasthandoff: 07/14/2017
 
     ![在服务器管理器中选择“文件和存储服务”](./media/troubleshoot-recovery-disks-portal/server-manager-select-storage.png)
 
-2. 选择“磁盘”  ，然后选择数据磁盘。 右键单击数据磁盘，然后选择“脱机” ：
+2. 选择“磁盘”  ，并选择数据磁盘。 右键单击数据磁盘，并选择“脱机” ：
 
     ![在服务器管理器中将数据磁盘设置为脱机](./media/troubleshoot-recovery-disks-portal/server-manager-set-disk-offline.png)
 
-3. 现在从 VM 中分离虚拟硬盘。 在 Azure 门户中选择 VM，然后单击“磁盘”。 Select your existing virtual hard disk and then click **Detach**:
+3. 现在从 VM 中分离虚拟硬盘。 在 Azure 门户中选择 VM，然后单击“磁盘”。 Select your existing virtual hard disk and then click <bpt id="p1">**</bpt>Detach<ept id="p1">**</ept>:
 
     ![分离现有虚拟硬盘](./media/troubleshoot-recovery-disks-portal/detach-disk.png)
 
-    等到 VM 成功分离数据磁盘，然后继续操作。
+    等到 VM 成功分离数据磁盘，并继续操作。
 
 ## <a name="create-vm-from-original-hard-disk"></a>从原始硬盘创建 VM
-若要从原始虚拟硬盘创建 VM，请使用 [此 Azure Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet)。 该模板使用前面命令中的 VHD URL 将 VM 部署到现有虚拟网络。 不要在 GitHub 存储库中单击“部署到 Azure”，因为这面向全球 Azure。 而是请单击下面的链接：
+若要从原始虚拟硬盘创建 VM，请使用 [此 Azure Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet)。 该模板使用前面命令中的 VHD URL 将 VM 部署到现有虚拟网络。 单击“部署到 Azure”按钮，如下所示：
 
-[![从 Github 中的模板部署 VM](./media/troubleshoot-recovery-disks-portal/deploy-template-from-github.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F201-vm-specialized-vhd-existing-vnet%2Fazuredeploy.json)
+![从 Github 中的模板部署 VM](./media/troubleshoot-recovery-disks-portal/deploy-template-from-github.png)
 
-模板已加载到 Azure 门户中进行部署。 请输入新 VM 和现有 Azure 资源的名称，然后粘贴现有虚拟硬盘的 URL。 若要开始部署，请在查看“法律条款”后单击“购买”，然后单击其中的“创建”按钮。
+模板已载入 Azure 门户进行部署。 请输入新 VM 和现有 Azure 资源的名称，并粘贴现有虚拟硬盘的 URL。 若要开始部署，请单击“购买”： 
+
+![从模板部署 VM](./media/troubleshoot-recovery-disks-portal/deploy-from-image.png)
 
 ## <a name="re-enable-boot-diagnostics"></a>重新启用启动诊断
-从现有虚拟硬盘创建 VM 时，启动诊断可能不会自动启用。 若要检查启动诊断的状态并根据需要打开启动诊断，请在门户中选择你的 VM。 在“监视”下面，单击“诊断设置”。 确保状态为“打开”，并检查“启动诊断”旁边的复选标记是否为选中状态。 If you make any changes, click **Save**:
+从现有虚拟硬盘创建 VM 时，启动诊断可能不会自动启用。 要检查启动诊断的状态并根据需要打开启动诊断，请在门户中选择 VM。 在“监视”下面，单击“诊断设置”。 确保状态为“打开”，并检查“启动诊断”旁边的复选标记是否为选中状态。 If you make any changes, click <bpt id="p1">**</bpt>Save<ept id="p1">**</ept>:
 
 ![更新启动诊断设置](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
 
@@ -140,3 +142,4 @@ ms.lasthandoff: 07/14/2017
 如果在连接到 VM 时遇到问题，请参阅[对 Azure VM 的 RDP 连接进行故障排除](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 如果在访问 VM 上运行的应用程序时遇到问题，请参阅[对 Windows VM 上的应用程序连接问题进行故障排除](troubleshoot-app-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 有关使用 Resource Manager 的详细信息，请参阅 [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+<!--Update_Description: update meta properties, wording update, update image-->

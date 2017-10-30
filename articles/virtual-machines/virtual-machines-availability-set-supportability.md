@@ -11,15 +11,15 @@ ms.service: virtual-machines
 ms.workload: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 07/15/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1aa41729e77e357da2107bb7aea6f62e815fbc8c
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 711c2484c1685a65415f74faf64b89a60524a943
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>将 Azure VM 添加到现有可用性集的可支持性
 
@@ -38,5 +38,6 @@ ms.lasthandoff: 10/13/2017
 
 所有其他系列都不能在同一可用性集中，因为它们需要特定的硬件。
 
-由于专用 RDMA 后端网络的要求，A8/A9 VM 大小不能混合。
-<!--Update_Description: add A8/A9 VM size can not be mixed in Available Set-->
+<!--Not Available on A8/A9 -->
+
+<!--Update_Description: remove A8/A9 due to unsuitable to azure.cn-->

@@ -3,8 +3,8 @@ title: "在 Azure 专用 VHD 中创建 Windows VM | Azure"
 description: "在资源管理器部署模型中，通过将专用托管磁盘附加为 OS 磁盘来创建新 Windows VM。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/29/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
-ms.openlocfilehash: bf3d2b714b8375bbf6711523938cc00c75965743
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: 68ead0406fa3db8ff173d2c4505dd44736d8fed5
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk"></a>从专用磁盘创建 Windows VM
 
@@ -125,7 +125,7 @@ New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
 从上传的 VHD 创建新 OS 磁盘。 
 
 ```powershell
-$sourceUri = https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vhd)
+$sourceUri = (https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
     (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import `
@@ -312,6 +312,6 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>后续步骤
-若要登录到新虚拟机，请在[门户](https://portal.azure.cn)中浏览到该 VM，单击“连接”，并打开远程桌面 RDP 文件。 使用原始虚拟机的帐户凭据登录到新虚拟机。 有关详细信息，请参阅 [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md)（如何连接并登录到运行 Windows 的 Azure 虚拟机）。
+若要登录到新虚拟机，请在[门户](https://portal.azure.cn)中浏览到该 VM，单击“连接”，然后打开远程桌面 RDP 文件。 使用原始虚拟机的帐户凭据登录到新虚拟机。 有关详细信息，请参阅 [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md)（如何连接并登录到运行 Windows 的 Azure 虚拟机）。
 
 <!--Update_Description: wording update-->

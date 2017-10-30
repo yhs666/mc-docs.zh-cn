@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 origin.date: 08/03/2017
 ms.date: 08/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: c2b93716f2e9697d4635e577c70c74cc71e8374d
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.openlocfilehash: 032930fa58cbde16ca26b494ef04f03fbda5d06b
+ms.sourcegitcommit: 9bf00397882b114ed32a3bb4801e5b90ab1aeed7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>使用证书身份验证配置与 VNet 的点到站点连接（经典）：Azure 门户
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-本文介绍如何在经典部署模型中使用 Azure 门户通过点到站点连接来创建 VNet。 此配置使用证书来验证正在进行连接的客户端。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
+本文介绍如何在经典部署模型中使用 Azure 门户通过点到站点连接来创建 VNet。 此配置使用证书来验证正在进行连接的客户端。 也可使用不同的部署工具或部署模型来创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -47,11 +47,11 @@ P2S 使用安全套接字层隧道协议 (SSTP)，这是一种基于 SSL 的 VPN
 - 动态 VPN 网关。
 - 适用于根证书的公钥（.cer 文件），已上传到 Azure。 此证书被视为可信证书，用于身份验证。
 - 从根证书生成的客户端证书，安装在每个要连接的客户端计算机上。 此证书用于客户端身份验证。
-- 必须生成 VPN 客户端配置包，并将其安装在每个连接的客户端计算机上。 客户端配置包为操作系统上已有的本机 VPN 客户端配置连接到 VNet 所需的信息。
+- 必须生成 VPN 客户端配置包，并将其安装在每个连接的客户端计算机上。 客户端配置包配置本机 VPN 客户端，该客户端已经位于操作系统中，具有连接到 VNet 所需的信息。
 
 点到站点连接不需要 VPN 设备或面向公众的本地 IP 地址。 VPN 连接基于 SSTP（安全套接字隧道协议）创建。 在服务器端，我们支持 SSTP 1.0、1.1 和 1.2 版。 客户端决定要使用的版本。 对于 Windows 8.1 及更高版本，SSTP 默认使用 1.2。 
 
-有关点到站点连接的详细信息，请参阅本文末尾的 [点到站点常见问题解答](#faq) 。
+有关点到站点连接的详细信息，请参阅本文末尾的[点到站点常见问题解答](#faq)。
 
 ### <a name="example-settings"></a>示例设置
 
@@ -99,7 +99,7 @@ P2S 使用安全套接字层隧道协议 (SSTP)，这是一种基于 SSL 的 VPN
 
    ![创建虚拟网络磁贴](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
 10. 创建虚拟网络后，可以在 Azure 经典管理门户中的“网络”页上，看到“状态”下面列出了“已创建”。
-11. 添加 DNS 服务器（可选）。 创建虚拟网络后，可以添加 DNS 服务器的 IP 地址进行名称解析。 指定的 DNS 服务器 IP 地址应该是可以解析 VNet 中资源名称的 DNS 服务器的地址。<br>如果要添加 DNS 服务器，请打开虚拟网络的设置，单击 DNS 服务器，并添加要使用的 DNS 服务器的 IP 地址。
+11. 添加 DNS 服务器（可选）。 创建虚拟网络后，可以添加 DNS 服务器的 IP 地址进行名称解析。 指定的 DNS 服务器 IP 地址应该是可以解析 VNet 中资源名称的 DNS 服务器的地址。<br>要添加 DNS 服务器，请打开虚拟网络的设置，单击 DNS 服务器，并添加要使用的 DNS 服务器的 IP 地址。
 
 ### <a name="gateway"></a>第 2 部分：创建网关子网和动态路由网关
 
@@ -148,7 +148,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
 
 ## <a name="upload"></a>3.上传根证书 .cer 文件
 
-创建网关后，可以将可信根证书的 .cer 文件（其中包含公钥信息）上传到 Azure。 不要将根证书的私钥上传到 Azure。 上传 .cer 文件后，Azure 可以使用该文件对已安装客户端证书（根据可信根证书生成）的客户端进行身份验证。 可在以后根据需要上传更多的受信任根证书文件（最多 20 个）。  
+创建网关后，即可为委托给 Azure 的根证书上传 .cer 文件（其中包含公钥信息）。 不要将根证书的私钥上传到 Azure。 上传 .cer 文件后，Azure 可以使用该文件对已安装客户端证书（根据可信根证书生成）的客户端进行身份验证。 可在以后根据需要上传更多的可信根证书文件（最多 20 个）。  
 
 1. 在 VNet 页的“VPN 连接”部分，单击“客户端”图形打开“点到站点 VPN 连接”页。
 
@@ -200,7 +200,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
 
 ### <a name="verifyvpnconnect"></a>验证 VPN 连接
 
-1. 如果要验证用户的 VPN 连接是否处于活动状态，请打开提升的命令提示符，并运行 *ipconfig/all*。
+1. 要验证 VPN 连接是否处于活动状态，请打开提升的命令提示符，然后运行 *ipconfig/all*。
 2. 查看结果。 请注意，收到的 IP 地址是点到站点连接地址范围中的一个地址，该范围是你在创建 VNet 时指定的。 结果应类似于以下示例：
 
   ```
@@ -226,7 +226,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
 
 ### <a name="addtrustedroot"></a>添加受信任的根证书
 
-最多可以将 20 个受信任的根证书 .cer 文件添加到 Azure。 如需说明，请参阅[第 3 部分 - 上传根证书 .cer 文件](#upload)。
+最多可以将 20 个受信任的根证书 .cer 文件添加到 Azure。 如需说明，请参阅[第 3 部分 - 上载根证书 .cer 文件](#upload)。
 
 ### <a name="removetrustedroot"></a>删除受信任的根证书
 
@@ -259,7 +259,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
 
 ## <a name="faq"></a>点到站点常见问题解答
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
 
 ## <a name="next-steps"></a>后续步骤
 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/#pivot=services&panel=Compute)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。

@@ -3,8 +3,8 @@ title: "在 Azure 存储中使用共享访问签名 (SAS) | Azure"
 description: "了解使用共享访问签名 (SAS) 委派对 Azure 存储资源（包括 Blob、队列、表和文件）的访问权限。"
 services: storage
 documentationcenter: 
-author: mmacy
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
 ms.service: storage
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 04/18/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: e6b928929cad8f4443869be0a7b36afb1966b326
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: f055685fec4817ab591f81e2fa8cd44dd4fbcc4b
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="using-shared-access-signatures-sas"></a>使用共享访问签名 (SAS)
 
@@ -429,6 +429,8 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 共享访问签名用于将存储帐户的受限权限提供给不应具有帐户密钥的客户端。 因此，它们是安全模型的重要环节，适合使用 Azure 存储的任何应用程序。 如果按照本文中介绍的最佳实践执行，则可以使用 SAS 更灵活地访问存储帐户中的资源，且不会影响应用程序的安全性。
 
 ## <a name="next-steps"></a>后续步骤
+* [共享访问签名，第 2 部分：创建 SAS 并将 SAS 用于 Blob 存储](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [管理对容器和 blob 的匿名读取访问](../blobs/storage-manage-access-to-resources.md)
 * [使用共享访问签名委托访问](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [介绍表和队列 SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+<!--Update_Description:add one link next step-->

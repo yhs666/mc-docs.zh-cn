@@ -3,7 +3,7 @@ title: "从 Windows VM 分离数据磁盘 - Azure | Azure"
 description: "了解如何从使用 Resource Manager 部署模型的 Azure 中的虚拟机分离磁盘。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-service-management
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/21/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 600d70ad52c7dbbdbe159abb39b3d69b34e61756
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: 28e604791a50d5d5bccb7db201092b42b44082a9
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>如何从 Windows 虚拟机分离数据磁盘
 当不再需要附加到虚拟机的数据磁盘时，可以轻松地分离它。 这会从虚拟机中删除该磁盘，但不会从存储中删除它。
 
 > [!WARNING]
-> 如果用户分离磁盘，它不会自动删除。 如果用户订阅了高级存储，则将继续承担该磁盘的存储费用。 有关详细信息，请参阅[使用高级存储时的定价和计费方式](../../storage/common/storage-premium-storage.md#pricing-and-billing)。
+> 如果用户分离磁盘，它不会自动删除。 如果订阅了高级存储，则将继续承担该磁盘的存储费用。 有关详细信息，请参阅[使用高级存储时的定价和计费方式](../../storage/common/storage-premium-storage.md#pricing-and-billing)。
 >
 >
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 08/29/2017
 
 最后一个命令将更新虚拟机的状态以完成数据磁盘删除过程。
 
-```powershell
+```azurepowershell-interactive
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
 Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
 Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
@@ -59,5 +59,5 @@ Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
 有关详细信息，请参阅 [Remove-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmdatadisk)。
 
 ## <a name="next-steps"></a>后续步骤
-要重新使用数据磁盘，只需[将其附加到其他 VM](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 即可
-<!--Update_Description: update storage links-->
+如果想要重新使用数据磁盘，只需将它[附加到另一个 VM](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+<!--Update_Description: update meta properties, wording update-->

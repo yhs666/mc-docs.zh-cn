@@ -6,7 +6,7 @@
 ## [VM、网站和云服务对比](../../../app-service-web/choose-web-site-cloud-service-vm.md)
 
 # 入门
-## [使用门户创建 VM](tutorial.md)
+## [使用 Azure 门户创建 VM](tutorial.md)
 ## [登录到 VM](connect-logon.md)
 ## [安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [安装 Azure CLI](../../../cli-install-nodejs.md)
@@ -21,7 +21,7 @@
 ## 网络
 ### [如何设置终结点](setup-endpoints.md)
 ### [将 VM 与 VNet 或云服务连接](connect-vms.md)
-### [将经典 VNet 连接到资源管理器 VNet](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+### [将经典 VNet 连接到 Resource Manager VNet](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 ### [创建负载均衡器](../../../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 ### [使用 Azure PowerShell 管理 NSG](../../../virtual-network/virtual-networks-create-nsg-classic-ps.md)
 
@@ -79,16 +79,18 @@
 ### [将虚拟硬盘附加到故障排除 VM](troubleshoot-recovery-disks-portal.md)
 
 # 引用
-## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest)
 ## [Java](https://docs.azure.cn/zh-cn/java/api/overview/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute)
 ## [创建 Resource Manager 模板](../../../resource-group-authoring-templates.md)
 ## [社区模板](https://github.com/Azure/azure-quickstart-templates)
-## [计算 REST](https://docs.microsoft.com/rest/api/compute)
-## [网络 REST](https://docs.microsoft.com/rest/api)
-## [存储 REST](https://docs.microsoft.com/rest/api/storageservices)
+## [计算 REST](https://msdn.microsoft.com/library/jj157206.aspx)
+## [网络 REST](https://msdn.microsoft.com/library/jj157182.aspx)
+## [存储 REST](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # 资源
 ## [价格](https://www.azure.cn/pricing/details/virtual-machines/#Windows)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [视频](https://www.azure.cn/video-center/)
+<!--ms.date: 10/30/2017-->

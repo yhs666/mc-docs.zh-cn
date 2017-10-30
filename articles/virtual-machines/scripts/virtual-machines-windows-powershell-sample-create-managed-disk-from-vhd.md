@@ -3,7 +3,7 @@ title: "Azure PowerShell 脚本示例 - 在相同或不同订阅的存储帐户�
 description: "Azure PowerShell 脚本示例 - 在相同或不同订阅的存储帐户中从 VHD 文件创建托管磁盘"
 services: virtual-machines-windows
 documentationcenter: storage
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 02381e800b4dc9245e7efc10ebc14fbd4be774d8
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: 8e745e8f5c10018b10ff61eb4ff5912a224ea297
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-same-or-different-subscription-with-powershell"></a>使用 PowerShell 在相同或不同订阅的存储帐户中从 VHD 文件创建托管磁盘
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 08/25/2017
 
 请勿在短时间内从一个 VHD 文件创建多个相同的托管磁盘。 若要从 VHD 文件创建托管磁盘，需创建该 VHD 文件的 blob 快照，然后再使用快照创建托管磁盘。 一分钟内只可创建一个 blob 快照，此限制会导致磁盘创建失败。 若要避免此限制，请[从 VHD 文件创建托管快照](virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json)，然后使用托管快照在短时间内创建多个托管磁盘。 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 4.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -50,11 +50,11 @@ $diskSize = '128'
 #Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
 $storageType = 'PremiumLRS'
 
-#Provide the Azure region (e.g. China North) where Managed Disk will be located.
+#Provide the Azure region (e.g. chinanorth) where Managed Disk will be located.
 #This location should be same as the storage account where VHD file is stored
 #Get all the Azure location using command below:
 #Get-AzureRmLocation
-$location = 'China North'
+$location = 'chinanorth'
 
 #Provide the URI of the VHD file (page blob) in a storage account. Please not that this is NOT the SAS URI of the storage container where VHD file is stored. 
 #e.g. https://contosostorageaccount1.blob.core.chinacloudapi.cn/vhds/contosovhd123.vhd
@@ -91,3 +91,4 @@ New-AzureRmDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskNam
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure Windows VM 文档](../../virtual-machines/windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
+<!--Update_Description: update meta properties-->

@@ -9,7 +9,7 @@
 ## <a name="what-can-i-run-on-an-azure-vm"></a>我可以在 Azure VM 上运行什么程序？
 所有订户都可以在 Azure 虚拟机上运行服务器软件。 可以运行最新版本的 Windows Server 和各种 Linux 发行版。 有关支持详细信息，请参阅：
 
-• 对于Windows VM — [Microsoft 服务器软件对 Azure 虚拟机的支持](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
+• 对于Windows VM — [Microsoft 服务器软件对 Azure 虚拟机的支持](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
 • 对于 Linux VM — [Azure 认可的分发中的 Linux](/virtual-machines/linux/endorsed-distros)
 
@@ -18,7 +18,7 @@
 
 当前一个区域内的 Azure 网络已被设计为不再需要地缘组。 虚拟网络也在区域范围内，因此使用虚拟网络时不再需要地缘组。 由于这些改进，我们不再建议客户使用地缘组，因为在某些情况下它们可能存在一些限制。 使用地缘组将不必要地将 VM 和特定的硬件相关联，这样限制了可供你选择的 VM 大小。 当与地缘组相关联的特定硬件接近容量上限时，如果尝试添加新的 VM，还可能导致与容量相关的错误。
 
-Azure Resource Manager 部署模型和 Azure 门户已弃用地缘组功能。 对于 Azure 经典管理门户，我们将禁止支持创建地缘组以及创建固定到地缘组的存储资源。 你无需修改现有的使用地缘组的云服务。 但是，你不能在新的云服务中使用地缘组，除非 Azure 支持专业人员建议使用它们。
+Azure Resource Manager 部署模型和 Azure 门户已弃用地缘组功能。 对于 Azure 经典管理门户，我们禁止支持创建地缘组以及创建固定到地缘组的存储资源。 无需修改现有的使用地缘组的云服务。 但是，不能在新的云服务中使用地缘组，除非 Azure 支持专业人员建议使用它们。
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>使用虚拟机时，我可以使用多少存储？
 每个数据磁盘的容量高达 1 TB。 可以使用的数据磁盘数取决于虚拟机大小。 有关详细信息，请参阅[虚拟机大小](../articles/virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -26,7 +26,7 @@ Azure Resource Manager 部署模型和 Azure 门户已弃用地缘组功能。 �
 Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空间。 每个磁盘都是一个 .vhd 文件，以页 blob 形式存储。 有关定价详细信息，请参阅 [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/blob/)（存储定价详细信息）。
 
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>可以使用哪些虚拟硬盘类型？
-Azure 只支持固定的 VHD 格式的虚拟硬盘。 若要在 Azure 中使用 VHDX，需先使用 Hyper-V 管理器或 [convert-VHD](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/convert-vhd) cmdlet 对其进行转换。 然后，使用 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet（在“服务管理”模式下）将 VHD 上传到 Azure 的存储帐户，用于虚拟机。
+Azure 只支持固定的 VHD 格式的虚拟硬盘。 若要在 Azure 中使用 VHDX，需先使用 Hyper-V 管理器或 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet 对其进行转换。 然后，使用 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet（在“服务管理”模式下）将 VHD 上传到 Azure 的存储帐户，用于虚拟机。
 
 * 有关 Linux 说明，请参阅[创建并上传包含 Linux 操作系统的虚拟硬盘](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
 * 有关 Windows 说明，请参阅[创建 Windows Server VHD 并将其上传到 Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
@@ -71,7 +71,7 @@ Windows VM 的其他选项包括：
 * 对于 Linux VM，可使用适用于发行版的包管理工具和过程。
 * 对于 Windows 虚拟机，需要使用类似 Windows Server 迁移工具的工具迁移服务器。 请勿尝试升级来宾 OS（如果驻留在 Azure 上）。 由于存在失去虚拟机访问权限的风险，因此不支持该功能。 如果在升级过程中出现问题，可能无法启动远程桌面会话，并且无法解决这些问题。
 
-有关 Windows Server 迁移工具和过程的一般详细信息，请参阅[将角色和功能迁移到 Windows Server](https://technet.microsoft.com/library/jj134039.aspx)。
+有关 Windows Server 迁移工具和过程的一般详细信息，请参阅[将角色和功能迁移到 Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940)。
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>虚拟机的默认用户名和密码是什么？
 Azure 提供的映像没有预先配置的用户名和密码。 使用其中一个映像创建虚拟机时，需提供用于登录到虚拟机的用户名和密码。
@@ -80,11 +80,11 @@ Azure 提供的映像没有预先配置的用户名和密码。 使用其中一�
 
 其他详细信息：
 
-* 对于 Linux 映像，如果你使用 Azure 经典管理门户，系统会提供“azureuser”作为默认用户名，但你可以更改该用户名，只需使用“从库中”而非“快速创建”作为创建虚拟机的方法即可。 使用“从库中”，你可以决定在登录时是使用密码、SSH 密钥还是二者都使用。 用户帐户是非特权用户，但具有运行特权命令所需的“sudo”访问权限。 “root”帐户已禁用。
-* 对于 Windows 映像，需要在创建 VM 时提供用户名和密码。 该帐户将添加到管理员组。
+* 对于 Linux 映像，如果使用 Azure 经典管理门户，系统会提供“azureuser”作为默认用户名，但可以更改该用户名，只需使用“从库中”而非“快速创建”作为创建虚拟机的方法即可。 使用“从库中”，可以决定在登录时是使用密码、SSH 密钥还是二者都使用。 用户帐户是非特权用户，但具有运行特权命令所需的“sudo”访问权限。 “root”帐户已禁用。
+* 对于 Windows 映像，需要在创建 VM 时提供用户名和密码。 该帐户会添加到管理员组。
 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Azure 能否在虚拟机上运行防病毒软件？
-Azure 针对防病毒解决方案提供多种选项，但需要用户自行管理。 例如，可能需要另外订阅反恶意软件的软件，并需要自行决定运行扫描和安装更新的时间。 你可以在创建 Windows 虚拟机时通过适用于 Microsoft 反恶意软件或 TrendMicro Deep Security Agent 的 VM 扩展来添加防病毒支持，也可以稍后进行。 有关详细信息，请参阅：
+Azure 针对防病毒解决方案提供多种选项，但需要用户自行管理。 例如，可能需要另外订阅反恶意软件的软件，并需要自行决定运行扫描和安装更新的时间。 可以在创建 Windows 虚拟机时通过适用于 Microsoft 反恶意软件或 TrendMicro Deep Security Agent 的 VM 扩展来添加防病毒支持，也可以稍后进行。 有关详细信息，请参阅：
 
 * [如何在 Azure VM 上安装和配置 Trend Micro Deep Security 即服务](/virtual-machines/windows/classic/install-trend)
 * [在 Azure 虚拟机上部署反恶意软件解决方案](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
@@ -112,13 +112,13 @@ Azure 根据 VM 的大小和操作系统按小时进行收费。 对于不足一
 
 对于任何独立的 VM（表示该 VM 不属于可用性集），Azure 在进行计划内维护前提前至少 1 周向订阅服务管理员发送电子邮件通知，因为在更新期间各个 VM 可能会重新启动。 在 VM 上运行的应用程序可能会遭遇停机。
 
-因计划内维护而重新启动时，你还可以使用 Azure 经典管理门户或 Azure PowerShell 查看重新启动日志。 有关详细信息，请参阅 [Viewing VM Reboot Logs](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)（查看 VM 重新启动日志）。
+因计划内维护而重新启动时，还可以使用 Azure 经典管理门户或 Azure PowerShell 查看重新启动日志。 有关详细信息，请参阅 [Viewing VM Reboot Logs](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)（查看 VM 重新启动日志）。
 
-若要提供冗余，可将两个或多个采用类似配置的 VM 放到同一个可用性集中。 这可以确保在计划内或计划外维护期间至少有一个 VM 可用。 对于此配置，Azure 可以保证某些级别的 VM 可用性。 有关详细信息，请参阅[管理虚拟机的可用性](../articles/virtual-machines/windows/manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+要提供冗余，可将两个或多个采用类似配置的 VM 放到同一个可用性集中。 这可以确保在计划内或计划外维护期间至少有一个 VM 可用。 对于此配置，Azure 可以保证某些级别的 VM 可用性。 有关详细信息，请参阅[管理虚拟机的可用性](../articles/virtual-machines/windows/manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ## <a name="additional-resources"></a>其他资源
 [关于 Azure 虚拟机](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[创建 Linux 虚拟机的不同方式](../articles/virtual-machines/linux/creation-choices.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+[使用 Azure CLI 创建和管理 Linux VM](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[创建 Windows 虚拟机的不同方式](../articles/virtual-machines/windows/creation-choices.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+[使用 Azure PowerShell 创建和管理 Windows VM](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

@@ -1,6 +1,6 @@
 # 概述
-## [Azure VM 上的 SQL Server 是什么？](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [定价](virtual-machines-windows-sql-server-pricing-guidance.md)
+## [Windows SQL Server VM](virtual-machines-windows-sql-server-iaas-overview.md) 
+## [价格](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [常见问题](virtual-machines-windows-sql-server-iaas-faq.md)
 
 # 入门
@@ -15,8 +15,8 @@
 ### [Always On 可用性组](virtual-machines-windows-portal-sql-availability-group-overview.md)
 #### [手动 - 先决条件](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [手动 - 教程](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [负载均衡器 - 门户](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [负载均衡器 - PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [负载均衡器 - Azure 门户](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [负载均衡器 - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [多个区域](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### 故障转移群集实例
 #### [配置](virtual-machines-windows-portal-sql-create-failover-cluster.md)
@@ -29,20 +29,22 @@
 ## 备份和还原
 ### [备份和还原](virtual-machines-windows-sql-backup-recovery.md)
 ### [自动备份](virtual-machines-windows-sql-automated-backup.md)
-### [将 Azure 存储用于备份和还原](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
+### [使用 Azure 存储进行备份和还原](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 ## [性能最佳做法](virtual-machines-windows-sql-performance.md)
 ## [配置存储](virtual-machines-windows-sql-server-storage-configuration.md)
 ## [应用程序模式](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
-# 参考
-## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/)
+# 引用
+## [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [SQL Server 驱动程序](https://msdn.microsoft.com/library/mt654049.aspx)
 ## [REST](https://docs.microsoft.com/rest/api/)
 
 # 资源
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SQL Server 工具](https://msdn.microsoft.com/library/mt238365.aspx)
+<!--ms.date: 10/30/2017-->

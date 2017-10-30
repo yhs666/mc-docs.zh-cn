@@ -3,7 +3,7 @@ title: "SQL Server FCI - Azure 虚拟机 | Azure"
 description: "本文介绍如何在 Azure 虚拟机上创建 SQL Server 故障转移群集实例。"
 services: virtual-machines
 documentationCenter: na
-authors: hayley244
+author: rockboyfor
 manager: digimobile
 editor: monicar
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 03/17/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: b4bd479abec015f48427a39cecd3cfc4e4118259
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+origin.date: 09/26/2017
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: 1b3f3d4297c984de8ce776d25009c4f7c7914ee5
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虚拟机上配置 SQL Server 故障转移群集实例
 
@@ -97,8 +97,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
    - 单击“创建” 。
    - 在“创建可用性集”边栏选项卡中设置以下值： 
       - **名称**：可用性集的名称。
-      - 
-            **订阅**：Azure 订阅。
+      - **订阅**：Azure 订阅。
       - **资源组**：如果想要使用现有的组，请单击“使用现有项”并从下拉列表中选择该组。 否则，请选择“新建”并键入组的名称。
       - **位置**：设置要在其中创建虚拟机的位置。
       - **容错域**：使用默认值 (3)。
@@ -130,6 +129,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
       - **Windows Server Datacenter 2016 上的 SQL Server 2016 Standard**
       - **Windows Server Datacenter 2016 上的 SQL Server 2016 Developer**
 
+<!--Not Available    - **Bring-your-own-license (BYOL)**-->
    >[!IMPORTANT]
    >创建虚拟机后，请删除预装的独立 SQL Server 实例。 配置故障转移群集和 S2D 之后，使用预装的 SQL Server 媒体创建 SQL Server FCI。
 
@@ -141,14 +141,14 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
 1. 如果使用某个基于 SQL Server 的虚拟机映像，请删除 SQL Server 实例。
 
-   - 在“程序和功能”中，右键单击“Microsoft SQL Server 2016 (64 位)”，然后单击“卸载/更改”。
+   - 在“程序和功能”中，右键单击“Microsoft SQL Server 2016 (64 位)”，并单击“卸载/更改”。
    - 单击“删除”。
    - 选择默认实例。
    - 删除“数据库引擎服务”下的所有功能。 不要删除“共享功能”。 参阅下图：
 
       ![删除功能](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
-   - 单击“下一步”，然后单击“删除”。
+   - 单击“下一步”，并单击“删除”。
 
 1. <a name="ports"></a>打开防火墙端口。
 
@@ -194,7 +194,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 1. [将故障转移群集功能添加到每个虚拟机](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms)。
 
    若要通过 UI 安装故障转移群集功能，请在两个虚拟机上执行以下步骤。
-   - 单击“服务器管理器”中单击“管理”，然后单击“添加角色和功能”。
+   - 单击“服务器管理器”中单击“管理”，并单击“添加角色和功能”。
    - 在“添加角色和功能向导”中，单击“下一步”，直到出现“选择功能”。
    - 在“选择功能”中，单击“故障转移群集”。 请包含所有所需的功能和管理工具。 单击“添加功能”。
    - 单击“下一步”，然后单击“完成”安装这些功能。
@@ -216,8 +216,8 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
 若要使用 UI 验证群集，请在某个虚拟机中执行以下步骤。
 
-1. 在“服务器管理器”中单击“工具”，然后单击“故障转移群集管理器”。
-1. 在“故障转移群集管理器”中单击“操作”，然后单击“验证配置...”。
+1. 在“服务器管理器”中单击“工具”，并单击“故障转移群集管理器”。
+1. 在“故障转移群集管理器”中单击“操作”，并单击“验证配置...”。
 1. 单击“资源组名称” 的 Azure 数据工厂。
 1. 在“选择服务器或群集”中，键入两个虚拟机的名称。
 1. 在“测试选项”中，选择“仅运行选择的测试”。 单击“资源组名称” 的 Azure 数据工厂。
@@ -428,15 +428,34 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 若要设置群集探测端口参数，请在环境中更新以下脚本中的变量。
 
 ```PowerShell
-   $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
-   $IPResourceName = "IP Address Resource Name" # the IP Address cluster resource name.
-   $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-   [int]$ProbePort = <59999>
+   $ClusterNetworkName = "<Cluster Network Name>" 
+   $IPResourceName = "<SQL Server FCI IP Address Resource Name>"
+   $ILBIP = "<10.0.0.x>"
+   [int]$ProbePort = <nnnnn>
 
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
 ```
+
+在前面的脚本中，设置环境的值。 以下列表对这些值进行了说明：
+
+   - `<Cluster Network Name>`：Windows Server 故障转移群集的网络名称。 在“故障转移群集管理器” > “网络”中，右键单击网络，然后单击“属性”。 正确的值位于“常规”选项卡的“名称”下。 
+
+   - `<SQL Server FCI IP Address Resource Name>`：SQL Server FCI IP 地址资源名称。 在“故障转移群集管理器” > “角色”中，SQL Server FCI 角色的“服务器名称”下，右键单击 IP 地址资源，然后单击“属性”。 正确的值位于“常规”选项卡的“名称”下。 
+
+   - `<ILBIP>`：ILB IP 地址。 在 Azure 门户中将此地址配置为 ILB 前端地址。 这也是 SQL Server FCI IP 地址。 可在“故障转移群集管理器”中找到该地址，它与 `<SQL Server FCI IP Address Resource Name>` 位于同一属性页。  
+
+   - `<nnnnn>`：这是在负载均衡器运行状况探测中配置的探测端口。 任何未使用的 TCP 端口都有效。 
+
+>[!IMPORTANT]
+>群集参数的子网掩码必须是 TCP IP 广播地址：`255.255.255.255`。
+
+设置群集探测后，可在 PowerShell 中看到所有群集参数。 运行以下脚本：
+
+   ```PowerShell
+   Get-ClusterResource $IPResourceName | Get-ClusterParameter 
+  ```
 
 ## <a name="step-7-test-fci-failover"></a>步骤 7：测试 FCI 故障转移
 
@@ -448,7 +467,7 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 
 1. 右键单击“SQL Server FCI”角色。
 
-1. 单击“移动”，然后单击“最佳节点”。
+1. 单击“移动”，并单击“最佳节点”。
 
 “故障转移群集管理器”将显示该角色及其资源已脱机。 然后资源将会移动，并在另一个节点上联机。
 
@@ -471,3 +490,5 @@ Azure 虚拟机上的 FCI 不支持 Microsoft 分布式事务处理协调器 (DT
 [Storage Space Direct Overview](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [SQL Server support for S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
+
+<!--Update_Description: update meta properties, update link-->

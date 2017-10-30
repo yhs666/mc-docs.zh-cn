@@ -3,7 +3,7 @@ title: "Windows 虚拟机概述 | Azure"
 description: "了解如何在 Azure 中创建和管理 Windows 虚拟机。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1cf8f87a89f6bc05ac851ee8b50de9706b86b3de
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: a33f7936f1b12a67ea70f3f065fd359105af700f
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虚拟机概述
 
@@ -38,7 +38,7 @@ Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源
 可以根据需要，将应用程序使用的 VM 纵向和横向扩展为任意数目。
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>在创建 VM 之前需要考虑哪些因素？
-在 Azure 中构建应用程序基础结构时，始终要考虑多种[设计注意事项](https://docs.microsoft.com/architecture/reference-architectures/virtual-machines-linux?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 在开始之前，必须考虑到 VM 的以下重要方面：
+在 Azure 中构建应用程序基础结构时，始终要考虑多种[设计注意事项](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 在开始之前，必须考虑到 VM 的以下重要方面：
 
 * 应用程序资源的名称
 * 资源的存储位置
@@ -49,7 +49,7 @@ Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源
 * VM 所需的相关资源
 
 ### <a name="naming"></a>命名
-虚拟机有一个分配的[名称](https://docs.microsoft.com/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，另外，它还配置有一个在操作系统中使用的计算机名称。 VM 的名称最多可包含 15 个字符。
+虚拟机有一个分配的[名称](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，另外，它还配置有一个在操作系统中使用的计算机名称。 VM 的名称最多可包含 15 个字符。
 
 如果使用 Azure 创建操作系统磁盘，计算机名称与虚拟机名称相同。 如果[上传包含以前配置的操作系统的自有映像](upload-generalized-managed.md)并使用它来创建虚拟机，则名称可以不同。 建议在上传自己的映像文件时，使操作系统中的计算机名称与虚拟机名称保持相同。
 
@@ -76,6 +76,7 @@ Azure 根据 VM 的大小和操作系统[按小时进行收费](https://www.azur
 虚拟机使用[虚拟硬盘 (VHD)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。 
 
 Azure 提供许多应用商店映像，这些映像可配合各种版本和类型的 Windows Server 操作系统使用。 应用商店映像由映像发布者、产品、SKU 和版本（通常指定为最新版本）标识。 
+<!-- Not Available https://azure.microsoft.com/marketplace/virtual-machines/ -->
 
 下表显示了查找映像信息的一些方法。
 
@@ -149,6 +150,6 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 
 ## <a name="next-steps"></a>后续步骤
 * 如果打算使用 Linux VM，请查看 [Azure 和 Linux](../linux/overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-* 若要深入了解有关设置基础结构的指导，请参阅[示例 Azure 基础结构演练](infrastructure-example.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 在 [Example Azure infrastructure walkthrough](infrastructure-example.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（示例 Azure 基础结构演练）中查看有关设置基础结构的指导。
 
-<!--Update_Description: update storage and managed disk links-->
+<!--Update_Description: update meta properties, wording update-->

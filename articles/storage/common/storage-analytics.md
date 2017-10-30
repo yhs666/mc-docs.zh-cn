@@ -3,8 +3,8 @@ title: "使用 Azure 存储分析收集日志和指标数据 | Azure"
 description: "使用存储分析，可以跟踪所有存储服务的度量值数据，并收集 Blob、队列和表存储的日志。"
 services: storage
 documentationcenter: 
-author: hayley244
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
 ms.service: storage
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/03/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: a6409ec7a80da4452c12570b4c49e30314510f3a
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: bbdf1e9f02f16942b5e20c82338ec412610c5204
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="storage-analytics"></a>存储分析
 
@@ -38,7 +38,7 @@ Azure 存储分析执行日志记录并为存储帐户提供指标数据。 可�
 
 仅当存在存储服务活动时，才会创建日志条目。 例如，如果存储帐户的 Blob 服务中存在活动，而表或队列服务中没有活动，则仅创建与 Blob 服务有关的日志。
 
-存储分析日志记录不可用于 Azure 文件存储。
+存储分析日志记录不可用于 Azure 文件。
 
 ### <a name="logging-authenticated-requests"></a>记录经过身份验证的请求
 将记录以下类型的经过身份验证的请求：
@@ -140,23 +140,23 @@ https://<accountname>.blob.core.chinacloudapi.cn/$logs/blob/2011/07/31/1800/0000
 
 ### <a name="capacity-metrics"></a>容量度量值
 > [!NOTE]
-> 目前，容量指标仅适用于 Blob 服务。 未来版本的存储分析会提供表服务和队列服务的容量指标。
+> 目前，容量指标仅适用于 Blob 服务。 以后版本的存储分析将提供表服务和队列服务的容量度量值。
 
-每天记录存储帐户的 Blob 服务的容量数据，并写入两个表实体。 一个条目提供用户数据的统计信息，另一个条目提供有关存储分析所使用的 `$logs` Blob 容器的统计信息。 `$MetricsCapacityBlob` 表包含以下统计信息：
+每天记录存储帐户的 Blob 服务的容量数据，并写入两个表实体。 一个实体提供用户数据的统计信息，另一个实体提供有关存储分析所使用的 `$logs` Blob 容器的统计信息。 `$MetricsCapacityBlob` 表包含以下统计信息：
 
 * **Capacity**：存储帐户的 Blob 服务使用的存储量（字节）。
 * **ContainerCount**：存储帐户的 Blob 服务中的 blob 容器数。
 * **ObjectCount**：存储帐户的 Blob 服务中的提交和未提交的块或页 blob 数量。
 
-有关容量指标的详细信息，请参阅 [存储分析指标表架构](https://msdn.microsoft.com/library/hh343264.aspx)。
+有关容量指标的详细信息，请参阅[存储分析指标表架构](https://msdn.microsoft.com/library/hh343264.aspx)。
 
 ### <a name="how-metrics-are-stored"></a>如何存储指标
-每个存储服务的所有度量数据都存储在为该服务保留的三个表中：一个表存储事务信息，一个表存储分钟事务信息，还有一个表存储容量信息。 事务和分钟事务信息由请求和响应数据组成，而容量信息由存储使用情况数据组成。 存储帐户的 Blob 服务的小时指标、分钟指标和容量可在按下表所述命名的表中访问。
+每个存储服务的所有度量数据都存储在为该服务保留的三个表中：一个表存储事务信息，一个表存储分钟事务信息，还有一个表存储容量信息。 事务和分钟事务信息由请求和响应数据组成，而容量信息由存储使用情况数据组成。 存储帐户的 Blob 服务的小时度量值、分钟度量值和容量可在按下表所述命名的表中访问。
 
-| 指标级别 | 表名 | 支持的版本 |
+| 度量值级别 | 表名 | 支持的版本 |
 | --- | --- | --- |
 | 小时指标，主位置 |$MetricsTransactionsBlob <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |仅限 2013-08-15 之前的版本。 虽然仍然支持这些名称，但还是建议改用下面列出的表。 |
-| 小时指标，主位置 |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |所有版本，包括 2013-08-15。 |
+| 每小时度量值，主位置 |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |所有版本，包括 2013-08-15。 |
 | 分钟指标，主位置 |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |所有版本，包括 2013-08-15。 |
 | 小时指标，辅助位置 |$MetricsHourSecondaryTransactionsBlob <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |所有版本，包括 2013-08-15。 必须启用读访问的地域冗余复制。 |
 | 分钟指标，辅助位置 |$MetricsMinuteSecondaryTransactionsBlob <br/>$MetricsMinuteSecondaryTransactionsTable <br/>$MetricsMinuteSecondaryTransactionsQueue |所有版本，包括 2013-08-15。 必须启用读访问的地域冗余复制。 |
@@ -195,6 +195,6 @@ https://<accountname>.blob.core.chinacloudapi.cn/$logs/blob/2011/07/31/1800/0000
 ### <a name="storage-analytics-metrics"></a>存储分析指标
 * [关于存储分析指标](https://msdn.microsoft.com/library/hh343258.aspx)
 * [存储分析指标表架构](https://msdn.microsoft.com/library/hh343264.aspx)
-* [存储分析记录的操作和状态消息](https://msdn.microsoft.com/library/hh343260.aspx)
+* [存储分析记录的操作和状态消息](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

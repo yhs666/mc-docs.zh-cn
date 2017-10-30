@@ -3,7 +3,7 @@ title: "确定何时使用 Azure Blob、Azure 文件或 Azure 数据磁盘"
 description: "了解在 Azure 中存储和访问数据的不同方式有助于决定要使用的技术。"
 services: storage
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: 
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2017
-ms.date: 10/16/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 4194734e640b384e22f580650c0cce7548bbf340
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: 05b0c80f5187ae5e7cd4c73b3eedb3618e6b84da
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/23/2017
 ---
-# <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-data-disks"></a>确定何时使用 Azure Blob、Azure 文件或 Azure 数据磁盘
+# <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>确定何时使用 Azure Blob、Azure 文件或 Azure 磁盘
 
-Azure 在 Azure 存储中提供多种功能，用于在云中存储和访问数据。 本文介绍 Azure 文件、Blob 和数据磁盘，旨在帮助你在这些功能中进行选择。
+Azure 在 Azure 存储中提供多种功能，用于在云中存储和访问数据。 本文介绍 Azure 文件、Blob 和磁盘，旨在帮助用户选择合适的功能。
 
 ## <a name="scenarios"></a>方案
 
@@ -33,7 +33,7 @@ Azure 在 Azure 存储中提供多种功能，用于在云中存储和访问数�
 |--------------|-------------|-------------|
 | Azure 文件 | 提供 SMB 接口、客户端库和允许从任何位置访问存储文件的 [REST 接口](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)。 | 希望将应用程序“提升和移动”到已使用本机文件系统 API 的云中，以此在该应用程序和 Azure 中运行的其他应用程序之间共享数据时。<br/><br/>希望存储需要从多个虚拟机访问的开发和调试工具时。 |
 | Azure Blob | 提供客户端库和允许在块 blob 中大规模存储和访问非结构化数据的 [REST 接口](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)。 | 希望应用程序支持流式处理和随机访问方案时。<br/><br/>希望可以从任何位置访问应用程序数据时。 |
-| Azure 数据磁盘 | 提供客户端库和允许数据永久存储在附加虚拟硬盘中并可从中进行访问的 [REST 接口](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update)。 | 希望提升和移动使用本机文件系统 API 将数据读写到永久性磁盘中应用程序时。<br/><br/>希望存储不要求从附加磁盘的虚拟机外进行访问的数据时。 |
+| **Azure 磁盘** | 提供客户端库和允许数据永久存储在附加虚拟硬盘中并可从中进行访问的 [REST 接口](https://docs.microsoft.com/rest/api/compute/manageddisks/disks/disks-rest-api)。 | 希望提升和移动使用本机文件系统 API 将数据读写到永久性磁盘中应用程序时。<br/><br/>希望存储不要求从附加磁盘的虚拟机外进行访问的数据时。 |
 
 ## <a name="comparison-files-and-blobs"></a>比较：文件和 Blob
 
@@ -54,22 +54,22 @@ Azure 在 Azure 存储中提供多种功能，用于在云中存储和访问数�
 |计费容量|基于写入的字节数|基于文件大小|  
 |客户端库|多种语言|多种语言|  
   
-## <a name="comparison-files-and-data-disks"></a>比较：文件和数据磁盘
+## <a name="comparison-files-and-disks"></a>比较：文件和磁盘
 
-Azure 文件是 Azure 数据磁盘的补充。 一次只可以向一个 Azure 虚拟机附加一个数据磁盘。 数据磁盘是格式固定的 VHD（在 Azure 存储中存储为页 blob），可被虚拟机用来存储持久数据。 Azure 文件中的文件共享可采用与访问本地磁盘相同的方式进行访问（通过本机文件系统 API），并可跨多个虚拟机进行共享。  
+Azure 文件是对 Azure 磁盘的补充。 一个磁盘每次只能附加到一个 Azure 虚拟机。 磁盘是作为页 blob 存储在 Azure 存储中的固定格式 VHD，由虚拟机用来存储持久性数据。 Azure 文件中的文件共享可采用与访问本地磁盘相同的方式进行访问（通过本机文件系统 API），并可跨多个虚拟机进行共享。  
  
-下表将 Azure 文件和 Azure 数据磁盘进行了比较。  
+下表将 Azure 文件和 Azure 磁盘进行比较。  
  
 ||||  
 |-|-|-|  
-|属性|Azure 数据磁盘|Azure 文件|  
+|属性|**Azure 磁盘**|Azure 文件|  
 |范围|专用于单个虚拟机|跨多个虚拟机共享访问|  
 |快照和复制|是|否|  
 |配置|虚拟机启动时连接|虚拟机启动后连接|  
 |身份验证|内置|使用 net use 设置|  
 |清理|自动|手动|  
 |使用 REST 访问|无法访问 VHD 中的文件|可访问存储在共享中的文件|  
-|最大大小|1 TB 磁盘|5 TB 文件共享，共享内 1 TB 的文件|  
+|最大大小|4 TB 磁盘|5 TB 文件共享，共享内 1 TB 的文件|  
 |最大 8KB IOps|500 IOps|1000 IOps|  
 |吞吐量|每个磁盘最高 60 MB/秒|每个文件共享最高 60 MB/秒|  
 
@@ -79,6 +79,6 @@ Azure 文件是 Azure 数据磁盘的补充。 一次只可以向一个 Azure �
   
 某些 SMB 功能不适用于云。 有关详细信息，请参阅 [Features not supported by the Azure File service](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service)（Azure 文件服务不支持的功能）。
 
-有关数据磁盘的详细信息，请参阅[管理磁盘和映像](../../virtual-machines/windows/about-disks-and-vhds.md)和[如何将数据磁盘附加到 Windows 虚拟机](../../virtual-machines/windows/classic/attach-disk.md)。
+有关磁盘的详细信息，请参阅[管理磁盘和映像](../../virtual-machines/windows/about-disks-and-vhds.md)以及[如何将数据磁盘附加到 Windows 虚拟机](../../virtual-machines/windows/classic/attach-disk.md)。
 
-<!--Update_Description: update link-->
+<!--Update_Description: update "Data Disk" to "Disk"; update Max disk size from 1TB to 4 TB-->

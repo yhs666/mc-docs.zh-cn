@@ -3,8 +3,8 @@ title: "在 Azure 中选择 Windows VM 映像 | Azure"
 description: "了解如何使用 Azure PowerSHell 来确定发布服务器、产品/服务、SKU 和 Marketplace VM 映像的版本。"
 services: virtual-machines-windows
 documentationcenter: 
-author: dlepow
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 188b8974-fabd-4cd3-b7dc-559cbb86b98a
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 07/12/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
-ms.openlocfilehash: 0066ad978d333a9ec32e9a7dd11400658006ec6a
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: 098d52ce4eb6f05b2afb06ac76c6bf5817eab428
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>如何使用 Azure PowerShell 在 Azure Marketplace 中查找 Windows VM 映像
 
@@ -37,9 +37,12 @@ ms.lasthandoff: 08/07/2017
 | MicrosoftWindowsServer |WindowsServer |2016-Nano-Server |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
+| MicrosoftDynamicsNAV |DynamicsNAV |2017 |
+| MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
 | MicrosoftSQLServer |SQL2016-WS2016 |Enterprise |
 | MicrosoftSQLServer |SQL2014SP2-WS2012R2 |Enterprise |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
+| MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
 
 ## <a name="find-specific-images"></a>查找特定映像
 
@@ -59,21 +62,21 @@ ms.lasthandoff: 08/07/2017
 
 首先，使用以下命令列出发布者：
 
-```powershell
+```azurepowershell-interactive
 $locName="<Azure location, such as China North>"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 ```
 
 填写选择的发布者名称，并运行以下命令：
 
-```powershell
+```azurepowershell-interactive
 $pubName="<publisher>"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
 
 填写选择的产品名称，并运行以下命令：
 
-```powershell
+```azurepowershell-interactive
 $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
@@ -82,7 +85,7 @@ Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName |
 
 下面是一个完整示例：
 
-```powershell
+```azurepowershell-interactive
 $locName="China North"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
@@ -93,15 +96,22 @@ Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 ```
 PublisherName
 -------------
-AsiaInfo.DeepSecurity
-AzureChinaMarketplace
+a10networks
+aiscaler-cache-control-ddos-and-url-rewriting-
+alertlogic
+AlertLogic.Extension
+Barracuda.Azure.ConnectivityAgent
+barracudanetworks
+basho
+boxless
+bssw
 Canonical
 ...
 ```
 
 对于“MicrosoftWindowsServer”发布者：
 
-```powershell
+```azurepowershell-interactive
 $pubName="MicrosoftWindowsServer"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
@@ -118,7 +128,7 @@ WindowsServer-HUB
 
 对于“WindowsServer”产品：
 
-```powershell
+```azurepowershell-interactive
 $offerName="WindowsServer"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
@@ -149,4 +159,4 @@ Skus
 ## <a name="next-steps"></a>后续步骤
 现在，可以确切地选择想要使用的映像。 若要使用刚找到的映像信息快速创建虚拟机，请参阅[使用 PowerShell 创建 Windows 虚拟机](quick-create-powershell.md)。
 
-<!--Update_Description: update output of some powershell commands-->
+<!--Update_Description: update the powershell cmdlet-->

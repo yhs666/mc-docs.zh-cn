@@ -87,7 +87,7 @@ VHD 存储在 [Azure 存储][azure-storage]中，Azure 存储将进行复制以�
 
 **资源组。** 将共享相同生命周期的紧密耦合资源放入同一[资源组][resource-manager-overview]中部署多个 VM。 资源组可让你以组的形式部署和监视资源，并按资源组汇总计费成本。 还可以删除作为集的资源，这对于测试部署非常有用。 为资源指定有意义的名称。 这样，可更轻松地找到特定资源并了解其角色。
 
-**VM 诊断。** 启用监视和诊断，包括基本运行状况指标、诊断基础结构日志和 [启动诊断][boot-diagnostics]中部署多个 VM。 如果 VM 陷入不可启动状态，启动诊断可帮助你诊断启动故障。 有关详细信息，请参阅 [Enable monitoring and diagnostics][enable-monitoring]（启用监视和诊断）。 使用 [Azure 日志收集][log-collector]扩展收集 Azure 平台日志并将其上传到 Azure 存储。   
+**VM 诊断。** 启用监视和诊断，包括基本运行状况指标、诊断基础结构日志和 [启动诊断][boot-diagnostics]中部署多个 VM。 如果 VM 陷入不可启动状态，启动诊断可帮助你诊断启动故障。 使用 [Azure 日志收集][log-collector]扩展收集 Azure 平台日志并将其上传到 Azure 存储。   
 
 以下 CLI 命令可启用诊断：
 
@@ -128,7 +128,7 @@ azure vm deallocate <resource-group> <vm-name>
 azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
 ```
 
-使用 [审核日志][audit-logs] 可查看预配操作和其他 VM 事件。
+使用[审核日志][audit-logs]可查看预配操作和其他 VM 事件。
 
 **数据加密。** 如果需要加密 OS 磁盘和数据磁盘，请考虑使用 [Azure 磁盘加密][disk-encryption]。
 
@@ -144,8 +144,8 @@ azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
    * 从“位置”  下拉框中选择区域。
    * 不要编辑“模板根 URI”或“参数根 URI”文本框。
    * 在“OS 类型”下拉框中选择“Windows”。
-   * 选择“法律条款”，查看条款和条件，然后单击“购买”按钮。
-   * 单击“创建”按钮。
+   * 查看条款和条件，并单击“我同意上述条款和条件”复选框。
+   * 单击“购买”  按钮。
 3. 等待部署完成。
 4. 参数文件包含硬编码的管理员用户名和密码，强烈建议马上更改这两项信息。 在 Azure 门户中单击名为 `ra-single-vm0 ` 的 VM。 然后，在“支持 + 故障排除”边栏选项卡中单击“重置密码”。 在“模式”下拉框中选择“重置密码”，然后选择新**用户名**和**密码**。 单击“更新”  按钮来持久保存新的用户名和密码。
 
@@ -169,7 +169,7 @@ azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/storage/storage-about-disks-and-vhds-windows.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
-[enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
+
 [fqdn]:../articles/virtual-machines/windows/portal-create-fqdn.md
 [github-folder]: http://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
 [group-policy]: https://technet.microsoft.com/library/dn595129.aspx
@@ -203,3 +203,4 @@ azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Azure 中的单一 Windows VM 体系结构"
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [blocks]: https://github.com/mspnp/template-building-blocks
+

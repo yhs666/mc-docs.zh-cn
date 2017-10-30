@@ -3,7 +3,7 @@ title: "如何监视 Azure 存储帐户 | Azure"
 description: "了解如何使用 Azure 门户在 Azure 中监视存储帐户。"
 services: storage
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: b83cba7b-4627-4ba7-b5d0-f1039fe30e78
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 7d0214f91bdd4f5fc55a039b9ff791d675d9ae38
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: b1aedc84d4057dfb7b399795875bebeac8315a73
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>监视 Azure 门户中的存储帐户
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/25/2017
 > [!NOTE]
 > 在 Azure 门户中检查监视数据会产生相关的费用。 有关详细信息，请参阅 [存储分析和计费](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics-and-Billing)。
 >
-> Azure 文件存储目前支持存储分析指标，但尚不支持日志记录。
+> Azure 文件目前支持存储分析指标，但尚不支持日志记录。
 >
 > 使用区域冗余存储空间 (ZRS) 复制类型的存储帐户目前不支持指标或日志记录功能。
 > 
@@ -71,7 +71,7 @@ ms.lasthandoff: 08/25/2017
 
 使用以下过程选择要在指标图表中查看哪些存储指标。 
 
-1. 首先在 Azure 门户中显示存储指标图表。 可以在存储帐户边栏选项卡以及各个服务（Blob、队列、表和文件）的“指标”边栏选项卡中找到图表。
+1. 首先在 Azure 门户中显示存储指标图表。 可以在**存储帐户边栏选项卡**以及各个服务（Blob、队列、表和文件）的“指标”边栏选项卡中找到图表。
 
    本示例使用 **存储帐户边栏选项卡**中显示的以下图表：
 
@@ -121,8 +121,8 @@ ms.lasthandoff: 08/25/2017
 
 可将任何存储帐户的 Azure 存储指标图表添加到门户仪表板。
 
-1. 在 [Azure 门户](https://portal.azure.cn)中查看仪表板时，单击“编辑仪表板”。
-1. 在“磁贴库”中，选择“查找磁贴依据” > “类型”。
+1. 在 [Azure 门户](https://portal.azure.cn)中查看仪表板的同时单击“编辑仪表板”。
+1. 在“磁贴库”中，选择“查找磁贴，依据” > “类型”。
 1. 选择“类型” > “存储帐户”。
 1. 在“资源”中，选择要将其指标添加到仪表板的存储帐户。
 1. 选择“类别” > “监视”。
@@ -138,7 +138,7 @@ ms.lasthandoff: 08/25/2017
 可以指示 Azure 存储保存针对 Blob、表和队列服务发出的读取、写入和删除请求的诊断日志。 设置的数据保留策略也适用于这些日志。
 
 > [!NOTE]
-> Azure 文件存储目前支持存储分析指标，但尚不支持日志记录。
+> Azure 文件目前支持存储分析指标，但尚不支持日志记录。
 >
 
 1. 在 [Azure 门户](https://portal.azure.cn)中选择“存储帐户”，然后单击存储帐户的名称打开存储帐户边栏选项卡。
@@ -159,4 +159,4 @@ ms.lasthandoff: 08/25/2017
 
 * 了解有关存储分析的[指标、日志记录和计费](../storage-analytics.md)的详细信息。
 * 使用 PowerShell 借助 C# 以编程方式[启用 Azure 存储指标和查看指标数据](../storage-enable-and-view-metrics.md)。
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

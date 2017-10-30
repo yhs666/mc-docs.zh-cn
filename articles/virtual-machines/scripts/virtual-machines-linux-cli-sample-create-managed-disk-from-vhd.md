@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/19/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5788a18b8a3f2b241a5d1b0a75959f29adb5cf2e
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 78e0ff8c61ee6c447f7ee7df5723181fd84dc4f6
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>使用 CLI 在相同订阅的存储帐户中从 VHD 文件创建托管磁盘
 
@@ -55,11 +55,11 @@ vhdUri=https://contosostorageaccount1.blob.core.chinacloudapi.cn/vhds/contosoumd
 #Provide the storage type for the Managed Disk. Premium_LRS or Standard_LRS.
 storageType=Premium_LRS
 
-#Provide the Azure location (e.g. China North) where Managed Disk will be located. 
+#Provide the Azure location (e.g. chinanorth) where Managed Disk will be located. 
 #The location should be same as the location of the storage account where VHD file is stored.
 #Get all the Azure location supported for your subscription using command below:
 #az account list-locations
-location='China North'
+location=chinanorth
 
 #Set the context to the subscription Id where Managed Disk will be created
 az account set --subscription $subscriptionId
@@ -75,14 +75,14 @@ az disk create --resource-group $resourceGroupName --name $diskName --sku $stora
 
 | 命令 | 说明 |
 |---|---|
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | 在相同订阅的存储帐户中使用 VHD 的 URI 创建托管磁盘 |
+| [az disk create](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az_disk_create) | 在相同订阅的存储帐户中使用 VHD 的 URI 创建托管磁盘 |
 
 ## <a name="next-steps"></a>后续步骤
 
 [通过将托管磁盘附加为 OS 磁盘来创建虚拟机](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
 
-可以在 [Azure Linux VM 文档](../../app-service-web/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
+可以在 [Azure Linux VM 文档](../../app-service/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, update link-->

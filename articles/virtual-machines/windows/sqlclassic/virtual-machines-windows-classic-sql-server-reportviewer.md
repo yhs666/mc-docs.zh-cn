@@ -3,8 +3,8 @@ title: "在网站中使用 ReportViewer | Azure"
 description: "本主题介绍如何使用 Visual Studio ReportViewer 控件构建 Azure 网站，该控件用于显示 Azure 虚拟机上存储的报表。"
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
-manager: erikre
+author: rockboyfor
+manager: digimobile
 editor: monicar
 tags: azure-service-management
 ms.assetid: 78b76318-d9bf-48ef-9d9e-d1b7d8cf3042
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/11/2017
-ms.date: 03/28/2017
-ms.author: v-dazen
-ms.openlocfilehash: 8106e67bbc9c51afde3f562b6fcef7ec3b4b55c0
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: 2b10147b920a874bfe00b7375baf58796f29aa4a
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>在 Azure 中托管的网站中使用 ReportViewer
 > [!IMPORTANT] 
@@ -94,3 +94,4 @@ ReportViewer 需要使用正确的凭据向报表服务器进行身份验证，�
 [Azure 虚拟机中的 SQL Server Business Intelligence](../classic/ps-sql-bi.md)
 
 [使用 PowerShell 创建运行本机模式报表服务器的 Azure VM](../classic/ps-sql-report.md)
+<!--Update_Description: update meta properties-->

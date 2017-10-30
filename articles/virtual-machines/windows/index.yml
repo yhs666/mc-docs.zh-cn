@@ -6,15 +6,15 @@ metadata:
   title: Azure Windows 虚拟机文档 - 教程和 API 参考
   meta.description: 'Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.'
   services: virtual-machines\windows
-  author: czeumault
-  manager: carolz
+  author: rockboyfor
+  manager: digimobile
   ms.service: virtual-machines-windows
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 10/16/2017
-  ms.author: v-yeche
+  ms.date: 10/30/2017
+  ms.author: v-dazen
 abstract:
   description: Azure Windows 虚拟机使用 Windows Server 按需提供具有高可伸缩性且十分安全的虚拟化基础结构。 使用我们的快速入门、教程和示例了解如何创建、配置、管理和缩放 Windows VM。
 sections:
@@ -26,17 +26,26 @@ sections:
         style: icon48
         items:
           - image:
-              src: /virtual-machines/windows/media/index/portal.svg
+              src: 'https://docs.azure.cn/virtual-machines/windows/media/index/portal.svg'
             text: Azure 门户
-            href: /virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fvirtual-machines%2fwindows%2ftoc.json
+            href: 'https://docs.azure.cn/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fvirtual-machines%2fwindows%2ftoc.json'
           - image:
-              src: /virtual-machines/windows/media/index/logo_powershell.svg
+              src: 'https://docs.azure.cn/virtual-machines/windows/media/index/logo_powershell.svg'
             text: Azure PowerShell
-            href: /virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fvirtual-machines%2fwindows%2ftoc.json
+            href: 'https://docs.azure.cn/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fvirtual-machines%2fwindows%2ftoc.json'
           - image:
-              src: /virtual-machines/windows/media/index/cli.svg
+              src: 'https://docs.azure.cn/virtual-machines/windows/media/index/cli.svg'
             text: Azure CLI
-            href: /virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fvirtual-machines%2fwindows%2ftoc.json
+            href: 'https://docs.azure.cn/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fvirtual-machines%2fwindows%2ftoc.json'
+      - type: paragraph
+        text: 了解如何进行持续部署：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.azure.cn/media/index/logo_vs-team-services.svg'
+            text: VSTS
+            href: 'https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json'
   - title: 分步教程
     items:
       - type: paragraph

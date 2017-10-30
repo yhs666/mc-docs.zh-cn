@@ -1,6 +1,6 @@
 # 概述
-## [Azure VM 上的 SQL Server 是什么？](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-## [定价](https://www.azure.cn/pricing/details/virtual-machines/windows/)
+## [Windows SQL Server VM](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
+## [价格](https://www.azure.cn/pricing/details/virtual-machines/windows/)
 ## [常见问题](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # 入门
@@ -12,7 +12,7 @@
 # 如何
 ## 配置高可用性
 ### [高可用性选项](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [在经典门户中配置 Always On 可用性组](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+### [在经典管理门户中配置 Always On 可用性组](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [使用 PowerShell 配置 Always On 可用性组](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [为可用性组配置内部侦听器](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [为可用性组配置外部侦听器](virtual-machines-windows-classic-ps-sql-ext-listener.md)
@@ -26,23 +26,25 @@
 ## 备份和还原
 ### [备份和还原](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ### [自动备份](virtual-machines-windows-classic-sql-automated-backup.md)
-### [将 Azure 存储用于备份和还原](../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
+### [使用 Azure 存储进行备份和还原](../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## 商业智能
 ### [Azure VM 中的 SQL Server 商业智能](virtual-machines-windows-classic-ps-sql-bi.md)
 ### [在 Azure 托管的网站中使用 ReportViewer](virtual-machines-windows-classic-sql-server-reportviewer.md)
-### [使用 PowerShell 创建包含报表服务器的 Azure VM](virtual-machines-windows-classic-ps-sql-report.md)
+### [使用 Azure PowerShell 创建包含报表服务器的 Azure VM](virtual-machines-windows-classic-ps-sql-report.md)
 ## [性能最佳做法](../sql/virtual-machines-windows-sql-performance.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## [应用程序模式](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # 引用
-## [PowerShell 经典](https://docs.microsoft.com/powershell/azure/overview?view=azuresmps-3.7.0)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azuresmps-3.7.0)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [SQL Server 驱动程序](https://docs.microsoft.com/sql/connect/sql-server-drivers)
 ## [REST](https://docs.microsoft.com/rest/api/)
 
 # 资源
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 ## [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 ## [SQL Server 工具](https://docs.microsoft.com/sql/tools/overview-sql-tools)
+<!--ms.date: 10/30/2017-->

@@ -3,7 +3,7 @@ title: "Azure 队列存储简介 | Azure"
 description: "Azure 队列存储简介"
 services: storage
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/07/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: d9a3b52728477d594522e23c3f507a904c139cf4
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: 239d03dff09060ce2e6c299b32dcf7161f8422f6
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="introduction-to-queues"></a>队列简介
 
@@ -55,4 +55,3 @@ Azure 队列存储是一项可存储大量消息的服务，用户可以通过�
 
 * [创建存储帐户](../storage-create-storage-account.md?toc=%2fstorage%2fqueues%2ftoc.json)
 * [使用 .NET 的队列入门](storage-dotnet-how-to-use-queues.md)
-<!--Update_Description: new file-->

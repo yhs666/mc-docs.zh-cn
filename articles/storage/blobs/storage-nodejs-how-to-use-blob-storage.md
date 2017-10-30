@@ -3,8 +3,8 @@ title: "如何通过 Node.js 使用 Blob 存储 | Azure"
 description: "使用 Azure Blob 存储（对象存储）将非结构化数据存储在云中。"
 services: storage
 documentationcenter: nodejs
-author: mmacy
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 ms.assetid: 8b0df222-1ca8-4967-8248-6d6d720947b8
 ms.service: storage
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/08/2016
 ms.date: 10/16/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 7f36d9252b24a2c4f64314af650948b517d9b626
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: 45c71c473c9bfbb1e2be653bcc4cd44afa238278
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>如何通过 Node.js 使用 Blob 存储
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]

@@ -1,4 +1,4 @@
-如果虚拟机 (VM) 在 Azure 中遇到启动或磁盘错误，可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是应用程序更新失败，使 VM 无法成功启动。 本文介绍如何使用 Azure 门户将虚拟硬盘连接到另一个 VM 来修复所有错误，并重新创建原始 VM。
+如果虚拟机 (VM) 在 Azure 中遇到启动或磁盘错误，可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是应用程序更新失败，使 VM 无法成功启动。 本文介绍如何使用 Azure 门户将虚拟硬盘连接到另一个 VM 来修复所有错误，然后重新创建原始 VM。
 
 ## <a name="recovery-process-overview"></a>恢复过程概述
 故障排除过程如下：
@@ -27,8 +27,8 @@
 
 5. 右键单击 VM，并选择“删除”。 请确保在删除 VM 时磁盘未处于选中状态。
 6. 创建新的恢复 VM。 此 VM 必须与问题 VM 位于同一区域和资源组（云服务）。
-7. 选择恢复 VM，并选择“磁盘” > “附加现有磁盘”。
-8. 若要选择现有的虚拟硬盘，请单击“VHD 文件”： 
+7. 选择恢复 VM，然后选择“磁盘” > “附加现有磁盘”。
+8. 若要选择现有的虚拟硬盘，请单击“VHD 文件”：
 
     ![浏览现有 VHD](./media/virtual-machines-classic-recovery-disks-portal/select-vhd-location.png)
 
@@ -53,9 +53,11 @@
 
 ## <a name="create-a-vm-from-the-original-hard-disk"></a>从原始硬盘创建 VM
 
-若要从原始虚拟硬盘创建 VM，请使用 [Azure 经典门户](https://manage.windowsazure.cn)。
+若要从原始虚拟硬盘创建 VM，请使用 [Azure 门户](https://portal.azure.cn)。
 
-1. 登录到 [Azure 经典门户](https://manage.windowsazure.cn)。
-2. 在门户底部，选择“新建” > “计算” > “虚拟机” > “从库”。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
+2. 在门户左上角，选择“新建” > “计算” > “虚拟机” > “从库”。
 3. 在“选择映像”部分，选择“我的磁盘”，并选择原始虚拟硬盘。 查看位置信息。 这是必须在其中部署 VM 的区域。 选择“下一步”按钮。
 4. 在“虚拟机配置”部分，键入 VM 名称并选择 VM 大小。
+<!--Update_Description: wording update-->
+<!--ms.date: 10/30/2017-->

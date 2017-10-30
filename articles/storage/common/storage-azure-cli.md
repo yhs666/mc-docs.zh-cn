@@ -3,7 +3,7 @@ title: "将 Azure CLI 2.0 用于 Azure 存储 | Azure"
 description: "了解如何将 Azure 命令行接口 (Azure CLI) 2.0 用于 Azure 存储，以便创建和管理存储帐户并处理 Azure blob 和文件。 Azure CLI 2.0 是用 Python 编写的跨平台工具。"
 services: storage
 documentationcenter: na
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 06/02/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: cb1b59ed88f0f7e8674012bd2d37d1180ce41d46
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: 310bc5b0f392637048bc39abe6d4061cad2ef804
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>将 Azure CLI 2.0 用于 Azure 存储
 
@@ -103,7 +103,7 @@ Subgroups:
 
 ## <a name="azure-cli-20-sample-script"></a>Azure CLI 2.0 示例脚本
 
-接下来，我们使用一个小型 shell 脚本，发出一些基本的 Azure CLI 2.0 命令来与 Azure 存储资源交互。 该脚本首先在存储帐户中创建新容器，再将现有文件（作为 Blob）上传到该容器。 然后，列出容器中的所有 Blob，最后，将文件下载到指定的本地计算机上的目标。
+接下来，我们将使用一个小型 shell 脚本，该脚本会发出一些基本的 Azure CLI 2.0 命令与 Azure 存储资源进行交互。 该脚本首先在存储帐户中创建新容器，然后将现有文件（作为 Blob）上传到该容器。 然后，列出容器中的所有 Blob，最后，将文件下载到指定的本地计算机上的目标。
 
 ```bash
 #!/bin/bash
@@ -145,9 +145,9 @@ echo "Done"
    * \<file_to_upload\>：本地计算机上小文件的路径，例如：“~/images/HelloWorld.png”。
    * \<destination_file\>：目标文件路径，如“~/downloadedImage.png”。
 
-3. 更新所需的变量后，保存脚本并退出编辑器。 后续步骤假定已将脚本命名为 my_storage_sample.sh。
+3. 更新所需的变量后，保存脚本并退出编辑器。 后续步骤假定已将脚本命名为 **my_storage_sample.sh**。
 
-4. 如果需要，请将脚本标记为可执行文件：`chmod +x my_storage_sample.sh`
+4. 如有必要，将脚本标记为可执行文件：`chmod +x my_storage_sample.sh`
 
 5. 执行该脚本。 例如，在 Bash 中： `./my_storage_sample.sh`
 
@@ -178,7 +178,7 @@ Done
 ## <a name="manage-storage-accounts"></a>管理存储帐户
 
 ### <a name="create-a-new-storage-account"></a>新建存储帐户
-若要使用 Azure 存储，需创建一个存储帐户。 可以在将计算机配置为[连接到订阅](#connect-to-your-azure-subscription)之后创建新的 Azure 存储帐户。
+若要使用 Azure 存储，需创建一个存储帐户。 可以在将计算机配置为[连接到订阅](#connect-to-your-azure-subscription)之后，创建新的 Azure 存储帐户。
 
 ```azurecli
 az storage account create \
@@ -252,7 +252,7 @@ az storage blob upload \
     --name <blob_name>
 ```
 
- 默认情况下，`blob upload` 命令将 *.vhd 文件上传到页 Blob 或块 Blob。 若要在上传 Blob 时指定另一种类型，可以使用 `--type` 参数，允许的值为 `append`、`block` 和 `page`。
+ 默认情况下， `blob upload` 命令将 *.vhd 文件上传到页 Blob 或块 Blob。 若要在上传 Blob 时指定另一种类型，可以使用 `--type` 参数，允许的值为 `append`、`block` 和 `page`。
 
  有关不同 Blob 类型的详细信息，请参阅 [了解块 Blob、追加 Blob 和页 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)。
 
@@ -316,7 +316,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
 ## <a name="create-and-manage-file-shares"></a>创建和管理文件共享
-Azure 文件存储使用服务器消息块 (SMB) 协议为应用程序提供共享存储。 Azure 虚拟机和云服务以及本地应用程序可以通过装载的共享来共享文件数据。 可以通过 Azure CLI 管理文件共享和文件数据。 有关 Azure 文件存储的详细信息，请参阅[在 Windows 上开始使用 Azure 文件存储](../storage-dotnet-how-to-use-files.md)或[如何通过 Linux 使用 Azure 文件存储](../storage-how-to-use-files-linux.md)。
+Azure 文件使用服务器消息块 (SMB) 协议为应用程序提供共享存储。 Azure 虚拟机和云服务以及本地应用程序可以通过装载的共享来共享文件数据。 可以通过 Azure CLI 管理文件共享和文件数据。 有关 Azure 文件的详细信息，请参阅 [Azure 文件简介](../files/storage-files-introduction.md)。
 
 ### <a name="create-a-file-share"></a>创建文件共享
 Azure 文件共享是 Azure 中的 SMB 文件共享。 所有目录和文件都必须在文件共享中创建。 一个帐户可以包含无限数量的共享，一个共享可以存储无限数量的文件，直到达到存储帐户的容量限制为止。 下面的示例创建名为 **myshare**的文件共享。
@@ -335,7 +335,7 @@ az storage directory create --name myDir --share-name myshare
 目录路径可以包括多个级别，例如 dir1/dir2。 但在创建子目录之前，必须确保所有父目录都存在。 例如，对于路径 dir1/dir2，必须先创建目录 dir1，然后再创建目录 dir2。
 
 ### <a name="upload-a-local-file-to-a-share"></a>将本地文件上传到共享
-以下示例将文件从 ~/temp/samplefile.txt 上传到 myshare 文件共享的根目录。 `--source` 参数指定要上传的现有本地文件。
+以下示例将文件从 **~/temp/samplefile.txt** 上传到 **myshare** 文件共享的根目录。 `--source` 参数指定要上传的现有本地文件。
 
 ```azurecli
 az storage file upload --share-name myshare --source ~/temp/samplefile.txt
@@ -364,7 +364,7 @@ az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --outp
 ```
 
 ### <a name="copy-files"></a>复制文件      
-可将一个文件复制到另一个文件，将一个文件复制到一个 Blob，或将一个 Blob 复制到一个文件。 例如，要将文件复制到不同共享中的目录，请执行以下操作：        
+可以将一个文件复制到另一个文件，将一个文件复制到一个 Blob，或将一个 Blob 复制到一个文件。 例如，要将文件复制到不同共享中的目录，请执行以下操作：        
 
 ```azurecli
 az storage file copy start \
@@ -378,4 +378,4 @@ az storage file copy start \
 * [Azure CLI 2.0 入门](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Azure CLI 2.0 命令参考](https://docs.microsoft.com/cli/azure)
 * [GitHub 上的 Azure CLI 2.0](https://github.com/Azure/azure-cli)
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

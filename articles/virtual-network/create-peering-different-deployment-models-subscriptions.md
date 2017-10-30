@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 09/15/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: b4b9ec4093ef0d8b14ece4fc905af3563d536721
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: a40cf870ac7f372245207c99776fb22e7a3af8b2
+ms.sourcegitcommit: ab2cbf3c3b15810ad6d74ef21d870871ff7e314e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>创建虚拟网络对等互连 - 不同的部署模型和不同的订阅
 
@@ -41,45 +41,12 @@ ms.lasthandoff: 10/20/2017
 
 在位于不同订阅的虚拟网络间创建虚拟网络对等互连时，两个订阅均必须与同一 Azure Active Directory 租户相关联。 如果还没有 Azure Active Directory 租户，可快速[创建一个](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fvirtual-network%2ftoc.json#start-from-scratch)。 如需连接均通过经典部署模型创建的虚拟网络，或存在于不同 Azure 区域中的虚拟网络，或是存在于与不同 Azure Active Directory 租户相关联的订阅中的虚拟网络，请使用 Azure [VPN 网关](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)连接虚拟网络。
 
-可使用 [Azure 门户](#portal)、Azure [命令行接口](#cli) (CLI) 或 Azure [PowerShell](#powershell) 创建虚拟网络对等互连。 单击以前的任何工具链接即可直接转到使用所选工具创建虚拟网络对等互连的步骤。
+可使用 [Azure 门户](#portal)、Azure [命令行接口](#cli) (CLI) 或 Azure [PowerShell](#powershell) 创建虚拟网络对等互连。 单击以前的任何工具链接直接转到使用所选工具创建虚拟网络对等互连的步骤。
 
-## <a name="register"></a>注册全局 VNet 对等互连预览版
-
-若要跨区域建立虚拟网络对等互连，请注册预览版，并完成包含要对等互连的虚拟网络的两个订阅的后续步骤。 唯一可用于注册预览版的工具是 PowerShell。
-
-1. 安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-2. 使用 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 命令启动 PowerShell 会话并登录到 Azure。
-3. 输入以下命令，注册预览版订阅：
-
-    ```powershell
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowClassicCrossSubscriptionPeering `
-      -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmResourceProvider `
-      -ProviderNamespace Microsoft.Network
-    ```
-    输入以下命令后，收到的两个订阅的 **RegistrationState** 输出为 **Registered** 后，才能完成本文中在门户、Azure CLI 或 PowerShell 部分中进行的步骤：
-
-    ```powershell
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    ```
-  > [!WARNING]
-  > 预览版中当前支持在不同区域的虚拟网络之间创建虚拟网络对等互连。 采用此方案创建的虚拟网络对等互连可能功能受限，且可能无法用于所有 Azure 区域。 有关此功能可用性和状态方面的最新通知，请参阅 [Azure 虚拟网络更新](https://www.azure.cn/what-is-new/)页。
-
+<!-- Not Avaialble ## <a name="register"></a>Register for the Global VNet Peering preview-->
 ## <a name="portal"></a>创建对等互连 - Azure 门户
 
-本教程为每个订阅使用不同的帐户。 如果使用的帐户可访问这两个订阅，则可使用相同帐户完成所有步骤，跳过注销门户的步骤，及为虚拟网络分配其他用户权限的步骤。 必须先注册预览版，才能完成以下任意步骤。 若要注册，请完成本文[注册预览版](#register)部分的步骤。 请先确保两个订阅已完成预览版注册，再继续执行其余步骤。
+本教程为每个订阅使用不同的帐户。 如果使用的帐户可访问这两个订阅，则可使用相同帐户完成所有步骤，跳过注销门户的步骤，及为虚拟网络分配其他用户权限的步骤。 必须先注册预览版，才能完成以下任意步骤。 若要注册，请完成本文](#register)注册预览版[部分的步骤。 请先确保两个订阅已完成预览版注册，再继续执行其余步骤。
 
 1. 以 UserA 的身份登录 [Azure 门户](https://portal.azure.cn)。 用于登录的帐户必须拥有创建虚拟网络对等互连的必要权限。 有关详细信息，请参阅本文的[权限](#permissions)部分。
 2. 依次单击“+ 新建”、“网络”、“虚拟网络”。
@@ -136,7 +103,7 @@ ms.lasthandoff: 10/20/2017
 
 本教程为每个订阅使用不同的帐户。 如果使用的帐户可访问这两个订阅，则可使用相同帐户完成所有步骤，可跳过注销 Azure 的步骤，并删除创建用户角色分配的脚本行。 将以下所有脚本中的 UserA@azure.com 和 UserB@azure.com 替换为 UserA 和 UserB 使用的用户名。 
 
-必须先注册预览版，才能完成以下任意步骤。 若要注册，请完成本文[注册预览版](#register)部分的步骤。 请先确保两个订阅已完成预览版注册，再继续执行其余步骤。
+必须先注册预览版，才能完成以下任意步骤。 若要注册，请完成本文](#register)注册预览版[部分的步骤。 请先确保两个订阅已完成预览版注册，再继续执行其余步骤。
 
 1. [安装](../cli-install-nodejs.md?toc=%2fvirtual-network%2ftoc.json) Azure CLI 1.0，创建虚拟网络（经典）。
 2. 使用 `azure login -e AzureChinaCloud` 命令打开 CLI 会话并以 UserB 的身份登录到 Azure。
@@ -226,7 +193,7 @@ ms.lasthandoff: 10/20/2017
 
 本教程为每个订阅使用不同的帐户。 如果使用的帐户可访问这两个订阅，则可使用相同帐户完成所有步骤，可跳过注销 Azure 的步骤，并删除创建用户角色分配的脚本行。 将以下所有脚本中的 UserA@azure.com 和 UserB@azure.com 替换为 UserA 和 UserB 使用的用户名。 
 
-必须先注册预览版，才能完成以下任意步骤。 若要注册，请完成本文[注册预览版](#register)部分的步骤。 请先确保两个订阅已完成预览版注册，再继续执行其余步骤。
+必须先注册预览版，才能完成以下任意步骤。 若要注册，请完成本文](#register)注册预览版[部分的步骤。 请先确保两个订阅已完成预览版注册，再继续执行其余步骤。
 
 1. 安装最新版本的 PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) 和 [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 2. 启动 PowerShell 会话。

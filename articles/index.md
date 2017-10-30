@@ -3,17 +3,17 @@ layout: HubPage
 hide_bc: True
 title: "Azure 文档"
 description: "了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
-ms.openlocfilehash: cf71f5ae40f37e3804990e2d895407d60ca86524
-ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
+ms.openlocfilehash: 2ba06d92d20587e3a523f6abdc738f937f97ec13
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/23/2017
 ---
 <div id="main" class="v2">
     <div class="container">
         <ul class="cardsY panelContent featuredContent">
             <li>
-                <a href="/articles/">
+                <a href="/articles/azure-operations-guide/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -188,7 +188,7 @@ ms.lasthandoff: 10/18/2017
                                                 <h3>命令行工具</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" target="_blank" href="https://docs.microsoft.com/cli/azure/overview">
+                                                        <a class="barLink" href="https://docs.azure.cn/cli/overview?view=azure-cli-latest">
                                                             <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI </a>
                                                     </li>
                                                     <li>
@@ -2159,13 +2159,13 @@ ms.lasthandoff: 10/18/2017
                                                 <h3>
 Azure CLI 2.0 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/overview">入门</a>
+                                                    <a target="_blank" href="https://docs.azure.cn/cli/overview?view=azure-cli-latest">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/install-azure-cli">下载 Azure CLI 2.0</a>
+                                                    <a target="_blank" href="https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest">下载 Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure">参考</a>
+                                                    <a target="_blank" href="https://docs.azure.cn/cli/?view=azure-cli-latest">参考</a>
                                                 </p>
                                             </div>
                                         </div>

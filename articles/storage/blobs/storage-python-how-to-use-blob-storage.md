@@ -3,8 +3,8 @@ title: "如何通过 Python 使用 Azure Blob 存储（对象存储）| Azure"
 description: "使用 Azure Blob 存储（对象存储）将非结构化数据存储在云中。"
 services: storage
 documentationcenter: python
-author: mmacy
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 ms.assetid: 0348e360-b24d-41fa-bb12-b8f18990d8bc
 ms.service: storage
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 02/24/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 805785ab3d2923b5e029e7a33e8170f9ac49eb9c
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: ca393af2fcfd548a7583bf7310e64bb8aaae0ab7
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="how-to-use-azure-blob-storage-from-python"></a>如何通过 Python 使用 Azure Blob 存储
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -29,11 +29,31 @@ ms.lasthandoff: 08/25/2017
 ## <a name="overview"></a>概述
 Azure Blob 存储是一种将非结构化数据作为对象/Blob 存储在云中的服务。 Blob 存储可以存储任何类型的文本或二进制数据，例如文档、媒体文件或应用程序安装程序。 Blob 存储也称为对象存储。
 
-本指南将演示如何使用 Blob 存储执行常见方案。 这些示例用 Python 编写并使用[用于 Python 的 Azure 存储 SDK]。 涉及的任务包括上传、列出、下载和删除 Blob。
+本指南将演示如何使用 Blob 存储执行常见方案。 这些示例用 Python 编写并使用 [Azure Storage SDK for Python]。 涉及的任务包括上传、列出、下载和删除 Blob。
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
+
+## <a name="download-and-install-azure-storage-sdk-for-python"></a>下载和安装适用于 Python 的 Azure 存储 SDK
+
+适用于 Python 的 Azure 存储 SDK 需要 Python 2.7、3.3、3.4、3.5 或 3.6，并且包含 4 个不同包：`azure-storage-blob`、`azure-storage-file`、`azure-storage-table` 和 `azure-storage-queue`。 在本教程中，我们要用到 `azure-storage-blob` 包。
+ 
+### <a name="install-via-pypi"></a>通过 PyPi 安装
+
+要通过 Python 包索引 (PyPI) 安装，请键入：
+
+```bash
+pip install azure-storage-blob
+```
+
+
+> [!NOTE]
+> 如果要从用于 Python 的 Azure 存储 SDK 版本 0.36 或更早版本升级，首先需要使用 `pip uninstall azure-storage` 进行卸载，因为我们不再通过单个包的形式发布用于 Python 的存储 SDK 了。
+> 
+> 
+
+有关备用安装方法，请访问 [Github 上用于 Python 的 Azure 存储 SDK](https://github.com/Azure/azure-storage-python/)。
 
 ## <a name="create-a-container"></a>创建容器
 根据要使用的 Blob 的类型，创建 **BlockBlobService**、**AppendBlobService** 或 **PageBlobService** 对象。 以下代码使用 **BlockBlobService** 对象。 在希望在其中以编程方式访问 Azure 块 Blob 存储的任何 Python 文件中，将以下代码添加到文件的顶部附近。
@@ -76,7 +96,7 @@ block_blob_service.set_container_acl('mycontainer', public_access=PublicAccess.C
 
 **create\_blob\_from\_path** 用于从指定位置上传文件内容，**create\_blob\_from\_stream** 用于从已经打开的文件/流上传内容。 **create\_blob\_from\_bytes** 用于上传一组字节，**create\_blob\_from\_text** 使用指定的编码（默认为 UTF-8）上传指定的文本值。
 
-下面的示例将 **sunset.png** 文件的内容上传到 **myblob** Blob。
+下面的示例将“sunset.png” 文件的内容上传到“myblockblob”Blob。
 
 ```python
 from azure.storage.blob import ContentSettings
@@ -98,9 +118,9 @@ for blob in generator:
 ```
 
 ## <a name="download-blobs"></a>下载 Blob
-若要从 blob 下载数据，请使用 **get\_blob\_to\_path**、**get\_blob\_to\_stream**、**get\_blob\_to\_bytes** 或 **get\_blob\_to\_text**。 这些方法属于高级方法，用于在数据大小超过 64 MB 时执行必要的分块。
+若要从 blob 下载数据，请使用 **get\_blob\_to\_path**、**get\_blob\_to\_stream**、**get\_blob\_to\_bytes** 或 **get\_blob\_to\_text**。 这些方法属于高级方法，在数据大小超过 64 MB 时执行必要的分块。
 
-下面的示例演示了如何使用 **get\_blob\_to\_path** 下载 **myblob** blob 的内容，并将其存储到 **out-sunset.png** 文件。
+下面的示例演示了如何使用 **get\_blob\_to\_path** 下载“myblockblob”Blob 的内容，并将其存储到“out-sunset.png”文件。
 
 ```python
 block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
@@ -140,9 +160,9 @@ append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob'
 * [Python 开发人员中心](/develop/python/)
 * [Azure 存储服务 REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Azure 存储团队博客]
-* [用于 Python 的 Microsoft Azure 存储 SDK]
+* [Microsoft Azure Storage SDK for Python]
 
 [Azure 存储团队博客]: http://blogs.msdn.com/b/windowsazurestorage/
-[用于 Python 的 Azure 存储 SDK]: https://github.com/Azure/azure-storage-python
+[Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 
-<!--Update_Description: update link-->
+<!--Update_Description: add "Download and Install Azure Storage SDK for Python" section-->

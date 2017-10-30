@@ -3,7 +3,7 @@ title: "排查 Azure 中的 Windows 虚拟机部署问题 | Azure"
 description: "排查在 Azure 资源管理器部署模型中部署 Windows 虚拟机时遇到的问题。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -12,15 +12,15 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 06/22/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 57219aebdf051a74acc6f1c37c6ed95d2d78796b
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: a1dff06157832607afb5a8de7e06d2f9ab541002
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Windows 虚拟机部署问题
 
@@ -54,6 +54,15 @@ productPesIds="1234, 5678"
     - 在不同的可用性集（位于同一区域）中创建 VM。
     - 将新 VM 添加到同一虚拟网络。
 
+<!--Not Available ## How can I use and deploy a windows client image into Azure?-->
+<!--Not Available ## How can I deploy a virtual machine using the Hybrid Use Benefit (HUB)?-->
+<!--Not Available ## How do I activate my monthly credit for Visual studio Enterprise (BizSpark)-->
+<!--Not Available ## How to add Enterprise Dev/Test to my Enterprise Agreement (EA) to get access to Window client images?-->
+<!--Not Available ## My drivers are missing for my Windows N-Series VM-->
+<!--Not Available ## I can't find a GPU instance within my N-Series VM-->
+<!--Not Available ## Are client images supported for N-Series?-->
+<!--Not Available ## Is N-Series VMs available in my region?-->
+<!--Not Available ## What client images can I use and deploy in Azure, and how to I get them?-->
 ## <a name="i-am-not-able-to-see-vm-size-family-that-i-want-when-resizing-my-vm"></a>重设 VM 大小时，看不到所需的 VM 大小系列。
 
 当 VM 正在运行时，将其部署到物理服务器。 Azure 区域中的物理服务器被分在常见物理硬件群集组中。 需要将 VM 移到其他硬件群集才能重设 VM 大小，具体操作因部署 VM 所用部署模型而异。
@@ -70,8 +79,8 @@ productPesIds="1234, 5678"
 
 是的。 可以将现有经典 VM 添加到新的或现有的可用性集。 有关详细信息，请参阅[将现有虚拟机添加到可用性集](classic/configure-availability.md#addmachine)。
 
-
 ## <a name="next-steps"></a>后续步骤
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。
 
 或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。
+<!--Update_Description: update meta properties-->
