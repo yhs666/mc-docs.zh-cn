@@ -5,7 +5,7 @@
 ## [常见问题](faq.md)
 
 # 入门
-## [使用门户创建 Linux VM](createportal.md)
+## [使用 Azure 门户创建 Linux VM](createportal.md)
 ## [安装 Azure CLI](../../../cli-install-nodejs.md)
 ## [创建 SSH 密钥](../mac-create-ssh-keys.md)
 
@@ -22,6 +22,8 @@
 ### [重置 Linux 密码或密钥、修复 SSH 并检查磁盘](reset-access.md)
 ### [维护](planned-maintenance-schedule.md)
 ### [使用 CLI 创建 Docker 主机](cli-use-docker.md)
+<!--Not Available ### [Create a Docker host using Azure portal](portal-use-docker.md)-->
+<!--Not Available ### [How to use Docker with Swarm](../../virtual-machines-linux-docker-swarm.md)-->
 
 ## 使用存储
 ### [附加数据磁盘](attach-disk.md)
@@ -34,8 +36,10 @@
 ## 部署映像
 ### [创建并上传 VHD](create-upload-vhd.md)
 ### [创建并上传 FreeBSD VHD](freebsd-create-upload-vhd.md)
+<!--Not Available ### [List of Oracle VM images](oracle-images.md)-->
 
 ## 管理工作负荷
+<!--Not Available ### [SAP](sap-get-started.md)-->
 ### MySQL 和 MariaDB
 #### [MariaDB 群集教程](mariadb-mysql-cluster.md)
 #### [在 OpenSUSE VM 上安装 MySQL](mysql-on-opensuse.md)
@@ -48,6 +52,7 @@
 ### [LAMP 堆栈](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
 ### [使用 Visual Studio 编写的 Web 应用程序](web-app-visual-studio.md)
+<!--Not Available ### [RDMA cluster to run MPI applications](rdma-cluster.md)-->
 ### [如何在 Hudson CI 中使用 Azure 从属插件](../../virtual-machines-azure-slave-plugin-for-hudson.md)
 
 ## 故障排除
@@ -56,14 +61,15 @@
 ### [将虚拟硬盘附加到故障排除 VM](troubleshoot-recovery-disks-portal.md)
 
 # 引用
-## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest)
 ## [Java](https://docs.azure.cn/zh-cn/java/api/overview/)
 ## [创建 Resource Manager 模板](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-## [计算 REST](https://docs.microsoft.com/rest/api/compute)
-## [网络 REST](https://docs.microsoft.com/rest/api)
-## [存储 REST](https://docs.microsoft.com/rest/api/storageservices)
+## [计算 REST](https://msdn.microsoft.com/library/jj157206.aspx)
+## [网络 REST](https://msdn.microsoft.com/library/jj157182.aspx)
+## [存储 REST](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # 资源
 ## [价格](https://www.azure.cn/pricing/details/virtual-machines/#Linux)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [视频](https://www.azure.cn/video-center/)

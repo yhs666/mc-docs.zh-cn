@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 09/25/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3b70ee8b89887a76fe461f4cfbc1bc610b332f01
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 2ef6fb1086ce9f7ac8ae28ebfc710215afecd883
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB：使用 Azure Functions 的无服务器数据库计算
 
@@ -157,3 +157,4 @@ Azure Functions 的优点：
 * [Azure Cosmos DB 绑定和触发器](../azure-functions/functions-bindings-documentdb.md)
 
 <!--Update_Description: new articles on serverless computing database-->
+

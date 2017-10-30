@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 727f257c422c738a18301f171ab1f8b3a91acf0a
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: 9131380665150207ec54eb9e909b08572dce6fba
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 ## <a name="overview"></a>概述
@@ -157,11 +157,11 @@ Azure 存储提供一套完善的安全功能，这些功能相辅相成，让�
   本文介绍如何使用 Active Directory 来控制 Azure 密钥保管库中 Azure 存储密钥的访问。 此外，说明如何使用 Azure 自动化作业每小时重新生成密钥。
 
 ## <a name="data-plane-security"></a>数据平面安全
-数据平面安全是指用于保护存储在 Azure 存储的数据对象（Blob、队列、表和文件）的方法。 我们已了解在传输数据期间加密数据和安全的方法，但该从何处着手来允许访问对象？
+数据平面安全是指用于保护存储在 Azure 存储的数据对象（Blob、队列、表和文件）的方法。 我们已了解在传输数据期间加密数据和安全的方法，但该从何处着手来控制访问对象？
 
-简单而言，有两种方法可用于控制对数据对象本身的访问。 第一种是控制对存储帐户密钥的访问，第二种是使用共享访问签名来授予特定时间段对特定数据对象的访问权限。
+可通过两种方法授权对数据对象本身的访问权限。 分别是控制对存储帐户密钥的访问，和使用共享访问签名来授予特定时间段对特定数据对象的访问权限。
 
-要注意的一种例外情况是，可以通过相应设置保存 Blob 的容器的访问级别，来允许对 Blob 进行公共访问。 如果将容器的访问权限设置为“Blob”或“容器”，则允许该容器中 Blob 的公共读取访问权限。 这意味着 URL 指向该容器中 Blob 的任何人都可以在浏览器中打开它，而不需要使用共享访问签名或拥有存储帐户密钥。
+此外，对于 Blob 存储，可以通过对保存 Blob 的容器的访问级别进行相应设置，来允许对 Blob 进行公共访问。 如果将容器的访问权限设置为“Blob”或“容器”，则允许该容器中 Blob 的公共读取访问权限。 这意味着 URL 指向该容器中 Blob 的任何人都可以在浏览器中打开它，而不需要使用共享访问签名或拥有存储帐户密钥。
 
 ### <a name="storage-account-keys"></a>存储帐户密钥
 存储帐户密钥是由 Azure 创建的 512 位字符串，配合存储帐户名称用于访问存储于存储帐户中的数据对象。
@@ -515,7 +515,7 @@ Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户
 
    **资源**
 
-* [为何建议不再使用“FIPS 模式”](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx)
+* [为何建议不再使用“FIPS 模式”](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   此博客文章提供了 FIPS 概述，并说明了他们为什么默认不启用 FIPS 模式。
 * [FIPS 140 Validation](https://technet.microsoft.com/library/cc750357.aspx)（FIPS 140 验证）

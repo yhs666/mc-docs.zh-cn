@@ -3,24 +3,24 @@ title: "VM 重新启动或大小调整问题 | Azure"
 description: "排查在 Azure 中重新启动或调整现有 Linux 虚拟机时遇到的经典部署问题"
 services: virtual-machines-linux
 documentationcenter: 
-author: Deland-Han
-manager: felixwu
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: top-support-issue
 ms.assetid: 73f2672c-602e-4766-8948-2b180115d299
 ms.service: virtual-machines-linux
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: required
 origin.date: 01/10/2017
-ms.date: 03/01/2017
+ms.date: 10/30/2017
 ms.devlang: na
-ms.author: v-dazen
-ms.openlocfilehash: f5a0e7cbef7d1bcde3e3c1d5e1e1276a25e8fc90
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.author: v-yeche
+ms.openlocfilehash: 60e7c2adb1a471ffd81014db7daf13fc94a2a8dd
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>排查在 Azure 中重新启动或调整现有 Linux 虚拟机时遇到的经典部署问题
 > [!div class="op_single_selector"]
@@ -67,7 +67,7 @@ ms.lasthandoff: 06/23/2017
 必须在托管云服务的原始群集上尝试发出调整 VM 大小的请求。 但是，群集不支持请求的 VM 大小。
 
 ### <a name="resolution"></a>解决方法
-减小请求的 VM 大小，然后重试调整大小请求。
+减少请求的 VM 大小，并重试调整大小请求。
 
 * 单击“浏览全部” > “虚拟机(经典)” >  *用户的虚拟机*  > “设置” > “大小”。 有关详细步骤，请参阅[调整虚拟机的大小](https://msdn.microsoft.com/library/dn168976.aspx)。
 
@@ -78,7 +78,8 @@ ms.lasthandoff: 06/23/2017
 
 可以在同一个云服务中合并所有 VM。 如果现有的云服务与基于区域的虚拟网络相关联，则可以将新的云服务连接到现有虚拟网络。
 
-如果现有的云服务未与基于区域的虚拟网络相关联，则必须删除现有云服务中的 VM，并在新云服务中从其磁盘重新创建 VM。 然而，请务必记住，新的云服务将有新的名称和 VIP，因此需要为所有目前将此信息用于现有云服务的依赖项更新该信息。
+如果现有的云服务未与基于区域的虚拟网络相关联，则必须删除现有云服务中的 VM，并在新云服务中从其磁盘重新创建 VM。 然而，请务必记住，新的云服务有新的名称和 VIP，因此需要为所有目前将此信息用于现有云服务的依赖项更新该信息。
 
 ## <a name="next-steps"></a>后续步骤
 如果在 Azure 中创建新的 Linux VM 时遇到问题，请参阅[排查在 Azure 中新建 Linux 虚拟机时遇到的部署问题](../troubleshoot-deployment-new-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+<!--Update_Description: update meta properties-->

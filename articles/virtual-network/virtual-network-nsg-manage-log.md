@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 01/31/2017
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: a05409fa50b7529702df47b3abf60ccacdba01ca
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: a995e7a01d71e93262a48c2bcc949985c1888369
+ms.sourcegitcommit: 1481654f546756146e9cc1e27866ab486329950a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>网络安全组 (NSG) 的日志分析
 
@@ -45,10 +45,7 @@ ms.lasthandoff: 09/04/2017
 
 对于 *每个* 需要为其收集数据的 NSG，必须启用诊断日志记录。 如果还没有 NSG，请完成[创建网络安全组](virtual-networks-create-nsg-arm-pportal.md)一文中的步骤创建一个。 可以使用以下任意方法启用 NSG 诊断日志记录：
 <!-- Not Avaialble [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) -->
-
-### <a name="azure-portal"></a>Azure 门户
-
-若要使用门户启用日志记录，请登录到[门户](https://portal.azure.cn)。 单击“更多服务”，然后键入“网络安全组”。 选择要为其启用日志记录的 NSG。 选择 **NetworkSecurityGroupEvent** 和/或 **NetworkSecurityGroupRuleCounter** 日志类别。
+<!-- Not Available ### Azure portal-->
 
 ### <a name="powershell"></a>PowerShell
 

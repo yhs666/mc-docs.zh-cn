@@ -14,11 +14,11 @@ ms.topic: mvc
 origin.date: 09/25/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: af9d5ef6f2ad422e633b9668de52527cdf2e29cb
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 7625ec613f6a36325d1a3689291a6a3d8ea2596b
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>使用 Azure Cosmos DB 输入绑定创建 Azure Functions HTTP 触发器
 
@@ -277,3 +277,4 @@ Azure Cosmos DB 是无架构、无服务器的全球分布式多模型数据库�
 本文基于 [Brady Gaster 的“Schemaless & Serverless”（无架构，无服务器）](http://www.bradygaster.com/category/%20Serverless%20&%20Schemaless)博客连载中的一篇文章。 请访问他的博客，阅读连载中的其他文章。
 
 <!--Update_Description: new articles on http triggers -->
+

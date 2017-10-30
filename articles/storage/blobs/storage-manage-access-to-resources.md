@@ -3,8 +3,8 @@ title: "启用对 Azure Blob 存储中容器和 blob 的公共读取访问 | Azu
 description: "了解如何使容器和 blob 可供匿名访问，以及如何对其进行程序式访问。"
 services: storage
 documentationcenter: 
-author: mmacy
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
 ms.service: storage
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/26/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 1d5179e7c7ea76c3500a1fcb400835d1e6e0349b
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: 5cb756e2c57677a6716b870b8a5997c0aeba511e
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>管理对容器和 Blob 的匿名读取访问
 可以启用对 Azure Blob 存储中的容器及其 Blob 的匿名公共读取访问。 这样做可以授予对这些资源的只读访问权限，无需共享帐户密钥，也无需共享访问签名 (SAS)。
@@ -154,5 +154,3 @@ public static void DownloadBlobAnonymously()
 * [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)（Azure 存储服务的身份验证）
 * [使用共享访问签名 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fstorage%2fblobs%2ftoc.json)
 * [使用共享访问签名委托访问](https://msdn.microsoft.com/library/azure/ee395415.aspx)
-
-<!--Update_Description: update link-->

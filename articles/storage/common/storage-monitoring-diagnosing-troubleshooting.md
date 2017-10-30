@@ -1,9 +1,9 @@
 ---
-title: "对 Azure 存储进行监视、诊断和故障排除 | Azure"
+title: "对 Azure 存储进行监视、诊断和故障排除 | Microsoft Docs"
 description: "使用存储分析、客户端日志记录等功能及其他第三方工具，确定、诊断和排查与 Azure 存储相关的问题。"
 services: storage
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: d1e87d98-c763-4caa-ba20-2cf85f853303
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 971f3e1f2ba92ee9e87b0273e884be01c72d3f92
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: e86258286c643f436a0bc6d76f2909af22d453f9
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="monitor-diagnose-and-troubleshoot-azure-storage"></a>对 Azure 存储进行监视、诊断和故障排除
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/25/2017
 若要成功管理此类应用程序，应主动监视这些应用程序，并了解如何诊断和排查这些应用程序及其相关技术的所有方面的问题。 作为 Azure 存储服务的用户，应持续监视应用程序所用的存储服务是否出现任何意外的行为更改（如比正常响应时间慢），并使用日志记录收集更详细的数据并深入分析问题。 从监视和日志记录获取的诊断信息将有助于确定应用程序所遇到问题的根本原因。 然后，用户可以排查该问题，并确定可以执行以更正该问题的相应步骤。 Azure 存储是一项核心 Azure 服务，它是客户部署到 Azure 基础结构的大多数解决方案的重要组成部分。 Azure 存储提供的功能可以简化监视、诊断和排查基于云的应用程序中的存储问题的过程。
 
 > [!NOTE]
-> Azure 文件存储目前不支持日志记录。
+> Azure 文件目前不支持日志记录。
 > 
 
 有关 Azure 存储应用程序中端到端故障排除的动手指南，请参阅[端到端故障排除 - 使用 Azure 存储指标和日志记录、AzCopy 和 Message Analyzer](../storage-e2e-troubleshooting.md)。
@@ -72,8 +72,8 @@ ms.lasthandoff: 08/25/2017
             [问题是由于使用存储模拟器进行开发或测试而导致]
   * [安装用于 .NET 的 Azure SDK 时遇到问题]
   * [你遇到了其他存储服务问题]
-  * [排查 Windows 中的 Azure 文件存储问题](../files/storage-troubleshoot-windows-file-connection-problems.md)   
-  * [排查 Linux 中的 Azure 文件存储问题](../files/storage-troubleshoot-linux-file-connection-problems.md)
+  * [排查 Windows 的 Azure 文件问题](../files/storage-troubleshoot-windows-file-connection-problems.md)   
+  * [排查 Linux 的 Azure 文件问题](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [附录]
   * [附录 1：使用 Fiddler 捕获 HTTP 和 HTTPS 流量]
   * [附录 2：使用 Wireshark 捕获网络流量]
@@ -111,7 +111,7 @@ ms.lasthandoff: 08/25/2017
 
 存储服务尽最大努力收集指标，但可能无法记录每个存储操作。
 
-在 Azure 门户中，可以查看存储帐户的指标，如可用性、请求总数和平均延迟数。 也已设置通知规则，以便在可用性下降到低于某个级别时向管理员发出警报。 通过查看此数据，一个可能的调查方面是表服务成功百分比低于 100%（有关详细信息，请参阅“[度量值显示低 PercentSuccess，或者分析日志项包含事务状态为 ClientOtherErrors 的操作]”一节）。
+在 Azure 门户中，可以查看存储帐户的度量值，如可用性、请求总数和平均延迟数。 也已设置通知规则，以便在可用性下降到低于某个级别时向管理员发出警报。 通过查看此数据，一个可能的调查方面是表服务成功百分比低于 100%（有关详细信息，请参阅“[度量值显示低 PercentSuccess，或者分析日志项包含事务状态为 ClientOtherErrors 的操作]”一节）。
 
 应通过以下方式持续监视 Azure 应用程序以确保它们正常运行并按预期执行操作：
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 08/25/2017
 ### <a name="monitoring-availability"></a>监视可用性
 应通过监视以下每小时或每分钟度量值表中的“可用性”列中的值来监视存储帐户中存储服务的可用性：**$MetricsHourPrimaryTransactionsBlob**、**$MetricsHourPrimaryTransactionsTable**、**$MetricsHourPrimaryTransactionsQueue**、**$MetricsMinutePrimaryTransactionsBlob**、**$MetricsMinutePrimaryTransactionsTable**、**$MetricsMinutePrimaryTransactionsQueue**、**$MetricsCapacityBlob**。 **可用性**列包含一个百分比值，指示该服务的可用性或该行所表示的 API 操作的可用性（**RowKey** 显示行是包含整体服务的度量值还是包含特定 API 操作的度量值）。
 
-任何小于 100% 的值指示某些存储请求将失败。 可以通过检查度量值数据中显示具有不同错误类型（如 **ServerTimeoutError**）的请求数的其他列来了解失败原因。 由于以下原因，应该会看到 **Availability** 暂时低于 100%：比如在该服务移动分区以更好地负载均衡请求时，出现暂时性服务器超时；客户端应用程序中的重试逻辑应处理此类间歇性情况。 [Storage Analytics Logged Operations and Status Messages](http://msdn.microsoft.com/library/azure/hh343260.aspx) （存储分析记录的操作和状态消息）一文列出了存储度量值纳入其 **可用性** 计算中的事务类型。
+任何小于 100% 的值指示某些存储请求将失败。 可以通过检查度量值数据中显示具有不同错误类型（如 **ServerTimeoutError**）的请求数的其他列来了解失败原因。 由于以下原因，应该会看到 **Availability** 暂时低于 100%：比如在该服务移动分区以更好地负载均衡请求时，出现暂时性服务器超时；客户端应用程序中的重试逻辑应处理此类间歇性情况。 [Storage Analytics Logged Operations and Status Messages](http://msdn.microsoft.com/library/azure/hh343260.aspx)（存储分析记录的操作和状态消息）一文列出了存储度量值纳入其“可用性”计算中的事务类型。
 
 在 [Azure 门户](https://portal.azure.cn)中，可以添加警报规则，以便在某项服务的“可用性”低于指定阈值时通知用户。
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 08/25/2017
 
 通常会监视这些值的任何意外更改，它们可以指示需要调查的问题。
 
-在 [Azure 门户](https://portal.azure.cn)中，可以添加警报规则，以便在此服务的任何性能指标低于或超过指定阈值时通知用户。
+在 [Azure 门户](https://portal.azure.cn)中，可以添加警报规则，以便在此服务的任何性能度量值低于或超过指定阈值时通知用户。
 
 本指南的“[故障排除指南]”一节介绍与性能相关的一些常见存储服务问题。
 
@@ -655,7 +655,7 @@ client.SetServiceProperties(sp);
 可以在[常见的 REST API 错误代码](http://msdn.microsoft.com/library/azure/dd179357.aspx)页上找到存储服务返回的常见 REST API 错误代码的列表。
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>容量度量值显示存储容量使用量意外增加
-如果在存储帐户中看到容量使用量突然意外更改，可以调查原因，具体方法是先查看可用性度量值；例如，失败的删除请求数增加可能会导致你所使用的 Blob 存储量增加，本来希望应用程序特定的清理操作可以释放一些空间，但却未按预期正常工作（例如，因为用于释放空间的 SAS 令牌已过期）。
+如果发现存储帐户中的容量使用量意外突变，可调查其原因，具体方法是先查看可用性指标；例如，失败的删除请求数增加可能导致所用的 Blob 存储量增加，本来希望应用程序特定的清理操作可释放一些空间，但却未按预期工作（例如，因为用于释放空间的 SAS 令牌已过期）。
 
 ### <a name="you-are-experiencing-unexpected-reboots"></a>遇到具有大量附加 VHD 的 Azure 虚拟机意外重新启动
 如果 Azure 虚拟机 (VM) 具有大量位于同一存储帐户的附加 VHD，则可能会超过单个存储帐户的可伸缩性目标，从而导致 VM 出现故障。 应检查存储帐户的分钟度量值 (**TotalRequests**/**TotalIngress**/**TotalEgress**)，以获取超过一个存储帐户可伸缩性目标的峰值。 若要帮助确定是否已对存储帐户进行限制，请参阅“[度量值显示 PercentThrottlingError 增加]”一节。
@@ -676,7 +676,7 @@ client.SetServiceProperties(sp);
 对于存储模拟器不支持的这些功能，请使用云中的 Azure 存储服务。
 
 #### <a name="error-HTTP-header-not-correct-format"></a>使用存储模拟器时出现错误“其中一个 HTTP 标头的值的格式不正确”
-正在针对本地存储模拟器测试使用存储客户端库的应用程序，方法调用（如 **CreateIfNotExists**）失败并显示错误消息“其中一个 HTTP 标头的值的格式不正确”。 这表示所用的存储模拟器版本不支持所用的存储客户端库版本。 存储客户端库会为它发出的所有请求添加标头 **x-ms-version** 。 如果存储模拟器无法识别 **x-ms-version** 标头中的值，则会拒绝该请求。
+正在针对本地存储模拟器测试使用存储客户端库的应用程序，方法调用（如 CreateIfNotExists）失败并显示错误消息“其中一个 HTTP 标头值的格式不正确”。 这表示所用的存储模拟器版本不支持所用的存储客户端库版本。 存储客户端库会为它发出的所有请求添加标头 **x-ms-version** 。 如果存储模拟器无法识别 **x-ms-version** 标头中的值，则会拒绝该请求。
 
 可以使用存储库客户端日志查看它发送的 **x-ms-version 标头** 的值。 如果使用 Fiddler 跟踪客户端应用程序发出的请求，也可以查看 **x-ms-version 标头** 的值。
 
@@ -758,7 +758,7 @@ WireShark 会在 **packetlist** 窗口中突出显示存在的任何错误。 �
 
 ![][7]
 
-用户还可以选择查看 TCP 数据（如果应用程序层看到该数据），方法是右键单击 TCP 数据，并选择“跟踪 TCP 流” 。 在不使用捕获筛选器捕获转储时，此方法特别有用。 有关详细信息，请参阅 [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)（跟踪 TCP 流）。
+还可选择查看 TCP 数据（如果应用程序层看到该数据），方法是右键单击 TCP 数据，并选择“跟踪 TCP 流”。 在不使用捕获筛选器捕获转储时，此方法特别有用。 有关详细信息，请参阅 [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)（跟踪 TCP 流）。
 
 ![][8]
 
@@ -771,7 +771,7 @@ WireShark 会在 **packetlist** 窗口中突出显示存在的任何错误。 �
 可以使用 Microsoft Message Analyzer 以与 Fiddler 类似的方式捕获 HTTP 和 HTTPS 流量，并以与 Wireshark 类似的方式捕获网络流量。
 
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>使用 Microsoft Message Analyzer 配置 Web 跟踪会话
-若要使用 Microsoft Message Analyzer 为 HTTP 和 HTTPS 通信配置 Web 跟踪会话，请运行 Microsoft Message Analyzer 应用程序，然后在“文件”菜单上单击“捕获/跟踪”。 在可用的跟踪方案列表中，选择“Web 代理”。 然后在“跟踪方案配置”面板的“HostnameFilter”文本框中，添加存储终结点的名称（可以在 [Azure 门户](https://portal.azure.cn)中查找这些名称）。 例如，如果 Azure 存储帐户的名称是 contosodata，则应将以下内容添加到 HostnameFilter 文本框：
+若要使用 Microsoft Message Analyzer 为 HTTP 和 HTTPS 通信配置 Web 跟踪会话，请运行 Microsoft Message Analyzer 应用程序，然后在“文件”菜单上单击“捕获/跟踪”。 在可用的跟踪方案列表中，选择“Web 代理”。 然后在“跟踪方案配置”面板的“HostnameFilter”文本框中，添加存储终结点的名称（可以在 [Azure 门户](https://portal.azure.cn)中查找这些名称）。 例如，如果 Azure 存储帐户的名称是 **contosodata**，则应将以下内容添加到 **HostnameFilter** 文本框：
 
 ```
 contosodata.blob.core.chinacloudapi.cn contosodata.table.core.chinacloudapi.cn contosodata.queue.core.chinacloudapi.cn

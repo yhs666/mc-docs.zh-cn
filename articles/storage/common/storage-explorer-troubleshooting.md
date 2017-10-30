@@ -11,15 +11,15 @@ ms.service: virtual-machines
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 09/08/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 6c586281b450af6ffe54b32b12f5b92e767a7d11
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: f23b3bab22382a92cc9052e59713acb8cc8789f8
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
@@ -29,7 +29,7 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 
 ## <a name="sign-in-issues"></a>登录问题
 
-在继续之前，尝试重启应用程序，并检查是否已解决问题。
+仅支持 Azure Active Directory (AAD) 帐户。 如果使用 ADFS 帐户，预计将无法正常登录存储资源管理器。 继续之前，请尝试重新启动应用程序，看问题是否能够解决。
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>错误：证书链中的自签名证书
 
@@ -181,4 +181,4 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 为此，请单击“帮助”菜单，然后单击“发送反馈”。
 
 ![反馈](./media/storage-explorer-troubleshooting/4022503_en_1.png)
-<!--Update_Description:add next steps section-->
+<!--Update_Description: add note that ADFS account is not supported-->

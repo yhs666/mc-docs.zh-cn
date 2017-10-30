@@ -1,4 +1,4 @@
-通过 Resource Manager 命令和模板使用 Azure CLI 以利用资源组部署 Azure 资源和工作负荷之前，你将需要一个 Azure 帐户。 如果没有帐户，可以[在此处获取 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+通过 Resource Manager 命令和模板使用 Azure CLI 以利用资源组部署 Azure 资源和工作负荷之前，需要一个 Azure 帐户。 如果没有帐户，可以[在此处获取 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 如果尚未安装 Azure CLI 并连接到订阅，请参阅[安装 Azure CLI](../articles/cli-install-nodejs.md) 以使用 `azure config mode arm` 将模式设置为 `arm`，并使用 `azure login -e AzureChinaCloud` 命令连接到 Azure。
 
@@ -35,6 +35,7 @@
 | 从 VM 中删除数据磁盘 |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
 | 将泛型扩展添加到 VM |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |
 | 将 VM 访问扩展添加到 VM |`azure vm reset-access [options] <resource-group> <name>` |
+| 将 Docker 扩展添加到 VM |`azure  vm docker create [options] <resource-group> <name> <location> <os-type>` |
 | 删除 VM 扩展 |`azure  vm extension set [options] -u <resource-group> <vm-name> <name> <publisher-name> <version>` |
 | 获取 VM 资源的使用情况 |`azure vm list-usage [options] <location>` |
 | 获取所有可用 VM 大小 |`azure vm sizes [options]` |

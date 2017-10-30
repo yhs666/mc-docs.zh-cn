@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 01/23/2017
-ms.date: 10/16/2017
+origin.date: 10/11/2017
+ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: a5ce45d3b2ea126498f48fb11502a6c691f91b92
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: fc9adc40492c01ff8eef9304f802b2989ce6f6cb
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="about-azure-storage-accounts"></a>关于 Azure 存储帐户
 [!INCLUDE [storage-selector-portal-create-storage-account](../../../includes/storage-selector-portal-create-storage-account.md)]
@@ -59,11 +59,8 @@ Azure 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数�
 此外还可以配置用于存储帐户的自定义域名称。 有关详细信息，请参阅[为 Blob 存储终结点配置自定义域名称](../blobs/storage-custom-domain-name.md)。 也可使用 PowerShell 来配置它。 有关详细信息，请参阅 [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) cmdlet。  
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
-
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-
-2. 在“中心”菜单上，选择“新建” -> “存储” -> “存储帐户”。
-
+2. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“更多服务”。 然后向下滚动到“存储”，接着选择“存储帐户”。 在显示的“存储帐户”窗口中，选择“添加”。
 3. 输入存储帐户的名称。 有关如何使用存储帐户名称在 Azure 存储中定位对象的详细信息，请参阅[存储帐户终结点](#storage-account-endpoints)。
 
     > [!NOTE]
@@ -159,4 +156,4 @@ Azure 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数�
 * [使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)
 * 访问 [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)。
 
-<!--Update_Description: update links-->
+<!--Update_Description: wording update-->

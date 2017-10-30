@@ -11,7 +11,7 @@
       href: quick-create-cli.md
     - name: 创建 VM - 门户
       href: quick-create-portal.md
-    - name: 创建 VM - PowerShell
+    - name: 创建 VM - Azure PowerShell
       href: quick-create-powershell.md
 - name: 教程
   items:
@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9 - 备份虚拟机
       href: tutorial-backup-vms.md
-    - name: 10 - 监视虚拟机
+    - name: 10 - 监视和更新 VM
       href: tutorial-monitoring.md
     - name: 11 - 部署 Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
@@ -51,7 +51,7 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: powershell-samples.md
 - name: 概念
   items:
@@ -69,6 +69,8 @@
       href: azure-vm-storage-overview.md
     - name: 网络
       href: network-overview.md
+    - name: 基础结构自动化
+      href: infrastructure-automation.md
     - name: 监视
       href: monitor.md
     - name: 备份和恢复
@@ -131,6 +133,8 @@
               href: agent-user-guide.md
             - name: 代理更新
               href: update-agent.md
+        - name: 计划内维护
+          href: maintenance-notifications.md
         - name: 计划事件
           href: scheduled-events.md
         - name: 监视元数据
@@ -276,7 +280,7 @@
               href: upload-vhd.md
             - name: 使用 Azure Site Recovery
               href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 从经典部署迁移到 Azure Resource Manager 部署
+        - name: 从经典部署迁移到 Azure 资源管理器部署
           href: migration-classic-resource-manager-overview.md
           items:
             - name: 深入了解迁移

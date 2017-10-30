@@ -13,10 +13,10 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 10/16/2017
-  ms.author: v-yeche
+  ms.date: 10/30/2017
+  ms.author: v-dazen
 abstract:
-  description: Azure Linux 虚拟机使用所选 Red Hat、Ubuntu 或 Linux 分发按需提供具有高可伸缩性且十分安全的虚拟化基础结构。 使用我们的快速入门、教程和示例了解如何创建、配置、管理和缩放 Linux VM。
+  description: Azure Linux 虚拟机使用所选 Red Hat、Ubuntu 或 Linux 分发按需提供具有高可伸缩性且十分安全的虚拟化基础结构。 使用快速入门、教程和示例了解如何创建、配置、管理、更新和缩放 Linux VM。
 sections:
   - title: 5 分钟快速入门
     items:
@@ -26,17 +26,17 @@ sections:
         style: icon48
         items:
           - image:
-              src: /virtual-machines/linux/media/index/cli.svg
+              src: 'https://docs.azure.cn/virtual-machines/linux/media/index/cli.svg'
             text: Azure CLI
-            href: /virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fvirtual-machines%2flinux%2ftoc.json
+            href: 'https://docs.azure.cn/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fvirtual-machines%2flinux%2ftoc.json'
           - image:
-              src: /virtual-machines/linux/media/index/portal.svg
+              src: 'https://docs.azure.cn/virtual-machines/linux/media/index/portal.svg'
             text: Azure 门户
-            href: /virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fvirtual-machines%2flinux%2ftoc.json
+            href: 'https://docs.azure.cn/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fvirtual-machines%2flinux%2ftoc.json'
           - image:
-              src: /virtual-machines/linux/media/index/logo_powershell.svg
+              src: 'https://docs.azure.cn/virtual-machines/linux/media/index/logo_powershell.svg'
             text: Azure PowerShell
-            href: /virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fvirtual-machines%2flinux%2ftoc.json
+            href: 'https://docs.azure.cn/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fvirtual-machines%2flinux%2ftoc.json'
   - title: 分步教程
     items:
       - type: paragraph
@@ -53,7 +53,7 @@ sections:
           - html: <a href="/virtual-machines/linux/tutorial-load-balancer">对 VM 进行负载均衡</a>
           - html: <a href="/virtual-machines/linux/tutorial-virtual-network">管理 VM 和虚拟网络</a>
           - html: <a href="/virtual-machines/linux/tutorial-backup-vms">备份 VM</a>
-          - html: <a href="/virtual-machines/linux/tutorial-monitoring">监视 VM</a>
+          - html: <a href="/virtual-machines/linux/tutorial-monitoring">监视和更新 VM</a>
           - html: <a href="/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">使用 Jenkins、Docker 和 GitHub 创建 CI/CD 基础结构</a>
           - html: <a href="/virtual-machines/linux/tutorial-build-deploy-jenkins">将 CI/CD 与 Team Services 配合使用</a>
           - html: 使用 <a href="/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>、<a href="/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> 或 <a href="/virtual-machines/linux/tutorial-mean-stack">MEAN</a> 创建 Web 服务器堆栈

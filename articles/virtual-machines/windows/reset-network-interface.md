@@ -3,23 +3,23 @@ title: "如何为 Azure Windows VM 重置网络接口 | Azure"
 description: "介绍如何为 Azure Windows VM 重置网络接口"
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: 
-author: genlin
-manager: willchen
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 06/26/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
-ms.openlocfilehash: 144f5512b08639b0880ae097e5a516ac5f85af10
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: 93d6af3652d81941b2590fe9f9e643c02eec0a0b
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>如何为 Azure Windows VM 重置网络接口 
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 08/07/2017
 2.  选择“视图” > “显示隐藏的设备”。
 3.  选择“网络适配器”。 
 4.  找到名为“Microsoft Hyper-V 网络适配器”的适配器。
-5.  此时可能会看到灰显的不可用适配器。 右键单击该适配器，然后选择“卸载”。
+5.  此时可能会看到灰显的不可用适配器。右键单击该适配器，然后选择“卸载”。
 
     ![NIC 图像](media/reset-network-interface/nicpage.png)
 
@@ -74,3 +74,4 @@ ms.lasthandoff: 08/07/2017
     >
 
 6.  现在，所有不可用的适配器应该已从系统中清除。
+<!--Update_Description: update meta properties-->

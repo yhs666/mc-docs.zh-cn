@@ -1,6 +1,6 @@
 ---
-title: "使用 .NET 针对 Azure 文件存储进行开发 | Microsoft Docs"
-description: "了解如何开发使用 Azure 文件存储来存储文件数据的 .NET 应用程序和服务。"
+title: "使用 .NET 针对 Azure 文件进行开发 | Microsoft Docs"
+description: "了解如何开发使用 Azure 文件来存储文件数据的 .NET 应用程序和服务。"
 services: storage
 documentationcenter: .net
 author: forester123
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 05/27/2017
-ms.date: 10/16/2017
+origin.date: 09/19/2017
+ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 3834bb9a0e7d194a08cd44483b2656d84e4b8ec5
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: 297d75c05dc468db454bef1df364cd9cef1f038c
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/23/2017
 ---
-# <a name="develop-for-azure-file-storage-with-net"></a>使用 .NET 针对 Azure 文件存储进行开发 
+# <a name="develop-for-azure-files-with-net"></a>使用 .NET 针对 Azure 文件进行开发 
 > [!NOTE]
-> 本文介绍如何使用 .NET 代码管理 Azure 文件存储。 若要详细了解 Azure 文件存储，请参阅 [Azure 文件存储简介](storage-files-introduction.md)。
+> 本文介绍如何使用 .NET 代码管理 Azure 文件。 若要详细了解 Azure 文件，请参阅 [Azure 文件简介](storage-files-introduction.md)。
 >
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/09/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="about-this-tutorial"></a>关于本教程
-本教程演示使用 .NET 开发应用程序或服务的基本操作，这些程序或服务可以使用 Azure 文件存储来存储文件数据。 在本教程中，我们创建一个简单的控制台应用程序，并演示如何通过 .NET 和 Azure 文件存储执行基本的操作：
+本教程将演示使用 .NET 开发应用程序或服务的基础知识，这些应用程序或服务可以使用 Azure 文件来存储文件数据。 在本教程中，我们创建一个简单的控制台应用程序，并演示如何通过 .NET 和 Azure 文件执行基本的操作：
 
 * 获取文件内容
 * 设置文件共享的配额（最大大小）。
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/09/2017
 * 使用 Azure 存储度量值进行故障排除
 
 > [!Note]  
-> 由于 Azure 文件存储可以通过 SMB 进行访问，因此可以编写简单的应用程序，通过标准的适用于文件 I/O 的 System.IO 类来访问 Azure 文件共享。 本文介绍如何编写使用 Azure 存储 .NET SDK 的应用程序，该 SDK 使用 [Azure 文件存储 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 与 Azure 文件存储通信。 
+> 由于 Azure 文件可以通过 SMB 进行访问，因此可以编写简单的应用程序，通过标准的适用于文件 I/O 的 System.IO 类来访问 Azure 文件共享。 本文将介绍如何编写使用 Azure 存储 .NET SDK 的应用程序，该 SDK 使用 [文件 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 与 Azure 文件通信。 
 
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>创建控制台应用程序，并获取程序集
@@ -85,7 +85,7 @@ ms.lasthandoff: 10/09/2017
 ```
 
 > [!NOTE]
-> 最新版本的 Azure 存储模拟器不支持 Azure 文件存储。 连接字符串必须针对云中要使用 Azure 文件存储的 Azure 存储帐户。
+> 最新版本的 Azure 存储模拟器不支持 Azure 文件。 连接字符串必须针对云中要使用 Azure 文件的 Azure 存储帐户。
 
 ## <a name="add-using-directives"></a>添加 using 指令
 从解决方案资源管理器打开 `Program.cs` 文件，并在该文件顶部添加以下 using 指令。
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/09/2017
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
 using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Azure Blobs
-using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
+using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure Files
 ```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
@@ -103,7 +103,7 @@ using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
 接下来，将以下代码添加到 `Main()` 方法（在上面显示的代码后面）以检索连接字符串。 此代码会获取我们先前创建的文件的引用，并将其内容输出到控制台窗口中。
 
 ```csharp
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -148,7 +148,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -183,7 +183,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -241,7 +241,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -285,7 +285,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Create a new file share, if it does not already exist.
@@ -326,13 +326,12 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 可以用相同的方式将一个 Blob 复制到一个文件。 如果源对象是一个 Blob，则创建一个 SAS 以复制操作期间验证对该 Blob 的访问。
 
-## <a name="troubleshooting-azure-file-storage-using-metrics"></a>使用指标对 Azure 文件存储进行故障排除
-Azure 存储分析现在支持用于 Azure 文件存储的指标。 使用指标数据，可以跟踪请求和诊断问题。
+## <a name="troubleshooting-azure-files-using-metrics"></a>使用指标对 Azure 文件进行故障排除
+Azure 存储分析现在支持用于 Azure 文件的指标。 使用指标数据，可以跟踪请求和诊断问题。
 
 可以通过 [Azure 门户](https://portal.azure.cn)为 Azure 文件存储启用指标。 还可以通过 REST API 或存储客户端库中的类似物之一调用“设置文件服务属性”操作，以编程方式启用指标。
 
-
-下面的代码示例演示如何使用适用于 .NET 的存储客户端库启用 Azure 文件存储的指标。
+以下代码示例演示如何使用适用于 .NET 的存储客户端库启用 Azure 文件的指标。
 
 首先，在添加以上指令后，将以下 `using` 指令添加到 `Program.cs` 文件中：
 
@@ -341,7 +340,7 @@ using Microsoft.WindowsAzure.Storage.File.Protocol;
 using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 ```
 
-请注意，Azure Blob、Azure 表和 Azure 队列使用 `Microsoft.WindowsAzure.Storage.Shared.Protocol` 命名空间中的共享 `ServiceProperties` 类型，而 Azure 文件存储使用其自己的类型，即 `Microsoft.WindowsAzure.Storage.File.Protocol` 命名空间中的 `FileServiceProperties` 类型。 但是，代码中必须同时引用这两个命名空间，才能编译后续代码。
+请注意，Azure Blob、Azure 表和 Azure 队列使用 `Microsoft.WindowsAzure.Storage.Shared.Protocol` 命名空间中的共享 `ServiceProperties` 类型，而 Azure 文件使用其自己的类型，即 `Microsoft.WindowsAzure.Storage.File.Protocol` 命名空间中的 `FileServiceProperties` 类型。 但是，代码中必须同时引用这两个命名空间，才能编译后续代码。
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -384,26 +383,27 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-还可以参考 [Azure 文件存储故障排除文章](storage-troubleshoot-windows-file-connection-problems.md)，了解端到端故障排除指南。
+还可以参考 [Azure 文件故障排除文章](storage-troubleshoot-windows-file-connection-problems.md) 了解有关端到端故障排除指南。
 
 ## <a name="next-steps"></a>后续步骤
-请参阅以下链接以获取有关 Azure 文件存储的更多信息。
+请参阅以下链接，获取有关 Azure 文件的更多信息。
 
 ### <a name="conceptual-articles"></a>概念性文章
 
-* [如何将 Azure 文件存储与 Linux 配合使用](storage-how-to-use-files-linux.md)
+* [如何通过 Linux 使用 Azure 文件](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>文件存储的工具支持
 * [如何对 Azure 存储使用 AzCopy](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json)
 * [将 Azure CLI 用于 Azure 存储](../common/storage-azure-cli.md?toc=%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [排查 Azure 文件存储问题](/storage/storage-troubleshoot-file-connection-problems)
+* [排查 Azure 文件问题](/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>引用
 * [.NET 存储客户端库参考](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [文件服务 REST API 参考](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### <a name="blog-posts"></a>博客文章
-* [Azure 文件存储现已正式发布](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inside Azure File storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)（Azure 文件存储内部）
+* [Azure 文件现已正式发布](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Azure 文件内部](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Azure File Service（Azure 文件服务简介）](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [持久连接到 Azure 文件存储](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Persisting connections to Azure Files（持久连接到 Azure 文件）](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+<!--Update_Description:wording update-->

@@ -3,7 +3,7 @@ title: "如何通过 Node.js 使用队列存储 | Azure"
 description: "了解如何使用 Azure 队列服务创建和删除队列，以及插入、获取和删除消息。 相关示例是使用 Node.js 编写的。"
 services: storage
 documentationcenter: nodejs
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: fe4534d2cf18cdcc1fcf3e59c231558726c582ae
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: da7213b2bdb8455651703dc5f1070c3d9cc0c241
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>如何通过 Node.js 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -34,10 +34,10 @@ ms.lasthandoff: 08/25/2017
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>创建 Node.js 应用程序
-创建一个空的 Node.js 应用程序。 有关创建 Node.js 应用程序的说明，请参阅[在 Azure 应用服务中创建 Node.js Web 应用](../../app-service-web/app-service-web-get-started-nodejs.md)、[生成 Node.js 应用程序并将其部署到 Azure 云服务](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)或[使用 Web Matrix 构建 Node.js Web 应用并将其部署到 Azure](https://www.microsoft.com/web/webmatrix/)。
+创建一个空的 Node.js 应用程序。 有关创建 Node.js 应用程序的说明，请参阅[在 Azure 应用服务中创建 Node.js Web 应用](../../app-service/app-service-web-get-started-nodejs.md)、[生成 Node.js 应用程序并将其部署到 Azure 云服务](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)或[使用 Web Matrix 构建 Node.js Web 应用并将其部署到 Azure](https://www.microsoft.com/web/webmatrix/)。
 
 ## <a name="configure-your-application-to-access-storage"></a>配置应用程序以访问存储
-若要使用 Azure 存储，需要用于 Node.js 的 Azure 存储 SDK，其中包括一组便于与存储 REST 服务进行通信的库。
+若要使用 Azure 存储，需要 Azure Storage SDK for Node.js，其中包括一组便于与存储 REST 服务进行通信的库。
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>使用 Node 包管理器 (NPM) 可获取该程序包
 1. 使用 **PowerShell** (Windows)、**Terminal** (Mac) 或 **Bash** (Unix) 等命令行界面导航到在其中创建了示例应用程序的文件夹。
@@ -108,7 +108,7 @@ function (returnObject, finalCallback, next)
 
 在此回调中，在处理 returnObject（来自对服务器的请求的响应）后，回调需要调用 next（如果它已存在）以继续处理其他筛选器或只调用 finalCallback 以结束服务调用。
 
-用于 Node.js 的 Azure SDK 中附带了两个实现了重试逻辑的筛选器，分别是 **ExponentialRetryPolicyFilter** 和 **LinearRetryPolicyFilter**。 以下代码将创建一个 **QueueService** 对象，该对象使用 **ExponentialRetryPolicyFilter**：
+Azure SDK for Node.js 中附带了两个实现了重试逻辑的筛选器，分别是 **ExponentialRetryPolicyFilter** 和 **LinearRetryPolicyFilter**。 以下代码将创建一个 **QueueService** 对象，该对象使用 **ExponentialRetryPolicyFilter**：
 
 ```
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -346,5 +346,15 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 
 现在，了解了有关队列存储的基础知识，可单击下面的链接来了解更复杂的存储任务。
 
-* 访问 GitHub 上的[用于 Node 的 Azure 存储 SDK](https://github.com/Azure/azure-storage-node) 存储库。
+* 请访问 [Azure 存储团队博客][Azure 存储团队博客]。
+* 访问 GitHub 上[用于 Node 的 Azure 存储 SDK][Azure Storage SDK for Node] 存储库。
 
+[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[Azure Portal]: https://portal.azure.cn
+[在 Azure 应用服务中创建 Node.js Web 应用](../../app-service/app-service-web-get-started-nodejs.md)
+
+
+
+[生成 Node.js 应用程序并将其部署到 Azure 云服务](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) [Azure 存储团队博客]：http://blogs.msdn.com/b/windowsazurestorage/ [使用 Web Matrix 生成 Node.js Web 应用并将其部署到 Azure]：https://www.microsoft.com/web/webmatrix/
+<!--Update_Description:update next step links-->

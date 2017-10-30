@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 09/25/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4d013cc5c10dba9f652f149b03a534679d3cf773
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 16a08d59bcd23ce501cc1f497761ec770e51fadd
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的指标进行监视和调试
 
@@ -99,3 +99,4 @@ QueryMetrics 提供执行各查询组件所用时长的详细信息。 查询运
 * [Azure Cosmos DB 性能提示](performance-tips.md)
 
 <!--Update_Description: new articles on use metrics -->
+

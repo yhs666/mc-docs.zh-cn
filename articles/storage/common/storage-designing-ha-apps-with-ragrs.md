@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 09/06/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 48f8d142473263da21bab71f4e70e9e85baace23
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: c83c3ce22d39f11a8b153de1eff86e9426f84e10
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 设计高度可用的应用程序
 
@@ -38,13 +38,13 @@ Azure 存储为存储帐户中的数据冗余提供四个选项：
 
 ## <a name="key-features-of-ra-grs"></a>RA-GRS 的主要功能
 
-针对 RA-GRS 设计应用程序时，请记住以下要点：
+针对 RA-GRS 设计应用程序时，请注意下面这些要点：
 
 * Azure 存储在次要区域中保留主要区域中存储的数据的只读副本。 如上所述，存储服务确定次要区域的位置。
 
 * 只读副本与主要区域中的数据 [最终一致](https://en.wikipedia.org/wiki/Eventual_consistency) 。
 
-* 对于 blob、表和队列，可以从次要区域查询上次同步时间的值，了解上次从主要区域复制到次要区域的时间。 （Azure 文件存储不支持此操作，因为其目前不具有 RA-GRS 冗余。）
+* 对于 blob、表和队列，可以从次要区域查询上次同步时间的值，了解上次从主要区域复制到次要区域的时间。 （Azure 文件不支持此操作，因为其目前不具有 RA-GRS 冗余。）
 
 * 可以使用存储客户端库与主要或次要区域中的数据进行交互。 如果到主要区域的读取请求超时，还可将读取请求自动重定向到次要区域。
 
@@ -244,3 +244,4 @@ static function OnBeforeResponse(oSession: Session) {
 * 有关读取访问异地冗余的详细信息及如何设置 LastSyncTime 的另一示例，请参阅 [Windows Azure Storage Redundancy Options and Read Access Geo-Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)（Windows Azure 存储冗余选项和读取访问异地冗余存储）。
 
 * 有关如何在主终结点和辅助终结点之间来回切换的完整示例，请参阅 [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs)（Azure 示例 - 将断路器模式与 RA-GRS 存储配合使用）。
+<!--Update_Description:wording udpate-->

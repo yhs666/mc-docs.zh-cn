@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 10/12/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: b16d69fad6b25ae9845067f2cce51c516a3ff68f
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 4a42b56e3e2dbd2a7c103aa4fc5b0bd0553abb86
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 诊断日志记录
 
@@ -435,3 +435,4 @@ $blobs | Get-AzureStorageBlobContent `
 - 阅读[了解 Log Analytics 中的日志搜索](../log-analytics/log-analytics-log-search-new.md)
 
 <!--Update_Description: new articles on cosmos db logging -->
+

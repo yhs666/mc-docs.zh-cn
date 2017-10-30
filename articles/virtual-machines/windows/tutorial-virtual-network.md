@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4ef5df8e29e158bde0af3f6219cb20643ba5f163
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 1795e0d4553d6d1465c0b56aa3331d3b9dcbca04
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 虚拟网络和 Windows 虚拟机
 
@@ -280,4 +280,4 @@ New-AzureRmVM `
 > [!div class="nextstepaction"]
 > [在 Azure 中备份 Windows 虚拟机](./tutorial-backup-vms.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties-->

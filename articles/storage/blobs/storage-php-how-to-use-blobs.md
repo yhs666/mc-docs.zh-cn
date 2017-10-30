@@ -3,7 +3,7 @@ title: "如何通过 PHP 使用 Blob 存储（对象存储）| Azure"
 description: "使用 Azure Blob 存储（对象存储）将非结构化数据存储在云中。"
 documentationcenter: php
 services: storage
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: 1af56b59-b3f0-4b46-8441-aab463ae088e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: e15094a26faa2a6d167c79f801431e21a3485a1c
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: 92e90f60905520b1565e09750dbd0373f1bfd822
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="how-to-use-blob-storage-from-php"></a>如何通过 PHP 使用 Blob 存储
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -29,16 +29,16 @@ ms.lasthandoff: 08/25/2017
 ## <a name="overview"></a>概述
 Azure Blob 存储是一种将非结构化数据作为对象/Blob 存储在云中的服务。 Blob 存储可以存储任何类型的文本或二进制数据，例如文档、媒体文件或应用程序安装程序。 Blob 存储也称为对象存储。
 
-本指南演示如何使用 Azure Blob 服务执行常见方案。 示例是用 PHP 编写的，并使用了 [Azure SDK for PHP][download]。 涉及的任务包括上传、列出、下载和删除 Blob。 有关 Blob 的详细信息，请参阅 [后续步骤](#next-steps) 部分。
+本指南演示如何使用 Azure Blob 服务执行常见方案。 示例采用 PHP 编写，并使用了[适用于 PHP 的 Azure 存储客户端库][download]。 涉及的任务包括上传、列出、下载和删除 Blob。 有关 Blob 的详细信息，请参阅 [后续步骤](#next-steps) 部分。
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>创建 PHP 应用程序
-创建访问 Azure Blob 服务的 PHP 应用程序的唯一要求是从代码中引用 Azure SDK for PHP 中的类。 可以使用任何开发工具（包括“记事本”）创建应用程序。
+创建访问 Azure Blob 服务的 PHP 应用程序的唯一要求是从代码中引用[适用于 PHP 的 Azure 存储客户端库][download]中的类。 可使用任何开发工具（包括“记事本”）创建应用程序。
 
-本指南会使用服务功能，可在 PHP 应用程序中本地调用这些功能，或在 Azure Web 角色、辅助角色或网站内运行的代码中调用。
+在本指南中，将使用 Blob 存储服务功能，可在 PHP 应用程序中本地调用这些功能，或在 Azure Web 角色、辅助角色或网站内运行的代码中进行调用。
 
 ## <a name="get-the-azure-client-libraries"></a>获取 Azure 客户端库
 [!INCLUDE [get-client-libraries](../../../includes/get-client-libraries.md)]
@@ -51,17 +51,12 @@ Azure Blob 存储是一种将非结构化数据作为对象/Blob 存储在云中
 
 下面的示例演示了如何包括 autoloader 文件并引用 **ServicesBuilder** 类。
 
-> [!NOTE]
-> 本文的示例假定用户已通过 Composer 安装了用于 Azure 的 PHP 客户端库。 如果已手动安装这些库，则需要引用 `WindowsAzure.php` autoloader 文件。
->
->
-
 ```php
 require_once 'vendor/autoload.php';
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 ```
 
-在下面的示例中，将始终显示 `require_once` 语句，但只会引用执行该示例所需的类。
+在下面的示例中，`require_once` 语句将始终显示，但只会引用执行该示例所需的类。
 
 ## <a name="set-up-an-azure-storage-connection"></a>设置 Azure 存储连接
 若要实例化 Azure Blob 服务客户端，必须首先具有有效的连接字符串。 Blob 服务连接字符串的格式为：
@@ -81,16 +76,16 @@ UseDevelopmentStorage=true
 若要创建任何 Azure 服务客户端，则需要使用 **ServicesBuilder** 类。 方法：
 
 * 将连接字符串直接传递给此类或
-* 使用 **CloudConfigurationManager (CCM)** 检查多个外部源以获取连接字符串：
-  * 默认情况下，它附带了对一个外部源的支持 - 环境变量。
-  * 可通过扩展 **ConnectionStringSource** 类来添加新源。
+* 在 Web 应用中使用环境变量来存储连接字符串。 要配置连接字符串，请参阅 [Azure Web 应用配置设置](../../app-service/web-sites-configure.md)文档。
 
-在此处列出的示例中，直接传递连接字符串。
+在此处列出的示例中，将直接传递连接字符串。
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>;EndpointSuffix=core.chinacloudapi.cn";
 
 $blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 ```
@@ -103,10 +98,12 @@ $blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionSt
 ```php
 require_once 'vendor\autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>;EndpointSuffix=core.chinacloudapi.cn";
 
 // Create blob REST proxy.
 $blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -159,8 +156,10 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>;EndpointSuffix=core.chinacloudapi.cn";
 
 // Create blob REST proxy.
 $blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
@@ -190,7 +189,7 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create blob REST proxy.
@@ -222,7 +221,7 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create blob REST proxy.
@@ -251,7 +250,7 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create blob REST proxy.
@@ -277,7 +276,7 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create blob REST proxy.
@@ -300,18 +299,16 @@ catch(ServiceException $e){
 ## <a name="next-steps"></a>后续步骤
 在了解了 Azure Blob 服务的基础知识后，可单击下面的链接以了解有关更复杂的存储任务的详细信息。
 
-* 访问 [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
-* 参阅 [PHP 块 Blob 示例](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php)。
-* 参阅 [PHP 页 Blob 示例](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php)。
-* [使用 AzCopy 命令行实用程序传输数据](../common/storage-use-azcopy.md?toc=%2fstorage%2fblobs%2ftoc.json)
+* 请访问 [Azure 存储 PHP 客户端库的 API 参考](http://azure.github.io/azure-storage-php/)
+* 请参阅[高级 Blob 示例](https://github.com/Azure/azure-storage-php/blob/master/samples/BlobSamples.php)。
 
 有关详细信息，另请参阅 [PHP 开发人员中心](/develop/php/)。
 
-[download]: /php-download-sdk
+[download]: https://github.com/Azure/azure-storage-php
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
-<!--Update_Description: update link-->
+<!--Update_Description: update WindowAzure namespace to MicrosoftAzure-->

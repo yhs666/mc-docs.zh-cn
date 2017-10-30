@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 36712f7f35adafa1dfc95a0eb49ad9e7a89e2c3f
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: 35d04565555a93de80877cfc75b32eccdbb1aea0
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 Linux 上的 AzCopy 传输数据
 Linux 上的 AzCopy 是一个命令行实用程序，专用于使用具有优化性能的简单命令将数据复制到 Azure Blob 和文件存储以及从这些位置复制数据。 可在存储帐户中将数据从一个对象复制到另一个对象，或者在存储帐户之间复制。
@@ -31,15 +31,17 @@ Linux 上的 AzCopy 是一个命令行实用程序，专用于使用具有优化
 
 本文包括各种版本 Ubuntu 的命令。  使用 `lsb_release -a` 命令确认分发版本和代码名称。 
 
-Linux 上的 AzCopy 在平台上需要 .NET Core Framework。 请参阅 [.NET Core](https://www.microsoft.com/net/core#linuxubuntu) 页面上的安装说明。
+AzCopy on Linux 要求在平台上安装 .NET Core 框架（版本 1.1.x）。 请参阅 [.NET Core](https://www.microsoft.com/net/download/linux) 页面上的安装说明。
 
-例如，在 Ubuntu 16.10 上安装 .NET Core。 有关最新的安装指南，请访问 [Linux 上的 .NET Core](https://www.microsoft.com/net/core#linuxubuntu) 安装页面。
+例如，在 Ubuntu 16.04 上安装 .NET Core。 有关最新的安装指南，请访问 [Linux 上的 .NET Core](https://www.microsoft.com/net/download/linux) 安装页面。
+
 
 ```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-get update
-sudo apt-get install dotnet-sdk-2.0.0
+sudo apt-get install dotnet-dev-1.1.4
 ```
 
 安装 .NET Core 后，下载并安装 AzCopy。
@@ -52,76 +54,6 @@ sudo ./install.sh
 
 在 Linux 上安装 AzCopy 后，可以删除提取的文件。 或者如果没有超级用户权限，还可以使用提取的文件夹中的 shell 脚本“azcopy”运行 AzCopy。 
 
-### <a name="alternative-installation-on-ubuntu"></a>Ubuntu 上的其他安装
-
-Ubuntu 14.04
-
-为 .Net Core 添加 apt 源：
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-为 Microsoft Linux 产品存储库添加 apt 源并安装 AzCopy：
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/14.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
-
-Ubuntu 16.04
-
-为 .Net Core 添加 apt 源：
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-为 Microsoft Linux 产品存储库添加 apt 源并安装 AzCopy：
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
-
-Ubuntu 16.10
-
-为 .Net Core 添加 apt 源：
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-为 Microsoft Linux 产品存储库添加 apt 源并安装 AzCopy：
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/16.10/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
 
 ## <a name="writing-your-first-azcopy-command"></a>编写第一条 AzCopy 命令
 AzCopy 命令的基本语法是：
@@ -565,7 +497,7 @@ azcopy \
     --sync-copy
 ```
 
-当从文件存储复制到 Blob 存储时，默认的 blob 类型是块 blob，用户可以指定选项 `/BlobType:page` 以更改目标 blob 类型。
+当从文件存储复制到 Blob 存储时，默认的 blob 类型是块 blob，用户可以指定选项 `--blob-type page` 以更改目标 blob 类型。 可用类型为 `page | block | append`。
 
 请注意，`--sync-copy` 可能会产生额外的数据传出费用，而异步复制则不会。 在与源存储帐户所在的同一区域的 Azure VM 中，建议使用此选项，避免产生数据传出费用。
 
@@ -759,4 +691,4 @@ AzCopy 旨在最大程度上利用计算机资源来加快数据传输，如果�
 * [AzCopy: Transfer data with re-startable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)（AzCopy：使用可重启的模式和 SAS 令牌传输数据）
 * [AzCopy: Using cross-account Copy Blob（AzCopy：使用跨帐户复制 Blob）](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Uploading/downloading files for Azure Blobs（AzCopy：为 Azure Blob 上传/下载文件）](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-
+<!--Update_Description:wording update-->

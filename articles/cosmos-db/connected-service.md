@@ -17,11 +17,11 @@ ms.topic: hero-article
 origin.date: 09/19/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 18e04c2c65b50b8fe796c7b931acd262d303588f
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 887f4a12828f293a57263bd5463e2504ff3202c1
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB：Visual Studio 连接服务（预览）
 
@@ -126,3 +126,4 @@ Visual Studio 连接服务可让开发人员轻松连接其 Azure Cosmos DB 帐�
 * 了解如何[监视 Azure Cosmos DB 帐户](monitor-accounts.md)。
 
 <!--Update_Description: new articles on cosmosdb connected service-->
+

@@ -16,11 +16,11 @@ origin.date: 10/10/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
 ms.custom: 
-ms.openlocfilehash: 6671ed4ac29cd57fe3be3ab6267388f3df8a8648
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: d3d296b3e5c8432c10758090b208ce16da88ae8a
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-cosmos-db-table-api-for-python-release-notes-and-resources"></a>用于 Python 的 Azure Cosmos DB 表 API：发行说明和资源
 > [!div class="op_single_selector"]
@@ -57,3 +57,4 @@ Microsoft 至少会在停用 SDK 的 **12 个月**之前发出通知，以便顺
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
 
 <!--Update_Description: new articles on table sdk python -->
+
