@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 05/02/2017
-ms.date: 10/16/2017
+origin.date: 10/13/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: da717a66ef260453a5f4d23075b32a579e4cbce0
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: bd414e0fdaa9d47c7a49f3bc1472f481fd9f456d
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>使用 PowerShell 创建 Linux 虚拟机
 
@@ -138,16 +138,14 @@ ssh <Public IP Address>
 
 ## <a name="install-nginx"></a>安装 NGINX
 
-使用以下 bash 脚本更新包源并安装最新的 NGINX 包。 
+使用以下命令更新包源并安装最新的 NGINX 包。 
 
 ```bash 
-#!/bin/bash
-
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
 
 ## <a name="view-the-ngix-welcome-page"></a>查看 NGIX 欢迎页
@@ -171,4 +169,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 > [!div class="nextstepaction"]
 > [Azure Linux 虚拟机教程](./tutorial-manage-vm.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update cmdlet-->

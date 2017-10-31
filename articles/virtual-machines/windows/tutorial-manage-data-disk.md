@@ -3,8 +3,8 @@ title: "使用 Azure PowerShell 管理 Azure 磁盘 | Azure"
 description: "教程 - 使用 Azure PowerShell 管理 Azure 磁盘"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 10/30/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d0ec56467c5fa6c8c72a094bfa66e8b770765092
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 52fd5d00211de9f348aedee1af386bee34279415
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>使用 PowerShell 管理 Azure 磁盘
 
@@ -34,7 +34,8 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 > * 磁盘性能
 > * 附加和准备数据磁盘
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+<!--Not Available [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]-->
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
 
 ## <a name="default-azure-disks"></a>默认 Azure 磁盘
 
@@ -51,6 +52,7 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 | [常规用途](sizes-general.md) | A 和 D 系列 | 800 |
 | [计算优化](sizes-compute.md) | F 系列 | 800 |
 | [内存优化](../virtual-machines-windows-sizes-memory.md) | D 系列 | 6144 |
+<!--Not Available on L,N, A and H series-->
 
 ## <a name="azure-data-disks"></a>Azure 数据磁盘
 
@@ -84,7 +86,7 @@ Azure 提供两种类型的磁盘。
 | 每个磁盘的 IOPS | 500 | 2,300 | 5,000 |
 每个磁盘的吞吐量 | 100 MB/秒 | 150 MB/秒 | 200 MB/秒 |
 
-尽管上表确定了每个磁盘的最大 IOPS，但还可通过条带化多个数据磁盘实现更高级别的性能。 例如，可向 Standard_GS5 VM 附加 64 个数据磁盘。 如果这些磁盘的大小都为 P30，则最大可实现 80,000 IOPS。 若要详细了解每个 VM 的最大 IOPS，请参阅 [Linux VM 大小](./sizes.md)。
+尽管上表确定了每个磁盘的最大 IOPS，但还可通过条带化多个数据磁盘实现更高级别的性能。 例如，可向 Standard_GS5 VM 附加 64 个数据磁盘。 如果这些磁盘的大小都为 P30，则最大可实现 80,000 IOPS。 若要详细了解每个 VM 的最大 IOPS，请参阅 [VM 类型和大小](./sizes.md)。
 
 ## <a name="create-and-attach-disks"></a>创建并附加磁盘
 
@@ -150,3 +152,4 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 > [!div class="nextstepaction"]
 > [自动执行 VM 配置](./tutorial-automate-vm-deployment.md)
+<!--Update_Description: update meta properties, wording update-->

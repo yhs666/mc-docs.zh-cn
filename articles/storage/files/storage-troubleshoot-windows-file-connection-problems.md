@@ -1,9 +1,9 @@
 ---
-title: "排查 Windows 中的 Azure 文件存储问题 | Azure"
-description: "排查 Windows 中的 Azure 文件存储问题"
+title: "在 Windows 中排查 Azure 文件问题 | Microsoft Docs"
+description: "在 Windows 中排查 Azure 文件问题"
 services: storage
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: na
 tags: storage
@@ -12,18 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/28/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 28ad769a8364d3d62571e38f11287fcac51243c4
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+origin.date: 09/19/2017
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: a62d668fca2f60592702d44927a8c56123fb9099
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/23/2017
 ---
-# <a name="troubleshoot-azure-file-storage-problems-in-windows"></a>排查 Windows 中的 Azure 文件存储问题
+# <a name="troubleshoot-azure-files-problems-in-windows"></a>在 Windows 中排查 Azure 文件问题
 
-本文列出了从 Windows 客户端连接时与 Azure 文件存储相关的常见问题， 并提供了这些问题的可能原因和解决方法。 除了本文中的故障排除步骤之外，还可以使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 来确保 Windows 客户端环境满足相应的先决条件。 AzFileDiagnostics 会自动检测本文中提及的大多数症状，并帮助设置环境以获得最佳性能。 还可以在 [Azure 文件共享疑难解答](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)中找到此信息，该疑难解答提供相关步骤来帮助解决在连接/映射/装载 Azure 文件共享时遇到的问题。
+本文列出了从 Windows 客户端连接时与 Azure 文件相关的常见问题， 并提供了这些问题的可能原因和解决方法。 除了本文中的故障排除步骤之外，还可以使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 来确保 Windows 客户端环境满足相应的先决条件。 AzFileDiagnostics 会自动检测本文中提及的大多数症状，并帮助设置环境以获得最佳性能。 还可以在 [Azure 文件共享疑难解答](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)中找到此信息，该疑难解答提供相关步骤来帮助解决在连接/映射/装载 Azure 文件共享时遇到的问题。
+
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>装载或卸载 Azure 文件共享时出现“错误 53”、“错误 67”或“错误 87”
@@ -49,7 +50,7 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 
 ### <a name="cause-2-port-445-is-blocked"></a>原因 2：端口 445 被阻
 
-如果端口 445 到 Azure 文件存储数据中心的出站通信受阻，则可能会出现“系统错误53”或“系统错误 67”。 如需大致了解允许或禁止从端口 445 进行访问的 ISP，请访问 [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx)。
+如果端口 445 到 Azure 文件数据中心的出站通信受阻，可能会发生系统错误 53 或 67。 如需大致了解允许或禁止从端口 445 进行访问的 ISP，请访问 [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx)。
 
 若要了解是否由此造成“系统错误 53”，可使用 Portqry 查询 TCP:445 终结点。 如果 TCP:445 终结点显示为“已筛选”，则表示 TCP端口受阻。 示例查询如下：
 
@@ -67,7 +68,7 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 
 ### <a name="cause-3-ntlmv1-is-enabled"></a>原因 3：NTLMv1 已启用
 
-如果在客户端上启用 NTLMv1 通信，则可能发生系统错误 53 或系统错误 87。 Azure 文件存储仅支持 NTLMv2 身份验证。 启用 NTLMv1 会降低客户端的安全性。 因此，将阻止 Azure 文件存储的通信。 
+如果在客户端上启用 NTLMv1 通信，则可能发生系统错误 53 或系统错误 87。 Azure 文件仅支持 NTLMv2 身份验证。 启用 NTLMv1 会降低客户端的安全性。 因此，Azure 文件的通信受阻。 
 
 若要确定这是否是错误原因，请验证以下注册表子项是否设为值 3：
 
@@ -93,14 +94,14 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 关闭一些句柄，减少并发打开句柄的数量，再重试。 有关详细信息，请参阅 [Azure 存储性能和可伸缩性核对清单](../common/storage-performance-checklist.md?toc=%2fstorage%2ffiles%2ftoc.json)。
 
 <a id="slowfilecopying"></a>
-## <a name="slow-file-copying-to-and-from-azure-file-storage-in-windows"></a>在 Windows 中将文件复制到 Azure 文件存储或从中复制文件时速度慢
+## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>在 Windows 中将文件复制到 Azure 文件以及从中复制文件时速度缓慢
 
 尝试将文件传输到 Azure 文件服务时，可能会出现性能下降的情况。
 
 - 如果没有特定的 I/O 大小下限要求，建议使用 1 MB 的 I/O 大小获得最佳性能。
 -   如果知道要通过写入进行扩展的文件的最终大小，并且软件在文件上未写入的尾部包含零时尚未出现兼容性问题，请提前设置文件大小，而不是使每次写入都成为扩展写入。
 -   使用正确的复制方法：
-    -   为两个文件共享之间的任何传输使用 [AzCopy](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json#file-copy)。
+    -   为两个文件共享之间的任何传输使用 [AzCopy](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json)。
     -   在本地计算机上的文件共享之间使用 [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/)。
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Windows 8.1 或 Windows Server 2012 R2 的注意事项
@@ -119,7 +120,7 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 > 自 2015 年 12 月起，Azure Marketplace 中的 Windows Server 2012 R2 映像将默认安装修补程序 KB3114025。
 
 <a id="shareismissing"></a>
-## <a name="no-folder-with-a-drive-letter-in-my-computer"></a>在“我的电脑”中没有文件夹带有驱动器号
+## <a name="no-folder-with-a-drive-letter-in-my-computer"></a>“我的电脑”中没有带驱动器号的文件夹
 
 如果以管理员身份使用 net use 来映射 Azure 文件共享，则会缺失共享。
 
@@ -152,7 +153,7 @@ net use 命令将正斜杠 (/) 解释为命令行选项。 如果用户帐户名
 - 将密钥用双引号括起以解决此问题（除非第一个字符是正斜杠）。 如果是，可使用交互模式并单独输入密码，或者重新生成密钥来获取不以正斜杠开头的密钥。
 
 <a id="cannotaccess"></a>
-## <a name="application-or-service-cannot-access-a-mounted-azure-file-storage-drive"></a>应用程序或服务无法访问装载的 Azure 文件存储驱动器
+## <a name="application-or-service-cannot-access-a-mounted-azure-files-drive"></a>应用程序或服务无法访问装载的 Azure 文件驱动器
 
 ### <a name="cause"></a>原因
 
@@ -173,7 +174,7 @@ net use 命令将正斜杠 (/) 解释为命令行选项。 如果用户帐户名
 通过网络复制文件时，会在源计算机上解密该文件，以明文形式进行传输，然后在目标计算机上重新加密该文件。 但是，你可能会在尝试复制加密的文件时看到以下错误：“正在将文件复制到不支持加密的目标。”
 
 ### <a name="cause"></a>原因
-如果你使用的是加密文件系统 (EFS)，则可能会出现此问题。 可将 BitLocker 加密的文件复制到 Azure 文件存储。 但是，Azure 文件存储不支持 NTFS EFS。
+如果你使用的是加密文件系统 (EFS)，则可能会出现此问题。 可将 BitLocker 加密的文件复制到 Azure 文件。 不过，Azure 文件不支持 NTFS EFS。
 
 ### <a name="workaround"></a>解决方法
 若要通过网络复制文件，必须先解密该文件。 使用以下方法之一：
@@ -187,4 +188,4 @@ net use 命令将正斜杠 (/) 解释为命令行选项。 如果用户帐户名
 
 请注意，设置注册表项会影响所有针对网络共享进行的复制操作。
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

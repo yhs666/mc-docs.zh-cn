@@ -3,7 +3,7 @@ title: "在 macOS 中通过 SMB 装载 Azure 文件共享 | Azure"
 description: "了解如何在 macOS 中通过 SMB 装载 Azure 文件共享。"
 services: storage
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: 
@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/27/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 29bcf0cd2bc185be6fbe8cdb87909ed644194cbb
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+origin.date: 09/19/2017
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: fbbced29de36c0f495b06aa152e7c877af8ce7a6
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>在 macOS 中通过 SMB 装载 Azure 文件共享
-[Azure 文件存储](../storage-dotnet-how-to-use-files.md)是 Microsoft 推出的服务，可以通过该服务根据行业标准在 Azure 中创建和使用网络文件共享。 Azure 文件共享可以装载在 macOS Sierra (10.12) 和 El Capitan (10.11) 中。 本文介绍如何使用两种不同的方法通过 Finder UI 和 Terminal 在 macOS 中装载 Azure 文件共享。
+[Azure 文件](storage-files-introduction.md)是一种 Azure 服务，通过该服务可以根据行业标准在 Azure 中创建和使用网络文件共享。 Azure 文件共享可以装载在 macOS Sierra (10.12) 和 El Capitan (10.11) 中。 本文介绍如何使用两种不同的方法通过 Finder UI 和 Terminal 在 macOS 中装载 Azure 文件共享。
 
 > [!Note]  
 > 通过 SMB 装载 Azure 文件共享之前，建议禁用 SMB 数据包签名。 如果不这样做，则从 macOS 访问 Azure 文件共享时，可能会导致性能不佳。 SMB 连接会加密，因此这不会影响连接的安全性。 在 Terminal 中，以下命令会禁用 SMB 数据包签名，详见这篇[有关如何禁用 SMB 数据包签名的 Apple 支持文章](https://support.apple.com/HT205926)：  
@@ -64,10 +64,10 @@ ms.lasthandoff: 08/25/2017
     ![装载的 Azure 文件共享的快照](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>后续步骤
-请参阅以下链接以获取有关 Azure 文件存储的更多信息。
+请参阅以下链接，获取有关 Azure 文件的更多信息。
 
 * [Apple 支持文章 - 如何使用 Mac 上的“文件共享”进行连接](https://support.apple.com/HT204445)
 * [常见问题](../storage-files-faq.md)
 * [在 Windows 上进行故障排除](storage-troubleshoot-windows-file-connection-problems.md)      
-* [在 Linux 上进行故障排除](storage-troubleshoot-linux-file-connection-problems.md)
-<!--Update_Description: link update-->
+* [在 Linux 上进行故障排除](storage-troubleshoot-linux-file-connection-problems.md)    
+<!--Update_Description: wording update-->

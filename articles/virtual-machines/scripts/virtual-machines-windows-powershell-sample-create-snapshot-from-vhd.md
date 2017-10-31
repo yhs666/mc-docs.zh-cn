@@ -3,7 +3,7 @@ title: "Azure PowerShell 脚本示例 - 从 VHD 创建快照以在短时间内�
 description: "Azure PowerShell 脚本示例 - 从 VHD 创建快照，在短时间内创建多个相同的托管磁盘"
 services: virtual-machines-windows
 documentationcenter: storage
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
@@ -14,21 +14,19 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 79b2df2bd9835402dc7a5b9d7620fe96d9450e5b
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: 371ec5045b293c92cc20f1572385cbb5b9de0d80
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell"></a>使用 PowerShell 从 VHD 创建快照，在短时间内创建多个相同的托管磁盘
 
 此脚本在相同或不同订阅的存储帐户中从 VHD 文件创建快照。 使用此脚本将专用 VHD（未通用化/未进行 sysprep）导入到某快照，然后使用该快照在短时间内创建多个相同的托管磁盘。 同时使用它将数据 VHD 导入到某快照，然后使用该快照在短时间内创建多个托管磁盘。 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] 如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 4.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -45,11 +43,11 @@ $snapshotName = 'yourSnapshotName'
 #Provide the storage type for snapshot. PremiumLRS or StandardLRS.
 $storageType = 'StandardLRS'
 
-#Provide the Azure region (e.g. China North) where snapshot will be located.
+#Provide the Azure region (e.g. chinanorth) where snapshot will be located.
 #This location should be same as the storage account location where VHD file is stored 
 #Get all the Azure location using command below:
 #Get-AzureRmLocation
-$location = 'China North'
+$location = 'chinanorth'
 
 #Provide the URI of the VHD file (page blob) in a storage account. Please not that this is NOT the SAS URI of the storage container where VHD file is stored. 
 #e.g. https://contosostorageaccount1.blob.core.chinacloudapi.cn/vhds/contosovhd123.vhd
@@ -88,3 +86,4 @@ New-AzureRmSnapshot -Snapshot $snapshotConfig -ResourceGroupName $resourceGroupN
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure Windows VM 文档](../../virtual-machines/windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
+<!--Update_Description: update meta properties-->

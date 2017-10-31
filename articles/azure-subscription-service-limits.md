@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/01/2017
-ms.date: 09/25/2017
+origin.date: 09/29/2017
+ms.date: 10/26/2017
 ms.author: v-junlch
-ms.openlocfilehash: 551f0295962c344eb578e992e0085fe8cae7a26e
-ms.sourcegitcommit: c13aee6f5e18d15bcc29fae1eefd2b72f2558dfa
+ms.openlocfilehash: eaa36e334bda8a0fe3a4b62edd5aeb2bd3975912
+ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
@@ -28,7 +28,7 @@ ms.lasthandoff: 09/29/2017
 若要了解有关 Azure 定价的详细信息，请访问 [Azure 定价概述](https://www.azure.cn/pricing/)。 在那里可以使用[定价计算器](https://www.azure.cn/pricing/calculator/)或访问某服务（例如，[Windows VM](https://www.azure.cn/pricing/details/virtual-machines#Windows)）的定价详细信息页估计成本。
 
 > [!NOTE]
-> 如果想要提高限制或配额，使其超出**默认限制**，可以免费建立联机客户支持请求。 无法将限制提高到超过下表中显示的**最大限制**值。 如果没有 **最大限制** 列，则资源没有可调整的限制。 
+> 无法将限制提高到超过下表中显示的**最大限制**值。 如果没有 **最大限制** 列，则资源没有可调整的限制。 
 > 
 > 1 元试用订阅不符合增加限制或配额的条件。 如果有 1 元试用订阅，可将其升级到即用即付订阅。 
 > 
@@ -47,6 +47,7 @@ ms.lasthandoff: 09/29/2017
 
 ## <a name="service-specific-limits"></a>服务特定的限制
 - [Active Directory](#active-directory-limits)
+- [API 管理](#api-management-limits)
 - [应用服务](#app-service-limits)
 - [应用程序网关](#application-gateway-limits)
 - [自动化](#automation-limits) 
@@ -62,7 +63,7 @@ ms.lasthandoff: 09/29/2017
 - [密钥保管库](#key-vault-limits)
 - [媒体服务](#media-services-limits)
 - [移动服务](#mobile-services-limits)
-- [监视限制](#monitor-limits)
+- [监视](#monitor-limits)
 - [多重身份验证](#multi-factor-authentication)
 - [联网](#networking-limits)
 - [通知中心服务](#notification-hub-service-limits)
@@ -110,7 +111,7 @@ ms.lasthandoff: 09/29/2017
 #### <a name="networking-limits"></a>网络限制
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
-#### <a name="application-gateway-limits"></a>应用程序网关限制
+#### 应用程序网关限制<a name="application-gateway-limits"></a>
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### <a name="traffic-manager-limits"></a>流量管理器限制
@@ -147,7 +148,7 @@ ms.lasthandoff: 09/29/2017
 ### <a name="cloud-services-limits"></a>云服务限制
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
-### <a name="app-service-limits"></a>应用服务限制
+### 应用服务限制<a name="app-service-limits"></a>
 以下应用服务限制包括 Web 应用、移动应用、API 应用和逻辑应用的限制。
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
@@ -155,10 +156,10 @@ ms.lasthandoff: 09/29/2017
 ### <a name="scheduler-limits"></a>计划程序限制
 [!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
-### <a name="batch-limits"></a>批处理限制
+### Batch 限制<a name="batch-limits"></a>
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 限制
+### Azure Cosmos DB 限制<a name="azure-cosmos-db-limits"></a>
 Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放，以处理应用程序的任何需求。 如果对 Azure Cosmos DB 提供的规模有任何问题，请发送电子邮件到 askcosmosdb@microsoft.com。
 
 ### <a name="media-services-limits"></a>媒体服务限制
@@ -170,7 +171,7 @@ Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放�
 ### <a name="mobile-services-limits"></a>移动服务限制
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### <a name="monitor-limits"></a>监视限制
+### Monitor 限制<a name="monitor-limits"></a>
 [!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
 ### <a name="notification-hub-service-limits"></a>通知中心服务限制
@@ -185,17 +186,20 @@ Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放�
 ### <a name="iot-hub-limits"></a>IoT 中心限制
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
-### <a name="stream-analytics-limits"></a>流分析限制
+### 流分析限制<a name="stream-analytics-limits"></a>
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
 ### Active Directory 限制 <a name="active-directory-limits"></a>
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
-### <a name="backup-limits"></a>备份限制
+### 备份限制<a name="backup-limits"></a>
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
 ### <a name="site-recovery-limits"></a>站点恢复限制
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
+
+### API 管理限制<a name="api-management-limits"></a>
+[!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
 ### <a name="azure-redis-cache-limits"></a>Azure Redis 缓存限制
 [!INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
@@ -206,7 +210,7 @@ Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放�
 ### <a name="multi-factor-authentication"></a>多重身份验证
 [!INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
-### <a name="automation-limits"></a>自动化限制
+### 自动化限制<a name="automation-limits"></a>
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
 ### SQL 数据库限制 <a name="sql-database-limits"></a>

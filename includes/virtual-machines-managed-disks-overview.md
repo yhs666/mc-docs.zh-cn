@@ -1,8 +1,8 @@
 # <a name="azure-managed-disks-overview"></a>Azure 托管磁盘概述
 
-Azure 托管磁盘通过管理与 VM 磁盘关联的[存储帐户](../articles/storage/common/storage-introduction.md)，简化了 Azure IaaS VM 的磁盘管理。 只需指定所需的类型（[高级](../articles/storage/common/storage-premium-storage.md)或[标准](../articles/storage/common/storage-standard-storage.md)）和磁盘大小，Azure 即可创建和管理磁盘。
+Azure 托管磁盘通过管理与 VM 磁盘关联的[存储帐户](../articles/storage/common/storage-introduction.md)，简化了 Azure IaaS VM 的磁盘管理。 只需指定所需的类型（[高级](../articles/storage/common/storage-premium-storage.md)或[标准](../articles/storage/common/storage-standard-storage.md)）和磁盘大小，Azure 将创建和管理磁盘。
 
-## <a name="benefits-of-managed-disks"></a>托管磁盘的优势
+## <a name="benefits-of-managed-disks"></a>托管磁盘的好处
 
 让我们看看使用托管磁盘的一些好处，情观看 9 频道视频 - [托管磁盘使 Azure VM 更加可靠](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency)。
 <br/>
@@ -14,9 +14,9 @@ Azure 托管磁盘通过管理与 VM 磁盘关联的[存储帐户](../articles/s
 
 托管磁盘允许在一个订阅中创建最多 10,000 个 VM 磁盘，这样便可在单个订阅中创建数千台 VM。 通过允许使用某个应用商店映像在一个 VMSS 中创建多达一千台 VM，此功能还可以进一步增加[虚拟机规模集 (VMSS)](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) 的可伸缩性。
 
-### <a name="better-reliability-for-availability-sets"></a>可用性集的可靠性更高
+### <a name="better-reliability-for-availability-sets"></a>可用性集更加可靠
 
-通过确保[可用性集中的 VM](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 的磁盘彼此之间完全隔离以避免单点故障，托管磁盘为可用性集提供了更佳的可靠性。 它通过自动将磁盘放置在不同的存储扩展单元（模块）中来实现这一点。 如果某个模块因硬件或软件故障而失败，则只有其磁盘在该模块上的 VM 实例会失败。 例如，假定某个应用程序在 5 台 VM 上运行并且这些 VM 位于一个可用性集中。 这些 VM 的磁盘不会存储在同一个模块中，因此，如果一个模块失败，该应用程序的其他实例可以继续运行。
+通过确保[可用性集中的 VM ](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)的磁盘彼此之间完全隔离以避免单点故障，托管磁盘为可用性集提供了更佳的可靠性。 它通过自动将磁盘放置在不同的存储缩放单位（模块）中来实现这一点。 如果某个模块因硬件或软件故障而失败，则只有其磁盘在该模块上的 VM 实例会失败。 例如，假定某个应用程序在 5 台 VM 上运行并且这些 VM 位于一个可用性集中。 这些 VM 的磁盘不会存储在同一个模块中，因此，如果一个模块失败，该应用程序的其他实例可以继续运行。
 
 ### <a name="highly-durable-and-available"></a>高度持久和可用
 
@@ -46,15 +46,13 @@ Azure 磁盘具备 99.999% 的可用性。 数据具有三个副本，高持久�
 
 存储类型：托管磁盘提供了 2 个性能层：[高级](../articles/storage/common/storage-premium-storage.md)（基于 SSD）和[标准](../articles/storage/common/storage-standard-storage.md)（基于 HDD）。 托管磁盘的计费取决于为磁盘选择的存储类型。
 
-
 **磁盘大小**：托管磁盘的计费取决于磁盘的预配大小。 Azure 会将预配大小映射（四舍五入）到下面各表中指定的最接近的托管磁盘选项。 每个托管磁盘将映射到其中一种受支持的预配大小并相应地计费。 例如，如果创建了一个标准托管磁盘并将预配大小指定为 200 GB，则会根据 S20 磁盘类型的定价计费。
 
 下面是高级托管磁盘可用的磁盘大小：
 
-| 高级托管<br>磁盘类型 | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
+| **高级托管<br>磁盘类型** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
 | 磁盘大小        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
-
 
 下面是标准托管磁盘可用的磁盘大小：
 
@@ -62,25 +60,22 @@ Azure 磁盘具备 99.999% 的可用性。 数据具有三个副本，高持久�
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
 | 磁盘大小        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
-
-**事务数**：根据在标准托管磁盘上执行的事务数计费。 高级托管磁盘不产生事务费用。
+**事务数**：会根据你对标准托管磁盘执行的事务数向你收费。 高级托管磁盘不产生事务费用。
 
 **出站数据传输**：[出站数据传输](https://www.azure.cn/pricing/details/data-transfer/)（Azure 数据中心送出的数据）会产生带宽使用费。
 
 有关托管磁盘的详细定价信息，请参阅[托管磁盘定价](https://www.azure.cn/pricing/details/storage)。
 
-
 ## <a name="managed-disk-snapshots"></a>托管磁盘快照
 
-托管快照是托管磁盘的只读完整副本，默认情况下它作为标准托管磁盘进行存储。 使用快照可以在任意时间点备份托管磁盘。 这些快照独立于源磁盘存在，可用来创建新的托管磁盘。 基于已使用大小对这些快照进行计费。 例如，如果创建预配容量为 64 GB、实际使用数据大小为 10 GB 的托管磁盘的快照，将仅针对已用数据大小 10 GB 对该快照进行计费。  
+托管快照是托管磁盘的只读完整副本，默认情况下它作为标准托管磁盘进行存储。 使用快照，可以在任意时间点备份托管磁盘。 这些快照独立于源磁盘而存在，并可用来创建新的托管磁盘。 基于已使用大小对这些快照进行计费。 例如，如果创建预配容量为 64 GB、实际使用数据大小为 10 GB 的托管磁盘的快照，将仅针对已用数据大小 10 GB 对该快照进行计费。  
 
 托管磁盘当前不支持[增量快照](../articles/virtual-machines/windows/incremental-snapshots.md)，但将来会支持。
 
 若要了解有关如何使用托管磁盘创建快照的详细信息，请查看下列资源：
 
 * [使用 Windows 中的快照创建作为托管磁盘存储的 VHD 的副本](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [使用 Linux 中的快照创建作为托管磁盘存储的 VHD 的副本](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-
+* [在 Linux 中使用快照创建存储为托管磁盘的 VHD 的副本](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ## <a name="images"></a>映像
 
@@ -96,7 +91,7 @@ Azure 磁盘具备 99.999% 的可用性。 数据具有三个副本，高持久�
 
 快照是磁盘在创建快照那一刻的副本。 它仅适用于一个磁盘。 如果存在仅具有一个磁盘 (OS) 的 VM，则可以为其创建快照或映像，并且可以通过该快照或映像创建 VM。
 
-如果 VM 具有五个磁盘且这些磁盘是条带化的，将会怎样？ 可以创建每个磁盘的快照，但是系统对于 VM 中的磁盘状况没有意识 – 快照只知道一个磁盘的状况。 在这种情况下，快照彼此之间需要相互协调，而目前不支持此功能。
+如果 VM 具有五个磁盘且这些磁盘是条带化的，将会怎样？ 可以创建每个磁盘的快照，但该 VM 中并不知道这些磁盘的状态 - 快照只知道一个磁盘的状态。 在这种情况下，快照彼此之间需要相互协调，而目前不支持此功能。
 
 ## <a name="managed-disks-and-encryption"></a>托管磁盘和加密
 
@@ -104,7 +99,7 @@ Azure 磁盘具备 99.999% 的可用性。 数据具有三个副本，高持久�
 
 ### <a name="storage-service-encryption-sse"></a>存储服务加密 (SSE)
 
-[Azure 存储服务加密](../articles/storage/common/storage-service-encryption.md)可提供静态加密和保护数据，使组织能够信守在安全性与符合性方面所做的承诺。 默认情况下，所有托管磁盘都启用了 SSE，所有可用托管磁盘的区域都有快照和映像。 从 2017 年 6 月 10 日起，写入现有的托管磁盘中的所有新的托管磁盘/快照/映像和新数据都会通过 21 ViaNet 管理的密钥自动进行静态加密。  有关详细信息请访问[托管磁盘常见问题解答页](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)。
+[Azure 存储服务加密](../articles/storage/common/storage-service-encryption.md) 可提供静态加密和保护你的数据，使你的组织能够信守在安全性与符合性方面所做的承诺。 默认情况下，所有托管磁盘都启用了 SSE，所有可用托管磁盘的区域都有快照和映像。 从 2017 年 6 月 10 日起，写入现有的托管磁盘中的所有新的托管磁盘/快照/映像和新数据都会通过 21 ViaNet 管理的密钥自动进行静态加密。  有关详细信息请访问[托管磁盘常见问题解答页](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)。
 
 
 ### <a name="azure-disk-encryption-ade"></a>Azure 磁盘加密 (ADE)
@@ -129,7 +124,7 @@ Azure 磁盘加密允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘�
 
 * [在 Azure 资源管理器模板中使用托管磁盘](../articles/virtual-machines/windows/using-managed-disks-template-deployments.md)
 
-### <a name="compare-managed-disks-storage-options"></a>托管磁盘存储选项的比较
+### <a name="compare-managed-disks-storage-options"></a>比较托管磁盘存储选项
 
 * [高级存储和磁盘](../articles/storage/common/storage-premium-storage.md)
 
@@ -140,3 +135,6 @@ Azure 磁盘加密允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘�
 * [从 AWS 和其他平台迁移到 Azure 中的托管磁盘](../articles/virtual-machines/windows/on-prem-to-azure.md)
 
 * [将 Azure VM 转换为 Azure 中的托管磁盘](../articles/virtual-machines/windows/migrate-to-managed-disks.md)
+
+<!--Update_Description: wording update-->
+<!--ms.date: 10/16/2017-->

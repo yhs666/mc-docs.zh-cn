@@ -1,9 +1,9 @@
 ---
-title: "在 Linux 中使用 Azure 文件存储 | Azure"
+title: "通过 Linux 使用 Azure 文件 | Microsoft Docs"
 description: "了解如何在 Linux 上通过 SMB 装载 Azure 文件共享。"
 services: storage
 documentationcenter: na
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 ms.assetid: 6edc37ce-698f-4d50-8fc1-591ad456175d
@@ -12,20 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/08/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 70bb7fa5bc201d0374f3453efc0be1fd09194e88
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+origin.date: 09/19/2017
+ms.date: 10/30/2017
+ms.author: v-johch
+ms.openlocfilehash: de6c66d65ec8e612f2ba7e9900c86dc3d5dbd4ce
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/23/2017
 ---
-# <a name="use-azure-file-storage-with-linux"></a>在 Linux 中使用 Azure 文件存储
-[Azure 文件存储](../storage-dotnet-how-to-use-files.md)是 Microsoft 推出的易用云文件系统。 可以使用 [Samba 项目](https://www.samba.org/)中的 [cifs-utils 包](https://wiki.samba.org/index.php/LinuxCIFS_utils)在 Linux 分发版中装载 Azure 文件共享。 本文介绍装载 Azure 文件共享的两种方法：使用 `mount` 命令按需装载，以及通过在 `/etc/fstab` 中创建一个条目在启动时装载。
+# <a name="use-azure-files-with-linux"></a>通过 Linux 使用 Azure 文件
+[Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以使用 [Samba 项目](https://www.samba.org/)中的 [cifs-utils 包](https://wiki.samba.org/index.php/LinuxCIFS_utils)在 Linux 分发版中装载 Azure 文件共享。 本文介绍装载 Azure 文件共享的两种方法：使用 `mount` 命令按需装载，以及通过在 `/etc/fstab` 中创建一个条目在启动时装载。
 
 > [!NOTE]  
 > 若要将 Azure 文件共享装载到其被托管时所在的 Azure 区域之外（例如本地或其他 Azure 区域），OS 必须支持 SMB 3.0 的加密功能。 4.11 内核中引入了适用于 Linux 的 SMB 3.0 加密功能。 使用此功能可从本地或不同 Azure 区域装载 Azure 文件共享。 发布时，此功能已向后移植到 Ubuntu 16.04 和更高版本。
+
 
 ## <a name="prerequisities-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>使用 Linux 和 cifs-utils 包装载 Azure 文件共享的先决条件
 * **选择已安装 cifs-utils 包的 Linux 分发版**：Azure 建议选择 Azure 映像库中的以下 Linux 分发版：
@@ -80,7 +81,7 @@ ms.lasthandoff: 08/25/2017
 3. **使用 mount 命令装载 Azure 文件共享**：记得将 `<storage-account-name>`、`<share-name>` 和 `<storage-account-key>` 替换为适当的信息。
 
     ```
-    sudo mount -t cifs //<storage-account-name>.file.core.chinacloudapi.cn/<share-name> ./mymountpoint -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    sudo mount -t cifs //<storage-account-name>.file.core.chinacloudapi.cn/<share-name> ./mymountpoint -o vers=2.1,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
 > [!Note]  
@@ -98,18 +99,18 @@ ms.lasthandoff: 08/25/2017
 3. **使用以下命令将以下代码行追加到 `/etc/fstab`**：记得将 `<storage-account-name>`、`<share-name>` 和 `<storage-account-key>` 替换为适当的信息。
 
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.chinacloudapi.cn/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<storage-account-name>.file.core.chinacloudapi.cn/<share-name> /mymountpoint cifs vers=2.1,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
 
 > [!Note]  
 > 编辑 `/etc/fstab` 后，可以使用 `sudo mount -a` 装载 Azure 文件共享，而无需重启。
 
 ## <a name="next-steps"></a>后续步骤
-请参阅以下链接以获取有关 Azure 文件存储的更多信息。
+请参阅以下链接，获取有关 Azure 文件的更多信息。
 * [文件服务 REST API 参考](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 * [如何对 Azure 存储使用 AzCopy](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json)
 * [对 Azure 存储使用 Azure CLI](../common/storage-azure-cli.md?toc=%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [常见问题](../storage-files-faq.md?toc=%2fstorage%2ffiles%2ftoc.json)
+* [常见问题](../storage-files-faq.md)
 * [故障排除](storage-troubleshoot-linux-file-connection-problems.md)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update "sudu mount" command-->

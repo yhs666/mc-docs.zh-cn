@@ -3,7 +3,7 @@ title: "在 Azure 中自定义 Windows VM | Azure"
 description: "了解如何在 Azure 中使用自定义脚本扩展和 Key Vault 来自定义 Windows VM"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 08/11/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f33f5d52c23b093a352666ba4eef98fff627c11f
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 91807b26c1bab9a53002124fcb38e3deaeec98e6
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>如何在 Azure 中自定义 Windows 虚拟机
 若要以快速一致的方式配置虚拟机 (VM)，通常需要某种形式的自动化。 自定义 Windows VM 的一种常用方法是使用[适用于 Windows 的自定义脚本扩展](extensions-customscript.md)。 本教程介绍如何执行下列操作：
@@ -31,7 +31,8 @@ ms.lasthandoff: 08/29/2017
 > * 创建使用自定义脚本扩展的 VM
 > * 在应用扩展后查看正在运行的 IIS 站点
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+<!-- Not Available [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]-->
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
 
 ## <a name="custom-script-extension-overview"></a>自定义脚本扩展概述
 自定义脚本扩展在 Azure VM 上下载和执行脚本。 此扩展适用于部署后配置、软件安装或其他任何配置/管理任务。 可以从 Azure 存储或 GitHub 下载脚本，或者在扩展运行时将脚本提供给 Azure 门户。
@@ -169,3 +170,4 @@ Get-AzureRmPublicIPAddress `
 
 > [!div class="nextstepaction"]
 > [创建自定义 VM 映像](./tutorial-custom-images.md)
+<!--Update_Description: update meta properties, wording update-->

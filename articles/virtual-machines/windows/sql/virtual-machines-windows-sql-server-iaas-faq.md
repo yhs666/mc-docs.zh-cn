@@ -1,38 +1,46 @@
 ---
-title: "Azure 虚拟机中的 SQL Server 常见问题 | Azure"
+title: "Windows Azure 虚拟机上的 SQL Server 常见问题解答 | Azure"
 description: "本文提供有关运行 Azure VM 中的 SQL Server 时遇到的常见问题的解答。"
 services: virtual-machines-windows
 documentationcenter: 
-author: v-shysun
-manager: felixwu
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 06/23/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+origin.date: 10/04/2017
+ms.date: 10/30/2017
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70e335e9f16c08eb109b1114602b9d2a2cf7c049
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: f486de831c14c36d1a0bfa0aa43e9da526c3ef08
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="frequently-asked-questions-for-sql-server-on-azure-virtual-machines"></a>Azure 虚拟机上的 SQL Server 常见问题
-本主题提供有关运行 [Azure 虚拟机中的 SQL Server](https://www.azure.cn/home/features/virtual-machines/#virtual-machine-SQLserver) 时出现的一些最常见问题的解答。
+# <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Windows Azure 虚拟机上的 SQL Server 常见问题
+
+> [!div class="op_single_selector"]
+> * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
+> * [Linux](../../linux/sql/sql-server-linux-faq.md)
+
+本主题提供有关[在 Windows Azure 虚拟机上运行 SQL Server](https://www.azure.cn/home/features/virtual-machines/#virtual-machine-SQLserver) 时出现的一些最常见问题解答。
+
+> [!NOTE]
+> 本主题重点介绍在 Windows VM 上运行 SQL Server 的特定问题。 如果在 Linux VM 上运行 SQL Server，请参阅 [Linux 常见问题](../../linux/sql/sql-server-linux-faq.md)。
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a name="frequently-asked-questions"></a>常见问题
+## <a name="frequently-asked-questions"></a>常见问题解答
 
 1. **如何创建装有 SQL Server 的 Azure 虚拟机？**
 
-    最简单的解决方法是创建包含 SQL Server 的虚拟机。 有关注册 Azure 并从门户创建 SQL VM 的教程，请参阅[在 Azure 门户中预配 SQL Server 虚拟机](virtual-machines-windows-portal-sql-server-provision.md)。 可以选择按分钟支付 SQL Server 许可费的虚拟机映像，或者使用允许自带 SQL Server 许可证的映像。 也可以选择手动在 VM 上安装 SQL Server，并重复使用本地许可证。 如果自带许可，必须[在 Azure 上通过软件保障实现许可证移动性](https://www.azure.cn/pricing/license-mobility/)。 有关详细信息，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)。
+   最简单的解决方法是创建包含 SQL Server 的虚拟机。 有关注册 Azure 并从门户创建 SQL VM 的教程，请参阅[在 Azure 门户中预配 SQL Server 虚拟机](virtual-machines-windows-portal-sql-server-provision.md)。 可以选择按分钟支付 SQL Server 许可费的虚拟机映像，或者使用允许自带 SQL Server 许可证的映像。 此外，你也可以选用免费许可版（开发人员版或速成版），或通过重新使用本地许可证在 VM 上手动安装 SQL Server。 如果自带许可，必须[在 Azure 上通过软件保障实现许可证移动性](https://www.azure.cn/pricing/license-mobility/)。 有关详细信息，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)。
 
 1. **SQL VM 与 SQL 数据库服务之间的差别是什么？**
 
@@ -44,11 +52,11 @@ ms.lasthandoff: 08/18/2017
 
 1. **是否可以在同一 VM 上安装另一个 SQL Server 实例？是否可以更改默认实例的已安装功能？**
 
-    是的。 SQL Server 安装介质位于 **C** 驱动器上的某个文件夹中。 可从该位置运行 **Setup.exe** 以添加新的 SQL Server 实例，或更改计算机上 SQL Server 的其他已安装功能。 请注意，某些功能（例如自动备份、自动修补和 Azure Key Vault 集成）仅对默认实例起作用。
+    可以。 SQL Server 安装介质位于 **C** 驱动器上的某个文件夹中。 可从该位置运行 **Setup.exe** 添加新的 SQL Server 实例，或更改计算机上 SQL Server 的其他已安装功能。 请注意，某些功能（例如自动备份、自动修补和 Azure Key Vault 集成）仅对默认实例起作用。
 
 1. **是否可以卸载 SQL Server 的默认实例？**
 
-    是的。 但有一些注意事项。 如前面的解答中所述，依赖于 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)的功能仅对默认实例起作用。 卸载默认实例后，该扩展会继续查找默认实例并可能生成事件日志错误。 这些错误来自以下两个来源：**Microsoft SQL Server 凭据管理**和 **Microsoft SQL Server IaaS 代理**。 其中一个错误可能类似于以下内容：
+    可以。 但有一些注意事项。 如前面的解答中所述，依赖于 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)的功能仅对默认实例起作用。 卸载默认实例后，该扩展会继续查找默认实例并可能生成事件日志错误。 这些错误来自以下两个来源：**Microsoft SQL Server 凭据管理**和 **Microsoft SQL Server IaaS 代理**。 其中一个错误可能类似于以下内容：
 
         A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. 
 
@@ -61,7 +69,8 @@ ms.lasthandoff: 08/18/2017
 1. **如何在 Azure VM 上安装 SQL Server 的许可版本？**
 
     将 SQL Server 安装介质复制到 Windows Server VM 上，并在 VM 上安装 SQL Server。 出于许可原因，必须提供 [Azure 上通过软件保障实现的许可移动性](https://www.azure.cn/pricing/license-mobility/)。 有关详细信息，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)。
-
+    <!-- Not Avaialble virtual-machines-windows-sql-server-iaas-overview.md#BYOL -->
+    
 1. **如果 VM 是基于一个即用即付库映像创建的，是否可以将它更改为使用我自己的 SQL Server 许可证？**
 
     不可以。 无法从按分钟付费许可证改为使用自己的许可证。 请创建新的 Azure 虚拟机，然后使用标准的[数据迁移技术](virtual-machines-windows-migrate-sql.md)将数据库迁移到新服务器。
@@ -73,7 +82,8 @@ ms.lasthandoff: 08/18/2017
 1. **如果 Azure VM 仅供备用/故障转移，是否必须支持该 VM 上的 SQL Server 许可费？**
 
     对于用作 HA 部署中的被动辅助副本的 SQL Server，如果客户购买了软件保障并使用许可移动性，则不需要支付许可费。
-
+    <!-- Not Available https://www.azure.cn/pricing/licensing-faq/ -->
+    
 1. **如何将更新和服务包应用于 SQL Server VM？**
 
     虚拟机允许控制主机，包括应用更新的时间与方法。 对于操作系统，可以手动应用 Windows 更新，或者启用名为[自动修补](virtual-machines-windows-sql-automated-patching.md)的计划服务。 自动修补将安装任何标记为重要的更新，包括该类别中的 SQL Server 更新。 必须手动安装其他可选的 SQL Server 更新。
@@ -82,20 +92,26 @@ ms.lasthandoff: 08/18/2017
 
     不可以。 对于包含 SQL Server 的虚拟机库映像，必须选择提供的映像之一。
 
-1. **如何在 Azure VM 上安装 SQL Data Tools？**
+1. **如何在 Azure VM 上安装 SQL 数据工具？**
 
      从 [Microsoft SQL Server 数据工具 - Visual Studio 2013 商业智能](https://www.microsoft.com/download/details.aspx?id=42313)下载并安装 SQL 数据工具。
 
 ## <a name="resources"></a>资源
 
-有关 Azure 虚拟机上 SQL Server 的概述，请观看视频 [Azure VM 是 SQL Server 2016 的最佳平台](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016)。 也可以在 [Azure 虚拟机中的 SQL Server 概述](virtual-machines-windows-sql-server-iaas-overview.md)主题中获取详细介绍。
+**Windows VM**：
 
-其他资源包括：
-
-* [在 Azure 门户中预配 SQL Server 虚拟机](virtual-machines-windows-portal-sql-server-provision.md)
+* [Windows VM 上的 SQL Server 概述](virtual-machines-windows-sql-server-iaas-overview.md)。
+* [设置 SQL Server Windows VM](virtual-machines-windows-portal-sql-server-provision.md)
 * [将数据库迁移到 Azure VM 上的 SQL Server](virtual-machines-windows-migrate-sql.md)
 * [Azure 虚拟机中 SQL Server 的高可用性和灾难恢复](virtual-machines-windows-sql-high-availability-dr.md)
 * [Azure 虚拟机中 SQL Server 的性能最佳做法](virtual-machines-windows-sql-performance.md)
 * [Azure 虚拟机中 SQL Server 的应用程序模式和开发策略](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+
+**Linux VM**：
+
+* [Linux VM 上的 SQL Server 概述](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
+* [设置 SQL Server Linux VM](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
+* [常见问题 (Linux)](../../linux/sql/sql-server-linux-faq.md)
+* [“Linux 上的 SQL Server”文档](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
 <!--Update_Description: wording update-->

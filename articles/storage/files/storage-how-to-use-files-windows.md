@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/27/2017
-ms.date: 10/16/2017
+origin.date: 09/19/2017
+ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: a134891f6719af70ad15169eebdb570859f0ee1b
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: d875f71b5732a90a411023f163e7e8dda85e1484
+ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>在 Windows 中装载 Azure 文件共享并对其进行访问
-[Azure 文件存储](../storage-dotnet-how-to-use-files.md)是 Microsoft 推出的易用云文件系统。 可以在 Windows 和 Windows Server 中装载 Azure 文件共享。 本文介绍了三种在 Windows 中装载 Azure 文件共享的不同方式：使用文件资源管理器 UI、通过 PowerShell，以及通过命令提示符。 
+[Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中装载 Azure 文件共享。 本文介绍了三种在 Windows 中装载 Azure 文件共享的不同方式：使用文件资源管理器 UI、通过 PowerShell，以及通过命令提示符。 
 
 若要将 Azure 文件共享装载到托管其的 Azure 区域之外（例如本地或其他 Azure 区域），OS 必须支持 SMB 3.0。 
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/09/2017
 | Windows 7              | SMB 2.1     | 是                   | 否                   |
 | Windows Server 2008 R2 | SMB 2.1     | 是                   | 否                   |
 
-<sup>1</sup>Windows 10 版本 1507、1511、1607、1703
+<sup>1</sup>Windows 10 版本 1507、1511、1607、1703 和 1709。
 
 > [!Note]  
 > 我们始终建议使用相对于 Windows 版本来说最新的 KB。
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/09/2017
 
 * **存储帐户密钥**：若要装载 Azure 文件共享，需要主（或辅助）存储密钥。 目前不支持使用 SAS 密钥进行装载。
 
-* **确保端口 445 已打开**：Azure 文件存储使用 SMB 协议。 SMB 通过 TCP 端口 445 通信 - 请查看防火墙是否未阻止 TCP 端口 445 与客户端计算机通信。
+* **确保端口 445 处于打开状态**：Azure 文件使用 SMB 协议。 SMB 通过 TCP 端口 445 通信 - 请查看防火墙是否未阻止 TCP 端口 445 与客户端计算机通信。
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>使用文件资源管理器装载 Azure 文件共享
 > [!Note]  
@@ -62,7 +62,7 @@ ms.lasthandoff: 10/09/2017
 
 3. **在 Azure 门户中从“连接”窗格复制 UNC 路径**：有关如何查找此信息的详细说明，请参阅[此文](storage-how-to-use-files-portal.md#connect-to-file-share)。
 
-    ![Azure 文件存储“连接”窗格中的 UNC 路径](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
+    ![Azure 文件“连接”窗格中的 UNC 路径](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **选择驱动器号并输入 UNC 路径。** 
 
@@ -120,24 +120,24 @@ ms.lasthandoff: 10/09/2017
 >   ```
 
 ## <a name="next-steps"></a>后续步骤
-请参阅以下链接以获取有关 Azure 文件存储的更多信息。
+请参阅以下链接，获取有关 Azure 文件的更多信息。
 
 * [常见问题](../storage-files-faq.md)
 * [在 Windows 上进行故障排除](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### <a name="conceptual-article"></a>概念性文章
 
-* [如何将 Azure 文件存储与 Linux 配合使用](../storage-how-to-use-files-linux.md)
+* [如何通过 Linux 使用 Azure 文件](../storage-how-to-use-files-linux.md)
 
-### <a name="tooling-support-for-azure-file-storage"></a>Azure 文件存储的工具支持
+### <a name="tooling-support-for-azure-files"></a>Azure 文件的工具支持
 * [如何对 Azure 存储使用 AzCopy](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json)
 * [将 Azure CLI 用于 Azure 存储](../common/storage-azure-cli.md?toc=%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [排查 Azure 文件存储问题 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [排查 Azure 文件存储问题 - Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [排查 Azure 文件问题 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [排查 Azure 文件问题 - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### <a name="blog-posts"></a>博客文章
-* [Azure 文件存储现已正式发布](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inside Azure File storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)（Azure 文件存储内部）
+* [Azure 文件现已正式发布](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Azure 文件内部](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Azure File Service（Azure 文件服务简介）](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [将数据迁移到 Azure 文件](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 

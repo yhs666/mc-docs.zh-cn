@@ -3,7 +3,7 @@ title: "Azure PowerShell 脚本示例 - 从快照创建托管磁盘 | Azure"
 description: "Azure PowerShell 脚本示例 - 从快照创建托管磁盘"
 services: virtual-machines-windows
 documentationcenter: storage
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
@@ -14,21 +14,19 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 4db0266900cc02db9734b0bcf146cc417be69899
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: c948d0f58287844aaf9ae34c669e46e8eb06f9c2
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>使用 PowerShell 从快照创建托管磁盘
 
 此脚本从快照创建托管磁盘。 使用它从 OS 和数据磁盘的快照还原虚拟机。 从各自的快照创建 OS 和数据托管磁盘，然后通过附加托管磁盘创建新的虚拟机。 还可以通过附加从快照创建的数据磁盘还原现有 VM 的数据磁盘。
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] 如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 4.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -51,11 +49,11 @@ $diskSize = '128'
 #Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
 $storageType = 'PremiumLRS'
 
-#Provide the Azure region (e.g. China North) where Managed Disks will be located.
+#Provide the Azure region (e.g. chinanorth) where Managed Disks will be located.
 #This location should be same as the snapshot location
 #Get all the Azure location using command below:
 #Get-AzureRmLocation
-$location = 'China North'
+$location = 'chinanorth'
 
 #Set the context to the subscription Id where Managed Disk will be created
 Select-AzureRmSubscription -SubscriptionId $SubscriptionId
@@ -85,3 +83,5 @@ New-AzureRmDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskNam
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure Windows VM 文档](../../virtual-machines/windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
+
+<!--Update_Description: update meta properties, update link-->

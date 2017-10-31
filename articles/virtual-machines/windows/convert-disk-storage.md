@@ -1,10 +1,10 @@
 ---
-title: "Azure 标准与高级托管磁盘存储的相互转换 | Microsoft Docs"
+title: "Azure 标准与高级托管磁盘存储的相互转换 | Azure"
 description: "如何使用 Azure PowerShell 实现 Azure 标准与高级托管磁盘的相互转换。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
-manager: kavithag
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,31 +14,30 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 08/07/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 8ce9ea6b3e8d6c74e3863ec9d3a1d056bfeae0f5
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: fa8093690a6775530211c65bb7413e7c45b3b69c
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure 标准与高级托管磁盘存储的相互转换
 
 托管磁盘提供两种存储选项：[高级](../../storage/storage-premium-storage.md)（基于 SSD）和[标准](../../storage/storage-standard-storage.md)（基于 HDD）。 它允许基于性能需求在这两个选项之间轻松切换，并保障最短停机时间。 非托管磁盘不具备此功能。 但可以轻松[转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，以便在这两个选项之间轻松切换。
 
-本文介绍了如何使用 Azure PowerShell 实现标准与高级托管磁盘的相互转换。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+本文介绍了如何使用 Azure PowerShell 实现标准与高级托管磁盘的相互转换。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps.md)。
 
 ## <a name="before-you-begin"></a>开始之前
 
 * 该转换需要重启 VM，因此请在预先存在的维护时段内计划磁盘存储迁移。 
 * 如果使用的是非托管磁盘，请先[转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，以便按照本文中的说明在两个存储选项之间切换。 
 
-
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>实现 VM 的所有标准与高级托管磁盘的相互转换
 
 以下示例展示如何将 VM 的所有磁盘从标准存储切换到高级存储。 若要使用高级托管磁盘，VM 必须使用支持高级存储的 [VM 大小](sizes.md)。 此示例还切换到了支持高级存储的大小。
 
-```powershell
+```azurepowershell-interactive
 # Name of the resource group that contains the VM
 $rgName = 'yourResourceGroup'
 
@@ -69,7 +68,7 @@ foreach ($disk in $vmDisks)
 {
     if ($disk.OwnerId -eq $vm.Id)
     {
-        $diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType $storageType
+        $diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType
         Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
         -DiskName $disk.Name
     }
@@ -81,7 +80,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 对于开发/测试工作负荷，可能需要同时具有标准磁盘和高级磁盘，以减少成本。 可通过仅将需要更佳性能的磁盘升级到高级存储来实现此目的。 以下示例展示如何将 VM 的单个磁盘在标准存储与高级存储之间相互切换。 若要使用高级托管磁盘，VM 必须使用支持高级存储的 [VM 大小](sizes.md)。 此示例还切换到了支持高级存储的大小。
 
-```powershell
+```azurepowershell-interactive
 
 $diskName = 'yourDiskName'
 # resource group that contains the managed disk
@@ -106,7 +105,7 @@ $vm.HardwareProfile.VmSize = $size
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 # Update the storage type
-$diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType $storageType
+$diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType
 Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 -DiskName $disk.Name
 
@@ -116,4 +115,4 @@ Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ## <a name="next-steps"></a>后续步骤
 
 使用[快照](snapshot-copy-managed-disk.md)获取 VM 的只读副本。
-
+<!--Update_Description: update meta properties, wording update-->

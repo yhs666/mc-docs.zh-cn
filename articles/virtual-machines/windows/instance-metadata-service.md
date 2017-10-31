@@ -1,10 +1,10 @@
 ---
-title: "适用于 Windows 的 Azure 实例元数据服务 | Microsoft Docs"
+title: "Azure 实例元数据服务 | Azure"
 description: "一个 RESTful 接口，用于获取有关 Windows VM 计算、网络和即将发生的维护事件的信息。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -12,53 +12,48 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 08/11/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 9664a40b0ec5738b662ddb3c5f3aaa2d2a179804
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+origin.date: 10/10/2017
+ms.date: 10/30/2017
+ms.author: v-yeche
+ms.openlocfilehash: b96c6d842a008740629b082a5fac32adadc62e46
+ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="azure-instance-metadata-service-for-windows-vms"></a>适用于 Windows VM 的 Azure 实例元数据服务
-
+# <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
 Azure 实例元数据服务提供有关可用于管理和配置虚拟机的正在运行的虚拟机实例的信息。
 这包括 SKU、网络配置和即将发生的维护事件等信息。 若要详细了解可用信息类型，请参阅[元数据类别](#instance-metadata-data-categories)。
 
 Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM 可通过 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 访问此终结点。 该终结点位于已知不可路由的 IP 地址 (`169.254.169.254`)，该地址只能从 VM 中访问。
 
-
-
 > [!IMPORTANT]
-> 此服务已在全球 Azure 区域正式上市。 对于政府版、中国版和德国版 Azure 云，此服务为公共预览版。 它会定期接收更新，发布有关虚拟机实例的新信息。 此页反映了最新可用的[数据类别](#instance-metadata-data-categories)。
-
-
+> 此服务在所有 Azure 区域中提供有正式版。  它会定期接收更新，发布有关虚拟机实例的新信息。 此页反映了最新可用的[数据类别](#instance-metadata-data-categories)。
 
 ## <a name="service-availability"></a>服务可用性
-此服务已面向全球所有公开上市的 Azure 区域提供。 在政府版、中国版或德国版区域中，该服务为公共预览版。
+此服务在所有 Azure 区域中提供有可用的正式版。 并非所有 API 版本在所有 Azure 区域中可用。
 
-区域                                        | 可用性？
------------------------------------------------|-----------------------------------------------
-[全球所有公开上市的 Azure 区域](https://azure.microsoft.com/regions/)     | 正式版 
-[Azure 政府](https://azure.microsoft.com/overview/clouds/government/)              | 处于预览状态 
-[Azure 中国](https://www.azure.cn/)                                                           | 处于预览状态
-[Azure 德国](https://azure.microsoft.com/overview/clouds/germany/)                    | 处于预览状态
+区域                                        | 可用性？                                 | 支持的版本
+-----------------------------------------------|-----------------------------------------------|-----------------
+[全球所有公开上市的 Azure 区域](https://azure.microsoft.com/regions/)     | 正式版   | 2017-04-02, 2017-08-01
+[Azure 政府](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02
+[Azure 中国](https://www.azure.cn/)                                                           | 正式版 | 2017-04-02
+[Azure 德国](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式版 | 2017-04-02
 
-当该服务在其他 Azure 云中可用时，将更新此表。
+当有服务更新和/或有可用的新支持版本时，此表将更新
 
 若要试用实例元数据服务，请在上述区域中从 [Azure 资源管理器](https://docs.microsoft.com/rest/api/resources/)或 [Azure 门户](http://portal.azure.cn)创建一个 VM，并按照以下示例操作。
 
 ## <a name="usage"></a>使用情况
 
 ### <a name="versioning"></a>版本控制
-已对实例元数据服务进行了版本控制。 版本是必需的，当前版本为 `2017-04-02`。
+已对实例元数据服务进行了版本控制。 版本是必需的，全局 Azure 上的当前版本为 `2017-08-01`。 当前支持的版本为（2017-04-02、2017-08-01）
 
 > [!NOTE] 
 > 支持的计划事件的前一预览版 {latest} 发布为 api-version。 此格式不再受支持，并且将在未来弃用。
 
-添加更新的版本时，早期版本仍可供访问以保持兼容性（如果脚本依赖于特定的数据格式）。 不过请注意，当前的预览版本 (2017-03-01) 在服务正式发布之后可能会不可用。
+添加更新的版本时，早期版本仍可供访问以保持兼容性（如果脚本依赖于特定的数据格式）。 但是请注意，在服务正式发布之后，先前的预览版本 (2017-03-01) 可能不再可用。
 
 ### <a name="using-headers"></a>使用标头
 查询实例元数据服务时，必须提供标头 `Metadata: true` 以确保不会意外重定向请求。
@@ -75,7 +70,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > 所有实例元数据查询都区分大小写。
 
 ### <a name="data-output"></a>数据输出
-默认情况下，实例元数据服务会返回 JSON 格式的数据 (`Content-Type: application/json`)。 但是，可请求不同的 API 返回不同格式的数据。
+默认情况下，实例元数据服务会返回 JSON 格式的数据 (`Content-Type: application/json`)。 但是，如果提出请求，不同 API 可以其他格式返回数据。
 下表是有关 API 可支持的其他数据格式的参考。
 
 API | 默认数据格式 | 其他格式
@@ -115,7 +110,7 @@ HTTP 状态代码 | 原因
 **请求**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
 **响应**
@@ -162,7 +157,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **请求**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
 **响应**
@@ -173,17 +168,21 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 ```
 {
   "compute": {
-    "location": "China North",
-    "name": "IMDSSample",
+    "location": "chinanorth",
+    "name": "avset2",
     "offer": "UbuntuServer",
     "osType": "Linux",
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
+    "placementGroupId": "",
+    "platformFaultDomain": "1",
+    "platformUpdateDomain": "1",
     "publisher": "Canonical",
-    "sku": "16.04.0-LTS",
-    "version": "16.04.201610200",
-    "vmId": "5d33a910-a7a0-4443-9f01-6a807801b29b",
-    "vmSize": "Standard_A1"
+    "resourceGroupName": "myrg",
+    "sku": "16.04-LTS",
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "",
+    "version": "16.04.201708030",
+    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
+    "vmSize": "Standard_D1"
   },
   "network": {
     "interface": [
@@ -191,13 +190,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
         "ipv4": {
           "ipAddress": [
             {
-              "privateIpAddress": "10.1.0.4",
+              "privateIpAddress": "10.1.2.5",
               "publicIpAddress": "X.X.X.X"
             }
           ],
           "subnet": [
             {
-              "address": "10.1.0.0",
+              "address": "10.1.2.0",
               "prefix": "24"
             }
           ]
@@ -205,7 +204,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
         "ipv6": {
           "ipAddress": []
         },
-        "macAddress": "000D3AF806EC"
+        "macAddress": "000D3A36DDED"
       }
     ]
   }
@@ -223,7 +222,7 @@ curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-versio
 ```
 
 或通过 `Invoke-RestMethod`cmdlet：
-    
+
 ```
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
 ```
@@ -236,7 +235,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```
 {
   "compute": {
-    "location": "China North",
+    "location": "chinanorth",
     "name": "SQLTest",
     "offer": "SQL2016SP1-WS2016",
     "osType": "Windows",
@@ -267,7 +266,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
         },
         "ipv6": {
           "ipAddress": [
-            
+
           ]
         },
         "macAddress": "002248020E1E"
@@ -280,26 +279,30 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ## <a name="instance-metadata-data-categories"></a>实例元数据数据类别
 可通过实例元数据服务获取以下数据类别：
 
-数据 | 说明
------|------------
-location | VM 在其中运行的 Azure 区域
-名称 | VM 的名称 
-offer | 为 VM 映像提供信息。 此值只适用于 Azure 映像库中部署的图像。
-发布者 | VM 映像的发布者
-sku | VM 映像的特定 SKU  
-版本 | VM 映像的版本 
-osType | Linux 或 Windows 
-platformUpdateDomain |  正在运行 VM 的[更新域](manage-availability.md)
-platformFaultDomain | 正在运行 VM 的[容错域](manage-availability.md)
-vmId | VM 的[唯一标识符](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)
-vmSize | [VM 大小](sizes.md)
-ipv4/privateIpAddress | VM 的本地 IPv4 地址 
-ipv4/publicIpAddress | VM 的公共 IPv4 地址
-subnet/address | VM 的子网地址
-subnet/prefix | 子网前缀，例如 24
-ipv6/ipAddress | VM 的本地 IPv6 地址
-macAddress | VM mac 地址 
-scheduledevents | 当前在公共预览版中提供。请参阅 [scheduledevents](scheduled-events.md)
+数据 | 说明 | 引入的版本 
+-----|-------------|-----------------------
+location | VM 在其中运行的 Azure 区域 | 2017-04-02 
+name | VM 的名称 | 2017-04-02
+offer | 为 VM 映像提供信息。 此值只适用于 Azure 映像库中部署的图像。 | 2017-04-02
+发布者 | VM 映像的发布者 | 2017-04-02
+sku | VM 映像的特定 SKU | 2017-04-02
+版本 | VM 映像的版本 | 2017-04-02
+osType | Linux 或 Windows | 2017-04-02
+platformUpdateDomain |  正在运行 VM 的[更新域](manage-availability.md) | 2017-04-02
+platformFaultDomain | 正在运行 VM 的[容错域](manage-availability.md) | 2017-04-02
+vmId | VM 的[唯一标识符](https://www.azure.cn/blogaccessing-and-using-azure-vm-unique-id/) | 2017-04-02
+vmSize | [VM 大小](sizes.md) | 2017-04-02
+subscriptionId | 虚拟机的 Azure 订阅 | 2017-08-01
+标记 | 虚拟机的[标记](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
+resourceGroupName | 虚拟机的[资源组](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
+placementGroupId | 虚拟机规模集的[放置组](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
+ipv4/privateIpAddress | VM 的本地 IPv4 地址 | 2017-04-02
+ipv4/publicIpAddress | VM 的公共 IPv4 地址 | 2017-04-02
+subnet/address | VM 的子网地址 | 2017-04-02 
+subnet/prefix | 子网前缀，例如 24 | 2017-04-02 
+ipv6/ipAddress | VM 的本地 IPv6 地址 | 2017-04-02 
+macAddress | VM mac 地址 | 2017-04-02 
+scheduledevents | 当前在公共预览版中提供。请参阅 [scheduledevents](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>用法的示例方案  
 
@@ -354,7 +357,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 ```
 {
   "compute": {
-    "location": "China North",
+    "location": "chinanorth",
     "name": "IMDSCanary",
     "offer": "RHEL",
     "osType": "Linux",
@@ -374,14 +377,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 语言 | 示例 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go Lan   | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
-Powershell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
-    
 
 ## <a name="faq"></a>常见问题
 1. 我收到错误 `400 Bad Request, Required metadata header not specified`。 这是什么意思呢？
@@ -390,13 +392,20 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
    * 当前实例元数据服务仅支持 Azure Resource Manager 创建的实例。 将来可能添加对云服务 VM 的支持。
 3. 我刚才通过 Azure Resource Manager 创建了我的虚拟机。 为什么我无法看到计算元数据信息？
    * 对于 2016 年 9 月之后创建的所有 VM，请添加[标记](../../azure-resource-manager/resource-group-using-tags.md)以开始查看计算元数据。 对于早期 VM（在 2016 年 9 月之前创建），请在 VM 中添加/删除扩展或数据磁盘以刷新元数据。
-4. 我为什么会收到错误 `500 Internal Server Error`？
-   * 请基于指数撤回系统重试请求。 如果问题持续出现，请联系 Azure 支持部门。
-5. 在何处共享其他问题/评论？
+4. 我看不到为新版本 2017-08-01 填充的任何数据
+   * 对于 2016 年 9 月之后创建的所有 VM，请添加[标记](../../azure-resource-manager/resource-group-using-tags.md)以开始查看计算元数据。 对于早期 VM（在 2016 年 9 月之前创建），请在 VM 中添加/删除扩展或数据磁盘以刷新元数据。
+5. 我为什么会收到错误 `500 Internal Server Error`？
+   * 请根据指数后退系统重试请求。 如果问题持续出现，请联系 Azure 支持部门。
+6. 在何处共享其他问题/评论？
    * 请将评论发布到 http://feedback.azure.com。
 7. 这是否适用于虚拟机规模集实例？
    * 是的，元数据服务可用于规模集实例。 
+8. 如何获取服务支持？
+   * 若要获取服务支持，请针对无法在长时间重试后获得元数据响应的 VM，在 Azure 门户中创建支持问题。 
+
+   ![实例元数据支持](./media/instance-metadata-service/InstanceMetadata-support.png)
 
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解由实例元数据服务提供的公共预览版 [scheduledevents](scheduled-events.md) API。
+<!--Update_Description: update meta properties, wording update-->
