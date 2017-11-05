@@ -2,8 +2,8 @@
 title: "跨云数据库的分布式事务"
 description: "Azure SQL 数据库的弹性数据库事务概述"
 services: sql-database
-documentationCenter: 
-author: Hayley244
+documentationcenter: 
+author: forester123
 manager: digimobile
 ms.assetid: e14df7a3-7788-4cfb-bcd1-7ad6433ef1f9
 ms.service: sql-database
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: sql-database
 origin.date: 05/27/2016
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 61f3b04dcab9bf74105e34985b74913f5f447026
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 11/06/2017
+ms.author: v-johch
+ms.openlocfilehash: dbfc29328220b171ac7b715f019dd1a3037e0a4b
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>跨云数据库的分布式事务
 通过 Azure SQL 数据库 (SQL DB) 的弹性数据库事务可在 SQL DB 中跨多个数据库运行事务。 SQL DB 的弹性数据库事务适用于使用 ADO .NET 的 .NET 应用程序，并且与你熟悉的使用 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 类的编程体验相集成。 若要获取该库，请参阅 [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981)（Web 安装程序）。
@@ -39,13 +39,13 @@ SQL DB 的弹性数据库事务可让应用程序对多个不同 SQL 数据库�
 ## <a name="installation-and-migration"></a>安装和迁移
 我们更新了 .NET 库 System.Data.dll 和 System.Transactions.dll，以支持在 SQL DB 中执行弹性数据库事务。 DLL 确保必要时使用两阶段事务提交，以确保原子性。 若要使用弹性数据库事务来开始开发应用程序，请安装 [.NET 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) 或更高版本。 在旧版 .NET Framework 上运行时，事务无法升级为分布式事务，并会引发异常。
 
-安装后，你可以使用 System.Transactions 中的分布式事务 API 和 SQL DB 连接。 如果现有的 MSDTC 应用程序使用了这些 API，你只需在安装 4.6.1 Framework 之后，以 .NET 4.6 为目标重建现有的应用程序。 如果项目以 .NET 4.6 为目标，它们将自动使用新 Framework 版本中更新的 DLL，而结合 SQL DB 连接的分布式事务 API 调用现在会成功。
+安装后，可以使用 System.Transactions 中的分布式事务 API 和 SQL DB 连接。 如果现有的 MSDTC 应用程序使用了这些 API，只需在安装 4.6.1 Framework 之后，以 .NET 4.6 为目标重建现有的应用程序。 如果项目以 .NET 4.6 为目标，它们自动使用新 Framework 版本中更新的 DLL，而结合 SQL DB 连接的分布式事务 API 调用现在会成功。
 
 请记住，弹性数据库事务不需要安装 MSDTC。 弹性数据库事务直接由 SQL DB 管理。 这可以大幅简化云方案，因为 MSDTC 的部署不需要使用分布式事务和 SQL DB。 第 4 部分更详细说明了如何将弹性数据库事务和所需的 .NET Framework 连同云应用程序一起部署到 Azure。
 
 ## <a name="development-experience"></a>开发体验
 ### <a name="multi-database-applications"></a>多数据库应用程序
-以下示例代码使用你熟悉的 .NET System.Transactions 编程体验。 TransactionScope 类在 .NET 中创建环境事务。 （“环境事务”是位于当前线程中的事务。）在 TransactionScope 内打开的所有连接都参与该事务。 如果有不同的数据库参与，事务将自动提升为分布式事务。 通过设置完成范围来指示提交，即可控制事务的结果。
+以下示例代码使用熟悉的 .NET System.Transactions 编程体验。 TransactionScope 类在 .NET 中创建环境事务。 （“环境事务”是位于当前线程中的事务。）在 TransactionScope 内打开的所有连接都参与该事务。 如果有不同的数据库参与，事务自动提升为分布式事务。 通过设置完成范围来指示提交，即可控制事务的结果。
 
 ```
 using (var scope = new TransactionScope())
@@ -71,7 +71,7 @@ using (var scope = new TransactionScope())
 ```
 
 ### <a name="sharded-database-applications"></a>分片数据库应用程序
-SQL DB 的弹性数据库事务还支持协调分布式事务，这需要使用弹性数据库客户端库的 OpenConnectionForKey 方法，打开扩大的数据层的连接。 假设你需要保证事务一致性，使更改跨多个不同的分片键值。 与托管不同分片键值的分片的连接由 OpenConnectionForKey 来中转。 在一般情况下，可以连接到不同的分片，以确保事务保证需要分布式事务。 以下代码示例演示了此方法。 假设使用一个称为 shardmap 的变量代表来自弹性数据库客户端库的分片映射：
+SQL DB 的弹性数据库事务还支持协调分布式事务，这需要使用弹性数据库客户端库的 OpenConnectionForKey 方法，打开扩大的数据层的连接。 假设需要保证事务一致性，使更改跨多个不同的分片键值。 与托管不同分片键值的分片的连接由 OpenConnectionForKey 来中转。 在一般情况下，可以连接到不同的分片，以确保事务保证需要分布式事务。 以下代码示例演示了此方法。 假设使用一个称为 shardmap 的变量代表来自弹性数据库客户端库的分片映射：
 
 ```
 using (var scope = new TransactionScope())
@@ -97,9 +97,9 @@ using (var scope = new TransactionScope())
 ```
 
 ## <a name="net-installation-for-azure-cloud-services"></a>适用于 Azure 云服务的 .NET 安装
-Azure 为托管 .NET 应用程序提供了多个产品。 不同产品的比较可见于 [Azure 应用服务、云服务和虚拟机比较](../app-service-web/choose-web-site-cloud-service-vm.md)。 如果产品的来宾 OS 版本低于弹性事务所需的 .NET 4.6.1，你需要将来宾 OS 升级到 4.6.1。 
+Azure 为托管 .NET 应用程序提供了多个产品。 不同产品的比较可见于 [Azure 应用服务、云服务和虚拟机比较](../app-service/choose-web-site-cloud-service-vm.md)。 如果产品的来宾 OS 版本低于弹性事务所需的 .NET 4.6.1，需要将来宾 OS 升级到 4.6.1。 
 
-对于 Azure 应用服务，当前不支持升级到来宾 OS。 对于 Azure 虚拟机，只需要登录到 VM 并运行最新的 .NET framework 安装程序即可。 对于 Azure 云服务，你需要将更高版本的 .NET 安装包括到部署的启动任务中。 [在云服务角色上安装 .NET](../cloud-services/cloud-services-dotnet-install-dotnet.md) 中说明了概念和步骤。  
+对于 Azure 应用服务，当前不支持升级到来宾 OS。 对于 Azure 虚拟机，只需要登录到 VM 并运行最新的 .NET framework 安装程序即可。 对于 Azure 云服务，需要将更高版本的 .NET 安装包括到部署的启动任务中。 [在云服务角色上安装 .NET](../cloud-services/cloud-services-dotnet-install-dotnet.md) 中说明了概念和步骤。  
 
 请注意，与 .NET 4.6 的安装程序相比，.NET 4.6.1 的安装程序在 Azure 云服务上执行引导过程时，可能需要更多的临时存储空间。 为了确保安装成功，需要在 ServiceDefinition.csdef 文件中启动任务的 LocalResources 部分和环境设置中，增加 Azure 云服务的临时存储，如以下示例所示：
 
@@ -147,12 +147,8 @@ SQL DB 中的弹性数据库事务当前存在以下限制：
 
 * 仅支持 SQL DB 中跨数据库的事务。 其他 [X/Open XA](https://zh.wikipedia.org/wiki/X/Open_XA) 资源提供程序和除 SQL DB 以外的数据库无法参与弹性数据库事务。 这意味着，弹性数据库事务无法扩展到本地 SQL Server 和 Azure SQL 数据库。 对于本地的分布式事务，请继续使用 MSDTC。 
 * 仅支持来自 .NET 应用程序的客户端协调事务。 目前已规划 T-SQL 的服务器端支持，例如 BEGIN DISTRIBUTED TRANSACTION，但尚未推出。 
-* 不支持跨 WCF 服务的事务。 例如，你有一个执行事务的 WCF 服务方法。 事务范围内的调用将失败，并显示异常 [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception)。
+* 不支持跨 WCF 服务的事务。 例如，有一个执行事务的 WCF 服务方法。 事务范围内的调用会失败，并显示异常 [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception)。
 
-## <a name="next-steps"></a>后续步骤
-如有问题，请在 [SQL 数据库论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=ssdsgetstarted)上联系我们；对于功能请求，请将其添加到 [SQL 数据库反馈论坛](https://feedback.azure.com/forums/217321-sql-database/)。
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
-
-<!--Update_Description: update word & link references-->

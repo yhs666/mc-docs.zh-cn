@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 01/04/2017
 ms.author: adrianha
 ms.date: 07/31/2017
-ms.openlocfilehash: 52989142207970975c05a87cb553a4689e3e076b
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: fba8aa71ee865320aa8bcea8c66318d19a3a1c7b
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何使用 Azure 移动应用的托管客户端
 
@@ -181,7 +181,7 @@ List<TodoItem> items = await todoTable
    .ToListAsync();
 ```
 
-服务器 SDK 会将此示例转换成 SQL 查询：
+服务器 SDK 将此示例转换成 SQL 查询：
 
 ```
 SELECT *
@@ -231,7 +231,7 @@ MobileServiceTableQuery<TodoItem> query = todoTable
 
 ###<a name="paging"></a>如何在页中返回数据
 
-默认情况下，后端只返回前 50 行。 可以通过调用 [Take] 方法来增加返回的行数。 将 `Take` 与 [Skip] 方法一起使用可以请求查询返回的总数据集的特定“页”。 执行以下查询后，将返回表中的前三个项。
+默认情况下，后端只返回前 50 行。 可以通过调用 [Take] 方法来增加返回的行数。 将 `Take`与 [Skip] 方法一起使用可以请求查询返回的总数据集的特定“页”。 执行以下查询后，将返回表中的前三个项。
 
 ```
 // Define a filtered query that returns the top 3 items.
@@ -307,11 +307,11 @@ TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6
 JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 ```
 
-此时，你将获取一些可以像属性包一样使用的 JSON 值。 有关 JToken 和 Newtonsoft Json.NET 的详细信息，请参阅 [Json.NET] 站点。
+此时，将获取一些可以像属性包一样使用的 JSON 值。 有关 JToken 和 Newtonsoft Json.NET 的详细信息，请参阅 [Json.NET] 站点。
 
 ### <a name="inserting"></a>如何将数据插入移动应用后端
 
-所有客户端类型必须包含名为 **Id**的成员，其默认为字符串。 需要此 **ID** 才能执行 CRUD 操作和脱机同步。 以下代码演示如何使用 [InsertAsync] 方法将新行插入表中。 参数包含要作为 .NET 对象插入的数据。
+所有客户端类型必须包含名为 **Id**的成员，其默认为字符串。 需要此 **ID** 才能执行 CRUD 操作和脱机同步。以下代码演示如何使用 [InsertAsync] 方法将新行插入表中。 参数包含要作为 .NET 对象插入的数据。
 
 ```
 await todoTable.InsertAsync(todoItem);
@@ -394,7 +394,7 @@ await table.DeleteAsync(jo);
 
 ###<a name="optimisticconcurrency"></a>如何使用乐观并发解决冲突
 
-两个或两个以上客户端可能会同时将更改写入同一项目。 如果没有冲突检测，最后一次写入会覆盖任何以前的更新。 **乐观并发控制** 假设每个事务均可以提交，因此不使用任何资源锁定。  提交事务之前，乐观并发控制将验证是否没有其他事务修改了数据。 如果数据已修改，则将回滚正在提交的事务。
+两个或两个以上客户端可能会同时将更改写入同一项目。 如果没有冲突检测，最后一次写入会覆盖任何以前的更新。 **乐观并发控制** 假设每个事务均可以提交，因此不使用任何资源锁定。  提交事务之前，乐观并发控制验证是否没有其他事务修改了数据。 如果数据已修改，则将回滚正在提交的事务。
 
 移动应用通过使用 `version` 系统属性列（该列是为移动应用后端中的每个表定义的）跟踪对每个项的更改来支持乐观并发控制。 每次更新某个记录时，移动应用都将该记录的 `version` 属性设置为新值。 在每次执行更新请求期间，会将该请求包含的记录的 `version` 属性与服务器上的记录的同一属性进行比较。 如果随请求传递的版本与后端不匹配，客户端库会引发 `MobileServicePreconditionFailedException<T>` 异常。 该异常中提供的类型就是包含记录服务器版本的后端中的记录。 然后，应用程序可以借助此信息来确定是否要使用后端中正确的 `version` 值再次执行更新请求以提交更改。
 
@@ -424,7 +424,7 @@ public class TodoItem
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 ```
 
-除启用开放式并发以外，还必须在调用 [UpdateAsync] 时捕获代码中的 `MobileServicePreconditionFailedException<T>` 异常。  将正确的 `version` 应用到更新的记录，并使用解决的记录调用 [UpdateAsync] ，即可解决冲突。 以下代码演示如何解决检测到的写入冲突：
+除启用开放式并发以外，还必须在调用 [UpdateAsync] 时捕获代码中的 `MobileServicePreconditionFailedException<T>` 异常。  将正确的 `version` 应用到更新的记录，并使用解决的记录调用 [UpdateAsync]，即可解决冲突。 以下代码演示如何解决检测到的写入冲突：
 
 ```
 private async void UpdateToDoItem(TodoItem item)
@@ -627,11 +627,11 @@ public async Task SyncAsync()
 
 SDK 会在提取记录前执行隐式 `PushAsync()` 。
 
-冲突处理会在 `PullAsync()` 方法上发生。  可以使用与联机表相同的方式处理冲突。  生成在调用 `PullAsync()` 时生成，而不是在插入、更新或删除期间生成。 如果发生多个冲突，会将它们绑定到单个 MobileServicePushFailedException。  分别处理每个故障。
+冲突处理会在 `PullAsync()` 方法上发生。  可以使用与联机表相同的方式处理冲突。  生成在调用 `PullAsync()` 时生成，而不是在插入、更新或删除期间生成。 如果发生多个冲突，它们将捆绑成单个 MobileServicePushFailedException。  分别处理每个故障。
 
 ##<a name="#customapi"></a>使用自定义 API
 
-自定义 API 可让你定义自定义终结点，这些终结点将会公开不映射到插入、更新、删除或读取操作的服务器功能。 使用自定义 API 能够以更大的力度控制消息传送，包括读取和设置 HTTP 消息标头，以及定义除 JSON 以外的消息正文格式。
+自定义 API 可让你定义自定义终结点，这些终结点会公开不映射到插入、更新、删除或读取操作的服务器功能。 使用自定义 API 能够以更大的力度控制消息传送，包括读取和设置 HTTP 消息标头，以及定义除 JSON 以外的消息正文格式。
 
 通过在客户端上调用其中一个 [InvokeApiAsync] 方法来调用自定义 API。 例如，以下代码行向后端上的 **completeAll** API 发送 POST 请求：
 
@@ -650,14 +650,14 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
 可以使用 InvokeApiAsync 调用任何 WebAPI，包括未使用 Azure 移动应用定义的那些 WebAPI。  使用 InvokeApiAsync() 时，将随请求一起发送相应的标头（包括身份验证标头）。
 
 ## <a name="authentication"></a>对用户进行身份验证
-移动应用支持使用各种外部标识提供者对应用程序用户进行身份验证和授权，这些提供者包括：Facebook、Google、Microsoft 帐户、Twitter 和 Azure Active Directory。 你可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 你还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。 有关详细信息，请参阅 [向应用程序添加身份验证]教程。
+移动应用支持使用各种外部标识提供者对应用程序用户进行身份验证和授权，这些提供者包括：Facebook、Google、Microsoft 帐户、Twitter 和 Azure Active Directory。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。 有关详细信息，请参阅 [向应用程序添加身份验证]教程。
 
 支持两种身份验证流：client-managed 和 server-managed 流。 服务器托管流依赖于提供者的 Web 身份验证界面，因此可提供最简便的身份验证体验。 客户端托管流依赖于提供者和设备特定的 SDK，因此允许与设备特定的功能进行更深入的集成。
 
 > [!NOTE]
 > 建议在生产应用中使用客户端托管流。
 
-若要设置身份验证，必须向一个或多个标识提供者注册应用。  标识提供者为应用生成客户端 ID 和客户端机密。  然后会在后端设置这些值，以便进行 Azure 应用服务身份验证/授权。  有关详细信息，请遵循 [向应用程序添加身份验证]（将身份验证添加到应用）教程中的详细说明。
+若要设置身份验证，必须向一个或多个标识提供者注册应用。  标识提供者为应用生成客户端 ID 和客户端机密。  随后在后端设置这些值，以启用 Azure 应用服务身份验证/授权。  有关详细信息，请遵循[向应用程序添加身份验证]教程中的详细说明。
 
 本部分介绍以下主题：
 
@@ -666,7 +666,7 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
 * [缓存身份验证令牌](#caching)
 
 ### <a name="clientflow"></a>客户端托管的身份验证
-应用可以独立联系标识提供者，然后在用后端登录期间提供返回的令牌。 使用此客户端流可为用户提供单一登录体验，或者从标识提供者中检索其他用户数据。 客户端流身份验证比使用服务器流更有利，因为标识提供者 SDK 提供更自然的 UX 风格，并允许其他自定义。
+应用可以独立联系标识提供者，并在用后端登录期间提供返回的令牌。 使用此客户端流可为用户提供单一登录体验，或者从标识提供者中检索其他用户数据。 客户端流身份验证比使用服务器流更有利，因为标识提供者 SDK 提供更自然的 UX 风格，并允许其他自定义。
 
 提供了以下客户端流身份验证模式的示例：
 
@@ -681,11 +681,11 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
 2. 在 Visual Studio 或 Xamarin Studio 中打开项目，并添加对 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 包的引用。 搜索时，请包含预发行版。
 3. 根据使用的平台，将以下代码添加到应用程序。 在每条代码中进行以下替换：
 
-    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 可以从 [ Azure 经典管理门户]中的 Azure Active Directory 的“域”选项卡复制此值。
+    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。可以从 [ Azure 经典管理门户]中的 Azure Active Directory 的“域”选项卡复制此值。
     * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
     * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
 
-   * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点（使用 HTTPS 方案）。 此值应类似于 https://contoso.chinacloudsites.cn/.auth/login/done。
+   * 使用 HTTPS 方案将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点。 此值应类似于 https://contoso.chinacloudsites.cn/.auth/login/done。
 
     每个平台所需的代码如下：
 
@@ -787,7 +787,7 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
     ```
 
 #### <a name="client-livesdk"></a>使用 Microsoft 帐户和 Live SDK 进行单一登录
-若要对用户进行身份验证，必须在 Microsoft 帐户开发人员中心注册应用。 在移动应用后端上配置注册详细信息。 要创建 Microsoft 帐户注册并将注册连接到移动应用后端，请完成 [注册应用以使用 Microsoft 帐户登录]中的步骤。 如果你同时拥有 Windows 应用商店和 Windows Phone 8/Silverlight 版本的应用，请先注册 Windows 应用商店版本。
+若要对用户进行身份验证，必须在 Microsoft 帐户开发人员中心注册应用。 在移动应用后端上配置注册详细信息。 要创建 Microsoft 帐户注册并将注册连接到移动应用后端，请完成 [注册应用以使用 Microsoft 帐户登录]中的步骤。 如果同时拥有 Windows 应用商店和 Windows Phone 8/Silverlight 版本的应用，请先注册 Windows 应用商店版本。
 
 以下代码使用 Live SDK 进行身份验证，并使用返回的令牌登录到移动应用后端。
 
@@ -933,7 +933,7 @@ await client.LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount, to
 * [使用跨平台模板注册](#register-xplat)
 
 ### <a name="register-for-push"></a>如何注册推送通知
-使用移动应用客户端可向 Azure 通知中心注册推送通知。 注册时，你将获得从平台特定的推送通知服务 (PNS) 获取的句柄。 然后你就可以在创建注册时提供此值以及任何标记。 以下代码将用于推送通知的 Windows 应用注册到 Windows 通知服务 (WNS)：
+使用移动应用客户端可向 Azure 通知中心注册推送通知。 注册时，你将获得从平台特定的推送通知服务 (PNS) 获取的句柄。 然后用户就可以在创建注册时提供此值以及任何标记。 以下代码将用于推送通知的 Windows 应用注册到 Windows 通知服务 (WNS)：
 
 ```
 private async void InitNotificationsAsync()
@@ -946,7 +946,7 @@ private async void InitNotificationsAsync()
 }
 ```
 
-如果要推送到 WNS，必须 [获取 Windows 应用商店包 SID](#package-sid)。  有关 Windows 应用的详细信息，包括如何注册模板，请参阅 [Add push notifications to your app]（将推送通知添加到应用）。
+如果要推送到 WNS，必须 [获取 Windows 应用商店包 SID](#package-sid)。  有关 Windows 应用的详细信息，包括如何注册模板，请参阅[向应用添加推送通知]。
 
 不支持从客户端请求标记。  注册时将静默删除标记请求。
 如果想要使用标记注册设备，请创建自定义 API，使用通知中心 API 自动执行注册。  [调用自定义 API](#customapi) 而不是 `RegisterNativeAsync()` 方法。
@@ -1039,7 +1039,7 @@ private async void InsertTodoItem(TodoItem todoItem)
 
 ###<a name="headers"></a>如何自定义请求标头
 
-若要支持特定的应用程序方案，可能需要自定义与移动应用后端之间的通信。 例如，你可能需要将一个自定义标头添加到每个传出请求，甚至要更改响应状态代码。 可使用自定义 [DelegatingHandler]，如以下示例中所示：
+若要支持特定的应用程序方案，可能需要自定义与移动应用后端之间的通信。 例如，可能需要将一个自定义标头添加到每个传出请求，甚至要更改响应状态代码。 可使用自定义 [DelegatingHandler]，如以下示例中所示：
 
 ```
 public async Task CallClientWithHandler()
@@ -1091,16 +1091,16 @@ public async Task CallClientWithHandler()
 
 [向应用程序添加身份验证]: ./app-service-mobile-windows-store-dotnet-get-started-users.md
 [Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
-[Add push notifications to your app]: ./app-service-mobile-windows-store-dotnet-get-started-push.md
-[注册应用以使用 Microsoft 帐户登录]: ./app-service-mobile-how-to-configure-microsoft-authentication.md
-[如何为 Active Directory 登录配置应用服务]: ./app-service-mobile-how-to-configure-active-directory-authentication.md
+[向应用添加推送通知]: ./app-service-mobile-windows-store-dotnet-get-started-push.md
+[注册应用以使用 Microsoft 帐户登录]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[如何为 Active Directory 登录配置应用服务]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/zh-cn/library/azure/dn250636(v=azure.10).aspx
 [MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/zh-cn/library/azure/dn268408(v=azure.10).aspx
-[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
-[MobileServiceUser]: http://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
-[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
+[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
+[MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
+[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
 [GetTable]: https://msdn.microsoft.com/zh-cn/library/azure/jj554275(v=azure.10).aspx
 [创建对非类型化表的引用]: https://msdn.microsoft.com/zh-cn/library/azure/jj554278(v=azure.10).aspx
 [DeleteAsync]: https://msdn.microsoft.com/zh-cn/library/azure/dn296407(v=azure.10).aspx
@@ -1116,14 +1116,14 @@ public async Task CallClientWithHandler()
 [Select]: https://msdn.microsoft.com/zh-cn/library/azure/dn250569(v=azure.10).aspx
 [Skip]: https://msdn.microsoft.com/zh-cn/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/zh-cn/library/azure/dn250536.(v=azure.10)aspx
-[UserID]: http://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
+[UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/zh-cn/library/azure/dn250579(v=azure.10).aspx
 [Azure 门户]: https://portal.azure.cn/
 [Azure Classic Management Portal]: https://manage.windowsazure.cn/
 [EnableQueryAttribute]: https://msdn.microsoft.com/zh-cn/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/zh-cn/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/zh-cn/library/windows/apps/Hh701916.aspx
-[Windows 开发人员中心]: https://developer.microsoft.com/en-us/dashboard/apps/signup
+[Windows 开发人员中心]: https://dev.windows.com/en-us/overview
 [DelegatingHandler]: https://msdn.microsoft.com/zh-cn/library/system.net.http.delegatinghandler(v=vs.110).aspx
 [Windows Live SDK]: https://msdn.microsoft.com/zh-cn/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/zh-cn/library/windows/apps/windows.security.credentials.passwordvault.aspx
@@ -1137,7 +1137,7 @@ public async Task CallClientWithHandler()
 [Fiddler]: http://www.telerik.com/fiddler
 [Json.NET]: http://www.newtonsoft.com/json
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
-[AuthStore.cs]: (https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs)
+[AuthStore.cs]: https://github.com/azure-appservice-samples/ContosoMoments
 [ContosoMoments photo sharing sample]: https://github.com/azure-appservice-samples/ContosoMoments
 
 

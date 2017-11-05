@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/01/2017
+origin.date: 09/26/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
-ms.openlocfilehash: 333071a54beafa1165bad5401407a5f45204fb5e
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 11/13/2017
+ms.openlocfilehash: a42f12f1be8a649969655c09dadf573b6c0feb61
+ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>验证 ExpressRoute 连接
 ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络扩展到 Microsoft 云中，涉及以下三个不同的网络区域：
@@ -182,14 +182,9 @@ Status                           : Enabled
 在服务提供商完成对 ExpressRoute 线路的预配以后，即可基于 MSEE-PR (4) 和 MSEE (5) 之间的 ExpressRoute 线路创建路由配置。 每个 ExpressRoute 线路可以启用一个、两个或三个路由上下文：Azure 专用对等互连（流量通往 Azure 中的专用虚拟网络）、Azure 公共对等互连（流量通往 Azure 中的公共 IP 地址）。 有关如何创建和修改路由配置的详细信息，请参阅 [创建和修改 ExpressRoute 线路的路由][CreatePeering]一文。
 
 ###<a name="verification-via-the-azure-portal"></a>通过 Azure 门户进行验证
->[!IMPORTANT]
->Azure 门户中存在一个已知的 Bug，即如果是由服务提供商进行配置，ExpressRoute 对等互连 *不会* 显示在门户中。 通过门户或 PowerShell 添加 ExpressRoute 对等互连会 *覆盖服务提供商设置*。 此操作会中断 ExpressRoute 线路的路由，需要服务提供商的支持才能还原设置和重建正常路由。 如果确定服务提供商只提供第 2 层服务，则只修改 ExpressRoute 对等互连！
->
->
 
-<p/>
 >[!NOTE]
->如果服务提供商提供第 3 层服务且对等互连在门户中为空，则可使用 PowerShell 查看服务提供商配置的设置。
+>如果服务提供商提供第 3 层且对等互连在门户中为空，请使用门户中的刷新按钮来刷新线路配置。 此操作会将正确的线路配置应用到你的线路。 
 >
 >
 
@@ -241,7 +236,7 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit 
 ```
 
 
-如果未配置对等互连，则会出现错误消息。 当所述对等互连（本示例中为 Azure 公共对等互连）未在线路中配置时，示例的响应如下：
+如果未配置对等互连，则会出现错误消息。 当所述对等互连（本示例中为 Azure 公共对等互连）未在线路中配置时的示例响应如下：
 
 ```
 Get-AzureRmExpressRouteCircuitPeeringConfig : Sequence contains no matching element
@@ -304,7 +299,7 @@ Get-AzureBGPPeering -AccessType Public -ServiceKey "****************************
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>验证 Microsoft 和服务提供商之间的 ARP
-本部分使用 PowerShell（经典）命令。 如果一直使用 PowerShell Azure Resource Manager 命令，请确保你具有管理员/共同管理员权限，能够通过 [Azure 经典门户][OldPortal]访问订阅。 若要使用 Azure Resource Manager 命令进行故障排除，请参阅[在 Resource Manager 部署模型中获取 ARP 表][ARP]文档。
+本部分使用 PowerShell（经典）命令。 如果一直使用 PowerShell Azure 资源管理器命令，请确保对订阅具有管理员/共同管理员权限。 若要使用 Azure Resource Manager 命令进行故障排除，请参阅[在 Resource Manager 部署模型中获取 ARP 表][ARP]文档。
 
 >[!NOTE]
 >若要获取 ARP，可以使用 Azure 门户和 Azure Resource Manager PowerShell 命令。 如果使用 Azure Resource Manager PowerShell 命令时出错，则应使用经典 PowerShell 命令，因为经典 PowerShell 命令也适用于 Azure Resource Manager ExpressRoute 线路。
@@ -342,8 +337,8 @@ ARP Info:
 >
 >
 
-##<a name="validate-bgp-and-routes-on-the-msee"></a>验证 BGP 以及 MSEE 上的路由
-本部分使用 PowerShell（经典）命令。 如果一直使用 PowerShell Azure Resource Manager 命令，请确保具有管理员/共同管理员权限，能够通过 [Azure 经典门户][OldPortal]
+## <a name="validate-bgp-and-routes-on-the-msee"></a>验证 BGP 以及 MSEE 上的路由
+本部分使用 PowerShell（经典）命令。 如果一直使用 PowerShell Azure 资源管理器命令，请确保对订阅具有管理员/共同管理员权限。
 
 >[!NOTE]
 >若要获取 BGP 信息，可以使用 Azure 门户和 Azure Resource Manager PowerShell 命令。 如果使用 Azure Resource Manager PowerShell 命令时出错，则应使用经典 PowerShell 命令，因为经典 PowerShell 命令也适用于 Azure Resource Manager ExpressRoute 线路。
@@ -368,7 +363,7 @@ Route Table Summary:
 如以上示例所示，该命令用于确定路由上下文已建立多长时间。 它还指示对等互连的路由器播发的路由前缀的数。
 
 >[!NOTE]
->如果状态为“活动”或“空闲”，请检查分配的主要对等子网和辅助对等子网是否符合链接的 PE-MSEE 上的配置。 另请检查是否在 MSEE 上使用了正确的 VlanId、AzureAsn 和 PeerAsn，以及这些值是否映射到链接的 PE-MSEE 上使用的对应项。 如果选择了 MD5 哈希，则 MSEE 和 PE-MSEE 对上的共享密钥应相同。 若要更改 MSEE 路由器上的配置，请参阅 [创建和修改 ExpressRoute 线路的路由][CreatePeering]。
+>如果状态为“活动”或“空闲”，请检查分配的主要对等子网和辅助对等子网是否符合链接的 PE-MSEE 上的配置。 另请检查是否在 MSEE 上使用了正确的 VlanId、AzureAsn 和 PeerAsn，以及这些值是否映射到链接的 PE-MSEE 上使用的对应项。 如果选择了 MD5 哈希，则 MSEE 和 PE-MSEE 对上的共享密钥应相同。 若要更改 MSEE 路由器上的配置，请参阅[创建和修改 ExpressRoute 线路的路由][CreatePeering]。
 >
 >
 
@@ -437,8 +432,8 @@ At line:1 char:1
 - [创建和修改 ExpressRoute 线路的路由][CreatePeering]
 
 <!--Image References-->
-[1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png "逻辑 Express Route 连接"
-[2]: ./media/expressroute-troubleshooting-expressroute-overview/portal-all-resources.png "所有资源图标"
+[1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png "逻辑 ExpressRoute 连接"
+[2]: ./media/expressroute-troubleshooting-expressroute-overview/portal-all-resources.png "“所有资源”图标"
 [3]: ./media/expressroute-troubleshooting-expressroute-overview/portal-overview.png "概述图标"
 [4]: ./media/expressroute-troubleshooting-expressroute-overview/portal-circuit-status.png "ExpressRoute 概要示例屏幕截图"
 [5]: ./media/expressroute-troubleshooting-expressroute-overview/portal-private-peering.png "ExpressRoute 概要示例屏幕截图"

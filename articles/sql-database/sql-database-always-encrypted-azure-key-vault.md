@@ -1,6 +1,6 @@
 ---
-title: "Always Encrypted：SQL 数据库 - Azure Key Vault | Azure"
-description: "本文演示如何使用 SQL Server Management Studio 中的始终加密向导，通过数据加密来保护 SQL 数据库中的敏感数据。 它还包括如何将每个加密密钥存储在 Azure 密钥保管库的说明。"
+title: "始终加密：SQL 数据库 - Azure Key Vault | Microsoft 文档"
+description: "本文演示如何使用 SQL Server Management Studio 中的始终加密向导，通过数据加密来保护 SQL 数据库中的敏感数据。"
 keywords: "数据加密, 加密密钥, 云加密"
 services: sql-database
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/06/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 1c493cf5bbf4bb5f241b16bb526797470e785d88
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 522b835b838869166baf4e61dceabfc170f33de0
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>始终加密：保护 SQL 数据库中的敏感数据并将加密密钥存储在 Azure 密钥保管库中
 
@@ -79,7 +79,7 @@ $location = '<datacenter location>'
 $vaultName = 'AeKeyVault'
 
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-$subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
+$subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
 Set-AzureRmContext -SubscriptionId $subscriptionId
 
 New-AzureRmResourceGroup -Name $resourceGroupName –Location $location
@@ -638,4 +638,4 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 * [SQL Server 加密](https://msdn.microsoft.com/library/bb510663.aspx)
 * [始终加密向导](https://msdn.microsoft.com/library/mt459280.aspx)
 * [始终加密博客](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-<!--Update_Description: wording update-->
+<!--Update_Description: update script-->

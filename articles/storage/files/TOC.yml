@@ -111,7 +111,7 @@
     - name: PowerShell
       href: 'https://docs.microsoft.com/powershell/module/azure.storage'
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/storage'
+      href: 'https://docs.azure.cn/cli/storage'
     - name: .NET
       items:
         - name: Blob、队列、表和文件

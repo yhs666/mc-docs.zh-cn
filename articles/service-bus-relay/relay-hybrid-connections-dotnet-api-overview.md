@@ -1,6 +1,6 @@
 ---
-title: "Azure 中继 .NET 标准 API 概述 | Azure"
-description: "中继 .NET 标准 API 概述"
+title: "Azure 中继 .NET Standard API 概述 | Microsoft Docs"
+description: "Azure 中继 .NET Standard API 概述"
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/05/2017
+origin.date: 10/05/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
-ms.openlocfilehash: 599307ec6725311ec00cf8c563ef49c65cfab288
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 11/06/2017
+ms.openlocfilehash: dd0508ca04167e6ef926aab19d9c03072a12d806
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Azure 中继混合连接 .NET 标准 API 概述
 本文汇总了一些重要的 Azure 中继混合连接 .NET 标准[客户端 API](https://docs.microsoft.com/dotnet/api/microsoft.azure.relay)。

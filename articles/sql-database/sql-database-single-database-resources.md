@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL 数据库单一数据库 | Microsoft Docs"
-description: "管理单一 Azure SQL 数据库。"
+description: "管理单个 Azure SQL 数据库的服务层、性能级别和存储量。"
 services: sql-database
 documentationcenter: na
 author: forester123
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 08/25/2017
-ms.date: 10/02/2017
+origin.date: 10/11/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: c1760fe29f8fd829cf4cf6aa49f70fa4be68458f
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 51270a334253b84a7e9a0f88486d74850a59095d
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>管理 Azure SQL 数据库中单一数据库的资源
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 09/28/2017
 ![配置服务层和性能级别](./media/sql-database-single-database-resources/change-service-tier.png)
 
 > [!IMPORTANT]
-> 当选择 P11 或 P15 服务层时，请查看[最大大小为 4 TB 的 P11 和 P15 数据库的当前限制](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。
+> 当选择 P11 或 P15 服务层时，请查看[最大大小为 4 TB 的 P11 和 P15 数据库的当前限制](sql-database-resource-limits.md)。
 >
 
 ## <a name="manage-single-database-resources-using-powershell"></a>使用 PowerShell 管理单一数据库资源
@@ -56,16 +56,16 @@ ms.lasthandoff: 09/28/2017
 
 ## <a name="manage-single-database-resources-using-the-azure-cli"></a>使用 Azure CLI 管理单一数据库资源
 
-若要使用 Azure CLI 设置或更改 Azure SQL 数据库服务层、性能级别和存储量，请使用以下 [Azure CLI SQL 数据库](https://docs.microsoft.com/cli/azure/sql/db)命令。 在 macOS、 Linux 或 Windows 上[安装](/cli/azure/install-azure-cli) CLI。 若要创建并管理 SQL 弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
+若要使用 Azure CLI 设置或更改 Azure SQL 数据库服务层、性能级别和存储量，请使用以下 [Azure CLI SQL 数据库](/cli/sql/db)命令。 在 macOS、 Linux 或 Windows 上[安装](/cli/install-azure-cli) CLI。 若要创建并管理 SQL 弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
 
 | Cmdlet | 说明 |
 | --- | --- |
-|[az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) |创建数据库|
-|[az sql db list](https://docs.microsoft.com/cli/azure/sql/db#list)|列出某台服务器中的所有数据库和数据仓库，或者列出弹性池中的所有数据库|
-|[az sql db list-editions](https://docs.microsoft.com/cli/azure/sql/db#list-editions)|列出可用的服务目标和存储限制|
-|[az sql db list-usages](https://docs.microsoft.com/cli/azure/sql/db#list-usages)|返回数据库使用情况|
-|[az sql db show](https://docs.microsoft.com/cli/azure/sql/db#show)|获取数据库或数据仓库|
-|[az sql db update](https://docs.microsoft.com/cli/azure/sql/db#update)|更新数据库|
+|[az sql server firewall-rule create](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|配置服务器防火墙规则|
+|[az sql server firewall-rule list](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|列出服务器上的防火墙规则|
+|[az sql server firewall-rule show](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|显示防火墙规则的详细信息|
+|[az sql server firewall-rule update](/cli/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|更新防火墙规则|
+|[az sql server firewall-rule delete](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|删除防火墙规则。|
+
 
 > [!TIP]
 > 可以使用 Azure CLI 脚本在查询数据库的大小信息后将单一 Azure SQL 数据库缩放到不同的性能级别，有关这样的示例脚本，请参阅[使用 CLI 监视和缩放单一 SQL 数据库](scripts/sql-database-monitor-and-scale-database-cli.md)。
@@ -111,3 +111,4 @@ ALTER DATABASE <myDatabaseName>
 - 要了解关于服务层、性能级别和存储量的相关信息，请参阅[服务层](sql-database-service-tiers.md)。
 - 有关弹性池的信息，请参阅[弹性池](sql-database-elastic-pool.md)。
 - 了解 [Azure 订阅和服务的限制、配额和约束](../azure-subscription-service-limits.md)
+<!--Update_Description:update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

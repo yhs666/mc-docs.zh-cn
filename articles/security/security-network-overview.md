@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2016
 ms.author: v-johch
-ms.openlocfilehash: 3ec0494bcf469aa3ca2d23d0bc9984e1ec84d7c9
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 8e054a7058469eb5f77ef6aec6258cd085bfe645
+ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-network-security-overview"></a>Azure 网络安全概述
 
@@ -68,7 +68,7 @@ Azure 网络支持自定义 Azure 虚拟网络上网络流量的路由行为的�
 
 例如，Azure 虚拟网络上可能有虚拟网络安全设备。 用户希望确保与 Azure 虚拟网络之间的所有流量都通过该虚拟安全设备。 为此，可以在 Azure 中配置 [用户定义的路由](../virtual-network/virtual-networks-udr-overview.md) 。
 
-[强制隧道](https://www.petri.com/azure-forced-tunneling) 是一种机制，可用于确保不允许服务发起与 Internet 上设备的连接。 请注意，这与接受然后响应传入连接不同。 前端 Web 服务器需要响应来自 Internet 主机的请求，因此允许来自 Internet 的流量进入这些 Web 服务器，并允许 Web 服务器做出响应。
+[强制隧道](https://www.petri.com/azure-forced-tunneling) 是一种机制，可用于确保不允许服务发起与 Internet 上设备的连接。 请注意，这与接受并响应传入连接不同。 前端 Web 服务器需要响应来自 Internet 主机的请求，因此允许来自 Internet 的流量进入这些 Web 服务器，并允许 Web 服务器做出响应。
 
 不想要允许的是前端 Web 服务器发起出站请求。 此类请求可能表示安全风险，因为这些连接可用于下载恶意代码。 即使希望这些前端服务器向 Internet 发起出站请求，还是可能想要强制它们经过本地 Web 代理，以便可以利用 URL 筛选和日志记录。
 
@@ -99,12 +99,12 @@ Azure 网络支持自定义 Azure 虚拟网络上网络流量的路由行为的�
 
 Azure 网络支持以下安全远程访问方案：
 
-- 将单个工作站连接到 Azure 虚拟网络
+- 将单独的工作站连接到 Azure 虚拟网络
 - 使用 VPN 将本地网络连接到 Azure 虚拟网络
-- 使用专用 WAN 链路将本地网络连接到 Azure 虚拟网络
-- 将 Azure 虚拟网络彼此连接
+- 通过专用的 WAN 链路将本地网络连接到 Azure 虚拟网络
+- 将 Azure 虚拟网络相互连接
 
-### <a name="connect-individual-workstations-to-an-azure-virtual-network"></a>将单个工作站连接到 Azure 虚拟网络
+### <a name="connect-individual-workstations-to-an-azure-virtual-network"></a>将单独的工作站连接到 Azure 虚拟网络
 有时可能想要让单个开发人员或操作人员在 Azure 中管理虚拟机和服务。 例如，需要访问 Azure 虚拟网络上的虚拟机，但安全策略不允许通过 RDP 或 SSH 远程访问单个虚拟机。 在此情况下，可以使用点到站点 VPN 连接。
 
 点到站点 VPN 连接使用 [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) 协议，允许设置用户与 Azure 虚拟网络之间的专用安全连接。 建立 VPN 连接后，用户将能够通过 VPN 上的 RDP 或 SSH 链接到 Azure 虚拟网络上的任何虚拟机（假定用户可以进行身份验证且已经过授权）。
@@ -114,7 +114,7 @@ Azure 网络支持以下安全远程访问方案：
 - [使用 PowerShell 配置与虚拟网络的点到站点连接](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-vpn"></a>使用 VPN 将本地网络连接到 Azure 虚拟网络
-用户可能想要将整个企业网络或其组成部分连接到 Azure 虚拟网络。 这种情况在公司要 [将其本地数据中心扩展到 Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)的混合 IT 方案中很常见。 在许多情况下，公司会在 Azure 中和本地托管服务的各个组成部分（例如，某个解决方案在 Azure 中包括前端 Web 服务器，在本地包括后端数据库）。 使用此类“跨界”连接，还可以更安全地管理 Azure 所在的资源，可以实现将 Active Directory 域控制器扩展到 Azure 等方案。
+用户可能想要将整个企业网络或其组成部分连接到 Azure 虚拟网络。 这种情况在公司要[将其本地数据中心扩展到 Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)的混合 IT 方案中很常见。 在许多情况下，公司会在 Azure 中和本地托管服务的各个组成部分（例如，某个解决方案在 Azure 中包括前端 Web 服务器，在本地包括后端数据库）。 使用此类“跨界”连接，还可以更安全地管理 Azure 所在的资源，可以实现将 Active Directory 域控制器扩展到 Azure 等方案。
 
 实现此目的的方法之一是使用 [站点到站点 VPN](https://www.techopedia.com/definition/30747/site-to-site-vpn)。 站点到站点 VPN 和点到站点 VPN 之间的区别：点到站点 VPN 是将单独的一台设备连接到 Azure 虚拟网络；而站点到站点 VPN 是将整个网络（如本地网络）连接到 Azure 虚拟网络。 Azure 虚拟网络的站点到站点 VPN 使用高度安全的 IPsec 隧道模式 VPN 协议。
 
@@ -123,7 +123,7 @@ Azure 网络支持以下安全远程访问方案：
 - [使用 Azure 门户创建具有站点到站点 VPN 连接的 Resource Manager VNet](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [规划和设计 VPN 网关](../vpn-gateway/vpn-gateway-plan-design.md)
 
-### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-dedicated-wan-link"></a>使用专用 WAN 链路将本地网络连接到 Azure 虚拟网络
+### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-dedicated-wan-link"></a>通过专用的 WAN 链路将本地网络连接到 Azure 虚拟网络
 点到站点和站点到站点 VPN 连接可以有效地启用跨界连接。 但是，某些组织认为它们存在以下缺点：
 
 - VPN 连接通过 Internet 移动数据 – 在通过公共网络移动数据时，可能会使连接曝露在安全风险之下。 此外，无法保证 Internet 连接的可靠性和可用性。
@@ -135,10 +135,10 @@ Azure 网络支持以下安全远程访问方案：
 
 - [ExpressRoute 技术概述](../expressroute/expressroute-introduction.md)
 
-### <a name="connect-azure-virtual-networks-to-each-other"></a>将 Azure 虚拟网络彼此连接
+### <a name="connect-azure-virtual-networks-to-each-other"></a>将 Azure 虚拟网络相互连接
 可以使用多个 Azure 虚拟网络来完成部署。 这种做法的原因有很多。 其中一个可能的原因是简化管理；另一个可能的原因是安全性。 无论将资源放在不同 Azure 虚拟网络的动机或理由是什么，有时都可能需要将每个网络上的资源彼此连接。
 
-一种做法是通过 Internet“环回”，将一个 Azure 虚拟网络上的服务连接到另一个 Azure 虚拟网络上的服务。 连接从某个 Azure 虚拟网络开始，经过 Internet，然后返回到目标 Azure 虚拟网络。 这种做法会使连接曝露在安全风险之下，这是任何基于 Internet 的通信存在的通病。
+一个选择是通过 Internet 以“环回”方式将一个 Azure 虚拟网络上的服务连接到另一个 Azure 虚拟网络上的服务。 连接从某个 Azure 虚拟网络开始，经过 Internet，并返回到目标 Azure 虚拟网络。 这种做法会使连接曝露在安全风险之下，这是任何基于 Internet 的通信存在的通病。
 
 更好的做法可能是在 Azure 虚拟网络之间创建站点到站点 VPN。 这种 Azure 虚拟网络之间的站点到站点 VPN 使用与上述跨界站点到站点 VPN 连接相同的 [IPsec 隧道模式](https://technet.microsoft.com/library/cc786385.aspx) 协议。
 
@@ -155,9 +155,9 @@ Azure 网络支持以下安全远程访问方案：
 - 网络级别负载均衡
 - 全局负载均衡
 
-负载均衡是一种机制，旨在将连接平均分布到多个设备。 负载均衡的目标如下：
+负载均衡是专为在多个设备之间均匀分布连接而设计的机制。 负载均衡的目标如下：
 
-- 提高可用性 – 将连接负载均衡到多个设备时，一个或多个设备可能会变得不可用，在剩余联机设备上运行的服务可以继续提供服务。
+- 提高可用性 – 在跨多个设备对连接进行负载均衡时，一个或多个设备可能变得不可用，并且正在其余联机设备上运行的服务可以继续提供来自服务的内容。
 - 提高性能 – 在多个设备之间负载均衡连接时，单个设备不需要占用处理器。 提供内容的处理和内存需求分散在多个设备之间。
 
 ### <a name="http-based-load-balancing"></a>基于 HTTP 的负载均衡
@@ -190,9 +190,9 @@ Azure 网络支持以下安全远程访问方案：
 - [内部负载均衡器概述](../load-balancer/load-balancer-internal-overview.md)
 
 ### <a name="global-load-balancing"></a>全局负载均衡
-某些组织想要尽可能地实现最高级别的可用性。 实现此目标的方法之一是将应用程序托管到全球分布的数据中心。 应用程序托管在世界各地的数据中心时，即使整个地缘政治区域服务中断，但应用程序仍可正常运行。
+某些组织想要尽可能地实现最高级别的可用性。 实现此目标的一种方法是在全球分布的数据中心中托管应用程序。 应用程序托管在世界各地的数据中心时，即使整个地缘政治区域服务中断，但应用程序仍可正常运行。
 
-除了将应用程序托管在全球分布的数据中心的可用性优点之外，还可以获得性能优势。 使用将服务请求定向到最靠近发出请求设备的数据中心的机制即可获得这些性能优势。
+除了将应用程序托管在全球分布的数据中心的可用性优点之外，还可以获得性能优势。 通过使用将服务的请求定向到距离发出该请求的设备最近的数据中心的机制可以获得这些性能优势。
 
 全局负载均衡可以提供这两项优点。 在 Azure 中，使用 Azure 流量管理器可以获得全局负载均衡的优点。
 
@@ -208,10 +208,8 @@ Azure 网络支持以下安全远程访问方案：
 - 计数器日志 – 通过这些日志可以了解应用每个 NSG 规则以拒绝或允许流量的次数。
 
 还可以使用 [21Vianet 运营的 Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/)（一个功能强大的数据可视化工具）来查看和分析这些日志。
-
-了解更多：
-
-- [网络安全组 (NSG) 的日志分析](../virtual-network/virtual-network-nsg-manage-log.md)
+<!--Not Available Learn more:-->
+<!--Not Available - [Log Analytics for Network Security Groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) -->
 
 ## <a name="name-resolution"></a>名称解析
 名称解析是对 Azure 中托管的所有服务而言至关重要的功能。 从安全角度看，入侵名称解析功能可能会导致攻击者将站点的请求重定向到攻击者的站点。 安全名称解析是所有云托管服务的要求。
@@ -219,7 +217,7 @@ Azure 网络支持以下安全远程访问方案：
 需要解决两种类型的名称解析：
 
 - 内部名称解析 – Azure 虚拟网络和/或本地网络上的服务使用内部名称解析。 通过 Internet 无法访问用于内部名称解析的名称。 为了获取最高安全性，外部用户不能访问内部名称解析方案，这一点非常重要。
-- 外部名称解析 – 本地和 Azure 虚拟网络外部的人员和设备使用外部名称解析。 这些是在 Internet 上公开的、用于将连接定向到云服务的名称。
+- 外部名称解析 – 本地和 Azure 虚拟网络外部的人员和设备使用外部名称解析。 这些是对 Internet 可见且用于将连接定向到基于云的服务的名称。
 
 对于内部名称解析，可以使用两个选项：
 
@@ -245,6 +243,6 @@ Azure 以 Azure DNS 的形式提供高度可用的高性能外部 DNS 解决方�
 
 
 ## <a name="dmz-architecture"></a>外围网络体系结构
-许多企业组织使用外围网络将其网络分段，在 Internet 与其服务之间创建一个缓冲区。 网络的外围网络部分被视为低安全性区域，不应在该网段中放置高价值资产。 通常会看到网络安全设备在外围网络段上有一个网络接口，另有一个网络接口连接到包含接受 Internet 入站连接的虚拟机和服务的网络。
+许多企业组织使用 DMZ 对其网络进行分段，以创建 Internet 及其服务之间的缓冲区域。 网络的外围网络部分被视为低安全性区域，不应在该网段中放置高价值资产。 通常会看到网络安全设备在外围网络段上有一个网络接口，另有一个网络接口连接到包含接受 Internet 入站连接的虚拟机和服务的网络。
 
 外围网络设计和外围网络部署决策有许多变数，如果决定使用外围网络，要使用的外围网络类型应该根据网络安全要求来确定。

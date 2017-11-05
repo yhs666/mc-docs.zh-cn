@@ -2,7 +2,7 @@
 title: "Azure Batch 文档 - 教程和 API 参考 | Microsoft 文档"
 description: "了解如何使用批处理有效运行大规模并行和高性能计算应用程序。 教程、API 参考和其他文档。"
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: ddf95dc910c7f0a3d155e0b413b48d60850a10d4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 38c7ec0f6625c60ea7635d2ddac2f5098089c25c
+ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/03/2017
 ---
 #<a name="batch-documentation"></a>Batch 文档
 
@@ -43,7 +42,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/Batch/batch-account-create-portal">
+        <a href="/batch/batch-account-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -89,7 +88,25 @@ ms.lasthandoff: 05/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>通过 Python 开始使用批处理</h3>
+                        <h3>通过 Python 开始使用 Batch</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/batch/batch-nodejs-get-started">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/logos/logo_nodejs.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>通过 Node.js 开始使用 Batch</h3>
                     </div>
                 </div>
             </div>

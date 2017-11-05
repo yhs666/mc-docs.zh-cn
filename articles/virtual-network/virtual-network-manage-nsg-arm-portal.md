@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 03/14/2016
 ms.date: 12/26/2016
 ms.author: v-dazen
-ms.openlocfilehash: c33451422b86d28e065d3c08074ced99f3b6dddf
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 7aa822ef8196051cd5d905279d1e2eafc0deeb21
+ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="manage-nsgs-using-the-portal"></a>使用门户管理 NSG
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 06/23/2017
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## <a name="retrieve-information"></a>检索信息
-可以查看你的现有 NSG、检索现有 NSG 的规则和查找与 NSG 关联的资源。
+可以查看现有 NSG、检索现有 NSG 的规则和查找与 NSG 关联的资源。
 
 ### <a name="view-existing-nsgs"></a>查看现有 NSG
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 06/23/2017
     ![Azure 门户 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure9.png)
 
 ### <a name="change-a-rule"></a>更改规则
-若要将上面创建的规则更改为仅允许来自 **Internet** 的入站流量，请完成以下步骤：
+要将上面创建的规则更改为仅允许来自 **Internet** 的入站流量，请完成以下步骤：
 
 1. 在“网络安全组”边栏选项卡或上述“资源”边栏选项卡中，单击“NSG-FrontEnd”。
 2. 在“设置”  选项卡中，单击上面创建的规则。
@@ -198,5 +198,5 @@ ms.lasthandoff: 06/23/2017
 
     ![Azure 门户 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
 
-## <a name="next-steps"></a>后续步骤
-* 为 NSG [启用日志记录](virtual-network-nsg-manage-log.md)。
+<!--Not Available ## Next steps-->
+<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->

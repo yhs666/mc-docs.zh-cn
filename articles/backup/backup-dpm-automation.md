@@ -3,8 +3,8 @@ title: "Azure 备份 - 使用 PowerShell 备份 DPM 工作负荷 | Microsoft 文
 description: "了解如何使用 PowerShell 部署和管理 Data Protection Manager (DPM) 的 Azure 备份"
 services: backup
 documentationcenter: 
-author: NKolli1
-manager: shreeshd
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: e9bd223c-2398-4eb1-9bf3-50e08970fea7
 ms.service: backup
@@ -12,18 +12,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+origin.date: 01/23/2017
+ms.date: 10/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: 8a5a41d80f7ce3edb662435efe68533824fa9fdc
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: c64db9f10b0ab4abfde26c2c422a89f68087d0e7
+ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>使用 PowerShell 部署和管理 Data Protection Manager (DPM) 服务器的 Azure 备份
 > [!div class="op_single_selector"]
-> * [ARM](./backup-dpm-automation.md)
-> * [经典](./backup-dpm-automation-classic.md)
+> * [ARM](backup-dpm-automation.md)
+> * [经典](backup-dpm-automation-classic.md)
 >
 >
 
@@ -290,7 +291,7 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS -Onlin
 PS C:\> Set-DPMPolicyObjective -ProtectionGroup $MPG -RetentionRangeInDays 10 -SynchronizationFrequencyMinutes 360
 ```
 
-为了将备份转移到 Azure（DPM 将此称为联机备份），可将保留期配置为[使用祖父-父-子方案 (GFS) 的长期保留](./backup-azure-backup-cloud-as-tape.md)。 也就是说，可以定义组合保留策略，其中包括每日、每周、每月和每年保留策略。 在此示例中，我们将创建一个用于表示所需复杂保留配置的数组，并使用 [Set-DPMPolicyObjective](https://technet.microsoft.com/library/hh881762) cmdlet 配置保留范围。
+为了将备份转移到 Azure（DPM 将此称为联机备份），可将保留期配置为[使用祖父-父-子方案 (GFS) 的长期保留](backup-azure-backup-cloud-as-tape.md)。 也就是说，可以定义组合保留策略，其中包括每日、每周、每月和每年保留策略。 在此示例中，我们将创建一个用于表示所需复杂保留配置的数组，并使用 [Set-DPMPolicyObjective](https://technet.microsoft.com/library/hh881762) cmdlet 配置保留范围。
 
 ```
 PS C:\> $RRlist = @()
@@ -372,4 +373,6 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 可针对任何数据源类型轻松扩展这些命令。
 
 ## <a name="next-steps"></a>后续步骤
-- 有关 DPM 到 Azure 备份的详细信息，请参阅 [DPM 备份简介](./backup-azure-dpm-introduction-classic.md)
+- 有关 DPM 到 Azure 备份的详细信息，请参阅 [DPM 备份简介](backup-azure-dpm-introduction.md)
+
+<!--Update_Description: link update-->

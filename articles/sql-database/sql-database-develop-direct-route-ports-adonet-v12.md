@@ -1,9 +1,9 @@
 ---
-title: "用于 SQL 数据库的非 1433 端口 | Azure"
-description: "从 ADO.NET 到 Azure SQL 数据库的客户端连接有时会绕过代理直接与数据库交互。 除 1433 以外的端口变得非常重要。"
+title: "用于 SQL 数据库的非 1433 端口 | Microsoft 文档"
+description: "从 ADO.NET 到 Azure SQL 数据库的客户端连接可以绕过代理直接通过 1433 以外的端口与数据库交互。"
 services: sql-database
-documentationCenter: 
-author: Hayley244
+documentationcenter: 
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 3f17106a-92fd-4aa4-b6a9-1daa29421f64
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2016
-ms.date: 07/10/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: e0e1750c83989240099176b35132b638f59dd181
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 558d51da7785a5324f247e214df9682e781bce70
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>用于 ADO.NET 4.5 的非 1433 端口
 本主题介绍使用 ADO.NET 4.5 或更高版本的客户端的 Azure SQL 数据库连接行为。 
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/14/2017
 端口 1433 是托管 SQL 数据库客户端应用程序的台式计算机上唯一必须打开的端口。
 
 #### <a name="inside-client-runs-on-azure"></a>*内部：* 客户端在 Azure 上运行
-如果你的客户端在 Azure 云边界内部运行，则它使用我们所谓的 *直接路由* 来与 SQL 数据库服务器交互。 建立连接后，客户端与数据库之间的进一步交互不涉及到任何中间件代理。
+如果客户端在 Azure 云边界内部运行，则它使用我们所谓的*直接路由*来与 SQL 数据库服务器交互。 建立连接后，客户端与数据库之间的进一步交互不涉及到任何中间件代理。
 
 顺序如下：
 

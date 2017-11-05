@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/12/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
-ms.openlocfilehash: a1f33af7dcbb13d95d46dcfd8b77da8265af5958
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 11/13/2017
+ms.openlocfilehash: afdf966fdcd97120c8a1b881dfab62c24e485a3e
+ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>将虚拟网络连接到 ExpressRoute 线路
 
 > [!div class="op_single_selector"]
->- [Resource Manager - Azure 门户](./expressroute-howto-linkvnet-portal-resource-manager.md)
->- [Resource Manager - PowerShell](./expressroute-howto-linkvnet-arm.md)
+> * [Azure 门户](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [PowerShell（经典）](expressroute-howto-linkvnet-classic.md)
 > 
 
-本文通过使用 Resource Manager 部署模型和 Azure 门户，帮助将虚拟网络 (VNets) 链接到 Azure ExpressRoute 线路。 虚拟网络可以在同一个订阅中，也可以属于另一个订阅。
+本文有助于使用资源管理器部署模型和 Azure 门户将虚拟网络 (VNet) 链接到 Azure ExpressRoute 线路。 虚拟网络可以在同一个订阅中，也可以属于另一个订阅。
 
 ## <a name="before-you-begin"></a>开始之前
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 09/08/2017
     - 确保已创建并完全预配一个虚拟网络和一个虚拟网络网关。 按照说明[为 ExpressRoute 创建虚拟网关](./expressroute-howto-add-gateway-resource-manager.md)。 ExpressRoute 的虚拟网关使用 GatewayType“ExpressRoute”，而不是 VPN。
 
 - 最多可以将 10 个虚拟网络链接到一条标准 ExpressRoute 线路。 使用标准 ExpressRoute 线路时，所有虚拟网络都必须位于同一地缘政治区域。 
-- 如果已启用 ExpressRoute 高级外接程序，则可以链接 ExpressRoute 线路的地缘政治区域外部的虚拟网络，或者将大量虚拟网络连接到 ExpressRoute 线路。 有关高级外接程序的更多详细信息，请参阅[常见问题](./expressroute-faqs.md)。
+- 如果已启用 ExpressRoute 高级外接程序，则可以链接 ExpressRoute 线路的地缘政治区域外部的虚拟网络，或者将更多虚拟网络连接到 ExpressRoute 线路。 有关高级外接程序的更多详细信息，请参阅[常见问题](./expressroute-faqs.md)。
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>将同一订阅中的虚拟网络连接到线路
 
@@ -70,14 +70,14 @@ ms.lasthandoff: 09/08/2017
 ### <a name="to-delete-a-connection"></a>删除连接
 可以通过选择连接的边栏选项卡上的“删除”图标来删除连接。
 
-## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>将不同订阅中的虚拟网络连接到线路
+## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>将另一订阅中的虚拟网络连接到线路
 用户可以在多个订阅之间共享 ExpressRoute 线路。 下图显示了如何在多个订阅之间实现 ExpressRoute 线路共享的简单示意图。
 
 ![跨订阅连接](./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png)
 
 - 大型云中的每个较小云用于表示属于组织中不同部门的订阅。
 - 组织内的每个部门可以使用自己的订阅部署其服务，但可以共享单个 ExpressRoute 线路以连接回本地网络。
-- 单个部门（在此示例中为 IT 部门）可以拥有 ExpressRoute 线路。 组织内的其他订阅可以使用 ExpressRoute 线路。
+- 单个部门（在此示例中为 IT 部门）可以拥有 ExpressRoute 线路。 组织内的其他订阅可以使用 ExpressRoute 线路和关联到该线路的授权，包括链接到其他 Azure Active Directory 租户和企业协议合约的订阅。 
 
     > [!NOTE]
     > 将对 ExpressRoute 线路所有者收取专用线路的连接和带宽费用。 所有虚拟网络共享相同的带宽。
@@ -94,7 +94,7 @@ ms.lasthandoff: 09/08/2017
 
 **创建连接授权**
 
-线路所有者创建授权。 这样即可创建授权密钥，供线路用户可用来将其虚拟网络网关连接到 ExpressRoute 线路。 一个授权只可用于一个连接。
+线路所有者创建授权。 这样即可创建授权密钥，供线路用户用来将其虚拟网络网关连接到 ExpressRoute 线路。 一个授权只可用于一个连接。
 
 1. 在“ExpressRoute”边栏选项卡中单击“授权”，并键入授权的**名称**并单击“保存”。
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 09/08/2017
 
     ![搜索连接](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 
-3. 请确保将“连接类型”设置为“ExpressRoute”。
+3. 确保“连接类型”设置为“ExpressRoute”。
 
 
 4. 在“基本信息”边栏选项卡中填写详细信息，并单击“确定”。

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 07/05/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 2aff3ac5c85c7e68f5eb834af328c65f393d0872
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: ef24c7f9bbd9adeff543d1dde6f73586d8f3bf17
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>使用 .NET (C#) 和 Visual Studio 连接和查询 Azure SQL 数据库
 

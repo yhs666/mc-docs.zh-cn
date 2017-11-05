@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 09/25/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 9436f173c6f09ac624136247ce2d4b13051bdd92
-ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
+ms.openlocfilehash: 4f81e599c64ca15958cc2ca1e18a6bc75d954a0d
+ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何生成平滑流式处理 Windows 应用商店应用程序
 
@@ -33,8 +33,11 @@ ms.lasthandoff: 09/19/2017
 4. 选择平滑流式处理曲目
 
 ## <a name="prerequisites"></a>先决条件
-* Windows 8 32 位或 64 位。 可以从 MSDN 获取 [Windows 8 企业评估版](http://msdn.microsoft.com/evalcenter/jj554510.aspx) 。
-* Visual Studio 2012 或 Visual Studio Express 2012（或更高版本）。 可以从 [此处](http://www.microsoft.com/visualstudio/11/downloads)获取试用版。
+> [!NOTE]
+> Visual Studio 2017 不支持 Windows 应用商店项目 8.1 版及更早的版本。  有关详细信息，请参阅 [Visual Studio 2017 平台目标以及兼容性](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)。
+
+* Windows 8 32 位或 64 位。
+* Visual Studio 版本 2012 到 2015。
 * [适用于 Windows 8 的 Microsoft 平滑流式处理客户端 SDK](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)。
 
 可从 MSDN 开发人员代码示例（代码库）下载每一课后生成的解决方案： 
@@ -59,7 +62,7 @@ ms.lasthandoff: 09/19/2017
 
 **创建 Windows 应用商店项目**
 
-1. 运行 Visual Studio 2012 或更高版本。
+1. 运行 Visual Studio；支持版本 2012 到 2015。
 2. 在“文件”菜单中，单击“新建”，并单击“项目”。
 3. 在“新建项目”对话框中，键入或选择以下值：
 
@@ -1004,3 +1007,4 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
+<!--Update_Description: update Prerequisites, support Visual Studio 2015-->

@@ -3,8 +3,8 @@ title: "如何使用用于 Android 的 Azure 移动应用 SDK | Microsoft Docs"
 description: "如何使用用于 Android 的 Azure 移动应用 SDK"
 services: app-service\mobile
 documentationcenter: android
-author: adrianhall
-manager: adrianhall
+author: ggailey777
+manager: syntaxc4
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 origin.date: 04/25/2017
 ms.author: v-yiso
-ms.date: 07/13/2017
-ms.openlocfilehash: 71409226f96366c8ba885afe58bb998684d2205c
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 11/06/2017
+ms.openlocfilehash: 24797ffb4bcdc58f1bf48438bdefe8135da2b579
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用用于 Android 的 Azure 移动应用 SDK
 
@@ -108,7 +108,7 @@ package com.example.appname.services;
 import android.content.Context;
 import com.microsoft.windowsazure.mobileservices.*;
 
-public AzureServiceAdapter {
+public class AzureServiceAdapter {
     private String mMobileBackendUrl = "https://myappname.azurewebsites.cn";
     private Context mContext;
     private MobileServiceClient mClient;
@@ -302,7 +302,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-上面的示例返回所有结果（结果数上限为服务器设置的最大页面大小）。  `.execute()` 方法在后端上执行查询。  查询先转换为 [OData v3][19] 查询，然后再传输到移动应用后端。  移动应用后端收到查询后，会先将查询转换为 SQL 语句，然后在 SQL Azure 实例上执行该语句。  由于网络活动需要一段时间，因此 `.execute()` 方法将返回 [`ListenableFuture<E>`][18]。
+上面的示例返回所有结果（结果数上限为服务器设置的最大页面大小）。  `.execute()` 方法在后端上执行查询。  查询先转换为 [OData v3][19] 查询，再传输到移动应用后端。  移动应用后端收到查询后，会先将查询转换为 SQL 语句，然后在 SQL Azure 实例上执行该语句。  由于网络活动需要一段时间，因此 `.execute()` 方法将返回 [`ListenableFuture<E>`][18]。
 
 ### <a name="filtering"></a>筛选返回的数据
 
@@ -573,7 +573,7 @@ ToDoItemAdapter 构造函数的第二个参数是对布局的引用。 我们现
 
 #### <a name="use-adapter"></a>使用适配器绑定到 UI
 
-现在，你可以使用数据绑定了。 下面的代码说明如何获取表中的项，以及使用返回的项填充本地适配器。
+现在，可以使用数据绑定了。 下面的代码说明如何获取表中的项，以及使用返回的项填充本地适配器。
 
 ```java
     public void showAll(View view) {
@@ -626,7 +626,7 @@ ToDoItem entity = mToDoTable
 
 返回的实体将匹配插入后端表的数据，包括 ID 和后端上设置的任何其他值（例如 `createdAt`、`updatedAt` 和 `version` 字段）。
 
-移动应用表需要名为 **id**的主键列。 此列必须是字符串。 ID 列的默认值为 GUID。  可以提供其他唯一的值，例如电子邮件地址或用户名。 如果没有为插入的记录提供字符串 ID 值，后端会生成新的 GUID。
+移动应用表需要名为 **id**的主键列。此列必须是字符串。 ID 列的默认值为 GUID。  可以提供其他唯一的值，例如电子邮件地址或用户名。 如果没有为插入的记录提供字符串 ID 值，后端会生成新的 GUID。
 
 字符串 ID 值提供以下优势：
 
@@ -638,7 +638,7 @@ ToDoItem entity = mToDoTable
 
 ## <a name="updating"></a>更新移动应用中的数据
 
-若要更新表中的数据，请将新对象传递给 **update()** 方法。
+要更新表中的数据，请将新对象传递给 **update()** 方法。
 
 ```java
 mToDoTable
@@ -728,7 +728,7 @@ mToDoTable.delete(ID);
 ```
 
 ### <a name="json_get"></a>从非类型化表中返回所有行
-以下代码演示了如何检索整个表。 由于使用的是 Json 数据表，你可以选择性地只检索某些表的列。
+以下代码演示了如何检索整个表。 由于使用的是 Json 数据表，可以选择性地只检索某些表的列。
 
 ```java
 public void showAllUntyped(View view) {
@@ -867,7 +867,7 @@ private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
 
 ## <a name="custom-api"></a>调用自定义 API
 
-自定义 API 可让你定义自定义终结点，这些终结点将会公开不映射到插入、更新、删除或读取操作的服务器功能。 使用自定义 API 能够以更大的力度控制消息传送，包括读取和设置 HTTP 消息标头，以及定义除 JSON 以外的消息正文格式。
+自定义 API 可让你定义自定义终结点，这些终结点会公开不映射到插入、更新、删除或读取操作的服务器功能。 使用自定义 API 能够以更大的力度控制消息传送，包括读取和设置 HTTP 消息标头，以及定义除 JSON 以外的消息正文格式。
 
 从 Android 客户端调用 **invokeApi** 方法，以调用自定义 API 终结点。 以下示例演示了如何调用名为 **completeAll** 的 API 终结点，从而返回名为 **MarkAllResult** 的集合类。
 
@@ -895,11 +895,11 @@ public void completeItem(View view) {
 
 教程已详细说明如何添加这些功能。
 
-应用服务支持使用各种外部标识提供者[对应用用户进行身份验证](app-service-mobile-android-get-started-users.md)，这些提供者包括：Facebook、Google、Microsoft 帐户、Twitter 和 Azure Active Directory。 你可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 你还可以在后端中使用已经过身份验证的用户的标识来实施授权规则。
+应用服务支持使用各种外部标识提供者[对应用用户进行身份验证](app-service-mobile-android-get-started-users.md)，这些提供者包括：Facebook、Google、Microsoft 帐户、Twitter 和 Azure Active Directory。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在后端中使用已经过身份验证的用户的标识来实施授权规则。
 
 支持两种身份验证流：**服务器**流和**客户端**流。 服务器流依赖于标识提供者的 Web 界面，因此可提供最简单的身份验证体验。  无需其他 SDK 即可实现服务器流身份验证。 服务器流身份验证不会与移动设备深度集成，因此仅建议用于概念验证方案。
 
-客户端流依赖于标识提供者提供的 SDK，因此允许与设备特定的功能（例如单一登录）进行更深入的集成。  例如，可以将 Facebook SDK 集成到移动应用程序中。  移动客户端会切换到 Facebook 应用，并在换回移动应用前确认已登录。
+客户端流依赖于标识提供者提供的 SDK，因此允许与设备特定的功能（例如单一登录）进行更深入的集成。  例如，可以将 Facebook SDK 集成到移动应用程序。  移动客户端会切换到 Facebook 应用，并在换回移动应用前确认已登录。
 
 在应用中启用身份验证需要执行以下四个步骤：
 
@@ -908,7 +908,7 @@ public void completeItem(View view) {
 - 限制只有应用服务后端上经过身份验证的用户才能拥有表权限。
 - 将身份验证代码添加到应用。
 
-你可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以使用已经过身份验证的用户的 SID 来修改请求。  有关详细信息，请查看 [Get started with authentication] 和服务器 SDK 操作方法文档。
+可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以使用已经过身份验证的用户的 SID 来修改请求。  有关详细信息，请查看 [Get started with authentication] 和服务器 SDK 操作方法文档。
 
 ### <a name="caching"></a>身份验证：服务器流
 
@@ -1000,7 +1000,7 @@ dependencies {
 
 缓存身份验证令牌需要将用户 ID 和身份验证令牌存储在设备本地。 下次启动应用时，只需检查缓存，如果这些值存在，则可以跳过登录过程，并使用这些数据重新进入客户端。 但是，这些数据是敏感的，为安全起见，应该以加密形式存储，以防手机失窃。  可以在 [缓存身份验证令牌][7]部分中了解有关缓存身份验证令牌的完整示例。
 
-尝试使用过期的令牌时，会收到“401 未授权”  响应。 可以使用筛选器处理身份验证错误。  筛选器会截获对应用服务后端提出的请求。 筛选器代码会测试 401 响应，触发登录进程，然后恢复生成 401 响应的请求。
+尝试使用过期的令牌时，会收到“401 未授权”  响应。 可以使用筛选器处理身份验证错误。  筛选器会截获对应用服务后端提出的请求。 筛选器代码会测试 401 响应，触发登录进程，并恢复生成 401 响应的请求。
 
 ### <a name="refresh"></a>使用刷新令牌
 
@@ -1076,7 +1076,7 @@ MobileServiceUser user = mClient
 
 * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
 
-* 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点（使用 HTTPS 方案）。 此值应类似于 _https://contoso.azurewebsites.cn/.auth/login/done_。
+* 使用 HTTPS 方案将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点。 此值应类似于 _https://contoso.azurewebsites.cn/.auth/login/done_。
 
 ```java
 private AuthenticationContext mContext;
@@ -1240,7 +1240,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>配置自动序列化
 
-可以使用 gson API，指定适用于每个列的转换策略。 在发送数据到 Azure 应用服务之前，Android 客户端库会在幕后使用 gson 将 Java 对象序列化为 JSON 数据。  下面的代码使用 **setFieldNamingStrategy()** 方法设置策略。 此示例删除初始字符（“m”），然后将每个字段名称的下一个字符小写。 例如，它会将“mId”变为“id”。  实现转换策略，减少在大多数字段中使用 `SerializedName()` 批注的需求。
+可以使用 gson API，指定适用于每个列的转换策略。 在发送数据到 Azure 应用服务之前，Android 客户端库会在幕后使用 gson 将 Java 对象序列化为 JSON 数据。  下面的代码使用 **setFieldNamingStrategy()** 方法设置策略。 此示例删除初始字符（“m”），并将每个字段名称的下一个字符小写。 例如，它将“mId”变为“id”。  实现转换策略，减少在大多数字段中使用 `SerializedName()` 批注的需求。
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {
@@ -1284,7 +1284,7 @@ client.setGsonBuilder(
 [19]: http://www.odata.org/documentation/odata-version-3-0/
 [20]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
 

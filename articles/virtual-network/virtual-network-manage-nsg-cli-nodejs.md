@@ -16,11 +16,11 @@ origin.date: 02/21/2017
 ms.date: 03/31/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9365773e284680c9a4f4d40561a783049a6f186b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: b01f7d943e06ac0da4b06c4160d5182454e9e28b
+ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 管理网络安全组
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 06/21/2017
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
 ## <a name="retrieve-information"></a>检索信息
-可以查看你的现有 NSG、检索现有 NSG 的规则和查找与 NSG 关联的资源。
+可以查看现有 NSG、检索现有 NSG 的规则和查找与 NSG 关联的资源。
 
 ### <a name="view-existing-nsgs"></a>查看现有 NSG
 若要查看特定资源组中 NSG 的列表，请运行 `azure network nsg list` 命令，如下所示。
@@ -159,7 +159,7 @@ azure network nsg rule create --resource-group RG-NSG \
     info:    network nsg rule create command OK
 
 ### <a name="change-a-rule"></a>更改规则
-若要将上面创建的规则更改为仅允许来自 **Internet** 的入站流量，请运行以下命令：
+要将上面创建的规则更改为仅允许来自 **Internet** 的入站流量，请运行以下命令：
 
 ```azurecli
 azure network nsg rule set --resource-group RG-NSG \
@@ -365,5 +365,5 @@ azure network vnet subnet set --resource-group RG-NSG \
         + Deleting network security group "NSG-FrontEnd"
         info:    network nsg delete command OK
 
-## <a name="next-steps"></a>后续步骤
-* 为 NSG [启用日志记录](virtual-network-nsg-manage-log.md)。
+<!--Not Available ## Next steps-->
+<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->

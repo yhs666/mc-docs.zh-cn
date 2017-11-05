@@ -15,17 +15,17 @@ ms.topic: article
 origin.date: 06/02/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 310bc5b0f392637048bc39abe6d4061cad2ef804
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 277c31ea714d1ba2e5764c13022d525c19efbaf4
+ms.sourcegitcommit: 10a649bfdf30765955ed964f7b5e05205bb9670a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>将 Azure CLI 2.0 用于 Azure 存储
 
 开源跨平台 Azure CLI 2.0 提供一组可在 Azure 平台上运行的命令。 它提供 [Azure 门户](https://portal.azure.cn)所提供的很多相同功能，包括各种数据访问功能。
 
-本指南介绍如何使用 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) 执行多个使用 Azure 存储帐户中的资源的任务。 在使用本指南之前，我们建议下载并安装或者升级到 CLI 2.0 的最新版。
+本指南介绍如何使用 [Azure CLI 2.0](https://docs.azure.cn/cli/get-started-with-az-cli2) 执行多个使用 Azure 存储帐户中的资源的任务。 在使用本指南之前，我们建议下载并安装或者升级到 CLI 2.0 的最新版。
 
 指南中的示例假设在 Ubuntu 上使用 Bash shell，但其他平台的执行情况应与此类似。 
 
@@ -40,10 +40,10 @@ ms.lasthandoff: 10/23/2017
 
 ### <a name="install-the-azure-cli-20"></a>安装 Azure CLI 2.0
 
-按照 [安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)中的概要说明，下载并安装 Azure CLI 2.0。
+按照 [安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-az-cli2)中的概要说明，下载并安装 Azure CLI 2.0。
 
 > [!TIP]
-> 如果在安装时遇到问题，请查看本文的[安装故障排除](https://docs.microsoft.com/cli/azure/install-az-cli2#installation-troubleshooting)部分以及 GitHub 上的 [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md)（安装故障排除）指南。
+> 如果在安装时遇到问题，请查看本文的[安装故障排除](https://docs.azure.cn/cli/install-az-cli2#installation-troubleshooting)部分以及 GitHub 上的 [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md)（安装故障排除）指南。
 >
 
 ## <a name="working-with-the-cli"></a>使用 CLI
@@ -268,7 +268,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-使用 [az storage blob list](https://docs.microsoft.com/cli/azure/storage/blob#list) 命令列出容器中的 blob。
+使用 [az storage blob list](https://docs.azure.cn/cli/storage/blob#list) 命令列出容器中的 blob。
 
 ```azurecli
 az storage blob list \
@@ -375,7 +375,7 @@ az storage file copy start \
 ## <a name="next-steps"></a>后续步骤
 可以参考以下附加资源详细了解如何使用 Azure CLI 2.0。
 
-* [Azure CLI 2.0 入门](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Azure CLI 2.0 命令参考](https://docs.microsoft.com/cli/azure)
+* [Azure CLI 2.0 入门](https://docs.azure.cn/cli/get-started-with-az-cli2)
+* [Azure CLI 2.0 命令参考](https://docs.azure.cn/cli)
 * [GitHub 上的 Azure CLI 2.0](https://github.com/Azure/azure-cli)
 <!--Update_Description: wording update-->

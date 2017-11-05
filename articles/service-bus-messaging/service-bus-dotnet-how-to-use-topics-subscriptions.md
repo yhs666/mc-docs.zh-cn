@@ -12,20 +12,18 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 06/30/2017
+origin.date: 10/10/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
-ms.openlocfilehash: 48eb003873c2b6b935d88bdd96fb4963ff610fc5
-ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
+ms.date: 11/13/2017
+ms.openlocfilehash: 61e5d25ea7da2be9e09737a0ddd59c4de24b890a
+ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>服务总线主题入门
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
-## <a name="what-will-be-accomplished"></a>要完成的任务
 
 本教程涵盖以下步骤：
 
@@ -55,7 +53,7 @@ ms.lasthandoff: 08/14/2017
 3. 单击要在其中创建主题的命名空间。 此时会显示命名空间概览边栏选项卡：
    
     ![创建主题][createtopic1]
-4. 在“服务总线命名空间”边栏选项卡中，依次单击“主题”、“添加主题”。
+4. 在“服务总线命名空间”边栏选项卡中，单击“主题”，然后单击“添加主题”。
    
     ![选择主题][createtopic2]
 5. 输入主题的名称，并取消选中“启用分区”选项。 将其他选项保留默认值。
@@ -78,12 +76,12 @@ ms.lasthandoff: 08/14/2017
 
 ### <a name="create-a-console-application"></a>创建控制台应用程序
 
-启动 Visual Studio 并创建新的**控制台应用 (.NET Framework)** 项目。
+启动 Visual Studio 并创建新的控制台应用 (.NET Framework) 项目。
 
 ### <a name="add-the-service-bus-nuget-package"></a>添加服务总线 NuGet 包
 
 1. 右键单击新创建的项目，并选择“管理 NuGet 包” 。
-2. 单击“浏览”选项卡，搜索“Microsoft Azure 服务总线”，并选择“WindowsAzure.ServiceBus”项。 单击“安装”以完成安装，并关闭此对话框。
+2. 单击“浏览”选项卡，搜索“WindowsAzure.ServiceBus”，然后选择“WindowsAzure.ServiceBus”项。 单击“安装”以完成安装，并关闭此对话框。
    
     ![选择 NuGet 包][nuget-pkg]
 
@@ -157,7 +155,7 @@ ms.lasthandoff: 08/14/2017
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. 将以下代码添加到 `Main` 方法中。 将 `connectionString` 变量设置为在创建命名空间时获得的连接字符串，并将 `topicName` 设置为在创建主题时使用的名称。
+3. 将以下代码添加到 `Main` 方法中。 将 `connectionString` 变量设置为在创建命名空间时获得的连接字符串，并将 `topicName` 设置为在创建主题时使用的名称。 另请确保将 `<your subscription name>` 替换为在步骤 3 创建的订阅的名称。 
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -208,7 +206,7 @@ ms.lasthandoff: 08/14/2017
    
     ![主题长度][topic-message-receive]
 
-祝贺！ 现已创建主题和订阅，发送了一条消息并接收了该消息。
+祝贺！ 你现在已创建主题和订阅，发送了一条消息并接收了该消息。
 
 
 ## <a name="next-steps"></a>后续步骤

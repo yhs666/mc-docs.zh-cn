@@ -1,6 +1,6 @@
 ---
-title: "PowerShell 示例 - 活动异地复制 - 入池 Azure SQL 数据库 | Azure"
-description: "为入池 Azure SQL 数据库设置活动异地复制的 Azure PowerShell 示例脚本"
+title: "PowerShell 示例 - 活动异地复制 - 共用 Azure SQL 数据库 | Microsoft Docs"
+description: "为共用 Azure SQL 数据库设置活动异地复制并进行故障转移的 Azure PowerShell 示例脚本。"
 services: sql-database
 documentationcenter: sql-database
 author: forester123
@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 07/25/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: e242a3ff5b69ca823c265828cff43f3a4688610f
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 8b33d40e1e6089d3437aa331beaa6e087d14fa3f
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-azure-sql-database"></a>使用 PowerShell 为入池 Azure SQL 数据库配置活动异地复制
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 09/28/2017
 ## <a name="sample-scripts"></a>示例脚本
 
 ```powershell
-# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Login-AzureRmAccount
 # Set the resource group name and location for your serverw
 $primaryresourcegroupname = "myPrimaryResourceGroup-$(Get-Random)"
 $secondaryresourcegroupname = "mySecondaryResourceGroup-$(Get-Random)"
@@ -126,6 +126,7 @@ $database | Get-AzureRmSqlDatabaseReplicationLink -PartnerResourceGroupName $pri
 # Clean up deployment 
 # Remove-AzureRmResourceGroup -ResourceGroupName $primaryresourcegroupname
 # Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -160,5 +161,3 @@ Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
-
-<!--Update_Description: update "Clean up deployment" script-->

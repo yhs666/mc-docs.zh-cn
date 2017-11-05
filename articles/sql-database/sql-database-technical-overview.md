@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 06/30/2017
-ms.date: 10/02/2017
+origin.date: 09/20/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 1692a1d73696f85d1c580137f30be30070400592
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 8b3a71f4e46caf049849a1b1fe1671e05cbdfcba
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什么是 Azure SQL 数据库服务？ 
 
@@ -46,7 +46,7 @@ SQL 数据库提供四个服务层，支持轻型到重型数据库工作负荷�
 许多业务和应用程序只要能够创建单一数据库并按需调高或调低性能即可，尤其是当使用模式相对容易预测时。 但如果有无法预测的使用模式，则管理成本和业务模式就会变得相当困难。 [弹性池](sql-database-elastic-pool.md)旨在解决此问题。 概念很简单。 可以向池而不是单个数据库分配性能资源，并且仅需为池的总体性能资源付费，而无需为单一数据库的性能付费。 
    ![弹性池](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-使用弹性池时，不需要在资源需求波动时担心如何上下调节数据库性能。 入池的数据库可根据需要使用弹性池的性能资源。 入池的数据库会使用该池，但不会超出其限制，因此即使单个数据库的使用情况仍不可预测，成本也仍是可预测的。 此外，可以[向池添加和删除数据库](sql-database-elastic-pool-manage-portal.md)，将应用从少量数据库扩展到数千个，而一切费用不会超出所控制的预算范围。 还可以控制池中数据库可用的资源量上限与下限，确保池中不会有任何数据库使用所有的池资源，每个入池数据库的可用资源量都有最低保障。 若要深入了解如何通过弹性池设计 SaaS 应用程序的模式，请参阅[具有 SQL 数据库的多租户 SaaS 应用程序的设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
+使用弹性池时，不需要在资源需求波动时担心如何上下调节数据库性能。 入池的数据库可根据需要使用弹性池的性能资源。 入池的数据库会使用该池，但不会超出其限制，因此即使单个数据库的使用情况仍不可预测，成本也仍是可预测的。 此外，可以 [向池添加和删除数据库](sql-database-elastic-pool-manage-portal.md)，将应用从少量数据库扩展到数千个，而一切费用不会超出由你控制的预算范围。 还可以控制池中数据库可用的资源量上限与下限，确保池中不会有任何数据库使用所有的池资源，每个入池数据库的可用资源量都有最低保障。 若要深入了解如何通过弹性池设计 SaaS 应用程序的模式，请参阅[具有 SQL 数据库的多租户 SaaS 应用程序的设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>混合使用单一数据库与入池数据库
 
@@ -74,16 +74,16 @@ Azure 行业领先的 99.99% 可用性服务级别协议 [(SLA)](https://www.azu
 
 使用 SQL 数据库，可获得内置智能，帮助大幅降低运行和管理数据库的成本，并将应用程序的性能和安全性最大化。 通过全天候运行数以百万计的客户工作负荷，SQL 数据库收集和处理大量遥测数据，同时完全尊重幕后客户的隐私。 各种算法正在不间断计算遥测数据，以便服务可以了解并适应应用程序。 基于这一分析，该服务会提出针对特定工作负荷的性能改进建议。 
 
-### <a name="automatic-performance-tuning"></a>自动性能优化
+### <a name="automatic-performance-monitoring-and-tuning"></a>自动性能监视和优化
 
-SQL 数据库提供针对需要监视的查询的详细见解。 SQL 数据库会学习用户的数据库模式，使用户能够根据工作负荷调整数据库架构。 SQL 数据库使用 [SQL 数据库顾问](sql-database-advisor.md)提供性能优化建议，可在其中查看并应用优化操作。 然而，持续监视数据库是一项艰巨且乏味的任务，尤其是在处理多个数据库时。 可能无法高效管理大量数据库，即使使用 SQL 数据库和 Azure 门户提供的所有可用工具和报表也一样。 可考虑使用自动优化功能将某些监视和优化操作委派给 SQL 数据库，而不是手动监视和优化数据库。 SQL 数据库自动应用建议、测试，并验证每个优化操作，确保性能持续提升。 这样一来，SQL 数据库将以受控且安全的方式自动适应工作负荷。 自动优化是指在每次优化操作前后仔细监视和比较数据库性能，如果性能未得到提升，则还原优化操作。
+SQL 数据库提供针对需要监视的查询的详细见解。 SQL 数据库会学习用户的数据库模式，使用户能够根据工作负荷调整数据库架构。 SQL 数据库[提供性能优化建议](sql-database-advisor.md)，可在其中查看并应用优化操作。 可能无法高效管理大量数据库，即使使用 SQL 数据库和 Azure 门户提供的所有可用工具和报表也一样。 可考虑使用[自动优化](sql-database-automatic-tuning.md)将某些监视和优化操作委派给 SQL 数据库，而不是手动监视和优化数据库。 SQL 数据库自动应用建议、测试，并验证每个优化操作，确保性能持续提升。 这样一来，SQL 数据库将以受控且安全的方式自动适应工作负荷。 自动优化是指在每次优化操作前后仔细监视和比较数据库性能，如果性能未得到提升，则还原优化操作。
 
 目前，在 SQL 数据库上运行 [SaaS 多租户应用](sql-database-design-patterns-multi-tenancy-saas-applications.md)的许多合作伙伴均依赖于自动性能优化，确保其应用程序始终具有稳定且可预测的性能。 对他们而言，此功能可大大降低午夜出现性能事故的风险。 此外，由于部分客户群也使用 SQL Server，因此他们使用 SQL 数据库提供的相同索引建议来帮助 SQL Sever 客户。
 
-SQL 数据库中有两个自动优化方面：
+[SQL 数据库可从两个方面进行自动优化](sql-database-automatic-tuning.md)：
 
-- **[自动索引管理](sql-database-automatic-tuning.md#automatic-index-management)**：标识应在数据库中添加的索引以及应删除的索引。
-- **[自动计划更正](sql-database-automatic-tuning.md#automatic-plan-choice-correction)**：标识有问题的计划并修复 SQL 计划性能问题（即将推出，已在 SQL Server 2017 中提供）。
+- **自动索引管理**：标识应在数据库中添加的索引以及应删除的索引。
+- **自动计划更正**：标识有问题的计划并修复 SQL 计划性能问题（即将推出，已在 SQL Server 2017 中提供）。
 
 ### <a name="adaptive-query-processing"></a>自适应查询处理
 
@@ -103,15 +103,15 @@ SQL 数据库提供一系列[内置安全性和符合性功能](sql-database-sec
 
 ### <a name="data-encryption-at-rest"></a>静态数据加密
 
-SQL 数据库[透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)无需更改应用程序，即可对静态的数据库、关联的备份和事务日志文件执行实时加密和解密，帮助防止恶意活动的威胁。 从 2017 年 5 月起，所有新建的 Azure SQL 数据库均通过透明数据加密 (TDE) 进行自动保护。 TDE 是 SQL 经验证的静态加密技术，许多符合性标准都需要它来防止存储介质被盗。 客户可使用 Azure Key Vault 通过安全合规的方式管理 TDE 加密密钥和其他密钥。
+SQL 数据库[透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)无需更改应用程序，即可对静态的数据库、关联的备份和事务日志文件执行实时加密和解密，帮助防止恶意活动的威胁。 从 2017 年 5 月起，所有新建的 Azure SQL 数据库均通过透明数据加密 (TDE) 进行自动保护。 TDE 是 SQL 经验证的静态加密技术，许多符合性标准都需要它来防止存储介质被盗。 客户可使用 Azure Key Vault 通过安全合规的方式管理 TDE 加密密钥和其他密钥。
 
 ### <a name="data-encryption-in-motion"></a>动态数据加密
 
 SQL 数据库是使用 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 在动态、静态和查询处理期间提供敏感数据保护的唯一数据库系统。 Always Encrypted 是业界首创功能，可针对涉及关键数据被盗的漏洞提供无与伦比的数据安全性。 例如，借助 Always Encrypted，客户的信用卡卡号即使在查询处理期间也始终加密存储在数据库中，允许经授权员工或需要处理该数据的应用程序在使用时进行解密。
 
-### <a name="dynamic-data-masking"></a>动态数据屏蔽
+### <a name="dynamic-data-masking"></a>动态数据掩码
 
-[SQL 数据库动态数据掩码](sql-database-dynamic-data-masking-get-started.md)通过对非特权用户模糊化敏感数据来限制此类数据的泄露。 动态数据掩码允许客户指定在对应用层产生最小影响的前提下可以透露的敏感数据量，从而帮助防止未经授权的用户访问敏感数据。 它是一种基于策略的安全功能，会在针对指定的数据库字段运行查询后返回的结果集中隐藏敏感数据，同时保持数据库中的数据不变。
+[SQL 数据库动态数据掩码](sql-database-dynamic-data-masking-get-started.md)通过对非特权用户模糊化敏感数据来限制此类数据的泄露。 动态数据屏蔽允许客户指定在对应用层产生最小影响的前提下可以透露的敏感数据量，从而帮助防止未经授权的用户访问敏感数据。 它是一种基于策略的安全功能，会在针对指定的数据库字段运行查询后返回的结果集中隐藏敏感数据，同时保持数据库中的数据不变。
 
 ### <a name="row-level-security"></a>行级别安全性
 
@@ -150,4 +150,4 @@ SQL 数据库支持在 MacOS、Linux 和 Windows 上使用 Python、Java、Node.
   - [适用于 SQL 数据库的 Azure CLI 示例](sql-database-cli-samples.md)
   - [适用于 SQL 数据库的 Azure PowerShell 示例](sql-database-powershell-samples.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: add more introduction for automatic tuning-->

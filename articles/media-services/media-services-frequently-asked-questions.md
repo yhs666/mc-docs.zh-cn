@@ -3,7 +3,7 @@ title: "Azure 媒体服务常见问题 | Azure"
 description: "常见问题 (FAQ)"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 5374f7f4-c189-43ef-8b7f-f2f4141e2748
@@ -12,20 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/31/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 54238509082c6c9f448900e9f55401a8c8372a53
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 09/29/2017
+ms.date: 11/06/2017
+ms.author: v-johch
+ms.openlocfilehash: ff520c96b103b415898feddb0f5c50a925b1715d
+ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="frequently-asked-questions"></a>常见问题
 
 本文介绍由 Azure 媒体服务 (AMS) 用户社区提出的常见问题。
 
 ## <a name="general-ams-faqs"></a>一般性的 AMS 常见问题
+
+问：如何流式传输到 Apple iOS 设备
+
+答：向 URL 的“/Manifest”部分添加“(format=m3u8-aapl)”路径，告知流式处理源服务器返回供 Apple iOS 本机设备使用的 HLS 内容（有关详细信息，请参阅 (传送内容)[media-services-deliver-content-overview.md]）。
+
 问：如何缩放索引？
 
 答：编码任务和索引任务的保留单位相同。 请遵循[如何缩放编码保留单位](media-services-scale-media-processing-overview.md)中的说明。 **请注意** ，保留单位类型不影响索引器性能。
@@ -38,9 +43,9 @@ ms.lasthandoff: 08/31/2017
 
 答：Azure 媒体服务当前不提供实时流上的合成操作，因此需要在计算机上进行预合成。
 
-问：是否可以将 Azure CDN 与实时传送视频流一起使用？
+问：我是否可以将 Azure CDN 与实时流式处理一起使用？
 
-答：媒体服务支持与 Azure CDN 集成（有关详细信息，请参阅[如何在媒体服务帐户中管理流式处理终结点](media-services-portal-manage-streaming-endpoints.md)）。  可以将实时传送视频流与 CDN 结合使用。 Azure 媒体服务提供平滑流式处理、HLS 和 MPEG-DASH 输出。 所有这些格式均使用 HTTP 来传输数据并从 HTTP 缓存中获益。 实时流式处理中，实际视频/音频数据被分为数个片段，并且单个片段缓存于 CDN 中。 唯一需要刷新的数据是清单数据。 CDN 定期刷新清单数据。
+答：媒体服务支持与 Azure CDN 集成（有关详细信息，请参阅[如何在媒体服务帐户中管理流式处理终结点](media-services-portal-manage-streaming-endpoints.md)）。  可以将实时流式处理与 CDN 结合使用。 Azure 媒体服务提供平滑流式处理、HLS 和 MPEG-DASH 输出。 所有这些格式均使用 HTTP 来传输数据并从 HTTP 缓存中获益。 实时流式处理中，实际视频/音频数据被分为数个片段，并且单个片段缓存于 CDN 中。 唯一需要刷新的数据是清单数据。 CDN 定期刷新清单数据。
 
 问：Azure 媒体服务是否支持存储图像？
 
@@ -76,3 +81,4 @@ ms.lasthandoff: 08/31/2017
     ...
 
 
+<!--Update_Description: add Q/A for "How do you stream to Apple iOS devices"-->

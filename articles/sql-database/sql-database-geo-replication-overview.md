@@ -1,6 +1,6 @@
 ---
 title: "故障转移组和活动异地复制 - Azure SQL 数据库 | Microsoft Docs"
-description: "利用自动故障转移组与活动异地复制，可在任何 Azure 数据中心设置数据库的四个副本，并可在发生故障时自动进行故障转移。"
+description: "在服务中断时使用自动故障转移组和活动异地复制，并启用自动故障转移。"
 services: sql-database
 documentationcenter: na
 author: forester123
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-origin.date: 07/10/2017
-ms.date: 10/02/2017
+origin.date: 10/11/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 77fce7e11e715fdd48ff48a074b5bab33fbe4ba4
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 34a86bbef85ee2905a71b7d3ba178239b58bfc11
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>概述：故障转移组和活动异地复制
 使用活动异地复制可在相同或不同数据中心位置（区域）中最多配置四个可读的辅助数据库。 在数据中心发生服务中断或无法连接到主数据库时，可以使用辅助数据库进行查询和故障转移。 故障转移必须由用户通过应用程序手动启动。 故障转移后，新的主数据库具有不同的连接终结点。 
@@ -62,7 +62,7 @@ Azure SQL 数据库自动故障转移组（预览）是一项 SQL 数据库功�
 * **可读的辅助数据库**：应用程序可以使用与访问主数据库时所用的相同或不同的安全主体来访问辅助数据库以执行只读操作。 辅助数据库在快照隔离模式下运行，以确保对主数据库的更新的复制（日志重播）不会因辅助数据库上执行的查询操作而延迟。
 
    > [!NOTE]
-   > 如果日志重播正在从主数据库接收的内容存在架构更新，则它会在辅助数据库上延迟，因为此过程需要辅助数据库上的架构锁。 
+   > 如果主数据库上有架构更新，则日志重播会在辅助数据库上延迟。 因为架构更新需要在辅助数据库上有架构锁。 
    > 
 
 * **多个可读辅助数据库**：两个或多个辅助数据库可以提高主数据库和应用程序的冗余和保护级别。 如果存在多个辅助数据库，即使其中一个辅助数据库发生故障，应用程序仍会受到保护。 如果只有一个辅助数据库，一旦它发生故障，应用程序就会遭受更高的风险，直到创建了新的辅助数据库。
@@ -92,8 +92,8 @@ Azure SQL 数据库自动故障转移组（预览）是一项 SQL 数据库功�
 * **故障转移组读写侦听器**：指向当前主服务器 URL 的格式为 **&lt;failover-group-name&gt;.database.chinacloudapi.cn** 的 DNS CNAME 记录。 它允许读写 SQL 应用程序在故障转移发生后主服务器发生更改时，以透明方式重新连接到主数据库。 
 * **故障转移组只读侦听器**：指向辅助服务器 URL 的格式为 **&lt;failover-group-name&gt;.secondary.database.chinacloudapi.cn** 的 DNS CNAME 记录。 它允许只读 SQL 应用程序以透明方式使用指定的负载均衡规则连接到辅助数据库。 或者，可以指定是否要在辅助服务器不可用时将只读流量自动重定向到主服务器中。
 * **自动故障转移策略**：默认使用自动故障转移策略配置故障转移组。 检测到故障时，系统将立即触发故障转移。 如果要从应用程序控制故障转移工作流，可以关闭自动故障转移。 
-* **手动故障转移**：可在任何时候手动启动故障转移，而不考虑自动故障转移配置。 如果未配置自动故障转移策略，则需要进行手动故障转移来恢复故障转移组中的数据库。 可通过完整数据同步启动强制或友好的故障转移。 后者可用于将活动服务器重新定位到主要区域。 故障转移完成后，将自动更新 DNS 记录，以确保连接到正确的服务器。
-* **数据丢失宽限期**：因为主数据库和辅助数据库是使用异步复制进行同步的，所以故障转移可能会导致数据丢失。 可以自定义自动故障转移策略，以便反映应用程序对数据丢失的容错。 通过配置 **GracePeriodWithDataLossHours**，可以控制系统启动可能导致数据丢失的故障转移之前的等待时间。 
+* **手动故障转移**：可在任何时候手动启动故障转移，而不考虑自动故障转移配置。 如果未配置自动故障转移策略，则需要进行手动故障转移来恢复故障转移组中的数据库。 可通过完整数据同步启动强制或友好的故障转移。 后者可用于将活动服务器重新定位到主要区域。 故障转移完成后，会自动更新 DNS 记录，以确保连接到正确的服务器。
+* 数据丢失宽限期：因为主数据库和辅助数据库是使用异步复制进行同步的，所以故障转移可能会导致数据丢失。 可以自定义自动故障转移策略，以便反映应用程序对数据丢失的容错。 通过配置 **GracePeriodWithDataLossHours**，可以控制系统启动可能导致数据丢失的故障转移之前的等待时间。 
 
    > [!NOTE]
    > 系统检测到组中的数据库仍处于联机状态（例如服务中断仅影响服务控制平面）时，会立即使用完整数据同步激活故障转移（友好故障转移），而不考虑为 **GracePeriodWithDataLossHours** 设置的值。 此行为确保在恢复期间不会丢失数据。 宽限期仅在不可能进行友好故障转移时发挥作用。 如果在宽限期过期之前服务中断得到了缓解，则不会激活故障转移。
@@ -131,7 +131,7 @@ Azure SQL 数据库自动故障转移组（预览）是一项 SQL 数据库功�
 ## <a name="programmatically-managing-failover-groups-and-active-geo-replication"></a>以编程方式管理故障转移组和活动异地复制
 如上所述，也可以使用 Azure PowerShell 和 REST API 以编程方式管理自动故障转移组（预览）和活动异地复制。 下表描述了可用的命令集。
 
-**Azure 资源管理器 API 和基于角色的安全性**：活动异地复制包括一组用于管理的 Azure 资源管理器 API，其中包括 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/)（Azure SQL 数据库 REST API）和 [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview)。 这些 API 需要使用资源组，并支持基于角色的安全性 (RBAC)。 有关如何实现访问角色的详细信息，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)。
+Azure 资源管理器 API 和基于角色的安全性：活动异地复制包括一组用于管理的 Azure 资源管理器 API，其中包括 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/)（Azure SQL 数据库 REST API）和 [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview)。 这些 API 需要使用资源组，并支持基于角色的安全性 (RBAC)。 有关如何实现访问角色的详细信息，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)。
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>使用 Transact-SQL 管理 SQL 数据库故障转移
 
@@ -195,4 +195,3 @@ Azure SQL 数据库自动故障转移组（预览）是一项 SQL 数据库功�
 * 若要了解如何使用自动备份进行恢复，请参阅[从服务启动的备份中还原数据库](sql-database-recovery-using-backups.md)。
 * 若要了解新主服务器和数据库的身份验证要求，请参阅[灾难恢复后的 SQL 数据库安全性](sql-database-geo-replication-security-config.md)。
 
-<!--Update_Description: update link references -->

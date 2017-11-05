@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2017
+origin.date: 09/20/2017
 ms.author: v-yiso
-ms.date: 07/31/2017
-ms.openlocfilehash: a7ef3e7148e75a01870492e7c6f2ff9ea8fa8f3f
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 11/06/2017
+ms.openlocfilehash: b7d71299458c86e24babfa15dbad097d16e9394d
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的配置和管理问题：常见问题解答 (FAQ)
 
@@ -136,5 +136,76 @@ Microsoft 会持续监视服务器、网络和应用程序以检测威胁。 Azu
 
 请注意，CSR 只是一个文本文件。 不一定要在最终使用该证书的计算机上创建 CSR。 尽管本文档是针对应用服务编写的，但 CSR 创建过程是通用的，同样适用于云服务。
 
+## <a name="how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way"></a>如何以自动化方法为云服务添加反恶意软件扩展？
 
-<!--Update_Description: update meta data only -->
+可在启动任务中使用 PowerShell 脚本启用反恶意软件扩展。 请遵循以下文章中的步骤实现此目的： 
+ 
+- [创建 PowerShell 启动任务](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+
+有关反恶意软件部署方案以及如何在门户中启用此类方案的详细信息，请参阅[反恶意软件部署方案](../security/azure-security-antimalware.md#antimalware-deployment-scenarios)。
+
+## <a name="how-to-enable-server-name-indication-sni-for-cloud-services"></a>如何为云服务启用服务器名称指示 (SNI)？
+
+可使用以下方法之一在云服务中启用 SNI：
+
+### <a name="method-1-use-powershell"></a>方法 1：使用 PowerShell
+
+可在启动任务中使用 PowerShell cmdlet **New-WebBinding** 为云服务角色实例配置 SNI 绑定，如下所示：
+    
+    New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
+    
+如[此文](https://technet.microsoft.com/library/ee790567.aspx)所述，$sslFlags 可为以下值之一：
+
+|值|含义|
+------|------
+|0|没有 SNI|
+|1|已启用 SNI |
+|2 |使用中心证书存储的非 SNI 绑定|
+|3|使用中心证书存储的 SNI 绑定 |
+ 
+### <a name="method-2-use-code"></a>方法 2：使用代码
+
+也可以根据此[博客文章](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/)中所述，通过角色启动中的代码配置 SNI 绑定：
+
+    
+    //<code snip> 
+                    var serverManager = new ServerManager(); 
+                    var site = serverManager.Sites[0]; 
+                    var binding = site.Bindings.Add(“:443:www.test1.com”, newCert.GetCertHash(), “My”); 
+                    binding.SetAttributeValue(“sslFlags”, 1); //enables the SNI 
+                    serverManager.CommitChanges(); 
+    //</code snip> 
+    
+使用上述任一方法时，必须先使用启动任务或通过代码在角色实例上安装特定主机名的相应证书 (*.pfx)，这样才能使 SNI 绑定生效。
+
+## <a name="how-can-i-add-tags-to-my-azure-cloud-service"></a>如何将标记添加到 Azure 云服务？ 
+
+云服务是一个经典资源。 只有通过 Azure 资源管理器创建的资源才支持标记。 无法将标记应用到云服务等经典资源。 
+
+## <a name="how-to-enable-http2-on-cloud-services-vm"></a>如何在云服务 VM 上启用 HTTP/2？
+
+Windows 10 和 Windows Server 2016 随附了对客户端和服务器端上的 HTTP/2 的支持。 如果客户端（浏览器）通过 TLS（通过 TLS 扩展协商 HTTP/2）连接到 IIS 服务器，则不需要在服务器端进行任何更改。 这是因为，默认情况下会通过 TLS 来发送指定使用 HTTP/2 的 h2-14 标头。 如果在另一方面，客户端要发送升级标头以升级到 HTTP/2，则需要在服务器端进行以下更改，确保能够正常进行升级，并最终建立 HTTP/2 连接。 
+
+1. 运行 regedit.exe。
+2. 浏览到注册表项：HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters。
+3. 创建名为 **DuoEnabled** 的新 DWORD 值。
+4. 将其值设置为 1。
+5. 重启服务器。
+6. 转到“默认网站”，在“绑定”下，使用刚刚创建的自签名证书创建新的 TLS 绑定。 
+
+有关详细信息，请参阅：
+
+- [IIS 上的 HTTP/2](https://blogs.iis.net/davidso/http2)
+- [视频：Windows 10 中的 HTTP/2：浏览器、应用和 Web 服务器](https://channel9.msdn.com/Events/Build/2015/3-88)
+         
+
+请注意，可通过启动任务自动完成上述步骤，这样，每次创建新的 PaaS 实例后，都可以在系统注册表中执行上述更改。 有关详细信息，请参阅[如何配置和运行云服务的启动任务](cloud-services-startup-tasks.md)。
+
+ 
+完成此过程后，可使用以下方法之一验证是否已启用 HTTP/2：
+
+- 在 IIS 日志中启用协议版本，并查看 IIS 日志。 日志中会显示 HTTP/2。 
+- 在 Internet Explorer/Edge 中启用 F12 开发人员工具，并切换到“网络”选项卡来验证协议。 
+
+有关详细信息，请参阅 [IIS 上的 HTTP/2](https://blogs.iis.net/davidso/http2)。

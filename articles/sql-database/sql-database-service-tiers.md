@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL 数据库服务 | Microsoft Docs"
-description: "了解 SQL 数据库服务层"
+description: "了解单一数据库和池数据库的服务层以提供性能级别和存储大小。"
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 08/20/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 4d3f67daebf957c6bae3684a50e4e724f69f18dc
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: cecef06c0fcdebae2761e7df779efc3cc037cd4f
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>什么是 Azure SQL 数据库服务层
 
@@ -76,4 +76,3 @@ ms.lasthandoff: 09/28/2017
 * 详细了解 [DTU 和 eDTU](sql-database-what-is-a-dtu.md)。
 * 要了解如何监视 DTU 的使用情况，请参阅[监视和性能优化](sql-database-troubleshoot-performance.md)。
 
-<!--Update_Description: update service tier and limits tables, remove duplicates-->

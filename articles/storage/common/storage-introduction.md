@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 08/09/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 112cc014f8560467a5e795736fa4f1a2e95e8280
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 2051e389d3f5b72f2e1a2633063f168499000b96
+ms.sourcegitcommit: 10a649bfdf30765955ed964f7b5e05205bb9670a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 存储简介
 
@@ -212,7 +212,7 @@ Azure 存储资源可以通过任何发出 HTTP/HTTPS 请求的语言来进行�
 * [适用于 Python 的存储空间客户端库](/develop/python/)
 * [适用于 Ruby 的存储空间客户端库](/develop/ruby/)
 * [适用于 PowerShell 的存储 Cmdlet](https://docs.microsoft.com/powershell/module/azure.storage/?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)
-* [适用于 CLI 2.0 的存储命令](https://docs.microsoft.com/cli/azure/storage)
+* [适用于 CLI 2.0 的存储命令](https://docs.azure.cn/cli/storage)
 
 ## <a name="next-steps"></a>后续步骤
 

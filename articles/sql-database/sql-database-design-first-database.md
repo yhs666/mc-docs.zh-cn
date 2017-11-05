@@ -1,6 +1,6 @@
 ---
-title: "设计第一个 Azure SQL 数据库 | Azure"
-description: "了解如何设计第一个 Azure SQL 数据库。"
+title: "设计你的第一个 Azure SQL 数据库 | Microsoft Docs"
+description: "了解如何使用 Azure 门户和 SQL Server Management Studio 设计第一个 Azure SQL 数据库。"
 services: sql-database
 documentationcenter: 
 author: forester123
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 origin.date: 08/25/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: e590eb1d8c13a75eaa83a50436d5526f0405213b
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: f4dfe18ef4b91e88812b1dd4f0eecc2b5ff54d75
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="design-your-first-azure-sql-database"></a>设计第一个 Azure SQL 数据库
 
@@ -338,5 +338,3 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 > [!div class="nextstepaction"]
 >[设计 Azure SQL 数据库，并使用 C# 和 ADO.NET 进行连接](sql-database-design-first-database-csharp.md)
-
-<!--Update_Description: update steps for "Create a server-level firewall rule"-->

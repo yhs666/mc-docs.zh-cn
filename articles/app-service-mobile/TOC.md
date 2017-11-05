@@ -1,8 +1,6 @@
 # 概述
 ## [什么是移动应用？](app-service-mobile-value-prop.md)
-## [什么是应用服务？](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [工作原理](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fapp-service-mobile%2ftoc.json)
 
 # 入门
 ## 创建移动应用
@@ -14,30 +12,13 @@
 ### [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
 ### [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md)
 
-## 创建 API 应用
-### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
-### [Java](../app-service-api/app-service-api-java-api-app.md)
-### [Node.js](../app-service-api/app-service-api-nodejs-api-app.md)
-### [CORS](../app-service-api/app-service-api-cors-consume-javascript.md)
-
-## 创建 Web 应用
-### [.NET](../app-service-web/app-service-web-get-started-dotnet.md)
-### [PHP](../app-service-web/app-service-web-get-started-php.md)
-### [Node.js](../app-service-web/app-service-web-get-started-nodejs.md)
-### [Java](../app-service-web/app-service-web-get-started-java.md)
-### [Python](../app-service-web/app-service-web-get-started-python.md)
-### [HTML](../app-service-web/app-service-web-get-started-html.md)
-
 # 如何
 
 ## 规划和设计
 ### [Azure 移动应用中的身份验证和授权](app-service-mobile-auth.md)
 ### [Azure 移动应用中的脱机数据同步](app-service-mobile-offline-data-sync.md)
-### [有关 Azure 应用服务的最佳实践](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Azure 应用服务和现有的 Azure 服务](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [应用服务计划深度介绍](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [高密度托管](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [在 Azure 应用服务中使用 WebJobs](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Azure 应用服务最佳实践](../app-service/app-service-best-practices.md?toc=%2fapp-service-mobile%2ftoc.json)
+### [应用服务计划深度介绍](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fapp-service-mobile%2ftoc.json)
 
 ## 开发
 ### Android
@@ -86,41 +67,25 @@
 #### [Node.js backend](app-service-mobile-node-backend-how-to-use-server-sdk.md)
 #### [客户端和服务器版本控制](app-service-mobile-client-and-server-versioning.md)
 
-### Web 作业
-#### [什么是 Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [在 Azure 应用服务中创建 .NET Web 作业](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [如何通过 WebJobs SDK 使用 Azure Blob 存储](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [如何通过 WebJobs SDK 使用 Azure 队列存储](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [如何通过 WebJobs SDK 使用 Azure Service Bus](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [如何通过 WebJobs SDK 使用 Azure 表存储](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-
-
-## [部署](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [部署到应用服务](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [连续部署](../app-service-web/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [过渡环境](../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [本地 Git 部署](../app-service-web/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [使用 Visual Studio 部署 Web 作业](../app-service-web/websites-dotnet-deploy-webjobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-
-## [缩放](../app-service/app-service-scale-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [扩展应用](../app-service-web/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-
-
+## 部署
+### [云同步部署](../app-service/app-service-deploy-content-sync.md?toc=%2fapp-service-mobile%2ftoc.json)
+### [连续部署](../app-service/app-service-continuous-deployment.md?toc=%2fapp-service-mobile%2ftoc.json)
+### [过渡环境](../app-service/web-sites-staged-publishing.md?toc=%2fapp-service-mobile%2ftoc.json)
+### [本地 Git 部署](../app-service/app-service-deploy-local-git.md?toc=%2fapp-service-mobile%2ftoc.json)
+### [Azure Resource Manager 部署](../app-service/app-service-deploy-complex-application-predictably.md?toc=%2fapp-service-mobile%2ftoc.json)
+## 缩放
+### [扩展应用](../app-service/web-sites-scale.md?toc=%2fapp-service-mobile%2ftoc.json)
 
 ## 管理
-### [配置](../app-service-web/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [配置](../app-service/web-sites-configure.md?toc=%2fapp-service-mobile%2ftoc.json)
 ### 自定义域
-#### [映射自己的自定义域](../app-service-web/web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [在流量管理器中使用自定义域](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [映射自己的自定义域](../app-service/app-service-web-tutorial-custom-domain.md?toc=%2fapp-service-mobile%2ftoc.json)
+#### [在流量管理器中使用自定义域](../app-service/web-sites-traffic-manager-custom-domain-name.md?toc=%2fapp-service-mobile%2ftoc.json)
 
-### [克隆现有应用](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Azure 虚拟网络](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [高级配置](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [资源组](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Web 作业](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [使用 Web 作业运行后台任务](../app-service-web/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-
-
+### [克隆现有应用](../app-service/app-service-web-app-cloning.md?toc=%2fapp-service-mobile%2ftoc.json)
+### [Azure 虚拟网络](../app-service/web-sites-integrate-with-vnet.md?toc=%2fapp-service-mobile%2ftoc.json)
+### [资源组](../app-service/app-service-move-resources.md?toc=%2fapp-service-mobile%2ftoc.json)
+#### [使用 Web 作业运行后台任务](../app-service/web-sites-create-web-jobs.md?toc=%2fapp-service-mobile%2ftoc.json)
 ## 迁移
 ### [应用服务与移动服务相比如何？](app-service-mobile-value-prop-migration-from-mobile-services.md)
 ### [将现有移动服务迁移到应用服务](app-service-mobile-migrating-from-mobile-services.md)
@@ -128,46 +93,33 @@
 #### [.NET 后端](app-service-mobile-net-upgrading-from-mobile-services.md)
 #### [Node.js backend](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
-## [安全](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [身份验证和授权](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## 安全
+### [身份验证和授权](../app-service/app-service-authentication-overview.md?toc=%2fapp-service-mobile%2ftoc.json)
 ### 使用标识提供者进行身份验证
-#### [Azure Active Directory 身份验证](app-service-mobile-how-to-configure-active-directory-authentication.md)
-
-
-#### [Microsoft 帐户身份验证](app-service-mobile-how-to-configure-microsoft-authentication.md)
-
-### [使用本地 Active Directory 进行身份验证](../app-service-web/web-sites-authentication-authorization.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Azure Active Directory 身份验证](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fapp-service-mobile%2ftoc.json)
+#### [Microsoft 帐户身份验证](../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fapp-service-mobile%2ftoc.json)
 
 ### HTTPS
-#### [配置 TLS 相互身份验证 ](../app-service-web/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [使用在其他位置获取的 SSL 证书](../app-service-web/web-sites-configure-ssl-certificate.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [配置 TLS 相互身份验证 ](../app-service/app-service-web-configure-tls-mutual-auth.md?toc=%2fapp-service-mobile%2ftoc.json)
+#### [使用在其他位置获取的 SSL 证书](../app-service/app-service-web-tutorial-custom-ssl.md?toc=%2fapp-service-mobile%2ftoc.json)
 
 
 ## 备份
-### [在 Azure 中备份应用](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [在 Azure 中还原应用](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [在 Azure 中备份应用](../app-service/web-sites-backup.md?toc=%2fapp-service-mobile%2ftoc.json)
+### [在 Azure 中还原应用](../app-service/web-sites-restore.md?toc=%2fapp-service-mobile%2ftoc.json)
 
-## [监视](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [启用诊断日志记录 ](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [使用 Visual Studio 排除故障](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [监视](../app-service/web-sites-monitor.md?toc=%2fapp-service-mobile%2ftoc.json)
+### [启用诊断日志记录 ](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fapp-service-mobile%2ftoc.json)
+### [使用 Visual Studio 排除故障](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fapp-service-mobile%2ftoc.json)
 
-## 自动化
-### [敏捷开发](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Azure Resource Manager 部署](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### Powershell
-#### [自动备份和还原](../app-service/app-service-powershell-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [应用克隆](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [SSL 证书绑定](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [将 Azure Resource Manager 与 PowerShell 配合使用](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [使用 Azure 自动化管理应用](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-
+## 集成
+### [使用托管服务标识](../app-service/app-service-managed-service-identity.md?toc=%2fapp-service-mobile%2ftoc.json)
 
 ## 故障排除
 ### 移动应用常规故障排除
 #### [.NET 后端](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-debug-and-troubleshoot-the-net-server-sdk)
 #### [Node.JS 后端](app-service-mobile-node-backend-how-to-use-server-sdk.md#Debugging)
-### [流式传输日志和控制台](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [使用 Visual Studio 排除故障](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [使用 Visual Studio 排除故障](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fapp-service-mobile%2ftoc.json)
 
 # 参考
 ## [.NET 后端 SDK](https://msdn.microsoft.com/library/azure/dn961176.aspx)
@@ -181,8 +133,7 @@
 ## [GitHub repositories](https://github.com/Azure/azure-mobile-apps)
 
 # 资源
-## [应用服务最佳实践](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [Web 作业资源列表](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [应用服务最佳实践](../app-service/app-service-best-practices.md?toc=%2fapp-service-mobile%2ftoc.json)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
 ## [定价](https://azure.microsoft.com/en-us/pricing/details/app-service/)
 ## [服务更新](https://azure.microsoft.com/updates/?product=mobile-services)

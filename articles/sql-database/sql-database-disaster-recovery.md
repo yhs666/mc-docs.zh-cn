@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/14/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: e4e7a8249bec740fe2a08a04976ea4088fcc569e
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 3731a49041de7ba0b9e4c0e5c36d3b2689e83709
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>还原 Azure SQL 数据库或故障转移到辅助数据库
 Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
@@ -67,7 +67,7 @@ Azure 团队会努力尽快还原服务可用性，但视根本原因而定，�
 * [使用 T-SQL 故障转移到异地复制的辅助数据库](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database.md)
 
 ## <a name="recover-using-geo-restore"></a>使用异地还原进行恢复
-如果应用程序停机不会带来业务责任，则可以使用[异地还原](sql-database-recovery-using-backups.md)作为恢复应用程序数据库的方法。 它会从最新的异地冗余备份创建数据库的副本。
+如果应用程序停机不会带来业务责任，则可以使用[异地还原](sql-database-recovery-using-backups.md)作为恢复应用程序数据库的方法。 它会从其最新的异地冗余备份创建数据库的副本。
 
 ## <a name="configure-your-database-after-recovery"></a>恢复后配置数据库
 服务中断后，如果使用异地复制进行故障转移或使用异地还原进行恢复，则必须确保已正确配置与新数据库的连接，以便恢复正常的应用程序功能。 以下任务清单用于让恢复的数据库做好生产准备。

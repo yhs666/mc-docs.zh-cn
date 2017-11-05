@@ -1,26 +1,26 @@
 ---
-title: "用于 SQL 数据库的连接库 | Azure"
-description: "提供下载模块的链接，这些模块适用于通过多种客户端编程语言连接到 SQL Server 和 SQL 数据库。 这些模块由社区或 Microsoft 发布。"
+title: "用于 SQL 数据库的连接库 | Microsoft 文档"
+description: "提供下载模块的链接，这些模块适用于通过多种客户端编程语言连接到 SQL Server 和 SQL 数据库。"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: genemi
 ms.assetid: 13d899d3-cf46-4e4d-8919-cf4b41ca836d
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: dea92acd81410bd5a0ffa6d2d59878a0d6ddb007
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+ms.date: 11/06/2017
+ms.author: v-johch
+ms.openlocfilehash: 877cf40300b14d5b0dd1fd30743d8a874d64dc75
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>适用于 Microsoft SQL Server 的连接库和框架
 
@@ -57,5 +57,3 @@ ms.lasthandoff: 09/11/2017
 - [使用 Java 连接到 SQL 数据库](sql-database-connect-query-java.md)
 - [使用 Python 连接到 SQL 数据库](sql-database-connect-query-python.md)
 - [使用 Ruby 连接到 SQL 数据库](sql-database-connect-query-ruby.md)
-
-<!--Update_Description: update link references-->

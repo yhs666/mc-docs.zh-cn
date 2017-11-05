@@ -25,16 +25,18 @@
 ### [集成 JavaScript UDF](stream-analytics-javascript-user-defined-functions.md)
 <!-- Not Available ### [Integrate REST API & Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md) -->
 ### [创建输出](stream-analytics-define-outputs.md)
-<!-- Not Available ### [Output to Azure Functions](stream-analytics-functions-redis.md) -->
-<!-- Not Available ### [Output to Data Lake Store](stream-analytics-data-lake-output.md) -->
-<!-- Not Available ### [Output to DocumentDB](stream-analytics-documentdb-output.md) -->
+## 使用 Visual Studio 工具
+### [安装](stream-analytics-tools-for-visual-studio-install.md)
+### [入门](stream-analytics-tools-for-visual-studio.md)
+### [设置 CI/CD 管道](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## 监视和优化
 <!-- Not Available ### [Add alerts](stream-analytics-set-up-alerts.md) -->
 ### [监视作业](stream-analytics-monitoring.md)
 ### [以编程方式监视作业](stream-analytics-monitor-jobs.md)
 ### [使用 PowerShell 监视作业](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [优化流单元](stream-analytics-streaming-unit-consumption.md)
+### [了解和调整流式处理单元](stream-analytics-streaming-unit-consumption.md)
+### [利用查询并行度](stream-analytics-parallelization.md)
 ### [扩大以增加吞吐量](stream-analytics-scale-jobs.md)
 <!-- Not Available ### [Scale for Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md) -->
 ## 管理
@@ -51,22 +53,21 @@
 <!-- Not Available ### [Diagnostics logs](stream-analytics-job-diagnostic-logs.md) -->
 
 ## 自动化
-### [适用于 Visual Studio 的工具](stream-analytics-tools-for-visual-studio.md)
 ### [使用 Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
-### [一键式 PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
+### [一键式 Azure PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
-# 参考
-## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics)
+# 引用
+## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [查询语言](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](https://docs.microsoft.com/rest/api/streamanalytics)
 
 # 资源
 <!-- Not Available ## [Azure Roadmap](https://azure.microsoft.com/roadmap/) -->
-## [博客](http://blogs.msdn.com/b/streamanalytics/)
+<!-- Not Available ## [Blog](http://blogs.msdn.com/b/streamanalytics/) -->
 <!-- Not Available ## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics) -->
-## [论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
-## [定价](https://www.azure.cn/pricing/details/stream-analytics/)
+<!-- Not Available ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) -->
+## [价格](https://www.azure.cn/pricing/details/stream-analytics/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 <!-- Not Available ## [Release notes](stream-analytics-release-notes.md)  -->
 ## [服务更新](https://www.azure.cn/what-is-new/)

@@ -2,23 +2,25 @@
 title: "角色的默认 TEMP 文件夹大小太小 | Azure"
 description: "云服务角色的 TEMP 文件夹的空间有限。 本文针对如何避免磁盘空间不足的问题提供了一些建议。"
 services: cloud-services
-documentationCenter: 
-authors: simonxjx
+documentationcenter: 
+author: simonxjx
 manager: felixwu
 editor: 
 tags: top-support-issue
+ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
 ms.service: cloud-services
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2016
+origin.date: 07/26/2017
+ms.date: 11/06/2017
 ms.author: v-yiso
-ms.openlocfilehash: fd61d41878558da14ad532bb1939a1fada2f69b7
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 6796451b0c777b7d1bc5a50161ccbb7c8f2f130c
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>云服务 Web 角色/辅助角色的默认 TEMP 文件夹大小太小
 

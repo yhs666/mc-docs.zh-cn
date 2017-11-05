@@ -11,14 +11,15 @@ ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 10/12/2016
+ms.topic: troubleshooting
+origin.date: 07/26/2017
+ms.date: 11/06/2017
 ms.author: v-yiso
-ms.openlocfilehash: d42c1981e2fd4dbb0e41af0255913fd406bf92a6
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 94ddad1d971049f4508bc80a0c3738539a854096
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>对在 Azure 中部署云服务时的分配失败进行故障排除
 
@@ -33,7 +34,7 @@ Azure 数据中心的服务器分区成群集。 会在多个群集中尝试新�
 ![分配图](./media/cloud-services-allocation-failure/Allocation1.png)
 
 ### <a name="why-allocation-failure-happens"></a>发生分配故障的原因
-当分配请求固定到某个群集时，由于可用的资源池仅限于某个群集，很可能找不到可用的资源。 此外，如果分配请求固定到某个群集，但该群集不支持你所请求的资源类型，那么，即使该群集有可用的资源，你的请求仍会失败。 下图 3 说明由于唯一候选群集没有可用的资源，导致已固定的分配失败的情况。 图 4 说明由于唯一候选群集不支持所请求的 VM 大小（虽然群集有可用的资源），导致已固定的分配失败的情况。
+当分配请求固定到某个群集时，由于可用的资源池仅限于某个群集，很可能找不到可用的资源。 此外，如果分配请求固定到某个群集，但该群集不支持你所请求的资源类型，那么，即使该群集有可用的资源，请求仍会失败。 下图 3 说明由于唯一候选群集没有可用的资源，导致已固定的分配失败的情况。 图 4 说明由于唯一候选群集不支持所请求的 VM 大小（虽然群集有可用的资源），导致已固定的分配失败的情况。
 
 ![固定分配故障](./media/cloud-services-allocation-failure/Allocation2.png)
 

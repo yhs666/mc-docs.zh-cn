@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 08/03/2017
-ms.date: 10/10/2017
+ms.date: 10/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: c0c346369b220c85159c9ef0cfabf7f6cdf237c8
-ms.sourcegitcommit: 86a6adc435e8981c538ceda23402b3fb90ed0203
+ms.openlocfilehash: 83e8fafc40b95334d267bb6de78a36237463900d
+ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>将备份保管库升级到恢复服务保管库
 
@@ -68,7 +68,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 
 >[!NOTE]
 > 资源组名称具有约束。 请务必遵循指导；否则可能导致保管库升级失败。
-> Azure 中国客户运行脚本时需要将环境设置为“AzureChinaCloud”。
+>**Azure 中国**客户运行脚本时需要将环境设置为“AzureChinaCloud”。
 
 以下代码片段是 PowerShell 命令大致形式的示例：
 

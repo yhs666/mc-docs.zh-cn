@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 07/31/2017
-ms.openlocfilehash: add067178bd47dbb674096813d12df2614acdb44
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 11/06/2017
+ms.openlocfilehash: da626b5ab318c460d731fae9deb8dc5a7a34cfdf
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 iOS 客户端库
 
@@ -246,9 +246,9 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 ## <a name="paging"></a>如何配置页面大小
 
-在 Azure 移动应用中，页面大小将控制每次从后端表提取的记录数。 `pull` 数据的调用稍后会基于此页面大小对数据进行批量处理，直到没有更多要提取的记录。
+凭借 Azure 移动应用，页面大小可以控制从后端表中一次所拉取的记录数量。 `pull` 数据的调用稍后会基于此页面大小对数据进行批量处理，直到没有更多要提取的记录。
 
-可使用 **MSPullSettings** 配置页面大小，如下所示。 默认的页面大小为 50，下面的示例将其更改为 3。
+可使用 **MSPullSettings** 配置页面大小，如下所示。 默认页面大小为 50，以下示例中则改为 3。
 
 可以配置不同的页面大小，以提高性能。 如果有大量小型数据记录，增大页面大小可减少服务器往返次数。 
 
@@ -565,10 +565,10 @@ Pod：
 
 4. 根据使用的语言，将以下代码添加到应用程序。 在每个应用程序中，进行以下替换：
 
-    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 可以从 [ Azure 经典管理门户]中的 Azure Active Directory 的“域”选项卡复制此值。
+    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。可以从 [ Azure 经典管理门户]中的 Azure Active Directory 的“域”选项卡复制此值。
     * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
     * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
-    * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点（使用 HTTPS 方案）。 此值应类似于 _https://contoso.azurewebsites.cn/.auth/login/done_。
+    * 使用 HTTPS 方案将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点。 此值应类似于 _https://contoso.azurewebsites.cn/.auth/login/done_。
 
 **Objective-C**：
 
@@ -674,11 +674,11 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: http://msdn.microsoft.com/zh-cn/library/azure/jj193161.aspx
-[动态架构]: https://msdn.microsoft.com/zh-cn/library/azure/jj193175.aspx
-[Create a table]: http://msdn.microsoft.com/zh-cn/library/azure/jj193162.aspx
+[动态架构]: http://go.microsoft.com/fwlink/p/?LinkId=296271
+[Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
+[CLI to manage Mobile Services tables]: https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-lastest
 [ Azure 经典管理门户]: http://manage.windowsazure.cn
 [Fabric Dashboard]: https://www.fabric.io/home
 [Fabric for iOS - Getting Started]: https://docs.fabric.io/ios/fabric/getting-started.html
@@ -688,9 +688,9 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [4]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
-[7]: ./app-service-mobile-how-to-configure-active-directory-authentication.md
-[8]: ../active-directory/develop/active-directory-devquickstarts-ios.md
-
+[7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[8]: ../active-directory/active-directory-devquickstarts-ios.md
+[9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [10]: https://developers.facebook.com/docs/ios/getting-started
 
 <!--Update_Description: update meta data-->

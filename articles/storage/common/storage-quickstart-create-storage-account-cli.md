@@ -16,11 +16,11 @@ ms.topic: quickstart
 origin.date: 06/28/2017
 ms.date: 10/23/2017
 ms.author: v-johch
-ms.openlocfilehash: d33a5950ebcf83c46b0e20a4573e0e0f1677b580
-ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
+ms.openlocfilehash: cf1c125e9e28a517d325f3cd95cf9c058aff1250
+ms.sourcegitcommit: 10a649bfdf30765955ed964f7b5e05205bb9670a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-storage-account-using-the-azure-cli"></a>使用 Azure CLI 创建存储帐户
 
@@ -28,11 +28,11 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 此快速�
 
 如果没有 Azure 订阅，可以在开始前创建一个 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-本快速入门需要运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+本快速入门需要运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli)。 
 
 ## <a name="create-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 命令创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。 此示例在 chinaeast 区域中创建一个名为 myResourceGroup 的资源组。
+使用 [az group create](https://docs.azure.cn/cli/group#create) 命令创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。 此示例在 chinaeast 区域中创建一个名为 myResourceGroup 的资源组。
 
 ```azurecli
 az group create \
@@ -40,7 +40,7 @@ az group create \
     --location chinaeast
 ```
 
-如果不确定为 `--location` 参数指定哪个区域，可使用 [az account list-locations](https://docs.microsoft.com/cli/azure/account#list) 命令检索订阅支持的区域列表。
+如果不确定为 `--location` 参数指定哪个区域，可使用 [az account list-locations](https://docs.azure.cn/cli/account#list) 命令检索订阅支持的区域列表。
 
 ```azurecli
 az account list-locations \
@@ -57,7 +57,7 @@ az account list-locations \
 |支持的服务| Blob、文件、表和队列服务 | Blob 服务 | Blob 服务|
 |支持的 Blob 类型|块 Blob、页 Blob 和追加 Blob | 页 Blob | 块 Blob 和追加 Blob|
 
-使用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) 命令创建通用标准存储帐户。
+使用 [az storage account create](https://docs.azure.cn/cli/storage/account#create) 命令创建通用标准存储帐户。
 
 ```azurecli
 az storage account create \
@@ -70,7 +70,7 @@ az storage account create \
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要你的资源组中的任何一个资源（包括使用本教程创建的存储帐户），可使用 [az group delete](https://docs.microsoft.com/cli/azure/group#delete) 命令删除该资源组。
+如果不再需要你的资源组中的任何一个资源（包括使用本教程创建的存储帐户），可使用 [az group delete](https://docs.azure.cn/cli/group#delete) 命令删除该资源组。
 
 ```azurecli
 az group delete --name myResourceGroup

@@ -6,16 +6,20 @@ documentationCenter: .net
 authors: Thraka
 manager: timlt
 editor: 
+ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
 ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2016
-ms.date: 03/31/2017
+origin.date: 07/0/2017
+ms.date: 11/06/2017
 ms.author: v-yiso
-ms.openlocfilehash: c1e87bd59e3f3c5f08a78ea6f4c2628e29751757
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.openlocfilehash: c920b16a03eb998b56b6e99f65304eadddad7246
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>为 Azure 云服务配置自定义域名
 
@@ -30,7 +34,7 @@ ms.lasthandoff: 09/01/2017
 是否已经了解什么是 CNAME 和 A 记录？ [跳过解释](#add-a-cname-record-for-your-custom-domain)。
 
 > [!NOTE]
-> 本任务中的过程适用于 Azure 云服务。 关于应用服务，请参阅[此文](../app-service-web/web-sites-custom-domain-name.md)。 关于存储帐户，请参阅[此文](../storage/blobs/storage-custom-domain-name.md)。
+> 本任务中的过程适用于 Azure 云服务。 关于应用服务，请参阅[此文](../app-service/app-service-web-tutorial-custom-domain.md)。 关于存储帐户，请参阅[此文](../storage/blobs/storage-custom-domain-name.md)。
 > 
 > 
 
@@ -74,7 +78,7 @@ A 记录将域（例如 contoso.com 或 www.contoso.com）或通配符域（例�
 
         **或者**
 
-    * 安装并配置 [Azure Powershell](../powershell-install-configure.md)，然后使用以下命令：
+    * 安装并配置 [Azure Powershell](../powershell-install-configure.md)，并使用以下命令：
 
         ```powershell
         Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -113,7 +117,7 @@ www.contoso.com 的访问者不会看到真正的主机 (contoso.chinacloudapp.c
 
         **或者**
 
-    * 安装并配置 [Azure Powershell](../powershell-install-configure.md)，然后使用以下命令：
+    * 安装并配置 [Azure Powershell](../powershell-install-configure.md)，并使用以下命令：
 
         ```powershell
         get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip

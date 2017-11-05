@@ -1,6 +1,6 @@
 ---
-title: "PowerShell 示例 - 活动异地复制 - 单一 Azure SQL 数据库 | Azure"
-description: "为单个 Azure SQL 数据库设置活动异地复制的 Azure PowerShell 示例脚本"
+title: "PowerShell 示例 - 活动异地复制 - 单个 Azure SQL 数据库 | Microsoft Docs"
+description: "为单个 Azure SQL 数据库设置活动异地复制并进行故障转移的 Azure PowerShell 示例脚本。"
 services: sql-database
 documentationcenter: sql-database
 author: forester123
@@ -15,19 +15,19 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 3421802a1156931a9782a8fe6f9ed97bf7937ef8
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: bfbbfa2069b151bf1cade2be1cbe79236174fb96
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>使用 PowerShell 为单一 Azure SQL 数据库配置活动异地复制
 
-此 PowerShell 脚本示例为单一 Azure SQL 数据库配置活动异地复制，并将其故障转移到 Azure SQL 数据库的次要副本。
+此 PowerShell 脚本示例为单个 Azure SQL 数据库配置活动异地复制，并将其故障转移到 Azure SQL 数据库的辅助副本。
 
-在运行此脚本前，请确保已使用 `Add-AzureRmAccount` cmdlet 创建与 Azure 的连接。
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-scripts"></a>示例脚本
 
@@ -35,10 +35,10 @@ ms.lasthandoff: 09/28/2017
 # Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 # Set the resource group name and location for your primary server
 $primaryresourcegroupname = "myPrimaryResourceGroup-$(Get-Random)"
-$primarylocation = "China East"
+$primarylocation = "China North"
 # Set the resource group name and location for your secondary server
 $secondaryresourcegroupname = "mySecondaryResourceGroup-$(Get-Random)"
-$secondarylocation = "China North"
+$secondarylocation = "China East"
 # Set an admin login and password for your servers
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
@@ -52,6 +52,9 @@ $primarystartip = "0.0.0.0"
 $primaryendip = "0.0.0.0"
 $secondarystartip = "0.0.0.0"
 $secondaryendip = "0.0.0.0"
+
+
+
 
 # Create two new resource groups
 $primaryresourcegroup = New-AzureRmResourceGroup -Name $primaryresourcegroupname -Location $primarylocation
@@ -126,5 +129,3 @@ Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
-
-<!--Update_Description: update "Clean up deployment" script-->

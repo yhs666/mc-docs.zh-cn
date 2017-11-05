@@ -1,121 +1,35 @@
 ---
-title: "SQL 数据库备份 - 自动化、异地冗余 | Microsoft Docs"
-description: "SQL 数据库每隔几分钟会自动创建一个本地数据库备份，并使用 Azure 读取访问异地冗余存储来提供异地冗余。"
+title: "Azure SQL 数据库自动化异地冗余备份 | Microsoft Docs"
+description: "SQL 数据库每隔几分钟会自动创建一个本地数据库备份，使用 Azure 读取访问异地冗余存储来提供异地冗余。"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 3ee3d49d-16fa-47cf-a3ab-7b22aa491a8d
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/05/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 6712a00dc70bd5fbe78de9be285633023f9812f5
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+ms.date: 11/06/2017
+ms.author: v-johch
+ms.openlocfilehash: ee2421b4c469e6c288ac36ae9221e141114eb005
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>了解 SQL 数据库自动备份
-<!------------------
-This topic is annotated with TEMPLATE guidelines for FEATURE TOPICS.
 
-Metadata guidelines
-
-pageTitle
-    60 characters or less. Includes name of the feature - primary benefit. Not the same as H1. Its 60 characters or fewer including all characters between the quotes and the Microsoft Azure site identifier.
-
-description
-    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
-
-```
-Example: "SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy."
-```
-
-TEMPLATE GUIDELINES for feature topics
-
-The Feature Topic is a one-pager (ok, sometimes longer) that explains a capability of the product or service. It explains what the capability is and characteristics of the capability.  
-
-It is a "learning" topic, not an action topic.
-
-DO explain this:
-    • Definition of the feature terminology.  i.e., What is a database backup?
-    • Characteristics and capabilities of the feature. (How the feature works)
-    • Common uses with links to overview topics that recommend when to use the feature.
-    • Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
-    • Next Steps with links to related overviews, features, and tasks.
-
-DON'T explain this:
-    • How to steps for using the feature (Tasks)
-    • How to solve business problems that incorporate the feature (Overviews)
-
-GUIDELINES for the H1 
-
-```
-The H1 should answer the question "What is in this topic?" Write the H1 heading in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
-
-To help people understand this is a learning topic and not an action topic, start the title with "Learn about ... "
-
-Heading must use an industry standard term. If your feature is a proprietary name like "Elastic database pools", use a synonym. For example:    "Learn about elastic database pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
-```
-
-GUIDELINES for introduction
-
-```
-The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top key words that you are using throughout the article.The introduction should be brief and to the point of what the feature is, what it is used for, and what's in the article. 
-
-If the introduction is short enough, your article can pop to the top in Google Instant Answers.
-
-In this example:
-```
-
-Sentence #1 Explains what the article will cover, which is what the feature is or does. This is also the metadata description. 
-    SQL Database automatically creates a database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. 
-
-Sentence #2 Explains why I should care about this.  
-    Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion.
-
--------------------->
-
-SQL 数据库会自动创建数据库备份，并使用 Azure 读取访问异地冗余存储 (RA-GRS) 来提供异地冗余。 这些备份是自动创建的，不收取额外的费用。 不需要执行任何操作就能进行这样的备份。 数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。 
-
-<!-- This image needs work, so not putting it in right now.
-
-This diagram shows SQL Database running in the US East region. It creates a database backup every five minutes, which it stores locally to Azure Read Access Geo-redundant Storage (RA-GRS). Azure uses geo-replication to copy the database backups to a paired data center in the US West region.
-
-![geo-restore](./media/sql-database-geo-restore/geo-restore-1.png)
-
--->
-
-<!---------------
-GUIDELINES for the first ## H2.
-
-```
-The first ## describes what the feature encompasses and how it is used. It points to related task articles.
-
-For consistency, being the heading with "What is ... "
-```
------------------>
+SQL 数据库会自动创建数据库备份，并使用 Azure 读取访问异地冗余存储 (RA-GRS) 来提供异地冗余。 可以自动创建这些备份且不收取额外费用。 不需要执行任何操作就能进行这样的备份。 数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。 
 
 ## <a name="what-is-a-sql-database-backup"></a>什么是 SQL 数据库备份？
-<!-- 
-    Explains what a SQL Database backup is and answers an important question that people want to know.
--->
 
-<!----------------- 
-    Explains first component of the backup feature
------------------->
+SQL 数据库使用 SQL Server 技术创建[完整](https://msdn.microsoft.com/library/ms186289.aspx)、[差异](https://msdn.microsoft.com/library/ms175526.aspx)和[事务日志](https://msdn.microsoft.com/library/ms191429.aspx)备份。 一般每隔 5-10 分钟创建一次事务日志备份，具体频率取决于性能级别和数据库活动量。 借助事务日志备份以及完整备份和差异备份，可将数据库还原到托管数据库的服务器上的特定时间点。 还原数据库时，服务会确定需要还原哪些完整、差异和事务日志备份。
 
-SQL 数据库使用 SQL Server 技术创建[完整](https://msdn.microsoft.com/zh-cn/library/ms186289.aspx)、[差异](https://msdn.microsoft.com/zh-cn/library/ms175526.aspx)和[事务日志](https://msdn.microsoft.com/zh-cn/library/ms191429.aspx)备份。 一般每隔 5-10 分钟创建一次事务日志备份，具体频率取决于性能级别和数据库活动量。 借助事务日志备份以及完整备份和差异备份，可将数据库还原到托管数据库的服务器上的特定时间点。 还原数据库时，服务会确定需要还原哪些完整、差异和事务日志备份。
-
-<!--------------- 
-    Explicit list of what to do with a local backup. "Use a ..." helps people to scan the topic and find the uses quickly.
----------------->
 
 可使用这些备份：
 
@@ -123,7 +37,7 @@ SQL 数据库使用 SQL Server 技术创建[完整](https://msdn.microsoft.com/z
 * 将已删除的数据库还原到删除时的时间点或保留期内的任意时间点。 仅可在创建原始数据库所在的同一服务器中还原已删除的数据库。
 * 将数据库还原到其他地理区域。 在无法访问服务器和数据库的情况下，此操作可帮助从地理位置灾难中恢复。 它会在全球任意位置的任意现有服务器中创建新数据库。 
 * 从 Azure 恢复服务保管库中存储的特定备份还原数据库。 此操作允许还原旧版本的数据库，以满足符合性请求或运行旧版本的应用程序。
-* 若要执行还原，请参阅[从备份还原数据库](./sql-database-recovery-using-backups.md)。
+* 若要执行还原，请参阅[从备份还原数据库](sql-database-recovery-using-backups.md)。
 
 > [!NOTE]
 > 在 Azure 存储中，术语“复制”指将文件从一个位置复制到另一个位置。 SQL 数据库复制指让多个辅助数据库与主数据库保持同步。 
@@ -138,15 +52,8 @@ SQL 数据库提供的备份存储容量高达最大预配数据库存储空间�
 备份存储异地复制根据 Azure 存储复制计划执行。
 
 ## <a name="how-long-do-you-keep-my-backups"></a>备份的保留时间有多长？
+每个 SQL 数据库备份都有一个保留期，该期限基于数据库的[服务层](sql-database-service-tiers.md)。 各服务层中数据库的保留期如下：
 
-每个 SQL 数据库备份都有一个保留期，该期限基于数据库的[服务层](./sql-database-service-tiers.md)。 各服务层中数据库的保留期如下：
-
-<!------------------
-
-```
-Using a list so the information is easy to find when scanning.
-```
-------------------->
 
 * 基本服务层为 7 天。
 * 标准服务层为 14 天。
@@ -160,66 +67,15 @@ Using a list so the information is easy to find when scanning.
 
 > [!IMPORTANT]
 > 如果删除了托管 SQL 数据库的 Azure SQL 服务器，则属于该服务器的所有数据库也会被删除且不可恢复。 无法还原已删除的服务器。
-
-<!------------------
-## How to extend the backup retention period?
-If your application requires that the backups are available for longer period of time you can extend the built-in retention period by configuring the Long-term backup retention policy for individual databases (LTR policy). This allows you to extend the built-it retention period from 35 days to up to 10 years.
-
-Once you add the LTR policy to a database using Azure Portal or API, the weekly full database backups will be automatically copied to your own Azure Backup Service Vault. If your database is encrypted with TDE the backups are automatically encrypted at rest.  The Services Vault will automatically delete your expired backups based on their timestamp and the LTR policy.  So you don’t need to manage the backup schedule or worry about the cleanup of the old files. 
-The restore API supports backups stored in the vault as long as the vault is in the same subscription as your SQL database. You can use Portal or PowerShell to access these backups.
------------------------>
-
-<!-------------------
-OPTIONAL section
-## Best practices 
---------------------->
-
-<!-------------------
-OPTIONAL section
-## General remarks
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Limitations and restrictions
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Metadata
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Performance
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Permissions
---------------------->
-
-<!-------------------
-OPTIONAL section
-## Security
---------------------->
-
-<!-------------------
-GUIDELINES for Next Steps
-
-```
-The last section is Next Steps. Give a next step that would be relevant to the customer after they have learned about the feature and the tasks associated with it.  Perhaps point them to one or two key scenarios that use this feature.
-
-You don't need to repeat links you have already given them.
-```
---------------------->
+> 
 
 ## <a name="are-backups-encrypted"></a>备份已加密？
 
-为 Azure SQL 数据库启用 TDE 时，也会加密备份。 默认情况下，所有新的 Azure SQL 数据库都配置为启用 TDE。 有关 TDE 的详细信息，请参阅[使用 Azure SQL 数据库进行透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)。
+为 Azure SQL 数据库启用 TDE 时，也会加密备份。 默认情况下，所有新的 Azure SQL 数据库都配置为启用 TDE。 有关 TDE 的详细信息，请参阅[使用 Azure SQL 数据库进行透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)。
 
 ## <a name="next-steps"></a>后续步骤
 
-数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。 若要了解其他 Azure SQL 数据库业务连续性解决方案，请参阅[业务连续性概述](./sql-database-business-continuity.md)。
-
-<!--Update_Description: update word-->
+- 数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。 若要了解其他 Azure SQL 数据库业务连续性解决方案，请参阅[业务连续性概述](sql-database-business-continuity.md)。
+- 要使用 Azure 门户还原到某个时间点，请参阅[使用 Azure 门户将数据库还原到某个时间点](sql-database-recovery-using-backups.md)。
+- 要使用 PowerShell 还原到某个时间点，请参阅[使用 PowerShell 将数据库还原到某个时间点](scripts/sql-database-restore-database-powershell.md)。
+<!--Update_Description: add next steps-->

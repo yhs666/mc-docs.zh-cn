@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: 025df30516e865ff344c8ed997a7360511a6dfbd
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 79f64dffdce71c5bb2376a52cdce384d3177943c
+ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="how-to-run-a-streaming-job-in-azure-stream-analytics"></a>如何在 Azure 流分析中运行流式处理作业
 当作业的输入、查询和输出均已指定时，可以启动流分析作业。
@@ -35,11 +35,11 @@ ms.lasthandoff: 09/28/2017
 
     ![Azure 门户“启动作业”按钮](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)  
 2. 指定一个“开始输出”值，确定此作业何时开始生成输出。 之前尚未启动作业的默认设置为“作业开始时间”，表示作业会立即开始处理数据。 也可以指定一个过去（用于使用历史数据）或将来（延迟处理直到将来某个时间）的“自定义”时间。 当作业以前已启动和停止时，可以使用“上次停止时间”选项，从上次输出时间恢复作业并避免数据丢失。  
+注意：如果使用分区，那么所有分区的上次停止时间表示上次输出时间的最小值。
 
     ![启动流式处理作业的时间](./media/stream-analytics-run-a-job/2-stream-analytics-run-a-job.png)  
 
     ![Azure 门户启动流式处理作业的时间](./media/stream-analytics-run-a-job/5-stream-analytics-run-a-job.png)  
-
 3. 确认选择。 作业状态将更改为“正在启动”，并在作业已启动后很快转变为“正在运行”。 可以在“通知中心”中监视“启动”操作的进度：
 
     ![流式处理作业进度](./media/stream-analytics-run-a-job/3-stream-analytics-run-a-job.png)  
@@ -50,11 +50,10 @@ ms.lasthandoff: 09/28/2017
 如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>后续步骤
-
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/11/2016
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 67e3cddf65b6d6e8209ebf739badfd0103f4af54
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 59be80d5e9f2922f2801b05a7eed1d5f90606b5f
+ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>使用网络安全组筛选网络流量
 
@@ -49,11 +49,11 @@ NSG 规则包含以下属性：
 | --- | --- | --- | --- |
 | **Name** |规则的名称。 |必须在区域内唯一。<br/>可以包含字母、数字、下划线、句点和连字符。<br/>必须以字母或数字开头。<br/>必须以字母、数字或下划线结尾。<br/>不能超过 80 个字符。 |一个 NSG 中可以有多个规则，因此请确保遵循命名约定，以便标识规则的功能。 |
 | **协议** |要与规则匹配的协议。 |TCP、UDP 或 * |使用 * 作为协议时，会包括 ICMP（仅限东西通信），以及 UDP 和 TCP，可能会减少所需规则的数量。<br/>同时，使用 * 可能是过于宽泛的方法，因此建议只在必要时使用 *。 |
-| **Source port range** |要与规则匹配的源端口范围。 |单个端口号（从 1 到 65535）、端口范围（示例：1-65535）或 *（表示所有端口）。 |源端口可以是暂时的。 除非客户端程序在使用特定端口，否则请在大多数情况下使用 *。<br/>尽可能尝试使用端口范围，这样就不需使用多个规则。<br/>不能使用逗号对多个端口或端口范围分组。 |
+| **Source port range** |要与规则匹配的源端口范围。 |单个端口号（从 1 到 65535）、端口范围（示例：1-65535）、或 *（表示所有端口）。 |源端口可以是暂时的。 除非客户端程序在使用特定端口，否则请在大多数情况下使用 *。<br/>尽可能尝试使用端口范围，这样就不需使用多个规则。<br/>不能使用逗号对多个端口或端口范围分组。 |
 | **Destination port range** |要与规则匹配的目标端口范围。 |单个端口号（从 1 到 65535）、端口范围（示例：1-65535）、或 \*（表示所有端口）。 |尽可能尝试使用端口范围，这样就不需使用多个规则。<br/>不能使用逗号对多个端口或端口范围分组。 |
 | **Source address prefix** |要与规则匹配的源地址前缀或标记。 |单个 IP 地址（示例：10.10.10.10）、IP 子网（示例：192.168.1.0/24）、[默认标记](#default-tags)或 *（表示所有地址）。 |考虑使用范围、默认标记和 * 来减少规则数。 |
 | **Destination address prefix** |要与规则匹配的目标地址前缀或标记。 | 单个 IP 地址（示例：10.10.10.10）、IP 子网（示例：192.168.1.0/24）、[默认标记](#default-tags)或 *（表示所有地址）。 |考虑使用范围、默认标记和 * 来减少规则数。 |
-| **Direction** |要与规则匹配的流量方向。 |入站或出站。 |入站和出站规则根据方向分别处理。 |
+| **Direction** |要与规则匹配的流量方向。 |入站或出站。 |入站和出站规则会根据方向分别处理。 |
 | **Priority** |将按优先级顺序来检查规则。 一旦应用某个规则，不再检查其他规则的匹配情况。 | 介于 100 到 4096 之间的数字。 | 考虑以 100 为增量，为每个规则创建规则跳转优先级，为将来可能创建的新规则留出空间。 |
 | **Access** |规则匹配时要应用的访问类型。 | 允许或拒绝。 | 请记住，如果找不到某个数据包的允许规则，则会丢弃该数据包。 |
 
@@ -116,7 +116,7 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
   2. **应用到子网的 NSG：**如果子网 NSG 存在相应的拒绝流量的规则，则会丢弃数据包，即使 VM\NIC NSG 存在相应的允许流量的规则。
 
 > [!NOTE]
-> 尽管你只能将一个 NSG 关联到一个子网、VM 或 NIC，但可以将同一个 NSG 关联到任意数量的资源。
+> 尽管只能将一个 NSG 关联到一个子网、VM 或 NIC，但可以将同一个 NSG 关联到任意数量的资源。
 >
 
 ## <a name="implementation"></a>实现
@@ -143,7 +143,7 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 订阅中的 NSG 数目以及每个 NSG 的规则数目均存在限制。 有关限制的详细信息，请阅读 [Azure limits](../azure-subscription-service-limits.md#networking-limits)（Azure 限制）一文。
 
 ### <a name="vnet-and-subnet-design"></a>VNet 和子网设计
-由于 NSG 可以应用于子网，因此可以通过按子网来组合资源以及将 NSG 应用到子网来尽量减少 NSG 的数量。  如果决定将 NSG 应用到子网，你可能会发现，现有的 VNet 和子网不是通过所要的 NSG 定义的。 为了支持 NSG 设计以及将新资源部署到新子网，可能需要定义新的 VNet 和子网。 然后，用户才能定义一个迁移策略，将现有资源移到新子网。 
+由于 NSG 可以应用于子网，因此可以通过按子网来组合资源以及将 NSG 应用到子网来尽量减少 NSG 的数量。  如果决定将 NSG 应用到子网，你可能会发现，现有的 VNet 和子网不是通过所要的 NSG 定义的。 为了支持 NSG 设计以及将新资源部署到新子网，可能需要定义新的 VNet 和子网。 然后，才能定义一个迁移策略，将现有资源移到新子网。 
 
 ### <a name="special-rules"></a>特殊规则
 如果阻止以下规则允许的流量，则基础结构无法与基本的 Azure 服务通信：
@@ -259,7 +259,7 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 ## <a name="next-steps"></a>后续步骤
 * [部署 NSG (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md)。
 * [部署 NSG（经典）](virtual-networks-create-nsg-classic-ps.md)。
-* [管理 NSG 日志](virtual-network-nsg-manage-log.md)。
+<!--Not Available * [Manage NSG logs](virtual-network-nsg-manage-log.md).-->
 * [对 NSG 进行故障排除](virtual-network-nsg-troubleshoot-portal.md)
 
 <!--Update_Description: wording update-->

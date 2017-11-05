@@ -16,11 +16,11 @@ ms.workload: na
 origin.date: 08/01/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 082e91f32a47e4810e0a1b7c7ef5504ab842d19b
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 1b55ff7972dfd1933042edc553ffd56bee746e5c
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -56,7 +56,8 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 可在以下 [Azure 区域](https://www.azure.cn/support/service-dashboard/)创建 Azure Analysis Services 服务器：
 | 中国 |
 |--------------|
-| 中国东部<br> 中国北部<br> |
+| 中国北部 |
+<!--Not Available on China East-->
 通过 Azure 门户或 Azure 资源管理器模板创建服务器时，需选择位置。 若要获得最佳性能，请选择最接近最大用户群的位置。 请在多个区域的冗余服务器上部署模型，确保[高可用性](analysis-services-bcdr.md)。
 ## <a name="migrate-your-existing-tabular-models"></a>迁移现有的表格模型
 如果现在已经有本地 SQL Server Analysis Services 模型解决方案，则不需重大更改即可迁移到 Azure Analysis Services。 若要进行迁移，可以使用 SSDT 将模型部署到服务器。 也可以在 SSMS 中使用备份和还原或 TMSL。
@@ -79,7 +80,7 @@ Azure Analysis Services 支持[连接到数据源](analysis-services-datasource.
 通过使用 [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 管理服务器和模型数据库。 连接到云中的服务器。 直接从 XMLA 查询窗口运行 TMSL 脚本，并通过 TMSL 脚本自动执行任务。 新特性和功能推出迅速 - SSMS 每月进行更新。
 
 #### <a name="powershell"></a>PowerShell
-服务器资源管理任务，如创建服务器、挂起或恢复服务器操作，或更改服务级别（层），都要使用 Azure Resource Manager (AzureRM) cmdlet。 用于管理数据库的其他任务（例如添加或删除角色成员、处理或运行 TMSL 脚本）使用 SqlServer 模块中的 cmdlet。 AzureRM 和 SQLServer 模块均在 [PowerShell 库](https://www.powershellgallery.com/)中提供。
+服务器资源管理任务，如创建服务器、挂起或恢复服务器操作，或更改服务级别（层），都要使用 Azure 资源管理器 (AzureRM) cmdlet。 用于管理数据库的其他任务（例如添加或删除角色成员、处理或运行 TMSL 脚本）使用 SqlServer 模块中的 cmdlet。 AzureRM 和 SQLServer 模块均在 [PowerShell 库](https://www.powershellgallery.com/)中提供。
 
 ## <a name="your-data-is-secure"></a>你的数据是安全的
 ![数据可视化](./media/analysis-services-overview/aas-overview-secure.png)

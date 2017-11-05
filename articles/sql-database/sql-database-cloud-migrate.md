@@ -1,6 +1,6 @@
 ---
-title: "将 SQL Server 数据库迁移到 Azure SQL 数据库 | Azure"
-description: "了解如何将 SQL Server 数据库迁移到云中的 Azure SQL 数据库。 执行数据库迁移之前，使用数据库迁移工具测试兼容性。"
+title: "将 SQL Server 数据库迁移到 Azure SQL 数据库 | Microsoft 文档"
+description: "了解如何将 SQL Server 数据库迁移到云中的 Azure SQL 数据库。"
 keywords: "数据库迁移, SQL Server 数据库迁移, 数据库迁移工具, 迁移数据库, 迁移 SQL 数据库"
 services: sql-database
 documentationcenter: 
@@ -9,19 +9,19 @@ manager: digimobile
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: load & move data
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 origin.date: 02/08/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: e308b924b10fb15b5c00117b25f4912419e55ab8
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: ccf4c2e39be84e4a409b84d91faa226cde7b6a1d
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>将 SQL Server 数据库迁移到云中的 SQL 数据库
 本文介绍两种将 SQL Server 2005 或更高版本的数据库迁移到 Azure SQL 数据库的主要方法。 第一种方法相对简单，但迁移过程中需要一段时间（可能较长）的停机。 第二种方法更复杂，但在迁移过程中的停机时间大大缩短。
@@ -44,15 +44,15 @@ ms.lasthandoff: 09/28/2017
 2. 以 Transact-SQL 脚本形式准备任何所需的修补程序。
 3. 对要迁移的源数据库进行事务一致性复制 - 确保不对源数据库进行进一步的更改（也可在迁移完成后手动应用任何此类更改）。 有许多方法可以使数据库处于静默状态，例如禁用客户端连接以创建[数据库快照](https://msdn.microsoft.com/library/ms175876.aspx)。
 4. 部署 Transact-SQL 脚本，将修补程序应用到数据库副本。
-5. 将数据库副本[导出](sql-database-export.md)到本地驱动器上的 .BACPAC 文件。
-6. 使用多个 BACPAC 导入工具中的任何一个（若要获得最佳性能，建议使用 SQLPackage.exe 工具），以新 Azure SQL 数据库的形式[导入](sql-database-import.md) .BACPAC 文件。
+5. 将数据库副本[导出](sql-database-export.md)到本地驱动器上的 BACPAC 文件。
+6. 使用多个 BACPAC 导入工具中的任何一个（为了获得最佳性能，建议使用 SQLPackage.exe），[导入](sql-database-import.md) BACPAC 文件作为新的 Azure SQL 数据库。
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>优化迁移过程中的数据传输性能 
 
 以下列表包含的建议可帮助用户在导入过程中获得最佳性能。
 
 * 若要获得最高的传输性能，请在预算允许范围内选择最高的服务级别和性能层。 为了节省资金，可以在迁移完成后缩减规模。 
-* 尽量缩短 .BACPAC 文件与目标数据中心之间的距离。
+* 尽量缩短 BACPAC 文件和目标数据中心的距离。
 * 在迁移过程中禁用自动统计
 * 分区表和索引
 * 删除已编制索引的视图，在完成后重新创建这些视图

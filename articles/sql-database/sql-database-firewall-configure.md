@@ -4,9 +4,9 @@ description: "了解如何配置使用服务器级和数据库级防火墙规则
 keywords: "数据库防火墙"
 services: sql-database
 documentationcenter: 
-author: BYHAM
-manager: forester123
-editor: digimobile
+author: forester123
+manager: digimobile
+editor: 
 tags: 
 ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
 ms.service: sql-database
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 09/12/2017
-ms.date: 10/02/2017
+origin.date: 10/11/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: fbae891964b0cb2138ba614edcd6bea5e2ce72a0
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 51aa10955c9efc28760d7c87026fb64b016c7fe9
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Azure SQL 数据库服务器级和数据库级防火墙规则 
 
@@ -67,7 +67,7 @@ Azure SQL 数据库为 Azure 和其他基于 Internet 的应用程序提供关�
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>创建和管理防火墙规则
-第一个服务器级防火墙设置可以使用 [Azure 门户](https://portal.azure.cn/)进行创建，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql)、[Azure CLI](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules) 通过编程方式创建。 后续的服务器级防火墙规则可以使用这些方法和通过 Transact-SQL 创建和管理。 
+第一个服务器级防火墙设置可以使用 [Azure 门户](https://portal.azure.cn/)进行创建，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql)、[Azure CLI](https://docs.azure/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules) 通过编程方式创建。 后续的服务器级防火墙规则可以使用这些方法和通过 Transact-SQL 创建和管理。 
 
 > [!IMPORTANT]
 > 只能使用 Transact-SQL 创建和管理数据库级防火墙规则。 
@@ -159,11 +159,11 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ## <a name="manage-firewall-rules-using-azure-cli"></a>使用 Azure CLI 管理防火墙规则
 | Cmdlet | 级别 | 说明 |
 | --- | --- | --- |
-| [az sql server firewall create](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#create) | 创建一个防火墙规则，以允许从输入的 IP 地址范围访问服务器上的所有 SQL 数据库。|
-| [az sql server firewall delete](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#delete)| 删除防火墙规则。|
-| [az sql server firewall list](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#list)| 列出防火墙规则。|
-| [az sql server firewall rule show](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#show)| 显示防火墙规则的详细信息。|
-| [ax sql server firewall rule update](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#update)| 更新防火墙规则。
+|[az sql server firewall-rule create](https://docs.azure.cn/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|服务器|配置服务器防火墙规则|
+|[az sql server firewall-rule list](https://docs.azure.cn/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|服务器|列出服务器上的防火墙规则|
+|[az sql server firewall-rule show](https://docs.azure.cn/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|服务器|显示防火墙规则的详细信息|
+|[az sql server firewall-rule update](https://docs.azure.cn/cli/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|服务器|更新防火墙规则|
+|[az sql server firewall-rule delete](https://docs.azure.cn/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|服务器|删除防火墙规则。|
 
 以下示例使用 Azure CLI 设置服务器级防火墙规则： 
 
@@ -211,8 +211,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 * **对允许列表的更改尚未生效：**对 Azure SQL 数据库防火墙配置所做的更改可能最多需要 5 分钟的延迟才可生效。
 * 
             **登录名未授权或使用了错误的密码：** 如果某个登录名对 Azure SQL 数据库服务器没有权限或者使用的密码不正确，则与 Azure SQL 数据库服务器的连接会被拒绝。 创建防火墙设置仅向客户端提供尝试连接到服务器的机会；每个客户端必须提供必需的安全凭据。 有关准备登录名的详细信息，请参阅在 Azure SQL 数据库中管理数据库、登录名和用户。
-* 
-            **动态 IP 地址：**如果 Internet 连接使用动态 IP 寻址，并且在通过防火墙时遇到问题，则可以尝试以下解决方法之一：
+* **动态 IP 地址：**如果 Internet 连接使用动态 IP 寻址，并且在通过防火墙时遇到问题，则可以尝试以下解决方法之一：
 
   * 向 Internet 服务提供商 (ISP) 询问分配给客户端计算机的将用来访问 Azure SQL 数据库服务器的 IP 地址范围，并将该 IP 地址范围作为防火墙规则添加。
   * 改为获取用户的客户端计算机的静态 IP 地址，并将该 IP 地址作为防火墙规则添加。
@@ -227,4 +226,4 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!--Update_Description: update msdn links to docs.microsoft.com-->
+<!--Update_Description: update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

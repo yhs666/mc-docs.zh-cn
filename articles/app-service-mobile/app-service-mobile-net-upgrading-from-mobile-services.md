@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: v-yiso
-ms.openlocfilehash: 171c3a644374ec5ccaee66e123223e62a47a97b4
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: c9b10f3537b657a098a4ac94de0b90c952326d84
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>将现有 .NET Azure 移动服务升级到应用服务
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 06/21/2017
 
 本主题介绍如何将现有 .NET 后端应用程序从 Azure 移动服务升级到新的应用服务移动应用。 执行此升级时，现有移动服务应用程序可以继续正常运行。   如果需要升级 Node.js 后端应用程序，请参阅[升级 Node.js 移动服务](./app-service-mobile-node-backend-upgrading-from-mobile-services.md)。
 
-将某个移动后端升级到 Azure 应用服务后，该后端即可访问所有应用服务功能，同时会根据 [应用服务定价]而不是移动服务定价进行计费。
+将某个移动后端升级到 Azure 应用服务后，该后端即可访问所有应用服务功能，同时会根据[应用服务定价]而不是移动服务定价进行计费。
 
 ##<a name="migrate-vs-upgrade"></a>迁移与升级
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 06/21/2017
 
 ##<a name="overview"></a>基本升级概述
 
-在许多情况下，只需切换到新的移动应用服务器 SDK 并将代码重新发布到新的移动应用实例，即可完成升级。 但在某些情况下则需要一些额外的配置，例如高级身份验证方案和使用计划作业。 后续部分将逐一介绍。
+在许多情况下，只需切换到新的移动应用服务器 SDK 并将代码重新发布到新的移动应用实例，即可完成升级。 但在某些情况下则需要一些额外的配置，例如高级身份验证方案和使用计划作业。 后续部分逐一介绍。
 
 >[!TIP]
-> 建议先阅读并充分了解本主题的余下内容，然后再开始升级。 请记下以下概括的所有功能。
+> 建议先阅读并充分了解本主题的余下内容，再开始升级。 请记下以下概括的所有功能。
 
 移动服务客户端 SDK 与新的移动应用服务器 SDK **不** 兼容。 为了提供应用程序的服务连续性，不应该将更改发布到当前正在为发布的客户端提供服务的站点。 而应该创建新的移动应用作为副本。 可以在同一个应用服务计划中放置此应用程序，以免产生额外的财务成本。
 
@@ -71,13 +71,13 @@ ms.lasthandoff: 06/21/2017
 
 可能需要使用与移动服务中相同的数据库和通知中心。 可以打开 [Azure 门户]并导航到原始应用程序，复制这些值，然后单击“设置” > “应用程序设置”。 在“连接字符串”下，复制 `MS_NotificationHubConnectionString` 和 `MS_TableConnectionString`。 导航到新的升级站点并粘贴这些值，覆盖任何现有值。 针对应用所需的任何其他应用程序设置重复此过程。 如果未使用迁移的服务，可以从 [Azure 经典管理门户]中“移动服务”部分的“配置”选项卡中读取连接字符串和应用设置。
 
-为应用程序制作 ASP.NET 项目的副本，然后将其发布到新站点。 通过使用新 URL 更新的客户端应用程序副本验证一切是否正常工作。
+为应用程序制作 ASP.NET 项目的副本，并将其发布到新站点。 通过使用新 URL 更新的客户端应用程序副本验证一切是否正常工作。
 
 ## <a name="updating-the-server-project"></a>更新服务器项目
 
 移动应用包含一个新的 [移动应用服务器 SDK] ，该 SDK 提供许多与移动服务运行时相同的功能。 首先，应该删除对移动服务包的所有引用。 在 NuGet 包管理器中，搜索 `WindowsAzure.MobileServices.Backend`。 大多数应用在此处有多个对应的包，包括 `WindowsAzure.MobileServices.Backend.Tables` 和 `WindowsAzure.MobileServices.Backend.Entity`。 在这种情况下，请从依赖性树中级别最低的包（例如 `Entity`）开始删除包。 出现提示时，请不要删除所有依赖包。 重复此过程，直到已删除 `WindowsAzure.MobileServices.Backend` 本身。
 
-此时，项目将不再引用移动服务 SDK。
+此时，项目不会再引用移动服务 SDK。
 
 接下来，添加对移动应用 SDK 的引用。 对于这种升级，大多数开发人员都会下载并安装 `Microsoft.Azure.Mobile.Server.Quickstart` 包，因为这可以提取整个所需集。
 
@@ -106,6 +106,8 @@ ms.lasthandoff: 06/21/2017
 
 >[!NOTE]
 > 如果想要详细了解新的 .NET 服务器 SDK 以及如何在应用中添加/删除功能，请参阅 [How to use the .NET server SDK] （如何使用 .NET 服务器 SDK）主题。
+>
+>
 
 如果应用使用身份验证功能，则还需要注册 OWIN 中间件。 在此情况下，应该将上述配置代码移入新的 OWIN 启动类。
 
@@ -120,7 +122,7 @@ ms.lasthandoff: 06/21/2017
     app.UseAppServiceAuthentication(config);
 ```
 
-存在其他一些与身份验证相关的更改，下面的完全身份验证部分将介绍这些内容。
+存在其他一些与身份验证相关的更改，下面的完全身份验证部分介绍这些内容。
 
 ### <a name="working-with-data"></a>处理数据
 
@@ -175,7 +177,7 @@ ms.lasthandoff: 06/21/2017
 
 在 Azure 移动服务中，默认不会发送系统属性，而是仅当使用查询字符串 `__systemProperties`请求时才发送系统属性。 相反，在 Azure 移动应用中， **始终会选择** 系统属性，因为它们是服务器 SDK 对象模型的一部分。
 
-此项更改主要影响域管理器的自定义实现，例如 `MappedEntityDomainManager`的扩展。 在移动服务中，如果客户端永远不请求任何系统属性，则可以使用 `MappedEntityDomainManager` ，它实际上不会映射所有属性。 但是，在 Azure 移动应用中，这些未映射的属性将导致 GET 查询出错。
+此项更改主要影响域管理器的自定义实现，例如 `MappedEntityDomainManager`的扩展。 在移动服务中，如果客户端永远不请求任何系统属性，则可以使用 `MappedEntityDomainManager` ，它实际上不会映射所有属性。 但是，在 Azure 移动应用中，这些未映射的属性会导致 GET 查询出错。
 
 解决此问题的最简单方法是修改 DTO，使它们继承自 `ITableData` 而不是 `EntityData`。 然后，将 `[NotMapped]` 属性添加到应省略的字段。
 
@@ -297,7 +299,7 @@ traceWriter.Info("Hello, World");
 [Add push notifications to your mobile app]: ./app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: ./app-service-mobile-xamarin-ios-get-started-users.md
 [Azure 计划程序]: ../scheduler/index.md
-[Web 作业]: ../app-service-web/websites-webjobs-resources.md
+[Web 作业]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [How to use the .NET server SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: ./app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: ./app-service-mobile-migrating-from-mobile-services.md

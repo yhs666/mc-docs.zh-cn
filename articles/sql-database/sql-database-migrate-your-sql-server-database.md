@@ -9,19 +9,19 @@ editor:
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: mvc,load & move data
+ms.custom: mvc,migrate
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 origin.date: 09/01/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 6bcecbef95200d79b2cdde3cbdf6865013b82f8e
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: b115dddb84742ae9b82cd1bb46c4ba6a05c4b242
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>将 SQL Server 数据库迁移到 Azure SQL 数据库
 
@@ -278,4 +278,4 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 > [!div class="nextstepaction"]
 > [保护 Azure SQL 数据库](sql-database-security-tutorial.md)。
 
-<!--Update_Description: whole content update-->
+

@@ -17,19 +17,19 @@
 # 如何
 ## 创建和修改线路
 ### [Azure 门户](expressroute-howto-circuit-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-circuit-arm.md)
+### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [Azure CLI](howto-circuit-cli.md)
 ## 创建和修改对等配置
 ### [Azure 门户](expressroute-howto-routing-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-routing-arm.md)
+### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [Azure CLI](howto-routing-cli.md)
 ## 将虚拟网络链接到 ExpressRoute 线路
 ### [Azure 门户](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
 ## 配置 ExpressRoute 的虚拟网络网关
 ### [Azure 门户](expressroute-howto-add-gateway-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [配置 ExpressRoute 和站点到站点并存连接](expressroute-howto-coexist-resource-manager.md)
 ## [将线路从经典部署模型迁移到 Resource Manager 部署模型](expressroute-howto-move-arm.md)
 ## [将关联的虚拟网络从经典部署模型迁移到 Resource Manager 部署模型](expressroute-migration-classic-resource-manager.md)
@@ -46,7 +46,7 @@
 
 # 参考
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/network/express-route)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/network/express-route/auth?view=azure-cli-latest)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST（经典）](https://msdn.microsoft.com/library/azure/dn606310)
 

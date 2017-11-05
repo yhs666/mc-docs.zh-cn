@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/22/2017
-ms.date: 10/23/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7fd078d27020d349a6f4369451131606d19b45b5
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 145ce0dc5bf4f2cd40f24cee0aeb7cb8363accd9
+ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS 保护标准概述
 
@@ -87,4 +87,4 @@ DDoS 保护会阻止攻击流量并将剩余流转至预期目的地。 在检�
 
 - 了解有关使用 [Azure PowerShell](ddos-protection-manage-ps.md) 或 [Azure 门户](ddos-protection-manage-portal.md)来管理 DDoS 保护标准的详细信息。
 
-<!--Update_Description: new articles on ddos protection overview-->
+<!--Update_Description: update meta properties-->

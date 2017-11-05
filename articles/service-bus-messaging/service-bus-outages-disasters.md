@@ -1,25 +1,25 @@
 ---
 title: "使 Azure 服务总线应用程序免受服务中断和灾难影响 | Azure"
-description: "介绍可用于保护应用程序免受潜在服务总线中断影响的技术。"
+description: "保护应用程序免受潜在服务总线故障影响的技术。"
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: tysonn
+editor: 
 ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/12/2017
+origin.date: 10/06/2017
 ms.author: v-yiso
-ms.date: 05/22/2017
-ms.openlocfilehash: 2c01d1b9e478dc5e58b49c5099f25d0f2f6a3d9e
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 11/13/2017
+ms.openlocfilehash: 62f551819a884b9de401ca3e4cbfaa34964b04a4
+ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>使应用程序免受服务总线中断和灾难影响的最佳实践
 任务关键型应用程序必须连续运行，即使是在计划外中断或灾难发生时。 本主题介绍可用于保护服务总线应用程序免受潜在的服务中断和灾难影响的技术。
@@ -50,8 +50,6 @@ ms.lasthandoff: 09/29/2017
 中继终结点的异地复制使得公开中继终结点的服务在服务总线中断时可用。 若要实现异地复制，该服务必须在不同的命名空间中创建两个中继终结点。 命名空间必须位于不同的数据中心，且两个终结点必须具有不同的名称。 例如，可在 **contosoPrimary.servicebus.chinacloudapi.cn/myPrimaryService** 下访问主要终结点，而在 **contosoSecondary.servicebus.chinacloudapi.cn/mySecondaryService** 下访问其辅助终结点。
 
 该服务随后侦听两个终结点，客户端可通过其中任一终结点调用服务。 客户端应用程序随机选取一个中继作为主要终结点，并向活动终结点发送请求。 如果操作失败并返回错误代码，此故障指示中继终结点不可用。 应用程序会打开通向备份终结点的通道并重新发送请求。 此时，活动终结点与备份终结点将互换角色：客户端应用程序会将旧的活动终结点认定为新的备份终结点，而将旧的备份终结点认定为新的活动终结点。 如果两次发送操作都失败，则两个实体的角色将保持不变并返回错误。
-
-[使用服务总线中继消息进行异地复制][Geo-replication with Service Bus relayed Messages]示例演示了如何复制中继。
 
 ## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>保护队列和主题免受数据中心中断或灾难的影响
 为了在使用中转消息传送时实现针对数据中心中断的恢复，服务总线支持两种方法：*主动*和*被动*复制。 对于每一种方法，如果必须在数据中心中断的情况下仍可访问给定的队列或主题，可以在两个命名空间中创建。 两个实体可以具有相同的名称。 例如，可在 **contosoPrimary.servicebus.chinacloudapi.cn/myQueue** 下访问主要队列，而在 **contosoSecondary.servicebus.chinacloudapi.cn/myQueue** 下访问其辅助队列。
@@ -95,9 +93,8 @@ ms.lasthandoff: 09/29/2017
   [Service Bus Authentication]: ./service-bus-authentication-and-authorization.md
   [Partitioned messaging entities]: ./service-bus-partitioning.md
   [Asynchronous messaging patterns and high availability]: ./service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
-  [Geo-replication with Service Bus Relayed Messages]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
   [BrokeredMessage.MessageId]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
   [BrokeredMessage.Label]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
-  [Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
+[Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
   [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
   [Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md

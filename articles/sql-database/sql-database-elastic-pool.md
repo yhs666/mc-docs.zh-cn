@@ -1,5 +1,5 @@
 ---
-title: "什么是弹性池？ 管理多个 SQL 数据库 - Azure | Azure"
+title: "管理多个具有弹性池的 SQL 数据库 - Azure | Microsoft 文档"
 description: "使用弹性池管理和缩放多个 SQL 数据库（成千上万的）。 可以按一个价格将资源分布到需要的任何位置。"
 keywords: "多个数据库, 数据库资源, 数据库性能"
 services: sql-database
@@ -11,17 +11,17 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-origin.date: 08/25/2017
-ms.date: 10/02/2017
+origin.date: 10/11/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 000a78f51a712c7dff5e03ca9ebf9f8d8fc9a9b1
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: d3331b996a8351a345939a28a05e4b4b70b20052
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>弹性池有助于管理和缩放多个 Azure SQL 数据库
 
@@ -308,7 +308,7 @@ SQL 数据库服务将评估使用量历史记录，并在比使用单一数据�
 
 ## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>使用 Azure CLI 管理弹性池和数据库
 
-若要使用 [Azure CLI](https://docs.microsoft.com/cli/azure/overview) 创建和管理 SQL 数据库弹性池，请使用下面的 [Azure CLI SQL 数据库](https://docs.microsoft.com/cli/azure/sql/db)命令。 请确保已在 macOS、Linux 或 Windows 上安装了最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+若要使用 [Azure CLI](https://docs.azure.cn/cli/overview) 创建和管理 SQL 数据库弹性池，请使用下面的 [Azure CLI SQL 数据库](https://docs.azure.cn/cli/sql/db)命令。 请确保已在 macOS、Linux 或 Windows 上安装了最新的 [Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli)。
 
 > [!TIP]
 > 有关 Azure CLI 示例脚本，请参阅[使用 CLI 移动 SQL 弹性池中的 Azure SQL 数据库](scripts/sql-database-move-database-between-pools-cli.md)和[使用 Azure CLI 缩放 Azure SQL 数据库中的 SQL 弹性池](scripts/sql-database-scale-pool-cli.md)。
@@ -316,12 +316,12 @@ SQL 数据库服务将评估使用量历史记录，并在比使用单一数据�
 
 | Cmdlet | 说明 |
 | --- | --- |
-|[az sql elastic-pool create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#create)|创建弹性池。|
-|[az sql elastic-pool list](https://docs.microsoft.com/cli/azure/sql/elastic-pool#list)|返回服务器中弹性池的列表。|
-|[az sql elastic-pool list-dbs](https://docs.microsoft.com/cli/azure/sql/elastic-pool#list-dbs)|返回弹性池中数据库的列表。|
-|[az sql elastic-pool list-editions](https://docs.microsoft.com/cli/azure/sql/elastic-pool#list-editions)|还包括可用的池 DTU 设置、存储限制和每数据库设置。 为了降低冗长，默认情况下会隐藏附加的存储限制以及每数据库设置。|
-|[az sql elastic-pool update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#update)|更新弹性池。|
-|[az sql elastic-pool delete](https://docs.microsoft.com/cli/azure/sql/elastic-pool#delete)|删除弹性池。|
+|[az sql elastic-pool create](https://docs.azure.cn/cli/sql/elastic-pool#create)|创建弹性池。|
+|[az sql elastic-pool list](https://docs.azure.cn/cli/sql/elastic-pool#list)|返回服务器中弹性池的列表。|
+|[az sql elastic-pool list-dbs](https://docs.azure.cn/cli/sql/elastic-pool#list-dbs)|返回弹性池中数据库的列表。|
+|[az sql elastic-pool list-editions](https://docs.azure.cn/cli/sql/elastic-pool#list-editions)|还包括可用的池 DTU 设置、存储限制和每数据库设置。 为了降低冗长，默认情况下会隐藏附加的存储限制以及每数据库设置。|
+|[az sql elastic-pool update](https://docs.azure.cn/cli/sql/elastic-pool#update)|更新弹性池。|
+|[az sql elastic-pool delete](https://docs.azure.cn/cli/sql/elastic-pool#delete)|删除弹性池。|
 
 ## <a name="manage-databases-within-elastic-pools-using-transact-sql"></a>使用 Transact-SQL 管理弹性池中的数据库
 
@@ -369,4 +369,4 @@ SQL 数据库服务将评估使用量历史记录，并在比使用单一数据�
 * 有关视频，请参阅[有关 Azure SQL 数据库弹性功能的 Microsoft 虚拟大学视频课程](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * 若要深入了解如何通过弹性池设计 SaaS 应用程序的模式，请参阅 [具有 Azure SQL 数据库的多租户 SaaS 应用程序的设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
 
-<!--Update_Description: add table "Manage elastic pools and databases using the REST API"-->
+<!--Update_Description: update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

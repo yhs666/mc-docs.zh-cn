@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 07/06/2017
 ms.author: v-yiso
 ms.date: 
-ms.openlocfilehash: 9ecde2eee5e08884011f84b1207a5d267fbd825f
-ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
+ms.openlocfilehash: 8007a9136c95de0d38e2866b4b551618556abb14
+ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>将 ExpressRoute 关联的虚拟网络从经典部署模型迁移到 Resource Manager 部署模型
 
@@ -75,8 +75,9 @@ ms.lasthandoff: 08/14/2017
 4. 验证、准备和迁移。 若要转移虚拟网络，请使用以下 PowerShell 代码片段：
 
   ```powershell
-  Move-AzureVirtualNetwork -Prepare $vnetName  
-  Move-AzureVirtualNetwork -Commit $vnetName
+  Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
   ```
 
   也可通过运行以下 PowerShell cmdlet 来中止迁移：

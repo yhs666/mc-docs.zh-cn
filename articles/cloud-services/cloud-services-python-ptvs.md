@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: hero-article
 origin.date: 07/18/2017
 ms.author: v-yiso
-ms.date: 09/11/2017
-ms.openlocfilehash: bc27938e8000efb53ffe63505e987ac9d776bf5c
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.date: 11/06/2017
+ms.openlocfilehash: fcba013096fa2ee71c9b62608c4ad885cf643e10
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>用于 Visual Studio 的 Python 工具中的 Python Web 角色和辅助角色
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/01/2017
 
 ## <a name="prerequisites"></a>先决条件
 * [Visual Studio 2013、2015 或 2017](https://www.visualstudio.com/)
-* [针对 Visual Studio 的 Python 工具][Python Tools for Visual Studio] (PTVS)
+* [Python Tools for Visual Studio][Python Tools for Visual Studio]（用于 Visual Studio 的 Python 工具，简称 PTVS）
 * [用于 VS 2013 的 Azure SDK 工具][Azure SDK Tools for VS 2013]或  
 [用于 VS 2015 的 Azure SDK 工具][Azure SDK Tools for VS 2015]或  
 [用于 VS 2017 的 Azure SDK 工具][Azure SDK Tools for VS 2017]
@@ -314,7 +314,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 ## <a name="publish-to-azure"></a>发布到 Azure
 
-若要进行发布，请右键单击解决方案中的云服务项目，然后选择“发布”。
+要进行发布，请右键单击解决方案中的云服务项目，并选择“发布”。
 
 ![Microsoft Azure 发布登录](./media/cloud-services-python-ptvs/publish-sign-in.png)
 
@@ -329,7 +329,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 部署需要几分钟才能完成，然后 Web 和/或辅助角色会在 Azure 上运行！
 
 ### <a name="investigate-logs"></a>查看日志
-云服务虚拟机启动并安装 Python 后，可以查看日志，找出所有故障信息。 这些日志位于 **C:\Resources\Directory\\{role}\LogFiles** 文件夹中。 从脚本尝试检测是否已安装 Python 时起，**PrepPython.err.txt** 中至少会包含一个错误，而 **PipInstaller.err.txt** 可能会指出 pip 版本已过时。
+云服务虚拟机启动并安装 Python 后，可以查看日志，找出任何失败消息。 这些日志位于 **C:\Resources\Directory\\{role}\LogFiles** 文件夹中。 从脚本尝试检测是否已安装 Python 时起，**PrepPython.err.txt** 中至少会包含一个错误，而 **PipInstaller.err.txt** 可能会指出 pip 版本已过时。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -348,7 +348,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 <!--Link references-->
 
 [什么是云服务？]: ./cloud-services-choose-me.md
-[execution model-web sites]: ../app-service-web/app-service-web-overview.md
+[execution model-web sites]: ../app-service/app-service-web-overview.md
 [execution model-vms]:../virtual-machines/windows/overview.md
 [execution model-cloud services]: ./cloud-services-choose-me.md
 [Python Developer Center]: https://www.azure.cn/develop/python/

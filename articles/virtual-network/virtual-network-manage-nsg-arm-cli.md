@@ -17,11 +17,11 @@ origin.date: 02/21/2017
 ms.date: 03/31/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b7954983c89a6c35bfb60d8fc602e976c2e9cca
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 6c71bbe16bcc702e75b358f1ecbc45e00dd5e0f7
+ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理网络安全组
 
@@ -161,7 +161,7 @@ az network nsg rule create  \
 ```
 
 ## <a name="change-a-rule"></a>更改规则
-若要将上面创建的规则更改为仅允许来自 **Internet** 的入站流量，请运行 [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule#update) 命令：
+要将上面创建的规则更改为仅允许来自 **Internet** 的入站流量，请运行 [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule#update) 命令：
 
 ```azurecli
 az network nsg rule update \
@@ -349,5 +349,5 @@ az network vnet subnet update \
     ```azurecli
     az network nsg delete --resource-group RG-NSG --name NSG-FrontEnd
     ```
-## <a name="next-steps"></a>后续步骤
-* 为 NSG [启用日志记录](virtual-network-nsg-manage-log.md)。
+<!--Not Available ## Next steps-->
+<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->

@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 08/15/2017
-ms.date: 09/04/2017
+origin.date: 09/04/2017
+ms.date: 10/31/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9d5fdfaf25dba331045fcf8a9f1b82f95cf57bac
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: f7dfb6ce0c99466b8a5c004b73e37140cc855295
+ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>将 Azure 虚拟机备份到恢复服务保管库
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.lasthandoff: 09/08/2017
 - 标准存储 VM
 - 高级存储 VM
 - 在托管磁盘上运行的 VM
-- 使用 Azure 磁盘加密进行加密的 VM，以及 BEK 和 KEK
+- 使用 Azure 磁盘加密进行加密的 VM
 - 使用 VSS 对 Windows VM 进行应用程序一致性备份，以及使用自定义快照前和快照后脚本对 Linux VM 进行应用程序一致性备份
 
 有关保护高级存储 VM 的详细信息，请参阅[备份和还原高级存储 VM](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) 一文。 有关支持托管磁盘 VM 的详细信息，请参阅[备份和还原托管磁盘上的 VM](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)。 若要详细了解适用于 Linux VM 备份的前脚本和后脚本框架，请参阅[使用前脚本和后脚本进行应用程序一致性 Linux VM 备份](/backup/backup-azure-linux-app-consistent)。
@@ -82,7 +82,7 @@ ms.lasthandoff: 09/08/2017
 
     ![创建恢复服务保管库步骤 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    此时将打开“恢复服务保管库”边栏选项卡，其中会提示你提供“名称”、“订阅”、“资源组”和“位置”。
+    此时会打开恢复服务保管库边栏选项卡，其中会提示提供“名称”、“订阅”、“资源组”和“位置”。
 
     ![创建恢复服务保管库步骤 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 09/08/2017
 
 5. 在“订阅”部分，通过下拉菜单选择 Azure 订阅  。 如果只使用一个订阅，则会显示该订阅，用户可以跳到下一步。 如果不确定要使用哪个订阅，请使用默认的（或建议的）订阅。 仅当组织帐户与多个 Azure 订阅关联时，才会有多个选项。
 
-6. 在“资源组”  部分：
+6. 在“资源组”部分：
 
     - 如果要创建资源组，请选择“新建”。
     或
@@ -104,7 +104,7 @@ ms.lasthandoff: 09/08/2017
     > 如果不确定 VM 的所在位置，请关闭保管库创建对话框，并转到门户中的虚拟机列表。 如果多个区域中有虚拟机，请在每个区域中创建恢复服务保管库。 请先在第一个位置创建保管库，并转到下一个位置。 无需指定用于存储备份数据的存储帐户 - 恢复服务保管库和 Azure 备份服务会自动处理存储。
     >
 
-8. 在“恢复服务保管库”边栏选项卡的底部，单击“创建” 。
+8. 在恢复服务保管库边栏选项卡的底部，单击“创建”。
 
     创建恢复服务保管库可能需要数分钟。 可以在门户右上区域监视状态通知。 创建保管库后，它会显示在“恢复服务保管库”的列表中。 如果在几分钟后看不到保管库，请单击“刷新” 。
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 09/08/2017
 
 1. 在“恢复服务保管库”边栏选项卡中，选择新保管库。
 
-    ![从恢复服务保管库列表中选择新保管库](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![在恢复服务保管库列表中选择新保管库](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
     选择保管库时，“设置”边栏选项卡（顶部有保管库的名称）和保管库详细信息边栏选项卡会打开。
 
@@ -136,11 +136,11 @@ ms.lasthandoff: 09/08/2017
 
     ![存储配置选项](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余” 。 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy.md#geo-redundant-storage)和[本地冗余](../storage/common/storage-redundancy.md#locally-redundant-storage)存储选项。
+    默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余”。 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy.md#geo-redundant-storage)和[本地冗余](../storage/common/storage-redundancy.md#locally-redundant-storage)存储选项。
 
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>选择备份目标、设置策略并定义要保护的项
-在向保管库注册 VM 前，请先运行发现过程，确保能够识别任何添加到订阅中的新虚拟机。 该过程会在 Azure 上查询订阅中的虚拟机列表和其他信息，例如云服务名称、区域等。 在 Azure 门户中，方案是指要放入恢复服务保管库中的项。 策略是有关恢复点创建频率和时间的计划。 策略还包含恢复点的保留范围。
+在向保管库注册 VM 前，请先执行发现过程，以确保能够识别任何添加到订阅中的新虚拟机。 该过程会在 Azure 上查询订阅中的虚拟机列表和其他信息，例如云服务名称、区域等。 在 Azure 门户中，方案是指要放入恢复服务保管库中的项。 策略是有关恢复点创建频率和时间的计划。 策略还包含恢复点的保留范围。
 
 1. 如果已打开恢复服务保管库，请转到步骤 2。 否则，请在“中心”菜单上单击“更多服务”，在资源列表中键入“恢复服务”并单击“恢复服务保管库”。
 
@@ -185,14 +185,14 @@ ms.lasthandoff: 09/08/2017
 
     ![启用备份](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
-成功启用备份后，备份策略会按计划执行。 但是，会继续启动第一个备份作业。
+成功启用备份后，备份策略会按计划执行。 但是，将继续启动第一个备份作业。
 
 ## <a name="initial-backup"></a>初始备份
-在虚拟机上部署备份策略后，并不意味着已备份好数据。 默认情况下，第一个计划的备份（在备份策略中定义）是初始备份。 在执行初始备份之前，“备份作业”边栏选项卡上的“上次备份状态”显示为“警告(等待初始备份)”。
+在虚拟机上部署备份策略后，并不意味着已备份好数据。 默认情况下，第一个计划的备份（在备份策略中定义）是初始备份。 在执行初始备份之前，“**备份作业**”边栏选项卡上的“上次备份状态”显示为“**警告(等待初始备份)**”。
 
 ![等待中的备份](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-除非初始备份预计马上开始，否则建议运行“立即备份”。
+除非初始备份预计马上开始，否则建议运行“立即备份” 。
 
 若要运行初始备份作业，请执行以下操作：
 
@@ -241,10 +241,10 @@ ms.lasthandoff: 09/08/2017
 
   ![“备份作业”磁贴](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
 
-  在“备份作业”边栏选项卡中，可以看到所有作业的状态。 请查看 VM 的备份作业仍在进行中，还是已完成。 完成备份作业后，状态会变为“已完成”。
+  在“备份作业”边栏选项卡中，可以看到所有作业的状态。 检查 VM 的备份作业仍在进行中，还是已完成。 备份作业完成后，状态会变为“已完成”。
 
   > [!NOTE]
-  > 在执行备份操作的过程中，Azure 备份服务会向每个 VM 中的备份扩展发出一条命令，刷新所有写入并取得一致快照。
+  > 在执行备份操作的过程中，Azure 备份服务将向每个 VM 中的备份扩展发出一条命令，刷新所有写入并取得一致快照。
   >
   >
 
@@ -254,7 +254,7 @@ ms.lasthandoff: 09/08/2017
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>在虚拟机中安装 VM 代理
 此信息是根据需要提供的。 Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 但是，如果 VM 创建自 Azure 资源库，则 VM 代理已存在于虚拟机上。 从本地数据中心迁移的 VM 上未安装 VM 代理。 在这种情况下，需要安装 VM 代理。 如果在备份 Azure VM 时遇到问题，请先检查是否已在虚拟机上正确安装 Azure VM 代理（请参阅下表）。 如果要创建自定义 VM，[请先确保已选中“安装 VM 代理”复选框](../virtual-machines/windows/classic/agents-and-extensions.md)，再预配虚拟机。
 
-了解 [VM 代理](/virtual-machines/windows/extensions-features)及其[安装方法](../virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+了解 [VM 代理](/virtual-machines/windows/extensions-features)以及[如何安装它](../virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
 下表提供了适用于 Windows 和 Linux VM 的 VM 代理的其他信息。
 
@@ -262,7 +262,7 @@ ms.lasthandoff: 09/08/2017
 | --- | --- | --- |
 | 安装 VM 代理 |<li>下载并安装 [代理 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 需要管理员权限才能完成安装。 <li>[更新 VM 属性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) ，指明已安装代理。 |<li> 从 GitHub 安装最新的 [Linux 代理](https://github.com/Azure/WALinuxAgent) 。 需要管理员权限才能完成安装。 <li> [更新 VM 属性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) ，指明已安装代理。 |
 | 更新 VM 代理 |更新 VM 代理与重新安装 [VM 代理二进制文件](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一样简单。 <br>确保在更新 VM 代理时，没有任何正在运行的备份操作。 |按照[更新 Linux VM 代理](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)中的说明进行操作。 <br>确保在更新 VM 代理时，没有任何正在运行的备份操作。 |
-| 验证 VM 代理安装 |<li>导航到 Azure VM 中的 *C:\WindowsAzure\Packages* 文件夹。 <li>应会发现 WaAppAgent.exe 文件已存在。<li> 右键单击该文件，转到“属性”，并选择“详细信息”选项卡。“产品版本”字段应为 2.6.1198.718 或更高。 |不适用 |
+| 验证 VM 代理安装 |<li>导航到 Azure VM 中的 *C:\WindowsAzure\Packages* 文件夹。 <li>应会发现 WaAppAgent.exe 文件已存在。<li> 右键单击该文件，转到“**属性**”，并选择“**详细信息**”选项卡。“产品版本”字段应为 2.6.1198.718 或更高。 |不适用 |
 
 ### <a name="backup-extension"></a>备份扩展
 在虚拟机上安装 VM 代理后，Azure 备份服务会将备份扩展安装到 VM 代理上。 Azure 备份服务会无缝地升级和修补备份扩展，不需用户进行额外的干预。
@@ -270,11 +270,12 @@ ms.lasthandoff: 09/08/2017
 备份服务会安装备份扩展，即使 VM 未运行。 VM 运行时，很有可能会获得应用程序一致的恢复点。 但是，即使 VM 已关闭并且无法安装扩展，Azure 备份服务也会继续备份 VM。 此类型的备份称为脱机 VM，并且恢复点会*在崩溃时保持一致性*。
 
 ## <a name="troubleshooting-information"></a>故障排除信息
-如果在完成本文中的某些任务时遇到问题，请参阅[故障排除指南](backup-azure-vms-troubleshoot.md)。
+如果在完成本文中的某些任务时遇到问题，请参阅 [故障排除指南](backup-azure-vms-troubleshoot.md)。
 
 ## <a name="pricing"></a>定价
 Azure VM 备份的成本取决于受保护实例的数目。 如需受保护实例的定义，请参阅[什么是受保护实例](backup-introduction-to-azure-backup.md#what-is-a-protected-instance)。 如果需要通过示例来了解如何计算虚拟机的备份费用，请参阅[受保护实例的计算方法](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances)。 请参阅“Azure 备份定价”页，了解[备份定价](https://www.azure.cn/pricing/details/backup/)。
 
-## <a name="questions"></a>存在疑问？
+## <a name="questions"></a>有疑问？
 如果有疑问，或者希望包含某种功能，请 [给我们反馈](http://aka.ms/azurebackup_feedback)。
 
+<!--Update_Description: wording update-->

@@ -1,6 +1,6 @@
 ---
-title: "PowerShell 示例 - 异地复制故障转移组 - 单个 Azure SQL 数据库 | Azure"
-description: "为单个 Azure SQL 数据库设置活动异地复制的 Azure PowerShell 示例脚本"
+title: "PowerShell 示例 - 异地复制故障转移组 - 单个 Azure SQL 数据库 | Microsoft Docs"
+description: "为单个 Azure SQL 数据库设置活动异地复制故障转移组并进行故障转移的 Azure PowerShell 示例脚本。"
 services: sql-database
 documentationcenter: sql-database
 author: forester123
@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 2920fae27d833dc2f0903132d8cf2ed0c5f12b5f
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 1e7e3fb94149692ef05b39618fe0594065198579
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>使用 PowerShell 为单个 Azure SQL 数据库配置活动异地复制故障转移组
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 09/28/2017
 ## <a name="sample-scripts"></a>示例脚本
 
 ```powershell
-# Login-AzureRmAccount
+# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 # Set the resource group name and location for your primary server
 $primaryresourcegroupname = "myPrimaryResourceGroup-$(Get-Random)"
 $primarylocation = "China East"
@@ -83,16 +83,16 @@ $database = New-AzureRmSqlDatabase  -ResourceGroupName $primaryresourcegroupname
     -DatabaseName $databasename -RequestedServiceObjectiveName "S0"
 $database
 # Create failover group
-$fileovergroup = New-AzureRMSqlDatabaseFailoverGroup `
-      -ResourceGroupName $primaryresourcegroupname `
+$failovergroup = New-AzureRMSqlDatabaseFailoverGroup `
+      –ResourceGroupName $primaryresourcegroupname `
       -ServerName $primaryservername `
       -PartnerServerName $secondaryservername  `
-      -FailoverGroupName $failovergroupname `
-      -FailoverPolicy Automatic `
+      –FailoverGroupName $failovergroupname `
+      –FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
-$fileovergroup
+$failovergroup
 # Add database to failover group
-$fileovergroup = Get-AzureRmSqlDatabase `
+$failovergroup = Get-AzureRmSqlDatabase `
    -ResourceGroupName $primaryresourcegroupname `
    -ServerName $primaryservername `
    -DatabaseName $databasename | `
@@ -100,7 +100,7 @@ $fileovergroup = Get-AzureRmSqlDatabase `
    -ResourceGroupName $primaryresourcegroupname ` `
    -ServerName $primaryservername `
    -FailoverGroupName $failovergroupname
-$fileovergroup
+$failovergroup
 # Initiate a planned failover
 Switch-AzureRMSqlDatabaseFailoverGroup `
    -ResourceGroupName $primaryresourcegroupname  `
@@ -123,6 +123,7 @@ Remove-AzureRmSqlDatabaseFailoverGroup `
 
 # Clean up deployment 
 # Remove-AzureRmResourceGroup -ResourceGroupName $primaryresourcegroupname
+
 
 ```
 
@@ -158,5 +159,3 @@ Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
-
-<!--Update_Description: update "Clean up deployment" script-->

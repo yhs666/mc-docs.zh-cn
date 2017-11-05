@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 04/27/2017
+origin.date: 10/06/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: a231a5ff475b1cc293052ddd2d96c8da108dc045
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 11/13/2017
+ms.openlocfilehash: aec318f35be3d4e633860b0f4b723e5358e3f28a
+ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="amqp-10-support-in-service-bus"></a>服务总线的 AMQP 1.0 支持
 
-Azure 服务总线云服务和本地 [Windows Server 服务总线（服务总线 1.1）](https://msdn.microsoft.com/zh-cn/library/dn282144.aspx)均支持高级消息队列协议 (AMQP) 1.0。 通过 AMQP 可使用开放标准协议构建跨平台的混合应用程序。 可以借助使用不同语言和框架构建的且运行在不同操作系统上的组件来构建应用程序。 所有这些组件均可连接到服务总线，并且能够高效且完全无损地无缝交换结构化业务消息。
+Azure 服务总线云服务和本地 [Windows Server 服务总线（服务总线 1.1）](https://msdn.microsoft.com/zh-cn/library/dn282144.aspx)均支持高级消息队列协议 (AMQP) 1.0。 AMQP 让你能够使用开放标准协议构建跨平台的混合应用程序。 可以借助使用不同语言和框架构建的且运行在不同操作系统上的组件来构建应用程序。 所有这些组件均可连接到服务总线，并且能够高效且完全无损地无缝交换结构化业务消息。
 
 ## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>简介：什么是 AMQP 1.0，为何它很重要？
 
@@ -76,13 +76,13 @@ Azure 服务总线中对 AMQP 1.0 的支持意味着现在可以通过一系列�
 
 当前，已知下列客户端库使用服务总线：
 
-| 语言 | 库                                                                       |
-|----------|-------------------------------------------------------------------------------|
-| Java     | Apache Qpid Java 消息服务 (JMS) 客户端<br/>IIT 软件 SwiftMQ Java 客户端 |
-| C        | Apache Qpid Proton-C                                                          |
-| PHP      | Apache Qpid Proton-PHP                                                        |
-| Python   | Apache Qpid Proton-Python                                                     |
-| C#       | AMQP .Net Lite                                                                |
+| 语言 | 库 |
+| --- | --- |
+| Java |Apache Qpid Java 消息服务 (JMS) 客户端<br/>IIT 软件 SwiftMQ Java 客户端 |
+| C |Apache Qpid Proton-C |
+| PHP |Apache Qpid Proton-PHP |
+| Python |Apache Qpid Proton-Python |
+| C# |AMQP .Net Lite |
 
 **图 2：AMQP 1.0 客户端库表**
 

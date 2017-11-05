@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/23/2017
-ms.date: 09/25/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 2844a6aca179edd348679c9c17bf21b9e8f04516
-ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
+ms.openlocfilehash: 6233cfa88773701b0642a0d4ed6eff6e948c7c3a
+ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 进行媒体服务开发
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -47,20 +47,22 @@ ms.lasthandoff: 09/19/2017
 3. 使用 **NuGet** 安装和添加 **Azure 媒体服务 .NET SDK 扩展** (**windowsazure.mediaservices.extensions**)。 安装此包也会安装 **媒体服务 .NET SDK** 并添加所有其他必需的依赖项。
    
     确保已安装最新版本的 NuGet。 有关详细信息和安装说明，请参阅 [NuGet](http://nuget.codeplex.com/)。
-4. 在“解决方案资源管理器”中，右键单击项目名称，并选择“管理 NuGet 包”。
+
+    1. 在“解决方案资源管理器”中，右键单击项目名称，并选择“管理 NuGet 包”。
+
+    2. 此时显示“管理 NuGet 包”对话框。
+
+    3. 在联机库中，搜索 Azure 媒体服务扩展，选择“Azure 媒体服务.NET SDK 扩展”(windowsazure.mediaservices.extensions)，然后单击“安装”按钮。
    
-    此时显示“管理 NuGet 包”对话框。
-5. 在“联机”库中，搜索 Azure 媒体服务 扩展，选择“Azure 媒体服务.NET SDK 扩展”，并单击“安装”按钮。
+    4. 此时会修改项目并添加对媒体服务 .NET SDK 扩展、媒体服务 .NET SDK 和其他依赖程序集的引用。
+4. 若要升级更干净的开发环境，请考虑启用 NuGet 包还原。 有关详细信息，请参阅 [NuGet 包还原](http://docs.nuget.org/consume/package-restore)。
+5. 添加对 **System.Configuration** 程序集的引用。 此程序集包含用于访问配置文件（例如，App.config）的 System.Configuration.**ConfigurationManager** 类。
    
-    此时会修改项目并添加对媒体服务 .NET SDK 扩展、媒体服务 .NET SDK 和其他依赖程序集的引用。
-6. 若要升级更干净的开发环境，请考虑启用 NuGet 包还原。 有关详细信息，请参阅 [NuGet 包还原](http://docs.nuget.org/consume/package-restore)。
-7. 添加对 **System.Configuration** 程序集的引用。 此程序集包含用于访问配置文件（例如，App.config）的 System.Configuration.**ConfigurationManager** 类。
+    1. 若要使用“管理引用”对话框添加引用，请在“解决方案资源管理器”中右键单击项目名称。 然后单击“添加”，并单击“引用...”。
    
-    若要使用“管理引用”对话框添加引用，请在“解决方案资源管理器”中右键单击项目名称。 然后，选择“添加”和“引用”。
-   
-    此时显示“管理引用”对话框。
-8. 在 .NET Framework 程序集下，找到并选择 System.Configuration 程序集，并按“确定”。
-9. 打开 App.config 文件并将 *appSettings* 节添加到文件。     
+    2. 此时显示“管理引用”对话框。
+    3. 在 .NET Framework 程序集下，找到并选择 System.Configuration 程序集，并按“确定”。
+6. 打开 App.config 文件并将 **appSettings** 节添加到文件。     
    
     设置连接到媒体服务 API 所需的值。 有关详细信息，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
@@ -78,7 +80,7 @@ ms.lasthandoff: 09/19/2017
 
         </configuration>
 
-10. 使用以下代码覆盖位于 Program.cs 文件开头的现有 **using** 语句。
+7. 使用以下代码覆盖位于 Program.cs 文件开头的现有 **using** 语句。
    
         using System;
         using System.Configuration;
@@ -123,4 +125,4 @@ ms.lasthandoff: 09/19/2017
 现在[可以连接到 AMS API](media-services-use-aad-auth-to-access-ams-api.md) 并开始[开发](media-services-dotnet-get-started.md)。
 
 
-<!--Update_Description: add one link-->
+<!--Update_Description: update Nuget install steps-->

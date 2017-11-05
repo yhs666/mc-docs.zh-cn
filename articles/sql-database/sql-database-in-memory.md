@@ -1,9 +1,9 @@
 ---
-title: "Azure SQL 数据库内存中技术 | Azure"
-description: "Azure SQL 数据库内存中技术大幅提升了事务和分析工作负荷的性能。 了解如何利用这些技术。"
+title: "Azure SQL 数据库内存中技术 | Microsoft 文档"
+description: "Azure SQL 数据库内存中技术大幅提升了事务和分析工作负荷的性能。"
 services: sql-database
 documentationCenter: 
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 
 ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/24/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 9f95ee98cca71564aa98887517a50590b7750138
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+ms.date: 11/06/2017
+ms.author: v-johch
+ms.openlocfilehash: 26e398c4c39b91c048d9615a700e33e2d78c6654
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>在 SQL 数据库中使用内存中技术优化性能
 
@@ -449,7 +449,7 @@ GO
 
 #### <a name="deeper-information"></a>深入信息
 
-- [了解 Quorum 如何通过使用 SQL 数据库的内存中 OLTP，在关键数据库工作负荷加倍的情况下，将 DTU 降低 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [了解 Quorum 如何使用 SQL 数据库中的内存中 OLTP 将关键数据库的工作负荷提高一倍，并将 DTU 降低 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)（“Azure SQL 数据库中的内存中 OLTP”博客文章）
 
@@ -474,5 +474,3 @@ GO
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
 - [SQL Server Data Tools (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx)
-
-<!--Update_Description: wording update-->

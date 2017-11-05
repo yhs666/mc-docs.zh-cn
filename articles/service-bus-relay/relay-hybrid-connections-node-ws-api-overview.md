@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/05/2017
+origin.date: 10/05/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
-ms.openlocfilehash: 4e0f21428eba1d77e4409929a46f8269904b1820
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 11/06/2017
+ms.openlocfilehash: 8ad7c9a36daa66edff052b40bd70ab573fc6d6b2
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>中继混合连接节点 API 概述
 
@@ -105,7 +105,7 @@ var uri = appendRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 
 `hycows.RelayedServer` 类可替代 `ws.Server` 类，不侦听本地网络，但委托侦听 Azure 中继服务。
 
-这两个类通常为协定兼容，也就是说，使用 `ws.Server` 类的现有应用程序可以轻易改为使用中继版本。 主要差异在于构造函数和可用选项。
+这两个类通常为约定兼容，也就是说，使用 `ws.Server` 类的现有应用程序可以轻易改为使用中继版本。 主要差异在于构造函数和可用选项。
 
 #### <a name="constructor"></a>构造函数  
 
@@ -136,7 +136,7 @@ var wss = new server(
 function(headers)
 ```
 
-接受传入连接前会引发 `headers` 事件，实现将标头的修改发送到客户端。 
+接受传入连接前将引发 `headers` 事件，可以实现将标头的修改发送到客户端。 
 
 ##### <a name="connection"></a>连接
 ``` JavaScript

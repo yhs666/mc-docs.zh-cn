@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/02/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 0af49a51d266eb3d43d3fd1e400acd878ccff276
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 11/06/2017
+ms.openlocfilehash: c4e8404597fccc33b06587ca6bf6e1151ad5d12a
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF 中继教程
 
-本教程介绍如何使用 Azure 中继功能构建简单的 WCF 中继客户端应用程序和服务。 有关使用[服务总线消息传送](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging)的类似教程，请参阅[服务总线队列入门](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
+本教程介绍如何使用 Azure 中继功能构建简单的 WCF 中继客户端应用程序和服务。 有关使用[服务总线消息传送](../service-bus-messaging/service-bus-messaging-overview.md#Brokered-messaging)的类似教程，请参阅[服务总线队列入门](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
 
 通过此教程，可以了解创建 WCF 中继客户端和服务应用程序所需的步骤。 正如原始的 WCF，服务是公开一个或多个终结点的构造，其中每个终结点都公开一个或多个服务操作。 服务的终结点用于指定可在其中找到服务的地址、包含客户端必须与服务进行通信的信息的绑定，以及定义服务向其客户端提供的功能的协定。 WCF 和 WCF 中继之间的主要区别在于：终结点在云中公开，而不是在本地计算机中公开。
 
-完成本教程中的一系列主题后，你将具有一项正在运行的服务和可以调用服务操作的客户端。 第一个主题描述了如何设置帐户。 后续步骤描述了如何定义使用协定的服务、如何实现服务，以及如何使用代码配置该服务。 这些主题还描述了如何托管和运行该服务。 创建的服务是自托管的，并且客户端和服务在同一台计算机上运行。 你可以通过使用代码或配置文件配置服务。
+完成本教程中的一系列主题后，你会有一项正在运行的服务和可以调用服务操作的客户端。 第一个主题描述了如何设置帐户。 后续步骤描述了如何定义使用协定的服务、如何实现服务，以及如何使用代码配置该服务。 这些主题还描述了如何托管和运行该服务。 创建的服务是自托管的，并且客户端和服务在同一台计算机上运行。 可以通过使用代码或配置文件配置服务。
 
 最后三个步骤介绍如何创建客户端应用程序、如何配置客户端应用程序，以及如何创建和使用可以访问主机功能的客户端。
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，你需要以下各项：
+要完成本教程，需要以下各项：
 
 * [Microsoft Visual Studio 2015 或更高版本](http://visualstudio.com)。 本教程使用 Visual Studio 2017。
-* 有效的 Azure 帐户。 如果你没有帐户，只需几分钟的时间就能创建一个帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="create-a-service-namespace"></a>创建服务命名空间
 
-第一步是创建命名空间并获取[共享访问签名 (SAS)](../service-bus-messaging/service-bus-sas.md) 密钥。 命名空间为每个通过中继服务公开的应用程序提供应用程序边界。 创建服务命名空间时，系统将自动生成 SAS 密钥。 服务命名空间与 SAS 密钥的组合为 Azure 提供了用于验证应用程序访问权限的凭据。 请按照[此处的说明](./relay-create-namespace-portal.md)创建中继命名空间。
+第一步是创建命名空间并获取[共享访问签名 (SAS)](../service-bus-messaging/service-bus-sas.md) 密钥。 命名空间为每个通过中继服务公开的应用程序提供应用程序边界。 创建服务命名空间时，系统自动生成 SAS 密钥。 服务命名空间与 SAS 密钥的组合为 Azure 提供了用于验证应用程序访问权限的凭据。 请按照[此处的说明](./relay-create-namespace-portal.md)创建中继命名空间。
 
 ## <a name="define-a-wcf-service-contract"></a>定义 WCF 服务协定
 此服务协定指定服务支持的操作（方法或函数的 Web 服务术语）。 约定通过定义 C++、C# 或 Visual Basic 接口来创建。 接口中的每个方法都对应一个特定的服务操作。 必须将 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 属性应用于每个接口，并且必须将 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 属性应用于每个操作。 如果具有 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 属性的接口中的方法没有 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 属性，则该方法是不公开的。 该过程后面的示例中提供了这些任务的代码。 有关协定和服务的更多讨论，请参阅 WCF 文档中的[设计和实现服务](https://msdn.microsoft.com/library/ms729746.aspx)。
@@ -53,7 +53,7 @@ ms.lasthandoff: 07/14/2017
     ![][2]
 3. 安装服务总线 NuGet 包。 该包自动添加对服务总线库和 WCF **System.ServiceModel**的引用。 [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 是用于以编程方式访问 WCF 基本功能的命名空间。 服务总线使用 WCF 的许多对象和属性来定义服务约定。
 
-    在解决方案资源管理器中右键单击该项目，然后单击“管理 NuGet 包...”。 单击“浏览”选项卡，然后搜索 `Microsoft Azure Service Bus`。 确保在“版本”  框中选定项目名称。 单击“安装” 并接受使用条款。
+    在解决方案资源管理器中右键单击该项目，然后单击“管理 NuGet 包...”。单击“浏览”选项卡，并搜索 `Microsoft Azure Service Bus`。 确保在“版本”  框中选定项目名称。 单击“安装” 并接受使用条款。
 
     ![][3]
 4. 在解决方案资源管理器中，双击 Program.cs 文件以在编辑器中将其打开（如果尚未打开）。
@@ -66,10 +66,10 @@ ms.lasthandoff: 07/14/2017
 6. 将命名空间的默认名称 **EchoService** 更改为 **Microsoft.ServiceBus.Samples**。
 
    > [!IMPORTANT]
-   > 本教程使用 C# 命名空间 **Microsoft.ServiceBus.Samples**，它是基于协定的管理类型的命名空间，此类型在[配置 WCF 客户端](#configure-the-wcf-client)步骤中的配置文件内使用。 在构建此示例时，你可以指定任何想要的命名空间，当你在配置文件中修改了协定以及相应服务的命名空间后，本教程才会生效。 在 App.config 文件中指定的命名空间必须与在 C# 文件中指定的命名空间相同。
+   > 本教程使用 C# 命名空间 **Microsoft.ServiceBus.Samples**，它是基于协定的管理类型的命名空间，此类型在[配置 WCF 客户端](#configure-the-wcf-client)步骤中的配置文件内使用。 在构建此示例时，可以指定任何想要的命名空间，在配置文件中修改了协定以及相应服务的命名空间后，本教程才会生效。 在 App.config 文件中指定的命名空间必须与在 C# 文件中指定的命名空间相同。
    >
    >
-7. 直接在 `Microsoft.ServiceBus.Samples` 命名空间声明后面（但在命名空间内）定义一个名为 `IEchoContract` 的新接口，然后将 `ServiceContractAttribute` 属性应用于该接口，命名空间值为 `http://samples.microsoft.com/ServiceModel/Relay/`。 该命名空间值不同于你在整个代码范围内使用的命名空间。 相反，该命名空间值将用作此协定的唯一标识符。 显式指定命名空间可防止将默认的命名空间值添加到约定名称中。 在命名空间声明的后面粘贴以下代码：
+7. 直接在 `Microsoft.ServiceBus.Samples` 命名空间声明后面（但在命名空间内）定义一个名为 `IEchoContract` 的新接口，然后将 `ServiceContractAttribute` 属性应用于该接口，命名空间值为 `http://samples.microsoft.com/ServiceModel/Relay/`。 该命名空间值不同于在整个代码范围内使用的命名空间。 相反，该命名空间值将用作此协定的唯一标识符。 显式指定命名空间可防止将默认的命名空间值添加到约定名称中。 在命名空间声明的后面粘贴以下代码：
 
     ```csharp
     [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
@@ -94,7 +94,7 @@ ms.lasthandoff: 07/14/2017
     public interface IEchoChannel : IEchoContract, IClientChannel { }
     ```
 
-    通道是主机和客户端用来互相传递信息的 WCF 对象。 随后，你将针对通道编写代码，以在两个应用程序之间回显信息。
+    通道是主机和客户端用来互相传递信息的 WCF 对象。 随后，你针对通道编写代码，以在两个应用程序之间回显信息。
 10. 在“生成”菜单中，单击“生成解决方案”或按 **Ctrl+Shift+B** 以确认到目前为止操作的准确性。
 
 ### <a name="example"></a>示例
@@ -124,7 +124,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-既然已创建接口，你可以实现该接口。
+既然已创建接口，可以实现该接口。
 
 ## <a name="implement-the-wcf-contract"></a>实现 WCF 协定
 创建 Azure 中继首先需要创建使用接口定义的协定。 有关创建接口的详细信息，请参阅上一步。 下一步是实现该接口。 此步骤包括创建名为 `EchoService` 的类，用于实现用户定义的 `IEchoContract` 接口。 实现接口后，即可使用 App.config 配置文件配置接口。 该配置文件包含应用程序所需的信息，如服务的名称、协定的名称，以及用来与中继服务通信的协议类型。 该过程后面的示例中提供了这些任务所用的代码。 有关如何实现服务协定的更多常规讨论，请参阅 WCF 文档中的 [实现服务协定](https://msdn.microsoft.com/library/ms733764.aspx) 。
@@ -137,8 +137,8 @@ namespace Microsoft.ServiceBus.Samples
     }
     ```
 
-    与其他接口实现类似，你可以在另一个文件中实现定义。 但是，在本教程中，实现所在的文件与接口定义和 `Main` 方法所在的文件相同。
-2. 将 [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) 属性应用于 `IEchoContract` 接口。 该属性指定服务名称和命名空间。 完成后， `EchoService` 类将如下所示：
+    与其他接口实现类似，可以在另一个文件中实现定义。 但是，在本教程中，实现所在的文件与接口定义和 `Main` 方法所在的文件相同。
+2. 将 [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) 属性应用于 `IEchoContract` 接口。 该属性指定服务名称和命名空间。 完成后，`EchoService` 类将如下所示：
 
     ```csharp
     [ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
@@ -160,7 +160,7 @@ namespace Microsoft.ServiceBus.Samples
 ### <a name="define-the-configuration-for-the-service-host"></a>定义服务主机的配置
 1. 配置文件非常类似于 WCF 配置文件。 该配置文件包括服务名称、终结点（即，Azure 中继公开的、让客户端和主机相互通信的位置）和绑定（用于通信的协议类型）。 此处的主要差别在于，配置的服务终结点是指 [NetTcpRelayBinding](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.nettcprelaybinding) 绑定，它不是 .NET Framework 的一部分。 [NetTcpRelayBinding](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.nettcprelaybinding) 是由服务定义的绑定之一。
 2. 在 **解决方案资源管理器**中，双击 App.config 文件以在 Visual Studio 编辑器中将其打开。
-3. 在 `<appSettings>` 元素中，将占位符替换为服务命名空间的名称以及你在先前步骤中复制的 SAS 密钥。
+3. 在 `<appSettings>` 元素中，将占位符替换为服务命名空间的名称以及在先前步骤中复制的 SAS 密钥。
 4. 在 `<system.serviceModel>` 标记中，添加 `<services>` 元素。 可以在单个配置文件中定义多个中继应用程序。 但是，本教程只定义一个。
 
     ```xml
@@ -185,7 +185,7 @@ namespace Microsoft.ServiceBus.Samples
     <endpoint contract="Microsoft.ServiceBus.Samples.IEchoContract" binding="netTcpRelayBinding"/>
     ```
 
-    终结点用于定义客户端将在何处查找主机应用程序。 接下来，本教程使用此步骤创建一个通过 Azure 中继完全公开主机的 URI。 绑定声明我们要将 TCP 用作协议，以与中继服务进行通信。
+    终结点用于定义客户端会在何处查找主机应用程序。 接下来，本教程使用此步骤创建一个通过 Azure 中继完全公开主机的 URI。 绑定声明我们要将 TCP 用作协议，以与中继服务进行通信。
 7. 在“生成”菜单中，单击“生成解决方案”以确认工作的准确性。
 
 ### <a name="example"></a>示例
@@ -239,7 +239,7 @@ namespace Microsoft.ServiceBus.Samples
     ```
 
     随后将使用 SAS 密钥来访问你的项目。 命名空间作为参数传递给 `CreateServiceUri` 以创建服务 URI。
-2. 使用 [TransportClientEndpointBehavior](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.transportclientendpointbehavior) 对象声明你将使用 SAS 密钥作为凭据类型。 在最后一步中添加的代码后直接添加以下代码。
+2. 使用 [TransportClientEndpointBehavior](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.transportclientendpointbehavior) 对象声明使用 SAS 密钥作为凭据类型。 在最后一步中添加的代码后直接添加以下代码。
 
     ```csharp
     TransportClientEndpointBehavior sasCredential = new TransportClientEndpointBehavior();
@@ -295,7 +295,7 @@ Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "Ec
     }
     ```
 
-    如在上一步中所述，你可能已经在配置文件中声明多个服务和终结点。 如果你已配置，此代码将遍历配置文件并且搜索可能应用了凭据的每个终结点。 但是，对于本教程中，配置文件只有一个终结点。
+    如在上一步中所述，可能已经在配置文件中声明多个服务和终结点。 如果已配置，此代码将遍历配置文件并且搜索可能应用了凭据的每个终结点。 但是，对于本教程中，配置文件只有一个终结点。
 
 ### <a name="open-the-service-host"></a>打开服务主机
 
@@ -407,7 +407,7 @@ namespace Microsoft.ServiceBus.Samples
       <br />
 2. 在解决方案资源管理器中，双击 **EchoClient** 项目中的 Program.cs 文件以在编辑器中将其打开（如果尚未打开）。
 3. 将命名空间名称从其默认名称 `EchoClient` 更改为 `Microsoft.ServiceBus.Samples`。
-4. 安装[服务总线 NuGet 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus)：在解决方案资源管理器中，右键单击“EchoClient”项目，然后单击“管理 NuGet 包”。 单击“浏览”选项卡，然后搜索 `Microsoft Azure Service Bus`。 单击“安装” 并接受使用条款。
+4. 安装[服务总线 NuGet 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus)：在解决方案资源管理器中，右键单击“EchoClient”项目，然后单击“管理 NuGet 包”。 单击“浏览”选项卡，并搜索 `Microsoft Azure Service Bus`。 单击“安装” 并接受使用条款。
 
     ![][3]
 5. 为 Program.cs 文件中的 [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 命名空间添加 `using` 语句。
@@ -461,10 +461,10 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="configure-the-wcf-client"></a>配置 WCF 客户端
 
-在此步骤中，你可以为之前在本教程中创建的访问服务的基本客户端应用程序创建 App.config 文件。 此 App.config 文件用于定义终结点的协定、绑定和名称。 该过程后面的示例中提供了这些任务所用的代码。
+在此步骤中，可以为之前在本教程中创建的访问服务的基本客户端应用程序创建 App.config 文件。 此 App.config 文件用于定义终结点的协定、绑定和名称。 该过程后面的示例中提供了这些任务所用的代码。
 
 1. 在解决方案资源管理器的 **EchoClient** 项目中，双击“App.config”以在 Visual Studio 编辑器中打开该文件。
-2. 在 `<appSettings>` 元素中，将占位符替换为服务命名空间的名称以及你在先前步骤中复制的 SAS 密钥。
+2. 在 `<appSettings>` 元素中，将占位符替换为服务命名空间的名称以及在先前步骤中复制的 SAS 密钥。
 3. 在 system.serviceModel 元素中，添加 `<client>` 元素。
 
     ```xml
@@ -512,7 +512,7 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="implement-the-wcf-client"></a>实现 WCF 客户端
-在此步骤中，你实现了可访问之前在本教程中创建的服务的基本客户端应用程序。 与服务相似，该客户端执行许多相同的操作访问 Azure 中继：
+在此步骤中，实现了可访问之前在本教程中创建的服务的基本客户端应用程序。 与服务相似，该客户端执行许多相同的操作访问 Azure 中继：
 
 1. 设置连接模式。
 2. 创建用于定位主机服务的 URI。
@@ -587,7 +587,7 @@ namespace Microsoft.ServiceBus.Samples
     ```
 
     请注意，代码使用通道对象的实例作为服务代理。
-9. 关闭通道，然后关闭工厂。
+9. 关闭通道，并关闭工厂。
 
     ```csharp
     channel.Close();
@@ -676,8 +676,8 @@ namespace Microsoft.ServiceBus.Samples
     ![][6]
 6. 单击“确定”关闭“属性”对话框。
 7. 按 **F5** 运行这两个项目。
-8. 此时将打开两个控制台窗口并提示你输入命名空间名称。 必须先运行服务，因此在“EchoService”控制台窗口中输入命名空间，然后按“Enter”。
-9. 接下来，将提示你提供 SAS 密钥。 输入 SAS 密钥并按“ENTER”。
+8. 此时会打开两个控制台窗口并提示你输入命名空间名称。 必须先运行服务，因此在“EchoService”控制台窗口中输入命名空间，然后按“Enter”。
+9. 接下来，会提示你提供 SAS 密钥。 输入 SAS 密钥并按“ENTER”。
 
     以下是来自控制台窗口的示例输出。 请注意，此处提供的值仅限于示例目的。
 
@@ -698,18 +698,16 @@ namespace Microsoft.ServiceBus.Samples
     客户端应用程序接收 `Echo` 操作的返回值（此为原始文本），并将其打印到控制台窗口。 以下是来自客户端控制台窗口的示例输出。
 
     `Server echoed: My sample text`
-12. 你可以继续以这种方式将来自客户端的短信发送至服务。 完成后，在客户端和服务控制台窗口中按 Enter 以结束这两个应用程序。
+12. 可以继续以这种方式将来自客户端的短信发送至服务。 完成后，在客户端和服务控制台窗口中按 Enter 以结束这两个应用程序。
 
 ## <a name="next-steps"></a>后续步骤
-本教程介绍如何使用服务总线的 WCF 中继功能，构建 Azure 中继客户端应用程序和服务。 有关使用[服务总线消息传送](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging)的类似教程，请参阅[服务总线队列入门](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
+本教程介绍如何使用服务总线的 WCF 中继功能，构建 Azure 中继客户端应用程序和服务。 有关使用[服务总线消息传送](../service-bus-messaging/service-bus-messaging-overview.md#Brokered-messaging)的类似教程，请参阅[服务总线队列入门](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
 
 若要了解有关 Azure 中继的详细信息，请参阅以下主题。
 
 * [Azure 服务总线体系结构概述](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Azure 中继概述](./relay-what-is-it.md)
 * [如何通过 .NET 使用 WCF 中继服务](./relay-wcf-dotnet-get-started.md)
-
-[Azure classic portal]: http://manage.windowsazure.com
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png

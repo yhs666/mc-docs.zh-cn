@@ -1,10 +1,10 @@
 ---
-title: "升级到最新的弹性数据库客户端库 | Azure"
-description: "使用 Nuget 升级应用程序和库"
+title: "升级到最新的弹性数据库客户端库 | Microsoft 文档"
+description: "使用 Nuget 升级弹性数据库客户端库。"
 services: sql-database
 documentationcenter: 
 manager: digimobile
-author: Hayley244
+author: forester123
 ms.assetid: 0a546510-76e7-465e-9271-f15ff0cfa959
 ms.service: sql-database
 ms.custom: scale out apps
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/06/2017
-ms.date: 07/10/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 5a5df32ffc1874bd453b16c336ca756b284e40b2
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: b3ef0e204040478e26b8521c9d68a5ac253faad2
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>升级应用以使用最新的弹性数据库客户端库
-可通过 Visual Studio 中 NuGetand 和 NuGetPackage 管理器界面获取[弹性数据库客户端库](sql-database-elastic-database-client-library.md)的新版本。 升级包含客户端库的 bug 修复和新功能支持。
+可通过 Visual Studio 中的 NuGet 和 NuGetPackage 管理器界面获取[弹性数据库客户端库](sql-database-elastic-database-client-library.md)的新版本。 升级包含客户端库的 bug 修复和新功能支持。
 
 **要获取最新版本**：请转到 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
 
@@ -31,15 +31,15 @@ ms.lasthandoff: 07/14/2017
 按顺序执行这些步骤可确保在更新元数据对象时，旧版本的客户端库不再存在于环境中，这意味着在升级后不会创建旧版本的元数据对象。   
 
 ## <a name="upgrade-steps"></a>升级步骤
-**1.升级应用程序。** 在 Visual Studio 中，下载最新的客户端库版本并在使用该库的所有开发项目中引用该版本；然后重新生成并部署。 
+**1.升级应用程序。** 在 Visual Studio 中，下载最新的客户端库版本并在使用该库的所有开发项目中引用该版本；并重新生成并部署。 
 
 * 在 Visual Studio 解决方案中，选择“**工具**” --> “**Nuget 程序包管理器**” -->  “**管理解决方案的 Nuget 程序包**”。 
-* (Visual Studio 2013) 在左侧面板中，选择“**更新**”，然后选择窗口中显示的包“**Azure SQL 数据库弹性扩展客户端库**”上的“**更新**”按钮。
-* (Visual Studio 2015) 将“筛选器”框设置为“**可用升级**”。 选择要更新的程序包，然后单击“**更新**”按钮。
-* (Visual Studio 2017) 在对话框顶部，选择“更新”。 选择要更新的程序包，然后单击“**更新**”按钮。
+* (Visual Studio 2013) 在左侧面板中，选择“**更新**”，并选择窗口中显示的包“**Azure SQL 数据库弹性扩展客户端库**”上的“**更新**”按钮。
+* (Visual Studio 2015) 将“筛选器”框设置为“**可用升级**”。 选择要更新的包，并单击“更新”  按钮。
+* (Visual Studio 2017) 在对话框顶部，选择“更新”。 选择要更新的包，并单击“更新”  按钮。
 * 生成并部署。 
 
-**2.升级你的脚本。** 如果使用 **PowerShell** 脚本来管理分片，请[下载新的库版本](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)并将其复制到从中执行脚本的目录中。 
+**2.升级脚本。** 如果使用 **PowerShell** 脚本来管理分片，请[下载新的库版本](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)并将其复制到从中执行脚本的目录中。 
 
 **3.升级拆分/合并服务。** 如果使用弹性数据库拆分/合并工具来重新组织分片数据，请[下载并部署最新版本的工具](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)。 可在[此处](sql-database-elastic-scale-overview-split-and-merge.md)找到该服务的详细升级步骤。 
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 07/14/2017
 
 ***选项 1：使用 PowerShell 升级元数据***
 
-1. 在[此处](http://nuget.org/nuget.exe)下载 Nuget 的最新命令行实用工具并将其保存到一个文件夹。 
+1. 在[此处](http://nuget.org/nuget.exe)下载 NuGet 的最新命令行实用工具并将其保存到一个文件夹。 
 2. 打开命令提示符，导航到同一文件夹，并发出命令： `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
 3. 导航到包含刚下载的新客户端 DLL 版本的子文件夹，例如： `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
 4. 从[脚本中心](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)下载弹性数据库客户端升级 scriptlet，并将其保存到包含 DLL 的同一文件夹中。
@@ -70,7 +70,7 @@ foreach (ShardLocation loc in
 } 
 ```
 
-这些元数据升级技术可以应用多次而无危害。 例如，如果在你已更新后，旧的客户端版本无意中创建了一个分片，你可以对所有分片再次运行升级，以确保最新的元数据版本在整个基础结构中存在。 
+这些元数据升级技术可以应用多次而无危害。 例如，如果在已更新后，旧的客户端版本无意中创建了一个分片，可以对所有分片再次运行升级，以确保最新的元数据版本在整个基础结构中存在。 
 
 **注意：**到目前为止，发布的客户端库的新版本将继续使用 Azure SQL 数据库上早期版本的分片映射管理器元数据，反之亦然。   但是，为了利用最新客户端中的一些新功能，需要对元数据进行升级。   请注意，元数据升级不会影响任何用户数据或特定于应用程序的数据，只会影响分片映射管理器创建和使用的对象。  并且应用程序将继续按照前面所述的升级顺序进行操作。 
 

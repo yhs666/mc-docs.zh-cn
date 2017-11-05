@@ -1,6 +1,6 @@
 ---
-title: "创建并管理 Azure SQL 服务器和数据库 | Azure"
-description: "了解 Azure SQL 数据库服务器和数据库概念，以及如何使用 Azure 门户、PowerShell、Azure CLI、Transact-SQL 和 REST API 创建并管理服务器和数据库。"
+title: "创建并管理 Azure SQL 服务器和数据库 | Microsoft Docs"
+description: "了解 Azure SQL 数据库服务器和数据库的概念，以及如何创建和管理服务器和数据库。"
 services: sql-database
 documentationcenter: na
 author: forester123
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 07/19/2017
-ms.date: 10/02/2017
+origin.date: 10/11/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: b38fe309c778ced5c2b332dbc5b98c4102fc6635
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 713cdb5a2e7f1f5f2131dd2058349a1001651baa
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>创建并管理 Azure SQL 数据库服务器和数据库
 
@@ -36,7 +36,7 @@ Azure SQL 数据库可以是：
 - 参与[多租户 SaaS 设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)的一组数据库的一部分，该模式中可以包含单一数据库或池中的数据库（或两者） 
 
 > [!TIP]
-> 有关有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 
+> 如需有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 
 >
 
 - Azure SQL 数据库使用的默认数据库排序规则是 SQL_LATIN1_GENERAL_CP1_CI_AS。其中，LATIN1_GENERAL 是英语（美国），CP1 是代码页 1252，CI 是不区分大小写，AS 是区分重音。 有关如何设置排序规则的详细信息，请参阅 [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx)。
@@ -140,29 +140,29 @@ Azure 数据库逻辑服务器：
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>使用 Azure CLI 管理 Azure SQL 服务器、数据库和防火墙
 
-若要使用 [Azure CLI](https://docs.microsoft.com/cli/azure/overview) 创建并管理 Azure SQL 服务器、数据库和防火墙，请运行 [Azure CLI SQL 数据库](https://docs.microsoft.com/cli/azure/sql/db)命令。 在 macOS、 Linux 或 Windows 上[安装](https://docs.microsoft.com/cli/azure/install-azure-cli) CLI。 若要创建并管理弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
+若要使用 [Azure CLI](/cli/overview) 创建并管理 Azure SQL 服务器、数据库和防火墙，请运行 [Azure CLI SQL 数据库](/cli/sql/db)命令。 在 macOS、 Linux 或 Windows 上[安装](/cli/install-azure-cli) CLI。 若要创建并管理弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
 
 | Cmdlet | 说明 |
 | --- | --- |
-|[az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) |创建数据库|
-|[az sql db list](https://docs.microsoft.com/cli/azure/sql/db#list)|列出某台服务器中的所有数据库和数据仓库，或者列出弹性池中的所有数据库|
-|[az sql db list-editions](https://docs.microsoft.com/cli/azure/sql/db#list-editions)|列出可用的服务目标和存储限制|
-|[az sql db list-usages](https://docs.microsoft.com/cli/azure/sql/db#list-usages)|返回数据库使用情况|
-|[az sql db show](https://docs.microsoft.com/cli/azure/sql/db#show)|获取数据库或数据仓库|
-|[az sql db update](https://docs.microsoft.com/cli/azure/sql/db#update)|更新数据库|
-|[az sql db delete](https://docs.microsoft.com/cli/azure/sql/db#delete)|删除数据库|
-|[az group create](https://docs.microsoft.com/cli/azure/group#create)|创建资源组|
-|[az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create)|创建服务器|
-|[az sql server list](https://docs.microsoft.com/cli/azure/sql/server#list)|列出服务器|
-|[az sql server list-usages](https://docs.microsoft.com/cli/azure/sql/server#list-usages)|返回服务器使用情况|
-|[az sql server show](https://docs.microsoft.com/cli/azure/sql/server#show)|获取服务器|
-|[az sql server update](https://docs.microsoft.com/cli/azure/sql/server#update)|更新服务器|
-|[az sql server delete](https://docs.microsoft.com/cli/azure/sql/server#delete)|删除服务器|
-|[az sql server firewall-rule create](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#create)|配置服务器防火墙规则|
-|[az sql server firewall-rule list](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#list)|列出服务器上的防火墙规则|
-|[az sql server firewall-rule show](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#show)|显示防火墙规则的详细信息|
-|[az sql server firewall-rule update](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#update)|更新防火墙规则|
-|[az sql server firewall-rule delete](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#delete)|删除防火墙规则。|
+|[az sql db create](/cli/sql/db#az_sql_db_create) |创建数据库|
+|[az sql db list](/cli/sql/db#az_sql_db_list)|列出某台服务器中的所有数据库和数据仓库，或者列出弹性池中的所有数据库|
+|[az sql db list-editions](/cli/sql/db#az_sql_db_list_editions)|列出可用的服务目标和存储限制|
+|[az sql db list-usages](/cli/sql/db#az_sql_db_list_usages)|返回数据库使用情况|
+|[az sql db show](/cli/sql/db#az_sql_db_show)|获取数据库或数据仓库|
+|[az sql db update](/cli/sql/db#az_sql_db_update)|更新数据库|
+|[az sql db delete](/cli/sql/db#az_sql_db_delete)|删除数据库|
+|[az group create](/cli/group#az_group_create)|创建资源组|
+|[az sql server create](/cli/sql/server#az_sql_server_create)|创建服务器|
+|[az sql server list](/cli/sql/server#az_sql_server_list)|列出服务器|
+|[az sql server list-usages](/cli/sql/server#az_sql_server_list-usages)|返回服务器使用情况|
+|[az sql server show](/cli/sql/server#az_sql_server_show)|获取服务器|
+|[az sql server update](/cli/sql/server#az_sql_server_update)|更新服务器|
+|[az sql server delete](/cli/sql/server#az_sql_server_delete)|删除服务器|
+|[az sql server firewall-rule create](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|配置服务器防火墙规则|
+|[az sql server firewall-rule list](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|列出服务器上的防火墙规则|
+|[az sql server firewall-rule show](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|显示防火墙规则的详细信息|
+|[az sql server firewall-rule update](/cli/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|更新防火墙规则|
+|[az sql server firewall-rule delete](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|删除防火墙规则。|
 
 > [!TIP]
 > 有关 Azure CLI 快速入门教程，请参阅[使用 Azure CLI 创建单个 Azure SQL 数据库](sql-database-get-started-cli.md)。 有关 Azure CLI 示例脚本，请参阅[使用 CLI 创建单个 Azure SQL 数据库并配置防火墙规则](scripts/sql-database-create-and-configure-database-cli.md)及[使用 CLI 监视和缩放单个 SQL 数据库](scripts/sql-database-monitor-and-scale-database-cli.md)。
@@ -170,7 +170,7 @@ Azure 数据库逻辑服务器：
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>使用 Transact-SQL 管理 Azure SQL 服务器、数据库和防火墙
 
-若要使用 Transact-SQL 创建并管理 Azure SQL 服务器、数据库和防火墙，请运行以下 T-SQL 命令。 可以使用 Azure 门户、[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/use-sql-server-management-studio)、[Visual Studio Code](https://code.visualstudio.com/docs) 或可以连接到 Azure SQL 数据库服务器并传递 Transact-SQL 命令的其他任何程序，发出这些命令。 若要了解如何管理 SQL 弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
+若要使用 Transact-SQL 创建并管理 Azure SQL 服务器、数据库和防火墙，请运行以下 T-SQL 命令。 可以使用 Azure 门户、[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/use-sql-server-management-studio)、[Visual Studio Code](https://code.visualstudio.com/docs) 或可以连接到 Azure SQL 数据库服务器并传递 Transact-SQL 命令的其他任何程序，发出这些命令。 若要管理弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
 
 > [!IMPORTANT]
 > 无法使用 Transact-SQL 创建或删除服务器。
@@ -210,7 +210,7 @@ Azure 数据库逻辑服务器：
 |[Servers - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|返回资源组中服务器的列表。|
 |[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|更新现有服务器。|
 |[Servers - Sql](https://docs.microsoft.com/rest/api/sql/servers%20-%20sql)|判断是否能使用指定名称创建资源。|
-|[数据库 - 创建或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|创建新数据库或更新现有数据库。|
+|[Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|创建新数据库或更新现有数据库。|
 |[数据库 - 获取](https://docs.microsoft.com/rest/api/sql/databases/get)|获取数据库。|
 |[数据库 - 按弹性池获取](https://docs.microsoft.com/rest/api/sql/databases/getbyelasticpool)|获取弹性池内的数据库。|
 |[数据库 - 按推荐的弹性池获取](https://docs.microsoft.com/rest/api/sql/databases/getbyrecommendedelasticpool)|获取推荐弹性池内的数据库。|
@@ -230,4 +230,4 @@ Azure 数据库逻辑服务器：
 - 若要详细了解如何将 SQL Server 数据库迁移到 Azure，请参阅[迁移到 Azure SQL 数据库](sql-database-cloud-migrate.md)。
 - 有关受支持功能的信息，请参阅[功能](sql-database-features.md)。
 
-<!--Update_Description: remove cloud shell; add rest commands-->
+<!--Update_Description: update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

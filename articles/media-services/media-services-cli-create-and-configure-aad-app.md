@@ -3,8 +3,8 @@ title: "使用 CLI 2.0 创建 Azure AD 应用，并将该应用配置为访问 A
 description: "本主题展示了如何使用 CLI 2.0 创建 Azure AD 应用，并将它配置为访问 Azure 媒体服务 API。"
 services: media-services
 documentationcenter: 
-author: Juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: 
 ms.service: media-services
 ms.workload: media
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/17/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
-ms.openlocfilehash: fea81fe34192c46c4fcefd4493bb0a7aca5577a1
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.date: 11/06/2017
+ms.author: v-johch
+ms.openlocfilehash: 8851a23d743af37aba0794868c0079eb02cc01ac
+ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>使用 CLI 2.0 创建 AAD 应用，并将它配置为访问 Azure 媒体服务 API
 
@@ -51,7 +51,7 @@ az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role
 - 资源组级别。
 - 资源级别（例如，媒体帐户）。
 
-有关详细信息，请参阅[使用 Azure CLI 2.0 创建 Azure 服务主体](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
+有关详细信息，请参阅[使用 Azure CLI 2.0 创建 Azure 服务主体](https://docs.azure.cn/cli/create-an-azure-service-principal-azure-cli)
 
 另请参阅[使用 Azure 命令行接口管理基于角色的访问控制](../active-directory/role-based-access-control-manage-access-azure-cli.md)。
 

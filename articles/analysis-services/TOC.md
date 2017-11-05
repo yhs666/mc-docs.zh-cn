@@ -51,12 +51,12 @@
 
 # 资源
 ## [示例](analysis-services-samples.md)
-## [Analysis Services 团队博客](https://blogs.msdn.microsoft.com/analysisservices/)
-## [Azure Analysis Services 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
+<!-- Not Availabel ## [Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/)-->
+<!-- Not Availabel ## [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)-->
 <!-- Not Availabel ## [Azure Roadmap](https://www.azure.cn/roadmap/?category=intelligence-analytics)-->
 ## [Azure 状态](https://www.azure.cn/support/service-dashboard/)
-## [反馈](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [定价](https://www.azure.cn/pricing/details/analysis-services/)
+<!-- Not Availabel ## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)-->
+## [价格](https://www.azure.cn/pricing/details/analysis-services/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 <!-- Not Availabel ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)-->
 <!-- Not Availabel ## [Videos](https://www.azure.cn/video-center/&sort=newest)-->

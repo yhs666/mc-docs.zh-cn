@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL 数据库审核入门 | Azure"
-description: "Azure SQL 数据库审核入门"
+title: "Azure SQL 数据库审核入门 | Microsoft 文档"
+description: "使用 Azure SQL 数据库审核跟踪写入审核日志的数据库事件。"
 services: sql-database
 documentationcenter: 
 author: forester123
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/07/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 2e746cc83e90ea5f19333cf11172e9bfb9d6ace9
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 0503d355958c6d269f5df96a0b9acb76fe3655ee
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
 Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储帐户中的审核日志。 审核还可：
@@ -218,4 +218,3 @@ Blob 审核日志以 blob 文件集合的形式保存在名为 **sqldbauditlogs*
 [104]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
 [105]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
 [106]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing
-<!--Update_Description: wording update-->

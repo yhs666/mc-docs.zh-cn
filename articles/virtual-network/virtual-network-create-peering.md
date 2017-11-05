@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 10/23/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: ab25c2552a66290e850fc3308c6fec04a7f0a41e
-ms.sourcegitcommit: ab2cbf3c3b15810ad6d74ef21d870871ff7e314e
+ms.openlocfilehash: 9264bbc92d7772c0298944a2d04cb857bf313bef
+ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-same-subscription"></a>创建虚拟网络对等互连 - 资源管理器，同一订阅
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 10/23/2017
 
 以下脚本：
 
-- 需要 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version` 命令。 如果需要进行升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fvirtual-network%2ftoc.json)。
+- 需要 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version` 命令。 如果需要进行升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 - 可以在 Bash shell 中使用。 有关在 Windows 客户端上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json)。 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
@@ -174,7 +174,7 @@ ms.lasthandoff: 10/23/2017
 
 ## <a name="powershell"></a>创建对等互连 - PowerShell
 
-1. 安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+1. 安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview)。
 2. 若要启动 PowerShell 会话，请转到“开始”，输入“powershell”，然后单击“PowerShell”。
 3. 在 PowerShell 中，输入 `login-azurermaccount` 命令登录到 Azure。 用于登录的帐户必须拥有创建虚拟网络对等互连的必要权限。 有关详细信息，请参阅本文的[权限](#permissions)部分。
 4. 创建一个资源组和两个虚拟网络。 若要执行脚本，请复制以下脚本，将其粘贴到 PowerShell，在屏幕上显示最后一行后按 `Enter`：
@@ -279,6 +279,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -force
 
 - 在针对生产用途创建虚拟网络对等互连之前，请充分熟悉重要的[虚拟网络对等互连约束和行为](virtual-network-manage-peering.md#requirements-and-constraints)。
 - 了解所有的[虚拟网络对等互连设置](virtual-network-manage-peering.md#create-a-peering)。
-- 了解如何使用虚拟网络对等互连[创建中心辐射型网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)。
+- 了解如何使用虚拟网络对等互连[创建中心辐射型网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#vnet-peering)。
 
-<!--Update_Description: wording update, add new feature on Register for the Global VNet Peering preview -->
+<!--Update_Description: wording update -->

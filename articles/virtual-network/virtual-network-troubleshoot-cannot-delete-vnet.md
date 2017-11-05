@@ -9,17 +9,17 @@ editor:
 tags: azure-resource-manager
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/17/2017
-ms.date: 09/04/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: 77120e9a7f050758e61ee8a34a3a88399d311cba
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 9cbc37043c419e97eca9483bd970d3dd01517b60
+ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>故障排除：无法在 Azure 中删除虚拟网络
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 09/04/2017
 
 ![检查已连接的设备](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
-如果存在应用程序网关，则必须先将其删除，然后才能删除虚拟网络。
+如果存在应用程序网关，则必须将其删除，然后才能删除虚拟网络。
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>检查 Azure Active Directory 域服务是否已在虚拟网络中启用
 
@@ -101,4 +101,4 @@ ms.lasthandoff: 09/04/2017
 - [Azure 虚拟网络](virtual-networks-overview.md)
 - [Azure 虚拟网络常见问题解答 (FAQ)](virtual-networks-faq.md)
 
-<!--Update_Description: wording update, add feature on check vm enable in ADD-->
+<!--Update_Description: update meta properties-->

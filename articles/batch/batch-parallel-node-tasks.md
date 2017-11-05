@@ -13,30 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 origin.date: 05/22/2017
-ms.date: 07/03/2017
+ms.date: 11/02/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b44fe8328a7729fd2f7f4ad8ffdcafaec629afa
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 0b0f21d3546082dd527f342fec7ec45ea6fedd89
+ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>以并发方式运行任务以最大程度地利用 Batch 计算节点 
 
 通过在 Azure Batch 池中的每个计算节点上同时运行多个任务，可在池中的较少节点上最大程度利用资源。 对于某些工作负荷，这可以缩短作业时间并降低成本。
 
-尽管在某些情况下，将一个节点的所有资源专用于单个任务会更有利，但在一些情况下，最好是让多个任务共享这些资源：
+尽管在某些情况下，将一个节点的所有资源专用于单个任务会更有利，但在多数情况下，最好是让多个任务共享这些资源：
 
 - **尽量减少数据传输**：适用于任务可以共享数据的情况。 在此方案中，将共享数据复制到较小数目的节点并在每个节点上并行执行任务可以大大减少数据传输费用， 尤其是在复制到每个节点的数据必须跨地理区域传输的情况下。
-- **尽量增加内存使用**：适用于任务需要大量的内存，但这种需要仅在执行过程中短时出现且时间不固定的情况。 你可以减少计算节点的数量但增加其大小，同时提供更多的内存，以便有效地应对此类高峰负载。 这些节点将在每个节点上并行运行多个任务，而每个任务都会充分利用节点在不同时间的大量内存。
+- **尽量增加内存使用**：适用于任务需要大量的内存，但这种需要仅在执行过程中短时出现且时间不固定的情况。 可以减少计算节点的数量但增加其大小，同时提供更多的内存，以便有效地应对此类高峰负载。 这些节点会在每个节点上并行运行多个任务，而每个任务都会充分利用节点在不同时间的大量内存。
 - **减少节点数目限制** ：适用于需要在池中进行节点间通信的情况。 目前，经过配置可以进行节点间通信的池仅限 50 个计算节点。 如果此类池中的每个节点都可以并行执行任务，则可同时执行更大数目的任务。
 - **复制本地计算群集**：适用于首次将计算环境移至 Azure 等情况。 如果当前的本地解决方案在每个计算节点上执行多个任务，则可通过增大节点任务的最大数目来更紧密地完成该配置的镜像操作。
 
 ## <a name="example-scenario"></a>示例方案
 为了举例说明并行任务执行的好处，假设根据任务应用程序的 CPU 和内存要求，[Standard\_D1](../cloud-services/cloud-services-sizes-specs.md) 节点是足够的。 但若要在所需时间内完成作业，则需使用 1,000 个这样的节点。
 
-如果不使用具有 1 个 CPU 内核的 Standard\_D1 节点，则可使用每个具有 16 个内核的 [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) 节点，同时允许并行执行任务。 因此，可以使用 *1/16 的节点*，即只需使用 63 个节点，而无需使用 1,000 个节点。 另外，如果需要对每个节点使用大型应用程序文件或引用数据，则可进一步缩短作业持续时间并提高效率，因为只需将数据复制到 16 个节点。
+如果不使用具有 1 个 CPU 内核的 Standard\_D1 节点，则可使用每个具有 16 个内核的 [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) 节点，同时允许并行执行任务。 因此，可以使用 *1/16 的节点*，即只需使用 63 个节点，而无需使用 1,000 个节点。 此外，如果每个节点需要大型应用程序文件或引用数据，作业持续时间和效率将再次得到提升，因为数据仅复制到 63 个节点。
 
 ## <a name="enable-parallel-task-execution"></a>允许并行执行任务
 可以对计算节点进行配置，在池级别并行执行任务。 在创建池时，可以通过 Batch .NET 库设置 [CloudPool.MaxTasksPerComputeNode][maxtasks_net] 属性。 如果使用的是 Batch REST API，则可在创建池时在请求正文中设置 [maxTasksPerNode][rest_addpool] 元素。
@@ -51,12 +51,12 @@ ms.lasthandoff: 07/14/2017
 ## <a name="distribution-of-tasks"></a>任务分发
 当池中的计算节点可以并行执行任务时，请务必指定任务在池中各节点之间的分布方式。
 
-可以通过 [CloudPool.TaskSchedulingPolicy][task_schedule] 属性指定任务，即让任务在池中所有节点之间平均分配（“散布式”）。 或者，先给池中的每个节点分配尽量多的任务，然后再将任务分配给池中的其他节点（“装箱式”）。
+可以通过 [CloudPool.TaskSchedulingPolicy][task_schedule] 属性指定任务，即让任务在池中所有节点之间平均分配（“散布式”）。 或者，先给池中的每个节点分配尽量多的任务，再将任务分配给池中的其他节点（“装箱式”）。
 
 此功能十分重要，如需示例，请参阅上面示例中 [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) 节点的池，该池配置后的 [CloudPool.MaxTasksPerComputeNode][maxtasks_net] 值为 16。 如果对 [CloudPool.TaskSchedulingPolicy][task_schedule] 进行配置时，将 [ComputeNodeFillType][fill_type] 设置为 Pack，则会充分使用每个节点的所有 16 个核心，并可通过[自动缩放池](batch-automatic-scaling.md)将不使用的节点（没有分配任何任务的节点）从池中删除。 这可以最大程度地减少资源使用量并节省资金。
 
 ## <a name="batch-net-example"></a>Batch .NET 示例
-此 [Batch .NET][api_net] API 代码片段演示了一个请求，该请求要求创建一个包含四个大型节点的池，每个节点最多四个任务。 它指定了一个任务计划策略，要求先用任务填充一个节点，然后再将任务分配给池中的其他节点。 有关如何使用 Batch .NET API 添加池的详细信息，请参阅 [BatchClient.PoolOperations.CreatePool][poolcreate_net]。
+此 [Batch .NET][api_net] API 代码片段演示了一个请求，该请求要求创建一个包含四个大型节点的池，每个节点最多四个任务。 它指定了一个任务计划策略，要求先用任务填充一个节点，再将任务分配给池中的其他节点。 有关如何使用 Batch .NET API 添加池的详细信息，请参阅 [BatchClient.PoolOperations.CreatePool][poolcreate_net]。
 
 ```csharp
 CloudPool pool =
@@ -146,3 +146,5 @@ Duration: 00:08:48.2423500
 [task_schedule]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudpool.taskschedulingpolicy.aspx
 
 [1]: ./media/batch-parallel-node-tasks/heat_map.png
+
+<!--Update_Description: wording update-->

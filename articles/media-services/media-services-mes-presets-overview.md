@@ -1,7 +1,7 @@
 ---
-title: "MES (Media Encoder Standard) 的任务预设 | Microsoft Docs"
-description: "本主题概述了 MES (Media Encoder Standard) 的任务预设。"
-author: hayley244
+title: "Media Encoder Standard (MES) 的任务预设 | Microsoft Docs"
+description: "本主题概述了 Media Encoder Standard (MES) 的服务定义示例预设。"
+author: forester123
 manager: digimobile
 editor: 
 services: media-services
@@ -12,28 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/19/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: f2c4475317698c2cd13608fbf88300d31d5cbd82
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 10/01/2017
+ms.date: 11/06/2017
+ms.author: v-johch
+ms.openlocfilehash: c4036ca4456a6e4fbe26e6b8238f93b3103165a7
+ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="task-presets-for-mes-media-encoder-standard"></a>MES (Media Encoder Standard) 的任务预设
+# <a name="sample-presets-for-media-encoder-standard-mes"></a>Media Encoder Standard (MES) 的示例预设
 
-**Media Encoder Standard** 定义了一组可以在创建编码作业时使用的编码预设。 如果想要使用媒体服务对视频进行编码以实现流式处理，建议使用“自适应流式处理”预设。 指定此预设时，Media Encoder Standard 将[自动生成比特率阶梯](media-services-autogen-bitrate-ladder-with-mes.md)。 
+Media Encoder Standard 定义了一组可在创建编码作业时使用的预定义系统编码预设。 如果想要使用媒体服务对视频进行编码以实现流式处理，建议使用“自适应流式处理”预设。 指定此预设时，Media Encoder Standard 将[自动生成比特率阶梯](media-services-autogen-bitrate-ladder-with-mes.md)。 
 
-但是，如果需要自定义编码预设，应采用此部分中定义的某个编码预设作为模板，以用于自定义配置。 有关这些预设中的每个元素的含义及其有效值的说明，请参阅 [Media Encoder Standard 架构](media-services-mes-schema.md)主题。  
+### <a name="creating-custom-presets-from-samples"></a>从示例创建自定义预设
+媒体服务完全支持自定义预设中的所有值，可满足特定的编码需求和要求。 如果需要自定义编码预设，应先采用此部分中提供的以下系统预设之一作为模板，以用于自定义配置。 有关这些预设中的每个元素的含义及其有效值的说明，请参阅 [Media Encoder Standard 架构](media-services-mes-schema.md)主题。  
   
 > [!NOTE]
 >  使用预设进行 4k 编码时，应获取 `S3` 保留单位类型。 有关详细信息，请参阅[如何缩放编码](media-services-scale-media-processing-overview.md)。  
   
-使用 Media Encoder Standard 时，默认启用旋转。 如果视频在智能手机或其他移动设备上采用纵向模式录制，则默认情况下，这些预设会在编码之前将其旋转为横向模式（与 Azure 媒体编码器不同，使用 Azure 媒体编码器时，需手动进行视频旋转，如[此](http://azure.microsoft.com/blog/2014/08/21/advanced-encoding-features-in-azure-media-encoder/)博客的“视频旋转”下所述）。  
-  
-可用预设：  
-  
+#### <a name="video-rotation-default-setting-in-presets"></a>预设中的视频旋转默认设置：
+使用 Media Encoder Standard 时，默认启用视频旋转。 如果已在移动设备上采用纵向模式录制了视频，则在编码前，这些预设会将视频旋转为横向模式。
+ 
+## <a name="available-presets"></a>可用预设： 
+
  [H264 多比特率 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md) 生成一组 8 GOP 对齐的 MP4 文件（范围从 6000 kbps 到 400 kbps）和 AAC 5.1 音频。  
   
  [H264 多比特率 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md) 生成一组 8 GOP 对齐的 MP4 文件（范围从 6000 kbps 到 400 kbps）和立体声 AAC 音频。  
@@ -86,4 +88,4 @@ ms.lasthandoff: 08/31/2017
   
  有关媒体服务编码器的详细信息，请参阅[使用 Azure 媒体服务按需编码](media-services-encode-asset.md)。
 
-<!--Update_Description: update metadata-->
+<!--Update_Description: wording update-->

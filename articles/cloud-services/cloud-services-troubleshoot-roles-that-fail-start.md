@@ -2,24 +2,25 @@
 title: "对无法启动的角色进行故障排除 | Azure"
 description: "以下是云服务角色无法启动的一些常见原因。 此外还提供了这些问题的解决方案。"
 services: cloud-services
-documentationCenter: 
-authors: simonxjx
+documentationcenter: 
+author: simonxjx
 manager: felixwu
 editor: 
 tags: top-support-issue
+ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 09/02/2016
+origin.date: 07/26/2017
 ms.author: v-yiso
-ms.date: 05/22/2017
-ms.openlocfilehash: f5f0b17808640bc352308f6a0f3327f6f022ff0b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 11/06/2017
+ms.openlocfilehash: be2b3f383e5e685d628e25213f19f9b64b048181
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>对无法启动的云服务角色进行故障排除
 
@@ -52,7 +53,7 @@ DLL 或程序集缺失的症状可能为：
 
 1. 在 Microsoft Visual Studio 中打开解决方案。
 
-2. 在“解决方案资源管理器” 中，找到 web.config 文件并将其打开。
+2. 在“**解决方案资源管理器**”中，找到 web.config 文件并打开。
 
 3. 在 web.config 文件中，找到 system.web 部分并添加以下行：
 
@@ -90,7 +91,7 @@ DLL 或程序集缺失的症状可能为：
 
 10. 键入 Web 应用程序的地址和名称。 例如， `http://<IPV4 Address>/default.aspx`。
 
-现在，导航到网站将返回更明确的错误消息：
+现在，导航到网站返回更明确的错误消息：
 
 * '/' 应用程序中出现服务器错误。
 
@@ -123,8 +124,7 @@ DLL 或程序集缺失的症状可能为：
 7. 角色启动后，会在 Internet Explorer 中看到详细的错误信息。 还可使用标准的 Windows 故障排除工具来进一步诊断问题。
 
 ## <a name="diagnose-issues-by-using-intellitrace"></a>使用 IntelliTrace 诊断问题
-
-对于使用 .NET Framework 4 的辅助角色和 Web 角色，可以使用 [Microsoft Visual Studio Ultimate](https://www.visualstudio.com/products/visual-studio-ultimate-with-MSDN-vs) 中提供的 [IntelliTrace](https://msdn.microsoft.com/zh-cn/library/dd264915.aspx)。
+对于使用 .NET Framework 4 的辅助角色和 Web 角色，可以使用 Microsoft Visual Studio Enterprise 中提供的 [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx)。
 
 请按照以下步骤操作来部署启用了 IntelliTrace 的服务：
 
@@ -140,7 +140,7 @@ DLL 或程序集缺失的症状可能为：
 
 6. 选择“查看 IntelliTrace 日志” 。 此时会打开“IntelliTrace 摘要”  。
 
-7. 查找摘要的异常部分。 如果存在异常，则会将该部分标记为“异常数据” 。
+7. 查找摘要的异常部分。 如果存在异常，则会将该部分标记为“**异常数据**”。
 
 8. 展开“异常数据”并查找类似如下内容的 System.IO.FileNotFoundException 错误：
 

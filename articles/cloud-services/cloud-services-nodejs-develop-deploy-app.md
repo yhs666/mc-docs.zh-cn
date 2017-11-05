@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 08/17/2017
 ms.date: 09/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: e6fb6941275177a0ef49a4af804b8bf2cf40ceeb
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.openlocfilehash: e5957e14f0b5d10e05fd3f3ec62f607e4fdf9849
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>生成 Node.js 应用程序并将其部署到 Azure 云服务
 
@@ -148,7 +148,7 @@ Publish-AzureServiceProject -ServiceName $ServiceName  -Location "China East" -L
 > [!NOTE]
 > 首次发布后应用程序后，它可能需要几分钟才能部署完成并可供使用。
 
-部署完成后，系统将打开浏览器窗口并导航到云服务。
+在部署完成后，系统会打开一个浏览器窗口并导航到云服务。
 
 ![显示“hello world”页面的浏览器窗口；URL 指示该页面托管在 Azure 上。][A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]
 
@@ -199,8 +199,8 @@ Publish-AzureServiceProject -ServiceName $ServiceName  -Location "China East" -L
 
 <!-- URL List -->
 
-[Azure 网站、云服务和虚拟机的比较]:../app-service-web/choose-web-site-cloud-service-vm.md
-[使用轻型 Web 应用]: ../app-service-web/app-service-web-get-started-nodejs.md
+[Azure 网站、云服务和虚拟机的比较]: ../app-service/choose-web-site-cloud-service-vm.md
+[使用轻型 Web 应用]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]:../powershell-install-configure.md
 [Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [将 PowerShell 连接]:../powershell-install-configure.md#how-to-connect-to-your-subscription

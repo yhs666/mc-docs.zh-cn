@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: 109835aab04d7d2d8b061743cd11716f70b2e588
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 360fee3327870037adca969ea81eb205ae148698
+ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>流分析输出：存储、分析选项
 创作流分析作业时，需考虑如何使用生成的数据。 如何查看流分析作业的结果？流分析作业的结果存储在何处？
@@ -76,7 +76,7 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 </tr>
 <tr>
 <td>路径前缀模式 [可选]</td>
-<td>用于对指定容器中的 blob 进行编写的文件路径。<BR>在路径中，可以选择使用以下 2 个变量的一个或多个实例指定 blob 写入的频率：<BR>{date}、{time}<BR>示例 1：cluster1/logs/{date}/{time}<BR>示例 2：cluster1/logs/{date}</td>
+<td>用于编写指定容器中的 blob 的文件路径模式。 <BR> 在路径模式中，可以选择使用以下 2 个变量的一个或多个实例指定 blob 写入的频率： <BR> {date}、{time} <BR> 示例 1：cluster1/logs/{date}/{time} <BR> 示例 2：cluster1/logs/{date} <BR> <BR> 文件命名将遵循以下约定： <BR> {路径前缀模式}/schemaHashcode_Guid_Number.extension <BR> <BR> 示例输出文件： <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> 另外还存在已创建新文件的情况： <BR> 1. 当前文件超出了允许的最大块数（目前为 50,000） <BR> 2. 在输出架构中进行更改 <BR> 3. 在外部或内部重启作业  </td>
 </tr>
 <tr>
 <td>日期格式 [可选]</td>
@@ -121,9 +121,14 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 | 事件序列化格式 |输出数据的序列化格式。  支持 JSON、CSV 和 Avro。 |
 | 编码 |对于 CSV 和 JSON，目前只支持 UTF-8 这种编码格式 |
 | 分隔符 |仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 格式的数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。 |
-| 格式 |仅适用于 JSON 类型。 分隔行指定了通过新行分隔各个 JSON 对象，从而格式化输出。 数组指定输出会被格式化为 JSON 对象的数组。 |
+| 格式 |仅适用于 JSON 序列化。 分隔行指定了通过新行分隔各个 JSON 对象，从而格式化输出。 数组指定输出会被格式化为 JSON 对象的数组。 仅当作业停止或流分析移动到下个时间段时，才关闭此数组。 一般而言，最好使用分隔行 JSON，因为在继续写入输出文件时，无需任何特殊处理。 |
+
 
 <!-- Not Available ## Power BI-->
+<!-- Not Available ### Authorize a Power BI account-->
+<!-- Not Available ### Configure the Power BI output properties-->
+<!-- Not Available ### Authorize a Power BI account-->
+<!-- Not Available ### Authorize a Power BI account-->
 
 ## <a name="table-storage"></a>表存储
 [Azure 表存储](../storage/common/storage-introduction.md)提供了具有高可用性且可大规模缩放的存储，因此应用程序可以自动缩放以满足用户需求。 表存储是 Microsoft 推出的 NoSQL 键/属性存储，适用于对架构的约束性较少的结构化数据。 Azure 表存储可用于持久地存储数据，方便进行高效的检索。
@@ -174,6 +179,7 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 | 分隔符 |仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 格式的数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。 |
 
 <!-- Not Available ## Cosmos DB till 1st Sep 2017-->
+<!-- Not Available ## Azure Functions (In Preview) -->
 ## <a name="get-help"></a>获取帮助
 如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 

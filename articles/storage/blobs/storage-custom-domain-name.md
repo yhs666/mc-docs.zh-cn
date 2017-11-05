@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 05/25/2017
 ms.date: 10/23/2017
 ms.author: v-johch
-ms.openlocfilehash: 6fb72c644e649b9f484de3adea9974f6aafbb81a
-ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
+ms.openlocfilehash: 3ea895bef25e824863147dca01635bad3a4d94e8
+ms.sourcegitcommit: 10a649bfdf30765955ed964f7b5e05205bb9670a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>为 Blob 存储终结点配置自定义域名
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 10/18/2017
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-使用 [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) CLI 命令，并为 `--custom-domain` 参数值指定一个空字符串 (`""`) 以删除自定义域注册。
+使用 [az storage account update](https://docs.azure.cn/cli/storage/account#az_storage_account_update) CLI 命令，并为 `--custom-domain` 参数值指定一个空字符串 (`""`) 以删除自定义域注册。
 
 * 命令格式：
 

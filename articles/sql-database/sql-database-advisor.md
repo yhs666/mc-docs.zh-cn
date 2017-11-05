@@ -2,7 +2,7 @@
 title: "性能建议 - Azure SQL 数据库 | Azure"
 description: "Azure SQL 数据库提供有关 SQL 数据库的建议，以提升当前的查询性能。"
 services: sql-database
-documentationCenter: 
+documentationcenter: 
 author: forester123
 manager: digimobile
 editor: monicar
@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 07/05/2017
-ms.date: 10/02/2017
+origin.date: 09/20/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: e904066334a1b507c7669cc6b6235e1c7458985b
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 882a47aa8791861090591abd0641b409205de30e
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="performance-recommendations"></a>性能建议
 
 Azure SQL 数据库可以学习和适应应用程序并提供自定义的建议，使你能够将 SQL 数据库的性能最大化。 将通过分析 SQL 数据库使用情况历史记录持续对性能进行评估。 提供的建议基于数据库特有工作负荷模式并改进其性能。
 
-> [!NOTE]
-> 推荐使用建议的方式是在数据库上启用“自动优化”。 有关详细信息，请参阅[自动优化](sql-database-automatic-tuning.md)。
+> [!TIP]
+> [自动优化](sql-database-automatic-tuning.md)是性能优化的推荐方式。 
 >
 
 ## <a name="create-index-recommendations"></a>创建索引建议
 Azure SQL 数据库持续监视执行的查询并找出可以改进性能的索引。 一旦对于缺少特定的索引建立了足够的置信度，便会创建一个新的**创建索引**建议。 Azure SQL 数据库通过评估索引随时间流逝会带来的性能提升来构建置信度。 根据评估得到的性能提升，可以将建议归类为“高”、“中”或“低”。 
 
-使用建议创建的索引始终标记为 auto_created 索引。 可以通过查看 sys.indexes 视图来查看哪些索引是 auto_created 的。 自动创建的索引不会阻止 ALTER/RENAME 命令。 如果尝试删除自动创建某个索引时所基于的列，则命令会通过，并且还会通过该命令删除自动创建的索引。 常规索引会阻止对具有索引的列执行的 ALTER/RENAME 命令。
+使用建议创建的索引始终标记为 auto_created 索引。 可以通过查看 sys.indexes 视图，确定哪些是 auto_created 索引。 自动创建的索引不会阻止 ALTER/RENAME 命令。 如果尝试删除包含自动创建的索引的列，那么命令将会传递下去，自动创建的索引会随列一起删除。 常规索引会阻止对具有索引的列执行的 ALTER/RENAME 命令。
 
-在应用创建索引建议后，Azure SQL 数据库会将查询性能与基线性能进行比较。 如果新索引带来了性能改进，则建议将被标记为成功的，并且会提供影响报告。 如果索引没有带来好处，则它将自动恢复。 通过这种方式，Azure SQL 数据库可以确保使用建议只会改进数据库性能。
+在应用创建索引建议后，Azure SQL 数据库会将查询性能与基线性能进行比较。 如果新索引确实带来了性能提升，系统会将建议标记为成功，并生成影响力报表。 否则，索引将会自动还原。 这样，Azure SQL 数据库可确保应用的建议只会提升数据库性能。
 
-任何**创建索引**建议都有一个放弃策略，如果数据库或池 DTU 使用率在过去 20 分钟内高于 80% 或者存储使用率高于 90%，则该策略不允许应用建议。 在这种情况下，建议将被推迟。
+所有“创建索引”建议都有撤回策略，即如果在过去 20 分钟内数据库或池 DTU 使用率超过 80% 或存储空间使用率超过 90%，则不允许应用建议。 在这种情况下，将推迟应用建议。
 
 ## <a name="drop-index-recommendations"></a>删除索引建议
 除了检测缺少的索引外，Azure SQL 数据库还会持续分析现有索引的性能。 如果某个索引未使用，Azure SQL 数据库会建议删除该索引。 在两种情况下会建议删除索引：
@@ -59,10 +59,9 @@ Azure SQL 数据库持续监视执行的查询并找出可以改进性能的索�
 应用此建议后，它在几分钟之内对数据库启用强制参数化，并将启动监视进程（大约持续 24 小时）。 经过这段时间后，即可看到验证报告，该报表显示应用此建议之前和之后的 24 小时内数据库的 CPU 使用率。 SQL 数据库顾问具有安全机制，在检测到性能衰退的情况下，可以自动还原已应用的建议。
 
 ## <a name="fix-schema-issues-recommendations"></a>修复架构问题建议
-
 当 SQL 数据库服务发现 Azure SQL 数据库上架构相关 SQL 错误的数量发生异常时，就会出现**修复架构问题**建议。 此建议通常在数据库在一个小时内遭遇到多个架构相关的错误（无效的列名称、无效的对象名称等）时出现。
 
-“架构问题”是 SQL Server 中的一类语法错误，当 SQL 查询的定义与数据库架构的定义不一致时发生。 例如，目标表中可能缺少查询所需的某个列，反之亦然。 
+“架构问题”是 SQL Server 中的一类语法错误，于 SQL 查询的定义与数据库架构的定义不一致时发生。 例如，目标表中可能缺少查询所需的某个列，反之亦然。 
 
 当 Azure SQL 数据库服务发现 Azure SQL 数据库上发生的架构相关 SQL 错误的数量有异常时，就会出现“修复架构问题”建议。 下表显示与架构问题相关的错误：
 
@@ -78,10 +77,8 @@ Azure SQL 数据库持续监视执行的查询并找出可以改进性能的索�
 ## <a name="next-steps"></a>后续步骤
 监视建议并继续应用它们以优化性能。 数据库工作负荷是动态的，并且不断地更改。 SQL 数据库顾问将继续监视和提供可能提高数据库性能的建议。 
 
+* 请参阅 [Azure SQL 数据库自动优化](sql-database-automatic-tuning.md)，了解数据库索引和查询执行计划的自动优化。
 * 有关如何使用 Azure 门户中的性能建议的步骤，请参阅 [Azure 门户中的性能建议](sql-database-advisor-portal.md)。
 * 若要了解和查看排名靠前的查询的性能影响，请参阅[查询性能见解](sql-database-query-performance.md)。
 
-## <a name="additional-resources"></a>其他资源
-* [查询存储](https://msdn.microsoft.com/library/dn817826.aspx)
-* [创建索引](https://msdn.microsoft.com/library/ms188783.aspx)
-* [基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)
+<!--Update_Description: add a tip for performance tuning;add two next step links-->
