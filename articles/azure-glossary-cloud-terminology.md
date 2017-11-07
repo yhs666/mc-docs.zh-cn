@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 08/16/2017
 ms.date: 08/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: 0524de90a5ed6e3aef4118ae654a6b205b560d7d
-ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
+ms.openlocfilehash: e90de9044d8535be84d4718221ec11d078ac7f7a
+ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Azure 词汇表：Azure 平台上的云术语字典
 
@@ -37,7 +37,7 @@ Azure 词汇表是适用于 Azure 平台的简短云术语字典。 另请参阅
 又叫[应用服务应用](#app-service-app)。
 
 ## 应用服务应用 <a name="app-service-app"></a>
-[Azure 应用服务](app-service/app-service-value-prop-what-is.md)提供用来托管[网站或 Web 应用程序](app-service-web/app-service-web-overview.md)、[Web API](app-service-api/app-service-api-apps-why-best-platform.md) 或[移动应用后端](app-service-mobile/app-service-mobile-value-prop.md)的计算资源。 应用服务应用也称为“应用服务”、“Web 应用”、“API 应用”和“移动应用”。
+Azure 应用服务提供的用来托管[网站或 Web 应用程序](app-service-web/app-service-web-overview.md)、[Web API](app-service-api/app-service-api-apps-why-best-platform.md) 或[移动应用后端](app-service-mobile/app-service-mobile-value-prop.md)的计算资源。 应用服务应用也称为“应用服务”、“Web 应用”、“API 应用”和“移动应用”。
 
 ## 可用性集 <a name="availability-set"></a>
 可一起管理的、用于提供应用程序冗余和可靠性的虚拟机集合。 使用可用性集可确保在计划内或计划外维护事件期间，至少有一个虚拟机可用。  
@@ -134,7 +134,7 @@ Resource Manager 中的容器，用于保存应用程序的相关资源。 资�
 
 ## <a name="vm-extension"></a>虚拟机扩展
 一个实现行为或功能的资源，可帮助其他程序正常工作，或提供与运行中计算机交互的能力。 例如，可以使用 VM 访问扩展来重置或修改 Azure 虚拟机上的远程访问值。
-请参阅[关于虚拟机扩展和功能 (Windows)](virtual-machines/windows/extensions-features.md) 或[关于虚拟机扩展和功能 (Linux)](virtual-machines/linux/extensions-features.md)
+请参阅[关于虚拟机扩展和功能 (Windows)](virtual-machines/windows/extensions-features.md)或[关于虚拟机扩展和功能 (Linux)](virtual-machines/linux/extensions-features.md)
 
 ## <a name="vnet"></a>虚拟网络
 在 Azure 资源之间提供连接并与其他所有 Azure 租户隔离的网络。 一个[Azure VPN 网关](vpn-gateway/vpn-gateway-about-vpngateways.md)，使用它可以在虚拟网络之间以及[虚拟网络与本地网络之间](vpn-gateway/vpn-gateway-plan-design.md)建立连接。 可以完全控制虚拟网络中的 IP 地址块、DNS 设置、安全策略和路由表。  

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/03/2016
 ms.author: v-yiso
-ms.date: 10/09/2017
-ms.openlocfilehash: 2d7be15e949fd62922f2d95af172103425e9a809
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.date: 11/06/2017
+ms.openlocfilehash: 6c57086cbe59fa94a0fa04ba9b2c7b93d28b2cd6
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="article-top"></a>将现有的 Azure 移动服务迁移到 Azure 应用服务
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 09/22/2017
 
 Microsoft 建议迁移 Azure 移动服务来利用 Azure 应用服务的各项功能，其中包括：
 
-  *  新的主机功能，包括 [Web 作业]和[自定义域名]。
+  *  新的主机功能，包括 [WebJobs] 和[自定义域名]。
   *  内置的 DevOps 工具，包括[暂存槽]、回滚和生产环境内测试。
   *  [自动缩放]、负载均衡和[性能监视]。
 
@@ -143,7 +143,7 @@ PublishSettings 文件将下载到计算机。  此文件通常名为 _站点名
 
 ## <a name="working-with-your-site"></a>在迁移后使用站点
 
-迁移后，可在 [Azure 门户] 中开始使用新的应用服务。  下面是一些说明，涉及过去在 [Azure 经典门户]中执行的特定操作及其在应用服务中的等效功能。
+在迁移后，可在 [Azure 门户]中开始使用新的应用服务。  下面是一些说明，涉及过去在 [Azure 经典门户]中执行的特定操作及其在应用服务中的等效功能。
 
 ### <a name="publishing-your-site"></a>下载和发布已迁移的站点
 
@@ -241,7 +241,7 @@ PublishSettings 文件将下载到计算机。  此文件通常名为 _站点名
   3. 单击“设置”，然后单击“计划”。
   4. 将周期选择为“一次”，然后单击“保存”
 
-按需作业位于 `App_Data/config/scripts/scheduler post-migration`中。  建议将所有按需作业转换为 [Web 作业]或[函数]。  编写新的计划程序作业作为 [Web 作业]或[函数]。
+按需作业位于 `App_Data/config/scripts/scheduler post-migration`中。  建议将所有按需作业转换为 [WebJobs] 或[函数]。  将新的计划程序作业编写成 [WebJobs] 或[函数]。
 
 ### <a name="notification-hubs"></a>通知中心
 
@@ -269,7 +269,7 @@ PublishSettings 文件将下载到计算机。  此文件通常名为 _站点名
 有关详细信息，请查看 [Notification Hubs] （通知中心）文档。
 
 > [!TIP]
-> [Azure 门户] 中的通知中心管理功能仍以预览版提供。  仍可使用 [Azure 经典门户]管理所有的通知中心。
+> [Azure 门户]中的通知中心管理功能仍以预览版提供。  仍可使用 [Azure 经典门户]管理所有的通知中心。
 > 
 > 
 
@@ -379,7 +379,7 @@ Azure 应用服务中通常会禁用诊断日志记录。  若要启用诊断日
 现已将应用程序迁移到应用服务，有更多的功能可以使用：
 
   * 使用部署[暂存槽]可以暂存站点更改，以及执行 A/B 测试。
-  * [Web 作业] 可以取代按需计划作业。
+  * [WebJobs] 可以取代按需计划作业。
   * 可以通过将站点链接到 GitHub、TFS 或 Mercurial 来[连续部署]站点。
   * 以相同的代码为网站和移动 API 提供服务。
 
@@ -396,28 +396,27 @@ Azure 应用服务中通常会禁用诊断日志记录。  若要启用诊断日
 
 <!-- Links -->
 [应用服务定价]: https://www.azure.cn/pricing/details/app-service/
-[自动缩放]: ../app-service-web/web-sites-scale.md
-[Azure 应用服务]: ../app-service/app-service-value-prop-what-is.md
-[Azure App Service 部署文档]: ../app-service-web/web-sites-deploy.md
-[Azure 经典管理门户]: https://manage.windowsazure.cn
-[Azure Portal]: https://portal.azure.cn
+[自动缩放]: ../app-service/web-sites-scale.md
+[Azure 应用服务]: ../app-service/app-service-web-overview.md
+[Azure 经典门户]: https://manage.windowsazure.com
+[Azure 门户]: https://portal.azure.com
+[Azure Region]: https://azure.microsoft.com/en-us/regions/
 [Azure 计划程序计划]: ../scheduler/scheduler-plans-billing.md
-[持续部署]: ../app-service-web/app-service-continuous-deployment.md
-[convert your Mixed namespaces]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[连续部署]: ../app-service/app-service-continuous-deployment.md
+[转换混合命名空间]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
-[自定义域名]: ../app-service-web/web-sites-custom-domain-name.md
+[自定义域名]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: http://www.telerik.com/fiddler
-[Azure App Service 正式发布版]: https://www.azure.cn/blog/announcing-general-availability-of-app-service-mobile-apps/
-
-[日志记录]: ../app-service-web/web-sites-enable-diagnostic-log.md
+[Azure 应用服务正式版]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
+[Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
+[日志记录]: ../app-service/web-sites-enable-diagnostic-log.md
 [移动应用 Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
-[移动服务与应用服务]: ./app-service-mobile-value-prop-migration-from-mobile-services.md
-[通知中心]: ../notification-hubs/notification-hubs-push-notification-overview.md
-[性能监视]: ../app-service-web/web-sites-monitor.md
+[移动服务与应用服务]: app-service-mobile-value-prop-migration-from-mobile-services.md
+[Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
+[性能监视]: ../app-service/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[暂存槽位]: ../app-service-web/web-sites-staged-publishing.md
-[VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
-[Web 作业]: ../app-service-web/websites-webjobs-resources.md
+[暂存槽]: ../app-service/web-sites-staged-publishing.md
+[VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
 <!--Update_Description: update wording and some links-->

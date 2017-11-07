@@ -1,23 +1,25 @@
 ---
-title: "如何使用适用于移动应用的 Node.js 后端服务器 SDK | Azure 应用服务"
+title: "如何使用用于移动应用的 Node.js 后端服务器 SDK | Microsoft Docs"
 description: "了解如何使用适用于 Azure 应用服务移动应用的 Node.js 后端服务器 SDK。"
 services: app-service\mobile
-documentationCenter: 
-authors: adrianhall
-manager: erikre
+documentationcenter: 
+author: ggailey777
+manager: syntaxc4
 editor: 
+ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
 ms.author: v-yiso
-ms.openlocfilehash: e5423bdca20fdcbef90fe0ab3f649b424ba3aa5e
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.date: 11/06/2017
+ms.openlocfilehash: 6f156507f38f2435b5e8f50063e881df828b64a4
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>如何使用 Azure 移动应用 Node.js SDK
 
@@ -59,7 +61,7 @@ Azure 移动应用 Node SDK 支持两个数据库驱动程序 - node-mssql 驱�
     npm init
     ```
 
-    Npm init 命令将提出一系列问题以初始化项目。  查看示例输出：
+    npm init 命令将提出一系列问题以初始化项目。  查看示例输出：
 
     ![npm init 输出][0]
 
@@ -156,12 +158,10 @@ Visual Studio 2015 需要使用一个扩展在 IDE 中开发 Node.js 应用程�
 
 ### <a name="download-quickstart"></a>如何：使用 Git 下载 Node.js 后端快速入门代码项目
 
-使用门户的“快速启动”  边栏选项卡创建 Node.js 移动应用后端时，系统将创建 Node.js 项目并将其部署到站点。 可以在门户中添加表和 API，以及编辑 Node.js 后端的代码文件。 还可以使用多种部署工具下载后端项目，以便添加或修改表和 API，然后重新发布项目。 有关详细信息，请参阅 [Azure App Service Deployment Guide]（Azure 应用服务部署指南）。 以下过程使用 Git 存储库下载快速入门项目代码。
+使用门户的“快速启动”边栏选项卡创建 Node.js 移动应用后端时，系统将创建 Node.js 项目并将其部署到站点。 可以在门户中添加表和 API，以及编辑 Node.js 后端的代码文件。 还可以使用多种部署工具下载后端项目，以便添加或修改表和 API，并重新发布项目。 有关详细信息，请参阅 [Azure App Service Deployment Guide]（Azure 应用服务部署指南）。 以下过程使用 Git 存储库下载快速入门项目代码。
 
 1. 安装 Git（如果尚未安装）。 安装 Git 所需的步骤因操作系统的不同而异。 有关操作系统特定的分发和安装指南，请参阅 [安装 Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) 。
-
-2. 根据[启用应用服务应用存储库](../app-service-web/app-service-deploy-local-git.md#Step3)中的步骤为后端站点启用 Git 存储库，并记下部署用户名和密码。
-
+2. 根据[启用应用服务应用存储库](../app-service/app-service-deploy-local-git.md#Step3)中的步骤为后端站点启用 Git 存储库，并记下部署用户名和密码。
 3. 在移动应用后端的边栏选项卡中，记下“Git 克隆 URL”设置。
 
 4. 使用 Git 克隆 URL 执行 `git clone` 命令，并根据需要输入密码，如以下示例所示：
@@ -200,7 +200,7 @@ Azure 应用服务提供有关 Node.js 应用程序的具体建议，请在部�
 var mobile = azureMobileApps({ homePage: true });
 ```
 
-如果要让此选项仅在本地开发时可供使用，可将此设置添加到 `azureMobile.js` 文件。
+如果想要让此选项仅在本地开发时可供使用，可以将此设置添加到 `azureMobile.js` 文件。
 
 ## <a name="TableOperations"></a>表操作 
 
@@ -260,7 +260,7 @@ module.exports = table;
 
 ### <a name="howto-staticschema"></a>如何使用静态架构定义表
 
-可以将列显式定义为通过 WebAPI 公开。  azure-mobile-apps Node.js SDK 会自动将脱机数据同步所需的任何其他列添加到提供的列表。  例如，快速入门客户端应用程序需要包含两个列的表：text（字符串）和 complete（布尔值）。  
+可以将列显式定义为通过 WebAPI 公开。  azure-mobile-apps Node.js SDK 自动将脱机数据同步所需的任何其他列添加到所提供的列表。  例如，快速入门客户端应用程序需要包含两个列的表：text（字符串）和 complete（布尔值）。  
 可以在表定义 JavaScript 文件中（位于表目录中）定义该表，如下所示：
 
 ```
@@ -317,7 +317,7 @@ Azure 移动应用 Node.js SDK 利用 [mssql Node.js 包] 来建立和使用 SQL
 
 3. 运行 SQL Server 2014 Management Studio 并连接到本地 SQL Express 实例
 
-  1. 在对象资源管理器中右键单击实例，然后选择“属性” 
+  1. 在对象资源管理器中右键单击实例，并选择“属性”
   2. 选择“安全性”页。
   3. 确保已选择“SQL Server 和 Windows 身份验证模式” 
   4. 单击 **“确定”**
@@ -424,10 +424,12 @@ _azureMobile.js_ 文件中的大多数设置在 [Azure 门户]中都有等效的
 
 5. 单击“创建” 。 预配移动应用后端可能需要几分钟时间。  预配移动应用后端后，门户将打开移动应用后端的“设置”边栏选项卡。
 
-创建移动应用后端后，可以选择将现有的 SQL 数据库连接到移动应用后端，或创建新的 SQL 数据库。  在本部分中，将创建 SQL 数据库。
+创建移动应用后端后，可以选择将现有的 SQL 数据库连接到移动应用后端，或创建新的 SQL 数据库。  在本部分中，我们将创建 SQL 数据库。
 
 > [!NOTE]
 > 如果在与移动应用后端相同的位置已有一个数据库，则可以选择“使用现有数据库”，然后选择该数据库。 因为会产生更高的延迟，所以不建议使用位于不同位置的数据库。
+>
+>
 
 6. 在新移动应用后端中，单击“设置” > “移动应用” > “数据” > “+添加”。
 
@@ -486,7 +488,7 @@ module.exports = table;
 
 ### <a name="howto-tables-getidentity"></a>如何对表使用身份验证声明
 
-可以设置各种声明，在设置身份验证时将请求这些声明。  这些声明通常无法通过 `context.user` 对象获取。  但是，它们可以使用 `context.user.getIdentity()` 方法来检索。  `getIdentity()` 方法返回可解析成某个对象的 Promise。  该对象由身份验证方法（microsoftaccount 或 aad）进行键控。
+可以设置不同的声明，在设置身份验证时将请求这些声明。  这些声明通常无法通过 `context.user` 对象获取。  但是，它们可以使用 `context.user.getIdentity()` 方法来检索。  `getIdentity()` 方法返回可解析成某个对象的 Promise。  该对象由身份验证方法（microsoftaccount 或 aad）进行键控。
 
 例如，如果设置 Microsoft 帐户身份验证并请求电子邮件地址声明，可使用以下表控制器将电子邮件地址添加到记录：
 
@@ -574,7 +576,7 @@ module.exports = table;
 
 ### <a name="howto-tables-query"></a>如何调整与表操作配合使用的查询
 
-表操作的常见要求是提供受限制的数据视图。  例如，可提供标有已进行身份验证的用户 ID 的表，以便只允许用户读取或更新其自己的记录。  以下表定义将提供此功能：
+表操作的常见要求是提供受限制的数据视图。  例如，可提供标有已进行身份验证的用户 ID 的表，以便只允许用户读取或更新其自己的记录。  以下表定义提供此功能：
 
 ```
 var azureMobileApps = require('azure-mobile-apps');
@@ -694,7 +696,7 @@ var mobile = azureMobileApps({ swagger: true });
 var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 ```
 
-swagger 终结点位于 http://yoursite.azurewebsites.cn/swagger。  可通过 `/swagger/ui` 终结点访问 Swagger UI。  如果选择要求在整个应用程序中进行身份验证，Swagger 将产生错误。  为获得最佳效果，请在“Azure 应用服务身份验证/授权”设置中选择允许未经身份验证的请求通过，然后使用 `table.access` 属性控制身份验证。
+swagger 终结点位于 http://yoursite.azurewebsites.cn/swagger。  可通过 `/swagger/ui` 终结点访问 Swagger UI。  如果选择要求在整个应用程序中进行身份验证，Swagger 将生成错误。  为获得最佳效果，请在“Azure 应用服务身份验证/授权”设置中选择允许未经身份验证的请求通过，并使用 `table.access` 属性控制身份验证。
 
 如果希望只在本地进行开发时才使用 Swagger 支持，则也可以将 Swagger 选项添加到 `azureMobile.js` 文件中。
 
@@ -740,7 +742,7 @@ if (context.push) {
 
 ###<a name="push-user"></a>如何使用标记将推送通知发送到经过身份验证的用户
 
-当经过身份验证的用户注册推送通知时，用户 ID 标记将自动添加到注册中。 使用此标记可以向特定用户注册的所有设备发送推送通知。 以下代码获取发出请求的用户的 SID，并将模板推送通知发送到该用户的每个设备注册：
+当经过身份验证的用户注册推送通知时，用户 ID 标记自动添加到注册中。 使用此标记可以向特定用户注册的所有设备发送推送通知。 以下代码获取发出请求的用户的 SID，并将模板推送通知发送到该用户的每个设备注册：
 
 ```
 // Only do the push if configured
@@ -762,7 +764,7 @@ if (context.push) {
 
 除了通过 /tables 终结点的数据访问 API 以外，Azure 移动应用还可提供自定义 API 覆盖范围。  自定义 API 以类似于表定义的方法定义，可访问所有相同的功能，包括身份验证。
 
-如果想要将应用服务身份验证与自定义 API 配合使用，必须先在 [Azure 门户] 中配置应用服务身份验证。  有关在 Azure App Service 中配置身份验证的详细信息，请参阅要使用的标识提供者的配置指南：
+如果想要将应用服务身份验证与自定义 API 配合使用，必须先在 [Azure 门户]中配置应用服务身份验证。  有关在 Azure App Service 中配置身份验证的详细信息，请参阅要使用的标识提供者的配置指南：
 
 - [How to configure Azure Active Directory Authentication（如何配置 Azure Active Directory 身份验证）]
 - [How to configure Microsoft Authentication（如何配置 Microsoft 身份验证）]
@@ -971,12 +973,12 @@ Azure 门户允许在应用服务编辑器中编辑 Node.js 后端脚本文件�
 [Xamarin.Forms 客户端快速入门]: ./app-service-mobile-xamarin-forms-get-started.md
 [Windows 应用商店客户端快速入门]: ./app-service-mobile-windows-store-dotnet-get-started.md
 [脱机数据同步]: ./app-service-mobile-offline-data-sync.md
-[How to configure Azure Active Directory Authentication（如何配置 Azure Active Directory 身份验证）]: ./app-service-mobile-how-to-configure-active-directory-authentication.md
-[How to configure Microsoft Authentication（如何配置 Microsoft 身份验证）]: ./app-service-mobile-how-to-configure-microsoft-authentication.md
-[Azure App Service Deployment Guide]: ../app-service-web/web-sites-deploy.md
-[Monitoring an Azure App Service（监视 Azure 应用服务）]: ../app-service-web/web-sites-monitor.md
-[Enable Diagnostic Logging in Azure App Service（在 Azure 应用服务中启用诊断记录）]: ../app-service-web/web-sites-enable-diagnostic-log.md
-[Troubleshoot an Azure App Service in Visual Studio（在 Visual Studio 中对 Azure 应用服务进行故障排除）]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
+[How to configure Azure Active Directory Authentication（如何配置 Azure Active Directory 身份验证）]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[How to configure Microsoft Authentication（如何配置 Microsoft 身份验证）]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Azure App Service Deployment Guide]: ../app-service/app-service-deploy-local-git.md
+[Monitoring an Azure App Service（监视 Azure 应用服务）]: ../app-service/web-sites-monitor.md
+[Enable Diagnostic Logging in Azure App Service（在 Azure 应用服务中启用诊断记录）]: ../app-service/web-sites-enable-diagnostic-log.md
+[Troubleshoot an Azure App Service in Visual Studio（在 Visual Studio 中对 Azure 应用服务进行故障排除）]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [指定 Node 版本]: ../nodejs-specify-node-version-azure-apps.md
 [使用 Node 模块]: ../nodejs-use-node-modules-azure-apps.md
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps

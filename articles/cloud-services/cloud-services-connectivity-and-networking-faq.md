@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2017
+origin.date: 09/20/2017
 ms.author: v-yiso
-ms.date: 07/31/2017
-ms.openlocfilehash: f350647b4b3b200060e99bbc0b3433434ca25cda
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 11/06/2017
+ms.openlocfilehash: d1e8e0d6b8dac62e51351ad9f25e2df32a6f828d
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的连接和网络问题：常见问题解答 (FAQ)
 
@@ -60,5 +60,50 @@ Azure 实施多层网络安全性来防范其平台服务遭到分布式拒绝�
 
 使用的分配算法是将流量映射到可用服务器的 5 元组（源 IP、源端口、目标 IP、目标端口和协议类型）哈希。 它仅在传输会话内部提供粘性。 同一 TCP 或 UDP 会话中的数据包会定向到负载均衡终结点后面的同一数据中心 IP (DIP) 实例。 客户端从同一源 IP 关闭再重新打开连接或启动新会话时，源端口会更改，并导致流量定向到其他 DIP 终结点。
 
+## <a name="how-can-i-redirect-the-incoming-traffic-to-my-default-url-of-cloud-service-to-a-custom-url"></a>如何将发往云服务的默认 URL 的传入流量重定向到自定义 URL？ 
 
-<!--Update_Description: update meta data only-->
+可以使用 IIS 的 URL 重写模块将传入到云服务的默认 URL（例如 \*.chinacloudapp.cn）的流量重定向到某个自定义 DNS 名称/URL。 由于 URL 重写模块默认在 Web 角色上启用并且其规则是在应用程序的 web.config 中配置的，因此，无论是否重新启动/重置映像，它都始终可用。 有关详细信息，请参阅：
+
+- [为 URL 重写模块创建重写规则](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
+- [如何删除默认链接](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
+
+## <a name="how-can-i-blockdisable-the-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>如何阻止/禁用发往云服务的默认 URL 的传入流量？ 
+
+可以通过在云服务定义 (*.csdef) 文件中的站点绑定配置下将主机标头设置为自定义 DNS 名称（例如 www.MyCloudService.com），阻止发往云服务的默认 URL/名称（例如 \*.chinacloudapp.cn）的传入流量，如下所示： 
+ 
+
+    <?xml version="1.0" encoding="utf-8"?> 
+    <ServiceDefinition name="AzureCloudServicesDemo" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6"> 
+      <WebRole name="MyWebRole" vmsize="Small"> 
+        <Sites> 
+          <Site name="Web"> 
+            <Bindings> 
+              <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.MyCloudService.com" /> 
+            </Bindings> 
+          </Site> 
+        </Sites> 
+        <Endpoints> 
+          <InputEndpoint name="Endpoint1" protocol="http" port="80" /> 
+        </Endpoints> 
+        <ConfigurationSettings> 
+          <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" /> 
+        </ConfigurationSettings> 
+      </WebRole> 
+    </ServiceDefinition> 
+ 
+因为通过 csdef 文件强制实施了此主机标头绑定，所以，只能通过自定义名称“www.MyCloudService.com”访问该服务，而发往“*.chinacloudapp.cn”域的所有传入请求都将失败。 话虽如此，但是，如果在服务中使用了自定义 SLB 探测或内部负载均衡器，则阻止服务的默认 URL/名称可能会干扰探测行为。 
+
+## <a name="how-to-make-sure-the-public-facing-ip-address-of-a-cloud-service-aka-vip-never-changes-so-that-it-could-be-customarily-whitelisted-by-few-specific-clients"></a>如何确保云服务面向公众的 IP 地址（aka、VIP）永不改变，以便少数特定的客户端通常可以将其列入白名单？
+
+为了将云服务的 IP 地址列入白名单，建议将一个保留 IP 与服务进行关联，否则，如果删除了部署，则会从订阅解除分配由 Azure 提供的虚拟 IP。 请注意，为使 VIP 交换操作成功，需要为生产槽和暂存槽设置单独的保留 IP，如果缺少这些 IP，交换操作会失败。 请根据以下文章来保留 IP 地址并将其与云服务进行关联：  
+ 
+- [保留现有云服务的 IP 地址](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
+- [使用服务配置文件将保留 IP 关联到云服务](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file) 
+
+只要有多个实例用于你的角色，将 RIP 与云服务进行关联就应该不会导致任何停机时间。 另外，还可以将你的 Azure 数据中心的 IP 范围列入白名单。 可以在[此处](https://www.microsoft.com/en-us/download/details.aspx?id=41653)找到所有 Azure IP 范围。 
+
+此文件包含 Microsoft Azure 数据中心使用的 IP 地址范围（包括计算、SQL 和存储范围）。 每周都将发布更新的文件，反映当前已部署的范围和任何即将对 IP 范围进行的更改。 数据中心至少在一周后才会使用文件中显示的新范围。 请每周下载新的 xml 文件，并在网站上执行必要的更改以正确地标识 Azure 中运行的服务。 快速路由用户可能会注意到，此文件用于在每个月第一周更新 Azure 空间的 BGP 播发。 
+
+## <a name="how-can-i-use-azure-resource-manager-vnets-with-cloud-services"></a>如何将 Azure 资源管理器 VNet 与云服务一起使用？ 
+
+不能将云服务置于 Azure 资源管理器 VNet 中，但可以通过对等互连将 Azure 资源管理器 VNet 与经典 VNet 连接起来。 有关详细信息，请参阅[虚拟网络对等互连](../virtual-network/virtual-network-peering-overview.md)。

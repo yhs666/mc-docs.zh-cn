@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 10/09/2017
-ms.openlocfilehash: d823ca1c5b8398eeb241ef45df68277a897ef75f
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.date: 11/06/2017
+ms.openlocfilehash: fe8e3db2a09069d15f19b81c2773359d05204189
+ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="getting-started"> </a>关于 Azure 应用服务中的移动应用
 Azure 应用服务是完全托管的平台即服务 (PaaS) 产品，适用于专业开发人员。 该服务为 Web、移动和集成方案提供丰富的功能集。 
@@ -60,7 +60,7 @@ Azure 应用服务中的移动应用功能为企业开发人员和系统集成�
 
 * 自动缩放：使用应用服务可以快速地进行纵向或横向扩展，以处理任何传入的客户负载。 手动选择 VM 的数量和大小，或者设置自动缩放，根据负载或计划来缩放移动应用后端。
 
-  深入了解 [自动缩放]。
+  深入了解[自动缩放]。
 
 * 过渡环境：应用服务可以运行多个版本的站点，用于执行 A/B 测试，在较大型 DevOps 计划中进行生产测试，以及对新后端执行现场过渡。
 
@@ -68,9 +68,11 @@ Azure 应用服务中的移动应用功能为企业开发人员和系统集成�
 
 * 连续部署：应用服务可与常用供应链管理 (SCM) 系统集成，用于将新版后端推送到 SCM 系统的分支以实现自动部署。
 
-  深入了解 [部署选项]。
+  深入了解 [部署选项](../app-service/app-service-deploy-local-git.md)。
 
-* 虚拟网络：应用服务可以使用虚拟网络连接到本地资源。
+* 虚拟网络：应用服务可以使用虚拟网络、Azure ExpressRoute 或混合连接与本地资源建立连接。
+
+  深入了解[混合连接]、[虚拟网络]。
 
   了解有关[虚拟网络]的详细信息。
 
@@ -95,11 +97,11 @@ Azure 应用服务中的移动应用功能为企业开发人员和系统集成�
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.iOS 和 Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
-[Xamarin Forms]: ./app-service-mobile-xamarin-forms-get-started.md
+[Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[自动缩放]: ../app-service-web/web-sites-scale.md
-[过渡环境]: ../app-service-web/web-sites-staged-publishing.md
-[部署选项]: ../app-service-web/web-sites-deploy.md
+[autoscaling]: ../app-service/web-sites-scale.md
+[过渡环境]: ../app-service/web-sites-staged-publishing.md
+[混合连接]: ../biztalk-services/integration-hybrid-connection-overview.md
+[虚拟网络]: ../app-service/web-sites-integrate-with-vnet.md
 
-[虚拟网络]: ../app-service-web/web-sites-integrate-with-vnet.md
 [学习路线图]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/

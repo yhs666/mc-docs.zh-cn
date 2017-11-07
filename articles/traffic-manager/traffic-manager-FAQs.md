@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/15/2017
-ms.date: 09/25/2017
+origin.date: 09/18/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3e7a2d7539734cff572836706abeebe52a6b70a9
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 49a539f0485ee2fc95084e3606f8ac44ff0b52ac
+ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 09/22/2017
 
 如[流量管理器工作原理](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)中所述，流量管理器在 DNS 级别工作。 它会发送 DNS 响应，将客户端定向到相应的服务终结点。 然后，客户端直接连接到服务终结点，不通过流量管理器进行连接。
 
-因此，流量管理器不提供供客户端连接的终结点或 IP 地址。 因此，如果想要为服务使用静态 IP 地址，则必须在服务而不是流量管理器中配置该地址。
+因此，流量管理器不提供供客户端连接的终结点或 IP 地址。 如果想要为服务使用静态 IP 地址，必须在服务而不是流量管理器中配置该地址。
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>流量管理器是否支持“粘滞”会话？
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 09/22/2017
 
 因此，进一步的调查应着重于应用程序。
 
-问题的最常见原因源自客户端浏览器发送的 HTTP 主机标头。 请确保将应用程序配置为接受所要使用的域名的正确主机标头。 对于使用 Azure 应用服务的终结点，请参阅[使用流量管理器为 Azure 应用服务中的 Web 应用配置自定义域名](../app-service-web/web-sites-traffic-manager-custom-domain-name.md)。
+问题的最常见原因源自客户端浏览器发送的 HTTP 主机标头。 请确保将应用程序配置为接受所要使用的域名的正确主机标头。 对于使用 Azure 应用服务的终结点，请参阅[使用流量管理器为 Azure 应用服务中的 Web 应用配置自定义域名](../app-service/web-sites-traffic-manager-custom-domain-name.md)。
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>使用流量管理器对性能有什么影响？
 
@@ -113,11 +113,13 @@ ms.lasthandoff: 09/22/2017
 
 ###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>为何强烈建议客户创建嵌套式配置文件，而不是将终结点直接置于启用了地理路由的配置文件中？ 
 
-如果使用地理路由类型，则只能将一个区域分配给配置文件中的一个终结点。 如果该终结点不是带有子配置文件的嵌套类型，则当该终结点不正常时，流量管理器仍会继续向其发送流量，因为不发送流量也不会造成任何改善。 流量管理器不会故障转移到其他终结点，即使所分配的区域是分配给不正常终结点的区域的“父”区域（例如，如果终结点的“西班牙”区域不正常，我们不会故障转移到为其分配了“欧洲”区域的另一终结点）。 这样做是为了确保流量管理器遵守客户在其配置文件中设置的地理边界。 为了确保在某个终结点不正常时能够故障转移到其他终结点，建议为地理区域分配包含多个终结点（而不是单个终结点）的嵌套式配置文件。 这样一来，如果嵌套式子配置文件中的某个终结点故障，则可将流量故障转移到同一嵌套式子配置文件中的其他终结点。
+如果使用地理路由类型，则只能将一个区域分配给配置文件中的一个终结点。 如果该终结点不是带有子配置文件的嵌套类型，则当该终结点不正常时，流量管理器仍会继续向其发送流量，因为不发送流量也不会造成任何改善。 流量管理器不会故障转移到其他终结点，即使所分配的区域是分配给不正常终结点的区域的“父”区域（例如，如果终结点的“西班牙”区域不正常，不会故障转移到为其分配了“欧洲”区域的另一终结点）。 这样做是为了确保流量管理器遵守客户在其配置文件中设置的地理边界。 为了确保在某个终结点不正常时能够故障转移到其他终结点，建议为地理区域分配包含多个终结点（而不是单个终结点）的嵌套式配置文件。 这样一来，如果嵌套式子配置文件中的某个终结点故障，则可将流量故障转移到同一嵌套式子配置文件中的其他终结点。
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>对于支持此路由类型的 API 版本，是否存在任何限制？
 
 是的。仅 API 2017-03-01 及更高版本支持地理路由类型。 不能使用旧的 API 版本创建地理路由类型的配置文件或向终结点分配地理区域。 如果使用旧的 API 版本从 Azure 订阅检索配置文件，则不会返回任何地理路由类型的配置文件。 另外，在使用旧的 API 版本时，如果返回的配置文件的终结点进行了地理区域分配，则不会显示该地理区域分配。
+<!-- Not Available ## Real User Measurements-->
+<!-- Not Available ## Traffic View-->
 
 ## <a name="traffic-manager-endpoints"></a>流量管理器终结点
 

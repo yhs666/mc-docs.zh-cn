@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-origin.date: 06/28/2017
-ms.date: 08/02/2017
+origin.date: 010/04/2017
+ms.date: 11/02/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 450c44b8932496069f5bfb98b4b0f692e9fa77f9
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: 5912924992586aaa7ecd8a82942346e16658a660
+ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 开发大规模并行计算解决方案
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 09/15/2017
 以下部分介绍可实现分布式计算方案的上述和其他批处理资源。
 
 > [!NOTE]
-> 需要有[批处理帐户](#account)才能使用批处理服务。 此外，几乎所有解决方案都可以使用 [Azure 存储][azure_storage]帐户存储和检索文件。 批处理目前仅支持**常规用途**存储帐户类型，如 [About Azure storage accounts](../storage/common/storage-create-storage-account.md)（关于 Azure 存储帐户）的 [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)（创建存储帐户）中步骤 5 所述。
+> 需要有[批处理帐户](#account)才能使用批处理服务。 此外，大多数 Batch 解决方案都可以使用关联的 [Azure 存储][azure_storage]帐户存储和检索文件。 
 >
 >
 
@@ -69,10 +69,26 @@ ms.lasthandoff: 09/15/2017
 - [应用程序包](#application-packages)
 
 ## <a name="account"></a>帐户
-批处理帐户是批处理服务中唯一标识的实体。 所有处理都与 Batch 帐户相关联。可以通过 [Azure 门户](batch-account-create-portal.md)或编程方式（例如使用[批处理管理 .NET 库](batch-management-dotnet.md)）创建 Azure Batch 帐户。 创建帐户时，可以关联 Azure 存储帐户。
+批处理帐户是批处理服务中唯一标识的实体。 所有处理都与一个 Batch 帐户相关联。
+
+可以通过 [Azure 门户](batch-account-create-portal.md)或编程方式（例如使用[批处理管理 .NET 库](batch-management-dotnet.md)）创建 Azure Batch 帐户。 创建该帐户时，可以关联一个 Azure 存储帐户，用于存储与作业相关的输入和输出数据或应用程序。
+
+可以在单个批处理帐户中运行多个批处理工作负荷，或者在相同订阅的不同 Azure 区域的批处理帐户之间分散工作负荷。
+
+> [!NOTE]
+> 创建 Batch 帐户时，通常应选择默认的“Batch 服务”模式。使用此模式时，池在 Azure 托管的订阅中以幕后方式分配。 在备用的“用户订阅”模式（不再推荐使用）下，会在创建池后直接在订阅中创建 Batch VM 和其他资源。
+>
+
+
+## <a name="azure-storage-account"></a>Azure 存储帐户
+
+大多数 Batch 解决方案使用 Azure 存储来存储资源文件和输出文件。  
+
+Batch 目前仅支持常规用途存储帐户类型，如[关于 Azure 存储帐户](../storage/common/storage-create-storage-account.md)的[创建存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)中步骤 5 所述。 Batch 任务（包括标准任务、启动任务、作业准备任务和作业释放任务）只能指定位于常规用途存储帐户中的资源文件。
+
 
 ## <a name="compute-node"></a>计算节点
-计算节点是专门用于处理一部分应用程序工作负荷的 Azure 虚拟机 (VM) 或云服务 VM。 节点大小确定了 CPU 核心数目、内存容量，以及分配给节点的本地文件系统大小。 可以使用 Azure 云服务或虚拟机应用商店映像创建的 Windows 或 Linux 节点池。 有关这些选项的详细信息，请参阅下面的 [池](#pool) 部分。
+计算节点是专门用于处理一部分应用程序工作负荷的 Azure 虚拟机 (VM) 或云服务 VM。 节点大小确定了 CPU 核心数目、内存容量，以及分配给节点的本地文件系统大小。 可以使用 [Azure 虚拟机 Marketplace][vm_marketplace] 提供的 Azure 云服务映像或自己准备的自定义映像创建 Windows 或 Linux 节点池。 有关这些选项的详细信息，请参阅下面的 [池](#pool) 部分。
 
 节点可以运行节点操作系统环境支持的任何可执行文件或脚本。 这包括适用于 Windows 的 \*.exe、\*.cmd、\*.bat 和 PowerShell 脚本，以及适用于 Linux 的二进制文件、shell 和 Python 脚本。
 
@@ -91,10 +107,22 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 
 在创建池时，可以指定以下属性：
 
+- 计算节点的操作系统和版本
+- 计算节点类型和目标节点数
+- 计算节点大小
+- 缩放策略
+- 任务计划策略
+- 计算节点的通信状态
+- 计算节点的启动任务
+- 应用程序包
+- 网络配置
+
+以下部分更详细地介绍了每个设置。
+
 > [!IMPORTANT]
-> 使用 Batch 服务配置创建的 Batch 帐户具有默认配额，用于限制 Batch 帐户中的核心数。 核心数对应于计算节点数。 可以在 [Azure Batch 服务的配额和限制](batch-quota-limit.md)中找到默认配额以及如何[提高配额](batch-quota-limit.md#increase-a-quota)的说明。 如果池不能实现其目标节点数，则问题可能出在核心配额上。
+> Batch 帐户具有默认配额，用于限制 Batch 帐户中的核心数。 核心数对应于计算节点数。 可以在 [Azure Batch 服务的配额和限制](batch-quota-limit.md)中找到默认配额以及如何[提高配额](batch-quota-limit.md#increase-a-quota)的说明。 如果池不能实现其目标节点数，则问题可能出在核心配额上。
 >
->使用用户订阅配置创建的 Batch 帐户不会依循 Batch 服务配额。 而是会分摊指定订阅的核心配额。 有关详细信息，请参阅 [Azure 订阅和服务限制、配额和约束条件](../azure-subscription-service-limits.md)中的[虚拟机限制](../azure-subscription-service-limits.md#virtual-machines-limits)。
+
 
 ### <a name="compute-node-operating-system-and-version"></a>计算节点的操作系统和版本
 
@@ -112,34 +140,9 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
     - 与云服务中的辅助角色一样，可以指定 *OS 版本*（有关辅助角色的详细信息，请参阅 [Cloud Services overview](../cloud-services/cloud-services-choose-me.md)（云服务概述）中的 [Tell me about cloud services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services)（介绍云服务）部分）。
     - 与辅助角色一样，对于 *OS 版本*，建议指定 `*`，使节点可自动升级，而无需采取措施来适应新的版本。 选择特定 OS 版本的主要用例是在允许更新版本之前执行向后兼容测试，以确保保持应用程序兼容性。 验证后，便可以更新池的 *OS 版本*并安装新的操作系统映像 – 所有正在运行的任务会中断并重新排队。
 
-有关在创建批处理帐户时如何设置池分配模式的信息，请参阅[帐户](#account)部分。
-
-#### <a name="custom-images-for-virtual-machine-pools"></a>虚拟机池的自定义映像
-
-若要将自定义映像用于虚拟机池，请使用“用户订阅”帐户配置创建 Batch 帐户。 使用此配置，Batch 池会分配到帐户所在的订阅中。 有关在创建 Batch 帐户时如何设置池分配模式的信息，请参阅[帐户](#account)部分。
-
-若要使用自定义映像创建虚拟机配置池，需要一个或多个标准 Azure 存储帐户来存储自定义 VHD 映像。 自定义映像存储为 Blob。 若要在创建池时引用自定义映像，请为 [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf) 属性的 [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) 属性指定自定义映像 VHD Blob 的 URI。
-
-确保存储帐户满足以下条件：   
-
-- 包含自定义映像 VHD Blob 的存储帐户必须与 Batch 帐户（用户订阅）位于同一订阅中。
-- 指定的存储帐户必须与 Batch 帐户位于同一区域。
-- 当前仅支持标准存储帐户。 将来会支持 Azure 高级存储。
-- 可以指定具有多个自定义 VHD Blob 的一个存储帐户，也可以指定每个都有一个 Blob 的多个存储帐户。 建议使用多个存储帐户来获得更好的性能。
-- 一个唯一的自定义映像 VHD Blob 最多可支持 40 个 Linux VM 实例或 20 个 Windows VM 实例。 需要创建 VHD Blob 的副本以创建具有更多 VM 的池。 例如，具有 200 个 Windows VM 的池需要为 **osDisk** 属性指定 10 个唯一的 VHD Blob。
-
 创建池时，需要选择适当的 **nodeAgentSkuId**，具体取决于 VHD 基本映像的 OS。 可通过调用[列出支持的节点代理 SKU](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) 操作获得可用节点代理 SKU ID 到其 OS 映像引用的映射。
 
-使用 Azure 门户从自定义映像创建池：
 
-1. 导航到 Azure 门户中的批处理帐户。
-2. 在“设置”边栏选项卡中，选择“池”菜单项。
-3. 在“池”边栏选项卡中，选择“添加”命令；随即会显示“添加池”边栏选项卡。
-4. 从“映像类型”下拉列表中选择“自定义映像 (Linux/Windows)”。 门户会显示“自定义映像”选取器。 从同一容器中选择一个或多个 VHD，并单击“选择”按钮。 
-    将来会添加针对来自不同存储帐户和不同容器的多个 VHD 的支持。
-5. 为自定义 VHD 选择正确的“发布服务器/优惠/Sku”，选择所需的“缓存”模式，并填写用于该池的所有其他参数。
-6. 若要检查池是否基于自定义映像，请查看“池”边栏选项卡的资源摘要部分中的“操作系统”属性。 此属性的值应为“自定义 VM 映像”。
-7. 与池相关联的所有自定义 VHD 都显示在池的“属性”边栏选项卡中。
 
 ### <a name="compute-node-type-and-target-number-of-nodes"></a>计算节点类型和目标节点数
 
@@ -151,8 +154,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 
     当 Azure 的多余容量不足时，低优先级计算节点可能会被抢占。 如果某个节点在运行任务时被抢占，这些任务会重新排队并在计算节点重新变为可用后，重新运行。 对于作业完成时间很灵活且工作分布在多个节点上的工作负荷来说，低优先级节点是一个很好选择。 在决定为自己的方案使用低优先级节点之前，请确保会因其他资源优先使用而导致丢失的工作是最少的，且这些工作易于重新创建。
 
-    低优先级计算节点仅适用于创建时会池分配模式设置为“Batch 服务”的 Batch 帐户。
-
+    
 在同一池中可同时有低优先级计算节点和专用计算节点。 每种类型的节点 &mdash; 低优先级节点和专用节点 &mdash; 都有其自己的目标设置，可以为其指定所需的节点数。 
     
 计算节点数之所以称为*目标*，是因为在某些情况下，池可能无法达到所需的节点数。 例如，如果池先达到了 Batch 帐户的[核心配额](batch-quota-limit.md)，则该池可能达不到目标。 或者，如果已将限制最大节点数的自动缩放公式应用于池，则该池也可能达不到目标。
@@ -377,20 +379,27 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 
 通常会使用一种组合方法来处理可变但持续存在的负载。 可以创建一个池用于容纳提交的多个作业，但同时根据作业负载扩展或缩减节点数目（请参阅下一部分中的 [缩放计算资源](#scaling-compute-resources) ）。 可以根据当前负载被动执行此操作，或者在负载可预测时主动执行此操作。
 
-## <a name="pool-network-configuration"></a>池网络配置
+## <a name="virtual-network-vnet-and-firewall-configuration"></a>虚拟网络 (VNet) 和防火墙配置 
 
-在 Azure Batch 中创建计算节点池时，可以指定应在其中创建池计算节点的 Azure [虚拟网络 (VNet)](../virtual-network/virtual-networks-overview.md) 的子网 ID。
+在 Batch 中预配计算节点池时，可以将池与 Azure [虚拟网络 (VNet)](../virtual-network/virtual-networks-overview.md) 的子网相关联。 若要详细了解如何创建包含子网的 VNet，请参阅[创建包含子网的 Azure 虚拟网络](../virtual-network/virtual-networks-create-vnet-classic-portal.md)。 
 
-- VNet 必须满足以下条件：
+VNet 要求：
 
-   - 与 Azure Batch 帐户位于同一 Azure **区域** 。
-   - 与 Azure Batch 帐户在同一**订阅**中。
+- 虚拟网络与 Azure Batch 帐户必须位于同一 Azure **区域**和**订阅**中。
+
+- 对于使用虚拟机配置创建的池，仅支持基于 Azure 资源管理器 (ARM) 的虚拟网络。 对于使用云服务配置创建的池，ARM 和经典虚拟网络均受支持。 
+
+- 若要使用基于 ARM 的网络，Batch 客户端 API 必须使用 Azure Active Directory 身份验证。 若要使用经典虚拟网络，“MicrosoftAzureBatch”服务主体必须为指定的虚拟网络提供“经典虚拟机参与者”基于角色的访问控制 (RBAC) 角色。 
 
 - 指定的子网应有足够的可用 IP 地址来提供给所有目标节点，即池的 `targetDedicatedNodes` 和 `targetLowPriorityNodes` 属性的总计。 如果子网没有足够的可用 IP 地址，批处理服务将分配池中的部分计算节点，并返回调整大小错误。
 
 - 指定的子网必须允许来自批处理服务的通信，才能在计算节点上计划任务。 如果与 VNet 关联的**网络安全组 (NSG)** 拒绝与计算节点通信，则批处理服务会将计算节点的状态设置为“不可用”。
 
-- 如果指定的 VNet 存在关联的网络安全组 (NSG)，则必须为入站通信启用数个保留的系统端口。 对于使用虚拟机配置创建的池，请启用端口 29876 和 29877，以及端口 22（适用于 Linux）和 3389（适用于 Windows）。 对于使用云服务配置创建的池，请启用端口 10100、20100 和 30100。 另请在端口 443 上启用到 Azure 存储的出站连接。
+- 如果指定的 VNet 存在关联的网络安全组 (NSG) 和/或防火墙，则必须为入站通信启用数个保留的系统端口：
+
+- 对于使用虚拟机配置创建的池，请启用端口 29876 和 29877，以及端口 22（适用于 Linux）和 3389（适用于 Windows）。 
+- 对于使用云服务配置创建的池，请启用端口 10100、20100 和 30100。 
+- 在端口 443 上启用到 Azure 存储的出站连接。 另请确保可以通过为 VNET 提供服务的自定义 DNS 服务器解析 Azure 存储终结点。 具体而言，`<account>.table.core.chinacloudapi.cn` 形式的 URL 应当是可以解析的。
 
     下表对入站端口进行了说明，需为通过虚拟机配置创建的池启用这些端口：
 
@@ -404,13 +413,6 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
     |    出站端口    |    目标    |    Batch 是否添加 NSG？    |    是使用 VM 所必需的吗？    |    来自用户的操作    |
     |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
     |    443    |    Azure 存储    |    否    |    是    |    如果添加 NSG，则请确保该端口对出站流量开放。    |
-
-- *MicrosoftAzureBatch* 服务主体必须为指定的 VNet 提供[经典虚拟机参与者](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor)基于角色的访问控制 (RBAC) 角色。 在 Azure 门户中：
-
-  - 选择“VNet”，然后单击“访问控制(IAM)” > “角色” > “经典虚拟机参与者” > “添加”
-  - 在“搜索”框中输入“MicrosoftAzureBatch”
-  - 选中“MicrosoftAzureBatch”复选框 
-  - 选择“选择”按钮 
 
 
 ## <a name="scaling-compute-resources"></a>缩放计算资源

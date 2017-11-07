@@ -13,32 +13,27 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-origin.date: 08/08/2017
-ms.date: 10/02/2017
+origin.date: 10/13/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: 66c3c842745aea00be0831a3c48bc7f7b2017e43
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: ce41a2bc2829b893b5240a32076c64fd6f7e24e0
+ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="what-is-stream-analytics"></a>什么是流分析？
 
-Azure 流分析是完全托管的事件处理引擎，可以用来设置针对流式处理数据的实时分析计算。 数据可能来自设备、传感器、网站、社交媒体源、应用程序、基础结构系统等。 
+Azure 流分析是托管的事件处理引擎，用于设置针对流式处理数据的实时分析计算。 数据可能来自设备、传感器、网站、社交媒体源、应用程序、基础结构系统等。 
 
-## <a name="what-can-i-do-with-stream-analytics"></a>流分析有什么用途？
+可以使用流分析检查来自设备或进程的大量数据流，从数据流提取信息，以及确定模式、趋势和关系。 可以使用这些模式来触发其他进程或操作（例如警报、自动化工作流）、将信息馈送到报告工具，或者将其存储起来供以后调查。 
 
-可以使用流分析检查来自设备或进程的大量数据流，从数据流提取信息，以及查找模式、趋势和关系。 然后，可以根据数据中的信息执行应用程序任务。 例如，可以引发警报、启动自动化工作流、向报告工具馈送信息，或者将数据存储起来，供以后调查之用。 
-<!-- Not Available Power BI output -->
+下面是一些示例：
 
-示例:
-
-* 由金融服务公司提供的个性化实时股票交易分析和提醒。
-* 通过检查事务数据来实时检测欺诈事件。 
-* 数据和标识保护服务。
-* 分析在物理对象（物联网，简称 IoT）中嵌入的传感器和传动器生成的数据。
+* 股票交易分析和警报。
+* 欺诈行为检测、数据和标识保护。 
+* 嵌入式传感器和传动器分析。
 * Web 点击流分析。
-* 客户关系管理 (CRM) 应用程序，其功能包括：当客户体验在某个时间范围内不佳时发出警报。
 
 ## <a name="how-does-stream-analytics-work"></a>流分析工作原理
 
@@ -48,38 +43,36 @@ Azure 流分析是完全托管的事件处理引擎，可以用来设置针对�
 
 流分析一开始需要流式处理数据源。 可以使用 Azure 事件中心或 IoT 中心将数据从设备引入 Azure。 也可从数据存储（例如 Azure Blob 存储）拉取数据。 
 
-若要检查流，可创建一项流分析作业，以便指定数据的来源。 该作业还指定了转换&mdash;如何查找数据、模式或关系。 就此任务来说，流分析支持类似 SQL 的查询语言，该语言用于对某个时段的流式处理数据进行筛选、排序、聚合和联接。
+若要检查流，可创建一项流分析作业，以便指定数据的来源。 该作业还指定了转换；如何查找数据、模式或关系。 就此任务来说，流分析支持类似 SQL 的查询语言，用于对某个时段的流式处理数据进行筛选、排序、聚合和联接。
 
-最后，该作业会指定一个输出，以便向其发送转换的数据。 这样就可以针对所分析的信息来控制后续操作。 例如，可以针对分析执行以下操作：
+最后，此作业为该转换数据指定一个输出。 可以针对所分析的信息来控制后续操作。 例如，可以针对分析执行以下操作：
 
 * 发送更改设备设置的命令。 
-* 将数据发送到受进程监视的队列，该进程会根据发现的情况采取操作。 
-<!-- Not Available Power BI as output of stream analytics-->
-* 将数据发送到 Data Lake Store、SQL Server 数据库或 Azure Blob/表存储之类的存储。
+* 将数据发送到受监视的队列，以便根据发现执行进一步的操作。 
+<!-- Not Available * Send data to a Power BI dashboard.-->
+* 将数据发送到 Azure SQL 数据库或 Azure Blob 存储之类的存储。
 <!-- Not Available Data Lake Store in Azure.CN-->
 
-当作业处于运行状态时，可以对其进行监视并调整其每秒处理的事件数。 也可以通过作业生成进行故障排除所需的诊断日志。
+可以调整在作业运行时每秒处理的事件数。 也可以生成进行故障排除所需的诊断日志。
 
 ## <a name="key-capabilities-and-benefits"></a>主要功能和优点
 
-流分析经过专门的设计，具有易用、灵活且经济的特点，并可根据作业大小进行缩放。
+流分析经过专门的设计，具有易用、灵活的特点，并可根据作业大小进行缩放。
 
-### <a name="connectivity-to-many-inputs-and-outputs"></a>连接到多个输入和输出
+### <a name="connect-inputs-and-outputs"></a>连接输入和输出
 
-流分析可直接连接到 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)和 [Azure IoT 中心](https://www.azure.cn/home/features/iot-hub/)进行流引入，并可连接到 [Azure Blob 存储服务](/storage/storage-introduction#blob-storage-accounts)进行历史数据引入。 如果从事件中心获取数据，则可组合使用流分析与其他数据源和处理引擎。
+流分析可直接连接到 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)和 [Azure IoT 中心](https://www.azure.cn/home/features/iot-hub/)进行流引入，并可连接到 [Azure Blob 存储服务](/storage/storage-introduction#blob-storage-accounts)进行历史数据引入。 组合使用从事件中心获取的数据、流分析以及其他数据源和处理引擎。 作业输入也可包括引用数据（静态数据或缓慢变化的数据）。 可以通过将流式处理数据联接到该引用数据来执行查找操作，其方式与数据库查询方式相同。
 
-作业输入也可包括引用数据（静态数据或缓慢变化的数据）。 可以通过将流式处理数据联接到该引用数据来执行查找操作，其方式与数据库查询方式相同。
-
-在多个方向路由流分析作业输出。 可以将其写入存储，例如 Azure 存储 Blob 或表、Azure SQL 数据库。 可以在该处通过 Azure HDInsight 对数据进行批处理分析。 可以将输出发送到供其他进程使用的其他服务，例如事件中心、Azure 服务总线主题或队列。 可以将输出发送到 Power BI，使之可视化。
+在多个方向路由流分析作业输出。 写入 Azure Blob、Azure SQL 数据库之类的存储。 可以在这里通过 Azure HDInsight 运行批处理分析。 也可以将输出发送到供其他进程使用的其他服务（例如事件中心、Azure 服务总线、队列），或者发送到 Power BI 进行可视化。
 <!-- Not Available Data Lake Store, Azure Cosmos Db as output-->
 
-### <a name="ease-of-use"></a>易于使用
+### <a name="easy-to-use"></a>易于使用
 
 若要定义转换，可使用简单的声明性[流分析查询语言](https://msdn.microsoft.com/library/azure/dn834998.aspx)，不需编程即可进行复杂的分析。 查询语言采用流式处理数据作为其输入。 然后，可对数据进行筛选和排序、对值进行聚合、执行计算、对数据进行联接（在流内进行，或者以引用数据作为联接目标），以及使用地理空间函数。 可以在门户中使用 IntelliSense 和语法检查来编辑查询，还可以使用可从实时流中提取的示例数据来测试查询。
 
 ### <a name="extensible-query-language"></a>可扩展查询语言
 
-可以通过定义和调用其他函数来扩展查询语言的功能。 也可集成 JavaScript 用户定义函数 (UDF)，以便在流分析查询过程中执行复杂的计算。
+可以通过定义和调用其他函数来扩展查询语言的功能。 可集成 JavaScript 用户定义函数 (UDF)，以便在流分析查询过程中执行复杂的计算。
 <!-- Not Available Azure Machine Learning --> 
 
 ### <a name="scalability"></a>可伸缩性
@@ -99,8 +92,6 @@ Azure 流分析是完全托管的事件处理引擎，可以用来设置针对�
 * 入门方式：[在 IoT 设备中试验输入和查询](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)。
 * 构建[端到端流分析解决方案](stream-analytics-real-time-fraud-detection.md)，通过检查电话元数据来找出欺诈性电话。
 * 了解适用于流分析且类似 SQL 的查询语言，以及独特的概念（例如[开窗函数](stream-analytics-window-functions.md)）。
-* 了解如何[缩放流分析作业](stream-analytics-scale-jobs.md)。 
-<!-- Not Available * Learn how to [integrate Stream Analytics and Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md). -->
 * 在 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)中查找流分析问题的答案。
 
 <!--Update_Description: update meta properties, wording update-->

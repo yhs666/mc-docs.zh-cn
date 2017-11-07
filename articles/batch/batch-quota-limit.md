@@ -12,21 +12,21 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/28/2017
-ms.date: 08/02/2017
+origin.date: 09/28/2017
+ms.date: 11/02/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96df8a9584c855caeab11b8ee045ef3f97e48478
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: f19f63be6908c84bccfa9d64831f4c86de13c1e1
+ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 
 与其他 Azure 服务一样，与 Batch 服务关联的某些资源存在限制。 其中的许多限制是 Azure 在订阅或帐户级别应用的默认配额。 本文描述这些默认值，以及如何请求提高配额。
 
-设计和增加 Batch 工作负荷时，请记住这些配额。 例如，如果池没有达到指定的计算节点目标数量，那么可能是已达到批处理帐户的核心配额限制，或者已达到订阅的区域 VM 核心配额。
+设计和增加 Batch 工作负荷时，请记住这些配额。 例如，如果池没有达到指定的计算节点目标数量，那么可能是已达到 Batch 帐户的核心配额限制。
 
 可以在单个批处理帐户中运行多个批处理工作负荷，或者在相同订阅的不同 Azure 区域的批处理帐户之间分散工作负荷。
 
@@ -40,6 +40,10 @@ ms.lasthandoff: 08/18/2017
 ## <a name="resource-quotas"></a>资源配额
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+### <a name="quotas-in-user-subscription-mode"></a>用户订阅模式中的配额
+
+如果使用了 Batch API 的早期版本创建 Batch 帐户，并将池分配模式设置为“用户订阅”，则会以不同的方式应用配额。 在此模式下（不再推荐使用），会在创建池后直接在订阅中创建 Batch VM 和其他资源。 Azure Batch 核心配额不会应用到在此模式下创建的帐户。 对于此类帐户，将应用订阅中的区域计算核心数和其他资源的配额。 在 [Azure 订阅和服务的限制、配额和约束](../azure-subscription-service-limits.md)中详细了解这些配额。
+
 ## <a name="other-limits"></a>其他限制
 | **资源** | **最大限制** |
 | --- | --- |
@@ -52,47 +56,46 @@ ms.lasthandoff: 08/18/2017
 <sup>1</sup> 最大的块 Blob 大小的 Azure 存储限制<br />
 <sup>2</sup> 包括资源文件和环境变量
 
+
+
 ## <a name="view-batch-quotas"></a>查看 Batch 配额
 可在 [Azure 门户][portal]中查看批处理帐户配额。
 
 1. 在门户中选择“Batch 帐户”，并选择所需的 Batch 帐户。
-2. 在批处理帐户的菜单边栏选项卡中选择“属性”。
-3. “属性”边栏选项卡显示了当前应用于 Batch 帐户的 **配额**
+2. 在 Batch 帐户的菜单上选择“配额”。
+3. 显示当前应用于 Batch 帐户的配额
    
     ![Batch 帐户配额][account_quotas]
 
+
+
 ## <a name="increase-a-quota"></a>提高配额
-执行以下这些步骤，使用 [Azure 门户][portal]来请求提高配额。
+执行以下步骤，使用 [Azure 门户][portal]请求提高批处理帐户或订阅的配额。 可以提高哪种配额取决于批处理帐户的池分配模式。
+
+### <a name="increase-a-batch-cores-quota"></a>提高批处理核心配额 
 
 1. 在门户仪表板上选择“帮助 + 支持”磁贴，或单击门户右上角的问号 (**?**)。
-2. 选择“新建支持请求” > “基本”。
-3. 在“基本”边栏选项卡上：
+2. 选择“新建支持请求”。
+3. 更新以下基本类型。
+
+    a. 输入基本信息，例如“姓名”、“电话号码”、“电子邮件”。
    
-    a. “问题类型” > “配额”
+    b. “问题类型” > “配额”
    
-    b. 选择订阅。
+    c. 选择订阅。
    
-    c. “配额类型” > “Batch”
+    d.单击“下一步”。 “配额类型” > “Batch”
    
-    d.单击“下一步”。 “支持计划” > “配额支持 - 已包括”
+    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 输入“支持问题标题”
    
-    单击“下一步”。
-4. 在“问题”边栏选项卡上：
+    f.单击“保存”以保存设置。 在“详细信息”中，指定想要更改的每个配额、Batch 帐户名和新限制。
    
-    a. 根据[业务影响情况][support_sev]选择“严重性”。
-   
-    b. 在“详细信息”中，指定想要更改的每个配额、Batch 帐户名和新限制。
-   
-    单击“下一步”。
-5. 在“联系信息”边栏选项卡上：
-   
-    a. Select a **Preferred contact method**.
-   
-    b. 输入并确认所需的联系人详细信息。
-   
+    g. 上传附件。
+    
     单击“创建”提交支持请求。
 
 提交支持请求后，Azure 支持人员将与你取得联系。 请注意，完成该请求最多需要 2 个工作日。
+
 
 ## <a name="related-topics"></a>相关主题
 - [使用 Azure 门户创建 Azure Batch 帐户](batch-account-create-portal.md)
@@ -103,6 +106,6 @@ ms.lasthandoff: 08/18/2017
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
 [support_sev]: http://aka.ms/supportseverity
 
-[account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
+[account_quotas]: ./media/batch-quota-limit/accountquota_portal.png
 
 <!-- Update_Description: wording update -->

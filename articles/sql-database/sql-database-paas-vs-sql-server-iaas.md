@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
 origin.date: 02/01/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: d9efb3ec4206b252430485a8546471910f044600
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 167af53d2223a25bd66f1ea2db675b2acd1a6a1a
+ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>选择云 SQL Server 选项：Azure SQL (PaaS) 数据库或 Azure VM 上的 SQL Server (IaaS)
 Azure 有两个选项可用于在 Azure 中托管 SQL Server 工作负荷：
@@ -33,7 +33,7 @@ Azure 有两个选项可用于在 Azure 中托管 SQL Server 工作负荷：
 了解每个选项如何配合 Microsoft 数据平台一起运行，并在匹配适合业务要求的选项时获得帮助。 无论以节省成本为优先考虑，还是将精简管理视为第一要素，本文都会帮助你确定哪种方法能够满足你最重视的业务要求。
 
 ## <a name="microsofts-data-platform"></a>Microsoft 的数据平台
-在 Azure 与本地 SQL Server 数据库的任何介绍中，要了解的要点之一是可以同时使用两者。 Microsoft 数据平台利用 SQL Server 技术，使其可在跨本地物理计算机、私有云环境、第三方托管的私有云环境和公有云中使用。 使用 Azure 虚拟机上的 SQL Server，可以通过本地和云托管部署的组合来满足独特的多样化业务需求，并同时在这些环境中使用相同的服务器产品、开发工具和专业知识组合。
+在 Azure 与本地 SQL Server 数据库的任何介绍中，要了解的要点之一是可以同时使用两者。 Azure 数据平台利用 SQL Server 技术，使其可在跨本地物理计算机、私有云环境、第三方托管的私有云环境和公有云中使用。 使用 Azure 虚拟机上的 SQL Server，可以通过本地和云托管部署的组合来满足独特的多样化业务需求，并同时在这些环境中使用相同的服务器产品、开发工具和专业知识组合。
 
    ![云 SQL Server 选项：IaaS 上的 SQL Server，或云中的 SaaS SQL 数据库。](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
@@ -66,7 +66,6 @@ Azure 有两个选项可用于在 Azure 中托管 SQL Server 工作负荷：
 |  | 需要内置高可用性、灾难恢复和数据库升级的团队。 |可以配置和管理高可用性、灾难恢复与 SQL Server 修补的团队。 提供的某些自动化功能大大简化了这些任务。 | |
 |  | 不想要管理基础操作系统和配置设置的团队。 |需要一个具有完全管理权限的自定义环境。 | |
 |  | 最大为 4 TB 或更大的可使用扩展模式进行[水平或垂直分区](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling)的数据库。 |具有高达 64 TB 存储空间的 SQL Server 实例。 实例可以支持所需数量的数据库。 | |
-|  | [构建软件即服务 (SaaS) 应用程序](sql-database-design-patterns-multi-tenancy-saas-applications.md)。 |迁移和构建企业与混合应用程序。 | |
 |  | | |
 | **资源：** |不想要利用 IT 资源来配置和管理基础结构，而想要专注于应用程序层。 |可将某些 IT 资源用于配置和管理。 提供的某些自动化功能大大简化了这些任务。 |
 | **总拥有成本：** |消除硬件成本并减少管理成本。 |消除硬件成本。 |
@@ -120,9 +119,9 @@ Azure 有两个选项可用于在 Azure 中托管 SQL Server 工作负荷：
 ### <a name="service-level-agreement-sla"></a>服务级别协议 (SLA)
 对于许多 IT 部门而言，达到服务级别协议 (SLA) 规定的正常运行时间义务是首要任务。 本部分会说明 SLA 对每个数据库托管选项代表的含义。
 
-对于 **SQL 数据库**的基本、标准、高级和高级 RS 服务层，Microsoft 提供 99.99% 的可用性 SLA。 有关最新信息，请参阅[服务级别协议](https://www.azure.cn/support/sla/sql-data/)。 有关 SQL 数据库服务层和支持的业务连续性计划的最新信息，请参阅[服务层](sql-database-service-tiers.md)。
+对于 SQL 数据库的基本、标准、高级和高级 RS 服务层，Azure 提供 99.99% 的可用性 SLA。 有关最新信息，请参阅[服务级别协议](https://www.azure.cn/support/sla/sql-data/)。 有关 SQL 数据库服务层和支持的业务连续性计划的最新信息，请参阅[服务层](sql-database-service-tiers.md)。
 
-对于 **Azure VM 上运行的 SQL Server**，Microsoft 提供 99.95% 的可用性 SLA（仅涵盖虚拟机）。 此 SLA 不涵盖 VM 上运行的进程（例如 SQL Server），并且要求你在可用性集中托管至少两个 VM 实例。 有关最新信息，请参阅 [VM SLA](https://www.azure.cn/support/sla/virtual-machines/)。 为了在 VM 中实现数据库高可用性 (HA)，应在 SQL Server 中配置一个受支持的高可用性选项，例如 [AlwaysOn 可用性组](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)。 使用支持的高可用性选项不会提供更多 SLA，但使用户能够实现 >99.99% 的数据库可用性。
+对于 Azure VM 上运行的 SQL Server，Azure 提供 99.95% 的可用性 SLA（仅涵盖虚拟机）。 此 SLA 不涵盖 VM 上运行的进程（例如 SQL Server），并且要求你在可用性集中托管至少两个 VM 实例。 有关最新信息，请参阅 [VM SLA](https://www.azure.cn/support/sla/virtual-machines/)。 为了在 VM 中实现数据库高可用性 (HA)，应在 SQL Server 中配置一个受支持的高可用性选项，例如 [AlwaysOn 可用性组](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)。 使用支持的高可用性选项不会提供更多 SLA，但使用户能够实现 >99.99% 的数据库可用性。
 
 ### <a name="market"></a>面市时间
 **SQL 数据库**是云式应用程序的理想解决方案。 此选项提供类似于编程 DBA 的功能，非常适合云架构师和开发人员，因为它能降低管理基础操作系统和数据库的需求。 例如，可以使用 [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) 和 [PowerShell Cmdlet](http://msdn.microsoft.com/library/mt740629.aspx) 来自动化和管理数千个数据库的管理操作。 [弹性池](sql-database-elastic-pool.md)等功能可让你将重点放在应用程序层上，更快地将解决方案推向市场。
