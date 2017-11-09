@@ -1,5 +1,4 @@
-## 安装必备组件
-<a id="install-the-prerequisites" class="xliff"></a>
+## <a name="install-the-prerequisites"></a>安装必备组件
 
 1. 安装 [Visual Studio 2015 或 2017](https://www.visualstudio.com)。 如果满足授权要求，可以使用免费的社区版。 请务必包含 Visual C++ 和 NuGet 包管理器。
 
@@ -7,7 +6,7 @@
 
 1. 安装 [CMake](https://cmake.org/download/) 并确保可从命令行运行 cmake.exe。 建议使用 CMake 版本 3.7.2 或更高版本。 **.msi** 安装程序是 Windows 上最简单的选项。 安装程序提示时，至少为当前用户将 CMake 添加到 PATH。
 
-1. 安装 [Python 2.7](https://www.python.org/downloads/release/python-27)。 确保通过“控制面板”->“系统”->“高级系统设置”->“环境变量”将 Python 添加到 `PATH` 环境变量。
+1. 安装 [Python 2.7](https://www.python.org/downloads/release/python-27)。 请确保将 Python 添加到 `PATH` 环境变量。 转到“控制面板” > “系统和安全” > “系统” > “高级系统设置” > “环境变量”。 将 `C:\Python27` 添加到路径。 
 
 1. 在命令提示符中，运行以下命令，将 Azure IoT Edge GitHub 存储库克隆到本地计算机上：
 
@@ -15,12 +14,11 @@
     git clone https://github.com/Azure/iot-edge.git
     ```
 
-## 如何生成示例
-<a id="how-to-build-the-sample" class="xliff"></a>
+## <a name="how-to-build-the-sample"></a>如何生成示例
 
 现在可在本地计算机上生成 IoT Edge 运行时和示例：
 
-1. 打开“VS 2015 开发人员命令提示”或“VS 2017 开发人员命令提示”命令提示符。
+1. 打开“VS 2015 开发人员命令提示”或“VS 2017 开发人员命令提示”，具体要取决于你的版本。
 
 1. 浏览到 **iot-edge** 存储库本地副本中的根文件夹。
 
