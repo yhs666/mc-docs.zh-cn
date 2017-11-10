@@ -1,8 +1,8 @@
 ---
-title: "Azure VPN 网关文档 - 教程和 API 参考 | Azure"
-description: "了解如何配置虚拟专用网络 (VPN) 网关，以管理云虚拟网络和本地之间的流量或云 VNet 之间的流量。"
+title: "Azure VPN 网关文档 - 教程和 API 参考 | Microsoft 文档"
+description: "了解如何配置虚拟专用网络 (VPN) 网关，用于管理云虚拟网络与本地之间或者云 VNet 之间的流量。"
 services: vpn-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -10,23 +10,21 @@ ms.service: vpn-gateway
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 01/23/2017
-ms.date: 06/20/2017
-ms.author: v-dazen
-ms.openlocfilehash: 77e1e79c4ae0b99fdcd88e43cd995e7017b75897
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 01/23/2017
+ms.author: carolz
+ms.openlocfilehash: 61273e472dd0d0727df40984ad277aaf4c244611
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 10/11/2017
 ---
-# VPN 网关文档
-<a id="vpn-gateway-documentation" class="xliff"></a>
+# <a name="vpn-gateway-documentation"></a>VPN 网关文档
 
-了解如何配置 VPN 网关（一种虚拟专用网络网关）。 文档介绍了如何在 Azure 虚拟网络与本地位置或其他 Azure 虚拟网络 (VNet) 之间发送网络流量。
+了解如何配置 VPN 网关（虚拟专用网络网关）。 文档介绍了如何在 Azure 虚拟网络与本地位置或其他 Azure 虚拟网络 (VNet) 之间发送网络流量。
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/vpn-gateway/vpn-gateway-about-vpngateways">
+        <a href="/azure/vpn-gateway/vpn-gateway-about-vpngateways">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -44,7 +42,25 @@ ms.lasthandoff: 06/23/2017
         </a>
     </li>
     <li>
-        <a href="/vpn-gateway/vpn-gateway-plan-design">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>VPN 网关视频库</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/vpn-gateway/vpn-gateway-plan-design">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -54,7 +70,7 @@ ms.lasthandoff: 06/23/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>规划 VPN 网关入门</h3>
+                        <h3>开始规划 VPN 网关</h3>
                     </div>
                 </div>
             </div>
@@ -62,7 +78,7 @@ ms.lasthandoff: 06/23/2017
         </a>
     </li>
     <li>
-        <a href="/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal">
+        <a href="/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,7 +96,7 @@ ms.lasthandoff: 06/23/2017
         </a>
     </li>
      <li>
-        <a href="/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal">
+        <a href="/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -98,7 +114,7 @@ ms.lasthandoff: 06/23/2017
         </a>
     </li>
      <li>
-        <a href="/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal">
+        <a href="/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -116,3 +132,38 @@ ms.lasthandoff: 06/23/2017
         </a>
     </li>
  </ul>
+ 
+---
+
+<h2>引用</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>命令行</h3>
+                        <p><a href="/powershell/module/azurerm.network/#vpn">PowerShell (Resource Manager)</a></p>
+                        <p><a href="/powershell/module/azure/#networking">PowerShell（经典）</a></p> 
+                        <p><a href="/cli/azure/network/vnet-gateway">Azure CLI</a></p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/network/virtualnetworkgateways">REST (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST（经典）</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+
