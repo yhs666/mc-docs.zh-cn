@@ -17,11 +17,11 @@ origin.date: 07/26/2017
 ms.date: 09/25/2017
 ms.author: v-yeche
 ms.custom: 
-ms.openlocfilehash: ff59463a5d510978c1087c0b08b8bc36503265f5
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 12461c60a4cab17bc05aea98c5ad3aa15706aaf4
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets"></a>创建包含多个子网的虚拟网络
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 09/22/2017
 无论是在 Windows、Linux 还是 macOS 上，执行 Azure CLI 命令的结果都是相同的。 不过在操作系统 shell 之间存在脚本差异。 以下步骤中的脚本在 Bash shell 中执行。 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-1. [安装并配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
+1. [安装并配置 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
 <!-- Not Available  Azure Cloud Shell.-->
 2. 如果在本地运行 CLI，请使用 `az cloud set -n AzureChinaCloud` 和 `az login` 命令登录到 Azure。
 3. 查看以下脚本及其注释。 在浏览器中，复制该脚本并将其粘贴到 CLI 会话中：
@@ -167,7 +167,7 @@ ms.lasthandoff: 09/22/2017
 
 ### <a name="template-cli"></a>Azure CLI
 
-1. [安装并配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
+1. [安装并配置 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
 2. 如果在本地运行 CLI，请使用 `az cloud set -n AzureChinaCloud' and 'az login` 命令登录到 Azure。
 3. 若要为虚拟网络创建资源组，请复制以下命令，并将其粘贴到 CLI 会话中：
 

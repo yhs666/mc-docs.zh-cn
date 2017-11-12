@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/30/2017
-ms.date: 08/14/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 21d83d715aabc78590dde8b68abd8913110a7d6b
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 62ebcd039207a15583b93d3b2e741d84da9ee8a2
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>为应用程序配置安全策略
 使用 Azure Service Fabric，可以保护群集中以不同用户帐户运行的应用程序。 使用用户帐户进行部署时，Service Fabric 还有助于保护应用程序所使用的资源，例如文件、目录和证书。 这样，即使是在共享托管环境中，运行应用程序会更加安全。
@@ -139,6 +139,8 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
    </Principals>
 </ApplicationManifest>
 ```
+
+对于 Linux 群集，若要以根身份运行服务或安装程序入口点，可以将 AccountType 指定为 LocalSystem。
 
 ## <a name="start-powershell-commands-from-a-setup-entry-point"></a>从安装程序入口点启动 PowerShell 命令
 若要从 SetupEntryPoint 点运行 PowerShell，可以在指向 PowerShell 文件的批处理文件中运行 PowerShell.exe。 首先，将 PowerShell 文件添加到服务项目（例如 **MySetup.ps1**）。 请记住设置“如果较新则复制”属性，以便文件还包括在服务包中。 下面的示例演示一个示例批处理文件，可启动名为 MySetup.ps1 的 PowerShell 文件，该文件用于设置系统环境变量 TestVariable。
@@ -416,11 +418,10 @@ Test-AdServiceAccount svc-Test$
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>后续步骤
-
 * [了解应用程序模型](service-fabric-application-model.md)
 * [在服务清单中指定资源](service-fabric-service-manifest-resources.md)
 * [部署应用程序](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!--Update_Description: update meta properties, add new feature on Group Managed Service Account-->
+<!--Update_Description: wording update -->

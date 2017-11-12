@@ -16,11 +16,11 @@ ms.workload: infrastructure
 origin.date: 06/14/2017
 ms.date: 08/14/2017
 ms.author: v-dazen
-ms.openlocfilehash: 76061a84b2e388cab6053d29f34765e1fe4e94b4
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.openlocfilehash: d221865bb9c611478388a96f591a2b11e425a108
+ms.sourcegitcommit: 55c51539fdd337dbcbf420fedb0c7eaa690545f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-basic-infrastructure-in-azure-by-using-terraform"></a>使用 Terraform 在 Azure 中创建基本基础结构
 本文介绍在 Azure 中预配虚拟机以及底层基础结构所要执行的步骤。 其中介绍了如何编写 Terraform 脚本，以及在云基础结构中实施更改之前如何可视化更改。 此外，还介绍了如何使用 Terraform 在 Azure 中创建基础结构。
@@ -35,7 +35,7 @@ provider "azurerm" {
   client_id       = "your_client_id_from_script_execution"
   client_secret   = "your_client_secret_from_script_execution"
   tenant_id       = "your_tenant_id_from_script_execution"
-  environment     = "china"
+  environment     = "china"         # environment = "china" is Correct
 }
 
 # create a resource group 
@@ -135,7 +135,9 @@ resource "azurerm_storage_account" "helloterraformstorage" {
     name = "helloterraformstorage"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
     location = "chinanorth"
-    account_type = "Standard_LRS"
+    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
+    account_tier = "Standard"           # account_tier = "Standard"  is Correct
+
 
     tags {
         environment = "staging"
@@ -213,7 +215,7 @@ provider "azurerm" {
   client_id       = "XXX"
   client_secret   = "XXX"
   tenant_id       = "XXX"
-  environment     = "china"
+  environment     = "china"  # environment  = "china" is Correct
 }
 
 # create a resource group if it doesn't exist
@@ -270,7 +272,8 @@ resource "azurerm_storage_account" "helloterraformstorage" {
     name = "helloterraformstorage"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
     location = "chinanorth"
-    account_type = "Standard_LRS"
+    account_replication_type = "LRS"    # account_replication_type = "LRS"  is Correct 
+    account_tier = "Standard"           # account_tier = "Standard" is Correct
 
     tags {
         environment = "staging"

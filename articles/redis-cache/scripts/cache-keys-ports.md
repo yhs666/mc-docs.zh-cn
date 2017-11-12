@@ -16,11 +16,11 @@ ms.workload: tbd
 origin.date: 08/30/2017
 ms.date: 10/10/2017
 ms.author: v-junlch
-ms.openlocfilehash: 6c9642f165fb55bc18cb855a3a7ac00c4c1877ca
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: e9d06e6af38ed21f825aaeeeff26f6f4e1371efd
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-redis-cache"></a>获取 Azure Redis 缓存的主机名、端口和密钥
 
@@ -56,13 +56,13 @@ echo "Secondary Key:" ${keys[1]}
 
 | 命令 | 说明 |
 |---|---|
-| [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | 检索 Azure Redis 缓存实例的详细信息。 |
-| [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | 检索 Azure Redis 缓存实例的访问密钥。 |
+| [az redis show](/cli/redis#az_redis_show) | 检索 Azure Redis 缓存实例的详细信息。 |
+| [az redis list-keys](/cli/redis#az_redis_list_keys) | 检索 Azure Redis 缓存实例的访问密钥。 |
 
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
 
 可以在 [Azure Redis 缓存文档](../cli-samples.md)中找到其他 Azure Redis 缓存 CLI 脚本示例。
 

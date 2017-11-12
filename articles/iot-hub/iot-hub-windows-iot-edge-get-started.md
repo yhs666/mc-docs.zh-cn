@@ -12,67 +12,35 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/07/2017
+origin.date: 09/29/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 07/03/2017
-ms.openlocfilehash: 64be8705f01aca50b86c397d3fecac71f7b82aa0
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.date: 11/20/2017
+ms.openlocfilehash: 9076147cd42829693474fab695b1259ff14d0e58
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 11/09/2017
 ---
-# 在 Windows 上浏览 Azure IoT Edge 体系结构
-<a id="explore-azure-iot-edge-architecture-on-windows" class="xliff"></a>
+# <a name="explore-azure-iot-edge-architecture-on-windows"></a>在 Windows 上浏览 Azure IoT Edge 体系结构
 
 [!INCLUDE [iot-hub-iot-edge-getstarted-selector](../../includes/iot-hub-iot-edge-getstarted-selector.md)]
 
 [!INCLUDE [iot-hub-iot-edge-install-build-windows](../../includes/iot-hub-iot-edge-install-build-windows.md)]
 
-## 如何运行示例
-<a id="how-to-run-the-sample" class="xliff"></a>
+## <a name="run-the-sample"></a>运行示例
 
-build.cmd 脚本在 iot-edge 存储库本地副本的 build 文件夹中生成输出。 此输出包括此示例中使用的两个 IoT Edge 模块。
+build.cmd 脚本在 iot-edge 存储库本地副本的 build 文件夹中生成输出。 此输出包括许多文件，但本示例重点介绍三个文件：
+- 两个 IoT Edge 模块：**build\\modules\\logger\\Debug\\logger.dll** 和 **build\\modules\\hello_world\\Debug\\hello\_world.dll**。 
+- 可执行文件：**build\\samples\\hello\_world\\Debug\\hello\_world\_sample.exe**。 此过程使用 JSON 配置文件作为命令行参数。
 
-生成脚本将 **logger.dll** 放在 **build\\modules\\logger\\Debug** 文件夹中，将 **hello\_world.dll** 放在 **build\\modules\\hello_world\\Debug** 文件夹中。 如以下 JSON 设置文件中所示，将这些路径用于 **module path** 值。
+在此示例中使用的第四个文件不在生成文件夹中，但克隆它时 iot-edge 存储库中包括：
+- JSON 配置文件：**samples\\hello\_world\\src\\hello\_world\_win.json**。 此文件包含两个模块的路径。 它还声明 logger.dll 将其输出写入到的位置。 默认值是当前工作目录中的 **log.txt**。 
 
-hello\_world\_sample 过程使用 JSON 配置文件的路径作为命令行参数。 以下示例 JSON 文件在 SDK 存储库的以下路径中提供：**samples\\hello\_world\\src\\hello\_world\_win.json**。 除非修改了生成脚本，将 IoT Edge 模块或示例可执行文件放置在非默认位置，否则，此配置文件可按原样工作。
+   >[!NOTE]
+   >如果移动示例模块，或者为测试添加自己的模块，请更新配置文件中的 **module.path** 值以进行匹配。 模块路径相对于 **hello\_world\_sample.exe** 所在的目录。 
 
-> [!NOTE]
-> 模块路径相对于 hello\_world\_sample.exe 所在的目录。 示例 JSON 配置文件默认为在当前工作目录中写入“log.txt”。
-
-```json
-{
-  "modules": [
-    {
-      "name": "logger",
-      "loader": {
-        "name": "native",
-        "entrypoint": {
-          "module.path": "..\\..\\..\\modules\\logger\\Debug\\logger.dll"
-        }
-      },
-      "args": { "filename": "log.txt" }
-    },
-    {
-      "name": "hello_world",
-      "loader": {
-        "name": "native",
-        "entrypoint": {
-          "module.path": "..\\..\\..\\modules\\hello_world\\Debug\\hello_world.dll"
-        }
-      },
-      "args": null
-      }
-  ],
-  "links": [
-    {
-      "source": "hello_world",
-      "sink": "logger"
-    }
-  ]
-}
-```
+若要运行该示例，请遵循以下步骤：
 
 1. 导航到 iot-edge 存储库本地副本根目录中的 build 文件夹。
 
@@ -81,5 +49,15 @@ hello\_world\_sample 过程使用 JSON 配置文件的路径作为命令行参�
     ```cmd
     samples\hello_world\Debug\hello_world_sample.exe ..\samples\hello_world\src\hello_world_win.json
     ```
+
+1. 下面的输出表示示例成功运行：
+
+   ```cmd
+   gateway successfully created from JSON
+   gateway shall run until ENTER is pressed
+   ```
+  
+1. 按 **Enter** 键停止该进程。
+
 
 [!INCLUDE [iot-hub-iot-edge-getstarted-code](../../includes/iot-hub-iot-edge-getstarted-code.md)]

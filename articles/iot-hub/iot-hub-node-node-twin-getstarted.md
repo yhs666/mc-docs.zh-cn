@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/25/2017
-ms.date: 10/16/2017
+ms.date: 11/20/2017
 ms.author: v-yiso
-ms.openlocfilehash: f1e9b304cbed188d336ca0cd70c33099cd930a5a
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: 1431df1ba13cb438c5adcc5e863f821119605c47
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="get-started-with-device-twins-node"></a>设备孪生入门 (Node)
 
@@ -28,16 +28,16 @@ ms.lasthandoff: 09/29/2017
 在本教程结束时，将拥有两个 Node.js 控制台应用：
 
 * **AddTagsAndQuery.js**（Node.js 后端应用），用于添加标记和查询设备孪生。
-* **TwinSimulatedDevice.js**，一个 Node.js 应用，它模拟使用早前创建的设备标识连接到 IoT 中心的设备，并报告其连接条件。
+* TwinSimulatedDevice.js（Node.js 应用），用于模拟使用早先创建的设备标识连接到 IoT 中心的设备，并报告其连接状况。
 
 > [!NOTE]
 > [Azure IoT SDK][lnk-hub-sdks] 文章介绍了可用于构建设备和后端应用的 Azure IoT SDK。
 > 
 > 
 
-完成本教程需具备以下条件：
+若要完成本教程，需要满足以下条件：
 
-+ Node.js 版本 0.10.x 或更高版本。
+* Node.js 版本 4.0.x 或更高版本。
 
 + 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
 
@@ -48,8 +48,8 @@ ms.lasthandoff: 09/29/2017
 ## <a name="create-the-service-app"></a>创建服务应用
 在本部分中，将创建一个 Node.js 控制台应用，该应用将位置元数据添加到与 **myDeviceId** 关联的设备孪生。 然后，该应用将选择位于美国的设备来查询存储在 IoT 中心的设备孪生，然后查询报告移动电话网络连接的设备孪生。
 
-1. 新建名为 **addtagsandqueryapp**的空文件夹。 在命令提示符下的 **addtagsandqueryapp** 文件夹中，使用以下命令创建新的 package.json 文件。 接受所有默认值：
-
+1. 新建名为 **addtagsandqueryapp**的空文件夹。 在命令提示符下的**addtagsandqueryapp** 文件夹中，使用以下命令创建新的 package.json 文件。 接受所有默认值：
+   
     ```
     npm init
     ```
@@ -91,8 +91,8 @@ ms.lasthandoff: 09/29/2017
         });
    
     **Registry** 对象公开从服务与设备孪生进行交互所需的所有方法。 前面的代码首先初始化 **Registry** 对象，然后检索 **myDeviceId** 的设备孪生，最后使用所需位置信息更新其标记。
-
-    更新标记之后，它会调用 **queryTwins** 函数。
+   
+    更新标记后，它将调用 queryTwins 函数。
 5. 在 **AddTagsAndQuery.js** 末尾添加以下代码以实现 **queryTwins** 函数：
    
         var queryTwins = function() {
@@ -116,8 +116,8 @@ ms.lasthandoff: 09/29/2017
         };
    
     前面的代码执行两个查询：第一个只选择位于 **Redmond43** 工厂中的设备的设备孪生，第二个会优化查询以只选择还通过手机网络连接的设备。
-
-    请注意上面的代码，当它创建 **query** 对象时，会指定返回的最大文档数。 **query** 对象包含 **hasMoreResults** 布尔值属性，可以使用它多次调用 **nextAsTwin** 方法来检索所有结果。 名为 **next** 的方法可用于不是设备孪生的结果（例如聚合查询的结果）。
+   
+    上面的代码创建 query 对象时，会指定返回的最大文档数。 **query** 对象包含 **hasMoreResults** 布尔值属性，可以使用它多次调用 **nextAsTwin** 方法来检索所有结果。 名为 next 的方法可用于非设备孪生的结果（例如聚合查询的结果）。
 6. 使用以下内容运行应用程序：
    
         node AddTagsAndQuery.js
@@ -126,7 +126,7 @@ ms.lasthandoff: 09/29/2017
 
     ![][1]
 
-在下一部分，用户创建的设备应用会报告连接信息并更改上一部分中查询的结果。
+在下一部分中，创建的设备应用会报告连接信息，并更改上一部分中查询的结果。
 
 ## <a name="create-the-device-app"></a>创建设备应用
 在此部分，会创建一个 Node.js 控制台应用作为 **myDeviceId**连接到中心，并更新其设备孪生的报告属性，说明它是使用手机网络进行连接的。

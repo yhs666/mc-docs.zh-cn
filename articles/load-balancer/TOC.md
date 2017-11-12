@@ -49,7 +49,7 @@
 
 # 引用
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network)
-## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/network/lb)
+## [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/network/lb?view=azure-cli-latest)
 ## [.NET](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)

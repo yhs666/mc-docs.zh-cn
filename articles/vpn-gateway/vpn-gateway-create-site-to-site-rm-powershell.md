@@ -1,5 +1,5 @@
 ---
-title: "将本地网络连接到 Azure 虚拟网络：站点到站点 VPN：PowerShell | Microsoft Docs"
+title: "将本地网络连接到 Azure 虚拟网络：站点到站点 VPN：PowerShell | Microsoft 文档"
 description: "通过公共 Internet 创建从本地网络到 Azure 虚拟网络的 IPsec 连接的步骤。 这些步骤可帮助使用 PowerShell 创建跨界站点到站点 VPN 网关连接。"
 services: vpn-gateway
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/09/2017
-ms.date: 08/31/2017
+origin.date: 10/12/2017
+ms.date: 11/07/2017
 ms.author: v-junlch
-ms.openlocfilehash: b47c225213e779c192005c21c305efe2b27069e6
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.openlocfilehash: 8d5903ed0aba69fdaecb998940ce85a9c9652015
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>使用 PowerShell 创建具有站点到站点 VPN 连接的 VNet
 
@@ -31,7 +31,6 @@ ms.lasthandoff: 09/01/2017
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure 门户（经典）](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [经典管理门户（经典）](vpn-gateway-site-to-site-create.md)
 > 
 >
 
@@ -42,7 +41,7 @@ ms.lasthandoff: 09/01/2017
 
 ## <a name="before"></a>准备工作
 
-在开始配置之前，请验证是否符合以下条件：
+在开始配置之前，请验证你是否符合以下条件：
 
 - 确保有一台兼容的 VPN 设备和能够对其进行配置的人员。 有关兼容的 VPN 设备和设备配置的详细信息，请参阅[关于 VPN 设备](vpn-gateway-about-vpn-devices.md)。
 - 确认 VPN 设备有一个面向外部的公共 IPv4 地址。 此 IP 地址不得位于 NAT 之后。
@@ -56,22 +55,22 @@ ms.lasthandoff: 09/01/2017
 ```
 #Example values
 
-VnetName                = testvnet 
-ResourceGroup           = testrg 
+VnetName                = TestVNet1
+ResourceGroup           = TestRG1
 Location                = China North 
 AddressSpace            = 10.0.0.0/16 
 SubnetName              = Subnet1 
 Subnet                  = 10.0.1.0/28 
 GatewaySubnet           = 10.0.0.0/27
-LocalNetworkGatewayName = LocalSite
+LocalNetworkGatewayName = Site2
 LNG Public IP           = <VPN device IP address> 
 Local Address Prefixes  = 10.0.0.0/24, 20.0.0.0/24
-Gateway Name            = vnetgw1
-PublicIP                = gwpip
+Gateway Name            = VNet1GW
+PublicIP                = VNet1GWIP
 Gateway IP Config       = gwipconfig1 
 VPNType                 = RouteBased 
 GatewayType             = Vpn 
-ConnectionName          = myGWConnection
+ConnectionName          = VNet1toSite2
 
 ```
 
@@ -82,7 +81,7 @@ ConnectionName          = myGWConnection
 
 ## <a name="VNet"></a>2.创建虚拟网络和网关子网
 
-如果还没有虚拟网络，请创建。 创建虚拟网络时，请确保指定的地址空间不与本地网络的任一个地址空间重叠。
+如果还没有虚拟网络，请创建。 创建虚拟网络时，请确保指定的地址空间不与本地网络的任一个地址空间相重叠。
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
@@ -95,7 +94,7 @@ ConnectionName          = myGWConnection
 创建资源组：
 
 ```powershell
-New-AzureRmResourceGroup -Name testrg -Location 'China North'
+New-AzureRmResourceGroup -Name TestRG1 -Location 'China North'
 ```
 
 创建虚拟网络。
@@ -109,7 +108,7 @@ New-AzureRmResourceGroup -Name testrg -Location 'China North'
 2. 创建 VNet。
 
   ```powershell
-  New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg `
+  New-AzureRmVirtualNetwork -Name TestVNet1 -ResourceGroupName TestRG1 `
   -Location 'China North' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
   ```
 
@@ -118,7 +117,7 @@ New-AzureRmResourceGroup -Name testrg -Location 'China North'
 1. 设置变量。
 
   ```powershell
-  $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
+  $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
   ```
 2. 创建网关子网。
 
@@ -143,14 +142,14 @@ New-AzureRmResourceGroup -Name testrg -Location 'China North'
 若要添加具有单个地址前缀的局域网网关：
 
   ```powershell
-  New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+  New-AzureRmLocalNetworkGateway -Name Site2 -ResourceGroupName TestRG1 `
   -Location 'China North' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.0.0.0/24'
   ```
 
 若要添加具有多个地址前缀的局域网网关：
 
   ```powershell
-  New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+  New-AzureRmLocalNetworkGateway -Name Site2 -ResourceGroupName TestRG1 `
   -Location 'China North' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
   ```
 
@@ -164,7 +163,7 @@ VPN 网关必须具有公共 IP 地址。 请先请求 IP 地址资源，并在�
 请求一个公共 IP 地址，该地址将分配给虚拟网络 VPN 网关。
 
 ```powershell
-$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'China North' -AllocationMethod Dynamic
+$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName TestRG1 -Location 'China North' -AllocationMethod Dynamic
 ```
 
 ## <a name="GatewayIPConfig"></a>5.创建网关 IP 寻址配置
@@ -172,7 +171,7 @@ $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Locati
 网关配置定义要使用的子网和公共 IP 地址。 使用以下示例创建网关配置：
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
+$vnet = Get-AzureRmVirtualNetwork -Name TestVNet1 -ResourceGroupName TestRG1
 $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
@@ -188,7 +187,7 @@ $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -Subnet
 - 选择要使用的网关 SKU。 某些 SKU 存在配置限制。 有关详细信息，请参阅[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。 如果创建 VPN 网关时出错（不管 -GatewaySku 是什么），请检查是否已安装最新版本的 PowerShell cmdlet。
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'China North' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
@@ -201,7 +200,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 - 虚拟网关的“公共 IP 地址”。 可以通过 Azure 门户、PowerShell 或 CLI 查看公共 IP 地址。 若要使用 PowerShell 查找虚拟网关的公共 IP 地址，请使用以下示例：
 
   ```powershell
-  Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+  Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG1
   ```
 
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
@@ -213,13 +212,13 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 1. 设置变量。
   ```powershell
-  $gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-  $local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+  $gateway1 = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+  $local = Get-AzureRmLocalNetworkGateway -Name Site2 -ResourceGroupName TestRG1
   ```
 
 2. 创建连接。
   ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName testrg `
+  New-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite2 -ResourceGroupName TestRG1 `
   -Location 'China North' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
   ```
@@ -251,5 +250,7 @@ VPN 连接有几种不同的验证方式。
 
 -  连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/#pivot=services&panel=Compute)。
 - 有关 BGP 的信息，请参阅 [BGP 概述](vpn-gateway-bgp-overview.md)和[如何配置 BGP](vpn-gateway-bgp-resource-manager-ps.md)。
+- 有关使用 Azure 资源管理器模板创建站点到站点 VPN 连接的信息，请参阅[创建站点到站点 VPN 连接](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/)。
+- 有关使用 Azure 资源管理器模板创建 vnet 到 vnet VPN 连接的信息，请参阅[部署 HBase 异地复制](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)。
 
 <!--Update_Description: wording update --> 

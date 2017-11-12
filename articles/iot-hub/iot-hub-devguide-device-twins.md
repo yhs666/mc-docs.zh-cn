@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/24/2017
-ms.date: 10/16/2017
+ms.date: 11/20/2017
 ms.author: v-yiso
-ms.openlocfilehash: 774695bd67c24b707b8b9b072607a447bf498c14
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: 6e48a0155b51b882d0df29ada8d15a5ad84c8548
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解并在 IoT 中心内使用设备孪生
 ## <a name="overview"></a>概述
@@ -144,7 +144,7 @@ ms.lasthandoff: 09/29/2017
 可以使用孪生来同步长时间运行的操作，例如固件更新。 有关如何使用属性来同步和跟踪各设备中长时间运行的操作的详细信息，请参阅[使用所需的属性来配置设备][lnk-twin-properties]。
 
 ## <a name="back-end-operations"></a>后端操作
-解决方案后端使用以下通过 HTTP 公开的原子操作对设备孪生执行操作：
+解决方案后端使用以下通过 HTTPS 公开的原子操作对设备孪生执行操作：
 
 1. **按 ID 检索设备孪生**。此操作返回设备孪生的文档，包括标记、所需的属性、报告的属性和系统属性。
 2. **部分更新设备孪生**。 解决方案后端可以使用此操作部分更新设备孪生中的标记或所需属性。 部分更新以 JSON 文档的形式表示，可添加或更新任何属性。 将删除设置为 `null` 的属性。 以下示例将创建值为 `{"newProperty": "newValue"}` 的新所需属性，将现有值 `existingProperty` 覆盖为 `"otherNewValue"`，并删除 `otherOldProperty`。 不会对现有的所需属性或标记进行其他任何更改：
@@ -348,7 +348,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 * [在设备上调用直接方法][lnk-methods]
 * [在多台设备上计划作业][lnk-jobs]
 
-如果要尝试本文中介绍的一些概念，可能对以下 IoT 中心教程感兴趣：
+如果要尝试本文中介绍的一些概念，你可能对以下 IoT 中心教程感兴趣：
 
 * [如何使用设备孪生][lnk-twin-tutorial]
 * [如何使用设备孪生属性][lnk-twin-properties]

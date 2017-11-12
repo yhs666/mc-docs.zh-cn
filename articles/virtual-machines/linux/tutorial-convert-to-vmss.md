@@ -16,19 +16,17 @@ ms.topic: article
 origin.date: 04/05/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
-ms.openlocfilehash: cc1932c1dd066c3fe6e8e33909b45ecc439cac79
-ms.sourcegitcommit: 51a25dbbf5f32fe524860b1bb107108122b47bf0
+ms.openlocfilehash: f9607a14d661d1850f6cd3910d4491138399bc66
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 11/10/2017
 ---
-# 将现有的 Azure 虚拟机转换为一个规模集
-<a id="convert-an-existing-azure-virtual-machine-to-a-scale-set" class="xliff"></a>
+# <a name="convert-an-existing-azure-virtual-machine-to-a-scale-set"></a>将现有的 Azure 虚拟机转换为一个规模集
 
-本教程演示如何使用 Azure CLI 2.0 将虚拟机转换为虚拟机规模集。 还介绍如何在规模集中自动进行虚拟机配置。 有关如何安装 Azure CLI 2.0 的详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。 有关规模集的详细信息，请参阅[虚拟机规模集](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)。
+本教程演示如何使用 Azure CLI 2.0 将虚拟机转换为虚拟机规模集。 还介绍如何在规模集中自动进行虚拟机配置。 有关如何安装 Azure CLI 2.0 的详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。 有关规模集的详细信息，请参阅[虚拟机规模集](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)。
 
-## 步骤 1 - 取消设置 VM
-<a id="step-1---deprovision-the-vm" class="xliff"></a>
+## <a name="step-1---deprovision-the-vm"></a>步骤 1 - 取消设置 VM
 
 使用 SSH 连接到 VM。
 
@@ -39,33 +37,31 @@ sudo waagent -deprovision+user -force
 exit
 ```
 
-## 步骤 2 - 捕获 VM 的映像
-<a id="step-2---capture-an-image-of-the-vm" class="xliff"></a>
+## <a name="step-2---capture-an-image-of-the-vm"></a>步骤 2 - 捕获 VM 的映像
 
 有关捕获的详细概述，请参阅[捕获 Linux 虚拟机](capture-image.md)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-使用 [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate) 解除分配 VM：
+使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#deallocate) 解除分配 VM：
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-使用 [az vm generalize](https://docs.microsoft.com/cli/azure/vm#generalize)通用化 VM：
+使用 [az vm generalize](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#generalize)通用化 VM：
 
 ```azurecli
 az vm generalize --resource-group myResourceGroup --name myVM
 ```
 
-使用 [az image create](https://docs.microsoft.com/cli/azure/image#create) 从 VM 资源创建映像：
+使用 [az image create](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#create) 从 VM 资源创建映像：
 
 ```azurecli
 az image create --resource-group myResourceGroup --name myImage --source myVM
 ```
 
-## 步骤 3 - 创建规模集
-<a id="step-3---create-the-scale-set" class="xliff"></a>
+## <a name="step-3---create-the-scale-set"></a>步骤 3 - 创建规模集
 
 获取映像的 **ID**。
 
@@ -77,7 +73,7 @@ az image show --resource-group myResourceGroup --name myImage --query id
 "/subscriptions/afbdaf8b-9188-4651-bce1-9115dd57c98b/resourceGroups/vmtest/providers/Microsoft.Compute/images/myImage"
 ```
 
-使用 [az vmss create](https://docs.microsoft.com/cli/azure/vmss#create) 从映像资源创建 VM：
+使用 [az vmss create](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#create) 从映像资源创建 VM：
 
 ```azurecli
 az vmss create --resource-group myResourceGroup --name myScaleSet --image /subscriptions/afbdaf8b-9188-4651-bce1-9115dd57c98b/resourceGroups/vmtest/providers/Microsoft.Compute/images/myImage --upgrade-policy-mode automatic --vm-sku Standard_DS1_v2 --data-disk-sizes-gb 10 --admin-username azureuser --generate-ssh-keys
@@ -85,7 +81,7 @@ az vmss create --resource-group myResourceGroup --name myScaleSet --image /subsc
 
 此命令还附加一个 10GB 的数据磁盘。 请记住，所选的 VM 大小不同（我们使用 **Standard_DS1_v2**），允许的数据磁盘数量不同。 有关详细信息，请参阅[虚拟机大小](sizes.md)。
 
-规模集完成创建后，连接它。 使用 [az vmss list-instance-connection-info](https://docs.microsoft.com/cli/azure/vmss#list-instance-connection-info) 获取 SSH 实例的 IP 地址列表：
+规模集完成创建后，连接它。 使用 [az vmss list-instance-connection-info](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#list-instance-connection-info) 获取 SSH 实例的 IP 地址列表：
 
 ```azurecli
 az vmss list-instance-connection-info --resource-group myResourceGroup --name myScaleSet
@@ -98,14 +94,13 @@ az vmss list-instance-connection-info --resource-group myResourceGroup --name my
 ]
 ```
 
-现在，你可以连接到虚拟机实例以初始化数据磁盘
+现在，可以连接到虚拟机实例以初始化数据磁盘
 
 ```bash
 ssh -i ~/.ssh/id_rsa.pub -p 50000 azureuser@52.183.00.000
 ```
 
-## 步骤 4 - 初始化数据磁盘
-<a id="step-4---initialize-the-data-disk" class="xliff"></a>
+## <a name="step-4---initialize-the-data-disk"></a>步骤 4 - 初始化数据磁盘
 
 连接到虚拟机时，使用 `fdisk` 对磁盘进行分区：
 
@@ -129,8 +124,7 @@ sudo mkdir /datadrive ; sudo mount /dev/sdc1 /datadrive
 
 结束 SSH 会话。
 
-## 步骤 5 - 配置防火墙
-<a id="step-5---configure-firewall" class="xliff"></a>
+## <a name="step-5---configure-firewall"></a>步骤 5 - 配置防火墙
 
 在防火墙上打一个洞以连接规模集托管的 Web 服务器。 创建规模集时，也会创建负载均衡器，用于 **SSH** 到单个虚拟机。 要打开端口，需要两条信息（可以使用 Azure CLI 获取）。
 
@@ -146,8 +140,7 @@ sudo mkdir /datadrive ; sudo mount /dev/sdc1 /datadrive
 az network lb rule create --backend-pool-name myScaleSetLBBEPool --backend-port 80 --frontend-ip-name loadBalancerFrontEnd --frontend-port 80 --name webserver --protocol tcp --resource-group myResourceGroup --lb-name myScaleSetLB
 ```
 
-## 步骤 6 - 自动配置
-<a id="step-6---automate-configuration" class="xliff"></a>
+## <a name="step-6---automate-configuration"></a>步骤 6 - 自动配置
 
 数据磁盘需要在每个虚拟机实例上进行配置。 可以使用 **CustomScript** 扩展自动配置虚拟机。
 
@@ -185,32 +178,27 @@ az vmss extension set --publisher Microsoft.Azure.Extensions --version 2.0 --nam
 
 此扩展在所有当前实例和后续通过缩放创建的任何实例上自动运行。
 
-## 步骤 7 - 配置自动缩放规则
-<a id="step-7---configure-autoscale-rules" class="xliff"></a>
+## <a name="step-7---configure-autoscale-rules"></a>步骤 7 - 配置自动缩放规则
 
 目前，不能在 Azure CLI 中设置自动缩放规则。 使用 [Azure 门户](https://portal.azure.cn)配置自动缩放。
 
-## 步骤 8 - 管理任务
-<a id="step-8---management-tasks" class="xliff"></a>
+## <a name="step-8---management-tasks"></a>步骤 8 - 管理任务
 
 在规模集的整个生命周期内，可能需要运行一个或多个管理任务。 此外，你可能想要创建可自动执行不同的生命周期任务的脚本，Azure CLI 可提供执行这些任务的快速方法。 以下是一些常见任务。
 
-### 获取连接信息
-<a id="get-connection-info" class="xliff"></a>
+### <a name="get-connection-info"></a>获取连接信息
 
 ```azurecli
 az vmss list-instance-connection-info --resource-group myResourceGroup --name myScaleSet
 ```
 
-### 设置实例计数（手动缩放）
-<a id="set-instance-count-manual-scale" class="xliff"></a>
+### <a name="set-instance-count-manual-scale"></a>设置实例计数（手动缩放）
 
 ```azurecli
 az vmss scale --resource-group myResourceGroup --name myScaleSet --new-capacity 4
 ```
 
-### 删除资源组
-<a id="delete-resource-group" class="xliff"></a>
+### <a name="delete-resource-group"></a>删除资源组
 
 删除资源组会删除其包含的所有资源。
 
@@ -218,8 +206,7 @@ az vmss scale --resource-group myResourceGroup --name myScaleSet --new-capacity 
 az group delete --name myResourceGroup
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 若要详细了解本教程中介绍的一些虚拟机规模集功能，请参阅以下信息：
 
 - [Azure 虚拟机规模集概述](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)

@@ -17,11 +17,11 @@ origin.date: 03/15/2016
 ms.date: 03/24/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57866e478ff52775ac793f9c473de63b9998741e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: db6f7c9d70350ebe85ce6066abbc927f4591aebf
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建虚拟网络
 
@@ -54,9 +54,9 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure �
 
 若要使用 Azure CLI 2.0 创建虚拟网络，请完成以下步骤：
 
-1. 安装并配置最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)，并使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录 Azure 帐户。
+1. 安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录 Azure 帐户。
 
-2. 使用具有 `--name` 和 `--location` 参数的 [az group create](https://docs.microsoft.com/cli/azure/group#create) 命令创建 VNet 的资源组：
+2. 使用具有 `--name` 和 `--location` 参数的 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 命令创建 VNet 的资源组：
 
     ```azurecli
     az group create --name TestRG --location chinaeast
@@ -114,13 +114,13 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure �
     - `--subnet-name FrontEnd`：子网的名称。
     - `--subnet-prefix 192.168.1.0/24`：地址前缀和块。
 
-    若要列出在下一命令中使用的基本信息，可以使用 [查询筛选器](https://docs.microsoft.com/cli/azure/query-az-cli2)查询 VNet：
+    若要列出在下一命令中使用的基本信息，可以使用 [查询筛选器](https://docs.azure.cn/zh-cn/cli/query-az-cli2?view=azure-cli-latest)查询 VNet：
 
     ```azurecli
     az network vnet list --query '[?name==`TestVNet`].{Where:location,Name:name,Group:resourceGroup}' -o table
     ```
 
-    这将生成以下输出：
+    这会生成以下输出：
 
         Where      Name      Group
 

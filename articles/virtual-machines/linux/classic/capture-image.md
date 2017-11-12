@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 03/14/2017
 ms.date: 08/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: 36d143965bde5be98bed5406c212a26e87c66bb0
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: a6e73fcf57561060c740e777fc1c939960b36b31
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>如何捕获经典 Linux 虚拟机以用作映像
 > [!IMPORTANT]
@@ -102,9 +102,9 @@ Azure 在“映像”下存储映像 ，以及任何已上传的映像。 有关
    ![成功捕获映像](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>后续步骤
-该映像已就绪，可用于创建 VM 了。 可以使用 Azure CLI 命令 `azure vm create` 并提供所创建的映像名称。 有关详细信息，请参阅[将 Azure CLI 与经典部署模型配合使用](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)。
+该映像已就绪，可用于创建 VM 了。 可以使用 Azure CLI 命令 `azure vm create` 并提供所创建的映像名称。 有关详细信息，请参阅[将 Azure CLI 与经典部署模型配合使用](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)。
 
-此外，也可以使用 [Azure 门户](http://portal.azure.cn)创建自定义 VM，方法是使用**映像**方法并选择所创建的映像。 有关详细信息，请参阅 [如何创建自定义 VM][How to Create a Custom Virtual Machine]。
+此外，也可以使用 [Azure 门户](http://portal.azure.cn)创建自定义 VM，方法是使用**映像**方法并选择所创建的映像。 有关详细信息，请参阅[如何创建自定义 VM][How to Create a Custom Virtual Machine]。
 
 **另请参阅：**[Azure Linux 代理用户指南](../agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 

@@ -13,14 +13,14 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.openlocfilehash: 61273e472dd0d0727df40984ad277aaf4c244611
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="vpn-gateway-documentation"></a>VPN 网关文档
 
-了解如何配置 VPN 网关（虚拟专用网络网关）。 文档介绍了如何在 Azure 虚拟网络与本地位置或其他 Azure 虚拟网络 (VNet) 之间发送网络流量。
+了解如何配置 VPN 网关（一种虚拟专用网络网关）。 文档介绍了如何在 Azure 虚拟网络与本地位置或其他 Azure 虚拟网络 (VNet) 之间发送网络流量。
 
 <ul class="panelContent cardsFTitle">
     <li>

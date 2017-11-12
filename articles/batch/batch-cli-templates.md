@@ -12,17 +12,17 @@ ms.workload: big-compute
 origin.date: 07/20/2017
 ms.date: 09/06/2017
 ms.author: v-junlch
-ms.openlocfilehash: bdd95ec181253f790394ac5aad73df3ba6d87c4a
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 525c89824bab48cb8b88a9bd12819eb3a6a58a45
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>使用 Azure Batch CLI 模板和文件传输（预览版）
 
-使用 Azure CLI 可在不编写代码的情况下运行批处理作业。
+使用 Azure CLI 可在不编写代码的情况下运行 Batch 作业。
 
-可通过 Azure CLI 创建和使用模板文件，通过该模板文件可创建 Batch 池、作业和任务。 可轻松将作业输入文件上传到与下载的 Batch 帐户和作业输出文件相关联的存储帐户。
+可通过 Azure CLI 创建和使用模板文件，通过该模板文件可创建 Batch 池、作业和任务。 可轻松将作业输入文件上传到与下载的批处理帐户和作业输出文件相关联的存储帐户。
 
 ## <a name="overview"></a>概述
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 09/08/2017
 -   使用作业任务工厂可创建与作业相关联的一个或多个任务，而无需创建多个任务定义，因此极大地简化了作业的提交。
 
 
-需要将输入数据文件应用于作业，且通常会生成输出数据文件。 默认情况下，可使用 CLI 将与每个批处理帐户和文件相关联的存储帐户轻松转移到和转移出此存储帐户，无需进行编码，且无需任何存储凭据。
+需要将输入数据文件应用于作业，且通常会生成输出数据文件。 默认情况下，可使用 CLI 将与每个 Batch 帐户和文件相关联的存储帐户轻松转移到和转移出此存储帐户，无需进行编码，且无需任何存储凭据。
 
 例如，[ffmpeg](http://ffmpeg.org/) 是处理音频和视频文件的常用应用程序。 Azure Batch CLI 可用于调用 ffmpeg，以便将源视频文件转码为不同解决方法。
 
@@ -43,13 +43,13 @@ ms.lasthandoff: 09/08/2017
 
 -   已创建作业模板。 创建模板的用户了解如何调用 ffmpeg，以便将源视频转码为不同的分辨率，并指定任务命令行；他们还了解存在包含源视频文件（每个输入文件均包含所需任务）的文件夹。
 
--   具有一组用于转码的视频文件的最终用户首先需要使用池模板创建一个池，然后仅指定池 ID 和所需的 VM 数量。 然后，他们可以上传源文件以进行转码。 可使用作业模板提交作业，仅指定池 id 和上传的源文件的位置。 创建批处理作业时，每个输入文件生成一项任务。 最后，可下载已转码的输出文件。
+-   具有一组用于转码的视频文件的最终用户首先需要使用池模板创建一个池，然后仅指定池 ID 和所需的 VM 数量。 然后，他们可以上传源文件以进行转码。 可使用作业模板提交作业，仅指定池 id 和上传的源文件的位置。 创建 Batch 作业时，每个输入文件生成一项任务。 最后，将下载已转码的输出文件。
 
 ## <a name="installation"></a>安装
 
 模板和文件传输功能需要安装扩展。
 
-有关如何安装 Azure CLI 的说明，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+有关如何安装 Azure CLI 的说明，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
 
 安装 Azure CLI 后，即可使用以下 CLI 命令安装批处理扩展：
 
@@ -67,9 +67,9 @@ az component update --add batch-extensions --allow-third-party
 az batch pool create --json-file AppPool.json
 ```
 
-Azure 批处理模板在功能和语法上非常类似于 Azure 资源管理器模板。 它们是包含项属性名称和值的 JSON 文件，但添加了以下主要概念：
+Azure Batch 模板在功能和语法上非常类似于 Azure 资源管理器模板。 它们是包含项属性名称和值的 JSON 文件，但添加了以下主要概念：
 
--   **Parameters**
+-   **参数**
 
     -   允许在正文部分中指定属性值，使用模板时，仅需提供参数值。 例如，池的完整定义应放入正文且仅定义池 id 的一个参数；因此仅需提供一个池 id 字符串来创建池。
         
@@ -242,7 +242,7 @@ az batch job create --template job-ffmpeg.json
 
 文件组等同于在 Azure 存储帐户中创建的容器。 文件组允许包含子文件夹。
 
-批处理 CLI 扩展提供了相关的命令，用以将客户端的文件上传到指定文件组，并将指定文件组的文件下载到客户端。
+Batch CLI 扩展提供相关的命令，以将客户端的文件上传到指定文件组，并将指定文件组的文件下载到客户端。
 
 ```azurecli
 az batch file upload --local-path c:\source_videos\*.mp4 
@@ -256,9 +256,9 @@ az batch file download --file-group ffmpeg-output --local-path
 
 ## <a name="summary"></a>摘要
 
-目前仅对 Azure CLI 添加了模板和文件传输支持。 目标是向无需使用 Batch API 开发代码的用户（如研究人员、IT 用户等）展开可使用 Batch 的受众。 了解 Azure、批处理和批处理将要运行的应用程序的用户无需编码即可创建模板以创建池和作业。 有了模板参数，对批处理和应用程序没有深入了解的用户也可使用这些模板。
+目前仅对 Azure CLI 添加了模板和文件传输支持。 目标是向无需使用 Batch API 开发代码的用户（如研究人员、IT 用户等）展开可使用 Batch 的受众。 了解 Azure、Batch 和 Batch 运行的应用程序的用户无需编码即可创建模板以创建池和作业。 有了模板参数，对批处理和应用程序没有深入了解的用户也可使用这些模板。
 
-试用 Azure CLI 的批处理扩展，并通过本文的评论区或 [Azure 批处理论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch)向我们提供任何反馈或建议。
+试用 Azure CLI 的 Batch 扩展，并通过本文的评论区或 [Azure Batch 论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch)向我们提供任何反馈或建议。
 
 ## <a name="next-steps"></a>后续步骤
 

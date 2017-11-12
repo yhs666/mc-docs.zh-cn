@@ -4,8 +4,8 @@
 
 # 快速入门
 ## [创建 .NET 应用程序](service-fabric-quickstart-dotnet.md)
-## [部署 Windows 容器应用程序](service-fabric-quickstart-containers.md)
 ## [部署 Linux 容器应用程序](service-fabric-quickstart-containers-linux.md)
+## [部署 Windows 容器应用程序](service-fabric-quickstart-containers.md)
 
 # 教程
 ## 部署 .NET 应用
@@ -18,7 +18,7 @@
 <!-- Not Available ### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)-->
 
 # 示例
-## [PowerShell](service-fabric-powershell-samples.md)
+## [Azure PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
 # 概念
 ## [了解微服务](service-fabric-overview-microservices.md)
@@ -65,6 +65,8 @@
 #### [服务状态](service-fabric-concepts-state.md)
 #### [服务分区](service-fabric-concepts-partitioning.md)
 #### [服务的可用性](service-fabric-availability-services.md)
+#### [副本和实例](service-fabric-concepts-replica-lifecycle.md)
+#### [重新配置](service-fabric-concepts-reconfiguration.md)
 #### 服务通信
 ##### [概述](service-fabric-connect-and-communicate-with-services.md)
 ##### [DNS 服务](service-fabric-dnsservice.md)
@@ -89,7 +91,6 @@
 
 ## 创建和管理群集
 ### [概述](service-fabric-deploy-anywhere.md)
-### [Linux 上的 Service Fabric](service-fabric-linux-overview.md)
 ### 规划和准备
 #### [容量规划](service-fabric-cluster-capacity.md)
 #### [灾难恢复](service-fabric-disaster-recovery.md)
@@ -128,6 +129,8 @@
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
+
+## [设置 Service Fabric CLI](service-fabric-cli.md)
 
 ## 构建应用程序
 ### [在 Visual Studio 中创建你的第一个 C# 应用](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -179,7 +182,6 @@
 ### 生成 Reliable Actors 服务
 #### 入门
 ##### [Windows 上的 C#](service-fabric-reliable-actors-get-started.md)
-##### [Linux 上的 Java](service-fabric-reliable-actors-get-started-java.md)
 ##### [Linux 上的 Java Actor](service-fabric-create-your-first-linux-application-with-java.md)
 #### [发送通知](service-fabric-reliable-actors-events.md)
 #### [设置计时器和提醒](service-fabric-reliable-actors-timers-reminders.md)
@@ -215,20 +217,21 @@
 ## 从云服务迁移
 ### [云服务与 Service Fabric 的比较](service-fabric-cloud-services-migration-differences.md)
 ### [迁移到 Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
-### [建议的做法](http://docs.microsoft.com/zh-cn/azure/architecture/service-fabric/migrate-from-cloud-services)
+### [建议的做法](https://docs.microsoft.com/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## 管理应用程序生命周期
 ### [打包应用程序](service-fabric-package-apps.md)
 
 ### 部署或删除应用程序
 #### [在本地群集上部署应用程序](service-fabric-get-started-with-a-local-cluster.md)
-#### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure Resource Manager](service-fabric-application-arm-resource.md)
+#### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### 升级应用程序
-#### [使用 PowerShell 进行升级](service-fabric-application-upgrade-tutorial-powershell.md)
+#### [使用 Azure PowerShell 进行升级](service-fabric-application-upgrade-tutorial-powershell.md)
 #### [使用 Visual Studio 进行升级](service-fabric-application-upgrade-tutorial.md)
 #### [应用程序升级故障排除](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -254,6 +257,7 @@
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### 缩放
 ##### [手动](service-fabric-cluster-scale-up-down.md)
+<!--Not Available ##### [Programmatically](service-fabric-cluster-programmatic-scaling.md)-->
 #### [升级](service-fabric-cluster-upgrade.md)
 #### [设置访问控制](service-fabric-cluster-security-roles.md)
 #### [配置](service-fabric-cluster-fabric-settings.md)
@@ -310,7 +314,7 @@
 #### [添加自定义运行状况报告](service-fabric-report-health.md)
 #### [使用系统运行状况报告进行故障排除](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 #### [查看运行状况报告](service-fabric-view-entities-aggregated-health.md)
-#### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+<!--Not Available #### [Monitor Windows Server containers](service-fabric-diagnostics-containers-windowsserver.md)-->
 ### 聚合事件
 #### [使用 EventFlow 聚合事件](service-fabric-diagnostics-event-aggregation-eventflow.md)
 #### 使用 Azure 诊断聚合事件
@@ -322,9 +326,21 @@
 ### [排查本地群集的故障](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # 引用
-## [PowerShell (Azure)](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/?view=azureservicefabricps)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/sf)
+## [Azure CLI (az sf)](https://docs.azure.cn/zh-cn/cli/sf?view=azure-cli-latest)
+## [Service Fabric CLI (sfctl)](service-fabric-sfctl.md)
+### [sfctl application](service-fabric-sfctl-application.md)
+### [sfctl chaos](service-fabric-sfctl-chaos.md)
+### [sfctl cluster](service-fabric-sfctl-cluster.md)
+### [sfctl compose](service-fabric-sfctl-compose.md)
+### [sfctl is](service-fabric-sfctl-is.md)
+### [sfctl node](service-fabric-sfctl-node.md)
+### [sfctl partition](service-fabric-sfctl-partition.md)
+### [sfctl replica](service-fabric-sfctl-replica.md)
+### [sfctl rpm](service-fabric-sfctl-rpm.md)
+### [sfctl service](service-fabric-sfctl-service.md)
+### [sfctl store](service-fabric-sfctl-store.md)
 ## [Java API](https://docs.azure.cn/java/api/overview/azure/servicefabric)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](https://docs.microsoft.com/rest/api/servicefabric)
@@ -335,5 +351,5 @@
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [代码示例](http://aka.ms/servicefabricsamples)
 ## [支持选项](service-fabric-support.md)
-
-<!--ms.date: 10/02/2017 -->
+## [服务更新](https://www.azure.cn/what-is-new/)
+<!--ms.date: 11/13/2017 -->

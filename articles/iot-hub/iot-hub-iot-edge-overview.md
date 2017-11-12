@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/04/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
-ms.openlocfilehash: 52f53bba80167ddeb48a247e729426714c371905
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 11/20/2017
+ms.openlocfilehash: d44be6bdbf5e277c4088a01e2be264f396350fee
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-iot-edge-architectural-concepts"></a>Azure IoT Edge 体系结构概念
 
@@ -52,7 +52,7 @@ IoT Edge 包含以下组件：
 
 可通过两种方法将消息定向到正确的 IoT Edge 模块：
 
-* 可以传递一组可传递到中转站的链接，这样一来，中转站就能够知道每个模块的源和接收器。
+* 可将一组链接传递到中转站，使中转站获知每个模块的源和接收器。
 * 模块可以根据消息的属性进行筛选。
 
 模块仅应在消息是其适用对象的情况下对消息执行操作。 链接和消息筛选实际上创建了消息管道。

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 07/24/2017
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 09b28bb29b7d850c595fce96c84125a265c055ba
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 1272e3bd6744752e56a4ad6fb78babfad4959221
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>创建、更改或删除网络接口
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 09/13/2017
 - 查看 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文，了解网络接口的限制。
 - 使用 Azure 帐户登录到 Azure [门户](https://portal.azure.cn)、Azure 命令行接口 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用 PowerShell 命令来完成本文中的任务，请[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure PowerShell commandlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
-- 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，请[安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
+- 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，请[安装和配置 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 09/13/2017
 
 |工具|命令|
 |---|---|
-|CLI|[az network nic create](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|CLI|[az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#create)|
 |PowerShell|[New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json#create)|
 
 ## <a name="view-nics"></a>查看网络接口设置
@@ -95,7 +95,7 @@ ms.lasthandoff: 09/13/2017
 <!-- Not Available IPv6 -->
 |工具|命令|
 |---|---|
-|CLI|使用 [az network nic list](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) 查看订阅中的网络接口；使用 [az network nic show](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) 查看网络接口的设置|
+|CLI|使用 [az network nic list](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#list) 查看订阅中的网络接口；使用 [az network nic show](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#show) 查看网络接口的设置|
 |PowerShell|使用 [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json) 查看订阅中的网络接口或查看网络接口的设置|
 
 <a name="dns"></a>
@@ -116,7 +116,7 @@ DNS 服务器由 Azure DHCP 服务器分配到虚拟机操作系统中的网络�
 
 |工具|命令|
 |---|---|
-|CLI|[az network nic update](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|CLI|[az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update)|
 |PowerShell|[Set-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="ip-forwarding"></a>启用/禁用 IP 转发
@@ -137,7 +137,7 @@ IP 转发使网络接口附加到的虚拟机能够：
 
 |工具|命令|
 |---|---|
-|CLI|[az network nic update](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|CLI|[az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update)|
 |PowerShell|[Set-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="subnet"></a>更改子网分配
@@ -158,7 +158,7 @@ IP 转发使网络接口附加到的虚拟机能够：
 
 |工具|命令|
 |---|---|
-|CLI|[az network nic ip-config update](https://docs.microsoft.com/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|CLI|[az network nic ip-config update](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="delete-nic"></a>删除网络接口
@@ -176,7 +176,7 @@ IP 转发使网络接口附加到的虚拟机能够：
 
 |工具|命令|
 |---|---|
-|CLI|[az network nic delete](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|CLI|[az network nic delete](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#delete)|
 |PowerShell|[Remove-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/remove-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>后续步骤

@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 06/29/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 10/16/2017
-ms.openlocfilehash: c5830fed9c9bd7cf6b0b0c352edd6bb7cd478764
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 11/20/2017
+ms.openlocfilehash: d623497fbf7bf094918bc3888c74e5f6166d395e
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-java"></a>使用 Java 将设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -160,7 +160,7 @@ ms.lasthandoff: 09/29/2017
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.13.0</version> 
+        <version>0.15.0</version> 
     </dependency>
     ```
 
@@ -171,7 +171,6 @@ ms.lasthandoff: 09/29/2017
     ```java
     import java.io.IOException;
     import com.microsoft.azure.eventhubs.*;
-    import com.microsoft.azure.servicebus.*;
 
     import java.nio.charset.Charset;
     import java.time.*;
@@ -255,7 +254,7 @@ ms.lasthandoff: 09/29/2017
       client0.closeSync();
       client1.closeSync();
       System.exit(0);
-    } catch (ServiceBusException sbe) {
+    } catch (Exception e) {
       System.exit(1);
     }
     ```
@@ -321,7 +320,8 @@ ms.lasthandoff: 09/29/2017
     private static DeviceClient client;
     ```
    
-    本示例应用在实例化 **DeviceClient** 对象时使用 **protocol** 变量。 可以使用 MQTT、AMQP 或 HTTP 协议与 IoT 中心通信。
+    本示例应用在实例化 **DeviceClient** 对象时使用 **protocol** 变量。 可以使用 MQTT、AMQP 或 HTTPS 协议与 IoT 中心通信。
+
 8. 在 **App** 类中添加以下嵌套的 **TelemetryDataPoint** 类，以指定设备要发送到 IoT 中心的遥测数据：
 
     ```java
@@ -339,8 +339,7 @@ ms.lasthandoff: 09/29/2017
 9. 在 **App** 类中添加以下嵌套的 **EventCallback** 类，以显示 IoT 中心在处理来自设备应用的消息时返回的确认状态。 处理消息时，此方法还会通知应用中的主线程：
    
     ```java
-    private static class EventCallback implements IotHubEventCallback
-    {
+    private static class EventCallback implements IotHubEventCallback {
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
    

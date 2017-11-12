@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 05/01/2017
 ms.date: 07/03/2017
 ms.author: v-junlch
-ms.openlocfilehash: b05873b8392360f1a0ebb7c8fcb0c3af73afd20e
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 56b42ac5cae1c7b3ba29e470264d7e5b57e38796
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-batch-cli-samples"></a>Azure Batch CLI 示例
 
@@ -36,5 +36,5 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 05/16/2017
 ms.date: 07/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: d9fa8122cd619429fef78a6c64bcab4a7ac119af
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 55d635443f4d3b6db0f1d8413ab36b989ecbc700
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>验证 VPN 网关连接
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/14/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-若要使用 Azure CLI 验证 Resource Manager 部署模型的 VPN 网关连接，请安装最新版本的 [CLI 命令](https://docs.microsoft.com/cli/azure/install-azure-cli)（2.0 或更高版本）。
+若要使用 Azure CLI 验证 Resource Manager 部署模型的 VPN 网关连接，请安装最新版本的 [CLI 命令](/cli/install-azure-cli)（2.0 或更高版本）。
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 

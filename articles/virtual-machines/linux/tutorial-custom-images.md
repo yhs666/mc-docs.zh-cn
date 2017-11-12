@@ -17,11 +17,11 @@ origin.date: 05/21/2017
 ms.date: 10/16/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 55f9040768403d98ea3b81fc7bec7612b6ed86b8
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 521c1926316d17145c48b75dcd6b1e2bff1b467a
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>使用 CLI 创建 Azure VM 的自定义映像
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/13/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 ## <a name="before-you-begin"></a>开始之前
 
@@ -73,13 +73,13 @@ exit
 
 ### <a name="deallocate-and-mark-the-vm-as-generalized"></a>解除分配 VM 并将其标记为通用化
 
-若要创建映像，需要解除分配 VM。 使用 [az vm deallocate](https://docs.microsoft.com/cli//azure/vm#deallocate) 解除分配 VM。 
+若要创建映像，需要解除分配 VM。 使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli//azure/vm?view=azure-cli-latest#deallocate) 解除分配 VM。 
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-最后，使用 [az vm generalize](https://docs.microsoft.com/cli//azure/vm#generalize) 将 VM 的状态设置为“通用化”，以便 Azure 平台知道 VM 已通用化。 只能从通用化 VM 创建映像。
+最后，使用 [az vm generalize](https://docs.azure.cn/zh-cn/cli//azure/vm?view=azure-cli-latest#generalize) 将 VM 的状态设置为“通用化”，以便 Azure 平台知道 VM 已通用化。 只能从通用化 VM 创建映像。
 
 ```azurecli 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -87,7 +87,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### <a name="create-the-image"></a>创建映像
 
-现在，可使用 [az image create](https://docs.microsoft.com/cli//azure/image#create) 创建 VM 的映像。 以下示例从名为 myVM 的 VM 创建名为 myImage 的映像。
+现在，可使用 [az image create](https://docs.azure.cn/zh-cn/cli//azure/image?view=azure-cli-latest#create) 创建 VM 的映像。 以下示例从名为 myVM 的 VM 创建名为 myImage 的映像。
 
 ```azurecli 
 az image create \
@@ -98,7 +98,7 @@ az image create \
 
 ## <a name="create-vms-from-the-image"></a>从映像创建 VM
 
-现在，你已有了一个映像，可以使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 从该映像创建一个或多个新 VM。 以下示例从名为 myImage 的映像创建名为 myVMfromImage 的 VM。
+现在，你已有了一个映像，可以使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 从该映像创建一个或多个新 VM。 以下示例从名为 myImage 的映像创建名为 myVMfromImage 的 VM。
 
 ```azurecli 
 az vm create \

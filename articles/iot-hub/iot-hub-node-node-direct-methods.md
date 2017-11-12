@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 08/25/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 10/16/2017
-ms.openlocfilehash: eae165b1e4eb1661aa4e2d1d369ac94be057f196
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 11/20/2017
+ms.openlocfilehash: dbb058e961ecc9d04354fcb80eaefc59cd74e288
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-direct-methods-on-your-iot-device-with-nodejs"></a>通过 Node.js 使用 IoT 设备上的直接方法
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
@@ -35,9 +35,9 @@ ms.lasthandoff: 09/29/2017
 > 
 > 
 
-要完成本教程，需要具备以下先决条件：
+要完成本教程，需要以下各项：
 
-* Node.js 0.10.x 或更高版本。
+* Node.js 版本 4.0.x 或更高版本。
 * 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]

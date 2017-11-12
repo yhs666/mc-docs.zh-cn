@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/13/2017
-ms.date: 07/17/2017
+origin.date: 10/06/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9fad49abfd432098e8fa14d456c75f9c6e73d847
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: a7647f7f3d21c89d9eceef9d1fe875888c715602
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>执行组件生命周期、自动垃圾回收和手动删除
 首次调用执行组件的任何方法时即可激活该执行组件。 如果在可配置的一段时间内未使用执行组件，则此执行组件将停用（执行组件运行时对其进行垃圾回收）。 还可以在任何时候手动删除执行组件及其状态。
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/14/2017
 ## <a name="actor-activation"></a>执行组件激活
 当激活了某个执行组件，将出现以下情况：
 
-* 当调用执行组件时，如果执行组件尚未处于活动状态，则将创建新的执行组件。
+* 当调用执行组件时，如果执行组件尚未处于活动状态，则创建新的执行组件。
 * 如果执行组件为维护状态，则加载此执行组件的状态。
 * 将调用 `OnActivateAsync` (C#) 或 `onActivateAsync` (Java) 方法（这些方法可以在执行组件实现中被重写）。
 * 现在该执行组件被视为处于活动状态。
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/14/2017
 当停用了某个执行组件，将出现以下情况：
 
 * 如果在一段时间内未使用执行组件，则会从“活动执行组件”表中将其删除。
-* 将调用 `OnDeactivateAsync` (C#) 或 `onDeactivateAsync` (Java) 方法（这些方法可以在执行组件实现中被重写）。 这将清除此执行组件的所有计时器。 不可从该方法中调用诸如状态更改的执行组件操作。
+* 将调用 `OnDeactivateAsync` (C#) 或 `onDeactivateAsync` (Java) 方法（这些方法可以在执行组件实现中被重写）。 这会清除此执行组件的所有计时器。 不可从该方法中调用诸如状态更改的执行组件操作。
 
 > [!TIP]
 > Fabric 执行组件运行时发出一些[与执行组件激活和停用相关的事件](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters)。 它们可用于进行诊断和性能监视。
@@ -44,7 +44,7 @@ ms.lasthandoff: 07/14/2017
 >
 
 ### <a name="actor-garbage-collection"></a>执行组件垃圾回收
-停用某个执行组件后，将释放对此执行组件对象的引用，并且通常使用公共语言运行时 (CLR) 或 Java 虚拟机 (JVM) 垃圾回收器对其进行回收。 垃圾回收只清除执行组件对象；它**不会**删除存储在执行组件的状态管理器中的状态。 当下次激活此执行组件时，将创建一个新的执行组件对象，并还原其状态。
+停用某个执行组件后，将释放对此执行组件对象的引用，并且通常使用公共语言运行时 (CLR) 或 Java 虚拟机 (JVM) 垃圾回收器对其进行回收。 垃圾回收只清除执行组件对象；它**不会**删除存储在执行组件的状态管理器中的状态。 当下次激活此执行组件时，会创建一个新的执行组件对象，并还原其状态。
 
 就停用和垃圾回收而言，什么样的执行组件可视为“正在使用”？
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 07/14/2017
 * 正在调用的 `IRemindable.ReceiveReminderAsync` 方法（仅当执行组件使用提醒时该方法才可用）
 
 > [!NOTE]
-> 如果该执行组件使用计时器并且调用了其计时器回调，则**不**将其视为“正在使用”。
+> 如果执行组件使用计时器，且计时器回调得到调用，则不计为“正在使用”。
 >
 >
 
@@ -140,11 +140,11 @@ myActorServiceProxy.deleteActorAsync(actorToDelete);
 
 * **活动执行组件**
   * 执行组件从活动的执行组件列表中删除并停用。
-  * 将永久删除该执行组件的状态。
+  * 该执行组件的状态会被永久删除。
 * **非活动执行组件**
-  * 将永久删除该执行组件的状态。
+  * 该执行组件的状态会被永久删除。
 
-请注意，执行组件无法使用其任何一个执行组件方法对其自身调用删除，因为在执行组件调用时执行删除将无法删除该执行组件，在此过程中，运行时已获取该执行组件的锁，用于强制实施单线程访问。
+请注意，执行组件无法使用其任何一个执行组件方法对其自身调用删除，因为在执行组件调用时执行删除无法删除该执行组件，在此过程中，运行时已获取该执行组件的锁，用于强制实施单线程访问。
 
 ## <a name="next-steps"></a>后续步骤
 * [执行组件计时器和提醒](service-fabric-reliable-actors-timers-reminders.md)
@@ -157,3 +157,5 @@ myActorServiceProxy.deleteActorAsync(actorToDelete);
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
+
+<!--Update_Description: update meta properties-->

@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/08/2017
+origin.date: 09/19/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
-ms.openlocfilehash: ef0d9c41c31f41870861148ac6332f2bb4b3d092
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 11/20/2017
+ms.openlocfilehash: 5a32a42f15a3e89eead4c06b5c234648892c7889
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="reference---iot-hub-endpoints"></a>参考 - IoT 中心终结点
 ## <a name="iot-hub-names"></a>IoT 中心名称
@@ -33,9 +33,9 @@ Azure IoT 中心属于多租户服务，向各种执行组件公开功能。 下
 以下列表对这些终结点进行了说明：
 
 * **资源提供程序**。 IoT 中心资源提供程序公开一个 [Azure 资源管理器][lnk-arm]接口。 此接口使 Azure 订阅所有者可以创建和删除 IoT 中心以及更新 IoT 中心属性。 IoT 中心属性可管理[中心级别的安全策略][lnk-accesscontrol]，相对于设备级别的访问控制和云到设备及设备到云消息传送的功能选项。 IoT 中心资源提供程序还可让用户 [导出设备标识][lnk-importexport]。
-* **设备标识管理**。 每个 IoT 中心公开一组用于管理设备标识的 HTTP REST 终结点（创建、检索、更新和删除）。 [设备标识][lnk-device-identities]用于设备身份验证和访问控制。
-* **设备孪生管理**。 每个 IoT 中心都会公开一组面向服务的 HTTP REST 终结点，用于查询和更新[设备孪生][lnk-twins]（更新标记和属性）。
-* **作业管理**。 每个 IoT 中心都会公开一组面向服务的 HTTP REST 终结点，用于查询和管理 [作业][lnk-jobs]。
+* **设备标识管理**。 每个 IoT 中心公开一组用于管理设备标识的 HTTPS REST 终结点（创建、检索、更新和删除）。 [设备标识][lnk-device-identities]用于设备身份验证和访问控制。
+* **设备孪生管理**。 每个 IoT 中心都会公开一组面向服务的 HTTPS REST 终结点，用于查询和更新[设备孪生][lnk-twins]（更新标记和属性）。
+* **作业管理**。 每个 IoT 中心都会公开一组面向服务的 HTTPS REST 终结点，用于查询和管理[作业][lnk-jobs]。
 * **设备终结点**。 对于标识注册表中的每个设备，IoT 中心都会公开一组终结点：
 
   * *发送设备到云的消息*。 设备使用此终结点[发送设备到云的消息][lnk-d2c]。
@@ -43,10 +43,10 @@ Azure IoT 中心属于多租户服务，向各种执行组件公开功能。 下
   * *启动文件上传*。 设备使用此终结点接收来自 IoT 中心的 Azure 存储 SAS URI，以便[上传文件][lnk-upload]。
   * *检索并更新设备孪生的属性*。 设备使用此终结点访问其 [设备孪生][lnk-twins]的属性。
   * *接收直接方法请求*。 设备使用此终结点侦听[直接方法][lnk-methods]的请求。
-    
-    这些终结点使用 [MQTT v3.1.1][lnk-mqtt]、HTTP 1.1 和 [AMQP 1.0][lnk-amqp] 协议进行公开。 还可通过端口 443 上的 [WebSocket][lnk-websockets] 来实现 AMQP。
 
-* **服务终结点**。 每个 IoT 中心公开一组终结点，供解决方案后端用于与设备通信。 除了一个例外，这些终结点只使用 [AMQP][lnk-amqp] 协议进行公开。 方法调用终结点通过 HTTP 协议进行公开。
+    这些终结点使用 [MQTT v3.1.1][lnk-mqtt]、HTTPS 1.1 和 [AMQP 1.0][lnk-amqp] 协议进行公开。 还可通过端口 443 上的 [WebSocket][lnk-websockets] 来实现 AMQP。
+
+* **服务终结点**。 每个 IoT 中心公开一组终结点，供解决方案后端用于与设备通信。 除了一个例外，这些终结点只使用 [AMQP][lnk-amqp] 协议进行公开。 方法调用终结点通过 HTTPS 协议进行公开。
   
   * *接收设备到云的消息*。 此终结点与 [Azure 事件中心][lnk-event-hubs]兼容。 后端服务可用它来读取由设备发送的 [设备到云消息][lnk-d2c] 。 除了此内置终结点外，还可以在 IoT 中心创建自定义终结点。
   * *发送云到设备的消息并接收传递确认*。 这些终结点可让解决方案后端发送可靠的 [云到设备的消息][lnk-c2d]，以及接收对应的传送或过期确认。
@@ -63,6 +63,7 @@ Azure IoT 中心属于多租户服务，向各种执行组件公开功能。 下
 
 IoT 中心当前支持将以下 Azure 服务作为附加终结点：
 
+* Azure 存储容器
 * 事件中心
 * 服务总线队列
 * 服务总线主题
@@ -71,10 +72,23 @@ IoT 中心需要这些服务终结点的写入权限，以便使用消息路由�
 
 如果消息与多个路由匹配，而这些路由全部指向同一终结点，则 IoT 中心仅向该终结点传递一次消息。 因此不必在服务总线队列或主题中配置重复数据删除。 在分区队列中，分区相关性可保障消息排序。
 
-> [!NOTE]
-> 用作 IoT 中心终结点的服务总线队列和主题不能启用“会话”或“重复项检测”。 如果启用了其中任一选项，该终结点将在 Azure 门户中显示为“无法访问”。
-
 有关可添加终结点的数量限制，请参阅 [配额和限制][lnk-devguide-quotas]。
+
+### <a name="when-using-azure-storage-containers"></a>如果使用 Azure 存储容器
+
+IoT 中心仅支持将数据以 [Apache Avro](http://avro.apache.org/) 格式作为 blob 写入 Azure 存储容器。 IoT 中心将在其达到特定大小或经过一定的时间之后（以先发生者为准），会对消息进行批处理，并将数据写入 blob。 如果没有要写入的数据，IoT 中心不会写入一个空 blob。
+
+IoT 中心默认为以下文件命名约定：
+
+```
+{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
+```
+
+可以使用任何你希望的文件命名约定，但必须使用所有列出的令牌。
+
+### <a name="when-using-service-bus-queues-and-topics"></a>如果使用服务总线队列和主题
+
+用作 IoT 中心终结点的服务总线队列和主题不能启用“会话”或“重复项检测”。 如果启用了其中任一选项，该终结点将在 Azure 门户中显示为“无法访问”。
 
 ## <a name="field-gateways"></a>现场网关
 

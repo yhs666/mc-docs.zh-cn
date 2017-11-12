@@ -153,7 +153,7 @@
 #### [本机模块主机](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # 引用
-## [Azure CLI](https://doc.microsoft.com/cli/azure/iot)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/iot?view=azure-cli-latest)
 ## [.NET（服务）](https://doc.microsoft.com/dotnet/api/microsoft.azure.devices)
 ## [.NET（设备）](https://doc.microsoft.com/dotnet/api/microsoft.azure.devices.client)
 ## [Java（服务）](https://doc.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service)

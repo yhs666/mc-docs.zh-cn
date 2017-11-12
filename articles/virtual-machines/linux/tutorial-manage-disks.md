@@ -17,11 +17,11 @@ origin.date: 05/02/2017
 ms.date: 10/16/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1963d3cf7fc0b5e6d3f26f13a15b81f01d41f861
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 1d945572a1305a992d14726c5cc6fbff72373910
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>使用 Azure CLI 管理 Azure 磁盘
 
@@ -38,7 +38,7 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 ## <a name="default-azure-disks"></a>默认 Azure 磁盘
 
@@ -98,13 +98,13 @@ Azure 提供两种类型的磁盘。
 
 ### <a name="attach-disk-at-vm-creation"></a>在 VM 创建时附加磁盘
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 命令创建资源组。 
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 命令创建资源组。 
 
 ```azurecli 
 az group create --name myResourceGroupDisk --location chinaeast
 ```
 
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 命令创建 VM。 `--datadisk-sizes-gb` 参数用于指定应创建并附加到虚拟机的附加磁盘。 若要创建并附加多个磁盘，请使用空格分隔的磁盘大小值列表。 在以下示例中，创建的 VM 具有两个均为 128 GB 的数据磁盘。 因为磁盘大小为 128 GB，所以这两个磁盘都配置为 P10，每个磁盘最多提供 500 IOPS。
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 命令创建 VM。 `--datadisk-sizes-gb` 参数用于指定应创建并附加到虚拟机的附加磁盘。 若要创建并附加多个磁盘，请使用空格分隔的磁盘大小值列表。 在以下示例中，创建的 VM 具有两个均为 128 GB 的数据磁盘。 因为磁盘大小为 128 GB，所以这两个磁盘都配置为 P10，每个磁盘最多提供 500 IOPS。
 
 ```azurecli 
 az vm create \
@@ -118,7 +118,7 @@ az vm create \
 
 ### <a name="attach-disk-to-existing-vm"></a>将磁盘附加到现有 VM
 
-若要创建新磁盘并将其附加到现有虚拟机，请使用 [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) 命令。 以下示例创建大小为 128 GB 的高级磁盘，并将其附加到上一步创建的 VM 中。
+若要创建新磁盘并将其附加到现有虚拟机，请使用 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#attach) 命令。 以下示例创建大小为 128 GB 的高级磁盘，并将其附加到上一步创建的 VM 中。
 
 ```azurecli 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
@@ -197,19 +197,19 @@ exit
 
 部署 VM 后，可增加操作系统磁盘或任何附加数据磁盘的大小。 需要更多存储空间或更高级别的性能（P10、P20、P30）时，增加磁盘大小很有用。 请注意，不能降低磁盘大小。
 
-增加磁盘大小之前，需要磁盘 ID 或名称。 使用 [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list) 命令返回资源组中的所有磁盘。 记下要调整大小的磁盘名称。
+增加磁盘大小之前，需要磁盘 ID 或名称。 使用 [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az_disk_list) 命令返回资源组中的所有磁盘。 记下要调整大小的磁盘名称。
 
 ```azurecli 
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
-此外，必须解除分配 VM。 使用 [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate) 命令停止和解除分配 VM。
+此外，必须解除分配 VM。 使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#deallocate) 命令停止和解除分配 VM。
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-使用 [az disk update](https://docs.microsoft.com/cli/azure/vm/disk#update) 命令调整磁盘大小。 本示例将名为“myDataDisk”的磁盘的大小调整为 1 TB。
+使用 [az disk update](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#update) 命令调整磁盘大小。 本示例将名为“myDataDisk”的磁盘的大小调整为 1 TB。
 
 ```azurecli 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
@@ -229,7 +229,7 @@ az vm start --resource-group myResourceGroupDisk --name myVM
 
 ### <a name="create-snapshot"></a>创建快照
 
-创建虚拟机磁盘快照前，需要磁盘 ID 或名称。 使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) 命令返回磁盘 ID。在此示例中，磁盘 ID 存储在变量中，因此能够在稍后的步骤中使用。
+创建虚拟机磁盘快照前，需要磁盘 ID 或名称。 使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_show) 命令返回磁盘 ID。在此示例中，磁盘 ID 存储在变量中，因此能够在稍后的步骤中使用。
 
 ```azurecli 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -267,13 +267,13 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 需要将所有数据磁盘重新附加到虚拟机。
 
-先使用 [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list) 命令找到数据磁盘名称。 此示例将磁盘名称放在名为“datadisk”的变量中，将在下一步中使用该变量。
+先使用 [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az_disk_list) 命令找到数据磁盘名称。 此示例将磁盘名称放在名为“datadisk”的变量中，将在下一步中使用该变量。
 
 ```azurecli 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-使用 [ az vm disk attach ](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) 命令附加磁盘。
+使用 [ az vm disk attach ](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_attach) 命令附加磁盘。
 
 ```azurecli 
 az vm disk attach -g myResourceGroupDisk --vm-name myVM --disk $datadisk

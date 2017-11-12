@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 04/19/2017
 ms.date: 08/21/2017
 ms.author: v-yeche
-ms.openlocfilehash: 612074212f584f8607b1242352a75edca9d95ab1
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 2a1cb63cb9df86c825767a2aa8186e78396302f2
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-resource-manager-template-deployment---azure-cli-script"></a>Azure Resource Manager 模板部署 - Azure CLI 脚本
 
@@ -160,10 +160,10 @@ az group delete --name myResourceGroup
 
 | 命令 | 说明 |
 |---|---|
-| [az group exists](https://docs.microsoft.com/cli/azure/group#exists) | 检查是否有资源组。 |
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
-| [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create) | 启动部署。  |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | 删除资源组，包括其所有资源。 |
+| [az group exists](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#exists) | 检查是否有资源组。 |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) | 创建用于存储所有资源的资源组。 |
+| [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create) | 启动部署。  |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#delete) | 删除资源组，包括其所有资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 * 有关部署模板的简介，请参阅[使用 Resource Manager 模板和 Azure PowerShell 部署资源](resource-group-template-deploy-cli.md)。

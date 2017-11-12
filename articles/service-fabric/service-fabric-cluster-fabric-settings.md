@@ -13,26 +13,26 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/15/2017
-ms.date: 09/11/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0f156968d93823eb1288a6535b4405b40bbe720c
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 33458142c4c888b311afe4b72b09a7fb5708ca73
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自定义 Service Fabric 群集设置和结构升级策略
-本文档说明如何为 Service Fabric 群集自定义各种结构设置和结构升级策略。 可以使用门户或 Azure Resource Manager 模板完成自定义。
+本文档说明如何为 Service Fabric 群集自定义各种结构设置和结构升级策略。 可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板完成自定义。
 
 > [!NOTE]
-> 并非所有设置都可通过门户进行验证。 如果不能通过门户使用下面列出的设置，请使用 Azure 资源管理器模板对其进行自定义。
+> 并非所有设备在门户中皆为可用。 如果不能通过门户使用下面列出的设置，请使用 Azure 资源管理器模板对其进行自定义。
 > 
 <!-- Not Avaialable ## Customizing Service Fabric cluster settings using Azure Resource Manager templates -->
 
 ## <a name="fabric-settings-that-you-can-customize"></a>可以自定义的结构设置
 下面是可以自定义的结构设置：
 
-### <a name="section-name-diagnostics"></a>节名称：Diagnostics
+## <a name="diagnostics"></a>诊断
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | ConsumerInstances |字符串 |DCA 使用者实例列表。 |
@@ -46,12 +46,12 @@ ms.lasthandoff: 09/08/2017
 | EnableTelemetry |Bool，默认值为 true |启用或禁用遥测。 |
 | EnableCircularTraceSession |Bool，默认值为 false |标志指示是否应使用循环跟踪会话。 |
 
-### <a name="section-name-traceetw"></a>节名称：Trace/Etw
+## <a name="traceetw"></a>Trace/Etw
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | 级别 |Int，默认值为 4 |跟踪 ETW 级别可以使用值 1、2、3、4。 要受支持，必须将跟踪级别保持为 4 |
 
-### <a name="section-name-performancecounterlocalstore"></a>节名称：PerformanceCounterLocalStore
+## <a name="performancecounterlocalstore"></a>PerformanceCounterLocalStore
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | IsEnabled |Bool，默认值为 true |标志指示是否启用本地节点上的性能计数器集合。 |
@@ -60,7 +60,7 @@ ms.lasthandoff: 09/08/2017
 | MaxCounterBinaryFileSizeInMB |Int，默认值为 1 |每个性能计数器二进制文件的最大大小（以 MB 为单位）。 |
 | NewCounterBinaryFileCreationIntervalInMinutes |Int，默认值为 10 |在其之后创建新的性能计数器二进制文件的最大间隔（以秒为单位）。 |
 
-### <a name="section-name-setup"></a>节名称：Setup
+## <a name="setup"></a>设置
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | FabricDataRoot |字符串 |Service Fabric 数据根目录。 Azure 默认位置为 d:\svcfab |
@@ -69,7 +69,7 @@ ms.lasthandoff: 09/08/2017
 | ServiceStartupType |字符串 |结构主机服务的启动类型。 |
 | SkipFirewallConfiguration |Bool，默认值为 false |指定是否需要由系统设置防火墙设置。 仅当使用 Windows 防火墙时才适用。 如果使用第三方防火墙，必须打开要使用的系统和应用程序的端口 |
 
-### <a name="section-name-transactionalreplicator"></a>节名称：TransactionalReplicator
+## <a name="transactionalreplicator"></a>TransactionalReplicator
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | MaxCopyQueueSize |Uint，默认值为 16384 |这是用于定义队列初始大小的最大值，该队列用于维护复制操作。 请注意，它必须是 2 的幂。 如果在运行时该队列增长到此大小，则会限制主复制器和辅助复制器之间的操作。 |
@@ -93,7 +93,7 @@ ms.lasthandoff: 09/08/2017
 | SlowApiMonitoringDuration |以秒为单位的时间，默认值为 300 | 在触发运行状况事件警告前，指定 API 的持续时间。|
 | MinLogSizeInMB |Int，默认值为 0 |事务日志的最小大小。 不允许将日志截断为低于此设置的大小。 0 表示复制器根据其他设置确定最小日志大小。 增加此值会提高执行部分复制和增量备份的可能性，因为这会降低截断相关日志记录的可能性。 |
 
-### <a name="section-name-fabricclient"></a>节名称：FabricClient
+## <a name="fabricclient"></a>FabricClient
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | NodeAddresses |string，默认值为“” |不同节点上的地址（连接字符串）的集合，可用于与命名服务通信。 最初，客户端随机选择一个地址进行连接。 如果提供了多个连接字符串且因通信或超时错误导致连接失败，客户端按顺序切换为使用下一个地址。 请参阅“命名服务地址重试”部分，了解有关重试语义的详细信息。 |
@@ -107,38 +107,38 @@ ms.lasthandoff: 09/08/2017
 | RetryBackoffInterval |以秒为单位的时间，默认值为 3 |指定以秒为单位的时间跨度。 重试操作之前的回退时间间隔。 |
 | MaxFileSenderThreads |Uint，默认值为 10 |并行传输的最大文件数。 |
 
-### <a name="section-name-common"></a>节名称：Common
+## <a name="common"></a>常见
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | PerfMonitorInterval |以秒为单位的时间，默认值为 1 |指定以秒为单位的时间跨度。 性能监视时间间隔。 设置为 0 或负值会禁用监视。 |
 
-### <a name="section-name-healthmanager"></a>节名称：HealthManager
+## <a name="healthmanager"></a>HealthManager
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | EnableApplicationTypeHealthEvaluation |Bool，默认值为 false |群集运行状况评估策略：启用按应用程序类型的运行状况评估。 |
 
-### <a name="section-name-fabricnode"></a>节名称：FabricNode
+## <a name="fabricnode"></a>FabricNode
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | StateTraceInterval |以秒为单位的时间，默认值为 300 |指定以秒为单位的时间跨度。 FM/FMM 上每个节点及以上节点的节点状态跟踪的时间间隔。 |
 
-### <a name="section-name-nodedomainids"></a>节名称：NodeDomainIds
+## <a name="nodedomainids"></a>NodeDomainIds
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | UpgradeDomainId |string，默认值为“” |描述节点所属的升级域。 |
 | PropertyGroup |NodeFaultDomainIdCollection |描述节点所属的容错域。 通过用于描述数据中心中节点所在位置的 URI 定义容错域。  容错域 URI 的格式是 fd:/fd/，后接 URI 路径段。|
 
-### <a name="section-name-nodeproperties"></a>节名称：NodeProperties
+## <a name="nodeproperties"></a>NodeProperties
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | PropertyGroup |NodePropertyCollectionMap |节点属性的字符串键值对的集合。 |
 
-### <a name="section-name-nodecapacities"></a>节名称：NodeCapacities
+## <a name="nodecapacities"></a>NodeCapacities
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | PropertyGroup |NodeCapacityCollectionMap |不同指标的节点容量集合。 |
 
-### <a name="section-name-fabricnode"></a>节名称：FabricNode
+## <a name="fabricnode"></a>FabricNode
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | StartApplicationPortRange |Int，默认值为 0 |由宿主子系统管理的应用程序端口的开始位置。 当托管中的 EndpointFilteringEnabled 为 true 时为必需。 |
@@ -160,12 +160,12 @@ ms.lasthandoff: 09/08/2017
 | UserRoleClientX509FindValue |string，默认值为“” |用于查找默认用户角色 FabricClient 的证书的搜索筛选器值。 |
 | UserRoleClientX509FindValueSecondary |string，默认值为“” |用于查找默认用户角色 FabricClient 的证书的搜索筛选器值。 |
 
-### <a name="section-name-paas"></a>节名称：Paas
+## <a name="paas"></a>Paas
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | ClusterId |string，默认值为“” |由结构用于配置保护的 X509 证书存储。 |
 
-### <a name="section-name-fabrichost"></a>节名称：FabricHost
+## <a name="fabrichost"></a>FabricHost
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | StopTimeout |以秒为单位的时间，默认值为 300 |指定以秒为单位的时间跨度。 托管服务激活、停用和升级的超时时间。 |
@@ -177,7 +177,7 @@ ms.lasthandoff: 09/08/2017
 | EnableServiceFabricBaseUpgrade |Bool，默认值为 false |用于启用服务器的基本更新。 |
 | EnableRestartManagement |Bool，默认值为 false |用于启用服务器重启。 |
 
-### <a name="section-name-failovermanager"></a>节名称：FailoverManager
+## <a name="failovermanager"></a>FailoverManager
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | UserReplicaRestartWaitDuration |以秒为单位的时间，默认值为 60.0 * 30 |指定以秒为单位的时间跨度。 当持久化副本不可用时，Windows Fabric 在创建新的替换副本（需要状态的副本）前，会等待该副本恢复正常，等待时间即为此持续时间。 |
@@ -185,7 +185,7 @@ ms.lasthandoff: 09/08/2017
 | UserStandByReplicaKeepDuration |以秒为单位的时间，默认值为 3600.0 * 24 * 7 |指定以秒为单位的时间跨度。 持久化副本从不可用状态恢复时，可能已被替换为另一副本。 此计时器确定 FM 在放弃备用副本之前保留其多长时间。 |
 | UserMaxStandByReplicaCount |Int，默认值为 1 |系统为用户服务保留的默认最大备用副本数。 |
 
-### <a name="section-name-namingservice"></a>节名称：NamingService
+## <a name="namingservice"></a>NamingService
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int，默认值为 7 |命名服务存储的每个分区的副本集数量。 增加副本集的数量会增加命名服务存储中信息的可靠性水平；减少此更改会导致信息由于节点故障而丢失；其代价是增加 Windows Fabric 上的负载以及对命名数据执行更新所花费的时间。|
@@ -207,43 +207,43 @@ ms.lasthandoff: 09/08/2017
 | GatewayServiceDescriptionCacheLimit |Int，默认值为 0 |命名网关处的 LRU 服务说明缓存中可维持的最大条目数（设置为 0 表示无限制）。 |
 | PartitionCount |Int，默认值为 3 |要创建的命名服务存储的分区数。 每个分区都拥有与其索引相对应的单个分区键，因此存在分区键 [0; PartitionCount)。 增加命名服务分区数可减少由任何备份副本集保持的数据的平均量，从而增加命名服务可以执行的规模；其代价是增加资源的利用（因为必须维护 PartitionCount*ReplicaSetSize 服务副本）。|
 
-### <a name="section-name-runas"></a>节名称：RunAs
+## <a name="runas"></a>RunAs
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | RunAsAccountName |string，默认值为“” |指示 RunAs 帐户名称。 仅需用于“DomainUser”或“ManagedServiceAccount”帐户类型。 有效值为“domain\user”或“user@domain”。 |
 |RunAsAccountType|string，默认值为“” |指示 RunAs 帐户类型。 需用于任何 RunAs 部分，有效值为“DomainUser/NetworkService/ManagedServiceAccount/LocalSystem”。|
 |RunAsPassword|string，默认值为“” |指示 RunAs 帐户密码。 仅需用于“DomainUser”帐户类型。 |
 
-### <a name="section-name-runasfabric"></a>节名称：RunAs_Fabric
+## <a name="runasfabric"></a>RunAs_Fabric
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | RunAsAccountName |string，默认值为“” |指示 RunAs 帐户名称。 仅需用于“DomainUser”或“ManagedServiceAccount”帐户类型。 有效值为“domain\user”或“user@domain”。 |
 |RunAsAccountType|string，默认值为“” |指示 RunAs 帐户类型。 需用于任何 RunAs 部分，有效值为“LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem”。 |
 |RunAsPassword|string，默认值为“” |指示 RunAs 帐户密码。 仅需用于“DomainUser”帐户类型。 |
 
-### <a name="section-name-runashttpgateway"></a>节名称：RunAs_HttpGateway
+## <a name="runashttpgateway"></a>RunAs_HttpGateway
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | RunAsAccountName |string，默认值为“” |指示 RunAs 帐户名称。 仅需用于“DomainUser”或“ManagedServiceAccount”帐户类型。 有效值为“domain\user”或“user@domain”。 |
 |RunAsAccountType|string，默认值为“” |指示 RunAs 帐户类型。 需用于任何 RunAs 部分，有效值为“LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem”。 |
 |RunAsPassword|string，默认值为“” |指示 RunAs 帐户密码。 仅需用于“DomainUser”帐户类型。 |
 
-### <a name="section-name-runasdca"></a>节名称：RunAs_DCA
+## <a name="runasdca"></a>RunAs_DCA
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | RunAsAccountName |string，默认值为“” |指示 RunAs 帐户名称。 仅需用于“DomainUser”或“ManagedServiceAccount”帐户类型。 有效值为“domain\user”或“user@domain”。 |
 |RunAsAccountType|string，默认值为“” |指示 RunAs 帐户类型。 需用于任何 RunAs 部分，有效值为“LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem”。 |
 |RunAsPassword|string，默认值为“” |指示 RunAs 帐户密码。 仅需用于“DomainUser”帐户类型。 |
 
-### <a name="section-name-httpgateway"></a>节名称：HttpGateway
+## <a name="httpgateway"></a>HttpGateway
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 |IsEnabled|Bool，默认值为 false | 启用/禁用 httpgateway。 默认情况下，禁用 Httpgateway，需要设置此配置以启用 Httpgateway。 |
 |ActiveListeners |Uint，默认值为 50 | 要发布到 http 服务器队列的读取数。 此配置控制 HttpGateway 可以满足的并发请求数。 |
 |MaxEntityBodySize |Uint，默认值为 4194304 |  提供可预期的 http 请求正文的最大大小。 默认值为 4MB。 如果请求的正文大小大于此值，Httpgateway 将无法满足该请求。 最小读取块区大小为 4096 个字节。 因此，该值必须 > = 4096。 |
-|HttpGatewayHealthReportSendInterval |以秒为单位的时间，默认值为 30 | 指定以秒为单位的时间跨度。 HTTP 网关将累积的运行状况报告发送至运行状况管理器的时间间隔。 |
+|HttpGatewayHealthReportSendInterval |以秒为单位的时间，默认值为 30 | 指定以秒为单位的时间范围。 HTTP 网关将累积的运行状况报告发送至运行状况管理器的时间间隔。 |
 
-### <a name="section-name-ktllogger"></a>节名称：KtlLogger
+## <a name="ktllogger"></a>KtlLogger
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 |AutomaticMemoryConfiguration |Int，默认值为 1 | 该标志指示是否应自动且动态地配置内存设置。 如果设置为 0，则根据系统条件直接使用内存配置设置而不进行任何更改。 如果设置为 1，则自动配置内存设置，并可根据系统条件进行更改。 |
@@ -254,12 +254,12 @@ ms.lasthandoff: 09/08/2017
 |SharedLogId |string，默认值为“” |共享日志容器的唯一 GUID。 若要使用结构数据根目录下的默认路径，请设置为 ""。 |
 |SharedLogSizeInMB |Int，默认值为 8192 | 共享日志容器中要分配的 MB 数。 |
 
-### <a name="section-name-applicationgatewayhttp"></a>节名称：ApplicationGateway/Http
+## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 |IsEnabled |Bool，默认值为 false | 启用/禁用 HttpApplicationGateway。 默认情况下，禁用 HttpApplicationGateway，需要设置此配置以启用 HttpApplicationGateway。 |
 |NumberOfParallelOperations | Uint，默认值为 5000 | 要发布到 http 服务器队列的读取数。 此配置控制 HttpGateway 可以满足的并发请求数。 |
-|DefaultHttpRequestTimeout |以秒为单位的时间。 默认值为 120 |指定以秒为单位的时间跨度。  提供用于 http 应用网关中正在处理的 http 请求的默认请求超时时间。 |
+|DefaultHttpRequestTimeout |以秒为单位的时间。 默认值为 120 |指定以秒为单位的时间范围。  提供用于 http 应用网关中正在处理的 http 请求的默认请求超时时间。 |
 |ResolveServiceBackoffInterval |以秒为单位的时间，默认值为 5 |指定以秒为单位的时间跨度。  提供重试失败的解析服务操作之前的默认回退时间间隔。 |
 |BodyChunkSize |Uint，默认值为 16384 |  提供用于读取正文的区块大小（以字节为单位）。 |
 |GatewayAuthCredentialType |string，默认值为“None” | 指示在 http 应用网关终结点处使用的安全凭据的类型，有效值为“None/X509”。 |
@@ -268,7 +268,7 @@ ms.lasthandoff: 09/08/2017
 |GatewayX509CertificateFindValue | string，默认值为“” | 用于查找 http 应用网关证书的搜索筛选器值。 此证书在 https 终结点上配置，并且如果服务需要，还可用于验证应用的标识。 首先查找 FindValue，如果其不存在，再查找 FindValueSecondary。 |
 |GatewayX509CertificateFindValueSecondary | string，默认值为“” |用于查找 http 应用网关证书的搜索筛选器值。 此证书在 https 终结点上配置，并且如果服务需要，还可用于验证应用的标识。 首先查找 FindValue，如果其不存在，再查找 FindValueSecondary。|
 
-### <a name="section-name-management"></a>节名称：Management
+## <a name="management"></a>管理
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | ImageStoreConnectionString |SecureString | ImageStore 的根的连接字符串。 |
@@ -280,7 +280,7 @@ ms.lasthandoff: 09/08/2017
 |DisableChecksumValidation | Bool，默认值为 false | 通过此配置可在应用程序预配过程中启用或禁用校验和验证。 |
 |DisableServerSideCopy | Bool，默认值为 false | 此配置可以在应用程序预配过程中启用或禁用 ImageStore 上应用程序包的服务器端副本。 |
 
-### <a name="section-name-healthmanagerclusterhealthpolicy"></a>节名称：HealthManager/ClusterHealthPolicy
+## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | ConsiderWarningAsError |Bool，默认值为 false |群集运行状况评估策略：警告视为错误。 |
@@ -289,7 +289,7 @@ ms.lasthandoff: 09/08/2017
 |MaxPercentDeltaUnhealthyNodes | Int，默认值为 10 |群集升级运行状况评估策略：为确保群集运行正常，可允许的最高运行不正常节点增量百分比。 |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes | Int，默认值为 15 |群集升级运行状况评估策略：为确保群集运行正常，升级域中可允许的最高运行不正常节点增量百分比。|
 
-### <a name="section-name-faultanalysisservice"></a>节名称：FaultAnalysisService
+## <a name="faultanalysisservice"></a>FaultAnalysisService
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int，默认值为 0 |NOT_PLATFORM_UNIX_START，FaultAnalysisService 的 TargetReplicaSetSize。 |
@@ -302,7 +302,7 @@ ms.lasthandoff: 09/08/2017
 | CompletedActionKeepDurationInSeconds | Int，默认值为 604800 | 这是处于终态的操作的大致保留时长。  这也取决于 StoredActionCleanupIntervalInSeconds，因为仅在此间隔时间内执行清理工作。 604800 秒等于 7 天。 |
 | StoredChaosEventCleanupIntervalInSeconds | Int，默认值为 3600 |这是审核存储（以进行清理）的频率，如果事件数量超过 30000，则开始执行清理。 |
 
-### <a name="section-name-filestoreservice"></a>节名称：FileStoreService
+## <a name="filestoreservice"></a>FileStoreService
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | NamingOperationTimeout |以秒为单位的时间，默认值为 60 |指定以秒为单位的时间跨度。 执行命名操作时的超时时间。 |
@@ -328,7 +328,7 @@ ms.lasthandoff: 09/08/2017
 | SecondaryAccountNTLMX509StoreName | string，默认值为“MY” |使用 NTLM 身份验证时，用于在 SecondaryAccountNTLMPasswordSecret 上生成 HMAC 的 X509 证书的存储名称。 |
 | SecondaryAccountNTLMX509Thumbprint | string，默认值为“”| 使用 NTLM 身份验证时，用于在 SecondaryAccountNTLMPasswordSecret 上生成 HMAC 的 X509 证书的指纹。 |
 
-### <a name="section-name-imagestoreservice"></a>节名称：ImageStoreService
+## <a name="imagestoreservice"></a>ImageStoreService
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | Enabled |Bool，默认值为 false |ImageStoreService 的 Enabled 标志。 |
@@ -344,7 +344,7 @@ ms.lasthandoff: 09/08/2017
 | ClientListTimeout | 以秒为单位的时间，默认值为 600 | 指定以秒为单位的时间跨度。 对映像存储服务的顶级列出请求的超时值。 |
 | ClientDefaultTimeout | 以秒为单位的时间，默认值为 180 | 指定以秒为单位的时间跨度。 对映像存储服务的所有未上传/未下载请求（如 exists、delete）的超时值。 |
 
-### <a name="section-name-imagestoreclient"></a>节名称：ImageStoreClient
+## <a name="imagestoreclient"></a>ImageStoreClient
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | ClientUploadTimeout |以秒为单位的时间，默认值为 1800 | 指定以秒为单位的时间跨度。 对映像存储服务的顶级上传请求的超时值。 |
@@ -353,12 +353,12 @@ ms.lasthandoff: 09/08/2017
 |ClientListTimeout | 以秒为单位的时间，默认值为 600 |指定以秒为单位的时间跨度。 对映像存储服务的顶级列出请求的超时值。 |
 |ClientDefaultTimeout | 以秒为单位的时间，默认值为 180 | 指定以秒为单位的时间跨度。 对映像存储服务的所有未上传/未下载请求（如 exists、delete）的超时值。 |
 
-### <a name="section-name-tokenvalidationservice"></a>节名称：TokenValidationService
+## <a name="tokenvalidationservice"></a>TokenValidationService
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | 提供程序 |string，默认值为“DSTS” |要启用的令牌验证提供程序的逗号分隔列表（有效的提供程序是：DSTS、AAD）。 目前只能在任何时候启用单个提供程序。 |
 
-### <a name="section-name-upgradeorchestrationservice"></a>节名称：UpgradeOrchestrationService
+## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int，默认值为 0 |UpgradeOrchestrationService 的 TargetReplicaSetSize。 |
@@ -370,7 +370,7 @@ ms.lasthandoff: 09/08/2017
 | AutoupgradeEnabled | Bool，默认值为 true | 基于目标状态文件的自动轮询和升级操作。 |
 | UpgradeApprovalRequired | Bool，默认值为 false | 此设置可让升级代码需要管理员批准才能继续操作。 |
 
-### <a name="section-name-upgradeservice"></a>节名称：UpgradeService
+## <a name="upgradeservice"></a>UpgradeService
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | PlacementConstraints |string，默认值为“” |升级服务的 PlacementConstraints。 |
@@ -387,7 +387,7 @@ ms.lasthandoff: 09/08/2017
 | OnlyBaseUpgrade | Bool，默认值为 false | UpgradeService 的 OnlyBaseUpgrade。 |
 | TestCabFolder | string，默认值为“” | UpgradeService 的 TestCabFolder。 |
 
-### <a name="section-name-securityclientaccess"></a>节名称：Security/ClientAccess
+## <a name="securityclientaccess"></a>Security/ClientAccess
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | CreateName |string，默认值为“Admin” |用于创建命名 URI 的安全配置。 |
@@ -474,7 +474,7 @@ ms.lasthandoff: 09/08/2017
 | GetClusterConfigurationUpgradeStatus | string，默认值为“Admin\|\|User" | 在分区上引入 GetClusterConfigurationUpgradeStatus。 |
 | GetClusterConfiguration | string，默认值为“Admin\|\|User" | 在分区上引入 GetClusterConfiguration。 |
 
-### <a name="section-name-reconfigurationagent"></a>节名称：ReconfigurationAgent
+## <a name="reconfigurationagent"></a>ReconfigurationAgent
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | ApplicationUpgradeMaxReplicaCloseDuration | 以秒为单位的时间，默认值为 900 |指定以秒为单位的时间跨度。 如果服务主机具有进入关闭状态的副本，则该配置确定系统在终止这类服务主机前所等待的时间。 |
@@ -485,7 +485,7 @@ ms.lasthandoff: 09/08/2017
 | FabricUpgradeMaxReplicaCloseDuration | 以秒为单位的时间，默认值为 900 | 指定以秒为单位的时间跨度。 在终止其副本处于未关闭状态的服务主机之前，RA 需要等待的最长时间。 |
 | IsDeactivationInfoEnabled | Bool，默认值为 true | 确定 RA 是否将使用停用信息执行主改选。对于新群集，应将此配置设置为 true。对于要升级的现有群集，请参阅发行说明，了解启用该配置的方法。 |
 
-### <a name="section-name-placementandloadbalancing"></a>节名称：PlacementAndLoadBalancing
+## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | TraceCRMReasons |Bool，默认值为 true |指定是否要寻找向操作事件通道移动（CRM 发出的移动）的原因。 |
@@ -537,12 +537,12 @@ ms.lasthandoff: 09/08/2017
 |PartiallyPlaceServices | Bool，默认值为 true | 确定在给定有限的适当节点的情况下，是否“全部或完全不”放置群集中的所有服务副本。|
 |InterruptBalancingForAllFailoverUnitUpdates | Bool，默认值为 false | 确定是否有任何类型的故障转移单元更新应中断快速或慢速均衡运行。 如果指定为“false”，则会在 FailoverUnit 出现以下情况时中断均衡运行：被创建/删除、缺少副本、更改了主副本位置或更改了副本数量。 在其他情况下不会中断均衡运行，包括 FailoverUnit 具有额外副本、更改了任何副本标志、仅更改了分区版本等任何其他情况。 |
 
-### <a name="section-name-security"></a>节名称：Security
+## <a name="security"></a>“安全”
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | ClusterProtectionLevel |None 或 EncryptAndSign |不安全的群集为 None（默认值），安全的群集为 EncryptAndSign。 |
 
-### <a name="section-name-hosting"></a>节名称：Hosting
+## <a name="hosting"></a>Hosting
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | ServiceTypeRegistrationTimeout |以秒为单位的时间，默认值为 300 |允许在结构中注册 ServiceType 的最长时间 |
@@ -551,18 +551,18 @@ ms.lasthandoff: 09/08/2017
 | ActivationMaxRetryInterval |以秒为单位的时间，默认值为 300 |在每次连续激活失败时，系统会重试激活最多 ActivationMaxFailureCount 次。 ActivationMaxRetryInterval 指定每次激活失败之后、重试之前等待的时间间隔 |
 | ActivationMaxFailureCount |整数，默认值为 10 |系统在放弃之前重试失败激活的次数 |
 
-### <a name="section-name-failovermanager"></a>节名称：FailoverManager
+## <a name="failovermanager"></a>FailoverManager
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | PeriodicLoadPersistInterval |以秒为单位的时间，默认值为 10 |确定 FM 检查新负载报告的频率 |
 
-### <a name="section-name-federation"></a>节名称：Federation
+## <a name="federation"></a>联合
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | LeaseDuration |以秒为单位的时间，默认值为 30 |节点与其邻居之间的租约持续时间。 |
 | LeaseDurationAcrossFaultDomain |以秒为单位的时间，默认值为 30 |所有容错域中的节点与其邻居之间的租约持续时间。 |
 
-### <a name="section-name-clustermanager"></a>节名称：ClusterManager
+## <a name="clustermanager"></a>ClusterManager
 | **参数** | **允许的值** | **指导或简短说明** |
 | --- | --- | --- |
 | UpgradeStatusPollInterval |以秒为单位的时间，默认值为 60 |轮询应用程序升级状态的频率。 此值确定任何 GetApplicationUpgradeProgress 调用的更新速率 |
@@ -596,4 +596,4 @@ ms.lasthandoff: 09/08/2017
 
 [在 Azure 群集中添加、滚动更新和删除证书 ](service-fabric-cluster-security-update-certs-azure.md)
 
-<!--Update_Description: update meta properties, update parameters setting.-->
+<!--Update_Description: update meta properties, wording update -->

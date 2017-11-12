@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 08/08/2017
-ms.date: 09/11/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 055baa5bf6cb670950d595a6bb4ff603f268eb22
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 2ed26f5f28363ade1a380814713d3d672317c35c
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>了解如何监视和诊断在反向代理处处理的请求
 
@@ -158,11 +158,11 @@ ms.lasthandoff: 09/08/2017
 
     如果仅针对严重/错误事件启用收集，你会发现有一个事件将包含超时详细信息和解析尝试次数。 
 
-    如果服务打算将 404 状态代码返回给用户，应附带一个“X ServiceFabric”标头。 修复此问题后，你将发现反向代理会将状态代码转发回客户端。  
+    想要向用户发送回 404 状态代码的服务应在响应中添加一个“X-ServiceFabric”标头。 将该标头添加到响应后，反向代理会将状态代码转发回客户端。  
 
 4. 客户端与请求断开连接时的情况。
 
-    下面的事件在反向代理将向客户端转发响应但客户端断开连接时进行记录：
+    当反向代理要将响应转发给客户端但客户端断开连接时，将记录以下事件：
 
     ```
     {
@@ -180,6 +180,18 @@ ms.lasthandoff: 09/08/2017
       }
     }
     ```
+5. 反向代理返回 404 FABRIC_E_SERVICE_DOES_NOT_EXIST
+
+    如果未为服务清单中的服务终结点指定 URI 方案，则返回 FABRIC_E_SERVICE_DOES_NOT_EXIST 错误。
+
+    ```
+    <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>
+    ```
+
+    若要解决此问题，请在清单中指定 URI 方案。
+    ```
+    <Endpoint Name="ServiceEndpointHttp" UriScheme="http" Port="80" Protocol="http" Type="Input"/>
+    ```
 
 > [!NOTE]
 > 当前不记录与 websocket 请求处理相关的事件。 下一个版本将添加此功能。
@@ -187,7 +199,7 @@ ms.lasthandoff: 09/08/2017
 ## <a name="next-steps"></a>后续步骤
 * [使用 Microsoft Azure 诊断的事件聚合和收集](service-fabric-diagnostics-event-aggregation-wad.md)，用于启用 Azure 群集中的日志收集。
 * 若要在 Visual Studio 中查看 Service Fabric 事件，请参阅[本地监视和诊断](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)。
-* 请参阅[配置反向代理以连接到安全服务](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services)，获取用于通过不同的服务证书验证选项配置安全反向代理的 Azure Resource Manager 模板示例。
+* 请参阅[将反向代理配置为连接到安全服务](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services)了解 Azure 资源管理器模板示例，使用其他服务证书验证选项配置安全反向代理。
 * 若要了解详细信息，请参阅 [Service Fabric 反向代理](service-fabric-reverseproxy.md)。
 
-<!--Update_Description: new articles of reverse proxy diagnostics in service fabric -->
+<!--Update_Description: add content of error FABRIC_E_SERVICE_DOES_NOT_EXIST -->

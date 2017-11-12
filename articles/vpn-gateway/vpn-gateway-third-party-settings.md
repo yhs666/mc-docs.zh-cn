@@ -1,26 +1,26 @@
 ---
-title: "适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置 | Azure"
+title: "适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置 | Microsoft Docs"
 description: "了解适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置。"
 services: vpn-gateway
 documentationcenter: 
-author: chadmath
-manager: cshepard
+author: alexchen2016
+manager: digimobile
 editor: 
 tags: azure-vpn-gateway
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/04/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
-ms.openlocfilehash: 925dad0a7ccaa02d371ba0807ccc3a1d5b4dea93
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 11/07/2017
+ms.author: v-junlch
+ms.openlocfilehash: 12b96aac5fb70275fe23280cfefbb085550bb76e
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置
 
@@ -51,3 +51,5 @@ ms.lasthandoff: 08/04/2017
 [Azure 网关设置](/vpn-gateway/vpn-gateway-about-vpn-devices#a-nameipsecaipsecike-parameters)
 
 [已知的兼容设备](/vpn-gateway/vpn-gateway-about-vpn-devices#validated-vpn-devices)
+
+<!--Update_Description: update metadata properties-->

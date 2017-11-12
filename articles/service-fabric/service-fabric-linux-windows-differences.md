@@ -1,6 +1,6 @@
 ---
 title: "Linux 和 Windows 之间的 Azure Service Fabric 差异 | Azure"
-description: "Linux 上的 Azure Service Fabric 预览版和 Windows 上的 Azure Service Fabric 之间的差异。"
+description: "Linux 上的 Azure Service Fabric 与 Windows 上的 Azure Service Fabric 之间的差异。"
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -12,36 +12,28 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/09/2017
-ms.date: 10/02/2017
+origin.date: 09/19/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: f5a00c2481180a0ddc03a9b3daf2ab38f47015cf
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: dbc8134226affe6b634f26d832ab462cf55bae44
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Linux 上的 Service Fabric（预览版）与 Windows 上的 Service Fabric（正式版）之间的差异
+# <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux 上的 Service Fabric 与 Windows 上的 Service Fabric 之间的差异
 
-由于 Linux 上的 Service Fabric 是预览版，因此某些在 Windows 上受支持的功能，在 Linux 上尚不受支持。 最终，当 Linux 上的 Service Fabric 公开发布时，这些功能集会一致。 在即将发布的版本中，此功能差异会缩小。 最新可用发行版（即 Windows 上的 5.6 版和 Linux 上的 5.5 版）之间存在以下差异： 
+某些在 Windows 上受支持的功能，在 Linux 上尚不受支持。 最终，功能集将会一致，并且随着每个版本的发布，此功能差异将会缩小。 最新发行版（即 Windows 上的 6.0 版和 Linux 上的 6.0 版）之间存在以下差异： 
 
-* Reliable Collections（和 Reliable Stateful Services） 
-* ReverseProxy 
-* 独立安装程序 
-* 清单文件的 XML 架构验证 
-* 控制台重定向 
-* 故障分析服务 (FAS)
-* Docker Compose 和 Docker Volume 以及适用于容器的日志记录驱动程序 
-* 容器和服务的资源调控 
-* DNS 服务
-* Azure Active Directory 支持
-* 某些 PowerShell 命令的 CLI 命令对等项 
-* 只能针对 Linux 群集运行部分 Powershell 命令（在下一部分展开介绍）。
+* 所有编程模型以预览版提供（Java/C# Reliable Actors、Stateless Services 和 Reliable Stateful Services）
+* Envoy (ReverseProxy) 在 Linux 上以预览版提供
+* 在 Linux 中尚未推出适用于 Linux 的独立安装程序
+* 控制台重定向（在 Linux 或 Windows 生产群集中不受支持）
+* Linux 上的故障分析服务 (FAS)
+* 用于 Service Fabric 服务的 DNS 服务（Linux 上的容器支持 DNS 服务）
+* 某些 Powershell 命令的 CLI 命令等效项（下面已列出，其中的大多数命令仅适用于独立群集）
 
->[!NOTE]
->即使在 Windows 上，也不支持在生产群集中进行控制台重定向。
-
-Windows 和 Linux 的开发工具也不相同。 VisualStudio、Powershell、VSTS 和 ETW 用于 Windows，Yeoman、Eclipse、Jenkins 和 LTTng 用于 Linux。
+Windows 和 Linux 的开发工具也不相同。 Visual Studio、Powershell、VSTS 和 ETW 用于 Windows，Yeoman、Eclipse、Jenkins 和 LTTng 用于 Linux。
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>不能对 Linux Service Fabric 群集使用的 Powershell cmdlet
 
@@ -67,7 +59,6 @@ Windows 和 Linux 的开发工具也不相同。 VisualStudio、Powershell、VST
 * Start-ServiceFabricPartitionRestart
 * Stop-ServiceFabricChaos
 * Stop-ServiceFabricTestCommand
-* Cmd
 * Get-ServiceFabricNodeConfiguration
 * Get-ServiceFabricClusterConfiguration
 * Get-ServiceFabricClusterConfigurationUpgradeStatus
@@ -107,4 +98,4 @@ Windows 和 Linux 的开发工具也不相同。 VisualStudio、Powershell、VST
 * [在 Linux 上创建第一个 CSharp 应用程序](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [使用 Service Fabric CLI 管理应用程序](service-fabric-application-lifecycle-sfctl.md)
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update -->

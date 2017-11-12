@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 06/19/2017
 ms.date: 08/07/2017
 ms.author: v-dazen
-ms.openlocfilehash: cae64167c67cdfd0171e958e77d5b7986f361609
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 80a65e9e474e694f56d20f6059dbefd3d6b9c070
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>使用 Azure CLI 修改本地网络网关设置
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 08/04/2017
 
 ## <a name="before-you-begin"></a>开始之前
 
-安装最新版本的 CLI 命令（2.0 或更高版本）。 有关安装 CLI 命令的信息，请参阅 [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)（安装 Azure CLI 2.0）。
+安装最新版本的 CLI 命令（2.0 或更高版本）。 有关安装 CLI 命令的信息，请参阅 [Install Azure CLI 2.0](/cli/install-azure-cli)（安装 Azure CLI 2.0）。
 
 [!INCLUDE [CLI-login](../../includes/vpn-gateway-cli-login-include.md)]
 

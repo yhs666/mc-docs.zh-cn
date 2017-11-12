@@ -62,7 +62,7 @@
 ## 控制访问
 ### 创建服务主体
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure-resource-manager%2ftoc.json)
+#### [Azure CLI](https://docs.azure.cn/zh-cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest?toc=%2fazure-resource-manager%2ftoc.json)
 #### [Azure 门户](resource-group-create-service-principal-portal.md)
 ### [用于访问订阅的身份验证 API](resource-manager-api-authentication.md)
 ### [锁定资源](resource-group-lock-resources.md)
@@ -138,7 +138,7 @@
 <!-- Not Available ### [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md) -->
 <!-- Not Available ### [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md) -->
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.resources)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/resource)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)

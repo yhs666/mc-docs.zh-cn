@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 08/29/2017
 ms.date: 10/16/2017
 ms.author: v-yiso
-ms.openlocfilehash: 37c07e6d08ec20b290bd8bfa80038ed498933c6e
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: 1a6aa9a9933b29e6c67724d71f89b38600cfc638
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>适用于 C 语言的 Azure IoT 设备 SDK - 有关 IoTHubClient 的详细信息
 
@@ -272,8 +272,8 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 有一些常用的选项：
 
--  **SetBatching**（布尔值）– 如果为 **true**，则将数据分批发送到 IoT 中心。 如果为 **false**，则逐个发送消息。 默认值为 **false**。 请注意， **SetBatching** 选项仅适用于 HTTP 协议，不适用于 MQTT 或 AMQP 协议。
--  **Timeout**（无符号整数）– 此值以毫秒表示。 如果发送 HTTP 请求或接收响应所花费的时间超过此时间，即表示连接超时。
+* **SetBatching**（布尔值）– 如果为 **true**，则将数据分批发送到 IoT 中心。 如果为 **false**，则逐个发送消息。 默认值为 **false**。 请注意，“SetBatching”选项仅适用于 HTTPS 协议，不适用于 MQTT 或 AMQP 协议。
+* **Timeout**（无符号整数）– 此值以毫秒表示。 如果发送 HTTPS 请求或接收响应所花费的时间超过此时间，即表示连接超时。
 
 batching 选项非常重要。 默认情况下，库将逐个引入事件（单个事件是你传递给 **IoTHubClient\_LL\_SendEventAsync** 的任何内容）。 如果 batching 选项为 **true**，库将尽可能多地从缓冲区中收集事件（上限为 IoT 中心接受的消息大小上限）。  事件批在单个 HTTP 调用中发送到 IoT 中心（单个事件已捆绑到 JSON 数组中）。 启用批处理通常可以大幅提升性能，因为网络往返时间会缩减。 不过，这也会明显减少带宽，你要在事件批中发送一组 HTTP 标头，而不是针对每个事件发送一组标头。 除非有使用其他方式的特殊理由，否则建议启用批处理。
 

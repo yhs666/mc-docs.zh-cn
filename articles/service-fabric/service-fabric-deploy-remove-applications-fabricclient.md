@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/07/2017
-ms.date: 08/14/2017
+origin.date: 10/05/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: c6be8638d3852c043c0308993917ee840f4c870a
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 2f2f4a4caad34d74482aa96e71b7bb2c2c107aac
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>使用 FabricClient 部署和删除应用程序
 > [!div class="op_single_selector"]
@@ -33,17 +33,17 @@ ms.lasthandoff: 08/11/2017
 
 [打包应用程序类型][10]后，即可部署到 Azure Service Fabric 群集中。 部署涉及以下三个步骤：
 
-1. 将应用程序包上传到映像存储
+1. 将应用程序包上传到映像存储区
 2. 注册应用程序类型
-3. 创建应用程序实例
+3. 从映像存储中删除应用程序包
+4. 创建应用程序实例
 
 在部署应用程序并且实例在群集中运行后，可以删除应用程序实例及其应用程序类型。 从群集中完全删除某个应用程序涉及以下步骤：
 
 1. 删除正在运行的应用程序实例
 2. 如果不再需要该应用程序类型，则将其取消注册
-3. 从映像存储中删除应用程序包
 
-如果使用 Visual Studio 来部署和调试本地开发群集上的应用程序，则将通过 PowerShell 脚本自动处理上述所有步骤。[](service-fabric-publish-app-remote-cluster.md)  可在应用程序项目的 *Scripts* 文件夹中找到此脚本。 本文提供了有关这些脚本正在执行什么操作的背景，以便可以在 Visual Studio 外部执行相同的操作。 
+如果在本地开发群集上[使用 Visual Studio 部署和调试应用程序](service-fabric-publish-app-remote-cluster.md)，则将通过 PowerShell 脚本自动处理上述所有步骤。  可在应用程序项目的 *Scripts* 文件夹中找到此脚本。 本文提供了有关这些脚本正在执行什么操作的背景，以便可以在 Visual Studio 外部执行相同的操作。 
 
 ## <a name="connect-to-the-cluster"></a>连接至群集
 在运行本文中的任何代码示例之前，通过创建 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 实例连接到群集。 有关连接到本地开发群集、远程群集，或使用 Azure Active Directory、X509 证书或 Windows Active Directory 保护的群集的示例，请参阅[连接到安全群集](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis)。 若要连接到本地部署群集，请运行以下命令：
@@ -71,6 +71,9 @@ FabricClient fabricClient = new FabricClient();
 
 [GetApplicationTypeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) API 提供有关所有已成功注册的应用程序类型的信息。 可以使用此 API 来确定注册的完成时间。
 
+## <a name="remove-an-application-package-from-the-image-store"></a>从映像存储中删除应用程序包
+建议在成功注册应用程序后删除应用程序包。  从映像存储区中删除应用程序包可以释放系统资源。  保留未使用的应用程序包会占用磁盘存储空间，导致应用程序出现性能问题。 使用 [RemoveApplicationPackage](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage) API，从映像存储区删除应用程序包。
+
 ## <a name="create-an-application-instance"></a>创建应用程序实例
 可以使用 [CreateApplicationAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync) API 通过已成功注册的任何应用程序类型来实例化应用程序。 每个应用程序的名称必须以“fabric:”方案开头，并且必须对每个应用程序实例是唯一的（在群集中）。 还会创建目标应用程序类型的应用程序清单中定义的任何默认服务。
 
@@ -95,9 +98,6 @@ FabricClient fabricClient = new FabricClient();
 
 ## <a name="unregister-an-application-type"></a>取消注册应用程序类型
 当不再需要应用程序类型的某个特定版本时，应使用 [Unregister-ServiceFabricApplicationType](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API 取消注册该应用程序类型的该特定版本。 取消注册未使用的应用程序类型版本将释放映像存储使用的存储空间。 只要不存在已根据应用程序类型的某个版本进行实例化的应用程序，并且没有挂起的应用程序升级在引用应用程序类型的该版本，就可以取消注册应用程序类型的该版本。
-
-## <a name="remove-an-application-package-from-the-image-store"></a>从映像存储中删除应用程序包
-当不再需要某个应用程序包时，可以使用 [RemoveApplicationPackage](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage) API 将其从映像存储中删除，释放系统资源。
 
 ## <a name="troubleshooting"></a>故障排除
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage 请求 ImageStoreConnectionString
@@ -137,8 +137,7 @@ ImageStoreConnectionString 可在群集清单中找到：
 如果客户端计算机位于另一个区域，而不在此群集中，请考虑使用此群集的邻近区域或同区域中的客户端计算机。
 - 检查是否已达到外部限制。 例如，将映像存储配置为使用 Azure 存储时，可能会限制上传。
 
-问题：上传包已成功完成，但 [ProvisionApplicationAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API 超时。
-请尝试：
+问题：上传包已成功完成，但 [ProvisionApplicationAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API 超时。请尝试：
 - 复制到映像存储之前[对包进行压缩](service-fabric-package-apps.md#compress-a-package)。
 压缩可减小文件大小，减少文件数量，这反过来会减少通信流量和 Service Fabric 必须执行的工作量。 上传操作可能会变慢（尤其是包括压缩时间时），但注册和注销应用程序类型会加快。
 - 通过 `timeout` 参数为 [ProvisionApplicationAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API 指定更长的超时时间。
@@ -212,6 +211,21 @@ static void Main(string[] args)
     {
         Console.WriteLine("Provision Application Type failed:");
 
+        foreach (Exception ex in ae.InnerExceptions)
+        {
+            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
+        }
+    }
+
+    // Delete the application package from a location in the image store.
+    try
+    {
+        fabricClient.ApplicationManager.RemoveApplicationPackage(imageStoreConnectionString, packagePathInImageStore);
+        Console.WriteLine("Application package removed from {0}", packagePathInImageStore);
+    }
+    catch (AggregateException ae)
+    {
+        Console.WriteLine("Application package removal from Image Store failed: ");
         foreach (Exception ex in ae.InnerExceptions)
         {
             Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
@@ -301,21 +315,6 @@ static void Main(string[] args)
     catch (AggregateException ae)
     {
         Console.WriteLine("Un-provision application type failed: ");
-        foreach (Exception ex in ae.InnerExceptions)
-        {
-            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
-        }
-    }
-
-    // Delete the application package from a location in the image store.
-    try
-    {
-        fabricClient.ApplicationManager.RemoveApplicationPackage(imageStoreConnectionString, packagePathInImageStore);
-        Console.WriteLine("Application package removed from {0}", packagePathInImageStore);
-    }
-    catch (AggregateException ae)
-    {
-        Console.WriteLine("Application package removal from Image Store failed: ");
         foreach (Exception ex in ae.InnerExceptions)
         {
             Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);

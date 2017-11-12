@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/06/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
-ms.openlocfilehash: e3ba404b2f550b7a1cfffadb686e0e4ef0e17c80
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 11/20/2017
+ms.openlocfilehash: c9cf68f2739bb28c2a78e0d5be37950150453e17
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>从 IoT 中心发送云到设备的消息
 
@@ -43,7 +43,7 @@ IoT 中心服务向设备发送消息时，该服务会将消息状态设置为�
 设备还可以选择：
 
 * *拒绝*消息，这会使 IoT 中心将此消息设置为**死信**状态。 通过 MQTT 协议进行连接的设备无法拒绝云到设备的消息。
-* *放弃*消息，这会使 IoT 中心将消息放回队列，并将状态设置为**已排队**。
+* *放弃*消息，这会使 IoT 中心将消息放回队列，并将状态设置为**已排队**。 通过 MQTT 协议连接的设备无法放弃云到设备消息。
 
 线程可能无法处理消息，且不通知 IoT 中心。 在此情况下，在*可见性(或锁定)超时*时间之后，消息将从**不可见**状态自动转换回**已排队**状态。 此超时的默认值为一分钟。
 

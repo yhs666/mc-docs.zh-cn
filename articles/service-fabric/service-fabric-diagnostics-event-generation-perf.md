@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/30/2017
-ms.date: 09/11/2017
+origin.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6d4ec164391c22bad98a4eb4b7f21e0948d14587
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 9f61b59c1cf449ad6272459b3eeb76c101e33da4
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="performance-metrics"></a>性能指标
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 09/08/2017
 | PhysicalDisk(per Disk) | 磁盘写入字节数/秒 |
 | 内存 | 可用兆字节数 |
 | PagingFile | 使用百分比 |
-| Process(Total) | 处理器时间百分比 |
+| Processor(Total) | 处理器时间百分比 |
 | Process (per service) | 处理器时间百分比 |
 | Process (per service) | ID 进程 |
 | Process (per service) | 专用字节数 |
@@ -49,6 +49,11 @@ ms.lasthandoff: 09/08/2017
 | Process (per service) | 虚拟字节数 |
 | Process (per service) | 工作集 |
 | Process (per service) | 工作集 - 专用 |
+| Network Interface(all-instances) | 输出队列长度 |
+| Network Interface(all-instances) | 放弃的出站数据包 |
+| Network Interface(all-instances) | 放弃的已接收数据包 |
+| Network Interface(all-instances) | 出站数据包错误 |
+| Network Interface(all-instances) | 已接收的数据包错误 |
 
 ## <a name="net-applications-and-services"></a>.NET 应用程序和服务
 
@@ -80,4 +85,4 @@ Service Fabric 生成大量自定义性能计数器。 如果已安装 SDK，可
 * 详细了解 Service Fabric 中的[平台级事件生成情况](service-fabric-diagnostics-event-generation-infra.md)
 * 通过 [Azure 诊断](service-fabric-diagnostics-event-aggregation-wad.md)收集性能指标
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, add Network Interface evelate factors -->

@@ -10,17 +10,17 @@ tags: azure-resource-manager,azure-service-management
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/08/2017
-ms.date: 10/09/2017
+ms.date: 11/07/2017
 ms.author: v-junlch
-ms.openlocfilehash: 7fd57407f132c43d82b9a7381ae7e0783a1b5015
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: be4ff12e068b4c8786928c5ca4b49c5ab26550ba
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何验证到达虚拟网络的 VPN 吞吐量
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/13/2017
 本文将演示如何验证从本地资源到达 Azure 虚拟机 (VM) 的网络吞吐量。 还会提供故障排除指南。
 
 >[!NOTE]
->本文旨在帮助诊断并解决常见的问题。 如果使用以下信息无法解决问题，请[与支持人员联系](https://www.azure.cn/support/support-azure/)。
+>本文旨在帮助诊断并解决常见的问题。 如果使用以下信息无法解决问题，请[与支持人员联系](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 >
 >
 
@@ -139,6 +139,6 @@ VPN 网关连接涉及以下组件：
 有关详细信息或帮助，请查看以下链接：
 
 - [优化 Azure 虚拟机网络吞吐量](../virtual-network/virtual-network-optimize-network-bandwidth.md)
-- [Azure 支持](https://www.azure.cn/support/support-azure/)
+- [Microsoft 支持部门](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
 
 <!--Update_Description: wording update-->

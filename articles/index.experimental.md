@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: "Azure 文档"
 description: "了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
-ms.openlocfilehash: 7e9dfe081bad92819c819f3ed73fc5844bbcd3d6
-ms.sourcegitcommit: d50ba5d6f934de899a9b35f0f3c1f3be164ba1ee
+ms.openlocfilehash: cc84b875931e9ddf6e7cd38deaec4ddd81c0d006
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -168,7 +168,7 @@ ms.lasthandoff: 08/25/2017
                                             <div class="cardText">
                                                 <h3>命令行工具</h3>
                                                 <div class="ico48Link">
-                                                    <a href="https://docs.microsoft.com/cli/azure/overview">
+                                                    <a href="/cli/overview">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
                                                         <span>Azure<br />CLI</span>
                                                     </a>
@@ -1906,13 +1906,13 @@ ms.lasthandoff: 08/25/2017
                                             <div class="cardText">
                                                 <h3>Azure CLI 2.0 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/get-started/">入门</a>
+                                                    <a target="_blank" href="/cli/get-started/">入门</a>
                                                 </p>
                                                 <p>
                                                     <a target="_blank" href="https://github.com/Azure/azure-cli">下载 Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure">参考</a>
+                                                    <a target="_blank" href="/cli">参考</a>
                                                 </p>
                                             </div>
                                         </div>

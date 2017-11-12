@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 09/11/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: f60fc95efbf42947431d7e589a1b5ac2ca18d875
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 9cc994b262c6bedcd9727d532bb229c259b412d2
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 应用程序升级
 Azure Service Fabric 应用程序是多个服务的集合。 在升级期间，Service Fabric 将新的[应用程序清单](service-fabric-application-model.md#describe-an-application)与前一版进行比较，并确定应用程序中的哪些服务需要更新。 Service Fabric 会将服务清单中的版本号与前一版中的版本号进行比较。 如果服务未更改，则不升级服务。
@@ -32,6 +32,8 @@ Azure Service Fabric 应用程序是多个服务的集合。 在升级期间，S
 在配置群集时在群集清单中指定更新域。 更新域不按特定的顺序接收更新。 更新域是应用程序部署的逻辑单元。 更新域可让服务在升级过程中保持高可用性。
 
 如果对群集中的所有节点应用升级，即应用程序只有一个更新域，不可能进行任何滚动升级。 由于服务会关闭，并且在升级时不可用，因此不建议此方法。 此外，当仅为群集设置了一个更新域时，Azure 不提供任何保证。
+
+升级完成后，所有的服务和副本（实例）将会保持相同版本，也就是说，如果升级成功，它们会更新到新版本；如果升级失败并回滚，它们会降回到旧版本。
 
 ## <a name="health-checks-during-upgrades"></a>升级过程中的运行状况检查
 必须对升级设置运行状况策略（或者可使用默认值）。 当所有更新域均在指定的超时内进行了升级，并且所有更新域均被认为运行正常时，即可称升级为成功升级。  运行正常的更新域是指该更新域通过了运行状况策略中指定的所有运行状况检查。 例如，运行状况策略可能要求应用程序实例中的所有服务都必须 *运行正常*，因为运行状况是由 Service Fabric 定义的。
@@ -50,7 +52,7 @@ Azure Service Fabric 应用程序是多个服务的集合。 在升级期间，S
 
 1. 创建该群集中不存在的新[应用程序清单](service-fabric-application-model.md#describe-an-application)中的默认服务。
 > [!TIP]
-> 需将 [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) 设置为 true，以便启用以下规则。 从 v5.5 支持此功能。
+> 需将 [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) 设置为 true，以便启用以下规则。 从 v5.5 支持此功能。
 
 2. 更新默认服务，这些服务同时存在于以前的[应用程序清单](service-fabric-application-model.md#describe-an-application)及新版清单中。 新版中的服务说明会覆盖群集已有的说明。 默认服务更新失败时自动回滚应用程序升级。
 3. 删除以前的[应用程序清单](service-fabric-application-model.md#describe-an-application)中有的但新版本中没有的默认服务。 **请注意，删除的默认服务不能还原。**
@@ -77,4 +79,4 @@ Azure Service Fabric 应用程序是多个服务的集合。 在升级期间，S
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: wording update-->

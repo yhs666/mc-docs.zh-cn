@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/25/2017
 ms.author: v-yiso
-ms.date: 07/03/2017
-ms.openlocfilehash: 45919083a09ed45679c0ebb1f396c04a8ba9c28c
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.date: 11/20/2017
+ms.openlocfilehash: 43167bda66628c94c881714f0173a70406e24763
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 11/09/2017
 ---
-# 创建和读取 IoT 中心消息
-<a id="create-and-read-iot-hub-messages" class="xliff"></a>
+# <a name="create-and-read-iot-hub-messages"></a>创建和读取 IoT 中心消息
 
 为了支持无缝的跨协议互操作性，IoT 中心为所有面向设备的协议定义了通用消息格式。 此消息格式可用于[设备到云][lnk-d2c]和[云到设备][lnk-c2d]的消息。 [IoT 中心消息][lnk-messaging]由以下部分组成：
 
@@ -32,7 +31,7 @@ ms.lasthandoff: 06/23/2017
 
 以下情况下，属性名称和值只能包含 ASCII 字母数字字符加上 ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``：
 
-* 使用 HTTP 协议发送设备到云的消息。
+* 使用 HTTPS 协议发送设备到云的消息。
 * 发送云到设备的消息。
 
 若要深入了解如何使用不同的协议对发送的消息进行编码和解码，请参阅 [Azure IoT SDK][lnk-sdks]。
@@ -53,8 +52,7 @@ ms.lasthandoff: 06/23/2017
 | ConnectionDeviceGenerationId |IoT 中心对设备到云的消息设置的 ID。 它包含发送消息的设备的 generationId（根据[设备标识属性][lnk-device-properties]）。 |
 | ConnectionAuthMethod |由 IoT 中心对设备到云的消息设置的身份验证方法。 此属性包含用于验证发送消息的设备的身份验证方法的相关信息。 有关详细信息，请参阅[设备到云的反欺骗技术][lnk-antispoofing]。 |
 
-## 消息大小
-<a id="message-size" class="xliff"></a>
+## <a name="message-size"></a>消息大小
 
 IoT 中心用于衡量消息大小的方法与协议无关，仅考虑实际有效负载。 以字节为单位的大小计算以下各项之和：
 
@@ -64,8 +62,7 @@ IoT 中心用于衡量消息大小的方法与协议无关，仅考虑实际有�
 
 属性名称和值限制为 ASCII 字符，因此，字符串的长度等于以字节为单位的大小。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 IoT 中心内消息大小限制的信息，请参阅 [IoT 中心配额和限制][lnk-quotas]。
 

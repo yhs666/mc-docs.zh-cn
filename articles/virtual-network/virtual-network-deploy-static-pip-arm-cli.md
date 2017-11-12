@@ -17,11 +17,11 @@ origin.date: 03/15/2016
 ms.date: 05/02/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3faf358279c6e96dd10ce34bcb62c7b847651e9c
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 5adc05f0717fe851ce186bc90bad03c4446346cd
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建具有静态公共 IP 地址的 VM
 
@@ -45,7 +45,7 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：[Resourc
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. 安装 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) （若尚未安装）。
+1. 安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) （若尚未安装）。
 2. 通过完成[为 Linux VM 创建 SSH 公钥和私钥对](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fvirtual-network%2ftoc.json)中的步骤创建适用于 Linux VM 的 SSH 公钥和私钥对。
 3. 从命令行界面，使用 `az login`命令登录。
 4. 执行 Linux 或 Mac 计算机上的脚本进行 VM 创建。 Azure 公共 IP 地址、虚拟网络、网络接口和 VM 资源必须存在于同一位置。 虽然资源并非都必须位于同一资源组，但在以下脚本中如此。
@@ -140,7 +140,7 @@ az vm create \
 
 1. 输入命令 `az resource list --resouce-group IaaSStory --output table` ，查看由脚本创建的资源的列表。 返回的输出中应该有五个资源：网络接口、磁盘、公共 IP 地址、虚拟网络和虚拟机。
 2. 输入命令 `az network public-ip show --name PIPWEB1 --resource-group IaaSStory --output table`。 在返回的输出中，记下 **IpAddress** 的值，并且 **PublicIpAllocationMethod** 的值是 *Static*。
-3. 在执行以下命令前，请删除 <>，将 *Username* 替换为用于脚本中 **Username** 变量的名称，并将 *ipAddress* 替换为上一步中的 **ipAddress**。 输入以下命令以连接到 VM：`ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`。 
+3. 在执行以下命令前，请删除 <>，将 Username 替换为用于脚本中 Username 变量的名称，并将 ipAddress 替换为上一步中的 ipAddress。 输入以下命令以连接到 VM：`ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`。 
 
 ## <a name= "clean-up"></a>删除 VM 和关联的资源
 
@@ -148,7 +148,7 @@ az vm create \
 
 1. 若要查看资源组中的资源，请运行 `az resource list --resource-group IaaSStory` 命令。
 2. 请确认在资源组中除了本文中脚本创建的资源外没有其他资源。 
-3. 若要删除本练习中创建的所有资源，请运行 `az group delete -n IaaSStory` 命令。 该命令将删除资源组及其包含的所有资源。
+3. 若要删除本练习中创建的所有资源，请运行 `az group delete -n IaaSStory` 命令。 该命令会删除资源组及其包含的所有资源。
 
 ## <a name="next-steps"></a>后续步骤
 

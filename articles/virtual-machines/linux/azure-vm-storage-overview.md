@@ -15,11 +15,11 @@ ms.workload: infrastructure
 origin.date: 02/07/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 74e5281846f1c4a31609bb42e8a9ec2c2b9ee6a0
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 920c1a265b182cf31385e22d65545f400ffb1415
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-and-linux-vm-storage"></a>Azure 和 Linux VM 存储
 Azure 存储是依赖于持续性、可用性和伸缩性来满足客户需求的现代应用程序的云存储解决方案。  除了使开发人员可以构建大型应用程序来支持新方案之外，Azure 存储还为 Azure 虚拟机提供了存储基础。
@@ -34,11 +34,11 @@ Azure 存储是依赖于持续性、可用性和伸缩性来满足客户需求�
 
 托管磁盘与非托管磁盘的定价不同。 有关这方面的信息，请参阅[托管磁盘的定价和计费](../windows/managed-disks-overview.md#pricing-and-billing)。
 
-可以通过 [az vm convert](https://docs.microsoft.com/cli/azure/vm#convert)，将使用非托管磁盘的现有 VM 转换为使用托管磁盘。 有关详细信息，请参阅[如何将 Linux VM 从非托管磁盘转换为 Azure 托管磁盘](convert-unmanaged-to-managed-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果非托管磁盘所在的存储帐户已使用或曾使用 [Azure 存储服务加密 (SSE)](../../storage/common/storage-service-encryption.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 加密，则无法将该非托管磁盘转换为托管磁盘。 下列步骤详细说明如何转换位于（或曾位于）已加密存储帐户的非托管磁盘：
+可以通过 [az vm convert](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#convert)，将使用非托管磁盘的现有 VM 转换为使用托管磁盘。 有关详细信息，请参阅[如何将 Linux VM 从非托管磁盘转换为 Azure 托管磁盘](convert-unmanaged-to-managed-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果非托管磁盘所在的存储帐户已使用或曾使用 [Azure 存储服务加密 (SSE)](../../storage/common/storage-service-encryption.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 加密，则无法将该非托管磁盘转换为托管磁盘。 下列步骤详细说明如何转换位于（或曾位于）已加密存储帐户的非托管磁盘：
 
-- 使用 [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#start) 将虚拟硬盘 (VHD) 复制到从未启用过 Azure 存储服务加密的存储帐户。
-- 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建使用托管磁盘的 VM 并指定创建期间的 VHD 文件，或
-- 使用 [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) 将复制的 VHD 附加到具有托管磁盘的正在运行中的 VM。
+- 使用 [az storage blob copy start](https://docs.azure.cn/zh-cn/cli/storage/blob/copy?view=azure-cli-latest#start) 将虚拟硬盘 (VHD) 复制到从未启用过 Azure 存储服务加密的存储帐户。
+- 使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 创建使用托管磁盘的 VM 并指定创建期间的 VHD 文件，或
+- 使用 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#attach) 将复制的 VHD 附加到具有托管磁盘的正在运行中的 VM。
 
 ## <a name="azure-storage-standard-and-premium"></a>Azure 存储：标准和高级
 Azure VM - 无论它使用托管磁盘还是非托管磁盘 - 都能以标准存储磁盘或高级存储磁盘为基础进行构建。 使用门户选择 VM 时，必须在“基本信息”屏幕上使用一个下拉列表来切换标准和高级磁盘。 切换到 SSD 时，只显示支持高级存储的 VM，所有这些 VM 由 SSD 驱动器提供支持。  切换到 HDD 时，会显示支持标准存储的 VM（这些 VM 由机械磁盘驱动器提供支持），以及由 SSD 提供支持的高级存储 VM。
@@ -47,17 +47,17 @@ Azure VM - 无论它使用托管磁盘还是非托管磁盘 - 都能以标准存
 
 ## <a name="creating-a-vm-with-a-managed-disk"></a>创建具有托管磁盘的 VM
 
-以下示例要求具有 Azure CLI 2.0，可[在此安装](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+下面的示例要求安装 Azure CLI 2.0（可单击[此处进行安装](https://docs.azure.cn/zh-cn/cli/install-azure-cli)）。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-首先，使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建用于管理资源的资源组：
+首先，使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#create) 创建用于管理资源的资源组：
 
 ```azurecli
 az group create --location chinanorth --name myResourceGroup
 ```
 
-现在，使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 指定唯一的 `--public-ip-address-dns-name` 自变量，可能会采用 `mypublicdns`。
+现在，使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 创建 VM。 指定唯一的 `--public-ip-address-dns-name` 自变量，可能会采用 `mypublicdns`。
 
 ```azurecli
 az vm create \

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/15/2017
 ms.author: v-jamebr
-ms.date: 10/16/2017
-ms.openlocfilehash: 1b6bcaf5c4666ba77855e8cca9ac47ff010da607
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 11/20/2017
+ms.openlocfilehash: d206a255244114d41b193394884c2432eebc15a2
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="get-started-with-device-management-netnet"></a>设备管理入门 (.NET/.NET)
 
@@ -62,12 +62,12 @@ ms.lasthandoff: 09/29/2017
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. 将以下字段添加到 **Program** 类。 将占位符值替换为在上一部分和目标设备中为中心创建的 IoT 中心连接字符串。
+5. 将以下字段添加到 **Program** 类。 将占位符值替换为在“创建 IoT 中心”部分中为中心创建的 IoT 中心连接字符串。 
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
-        static string targetDevice = "{deviceIdForTargetDevice}";
+        static string targetDevice = "myDeviceId";
         
 6. 将以下方法添加到 **Program** 类。  此代码获取重新启动设备的设备孪生并输出报告属性。
    

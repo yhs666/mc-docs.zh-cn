@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/09/2017
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: bbf056e76bc262f68fe967fb6f5a06a962c1caf3
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 19d0ef04bbc0b38f47adcc39e7008de61a13e25a
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>在 Service Fabric 群集中修补 Windows 操作系统
 
-修补业务流程应用程序是一个 Azure Service Fabric 应用程序，可在 Azure 上的 Service Fabric 群集中自动修补操作系统，而无需停机。
+修补业务流程应用程序是一个 Azure Service Fabric 应用程序，可在 Service Fabric 群集中自动修补操作系统，而无需停机。
 
 修补业务流程应用提供以下功能：
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 09/28/2017
 银级持久层中的 Azure 群集默认启用“修复管理器”服务。 黄金级持久层中的 Azure 群集可能启用或不启用“修复管理器”服务，具体取决于这些群集的创建时间。 铜级持久层中的 Azure 群集默认不启用“修复管理器”服务。 如果已启用该服务，可以看到它在 Service Fabric Explorer 的系统服务部分运行。
 
 ##### <a name="azure-portal"></a>Azure 门户
-在设置群集时，可以从 Azure 门户启用修复管理器。 配置群集时，选择“`Add on features`”下的“`Include Repair Manager`”选项。
+在设置群集时，可以从 Azure 门户启用修复管理器。 在群集配置时选择“附加功能”下的“包含修复管理器”选项。
 ![从 Azure 门户启用修复管理器的图像](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-template"></a>Azure Resource Manager 模板
@@ -414,4 +414,4 @@ Windows 更新发生故障时，会使特定节点或升级域上的应用程序
 
 <!-- Not Available ## Release Notes :-->
 
-<!--Update_Description: update meta properties, wording update, add new feature of field description in Json file on API interface-->
+<!--Update_Description: update meta properties, wording update -->

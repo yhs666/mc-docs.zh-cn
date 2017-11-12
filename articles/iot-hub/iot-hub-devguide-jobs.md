@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/29/2017
-ms.date: 10/16/2017
+ms.date: 11/20/2017
 ms.author: v-yiso
-ms.openlocfilehash: 63588bd093421cefb2227f534b414cf9ebca0006
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: 5a749ab2ea4d52d4e948210b0d0c94e33a61d7bb
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>在多个设备上计划作业
 ## <a name="overview"></a>概述
@@ -33,7 +33,7 @@ ms.lasthandoff: 09/29/2017
 * 调用直接方法
 
 ## <a name="job-lifecycle"></a>作业生命周期
-作业由解决方案后端启动，并由 IoT 中心维护。  可以通过面向服务的 URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) 启动作业，并通过面向服务的 URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`) 查询正在执行的作业的进度。  启动作业后，查询作业将使后端应用能够刷新正在运行的作业的状态。
+作业由解决方案后端启动，并由 IoT 中心维护。  可以通过面向服务的 URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) 启动作业，并通过面向服务的 URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`) 查询正在执行的作业的进度。 若要在启动作业后刷新正在运行的作业的状态，请运行作业查询。
 
 > [!NOTE]
 > 启动作业时，属性名称和值只能包含 US-ASCII 可打印字母数字，但下列集中的任一项除外：``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``。
@@ -44,7 +44,7 @@ ms.lasthandoff: 09/29/2017
 以下参考主题提供有关使用作业的详细信息。
 
 ## <a name="jobs-to-execute-direct-methods"></a>用于执行直接方法的作业
-下面是使用作业在一组设备上执行 [直接方法][lnk-dev-methods] 的 HTTP 1.1 请求详细信息：
+以下代码片段显示了使用作业在一组设备上执行[直接方法][lnk-dev-methods]的 HTTPS 1.1 请求详细信息：
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -67,7 +67,7 @@ ms.lasthandoff: 09/29/2017
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
     ```
-查询条件也可以位于单个设备 ID 上或位于设备 ID 列表中，如下所示
+查询条件也可以位于单个设备 ID 上或位于设备 ID 列表中，如以下示例所示：
 
 **示例**
 ```
@@ -78,7 +78,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 [IoT 中心查询语言][lnk-query] 格外详细地介绍了 IoT 中心查询语言。
 
 ## <a name="jobs-to-update-device-twin-properties"></a>用于更新设备孪生属性的作业
-下面是使用作业更新设备孪生属性的 HTTP 1.1 请求详细信息：
+以下代码片段显示了使用作业更新设备克隆属性的 HTTPS 1.1 请求详细信息：
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -98,7 +98,7 @@ queryCondition = "deviceId IN ['MyDevice1']
     ```
 
 ## <a name="querying-for-progress-on-jobs"></a>查询作业的进度
-下面是用于[查询作业][lnk-query]的 HTTP 1.1 请求详细信息：
+以下代码片段显示了用于[查询作业][lnk-query]的 HTTPS 1.1 请求详细信息：
 
     ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
@@ -112,7 +112,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 从响应提供 continuationToken。  
 
 ## <a name="jobs-properties"></a>作业属性
-下面是属性和相应说明的列表，在查询作业或作业结果时可使用这些属性。
+以下列表显示了属性和相应说明，在查询作业或作业结果时可使用这些属性。
 
 | 属性 | 说明 |
 | --- | --- |
@@ -120,15 +120,15 @@ queryCondition = "deviceId IN ['MyDevice1']
 | **startTime** |应用程序提供的作业开始时间(ISO-8601)。 |
 | **endTime** |IoT 中心提供的作业完成时的日期(ISO-8601)。 只有在作业达到“完成”状态后才有效。 |
 | **type** |作业的类型： |
-| **scheduledUpdateTwin**：用于更新一组所需属性或标记的作业。 | |
-| **scheduledDeviceMethod**：用于对一组设备孪生调用设备方法的作业。 | |
+| | **scheduledUpdateTwin**：用于更新一组所需属性或标记的作业。 |
+| | **scheduledDeviceMethod**：用于对一组设备孪生调用设备方法的作业。 |
 | **status** |作业的当前状态。 可能的状态值： |
-| **挂起** ：已计划并等待作业服务选取。 | |
-| **已计划**：计划在将来某个时间。 | |
-| **正在运行** ：当前活动的作业。 | |
-| **已取消** ：已取消作业。 | |
-| **失败** ：作业失败。 | |
-| **完成** ：作业已完成。 | |
+| | **挂起**：已计划并等待作业服务选取。 |
+| | **已计划**：计划在将来某个时间。 |
+| | **正在运行**：当前活动的作业。 |
+| | **已取消**：已取消作业。 |
+| | **失败**：作业失败。 |
+| | **完成**：作业已完成。 |
 | **deviceJobStatistics** |有关作业执行的统计信息。 |
 
 **deviceJobStatistics** 属性。
@@ -145,9 +145,9 @@ queryCondition = "deviceId IN ['MyDevice1']
 IoT 中心开发人员指南中的其他参考主题包括：
 
 * [IoT 中心终结点][lnk-endpoints] ，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
-* [限制和配额][lnk-quotas] ，说明了适用于 IoT 中心服务的配额，以及使用服务时预期会碰到的限制行为。
-* [Azure IoT 设备和服务 SDK][lnk-sdks] ，列出了在开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
-* [用于设备孪生、作业和消息路由的 IoT 中心查询语言][lnk-query]介绍了可用来从 IoT 中心检索设备孪生和作业相关信息的 IoT 中心查询语言。
+* [限制和配额][lnk-quotas]，说明了适用于 IoT 中心服务的配额，以及使用服务时预期会碰到的限制行为。
+* [Azure IoT 设备和服务 SDK][lnk-sdks]，列出了在开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
+* [用于设备孪生、作业和消息路由的 IoT 中心查询语言][lnk-query]一文介绍了可用于从 IoT 中心检索设备孪生和作业相关信息的 IoT 中心查询语言。
 * [IoT 中心 MQTT 支持][lnk-devguide-mqtt] 提供有关 IoT 中心对 MQTT 协议的支持的详细信息。
 
 ## <a name="next-steps"></a>后续步骤

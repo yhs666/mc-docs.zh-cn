@@ -11,17 +11,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/25/2017
+origin.date: 09/19/2017
 ms.author: v-yiso
-ms.date: 07/03/2017
-ms.openlocfilehash: 5763ab40dc6b696d707faf3284cfd55a4f4782f7
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.date: 11/20/2017
+ms.openlocfilehash: 77dc863c98ede3b6c82ad20389be97de7bbb5f7f
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 11/09/2017
 ---
-# 将设备到云的消息发送到 IoT 中心
-<a id="send-device-to-cloud-messages-to-iot-hub" class="xliff"></a>
+# <a name="send-device-to-cloud-messages-to-iot-hub"></a>将设备到云的消息发送到 IoT 中心
 
 若要将时序遥测数据和警报从设备发送到解决方案后端，可将设备到云的消息从设备发送到 IoT 中心。 有关 IoT 中心支持的其他设备到云的选项的介绍，请参阅[设备到云的通信指南][lnk-d2c-guidance]。
 
@@ -40,23 +39,20 @@ IoT 中心使用流式消息传递模式实现设备到云的消息传递。 与
 
 有关 IoT 中心与事件中心服务之间的差异的详细信息，请参阅 [Azure IoT 中心与 Azure 事件中心的比较][lnk-comparison]。
 
-## 发送非遥测流量
-<a id="send-non-telemetry-traffic" class="xliff"></a>
+## <a name="send-non-telemetry-traffic"></a>发送非遥测流量
 
 通常，除了遥测数据点之外，设备还会发送需要在解决方案后端单独执行和处理的消息与请求。 例如，关键警报必须在后端触发特定操作。 可轻松编写[路由规则][lnk-devguide-custom]，根据消息中的标头或消息正文中的值，将这些类型的消息发送到专用于其处理的终结点。
 
 有关此类消息的最佳处理方式的详细信息，请参阅 [教程：如何处理 IoT 中心设备到云的消息][lnk-d2c-tutorial] 教程。
 
-## 路由设备到云的消息
-<a id="route-device-to-cloud-messages" class="xliff"></a>
+## <a name="route-device-to-cloud-messages"></a>路由设备到云的消息
 
 可以使用两个选项将设备到云的消息路由到后端应用：
 
 * 使用内置的[与事件中心兼容的终结点][lnk-compatible-endpoint]，让后端应用能读取中心收到的设备到云消息。 若要了解内置的与事件中心兼容的终结点，请参阅[从内置终结点读取设备到云的消息][lnk-devguide-builtin]。
 * 使用路由规则将消息发送到 IoT 中心内的自定义终结点。 自定义终结点可让后端应用使用事件中心、服务总线队列或服务总线主题读取设备到云的消息。 若要了解路由和自定义终结点，请参阅[对设备到云的消息使用自定义终结点和路由规则][lnk-devguide-custom]。
 
-## 反欺骗属性
-<a id="anti-spoofing-properties" class="xliff"></a>
+## <a name="anti-spoofing-properties"></a>反欺骗属性
 
 为了避免设备到云的消息中出现设备欺骗，IoT 中心使用以下属性在所有消息上加上戳记：
 
@@ -76,8 +72,7 @@ IoT 中心使用流式消息传递模式实现设备到云的消息传递。 与
 }
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关可用于发送设备到云消息的 SDK 的信息，请参阅 [Azure IoT SDK][lnk-sdks]。
 

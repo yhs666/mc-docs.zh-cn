@@ -16,11 +16,11 @@ ms.workload: infrastructure
 origin.date: 09/14/2017
 ms.date: 10/16/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2e3feead011b0a8090e33fb4c65c484acd8a296a
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 8a8ca477e70deb388bc32d1f1dca3ba4970a6ff5
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 创建完整的 Linux 虚拟机基础结构
 使用 Terraform 可以在 Azure 中定义和创建完整的基础结构部署。 以用户可读格式生成 Terraform 模板，用于以一致且可重现的方式创建和配置 Azure 资源。 本文介绍了如何使用 Terraform 创建完整的 Linux 环境和支持资源。 另外，还可以了解如何[安装和配置 Terraform](terraform-install-configure.md)。
@@ -36,6 +36,7 @@ provider "azurerm" {
     client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_secret   = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     tenant_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    environment     = "china"         # environment = "china" is Correct
 }
 ```
 
@@ -167,7 +168,8 @@ resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.myterraform.name}"
     location            = "China East"
-    account_type        = "Standard_LRS"
+    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
+    account_tier = "Standard"
 
     tags {
         environment = "Terraform Demo"
@@ -239,6 +241,7 @@ provider "azurerm" {
     client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_secret   = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     tenant_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    environment     = "china"  # environment     = "china" is correct
 }
 
 # Create a resource group if it doesn't exist
@@ -340,7 +343,9 @@ resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.myterraform.name}"
     location            = "China East"
-    account_type        = "Standard_LRS"
+    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
+    account_tier = "Standard"   # account_tier = "Standard" is Correct
+
 
     tags {
         environment = "Terraform Demo"
@@ -451,7 +456,7 @@ Plan: 7 to add, 0 to change, 0 to destroy.
 terraform apply
 ```
 
-Terraform 完成后，VM 基础结构即已准备完毕。 可使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#show) 获取 VM 的 公共 IP 地址：
+Terraform 完成后，VM 基础结构即已准备完毕。 可使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show) 获取 VM 的 公共 IP 地址：
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv

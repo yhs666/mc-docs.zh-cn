@@ -13,17 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 09/11/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: f6dc5b1a69261f3ebd700892b41e20883bc948bf
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 0b7ebf5ad96d9fc282ee9b08a567b6c7e42f35ef
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/09/2017
 ---
-# <a name="specifying-volume-plugins-and-logging-drivers-for-your-container"></a>为容器指定卷插件和日志记录驱动程序
+# <a name="using-volume-plugins-and-logging-drivers-in-your-container"></a>在容器中使用卷插件和日志记录驱动程序
 
-Service Fabric 支持为容器服务指定 [Docker 卷插件](https://docs.docker.com/engine/extend/plugins_volume/)和 [Docker 日志记录驱动程序](https://docs.docker.com/engine/admin/logging/overview/)。 如以下清单所示，应用程序清单中指定了这些插件：
+Service Fabric 支持为容器服务指定 [Docker 卷插件](https://docs.docker.com/engine/extend/plugins_volume/)和 [Docker 日志记录驱动程序](https://docs.docker.com/engine/admin/logging/overview/)。 
+## <a name="specify-the-plugin-or-driver-in-the-manifest"></a>在清单中指定插件或驱动程序
+如以下清单所示，应用程序清单中指定了这些插件：
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -44,7 +46,9 @@ Service Fabric 支持为容器服务指定 [Docker 卷插件](https://docs.docke
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
         <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
-        <Volume Source="myexternalvolume" Destination="c:\testmountlocation3" Driver="sf" IsReadOnly="true"></Volume>
+        <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
+           <DriverOption Name="share" Value="models"/>
+        </Volume>
        </ContainerHostPolicies>
    </Policies>
     </ServiceManifestImport>
@@ -66,10 +70,10 @@ Service Fabric 支持为容器服务指定 [Docker 卷插件](https://docs.docke
 </Volume>
 ```
 
-如果指定了 Docker 日志驱动程序，则有必要部署代理（或容器）以处理群集中的日志。  `DriverOption` 标记还可用于指定日志驱动程序选项。
+如果指定了 Docker 日志记录驱动程序，则有必要部署代理（或容器）以处理群集中的日志。  `DriverOption` 标记还可用于指定日志驱动程序选项。
 
 请参阅以下文章，将容器部署到 Service Fabric 群集：
 
-<!-- Not Available [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-deploy-container.md) -->
+<!-- Not Available [Deploy a container on Service Fabric](service-fabric-deploy-container.md) -->
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update, update link -->

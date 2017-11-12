@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 11/28/2016
 ms.date: 09/04/2016
 ms.author: v-haiqya
-ms.openlocfilehash: 3b693155de211cbcaad45e364082e0889ad32f5e
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 74f6e6619f77319c88bc4b18f2c31d286586f7bb
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>创建并上传包含 Linux 操作系统的虚拟硬盘
 > [!IMPORTANT] 
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/29/2017
 本文介绍如何创建和上传虚拟硬盘 (VHD)，以便可以使用它作为自己的映像在 Azure 中创建虚拟机。 学习如何准备操作系统，以便使用它来基于该映像创建多个虚拟机。 
 
 ## <a name="prerequisites"></a>先决条件
-本文假定你拥有以下项目：
+本文假设拥有以下项目：
 
 * **安装在 .vhd 文件中的 Linux 操作系统** - 已将 [Azure 认可的 Linux 发行版](../endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（或参阅[有关未认可发行版的信息](../create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)）安装在 VHD 格式的虚拟磁盘中。 可使用多种工具创建 VM 和 VHD：
   * 安装并配置 [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 或 [KVM](http://www.linux-kvm.org/page/RunningKVM)，并注意使用 VHD 作为映像格式。 如果需要，可以使用 `qemu-img convert` [转换映像](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)。
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/29/2017
 > [!NOTE]
 > Azure 不支持更新的 VHDX 格式。 创建 VM 时，请将 VHD 指定为格式。 如果需要，可以使用 [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) 或 [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet 将 VHDX 磁盘转换为 VHD。 此外，Azure 不支持上传动态 VHD，因此，上传之前，需要将此类磁盘转换为静态 VHD。 可以使用 [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) 等工具在上传到 Azure 的过程中转换动态磁盘。
 
-* **Azure 命令行接口** - 安装最新的 [Azure 命令行接口](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)以上传 VHD。
+* **Azure 命令行接口** - 安装最新的 [Azure 命令行接口](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)以上传 VHD。
 
 <a id="prepimage"> </a>
 
@@ -108,7 +108,7 @@ azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
 若要创建自己的 VM，请提供自己的用户名 + 密码、位置、DNS 名称和映像名称。
 
 ## <a name="next-steps"></a>后续步骤
-有关详细信息，请参阅[用于 Azure 经典部署模型的 Azure CLI 参考](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)。
+有关详细信息，请参阅[用于 Azure 经典部署模型的 Azure CLI 参考](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)。
 
 [Step 1: Prepare the image to be uploaded]:#prepimage
 [Step 2: Prepare the connection to Azure]:#connect

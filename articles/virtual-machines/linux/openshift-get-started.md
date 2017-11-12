@@ -16,11 +16,11 @@ ms.workload: infrastructure
 origin.date: 
 ms.date: 08/14/2017
 ms.author: v-dazen
-ms.openlocfilehash: ba9b6eea9188b2bc65d7cd05bbb5bd5ae7d398d8
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.openlocfilehash: 3fdec24c5117b1a76724a966deeb969c4c871b9b
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-openshift-origin-to-azure-virtual-machines"></a>将 OpenShift Origin 部署到 Azure 虚拟机 
 
@@ -36,19 +36,19 @@ ms.lasthandoff: 08/07/2017
 
 如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-本快速入门教程需要 Azure CLI 2.0.8 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+本快速入门教程需要 Azure CLI 2.0.8 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="log-in-to-azure"></a>登录 Azure 
-使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
+使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
 
 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
 
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location chinaeast
 ```
 
 ## <a name="create-a-key-vault"></a>创建密钥保管库
-使用 [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) 命令创建一个 KeyVault 用于管理群集的 SSH 密钥。  
+使用 [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#create) 命令创建一个 KeyVault 用于管理群集的 SSH 密钥。  
 
 ```azurecli 
 az keyvault create --resource-group myResourceGroup --name myKeyVault \
@@ -88,7 +88,7 @@ az keyvault secret set --vault-name KeyVaultName --name OpenShiftKey --file ~/.s
 ## <a name="create-a-service-principal"></a>创建服务主体 
 OpenShift 使用用户名和密码或服务主体来与 Azure 通信。 Azure 服务主体是可用于应用、服务和 OpenShift 等自动化工具的安全标识。 用户控制和定义服务主体可在 Azure 中执行的操作的权限。 为了提供比使用用户名和密码更高的安全性，本示例创建一个基本的服务主体。
 
-使用 [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp#create-for-rbac) 创建服务主体并输出 OpenShift 所需的凭据：
+使用 [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#create-for-rbac) 创建服务主体并输出 OpenShift 所需的凭据：
 
 ```azurecli
 az ad sp create-for-rbac --name openshiftsp \
@@ -108,13 +108,13 @@ az ad sp create-for-rbac --name openshiftsp \
  > [!WARNING] 
  > 请勿创建不安全的密码。  遵循 [Azure AD 密码规则和限制](/active-directory/active-directory-passwords-policy)指导原则。
 
-有关服务主体的详细信息，请参阅[使用 Azure CLI 2.0 创建 Azure 服务主体](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
+有关服务主体的详细信息，请参阅[使用 Azure CLI 2.0 创建 Azure 服务主体](https://docs.azure.cn/zh-cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
 ## <a name="deploy-the-openshift-origin-template"></a>部署 OpenShift Origin 模板
 接下来，使用 Azure 资源管理器模板部署 OpenShift Origin。 
 
 > [!NOTE] 
-> 以下命令需要 az CLI 2.0.8 或更高版本。 可以使用 `az --version` 命令检查 az CLI 版本。 若要更新 CLI 版本，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+> 以下命令需要 az CLI 2.0.8 或更高版本。 可以使用 `az --version` 命令检查 az CLI 版本。 若要更新 CLI 版本，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 为 `aadClientId` 参数使用前面创建的服务主体中的 `appId` 值。
 
@@ -148,7 +148,7 @@ $ ssh ocpadmin@myopenshiftmaster.chinacloudapp.cn
 ```
 
 ## <a name="clean-up-resources"></a>清理资源
-如果不再需要资源组、OpenShift 群集和所有相关的资源，可以使用 [az group delete](https://docs.microsoft.com/cli/azure/group#delete) 命令将其删除。
+如果不再需要资源组、OpenShift 群集和所有相关的资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#delete) 命令将其删除。
 
 ```azurecli 
 az group delete --name myResourceGroup

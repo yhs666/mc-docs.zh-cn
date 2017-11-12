@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 09/25/2017
-ms.openlocfilehash: cac4d97f208b89ce8ee2f5db89ba6b4fbc61cc36
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: 09f2ddb22747cc5c46cb56cc7fe83139b93727b9
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="control-access-to-iot-hub"></a>控制对 IoT 中心的访问
 
@@ -71,7 +71,8 @@ Azure IoT 中心可根据共享访问策略和标识注册表安全凭据验证�
 有关如何构造和使用安全令牌的详细信息，请参阅 [IoT 中心安全令牌][lnk-sas-tokens]。
 
 ### <a name="protocol-specifics"></a>协议详情
-每个支持的协议（如 MQTT、AMQP 和 HTTP）以不同方式传输令牌。
+
+每个支持的协议（如 MQTT、AMQP 和 HTTPS）以不同方式传输令牌。
 
 使用 MQTT 时，CONNECT 数据包具有用作 ClientId 的 deviceId，在 Username 字段中具有 {iothubhostname}/{deviceId}，在 Password 字段中具有 SAS 令牌。 {iothubhostname} 应该是 IoT 中心的完整 CName（例如，contoso.azure-devices.cn）。
 
@@ -86,7 +87,7 @@ Azure IoT 中心可根据共享访问策略和标识注册表安全凭据验证�
 
 在这两种情况下，密码字段都包含令牌，如 [IoT Hub security tokens][lnk-sas-tokens]（IoT 中心安全令牌）中所述。
 
-HTTP 通过在 **授权** 请求标头中包含有效的令牌来实施身份验证。
+HTTPS 通过在 Authorization 请求标头中包含有效的令牌来实施身份验证。
 
 #### <a name="example"></a>示例
 用户名（DeviceId 区分大小写）：`iothubname.azure-devices.net/DeviceId`
@@ -113,7 +114,7 @@ HTTP 通过在 **授权** 请求标头中包含有效的令牌来实施身份验
 
 IoT 中心使用安全令牌对设备和服务进行身份验证，以避免在线发送密钥。 并且安全令牌的有效期和范围有限。 [Azure IoT SDK][lnk-sdks] 无需任何特殊配置即可自动生成令牌。 在某些情况下，确实需要用户生成并直接使用安全令牌。 这些情况包括：
 
-* MQTT、AMQP 或 HTTP 曲面的直接使用。
+* MQTT、AMQP 或 HTTPS 曲面的直接使用。
 * 令牌服务模式的实现，如[自定义设备身份验证][lnk-custom-auth]中所述。
 
 IoT 中心还允许设备使用 [X.509 证书][lnk-x509]向 IoT 中心进行身份验证。
@@ -211,7 +212,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 | 终结点 | 功能 |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |发送设备到云的消息。 |
-| `{iot hub host name}/devices/{deviceId}/devicebound` |接收云到设备的消息。 |
+| `{iot hub host name}/devices/{deviceId}/messages/devicebound` |接收云到设备的消息。 |
 
 ### <a name="use-a-symmetric-key-in-the-identity-registry"></a>使用标识注册表中的对称密钥
 使用设备标识的对称密钥生成令牌时，将省略令牌的 policyName (`skn`) 元素。

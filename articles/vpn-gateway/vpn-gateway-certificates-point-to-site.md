@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/09/2017
-ms.date: 08/31/2017
+ms.date: 11/07/2017
 ms.author: v-junlch
-ms.openlocfilehash: ca1f71c7166d15429f12b146d0972e8615636f8b
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.openlocfilehash: 40b3586dca35867b5cb7778e86f0f767fa236d54
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>在 Windows 10 上使用 PowerShell 为点到站点连接生成并导出证书
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 09/01/2017
 
 必须在运行 Windows 10 的计算机上执行本文中的步骤。 用于生成证书的 PowerShell cmdlet 是 Windows 10 操作系统的一部分，并且在其他版本的 Windows 上不起作用。 只需 Windows 10 计算机即可生成证书。 生成证书后，可上传证书，或在任何支持的客户端操作系统上安装该证书。 
 
-如果无权访问 Windows 10 计算机，则可使用 [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) 生成证书。 使用任一方法生成的证书均可安装在[支持的](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)所有客户端操作系统上。
+如果无权访问 Windows 10 计算机，则可使用 [Makecert](vpn-gateway-certificates-point-to-site-makecert.md) 生成证书。 使用任一方法生成的证书均可安装在[支持的](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)所有客户端操作系统上。
 
 ## <a name="rootcert"></a>创建自签名根证书
 
@@ -130,13 +130,13 @@ New-SelfSignedCertificate -Type Custom -KeySpec Signature `
 
 ## <a name="install"></a>安装已导出的客户端证书
 
-[!INCLUDE [Install client certificate](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
+若要安装客户端证书，请参阅[为点到站点连接安装客户端证书](point-to-site-how-to-vpn-client-install-azure-cert.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
-继续使用点到站点配置。 
+继续使用点到站点配置。
 
-- 有关 **Resource Manager** 部署模型步骤，请参阅 [Configure a Point-to-Site connection to a VNet](vpn-gateway-howto-point-to-site-resource-manager-portal.md)（配置与 VNet 的点到站点连接）。 
+- 有关**资源管理器**部署模型步骤，请参阅[使用本机 Azure 证书身份验证配置 P2S](vpn-gateway-howto-point-to-site-resource-manager-portal.md)。 
 - 有关**经典**部署模型步骤，请参阅 [Configure a Point-to-Site VPN connection to a VNet (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)（配置与 VNet 的点到站点 VPN 连接（经典））。
 
 <!--Update_Description: wording update --> 

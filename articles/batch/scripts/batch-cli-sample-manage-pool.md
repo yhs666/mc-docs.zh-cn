@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 05/02/2017
 ms.date: 07/04/2017
 ms.author: v-junlch
-ms.openlocfilehash: ce9e26cba4b89664090708d959a1a46ed4cca570
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 853ec4f49e6099eaaed1760181bb19f437f8000e
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="managing-azure-batch-pools-with-azure-cli"></a>使用 Azure CLI 管理 Azure Batch 池
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-- 按照 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中提供的说明安装 Azure CLI（如果尚未这样做）。
+- 按照 [Azure CLI 安装指南](/cli/install-azure-cli)中提供的说明安装 Azure CLI（如果尚未这样做）。
 - 创建 Batch 帐户（如果还没有帐户）。 有关创建帐户的示例脚本，请参阅[使用 Azure CLI 创建 Batch 帐户](/batch/scripts/batch-cli-sample-create-account/)。
 - 将应用程序配置为从启动任务运行（如果尚未这样做）。 有关用于创建应用程序并将应用程序包上传到 Azure 的示例脚本，请参阅[使用 Azure CLI 将应用程序添加到 Azure Batch](/batch/scripts/batch-cli-sample-add-application/)。
 
@@ -133,23 +133,23 @@ az batch pool delete --pool-id mypool-linux
 
 | 命令 | 说明 |
 |---|---|
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | 针对批处理帐户进行身份验证。  |
-| [az batch application summary list](https://docs.microsoft.com/cli/azure/batch/application/summary#list) | 列出批处理帐户中可用的应用程序。  |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#create) | 创建 VM 池。  |
-| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#set) | 更新池的属性。  |
-| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#list) | 列出可用节点代理 SKU 和映像信息。  |
-| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#resize) | 调整指定池中正在运行的 VM 数目。  |
-| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#show) | 显示池的属性。  |
-| [az batch pool delete](https://docs.microsoft.com/cli/azure/batch/pool#delete) | 删除指定的池。  |
-| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#enable) | 对池启用自动缩放并应用公式。  |
-| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#disable) | 对池禁用自动缩放。  |
-| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#list) | 列出指定池中的所有计算节点。  |
-| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#reboot) | 重新启动指定的计算节点。  |
-| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#delete) | 从指定的池中删除列出的节点。  |
+| [az batch account login](/cli/batch/account#login) | 针对批处理帐户进行身份验证。  |
+| [az batch application summary list](/cli/batch/application/summary#list) | 列出批处理帐户中可用的应用程序。  |
+| [az batch pool create](/cli/batch/pool#create) | 创建 VM 池。  |
+| [az batch pool set](/cli/batch/pool#set) | 更新池的属性。  |
+| [az batch pool node-agent-skus list](/cli/batch/pool/node-agent-skus#list) | 列出可用节点代理 SKU 和映像信息。  |
+| [az batch pool resize](/cli/batch/pool#resize) | 调整指定池中正在运行的 VM 数目。  |
+| [az batch pool show](/cli/batch/pool#show) | 显示池的属性。  |
+| [az batch pool delete](/cli/batch/pool#delete) | 删除指定的池。  |
+| [az batch pool autoscale enable](/cli/batch/pool/autoscale#enable) | 对池启用自动缩放并应用公式。  |
+| [az batch pool autoscale disable](/cli/batch/pool/autoscale#disable) | 对池禁用自动缩放。  |
+| [az batch node list](/cli/batch/node#list) | 列出指定池中的所有计算节点。  |
+| [az batch node reboot](/cli/batch/node#reboot) | 重新启动指定的计算节点。  |
+| [az batch node delete](/cli/batch/node#delete) | 从指定的池中删除列出的节点。  |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
 
 可以在 [Azure Batch CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
 

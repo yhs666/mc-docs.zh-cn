@@ -16,11 +16,11 @@ ms.workload: tbd
 origin.date: 08/30/2017
 ms.date: 10/10/2017
 ms.author: v-junlch
-ms.openlocfilehash: 7bf82ba7e762db9ebea811bb9f955550b5c675ed
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 2c19c548fbc32ec379fd07bd713f2cbb187cef23
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="get-details-of-an-azure-redis-cache"></a>获取 Azure Redis 缓存的详细信息
 
@@ -44,12 +44,12 @@ az redis show --name contosoCache --resource-group contosoGroup
 
 | 命令 | 说明 |
 |---|---|
-| [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | 检索 Azure Redis 缓存实例的详细信息。 |
+| [az redis show](/cli/redis#az_redis_show) | 检索 Azure Redis 缓存实例的详细信息。 |
 
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
 
 可以在 [Azure Redis 缓存文档](../cli-samples.md)中找到其他 Azure Redis 缓存 CLI 脚本示例。
 

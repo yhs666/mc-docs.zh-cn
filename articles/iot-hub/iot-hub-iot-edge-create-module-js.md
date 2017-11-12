@@ -11,12 +11,12 @@ ms.devlang: js
 ms.topic: article
 origin.date: 06/28/2017
 ms.author: sushi
-ms.date: 08/07/2017
-ms.openlocfilehash: 7bc91d3d24d65fa08abd393b86f4d44fd75e49dd
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 11/20/2017
+ms.openlocfilehash: cd1048bd423cadb354604038693c2a3d79807b2c
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-nodejs"></a>使用 Node.js 创建 Azure IoT Edge 模块
 
@@ -122,7 +122,7 @@ JS 模块项目包括以下组件：
 
 输出类似于输入，它可能会触发硬件行为（例如，使 LED 闪烁）、向其他模块发送消息，或其他任何动作（例如，在控制台上列显信息）。
 
-模块使用 `message` 对象互相通信。 `message` 的**内容**是一个字节数组，可以代表所需的任何类型的数据。 **属性**也会出现在 `message` 中，它们只是字符串到字符串的映射。 可将**属性**视为 HTTP 请求中的标头，或文件的元数据。
+模块使用 `message` 对象互相通信。 `message` 的**内容**是一个字节数组，可以代表所需的任何类型的数据。 **属性**也会出现在 `message` 中，它们只是字符串到字符串的映射。 可将属性视为 HTTPS 请求中的标头，或文件的元数据。
 
 若要在 JS 中开发 Azure IoT Edge 模块，需要创建一个可以实现所需方法 `receive()` 的新模块对象。 此时，还可以选择实现可选的 `create()`、`start()` 或 `destroy()` 方法。 以下代码片段演示如何创建 JS 模块对象的基架。
 

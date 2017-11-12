@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/17/2016
-ms.date: 09/25/2017
+origin.date: 10/05/2017
+ms.date: 11/20/2017
 ms.author: v-yiso
-ms.openlocfilehash: ac3bbf0315febc2ee3a18273d84e03a2a9558a3c
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: b8510c3421ac2a02e13d6fed112c7bce6480f6cd
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="get-started-with-device-management-netnode"></a>设备管理入门 (.NET/Node)
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 09/29/2017
 要完成本教程，需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-* Node.js 版本 0.12.x 或更高版本， <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
+* Node.js 版本 4.0.x 或更高版本； <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -63,16 +63,14 @@ ms.lasthandoff: 09/29/2017
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. 将以下字段添加到 **Program** 类。 将占位符值替换为在上一部分和目标设备中为中心创建的 IoT 中心连接字符串。
-
-    ```
-    static RegistryManager registryManager;
-    static string connString = "{iot hub connection string}";
-    static ServiceClient client;
-    static JobClient jobClient;
-    static string targetDevice = "{deviceIdForTargetDevice}";
-    ```
-
+5. 将以下字段添加到 **Program** 类。 将占位符值替换为在“创建 IoT 中心”部分中为中心创建的 IoT 中心连接字符串。 
+   
+        static RegistryManager registryManager;
+        static string connString = "{iot hub connection string}";
+        static ServiceClient client;
+        static JobClient jobClient;
+        static string targetDevice = "myDeviceId";
+        
 6. 将以下方法添加到 **Program** 类。  此代码获取重新启动设备的设备孪生并输出报告属性。
 
     ```
@@ -224,7 +222,7 @@ ms.lasthandoff: 09/29/2017
 
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [Azure portal]: https://portal.azure.cn/
-[Using resource groups to manage your Azure resources]: ../resource-group-portal.md
+[Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 
 [lnk-devtwin]: ./iot-hub-devguide-device-twins.md

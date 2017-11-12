@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 03/12/2017
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: f5b4fd212b6c6711928ba143a7bedbee77ccb02b
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: fc9ce0a07050a848ecdff5bb8d44b3f4759300e1
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建用户定义的路由 (UDR)
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 09/04/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. 使用 [az network route-table create](https://docs.microsoft.com/cli/azure/network/route-table#create) 命令为前端子网创建路由表：
+1. 使用 [az network route-table create](https://docs.azure.cn/zh-cn/cli/network/route-table?view=azure-cli-latest#create) 命令为前端子网创建路由表：
 
     ```azurecli
     az network route-table create \
@@ -79,7 +79,7 @@ ms.lasthandoff: 09/04/2017
     }
     ```
 
-2. 使用 [az network route-table route create](https://docs.microsoft.com/cli/azure/network/route-table/route#create) 命令创建一个路由，用以将去往后端子网 (192.168.2.0/24) 的所有流量发送到 **FW1** VM (192.168.0.4)：
+2. 使用 [az network route-table route create](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#create) 命令创建一个路由，用以将去往后端子网 (192.168.2.0/24) 的所有流量发送到 **FW1** VM (192.168.0.4)：
 
     ```azurecli 
     az network route-table route create \
@@ -112,7 +112,7 @@ ms.lasthandoff: 09/04/2017
     * **--next-hop-type**。 要发送的对象流量的类型。 可能的值为 *VirtualAppliance*、*VirtualNetworkGateway*、*VNETLocal*、*Internet* 或 *None*。
     * **--next-hop-ip-address**。 下一个跃点的 IP 地址。 对于我们的方案，为 *192.168.0.4*。
 
-3. 运行 [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) 命令，将上面创建的路由表与 **FrontEnd** 子网关联：
+3. 运行 [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#update) 命令来将上面创建的路由表与**前端**子网相关联：
 
     ```azurecli
     az network vnet subnet update \
@@ -193,7 +193,7 @@ ms.lasthandoff: 09/04/2017
 
 若要在 **FW1**使用的 NIC 中启用 IP 转发，请完成以下步骤：
 
-1. 运行带 JMESPATH 筛选器的 [az network nic show](https://docs.microsoft.com/cli/azure/network/nic#show) 命令来显示 **Enable IP forwarding** 的当前 **enable-ip-forwarding** 值。 应将它设置为 *false*。
+1. 运行带 JMESPATH 筛选器的 [az network nic show](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#show) 命令来显示 **Enable IP forwarding** 的当前 **enable-ip-forwarding** 值。 它应设置为 *false*。
 
     ```azurecli
     az network nic show \

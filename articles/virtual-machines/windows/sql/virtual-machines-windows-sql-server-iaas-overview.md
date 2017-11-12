@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 10/02/2017
-ms.date: 10/30/2017
+ms.date: 12/01/2017
 ms.author: v-yeche
-ms.openlocfilehash: d4174a3fe216961209349cc5300cdb3026c19cc8
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 5149e139aa565d313b48ad639a0ecb97cf011ba6
+ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-windows"></a>Azure 虚拟机上的 SQL Server (Windows) 概述
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/27/2017
 本主题介绍在 Azure Windows 虚拟机 (VM) 上运行 SQL Server 的选项，提供了[门户映像链接](#option-1-create-a-sql-vm-with-per-minute-licensing)，同时概述了[常见任务](#manage-your-sql-vm)。
 
 > [!NOTE]
-> 如果已熟悉 SQL Server，只是想了解如何部署 SQL Server VM，请参阅[在 Azure 门户中预配 SQL Server 虚拟机](virtual-machines-windows-portal-sql-server-provision.md)。
+> 如果已经熟悉 SQL Server，并且只是想了解如何部署 SQL Server Windows VM，请参阅[在 Azure 中预配 Windows SQL Server VM](virtual-machines-windows-portal-sql-server-provision.md)。 或者，若要创建带 SQL Server 的 Linux VM，请参阅[在 Azure 中预配 Linux SQL Server VM](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 > 
 > 
 
@@ -116,4 +116,4 @@ Azure VM 可以使用[自动修补](virtual-machines-windows-sql-automated-patch
 
 其他问题？ 请先参阅 [Azure 虚拟机中的 SQL Server 常见问题解答](virtual-machines-windows-sql-server-iaas-faq.md)。 同时将问题或看法添加到任何 SQL VM 主题的底部，以便与 Azure.cn 和社区互动。
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties, wording update -->

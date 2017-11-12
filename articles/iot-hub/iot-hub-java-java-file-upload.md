@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/28/2017
 ms.author: dobett
-ms.date: 09/25/2017
-ms.openlocfilehash: 16b267c08102e9530d393fdb882ebcf0c926a522
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 11/20/2017
+ms.openlocfilehash: 8cc8ccec9f40141d7559a2acab2f574b779b9a89
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 09/29/2017
 * 以高频率采样的振动数据
 * 某种形式的预处理数据。
 
-通常使用 [Azure 数据工厂](/data-factory/)或 [Hadoop](/hdinsight/) 堆栈等工具在云中批处理这些文件。 需要从设备上传文件时，仍可以使用 IoT 中心的安全性和可靠性。
+通常使用 [Hadoop](/hdinsight/) 堆栈等工具在云中批处理这些文件。 需要从设备上传文件时，仍可以使用 IoT 中心的安全性和可靠性。
 
 在本教程的最后，会运行两个 Java 控制台应用：
 

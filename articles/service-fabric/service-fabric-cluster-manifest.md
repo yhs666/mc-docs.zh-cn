@@ -1,6 +1,6 @@
 ---
 title: "配置 Azure Service Fabric 独立群集 | Azure"
-description: "了解如何配置独立的或专用的 Service Fabric 群集。"
+description: "了解如何配置独立的或本地 Azure Service Fabric 群集。"
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -12,23 +12,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/02/2017
-ms.date: 10/02/2017
+origin.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5c2c1f4ddb42fc8d47b84187708849b70aff8baa
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 35a9c8466717d4c2693e3cb1c43e1702933c5be6
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>Windows 独立群集的配置设置
 本文介绍如何使用 ***ClusterConfig.JSON*** 文件来配置独立的 Service Fabric 群集。 可以使用此文件指定 Service Fabric 群集的信息，例如 Service Fabric 节点及其 IP 地址、群集上不同类型的节点、安全配置，以及使用独立群集的容错域/升级域定义的网络拓扑。
 
-[下载独立的 Service Fabric 包](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)时，一些 ClusterConfig.JSON 文件示例将下载到工作计算机。 名称中包含 *DevCluster* 的示例可帮助在同一台计算机上创建包含所有三个节点（类似于逻辑节点）的群集。 在这些节点中，必须将一个节点标记为主节点。 此群集可用于开发或测试环境，不支持用作生产群集。 名称中包含 *MultiMachine* 的示例可帮助创建生产质量群集，其中的每个节点位于不同的计算机上。
+[下载独立的 Service Fabric 包](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)时，一些 ClusterConfig.JSON 文件示例将下载到工作计算机。 名称中包含 *DevCluster* 的示例可帮助在同一台计算机上创建包含所有三个节点（类似于逻辑节点）的群集。 在这些节点中，必须将一个节点标记为主节点。 此群集可用于开发或测试环境，不支持用作生产群集。 名称中包含 *MultiMachine* 的示例可帮助创建生产质量群集，其中的每个节点位于不同的计算机上。 这些群集的主节点数将基于[可靠性级别](#reliability)。 在版本 5.7 API 版本 05-2017 中，我们删除了可靠性级别属性。 取而代之的是，我们的代码将计算群集的最优可靠性级别。 请不要在 5.7 及更高代码版本中使用此属性。
 
-1. *ClusterConfig.Unsecure.DevCluster.JSON* 和 *ClusterConfig.Unsecure.MultiMachine.JSON* 分别说明如何创建不安全的测试群集和生产群集。 
+1. *ClusterConfig.Unsecure.DevCluster.JSON* 和 *ClusterConfig.Unsecure.MultiMachine.JSON* 分别说明如何创建不安全的测试群集和生产群集。
 2. *ClusterConfig.Windows.DevCluster.JSON* 和 *ClusterConfig.Windows.MultiMachine.JSON* 说明如何创建使用 [Windows 安全性](service-fabric-windows-cluster-windows-security.md)保护的测试群集和生产群集。
-3. *ClusterConfig.X509.DevCluster.JSON* 和 *ClusterConfig.X509.MultiMachine.JSON* 说明如何创建使用[基于 X509 证书的安全性](service-fabric-windows-cluster-x509-security.md)保护的测试群集和生产群集。 
+3. *ClusterConfig.X509.DevCluster.JSON* 和 *ClusterConfig.X509.MultiMachine.JSON* 说明如何创建使用[基于 X509 证书的安全性](service-fabric-windows-cluster-x509-security.md)保护的测试群集和生产群集。
 
 现在，我们查看 ***ClusterConfig.JSON*** 文件的以下各个节。
 
@@ -144,7 +144,6 @@ reliabilityLevel 的概念定义可在群集的主节点上运行的 Service Fab
 **name** 是此特定节点类型的友好名称。 要创建这种类型的节点，请**如上所述** ，将该节点的友好名称分配到其 [nodeTypeRef](#clusternodes)变量。 对于每个节点类型，请定义要使用的连接终结点。 可以为这些连接终结点选择任意端口号，只要不与此群集中的任何其他终结点冲突即可。 在多节点群集中，根据 [**reliabilityLevel**](#reliability)，将有一个或多个主节点（即，**isPrimary** 设置为 *true*）。 请参阅 [Service Fabric 群集容量规划注意事项](service-fabric-cluster-capacity.md)，了解有关 nodeTypes 和 reliabilityLevel 的信息，以及什么是主节点类型和非主节点类型。 
 
 #### <a name="endpoints-used-to-configure-the-node-types"></a>用于配置节点类型的终结点
-
 * *clientConnectionEndpointPort* 是使用客户端 API 时，客户端用来连接群集的端口。 
 * *clusterConnectionEndpointPort* 是节点相互通信时使用的端口。
 * *leaseDriverEndpointPort* 是群集租用驱动程序用来判断节点是否仍处于活动状态的端口。 
@@ -198,4 +197,4 @@ reliabilityLevel 的概念定义可在群集的主节点上运行的 Service Fab
 ## <a name="next-steps"></a>后续步骤
 根据独立群集设置配置一个完整的 ClusterConfig.JSON 文件后，可以遵循[创建独立 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)一文中所述步骤部署群集，然后继续[使用 Service Fabric Explorer 可视化群集](service-fabric-visualizing-your-cluster.md)。
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update-->

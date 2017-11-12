@@ -15,11 +15,11 @@ ms.workload: infrastructure
 origin.date: 02/13/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 40b3cb3564f4c5b6103656552aaa41793496643c
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 3f5cb9b4d3da7fa7051ececce060f473fee2c7fa
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上装载 Azure 文件存储
 
@@ -70,7 +70,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. 使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组，以便保存文件共享。
+1. 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建资源组，以便保存文件共享。
 
     若要在“中国北部”位置创建名为 `myResourceGroup` 的资源组，请使用以下示例：
 
@@ -78,7 +78,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
     az group create --name myResourceGroup --location chinanorth
     ```
 
-2. 使用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) 创建 Azure 存储帐户，用于存储实际文件。
+2. 使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#create) 创建 Azure 存储帐户，用于存储实际文件。
 
     若要通过 Standard_LRS 存储 SKU 创建名为 mystorageaccount 的存储帐户，请使用以下示例：
 
@@ -93,7 +93,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 
     创建存储帐户时，帐户密钥是成对创建的，这样是为了不中断任何服务就可轮换密钥。 轮换到密钥对中的第二个密钥后，创建新的密钥对。 新的存储帐户密钥始终成对创建，可确保始终至少有一个未使用的存储帐户密钥可以轮换到。
 
-    使用 [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) 查看存储帐户密钥。 名为 `mystorageaccount` 的存储帐户的密钥列在以下示例中：
+    使用 [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#list) 查看存储帐户密钥。 名为 `mystorageaccount` 的存储帐户的密钥列在以下示例中：
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -110,7 +110,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 
 4. 创建文件存储共享。
 
-    使用 [az storage share create](https://docs.microsoft.com/cli/azure/storage/share#create) 创建的文件存储共享包含 SMB 共享。 配额始终以千兆字节 (GB) 表示。 从前面的 `az storage account keys list` 命令传入其中一个密钥。 使用以下示例创建名为 mystorageshare 的共享，配额为 10 GB：
+    使用 [az storage share create](https://docs.azure.cn/zh-cn/cli/storage/share?view=azure-cli-latest#create) 创建的文件存储共享包含 SMB 共享。 配额始终以千兆字节 (GB) 表示。 从前面的 `az storage account keys list` 命令传入其中一个密钥。 使用以下示例创建名为 mystorageshare 的共享，配额为 10 GB：
 
     ```azurecli
     az storage share create --name mystorageshare \

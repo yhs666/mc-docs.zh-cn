@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/09/2017
-ms.date: 10/02/2017
+origin.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: d42102e56fbbb92ecfd25ad1602824879cd8b625
-ms.sourcegitcommit: 0a59a44bdc09a8b5801180996adfdf68131579c0
+ms.custom: mvc, devcenter
+ms.openlocfilehash: 9fe44618bdb00d04d94ef4d964d2c250fb2df4fc
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>在 Azure 中创建 .NET Service Fabric 应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
@@ -132,20 +132,20 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
     ![“发布”对话框](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. 在“连接终结点”字段中，键入群集的连接终结点，再单击“发布”。 注册合作群集时，浏览器中会提供连接终结点。 例如，`winh1x87d1d.cloudapp.chinacloudapi.cn:19000`。
+2. 在“连接终结点”字段中，键入群集的连接终结点，再单击“发布”。 注册合作群集时，浏览器中会提供连接终结点。 例如，`winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19000`。
 
-3. 打开浏览器，并键入群集地址（例如，`http://winh1x87d1d.cloudapp.chinacloudapi.cn`）。 此时，应该能够看到应用程序在 Azure 群集中运行。
+3. 打开浏览器，键入群集地址（后跟“:8080”），转到群集中的应用程序。例如，`http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:8080`。 此时，应该能够看到应用程序在 Azure 群集中运行。
 
 ![应用程序前端](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>在群集中缩放应用程序和服务
 可以跨群集轻松缩放 Service Fabric 服务，以便适应服务负载变化。 可以通过更改群集中运行的实例数量来缩放服务。 服务缩放方式有多种，可以使用 PowerShell 或 Service Fabric CLI (sfctl) 脚本/命令。 在此示例中，我们使用的是 Service Fabric Explorer。
 
-Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过浏览器进行访问，访问方法是转到群集 HTTP 管理端口 19080（例如，`http://winh1x87d1d.cloudapp.chinacloudapi.cn:19080`）。
+Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过浏览器进行访问，访问方法是转到群集 HTTP 管理端口 19080（例如，`http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080`）。
 
 若要缩放 Web 前端服务，请按照以下步骤操作：
 
-1. 在群集中打开 Service Fabric Explorer（例如，`http://winh1x87d1d.cloudapp.chinacloudapi.cn:19080`）。
+1. 在群集中打开 Service Fabric Explorer（例如，`http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080`）。
 2. 单击树视图中 fabric:/Voting/VotingWeb 节点旁边的省略号（三个点），再选择“缩放服务”。
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
@@ -182,7 +182,7 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 7. 在“发布 Service Fabric 应用程序”对话框中，选中“升级应用程序”复选框，再单击“发布”。
 
     ![“发布”对话框中的升级设置](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
-8. 打开浏览器，并转到端口 19080 上的群集地址（例如，`http://winh1x87d1d.cloudapp.chinacloudapi.cn:19080`）。
+8. 打开浏览器，并转到端口 19080 上的群集地址（例如，`http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080`）。
 9. 单击树视图中的“应用程序”节点，再单击右侧窗格中的“进行中的升级”。 可以了解如何通过群集中的升级域滚动升级，同时确保在继续执行下一步之前每个域都能够正常运行。
     ![Service Fabric Explorer 中的升级视图](./media/service-fabric-quickstart-dotnet/upgrading.png)
 

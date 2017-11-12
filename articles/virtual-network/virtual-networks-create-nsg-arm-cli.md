@@ -17,11 +17,11 @@ origin.date: 02/17/2017
 ms.date: 03/31/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15d98f47b4adaeabd758a405b7002d6875478279
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 64ae84d845df1f5334ab08c7f123bd382d3959d1
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-network-security-groups-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建网络安全组
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-下面的 Azure CLI 2.0 命令示例需要一个已基于上述方案创建的简单环境。 请下载模板，执行一些必要的修改，然后使用 Azure CLI 进行部署。 
+下面的 Azure CLI 2.0 命令示例需要一个已基于上述方案创建的简单环境。 请下载模板，执行一些必要的修改，并使用 Azure CLI 进行部署。 
 
 >[!NOTE]
 > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
@@ -49,9 +49,9 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. 如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)，并使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录 Azure 帐户。 
+1. 如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录 Azure 帐户。 
 
-2. 运行 [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) 命令创建 NSG。 
+2. 运行 [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#create) 命令创建 NSG。 
 
     ```azurecli
     az network nsg create \
@@ -87,7 +87,7 @@ ms.lasthandoff: 06/23/2017
         Allow     Allow outbound traffic from all VMs to Internet         *                Outbound          65001
         Deny      Deny all outbound traffic                               *                Outbound          65500
 
-3. 使用 [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) 命令创建允许从 Internet 访问端口 3389 (RDP) 的规则。
+3. 使用 [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#create) 命令创建允许从 Internet 访问端口 3389 (RDP) 的规则。
 
     > [!NOTE]
     > 根据要使用的 shell，可能需要修改参数中的 `*` 字符以免在执行前展开参数。
@@ -180,7 +180,7 @@ ms.lasthandoff: 06/23/2017
     }
     ```
 
-5. 通过 **az network vnet subnet update** 命令，将 NSG 绑定到 [前端](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) 子网。
+5. 使用 [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#update) 命令将 NSG 绑定到 **FrontEnd** 子网。
 
     ```azurecli
     az network vnet subnet update \

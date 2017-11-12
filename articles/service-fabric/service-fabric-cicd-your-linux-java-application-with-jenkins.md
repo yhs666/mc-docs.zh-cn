@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/23/2017
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 720a20d0eb65706c735b7c673dd971e250ab8f43
-ms.sourcegitcommit: 0a59a44bdc09a8b5801180996adfdf68131579c0
+ms.openlocfilehash: ea134960b1aa620a2a43ed4b76046b125a52fed8
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>使用 Jenkins 生成和部署 Linux Java 应用程序
 Jenkins 是流行的应用持续集成和部署工具。 本文介绍如何使用 Jenkins 生成和部署 Azure Service Fabric 应用程序。
@@ -51,6 +51,10 @@ Jenkins 是流行的应用持续集成和部署工具。 本文介绍如何使�
     sudo mount -t cifs //sfjenkinsstorage1.file.core.chinacloudapi.cn/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
     ```
 
+    > [!NOTE]
+    > 必须在群集节点中安装 cifs-utils 包，才能安装 cifs 共享。 
+    >
+
 4. 使用对应的 azure-storage 详细信息更新 ```setupentrypoint.sh``` 脚本中的占位符值。
     ```sh
     vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
@@ -69,7 +73,7 @@ Jenkins 是流行的应用持续集成和部署工具。 本文介绍如何使�
 1. 在浏览器中转到 ``http://PublicIPorFQDN:8081``。 该 URL 提供了登录时所需的初始管理员密码的路径。 可继续以管理员用户的身份使用 Jenkins。 或者，可在使用初始管理员帐户登录后创建和更改用户。
 
     > [!NOTE]
-    > 创建群集时，请确保将端口 8081 指定为应用程序终结点端口。
+    > 创建应用程序时，请务必将端口 8081 指定为应用程序终结点端口，并确保端口在群集中处于打开状态。
     >
 
 2. 使用 ``docker ps -a`` 获取容器实例 ID。

@@ -16,11 +16,11 @@ ms.workload: tbd
 origin.date: 08/30/2017
 ms.date: 10/10/2017
 ms.author: v-junlch
-ms.openlocfilehash: 963cf8681c6a29033eb781a01f40ee0d27cdc444
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 2cf5dc12357d442f58211c5926247224ab770732
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-an-azure-redis-cache"></a>创建 Azure Redis 缓存
 
@@ -51,13 +51,13 @@ az redis create --name contosoCache --resource-group contosoGroup --location chi
 
 | 命令 | 说明 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az redis create](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | 创建 Redis 缓存实例。 |
+| [az group create](/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [az redis create](/cli/redis#az_redis_create) | 创建 Redis 缓存实例。 |
 
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
 
 可以在 [Azure Redis 缓存文档](../cli-samples.md)中找到其他 Azure Redis 缓存 CLI 脚本示例。
 

@@ -1,10 +1,10 @@
 ---
-title: "Azure VPN 网关常见问题解答 | Azure"
+title: "Azure VPN 网关常见问题 | Microsoft 文档"
 description: "VPN 网关常见问题。 Azure 虚拟网络跨界连接、混合配置连接和 VPN 网关的常见问题。"
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
@@ -13,17 +13,17 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/30/2017
-ms.date: 09/08/2017
+ms.date: 11/07/2017
 ms.author: v-junlch
-ms.openlocfilehash: 1b505256c54aa395ecc31631d204b3f96d20ec1c
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 7371898eb37986c544551254278f09013347ed48
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="vpn-gateway-faq"></a>VPN 网关常见问题
 
-## <a name="connecting-to-virtual-networks"></a>连接到虚拟网络
+## <a name="connecting"></a>连接到虚拟网络
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>是否可以连接不同 Azure 区域中的虚拟网络？
 
@@ -41,11 +41,11 @@ ms.lasthandoff: 10/27/2017
 
 支持以下跨界连接：
 
-* 站点到站点 - 基于 IPsec（IKE v1 和 IKE v2）的 VPN 连接。 此类型的连接需要 VPN 设备或 RRAS。 有关详细信息，请参阅[站点到站点](vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
-* 点到站点 - 基于 SSTP（安全套接字隧道协议）的 VPN 连接。 此连接不需要 VPN 设备。 有关详细信息，请参阅[点到站点](vpn-gateway-howto-point-to-site-resource-manager-portal.md)。
-* VNet 到 VNet - 这种连接类型与站点到站点配置相同。 VNet 到 VNet 是一种基于 IPsec（IKE v1 和 IKE v2）的 VPN 连接。 它不需要 VPN 设备。 有关详细信息，请参阅 [VNet 到 VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)。
-* 多站点 - 这是站点到站点配置的变体，可将多个本地站点连接到虚拟网络。 有关详细信息，请参阅[多站点](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)。
-* ExpressRoute - ExpressRoute 是从 WAN 到 Azure 的直接连接，不是经公共 Internet 的 VPN 连接。 有关详细信息，请参阅 [ExpressRoute 技术概述](../expressroute/expressroute-introduction.md)和 [ExpressRoute 常见问题](../expressroute/expressroute-faqs.md)。
+- 站点到站点 - 基于 IPsec（IKE v1 和 IKE v2）的 VPN 连接。 此类型的连接需要 VPN 设备或 RRAS。 有关详细信息，请参阅[站点到站点](vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
+- 点到站点 - 基于 SSTP（安全套接字隧道协议）的 VPN 连接。 此连接不需要 VPN 设备。 有关详细信息，请参阅[点到站点](vpn-gateway-howto-point-to-site-resource-manager-portal.md)。
+- VNet 到 VNet - 这种连接类型与站点到站点配置相同。 VNet 到 VNet 是一种基于 IPsec（IKE v1 和 IKE v2）的 VPN 连接。 它不需要 VPN 设备。 有关详细信息，请参阅 [VNet 到 VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)。
+- 多站点 - 这是站点到站点配置的变体，可将多个本地站点连接到虚拟网络。 有关详细信息，请参阅[多站点](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)。
+- ExpressRoute - ExpressRoute 是从 WAN 到 Azure 的直接连接，不是经公共 Internet 的 VPN 连接。 有关详细信息，请参阅 [ExpressRoute 技术概述](../expressroute/expressroute-introduction.md)和 [ExpressRoute 常见问题](../expressroute/expressroute-faqs.md)。
 
 有关 VPN 网关连接的详细信息，请参阅[关于 VPN 网关](vpn-gateway-about-vpngateways.md)。
 
@@ -57,9 +57,9 @@ ms.lasthandoff: 10/27/2017
 
 可以将虚拟网络配置为同时使用站点到站点连接和点到站点连接，前提是使用基于路由的 VPN 类型为网关创建站点到站点连接。 在经典部署模型中，基于路由的 VPN 类型称为动态网关。
 
-## <a name="virtual-network-gateways"></a>虚拟网络网关
+## <a name="gateways"></a>虚拟网关
 
-### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>VPN 网关是否为虚拟网络网关？
+### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>VPN 网关是否为虚拟网关？
 
 VPN 网关是一种虚拟网络网关。 VPN 网关通过公共连接在虚拟网络和本地位置之间发送加密流量。 还可使用 VPN 网关在虚拟网络之间发送流量。 创建 VPN 网关时，指定“GatewayType”的值为“Vpn”。 有关详细信息，请参阅[关于 VPN 网关配置设置](vpn-gateway-about-vpn-gateway-settings.md)。
 
@@ -70,6 +70,15 @@ VPN 网关是一种虚拟网络网关。 VPN 网关通过公共连接在虚拟�
 ### <a name="what-is-a-route-based-dynamic-routing-gateway"></a>什么是基于路由的（动态路由）网关？
 
 基于路由的网关可实施基于路由的 VPN。 基于路由的 VPN 使用 IP 转发或路由表中的“路由”将数据包引导到相应的隧道接口中。 然后，隧道接口会加密或解密出入隧道的数据包。 基于路由的 VPN 的策略或流量选择器配置为任意到任意（或通配符）。
+
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>能否将基于策略的 VPN 网关更新为基于路由的？
+不可以。 Azure Vnet 网关类型不能从基于策略更改为基于路由，反之亦然。 必须先删除该网关，然后再重新创建，此过程需时约 60 分钟。 不会保留网关的 IP 地址，也不会保留预共享密钥 (PSK)。
+1. 删除与要删除的网关相关联的任何连接。
+2. 删除网关：
+    - [Azure 门户](vpn-gateway-delete-vnet-gateway-portal.md)
+    - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+    - [Azure Powershell - 经典](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+3. [创建所需类型的新网关并完成 VPN 设置](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>是否需要“GatewaySubnet”？
 
@@ -105,19 +114,18 @@ Azure VPN 使用 PSK（预共享密钥）身份验证。 我们在创建 VPN 隧
 
 #### <a name="resource-manager-deployment-model"></a>Resource Manager 部署模型
 
-* PowerShell：使用“AddressPrefix”指定本地网络网关的流量。
-* Azure 门户：导航到“本地网关”>“配置”>“地址空间”。
+- PowerShell：使用“AddressPrefix”指定本地网络网关的流量。
+- Azure 门户：导航到“本地网关”>“配置”>“地址空间”。
 
 #### <a name="classic-deployment-model"></a>经典部署模型
 
-* Azure 门户：导航到“经典虚拟网络”>“VPN 连接”>“站点到站点 VPN 连接”>“本地站点名称”>“本地站点”>“客户端地址空间”。 
-* 经典管理门户：请在“本地网络”下的“网络”页上为虚拟网络添加要通过网关发送的每个范围。 
+- Azure 门户：导航到“经典虚拟网络”>“VPN 连接”>“站点到站点 VPN 连接”>“本地站点名称”>“本地站点”>“客户端地址空间”。 
 
-### <a name="can-i-configure-forced-tunneling"></a>是否可以配置强制隧道？
+### <a name="can-i-configure-force-tunneling"></a>是否可以配置强制隧道？
 
-是。 请参阅[配置强制隧道](vpn-gateway-about-forced-tunneling.md)。
+是的。 请参阅[配置强制隧道](vpn-gateway-about-forced-tunneling.md)。
 
-### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>能否在 Azure 中设置自己的 VPN 服务器，并使用该服务器连接到本地网络？
+### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>是否可以在 Azure 中设置自己的 VPN 服务器，并使用它连接到本地网络？
 
 是。可以在 Azure 中部署自己的 VPN 网关或服务器，可以从 Azure 应用商店部署，也可以通过创建自己的 VPN 路由器部署。 需要在虚拟网络中配置用户定义的路由，确保流量在本地网络和虚拟网络子网之间正确路由。
 
@@ -131,7 +139,7 @@ VPN 网关基本上是一个多宿主设备，其中一个 NIC 进入客户专�
 
 有关详细信息，请参阅[关于 VPN 网关配置设置](vpn-gateway-about-vpn-gateway-settings.md)。
 
-## <a name="site-to-site-connections-and-vpn-devices"></a>站点到站点连接和 VPN 设备
+## <a name="s2s"></a>站点到站点连接和 VPN 设备
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>选择 VPN 设备时应考虑什么？
 
@@ -159,9 +167,13 @@ VPN 网关基本上是一个多宿主设备，其中一个 NIC 进入客户专�
 
 其他软件 VPN 解决方案只要遵循行业标准 IPsec 实现，就会与我们的网关兼容。 有关配置和支持说明，请与该软件的供应商联系。
 
-## <a name="P2S"></a>点到站点连接
+## <a name="P2S"></a>点到站点 - 本机 Azure 证书身份验证
 
-<!--Not Available [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]-->
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="P2SRADIUS"></a>点到站点 - RADIUS 身份验证
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>VNet 到 VNet 和多站点连接
 
@@ -193,17 +205,18 @@ VPN 网关基本上是一个多宿主设备，其中一个 NIC 进入客户专�
 
 ### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>能否将使用 IPsec VPN 的虚拟网络连接到我的 ExpressRoute 线路？
 
-是，系统支持该操作。 有关详细信息，请参阅[配置可共存的 ExpressRoute 连接和站点到站点 VPN 连接](../expressroute/expressroute-howto-coexist-classic.md)。
+是，系统支持该操作。 有关详细信息，请参阅 [配置可共存的 ExpressRoute 连接和站点到站点 VPN 连接](../expressroute/expressroute-howto-coexist-classic.md)。
 
-## <a name="ipsecike-policy"></a>IPsec/IKE 策略
+## <a name="ipsecike"></a>IPsec/IKE 策略
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
+
 ## <a name="bgp"></a>BGP
 
-[!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-faq-bgp-include.md)]
+[!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
 
-## <a name="cross-premises-connectivity-and-vms"></a>跨界连接和 VM
+## <a name="vms"></a>跨界连接和 VM
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>如果虚拟机位于虚拟网络中，而连接是跨界连接，应如何连接到该 VM？
 
@@ -219,11 +232,14 @@ VPN 网关基本上是一个多宿主设备，其中一个 NIC 进入客户专�
 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
-## <a name="virtual-network-faq"></a>虚拟网络常见问题
 
-请在[虚拟网络常见问题](../virtual-network/virtual-networks-faq.md)中查看更多虚拟网络信息。
+## <a name="faq"></a>虚拟网络常见问题解答
+
+请在 [虚拟网络常见问题](../virtual-network/virtual-networks-faq.md)中查看更多虚拟网络信息。
 
 ## <a name="next-steps"></a>后续步骤
 
-* 有关 VPN 网关的详细信息，请参阅[关于 VPN 网关](vpn-gateway-about-vpngateways.md)。
-* 有关 VPN 网关配置设置的详细信息，请参阅[关于 VPN 网关配置设置](vpn-gateway-about-vpn-gateway-settings.md)。
+- 有关 VPN 网关的详细信息，请参阅[关于 VPN 网关](vpn-gateway-about-vpngateways.md)。
+- 有关 VPN 网关配置设置的详细信息，请参阅[关于 VPN 网关配置设置](vpn-gateway-about-vpn-gateway-settings.md)。
+
+<!--Update_Description: wording update-->

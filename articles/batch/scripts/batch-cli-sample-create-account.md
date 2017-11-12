@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 05/02/2017
 ms.date: 07/04/2017
 ms.author: v-junlch
-ms.openlocfilehash: d8695e209afc8ce57ba72f43ede999a647e48911
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: f9dbd49ec51c8bf3e228e4e570ecf7f676ba3681
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-a-batch-account-with-the-azure-cli"></a>使用 Azure CLI 创建批处理帐户
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-按照 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中提供的说明安装 Azure CLI（如果尚未这样做）。
+按照 [Azure CLI 安装指南](/cli/install-azure-cli)中提供的说明安装 Azure CLI（如果尚未这样做）。
 
 ## <a name="batch-account-sample-script"></a>批处理帐户示例脚本
 
@@ -65,7 +65,7 @@ az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
 
 ## <a name="batch-account-using-user-subscription-sample-script"></a>使用用户订阅创建批处理帐户的示例脚本
 
-也可以选择让批处理在你自己的 Azure 订阅中创建其计算节点。
+也可以选择让批处理在自己的 Azure 订阅中创建其计算节点。
 用于将计算节点分配到订阅的帐户必须通过 Azure Active Directory 令牌进行身份验证，分配的计算节点数将计入订阅配额。 若要在此模式下创建帐户，必须在创建帐户时指定 Key Vault 引用。
 
 ```azurecli
@@ -126,20 +126,20 @@ az group delete --name myResourceGroup
 
 | 命令 | 说明 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
-| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#create) | 创建批处理帐户。  |
-| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#set) | 更新批处理帐户的属性。  |
-| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#show) | 检索指定批处理帐户的详细信息。  |
-| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#list) | 检索指定批处理帐户的访问密钥。  |
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | 针对指定的批处理帐户进行身份验证，以便进一步进行 CLI 交互。  |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | 创建存储帐户。 |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) | 创建密钥保管库。 |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#set-policy) | 更新指定 Key Vault 的安全策略。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/group#create) | 创建用于存储所有资源的资源组。 |
+| [az batch account create](/cli/batch/account#create) | 创建批处理帐户。  |
+| [az batch account set](/cli/batch/account#set) | 更新批处理帐户的属性。  |
+| [az batch account show](/cli/batch/account#show) | 检索指定批处理帐户的详细信息。  |
+| [az batch account keys list](/cli/batch/account/keys#list) | 检索指定批处理帐户的访问密钥。  |
+| [az batch account login](/cli/batch/account#login) | 针对指定的批处理帐户进行身份验证，以便进一步进行 CLI 交互。  |
+| [az storage account create](/cli/storage/account#create) | 创建存储帐户。 |
+| [az keyvault create](/cli/keyvault#create) | 创建密钥保管库。 |
+| [az keyvault set-policy](/cli/keyvault#set-policy) | 更新指定 Key Vault 的安全策略。 |
+| [az group delete](/cli/group#delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
 
 可以在 [Azure Batch CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
 

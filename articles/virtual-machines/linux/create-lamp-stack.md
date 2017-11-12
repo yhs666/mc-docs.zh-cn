@@ -16,21 +16,21 @@ ms.topic: article
 origin.date: 02/21/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: b3d598bb521d234e525f9d5f3d5d544eb6ab1ed6
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 1acc1542062c3aaea4be7841f8f2596eb298370e
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="deploy-lamp-stack-on-azure"></a>在 Azure 上部署 LAMP 堆栈
-本文介绍如何在 Azure 上部署 Apache web 服务器、MySQL 和 PHP（LAMP 堆栈）。 用户需要 Azure 帐户（[获取试用版](https://www.azure.cn/pricing/1rmb-trial/)）和 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)。 还可以使用 [Azure CLI 1.0](create-lamp-stack-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
+本文介绍如何在 Azure 上部署 Apache web 服务器、MySQL 和 PHP（LAMP 堆栈）。 用户需要 Azure 帐户（[获取试用版](https://www.azure.cn/pricing/1rmb-trial/)）和 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)。 还可以使用 [Azure CLI 1.0](create-lamp-stack-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
 ## <a name="quick-command-summary"></a>快速命令摘要
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 1. 在本地计算机上根据需要保存和编辑 [azuredeploy.parameters.json 文件](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.parameters.json)。
-2. 通过运行以下两个命令创建资源组，然后部署模板：
+2. 通过运行以下两个命令创建资源组，并部署模板：
 
 ```azurecli
 az group create -l chinanorth -n myResourceGroup
@@ -40,7 +40,7 @@ az group deployment create -g myResourceGroup \
 ```
 
 ### <a name="deploy-lamp-on-existing-vm"></a>在现有 VM 上部署 LAMP
-以下命令更新包，然后安装 Apache、MySQL 和 PHP：
+以下命令更新包，并安装 Apache、MySQL 和 PHP：
 
 ```bash
 sudo apt-get update
@@ -49,7 +49,7 @@ sudo apt-get install apache2 mysql-server php5 php5-mysql
 
 ## <a name="deploy-lamp-on-new-vm-walkthrough"></a>在新的 VM 上部署 LAMP 的演练
 
-1. 使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组，使之包含新的 VM：
+1. 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建资源组，使之包含新的 VM：
 
     ```azurecli
     az group create -l chinanorth -n myResourceGroup
@@ -90,13 +90,13 @@ az group deployment create -g myResourceGroup \
 }
 ```
 
-现在你已创建已安装 LAMP 的 Linux VM。 可以根据需要跳转到[验证是否已成功安装 LAMP](#verify-lamp-successfully-installed) 来验证此安装。
+现在已创建已安装 LAMP 的 Linux VM。 可以根据需要跳转到[验证是否已成功安装 LAMP](#verify-lamp-successfully-installed) 来验证此安装。
 
 ## <a name="deploy-lamp-on-existing-vm-walkthrough"></a>在现有 VM 上部署 LAMP 的演练
 如果需要有关创建 Linux VM 方面的帮助，可以转到[此处了解如何创建 Linux VM](/virtual-machines/virtual-machines-linux-quick-create-cli)。 接下来，需通过 SSH 登录 Linux VM。 如果需要有关创建 SSH 密钥方面的帮助，可以转到[此处了解如何在 Linux/Mac 上创建 SSH 密钥](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 如果已有 SSH 密钥，请继续操作，使用 `ssh azureuser@mypublicdns.chinanorth.chinacloudapp.cn` 从命令行通过 SSH 登录 Linux VM。
 
-现在你是在 Linux VM 中操作，我们可以指导你在基于 Debian 的分发版上安装 LAMP 堆栈。 对于其他 Linux 分发版，确切的命令可能会有所不同。
+现在是在 Linux VM 中操作，我们可以指导在基于 Debian 的分发版上安装 LAMP 堆栈。 对于其他 Linux 分发版，确切的命令可能会有所不同。
 
 #### <a name="installing-on-debianubuntu"></a>在 Debian/Ubuntu 上安装
 需要安装以下程序包：`apache2`、`mysql-server`、`php5`、`php5-mysql`。 可以直接使用这些包来安装，也可以使用 Tasksel 来安装。
@@ -114,14 +114,14 @@ sudo apt-get install apache2 mysql-server php5 php5-mysql
 ```
 
 ##### <a name="using-tasksel"></a>使用 tasksel
-此外，你可以下载 Tasksel，它是一个 Debian/Ubuntu 工具，可将多个相关包作为协同“任务”安装到你的系统中。
+此外，可以下载 Tasksel，它是一个 Debian/Ubuntu 工具，可将多个相关包作为协同“任务”安装到你的系统中。
 
 ```bash
 sudo apt-get install tasksel
 sudo tasksel install lamp-server
 ```
 
-运行上述任一选项以后，系统会提示用户安装这些包以及各种其他的依赖项。 若要为 MySQL 设置一个管理密码，可按“y”再按“Enter”继续，然后再遵循任何其他的提示进行操作。 此股从会安装最低要求的 PHP 扩展，这些扩展是通过 MySQL 使用 PHP 所必需的。 
+运行上述任一选项以后，系统会提示用户安装这些包以及各种其他的依赖项。 如果要为 MySQL 设置一个管理密码，可按“y”再按“Enter”继续，再遵循任何其他的提示进行操作。 此股从会安装最低要求的 PHP 扩展，这些扩展是通过 MySQL 使用 PHP 所必需的。 
 
 ![][1]
 
@@ -132,9 +132,9 @@ apt-cache search php5
 ```
 
 #### <a name="create-infophp-document"></a>创建 info.php 文档
-现在你可以通过在命令行中键入 `apache2 -v`、`mysql -v` 或 `php -v` 来检查 Apache、MySQL 和 PHP 的版本。
+现在可以通过在命令行中键入 `apache2 -v`、`mysql -v` 或 `php -v` 来检查 Apache、MySQL 和 PHP 的版本。
 
-如果你想要进行进一步的检测，可以创建在浏览器中查看的快速 PHP 信息页。 通过以下命令使用 Nano 文本编辑器创建一个文件：
+如果想要进行进一步的检测，可以创建在浏览器中查看的快速 PHP 信息页。 通过以下命令使用 Nano 文本编辑器创建一个文件：
 
 ```bash
 sudo nano /var/www/html/info.php
@@ -165,7 +165,7 @@ sudo service apache2 restart
 
 ![][3]
 
-恭喜，你刚刚在 Azure VM 上安装了 LAMP 堆栈！
+恭喜，刚刚在 Azure VM 上安装了 LAMP 堆栈！
 
 ## <a name="next-steps"></a>后续步骤
 签出 LAMP 堆栈上的 Ubuntu 文档：

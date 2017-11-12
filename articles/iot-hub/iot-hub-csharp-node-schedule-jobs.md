@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: 0ee11aa6f02ab87906e031a9cf5d05e3b6020c2a
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 11/20/2017
+ms.openlocfilehash: 3438368c373c5dc766e5ec1eccdcd4620f711311
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>计划和广播作业 (.NET/Node.js)
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 08/04/2017
 要完成本教程，需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-* Node.js 版本 0.12.x 或更高版本。 [准备开发环境][lnk-dev-setup]一文介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
+* Node.js 版本 4.0.x 或更高版本。 [准备开发环境][lnk-dev-setup]一文介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]

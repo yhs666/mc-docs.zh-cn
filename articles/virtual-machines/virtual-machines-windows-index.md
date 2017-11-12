@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 02/13/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: 5fb70cb4c0fffd6f195a83304d47fdb8adab9da9
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 63cd305488ae3446bba27804b559ff61abb71b70
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="technical-articles-for-windows-vms-in-the-classic-deployment-model"></a>与经典部署模型中的 Windows VM 相关的技术文章
 查找在经典部署模型中创建和管理基于 Windows 的 Azure 虚拟机时需要参考的所有文档。
@@ -137,7 +137,7 @@ ms.lasthandoff: 07/14/2017
 [Tomcat](windows/classic/java-run-tomcat-app-server.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="reference"></a>引用
-[服务管理模式下的 Azure CLI 命令](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+[服务管理模式下的 Azure CLI 命令](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)
 
 [服务管理 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 

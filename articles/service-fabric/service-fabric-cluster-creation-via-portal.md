@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/21/2017
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 177024b42048281733c50fabf6aec75b53eee833
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: e8d0e84077e310d6449cab6fedd915053fba38dd
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 门户在 Azure 中创建 Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -73,11 +73,12 @@ Service Fabric 使用 X.509 证书保护群集。 Azure 密钥保管库用于管
 第一个步骤是专门针对密钥保管库创建资源组。 建议将 Key Vault 放入其自身的资源组中，以便可以删除计算与存储资源组（例如包含 Service Fabric 群集的资源组），而不会丢失密钥和机密。 包含密钥保管库的资源组必须与正在使用它的群集位于同一区域。
 
 ```powershell
-    PS C:\Users\vturecek> New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'China East'
+
+    PS C:\Users\vturecek> New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'China North'
     WARNING: The output object type of this cmdlet will be modified in a future release.
 
     ResourceGroupName : mycluster-keyvault
-    Location          : chinaeast
+    Location          : chinanorth
     ProvisioningState : Succeeded
     Tags              :
     ResourceId        : /subscriptions/<guid>/resourceGroups/mycluster-keyvault
@@ -90,12 +91,12 @@ Service Fabric 使用 X.509 证书保护群集。 Azure 密钥保管库用于管
 
 ```powershell
 
-    PS C:\Users\vturecek> New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'China East' -EnabledForDeployment
+    PS C:\Users\vturecek> New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'China North' -EnabledForDeployment
 
 
     Vault Name                       : myvault
     Resource Group Name              : mycluster-keyvault
-    Location                         : China East
+    Location                         : China North
     Resource ID                      : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
     Vault URI                        : https://myvault.vault.azure.cn
     Tenant ID                        : <guid>
@@ -172,12 +173,12 @@ Service Fabric 使用 X.509 证书保护群集。 Azure 密钥保管库用于管
 此 PowerShell 模块中的 `Invoke-AddCertToKeyVault` 命令自动将证书私钥的格式设置为 JSON 字符串，并将它上传到 Key Vault。 使用该字符串可将群集证书与任何其他应用程序证书添加到 Key Vault。 针对要在群集中安装的其他任何证书重复此步骤。
 
 ```powershell
-PS C:\Users\vturecek> Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "China East" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
+PS C:\Users\vturecek> Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "China North" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
 
     Switching context to SubscriptionId <guid>
-    Ensuring ResourceGroup mycluster-keyvault in China East
+    Ensuring ResourceGroup mycluster-keyvault in China North
     WARNING: The output object type of this cmdlet will be modified in a future release.
-    Using existing valut myvault in China East
+    Using existing valut myvault in China North
     Reading pfx file from C:\path\to\key.pfx
     Writing secret to myvault in vault myvault
 
@@ -189,6 +190,7 @@ Value : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Micros
 
 Name  : CertificateURL
 Value : https://myvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
+
 ```
 
 这就是配置 Service Fabric 群集 Resource Manager 模板时所要满足的所有密钥保管库先决条件。该模板可安装用于节点身份验证、管理终结点安全性与身份验证以及使用 X.509 证书的其他任何应用程序安全功能的证书。 此时，应已在 Azure 中设置以下各项：
@@ -270,7 +272,6 @@ Value : https://myvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c09
 * 选中“**配置高级设置**”复选框，输入**管理客户端**和**只读客户端**的客户端证书。 在这些字段中，输入管理客户端证书的指纹和只读用户客户端证书的指纹（如果适用）。 当管理员尝试连接群集时，仅当他们的证书指纹与此处输入的指纹值匹配时，才被授予访问权限。  
 
 #### <a name="4-summary"></a>4.摘要
-![显示“正在部署 Service Fabric 群集”的开始面板屏幕截图。 ][Notifications]
 
 若要完成群集创建过程，请单击“摘要”查看提供的配置，或下载用于部署群集的 Azure 资源管理器模板。 在提供必需的设置后，“确定”按钮将会变为绿色，只需单击它即可启动群集创建过程。
 
@@ -288,12 +289,12 @@ Value : https://myvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c09
 群集仪表板边栏选项卡上的“**节点监视器**”部分显示运行正常和不正常的 VM 的数目。 若要了解有关群集运行状况的详细信息，请参阅 [Service Fabric 运行状况模型简介][service-fabric-health-introduction]。
 
 > [!NOTE]
-> Service Fabric 群集需要一定数量的节点始终处于开机状态，以维护可用性和保留状态（称为“维护仲裁”）。 因此，除非已事先执行 [状态的完整备份][service-fabric-reliable-services-backup-restore]，否则关闭群集中的所有计算机通常是不安全的做法。
+> Service Fabric 群集需要一定数量的节点始终处于开机状态，以维护可用性和保留状态（称为“维护仲裁”）。 因此，除非已事先执行[状态的完整备份][service-fabric-reliable-services-backup-restore]，否则关闭群集中的所有计算机通常是不安全的做法。
 > 
 > 
 
 ## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>远程连接到虚拟机规模集实例或群集节点
-每次在群集中指定 NodeTypes，都会设置虚拟机规模集。 有关详细信息，请参阅[远程连接到虚拟机规模集实例][remote-connect-to-a-vm-scale-set]。
+每次在群集中指定 NodeTypes，都会设置虚拟机规模集。
 
 ## <a name="next-steps"></a>后续步骤
 此时，已创建一个使用证书进行管理身份验证的安全群集。 接下来，请[连接到该群集](service-fabric-connect-to-secure-cluster.md)，了解如何[管理应用程序机密](service-fabric-application-secret-management.md)。  此外，了解 [Service Fabric 支持选项](service-fabric-support.md)。
@@ -310,7 +311,7 @@ Value : https://myvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c09
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
-[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node
+[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md
 [service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
 
 <!--Image references-->

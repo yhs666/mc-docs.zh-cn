@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 10/02/2017
+origin.date: 09/29/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1c26703ce057d38dfd193de73945ecb952640e82
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 1467a338efef0cdfffc4a456df73865938ea1b2d
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="connect-to-a-secure-cluster"></a>连接到安全群集
+
 当客户端连接到 Service Fabric 群集节点时，可以使用证书安全性或 Azure Active Directory (AAD) 与客户端建立经过身份验证的安全通信。 此身份验证可确保只有经过授权的用户才能访问该群集和部署的应用程序，以及执行管理任务。  创建群集时，必须事先在该群集上启用证书或 AAD 安全性。  有关群集安全方案的详细信息，请参阅[群集安全性](service-fabric-cluster-security.md)。 如果要连接到使用证书保护的群集，请在连接到群集的计算机上[设置客户端证书](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert)。 
 
 <a id="connectsecureclustercli"></a> 
@@ -103,7 +104,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 填充参数时，命令如以下示例所示： 
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint clustername.chinaeast.chinacloudapp.cn:19000 `
+Connect-ServiceFabricCluster -ConnectionEndpoint clustername.chinanorth.cloudapp.chinacloudapi.cn:19000 `
           -KeepAliveIntervalInSec 10 `
           -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `
           -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `
@@ -147,8 +148,8 @@ using System.Security.Cryptography.X509Certificates;
 
 string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
-string CommonName = "www.clustername.chinaeast.chinacloudapp.cn";
-string connection = "clustername.chinaeast.chinacloudapp.cn:19000";
+string CommonName = "www.clustername.chinanorth.chinacloudapi.cn";
+string connection = "clustername.chinanorth.cloudapp.chinacloudapi.cn:19000";
 
 var xc = GetCredentials(clientCertThumb, serverCertThumb, CommonName);
 var fc = new FabricClient(xc, connection);
@@ -185,7 +186,7 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
-string connection = "clustername.chinaeast.chinacloudapp.cn:19000";
+string connection = "clustername.chinanorth.cloudapp.chinacloudapi.cn:19000";
 
 var claimsCredentials = new ClaimsCredentials();
 claimsCredentials.ServerThumbprints.Add(serverCertThumb);
@@ -221,7 +222,8 @@ string token = GetAccessToken(
     "urn:ietf:wg:oauth:2.0:oob");
 
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
-string connection = "clustername.chinaeast.chinacloudapp.cn:19000";
+string connection = "clustername.chinanorth.cloudapp.chinacloudapi.cn:19000";
+
 var claimsCredentials = new ClaimsCredentials();
 claimsCredentials.ServerThumbprints.Add(serverCertThumb);
 claimsCredentials.LocalClaims = token;
@@ -265,7 +267,7 @@ static string GetAccessToken(
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
-string connection = "clustername.chinaeast.chinacloudapp.cn:19000";
+string connection = "clustername.chinanorth.cloudapp.chinacloudapi.cn:19000";
 
 var claimsCredentials = new ClaimsCredentials();
 claimsCredentials.ServerThumbprints.Add(serverCertThumb);
@@ -311,7 +313,7 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
 
 Azure 门户的群集基本信息窗格中也提供了完整 URL。
 
-<!--Update_Description: wording update-->
+若要使用浏览器连接到 Windows 或 OS X 上的安全群集，可以导入客户端证书，浏览器将提示你提供要用于连接群集的证书。  在 Linux 计算机上，需要使用高级浏览器设置（每个浏览器具有不同的机制）导入证书并将其指向磁盘上的证书位置。
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>使用 Azure Active Directory 连接到安全群集
 
@@ -356,4 +358,4 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 * [Service Fabric 运行状况模型简介](service-fabric-health-introduction.md)
 * [应用程序安全性和 RunAs](service-fabric-application-runas-security.md)
 * [Service Fabric CLI 入门](service-fabric-cli.md)
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update reference link, wording update-->

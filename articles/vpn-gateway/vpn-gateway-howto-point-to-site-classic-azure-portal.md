@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/03/2017
-ms.date: 08/31/2017
+origin.date: 10/12/2017
+ms.date: 11/07/2017
 ms.author: v-junlch
-ms.openlocfilehash: 032930fa58cbde16ca26b494ef04f03fbda5d06b
-ms.sourcegitcommit: 9bf00397882b114ed32a3bb4801e5b90ab1aeed7
+ms.openlocfilehash: f04e08e3d56e2a8270c21a65e74ddb78db1b75d3
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>使用证书身份验证配置与 VNet 的点到站点连接（经典）：Azure 门户
 
@@ -82,23 +82,23 @@ P2S 使用安全套接字层隧道协议 (SSTP)，这是一种基于 SSL 的 VPN
 1. 从浏览器导航到 [Azure 门户](http://portal.azure.cn)，并在必要时使用 Azure 帐户登录。
 2. 单击“新建” 。 在“搜索应用商店”字段中，键入“虚拟网络”。 从返回的列表中找到“虚拟网络”，单击打开“虚拟网络”页。
 
-   ![搜索虚拟网络页](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
+    ![搜索虚拟网络页](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
 3. 从靠近“虚拟网络”页底部的“选择部署模型”列表中，选择“经典”，然后单击“创建”。
 
-   ![选择部署模型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/selectmodel.png)
+    ![选择部署模型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/selectmodel.png)
 4. 在“创建虚拟网络”页上，配置 VNet 设置。 在此页上，添加第一个地址空间和单个子网地址范围。 完成创建 VNet 之后，可以返回并添加其他子网和地址空间。
 
-   ![创建虚拟网络页](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
+    ![创建虚拟网络页](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
 5. 验证“订阅”  是否正确。 可以使用下拉列表更改订阅。
 6. 单击“资源组”  ，并选择现有资源组，或通过键入新的资源组名称创建新资源组。 如果要创建新资源组，请根据计划的配置值来命名资源组。 有关资源组的详细信息，请访问 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md#resource-groups)。
 7. 接下来，选择 VNet 的“位置”  设置。 该位置确定要部署到此 VNet 的资源所在的位置。
 8. 如果希望能够在仪表板上轻松查找 VNet，请选择“固定到仪表板”，并单击“创建”。
 
-   ![固定到仪表板](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/pintodashboard150.png)
+    ![固定到仪表板](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/pintodashboard150.png)
 9. 单击“创建”后，仪表板上会出现一个磁贴，反映 VNet 的进度。 创建 VNet 时，该磁贴会更改。
 
-   ![创建虚拟网络磁贴](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
-10. 创建虚拟网络后，可以在 Azure 经典管理门户中的“网络”页上，看到“状态”下面列出了“已创建”。
+    ![创建虚拟网络磁贴](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
+10. 虚拟网络创建以后，就会看到“已创建”。
 11. 添加 DNS 服务器（可选）。 创建虚拟网络后，可以添加 DNS 服务器的 IP 地址进行名称解析。 指定的 DNS 服务器 IP 地址应该是可以解析 VNet 中资源名称的 DNS 服务器的地址。<br>要添加 DNS 服务器，请打开虚拟网络的设置，单击 DNS 服务器，并添加要使用的 DNS 服务器的 IP 地址。
 
 ### <a name="gateway"></a>第 2 部分：创建网关子网和动态路由网关
@@ -108,28 +108,28 @@ P2S 使用安全套接字层隧道协议 (SSTP)，这是一种基于 SSL 的 VPN
 1. 在门户中，导航到要为其创建网关的虚拟网络。
 2. 在虚拟网络页的“概览”页上的“VPN 连接”部分，单击“网关”。
 
-   ![单击创建网关](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
+    ![单击创建网关](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
 3. 在“新建 VPN 连接”页中，选择“点到站点”。
 
-   ![点到站点连接类型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
+    ![点到站点连接类型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
 4. 对于“客户端地址空间”，请添加 IP 地址范围。 这是 VPN 客户端在连接时要从中接收 IP 地址的范围。 使用专用 IP 地址范围时，该范围不得与要通过其进行连接的本地位置重叠，也不得与要连接到其中的 VNet 重叠。 可以删除自动填充的范围，并添加要使用的专用 IP 地址范围。
 
-   ![客户端地址空间](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
+    ![客户端地址空间](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
 5. 选中“立即创建网关”复选框。
 
-   ![立即创建网关](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/creategwimm.png)
+    ![立即创建网关](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/creategwimm.png)
 6. 单击“可选网关配置”打开“网关配置”页。
 
-   ![单击可选网关配置](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
+    ![单击可选网关配置](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
 7. 单击“子网配置所需的设置”添加**网关子网**。 尽管创建的网关子网最小可为 /29，但建议至少选择 /28 或 /27，创建包含更多地址的更大子网。 这样便可以留出足够多的地址，满足将来可能需要使用的其他配置。 处理网关子网时，请避免将网络安全组 (NSG) 关联到网关子网。 将网络安全组与此子网关联可能会导致 VPN 网关停止按预期方式工作。
 
-   ![添加网关子网](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
+    ![添加网关子网](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
 8. 选择网关“大小”。 大小为虚拟网关的网关 SKU。 在门户中，默认 SKU 为“基本”。 有关网关 SKU 的详细信息，请参阅[关于 VPN 网关设置](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 
-   ![网关大小](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
+    ![网关大小](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
 9. 选择网关的“路由类型”。 P2S 配置需要“动态”路由类型。 在此页中完成配置后，请单击“确定”。
 
-   ![配置路由类型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
+    ![配置路由类型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
 10. 在“新建 VPN 连接”页中，单击底部的“确定”开始创建虚拟网关。 VPN 网关可能需要长达 45 分钟的时间才能完成，具体取决于所选网关 SKU。
 
 ## <a name="generatecerts"></a>2.创建证书
@@ -196,6 +196,8 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
 
    ![已建立连接](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/connected.png)
 
+#### <a name="troubleshooting-p2s-connections"></a>排查 P2S 连接问题
+
 [!INCLUDE [verify-client-certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ### <a name="verifyvpnconnect"></a>验证 VPN 连接
@@ -203,18 +205,18 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
 1. 要验证 VPN 连接是否处于活动状态，请打开提升的命令提示符，然后运行 *ipconfig/all*。
 2. 查看结果。 请注意，收到的 IP 地址是点到站点连接地址范围中的一个地址，该范围是你在创建 VNet 时指定的。 结果应类似于以下示例：
 
-  ```
-    PPP adapter VNet1:
-        Connection-specific DNS Suffix .:
-        Description.....................: VNet1
-        Physical Address................:
-        DHCP Enabled....................: No
-        Autoconfiguration Enabled.......: Yes
-        IPv4 Address....................: 192.168.130.2(Preferred)
-        Subnet Mask.....................: 255.255.255.255
-        Default Gateway.................:
-        NetBIOS over Tcpip..............: Enabled
-  ```
+    ```
+      PPP adapter VNet1:
+          Connection-specific DNS Suffix .:
+          Description.....................: VNet1
+          Physical Address................:
+          DHCP Enabled....................: No
+          Autoconfiguration Enabled.......: Yes
+          IPv4 Address....................: 192.168.130.2(Preferred)
+          Subnet Mask.....................: 255.255.255.255
+          Default Gateway.................:
+          NetBIOS over Tcpip..............: Enabled
+    ```
 
 ## <a name="connectVM"></a>连接到虚拟机
 

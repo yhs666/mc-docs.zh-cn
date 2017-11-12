@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/30/2017
-ms.date: 10/02/2017
+origin.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: ec87ec0b3af7da6b35dbaa1983897ea83a361427
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: f370659127f9e9962232c74bfec7be511dcd6eef
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>使用 EventFlow 聚合和收集事件
 
 [Microsoft 诊断 EventFlow](https://github.com/Azure/diagnostics-eventflow) 可将事件从某个节点路由到一个或多个监视目标。 由于它以 NuGet 包的形式包含在服务项目中，EventFlow 代码和配置可以连同服务一起传播，消除了前面所述的需要在 Azure 诊断中为每个节点完成配置的问题。 EventFlow 在服务进程中运行，直接连接到配置的输出。 由于这种直接连接，EventFlow 适用于 Azure、容器和本地服务部署。 在容器等高密度方案中运行 EventFlow 时请保持谨慎，因为每个 EventFlow 管道会建立外部连接。 因此如若托管多个进程，会获得多个出站连接！ 这对于 Service Fabric 应用程序而言并不是一个大问题，因为 `ServiceType` 的所有副本在同一个进程中运行，限制了出站连接数。 EventFlow 还提供事件筛选，以便只发送与指定的筛选器匹配的事件。
 
-## <a name="setting-up-eventflow"></a>设置 EventFlow
+## <a name="set-up-eventflow"></a>设置 EventFlow
 
 EventFlow 二进制文件以一组 NuGet 包的形式提供。 如果要将 EventFlow 添加到某个 Service Fabric 服务项目，请在解决方案资源管理器中右键单击该项目，并选择“管理 NuGet 包”。 切换到“浏览”选项卡并搜索“`Diagnostics.EventFlow`”：
 
@@ -42,7 +42,7 @@ EventFlow 二进制文件以一组 NuGet 包的形式提供。 如果要将 Even
 
 安装所有包后，下一步是在服务中配置和启用 EventFlow。
 
-## <a name="configuring-and-enabling-log-collection"></a>配置和启用日志收集
+## <a name="configure-and-enable-log-collection"></a>配置和启用日志收集
 EventFlow 管道（负责发送日志）根据配置文件中存储的规范创建。 `Microsoft.Diagnostics.EventFlow.ServiceFabric` 包在 `PackageRoot\Config` 解决方案文件夹下安装名为 `eventFlowConfig.json` 的起始 EventFlow 配置文件。 需要对此配置文件进行修改，以从默认服务 `EventSource` 类和其他任何希望配置的输入中捕获数据，并将数据发送到适当位置。
 
 以下是基于上文提到的 NuGet 包的 *eventFlowConfig.json* 示例：
@@ -137,13 +137,13 @@ namespace Stateless1
 
 作为 `ServiceFabricDiagnosticsPipelineFactory` 中 `CreatePipeline` 方法的参数传递的名称是表示 EventFlow 日志收集管道的运行状况实体的名称。 如果 EventFlow 遇到错误并通过 Service Fabric 运行状况子系统报告此错误，则使用此名称。
 
-### <a name="using-service-fabric-settings-and-application-parameters-to-in-eventflowconfig"></a>在 eventFlowConfig 中使用 Service Fabric 设置和应用程序参数
+### <a name="use-service-fabric-settings-and-application-parameters-in-eventflowconfig"></a>在 eventFlowConfig 中使用 Service Fabric 设置和应用程序参数
 
 EventFlow 支持使用 Service Fabric 设置和应用程序参数来配置 EventFlow 设置。 可使用此特殊语法来引用 Service Fabric 设置参数的值：
 
 ```json
 servicefabric:/<section-name>/<setting-name>
-``` 
+```
 
 `<section-name>` 是 Service Fabric 配置节的名称；而 `<setting-name>` 是配置设置，提供用于配置 EventFlow 设置的值。 若要深入了解如何执行此操作，请转到 [Service Fabric 和应用程序参数支持](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters)。
 
@@ -157,4 +157,4 @@ servicefabric:/<section-name>/<setting-name>
 * [使用 OMS 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-oms.md)
 * [EventFlow 文档](https://github.com/Azure/diagnostics-eventflow)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

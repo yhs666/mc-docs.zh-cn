@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 origin.date: 06/19/2017
 ms.date: 10/16/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5db39abd883c8d32a5dbb3d43387629efc2065d6
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 0d55e5eea52eb752ab7b2217e777af4918b61774
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>如何使用 Docker Machine 在 Azure 中创建主机
 本文详细介绍如何使用 [Docker Machine](https://docs.docker.com/machine/) 在 Azure 中创建主机。 `docker-machine` 命令在 Azure 中创建一个 Linux 虚拟机 (VM)，然后安装 Docker。 然后，可以使用相同的本地工具和工作流来管理 Azure 中的 Docker 主机。 若要在 Windows 10 中使用 docker-machine，必须使用 Linux bash。
 
 ## <a name="create-vms-with-docker-machine"></a>使用 Docker 计算机创建 VM
-首先，使用 [az account show](https://docs.microsoft.com/cli/azure/account#show) 获取 Azure 订阅 ID，如下所示：
+首先，使用 [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#show) 获取 Azure 订阅 ID，如下所示：
 
 ```azurecli
 sub=$(az account show --query "id" -o tsv)

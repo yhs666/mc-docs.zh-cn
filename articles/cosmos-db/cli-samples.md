@@ -16,15 +16,15 @@ ms.workload: database
 origin.date: 06/07/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 91ac8d9ea0761914486c0a38aac6bcb07e69ae2a
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 1c14ca9e2251b583e7342ca55e5e2a8dd84eb151
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
 
-下表包括用于 Azure Cosmos DB 的示例 Azure CLI 脚本的链接。 所有 Azure Cosmos DB CLI 命令参考页可在 [Azure CLI 2.0 参考](https://docs.microsoft.com/cli/azure/cosmosdb)中找到。
+下表包括用于 Azure Cosmos DB 的示例 Azure CLI 脚本的链接。 所有 Azure Cosmos DB CLI 命令参考页可在 [Azure CLI 2.0 参考](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest)中找到。
 
 | |  |
 |---|---|

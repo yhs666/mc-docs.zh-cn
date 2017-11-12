@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 04/15/2015
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: 247bececed84f2a8dfb53fdef77daa9ccd2bfa7d
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: 23778e347713ecb2bd676eb050da98457e8e4820
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL) 群集：Azure 教程
 > [!IMPORTANT]
@@ -40,7 +40,7 @@ ms.lasthandoff: 06/30/2017
 ![系统体系结构](./media/mariadb-mysql-cluster/Setup.png)
 
 > [!NOTE]
-> 本主题使用 [Azure CLI](../../../cli-install-nodejs.md) 工具，因此请务必根据说明下载这些工具并将其连接到 Azure 订阅。 如果需要有关 Azure CLI 中可用命令的参考，请参阅 [Azure CLI 命令参考](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)。 另外还需 [创建用于身份验证的 SSH 密钥] ，并记下 .pem 文件的位置。
+> 本主题使用 [Azure CLI](../../../cli-install-nodejs.md) 工具，因此请务必根据说明下载这些工具并将其连接到 Azure 订阅。 如果需要有关 Azure CLI 中可用命令的参考，请参阅 [Azure CLI 命令参考](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)。 另外还需 [创建用于身份验证的 SSH 密钥] ，并记下 .pem 文件的位置。
 >
 >
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 06/30/2017
 2. 创建虚拟网络。
 
         azure network vnet create --address-space 10.0.0.0 --cidr 8 --subnet-name mariadb --subnet-start-ip 10.0.0.0 --subnet-cidr 24 --affinity-group mariadbcluster mariadbvnet
-3. 创建存储帐户，托管所有磁盘。 不得将超过 40 个常用磁盘放置在同一存储帐户上，以免达到存储帐户的 20,000 IOPS 上限。 在本例中，你将远低于该上限，所以为了简单起见，可以将所有磁盘存储在同一帐户上。
+3. 创建存储帐户，托管所有磁盘。 不得将超过 40 个常用磁盘放置在同一存储帐户上，以免达到存储帐户的 20,000 IOPS 上限。 在本例中，将远低于该上限，所以为了简单起见，可以将所有磁盘存储在同一帐户上。
 
         azure storage account create mariadbstorage --label mariadbstorage --affinity-group mariadbcluster
 4. 查找 CentOS 7 虚拟机映像的名称。
@@ -135,7 +135,7 @@ ms.lasthandoff: 06/30/2017
 
            ln -s /mnt/data/mysql /var/lib/mysql
 
-5. [SELinux 干扰群集操作](http://galeracluster.com/documentation-webpages/configuration.html#selinux)，所以在当前会话中有必要将其禁用。 编辑 `/etc/selinux/config` ，禁止其随后重新启动。
+5. 由于 [SELinux 会干扰群集操作](http://galeracluster.com/documentation-webpages/configuration.html#selinux)，因此在当前会话中有必要将其禁用。 编辑 `/etc/selinux/config` ，禁止其随后重新启动。
 
             setenforce 0
 
@@ -194,7 +194,7 @@ ms.lasthandoff: 06/30/2017
    b. 编辑 **[mariadb]** 节，在其后追加以下内容：
 
    > [!NOTE]
-   > 建议 innodb\_buffer\_pool_size 为 VM 内存量的 70%。 在此示例中，已针对 RAM 为 3.5 GB 的中型 Azure VM 将其设置为 2.45 GB。
+   > 建议 innodb\_buffer\_pool_size 为 VM 内存量的 70%。 在此示例中，它已设置为 2.45 GB，因为中型 Azure VM 具有 3.5 GB 的 RAM。
    >
    >
 
@@ -205,7 +205,7 @@ ms.lasthandoff: 06/30/2017
            innodb_log_buffer_size = 128M # The log buffer allows transactions to run without having to flush the log to disk before the transactions commit
            innodb_flush_log_at_trx_commit = 2 # The setting of 2 enables the most data integrity and is suitable for Master in MySQL cluster
            query_cache_size = 0
-10. 停止 MySQL 并禁止 MySQL 服务在启动时运行，以免在添加节点时导致群集混乱，然后取消预配计算机。
+10. 停止 MySQL 并禁止 MySQL 服务在启动时运行，以免在添加节点时导致群集混乱，并取消预配计算机。
 
         service mysql stop
         chkconfig mysql off
@@ -219,7 +219,7 @@ ms.lasthandoff: 06/30/2017
       ![捕获虚拟机](./media/mariadb-mysql-cluster/Capture2.PNG)
 
 ## <a name="create-the-cluster"></a>创建群集
-使用创建的模板创建 3 个 VM，然后配置并启动群集。
+使用已创建的模板创建三个 VM，并配置并启动群集。
 
 1. 从所创建的 mariadb-galera-image 映像创建第一个 CentOS 7 VM，提供以下信息：
 
@@ -314,7 +314,7 @@ CLI 将负载均衡器探测间隔设置为 15 秒，这可能有点太长。 �
 ![更改探测时间间隔](./media/mariadb-mysql-cluster/Endpoint3.PNG)
 
 ## <a name="validate-the-cluster"></a>验证群集
-繁琐的工作已经完成。 现在应该可以在 `mariadbha.chinacloudapp.cn:3306`访问群集，这将触发负载均衡器并在三个 VM 之间顺利、高效地路由请求。
+繁琐的工作已经完成。 现在应该可以在 `mariadbha.chinacloudapp.cn:3306`访问群集，这会触发负载均衡器并在三个 VM 之间顺利、高效地路由请求。
 
 使用偏好的 MySQL 客户端进行连接，或从其中一个 VM 进行连接，验证此群集是否正常运行。
 
@@ -329,7 +329,7 @@ CLI 将负载均衡器探测间隔设置为 15 秒，这可能有点太长。 �
     INSERT INTO TestTable (value)  VALUES ('Value2');
     SELECT * FROM TestTable;
 
-所创建的数据库将返回下表：
+所创建的数据库返回下表：
 
     +----+--------+
     | id | value  |
@@ -341,7 +341,7 @@ CLI 将负载均衡器探测间隔设置为 15 秒，这可能有点太长。 �
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>后续步骤
-在本文中，你在运行 CentOS 7 的 Azure 虚拟机上创建了三节点型 MariaDB + Galera 高可用性群集。 VM 通过 Azure 负载均衡器实现负载均衡。
+在本文中，在运行 CentOS 7 的 Azure 虚拟机上创建了包含三个节点的 MariaDB + Galera 高度可用群集。 VM 通过 Azure 负载均衡器实现负载均衡。
 
 你可能希望了解[在 Linux 上对 MySQL 进行群集的其他方式](mysql-cluster.md)并探究如何[优化和测试 Azure Linux VM 上的 MySQL 性能](optimize-mysql.md)。
 

@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 02/09/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: 522f51c4004bb8061fe53a0f173c79f4fa7ebd10
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 0c6cbc2ffb4d21761b276e34d92a83d55edb735a
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a>如何从 Linux 虚拟机分离磁盘
 > [!IMPORTANT] 
@@ -29,7 +29,7 @@ ms.lasthandoff: 06/21/2017
 [!INCLUDE [howto-detach-disk-windows-linux](../../../../includes/howto-detach-disk-linux.md)]
 
 ## <a name="next-steps"></a>后续步骤
-你可以阅读下列文章，进一步了解如何使用 Linux VM：
+可以阅读下列文章，进一步了解如何使用 Linux VM：
 
 * [如何将数据磁盘附加到 Linux 虚拟机](attach-disk.md)
-* [将 Azuer CLI 与经典部署模型搭配使用](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [将 Azuer CLI 与经典部署模型搭配使用](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)

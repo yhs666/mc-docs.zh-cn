@@ -1,6 +1,6 @@
 ---
 title: "将虚拟网络连接到另一 VNet：Azure CLI | Microsoft Docs"
-description: "本文介绍如何使用 Azure Resource Manager 和 Azure CLI 将虚拟网络连接在一起。"
+description: "本文介绍如何使用 Azure 资源管理器和 Azure CLI 将虚拟网络连接在一起。"
 services: vpn-gateway
 documentationcenter: na
 author: alexchen2016
@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 origin.date: 08/02/2017
 ms.date: 08/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: 094c5cc11554b2b50f78918d36ec7f407744d6e8
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.openlocfilehash: fe5e8725ba55b8b04e71dbcbee946d985b27a9f1
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>使用 Azure CLI 配置 VNet 到 VNet 的 VPN 网关连接
 
 本文介绍如何在虚拟网络之间创建 VPN 网关连接。 虚拟网络可位于相同或不同的区域，来自相同或不同的订阅。 从不同的订阅连接 VNet 时，订阅不需要与相同的 Active Directory 租户相关联。 
 
-本文中的步骤适用于资源管理器部署模型并使用 Azure CLI。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
+本文中的步骤适用于资源管理器部署模型并使用 Azure CLI。 也可使用不同的部署工具或部署模型来创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -44,9 +44,9 @@ ms.lasthandoff: 09/01/2017
 
 ![关于连接](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
-### <a name="why"></a>为什么连接虚拟网络？
+### <a name="why"></a>为什么要连接虚拟网络？
 
-出于以下原因可能要连接虚拟网络：
+你可能会出于以下原因而连接虚拟网络：
 
 - **跨区域地域冗余和地域存在**
 
@@ -68,11 +68,11 @@ ms.lasthandoff: 09/01/2017
 
 ### <a name="before-you-begin"></a>开始之前
 
-在开始之前，请安装最新版本的 CLI 命令（2.0 或更高版本）。 有关安装 CLI 命令的信息，请参阅 [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)（安装 Azure CLI 2.0）。
+在开始之前，请安装最新版本的 CLI 命令（2.0 或更高版本）。 有关安装 CLI 命令的信息，请参阅 [Install Azure CLI 2.0](/cli/install-azure-cli)（安装 Azure CLI 2.0）。
 
 ### <a name="Plan"></a>计划 IP 地址范围
 
-以下步骤创建两个虚拟网络，以及它们各自的网关子网和配置。 然后，在两个 VNet 之间创建 VPN 连接。 必须计划用于网络配置的 IP 地址范围。 请记住，必须确保没有任何 VNet 范围或本地网络范围存在任何形式的重叠。 在这些示例中，我们没有包括 DNS 服务器。 如果需要虚拟网络的名称解析，请参阅[名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
+以下步骤创建两个虚拟网络，以及它们各自的网关子网和配置。 然后在两个 VNet 之间创建 VPN 连接。 必须计划用于网络配置的 IP 地址范围。 请记住，必须确保没有任何 VNet 范围或本地网络范围存在任何形式的重叠。 在这些示例中，我们没有包括 DNS 服务器。 如果需要虚拟网络的名称解析，请参阅[名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 示例中使用了以下值：
 
@@ -124,7 +124,7 @@ ms.lasthandoff: 09/01/2017
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l chinaeast --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. 为后端子网创建额外的地址空间。 请注意，这一步指定此前创建的地址空间，以及需要添加的额外地址空间。 这是因为，[az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#update) 命令覆盖以前的设置。 请确保在使用此命令时指定所有地址前缀。
+3. 为后端子网创建额外的地址空间。 请注意，这一步指定此前创建的地址空间，以及需要添加的额外地址空间。 这是因为，[az network vnet update](/cli/network/vnet#update) 命令覆盖以前的设置。 请确保在使用此命令时指定所有地址前缀。
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -179,7 +179,7 @@ ms.lasthandoff: 09/01/2017
   ```azurecli
   az network public-ip create -n VNet4GWIP -g TestRG4 --allocation-method Dynamic
   ```
-6. 创建 TestVNet4 虚拟网络网关。
+6. 创建 TestVNet4 虚拟网关。
 
   ```azurecli
   az network vnet-gateway create -n VNet4GW -l chinanorth --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait

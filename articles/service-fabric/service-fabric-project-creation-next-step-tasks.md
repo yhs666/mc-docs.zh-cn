@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/21/2017
+origin.date: 09/28/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 92bc99553bc5342d3190f5ee4c76d212a85fac8c
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: c3b21558490a1baa3de5d88c994c7d321324e4fe
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Service Fabric 应用程序和后续步骤
 已创建 Azure Service Fabric 应用程序。 本文说明项目的构成以及有可能要执行的一些后续步骤。
@@ -85,4 +85,4 @@ Service Fabric 支持单独对应用程序中的独立服务进行版本控制�
 [aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
 [aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

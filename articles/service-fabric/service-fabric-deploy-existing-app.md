@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 07/02/2017
-ms.date: 08/14/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: ae7d1c479d826e5e422eb3bbed2d0819bdd48247
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 2251d2de0bce9f9c5c7025a2011f53c5d9126878
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-a-guest-executable-to-service-fabric"></a>将来宾可执行文件部署到 Service Fabric
 可以在 Azure Service Fabric 中运行任何类型的代码（如 Node.js、Java 或 C++）作为服务。 Service Fabric 将这些类型的服务称为来宾可执行文件。
@@ -67,7 +67,7 @@ ms.lasthandoff: 08/11/2017
 ApplicationPackageRoot 包含定义应用程序的 ApplicationManifest.xml 文件。 应用程序中包含的每个服务的子目录用于包含该服务需要的所有项目。 这些子目录为 servicemanifest.xml 以及以下内容（通常）：
 
 * *Code*。 此目录包含服务代码。
-* *Config*。 此目录包含一个 Settings.xml 文件（必要时，还包含其他文件），服务可以在运行时访问该文件以检索特定的配置设置。
+* *Config*。此目录包含一个 Settings.xml 文件（必要时，还包含其他文件），服务可以在运行时访问该文件以检索特定的配置设置。
 * *Data*。 这是用于存储服务可能需要的其他本地数据的其他目录。 数据应仅用于存储临时数据。 如果需要对服务进行重定位（例如在故障转移期间），则 Service Fabric 不会复制对数据目录所做的更改。
 
 > [!NOTE]
@@ -100,7 +100,7 @@ Visual Studio 提供 Service Fabric 服务模板将来宾可执行文件部署�
 6. 接下来，可以通过在 Visual Studio 中调试解决方案，针对本地群集使用打包和发布操作。 准备就绪后，可将应用程序发布到远程群集，或者将解决方案签入源代码管理。
 7. 请转到本文末尾，了解如何查看 Service Fabric Explorer 中运行的来宾可执行文件服务。
 
-## <a name="use-yoeman-to-package-and-deploy-an-existing-executable-on-linux"></a>使用 Yoeman 在 Linux 上打包和部署现有可执行文件
+## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>使用 Yeoman 在 Linux 上打包和部署现有可执行文件
 
 用于在 Linux 上创建和部署来宾可执行文件的过程与部署 csharp 或 java 应用程序相同。
 
@@ -121,8 +121,7 @@ Yeoman 创建应用程序包，其中包含相应的应用程序和清单文件�
 4. 编辑应用程序清单文件。
 
 <!--
-> [!NOTE]
-> We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
 -->
 
 ### <a name="create-the-package-directory-structure"></a>创建包目录结构
@@ -355,4 +354,4 @@ Service Fabric 服务可以采用各种“配置”进行部署。 例如，可�
 * [部署多个来宾可执行文件](service-fabric-deploy-multiple-apps.md)
 * [使用 Visual Studio 创建第一个 Service Fabric 应用程序](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

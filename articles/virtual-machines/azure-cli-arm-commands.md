@@ -16,18 +16,18 @@ ms.topic: article
 origin.date: 04/18/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: 648b073c7a95a1c24a584c6d95aa88d7981981a3
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 326e051a6dc82ec11f152dbc109324532f65ab71
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Resource Manager 模式下的 Azure CLI 命令
 本文提供常用于在 Azure Resource Manager 部署模型中创建和管理 Azure 资源的 Azure 命令行接口 (CLI) 命令的语法和选项。 通过在 Resource Manager (arm) 模式下运行 CLI 可以访问这些命令。 本参考内容并不完整，CLI 版本可能会显示稍微不同的命令或参数。 有关 Azure 资源和资源组的一般概述，请参阅 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)。  
 
 > [!NOTE]
-> 本文介绍 Azure CLI（有时称为 Azure CLI 1.0）中的 Resource Manager 模式命令。 若要在 Resource Manager 模型中工作，还可试用下一代多平台 CLI - [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)。
->了解有关 [旧版和新版 Azure CLI](https://docs.microsoft.com/cli/azure/old-and-new-clis)的详细信息。
+> 本文介绍 Azure CLI（有时称为 Azure CLI 1.0）中的 Resource Manager 模式命令。 若要在 Resource Manager 模型中工作，还可试用下一代多平台 CLI - [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)。
+>了解有关 [旧版和新版 Azure CLI](https://docs.azure.cn/zh-cn/cli/old-and-new-clis?view=azure-cli-latest)的详细信息。
 >
 
 若要开始，请先[安装 Azure CLI](../cli-install-nodejs.md) 并[连接到 Azure 订阅](../xplat-cli-connect.md)。
@@ -48,8 +48,8 @@ ms.lasthandoff: 07/14/2017
 > 
 > 
 
-## <a name="azure-account-manage-your-account-information"></a>azure account：管理你的帐户信息
-该工具使用你的 Azure 订阅信息连接到你的帐户。
+## <a name="azure-account-manage-your-account-information"></a>azure account：管理帐户信息
+该工具使用 Azure 订阅信息连接到帐户。
 
 **列出导入的订阅**
 
@@ -1247,7 +1247,7 @@ ms.lasthandoff: 07/14/2017
 **用于管理公共 IP 地址的命令**
 
     network public-ip create [options] <resource-group> <name> <location>
-创建公共 IP 资源。 你将要创建公共 IP 资源并将其关联到一个域名。
+创建公共 IP 资源。 将要创建公共 IP 资源并将其关联到一个域名。
 
     azure network public-ip create -g myresourcegroup -n mytestpublicip1 -l chinaeast -d azureclitest -a "Dynamic"
     info:    Executing command network public-ip create
@@ -1748,7 +1748,7 @@ ms.lasthandoff: 07/14/2017
 
     vm get-instance-view [options] <resource-group> <name>
 
-**可让你重置虚拟机上的远程桌面访问或 SSH 设置，以及重置具有管理员或 sudo 权限的帐户的密码**
+**可重置虚拟机上的远程桌面访问或 SSH 设置，以及重置具有管理员或 sudo 权限的帐户的密码**
 
     vm reset-access [options] <resource-group> <name>
 

@@ -17,11 +17,11 @@ origin.date: 02/02/2016
 ms.date: 05/02/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e990a57483c1775986bf93379e10be8b4664e8df
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 73931e1af66b5bad304b587dd9396999eaea6578
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-a-vm-with-multiple-nics-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建具有多个 NIC 的 VM
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 07/14/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. 安装 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) （若尚未安装）。
+1. 安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) （若尚未安装）。
 2. 通过完成[为 Linux VM 创建 SSH 公钥和私钥对](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fvirtual-network%2ftoc.json)中的步骤创建适用于 Linux VM 的 SSH 公钥和私钥对。
 3. 从命令行界面，使用 `az login`命令登录。
 4. 执行 Linux 或 Mac 计算机上的脚本进行 VM 创建。 该脚本创建一个资源组、一个包含两个子网的虚拟网络 (VNet)、两个 NIC 和一个附加有两个 NIC 的 VM。 其中一个 NIC 连接到一个子网，并分配有一个静态公共 IP 地址和一个静态专用 IP 地址。 另一个 NIC 连接到其他子网，并分配有一个静态专用 IP 地址，未分配公共 IP 地址。 NIC、公共 IP 地址、虚拟网络和 VM 资源均必须位于同一位置和订阅。 虽然资源并非都必须位于同一资源组，但在以下脚本中如此。
@@ -176,7 +176,7 @@ az vm create \
 如果生产环境中不会使用此练习中创建的资源，建议将其删除。 VM、公共 IP 地址和磁盘资源在预配后将产生费用。 若要删除此练习中创建的资源，请完成以下步骤：
 1. 若要查看资源组中的资源，请运行 `az resource list --resource-group Multi-NIC-VM` 命令。
 2. 请确认在资源组中除了本文中脚本创建的资源外没有其他资源。 
-3. 若要删除本练习中创建的所有资源，请运行 `az group delete --name Multi-NIC-VM` 命令。 该命令将删除资源组及其包含的所有资源。
+3. 若要删除本练习中创建的所有资源，请运行 `az group delete --name Multi-NIC-VM` 命令。 该命令会删除资源组及其包含的所有资源。
 
 ## <a name="next-steps"></a>后续步骤
 

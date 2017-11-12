@@ -16,11 +16,11 @@ ms.workload: infrastructure
 origin.date: 06/14/2017
 ms.date: 08/14/2017
 ms.author: v-dazen
-ms.openlocfilehash: 2ccc54e50daa2ba959bf20407f8284678da65bfc
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.openlocfilehash: 43fca6df9f15249d225f68c4b539443d3396d495
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>安装和配置 Terraform 以在 Azure 中预配 VM 和其他基础结构 
 本文详细介绍安装和配置 Terraform 以在 Azure 中预配虚拟机等资源的必要步骤。 其中介绍了如何创建和使用 Azure 凭据来启用 Terraform，从而安全地预配云资源。
@@ -35,10 +35,10 @@ ms.lasthandoff: 08/07/2017
 ## <a name="set-up-terraform-access-to-azure"></a>设置 Terraform 对 Azure 的访问权限
 要使 Terraform 能够在 Azure 中预配资源，需要在 Azure Active Directory (Azure AD) 中创建两个实体：Azure AD 应用程序和 Azure AD 服务主体。 然后，在 Terraform 脚本中使用这些实体的标识符。 服务主体是全局 Azure AD 应用程序的本地实例。 使用服务主体可对全局资源进行精细的本地访问控制。
 
-创建 Azure AD 应用程序和 Azure AD 服务主体的方法有许多种。 目前最简单快捷的方法是使用 Azure CLI 2.0，[可在 Windows、Linux 或 Mac 上下载并安装](https://docs.microsoft.com/cli/azure/install-azure-cli)此工具。 还可以使用 PowerShell 或 Azure CLI 1.0 创建必要的安全基础结构。 下面说明如何使用所有这些方法为 Azure 配置 Terraform。
+创建 Azure AD 应用程序和 Azure AD 服务主体的方法有许多种。 目前最简单快捷的方法是使用 Azure CLI 2.0，[可在 Windows、Linux 或 Mac 上下载并安装](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)此工具。 还可以使用 PowerShell 或 Azure CLI 1.0 创建必要的安全基础结构。 下面说明如何使用所有这些方法为 Azure 配置 Terraform。
 
 ### <a name="use-azure-cli-20-for-windows-linux-or-mac-users"></a>使用 Azure CLI 2.0（适用于 Windows、Linux 或 Mac 用户） 
-下载并安装 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) 后，发出以下命令，登录以管理 Azure 订阅：
+下载并安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) 后，发出以下命令，登录以管理 Azure 订阅：
 
 ```
 az login
@@ -91,7 +91,7 @@ az vm list-sizes --location chinanorth
 ### <a name="use-azure-cli-10-for-linux-or-mac-users"></a>使用 Azure CLI 1.0（适用于 Linux 或 Mac 用户）
 若要在包含 Azure CLI 1.0 的 Linux 计算机或 Mac 上开始使用 Terraform，请在计算机上安装适当的库。  
 
-1. 遵循[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) 中的步骤安装 Azure xPlat CLI 工具。 
+1. 遵循[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) 中的步骤安装 Azure xPlat CLI 工具。 
 2. 遵循[下载 jq](https://stedolan.github.io/jq/download/) 中的说明下载并安装 JSON 处理器。
 3. 通过控制台下载并执行 [azure-setup.sh 脚本](https://github.com/mitchellh/packer/blob/master/contrib/azure-setup.sh) bash 脚本。 
 4. 若要运行 azure-setup.sh 脚本，请通过控制台下载该脚本并执行 `./azure-setup setup` 命令。 然后使用管理特权登录到 Azure 订阅。 

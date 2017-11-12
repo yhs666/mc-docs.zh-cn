@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/25/2017
+origin.date: 10/13/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
-ms.openlocfilehash: d5d35b2dadf341fcc79fa809694f635dbcfbb7e2
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 11/20/2017
+ms.openlocfilehash: 128093a7687c2a5e6a23d00d333c28fa6175fb55
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="scale-your-iot-hub-solution"></a>缩放 IoT 中心解决方案
 Azure IoT 中心可支持多达一百万台设备同时连接。 有关详细信息，请参阅 [IoT 中心定价][lnk-pricing]。 每个 IoT 中心计价单位允许特定数量的日常消息。

@@ -17,17 +17,17 @@ ms.topic: article
 origin.date: 09/06/2016
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 857c1f50d2c72905fe0c688d7bbd0cc049294ace
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: a442d5e53b14c77034a89792feabeaa3af679fae
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上优化 Linux VM
 通过命令行或门户创建运行 Linux 虚拟机 (VM) 是一项很简单的操作。 本教程说明如何在 Azure 平台上设置 VM 以确保优化其性能。 本主题使用 Ubuntu Server VM，不过也可以[将自己的映像作为模板](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)来创建 Linux 虚拟机。  
 
 ## <a name="prerequisites"></a>先决条件
-本主题假设已有一个有效的 Azure 订阅（[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)），并已在 Azure 订阅中预配 VM。 请确保已安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 并使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录到 Azure 订阅，并[创建 VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+本主题假设已有一个有效的 Azure 订阅（[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)），并已在 Azure 订阅中预配 VM。 请确保已安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录到 Azure 订阅，并[创建 VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

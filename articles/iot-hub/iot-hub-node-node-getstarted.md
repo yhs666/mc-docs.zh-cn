@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/31/2017
-ms.date: 10/16/2017
+ms.date: 11/20/2017
 ms.author: v-yiso
-ms.openlocfilehash: 9070f6f2fe924a534a1b2d121ccecdd2947c1da5
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: 32d9dfdf4b6991a13876cfd3f19648ad6d241df1
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>使用 Node 将模拟设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -32,12 +32,10 @@ ms.lasthandoff: 09/29/2017
 
 > [!NOTE]
 > [Azure IoT SDK][lnk-hub-sdks] 文章介绍了 Azure IoT SDK，这些 SDK 可用于构建在设备和解决方案后端运行的应用程序。
-> 
-> 
 
-要完成本教程，需要具备以下先决条件：
+要完成本教程，需要以下各项：
 
-+ Node.js 0.10.x 或更高版本。
+* Node.js 版本 4.0.x 或更高版本。
 
 + 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
@@ -49,17 +47,20 @@ ms.lasthandoff: 09/29/2017
 
 本部分创建一个 Node.js 控制台应用，用于在 IoT 中心的标识注册表中创建设备标识。 设备无法连接到 IoT 中心，除非它在标识注册表中具有条目。 有关详细信息，请参阅 **IoT 中心开发人员指南** 的 [标识注册表][lnk-devguide-identity]部分。 运行此应用，生成的唯一设备 ID 和密钥可供设备在发送设备到云的消息时用来标识自我。
 
-1. 新建名为 **createdeviceidentity**的空文件夹。 在 **createdeviceidentity** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。 接受所有默认值：
+1. 新建名为 `createdeviceidentity` 的空文件夹。 在 `createdeviceidentity` 文件夹的命令提示符处，使用以下命令创建 package.json 文件。 接受所有默认值：
 
     ```cmd/sh
     npm init
     ```
-2. 在命令提示符下运行以下命令，在 **createdeviceidentity** 文件夹中安装 **azure-iothub** 服务 SDK 包：
+
+2. 在 `createdeviceidentity` 文件夹中的命令提示符处，使用以下命令安装 `azure-iothub` 服务 SDK 包：
 
     ```cmd/sh
     npm install azure-iothub --save
     ```
-3. 使用文本编辑器，在 **createdeviceidentity** 文件夹中创建一个 **CreateDeviceIdentity.js** 文件。
+
+3. 使用文本编辑器，在 `createdeviceidentity` 文件夹中创建一个 CreateDeviceIdentity.js 文件。
+
 4. 在 **CreateDeviceIdentity.js** 文件的开头添加以下 `require` 语句：
 
     ```nodejs

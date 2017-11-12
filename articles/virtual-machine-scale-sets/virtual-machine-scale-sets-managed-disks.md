@@ -16,11 +16,11 @@ ms.topic: get-started-article
 origin.date: 06/01/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 01128d97f023349ae4a98a765990cf5df3b0d354
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: d5e6d0fbf258cf05febf13f0836c461c6d78333a
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Azure VM 规模集和托管磁盘
 
@@ -34,7 +34,7 @@ Azure [虚拟机规模集](/virtual-machine-scale-sets/)支持具有托管磁盘
 
 ## <a name="get-started"></a>入门
 
-使用托管磁盘规模集的一种简单入门方法是在 Azure 门户中部署一个这样的规模集。 有关详细信息，请参阅[此文章](./virtual-machine-scale-sets-portal-create.md)。 另一种简单的入门方法是使用 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 部署规模集。 以下示例演示如何创建具有 10 个 VM 的基于 Ubuntu 的规模集，其中每个 VM 都有 50 GB 和 100 GB 的数据磁盘：
+使用托管磁盘规模集的一种简单入门方法是在 Azure 门户中部署一个这样的规模集。 有关详细信息，请参阅[此文章](./virtual-machine-scale-sets-portal-create.md)。 另一种简单的入门方法是使用 [Azure CLI 2.0](/cli/install-az-cli2) 部署规模集。 以下示例演示如何创建具有 10 个 VM 的基于 Ubuntu 的规模集，其中每个 VM 都有 50 GB 和 100 GB 的数据磁盘：
 
 ```azurecli
 az group create -l chinaeast -n dsktest

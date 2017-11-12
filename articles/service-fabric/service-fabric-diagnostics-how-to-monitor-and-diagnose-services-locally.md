@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 04/24/2017
-ms.date: 08/14/2017
+origin.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 259de7ab0cd7df4ad1531c2285c4089ad220987c
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 3da51ce1acac4d8422e77ea76c5f00bda5ff32d4
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>在本地计算机开发安装过程中监视和诊断服务
 > [!div class="op_single_selector"]
@@ -69,4 +69,4 @@ Service Fabric Visual Studio 项目模板包含示例代码。 该代码显示�
 * [如何使用 Azure 诊断收集日志](service-fabric-diagnostics-how-to-setup-wad.md)
 * [使用 EventFlow 聚合和收集事件](service-fabric-diagnostics-event-aggregation-eventflow.md)
 
-<!--Update_Description: update meta properties, update reference link -->
+<!--Update_Description: update meta properties -->

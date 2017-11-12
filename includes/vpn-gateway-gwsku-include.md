@@ -1,4 +1,4 @@
-创建虚拟网络网关时，需要指定要使用的网关 SKU。 根据工作负荷、吞吐量、功能和 SLA 的类型，选择满足需求的 SKU。
+创建虚拟网络网关时，需要指定要使用的网关 SKU。 根据工作负荷、吞吐量、功能和、SLA 的类型，选择满足需求的 SKU。
 
 [!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
 
@@ -22,7 +22,7 @@
 
 | **SKU**| **功能**|
 | ---    | ---         |
-|**基本**   | 基于路由的 VPN：10 个隧道，含 P2S<br><br>基于策略的 VPN (IKEv1)：1 个隧道；不含 P2S|
+|**基本**   | **基于路由的 VPN**：包含 P2S 的 10 个隧道；无 RADIUS 身份验证；无 IKEv2<br>基于策略的 VPN (IKEv1)：1 个隧道；不含 P2S|
 | VpnGw1、VpnGw2、VpnGw3 | 基于路由的 VPN：最多 30 个隧道 (*)、P2S、BGP、主动-主动、自定义 IPsec/IKE 策略、ExpressRoute/VPN 共存 |
 |        |             |
 
@@ -38,4 +38,4 @@
 
 [!INCLUDE [Migrate SKU](./vpn-gateway-migrate-legacy-sku-include.md)]
 
-<!-- ms.date: 09/01/2017 -->
+<!-- ms.date: 11/07/2017 -->

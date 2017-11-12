@@ -9,17 +9,17 @@ editor:
 tags: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/23/2017
-ms.date: 10/09/2017
+ms.date: 11/07/2017
 ms.author: v-junlch
-ms.openlocfilehash: 159f24faa3cff66fb0aa0bca3161d7681ac4a754
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 80b88230dbf6c666ebae52492e0434087aeafb87
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>故障排除：Azure 点到站点连接问题
 
@@ -265,4 +265,4 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 
 若要解决此问题，请从 **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections** 删除旧的 VPN 客户端配置文件，再重新运行 VPN 客户端安装程序。
 
-<!--Update_Description: wording update --> 
+<!--Update_Description: update metadata properties-->

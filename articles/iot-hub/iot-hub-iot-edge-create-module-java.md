@@ -11,12 +11,12 @@ ms.devlang: Java
 ms.topic: article
 origin.date: 06/28/2017
 ms.author: junyi
-ms.date: 08/07/2017
-ms.openlocfilehash: f57736fccb6bc05d5cfa0116aa55e03c732a28be
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 11/20/2017
+ms.openlocfilehash: e800713fed553d100cda041b9542bbd58f633e3e
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-java"></a>使用 Java 创建 Azure IoT Edge 模块
 
@@ -128,7 +128,7 @@ POM 继承自 `com.microsoft.azure.gateway.gateway-module-base` 包，该包声�
 
 输出类似于输入，它可能会触发硬件行为（例如，使 LED 闪烁）、向其他模块发送消息，或其他任何动作（例如，在控制台上列显信息）。
 
-模块使用 `com.microsoft.azure.gateway.messaging.Message` 类互相通信。 `Message` 的**内容**是一个字节数组，可以代表所需的任何类型的数据。 **属性**也会出现在 `Message` 中，它们只是字符串到字符串的映射。 可将**属性**视为 HTTP 请求中的标头，或文件的元数据。
+模块使用 `com.microsoft.azure.gateway.messaging.Message` 类互相通信。 `Message` 的**内容**是一个字节数组，可以代表所需的任何类型的数据。 **属性**也会出现在 `Message` 中，它们只是字符串到字符串的映射。 可将属性视为 HTTPS 请求中的标头，或文件的元数据。
 
 若要在 Java 中开发 Azure IoT Edge 模块，需要创建一个继承自 `com.microsoft.azure.gateway.core.GatewayModule` 的新模块类，并实现所需的抽象方法 `receive()` 和 `destroy()`。 此时，还可以选择实现可选的 `start()` 或 `create()` 方法。 以下代码片段演示如何开始创作 Azure IoT Edge 模块。
 

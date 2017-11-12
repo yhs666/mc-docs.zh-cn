@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/12/2017
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 386fd064918d9dded5a3acef378f064419d1d892
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 0ac373e65d698de20d9a6d03b171dbf7baf463ea
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 <a name="preparemachines"></a>
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>规划和准备 Service Fabric 独立群集部署
@@ -93,7 +93,7 @@ ms.lasthandoff: 09/28/2017
 
 ## <a name="environment-setup"></a>环境设置
 
-群集管理员配置 Service Fabric 独立群集时，需要使用以下标准设置环境： <br>
+群集管理员配置 Service Fabric 独立群集时，需按照以下准则设置环境： <br>
 1. 创建群集的用户应对群集配置文件中作为节点列出的所有计算机具有管理员级别的安全特权。
 2. 从中创建群集的计算机以及每个群集节点计算机必须：
 * 已卸载 Service Fabric SDK
@@ -109,7 +109,7 @@ ms.lasthandoff: 09/28/2017
 5. 如果群集计算机无法访问 Internet，请在群集配置中设置以下项：
 * 禁用遥测：在“属性”下，设置 *"enableTelemetry": false*
 * 禁用自动下载 Fabric 版本和禁用通知当前群集版本支持即将终止：在“属性”下，设置 *"fabricClusterAutoupgradeEnabled": false*
-* 或者，如果网络 Internet 访问仅限于白名单中的域，则需要自动升级以下域：  go.microsoft.com   download.microsoft.com
+* 或者，如果网络 Internet 访问仅限于白名单中的域，则需要自动升级以下域：go.microsoft.com   download.microsoft.com
 
 6. 设置适当的 Service Fabric 防病毒排除项：
 

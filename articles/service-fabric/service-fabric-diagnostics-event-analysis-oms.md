@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/26/2017
-ms.date: 09/11/2017
+origin.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 759f8028d9fa34db2cc5f9701e6b175ab835b4bb
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: dcf80f4478b5e2e66a0893187319f11a6e0709b4
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>使用 OMS 进行事件分析和可视化
 
@@ -32,12 +32,12 @@ Log Analytics 从托管资源（包括 Azure 存储表或代理）收集数据�
 
 配置 OMS 后，即可访问特定的 OMS 工作区，在其中通过仪表板查询或可视化数据。
 
-在 Log Analytics 收到数据后，OMS 就能够通过多个可根据不同情形自定义的预打包管理解决方案来监视传入数据。 这其中包括 Service Fabric 分析解决方案和容器解决方案。使用 Service Fabric 群集时，这两种解决方案与诊断和监视最为相关。 还包括其他几个值得探索的解决方案。此外，OMS 允许创建自定义解决方案。 所选用于群集的每个解决方案将在同一 OMS 工作区中与 Log Analytics 一起配置。 工作区允许使用自定义仪表板和数据可视化，以及对要收集、处理和分析的数据进行修改。
+在 Log Analytics 收到数据后，OMS 就能够通过多个可根据不同情形自定义的预打包管理解决方案来监视传入数据。 这其中包括 Service Fabric 分析解决方案和容器解决方案。使用 Service Fabric 群集时，这两种解决方案与诊断和监视最为相关。 还包括其他几个值得探索的解决方案。此外，OMS 允许创建自定义解决方案。 选择用于群集的每个解决方案可在同一 OMS 工作区及 Log Analytics 进行配置。 工作区允许使用自定义仪表板和数据可视化，以及对要收集、处理和分析的数据进行修改。
 <!-- Not Available [here](/operations-management-suite/operations-management-suite-solutions). -->
 
-## <a name="setting-up-an-oms-workspace-with-the-service-fabric-solution"></a>使用 Service Fabric 解决方案设置 OMS 工作区
+## <a name="setting-up-an-oms-workspace-with-the-service-fabric-analytics-solution"></a>使用 Service Fabric 分析解决方案设置 OMS 工作区
 
-建议将 Service Fabric 解决方案添加到 OMS 工作区中，因为它提供有用的仪表板，可显示来自平台和应用程序级别的各种传入日志通道，并能查询 Service Fabric 特定日志。 相对简单的 Service Fabric 解决方案如下所示，群集上部署了一个应用程序：
+建议将 Service Fabric 解决方案添加到 OMS 工作区中，因为它包含在平台和应用程序级别显示各种传入日志通道的仪表板，并能查询 Service Fabric 特定日志。 相对简单的 Service Fabric 解决方案如下所示，群集上部署了一个应用程序：
 
 ![OMS SF 解决方案](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
@@ -45,7 +45,7 @@ Log Analytics 从托管资源（包括 Azure 存储表或代理）收集数据�
 
 ### <a name="deploying-oms-using-a-resource-management-template"></a>使用 Resource Manager 模板部署 OMS
 
-这适用于群集创建阶段 - 使用 Resource Manager 模板部署群集时，该模板还会创建新的 OMS 工作区，向其添加 Service Fabric 解决方案，并将其配置为从适当的存储表中读取数据。
+当使用资源管理器模板部署群集时，该模板还会创建新的 OMS 工作区，向其添加 Service Fabric 解决方案，并将其配置为从适当的存储表中读取数据。
 
 >[!NOTE]
 >为此，必须启用诊断，以便 OMS/Log Analytics 从存在的 Azure 存储表读取信息。

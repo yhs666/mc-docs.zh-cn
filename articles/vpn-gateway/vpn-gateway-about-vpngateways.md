@@ -1,10 +1,10 @@
 ---
-title: "VPN 网关概述：创建到 Azure 虚拟网络的跨界 VPN 连接 | Azure"
-description: "此 VPN 网关概述介绍如何使用 VPN 连接通过 Internet 连接到 Azure 虚拟网络。 其中包括基本连接配置图。"
+title: "VPN 网关概述：创建到 Azure 虚拟网络的跨界 VPN 连接 | Microsoft 文档"
+description: "此 VPN 网关概述介绍了在使用基于 Internet 的 VPN 连接时，如何通过各种方式连接到 Azure 虚拟网络。 其中包括基本连接配置图。"
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/05/2017
-ms.date: 09/08/2017
+origin.date: 10/03/2017
+ms.date: 11/07/2017
 ms.author: v-junlch
-ms.openlocfilehash: 1f5a416153bf3545e8f83a455803ff884e9b0caf
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 0566ae73ebcb3d17fe5cb48ba58627521aef15bd
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="about-vpn-gateway"></a>关于 VPN 网关
 
 VPN 网关是一种虚拟网络网关，可通过公共连接将加密流量发送到本地位置。 也可使用 VPN 网关在基于 Microsoft 网络的 Azure 虚拟网络之间发送加密流量。 若要在 Azure 虚拟网络与本地站点之间发送加密网络流量，必须为虚拟网络创建 VPN 网关。
 
-每个虚拟网络只能有一个 VPN 网关，但是，可以创建连接到同一 VPN 网关的多个连接。 其示例之一是多站点连接配置。 创建同一 VPN 网关的多个连接时，所有 VPN 隧道（包括点到站点 VPN）共享网关可用的带宽。
+每个虚拟网络只能有一个 VPN 网关，但是，可以创建连接到同一 VPN 网关的多个连接。 其示例之一是多站点连接配置。 与同一个 VPN 网关建立多个连接时，所有 VPN 隧道（包括点到站点 VPN）将共享该网关可用的带宽。
 
-### <a name="what-is-a-virtual-network-gateway"></a>什么是虚拟网络网关？
+### <a name="whatis"></a>什么是虚拟网关？
 
 虚拟网络网关由两个或多个部署到名为 GatewaySubnet 的特定子网的虚拟机组成。 创建虚拟网络网关时，将创建位于 GatewaySubnet 中的 VM。 虚拟网络网关 VM 配置为包含特定于该网关的路由表和网关服务。 无法直接配置属于虚拟网络网关的 VM，且绝不应该将其他资源部署到 GatewaySubnet。
 
@@ -38,19 +38,19 @@ VPN 网关是一种虚拟网络网关，可通过公共连接将加密流量发�
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-## <a name="configuring-a-vpn-gateway"></a>配置 VPN 网关
+## <a name="configuring"></a>配置 VPN 网关
 
-VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源可单独进行配置，不过，在某些情况下，必须按特定的顺序进行配置。
+VPN 网关连接依赖于使用特定设置配置的多个资源。 大多数资源可以单独配置，虽然在某些情况下它们必须按特定顺序配置。
 
 ### <a name="settings"></a>设置
 
-为每个资源选择的设置对于创建成功的连接至关重要。 有关 VPN 网关的各个资源和设置的信息，请参阅 [关于 VPN 网关设置](vpn-gateway-about-vpn-gateway-settings.md)。 可找到有助于了解网关类型、VPN 类型、连接类型、网关子网、本地网络网关以及可能需要考虑的各种其他资源设置的信息。
+为每个资源选择的设置对于成功创建连接至关重要。 有关 VPN 网关的各个资源和设置的信息，请参阅 [关于 VPN 网关设置](vpn-gateway-about-vpn-gateway-settings.md)。 本文包含的信息有助于了解网关类型、VPN 类型、连接类型、网关子网、本地网络网关，以及可能需要考虑的其他各项资源设置。
 
-### <a name="deployment-tools"></a>部署工具
+### <a name="tools"></a>部署工具
 
-开始时可以使用一个配置工具（如 Azure 门户）创建和配置资源。 稍后可以切换到另一种工具（如 PowerShell）来配置其他资源，或者在适当的情况下修改现有资源。 目前，无法在 Azure 门户中配置每个资源和资源设置。 需要使用特定的配置工具时，本文中针对每种连接拓扑提供的说明都有指明。 
+开始时可以使用一个配置工具（如 Azure 门户）创建和配置资源。 可在以后切换到另一个工具（如 PowerShell）来配置其他资源或修改现有资源（如果适用）。 目前，无法在 Azure 门户中配置每个资源和资源设置。 每个连接拓扑的文章中的说明指定了何时需要特定配置工具。 
 
-### <a name="deployment-model"></a>部署模型
+### <a name="models"></a>部署模型
 
 配置 VPN 网关时，采取的步骤取决于用于创建虚拟网络的部署模型。 例如，如果使用经典部署模型创建了 VNet，则使用经典部署模型的指导原则和说明来创建及配置 VPN 网关设置。 有关部署模型的详细信息，请参阅 [了解 Resource Manager 和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。
 
@@ -58,17 +58,17 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 必须知道，VPN 网关连接可以使用不同的配置。 必须确定哪种配置最适合自己的需要。 在下面的部分中，可以查看有关以下 VPN 网关连接的信息和拓扑示意图：以下部分包含一些表格，其中列出了：
 
-* 可用的部署模型
-* 可用的配置工具
-* 直接转到某篇文章的链接（如果有）
+- 可用的部署模型
+- 可用的配置工具
+- 直接转到某篇文章的链接（如果有）
 
-使用图示和描述来帮助选择符合要求的连接拓扑。 这些图示显示主要基准拓扑，但也可以使用这些图示作为指导来构建更复杂的配置。
+使用图示和描述来帮助选择符合要求的连接拓扑。 示意图显示了主要的基准拓扑，但可以使用示意图作为准则生成更复杂的配置。
 
 ## <a name="s2smulti"></a>站点到站点和多站点（IPsec/IKE VPN 隧道）
 
 ### <a name="S2S"></a>站点到站点
 
-站点到站点 (S2S) VPN 网关连接是通过 IPsec/IKE（IKEv1 或 IKEv2）VPN 隧道建立的连接。 这种类型的连接要求 VPN 设备位于本地，并且分配有公共 IP 地址，不在 NAT 的后面。 S2S 连接可用于跨界和混合配置。   
+站点到站点 (S2S) VPN 网关连接是通过 IPsec/IKE（IKEv1 或 IKEv2）VPN 隧道建立的连接。 S2S 连接要求位于本地的 VPN 设备分配有一个公共 IP 地址，并且不位于 NAT 后面。 S2S 连接可以用于跨界和混合配置。   
 
 ![Azure VPN 网关站点到站点连接示例](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 
@@ -82,15 +82,21 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-## <a name="P2S"></a>点到站点（基于 SSTP 的 VPN）
+## <a name="P2S"></a>点到站点（基于 IKEv2 或 SSTP 的 VPN）
 
-点到站点 (P2S) VPN 网关连接可让用户创建从单个客户端计算机到虚拟网络的安全连接。 P2S 是基于 SSTP（安全套接字隧道协议）的 VPN 连接。 与 S2S 连接不同，P2S 连接不需要本地面向公众的 IP 地址或 VPN 设备。 从客户端计算机启动 VPN 连接即可建立这种连接。 如果要从远程位置（例如，从家里或会议室）连接到 VNet，或者只有几个客户端需要连接到 VNet，此解决方案非常有用。 可以通过同一 VPN 网关将 P2S 连接与 S2S 连接结合使用，前提是这两种连接的所有配置要求都兼容。
+点到站点 (P2S) VPN 网关连接用于创建从单个客户端计算机到虚拟网络的安全连接。 可通过从客户端计算机启动连接来建立 P2S 连接。 对于要从远程位置（例如从家里或会议室）连接到 Azure VNet 的远程工作者，此解决方案很有用。 如果只有一些客户端需要连接到 VNet，则还可以使用 P2S VPN 这一解决方案来代替 S2S VPN。
 
-![Azure VPN 网关点到站点连接示例](./media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
+与 S2S 连接不同，P2S 连接不需要本地面向公众的 IP 地址或 VPN 设备。 可以通过同一 VPN 网关将 P2S 连接与 S2S 连接结合使用，前提是这两种连接的所有配置要求都兼容。 有关点到站点连接的详细信息，请参阅[关于点到站点 VPN](point-to-site-about.md)。
 
-### <a name="deployment-models-and-methods-for-point-to-site"></a>适用于点到站点的部署模型和方法
+>[!NOTE]
+>P2S RADIUS 身份验证和 IKEv2 目前都以预览版提供。
+>
 
-[!INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
+![Azure VPN 网关点到站点连接示例](./media/vpn-gateway-about-vpngateways/point-to-site.png)
+
+### <a name="deployment-models-and-methods-for-p2s"></a>适用于 P2S 的部署模型和方法
+
+[!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## <a name="V2V"></a>VNet 到 VNet 连接（IPsec/IKE VPN 隧道）
 
@@ -98,9 +104,9 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 连接的 VNet 可以：
 
-* 在相同或不同的区域中
-* 在相同或不同的订阅中 
-* 在相同或不同部署模型中
+- 在相同或不同的区域中
+- 在相同或不同的订阅中 
+- 在相同或不同部署模型中
 
 ![Azure VPN 网关 VNet 到 VNet 连接示例](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)
 
@@ -126,13 +132,13 @@ ExpressRoute 连接不使用 VPN 网关，不过，它确实会使用虚拟网�
 
 ## <a name="coexisting"></a>站点到站点和 ExpressRoute 共存连接
 
-ExpressRoute 可以从 WAN 与 Microsoft 服务（包括 Azure）直接建立专用连接，不需要通过公共 Internet。 站点到站点 VPN 流量以加密方式通过公共 Internet 传输。 能够为同一个虚拟网络配置站点到站点 VPN 和 ExpressRoute 连接可带来诸多好处。
+ExpressRoute 是从 WAN （不通过公共 Internet）到 Microsoft 服务（包括 Azure）的直接专用连接。 站点到站点 VPN 流量以加密方式通过公共 Internet 传输。 能够为同一个虚拟网络配置站点到站点 VPN 和 ExpressRoute 连接可带来诸多好处。
 
 可以将站点到站点 VPN 配置为 ExpressRoute 的安全故障转移路径，或者使用站点到站点 VPN 连接到不属于网络但却已通过 ExpressRoute 进行连接的站点。 请注意，对于同一虚拟网络，此配置需要两个虚拟网络网关，一个使用“Vpn”网关类型，另一个使用“ExpressRoute”网关类型。
 
 ![ExpressRoute 和 VPN 网关共存连接示例](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
-### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>S2S 和 ExpressRoute 的部署模型与方法
+### <a name="deployment-models-and-methods-for-s2s-and-expressroute-coexist"></a>适用于 S2S 和 ExpressRoute 的部署模型和方法共存
 
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
@@ -142,14 +148,15 @@ ExpressRoute 可以从 WAN 与 Microsoft 服务（包括 Azure）直接建立专
 
 有关用于 VPN 网关的网关 SKU 的详细信息，请参阅[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 
-## <a name="faq"></a>常见问题
+## <a name="faq"></a>常见问题解答
 
-有关 VPN 网关的常见问题，请参阅 [VPN 网关常见问题解答](vpn-gateway-vpn-faq.md)。
+有关 VPN 网关的常见问题，请参阅 [VPN 网关常见问题](vpn-gateway-vpn-faq.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 规划 VPN 网关配置。 请参阅 [VPN 网关规划和设计](vpn-gateway-plan-design.md)。
 - 有关更多信息，请查看 [VPN 网关常见问题](vpn-gateway-vpn-faq.md)。
 - 查看[订阅和服务限制](../azure-subscription-service-limits.md#networking-limits)。
+- 了解 Azure 的部分其他关键[网络功能](../networking/networking-overview.md)。
 
 <!--Update_Description: wording update-->

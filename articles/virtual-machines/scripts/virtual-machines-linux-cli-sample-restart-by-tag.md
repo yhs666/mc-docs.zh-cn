@@ -17,11 +17,11 @@ origin.date: 03/01/2017
 ms.date: 10/16/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d88506c388fa9d52b3baff0ca295e3bb387764e4
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 109cffb1cc71d7ce4d878fbb3020366e20bc274f
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="restart-vms"></a>重新启动 VM
 
@@ -119,16 +119,16 @@ az group delete -n myResourceGroup --no-wait --yes
 
 | 命令 | 说明 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | 创建虚拟机。  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | 与 `--query` 一起使用，用来确保在重新启动 VM 之前已对其进行了预配，获取这些 VM 的 ID 以将其重新启动。 |
-| [az resource list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | 与 `--query` 一起使用来获取使用该标记的 VM 的 ID。 |
-| [az vm restart](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | 重新启动 VM。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [az vm create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_create) | 创建虚拟机。  |
+| [az vm list](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list) | 与 `--query` 一起使用，用来确保在重新启动 VM 之前已对其进行了预配，获取这些 VM 的 ID 以将其重新启动。 |
+| [az resource list](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list) | 与 `--query` 一起使用来获取使用该标记的 VM 的 ID。 |
+| [az vm restart](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list) | 重新启动 VM。 |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az_vm_extension_set) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 

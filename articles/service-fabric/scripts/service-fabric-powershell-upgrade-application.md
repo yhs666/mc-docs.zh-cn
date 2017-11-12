@@ -12,19 +12,19 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 08/23/2017
-ms.date: 10/02/2017
+origin.date: 09/29/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 99c5b1de9e8886016de8b83513a85324725da8a4
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: ffb7b2629af4c63466964efc8f25afef6f0faee8
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="upgrade-a-service-fabric-application"></a>升级 Service Fabric 应用程序
 
-此示例脚本可将正在运行的 Service Fabric 应用程序实例升级为版本 1.3.0。 该脚本可将新的应用程序包复制到群集映像存储、注册应用程序类型、启动受监控的升级，并不断检查升级状态，直到升级完成或回滚。 根据需要自定义参数。 
+此示例脚本可将正在运行的 Service Fabric 应用程序实例升级为版本 1.3.0。 该脚本会将新应用程序包复制到群集映像存储区，注册应用程序类型并删除不必要的应用程序包。  该脚本会启动受监控的升级，并持续检查升级状态，直到升级完成或回滚。 根据需要自定义参数。 
 
 必要时，使用 [Service Fabric SDK](../service-fabric-get-started.md) 安装 Service Fabric PowerShell 模块。 
 
@@ -82,6 +82,13 @@ else
         throw "Registration of application type failed."
     }
 
+    # Remove the application package to free system resources.
+    Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString $imageStoreConnectionString -ApplicationPackagePathInImageStore $applicationPackagePathInImageStore
+    if(!$?)
+    {
+        Write-Host "Removing the application package failed."
+    }
+
     ## Start monitored application upgrade
     try
     {
@@ -132,6 +139,7 @@ else
 | [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | 将 Service Fabric 应用程序包复制到映像存储。  |
 | [Register-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) | 注册 Service Fabric 应用程序类型。 |
 | [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) | 将 Service Fabric 应用程序升级为指定的应用程序类型版本。 |
+| [Remove-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | 从映像存储区中删除 Service Fabric 应用程序包。|
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -139,4 +147,4 @@ else
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Powershell 示例。
 
-<!--Update_Description: new articles on upgrading application with powershell  -->
+<!--Update_Description: add new cmdlet of Removing the application package to free system resources.  -->

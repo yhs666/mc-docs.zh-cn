@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/09/2017
-ms.date: 09/11/2017
+origin.date: 10/03/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0e0f1c40c3c6df7174eebeb34ec0d797a92bf57a
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: abdb8356139717598b0c241bd19f0e3371d7e403
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-application-upgrades"></a>应用程序升级故障排除
 本文介绍一些围绕升级 Azure Service Fabric 应用程序的常见问题以及这些问题的解决方法。
@@ -86,6 +86,8 @@ UpgradeReplicaSetCheckTimeout  : 00:00:00
 *UpgradePhase* 为 *PreUpgradeSafetyCheck* 意味着在执行升级前，准备升级域时出现了问题。 这种情况下最常见的问题是关闭主代码路径或从该路径降级时的服务错误。
 
 当前 **UpgradeState** 为 *RollingBackCompleted*，因此必须已使用回滚 **FailureAction**（会在失败时自动回滚升级）执行原始升级。 如果已使用手动 **FailureAction** 执行了原始升级，则升级会改为处于挂起状态，以允许对应用程序进行实时调试。
+
+在极少数情况下，当系统完成当前升级域的所有工作时，如果整体升级超时，则 UpgradeDomainProgressAtFailure 字段可能为空。 如果发生这种情况，请尝试增加 UpgradeTimeout 和 UpgradeDomainTimeout 升级参数值，然后重试升级。
 
 ### <a name="investigate-health-check-failures"></a>调查运行状况检查失败
 运行状况检查失败可能由各种其他问题触发，这些问题可能发生在升级域中所有节点完成升级、通过所有安全检查之后。 此段落后面的输出是升级因运行状况检查失败而失败时的典型输出。 **UnhealthyEvaluations** 字段根据指定的[运行状况策略](service-fabric-health-introduction.md)，捕获升级失败时失败的运行状况检查的快照。
@@ -223,4 +225,4 @@ Service Fabric 将所有百分比转换为实际实体（如副本、分区和�
 
 参考[高级主题](service-fabric-application-upgrade-advanced.md)，了解如何在升级应用程序时使用高级功能。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->

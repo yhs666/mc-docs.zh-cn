@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 06/27/2016
 ms.date: 12/12/2016
 ms.author: v-dazen
-ms.openlocfilehash: f8b618bfee2ef5d8f13e782020f6f50a68dc9f52
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.openlocfilehash: 04f77e455eee69a45db629c3d56787723fabb62b
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="linux-and-open-source-computing-on-azure"></a>Azure 上的 Linux 和开源计算
 查找在经典部署模型中创建和管理基于 Linux 的虚拟机所需的所有文档。
@@ -99,7 +99,7 @@ ms.lasthandoff: 08/07/2017
 * [排查在 Azure 中重新启动或调整现有 Linux 虚拟机时遇到的经典部署问题](../windows/restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 
 
 ## <a name="reference"></a>引用
-* [Azure 服务管理 (asm) 模式下的 Azure CLI 命令](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Azure 服务管理 (asm) 模式下的 Azure CLI 命令](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)
 * [Azure 服务管理 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
 ## <a name="general-links"></a>常规链接

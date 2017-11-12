@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 07/21/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: e8664c41fed0a0e475dfc063ec26623ea3aca33c
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: bb09dbeafcfb2b4c0525c8d20573112067d1da6d
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-and-deploy-a-virtual-machine-scale-set"></a>创建和部署虚拟机规模集
 使用虚拟机规模集可以轻松地将相同的虚拟机作为集来进行部署和管理。 规模集为超大规模应用程序提供高度可缩放且可自定义的计算层，并且它们支持 Windows 平台映像、Linux 平台映像、自定义映像和扩展。 有关规模集的详细信息，请参阅[虚拟机规模集](virtual-machine-scale-sets-overview.md)。
@@ -34,7 +34,7 @@ ms.lasthandoff: 08/25/2017
 
 若要使用 Azure CLI 2.0 或 Azure PowerShell 创建规模集，首先需要登录到订阅。
 
-有关如何使用 Azure CLI 或 PowerShell 安装、设置和登录到 Azure 的详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)或 [Azure PowerShell cmdlet 入门](https://docs.microsoft.com/powershell/azure/overview)。
+有关如何使用 Azure CLI 或 PowerShell 安装、设置和登录到 Azure 的详细信息，请参阅 [Azure CLI 2.0 入门](/cli/get-started-with-azure-cli)或 [Azure PowerShell cmdlet 入门](https://docs.microsoft.com/powershell/azure/overview)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -60,7 +60,7 @@ New-AzureRmResourceGroup -Location chinanorth -Name MyResourceGroup1
 
 ## <a name="create-from-azure-cli"></a>从 Azure CLI 创建
 
-使用 Azure CLI，只需最少的工作量就可创建虚拟机规模集。 如果省略默认值，则将为你提供它们。 例如，如果你未指定任何虚拟网络信息，系统自动创建一个虚拟网络。 如果省略以下组成部分，系统会自动予以创建： 
+使用 Azure CLI，只需最少的工作量就可创建虚拟机规模集。 如果省略默认值，则将为你提供它们。 例如，如果未指定任何虚拟网络信息，将创建一个虚拟网络。 如果省略以下组成部分，系统会自动予以创建： 
 - 负载均衡器
 - 虚拟网络
 - 公共 IP 地址
@@ -140,7 +140,7 @@ MicrosoftRServer           RServer-WS2016 Enterprise
 4. 配置网络。
 5. 创建规模集。
 
-本示例为装有 Windows Server 2016 的计算机创建一个基本的双实例规模集。
+此示例为安装了 Windows Server 2016 的计算机创建基本 2 实例规模集。
 
 ```powershell
 # Resource group name from above
@@ -190,7 +190,7 @@ Set-AzureRmVmssStorageProfile -OsDiskCreateOption FromImage -ManagedDisk Premium
 
 ## <a name="create-from-a-template"></a>从模板创建
 
-可以使用 Azure Resource Manager 模板部署虚拟机规模集。 可以创建自己的模板，也可以使用[模板存储库](https://github.com/Azure/azure-quickstart-templates/?term=vmss)中的模板。 可直接将这些模板部署到 Azure 订阅。
+可以使用 Azure Resource Manager 模板部署虚拟机规模集。 可以创建自己的模板，也可以使用[模板存储库](https://github.com/Azure/azure-quickstart-templates/?term=vmss)中的模板。 可以直接将这些模板部署到 Azure 订阅。
 
 >[!NOTE]
 >若要创建自己的模板，请创建一个 JSON 文本文件。 有关如何创建和自定义模板的常规信息，请参阅 [Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。

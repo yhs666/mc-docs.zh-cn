@@ -14,17 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/30/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
-ms.openlocfilehash: 046d9c7b96dd9398fe9160aff1eef7f96e8ebc15
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 11/20/2017
+ms.openlocfilehash: 45b2a25702ce0cb0d6e36360e1436b4bf65c0d54
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>使用设备管理启动设备固件更新 (.NET/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-## <a name="introduction"></a>介绍
 在[设备管理入门][lnk-dm-getstarted]教程中，已了解如何使用[设备孪生][lnk-devtwin]和[直接方法][lnk-c2dmethod]基元来远程重新启动设备。 本教程使用相同的 IoT 中心基元，并演示如何进行端到端模拟固件更新。  此模式在用于 [Raspberry Pi device implementation sample][lnk-rpi-implementation]（Raspberry Pi 设备实现示例）的固件更新实现中使用。
 
 本教程演示如何：
@@ -41,7 +40,7 @@ ms.lasthandoff: 09/29/2017
 若要完成本教程，需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-* Node.js 版本 0.12.x 或更高版本， <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
+* Node.js 版本 4.0.x 或更高版本； <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 按照[设备管理入门](./iot-hub-csharp-node-device-management-get-started.md)一文创建 IoT 中心，并获取 IoT 中心连接字符串。

@@ -1,25 +1,25 @@
 ---
-title: "排查 Azure 站点到站点 VPN 间歇性断开连接的问题 | Azure"
+title: "排查 Azure 站点到站点 VPN 间歇性地断开连接的问题 | Microsoft Docs"
 description: "了解如何排查站点到站点 VPN 定期连接断开的问题。"
 services: vpn-gateway
 documentationcenter: na
-author: chadmath
-manager: cshepard
+author: alexchen2016
+manager: digimobile
 editor: 
 tags: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/21/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
-ms.openlocfilehash: 7d6ebaad4bb193aa5660cd38ab8869f68c3cbfc3
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 11/07/2017
+ms.author: v-junlch
+ms.openlocfilehash: 5064e95c12b7706617b0a3441bbc1f9517364add
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>故障排除：Azure 站点到站点 VPN 间歇性断开连接
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 08/04/2017
 
 1. 转到 [Azure 门户](https://portal.azure.cn)。
 2. 有关类型信息，请查看虚拟网络网关的**概述**页。
-
+    
     ![网关的概述](media\vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently\gatewayoverview.png)
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>步骤 1 检查是否已验证本地 VPN 设备
@@ -74,3 +74,6 @@ ms.lasthandoff: 08/04/2017
 
 - [配置与虚拟网络的站点到站点连接](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [配置站点到站点 VPN 连接的 IPsec/IKE 策略](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+
+
+<!--Update_Description: update metadata properties-->

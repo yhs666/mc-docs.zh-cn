@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 08/16/2017
 ms.date: 08/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: e90de9044d8535be84d4718221ec11d078ac7f7a
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.openlocfilehash: fd05c90366d81cbdee148b89648393e9e789fbb7
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Azure 词汇表：Azure 平台上的云术语字典
 
@@ -31,7 +31,6 @@ Azure 词汇表是适用于 Azure 平台的简短云术语字典。 另请参阅
 
 ## <a name="account"></a>帐户
 用于访问和管理 Azure 订阅的帐户。 它通常称为 Azure 帐户，尽管帐户可以是以下任何一个：现有的工作、学校或个人 Microsoft 帐户，或 Office 365 用户名和密码。 注册[试用版](https://www.azure.cn/pricing/1rmb-trial)时，还可以创建一个帐户来管理 Azure 订阅。  
-请参阅[可用于登录的帐户](active-directory/active-directory-how-subscriptions-associated-directory.md#accounts-that-you-can-use-to-sign-in)。
 
 ## <a name="api-app"></a>API 应用
 又叫[应用服务应用](#app-service-app)。
@@ -47,7 +46,7 @@ Azure 应用服务提供的用来托管[网站或 Web 应用程序](app-service-
 用于在 Azure 中部署资源的两个[部署模型](resource-manager-deployment-model.md)中的一个（新模型是 Azure Resource Manager）。 有些 Azure 服务仅支持资源管理器部署模型，有些仅支持经典部署模型，而有些则两种模型都支持。 每个 Azure 服务的文档中指定了其支持的模型。
 
 ## <a name="cli"></a>Azure 命令行接口 (CLI)
-一个命令行接口，可用于从 Windows、macOS 和 Linux 管理 Azure 服务。  某些服务或服务功能只能通过 PowerShell 或 CLI 来管理。 请参阅 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview)
+一个命令行接口，可用于从 Windows、macOS 和 Linux 管理 Azure 服务。  某些服务或服务功能只能通过 PowerShell 或 CLI 来管理。 请参阅 [Azure CLI 2.0](/cli/overview)
 
 ## <a name="powershell"></a>Azure PowerShell
 一个命令行接口，可用于从 Windows 电脑通过命令行管理 Azure 服务。 某些服务或服务功能只能通过 PowerShell 或 CLI 来管理。

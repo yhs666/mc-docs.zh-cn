@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/16/2016
-ms.date: 01/13/2017
+origin.date: 10/13/2017
+ms.date: 11/20/2017
 ms.author: v-yiso
-ms.openlocfilehash: 49c689e164d594986597220328525a32948110a5
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: 32363f264e782c7b2b70e40482f9fb82372c75bd
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT 中心高可用性和灾难恢复
 作为一项 Azure 服务，IoT 中心在 Azure 区域级别使用冗余来提供高可用性 (HA)，而解决方案不需要执行任何额外的工作。 Microsoft Azure 平台还包含了相关功能来帮助你构建提供灾难恢复 (DR) 功能或跨区域可用性的解决方案。 若要向设备或用户提供全局跨区域的高可用性，必须妥善设计并准备好解决方案，以便利用这些 Azure DR 功能。 [Azure 应用程序的灾难恢复和高可用性][Disaster recovery and high availability for Azure applications] 一文针对 Azure 应用程序的 HA 和 DR 实现策略提供了体系结构指导。
 
 ## <a name="azure-iot-hub-dr"></a>Azure IoT 中心 DR
-除了区域内部的 HA，IoT 中心还实施了无需用户干预的灾难恢复故障转移机制。 IoT 中心 DR 自行启动，其恢复时间目标 (RTO) 为 2 到 26 小时，恢复点目标 (RPO) 如下所示。
+除了区域内部的 HA，IoT 中心还实施了无需用户干预的灾难恢复故障转移机制。 IoT 中心 DR 自行启动，其恢复时间目标 (RTO) 为 2 到 26 小时，恢复点目标 (RPO) 如下所示：
 
 | 功能 | RPO |
 | --- | --- |
@@ -39,23 +39,23 @@ ms.lasthandoff: 09/29/2017
 ## <a name="regional-failover-with-iot-hub"></a>IoT 中心区域故障转移
 本文不讨论 IoT 解决方案中部署拓扑的完整处理方式。 本文讨论了用于实现高可用性和灾难恢复的 *区域故障转移* 部署模型。
 
-在区域故障转移模型中，该解决方案后端主要在一个数据中心位置运行，次要 IoT 中心和后端则部署在另一数据中心位置。 应对的情况是主数据中心的 IoT 中心出现服务中断，或者设备到主数据中心之间断开网络连接。 每当无法连接主要网关时，设备会使用辅助服务终结点。 使用跨区域故障转移功能可改善解决方案的可用性，使其优于单个区域的高可用性。
+在区域故障转移模型中，解决方案后端主要在一个数据中心位置运行。 辅助 IoT 中心和后端部署在另一个数据中心位置。 如果主数据中心内的 IoT 中心遭遇服务中断或者从设备到主数据中心的网络连接中断，则设备将使用辅助服务终结点。 可以通过实现跨区域故障转移模型而不是保留在单个区域中来提高解决方案可用性。 
 
 从较高层面上讲，为了实现 IoT 中心的区域故障转移模型，需要做好以下准备：
 
 * **辅助 IoT 中心和设备路由逻辑**：如果主要区域的服务中断，设备必须开始连接到次要区域。 由于大多数服务状态感知的性质，解决方案管理员通常触发区域间的故障转移过程。 若要实现新终结点与设备间的通信并掌控此过程，最好让其定期检查  服务中是否存在当前活动的终结点。 该监护服务可以是 Web 应用程序，可使用 DNS 重定向技术将它复制并使其可访问（例如，使用 [Azure 流量管理器][Azure Traffic Manager]）。
-* **标识注册表复制** - 若要进行使用，次要 IoT 中心必须包含所有可连接到解决方案的设备标识。 解决方案应该保留设备标识的异地复制备份，并在切换设备的活动终结点之前将其上传到辅助 IoT 中心。 IoT 中心的设备标识导出功能在此情景中很有用。 有关详细信息，请参阅 [IoT 中心开发人员指南 - 标识注册表][IoT Hub developer guide - identity registry]。
-* **合并逻辑** - 当主要区域再次可供使用时，所有在辅助站点中创建的状态和数据都必须迁移回到主要区域。 此状态和数据主要与设备标识和应用程序元数据相关，必须与主要 IoT 中心合并，也可能要与主要区域中的其他应用程序特定存储合并。 可使用幂等操作简化此步骤。 幂等操作可最大程度降低事件的最终一致分布以及事件的重复项/失序传送所造成的副作用。 此外，应用程序逻辑应该设计为能够容许潜在的不一致或“稍微”过期的状态。 之所以发生此情况是因为系统需要额外的时间来根据恢复点目标 (RPO)“修复”自身。
+* **标识注册表复制**：为了可用，辅助 IoT 中心必须包含能够连接到解决方案的所有设备标识。 解决方案应该保留设备标识的异地复制备份，并在切换设备的活动终结点之前将其上传到辅助 IoT 中心。 IoT 中心的设备标识导出功能在此情景中很有用。 有关详细信息，请参阅 [IoT 中心开发人员指南 - 标识注册表][IoT Hub developer guide - identity registry]。
+* **合并逻辑**：当主要区域再次可供使用时，已在辅助站点中创建的所有状态和数据都必须迁移回主要区域。 此状态和数据主要与设备标识和应用程序元数据相关，必须与主要 IoT 中心以及主要区域中的任何其他应用程序特定存储合并。 可使用幂等操作简化此步骤。 幂等操作可最大程度降低事件的最终一致分布以及事件的重复项/失序传送所造成的副作用。 此外，应用程序逻辑应该设计为能够容许潜在的不一致或“稍微”过期的状态。 之所以发生此情况是因为系统需要额外的时间来根据恢复点目标 (RPO)“修复”自身。
 
 ## <a name="next-steps"></a>后续步骤
 若要了解有关 Azure IoT 中心的详细信息，请参阅以下链接：
 
-- [IoT 中心入门（教程）][lnk-get-started]
-- [Azure IoT 中心是什么？][]
+* [IoT 中心入门（教程）][lnk-get-started]
+* [什么是 Azure IoT 中心？][What is Azure IoT Hub?]
 
 [Disaster recovery and high availability for Azure applications]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
 [Azure Traffic Manager]: ../traffic-manager/index.md
 [IoT Hub Developer Guide - identity registry]: ./iot-hub-devguide-identity-registry.md
 
 [lnk-get-started]: ./iot-hub-csharp-csharp-getstarted.md
-[Azure IoT 中心是什么？]: ./iot-hub-what-is-iot-hub.md
+[What is Azure IoT Hub?]: ./iot-hub-what-is-iot-hub.md

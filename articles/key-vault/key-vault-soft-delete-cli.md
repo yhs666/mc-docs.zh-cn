@@ -10,24 +10,24 @@ ms.workload: identity
 origin.date: 08/04/2017
 ms.date: 09/07/2017
 ms.author: v-junlch
-ms.openlocfilehash: 80c5c06105d96559eb2bfc890843bbcc0b20bbeb
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 8cc6c469763b212c93092d70efd2ae2c08c646cc
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>如何将 Key Vault 软删除与 CLI 配合使用
 
-Azure Key Vault 的软删除功能可以恢复已删除的保管库和保管库对象。 具体而言，软删除可解决以下方案：
+Azure Key Vault 的软删除功能可以恢复已删除的保管库和保管库对象。 软删除将具体探讨以下方案：
 
 - 支持 Key Vault 的可恢复删除
-- 支持 Key Vault 对象、密钥、机密和证书的可恢复删除
+- 支持密钥保管库对象、密钥、机密和证书的可恢复删除
 
 ## <a name="prerequisites"></a>先决条件
 
 - Azure CLI 2.0 - 如果环境没有此设置，请参阅[使用 CLI 2.0 管理 Key Vault](key-vault-manage-with-cli2.md)。
 
-有关 CLI Key Vault 的特定参考信息，请参阅 [Azure CLI 2.0 Key Vault 参考](https://docs.microsoft.com/cli/azure/keyvault)。
+有关 CLI Key Vault 的特定参考信息，请参阅 [Azure CLI 2.0 Key Vault 参考](/cli/keyvault)。
 
 ## <a name="required-permissions"></a>所需的权限
 
@@ -35,7 +35,7 @@ Key Vault 操作通过基于角色的访问控制 (RBAC) 权限单独管理，�
 
 | 操作 | 说明 | 用户权限 |
 |:--|:--|:--|
-|列出|列出已删除的 Key Vault。|Microsoft.KeyVault/deletedVaults/read|
+|列出|列出已删除的密钥保管库。|Microsoft.KeyVault/deletedVaults/read|
 |恢复|还原已删除的 Key Vault。|Microsoft.KeyVault/vaults/write|
 |清除|永久移除已删除的 Key Vault 及其所有内容。|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -135,7 +135,7 @@ az keyvault key list-deleted --vault-name ContosoVault
 
 ### <a name="using-soft-delete-with-key-vault-objects"></a>将软删除用于 Key Vault 对象
 
-就像 Key Vault 一样，除非恢复或清除已删除的密钥、机密或证书，否则它会保持已删除状态最多 90 天。 
+就像密钥保管库一样，除非恢复或清除已删除的密钥、机密或证书，否则它将保持已删除状态最多 90 天。 
 
 #### <a name="keys"></a>密钥
 
@@ -218,7 +218,7 @@ az keyvault purge --location ChinaNorth --name ContosoVault
 列出已删除的 Key Vault 对象会显示 Key Vault 计划将其清除的时间。 “Scheduled Purge Date”字段指示如果不采取任何操作，会永久删除 Key Vault 对象的时间。 默认情况下，已删除的 Key Vault 对象的保留期为 90 天。
 
 >[!NOTE]
->已清除的保管库对象（由“Scheduled Purge Date”字段触发清除操作）将被永久删除。 它不可恢复。
+>已清除的保管库对象（由“Scheduled Purge Date”字段触发清除操作）将被永久删除。 不可恢复。
 
 ## <a name="other-resources"></a>其他资源
 

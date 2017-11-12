@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/24/2017
-ms.date: 10/02/2017
+origin.date: 10/13/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: d2daee86653206423021573ddf3ed7198efa1634
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 115e91a8d7ec8e4c80a3fbc8dd6aa32a4254a9e4
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>在 Azure 上创建第一个 Service Fabric 群集
 [Service Fabric 群集](service-fabric-deploy-anywhere.md)是一组通过网络连接在一起的虚拟机或物理计算机，你的微服务将在其中部署和管理。 本快速入门可帮助你在数分钟内通过 [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) 或 [Azure 门户](http://portal.azure.cn)创建一个运行在 Windows 或 Linux 上的五节点型群集。  
 
-如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
 ## <a name="use-the-azure-portal"></a>使用 Azure 门户
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 09/28/2017
 ### <a name="create-the-cluster"></a>创建群集
 
 1. 单击 Azure 门户左上角的“新建”按钮。
-2. 从“新建”边栏选项卡选择“计算”，然后从“计算”边栏选项卡选择“Service Fabric 群集”。
+2. 搜索“Service Fabric”，然后从返回的结果中选择“Service Fabric 群集”。  单击“创建” 。
 3. 填充 Service Fabric 的“基本信息”表单。 对于“操作系统”，请选择想要群集节点运行的 Windows 或 Linux 版本。 在此处输入的用户名和密码用于登录到虚拟机。 对于“资源组”，请创建一个新的资源组。 资源组是在其中创建并集中管理 Azure 资源的逻辑容器。 完成后，单击“确定”。
 
     ![群集设置输出][cluster-setup-basics]
@@ -68,23 +68,11 @@ ms.lasthandoff: 09/28/2017
 
     可以在通知栏中查看群集创建进度。 （单击屏幕右上角状态栏附近的铃铛图标）。如果在创建群集时曾经单击“固定到启动板”，则会看到“部署 Service Fabric 群集”已固定到“启动”板。
 
-### <a name="view-cluster-status"></a>查看群集状态
-创建群集后，即可在门户的“概览”边栏选项卡中检查群集。 现在，仪表板会显示群集的详细信息，包括群集的公共终结点和 Service Fabric Explorer 的链接。
-
-![群集状态][cluster-status]
-
-### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>使用 Service Fabric Explorer 可视化群集
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 是一项很好的工具，适用于可视化群集和管理应用程序。  Service Fabric Explorer 是在群集中运行的一项服务。  可以使用 Web 浏览器对其进行访问，方法是在门户中单击群集“概览”页的“Service Fabric Explorer”链接。  也可直接在浏览器中输入以下地址：[http://quickstartcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer](http://quickstartcluster.chinaeast.chinacloudapp.cn:19080/Explorer)
-
-群集仪表板提供了群集的概览，包括应用程序和节点运行状况的摘要。 节点视图显示群集的物理布局。 对于给定的节点，可以检查已在该节点上部署代码的应用程序。
-
-![Service Fabric Explorer][service-fabric-explorer]
-
 ### <a name="connect-to-the-cluster-using-powershell"></a>使用 PowerShell 连接到群集
 使用 PowerShell 进行连接，验证群集是否正在运行。  ServiceFabric PowerShell 模块与 [Service Fabric SDK](service-fabric-get-started.md) 一起安装。  [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet 可建立到群集的连接。   
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.chinaeast.cloudapp.chinacloudapi.cn:19000
+Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.chinanorth.cloudapp.chinacloudapi.cn:19000
 ```
 有关如何连接到群集的其他示例，请参阅[连接到安全群集](service-fabric-connect-to-secure-cluster.md)。 连接到群集以后，请使用 [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet 显示群集中节点的列表，以及每个节点的状态信息。 每个节点的 **HealthState** 应该为“正常”。
 
@@ -109,87 +97,86 @@ Service Fabric 群集由群集资源本身以及其他 Azure 资源组成。 因
 3. 在“资源组基本信息”页中单击“删除资源组”，并按照该页上的说明进行操作，以完成资源组的删除。
     ![删除资源组][cluster-delete]
 
-## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>使用 Azure Powershell 部署安全群集
-
+## <a name="use-azure-powershell"></a>使用 Azure PowerShell
 1. 将 [Azure Powershell 模块 4.0 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)下载到计算机上。
 
-2. 打开 Windows PowerShell 窗口，运行以下命令。 
+2. 运行 [New-AzureRmServiceFabricCluster](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster) cmdlet，创建一个受 X.509 证书保护的五节点型 Service Fabric 群集。 该命令将创建一个自签名证书，并将其上传到新的 Key Vault。 该证书也会复制到本地目录。 设置 *-OS* 参数可选择群集节点上运行的 Windows 或 Linux 的版本。 根据需要自定义参数。 
 
     ```powershell
+    #Provide the subscription Id
+    $subscriptionId = 'yourSubscriptionId'
 
-    Get-Command -Module AzureRM.ServiceFabric 
-    ```
-
-    此时会看到类似下面的输出。
-
-    ![ps-list][ps-list]
-
-3. 登录到 Azure，选择要创建群集的订阅
-
-    ```powershell
-
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-
-    Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
-    ```
-
-4. 现在，请运行以下命令创建安全群集。 不要忘记对参数进行自定义。 
-
-    ```powershell
+    # Certificate variables.
     $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-    $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-    $RDPuser="vmadmin"
-    $RGname="mycluster" # this is also the name of your cluster
-    $clusterloc="SouthCentralUS"
-    $subname="$RGname.$clusterloc.cloudapp.chinacloudapi.cn"
     $certfolder="c:\mycertificates\"
-    $clustersize=1 # can take values 1, 3-99
 
-    New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+    # Variables for VM admin.
+    $adminuser="vmadmin"
+    $adminpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+
+    # Variables for common values
+    $clusterloc="SouthCentralUS"
+    $clustername = "mysfcluster"
+    $groupname="mysfclustergroup"       
+    $vmsku = "Standard_D2_v2"
+    $vaultname = "mykeyvault"
+    $subname="$clustername.$clusterloc.cloudapp.chinacloudapi.cn"
+
+    # Set the number of cluster nodes. Possible values: 1, 3-99
+    $clustersize=5 
+
+    # Set the context to the subscription ID where the cluster will be created
+    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Get-AzureRmSubscription
+    Select-AzureRmSubscription -SubscriptionId $subscriptionId
+
+    # Create the Service Fabric cluster.
+    New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
+    -ClusterSize $clustersize -VmUserName $adminuser -VmPassword $adminpwd -CertificateSubjectName $subname `
+    -CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
+    -OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname
     ```
 
-    此命令可能需要 10 到 30 分钟才能完成，在完成后，你会获得类似于以下内容的输出。 可以通过输出了解证书、其所上传到的 KeyVault，以及其所复制到的本地文件夹。 
+    此命令可能需要 10 到 30 分钟才能完成，在完成后，你会获得类似于以下内容的输出。 可以通过输出了解证书、其所上传到的 KeyVault，以及其所复制到的本地文件夹。     
 
-    ![ps-out][ps-out]
+3. 复制整个输出，将其保存到一个文本文件，因为需要参阅该文件。 从输出中记下以下信息。 
 
-5. 复制整个输出，将其保存到一个文本文件，因为需要参阅该文件。 从输出中记下以下信息。 
-
-    - **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
-    - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
-    - **ManagementEndpoint** : https://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19080
-    - **ClientConnectionEndpointPort** : 19000
+    - CertificateSavedLocalPath
+    - CertificateThumbprint
+    - ManagementEndpoint
+    - ClientConnectionEndpointPort
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>在本地计算机上安装证书
 
 若要连接到群集，需将证书安装到当前用户的“个人(我的)”存储。 
 
-运行以下 PowerShell
+运行以下内容：
 
 ```powershell
+$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\mycertificates\the name of the cert.pfx `
-        -Password (ConvertTo-SecureString -String certpwd -AsPlainText -Force)
+        -FilePath C:\mycertificates\<certificatename>.pfx `
+        -Password $certpwd
 ```
 
 现在可以连接到安全群集了。
 
 ### <a name="connect-to-a-secure-cluster"></a>连接到安全群集 
 
-运行以下 PowerShell 命令，以便连接到安全群集。 证书详细信息必须与设置群集时使用过的证书匹配。 
+运行 [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet，以便连接到安全群集。 证书详细信息必须与设置群集时使用过的证书匹配。 
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+Connect-ServiceFabricCluster -ConnectionEndpoint <ManagementEndpoint>:19000 `
           -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+          -X509Credential -ServerCertThumbprint <CertificateThumbprint> `
+          -FindType FindByThumbprint -FindValue <CertificateThumbprint> `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-
-以下示例显示了完整的参数： 
+以下示例演示了示例参数： 
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.chinaeast.cloudapp.chinacloudapi.cn:19000 `
+Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.chinanorth.cloudapp.chinacloudapi.cn:19000 `
           -KeepAliveIntervalInSec 10 `
           -X509Credential -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10 `
           -FindType FindByThumbprint -FindValue C4C1E541AD512B8065280292A8BA6079C3F26F10 `
@@ -203,31 +190,95 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.chinaeast.cloudapp.ch
 Get-ServiceFabricClusterHealth
 
 ```
-### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>将应用从 Visual Studio 发布到群集
-
-设置 Azure 群集以后，即可按照[发布到群集](service-fabric-publish-app-remote-cluster.md)文档中的说明，将应用程序从 Visual Studio 发布到该群集。 
-
 ### <a name="remove-the-cluster"></a>删除群集
 群集由群集资源本身以及其他 Azure 资源组成。 若要删除群集及其占用的所有资源，最简单的方式是删除资源组。 
 
 ```powershell
+$groupname="mysfclustergroup"
+Remove-AzureRmResourceGroup -Name $groupname -Force
+```
+## <a name="use-azure-cli"></a>使用 Azure CLI
 
-Remove-AzureRmResourceGroup -Name $RGname -Force
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
+1. 在计算机上安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+2. 登录到 Azure，选择要在其中创建群集的订阅。
+   ```azurecli
+   az login
+   az account set --subscription <GUID>
+   ```
+3. 运行 [az sf cluster create](https://docs.azure.cn/zh-cn/cli/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) 命令，创建一个受 X.509 证书保护的五节点型 Service Fabric 群集。 该命令将创建一个自签名证书，并将其上传到新的 Key Vault。 该证书也会复制到本地目录。 设置 -os 参数，选择群集节点上运行的 Windows 或 Linux 的版本。 根据需要自定义参数。
+
+    ```azurecli
+    #!/bin/bash
+
+    # Variables
+    ResourceGroupName="aztestclustergroup" 
+    ClusterName="aztestcluster" 
+    Location="chinanorth" 
+    Password="q6D7nN%6ck@6" 
+    Subject="aztestcluster.chinanorth.cloudapp.chinacloudapi.cn" 
+    VaultName="aztestkeyvault" 
+    VaultGroupName="testvaultgroup"
+    VmPassword="Mypa$$word!321"
+    VmUserName="sfadminuser"
+
+    # Create resource groups
+    az group create --name $ResourceGroupName --location $Location 
+    az group create --name $VaultGroupName --location $Location
+
+    # Create secure five node Linux cluster. Creates a key vault in a resource group
+    # and creates a certficate in the key vault. The certificate's subject name must match 
+    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
+        --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
+        --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
+        --vm-password $VmPassword --vm-user-name $VmUserName
+    ```
+
+### <a name="connect-to-the-cluster"></a>连接至群集
+运行以下 CLI 命令，使用证书连接到群集。  使用客户端证书进行身份验证时，证书详细信息必须与部署到群集节点的证书匹配。  为自签名证书使用 `--no-verify` 选项。
+
+```azurecli
+az sf cluster select --endpoint https://aztestcluster.chinanorth.cloudapp.chinacloudapi.cn:19080 --pem ./linuxcluster201709161647.pem --no-verify
+```
+
+运行以下命令，检查是否已连接，以及群集是否处于正常状态。
+
+```azurecli
+az sf cluster health
+```
+
+### <a name="connect-to-the-nodes-directly"></a>直接连接到节点 
+
+若要连接到 Linux 群集中的节点，可以使用 SSH 连接到节点，只需指定端口号（3389 以上）即可。 例如，对于此前创建的五个节点群集，命令如下所示：
+```bash
+ssh sfadminuser@aztestcluster.chinanorth.cloudapp.chinacloudapi.cn -p 3389
+ssh sfadminuser@aztestcluster.chinanorth.cloudapp.chinacloudapi.cn -p 3390
+ssh sfadminuser@aztestcluster.chinanorth.cloudapp.chinacloudapi.cn -p 3391
+ssh sfadminuser@aztestcluster.chinanorth.cloudapp.chinacloudapi.cn -p 3392
+ssh sfadminuser@aztestcluster.chinanorth.cloudapp.chinacloudapi.cn -p 3393
+```
+
+### <a name="remove-the-cluster"></a>删除群集
+群集由群集资源本身以及其他 Azure 资源组成。 若要删除群集及其占用的所有资源，最简单的方式是删除资源组。 
+
+```azurecli
+ResourceGroupName = "aztestclustergroup"
+az group delete --name $ResourceGroupName
 ```
 
 ## <a name="next-steps"></a>后续步骤
 设置开发群集以后，可尝试以下操作：
-* [在门户中创建安全群集](service-fabric-cluster-creation-via-portal.md)
-* [从模板创建群集](service-fabric-cluster-creation-via-arm.md) 
+* [使用 Service Fabric Explorer 可视化群集](service-fabric-visualizing-your-cluster.md)
+* [删除群集](service-fabric-cluster-delete.md) 
 * [使用 PowerShell 部署应用](service-fabric-deploy-remove-applications.md)
+* [使用 CLI 部署应用](service-fabric-application-lifecycle-sfctl.md)
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png
 [node-type-config]: ./media/service-fabric-get-started-azure-cluster/nodetypeconfig.png
 [cluster-status]: ./media/service-fabric-get-started-azure-cluster/clusterstatus.png
 [service-fabric-explorer]: ./media/service-fabric-get-started-azure-cluster/sfx.png
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
-[ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
-[ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, add CLI cmdlet content -->

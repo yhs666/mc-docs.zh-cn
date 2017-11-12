@@ -12,45 +12,43 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/09/2017
+origin.date: 09/19/2017
 ms.author: v-yiso
-ms.date: 07/03/2017
-ms.openlocfilehash: ba27749be1fab77011908bf15f6a40012c668a11
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.date: 11/20/2017
+ms.openlocfilehash: e055ec0216d803c7be546200ac82b501c25c4bf3
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 11/09/2017
 ---
-# 使用 Azure IoT Edge，通过模拟设备发送设备到云消息 (Windows)
-<a id="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-windows" class="xliff"></a>
+# <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>使用 Azure IoT Edge，通过模拟设备发送设备到云消息 (Windows)
 
 [!INCLUDE [iot-hub-iot-edge-simulated-selector](../../includes/iot-hub-iot-edge-simulated-selector.md)]
 
 [!INCLUDE [iot-hub-iot-edge-install-build-windows](../../includes/iot-hub-iot-edge-install-build-windows.md)]
 
-## 如何运行示例
-<a id="how-to-run-the-sample" class="xliff"></a>
+## <a name="run-the-sample"></a>运行示例
 
 build.cmd 脚本在 iot-edge 存储库本地副本的 build 文件夹中生成输出。 该输出包括此示例中使用的四个 IoT Edge 模块。
 
-生成脚本将会：
+生成脚本会创建以下文件：
 
 * 将 **logger.dll** 放入 **build\\modules\\logger\\Debug** 文件夹。
 * 将 **iothub.dll** 放入 **build\\modules\\iothub\\Debug** 文件夹。
 * 将 **identity\_map.dll** 放入 **build\\modules\\identitymap\\Debug** 文件夹。
 * 将 **simulated\_device.dll** 放入 **build\\modules\\simulated\_device\\Debug** 文件夹。
 
-如以下 JSON 设置文件中所示，将这些路径用于 **module path** 值：
+将这些路径用于 **module path** 值，如 simulated\_device\_cloud\_upload\_win JSON 设置文件中所示。
 
-simulated\_device\_cloud\_upload\_sample 过程使用 JSON 配置文件的路径作为命令行参数。 以下示例 JSON 文件在 SDK 存储库的 **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_sample\_win.json** 路径中提供。 除非修改了生成脚本，将 IoT Edge 模块或示例可执行文件放置在非默认位置，否则，此配置文件可按原样工作。
+simulated\_device\_cloud\_upload 示例过程使用 JSON 配置文件的路径作为命令行参数。 以下示例 JSON 文件位于 SDK 存储库的以下路径：**samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json**。 除非修改了生成脚本，将 IoT Edge 模块或示例可执行文件放置在非默认位置，否则，此配置文件可按原样工作。
 
 > [!NOTE]
 > 模块路径相对于 simulated\_device\_cloud\_upload\_sample.exe 所在的目录。 示例 JSON 配置文件默认写入到当前工作目录中的“deviceCloudUploadGatewaylog.log”。
 
-在文本编辑器中，打开 **iot-edge** 存储库本地副本中的文件 **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json**。 此文件配置示例网关中的 IoT Edge 模块：
+在文本编辑器中，打开 **iot-edge** 存储库本地副本中的文件 **samples\\simulated\_device\_cloud\_upload\\src\\simulated\_device\_cloud\_upload\_win.json**。 此文件配置示例网关中的 IoT Edge 模块：
 
 * **IoTHub** 模块连接到 IoT 中心。 将该模块配置为将数据发送到 IoT 中心。 具体而言，将 **IoTHubName** 值设置为 IoT 中心的名称，将 **IoTHubSuffix** 值设置为 **azure-devices.net**。 将“传输”值设置为“HTTP”、“AMQP”或“MQTT”其中的一个。 目前只有“HTTP”会针对所有设备消息共享一个 TCP 连接。 如果将值设置为“AMQP”或“MQTT”，则网关将为每个设备维护与 IoT 中心的单独 TCP 连接。
-* **mapping** 模块将模拟设备的 MAC 地址映射到 IoT 中心设备 ID。 确保 **deviceId** 值与添加到 IoT 中心的两台设备的 ID 一致，确保 **deviceKey** 值包含两台设备的密钥。
+* **mapping** 模块将模拟设备的 MAC 地址映射到 IoT 中心设备 ID。 将 **deviceId** 值设置为添加到 IoT 中心的两个设备的 ID。 将 **deviceKey** 值设置为两个设备的密钥。
 * **BLE1** 和 **BLE2** 模块是模拟设备。 注意模块 MAC 地址如何与“映射”模块中的地址匹配。
 * **Logger** 模块将网关活动记录到一个文件中。
 * 以下示例中所示的 **module path** 值相对于 simulated\_device\_cloud\_upload\_sample.exe 所在的目录。
@@ -104,7 +102,8 @@ simulated\_device\_cloud\_upload\_sample 过程使用 JSON 配置文件的路径
           }
           },
           "args": {
-            "macAddress": "01:01:01:01:01:01"
+            "macAddress": "01:01:01:01:01:01",
+            "messagePeriod" : 2000
           }
         },
       {
@@ -116,7 +115,8 @@ simulated\_device\_cloud\_upload\_sample 过程使用 JSON 配置文件的路径
           }
           },
           "args": {
-            "macAddress": "02:02:02:02:02:02"
+            "macAddress": "02:02:02:02:02:02",
+            "messagePeriod" : 2000
           }
         },
       {
@@ -154,11 +154,10 @@ simulated\_device\_cloud\_upload\_sample 过程使用 JSON 配置文件的路径
 3. 可使用[设备资源管理器][lnk-device-explorer]或 [iothub-explorer][lnk-iothub-explorer] 工具监视 IoT 中心从网关接收的消息。 例如，若使用 iothub-explorer，可通过以下命令监视设备到云的消息：
 
     ```cmd
-    iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.cn;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"
+    iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"
     ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 若要深入了解 IoT Edge 并尝试一些代码示例，请访问以下开发人员教程和资源：
 

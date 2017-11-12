@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/02/2017
-ms.date: 08/14/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9d21fa3174910b0ee0bfffd0c971ba844d17cc06
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 771ce23d159b868e3a74b7266b274785201c4fdf
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-multiple-guest-executables"></a>部署多个来宾可执行文件
 本文介绍如何打包多个来宾可执行文件并部署到 Azure Service Fabric。 要生成并部署单个 Service Fabric 包，请参阅如何[将来宾可执行文件部署到 Service Fabric](service-fabric-deploy-existing-app.md)。
@@ -73,7 +73,7 @@ ms.lasthandoff: 08/11/2017
 * **/target** 定义应在其中创建包的目录。 此目录必须与源目录不同。
 * **/appname** 定义现有应用程序的应用程序名称。 请务必了解，这会转换成清单中的服务名称，而不是转换成 Service Fabric 应用程序名称。
 * **/exe** 定义 Service Fabric 应启动的可执行文件（在此示例中，为 `node.exe`）。
-* **/ma** 定义要用于启动可执行文件的参数。 由于未安装 Node.js，因此 Service Fabric 需要通过执行 `node.exe bin/www` 来启动 Node.js Web 服务器。  `/ma:'bin/www'` 指示打包工具使用 `bin/ma` 作为 node.exe 的参数。
+* **/ma** 定义要用于启动可执行文件的参数。 由于未安装 Node.js，因此 Service Fabric 需要通过执行 `node.exe bin/www` 来启动 Node.js Web 服务器。  `/ma:'bin/www'` 指示打包工具使用 `bin/www` 作为 node.exe 的参数。
 * **/AppType** 定义 Service Fabric 应用程序类型名称。
 
 如果浏览到 /target 参数中指定的目录，则可以看到工具已创建完全正常运行的 Service Fabric 包，如下所示：

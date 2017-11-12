@@ -15,12 +15,11 @@
 * **代码片段**：代码片段的集合，显示 Hello World 示例如何实现重要的 IoT Edge 网关组件。
 
 
-## Hello World 示例体系结构
-<a id="hello-world-sample-architecture" class="xliff"></a>
+## <a name="hello-world-sample-architecture"></a>Hello World 示例体系结构
 Hello World 示例体现了上一部分所述概念。 Hello World 示例所实现的 IoT Edge 网关具有一个管道，该管道包含两个 IoT Edge 模块：
 
-* *hello world* 模块每 5 秒创建一条消息，并将该消息传递给 logger 模块。
-* *Logger* 模块将接收的消息写入文件。
+* *hello world* 模块每 5 秒创建一条消息，并将该消息传递给记录器模块。
+* *记录器* 模块将接收的消息写入文件。
 
 ![使用 Azure IoT Edge 构建的 Hello World 示例的体系结构][4]
 
@@ -32,7 +31,7 @@ Logger 模块只使用来自中转站的消息，而不会将新消息发布到�
 
 ![中转站如何在 Azure IoT Edge 中的模块之间路由消息][5]
 
-上图显示了 Hello World 示例的体系结构，同时显示了在 [存储库][lnk-iot-edge]中对示例不同部分进行实现的源文件的相对路径。 请自行浏览代码，或使用下面的代码段作为指导。
+上图显示了 Hello World 示例的体系结构，同时显示了在[存储库][lnk-iot-edge]中对示例不同部分进行实现的源文件的相对路径。 请自行浏览代码，或作为指导可使用本文中的代码段。
 
 <!-- Images -->
 [4]: ./media/iot-hub-iot-edge-getstarted-selector/high_level_architecture.png

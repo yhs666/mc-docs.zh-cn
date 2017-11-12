@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: c3e2341103985386edd9de218ef65c66bc30d570
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 139905ee2a8b2ebcbda39273ba2ae835084922fd
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何创建虚拟机或 VHD 的映像
 
@@ -34,9 +34,9 @@ ms.lasthandoff: 08/29/2017
 ## <a name="before-you-begin"></a>开始之前
 确保符合以下先决条件：
 
-* 需要使用托管磁盘在资源管理器部署模型中创建 Azure VM。 如果尚未创建 Linux VM，则可以使用[门户](quick-create-portal.md)、[Azure CLI](quick-create-cli.md) 或[资源管理器模板](create-ssh-secured-vm-from-template.md)。 根据需要配置 VM。 例如， [添加数据磁盘](add-disk.md)、应用更新和安装应用程序。 
+* 需要使用托管磁盘在 Resource Manager 部署模型中创建 Azure VM。 如果尚未创建 Linux VM，则可以使用[门户](quick-create-portal.md)、[Azure CLI](quick-create-cli.md) 或 [Resource Manager 模板](create-ssh-secured-vm-from-template.md)。 根据需要配置 VM。 例如， [添加数据磁盘](add-disk.md)、应用更新和安装应用程序。 
 
-* 还需要安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 并已使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录到 Azure 帐户。
+* 还需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/cli/?view=azure-cli-latest#login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 08/29/2017
 有关本主题的用于测试、评估或了解 Azure 中的 VM 的简化版本，请参阅[使用 CLI 创建 Azure VM 的自定义映像](tutorial-custom-images.md)。
 
 ## <a name="step-1-deprovision-the-vm"></a>步骤 1：取消预配 VM
-使用 Azure VM 代理取消预配 VM 以删除计算机特定文件和数据。 在源 Linux VM 上，使用带 *-deprovision+user* 参数的 `waagent` 命令。 有关详细信息，请参阅 [Azure Linux 代理用户指南](../windows/agent-user-guide.md)。
+使用 Azure VM 代理取消预配 VM 以删除计算机特定文件和数据。 在源 Linux VM 上，使用带 -deprovision+user 参数的 `waagent` 命令。 有关详细信息，请参阅 [Azure Linux 代理用户指南](../windows/agent-user-guide.md)。
 
 1. 使用 SSH 客户端连接到 Linux VM。
 2. 在 SSH 窗口中，键入以下命令：
@@ -55,15 +55,15 @@ ms.lasthandoff: 08/29/2017
     ```
 <br>
    > [!NOTE]
-   > 仅在要捕获为映像的 VM 上运行此命令。 不保证映像中的所有敏感信息被清除，或者映像适合用于分发。 *+user* 参数还会删除上次预配的用户帐户。 如果想要在 VM 中保留帐户凭据，只需使用 *-deprovision* 就地保留用户帐户。
+   > 仅在要捕获为映像的 VM 上运行此命令。 不保证映像中的所有敏感信息被清除，或者映像适合用于分发。 +user 参数还会删除上次预配的用户帐户。 如果想要在 VM 中保留帐户凭据，只需使用 -deprovision 就地保留用户帐户。
 
 3. 键入 **y** 继续。 添加 **-force** 参数即可免除此确认步骤。
 4. 完成该命令后，键入 **exit**。 此步骤将关闭 SSH 客户端。
 
 ## <a name="step-2-create-vm-image"></a>步骤 2：创建 VM 映像
-使用 Azure CLI 2.0 将 VM 标记为通用化并捕获映像。 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myVnet* 和 *myVM*。
+使用 Azure CLI 2.0 将 VM 标记为通用化并捕获映像。 在以下示例中，请将示例参数名称替换为自己的值。 示例参数名称包括 *myResourceGroup*、*myVnet* 和 *myVM*。
 
-1. 对使用 [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate) 取消设置的 VM 解除分配。 以下示例在名为 myResourceGroup 的资源组中解除分配名为 myVM 的 VM：
+1. 对使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli//azure/vm?view=azure-cli-latest#deallocate) 取消设置的 VM 解除分配。 以下示例在名为 myResourceGroup 的资源组中释放名为 myVM 的 VM：
 
     ```azurecli
     az vm deallocate \
@@ -71,7 +71,7 @@ ms.lasthandoff: 08/29/2017
       --name myVM
     ```
 
-2. 使用 [az vm generalize](https://docs.microsoft.com/cli//azure/vm#generalize) 将 VM 标记为通用化。 以下示例将名为 *myResourceGroup* 的资源组中名为 *myVM* 的 VM 标记为通用化：
+2. 使用 [az vm generalize](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#generalize) 将 VM 标记为通用化。 以下示例将名为 myResourceGroup 的资源组中名为 myVM 的 VM 标记为通用化：
 
     ```azurecli
     az vm generalize \
@@ -79,7 +79,7 @@ ms.lasthandoff: 08/29/2017
       --name myVM
     ```
 
-3. 现在，使用 [az image create](https://docs.microsoft.com/cli//azure/image#create) 创建 VM 资源的映像。 以下示例使用名为 myVM 的 VM 资源在名为 myResourceGroup 的资源组中创建名为 myImage 的映像：
+3. 现在，使用 [az image create](https://docs.azure.cn/zh-cn/cli/azure/image?view=azure-cli-latest#create) 创建 VM 资源的映像。 以下示例使用名为 myVM 的 VM 资源在名为 myResourceGroup 的资源组中创建名为 myImage 的映像：
 
     ```azurecli
     az image create \
@@ -91,7 +91,7 @@ ms.lasthandoff: 08/29/2017
    > 该映像在与源 VM 相同的资源组中创建。 可以在订阅内的任何资源组中从此映像创建 VM。 从管理角度来看，你可能希望为 VM 资源和映像创建特定的资源组。
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>步骤 3：从捕获的映像创建 VM
-使用通过 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建的映像来创建 VM。 以下示例从名为 myImage 的映像创建名为 myVMDeployed 的 VM：
+使用通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 创建的映像来创建 VM。 以下示例从名为 myImage 的映像创建名为 myVMDeployed 的映像：
 
 ```azurecli
 az vm create \
@@ -104,7 +104,7 @@ az vm create \
 
 ### <a name="creating-the-vm-in-another-resource-group"></a>在另一个资源组中创建 VM 
 
-可在订阅内的任何资源组中根据映像创建 VM。 若要在与映像不同的资源组中创建 VM，请指定映像的完整资源 ID。 使用 [az image list](https://docs.microsoft.com/cli/azure/image#list) 查看映像列表。 输出类似于以下示例：
+可在订阅内的任何资源组中根据映像创建 VM。 要在与映像不同的资源组中创建 VM，请指定映像的完整资源 ID。 使用 [az image list](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#list) 查看映像列表。 输出类似于以下示例：
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -112,7 +112,7 @@ az vm create \
    "name": "myImage",
 ```
 
-以下示例使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) ，通过指定映像资源 ID，在与源映像不同的资源组中创建 VM：
+以下示例使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create)，通过指定映像资源 ID，在与源映像不同的资源组中创建 VM：
 
 ```azurecli
 az vm create \
@@ -125,7 +125,7 @@ az vm create \
 
 ## <a name="step-4-verify-the-deployment"></a>步骤 4：验证部署
 
-现在将 SSH 连接到创建的虚拟机以验证部署并开始使用新的 VM。 若要通过 SSH 连接，请使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#show)查找 VM 的 IP 地址或 FQDN：
+现在将 SSH 连接到创建的虚拟机以验证部署并开始使用新的 VM。 若要通过 SSH 连接，请使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show)查找 VM 的 IP 地址或 FQDN：
 
 ```azurecli
 az vm show \
@@ -142,6 +142,6 @@ az vm show \
 - 再次执行相关步骤，对 VM 执行取消预配、解除分配、通用化和创建操作。
 - 将此新映像用于将来的部署。 如果需要，请删除原始映像。
 
-有关使用 CLI 管理 VM 的详细信息，请参阅 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview)。
+有关使用 CLI 管理 VM 的详细信息，请参阅 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
 
 <!--Update_Description: wording update-->

@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 origin.date: 05/24/2017
 ms.date: 07/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: ff4ea24807bedd6509cc6d00ef9f59432759d769
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: d3f8922f91ab69c9491448ecc39fc5bbbbb4a577
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="reset-a-vpn-gateway"></a>重置 VPN 网关
 
-如果丢失一个或多个站点到站点隧道上的跨界 VPN 连接，重置 Azure VPN 网关可有效解决该情况。 在此情况下，你的本地 VPN 设备都在正常工作，但却无法与 Azure VPN 网关建立 IPsec 隧道。 本文帮助用户重置 VPN 网关。
+如果丢失一个或多个站点到站点隧道上的跨界 VPN 连接，重置 Azure VPN 网关可有效解决该情况。 在此情况下，本地 VPN 设备都在正常工作，但却无法与 Azure VPN 网关建立 IPsec 隧道。 本文帮助用户重置 VPN 网关。
 
 ### <a name="what-happens-during-a-reset"></a>重置期间会发生什么情况？
 
-VPN 网关由在活动备用配置中运行的两个 VM 实例组成。 重置网关时，它会重启网关，然后对其重新应用跨界配置。 该网关将保留现有的公共 IP 地址。 这意味着不需要使用 Azure VPN 网关的新公共 IP 地址更新 VPN 路由器配置。
+VPN 网关由在活动备用配置中运行的两个 VM 实例组成。 重置网关时，它会重启网关，并对其重新应用跨界配置。 该网关将保留现有的公共 IP 地址。 这意味着不需要使用 Azure VPN 网关的新公共 IP 地址更新 VPN 路由器配置。
 
 发出重置网关命令后，会立即重新启动 Azure VPN 网关的当前活动实例。 从活动实例（正在重新启动）故障转移到备用实例期间会有一个短暂的时间间隔。 该时间间隔应不超过 1 分钟。
 
@@ -38,7 +38,7 @@ VPN 网关由在活动备用配置中运行的两个 VM 实例组成。 重置�
 
 ## <a name="before-you-begin"></a>开始之前
 
-在重置网关之前，请为每个 IPsec 站点到站点 (S2S) VPN 隧道验证下面列出的重要项目。 如果项目中存在任何不匹配，将导致 S2S VPN 隧道断开连接。 验证并更正本地网关和 Azure VPN 网关的配置能够避免网关上其他正在工作的连接出现不必要的重新启动和中断。
+在重置网关之前，请为每个 IPsec 站点到站点 (S2S) VPN 隧道验证下面列出的重要项目。 如果项目中存在任何不匹配，会导致 S2S VPN 隧道断开连接。 验证并更正本地网关和 Azure VPN 网关的配置能够避免网关上其他正在工作的连接出现不必要的重新启动和中断。
 
 在重置网关之前，请检查以下各项：
 
@@ -94,7 +94,7 @@ StatusCode     : OK
 
 ## <a name="azure-cli"></a>Azure CLI
 
-若要重置网关，请使用 [az network vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway#reset) 命令。 以下示例将重置 TestRG5 资源组中名为 VNet5GW 的虚拟网络网关：
+若要重置网关，请使用 [az network vnet-gateway reset](/cli/network/vnet-gateway#reset) 命令。 以下示例将重置 TestRG5 资源组中名为 VNet5GW 的虚拟网络网关：
 
 ```azurecli
 az network vnet-gateway reset -n VNet5GW -g TestRG5

@@ -12,19 +12,19 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 06/20/2017
-ms.date: 10/02/2017
+origin.date: 09/29/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1c19f91cb08ad4fe17c35e16e9d4a89e60697d3c
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 71e7aee893bb044f839a782189e8234c92afd6ca
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>将应用程序部署到 Service Fabric 群集
 
-此示例脚本将应用程序包复制到群集映像存储区，在群集中注册应用程序类型，并根据应用程序类型创建应用程序实例。  如果目标应用程序类型的应用程序清单中定义了任何默认服务，则此时还会创建这些服务。 根据需要自定义参数。 
+此示例脚本将应用程序包复制到群集映像存储，并在群集中注册了应用程序类型，同时还删除了不必要的应用程序包，并根据应用程序类型创建了应用程序实例。  如果目标应用程序类型的应用程序清单中定义了任何默认服务，则此时还会创建这些服务。 根据需要自定义参数。 
 
 必要时，使用 [Service Fabric SDK](../service-fabric-get-started.md) 安装 Service Fabric PowerShell 模块。 
 
@@ -49,6 +49,9 @@ Copy-ServiceFabricApplicationPackage $packagepath -ImageStoreConnectionString fa
 # Register the application type.
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore MyApplication
 
+# Remove the application package to free system resources.
+Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore MyApplication
+
 # Create the application instance.
 New-ServiceFabricApplication -ApplicationName fabric:/MyApplication -ApplicationTypeName MyApplicationType -ApplicationTypeVersion 1.0.0
 ```
@@ -63,14 +66,15 @@ New-ServiceFabricApplication -ApplicationName fabric:/MyApplication -Application
 
 | 命令 | 说明 |
 |---|---|
-| [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | 将应用程序包复制到群集映像存储区。  |
+|[Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)| 与 Service Fabric 群集建立连接。 |
+|[Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | 将应用程序包复制到群集映像存储。  |
 |[Register-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| 在群集上注册应用程序类型和版本。 |
-|[New-ServiceFabricApplication](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| 从注册的应用程序类型创建应用程序。 |
+|[New-ServiceFabricApplication](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| 基于注册的应用程序类型创建应用程序。 |
+|[Remove-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | 从映像存储区中删除 Service Fabric 应用程序包。|
 
 ## <a name="next-steps"></a>后续步骤
 
 有关 Service Fabric PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/service-fabric/?view=azureservicefabricps)。
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Powershell 示例。
-
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update cmdlet of Remove the application package to free system resources. -->

@@ -16,22 +16,20 @@ ms.topic: article
 origin.date: 03/20/2017
 ms.date: 04/17/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: dd572eaa992332aee52b50b74a375ee3f9a43012
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 13299bdd1e33cdfa1c1f36332c66b6f5eccac339
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/06/2017
 ---
-
 # <a name="install-the-azure-cli-10"></a>安装 Azure CLI 1.0
 > [!div class="op_single_selector"]
 >- [PowerShell](./powershell-install-configure.md)
 >- [Azure CLI 1.0](./cli-install-nodejs.md)
->- [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli/)
+>- [Azure CLI 2.0](/cli/install-azure-cli/)
 
 > [!IMPORTANT]
-> 本主题介绍如何安装 Azure CLI 1.0，它基于 nodeJs 生成，并支持所有经典部署 API 调用以及大量 Resource Manager 部署活动。 应使用 [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview) 进行新的或前瞻性的 CLI 部署和管理。
+> 本主题介绍如何安装 Azure CLI 1.0，它基于 nodeJs 生成，并支持所有经典部署 API 调用以及大量 Resource Manager 部署活动。 应使用 [Azure CLI 2.0](/cli/overview) 进行新的或前瞻性的 CLI 部署和管理。
 
 快速安装 Azure 命令行接口 (Azure CLI 1.0)，以便使用一组基于 shell 的开源命令在 Azure 中创建和管理资源。 在计算机上安装这些跨平台工具时有多个选项：
 
@@ -44,7 +42,7 @@ ms.lasthandoff: 04/07/2017
 安装 Azure CLI 1.0 后，[将它连接到 Azure 订阅](./xplat-cli-connect.md)，并从命令行接口（Bash、终端、命令提示符等）运行 **azure** 命令，从而使用 Azure 资源。
 
 ## <a name="option-1-install-an-npm-package"></a>选项 1：安装 npm 包
-若要从 npm 包安装 CLI，请确保已下载并安装 [最新的 Node.js 和 npm](https://nodejs.org/en/download/package-manager/)。 然后，运行 **npm install** 来安装 azure-cli 包：
+若要从 npm 包安装 CLI，请确保已下载并安装 [最新的 Node.js 和 npm](https://nodejs.org/en/download/package-manager/)。 然后，运行 npm install，安装 azure-cli 包：
 
 ```bash
 npm install -g azure-cli
@@ -59,7 +57,7 @@ sudo npm install -g azure-cli
 > [!NOTE]
 > 如果需要在 Linux 分发版或 OS 中安装或更新 Node.js 和 npm，建议安装最新的 Node.js LTS 版本 (4.x)。 如果使用旧版本，可能会遇到安装错误。
 
-如果喜欢，也可以将 npm 包的最新 Linux [tar 文件][linux-installer]下载到本地。 然后，如下所示安装所下载的 npm 包（在 Linux 分发版中可能需要使用 **sudo**）：
+如果喜欢，也可以将 npm 包的最新 Linux [tar 文件][linux-installer]下载到本地。 然后，如下所示安装所下载的 npm 包（在 Linux 分发版中可能需要使用 sudo）：
 
 ```bash
 npm install -g <path to downloaded tar file>
@@ -101,7 +99,7 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 azure --version
 ```
 
-你现在已准备就绪！ 若要访问所有 CLI 命令来使用自己的资源，请[从 Azure CLI 连接到 Azure 订阅](./xplat-cli-connect.md)。
+现在已准备就绪！ 若要访问所有 CLI 命令来使用自己的资源，请[从 Azure CLI 连接到 Azure 订阅](./xplat-cli-connect.md)。
 
 > [!NOTE]
 > 首次使用 Azure CLI 时，会看到一条消息，询问是否允许 Microsoft 收集使用情况信息。 参与为自愿性质。 如果选择参与，通过运行 `azure telemetry --disable`即可随时停止参与。 若要随时启用参与，请运行 `azure telemetry --enable`。
@@ -137,5 +135,5 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [mac-installer]: http://aka.ms/mac-azure-cli
 [windows-installer]: http://aka.ms/webpi-azure-cli
 [linux-installer]: http://aka.ms/linux-azure-cli
-[cliasm]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli
+[cliasm]:/cli/get-started-with-azure-cli
 [cliarm]:./virtual-machines/azure-cli-arm-commands.md

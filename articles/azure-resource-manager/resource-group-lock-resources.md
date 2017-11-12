@@ -15,14 +15,14 @@ ms.topic: article
 origin.date: 06/27/2017
 ms.date: 08/21/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4fbacd2afbcef42297287bd33852e76d25e2d099
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 5d3a7d3d5b05a1e4117e45de3977577d58876c9c
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
-作为管理员，可能需要锁定订阅、资源组或资源，以防止组织中的其他用户意外删除或修改关键资源。 可以将锁定级别设置为 **CanNotDelete** 或 **ReadOnly**。 
+管理员可能需要锁定订阅、资源组或资源，以防止组织中的其他用户意外删除或修改关键资源。 可以将锁定级别设置为 **CanNotDelete** 或 **ReadOnly**。 
 
 * **CanNotDelete** 味着经授权的用户仍可读取和修改资源，但不能删除资源。 
 * **ReadOnly** 意味着经授权的用户可以读取资源，但不能删除或更新资源。 应用此锁类似于将所有经授权的用户限制于“读者”角色授予的权限。 
@@ -109,7 +109,7 @@ Azure PowerShell 还提供了用于处理锁的其他命令，例如，[Set-Azur
 
 ## <a name="azure-cli"></a>Azure CLI
 
-可以通过 Azure CLI 使用 [az lock create](https://docs.microsoft.com/cli/azure/lock#create) 命令锁定已部署的资源。
+可以通过 Azure CLI 使用 [az lock create](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#create) 命令锁定已部署的资源。
 
 若要锁定某个资源，请提供该资源的名称、其资源类型及其资源组名称。
 
@@ -126,7 +126,7 @@ az lock create --name LockGroup --lock-type CanNotDelete \
   --resource-group exampleresourcegroup
 ```
 
-若要获取有关某个锁的信息，请使用 [az lock list](https://docs.microsoft.com/cli/azure/lock#list)。 若要获取订阅中的所有锁，请使用：
+若要获取有关某个锁的信息，请使用 [az lock list](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#list)。 若要获取订阅中的所有锁，请使用：
 
 ```azurecli
 az lock list
@@ -145,10 +145,10 @@ az lock list --resource-group exampleresourcegroup --resource-name examplesite \
 az lock list --resource-group exampleresourcegroup
 ```
 
-Azure CLI 还提供了用于处理锁的其他命令，例如，[az lock update](https://docs.microsoft.com/cli/azure/lock#update) 用于更新锁，[az lock delete](https://docs.microsoft.com/cli/azure/lock#delete) 用于删除锁。
+Azure CLI 还提供了用于处理锁的其他命令，例如，[az lock update](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#update) 用于更新锁，[az lock delete](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#delete) 用于删除锁。
 
 ## <a name="rest-api"></a>REST API
-可以使用 [管理锁的 REST API](https://docs.microsoft.com/rest/api/resources/managementlocks)锁定已部署的资源。 REST API 可用于创建和删除锁，并且检索有关现有锁的信息。
+可以使用[管理锁的 REST API](https://docs.microsoft.com/rest/api/resources/managementlocks) 锁定已部署的资源。 REST API 可用于创建和删除锁，并且检索有关现有锁的信息。
 
 若要创建一个锁，请运行：
 

@@ -3,7 +3,7 @@ title: "使用 Azure CLI 导出 Resource Manager 模板 | Azure"
 description: "使用 Azure Resource Manager 和 Azure CLI 从资源组导出模板。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
@@ -14,22 +14,20 @@ ms.workload: na
 origin.date: 05/01/2017
 ms.date: 06/05/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: aba7e6b47da2a121942c838961472658720b0451
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 698f7cff04f8e249cde3b2842c9fe6152ada1344
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>使用 Azure CLI 导出 Azure Resource Manager 模板
 
-使用 Resource Manager 可从订阅中的现有资源导出 Resource Manager 模板。 你可以使用该生成的模板了解模板语法，或根据需要自动重新部署解决方案。
+使用 Resource Manager 可从订阅中的现有资源导出 Resource Manager 模板。 可以使用该生成的模板了解模板语法，或根据需要自动重新部署解决方案。
 
 必须注意的是，可以使用两种不同的方式来导出模板：
 
 * 可以导出已用于部署的实际模板。 导出的模板中包括的所有参数和变量与原始模板中显示的完全一样。 如果需要检索模板，此方法非常有用。
-* 你可以导出表示资源组当前状态的模板。 导出的模板不基于任何已用于部署的模板。 与之相反，它所创建的模板为资源组的快照。 导出的模板会有许多硬编码的值，其参数可能没有定义的那么多。 如果已修改资源组，则可以使用此方法。 现在，需要捕获资源组作为模板。
+* 可以导出表示资源组当前状态的模板。 导出的模板不基于任何已用于部署的模板。 与之相反，它所创建的模板为资源组的快照。 导出的模板会有许多硬编码的值，其参数可能没有定义的那么多。 如果已修改资源组，则可以使用此方法。 现在，需要捕获资源组作为模板。
 
 本主题演示这两种方法。
 
@@ -47,7 +45,7 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>从部署历史记录保存模板
 
-可以使用 [az group deployment export](https://docs.microsoft.com/cli/azure/group/deployment#export) 命令从部署历史记录中检索模板。 以下示例保存以前部署的模板：
+可以使用 [az group deployment export](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#export) 命令从部署历史记录中检索模板。 以下示例保存以前部署的模板：
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
@@ -57,7 +55,7 @@ az group deployment export --name NewStorage --resource-group ExampleGroup
 
 ## <a name="export-resource-group-as-template"></a>将资源组导出为模板
 
-可以使用 [az group export](https://docs.microsoft.com/cli/azure/group#export) 命令检索表示资源组当前状态的模板，而不是从部署历史记录中检索模板。 如果对资源组进行了许多更改，并且现有模板未表示所有更改，则可以使用此命令。
+可以使用 [az group export](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#export) 命令检索表示资源组当前状态的模板，而不是从部署历史记录中检索模板。 如果对资源组进行了许多更改，并且现有模板未表示所有更改，则可以使用此命令。
 
 ```azurecli
 az group export --name ExampleGroup

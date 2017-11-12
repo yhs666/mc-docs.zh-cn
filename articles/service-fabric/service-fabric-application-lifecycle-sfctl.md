@@ -7,13 +7,13 @@ manager: digimobile
 ms.service: service-fabric
 ms.topic: article
 origin.date: 08/22/2017
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: ffaa33a5febc252ea5bfa53d0b5ec9c8c0b4831d
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: ce4b9b23f0cc83b3b5de0b64c7ae36bac9fb855f
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>使用 Azure Service Fabric CLI 管理 Azure Service Fabric 应用程序
 
@@ -31,14 +31,14 @@ ms.lasthandoff: 09/28/2017
 
 1. 将应用程序包上传到 Service Fabric 映像存储中。
 2. 预配应用程序类型。
-3. 指定并创建应用程序。
-4. 指定并创建服务。
+3. 删除映像存储内容。
+4. 指定并创建应用程序。
+5. 指定并创建服务。
 
 若要删除现有应用程序，请完成以下步骤：
 
 1. 删除应用程序。
 2. 取消预配关联的应用程序类型。
-3. 删除映像存储内容。
 
 ## <a name="deploy-a-new-application"></a>部署新应用程序
 
@@ -65,6 +65,18 @@ sfctl application provision --application-type-build-path app_package_dir
 ```
 
 `application-type-build-path` 的值是将应用程序包上传到的目录的名称。
+
+### <a name="delete-the-application-package"></a>删除应用程序包
+
+建议在成功注册应用程序后删除应用程序包。  从映像存储区中删除应用程序包可以释放系统资源。  保留未使用的应用程序包会占用磁盘存储空间，导致应用程序出现性能问题。 
+
+若要从映像存储中删除应用程序包，请使用以下命令：
+
+```azurecli
+sfctl store delete --content-path app_package_dir
+```
+
+`content-path` 必须是创建应用程序时上传的目录的名称。
 
 ### <a name="create-an-application-from-an-application-type"></a>基于应用程序类型创建应用程序
 
@@ -127,18 +139,6 @@ sfctl application unprovision --application-type-name TestAppTye --application-t
 
 类型名称和类型版本必须与前面预配的应用程序清单中的名称和版本匹配。
 
-### <a name="delete-the-application-package"></a>删除应用程序包
-
-取消预配应用程序类型后，如果不再需要应用程序包，可从映像存储中删除它。 删除应用程序包有助于回收磁盘空间。 
-
-若要从映像存储中删除应用程序包，请使用以下命令：
-
-```azurecli
-sfctl store delete --content-path app_package_dir
-```
-
-`content-path` 必须是创建应用程序时上传的目录的名称。
-
 ## <a name="upgrade-application"></a>升级应用程序
 
 创建应用程序后，可重复一组相同的步骤来预配应用程序的第二个版本。 然后，可通过 Service Fabric 应用程序升级转换为运行第二个版本的应用程序。 有关详细信息，请参阅有关 [Service Fabric 应用程序升级](service-fabric-application-upgrade.md)的文档。
@@ -148,6 +148,7 @@ sfctl store delete --content-path app_package_dir
 ```azurecli
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
+sfctl store delete --content-path app_package_dir_2
 ```
 
 建议随后执行受监视的自动升级，通过运行以下命令启动升级：
@@ -170,4 +171,4 @@ sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"
 * [Linux 上的 Service Fabric 入门](service-fabric-get-started-linux.md)
 * [启动 Service Fabric 应用程序升级](service-fabric-application-upgrade.md)
 
-<!--Update_Description: new articles on lifecycle with sfctl-->
+<!--Update_Description: wording update-->

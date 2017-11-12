@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/13/2017
-ms.date: 07/17/2017
+origin.date: 10/06/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2816a09bdb98d1d6016b2e550c7b1fb2a9c8cc13
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 0eab1a06e987790dede876e3a564c0c3e8d69831
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="actor-events"></a>执行组件事件
 执行组件事件提供了一种尽最大努力将通知从执行组件发送到客户端的方法。 执行组件事件设计用于从执行组件到客户端的通信，而不应用于从执行组件到执行组件的通信。
 
-以下代码段演示如何在你的应用程序中使用执行组件事件。
+以下代码段演示如何在应用程序中使用执行组件事件。
 
 定义说明由执行组件发布的事件的接口。 此接口必须派生自 `IActorEvents` 接口。 方法的参数必须为[数据协定可序列化](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)。 当事件通知是单向且为最佳效果时，方法必须返回 void。
 
@@ -100,7 +100,7 @@ return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler()
 
 如果发生故障转移，执行组件可能会故障转移到不同的进程或节点。 执行组件代理管理活动的订阅，并自动重新订阅它们。 可以通过 `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API 控制重新订阅的间隔。 若要取消订阅，请使用 `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API。
 
-在执行组件上，只需在事件发生时发布事件。 如果有订阅此事件的用户，那么执行组件运行时会向他们发送通知。
+在执行组件上，在事件发生时发布事件。 如果有订阅此事件的用户，那么执行组件运行时会向他们发送通知。
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
@@ -119,3 +119,5 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 * [C# 示例代码](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [C# .NET Core 示例代码](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
 * [Java 代码示例](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+
+<!--Update_Description: update meta properties-->

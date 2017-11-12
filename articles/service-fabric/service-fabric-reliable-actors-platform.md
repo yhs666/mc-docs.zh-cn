@@ -3,8 +3,8 @@ title: "Service Fabric 上的 Reliable Actors | Azure"
 description: "介绍 Reliable Actors 如何在 Reliable Services 上进行分层以及如何使用 Service Fabric 平台的功能。"
 services: service-fabric
 documentationcenter: .net
-author: vturecek
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: amanbha
 ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
 ms.service: service-fabric
@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
-ms.author: v-johch
-ms.openlocfilehash: 7f692b5fa3d03cb13d738054bf6b2de857e50b7a
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+origin.date: 09/20/2017
+ms.date: 11/13/2017
+ms.author: v-yeche
+ms.openlocfilehash: afab7df284119348d8ea233818825fd177a89ced
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Reliable Actors 如何使用 Service Fabric 平台
 本文介绍了 Reliable Actors 如何使用 Azure Service Fabric 平台。 Reliable Actors 在有状态的可靠服务（称为*执行组件服务*）的实现托管的框架中运行。 执行组件服务包含管理执行组件的生命周期和消息发送所需的所有组件：
@@ -30,7 +31,7 @@ ms.lasthandoff: 07/26/2017
 这些组件共同构成了 Reliable Actor 框架。
 
 ## <a name="service-layering"></a>服务分层
-因为执行组件服务本身是一种可靠服务，Reliable Services 的所有[应用程序模型](service-fabric-application-model.md)、生命周期、[打包](service-fabric-package-apps.md)、[部署](service-fabric-deploy-remove-applications.md)、升级和缩放概念同样适用于执行组件服务。 
+因为执行组件服务本身是一种可靠服务，Reliable Services 的所有[应用程序模型](service-fabric-application-model.md)、生命周期、[打包](service-fabric-package-apps.md)、[部署](service-fabric-deploy-remove-applications.md)、升级和缩放概念同样适用于执行组件服务。
 
 ![执行组件服务分层][1]
 
@@ -66,7 +67,6 @@ CompletableFuture<?> MyActorMethod()
     String applicationInstanceName = this.getActorService().getServiceContext().getCodePackageActivationContext().getApplicationName();
 }
 ```
-
 
 与所有 Reliable Services 一样，执行组件服务必须使用 Service Fabric 运行时中的服务类型注册。 为了使执行组件服务能够运行执行组件实例，还必须向执行组件服务注册执行组件类型。 `ActorRuntime` 注册方法为执行组件执行此操作。 最简单的情况是，用户只需注册执行组件类型，并隐式使用具有默认设置的执行组件服务：
 
@@ -356,7 +356,6 @@ ActorProxy.Create<IMyActor>(ActorId.CreateRandom());
 ActorProxyBase.create<MyActor>(MyActor.class, ActorId.newId());
 ```
 
-
 每个 `ActorId` 都经过哈希算法转换为 Int64 类型值。 因此，执行组件服务必须使用具有完整 Int64 键范围的 Int64 分区方案。 不过，`ActorID` 也可以使用自定义 ID 值，包括 GUID/UUID、字符串和 Int64。
 
 ```csharp
@@ -372,11 +371,41 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 
 使用 GUID/UUID 和字符串时，这些值经过哈希算法转换为 Int64。 但是，如果向 `ActorId` 显式提供 Int64，此 Int64 会直接映射到分区，而无需进行哈希转换。 可以使用此方法来控制将执行组件置于哪个分区。
 
+## <a name="actor-using-remoting-v2-stack"></a>使用 Remoting V2 堆栈的参与者
+借助 2.8 Nuget 包，用户现在可以使用更高性能的 Remoting V2 堆栈，它提供自定义序列化等功能。 Remoting V2 不与现有的 Remoting 堆栈（称为 V1 Remoting 堆栈）向后兼容。
+
+需要进行以下更改才能使用 Remoting V2 堆栈。
+ 1. 在参与者界面中添加以下程序集属性。
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   ```
+
+ 2. 生成并升级 ActorService 和参与者客户端项目以开始使用 V2 堆栈。
+
+### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>在不影响服务可用性的情况下将参与者服务升级到 Remoting V2 堆栈。
+这项更改是包括 2 个步骤的升级过程。 按照所列的顺序执行步骤。
+
+1.  在参与者界面中添加以下程序集属性。 此属性针对 ActorService 启动两个侦听器：V1（现有）和 V2 侦听器。 通过此项更改升级 ActorService。
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  ```
+
+2. 完成上述升级后，升级 ActorClients。
+此步骤确保参与者代理使用 Remoting V2 堆栈。
+
+3. 此步骤是可选的。 更改上述属性可删除 V1 侦听器。
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    ```
+
 ## <a name="next-steps"></a>后续步骤
 * [执行组件状态管理](service-fabric-reliable-actors-state-management.md)
 * [执行组件生命周期和垃圾回收](service-fabric-reliable-actors-lifecycle.md)
 * [执行组件 API 参考文档](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [.NET 代码示例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java 代码示例](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png
@@ -384,3 +413,5 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
+
+<!--Update_Description: update meta properties, add content of Actor using Remoting V2 Stacks-->

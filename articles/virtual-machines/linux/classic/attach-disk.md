@@ -16,17 +16,17 @@ ms.topic: article
 origin.date: 02/09/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: 90519cdb692d705d37f0f2aad4f60da67786b140
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 6e777cb3b6a3272753256ead5a1c58f494b0d1ee
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>如何将数据磁盘附加到 Linux 虚拟机
 > [!IMPORTANT] 
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 请参阅如何[使用 Resource Manager 部署模型附加数据磁盘](../add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-可以将空磁盘和包含数据的磁盘附加到 Azure VM。 这两种类型的磁盘是驻留在 Azure 存储帐户中的 .vhd 文件。 与将任何磁盘添加到 Linux 计算机一样，附加磁盘之后需要将它初始化和格式化才可供使用。 本文将详细说明如何附加空磁盘和附加包含数据的磁盘到 VM，以及初始化和格式化新磁盘的方法。
+可以将空磁盘和包含数据的磁盘附加到 Azure VM。 这两种类型的磁盘是驻留在 Azure 存储帐户中的 .vhd 文件。 与将任何磁盘添加到 Linux 计算机一样，附加磁盘之后需要将它初始化和格式化才可供使用。 本文详细说明如何附加空磁盘和附加包含数据的磁盘到 VM，以及初始化和格式化新磁盘的方法。
 
 > [!NOTE]
 > 最佳做法是使用一个或多个不同的磁盘来存储虚拟机的数据。 在创建 Azure 虚拟机时，该虚拟机有一个操作系统磁盘和一个临时磁盘。 **不要使用临时磁盘来存储持久性数据。** 顾名思义，它仅提供临时存储。 它不提供冗余或备份，因为它不驻留在 Azure 存储中。
@@ -37,7 +37,7 @@ ms.lasthandoff: 07/13/2017
 [!INCLUDE [howto-attach-disk-windows-linux](../../../../includes/howto-attach-disk-linux.md)]
 
 ## <a name="initialize-a-new-data-disk-in-linux"></a>在 Linux 中初始化新的数据磁盘
-1. 通过 SSH 连接到你的 VM。 有关详细信息，请参阅 [如何登录到运行 Linux 的虚拟机][Logon]。
+1. 通过 SSH 连接到 VM。 有关详细信息，请参阅 [如何登录到运行 Linux 的虚拟机][Logon]。
 2. 接下来，需要查找可供数据磁盘初始化的设备标识符。 可通过两种方法进行查找：
 
     a) 获取 SCSI 设备中的日志，例如，使用以下命令：
@@ -52,9 +52,9 @@ ms.lasthandoff: 07/13/2017
 
     ![获取磁盘消息](./media/attach-disk/scsidisklog.png)
 
-    或
+    OR
 
-    b) 使用 `lsscsi` 命令找出设备 ID。 `lsscsi` 的安装可以通过 `yum install lsscsi`（在基于 Red Hat 的发行版上）或 `apt-get install lsscsi`（在基于 Debian 的发行版上）来进行。 可以通过磁盘的 *lun* （即 **逻辑单元号**）找到所需磁盘。 例如，所附加磁盘的 *lun* 可以轻松地通过 `azure vm disk list <virtual-machine>` 来查看，如下所示：
+    b) 使用 `lsscsi` 命令找出设备 ID。`lsscsi` 的安装可以通过 `yum install lsscsi`（在基于 Red Hat 的分发版上）或 `apt-get install lsscsi`（在基于 Debian 的分发版上）来进行。 可以通过磁盘的 *lun* （即 **逻辑单元号**）找到所需磁盘。 例如，所附加磁盘的 *lun* 可以轻松地通过 `azure vm disk list <virtual-machine>` 来查看，如下所示：
 
     ```azurecli
     azure vm disk list myVM
@@ -94,7 +94,7 @@ ms.lasthandoff: 07/13/2017
 
     ![创建设备](./media/attach-disk/fdisknewpartition.png)
 
-5. 出现提示时，键入 **p** 以将分区设置为主分区。 键入 **1** 将其设置为第一分区，然后键入 Enter 接受柱面的默认值。 在某些系统上，它可以显示第一个和最后一个扇区（而不是柱面）的默认值。 可以选择接受这些默认值。
+5. 出现提示时，键入 **p** 将分区设置为主分区。 键入 **1** 将其设置为第一分区，然后键入 Enter 接受柱面的默认值。 在某些系统上，它可以显示第一个和最后一个扇区（而不是柱面）的默认值。 可以选择接受这些默认值。
 
     ![创建分区](./media/attach-disk/fdisknewpartdetails.png)
 
@@ -131,11 +131,11 @@ ms.lasthandoff: 07/13/2017
 
     数据磁盘现在可以作为 **/datadrive**使用。
 
-    ![创建目录，然后装载磁盘](./media/attach-disk/mkdirandmount.png)
+    ![创建目录，并装载磁盘](./media/attach-disk/mkdirandmount.png)
 
 11. 将新驱动器添加到 /etc/fstab：
 
-    若要确保在重新引导后自动重新装载驱动器，必须将其添加到 /etc/fstab 文件。 此外，强烈建议在 /etc/fstab 中使用 UUID（全局唯一标识符）来引用驱动器而不是只使用设备名称（即 /dev/sdc1）。 如果 OS 在启动过程中检测到磁盘错误，使用 UUID 可以避免将错误的磁盘装载到给定位置，然后为剩余的数据磁盘分配这些设备 ID。 若要查找新驱动器的 UUID，可以使用 **blkid** 实用程序：
+    要确保在重新引导后自动重新装载驱动器，必须将其添加到 /etc/fstab 文件。 此外，强烈建议在 /etc/fstab 中使用 UUID（全局唯一标识符）来引用驱动器而不是只使用设备名称（即 /dev/sdc1）。 如果 OS 在启动过程中检测到磁盘错误，使用 UUID 可以避免将错误的磁盘装载到给定位置，并为剩余的数据磁盘分配这些设备 ID。 若要查找新驱动器的 UUID，可以使用 **blkid** 实用程序：
 
     ```bash
     sudo -i blkid
@@ -164,7 +164,7 @@ ms.lasthandoff: 07/13/2017
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
     ```
 
-    另外，在基于 SuSE Linux 的系统上，你可能需要使用稍微不同的格式：
+    另外，在基于 SuSE Linux 的系统上，可能需要使用稍微不同的格式：
 
     ```sh
     /dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults,nofail   1   2
@@ -173,7 +173,7 @@ ms.lasthandoff: 07/13/2017
     > [!NOTE]
     > 即使文件系统已损坏或磁盘在引导时不存在，`nofail` 选项也能确保 VM 启动。 如果不使用此选项，可能会遇到 [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)（由于 FSTAB 错误而无法通过 SSH 连接到 Linux VM）中所述的行为。
 
-    现在，可以通过卸载并重新装载文件系统（即 使用在前面步骤中创建的示例装入点 `/datadrive`）来测试文件系统是否已正确装载：
+    现在，可以通过卸载并重新装载文件系统（即使用在之前的步骤中创建的示例装载点 `/datadrive`）来测试文件系统是否已正确装载：
 
     ```bash
     sudo umount /datadrive
@@ -192,7 +192,7 @@ ms.lasthandoff: 07/13/2017
     > 之后，在不编辑 fstab 的情况下删除数据磁盘可能会导致 VM 无法引导。 如果这是一种常见情况，则请注意，大多数发行版都提供了 `nofail` 和/或 `nobootwait` fstab 选项，这些选项使系统在磁盘无法装载的情况下也能引导。 有关这些参数的详细信息，请查阅相应发行版的文档。
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Azure 中对 Linux 的 TRIM/UNMAP 支持
-某些 Linux 内核支持 TRIM/UNMAP 操作以放弃磁盘上未使用的块。 这些操作主要适用于标准存储，以通知 Azure 已删除的页不再有效可以丢弃。 如果创建了较大的文件，然后将其删除，则放弃页可以节省成本。
+某些 Linux 内核支持 TRIM/UNMAP 操作以放弃磁盘上未使用的块。 这些操作主要适用于标准存储，以通知 Azure 已删除的页不再有效可以丢弃。 如果创建了较大的文件，并将其删除，则放弃页可以节省成本。
 
 在 Linux VM 中有两种方法可以启用 TRIM 支持。 与往常一样，有关建议的方法，请参阅分发：
 
@@ -226,7 +226,7 @@ ms.lasthandoff: 07/13/2017
 
 * [如何登录到运行 Linux 的虚拟机][Logon]
 * [如何从 Linux 虚拟机分离磁盘](detach-disk.md)
-* [将 Azuer CLI 与经典部署模型搭配使用](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [将 Azuer CLI 与经典部署模型搭配使用](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)
 * [在 Azure 中的 Linux VM 上配置 RAID](../configure-raid.md)
 * [在 Azure 中的 Linux VM 上配置 LVM](../configure-lvm.md)
 

@@ -12,14 +12,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/21/2017
-ms.date: 10/02/2017
+origin.date: 09/26/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 81c95852fb0a0e94cf038d4baebaa4031e7a50a4
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 7d824ae96741a74915475ff5b866f0953a7ea8a8
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上设置开发环境
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Service Fabric 不是在 OS X 上以本机方式运行。为了运行本地 Serv
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    此步骤获取包含 VM 配置和 VM 下载位置的文件 `Vagrantfile`。
+    此步骤下载包含 VM 配置以及 VM 下载位置的文件 `Vagrantfile`。  该文件所指向库存 Ubuntu 映像。
 
 2. 导航到本地克隆存储库
 
@@ -70,19 +70,49 @@ Service Fabric 不是在 OS X 上以本机方式运行。为了运行本地 Serv
     vagrant up
     ```
 
-    此步骤下载预配置的 VM 映像、在本地将它启动，并在其中设置一个本地 Service Fabric 群集。 此过程预计需要几分钟时间。 如果成功完成安装，输出中会出现一条消息，指示群集正在启动。
+5. 登录到 VM 并安装 Service Fabric SDK
 
-    ![群集安装会在 VM 设置后启动][cluster-setup-script]
+    ```bash
+    vagrant ssh
+    ```
+
+   根据 [SDK 安装](service-fabric-get-started-linux.md)中所述安装 SDK。  为方便起见，我们提供了以下脚本用于连同 sfctl CLI 一起安装 Service Fabric 运行时和 Service Fabric 通用 SDK。 运行该脚本即认为你已阅读并同意所要安装的所有软件的许可条款。
+
+    ```bash
+    sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
+    ```
+
+6.  启动 Service Fabric 群集
+
+    ```bash
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    ```
 
     >[!TIP]
     > 如果 VM 下载耗时过长，可以使用 wget 或 curl 下载，也可通过浏览器下载，只需导航到文件 `Vagrantfile` 中通过 **config.vm.box_url** 指定的链接即可。 将其下载到本地以后，请编辑 `Vagrantfile`，以便指向下载了映射的本地路径。 例如，如果已将映像下载到 /home/users/test/azureservicefabric.tp8.box，则请将 **config.vm.box_url** 设置为该路径。
     >
 
-5. 导航到 http://192.168.50.50:19080/Explorer 的 Service Fabric Explorer（假设保留了默认的专用网络 IP 地址），测试是否已正确安装群集。
+7. 导航到 http://192.168.50.50:19080/Explorer 的 Service Fabric Explorer（假设保留了默认的专用网络 IP 地址），测试是否已正确安装群集。
 
     ![从主机 Mac 查看的 Service Fabric Explorer][sfx-mac]
 
-## <a name="create-application-on-mac-using-yeoman"></a>使用 Yeoman 在 Mac 上创建应用程序
+## <a name="install-the-necessary-java-artifacts-on-vagrant-to-use-service-fabric-java-programming-model"></a>在 Vagrant 上安装所需的 Java 项目，以使用 Service Fabric Java 编程模型
+
+若要使用 Java 来生成 Service Fabric 服务，请确保已安装 JDK 1.8 和 Gradle，后者用于运行生成任务。 以下代码片段安装 Open JDK 1.8 和 Gradle。 Service Fabric Java 库是从 Maven 拉取的。
+
+  ```bash
+  vagrant ssh
+  sudo apt-get install openjdk-8-jdk-headless
+  sudo apt-get install gradle
+```
+
+## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>在 Mac 上设置 Service Fabric CLI (sfctl)
+
+按照 [Service Fabric CLI](service-fabric-cli.md#cli-mac) 中的说明在 Mac 上安装 Service Fabric CLI (`sfctl`)。
+Azure CLI 命令，用来与 Service Fabric 实体（包括群集、应用程序和服务）交互。
+
+## <a name="create-application-on-you-mac-using-yeoman"></a>使用 Yeoman 在 Mac 上创建应用程序
+
 Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模板生成器从终端创建 Service Fabric 应用程序。 请执行以下步骤，确保已经有可以在计算机上运行的 Service Fabric yeoman 模板生成器。
 
 1. 需在 Mac 上安装 Node.js 和 NPM。 如果没有安装，可使用以下命令通过 Homebrew 来安装 Node.js 和 NPM。 若要检查安装在 Mac 上的 Node.js 和 NPM 的版本，可以使用 ``-v`` 选项。
@@ -106,6 +136,10 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
   ```
 4. 若要在 Mac 上生成 Service Fabric Java 应用程序，则需在计算机上安装 JDK 1.8 和 Gradle。
 
+## <a name="set-up-net-core-20-development"></a>设置 .NET Core 2.0 开发
+
+安装[用于 Mac 的 .NET Core 2.0 SDK](https://www.microsoft.com/net/core#macos)，开始[创建 C# Service Fabric 应用程序](service-fabric-create-your-first-linux-application-with-csharp.md)。 .NET Core 2.0 Service Fabric 应用程序包托管在 NuGet.org 上，目前以预览版提供。
+
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>为 Eclipse Neon 安装 Service Fabric 插件
 
 Service Fabric 为**适用于 Java IDE 的 Eclipse Neon** 提供了一个插件，可简化创建、生成和部署 Java 服务的过程。 可以按照通用[文档](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon)中提及的安装步骤，安装或更新 Service Fabric Eclipse 插件。
@@ -118,8 +152,9 @@ Service Fabric 为**适用于 Java IDE 的 Eclipse Neon** 提供了一个插件�
 * [使用 Yeoman 在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-create-your-first-linux-application-with-java.md)
 * [使用适用于 Eclipse 的 Service Fabric 插件在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-get-started-eclipse.md)
 * [在 Azure 门户中创建 Service Fabric 群集](service-fabric-cluster-creation-via-portal.md)
-* [使用 Azure Resource Manager 创建 Service Fabric 群集](service-fabric-cluster-creation-via-arm.md)
+* [使用 Azure 资源管理器创建 Service Fabric 群集](service-fabric-cluster-creation-via-arm.md)
 * [了解 Service Fabric 应用程序模型](service-fabric-application-model.md)
+* [使用 Service Fabric CLI 管理应用程序](service-fabric-application-lifecycle-sfctl.md)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png
@@ -127,4 +162,4 @@ Service Fabric 为**适用于 Java IDE 的 Eclipse Neon** 提供了一个插件�
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
-<!--Update_Description: update meta properties, add feature to install the service fabric using Yeoman on Mac-->
+<!--Update_Description: update meta properties, add update workflow of Vagrant to create VM -->

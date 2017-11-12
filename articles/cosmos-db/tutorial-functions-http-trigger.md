@@ -14,11 +14,11 @@ ms.topic: mvc
 origin.date: 09/25/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7625ec613f6a36325d1a3689291a6a3d8ea2596b
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 0a837342111f35694893c734c826fab4c5bbd33c
+ms.sourcegitcommit: 55c51539fdd337dbcbf420fedb0c7eaa690545f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>使用 Azure Cosmos DB 输入绑定创建 Azure Functions HTTP 触发器
 
@@ -56,11 +56,8 @@ Azure Cosmos DB 是无架构、无服务器的全球分布式多模型数据库�
 
    ![更新 NuGet 包](./media/tutorial-functions-http-trigger/02-update-functions-sdk.png)
 
-    b. 在“浏览”选项卡中，输入 **azure.graphs** 以查找 **Microsoft.Azure.Graphs**，并单击“安装”。 此包包含图形 API .NET 客户端 SDK。
 
-   ![安装图形 API](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
-
-    c. 在“浏览”选项卡中，输入 **mono.csharp** 以查找 **Mono.CSharp** 包，并单击“安装”。
+    b. 在“浏览”选项卡中，输入 **mono.csharp** 以查找 **Mono.CSharp** 包，并单击“安装”。
 
    ![安装 Mono.CSharp](./media/tutorial-functions-http-trigger/04-add-mono.png)
 

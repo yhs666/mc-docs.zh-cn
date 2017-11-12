@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 02/28/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: cf72f03be6cd324cdd270a3d6b1a397d0b4e0bfa
-ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
+ms.openlocfilehash: 84361d6870ca99bab84f96766b7983c604229c45
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure FreeBSD 简介
 本主题概述如何在 Azure 中运行 FreeBSD 虚拟机。
@@ -44,7 +44,7 @@ Microsoft Corporation 在 Azure 上提供预先配置了 [Azure VM 来宾代理]
 - [Azure 应用商店中的 FreeBSD 11.0](https://portal.azure.cn/#create/Microsoft.FreeBSD110-ARM)
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>通过 FreeBSD 上的 Azure CLI 2.0 创建 FreeBSD VM
-首先需要通过以下命令在 FreeBSD 计算机上安装 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。
+首先需要通过以下命令在 FreeBSD 计算机上安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。
 
 ```bash 
     curl -L https://aka.ms/InstallAzureCli | bash
@@ -65,7 +65,7 @@ Microsoft Corporation 在 Azure 上提供预先配置了 [Azure VM 来宾代理]
     sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
-安装期间，系统将询问你 `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`。 如果回答 `y` 并输入 `/etc/rc.conf` 作为 `a path to an rc file to update`，则可能会出现问题 `ERROR: [Errno 13] Permission denied`。 为了解决该问题，应针对文件 `etc/rc.conf` 向当前用户授予写入权限。
+安装期间，系统询问你 `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`。 如果回答 `y` 并输入 `/etc/rc.conf` 作为 `a path to an rc file to update`，则可能会出现问题 `ERROR: [Errno 13] Permission denied`。 为了解决该问题，应针对文件 `etc/rc.conf` 向当前用户授予写入权限。
 
 现在可登录 Azure 并创建 FreeBSD VM。 以下是创建 FreeBSD 11.0 VM 的一个示例。 也可以为新创建的公共 IP 添加具有全局唯一 DNS 名称的 `--public-ip-address-dns-name` 参数。 
 
@@ -130,4 +130,4 @@ Microsoft Corporation 在 Azure 上提供预先配置了 [Azure VM 来宾代理]
 
 ## <a name="next-steps"></a>后续步骤
 * 转到 [Azure 应用商店](https://portal.azure.cn/#create/Microsoft.FreeBSD110-ARM) 创建 FreeBSD VM。
-* 如果要将自己的 FreeBSD 放入 Azure，请参阅[创建 FreeBSD VHD 并将其上传到 Azure](linux/classic/freebsd-create-upload-vhd.md)。
+* 要将自己的 FreeBSD 上传到 Azure，请参阅[创建 FreeBSD VHD 并将其上传到 Azure](linux/classic/freebsd-create-upload-vhd.md)。

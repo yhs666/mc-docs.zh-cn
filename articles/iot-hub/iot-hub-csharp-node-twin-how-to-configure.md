@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/30/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: a6c8b32d24a9c39329a491f3bb3a7bcda9d1de87
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 11/20/2017
+ms.openlocfilehash: 97bafb0847c12616a8f7838cb285346893059936
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>使用所需属性配置设备
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/04/2017
 
 + Visual Studio 2015 或 Visual Studio 2017。
 
-+ Node.js 版本 0.10.x 或更高版本。
++ Node.js 版本 4.0.x 或更高版本。
 
 + 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 

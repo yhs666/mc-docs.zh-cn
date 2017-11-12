@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 6/29/2017
-ms.date: 08/21/2017
+origin.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9a311c5591d1223ae8f2f37581bb2d6091a7f578
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 3be6a90812f60d833b235bca1a4a1d91bedfcea9
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="configure-stateful-reliable-services"></a>配置有状态 Reliable Services
 有两组配置设置可供 Reliable Services 使用。 一组适用于群集中的所有 Reliable Services，而另一组特定于特定的 Reliable Service。
@@ -48,7 +48,7 @@ ms.lasthandoff: 08/17/2017
     }]
 ```
 
-### <a name="sample-local-developer-cluster-manifest-section"></a>示例本地开发人员群集清单部分
+### <a name="sample-local-developer-cluster-manifest-section"></a>本地开发人员群集清单部分示例
 如果想要在本地开发环境中更改此设置，需要编辑本地 clustermanifest.xml 文件。
 
 ```xml
@@ -83,7 +83,7 @@ SharedLogSizeInMB 指定要预先分配给所有节点上的默认共享日志�
 > 
 
 ### <a name="replicator-security-configuration"></a>复制器安全配置
-复制器安全配置用于保护在复制过程中使用的通信通道的安全。 这意味着服务无法看到对方的复制流量，从而确保高度可用的数据也处于安全状态。 默认情况下，空的安全配置节会影响复制安全。
+复制器安全配置用于保护在复制过程中使用的通信通道的安全。 这意味着服务将无法看到对方的复制流量，从而确保高度可用的数据也处于安全状态。 默认情况下，空的安全配置节会影响复制安全。
 
 ### <a name="default-section-name"></a>默认节名称
 ReplicatorSecurityConfig
@@ -114,13 +114,13 @@ ReplicatorConfig
 | MaxSecondaryReplicationQueueSize |操作的数量 |16384 |辅助队列中的操作的最大数目。 会在使操作的状态在暂留期间高度可用后释放该操作。 此值必须大于 64 和 2 的幂。 |
 | CheckpointThresholdInMB |MB |50 |创建状态检查点后的日志文件空间量。 |
 | MaxRecordSizeInKB |KB |1024 |复制器可以在日志中写入的最大记录大小。 此值必须是 4 的倍数，且大于 16。 |
-| MinLogSizeInMB |MB |0（系统确定） |事务日志的最小大小。 不允许将日志截断为低于此设置的大小。 0 表示复制器会确定最小日志大小。 增加此值会提高执行部分复制和增量备份的可能性，因为这会降低截断相关日志记录的可能性。 |
+| MinLogSizeInMB |MB |0（系统确定） |事务日志的最小大小。 不允许将日志截断到此设置以下的大小。 0 表示复制器会确定最小日志大小。 增加此值会提高执行部分复制和增量备份的可能性，因为这会降低截断相关日志记录的可能性。 |
 | TruncationThresholdFactor |因子 |2 |确定会触发截断的日志的大小。 截断阈值由 MinLogSizeInMB 乘以 TruncationThresholdFactor 确定。 TruncationThresholdFactor 必须大于 1。 MinLogSizeInMB * TruncationThresholdFactor 必须小于 MaxStreamSizeInMB。 |
 | ThrottlingThresholdFactor |因子 |4 |确定副本会开始受到限制的日志的大小。 限制阈值（以 MB 为单位）由 Max((MinLogSizeInMB * ThrottlingThresholdFactor),(CheckpointThresholdInMB * ThrottlingThresholdFactor)) 确定。 限制阈值（以 MB 为单位）必须大于截断阈值（以 MB 为单位）。 截断阈值（以 MB 为单位）必须小于 MaxStreamSizeInMB。 |
 | MaxAccumulatedBackupLogSizeInMB |MB |800 |给定备份日志链中备份日志的最大累积大小（以 MB 为单位）。 如果增量备份会生成导致累积备份日志的备份日志，增量备份请求会失败，因为相关完整备份会大于此大小。 在这种情况下，用户需要执行完整备份。 |
 | SharedLogId |GUID |"" |指定要用于标识与此副本一起使用的共享日志文件的唯一 GUID。 通常情况下，服务不应使用此设置。 但是如果指定了 SharedLogId，还必须指定 SharedLogPath。 |
 | SharedLogPath |完全限定的路径名 |"" |指定要在其中创建此副本共享日志文件的完全限定路径。 通常情况下，服务不应使用此设置。 但是如果指定了 SharedLogPath，还必须指定 SharedLogId。 |
-| SlowApiMonitoringDuration |秒 |300 |设置托管 API 调用的监视间隔。 示例：用户提供的备份回调函数。 此间隔时间过去后，会向运行状况管理器发送一个警告运行状况报告。 |
+| SlowApiMonitoringDuration |秒 |300 |设置托管 API 调用的监视间隔。 示例：用户提供的备份回调函数。 此间隔时间过去后，将向运行状况管理器发送一个警告运行状况报告。 |
 
 ### <a name="sample-configuration-via-code"></a>通过代码进行配置的示例
 ```csharp
@@ -188,4 +188,4 @@ SharedLogId 和 SharedLogPath 设置始终一起使用，使服务可以使用�
 * [在 Visual Studio 中调试 Service Fabric 应用程序](service-fabric-debugging-your-application.md)
 * [Reliable Services 的开发人员参考](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!--Update_Description: update meta properties， update link-->
+<!--Update_Description: update meta properties -->

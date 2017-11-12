@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/30/2017
-ms.date: 09/11/2017
+origin.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9cc8551f09f6f6f2f31cffc20f141622ff446f33
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 80d4f278e18d1d039bdf049fbdd532047ba61b6f
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-on-windows-server-cluster"></a>升级 Windows Server 群集上的独立 Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -43,7 +43,6 @@ ms.lasthandoff: 09/08/2017
 可以使用两个不同的工作流将群集升级至最新版本或受支持的 Service Fabric 版本。 其中一个工作流适用于已建立网络连接，可自动下载最新版本的群集。 另一个工作流适用于未建立网络连接，无法下载最新 Service Fabric 版本的群集。
 
 ### <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>升级已建立网络连接，可下载最新代码和配置的群集
-
 如果群集节点已与 [http://download.microsoft.com](http://download.microsoft.com) 建立 Internet 连接，可以使用以下步骤将群集升级到支持的版本。
 
 对于已连接到 [http://download.microsoft.com](http://download.microsoft.com) 的群集，我们会定期检查是否有新的 Service Fabric 版本可用。
@@ -55,7 +54,6 @@ ms.lasthandoff: 09/08/2017
 群集运行最新版本后，警告将会消失。
 
 #### <a name="cluster-upgrade-workflow"></a>群集升级工作流
-
 看到群集运行状况警告后，请执行以下操作：
 
 1. 从对群集配置文件中列为节点的所有计算机拥有管理员访问权限的任何计算机连接到该群集。 运行此脚本的计算机不必要是群集的一部分。
@@ -85,7 +83,6 @@ ms.lasthandoff: 09/08/2017
     应会看到类似于下面的输出：
 
     ![获取结构版本][getfabversions]
-
 3. 使用 [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx) PowerShell 命令，开始将群集升级到可用的版本。
 
     ```Powershell
@@ -109,7 +106,6 @@ ms.lasthandoff: 09/08/2017
 解决造成回滚的问题后，请遵循前面所述的相同步骤再次启动升级。
 
 ### <a name="upgrade-clusters-that-have-uno-connectivityu-to-download-the-latest-code-and-configuration"></a>升级 <U>未建立网络连接</u>，无法下载最新代码和配置的群集
-
 如果群集节点无法通过 Internet 连接到 [http://download.microsoft.com](http://download.microsoft.com)，请使用以下步骤将群集升级到受支持的版本。
 
 > [!NOTE]
@@ -123,7 +119,7 @@ ms.lasthandoff: 09/08/2017
 
 在启动配置升级之前，请修改群集配置，将以下属性设置为 false。
 
-     "fabricClusterAutoupgradeEnabled": false,
+    "fabricClusterAutoupgradeEnabled": false,
 
 请参阅 [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.microsoft.com/library/mt788302.aspx) 了解使用的详细信息。 在启动配置升级之前，请务必在 JSON 中更新“clusterConfigurationVersion”。
 
@@ -205,7 +201,7 @@ ms.lasthandoff: 09/08/2017
 
 ```
 
-某些配置不能升级（如终结点、群集名称、节点 IP 等）。这将针对旧配置测试新的群集配置 json ，并在出现问题时在 Powershell 窗口中引发错误。
+部分配置不能升级（如终结点、群集名称、节点 IP 等）。这将针对旧配置测试新的群集配置 json ，并在出现问题时在 Powershell 窗口中引发错误。
 
 若要升级群集配置，请运行 **Start-ServiceFabricClusterConfigurationUpgrade**。 按升级域逐个处理配置升级。
 
@@ -222,6 +218,7 @@ ms.lasthandoff: 09/08/2017
 1. 单个证书升级：升级路径为“证书 A（主证书）-> 证书 B（主证书）-> 证书 C（主证书）-> ...”。   
 2. 双证书升级：升级路径为“证书 A（主证书）-> 证书 A（主证书）和证书 B（辅助证书）-> 证书 B（主证书）-> 证书 B（主证书）和证书 C（辅助证书）-> 证书 C（主证书）-> ...”。
 3. 证书类型升级：“基于指纹的证书配置 <-> 基于 CommonName 的证书配置”。 例如，“证书指纹 A（主证书）和指纹 B（辅助证书）-> 证书 CommonName C”。
+4. 证书颁发者指纹升级：升级路径为“Certificate CN=A,IssuerThumbprint=IT1 (Primary) -> Certificate CN=A,IssuerThumbprint=IT1,IT2 (Primary) -> Certificate CN=A,IssuerThumbprint=IT2 (Primary)”
 
 ## <a name="next-steps"></a>后续步骤
 * 了解如何自定义某些 [Service Fabric 群集设置](service-fabric-cluster-fabric-settings.md)。
@@ -231,4 +228,4 @@ ms.lasthandoff: 09/08/2017
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update-->

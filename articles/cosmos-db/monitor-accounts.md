@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 09/19/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: ef6abea6c7bf1d700217c1150237c757e4ebe2a8
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 8f5455af05056cdc7f4b88693b3b521418b7054b
+ms.sourcegitcommit: 55c51539fdd337dbcbf420fedb0c7eaa690545f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-azure-cosmos-db"></a>监视 Azure Cosmos DB
 可以在 [Azure 门户](https://portal.azure.cn/)中监视 Azure Cosmos DB 帐户。 对于每个 Azure Cosmos DB 帐户，一整套指标可用于监视吞吐量、存储、可用性、延迟和一致性。
@@ -35,13 +35,7 @@ ms.lasthandoff: 10/20/2017
 
    ![显示指标套件的“监视”可重用功能区的屏幕截图](./media/monitor-accounts/metrics-suite.png)
 
-## <a name="view-performance-metrics-by-using-azure-monitoring"></a>使用 Azure Monitor 查看性能指标
-1. 在 [Azure 门户](https://portal.azure.cn/)中，单击左栏中的“监视”。
-2. 在资源菜单中，单击“指标”。
-3. 在“监视 - 指标”窗口的“资源组”下拉菜单中，选择与想要监视的 Azure Cosmos DB 帐户关联的资源组。 
-4. 在“资源”  下拉菜单中，选择要监视的数据库帐户。
-5. 在“可用指标” 列表中，选择要显示的指标。 使用 Ctrl 按钮进行多选。 
-
+<!--Not Available ## View performance metrics by using Azure Monitoring-->
 ## <a name="view-performance-metrics-on-the-account-page"></a>在“帐户”页上查看性能指标
 1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“更多服务”，滚动到“数据库”，单击“Azure Cosmos DB”，并单击要查看其性能指标的 Azure Cosmos DB 帐户的名称。
 2. 默认情况下，“监视”可重用功能区  显示以下磁贴：

@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2017
-ms.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yiso
-ms.openlocfilehash: 8f28c8798684e253fe6b21bca585e5bdd2d10485
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: 60ecc40684573216f87ba0d5070c0796f34d23a8
+ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>使用 .NET 将设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -189,7 +189,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
    Console.ReadLine();
    ```
    
-    默认情况下，.NET Framework 应用中的 Create 方法将创建使用 AMQP 协议来与 IoT 中心通信的 DeviceClient 实例。 若要使用 MQTT 或 HTTP 协议，请使用 **Create** 方法的重写，它使用户能够指定协议。 UWP 和 PCL 客户端默认使用 HTTP 协议。 如果使用 HTTP 协议，则还应在项目中添加 **Microsoft.AspNet.WebApi.Client** NuGet 包，以包含 **System.Net.Http.Formatting** 命名空间。
+    默认情况下，.NET Framework 应用中的 Create 方法将创建使用 AMQP 协议来与 IoT 中心通信的 DeviceClient 实例。 若要使用 MQTT 或 HTTPS 协议，请使用 **Create** 方法的重写，它使用户能够指定协议。 UWP 和 PCL 客户端默认使用 HTTPS 协议。 如果使用 HTTPS 协议，则还应在项目中添加 **Microsoft.AspNet.WebApi.Client** NuGet 包，以包含 **System.Net.Http.Formatting** 命名空间。
 
 本教程逐步讲解如何创建 IoT 中心设备应用。 也可以使用 [Azure IoT 中心的连接服务][lnk-connected-service] Visual Studio 扩展将所需的代码添加到设备应用。
 

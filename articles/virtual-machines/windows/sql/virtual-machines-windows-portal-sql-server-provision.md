@@ -13,20 +13,20 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 10/30/2017
+ms.date: 12/01/2017
 ms.author: v-yeche
-ms.openlocfilehash: 62fbbbfeb7d432ae319030fcfeb995d3f15589c0
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 4f822b58067ff677f2e64d00d387b3743b288c43
+ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 门户中预配 Windows SQL Server 虚拟机
 
 > [!div class="op_single_selector"]
 > * [门户](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-<!-- Not Avaialble > * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)-->
+> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
 在本快速入门教程中，请使用 Azure 门户创建安装了 SQL Server 的 Windows 虚拟机。
 
@@ -309,4 +309,4 @@ ms.lasthandoff: 10/27/2017
 ## <a name="next-steps"></a>后续步骤
 
 有关在 Azure 中使用 SQL Server 的其他信息，请参阅 [Azure 虚拟机上的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) 和[常见问题](virtual-machines-windows-sql-server-iaas-faq.md)。
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, wording update -->

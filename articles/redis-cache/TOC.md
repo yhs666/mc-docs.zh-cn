@@ -45,7 +45,7 @@
 
 # 引用
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.rediscache)
-## [Azure CLI 2.0 预览版](https://docs.microsoft.com/cli/azure/redis)
+## [Azure CLI 2.0 预览版](/cli/redis)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis 客户端](http://redis.io/clients)

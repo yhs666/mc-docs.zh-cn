@@ -12,17 +12,17 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/26/2017
-ms.date: 09/14/2017
+ms.date: 11/10/2017
 ms.author: v-junlch
-ms.openlocfilehash: 557a68a10f9af7a8a17322421d1f97735e3b71b5
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: eef7d37471ad5e8cedab91d7bba0ad7a8487f070
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>应用程序网关对多租户后端的支持
 
-Azure 应用程序网关支持将虚拟机规模集、网络接口、公共/专用 IP 或完全限定的域名 (FQDN) 用作其后端池的一部分。 默认情况下，应用程序网关不更改从客户端传入的 HTTP 主机标头，而是将该标头原封不动地发送到后端。 有许多服务（例如 [Azure Web 应用](../app-service-web/app-service-web-overview.md)和 [API 管理](../api-management/api-management-key-concepts.md)）从性质上来说是多租户的，依赖于特定的主机标头或 SNI 扩展，否则无法解析为正确的终结点。 应用程序网关现在允许用户根据后端 HTTP 设置覆盖传入的 HTTP 主机标头。 此功能支持多租户后端 Azure Web 应用和 API 管理。 此功能适用于标准 SKU 和 WAF SKU。 多租户后端支持也适用于 SSL 终止和端到端 SSL 方案。
+Azure 应用程序网关支持将虚拟机规模集、网络接口、公共/专用 IP 或完全限定的域名 (FQDN) 用作其后端池的一部分。 默认情况下，应用程序网关不更改从客户端传入的 HTTP 主机标头，而是将该标头原封不动地发送到后端。 有许多服务（例如 [Azure Web 应用](../app-service/app-service-web-overview.md)和 [API 管理](../api-management/api-management-key-concepts.md)）从性质上来说是多租户的，依赖于特定的主机标头或 SNI 扩展，否则无法解析为正确的终结点。 应用程序网关现在允许用户根据后端 HTTP 设置覆盖传入的 HTTP 主机标头。 此功能支持多租户后端 Azure Web 应用和 API 管理。 此功能适用于标准 SKU 和 WAF SKU。 多租户后端支持也适用于 SSL 终止和端到端 SSL 方案。
 
 ![Web 应用方案](./media/application-gateway-web-app-overview/scenario.png)
 
