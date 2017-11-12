@@ -1,8 +1,8 @@
 ---
-redirect_url: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
-ms.openlocfilehash: 3a7f12334e05496cf305a8eeb4d3f5ca710c63aa
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+redirect_url: /cli/get-started-with-az-cli2
+ms.openlocfilehash: 3155045a57cc096b49ecb2349800deed9ea79165
+ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/06/2017
 ---
