@@ -9,18 +9,17 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/13/2017
-ms.date: 10/02/2017
-wacn.date: 
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9bf3bc9266f22d4b572fd7792cc4d574d5bc6837
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 212ba0217186a69a4890af1c6d6872611626f937
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>在 Azure Service Fabric 上托管 Node.js 应用程序
 
@@ -32,7 +31,7 @@ ms.lasthandoff: 09/28/2017
 
 此外还需一个用于部署的现有 Node.js 应用程序。 本快速入门教程使用简单的 Node.js 网站，可从[此处][download-sample]下载。 在下一步骤中，请在创建项目后将此文件提取到 `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` 文件夹。
 
-如果还没有 Azure 订阅，请创建一个[免费帐户][create-account]。
+如果还没有 Azure 订阅，请创建一个[试用帐户][create-account]。
 
 ## <a name="create-the-service"></a>创建服务
 
@@ -45,7 +44,7 @@ ms.lasthandoff: 09/28/2017
 将应用程序命名为“MyGuestApp”，并按“确定”。
 
 >[!IMPORTANT]
->Node.js 可能会轻松突破针对 Windows 路径的 260 字符限制。 请对项目本身使用短路径，例如 **c:\code\svc1**。
+>Node.js 可能会轻松突破针对 Windows 路径的 260 字符限制。 请对项目本身使用短路径，例如 **c:\code\svc1**。 （可选）可以按照[这些说明](https://stackoverflow.com/a/41687101/1664231)在 Windows 10 中启用长文件路径。
 
 ![Visual Studio 中的新建项目对话框][new-project]
 
@@ -151,5 +150,4 @@ Visual Studio 会创建应用程序项目和执行组件服务项目，并在解
 
 [download-sample]: https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/service-fabric-node-website.zip
 [create-account]: https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F
-
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->

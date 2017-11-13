@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/26/2017
-ms.date: 09/11/2017
+origin.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6823b0fc25bc15f24b89a957913a92d6145066b6
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 9ff0a74bbdf484b9056f8d3a620922f5eda4b047
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>使用 Application Insights 分析和可视化事件
 
@@ -40,7 +40,9 @@ Azure Application Insights 是用于应用程序监视和诊断的可扩展平�
 
 ### <a name="configuring-ai-with-wad"></a>使用 WAD 配置 AI
 
-可采用两种主要方式将来自 WAD 的数据发送到 Azure AI，这是通过在 WAD 配置中添加 AI 接收器实现的。
+>[!NOTE]
+>目前仅适用于 Windows 群集。
+
 <!-- Not Available [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md). -->
 
 #### <a name="add-an-ai-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>在 Azure 门户中创建群集时添加 AI 检测密钥
@@ -53,7 +55,7 @@ Azure Application Insights 是用于应用程序监视和诊断的可扩展平�
 
 在 Resource Manager 模板的“WadCfg”中，通过包含以下两项更改来添加“接收器”：
 
-1. 添加接收器配置：
+1. 在声明完 `DiagnosticMonitorConfiguration` 后，直接添加接收器配置：
 
     ```json
     "SinksConfig": {
@@ -67,7 +69,7 @@ Azure Application Insights 是用于应用程序监视和诊断的可扩展平�
 
     ```
 
-2. 通过在“WadCfg”的“DiagnosticMonitorConfiguration”中添加以下行，在 DiagnosticMonitorConfiguration 中包含接收器：
+2. 在 `DiagnosticMonitorConfiguration` 中添加接收器，具体方法是在 `WadCfg` 的 `DiagnosticMonitorConfiguration` 中添加以下代码行（紧靠声明的 `EtwProviders` 前面）：
 
     ```json
     "sinks": "applicationInsights"
@@ -75,7 +77,7 @@ Azure Application Insights 是用于应用程序监视和诊断的可扩展平�
 
 在上面两个代码片段中，名称“applicationInsights”用于描述接收器。 不一定非要使用此名称；只要将接收器包含在“sinks”中，就可以将名称设置为任何字符串。
 
-目前，来自群集的日志将以跟踪的形式显示在 AI 的日志查看器中。 由于来自平台的大部分跟踪信息都是“参考”级别，因此还可以考虑将接收器配置更改为仅发送类型为“关键”或“错误”的日志。
+目前，群集的日志会在 AI 日志查看器中作为跟踪显示。 由于来自平台的大部分跟踪信息都是“参考”级别，因此还可以考虑将接收器配置更改为仅发送类型为“关键”或“错误”的日志。
 <!-- Not Available [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md). -->
 
 >[!NOTE]
@@ -101,7 +103,8 @@ Azure Application Insights 是用于应用程序监视和诊断的可扩展平�
 
 我们通常建议使用 EventFlow 和 WAD 作为聚合解决方案，因为它们允许使用模块化程度更高的方法进行诊断和监视。例如，如果要从 EventFlow 更改输出，则不需要对实际检测进行任何更改，而只需对配置文件进行简单的修改。 但是，如果你决定投资采购 Application Insights，并且不太可能会改用其他平台，则应考虑使用 AI 的新 SDK 来聚合事件并将其发送到 AI。 这意味着，不再需要将 EventFlow 配置为向 AI 发送数据，而是改为安装 ApplicationInsight 的 Service Fabric NuGet 包。 [此文](https://github.com/Microsoft/ApplicationInsights-ServiceFabric)提供了有关该包的详细信息。
 
-[微服务和容器的 Application Insights 支持](https://azure.microsoft.com/app-insights-microservices/)介绍了我们当前正在开发的一些新功能（目前仍处于测试阶段），借助这些功能可在 AI 中现成地使用更丰富的监视选项。 这些功能包括依赖项跟踪（生成群集中所有服务和应用程序的 AppMap 以及在这些服务与应用程序之间通信时使用），以及更好地关联来自服务的跟踪（有助于更轻松地查明应用或服务的工作流中的问题）。
+“微服务和容器的 Application Insights 支持”介绍了我们当前正在开发的一些新功能（目前仍处于测试阶段），借助这些功能可在 AI 中现成地使用更丰富的监视选项。 这些功能包括依赖项跟踪（生成群集中所有服务和应用程序的 AppMap 以及在这些服务与应用程序之间通信时使用），以及更好地关联来自服务的跟踪（有助于更轻松地查明应用或服务的工作流中的问题）。
+<!-- Not Available (https://azure.microsoft.com/app-insights-microservices/)-->
 
 如果你正在使用 .NET 进行开发，同时，可能会使用 Service Fabric 的某些编程模型并且愿意将 AI 用作可视化和分析事件与日志数据的平台，则我们建议通过 AI SDK 路由实施监视和诊断工作流。
 <!-- Not Available [this](../application-insights/app-insights-asp-net-more.md) -->

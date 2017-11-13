@@ -1,6 +1,6 @@
 ---
-title: "设置 Azure 微服务的开发环境 | Azure"
-description: "安装运行时、SDK 和工具并创建本地开发群集。 完成此设置后，便可以开始生成应用程序。"
+title: "设置 Azure 微服务的 Windows 开发环境 | Azure"
+description: "安装运行时、SDK 和工具并创建本地开发群集。 完成此设置后，就可以在 Windows 上开始生成应用程序。"
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/10/2017
-ms.date: 10/02/2017
+origin.date: 09/25/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 16a1d18a765a8707676198e4fc7ea2c20cf7b0d7
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: f77d308a75e791e77f258a7d9dcc9a9a34a407d2
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
-# <a name="prepare-your-development-environment"></a>准备开发环境
+# <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上准备开发环境
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -29,7 +29,7 @@ ms.lasthandoff: 09/28/2017
 > 
 > 
 
- 若要在开发计算机上生成并运行 [Azure Service Fabric 应用程序][1] ，请安装运行时、SDK 和工具。 此外，还需执行 SDK 中包含的 Windows PowerShell 脚本。
+ 若要在 Windows 开发计算机上生成并运行 [Azure Service Fabric 应用程序][1]，请安装运行时、SDK 和工具。 此外，还需执行 SDK 中包含的 Windows PowerShell 脚本。
 
 ## <a name="prerequisites"></a>先决条件
 ### <a name="supported-operating-system-versions"></a>支持的操作系统版本
@@ -63,8 +63,8 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发和管理工作负�
 * [安装 Azure Service Fabric SDK][core-sdk]
 
 当前版本包括：
-* Service Fabric SDK 2.7.198
-* Service Fabric 运行时 5.7.198
+* Service Fabric SDK 2.8.211
+* Service Fabric 运行时 6.0.211
 * 用于 Visual Studio 2015 1.7.50721 的 Service Fabric 工具
 * Visual Studio 2017 Update 3 包括用于 Visual Studio 1.7.20170817 的 Service Fabric 工具
 * Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) 包括用于 Visual Studio 1.7.20170721 的 Service Fabric 工具

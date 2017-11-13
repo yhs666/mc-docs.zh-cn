@@ -13,13 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 365b123028d79e66b28ef893f7bdfbb46c36928b
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.custom: mvc
+ms.openlocfilehash: bed1ab9fb309433da9308d1580bbb4ca90ed3587
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>将应用程序部署到 Azure 中的合作群集
 本教程是一个系列的第二部分，介绍如何将 Azure Service Fabric 应用程序部署到 Azure 中的合作群集。
@@ -34,10 +35,11 @@ ms.lasthandoff: 09/28/2017
 > * [构建 .NET Service Fabric 应用程序](service-fabric-tutorial-create-dotnet-app.md)
 > * 将应用程序部署到远程群集
 > * [使用 Visual Studio Team Services 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [设置监视和诊断应用程序](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>先决条件
 在开始学习本教程之前：
-- 如果没有 Azure 订阅，请创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
+- 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
 - [安装 Visual Studio 2017](https://www.visualstudio.com/)，并安装 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
 - [安装 Service Fabric SDK](service-fabric-get-started.md)
 
@@ -52,6 +54,8 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 合作群集是在 Azure 上托管的、由 Service Fabric 团队运行的免费限时 Service Fabric 群集，任何人都可以在其中部署应用程序及了解平台的情况。 免费！
 
 若要获取合作群集的访问权限，请浏览到此站点：http://aka.ms/tryservicefabric，并遵照说明获取群集访问权限。 需要一个 Facebook 或 GitHub 帐户才能获取合作群集的访问权限。
+
+如果需要，可以使用自己的群集而不是参与方群集。  ASP.NET Core Web 前端使用反向代理与有状态服务后端通信。  参与方群集和本地开发群集默认启用反向代理。  如果将投票示例应用程序部署到自己的群集，则必须[在群集中启用反向代理](service-fabric-reverseproxy.md#setup-and-configuration)。
 
 > [!NOTE]
 > 合作群集不受保护，因此，在其中放置的应用程序和任何数据可能会被其他人看到。 请勿部署不希望其他人看到的任何内容。 请务必仔细阅读我们的使用条款，了解所有详细信息。
@@ -128,4 +132,4 @@ Service Fabric Explorer 是用于浏览和管理 Service Fabric 群集中的应�
 > [!div class="nextstepaction"]
 > [使用 Visual Studio Team Services 设置持续集成](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties， wording update -->

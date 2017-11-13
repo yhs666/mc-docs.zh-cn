@@ -1,5 +1,5 @@
 ---
-title: "将本地网络连接到 Azure 虚拟网络：站点到站点 VPN：门户 | Microsoft Docs"
+title: "将本地网络连接到 Azure 虚拟网络：站点到站点 VPN：门户 | Microsoft 文档"
 description: "通过公共 Internet 创建从本地网络到 Azure 虚拟网络的 IPsec 连接的步骤。 这些步骤帮助你使用门户创建跨界站点到站点 VPN 网关连接。"
 services: vpn-gateway
 documentationcenter: na
@@ -14,13 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/02/2017
-ms.date: 08/31/2017
+ms.date: 11/07/2017
 ms.author: v-junlch
-ms.openlocfilehash: cbcd022700cc3ed85862c34ccbc2c692a4970eed
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.openlocfilehash: 34b9545c91b92178d129ad4fc7878e92c1b3aa00
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>在 Azure 门户中创建站点到站点连接
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 09/01/2017
   - BackEnd：10.12.0.0/24（可选，适用于本练习）
 - **GatewaySubnet：**10.11.255.0/27
 - **资源组：** TestRG1
-- **位置：** 中国东部
+- **位置：**中国北部
 - **DNS 服务器：**可选。 DNS 服务器的 IP 地址。
 - **虚拟网关名称：**VNet1GW
 - **公共 IP：** VNet1GWIP
@@ -120,7 +120,7 @@ ms.lasthandoff: 09/01/2017
 
 ## <a name="reset"></a>如何重置 VPN 网关
 
-如果丢失一个或多个站点到站点隧道上的跨界 VPN 连接，重置 Azure VPN 网关可有效解决该情况。 在此情况下，本地 VPN 设备都在正常工作，但却无法与 Azure VPN 网关建立 IPsec 隧道。 有关步骤，请参阅[重置 VPN 网关](vpn-gateway-resetgw-classic.md)。
+如果丢失一个或多个站点到站点隧道上的跨界 VPN 连接，重置 VPN 网关可有效解决该情况。 在此情况下，本地 VPN 设备都在正常工作，但却无法与 Azure VPN 网关建立 IPsec 隧道。 有关步骤，请参阅[重置 VPN 网关](vpn-gateway-resetgw-classic.md)。
 
 ## <a name="resize"></a>如何更改网关 SKU（重设网关大小）
 
@@ -131,5 +131,6 @@ ms.lasthandoff: 09/01/2017
 - 有关 BGP 的信息，请参阅 [BGP 概述](vpn-gateway-bgp-overview.md)和[如何配置 BGP](vpn-gateway-bgp-resource-manager-ps.md)。
 - 有关强制隧道的信息，请参阅[关于强制隧道](vpn-gateway-forced-tunneling-rm.md)。
 - 有关高可用性主动-主动连接的信息，请参阅[高可用性跨界连接与 VNet 到 VNet 连接](vpn-gateway-highlyavailable.md)。
-
+- 有关使用 Azure 资源管理器模板创建站点到站点 VPN 连接的信息，请参阅[创建站点到站点 VPN 连接](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/)。
+- 有关使用 Azure 资源管理器模板创建 vnet 到 vnet VPN 连接的信息，请参阅[部署 HBase 异地复制](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)。
 <!--Update_Description: wording update-->

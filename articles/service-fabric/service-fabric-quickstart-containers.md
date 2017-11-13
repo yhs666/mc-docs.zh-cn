@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: quickstart
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 09/05/2017
-ms.date: 10/02/2017
+origin.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 08702870398071a9871725179b071c13b85bc7d2
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: ecd5ae88cd1f574fbd2eac487222597c3c395ed2
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>在 Azure 上部署 Service Fabric Windows 容器应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
@@ -36,7 +36,7 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 > * 将容器应用程序部署到 Azure
 
 ## <a name="prerequisites"></a>先决条件
-* 一个 Azure 订阅（可以创建[免费帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)）。
+* 一个 Azure 订阅（可以创建[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)）。
 * 一台运行以下软件的开发计算机：
   * Visual Studio 2015 或 Visual Studio 2017。
   * [Service Fabric SDK 和工具](service-fabric-get-started.md)。
@@ -50,7 +50,7 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 
 从“服务模板”列表中选择“容器”。
 
-在“映像名称”中输入“nanoserver/iis”，即 [Windows Server 2016 Nano Server 和 IIS 基映像](https://hub.docker.com/r/nanoserver/iis/)。 
+在“映像名称”中输入“microsoft/iis:nanoserver”，即 [Windows Server Nano Server 和 IIS 基映像](https://hub.docker.com/r/microsoft/iis/)。 
 
 将服务命名为“MyContainerService”，然后单击“确定”。
 
@@ -67,6 +67,7 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 ```xml
 <ServiceManifestImport>
 ...
+  <ConfigOverrides />
   <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
       <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
@@ -93,7 +94,7 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 
 ![“发布”对话框](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-在“连接终结点”字段中，键入群集的连接终结点，再单击“发布”。 注册合作群集时，浏览器中会提供连接终结点，例如 `winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19000`。
+在“连接终结点”字段中，键入群集的连接终结点。 注册合作群集时，浏览器中会提供连接终结点，例如 `winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19000`。  单击“发布”，应用程序进行部署。
 
 打开浏览器并导航到 http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:80。 此时会看到 IIS 默认网页：![IIS 默认网页][iis-default]
 
@@ -119,7 +120,7 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>nanoserver/iis</ImageName>
+        <ImageName>microsoft/iis:nanoserver</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
@@ -198,4 +199,4 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
 
-<!--Update_Description: new articles on service fabric quickstart via using container -->
+<!--Update_Description: wording update -->

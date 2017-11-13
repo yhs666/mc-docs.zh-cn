@@ -12,18 +12,18 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/13/2017
-ms.date: 10/02/2017
+origin.date: 09/18/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: bc253bdf76a92b81caf4c822bf2106ce5f031a59
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 2bc7afffaeb644adc733d7f69194454fbc10c1e8
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
-# <a name="create-a-secure-cluster-on-azure-using-powershell"></a>使用 PowerShell 在 Azure 中创建安全群集
-本教程介绍如何创建一个在 Azure 中运行的 Service Fabric 群集（Windows 或 Linux）。 完成本教程后，云中会运行一个可在其中部署应用程序的群集。
+# <a name="create-a-windows-cluster-in-azure-using-powershell"></a>使用 PowerShell 在 Azure 中创建 Windows 群集
+本教程介绍如何创建一个在 Azure 中运行的 Windows Service Fabric 群集。 完成本教程后，云中会运行一个可在其中部署应用程序的群集。
 
 本教程介绍如何执行下列操作：
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 09/28/2017
 
 ## <a name="prerequisites"></a>先决条件
 在开始学习本教程之前：
-- 如果没有 Azure 订阅，请创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
+- 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
 - 安装 [Service Fabric SDK 和 PowerShell 模块](service-fabric-get-started.md)
 - 安装 [Azure PowerShell 模块 4.1 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 09/28/2017
 有关创建 Service Fabric 群集的详细信息，请参阅[使用 Azure 资源管理器创建 Service Fabric 群集](service-fabric-cluster-creation-via-arm.md)。
 
 ## <a name="create-the-cluster-using-azure-powershell"></a>使用 Azure PowerShell 创建群集
-1. 从[用于 Service Fabric 的 Azure 资源管理器模板](https://aka.ms/securepreviewonelineclustertemplate) GitHub 存储库下载 Azure 资源管理器模板和参数文件的本地副本：  *azuredeploy.json* 是定义 Service Fabric 群集的 Azure 资源管理器模板。 *azuredeploy.parameters.json* 是用于自定义群集部署的参数文件。
+1. 从[用于 Service Fabric 的 Azure 资源管理器模板](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) GitHub 存储库下载 Azure 资源管理器模板和参数文件的本地副本：  *azuredeploy.json* 是定义 Service Fabric 群集的 Azure 资源管理器模板。 *azuredeploy.parameters.json* 是用于自定义群集部署的参数文件。
 
 2. 在 *azuredeploy.parameters.json* 参数文件中自定义以下参数：
 
@@ -55,8 +55,8 @@ ms.lasthandoff: 09/28/2017
    | clusterName     | 要创建的群集的名称。 | 例如 bobs-sfpreviewcluster |
    | adminUserName   | 群集虚拟机上的本地管理员帐户。 | 任何有效的 Windows Server 用户名 |
    | adminPassword   | 群集虚拟机上的本地管理员帐户的密码。 | 任何有效的 Windows Server 密码 |
-   | clusterCodeVersion | 要运行的 Service Fabric 版本。 （255.255.X.255 是预览版）。 | **255.255.5718.255** |
-   | vmInstanceCount | 群集中的虚拟机数量（可以是 1 或 3-99 之间的数字）。 | **1**  *对于预览群集，仅指定一个虚拟机* |
+   | clusterCodeVersion | 要运行的 Service Fabric 版本。 （255.255.X.255 是预览版）。 | **5.7.198.9494** |
+   | vmInstanceCount | 群集中的虚拟机数量（可以是 1 或 3-99 之间的数字）。 | **1** | 对于预览群集，仅指定一个虚拟机 |
 
 3. 打开 PowerShell 控制台，登录到 Azure，选择要在其中部署群集的订阅：
 
@@ -154,5 +154,4 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 > * 删除群集
 
 <!-- Not Available > [Deploy an existing .NET application with Docker Compose](service-fabric-host-app-in-a-container.md) -->
-
 <!--Update_Description: update meta properties, wording update-->

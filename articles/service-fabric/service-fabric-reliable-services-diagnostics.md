@@ -1,6 +1,6 @@
 ---
-title: "有状态 Reliable Services 诊断 | Azure"
-description: "有状态 Reliable Services 的诊断功能"
+title: "Azure Service Fabric 有状态 Reliable Services 的诊断功能 | Azure"
+description: "Azure Service Fabric 中的有状态 Reliable Services 的诊断功能"
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/30/2017
-ms.date: 08/21/2017
+origin.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1084d51adab445bebceb211c9853658e5f253a25
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: ec4d40f04d42e652c21494d2eee312eb30c4a731
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>有状态 Reliable Services 的诊断功能
 有状态 Reliable Services StatefulServiceBase 类会发出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件，可用于调试服务、提供对运行时运行方式的深入了解，以及帮助进行故障排除。
@@ -30,7 +30,6 @@ ms.lasthandoff: 08/17/2017
 可帮助收集和/或查看 EventSource 事件的工具和技术的示例包括：[PerfView](http://www.microsoft.com/download/details.aspx?id=28567)、[Azure 诊断](../cloud-services/cloud-services-dotnet-diagnostics.md)和 [Microsoft TraceEvent 库](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
 
 ## <a name="events"></a>事件
-
 | 事件名称 | 事件 ID | 级别 | 事件说明 |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |信息性 |在服务 RunAsync 任务启动时发出 |
@@ -40,7 +39,6 @@ ms.lasthandoff: 08/17/2017
 | StatefulRunAsyncFailure |5 |错误 |在服务 RunAsync 任务引发异常时发出 |
 
 ## <a name="interpret-events"></a>解释事件
-
 StatefulRunAsyncInvocation、StatefulRunAsyncCompletion 和 StatefulRunAsyncCancellation 事件可用于供服务编写者了解服务的生命周期以及服务启动、取消和完成时的计时。 调试服务问题或了解服务生命周期时，这可能会非常有用。
 
 服务编写者应密切注意 StatefulRunAsyncSlowCancellation 和 StatefulRunAsyncFailure 事件，因为它们指示与服务有关的问题。

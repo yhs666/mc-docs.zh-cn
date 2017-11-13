@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/22/2017
-ms.date: 09/11/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8dfe0e2aa6f14c02eb919f7f5ffe396d0025b620
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: cd52f80a3b1a6883c4884be3f49db91f167aea09
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 创建 Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -71,7 +71,8 @@ Service Fabric 使用 X.509 证书保护群集，提供应用程序安全功能�
 如果计划在多个区域部署群集，则建议以适当的方式对资源组和密钥保管库命名，以便通过名称了解其所属的区域。  
 
 ```powershell
-    New-AzureRmResourceGroup -Name chinaeast-mykeyvault -Location 'China East'
+
+    New-AzureRmResourceGroup -Name chinanorth-mykeyvault -Location 'China North'
 ```
 输出应如下所示：
 
@@ -79,11 +80,11 @@ Service Fabric 使用 X.509 证书保护群集，提供应用程序安全功能�
 
     WARNING: The output object type of this cmdlet is going to be modified in a future release.
 
-    ResourceGroupName : chinaeast-mykeyvault
-    Location          : chinaeast
+    ResourceGroupName : chinanorth-mykeyvault
+    Location          : chinanorth
     ProvisioningState : Succeeded
     Tags              :
-    ResourceId        : /subscriptions/<guid>/resourceGroups/chinaeast-mykeyvault
+    ResourceId        : /subscriptions/<guid>/resourceGroups/chinanorth-mykeyvault
 
 ```
 <a id="new-key-vault"></a>
@@ -93,18 +94,19 @@ _必须针对部署启用_密钥保管库，使计算资源提供程序能够从
 
 ```powershell
 
-    New-AzureRmKeyVault -VaultName 'mychinaeastvault' -ResourceGroupName 'chinaeast-mykeyvault' -Location 'China East' -EnabledForDeployment
+    New-AzureRmKeyVault -VaultName 'mychinanorthvault' -ResourceGroupName 'chinanorth-mykeyvault' -Location 'China North' -EnabledForDeployment
 
 ```
 
 输出应如下所示：
 
 ```powershell
-    Vault Name                       : mychinaeastvault
-    Resource Group Name              : chinaeast-mykeyvault
-    Location                         : China East
-    Resource ID                      : /subscriptions/<guid>/resourceGroups/chinaeast-mykeyvault/providers/Microsoft.KeyVault/vaults/mychinaeastvault
-    Vault URI                        : https://mychinaeastvault.vault.azure.cn
+
+    Vault Name                       : mychinanorthvault
+    Resource Group Name              : chinanorth-mykeyvault
+    Location                         : China North
+    Resource ID                      : /subscriptions/<guid>/resourceGroups/chinanorth-mykeyvault/providers/Microsoft.KeyVault/vaults/mychinanorthvault
+    Vault URI                        : https://mychinanorthvault.vault.azure.cn
     Tenant ID                        : <guid>
     SKU                              : Standard
     Enabled For Deployment?          : False
@@ -127,7 +129,9 @@ _必须针对部署启用_密钥保管库，使计算资源提供程序能够从
 若要使用现有 Key Vault，则_必须针对部署启用_该 Key Vault，使计算资源提供程序能够从中获取证书并将其安装在群集节点上：
 
 ```powershell
+
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
+
 ```
 
 <a id="add-certificate-to-key-vault"></a>
@@ -175,14 +179,14 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployme
 
 ```powershell
 
- Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName chinaeast-mykeyvault -Location "China East" -VaultName mychinaeastvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
+ Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName chinanorth-mykeyvault -Location "China North" -VaultName mychinanorthvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
 
 ```
 
 如果收到如此处所示的错误，通常意味着发生了资源 URL 冲突。 若要解决此冲突，请更改密钥保管库名称。
 
 ```
-Set-AzureKeyVaultSecret : The remote name could not be resolved: 'chinaeastkv.vault.azure.cn'
+Set-AzureKeyVaultSecret : The remote name could not be resolved: 'chinanorthkv.vault.azure.cn'
 At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
 + $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
 +           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -196,21 +200,20 @@ At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelp
 ```
 
     Switching context to SubscriptionId <guid>
-    Ensuring ResourceGroup chinaeast-mykeyvault in China East
+    Ensuring ResourceGroup chinanorth-mykeyvault in China North
     WARNING: The output object type of this cmdlet is going to be modified in a future release.
-    Using existing value mychinaeastvault in China East
+    Using existing value mychinanorthvault in China North
     Reading pfx file from C:\path\to\key.pfx
-    Writing secret to mychinaeastvault in vault mychinaeastvault
-
+    Writing secret to mychinanorthvault in vault mychinanorthvault
 
 Name  : CertificateThumbprint
 Value : E21DBC64B183B5BF355C34C46E03409FEEAEF58D
 
 Name  : SourceVault
-Value : /subscriptions/<guid>/resourceGroups/chinaeast-mykeyvault/providers/Microsoft.KeyVault/vaults/mychinaeastvault
+Value : /subscriptions/<guid>/resourceGroups/chinanorth-mykeyvault/providers/Microsoft.KeyVault/vaults/mychinanorthvault
 
 Name  : CertificateURL
-Value : https://mychinaeastvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
+Value : https://mychinanorthvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
 
 ```
 
@@ -224,12 +227,13 @@ Value : https://mychinaeastvault.vault.azure.cn:443/secrets/mycert/4d087088df974
 如果已将证书上传到 Key Vault，可跳过此步骤。 此步骤用于生成新的自签名证书并将其上传到 Key Vault。 在以下脚本中更改参数并运行该参数后，系统会提示用户输入证书密码。  
 
 ```powershell
-$ResouceGroup = "chackochinaeastkv"
+
+$ResourceGroup = "chackochinanorthkv"
 $VName = "chackokv2"
 $SubID = "6c653126-e4ba-42cd-a1dd-f7bf96ae7a47"
-$locationRegion = "chinaeast" 
+$locationRegion = "chinanorth"
 $newCertName = "chackotestcertificate1"
-$dnsName = "www.mycluster.chinaeast.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
+$dnsName = "www.mycluster.chinanorth.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
 $localCertPath = "C:\MyCertificates" # location where you want the .PFX to be stored
 
  Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResourceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
@@ -239,7 +243,7 @@ $localCertPath = "C:\MyCertificates" # location where you want the .PFX to be st
 如果收到如此处所示的错误，通常意味着发生了资源 URL 冲突。 若要解决此冲突，请更改密钥保管库名称、RG 名称等。
 
 ```
-Set-AzureKeyVaultSecret : The remote name could not be resolved: 'chinaeastkv.vault.azure.cn'
+Set-AzureKeyVaultSecret : The remote name could not be resolved: 'chinanorthkv.vault.azure.cn'
 At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
 + $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
 +           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -253,21 +257,21 @@ At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelp
 ```
 PS C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers> Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -Password $certPassword -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
 Switching context to SubscriptionId 6c343126-e4ba-52cd-a1dd-f8bf96ae7a47
-Ensuring ResourceGroup chackochinaeastkv in chinaeast
+Ensuring ResourceGroup chackochinanorthkv in chinanorth
 WARNING: The output object type of this cmdlet will be modified in a future release.
-Creating new vault chinaeastkv1 in chinaeast
+Creating new vault chinanorthkv1 in chinanorth
 Creating new self signed certificate at C:\MyCertificates\chackonewcertificate1.pfx
 Reading pfx file from C:\MyCertificates\chackonewcertificate1.pfx
-Writing secret to chackonewcertificate1 in vault chinaeastkv1
+Writing secret to chackonewcertificate1 in vault chinanorthkv1
 
 Name  : CertificateThumbprint
 Value : 96BB3CC234F9D43C25D4B547sd8DE7B569F413EE
 
 Name  : SourceVault
-Value : /subscriptions/6c653126-e4ba-52cd-a1dd-f8bf96ae7a47/resourceGroups/chackochinaeastkv/providers/Microsoft.KeyVault/vaults/chinaeastkv1
+Value : /subscriptions/6c653126-e4ba-52cd-a1dd-f8bf96ae7a47/resourceGroups/chackochinanorthkv/providers/Microsoft.KeyVault/vaults/chinanorthkv1
 
 Name  : CertificateURL
-Value : https://chinaeastkv1.vault.azure.cn:443/secrets/chackonewcertificate1/ee247291e45d405b8c8bbf81782d12bd
+Value : https://chinanorthkv1.vault.azure.cn:443/secrets/chackonewcertificate1/ee247291e45d405b8c8bbf81782d12bd
 
 ```
 
@@ -300,7 +304,7 @@ Service Fabric 群集提供其管理功能的各种入口点，包括基于 Web 
 4. 运行 `SetupApplications.ps1` 并提供 TenantId、ClusterName 和 WebApplicationReplyUrl 作为参数。 例如：
 
     ```powershell
-    .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/index.html'
+    .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/index.html'
     ```
 
     执行 PowerShell 命令 `Get-AzureSubscription`，可找到租户 ID。 执行此命令，为每个订阅显示 TenantId。
@@ -452,7 +456,8 @@ Service Fabric 群集提供其管理功能的各种入口点，包括基于 Web 
 }
 ```
 
-### <a name="configure-arm" ></a>配置资源管理器模板参数
+<a name="configure-arm" ></a>
+### <a name="configure-resource-manager-template-parameters"></a>配置资源管理器模板参数
 最后，使用密钥保管库和 Azure AD PowerShell 命令的输出值填充参数文件：
 
 ```json

@@ -12,35 +12,34 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/15/2017
-ms.date: 09/11/2017
+origin.date: 10/12/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: edeac99dd3b71cbc3a72eb42eab1acfcf08bb29b
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: e15cfd6de65079bb577d8381971e4c2b5117d4cd
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支持选项
 
 我们为用户设置了各种选项，方便其为 Service Fabric 群集（在其上运行应用程序工作负荷）提供相应的支持。 用户需根据所需支持级别以及问题的严重性，选取适当的选项。 
 
 <a name="getlivesitesupportonazure"></a>
+## <a name="report-production-issues-or-request-paid-support-for-azure"></a>报告生产问题，或者请求 Azure 付费支持
 
-## <a name="report-production-or-live-site-issues-or-request-paid-support-for-azure"></a>报告生产或实时站点问题，或者请求 Azure 付费支持
-
-若要报告部署在 Azure 上的 Service Fabric 群集的实时站点问题，请通过 [Azure 门户](https://www.azure.cn/support/support-ticket-form)或 [Azure 支持门户](http://support.microsoft.com/oas/default.aspx?prid=16146)开具专业支持票证。
+若要报告部署在 Azure 上的 Service Fabric 群集的问题，请通过 [Azure 门户](https://www.azure.cn/support/support-ticket-form)开具支持票证。
+<!--Duplicated [Azure support portal](https://www.azure.cn/support/support-ticket-form).-->
 
 了解有关以下方面的详细信息：
 
-- [Microsoft 提供的 Azure 专业支持](https://www.azure.cn/support/plans/?b=16.44)。
+- [Microsoft 提供的 Azure 支持](https://www.azure.cn/support/plans/?b=16.44)。
 - [Microsoft 顶级支持](https://support.microsoft.com/premier)。
 
 <a name="getlivesitesupportonprem"></a>
+## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>报告生产问题，或者请求独立 Service Fabric 群集的付费支持
 
-## <a name="report-production-or-live-site-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>报告生产或实时站点问题，或者请求独立 Service Fabric 群集的付费支持
-
-若要报告部署在本地或其他云上的 Service Fabric 群集的实时站点问题，请通过 [Azure 支持门户](https://www.azure.cn/support/support-ticket-form)开具专业支持票证。
+若要报告部署在本地或其他云上的 Service Fabric 群集的问题，请通过 [Azure 支持门户](https://www.azure.cn/support/support-ticket-form)开具专业支持票证。
 
 了解有关以下方面的详细信息：
 
@@ -55,7 +54,6 @@ ms.lasthandoff: 09/08/2017
 在 [Service-Fabric-issues git 存储库](https://github.com/Azure/service-fabric-issues)中报告 Azure Service Fabric 问题。 此存储库用于报告和跟踪 Azure Service Fabric 问题，以及进行小型功能请求。 **请勿使用此存储库报告实时站点问题**。
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow 和 MSDN 论坛
-
 [StackOverflow 上的 Service Fabric 标记][stackoverflow]和 [MSDN 上的 Service Fabric 论坛][msdn-forum]最适合提问有关平台工作方式以及如何通过该平台完成某些任务的问题。
 
 ### <a name="azure-feedback-forum"></a>Azure 反馈论坛
@@ -63,7 +61,7 @@ ms.lasthandoff: 09/08/2017
 [有关 Service Fabric 的 Azure 反馈论坛][uservoice-forum]最适合用户提交关于产品的大型功能创意，我们可以看到，大多数常见的请求都属于我们的中长期规划。 我们鼓励你在社区内争取大家对你的建议的支持。
 
 <a name="releasesuport"></a>
-## <a name="supported-service-fabric-versions"></a>支持的 Service Fabric 版本
+## <a name="supported-service-fabric-versions"></a>支持的 Service Fabric 版本。
 
 请确保群集始终运行受支持的 Service Fabric 版本。 当我们宣布发行新版 Service Fabric 时，以前的版本标记为自发布日期起至少 60 天后结束支持。 新版本在 [Service Fabric 团队博客](https://blogs.msdn.microsoft.com/azureservicefabric/)中公布。
 
@@ -78,10 +76,11 @@ ms.lasthandoff: 09/08/2017
 | --- | --- | --- |
 | 5.3.121 之前的所有群集版本 |低于或等于版本 2.3 |2017 年 1 月 20 日 |
 | 5.3.* |低于或等于版本 2.3 |2017 年 2 月 24 日 |
-| 5.4.* |低于或等于版本 2.4 |2017 年 5 月 10 日     |
+| 5.4.* |低于或等于版本 2.4 |2017 年 5 月 10 日       |
 | 5.5.* |低于或等于版本 2.5 |2017 年 8 月 10 日    |
-| 5.6.* |低于或等于版本 2.6 |2017 年 10 月 13 日    |
-| 5.7.* |低于或等于版本 2.7 |当前版本，因此无结束日期
+| 5.6.* |低于或等于版本 2.6 |2017 年 10 月 13 日   |
+| 5.7.* |低于或等于版本 2.7 |2017 年 12 月 15 日  |
+| 6.0.* |版本 2.8 或更低版本 |当前版本，因此无结束日期
 
 <a name="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 预览版本 - 不支持在生产环境中使用。
@@ -98,7 +97,7 @@ ms.lasthandoff: 09/08/2017
 [msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
 [stackoverflow]: http://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
-[acom-docs]: http://aka.ms/servicefabricdocs
+[acom-docs]: ../service-fabric/index.yml
 [sample-repos]: http://aka.ms/servicefabricsamples
 
 <!--Update_Description: update meta properties, wording update-->

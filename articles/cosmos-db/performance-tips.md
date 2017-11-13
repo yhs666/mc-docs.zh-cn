@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 02/23/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: ece51ef7c439eb0d29afffa5e162327e9ea864a6
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: aa11941f3b24002b6e9b70986b99cf95df295e21
+ms.sourcegitcommit: 55c51539fdd337dbcbf420fedb0c7eaa690545f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Azure Cosmos DB 性能提示
 Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供延迟与吞吐量保证的情况下无缝缩放。 使用 Cosmos DB 时，无需对体系结构进行重大更改或编写复杂的代码就能缩放数据库。 扩展和缩减操作就像执行单个 API 调用或 [SDK 方法调用](set-throughput.md#set-throughput-sdk)一样简单。 但是，由于 Cosmos DB 是通过网络调用访问的，因此可以通过客户端优化来获得最高性能。
@@ -75,7 +75,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
    <a id="same-region"></a>
 4. **将客户端并置在同一 Azure 区域中以提高性能**
 
-    如果可能，请将任何调用 Cosmos DB 的应用程序放在与 Cosmos DB 数据库相同的区域中。 通过大致的比较发现，在同一区域中对 Cosmos DB 的调用可在 1-2 毫秒内完成，而美国西岸和美国东岸之间的延迟则大于 50 毫秒。 根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 确保调用方应用程序位于与预配的 Cosmos DB 终结点相同的 Azure 区域中，有可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://www.azure.cn/support/service-dashboard/#services)（Azure 区域）。
+    如果可能，请将任何调用 Cosmos DB 的应用程序放在与 Cosmos DB 数据库相同的区域中。 在同一区域对 Cosmos DB 进行的调用在 1-2 毫秒内完成（近似比较）。 根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 确保调用方应用程序位于与预配的 Cosmos DB 终结点相同的 Azure 区域中，有可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://www.azure.cn/support/service-dashboard/#services)（Azure 区域）。
 
     ![Azure Cosmos DB 连接策略演示](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>

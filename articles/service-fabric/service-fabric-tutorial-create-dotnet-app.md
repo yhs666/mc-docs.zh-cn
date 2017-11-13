@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: be8d38a9522e6e42463d524b257f67f4e8830dd0
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 455d3cd9406ac64336bde191efe50cdaee4e79db
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>使用 ASP.NET Core Web API 前端服务和有状态后端服务创建和部署应用程序
 本教程是一个系列中的第一部分。  其中介绍了如何使用 ASP.NET Core Web API 前端和有状态后端服务创建 Azure Service Fabric 应用程序以存储数据。 完成后，将生成一个投票应用程序，其中包含 ASP.NET Core Web 前端，用于将投票结果保存到群集的有状态后端服务中。 如果不想手动创建投票应用程序，可以[下载已完成应用程序的源代码](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)，跳到[大致了解投票示例应用程序](#walkthrough_anchor)。
@@ -39,10 +39,11 @@ ms.lasthandoff: 09/28/2017
 > * 构建 .NET Service Fabric 应用程序
 > * [将应用程序部署到远程群集](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [使用 Visual Studio Team Services 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [设置监视和诊断应用程序](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>先决条件
 在开始学习本教程之前：
-- 如果没有 Azure 订阅，请创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
+- 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
 - [安装 Visual Studio 2017](https://www.visualstudio.com/)，并安装 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
 - [安装 Service Fabric SDK](service-fabric-get-started.md)
 

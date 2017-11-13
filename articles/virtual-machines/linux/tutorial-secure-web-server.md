@@ -17,11 +17,11 @@ origin.date: 07/17/2017
 ms.date: 10/16/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 43ecc4faca9ec682bed9503dbffadb6ff48cb9c5
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 6cd14f511cad8ec4706fd16e74cbeac98f11488f
+ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>在 Azure 中的 Linux 虚拟机上使用 SSL 证书保护 Web 服务器
 若要保护 Web 服务器，可以使用安全套接字层 (SSL) 证书来加密 Web 流量。 这些 SSL 证书可存储在 Azure Key Vault 中，并可安全部署到 Azure 中的 Linux 虚拟机 (VM)。 本教程介绍如何执行下列操作：
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/13/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。  
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。  
 
 ## <a name="overview"></a>概述
 Azure Key Vault 保护加密密钥和机密、此类证书或密码。 Key Vault 有助于简化证书管理过程，让我们持续掌控用于访问这些证书的密钥。 可以在 Key Vault 中创建自签名证书，或者上传已拥有的现有受信任证书。
@@ -42,13 +42,13 @@ Azure Key Vault 保护加密密钥和机密、此类证书或密码。 Key Vault
 无需使用包含植入证书的自定义 VM 映像，而可将证书直接注入正在运行的 VM。 此过程可确保在部署过程中，在 Web 服务器上安装最新的证书。 如果续订或替换了证书，也不需要创建新的自定义 VM 映像。 创建附加的 VM 时，会自动注入最新证书。 在整个过程中，证书永远不会离开 Azure 平台，也不会在脚本、命令行历史记录或模板中公开。
 
 ## <a name="create-an-azure-key-vault"></a>创建 Azure Key Vault
-创建 Key Vault 和证书之前，需使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组。 以下示例在“chinanorth”位置创建名为“myResourceGroupSecureWeb”的资源组：
+创建 Key Vault 和证书之前，需使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建资源组。 以下示例在“chinanorth”位置创建名为“myResourceGroupSecureWeb”的资源组：
 
 ```
 az group create --name myResourceGroupSecureWeb --location chinanorth
 ```
 
-接下来，使用 [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) 创建 Key Vault，并在部署 VM 时启用该 Key Vault。 每个 Key Vault 均需具备唯一名称且全部小写。 将下例中的 <mykeyvault> 替换为自己唯一的 Key Vault 名称：
+接下来，使用 [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#create) 创建 Key Vault，并在部署 VM 时启用该 Key Vault。 每个 Key Vault 均需具备唯一名称且全部小写。 将下例中的 <mykeyvault> 替换为自己唯一的 Key Vault 名称：
 
 ```azurecli 
 keyvault_name=<mykeyvault>
@@ -59,7 +59,7 @@ az keyvault create \
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>生成证书并存储在 Key Vault 中
-为供生产使用，应通过 [az keyvault certificate import](https://docs.microsoft.com/cli/azure/certificate#import) 导入由受信任的提供程序签名的有效证书。 在本教程中，以下示例显示了如何使用 [az keyvault certificate create](https://docs.microsoft.com/cli/azure/certificate#create) 生成使用默认证书策略的自签名证书：
+为供生产使用，应通过 [az keyvault certificate import](https://docs.azure.cn/zh-cn/cli/certificate?view=azure-cli-latest#import) 导入由受信任的提供程序签名的有效证书。 在本教程中，以下示例显示了如何使用 [az keyvault certificate create](https://docs.azure.cn/zh-cn/cli/certificate?view=azure-cli-latest#create) 生成使用默认证书策略的自签名证书：
 
 ```azurecli 
 az keyvault certificate create \
@@ -69,7 +69,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>准备用于 VM 的证书
-若要在 VM 创建过程中使用该证书，请使用 [az keyvault secret list-versions](https://docs.microsoft.com/cli/azure/keyvault/secret#list-versions) 获取证书的 ID。 使用 [az vm format-secret](https://docs.microsoft.com/cli/azure/vm#format-secret) 转换该证书。 以下示例将这些命令的输出分配给变量，以便在后续步骤中使用：
+若要在 VM 创建过程中使用该证书，请使用 [az keyvault secret list-versions](https://docs.azure.cn/zh-cn/cli/keyvault/secret?view=azure-cli-latest#list-versions) 获取证书的 ID。 使用 [az vm format-secret] 来转换证书((https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#format-secret)。 以下示例将这些命令的输出分配给变量，以便在后续步骤中使用：
 
 ```azurecli 
 secret=$(az keyvault secret list-versions \
@@ -109,7 +109,7 @@ runcmd:
 ```
 
 ### <a name="create-a-secure-vm"></a>创建安全 VM
-现在，请使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 使用 `--secrets` 参数注入 Key Vault 中的证书数据。 使用 `--custom-data` 参数传入 cloud-init 配置：
+现在，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 创建 VM。 使用 `--secrets` 参数注入 Key Vault 中的证书数据。 使用 `--custom-data` 参数传入 cloud-init 配置：
 
 ```azurecli 
 az vm create \
@@ -124,7 +124,7 @@ az vm create \
 
 创建 VM、安装程序包和启动应用需耗时几分钟。 创建 VM 后，请记下 Azure CLI 显示的 `publicIpAddress`。 此地址用于在 Web 浏览器中访问站点。
 
-若要使 VM 能使用安全的 Web 流量，请通过 [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port) 从 Internet 打开端口 443：
+若要使 VM 能使用安全的 Web 流量，请通过 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port) 从 Internet 打开端口 443：
 
 ```azurecli 
 az vm open-port \

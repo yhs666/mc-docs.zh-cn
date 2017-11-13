@@ -12,14 +12,15 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/02/2017
-ms.date: 10/02/2017
+origin.date: 09/20/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9cafd609404f659169ee22a2518f8d67ba28e932
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.custom: mvc
+ms.openlocfilehash: 9a0fdc4e7bf5a26e0572a3fdd4ea19ffea458c61
+ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概述
 Azure Service Fabric 是一款分布式系统平台，可方便用户轻松打包、部署和管理可缩放的可靠微服务和容器。 Service Fabric 还解决了开发和管理云本机应用程序面临的重大难题。 开发人员和管理员不需解决复杂的基础结构问题，只需专注于实现苛刻的任务关键型工作负荷，即那些可缩放、可靠且易于管理的工作负荷。 Service Fabric 代表了下一代平台，用于生成和管理在容器中运行的企业级单层云规模应用程序。
@@ -39,14 +40,16 @@ Service Fabric 为由这些微服务组成的应用程序提供全面的运行�
 有关微服务方法的详细信息，请阅读[为什么对生成应用程序使用微服务方法？](service-fabric-overview-microservices.md)
 
 ## <a name="container-deployment-and-orchestration"></a>容器部署和业务流程
-Service Fabric 是跨计算机群集部署微服务的[容器 Orchestrator](service-fabric-cluster-resource-manager-introduction.md)。 可以通过多种方式开发微服务，例如使用 [Service Fabric 编程模型](service-fabric-choose-framework.md)、[ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)，以及部署[所选的任意代码](service-fabric-deploy-existing-app.md)。重要的是，可以在同一应用程序的容器的进程和服务中混合这两种服务。 如果只需[部署和管理容器](service-fabric-containers-overview.md)，Service Fabric 是充当容器 Orchestrator 的理想之选。
+Service Fabric 是 Azure 推出的跨计算机群集部署微服务的[容器 Orchestrator](service-fabric-cluster-resource-manager-introduction.md)。 微服务的开发方法有多种，包括使用 [Service Fabric 编程模型](service-fabric-choose-framework.md)、[ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 或部署[任意选定代码](service-fabric-deploy-existing-app.md)。 重要的是，可以在同一应用程序中混合使用进程中的服务和容器中的服务。 如果只需要[部署和管理容器](service-fabric-containers-overview.md)，Service Fabric 是容器 Orchestrator 理想之选。
 
 ## <a name="any-os-any-cloud"></a>不限 OS 和云
 Service Fabric 可以在所有环境中运行。 可以在许多环境中（例如在 Azure 或本地、Windows Server 或 Linux 中）创建 Service Fabric 群集。 甚至可以在其他公有云上创建群集。 此外，SDK 中的开发环境与生产环境完全相同，都不涉及模拟器。 也就是说，在本地开发群集上运行的内容会部署到其他环境中的群集。
 
 ![Service Fabric 平台][Image1]
 
-有关在本地创建群集的详细信息，请阅读[在 Windows Server 或 Linux 上创建群集](service-fabric-deploy-anywhere.md)。有关创建 Azure 群集的详细信息，请阅读[通过 Azure 门户创建群集](service-fabric-cluster-creation-via-portal.md)。
+对于 Windows 开发，Service Fabric .NET SDK 与 Visual Studio 和 Powershell 集成。 请参阅[在 Windows 上准备开发环境](/service-fabric/service-fabric-get-started.md)。 对于 Linux 开发，Service Fabric Java SDK 与 Eclipse 集成，Yeoman 用于为 Java、.NET Core 和容器应用程序生成模板。 请参阅[在 Linux 上准备开发环境](/service-fabric/service-fabric-get-started.md)
+
+有关创建群集的详细信息，请阅读[在 Windows Server 或 Linux 上创建群集](service-fabric-deploy-anywhere.md)；有关创建 Azure 群集的详细信息，请阅读[通过 Azure 门户创建群集](service-fabric-cluster-creation-via-portal.md)。
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>无状态和有状态 Service Fabric 微服务
 使用 Service Fabric，可以生成包含微服务或容器的应用程序。 无状态微服务（例如网关、Web 代理）不维护除请求及其来自服务的响应之外任何可变状态。 Azure 云服务辅助角色是无状态服务的一个示例。 有状态微服务（例如，用户帐户、数据库、设备、购物车、队列）维护除请求及其响应之外的可变、授权状态。 当今的 Internet 规模应用程序包含无状态和有状态微服务的组合。 
@@ -84,9 +87,10 @@ Service Fabric 与 [Visual Studio Team Services](https://www.visualstudio.com/te
 * 更多相关信息：
   * [为什么要使用微服务方法构建应用程序？](service-fabric-overview-microservices.md)
   * [术语概述](service-fabric-technical-overview.md)
-* 设置 Service Fabric [开发环境](service-fabric-get-started.md)  
+* 设置 [Windows 开发环境](service-fabric-get-started.md)  
+* 设置 [Linux 开发环境](service-fabric-get-started-linux.md)
 * 了解 [Service Fabric 支持选项](service-fabric-support.md)
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: wording update, update link -->
