@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/24/2016
-ms.date: 12/05/2016
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 115a7cba3cd8933db84bd61e5c0ce5cb69af09c0
-ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.openlocfilehash: eb70c4e50d3e78ec7ec98166eb0e5f6c50b4057b
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-the-distribution-mode-for-load-balancer"></a>配置负载均衡器的分发模式
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## <a name="hash-based-distribution-mode"></a>基于哈希的分发模式
 
@@ -44,7 +46,7 @@ ms.lasthandoff: 06/26/2017
 
 另一种使用方案是媒体上传，此时通过 UDP 上传数据，但通过 TCP 实现控制平面：
 
-* 客户端首先与负载均衡的公共地址发起 TCP 会话，然后定向到特定 DIP，此通道将保持活动状态以监视连接运行状况
+* 客户端首先与负载均衡的公共地址发起 TCP 会话，并定向到特定 DIP，此通道将保持活动状态以监视连接运行状况
 * 来自同一客户端计算机的新 UDP 会话在同一个负载均衡公共终结点中发起，我们希望此连接像以前的 TCP 连接一样被定向到同一个 DIP 终结点，以便能够以高吞吐量执行媒体上传，同时通过 TCP 维护控制通道。
 
 > [!NOTE]
@@ -64,27 +66,25 @@ LoadBalancerDistribution 可以设置为 sourceIP（用于 2 元组（源 IP、�
 
 使用以下命令检索终结点负载均衡器分发模式配置：
 
-```
-PS C:\> Get-AzureVM -ServiceName MyService -Name MyVM | Get-AzureEndpoint
+    PS C:\> Get-AzureVM -ServiceName MyService -Name MyVM | Get-AzureEndpoint
 
-VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
-LBSetName : MyLoadBalancedSet
-LocalPort : 80
-Name : HTTP
-Port : 80
-Protocol : tcp
-Vip : 65.52.xxx.xxx
-ProbePath :
-ProbePort : 80
-ProbeProtocol : tcp
-ProbeIntervalInSeconds : 15
-ProbeTimeoutInSeconds : 31
-EnableDirectServerReturn : False
-Acl : {}
-InternalLoadBalancerName :
-IdleTimeoutInMinutes : 15
-LoadBalancerDistribution : sourceIP
-```
+    VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
+    LBSetName : MyLoadBalancedSet
+    LocalPort : 80
+    Name : HTTP
+    Port : 80
+    Protocol : tcp
+    Vip : 65.52.xxx.xxx
+    ProbePath :
+    ProbePort : 80
+    ProbeProtocol : tcp
+    ProbeIntervalInSeconds : 15
+    ProbeTimeoutInSeconds : 31
+    EnableDirectServerReturn : False
+    Acl : {}
+    InternalLoadBalancerName :
+    IdleTimeoutInMinutes : 15
+    LoadBalancerDistribution : sourceIP
 
 如果 LoadBalancerDistribution 元素不存在，则 Azure 负载均衡器使用默认的 5 元组算法。
 
@@ -98,7 +98,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 ### <a name="cloud-service-configuration-to-change-distribution-mode"></a>用于更改分发模式的云服务配置
 
-可利用用于 .NET 2.5 的 Azure SDK（于 11 月发布）来更新云服务。 云服务的终结点设置在 .csdef 中进行。 若要更新云服务部署的负载均衡器分发模式，需要进行部署升级。
+可以利用用于 .NET 2.5 的 Azure SDK 来更新云服务。 云服务的终结点设置在 .csdef 中进行。 若要更新云服务部署的负载均衡器分发模式，需要进行部署升级。
 下面是终结点设置的 .csdef 更改的示例：
 
 ```xml
@@ -127,47 +127,45 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 #### <a name="request-example"></a>请求示例
 
-```
-POST https://management.core.chinacloudapi.cn/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
-Content-Type: application/xml
+    POST https://management.core.chinacloudapi.cn/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
+    Content-Type: application/xml
 
-<LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-  <InputEndpoint>
-    <LoadBalancedEndpointSetName> endpoint-set-name </LoadBalancedEndpointSetName>
-    <LocalPort> local-port-number </LocalPort>
-    <Port> external-port-number </Port>
-    <LoadBalancerProbe>
-      <Port> port-assigned-to-probe </Port>
-      <Protocol> probe-protocol </Protocol>
-      <IntervalInSeconds> interval-of-probe </IntervalInSeconds>
-      <TimeoutInSeconds> timeout-for-probe </TimeoutInSeconds>
-    </LoadBalancerProbe>
-    <Protocol> endpoint-protocol </Protocol>
-    <EnableDirectServerReturn> enable-direct-server-return </EnableDirectServerReturn>
-    <IdleTimeoutInMinutes>idle-time-out</IdleTimeoutInMinutes>
-    <LoadBalancerDistribution>sourceIP</LoadBalancerDistribution>
-  </InputEndpoint>
-</LoadBalancedEndpointList>
-```
+    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+      <InputEndpoint>
+        <LoadBalancedEndpointSetName> endpoint-set-name </LoadBalancedEndpointSetName>
+        <LocalPort> local-port-number </LocalPort>
+        <Port> external-port-number </Port>
+        <LoadBalancerProbe>
+          <Port> port-assigned-to-probe </Port>
+          <Protocol> probe-protocol </Protocol>
+          <IntervalInSeconds> interval-of-probe </IntervalInSeconds>
+          <TimeoutInSeconds> timeout-for-probe </TimeoutInSeconds>
+        </LoadBalancerProbe>
+        <Protocol> endpoint-protocol </Protocol>
+        <EnableDirectServerReturn> enable-direct-server-return </EnableDirectServerReturn>
+        <IdleTimeoutInMinutes>idle-time-out</IdleTimeoutInMinutes>
+        <LoadBalancerDistribution>sourceIP</LoadBalancerDistribution>
+      </InputEndpoint>
+    </LoadBalancedEndpointList>
 
 LoadBalancerDistribution 的值可以是 sourceIP（用于 2 元组关联）、sourceIPProtocol（用于 3 元组关联）或 none（用于无关联， 即 5 元组）
 
 #### <a name="response"></a>响应
 
-```
-HTTP/1.1 202 Accepted
-Cache-Control: no-cache
-Content-Length: 0
-Server: 1.0.6198.146 (rd_rdfe_stable.141015-1306) Microsoft-HTTPAPI/2.0
-x-ms-servedbyregion: ussouth2
-x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
-Date: Thu, 16 Oct 2014 22:49:21 GMT
-```
+    HTTP/1.1 202 Accepted
+    Cache-Control: no-cache
+    Content-Length: 0
+    Server: 1.0.6198.146 (rd_rdfe_stable.141015-1306) Microsoft-HTTPAPI/2.0
+    x-ms-servedbyregion: ussouth2
+    x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
+    Date: Thu, 16 Oct 2014 22:49:21 GMT
 
 ## <a name="next-steps"></a>后续步骤
 
-[内部负载均衡器概述](./load-balancer-internal-overview.md)
+[内部负载均衡器概述](load-balancer-internal-overview.md)
 
-[开始配置面向 Internet 的负载均衡器](./load-balancer-get-started-internet-arm-ps.md)
+[开始配置面向 Internet 的负载均衡器](load-balancer-get-started-internet-arm-ps.md)
 
-[配置负载均衡器的空闲 TCP 超时设置](./load-balancer-tcp-idle-timeout.md)
+[配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
+
+<!-- Update_Description: update meta properties, wording update -->

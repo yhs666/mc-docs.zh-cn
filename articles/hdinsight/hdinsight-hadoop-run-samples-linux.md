@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/26/2017
-ms.date: 09/18/2017
+origin.date: 09/26/2017
+ms.date: 11/27/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 3b43d36fffc5ef9d9821b66112d461eb7bb768ae
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+ms.openlocfilehash: a0f7e195109331e940f9b03c9d59c63861a8d258
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>运行 HDInsight 包含的 MapReduce 示例
 

@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/12/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 10/04/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 91cdd9a81c809151c6adddd88f9ad522698c337f
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+ms.openlocfilehash: 371037fde884a93bc7fac6179e7c835fd6926bc3
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>创建 HDInsight 群集时添加自定义 Hive 库
 
-如果有经常与 HDInsight 上的 Hive 配合使用的库，本文档包含有关在群集创建期间使用脚本操作预加载库的信息。 使用本文档中的步骤添加的库已在 Hive 中正式发布 - 无需使用 [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) 加载它们。
+了解如何在 HDInsight 上预加载 Hive 库。 本文档包含有关在群集创建过程中使用脚本操作预加载库的信息。 使用本文档中的步骤添加的库已在 Hive 中正式发布 - 无需使用 [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) 加载它们。
 
 ## <a name="how-it-works"></a>工作原理
 
-创建群集时，可以选择指定脚本操作，以便在创建群集节点时在其上运行脚本。 本文档中的脚本接受单个参数，即包含要预加载的库（存储为 jar 文件）的 WASB 位置。
+创建群集时，可以使用脚本操作修改创建的群集节点。 本文档中的脚本接受一个参数，即库的位置。 此位置必须位于 Azure 存储帐户中，并且库必须作为 jar 文件存储。
 
 在群集创建过程中，该脚本将枚举文件、将这些文件复制到头节点和工作节点上的 `/usr/lib/customhivelibs/` 目录，并将它们添加到 `core-site.xml` 文件中的 `hive.aux.jars.path` 属性。 在基于 Linux 的群集中，它还会针对文件位置更新 `hive-env.sh` 文件。
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 09/12/2017
 * 必须指定容器的 WASB 路径作为脚本操作的参数。 例如，如果 jar 存储在名为 **mystorage** 的存储帐户上名为 **libs** 的容器中，则该参数应为 **wasb://libs@mystorage.blob.core.chinacloudapi.cn/**。
 
   > [!NOTE]
-  > 本文档假定你已创建存储帐户、blob 容器，并已将文件上传到该容器。
+  > 本文档假定已创建存储帐户、blob 容器，并已将文件上传到该容器。
   >
   > 如果尚未创建存储帐户，可以通过 [Azure 门户](https://portal.azure.cn)创建该帐户。 然后可以使用实用程序（如 [Azure 存储资源管理器](http://storageexplorer.com/)）在帐户中创建一个容器并将文件上传到该容器。
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 09/12/2017
 
 1. 使用[预配 Linux 上的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)中的步骤开始预配群集，但不要完成预配。
 
-2. 在“可选配置”边栏选项卡上，选择“脚本操作”，并提供以下信息：
+2. 在“可选配置”部分中，选择“脚本操作”，并提供以下信息：
 
    * **名称**：输入脚本操作的友好名称。
 
@@ -91,9 +91,9 @@ ms.lasthandoff: 09/12/2017
 
 3. 在“脚本操作”的底部，使用“选择”按钮保存配置。
 
-4. 在“可选配置”边栏选项卡上，选择“链接存储帐户”，并选择“添加存储密钥”链接。 选择包含 jar 的存储帐户，并使用“选择”按钮保存设置并返回“可选配置”边栏选项卡。
+4. 在“可选配置”部分中，选择“链接存储帐户”，并选择“添加存储密钥”链接。 选择包含 jar 的存储帐户。 然后使用“选择”按钮保存设置并返回“可选配置”。
 
-5. 使用“可选配置”边栏选项卡底部的“选择”按钮以保存可选配置信息。
+5. 若要保存可选配置，请使用“可选配置”部分底部的“选择”按钮。
 
 6. 继续按[预配 Linux 上的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)中所述预配群集。
 

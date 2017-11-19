@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/28/2017
-ms.date: 09/04/2017
+origin.date: 10/05/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3ece7ef03310dc5aead7401f0e26cfc01c1bd94f
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: d8fe8700a8588fbe1be329135d93256122ac9191
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>事件中心捕获演练：Python
 
-事件中心捕获是事件中心的一项功能，可用于自动将事件中心内的流数据传送到所选的 Azure Blob 存储帐户。 使用此功能，可以轻松地对实时流数据执行批处理操作。 本文介绍如何通过 Python 使用事件中心捕获功能。 有关事件中心捕获的详细信息，请参阅[概述文章](event-hubs-archive-overview.md)。
+事件中心捕获是事件中心的一项功能，可用于自动将事件中心内的流数据传送到所选的 Azure Blob 存储帐户。 使用此功能，可以轻松地对实时流数据执行批处理操作。 本文介绍如何通过 Python 使用事件中心捕获功能。 有关事件中心捕获的详细信息，请参阅[概述文章](event-hubs-capture-overview.md)。
 
 此示例使用 [Azure Python SDK](/develop/python/) 演示捕获功能。 Sender.py 程序以 JSON 格式将模拟的环境遥测数据发送到事件中心。 事件中心配置为使用捕获功能将此数据成批地写入到 Blob 存储。 然后 capturereader.py 应用读取这些 blob，为每个设备创建一个追加​​文件，然后将数据写入到 .csv 文件中。
 
@@ -157,24 +157,21 @@ ms.lasthandoff: 09/04/2017
    python capturereader.py
    ```
 
-   此捕获处理器使用本地目录下载存储帐户/容器中的所有 blob。 它将处理任何不为空的内容，并将结果以 .csv 文件形式写入到本地目录。
+   此捕获处理器使用本地目录下载存储帐户/容器中的所有 blob。 它将处理任何不为空的内容，并将结果以 .csv 文件的形式写入到本地目录。
 
 ## <a name="next-steps"></a>后续步骤
 
 访问以下链接可以了解有关事件中心的详细信息：
 
 * [事件中心捕获概述][Overview of Event Hubs Capture]
-* [使用事件中心的完整示例应用程序][sample application that uses Event Hubs]。
-* [使用事件中心扩大事件处理][Scale out Event Processing with Event Hubs] 示例。
+* [使用事件中心的示例应用程序](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 * [事件中心概述][Event Hubs overview]
 
 [Azure portal]: https://portal.azure.cn/
-[Overview of Event Hubs Capture]: event-hubs-archive-overview.md
+[Overview of Event Hubs Capture]: event-hubs-capture-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-overview.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
 
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update meta properties, update reference link, wording update -->

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 07/31/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4671b9ffdc9e89b9dddcbcc996ada6910e2c75a0
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: 6ae2ee827fa13f82b99c0272af0345434bfe24ee
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="step-1-review-the-architecture-for-physical-server-replication-to-azure"></a>步骤 1：查看体系结构以便将物理服务器复制到 Azure
 
@@ -52,9 +52,10 @@ ms.lasthandoff: 07/28/2017
     - 复制计算机与 HTTPS 443 入站端口上的配置服务器通信，进行复制管理。
     - 通过复制计算机，可以将复制数据发送到 HTTPS 9443 入站端口（可修改）上的进程服务器。
     - 配置服务器通过 HTTPS 443 出站端口来与 Azure 协调复制管理。
-    - 进程服务器从源计算机接收数据、优化和加密数据，然后通过 443 出站端口将其发送到 Azure 存储。
+    - 进程服务器从源计算机接收数据、优化和加密数据，并通过 443 出站端口将其发送到 Azure 存储。
     - 如果启用了多 VM 一致性，复制组中的计算机将通过端口 20004 相互通信。 如果将多台计算机分组到复制组，并且这些组在故障转移时共享崩溃一致且应用一致的恢复点，请使用多 VM 方案。 如果计算机运行相同的工作负荷并需要保持一致，这种做法非常有用。
 5. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以使用 Azure ExpressRoute [公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)。 不支持通过站点到站点 VPN 将流量从本地站点复制到 Azure。
+<!-- Sync late on azure-public-peering -->
 
 **图 2：将物理服务器复制到 Azure**
 
@@ -85,4 +86,4 @@ ms.lasthandoff: 07/28/2017
 
 转到[步骤 2：验证先决条件和限制](physical-walkthrough-prerequisites.md)
 
-<!--Update_Description: new article about walkthrought architecture from physical to azure -->
+<!--Update_Description: wording update -->

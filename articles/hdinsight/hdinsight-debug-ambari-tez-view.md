@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 365dd1d43b3c95fa3b6c2bf43f0de5216e73e216
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 10/04/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: 74bee4a06152b0e3d06f48a1bc4a7d324f817084
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>使用 Ambari 视图来调试 HDInsight 上的 Tez 作业
 
@@ -69,7 +69,7 @@ Tez 视图提供进程的历史信息，还提供正在运行的进程的相关�
         en-GB   Hessen      Germany
         en-GB   Kingston    Jamaica
 
-4. 选择“日志”选项卡。 显示的信息类似以下文本：
+4. 选择“日志”选项卡。显示的信息类似以下文本：
 
         INFO : Session is already open
         INFO :

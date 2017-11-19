@@ -14,24 +14,25 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 03/03/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: dc28005c1b71baba58bbd9103ed677385d10a2b8
-ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.openlocfilehash: 7012c8dae98a5794a413add9ab883da6f209fb0e
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>开始使用 PowerShell 创建内部负载均衡器（经典）
+
 > [!div class="op_single_selector"]
->- [PowerShell](./load-balancer-get-started-ilb-classic-ps.md)
->- [Azure CLI](./load-balancer-get-started-ilb-classic-cli.md)
->- [云服务](./load-balancer-get-started-ilb-classic-cloud.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-classic-cli.md)
+> * [云服务](../load-balancer/load-balancer-get-started-ilb-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何[使用 Resource Manager 模型执行这些步骤](./load-balancer-get-started-ilb-arm-ps.md)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何[使用 Resource Manager 模型执行这些步骤](load-balancer-get-started-ilb-arm-ps.md)。
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 06/26/2017
 
 ## <a name="create-an-internal-load-balancer-set-for-virtual-machines"></a>为虚拟机创建内部负载均衡器集
 
-若要创建内部负载均衡器集和要将其流量发送到的服务器，必须执行以下操作：
+要创建内部负载均衡器集和要将其流量发送到的服务器，必须执行以下操作：
 
 1. 创建内部负载均衡实例，该实例将是要在负载均衡集的服务器上进行负载均衡的传入流量的终结点。
 2. 添加与虚拟机对应的终结点以接收传入流量。
@@ -58,7 +59,7 @@ $IP="<The IPv4 address to use on the subnet-optional>"
 Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb -SubnetName $subnet -StaticVNetIPAddress $IP
 ```
 
-请注意，这次使用的 [Add-AzureEndpoint](https://msdn.microsoft.com/zh-cn/library/dn495300.aspx) Windows PowerShell cmdlet 使用的是 DefaultProbe 参数集。 有关其他参数集的详细信息，请参阅 [Add-AzureEndpoint](https://msdn.microsoft.com/zh-cn/library/dn495300.aspx)。
+请注意，这次使用的 [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) Windows PowerShell cmdlet 使用的是 DefaultProbe 参数集。 有关其他参数集的详细信息，请参阅 [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx)。
 
 ### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>步骤 2：向内部负载均衡实例添加终结点
 
@@ -78,9 +79,9 @@ Get-AzureVM -ServiceName $svc -Name $vmname | Add-AzureEndpoint -Name $epname -L
 
 ### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>步骤 3：配置服务器，将其流量发送到新的内部负载均衡终结点
 
-必须将要对流量进行负载均衡的服务器配置为使用内部负载均衡实例的新 IP 地址 (VIP)。 此地址是内部负载均衡实例正在侦听的地址。 在大多数情况下，你只需添加或修改内部负载均衡实例的 VIP 的 DNS 记录。
+必须将要对流量进行负载均衡的服务器配置为使用内部负载均衡实例的新 IP 地址 (VIP)。 此地址是内部负载均衡实例正在侦听的地址。 在大多数情况下，只需添加或修改内部负载均衡实例的 VIP 的 DNS 记录。
 
-如果在创建内部负载均衡实例期间指定了 IP 地址，则你已有 VIP。 否则，你可以通过以下命令查看 VIP：
+如果在创建内部负载均衡实例期间指定了 IP 地址，则已有 VIP。 否则，可以通过以下命令查看 VIP：
 
 ```powershell
 $svc="<Cloud Service Name>"
@@ -102,7 +103,7 @@ Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 
 ## <a name="example-of-internal-load-balancing"></a>内部负载均衡的示例
 
-若要指导你逐步了解为两个示例配置创建中负载均衡集的端到端过程，请参阅以下各节。
+要指导逐步了解为两个示例配置创建中负载均衡集的端到端过程，请参阅以下各节。
 
 ### <a name="an-internet-facing-multi-tier-application"></a>面向 Internet 的多层应用程序
 
@@ -114,9 +115,9 @@ Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 
 * 托管虚拟机的现有云服务名为 mytestcloud。
 * 两个现有的数据库服务器分别名为 DB1、DB2。
-* Web 层中的 Web 服务器使用专用 IP 地址连接到数据库层中的数据库服务器。 另一个选择是对虚拟网络使用你自己的 DNS，并手动为内部负载均衡器集注册 A 记录。
+* Web 层中的 Web 服务器使用专用 IP 地址连接到数据库层中的数据库服务器。 另一个选择是对虚拟网络使用自己的 DNS，并手动为内部负载均衡器集注册 A 记录。
 
-以下命令将配置名为 **ILBset** 的新内部负载均衡实例，并向对应于两个数据库服务器的虚拟机添加终结点：
+以下命令会配置名为 **ILBset** 的新内部负载均衡实例，并向对应于两个数据库服务器的虚拟机添加终结点：
 
 ```powershell
 $svc="mytestcloud"
@@ -186,6 +187,8 @@ Get-Help Remove-AzureInternalLoadBalancer -full
 
 ## <a name="next-steps"></a>后续步骤
 
-[使用源 IP 关联配置负载均衡器分发模式](./load-balancer-distribution-mode.md)
+[使用源 IP 关联配置负载均衡器分发模式](load-balancer-distribution-mode.md)
 
-[配置负载均衡器的空闲 TCP 超时设置](./load-balancer-tcp-idle-timeout.md)
+[配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
+
+<!-- Update_Description: update meta properties, wording update -->

@@ -13,17 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 07/04/2017
-ms.date: 10/02/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: bed92edf3d5ef52f1217027a97f8eb8169e30b3b
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 3f101a87d72fd7a30096c6423e26ecb29f2243a8
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>从本地复制到 Azure 时的 Azure Site Recovery 支持矩阵
 
 本文汇总了复制和恢复到 Azure 时 Azure Site Recovery 支持的配置和组件。 有关 Azure Site Recovery 要求的详细信息，请参阅[先决条件](site-recovery-prereq.md)。
+
+> [!NOTE]
+> 请务必更新到最新版 Site Recovery 提供程序和代理，与支持矩阵中的更新相兼容。
 
 ## <a name="support-for-deployment-options"></a>部署选项支持
 
@@ -44,7 +47,7 @@ ms.lasthandoff: 09/28/2017
 
   >[!Note]
   > 目前不支持混合使用 Windows Server 2016 和 2012 R2 主机的 System Center Virtual Machine Manager 2016 云。
-
+  > 当前不支持包括现有 SCVMM 2012 R2 至 2016 升级的配置。
 ### <a name="host-servers"></a>主机服务器
 
 **部署** | **支持**
@@ -223,4 +226,4 @@ HUB | 是 | 是
 ## <a name="next-steps"></a>后续步骤
 [检查先决条件](site-recovery-prereq.md)
 
-<!--Update_Description: update meta properties， wording update-->
+<!--Update_Description: wording update-->

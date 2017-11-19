@@ -5,17 +5,17 @@ services: hdinsight
 keywords: "windows 上的 hadoop,适用于 windows 的 hadoop"
 author: cjgronlund
 manager: jhubbard
-ms.author: v-dazen
+ms.author: v-yiso
 origin.date: 05/17/2017
-ms.date: 07/24/2017
+ms.date: 11/27/2017
 ms.topic: article
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: b497cc9a5d0cbb5903bdd04c47b712202a3de3cb
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: c17633c7484bd88fee85369fd74b586ee8ea9f03
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>使用 Windows 电脑在 HDInsight 上的 Hadoop 生态系统中工作
 
@@ -87,6 +87,6 @@ HDInsight 中的 Apache Spark 群集包含可与 Jupyter Notebook 配合使用�
 * 使用 **[MobaXTerm](http://mobaxterm.mobatek.net/)** 可以通过 SSH 连接以图形方式浏览群集文件系统。
 
 ## <a name="next-steps"></a>后续步骤
-如果你不太熟悉如何在基于 Linux 的群集中操作，请参阅以下文章：
-* [设置 Hadoop、Spark 或其他群集](hdinsight-hadoop-provision-linux-clusters.md)
+如果不太熟悉如何在基于 Linux 的群集中操作，请参阅以下文章：
+* [设置 Hadoop、Kafka、Spark 或其他群集](hdinsight-hadoop-provision-linux-clusters.md)
 * [有关 Linux 上的 HDInsight 群集的提示](hdinsight-hadoop-linux-information.md)

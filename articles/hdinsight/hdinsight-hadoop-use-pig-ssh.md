@@ -1,6 +1,6 @@
 ---
 title: "在 HDInsight 群集上将 Hadoop Pig 与 SSH 配合使用 - Azure | Azure"
-description: "了解如何使用 SSH 连接到基于 Linux 的 Hadoop 群集，然后使用 Pig 命令以交互方式或以批处理作业形式运行 Pig Latin 语句。"
+description: "了解如何使用 SSH 连接到基于 Linux 的 Hadoop 群集，并使用 Pig 命令以交互方式或以批处理作业形式运行 Pig Latin 语句。"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 5e26c612f51d1f23e6c4fea956c8fa471adbb99b
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 10/03/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: 830067cca6b13e48ffd80b65c8a5a728eff271b1
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>使用 Pig 命令 (SSH) 在基于 Linux 的群集上运行 Pig 作业
 
@@ -130,8 +130,7 @@ ms.lasthandoff: 07/28/2017
 
 有关使用 HDInsight 上 Hadoop 的其他方式的详细信息，请参阅以下文档：
 
-* 
-            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
 
 <!--Update_Description: update meta data-->

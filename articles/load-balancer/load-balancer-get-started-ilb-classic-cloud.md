@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 07/31/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 173bfe429ba9054c69508bf7c0e446f96e27b8e0
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: a15b77fa7dce8f1ccf1074d478867eb927720549
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>开始为云服务创建内部负载均衡器（经典）
 
@@ -98,4 +98,4 @@ ms.lasthandoff: 07/28/2017
 
 [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->

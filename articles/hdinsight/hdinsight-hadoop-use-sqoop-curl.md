@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/25/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: cf3fd43f39fc69f487870280eac97eee646d4c69
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 09/22/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: f5a67257da5b303e1f9b2f807320ab38fcb5c17f
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>使用 Curl 在 HDInsight 中的 Hadoop 上运行 Sqoop 作业
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
@@ -38,9 +38,9 @@ ms.lasthandoff: 09/12/2017
 ## <a name="prerequisites"></a>先决条件
 要完成本文中的步骤，需要：
 
-* HDInsight 群集上的 Hadoop（基于 Linux 或 Windows）
-* [Curl](http://curl.haxx.se/)
-* [jq](http://stedolan.github.io/jq/)
+* 完成[在 HDInsight 中将 Sqoop 与 Hadoop 配合使用](./hdinsight-use-sqoop.md#create-cluster-and-sql-database)，配置具有 HDInsight 群集和 Azure SQL 数据库的环境。
+* [Curl](http://curl.haxx.se/). Curl 是一种将数据传入或传出 HDInsight 群集的工具。
+* [jq](http://stedolan.github.io/jq/). jq 实用工具用于处理从 REST 请求返回的 JSON 数据。
 
 ## <a name="submit-sqoop-jobs-by-using-curl"></a>使用 Curl 提交 Sqoop 作业
 > [!NOTE]
@@ -54,21 +54,27 @@ ms.lasthandoff: 09/12/2017
 
 1. 在命令行中，使用以下命令验证你是否可以连接到 HDInsight 群集。
 
-        curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
+    ```bash   
+    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    ```
 
     应会收到类似于下面的响应：
 
-        {"status":"ok","version":"v1"}
-
+    ```json   
+    {"status":"ok","version":"v1"}
+    ```
+   
     此命令中使用的参数如下：
 
    * **-u** - 用来对请求进行身份验证的用户名和密码。
    * **-G** - 指出这是 GET 请求。
 
-     所有请求的 URL 开头都是 https://CLUSTERNAME.azurehdinsight.cn/templeton/v1。 路径 **/status** 指示请求会返回服务器的 WebHCat（也称为 Templeton）状态。 
+     所有请求的 URL 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**。 路径 **/status** 指示请求会返回服务器的 WebHCat（也称为 Templeton）状态。 
 2. 使用以下命令 sqoop 作业：
 
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.chinacloudapi.cn;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /tutorials/usesqoop/data --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/sqoop
+    ```bash
+    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.windows.net;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /example/data/sample.log --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasb:///example/data/sqoop/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/sqoop
+    ```
 
     此命令中使用的参数如下：
 
@@ -80,15 +86,17 @@ ms.lasthandoff: 09/12/2017
 
         * **statusdir** - 此作业的状态要写入到的目录。
 
-    此命令应会返回可用来检查作业状态的作业 ID。
+    此命令应会返回可用于检查作业状态的作业 ID。
 
-    ```
-    {"id":"job_1415651640909_0026"}
-    ```
+        ```json
+        {"id":"job_1415651640909_0026"}
+        ```
 
 1. 若要检查作业的状态，请使用以下命令。 将“JOBID”替换为上一步骤返回的值。 例如，如果返回值为 `{"id":"job_1415651640909_0026"}`，则 **JOBID** 将是 `job_1415651640909_0026`。
 
+    ```bash
         curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/jobs/JOBID | jq .status.state
+    ```
 
     如果作业已完成，状态将是 **SUCCEEDED**。
 
@@ -96,20 +104,9 @@ ms.lasthandoff: 09/12/2017
    > 此 Curl 请求返回具有作业相关信息的 JavaScript 对象表示法 (JSON) 文档；使用 jq 可以仅检索状态值。
    > 
    > 
-2. 在作业的状态更改为“SUCCEEDED”后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中，位置为 wasb:///example/curl。 此地址会将作业的输出存储在 HDInsight 群集所用的默认存储容器的 **example/curl** 目录中。
-
-    可以使用 [Azure CLI](../cli-install-nodejs.md) 列出并下载这些文件。 例如，若要列出 **example/curl**中的文件，请使用以下命令：
-
-        azure storage blob list <container-name> example/curl
-
-    若要下载文件，请使用以下命令：
-
-        azure storage blob download <container-name> <blob-name> <destination-file>
-
-   > [!NOTE]
-   > 必须使用 `-a` 和 `-k` 参数指定包含 blob 的存储帐户名称，或者设置 AZURE\_STORAGE\_ACCOUNT 和 AZURE\_STORAGE\_ACCESS\_KEY 环境变量。 请参阅 <a href="hdinsight-upload-data.md" target="_blank" 了解详细信息。
-   > 
-   > 
+4. 在作业的状态更改为“SUCCEEDED”后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中，位置为 wasb:///example/data/sqoop/curl。 此地址会将作业的输出存储在 HDInsight 群集所用的默认存储容器的 example/data/sqoop/curl 目录中。
+   
+    可使用 Azure 门户访问 stderr 和 stdout blob。  还可使用 Microsoft SQL Server Management Studio 检查上传到 log4jlogs 表的数据。
 
 ## <a name="limitations"></a>限制
 * 批量导出 - 在基于 Linux 的 HDInsight 上，用于将数据导出到 Microsoft SQL Server 或 Azure SQL 数据库的 Sqoop 连接器目前不支持批量插入。
@@ -131,24 +128,12 @@ ms.lasthandoff: 09/12/2017
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
 
-[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
+涉及 curl 的其他 HDInsight 文章:
+ 
+* [使用 Azure REST API 创建 Hadoop 群集](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
+* [使用 REST 在 HDInsight 中通过 Hadoop 运行 Hive 查询](hdinsight-hadoop-use-hive-curl.md)
+* [使用 REST 在 HDInsight 上通过 Hadoop 运行 MapReduce 作业](hdinsight-hadoop-use-mapreduce-curl.md)
+* [使用 cURL 通过HDInsight 上的 Hadoop 运行 Pig 作业](hdinsight-hadoop-use-pig-curl.md)
 
-[azure-purchase-options]: https://www.azure.cn/pricing/overview/
-[azure-member-offers]: https://www.azure.cn/pricing/member-offers/
-[azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: /hdinsight/hdinsight-connect-excel-power-query/
 
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-<!--Update_Description: change 'wasbs' into 'wasb'-->

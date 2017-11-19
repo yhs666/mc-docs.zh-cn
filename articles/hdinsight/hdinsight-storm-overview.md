@@ -16,13 +16,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/03/2017
-ms.date: 09/18/2017
+ms.date: 11/27/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 16ad551cdf11cbd695973c6a036f0cad67adec7b
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+ms.openlocfilehash: e2e46d2664ed6bff91cdb531a675d62628cef372
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什么是 Azure HDInsight 上的 Apache Storm？
 
@@ -56,7 +56,7 @@ Storm on HDInsight 具有下述重要优势：
 
     * Azure Cosmos DB
 
-* 使用虚拟网络，将多个 HDInsight 群集的功能安全地组合在一起。 可以创建使用 Storm、Spark、HBase 或 Hadoop 群集的分析管道。
+* 使用虚拟网络，将多个 HDInsight 群集的功能安全地组合在一起。 可以创建使用 Storm、Kafka、Spark、HBase 或 Hadoop 群集的分析管道。
 
 有关在实时分析解决方案中使用 Apache Storm 的公司的列表，请参阅[使用 Apache Storm 的公司](https://storm.apache.org/documentation/Powered-By.html)。
 
@@ -70,7 +70,7 @@ Storm 运行的是拓扑，而不是你可能熟悉的 MapReduce 作业。 Storm
 
 * Spout 组件将数据引入拓扑。 它们将一个或多个流发出到拓扑中。
 
-* Bolt 组件使用 Spout 或其他 Bolt 发出的流。 Bolt 可以选择性地将流发出到拓扑中。 Bolt 还负责将数据写入 HDFS 或 HBase 等外部服务或存储。
+* Bolt 组件使用 Spout 或其他 Bolt 发出的流。 Bolt 可以选择性地将流发出到拓扑中。 Bolt 还负责将数据写入 HDFS、Kafka 或 HBase 等外部服务或存储。
 
 ## <a name="ease-of-creation"></a>容易创建
 

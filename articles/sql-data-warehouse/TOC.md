@@ -8,9 +8,9 @@
 # 入门
 
 ## [初级教程](sql-data-warehouse-get-started-tutorial.md)
+## [弹性查询教程](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [最佳实践](sql-data-warehouse-best-practices.md)
 ## [管理](sql-data-warehouse-overview-manage.md)
-
 
 # 如何
 
@@ -19,7 +19,7 @@
 ### [备份概述](sql-data-warehouse-backups.md)
 ### [还原概述](sql-data-warehouse-restore-database-overview.md)
 #### [Azure 门户](sql-data-warehouse-restore-database-portal.md)
-#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## 连接
@@ -33,7 +33,7 @@
 
 ## 创建
 ### [Azure 门户](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## 开发
@@ -78,6 +78,8 @@
 <!-- Not Available ### [Power BI](sql-data-warehouse-integrate-power-bi.md)-->
 <!-- Not Available ### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)-->
 ### [流分析](sql-data-warehouse-integrate-azure-stream-analytics.md)
+
+### [将弹性查询与 SQL 数据库和 SQL 数据仓库配合使用](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## 加载
 
@@ -146,11 +148,10 @@
 
 # 资源
 
-## [论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
-## [定价](https://www.azure.cn/pricing/details/sql-data-warehouse/)
+## [价格](https://www.azure.cn/pricing/details/sql-data-warehouse/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [服务更新](https://www.azure.cn/what-is-new/)
-## [堆栈溢出](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse) -->
 <!-- Not Available ## [Videos](https://www.azure.cn/documentation/videos/index/?services=sql-data-warehouse)-->
 <!-- Not Available ## Partners -->

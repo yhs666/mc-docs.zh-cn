@@ -16,13 +16,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/03/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 2cd06b107e54e238cbc9654047a930dd2d47f817
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: 1a4b86b54c1822ee35eb4f15f0f2cb6f7296cb55
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>什么是 Azure HDInsight 中的 Apache Hive 和 HiveQL？
 
@@ -32,7 +32,7 @@ Hive 允许在很大程度上未结构化的数据上投影结构。 定义结�
 
 HDInsight 提供了已针对特定工作负荷进行了优化的多种群集类型。 以下群集类型最常用于 Hive 查询：
 
-* __交互式 Hive__：提供[低延迟分析处理 (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 功能的 Hadoop 群集，可改善交互式查询的响应时间。 有关详细信息，请参阅 [HDInsight 中的交互式 Hive 入门](hdinsight-hadoop-use-interactive-hive.md)文档。
+* __交互式查询__：提供[低延迟分析处理 (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 功能的 Hadoop 群集，可改善交互式查询的响应时间。 有关详细信息，请参阅 [HDInsight 中的交互式查询入门](hdinsight-hadoop-use-interactive-hive.md)文档。
 
 * __Hadoop__：针对批处理工作负荷进行优化的 Hadoop 群集。 有关详细信息，请参阅 [HDInsight 中的 Hadoop 入门](hdinsight-hadoop-linux-tutorial-get-started.md)文档。
 
@@ -194,7 +194,7 @@ Hive on HDInsight 中预先加载了名为 `hivesampletable` 的内部表。 HDI
 
 [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP)（有时称为 Live Long and Process）是 Hive 2.0 中的一项新功能，可对查询进行内存中缓存。 LLAP 能够大幅加快 Hive 查询的速度，[在某些情况下，速度比 Hive 1.x 要快 2.6 倍](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/)。
 
-HDInsight 在交互式 Hive 群集类型中提供 LLAP。 有关详细信息，请参阅[交互式 Hive 入门](hdinsight-hadoop-use-interactive-hive.md)文档。
+HDInsight 在交互式查询群集类型中提供 LLAP。 有关详细信息，请参阅[交互式查询入门](hdinsight-hadoop-use-interactive-hive.md)文档。
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 

@@ -13,31 +13,32 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 03/03/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6c5c0c5fec205182932f38706024631137a2a169
-ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.openlocfilehash: 38f4075b7b5623797fb8db3e5906b5df7c6296db
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>开始为云服务创建面向 Internet 的负载均衡器
+
 > [!div class="op_single_selector"]
->- [Azure 经典管理门户](./load-balancer-get-started-internet-classic-portal.md)
->- [PowerShell](./load-balancer-get-started-internet-classic-ps.md)
->- [Azure CLI](./load-balancer-get-started-internet-classic-cli.md)
->- [Azure 云服务](./load-balancer-get-started-internet-classic-cloud.md)
+> * [Azure 经典管理门户](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure 云服务](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> 在使用 Azure 资源之前，请务必了解 Azure 当前使用两种部署模型：Azure Resource Manager 部署模型和经典部署模型。 在使用任何 Azure 资源之前，请确保了解 [部署模型和工具](../azure-classic-rm.md) 。 可以通过单击本文顶部的选项卡来查看不同工具的文档。 本文介绍经典部署模型。 还可以[了解如何使用 Azure Resource Manager 创建面向 Internet 的负载均衡器](./load-balancer-get-started-internet-arm-ps.md)。
+> 在使用 Azure 资源之前，请务必了解 Azure 当前使用两种部署模型：Azure Resource Manager 部署模型和经典部署模型。 在使用任何 Azure 资源之前，请确保了解 [部署模型和工具](../azure-classic-rm.md) 。 可以通过单击本文顶部的选项卡来查看不同工具的文档。 本文介绍经典部署模型。 还可以[了解如何使用 Azure Resource Manager 创建面向 Internet 的负载均衡器](load-balancer-get-started-internet-arm-ps.md)。
 
-将自动为云服务配置负载均衡器，并可以通过服务模型自定义云服务。
+自动为云服务配置负载均衡器，并可以通过服务模型自定义云服务。
 
 ## <a name="create-a-load-balancer-using-the-service-definition-file"></a>使用服务定义文件创建负载均衡器
 
-你可以利用用于 .NET 2.5 的 Azure SDK 来更新云服务。 云服务的终结点设置在 [服务定义](https://msdn.microsoft.com/zh-cn/library/azure/gg557553.aspx) .csdef 文件中进行。
+可以利用用于 .NET 2.5 的 Azure SDK 来更新云服务。 云服务的终结点设置在 [服务定义](https://msdn.microsoft.com/library/azure/gg557553.aspx) .csdef 文件中进行。
 
 下面的示例演示如何配置云部署的 servicedefinition.csdef 文件：
 
@@ -79,14 +80,16 @@ ms.lasthandoff: 06/26/2017
 
 该服务通过同一 IP 地址检测定期探测。 这是来自正在运行虚拟机的节点主机的运行状况探测请求。 该服务必须对负载均衡器以 HTTP 200 状态代码进行响应，以假设该服务处于正常状态。 任何其他 HTTP 状态代码（例如 503）会直接将虚拟机从轮转列表中删除。
 
-探测器定义还控制探测的频率。 在上面的示例中，负载均衡器每隔 5 秒探测一次终结点。 如果在 10 秒（两个探测时间间隔）内未收到肯定应答，则认为探测器关闭，并且虚拟机将从轮转列表中删除。 同样，如果该服务已退出轮转列表并且收到肯定应答，则该服务将立即回到轮转列表。 如果该服务在正常和不正常之间波动，负载均衡器可以决定推迟将该服务重新引入到轮转列表，直到多次探测的结果为正常。
+探测器定义还控制探测的频率。 在上面的示例中，负载均衡器每隔 5 秒探测一次终结点。 如果在 10 秒（两个探测时间间隔）内未收到肯定应答，则认为探测器关闭，并且虚拟机将从轮转列表中删除。 同样，如果该服务已退出轮转列表并且收到肯定应答，则该服务立即回到轮转列表。 如果该服务在正常和不正常之间波动，负载均衡器可以决定推迟将该服务重新引入到轮转列表，直到多次探测的结果为正常。
 
-有关详细信息，请查看 [运行状况探测](https://msdn.microsoft.com/zh-cn/library/azure/jj151530.aspx) 的服务定义架构。
+有关详细信息，请查看 [运行状况探测](https://msdn.microsoft.com/library/azure/jj151530.aspx) 的服务定义架构。
 
 ## <a name="next-steps"></a>后续步骤
 
-[开始配置内部负载均衡器](./load-balancer-get-started-ilb-arm-ps.md)
+[开始配置内部负载均衡器](load-balancer-get-started-ilb-arm-ps.md)
 
-[配置负载均衡器分发模式](./load-balancer-distribution-mode.md)
+[配置负载均衡器分发模式](load-balancer-distribution-mode.md)
 
-[配置负载均衡器的空闲 TCP 超时设置](./load-balancer-tcp-idle-timeout.md)
+[配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
+
+<!-- Update_Description: update meta properties, wording update -->

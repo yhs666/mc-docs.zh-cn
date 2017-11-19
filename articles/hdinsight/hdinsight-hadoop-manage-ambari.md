@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/31/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 3824cee09098e2117c1f6d69924727fb1acc3164
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 10/11/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: 0f03e542edd1c65be76ac829cd39d527d5f8e4f6
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>使用 Ambari Web UI 管理 HDInsight 群集
 
@@ -52,6 +52,9 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 尽管可以直接通过 Internet 访问群集的 Ambari，但 Ambari Web UI 中的某些链接（例如 JobTracker 的链接）并未在 Internet 上公开。 若要访问这些服务，必须创建一个 SSH 隧道。 有关详细信息，请参阅[将 SSH 隧道与 HDInsight 配合使用](hdinsight-linux-ambari-ssh-tunnel.md)。
 
 ## <a name="ambari-web-ui"></a>Ambari Web UI
+
+> [!WARNING]
+> 并非 Ambari Web UI 的所有功能都受 HDInsight 支持。 有关详细信息，请参阅本文档的[不受支持操作](#unsupported-operations)部分。
 
 连接到 Ambari Web UI 时，系统会提示用户向该页进行身份验证。 请使用在创建群集过程中你使用的群集管理员用户（默认 Admin）和密码。
 
@@ -147,6 +150,13 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
 ## <a name="management"></a>管理
 
+### <a name="ambari-users-groups-and-permissions"></a>Ambari 用户、组和权限
+
+使用[已加入域](hdinsight-domain-joined-introduction.md)的 HDInsight 群集时，支持使用用户、组和权限。 若要深入了解如何在已加入域的群集上使用 Ambari 管理 UI，请参阅[管理已加入域的 HDInsight 群集](hdinsight-domain-joined-introduction.md)。
+
+> [!WARNING]
+> 不要在基于 Linux 的 HDInsight 群集上更改 Ambari 监视程序 (hdinsightwatchdog) 的密码。 更改密码将导致无法通过群集使用脚本操作或执行缩放操作。
+
 ### <a name="hosts"></a>主机
 
 “主机”页面列出群集中的所有主机。 若要管理主机，请遵循以下步骤。
@@ -232,4 +242,13 @@ Ambari 视图允许开发人员使用 [Ambari 视图框架](https://cwiki.apache
 * Hive 视图：Hive 视图允许用户直接从 Web 浏览器运行 Hive 查询。 可保存查询、查看结果、将结果保存到群集存储中或将结果下载到本地系统。 有关使用 Hive 视图的详细信息，请参阅[将 Hive 视图与 HDInsight 配合使用](hdinsight-hadoop-use-hive-ambari-view.md)。
 
 * Tez 视图：使用 Tez 视图可以更好地理解和优化作业。 可以查看与 Tez 作业的执行情况以及使用了哪些资源有关的信息。
-<!--Update_Description: update metadata-->
+
+## <a name="unsupported-operations"></a>不受支持操作
+
+HDInsight 上不支持以下 Ambari 操作：
+
+* 移动指标收集器服务。 查看指标收集器服务上的信息时，“服务操作”菜单中的一个可用操作是移动指标收集器。 HDInsight 不支持此操作。
+
+## <a name="next-steps"></a>后续步骤
+
+了解如何将 [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) 与 HDInsight 配合使用。

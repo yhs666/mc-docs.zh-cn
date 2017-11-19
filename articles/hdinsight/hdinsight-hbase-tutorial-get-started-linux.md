@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: f3e30edcc99e60d0028d38699e18de35925bdf71
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: bff22c8f1f67472dcff994128dd0672238d43fb0
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight 中的 Apache HBase 入门示例
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 09/12/2017
 * [curl](http://curl.haxx.se/download.html)。
 
 ## <a name="create-hbase-cluster"></a>创建 HBase 群集
-以下过程使用 Azure Resource Manager 模板创建 3.5 版基于 Linux 的 HBase 群集和从属默认 Azure 存储帐户。 若要了解该过程与其他群集创建方法中使用的参数，请参阅 [在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
+以下过程使用 Azure Resource Manager 模板创建 3.4 版基于 Linux 的 HBase 群集和从属默认 Azure 存储帐户。 若要了解该过程与其他群集创建方法中使用的参数，请参阅 [在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 1. 单击下面的图像可在 Azure 门户中打开模板。 模板位于公共 blob 容器中。 
 
@@ -58,10 +58,10 @@ ms.lasthandoff: 09/12/2017
      其他参数是可选的。  
 
      每个群集都有一个 Azure 存储帐户依赖项。 删除群集后，数据将保留在存储帐户中。 群集的默认存储帐户名为群集名称后接“store”。 该名称已在模板 variables 节中硬编码。
-3. 单击“法律条款”，然后单击“购买”。 确认已选中“固定到仪表板”复选框，并单击“创建”。
+3. 选择“我同意上述条款和条件”，并单击“购买”。 创建群集大约需要 20 分钟时间。
 
 > [!NOTE]
-> 删除 HBase 群集后，可使用同一默认 Blob 容器创建另一 HBase 群集。 新群集会选取在原始群集中创建的 HBase 表。 为了避免不一致，建议在删除群集之前先禁用 HBase 表。
+> 在删除 HBase 群集后，可以通过使用相同的默认 Blob 容器创建另一个 HBase 群集。 新群集会选取在原始群集中创建的 HBase 表。 为了避免不一致，建议在删除群集之前先禁用 HBase 表。
 > 
 > 
 

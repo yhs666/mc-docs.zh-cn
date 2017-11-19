@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-origin.date: 06/29/2017
-ms.date: 10/02/2017
+origin.date: 10/06/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5dfd103f035c5e429b38c31f19303fbfe4fbc2ad
-ms.sourcegitcommit: 0a59a44bdc09a8b5801180996adfdf68131579c0
+ms.openlocfilehash: 6036f519a082e08ca1ddf466274ae82fe29ec530
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-a-configuration-server"></a>管理配置服务器
 
@@ -107,6 +107,16 @@ ProxyPassword="Password"
   >[!WARNING]
   如果已将横向扩展进程服务器附加到此配置服务器，需在部署中[修复所有横向扩展进程服务器上的代理设置](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server)。
 
+## <a name="modify-user-accounts-and-passwords"></a>修改用户帐户和密码
+
+使用 CSPSConfigTool.exe 可以管理用于“自动发现 VMware 虚拟机”的用户帐户，以及执行受保护计算机上的移动服务推送安装。 
+
+1. 登录到配置服务器。
+2. 单击桌面上的快捷方式启动 CSPSConfigtool.exe。
+3. 单击“管理帐户”选项卡。
+4. 选择需要修改其密码的帐户，单击“编辑”按钮。
+5. 输入新密码，单击“确定”
+
 ## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>将配置服务器重新注册到同一个恢复服务保管库
   1. 登录到配置服务器。
   2. 使用桌面上的快捷方式启动 cspsconfigtool.exe。
@@ -128,13 +138,17 @@ ProxyPassword="Password"
   如果已将横向扩展进程服务器附加到此配置服务器，需在部署中[重新注册所有横向扩展进程服务器](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server)。
 
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>将配置服务器注册到不同的恢复服务保管库。
+
+> [!WARNING]
+> 以下步骤在当前保管库中取消关联配置，并停止配置服务器下所有受保护虚拟机的复制。
+
 1. 登录到配置服务器。
 2. 在管理员命令提示符下，运行以下命令
 
-```
-reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-net stop dra
-```
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
 3. 使用桌面上的快捷方式启动 cspsconfigtool.exe。
 4. 单击“保管库注册”  选项卡。
 5. 从门户下载新的注册文件，并将其作为输入提供给该工具。
@@ -150,11 +164,23 @@ net stop dra
     net start obengine
     ```
 
-## <a name="decommissioning-a-configuration-server"></a>解除配置服务器
-在开始解除配置服务器之前，请务必执行以下操作。
-1. 禁用针对此配置服务器下的所有虚拟机的保护。
-2. 从配置服务器中取消关联所有复制策略。
-3. 删除所有与配置服务器关联的 vCenter 服务器/vSphere 主机。
+## <a name="upgrading-a-configuration-server"></a>升级配置服务器
+
+> [!WARNING]
+> 最多仅支持更新到之后的第 4 个版本。 例如，如果市场中的最新版本为 9.11，则可以从版本 9.10、9.9、9.8 或 9.7 直接更新到 9.11。 但是，如果所用版本小于或等于 9.6，则需要至少先更新为 9.7，然后才能将最新更新应用到配置服务器。 以前版本的下载链接可在 [Azure Site Recovery 服务更新](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)下找到
+
+1. 将更新安装程序下载到配置服务器上。
+2. 双击该安装程序以启动安装程序。
+3. 该安装程序检测计算机上的 Site Recovery 组件版本并提示进行确认。 
+4. 单击“确定”按钮以提供确认并继续进行升级。
+
+## <a name="delete-or-unregister-a-configuration-server"></a>删除或取消注册配置服务器
+
+> [!WARNING]
+> 在开始解除配置服务器之前，请务必执行以下操作。
+> 1. 针对此配置服务器下的所有虚拟机[禁用保护](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)。
+> 2. 从配置服务器中[取消关联](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy)和[删除](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy)所有复制策略。
+> 3. [删除](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery)所有与配置服务器关联的 vCenters 服务器/vSphere 主机。
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>从 Azure 门户中删除配置服务器
 1. 在 Azure 门户中，从“保管库”菜单浏览到“Site Recovery 基础结构” > “配置服务器”。
@@ -163,9 +189,6 @@ net stop dra
 
   ![delete-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
 4. 单击“是”确认删除该服务器。
-
-  >[!WARNING]
-  如果有任何虚拟机、复制策略或 vCenter 服务器/vSphere 主机与此配置服务器关联，则无法删除此服务器。 请先删除这些实体，再尝试删除保管库。
 
 ### <a name="uninstall-the-configuration-server-software-and-its-dependencies"></a>卸载配置服务器软件及其依赖项
 > [!TIP]
@@ -180,10 +203,35 @@ net stop dra
   * Azure Site Recovery 配置服务器/进程服务器
   * Azure Site Recovery 配置服务器依赖项
   * MySQL Server 5.5
-4. 在管理员命令提示窗口中运行以下命令。
+4. 在管理员命令提示符下运行以下命令。
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
   ```
+
+## <a name="delete-or-unregister-a-configuration-server-powershell"></a>删除或取消注册配置服务器 (PowerShell)
+
+1. [安装](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模块
+2. 使用命令登录到 Azure 帐户
+
+    `Login-AzureRmAccount -EnvironmentName AzureChinaCloud`
+3. 选择其下存在保管库的订阅
+
+     `Get-AzureRmSubscription -SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+3.  现在设置保管库上下文
+
+    ```
+    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
+    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    ```
+4. 选择配置服务器
+
+    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+6. 删除配置服务器
+
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+
+> [!NOTE]
+> Remove-AzureRmSiteRecoveryFabric 中的 -Force 选项可用于强制执行删除配置服务器。
 
 ## <a name="renew-configuration-server-secure-socket-layerssl-certificates"></a>续订配置服务器安全套接字层 (SSL) 证书
 配置服务器具有一个内置的 Web 服务器，该服务器协调连接到配置服务器的移动服务、进程服务器和主目标服务器的活动。 配置服务器的 Web 服务器使用 SSL 证书对其客户端进行身份验证。 此证书在三年后过期，随时可使用以下方法续订：
@@ -211,7 +259,17 @@ net stop dra
   ![certificate-details](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-expiry-details.png)
 
   >[!TIP]
-  如果未出现“立即续订”按钮，则会出现“立即升级”按钮。 这表示环境中有些组件尚未升级到 9.4.xxxx.x 或更高版本。
+  > 如果未出现“立即续订”按钮，则会出现“立即升级”按钮。 “立即升级”按钮表示环境中有些组件尚未升级到 9.4.xxxx.x 或更高版本。
+
+## <a name="revive-a-configuration-server-if-the-secure-socket-layer-ssl-certificate-expired"></a>如果安全套接字层 (SSL) 证书已过期，请续订配置服务器
+
+1. 将配置服务器更新到[最新版本](http://aka.ms/unifiedinstaller)
+2. 如果有任何横向扩展进程服务器、故障回复主目标服务器或故障回复进程服务器，请将其更新到最新版本
+3. 将所有受保护虚拟机上的移动服务更新到最新版本。
+4. 登录到配置服务器，并使用管理员特权打开命令提示符。
+5. 浏览到文件夹 %ProgramData%\ASR\home\svsystems\bin
+6. 运行 RenewCerts.exe，续订配置文件服务器上的 SSL 证书。
+7. 如果该过程成功，应会看到消息“证书续订成功”
 
 ## <a name="sizing-requirements-for-a-configuration-server"></a>配置服务器大小要求
 

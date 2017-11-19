@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/12/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 7377851d6288a0870ccba8371a24a0cdc018437c
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 10/04/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: 3fa00f560df6b2cf712cc6ebe63b75bcd57650ab
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>将基于 Windows 的 HDInsight 的 .NET 解决方案迁移到基于 Linux 的 HDInsight
 
@@ -55,7 +55,7 @@ Mono 版本 4.2.1 包含在 HDInsight 版本 3.5 中。 有关包含在 HDInsigh
     ![可移植性分析器结果对话框](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
 > [!IMPORTANT]
-> 分析器无法捕获解决方案的每个问题。 例如，`c:\temp\file.txt` 的文件路径被视为没有问题，因为 Mono 在 Windows 上运行，而该路径在这种上下文中有效。 但是，该路径在 Linux 平台上无效。
+> 分析器无法捕获解决方案的每个问题。 例如，如果 Mono 在 Windows 上运行，文件路径 `c:\temp\file.txt` 视为有效。 同一路径在 Linux 平台上无效。
 
 ## <a name="manual-portability-analysis"></a>手动可移植性分析
 

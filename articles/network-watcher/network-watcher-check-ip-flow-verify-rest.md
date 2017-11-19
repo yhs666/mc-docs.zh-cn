@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9a1fcedaf0540aae2851bb3c6b8febf93f0ab641
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.openlocfilehash: 7438a987d56c210d8209ee4c26adcad8087e37a8
+ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>使用 Azure 网络观察程序的组件（即“IP 流验证”功能）检查是允许还是拒绝流量
 
@@ -51,7 +51,7 @@ ARMclient 用于使用 PowerShell 调用 REST API。 根据 [Chocolatey 上的 A
 ## <a name="log-in-with-armclient"></a>使用 ARMClient 登录
 
 ```PowerShell
-armclient login
+armclient login "MOONCAKE"
 ```
 
 ## <a name="retrieve-a-virtual-machine"></a>检索虚拟机

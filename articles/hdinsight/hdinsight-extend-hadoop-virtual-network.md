@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/23/2017
-ms.date: 10/23/2017
+origin.date: 09/21/2017
+ms.date: 11/27/2017
 ms.author: v-yiso
-ms.openlocfilehash: 640b8b9e2dff3cc047f80606a4bd92a5d9e93d76
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 4868dddd67d1f7d17c4d7ba4ee50ed6115efac8f
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -34,6 +34,9 @@ ms.lasthandoff: 10/13/2017
 
 > [!WARNING]
 > 本文档中的信息要求你了解 TCP/IP 网络。 如果不熟悉 TCP/IP 网络，则应在修改生产网络之前，与熟悉 TCP/IP 网络的人合作。
+
+> [!IMPORTANT]
+> 如果正在查找有关如何使用 Azure 虚拟网络将 HDInsight 连接到本地网络的分步指南，请参阅[将 HDInsight 连接到本地网络](connect-on-premises-network.md)文档。
 
 ## <a name="planning"></a>规划
 
@@ -328,7 +331,7 @@ HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必
 
 以下资源管理模板创建一个虚拟网络，该网络限制入站流量，但允许来自 HDInsight 所需的 IP 地址的流量。 该模板还在虚拟网络中创建 HDInsight 群集。
 
-* [部署安全的 Azure 虚拟网络和 HDInsight Hadoop 群集](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-secure-vnet/)
+* [部署安全的 Azure 虚拟网络和 HDInsight Hadoop 群集](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 > [!IMPORTANT]
 > 更改此示例中使用的 IP 地址，使之与要使用的 Azure 区域匹配。 有关此方面的信息，可参阅 [HDInsight 与网络安全组和用户定义路由](#hdinsight-ip)部分。
@@ -671,7 +674,8 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 ## <a name="next-steps"></a>后续步骤
 
 * 如需通过端到端示例来了解如何将 HDInsight 配置为连接到本地网络，请参阅[将 HDInsight 连接到本地网络](./connect-on-premises-network.md)。
-
+* 要了解如何在 Azure 虚拟网络中配置 Hbase 群集，请参阅[在 Azure 虚拟网络中的 HDInsight 上创建 HBase 群集](./hdinsight-hbase-provision-vnet.md)。
+* 要了解如何配置 HBase 异地复制，请参阅[在 Azure 虚拟网络中设置 HBase 群集复制](./hdinsight-hbase-replication.md)。
 * 有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
 
 * 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/virtual-networks-nsg.md)。

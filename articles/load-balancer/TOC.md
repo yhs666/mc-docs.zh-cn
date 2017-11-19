@@ -1,8 +1,10 @@
 # 概述
 ## [什么是负载均衡器？](load-balancer-overview.md)
+<!-- Not Available ## [What is Load Balancer Standard?](load-balancer-standard-overview.md)-->
 ## [内部负载均衡器](load-balancer-internet-overview.md)
 ## [Internal Load Balancer（内部负载均衡器）](load-balancer-internal-overview.md)
 ## [了解负载均衡器探测](load-balancer-custom-probe-overview.md)
+<!-- Not Available ## [Understand High Availability Ports](load-balancer-ha-ports-overview.md)-->
 ## [Azure Resource Manager 支持](load-balancer-arm.md)
 <!-- Not Available ## [IPv6 support](load-balancer-ipv6-overview.md)-->
 ## [多个 VIP](load-balancer-multivip-overview.md)
@@ -24,14 +26,16 @@
 ### [配置面向 Internet 的负载均衡器 (CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [配置面向 Internet 的负载均衡器（模板）](load-balancer-get-started-internet-arm-template.md)
 
-## [配置面向 Internet 的负载均衡器（经典管理门户）](load-balancer-get-started-internet-classic-portal.md)
+## [配置面向 Internet 的负载均衡器 - （经典 PowerShell）](load-balancer-get-started-internet-classic-ps.md)
 ### [配置面向 Internet 的负载均衡器（经典云）](load-balancer-get-started-internet-classic-cloud.md)
-### [配置面向 Internet 的负载均衡器（经典 PS）](load-balancer-get-started-internet-classic-ps.md)
 ### [配置面向 Internet 的负载均衡器（经典 CLI）](load-balancer-get-started-internet-classic-cli.md)
 
 <!-- Not Available ## [Create an Internet facing load balancer with IPv6](load-balancer-ipv6-internet-ps.md)-->
 <!-- Not Available ### [Create an Internet facing load balancer with IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)-->
 <!-- Not Available ### [Create an Internet facing load balancer with IPv6 (Template)](load-balancer-ipv6-internet-template.md)-->
+<!-- Not Available ## [Create a zone redundant Public Load Balancer Standard](load-balancer-get-started-internet-az-portal.md)-->
+<!-- Not Available ### [Create a zone redundant Public Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-powershell.md)-->
+<!-- Not Available ### [Create a zone redundant Public Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-cli.md)-->
 
 # 如何
 ## [配置负载均衡器的 TCP 空闲超时](load-balancer-tcp-idle-timeout.md)
@@ -44,13 +48,17 @@
 ### [使用多个 IP 配置 (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Azure 负载均衡器的 Log Analytics](load-balancer-monitor-log.md)
 <!-- Not Available ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)-->
+<!-- Not Available ## [Configure High Availability Ports for Internal Load Balancer](load-balancer-configure-ha-ports.md)-->
+<!-- Not Available ## [Create a public IP address in an availability zone](../virtual-network/create-public-ip-availability-zone-portal.md)-->
+<!-- Not Available ## [Create a public IP address in an availability zone (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)-->
+<!-- Not Available ## [Create a public IP address in an availability zone (CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)-->
 ## 故障排除
 ### [对 Azure 负载均衡器进行故障排除](load-balancer-troubleshoot.md)
 
 # 引用
-## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network)
-## [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/network/lb?view=azure-cli-latest)
-## [.NET](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.azure.management.network.models)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/network/lb?view=azure-cli-latest)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
@@ -72,3 +80,4 @@
 ## [服务更新](https://www.azure.cn/what-is-new/)
 
 <!--Update_Description: wording update, update link -->
+<!-- ms.date: 11/20/2017 -->

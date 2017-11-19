@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/24/2016
-ms.date: 05/08/2017
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 56f698bf32124f4332ee5f14041f225c54fbc323
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 70c966b4d965a2685ecfe496d26e61fa7f5600b8
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Azure 负载均衡器的 Log Analytics
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 可以在 Azure 中使用不同类型的日志对负载均衡器进行管理和故障排除。 可通过门户访问其中某些日志。 可从 Azure Blob 存储提取所有日志并在 Excel 和 PowerBI 等各种工具中查看。 可从下表了解有关各种类型日志的详细信息。
 
@@ -139,7 +141,7 @@ JSON 输出在属性字段显示了探测运行状况的基本信息。 *dipDown
 需要连接到存储帐户并检索事件和运行状况探测日志的 JSON 日志项。 下载 JSON 文件后，可以将它们转换为 CSV 并在 Excel、PowerBI 或任何其他数据可视化工具中查看。
 
 > [!TIP]
-> 如果熟悉 Visual Studio 和更改 C# 中的常量和变量值的基本概念，则可以使用 Github 提供的[日志转换器工具](https://github.com/Azure-Samples/networking-dotnet-log-converter)。
+> 如果熟悉 Visual Studio 和更改 C# 中的常量和变量值的基本概念，则可以使用 GitHub 提供的[日志转换器工具](https://github.com/Azure-Samples/networking-dotnet-log-converter)。
 
 ## <a name="additional-resources"></a>其他资源
 
@@ -150,3 +152,5 @@ JSON 输出在属性字段显示了探测运行状况的基本信息。 *dipDown
 ## <a name="next-steps"></a>后续步骤
 
 [了解负载均衡器探测](load-balancer-custom-probe-overview.md)
+
+<!-- Update_Description: update meta properties, wording update -->

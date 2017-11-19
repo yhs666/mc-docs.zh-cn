@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 origin.date: 07/11/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: b7d784392f7c230a0a1379a9cf3c3ee7ac1c092a
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.openlocfilehash: a6f3348979f25f17dfcdfbeb03ba222a9cd84f79
+ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>使用 Azure CLI 2.0 通过 Azure 网络观察程序检查连接性
 
@@ -45,6 +45,8 @@ ms.lasthandoff: 11/10/2017
 ## <a name="register-the-preview-capability"></a>注册预览版功能 
 
 连接检查目前以公共预览版提供，使用此功能之前需要注册。 为此，请运行以下 CLI 示例
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli 
 az feature register --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck

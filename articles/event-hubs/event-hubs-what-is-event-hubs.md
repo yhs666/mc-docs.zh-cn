@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/28/2017
-ms.date: 07/24/2017
+origin.date: 10/05/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 59f4498f121ca81ce82c69f0a798ea6b3c3d8004
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 7be016690287f3b49133a26bee11e54639b76d7e
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-event-hubs"></a>什么是事件中心？
 
-Azure 事件中心是高度可缩放的数据流式处理平台和事件引入服务，能够每秒接收和处理数百万事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 由于能够以较低的延迟和极大的规模提供[发布订阅功能](https://msdn.microsoft.com/library/aa560414.aspx)，事件中心可以充当大数据的“入口”。
+Azure 事件中心是高度可缩放的数据流式处理平台和事件引入服务，能够每秒接收和处理数百万事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 由于能够以较低的延迟和极大的规模提供[发布订阅功能](https://docs.microsoft.com/en-us/biztalk/core/publish-and-subscribe-architecture)，事件中心可以充当大数据的“入口”。
 
 ## <a name="why-use-event-hubs"></a>为何使用事件中心？
 
@@ -67,4 +67,4 @@ Azure 事件中心是高度可缩放的数据流式处理平台和事件引入�
 * [事件中心常见问题](event-hubs-faq.md)
 * [使用事件中心的示例应用程序](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-<!--Update_Description: update meta properties, add capture description in Event Hubs features block.-->
+<!--Update_Description: update meta properties, update link -->

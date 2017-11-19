@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/26/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 8b48087927385c5112cb10a542f5534ecc6785e5
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 09/20/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: 9b5668679861d22198cd03df9720fc67f177a36a
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>在 Hadoop on HDInsight 中使用 MapReduce
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a id="whatis"></a>什么是 MapReduce
 
-Hadoop MapReduce 是一个软件框架，用于编写处理海量数据的作业。 输入数据已拆分成独立的区块，这些区块会在群集中的节点之间并行处理。 MapReduce 作业包括两个函数：
+Hadoop MapReduce 是一个软件框架，用于编写处理海量数据的作业。 输入的数据将拆分为独立的区块。 每个区块跨群集中的节点并行进行处理。 MapReduce 作业包括两个函数：
 
 * 
             **映射器**：使用输入数据，对数据进行分析（通常使用筛选器和排序操作），并发出元组（键/值对）
@@ -50,9 +50,9 @@ Hadoop MapReduce 是一个软件框架，用于编写处理海量数据的作业
 
 ![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
-此作业的输出是每个单词在所分析的文本中出现的次数。
+此作业的输出是文本中每个单词出现次数的计数。
 
-* mapper 将输入文本中的每一行作为一个输入并将其拆分为多个单词。 每当一个单词出现时，mapper 发出一个键/值对，其中在该单词后跟一个 1。 然后将输出排序，再发送到 reducer。
+* mapper 将输入文本中的每一行作为一个输入并将其拆分为多个单词。 每当一个单词出现时，mapper 发出一个键/值对，其中在该单词后跟一个 1。 输出在发送到化简器之前经过排序。
 * 随后，化简器会计算每个单词的计数的和并发出一个键/值对（包含单词，后跟该单词的总出现次数）。
 
 MapReduce 可使用多种语言实现。 Java 是最常见的实现，本文档中使用该语言进行演示。

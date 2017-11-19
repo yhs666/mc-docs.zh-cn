@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
 origin.date: 01/26/2017
-ms.date: 10/02/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8c3cffc5eb36ddc67f2525fccd7423a03cde8dfa
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 0a0503c394db9e060ddf12f8d291e314eeedb83d
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>SQL 数据仓库入门
 
@@ -140,7 +140,6 @@ SQL 数据仓库是专为大规模并行处理而设计的特殊类型的数据�
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. 现在查询 *SQL 数据仓库数据库*，根据所创建的登录名创建数据库用户，以在数据库中访问和执行操作。
@@ -661,4 +660,4 @@ SQL 数据仓库支持名为 CREATE TABLE AS SELECT (CTAS) 的关键语句。 �
 [Visual Studio]: https://www.visualstudio.com/
 [SQL Server Management Studio]: https://msdn.microsoft.com/library/mt238290.aspx
 
-<!--Update_Description: wording update, update reference link-->
+<!-- Update_Description: wording update -->

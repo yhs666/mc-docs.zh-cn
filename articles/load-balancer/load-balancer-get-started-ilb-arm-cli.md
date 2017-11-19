@@ -3,8 +3,8 @@ title: "创建内部负载均衡器 - Azure CLI | Azure"
 description: "了解如何在 Resource Manager 中使用 Azure CLI 创建内部负载均衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 tags: azure-resource-manager
 ms.assetid: c7a24e92-b4da-43c0-90f2-841c1b7ce489
 ms.service: load-balancer
@@ -12,28 +12,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/23/2017
-ms.date: 04/17/2017
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: e4a7e778a7fccc4528b7f5b234041e7d5efc41fa
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 1534df96faa0577c2663cc6a7bebbd84f622235e
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/15/2017
 ---
-
 # <a name="create-an-internal-load-balancer-by-using-the-azure-cli"></a>使用 Azure CLI 创建内部负载均衡器
+
 > [!div class="op_single_selector"]
-> * [Azure 门户](./load-balancer-get-started-ilb-arm-portal.md)
-> * [PowerShell](./load-balancer-get-started-ilb-arm-ps.md)
-> * [Azure CLI](./load-balancer-get-started-ilb-arm-cli.md)
-> * [模板](./load-balancer-get-started-ilb-arm-template.md)
+> * [Azure 门户](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [模板](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!NOTE]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是使用[经典部署模型](./load-balancer-get-started-ilb-classic-cli.md)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是使用[经典部署模型](load-balancer-get-started-ilb-classic-cli.md)。
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -49,7 +50,7 @@ ms.lasthandoff: 04/07/2017
 * **入站 NAT 规则**：所含规则可将负载均衡器上的公共端口映射到后端地址池中特定虚拟机的端口
 * **探测器**：包含用于检查后端地址池中虚拟机实例的可用性的运行状况探测器
 
-有关详细信息，请参阅 [Azure Resource Manager 对负载均衡器的支持](./load-balancer-arm.md)。
+有关详细信息，请参阅 [Azure Resource Manager 对负载均衡器的支持](load-balancer-arm.md)。
 
 ## <a name="set-up-cli-to-use-resource-manager"></a>将 CLI 设置为使用 Resource Manager
 
@@ -84,7 +85,7 @@ ms.lasthandoff: 04/07/2017
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-Azure Resource Manager 中的所有资源将与资源组关联。 创建资源组（如果你尚未这样做）。
+Azure Resource Manager 中的所有资源将与资源组关联。 创建资源组（如果尚未这样做）。
 
 ```azurecli
 azure group create <resource group name> <location>
@@ -94,7 +95,7 @@ azure group create <resource group name> <location>
 
 1. 创建内部负载均衡器
 
-    在以下方案中，将在中国东部区域中创建一个名为 nrprg 的资源组。
+    以下方案在中国东部区域创建了一个名为 nrprg 的资源组。
 
     ```azurecli
     azure network lb create --name nrprg --location chinaeast
@@ -121,7 +122,7 @@ azure group create <resource group name> <location>
 
 4. 为内部负载均衡器创建负载均衡器规则。
 
-    按照前面的步骤执行时，该命令将创建负载均衡器规则，以侦听前端池中的端口 1433，还使用端口 1433 将经过负载均衡的网络流量发送到后端地址池。
+    按照前面的步骤执行时，该命令会创建负载均衡器规则，以侦听前端池中的端口 1433，还使用端口 1433 将经过负载均衡的网络流量发送到后端地址池。
 
     ```azurecli
     azure network lb rule create --resource-group nrprg --lb-name ilbset --name ilbrule --protocol tcp --frontend-port 1433 --backend-port 1433 --frontend-ip-name feilb --backend-address-pool-name beilb
@@ -151,9 +152,9 @@ azure group create <resource group name> <location>
 
 ## <a name="create-nics"></a>创建 NIC
 
-你需要创建 NIC（或修改现有 NIC），并将其关联到 NAT 规则、负载均衡器规则和探测器。
+需要创建 NIC（或修改现有 NIC），并将其关联到 NAT 规则、负载均衡器规则和探测器。
 
-1. 创建名为 *lb-nic1-be* 的 NIC，然后将其与 *rdp1* NAT 规则和 *beilb* 后端地址池相关联。
+1. 创建名为 *lb-nic1-be* 的 NIC，并将其与 *rdp1* NAT 规则和 *beilb* 后端地址池相关联。
 
     ```azurecli
     azure network nic create --resource-group nrprg --name lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" --location chinaeast
@@ -187,13 +188,13 @@ azure group create <resource group name> <location>
     info:    network nic create command OK
     ```
 
-2. 创建名为 *lb-nic2-be* 的 NIC，然后将其与 *rdp2* NAT 规则和 *beilb* 后端地址池相关联。
+2. 创建名为 *lb-nic2-be* 的 NIC，并将其与 *rdp2* NAT 规则和 *beilb* 后端地址池相关联。
 
     ```azurecli
     azure network nic create --resource-group nrprg --name lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" --location chinaeast
     ```
 
-3. 创建名为 *DB1* 的虚拟机，然后将其与名为 *lb-nic1-be* 的 NIC 相关联。 将在以下命令运行之前创建名为 *web1nrp* 的存储帐户：
+3. 创建名为 *DB1* 的虚拟机，并将其与名为 *lb-nic1-be* 的 NIC 相关联。 会在以下命令运行之前创建名为 *web1nrp* 的存储帐户：
 
     ```azurecli
     azure vm create --resource--resource-grouproup nrprg --name DB1 --location chinaeast --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
@@ -202,7 +203,7 @@ azure group create <resource group name> <location>
     > [!IMPORTANT]
     > 负载均衡器中的 VM 需要在同一可用性集中。 使用 `azure availset create` 创建可用性集。
 
-4. 创建名为 *DB2* 的虚拟机 (VM)，然后将其与名为 *lb-nic2-be* 的 NIC 相关联。 名为 *web1nrp* 的存储帐户在运行以下命令之前已创建。
+4. 创建名为 *DB2* 的虚拟机 (VM)，并将其与名为 *lb-nic2-be* 的 NIC 相关联。 名为 *web1nrp* 的存储帐户在运行以下命令之前已创建。
 
     ```azurecli
     azure vm create --resource--resource-grouproup nrprg --name DB2 --location chinaeast --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
@@ -218,6 +219,8 @@ azure network lb delete --resource-group nrprg --name ilbset
 
 ## <a name="next-steps"></a>后续步骤
 
-[使用源 IP 关联配置负载均衡器分发模式](./load-balancer-distribution-mode.md)
+[使用源 IP 关联配置负载均衡器分发模式](load-balancer-distribution-mode.md)
 
-[配置负载均衡器的空闲 TCP 超时设置](./load-balancer-tcp-idle-timeout.md)
+[配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
+
+<!-- Update_Description: update meta properties, wording update -->

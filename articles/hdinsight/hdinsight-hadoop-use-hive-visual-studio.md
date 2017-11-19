@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/07/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 5514ac4e989e943af4763f3d8e34ed968ae1bad3
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 09/28/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: 3eab0d15a790bce8218d2d7775dd5aea2dbb97ed
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用用于 Visual Studio 的 Data Lake 工具运行 Hive 查询
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 07/28/2017
 
     这些语句可执行以下操作：
 
-   * `DROP TABLE`：如果该表存在，此语句会将其删除。
+   * `DROP TABLE`：如果表存在，此语句会将其删除。
 
    * `CREATE EXTERNAL TABLE`：在 Hive 中创建一个新的“外部”表。 外部表仅在 Hive 中存储表定义；数据会保留在原始位置。
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 07/28/2017
 
    * `ROW FORMAT`：告知 Hive 如何设置数据的格式。 在此情况下，每个日志中的字段以空格分隔。
 
-   * `STORED AS TEXTFILE LOCATION`：让 Hive 知道数据的存储位置（example/data 目录），并且数据已存储为文本。
+   * `STORED AS TEXTFILE LOCATION`：告知 Hive 数据已以文本形式存储在 example/data 目录中。
 
    * `SELECT`：选择 `t4` 列包含值 `[ERROR]` 的所有行计数。 此语句会返回值 `3` ，因为有三个行包含此值。
 
@@ -118,12 +118,11 @@ ms.lasthandoff: 07/28/2017
 
 ## <a id="nextsteps"></a>后续步骤
 
-如你所见，用于 Visual Studio 的 HDInsight 工具提供了在 HDInsight 上使用 Hive 查询的轻松方式。
+可以看到，适用于 Visual Studio 的 HDInsight 工具可以轻松地在 HDInsight 上处理 Hive 查询。
 
 有关 HDInsight 中的 Hive 的一般信息：
 
-* 
-            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
+* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
@@ -135,7 +134,7 @@ ms.lasthandoff: 07/28/2017
 
 * [用于 Visual Studio 的 HDInsight 工具入门](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
-[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

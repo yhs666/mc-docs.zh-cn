@@ -22,6 +22,7 @@
 
 # 如何
 ## 规划和设计
+<!-- Not Available ### [Geo-disaster recovery and Geo-replication](event-hubs-geo-dr.md) -->
 ### [事件中心专用](event-hubs-dedicated-overview.md)
 ### [身份验证和安全模型概述](event-hubs-authentication-and-security-model-overview.md)
 ### [可用性和一致性](event-hubs-availability-and-consistency.md)
@@ -62,6 +63,7 @@
 ## [价格](https://www.azure.cn/pricing/details/event-hubs/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [服务更新](https://www.azure.cn/what-is-new/)
-## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-eventhub)
+<!-- Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub) -->
 
 <!--Update_Description: update link-->
+<!--ms.date: 11/20/2017 -->

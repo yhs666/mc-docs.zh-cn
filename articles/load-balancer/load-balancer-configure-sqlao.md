@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/24/2016
-ms.date: 12/05/2016
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0c3c20451d90f23bb87be0bbc8dd49673ae9e041
-ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.openlocfilehash: fa8e6865845858c3fa7b27f886b9a63bb0d85521
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-load-balancer-for-sql-always-on"></a>为 SQL AlwaysOn 配置负载均衡器
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 SQL Server AlwaysOn 可用性组现在可与 ILB 配合运行。 可用性组是 SQL Server 用于实现高可用性和灾难恢复的旗舰解决方案。 无论配置中的副本数目是多少，可用性组侦听器都可让客户端应用程序无缝连接到主副本。
 
@@ -55,15 +57,17 @@ SQL Server AlwaysOn 可用性组现在可与 ILB 配合运行。 可用性组是
     Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
     ```
 
-在上述示例中，有 2 个分别名为“sqlsvc1”和“sqlsvc2”的 VM 在云服务“Sqlsvc”中运行。 使用 `DirectServerReturn` 开关创建 ILB 后，可以将经过负载均衡的终结点添加到 ILB，以便 SQL 为可用性组配置侦听器。
+    在上述示例中，有 2 个分别名为“sqlsvc1”和“sqlsvc2”的 VM 在云服务“Sqlsvc”中运行。 使用 `DirectServerReturn` 开关创建 ILB 后，可以将经过负载均衡的终结点添加到 ILB，以便 SQL 为可用性组配置侦听器。
 
 有关 SQL AlwaysOn 的详细信息，请参阅[在 Azure 中为 AlwaysOn 可用性组配置内部负载均衡器](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)。
 
 ## <a name="see-also"></a>另请参阅
-[开始配置面向 Internet 的负载均衡器](./load-balancer-get-started-internet-arm-ps.md)
+[开始配置面向 Internet 的负载均衡器](load-balancer-get-started-internet-arm-ps.md)
 
-[开始配置内部负载均衡器](./load-balancer-get-started-ilb-arm-ps.md)
+[开始配置内部负载均衡器](load-balancer-get-started-ilb-arm-ps.md)
 
-[配置负载均衡器分发模式](./load-balancer-distribution-mode.md)
+[配置负载均衡器分发模式](load-balancer-distribution-mode.md)
 
-[配置负载均衡器的空闲 TCP 超时设置](./load-balancer-tcp-idle-timeout.md)
+[配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
+
+<!-- Update_Description: update meta properties, wording update -->

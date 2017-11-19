@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 07/23/2017
-ms.date: 08/28/2017
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4e188678c320d3cebd55c5c061670c023188cf7c
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: df090c0c776a7337dd7edca7929c5baba5b1fe8f
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-recovery-plans"></a>创建恢复计划
 
@@ -40,6 +40,7 @@ ms.lasthandoff: 08/25/2017
     - 对于 VMM 到 Azure 的复制，请选择“源类型” > “VMM”。  选择源 VMM 服务器，再选择“Azure”作为目标。
     - 对于 Hyper-V 到 Azure 的复制（无 VMM），请选择“源类型” > “Hyper-V 站点”。 选择该站点作为源，并选择“Azure”作为目标。
     - 对于 VMware VM 或物理本地服务器到 Azure 的复制，请选择某个配置服务器作为源，再选择“Azure”作为目标。
+    - 对于 Azure 到 Azure 恢复计划，选择 Azure 区域作为源，并选择辅助 Azure 区域作为目标。 辅助 Azure 区域仅为保护虚拟机的区域。
 2. 在“选择虚拟机”中，选择要添加到恢复计划中的默认组 (Group 1) 的虚拟机（或复制组）。
 
 ## <a name="customize-and-extend-recovery-plans"></a>自定义和扩展恢复计划
@@ -61,7 +62,7 @@ ms.lasthandoff: 08/25/2017
     - 如果在运行计划外故障转移时发生错误，将继续运行恢复计划。
     - 如果在运行计划内故障转移时发生错误，恢复计划会停止。 需要修复脚本，检查它是否按预期运行，并重新运行恢复计划。
 - Write-Host 命令不适用于恢复计划脚本，脚本将失败。 若要创建输出，请创建转而运行主脚本的代理脚本。 确保所有输出均通过“>>”命令进行传输。
-  * 如果脚本在 600 秒内未返回，将发生超时。
+  * 如果脚本未在 600 秒内返回，则脚本超时。
   * 如果有任何内容写出到 STDERR，脚本会归类为失败。 此信息会显示在脚本执行详细信息中。
 
 如果在部署中使用 VMM：
@@ -72,10 +73,13 @@ ms.lasthandoff: 08/25/2017
 * 确保 VMM 部署中至少有一个库服务器。 默认情况下，VMM 服务器的库共享路径位于 VMM 服务器本地，其文件夹名称为 MSCVMMLibrary。
     * 如果库共享路径在远程位置（或在本地，但不与 MSCVMMLibrary 共享），请按如下所示配置共享（例如使用 \\\libserver2.contoso.com\share\）：
       * 打开注册表编辑器并导航到 **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**。
-      * 编辑值 **ScriptLibraryPath**，将其设置为 \\libserver2.contoso.com\share\. 指定完整的 FQDN。 提供对共享位置的权限。
+      * 编辑值 **ScriptLibraryPath**，将其设置为 \\libserver2.contoso.com\share\. 指定完整的 FQDN。 提供对共享位置的权限。 请注意，这是共享的根节点。 要验证这点，可在 VMM 的根节点打开并浏览库。打开的路径即为路径根 - 将在变量中使用。**
       * 确保测试脚本时所用的用户帐户具有与 VMM 服务帐户相同的权限。 这会检查独立测试的脚本是否按其在恢复计划中的相同方式进行运行。 在 VMM 服务器上，将执行策略设置为绕过，如下所示：
         * 使用提升的权限打开 64 位 Windows PowerShell 控制台。
         * 键入： **Set-executionpolicy bypass**。 [了解详细信息](https://technet.microsoft.com/library/ee176961.aspx)。
+
+> [!IMPORTANT]
+> 应仅在 64 位 PowerShell 上将执行策略设置为“免验证”。 如果为 32 位 PowerShell 进行此设置，则不会执行脚本。
 
 ## <a name="add-a-script-or-manual-action-to-a-plan"></a>向计划添加脚本或手动操作
 
@@ -85,12 +89,12 @@ ms.lasthandoff: 08/25/2017
 2. 在“步骤”列表中单击某项，然后单击“脚本”或“手动操作”。
 3. 指定是要在选定项的前面还是后面添加该脚本或操作。 使用“上移”和“下移”按钮，上下移动脚本的位置。
 4. 如果添加 VMM 脚本，请选择“故障转移到 VMM 脚本”。 在“脚本路径”中，键入共享的相对路径。 在以下 VMM 示例中指定路径：**\RPScripts\RPScript.PS1**。
-5. 如果添加 Azure 自动化 Runbook，请指定该 Runbook 所在的 Azure 自动化帐户，并选择相应的 Azure Runbook 脚本。
+5. 要添加 Azure 自动化 Runbook，请指定该 Runbook 所在的 Azure 自动化帐户，并选择相应的 Azure Runbook 脚本。
 6. 执行恢复计划故障转移，确保脚本按预期运行。
 
 ### <a name="add-a-vmm-script"></a>添加 VMM 脚本
 
-如果有一个 VMM 源站点，可在 VMM 服务器上创建一个脚本，并将其包含在恢复计划中。
+如果有一个 VMM 源站点，则可在 VMM 服务器上创建脚本，并将其纳入恢复计划。
 
 1. 在库共享中新建文件夹。 例如，\<VMMServerName>\MSSCVMMLibrary\RPScripts。 将其放到源和目标 VMM 服务器上。
 2. 创建脚本（例如，RPScript），并验证其按预期运行。
@@ -100,4 +104,4 @@ ms.lasthandoff: 08/25/2017
 
 [详细了解](site-recovery-failover.md)如何运行故障转移。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: wording update -->

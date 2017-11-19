@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 origin.date: 09/13/2017
+ms.date: 11/20/2017
 ms.custom: loading
-ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9552570e9bb94f0313c112f10a23d8cc0ed86778
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 3eab5df5757158959e0781bf620be01c2b789972
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>在 SQL 数据仓库中使用 PolyBase 的指南
 本指南提供有关在 SQL 数据仓库中使用 PolyBase 的实用信息。
@@ -131,7 +131,7 @@ WHERE
 
 ## <a name="polybase-limitations"></a>PolyBase 限制
 SQL DW 中的 PolyBase 有以下限制需要在设计加载作业时考虑：
-- 单行不能宽于 1,000,000 字节。 无论表架构如何定义，这都是 true，包括 (n)varchar(max) 列。 这意味着外部表 (n)varchar(max) 列最宽可为 1,000,000 字节，而非数据类型定义的 2GB 限制。
+- 单行不能宽于 1,000,000 字节。 无论表架构如何定义，都同样如此。
 - 将数据从 SQL Server 或 Azure SQL 数据仓库导出到 ORC 文件格式时，文字较多的列的数量可能会因 Java 内存不足的错误而被限制为 50 列。 若要解决此问题，请仅导出列的一个子集。
 
 ## <a name="next-steps"></a>后续步骤
@@ -168,4 +168,4 @@ SQL DW 中的 PolyBase 有以下限制需要在设计加载作业时考虑：
 
 <!-- External Links -->
 
-<!--Update_Description: update meta properties, add feature on PolyBase performance optimizations -->
+<!--Update_Description: wording update -->

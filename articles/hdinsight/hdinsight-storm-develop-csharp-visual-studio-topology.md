@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/02/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 818d15d8e6a9654486c77e6c90dd7c0518c7ed11
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: 579185cb2a431d7730ef747a974d0a93543730d1
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用针对 Visual Studio 的 Data Lake 工具开发 Apache Storm 的 C# 拓扑
 
@@ -50,11 +50,11 @@ ms.lasthandoff: 09/12/2017
 
 ## <a name="install-visual-studio"></a>安装 Visual Studio
 
-可以使用下列其中一个版本的 Visual Studio，通过 SCP.NET 来开发 C# 拓扑：
+通过安装以下 Visual Studio 版本之一，可以使用 SCP.NET 开发 C# 拓扑：
 
-* Visual Studio 2012 Update 4
+* Visual Studio 2012 [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-* Visual Studio 2013 [Update 4](http://www.microsoft.com/download/details.aspx?id=45326) 或 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+* Visual Studio 2013 [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) 或 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
 * Visual Studio 2015 或 [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 

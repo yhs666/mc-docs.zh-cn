@@ -15,26 +15,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/10/2017
-ms.date: 07/31/2017
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
-
 # <a name="load-balancing-on-multiple-ip-configurations"></a>在多个 IP 配置上进行负载均衡
+
 > [!div class="op_single_selector"]
 > * [门户](load-balancer-multiple-ip.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
-本文介绍如何将 Azure 负载均衡器用于辅助网络接口 (NIC) 的多个 IP 地址。 在此方案中，有两个运行 Windows 的 VM，每个 VM 有一个主 NIC 和一个辅助 NIC。 每个辅助 NIC 具有两个 IP 配置。 每个 VM 托管网站 contoso.com 和 fabrikam.com。 每个网站都绑定到辅助 NIC 的一个 IP 配置。 我们使用 Azure 负载均衡器公开两个前端 IP 地址，每个地址分别对应于一个网站，从而将流量分发到网站的各个 IP 配置。 此场景中两个前端以及两个后端池 IP 地址都使用相同的端口号。
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
+本文介绍如何将 Azure 负载均衡器用于辅助网络接口 (NIC) 的多个 IP 地址。 在此方案中，有两个运行 Windows 的 VM，每个 VM 有一个主 NIC 和一个辅助 NIC。 每个辅助 NIC 都有两个 IP 配置。 每个 VM 托管网站 contoso.com 和 fabrikam.com。每个网站都绑定到辅助 NIC 的一个 IP 配置。 我们使用 Azure 负载均衡器公开两个前端 IP 地址，每个地址分别对应于一个网站，从而将流量分发到网站的各个 IP 配置。 此场景中两个前端以及两个后端池 IP 地址都使用相同的端口号。
 
 ![负载均衡应用场景图像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
 ## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>在多个 IP 配置上进行负载均衡的步骤
 
-按照以下步骤来实现本文所概述的场景：
+若要实现本文中所述的方案，请完成以下步骤：
 
-1. 按照所链接的文章中的步骤[安装和配置 Azure CLI](../cli-install-nodejs.md)，并登录到用户的 Azure 帐户。
+1. 按照所链接的文章中的步骤[安装和配置 Azure CLI](../cli-install-nodejs.md)，然后登录到 Azure 帐户。
 2. 如下所述[创建一个资源组](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)并将其命名为 *contosofabrikam*。
 <!-- Not Available create-resource-group --> 
 
@@ -89,7 +91,7 @@ ms.author: v-yeche
     azure network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPf --protocol tcp --probe-name http --frontend-port 5000 --backend-port 5000 --frontend-ip-name fabrkamfe --backend-address-pool-name fabrikampool
     ```
 
-9. 运行以下命令，并检查输入以[验证是否正确创建了负载均衡器](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)：
+9. 运行以下命令，检查输入以[验证是否正确创建了负载均衡器](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)：
 
     ```azurecli
     azure network lb show --resource-group contosofabrikam --name mylb
@@ -124,10 +126,11 @@ ms.author: v-yeche
     azure vm create --resource-group contosofabrikam --name VM2 --location chinaeast --os-type linux --nic-names VM2Nic1,VM2Nic2 --vnet-name VNet1 --vnet-subnet-name Subnet1 --availset-name myAvailabilitySet --vm-size Standard_DS3_v2 --storage-account-name mystorageaccount2 --image-urn canonical:UbuntuServer:16.04.0-LTS:latest --admin-username <your username>  --admin-password <your password>
     ```
 
-13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。<!--Not available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
+13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。
+<!--Not available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。
 - 若要了解如何在 Azure 中使用不同类型的日志对负载均衡器进行管理和故障排除，请参阅 [Azure 负载均衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, update link, wording update -->

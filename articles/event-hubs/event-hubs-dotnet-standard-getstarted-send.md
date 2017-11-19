@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/27/2017
-ms.date: 07/24/2017
+origin.date: 10/10/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 370546a21eb5782285703a2ca89af79e4595a947
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 8b423a63e049f7cd09af1b08d30ec1b178273bb1
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>使用 .NET Standard 将消息发送到 Azure 事件中心入门
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 07/26/2017
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>创建事件中心命名空间和事件中心
 
-第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 若要创建命名空间和事件中心，请按照[本文](event-hubs-create.md)中的步骤操作，然后继续执行以下步骤。
+第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 要创建命名空间和事件中心，请按照[本文](event-hubs-create.md)中的步骤操作，并继续执行以下步骤。
 
 ## <a name="create-a-console-application"></a>创建控制台应用程序
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 07/26/2017
     using System.Threading.Tasks;
     ```
 
-2. 向 `Program` 类添加常量作为事件中心连接字符串和实体路径（单个事件中心名称）。 将括号中的占位符替换为在创建事件中心时获得的相应值。
+2. 向 `Program` 类添加常量作为事件中心连接字符串和实体路径（单个事件中心名称）。 将括号中的占位符替换为在创建事件中心时获得的相应值。 请确保 `{Event Hubs connection string}` 是命名空间级别的连接字符串，而不是事件中心字符串。 
 
     ```csharp
     private static EventHubClient eventHubClient;
@@ -196,7 +196,7 @@ ms.lasthandoff: 07/26/2017
 
 6. 运行程序，并确保没有任何错误。
 
-祝贺你！ 现在已向事件中心发送消息。
+祝贺！ 现在已向事件中心发送消息。
 
 ## <a name="next-steps"></a>后续步骤
 访问以下链接可以了解有关事件中心的详细信息：

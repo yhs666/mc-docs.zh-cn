@@ -17,11 +17,11 @@ ms.topic: article
 origin.date: 09/15/2017
 ms.date: 10/23/2017
 ms.author: v-yiso
-ms.openlocfilehash: 9eadc2e54d21fd4732b030ea38002342b6d8813c
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 622f058414469745dfff86cac28d0f018d0f6a7a
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 运行 Hive 查询
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
@@ -37,9 +37,6 @@ ms.lasthandoff: 10/13/2017
 在开始阅读本文前，必须具有以下项：
 
 * **HDInsight 中的 Hadoop 群集**。 请参阅[在 HDInsight 中开始使用基于 Linux 的 Hadoop](./hdinsight-hadoop-linux-tutorial-get-started.md)。
-
-    > [!WARNING]
-    > 自 2017 年 9 月 15 日起，HDInsight .NET SDK 仅支持从 Azure 存储帐户返回 Hive 查询结果。 如果将此示例用于使用 Data Lake Store 作为主存储的 HDInsight 群集，则无法使用 .NET SDK 检索搜索结果。
 
 * **Visual Studio 2013/2015/2017**。
 

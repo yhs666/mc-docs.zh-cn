@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/09/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: e378b96ae9bdff60c3b22a1f21ee93857e5e5bc4
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: dfecf943f45f3d141d37651068f374d0799da71a
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>使用 Apache Storm、事件中心和 HDInsight 中的 HBase (Hadoop) 分析传感器数据
 
@@ -288,10 +288,7 @@ eventhub.partitions: 2
 
 1. 单击以下按钮登录到 Azure，然后在 Azure 门户中打开 Resource Manager 模板。
 
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.6.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-    >[!NOTE]
-    > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，将一些终结点 -“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”；将允许的位置更改为“中国北部”和“中国东部”；将 HDInsight Linux 版本更改为 Azure 中国区支持的版本 3.5。
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.chinacloudapi.cn%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.6.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. 在“自定义部署”部分中，输入以下值：
 
@@ -308,8 +305,8 @@ eventhub.partitions: 2
 
 3. 使用“基本”部分创建资源组或选择现有资源组。
 4. 在“资源组位置”下拉菜单中，选择与在“设置”部分为 **LOCATION** 参数所选的位置相同的位置。
-5. 单击“法律条款”，然后单击“购买”。
-6. 确认已选中“固定到仪表板”复选框，并单击“创建”。 创建群集大约需要 20 分钟时间。
+5. 阅读条款和条件，并选择“我同意上述条款和条件”。
+6. 最后，选中“固定到仪表板”，并选择“购买”。 创建群集大约需要 20 分钟时间。
 
 创建资源后，会显示资源组的信息。
 
@@ -383,7 +380,7 @@ dashboard.uri: http://localhost:3000
     > 出现提示时，输入 HDInsight 管理员登录名的密码。
 
     ```powershell
-    $clusterName = 'your_HDInsight_cluster_name`
+    $clusterName = 'your_HDInsight_cluster_name'
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/HBASE/components/HBASE_MASTER" -Credential $creds
     $respObj = ConvertFrom-Json $resp.Content
@@ -393,7 +390,7 @@ dashboard.uri: http://localhost:3000
     > [!NOTE]
     > 将 `your_HDInsight_cluster_name 替换为 HDInsight 群集的名称。 出现提示时，输入 HDInsight 管理员登录名的密码。
     >
-    > 本示例需要 Azure PowerShell。 有关使用 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6)
+    > 本示例需要 Azure PowerShell。 有关使用 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/en-us/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6)
 
     这些示例返回的信息类似于以下文本：
 

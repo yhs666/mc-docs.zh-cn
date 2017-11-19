@@ -12,22 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/24/2016
-ms.date: 07/31/2017
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 77e4152c133a8b633bd038a7a99e651ca8008c07
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: f436905c722124499fd68b2fbea19bfca84ea8a9
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="internet-facing-load-balancer-overview"></a>面向 Internet 的负载均衡器概述
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure 负载均衡器将传入流量的公用 IP 地址和端口号映射到虚拟机的专用 IP 地址和端口号，对于来自虚拟机的响应流量，则进行反向的映射。 借助负载均衡规则，可在多个虚拟机或服务之间分配特定类型的流量。 例如，可将 Web 请求流量负载分配到多个 Web 服务器或 Web 角色。
 
 对于包含 Web 角色或辅助角色实例的云服务，可在服务定义文件 (.csdef) 中定义一个公共终结点。
 
-*servicedefinition.csdef* 文件包含终结点配置，当有多个用于 Web 角色或辅助角色部署的角色实例时，将针对该部署设置负载均衡器。 若要将实例添加到云部署，可更改服务配置文件 (.csfg) 中的实例计数。
+*servicedefinition.csdef* 文件包含终结点配置，有多个用于 Web 角色或辅助角色部署的角色实例时，会针对该部署来设置负载均衡器。 要将实例添加到云部署，可更改服务配置文件 (.csfg) 中的实例计数。
+
+## <a name="example-of-an-internet-facing-load-balancer"></a>面向 Internet 的负载均衡器示例
 
 下图显示了公用和专用 TCP 端口 80 的 Web 流量的负载均衡终结点，由三个虚拟机共享。 三台虚拟机位于负载均衡集中。
 
@@ -46,3 +50,5 @@ Azure 负载均衡器将传入流量的公用 IP 地址和端口号映射到虚�
 还可以[开始创建面向 Internet 的负载均衡器](load-balancer-get-started-internet-arm-ps.md)，并配置适合特定负载均衡器网络流量行为的[分发模式](load-balancer-distribution-mode.md)类型。
 
 如果应用程序需要始终保持对负载均衡器后面的服务器的连接，可详细了解[负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)。 该文章有助于你了解使用 Azure 负载均衡器时的空闲连接行为。
+
+<!-- Update_Description: update meta properties, wording update -->

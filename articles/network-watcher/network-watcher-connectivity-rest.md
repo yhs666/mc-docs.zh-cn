@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 origin.date: 08/02/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4d7a3a4fcae616f98fbd867c8e4240a2442321e4
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.openlocfilehash: 16f09a2f94744074ad2948b9b2523e69700a87aa
+ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>使用 Azure 门户通过 Azure 网络观察程序检查连接性
 
@@ -75,7 +75,7 @@ AllowNetworkWatcherConnectivityCheck    Microsoft.Network Registered
 使用 Azure 凭据登录到 armclient。
 
 ```PowerShell
-armclient login
+armclient login "MOONCAKE"
 ```
 
 ## <a name="retrieve-a-virtual-machine"></a>检索虚拟机

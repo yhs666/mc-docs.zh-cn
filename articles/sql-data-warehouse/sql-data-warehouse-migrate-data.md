@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 origin.date: 06/29/2017
-ms.date: 09/18/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0e6803c4d7c75d8e6e9e7284b38ee196ce6ab7df
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 8fbb9a7e118b250ad15c792c6b56fc47955f3fd7
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="migrate-your-data"></a>迁移数据
 数据可以使用各种工具从不同源移动到 SQL 数据仓库中。 SSIS 和 bcp 都可用来实现此目标。 但是，随着数据量的增加，应该考虑将数据迁移过程划分成多个步骤。 这样，便有机会优化每个步骤以提高性能和弹性，确保顺利迁移数据。
@@ -171,7 +171,7 @@ PolyBase 还支持名为“递归文件夹遍历”的功能。 可以使用此�
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy]:../storage/common/storage-use-azcopy.md
+[AZCopy]: ../storage/common/storage-use-azcopy.md
 <!-- Not Available [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md -->
 <!-- Not Available [ADF samples]: ../data-factory/data-factory-samples.md-->
 <!-- Not Available [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md-->
@@ -184,7 +184,7 @@ PolyBase 还支持名为“递归文件夹遍历”的功能。 可以使用此�
 <!--MSDN references-->
 
 <!--Other Web references-->
-<!-- Not Available [Azure Data Factory]: http://azure.microsoft.com/services/data-factory/-->
+<!-- Not Available [Azure Data Factory]: https://www.azure.cn/home/features/data-factory/ -->
 [ExpressRoute]: https://www.azure.cn/home/features/expressroute/
 [ExpressRoute documentation]: /expressroute/
 
@@ -193,4 +193,4 @@ PolyBase 还支持名为“递归文件夹遍历”的功能。 可以使用此�
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update meta properties, wording update -->

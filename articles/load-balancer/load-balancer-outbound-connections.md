@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/31/2017
-ms.date: 07/31/2017
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3ecf003f794dc666ead13afd3c4aae5af6771a92
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: d2aa15716ac3c40da2ff10b6e91b644bd6a5b2b4
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>了解 Azure 中的出站连接
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure 中的虚拟机 (VM) 可以与 Azure 外部的公用 IP 地址空间中的终结点进行通信。 当 VM 启动到公共 IP 地址空间中的目标的出站流时，Azure 将 VM 的专用 IP 地址映射到公共 IP 地址，并允许返回流量来访问 VM。
 
@@ -39,7 +41,7 @@ Azure 提供三种不同的方法来实现出站连接。 每种方法都有自�
 
 在此场景中，VM 不是 Azure 负载均衡器池的一部分，并且没有分配给它的实例级公共 IP (ILPIP) 地址。 当 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共源 IP 地址。 用于此出站流的公共 IP 地址是不可配置的，并且不会影响订阅的公共 IP 资源限制。 Azure 使用源网络地址转换 (SNAT) 来执行此功能。 使用公共 IP 地址的临时端口区分由 VM 产生的各个流。 创建流后 SNAT 动态分配临时端口。 在此情况下，用于 SNAT 的临时端口被称为 SNAT 端口。
 
-SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用方式很重要。 每个到单个目标 IP 地址的流使用一个 SNAT 端口。 对于到相同的目标 IP 地址的多个流，每个流使用一个 SNAT 端口。 这可以确保源自相同的公共 IP 地址，并到相同的目标 IP 地址的流的唯一性。 每个流到不同的目标 IP 地址的多个流对于每个目标使用一个 SNAT 端口。 目标 IP 地址使流具有唯一性。
+SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用方式很重要。 每个到单个目标 IP 地址的流使用一个 SNAT 端口。 对于到相同的目标 IP 地址的多个流，每个流使用一个 SNAT 端口。 这可以确保源自相同的公共 IP 地址，并到相同的目标 IP 地址的流的唯一性。 每个流均流到不同目标 IP 地址的多个流共用一个 SNAT 端口。 目标 IP 地址使流具有唯一性。
 
 可使用[用于负载均衡器的 Log Analytics](load-balancer-monitor-log.md) 和[针对 SNAT 端口耗尽消息要监视的警报事件日志](load-balancer-monitor-log.md#alert-event-log)。 如果 SNAT 端口资源已经耗尽，那么在现有流释放 SNAT 端口之前出站流会失败。 负载均衡器对于回收 SNAT 端口使用 4 分钟的空闲超时时间。
 
@@ -49,7 +51,7 @@ SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用�
 
 当负载均衡的 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共负载均衡器前端的公共 IP 地址。 Azure 使用源网络地址转换 (SNAT) 来执行此功能。 使用负载均衡器的公共 IP 地址的临时端口区分由 VM 产生的各个流。 创建出站流后 SNAT 动态分配临时端口。 在此情况下，用于 SNAT 的临时端口被称为 SNAT 端口。
 
-SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用方式很重要。 每个到单个目标 IP 地址的流使用一个 SNAT 端口。 对于到相同的目标 IP 地址的多个流，每个流使用一个 SNAT 端口。 这可以确保源自相同的公共 IP 地址，并到相同的目标 IP 地址的流的唯一性。 每个流到不同的目标 IP 地址的多个流对于每个目标使用一个 SNAT 端口。 目标 IP 地址使流具有唯一性。
+SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用方式很重要。 每个到单个目标 IP 地址的流使用一个 SNAT 端口。 对于到相同的目标 IP 地址的多个流，每个流使用一个 SNAT 端口。 这可以确保源自相同的公共 IP 地址，并到相同的目标 IP 地址的流的唯一性。 每个流均流到不同目标 IP 地址的多个流共用一个 SNAT 端口。 目标 IP 地址使流具有唯一性。
 
 可使用[用于负载均衡器的 Log Analytics](load-balancer-monitor-log.md) 和[针对 SNAT 端口耗尽消息要监视的警报事件日志](load-balancer-monitor-log.md#alert-event-log)。 如果 SNAT 端口资源已经耗尽，那么在现有流释放 SNAT 端口之前出站流会失败。 负载均衡器对于回收 SNAT 端口使用 4 分钟的空闲超时时间。
 
@@ -77,4 +79,4 @@ Azure 使用算法根据池的大小来确定可用的 SNAT 端口数。  目前
 
 请务必记住，可用的 SNAT 端口数不会直接转换为连接数。 有关何时和如何分配 SNAT 端口以及如何管理此可耗尽资源的详细信息，请参见上文。
 
-<!--Update_Description: add limitations content on the SNAT ports-->
+<!--Update_Description: update meta properties, wording update -->

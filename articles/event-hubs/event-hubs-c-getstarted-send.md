@@ -13,13 +13,13 @@ ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 09/04/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: dff7fc5860887b846eee6092efe39a38109061a5
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: af0a63d2f8ba3ee616de2aec50fb070178ad960c
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>使用 C 将事件发送到 Azure 事件中心
 
@@ -75,14 +75,14 @@ ms.lasthandoff: 09/04/2017
     #include <unistd.h>
     #include <stdlib.h>
 
-    #define check(messenger)                                                     
-      {                                                                          
-        if(pn_messenger_errno(messenger))                                        
-        {                                                                        
-          printf("check\n");                                                     
-          die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); 
-        }                                                                        
-      }  
+    #define check(messenger)
+      {
+        if(pn_messenger_errno(messenger))
+        {
+          printf("check\n");
+          die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger)));
+        }
+      }
 
     pn_timestamp_t time_now(void)
     {
@@ -99,7 +99,7 @@ ms.lasthandoff: 09/04/2017
     }
 
     int sendMessage(pn_messenger_t * messenger) {
-        char * address = (char *) "amqps://SendRule:{Send Rule key}@{namespace name}.servicebus.chinacloudapi.cn/{event hub name}";
+        char * address = (char *) "amqps://{SAS Key Name}:{SAS key}@{namespace name}.servicebus.chinacloudapi.cn/{event hub name}";
         char * msgtext = (char *) "Hello from C!";
 
         pn_message_t * message;
@@ -161,4 +161,4 @@ ms.lasthandoff: 09/04/2017
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
 
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update meta properties, wording update -->

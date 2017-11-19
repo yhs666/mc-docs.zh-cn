@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/23/2017
-ms.date: 10/02/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1c7c7bb4d251285d7075baa329c32021aacd0cf2
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 5a2b34a980b811a6c7db42e83be363b413311955
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/15/2017
 ---
 #  <a name="prerequisites-for-replication-from-on-premises-to-azure-by-using-site-recovery"></a>使用 Site Recovery 从本地复制到 Azure 的先决条件
 
@@ -31,18 +31,20 @@ Azure Site Recovery 可以安排从 Azure 虚拟机 (VM) 到其他 Azure 区域�
 
 在本文中，我们汇总了通过 Site Recovery 开始从本地计算机复制到 Azure 需要满足的先决条件。
 
+可以在本文末尾发表任何评论。 还可以在 [Azure 恢复服务论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr)中询问技术问题。
+
 <a name="Azure requirements"></a>
 ## <a name="azure-requirements"></a> Azure 要求
 
 **要求** | **详细信息**
 --- | ---
-**Azure 帐户** | 一个 [Azure 帐户](https://www.azure.cn/)。 你可以从[试用版](https://www.azure.cn/pricing/1rmb-trial/)开始。
+**Azure 帐户** | 一个 [Azure 帐户](http://azure.microsoft.com/)。 你可以从[试用版](https://www.azure.cn/pricing/1rmb-trial/)开始。
 **Site Recovery 服务** | 有关 Azure Site Recovery 服务定价的详细信息，请参阅 [Site Recovery 定价](https://www.azure.cn/pricing/details/site-recovery/)。 |
-**Azure 存储** | 需要使用一个 Azure 存储帐户来存储复制的数据。 存储帐户必须与 Azure 恢复服务保管库位于相同的区域中。 当发生故障转移时会创建 Azure VM。<br/><br/> 根据要用于 Azure VM 故障转移的资源模型，可以使用 [Azure Resource Manager 部署模型](../storage/common/storage-create-storage-account.md)或[经典部署模型](../storage/common/storage-create-storage-account.md)设置帐户。<br/><br/>可使用[异地冗余存储](../storage/common/storage-redundancy.md#geo-redundant-storage)或本地冗余存储。 建议使用异地冗余存储。 借助异地冗余存储，在发生区域性故障或无法恢复主要区域时可复原数据。<br/><br/> 可以使用标准 Azure 存储帐户，也可以使用 Azure 高级存储。 [高级存储](/storage/storage-premium-storage)通常用于需要稳定的高 I/O 性能和低延迟的 VM。 使用高级存储，VM 可以托管 I/O 密集型工作负荷。 如果为复制的数据使用高级存储，则还需要一个标准存储帐户。 标准存储帐户用于存储复制日志，以便捕获对本地数据所做的更改。<br/><br/>
+**Azure 存储** | 需要使用一个 Azure 存储帐户来存储复制的数据。 存储帐户必须与 Azure 恢复服务保管库位于相同的区域中。 当发生故障转移时会创建 Azure VM。<br/><br/> 根据要用于 Azure VM 故障转移的资源模型，可以使用 [Azure 资源管理器部署模型](../storage/common/storage-create-storage-account.md)或[经典部署模型](../storage/common/storage-create-storage-account.md)设置帐户。<br/><br/>可使用[异地冗余存储](../storage/common/storage-redundancy.md#geo-redundant-storage)或本地冗余存储。 建议使用异地冗余存储。 借助异地冗余存储，在发生区域性故障或无法恢复主要区域时可复原数据。<br/><br/> 可以使用标准 Azure 存储帐户，也可以使用 Azure 高级存储。 [高级存储](/storage/storage-premium-storage)通常用于需要稳定的高 I/O 性能和低延迟的 VM。 使用高级存储，VM 可以托管 I/O 密集型工作负荷。 如果为复制的数据使用高级存储，则还需要一个标准存储帐户。 标准存储帐户用于存储复制日志，以便捕获对本地数据所做的更改。<br/><br/>
 **存储限制** | 无法将在 Site Recovery 中使用的存储帐户移动到其他资源组，也无法将其移动到或用于其他订阅。<br/><br/> 目前不支持复制到印度中部和印度南部的高级存储帐户。
 **Azure 网络** | 需要一个 Azure 网络，在故障转移后 Azure VM 将连接到该网络。 该 Azure 网络必须与恢复服务保管库位于相同的区域中。<br/><br/> 在 Azure 门户中，可以使用[资源管理器部署模型](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)或[经典部署模型](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)创建 Azure 网络。<br/><br/> 如果从 System Center Virtual Machine Manager (VMM) 复制到 Azure，则必须在 VMM VM 网络与 Azure 网络之间创建网络映射。 这可以确保 Azure VM 在故障转移后连接到合适的网络。
 **网络限制** | 无法将在 Site Recovery 中使用的网络帐户移动到其他资源组，也无法将其移动到或用于其他订阅。
-**网络映射** | 如果复制 VMM 云中的 Hyper-V VM，则必须设置网络映射。 这可以确保在故障转移后创建 Azure VM 时将其连接到合适的网络。
+**网络映射** | 如果复制 VMM 云中的 Microsoft Hyper-V VM，则必须设置网络映射。 这可以确保在故障转移后创建 Azure VM 时将其连接到合适的网络。
 
 > [!NOTE]
 > 以下各部分介绍了客户环境中各组件的先决条件。 有关对特定配置的支持的详细信息，请参阅[支持矩阵](site-recovery-support-matrix.md)。
@@ -82,7 +84,7 @@ Azure Site Recovery 可以安排从 Azure 虚拟机 (VM) 到其他 Azure 区域�
 | **先决条件** | **详细信息** |
 | --- | --- |
 | **Hyper-V 主机** |一台或多台本地服务器必须运行包含最新更新的 Windows Server 2012 R2 并已启用 Hyper-V 角色，或者运行 Microsoft Hyper-V Server 2012 R2。<br/><br/>Hyper-V 服务器必须有一个或多个 VM。<br/><br/>Hyper-V 服务器必须直接或通过代理连接到 Internet。<br/><br/>Hyper-V 服务器必须已安装知识库文章 [2961977](https://support.microsoft.com/kb/2961977) 中所述的修补程序。
-|**提供程序和代理**| 在部署 Site Recovery 期间，需要安装 Azure Site Recovery 提供程序。 安装该提供程序还会在运行所要保护的 VM 的每台 Hyper-V 服务器上安装 Azure 恢复服务代理。 <br/><br/>Site Recovery 保管库中的所有 Hyper-V 服务器必须具有相同版本的提供程序和代理。<br/><br/>提供程序需要通过 Internet 连接到 Site Recovery。 流量可以直接发送或通过代理发送。 不支持基于 HTTPS 的代理。 代理服务器必须允许访问下列 URL：<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/>如果在服务器上设置了基于 IP 地址的防火墙规则，请确保这些规则允许与 Azure 通信。<br/><br/> 允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=41653)和 HTTPS（端口 443）。<br/><br/> 允许订阅的 Azure 区域的 IP 地址范围以及美国西部的 IP 地址范围（用于访问控制和标识管理）。
+|**提供程序和代理**| 在部署 Site Recovery 期间，需要安装 Azure Site Recovery 提供程序。 安装该提供程序还会在运行所要保护的 VM 的每台 Hyper-V 服务器上安装 Azure 恢复服务代理。 <br/><br/>Site Recovery 保管库中的所有 Hyper-V 服务器必须具有相同版本的提供程序和代理。<br/><br/>提供程序需要通过 Internet 连接到 Site Recovery。 流量可以直接发送或通过代理发送。 不支持基于 HTTPS 的代理。 代理服务器必须允许访问下列 URL：<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/>如果在服务器上设置了基于 IP 地址的防火墙规则，请确保这些规则允许与 Azure 通信。<br/><br/> 允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)和 HTTPS（端口 443）。<br/><br/> 允许订阅的 Azure 区域的 IP 地址范围以及美国西部的 IP 地址范围（用于访问控制和标识管理）。
 
 ## <a name="disaster-recovery-of-hyper-v-vms-in-vmm-clouds-to-azure"></a>在发生灾难后将 VMM 云中的 Hyper-V VM 恢复到 Azure
 
@@ -92,7 +94,7 @@ Azure Site Recovery 可以安排从 Azure 虚拟机 (VM) 到其他 Azure 区域�
 | --- | --- |
 | **Virtual Machine Manager** |必须具有一台或多台运行 System Center 2012 R2 或更高版本的 VMM 服务器。 每台 VMM 服务器必须配置有一个或多个云。 <br/><br/>云必须具有：<br/>- 一个或多个 VMM 主机组。<br/>- 每个主机组中有一个或多个 Hyper-V 主机服务器或群集。<br/><br/>有关设置 VMM 云的详细信息，请参阅 [How to create a cloud in Virtual Machine Manager 2012](http://social.technet.microsoft.com/wiki/contents/articles/2729.how-to-create-a-cloud-in-vmm-2012.aspx)（如何在 Virtual Machine Manager 2012 中创建云）。 |
 | **Hyper-V** |Hyper-V 主机服务器必须至少运行启用了 Hyper-V 角色的 Windows Server 2012 R2 或者运行 Microsoft Hyper-V Server 2012 R2。 必须安装最新更新。<br/><br/> Hyper-V 服务器必须有一个或多个 VM。<br/><br/> 必须在 VMM 云中管理包含要复制的 VM 的 Hyper-V 主机服务器或群集。<br/><br/>Hyper-V 服务器必须直接或通过代理连接到 Internet。<br/><br/>Hyper-V 服务器必须已安装知识库文章 [2961977](https://support.microsoft.com/kb/2961977) 中所述的修补程序。<br/><br/>Hyper-V 主机服务器需要访问 Internet 才可将数据复制到 Azure。 |
-| **提供程序和代理** |在部署 Azure Site Recovery 期间，需要在 VMM 服务器上安装 Azure Site Recovery 提供程序。 在 Hyper-V 主机上安装恢复服务代理。 提供程序和代理需要通过 Internet 直接连接到或通过代理连接到 Azure。 不支持基于 HTTPS 的代理。 VMM 服务器和 Hyper-V 主机上的代理服务器必须允许访问： <br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>如果在 VMM 服务器上设置了基于 IP 地址的防火墙规则，请确保这些规则允许与 Azure 通信。<br/><br/> 允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=41653)和 HTTPS（端口 443）。<br/><br/>允许订阅的 Azure 区域的 IP 地址范围以及美国西部的 IP 地址范围（用于访问控制和标识管理）。<br/><br/> |
+| **提供程序和代理** |在部署 Azure Site Recovery 期间，需要在 VMM 服务器上安装 Azure Site Recovery 提供程序。 在 Hyper-V 主机上安装恢复服务代理。 提供程序和代理需要通过 Internet 直接连接到或通过代理连接到 Azure。 不支持基于 HTTPS 的代理。 VMM 服务器和 Hyper-V 主机上的代理服务器必须允许访问： <br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>如果在 VMM 服务器上设置了基于 IP 地址的防火墙规则，请确保这些规则允许与 Azure 通信。<br/><br/> 允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)和 HTTPS（端口 443）。<br/><br/>允许订阅的 Azure 区域的 IP 地址范围以及美国西部的 IP 地址范围（用于访问控制和标识管理）。<br/><br/> |
 
 ### <a name="replicated-machine-prerequisites"></a>复制的计算机先决条件
 
@@ -108,7 +110,7 @@ Azure Site Recovery 可以安排从 Azure 虚拟机 (VM) 到其他 Azure 区域�
 | --- | --- |
 | **Virtual Machine Manager** |  建议在主站点和辅助站点中各部署一台 VMM 服务器。<br/><br/> 可以[在单个 VMM 服务器上的云之间复制](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment)。 若要通过单台 VMM 服务器在云之间进行复制，需要在该 VMM 服务器上配置至少两个云。<br/><br/> VMM 服务器必须至少运行具有最新更新的 System Center 2012 SP1。<br/><br/> 每台 VMM 服务器必须有一个或多个云。 所有云都必须设置 Hyper-V 容量配置文件。 <br/><br/>云必须具有一个或多个 VMM 主机组。 有关设置 VMM 云的详细信息，请参阅[准备 Azure Site Recovery 部署](site-recovery-support-matrix-to-azure.md)。 |
 | **Hyper-V** | Hyper-V 服务器必须至少运行启用了 Hyper-V 角色且安装了最新更新的 Windows Server 2012。<br/><br/> Hyper-V 服务器必须有一个或多个 VM。<br/><br/>  Hyper-V 主机服务器必须位于主要和辅助 VMM 云中的主机组内。<br/><br/> 如果在 Windows Server 2012 R2 上的群集中运行 Hyper-V，建议安装知识库文章 [2961977](https://support.microsoft.com/kb/2961977) 中所述的更新。<br/><br/> 如果在 Windows Server 2012 上的群集中运行 Hyper-V，并且具有基于静态 IP 地址的群集，则不会自动创建群集代理。 必须手动配置群集代理。 有关群集代理的详细信息，请参阅 [Configure the replica broker role for cluster-to-cluster replication](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx)（为群集到群集复制配置副本代理角色）。 |
-| **提供程序** | 在部署 Site Recovery 期间，需要在 VMM 服务器上安装 Azure Site Recovery 提供程序。 该提供程序通过 HTTPS（端口 443）与 Site Recovery 进行通信来安排复制。 数据复制是通过 LAN 或通过 VPN 连接在主要和辅助 Hyper-V 服务器之间进行的。<br/><br/> 在 VMM 服务器上运行的提供程序需要访问以下 URL：<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>Site Recovery 提供程序必须允许从 VMM 服务器到 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=41653)的防火墙通信，并允许 HTTPS (端口 443) 协议。 |
+| **提供程序** | 在部署 Site Recovery 期间，需要在 VMM 服务器上安装 Azure Site Recovery 提供程序。 该提供程序通过 HTTPS（端口 443）与 Site Recovery 进行通信来安排复制。 数据复制是通过 LAN 或通过 VPN 连接在主要和辅助 Hyper-V 服务器之间进行的。<br/><br/> 在 VMM 服务器上运行的提供程序需要访问以下 URL：<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>Site Recovery 提供程序必须允许从 VMM 服务器到 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)的防火墙通信，并允许 HTTPS (端口 443) 协议。 |
 <!-- Not Available site-recovery-support-matrix-to-azure.md#BKMK_Fabric -->
 
 ## <a name="url-access"></a>URL 访问
@@ -125,4 +127,6 @@ Azure Site Recovery 可以安排从 Azure 虚拟机 (VM) 到其他 Azure 区域�
 |``time.windows.com`` | 允许 | 允许 | 允许 | 允许|
 |``time.nist.gov`` | 允许 | 允许 | 允许 | ALLOW |
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->
+<!--Not Available the parent file of includes file of site-recovery-configuration-and-scaleout-process-server-requirements.md-->
+<!--ms.date:11/20/2017-->

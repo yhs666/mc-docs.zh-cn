@@ -12,14 +12,14 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/26/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 3d4282a8a476f0b763ce5f92e8ff873ad6570f5a
-ms.sourcegitcommit: a4340bc6d6d8bdb5aee029cc66cfcea558d18c89
+origin.date: 09/20/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: 39e1f6a754f276928c96a6a2f2637f16d29bc229
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-preview-on-hdinsight"></a>通过 HDInsight 上的 Apache Kafka（预览）实现数据的高可用性
 
@@ -59,5 +59,5 @@ ms.lasthandoff: 08/31/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Kafka on HDInsight 的可伸缩性](hdinsight-apache-kafka-scalability.md)
+* [HDInsight 上的 Kafka 的可伸缩性](hdinsight-apache-kafka-scalability.md)
 * [通过 Kafka on HDInsight 进行镜像](hdinsight-apache-kafka-mirroring.md)

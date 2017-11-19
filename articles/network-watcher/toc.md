@@ -82,9 +82,9 @@
 ## [虚拟机](/virtual-machines/)
 ## [VPN 网关](/vpn-gateway/)
 # 资源
-## [Azure 路线图](https://www.azure.cn/roadmap/)
-## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [定价](https://www.azure.cn/pricing/details/network-watcher/)
+<!--Not Available ## [Azure Roadmap](https://www.azure.cn/roadmap/)-->
+<!--Not Available ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)-->
+## [价格](https://www.azure.cn/pricing/details/network-watcher/)
 ## [服务更新](https://www.azure.cn/what-is-new/)
 ## [SLA](https://www.azure.cn/support/legal/sla/)
-## [堆栈溢出](http://stackoverflow.com/questions/tagged/network-watcher)
+<!--Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)-->

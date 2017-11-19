@@ -1,4 +1,4 @@
-下表列出了特定于 [Azure 事件中心](/event-hubs/)的配额和限制。 有关事件中心定价的信息，请参阅[事件中心定价](https://www.azure.cn/pricing/details/event-hubs/)。
+下表列出了特定于 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)的配额和限制。 有关事件中心定价的信息，请参阅[事件中心定价](https://www.azure.cn/pricing/details/event-hubs/)。
 
 | 限制 | 范围 | 类型 | 超出时的行为 | 值 |
 | --- | --- | --- | --- | --- |
@@ -12,5 +12,5 @@
 | 事件数据的最长保留期限 |实体 |静态 |- |1-7 天 |
 | 最大吞吐量单位 |命名空间 |静态 |超出吞吐量单位限制会导致数据受到限制，并生成 [ServerBusyException](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)。 [额外的吞吐量单位](../articles/event-hubs/event-hubs-auto-inflate.md)将基于承诺的购买以大小为 20 个单位的块的形式提供。 |20 |
 | 每个命名空间的授权规则数量 |命名空间|静态 |将拒绝后续的授权规则创建请求。|12 |
-
-<!-- ms.date: 10/26/2017 -->
+<!-- ms.date: 11/20/2017 -->
+<!-- Update_Description: update meta properties -->

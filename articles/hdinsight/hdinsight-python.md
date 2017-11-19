@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 09/18/2017
-ms.author: v-haiyqa
+origin.date: 10/06/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 76801f044bcee0c3df3b0516e5cb465e148da453
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+ms.openlocfilehash: 16d7e31b5e5f176564cb081917fe55dd1e07a815
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>在 HDInsight 中通过 Hive 和 Pig 使用 Python 用户定义的函数 (UDF)
 
@@ -203,6 +203,8 @@ def create_structure(input):
     ssh myuser@mycluster-ssh.azurehdinsight.cn
     ```
 
+    有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)文档。
+
 3. 从 SSH 会话将前面上传的 python 文件添加到群集的 WASB 存储中。
 
     ```bash
@@ -214,9 +216,15 @@ def create_structure(input):
 
 #### <a name="use-the-hive-udf"></a>使用 Hive UDF
 
-1. 使用 `hive` 命令来启动 Hive Shell。 加载 Shell 后，应可看到 `hive>` 提示符。
+1. 要连接到 Hive，请使用以下命令：
 
-2. 在 `hive>` 提示符下输入以下查询：
+    ```bash
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
+    ```
+
+    此命令启动 Beeline 客户端。
+
+2. 在 `0: jdbc:hive2://headnodehost:10001/>` 提示符下输入以下查询：
 
    ```hive
    add file wasb:///hiveudf.py;
@@ -235,9 +243,19 @@ def create_structure(input):
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
+4. 要退出 Beeline，请使用以下命令：
+
+    ```hive
+    !q
+    ```
+
 #### <a name="use-the-pig-udf"></a>使用 Pig UDF
 
-1. 使用 `pig` 命令来启动该 shell。 加载 Shell 后，将出现 `grunt>` 提示符。
+1. 要连接到 Pig，请使用以下命令：
+
+    ```bash
+    pig
+    ```
 
 2. 在 `grunt>` 提示符下输入以下语句：
 
@@ -269,7 +287,7 @@ def create_structure(input):
     #from pig_util import outputSchema
     ```
 
-    完成更改后，使用 Ctrl+X 退出编辑器。 选择“Y”，并按 Enter 保存更改。
+    这将修改 Python 脚本以使用 C Python 而不是 Jython。 更改后，请使用 Ctrl+X 退出编辑器。 选择 Y，然后选择 Enter 保存更改。
 
 6. 使用 `pig` 命令再次启动 shell。 在 `grunt>` 提示符下，使用以下命令运行带有 Jython 解释器的 Python 脚本。
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: c3caa50514ec6e19b3a6df6af0af528354a60546
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.openlocfilehash: 93a7ea08e1ca1f8da12442c8ab9f100e89eb0e81
+ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-aure-network-watcher-using-azure-rest-api"></a>使用 Azure REST API 通过 Azure 网络观察程序中的“下一跃点”功能找到下一跃点类型
 
@@ -51,7 +51,7 @@ ARMclient 用于使用 PowerShell 调用 REST API。 根据 [Chocolatey 上的 A
 使用 Azure 凭据登录到 armclient。
 
 ```PowerShell
-armclient login
+armclient login "MOONCAKE"
 ```
 
 ## <a name="retrieve-a-virtual-machine"></a>检索虚拟机

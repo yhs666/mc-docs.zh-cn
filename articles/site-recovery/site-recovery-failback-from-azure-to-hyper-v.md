@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 08/11/2017
-ms.date: 08/28/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: adcedc01fdf7d31a680fd89d9dba0a9ec45c4f24
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 8d17a06317989be78fc13b2b6ea94a0ec2ac411c
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>在 Site Recovery 中进行针对 Hyper-v 虚拟机的故障回复
 
@@ -32,10 +32,13 @@ ms.lasthandoff: 08/25/2017
 ## <a name="why-is-there-no-button-called-failback"></a>为何没有名为“故障回复”的按钮？
 在门户中，没有名为“故障回复”的显式手势。 故障回复是一个步骤，通过该步骤返回到主站点。 根据定义，故障转移是指将虚拟机从主（本地）站点故障转移到恢复 (Azure) 站点，而故障回复是指将虚拟机从恢复站点故障转移回主站点。
 
-启动故障转移时，边栏选项卡会告知你作业方向。 如果方向为从 Azure 到本地，则为故障回复。
+启动故障转移时，边栏选项卡会显示关于作业方向的信息。 如果方向为从 Azure 到本地，则为故障回复。
 
 ## <a name="why-is-there-only-a-planned-failover-gesture-to-failback"></a>为何对于故障回复，只有一个计划的故障转移手势？
 Azure 是高度可用的环境，虚拟机将始终可用。 故障回复是一个计划的活动，可以决定进行短暂的停机，以便工作负荷在本地再次运行。 这不会丢失数据。 因此，我们只提供计划的故障转移手势，方便你关闭 Azure 中的 VM、下载最新更改，确保没有数据丢失。
+
+## <a name="do-i-need-a-process-server-in-azure-to-failback-to-hyper-v"></a>Hyper-v 的故障回复是否需要在 Azure 中使用进程服务器？
+不。仅当保护 VMware 虚拟机时才需要进程服务器。 Hyper-v 虚拟机的保护/故障回复均不需要部署任何其他组件。
 
 ## <a name="initiate-failback"></a>启动故障回复
 从主要位置故障转移到辅助位置后，复制的虚拟机不受 Site Recovery 的保护，辅助位置现在充当活动位置。 请遵循以下过程故障回复到原始主站点。 本过程描述如何对恢复计划运行计划的故障转移。 或者，也可以在“**虚拟机**”选项卡上对单个虚拟机运行故障转移。
@@ -50,10 +53,8 @@ Azure 是高度可用的环境，虚拟机将始终可用。 故障回复是一�
 
     - **仅在故障转移期间同步数据（完整下载）** - 如果已在 Azure 上长时间运行，则使用此选项。 此选项速度更快，因为我们预计磁盘的大部分已经更改，而且不想花时间进行校验和计算。 此选项会执行磁盘的下载。 如果已删除本地虚拟机，此选项也很有帮助。
 
-    > [!NOTE]
-    > 如果已在 Azure 上运行了一段时间（一个月或以上）或已删除本地虚拟机，我们建议使用此选项。此选项不会执行任何校验和计算。
-    >
-    >
+    >[!NOTE]
+    >如果已在 Azure 上运行了一段时间（一个月或以上）或已删除本地虚拟机，我们建议使用此选项。此选项不会执行任何校验和计算。
 
 4. 如果为云启用了数据加密，请在“加密密钥”  中，选择在 VMM 服务器上安装提供者期间启用数据加密时颁发的证书。
 5. 启动故障转移。 可以在“**作业**”选项卡上跟踪故障转移进度。
@@ -81,8 +82,13 @@ Azure 是高度可用的环境，虚拟机将始终可用。 故障回复是一�
 
     > [!NOTE]
     > 如果在“数据同步”步骤中取消故障回复作业，则本地 VM 会处于损坏状态。 这是因为数据同步将 Azure VM 磁盘中的最新数据复制到本地数据磁盘上，在同步完成之前，磁盘数据并不处于一致状态。 如果在取消数据同步后启动本地 VM，则可能无法启动。 重新触发故障转移以完成数据同步。
-    >
-    >
+
+## <a name="time-taken-to-failback"></a>故障回复所需时间
+完成数据同步及启动虚拟机所需的时间取决于各种因素。 为了深入了解所需时间，我们需要解释数据同步期间发生的情况。
+
+数据同步会为虚拟机磁盘拍摄快照，然后开始逐块检查并计算其校验和。 计算出的检验和将发送到本地，然后与相同块的本地校验和进行比较。 如果校验和匹配，则不会传输数据块。 如果不匹配，则会将数据块传输到本地。 此传输时间取决于可用带宽。 校验和的速度为每分钟几 GB。 
+
+要加快数据下载速度，可将 MARS 代理配置为使用多个线程并行下载。 要了解如何更改代理中的下载线程，请参阅[此文档](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -90,4 +96,4 @@ Azure 是高度可用的环境，虚拟机将始终可用。 故障回复是一�
 
 在**提交**后，可以启动*反向复制*。 这将启动对虚拟机的保护，将其从本地故障回复到 Azure。 请注意，这样只会复制更改，因为 VM 已在 Azure 中关闭，因此只发送差异性更改。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: add Time taken to failback content -->

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: dc00663c92acae611883e8967699052543666bfb
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.openlocfilehash: aa5375c86c18f7462f195aafee745f170a7bf510
+ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>创建 Azure 网络观察程序实例
 
@@ -55,7 +55,7 @@ ARMclient 用于使用 PowerShell 调用 REST API。 按照 [Chocolatey 上的 A
 ### <a name="log-in-with-armclient"></a>使用 ARMClient 登录
 
 ```powerShell
-armclient login
+armclient login "MOONCAKE"
 ```
 
 ### <a name="create-the-network-watcher"></a>创建网络观察程序

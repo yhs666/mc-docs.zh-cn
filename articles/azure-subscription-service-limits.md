@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/29/2017
-ms.date: 10/26/2017
+ms.date: 11/16/2017
 ms.author: v-junlch
-ms.openlocfilehash: eaa36e334bda8a0fe3a4b62edd5aeb2bd3975912
-ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
+ms.openlocfilehash: 9ed63a2ca3c0295fb6a1708de16ed9418c2c9ad7
+ms.sourcegitcommit: ec2ae82186a700610e5b9e649996e620a2fe4b9d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/26/2017
 > [!NOTE]
 > 无法将限制提高到超过下表中显示的**最大限制**值。 如果没有 **最大限制** 列，则资源没有可调整的限制。 
 > 
-> 1 元试用订阅不符合增加限制或配额的条件。 如果有 1 元试用订阅，可将其升级到即用即付订阅。 
+> 1 元试用订阅不符合增加限制或配额的条件。
 > 
 
 ## <a name="limits-and-the-azure-resource-manager"></a>限制和 Azure Resource Manager
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/26/2017
 在下面的限制中，添加了一个新表以反映在使用 Azure Resource Manager 时限制中的任何差异。 例如，会存在一个**订阅限制**表和一个**订阅数限制 - Azure Resource Manager** 表。 如果某个限制同时适用于这两种方案，它会仅显示在第一个表中。 除非另有说明，否则限制是跨所有区域的全局限制。
 
 > [!NOTE]
-> 请务必强调 Azure 资源组中的资源配额是用户的订阅可以访问的每个区域，而不像服务管理配额那样是可以访问的每个订阅。 我们来使用核心配额作为示例。 如果需要根据对核心的支持请求增加配额，则需要决定想要在哪个区域中使用多少核心，并针对自己希望的 Azure 资源组核心配额的数量和区域进行特定请求。 因此，如果需要在西欧使用 30 个核心以在那里运行应用程序，则应专门在西欧请求 30 个核心。 但这不会增加在任何其他区域的核心配额 -- 仅西欧会有 30 个核心配额。
+> 请务必强调 Azure 资源组中的资源配额是用户的订阅可以访问的每个区域，而不像服务管理配额那样是可以访问的每个订阅。 我们来使用核心配额作为示例。 如果需要根据对核心的支持请求增加配额，则需要决定想要在哪个区域中使用多少核心，并针对自己希望的 Azure 资源组核心配额的数量和区域进行特定请求。
 > <!-- -->
 > 因此，可能会发现考虑决定你在任何一个区域中的工作负荷所需的 Azure 资源组配额数量，以及请求你考虑在其中进行部署的每个区域的数量很有用。 有关发现特定区域的当前配额的更多帮助，请参阅[排查部署问题](./azure-resource-manager/resource-manager-common-deployment-errors.md)。
 > 

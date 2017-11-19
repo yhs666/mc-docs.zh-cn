@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 17f1ecd4ff71fc8161d69c781fd3467b9961491c
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 10/04/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: ff1d3f1a1a31d86ce0cd572074ef65ed55218b14
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>在 HDInsight 中的 Hadoop 上将 C# 与 MapReduce 流式处理配合使用
 

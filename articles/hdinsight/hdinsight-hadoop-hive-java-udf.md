@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/26/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 6428b5d2289d55d7cdc3eaedf74510fd149cb184
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 09/26/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: 6c25ee727aec60025292443773778f71c45b20da
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>在 HDInsight 中通过 Hive 使用 Java UDF
 
@@ -44,9 +44,9 @@ ms.lasthandoff: 09/12/2017
 * 文本编辑器或 Java IDE
 
     > [!IMPORTANT]
-    > 如果在 Windows 客户端上创建 Python 文件，则必须采用使用 LF 作为行结束的编辑器。
+    > 如果在 Windows 客户端上创建 Python 文件，则必须使用将 LF 用作行尾的编辑器。 如果无法确定编辑器使用的是 LF 还是 CRLF，请参阅[故障排除](#troubleshooting)部分，了解删除 CR 字符的步骤。
 
-## <a name="create-an-example-java-udf"></a>创建示例 Java UDF 
+## <a name="create-an-example-java-udf"></a>创建 Java UDF 示例 
 
 1. 从命令行中，使用以下命令新建 Maven 项目：
 
@@ -208,7 +208,7 @@ ms.lasthandoff: 09/12/2017
 1. 使用以下命令在 SSH 会话中启动 Beeline 客户端。
 
     ```bash
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
     该命令假定你使用默认的群集登录帐户 **admin**。

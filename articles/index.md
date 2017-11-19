@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: "Azure 文档"
 description: "了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
-ms.openlocfilehash: 2ba06d92d20587e3a523f6abdc738f937f97ec13
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 8f892301f4c32bf158814b522e55f6d6f14c2143
+ms.sourcegitcommit: 1e05f86a602fe2ec9fe13d13904d66860ebd22b2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/13/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -504,9 +504,9 @@ ms.lasthandoff: 10/23/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/power-bi-embedded/">
+                                            <a href="/power-bi-workspace-collections/">
                                                 <img src="media/index/PowerBIEmbedded.svg" alt="" />
-                                                <p>Power BI Embedded</p>
+                                                <p>Power BI 工作区集合</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1508,7 +1508,7 @@ ms.lasthandoff: 10/23/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/power-bi-embedded/">
+                                <a href="/power-bi-workspace-collections/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1518,7 +1518,7 @@ ms.lasthandoff: 10/23/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Power BI Embedded</h3>
+                                                    <h3>Power BI 工作区集合</h3>
                                                     <p>在应用程序中嵌入完全交互式的、令人惊叹的数据可视化效果</p>
                                                 </div>
                                             </div>
