@@ -16,6 +16,11 @@
       "redirect_document_id": "false"
     },
     {
+            "source_path": "articles/azure-resource-manager/resource-group-authenticate-service-principal-cli.md",
+            "redirect_url": "https://docs.azure.cn/zh-cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest",
+            "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/resource-group-authenticate-service-principal.md",
       "redirect_url": "/azure-resource-manager/resource-group-authenticate-service-principal",
       "redirect_document_id": "false"
@@ -841,6 +846,36 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/service-fabric/service-fabric-application-lifecycle-azure-cli-2-0.md",
+      "redirect_url": "/service-fabric/service-fabric-application-lifecycle-sfctl",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-azure-cli.md",
+      "redirect_url": "/service-fabric/service-fabric-cli",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-azure-cli-2-0.md",
+      "redirect_url": "/service-fabric/service-fabric-cli",
+      "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/service-fabric/service-fabric-linux-overview.md",
+            "redirect_url": "/service-fabric/service-fabric-deploy-anywhere",
+            "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/service-fabric/service-fabric-reliable-actors-get-started-java.md",
+            "redirect_url": "/service-fabric/service-fabric-create-your-first-linux-application-with-java",
+            "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware.md",
+            "redirect_url": "/site-recovery/site-recovery-how-to-failback-azure-to-vmware",
+            "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/site-recovery/site-recovery-best-practices.md",
       "redirect_url": "/site-recovery/site-recovery-support-matrix-to-azure",
       "redirect_document_id": "false"
@@ -1504,6 +1539,11 @@
       "source_path": "articles/stream-analytics/stream-analytics-get-started.md",
       "redirect_url": "/stream-analytics/stream-analytics-real-time-fraud-detection",
       "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/stream-analytics/stream-analytics-functions-redis.md",
+            "redirect_url": "/stream-analytics/stream-analytics-introduction",
+            "redirect_document_id": "false"
     },
     {
       "source_path": "articles/traffic-manager/traffic-manager-configure-failover-routing-method.md",
@@ -2453,11 +2493,6 @@
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-allocation-failure.md",
       "redirect_url": "/virtual-machines/windows/allocation-failure",
-      "redirect_document_id": "false"
-    },
-    {
-      "source_path": "articles/virtual-machines/virtual-machines-windows-agent-user-guide.md",
-      "redirect_url": "/virtual-machines/windows/agent-user-guide",
       "redirect_document_id": "false"
     },
     {
@@ -3446,6 +3481,51 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-agent-user-guide.md",
+      "redirect_url": "/virtual-machines/windows/agent-user-guide",
+      "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/virtual-machines/virtual-machines-windows-sizes-storage.md",
+            "redirect_url": "/virtual-machines/windows/sizes-storage",
+            "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/virtual-machines/linux/azure-vm-network-overview.md",
+            "redirect_url": "/virtual-machines/linux/network-overview",
+            "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/virtual-machines/linux/containers.md",
+            "redirect_url": "https://azure.microsoft.com/overview/containers/",
+            "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/virtual-machines/linux/planned-maintenance.md",
+            "redirect_url": "/virtual-machines/linux/maintenance-and-updates",
+            "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/virtual-machines/linux/restart-resize-error-troubleshooting.md",
+            "redirect_url": "/virtual-machines/linux/troubleshoot-deploy-vm",
+            "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/virtual-machines/windows/containers.md",
+            "redirect_url": "https://azure.microsoft.com/overview/containers/",
+            "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/virtual-machines/windows/planned-maintenance.md",
+            "redirect_url": "/virtual-machines/windows/maintenance-and-updates",
+            "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/virtual-machines/virtual-machines-dotnet-diagnostics.md",
+            "redirect_url": "/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines",
+            "redirect_document_id": "true"
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-windows-upload-specialized.md",
       "redirect_url": "/virtual-machines/windows/upload-specialized",
       "redirect_document_id": "false"
@@ -3626,6 +3706,96 @@
       "redirect_document_id": "false"
     },
     {
+		"source_path": "articles/virtual-machines/linux/endpoints-in-resource-manager.md",
+		"redirect_url": "/virtual-machines/linux/nsg-quickstart",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/linux/app-frameworks.md",
+		"redirect_url": "/virtual-machines/linux/index",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/extensions-authoring-templates.md",
+		"redirect_url": "/virtual-machines/windows/template-description",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/create-aad-work-id.md",
+		"redirect_url": "/active-directory/active-directory-users-create-azure-portal",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/linux/create-aad-work-id.md",
+		"redirect_url": "/active-directory/active-directory-users-create-azure-portal",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/infrastructure-resource-groups-guidelines.md",
+		"redirect_url": "/virtual-machines/windows/infrastructure-example",
+		"redirect_document_id": "False"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/infrastructure-subscription-accounts-guidelines.md",
+		"redirect_url": "/virtual-machines/windows/infrastructure-example",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/infrastructure-naming-guidelines.md",
+		"redirect_url": "/virtual-machines/windows/infrastructure-example",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/linux/cli-deploy-templates.md",
+		"redirect_url": "/virtual-machines/linux/create-ssh-secured-vm-from-template",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/endpoints-in-resource-manager.md",
+		"redirect_url": "/virtual-machines/windows/nsg-quickstart-portal",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/linux/extensions-authoring-templates.md",
+		"redirect_url": "/virtual-machines/windows/template-description",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/infrastructure-virtual-machine-guidelines.md",
+		"redirect_url": "/virtual-machines/windows/infrastructure-example",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/load-balance.md",
+		"redirect_url": "/virtual-machines/windows/tutorial-load-balancer",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/infrastructure-storage-solutions-guidelines.md",
+		"redirect_url": "/virtual-machines/windows/infrastructure-example",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/infrastructure-availability-sets-guidelines.md",
+		"redirect_url": "/virtual-machines/windows/infrastructure-example",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/infrastructure-networking-guidelines.md",
+		"redirect_url": "/virtual-machines/windows/infrastructure-example",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/app-frameworks.md",
+		"redirect_url": "/virtual-machines/windows/index",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/cli-deploy-templates.md",
+		"redirect_url": "/virtual-machines/linux/create-ssh-secured-vm-from-template",
+		"redirect_document_id": "false"
+	},
+    {
       "source_path": "articles/virtual-network/virtual-network-accelerated-networking-powershell.md",
       "redirect_url": "/virtual-network/virtual-network-create-vm-accelerated-networking",
       "redirect_document_id": "false"
@@ -3664,6 +3834,31 @@
       "source_path": "articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md",
       "redirect_url": "/virtual-network/virtual-network-create-peering",
       "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
+            "redirect_url": "/virtual-machines/linux/multiple-nics",
+            "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md",
+            "redirect_url": "/virtual-machines/windows/multiple-nics",
+            "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/virtual-network/virtual-network-deploy-multinic-cli-nodejs.md",
+            "redirect_url": "/virtual-machines/linux/multiple-nics-nodejs",
+            "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-portal.md",
+            "redirect_url": "/virtual-network/virtual-networks-create-nsg-arm-pportal",
+            "redirect_document_id": "false"
+    },
+    {
+            "source_path": "articles/virtual-network/virtual-networks-multiple-nics.md",
+            "redirect_url": "/virtual-network/virtual-network-deploy-multinic-classic-ps",
+            "redirect_document_id": "false"
     },
     {
       "source_path": "articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md",
