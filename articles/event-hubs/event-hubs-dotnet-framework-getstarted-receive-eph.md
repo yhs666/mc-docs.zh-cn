@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/12/2017
-ms.date: 09/04/2017
+origin.date: 10/10/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 68537830d5d2cb060926e93e3a91b4a1bd06fd57
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 69e9c586c394fa4cf4897058a2afd4e73a1c3dbf
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 从 Azure 事件中心接收事件
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 09/04/2017
 若要完成本教程，需要满足以下先决条件：
 
 * [Microsoft Visual Studio 2015 或更高版本](http://visualstudio.com)。 本教程中的屏幕截图使用 Visual Studio 2017。
-* 有效的 Azure 帐户。 如果没有帐户，只需几分钟时间就可以创建一个免费帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个试用帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>创建事件中心命名空间和事件中心
 
@@ -186,4 +186,4 @@ ms.lasthandoff: 09/04/2017
 [Event Processor Host]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
 [Azure portal]: https://portal.azure.cn
 
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update meta properties -->

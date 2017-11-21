@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 09/06/2017
-ms.date: 10/23/2017
-ms.author: v-dazen
-ms.openlocfilehash: c71df1912ccb3badc46194821ad7de7dd972977c
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+origin.date: 09/22/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: 69a22d9b5f9324542212c56377ec8e1d87199a64
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>将 Apache Phoenix 与 HDinsight 中基于 Linux 的 HBase 群集配合使用
 了解如何在 Azure HDInsight 中使用 [Apache Phoenix](http://phoenix.apache.org/)，以及如何使用 SQLLine。 有关 Phoenix 的详细信息，请参阅 [在 15 分钟或以下了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。 有关 Phoenix 语法，请参阅 [Phoenix 语法](http://phoenix.apache.org/language/index.html)。
@@ -36,14 +36,13 @@ ms.lasthandoff: 10/13/2017
 ### <a name="prerequisites"></a>先决条件
 使用 SQLLine 之前，必须先准备好以下各项：
 
-* **HDInsight 中的 HBase 群集**。 有关预配 HBase 群集的信息，请参阅 [HDInsight 中的 Apache HBase 入门][hdinsight-hbase-get-started]。
-* **通过远程桌面协议连接到 HBase 群集**。 有关详细信息，请参阅[使用 Azure 门户在 HDInsight 中管理 Hadoop 群集][hdinsight-manage-portal]。
+* **HDInsight 中的 HBase 群集**。 若要创建一个 HBase 群集，请参阅 [HDInsight 中的 Apache HBase 入门](./hdinsight-hbase-tutorial-get-started.md)。
 
 在连接到 HBase 群集时，需要连接到 ZooKeeper VM 之一。 每个 HDInsight 群集具有三个 ZooKeeper VM。
 
 获取 ZooKeeper 主机名
 
-1. 通过访问 https://\<群集名称\>.azurehdinsight.cn 打开 Ambari。
+1. 浏览到 **https://\<群集名称\>.azurehdinsight.cn**，打开 Ambari。
 2. 要登录，请输入 HTTP（群集）用户名和密码。
 3. 在左侧菜单中，选择“ZooKeeper”。 将列出三个 ZooKeeper Server 实例。
 4. 选择其中一个 ZooKeeper Server 实例。 在“摘要”窗格中，找到主机名。 它看起来类似于 zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.chinacloudapp.cn。
@@ -55,7 +54,7 @@ ms.lasthandoff: 10/13/2017
 2. 在 SSH 中，运行以下命令以运行 SQLLine：
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin
-        ./sqlline.py <ClusterName>:2181:/hbase-unsecure
+        ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. 要创建 HBase 表并插入一些数据，请运行以下命令：
 
         CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));

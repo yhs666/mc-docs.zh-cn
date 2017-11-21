@@ -13,16 +13,16 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 07/10/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: e8dcbb344d722e1fbffe7ea3fe8f8b861aafe6cc
-ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.openlocfilehash: 4160c02d771e07244d99e2dd10f7820a14aba929
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 11/15/2017
 ---
-# 开始在 PowerShell 中创建面向 Internet 的负载均衡器（经典）
-<a id="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell" class="xliff"></a>
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>开始在 PowerShell 中创建面向 Internet 的负载均衡器（经典）
+
 > [!div class="op_single_selector"]
 > * [Azure 经典管理门户](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
@@ -36,18 +36,16 @@ ms.lasthandoff: 06/26/2017
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## 使用 PowerShell 设置负载均衡器
-<a id="set-up-load-balancer-using-powershell" class="xliff"></a>
+## <a name="set-up-load-balancer-using-powershell"></a>使用 PowerShell 设置负载均衡器
 
-若要使用 powershell 设置负载均衡器，请按照以下步骤进行操作：
+若要使用 powershell 设置负载均衡器，请完成以下步骤：
 
-1. 如果你从未使用过 Azure PowerShell，请参阅 [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) （如何安装和配置 Azure PowerShell），并始终按照说明进行操作，以登录到 Azure 并选择你的订阅。
+1. 如果从未使用过 Azure PowerShell，请参阅 [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)（如何安装和配置 Azure PowerShell），并始终按照说明进行操作，以登录到 Azure 并选择订阅。
 2. 创建虚拟机后，可以使用 PowerShell cmdlet 将负载均衡器添加到同一云服务中的虚拟机。
 
-在下面的示例中，会将名为“webfarm”的负载均衡器集添加到云服务“mytestcloud”（或 myctestcloud.chinacloudapp.cn），并将负载均衡器的终结点添加到名为“web1”和“web2”的虚拟机。 负载均衡器在端口 80 上接收网络流量，并在由本地终结点（在此示例中为端口 80）定义的虚拟机之间使用 TCP 进行负载均衡。
+在下面的示例中，请将名为“webfarm”的负载均衡器集添加到云服务“mytestcloud”（或 myctestcloud.chinacloudapp.cn），并将负载均衡器的终结点添加到名为“web1”和“web2”的虚拟机。 负载均衡器在端口 80 上接收网络流量，并在由本地终结点（在此示例中为端口 80）定义的虚拟机之间使用 TCP 进行负载均衡。
 
-### 步骤 1
-<a id="step-1" class="xliff"></a>
+### <a name="step-1"></a>步骤 1
 
 为第一个 VM“web1”创建负载均衡终结点
 
@@ -55,8 +53,7 @@ ms.lasthandoff: 06/26/2017
 Get-AzureVM -ServiceName "mytestcloud" -Name "web1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
 ```
 
-### 步骤 2
-<a id="step-2" class="xliff"></a>
+### <a name="step-2"></a>步骤 2
 
 使用相同的负载均衡器集名称为第二个 VM“web2”创建另一个终结点
 
@@ -64,8 +61,7 @@ Get-AzureVM -ServiceName "mytestcloud" -Name "web1" | Add-AzureEndpoint -Name "H
 Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
 ```
 
-## 从负载均衡器中删除虚拟机
-<a id="remove-a-virtual-machine-from-a-load-balancer" class="xliff"></a>
+## <a name="remove-a-virtual-machine-from-a-load-balancer"></a>从负载均衡器中删除虚拟机
 
 可以使用 Remove-AzureEndpoint 从负载均衡器中删除虚拟机终结点
 
@@ -73,9 +69,10 @@ Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "H
 Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name httpin | Update-AzureVM
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 还可以[开始创建内部负载均衡器](load-balancer-get-started-ilb-classic-ps.md)，并配置适合特定负载均衡器网络流量行为的[分发模式](load-balancer-distribution-mode.md)类型。
 
-如果应用程序需要始终保持对负载均衡器后面的服务器的连接，可详细了解[负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)。 该文章将有助于你了解使用 Azure 负载均衡器时的空闲连接行为。
+如果应用程序需要始终保持对负载均衡器后面的服务器的连接，可详细了解[负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)。 可借助该文章了解使用 Azure 负载均衡器时的空闲连接行为。
+
+<!-- Update_Description: update meta properties, wording update -->

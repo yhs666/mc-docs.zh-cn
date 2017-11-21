@@ -12,20 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/12/2017
-ms.date: 07/03/2017
+origin.date: 10/10/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 44018fc9c78ea4afc70d8498f6157e75e0f89828
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 49b0dd02bf40d473243c848cd844500f3d934380
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 11/15/2017
 ---
-# 使用 .NET Framework 将事件发送到 Azure 事件中心
-<a id="send-events-to-azure-event-hubs-using-the-net-framework" class="xliff"></a>
+# <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 将事件发送到 Azure 事件中心
 
-## 介绍
-<a id="introduction" class="xliff"></a>
+## <a name="introduction"></a>介绍
 
 事件中心是一个服务，可用于处理来自连接设备和应用程序的大量事件数据（遥测）。 将数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。 这种大规模事件收集和处理功能是现代应用程序体系结构（包括物联网 (IoT)）的重要组件。
 
@@ -34,23 +32,21 @@ ms.lasthandoff: 06/23/2017
 若要完成本教程，需要满足以下先决条件：
 
 * [Microsoft Visual Studio 2015 或更高版本](http://visualstudio.com)。 本教程中的屏幕截图使用 Visual Studio 2017。
-* 有效的 Azure 帐户。 如果没有帐户，只需几分钟时间就可以创建一个免费帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个试用帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
 
-## 创建事件中心命名空间和事件中心
-<a id="create-an-event-hubs-namespace-and-an-event-hub" class="xliff"></a>
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>创建事件中心命名空间和事件中心
 
 第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 若要创建命名空间和事件中心，请按照[本文](event-hubs-create.md)中的步骤进行操作，然后继续执行本教程的以下步骤。
 
-## 创建发送方控制台应用程序
-<a id="create-a-sender-console-application" class="xliff"></a>
+## <a name="create-a-sender-console-application"></a>创建发送方控制台应用程序
 
 在此部分中，将编写用于将事件发送到事件中心的 Windows 控制台应用。
 
 1. 在 Visual Studio 中，使用 **控制台应用程序** 项目模板创建一个新的 Visual C# 桌面应用项目。 将该项目命名为 **Sender**。
 
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
-2. 在解决方案资源管理器中，右键单击“Sender”项目，然后单击“为解决方案管理 NuGet 包”。 
-3. 单击“浏览”选项卡，然后搜索 `Azure Service Bus`。 单击“安装” 并接受使用条款。 
+2. 在解决方案资源管理器中，右键单击“Sender”项目，并单击“为解决方案管理 NuGet 包”。 
+3. 单击“浏览”选项卡，并搜索 `WindowsAzure.ServiceBus`。 单击“安装” 并接受使用条款。 
 
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
 
@@ -104,10 +100,9 @@ ms.lasthandoff: 06/23/2017
     ```
 8. 运行程序，并确保没有任何错误。
 
-祝贺你！ 现在已向事件中心发送消息。
+祝贺！ 现在已向事件中心发送消息。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 现在已生成了一个可以创建事件中心以及发送数据的有效应用程序，接下来请继续学习以下方案：
 
 * [使用事件处理程序主机接收事件](event-hubs-dotnet-framework-getstarted-receive-eph.md)
@@ -119,3 +114,5 @@ ms.lasthandoff: 06/23/2017
 [20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
+
+<!--Update_Description: update meta properties, wording update -->

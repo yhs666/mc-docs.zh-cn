@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/06/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 09c01a207997eadfad183ed9e70eb451e827d90e
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 09/06/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: 1763cdfda40c0442c0406fc31525ee833b009989
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-and-more"></a>在 HDInsight 中设置包含 Hadoop、Spark 和其他组件的群集
+# <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark、Kafka 等等在 HDInsight 中设置群集
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-了解如何在 HDInsight 中设置和配置包含 Hadoop、Spark、交互式 Hive、HBase 或 Storm 的群集。
+了解如何使用 Hadoop、Spark、Kafka、交互式查询、HBase、R Server 或 Storm 在 HDInsight 中设置和配置群集。 另外，了解如何自定义群集，并将它们加入域以提高安全性。
 
 Hadoop 群集由用于对任务进行分布式处理的多个虚拟机（节点）组成。 Azure HDInsight 对各个节点的安装和配置的实现细节进行处理，因此你只需提供常规配置信息。 
 
@@ -80,7 +80,9 @@ Azure HDInsight 目前提供以下群集类型，每种类型都具有一组用�
 | [HBase](hdinsight-hbase-overview.md) |大量无架构 NoSQL 数据的处理 |
 | [Storm](hdinsight-storm-overview.md) |实时事件处理 |
 | [Spark](hdinsight-apache-spark-overview.md) |内存中处理、交互式查询、微批流处理 |
-| [交互式 Hive（预览版）](hdinsight-hadoop-use-interactive-hive.md) |更快的交互式 Hive 查询的内存中缓存 |
+| [Kafka（预览版）](hdinsight-apache-kafka-introduction.md) | 分布式流式处理平台，可用于构建实时流数据管道和应用程序 |
+| [R Server](hdinsight-hadoop-r-server-overview.md) |各种大数据统计信息、预测模型和机器学习功能 |
+| [交互式查询](hdinsight-hadoop-use-interactive-hive.md) |更快的交互式 Hive 查询的内存中缓存 |
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>每个群集类型的节点数
 每个群集类型有自身的节点数目、节点术语和默认的 VM 大小。 下表中的括号内列出了每个节点类型的节点数目。
@@ -97,7 +99,16 @@ Azure HDInsight 目前提供以下群集类型，每种类型都具有一组用�
 ### <a name="hdinsight-version"></a>HDInsight 版本
 选择此群集的 HDInsight 版本。 有关详细信息，请参阅[支持的 HDInsight 版本](hdinsight-component-versioning.md#supported-hdinsight-versions)。
 
-## <a name="cluster-login-and-ssh-user-name"></a>群集登录名和 SSH 用户名
+### <a name="cluster-tiers"></a>群集层：HDInsight 服务层
+
+Azure HDInsight 提供两个服务层的大数据云产品/服务：标准版和高级版。  但目前在中国，只支持标准层。 
+
+以下屏幕截图显示了在 Azure 门户中选择群集类型的信息。
+
+![HDInsight 高级版配置](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
+
+
+## <a name="cluster-login-and-ssh-user-name"></a>群集登录和 SSH 用户名
 使用 HDInsight 群集时，可以在群集创建期间配置两个用户帐户：
 
 * HTTP 用户：默认用户名为 *admin*。它使用 Azure 门户上的基本配置。 有时称为“群集用户”。
@@ -105,7 +116,7 @@ Azure HDInsight 目前提供以下群集类型，每种类型都具有一组用�
 
 ## <a name="location"></a>群集和存储的位置（区域）
 
-不需要显式指定群集位置：群集与默认存储位于同一位置。 有关受支持区域的列表，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)中的**列出的区域**。
+无需显式指定群集位置：群集位于默认存储所在的位置。 有关受支持区域的列表，请单击 [HDInsight 定价](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)中的“区域”下拉列表。
 
 ## <a name="storage-endpoints-for-clusters"></a>群集的存储终结点
 

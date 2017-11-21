@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/21/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 9b2ea35fb68aa1016ec847f53c180009798d106a
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 09/22/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
+ms.openlocfilehash: 873625ac6816cd75e877646cd1220a70dc636ddf
+ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>在 HDInsight Spark 群集上运行交互式查询
 
@@ -64,9 +64,9 @@ ms.lasthandoff: 09/12/2017
 
     ![为要从中运行交互式 Spark 查询的 Jupter Notebook 提供一个名称](./media/hdinsight-apache-spark-load-data-run-query/hdinsight-spark-jupyter-notebook-name.png "为要从中运行交互式 Spark 查询的 Jupter Notebook 提供一个名称")
 
-5. 将以下代码粘贴到一个空单元格中，然后按 **SHIFT + ENTER** 来运行这些代码。 这些代码会导入此方案所需的类型：
+5. 将以下代码粘贴到一个空单元格中，然后按 **SHIFT + ENTER** 来运行这些代码。 该代码导入此方案所需的类型：
 
-        from pyspark.sql.types import *
+    from pyspark.sql import *      from pyspark.sql.types import *
 
     使用笔记本是使用 PySpark 内核创建的，因此不需要显式创建任何上下文。 运行第一个代码单元格时，系统会自动创建 Spark 和 Hive 上下文。
 

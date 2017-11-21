@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/28/2017
-ms.date: 09/25/2017
+origin.date: 10/05/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: c3fa6ad757f4e39342ae861926dc16ab0df185fa
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: eb2b50a907f601c7416ced525b6c994bc1bba60a
+ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -43,7 +43,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 * 出口事件（从事件中心耗用的事件）最多达每秒 2 MB。
 * 高达 84 GB 的事件存储空间（对于默认为 24 小时的保留期来说是很充足的）。
 
-事件中心吞吐量单元根据在指定的某个小时内选择的最大单元数量按小时计费。
+事件中心吞吐量单元根据在指定的某个小时内选择的最大单元数量按小时计费。 可以随着使用量增加自动[增加吞吐量单位数](event-hubs-auto-inflate.md)。
 
 ### <a name="how-are-event-hubs-throughput-unit-limits-enforced"></a>怎样强制实施事件中心吞吐量单元？
 如果某个命名空间中所有事件中心间的总入口吞吐量或总入口事件率超过了聚合吞吐量单位限额，发送方会受到限制，并会收到指明已超出入口配额的错误信息。
@@ -53,11 +53,14 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 ### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-selected"></a>可选择的吞吐量单元的数量有限制吗？
 默认配额为每个命名空间 20 个吞吐量单元。 可以通过填写支持票证来要求更大的吞吐量单元配额。 超出 20 个吞吐量单元这一限制时，以 20 个和 100 个吞吐量单元的形式提供捆绑包。 请注意，使用 20 个以上的吞吐量单元会失去在不填写支持票证的情况下更改吞吐量单元数的能力。
 
+使用[自动膨胀](event-hubs-auto-inflate.md)功能，可以随着使用量增加自动增加吞吐量单位数。
+
 ### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>是否可以使用单个 AMQP 连接来与多个事件中心相互收发数据？
 可以，但前提是所有事件中心都在同一个命名空间中。
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>事件的最长保留期有多久？
-事件中心标准目前支持的最长保留期为 7 天。 请注意，事件中心并不是永久性的数据存储区。 大于 24 小时的保留期适用于将事件流重播到相同系统中的情形；例如，为了基于现有数据来培训或验证新计算机学习模型。 如果需要将消息保留 7 天以上，那么启用事件中心的[事件中心捕获](/event-hubs/event-hubs-capture-overview)功能，可将数据从事件中心拉取到选定的存储。 启用捕获功能会基于购买的吞吐量单位进行计价。
+事件中心标准目前支持的最长保留期为 7 天。 请注意，事件中心并不是永久性的数据存储区。 大于 24 小时的保留期适用于将事件流重播到相同系统中的情形；例如，为了基于现有数据来培训或验证新机器学习模型。 如果需要将消息保留 7 天以上，那么启用事件中心的[事件中心捕获](/event-hubs/event-hubs-capture-overview)功能，可将数据从事件中心拉取到选定的存储帐户。 启用捕获功能会基于购买的吞吐量单位进行计价。
+<!-- Not Available on Azure Data Lake Service account -->
 
 ### <a name="where-is-azure-event-hubs-available"></a>Azure 事件中心在哪些区域可用？
 在所有支持的 Azure 区域中都可使用 Azure 事件中心。 有关列表，请访问 [Azure 区域](https://www.azure.cn/support/service-dashboard/)页。  
@@ -92,7 +95,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 连接费用只在使用 AMQP 协议时适用。 使用 HTTP 发送事件没有连接费用，无论发送系统或设备的数量是多少。 如果计划使用 AMQP（例如，为了实现更高效的事件流式传输，或者为了对 IoT 命令和控制方案启用双向通信），请参阅[事件中心定价信息](https://www.azure.cn/pricing/details/event-hubs/)页，了解有关每个服务层中包括多少连接的详细信息。
 
 ### <a name="how-is-event-hubs-capture-billed"></a>事件中心捕获如何计费？
-命名空间中的任何事件中心启用了捕获选项时，即可启用捕获功能。 事件中心捕获按所购买的吞吐量单位以小时计费。 吞吐量单位计数增加或减少时，事件中心捕获计费将在整个小时增量中反映这些改变。 有关事件中心捕获计费的详细信息，请参阅[事件中心定价信息](https://www.azure.cn/pricing/details/event-hubs/)。
+命名空间中的任何事件中心启用了捕获选项时，即可启用捕获功能。 事件中心捕获按所购买的吞吐量单位以小时计费。 当吞吐量单位计数增加或减少时，事件中心捕获计费将在整个小时增量中反映这些变化。 有关事件中心捕获计费的详细信息，请参阅[事件中心定价信息](https://www.azure.cn/pricing/details/event-hubs/)。
 
 ### <a name="will-i-be-billed-for-the-storage-account-i-select-for-event-hubs-capture"></a>是否要为事件中心捕获所选择的存储帐户付费？
 捕获使用在事件中心启用捕获时提供的存储帐户。 由于这是你的存储帐户，对此配置进行任何更改都会在你的 Azure 订阅中计收费用。
@@ -118,5 +121,6 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 
 * [事件中心概述](event-hubs-what-is-event-hubs.md)
 * [创建事件中心](event-hubs-create.md)
+* [事件中心自动膨胀](event-hubs-auto-inflate.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, update link -->
