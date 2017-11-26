@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 07/31/2017
+origin.date: 10/31/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 0908c3b3412d5adc6e220d8ebc3bbdf78fd785da
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: f5f76d34b085a2dc0d73a5f43a403252cd5301d9
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>泛型 SQL 连接器技术参考
 本指南介绍泛型 SQL 连接器。 本文适用于以下产品：
@@ -292,7 +292,7 @@ ms.lasthandoff: 08/11/2017
 - **添加 SP 名称**：如有任何对象进入连接器以便在相应表中插入，则运行此 SP。
 - **更新 SP 名称**：如有任何对象进入连接器以便在相应表中更新，则运行此 SP。
 - **删除 SP 名称**：如有任何对象进入连接器以便在相应表中删除，则运行此 SP。
-- 从架构选择的属性作为存储过程的参数值。 示例：`EmployeeName: INPUT: @EmployeeName`（EmployeeName 已在连接器架构中选择，连接器在执行导出时替换相应的值）
+- 从架构选择的属性作为存储过程的参数值。 示例：`@EmployeeName: INPUT: EmployeeName`（EmployeeName 已在连接器架构中选择，连接器在执行导出时替换相应的值）
 - 若要运行参数化存储过程，请以 `[Name]:[Direction]:[Value]` 格式提供参数。 独行输入每个参数（使用 Ctrl+Enter 来换行）。
 
 **SQL 查询**  
@@ -308,4 +308,4 @@ ms.lasthandoff: 08/11/2017
 ## <a name="troubleshooting"></a>故障排除
 - 有关如何启用记录来排查连接器问题的信息，请参阅 [如何启用连接器的 ETW 跟踪](http://go.microsoft.com/fwlink/?LinkId=335731)。
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

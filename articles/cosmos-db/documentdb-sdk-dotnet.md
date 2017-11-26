@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 08/11/2017
-ms.date: 09/18/2017
+origin.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fd099ebf1dfd3d53c574da476a3f701b6a4468e
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: e9a97f3ad0b13c845070a4d921786496be142496
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK：下载和发行说明
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 09/13/2017
 > * [Python](documentdb-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-> * [SQL](documentdb-sql-query-reference.md)
+> * [SQL](../cosmos-db/documentdb-sql-query-reference.md)
 > 
 > 
 

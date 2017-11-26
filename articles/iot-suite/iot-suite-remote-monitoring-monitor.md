@@ -8,16 +8,16 @@ manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
 origin.date: 11/10/2017
-ms.date: 11/27/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: c3bce95e1fb980cc22c7ecc87922cd3626570ca4
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.openlocfilehash: d449b4a7623ef33e9fd3dca267d54754a61396f6
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>使用远程监视解决方案执行高级监视
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/17/2017
 
 若要遵循本教程，需在 Azure 订阅中部署远程监视解决方案的实例。
 
-<!-- If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial. -->
+如果尚未部署远程监视解决方案，应完成[部署远程监视预配置解决方案](iot-suite-remote-monitoring-deploy.md)教程。
 
 ## <a name="choose-the-devices-to-display"></a>选择要显示的设备
 

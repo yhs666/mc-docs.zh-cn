@@ -2,15 +2,15 @@
 
 ### <a name="install-raspbian"></a>安装 Raspbian
 
-如果这是你首次使用 Raspberry Pi，则需使用套件中随附的 SD 卡上的 NOOBS 来安装 Raspbian 操作系统。 [Raspberry Pi 软件指南][lnk-install-raspbian]介绍了如何在 Raspberry Pi 上安装操作系统。 本教程假定已在 Raspberry Pi 上安装 Raspbian 操作系统。
+如果这是首次使用 Raspberry Pi，需使用工具包中随附的 SD 卡上的 NOOBS 来安装 Raspbian 操作系统。 [Raspberry Pi 软件指南][lnk-install-raspbian]介绍了如何在 Raspberry Pi 上安装操作系统。 本教程假定已在 Raspberry Pi 上安装 Raspbian 操作系统。
 
 > [!NOTE]
-> [适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者套件][lnk-starter-kits]随附的 SD 卡已安装 NOOBS。 可以从该卡启动 Raspberry Pi，并选择安装 Raspbian OS。
+> [适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者工具包][lnk-starter-kits]随附的 SD 卡已安装 NOOBS。 可以从该卡启动 Raspberry Pi，并选择安装 Raspbian OS。
 
 若要完成硬件设置，需执行以下操作：
 
-- 将 Raspberry Pi 连接到套件中提供的电源。
-- 使用套件中提供的以太网电缆将 Raspberry Pi 连接到网络。 也可为 Raspberry Pi 设置[无线连接][lnk-pi-wireless]。
+- 将 Raspberry Pi 连接到工具包中提供的电源。
+- 使用工具包中提供的以太网电缆将 Raspberry Pi 连接到网络。 也可为 Raspberry Pi 设置[无线连接][lnk-pi-wireless]。
 
 现在已经完成 Raspberry Pi 的硬件设置。
 

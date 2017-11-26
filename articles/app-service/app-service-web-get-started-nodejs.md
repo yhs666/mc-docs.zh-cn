@@ -3,8 +3,8 @@ title: "在 Azure 中创建 Node.js Web 应用 | Azure"
 description: "数分钟内在 Azure 应用服务 Web 应用中部署第一个 Node.js Hello World。"
 services: app-service\web
 documentationcenter: 
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 05/05/2017
-ms.date: 10/30/2017
+origin.date: 10/26/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.custom: mvc
-ms.openlocfilehash: 933f0cc309e68c1e57bf423816daa837248292e0
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.custom: mvc, devcenter
+ms.openlocfilehash: f04dc9399227daa1dcd93ac09be8977ebea00092
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -39,8 +39,6 @@ ms.lasthandoff: 10/20/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
-
 ## <a name="download-the-sample"></a>下载示例
 
 在终端窗口中，运行以下命令，将示例应用存储库克隆到本地计算机。
@@ -48,8 +46,6 @@ ms.lasthandoff: 10/20/2017
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
-
-使用此终端窗口运行本快速入门中的所有命令。
 
 切换到包含示例代码的目录。
 
@@ -84,10 +80,6 @@ npm start
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
 ![空 Web 应用页](media/app-service-web-get-started-php/app-service-web-service-created.png)
-
-已在 Azure 中新建了一个空的 Web 应用。
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -147,7 +139,7 @@ Node.js 示例代码正在 Azure 应用服务 Web 应用中运行。
 response.end("Hello Azure!");
 ```
 
-提交在 Git 中所做的更改，然后将代码更改推送到 Azure。
+在本地终端窗口中，提交在 Git 中所做的更改，然后将代码更改推送到 Azure。
 
 ```bash
 git commit -am "updated output"

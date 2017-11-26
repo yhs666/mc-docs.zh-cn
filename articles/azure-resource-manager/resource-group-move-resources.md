@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/05/2017
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 01ec21af4bc20010f44f57d695b73212907347d3
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: fdac6722a505836b88120767682db906a8dfabca
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -111,7 +111,6 @@ ms.lasthandoff: 11/09/2017
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
 * 认知服务
-* Azure Cosmos DB
 * 事件中心
 * HDInsight 群集 - 请参阅 [HDInsight 限制](#hdinsight-limitations)
 * IoT 中心
@@ -143,8 +142,10 @@ ms.lasthandoff: 11/09/2017
 * Express Route
 
 
+* 托管磁盘 - 请参阅[虚拟机限制](#virtual-machines-limitations)
 * 恢复服务保管库：也不会移动与恢复服务保管库关联的计算、网络和存储资源，请参阅 [恢复服务限制](#recovery-services-limitations)。
 * “安全”
+* 虚拟网络（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 ## <a name="virtual-machines-limitations"></a>虚拟机限制
 
 托管磁盘不支持移动。 此限制意味着，多个相关资源也无法移动。 无法移动：
@@ -301,6 +302,7 @@ ms.lasthandoff: 11/09/2017
 
 将 HDInsight 群集移到新的订阅时，首先移动其他资源（如存储帐户）。 然后移动 HDInsight 群集本身。
 
+<!--Not Available ## Search limitations-->
 ## <a name="use-portal"></a>使用门户
 
 如果要移动资源，请选择包含这些资源的资源组，并选择“移动”  按钮。

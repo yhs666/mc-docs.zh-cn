@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/02/2017
-ms.date: 08/22/2017
+origin.date: 11/08/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: a41891bc978ad35c7a4c14e9d5db2a2a4467fb82
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 339b2a6a6dd2b24c3bdb3d9e2b8f1e8db71c9756
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>了解 Azure Active Directory 体系结构
 使用 Azure Active Directory (Azure AD) 可以安全地管理用户对 Azure 服务和资源的访问。 Azure AD 随附了整套标识管理功能。 有关 Azure AD 功能的信息，请参阅[什么是 Azure Active Directory？](/active-directory/active-directory-whatis)
@@ -80,7 +80,7 @@ Azure AD 体系结构的组件包括主副本和辅助副本。
 
 ### <a name="data-centers"></a>数据中心
 
-Azure AD 的副本存储在分布于世界各地的数据中心内。 有关详细信息，请参阅 [Azure 数据中心](https://azure.microsoft.com/en-us/overview/datacenters)。
+Azure AD 的副本存储在分布于世界各地的数据中心内。 有关详细信息，请参阅 [Azure 数据中心](https://azure.microsoft.com/overview/datacenters)。
 
 Azure AD 可跨数据中心运行，其特征如下：
 
@@ -114,10 +114,10 @@ Azure AD 实施所有数据的每日备份，因此，在发生任何逻辑删�
 
 **安全操作**
 
-我们针对任一操作采用多重身份验证 (MFA) 等操作控制，并针对所有操作实施审核。 此外，我们使用适时提升系统，授予必要的临时访问权限让客户完成任何日常的按需操作任务。 有关详细信息，请参阅 [The Trusted Cloud](https://azure.microsoft.com/en-us/support/trust-center)（受信任的云）。
+我们针对任一操作采用多重身份验证 (MFA) 等操作控制，并针对所有操作实施审核。 此外，我们使用适时提升系统，授予必要的临时访问权限让客户完成任何日常的按需操作任务。 有关详细信息，请参阅 [The Trusted Cloud](https://www.trustcenter.cn/)（受信任的云）。
 
 ## <a name="next-steps"></a>后续步骤
 [Azure Active Directory 开发人员指南](/active-directory/develop/active-directory-developers-guide)
 
 
-<!--Update_Description: wording update -->   
+<!--Update_Description: link update -->   

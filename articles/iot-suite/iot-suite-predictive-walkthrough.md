@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/25/2017
-ms.date: 09/25/2017
+origin.date: 11/14/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.openlocfilehash: b008198e33b36540ccfecdbd5ba250dbd8814600
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: bd631d111457c6d4c47d95c18e8c3c9eb6527a9c
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>预见性维护预配置解决方案演练
 
-## <a name="introduction"></a>介绍
 
-IoT 套件预见性维护预配置解决方案是一个用于商业应用场景的端到端解决方案，可预测可能发生故障的时间点。 可主动使用此预配置解决方案执行维护优化等活动。 该解决方案结合了重要的 Azure IoT 套件服务，例如 IoT 中心、“流分析”工作区。  此工作区包含基于公用示例数据集的模型，用于预测飞机引擎的剩余使用寿命 (RUL)。 此解决方案全面实施了完整的 loT 商业应用场景作为规划和实施解决方案的起点，以满足自己特定的业务需求。
+预测性维护预配置解决方案是一个用于商业应用场景的端到端解决方案，可预测可能发生故障的时间点。 可主动使用此预配置解决方案执行维护优化等活动。 该解决方案结合了重要的 Azure IoT 套件服务，例如 IoT 中心、“流分析”工作区。  此工作区包含基于公用示例数据集的模型，用于预测飞机引擎的剩余使用寿命 (RUL)。 此解决方案全面实施了完整的 loT 商业应用场景作为规划和实施解决方案的起点，以满足自己特定的业务需求。
 
 ## <a name="logical-architecture"></a>逻辑体系结构
 
@@ -36,7 +35,7 @@ IoT 套件预见性维护预配置解决方案是一个用于商业应用场景�
 
 蓝色项是在部署预配置解决方案时，在同一区域中预配的 Azure 服务。 [预配页][lnk-azureiotsuite]显示了可部署预配置解决方案的区域列表。
 
-绿色项是表示飞机引擎的模拟设备。 可在以下部分中深入了解这些模拟设备。
+绿色项是表示飞机引擎的模拟设备。 可以在[模拟设备](#simulated-devices)部分了解有关这些模拟设备的详细信息。
 
 灰色项表示实现 *设备管理* 功能的组件。 当前的预见性维护预配置解决方案版本不会预配这些资源。 若要了解有关设备管理的详细信息，请参阅 [远程监视预配置解决方案][lnk-remote-monitoring]。
 
@@ -80,9 +79,9 @@ R Server 实现使用派生自数据的模型，这些数据是从实际飞机�
 
 [img-architecture]: ./media/iot-suite-predictive-walkthrough/architecture.png
 
-[lnk-remote-monitoring]: ./iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-remote-monitoring]: iot-suite-v1-remote-monitoring-sample-walkthrough.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.cn/
-[lnk-customize]: ./iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-faq]: ./iot-suite-faq.md
+[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-v1-faq.md
 [lnk-security-groundup]: ./securing-iot-ground-up.md

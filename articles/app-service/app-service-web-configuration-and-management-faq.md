@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2017
-ms.date: 10/30/2017
+origin.date: 11/03/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.openlocfilehash: 834c5f179a42ae9f4ba8af0431419379c4274b84
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: cc81d017688a444348e2348eba9e8d17c22afb48
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web 应用配置及管理常见问题解答
 
@@ -71,9 +71,20 @@ ms.lasthandoff: 10/20/2017
 
 若要为针对 Azure 应用网站的入站调用设置专用的或保留的 IP 地址，请安装和配置基于 IP 的 SSL 证书。
 
-请注意，若要将专用或保留的 IP 地址用于入站调用，应用服务计划必须包含在基本或更高的服务计划中。
+请注意，若要将专用或保留 IP 地址用于入站调用，应用服务计划必须处于基本或更高服务计划中。
 
-## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>尝试备份 Web 应用时，为何出现“部分成功”的消息？
+## <a name="can-i-export-my-app-service-certificate-to-use-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>是否可以导出应用服务证书以在 Azure 外部使用（如用于在其他位置承载的网站）？ 
+
+应用服务证书被视为 Azure 资源。 不应在 Azure 服务外部使用它们。 无法导出它们以在 Azure 外部使用。 有关详细信息，请参阅[应用服务证书和自定义域的常见问题解答](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview)。
+
+## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>是否可以导出应用服务证书以用于其他 Azure 云服务？
+
+门户针对通过 Azure Key Vault 将应用服务证书部署到应用服务应用提供一流的体验。 但是，我们从客户处收到了在应用服务平台外部使用这些证书（例如，用于 Azure 虚拟机）的请求。 若要了解如何创建应用服务证书的本地 PFX 副本以便可以将证书用于其他 Azure 资源，请参阅[创建应用服务证书的本地 PFX 副本](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)。
+
+有关详细信息，请参阅[应用服务证书和自定义域的常见问题解答](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview)。
+
+
+## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>当我尝试备份 Web 应用时，为何看到消息“已部分成功”？
 
 备份失败的一个常见原因是应用程序正在使用某些文件。 执行备份时，正在使用的文件会被锁定。 这会阻止对这些文件的备份操作，并可能导致“部分成功”状态。 可以通过将文件从备份过程中排除来防止这种情况发生。 可以选择仅备份所需文件。 有关详细信息，请参阅 [Azure Web 应用仅备份站点的重要部分](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/)。
 
@@ -106,6 +117,18 @@ PCI DSS 3.1 版证书要求禁用传输层安全性 (TLS) 1.0。 目前，大多
 5. 对于单个运行，选择“单个调用”。
 6. 选择“切换输出”按钮。
 7. 选择下载链接。
+
+## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>我在尝试对 SQL Server 使用混合连接。 为何会看到消息“System.OverflowException: 算术运算导致溢出”？
+
+如果使用混合连接访问 SQL Server，则 2016 年 5 月 10 的 Microsoft.NET 更新可能会导致连接失败。 你可能会看到此消息：
+
+```
+Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
+```
+
+### <a name="resolution"></a>解决方法
+
+我们正在努力更新混合连接管理器以修复此问题。 有关解决方法，请参阅[与 SQL Server 的混合连接错误：System.OverflowException: 算术运算导致溢出](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/)。
 
 ## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>如何添加或编辑 URL 重写规则？
 
@@ -177,11 +200,34 @@ PCI DSS 3.1 版证书要求禁用传输层安全性 (TLS) 1.0。 目前，大多
     {month} {day of the week}" }
     ```
 
-有关计划的 Web 作业的详细信息，请参阅[使用 Cron 表达式创建计划的 Web 作业](web-sites-create-web-jobs.md#CreateScheduledCRON)。
+有关计划 Web 作业的详细信息，请参阅[使用 Cron 表达式创建计划 Web 作业](web-sites-create-web-jobs.md#CreateScheduledCRON)。
+
+## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>如何对应用服务应用执行渗透测试？
+
+若要执行渗透测试，请[提交请求](https://security-forms.azure.com/penetration-testing/terms)。
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>如何为使用流量管理器的应用服务 Web 应用配置自定义域名？
 
-若要了解如何将自定义域名用于使用 Azure 流量管理器实现负载均衡的应用服务应用，请参阅[为使用流量管理器的 Azure Web 应用配置自定义域名](web-sites-traffic-manager-custom-domain-name.md)。
+若要了解如何对使用 Azure 流量管理器进行负载平衡的应用服务应用使用自定义域名，请参阅[为使用流量管理器的 Azure Web 应用配置自定义域名](web-sites-traffic-manager-custom-domain-name.md)。
+
+## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>我的应用服务证书被标记为存在欺诈。 如何解决此问题？
+
+在应用服务证书购买的域验证过程中，可能会看到以下消息：
+
+“你的证书已被标记为可能存在欺诈。 请求当前正在审查中。 如果证书未在 24 小时内变为可用，请联系 Azure 支持部门。”
+
+如该消息所示，此欺诈验证过程可能需要最多 24 小时才能完成。 在此期间，你会继续看到该消息。
+
+如果你的应用服务证书在 24 小时后继续显示此消息，请运行以下 PowerShell 脚本。 该脚本会联系[证书提供商](https://www.godaddy.com/)直接解决问题。
+
+```
+Login-AzureRmAccount
+Set-AzureRmContext -SubscriptionId <subId>
+$actionProperties = @{
+    "Name"= "<Customer Email Address>"
+    };
+Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
+```
 
 ## <a name="how-do-authentication-and-authorization-work-in-app-service"></a>应用服务中是如何进行身份验证和授权的？
 

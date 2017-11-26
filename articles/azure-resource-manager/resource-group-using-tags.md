@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-origin.date: 10/02/2017
-ms.date: 10/23/2017
+origin.date: 11/01/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 536dfba9964dbc700a3ffddc380a03733a2474f5
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 82bcb29b06949c4deb73c23a5ccf8b42de6ab481
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用标记整理 Azure 资源
 
@@ -147,16 +147,18 @@ Azure 门户和 PowerShell 均在后台使用[资源管理器 REST API](https://
 <!-- Not Available [EA portal](https://ea.azure.com) -->
 <!-- Not Available [Gain insights into your Azure resource consumption](../billing/billing-usage-rate-card-overview.md) -->
 
-为支持标记和计费的服务下载使用情况 CSV 时，标记将显示在“标记”列中。 有关详细信息，请参阅[了解 Azure 帐单](../billing-understand-your-bill.md)。
+为支持标记和计费的服务下载使用情况 CSV 时，标记将显示在“标记”列中。 有关详细信息，请参阅[了解 Azure 帐单](../billing/billing-understand-your-bill.md)。
 
 ![在计费中查看标记](./media/resource-group-using-tags/billing_csv.png)
 
 ## <a name="next-steps"></a>后续步骤
 
-* 可使用自定义策略对订阅应用限制和约定。 定义的策略可能要求所有资源具有特定标记的值。 有关详细信息，请参阅[使用策略来管理资源和控制访问](resource-manager-policy.md)。
+<!-- Not Available on [What is Azure Policy?](../azure-policy/azure-policy-introduction.md). -->
 * 有关部署资源时使用 Azure PowerShell 的说明，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](powershell-azure-resource-manager.md)。
 * 有关部署资源时使用 Azure CLI 的说明，请参阅[将适用于 Mac、Linux 和 Windows 的 Azure CLI 与 Azure 资源管理器配合使用](xplat-cli-azure-resource-manager.md)。
 * 有关使用门户的说明，请参阅[使用 Azure 门户管理 Azure 资源](resource-group-portal.md)。  
 * 有关企业可如何使用资源管理器有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
 
-<!--Update_Description: update meta properties, wording update, update cmdlet sample -->
+<!--Not Available the parent file of includes file of resource-manager-tag-resources-powershell.md-->
+<!--ms.date:11/27/2017-->
+<!--Update_Description: update meta properties, wording update -->

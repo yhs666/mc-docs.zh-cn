@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2016
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: fd3ec8f92c4e5ddb2eb04362c454d0b92e041652
-ms.sourcegitcommit: f2556abb77e9ebe6d45a5666c32aebf8af514485
+ms.openlocfilehash: 13ec5160c332a2aae0a37d6b10059c7a32a74f2e
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 示例
 > [!div class="op_single_selector"]
 > * [.NET 示例](documentdb-dotnet-samples.md)
 > * [Node.js 示例](documentdb-nodejs-samples.md)
 > * [Python 示例](documentdb-python-samples.md)
-> * [Azure 代码示例库](https://github.com/Azure-Samples/?service=documentdb)
+> * [Azure 代码示例库](https://github.com/Azure-Samples/?service=documentdb&ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 > 
 > 
 
@@ -74,4 +74,4 @@ ms.lasthandoff: 10/16/2017
 | [更改集合的性能层](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L163-L175) |[document_client.ReplaceOffer](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [删除集合](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L212-L225) |[document_client.DeleteCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update link, wording update-->

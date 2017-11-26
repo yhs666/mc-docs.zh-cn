@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 3d63c243c0f31932beccf41c88e25cd9378b3700
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 8a2e1de4ea6593fc1862f4678d2d468005cfeae5
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓扑
 本文介绍了使用 Azure AD Connect 同步作为关键集成解决方案的各种本地拓扑和 Azure Active Directory (Azure AD) 拓扑。 此外，介绍支持和不支持的配置。
@@ -112,7 +112,7 @@ Azure AD Connect 同步中的默认配置假设：
 
 | 工作负载 | 限制 |
 --------- | ---------
-| Exchange Online | 如果有多个本地 Exchange 组织（即 Exchange 已部署到多个林），必须使用 Exchange 2013 SP1 或更高版本。 有关详细信息，请参阅 [包含多个 Active Directory 林的混合部署](https://technet.microsoft.com/library/jj873754.aspx)。 |
+| Exchange Online | 有关 Exchange Online 支持的混合拓扑的详细信息，请参阅[具有多个 Active Directory 林的混合部署](https://technet.microsoft.com/library/jj873754.aspx)。 |
 | Skype for Business | 使用多个本地林时，只支持帐户资源林拓扑。 有关详细信息，请参阅 [Skype for Business Server 2015 的环境要求](https://technet.microsoft.com/library/dn933910.aspx)。 |
 
 
@@ -141,7 +141,7 @@ Azure AD Connect 同步服务器与 Azure AD 租户之间不存在一对一的�
 
 在此拓扑中，一个 Azure AD Connect 同步服务器连接到每个 Azure AD 租户。 Azure AD Connect 同步服务器必须设置筛选，让它们都有一组对象的互斥集可运行。 例如，可将每个服务器的范围设置为特定域或组织单位。
 
-DNS 域只能在单个 Azure AD 租户中注册。 本地 Active Directory 实例中的用户 UPN 也必须使用独立的命名空间。 例如，在上图中，三个独立 UPN 后缀都注册在本地 Active Directory 实例中：contoso.com、fabrikam.com 和 wingtiptoys.com。 每个本地 Active Directory 域中的用户使用不同的命名空间。
+DNS 域只能在单个 Azure AD 租户中注册。 本地 Active Directory 实例中的用户 UPN 也必须使用独立的命名空间。 例如，在上图中，三个独立 UPN 后缀都注册在本地 Active Directory 实例中：contoso.com、fabrikam.com 和 wingtiptoys.com。每个本地 Active Directory 域中的用户使用不同的命名空间。
 
 Azure AD 租户实例之间没有任何 GALSync。 Exchange Online 和 Skype for Business 中的通讯簿只在相同的租户中显示用户。
 

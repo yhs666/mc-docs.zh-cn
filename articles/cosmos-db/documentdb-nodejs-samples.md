@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1acf0615ef721b6efefdc08cd073740657122457
-ms.sourcegitcommit: f2556abb77e9ebe6d45a5666c32aebf8af514485
+ms.openlocfilehash: 977e4bfd56714cdbf8558fddff6d4043c3c59a9b
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js 示例
 > [!div class="op_single_selector"]
@@ -126,4 +126,4 @@ ms.lasthandoff: 10/16/2017
 
 有关在 Azure Cosmos DB 中对数据进行分区的详细信息，请参阅[对 Azure Cosmos DB 中的数据进行分区和扩展](partition-data.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

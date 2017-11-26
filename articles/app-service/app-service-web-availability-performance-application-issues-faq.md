@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2017
-ms.date: 10/30/2017
+origin.date: 11/03/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.openlocfilehash: 67d48a6827fb8309adadb4758ba15edadd3bc521
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 60c7e9c5c8fdfde07daa2799f319ca76a58ea223
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 

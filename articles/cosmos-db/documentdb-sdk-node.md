@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 08/14/2017
-ms.date: 09/18/2017
+origin.date: 11/14/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1135c58ee5a9cb20ad1722bfc21cfd68d47c4dda
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: e6b9b51cd350af2b72d67a63612e497ff5631614
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -32,10 +32,9 @@ ms.lasthandoff: 09/13/2017
 > * [Python](documentdb-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-> * [SQL](documentdb-sql-query-reference.md)
+> * [SQL](../cosmos-db/documentdb-sql-query-reference.md)
 > 
 > 
-<!-- https://msdn.microsoft.com/library/azure/dn782250.aspx redirect to documentdb-sql-query-reference.md -->
 
 <table>
 
@@ -53,7 +52,7 @@ ms.lasthandoff: 09/13/2017
 
 <tr><td>**Web 应用教程**</td><td>[使用 Azure Cosmos DB 创建 Node.js Web 应用程序](documentdb-nodejs-application.md)</td></tr>
 
-<tr><td>**当前受支持的平台**</td><td>
+<tr><td>**当前受支持的平台**</td><td> 
 [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
 [Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
 [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 

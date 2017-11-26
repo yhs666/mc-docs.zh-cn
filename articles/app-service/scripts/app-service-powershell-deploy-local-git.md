@@ -1,5 +1,5 @@
 ---
-title: "Azure PowerShell 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码 | Azure"
+title: "Azure PowerShell 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码 | Microsoft 文档"
 description: "Azure PowerShell 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码"
 services: app-service\web
 documentationcenter: 
@@ -11,20 +11,20 @@ ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: efdc9d1435dc243998d652e7e2192493a582108a
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: ea2e230c12bfc676f31cc15fa5dfb95f95d02369
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>从本地 Git 存储库创建 Web 应用并部署代码
 
-此示例脚本使用其相关资源，在应用服务中创建 Web 应用，并在本地 Git 存储库中部署 Web 应用代码。
+此示例脚本使用其相关资源，在应用服务中创建 Web 应用，然后从本地 Git 存储库部署 Web 应用代码。
 
 必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 创建与 Azure 的连接。 此外，需将应用程序代码提交到本地 Git 存储库。
 

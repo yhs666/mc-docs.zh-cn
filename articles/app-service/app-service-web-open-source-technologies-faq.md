@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2017
-ms.date: 10/30/2017
+origin.date: 11/03/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.openlocfilehash: 547373e2ff9249bcb0cbb1b4ac662a5bb954d696
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 1525fc57d1a7027593cab931b6e4d09975c2c2fa
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>针对 Azure 中 Web 应用的开源技术常见问题的解答
 

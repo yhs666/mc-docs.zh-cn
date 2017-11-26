@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 08/23/2017
-ms.date: 09/25/2017
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 34cea904c821211ceb24068197089b06fd711b70
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: f290ee81ad2bdaceb77a82ce3e716402c4327460
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-table-storage-overview"></a>Azure 表存储概述
 
@@ -42,3 +42,5 @@ Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，�
     * [.NET 存储客户端库参考](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
     * [REST API 参考](http://msdn.microsoft.com/library/azure/dd179355)
+
+<!-- Update_Description: update meta properties -->

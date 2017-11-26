@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/22/2017
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 647edf99c9db8951e32e71fbbc8ff0b187ad550c
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: db06fff06c180705f328df86751d625719047459
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-documentdb-api"></a>Azure Cosmos DB：DocumentDB API 的 .NET 示例
 > [!div class="op_single_selector"]
 > * [.NET 示例](documentdb-dotnet-samples.md)
 > * [Node.js 示例](documentdb-nodejs-samples.md)
 > * [Python 示例](documentdb-python-samples.md)
-> * [Azure 代码示例库](https://github.com/Azure-Samples/?service=documentdb)
+> * [Azure 代码示例库](https://github.com/Azure-Samples/?service=documentdb&ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 > 
 > 
 
@@ -175,4 +175,4 @@ IndexManagement 项目示例的 [RunIndexDemo](https://github.com/Azure/azure-do
 | [对集合或文档设置权限](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L85) |[DocumentClient.CreatePermissionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createpermissionasync.aspx) |
 | [获取用户权限列表](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L218) |[DocumentClient.ReadUserAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readuserasync.aspx)<br>[DocumentClient.ReadPermissionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpermissionfeedasync.aspx) |
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties, wording update, update link -->

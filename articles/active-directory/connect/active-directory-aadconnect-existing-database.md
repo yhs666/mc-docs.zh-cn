@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/30/2017
-ms.date: 09/20/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: f25bf2c7742f14c3248049650a05f25964ae05d6
-ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
+ms.openlocfilehash: 9db761f76bc956040b20787f87722598f935d358
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>使用现有 ADSync 数据库安装 Azure AD Connect
 Azure AD Connect 要求使用 SQL Server 数据库来存储数据。 可以使用随 Azure AD Connect 一起安装的默认 SQL Server 2012 Express LocalDB，也可以使用自己的完整版本 SQL。 以前，当安装 Azure AD Connect 时，始终会创建一个名为 ADSync 的新数据库。 使用 Azure AD Connect 版本 1.1.613.0（或更高版本），可以选择通过将 Azure AD Connect 指向现有的 ADSync 数据库来安装 Azure AD Connect。
@@ -44,8 +44,8 @@ Azure AD Connect 要求使用 SQL Server 数据库来存储数据。 可以使�
 
 在开始之前，请注意如下重要注意事项：
 
-
 - 请务必查看安装 Azure AD Connect 在硬件和其他方面的先决条件，以及安装 Azure AD Connect 所需的帐户和权限。 通过“使用现有数据库”模式安装 Azure AD Connect 所需的权限与“自定义”安装相同。
+- 仅完整的 SQL 才支持针对现有 ADSync 数据库部署 Azure AD Connect。 它不支持 SQL Express LocalDB。 如果 LocalDB 中存在要使用的现有 ADSync 数据库，则必须先备份 ADSync 数据库 (LocalDB) 并将其还原至完整的 SQL。 之后才可使用此方法针对还原的数据库部署 Azure AD Connect。
 - 用于安装的 Azure AD Connect 版本必须满足以下条件：
     - 1.1.613.0 或更高版本，并且
     - 与上次同 ADSync 数据库一起使用的 Azure AD Connect 版本相同或比之更高。 如果用于安装的 Azure AD Connect 版本高于上次与 ADSync 数据库一起使用时的版本，则可能需要进行完全同步。  如果两个版本之间存在架构或同步规则更改，则完全同步是必需的。 
@@ -92,3 +92,4 @@ Azure AD Connect 要求使用 SQL Server 数据库来存储数据。 可以使�
 - 若要了解有关这些常见主题的详细信息，请参阅[计划程序以及如何触发同步](active-directory-aadconnectsync-feature-scheduler.md)。
 - 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
+<!--Update_Description: wording update -->

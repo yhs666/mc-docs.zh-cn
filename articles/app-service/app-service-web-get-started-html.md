@@ -3,24 +3,24 @@ title: "在 Azure 中创建静态 HTML Web 应用 | Azure"
 description: "了解如何通过部署静态 HTML 示例应用，在 Azure 应用服务中运行 Web 应用。"
 services: app-service\web
 documentationcenter: 
-author: rick-anderson
-manager: wpickett
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-origin.date: 05/26/2017
-ms.date: 10/30/2017
+ms.topic: quickstart
+origin.date: 10/26/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 2597d6f991c92c39559fd839c49b7863ab1cb81b
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: f859e47a4e60311d747abb0da9dd6b46c55d9dc3
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>在 Azure 中创建静态 HTML Web 应用
 
@@ -38,8 +38,6 @@ ms.lasthandoff: 10/20/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
-
 ## <a name="download-the-sample"></a>下载示例
 
 在终端窗口中，运行以下命令，将示例应用存储库克隆到本地计算机。
@@ -48,7 +46,11 @@ ms.lasthandoff: 10/20/2017
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-使用此终端窗口运行本快速入门中的所有命令。
+切换到包含示例代码的目录。
+
+```bash
+cd html-docs-hello-world
+```
 
 ## <a name="view-the-html"></a>查看 HTML
 
@@ -67,10 +69,6 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
 ![空 Web 应用页](media/app-service-web-get-started-html/app-service-web-service-created.png)
-
-已在 Azure 中新建了一个空的 Web 应用。
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -102,11 +100,7 @@ To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
 
 ## <a name="browse-to-the-app"></a>浏览到应用
 
-在浏览器中转到 Azure Web 应用 URL：
-
-```
-http://<app_name>.chinacloudsites.cn
-```
+在浏览器中转到 Azure Web 应用 URL：`http://<app_name>.chinacloudsites.cn`。
 
 该页作为 Azure 应用服务 Web 应用运行。
 
@@ -118,7 +112,7 @@ http://<app_name>.chinacloudsites.cn
 
 在文本编辑器中打开 index.html 文件，并对标记进行更改。 例如，将 H1 标题从“Azure 应用服务 - 示例静态 HTML 站点”更改为只是“Azure 应用服务”。
 
-提交在 Git 中所做的更改，然后将代码更改推送到 Azure。
+在本地终端窗口中，提交在 Git 中所做的更改，然后将代码更改推送到 Azure。
 
 ```bash
 git commit -am "updated HTML"

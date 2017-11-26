@@ -12,25 +12,25 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 12/08/2016
-ms.date: 10/23/2017
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 61d008a9e971b8e26537b52e02beaebd70d0d6dd
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: b8a5093ca17519a9cdbc9e6c5345ad87d26dfd8e
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>如何通过 Node.js 使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>概述
 本主题演示如何使用 Node.js 应用程序中的 Azure 表服务执行常见方案。
 
 本主题中的代码示例假定用户已拥有 Node.js 应用程序。 有关如何在 Azure 中创建 Node.js 应用程序的信息，请参阅以下任何主题：
 
-* [在 Azure App Service 中创建 Node.js Web 应用](../app-service-web/app-service-web-get-started-nodejs.md)
+* [在 Azure App Service 中创建 Node.js Web 应用](../app-service/app-service-web-get-started-nodejs.md)
 * [构建 Node.js 应用程序并将其部署到 Azure 云服务](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)（使用 Windows PowerShell）
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -64,7 +64,7 @@ var azure = require('azure-storage');
 ```
 
 ## <a name="set-up-an-azure-storage-connection"></a>设置 Azure 存储连接
-Azure 模块会读取环境变量 AZURE_STORAGE_ACCOUNT 和 AZURE_STORAGE_ACCESS_KEY 或 AZURE_STORAGE_CONNECTION_STRING，获取连接到 Azure 存储帐户所需的信息。 如果未设置这些环境变量，则必须在调用 **TableService**时指定帐户信息。
+Azure 模块将读取环境变量 AZURE\_STORAGE\_ACCOUNT 和 AZURE\_STORAGE\_ACCESS\_KEY，或 AZURE\_STORAGE\_CONNECTION\_STRING 以获取连接到 Azure 存储帐户所需的信息。 如果未设置这些环境变量，则必须在调用 **TableService**时指定帐户信息。
 
 ## <a name="create-a-table"></a>创建表
 下面的代码创建 **TableService** 对象并使用它来创建一个新表。 将以下代码添加到 **server.js** 的顶部附近。
@@ -450,6 +450,6 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 * GitHub 上的[用于 Node 的 Microsoft Azure 存储 SDK](https://github.com/Azure/azure-storage-node) 存储库。
 * [Node.js 开发人员中心](/develop/nodejs/)
-* [创建 Node.js 应用程序并将其部署到 Azure 网站](../app-service-web/app-service-web-get-started-nodejs.md)
+* [创建 Node.js 应用程序并将其部署到 Azure 网站](../app-service/app-service-web-get-started-nodejs.md)
 
-<!--Update_Description: update meta properties，update link -->
+<!--Update_Description: update meta properties，update link, wording update -->

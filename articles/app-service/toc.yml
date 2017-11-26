@@ -23,22 +23,22 @@
       href: app-service-web-get-started-html.md
 - name: 教程
   items:
-    - name: 1 - 将 .NET 与 SQL DB 配合使用
-      href: app-service-web-tutorial-dotnet-sqldatabase.md
-    - name: 将 PHP 与 MySQL 配合使用
-      href: app-service-web-tutorial-php-mysql.md
-    - name: 1 - 将 Node.js 与 MongoDB 配合使用
-      href: app-service-web-tutorial-nodejs-mongodb-app.md
-    - name: 将 Java 与 MySQL 配合使用
-      href: app-service-web-tutorial-java-mysql.md
+    - name: 1 - 将应用与 DB 配合使用
+      items:
+        - name: 将 .NET 与 SQL DB 配合使用
+          href: app-service-web-tutorial-dotnet-sqldatabase.md
+        - name: 将 PHP 与 MySQL 配合使用
+          href: app-service-web-tutorial-php-mysql.md
+        - name: 将 Node.js 与 MongoDB 配合使用
+          href: app-service-web-tutorial-nodejs-mongodb-app.md
+        - name: 将 Java 与 MySQL 配合使用
+          href: app-service-web-tutorial-java-mysql.md
     - name: 1 - 创建 RESTful API
       href: app-service-web-tutorial-rest-api.md
     - name: 2 - 映射自定义域
       href: app-service-web-tutorial-custom-domain.md
     - name: 3 - 绑定 SSL 证书
       href: app-service-web-tutorial-custom-ssl.md
-    - name: 5 - 监视应用
-      href: app-service-web-tutorial-monitoring.md
 - name: 示例
   items:
     - name: Azure CLI
@@ -51,6 +51,8 @@
       href: app-service-how-works-readme.md
     - name: 应用服务计划
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
+    - name: OS 功能
+      href: web-sites-available-operating-system-functionality.md
     - name: 身份验证和授权
       href: app-service-authentication-overview.md
     - name: 流量管理器集成
@@ -138,7 +140,7 @@
 - name: 引用
   items:
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/appservice'
+      href: 'https://docs.azure.cn/zh-cn/cli/appservice?view=azure-cli-latest'
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell'
     - name: REST API

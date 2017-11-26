@@ -3,8 +3,8 @@ title: "在 Azure 中创建 PHP Web 应用 | Azure"
 description: "数分钟内在 Azure 应用服务 Web 应用中部署首个 PHP Hello World。"
 services: app-service\web
 documentationcenter: 
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 07/21/2017
-ms.date: 10/30/2017
+origin.date: 10/26/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: dfe36593f552cfcd449d7bc80927e114fd06d441
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: c855166709b3bc4e43c4370545210a674090c22f
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中创建 PHP Web 应用
 
@@ -72,13 +72,17 @@ php -S localhost:8080
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+## <a name="create-a-web-app"></a>创建 Web 应用
+
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-no-h.md)]
+
+浏览到新建的 Web 应用。 将 _&lt;应用名称>_ 替换为唯一的应用名称。
+
+```bash
+http://<app name>.chinacloudsites.cn
+```
 
 ![空 Web 应用页](media/app-service-web-get-started-php/app-service-web-service-created.png)
-
-已在 Azure 中新建了一个空的 Web 应用。
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -129,7 +133,7 @@ PHP 示例代码正在 Azure 应用服务 Web 应用中运行。
 echo "Hello Azure!";
 ```
 
-提交在 Git 中所做的更改，然后将代码更改推送到 Azure。
+在本地终端窗口中，提交在 Git 中所做的更改，然后将代码更改推送到 Azure。
 
 ```bash
 git commit -am "updated output"

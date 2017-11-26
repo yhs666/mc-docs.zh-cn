@@ -1,7 +1,7 @@
 ---
 title: "在 Azure 存储资源管理器中管理 Azure Cosmos DB"
 description: "了解如何在 Azure 存储资源管理器中管理 Azure Cosmos DB。"
-Keywords: "Azure Cosmos DB, Azure 存储资源管理器, DocumentDB, MongoDB, DocumentDB"
+Keywords: Azure Cosmos DB, Azure Storage Explorer, DocumentDB, MongoDB, DocumentDB
 services: cosmos-db
 documentationcenter: 
 author: rockboyfor
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: e2ecf58b5de700acff7b8507934e329d9eedcd3f
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: c362817edee29541d8fd3852eb266ba1c11a0cf4
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>在 Azure 存储资源管理器（预览版）中管理 Azure Cosmos DB
 
@@ -32,8 +32,11 @@ ms.lasthandoff: 10/27/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-- 用于 SQL (DocumentDB) 或 MongoDB 数据库的 Azure Cosmos DB 帐户。 如果你没有帐户，则可以按照 [Azure Cosmos DB：使用 .NET 和 Azure 门户生成 DocumentDB API Web 应用](create-documentdb-dotnet.md)中所述，在 Azure 门户中创建一个。
-- 安装最新 Azure 存储资源管理器 BITS。 你可以使用以下链接安装它们：[Linux](https://go.microsoft.com/fwlink/?linkid=858559)、[Mac](https://go.microsoft.com/fwlink/?linkid=858561)、[Windows](https://go.microsoft.com/fwlink/?linkid=858562)。
+用于 SQL (DocumentDB) 或 MongoDB 数据库的 Azure Cosmos DB 帐户。 如果你没有帐户，则可以按照 [Azure Cosmos DB：使用 .NET 和 Azure 门户生成 DocumentDB API Web 应用](create-documentdb-dotnet.md)中所述，在 Azure 门户中创建一个。
+
+## <a name="installation"></a>安装
+
+在此处安装最新的 Azure 存储资源管理器版本：[Azure 存储资源管理器](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409)，现在我们支持 Windows、Linux 和 MAC 版本。
 
 ## <a name="connect-to-an-azure-subscription"></a>连接到 Azure 订阅
 
@@ -146,12 +149,9 @@ ms.lasthandoff: 10/27/2017
 
 * 用于**触发器**和 **UDF** 的操作与用于**存储过程**的操作类似。
 
-## <a name="demo"></a>演示
-* 观看以下视频，了解如何在 Azure 存储资源管理器中使用 Azure Cosmos DB：[在 Azure 存储资源管理器中使用 Azure Cosmos DB](https://go.microsoft.com/fwlink/?linkid=858710)。
-
 ## <a name="next-steps"></a>后续步骤
 
-现在你已将 Azure 存储资源管理器连接到你的 Azure Cosmos DB 帐户，可在[存储资源管理器（预览版）入门](/vs-azure-tools-storage-manage-with-storage-explorer)中详细了解存储资源管理器并连接更多服务。
+* 在[存储资源管理器（预览版）入门](/vs-azure-tools-storage-manage-with-storage-explorer)中了解有关存储资源管理器和连接更多服务的详细信息。
 
-<!--Update_Description: new articles on tutuorial in storage explorer -->
+<!--Update_Description: update meta properties, update link -->
 

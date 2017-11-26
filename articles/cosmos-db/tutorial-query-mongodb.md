@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB：如何使用 DocumentDB API 进行查询？ | Azure"
-description: "了解如何使用 Azure Cosmos DB 的 DocumentDB API 进行查询"
+title: "Azure Cosmos DB：如何使用 MongoDB API 进行查询？ | Azure"
+description: "了解如何使用 Azure Cosmos DB 的 MongoDB API 进行查询"
 services: cosmos-db
 documentationcenter: 
 author: rockboyfor
@@ -14,16 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: f3e8301dcb096ebce2aea5f9d79284b8ae74da1e
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 9a913eb7c0d5cac522cbc248fe171a679a486179
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 11/24/2017
 ---
-# Azure Cosmos DB：如何使用 MongoDB API 进行查询？
-<a id="azure-cosmos-db-how-to-query-with-api-for-mongodb" class="xliff"></a>
+# <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB：如何使用 MongoDB API 进行查询？
 
 Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查询](https://docs.mongodb.com/manual/tutorial/query-documents/)。 
 
@@ -32,8 +31,7 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
 > [!div class="checklist"]
 > * 使用 MongoDB 查询数据
 
-## 示例文档
-<a id="sample-document" class="xliff"></a>
+## <a name="sample-document"></a>示例文档
 
 本文中的查询使用下面的示例文档。
 
@@ -300,10 +298,9 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
 
 **结果**
 
-将不返回任何结果，因为子女数不超过 2。 仅当参数为 2 时此查询才能成功，并返回完整的文档。
+不返回任何结果，因为子女数不超过 2。 仅当参数为 2 时此查询才能成功，并返回完整的文档。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 在本教程中，已完成以下内容：
 
@@ -314,3 +311,5 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
 
 > [!div class="nextstepaction"]
 > [全局分发数据](tutorial-global-distribution-documentdb.md)
+
+<!-- Update_Description: update meta properties -->

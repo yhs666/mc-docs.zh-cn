@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2016
-ms.date: 09/18/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1c83c35ac0bdeb27282375e46b64300dfeca0e47
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 65db77994ffc478c3ba709fd31571ffe964a1ea3
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 服务器端编程：存储过程、数据库触发器和 UDF
 了解 Azure Cosmos DB 的语言如何集成、JavaScript 的事务执行如何使开发人员以 [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript 本机编写**存储过程**、**触发器**和**用户定义的函数 (UDF)**。 因此，我们能够编写可以在数据库存储分区上直接传送和执行的数据库程序应用程序逻辑。 
@@ -666,7 +666,7 @@ JavaScript 存储过程和触发器经过沙盒处理，以使一个脚本的效
     document.Year = 1949;
 
     // execute stored procedure
-    Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "sproc"), document, 1920);
+    Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
 本示例演示如何使用 [DocumentDB .NET API](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) 创建预触发器，并使用已启用的触发器创建文档。 
 
@@ -786,4 +786,4 @@ JavaScript 存储过程和触发器经过沙盒处理，以使一个脚本的效
 * [面向服务的数据库体系结构](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [在 Microsoft SQL 服务器中托管 .NET 运行时](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: wording update-->

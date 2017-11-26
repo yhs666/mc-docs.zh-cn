@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
-origin.date: 06/07/2017
-ms.date: 10/23/2017
+origin.date: 11/02/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1c14ca9e2251b583e7342ca55e5e2a8dd84eb151
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: aba9e1dff5fda1f0191f727f3605a8a8f38b277b
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/09/2017
 | |  |
 |---|---|
 |**创建 Azure Cosmos DB 帐户、数据库和容器**||
-|[创建 Cosmos DB API 或表 API 帐户](scripts/create-database-account-collections-cli.md)| 创建单个 Azure Cosmos DB API 帐户、数据库和容器，以便与 DocumentDB 或表 API 配合使用。 |
+|[创建 DocumentDB API 帐户](scripts/create-database-account-collections-cli.md)| 创建单个 Azure Cosmos DB API 帐户、数据库及容器，以用于 DocumentDB API。 |
 | [创建 MongoDB API 帐户](scripts/create-mongodb-database-account-cli.md) | 创建单个 Azure Cosmos DB MongoDB API 帐户、数据库和集合。 |
 |**缩放 Azure Cosmos DB**||
 | [缩放容器吞吐量](scripts/scale-collection-throughput-cli.md) | 更改容器上预配的吞吐量。|
@@ -42,9 +42,8 @@ ms.lasthandoff: 11/09/2017
 |**高可用性、灾难恢复、备份和还原**||
 |[配置故障转移策略](scripts/ha-failover-policy-cli.md)|为在其中复制帐户的每个区域设置故障转移优先级。|
 |**将 Azure Cosmos DB 连接到资源**||
-|[将 Web 应用连接到 Azure Cosmos DB](/app-service/scripts/app-service-cli-app-service-documentdb.md)|创建并连接 Azure Cosmos DB 数据库和 Azure Web 应用。|
+|[将 Web 应用连接到 Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md)|创建并连接 Azure Cosmos DB 数据库和 Azure Web 应用。|
 |||
 
 <!-- Not Available ?toc=%2fcli%2fazure%2ftoc.json in docs.microsoft.com website(extenal site) -->
-
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

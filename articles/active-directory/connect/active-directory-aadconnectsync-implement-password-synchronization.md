@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 08/24/2017
+origin.date: 10/21/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 8ea8e61c5f5fc5c609668010973697559a841c44
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 69351f4848c48eeb16971f8f0f596cfb69c53c1b
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="implement-password-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步实现密码同步
 本文提供将用户密码从本地 Active Directory 实例同步到基于云的 Azure Active Directory (Azure AD) 实例时所需的信息。

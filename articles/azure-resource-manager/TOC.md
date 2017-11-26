@@ -3,20 +3,11 @@
 ## [资源提供程序和类型](resource-manager-supported-services.md)
 ## [Resource Manager 部署和经典部署](resource-manager-deployment-model.md)
 ## [订阅管理](resource-manager-subscription-governance.md)
-<!-- Not Available ## [Managed Applications](managed-application-overview.md)-->
 
 # 入门
 ## [创建和部署模板](resource-manager-create-first-template.md)
 ## [模板的 VS Code 扩展](resource-manager-vscode-extension.md)
 ## [Visual Studio 与 Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-
-# 示例
-## [代码示例](https://azure.microsoft.com/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [部署模板](resource-manager-samples-powershell-deploy.md)
-
-## Azure CLI
-### [部署模板](resource-manager-samples-cli-deploy.md)
 
 # 如何
 ## 创建模板
@@ -29,7 +20,7 @@
 ### [分配标记](resource-manager-template-tags.md)
 ### [设置子资源名称和类型](resource-manager-template-child-resource.md)
 ### [更新资源](resource-manager-update.md)
-<!-- Not Availble ### [Use objects for parameters](resource-manager-objects-as-parameters.md) -->
+### [对参数使用对象](resource-manager-objects-as-parameters.md)
 ### [在链接模板之间共享状态](best-practices-resource-manager-state.md)
 ### [用于设计模板的模式](best-practices-resource-manager-design-templates.md)
 
@@ -57,34 +48,17 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [使用标记来组织资源](resource-group-using-tags.md)
 ### [将资源移到新组或订阅](resource-group-move-resources.md)
+<!-- Not Avaialble ### [Organize subscriptions with management groups](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure-resource-manager%2ftoc.json) -->
 ### [管理示例](resource-manager-subscription-examples.md)
+<!-- Not Avaialble ### [Managed applications](../managed-applications/overview.md) -->
 
 ## 控制访问
 ### 创建服务主体
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI](https://docs.azure.cn/zh-cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest?toc=%2fazure-resource-manager%2ftoc.json)
+#### [Azure CLI](https://docs.azure.cn/zh-cn/cli/create-an-azure-service-principal-azure-cli?toc=%2fazure-resource-manager%2ftoc.json?view=azure-cli-latest)
 #### [Azure 门户](resource-group-create-service-principal-portal.md)
 ### [用于访问订阅的身份验证 API](resource-manager-api-authentication.md)
 ### [锁定资源](resource-group-lock-resources.md)
-
-## 设置资源策略
-### [什么是资源策略？](resource-manager-policy.md)
-<!-- Not Available ### [Use portal to assign policy](resource-manager-policy-portal.md) -->
-<!-- Not Available ### [Use scripts to assign policy](resource-manager-policy-create-assign.md) -->
-### 示例
-<!-- Not Available #### [Resource tags](resource-manager-policy-tags.md) -->
-<!-- Not Available #### [Naming conventions](resource-manager-policy-naming-convention.md) -->
-<!-- Not Available #### [Network](resource-manager-policy-network.md) -->
-<!-- Not Available #### [Storage](resource-manager-policy-storage.md) -->
-#### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure-resource-manager%2ftoc.json)
-#### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure-resource-manager%2ftoc.json)
-
-<!-- Not Available ## Use managed applications -->
-<!-- Not Available ### [Publish service catalog application](managed-application-publishing.md) -->
-<!-- Not Available ### [Consume service catalog application](managed-application-consumption.md) -->
-<!-- Not Available ### [Publish marketplace application](managed-application-author-marketplace.md)-->
-<!-- Not Available ### [Consume marketplace application](managed-application-consume-marketplace.md)-->
-<!-- Not Available ### [Create UI definitions](managed-application-createuidefinition-overview.md) -->
 
 ## 审核
 ### [查看活动日志](resource-group-audit.md)
@@ -100,6 +74,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 <!-- Not Avaible #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)-->
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### 虚拟机部署错误
@@ -113,7 +88,7 @@
 ##### [常见错误消息](../virtual-machines/windows/error-messages.md)
 
 # 引用
-<!-- Not Available ## [Template format](/templates/) -->
+## [模板格式](https://docs.microsoft.com/en-us/azure/templates/)
 ## [模板函数](resource-group-template-functions.md)
 ### [数组和对象函数](resource-group-template-functions-array.md)
 ### [比较函数](resource-group-template-functions-comparison.md)
@@ -122,21 +97,6 @@
 ### [数值函数](resource-group-template-functions-numeric.md)
 ### [资源函数](resource-group-template-functions-resource.md)
 ### [字符串函数](resource-group-template-functions-string.md)
-<!-- Not Available ## [UI definition functions](managed-application-createuidefinition-functions.md) -->
-<!-- Not Available ## [UI definition elements](managed-application-createuidefinition-elements.md) -->
-<!-- Not Available ### [Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md) -->
-<!-- Not Available ### [Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md) -->
-<!-- Not Available ### [Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md) -->
-<!-- Not Available ### [Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md) -->
-<!-- Not Available ### [Microsoft.Common.Section](managed-application-microsoft-common-section.md) -->
-<!-- Not Available ### [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md) -->
-<!-- Not Available ### [Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md) -->
-<!-- Not Available ### [Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md) -->
-<!-- Not Available ### [Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md) -->
-<!-- Not Available ### [Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md) -->
-<!-- Not Available ### [Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md) -->
-<!-- Not Available ### [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md) -->
-<!-- Not Available ### [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md) -->
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.resources)
 ## [Azure CLI](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.resourcemanager)

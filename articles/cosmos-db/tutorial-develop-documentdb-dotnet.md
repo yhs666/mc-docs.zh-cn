@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 origin.date: 05/10/2017
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 25cde04ec88568b41046c708285b70a127a4c194
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 6c4bf348a799cf85ccd9f073fcecf6b0223609b1
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-documentdb-api-in-net"></a>Azure Cosmos DB：在 .NET 中使用 DocumentDB API 进行开发
 
@@ -44,7 +44,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 ## <a name="prerequisites"></a>先决条件
 请确保具有以下内容：
 
-* 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+* 有效的 Azure 帐户。 如果没有，可以注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -56,7 +56,6 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 > [!TIP]
 > * 已有一个 Azure Cosmos DB 帐户？ 如果有，请跳到[设置 Visual Studio 解决方案](#SetupVS)
-> * 是否具有 Azure DocumentDB 帐户？ 如果有，则该帐户现为 Azure Cosmos DB 帐户，可以直接跳到[设置 Visual Studio 解决方案](#SetupVS)。  
 > * 如果使用 Azure Cosmos DB 模拟器，请遵循 [Azure Cosmos DB 模拟器](local-emulator.md)中的步骤设置该模拟器，并直接跳到[设置 Visual Studio 解决方案](#SetupVS)。 
 >
 >
@@ -317,4 +316,4 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/20/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1785d3e997ceee0be98a98279bebe63534f1ae22
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: d84f48be605078b01968b32ca9481248b4735e0f
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>在 PowerShell 中使用 Azure 网络观察程序管理数据包捕获
 
@@ -157,7 +157,7 @@ $filter2 = New-AzureRmPacketCaptureFilterConfig -Protocol UDP
 运行 `New-AzureRmNetworkWatcherPacketCapture` cmdlet 并传递在上一步骤中检索的所需值，启动数据包捕获过程。
 ```powershell
 
-New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filters $filter1, $filter2
+New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
 ```
 
 以下示例是运行 `New-AzureRmNetworkWatcherPacketCapture` cmdlet 后的预期输出。
@@ -282,4 +282,4 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/network-watcher-logs/sub
 
 <!-- Image references -->
 
-<!--Update_Description: new articles on network watcher packet capture manage powershell -->
+<!--Update_Description: wording update -->

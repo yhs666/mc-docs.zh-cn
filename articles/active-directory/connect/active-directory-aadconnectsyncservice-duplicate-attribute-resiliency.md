@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 07/31/2017
+origin.date: 10/17/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: fc15719b76d1163b194bf46f78bca047c69159fa
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: 33e0fb3f2bbb4fb3bbf18a44d7f39c6e6b9d4760
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>标识同步和重复属性复原
 重复属性复原是 Azure Active Directory 的一项功能，可在运行 Microsoft 的同步工具之一时消除 UserPrincipalName 和 ProxyAddress 冲突所造成的不便。

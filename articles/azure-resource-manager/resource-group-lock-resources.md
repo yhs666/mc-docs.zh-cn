@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 08/21/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5d3a7d3d5b05a1e4117e45de3977577d58876c9c
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 2e500e7dd881598345a001fdd6f5365b1367f9fc
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
 管理员可能需要锁定订阅、资源组或资源，以防止组织中的其他用户意外删除或修改关键资源。 可以将锁定级别设置为 **CanNotDelete** 或 **ReadOnly**。 
@@ -169,7 +169,7 @@ Azure CLI 还提供了用于处理锁的其他命令，例如，[az lock update]
 * 有关使用资源锁的详细信息，请参阅[向下锁定 Azure 资源](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
 * 有关使用逻辑方式组织资源的信息，请参阅[使用标记来组织资源](resource-group-using-tags.md)
 * 若要更改资源位于哪个资源组，请参阅[将资源移到新的资源组](resource-group-move-resources.md)
-* 可以使用自定义策略对订阅应用限制和约定。 有关详细信息，请参阅 [使用策略来管理资源和控制访问](resource-manager-policy.md)。
+<!-- Not Available * You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md). -->
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
 
 <!--Update_Description: update meta properties, wording update-->

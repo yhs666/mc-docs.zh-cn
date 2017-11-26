@@ -13,14 +13,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-origin.date: 05/13/2017
-ms.date: 10/23/2017
+origin.date: 10/16/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9199309746a692593971aededc291dea4433dbf2
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 5f971ee739b122e19ac1f5f642b6ef2cc520c9d9
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB：使用 Python 和 Azure 门户生成 DocumentDB API 应用
 
@@ -132,11 +132,11 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 3. 从门户中复制 URI 值（使用复制按钮），并在 `DocumentDBGetStarted.py` 中将其设为终结点密钥的值。 
 
-    `config.ENDPOINT : "https://FILLME.documents.azure.cn"`
+    `'ENDPOINT': 'https://FILLME.documents.azure.cn',`
 
 4. 然后从门户复制“主密钥”的值，并在 `DocumentDBGetStarted.py` 中将其设为 `config.MASTERKEY` 的值。 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
 
-    `config.MASTERKEY : "FILLME"`
+    `'MASTERKEY': 'FILLME',`
 
 ## <a name="run-the-app"></a>运行应用程序
 1. 在 Visual Studio 中，右键单击**解决方案资源管理器**中的项目，选择当前 Python 环境，并右键单击。
@@ -165,4 +165,4 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > [!div class="nextstepaction"]
 > [将 DocumentDB API 的数据导入 Azure Cosmos DB](import-data.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

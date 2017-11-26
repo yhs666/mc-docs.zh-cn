@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/22/2017
-ms.date: 10/23/2017
+origin.date: 10/18/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: b4751af6aecc295c1be6b3420134efe98f8eab70
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: fd7b5367440e641a52b70d897b1cb8ef8a029392
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
@@ -45,12 +45,13 @@ ms.lasthandoff: 10/20/2017
 
 > [!div class="checklist"]
 > * 安装模拟器
-> * 在适用于 Windows 的 Docker 上运行模拟器
 > * 对请求进行身份验证
 > * 在模拟器中使用数据资源管理器
 > * 导出 SSL 证书
 > * 从命令行调用模拟器
+> * 在适用于 Windows 的 Docker 上运行模拟器
 > * 收集跟踪文件
+> * 故障排除
 
 <!-- Not Available on VIDEO -->
 
@@ -61,6 +62,15 @@ Azure Cosmos DB 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 �
 
 > [!NOTE]
 > 目前，模拟器中的数据资源管理器仅支持创建 DocumentDB API 集合与 MongoDB 集合。 模拟器中的数据资源管理器目前不支持创建表。 
+## <a name="differences-between-the-emulator-and-the-service"></a>模拟器和服务之间的差异 
+由于 Azure Cosmos DB 模拟器提供在本地开发人员工作站上运行的模拟环境，因此模拟器与云中的 Azure Cosmos DB 帐户之间的功能存在一些差异：
+
+* Azure Cosmos DB 模拟器只支持一个固定的帐户和公开的主密钥。  在 Azure Cosmos DB 模拟器中无法重新生成密钥。
+* Azure Cosmos DB 模拟器不是可缩放的服务，并且不支持大量集合。
+* Azure Cosmos DB 模拟器不模拟不同的 [Azure Cosmos DB 一致性级别](consistency-levels.md)。
+* Azure Cosmos DB 模拟器不模拟[多区域复制](distribute-data-globally.md)。
+* Azure Cosmos DB 模拟器不支持服务配额替代，而 Azure Cosmos DB 服务支持（例如文档大小限制、增加的分区集合存储）。
+* 由于 Azure Cosmos DB 模拟器副本不一定能反映 Azure Cosmos DB 服务的最新更改，因此请使用 [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner) 准确估计应用程序的生产吞吐量 (RU) 需求。
 
 ## <a name="system-requirements"></a>系统要求
 Azure Cosmos DB 模拟器具有以下硬件和软件要求：
@@ -72,51 +82,12 @@ Azure Cosmos DB 模拟器具有以下硬件和软件要求：
   * 10 GB 可用硬盘空间
 
 ## <a name="installation"></a>安装
-可以从 [Microsoft 下载中心](https://aka.ms/cosmosdb-emulator)下载并安装 Azure Cosmos DB 模拟器。 
+可以从 [Microsoft 下载中心](https://aka.ms/cosmosdb-emulator)下载并安装 Azure Cosmos DB 模拟器，也可以在用于 Windows 的 Docker 上运行模拟器。 有关在用于 Windows 的 Docker 上使用模拟器的说明，请参阅[在 Docker 上运行](#running-on-docker)。 
 
 > [!NOTE]
 > 若要安装、配置和运行 Azure Cosmos DB 模拟器，必须在计算机上具有管理权限。
 
-## <a name="running-on-docker-for-windows"></a>在用于 Windows 的 Docker 上运行
-
-可以在用于 Windows 的 Docker 上运行 Azure Cosmos DB 模拟器。 该模拟器不适合于用于 Oracle Linux 的 Docker。
-
-安装了[用于 Windows 的 Docker](https://www.docker.com/docker-windows) 并切换到 Windows 容器之后，可以通过从喜爱的 shell（cmd.exe、PowerShell 等）运行以下命令，从 Docker 中心拉取模拟器映像。
-
-```      
-docker pull microsoft/azure-cosmosdb-emulator 
-```
-若要启动映像，请运行以下命令。
-
-``` 
-md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>nul
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
-```
-
-响应类似于以下内容：
-
-```
-Starting Emulator
-Emulator Endpoint: https://172.20.229.193:8081/
-Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
-Exporting SSL Certificate
-You can import the SSL certificate from an administrator command prompt on the host by running:
-cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert
-powershell .\importcert.ps1
---------------------------------------------------------------------------------------------------
-Starting interactive shell
-``` 
-
-在模拟器启动之后便关闭交互式 shell 会关闭模拟器的容器。
-
-在客户端中使用来自响应的终结点和主密钥，并将 SSL 证书导入到主机中。 若要导入 SSL 证书，请从管理员命令提示符执行以下操作：
-
-```
-cd %LOCALAPPDATA%\CosmosDBEmulatorCert
-powershell .\importcert.ps1
-```
-
-## <a name="start-the-emulator"></a>启动模拟器
+## <a name="running-on-windows"></a>在 Windows 上运行
 
 若要启动 Azure Cosmos DB 模拟器，请选择“启动”按钮或按 Windows 键。 开始键入“Azure Cosmos DB 模拟器”，然后从应用程序列表中选择该模拟器。 
 
@@ -130,7 +101,7 @@ powershell .\importcert.ps1
 
 ## <a name="start-data-explorer"></a>启动数据资源管理器
 
-Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos DB 数据资源管理器。 地址将显示为 [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html)。 如果关闭浏览器并想要稍后重新打开，可在浏览器中打开 URL 或从 Windows 任务栏图标中的 Azure Cosmos DB 模拟器中启动，如下所示。
+Azure Cosmos DB 模拟器启动时，会在浏览器中自动打开 Azure Cosmos DB 数据资源管理器。 地址会显示为 [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html)。 如果关闭浏览器并想要稍后重新打开，可在浏览器中打开 URL 或从 Windows 任务栏图标中的 Azure Cosmos DB 模拟器中启动，如下所示。
 
 ![Azure Cosmos DB 本地模拟器数据资源管理器启动器](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -154,7 +125,7 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 
 此外，与 Azure Cosmos DB 服务一样，Azure Cosmos DB 模拟器仅支持采用 SSL 的安全通信。
 
-## <a name="running-the-emulator-on-a-local-network"></a>在本地网络中运行仿真器
+## <a name="running-on-a-local-network"></a>在本地网络上运行
 
 可在本地网络中运行仿真器。 要启用网络访问，请在[命令行](#command-line-syntax)中指定 /AllowNetworkAccess 选项（同时还需指定 /Key=key_string 或 /KeyFile=file_name）。 可使用 /GenKeyFile=file_name 提前生成具有随机密钥的文件。  然后可将其传递至 /KeyFile=file_name 或 /Key=contents_of_file。
 
@@ -198,7 +169,7 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 
     CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/?]
 
-若要查看选项列表，请在命令提示符下键入 `CosmosDB.Emulator.exe /?`。
+若要查看选项列表，请在命令提示符下键入 `CosmosDB.Emulator.exe /?` 。
 
 <table>
 <tr>
@@ -323,16 +294,6 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 </tr>
 </table>
 
-## <a name="differences-between-the-azure-cosmos-db-emulator-and-azure-cosmos-db"></a>Azure Cosmos DB 模拟器与 Azure Cosmos DB 之间的差异 
-由于 Azure Cosmos DB 模拟器提供在本地开发人员工作站上运行的模拟环境，因此模拟器与云中的 Azure Cosmos DB 帐户之间的功能存在一些差异：
-
-* Azure Cosmos DB 模拟器只支持一个固定的帐户和公开的主密钥。  在 Azure Cosmos DB 模拟器中无法重新生成密钥。
-* Azure Cosmos DB 模拟器不是可缩放的服务，并且不支持大量集合。
-* Azure Cosmos DB 模拟器不模拟不同的 [Azure Cosmos DB 一致性级别](consistency-levels.md)。
-* Azure Cosmos DB 模拟器不模拟[多区域复制](distribute-data-globally.md)。
-* Azure Cosmos DB 模拟器不支持服务配额替代，而 Azure Cosmos DB 服务支持（例如文档大小限制、增加的分区集合存储）。
-* 由于 Azure Cosmos DB 模拟器副本不一定能反映 Azure Cosmos DB 服务的最新更改，因此请使用 [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner) 准确估计应用程序的生产吞吐量 (RU) 需求。
-
 ## <a id="set-partitioncount"></a> 更改集合数
 
 默认情况下，使用 Azure Cosmos DB 模拟器可创建多达 25 个单区集合或 1 个已分区集合。 通过修改 **PartitionCount** 值，可以创建最多 250 个单分区集合或 10 个已分区集合，或两者的任意组合（不得超过 250 个单分区，其中 1 个已分区集合 = 25 个单分区集合）。
@@ -351,7 +312,59 @@ Azure Cosmos DB 模拟器启动时，会自动在浏览器中打开 Azure Cosmos
 2. 删除文件夹 C:\Users\user_name\AppData\Local\CosmosDBEmulator 中的所有模拟器数据。
 3. 通过在系统任务栏上右键单击“Azure Cosmos DB 模拟器”图标，并单击“退出”，退出所有打开的实例。 退出所有实例可能需要一分钟。
 4. 安装最新版的 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)。
-5. 通过设置一个 <= 250 的值启动具有 PartitionCount 标志的模拟器。 例如：`C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`。
+5. 通过设置一个 <= 250 的值启动具有 PartitionCount 标志的模拟器。 例如： `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`。
+
+## <a name="running-on-docker"></a>在 Docker 上运行
+
+可以在用于 Windows 的 Docker 上运行 Azure Cosmos DB 模拟器。 该模拟器不适合于用于 Oracle Linux 的 Docker。
+
+安装[用于 Windows 的 Docker](https://www.docker.com/docker-windows) 后，通过右键单击工具栏上的 Docker 图标并选择“切换到 Windows 容器”切换到 Windows 容器。
+
+接下来，通过从常用的 shell 运行以下命令，从 Docker 中心拉取模拟器映像。
+
+```     
+docker pull microsoft/azure-cosmosdb-emulator 
+```
+若要启动映像，请运行以下命令。
+
+通过命令行：
+```cmd 
+md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+```
+
+通过 PowerShell：
+```powershell
+md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+```
+
+响应类似于以下内容：
+
+```
+Starting Emulator
+Emulator Endpoint: https://172.20.229.193:8081/
+Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+Exporting SSL Certificate
+You can import the SSL certificate from an administrator command prompt on the host by running:
+cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert
+powershell .\importcert.ps1
+--------------------------------------------------------------------------------------------------
+Starting interactive shell
+``` 
+
+现在，在客户端中使用来自响应的终结点和主密钥，并将 SSL 证书导入到主机中。 若要导入 SSL 证书，请从管理员命令提示符执行以下操作：
+
+```
+cd %LOCALAPPDATA%\CosmosDBEmulatorCert
+powershell .\importcert.ps1
+```
+
+在模拟器启动之后便关闭交互式 shell 会关闭模拟器的容器。
+
+若要打开数据资源管理器，请在浏览器中导航到以下 URL。 上面所示的响应消息中提供了模拟器终结点。
+
+    https://<emulator endpoint provided in response>/_explorer/index.html
 
 ## <a name="troubleshooting"></a>故障排除
 

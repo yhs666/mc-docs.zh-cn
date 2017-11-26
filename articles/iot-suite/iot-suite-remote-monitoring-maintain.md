@@ -8,16 +8,16 @@ manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
 origin.date: 11/10/2017
-ms.date: 11/27/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: ed9534d0c57d3e201e7d2258ff4b210af0253424
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.openlocfilehash: 9dd916471d156d5df2a2362925ca6e490ef2b4e9
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>排查和修正设备问题
 
@@ -35,7 +35,7 @@ Contoso 正在现场测试某个新的**原型**设备。 在测试期间，Cont
 
 若要遵循本教程，需在 Azure 订阅中部署远程监视解决方案的实例。
 
-<!-- If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial. -->
+如果尚未部署远程监视解决方案，应完成[部署远程监视预配置解决方案](iot-suite-remote-monitoring-deploy.md)教程。
 
 ## <a name="use-the-maintenance-dashboard"></a>使用维护仪表板
 

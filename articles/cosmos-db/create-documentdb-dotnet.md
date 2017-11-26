@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/10/2017
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 446bd8cd967d26078c1a040390a867d64bae1d5a
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 50aad13e926d02d3b37e040eaabda98dd4778e26
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB：使用 .NET 和 Azure 门户生成 DocumentDB API Web 应用
 
@@ -97,24 +97,29 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 快速查看应用中发生的情况。 打开 DocumentDBRepository.cs 文件，会发现以下代码行创建 Azure Cosmos DB 资源。 
 
-* 在第 73 行对 DocumentClient 进行初始化。
+* 在第 78 行对 DocumentClient 进行初始化。
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* 在第 88 行创建一个新数据库。
+* 在第 93 行创建一个新数据库。
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* 在第 107 行创建一个新集合。
+* 在第 112 行创建一个新集合。
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
         UriFactory.CreateDatabaseUri(DatabaseId),
         new DocumentCollection { Id = CollectionId },
+        new DocumentCollection
+            {
+               Id = CollectionId,
+               PartitionKey = new PartitionKeyDefinition() { Paths = new Collection<string>() { "/category" } }
+            },
         new RequestOptions { OfferThroughput = 1000 });
     ```
 
@@ -169,4 +174,6 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
 
+<!--Not Available the parent file of includes file of cosmos-db-create-collection.md-->
+<!--ms.date:11/27/2017-->
 <!--Update_Description: update meta properties, wording update -->

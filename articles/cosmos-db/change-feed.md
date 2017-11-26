@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-origin.date: 10/10/2017
-ms.date: 10/23/2017
+origin.date: 10/30/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7a2cafc41a7c9b995f88b3e8a38821f789dc513f
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 2ebcce47003e84d785ab73dc9d74801b1ff19ad7
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的更改源支持
 
@@ -158,7 +158,7 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
 
 如果有多个读取器，则可使用 ChangeFeedOptions 将读取负载分发到不同的线程或客户端。
 
-使用短短的几行代码即可读取更改源，就这么简单！ 可以从 [azure-cosmos-db-DocumentFeed GitHub 存储库](https://github.com/rsarosh/azure-cosmos-db-DocumentFeed)获取本文中使用的完整代码。
+使用短短的几行代码即可读取更改源，就这么简单！ 可从 [GitHub 存储库](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)获取本文中使用的完整代码。
 
 在上面的步骤 4 的代码中，最后一行的 ResponseContinuation 具有文档的最后一个逻辑序列号 (LSN)，下次读取该序列号后面的新文档时需要用到。 可以使用 ChangeFeedOption 的 StartTime 扩大获取文档的范围。 因此，如果 ResponseContinuation 为 null，但 StartTime 为以前的时间，则会获取自 StartTime 以来更改过的所有文档。 但是，如果 ResponseContinuation 有一个值，则系统会提供自该 LSN 以来的所有文档。
 
@@ -279,11 +279,11 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 * [信息页](documentdb-sdk-dotnet-changefeed.md) 
 * [Nuget 包](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [演示上述步骤 (1-6) 的示例代码](https://github.com/rsarosh/Cosmos-ChangeFeedProcessor)
+* [演示上述步骤 (1-6) 的示例代码](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [GitHub 上的其他示例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 若要详细了解如何通过 SDK 使用更改源，请参阅以下资源：
 
 * [SDK 信息页](documentdb-sdk-dotnet.md)
 
-<!--Update_Description: update meta properties, restructure the cmdlet sample-->
+<!--Update_Description: update meta properties, update link -->

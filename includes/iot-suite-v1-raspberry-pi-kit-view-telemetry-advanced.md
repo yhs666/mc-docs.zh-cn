@@ -1,12 +1,12 @@
-## <a name="view-the-telemetry"></a>查看遥测
+## <a name="view-the-telemetry"></a>查看遥测数据
 
-Raspberry Pi 现在正将遥测发送到远程监视解决方案。 可以在解决方案仪表板上查看遥测。 也可以从解决方案仪表板向 Raspberry Pi 发送消息。
+Raspberry Pi 现在正将遥测数据发送到远程监视解决方案。 可以在解决方案仪表板上查看遥测数据。 也可以从解决方案仪表板向 Raspberry Pi 发送消息。
 
 - 导航到解决方案仪表板。
 - 在“要查看的设备”下拉列表中选择设备。
-- 来自 Raspberry Pi 的遥测显示在仪表板上。
+- 来自 Raspberry Pi 的遥测数据会显示在仪表板上。
 
-![显示来自 Raspberry Pi 的遥测][img-telemetry-display]
+![显示来自 Raspberry Pi 的遥测数据][img-telemetry-display]
 
 ## <a name="initiate-the-firmware-update"></a>启动固件更新
 

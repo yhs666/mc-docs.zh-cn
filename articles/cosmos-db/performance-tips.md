@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/23/2017
-ms.date: 10/23/2017
+origin.date: 11/08/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: aa11941f3b24002b6e9b70986b99cf95df295e21
-ms.sourcegitcommit: 55c51539fdd337dbcbf420fedb0c7eaa690545f2
+ms.openlocfilehash: 392528f7ffb7b7be89a1917dcb695a47053d0b0b
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Azure Cosmos DB 性能提示
 Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供延迟与吞吐量保证的情况下无缝缩放。 使用 Cosmos DB 时，无需对体系结构进行重大更改或编写复杂的代码就能缩放数据库。 扩展和缩减操作就像执行单个 API 调用或 [SDK 方法调用](set-throughput.md#set-throughput-sdk)一样简单。 但是，由于 Cosmos DB 是通过网络调用访问的，因此可以通过客户端优化来获得最高性能。
@@ -76,7 +76,8 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 4. **将客户端并置在同一 Azure 区域中以提高性能**
 
     如果可能，请将任何调用 Cosmos DB 的应用程序放在与 Cosmos DB 数据库相同的区域中。 在同一区域对 Cosmos DB 进行的调用在 1-2 毫秒内完成（近似比较）。 根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 确保调用方应用程序位于与预配的 Cosmos DB 终结点相同的 Azure 区域中，有可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://www.azure.cn/support/service-dashboard/#services)（Azure 区域）。
-
+    <!--Not Available on time span between East to West coast-->
+    
     ![Azure Cosmos DB 连接策略演示](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
 5. **增加线程/任务数目**
@@ -166,7 +167,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     Cosmos DB 提供一组丰富的数据库操作，包括 UDF 的关系和分层查询、存储过程和触发器 - 可对数据库集合中的文档执行所有这些操作。 与这些操作关联的成本取决于完成操作所需的 CPU、IO 和内存。 与考虑和管理硬件资源不同的是，可以考虑将请求单位 (RU) 作为所需资源的单个措施，以执行各种数据库操作和服务应用程序请求。
 
-    系统根据购买的容量单位数目，为每个数据库帐户预配[请求单位](request-units.md)。 请求单位消耗以每秒速率评估。 如果应用程序的速率超过了为其帐户预配的请求单位速率，则会受到限制，直到该速率降到帐户的保留级别以下。 如果应用程序需要更高的吞吐量，可以购买额外容量单位。
+    基于为每个容器设置的[请求单位](request-units.md)的数量预配吞吐量。 请求单位消耗以每秒速率评估。 如果应用程序的速率超过了为其容器预配的请求单位速率，则会受到限制，直到该速率降到容器的预配级别以下。 如果应用程序需要较高级别的吞吐量，可以通过预配更多请求单位来增加吞吐量。 
 
     查询的复杂性会影响操作使用的请求单位数量。 谓词数、谓词性质、UDF 数目和源数据集的大小都会影响查询操作的成本。
 

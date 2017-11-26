@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 08/03/2017
-ms.date: 09/18/2017
+origin.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1fc2e34ce0687231424a0bf28a5a22fed5f20029
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: e338d1125c50826f4c26dd91d4c4d50123727f4e
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 生成移动应用程序
 大多数移动应用需要在云中存储数据，而 Azure Cosmos DB 正是适用于移动应用的云数据库。 该产品提供移动开发人员所需的一切功能。 它是一个完全托管的数据库即服务，可按需缩放。 它能够以应用程序完全可见的方式存放全球各地用户的数据。 使用 [Azure Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md)，可让 Xamarin 移动应用直接与 Azure Cosmos DB 交互，无需中间层。
@@ -32,7 +32,7 @@ Azure Cosmos DB 为移动应用开发人员提供以下重要功能：
 ![移动应用的 Azure Cosmos DB 功能](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
 * 针对无架构数据的丰富查询。 Azure Cosmos DB 将数据以无架构 JSON 文档的形式存储在异构集合中。 它提供[丰富的快速查询](documentdb-sql-query.md)，无需担心架构或索引问题。
-* 快速吞吐量。 使用 Azure Cosmos DB 时，只需几毫秒就能读取和写入文档。 开发人员可以指定所需的吞吐量，Azure Cosmos DB 根据 99.99% 的 SLA 保证来遵守此项规定。
+* 快速吞吐量。 使用 Azure Cosmos DB 时，只需几毫秒就能读取和写入文档。 开发人员可以指定所需的吞吐量，Azure Cosmos DB 对所有单区域帐户和具有松散一致性的所有多区域帐户采用 99.99% 的可用性 SLA，对所有多区域数据库帐户采用 99.999% 的读取可用性。
 * 无限规模。 Azure Cosmos DB 集合[随着应用的增长而增长](partition-data.md)。 一开始可以处理较小规模的数据和每秒几百个请求的吞吐量。 集合可以扩展到每秒几亿个请求的任意大型吞吐量，处理 PB 量级的数据。
 * 全球分布。 移动应用的用户特点是经常在全球不同的地点漫游。 Azure Cosmos DB 是[全局分布式数据库](distribute-data-globally.md)。 单击地图即可让用户访问数据。
 * 内置丰富授权。 有了 Azure Cosmos DB，无需使用复杂的自定义授权代码，就能轻松实现常用的模式，例如，[每个用户的数据](https://aka.ms/documentdb-xamarin-todouser)，或者多个共享用户的数据。

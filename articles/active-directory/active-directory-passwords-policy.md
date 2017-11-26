@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 09/20/2017
+origin.date: 10/24/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
 ms.custom: it-pro
-ms.openlocfilehash: 4df10d0c41230a170daa3c084432ea84347d26bf
-ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
+ms.openlocfilehash: c4a1427dc7f980c5ab41b3d4facd84683d949ff0
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory 中的密码策略和限制
 
@@ -56,10 +56,10 @@ ms.lasthandoff: 09/21/2017
 
 ## <a name="set-password-expiration-policies-in-azure-active-directory"></a>在 Azure Active Directory 中设置密码过期策略
 
-Microsoft 云服务的全局管理员可使用用于 Windows PowerShell 的 Azure Active Directory 模块将用户密码设置为永不过期。 还可以使用 Windows PowerShell cmdlet 删除永不过期配置，或者查看已将哪些用户密码设置为永不过期。 本指南适用于其他提供程序（如 Microsoft Intune 和 Office 365），这些提供程序也依赖于 Azure Active Directory 提供标识和目录服务。
+Microsoft 云服务的全局管理员可使用用于 Windows PowerShell 的 Azure Active Directory 模块将用户密码设置为永不过期。 还可以使用 Windows PowerShell cmdlet 删除永不过期配置，或者查看已将哪些用户密码设置为永不过期。 本指南适用于其他提供程序（如 Microsoft Intune 和 Office 365），这些提供程序也依赖于 Azure Active Directory 提供标识和目录服务。 这是策略中唯一可更改的部分。
 
 > [!NOTE]
-> 只能将未通过目录同步进行同步的用户帐户的密码配置为永不过期。 有关目录同步的详细信息，请参阅[将 AD 与 Azure AD 连接](connect/active-directory-aadconnect.md)。
+> 只能将未通过目录同步进行同步的用户帐户的密码配置为永不过期。 有关目录同步的详细信息，请参阅[将 AD 与 Azure AD 连接](/active-directory/connect/active-directory-aadconnect)。
 >
 >
 
@@ -90,4 +90,8 @@ Microsoft 云服务的全局管理员可使用用于 Windows PowerShell 的 Azur
    - 若要将某一个用户的密码设置为永不过期，请使用用户主体名称 (UPN) 或该用户的用户 ID 运行以下 cmdlet：`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    - 要将组织中所有用户的密码设置为永不过期，请运行以下 cmdlet： `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
-<!--Update_Description: update meta properties -->   
+   > [!WARNING]
+   > 如果设置了 `-PasswordNeverExpires $true`，则密码仍将按 `pwdLastSet` 属性来计算期限。 这意味着如果将密码设置为永不过期，然后以 `pwdLastSet` 为参照过去了 90+ 天，此时更改了 `-PasswordNeverExpires $false`，则所有 `pwdLastSet` 大于 90 天的密码都需要在下次登录时进行更改。 此更改可能会影响很多用户。 
+
+<!--Update_Description: wording update -->
+

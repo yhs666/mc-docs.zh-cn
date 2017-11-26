@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/05/2017
-ms.date: 07/18/2017
+origin.date: 10/17/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: f5f48e01e02f665cef26ef1af0e8a92ddea40482
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.reviewer: asteen
+ms.openlocfilehash: aa00969f6aebb9eee84302030e26e4123912dea5
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>使用 Azure Active Directory 管理应用程序
 除了实际工作流或内容以外，企业对所有应用程序还有另外两个基本要求：

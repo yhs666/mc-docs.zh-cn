@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 
+origin.date: 11/02/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: f2fa204f95ddb17579b3ba3b122b251dfda34f40
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 839d420ea6765e714ff781bbadbcc51e9b238528
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>优化 Azure Cosmos DB 的查询性能
 Azure Cosmos DB 提供了一个[用于查询数据的 SQL API](documentdb-sql-query.md)，不需要使用架构或辅助索引。 本文为开发者提供了以下信息：
@@ -143,7 +143,7 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 ## <a name="best-practices-for-query-performance"></a>有关查询性能的最佳做法
 下面是影响 Azure Cosmos DB 查询性能的最常见因素。 本文深入探讨了其中的每一个主题。
 
-| 因子 | 提示 | 
+| 因素 | 提示 | 
 | ------ | -----| 
 | 预配的吞吐量 | 度量每个查询的 RU，并确保具有查询所需的预配吞吐量。 | 
 | 分区和分区键 | 支持在查询的筛选器子句中使用分区键值以降低延迟。 |
@@ -241,7 +241,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 ```
 
-| 指标 | 计价单位 | 说明 | 
+| 指标 | 单位 | 说明 | 
 | ------ | -----| ----------- |
 | `totalExecutionTimeInMs` | 毫秒 | 查询执行时间 | 
 | `queryCompileTimeInMs` | 毫秒 | 查询编译时间  | 
@@ -253,7 +253,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | 毫秒 | 加载文档时花费的时间  | 
 | `systemFunctionExecuteTimeInMs` | 毫秒 | 执行系统（内置）函数花费的总时间（毫秒）  | 
 | `userFunctionExecuteTimeInMs` | 毫秒 | 执行用户定义的函数花费的总时间（毫秒） | 
-| `retrievedDocumentCount` | 毫秒 | 检索的文档总数  | 
+| `retrievedDocumentCount` | 计数 | 检索的文档总数  | 
 | `retrievedDocumentSize` | 字节 | 检索的文档的总大小（字节）  | 
 | `outputDocumentCount` | 计数 | 输出文档数 | 
 | `writeOutputTimeInMs` | 毫秒 | 查询执行时间（毫秒） | 
@@ -278,3 +278,5 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 * 若要了解受支持的 SQL 查询运算符和关键字，请参阅 [SQL 查询](documentdb-sql-query.md)。 
 * 若要了解请求单位，请参阅[请求单位](request-units.md)。
 * 若要了解索引编制策略，请参阅[索引编制策略](indexing-policies.md)
+
+<!-- Update_Description: update meta properties, wording update -->

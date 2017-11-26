@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/26/2017
-ms.date: 08/21/2017
+origin.date: 11/08/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: b3a6bab29e16ae43423a0e7833416e92bd331149
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 1bb085f341055ddddb4fb8c8312393ee4f728563
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 模板中部署资源或属性的多个实例
 本主题介绍如何在 Azure Resource Manager 模板中进行迭代操作，以创建多个资源实例，或者在资源中创建多个属性实例。
 
 如果需要在模板中添加逻辑来指定是否部署资源，请参阅[有条件地部署资源](#conditionally-deploy-resource)。
+
+有关在数组变量中创建多个元素的示例，请参阅[变量](resource-group-authoring-templates.md#variables)。
 
 ## <a name="resource-iteration"></a>资源迭代
 若要创建某个资源类型的多个实例，请向该资源类型添加 `copy` 元素。 在 copy 元素中，为此循环指定迭代次数和名称。 计数值必须是不超过 800 的正整数。 Resource Manager 将并行创建资源。 因此，创建顺序是不确定的。 若要在序列中创建迭代的资源，请参阅[串行复制](#serial-copy)。 
@@ -511,4 +513,4 @@ Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将
 * 若要了解有关模板区段的信息，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
 * 若要了解如何部署模板，请参阅 [使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 
-<!--Update_Description: wording update, add template code of copy element.-->
+<!--Update_Description: update meta properties, wording update -->

@@ -13,44 +13,48 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/25/2017
-ms.date: 04/27/2017
+origin.date: 11/14/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.openlocfilehash: 1d334eef9630eee5684850eeb09c87333a146b92
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 879945d8f51e9e719b17e24c84f6fd3f092c1d4a
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>预见性维护预配置解决方案概述
 
 *预见性维护*[预配置解决方案][lnk_preconfigured_solutions]是 [Microsoft Azure IoT 套件][lnk_iot_suite]预配置解决方案之一。 此解决方案将实时设备遥测收集与使用 R 统计计算语言创建的预测模型相集成。
 
-使用 Azure IoT 套件，企业可以快速方便地连接和监视资产，实时分析数据。 预见性维护预配置解决方案会利用该数据及丰富的仪表板与可视化效果，为用户提供新的信息，提升其效率及增加收入来源。
+使用 Azure IoT 套件，可以快速方便地连接和监视资产，在仪表板和视觉对象中实时分析遥测数据。 在预测性维护解决方案中，仪表板与视觉对象可以提供新的信息，从而提升你的效率并增加收入来源。
 
 ## <a name="the-scenario"></a>应用场景
-Fabrikam 是一家区域性航空公司，致力于以优惠的价格为客户提供优质的体验。 维护问题是造成航班延误的原因之一，而飞机引擎维护又是其中最为棘手的项目。 因为必须严防飞行期间发生引擎故障，所以 Fabrikam 不仅会定期检查其引擎，而且会恪守所安排的维护计划。 但因为飞机引擎的问题不一， 所以有一些引擎维护工作并非必要。 更重要的是，若在执行维护工作之前发生问题，可能会造成飞机停飞。 这些问题会造成代价高昂的延迟，而飞机所在地点若正好缺少适当的技术人员或备用零件，将更为严重。
 
-Fabrikam 飞机的引擎由各种传感器进行检测，这些传感器监视飞行期间的引擎状况。 Fabrikam 使用预见性维护预配置解决方案收集飞行期间所收集的传感器数据。 经过多年累积引擎运行数据和故障数据之后，Fabrikam 的数据科学家制作出了一个模型，可以预测飞机引擎的剩余使用寿命 (RUL)。 他们从四个引擎传感器的数据中，找出了数据之间的相关性，而其中一个引擎更潜藏了最终会导致引擎故障的问题。 Fabrikam 现在除了继续执行定期检查来确保安全之外，还会在每次飞行后，使用模型来计算每个引擎的 RUL。 该模型使用飞行期间从引擎收集的遥测数据。 Fabrikam 现在可以预测未来的故障点，并预先规划维护和维修工作。
+Fabrikam 是一家区域性航空公司，致力于以优惠的价格为客户提供优质的体验。 维护问题是造成航班延误的原因之一，而飞机引擎维护又是其中最为棘手的项目。 因为必须严防飞行期间发生引擎故障，所以 Fabrikam 不仅会定期检查其引擎，而且会恪守所安排的维护计划。 但因为飞机引擎的问题不一， 所以有一些引擎维护工作并非必要。 更重要的是，若在执行维护工作之前发生问题，可能会造成飞机停飞。 如果飞机所在地点正好缺少合适的技术人员或备用零件，这些问题会造成尤其严重的损失。
+
+Fabrikam 飞机的引擎由各种传感器进行检测，这些传感器监视飞行期间的引擎状况。 Fabrikam 使用预测性维护解决方案收集飞行期间所收集的传感器数据。 经过多年累积引擎运行数据和故障数据之后，Fabrikam 的数据科学家制作出了一个模型，可以预测飞机引擎的剩余使用寿命 (RUL)。 该模型使用在四个引擎传感器提供的数据与最终会导致故障的引擎磨损之间存在的相关性。 Fabrikam 现在除了继续执行定期检查来确保安全之外，还会在每次飞行后，使用模型来计算每个引擎的 RUL。 该模型使用飞行期间从引擎收集的遥测数据。 Fabrikam 现在可以预测未来的故障点，并预先规划维护和维修工作。
 
 > [!NOTE]
 > 该解决方案模型使用实际的引擎损耗数据。
 
-通过预测必要维护时间点，Fabrikam 可以优化各项作业，进而降低成本。 维护专员与排班专员一起合作：
+通过预测必要维护时间点，Fabrikam 可以优化各项作业，进而降低成本。
+
+维护专员与排班专员一起合作来执行以下操作：
 
 - 根据飞机在特定地点停机的时间规划维护。
 - 确保飞机有足够的停飞时间，不会造成排班中断。
 - 安排技术人员，确保飞机无需浪费时间等待，就可获得有效率的维修。
 
 库存控制管理员会收到维护计划，因此可以优化其订单流程和备用零件库存。 所有这些因素不仅让 Fabrikam 可以将飞机停飞的时间降至最低，还可以降低运营成本，同时确保了乘客与乘务员的安全。
+这样安排活动不仅让 Fabrikam 可以将飞机停飞的时间降至最低，还可以降低运营成本，同时确保了乘客与乘务员的安全。
 
-若要了解 [Azure IoT 套件][lnk_iot_suite]如何提供这些功能，客户需要先了解预测性维护的潜力，请查看此[信息图][lnk_infographic]。
+若要了解 [Azure IoT 套件][lnk_iot_suite]如何提供这些功能，客户需要先了解预见性维护，请查看此[信息图][lnk_infographic]。
 
 ## <a name="how-the-predictive-maintenance-solution-is-built"></a>如何生成预见性维护解决方案
 
 Microsoft 基于公开可用的数据<sup>\[1\]</sup> 构建了飞机引擎的[回归模型][lnk_regression_model]，并发布了有关如何使用该模型的分步指南。
 
-Azure IoT 预见性维护预配置解决方案使用通过此模板创建的回归模型。 该模型将部署到 Azure 订阅，通过自动生成的 API 公开。 该解决方案包含代表 4 个（共 100 个）引擎和 4 个（共 21 个）传感器数据流的测试数据的子集。 该数据已足以通过训练模型提供精确的结果。
+Azure IoT 预测性维护解决方案使用通过此模板创建的回归模型。 该模型将部署到 Azure 订阅，通过自动生成的 API 公开。 该解决方案包含代表 4 个（共 100 个）引擎和 4 个（共 21 个）传感器数据流的测试数据的子集。 该数据已足以通过训练模型提供精确的结果。
 
 *\[1\] A. Saxena 和 K. Goebel (2008)。"Turbofan Engine Degradation Simulation Data Set", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
@@ -63,7 +67,7 @@ Azure IoT 预见性维护预配置解决方案使用通过此模板创建的回�
 > [!NOTE]
 > 如果没有帐户，只需花费几分钟就能创建一个免费试用帐户。 有关详细信息，请参阅 [Azure 免费试用][lnk_free_trial]。
 
-1. 使用 Azure 帐户凭据登录 [azureiotsuite.com][lnk-azureiotsuite]，然后单击“+”创建解决方案。
+1. 使用 Azure 帐户凭据登录到 [azureiotsuite.cn][lnk-azureiotsuite]，并单击“+”创建解决方案。
 1. 单击“选择预测性维护”磁贴。
 1. 为预见性维护预配置解决方案输入 **解决方案名称** 。
 1. 选择要用于预配解决方案的“区域”和“订阅”。
@@ -77,9 +81,9 @@ Azure IoT 预见性维护预配置解决方案使用通过此模板创建的回�
 1. 单击磁贴，右窗格中随即会显示解决方案的详细信息。
 
 > [!NOTE]
-> 如果在部署预配置解决方案时遇到问题，请查看 [azureiotsuite.com 站点上的权限][lnk-permissions]和[常见问题解答][lnk-faq]。 如果问题仍然存在，请在 [门户][lnk-portal]中创建服务票证。
+> 如果在部署预配置解决方案时遇到问题，请查看 [azureiotsuite.cn 站点上的权限][lnk-permissions]和[常见问题解答][lnk-faq]。 如果问题仍然存在，请在 [门户][lnk-portal]中创建服务票证。
 
-是否有你预期会看到但没有列出的解决方案详细信息？ 请在 [用户之声](https://feedback.azure.com/forums/321918-azure-iot)中向我们提供功能建议。
+是否有你预期会看到但没有列出的解决方案详细信息？ 请在[用户之声](https://feedback.azure.com/forums/321918-azure-iot)中提供功能建议。
 
 ## <a name="view-the-solution"></a>查看解决方案
 
@@ -98,15 +102,15 @@ Web 应用程序中的此页面会使用 PowerBI JavaScript 控件（请参阅 [
 
 预配包含 R Server 的预配置解决方案时，预配过程中将显示指向该服务器的链接。 当 R Server 处于“就绪”状态时，还可以从解决方案的 [azureiotsuite.cn][lnk-azureiotsuite] 页连接到 R Server。
 
-在解决方案门户中，可看到本示例预配了 4 个模拟设备，表示各有两个引擎的两架飞机，且每个引擎有 4 个传感器。 当你第一次导航到解决方案门户时，模拟便会停止。
+在解决方案门户中，可看到本示例预配了 4 个模拟设备，表示各有两个引擎的两架飞机，且每个引擎有 4 个传感器。 第一次导航到解决方案门户时，模拟便会停止。
 
 ![][img-simulation-stopped]
 
-单击“开始模拟”  即可开始模拟，在此期间仪表板上将填写传感器历史记录、RUL、周期和 RUL 历史记录。
+单击“开始模拟”开始模拟。 传感器历史记录、RUL、周期和 RUL 历史记录会填充到仪表板中。
 
 ![][img-simulation-running]
 
-当 RUL 小于 160 时（出于演示目的而选择的任意阈值），解决方案门户会在 RUL 显示值旁边显示警告符号，并将飞机引擎标成黄色。 请注意 RUL 值如何整体下滑但倾向于上下波动。 此行为的原因是周期长度和模型精确度不同。
+当 RUL 小于 160 时（出于演示目的而选择的任意阈值），解决方案门户会在 RUL 显示器旁边显示警告符号。 解决方案门户也会以黄色突出显示飞机引擎。 请注意 RUL 值如何整体下滑但倾向于上下波动。 此行为的原因是周期长度和模型精确度不同。
 
 ![][img-simulation-warning]
 
@@ -118,11 +122,11 @@ Web 应用程序中的此页面会使用 PowerBI JavaScript 控件（请参阅 [
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解有关 Azure IoT 如何实现预见性维护方案的详细信息，请阅读 [Capture value from the Internet of Things][lnk_capture_value]（捕获物联网的价值）。
+若要了解有关 Azure IoT 如何实现预见性维护方案的详细信息，请阅读[捕获物联网的价值][lnk_capture_value]。
 
-[演练][lnk-predictive-walkthrough] 预见性维护预配置解决方案。
+[演练][lnk-predictive-walkthrough]预测性维护解决方案。
 
-你还可以浏览 IoT 套件预配置的解决方案的一些其他特性和功能：
+还可以浏览 IoT 套件预配置的解决方案的一些其他特性和功能：
 
 * [有关 IoT 套件的常见问题][lnk-faq]
 * [从头开始保障 IoT 安全][lnk-security-groundup]
@@ -136,12 +140,12 @@ Web 应用程序中的此页面会使用 PowerBI JavaScript 控件（请参阅 [
 [lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals
 [lnk-predictive-walkthrough]: ./iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: ./iot-suite-what-are-preconfigured-solutions.md
-[lnk_iot_suite]: ./iot-suite-overview.md
+[lnk_iot_suite]: iot-suite-options.md
 [lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
-[lnk-faq]: ./iot-suite-faq.md
+[lnk-faq]: iot-suite-v1-faq.md
 [lnk-security-groundup]: ./securing-iot-ground-up.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.cn/
 [lnk_free_trial]: https://www.azure.cn/pricing/1rmb-trial/

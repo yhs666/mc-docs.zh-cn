@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 08/24/2017
+origin.date: 11/02/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 04d45210f79ffd2b6709d21508d8b239f17d7025
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 3e2a7fdc1a08ad4624429b984710375a37d0c17a
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 和联合身份验证
 Azure Active Directory (Azure AD) Connect 可让你配置使用本地 Active Directory 联合身份验证服务 (AD FS) 和 Azure AD 进行的联合身份验证。 通过联合身份验证登录，可以让用户能够使用本地密码登录基于 Azure AD 的服务；使用公司网络时，无需再次输入密码就可登录服务。 使用 AD FS 的联合身份验证选项，可以部署 AD FS 的新安装，也可以在 Windows Server 2012 R2 场中指定现有安装。
@@ -41,6 +41,7 @@ Azure Active Directory (Azure AD) Connect 可让你配置使用本地 Active Dir
 | [新增 AD FS WAP 服务器](active-directory-aadconnect-federation-management.md#addwapserver) |初始安装后，使用其他 Web 应用程序代理 (WAP) 服务器扩展 AD FS 场。 |
 | [添加新的联合域](active-directory-aadconnect-federation-management.md#addfeddomain) |添加其他要与 Azure AD 联合的域。 |
 | [更新 SSL 证书](active-directory-aadconnectfed-ssl-update.md)| 更新 AD FS 场的 SSL 证书。 |
+| [续订 Office 365 和 Azure AD 的联合身份验证证书](active-directory-aadconnect-o365-certs.md)|使用 Azure AD 续订 O365 证书。|
 | **其他联合配置** | |
 | [将 Azure AD 的多个实例与 AD FS 的单个实例联合](active-directory-aadconnectfed-single-adfs-multitenant-federation.md) | 联合多个 Azure AD 与单个 AD FS 场| 
 | [添加自定义公司徽标/插图](active-directory-aadconnect-federation-management.md#customlogo) |通过指定 AD FS 登录页上显示的自定义徽标来修改登录体验。 |
@@ -53,4 +54,4 @@ Azure Active Directory (Azure AD) Connect 可让你配置使用本地 Active Dir
 - [Azure 中的 AD FS 部署](active-directory-aadconnect-azure-adfs.md)
 - [使用 Azure 流量管理器在 Azure 中部署高可用性跨地域 AD FS](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
-<!--Update_Description: update metadata properties -->
+<!--Update_Description: wording update -->

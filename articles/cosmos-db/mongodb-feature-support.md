@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 11/20/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4b2c6a9fe997ab6f569d6e969cc6e4822f4a1571
-ms.sourcegitcommit: ec2ae82186a700610e5b9e649996e620a2fe4b9d
+ms.openlocfilehash: 04665c78a0b3cf0f957ca18b87d33e124645bd8a
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB API 对 MongoDB 功能和语法的支持
 
@@ -29,11 +29,11 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 ## <a name="mongodb-query-language-support"></a>MongoDB 查询语言支持
 
-Azure Cosmos DB MongoDB API 为 MongoDB 查询语言构造提供全面的支持。 下面是一个详细列表，列出了目前支持的操作、运算符、阶段、命令和选项。
+Azure Cosmos DB MongoDB API 为 MongoDB 查询语言构造提供全面的支持。 可以在下面查找当前支持的操作、运算符、阶段、命令和选项的详细列表。
 
 ## <a name="database-commands"></a>数据库命令
 
-Azure Cosmos DB 支持下述可以在所有 MongoDB API 帐户上运行的数据库命令。 
+在所有 MongoDB API 帐户上，Azure Cosmos DB 都支持以下数据库命令。 
 
 ### <a name="query-and-write-operation-commands"></a>查询和写入操作命令
 - 删除
@@ -301,4 +301,5 @@ Azure Cosmos DB 支持服务器端自动分片。 Azure Cosmos DB 不支持手�
 - 了解如何配合 MongoDB 数据库 API 来[使用 Robo 3T](mongodb-robomongo.md)。
 - 浏览具有 MongoDB 协议支持的 Azure Cosmos DB [示例](mongodb-samples.md)。
 
-<!-- Update_Description: new articles on cosmos db mongodb feature support -->
+<!-- Update_Description: update meta properties -->
+<!-- ONLY UPDATE META, NO NEED TO OVERWRITE TO ZH-CN LIVE BRANCH -->

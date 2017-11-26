@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 08/28/2017
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: f2ff37794981c1ba3cdbfd04cc28d56317dfd0f8
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: e864fa4ce24e199367316418d88a841251c65b09
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>使用 Azure PowerShell 创建服务主体来访问资源
 
@@ -56,7 +56,8 @@ ms.lasthandoff: 09/22/2017
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-$sp = New-AzureRmADServicePrincipal -DisplayName exampleapp -Password "{provide-password}"
+$password = convertto-securestring {provide-password} -asplaintext -force
+$sp = New-AzureRmADServicePrincipal -DisplayName exampleapp -Password $password
 Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
@@ -412,40 +413,17 @@ Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 ## <a name="sample-applications"></a>示例应用程序
 有关在不同平台上通过应用程序登录的信息，请参阅：
 
-**.NET**
-
-* [在 .NET 中使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-dotnet-template-deployment/)
-* [使用 .NET 管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-dotnet-resources-and-groups/)
-
-**Java**
-
+* [.NET](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](https://docs.azure.cn/java/java-sdk-azure-authenticate)
-* [资源入门 - 在 Java 中使用 Azure Resource Manager 模板部署资源](https://github.com/Azure-Samples/resources-java-deploy-using-arm-template/)
-* [资源入门 - 在 Java 中管理资源组](https://github.com/Azure-Samples/resources-java-manage-resource-group/)
-
-**Python**
-
-* [在 Python 中使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-python-template-deployment/)
-* [使用 Python 管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-python-resources-and-groups/)
-<!-- Need to translate * [Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)-->
-
-**Node.js**
-
-* [在 Node.js 中使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-node-template-deployment/)
-* [使用 Node.js 管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-node-resources-and-groups/)
-<!-- Need to translate * [Node.js](https://docs.microsoft.com/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)-->
-
-**Ruby**
-
+* [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
-* [在 Ruby 中使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/)
-* [使用 Ruby 管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>后续步骤
-* 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅 [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md)（使用 Azure Resource Manager API 进行授权的开发人员指南）。
+* 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅[使用 Azure 资源管理器 API 进行授权的开发人员指南](resource-manager-api-authentication.md)。
 * 有关应用程序和服务主体的详细说明，请参阅 [Application Objects and Service Principal Objects](../active-directory/develop/active-directory-application-objects.md)（应用程序对象和服务主体对象）。 
 * 有关 Azure Active Directory 身份验证的详细信息，请参阅 [Authentication Scenarios for Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md)（Azure AD 的身份验证方案）。
 <!-- Notice: active-directory/develop/ is correct-->
-* 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure Resource Manager 资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。
+* 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。
 
-<!--Update_Description: wording update, Update link-->
+<!--Update_Description: wording update， update link-->

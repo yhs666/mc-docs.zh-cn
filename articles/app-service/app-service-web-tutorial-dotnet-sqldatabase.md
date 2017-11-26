@@ -11,16 +11,16 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
-ms.topic: article
+ms.topic: tutorial
 origin.date: 06/09/2017
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.custom: mvc
-ms.openlocfilehash: b0cfdd3c817faebcbf74cd0282c2698dde361d9f
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.custom: mvc, devcenter
+ms.openlocfilehash: d91bec23538c049018d6f492746843e20a7273bc
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>使用 SQL 数据库在 Azure 中生成 ASP.NET 应用
 
@@ -260,7 +260,7 @@ Update-Database
 
 打开 _Controllers\TodosController.cs_。
 
-找到 `Create()` 方法，并将 `Done` 添加到 `Bind` 属性中的属性列表。 完成后，`Create()` 方法签名如以下代码所示：
+在第 52 行找到 `Create()` 方法，并将 `Done` 添加到 `Bind` 属性中的属性列表。 完成后，`Create()` 方法签名如以下代码所示：
 
 ```csharp
 public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo todo)
@@ -381,7 +381,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 在浏览器中再次导航到 Web 应用（*http://&lt;应用名称>.chinacloudsites.cn*），然后尝试在 Azure 中的待办事项列表应用程序周围单击。 现在，跟踪消息已流式传输到 Visual Studio 中的“输出”窗口。
 
-```
+```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
 Application: 2017-04-06T23:30:43  PID[8132] Verbose     GET /Todos/Create
 Application: 2017-04-06T23:30:53  PID[8132] Verbose     POST /Todos/Create

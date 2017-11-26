@@ -1,10 +1,10 @@
 ---
-title: "Azure AD Connect 同步：理解和自定义同步 | Azure"
+title: "Azure AD Connect 同步：理解和自定义同步 | Microsoft Docs"
 description: "介绍 Azure AD Connect 同步的工作原理以及如何自定义。"
 services: active-directory
 documentationcenter: 
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/01/2016
+origin.date: 11/08/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.date: 12/09/2016
-ms.openlocfilehash: 3f43b83a89e18be347124c9080abfdd57883614c
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: aa529183b82b959ec085a4bd3c2420f8d62d2c08
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect 同步：理解和自定义同步
 Azure Active Directory Connect 同步服务（Azure AD Connect 同步）是 Azure AD Connect 的一个主要组件。 它负责在本地环境与 Azure AD 之间同步标识数据的所有相关操作。 Azure AD Connect 同步是 DirSync、Azure AD Sync 和 Forefront Identity Manager 的后继版本，同时配置了 Azure Active Directory 连接器。
 
-本主题介绍了 Azure AD Connect 同步（也称为同步引擎），并列出了与其相关的所有其他主题的链接。 有关 Azure AD Connect 的链接，请参阅 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)。
+本主题介绍了 Azure AD Connect 同步（也称为同步引擎），并列出了与其相关的所有其他主题的链接。 有关 Azure AD Connect 的链接，请参阅[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)。
 
-同步服务包括两个组件，本地“Azure AD Connect 同步”组件和 Azure AD 中称为“Azure AD Connect 同步服务”的服务端组件。 该服务是 DirSync、Azure AD Sync 和 Azure AD Connect 的常见服务。
+同步服务包括两个组件，本地“Azure AD Connect 同步”组件和 Azure AD 中称为“Azure AD Connect 同步服务”的服务端组件。 
 
 ## <a name="azure-ad-connect-sync-topics"></a>Azure AD Connect 同步主题
 | 主题 | 涵盖的内容和阅读时机 |
@@ -48,7 +48,7 @@ Azure Active Directory Connect 同步服务（Azure AD Connect 同步）是 Azur
 | [防止意外删除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |介绍 *防止意外删除* 功能以及如何配置该功能。 |
 | [计划程序](active-directory-aadconnectsync-feature-scheduler.md) |介绍导入、同步和导出数据的内置计划程序。 |
 | [实现密码同步](active-directory-aadconnectsync-implement-password-synchronization.md) |介绍密码同步的工作原理、实现方式，及其操作与故障排除方法。 |
-| [目录扩展](active-directory-aadconnectsync-feature-directory-extensions.md) |介绍如何使用你自己的自定义属性扩展 Azure AD 架构。 |
+| [目录扩展](active-directory-aadconnectsync-feature-directory-extensions.md) |介绍如何使用自己的自定义属性扩展 Azure AD 架构。 |
 | **同步服务** | |
 | [Azure AD Connect 同步服务功能](active-directory-aadconnectsyncservice-features.md) |介绍同步服务端，以及如何在 Azure AD 中更改同步设置。 |
 | [重复属性复原](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) |介绍如何启用并使用 userPrincipalName 和 proxyAddresses 重复属性值复原。 |
@@ -64,3 +64,5 @@ Azure Active Directory Connect 同步服务（Azure AD Connect 同步）是 Azur
 
 ## <a name="additional-resources"></a>其他资源
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
+
+<!--Update_Description: wording update -->

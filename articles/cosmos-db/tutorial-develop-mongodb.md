@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: facf731d1afc889d4ebc326a23518e03cdd3ccc0
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 84ee79930fc70949869d21811e4a2ea403d47eca
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB：使用 .NET 连接到 MongoDB 应用
 
@@ -45,7 +45,6 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 > [!TIP]
 > * 已有一个 Azure Cosmos DB 帐户？ 如果有，请跳到[设置 Visual Studio 解决方案](#SetupVS)
-> * 是否具有 Azure DocumentDB 帐户？ 如果有，则该帐户现为 Azure Cosmos DB 帐户，可以直接跳到[设置 Visual Studio 解决方案](#SetupVS)。  
 > * 如果使用 Azure Cosmos DB 模拟器，请遵循 [Azure Cosmos DB 模拟器](local-emulator.md)中的步骤设置该模拟器，并直接跳到[设置 Visual Studio 解决方案](#SetupVS)。 
 >
 >
@@ -61,7 +60,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 ## <a name="set-up-your-mongodb-app"></a>设置 MongoDB 应用
 
-可以参考[在 Azure 中创建连接到虚拟机上运行的 MongoDB 的 Web 应用](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md)教程（需进行少量修改），快速设置一个连接到 MongoDB 帐户的 API 的 MongoDB 应用程序（在本地或发布到 Azure Web 应用）。  
+可以参考[在 Azure 中创建连接到虚拟机上运行的 MongoDB 的 Web 应用](../app-service/app-service-web-tutorial-nodejs-mongodb-app.md)教程（需进行少量修改），快速设置一个连接到 MongoDB 帐户的 API 的 MongoDB 应用程序（在本地或发布到 Azure Web 应用）。  
 
 1. 请遵循该教程，不过需要做出一项修改。  将 Dal.cs 代码替换为以下内容：
 
@@ -229,4 +228,4 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > [!div class="nextstepaction"]
 > [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

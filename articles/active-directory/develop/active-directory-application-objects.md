@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/26/2017
-ms.date: 10/19/2017
+origin.date: 10/19/2017
+ms.date: 11/23/2017
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 5f869ea56aed80b5216e09a1f2912041abe7e0f6
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 5da897ec0d43f7b4e5c4990588c28e76e43c42ac
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD) 中的应用程序对象和服务主体对象
 在 Azure AD 的上下文中使用时，术语“应用程序”的含义有时可能会被误解。 本文旨在阐述 Azure AD 应用程序集成的概念和具体层面，并演示如何注册和同意[多租户应用程序](active-directory-dev-glossary.md#multi-tenant-application)。
@@ -35,7 +35,9 @@ ms.lasthandoff: 10/20/2017
 Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象位于应用程序注册到的 Azure AD 租户（称为应用程序的“宿主”租户）中。 Azure AD Graph [Application 实体][AAD-Graph-App-Entity]定义应用程序对象属性的架构。 
 
 #### <a name="service-principal-object"></a>服务主体对象
-服务主体对象定义应用程序在特定租户中使用的策略和权限，为安全主体提供了基础，使其能够在运行时代表应用程序。 Azure AD Graph [ServicePrincipal 实体][AAD-Graph-Sp-Entity]定义服务主体对象属性的架构。 
+若要访问受 Azure AD 租户保护的资源，需要访问的实体必须由安全主体来表示。 这同时适用于用户（用户主体）和应用程序（服务主体）。 安全主体定义该租户中用户/应用程序的访问策略和权限。 这样便可实现核心功能，如在登录时对用户/应用程序进行身份验证，在访问资源时进行授权。
+
+当应用程序被授予了对租户中资源的访问权限时（根据注册或[许可](active-directory-dev-glossary.md#consent)），将创建一个服务主体对象。 Azure AD Graph [ServicePrincipal 实体][AAD-Graph-Sp-Entity]定义服务主体对象属性的架构。  
 
 #### <a name="application-and-service-principal-relationship"></a>应用程序和服务主体的关系
 可以将应用程序对象视为应用程序的*全局*表示形式（供所有租户使用），将服务主体视为*本地*表示形式（在特定租户中使用）。 应用程序对象用作模板，常见属性和默认属性从其中*派生*，以便在创建相应服务主体对象时使用。 因此，应用程序对象与软件应用程序存在 1 对 1 关系，而与其对应的服务主体对象存在 1 对多关系。

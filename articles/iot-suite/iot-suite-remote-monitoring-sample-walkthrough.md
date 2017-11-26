@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/10/2017
 ms.author: v-yiso
-ms.date: 11/27/2017
-ms.openlocfilehash: 6fdb6777529cc28a5c3fdcbe76d1be8081a7ac73
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.date: 12/04/2017
+ms.openlocfilehash: ad38558e95035fa305065559a2f6cd8e473d2b05
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-architecture"></a>远程监视预配置解决方案体系结构
 

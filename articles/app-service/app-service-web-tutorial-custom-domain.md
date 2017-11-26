@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/23/2017
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 675a692495cc04e2039ae17ed5af944f178219dc
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: d96b07d6989de27140785bf5c481d298c811af66
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>将现有的自定义 DNS 名称映射到 Azure Web 应用
 
@@ -40,6 +40,8 @@ ms.lasthandoff: 10/20/2017
 
 > [!NOTE]
 > 我们建议对除根域（例如 `contoso.com`）以外的所有自定义 DNS 名称使用 CNAME。 
+
+若要将实时站点及其 DNS 域名迁移到应用服务，请参阅[将活动 DNS 名称迁移到 Azure 应用服务](app-service-custom-domain-name-migrate.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -268,7 +270,7 @@ ms.lasthandoff: 10/20/2017
 
 ## <a name="automate-with-scripts"></a>使用脚本自动执行
 
-可以在 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 中使用脚本自动管理自定义域。 
+可以在 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 中使用脚本自动管理自定义域。 
 
 ### <a name="azure-cli"></a>Azure CLI 
 
@@ -277,10 +279,10 @@ ms.lasthandoff: 10/20/2017
 以下命令将配置的自定义 DNS 名称添加到应用服务应用。 
 
 ```bash 
-az appservice web config hostname add \
-    --webapp <app_name> \
+az webapp config hostname add \
+    --webapp-name <app_name> \
     --resource-group <resource_group_name> \ 
-    --name <fully_qualified_domain_name> 
+    --hostname <fully_qualified_domain_name> 
 ``` 
 
 有关详细信息，请参阅[将自定义域映射到 Web 应用](scripts/app-service-cli-configure-custom-domain.md)。 

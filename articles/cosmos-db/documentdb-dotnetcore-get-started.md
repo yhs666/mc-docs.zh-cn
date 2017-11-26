@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 058abe6cd7f7c0a3f6932cec76a2e0ef25552496
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.custom: devcenter
+ms.openlocfilehash: cc296c4c1d46148e4b096a343317b430a815bc8a
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-documentdb-api-and-net-core"></a>Azure Cosmos DB：DocumentDB API 和 .NET Core 入门
 > [!div class="op_single_selector"]
@@ -58,7 +59,7 @@ ms.lasthandoff: 09/22/2017
 ## <a name="prerequisites"></a>先决条件
 请确保具有以下内容：
 
-* 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+* 有效的 Azure 帐户。 如果没有，可以注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -584,7 +585,7 @@ End of demo, press any key to exit.
 ## <a id="GetSolution"></a> 获取完整的教程解决方案
 要生成包含本文所有示例的 GetStarted 解决方案，需要以下内容：
 
-* 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 帐户。 如果没有，可以注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 * 一个 [Azure Cosmos DB 帐户][create-documentdb-dotnet.md#create-account]。
 * GitHub 上提供的 [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started) 解决方案。
 
@@ -601,4 +602,4 @@ End of demo, press any key to exit.
 [create-documentdb-dotnet.md#create-account]: create-documentdb-dotnet.md#create-account
 [keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

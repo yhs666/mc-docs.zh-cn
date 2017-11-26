@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/13/2017
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 7b64ad1da1e0e3d7483abdd0b017a890a09d9d25
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: bd3efaf57a85effc94b1b77ff5043fc9d2af0b28
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>构建 Node.js RESTful API 并将它部署到 Azure 中的 API 应用
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/20/2017
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。 
 
 ## <a name="prepare-your-environment"></a>准备环境
 
@@ -209,7 +209,7 @@ yo swaggerize --apiPath api.json --framework express
 
 本部分将使用 Azure CLI 2.0 创建在 Azure 应用服务上托管 API 的资源。 
 
-1.  使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
+1.  使用 [az login](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest#az_login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
 
     ```azurecli
     az login

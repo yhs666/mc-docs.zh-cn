@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/31/2017
-ms.date: 08/22/2017
+origin.date: 10/21/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: 76afc6ec87f9e67adc022686f123612e0c69ae0a
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 1bd6560e801dbd5ce41c99e64ffd3a5176280472
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>将 Azure Active Directory 与应用程序集成入门指南
 ## <a name="overview"></a>概述
@@ -70,15 +70,15 @@ ms.lasthandoff: 08/25/2017
 ### <a name="integrating-applications-with-azure-ad"></a>将应用程序与 Azure AD 集成
 以下文章介绍了将应用程序与 Azure AD 集成的不同方法，并提供了一些指导。
 
-- [确定要使用的 Active Directory](./active-directory-administer.md)
-- [使用 Azure 应用程序库中的应用程序](./active-directory-appssoaccess-whatis.md)
+- [确定要使用的 Active Directory](active-directory-administer.md)
+- [使用 Azure 应用程序库中的应用程序](active-directory-appssoaccess-whatis.md)
 
 ## <a name="managing-access-to-applications"></a>管理对应用程序的访问
 以下文章介绍了在使用 Azure AD 连接器和 Azure AD 将应用程序与 Azure AD 集成之后，如何管理对应用程序的访问。
 
-- [使用 Azure AD 管理对应用的访问](./active-directory-managing-access-to-apps.md)
-- [将用户分配到应用程序](./active-directory-applications-guiding-developers-assigning-users.md)
-- [共享帐户](./active-directory-sharing-accounts.md)
+- [使用 Azure AD 管理对应用的访问](active-directory-managing-access-to-apps.md)
+- [将用户分配到应用程序](active-directory-applications-guiding-developers-assigning-users.md)
+- [共享帐户](active-directory-sharing-accounts.md)
 
 ## <a name="integrating-custom-applications"></a>集成自定义应用程序
 如果正在编写新应用程序，并想要协助开发人员利用 Azure AD 的强大功能，请参阅[指导开发人员](active-directory-applications-guiding-developers-for-lob-applications.md)。

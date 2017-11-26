@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/03/2017
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1e61099db6175337b403703c8db4574b8b82eed2
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.custom: devcenter
+ms.openlocfilehash: c8e14d191768c46febe6240c849e6eaa8ea129a1
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC 教程：开发采用 Azure Cosmos DB 的 Web 应用程序
 > [!div class="op_single_selector"]
@@ -45,7 +46,7 @@ ms.lasthandoff: 09/22/2017
 ## <a name="_Toc395637760"></a>本数据库教程的先决条件
 在按照本文中的说明操作之前，应确保已拥有下列项：
 
-* 有效的 Azure 帐户。  如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+* 有效的 Azure 帐户。  如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -517,8 +518,7 @@ ms.lasthandoff: 09/22/2017
     ![屏幕截图：选中了“已完成”框的“索引”视图](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. 完成应用测试后，按 Ctrl+F5 停止调试应用。 可以开始部署了！
 
-## <a name="_Toc395637774">
-            </a>步骤 7：将应用程序部署到 Azure 应用服务 
+## <a name="_Toc395637774"></a>步骤 7：将应用程序部署到 Azure 应用服务 
 现在，已经拥有了可以使用 Azure Cosmos DB 正常工作的完整应用程序，接下来我们要将此 Web 应用部署到 Azure 应用服务。  
 
 1. 要发布此应用程序，只需要右键单击“解决方案资源管理器”中的项目，单击“发布”即可。
@@ -551,4 +551,4 @@ ms.lasthandoff: 09/22/2017
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

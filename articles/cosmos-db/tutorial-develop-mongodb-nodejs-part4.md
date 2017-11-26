@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 origin.date: 09/05/2017
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: f0d25991528c8be5adb91964a5069f538ddf0c03
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 62573d42b3d35425fefb0d1a9d48cf847fafaf96
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 - 第 4 部分：使用 Azure CLI 创建 Azure Cosmos DB 帐户
 
@@ -39,7 +39,8 @@ ms.lasthandoff: 11/09/2017
 
 在此教程部分，你可以使用 Azure Cloud Shell（位于 Internet 浏览器中）或在本地安装的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地使用 Azure CLI，请确保运行 Azure CLI 2.0 或更高版本。 在命令提示符处运行 `az --version` 可以查看版本。 
 
-<!-- Not Available [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]-->
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 [!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)]
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
@@ -83,3 +84,5 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 
 > [!div class="nextstepaction"]
 > [使用 Mongoose 连接到 Azure Cosmos DB](tutorial-develop-mongodb-nodejs-part5.md)
+
+<!-- Update_Description: update meta properties, wording update -->

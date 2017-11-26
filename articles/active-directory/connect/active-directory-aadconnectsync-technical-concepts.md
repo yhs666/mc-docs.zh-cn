@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 07/31/2017
+origin.date: 10/17/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 60302d3e9cec8c101d000bf147e74b21703cd5e0
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: 2093c536195adc092c2e9c4fdf69271d9b0ed398
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect 同步：技术概念
 本文是[了解体系结构](active-directory-aadconnectsync-technical-concepts.md)主题的总结。
@@ -41,8 +41,7 @@ Azure Active Directory 同步服务基于 MIIS、ILM 和 FIM 进行构建，它�
 ## <a name="connector"></a>连接器
 用于与连接的目录进行通信的代码模块称为连接器（以前称为管理代理 (MA)）。
 
-这些连接器在运行 Azure AD Connect 同步的计算机上进行安装。
-连接器通过使用远程系统协议（而不是依靠专用代理部署）提供进行人机对话的无代理功能。 这意味着降低了风险和减少了部署时间，尤其是在处理关键应用程序和系统时。
+这些连接器在运行 Azure AD Connect 同步的计算机上进行安装。连接器通过使用远程系统协议（而不是依靠专用代理部署）提供进行人机对话的无代理功能。 这意味着降低了风险和减少了部署时间，尤其是在处理关键应用程序和系统时。
 
 如上图所示，连接器与连接器空间同义，但包含与外部系统的所有通信。
 

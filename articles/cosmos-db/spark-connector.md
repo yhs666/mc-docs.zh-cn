@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/17/2017
-ms.date: 09/18/2017
+origin.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7b69f739a87c57ede5f65b36ee9a2360914ca3ca
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 218d84dc88eb3935a68ce27c82611e944e39cff5
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>使用 Spark 到 Azure Cosmos DB 的连接器加速实时大数据分析
 
@@ -29,7 +29,7 @@ Spark 到 Azure Cosmos DB 的连接器能使 Azure Cosmos DB 充当 Apache Spark
 
 ## <a name="download"></a>下载
 
-若要开始使用，请从 GitHub 上的 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/) 存储库下载 Spark 到 Azure Cosmos DB 的连接器（预览版）。
+若要开始使用，请从 GitHub 上的 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/) 存储库中下载 Spark 到 Azure Cosmos DB 连接器。
 
 ## <a name="connector-components"></a>连接器组件
 

@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/24/2017
-ms.date: 09/18/2017
+origin.date: 10/17/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7be0dfc3b8f18562c3463f5c9415fe6c2d07e262
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: f7f5aaef8269a7096248942dafe7ac7aee846ab0
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Azure Cosmos DB 中用于保证业务连续性的自动区域性故障转移
 Azure Cosmos DB 可通过提供完全托管的[多区域数据库帐户](distribute-data-globally.md)来简化全局数据分发。这些帐户在一致性、可用性和性能之间提供明确的折衷，并且全部附带了相应的保证。 Cosmos DB 帐户提供以下优势：高可用性，10 毫秒以下的延迟，[妥善定义的一致性级别](consistency-levels.md)，使用多宿主 API 实现透明的区域性故障转移，以及在全球范围内弹性缩放吞吐量和存储。 
@@ -86,19 +86,40 @@ DocumentClient usClient = new DocumentClient(
 
 **某个写入区域中断时会发生什么情况？**
 
-对于给定的 Cosmos DB 帐户，如果受影响区域是当前的写入区域，则会自动将该区域标记为脱机。 然后会针对每个受影响的 Cosmos DB 帐户，将一个备用区域提升为写入区域。 可以通过 Azure 门户或以[编程方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange)完全控制 Cosmos DB 帐户的区域选择顺序。 
+如果受影响区域是当前写入区域且为 Azure Cosmos DB 帐户启用了自动故障转移，则会自动将该区域标记为脱机。 然后会针对受影响的 Azure Cosmos DB 帐户，将一个备用区域提升为写入区域。 可以通过 Azure 门户或[以编程方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange)启用自动故障转移并完全控制 Azure Cosmos DB 帐户的区域选择顺序。 
 
 ![Azure Cosmos DB 的故障转移优先级](./media/regional-failover/failover-priorities.png)
 
-在自动故障转移过程中，Cosmos DB 会根据指定的优先级顺序自动选择给定 Cosmos DB 帐户的下一个写入区域。 
+在自动故障转移过程中，Azure Cosmos DB 会根据指定的优先级顺序自动选择给定 Azure Cosmos DB 帐户的下一个写入区域。 应用程序可以使用 DocumentClient 类的 WriteEndpoint 属性检测写入区域中的更改。
 
 ![Azure Cosmos DB 中的写入区域故障](./media/regional-failover/write-region-failures.png)
 
 受影响区域从中断恢复以后，该区域所有受影响的 Cosmos DB 帐户会自动由服务恢复。 
 
-* 此前的写入区域位于受影响区域的 Cosmos DB 帐户在可以读取后仍会保持脱机模式，即使所在区域已经恢复。 
-* 可以查询该区域，通过与当前写入区域中的可用数据进行比较，计算中断期间未复制的写入内容。 可以根据应用程序的需求，执行合并和/或冲突解决方案，将最终的更改集写回到当前的写入区域。 
-* 合并完所做的更改以后，即可通过删除该区域并将其重新添加到 Cosmos DB 帐户的方式，让受影响区域回到联机状态。 将区域添加回来以后，即可通过 Azure 门户或[以编程方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)执行手动故障转移，将其重新配置为写入区域。
+* 前一写入区域中存在的、服务中断期间未复制到读取区域的数据将作为冲突源发布。 应用程序可以读取冲突源，根据应用程序特定的逻辑解决冲突，并根据需要将更新后的数据写回 Azure Cosmos DB 帐户。 
+* 前一写入区域将重新创建为读取区域并自动重新联机。 
+* 可以通过 Azure 门户或[以编程方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)执行手动故障转移将已自动重新联机的读取区域重新配置为写入区域。
+
+以下代码片段演示在受影响的区域从中断中恢复后如何处理冲突。
+
+```cs
+string conflictsFeedContinuationToken = null;
+do
+{
+    FeedResponse<Conflict> conflictsFeed = client.ReadConflictFeedAsync(collectionLink,
+        new FeedOptions { RequestContinuation = conflictsFeedContinuationToken }).Result;
+
+    foreach (Conflict conflict in conflictsFeed)
+    {
+        Document doc = conflict.GetResource<Document>();
+        Console.WriteLine("Conflict record ResourceId = {0} ResourceType= {1}", conflict.ResourceId, conflict.ResourceType);
+
+        // Perform application specific logic to process the conflict record / resource
+    }
+
+    conflictsFeedContinuationToken = conflictsFeed.ResponseContinuation;
+} while (conflictsFeedContinuationToken != null);
+```
 
 ## <a id="ManualFailovers"></a>手动故障转移
 
@@ -124,4 +145,4 @@ DocumentClient usClient = new DocumentClient(
 * 使用 Azure Cosmos DB 的[DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md) 进行多个区域开发
 * 了解如何通过 Azure DocumentDB 构建[多区域写入器体系结构](multi-region-writers.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: add cmdlet about process conflicts, wording update-->

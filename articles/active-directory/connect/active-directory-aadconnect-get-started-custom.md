@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 10/02/2017
-ms.date: 10/19/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 6c0c524113bbf4f96a00479e97fe2a8dad7a40f2
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 1d5187f93579577fbd17ff341f12bc104e4d0b5b
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义安装
 如果希望有更多的安装选项，可以使用 Azure AD Connect“自定义设置”。 如果拥有多个林或希望配置未覆盖在快速安装中的可选功能，可以使用它。 它适用于[**快速安装**](active-directory-aadconnect-get-started-express.md)不能满足部署或拓扑的所有情况。
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/20/2017
 | 使用 AD FS 进行联合身份验证 |用户能够用在其本地网络中使用的相同密码登录到 Microsoft 云服务，例如 Office 365。  用户被重定向到他们的本地 AD FS 实例以进行登录，并在本地完成身份验证。 |
 | 不配置 |不安装和配置任一功能。 如果已有第三方联合服务器或部署了另一个现有解决方案，请选择此选项。 |
 |启用单一登录|此选项适用于密码同步和传递身份验证，为企业网络中的桌面用户提供单一登录体验。 </br>请注意，对于 AD FS 客户此选项不可用，因为 AD FS 已提供相同级别的单一登录。</br>（如果同时未发布 PTA）
-|登录选项|此选项可用于密码同步客户，并为公司网络中的桌面用户提供单一登录体验。  </br>请注意，对于 AD FS 客户此选项不可用，因为 AD FS 已提供相同级别的单一登录。
+|登录选项|此选项适用于密码哈希同步客户，为企业网络中的桌面用户提供单一登录体验。 </br>请注意，对于 AD FS 客户此选项不可用，因为 AD FS 已提供相同级别的单一登录。
 
 
 ### <a name="connect-to-azure-ad"></a>连接到 Azure AD
@@ -90,7 +90,7 @@ ms.lasthandoff: 10/20/2017
 ![未验证的域](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
 查看标记为“未添加”和“未验证”的每个域。 确保使用的域都已在 Azure AD 中验证。 验证域后，单击“刷新”符号。 有关详细信息，请参阅[添加和验证域](../active-directory-add-domain.md)
 
-**UserPrincipalName** - 属性 userPrincipalName 是用户登录 Azure AD 和 Office 365 时使用的属性。 应在同步处理用户前在 Azure AD 中对使用的域（也称为 UPN 后缀）进行验证。 Microsoft 建议保留默认属性 userPrincipalName。 如果此属性不可路由且无法验证，可以选择另一个属性。 例如，可以选择 email 作为保存登录 ID 的属性。 使用除 userPrincipalName 以外的其他属性被称为“替代 ID” 。 “替代 ID”属性值必须遵循 RFC822 标准。 替代 ID 可以配合密码同步和联合使用。
+**UserPrincipalName** - 属性 userPrincipalName 是用户登录 Azure AD 和 Office 365 时使用的属性。 应在同步处理用户前在 Azure AD 中对使用的域（也称为 UPN 后缀）进行验证。 Microsoft 建议保留默认属性 userPrincipalName。 如果此属性不可路由且无法验证，可以选择另一个属性。 例如，可以选择 email 作为保存登录 ID 的属性。 使用除 userPrincipalName 以外的其他属性被称为“替代 ID” 。 “替代 ID”属性值必须遵循 RFC822 标准。 替代 ID 可以配合密码同步和联合使用。 不得在 Active Directory 中将该属性定义为多值，即使它只有单个值。
 
 >[!NOTE]
 > 启用直通身份验证时必须具有至少一个已验证的域，以便继续完成此向导。

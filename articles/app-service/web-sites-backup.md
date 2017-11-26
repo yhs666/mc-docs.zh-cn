@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/06/2016
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.openlocfilehash: 163881f1f74ae9cc46f27178f56cc2a59f3f70dc
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 36f490c0f3906b3e86743fb044d233fbf3cbb1ab
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中备份应用
 利用 [Azure 应用服务](app-service-web-overview.md)中的备份和还原功能，可以轻松地手动或按计划创建应用备份。 通过覆盖现有应用或还原为另一应用可将应用还原为先前状态的快照。 
@@ -54,36 +54,36 @@ ms.lasthandoff: 10/20/2017
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>创建手动备份
-1. 在 [Azure 门户](https://portal.azure.cn)中，导航到应用的边栏选项卡，然后选择“备份”。 将显示“备份”边栏选项卡。
-
+1. 在 [Azure 门户](https://portal.azure.cn)中，导航到应用的页面，然后选择“备份”。 将显示“备份”页。
+   
     ![“备份”页面][ChooseBackupsPage]
 
    > [!NOTE]
-   > 若显示以下消息，请单击该消息升级应用服务计划，才能继续备份。
+   > 若显示以下消息，请单击该消息升级 应用服务计划，才能继续备份。
    > 有关详细信息，请参阅[增加 Azure 中的应用](web-sites-scale.md)。  
    > ![选择存储帐户](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
 
-2. 在“备份”边栏选项卡中，单击“配置”
+2. 在“备份”页中，单击“配置”
 ![单击“配置”](./media/web-sites-backup/ClickConfigure1.png)
-3. 在“备份配置”边栏选项卡中，单击“存储: 未配置”来配置存储帐户。
-
+3. 在“备份配置”页中，单击“存储: 未配置”来配置存储帐户。
+   
     ![选择存储帐户][ChooseStorageAccount]
-4. 选择“存储帐户”和“容器”来选择备份目标。 该存储帐户必须与要备份的应用属于同一订阅。 也可在各自的边栏选项卡中新建存储帐户或容器。 完成后，单击“选择” 。
-
+4. 选择“存储帐户”和“容器”来选择备份目标。 该存储帐户必须与要备份的应用属于同一订阅。 也可在各自的页面中新建存储帐户或容器。 完成后，单击“选择” 。
+   
     ![选择存储帐户](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
-5. 在仍处于打开状态的“备份配置”边栏选项卡中，可以配置“备份数据库”，选择要包含在备份中的数据库（SQL 数据库或 MySQL），然后单击“确定”。  
-
+5. 在仍处于打开状态的“备份配置”页中，可配置“备份数据库”，然后选择备份要包含的数据库（SQL 数据库或 MySQL），然后单击“确定”。  
+   
     ![选择存储帐户](./media/web-sites-backup/03ConfigureDatabase1.png)
-
+   
    > [!NOTE]
-   > 若要使数据库显示在此列表中，其连接字符串必须位于应用中“应用程序设置”边栏选项卡的“连接字符串”部分中。
+   > 若要使数据库显示在此列表中，其连接字符串必须位于应用中“应用程序设置”页的“连接字符串”部分中。
    > 
    > 
-6. 在“备份配置”边栏选项卡中，单击“保存”。    
-7. 在“备份”边栏选项卡中，单击“备份”。
-
+6. 在“备份配置”页中，单击“保存”。    
+7. 在“备份”页中，单击“备份”。
+   
     ![BackUpNow 按钮][BackUpNow]
 
     备份过程中会显示进度消息。
@@ -93,8 +93,8 @@ ms.lasthandoff: 10/20/2017
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>配置自动备份
-1. 在“备份配置”边栏选项卡中，将“计划的备份”设置为“打开”。 
-
+1. 在“备份配置”页中，将“计划备份”设置为“开”。 
+   
     ![选择存储帐户](./media/web-sites-backup/05ScheduleBackup1.png)
 2. 随后会显示备份计划选项。请将“计划备份”设置为“打开”，根据需要配置备份计划，然后单击“确定”。
 
@@ -139,10 +139,11 @@ ms.lasthandoff: 10/20/2017
 > 还原完整备份后，站点上的所有内容都被替换为备份中的所有内容。 如果文件在站点上但不在备份中，则会将其删除。 但是，还原部分备份时，位于其中一个方块列表目录或任何方块列表文件中的任何内容都保持不变。
 > 
 
+
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>如何存储备份
-对应用进行了一次或多次备份后，可在存储帐户的“容器”边栏选项卡中看到备份以及应用。 在存储帐户中，每个备份都由一个 `.zip` 文件和一个 `.xml` 文件组成，前者包含备份数据，后者包含 `.zip` 文件内容的清单。 如果想要在无需实际执行应用还原的情况下访问备份，则可以解压缩并浏览这些文件。
+对应用进行了一次或多次备份后，可在存储帐户的“容器”页中看到备份以及应用。 在存储帐户中，每个备份都由一个 `.zip` 文件和一个 `.xml` 文件组成，前者包含备份数据，后者包含 `.zip` 文件内容的清单。 如果想要在无需实际执行应用还原的情况下访问备份，则可以解压缩并浏览这些文件。
 
 应用的数据库备份存储在 .zip 文件的根目录中。 对于 SQL 数据库，这是 BACPAC 文件（无文件扩展名），并且可以导入。 若要基于 BACPAC 导出创建 SQL 数据库，请参阅[导入 BACPAC 文件以创建新的用户数据库](http://technet.microsoft.com/library/hh710052.aspx)。
 
@@ -150,6 +151,15 @@ ms.lasthandoff: 10/20/2017
 > 改动 **websitebackups** 容器中的任何文件都导致备份无效，进而无法还原。
 > 
 > 
+
+## <a name="automate-with-scripts"></a>使用脚本自动执行
+
+可以在 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 或 [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview) 中使用脚本自动备份管理。
+
+相关示例如下所示：
+
+- [Azure CLI 示例](app-service-cli-samples.md)
+- [Azure PowerShell 示例](app-service-powershell-samples.md)
 
 <a name="nextsteps"></a>
 

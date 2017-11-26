@@ -8,16 +8,16 @@ manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
 origin.date: 11/10/2017
-ms.date: 11/27/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 0190ce2b4635a7ba4fecabfe00bbca44a253923b
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.openlocfilehash: 86c84d2d9eb44a843c2df1eb3f4cb184a7d492f7
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="manage-and-configure-your-devices"></a>管理和配置设备
 
@@ -39,7 +39,7 @@ Contoso 订购了新的机器，以扩建其某处生产场地来提高产量。
 
 若要遵循本教程，需在 Azure 订阅中部署远程监视解决方案的实例。
 
-<!-- If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial. -->
+如果尚未部署远程监视解决方案，应完成[部署远程监视预配置解决方案](iot-suite-remote-monitoring-deploy.md)教程。
 
 ## <a name="provision-a-simulated-device"></a>预配模拟设备
 

@@ -8,16 +8,16 @@ manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
 origin.date: 11/10/2017
-ms.date: 11/27/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d635765a49bc01fceba81e39d81f3ec5b9cd5f94
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.openlocfilehash: 0566f74fd207726e2d8bd5512841ab471fbcd0f7
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>使用基于阈值的规则检测问题
 

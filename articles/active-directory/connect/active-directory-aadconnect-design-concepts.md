@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 75a50af2d3e80f9e4b2e43b69376c1067dba227d
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: fe2c2d35e1e137dcbcbe36d069f5a8f77670769b
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：设计概念
 本主题旨在说明 Azure AD Connect 实现设计期间必须考虑到的各个方面。 本主题是对特定领域的深入探讨，其他主题中也简要描述了这些概念。
@@ -151,14 +151,20 @@ Azure AD Connect（1.1.524.0 及更高版本）现在可以方便地将 msDS-Con
 
    ![为现有部署启用 ConsistencyGuid - 步骤 6](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
 
-在分析期间（步骤 4），如果已在目录中的一个或多个对象上配置该属性，向导就会认为该属性正由其他应用程序使用，于是返回一个错误，如下图所示。 如果确定该属性未由现有应用程序使用，则需联系支持部门，了解如何取消显示该错误。
+在分析期间（步骤 4），如果已在目录中的一个或多个对象上配置该属性，向导就会认为该属性正由其他应用程序使用，于是返回一个错误，如下图所示。 如果先前已在 Azure AD Connect 主服务器上启用了 ConsistencyGuid 功能，并且要尝试在暂存服务器上执行相同的操作，也会发生此错误。
 
 ![为现有部署启用 ConsistencyGuid - 错误](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeploymenterror.png)
+
+ 如果确定其他现有应用程序不使用该属性，则可以通过在指定“/SkipLdapSearchcontact”的情况下重启 Azure AD Connect 向导来取消显示该错误。 为此，请在命令提示符下运行以下命令：
+
+```
+"c:\Program Files\Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
+```
 
 ### <a name="impact-on-ad-fs-or-third-party-federation-configuration"></a>对 AD FS 或第三方联合身份验证配置的影响
 如果使用 Azure AD Connect 管理本地 AD FS 部署，Azure AD Connect 会自动更新声明规则，使用同一 AD 属性作为 sourceAnchor。 这样可确保由 ADFS 生成的 ImmutableID 声明与导出到 Azure AD 的 sourceAnchor 值一致。
 
-如果在 Azure AD Connect 外部管理 AD FS，或者使用第三方联合身份验证服务器进行身份验证，则必须手动更新声明规则，以便 ImmutableID 声明与导出到 Azure AD 的 sourceAnchor 值一致，详见文章的[修改 AD FS 声明规则](/active-directory/connect/active-directory-aadconnect-federation-management#modclaims/)部分。 安装完成后，向导会返回以下警告：
+如果在 Azure AD Connect 外部管理 AD FS，或者使用第三方联合身份验证服务器进行身份验证，则必须手动更新声明规则，以便 ImmutableID 声明与导出到 Azure AD 的 sourceAnchor 值一致，详见文章的[修改 AD FS 声明规则](/active-directory/connect/active-directory-aadconnect-federation-management#modclaims)部分。 安装完成后，向导会返回以下警告：
 
 ![第三方联合身份验证配置](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
 
@@ -181,7 +187,7 @@ Azure AD Connect（1.1.524.0 及更高版本）现在可以方便地将 msDS-Con
 ### <a name="custom-domain-state-and-upn"></a>自定义域状态和 UPN
 必须确保 UPN 后缀包含已验证的域。
 
-John 是 contoso.com 中的用户。 将用户同步到 Azure AD 目录 contoso.partner.onmschina.cn 之后，希望 John 使用本地 UPN john@contoso.com 登录到 Azure。 为此，需要先将 contoso.com 添加为 Azure AD 中的自定义域并进行验证，然后才能开始同步用户。 如果 John 的 UPN 后缀（例如 contoso.com）与 Azure AD 中已验证的域不匹配，则 Azure AD 会将该 UPN 后缀替换为 contoso.partner.onmschina.cn。
+John 是 contoso.com 中的用户。将用户同步到 Azure AD 目录 contoso.partner.onmschina.cn 之后，希望 John 使用本地 UPN john@contoso.com 登录到 Azure。 为此，需要先将 contoso.com 添加为 Azure AD 中的自定义域并进行验证，然后才能开始同步用户。 如果 John 的 UPN 后缀（例如 contoso.com）与 Azure AD 中已验证的域不匹配，则 Azure AD 会将该 UPN 后缀替换为 contoso.partner.onmschina.cn。
 
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>不可路由的本地域与 Azure AD 的 UPN
 有些组织使用不可路由的域（例如 contoso.local）或简单的单标签域（例如 contoso）。 在 Azure AD 中，无法验证不可路由的域。 Azure AD Connect 只能同步到 Azure AD 中已验证的域。 创建 Azure AD 目录时，会创建可路由的域，该域成为 Azure AD 的默认域，例如 contoso.partner.onmschina.cn。 因此，如果不希望同步到默认的 partner.onmschina.cn 域，必须在此类方案中验证任何其他可路由的域。
@@ -193,4 +199,4 @@ Azure AD Connect 将检测是否在不可路由的域环境中运行，并在适
 ## <a name="next-steps"></a>后续步骤
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

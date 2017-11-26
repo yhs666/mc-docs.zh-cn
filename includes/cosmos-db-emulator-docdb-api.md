@@ -5,4 +5,4 @@
    ```
 <!-- Not Available [Try Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)-->
 <!--Update_Description: wording udpate -->
-<!--ms.date: 10/23/2017-->
+<!--ms.date: 11/27/2017-->

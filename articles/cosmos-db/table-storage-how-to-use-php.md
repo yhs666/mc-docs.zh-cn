@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5b6a8829a6438754639bb14829238030e83dbc86
-ms.sourcegitcommit: 06019e3df5b85811e1f45f29d415dc666305166f
+ms.openlocfilehash: 865a43885595ddcd299a816e95aced333751a02e
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 11/24/2017
 ---
-# <a name="how-to-use-table-storage-from-php"></a>如何通过 PHP 使用表存储
+# <a name="how-to-use-azure-table-storage-from-php"></a>如何通过 PHP 使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
@@ -120,7 +120,7 @@ catch(ServiceException $e){
 有关表名称的限制的信息，请参阅 [了解表服务数据模型][table-data-model]。
 
 ## <a name="add-an-entity-to-a-table"></a>向表中添加条目
-若要将实体添加到表，请创建新的 **Entity** 对象并将其传递到 **TableRestProxy->insertEntity**。 请注意，在创建实体时，你必须指定 `PartitionKey` 和 `RowKey`。 这些值是条目的唯一标识符，查询它们比查询其他条目属性快得多。 系统使用 `PartitionKey` 自动将表的实体分发到多个存储节点上。 具有相同 `PartitionKey` 的实体存储在同一个节点上。 （对存储在同一节点上的多个实体执行操作要将比对存储在不同节点上的实体执行的操作的效果更佳。）`RowKey` 是实体在分区中的唯一 ID。
+若要将实体添加到表，请创建新的 **Entity** 对象并将其传递到 **TableRestProxy->insertEntity**。 请注意，在创建实体时，你必须指定 `PartitionKey` 和 `RowKey`。 这些值是实体的唯一标识符，并且其查询速度比其他实体属性的查询速度快得多。 系统使用 `PartitionKey` 自动将表的实体分发到多个存储节点上。 具有相同 `PartitionKey` 的实体存储在同一个节点上。 （对存储在同一节点上的多个实体执行操作要将比对存储在不同节点上的实体执行的操作的效果更佳。）`RowKey` 是实体在分区中的唯一 ID。
 
 ```php
 require_once 'vendor/autoload.php';
@@ -494,3 +494,5 @@ catch(ServiceException $e){
 [table-data-model]: http://msdn.microsoft.com/library/azure/dd179338.aspx
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
+
+<!-- Update_Description: update meta properties, wording update -->

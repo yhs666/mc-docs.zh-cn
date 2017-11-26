@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/10/2017
 ms.author: v-yiso
-ms.date: 11/27/2017
-ms.openlocfilehash: 8770c1cb3feb04d335faef047a66e4ba7e8d660d
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.date: 12/04/2017
+ms.openlocfilehash: 0d8897b2199f5ee38fbdc17352483cdeb26362a0
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>将设备连接到远程监视预配置解决方案 (Linux)
 

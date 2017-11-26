@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/10/2017
 ms.author: v-yiso
-ms.date: 11/27/2017
-ms.openlocfilehash: 3f6353144f0f7c54435ab10d0b1648c87966a3e6
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.date: 12/04/2017
+ms.openlocfilehash: 22881a7a9603fded468da37ca633521874c72ed3
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>将设备连接到远程监视预配置解决方案 (Windows)
 

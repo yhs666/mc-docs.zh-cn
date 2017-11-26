@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-origin.date: 06/13/2017
-ms.date: 09/25/2017
+origin.date: 10/18/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: d550c72afc1640017317c651f388d08025f9b7cf
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: f833eb67163f868489effe847bf672dcd8c4458f
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>Azure Cosmos DB DocumentDB API：SQL 语法参考
 
@@ -2447,12 +2447,12 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
 
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
- 返回一个布尔，它指示数组是否包含指定的值。  
+返回一个布尔，它指示数组是否包含指定的值。 可以指定是要执行完全还是部分匹配。 
 
  **语法**  
 
 ```  
-ARRAY_CONTAINS (<arr_expr>, <expr>)  
+ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
 ```  
 
  **参数**  
@@ -2464,6 +2464,10 @@ ARRAY_CONTAINS (<arr_expr>, <expr>)
 -   `expr`  
 
      是任何有效的表达式。  
+
+-   `bool_expr`  
+
+     为任何布尔表达式。       
 
  **返回类型**  
 
@@ -2483,6 +2487,25 @@ SELECT
 
 ```  
 [{"$1": true, "$2": false}]  
+```  
+
+ 以下示例介绍了如何使用 ARRAY_CONTAINS 检查数组内是否存在 JSON 字符串的部分匹配字符串。  
+
+```  
+SELECT  
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}, true), 
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}),
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "mangoes"}, true) 
+```  
+
+ 下面是结果集。  
+
+```  
+[{
+  "$1": true,
+  "$2": false,
+  "$3": false
+}] 
 ```  
 
 ####  <a name="bk_array_length"></a> ARRAY_LENGTH  
@@ -2771,4 +2794,4 @@ SELECT ST_ISVALIDDETAILED({
  [Azure Cosmos DB 的 SQL 语法和 SQL 查询](documentdb-sql-query.md)   
  [Azure Cosmos DB 文档](/cosmos-db/)
  
- <!--Update_Description: wording update-->
+ <!--Update_Description: update meta properties, wording update -->

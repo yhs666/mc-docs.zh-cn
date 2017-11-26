@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 08/29/2016
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.openlocfilehash: 0e34dc509f8be0205591cb425cd7e38b334f8d8b
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 8f94b5f7931089994785d61f3374fc2deba6b088
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权
 ## <a name="what-is-app-service-authentication--authorization"></a>什么是应用服务身份验证/授权？
@@ -74,9 +74,9 @@ ms.lasthandoff: 10/20/2017
 用户可以全权控制访问应用程序的请求。 可以为应用服务身份验证/授权配置以下任意行为：
 
 * 只允许经过身份验证的请求访问应用程序。
-
-    如果浏览器收到匿名请求，应用服务会将其重定向到所选标识提供者的页面，方便用户登录。 如果请求来自移动设备，则返回“401 未授权”HTTP 响应。
-
+  
+    如果浏览器发送匿名请求，应用服务会将其重定向到所选标识提供者的页面，方便用户登录。 如果请求来自移动设备，则返回“401 未授权”HTTP 响应。
+  
     此选项根本不需在应用中编写任何身份验证代码。 如需进行更细致的授权，可通过代码获取用户信息。
 * 允许所有请求访问应用程序，但需验证经过身份验证的请求，在 HTTP 标头中传递身份验证信息。
 

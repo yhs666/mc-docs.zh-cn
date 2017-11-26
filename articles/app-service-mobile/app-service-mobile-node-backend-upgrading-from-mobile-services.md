@@ -2,43 +2,46 @@
 title: "从移动服务升级到 Azure 应用服务 - Node.js"
 description: "了解如何轻松将移动服务应用程序升级到应用服务移动应用"
 services: app-service\mobile
-documentationCenter: 
-authors: adrianhall
+documentationcenter: 
+author: ggailey777
 manager: yochayk
 editor: 
+ms.assetid: c58f6df0-5aad-40a3-bddc-319c378218e3
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile
 ms.devlang: node
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.openlocfilehash: 873ecb6a6529670af1eff85ebb36e74962250556
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 576ccf11c978b86887206f735ec1e548acb6e9d5
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>将现有 Node.js Azure 移动服务升级到应用服务
 
 应用服务移动应用是使用 Azure 生成移动应用程序的新方式。 若要了解详细信息，请参阅[什么是移动应用？]。
 
-本主题介绍如何将现有 Node.js 后端应用程序从 Azure 移动服务升级到新的应用服务移动应用。 执行此升级时，现有移动服务应用程序可以继续正常运行。  如果需要升级 Node.js 后端应用程序，请参阅[升级 .NET 移动服务](./app-service-mobile-net-upgrading-from-mobile-services.md)。
+本文介绍如何将现有 Node.js 后端应用程序从 Azure 移动服务升级到新的应用服务移动应用。 执行此升级时，现有移动服务应用程序可以继续正常运行。  如果需要升级 Node.js 后端应用程序，请参阅[升级 .NET 移动服务](./app-service-mobile-net-upgrading-from-mobile-services.md)。
 
-将某个移动后端升级到 Azure 应用服务后，该后端即可访问所有应用服务功能，同时会根据 [应用服务定价]而不是移动服务定价进行计费。
+将某个移动后端升级到 Azure 应用服务后，该后端即可访问所有应用服务功能，同时会根据[应用服务定价]而不是移动服务定价进行计费。
 
 ## <a name="migrate-vs-upgrade"></a>迁移与升级
 
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[!TIP]
-> 建议在升级之前先[执行迁移](./app-service-mobile-migrating-from-mobile-services.md)。 这样，就能在同一个应用服务计划中放置两个版本的应用程序，且无需支付额外的费用。
+> [!TIP]
+> 建议在升级之前先[执行迁移](app-service-mobile-migrating-from-mobile-services.md)。 这样，就能在同一个应用服务计划中放置两个版本的应用程序，且无需支付额外的费用。
+>
+>
 
 ### <a name="improvements-in-mobile-apps-nodejs-server-sdk"></a>移动应用 Node.js 服务器 SDK 改进
+升级到新版[移动应用 SDK](https://www.npmjs.com/package/azure-mobile-apps) 可获得许多改进，包括：
 
-升级到新版 [移动应用 SDK](https://www.npmjs.com/package/azure-mobile-apps) 可获得许多改进，包括：
-
-- 新的轻量型 Node SDK 基于 [Express 框架](http://expressjs.com/en/index.html)，与新推出的 Node 版本功能保持一致。 可以使用 Express 中间件自定义应用程序行为。
+- 新的轻量型 Node SDK 基于 [Express 框架](http://expressjs.com/en/index.html)，与新推出的 Node 版本功能保持一致。可以使用 Express 中间件自定义应用程序行为。
 
 - 移动服务 SDK 相比，性能有明显改进。
 
@@ -48,7 +51,7 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="overview"></a>基本升级概述
 
-为了帮助升级 Node.js 后端，Azure 应用服务提供了兼容包。  升级后，将会获得可部署到新应用服务站点的全新站点。
+为了帮助升级 Node.js 后端，Azure 应用服务提供了兼容包。  升级后，会获得可部署到新应用服务站点的全新站点。
 
 移动服务客户端 SDK 与新的移动应用服务器 SDK **不** 兼容。 为了提供应用程序的服务连续性，不应该将更改发布到当前正在为发布的客户端提供服务的站点。 而应该创建新的移动应用作为副本。 可以在同一个应用服务计划中放置此应用程序，以免产生额外的财务成本。
 
@@ -59,9 +62,9 @@ ms.lasthandoff: 06/21/2017
 1. 下载现有的（已迁移）Azure 移动服务。
 2. 使用兼容包将项目转换为 Azure 移动应用。
 3. 更正任何差异（例如身份验证设置）。
-4. 将转换后的 Azure 移动应用项目部署到新的应用服务。
-4. 发布使用新移动应用的新版客户端应用程序。
-5. （可选）删除已迁移的原始移动服务应用。
+4. 将转换后的 Azure 移动应用项目部署到新的 应用服务。
+5. 发布使用新移动应用的新版客户端应用程序。
+6. （可选）删除已迁移的原始移动服务应用。
 
 当已迁移的原始移动服务没有任何流量时即可删除。
 
@@ -80,7 +83,7 @@ ms.lasthandoff: 06/21/2017
 - 依次单击每个目录导航到 `site/wwwroot/App_Data/config`
 - 单击 `scripts` 目录旁边的下载图标。
 
-随后将下载 ZIP 格式的脚本。  在本地计算机上创建新目录，然后在该目录中解压缩 `scripts.ZIP` 文件。  此时会创建 `scripts` 目录。
+随后会下载 ZIP 格式的脚本。  在本地计算机上创建新目录，并在该目录中解压缩 `scripts.ZIP` 文件。  此时会创建 `scripts` 目录。
 
 ## <a name="scaffold-app"></a> 创建新 Azure 移动应用后端的基架
 
@@ -88,7 +91,7 @@ ms.lasthandoff: 06/21/2017
 
 ```scaffold-mobile-app scripts out```
 
-此时将在 `out` 目录中创建带有基架的 Azure 移动应用后端。  最好将 `out` 目录签入所选的源代码存储库（但不一定要这样做）。
+此时会在 `out` 目录中创建带有基架的 Azure 移动应用后端。  最好将 `out` 目录签入所选的源代码存储库（但不一定要这样做）。
 
 ## <a name="deploy-ama-app"></a> 部署 Azure 移动应用后端
 
@@ -110,13 +113,13 @@ ms.lasthandoff: 06/21/2017
 
     可以选择其他应用服务计划或创建新的计划。 若要深入了解应用服务计划以及如何在不同定价层和所需位置中创建新计划，请参阅 [Azure App Service 计划深入概述](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
 
-4. 对于“应用服务计划”，请选择默认计划（位于[标准层](https://www.azure.cn/pricing/details/app-service/)）。 还可以选择其他计划，或[创建一个新计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan)。 应用服务计划的设置将确定与应用关联的[位置、功能、成本和计算资源](https://www.azure.cn/pricing/details/app-service/)。 
+4. 对于“应用服务计划”，请选择默认计划（位于[标准层](https://www.azure.cn/pricing/details/app-service/)）。 还可以选择其他计划，或[创建一个新计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 应用服务计划的设置将确定与应用关联的[位置、功能、成本和计算资源](https://www.azure.cn/pricing/details/app-service/)。 
 
-    做出有关计划的决定后，单击“创建” 。 这将创建移动应用后端。 
+    做出有关计划的决定后，单击“创建” 。 这会创建移动应用后端。 
 
 ### <a name="run-createviewssql"></a>运行 CreateViews.SQL
 
-带有基架的应用包含名为 `createViews.sql`的文件。  必须对目标数据库执行此脚本。  可以通过“连接字符串”下的“设置”边栏选项卡从已迁移的移动服务获取目标数据库的连接字符串。  `MS_TableConnectionString`。
+带有基架的应用包含名为 `createViews.sql`的文件。  必须对目标数据库执行此脚本。  可以在“设置”页的“连接字符串”下从已迁移的移动服务获取目标数据库的连接字符串。  `MS_TableConnectionString`。
 
 可以从 SQL Server Management Studio 或 Visual Studio 内部运行此脚本。
 
@@ -124,13 +127,13 @@ ms.lasthandoff: 06/21/2017
 
 将现有数据库链接到应用服务：
 
-- 在 [Azure 门户]中，打开应用服务。
-- 选择“所有设置” -> “数据连接”。
-- 单击“+添加”。
-- 在下拉列表中，选择“SQL 数据库” 
-- 在“SQL 数据库”下，选择现有数据库，然后单击“选择”。
-- 在“连接字符串”下，输入数据库的用户名和密码，然后单击“确定”。
-- 在“添加数据连接”边栏选项卡中，单击“确定”。
+* 在 [Azure 门户]中，打开应用服务。
+* 选择“所有设置” -> “数据连接”。
+* 单击“+添加”。
+* 在下拉列表中，选择“SQL 数据库” 
+* 在“SQL 数据库”下，选择现有数据库，然后单击“选择”。
+* 在“连接字符串”下，输入数据库的用户名和密码，然后单击“确定”。
+* 在“添加数据连接”页中，单击“确定”。
 
 查看已迁移的移动服务中目标数据库的连接字符串，即可找到用户名和密码。
 
@@ -172,7 +175,7 @@ Azure 移动应用允许在服务中配置 Azure Active Directory 和 Microsoft 
 [Add push notifications to your mobile app]: ./app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: ./app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: ../scheduler/index.md
-[Web Job]: ../app-service-web/websites-webjobs-resources.md
+[Web Job]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [How to use the .NET server SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: ./app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: ./app-service-mobile-migrating-from-mobile-services.md

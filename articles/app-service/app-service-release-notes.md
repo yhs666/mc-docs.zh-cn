@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 origin.date: 10/10/2016
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.openlocfilehash: 2c32d8e9991952bd8128f7a28e9f3b3de76d5b28
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 3fd305eb665f8fe156e9159dc92e152fa9dd5a3c
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>用于 .NET 2.5.1 的 Azure SDK 发行说明
 本文档包含用于 .NET 2.5.1 的 Azure SDK 版本的发行说明。 

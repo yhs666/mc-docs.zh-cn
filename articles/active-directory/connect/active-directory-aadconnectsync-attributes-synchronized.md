@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Connect 同步的属性 | Microsoft Docs"
-description: "列出与 Azure Active Directory 同步的属性。"
+title: "Azure AD Connect 同步的属性 | Microsoft 文档"
+description: "列出同步到 Azure Active Directory 的属性。"
 services: active-directory
 documentationcenter: 
 author: alexchen2016
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 08/24/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 587cf4f2e5a7e7a8ad24d7a69939b22095dd4dc2
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: fb97cfa7979846902e8d4387cb5a482dfa806579
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步：与 Azure Active Directory 同步的属性
 本主题列出通过 Azure AD Connect 同步进行同步的属性。  
@@ -53,7 +53,7 @@ ms.lasthandoff: 08/25/2017
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |如果启用了帐户，则进行定义。 |
 | assistant |X |X | | |
-| altRecipient |X | | |需要 Azure AD Connect 版本 1.1.552.0 或更高版本。 |
+| altRecipient |X | | |需要 Azure AD Connect 内部版本 1.1.552.0 或更高版本。 |
 | authOrig |X |X |X | |
 | c |X |X | | |
 | cn |X | |X | |
@@ -88,7 +88,7 @@ ms.lasthandoff: 08/25/2017
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
-| mangedBy | | |X | |
+| managedBy | | |X | |
 | manager |X |X | | |
 | member | | |X | |
 | mobile |X |X | | |
@@ -232,7 +232,7 @@ ms.lasthandoff: 08/25/2017
 | pager |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
-| postOfficeBox |X |X | | |
+| postOfficeBox |X |X | |SharePoint Online 当前不使用此属性。 |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码同步和联合使用。 |
@@ -254,7 +254,7 @@ ms.lasthandoff: 08/25/2017
 | userPrincipalName |X | | |UPN 是用户的登录 ID。 大多数情况下与 [mail] 值相同。 |
 | wWWHomePage |X |X | | |
 
-## <a name="lync-online"></a>Lync Online
+## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online（后来称为“Skype for Business”）
 | 属性名称 | 用户 | 联系人 | 组 | 注释 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |如果启用了帐户，则进行定义。 |
@@ -432,10 +432,10 @@ ms.lasthandoff: 08/25/2017
 | msExchUCVoiceMailSettings |X | | |启用统一消息传送 (UM) - 在线语音邮件：供 Microsoft Lync Server 集成用于向 Lync Server 本地指示用户在在线服务中有语音邮件。 |
 | msExchUserHoldPolicies |X | | |诉讼数据保留：启用云服务来标识哪些用户正处于诉讼数据保留状态。 |
 | proxyAddresses |X |X |X |只插入 Exchange Online 中的 x500 地址。 |
-| publicDelegates |X | | |允许向拥有本地 Exchange 邮箱的用户授予 Exchange Online 邮箱的 SendOnBehalfTo 权限。 需要 Azure AD Connect 版本 1.1.552.0 或更高版本。 |
+| publicDelegates |X | | |允许向拥有本地 Exchange 邮箱的用户授予 Exchange Online 邮箱的 SendOnBehalfTo 权限。 需要 Azure AD Connect 内部版本 1.1.552.0 或更高版本。 |
 
-## <a name="exchange-mail-public-folder"></a>Exchange 邮件公共文件夹
-如果选择启用“Exchange 邮件公用文件夹”，这些属性将从本地 Active Directory 同步到 Azure AD。
+## <a name="exchange-mail-public-folder"></a>Exchange 邮件公用文件夹
+如果选择启用 Exchange 邮件公用文件夹，这些属性将从本地 Active Directory 同步到 Azure AD。
 
 | 属性名称 | PublicFolder | 注释 |
 | --- | :---:| --- |
@@ -467,7 +467,7 @@ ms.lasthandoff: 08/25/2017
 | msDS-RegisteredOwner |X | |
 
 ## <a name="notes"></a>说明
-- 使用替代 ID 时，本地属性 userPrincipalName 将与 Azure AD 属性 onPremisesUserPrincipalName 同步。 替代 ID 属性（例如 mail）会与 Azure AD 属性 userPrincipalName 同步。
+- 使用替代 ID 时，本地属性 userPrincipalName 将与 Azure AD 属性 onPremisesUserPrincipalName 同步。 替代 ID 属性（例如 mail）将与 Azure AD 属性 userPrincipalName 同步。
 - 在上述列表中，对象类型 User 也适用于对象类型 iNetOrgPerson。
 
 ## <a name="next-steps"></a>后续步骤

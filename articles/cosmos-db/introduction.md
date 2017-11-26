@@ -12,21 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-origin.date: 07/14/2017
-ms.date: 10/23/2017
+origin.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0dca46eac57ad0b857e6a89dfc143385c1a22c15
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 00493986391a0dc912d0b37a98c4149f2643f635
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
 
 Azure Cosmos DB 是由 Microsoft 提供的全球分布式多模型数据库。 只需单击一个按钮，即可通过 Azure Cosmos DB 跨任意数量的 Azure 地理区域弹性且独立地缩放吞吐量和存储。 它通过综合[服务级别协议](https://www.azure.cn/support/sla/documentdb/) (SLA) 提供吞吐量、延迟、可用性和一致性保证，这是其他数据库服务无法提供的。
+<!-- Not Avaialble [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
 
-![Azure Cosmos DB 是 Microsoft 的全球分布式数据库服务，可以弹性扩展，可保证低延迟，有五个一致性模型，并且已保证满足综合 SLA](./media/introduction/azure-cosmos-db.png)
+![Azure Cosmos DB 是 Microsoft 的全球分布式数据库服务，可以弹性扩展，已保证低延迟，有五个一致性模型，并提供全面 SLA 的保证](./media/introduction/azure-cosmos-db.png)
 <!-- Not Avaialble [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
 
 ## <a name="key-capabilities"></a>关键功能
@@ -41,7 +42,8 @@ Azure Cosmos DB 是由 Microsoft 提供的全球分布式多模型数据库。 �
     * 多种语言的 SDK 均支持以下数据模型的 API：
         * [Cosmos DB API](documentdb-introduction.md)：使用 SQL 查询功能的无架构 JSON 数据库引擎。
         * [MongoDB API](mongodb-introduction.md)：构建于 Cosmos DB 之上的 MongoDB 数据库服务。 与现有 MongoDB 库、驱动程序、工具和应用程序兼容。
-        * [表 API](table-introduction.md)：一种键/值存储数据库服务，构建用于为 Azure 表存储应用程序提供高级功能。
+        * [表 API](table-introduction.md)：一种键/值数据库服务，构建它的目的是为 Azure 表存储应用程序提供高级功能。
+        * [Cassandra API](cassandra-introduction.md)：基于 [Apache Cassandra](https://cassandra.apache.org/) 实现构建的键/值存储。 
         * 即将推出其他数据模型！
 <!--Not Available        * [Graph (Gremlin) API](graph-introduction.md)-->
 
@@ -54,7 +56,7 @@ Azure Cosmos DB 是由 Microsoft 提供的全球分布式多模型数据库。 �
     * 对于典型的 1 KB 项，Cosmos DB 保证，在 99% 的情况下，同一 Azure 区域内读取操作的端到端延迟和已索引写入操作的端到端延迟分别低于 10 毫秒和 15 毫秒。 中间延迟明显更低（低于 5 毫秒）。
 
 * 确保提供“始终可用”的可用性
-    * 在单个区域内可用性为 99.99%。
+    * 为所有单区域帐户和具有松散一致性的所有多区域帐户提供 99.99% 的可用性 SLA，为所有多区域数据库帐户提供 99.999% 的读取可用性。
     * 部署到任意数量的 [Azure 区域](https://www.azure.cn/support/service-dashboard/)可提高可用性。
     * [模拟一个或多个区域的故障](regional-failover.md)而保证不丢失任何数据。 
 
@@ -98,4 +100,4 @@ Azure Cosmos DB 提供关系数据库和非关系数据库的最佳功能。
 <!-- Not Available * [Get started with Azure Cosmos DB's Graph API](create-graph-dotnet.md) -->
 * [开始使用 Azure Cosmos DB 的表 API](create-table-dotnet.md)
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: update meta properties, update link, wording update-->

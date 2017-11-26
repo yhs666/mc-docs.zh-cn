@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 08/28/2017
-ms.date: 10/23/2017
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: ff3eead64ee28b48f833b89e3ec09e14bb5235f1
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 47cc17ffce4df63388cb0bda1b7e2587e2ce517b
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>通过 .NET 开始使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -496,4 +496,5 @@ do
 [dotnet_TableQuery]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablequery.aspx
 [dotnet_TableResult]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.aspx
 [dotnet_TableResult_Result]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.result.aspx
-<!--Update_Description: update link-->
+
+<!-- Update_Description: update meta properties -->

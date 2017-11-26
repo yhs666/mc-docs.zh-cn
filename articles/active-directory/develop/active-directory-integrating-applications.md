@@ -1,6 +1,6 @@
 ---
-title: "将应用程序与 Azure Active Directory 集成 | Microsoft Docs"
-description: "有关如何在 Azure Active Directory (Azure AD) 中添加、更新或删除应用程序的详细信息。"
+title: "将应用程序与 Azure Active Directory 集成"
+description: "如何在 Azure Active Directory (Azure AD) 中添加、更新或删除应用程序。"
 services: active-directory
 documentationcenter: 
 author: alexchen2016
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/20/2017
-ms.date: 09/20/2017
+origin.date: 10/04/2017
+ms.date: 11/23/2017
 ms.author: v-junlch
-ms.openlocfilehash: ba78c66f01306de58bb16f0f65ddc0f1f0cfba5e
-ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
+ms.openlocfilehash: 1cc78b3fc1503d3bfdaff61646d9a1319afcf15a
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>将应用程序与 Azure Active Directory 集成
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

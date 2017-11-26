@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 15484ea583c6a7308908493495286651700f5bda
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: c4ae6c78008e112958c7e4a703e08b3b3bb64047
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect 同步：操作任务和注意事项
 本主题旨在介绍 Azure AD Connect 同步的操作任务。
@@ -69,11 +69,18 @@ ms.lasthandoff: 08/11/2017
 #### 验证 <a name="verify"></a>
 1. 启动 cmd 提示符并转到 `%ProgramFiles%\Azure AD Sync\bin`
 2. 运行：`csexport "Name of Connector" %temp%\export.xml /f:x` 连接器名称可以在同步服务中找到。 它的名称类似于“contoso.com - AAD”（表示 Azure AD）。
-3. 将 PowerShell 脚本从 [CSAnalyzer](#appendix-csanalyzer) 部分复制到名为 `csanalyzer.ps1` 的文件。
-4. 打开 PowerShell 窗口并浏览到已在其中创建 PowerShell 脚本的文件夹。
-5. 运行：`.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`。
-6. 现在已有名为 **processedusers1.csv** 的文件，可在 Microsoft Excel 中检查。 可在此文件中找到要导出到 Azure AD 的所有暂存的更改。
-7. 对数据或配置进行必要的更改并再次执行这些步骤（导入、同步和身份验证），直到要导出的更改都按预期进行。
+3. 运行：`CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` 现在，%temp% 中已有名为 export.csv 的文件，可在 Microsoft Excel 中检查。 此文件包含要导出的所有更改。
+4. 对数据或配置进行必要的更改并再次执行这些步骤（导入、同步和身份验证），直到要导出的更改都按预期进行。
+
+了解 export.csv 文件。大部分的文件都简单易懂。 请理解内容中的的一些缩写：
+- OMODT — 对象修改类型。 指示对象级别的操作是添加、更新还是删除。
+- AMODT — 属性修改类型。 指示属性级别的操作是添加、更新还是删除。
+
+检索通用标识符。export.csv 文件包含要导出的所有更改。 每行都对应于连接器空间中某个对象的更改，该对象由 DN 属性标识。 DN 属性是分配给连接器空间中对象的唯一标识符。 当 export.csv 中存在较多待分析的行/更改时，仅凭 DN 属性可能难以判断哪些对象发生了更改。 要简化分析更改的进程，请使用 csanalyzer.ps1 PowerShell 脚本。 该脚本可检索对象的通用标识符（如 displayName 和 userPrincipalName 等）。 使用脚本：
+1. 将 PowerShell 脚本从 [CSAnalyzer](#appendix-csanalyzer) 部分复制到名为 `csanalyzer.ps1` 的文件。
+2. 打开 PowerShell 窗口并浏览到已在其中创建 PowerShell 脚本的文件夹。
+3. 运行：`.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`。
+4. 现在已有名为 **processedusers1.csv** 的文件，可在 Microsoft Excel 中检查。 请注意，该文件提供从 DN 属性到通用标识符（如 displayName 和 userPrincipalName 等）的映射。 当前尚不包括要导出的实际属性更改。
 
 #### 切换活动服务器 <a name="switch-active-server"></a>
 1. 在当前处于活动状态的服务器上，关闭服务器 (DirSync/FIM/Azure AD Sync)，使它不会导出到 Azure AD，或将它设为暂存模式 (Azure AD Connect)。
@@ -108,7 +115,9 @@ ms.lasthandoff: 08/11/2017
 常用的受支持方法是在虚拟机中运行同步引擎。 如果主机有问题，可将包含同步引擎服务器的映像迁移到另一个服务器。
 
 ### <a name="sql-high-availability"></a>SQL 高可用性
-如果未使用 Azure AD Connect 随附的 SQL Server Express，还应考虑 SQL Server 的高可用性。 唯一受支持的高可用性解决方案是 SQL 群集。 不支持的解决方案包括镜像和 Always On。
+如果未使用 Azure AD Connect 随附的 SQL Server Express，还应考虑 SQL Server 的高可用性。 支持的高可用性解决方案包括 SQL 群集和 AOA（Always On 可用性组）。 不支持的解决方案包括镜像。
+
+Azure AD Connect 版本 1.1.524.0 中添加了对 SQL AOA 的支持。 安装 Azure AD Connect 之前，必须启用 SQL AOA。 在安装期间，Azure AD Connect 会检测是否已为提供的 SQL 实例启用 SQL AOA。 如果启用了 SQL AOA，Azure AD Connect 进一步指出如果 SQL AOA 配置为使用同步复制或异步复制。 设置可用性组侦听器时，我们建议将 RegisterAllProvidersIP 属性设置为 0。 这是因为，Azure AD Connect 目前使用 SQL Native Client 连接到 SQL，而 SQL Native Client 不支持使用 MultiSubNetFailover 属性。
 
 ## 附录 CSAnalyzer <a name="appendix-csanalyzer"></a>
 有关如何使用此脚本的信息，请参阅[验证](#verify)部分。

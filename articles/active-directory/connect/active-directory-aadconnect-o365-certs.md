@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 07/31/2017
+origin.date: 10/20/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 046f95ca8f520e0a7f6ee20cb6dc9285fa63ad34
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: c719752de4d616c96f80f4a526f1451add6323cc
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>续订 Office 365 和 Azure Active Directory 的联合身份验证证书
 ## <a name="overview"></a>概述
@@ -116,7 +116,7 @@ Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCe
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
-其中，`(your_FS_name) `将替换成组织使用的联合身份验证服务主机名，例如 fs.contoso.com。  如果能够成功验证这两项设置，则无需执行任何其他操作。  
+其中，`(your_FS_name) `将替换成组织使用的联合身份验证服务主机名，例如 fs.contoso.com。如果能够成功验证这两项设置，则无需执行任何其他操作。  
 
 示例：https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
@@ -158,7 +158,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 1. 打开用于 Windows PowerShell 的 Azure Active Directory 模块。
 2. 运行 $cred=Get-Credential。 当此 cmdlet 提示输入凭据时，键入云服务管理员帐户凭据。
-3. 运行 Connect-MsolService -Credential $cred。 此 cmdlet 会你将连接到云服务。 通过工具运行任何其他已安装的 cmdlet 之前，必须创建你将连接到云服务的上下文。
+3. 运行 Connect-MsolService -Credential $cred。此 cmdlet 会你将连接到云服务。 通过工具运行任何其他已安装的 cmdlet 之前，必须创建你将连接到云服务的上下文。
 4. 如果不是在 AD FS 主联合服务器上运行这些命令，请运行 Set-MSOLAdfscontext -Computer <AD FS primary server>，其中 <AD FS primary server> 是主 AD FS 服务器的内部 FQDN 名称。 此 cmdlet 会创建你将连接到 AD FS 的上下文。
 5. 运行 Update-MSOLFederatedDomain -DomainName <domain>。 此 cmdlet 会将 AD FS 的设置更新到云服务中，并配置两者之间的信任关系。
 
@@ -172,4 +172,13 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 有关详细信息，请参阅[修复信任](active-directory-aadconnect-federation-management.md)。
 
-<!-- Update_Description: wording update -->
+## <a name="ad-fs-and-azure-ad-certificate-update-steps"></a>AD FS 和 Azure AD 证书更新步骤
+令牌签名证书是标准 X509 证书，用于安全地对联合服务器颁发的所有令牌进行签名。 令牌解密证书是标准 X509 证书，用于对任何传入令牌进行解密。 
+
+默认情况下，AD FS 配置为在初始配置时以及在证书接近到期日期时自动生成令牌签名证书和令牌解密证书。
+
+在当前证书到期 30 天前，Azure AD 会尝试从联合身份验证服务元数据中检索新证书。 如果新证书在该时间不可用，Azure AD 会继续每日定期监视元数据。 在元数据中获得新证书后，将立即使用新的证书信息更新域的联合身份验证设置。 如果在 NextSigningCertificate/SigningCertificate 中看到新证书，可以使用 `Get-MsolDomainFederationSettings` 进行验证。
+
+有关 AD FS 中令牌签名证书的详细信息，请参阅[获取和配置 AD FS 令牌签名证书和令牌解密证书](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs)
+
+<!--Update_Description: wording update -->

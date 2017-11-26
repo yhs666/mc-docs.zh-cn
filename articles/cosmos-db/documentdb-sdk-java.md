@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-origin.date: 10/11/2017
-ms.date: 10/23/2017
+origin.date: 11/14/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ea7eb4ad52becafe3cb04e1d34814e6a2c7d1fd
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 8d858c17a31d189fb8e67a308959d04404a3d050
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB：DocumentDB Java SDK 发行说明和资源
 > [!div class="op_single_selector"]
@@ -46,9 +46,9 @@ ms.lasthandoff: 10/20/2017
 
 <tr><td>**入门**</td><td>[Java SDK 入门](documentdb-java-get-started.md)</td></tr>
 
-<tr><td>**Web 应用教程**</td><td>[使用 Azure Cosmos DB 进行 Web 应用程序开发](documentdb-java-application.md)</td></tr>
+<tr><td>**Web 应用教程**</td><td>[使用 Azure Cosmos DB 开发 Web 应用程序](documentdb-java-application.md)</td></tr>
 
-<tr><td>**当前受支持的运行时**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>受支持的最小运行时</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 <!-- Not Available ## Release Notes -->
@@ -60,4 +60,4 @@ ms.lasthandoff: 10/20/2017
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
 
-<!--Update_Description: update meta properties, wroding update, update link-->
+<!--Update_Description: update meta properties, wroding update -->

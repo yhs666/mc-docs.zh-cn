@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/05/2017
-ms.date: 10/23/2017
+origin.date: 11/08/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 59ec515801d0a7ef2ce7cc425e9298c37d701d43
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: c9636b6004ded7b3b6f92d110f4c379d43cfc8ac
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数值函数
 
@@ -123,11 +123,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="remarks"></a>备注
 
-此函数始终用于 **copy** 对象。 如果没有提供任何值作为 **偏移量**，则返回当前迭代值。 迭代值从零开始。
+此函数始终用于 **copy** 对象。 如果没有提供任何值作为 **偏移量**，则返回当前迭代值。 迭代值从零开始。 定义资源或变量时，你可以使用迭代循环。
 
 **loopName** 属性可用于指定 copyIndex 是引用资源迭代还是引用属性迭代。 如果没有为 **loopName** 提供值，则将使用当前的资源类型迭代。 在属性上迭代时，请为 **loopName** 提供值。 
 
 有关如何使用 **copyIndex** 的完整说明，请参阅 [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)（在 Azure Resource Manager 中创建多个资源实例）。
+
+有关定义变量时使用“copyIndex”的示例，请参阅[变量](resource-group-authoring-templates.md#variables)。
 
 ### <a name="example"></a>示例
 
@@ -656,9 +658,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 有关 Azure Resource Manager 模板中各部分的说明，请参阅 [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)（创作 Azure Resource Manager 模板）。
+* 有关 Azure 资源管理器模板中各部分的说明，请参阅[创作 Azure 资源管理器模板](resource-group-authoring-templates.md)。
 * 若要合并多个模板，请参阅[将链接的模板与 Azure Resource Manager 配合使用](resource-group-linked-templates.md)。
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 若要查看如何部署已创建的模板，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update -->

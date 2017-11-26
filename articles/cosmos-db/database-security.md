@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/12/2017
-ms.date: 10/23/2017
+origin.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: c7702619aaf343af7bbd8937962736147775365b
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 1725d5591f9074a5889ea396ff065ccb65724390
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 数据库安全性
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/20/2017
 |Active Directory 集成 (RBAC)| 还可以在 Azure 门户中使用访问控制 (IAM) 向数据库帐户提供访问权限，如此表后面的屏幕截图所示。 IAM 提供基于角色的访问控制并与 Active Directory 集成。 对于个人和组，可如下图中所示使用内置角色或自定义角色。|
 |全局复制|Azure Cosmos DB 提供全包式的全球分布。只需单击一个按钮，就能将数据复制到 Azure 的任何一个全球数据中心。 全局复制可以实现全局缩放，以较低的延迟访问全球各地的数据。<br><br>从安全的上下文来看，全局复制可确保数据受到保护，防范区域性故障。<br><br>在[全局分发数据](distribute-data-globally.md)中了解详细信息。|
 |区域性故障转移|如果已将数据复制到多个数据中心，当区域数据中心脱机时，Azure Cosmos DB 会自动滚动切换操作。 可以使用数据复制到的区域创建故障转移区域的优先级列表。 <br><br>可以在 [Azure Cosmos DB 中的区域性故障转移](regional-failover.md)中了解详细信息。|
-|本地复制|即使是在单个数据中心内，Azure Cosmos DB 也会自动复制数据来实现高可用性，并允许选择[一致性级别](consistency-levels.md)。 这可以保证  [99.99% 运行时间的可用性 SLA](https://www.azure.cn/support/sla/cosmos-db) 并附带财务保证 - 其他数据库服务无法提供这样的保证。|
+|本地复制|即使是在单个数据中心内，Azure Cosmos DB 也会自动复制数据来实现高可用性，并允许选择[一致性级别](consistency-levels.md)。 这可保证为所有单区域帐户和具有松散一致性的所有多区域帐户提供 99.99% 的[可用性 SLA](https://www.azure.cn/support/sla/cosmos-db)，为所有多区域数据库帐户提供 99.999% 的读取可用性。|
 |自动联机备份|Azure Cosmos DB 数据库将定期备份并存储在异地冗余的存储中。 <br><br>可以在[使用 Azure Cosmos DB 进行自动联机备份和还原](online-backup-and-restore.md)中了解详细信息。|
 |还原已删除的数据|可以使用自动联机备份来恢复大约 30 天内意外删除的数据。 <br><br>可以在[使用 Azure Cosmos DB 进行自动联机备份和还原](online-backup-and-restore.md)中了解详细信息|
 |保护和隔离敏感数据|[新增功能？](#whats-new)中列出的区域中的所有数据现已处于静态加密状态。<br><br>可将 PII 和其他机密数据隔离到特定的集合，并限制为只能由特定的用户进行读写或只读访问。|
@@ -95,8 +95,6 @@ ms.lasthandoff: 10/20/2017
 有关主密钥和资源令牌的详细信息，请参阅[保护对 Azure Cosmos DB 数据的访问](secure-access-to-data.md)。
 
 有关审核日志的详细信息，请参阅 [Azure Cosmos DB 诊断日志记录](logging.md)。
-
-<!--Update_Description: wording update, update link -->
 
 有关 Microsoft 认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/)。
 

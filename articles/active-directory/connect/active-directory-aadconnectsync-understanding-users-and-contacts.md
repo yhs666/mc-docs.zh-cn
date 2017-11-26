@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 07/31/2017
+origin.date: 10/17/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: c787ce84146cb25fc7f29d7fe412005b01932dd6
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: 363e4b56bd472ca1d01c2f975459a92a270b1150
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-users-and-contacts"></a>Azure AD Connect 同步：了解用户和联系人
 有几个不同的原因导致有多个 Active Directory 林，并且有几个不同的部署拓扑。 常见的模型包括合并和收购之后的帐户-资源部署和 GAL 同步的林。 但即使有纯模型，混合模型也是常见的模型。 Azure AD Connect 同步中的默认配置不会假定任何特定模型，但根据安装指南中选择用户匹配的方式，可以观察到不同的行为。
@@ -56,4 +56,4 @@ ms.lasthandoff: 08/11/2017
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update -->
