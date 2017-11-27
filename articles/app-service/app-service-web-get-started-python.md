@@ -1,26 +1,26 @@
 ---
-title: "在 Azure 中创建 Python Web 应用 | Azure"
-description: "数分钟内在 Azure App Service Web 应用中部署首个 Python Hello World。"
+title: "在 Azure 中创建 Python Web 应用 | Microsoft Docs"
+description: "数分钟内在 Azure 应用服务 Web 应用中部署首个 Python Hello World。"
 services: app-service\web
 documentationcenter: 
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 928ee2e5-6143-4c0c-8546-366f5a3d80ce
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-origin.date: 03/17/2017
-ms.date: 10/30/2017
+ms.topic: quickstart
+origin.date: 10/26/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.custom: mvc
-ms.openlocfilehash: c03ecd108fc60ec92f1289844d6f9f16d8d69fb0
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.custom: mvc, devcenter
+ms.openlocfilehash: fdf0842a06b4586791817657bed5327b0d79130e
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="create-a-python-web-app-in-azure"></a>在 Azure 中创建 Python Web 应用
 
@@ -38,8 +38,6 @@ ms.lasthandoff: 10/20/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
-
 ## <a name="download-the-sample"></a>下载示例
 
 在终端窗口中，运行以下命令，将示例应用存储库克隆到本地计算机。
@@ -47,8 +45,6 @@ ms.lasthandoff: 10/20/2017
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
-
-使用此终端窗口运行本快速入门中的所有命令。
 
 切换到包含示例代码的目录。
 
@@ -86,23 +82,17 @@ python main.py
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+## <a name="create-a-web-app"></a>创建 Web 应用
 
-![空 Web 应用页](media/app-service-web-get-started-python/app-service-web-service-created.png)
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-python-no-h.md)]
 
-已在 Azure 中新建了一个空的 Web 应用。
+浏览到新建的 Web 应用。 将 _&lt;应用名称>_ 替换为唯一的应用名称。
 
-## <a name="configure-to-use-python"></a>配置为使用 Python
-
-使用 [az webapp config set](https://docs.microsoft.com/cli/azure/webapp/config#set) 命令将 Web 应用配置为使用 Python 版本 `3.4`。
-
-```azurecli
-az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
+```bash
+http://<app name>.chinacloudsites.cn
 ```
 
-以这种方式设置 Python 版本将使用平台提供的默认容器。 若要使用自己的容器，请参阅 [az webapp config container set](https://docs.microsoft.com/cli/azure/webapp/config/container#set) 命令的 CLI 参考。
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
+![空 Web 应用页](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -170,14 +160,14 @@ Python 示例代码在 Azure App Service Web 应用中运行。
 return 'Hello, Azure!'
 ```
 
-提交在 Git 中所做的更改，然后将代码更改推送到 Azure。
+在本地终端窗口中，提交在 Git 中所做的更改，然后将代码更改推送到 Azure。
 
 ```bash
 git commit -am "updated output"
 git push azure master
 ```
 
-完成部署后，切换回“浏览到应用”[](#browse-to-the-app)步骤中打开的浏览器窗口，然后刷新页面。
+完成部署后，切换回[浏览到应用](#browse-to-the-app)步骤中打开的浏览器窗口，然后刷新页面。
 
 ![已更新的在 Azure 中运行的示例应用](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
@@ -197,4 +187,7 @@ git push azure master
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<!--Update_Description: add a note about Azure CLI 2.0 version-->
+## <a name="next-steps"></a>后续步骤
+
+> [!div class="nextstepaction"]
+> [将现有的自定义 DNS 名称映射到 Azure Web 应用](app-service-web-tutorial-custom-domain.md)
