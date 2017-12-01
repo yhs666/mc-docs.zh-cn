@@ -8,20 +8,20 @@ manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
 origin.date: 11/10/2017
-ms.date: 11/27/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e4486c1fec2b857b0a994c10920f044733b3fce4
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.openlocfilehash: 9228c2552255c828acf505947e62f6da8539eb2d
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>使用 CLI 部署远程监视预配置解决方案
 
-本教程演示如何预配远程监视预配置解决方案。 使用 CLI 部署解决方案。 <!--You can also deploy the solution using the web-based UI at azureiotsuite.com, to learn about this option see [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md).-->
+本教程演示如何预配远程监视预配置解决方案。 使用 CLI 部署解决方案。 还可以在 azureiotsuite.cn 使用基于 Web 的 UI 部署解决方案，若要了解此选项，请参阅[部署远程监视预配置解决方案](iot-suite-remote-monitoring-deploy.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -104,6 +104,6 @@ pcs -h
 > * 部署预配置解决方案
 > * 登录到预配置解决方案
 
-<!-- Now that you have deployed the remote monitoring solution, the next step is to [explore the capabilities of the solution dashboard](./iot-suite-remote-monitoring-deploy.md). -->
+现在已部署远程监视解决方案，下一步是[浏览解决方案仪表板的功能](./iot-suite-remote-monitoring-deploy.md)。
 
 <!-- Next tutorials in the sequence -->

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/19/2017
-ms.date: 08/24/2017
+origin.date: 11/16/2017
+ms.date: 11/23/2017
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: f5640614812be60adeaa053692c610e24e53c2e5
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 2fae439d44a640eedd386a8c8285216fa46abed5
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 开发人员词汇表
 本文包含一些核心 Azure Active Directory (AD) 开发人员概念的定义，帮助你了解 Azure AD 的应用程序开发。
@@ -34,6 +34,9 @@ ms.lasthandoff: 08/25/2017
 - 使用[“客户端凭据”授权](#authorization-grant)，则客户端提供唯一的身份验证，在没有资源所有者身份验证/授权的情况下运行，因此该令牌有时可以称为“仅限应用”令牌。
 
 有关详细信息，请参阅 [Azure AD Token Reference][AAD-Tokens-Claims] （Azure AD 令牌参考）。
+
+## <a name="application-id-client-id"></a>应用程序 ID（客户端 ID）
+Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应用程序和关联的配置。  执行身份验证请求时将使用此应用程序 ID（[客户端 ID](https://tools.ietf.org/html/rfc6749#page-15)），开发时会向身份验证库提供它。 应用程序 ID（客户端 ID）不是机密。 
 
 ## <a name="application-manifest"></a>应用程序清单
 [Azure 经典管理门户][AZURE-classic-portal]提供的一项功能，可生成以 JSON 表示的应用程序标识配置，作为其关联 [Application][AAD-Graph-App-Entity] 实体和 [ServicePrincipal][AAD-Graph-Sp-Entity] 实体的更新机制。 有关详细信息，请参阅 [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] （了解 Azure Active Directory 应用程序清单）。
@@ -154,7 +157,7 @@ ms.lasthandoff: 08/25/2017
 使最终用户变成未身份验证状态的过程，解除用户在[登录](#sign-in)期间与[客户端应用程序](#client-application)会话关联的状态
 
 ## <a name="tenant"></a>tenant
-Azure AD 目录的实例称为 Azure AD 租户。 所提供的功能包括：
+Azure AD 目录的实例称为 Azure AD 租户。 它提供的一些功能包括：
 
 - 适用于集成应用程序的注册表服务
 - 对用户帐户和已注册应用程序进行身份验证
@@ -175,7 +178,7 @@ Azure AD 目录的实例称为 Azure AD 租户。 所提供的功能包括：
 一类[客户端应用程序](#client-application) ，可在 Web 服务器上执行所有代码，并可将凭据安全地存储在服务器上，充当“机密”客户端。 有关详细信息，请参阅 [OAuth2 client types and profiles][OAuth2-Client-Types] （OAuth2 客户端类型和配置文件）。
 
 ## <a name="next-steps"></a>后续步骤
-[Azure AD 开发人员指南][AAD-Dev-Guide]是用于所有 Azure AD 开发相关主题的门户，包括[应用程序集成][AAD-How-To-Integrate]的概述和 [Azure AD 身份验证与支持的身份验证方案][AAD-Auth-Scenarios]基本知识。
+[Azure AD 开发人员指南][AAD-Dev-Guide]是用于所有 Azure AD 开发相关主题的登陆页，包括[应用程序集成][AAD-How-To-Integrate]的概述和 [Azure AD 身份验证与支持的身份验证方案][AAD-Auth-Scenarios]基本知识。  另外，还可在 [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=) 上找到关于如何快速启动和运行的代码示例及教程。
 
 请使用以下评论部分提供反馈，帮助我们改进和编写内容，包括有关新定义或更新现有定义的要求！
 

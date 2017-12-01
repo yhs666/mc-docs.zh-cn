@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/20/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: c2e064ecf299560906c8df7218ba07c17e449e54
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 38592addb7d90bff678afd0bbe0308978d2fb6ba
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>使用 Power BI 可视化网络安全组流日志
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/14/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-访问 [Visualize network traffic patterns to and from your VMs using open source tools](network-watcher-using-open-source-tools.md)（使用开源工具可视化传入和传出 VM 的网络流量模式），了解如何使用 Elastick Stack 来可视化 NSG 流日志
+访问 [Visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)（使用开源工具直观显示 Azure 网络观察程序 NSG 流日志），了解如何使用 Elastick Stack 直观显示 NSG 流日志
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png
@@ -136,4 +136,4 @@ ms.lasthandoff: 11/14/2017
 [12]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure12.png
 [13]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure13.png
 
-<!--Update_Description: new articles on network watcher visulaize nsg flow logs power bi -->
+<!--Update_Description: update link -->

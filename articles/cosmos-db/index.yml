@@ -12,11 +12,11 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  origin.date: 07/24/2017
-  ms.date: 10/23/2017
+  origin.date: 11/15/2017
+  ms.date: 11/27/2017
   ms.author: v-yeche
 abstract:
-  description: Azure Cosmos DB 是一种全球分布式数据库服务，它满足一个综合 SLA，允许跨任意数量的地理区域弹性且独立地缩放吞吐量与存储。  使用 Cosmos DB 可通过一系列常用 API 和编程模型开发文档、键/值数据库。 请参考我们的快速入门、教程和示例了解如何使用 Cosmos DB。
+  description: Azure Cosmos DB 是一种全球分布式多模型数据库服务。 使用这些快速入门、教程和示例，可通过使用常用 API 和编程模型开发文档数据库、键值数据库和宽列数据库。 然后了解在受益于全面 SLA 的同时，如何在任意数量的 Azure 区域之间复制数据，以及如何缩放吞吐量而不受你的存储影响。
 sections:
   - title: 5 分钟快速入门
     items:
@@ -26,9 +26,9 @@ sections:
         style: dataMatrix
         columns:
           - image:
-              src: media/index/logo_net.svg
-          - image:
               src: media/index/logo_java.svg
+          - image:
+              src: media/index/logo_net.svg
           - image:
               src: media/index/logo_nodejs.svg
           - image:
@@ -36,21 +36,29 @@ sections:
         rows:
           - title: DocumentDB API
             values:
-              - href: /cosmos-db/create-documentdb-dotnet
               - href: /cosmos-db/create-documentdb-java
+              - href: /cosmos-db/create-documentdb-dotnet
               - href: /cosmos-db/create-documentdb-nodejs
               - href: /cosmos-db/create-documentdb-python
           - title: MongoDB API
             values:
-              - href: /cosmos-db/create-mongodb-dotnet
               - href: /cosmos-db/create-mongodb-java
+              - href: /cosmos-db/create-mongodb-dotnet
               - href: /cosmos-db/create-mongodb-nodejs
               - href: null
           - title: 表 API
             values:
+              - href: /cosmos-db/create-table-java
               - href: /cosmos-db/create-table-dotnet
+              - href: /cosmos-db/create-table-nodejs
+              - href: /cosmos-db/create-table-python
               - href: null
-              - href: null
+          - title: Cassandra API
+            values:
+              - href: /cosmos-db/create-cassandra-java
+              - href: /cosmos-db/create-cassandra-dotnet
+              - href: /cosmos-db/create-cassandra-nodejs
+              - href: /cosmos-db/create-cassandra-python
               - href: null
   - title: 分步教程
     items:
@@ -59,8 +67,8 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: 使用 Cosmos DB 开发应用：<a href="/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a> | <a href="/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-develop-table-dotnet">表</a>
-          - html: 将数据导入 Cosmos DB：<a href="import-data">DocumentDB</a> | <a href="mongodb-migrate">MongoDB</a>
+          - html: 使用 Cosmos DB 开发应用：<a href="/cosmos-db/tutorial-develop-documentdb-dotnet">Cosmos DB</a> | <a href="/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-develop-table-dotnet">表</a>| <a href="/cosmos-db/tutorial-develop-cassandra-java">Cassandra</a>
+          - html: 将数据导入 Cosmos DB：<a href="/cosmos-db/import-data">DocumentDB</a> | <a href="/cosmos-db/mongodb-migrate">MongoDB</a> | <a href="/cosmos-db/table-import">表</a> | <a href="/cosmos-db/cassandra-import-data">Cassandra</a>
           - html: 使用 Cosmos DB 查询数据：<a href="/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-query-table">表</a>
           - html: 使用 Cosmos DB 进行全球数据库复制：<a href="/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-global-distribution-table">表</a>
           - html: <a href="local-emulator">使用模拟器本地开发应用程序</a>

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/08/2017
-ms.date: 10/23/2017
+origin.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3dc37ce120623bab66f5cf1c8af87a6e302ca512
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 601a273a3c921908595549a993c7d0e4f73b5e89
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体
 
@@ -28,11 +28,11 @@ ms.lasthandoff: 10/20/2017
 * 职责变化时，无需更改应用的凭据。 
 * 执行无人参与的脚本时，可以使用证书自动执行身份验证。
 
-本主题演示如何通过门户执行这些步骤。 重点介绍单租户应用程序，其中应用程序只应在一个组织内运行。 通常会将单租户应用程序作为在组织中运行的业务线应用程序使用。
+本文介绍了如何通过门户执行这些步骤。 重点介绍单租户应用程序，其中应用程序只应在一个组织内运行。 通常会将单租户应用程序作为在组织中运行的业务线应用程序使用。
 
 ## <a name="required-permissions"></a>所需的权限
 
-为完成本主题，必须具有足够的权限向 Azure AD 租户注册应用程序，并将应用程序分配到 Azure 订阅中的角色。 请确保拥有适当的权限来执行这些步骤。
+若要完成本文，必须拥有足够的权限向 Azure AD 租户注册应用，并将应用程序分配给 Azure 订阅中的角色。 请确保拥有适当的权限来执行这些步骤。
 
 ### <a name="check-azure-active-directory-permissions"></a>检查 Azure Active Directory 权限
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 10/20/2017
 
     ![添加应用](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. 为应用提供名称和 URL。 选择“Web 应用/API”或“本机”作为要创建的应用程序的类型。 。
+1. 为应用提供名称和 URL。 选择“Web 应用/API”作为要创建的应用程序的类型。 无法创建原生应用程序的凭据，因此这种类型不适用于自动应用。 。
 
     ![命名应用程序](./media/resource-group-create-service-principal-portal/create-app.png)
 
@@ -197,8 +197,8 @@ ms.lasthandoff: 10/20/2017
 * [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>后续步骤
-* 若要设置多租户应用程序，请参阅[使用 Azure Resource Manager API 进行授权的开发人员指南](resource-manager-api-authentication.md)。
+* 若要设置多租户应用程序，请参阅[使用 Azure 资源管理器 API 进行授权的开发人员指南](resource-manager-api-authentication.md)。
 * 若要了解如何指定安全策略，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-configure.md)。  
 * 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure Resource Manager 资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。
 
-<!--Update_Description: wording update, update referecne link-->
+<!--Update_Description: wording update -->

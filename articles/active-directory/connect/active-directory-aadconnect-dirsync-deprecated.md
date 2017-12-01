@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c115d699822c984befbb7d29289b1cf49e0e8794
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: dbb5cdbc5fa131bc34286365ec6711376f0e4b07
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="upgrade-azure-active-directory-sync-and-azure-active-directory-sync"></a>升级 Azure Active Directory Sync
-Azure AD Connect 是连接本地目录与 Azure AD 和 Office 365 的最佳方式。 现在是从 Azure Active Directory Sync (DirSync) 或 Azure AD Sync 升级到 Azure AD Connect 的绝佳时机，因为这些工具现已弃用，将于 2017 年 4 月 13 日终止提供支持。
+Azure AD Connect 是连接本地目录与 Azure AD 和 Office 365 的最佳方式。 这是从 Azure Active Directory Sync (DirSync) 或 Azure AD Sync 升级到 Azure AD Connect 的最佳时机，因为这些工具现已弃用，从 2017 年 4 月 13 日起不再受支持。
 
-已弃用的两个标识同步工具提供给单一林客户 (DirSync)，以及多林和其他高级客户 (Azure AD Sync)。 这些较旧的工具已经替换为适用于所有方案的单一解决方案：Azure AD Connect。 它提供新的功能、增强功能和对新方案的支持。 为了能够继续将本地标识数据同步到 Azure AD 和 Office 365，强烈建议升级到 Azure AD Connect。
+已弃用的两个标识同步工具提供给单一林客户 (DirSync)，以及多林和其他高级客户 (Azure AD Sync)。 这些较旧的工具已经替换为适用于所有方案的单一解决方案：Azure AD Connect。 它提供新的功能、增强功能和对新方案的支持。 为了能够继续将本地标识数据同步到 Azure AD 和 Office 365，强烈建议升级到 Azure AD Connect。 Microsoft 不保证这些较旧版本在 2017 年 12 月 31 日之后能正常工作。
 
 最新版 DirSync 于 2014 年 7 月发布，最新版 Azure AD Sync 于 2015 年 5 月发布。
 
 ## <a name="what-is-azure-ad-connect"></a>什么是 Azure AD Connect
-Azure AD Connect 是 DirSync 和 Azure AD Sync 的后继产品。 它结合了两者支持的所有方案。 可以在[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)中了解详细信息。
+Azure AD Connect 是 DirSync 和 Azure AD Sync 的后继产品。它结合了两者支持的所有方案。 可以在[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)中了解详细信息。
 
 ## <a name="deprecation-schedule"></a>弃用计划
 | 日期 | 注释 |
@@ -53,7 +53,7 @@ Azure AD Connect 是 DirSync 和 Azure AD Sync 的后继产品。 它结合了�
 **问：我收到了 Azure 团队发来的电子邮件通知和/或 Office 365 消息中心发来的消息，但我使用的是 Connect。**  
 该通知还会发送到使用内部版本为 1.0.\*.0 的 Azure AD Connect 的客户（使用 1.1 以前的版本）。 Microsoft 建议客户使用最新的 Azure AD Connect 版本。 在版本 1.1 中引入的[自动升级](active-directory-aadconnect-feature-automatic-upgrade.md)功能始终可让客户轻松安装最新版本的 Azure AD Connect。
 
-**问：DirSync/Azure AD Sync 将在 2017 年 4 月 13 日停用吗？**  
+**问：DirSync/Azure AD Sync 会在 2017 年 4 月 13 日停用吗？**  
 DirSync/Azure AD Sync 会在 2017 年 4 月 13 日继续工作。  但从 2017 年 12 月 31 日起，Azure AD 不再接受来自 DirSync/Azure AD Sync 的通信。
 
 **问：可从哪些 DirSync 版本升级？**  
@@ -65,4 +65,4 @@ DirSync/Azure AD Sync 会在 2017 年 4 月 13 日继续工作。  但从 2017 �
 ## <a name="additional-resources"></a>其他资源
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 09/18/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 93e17aaae120168cde98eb358ced8d0aab42ba72
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 75edcdfdb926be6c08a970666468050b618452a1
+ms.sourcegitcommit: 3adc755e4e067b3b9e5bac0d1c92fd58e60a2b57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>对 Azure 设置本地 Hyper-V VM 的灾难恢复
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/15/2017
 
 ### <a name="set-up-an-azure-account"></a>设置 Azure 帐户
 
-获取 Microsoft [Azure 帐户](http://azure.microsoft.com/)。
+获取 [Azure 帐户](https://www.azure.cn/)。
 
 - 你可以从[试用版](https://www.azure.cn/pricing/1rmb-trial/)开始。
 - 了解 [Site Recovery 定价](site-recovery-faq.md#pricing)，并获取[定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)。

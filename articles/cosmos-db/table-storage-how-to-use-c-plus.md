@@ -1,5 +1,5 @@
 ---
-title: "如何使用表存储 (C++) | Azure"
+title: "如何通过 C++ 使用 Azure 表存储 | Azure"
 description: "使用 Azure 表存储（一种 NoSQL 数据存储）将结构化数据存储在云中。"
 services: cosmos-db
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 900e860d3cc86a99d739d8b9f51c172d384db4ad
-ms.sourcegitcommit: 06019e3df5b85811e1f45f29d415dc666305166f
+ms.openlocfilehash: 8d90ab1ae943109a897c6cebf96b93a90fda52fb
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 11/24/2017
 ---
-# <a name="how-to-use-table-storage-from-c"></a>如何通过 C++ 使用表存储
+# <a name="how-to-use-azure-table-storage-with-c"></a>如何配合使用 C++ 和 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 09/04/2017
 若要安装适用于 C++ 的 Azure 存储客户端库，可使用以下方法：
 
 * **Linux：**按照适用于 C++ 的 [Azure 存储客户端库自述文件](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)页中提供的说明进行操作。  
-* **Windows：**在 Visual Studio 中，单击“工具”>“NuGet 包管理器”>“程序包管理器控制台”。 在 [NuGet 程序包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 窗口中输入以下命令，并按 Enter。  
+* **Windows：**在 Visual Studio 中，单击“工具”>“NuGet 包管理器”>“程序包管理器控制台”。 在 [NuGet 包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中，键入以下命令，并按 Enter。  
 
      Install-Package wastorage
 
@@ -63,7 +63,7 @@ Azure 存储客户端使用存储连接字符串来存储用于访问数据管�
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key;EndpointSuffix=core.chinacloudapi.cn"));
 ```
 
-若要在基于 Windows 的本地计算机中测试应用程序，可以使用随 [Azure SDK](/downloads/) 一起安装的 Azure [存储模拟器](../storage/common/storage-use-emulator.md)。 存储模拟器是一种用于模拟本地开发计算机上提供的 Azure Blob、队列和表服务的实用程序。 以下示例演示如何声明一个静态字段以将连接字符串保存到本地存储模拟器：  
+若要在基于 Windows 的本地计算机中测试应用程序，可以使用随 [Azure SDK](https://www.azure.cn/downloads/) 一起安装的 Azure [存储模拟器](../storage/common/storage-use-emulator.md)。 存储模拟器是一种用于模拟本地开发计算机上提供的 Azure Blob、队列和表服务的实用程序。 以下示例演示如何声明一个静态字段以将连接字符串保存到本地存储模拟器：  
 
 ```cpp
 // Define the connection string with Azure storage emulator.
@@ -141,7 +141,7 @@ azure::storage::table_result insert_result = table.execute(insert_operation);
 ```
 
 ## <a name="insert-a-batch-of-entities"></a>插入一批实体
-可通过一个写入操作将一批条目插入到表服务。 以下代码创建一个 **table_batch_operation** 对象，然后向其中添加三个插入操作。 每个插入操作的添加方法如下：创建一个新的实体对象，对其设置值，然后对 **table_batch_operation** 对象调用 insert 方法来将实体与新的插入操作相关联。 然后调用 **cloud_table.execute** 来执行此操作。  
+可通过一个写入操作将一批条目插入到表服务。 以下代码创建一个 **table_batch_operation** 对象，并向其中添加三个插入操作。 每个插入操作的添加方法如下：创建一个新的实体对象，对其设置值，然后对 **table_batch_operation** 对象调用 insert 方法来将实体与新的插入操作相关联。 然后调用 **cloud_table.execute** 来执行此操作。  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -232,7 +232,7 @@ for (; it != end_of_results; ++it)
 此示例中的查询将检索出与筛选条件匹配的所有条目。 如果有大型表并需要经常下载表条目，建议改为将数据存储在 Azure 存储 Blob 中。
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>检索分区中的一部分条目
-如果不想查询分区中的所有条目，则可以通过结合使用分区键筛选器与行键筛选器来指定一个范围。 以下代码示例使用两个筛选器来获取分区“Smith”中的、行键（名字）以字母“E”前面的字母开头的所有条目，并输出查询结果。  
+如果不想查询分区中的所有条目，则可以通过结合使用分区键筛选器与行键筛选器来指定一个范围。 以下代码示例使用两个筛选器来获取分区“Smith”中的、行键（名字）以字母“E”前面的字母开头的所有实体，并输出查询结果。  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -294,7 +294,7 @@ std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") <
 ```
 
 ## <a name="replace-an-entity"></a>替换条目
-要替换条目，请从表服务中检索它，修改条目对象，然后将更改保存回表服务。 以下代码更改现有客户的电话号码和电子邮件地址。 此代码不是调用 **table_operation::insert_entity**，而是使用 **table_operation::replace_entity**。 这会导致在服务器上完全替换该实体，除非服务器上的该实体自检索到它以后发生更改，在此情况下，该操作将失败。 操作失败将防止应用程序无意中覆盖应用程序的其他组件在检索与更新之间所做的更改。 正确处理此失败的方法是再次检索实体，进行更改（如果仍有效），然后执行另一个 **table_operation::replace_entity** 操作。 下一节将演示如何重写此行为。  
+要替换条目，请从表服务中检索它，修改条目对象，然后将更改保存回表服务。 以下代码更改现有客户的电话号码和电子邮件地址。 此代码不是调用 **table_operation::insert_entity**，而是使用 **table_operation::replace_entity**。 这会导致在服务器上完全替换该实体，除非服务器上的该实体自检索到它以后发生更改，在此情况下，该操作将失败。 操作失败将防止应用程序无意中覆盖应用程序的其他组件在检索与更新之间所做的更改。 正确处理此失败的方法是再次检索实体，进行更改（如果仍有效），并执行另一个 **table_operation::replace_entity** 操作。 下一节将演示如何重写此行为。  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -425,7 +425,7 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 ```
 
 ## <a name="delete-a-table"></a>删除表
-最后，以下代码示例从存储帐户中删除表。 在删除表之后的一段时间内无法重新创建它。  
+最后，以下代码示例将从存储帐户中删除表。 在删除表之后的一段时间内无法重新创建它。  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -457,3 +457,5 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 * [使用 C++ 列出 Azure 存储资源](../storage/common/storage-c-plus-plus-enumeration.md)
 * [适用于 C++ 的存储客户端库参考](http://azure.github.io/azure-storage-cpp)
 * [Azure 存储文档](/storage/)
+
+<!-- Update_Description: update meta properties, update link -->

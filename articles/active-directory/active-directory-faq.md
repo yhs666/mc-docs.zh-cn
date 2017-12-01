@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/16/2017
-ms.date: 08/22/2017
+origin.date: 11/08/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: ef230f63f9ca23f758c4c1e49e88351e06b3fe5e
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 5ed52afaea524bf52add886f06ca34218ed6182f
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决�
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>访问 Azure 和 Azure Active Directory
-**问：尝试在 Azure 经典管理门户 (https://manage.windowsazure.cn) 中访问 Azure AD 时，为何收到“找不到订阅”？**
+**问：尝试在 Azure 经典管理门户中访问 Azure AD 时，为何收到“找不到订阅”？**
 
 **答：** 若要访问 Azure 经典管理门户，每个用户都需要 Azure 订阅的权限。 如果订阅为付费型 Office 365 订阅或 Azure AD 订阅，请访问 [http://aka.ms/accessAAD](http://aka.ms/accessAAD) ，了解一次性激活步骤。 否则需要激活 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/) 或付费型订阅。
 
@@ -121,7 +121,7 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 对于 Azure AD 帐户，管理员可以使用以下选项之一重置密码：
 
 - [在经典管理门户中重置帐户](active-directory-create-users-reset-password.md)
-- [使用 PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0/)
+- [使用 PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
 - - -
@@ -178,4 +178,4 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 **答：**不可以。 Azure AD 不支持 LDAP 协议。
 
-<!--Update_Description: update metadata properties -->  
+<!--Update_Description: wording update -->

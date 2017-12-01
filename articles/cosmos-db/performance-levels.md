@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/28/2017
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee2f09a88e45f1a27466a610c7f73dbbe8ab157b
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 299d451a0d05a5873558fb3957421b4a34cfdaa2
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 09/22/2017
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>为何要停用 S1、S2 和 S3 性能级别？
 
-S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性。 使用 S1、S2、S3 性能级别时，吞吐量和存储容量都是预设的，没有任何弹性。 现在，Azure Cosmos DB 允许用户自定义吞吐量和存储，大幅提高随需求变化而缩放的灵活性。
+S1、S2 和 S3 性能级别无法提供 Cosmos DB API 集合可提供的灵活性。 使用 S1、S2、S3 性能级别时，吞吐量和存储容量都是预设的，没有任何弹性。 现在，Azure Cosmos DB 允许用户自定义吞吐量和存储，大幅提高随需求变化而缩放的灵活性。
 
 <a name="compare"></a>
 
@@ -56,7 +56,7 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 |   |分区集合|单区集合|S1|S2|S3|
 |---|---|---|---|---|---|
 |最大吞吐量|不受限制|10K RU/s|250 RU/s|1 K RU/s|2.5 K RU/秒|
-|最小吞吐量|2.5K RU/秒|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/秒|
+|最小吞吐量|2.5 K RU/秒|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/秒|
 |最大存储|不受限制|10 GB|10 GB|10 GB|10 GB|
 <!-- 不可用 |价格|吞吐量：6 美元/100 RU/s<br><br>存储：0.25 美元/GB|吞吐量：6 美元/100 RU/s<br><br>存储：0.25 美元/GB|25 美元|50 美元|100 美元|-->
 
@@ -72,7 +72,7 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 ## <a name="how-will-my-collection-change-after-the-migration"></a>迁移后，集合会发生怎样的变化？
 
-如果有 S1 集合，该集合将迁移到吞吐量为 400 RU/s 的单区集合。 400 RU/s 是单区集合提供的最低吞吐量。 但是，单区集合中 400 RU/s 吞吐量的费用与 S1 集合中 250 RU/s 吞吐量的费用大致相等 - 因此不需要为额外的 150 RU/s 付费。
+如果有 S1 集合，该集合将迁移到吞吐量为 400 RU/s 的单区集合。 400 RU/s 是单区集合提供的最低吞吐量。 但是，单分区集合中 400 RU/秒吞吐量的费用大致与 S1 集合中 250 RU/秒吞吐量的费用相同 - 因此，不需要为提供的额外 150 RU/秒付费。
 
 如果有 S2 集合，该集合将迁移到吞吐量为 1 K RU/s 的单区集合。 吞吐量级别没有可见变化。
 
@@ -117,31 +117,31 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 1. 在 [**Azure 门户**](https://portal.azure.cn)中单击“Azure Cosmos DB”，然后选择要修改的 Cosmos DB 帐户。 
 
-    如果跳转栏上没有“Azure Cosmos DB”，请单击“>”，滚动到“数据库”，选择“Azure Cosmos DB”，然后选择 DocumentDB 帐户。  
+    如果跳转栏上没有“Azure Cosmos DB”，请单击 >，滚动到“数据库”，选择“Azure Cosmos DB”，并选择帐户。  
 
-2. 在资源菜单中的“容器”下单击“缩放”，从下拉列表中选择要修改的集合，然后单击“定价层”。 使用预定义吞吐量的帐户拥有定价层 S1、S2 或 S3。  在“选择定价层”边栏选项卡中，单击“标准”以更改为用户定义的吞吐量，然后单击“选择”保存更改。
+2. 在资源菜单中的“容器”下单击“缩放”，从下拉列表中选择要修改的集合，然后单击“定价层”。 使用预定义吞吐量的帐户拥有定价层 S1、S2 或 S3。  在“选择定价层”页中，单击“标准”以更改为用户定义的吞吐量，并单击“选择”保存更改。
 
-    ![显示在何处更改吞吐量值的“设置”边栏选项卡屏幕截图](./media/performance-levels/change-performance-set-thoughput.png)
+    ![显示在何处更改吞吐量值的“设置”页屏幕截图](./media/performance-levels/change-performance-set-thoughput.png)
 
-3. 返回到“规模”边栏选项卡中，“定价层”已更改为“标准”，“吞吐量(RU/s)”框显示默认值 400。 可以在 400 和 10,000 [请求单位](request-units.md)/秒 (RU/s) 之间设置吞吐量。 页面底部的“估计的每月帐单”  自动更新以提供月成本估计值。 
+3. 返回到“规模”页中，“定价层”已更改为“标准”，“吞吐量(RU/s)”框显示默认值 400。 可以在 400 和 10,000 [请求单位](request-units.md)/秒 (RU/s) 之间设置吞吐量。 页面底部的“估计的每月帐单”  自动更新以提供月成本估计值。 
 
     >[!IMPORTANT] 
     > 保存更改后并转移到标准定价层后，无法回滚到 S1、S2 或 S3 性能级别。
 
 4.  以保存更改。
 
-    如果确定需要更多吞吐量（大于 10,000 RU/s）或更多存储（大于 10GB），可以创建分区集合。 若要将单分区集合迁移到分区集合，请参阅[从单分区迁移到分区集合](documentdb-partition-data.md#migrating-from-single-partition)。
+    如果确定需要更多吞吐量（大于 10,000 RU/秒）或更多存储（大于 10GB），可以创建分区集合。 若要将单分区集合迁移到分区集合，请参阅[从单分区迁移到分区集合](documentdb-partition-data.md#migrating-from-single-partition)。
 
     > [!NOTE]
-    > 从 S1、S2 或 S3 切换到标准定价层最长可能需要 2 分钟时间。
+    > 从 S1、S2 或 S3 更改为“标准”定价层最长可能需要 2 分钟时间。
     > 
     > 
 
 **使用 .NET SDK 迁移到单区集合**
 
-另一个更改集合的性能级别的选项便是通过我们的 SDK 进行操作。 本部分只介绍了使用 [DocumentDB .NET API](documentdb-sdk-dotnet.md) 更改集合的性能级别，但对于其他 SDK，过程也是相似的。
+另一个更改集合的性能级别的选项便是通过 Azure Cosmos DB SDK 进行操作。 本部分只介绍了使用 [Cosmos DB .NET API](documentdb-sdk-dotnet.md) 更改集合的性能级别，但对于我们的其他 SDK，过程也是相似的。
 
-下面是可将集合吞吐量更改为每秒 5,000 个请求单位的代码片段：
+以下代码片段可将集合吞吐量更改为每秒 5,000 个请求单位：
 
 ```C#
     //Fetch the resource to be updated
@@ -176,4 +176,4 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 2.  [Cosmos DB 定价](https://www.azure.cn/pricing/details/cosmos-db/)。 了解预配吞吐量和使用存储的费用。
 3.  [请求单位](request-units.md)。 了解不同操作类型（例如读取、写入和查询）的吞吐量消耗。
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties, wording update -->

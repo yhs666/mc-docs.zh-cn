@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/13/2017
-ms.date: 07/31/2017
+origin.date: 11/08/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 10967859feaf5081dd50824f9250229aa1bd159f
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 12737985d810d63e66f2e0027aac6b969d9f9240
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Azure AD 联合身份验证兼容性列表
 Azure Active Directory 为 Office 365 和其他 Microsoft Online 服务提供单一登录与增强的应用程序访问安全性，以便在不使用任何非 Microsoft 解决方案的情况下实施混合部署和仅限云的部署。 与大多数 Microsoft Online 服务一样，Office 365 可与 Azure Active Directory 集成，以利用目录服务、身份验证和授权。 Azure Active Directory 还为数千种 SaaS 应用程序与本地 Web 应用程序提供单一登录。 有关支持的 SaaS 应用程序，请参阅 Azure Active Directory 应用程序库。
@@ -47,6 +47,7 @@ Azure Active Directory 为 Office 365 和其他 Microsoft Online 服务提供单
 - [Centrify](#centrify) 
 - [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
 - [DigitalPersona 复合身份验证](#digitalpersona-composite-authentication)
+- [ForgeRock 标识平台访问管理 V5.x](#forgerock-identity-platform-access-management-v5x)
 - [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
 - [IceWall Federation Version 3.0](#icewall-federation-version-30) 
 - [Memority](#memority)
@@ -171,9 +172,6 @@ Azure Active Directory 为 Office 365 和其他 Microsoft Online 服务提供单
 | 富客户端应用程序（如 Lync、Office Subscription、CRM） |支持 |无 |
 | 多重格式电子邮件客户端（如 Outlook 和 ActiveSync） |支持 |无 |
 
-有关 Dell One Identity Cloud Access Manager 的详细信息，请参阅 [Dell One Identity Cloud Access Manager](http://software.dell.com/products/cloud-access-manager)。
-
- 有关如何配置此 STS 从而为 Office 365 用户提供单一登录体验的说明，请参阅[配置 Office 365 用户](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365)。 
 
 ## DigitalPersona 复合身份验证 <a name="digitalpersona-composite-authentication"></a>
 
@@ -187,6 +185,17 @@ Azure Active Directory 为 Office 365 和其他 Microsoft Online 服务提供单
 
 有关详细信息，请参阅 [DigitalPersona 复合身份验证](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf)。
 
+## ForgeRock 标识平台访问管理 V5.x <a name="forgerock-identity-platform-access-management-v5x"></a>
+
+下面是此单一登录体验的方案支持对照表：
+
+| 客户端 | 支持 | 异常 |
+| --- | --- | --- |
+| 基于 Web 的客户端（如 Exchange Web Access 和 SharePoint Online） |支持 |无|
+| 富客户端应用程序（如 Lync、Office Subscription、CRM） |支持 |无|
+| 多重格式电子邮件客户端（如 Outlook 和 ActiveSync） |支持 |无 |
+
+有关详细信息，请参阅 [ForgeRock 标识平台访问管理 V5.x](https://backstage.forgerock.com/knowledge/kb/article/a98278517)。
 
 ## IBM Tivoli Federated Identity Manager 6.2.2 <a name="ibm-tivoli-federated-identity-manager-622"></a>
 
@@ -378,4 +387,4 @@ Sign&go 5.3 支持通过配置 Kerberos 约定实现 Kerberos 身份验证。  �
 
 有关详细信息，请参阅 [VMware Workspace One](http://www.vmware.com/pdf/vidm-office365-saml.pdf)
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

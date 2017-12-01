@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: bb67594e195807252a532dc3bef4c54169b8055c
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 76aa36ab2a707cfd0f28264531f844f0999bddf6
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect：从旧版升级到最新版本
 本主题介绍可将 Azure Active Directory (Azure AD) Connect 安装升级到最新版本的不同方法。 建议使用最新版本的 Azure AD Connect。 进行重大配置更改时，也可以使用[交叉迁移](#swing-migration)部分所述的步骤。
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/04/2017
 有关权限信息，请参阅[升级所需权限](active-directory-aadconnect-accounts-permissions.md#upgrade)。
 
 > [!NOTE]
-> 启用新的 Azure AD Connect 服务器并开始将更改同步到 Azure AD 以后，不得通过回退来使用 DirSync 或 Azure AD Sync。 不支持从 Azure AD Connect 降级到旧客户端（包括 DirSync 和 Azure AD Sync），那样可能会导致各种问题，例如数据在 Azure AD 中丢失。
+> 启用新的 Azure AD Connect 服务器并开始将更改同步到 Azure AD 以后，不得通过回退来使用 DirSync 或 Azure AD Sync。不支持从 Azure AD Connect 降级到旧客户端（包括 DirSync 和 Azure AD Sync），那样可能会导致各种问题，例如数据在 Azure AD 中丢失。
 
 ## <a name="in-place-upgrade"></a>就地升级
 就地升级适用于从 Azure AD Sync 或 Azure AD Connect 迁移。 它不适用于从 DirSync 迁移，也不适用于使用 Forefront Identity Manager (FIM) + Azure AD 连接器的解决方案。
@@ -48,6 +48,8 @@ ms.lasthandoff: 08/04/2017
 如果已更改现成的同步规则，这些规则会在系统升级完成之后重置为默认配置。 为了确保配置在每次升级之后得到保留，请务必按照[更改默认配置的最佳做法](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)中所述的步骤来更改配置。
 
 在就地升级过程中，可能会引入更改，要求在升级完成后执行特定同步活动（包括完全导入步骤和完全同步步骤）。 若要推迟这些活动，请参考[如何在升级后推迟完全同步](#how-to-defer-full-synchronization-after-upgrade)部分。
+
+如果正在将 Azure AD Connect 与非标准连接器（例如泛型 LDAP 连接器和泛型 SQL 连接器）配合使用，则必须在就地升级后，刷新 [Synchronization Service Manager](/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) 中的相应连接器配置。 有关如何刷新连接器配置的详细信息，请参阅文章[连接器版本发行历史记录 - 故障排除](/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting)。 如果不刷新配置，针对连接器的导入和导出运行步骤将无法正常工作。 将在应用程序事件日志中收到如下错误，内容为“AAD 连接器配置 ("X.X.XXX.X") 中的程序集版本低于 "C:\Program Files\Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll" 的实际版本 ("X.X.XXX.X")。
 
 ## 交叉迁移 <a name="swing-migration"></a>
 如果部署复杂或者有多个对象，在活动的系统上进行就地升级可能不切合实际。 对于某些客户来说，此过程可能要花费几天时间，在此期间无法处理任何增量更改。 如果打算对配置进行重大更改，并且希望在将这些更改推送到云之前对其进行测试，则也可以使用此方法。

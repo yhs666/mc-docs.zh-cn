@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 09/25/2017
+origin.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: d38b5e88149f948bac3c21a7cec568a82caee4d6
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 77735a0b831a991ae5f1b99533bfcf33116fcb73
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Azure Cosmos DB 常见用例
 本文概述了 Azure Cosmos DB 的几个常见用例。  本文中的建议可以作为使用 Cosmos DB 开发应用程序的一个起点。   
@@ -36,11 +36,11 @@ ms.lasthandoff: 09/22/2017
 
 Azure Cosmos DB 项目在 2011 年以“Project Florence”的名义开始解决 Microsoft 内部大型 Internet 规模应用程序开发人员所面临的难题。 考虑到这些问题并不单纯发生在 Microsoft 的应用程序中，因此，2015 年我们决定以 [Azure Cosmos DB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/) 的形式向外部开发人员正式推出 Azure Cosmos DB。 该服务在 Microsoft 内部很普及，在外部，它是 Azure 开发人员使用的发展最快的服务之一。 
 
-Azure Cosmos DB 是在各种应用程序和用例中广泛使用的全球分布式多模型数据库。 它对于需要低延迟毫秒级响应时间或需要全局快速缩放的任何[无服务器的](http://azure.com/serverless)应用程序都是一个不错的选择。 它原生以可扩展的方式支持多种数据模型（键-值、文档和纵栏表），以及用于数据访问的许多 API，包括 [MongoDB](mongodb-introduction.md)、[DocumentDB SQL](documentdb-introduction.md) 和 [Azure 表](table-introduction.md)。 
+Azure Cosmos DB 是在各种应用程序和用例中广泛使用的全球分布式多模型数据库。 它对于需要低延迟毫秒级响应时间或需要全局快速缩放的任何[无服务器的](http://azure.com/serverless)应用程序都是一个不错的选择。 它以可扩展的方式本机支持多种数据模型（键值、文档和纵栏式）和许多用于数据访问的 API，包括 [MongoDB API](mongodb-introduction.md)、[Cosmos DB API (SQL)](documentdb-introduction.md) 和[表 API](table-introduction.md)。 
 
 下面介绍了 Azure Cosmos DB 的几个属性，这些属性使 Cosmos DB 非常适用于想要实现全球分布的高性能应用程序。
 
-* Azure Cosmos DB 采用本机方式对数据进行分区，以实现高可用性和可伸缩性。 Azure Cosmos DB 99.99% 的保证可靠性、吞吐量、低延迟和一致性。
+* Azure Cosmos DB 采用本机方式对数据进行分区，以实现高可用性和可伸缩性。 Azure Cosmos DB 为所有单区域帐户和具有松散一致性的所有多区域帐户提供对可用性、吞吐量和一致性的 99.99% 保证，为所有多区域数据库帐户提供 99.999% 的读取可用性。
 * Azure Cosmos DB 采用由 SSD 提供支持的存储，具有低延迟毫秒级响应时间。
 * Azure Cosmos DB 支持最终、一致前缀、会话和受限停滞等一致性级别，从而实现充分的灵活性和较高的性价比。 Azure Cosmos DB 在级别一致性方面的灵活性超过任何其他数据库服务。 
 * Azure Cosmos DB 提供了灵活的数据友好型定价模式，独立测量存储和吞吐量。
@@ -65,7 +65,7 @@ Azure Cosmos DB 广泛用于 Microsoft 旗下运行 Windows 应用商店和 XBox
 
 目录数据使用方案涉及存储和查询人员、地点、产品等实体的一组属性。 目录数据的部分示例包括用户帐户、产品目录、IoT 设备注册表和物料系统清单。 此数据的属性可能会随时间的推移而发生变化和更改以满足应用程序要求。
 
-以汽车部件供应商的产品目录为例。 除所有部件共有的常见属性外，每个部件可能都具有其自己的属性。  而且，某个特定部件的属性还可能会在发布新型号之后的第二年发生变化。  Azure Cosmos DB 支持灵活的架构和分层数据，因此非常适用于存储产品目录数据。
+以汽车部件供应商的产品目录为例。 除所有部件共有的常见属性外，每个部件可能都具有其自己的属性。 而且，某个特定部件的属性还可能会在发布新型号之后的第二年发生变化。 Azure Cosmos DB 支持灵活的架构和分层数据，因此非常适用于存储产品目录数据。
 
 ![Azure Cosmos DB 零售目录参考体系结构](./media/use-cases/product-catalog.png)
 
@@ -119,12 +119,12 @@ Cosmos DB 支持的 JSON 格式是一种用于呈现 UI 布局数据的有效格
 * [TEXA](https://customers.microsoft.com/story/texaspa) TEXA 的革新性 IoT 解决方案可帮助车主节省时间、资金和燃气 - 同时有助于保护其安全。
 * [Domino's Pizza](https://www.dominos.com)。 Domino's Pizza Inc. 是美国的一家披萨连锁餐馆。
 * [Johnson Controls](http://www.johnsoncontrols.com)。 Johnson Controls 是一家全球性多元化科技公司，在多个行业占据领先地位，为 150 多个国家或地区的大量用户提供服务。
-* [Microsoft Windows、通用应用商店、Azure IoT 中心、Xbox Live 和其他 Internet 级服务](https://www.azure.cn/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/)。 Microsoft 如何使用 Azure Cosmos DB 构建高度可缩放的服务。
+* [Microsoft Windows、通用应用商店、Azure IoT 中心、Xbox Live 和其他 Internet 级服务](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/)。 Microsoft 如何使用 Azure Cosmos DB 构建高度可缩放的服务。
 * [Microsoft 数据和分析团队](https://customers.microsoft.com/story/microsoftdataandanalytics)。 Microsoft 数据和分析团队使用 Azure Cosmos DB 实现全球规模的大数据收集
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india)。Sulekha 使用 Azure Cosmos DB 连接整个印度的客户和企业。
 * [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb)。 NewOrbit 使用了 Azure Cosmos DB。
 * [Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale)。 Affinio 从 AWS 改用 Azure Cosmos DB 以大规模处理社交数据。
-* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/)。 “行尸走肉：无人之地”游戏在 Azure Cosmos DB 的支持下飙升至排行榜第 1 名。
+* [Next Games](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/)。 “行尸走肉：无人之地”游戏在 Azure Cosmos DB 的支持下飙升至排行榜第 1 名。
 * [Halo（光环）](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/)。 “光环 5”使用 Azure Cosmos DB 实现社交游戏玩法。
 * [Cortana Analytics Gallery](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/)。 Cortana Analytics Gallery - 构建在 Azure Cosmos DB 基础之上的可缩放社区站点。
 * [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602)。 领先集成商使用灵活的云技术在几分钟内为跨国公司提供全球见解。

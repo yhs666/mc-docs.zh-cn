@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/17/2017
+origin.date: 11/06/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 5ab8e763b92d9ba1d7137b3486d644b91164e380
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 12/04/2017
+ms.openlocfilehash: f0711a36866d5629450b30c1b89a73462b852506
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 中继 REST 教程
 本教程介绍如何生成简单的 Azure 中继主机应用程序，用于公开基于 REST 的接口。 REST 使 Web 客户端（例如 Web 浏览器）可通过 HTTP 请求访问服务总线 API。
 
-教程使用 Windows Communication Foundation (WCF) REST 编程模型在服务总线上构建 REST 服务。 有关详细信息，请参阅 WCF 文档中的 [WCF REST 编程模型](https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model)和[设计和实现服务](https://docs.microsoft.com/en-us/dotnet/framework/wcf/designing-and-implementing-services)。
+该教程使用 Windows Communication Foundation (WCF) REST 编程模型在 Azure 中继上构建 REST 服务。 有关详细信息，请参阅 WCF 文档中的 [WCF REST 编程模型](https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model)和[设计和实现服务](https://docs.microsoft.com/en-us/dotnet/framework/wcf/designing-and-implementing-services)。
 
 ## <a name="step-1-create-a-namespace"></a>第 1 步：创建命名空间
 
@@ -33,13 +33,13 @@ ms.lasthandoff: 07/14/2017
 ## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>步骤 2：定义基于 REST 的 WCF 服务协定用于 Azure 中继
 创建创建 WCF REST 样式的服务时，必须定义协定。 约定指定主机支持的操作。 服务操作可以看作是 Web 服务方法。 协定通过定义 C++、C# 或 Visual Basic 接口来创建。 接口中的每个方法都对应一个特定的服务操作。 必须将 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 属性应用到每个接口，且必须将 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 属性应用到每个操作。 如果具有 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 的接口中的方法没有 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx)，则该方法是不公开的。 该过程后面的示例中显示了这些任务所用的代码。
 
-WCF 协定和 REST 样式的协定的主要区别在于是否向 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 添加一个属性：[WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx)。 此属性允许你将接口中的方法映射到该接口另一侧的方法。 在此示例中，我们使用 [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) 将一个方法链接到 HTTP GET。 这将使服务总线可以准确地检索并解释发送到接口的命令。
+WCF 协定和 REST 样式的协定的主要区别在于是否向 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 添加一个属性：[WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx)。 此属性允许将接口中的方法映射到该接口另一侧的方法。 此示例使用 [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) 将一个方法链接到 HTTP GET。 这会使服务总线可以准确地检索并解释发送到接口的命令。
 
 ### <a name="to-create-a-contract-with-an-interface"></a>使用接口创建协定
 1. 以管理员身份打开 Visual Studio：在“开始”菜单中右键单击该程序，然后选择“以管理员身份运行”。
 2. 创建新的控制台应用程序项目。 单击“文件”菜单并选择“新建”，然后单击“项目”。 在“新建项目”对话框中，单击“Visual C#”，选择“控制台应用程序”模板，并将其命名为“ImageListener”。 使用默认“位置”。 单击“确定”以创建该项目  。
 3. 对于 C# 项目，Visual Studio 会创建 `Program.cs` 文件。 此类包含一个空的 `Main()` 方法，需要此方法才能正确生成控制台应用程序项目。
-4. 通过安装服务总线 NuGet 包，向项目添加对服务总线和 **System.ServiceModel.dll** 的引用。 该包自动添加对服务总线库和 WCF **System.ServiceModel**的引用。 在“解决方案资源管理器”中，右键单击“ImageListener”项目，然后单击“管理 NuGet 包”。 单击“浏览”选项卡，然后搜索 `Microsoft Azure Service Bus`。 单击“安装” 并接受使用条款。
+4. 通过安装服务总线 NuGet 包，向项目添加对服务总线和 **System.ServiceModel.dll** 的引用。 该包自动添加对服务总线库和 WCF **System.ServiceModel**的引用。 在“解决方案资源管理器”中，右键单击“ImageListener”项目，然后单击“管理 NuGet 包”。 单击“浏览”选项卡，并搜索 `Microsoft Azure Service Bus`。 单击“安装” 并接受使用条款。
 5. 必须在项目中显式添加对 **System.ServiceModel.dll** 的引用：
    
     a. 在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。
@@ -54,7 +54,7 @@ WCF 协定和 REST 样式的协定的主要区别在于是否向 [OperationContr
     using System.IO;
     ```
    
-    [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 是让你以通过编程方式访问 WCF 基本功能的命名空间。 WCF 中继使用 WCF 的许多对象和属性来定义服务协定。 将在大多数中继应用程序中使用此命名空间。 同样[System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) 可帮助定义通道，通道是用来与 Azure 中继和客户端 Web 浏览器通信的对象。 最后，[System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) 包含的类型可用于创建基于 Web 的应用程序。
+    使用 [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 命名空间，可以编程方式访问 WCF 的基本功能。 WCF 中继使用 WCF 的许多对象和属性来定义服务协定。 将在大多数中继应用程序中使用此命名空间。 同样[System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) 可帮助定义通道，通道是用来与 Azure 中继和客户端 Web 浏览器通信的对象。 最后，[System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) 包含的类型可用于创建基于 Web 的应用程序。
 7. 将 `ImageListener` 命名空间重命名为 **Microsoft.ServiceBus.Samples**。
    
     ```csharp
@@ -62,7 +62,7 @@ WCF 协定和 REST 样式的协定的主要区别在于是否向 [OperationContr
     {
         ...
     ```
-8. 在命名空间声明的左大括号后面，紧接着定义一个名为 **IImageContract** 的新接口，然后将 **ServiceContractAttribute** 属性应用于该接口，其值为 `http://samples.microsoft.com/ServiceModel/Relay/`。 该命名空间值不同于你在整个代码范围内使用的命名空间。 该命名空间值将用作此约定的唯一标识符，并应有版本控制信息。 有关详细信息，请参阅 [服务版本控制](http://go.microsoft.com/fwlink/?LinkID=180498)。 显式指定命名空间可防止将默认的命名空间值添加到约定名称中。
+8. 在命名空间声明的左大括号后面，紧接着定义一个名为 **IImageContract** 的新接口，然后将 **ServiceContractAttribute** 属性应用于该接口，其值为 `http://samples.microsoft.com/ServiceModel/Relay/`。 该命名空间值不同于在整个代码范围内使用的命名空间。 该命名空间值将用作此约定的唯一标识符，并应有版本控制信息。 有关详细信息，请参阅 [服务版本控制](http://go.microsoft.com/fwlink/?LinkID=180498)。 显式指定命名空间可防止将默认的命名空间值添加到约定名称中。
    
     ```csharp
     [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
@@ -89,14 +89,14 @@ WCF 协定和 REST 样式的协定的主要区别在于是否向 [OperationContr
     }
     ```
     
-    这样做可以让中继服务将 HTTP GET 请求路由到 `GetImage`，并将 `GetImage` 的返回值转换为 HTTP GETRESPONSE 答复。 稍后在本教程中，你将使用 Web 浏览器访问此方法，并将在浏览器中显示图像。
+    这样做可以让中继服务将 HTTP GET 请求路由到 `GetImage`，并将 `GetImage` 的返回值转换为 HTTP GETRESPONSE 答复。 稍后在本教程中，你会使用 Web 浏览器访问此方法，并在浏览器中显示图像。
 11. 直接在 `IImageContract` 定义的后面，声明从 `IImageContract` 和 `IClientChannel` 接口继承的通道。
     
     ```csharp
     public interface IImageChannel : IImageContract, IClientChannel { }
     ```
     
-    通道是服务和客户端用来互相传递信息的 WCF 对象。 稍后，你将在主机应用程序中创建通道。 然后 Azure 中继将使用该通道将浏览器的 HTTP GET 请求传递到 **GetImage** 实现。 中继还使用该通道获取 **GetImage** 返回值并将其转换为客户端浏览器的 HTTP GETRESPONSE。
+    通道是服务和客户端用来互相传递信息的 WCF 对象。 稍后会在主机应用程序中创建通道。 然后 Azure 中继将使用该通道将浏览器的 HTTP GET 请求传递到 **GetImage** 实现。 中继还使用该通道获取 **GetImage** 返回值并将其转换为客户端浏览器的 HTTP GETRESPONSE。
 12. 在“生成”菜单中，单击“生成解决方案”以确认工作的准确性。
 
 ### <a name="example"></a>示例
@@ -146,7 +146,7 @@ namespace Microsoft.ServiceBus.Samples
     {
     }
     ```
-    与其他接口实现类似，你可以在另一个文件中实现定义。 但是，在本教程中，实现所在的文件与接口定义和 `Main()` 方法所在的文件相同。
+    与其他接口实现类似，可以在另一个文件中实现定义。 但是，在本教程中，实现所在的文件与接口定义和 `Main()` 方法所在的文件相同。
 2. 将 [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) 属性应用到 **IImageService** 类，以指示该类是 WCF 协定的实现。
    
     ```csharp
@@ -156,12 +156,12 @@ namespace Microsoft.ServiceBus.Samples
     }
     ```
    
-    如前所述，此命名空间不是传统的命名空间， 而是用于标识协定的 WCF 体系结构的一部分。 有关详细信息，请参阅 WCF 文档中的[数据协定名称](https://msdn.microsoft.com/library/ms731045.aspx)主题。
+    如前所述，此命名空间不是传统的命名空间， 而是用于标识协定的 WCF 体系结构的一部分。 有关详细信息，请参阅 WCF 文档中的[数据协定名称](https://msdn.microsoft.com/library/ms731045.aspx)一文。
 3. 将一幅 .jpg 图像添加到项目中。  
    
     这是服务在接收浏览器中显示的图片。 右键单击项目，然后单击“添加”。 然后单击“现有项”。 使用“添加现有项”对话框浏览到相应的 .jpg，然后单击“添加”。
    
-    添加文件时，请确保在“文件名:”字段旁的下拉列表中选择“所有文件”。 本教程的余下部分假定图像的名称为“image.jpg”。 如果你的 .jpg 文件名不是这样，则必须重命名图像，或更改代码进行弥补。
+    添加文件时，请确保在“文件名:”字段旁的下拉列表中选择“所有文件”。 本教程的余下部分假定图像的名称为“image.jpg”。 如果 .jpg 文件名不是这样，则必须重命名图像，或更改代码进行弥补。
 4. 为确保正在运行的服务可以找到该图像文件，请在“解决方案资源管理器”中右键单击该图像文件，然后单击“属性”。 在“属性”窗格中，将“复制到输出目录”设置为“如果较新则复制”。
 5. 在项目中添加对 **System.Drawing.dll** 程序集的引用，以及以下关联的 `using` 语句。  
    
@@ -201,14 +201,14 @@ namespace Microsoft.ServiceBus.Samples
     }
     ```
    
-    此实现使用 **MemoryStream** 检索映像并准备将其流式传输到浏览器。 它将流位置设置为从零开始，将流内容声明为 jpeg，然后流式传输信息。
+    此实现使用 **MemoryStream** 检索映像并准备将其流式传输到浏览器。 它将流位置设置为从零开始，将流内容声明为 jpeg，并流式传输信息。
 8. 在“生成”菜单中，单击“生成解决方案”。
 
 ### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>定义配置以便在服务总线上运行 Web 服务
 1. 在“解决方案资源管理器”中，双击“App.config”文件以在 Visual Studio 编辑器中将其打开。
    
     **App.config** 文件包括服务名称、终结点（即，Azure 中继公开的、让客户端和主机相互通信的位置）和绑定（用于通信的协议类型）。 此处的主要差别在于，配置的服务终结点是指 [WebHttpRelayBinding](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.webhttprelaybinding) 绑定。
-2. `<system.serviceModel>` XML 元素是一个 WCF 元素，用于定义一个或多个服务。 在这里，它用于定义服务名称和终结点。 在 `<system.serviceModel>` 元素的下面（仍在 `<system.serviceModel>` 中）添加具有以下内容的 `<bindings>` 元素。 这样就定义了应用程序中使用的绑定。 你可以定义多个绑定，但在本教程中，你只要定义一个绑定。
+2. `<system.serviceModel>` XML 元素是一个 WCF 元素，用于定义一个或多个服务。 在这里，它用于定义服务名称和终结点。 在 `<system.serviceModel>` 元素的下面（仍在 `<system.serviceModel>` 中）添加具有以下内容的 `<bindings>` 元素。 这样就定义了应用程序中使用的绑定。 可以定义多个绑定，但在本教程中，只要定义一个绑定。
    
     ```xml
     <bindings>
@@ -222,7 +222,7 @@ namespace Microsoft.ServiceBus.Samples
     ```
    
     前面的代码定义了一个 WCF 中继 [WebHttpRelayBinding](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.webhttprelaybinding) 绑定，其中“relayClientAuthenticationType” 设置为“None”。 此设置表明使用此绑定的终结点将不需要客户端凭据。
-3. 在 `<bindings>` 元素后面添加 `<services>` 元素。 与绑定类似，可以在单个配置文件中定义多个服务。 但是，在本教程中，你只要定义一个服务。
+3. 在 `<bindings>` 元素后面添加 `<services>` 元素。 与绑定类似，可以在单个配置文件中定义多个服务。 但是，在本教程中，只要定义一个服务。
    
     ```xml
     <services>
@@ -239,7 +239,7 @@ namespace Microsoft.ServiceBus.Samples
     </services>
     ```
    
-    此步骤将配置一个服务，该服务使用前面定义的默认 **webHttpRelayBinding**。 此外，它还使用下一步骤中定义的默认 **sbTokenProvider**。
+    此步骤配置一个服务，该服务使用前面定义的默认 **webHttpRelayBinding**。 此外，它还使用下一步骤中定义的默认 **sbTokenProvider**。
 4. 在 `<services>` 元素的后面，使用以下内容创建 `<behaviors>` 元素，并将 “SAS_KEY” 替换为先前从 [Azure 门户][Azure portal]获得的共享访问签名 (SAS) 密钥。
    
     ```xml
@@ -428,7 +428,7 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="step-4-host-the-rest-based-wcf-service-to-use-azure-relay"></a>步骤 4：托管基于 REST 的 WCF 服务以使用 Azure 中继
-此步骤描述如何使用控制台应用程序通过 WCF 中继运行 Web 服务。 此步骤中编写的代码的完整列表将在过程后面的示例中提供。
+此步骤描述如何使用控制台应用程序通过 WCF 中继运行 Web 服务。 此步骤中编写的代码的完整列表会在过程后面的示例中提供。
 
 ### <a name="to-create-a-base-address-for-the-service"></a>为服务创建基本地址
 1. 在 `Main()` 函数声明中，创建一个变量，用于存储项目的命名空间。 请确保将 `yourNamespace` 替换为之前创建的中继命名空间的名称。
@@ -556,7 +556,7 @@ namespace Microsoft.ServiceBus.Samples
 3. 完成后，在命令提示符窗口中按 **Enter** 关闭应用程序。
 
 ## <a name="next-steps"></a>后续步骤
-在生成使用服务总线中继服务的应用程序后，请参阅以下文章了解有关 Azure 中继的详细信息：
+至此，你已使用 Azure 中继服务构建一个应用程序，接下来请参阅以下文章了解详细信息：
 
 * [Azure 服务总线体系结构概述](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Azure 中继概述](./relay-what-is-it.md)

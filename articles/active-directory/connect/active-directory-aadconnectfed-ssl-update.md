@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/02/2017
-ms.date: 08/24/2017
+origin.date: 11/15/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 0e4ae04fd5df16e0789c25f3987ee5374ab0ccc6
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 1f43a728411865e3fa262e4309f7c77ffbdf7ef9
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>更新 Active Directory 联合身份验证服务 (AD FS) 场的 SSL 证书
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/25/2017
 ## <a name="prerequisites"></a>先决条件
 
 - **AD FS 场**：确保 AD FS 场基于 Windows Server 2012 R2 或更高版本。
-- **Azure AD Connect**：确保 Azure AD Connect 的版本为 1.1.443.0 或更高版本。 将使用任务“更新 AD FS SSL 证书”。
+- **Azure AD Connect**：确保 Azure AD Connect 的版本为 1.1.553.0 或更高版本。 将使用任务“更新 AD FS SSL 证书”。
 
 ![更新 SSL 任务](./media/active-directory-aadconnectfed-ssl-update/updatessltask.png)
 
@@ -64,7 +64,7 @@ Azure AD Connect 尝试通过以下方式自动获取有关 AD FS 场的信息�
 
 ![SSL 证书](./media/active-directory-aadconnectfed-ssl-update/certificate.png)
 
-提供证书后，Azure AD Connect 将执行一系列先决条件检查。 验证证书，确保 AD FS 场的证书正确：
+提供证书后，Azure AD Connect 将进行一系列先决条件检查。 验证证书，确保 AD FS 场的证书正确：
 
 -   证书的使用者名称/备用使用者名称与联合身份验证服务名称相同，或者证书是通配符证书。
 -   证书的有效期超过 30 天。

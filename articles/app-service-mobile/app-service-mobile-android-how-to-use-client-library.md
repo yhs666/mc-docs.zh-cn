@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-origin.date: 04/25/2017
+origin.date: 11/16/2017
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: 24797ffb4bcdc58f1bf48438bdefe8135da2b579
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 12/04/2017
+ms.openlocfilehash: 55f160f40d5425f3c522f0dabd2888ef0d0ae719
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用用于 Android 的 Azure 移动应用 SDK
 
@@ -66,10 +66,10 @@ ms.lasthandoff: 10/30/2017
 2. 将以下代码添加到*依赖关系*标记内*模块应用*级别的 **build.gradle** 文件：
 
     ```text
-    compile 'com.microsoft.azure:azure-mobile-android:3.3.0'
+    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    目前的最新版本为 3.3.0。 [bintray][14] 中列出了支持的版本。
+    目前的最新版本为 3.4.0。 [bintray][14] 中列出了支持的版本。
 
 ###<a name="enable-internet"></a>启用 Internet 权限
 
@@ -235,8 +235,8 @@ public class ToDoItem
 
     @com.google.gson.annotations.SerializedName("version")
     private String mVersion;
-    public String getText() { return mVersion; }
-    public final void setText(String version) { mVersion = version; }
+    public String getVersion() { return mVersion; }
+    public final void setVersion(String version) { mVersion = version; }
 
     public ToDoItem() { }
 
@@ -986,7 +986,7 @@ dependencies {
     compile 'com.google.guava:guava:18.0'
     compile 'com.android.support:customtabs:23.0.1'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
-    compile 'com.microsoft.azure:azure-mobile-android:3.2.0@aar'
+    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
 }
 ```

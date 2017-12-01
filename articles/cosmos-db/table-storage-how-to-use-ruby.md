@@ -1,5 +1,5 @@
 ---
-title: "如何通过 Ruby 使用 Azure 表存储 | Azure"
+title: "如何配合使用 Ruby 和 Azure 表存储 | Azure"
 description: "使用 Azure 表存储（一种 NoSQL 数据存储）将结构化数据存储在云中。"
 services: cosmos-db
 documentationcenter: ruby
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-origin.date: 12/08/2016
-ms.date: 09/25/2017
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5e472ed544675211ab39883b053d4bef5c168faa
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 66afefea13da9161dc60e7f67bc80c72a81d95a6
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/24/2017
 ---
-# <a name="how-to-use-azure-table-storage-from-ruby"></a>如何通过 Ruby 使用 Azure 表存储
+# <a name="how-to-use-azure-table-storage-with-ruby"></a>如何配合使用 Ruby 和 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
@@ -167,4 +167,4 @@ azure_table_service.delete_table("testtable")
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 * [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) 存储库
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

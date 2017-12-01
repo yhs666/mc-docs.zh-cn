@@ -1,5 +1,5 @@
 ---
-title: "如何通过 Java 使用表存储 | Azure"
+title: "如何通过 Java 使用 Azure 表存储 | Azure"
 description: "使用 Azure 表存储（一种 NoSQL 数据存储）将结构化数据存储在云中。"
 services: cosmos-db
 documentationcenter: java
@@ -12,23 +12,25 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 088fb04273d0a175f28670bff22f26ca86c6811e
-ms.sourcegitcommit: fa7ac9d4e888435ef9e0c3251a90c9506571bc87
+ms.openlocfilehash: 8bcf840d520c404b49264517eab8230186b4a06b
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 11/24/2017
 ---
-# <a name="how-to-use-table-storage-from-java"></a>如何通过 Java 使用表存储
+# <a name="how-to-use-azure-table-storage-from-java"></a>如何通过 Java 使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>概述
 本指南将演示如何使用 Azure 表存储服务执行常见方案。 这些示例用 Java 编写并使用[用于 Java 的 Microsoft Azure 存储 SDK][Microsoft Azure Storage SDK for Java]。 涉及的方案包括创建、列出和删除表，以及在表中插入、查询、修改和删除实体。 有关表的详细信息，请参阅 [后续步骤](#Next-Steps) 部分。
 
-注意：为在 Android 设备上使用 Azure 存储的开发人员提供了 SDK。 有关详细信息，请参阅[用于 Android 的 Microsoft Azure 存储 SDK][Microsoft Azure Storage SDK for Android]。
+> [!NOTE]
+> SDK 提供给在 Android 设备上使用 Azure 存储的开发人员。 有关详细信息，请参阅[用于 Android 的 Microsoft Azure 存储 SDK][Microsoft Azure Storage SDK for Android]。
+>
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -72,7 +74,11 @@ String storageConnectionString =
 下面的示例假定使用了这两个方法之一来获取存储连接字符串。
 
 ## <a name="how-to-create-a-table"></a>如何：创建表
-利用 **CloudTableClient** 对象，可以获得表和实体的引用对象。 以下代码可创建 CloudTableClient 对象并使用它创建新的 CloudTable 对象，用于表示名为“people”的表。 （注意：还有其他方式可创建 CloudStorageAccount 对象；有关详细信息，请参阅 [Azure 存储客户端 SDK 参考]中的 CloudStorageAccount。）
+利用 **CloudTableClient** 对象，可以获得表和实体的引用对象。 以下代码可创建 CloudTableClient 对象并使用它创建新的 CloudTable 对象，用于表示名为“people”的表。 
+
+> [!NOTE]
+> 还有其他方式来创建 CloudStorageAccount 对象；有关详细信息，请参阅 [Azure 存储客户端 SDK 参考]中的 CloudStorageAccount。
+>
 
 ```java
 try
@@ -124,7 +130,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-add-an-entity-to-a-table"></a>如何：向表中添加实体
-实体将映射到使用实现了 **TableEntity** 的自定义类的 Java 对象。 为方便起见，TableServiceEntity 类实现 TableEntity，并使用反射将属性映射到以属性本身命名的 getter 和 setter 方法。 要将实体添加到表，首先要创建用于定义实体的属性的类。 以下代码定义了将客户的名字和姓氏分别用作行键和分区键的实体类。 实体的分区键和行键共同唯一地标识表中的实体。 查询分区键相同的实体的速度可以快于查询分区键不同的实体的速度。
+实体映射到 Java 对象，该对象使用可实现 **TableEntity** 的自定义类。 为方便起见，TableServiceEntity 类实现 TableEntity，并使用反射将属性映射到以属性本身命名的 getter 和 setter 方法。 要将实体添加到表，首先要创建用于定义实体的属性的类。 以下代码定义了将客户的名字和姓氏分别用作行键和分区键的实体类。 实体的分区键和行键共同唯一地标识表中的实体。 查询分区键相同的实体的速度可以快于查询分区键不同的实体的速度。
 
 ```java
 public class CustomerEntity extends TableServiceEntity {
@@ -574,7 +580,7 @@ catch (Exception e)
 * [Azure Storage REST API（Azure 存储 REST API）][Azure Storage REST API]
 * [Azure 存储团队博客][Azure Storage Team Blog]
 
-有关详细信息，请访问[面向 Java 开发人员的 Azure](https://docs.microsoft.com/java/azure)。
+有关详细信息，请访问[面向 Java 开发人员的 Azure](https://docs.azure.cn/java/azure)。
 
 [Azure SDK for Java]: /develop/java/
 [Microsoft Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
@@ -583,3 +589,5 @@ catch (Exception e)
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+
+<!-- Update_Description: update meta properties, update link -->

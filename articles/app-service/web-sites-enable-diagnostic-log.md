@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2016
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.openlocfilehash: 34e2f562be98a491500cb79ec1370d2d68801378
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: ad0ece22ae0c07f154824d3abb68c2a60476cdc1
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure 应用服务中启用 Web 应用的诊断日志记录
 ## <a name="overview"></a>概述
@@ -49,7 +49,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 将内容发布到某个 Web 应用时，应用服务 Web 应用还记录部署信息。 此操作自动执行，不会对部署日志记录进行配置设置。 部署日志记录允许确定部署失败的原因。 例如，如果使用自定义部署脚本，可能会使用部署日志记录确定该脚本失败的原因。
 
 ## <a name="enablediag"></a>如何启用诊断
-若要在 [Azure 门户](https://portal.azure.cn)中启用诊断，请转到 Web 应用的边栏选项卡，然后依次单击“设置”>“诊断日志”。
+若要在 [Azure 门户](https://portal.azure.cn)中启用诊断，请转到 Web 应用的页，并依次单击“设置”>“诊断日志”。
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![日志部分](./media/web-sites-enable-diagnostic-log/logspart.png)
@@ -114,7 +114,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 
     Save-AzureWebSiteLog -Name webappname
 
-这会将 **-Name** 参数指定的 Web 应用的日志保存到当前目录中名为 **logs.zip** 的文件。
+此命令会将 **-Name** 参数指定的 Web 应用的日志保存到当前目录中名为 **logs.zip** 的文件。
 
 > [!NOTE]
 > 如果尚未安装 Azure PowerShell，或尚未将其配置为使用 Azure 订阅，请参阅[如何使用 Azure PowerShell](/powershell-install-configure)。
@@ -126,7 +126,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 
     azure site log download webappname
 
-这会将名为“webappname”的 Web 应用的日志保存到当前目录中名为 **diagnostics.zip** 的文件。
+此命令将名为“webappname”的 Web 应用的日志保存到当前目录中名为 **diagnostics.zip** 的文件。
 
 > [!NOTE]
 > 如果尚未安装 Azure 命令行接口 (Azure CLI)，或尚未将其配置为使用 Azure 订阅，请参阅[如何使用 Azure CLI](../cli-install-nodejs.md)。
@@ -149,7 +149,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 
     Get-AzureWebSiteLog -Name webappname -Tail
 
-这会连接到 **-Name** 参数指定的 Web 应用，并在该 Web 应用上出现日志事件时开始将信息流式传输到 PowerShell 窗口。 写入以 .txt、.log 或 .htm 结尾并存储在 /LogFiles 目录 (d:/home/logfiles) 中文件的所有信息将流式传输至本地控制台。
+此命令连接到 **-Name** 参数指定的 Web 应用，并在该 Web 应用上出现日志事件时开始将信息流式传输到 PowerShell 窗口。 写入以 .txt、.log 或 .htm 结尾并存储在 /LogFiles 目录 (d:/home/logfiles) 中文件的所有信息将流式传输至本地控制台。
 
 若要筛选特定事件（如错误），请使用 **-Message** 参数。 例如：
 
@@ -169,17 +169,17 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 ### <a name="streaming-with-azure-command-line-interface"></a>使用 Azure 命令行接口进行流式传输
 若要流式传输日志记录信息，请打开新的命令行提示、PowerShell、Bash 或终端会话并输入以下命令：
 
-    azure site log tail webappname
+    az webapp log tail --name webappname --resource-group myResourceGroup
 
-这将连接到名为“webappname”的 Web 应用，并在该 Web 应用上出现日志事件时开始将信息流式传输到窗口。 写入以 .txt、.log 或 .htm 结尾并存储在 /LogFiles 目录 (d:/home/logfiles) 中文件的所有信息将流式传输至本地控制台。
+此命令连接到名为“webappname”的 Web 应用，并在该 Web 应用上出现日志事件时开始将信息流式传输到窗口。 写入以 .txt、.log 或 .htm 结尾并存储在 /LogFiles 目录 (d:/home/logfiles) 中文件的所有信息将流式传输至本地控制台。
 
 若要筛选特定事件（如错误），请使用 **--Filter** 参数。 例如：
 
-    azure site log tail webappname --filter Error
+    az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
 
 若要筛选特定日志类型（如 HTTP），请使用 **--Path** 参数。 例如：
 
-    azure site log tail webappname --path http
+    az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
 > 如果尚未安装 Azure 命令行接口，或尚未将其配置为使用 Azure 订阅，请参阅[如何使用 Azure 命令行接口](../cli-install-nodejs.md)。
@@ -247,7 +247,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 >
 
 ### <a name="failed-request-traces"></a>失败请求跟踪
-失败请求跟踪存储在名为 **fr######.xml** 的 XML 文件中。 为了便于查看记录信息，在 XML 文件所在目录中提供了一个名为 **freb.xsl** 的 XSL 样式表。 在 Internet Explorer 中打开其中一个 XML 文件，使用 XSL 样式表提供易于阅读的跟踪信息。 显示结果类似如下所示：
+失败请求跟踪存储在名为 **fr######.xml** 的 XML 文件中。 为了便于查看记录信息，在 XML 文件所在目录中提供了一个名为 **freb.xsl** 的 XSL 样式表。 如果在 Internet Explorer 中打开其中一个 XML 文件，Internet Explorer 会使用 XSL 样式表提供易于阅读的跟踪信息。 这会显示类似如下内容：
 
 ![在浏览器中查看失败请求](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -267,6 +267,3 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 * [在 Visual Studio 中对 Azure Web 应用进行故障排除](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [在 HDInsight 中分析 Web 应用日志](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
-## <a name="whats-changed"></a>更改内容
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](app-service-web-overview.md)
-* 有关从旧门户更改为新门户的指南，请参阅：[有关在 Azure 门户中导航的参考](app-service-web-app-azure-portal.md)

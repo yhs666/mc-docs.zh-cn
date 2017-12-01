@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 07/31/2017
+origin.date: 10/119/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: c16d9bdd0fe2b5899a679879767aa57812a59471
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 090e29f11ed805debc37f2e4038ef256e3e49544
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Lotus Domino 连接器技术参考
 本指南介绍 Lotus Domino 连接器。 本文适用于以下产品：
@@ -40,7 +40,7 @@ ms.lasthandoff: 08/04/2017
 | 连接的数据源 |服务器： <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>客户端：<li>Lotus Domino 8.5.x</li><li>Lotus Notes 9.x</li> |
 | 方案 |<li>对象生命周期管理</li><li>组管理</li><li>密码管理</li> |
 | 操作 |<li>完整和增量导入</li><li>导出</li><li>在“HTTP 密码”上设置和更改密码</li> |
-| 架构 |<li>人员（漫游用户、联系人（无证书人员））</li><li>组</li><li>资源（资源、房间、联机会议）</li><li>邮件数据库</li><li>动态发现受支持对象的属性</li> |
+| 架构 |<li>人员（漫游用户、联系人（无证书人员））</li><li>组</li><li>资源（资源、房间、联机会议）</li><li>邮件数据库</li><li>动态发现受支持对象的属性</li><li>最多支持 250 个具有组织和组织单位 (OU) 的自定义认证者</li> |
 
 Lotus Domino 连接器使用 Lotus Notes 客户端来与 Lotus Domino 服务器通信。 由于这种依赖关系，同步服务器上必须安装支持的 Lotus Notes 客户端。 客户端与服务器之间的通信是通过 Lotus Notes .NET Interop (Interop.domino.dll) 接口实现的。 此接口可帮助在 Microsoft.NET 平台和 Lotus Notes 客户端之间进行通信，并支持 Lotus Domino 文档和视图的访问。 在执行增量导入时，也可以使用 C++ 本机接口（取决于所选的增量导入方法）。
 
@@ -106,7 +106,7 @@ IBM Lotus Notes 客户端和 Domino 服务器使用 Notes 远程过程调用 (NR
 在功能页面上，请只安装所需的 Lotus Notes 功能和“客户端单一登录”。 必须要有单一登录，连接器才能登录到 Domino 服务器。  
 ![Notes2](./media/active-directory-aadconnectsync-connector-domino/notes2.png)
 
-**注意：** 请启动 Lotus Notes 一次，且启动时所使用的用户必须位于与将作为连接器服务帐户的帐户同一服务器上。 此外请务必在服务器上关闭 Lotus Notes 客户端。 客户端不能在连接器尝试连接到 Domino 服务器的同时运行。
+**注意：**请启动 Lotus Notes 一次，且启动时所使用的用户必须位于与将作为连接器服务帐户的帐户同一服务器上。 此外请务必在服务器上关闭 Lotus Notes 客户端。 客户端不能在连接器尝试连接到 Domino 服务器的同时运行。
 
 ### <a name="create-connector"></a>创建连接器
 若要创建 Lotus Domino 连接器，请在“同步服务”中选择“管理代理”和“创建”。 选择“Lotus Domino (Microsoft)”连接器。  
@@ -148,7 +148,7 @@ ServerName/DirectoryName 格式是此属性的首选格式，因为它可在连�
 
 必须要有此配置选项才能支持增量导入操作，因为它可让同步服务判断最后两次导入之间的更改。
 
->[!NOTE]
+>[!Note]
 从 2017 年 3 月更新开始，“全局参数”屏幕包括在删除用户的过程中删除用户的邮件数据库的选项。
 
 ![删除用户的邮箱](./media/active-directory-aadconnectsync-connector-domino/AdminP.png)
@@ -235,9 +235,9 @@ Lotus Domino 中有许多属性具有多个值。 相对应的 Metaverse 属性�
 - 默认
 - 多值转换为单值
 
-**默认** – 选择“默认”选项时，将导入所有属性的所有值。
+**默认** - 选择“默认”选项时，将导入所有属性的所有值。
 
-**多值转换为单值** – 选择此选项时，多值属性将转换成单值属性。 如果有多个值存在，则使用顶部的值（通常也是最新值）。
+**多值转换为单值** - 选择此选项时，多值属性将转换成单值属性。 如果有多个值存在，则使用顶部的值（通常也是最新值）。
 
 示例：person 对象的 Assistant 属性具有以下值：
 
@@ -496,4 +496,4 @@ Domino 连接器依赖 **目录助手** 功能来查找辅助通讯簿。 如果
 ## <a name="troubleshooting"></a>故障排除
 - 有关如何启用记录来排查连接器问题的信息，请参阅 [如何启用连接器的 ETW 跟踪](http://go.microsoft.com/fwlink/?LinkId=335731)。
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

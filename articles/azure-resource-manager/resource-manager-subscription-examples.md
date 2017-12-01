@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/03/2017
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 63de1fe6c6e38642cba610066ee532e2da0a7076
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 7777975aa48d7534c12bc3da1373bdfa3f270ba5
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>实施 Azure 企业基架的示例
 本主题举例说明了企业如何实施 [Azure 企业基架](resource-manager-subscription-governance.md)的建议事项。 其中使用一家虚构公司 Contoso 来演示常见方案的最佳实践。
@@ -70,7 +70,8 @@ Dave 为订阅分配了以下角色：
 * 另外，他还关心成本。 因此，他想要防止应用程序所有者不必要地创建成本不菲的虚拟机。  
 * 由于此应用程序为许多业务单位的开发人员提供服务，因此他想要使用业务单元和应用程序所有者标记每个资源。 使用这些标记，ETS 可向相应的团队计费。
 
-他创建了以下 [Resource Manager 策略](resource-manager-policy.md)：
+他创建了以下 Azure 策略：
+<!--Not Available on (../azure-policy/azure-policy-introduction.md) -->
 
 | 字段 | 效果 | 说明 |
 | --- | --- | --- |
@@ -200,4 +201,4 @@ Contoso IT 服务管理部门需要快速识别和处理威胁。 他们还希�
 ## <a name="next-steps"></a>后续步骤
 * 若要了解如何创建 Resource Manager 模板，请参阅[创建 Azure Resource Manager 模板的最佳实践](resource-manager-template-best-practices.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update -->

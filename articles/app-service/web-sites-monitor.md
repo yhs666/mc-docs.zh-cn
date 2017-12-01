@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/07/2016
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.openlocfilehash: 7274b597d78b8bb7e160fbe5c75cffc6b7a2fcf7
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 9d0eeb49076c8e29727737fb5433f6afe13047ee
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>如何：在 Azure 应用服务中监视 Web 应用
 [应用服务](app-service-web-overview.md)在 [Azure 门户](https://portal.azure.cn)中提供了内置监视功能。
@@ -57,9 +57,9 @@ ms.lasthandoff: 10/20/2017
 如果应用程序的使用量超过 **CPU（短期）**、**CPU（天）**或**带宽**配额，则将终止该应用程序，直到配额重置。 在此期间，所有传入请求都将导致 **HTTP 403**。
 ![][http403]
 
-如果超过应用程序**内存**配额，则重启该应用程序。
+如果超过应用程序**内存**配额，则将重启该应用程序。
 
-如果超过 **Filesystem** 配额，则任何写入操作都会失败，包括写入日志。
+如果超过**文件系统**配额，则任何写入操作都会失败，包括写入日志。
 
 可通过升级应用服务计划从应用中增加或删除配额。
 
@@ -73,15 +73,15 @@ ms.lasthandoff: 10/20/2017
 * **平均内存工作集**
   * 应用使用的平均内存量（以 MiB 为单位）。
 * **CPU 时间**
-  * 应用使用的 CPU 量（以秒为单位）。 有关此度量值的详细信息，请参阅：[CPU 时间与 CPU 百分比](#cpu-time-vs-cpu-percentage)
+  * 应用使用的 CPU 量（以秒为单位）。 有关此指标的详细信息，请参阅：[CPU 时间与 CPU 百分比](#cpu-time-vs-cpu-percentage)
 * **数据输入**
   * 应用使用的传入带宽量（以 MiB 为单位）。
 * **数据输出**
   * 应用使用的传出带宽量（以 MiB 为单位）。
 * **Http 2xx**
-  * 导致 http 状态代码的请求计数大于等于 200，但小于 300。
+  * 导致 HTTP 状态代码的请求计数大于等于 200，但小于 300。
 * **Http 3xx**
-  * 导致 http 状态代码的请求计数大于等于 300，但小于 400。
+  * 导致 HTTP 状态代码的请求计数大于等于 300，但小于 400。
 * **Http 401**
   * 导致 HTTP 401 状态代码的请求计数。
 * **Http 403**
@@ -91,9 +91,9 @@ ms.lasthandoff: 10/20/2017
 * **Http 406**
   * 导致 HTTP 406 状态代码的请求计数。
 * **Http 4xx**
-  * 导致 http 状态代码的请求计数大于等于 400，但小于 500。
+  * 导致 HTTP 状态代码的请求计数大于等于 400，但小于 500。
 * **Http 服务器错误**
-  * 导致 http 状态代码的请求计数大于等于 500，但小于 600。
+  * 导致 HTTP 状态代码的请求计数大于等于 500，但小于 600。
 * **内存工作集**
   * 应用当前使用的内存量（以 MiB 为单位）。
 * **请求**
@@ -102,7 +102,7 @@ ms.lasthandoff: 10/20/2017
 对于**应用服务计划**，可用度量值为：
 
 > [!NOTE]
-> 应用服务计划度量值仅适用于**基本**、**标准**和**高级** SKU 中的计划。
+> 应用服务计划指标仅适用于**基本**、**标准**和**高级**层中的计划。
 > 
 > 
 
@@ -122,11 +122,11 @@ ms.lasthandoff: 10/20/2017
 ### <a name="cpu-time-vs-cpu-percentage"></a>CPU 时间和 CPU 百分比
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
 
-有 2 个反映 CPU 使用率的度量值。 **CPU 时间**和 **CPU 百分比**
+有两个反映 CPU 使用率的指标。 **CPU 时间**和 **CPU 百分比**
 
 **CPU 时间**对托管在**免费**或**共享**计划中的应用很有用，因为这些应用的其中一个配额由应用所用的 CPU 时间定义。
 
-另一方面，**CPU 百分比**对托管在**基本**、**标准**和**高级**计划中的应用很有用，因为这些应用可以按比例扩大，并且该度量值能很好反映所有实例的总体使用情况。
+**CPU 百分比**对托管在**基本**、**标准**和**高级**计划中的应用很有用，因为这些应用可以按比例扩大，并且该指标能很好反映所有实例的总体使用情况。
 
 ## <a name="metrics-granularity-and-retention-policy"></a>度量值粒度和保留策略
 应用程序和应用服务计划的度量值由具有下列粒度和保留策略的服务进行记录和聚合：
@@ -139,18 +139,19 @@ ms.lasthandoff: 10/20/2017
 可以在 [Azure 门户](https://portal.azure.cn)中查看影响应用程序的各种**配额**和**指标**。
 
 可以在“设置”>“配额”下找到![][quotas]
-**配额**。 用户体验允许查看：(1) 配额名称、(2) 配额重置时间间隔、(3) 配额当前限制和 (4) 当前值。
+**配额**。 在 UX 中可以查看：(1) 配额名称、(2) 配额重置时间间隔、(3) 配额当前限制和 (4) 当前值。
 
-可以直接从资源边栏选项卡中访问![][metrics]
-**度量值**。 还可以通过以下操作自定义图表：(1) **单击**图表，并选择 (2)“编辑图表”。
+可以直接从资源页访问![][metrics]
+**指标**。 还可以通过以下操作自定义图表：(1) **单击**图表，并选择 (2)“编辑图表”。
 可在此处更改要显示的 (3) **时间范围**、(4) **图表类型**和 (5) **度量值**。  
 
 可以在此处了解有关度量值的详细信息：[监视服务度量值](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
 
 ## <a name="alerts-and-autoscale"></a>警报和自动缩放
-可以将应用或应用服务计划的指标挂接到警报
+可将应用或应用服务计划的指标挂接到警报。 有关详细信息，请参阅[接收警报通知](../monitoring-and-diagnostics/insights-alerts-portal.md)。
 
-托管在基本、标准或高级应用服务计划中的应用服务应用支持 **自动缩放**。 这样便可以配置监视应用服务计划度量值的规则，还能增加或减少根据需要提供其他资源或在过度预配时节约资金的实例计数。
+托管在基本、标准或高级应用服务计划中的应用服务应用支持**自动缩放**。 这样便可以配置监视应用服务计划度量值的规则，还能增加或减少根据需要提供其他资源或在过度预配时节约资金的实例计数。 可以在此处详细了解自动缩放：[如何缩放](../monitoring-and-diagnostics/insights-how-to-scale.md)。
+
 
 ## <a name="whats-changed"></a>发生的更改
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)

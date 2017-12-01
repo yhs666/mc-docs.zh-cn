@@ -16,11 +16,11 @@ ms.workload: na
 origin.date: 09/15/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
-ms.openlocfilehash: b192357ea86da9187d63098fabf15b2a3ee59267
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: e1a0e12d4d3b3a8602d408c4e0d788839fb8cfb7
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="customize-a-preconfigured-solution"></a>自定义预配置解决方案
 Azure IoT 套件提供的预配置解决方案演示了套件中的服务如何协力提供端到端解决方案。 从这个起点开始，有多个地方可以针对特定应用场景扩展和自定义解决方案。 以下各节描述了这些常见的自定义点。
@@ -220,7 +220,7 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 默认值为 10 分钟。 可以在 [TelmetryApiController.cs][lnk-telemetry-api-controller-02]中更改此值。
 
 ## <a name="manually-set-up-application-roles"></a>手动设置应用程序角色
-以下过程描述如何将 **Admin** 和 **ReadOnly** 应用程序角色添加到预配置解决方案中。 请注意，从 azureiotsuite.com 站点预配的预配置解决方案已经包含 **Admin** 和 **ReadOnly** 角色。
+以下过程描述如何将 **Admin** 和 **ReadOnly** 应用程序角色添加到预配置解决方案中。 请注意，从 azureiotsuite.cn 站点预配的预配置解决方案已经包含 **Admin** 和 **ReadOnly** 角色。
 
 **ReadOnly** 角色的成员可以看到仪表板和设备列表，但不能添加设备、更改设备属性或发送命令。  **Admin** 角色的成员具有对解决方案中所有功能的完全访问权限。
 
@@ -271,7 +271,7 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 10. 在 Azure 经典门户中，选择页面底部的“管理清单”，并选择“上传清单”上传在上一步保存的 .json 文件。
 11. 现在已将 **Admin** 和 **ReadOnly** 角色添加到应用程序中。
 
-12. 要将其中一个角色分配给你目录中的用户，请参阅 [azureiotsuite.com 站点上的权限][lnk-permissions]。
+12. 若要将其中一个角色分配给目录中的用户，请参阅 [azureiotsuite.cn 站点权限][lnk-permissions]。
 
 ## <a name="feedback"></a>反馈
 本文档是否涵盖你感兴趣的自定义内容？ 请在 [用户之声](https://feedback.azure.com/forums/321918-azure-iot)中添加功能建议，或对本文发表评论。 

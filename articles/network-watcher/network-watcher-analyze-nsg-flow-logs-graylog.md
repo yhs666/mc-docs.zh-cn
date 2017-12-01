@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/19/2017
-ms.date: 11/13/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9c154255e16450e2baf6673d64db16abbd2a6644
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.openlocfilehash: a72574405fbc64aaefa41b73d821d1e2158b9816
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>在 Azure 中使用网络观察程序与 Graylog 来管理和分析网络安全组流日志
 
@@ -149,9 +149,9 @@ Logstash 用于将 JSON 格式的流日志平展到流元组级别。 平展流�
     ```
 提供的 Logstash 配置文件由三个部分组成：input、filter 和 output。 input 节指定由 Logstash 处理的日志的输入源 - 在本例中，我们会使用 Azure 博客输入插件（在后续步骤中安装），以便访问 Blob 存储中存储的网络安全组流日志 JSON 文件。
 
-    The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
+然后，filter 部分将平展每个流日志文件，以便使每个单独的流元组及其关联属性成为单独的 Logstash 事件。
 
-    Finally, the output section forwards each Logstash event to the Graylog server. To suit your specific needs, modify the Logstash config file, as required.
+最后，output 部分将每个 Logstash 事件转发到 Graylog 服务器。 若要满足特定需要，可以根据需要修改 Logstash 配置文件。
 
     > [!NOTE]
     > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.
@@ -248,4 +248,4 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 访问[使用 Power BI 可视化网络安全组流日志](network-watcher-visualize-nsg-flow-logs-power-bi.md)，了解如何使用 Power BI 可视化网络安全组流日志。
 
-<!--Update_Description: new articles on network watcher anlyzd nsg flow logs graylog-->
+<!--Update_Description: wording update -->

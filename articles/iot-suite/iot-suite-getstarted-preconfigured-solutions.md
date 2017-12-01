@@ -16,11 +16,11 @@ ms.workload: na
 origin.date: 08/24/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
-ms.openlocfilehash: 26176ce99c8d134514d1a9bcd568d0f2c380b6b7
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: b2653af3f53c83ba63883b7f66ffafbcc5bc718d
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="get-started-with-the-preconfigured-solutions"></a>预配置的解决方案入门
 
@@ -346,10 +346,10 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 - **Simulator** 文件夹包含模拟设备的源代码。
 - **EventProcessor** 文件夹包含后端进程的源代码，可用于处理传入遥测。
 
-完成后，可在 [azureiotsuite.com][lnk-azureiotsuite] 站点的 Azure 订阅中删除预配置解决方案。 通过该站点，可轻松删除创建预配置解决方案时预配的所有资源。
+完成后，可从 [azureiotsuite.cn][lnk-azureiotsuite] 站点的 Azure 订阅中删除预配置解决方案。 通过该站点，可轻松删除创建预配置解决方案时预配的所有资源。
 
 > [!NOTE]
-> 若要确保删除与预配置解决方案相关的所有内容，请在 [azureiotsuite.com][lnk-azureiotsuite] 站点中删除这些内容，而不是删除门户中的资源组。
+> 若要确保删除与预配置解决方案相关的所有内容，请在 [azureiotsuite.cn][lnk-azureiotsuite] 站点中将其删除，而不是删除门户中的资源组。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -357,7 +357,7 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 - [远程监视预配置解决方案演练][lnk-rm-walkthrough]
 - [将设备连接到远程监视预配置解决方案][lnk-connect-rm]
-- [azureiotsuite.com 站点权限][lnk-permissions]
+- [azureiotsuite.cn 站点权限][lnk-permissions]
 
 [img-launch-solution]: ./media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: ./media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
@@ -402,7 +402,7 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 [img-healthy]: ./media/iot-suite-getstarted-preconfigured-solutions/healthy.png
 [1rmb-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-preconfigured-solutions]:./iot-suite-what-are-preconfigured-solutions.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-azureiotsuite]: https://www.azureiotsuite.cn
 [lnk-portal]: http://portal.azure.cn/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-rm-walkthrough]: ./iot-suite-remote-monitoring-sample-walkthrough.md
