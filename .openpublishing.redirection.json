@@ -5224,6 +5224,11 @@
       "source_path": "articles/power-bi-embedded/power-bi-embedded-whats-new.md",
       "redirect_url": "/power-bi-workspace-collections/whats-new",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-embedded/index.md",
+      "redirect_url": "/power-bi-workspace-collections",
+      "redirect_document_id": false
     }
   ]
 }
