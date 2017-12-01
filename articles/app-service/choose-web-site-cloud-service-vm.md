@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/07/2016
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 2a0f8482ae2ce8c3efc216b0381f2eca32c03a82
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: c9563ceb7d3d390e8c33c13ed052d8e564f48409
+ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/24/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure 应用服务、虚拟机、Service Fabric 和云服务的比较
 ## <a name="overview"></a>概述
@@ -103,21 +103,21 @@ Azure 应用服务可轻松避免在迁移较旧的 IIS6 应用程序时带来�
 * 自动转移 SQL 数据库与旧的应用程序。
 
 ### <a id="smallbusiness"></a>我是小型企业所有者，我需要使用一种成本较低的方式来托管站点，同时也要兼顾将来的业务增长。
-Azure 应用服务是适合该情况的强大解决方案，原因是其可免费使用且随后可按需添加更多功能。 每个免费 Web 应用都附带一个 Azure 提供的域 (*your_company*.chinacloudsites.cn)，并且平台中包含集成的部署和管理工具。 还有许多其他服务和扩展选项，让站点可以随着用户需求的增加而发展。 通过 Azure 应用服务，可以：
+Azure 应用服务是适合该情况的强大解决方案，原因是其可免费使用且随后可按需添加更多功能。 每个免费的 Web 应用都附带 Azure 提供的域 (*your_company*.chinacloudsites.cn)，并且平台中包含集成的部署和管理工具，以及帮助用户轻松入门的应用程序库。 还有许多其他服务和扩展选项，让站点可以随着用户需求的增加而发展。 通过 Azure 应用服务，可以：
 
 * 从免费层开始，并根据需要向上扩展。
-* 设置常用的 Web 应用程序，如 WordPress。
+* 使用应用程序库快速设置流行的 Web 应用程序，如 WordPress。
 * 根据需要向应用程序添加其他 Azure 服务和功能。
 * 使用 HTTPS 保护 Web 应用。
 
 ### <a id="designer"></a> 我是 Web 或图形设计师，我想为客户设计和构建网站
 对 Web 开发人员和设计师而言，Azure 应用服务可与各种框架和工具轻松集成（包括 Git 和 FTP 的部署支持），并可与 Visual Studio 和 SQL 数据库等工具和服务紧密集成。 通过应用服务，可以：
 
-* 使用自动任务的命令行工具。
+* 将命令行工具用于[自动化任务][scripting]。
 * 使用流行的语言，如 [.Net][dotnet]、[PHP][PHP]、[Node.js][nodejs] 和 [Python][Python]。
 * 选择三个不同的扩展级别，向上扩展到超高容量。
 * 与其他 Azure 服务（例如 [SQL 数据库][sqldatabase]、[服务总线][servicebus]和[存储][Storage]）集成。
-* 与工具集成，例如 Visual Studio、Git、WebMatrix、WebDeploy 和 FTP。
+* 与工具集成，例如 Visual Studio、Git、WebMatrix、WebDeploy、TFS 和 FTP。
 
 ### <a id="multitier"></a>我要将带有 Web 前端的多层应用程序迁移到云中
 如果运行多层应用程序，如连接到数据库的 Web 服务器，Azure 应用服务则是一个不错的选择，它可以与 Azure SQL 数据库紧密集成。 还可以使用 WebJobs 功能运行后端进程。
@@ -137,7 +137,7 @@ Azure 应用服务是适合该情况的强大解决方案，原因是其可免�
 
 * 使用多种流行的开放源代码语言，如 [.NET][dotnet]、[PHP][PHP]、[Node.js][nodejs] 和 [Python][Python]。
 * 安装 WordPress、Drupal、Umbraco、DNN 和许多其他第三方 Web 应用程序。
-* 迁移现有应用程序。
+* 迁移现有应用程序，或通过应用程序库创建新的应用程序。
 
 如果应用服务不支持开源框架，则可在其他某个 Azure Web 托管选项上运行该框架。 使用虚拟机，可以在计算机映像（基于 Windows 或 Linux）上安装和配置软件。
 
@@ -168,8 +168,7 @@ Azure 应用服务是适合该情况的强大解决方案，原因是其可免�
 [Cloud Services]: /cloud-services/
 [Virtual Machines]: /virtual-machines/
 [Service Fabric]: /service-fabric/
-[ClearDB]: http://www.cleardb.com/
-[WebJobs]: https://github.com/Azure/azure-webjobs-sdk/wiki
+[WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
 [azurestore]: https://azuremarketplace.microsoft.com/marketplace/apps
 [scripting]: https://azure.microsoft.com/documentation/scripts/?services=web-sites
