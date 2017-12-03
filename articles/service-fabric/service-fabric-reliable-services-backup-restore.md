@@ -5,21 +5,21 @@ services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: subramar,jessebenson
+editor: subramar,zhol
 ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/18/2017
-ms.date: 09/11/2017
+origin.date: 11/06/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: a944e3d6f2b82ec03106e3a220b4a07183e974d3
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 1bcab3ae62bc2f1bef81ad29602194e78baccb86
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>备份和还原 Reliable Services 及 Reliable Actors
 Azure Service Fabric 是一个高可用性平台，用于复制多个节点中的状态以维护此高可用性。  因此，即使群集中的一个节点出现故障，服务也将继续可用。 尽管此平台提供的内置冗余对某些情况来说可能已经足够使用，但在特定情况下，仍需要服务备份数据（到外部存储）。
@@ -167,7 +167,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 
 在检测到这样一个导致数据损坏的严重 bug 之后首先要做的是在应用程序级别冻结服务，并且如果可以，请升级到没有此 bug 的应用程序代码版本。  但是，即使修复了服务代码，数据仍可能是损坏的，因此可能需要还原数据。  在此情况下，还原最新备份可能不足以解决问题，因为此最新备份可能已损坏。  因此，需要查找在数据被损坏之前创建的最新备份。
 
-如果用户不确定哪些备份已损坏，那么用户可以部署一个新的 Service Fabric 群集，并还原受影响分区的备份，正如上面的“删除或丢失服务”情况一样。  针对每个分区，从最新备份到最旧备份开始还原。 找到一个未被损坏的备份时，移动或删除此分区的较新（比此备份更新）的所有备份。 对每个分区重复此过程。 此时，如果在生产群集中的分区上调用 `OnDataLossAsync`，在外部存储中找到的最新备份是通过上述过程选取的备份。
+如果不确定哪些备份已损坏，那么可以部署一个新的 Service Fabric 群集，然后还原受影响分区的备份，正如上面的“删除或丢失服务”情况一样。  针对每个分区，从最新备份到最旧备份开始还原。 找到一个未被损坏的备份时，移动或删除此分区的较新（比此备份更新）的所有备份。 对每个分区重复此过程。 此时，如果在生产群集中的分区上调用 `OnDataLossAsync`，在外部存储中找到的最新备份是通过上述过程选取的备份。
 
 现在，可使用“删除或丢失服务”部分中的步骤将服务的状态还原到错误代码损坏此状态之前的状态。
 
@@ -178,7 +178,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 
 ## <a name="backup-and-restore-reliable-actors"></a>备份和还原 Reliable Actors
 
-Reliable Actors 框架在 Reliable Services 的基础之上构建。 托管执行组件的 ActorService 是有状态的 reliable service。 因此，Reliable Services 中提供的所有备份和还原功能也可用于 Reliable Actors（状态提供程序特定的行为除外）。 由于会基于每个分区执行备份，因此该分区中所有执行组件的状态都会进行备份（还原也类似，会基于每个分区进行）。 如果要执行备份/还原，服务所有者应创建一个派生自 ActorService 类的自定义执行组件服务类，并像之前部分所述的 Reliable Services 一样进行备份/还原。
+Reliable Actors 框架在 Reliable Services 的基础之上构建。 托管执行组件的 ActorService 是有状态的 reliable service。 因此，Reliable Services 中提供的所有备份和还原功能也可用于 Reliable Actors（状态提供程序特定的行为除外）。 由于会基于每个分区执行备份，因此该分区中所有执行组件的状态都会进行备份（还原也类似，会基于每个分区进行）。 要执行备份/还原，服务所有者应创建一个派生自 ActorService 类的自定义执行组件服务类，并像之前部分所述的 Reliable Services 一样进行备份/还原。
 
 ```csharp
 class MyCustomActorService : ActorService
@@ -269,4 +269,4 @@ class MyCustomActorService : ActorService
   - [Reliable Services 配置](service-fabric-reliable-services-configuration.md)
   - [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

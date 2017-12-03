@@ -10,11 +10,11 @@ ms.date: 11/27/2017
 ms.topic: article
 ms.service: virtual-machines
 ms.tgt_pltfrm: windows
-ms.openlocfilehash: 873ebda1df7c09eebb9671e02693fecc787ca485
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 84e5bbf7112bcd8e62952dcd7c9bf3423e45bb5e
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Windows 上的 VM 磁盘的可伸缩性和性能目标
 
@@ -31,6 +31,4 @@ ms.lasthandoff: 11/24/2017
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## <a name="see-also"></a>另请参阅
 
-[Azure 订阅和服务限制、配额和约束](/azure-subscription-service-limits)

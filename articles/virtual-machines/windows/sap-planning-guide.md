@@ -18,11 +18,11 @@ origin.date: 11/08/2016
 ms.date: 05/22/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6395e8bb39e5d56323e5969b858f6540be088a5
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 1b02e66c9e84068af1eb518be1542599bd75f96f
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="sap-netweaver-on-azure-windows-virtual-machines-vms---planning-and-implementation-guide"></a>Azure Windows 虚拟机 (VM) 上的 SAP NetWeaver - 规划和实施指南
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -75,8 +75,6 @@ ms.lasthandoff: 09/13/2017
 [azure-ps]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:sap-dbms-guide.md
 [dbms-guide-2.1]:sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
@@ -378,8 +376,6 @@ Azure 是 Microsoft 提供的一个云服务平台，它提供了各种新的可
 | [2002167] |Red Hat Enterprise Linux 7.x：安装和升级 |
 
 另请阅读 [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) ，其中包含适用于 Linux 的所有 SAP 说明。
-
-可以在 [此文][azure-subscription-service-limits-subscription]
 
 ## <a name="possible-scenarios"></a>可能的方案
 SAP 通常被视为企业中最关键的应用程序之一。 通常，这些应用程序的体系结构和操作非常复杂，因此，符合可用性与性能方面的要求十分重要。

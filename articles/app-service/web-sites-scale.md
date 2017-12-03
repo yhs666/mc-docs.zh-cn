@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 07/05/2016
 ms.date: 10/30/2017
 ms.author: v-yiso
-ms.openlocfilehash: 435488a7aa6cee89228382323a57beeccc9bce4d
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 1505bb26e45005f0b2cf970bbeaef2dfec28f187
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="scale-up-an-app-in-azure"></a>增加 Azure 中的应用
 本文介绍如何在 Azure 应用服务中缩放应用。 缩放的工作流有两种：向上缩放和向外缩放；本文介绍向上缩放工作流。
@@ -75,7 +75,6 @@ ms.lasthandoff: 10/20/2017
 
 ## <a name="compare-pricing-tiers"></a>比较定价层
 有关详细信息（例如每个定价层的 VM 大小），请参阅[应用服务定价详细信息](https://www.azure.cn/pricing/details/web-sites/)。
-有关服务限制、配额和约束的表以及每个层级所支持的功能，请参阅[应用服务限制](../azure-subscription-service-limits.md#app-service-limits)。
 
 <a name="OtherFeatures"></a>
 

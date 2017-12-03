@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/04/2017
+origin.date: 07/18/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: 08f270b96ee4633bc05838816e7b780bab207d0d
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 12/11/2017
+ms.openlocfilehash: 5f98fa96463bb4b5a8212befb32e5b745279b962
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>将 Azure 云服务角色连接到 Azure 中托管的自定义 AD 域控制器
 我们先在 Azure 中设置一个虚拟网络 (VNet)。 然后将 Active Directory 域控制器（托管在 Azure 虚拟机上）添加到该 VNet。 接下来，将现有云服务角色添加预先创建的 VNet，然后将它们连接到域控制器。
@@ -65,7 +65,7 @@ Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-完成虚拟网络的设置后，需要创建 AD 域控制器。 在本教程中，我们将在 Azure 虚拟机上设置 AD 域控制器。
+完成虚拟网络的设置后，需要创建 AD 域控制器。 在本教程中，我们会在 Azure 虚拟机上设置 AD 域控制器。
 
 为此，请在 PowerShell 中使用以下命令创建虚拟机：
 
@@ -87,7 +87,7 @@ New-AzureQuickVM -Windows -ServiceName $vmsvc1 -Name $vm1 -ImageName $imgname -A
 ```
 
 ## <a name="promote-your-virtual-machine-to-a-domain-controller"></a>将虚拟机提升为域控制器
-若要将虚拟机配置为 AD 域控制器，需要登录 VM 并对其进行配置。
+要将虚拟机配置为 AD 域控制器，需要登录 VM 并对其进行配置。
 
 若要登录 VM，你可以通过 PowerShell 获取 RDP 文件；请使用以下命令：
 
@@ -130,7 +130,7 @@ Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-
 </ServiceConfiguration>
 ```
 
-接下来，请生成云服务项目并将它部署到 Azure。 有关将云服务包部署到 Azure 的帮助，请参阅[如何创建和部署云服务](./cloud-services-how-to-create-deploy.md#how-to-deploy-a-cloud-service)
+接下来，请生成云服务项目并将它部署到 Azure。 有关将云服务包部署到 Azure 的帮助，请参阅[如何创建和部署云服务](cloud-services-how-to-create-deploy-portal.md)
 
 ## <a name="connect-your-webworker-roles-to-the-domain"></a>将 Web/辅助角色连接到域
 在 Azure 上部署云服务项目后，请使用 AD 域扩展将角色实例连接到自定义 AD 域。 若要将 AD 域扩展添加到现有云服务部署并加入自定义域，请在 PowerShell 中执行以下命令：

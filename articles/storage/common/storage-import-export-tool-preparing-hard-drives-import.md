@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/29/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 97fb48299f466b2c861db2d312f8154c0748cbc0
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 0a618145216c70f7b4ab3e8d0c9ec11fb3d7c18d
+ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器
 
@@ -86,7 +86,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | --- | --- |
 | BasePath | [必需]<br/>此参数的值表示要导入的数据的源。 此工具将以递归方式复制此路径下的所有数据。<br><br/>允许的值：这必须是本地计算机上的有效路径或者是有效的共享路径，并且应可以供用户访问。 目录路径必须是绝对路径（而非相对路径）。 如果路径以“\\”结尾，表示的是目录；如果路径不以“\\”结尾，表示的是文件。<br/>不允许在此字段中指定正则表达式。 如果路径包含空格，请将其输入到 "" 中。<br><br/>示例："c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | [必需]<br/> Microsoft Azure 存储帐户中目标虚拟目录的路径。 虚拟目录可能存在，也可能不存在。 如果不存在，则导入/导出服务会创建一个目录。<br/><br/>在指定目标虚拟目录或 blob 时，请确保使用有效的容器名称。 请记住，容器名称必须是小写的。 有关容器命名规则，请参阅[命名和引用容器、Blob 与元数据](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。 如果仅指定根，则在目标 Blob 容器中复制源的目录结构。 如果需要不同于源的目录结构，请在 CSV 中添加多行映射<br/><br/>可指定容器，或类似于 music/70s/ 的 blob 前缀。 目标目录必须以容器名称开头，后接正斜杠“/”，并且可以选择包含以“/”结尾的虚拟 blob 目录。<br/><br/>当目标容器为根容器时，必须显式指定包含正斜杠的根容器，例如 $root/。 由于根容器下的 blob 名称中不能包含“/”，因此当目标目录为根容器时，不会复制源目录中的任何子目录。<br/><br/>**示例**<br/>如果目标 blob 路径是 https://mystorageaccount.blob.core.chinacloudapi.cn/video，则此字段的值可以为 video/  |
-| /BlobType | [可选] block &#124; page<br/>导入/导出服务当前支持 2 种 blob。 页 blob 和块 blob。默认情况下，所有文件以块 blob 的形式导入。 \*.vhd 和 \*.vhdx 将以页 blob 的形式导入。块 blob 和页 blob 允许的大小有一定限制。 有关详细信息，请参阅[存储可伸缩目标](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files)。  |
+| /BlobType | [可选] block &#124; page<br/>导入/导出服务当前支持 2 种 blob。 页 blob 和块 blob。默认情况下，所有文件以块 blob 的形式导入。 \*.vhd 和 \*.vhdx 将以页 blob 的形式导入。块 blob 和页 blob 允许的大小有一定限制。 有关详细信息，请参阅[存储可伸缩目标](storage-scalability-targets.md)。  |
 | Disposition | [可选] rename &#124; no-overwrite &#124; overwrite <br/> 此字段指定导入期间 （即在将数据从磁盘上传到存储帐户时）发生复制行为。 可用选项包括：rename&#124;overwite&#124;no-overwrite。如果未指定任何选项，则使用默认选项“rename”。 <br/><br/>Rename：若有同名对象，则在目标中创建副本。<br/>Overwrite：使用更新的文件来覆盖该文件。 最后修改的文件优先。<br/>No-overwrite：如果文件已存在，则跳过写入该文件。|
 | MetadataFile | [可选] <br/>此字段的值是用户需要保留对象的元数据或者提供自定义元数据时可提供的元数据文件。 目标 Blob 的元数据文件的路径。 有关详细信息，请参阅[导入/导出服务元数据和属性文件格式](../storage-import-export-file-format-metadata-and-properties.md) |
 | PropertiesFile | [可选] <br/>目标 Blob 的属性文件的路径。 有关详细信息，请参阅[导入/导出服务元数据和属性文件格式](../storage-import-export-file-format-metadata-and-properties.md)。 |
@@ -403,9 +403,9 @@ WAImportExport 工具逐批读取和写入文件，每个批最多包含 100000 
 
 ### <a name="waimportexport-output"></a>WAImportExport 输出
 
-#### <a name="there-are-two-journal-files-which-one-should-i-upload-to-azure-portal"></a>有两个日记文件，应该将哪个文件上传到 Azure 门户？
+#### <a name="there-are-two-journal-files-which-one-should-i-upload-to-azure-portal"></a>其中有两个日记文件，应该将哪个文件上传到 Azure 门户？
 
-.xml - 对于使用 WAImportExport 工具准备的每个硬盘驱动器，该工具会创建一个日记文件，文件名为“`<DriveID>.xml`”，其中，DriveID 是与该工具从磁盘读取的驱动器关联的序列号。 在 Azure 门户中创建导入作业时，需要使用所有驱动器中的日记文件。 在工具中断的情况下，还可使用此日记文件来恢复驱动器准备操作。
+**.xml** - 对于使用 WAImportExport 工具准备的每个硬盘驱动器，该工具将创建一个日记文件，文件名为“`<DriveID>.xml`”，其中，DriveID 是与该工具从磁盘读取的驱动器关联的序列号。 在 Azure 门户中创建导入作业时，需要使用所有驱动器中的日记文件。 在工具中断的情况下，还可使用此日记文件来恢复驱动器准备操作。
 
 .jrn - 后缀为 `.jrn` 的日志文件包含硬盘的所有复制会话状态。 它还包含创建导入作业所需的信息。 运行 WAImportExport 工具时，始终必须指定一个日志文件，以及一个复制会话 ID。
 

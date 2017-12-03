@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/19/2017
-ms.date: 09/11/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: f43e2c0bff5ee47e33e19b9a9e225af5664cbc0a
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: c25ea7c2e50f59cca35f179930e51d4610f02037
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="operational-channel"></a>操作通道 
 
@@ -61,4 +61,4 @@ ms.lasthandoff: 09/08/2017
 * 将 [Azure 诊断](service-fabric-diagnostics-event-aggregation-wad.md)配置修改为收集更多日志
 * [设置 Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) 以查看操作通道日志
 
-<!--Update_Description: new articles of diagnostice event generation in service fabric -->
+<!--Update_Description: update meta properties -->

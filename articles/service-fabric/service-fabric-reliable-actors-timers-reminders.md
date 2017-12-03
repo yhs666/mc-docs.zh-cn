@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/21/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: e5662cd7c386e0bcf455caddae470c41aba705f8
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: d9b5d21173221393bef93c63eb10226c6baa7029
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="actor-timers-and-reminders"></a>执行组件计时器和提醒
 执行组件可通过注册计时器或提醒来计划自身的定期工作。 本文演示如何使用计时器和提醒，并说明它们之间的差异。
@@ -27,7 +27,7 @@ ms.lasthandoff: 08/17/2017
 ## <a name="actor-timers"></a>执行组件计时器
 执行组件计时器围绕 .NET 或 Java 计时器提供一个简单包装器，确保回叫方法采用 Actors 运行时提供的基于轮次的并发保证。
 
-执行组件可以对其基类使用 `RegisterTimer`(C#) 或 `registerTimer`(Java) 和 `UnregisterTimer`(C#) 或 `unregisterTimer`(Java) 方法以注册和注销其计时器。 下面的示例演示了如何使用计时器 API。 这些 API 非常类似于 .NET 计时器或 Java 计时器。 在此示例中，当计时器到期时，Actors 运行时会调用 `MoveObject`(C#) 或 `moveObject`(Java) 方法。 该方法可保证遵循基于轮次的并发。 这意味着，任何其他执行组件方法或计时器/提醒回调会一直进行，直到此回调完成执行为止。
+执行组件可以对其基类使用 `RegisterTimer`(C#) 或 `registerTimer`(Java) 和 `UnregisterTimer`(C#) 或 `unregisterTimer`(Java) 方法以注册和注销其计时器。 下面的示例演示了如何使用计时器 API。 这些 API 非常类似于 .NET 计时器或 Java 计时器。 在此示例中，当计时器到期时，Actors 运行时会调用 `MoveObject`(C#) 或 `moveObject`(Java) 方法。 可保证该方法遵循基于轮次的并发。 这意味着，任何其他执行组件方法或计时器/提醒回调会一直进行，直到此回调完成执行为止。
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
@@ -134,7 +134,7 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
 如果在垃圾回收过程中停用了执行组件，所有计时器都会停止。 此后不会调用任何计时器回调。 此外，执行组件运行时不保留有关在停用之前运行的计时器的任何信息。 这主要归功于执行组件可以注册在将来重新激活时需要的任何计时器。 有关详细信息，请参阅[执行组件垃圾回收](service-fabric-reliable-actors-lifecycle.md)部分。
 
 ## <a name="actor-reminders"></a>执行组件提醒
-提醒是一种机制，用于在指定时间对执行组件触发持久回调。 其功能类似于计时器。 但与计时器不同的是，提醒会在所有情况下触发，直到执行组件显式注销提醒或显式删除执行组件。 具体而言，提醒会在执行组件停用和故障转移间触发，因为执行组件运行时会保留有关执行组件提醒的信息。
+提醒是一种机制，用于在指定时间对执行组件触发持久回调。 其功能类似于计时器。 但与计时器不同的是，提醒会在所有情况下触发，直到执行组件显式注销提醒或显式删除执行组件。 具体而言，提醒会在执行组件停用和故障转移间触发，因为 执行组件运行时会使用执行组件状态提供程序保存有关执行组件提醒的信息。 请注意，提醒的可靠性关系到执行组件状态提供程序提供的状态可靠性保证。 这意味着，对于状态持久性设置为 None 的执行组件，故障转移后将不会触发提醒。 
 
 为了注册提醒，执行组件会调用基类上提供的 `RegisterReminderAsync` 方法，如以下示例中所示：
 
@@ -167,7 +167,7 @@ protected CompletableFuture onActivateAsync()
 }
 ```
 
-在本示例中， `"Pay cell phone bill"` 是提醒名称。 这是执行组件用来唯一标识提醒的字符串。 `BitConverter.GetBytes(amountInDollars)`(C#) 是与提醒相关联的上下文。 它会作为提醒回调的参数传递回执行组件，即`IRemindable.ReceiveReminderAsync`(C#) 或 `Remindable.receiveReminderAsync`(Java)。
+在本示例中， `"Pay cell phone bill"` 是提醒名称。 这是执行组件用于唯一标识提醒的字符串。 `BitConverter.GetBytes(amountInDollars)`(C#) 是与提醒相关联的上下文。 它会作为提醒回调的参数传递回执行组件，即`IRemindable.ReceiveReminderAsync`(C#) 或 `Remindable.receiveReminderAsync`(Java)。
 
 使用提醒的执行组件必须实现 `IRemindable` 接口，如以下示例中所示。
 
@@ -212,7 +212,7 @@ public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Rem
 
 触发提醒时，Reliable Actors 运行时会对执行组件调用 `ReceiveReminderAsync`(C#) 或 `receiveReminderAsync`(Java) 方法。 一个执行组件可以注册多个提醒，而 `ReceiveReminderAsync`(C#) 或 `receiveReminderAsync`(Java) 方法会在触发其中任一提醒时调用。 执行组件可以使用传入给 `ReceiveReminderAsync`(C#) 或 `receiveReminderAsync`(Java) 方法的提醒名称来找出触发的提醒。
 
-Actors 运行时会在 `ReceiveReminderAsync`(C#) 或 `receiveReminderAsync`(Java) 调用完成时保存执行组件的状态。 如果保存状态时发生错误，则会停用该执行组件对象并激活一个新实例。
+Actors 运行时会在 `ReceiveReminderAsync`(C#) 或 `receiveReminderAsync`(Java) 调用完成时保存执行组件的状态。 如果在保存状态时发生错误，则会停用该执行组件对象并激活一个新实例。
 
 为了注销提醒，执行组件会调用 `UnregisterReminderAsync`(C#) 或 `unregisterReminderAsync`(Java) 方法，如以下示例所示。
 
@@ -232,4 +232,4 @@ CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 * [执行组件事件](service-fabric-reliable-actors-events.md)
 * [执行组件可重入性](service-fabric-reliable-actors-reentrancy.md)
 
-<!--Update_Description: update meta properties, wording update, update link, add java implementation of service fabric-->
+<!--Update_Description: update meta properties, wording update -->

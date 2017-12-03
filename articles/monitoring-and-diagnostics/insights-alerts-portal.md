@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+origin.date: 09/23/2016
+ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: ffec4cda328da4acfc7b3fcd635e402216f2c010
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: a7dc3e2c83287c09756a5de391e6aa10d8d5865e
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>在 Azure Monitor 中为 Azure 服务创建指标警报 - Azure 门户
 > [!div class="op_single_selector"]
@@ -27,12 +28,12 @@ ms.lasthandoff: 07/14/2017
 >- [CLI](./insights-alerts-command-line-interface.md) 
 
 ## <a name="overview"></a>概述
-本文将展示如何使用 Azure 门户设置 Azure 指标警报。   
+本文展示如何使用 Azure 门户设置 Azure 指标警报。   
 
 可以根据监控指标或事件接收 Azure 服务的警报。
 
-* **指标值** - 当指定指标的值在任一方向越过了指定的阈值时警报将触发。 也就是说，当条件先是满足以及之后不再满足该条件时，警报都会触发。    
-* **活动日志事件** - 警报可以在发生每个事件时都触发，也可以仅在发生特定数量的事件时触发。 若要详细了解活动日志警报，请[单击此处](./monitoring-activity-log-alerts.md)
+* **指标值** - 指定指标的值超过在任一方向分配的阈值时，将触发警报。 也就是说，当条件先是满足以及之后不再满足该条件时，警报都会触发。    
+* **活动日志事件** - 发生每个事件，或仅当出现特定事件时可触发警报。 详细了解[活动日志警报](monitoring-activity-log-alerts.md)。
 
 可以配置指标警报，在其触发时执行以下操作：
 
@@ -61,7 +62,7 @@ ms.lasthandoff: 07/14/2017
     ![添加警报](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
 4. **命名**警报规则，并选择也在通知电子邮件中显示的“说明”。
-5. 选择想要监视的“指标”为该指标选择一个“条件”和“阈值”。 还选择了触发警报前指标规则必须满足的时间**段**。 例如，如果使用了时间“PT5M”，并且警报监视使用率高于  80% 的 CPU，则当 CPU 的使用率持续高于 80% 达 5 分钟时，该警报将触发。 在发生第一次触发后，当 CPU 使用率保持低于 80% 达到 5 分钟时，该触发器将再次触发。 每 1 分钟对 CPU 进行一次测量。   
+5. 选择想要监视的“指标”为该指标选择一个“条件”和“阈值”。 还选择了触发警报前指标规则必须满足的时间**段**。 例如，如果使用时间段"PT5M"，且警报针对 CPU 高于 80% 的情况，则 CPU 持续高于 80% 达到 5 分钟时触发警报。 在发生第一次触发后，当 CPU 使用率保持低于 80% 达到 5 分钟时，该触发器会再次触发。 每 1 分钟对 CPU 进行一次测量。   
 
 6. 如果触发警报时希望向管理员和共同管理员发送电子邮件，则选择“向所有者发送电子邮件...”。
 
@@ -84,10 +85,10 @@ ms.lasthandoff: 07/14/2017
 - 如果想要暂时停止或恢复接收该警报的通知，可**禁用**或**启用**它。 
 
 ## <a name="next-steps"></a>后续步骤
-
-* [获取 Azure 监视概述](./monitoring-overview.md)，包括可收集和监视的信息的类型。
+* [获取 Azure 监视概述](monitoring-overview.md)，包括可收集和监视的信息的类型。
 * 了解[在警报中配置 Webhook](./insights-webhooks-alerts.md)的详细信息。
 * 详细了解[针对活动日志事件配置警报](./monitoring-activity-log-alerts.md)。
 * 了解关于 [Azure 自动化 Runbook](../automation/automation-starting-a-runbook.md) 的详细信息。
-
-* 获取[指标集合概述](./insights-how-to-customize-monitoring.md)以确保你的服务可用且响应迅速。
+* 获取[诊断日志概述](monitoring-overview-of-diagnostic-logs.md)收集有关服务的详细高频率指标。
+* 
+            [大致了解指标收集](./insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。

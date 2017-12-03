@@ -14,11 +14,11 @@ ms.devlang: na
 origin.date: 10/13/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 164084de3f7ee9dedf9ee1de263f668b1ee1d2f5
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 9eb70af93db4079209ad5a71643ed83892fdf557
+ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>有关 Azure 文件的常见问题解答
 
@@ -183,7 +183,7 @@ ms.lasthandoff: 10/23/2017
 ## <a name="scale-and-performance"></a>缩放和性能
 * **Azure 文件存在哪些缩放限制？** 
 
-    若要了解 Azure 文件的可伸缩性和性能目标，请参阅 [Azure 存储可伸缩性和性能目标](../common/storage-scalability-targets.md?toc=%2fstorage%2ffiles%2ftoc.json#scalability-targets-for-blobs-queues-tables-and-files)。
+    若要了解 Azure 文件的可伸缩性和性能目标，请参阅 [Azure 存储可伸缩性和性能目标](../common/storage-scalability-targets.md?toc=%2fstorage%2ffiles%2ftoc.json)。
 
 * **多少个客户端可以同时访问同一文件？** 
 

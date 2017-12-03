@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fbc7d83d4225831ee7ccea1dcdb4bd171e981c2d
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 11c5d122139e6db98c36592db8a4787cd0036114
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>对 Azure 区域（预览）之间的 Azure VM 进行故障转移和故障回复
 
@@ -74,4 +74,4 @@ ms.lasthandoff: 11/15/2017
 
 VM 重新受保护后，可以根据需要故障回复到主要区域。 若要执行此操作，请按照[故障转移](#run-a-failover)说明进行操作。
 
-<!-- Update_Description: new articles on site recovery azure to azure tutorial failover failback -->
+<!-- Update_Description: update meta properties -->

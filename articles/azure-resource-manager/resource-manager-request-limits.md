@@ -15,16 +15,16 @@ ms.workload: na
 origin.date: 01/11/2017
 ms.date: 08/21/2017
 ms.author: v-yeche
-ms.openlocfilehash: d46b5da592e40594827eebea749643e387f85c11
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: fef876311fba78b6996e955822f263f8c36386f7
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="throttling-resource-manager-requests"></a>限制 Resource Manager 请求数
-对于每个订阅和租户，Resource Manager 将读取请求数限制为 15,000/小时，将写入请求数限制为 1,200/小时。 这些限制适用于每个 Azure 资源管理器实例；每个 Azure 区域中有多个实例，Azure 资源管理器部署到所有 Azure 区域。  因此，在实践中，限制实际上比上面列出的要高得多，因为用户请求通常是由多个不同的实例提供服务。
+对于每个订阅和租户，Resource Manager 将每小时的读取请求数限制为 15,000 个，将每小时的写入请求数限制为 1,200 个。 这些限制适用于每个 Azure 资源管理器实例；每个 Azure 区域中有多个实例，Azure 资源管理器部署到所有 Azure 区域。  因此，在实践中，限制实际上比上面列出的要高得多，因为用户请求通常是由多个不同的实例提供服务。
 
-如果应用程序或脚本达到了这些限制，则需对请求数进行限制。 本主题介绍如何在达到限制之前确定剩余的请求数，以及在达到限制后如何响应。
+如果应用程序或脚本达到这些限制，则需要限制请求。 本主题介绍如何在达到限制之前确定剩余的请求数，以及在达到限制后如何响应。
 
 达到限制时，会收到 HTTP 状态代码“429 请求过多”。
 
@@ -110,7 +110,6 @@ silly: returnObject
 
 ## <a name="next-steps"></a>后续步骤
 
-* 有关限制和配额的详细信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
 * 若要了解如何处理异步 REST 请求，请参阅[跟踪异步 Azure 操作](resource-manager-async-operations.md)。
 
 <!--Update_Description: update meta properties, wroding update-->

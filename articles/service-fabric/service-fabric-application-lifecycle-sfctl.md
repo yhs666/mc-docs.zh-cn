@@ -7,13 +7,13 @@ manager: digimobile
 ms.service: service-fabric
 ms.topic: article
 origin.date: 08/22/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: ce4b9b23f0cc83b3b5de0b64c7ae36bac9fb855f
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 00423abda97c3ff07bc96fdeec6d4fef92ae799a
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>使用 Azure Service Fabric CLI 管理 Azure Service Fabric 应用程序
 
@@ -134,7 +134,7 @@ sfctl application delete --application-id TestEdApp
 删除应用程序后，如果不再需要它，可以取消预配应用程序类型。 若要取消预配应用程序类型，请使用以下命令：
 
 ```azurecli
-sfctl application unprovision --application-type-name TestAppTye --application-type-version 1.0
+sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
 类型名称和类型版本必须与前面预配的应用程序清单中的名称和版本匹配。

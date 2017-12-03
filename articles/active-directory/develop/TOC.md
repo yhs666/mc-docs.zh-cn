@@ -72,8 +72,6 @@
 ## [应用程序对象](active-directory-application-objects.md)
 ### [应用和 Azure AD](active-directory-how-applications-are-added.md)
 ## [应用程序清单](active-directory-application-manifest.md)
-## [令牌生存期](../active-directory-configurable-token-lifetimes.md)
-## [服务限制](../active-directory-service-limits-restrictions.md)
 # v2.0 终结点
 ## [概述](active-directory-appmodel-v2-overview.md)
 ### [应用类型](active-directory-v2-flows.md)

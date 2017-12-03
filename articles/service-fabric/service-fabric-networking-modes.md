@@ -13,27 +13,27 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 813dd52261bc5452111134478c0c050bfa29f646
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 34e63819e522db0e00cea47c34f54dba3a6292dd
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器网络模式
 
-Service Fabric 群集中提供的容器服务的默认网络模式是 `nat` 网络模式。 使用 `nat` 网络模式，让多个容器服务侦听相同端口将导致部署错误。 为运行在相同端口上进行侦听的多个服务，Service Fabric 支持 `open` 网络模式（版本 5.7 或更高版本）。 使用 `open` 网络模式，每个容器服务都会在内部获取一个动态分配的 IP 地址，允许多个服务侦听相同端口。   
+Service Fabric 群集中提供的容器服务的默认网络模式是 `nat` 网络模式。 使用 `nat` 网络模式，让多个容器服务侦听相同端口将导致部署错误。 为运行在相同端口上进行侦听的多个服务，Service Fabric 支持 `Open` 网络模式（版本 5.7 或更高版本）。 使用 `Open` 网络模式，每个容器服务都会在内部获取一个动态分配的 IP 地址，允许多个服务侦听相同端口。   
 
-因此，通过包含在服务清单中定义的静态终结点的单个服务类型，可使用 `open` 网络模式创建并删除新服务，而不会出现部署错误。 同样，可使用包含静态端口映射的相同 `docker-compose.yml` 文件来创建多个服务。
+因此，通过包含在服务清单中定义的静态终结点的单个服务类型，可使用 `Open` 网络模式创建并删除新服务，而不会出现部署错误。 同样，可使用包含静态端口映射的相同 `docker-compose.yml` 文件来创建多个服务。
 
 不建议使用动态分配的 IP 来发现服务，因为在服务重新启动或移动到其他节点时，IP 地址会发生更改。 仅使用“Service Fabric 命名服务”或“DNS 服务”来发现服务。 
 
 > [!WARNING]
-> Azure 中每个 vNET 总共仅允许 4096 个 IP。 因此，在一个 vNET 中，节点数和容器服务实例数的总和（使用 `open` 网络）不能超过 4096。 对于此类高密度方案，建议使用 `nat` 网络模式。
+> Azure 中每个 vNET 总共仅允许 4096 个 IP。 因此，在一个 vNET 中，节点数和容器服务实例数的总和（使用 `Open` 网络）不能超过 4096。 对于此类高密度方案，建议使用 `nat` 网络模式。
 >
 
-## <a name="setting-up-open-networking-mode"></a>设置开放的网络模式
+## <a name="setting-up-open-networking-mode"></a>设置开放网络模式
 
 1. 通过启用 `fabricSettings` 下的 DNS 服务和 IP 提供程序来设置 Azure 资源管理器模板。 
 
@@ -181,7 +181,7 @@ Service Fabric 群集中提供的容器服务的默认网络模式是 `nat` 网�
    |:--------:|:----------:|:--------------:|:--------------:|:------------:|:------:|
    |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | 允许  |
 
-4. 在应用清单中为每个服务指定网络模式 `<NetworkConfig NetworkType="open">`。  模式 `open` 会导致服务获取专用 IP 地址。 如果未指定模式，则默认为基本 `nat` 模式。 因此，在以下清单示例中，`NodeContainerServicePackage1` 和 `NodeContainerServicePackage2` 均可侦听相同端口（这两个服务都在 `Endpoint1` 上进行侦听）。
+4. 在应用清单中为每个服务指定网络模式 `<NetworkConfig NetworkType="Open">`。  模式 `Open` 会导致服务获取专用 IP 地址。 如果未指定模式，则默认为基本 `nat` 模式。 因此，在以下清单示例中，`NodeContainerServicePackage1` 和 `NodeContainerServicePackage2` 均可侦听相同端口（这两个服务都在 `Endpoint1` 上进行侦听）。 指定了 `Open` 网络模式时，无法指定 `PortBinding` 配置。
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -195,8 +195,7 @@ Service Fabric 群集中提供的容器服务的默认网络模式是 `nat` 网�
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage1" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService1.Code" Isolation="hyperv">
-           <NetworkConfig NetworkType="open"/>
-           <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+           <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
@@ -204,14 +203,13 @@ Service Fabric 群集中提供的容器服务的默认网络模式是 `nat` 网�
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage2" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService2.Code" Isolation="default">
-            <NetworkConfig NetworkType="open"/>
-            <PortBinding ContainerPort="8910" EndpointRef="Endpoint1"/>
+            <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-可在一个应用程序中为 Windows 群集跨服务混合与匹配不同网络模式。 因此，可使一些服务处于 `open` 模式，而一些服务处于 `nat` 网络模式。 使用 `nat` 配置服务时，该服务侦听的端口必须唯一。 Linux 群集上不支持混合不同服务的网络模式。 
+可在一个应用程序中为 Windows 群集跨服务混合与匹配不同网络模式。 因此，可使一些服务处于 `Open` 模式，而一些服务处于 `nat` 网络模式。 使用 `nat` 配置服务时，该服务侦听的端口必须唯一。 Linux 群集上不支持混合不同服务的网络模式。 
 
 ## <a name="next-steps"></a>后续步骤
 本文介绍了 Service Fabric 提供的网络模式。  
@@ -221,4 +219,4 @@ Service Fabric 群集中提供的容器服务的默认网络模式是 `nat` 网�
 * [将 Windows 容器部署到 Windows Server 2016 上的 Service Fabric](service-fabric-get-started-containers.md)
 * [将 Docker 容器部署到 Linux 上的 Service Fabric](service-fabric-get-started-containers-linux.md)
 
-<!--Update_Description: remove the network profile jason file for linux -->
+<!--Update_Description: wording update -->

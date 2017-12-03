@@ -9,15 +9,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 34b49c16175671c3a4aee53f22b4b00078ee59ce
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 780b8b32f3f64f54c70dc9bc45889cb3ca13742e
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>针对 Azure 次要区域的 Azure VM 运行灾难恢复演练（预览）
 
@@ -55,4 +55,4 @@ ms.lasthandoff: 11/15/2017
 > [!div class="nextstepaction"]
 > [运行生产故障转移](azure-to-azure-tutorial-failover-failback.md)
 
-<!-- Update_Description: new articles on site recovery azure to azure tutorial dr drill -->
+<!-- Update_Description: update meta properties -->

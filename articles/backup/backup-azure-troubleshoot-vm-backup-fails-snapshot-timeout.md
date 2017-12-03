@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 09/08/2017
-ms.date: 10/31/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
-ms.openlocfilehash: e1d4fef9c9a9370bc5730e5d2a0c1b764011aa0b
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.openlocfilehash: 50b1b5b743a677b2546f809800e7bece39c39870
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure 备份故障排除：代理和/或扩展的问题
 
@@ -68,6 +68,11 @@ ms.lasthandoff: 11/03/2017
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>原因 5：[备份扩展无法更新或加载](#the-backup-extension-fails-to-update-or-load)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>不支持指定的磁盘配置
+
+> [!NOTE]
+> 我们提供了专用预览版以支持带有 >1TB 非托管磁盘的 VM 的备份。 有关详细信息，请参阅[支持大型磁盘 VM 备份的专用预览版](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
 
 当前 Azure 备份不支持[大于 1023GB](/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm) 的磁盘大小。 
 - 如果有大于 1 TB 的磁盘，请[附加小于 1 TB 的新磁盘](/virtual-machines/windows/attach-managed-disk-portal) <br>

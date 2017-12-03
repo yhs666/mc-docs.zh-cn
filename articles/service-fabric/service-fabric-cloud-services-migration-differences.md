@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/14/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 40d3f25e7f338954ea4906cc6d497c8ec1c8f84f
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: e1c61fdd1099a670686925f4d2d444dea52a1001
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>迁移应用程序之前了解云服务与 Service Fabric 之间的差异。
 Azure Service Fabric 是面向高度可缩放、高度可靠的分布式应用程序的下一代云应用程序平台。 其中引入了许多用于打包、部署、升级和管理分布式云应用程序的新功能。 

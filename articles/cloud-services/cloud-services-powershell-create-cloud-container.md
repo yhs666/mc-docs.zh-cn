@@ -6,16 +6,18 @@ documentationCenter: .net
 authors: cawaMS
 manager: timlt
 editor: 
+ms.assetid: c8f32469-610e-4f37-a3aa-4fac5c714e13
 ms.service: cloud-services
+ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/29/2016
-ms.date: 01/03/2017
+origin.date: 11/18/2016
+ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: fd3a4eac1441e22a23c5f9f1c1d2a7ef293e1e4d
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 79bcd5d5ab1312389a98af52a68edd49f670a9ec
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>使用 Azure PowerShell 命令可创建一个空的云服务容器
 本文介绍如何使用 Azure PowerShell cmdlet 快速创建云服务容器。 请执行以下步骤：
@@ -26,7 +28,9 @@ ms.lasthandoff: 06/21/2017
 
     > [!NOTE]
     > 有关安装 Azure PowerShell cmdlet 和连接到 Azure 订阅的更多说明，请参阅[如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
-
+    >
+    >
+    
 4. 使用 **New-AzureService** cmdlet 创建一个空的 Azure 云服务容器。
 
     ```
@@ -46,6 +50,6 @@ Get-help New-AzureService
 
 ### <a name="next-steps"></a>后续步骤
 
- * 若要管理云服务部署，请参阅 [Get-AzureService](https://msdn.microsoft.com/zh-cn/library/azure/dn495131.aspx)、[Remove-AzureService](https://msdn.microsoft.com/zh-cn/library/azure/dn495120.aspx) 和 [Set-AzureService](https://msdn.microsoft.com/zh-cn/library/azure/dn495242.aspx) 命令。 有关更多信息，还可以参阅[如何配置云服务](./cloud-services-how-to-configure.md)。
+ * 若要管理云服务部署，请参阅 [Get-AzureService](https://msdn.microsoft.com/zh-cn/library/azure/dn495131.aspx)、[Remove-AzureService](https://msdn.microsoft.com/zh-cn/library/azure/dn495120.aspx) 和 [Set-AzureService](https://msdn.microsoft.com/zh-cn/library/azure/dn495242.aspx) 命令。 有关更多信息，还可以参阅[如何配置云服务](./cloud-services-how-to-configure-portal.md)。
 
  * 若要将云服务项目发布到 Azure，请参阅[在 Azure 中持续交付云服务](./cloud-services-dotnet-continuous-delivery.md)中的 PublishCloudService.ps1 代码示例。

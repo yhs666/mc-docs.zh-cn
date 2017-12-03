@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 07/26/2017
-ms.date: 11/06/2017
+origin.date: 11/03/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: 6796451b0c777b7d1bc5a50161ccbb7c8f2f130c
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.openlocfilehash: 18e44bc6cf5ae1c96fbc4babc838ad2ac6774196
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>云服务 Web 角色/辅助角色的默认 TEMP 文件夹大小太小
 

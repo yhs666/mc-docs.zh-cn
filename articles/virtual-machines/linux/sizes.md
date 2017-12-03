@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 09/07/2017
 ms.date: 10/16/2017
 ms.author: v-yeche
-ms.openlocfilehash: 288c418d0bd869d707b2336aa37d057c1097be46
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: ba92c7a105f075706a5792b6d7a6ee6c689ffeea
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的大小
 本文介绍可用于运行 Linux 应用和工作负荷的 Azure 虚拟机的可用大小与选项。 此外，还提供在计划使用这些资源时要考虑的部署注意事项。 本文也适用于 [Windows 虚拟机](../windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -39,7 +39,6 @@ ms.lasthandoff: 10/13/2017
 
 - 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/#Linux)。 
 <!--Not Available- For availability of VM sizes in Azure regions, see [Products available by region](https://www.azure.cn/support/service-dashboard/services/).-->
-- 若要查看 Azure VM 的一般限制，请参阅 [Azure 订阅和服务限制、配额与约束](../../azure-subscription-service-limits.md)。
 - 了解有关 [Azure 计算单元 (ACU)](../windows/acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
 ## <a name="rest-api"></a>REST API

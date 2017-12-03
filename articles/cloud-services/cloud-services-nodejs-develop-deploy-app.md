@@ -3,7 +3,7 @@ title: "Node.js 入门指南 | Microsoft Docs"
 description: "了解如何创建简单的 Node.js Web 应用程序并将其部署到 Azure 云服务。"
 services: cloud-services
 documentationcenter: nodejs
-author: TomArcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 ms.assetid: 50951a87-fed4-48e0-bcfa-453b9e50452e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 origin.date: 08/17/2017
-ms.date: 09/11/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: e5957e14f0b5d10e05fd3f3ec62f607e4fdf9849
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.openlocfilehash: 207d80fa968ccd05a7d53ee716336401f6b24c57
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>生成 Node.js 应用程序并将其部署到 Azure 云服务
 

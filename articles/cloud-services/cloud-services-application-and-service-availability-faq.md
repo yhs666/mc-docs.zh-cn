@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2017
+origin.date: 11/03/2017
 ms.author: v-yiso
-ms.date: 07/31/2017
-ms.openlocfilehash: ca496638a69989ba455a6b4dec6e0e9d7dbac535
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 12/11/2017
+ms.openlocfilehash: 2405541b752a1cf5fb79f130316b7d175090d02e
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的应用程序和服务可用性问题：常见问题解答 (FAQ)
 

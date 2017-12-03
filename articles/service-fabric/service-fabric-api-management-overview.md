@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/22/2017
-ms.date: 08/14/2017
-wacn.date: 
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 53b45c53bb944fa87b60288b5d5fd284b7efdac4
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: 5c94b77ce433e4f4f301d0f4946702cdd3fae56a
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>有关 Azure Service Fabric 与 API 管理的概述
 
@@ -110,7 +109,7 @@ Azure API 管理可与无状态服务、有状态服务和任何分区方案的�
 
 ## <a name="next-steps"></a>后续步骤
 
-按照[快速入门指南](service-fabric-api-management-quick-start.md)操作，使用 API 管理创建首个 Service Fabric 群集，并通过 API 管理向服务发送请求。
+按照[教程](service-fabric-tutorial-deploy-api-management.md)操作，使用 API 管理创建首个 Service Fabric 群集，并通过 API 管理向服务发送请求。
 
 <!-- links -->
 
@@ -121,3 +120,5 @@ Azure API 管理可与无状态服务、有状态服务和任何分区方案的�
 [sf-apim-static-stateful]: ./media/service-fabric-api-management-overview/sf-apim-static-stateful.png
 [sf-apim-dynamic-stateless]: ./media/service-fabric-api-management-overview/sf-apim-dynamic-stateless.png
 [sf-apim-dynamic-stateful]: ./media/service-fabric-api-management-overview/sf-apim-dynamic-stateful.png
+
+<!-- Update_Description: update meta properties, update link -->

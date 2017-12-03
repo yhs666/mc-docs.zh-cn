@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 05/23/2017
-ms.date: 07/10/2017
+origin.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 55a2671ca279dbd0fcb6d575e07267f098df0dcf
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: 0b794121d471023cd572840328ef290ffd07867e
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 12/01/2017
 ---
-# 规划使用 Site Recovery 进行 Hyper-V VM 复制时的网络映射
-<a id="plan-network-mapping-for-hyper-v-vm-replication-with-site-recovery" class="xliff"></a>
+# <a name="plan-network-mapping-for-hyper-v-vm-replication-with-site-recovery"></a>规划使用 Site Recovery 进行 Hyper-V VM 复制时的网络映射
 
 本文帮助用户了解和规划使用 [Azure Site Recovery 服务](site-recovery-overview.md)将 Hyper-V VM 复制到 Azure 或辅助站点期间的网络映射。
+<!--Not Available on https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr -->
 
-## 复制到 Azure 时的网络映射
-<a id="network-mapping-for-replication-to-azure" class="xliff"></a>
+## <a name="network-mapping-for-replication-to-azure"></a>复制到 Azure 时的网络映射
 
 在将 HYPER-V VM（托管在 VMM 中）复制到 Azure 时，将使用网络映射。 网络映射将在源 VMM 服务器的 VM 网络与目标 Azure 网络之间映射。 映射将执行以下操作：
 
@@ -39,11 +38,10 @@ ms.lasthandoff: 06/30/2017
 - 将源 VMM VM 网络映射到 Azure 虚拟网络。
 - 故障转移后，源网络中的 Azure VM 将连接到映射的目标虚拟网络。
 - 进行复制时，添加到源 VM 网络的新 VM 将连接到映射的 Azure 网络。
-- 如果目标网络具有多个子网，并且其中一个子网与源虚拟机所在的子网同名，则在故障转移后副本虚拟机将连接到该目标子网。
-- 如果没有具有匹配名称的目标子网，则虚拟机将连接到网络中的第一个子网。
+- 如果目标网络具有多个子网，并且其中一个子网与源虚拟机所在的子网同名，则在故障转移后副本虚拟机会连接到该目标子网。
+- 如果没有具有匹配名称的目标子网，则虚拟机连接到网络中的第一个子网。
 
-## 复制到辅助数据中心时的网络映射
-<a id="network-mapping-for-replication-to-a-secondary-datacenter" class="xliff"></a>
+## <a name="network-mapping-for-replication-to-a-secondary-datacenter"></a>复制到辅助数据中心时的网络映射
 
 在将 Hyper-V VM（托管在 System Center Virtual Machine Manager (VMM) 中）复制到辅助数据中心时，将使用网络映射。 网络映射将在源 VMM 服务器的 VM 网络与目标VMM 服务器的 VM 网络之间映射。 映射将执行以下操作：
 
@@ -54,13 +52,12 @@ ms.lasthandoff: 06/30/2017
 请注意：
 
 - 可以在两个 VMM 服务器上的 VM 网络之间配置网络映射；如果两个站点由同一个服务器管理，则在可以在单个 VMM 服务器上的两个对应 VM 网络之间配置网络映射。
-- 在正确地配置映射且启用复制后，位于主位置的 VM 将连接到网络，其位于目标位置的副本将连接到其映射网络。
+- 在适当配置映射且启用复制后，主位置上的 VM 将连接到网络，目标位置上的副本将连接到其映射网络。
 -
-- 如果已经在 VMM 中正确地设置了网络，则在网络映射期间选择目标 VM 网络时，将显示使用源 VM 网络的 VMM 源云以及用于保护的目标云上的可用目标 VM 网络。
-- 如果目标网络具有多个子网，并且其中一个子网与源虚拟机所在的子网同名，则在故障转移后副本虚拟机将连接到该目标子网。 如果没有具有匹配名称的目标子网，虚拟机将连接到网络中的第一个子网。
+- 如果已经在 VMM 中正确地设置了网络，则在网络映射期间选择目标 VM 网络时，会显示使用源 VM 网络的 VMM 源云以及用于保护的目标云上的可用目标 VM 网络。
+- 如果目标网络具有多个子网，并且其中一个子网与源虚拟机所在的子网同名，则在故障转移后副本虚拟机连接到该目标子网。 如果没有具有匹配名称的目标子网，虚拟机将连接到网络中的第一个子网。
 
-### 示例
-<a id="example" class="xliff"></a>
+### <a name="example"></a>示例
 
 以下示例演示了此机制。 我们来考察一个具有两个位置（北京和上海）的组织。
 
@@ -73,13 +70,12 @@ ms.lasthandoff: 06/30/2017
 
 在本示例中：
 
-- 当为任何连接到 VMNetwork1-Beijing 的虚拟机创建副本虚拟机时，副本虚拟机将连接到 VMNetwork1-Shanghai。
-- 当为 VMNetwork2-Beijing 或 VMNetwork2-Shanghai 创建副本虚拟机时，副本虚拟机将不会连接到任何网络。
+- 当为任何连接到 VMNetwork1-Beijing 的虚拟机创建副本虚拟机时，副本虚拟机连接到 VMNetwork1-Shanghai。
+- 当为 VMNetwork2-Beijing 或 VMNetwork2-Shanghai 创建副本虚拟机时，副本虚拟机不会连接到任何网络。
 
 这是本示例组织中 VMM 云的设置方式，以及逻辑网络与云关联的方式。
 
-#### 云保护设置
-<a id="cloud-protection-settings" class="xliff"></a>
+#### <a name="cloud-protection-settings"></a>云保护设置
 
 **受保护的云** | **提供保护的云** | 逻辑网络（北京）  
 ---|---|---
@@ -88,8 +84,7 @@ SilverCloud1| SilverCloud2 |
 GoldCloud2 | <p>不可用</p><p></p> | <p>LogicalNetwork1-Beijing</p><p>LogicalNetwork1-Shanghai</p>
 SilverCloud2 | <p>不可用</p><p></p> | <p>LogicalNetwork1-Beijing</p><p>LogicalNetwork1-Shanghai</p>
 
-#### 逻辑和 VM 网络设置
-<a id="logical-and-vm-network-settings" class="xliff"></a>
+#### <a name="logical-and-vm-network-settings"></a>逻辑和 VM 网络设置
 
 **位置** | **逻辑网络** | **关联的 VM 网络**
 ---|---|---
@@ -97,10 +92,9 @@ SilverCloud2 | <p>不可用</p><p></p> | <p>LogicalNetwork1-Beijing</p><p>Logica
 上海 | LogicalNetwork1-Shanghai | VMNetwork1-Shanghai
  | LogicalNetwork2Shanghai | VMNetwork2-Shanghai
 
-#### 目标网络设置
-<a id="target-network-settings" class="xliff"></a>
+#### <a name="target-network-settings"></a>目标网络设置
 
-根据这些设置，在选择目标 VM 网络时，下表显示将可用的选项。
+根据这些设置，选择目标 VM 网络时，下表显示将可用的选项。
 
 **选择** | **受保护的云** | **提供保护的云** | **可用目标网络**
 ---|---|---|---
@@ -109,10 +103,9 @@ VMNetwork1-Shanghai | SilverCloud1 | SilverCloud2 | 可用
 VMNetwork2-Shanghai | SilverCloud1 | SilverCloud2 | 不可用
  | GoldCloud1 | GoldCloud2 | 可用
 
-如果目标网络具有多个子网，并且其中一个子网与源虚拟机所在的子网同名，则在故障转移后副本虚拟机将连接到该目标子网。 如果没有具有匹配名称的目标子网，虚拟机将连接到网络中的第一个子网。
+如果目标网络具有多个子网，并且其中一个子网与源虚拟机所在的子网同名，则在故障转移后副本虚拟机连接到该目标子网。 如果没有具有匹配名称的目标子网，虚拟机将连接到网络中的第一个子网。
 
-#### 故障回复行为
-<a id="failback-behavior" class="xliff"></a>
+#### <a name="failback-behavior"></a>故障回复行为
 
 若要了解在故障回复（反向复制）情况下会发生什么，让我们假设 VMNetwork1-Beijing 已映射到VMNetwork1-Shanghai，设置如下。
 
@@ -130,7 +123,8 @@ VM2（VM1 的副本） | VMNetwork1-Shanghai
 VM-2 的网络属性在故障转移后发生更改并连接到 VMNetwork2-Shanghai。 | 如果未映射 VMNetwork2-Shanghai，则 VM-1 将断开连接。
 VMNetwork1-Shanghai 的网络映射已更改。 | VM-1 将连接到现已映射到 VMNetwork1-Shanghai 的网络。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 了解[规划网络基础结构](site-recovery-network-design.md)。
+
+<!-- Update_Description: update meta properties, wording update -->

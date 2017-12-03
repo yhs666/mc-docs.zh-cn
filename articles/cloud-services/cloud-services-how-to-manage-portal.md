@@ -12,21 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/27/2016
-ms.date: 07/17/2017
+origin.date: 07/05/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: a1653f065338560ecc08eb815393001cf8844d6d
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.openlocfilehash: 9ee49f86bee4e4a1e8b22558ab95bc7b0d4b961a
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>如何管理云服务
-
-> [!div class="op_single_selector"]
->- [Azure 门户](./cloud-services-how-to-manage-portal.md)
->- [Azure 经典门户](./cloud-services-how-to-manage.md)
-
 在 Azure 门户的“云服务(经典)”区域中，可以更新服务角色或部署、将预留部署提升到生产、将资源链接到云服务，以便查看资源依赖关系并对资源进行整体缩放，以及删除云服务或部署。
 
 有关如何扩展云服务的详细信息，请参阅[此文](./cloud-services-how-to-scale-portal.md)。
@@ -34,8 +29,7 @@ ms.lasthandoff: 09/01/2017
 ## <a name="how-to-update-a-cloud-service-role-or-deployment"></a>如何：更新云服务角色或部署
 如果需要更新云服务的应用程序代码，请使用云服务边栏选项卡上的“更新”  。 可以更新一个角色或所有角色。 若要进行更新，可以上传新服务包或服务配置文件。
 
-1. 在 [Azure 门户][]中，选择要更新的云服务。 此步骤打开云服务实例边栏选项卡。
-
+1. 在 [Azure 门户][Azure portal]中，选择要更新的云服务。 此步骤打开云服务实例边栏选项卡。
 2. 在边栏选项卡中，单击“更新”  按钮。
 
     ![更新按钮](./media/cloud-services-how-to-manage-portal/update-button.png)
@@ -58,9 +52,9 @@ ms.lasthandoff: 09/01/2017
 
 如果决定部署云服务的新版本，可以在云服务过渡环境中暂存和测试新版本。 使用“交换”将用于寻址这两个部署的 URL 地址互换，将新版本提升到生产环境。 
 
-可以通过“云服务”  页面或仪表板交换部署。
+可以通过“云服务”页或仪表板来交换部署。
 
-1. 在 [Azure 门户][Azure 门户]中，选择要更新的云服务。 此步骤打开云服务实例边栏选项卡。
+1. 在 [Azure 门户][Azure portal]中，选择要更新的云服务。 此步骤打开云服务实例边栏选项卡。
 2. 在边栏选项卡中，单击“交换”  按钮。
 
     ![云服务交换](./media/cloud-services-how-to-manage-portal/swap-button.png)
@@ -81,7 +75,7 @@ ms.lasthandoff: 09/01/2017
 
 成功的部署交换有两个先决条件：
 
-- 如果想要将静态 IP 地址用于生产槽，也必须为过渡槽保留一个静态 IP 地址。 否则，交换将失败。
+- 如果想要将静态 IP 地址用于生产槽，也必须为过渡槽保留一个静态 IP 地址。 否则，交换失败。
 
 - 在执行交换之前，角色的所有实例必须都在运行。 可以在 Azure 门户的概述边栏选项卡中检查实例的状态。 或者，可以在 Windows PowerShell 中使用 [Get-AzureRole](https://docs.microsoft.com/en-us/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) 命令。
 
@@ -103,7 +97,7 @@ Azure 门户不会像当前 Azure 经典门户一样将资源链接在一起。 
 
 可使用以下过程删除部署或云服务。 
 
-1. 在 [Azure 门户][Azure 门户]中，选择要删除的云服务。 此步骤打开云服务实例边栏选项卡。
+1. 在 [Azure 门户][Azure portal]中，选择要删除的云服务。 此步骤打开云服务实例边栏选项卡。
 2. 在边栏选项卡中，单击“删除”  按钮。
 
     ![云服务交换](./media/cloud-services-how-to-manage-portal/delete-button.png)
@@ -127,7 +121,7 @@ Azure 门户不会像当前 Azure 经典门户一样将资源链接在一起。 
 
 
 
-[Azure 门户]: https://portal.azure.cn
+[Azure portal]: https://portal.azure.cn
 
 ## <a name="next-steps"></a>后续步骤
 

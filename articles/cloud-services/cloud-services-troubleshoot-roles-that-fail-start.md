@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 07/26/2017
+origin.date: 11/03/2017
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: be2b3f383e5e685d628e25213f19f9b64b048181
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 12/11/2017
+ms.openlocfilehash: 75e4b034e20ac4fb1627b9c3afdc7c4815196f6b
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>对无法启动的云服务角色进行故障排除
 

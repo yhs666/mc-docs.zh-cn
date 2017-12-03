@@ -3,7 +3,7 @@ title: "排查删除 Azure 存储帐户、容器或 VHD 时发生的错误 | Azu
 description: "排查删除 Azure 存储帐户、容器或 VHD 时发生的错误"
 services: storage
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: na
 tags: storage
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 06/13/2017
-ms.date: 10/30/2017
-ms.author: v-johch
-ms.openlocfilehash: e484bd8ae5d302e7e5a65856f90bb50dd88ed306
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+origin.date: 11/03/2017
+ms.date: 12/04/2017
+ms.author: v-nany
+ms.openlocfilehash: 71204783f1edd6282ad4eeda068284b051170270
+ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="troubleshoot-storage-delete-errors-in-resource-manager-deployment"></a>在资源管理器部署中排查存储删除错误
 借助本文的疑难解答指南，用户可以了解在 Azure 资源管理器部署中尝试删除 Azure 存储帐户、容器或 blob 时，如何排查看到的下列错误之一。
@@ -107,4 +107,4 @@ Azure VM 中使用的虚拟硬盘是在 Azure 标准或高级存储帐户中作�
 ## <a name="next-steps"></a>后续步骤
 重试删除之前无法删除的存储对象。
 
-<!--Update_Description: whole content update-->
+<!--Update_metadata-->

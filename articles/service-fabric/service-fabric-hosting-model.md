@@ -3,23 +3,23 @@ title: "Azure Service Fabric 托管模型 | Azure"
 description: "说明已部署的 Servic Fabric 服务和服务主机进程的副本（或实例）之间的关系。"
 services: service-fabric
 documentationcenter: .net
-author: harahma
-manager: timlt
+author: rockboyfor
+manager: digimobile
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/15/2017
-ms.author: v-johch
-ms.openlocfilehash: d3d0043685cfb46301b35b7fade6c8bd8debc5d2
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 04/15/2017
+ms.date: 12/04/2017
+ms.author: v-yeche
+ms.openlocfilehash: 081a724413214b109b5ed7964b714137f557bf69
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 12/01/2017
 ---
-# Service Fabric 托管模型
-<a id="service-fabric-hosting-model" class="xliff"></a>
+# <a name="service-fabric-hosting-model"></a>Service Fabric 托管模型
 本文概述 Service Fabric 提供的应用程序托管模型，并介绍“共享进程”模型和“独占进程”模型之间的差异。 本文说明已部署的应用程序在 Service Fabric 节点上的外观，以及服务和服务主机进程的副本（或实例）之间的关系。
 
 在继续了解之前，请确保熟悉 [Service Fabric 应用程序模型][a1]并且了解各种概念及其相互关系。 
@@ -53,12 +53,10 @@ Service Fabric 已激活启动了“MyServicePackage”的“MyCodePackage”，
 
 此时 Service Fabric 激活了“MyServicePackage”的新副本，此“MyServicePackage”启动“MyCodePackage”的新副本，并且服务 fabric:/App2/ServiceA 两个分区（即 P4 和 P5）中的副本均放置在“MyCodePackage”的此新副本中 & 。
 
-## “共享进程”模型
-<a id="shared-process-model" class="xliff"></a>
-上面显示的是 Service Fabric 提供的默认托管模型，也称为“共享进程”模型。 在此模型中，对于给定应用程序，节点（启动其自身包含的所有 CodePackage）上只会激活指定 ServicePackage 的一个副本，给定 ServiceType 的所有服务的所有副本均放置在注册该 ServiceType 的 CodePackage 中。 换而言之，给定 ServiceType 的所有服务的所有副本共享相同的进程。
+## <a name="shared-process-model"></a>“共享进程”模型
+上面显示的是 Service Fabric 提供的默认托管模型，也称为“共享进程”模型。 在此模型中，对于给定应用程序，节点（启动其自身包含的所有 CodePackage）上只会激活指定 ServicePackage 的一个副本，给定 ServiceType 的所有服务的所有副本均放置在注册该 ServiceType 的 CodePackage 中。 换言之，给定 ServiceType 的节点上的所有服务的所有副本共享相同的进程。
 
-## “独占进程”模型
-<a id="exclusive-process-model" class="xliff"></a>
+## <a name="exclusive-process-model"></a>“独占进程”模型
 Service Fabric 提供的另一个托管模型是“独占进程”模型。 在此模型中，为了放置每个副本，在给定节点上，Service Fabric 激活 ServicePackage（启动其自身包含的所有 CodePackage）的一个新副本，副本则放置在注册 ServiceType（副本所属服务的类型）的 CodePackage 中。 换而言之，每个副本存在于其自己专用的进程中。 
 
 此模型从 Service Fabric 5.6 版开始受支持。 通过将 ServicePackageActivationMode 指定为“ExclusiveProcess”，可在创建服务（使用 [PowerShell][p1]、[REST][r1] 或 [FabricClient][c1]）时选择“独占进程”模型。
@@ -99,21 +97,20 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ![已部署应用程序的节点视图][node-view-four]
 </center>
 
-如此处所示，Service Fabric 激活了“MyServicePackage”的两个新副本（分别对应分区 P6 和 P7 中的每个副本），并将每个副本放置在其 CodePackage 的专用副本中 & 。 此处还需注意，对给定应用程序使用“独占进程”模型时，给定 ServicePackage 可以有多个副本在节点上保持活动状态。 在上面的示例中，有 3 个“MyServicePackage”副本对于 fabric:/App1 保持活动状态。 “MyServicePackage”的这 3 个活动副本均具有与自身关联的 ServicePackageAtivationId，用于在应用程序 fabric:/App1 内识别该副本。
+如此处所示，Service Fabric 激活了“MyServicePackage”的两个新副本（分别对应分区 P6 和 P7 中的每个副本），并将每个副本放置在其 CodePackage 的专用副本中 & 。 此处还需注意，对给定应用程序使用“独占进程”模型时，给定 ServicePackage 可以有多个副本在节点上保持活动状态。 在上面的示例中，有 3 个“MyServicePackage”副本对于 fabric:/App1 保持活动状态。 “MyServicePackage”的这 3 个活跃副本均具有与自身关联的 ServicePackageActivationId，用于在应用程序 fabric:/App1 内识别该副本。
 
-当仅对应用程序（如上例中的 fabric:/App2）使用“共享进程”模型时，节点上只有一个活动的 ServicePackage 副本，并且此 ServicePackage 激活的 ServicePackageAtivationId 是“空字符串”。
+当仅对应用程序（如上例中的 fabric:/App2）使用共享进程模型时，节点上只有一个活动的 ServicePackage 副本，并且此 ServicePackage 激活的 ServicePackageActivationId 是“空字符串”。
 
 > [!NOTE]
->- “共享进程”托管模型与 ServicePackageAtivationMode（相当于 SharedProcess）对应。 这是默认的托管模型，并且创建服务时无需指定 ServicePackageAtivationMode。
+>- 共享进程托管模型与 ServicePackageActivationMode（相当于 SharedProcess）对应。 这是默认的托管模型，并且创建服务时无需指定 ServicePackageActivationMode。
 >
->- “独占进程”托管模型与 ServicePackageAtivationMode（相当于 ExclusiveProcess）对应，并且创建服务时需要显式指定 ServicePackageAtivationMode。 
+>- 独占进程托管模型与 ServicePackageActivationMode（相当于 ExclusiveProcess）对应，并且创建服务时需要显式指定 ServicePackageActivationMode。 
 >
->- 通过查询[服务说明][p2]和查看 ServicePackageAtivationMode 的值即可知道服务的托管模型。
+>- 通过查询[服务说明][p2]和查看 ServicePackageActivationMode 的值即可知道服务的托管模型。
 >
 >
 
-## 使用已部署服务包
-<a id="working-with-deployed-service-package" class="xliff"></a>
+## <a name="working-with-deployed-service-package"></a>使用已部署服务包
 节点上 ServicePackage 的活动副本称为[已部署服务包][p3]。 如上文所述，当使用“独占进程”模型创建服务时，对于给定应用程序，同一 ServicePackage 可能有多个已部署服务包。 执行特定于已部署服务包的操作（如[报告已部署服务包的运行状况][p4]或[重启已部署服务包的代码包][p5]等）时，需要提供 ServicePackageActivationId 来识别特定的已部署服务包。
 
  通过在节点上查询[已部署服务包][p3]的列表，可以获得已部署服务包的 ServicePackageActivationId。 在节点上查询[已部署服务包][p6]、[已部署副本][p7]和[已部署代码包][p8]时，查询结果还包含父级已部署服务包的 ServicePackageActivationId。
@@ -125,31 +122,27 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 >
 > - 如果省略了 ServicePackageActivationId，则它默认为“空字符串”。 如果存在“共享进程”模型下激活的已部署服务包，则操作将在此包上执行，否则操作将失败。
 >
-> - 不建议对 ServicePackageActivationId 执行一次查询或缓存，因为它是动态生成的，会因为各种原因发生更改。 执行需要 ServicePackageActivationId 的操作前，应先在节点上查询[已部署服务包][p3]的列表，然后使用查询结果中的 ServicePackageActivationId* 执行原始操作。
+> - 不建议对 ServicePackageActivationId 执行一次查询或缓存，因为它是动态生成的，会因为各种原因发生更改。 执行需要 ServicePackageActivationId 的操作前，应先在节点上查询[已部署服务包][p3]的列表，然后使用查询结果中的 ServicePackageActivationId 执行原始操作。
 >
 >
 
-## 来宾可执行文件和容器应用程序
-<a id="guest-executable-and-container-applications" class="xliff"></a>
+## <a name="guest-executable-and-container-applications"></a>来宾可执行文件和容器应用程序
 Service Fabric 将[来宾可执行文件][a2]和[容器][a3]应用程序视为自包含式无状态服务，即 ServiceHost（进程或容器）中没有 Service Fabric 运行时。 由于这些服务是自包含服务，因此每个 ServiceHost 包含的副本数不适用于这些服务。 用于这些服务的最常见配置是单分区，其中 [InstanceCount][c2] 等于 -1（即每个群集节点上运行一个服务代码副本）。 
 
 这些服务的默认 ServicePackageActivationMode 是 SharedProcess，在这种情况下，对于指定应用程序，Service Fabric 只会在节点上激活一个 ServicePackage 副本，这意味着只有一个服务代码副本将运行节点。 如果希望在创建 ServiceType（在 ServiceManifest 中指定）的多个服务（从 Service1 到 ServiceN）时或在服务具有多个分区时有多个服务代码副本在节点上运行，则应在创建服务时将 ServicePackageActivationMode 指定为 ExclusiveProcess。
 
-## 更改现有服务的托管模型
-<a id="changing-hosting-model-of-an-existing-service" class="xliff"></a>
+## <a name="changing-hosting-model-of-an-existing-service"></a>更改现有服务的托管模型
 目前不支持通过升级或更新机制（或在应用程序清单中的默认服务规范中）将现有服务的托管模型在“共享进程”和“独占进程”之间进行更改。 以后的版本将提供对此功能的支持。
 
-## 在“共享进程”和“独占进程”模型之间进行选择
-<a id="choosing-between-shared-process-and-exclusive-process-model" class="xliff"></a>
+## <a name="choosing-between-shared-process-and-exclusive-process-model"></a>在“共享进程”和“独占进程”模型之间进行选择
 这两种托管模型都各有优点和缺点，用户需要评估哪一种最适合自身需求。 使用“共享进程”模型能更充分地利用 OS 资源，因为生成的进程较少，同一进程上的多个副本可以共享端口等。但是，如果一个副本遇到了需要关闭服务主机的错误时，将会影响同一进程中的所有其他副本。
 
  “独占进程”模型将每个副本合理地隔离在其自己的进程中，某个副本出错不会影响到其他副本。 对于通信协议不支持端口共享的情况，使用这种模型很方便。 它支持在副本级别应用资源管理。 但是，“独占进程”模型消耗的 OS 资源较多，因为它为节点上的每个副本生成一个进程。
 
-## “独占进程”模型和“应用程序”模型注意事项
-<a id="exclusive-process-model-and-application-model-considerations" class="xliff"></a>
+## <a name="exclusive-process-model-and-application-model-considerations"></a>“独占进程”模型和“应用程序”模型注意事项
 在 Service Fabric 中进行应用程序建模时，建议对每个 ServicePackage 使用同一种 ServiceType，这种模型适用于大多数应用程序。 
 
-但是，为了支持可能不希望每个 ServicePackage 都使用同一个 ServiceType 的特殊方案，Service Fabric 在功能上允许每个 ServicePackage 有多个 ServiceType（并且一个 CodePackage 可以注册多个 ServiceType）。 以下是这些配置适用的一些方案：
+适用于特定用例，Service Fabric 还允许每个 ServicePackage 包含多种 ServiceType （以及一个 CodePackage 可以注册多种 ServiceType）。 以下是这些配置适用的一些方案：
 
 - 希望通过生成较少进程以及让每个进程具有较高的副本密度来优化 OS 资源使用情况。
 - 不同 ServiceType 的副本需要共享一些初始化程度高或内存成本高的常用数据。
@@ -174,7 +167,7 @@ Service Fabric 将[来宾可执行文件][a2]和[容器][a3]应用程序视为�
 </center>
 
  如此处所示，为服务 fabric:/SpecialApp/ServiceA 的 P1 分区的副本激活“MultiTypeServicePackge”时，“MyCodePackageA”将托管该副本，而“MyCodePackageB”只是启动并运行。 同样，为服务 fabric:/SpecialApp/ServiceB 的 P3 分区的副本激活“MultiTypeServicePackge”时，“MyCodePackageB”将托管该副本，而“MyCodePackageA”只是启动并运行，依此类推。 因此，每个 ServicePackage 的 CodePackage（注册不同的 ServiceType）数量越多，冗余资源使用率就越高。 
- 
+
  另一方面，如果使用“共享进程”模型创建服务 fabric:/SpecialApp/ServiceA 和 fabric:/SpecialApp/ServiceB，Service Fabric 将只为应用程序 fabric:/SpecialApp 激活“MultiTypeServicePackge”的一个副本（如前文所示）。 “MyCodePackageA”将托管服务 fabric:/SpecialApp/ServiceA（更准确地说是“MyServiceTypeA”类型的任何服务）的所有副本，“MyCodePackageB” 将托管服务 fabric:/SpecialApp/ServiceB（更准确地说是“MyServiceTypeB”类型的任何服务）的所有副本。 下图显示了此设置中的节点视图： 
 
 <center>
@@ -183,8 +176,7 @@ Service Fabric 将[来宾可执行文件][a2]和[容器][a3]应用程序视为�
 
 在上面的示例中，你可能会认为，如果“MyCodePackageA”注册“MyServiceTypeA”和“MyServiceTypeB”，并且“MyCodePackageB”不存在，那么将不会运行冗余的 CodePackage。 这是对的，但正如前文所述，此应用程序模型不适用于“独占进程”托管模型。 如果目的是将每个副本放入其自己的专用进程，则不需要从同一个 CodePackage 注册两个 ServiceType，而应将每个 ServiceType 放入其自己的 ServicePacakge。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 [将应用程序打包][a4]并准备好进行部署。
 
 [部署和删除应用程序][a5]介绍如何使用 PowerShell 来管理应用程序实例。
@@ -217,3 +209,5 @@ Service Fabric 将[来宾可执行文件][a2]和[容器][a3]应用程序视为�
 [p6]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricdeployedservicetype
 [p7]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricdeployedreplica
 [p8]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricdeployedcodepackage
+
+<!-- Update_Description: wording update -->

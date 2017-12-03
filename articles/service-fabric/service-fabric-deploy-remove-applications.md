@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/05/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 018a4063b89ffe9e7c26ccfce84fdc545f2f9d9b
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: b8b350ae14f2c006c1d6505bc1ff495bdf2c014c
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>使用 PowerShell 部署和删除应用程序
 > [!div class="op_single_selector"]
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
-> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
-> * [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
 > * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
+> * [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
 
 <br/>
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/09/2017
 2. 如果不再需要该应用程序类型，则将其取消注册
 3. 从映像存储中删除应用程序包
 
-如果在本地开发群集上[使用 Visual Studio 部署和调试应用程序](service-fabric-publish-app-remote-cluster.md)，则将通过 PowerShell 脚本自动处理上述所有步骤。  可在应用程序项目的 *Scripts* 文件夹中找到此脚本。 本文提供了有关这些脚本正在执行什么操作的背景，以便可以在 Visual Studio 外部执行相同的操作。 
+如果使用 Visual Studio 来部署和调试本地开发群集上的应用程序，则将通过 PowerShell 脚本自动处理上述所有步骤。  可在应用程序项目的 *Scripts* 文件夹中找到此脚本。 本文提供了有关这些脚本正在执行什么操作的背景，以便可以在 Visual Studio 外部执行相同的操作。 
 
 ## <a name="connect-to-the-cluster"></a>连接至群集
 在运行本文中的任何 PowerShell 命令之前，请始终先使用 [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) 连接到 Service Fabric 群集。 若要连接到本地部署群集，请运行以下命令：
@@ -344,4 +344,4 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!--Update_Description: update meta properties, wording update, cmdlet update-->
+<!--Update_Description: wording update, update link -->

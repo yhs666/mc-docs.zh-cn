@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 10/06/2017
+origin.date: 11/16/2017
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: 9616fd4617987d49196ef4d2719f51ade237aee3
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 12/11/2017
+ms.openlocfilehash: 2a2613553a102509a3d3eb56f324c829e2da5132
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 来宾 OS 版本和 SDK 兼容性对照表
 提供适用于云服务的最新 Azure 来宾 OS 版本的最新信息。 此信息可帮助在禁用来宾 OS 之前规划升级路径。 如果根据 [Azure 来宾 OS 更新设置][Azure Guest OS Update Settings]中所述将角色配置为使用自动进行来宾 OS 更新，则不一定要阅读本页面。
@@ -44,6 +44,8 @@ ms.lasthandoff: 10/30/2017
 
 ## <a name="news-updates"></a>新闻更新
 
+###### <a name="november-8-2017"></a>2017 年 11 月 8 日
+10 月版来宾 OS 已发布。
 
 ###### <a name="october-6-2017"></a>**2017 年 10 月 6日**
 9 月版来宾 OS 已发布。 对于 2016 年 9 月版本的 Windows Server，默认启用 netfx3。 在以下情况下，客户应在其 OnStart 中添加“dism /online /disable-feature /featurename:netfx3”：客户工作流要求客户使用 4.x 运行时运行 .NET 2.x 应用，或者客户运行了 .NET 2.x 应用，处理了错误，然后运行了 .NET 4.x 应用。
@@ -72,12 +74,6 @@ ms.lasthandoff: 10/30/2017
 ###### <a name="may-17-2017"></a>**2017 年 5 月 17 日**
 由于存在安全 bug，我们将禁用以下 2016 年 12 月和 2017 年 1 月的 OS 版本，这些版本不包含门户的[修补程序]：WA-GUEST-OS-5.4_201612-01、WA-GUEST-OS-4.39_201612-01、WA-GUEST-OS-3.46_201612-01、WA-GUEST-OS-2.59_201701-01
 
-###### <a name="may-12-2017"></a>**2017 年 5 月 12 日**
-5 月版来宾 OS 将从 5 月 12 日开始推出，预计于 7 月 13 日正式发行。
-
-###### <a name="april-18-2017"></a>**2017 年 4 月 18 日**
-4 月版来宾 OS 将从 4 月 18 日开始推出，预计于 5 月 9 日正式发行。
-
 
 ## <a name="releases"></a>发行版本
 ## <a name="family-5-releases"></a>系列 5 发行版本
@@ -93,21 +89,21 @@ ms.lasthandoff: 10/30/2017
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.12_201710-02 |2017 年 11 月 8 日 |5.14 版发行后 |TBD |
 | WA-GUEST-OS-5.11_201709-01 |2017 年 10 月 6日 |5.13 版发行后 |TBD |
 | WA-GUEST-OS-5.10_201708-01 |2017 年 8 月 24 日 |5.12 版发行后 |TBD |
-| WA-GUEST-OS-5.9_201707-01 |2017 年 8 月 3 日 |5.11 版发行后 |TBD |
+|~~~~WA-GUEST-OS-5.9_201707-01 |2017 年 8 月 3 日 |2017 年 11 月 8 日 |TBD |
 |~~WA-GUEST-OS-5.8_201706-01~~ |2017 年 7 月 7 日 |2017 年 10 月 6日 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
 |~~WA-GUEST-OS-5.4_201612-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5日|TBD |
 |~~WA-GUEST-OS-5.3_201611-01~~ |2016 年 12 月 14 日 |2017 年 5 月 9 日 |TBD |
-|~~WA-GUEST-OS-5.2_201610-02~~ |2016 年 11 月 1 日 |2017 年 4 月 10 日 |TBD |
 
 ## <a name="family-4-releases"></a>系列 4 发行版本
 **Windows Server 2012 R2**
 
-支持 .NET 4.0、4.5、4.5.1、4.5.2
+已安装的 .NET Framework：4.0、4.5、4.5.1、4.5.2
 
 > [!NOTE]
 > 标有 * 的日期可随时更改
@@ -116,25 +112,21 @@ ms.lasthandoff: 10/30/2017
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.47_201710-02 |2017 年 11 月 8 日 |4.49 版发行后 |TBD |
 | WA-GUEST-OS-4.46_201709-01 |2017 年 10 月 6日 |4.48 版发行后 |TBD |
 | WA-GUEST-OS-4.45_201708-01 |2017 年 8 月 24 日 |4.47 版发行后 |TBD |
-| WA-GUEST-OS-4.44_201707-01 |2017 年 8 月 3 日 |4.46 版发行后 |TBD |
+|~~~~WA-GUEST-OS-4.44_201707-01 |2017 年 8 月 3 日 |2017 年 11 月 8 日 |TBD |
 |~~WA-GUEST-OS-4.43_201706-01~~ |2017 年 7 月 7 日 |2017 年 10 月 6日 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
 |~~WA-GUEST-OS-4.39_201612-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5日 |TBD |
 |~~WA-GUEST-OS-4.38_201611-01~~ |2016 年 12 月 14 日 |2017 年 5 月 9 日 |TBD |
-|~~WA-GUEST-OS-4.37_201610-02~~ |2016 年 11 月 16 日 |2017 年 4 月 10 日 |TBD |
-|~~WA-GUEST-OS-4.36_201609-01~~ |2016 年 10 月 13 日 |2017 年 1 月 14 日 |TBD |
-|~~WA-GUEST-OS-4.35_201608-01~~ |2016 年 9 月 13 日 |2016 年 12 月 16 日 |TBD |
-|~~WA-GUEST-OS-4.34_201607-01~~ |2016 年 8 月 8 日 |2016 年 11 月 13 日 |TBD |
-
 
 ## <a name="family-3-releases"></a>系列 3 发行版本
 **Windows Server 2012**
 
-支持 .NET 4.0、4.5、4.5.1、4.5.2
+已安装的 .NET Framework：4.0、4.5、4.5.1、4.5.2
 
 > [!NOTE]
 > 标有 * 的日期可随时更改
@@ -143,25 +135,21 @@ ms.lasthandoff: 10/30/2017
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.54_201710-02 |2017 年 11 月 8 日 |3.56 版发行后 |TBD |
 | WA-GUEST-OS-3.53_201709-01 |2017 年 10 月 6日 |3.55 版发行后 |TBD |
 | WA-GUEST-OS-3.52_201708-01 |2017 年 8 月 24 日 |3.54 版发行后 |TBD |
-| WA-GUEST-OS-3.51_201707-01 |2017 年 8 月 3 日 |3.53 版发行后 |TBD |
+|~~~~WA-GUEST-OS-3.51_201707-01 |2017 年 8 月 3 日 |2017 年 11 月 8 日 |TBD |
 |~~WA-GUEST-OS-3.50_201706-01~~ |2017 年 7 月 7 日 |2017 年 10 月 6日 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
 |~~WA-GUEST-OS-3.46_201612-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5日 |TBD |
 |~~WA-GUEST-OS-3.45_201611-01~~ |2016 年 12 月 14 日 |2017 年 5 月 9 日 |TBD |
-|~~WA-GUEST-OS-3.44_201610-02~~ |2016 年 11 月 16 日 |2017 年 5 月 1 日 |TBD |
-|~~WA-GUEST-OS-3.43_201609-01~~ |2016 年 10 月 13 日 |2017 年 1 月 14 日 |TBD |
-|~~WA-GUEST-OS-3.42_201608-01~~ |2016 年 9 月 13 日 |2016 年 12 月 16 日 |TBD |
-|~~WA-GUEST-OS-3.41_201607-01~~ |2016 年 8 月 8 日 |2016 年 11 月 13 日 |TBD |
-
 
 ## <a name="family-2-releases"></a>系列 2 发行版本
 **Windows Server 2008 R2 SP1**
 
-支持 .NET 3.5、4.0、4.5、4.5.1、4.5.2
+已安装的 .NET Framework：3.5、4.0、4.5、4.5.1、4.5.2
 
 > [!NOTE]
 > 标有 * 的日期可随时更改
@@ -170,9 +158,10 @@ ms.lasthandoff: 10/30/2017
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.67_201710-02 |2017 年 11 月 8 日 |2.69 版发行后 |TBD |
 | WA-GUEST-OS-2.66_201709-01 |2017 年 10 月 6日 |2.68 版发行后 |TBD |
 | WA-GUEST-OS-2.65_201708-01 |2017 年 8 月 24 日 |2.67 版发行后 |TBD |
-| WA-GUEST-OS-2.64_201707-01 |2017 年 8 月 3 日 |2.66 版发行后 |TBD |
+|~~~~WA-GUEST-OS-2.64_201707-01 |2017 年 8 月 3 日 |2017 年 11 月 8 日 |TBD |
 |~~WA-GUEST-OS-2.63_201706-01~~ |2017 年 7 月 7 日 |2017 年 10 月 6日 |TBD |
 |~~WA-GUEST-OS-2.62_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
@@ -180,11 +169,6 @@ ms.lasthandoff: 10/30/2017
 |~~WA-GUEST-OS-2.59_201701-01~~ |2017 年 1 月 10 日 |2017 年 6 月 5日 |TBD |
 |~~WA-GUEST-OS-2.58_201612-01~~ |2017 年 1 月 10 日 |2017 年 5 月 9 日|TBD |
 |~~WA-GUEST-OS-2.57_201611-01~~ |2016 年 12 月 14 日 |2017 年 4 月 10 日 |TBD |
-|~~WA-GUEST-OS-2.56_201610-02~~ |2016 年 11 月 16 日 |2017 年 2 月 10 日 |TBD |
-|~~WA-GUEST-OS-2.55_201609-01~~ |2016 年 10 月 13 日 |2017 年 1 月 14 日 |TBD |
-|~~WA-GUEST-OS-2.54_201608-01~~ |2016 年 9 月 13 日 |2016 年 12 月 16 日 |TBD |
-|~~WA-GUEST-OS-2.53_201607-01~~ |2016 年 8 月 8 日 |2016 年 11 月 13 日 |TBD |
-
 
 
 ## <a name="msrc-patch-updates"></a>MSRC 修补程序更新
@@ -244,7 +228,7 @@ Azure 不断地发布更新。 来宾 OS 只不过是此类更新的其中一种
 
 [来宾 OS 更新 RSS 源]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
-[Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
+[Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/zh-cn/library/security/3009008.aspx
 [ssl3-fixit]: http://go.microsoft.com/?linkid=9863266

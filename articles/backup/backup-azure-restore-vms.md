@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/11/2017
-ms.date: 09/04/2017
+origin.date: 11/09/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
-ms.openlocfilehash: a5f692e70a1aa22d172ee67869426caa8cb2bee1
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 3b5e9833ad084f6e1af09420c6ff97bb4d89048b
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="restore-virtual-machines-in-azure"></a>还原 Azure 中的虚拟机
 > [!div class="op_single_selector"]
@@ -32,8 +32,8 @@ ms.lasthandoff: 09/08/2017
 执行以下步骤，通过存储在 Azure 备份保管库中的备份将虚拟机还原到新的 VM。
 
 > [!IMPORTANT]
-> 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> **2017 年 10 月 15 日之后**，无法使用 PowerShell 创建备份保管库。 <br/> **从 2017 年 11 月 1 日起**：
->- 其余的所有备份保管库都会自动升级到恢复服务保管库。
+> 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。 之后 <br/> 2017 年 11 月 30 日之后，将不再能够使用 PowerShell 创建备份保管库。 <br/> 在 2017 年 11 月 30 日之前：
+>- 其余所有备份保管库都将自动升级到恢复服务保管库。
 >- 无法在经典管理门户中访问备份数据。 应使用 Azure 门户在恢复服务保管库中访问备份数据。
 >
 

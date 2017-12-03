@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/17/2017
-ms.date: 10/02/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 44861a170b813924a726f87e74930c69bb426494
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 0461c9c61c6c4e35ff37d2d29dde6c1d16d4c81c
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>使用 Linux Azure 诊断聚合和收集事件
 > [!div class="op_single_selector"]
@@ -54,4 +54,5 @@ Service Fabric 通过 [LTTng](http://lttng.org) 发出几个现成可用的日�
 
 1. 若要更详细了解在排查问题时应检查哪些事件，请参阅 [LTTng 文档](http://lttng.org/docs)和[使用 LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
 2. [设置 OMS 代理](service-fabric-diagnostics-event-analysis-oms.md)来帮助收集指标，监视在群集上部署的容器，以及使日志可视化
-<!--Update_Description: wording update, update reference link-->
+
+<!--Update_Description: update meta properties -->

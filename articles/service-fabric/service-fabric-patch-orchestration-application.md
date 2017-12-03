@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/09/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 19d0ef04bbc0b38f47adcc39e7008de61a13e25a
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 4313b33b529547b2f78fe1920863bb5eaa48ef8a
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>在 Service Fabric 群集中修补 Windows 操作系统
 
@@ -52,14 +52,6 @@ ms.lasthandoff: 11/09/2017
 > 修补业务流程应用通过 Service Fabric 的“修复管理器”系统服务来禁用/启用节点和执行运行状况检查。 修补业务流程应用创建的修复任务跟踪每个节点的 Windows 更新进度。
 
 ## <a name="prerequisites"></a>先决条件
-
-### <a name="minimum-supported-service-fabric-runtime-version"></a>支持的最低 Service Fabric 运行时版本
-
-#### <a name="azure-clusters"></a>Azure 群集
-修补业务流程应用必须在 Service Fabric 运行时版本为 v5.5 或更高的 Azure 群集上运行。
-
-#### <a name="standalone-on-premises-clusters"></a>独立的本地群集
-修补业务流程应用必须在 Service Fabric 运行时版本为 v5.6 或更高的独立群集上运行。
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>启用“修复管理器”服务（如果尚未运行）
 
@@ -95,10 +87,10 @@ ms.lasthandoff: 11/09/2017
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. 通过这些更改更新群集模板后，应用更改并等待升级完成。 现在可以看到“修复管理器”系统服务在群集中运行。 它在 Service Fabric Explorer 中的系统服务部分被称为 `fabric:/System/RepairManagerService`。 
@@ -120,15 +112,15 @@ ms.lasthandoff: 11/09/2017
     }
     ```
 
-2. 现在，通过在 `fabricSettings` 节后面添加以下 `addonFeaturres` 节来启用修复管理器服务，如下所示：
+2. 现在，通过在 `fabricSettings` 节后面添加以下 `addonFeatures` 节来启用修复管理器服务，如下所示：
 
     ```json
     "fabricSettings": [
         ...      
-        ],
-        "addonFeatures": [
-            "RepairManager"
-        ],
+    ],
+    "addonFeatures": [
+        "RepairManager"
+    ],
     ```
 
 3. 通过这些更改更新群集清单后，使用已更新的群集清单[创建新群集](/service-fabric/service-fabric-cluster-creation-for-windows-server)或[升级群集配置](/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration)。 群集使用已更新的群集清单运行后，就可以看到修复管理器系统服务在群集中运行，该服务在 Service Fabric Explorer 中的系统服务部分下被称为 `fabric:/System/RepairManagerService`。
@@ -136,59 +128,6 @@ ms.lasthandoff: 11/09/2017
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>在所有节点上禁用自动 Windows 更新
 
 自动 Windows 更新可能导致失去可用性，因为多个群集节点可能同时重启。 修补业务流程应用默认会尝试在每个群集节点上禁用自动 Windows 更新。 但是，如果设置由管理员或组策略管理，建议将 Windows 更新策略显式设置为“下载之前发出通知”。
-
-### <a name="optional-enable-azure-diagnostics"></a>可选：启用 Azure 诊断
-
-运行版本 `5.6.220.9494` 及更高版本的 Service Fabric 运行时的群集会收集修补业务流程应用日志，以构成 Service Fabric 日志。
-如果在 Service Fabric 运行时版本 `5.6.220.9494` 和更高版本上运行群集，则可以跳过此步骤。
-
-对于运行版本低于 `5.6.220.9494` 的 Service Fabric 运行时的群集，会在每个群集节点上本地收集修补业务流程应用的日志。
-我们建议配置 Azure 诊断，将日志从所有节点上传到中心位置。
-
-有关启用 Azure 诊断的详细信息，请参阅[使用 Azure 诊断收集日志](/service-fabric/service-fabric-diagnostics-how-to-setup-wad)。
-
-修补业务流程应用的日志将以下列固定提供程序 ID 为基础而生成：
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-在 Resource Manager 模板中，转到 `WadCfg` 下的 `EtwEventSourceProviderConfiguration` 节，并添加以下条目：
-
-```json
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  }
-```
-
-> [!NOTE]
-> 如果 Service Fabric 群集具有多个节点类型，则必须在所有 `WadCfg` 节中添加上述节。
 
 ## <a name="download-the-app-package"></a>下载应用包
 
@@ -303,20 +242,16 @@ RebootRequired | true - 需要重新启动<br> true - 不需要重新启动 | �
 
 ## <a name="diagnosticshealth-events"></a>诊断/运行状况事件
 
-### <a name="collect-patch-orchestration-app-logs"></a>收集修补业务流程应用日志
+### <a name="diagnostic-logs"></a>诊断日志
 
-修补业务流程应用日志是作为 Service Fabric（运行时版本为 `5.6.220.9494` 及更高版本）日志的一部分进行收集的。
-对于运行 Service Fabric 运行时版本低于 `5.6.220.9494` 的群集，可通过以下方法之一来收集日志。
+修补业务流程应用日志是作为 Service Fabric 运行日志的一部分进行收集的。
 
-#### <a name="locally-on-each-node"></a>在每个节点本地
+在想要通过所选的诊断工具/管道捕获日志的情况下使用。 修补业务流程应用程序使用以下固定的提供程序 ID 通过 [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1) 记录事件
 
-如果 Service Fabric 运行时版本低于 `5.6.220.9494`，则会在每个 Service Fabric 群集节点上本地收集日志。 日志的访问位置为 \[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs。
-
-例如：如果 Service Fabric 安装在 D 驱动器上，则路径为 D:\\PatchOrchestrationApplication\\logs。
-
-#### <a name="central-location"></a>中心位置
-
-如果在执行先决条件步骤的过程中配置了 Azure 诊断，则 Azure 存储中将会提供修补业务流程应用的日志。
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### <a name="health-reports"></a>运行状况报告
 
@@ -414,4 +349,4 @@ Windows 更新发生故障时，会使特定节点或升级域上的应用程序
 
 <!-- Not Available ## Release Notes :-->
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, remove Enable Azure Diagnostics content -->

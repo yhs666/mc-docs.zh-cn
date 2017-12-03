@@ -2,8 +2,8 @@
 title: "排查云服务部署问题 | Azure"
 description: "将云服务部署到 Azure 时，可能会遇到几个常见问题。 本文提供了部分问题的解决方案。"
 services: cloud-services
-documentationCenter: 
-authors: simonxjx
+documentationcenter: 
+author: simonxjx
 manager: felixwu
 editor: 
 tags: top-support-issue
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 07/26/2017
+origin.date: 11/03/2017
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: c8adc6ca98daa9e80be809fbb03cc35d1020c383
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 12/11/2017
+ms.openlocfilehash: 54027c6a9148320c114609fe398fb9faada15010
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>排查云服务部署问题
 

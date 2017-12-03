@@ -8,13 +8,13 @@ ms.service: key-vault
 author: alexchen2016
 ms.author: v-junlch
 manager: digimobile
-origin.date: 09/14/2017
-ms.date: 09/25/2017
-ms.openlocfilehash: 46a0cad47cde5b26f90f2765740ceaa4f5d39003
-ms.sourcegitcommit: c13aee6f5e18d15bcc29fae1eefd2b72f2558dfa
+origin.date: 10/12/2017
+ms.date: 11/30/2017
+ms.openlocfilehash: afeddaeb0ad4b9728b525233f9f5b5aa20954790
+ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault 存储帐户密钥
 
@@ -26,7 +26,7 @@ Azure 存储帐户 (ASA) 密钥功能负责管理密钥轮换。 此外，它还
 
 ## <a name="supporting-interfaces"></a>支持接口
 
-Azure 存储帐户密钥功能最初是通过 REST、.NET/C# 和 PowerShell 接口提供的。 有关详细信息，请参阅 [Key Vault 参考](/key-vault/)。
+有关编程和脚本接口的完整列表和链接，请参阅 [Key Vault 开发者指南](key-vault-developers-guide.md#coding-with-key-vault)。
 
 
 ## <a name="what-key-vault-manages"></a>Key Vault 管理什么
@@ -100,15 +100,11 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ### <a name="setup-for-role-based-access-control-rbac-permissions"></a>基于角色的访问控制 (RBAC) 权限的设置
 
-Key Vault 需要有权列出和重新生成存储帐户的密钥。 可使用以下步骤设置这些权限：
+Azure Key Vault 应用程序标识需要有权列出和重新生成存储帐户的密钥。 可使用以下步骤设置这些权限：
 
-- 获取 Key Vault 的 ObjectId： 
+- 获取 Azure Key Vault 标识的 ObjectId： 
 
     `Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093`
-    
-     或
-     
-    `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
 
 - 将存储密钥操作员角色分配给 Azure Key Vault 标识： 
 
@@ -132,17 +128,22 @@ Key Vault 需要有权列出和重新生成存储帐户的密钥。 可使用以
 ### <a name="get-a-service-principal"></a>获取服务主体
 
 ```powershell
-Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
+$yourKeyVaultServicePrincipalId = (Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093).Id
 ```
 
-上一命令的输出包含 ServicePrincipal，我们称之为 yourServicePrincipalId。 
+上一命令的输出包含 ServicePrincipal，我们称之为 yourKeyVaultServicePrincipalId。 
 
 ### <a name="set-permissions"></a>设置权限
 
-请务必将存储权限设置为“全部”。
+请务必将存储权限设置为“全部”。 可以使用以下命令获取 yourUserPrincipalId 并在保管库中设置权限。
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourServicePrincipalId -PermissionsToStorage all
+$youruserPrincipalId = (Get-AzureRmADUser -SearchString "your user principal name").Id
+```
+现在搜索名称并获取相关 ObjectId（在保管库中设置权限时会用到）。
+
+```powershell
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $youruserPrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>允许访问
@@ -150,7 +151,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourServicePrin
 必须先为 Key Vault 服务提供对存储帐户的访问权限，然后才能创建托管存储帐户和 SAS 定义。
 
 ```powershell
-New-AzureRmRoleAssignment -ObjectId yourServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
+New-AzureRmRoleAssignment -ObjectId $yourKeyVaultServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
 ```
 
 ### <a name="create-storage-account"></a>创建存储帐户

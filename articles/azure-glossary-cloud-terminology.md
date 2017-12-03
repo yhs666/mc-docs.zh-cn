@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 08/16/2017
 ms.date: 08/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: fd05c90366d81cbdee148b89648393e9e789fbb7
-ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
+ms.openlocfilehash: 3de03592615d09ee90c1fbcfa45236ec76c34e83
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Azure 词汇表：Azure 平台上的云术语字典
 
@@ -69,7 +69,6 @@ Azure 应用服务提供的用来托管[网站或 Web 应用程序](app-service-
 
 ## <a name="limits"></a>限制
 可以创建的资源数目或可实现的性能基准。 限制通常与订阅、服务和产品关联。  
-请参阅 [Azure 订阅和服务限制、配额和约束](azure-subscription-service-limits.md)
 
 ## <a name="load-balancer"></a>负载均衡器
 在网络中的计算机之间分散传入流量的资源。 在 Azure 中，负载均衡器将流量分散到负载均衡器集内定义的虚拟机。 [负载均衡器](load-balancer/load-balancer-overview.md)可以面向 Internet，也可以是内部的。  

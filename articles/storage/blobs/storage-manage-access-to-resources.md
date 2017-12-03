@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 04/26/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 5cb756e2c57677a6716b870b8a5997c0aeba511e
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 20eb98f096efc851c3d076d6bbaab40e59cfe998
+ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>管理对容器和 Blob 的匿名读取访问
 可以启用对 Azure Blob 存储中的容器及其 Blob 的匿名公共读取访问。 这样做可以授予对这些资源的只读访问权限，无需共享帐户密钥，也无需共享访问签名 (SAS)。
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/23/2017
 可以通过以下方式来设置容器权限：
 
 * [Azure 门户](https://portal.azure.cn)
-* [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fstorage%2fblobs%2ftoc.json#how-to-manage-azure-blobs)
+* [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fstorage%2fblobs%2ftoc.json)
 * [Azure CLI 2.0](../common/storage-azure-cli.md?toc=%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * 通过使用一个存储客户端库或 REST API 以编程方式设置
 

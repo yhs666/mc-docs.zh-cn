@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/28/2017
-ms.date: 08/21/2017
+origin.date: 11/07/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: f27c8f13b3ebe0aba7b9673130a56201417bf109
-ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
+ms.openlocfilehash: d2792e042470d62dd4cb523851b4031cd92e1de7
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction 语法
 
 SqlRuleAction 是 [SqlRuleAction](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 类的实例，代表以基于 SQL 语言的语法编写的一组操作，该语法针对 [BrokeredMessage](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 执行。   
 
-本主题列出有关 SQL 规则操作语法的详细信息。  
+本文列出了有关 SQL 规则操作语法的详细信息。  
 
 ```  
 <statements> ::=
@@ -106,7 +106,7 @@ SqlRuleAction 是 [SqlRuleAction](https://doc.microsoft.com/dotnet/api/microsoft
 
 ```  
 
- `<quoted_identifier>` 是指使用双引号引起来的任何字符串。 标识符中的双引号以两个双引号表示。 不建议使用带引号的标识符，因为很容易将其与字符串常量混淆。 如果可能，请使用分隔标识符。 下面是 `<quoted_identifier>`的示例：  
+ `<quoted_identifier>` 是指使用双引号引起来的任何字符串。 标识符中的双引号以两个双引号表示。 建议不要使用带引号的标识符，因为很容易与字符串常量混淆。 如果可能，请使用分隔标识符。 下面是 `<quoted_identifier>`的示例：  
 
 ```  
 "Contoso & Northwind"  

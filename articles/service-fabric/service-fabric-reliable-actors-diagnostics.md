@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/21/2017
+origin.date: 10/26/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 11f07a294dd2a7f19cb004e079e807ca7bd635af
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 0d4f748cc7e98de07b63d0ee1c7f979fe2832402
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Reliable Actors 的诊断和性能监视
 Reliable Actors 运行时发出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件和[性能计数器](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)。 这些有助于深入了解运行时的运行状况以及进行故障排除和性能监视。
@@ -52,7 +52,7 @@ Reliable Actors 运行时定义以下性能计数器类别。
 默认情况下在 Windows 操作系统中提供的 [Windows 性能监视器](https://technet.microsoft.com/library/cc749249.aspx) 应用程序可用于收集和查看性能计数器数据。 [Azure 诊断](../cloud-services/cloud-services-dotnet-diagnostics.md)是用于收集性能计数器数据并将其上传到 Azure 表的另一个选项。
 
 ### <a name="performance-counter-instance-names"></a>性能计数器实例名称
-具有大量执行组件服务或执行组件服务分区的群集具有大量执行组件性能计数器实例。 性能计数器实例名称有助于标识与性能计数器实例相关联的特定[分区](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)和执行组件方法（如果适用）。
+具有大量执行组件服务或执行组件服务分区的群集将具有大量执行组件性能计数器实例。 性能计数器实例名称有助于标识与性能计数器实例相关联的特定[分区](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)和执行组件方法（如果适用）。
 
 #### <a name="service-fabric-actor-category"></a>Service Fabric 执行组件类别
 对于类别 `Service Fabric Actor`，计数器实例名称采用以下格式：

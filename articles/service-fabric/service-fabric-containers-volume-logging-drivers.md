@@ -13,17 +13,33 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0b7ebf5ad96d9fc282ee9b08a567b6c7e42f35ef
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 90be444167f0ad2c7f8687241ad01a36a7b3a9de
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="using-volume-plugins-and-logging-drivers-in-your-container"></a>在容器中使用卷插件和日志记录驱动程序
+Service Fabric 支持为容器服务指定 [Docker 卷插件](https://docs.docker.com/engine/extend/plugins_volume/)和 [Docker 日志记录驱动程序](https://docs.docker.com/engine/admin/logging/overview/)。  这将使你能够在 [Azure 文件](https://www.azure.cn/services/storage/files/)中持久保存数据，即使容器已移动或在另一台主机上重启也是如此。
 
-Service Fabric 支持为容器服务指定 [Docker 卷插件](https://docs.docker.com/engine/extend/plugins_volume/)和 [Docker 日志记录驱动程序](https://docs.docker.com/engine/admin/logging/overview/)。 
+当前只有适用于 Linux 容器的卷驱动程序，如下所示。  如果使用 Windows 容器，使用最新的 1709 版 Windows Server 无需卷驱动程序即可将卷映射到 Azure 文件 [SMB3 共享](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/)。 这需要将群集中的虚拟机更新到 Windows Server 1709 版本。
+
+## <a name="install-volumelogging-driver"></a>安装卷/日志记录驱动程序
+
+如果计算机上未安装 Docker 卷/日志记录驱动程序，请通过 RDP/SSH 连接到计算机手动安装它，或者通过 [VMSS 启动脚本](https://www.azure.cn/resources/templates/201-vmss-custom-script-windows/)或 [SetupEntryPoint](/service-fabric/service-fabric-application-model#describe-a-service) 脚本安装。 选择上述方法之一，可以编写脚本来安装[用于 Azure 的 Docker 卷驱动程序](https://docs.docker.com/docker-for-azure/persistent-data-volumes/)：
+
+```bash
+docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
+    CLOUD_PLATFORM=AZURE \
+    AZURE_STORAGE_ACCOUNT="[MY-STORAGE-ACCOUNT-NAME]" \
+    AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
+    AZURE_STORAGE_ENDPOINT="core.chinacloudapi.cn" \
+    DEBUG=1
+```
+<!--Add AZURE_STORAGE_ENDPOINT="core.chinacloudapi.cn" -->
+
 ## <a name="specify-the-plugin-or-driver-in-the-manifest"></a>在清单中指定插件或驱动程序
 如以下清单所示，应用程序清单中指定了这些插件：
 
@@ -60,20 +76,19 @@ Service Fabric 支持为容器服务指定 [Docker 卷插件](https://docs.docke
 </ApplicationManifest>
 ```
 
-在前面的示例中，`Volume` 的 `Source` 标记指的是源文件夹。 源文件夹可以是 VM 中托管容器或永久性远程存储的文件夹。 `Destination` 标记是 `Source` 映射到正在运行的容器中的位置。 
+在前面的示例中，`Volume` 的 `Source` 标记指的是源文件夹。 源文件夹可以是 VM 中托管容器或永久性远程存储的文件夹。 `Destination` 标记是 `Source` 映射到正在运行的容器中的位置。  因此，目标不能为容器中的现有位置。
 
 指定卷插件时，Service Fabric 使用指定的参数自动创建卷。 `Source` 标记是该卷的名称，`Driver` 标记指定卷驱动程序插件。 可使用 `DriverOption` 标记指定选项，如以下代码片段所示：
 
 ```xml
-<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
+<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
 </Volume>
 ```
-
 如果指定了 Docker 日志记录驱动程序，则有必要部署代理（或容器）以处理群集中的日志。  `DriverOption` 标记还可用于指定日志驱动程序选项。
 
 请参阅以下文章，将容器部署到 Service Fabric 群集：
 
-<!-- Not Available [Deploy a container on Service Fabric](service-fabric-deploy-container.md) -->
+[在 Service Fabric 上部署容器](service-fabric-deploy-container.md)
 
 <!--Update_Description: wording update, update link -->

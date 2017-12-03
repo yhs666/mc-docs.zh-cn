@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2017
 ms.author: v-yiso
-ms.date: 09/11/2017
-ms.openlocfilehash: f193e1d0eb41bf445953f21cfd73a5d60113619b
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.date: 12/11/2017
+ms.openlocfilehash: a5918e5452cb2c5f01baf6808f7b6397ad85e52d
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>什么是云服务模型，如何将其打包？
-云服务由以下三个组件创建：服务定义 (.csdef)、服务配置 (.cscfg) 和服务包 (.cspkg)。 ServiceDefinition.csdef 和 ServiceConfig.cscfg 文件都基于 XML，同时介绍云服务的结构及其配置方式；统称为模型。 **ServicePackage.cspkg** 是基于 **ServiceDefinition.csdef** 和其他文件生成的 zip 文件，它包含所有必需的基于二进制的依赖项。 Azure 可从 ServicePackage.cspkg 和 ServiceConfig.cscfg 两者创建云服务。
+# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>什么是云服务模型以及如何将其打包？
+云服务由以下三个组件创建：服务定义 (.csdef)、服务配置 (.cscfg) 和服务包 (.cspkg)。 **ServiceDefinition.csdef** 和 **ServiceConfig.cscfg** 文件都基于 XML，同时介绍云服务的结构及其配置方式；统称为模型。 **ServicePackage.cspkg** 是基于 **ServiceDefinition.csdef** 和其他文件生成的 zip 文件，它包含所有必需的基于二进制的依赖项。 Azure 可从 **ServicePackage.cspkg** 和 **ServiceConfig.cscfg** 两者创建云服务。
 
 云服务在 Azure 中开始运行后，可以通 **ServiceConfig.cscfg** 文件重新进行配置，但不能更改定义。
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 09/01/2017
 
 <a name="cscfg"></a>
 ## <a name="serviceconfigurationcscfg"></a>ServiceConfiguration.cscfg
-云服务设置配置由 **ServiceConfiguration.cscfg** 文件中的值确定。 指定要为此文件中每个角色部署的实例数。 在服务定义文件中定义的配置设置值会添加到服务配置文件。 与云服务相关联的所有管理证书的指纹也会添加到该文件。 [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/zh-cn/library/azure/ee758710.aspx)（Azure 服务配置架构（.cscfg 文件））为服务配置文件提供允许的格式。
+云服务设置配置由 **ServiceConfiguration.cscfg** 文件中的值确定。 指定要为此文件中每个角色部署的实例数。 在服务定义文件中定义的配置设置值已添加到服务配置文件中。 与云服务相关联的所有管理证书的指纹也会添加到该文件中。 [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/zh-cn/library/azure/ee758710.aspx)（Azure 服务配置架构（.cscfg 文件））为服务配置文件提供允许的格式。
 
 服务配置文件不与应用程序一起打包，而是作为单独的文件上传到 Azure 并用于配置云服务。 无需重新部署云服务即可上传新的服务配置文件。 云服务正在运行时可以更改云服务的配置值。 以下示例显示了可为 Web 角色和辅助角色定义的配置设置：
 
@@ -149,7 +149,7 @@ ms.lasthandoff: 09/01/2017
 为角色配置运行实例的设置。 `<Setting>` 元素的名称必须与服务定义文件中的设置定义匹配。
 
 **Certificates**  
-配置服务使用的证书。 前面的代码示例演示如何定义 RemoteAccess 模块的证书。 *thumbprint* 属性的值必须设置为要使用的证书的指纹。
+配置服务使用的证书。 前面的代码示例演示如何定义 RemoteAccess 模块的证书。 *指纹*属性的值必须设置为要使用的证书的指纹。
 
 <p/>
 
@@ -284,8 +284,8 @@ cspack [DirectoryName]\[ServiceDefinition]
 * [部署云服务项目][vs_deploy]
 * [为云服务实例设置远程桌面][vs_remote]
 
-[deploy]:./cloud-services-how-to-create-deploy-portal.md
-[remotedesktop]:./cloud-services-role-enable-remote-desktop.md
+[deploy]: cloud-services-how-to-create-deploy-portal.md
+[remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
 [vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md

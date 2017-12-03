@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/17/2017
-ms.date: 11/20/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: b94db479bc59ee8723e683550ef97a9e468b1bd1
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 08b97f4dd9b149e05cad22901161a24d89061c7f
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>对 Hyper-V VM 设置到辅助本地站点的灾难恢复
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/15/2017
 
 - 查看[方案体系结构和组件](concepts-hyper-v-to-secondary-architecture.md)。
 - 查看所有组件的[支持要求](site-recovery-support-matrix-to-sec-site.md)。
-- 确保 VMM 服务器和 Hyper-V 主机符合[支持要求](site-recovery-support-matrix-to-sec-site.md#on-premises-servers)。
+- 确保 VMM 服务器和 Hyper-V 主机符合[支持要求](site-recovery-support-matrix-to-sec-site.md)。
 - 确保要复制的 VM 符合[复制计算机支持](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions)。
 - 准备 VMM 服务器进行网络映射。
 
@@ -157,4 +157,4 @@ ms.lasthandoff: 11/15/2017
 
 [运行灾难恢复演练](tutorial-dr-drill-secondary.md)
 
-<!-- Update_Description: new articles on site recovery tutorial vmm to vmm -->
+<!-- Update_Description: update meta properties, wording update -->

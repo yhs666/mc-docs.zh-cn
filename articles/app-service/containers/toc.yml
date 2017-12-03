@@ -146,8 +146,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 定价
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
-    - name: 配额信息
-      href: '../../azure-subscription-service-limits.md#app-service-limits'
     - name: 服务更新和发行说明
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: 最佳实践

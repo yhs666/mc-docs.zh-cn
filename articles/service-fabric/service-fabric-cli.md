@@ -6,14 +6,14 @@ author: rockboyfor
 manager: digimobile
 ms.service: service-fabric
 ms.topic: get-started-article
-origin.date: 08/22/2017
-ms.date: 11/13/2017
+origin.date: 10/20/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 364b7ac3101c3f0197f3f3e2fb42e2fc5fb6f4c2
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: cefc464dae88d5567d1d9d2204b8fcfb96325c2e
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -33,7 +33,7 @@ Service Fabric CLI 旨在支持 Service Fabric SDK 的最新运行时版本。 �
 
 | CLI 版本   | 支持的运行时版本 |
 |---------------|---------------------------|
-| 最新 (~=2)  | 最新 (~=6.0)            |
+| 最新 (~=3)  | 最新 (~=6.0)            |
 | 1.1.0         | 5.6, 5.7                  |
 
 为 `pip install` 命令添加 `==<version>` 后缀即可选择性地指定要安装的 CLI 的目标版本。 例如，版本 1.1.0 的语法为：
@@ -43,6 +43,8 @@ pip install -I sfctl==1.1.0
 ```
 
 视需要将以下 `pip install` 命令替换为此前提到过的命令。
+
+有关 Service Fabric CLI 版本的详细信息，请参阅 [GitHub 文档](https://github.com/Azure/service-fabric-cli/releases)。
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>安装 pip、Python 和 Service Fabric CLI
 
@@ -252,4 +254,4 @@ pip install sfctl
 * [使用 Azure Service Fabric CLI 部署应用程序](service-fabric-application-lifecycle-sfctl.md)
 * [Linux 上的 Service Fabric 入门](service-fabric-get-started-linux.md)
 
-<!--Update_Description: add content of Service Fabric target runtime-->
+<!--Update_Description: update meta properties, wording update -->

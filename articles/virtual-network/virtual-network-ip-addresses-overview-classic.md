@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 02/11/2016
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 88c04fce323ce059224059a698bfc093539b5b34
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 1ccdf83d58840a7970807bfc94bdf40b2c4788cc
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 地址类型和分配方法（经典）
 可以将 IP 地址分配到与其他 Azure 资源通信的 Azure 资源，也可以将其分配到本地网络和 Internet。 可以在 Azure 中使用两种类型的 IP 地址：公共地址和专用地址。
@@ -130,7 +130,7 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 #### <a name="internal-dns-hostname-resolution"></a>内部 DNS 主机名解析
 所有 Azure VM 和 PaaS 角色实例都默认配置了 [Azure 托管的 DNS 服务器](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution)（除非显式配置了自定义 DNS 服务器）。 这些 DNS 服务器为驻留在同一个 VNet 或云服务内的 VM 和角色实例提供内部名称解析。
 
-创建 VM 时，主机名到其专用 IP 地址的映射会添加到 Azure 托管的 DNS 服务器。 使用多 NIC VM 时，主机名映射到主 NIC 的专用 IP 地址。 但是，此映射信息将限制为同一云服务或 VNet 中的资源。
+创建 VM 时，主机名到其专用 IP 地址的映射将添加到 Azure 托管的 DNS 服务器。 使用多 NIC VM 时，主机名将映射到主 NIC 的专用 IP 地址。 但是，此映射信息将限制为同一云服务或 VNet 中的资源。
 
 如果是  独立云服务，则只能解析同一云服务内的所有 VM/角色实例的主机名。 如果是 VNet 中的云服务，则可以解析该 VNet 中的所有 VM/角色实例的主机名。
 
@@ -157,8 +157,6 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 | 保留的公共 IP 地址 |20 |联系支持人员 |
 | 每个部署（云服务）的公共 VIP |5 |联系支持人员 |
 | 每个部署（云服务）的专用 VIP (ILB) |1 |1 |
-
-确保已阅读 Azure 中所有的[网络限制](../azure-subscription-service-limits.md#networking-limits)。
 
 ## <a name="pricing"></a>定价
 在大多数情况下，公共 IP 地址是免费的。 使用额外和/或静态公共 IP 地址要收取少许费用。 确保你了解[公共 IP 的定价结构](https://www.azure.cn/pricing/details/reserved-ip-addresses/)。

@@ -16,11 +16,11 @@ ms.workload: data-management
 origin.date: 10/11/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: ff3ed61f6635f1a53e804c00c1342b29500bf237
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 506741ef005d9c4ece2e29e703643e1032c2514e
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL 数据库资源限制
 
@@ -128,6 +128,5 @@ ms.lasthandoff: 10/31/2017
 - 有关服务层的信息，请参阅[服务层](sql-database-service-tiers.md)。
 - 有关单一数据库的信息，请参阅[单一数据库资源](sql-database-resource-limits.md)。
 - 有关弹性池的信息，请参阅[弹性池](sql-database-elastic-pool.md)。
-- 有关常规 Azure 限制的相关信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
 - 有关 DTU 和 eDTU 的信息，请参阅 [DTU 和 eDTU](sql-database-what-is-a-dtu.md)。
 <!--Update_Description: update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

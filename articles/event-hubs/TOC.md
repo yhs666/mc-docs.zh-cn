@@ -34,6 +34,7 @@
 <!-- Not Available #### [Diagnostic logs](event-hubs-diagnostic-logs.md) -->
 ### [AMQP 1.0 协议指南](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## 管理
+<!-- Not Available ### [Monitor Event Hubs with Azure Monitoring](event-hubs-metrics-azure-monitor.md) -->
 ### [事件中心管理库](event-hubs-management-libraries.md)
 ### 捕获
 #### [事件中心捕获](event-hubs-capture-overview.md)
@@ -66,4 +67,4 @@
 <!-- Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub) -->
 
 <!--Update_Description: update link-->
-<!--ms.date: 11/20/2017 -->
+<!--ms.date: 11/04/2017 -->

@@ -14,7 +14,7 @@
 ### [PHP](service-bus-php-how-to-use-queues.md)
 ### [Python](service-bus-python-how-to-use-queues.md)
 ### [Ruby](service-bus-ruby-how-to-use-queues.md)
-### [REST](service-bus-dotnet-get-started-with-queues.md)
+### [REST](https://docs.microsoft.com/en-us/rest/api/servicebus/queues)
 ## 使用主题和订阅
 ### [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 ### [Java](service-bus-java-how-to-use-topics-subscriptions.md)
@@ -28,6 +28,7 @@
 ## 规划和设计
 ### [比较 Azure 队列和服务总线队列](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [优化性能](service-bus-performance-improvements.md)
+### [异地灾难恢复和异地复制](service-bus-geo-dr.md)
 ### [异步消息传送和高可用性](service-bus-async-messaging.md)
 ### [处理中断和灾难问题](service-bus-outages-disasters.md)
 
@@ -73,10 +74,10 @@
 
 # 引用
 ## .NET
-### [Microsoft.ServiceBus.Messaging](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.Management.ServiceBus](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus)
+### [Microsoft.ServiceBus.Messaging (.NET Framework)](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.ServiceBus（.NET 标准）](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus)
 ## [Java](https://docs.azure.cn/zh-cn/java/api/overview/servicebus)
-## [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.servicebus)
+## [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.servicebus)
 ## [REST](https://docs.microsoft.com/en-us/rest/api/servicebus)
 ## [异常](service-bus-messaging-exceptions.md)
 ## [配额](service-bus-quotas.md)

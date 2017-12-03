@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/05/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: d3eccceda9db186fc9fb0a884b66d04289fe8027
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 376dbc513040b25fe16aca8bbe5f0b066cdcf72b
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>在 Azure 上部署 Azure Service Fabric Linux 容器应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
@@ -30,7 +30,7 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 
 此快速入门介绍如何：
 > [!div class="checklist"]
-> * 将 Linux 容器部署到 Service Fabric
+> * 将容器部署到 Azure Linux Service Fabric 群集
 > * 在 Service Fabric 中缩放和故障转移容器
 
 ## <a name="prerequisite"></a>先决条件
@@ -46,17 +46,21 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 在 Cloud Shell 中，使用 git 克隆一份应用程序定义。
 
 ```azurecli
-git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
+git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
-cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
+cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>将容器部署到 Azure 中的 Service Fabric 群集
 若要将应用程序部署到 Azure 中的群集，可以使用自己的群集，或使用合作群集。
 
+> [!Note]
+> 必须将应用程序部署到 Azure 中的群集，而不是本地开发计算机上的 Service Fabric 群集。 
+>
+
 合作群集是 Azure 上托管的免费限时 Service Fabric 群集。 这些群集由 Service Fabric 团队维护，任何人都可以在其中部署应用程序和了解平台。 若要使用合作群集，请[遵照说明](http://aka.ms/tryservicefabric)。 
 
-若要了解如何创建自己的群集，请参阅[在 Azure 上创建你的第一个 Service Fabric 群集](service-fabric-get-started-azure-cluster.md)。
+若要了解如何创建自己的群集，请参阅[在 Azure 上创建 Service Fabric 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
 
 > [!Note]
 > Web 前端服务配置为侦听端口 80 上是否有传入流量。 请确保此端口在群集中处于打开状态。 如果使用的是合作群集，此端口已处于打开状态。
@@ -138,7 +142,7 @@ Service Fabric 可确保在发生故障时，将容器实例自动转移到群�
 
 * 详细了解如何运行 [Service Fabric 上的容器](service-fabric-containers-overview.md)。
 * 了解 Service Fabric [应用程序生命周期](service-fabric-application-lifecycle.md)。
-* 查看 GitHub 上的 [Service Fabric 容器代码示例](https://github.com/Azure-Samples/service-fabric-dotnet-containers)。
+* 查看 GitHub 上的 [Service Fabric 容器代码示例](https://github.com/Azure-Samples/service-fabric-containers)。
 
 [sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
 [quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png
@@ -146,4 +150,4 @@ Service Fabric 可确保在发生故障时，将容器实例自动转移到群�
 [containersquickstartscale]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscale.png
 [containersquickstartscaledone]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscaledone.png
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

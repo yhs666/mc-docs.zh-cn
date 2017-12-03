@@ -202,8 +202,6 @@
               href: app-service-web-configuration-and-management-faq.md
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/app-service/'
-    - name: 配额信息
-      href: '../azure-subscription-service-limits.md#app-service-limits'
     - name: 服务更新和发行说明
       href: 'https://www.azure.cn/what-is-new/'
     - name: 最佳实践

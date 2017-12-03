@@ -15,11 +15,11 @@ ms.workload: infrastructure
 origin.date: 02/07/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 920c1a265b182cf31385e22d65545f400ffb1415
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: c159a188a76658c4342a3f99094aa8607bffdba4
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-and-linux-vm-storage"></a>Azure 和 Linux VM 存储
 Azure 存储是依赖于持续性、可用性和伸缩性来满足客户需求的现代应用程序的云存储解决方案。  除了使开发人员可以构建大型应用程序来支持新方案之外，Azure 存储还为 Azure 虚拟机提供了存储基础。
@@ -202,6 +202,4 @@ Azure 存储提供配套的安全性功能，这些功能相辅相成，可让�
 * [存储成本](https://www.azure.cn/pricing/details/storage/)
 * [存储成本计算器](https://www.azure.cn/pricing/calculator/)
 
-## <a name="storage-limits"></a>存储限制
-* [存储服务限制](../../azure-subscription-service-limits.md#storage-limits)
 <!--Update_Description: update scripts for managed disks-->

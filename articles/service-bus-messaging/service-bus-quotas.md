@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/28/2017
+origin.date: 10/18/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
-ms.openlocfilehash: 4117c5a55a9f894d6eab2de9dc13fe6c46291662
-ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
+ms.date: 12/11/2017
+ms.openlocfilehash: 8c1370c36aa138703949c95cbb8731e3a9922a54
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="service-bus-quotas"></a>服务总线配额
 

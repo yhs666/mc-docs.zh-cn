@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 05/10/2017
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2518287306b4391a3d2650cf135fe3a53eec7b29
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: d84dff9f59e52f393493db111c380d903a2effaa
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>创建、更改或删除虚拟网络
 
@@ -38,7 +38,6 @@ ms.lasthandoff: 11/10/2017
 在开始执行本文所述的任务之前，需满足以下先决条件：
 
 - 如果不熟悉虚拟网络的用法，建议你查看[创建你的第一个 Azure 虚拟网络](virtual-network-get-started-vnet-subnet.md)中的练习。 此练习可帮助你熟悉虚拟网络。
-- 若要了解虚拟网络的限制，请查看 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 - 使用 Azure 帐户登录到 Azure 门户、Azure 命令行工具 (Azure CLI) 或 Azure PowerShell。 如果没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果你打算使用 PowerShell 命令来完成本文所述的任务，必须先[安装并配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json)。 确保安装最新版本的 Azure PowerShell cmdlet。 若要获取示例中 PowerShell 命令的帮助，请输入 `get-help <command> -full`。
 - 如果你打算使用 Azure CLI 命令来完成本文所述的任务，必须先[安装并配置 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest)。 确保安装最新版本的 Azure CLI。 若要获取 Azure CLI 命令的帮助，请输入 `az <command> --help`。
@@ -158,7 +157,7 @@ ms.lasthandoff: 11/10/2017
 4. 在虚拟网络边栏选项卡中的“设置”下，单击“DNS 服务器”。
 5. 在列出 DNS 服务器的边栏选项卡中选择以下选项之一：
     - 默认(Azure 提供)：所有资源名称和专用 IP 地址将自动注册到 Azure DNS 服务器。 可以解析连接到同一虚拟网络的任何资源之间的名称。 不能使用此选项跨虚拟网络解析名称。 若要跨虚拟网络解析名称，必须使用自定义 DNS 服务器。
-    - 自定义：可以添加一个或多个服务器，直至达到虚拟网络的 Azure 限制。 若要了解有关 DNS 服务器限制的详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic)。 可以使用以下选项：
+    - 自定义：可以添加一个或多个服务器，直至达到虚拟网络的 Azure 限制。 可以使用以下选项：
         - 添加地址：将服务器添加到虚拟网络 DNS 服务器列表。 此选项还会将 DNS 服务器注册到 Azure。 如果已将 DNS 服务器注册到 Azure，则可以在列表中选择该 DNS 服务器。
         - 删除地址：在要删除的服务器旁边，单击“X”。删除服务器只会将服务器从此虚拟网络列表中删除。 DNS 服务器在 Azure 中仍为注册状态，可供其他虚拟网络使用。
         - **重新排列 DNS 服务器的地址**：确认按所处环境的正确顺序列出 DNS 服务器，这一点很重要。 将按指定顺序使用 DNS 服务器列表， 而不是按轮循方式来使用。 如果列表中的第一个 DNS 服务器可以访问，则无论此 DNS 服务器是否正常运行，客户端都会使用该 DNS 服务器。 删除列出的所有 DNS 服务器，然后按照所需顺序，将这些服务器重新添加到列表中。

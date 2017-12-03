@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/23/2017
-ms.date: 10/31/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
 ms.custom: 
-ms.openlocfilehash: 5dd914b464b8faac9cd1beeeccd0335bbb66d5d6
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.openlocfilehash: ecd89ab74473e1dfc2b2a803f093866865ed94c9
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>将 Windows Server 备份到 Azure
 
@@ -45,13 +45,13 @@ ms.lasthandoff: 11/03/2017
 
 1. 在左侧菜单上，选择“更多服务”，然后在服务列表中键入“恢复服务”。 单击“恢复服务保管库” 。
 
-   ![打开恢复服务保管库](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
+    ![打开恢复服务保管库](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
-2.  在“恢复服务保管库”菜单中，单击“添加”。
+2. 在“恢复服务保管库”菜单中，单击“添加”。
 
     ![提供保管库信息](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
-3.  在“恢复服务保管库”菜单中，
+3. 在“恢复服务保管库”菜单中，
 
     - 在“名称”中键入“myRecoveryServicesVault”。
     - 当前订阅 ID 显示在“订阅”中。
@@ -109,13 +109,13 @@ Azure 恢复服务 (MARS) 代理在 Windows Server 和恢复服务保管库之�
 
 备份作业运行时表示计划已建立。 但服务器尚未备份。 运行按需备份是灾难恢复最佳做法，可确保服务器的数据弹性。
 
-1.  在 Azure 恢复服务代理控制台中，单击“立即备份”。
+1. 在 Azure 恢复服务代理控制台中，单击“立即备份”。
 
-    ![准备基础结构](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![准备基础结构](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
-2.  在“确认”页上，检查“立即备份”向导用于备份服务器的设置。 然后单击“备份”。
-3.  单击“**关闭**”以关闭向导。 如果在备份过程完成之前关闭向导，向导将继续在后台运行。
-4.  完成初始备份后，MARS 代理控制台的“作业”窗格中会显示“作业已完成”状态。
+2. 在“确认”页上，检查“立即备份”向导用于备份服务器的设置。 然后单击“备份”。
+3. 单击“**关闭**”以关闭向导。 如果在备份过程完成之前关闭向导，向导将继续在后台运行。
+4. 完成初始备份后，MARS 代理控制台的“作业”窗格中会显示“作业已完成”状态。
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -135,3 +135,4 @@ Azure 恢复服务 (MARS) 代理在 Windows Server 和恢复服务保管库之�
 > [将文件从 Azure 还原到 Windows Server](./tutorial-backup-restore-files-windows-server.md) 
 
 
+<!--Update_Description: wording update -->

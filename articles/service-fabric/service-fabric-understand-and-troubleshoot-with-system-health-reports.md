@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/18/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: dadc57a490c3ad484391a87a52f83ec8898cbb08
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: d8dd24cc44b54a64ef332be3864c3aec9554b49a
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>使用系统运行状况报告进行故障排除
 Azure Service Fabric 组件提供有关现成群集中所有实体的系统运行状况报告。 [运行状况存储](service-fabric-health-introduction.md#health-store)根据系统报告来创建和删除实体。 它还将这些实体组织为层次结构以捕获实体交互。
@@ -56,6 +56,18 @@ Azure Service Fabric 组件提供有关现成群集中所有实体的系统运�
 * **SourceId**：System.Federation
 * **属性**：以 Neighborhood 开头，包含节点信息。
 * **后续步骤**：调查邻近区域丢失原因；例如，检查群集节点之间的通信。
+
+### <a name="rebuild"></a>重新生成
+
+“故障转移管理器”服务 (FM) 管理有关群集节点的信息。 当 FM 失去数据并陷入数据丢失时，将无法保证它具有关于群集节点的最新信息。 在这种情况下，系统将经历“重新生成”，并且 System.FM 将从群集中的所有节点收集数据，以便重新生成其状态。 有时，由于网络或节点问题，重新生成可能会陷入卡滞或停滞。 “故障转移主管理器”服务 (FMM) 也可能会发生这种情况。 FMM 是一项无状态的系统服务，用于跟踪所有 FM 在群集中的位置。 FMM 主节点始终是 ID 最接近 0 的节点。 如果删除该节点，将触发“重新生成”。
+当出现上面任意一种情况，System.FM 或 System.FMM 将通过错误报表对其进行标记。 重新生成可能会卡滞在以下两个阶段之一：
+
+* 正在等待广播：FM/FMM 等待其他节点的广播消息回复。 后续步骤：调查节点之间是否存在网络连接问题。   
+* 正在等待节点：FM/FMM 已收到来自其他节点的广播答复，正在等待特定节点的答复。 运行状况报告列出 FM/FMM 正在等待发出响应的节点。 后续步骤：调查 FM/FMM 和列出节点之间的网络连接。 调查每个列出的节点是否存在其他可能问题。
+
+* SourceID：System.FM 或 System.FMM
+* 属性：重新生成。
+* 后续步骤：调查节点之间的网络连接，以及在运行状况报告的说明中列出的任何特定节点的状态。
 
 ## <a name="node-system-health-reports"></a>节点系统运行状况报告
 **System.FM**表示故障转移管理器 (Failover Manager) 服务，是管理群集节点信息的主管服务。 每个节点应该都有一个来自 System.FM 的报告，显示其状态。 节点实体随节点状态一起删除。 有关详细信息，请参阅 [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)。
@@ -101,6 +113,13 @@ HealthEvents          :
 * **SourceId**：System.PLB
 * **属性**：以 Capacity 开头。
 * **后续步骤**：检查已提供的指标，并查看节点上的当前容量。
+
+### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>资源调控指标的节点容量不匹配
+如果在群集清单中定义的节点容量大于资源调控指标（内存和 CPU 内核）的实际节点容量，System.Hosting 将报告一个警告。 首个使用[资源调控](service-fabric-resource-governance.md)的服务包在指定节点上注册时，将显示运行状况报告。
+
+* **SourceId**：System.Hosting
+* 属性：ResourceGovernance
+* 后续步骤：这可能是一个问题，因为服务包不会按预期进行强制调控并且[资源调控](service-fabric-resource-governance.md)工作不正常。 使用这些指标的正确节点容量更新群集清单，或根本不指定，让 Service Fabric 自动检测可用资源。
 
 ## <a name="application-system-health-reports"></a>应用程序系统运行状况报告
 **System.CM**表示群集管理器服务，是管理应用程序信息的主管服务。
@@ -806,6 +825,13 @@ HealthEvents               :
 * **属性**：使用前缀 FabricUpgradeValidation，并包含升级版本。
 * **说明**：指向遇到的错误。
 
+### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>资源调控指标的节点容量未定义
+如果未在群集清单中定义节点容量，且自动检测被配置为关闭，则 System.Hosting 将报告一个警告。 只要使用[资源调控](service-fabric-resource-governance.md)的服务包在指定节点上注册，Service Fabric 就会引发一个运行状况警报。
+
+* **SourceId**：System.Hosting
+* 属性：ResourceGovernance
+* 后续步骤：要解决此问题，首选方法是更改群集清单以启用可用资源的自动检测功能。 另一种方法是使用为这些指标正确指定的节点容量来更新群集清单。
+
 ## <a name="next-steps"></a>后续步骤
 [查看 Service Fabric 运行状况报告](service-fabric-view-entities-aggregated-health.md)
 
@@ -815,5 +841,5 @@ HealthEvents               :
 
 [Service Fabric 应用程序升级](service-fabric-application-upgrade.md)
 
-<!--Update_Description: update meta properties, wording update, add feature on cmdlet of for system health reports -->
+<!--Update_Description: add rebulid content, wording update -->
 

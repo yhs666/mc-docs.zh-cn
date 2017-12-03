@@ -76,8 +76,6 @@
 ##### [PowerShell](./role-based-access-control-manage-access-powershell.md)
 ##### [REST](./role-based-access-control-manage-access-rest.md)
 #### [故障排除](./role-based-access-control-troubleshooting.md)
-### [配置令牌生存期](./active-directory-configurable-token-lifetimes.md)
-
 
 ## [在 Azure VM 上部署](./virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Azure VM 上的 Windows Server Active Directory](./active-directory-deploying-ws-ad-guidelines.md)
@@ -93,7 +91,6 @@
 ## [PowerShell cmdlets](http://docs.microsoft.com/powershell/ )
 ## [Java API 参考](/java/api/overview)
 ## [.NET API](http://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
-## [服务限制和局限性](./active-directory-service-limits-restrictions.md)
 
 # 相关内容
 ## [多重身份验证](/multi-factor-authentication/)

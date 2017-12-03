@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/17/2017
-ms.date: 09/25/2017
+origin.date: 11/17/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: f2cf697c810fbab19840a3cd9f2ba87b71da99b4
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 0ee18aa77cdbab8043920064e961d6c60ef93e83
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="event-hubs-features-overview"></a>事件中心功能概述
 
 Azure 事件中心是可缩放的事件处理服务，它引入并处理大量事件和数据，具有低延迟和高可靠性。 有关服务的高级概述，请参阅[什么是事件中心？](event-hubs-what-is-event-hubs.md)。
 
-本文基于[概述](event-hubs-what-is-event-hubs.md)中的信息编写，并提供有关事件中心组件和功能的技术和实现详细信息。
+本文基于[概述文章](event-hubs-what-is-event-hubs.md)中的信息编写，并提供有关事件中心组件和功能的技术和实现详细信息。
 
 ## <a name="event-publishers"></a>事件发布者
 
@@ -54,6 +54,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 ## <a name="capture"></a>捕获
 
 使用[事件中心捕获](event-hubs-capture-overview.md)，可自动捕获事件中心中的流数据，并将其保存到所选 Blob 存储帐户。 可以从 Azure 门户启用“捕获”，并指定用于执行捕获的最小大小和时间窗口。 使用“事件中心捕获”，可以指定自己的 Azure Blob 存储帐户和容器（用于存储捕获的数据）。 捕获的数据以 Apache Avro 格式编写。
+<!-- Not Available on Azure Data Lake Service account -->
 
 ## <a name="partitions"></a>分区
 
@@ -173,4 +174,4 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [事件中心示例]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 
-<!--Update_Description: update meta properties, wording update, update reference link->
+<!--Update_Description: update meta properties -->

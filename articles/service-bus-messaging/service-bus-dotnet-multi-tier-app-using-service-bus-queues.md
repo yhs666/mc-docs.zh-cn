@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 origin.date: 10/16/2017
 ms.author: v-yiso
-ms.date: 11/13/2017
-ms.openlocfilehash: 6bc6e7e530e28b03fd5d8ee77fc5a662f8ee2f72
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.date: 12/11/2017
+ms.openlocfilehash: d634f8fd64ce5607d5c02df6c97ad77df3c62836
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>使用 Azure 服务总线队列创建 .NET 多层应用程序
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 11/03/2017
 5. 安装完成后，就有了开始开发应用所需的一切。 SDK 包含了一些工具，可利用这些工具在 Visual Studio 中轻松开发 Azure 应用程序。
 
 ## <a name="create-a-namespace"></a>创建命名空间
-下一步是创建服务命名空间并获取共享访问签名 (SAS) 密钥。 命名空间为每个通过服务总线公开的应用程序提供应用程序边界。 创建命名空间后，系统将生成一个 SAS 密钥。 命名空间与 SAS 密钥的组合为服务总线提供了用于验证应用程序访问权限的凭据。
+下一步是创建命名空间并获取该命名空间的[共享访问签名 (SAS) 密钥](service-bus-sas.md)。 命名空间为每个通过服务总线公开的应用程序提供应用程序边界。 创建命名空间后，系统生成一个 SAS 密钥。 命名空间名称与 SAS 密钥的组合为服务总线提供了用于验证应用程序访问权限的凭据。
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -191,7 +191,7 @@ ms.lasthandoff: 11/03/2017
    ![][15]
 7. 单击“添加” 。
 8. 现在，请更改应用程序的显示名称。 在“解决方案资源管理器”中，双击“views/shared\\_Layout.cshtml”文件以在 Visual Studio 编辑器中将其打开。
-9. 将每一处 **My ASP.NET Application** 替换为 **LITWARE'S Products**。
+9. 将每一处 **My ASP.NET Application** 替换为 **Northwind Traders Products**。
 10. 删除“Home”、“About”和“Contact”链接。 删除突出显示的代码：
 
     ![][28]

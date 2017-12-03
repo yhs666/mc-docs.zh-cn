@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 10/12/2017
 ms.author: v-yiso
-origin.date: 10/12/2017
-ms.openlocfilehash: 451ec18a1b9b041f459267f0c1eaa735093c9ff8
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+origin.date: 12/11/2017
+ms.openlocfilehash: f5679c97b3af56895450e9c3f54295948277f470
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="service-bus-messaging-exceptions"></a>服务总线消息传送异常
 
@@ -110,22 +110,13 @@ ConnectionsQuotaExceeded for namespace xxx.
 ### <a name="queues-and-topics"></a>队列和主题
 对于队列和主题，超时在 [MessagingFactorySettings.OperationTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) 属性中作为连接字符串的一部分指定，或通过 [ServiceBusConnectionStringBuilder](https://doc.microsoft.com/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder) 指定。 错误消息本身可能会有所不同，但它始终包含当前操作的指定超时值。 
 
-### <a name="event-hubs"></a>事件中心
-对于事件中心，超时作为连接字符串的一部分指定，或通过 [ServiceBusConnectionStringBuilder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.servicebusconnectionstringbuilder) 指定。 错误消息本身可能会有所不同，但它始终包含当前操作的指定超时值。 
 
-### <a name="common-causes"></a>常见原因
-
-此错误有两个常见的原因：配置不正确或暂时性服务错误。
-
-1. **配置不正确** ：运行条件下的操作超时值可能太小。 客户端 SDK 的操作超时默认值为 60 秒。 请查看代码是否将该值设置得过小。 请注意，网络和 CPU 使用率的状况会影响完成特定操作所用的时间，因此，操作超时不应设置为非常小的值。
-
-2. **暂时性服务错误** ：有时，服务总线服务在处理请求时会遇到延迟，例如，高流量时段。 在这种情况下，可以在延迟后重试操作，直到操作成功为止。 如果多次尝试同一操作后仍然失败，请访问 [Azure 服务状态站点](https://azure.microsoft.com/status/) ，看是否有任何已知的服务中断。
 
 ## <a name="next-steps"></a>后续步骤
 
 有关服务总线 .NET API 的完整参考，请参阅 [Azure .NET API 参考](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/servicebus)。
 
-若要了解有关 [服务总线](/service-bus-messaging/)的详细信息，请参阅以下主题。
+若要了解有关[服务总线](/service-bus-messaging/)的详细信息，请参阅以下文章：
 
 - [服务总线消息传送概述](./service-bus-messaging-overview.md)
 - [服务总线基础知识](./service-bus-fundamentals-hybrid-solutions.md)

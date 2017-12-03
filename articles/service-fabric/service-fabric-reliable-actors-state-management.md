@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/21/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: d49491b1c8f60419e3c6bb72d230002e993fc48e
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 1cfc8c1587730e318e69deb4687d0ca7ac34a534
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors 状态管理
 Reliable Actors 是可封装逻辑与状态的单线程对象。 由于执行组件在 Reliable Services 上运行，因此，它们可以使用 Reliable Services 所用的相同持久性和复制机制可靠地维护状态。 这样，执行组件就不会在发生故障之后、在内存回收后重新激活时或者由于资源均衡和升级的原因而在群集中的节点之间移动时丢失其状态。
@@ -42,7 +42,6 @@ class MyActor : Actor, IMyActor
 {
 }
 ```
-
 ```Java
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
 class MyActorImpl  extends FabricActor implements MyActor
@@ -58,7 +57,6 @@ class MyActor : Actor, IMyActor
 {
 }
 ```
-
 ```Java
 @StatePersistenceAttribute(statePersistence = StatePersistence.Volatile)
 class MyActorImpl extends FabricActor implements MyActor
@@ -74,7 +72,6 @@ class MyActor : Actor, IMyActor
 {
 }
 ```
-
 ```Java
 @StatePersistenceAttribute(statePersistence = StatePersistence.None)
 class MyActorImpl extends FabricActor implements MyActor
@@ -333,7 +330,6 @@ interface MyActor {
 ```
 
 ### <a name="removing-state"></a>删除状态
-
 可以通过调用 *Remove* 方法，从执行组件的状态管理器中永久删除状态。 尝试删除不存在的键时，该方法会引发 `KeyNotFoundException`(C#) 或 `NoSuchElementException`(Java)。
 
 ```csharp
@@ -416,4 +412,4 @@ class MyActorImpl extends FabricActor implements  MyActor
 
 接下来，详细了解[执行组件诊断和性能监视](service-fabric-reliable-actors-diagnostics.md)。
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

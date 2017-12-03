@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/28/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: c3b21558490a1baa3de5d88c994c7d321324e4fe
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 47fc8413fa034d13d2b9fdc03a7bbd8fa0ff17a6
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Service Fabric 应用程序和后续步骤
 已创建 Azure Service Fabric 应用程序。 本文说明项目的构成以及有可能要执行的一些后续步骤。
@@ -55,8 +55,7 @@ Service Fabric SDK 提供相同的一组可用于独立 ASP.NET Core 项目的 A
 
 ### <a name="guest-executables-and-guest-containers"></a>来宾可执行文件和来宾容器
 
-Service Fabric“来宾”是指不使用平台编程模型生成的服务。 可[直接在应用程序包中](service-fabric-deploy-existing-app.md)或通过容器映像打包来宾的二进制文件。 在这两种情况下，Visual Studio 都会在应用程序项目的 **ApplicationPackageRoot** 文件夹中创建必要的项目。 Visual Studio 不会创建新的服务项目，因为其他位置已存在相关代码。 如果想要一起管理 Service Fabric 应用程序项目和来宾项目，可将它们添加到同一 Visual Studio 解决方案中。
-<!-- Not Avaialbe [through a container image](service-fabric-deploy-container.md) -->
+Service Fabric“来宾”是指不使用平台编程模型生成的服务。 可[直接在应用程序包中](service-fabric-deploy-existing-app.md)或[通过容器映像](service-fabric-deploy-container.md)打包来宾的二进制文件。 在这两种情况下，Visual Studio 都会在应用程序项目的 **ApplicationPackageRoot** 文件夹中创建必要的项目。 Visual Studio 不会创建新的服务项目，因为其他位置已存在相关代码。 如果想要一起管理 Service Fabric 应用程序项目和来宾项目，可将它们添加到同一 Visual Studio 解决方案中。
 
 ## <a name="next-steps"></a>后续步骤
 ### <a name="create-an-azure-cluster"></a>创建 Azure 群集
@@ -77,7 +76,7 @@ Service Fabric 支持单独对应用程序中的独立服务进行版本控制�
 <!-- Links -->
 [add-web-frontend]: service-fabric-add-a-web-frontend.md
 [create-cluster-in-portal]: service-fabric-cluster-creation-via-portal.md
-[publish-app-to-azure]: service-fabric-publish-app-remote-cluster.md
+[publish-app-to-azure]: service-fabric-manage-application-in-visual-studio.md
 [visualize-with-sfx]: service-fabric-visualizing-your-cluster.md
 [ci-with-vso]: service-fabric-set-up-continuous-integration.md
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
@@ -85,4 +84,4 @@ Service Fabric 支持单独对应用程序中的独立服务进行版本控制�
 [aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
 [aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link -->

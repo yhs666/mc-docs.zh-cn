@@ -16,11 +16,11 @@ ms.workload: data-management
 origin.date: 10/11/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 51270a334253b84a7e9a0f88486d74850a59095d
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 81526d12e1e294c4d0cf1c6905a5183be738e4b4
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>管理 Azure SQL 数据库中单一数据库的资源
 
@@ -110,5 +110,4 @@ ALTER DATABASE <myDatabaseName>
 
 - 要了解关于服务层、性能级别和存储量的相关信息，请参阅[服务层](sql-database-service-tiers.md)。
 - 有关弹性池的信息，请参阅[弹性池](sql-database-elastic-pool.md)。
-- 了解 [Azure 订阅和服务的限制、配额和约束](../azure-subscription-service-limits.md)
 <!--Update_Description:update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

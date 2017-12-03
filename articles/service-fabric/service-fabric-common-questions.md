@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/18/2017
-ms.date: 09/11/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2efe73b12d0b2ca70513426c0da0c49478f1e843
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 67784d9a3678f9273132a2915446a2d7867005b4
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 常见问题
 
@@ -56,8 +56,7 @@ ms.lasthandoff: 09/08/2017
 
 详细解答 - 尽管通过大型虚拟机规模集可将虚拟机规模集扩展至多达 1000 个 VM 实例，但这是通过使用放置组 (PG) 实现的。 容错域 (FD) 和升级域 (UD) 仅在使用 FD 和 UD 来为服务副本/服务实例做出放置决策的放置组 Service Fabric 中保持一致。 因为 FD 和 UD 仅在放置组中可比较，因此 SF 无法使用它。 例如，如果 PG1 中的 VM1 具有一个 FD=0 的拓扑，并且 PG2 中的 VM9 具有一个 FD=4 的拓扑，这并不意味着 VM1 和 VM2 在两个不同的硬件机架上，因此在这种情况下 SF 无法使用 FD 值做出放置决策。
 
-当前，大型虚拟机规模集还存在其他问题，例如缺少 level-4 负载均衡支持。 
-<!-- Release later Refer to for [details on Large scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) -->
+当前，大型虚拟机规模集还存在其他问题，例如缺少 level-4 负载均衡支持。 请参考[有关大型规模集的详细信息](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Service Fabric 群集的最小大小如何？ 为什么不能更小？
 
@@ -79,7 +78,7 @@ ms.lasthandoff: 09/08/2017
 
 一般而言，不可以。 Service Fabric 在本地、临时磁盘上存储状态，这意味着如果虚拟机移到其他主机，数据不会随之移动。 在正常操作中，这不是问题，因为新节点会通过其他节点保持最新状态。 但是，如果停止所有节点并重启，很可能发生的情况是，大部分节点在新主机上启动，导致系统无法恢复。
 
-如果在部署应用程序之前想要创建群集来测试应用程序，我们建议将这些群集动态创建为[持续集成/持续部署管道](service-fabric-set-up-continuous-integration.md)的一部分。
+如果在部署应用程序之前想要创建群集来测试应用程序，我们建议将这些群集动态创建为[持续集成/持续部署管道](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)的一部分。
 
 ### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>如何升级操作系统（例如从 Windows Server 2012 升级到 Windows Server 2016）？
 
@@ -146,6 +145,6 @@ Reliable Services 通常已分区，因此，存储量仅受限于群集中的�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [了解核心 Service Fabric 概念和最佳做法](https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
+- [了解核心 Service Fabric 概念和最佳做法](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

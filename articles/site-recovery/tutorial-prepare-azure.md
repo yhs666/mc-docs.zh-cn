@@ -12,14 +12,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 82526d8534ca560f93c25c0d81bea975d3d801ff
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.custom: MVC
+ms.openlocfilehash: bfac5b4500aa23b8062be7a88695028f22300785
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>准备 Azure 资源以进行本地计算机复制
 
@@ -102,4 +103,4 @@ ms.lasthandoff: 11/15/2017
 > [!div class="nextstepaction"]
 > [准备本地 VMware基础结构以对 Azure 进行灾难恢复](tutorial-prepare-on-premises-vmware.md)
 
-<!-- Update_Description: new articles on site recovery tutorial prepare azure-->
+<!-- Update_Description: update meta properties -->

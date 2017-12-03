@@ -3,7 +3,7 @@ title: "使用适用于 Azure 存储的 .NET 进行客户端加密 | Azure"
 description: "用于 .NET 的 Azure 存储客户端库支持客户端加密以及与 Azure 密钥保管库集成，以便最大程度地保护 Azure 存储应用程序。"
 services: storage
 documentationcenter: .net
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: tysonn
 ms.assetid: becfccca-510a-479e-a798-2044becd9a64
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/08/2016
-ms.date: 10/30/2017
-ms.author: v-johch
-ms.openlocfilehash: b9a4c860ee2073af43d06ee5ac82baccb847b8d8
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+origin.date: 10/20/2017
+ms.date: 12/04/2017
+ms.author: v-nany
+ms.openlocfilehash: 5c3ca04dc2809300f40636219539f96c1ee393c3
+ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-azure-storage"></a>Azure 存储的客户端加密和 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -63,6 +63,7 @@ ms.lasthandoff: 10/23/2017
 
 > [!WARNING]
 > 若要针对 Blob 编辑或上传自己的元数据，需确保此元数据已保留。 如果你在没有此元数据的情况下上传新元数据，则已包装的 CEK、IV 和其他元数据将丢失，而 Blob 内容将永远无法再检索。
+
 
 下载已加密的 blob 需要使用 DownloadTo*/*BlobReadStream* 便捷方法检索整个 blob 的内容。 将已包装的 CEK 解包，与 IV（在本示例中存储为 Blob 元数据）一起使用将解密后的数据返回给用户。
 
@@ -143,9 +144,9 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 * 对于加密，始终使用该密钥，而没有密钥将导致错误。
 * 对于解密：
   * 如果指定为获取密钥，则将调用密钥解析程序。 如果指定了解析程序，但该解析程序不具有密钥标识符的映射，则将引发错误。
-  * 如果未指定解析程序，但指定了密钥，则在该密钥的标识符与所需密钥标识符匹配时使用该密钥。 如果标识符不匹配，则将引发错误。
+  * 如果未指定解析程序，但指定了密钥，则在该密钥的标识符与所需密钥标识符匹配时使用该密钥。 如果标识符不匹配，则会引发错误。
 
-[加密示例](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) 演示了针对 Blob、队列和表的更详细端到端方案，以及密钥保管库集成。
+本文中的代码示例演示如何设置加密策略和使用加密数据，但不演示如何使用 Azure Key Vault。 GitHub 上的[加密示例](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples)演示了针对 Blob、队列和表的更详细端到端方案，以及 Key Vault 集成。
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 模式
 用户可以选择启用这样的操作模式，要求加密所有上传和下载行为。 在此模式下，尝试在没有加密策略的情况下上传数据或下载在服务中未加密的数据，将导致在客户端上失败。 请求选项对象的 **RequireEncryption** 属性控制此行为。 如果应用程序要加密存储于 Azure 存储中的所有对象，则可以在服务客户端对象的默认请求选项上设置 **RequireEncryption**属性。 例如，将 CloudBlobClient.DefaultRequestOptions.RequireEncryption 设置为 true，要求对通过该客户端对象执行的所有 blob 操作进行加密。

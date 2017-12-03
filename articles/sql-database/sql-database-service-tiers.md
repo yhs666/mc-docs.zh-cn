@@ -17,11 +17,11 @@ ms.workload: data-management
 origin.date: 08/20/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: cecef06c0fcdebae2761e7df779efc3cc037cd4f
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: a7905bc0995bb14c9da1edae7d27497da09f7b68
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>什么是 Azure SQL 数据库服务层
 
@@ -72,7 +72,6 @@ ms.lasthandoff: 10/31/2017
 
 - 了解[单一数据库资源](sql-database-single-database-resources.md)。
 - 有关弹性池的信息，请参阅[弹性池](sql-database-elastic-pool.md)。
-- 了解 [Azure 订阅和服务的限制、配额和约束](../azure-subscription-service-limits.md)
 * 详细了解 [DTU 和 eDTU](sql-database-what-is-a-dtu.md)。
 * 要了解如何监视 DTU 的使用情况，请参阅[监视和性能优化](sql-database-troubleshoot-performance.md)。
 

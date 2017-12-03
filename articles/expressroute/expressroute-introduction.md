@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/05/2017
+origin.date: 10/30/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
-ms.openlocfilehash: 31f41d6efae7ebc446f09236b286ef6f223d7b4b
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 12/11/2017
+ms.openlocfilehash: 24cabae15da5766f83ef581ab7c0757e781c83b4
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 概述
 使用 Azure ExpressRoute 可通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。 使用 ExpressRoute 可与 Microsoft Azure、Office 365 和 Dynamics 365 等 Microsoft 云服务建立连接。

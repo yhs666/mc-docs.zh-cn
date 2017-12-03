@@ -18,11 +18,11 @@ origin.date: 12/08/2016
 ms.date: 05/22/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0bc493f22edbf188138d6f7a936964c1f3b81639
-ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
+ms.openlocfilehash: c6c8e337039712bf1dc9d55c2f5e047fe9684fa4
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="using-sap-on-azure-windows-virtual-machines-vms"></a>使用 Azure Windows 虚拟机 (VM) 上的 SAP
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -75,8 +75,6 @@ ms.lasthandoff: 07/10/2017
 [azure-ps]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../azure-subscription-service-limits.md#subscription
 
 [dbms-guide]:../virtual-machines-windows-sap-dbms-guide.md 
 [dbms-guide-2.1]:../virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -305,7 +303,7 @@ ms.lasthandoff: 07/10/2017
 [xplat-cli]:../../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../../xplat-cli-azure-resource-manager.md
 
-通过选择 Azure 作为符合 SAP 需求的云合作伙伴，可以在可缩放、兼容且经企业证明的平台上可靠地运行任务关键 SAP 工作负荷。  可利用 Azure 的可伸缩性、灵活性和低成本特性。 随着 Microsoft 和 SAP 扩大合作伙伴关系，可以在 Azure 的各个开发/测试和生产方案中运行 SAP 应用程序，并能获得完全支持。 从 SAP NetWeaver 到 SAP S4/HANA，Linux 到 Windows，SAP HANA 到 SQL，我们都能满足你的需求。 
+通过选择 Azure 作为符合 SAP 需求的云合作伙伴，可以在可缩放、兼容且经企业证明的平台上可靠地运行任务关键 SAP 工作负荷。  可利用 Azure 的可伸缩性、灵活性和低成本特性。 随着 Microsoft 和 SAP 扩大合作伙伴关系，可以在 Azure 的各个开发/测试和生产方案中运行 SAP 应用程序，并能获得完全支持。 从 SAP NetWeaver 到 SAP S4/HANA，Linux 到 Windows，SAP HANA 到 SQL，我们都能满足需求。 
 
 借助 Azure 虚拟机服务和 Azure 上的 SAP HANA 大型实例，Microsoft 提供全面的基础结构即服务 (IaaS) 平台。 因为 Azure 支持范围广泛的 SAP 解决方案，此“入门文档”充当当前 SAP 文档集的目录。 随着文档库添加更多标题，可在此处看到添加的标题。 
 
@@ -313,7 +311,7 @@ ms.lasthandoff: 07/10/2017
 | SAP 产品 | 支持的操作系统 | Azure 产品/服务 |
 | --- | --- | --- |
 | SAP HANA Developer Edition（包括由 SQLODBC、Windows 专用版 ODBO、ODBC、JDBC 驱动程序、HANA Studio 和 HANA 数据库组成的 HANA 客户端软件） |Red Hat Enterprise Linux、SUSE Linux Enterprise |A7、A8 |
-| MHANA One |Red Hat Enterprise Linux、SUSE Linux Enterprise |DS14_v2（即将推出正式版） |
+| MHANA One |Red Hat Enterprise Linux、SUSE Linux Enterprise |DS14_v2（正式版） |
 | SAP S/4HANA |Red Hat Enterprise Linux、SUSE Linux Enterprise |GS5（受控可用性）、Azure 上的 SAP HANA（大型实例） |
 | Suite on HANA (OLTP) |Red Hat Enterprise Linux、SUSE Linux Enterprise |Azure 上的 SAP HANA（大型实例） |
 | HANA Enterprise for BW (OLAP) |Red Hat Enterprise Linux、SUSE Linux Enterprise |适用于 Azure 上 SAP HANA 单节点部署的 GS5（大型实例） |
@@ -355,7 +353,7 @@ ms.lasthandoff: 07/10/2017
 ## <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>规划和实现
 标题：Azure 虚拟机 (VM) 上的 SAP NetWeaver - 规划和实施指南
 
-摘要：如果你正在考虑在 Azure 虚拟机中运行 SAP NetWeaver，可从本文开始着手。 此规划和实现指南可帮助你评估现有或计划的基于 SAP NetWeaver 的系统是否可以部署到 Azure 虚拟机环境。 它介绍了多个 SAP NetWeaver 部署方案，并包括特定于 Azure 的 SAP 配置。 该文列出并说明了在 SAP/Azure 端运行混合 SAP 布局产品时所需的所有必要配置信息。 此外，还介绍了为确保 IaaS 上基于 SAP NetWeaver 的系统实现高可用性可以采取的措施。
+摘要：如果正在考虑在 Azure 虚拟机中运行 SAP NetWeaver，可从本文开始着手。 此规划和实现指南有助于评估现有或计划的基于 SAP NetWeaver 的系统是否可以部署到 Azure 虚拟机环境。 它介绍了多个 SAP NetWeaver 部署方案，并包括特定于 Azure 的 SAP 配置。 该文列出并说明了在 SAP/Azure 端运行混合 SAP 布局产品时所需的所有必要配置信息。 此外，还介绍了为确保 IaaS 上基于 SAP NetWeaver 的系统实现高可用性可以采取的措施。
 
 更新时间：2016 年 8 月
 
@@ -364,7 +362,7 @@ ms.lasthandoff: 07/10/2017
 ## <a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>部署
 标题：Azure 虚拟机 (VM) 上的 SAP NetWeaver - 部署指南
 
-摘要：本文档提供将 SAP NetWeaver 软件部署到 Azure 中虚拟机的过程指导。 此文重点介绍三种特定部署方案，主要侧重于启用 SAP 的 Azure 监视扩展，包括针对 SAP 的 Azure 监视扩展的故障排除建议。 本文假设你已阅读规划和实施指南。
+摘要：本文档提供将 SAP NetWeaver 软件部署到 Azure 中虚拟机的过程指导。 此文重点介绍三种特定部署方案，主要侧重于启用 SAP 的 Azure 监视扩展，包括针对 SAP 的 Azure 监视扩展的故障排除建议。 本文假设已阅读规划和实施指南。
 
 更新时间：2016 年 12 月
 

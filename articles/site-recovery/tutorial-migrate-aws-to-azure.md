@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/22/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: f638d1c7984086f411b8ffbebb960a63b56a5602
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.custom: MVC
+ms.openlocfilehash: 081807cffd99960edc77b251e3c535e83469b917
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>将 Amazon Web Services (AWS) VM 迁移到 Azure
 
@@ -255,4 +256,4 @@ ms.lasthandoff: 11/15/2017
 > [!div class="nextstepaction"]
 > [Azure Windows 虚拟机教程](../virtual-machines/windows/tutorial-manage-vm.md)
 
-<!-- Update_Description: new articles on site recovery tutorial migrate aws to azure-->
+<!-- Update_Description: update meta properties -->

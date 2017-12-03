@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/21/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 644666aba7b420862312d81214eaa5f074c2622b
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 9860d64bdb4b6a0f5201af750ec6acd68e865e2f
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="reliable-actors-reentrancy"></a>Reliable Actors 可重入性
 默认情况下，Reliable Actors 运行时允许基于逻辑调用上下文的可重入性。 这使执行组件在处于相同调用上下文链中时可重入。 例如，如果执行组件 A 将消息发送给执行组件 B，而后者将消息发送给执行组件 C。在处理消息的过程中，如果执行组件 C 调用执行组件 A，则允许消息可重入。 属于不同调用上下文的任何其他消息会在执行组件 A 上受阻，直到它完成处理。
@@ -112,4 +112,4 @@ static class Program
 ## <a name="next-steps"></a>后续步骤
 * 了解[执行组件 API 参考文档](https://msdn.microsoft.com/library/azure/dn971626.aspx)中有关重新进入的详细信息
 
-<!--Update_Description: update meta properties, add java implementation code on service fabric-->
+<!--Update_Description: update meta properties -->

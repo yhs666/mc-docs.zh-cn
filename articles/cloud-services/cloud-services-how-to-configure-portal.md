@@ -2,8 +2,8 @@
 title: "如何配置云服务（门户）| Azure"
 description: "了解如何在 Azure 中配置云服务。 了解如何更新云服务配置以及配置对角色实例的远程访问。 这些示例使用 Azure 门户。"
 services: cloud-services
-documentationCenter: 
-authors: Thraka
+documentationcenter: 
+author: Thraka
 manager: timlt
 editor: 
 ms.service: cloud-services
@@ -11,29 +11,25 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+origin.date: 12/07/2016
+ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: 7949c6cf14a72690ec949d8614721ec2a2d2ac7b
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: d3fa681059422b5d0b27ebc2c15642157f15ada7
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>如何配置云服务
+可以在 Azure 门户中配置最常使用的云服务设置。 或者，如果希望直接更新配置文件，可下载要更新的服务配置文件，并上传更新文件并通过配置更改更新云服务。 无论使用哪种方法，配置更新都会应用于所有角色实例。
 
-> [!div class="op_single_selector"]
->- [Azure 门户](./cloud-services-how-to-configure-portal.md)
->- [Azure 经典门户](./cloud-services-how-to-configure.md)
-
-你可以在 Azure 门户中配置最常使用的云服务设置。 或者，如果希望直接更新配置文件，则可以下载要更新的服务配置文件，然后上传更新文件并使用配置更改更新云服务。 无论使用哪种方法，配置更新都将应用于所有角色实例。
-
-你还可以管理云服务角色的实例，或者通过远程桌面进入这些角色中。
+还可以管理云服务角色的实例，或者通过远程桌面进入这些角色中。
 
 如果每个角色至少具有两个角色实例，那么 Azure 在配置更新期间只能确保 99.95% 的服务可用性。 这使得一台虚拟机可以在另一台虚拟机更新时处理客户端请求。 有关详细信息，请参阅[服务级别协议](https://www.azure.cn/support/legal/sla)。
 
 ## <a name="change-a-cloud-service"></a>更改云服务
 
-打开 [Azure 门户](https://portal.azure.cn)后，导航到云服务。 在这里，你可以对云服务的许多方面进行管理。 
+打开 [Azure 门户](https://portal.azure.cn)后，导航到云服务。 在这里，可以对云服务的许多方面进行管理。 
 
 ![“设置”页](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
@@ -48,7 +44,9 @@ ms.lasthandoff: 06/21/2017
 如果需要设定某一特定 OS 版本，可在“配置”  边栏选项卡中进行设置。
 
 ![设置 OS 版本](./media/cloud-services-how-to-configure-portal/cs-settings-config-guestosversion.png)
->[!NOTE]
+
+
+>[!IMPORTANT]
 > 选择特定 OS 版本会禁用自动 OS 更新，用户需要自行负责修补工作。 务必确保角色实例可以接收更新，否则应用程序可能存在安全漏洞。
 
 ## <a name="monitoring"></a>监视
@@ -75,9 +73,9 @@ ms.lasthandoff: 06/21/2017
 可以在此处自定义用于磁贴的图表，也可以添加警报规则。
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>重新启动、重置映像或远程桌面
-此时无法使用 **Azure 门户**配置远程桌面。 但是，可通过 [Azure 经典门户](./cloud-services-role-enable-remote-desktop.md)、[PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md) 或 [Visual Studio](../vs-azure-tools-remote-desktop-roles.md) 对其进行设置。 
+可以通过 [Azure 门户(设置远程桌面)](cloud-services-role-enable-remote-desktop-new-portal.md)、[PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) 或通过 [Visual Studio](../vs-azure-tools-remote-desktop-roles.md) 设置远程桌面。
 
-首先，单击云服务实例。
+若要重新启动、重置映像或远程登录到云服务，请单击云服务实例。
 
 ![云服务实例](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 
@@ -86,7 +84,7 @@ ms.lasthandoff: 06/21/2017
 ![云服务实例按钮](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
 ## <a name="reconfigure-your-cscfg"></a>重新配置 .cscfg
-建议通过 [service config (cscfg)](./cloud-services-model-and-package.md#cscfg) 文件来重新配置云服务。 首先，你需要下载 .cscfg 文件，对其进行修改，然后再上传该文件。
+建议通过 [service config (cscfg)](./cloud-services-model-and-package.md#cscfg) 文件来重新配置云服务。 首先，需要下载 .cscfg 文件，对其进行修改，然后再上传该文件。
 
 1. 单击“设置”图标或“全部设置”链接以打开“设置”边栏选项卡。
 
@@ -100,7 +98,7 @@ ms.lasthandoff: 06/21/2017
 4. 更新服务配置文件后，上传并应用配置更新：
 
     ![上传](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
-5. 选择 .cscfg 文件，然后单击“确定” 。
+5. 选择 .cscfg 文件，并单击“确定” 。
 
 ## <a name="next-steps"></a>后续步骤
 

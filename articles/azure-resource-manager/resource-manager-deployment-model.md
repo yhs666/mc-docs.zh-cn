@@ -14,11 +14,11 @@ ms.workload: na
 origin.date: 11/15/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 83af9a8b69d714525368e8e114babcacab1b1956
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 1f1d405db77b9a589502172a92f46c1b56a25606
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 与经典部署：了解部署模型和资源状态
 本文介绍 Azure 资源管理器和经典部署模型。 Resource Manager 部署模型和经典部署模型代表两种不同的 Azure 解决方案部署和管理方式。 可以通过两种不同的 API 集使用这两种模型，已部署的资源可能包含重大差异。 这两个模型相互不兼容。 本文介绍这些差异。
@@ -138,7 +138,7 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
 
 **对订阅的配额有何影响？**
 
-通过 Azure Resource Manager 创建的虚拟机、虚拟网络和存储帐户的配额与其他配额是分开的。 每个订阅都将获取配额，以使用新的 API 创建资源。 可以在[此处](../azure-subscription-service-limits.md)了解有关额外配额的详细信息。
+通过 Azure Resource Manager 创建的虚拟机、虚拟网络和存储帐户的配额与其他配额是分开的。 每个订阅会获取配额以使用新的 API 创建资源。 
 
 **可以通过 Resource Manager API 继续使用自动化脚本来预配虚拟机、虚拟网络、存储帐户吗？**
 

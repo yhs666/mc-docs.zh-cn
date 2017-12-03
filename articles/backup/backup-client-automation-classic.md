@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/02/2017
-ms.date: 09/04/2017
+origin.date: 11/09/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
-ms.openlocfilehash: 5ffca041ae3a23664a94bd6420662ba965a64881
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 0692c8e5b60ed8e85e39248a7560feb589a7b3bf
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 客户端的 Azure 备份
 > [!div class="op_single_selector"]
@@ -28,10 +28,10 @@ ms.lasthandoff: 09/08/2017
 >
 >
 
-本文介绍如何使用 PowerShell 将 Windows Server 或 Windows 工作站数据备份到备份保管库。 Microsoft 建议对所有新部署使用恢复服务保管库。 如果是新的 Azure 备份用户，并且在订阅中未创建过备份保管库，请参阅文章[使用 PowerShell 将 Data Protection Manager 数据部署到 Azure 并管理这些数据](backup-client-automation.md)，以便将数据存储在恢复服务保管库中。 
+本文介绍如何使用 PowerShell 将 Windows Server 或 Windows 工作站数据备份到备份保管库。 Microsoft 建议对所有新部署使用恢复服务保管库。 如果你是新的 Azure 备份用户，并且在订阅中未创建过备份保管库，请参阅文章[使用 PowerShell 将 Data Protection Manager 数据部署到 Azure 并管理这些数据](backup-client-automation.md)，然后将数据存储在恢复服务保管库中。 
 
 > [!IMPORTANT]
-> 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> 2017 年 10 月 15 日之后，将无法使用 PowerShell 创建备份保管库。 2017 年 11 月 1 日之前：
+> 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> 2017 年 11 月 30 日之后，将不再能够使用 PowerShell 创建备份保管库。 在 2017 年 11 月 30 日之前：
 >- 其余所有备份保管库都将自动升级到恢复服务保管库。
 >- 无法在经典管理门户中访问备份数据。 应使用 Azure 门户在恢复服务保管库中访问备份数据。
 >
@@ -41,7 +41,7 @@ ms.lasthandoff: 09/08/2017
 
 Azure PowerShell 1.0 已在 2015 年 10 月发布。 此版本在 0.9.8 版本的基础上进行了一些重大的更改，尤其是对 cmdlet 的命名方式进行了更改。 1.0 版 cmdlet 遵循命名模式 {谓词}-AzureRm{名词}；而 0.9.8 名称不包括 Rm（例如，使用 New-AzureResourceGroup 而不是 New-AzureRmResourceGroup）。 在使用 Azure PowerShell 0.9.8 时，首先必须通过运行 **Switch-AzureMode AzureResourceManager** 命令启用 Resource Manager 模式。 1.0 或更高版中并不需要此命令在。
 
-如果要将针对 0.9.8 环境编写的脚本用在 1.0 或更高版本的环境中，应在预生产环境中对脚本进行仔细的测试，才能将其用在生产中，以免造成意外影响。
+要将针对 0.9.8 环境编写的脚本用在 1.0 或更高版本的环境中，应在预生产环境中对脚本进行仔细的测试，然后才能将其用在生产中，以免造成意外影响。
 
 [下载最新的 PowerShell 版本](https://github.com/Azure/azure-powershell/releases)（所需最低版本：1.0.0）
 
@@ -71,7 +71,7 @@ PS C:\> $backupvault = New-AzureRMBackupVault -ResourceGroupName “test-rg” -
 PS C:\> MARSAgentInstaller.exe /q
 ```
 
-这会以所有默认选项安装代理。 安装在几分钟内在后台完成。 如果没有指定 /nu 选项，则安装结束时，会打开“Windows 更新”窗口，检查是否有任何更新。 安装之后，代理会显示在已安装程序列表中。
+这以所有默认选项安装代理。 将在后台执行安装几分钟。 如果没有指定 /nu 选项，则安装结束时，会打开“Windows 更新”窗口，检查是否有任何更新。 安装之后，代理会显示在已安装程序列表中。
 
 若要查看已安装的程序列表，请转到“**控制面板**”“ > **程序** > ”“**程序和功能**”。
 
@@ -226,7 +226,7 @@ State           : New
 PolicyState     : Valid
 ```
 ### <a name="including-and-excluding-files-to-be-backed-up"></a>包含和排除要备份的文件
-```OBFileSpec``` 对象定义要在备份中包含与排除的文件。 这组规则可划分出计算机上要保护的文件和文件夹。 可设置任意数量的文件包含或排除规则，并将其与策略相关联。 创建新的 OBFileSpec 对象时，可执行以下操作：
+```OBFileSpec``` 对象定义要在备份中包含与排除的文件。 这组规则可划分出计算机上要保护的文件和文件夹。 可以设置任意数量的文件包含或排除规则，并将其与策略相关联。 创建新的 OBFileSpec 对象时，可执行以下操作：
 
 - 指定要包含的文件和文件夹
 - 指定要排除的文件和文件夹
@@ -326,14 +326,14 @@ PolicyState     : Valid
 ```
 
 ### <a name="applying-the-policy"></a>应用策略
-现在已完成策略对象，并且具有关联的备份计划、保留策略及文件包含/排除列表。 现在可以提交此策略以供 Azure 备份使用。 应用新建策略之前，请使用 [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet 确保没有任何现有备份策略与服务器相关联。 删除策略时，系统会提示用户确认。 若要跳过确认，请在 cmdlet 中请使用 ```-Confirm:$false``` 标志。
+现在已完成策略对象，并且具有关联的备份计划、保留策略及文件包含/排除列表。 现在可以提交此策略以供 Azure 备份使用。 应用新建策略之前，请使用 [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet 确保没有任何现有备份策略与服务器相关联。 删除策略时，系统会提示确认。 若要跳过确认，请在 cmdlet 中请使用 ```-Confirm:$false``` 标志。
 
 ```
 PS C:> Get-OBPolicy | Remove-OBPolicy
 Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
-使用 [Set-OBPolicy](https://technet.microsoft.com/library/hh770421) cmdlet 可以提交策略对象。 这也会提示用户确认。 若要跳过确认，请在 cmdlet 中请使用 ```-Confirm:$false``` 标志。
+使用 [Set-OBPolicy](https://technet.microsoft.com/library/hh770421) cmdlet 可以提交策略对象。 系统会提示确认。 若要跳过确认，请在 cmdlet 中请使用 ```-Confirm:$false``` 标志。
 
 ```
 PS C:> Set-OBPolicy -Policy $newpolicy
@@ -419,7 +419,7 @@ IsRecursive : True
 ```
 
 ### <a name="performing-an-ad-hoc-backup"></a>执行即席备份
-设置备份策略之后，会根据计划进行备份。 也可以使用 [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet 触发即席备份：
+设置备份策略之后，会根据计划进行备份。 也可以使用 [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet 来触发即席备份：
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup
@@ -434,7 +434,7 @@ The backup operation completed successfully.
 ```
 
 ## <a name="restore-data-from-azure-backup"></a>从 Azure 备份还原数据
-本部分引导用户完成自动从 Azure 备份恢复数据的步骤。 此过程涉及以下步骤：
+本部分将引导完成自动从 Azure 备份恢复数据的步骤。 此过程涉及以下步骤：
 
 1. 选取源卷
 2. 选择要还原的备份点
@@ -442,7 +442,7 @@ The backup operation completed successfully.
 4. 触发还原过程
 
 ### <a name="picking-the-source-volume"></a>选取源卷
-若要从 Azure 备份还原某个项，需要先识别该项的源。 由于我们要在 Windows Server 或 Windows 客户端的上下文中执行命令，因此已识别了计算机。 识别源的下一步是识别它所在的卷。 运行 [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) cmdlet 可以检索正在从此计算机备份的卷或源的列表。 此命令返回从此服务器/客户端备份的所有源的数组。
+若要从 Azure 备份还原某个项，需要先识别该项的源。 由于我们要在 Windows Server 或 Windows 客户端的上下文中执行命令，因此已识别了计算机。 识别源的下一步是识别它所在的卷。 运行 [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) cmdlet 可以检索正在从此计算机备份的卷或源的列表。 此命令将返回从此服务器/客户端备份的所有源的数组。
 
 ```
 PS C:> $source = Get-OBRecoverableSource
@@ -565,10 +565,10 @@ PS C:\> .\MARSAgentInstaller.exe /d /q
 若要从计算机中卸载代理二进制文件，请注意以下部分后果：
 
 - 这会从计算机中删除文件筛选器，并停止跟踪更改。
-- 所有的策略信息将从计算机中删除，但服务中会继续存储这些策略信息。
-- 所有备份计划都会被删除，且不会进一步创建备份。
+- 将从计算机中删除所有策略信息，但服务中会继续存储这些策略信息。
+- 将删除所有备份计划，且不会进一步创建备份。
 
-不过，根据设置的保留策略继续保留 Azure 中存储的数据。 较旧的恢复点会自动过时。
+不过，Azure 中存储的数据会根据你设置的保留策略继续保留。 较旧的恢复点会自动过时。
 
 ## <a name="remote-management"></a>远程管理
 围绕 Azure 备份代理、策略和数据源的所有管理工作都可通过 Azure PowerShell 远程完成。 要远程管理的计算机需要经过适当的准备。

@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/14/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0a5496b8d1aa294be3ab8f2dfa594bc1bae7518e
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: be56a7e72b8a95cb93ab676529cdb3790fbf559b
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>将 Web 角色和辅助角色转换为 Service Fabric 无状态服务的指南
 本文说明如何将云服务的 Web 角色和辅助角色迁移到 Service Fabric 无状态服务。 对于整体体系结构大致保持相同的应用程序来说，这是从云服务迁移到 Service Fabric 的最简单路径。
@@ -57,8 +57,8 @@ ms.lasthandoff: 08/11/2017
 | 为客户端请求打开侦听器 |不适用 |<ul><li> 适用于无状态服务的 `CreateServiceInstanceListener()`</li><li>适用于有状态服务的 `CreateServiceReplicaListener()`</li></ul> |
 
 ### <a name="worker-role"></a>辅助角色
-
 ```C#
+
 using Microsoft.WindowsAzure.ServiceRuntime;
 
 namespace WorkerRole1
@@ -78,11 +78,12 @@ namespace WorkerRole1
         }
     }
 }
+
 ```
 
 ### <a name="service-fabric-stateless-service"></a>Service Fabric 无状态服务
-
 ```C#
+
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -102,6 +103,7 @@ namespace Stateless1
         }
     }
 }
+
 ```
 
 两者都有可从中开始处理的主要“Run”重写。 Service Fabric 服务将 `Run`、`Start` 和 `Stop` 合并为单一入口点 `RunAsync`。 当 `RunAsync` 启动时，服务应开始工作；发出 `RunAsync` 方法的 CancellationToken 信号时，应停止工作。 
@@ -138,7 +140,9 @@ Service Fabric 为侦听客户端请求的服务提供可选的通信设置入�
 可通过 `RoleEnvironment` 访问 ServiceConfiguration.*.cscfg 中的配置设置。 这些设置可全局提供给同一云服务部署中的所有角色实例。
 
 ```C#
+
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
+
 ```
 
 #### <a name="service-fabric"></a>Service Fabric
@@ -147,6 +151,7 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 通过服务的 `CodePackageActivationContext`可在每个服务实例中访问配置设置。
 
 ```C#
+
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
 // Access Settings.xml
@@ -159,6 +164,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 {
     MySettings settings = JsonConvert.DeserializeObject<MySettings>(reader.ReadToEnd());
 }
+
 ```
 
 ### <a name="configuration-update-events"></a>配置更新事件
@@ -166,6 +172,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 当环境中发生更改（例如配置更改）时，使用 `RoleEnvironment.Changed` 事件来通知所有角色实例。 通过此事件可以使用配置更新，无需回收角色实例或重新启动辅助角色进程。
 
 ```C#
+
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
 private void RoleEnvironmentChanged(object sender, RoleEnvironmentChangedEventArgs e)
@@ -177,6 +184,7 @@ foreach (var settingChange in settingChanges)
       Trace.WriteLine("Setting: " + settingChange.ConfigurationSettingName, "Information");
    }
 }
+
 ```
 
 #### <a name="service-fabric"></a>Service Fabric
@@ -185,6 +193,7 @@ foreach (var settingChange in settingChanges)
 通过这些事件可以使用服务包中的更改，无需重新启动服务实例。
 
 ```C#
+
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
 
@@ -193,6 +202,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
     this.UpdateCustomConfig(e.NewPackage.Path);
     this.UpdateSettings(e.NewPackage.Settings);
 }
+
 ```
 
 ## <a name="startup-tasks"></a>启动任务
@@ -208,6 +218,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 在云服务中，在 ServiceDefintion.csdef 中针对每个角色配置了启动入口点。 
 
 ```xml
+
 <ServiceDefinition>
     <Startup>
         <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple" >
@@ -218,12 +229,14 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
     </Startup>
     ...
 </ServiceDefinition>
+
 ```
 
 ### <a name="service-fabric"></a>Service Fabric
 Service Fabric 中的启动入口点是在 ServiceManifest.xml 中针对每个服务配置的。
 
 ```xml
+
 <ServiceManifest>
   <CodePackage Name="Code" Version="1.0.0">
     <SetupEntryPoint>
@@ -233,7 +246,8 @@ Service Fabric 中的启动入口点是在 ServiceManifest.xml 中针对每个�
     </SetupEntryPoint>
     ...
 </ServiceManifest>
-```
+
+``` 
 
 ## <a name="a-note-about-development-environment"></a>有关开发环境的说明
 云服务和 Service Fabric 都使用项目模板与 Visual Studio 集成，并支持在本地和 Azure 中调试、配置和部署。 此外，云服务和 Service Fabric 都提供本地开发运行时环境。 区别在于，云服务的开发运行时模拟其运行所在的 Azure 环境，Service Fabric 不使用模拟器，而是使用完整的 Service Fabric 运行时。 在本地开发计算机上运行的 Service Fabric 环境就是在生产时运行的同一环境。
@@ -248,4 +262,4 @@ Service Fabric 中的启动入口点是在 ServiceManifest.xml 中针对每个�
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties -->

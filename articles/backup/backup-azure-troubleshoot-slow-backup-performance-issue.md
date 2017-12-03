@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 06/13/2017
-ms.date: 10/31/2017
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
-ms.openlocfilehash: f6e0206b8cfe2087d159c2ccae270c52fa1e01a6
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: ac4989124ac96957e3b1548b2fe23a8596d8dff8
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>排查在 Azure 备份中备份文件和文件夹时速度缓慢的问题
 本文提供故障排除指导，帮助你诊断使用 Azure 备份来备份文件和文件夹时备份性能缓慢的原因。 使用 Azure 备份代理备份文件时，备份过程花费的时间可能比预期要长。 这种延迟可能由以下一个或多个原因所造成：
@@ -89,3 +89,4 @@ Windows 提供了名为[性能监视器](https://technet.microsoft.com/magazine/
 - **UI 显示数据传输进度**。 数据仍在传输。 网络带宽或数据大小可能导致延迟。
 - UI 未显示数据传输进度。 打开位于 C:\Azure Recovery Services Agent\Temp 中的日志，然后检查日志中的 FileProvider::EndData 条目。 此条目表示数据传输已完成，正在进行目录操作。 请不要取消备份作业， 而是再等待片刻，让目录操作完成。 如果问题持续出现，请联系 [Azure 支持部门](https://www.azure.cn/support/support-ticket-form/?l=zh-cn)。
 
+<!--Update_Description: update meta properties --> 

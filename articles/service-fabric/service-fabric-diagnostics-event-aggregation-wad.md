@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/17/2017
-ms.date: 09/11/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: cc5f987b59448903ef1f3a14143022539e7b2eef
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: c9e2fd1ca30fac214bd0c248064bc528003f88cf
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 诊断聚合和集合事件
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 09/08/2017
 ## <a name="log-and-event-sources"></a>日志和事件源
 
 ### <a name="service-fabric-platform-events"></a>Service Fabric 平台事件
-如[此文](service-fabric-diagnostics-event-generation-infra.md)所述，可使用一些现成的日志通道设置 Service Fabric，下列通道能轻松配置 WAD，发送监视和诊断数据到存储表或其他位置：
+如[本文](service-fabric-diagnostics-event-generation-infra.md)所述，可使用一些现成的日志通道设置 Service Fabric，下列通道能轻松配置 WAD，发送监视和诊断数据到存储表或其他位置：
   * 操作事件：Service Fabric 平台执行的更高水平操作。 示例包括创建应用程序和服务、节点状态更改和升级信息。 这些会以 Windows 事件跟踪 (ETW) 日志的形式发出
   * [Reliable Actors 编程模型事件](service-fabric-reliable-actors-diagnostics.md)
   * [Reliable Services 编程模型事件](service-fabric-reliable-services-diagnostics.md)
@@ -176,7 +176,7 @@ ms.lasthandoff: 09/08/2017
 
 从 Service Fabric 5.4 版开始，可以收集运行状况和负载指标事件。 这些事件反映了由系统或代码使用 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 或 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx) 等运行状况或加载报告 API 生成的事件。 这样就可以随着时间的推移聚合和查看系统运行状况，以及基于运行状况或负载事件触发警报。 要在 Visual Studio 的诊断事件查看器中查看这些事件，请将“Microsoft-ServiceFabric:4:0x4000000000000008”添加到 ETW 提供程序列表。
 
-若要收集这些事件，请修改资源管理器模板以包括
+若要收集群集中的事件，请将资源管理器模板的 WadCfg 中的 `scheduledTransferKeywordFilter` 修改为 `4611686018427387912`。
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -193,11 +193,15 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="collect-reverse-proxy-events"></a>收集反向代理事件
 
-从 5.7 版本的 Service Fabric 开始，可收集[反向代理](service-fabric-reverseproxy.md)事件。
-反向代理会将事件发到两个通道，其中一个包含反映请求处理故障的错误事件，而另一个包含关于在反向代理处理的所有请求的详细事件。 
+从 Service Fabric 的 5.7 版本开始，可通过数据和消息通道收集[反向代理](service-fabric-reverseproxy.md)事件。 
 
-1. 收集错误事件：若要查看这些事件，请在 Visual Studio 的诊断事件查看器中将“Microsoft-ServiceFabric:4:0x4000000000000010”添加到 ETW 提供程序列表。
-若要从 Azure 群集收集这些事件，请修改资源管理器模板以包括
+反向代理通过主数据和消息通道仅推送错误事件 - 反映请求处理失败和关键问题。 详细通道包含与反向代理处理的所有请求有关的详细事件。 
+
+若要查看 Visual Studio 的诊断事件查看器中的错误事件，请将“Microsoft-ServiceFabric:4:0x4000000000000010”添加到 ETW 提供程序列表中。 对于所有请求遥测，将 ETW 提供程序列表中的 Microsoft-ServiceFabric 条目更新为“Microsoft-ServiceFabric:4:0x4000000000000020”。
+
+对于在 Azure 中运行的群集：
+
+若要在主数据和消息通道中选取跟踪，请将资源管理器模板的 WadCfg 中的 `scheduledTransferKeywordFilter` 值修改为 `4611686018427387920`。
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -212,8 +216,7 @@ ms.lasthandoff: 09/08/2017
     }
 ```
 
-2. 收集所有请求处理事件：在 Visual Studio 的诊断事件查看器中，将 ETW 提供程序列表中的 Microsoft-ServiceFabric 条目更新为“Microsoft-ServiceFabric:4:0x4000000000000020”。
-对于 Azure Service Fabric 群集，请修改资源管理器模板以包括
+若要收集所有请求处理事件，通过将资源管理器模板的 WadCfg 中的 `scheduledTransferKeywordFilter` 值更改为 `4611686018427387936`，可开启数据和消息详细通道。
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -227,9 +230,8 @@ ms.lasthandoff: 09/08/2017
       }
     }
 ```
-> 建议谨慎启用从此通道收集事件，因为这将收集通过反向代理的所有流量，且可能会快速消耗存储容量。
 
-对于 Azure Service Fabric 群集，所有节点中的事件均在 SystemEventTable 中进行收集和聚合。
+启用收集来自此详细通道的事件会快速生成大量跟踪并消耗存储容量。 请只有在绝对必要的情况下才开启。
 有关反向代理事件的详细故障排除，请参阅[反向代理诊断指南](service-fabric-reverse-proxy-diagnostics.md)。
 
 ## <a name="collect-from-new-eventsource-channels"></a>从新的 EventSource 通道收集
@@ -254,26 +256,9 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="collect-performance-counters"></a>收集性能计数器
 
-若要从群集中收集性能指标，请将性能计数器添加到群集的资源管理器模板中的“WadCfg > DiagnosticMonitorConfiguration”。 对于我们建议收集的性能计数器，请参阅 [Service Fabric 性能计数器](service-fabric-diagnostics-event-generation-perf.md)。
+若要从群集中收集性能指标，请将性能计数器添加到群集的资源管理器模板中的“WadCfg > DiagnosticMonitorConfiguration”。 有关修改 `WadCfg` 以收集特定性能计数器的步骤，请参阅[通过 WAD 监控性能](service-fabric-diagnostics-perf-wad.md)。 对于我们建议收集的性能计数器列表，请参阅 [Service Fabric 性能计数器](service-fabric-diagnostics-event-generation-perf.md)。
 
-例如，我们将在此处设置一个性能计数器，每隔 15 秒采样一次（可更改并遵循“PT\<时间>\<单位>”格式，例如，PT3M 每隔 3 分钟采样一次），每分钟传输到适当的存储表中一次。
-
-    ```json
-    "PerformanceCounters": {
-        "scheduledTransferPeriod": "PT1M",
-        "PerformanceCounterConfiguration": [
-            {
-                "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                "sampleRate": "PT15S",
-                "unit": "Percent",
-                "annotation": [
-                ],
-                "sinks": ""
-            }
-        ]
-    }
-    ```
-如果使用 Application Insights 接收器（如下面部分所述）并想要这些指标显示在 Application Insights 中，则确保将接收器名称添加到“sinks”部分中，如上所示。 此外，请考虑创建一个单独的表来接受性能计数器，使其不会挤出来自已启用的其他日志记录通道的数据。
+如果使用 Application Insights 接收器（如下面部分所述）并想要这些指标显示在 Application Insights 中，则确保将接收器名称添加到“sinks”部分中，如上所示。 这将自动向你的 Application Insights 资源发送单独配置的性能计数器。
 
 ## <a name="send-logs-to-application-insights"></a>将日志发送到 Application Insights
 
@@ -290,4 +275,4 @@ ms.lasthandoff: 09/08/2017
 * [使用 Application Insights 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [使用 OMS 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-oms.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

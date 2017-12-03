@@ -12,22 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/02/2017
-ms.date: 10/02/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8347257b8f219c06ffd99e62a9282f223831bc98
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 84de6ae266ecffb8ed2b97a8f95e025755da639d
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>向在 Windows Server 上运行的独立 Service Fabric 群集添加或删除节点
-
-[在 Windows Server 计算机上创建独立 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)之后，业务需求可能会有所改变，因此可能需要向群集添加或删除节点。 本文提供了实现此目标的详细步骤。 请注意，在本地开发群集中不支持添加/删除节点的功能。
+[在 Windows Server 计算机上创建独立 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)之后，（业务）需求可能发生变化，因此需要向群集添加或删除节点。 本文提供了实现此目标的详细步骤。 请注意，在本地开发群集中不支持添加/删除节点的功能。
 
 ## <a name="add-nodes-to-your-cluster"></a>向群集添加节点
 
-1. 按照[准备计算机以满足群集部署的先决条件](service-fabric-cluster-creation-for-windows-server.md)部分中所提及的步骤，准备要添加到群集中的 VM/计算机
+1. 按照[计划和准备 Service Fabric 群集部署](service-fabric-cluster-creation-for-windows-server.md)中概述的步骤，使要向其添加群集的VM/计算机准备就绪。
 2. 确定要向哪些容错域和升级域添加此 VM/计算机。
 3. 通过远程桌面 (RDP) 方式进入需要向群集添加的 VM/计算机
 4. 向此 VM/计算机复制或[下载适用于 Windows Server 的 Service Fabric 独立包](http://go.microsoft.com/fwlink/?LinkId=730690)，并解压该包
@@ -132,4 +131,4 @@ ms.lasthandoff: 09/28/2017
 * [使用 X509 证书保护 Windows 上的独立群集](service-fabric-windows-cluster-x509-security.md)
 * [使用运行 Windows 的 Azure VM 创建独立 Service Fabric 群集](service-fabric-cluster-creation-with-windows-azure-vms.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

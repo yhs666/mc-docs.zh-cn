@@ -14,25 +14,27 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/20/2016
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 41f4eaf28bc166c6c75f2fcb2aa077b70b7eec5c
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 12/11/2017
+ms.openlocfilehash: 226d309982df1b7c8748f23be069e81807a19231
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>在 Azure Monitor 中为 Azure 服务创建指标警报 - PowerShell
 > [!div class="op_single_selector"]
->- [门户](./insights-alerts-portal.md)
->- [PowerShell](./insights-alerts-powershell.md)
->- [CLI](./insights-alerts-command-line-interface.md) 
+> * [门户](insights-alerts-portal.md)
+> * [PowerShell](insights-alerts-powershell.md)
+> * [CLI](insights-alerts-command-line-interface.md)
+>
+>
 
 ## <a name="overview"></a>概述
-本文将展示如何使用 PowerShell 设置 Azure 指标警报。  
+本文展示如何使用 PowerShell 设置 Azure 指标警报。  
 
 可以根据监控指标或事件接收 Azure 服务的警报。
 
-* **指标值** - 当指定指标的值在任一方向越过了指定的阈值时警报将触发。 也就是说，当条件先是满足以及之后不再满足该条件时，警报都会触发。    
+* **指标值** - 指定指标的值超过在任一方向分配的阈值时，将触发警报。 也就是说，当条件先是满足以及之后不再满足该条件时，警报都会触发。    
 * **活动日志事件** - 警报可以在发生每个事件时都触发，也可以仅在发生特定数量的事件时触发。 若要详细了解活动日志警报，请[单击此处](./monitoring-activity-log-alerts.md)
 
 可以配置指标警报，在其触发时执行以下操作：
@@ -49,7 +51,7 @@ ms.lasthandoff: 07/14/2017
 - [命令行接口 (CLI)](./insights-alerts-command-line-interface.md) 
 - [Azure 监视器 REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931945.aspx)
 
-若要获得更多信息，始终可以通过键入 ```get-help``` 然后键入希望获取其帮助信息的 PowerShell 命令来实现此目的。 
+如果要获得更多信息，始终可以通过键入 ```get-help``` 并键入希望获取其帮助信息的 PowerShell 命令来实现此目的。 
 
 ## <a name="create-alert-rules-in-powershell"></a>在 PowerShell 中创建警报规则
 
@@ -60,7 +62,7 @@ ms.lasthandoff: 07/14/2017
 
     ```
 
-2. 获取可用订阅的列表。 验证你使用的是否为正确的订阅。 如果不是，请根据 `Get-AzureRmSubscription`的输出将其设置为正确的一个。 
+2. 获取可用订阅的列表。 验证正在使用的正确订阅。 如果不是，请根据 `Get-AzureRmSubscription` 的输出将其设置为正确的一个。 
 
     ```PowerShell
     Get-AzureRmSubscription
@@ -78,7 +80,7 @@ ms.lasthandoff: 07/14/2017
   * 要为其设置警报的资源的 **资源 ID**
   * 可用于该资源的 **指标定义**
 
-    获取资源 ID 的一种方法是使用 Azure 门户。 假设已创建该资源，在门户中选中它。 然后在下一个边栏选项卡中，选择“设置”分区下的“属性”。 **资源 ID** 是下一个边栏选项卡中的字段。 
+    获取资源 ID 的一种方法是使用 Azure 门户。 假设已创建该资源，在门户中选中它。 然后，在下一个边栏选项卡中，选择“设置”部分下的“属性”。 **资源 ID** 是下一个边栏选项卡中的字段。 
      下面是 Web 应用的一个示例资源 ID：
 
     ```
@@ -91,15 +93,15 @@ ms.lasthandoff: 07/14/2017
     Get-AzureRmMetricDefinition -ResourceId <resource_id>
     ```
 
-    以下示例将生成一个表，其中包含指标名称和该指标的单位。 
+    以下示例生成一个表，其中包含指标名称和该指标的单位。 
 
     ```PowerShell
     Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 
     ```
-    可以通过运行 Get-MetricDefinitions 获取 Get-AzureRmMetricDefinition 的可用选项的完整列表。
+     运行 `Get-Help Get-AzureRmMetricDefinition -Detailed` 可获取 Get-AzureRmMetricDefinition 可用选项的完整列表。
 
-5. 以下示例在一个网站资源上设置警报。 当在 5 分钟内持续收到任何流量以及再次在 5 分钟内未收到任何流量时，警报将触发。
+5. 以下示例设置了一个关于网站资源的警报。 当在 5 分钟内持续收到任何流量以及再次在 5 分钟内未收到任何流量时，警报触发。
 
     ```PowerShell
     Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "china east" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Description "alert on any website activity"
@@ -137,5 +139,6 @@ ms.lasthandoff: 07/14/2017
 * 了解[在警报中配置 Webhook](./insights-webhooks-alerts.md)的详细信息。
 * 详细了解[针对活动日志事件配置警报](./monitoring-activity-log-alerts.md)。
 * 了解关于 [Azure 自动化 Runbook](../automation/automation-starting-a-runbook.md) 的详细信息。
-
-* 获取[指标集合概述](./insights-how-to-customize-monitoring.md)以确保你的服务可用且响应迅速。
+* 获取[收集诊断日志概述](monitoring-overview-of-diagnostic-logs.md)以收集有关服务的详细高频率指标。
+* 
+            [大致了解指标收集](./insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。

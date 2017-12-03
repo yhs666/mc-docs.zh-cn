@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/27/2017
-ms.date: 11/13/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: 0b442e2ed1b1d4fac2f69bb62ef6fc83b6d84b53
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.openlocfilehash: f42e5897c51afd19eeeae7e962a7d6e618a2c81f
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="duplicate-detection"></a>重复检测
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/03/2017
 
 通过编程方式，可以结合使用 [QueueDescription.requiresDuplicateDetection](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) 属性和整个 .NET Framework API，从而设置标志。 借助 Azure 资源管理器 API，可以使用 [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) 属性设置此值。
 
-队列和主题的重复检测时间历史记录默认为 30 秒，不得超过 40 分钟。 可以在 Azure 门户的队列和主题属性窗口中更改此设置。
+队列和主题的重复检测时间历史记录默认为 30 秒，最大值不得超过 7 天。 可以在 Azure 门户的队列和主题属性窗口中更改此设置。
 
 ![][2]
 

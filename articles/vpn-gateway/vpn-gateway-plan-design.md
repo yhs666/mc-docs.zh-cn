@@ -1,5 +1,5 @@
 ---
-title: "跨界连接的规划和设计：Azure VPN 网关 | Microsoft Docs"
+title: "跨界连接的规划和设计：Azure VPN 网关 | Microsoft 文档"
 description: "了解跨界、混合与 VNet 到 VNet 连接的 VPN 网关规划和设计"
 services: vpn-gateway
 documentationcenter: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 07/27/2017
 ms.date: 08/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: 4ea5f1055cfdbe80ad3226ad2041ecdc46a09857
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.openlocfilehash: 20996391c9c75189f22441ba79e94aa46be4df97
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>规划和设计 VPN 网关
 
@@ -69,10 +69,6 @@ ms.lasthandoff: 09/01/2017
 
 以下部分介绍 VPN 网关基础知识。 
 
-#### <a name="servicelimits"></a>网络服务限制
-
-滚动浏览表以查看[网络服务限制](../azure-subscription-service-limits.md#networking-limits)。 列出的限制可能会影响设计。
-
 #### <a name="subnets"></a>关于子网
 
 创建连接时，必须考虑子网范围。 不能有重叠的子网地址范围。 子网重叠是指一个虚拟网络或本地位置包含其他位置所包含的相同地址空间。 这意味着，需要请求本地网络的网络工程师指定一个可用于 Azure IP 寻址空间/子网的范围。 使用的地址空间不能已在本地网络中使用。
@@ -83,7 +79,7 @@ VPN 网关需要一个特定的子网，称为网关子网。 所有网关子网
 
 #### <a name="local"></a>关于本地网络网关
 
-本地网络网关通常是指本地位置。 在经典部署模型中，本地网络网关称为本地网络站点。 配置本地网络网关时，需为它命名、指定本地 VPN 设备的公共 IP 地址，并指定位于本地位置中的地址前缀。 Azure 将查看网络流量的目标地址前缀、查阅针对本地网络网关指定的配置，并相应地路由数据包。 可以根据需要修改这些地址前缀。 有关详细信息，请参阅[本地网关](vpn-gateway-about-vpn-gateway-settings.md#lng)。
+本地网络网关通常是指本地位置。 在经典部署模型中，本地网络网关称为本地网络站点。 配置本地网络网关时，需为它命名、指定本地 VPN 设备的公共 IP 地址，并指定位于本地位置中的地址前缀。 Azure 将查看网络流量的目标地址前缀、查阅针对本地网络网关指定的配置，并相应地路由数据包。 可以根据需要修改这些地址前缀。 有关详细信息，请参阅[本地网络网关](vpn-gateway-about-vpn-gateway-settings.md#lng)。
 
 #### <a name="gwtype"></a>关于网关类型
 
@@ -109,7 +105,7 @@ VPN 网关需要一个特定的子网，称为网关子网。 所有网关子网
 
 [!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-下表显示了映射到每个连接配置的 VPN 类型。 请确保网关的 VPN 类型与你想要创建的配置匹配。 
+下表显示了映射到每个连接配置的 VPN 类型。 请确保网关的 VPN 类型与要创建的配置匹配。 
 
 [!INCLUDE [vpn-gateway-table-vpntype](../../includes/vpn-gateway-table-vpntype-include.md)]
 

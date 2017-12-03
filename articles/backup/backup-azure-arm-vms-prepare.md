@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/03/2017
-ms.date: 09/21/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
-ms.openlocfilehash: df88288408ae3ef63cfe0417ffed43c054a258f6
-ms.sourcegitcommit: c13aee6f5e18d15bcc29fae1eefd2b72f2558dfa
+ms.openlocfilehash: f409a0c4f38a25a5b1ebca3caf1366d5a6748f02
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>准备环境以备份 Resource Manager 部署的虚拟机
 > [!div class="op_single_selector"]
@@ -57,6 +57,12 @@ Azure 备份服务提供两种类型的保管库（备份保管库和恢复服�
 
 - 不支持备份超过 16 个数据磁盘的虚拟机。
 - 不支持备份数据磁盘大小超过 1023GB 的虚拟机。
+
+> [!NOTE]
+> 我们提供了专用预览版以支持带有 >1TB 非托管磁盘的 VM 的备份。 有关详细信息，请参阅[支持大型磁盘 VM 备份的专用预览版](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
+
 - 不支持备份使用保留 IP 地址且未定义终结点的虚拟机。
 - 不支持备份只使用 BEK 进行加密的虚拟机。 不支持备份使用 LUKS 加密方法进行加密的 Linux 虚拟机。
 - 不建议备份包含群集共享卷 (CSV) 或具有横向扩展文件服务器配置的 VM，因为需要涉及快照任务执行期间群集配置中包含的所有 VM。 Azure 备份不支持多 VM 一致性。 
@@ -91,8 +97,7 @@ Azure 备份服务提供两种类型的保管库（备份保管库和恢复服�
 4. 对于“名称”，请输入一个友好名称以标识保管库 。 名称对于 Azure 订阅需要是唯一的。 键入包含 2 到 50 个字符的名称。 名称必须以字母开头，只能包含字母、数字和连字符。
 5. 单击“订阅”查看可用订阅列表。 如果不确定要使用哪个订阅，请使用默认的（或建议的）订阅。 仅当组织帐户与多个 Azure 订阅关联时，才会有多个选项。
 6. 单击“资源组”查看可用资源组列表，或单击“新建”创建新的资源组。 有关资源组的完整信息，请参阅 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)
-7. 单击“位置”，为保管库选择地理区域  。 
-            **必须** 与要保护的虚拟机位于同一区域中。
+7. 单击“位置”，为保管库选择地理区域  。 **必须** 与要保护的虚拟机位于同一区域中。
 
    > [!IMPORTANT]
    > 如果不确定 VM 的所在位置，请关闭保管库创建对话框，并转到门户中的虚拟机列表。 如果在多个区域中具有虚拟机，则必须在每个区域中创建恢复服务保管库。 请先在第一个位置创建保管库，并转到下一个位置。 无需指定存储帐户即可存储备份数据 - 恢复服务保管库和 Azure 备份服务会自动处理这种情况。
@@ -206,7 +211,13 @@ Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 
 | HTTP 代理 |允许在代理中对存储 URL 进行精细控制。<br>对 VM 进行单点 Internet 访问。<br>不受 Azure IP 地址变化的影响。 |通过代理软件运行 VM 带来的额外成本。 |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Whitelist the Azure datacenter IP ranges
-若要将 Azure 数据中心 IP 范围加入允许列表，请参阅 [Azure 网站](http://www.microsoft.com/en-us/download/details.aspx?id=42064)，获取有关 IP 范围的详细信息和说明。
+- 若要将 Azure 数据中心 IP 范围加入允许列表，请参阅 [Azure 网站](http://www.microsoft.com/en-us/download/details.aspx?id=42064)，获取有关 IP 范围的详细信息和说明。
+- 可以使用[服务标记](../virtual-network/security-overview.md#service-tags)允许与特定区域存储的连接。 请确保允许访问存储帐户的规则的优先级高于阻止 Internet 访问的规则的优先级。 
+
+  ![具有区域存储标记的 NSG](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> 存储标记仅在特定区域中可用，并且处于预览状态。 有关区域列表，请参阅[存储的服务标记](../virtual-network/security-overview.md#service-tags)
 
 ### <a name="using-an-http-proxy-for-vm-backups"></a>使用 HTTP 代理进行 VM 备份
 备份 VM 时，VM 上的备份扩展会使用 HTTPS API 将快照管理命令发送到 Azure 存储。 将通过 HTTP 代理路由备份扩展流量，因为它是为了访问公共 Internet 而配置的唯一组件。

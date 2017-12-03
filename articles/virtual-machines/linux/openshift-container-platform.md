@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/27/2017
-ms.openlocfilehash: ee74198f68d0aa6cd4928270e2e6172e334aadcb
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 528f15a1383334f2bf7d826862e90d64c8aafc78
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>在 Azure 中部署 OpenShift 容器平台
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/24/2017
 
 ```json
 {
-    "$schema": "http://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "masterVmSize": {

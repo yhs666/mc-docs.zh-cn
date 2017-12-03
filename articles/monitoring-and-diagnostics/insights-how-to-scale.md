@@ -1,8 +1,8 @@
 ---
 title: "通过 Azure 门户手动或自动缩放实例计数 | Azure"
 description: "了解如何在 Azure 中缩放服务。"
-author: rboucher
-manager: carmonm
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
-ms.author: robb
-ms.date: 
-ms.openlocfilehash: 26dc6e033ebb7df2f6e41afb9f498288c431377b
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.author: v-yiso
+ms.date: 12/11/2017
+ms.openlocfilehash: 607f17b38a6369563226e2cb551edec2a1582254
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>手动或自动缩放实例计数
 
-在 [Azure 门户](https://portal.azure.cn/)中，你可以手动设置服务的实例计数，或者设置参数以基于需求自动缩放。 这通常称为“扩大”或“缩小”。
+在 [Azure 门户](https://portal.azure.cn/)中，可手动设置服务的实例计数，或者设置参数以基于需求自动缩放。 这通常称为“扩大”或“缩小”。
 
 基于实例计数进行缩放之前，应考虑的除了实例计数之外，缩放还会受 **定价层** 影响。 不同定价层可以具有不同数量的核心和内存，因此它们对于相同数量的实例具有更佳性能（即增加或减少）。 本文专门介绍 *缩小* 和 *扩大*。
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 07/14/2017
 
 如果要基于指标自动调整实例数，请在“缩放依据”下拉列表中选择所需指标。 例如，对于“应用服务计划”，可以按“CPU 百分比”进行缩放。
 
-1. 选择指标时，你会获得一个滑块和/或文本框，以输入要在其间进行缩放的实例数：
+1. 选择指标时，会获得一个滑块和/或文本框，以输入要在其间进行缩放的实例数：
 
     ![显示了 CPU 百分比的“缩放”分页](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png) 
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 07/14/2017
 
 1. 在“缩放依据”下拉列表中选择“计划和性能规则”：![性能规则](./media/insights-how-to-scale/Insights_PerformanceRules.png)
 
-2. 如果以前进行过自动缩放，则你会看到你所具有的确切规则的视图。
+2. 如果以前进行过自动缩放，则你会看到所具有的确切规则的视图。
 
 3. 若要基于另一个指标进行缩放，请单击“添加规则”行。 还可单击一个现有行，以便从以前具有的指标更改为要作为缩放依据的指标。
 ![添加规则](./media/insights-how-to-scale/Insights_AddRule.png)
@@ -96,22 +96,22 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="scaling-with-multiple-steps"></a>使用多个步骤进行缩放
 
-以上示例非常基本。 但是，如果你要更积极地增加（或减少），甚至可以为相同指标添加多个缩放规则。 例如，你可以对 CPU 百分比定义两个缩放规则：
+以上示例非常基本。 但是，如果你要更积极地增加（或减少），甚至可以为相同指标添加多个缩放规则。 例如，可以对 CPU 百分比定义两个缩放规则：
 
 1. 如果 CPU 百分比高于 60%，则按 1 个实例进行扩大
 2. 如果 CPU 百分比高于 85%，则按 3 个实例进行扩大
 
 ![多个缩放规则](./media/insights-how-to-scale/Insights_MultipleScaleRules.png)
 
-启用这条附加规则后，如果在执行缩放操作之前负载超出 85%，你将会看到两个附加实例而不是一个。 
+启用这条附加规则后，如果在执行缩放操作之前负载超出 85%，你会看到两个附加实例而不是一个。 
 
 ## <a name="scale-based-on-a-schedule"></a>基于计划的缩放
 
-默认情况下，当创建缩放规则时，它会始终应用。 你可以在单击配置文件标头时看到该规则：
+默认情况下，当创建缩放规则时，它会始终应用。 可以在单击配置文件标头时看到该规则：
 
 ![配置文件](./media/insights-how-to-scale/Insights_Profile.png)
 
-但是与在周末进行缩放相比，你可能需要在一天或一周当中进行更积极的缩放。 你甚至可以在工作时间之外完全关闭服务。
+但是与在周末进行缩放相比，可能需要在一天或一周当中进行更积极的缩放。 甚至可以在工作时间之外完全关闭服务。
 
 1. 为此，请在具有的配置文件中，选择“重复周期”而不是“总是”，然后选择要应用配置文件的时间。
 

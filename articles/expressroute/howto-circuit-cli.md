@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/25/2017
+origin.date: 10/19/2017
 ms.author: v-yiso
-ms.date: 11/13/2017
-ms.openlocfilehash: e734fce5d62cdbdd0e405c070c66270cdf412a9d
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.date: 12/11/2017
+ms.openlocfilehash: fe74bf4491e6b0a3ba7f1147c186ad08391ceaaf
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>使用 CLI 创建和修改 ExpressRoute 线路
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/03/2017
 * 在开始之前，请安装最新版本的 CLI 命令（2.0 或更高版本）。 有关安装 CLI 命令的信息，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 和 [Azure CLI 2.0 入门](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-lastest)。
 * 在开始配置之前，请查看[先决条件](expressroute-prerequisites.md)和[工作流](expressroute-workflows.md)。
 
-## <a name="create-and-provision-an-expressroute-circuit"></a>创建和预配 ExpressRoute 线路
+## <a name="create"></a>创建和预配 ExpressRoute 线路
 
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1.登录到 Azure 帐户，然后选择订阅
 
@@ -395,9 +395,9 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>控制对经典环境和 Resource Manager 环境的访问
 
-查看[将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型](expressroute-howto-move-arm.md)中的说明。
+查看[将 ExpressRoute 线路从经典部署模型转移到资源管理器部署模型](expressroute-howto-move-arm.md)中的说明。
 
-## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>取消预配和删除 ExpressRoute 线路
+## <a name="delete"></a>取消设置和删除 ExpressRoute 线路
 
 若要取消预配并删除 ExpressRoute 线路，请确保已了解以下条件：
 

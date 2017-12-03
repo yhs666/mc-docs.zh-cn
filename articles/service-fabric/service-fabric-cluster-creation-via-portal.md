@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/21/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: e8d0e84077e310d6449cab6fedd915053fba38dd
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 8b45bafe27dc6934218d9d264dfa4bdd03ce0fc8
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 门户在 Azure 中创建 Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -44,7 +44,8 @@ ms.lasthandoff: 11/09/2017
 无论群集是 Linux 群集还是 Windows 群集，创建安全群集的思路都一样。 可以按[在 Azure 门户中创建群集](#create-cluster-portal)部分中所述，将所提供的帮助器脚本获取的参数直接输入到门户中。
 <!-- Need Validation [Creating secure clusters on Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-cluster) -->
 
-## <a name="log-in-to-azure"></a>登录 Azure
+## <a name="configure-key-vault"></a>配置 Key Vault 
+### <a name="log-in-to-azure"></a>登录 Azure
 本指南使用 [Azure PowerShell][azure-powershell]。 开始新的 PowerShell 会话时，请登录到 Azure 帐户并选择订阅，并执行 Azure 命令。
 
 登录到 Azure 帐户：
@@ -60,7 +61,7 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-## <a name="set-up-key-vault"></a>设置密钥保管库
+### <a name="set-up-key-vault"></a>设置密钥保管库
 本部分逐步介绍如何为 Azure 中的 Service Fabric 群集以及为 Service Fabric 应用程序创建密钥保管库。 有关密钥保管库的完整指南，请参阅 [Key Vault getting started guide][key-vault-get-started]（密钥保管库入门指南）。
 
 Service Fabric 使用 X.509 证书保护群集。 Azure 密钥保管库用于管理 Azure 中 Service Fabric 群集的证书。 在 Azure 中部署群集时，负责创建 Service Fabric 群集的 Azure 资源提供程序将从密钥保管库提取证书，并将其安装在群集 VM 上。
@@ -69,7 +70,7 @@ Service Fabric 使用 X.509 证书保护群集。 Azure 密钥保管库用于管
 
 ![证书安装][cluster-security-cert-installation]
 
-### <a name="create-a-resource-group"></a>创建资源组。
+#### <a name="create-a-resource-group"></a>创建资源组。
 第一个步骤是专门针对密钥保管库创建资源组。 建议将 Key Vault 放入其自身的资源组中，以便可以删除计算与存储资源组（例如包含 Service Fabric 群集的资源组），而不会丢失密钥和机密。 包含密钥保管库的资源组必须与正在使用它的群集位于同一区域。
 
 ```powershell
@@ -85,14 +86,13 @@ Service Fabric 使用 X.509 证书保护群集。 Azure 密钥保管库用于管
 
 ```
 
-### <a name="create-key-vault"></a>创建密钥保管库
+#### <a name="create-key-vault"></a>创建密钥保管库
 在新资源组中创建密钥保管库。 
             **必须针对部署启用**密钥保管库，使 Service Fabric 资源提供程序能够从中获取证书并将其安装在群集节点上：
 
 ```powershell
 
     PS C:\Users\vturecek> New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'China North' -EnabledForDeployment
-
 
     Vault Name                       : myvault
     Resource Group Name              : mycluster-keyvault
@@ -125,10 +125,10 @@ Service Fabric 使用 X.509 证书保护群集。 Azure 密钥保管库用于管
 > azure keyvault set-policy --vault-name "your vault name" --enabled-for-deployment true
 ```
 
-## <a name="add-certificates-to-key-vault"></a>将证书添加到 Key Vault
+### <a name="add-certificates-to-key-vault"></a>将证书添加到 Key Vault
 证书在 Service Fabric 中用于提供身份验证和加密，为群集及其应用程序提供全方位的保护。 有关如何在 Service Fabric 中使用证书的详细信息，请参阅 [Service Fabric 群集安全方案][service-fabric-cluster-security]。
 
-### <a name="cluster-and-server-certificate-required"></a>群集和服务器证书（必需）
+#### <a name="cluster-and-server-certificate-required"></a>群集和服务器证书（必需）
 需要使用此证书来保护群集以及防止未经授权访问群集。 此证书通过多种方式保护群集：
 
 * **群集身份验证：** 在群集联合的情况下对节点间的通信进行身份验证。 只有可以使用此证书自我证明身份的节点才能加入群集。
@@ -140,7 +140,7 @@ Service Fabric 使用 X.509 证书保护群集。 Azure 密钥保管库用于管
 * 必须为密钥交换创建证书，并且该证书可导出到个人信息交换 (.pfx) 文件。
 * 证书的使用者名称必须与用于访问 Service Fabric 群集的域匹配。 只有符合此要求，才能为群集的 HTTPS 管理终结点和 Service Fabric Explorer 提供 SSL。 无法从证书颁发机构 (CA) 获取 `.cloudapp.chinacloudapi.cn` 域的 SSL 证书。 获取群集的自定义域名。 在从 CA 请求证书时，该证书的使用者名称必须与用于群集的自定义域名匹配。
 
-### <a name="client-authentication-certificates"></a>客户端身份验证证书
+#### <a name="client-authentication-certificates"></a>客户端身份验证证书
 其他客户端证书可对执行群集管理任务的管理员进行身份验证。 Service Fabric 有两个访问级别：**管理员**和**只读用户**。 至少应使用一个证书进行管理访问。 若要进行其他用户级别的访问，必须提供单独的证书。 有关访问角色的详细信息，请参阅 [role-based access control for Service Fabric clients][service-fabric-cluster-security-roles]（适用于 Service Fabric 客户端的基于角色的访问控制）。
 
 无需将客户端身份验证证书上传到 Key Vault 即可使用 Service Fabric。 只需将这些证书提供给有权管理群集的用户。 
@@ -150,7 +150,7 @@ Service Fabric 使用 X.509 证书保护群集。 Azure 密钥保管库用于管
 > 
 > 
 
-### <a name="application-certificates-optional"></a>应用程序证书（可选）
+#### <a name="application-certificates-optional"></a>应用程序证书（可选）
 可以出于应用程序安全目的，在群集上安装任意数量的附加证书。 在创建群集之前，请考虑需要在节点上安装证书的应用程序安全方案，例如：
 
 * 加密和解密应用程序配置值
@@ -158,7 +158,7 @@ Service Fabric 使用 X.509 证书保护群集。 Azure 密钥保管库用于管
 
 通过 Azure 门户创建群集时，无法配置应用程序证书。 若要在设置群集时配置应用程序证书，必须 [使用 Azure Resource Manager 创建群集][create-cluster-arm]。 也可以在创建群集后将应用程序证书添加到群集。
 
-### <a name="formatting-certificates-for-azure-resource-provider-use"></a>格式化证书以供 Azure 资源提供程序使用
+#### <a name="formatting-certificates-for-azure-resource-provider-use"></a>格式化证书以供 Azure 资源提供程序使用
 可以直接通过密钥保管库添加和使用私钥文件 (.pfx)。 但是，Azure 资源提供程序要求以特殊 JSON 格式存储密钥，在密钥中包含 .pfx 作为 Base-64 编码字符串和私钥密码。 如果要满足这些要求，必须将密钥放入 JSON 字符串，并在密钥保管库中将其存储为 *机密* 。
 
 为了简化此过程， [GitHub 上提供了][service-fabric-rp-helpers]一个 PowerShell 模块。 请遵循以下步骤使用该模块：

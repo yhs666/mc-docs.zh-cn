@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/24/2017
-ms.date: 10/02/2017
+origin.date: 11/20/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: abf1c859bf4f61f74dcbaaf517c908731c3f5d88
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 23230ccd58efc6ac0f3b87818d1012193176552c
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>平台级别事件和日志生成
 
@@ -27,12 +27,13 @@ ms.lasthandoff: 09/28/2017
 
 在平台级别进行监视以确定硬件和群集的运行情况是否符合预期是非常重要的。 在硬件发生故障期间，Service Fabric 可保持应用程序运行，但用户仍需要诊断错误是在应用程序中还是底层基础结构中发生。 还应该监视群集以便更好地规划容量，帮助决定添加或删除硬件。
 
-Service Fabric 提供了五个现成的不同日志通道，可以生成以下事件：
-
-* 操作通道：由 Service Fabric 和群集执行的高级操作，包括出现节点事件、部署新应用程序或 SF 升级回滚等。
+Service Fabric 提供了以下现成可用的日志通道：
+* 操作通道：由 Service Fabric 和群集执行的高级操作，包括出现节点事件、部署新应用程序或升级回滚等。
 * 操作通道 - 详细信息：运行状况报告和负载均衡决策
 * 数据和消息通道：消息（当前仅限 ReverseProxy）和数据路径（可靠的服务模型）中生成的关键日志和事件
 * 数据和消息通道 - 详细信息：包含群集中的数据和消息提供的所有非关键日志的详细通道（此通道的事件量非常大）   
+
+除此之外，还提供了两个结构化的 EventSource 通道以及为支持目的而收集的日志。
 * [Reliable Services 事件](service-fabric-reliable-services-diagnostics.md)：特定于编程模型的事件
 * [Reliable Actors 事件](service-fabric-reliable-actors-diagnostics.md)：特定于编程模型事件和性能计数器
 * 支持日志：Service Fabric 生成的系统日志，仅当我们提供支持时使用
@@ -112,4 +113,4 @@ if (!result.HasValue)
 
 需要将日志和事件聚合后，才能将其发送到任何分析平台。 阅读有关 [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 和 [WAD](service-fabric-diagnostics-event-aggregation-wad.md) 的信息，更好地了解一些推荐的选项。
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties, wording update -->

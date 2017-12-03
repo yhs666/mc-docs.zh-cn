@@ -1,11 +1,12 @@
 ---
-title: "对 Azure 活动日志警报调用 webhook | Azure"
-description: "将活动日志事件路由到其他服务以执行自定义操作。 例如，发送短信、记录 bug，或者通过聊天/消息服务通知团队。"
-author: kamathashwin
-manager: carmonm
+title: "针对 Azure 活动日志警报调用 Webhook | Microsoft 文档"
+description: "将活动日志事件路由到其他服务用于自定义操作。 例如，发送短信、记录 bug，或者通过聊天/消息服务通知团队。"
+author: johnkemnetz
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
-documentationCenter: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: 64d333d1-7f37-4a00-9d16-dda6e69a113b
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
 ms.author: v-yiso
-ms.date: 03/03/2017
-ms.openlocfilehash: 9f036874497eec7ab3cc1d54b607f5155026a1f9
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 12/11/2017
+ms.openlocfilehash: a2e8e0717e15333150b2963f59bf62d9af4c4450
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>对 Azure 活动日志警报调用 webhook
 通过 webhook 可以将 Azure 警报通知路由到其他系统，以便进行后续处理或自定义操作。 可以针对警报使用 webhook，以将警报路由到可以发送短信、记录 Bug、通过聊天/消息通知团队，或执行任意数量的其他操作的服务。 本文介绍如何设置要在触发 Azure 活动日志警报时调用的 webhook。 它还显示了发送到 webhook 的 HTTP POST 的有效负载是怎样的。 有关 Azure 度量值警报的设置和架构的信息， [请参阅本页](insights-webhooks-alerts.md)。 还可以将活动日志警报设置为激活时发送电子邮件。
 
 >[!NOTE]
-> 此功能目前处于预览状态，将在以后删除。
+> 此功能目前处于预览状态，会在以后删除。
 >
 >
 
-可使用 [Azure PowerShell Cmdlets](./insights-powershell-samples.md#create-alert-rules)、[跨平台 CLI](./insights-cli-samples.md#work-with-alerts) 或 [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx) 设置活动日志警报。 目前，不能使用 Azure 门户设置活动日志警报。
+可使用 [Azure PowerShell Cmdlets](insights-powershell-samples.md#create-metric-alerts)、[跨平台 CLI](insights-cli-samples.md#work-with-alerts) 或 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx) 设置活动日志警报。 目前，不能使用 Azure 门户设置活动日志警报。
 
 ## <a name="authenticating-the-webhook"></a>对 webhook 进行身份验证
 Webhook 可以使用以下任一方法进行身份验证：

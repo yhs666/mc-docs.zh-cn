@@ -1,6 +1,6 @@
 ---
-title: "可以通过 Azure Site Recovery 保护哪些工作负荷？"
-description: "Azure Site Recovery 可以协调本地虚拟机和物理服务器到 Azure 或辅助本地站点的复制、故障转移和恢复，从而保护工作负荷和应用程序"
+title: "可以通过 Azure Site Recovery 保护哪些工作负荷？ | Azure"
+description: "介绍可以通过将灾难恢复与 Azure Site Recovery 服务配合使用来保护的工作负荷。"
 services: site-recovery
 documentationcenter: 
 author: rockboyfor
@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 05/08/2017
-ms.date: 10/02/2017
+origin.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: fe143484f59921fbe57745e6ea390ffb318c133e
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 8ce94375d79a1cbfcab7f48a1169ba4a2826598e
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>可以通过 Azure Site Recovery 保护哪些工作负荷？
-本文介绍可以使用 Azure Site Recovery 服务复制的工作负荷和应用程序。
+
+本文介绍可以使用 [Azure Site Recovery](site-recovery-overview.md) 服务复制的工作负荷和应用程序。
 
 ## <a name="overview"></a>概述
+
 组织需要制定业务连续性和灾难恢复 (BCDR) 策略来确保工作负荷和数据在计划和非计划停机期间保持安全和可用，并尽快恢复正常运行。
 
 Site Recovery 就是能够帮助实现 BCDR 策略的一个 Azure 服务。 使用站点恢复，可将应用程序感知的复制部署到云或辅助站点中。 无论应用是基于 Windows 还是 Linux，是在物理服务器、VMware 还是 Hyper-V 上运行，都可以使用 Site Recovery 协调复制、执行灾难恢复测试，以及运行故障转移和故障回复。
@@ -32,6 +34,7 @@ Site Recovery 就是能够帮助实现 BCDR 策略的一个 Azure 服务。 使�
 Site Recovery 与 Microsoft 应用程序集成，其中包括 SharePoint、Exchange、Dynamics、SQL Server 和 Active Directory。 Microsoft 还与 Oracle、SAP 和 Red Hat 等领先供应商密切合作。 可以针对每个应用自定义复制解决方案。
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>为何使用 Site Recovery 复制应用程序？
+
 Site Recovery 可帮助实现应用程序级的保护和恢复，如下所示：
 
 * 不区分应用，为受支持计算机上运行的任何工作负荷提供复制。
@@ -85,8 +88,9 @@ Azure Site Recovery 可帮助保护 SharePoint 部署，如下所示：
 * 消除对用于灾难恢复的备用场的需要以及相关的基础结构成本。 使用 Site Recovery 将整个场（Web 层、应用层和数据库层）复制到 Azure 或辅助站点。
 * 简化应用程序部署和管理。 部署到主站点的更新会自动复制，因此可在故障转移和恢复辅助站点中的场之后使用。 此外，还可降低使备用场保持最新状态的管理复杂性和相关成本。
 * 按照副本环境的需要创建一个与生产类似的副本来进行测试和调试，从而简化 SharePoint 应用程序的开发与测试。
-* 使用 Site Recovery 将 SharePoint 部署迁移到 Azure，从而简化到云的过渡过程。
+* 使用站点恢复将 SharePoint 部署迁移到 Azure，从而简化从本地到云的过渡过程。
 
+[详细了解](site-recovery-sharepoint.md) 如何保护 SharePoint。
 
 ## <a name="protect-dynamics-ax"></a>保护 Dynamics AX
 Azure Site Recovery 可通过以下方式帮助保护 Dynamics AX ERP 解决方案：
@@ -146,7 +150,10 @@ Azure Site Recovery 可以将环境中的关键组件复制到冷远程站点或
 * 使用 Site Recovery 将 Citrix XenApp 和 XenDesktop 部署迁移到 Azure，从而简化云迁移。
 * 按需创建一个与生产类似的副本来进行测试和调试，从而简化 Citrix XenApp/XenDesktop 测试。
 * 此解决方案仅适用于 Windows Server 操作系统虚拟桌面，而不适用于客户端虚拟桌面，因为 Azure 中的授权尚不支持客户端虚拟桌面。
-## <a name="next-steps"></a>后续步骤
-[检查先决条件](site-recovery-prereq.md) 
+<!-- Not Available [Learn More](https://www.azure.cn/pricing/licensing-faq/) -->
 
-<!--Update_Description: update meta properties, wording update-->
+<!-- Not Available [Learn more](site-recovery-citrix-xenapp-and-xendesktop.md) -->
+## <a name="next-steps"></a>后续步骤
+
+Azure VM 复制[入门](azure-to-azure-quickstart.md)。
+<!--Update_Description: update meta properties, wording update, update link -->

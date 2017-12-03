@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-origin.date: 08/16/2017
-ms.date: 11/13/2017
+origin.date: 11/15/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 65095f33df3c4fd871f2200b2b6bbde23668464c
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 23ed27bdb47161c63a47e7834d17d83ab5e854cd
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 示例
 
@@ -41,6 +41,6 @@ ms.lasthandoff: 11/09/2017
 | [删除应用程序](./scripts/service-fabric-powershell-remove-application.md)| 从群集中删除应用程序。|
 | [打开负载均衡器的端口](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | 打开 Azure 负载均衡器中的应用程序端口。 |
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->
 <!--Not Available the parent file of includes file of service-fabric-powershell.md-->
 <!--ms.date:11/13/2017-->

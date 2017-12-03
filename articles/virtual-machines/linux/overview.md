@@ -16,11 +16,11 @@ origin.date: 09/14/2016
 ms.date: 10/16/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 34e74c3bd96f695509e5738b69e0aeaac9afff0e
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 65418f86eac64320736cea91e8c4d42eb5e1052e
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Azure 正在不断集结各种集成的公有云服务，包括分析、虚拟机、数据库、移动、网络、存储和 Web，因此很适合用于托管解决方案。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。
@@ -70,9 +70,7 @@ Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](http://c
 * [在 Azure Linux VM 上使用 cloud-init](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quotas"></a>配额
-每个 Azure 订阅都有默认的配额限制，此限制会在为项目部署大量 VM 时造成影响。 每个订阅的当前限制是每区域 20 个 VM。  若要快速轻松地提高配额限制，可以开具支持票证来请求提高限制。  有关配额限制的更多详细信息，请参阅：
-
-* [Azure 订阅服务限制](../../azure-subscription-service-limits.md)
+每个 Azure 订阅都有默认的配额限制，此限制会在为项目部署大量 VM 时造成影响。 每个订阅的当前限制是每区域 20 个 VM。  若要快速轻松地提高配额限制，可以开具支持票证来请求提高限制。  
 
 ## <a name="partners"></a>合作伙伴
 Microsoft 与合作伙伴紧密合作，以确保及时更新可用映像并针对 Azure 运行时进行了优化。  有关合作伙伴的详细信息，请在下面查看其应用商店页。

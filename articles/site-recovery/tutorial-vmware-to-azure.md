@@ -9,14 +9,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: b3c8dd06e37d32a997adf0bb13f3abc7d0ef735c
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.custom: MVC
+ms.openlocfilehash: 0b2581dc8925f28862b978ba76d947827e2f21f3
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>针对本地 VMware VM 设置到 Azure 的灾难恢复
 
@@ -85,20 +86,14 @@ ms.lasthandoff: 11/15/2017
 在配置服务器 VM 上，确保将系统时钟与时间服务器进行同步。
 时间必须在 15 分钟内得到同步。 如果时间差大于 15 分钟，则安装程序将失败。
 
-请确保配置服务器 VM 可以访问以下 URL：
+请确保配置服务器可以访问以下 URL：
 
-- *.accesscontrol.chinacloudapi.cn。 用于访问控制和标识管理。
-- *.backup.windowsazure.cn。 用于复制数据传输和协调。
-- *.blob.core.chinacloudapi.cn。 用于访问存储所复制数据的存储帐户。
-- *.hypervrecoverymanager.windowsazure.cn。 用于复制管理操作和协调。
-- time.nist.gov and time.windows.com。用于检查系统时间与全球时间之间的时间同步。
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
-Azure 政府云的 URL：
+    - 任何基于 IP 地址的防火墙规则都应允许与 Azure 通信。
 
-- *.ugv.hypervrecoverymanager.windowsazure.us
-- *.ugv.backup.windowsazure.us
-- *.ugi.hypervrecoverymanager.windowsazure.us
-- *.ugi.backup.windowsazure.us
+- 允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)和 HTTPS (443) 端口。
+    - 允许订阅的 Azure 区域的 IP 地址范围以及中国北部的 IP 地址范围（用于访问控制和标识管理）。
 
 任何基于 IP 地址的防火墙规则应允许与 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)，以及端口 443 (HTTPS) 和 9443（数据复制）进行通信。 确保允许订阅的 Azure 区域的 IP 地址范围以及中国北部的 IP 地址范围（用于访问控制和标识管理）。
 
@@ -233,4 +228,4 @@ Site Recovery 使用指定的设置连接到 VMware 服务器并发现 VM。
 > [!div class="nextstepaction"]
 > [运行灾难恢复演练](site-recovery-test-failover-to-azure.md)
 
-<!-- Update_Description: new articles on site recovery tutorial vmware to azure -->
+<!-- Update_Description: wording update -->

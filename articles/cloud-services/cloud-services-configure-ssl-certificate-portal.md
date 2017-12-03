@@ -2,8 +2,8 @@
 title: "为云服务配置 SSL | Azure"
 description: "了解如何为 Web 角色指定 HTTPS 终结点以及如何上传 SSL 证书来保护应用程序。 这些示例使用 Azure 门户。"
 services: cloud-services
-documentationCenter: .net
-authors: Thraka
+documentationcenter: .net
+author: Thraka
 manager: timlt
 editor: 
 ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
@@ -14,18 +14,14 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/26/2017
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: c57e37d9c4c982b5070a8854bf32ef4aeb08a2e1
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 12/11/2017
+ms.openlocfilehash: 55d113bd3e724ec399961532492217c879669ed2
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>在 Azure 中为应用程序配置 SSL
-
-> [!div class="op_single_selector"]
->- [Azure 门户](./cloud-services-configure-ssl-certificate-portal.md)
->- [Azure 经典门户](./cloud-services-configure-ssl-certificate.md)
 
 安全套接字层 (SSL) 加密是用于保护通过 Internet 发送的数据的最常见方法。 此常见任务讨论了如何为 Web 角色指定 HTTPS 终结点以及如何上传 SSL 证书来保护应用程序。
 

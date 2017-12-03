@@ -47,7 +47,6 @@
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [定价](https://www.azure.cn/pricing/details/traffic-manager/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
-## [服务限制](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [服务更新](https://www.azure.cn/what-is-new/)
 ## [SLA](https://www.azure.cn/support/sla/traffic-manager/)
 ## [视频](https://www.azure.cn/video-center/)

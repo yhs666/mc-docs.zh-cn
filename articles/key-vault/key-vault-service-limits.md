@@ -1,5 +1,5 @@
 ---
-title: "Azure Key Vault 服务限制 | Microsoft Docs"
+title: "Azure 密钥保管库服务限制 | Microsoft Docs"
 description: "了解适用于 Azure 密钥保管库的服务限制。"
 documentationcenter: dev-center-name
 services: key-vault
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/05/2017
-ms.date: 08/02/2017
+origin.date: 11/02/2017
+ms.date: 11/30/2017
 ms.author: v-junlch
-ms.openlocfilehash: 3d81830c87145d3d95ca5f69c1877a9111d965c4
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 358be24b06c5509d757a2ff37bc5e2a12302b608
+ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-key-vault-service-limits"></a>Azure Key Vault 服务限制
 以下是 Azure 密钥保管库的服务限制。

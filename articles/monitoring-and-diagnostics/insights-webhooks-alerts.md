@@ -1,7 +1,7 @@
 ---
 title: "针对 Azure 指标警报配置 webhook | Azure"
 description: "将 Azure 警报重新路由到其他非 Azure 系统。"
-author: kamathashwin
+author: johnkemnetz
 manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/03/2017
 ms.author: v-yiso
-ms.date: 05/02/2017
-ms.openlocfilehash: 07910aa1f397edd989283b52d113bab920cc1a6e
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 12/11/2017
+ms.openlocfilehash: 4109f1b4f765e3d2f082962d6ec5cdf49e0e5fbd
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>针对 Azure 度量值警报配置 webhook
 
@@ -33,7 +33,7 @@ Azure 警报会将警报内容以 JSON 格式（架构定义如下）HTTP POST �
 
 ![添加警报规则](./media/insights-webhooks-alerts/Alertwebhook.png)
 
-还可以使用 [Azure PowerShell Cmdlet](./insights-powershell-samples.md#create-alert-rules)、[跨平台 CLI](./insights-cli-samples.md#work-with-alerts) 或 [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx) 将警报配置为发布到 webhook URI。
+还可以使用 [Azure PowerShell Cmdlet](insights-powershell-samples.md#create-metric-alerts)、[跨平台 CLI](insights-cli-samples.md#work-with-alerts) 或 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx) 将警报配置为发布到 webhook URI。
 
 ## <a name="authenticating-the-webhook"></a>对 webhook 进行身份验证
 Webhook 可以使用基于令牌的授权进行身份验证。 保存的 Webhook URI 具有令牌 ID，例如 `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -65,7 +65,7 @@ POST 操作对于所有基于度量值的警报包含以下 JSON 有效负载和
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
-            "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
+            "portalLink": "https://portal.azure.cn/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
 },
 "properties": {
               "key1": "value1",

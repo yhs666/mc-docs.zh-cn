@@ -3,25 +3,25 @@ title: "Azure Service Fabric 有状态服务中的可靠集合简介 | Azure"
 description: "Service Fabric 有状态服务提供可靠集合让你编写高度可用、可缩放且低延迟的云应用程序。"
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
-manager: timlt
-editor: masnider,rajak
+author: rockboyfor
+manager: digimobile
+editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 05/01/2017
-ms.author: v-johch
-ms.openlocfilehash: 7436a783c32656134ff0829374f3f11116c3ffc3
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 11/06/2017
+ms.date: 12/04/2017
+ms.author: v-yeche
+ms.openlocfilehash: d4443274549fa6960ada1d9673ec3e318eb71ad0
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 12/01/2017
 ---
-# Azure Service Fabric 有状态服务中的可靠集合简介
-<a id="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services" class="xliff"></a>
+# <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric 有状态服务中的可靠集合简介
 可靠集合可让你编写高度可用、可缩放且低延迟的云应用程序，就像编写单计算机应用程序一样。 **Microsoft.ServiceFabric.Data.Collections** 命名空间中的类提供一组自动使状态具备高可用性的集合。 开发人员只需面向可靠集合 API 编程，并让可靠集合管理复制状态和本地状态。
 
 Reliable Collections 与其他高可用性技术（如 Redis、Azure 表服务和 Azure 队列服务）的主要区别在于其状态以本地方式保存在服务实例中，同时仍实现高可用性。 这意味着：
@@ -36,7 +36,7 @@ Reliable Collections 与其他高可用性技术（如 Redis、Azure 表服务�
 * 可复制：复制状态更改以实现高可用性。
 * 可保存：数据会保存至磁盘，可在发生大规模中断（例如，数据中心断电）时保障持续性。
 * 异步：API 采用异步模式，以确保在产生 IO 时不会阻止线程。
-* 事务性：API 利用事务抽象方法，让你可以在某个服务内轻松管理多个可靠集合。
+* 事务性：API 利用事务抽象方法，让可以在某个服务内轻松管理多个可靠集合。
 
 Reliable Collections 提供全新的非常一致保证，使应用程序状态推断变得更轻松。
 非常一致通过以下方法实现：确保仅对副本的多数仲裁（包括主副本）记录整个事务后，才完成事务提交。
@@ -54,8 +54,7 @@ Reliable Collections 提供全新的非常一致保证，使应用程序状态�
 * [可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)：表示可复制、事务性和异步的严格先进先出 (FIFO) 队列。 类似于 **ConcurrentQueue**，值可以是任何类型。
 * [可靠的并发队列](service-fabric-reliable-services-reliable-concurrent-queue.md)：表示用于实现高吞吐量的可复制、事务性和异步的“尽力排序”队列。 它与 **ConcurrentQueue** 类似，值可以是任意类型。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * [Reliable Collection 指导原则和建议](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [使用可靠集合](service-fabric-work-with-reliable-collections.md)
 * [事务和锁](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
@@ -69,3 +68,5 @@ Reliable Collections 提供全新的非常一致保证，使应用程序状态�
 * 其他
   * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
   * [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+
+<!-- Update_Description: update meta properties -->

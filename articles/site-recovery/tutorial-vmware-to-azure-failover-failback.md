@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: ee9b3436d46e0bc64565f7e63adae6cae0c7d498
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.custom: MVC
+ms.openlocfilehash: ed5dafb9954d2a7f2a39197ac1fd511128703168
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>对复制到 Azure 的 VMware VM 和物理服务器进行故障转移和故障回复
 
@@ -153,4 +154,4 @@ ms.lasthandoff: 11/15/2017
 
 重新保护完成后，该 VM 将复制回 Azure，此时可按需运行故障转移。
 
-<!-- Update_Description: new articles on site recovery tutorial vmware to azure failover failback -->
+<!-- Update_Description: update meta properties -->

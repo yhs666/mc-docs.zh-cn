@@ -16,11 +16,11 @@ origin.date: 07/19/2017
 ms.date: 08/24/2017
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: b980265b84e9356e80c6dfcfcce1e5dcc9c5c13f
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 4ab40027a68b6df06a847f689cf3fae3adaa392b
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Azure AD 开发人员指南中的文章
 下面是 Azure Active Directory 开发人员指南中涉及的所有主题的列表。
@@ -52,8 +52,6 @@ ms.lasthandoff: 08/25/2017
 | [术语表](active-directory-dev-glossary.md)                                        | 本文档通篇使用的术语和单词的定义 |
 | [应用程序对象](active-directory-application-objects.md)                      | Azure AD 的应用程序模型的说明 |
 | [应用程序清单](active-directory-application-manifest.md)                    | 构成 Azure AD 应用注册的元素的说明 |
-| [令牌生存期](../active-directory-configurable-token-lifetimes.md)              | Azure AD 令牌和自定义指令的默认生存期 |
-| [服务限制和局限性](../active-directory-service-limits-restrictions.md) | Azure AD 实体和对象的限制 |
 | [代码示例](active-directory-code-samples.md)                                    | 所有 Azure AD 代码示例的列表 |
 
 <!--Update_Description: wording update -->

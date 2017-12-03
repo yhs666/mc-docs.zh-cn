@@ -3,11 +3,12 @@ layout: HubPage
 hide_bc: True
 title: "Azure 文档"
 description: "了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
-ms.openlocfilehash: 8f892301f4c32bf158814b522e55f6d6f14c2143
-ms.sourcegitcommit: 1e05f86a602fe2ec9fe13d13904d66860ebd22b2
+featureFlags: clicktale
+ms.openlocfilehash: dc3fff22b113c21c7c3a8574f2899343e61c3f3a
+ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -400,6 +401,12 @@ ms.lasthandoff: 11/13/2017
                                                 <p>ExpressRoute</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/network-watcher/">
+                                                <img src="media/index/network-watcher.svg" alt="" />
+                                                <p>网络观察程序</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>AI + 认知服务</h3>
                                     <ul>
@@ -441,6 +448,12 @@ ms.lasthandoff: 11/13/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/virtual-machines/disks/">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>磁盘存储</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/storage/queues/storage-queues-introduction/">
                                                 <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                 <p>队列存储</p>
@@ -450,12 +463,6 @@ ms.lasthandoff: 11/13/2017
                                             <a href="/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
                                                 <p>文件存储</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/virtual-machines/disks/">
-                                                <img src="media/index/Disks-color.svg" alt="" />
-                                                <p>磁盘存储</p>
                                             </a>
                                         </li>
                                         <li>
@@ -607,6 +614,12 @@ ms.lasthandoff: 11/13/2017
                                     </ul>
                                     <h3>安全性 + 标识</h3>
                                     <ul>
+                                        <li>
+                                            <a href="/active-directory/develop">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>面向开发人员的 Azure Active Directory</p>
+                                            </a>
+                                        </li>
                                         <li>
                                             <a href="/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
@@ -969,6 +982,25 @@ ms.lasthandoff: 11/13/2017
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/network-watcher/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/network-watcher.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>网络观察程序</h3>
+                                                    <p>在网络方案级别监视和诊断状态</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -1013,6 +1045,25 @@ ms.lasthandoff: 11/13/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/virtual-machines/windows/about-disks-and-vhds">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>磁盘存储</h3>
+                                                    <p>VM 的磁盘存储</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/storage/queues/storage-queues-introduction/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1044,25 +1095,6 @@ ms.lasthandoff: 11/13/2017
                                                 <div class="cardText">
                                                     <h3>文件存储</h3>
                                                     <p>简单的分布式跨平台文件系统</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/virtual-machines/windows/managed-disks-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Disks-color.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>磁盘存储</h3>
-                                                    <p>VM 的磁盘存储</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1593,7 +1625,7 @@ ms.lasthandoff: 11/13/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure IoT 中心</h3>
+                                                    <h3>IoT 中心</h3>
                                                     <p>连接、监视和控制数十亿 IoT 资产</p>
                                                 </div>
                                             </div>

@@ -14,18 +14,14 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
 ms.author: v-yiso
-ms.date: 09/11/2017
-ms.openlocfilehash: b23825a81db562ff4a2bd04842b8f923075ef0b8
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.date: 12/11/2017
+ms.openlocfilehash: aeba0ab82c499a79b8e01b6126caf6262a89b179
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>如何在门户中为云服务配置自动缩放
-
-> [!div class="op_single_selector"]
->- [Azure 门户](./cloud-services-how-to-scale-portal.md)
->- [Azure 经典门户](./cloud-services-how-to-scale.md)
 
 针对云服务辅助角色设置条件，以触发缩减或扩展操作。 针对角色的条件可以基于 CPU、磁盘或角色的网络负载。 也可以基于消息队列或与订阅关联的其他一些 Azure 资源的指标来设置条件。
 

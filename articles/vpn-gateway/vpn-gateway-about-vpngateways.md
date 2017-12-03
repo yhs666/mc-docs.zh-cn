@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 10/03/2017
 ms.date: 11/07/2017
 ms.author: v-junlch
-ms.openlocfilehash: 0566ae73ebcb3d17fe5cb48ba58627521aef15bd
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 717c8fd880a3b14659fd5da482463efb9da599a4
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="about-vpn-gateway"></a>关于 VPN 网关
 
@@ -156,7 +156,6 @@ ExpressRoute 是从 WAN （不通过公共 Internet）到 Microsoft 服务（包
 
 - 规划 VPN 网关配置。 请参阅 [VPN 网关规划和设计](vpn-gateway-plan-design.md)。
 - 有关更多信息，请查看 [VPN 网关常见问题](vpn-gateway-vpn-faq.md)。
-- 查看[订阅和服务限制](../azure-subscription-service-limits.md#networking-limits)。
 - 了解 Azure 的部分其他关键[网络功能](../networking/networking-overview.md)。
 
 <!--Update_Description: wording update-->

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 origin.date: 07/17/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 2f19abb9436a084f82cf93d3f26e4562f4f1b8b0
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 00afe97ae7b90695d6b72404e7835011a433ca66
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虚拟机规模集的网络
 
@@ -113,9 +113,9 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 示例模板：[201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>在规模集中查询虚拟机的公共 IP 地址
-若要通过 CLI 2.0 列出分配到规模集虚拟机的公共 IP 地址，请使用 **az vmss list-instance-public-ips** 命令。
+若要通过 CLI 2.0 列出分配到规模集虚拟机的公共 IP 地址，请使用 az vmss list-instance-public-ips 命令。
 
-若要使用 PowerShell 列出规模集的公共 IP 地址，请使用 _Get-AzureRmPublicIpAddress_ 命令。 例如：
+若要使用 PowerShell 列出规模集的公共 IP 地址，请使用_Get-AzureRmPublicIpAddress_ 命令。 例如：
 ```PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
@@ -125,9 +125,9 @@ PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleS
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
-使用 [Azure 资源浏览器](https://resources.azure.com)或者 Azure REST API **2017-03-30** 版或更高版本查询分配到规模集虚拟机的公共 IP 地址。
+使用 [Azure 资源浏览器](https://resources.azure.com)或者 Azure REST API **2017-03-30** 或更高版本查询分配到规模集虚拟机的公共 IP 地址。
 
-若要使用资源浏览器查看规模集的公共 IP 地址，请找到规模集下的 **publicipaddresses** 节。 例如：https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
+若要使用资源浏览器查看规模集的公共 IP 地址，请找到规模集下的 publicipaddresses 节。 例如：https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
 
 ```
 GET https://management.chinacloudapi.cn/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30
@@ -172,7 +172,7 @@ GET https://management.chinacloudapi.cn/subscriptions/{your sub ID}/resourceGrou
 ```
 
 ## <a name="multiple-ip-addresses-per-nic"></a>每个 NIC 多个 IP 地址
-在规模集中，附加到 VM 的每个 NIC 可以有一个或多个关联的 IP 配置。 每个配置分配有一个专用 IP 地址。 每个配置还可以有一个关联的公共 IP 地址资源。 若要了解可以为一个 NIC 分配多少个 IP 地址，以及可以在一个 Azure 订阅中使用多少个公共 IP 地址，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+在规模集中，附加到 VM 的每个 NIC 可以有一个或多个关联的 IP 配置。 每个配置分配有一个专用 IP 地址。 每个配置还可以有一个关联的公共 IP 地址资源。 
 
 ## <a name="multiple-nics-per-virtual-machine"></a>每个虚拟机多个 NIC
 每个虚拟机最多可以有 8 个 NIC，具体取决于虚拟机大小。 若要了解每个虚拟机的最大 NIC 数，请参阅 [VM 大小](../virtual-machines/windows/sizes.md)一文。 以下示例为规模集网络配置文件，显示每个虚拟机有多个 NIC 条目和多个公共 IP：

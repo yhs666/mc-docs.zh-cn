@@ -15,14 +15,14 @@ ms.topic: get-started-article
 origin.date: 05/12/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
-ms.openlocfilehash: 22dd71deca3a4bffe427073229a216901b08a381
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 3469e7f1996996ec1dd42b4a985e8426a8631a9a
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>为首个 Web 应用添加功能
-在[在 5 分钟内将首个 Web 应用部署到 Azure](app-service-web-get-started-dotnet.md) 教程中，已将一个示例 Web 应用部署到 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)。 本文将快速地在所部署的 Web 应用中添加一些强大功能。 只需几分钟，就能够：
+在[在 5 分钟内将首个 Web 应用部署到 Azure](app-service-web-get-started-dotnet.md) 教程中，已将一个示例 Web 应用部署到 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。 本文将快速地在所部署的 Web 应用中添加一些强大功能。 只需几分钟，就能够：
 
 * 强制实施用户身份验证
 * 自动缩放应用
@@ -33,8 +33,7 @@ ms.lasthandoff: 08/25/2017
 本教程中的三个活动只是在将 Web 应用放入应用服务时可以使用的众多有用功能中的几个例子。 许多功能已在“免费”层（运行首个 Web 应用的层）中提供，可使用试用额度来试用只能在更高定价层中使用的功能。 除非显式将“免费”层更改为其他定价层，否则 Web 应用将保留在免费层，因此完全不必担心。
 
 > [!NOTE]
-> 使用 Azure CLI 创建的 Web 应用在“免费”层中运行，该层只允许一个存在资源配额的共享 VM 实例。 有关“免费”层提供的功能的详细信息，请参阅[应用服务限制](../azure-subscription-service-limits.md#app-service-limits)。
-> 
+> 使用 Azure CLI 创建的 Web 应用在“免费”层中运行，该层只允许一个存在资源配额的共享 VM 实例。 
 > 
 
 ## <a name="authenticate-your-users"></a>对用户进行身份验证

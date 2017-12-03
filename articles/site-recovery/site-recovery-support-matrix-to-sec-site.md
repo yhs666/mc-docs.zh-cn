@@ -12,58 +12,50 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 05/24/2017
-ms.date: 11/20/2017
+origin.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9bf23dbdb53502fc59a1d2cd9f5b50891d19cbfa
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: fb32f476b342fa307f79cbe104ab24a69b26d1ed
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>使用 Azure Site Recovery 复制到辅助站点时的支持矩阵
 
-本文总结了使用 Azure Site Recovery 复制到辅助本地站点时受到支持的功能。
+本文汇总了使用 [Azure Site Recovery](site-recovery-overview.md) 服务复制到辅助本地站点时所支持的内容。
 
-## <a name="deployment-options"></a>部署选项
+## <a name="supported-scenarios"></a>支持的方案
 
-**部署** | **VMware/物理服务器** | Hyper-V（有/无 SCVMM）
---- | --- | ---
-**Azure 门户** | 本地 VMware VM 到辅助 VMware 站点。<br/><br/> 下载 [InMage Scout 用户指南](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)（Azure 门户中未提供）。 | 将 VMM 云中的本地 Hyper-V VM 复制到辅助 VMM 云。<br></br> 如果不具有 VMM，则不支持  <br/><br/> 仅限标准 Hyper-V 副本。 不支持 SAN。
-**经典管理门户** | 仅限维护模式。 无法创建新的保管库。 | 仅限维护模式<br></br> 支持 SCVMM
-**PowerShell** | 不支持 | 支持<br></br> 支持 SCVMM
+**部署** | **详细信息** 
+--- | ---
+**VMware 到 VMware** | 本地 VMware VM 到辅助 VMware 站点的灾难恢复。<br/><br/> 下载 [InMage Scout 用户指南](https://aka.ms/asr-scout-user-guide)
+**Hyper-V 到 Hyper-V** | VMM 云中的本地 Hyper-V VM 到辅助 VMM 云的灾难恢复。<br></br> 如果没有 VMM，则不支持。
 
-## <a name="on-premises-servers"></a>本地服务器
-
-### <a name="virtualization-servers"></a>虚拟化服务器
+## <a name="host-servers"></a>主机服务器
 
 **部署** | **支持**
 --- | ---
-**VMware VM/物理服务器** | vSphere 6.0、5.5 或具有最新更新的 5.1
-Hyper-V（有 VMM） | VMM 2016 和 VMM 2012 R2
-
-  > [!NOTE]
-  > 目前不支持混合使用 Windows Server 2016 和 2012 R2 主机的 VMM 2016 云。
-  > 当前不支持包括现有 SCVMM 2012 R2 至 2016 升级的配置。
-### <a name="host-servers"></a>主机服务器
-
-**部署** | **支持**
---- | ---
-**VMware VM/物理服务器** | vCenter 5.5 或 6.0（仅支持 5.5 功能）
-Hyper-V（无 VMM） | 不是复制到辅助站点时的受支持配置
-**Hyper-V（有 VMM）** | Windows Server 2016 和带最新更新的 Windows Server 2012 R2。<br/><br/> Windows Server 2016 主机应由 VMM 2016 托管。
+**VMware VM/物理服务器** | vCenter 5.5、6.0 和 6.5（仅支持 5.5 功能）
+**Hyper-V（有 VMM）** | Windows Server 2016 和带最新更新的 Windows Server 2012 R2。<br/><br/> Windows Server 2016 主机应由 VMM 2016 托管。<br/><br/> 目前不支持混合使用 Windows Server 2016 和 2012 R2 主机的 VMM 2016 云。<br/><br/> 当前不支持包括现有 VMM 2012 R2 到 System Center 2016 的升级的部署。
 
 ## <a name="support-for-replicated-machine-os-versions"></a>复制计算机 OS 版本支持
-下表总结了使用 Azure Site Recovery 时遇到的各种部署方案中的操作系统支持。 此支持适用于在所述的 OS 上运行的任何工作负荷。
+
+下表总结了通过 Site Recovery 完成复制的计算机的操作系统支持。 支持的操作系统上可运行任何工作负荷。
 
 **VMware/物理服务器** | Hyper-V（有 VMM）
---- | --- | ---
-64 位 Windows Server 2012 R2、Windows Server 2012、至少具有 SP1 的 Windows Server 2008 R2<br/><br/> Red Hat Enterprise Linux 6.7、7.1、7.2 <br/><br/> Centos 6.5、6.6、6.7、7.0、7.1、7.2 <br/><br/> Oracle Enterprise Linux 6.4/6.5（运行 Red Hat 兼容内核），或 Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | [Hyper-V 支持](https://technet.microsoft.com/library/mt126277.aspx)的所有来宾操作系统
+--- | ---
+64 位 Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、带 SP1（或更高版本）的 Windows Server 2008 R2<br/><br/> Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/>  SUSE Linux Enterprise Server 11 SP3、11 SP4  | [Hyper-V 支持](https://technet.microsoft.com/library/mt126277.aspx)的所有来宾操作系统
 
-> [!NOTE]
->只能复制具有以下存储的 Linux 计算机：文件系统（EXT3、ETX4、ReiserFS、XFS）；多路径软件设备映射器；卷管理器 (LVM2)。
->不支持使用 HP CCISS 控制器存储的物理服务器。
->ReiserFS 文件系统仅在 SUSE Linux Enterprise Server 11 SP3 上受支持。
+## <a name="linux-machine-storage"></a>Linux 计算机存储
+
+仅有以下存储的 Linux 计算机可以复制：
+
+- 文件系统（EXT3、ETX4、ReiserFS、XFS）。
+- 多路径软件设备映射程序。
+- 卷管理器 (LVM2)。
+- 不支持使用 HP CCISS 控制器存储的物理服务器。
+- ReiserFS 文件系统仅在 SUSE Linux Enterprise Server 11 SP3 上受支持。
 
 ## <a name="network-configuration"></a>网络配置
 
@@ -107,15 +99,15 @@ VHD/VHDX | 不适用 | 是（最多 16 个磁盘）
 第 2 代 VM | 不适用 | 是
 共享群集磁盘 | 是  | 否
 加密磁盘 | 否 | 否
-UEFI| 否 | 不适用
+UEFI| 是 | 不适用
 NFS | 否 | 否
 SMB 3.0 | 否 | 否
 RDM | 是 | 不适用
-磁盘 > 1 TB | 否 | 是
+磁盘 > 1 TB | 是 | 是
 包含条带化磁盘的卷 > 1 TB<br/><br/> LVM | 是 | 是
 存储空间 | 否 | 是
-热添加/移除磁盘 | 否 | 否
-排除磁盘 | 否 | 是
+热添加/移除磁盘 | 是 | 否
+排除磁盘 | 是 | 是
 多路径 (MPIO) | 不适用 | 是
 
 ## <a name="vaults"></a>保管库
@@ -134,7 +126,7 @@ RDM | 是 | 不适用
 
 ## <a name="next-steps"></a>后续步骤
 
-- [将 VMM 云中的 Hyper-V VM 复制到辅助站点](site-recovery-vmm-to-vmm.md)
-- [将 VMware VM 和物理服务器复制到辅助站点](site-recovery-vmware-to-vmware.md)
+- [将 VMM 云中的 Hyper-V VM 复制到辅助站点](tutorial-vmm-to-vmm.md)
+- [将 VMware VM 和物理服务器复制到辅助站点](tutorial-vmware-to-vmware.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

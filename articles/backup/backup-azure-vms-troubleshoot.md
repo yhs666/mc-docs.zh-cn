@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 10/31/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
-ms.openlocfilehash: 5eff60b874f2a2ac51b99489372ade80f8bb439e
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.openlocfilehash: ca2bd85beb54a95e77f28ab4f27f49761fab8906
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虚拟机备份疑难解答
 > [!div class="op_single_selector"]
@@ -33,6 +33,11 @@ ms.lasthandoff: 11/03/2017
 ## <a name="backup"></a>备份
 
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>错误：不支持指定的磁盘配置
+
+> [!NOTE]
+> 我们提供了专用预览版以支持带有 >1TB 非托管磁盘的 VM 的备份。 有关详细信息，请参阅[支持大型磁盘 VM 备份的专用预览版](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
 
 当前 Azure 备份不支持[大于 1023GB](/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm) 的磁盘大小。 
 - 如果有大于 1 TB 的磁盘，请[附加小于 1 TB 的新磁盘](/virtual-machines/windows/attach-managed-disk-portal) <br>

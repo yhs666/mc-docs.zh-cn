@@ -14,15 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 origin.date: 10/09/2017
 ms.author: v-yiso
-ms.date: 11/13/2017
-ms.openlocfilehash: cacab0c490fff3254e5e4391e0ea1c91829b4784
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.date: 12/11/2017
+ms.openlocfilehash: 87aa506f00f66763420c423b5f0ad05f621268f0
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 资源运行状况中的资源类型和运行状况检查
 下面是通过资源运行状况执行的所有检查（按资源类型）的完整列表。
+
+## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
+|执行的检查|
+|---|
+|<ul><li>API 管理服务是否已启动并运行？</li></ul>|
 
 ## <a name="microsoftcacheredisredis"></a>Microsoft.CacheRedis/Redis
 |执行的检查|

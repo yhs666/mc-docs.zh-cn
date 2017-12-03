@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/11/2017
-ms.date: 09/04/2017
+origin.date: 11/10/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
-ms.openlocfilehash: 5b0262529b0d9ea7aa32002ad4a158d2d3291f81
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 7241452a6a1a075776a8fa245ca6cfa0ffdadfd1
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-the-classic-deployment-model"></a>使用经典部署模型将文件还原到 Windows Server 或 Windows 客户端计算机
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 09/08/2017
 本文介绍如何从备份保管库中恢复数据并将其还原到服务器或计算机。 自 2017 年 3 月起，无法再在经典管理门户中创建备份保管库。
 
 > [!IMPORTANT]
-> 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> **2017 年 10 月 15 日之后**，无法使用 PowerShell 创建备份保管库。 <br/> **从 2017 年 11 月 1 日起**：
+> 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> 2017 年 11 月 30 日之后，将无法使用 PowerShell 创建备份保管库。 <br/> 从 2017 年 11 月 30 日起：
 >- 其余的所有备份保管库都会自动升级到恢复服务保管库。
 >- 无法在经典管理门户中访问备份数据。 应使用 Azure 门户在恢复服务保管库中访问备份数据。
 >
@@ -41,7 +41,7 @@ ms.lasthandoff: 09/08/2017
 - 将数据还原到备份时所在的同一台计算机。
 - 将数据还原到备用计算机。
 
-2017 年 1 月，Microsoft 发布了 MARS 代理的预览版更新。 除 Bug 修复外，此更新还启用了“即时还原”，允许用户将可写入的恢复点快照装载为恢复卷。 随后即可浏览恢复卷，并将文件复制到本地计算机，从而选择性地还原文件。
+2017 年 1 月，Microsoft 发布了 MARS 代理的预览版更新。 除了提供 Bug 修补程序外，此更新还启用了“即时还原”，允许用户将可写入恢复点快照作为恢复卷装载。 随后，用户便可以浏览恢复卷，并将文件复制到本地计算机，从而选择性地还原文件。
 
 > [!NOTE]
 > 若要使用“即时还原”还原数据，必须安装 [2017 年 1 月 Azure 备份更新](https://support.microsoft.com/help/3216528?preview) 。 此外，必须在支持文章所列区域中的保管库内保护备份数据。 请查阅 [2017 年 1 月 Azure 备份更新](https://support.microsoft.com/help/3216528?preview) ，获取支持“即时还原”的区域的最新列表。 “即时还原”目前 **并非** 在所有区域都可用。
@@ -50,7 +50,7 @@ ms.lasthandoff: 09/08/2017
 “即时还原”可以在 Azure 门户的恢复服务保管库中使用，也可以在经典管理门户的备份保管库中使用。 如果要使用“即时还原”，请下载 MARS 更新，并按照提及“即时还原”的过程进行操作。
 
 
-## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>使用“即时还原”将数据恢复到同一台计算机
+## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>使用即时还原将数据恢复到同一台计算机
 
 如果意外删除了某个文件并想要在同一台计算机（备份位置）中还原文件，以下步骤可帮助你恢复数据。
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 09/08/2017
 
     ![恢复数据](./media/backup-azure-restore-windows-server/recover.png)
 
-3. 若要将数据还原到同一台服务器或计算机，请在“开始”窗格中选择“此服务器(`<server name>`)”，然后单击“下一步”。
+3. 要将数据还原到同一台服务器或计算机，请在“开始”窗格中选择“此服务器(`<server name>`)”，然后单击“下一步”。
 
     ![选择“此服务器”选项将数据还原到同一台计算机](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 09/08/2017
     ![卸载卷并确认](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > 如果不单击“卸载”，恢复卷保持装载六个小时（从装载时算起）。 装载卷时，不会运行任何备份操作。 计划为在装载卷时运行的任何备份操作会在卸载恢复卷后运行。
+    > 如果不单击“卸载”，恢复卷将保持装载六个小时（从装载时算起）。 装载卷时，不会运行任何备份操作。 计划为在装载卷时运行的任何备份操作会在卸载恢复卷后运行。
     >
 
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 09/08/2017
     ![浏览文件](./media/backup-azure-restore-windows-server-classic/browseandsearch.png)
 5. 选择要从中还原文件的卷。
 
-    可以从任意时间点还原。 日历控件中以**粗体**显示的日期指明了还原点的可用性。 选择日期后，根据备份计划（和备份操作成功与否），可以从“时间”下拉列表中选择一个时间点。
+    可以从任意时间点还原。 日历控件中以**粗体**显示的日期指明了还原点的可用性。 选择日期后，根据备份计划（和备份操作的成功与否），可以从“**时间**”下拉列表中选择一个时间点。
 
     ![卷和日期](./media/backup-azure-restore-windows-server-classic/volanddate.png)
 6. 指定恢复参数。
@@ -151,7 +151,7 @@ ms.lasthandoff: 09/08/2017
 6. 从显示的计算机列表中选择“*源计算机*”。
 
     ![计算机列表](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-7. 选择“**搜索文件**”或“**浏览文件**”选项。 对于本部分，我们使用“搜索文件”选项。
+7. 选择“**搜索文件**”或“**浏览文件**”选项。 对于本部分，我们将使用“**搜索文件**”选项。
 
     ![搜索](./media/backup-azure-restore-windows-server-classic/search.png)
 8. 在下一屏幕中选择卷和日期。 搜索要还原的文件夹/文件的名称。
@@ -160,7 +160,7 @@ ms.lasthandoff: 09/08/2017
 9. 选择这些文件需要还原到的位置。
 
     ![还原位置](./media/backup-azure-restore-windows-server-classic/restorelocation.png)
-10. 提供在将“源计算机”注册到“示例保管库”期间所用的加密通行短语。
+10. 提供在将“*源计算机*”注册到“*示例保管库*”期间所用的加密通行短语。
 
     ![加密](./media/backup-azure-restore-windows-server-classic/encryption.png)
 11. 提供输入后，单击“恢复”，随即将会触发在提供的目标中还原备份文件的操作。
@@ -224,7 +224,7 @@ ms.lasthandoff: 09/08/2017
     ![Encryption](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > 如果不单击“卸载”，恢复卷保持装载六个小时（从装载时算起）。 装载卷时，不会运行任何备份操作。 计划为在装载卷时运行的任何备份操作会在卸载恢复卷后运行。
+    > 如果不单击“卸载”，恢复卷将保持装载六个小时（从装载时算起）。 装载卷时，不会运行任何备份操作。 计划为在装载卷时运行的任何备份操作会在卸载恢复卷后运行。
     >
 
 

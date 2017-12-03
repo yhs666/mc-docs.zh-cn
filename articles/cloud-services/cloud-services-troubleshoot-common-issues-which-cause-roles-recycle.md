@@ -2,24 +2,25 @@
 title: "云服务角色回收的常见原因 | Azure"
 description: "突然回收云服务角色可能会导致严重停机。 以下是导致角色回收的一些常见问题，解决这些问题将有助于减少停机。"
 services: cloud-services
-documentationCenter: 
-authors: simonxjx
+documentationcenter: 
+author: simonxjx
 manager: felixwu
 editor: 
 tags: top-support-issue
+ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
 ms.service: cloud-services
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 07/26/2017
+origin.date: 11/03/2017
 ms.author: v-yiso
-ms.date: 09/11/2017
-ms.openlocfilehash: a47a114ec1e2a087f2ce47b5fb27895cce4d0c64
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.date: 12/11/2017
+ms.openlocfilehash: 4ea2887c5a63adb16edbcc0ca1518527983ce0ed
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>导致角色回收的常见问题
 
@@ -65,7 +66,7 @@ Azure 是一个 64 位的环境。 因此，针对 32 位目标编译的 .NET �
     DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
     ```
 
-  如果要使用 Microsoft Azure Visual Studio 的 Azure 工具来开发应用程序，则可使用属性页设置此值。
+  如果要使用 Azure Tools for Microsoft Visual Studio 来开发应用程序，则可使用属性页设置此值。
 
 ## <a name="exported-certificate-does-not-include-private-key"></a>导出的证书不含私钥
 

@@ -9,15 +9,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 45f3ac92dee90c854a00664fef55585214a1578b
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: d3e305320fac668be0033c10b0b08d1bf2091ab7
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>将 Azure VM 复制到另一个 Azure 区域（预览）
 
@@ -73,4 +73,4 @@ ms.lasthandoff: 11/15/2017
 > [!div class="nextstepaction"]
 > [为 Azure VM 配置灾难恢复](azure-to-azure-tutorial-enable-replication.md)
 
-<!-- Update_Description: new articles on site recovery azure to azure quickstart -->
+<!-- Update_Description: update meta properties -->

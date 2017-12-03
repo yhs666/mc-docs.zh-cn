@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/13/2017
-ms.date: 11/20/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 311dfd315114bc9476efdfa7c855c97844003892
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 76b0362dfa52943761041ce4267c7ab460b5f4b3
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>针对本地物理服务器设置到 Azure 的灾难恢复
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/15/2017
 
 ### <a name="set-up-an-azure-account"></a>设置 Azure 帐户
 
-获取 Microsoft [Azure 帐户](http://azure.microsoft.com/)。
+获取 Microsoft [Azure 帐户](https://www.azure.cn/)。
 
 - 你可以从[试用版](https://www.azure.cn/pricing/1rmb-trial/)开始。
 - 了解 [Site Recovery 定价](site-recovery-faq.md#pricing)，并获取[定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)。
@@ -72,7 +72,7 @@ ms.lasthandoff: 11/15/2017
 
 - Site Recovery 将本地计算机复制到 Azure 存储。 发生故障转移后，通过存储创建 Azure VM。
 - 存储帐户必须位于与恢复服务保管库相同的区域。
-- 存储帐户可以是标准帐户，也可以是[高级](../storage/common/storage-premium-storage.md)帐户。
+- 存储帐户可以是标准帐户，也可以是[高级](../virtual-machines/windows/premium-storage.md)帐户。
 - 如果设置高级帐户，还需要使用额外的标准帐户来记录数据。
 
 ### <a name="prepare-an-account-for-mobility-service-installation"></a>准备一个帐户用于安装移动服务
@@ -173,4 +173,4 @@ ms.lasthandoff: 11/15/2017
 
 [运行灾难恢复演练](tutorial-dr-drill-azure.md)
 
-<!-- Update_Description: new articles on site recovery tutorial physical to azure-->
+<!-- Update_Description: update meta properties, update link -->

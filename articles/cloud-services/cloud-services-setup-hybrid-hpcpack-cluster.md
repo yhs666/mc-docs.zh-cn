@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/22/2017
-ms.date: 10/09/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: c3ac93e70e459d5971a857b700595d06565fda87
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.openlocfilehash: 48c9a8fc0943d3a672f36f21e43a50b33d70c360
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>使用 Microsoft HPC Pack 和按需 Azure 计算节点设置混合高性能计算 (HPC) 群集
 使用 Microsoft HPC Pack 2012 R2 和 Azure 设置小型混合高性能计算 (HPC) 群集。 本文中所示的群集包含一个本地 HPC Pack 头节点和一些在 Azure 云服务中按需部署的计算节点。 可以在混合群集上运行计算作业。
@@ -85,7 +85,9 @@ HPC Pack 将在头节点上安装名为“默认 Microsoft HPC Azure 管理证�
 
 2. 单击“订阅” > your_subscription_name。
 
-3. 单击“管理证书” > “上传”。4. 在头节点上浏览找到文件 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer。 然后单击“上传”。
+3. 单击“管理证书” > “上传”。
+
+4. 在头节点上浏览找到文件 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer。 然后单击“上传”。
 
    
 管理证书列表中将出现“默认 HPC Azure 管理”证书。

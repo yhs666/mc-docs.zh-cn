@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/02/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1c0b93190aa8b8919a6b7ce626fac58bae64528f
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: ec299c67e3bb27bb8c9e01884e811b9194dfc085
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>为什么通过微服务的方法生成应用程序？
 作为软件开发人员，我们已知道思考如何将应用程序因数分解成组件部分。 这是对象导向、软件抽象和组件化的中心模式。 现在，这种因数分解往往以共享库和技术层之间的类与接口呈现。 后端存储、中间层业务逻辑和前端用户界面 (UI) 通常采用一种分层方法。 过去几年来 *的* 变化是身为开发人员的我们开始为业务驱动的云生成分布式应用程序。
@@ -148,10 +148,10 @@ Service Fabric 提供三大广泛领域，有助于用户使用微服务方法�
 ### <a name="migrating-existing-applications-to-service-fabric"></a>将现有应用程序迁移到 Service Fabric
 Service Fabric 的关键方法是重用现有代码，可以通过新的微服务对现有代码进行现代化。 应用程序现代化分为五个阶段，可以在任意阶段开始和停止操作。 具体包括：
 
-1) 采用传统的单一式应用程序
-2) 直接迁移 - 使用容器或来宾可执行文件在 Service Fabric 中托管现有代码。
-3) 现代化 - 将新微服务与现有容器化代码一起添加。 
-4) 创新 - 完全根据需求，将单一式应用程序分解成微服务。
+1) 采用传统的单一式应用程序  
+2) 直接迁移 - 使用容器或来宾可执行文件在 Service Fabric 中托管现有代码。  
+3) 现代化 - 将新微服务与现有容器化代码一起添加。  
+4) 创新 - 完全根据需求，将单一式应用程序分解成微服务。  
 5) 转换为微服务 - 转换现有的单一式应用程序，或生成新领域应用程序。
 
 ![迁移到微服务][Image3]
@@ -188,4 +188,4 @@ Service Fabric 的目标是将使用微服务方法构建应用程序时的复�
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 [Image3]: media/service-fabric-overview-microservices/microservices-migration.png
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update -->

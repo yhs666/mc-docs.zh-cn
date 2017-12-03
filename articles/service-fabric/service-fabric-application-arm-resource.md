@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/02/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0d0ed925c89d7c7fa53d61eaed6e64c5b45ea48d
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 3dda272e24f89aab9223cd16737c58e920abb6f9
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>将应用程序和服务作为 Azure 资源管理器资源进行管理
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 11/09/2017
       "appPackageUrl": {
         "type": "string",
         "metadata": {
-          "description": "The URL to the application package zip file"
+          "description": "The URL to the application package sfpkg file"
         }
       },
       "applicationName": {
@@ -142,10 +142,35 @@ ms.lasthandoff: 11/09/2017
     "resources": [
       {
         "apiVersion": "2017-07-01-preview",
+        "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
+        "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
+        "location": "[variables('clusterLocation')]",
+        "dependsOn": [],
+        "properties": {
+          "provisioningState": "Default"
+        }
+      },
+      {
+        "apiVersion": "2017-07-01-preview",
+        "type": "Microsoft.ServiceFabric/clusters/applicationTypes/versions",
+        "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
+        "location": "[variables('clusterLocation')]",
+        "dependsOn": [
+          "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applicationTypes/', parameters('applicationTypeName'))]"
+        ],
+        "properties": {
+          "provisioningState": "Default",
+          "appPackageUrl": "[parameters('appPackageUrl')]"
+        }
+      },
+      {
+        "apiVersion": "2017-07-01-preview",
         "type": "Microsoft.ServiceFabric/clusters/applications",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
         "location": "[variables('clusterLocation')]",
-        "dependsOn": [],
+        "dependsOn": [
+          "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applicationTypes/', parameters('applicationTypeName'), '/versions/', parameters('applicationTypeVersion'))]"
+        ],
         "properties": {
           "provisioningState": "Default",
           "typeName": "[parameters('applicationTypeName')]",
@@ -215,7 +240,7 @@ ms.lasthandoff: 11/09/2017
             "partitionScheme": "UniformInt64Range",
             "count": "5",
             "lowKey": "1",
-            "highKey": "26"
+            "highKey": "5"
           },
           "hasPersistedState": "true",
           "correlationScheme": [],
@@ -242,4 +267,4 @@ ms.lasthandoff: 11/09/2017
 * 使用 [Service Fabric CLI](service-fabric-cli.md) 或 [PowerShell](service-fabric-deploy-remove-applications.md)，将其他应用程序部署到群集。 
 * [升级 Service Fabric 群集](service-fabric-cluster-upgrade.md)
 
-<!--Update_Description: new articles on service fabric application with ARM resource -->
+<!--Update_Description: add resource and depend on object of Microsoft.ServiceFabric/clusters in json template -->

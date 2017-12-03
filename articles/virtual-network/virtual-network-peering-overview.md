@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: a5589a4dc13cffa85eac95d61509dd676d1a8d9d
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: cf6740a0f83bd9bdb6bcdf13c1be989f6a66d2d1
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="virtual-network-peering"></a>虚拟网络对等互连
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/02/2017
 
 ## <a name="limits"></a>限制
 
-允许单个虚拟网络建立的对等互连数存在限制。 有关详细信息，请参阅 [Azure 网络限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+允许单个虚拟网络建立的对等互连数存在限制。 
 
 ## <a name="pricing"></a>定价
 

@@ -3,7 +3,7 @@ title: "ExpressRoute 路由要求 | Azure"
 description: "本页提供有关为 ExpressRoute 线路配置和管理路由的详细要求。"
 documentationCenter: na
 services: expressroute
-author: osamazia
+author: ganesr
 manager: ganesr
 editor: 
 ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/31/2017
+origin.date: 11/03/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
-ms.openlocfilehash: e50fb78842295c4515a0e01322f0472a7b9422b8
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.date: 12/11/2017
+ms.openlocfilehash: 34156e06ca697dc9ab8793e406f138debce152fb
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由要求
 若要使用 ExpressRoute 连接到 Microsoft 云服务，需要设置并管理路由。 某些连接服务提供商以托管服务形式提供路由的设置和管理。 请咨询连接服务提供商，以确定他们是否提供此类服务。 如果不提供，则必须遵守以下要求：

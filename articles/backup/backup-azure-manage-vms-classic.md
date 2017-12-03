@@ -12,15 +12,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/02/2017
-ms.date: 09/04/2017
+origin.date: 11/09/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00d8f90c3de4769d6db7e8f30e26dbfdd4680b53
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 8457c3c36a87c7386dc81e70eb984593f8be327d
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-management-portal"></a>在经典管理门户中管理常见的 Azure 备份作业和触发器警报
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.lasthandoff: 09/08/2017
 > [!IMPORTANT]
 >从 2017 年 3 月开始，无法再使用经典管理门户来创建备份保管库。
 >
-> 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> 2017 年 10 月 15 日之后，将无法使用 PowerShell 创建备份保管库。 2017 年 11 月 1 日之前：
+> 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> 2017 年 11 月 30 日之后，将无法使用 PowerShell 创建备份保管库。 在 2017 年 11 月 30 日之前：
 >- 其余所有备份保管库都将自动升级到恢复服务保管库。
 >- 无法在经典管理门户中访问备份数据。 应使用 Azure 门户在恢复服务保管库中访问备份数据。
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 09/08/2017
     ![作业](./media/backup-azure-manage-vms/backup-job.png)
 
 ## <a name="on-demand-backup-of-a-virtual-machine"></a>虚拟机的按需备份
-为虚拟机配置保护后，可以对它执行按需备份。 如果虚拟机的初始备份已挂起，则按需备份会在 Azure 备份保管库中创建虚拟机的完整副本。 如果已完成第一个备份，按需备份只会将以前备份的更改发送到 Azure 备份保管库，即始终进行增量备份。
+为虚拟机配置保护后，可以对它执行按需备份。 如果虚拟机的初始备份已挂起，则按需备份会在 Azure 备份保管库中创建虚拟机的完整副本。 如果已完成第一个备份，按需备份只会以前备份的更改发送到 Azure 备份保管库，即始终进行增量备份。
 
 > [!NOTE]
 > 按需备份的保留期范围设置为保留期值，该值在备份策略中根据 VM 针对“每日”保留期来指定。  
@@ -158,7 +158,7 @@ ms.lasthandoff: 09/08/2017
 1. 导航到“受保护的项”页，选择“Azure 虚拟机”作为类型，然后单击“选择”按钮。
 
     ![VM 类型](./media/backup-azure-manage-vms/vm-type.png)
-2. 选择虚拟机。 虚拟机将显示为“已停止保护”状态。
+2. 选择虚拟机。 虚拟机会显示为“**已停止保护**”状态。
 
     ![已停止保护](./media/backup-azure-manage-vms/protection-stopped-b.png)
 3. 单击页底部的“删除”按钮。
@@ -245,8 +245,8 @@ OperationName：采用“Microsoft.Backup/backupvault/<EventName>”格式，其
 基于事件的警报会受到以下限制：
 
 1. 警报在备份保管库的所有虚拟机上触发。 不能通过自定义来获取备份保管库中特定虚拟机集的警报。
-2. 此功能以预览版提供。 [了解详细信息](../monitoring-and-diagnostics/insights-powershell-samples.md)。
-3. 用户将收到来自“alerts-noreply@mail.windowsazure.cn”的警报。 目前你无法修改电子邮件发件人。
+2. 此功能以预览版提供。 [了解详细信息](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
+3. 用户将收到来自“alerts-noreply@mail.windowsazure.cn”的警报。 目前无法修改电子邮件发件人。
 
 ## <a name="next-steps"></a>后续步骤
 - [还原 Azure VM](backup-azure-restore-vms.md)

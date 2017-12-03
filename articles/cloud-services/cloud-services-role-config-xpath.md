@@ -6,20 +6,22 @@ documentationCenter:
 authors: Thraka
 manager: timlt
 editor: 
+ms.assetid: c51e4493-0643-4d05-bc44-06c76bcbf7d1
 ms.service: cloud-services
+ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2016
-ms.date: 12/26/2016
+origin.date: 04/19/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: a4720c12eb306a28374f078534c52533a71c5787
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 6114928c8f3d127c045b148c2ad34cec0cea322f
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>使用 XPath 将角色配置设置公共为环境变量
 
-在云服务辅助角色或 Web 角色服务定义文件中，你可以将运行时配置值公开为环境变量。 支持以下 XPath 值（分别对应于 API 值）。
+在云服务辅助角色或 Web 角色服务定义文件中，可以将运行时配置值公开为环境变量。 支持以下 XPath 值（分别对应于 API 值）。
 
 [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) 库中也提供了这些 XPath 值。 
 
@@ -178,4 +180,5 @@ ms.lasthandoff: 06/21/2017
 
 创建 [ServicePackage.cspkg](./cloud-services-model-and-package.md#cspkg) 包。
 
-为角色启用 [远程桌面](./cloud-services-role-enable-remote-desktop.md) 。
+为角色启用 [远程桌面](cloud-services-role-enable-remote-desktop-new-portal.md) 。
+

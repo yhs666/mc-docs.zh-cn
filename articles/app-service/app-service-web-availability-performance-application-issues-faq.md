@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 11/03/2017
 ms.date: 12/04/2017
 ms.author: v-yiso
-ms.openlocfilehash: 60c7e9c5c8fdfde07daa2799f319ca76a58ea223
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 3af7411d4883e36348e5060975adcf01a21dea1d
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 
@@ -84,10 +84,6 @@ ms.lasthandoff: 11/24/2017
 * Web 应用已达到资源配额限制，该限制可能适用于免费或共享缩放服务计划。
 
 若要了解导致错误的原因并解决问题，请按照 [Web 应用：“错误 403 - 此 web 应用已停止”](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/)中的步骤进行操作。
-
-## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>可从何处了解有关各种应用服务计划的配额和限制的详细信息？
-
-有关配额和限制的信息，请参阅[应用服务限制](../azure-subscription-service-limits.md#app-service-limits)。 
 
 ## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>如何缩短空闲时间后第一个请求的响应时间？
 

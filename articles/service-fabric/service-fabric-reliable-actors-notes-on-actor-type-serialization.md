@@ -12,17 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/21/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 975f95b153fd4847261e422b68623feaa4b51a8d
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 889f8ef7f8d53deed216fb2fd6bb7303348888e5
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>有关 Service Fabric Reliable Actors 类型序列化的说明
-
 所有方法的参数、执行组件接口中每个方法返回的任务的结果类型和执行组件的状态管理器中存储的对象都必须是[数据协定可序列化](https://msdn.microsoft.com/library/ms731923.aspx)。 这同样适用于[执行组件事件接口](service-fabric-reliable-actors-events.md)中定义的方法的参数。 （执行组件事件接口方法始终返回 void。）
 
 ## <a name="custom-data-types"></a>自定义数据类型
@@ -152,4 +151,4 @@ public class VoicemailBox implements Serializable
 * [执行组件多态性和面向对象的设计模式](service-fabric-reliable-actors-polymorphism.md)
 * [执行组件诊断和性能监视](service-fabric-reliable-actors-diagnostics.md)
 
-<!--Update_Description: update meta properties, add implementation of Java lanuage-->
+<!--Update_Description: update meta properties -->

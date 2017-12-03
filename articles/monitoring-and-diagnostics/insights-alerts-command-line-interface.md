@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/24/2016
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 42e15540af0cab28e1296d6ce2b53733df2a203a
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 12/11/2017
+ms.openlocfilehash: 1b07798a007089d0b4763d99a207c3f893b66370
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>在 Azure Monitor 中为 Azure 服务创建指标警报 - 跨平台 CLI
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.lasthandoff: 07/14/2017
 
 可以根据监控指标或事件接收 Azure 服务的警报。
 
-- **指标值** - 当指定指标的值在任一方向越过了指定的阈值时警报将触发。 也就是说，当条件先是满足以及之后不再满足该条件时，警报都会触发。    
+- **指标值** - 指定指标的值超过在任一方向分配的阈值时，将触发警报。 也就是说，当条件先是满足以及之后不再满足该条件时，警报都会触发。    
 * **活动日志事件** - 警报可以在发生每个事件时都触发，也可以仅在发生特定数量的事件时触发。 若要详细了解活动日志警报，请[单击此处](./monitoring-activity-log-alerts.md)
 
 可以配置指标警报，在其触发时执行以下操作：
@@ -83,7 +83,7 @@ azure insights alerts actions email create -help
     - 要为其设置警报的资源的 **资源 ID**
     - 可用于该资源的 **指标定义**
 
-    获取资源 ID 的一种方法是使用 Azure 门户。 假设已创建该资源，在门户中选中它。 然后在下一个边栏选项卡中，选择“设置”分区下的“属性”。 *资源 ID* 是下一个边栏选项卡中的字段。 
+    获取资源 ID 的一种方法是使用 Azure 门户。 假设已创建该资源，在门户中选中它。 然后，在下一个边栏选项卡中，选择“设置”部分下的“属性”。 *资源 ID* 是下一个边栏选项卡中的字段。 
     下面是 Web 应用的一个示例资源 ID： 
 
      ```console
@@ -101,7 +101,7 @@ azure insights alerts actions email create -help
 
     **azure insights alerts rule metric set** *[options] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;windowSize&gt; &lt;operator&gt; &lt;threshold&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
 
-    以下示例设置了一个关于网站资源的警报。 当在 5 分钟内持续收到任何流量以及再次在 5 分钟内未收到任何流量时，警报将触发。 
+    以下示例设置了一个关于网站资源的警报。 当在 5 分钟内持续收到任何流量以及再次在 5 分钟内未收到任何流量时，警报触发。 
 
     ```console
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
@@ -126,7 +126,7 @@ azure insights alerts actions email create -help
 
     **insights alerts rule delete** [options] &lt;resourceGroup&gt; &lt;ruleName&gt;
 
-    这些命令将删除在本文前面创建的规则。
+    这些命令删除本文中前面创建的规则。
 
     ```console
     azure insights alerts rule delete myresourcegroup myrule
@@ -140,5 +140,6 @@ azure insights alerts actions email create -help
 * 了解[在警报中配置 Webhook](./insights-webhooks-alerts.md)的详细信息。
 * 详细了解[针对活动日志事件配置警报](./monitoring-activity-log-alerts.md)。
 * 了解关于 [Azure 自动化 Runbook](../automation/automation-starting-a-runbook.md) 的详细信息。
-
-* 获取[指标集合概述](./insights-how-to-customize-monitoring.md)以确保你的服务可用且响应迅速。
+* 获取[收集诊断日志概述](monitoring-overview-of-diagnostic-logs.md)以收集有关服务的详细高频率指标。
+* 
+            [大致了解指标收集](insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。

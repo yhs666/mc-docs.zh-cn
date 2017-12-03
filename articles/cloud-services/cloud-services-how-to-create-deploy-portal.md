@@ -2,10 +2,11 @@
 title: "如何创建和部署云服务 | Azure"
 description: "了解如何使用 Azure 门户创建和部署云服务。"
 services: cloud-services
-documentationCenter: 
-authors: Thraka
+documentationcenter: 
+author: Thraka
 manager: timlt
 editor: 
+ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -13,25 +14,22 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: 0807f1159ac3d168610c9a9e12cdc6e0b6060e13
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 12/11/2017
+ms.openlocfilehash: 5aa86363568ce75dcd4fb6c9f0522db830b5e93d
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何创建和部署云服务
-
-> [!div class="op_single_selector"]
->- [Azure 门户](./cloud-services-how-to-create-deploy-portal.md)
->- [Azure 经典门户](./cloud-services-how-to-create-deploy.md)
-
 Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和*自定义创建*。
 
-本文介绍如何使用“快速创建”方法创建新的云服务，然后使用“上传”  在 Azure 中上传和部署云服务包。 使用此方法时，Azure 门户会在进行操作时提供方便的链接供你完成所有要求。 如果创建云服务时还准备部署该云服务，则可以使用“自定义创建”同时执行这两项操作。
+本文介绍如何使用“快速创建”方法创建新的云服务，并使用“**上载**”在 Azure 中上载和部署云服务包。 使用此方法时，Azure 门户会在进行操作时提供方便的链接供你完成所有要求。 如果创建云服务时还准备部署该云服务，则可以使用“自定义创建”同时执行这两项操作。
 
 > [!NOTE]
 > 如果计划从 Visual Studio Team Services (VSTS) 发布云服务，请使用“快速创建”，然后从“Azure 快速启动”或仪表板设置 VSTS 发布。 有关详细信息，请参阅[使用 Visual Studio Team Services 向 Azure 持续交付][TFSTutorialForCloudService]，或查看“快速入门”页的帮助。
+>
+>
 
 ## <a name="concepts"></a>概念
 要将应用程序部署为 Azure 中的云服务，需要以下三个组件：
@@ -76,7 +74,7 @@ Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和
 3. 在新的“云服务”边栏选项卡中，输入“DNS 名称”的值。
 4. 创建一个新“资源组”  或选择一个现有的资源组。
 5. 选择“位置” 。
-6. 单击“包” 。 此时会打开“上传包”  边栏选项卡。 填写必填字段。 如果你的任何角色包含单个实例，请确保选中“即使一个或多个角色包含单个实例也进行部署”  。
+6. 单击“包” 。 此时会打开“上传包”  边栏选项卡。 填写必填字段。 如果任何角色包含单个实例，请确保选中“**即使一个或多个角色包含单个实例也进行部署**”。
 7. 请确保选中“开始部署”  。
 8. 单击“确定”，此时会关闭“上传包”边栏选项卡。
 9. 如果不添加任何证书，请单击“创建”。

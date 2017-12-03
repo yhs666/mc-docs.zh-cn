@@ -15,23 +15,20 @@ ms.topic: article
 origin.date: 09/07/2016
 ms.date: 01/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: f39b65412cd2a8f5cace8afa1872ef0652b8e740
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: fb7ca41f3d5fa4eb3d43bf127a6796a187a931e1
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 11/28/2017
 ---
-# 如何：在 Azure 应用服务中监视 Web 应用
-<a id="how-to-monitor-apps-in-azure-app-service" class="xliff"></a>
+# <a name="how-to-monitor-apps-in-azure-app-service"></a>如何：在 Azure 应用服务中监视 Web 应用
 [应用服务](/app-service-web/app-service-changes-existing-services)在 [Azure 门户](https://portal.azure.cn)中提供了内置监视功能。
 还能查看应用的**配额**和**度量值**以及应用服务计划、设置**警报**，甚至基于这些度量值自动**缩放**。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## 了解配额和度量值
-<a id="understanding-quotas-and-metrics" class="xliff"></a>
-### 配额
-<a id="quotas" class="xliff"></a>
+## <a name="understanding-quotas-and-metrics"></a>了解配额和度量值
+### <a name="quotas"></a>配额
 对于托管在应用服务中的应用程序，其可用资源受到某些 *限制* 。 限制由与应用关联的**应用服务计划**定义。
 
 如果应用程序托管在**免费**或**共享**计划中，则该应用可用资源的限制由**配额**定义。
@@ -54,21 +51,17 @@ ms.lasthandoff: 06/21/2017
 
 适用于托管在**基本**、**标准**和**高级**计划中的应用的唯一配额是**文件系统**。
 
-有关各种应用服务 SKU 可用的特定配额、限制和功能的详细信息，请参见：[Azure 订阅服务限制](../azure-subscription-service-limits.md#app-service-limits)
-
-#### 配额强制执行
-<a id="quota-enforcement" class="xliff"></a>
+#### <a name="quota-enforcement"></a>配额强制执行
 如果应用程序的使用量超过 **CPU（短期）**、**CPU（天）**或**带宽**配额，则将终止该应用程序，直到配额重置。 在此期间，所有传入请求都将导致 **HTTP 403**。
 ![][http403]
 
-如果超过应用程序 **内存** 配额，则将重启该应用程序。
+如果超过应用程序**内存**配额，则重启该应用程序。
 
-如果超过 **Filesystem** 配额，则任何写入操作都将失败，包括写入日志。
+如果超过 **Filesystem** 配额，则任何写入操作都会失败，包括写入日志。
 
 可通过升级应用服务计划从应用中增加或删除配额。
 
-### 度量值
-<a id="metrics" class="xliff"></a>
+### <a name="metrics"></a>度量值
 **度量值** 提供有关应用或应用服务计划行为的信息。
 
 对于 **应用程序**，可用度量值为：
@@ -124,8 +117,7 @@ ms.lasthandoff: 06/21/2017
 * **Http 队列长度**
   * 必须在队列排满之前排入队列中的 HTTP 请求的平均数量。 较高或不断增长的 HTTP 队列长度表示计划处于高负载状态。
 
-### CPU 时间和 CPU 百分比
-<a id="cpu-time-vs-cpu-percentage" class="xliff"></a>
+### <a name="cpu-time-vs-cpu-percentage"></a>CPU 时间和 CPU 百分比
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
 
 有 2 个反映 CPU 使用率的度量值。 **CPU 时间**和 **CPU 百分比**
@@ -134,35 +126,31 @@ ms.lasthandoff: 06/21/2017
 
 另一方面，**CPU 百分比**对托管在**基本**、**标准**和**高级**计划中的应用很有用，因为这些应用可以按比例扩大，并且该度量值能很好反映所有实例的总体使用情况。
 
-## 度量值粒度和保留策略
-<a id="metrics-granularity-and-retention-policy" class="xliff"></a>
+## <a name="metrics-granularity-and-retention-policy"></a>度量值粒度和保留策略
 应用程序和应用服务计划的度量值由具有下列粒度和保留策略的服务进行记录和聚合：
 
 * **分钟**粒度级的度量值将保留 **48 小时**
 * **小时**粒度级的度量值将保留 **30 天**
 * **天**粒度级的度量值将保留 **90 天**
 
-## 在 Azure 门户中监视配额和度量值。
-<a id="monitoring-quotas-and-metrics-in-the-azure-portal" class="xliff"></a>
+## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>在 Azure 门户中监视配额和度量值。
 可以在 [Azure 门户](https://portal.azure.cn)中查看影响应用程序的各种**配额**和**指标**。
 
-可以在“设置”>“配额”****下找到![][quotas]
+可以在“设置”>“配额”下找到![][quotas]
 **配额**。 用户体验允许查看：(1) 配额名称、(2) 配额重置时间间隔、(3) 配额当前限制和 (4) 当前值。
 
 可以直接从资源边栏选项卡中访问![][metrics]
-**度量值**。 还可以通过以下操作自定义图表：(1) **单击**图表，然后选择 (2)“编辑图表”。
+**度量值**。 还可以通过以下操作自定义图表：(1) **单击**图表，并选择 (2)“编辑图表”。
 可在此处更改要显示的 (3) **时间范围**、(4) **图表类型**和 (5) **度量值**。  
 
 可以在此处了解有关度量值的详细信息：[监视服务度量值](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
 
-## 警报和自动缩放
-<a id="alerts-and-autoscale" class="xliff"></a>
+## <a name="alerts-and-autoscale"></a>警报和自动缩放
 可以将应用或应用服务计划的指标挂接到警报
 
-托管在基本、标准或高级应用服务计划中的应用服务应用支持 **自动缩放**。 这使你可以配置监视应用服务计划度量值的规则，还能增加或减少根据需要提供其他资源或在过度预配时节约资金的实例计数。
+托管在基本、标准或高级应用服务计划中的应用服务应用支持 **自动缩放**。 这样便可以配置监视应用服务计划度量值的规则，还能增加或减少根据需要提供其他资源或在过度预配时节约资金的实例计数。
 
-## 发生的更改
-<a id="whats-changed" class="xliff"></a>
+## <a name="whats-changed"></a>发生的更改
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914

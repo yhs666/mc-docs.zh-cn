@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/11/2017
 ms.author: v-yiso
-ms.date: 11/13/2017
-ms.openlocfilehash: 72c53a06d9e77d955c58003e48752441c14e73c3
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.date: 12/11/2017
+ms.openlocfilehash: abb4d830df58023697053e299321ddc90841e982
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>使用 CLI 为 ExpressRoute 线路创建和修改路由
 
@@ -61,7 +61,6 @@ ms.lasthandoff: 11/03/2017
   az account set --subscription "<subscription ID>"
   ```
 2. 创建 ExpressRoute 线路。 请按说明创建 [ExpressRoute 线路](howto-circuit-cli.md) ，并由连接服务提供商进行预配。
-
   如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 专用对等互连。 在此情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。
 3. 检查 ExpressRoute 线路以确保它已预配并已启用。 使用以下示例：
 
@@ -200,7 +199,6 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
   az account set --subscription "<subscription ID>"
   ```
 2. 创建 ExpressRoute 线路。  请按说明创建 [ExpressRoute 线路](howto-circuit-cli.md) ，并由连接服务提供商进行预配。
-
   如果连接服务提供商提供第 3 层托管服务，则可以请求连接服务提供商为你启用 Azure 专用对等互连。 在此情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。
 3. 检查 ExpressRoute 线路以确保它已预配并已启用。 使用以下示例：
 

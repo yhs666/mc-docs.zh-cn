@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/27/2017
-ms.openlocfilehash: b38cb13491a13c4520a72f7e163226b3a0f32a97
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 8191ea6c36d355853fa5198f69fd482e52b3b374
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>在 Azure 中部署 OpenShift Origin
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/24/2017
 
 ```json
 {
-    "$schema": "http://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "masterVmSize": {

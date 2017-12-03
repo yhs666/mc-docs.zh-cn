@@ -8,7 +8,6 @@
 ## [多站点](application-gateway-multi-site-overview.md)
 ## [端到端 SSL](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [服务限制](../azure-subscription-service-limits.md?toc=%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # 入门
 ## 创建应用程序网关
 ### 面向公众

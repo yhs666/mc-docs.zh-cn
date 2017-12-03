@@ -15,20 +15,15 @@ ms.workload: tbd
 origin.date: 01/12/2017
 ms.author: v-yiso
 ms.date: 07/31/2017
-ms.openlocfilehash: 005bb04e6006c4ec37f1c99e26ca400d8c661cb0
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 42ce886d3b24d9e520e921f6763a99d3d9f68fdd
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="sizes-for-cloud-services"></a>云服务的大小
 
 本主题介绍云服务角色实例（Web 角色和辅助角色）的可用大小和选项。 此外，还提供了在计划使用这些资源时要考虑的部署注意事项。 每个大小都具有会放入[服务定义文件](./cloud-services-model-and-package.md#csdef)中的 ID。 [云服务定价](https://www.azure.cn/pricing/details/cloud-services/)页提供每种大小的价格。
-
-> [!NOTE]
->若要查看相关的 Azure 限制，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)
->
->
 
 ## <a name="sizes-for-web-and-worker-role-instances"></a>Web 角色实例和辅助角色实例的大小
 Azure 上有多个标准大小可供选择。 其中某些大小的注意事项包括：
@@ -160,8 +155,5 @@ ACU 标有 *使用 Intel® Turbo 技术来增加 CPU 频率，并提升性能。
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
 ```
-
-## <a name="next-steps"></a>后续步骤
-* 了解 [Azure 订阅和服务的限制、配额和约束](../azure-subscription-service-limits.md)。
 
 <!--Update_Description: update wording-->

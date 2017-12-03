@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 05495ba3f730caa1ee0d7aa4eb83c65291259c68
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 7239c6e0709b390a98deec82a3da289e0ff6ed63
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="multiple-vips-for-azure-load-balancer"></a>Azure 负载均衡器的多个 VIP
 
@@ -137,6 +137,6 @@ DIP 是入站流量的目标。 在后端池中，每个 VM 公开 DIP 上唯一
 * 只有 IaaS VM 支持多个 VIP 配置。
 * 使用浮点 IP 规则时，应用程序必须为出站流量使用 DIP。 如果应用程序绑定到来宾 OS 中环回接口上配置的 VIP 地址，则无法使用 SNAT 来重写出站流量，此时流量处理会失败。
 * 公共 IP 地址会影响计费。 有关详细信息，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)
-* 订阅有所限制。 有关详细信息，请参阅[服务限制](../azure-subscription-service-limits.md#networking-limits)。
+* 订阅有所限制。 
 
 <!-- Update_Description: update meta properties -->

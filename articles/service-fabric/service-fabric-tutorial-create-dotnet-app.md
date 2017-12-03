@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/09/2017
-ms.date: 11/13/2017
+origin.date: 11/08/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 455d3cd9406ac64336bde191efe50cdaee4e79db
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: fbd17826dcaaf2c3202553b35c4b793cff3a2a30
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>使用 ASP.NET Core Web API 前端服务和有状态后端服务创建和部署应用程序
 本教程是一个系列中的第一部分。  其中介绍了如何使用 ASP.NET Core Web API 前端和有状态后端服务创建 Azure Service Fabric 应用程序以存储数据。 完成后，将生成一个投票应用程序，其中包含 ASP.NET Core Web 前端，用于将投票结果保存到群集的有状态后端服务中。 如果不想手动创建投票应用程序，可以[下载已完成应用程序的源代码](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)，跳到[大致了解投票示例应用程序](#walkthrough_anchor)。
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/09/2017
 
    ![在新建服务对话框中选择 ASP.NET Web 服务](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. 下一页提供一组 ASP.NET Core 项目模板。 对于本教程，请选择“Web 应用程序”。 
+6. 下一页提供一组 ASP.NET Core 项目模板。 本教程中，选择“Web 应用程序(MVC)”。 
 
    ![选择 ASP.NET 项目类型](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -229,7 +229,11 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 ```
 
 ### <a name="update-the-votingwebcs-file"></a>更新 VotingWeb.cs 文件
-打开 VotingWeb.cs 文件，该文件会使用 WebListener Web 服务器在无状态服务内创建 ASP.NET Core WebHost。  在文件顶部，添加 `using System.Net.Http;` 指令。  将 `CreateServiceInstanceListeners()` 函数替换为以下内容，然后保存所做更改。
+打开 VotingWeb.cs 文件，该文件会使用 WebListener Web 服务器在无状态服务内创建 ASP.NET Core WebHost。  
+
+在文件顶部，添加 `using System.Net.Http;` 指令。  
+
+将 `CreateServiceInstanceListeners()` 函数替换为以下内容，然后保存所做更改。
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -258,7 +262,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 
 ### <a name="add-the-votescontrollercs-file"></a>添加 VotesController.cs 文件
-添加定义投票操作的控制器。 右键单击“控制器”文件夹，然后选择“添加”->“新建项目”->“类”。  将文件命名为“VotesController.cs”，然后单击“添加”。  将文件内容替换为以下内容，然后保存所做更改。  之后，在[更新 VotesController.cs 文件](#updatevotecontroller_anchor)中，将修改此文件，以读取和写入来自后端服务的投票数据。  现在，控制器会将静态字符串数据返回到视图中。
+添加定义投票操作的控制器。 右键单击“控制器”文件夹，然后选择“添加”->“新建项目”->“类”。  将文件命名为“VotesController.cs”，然后单击“添加”。  
+
+将文件内容替换为以下内容，然后保存所做更改。  之后，在[更新 VotesController.cs 文件](#updatevotecontroller_anchor)中，将修改此文件，以读取和写入来自后端服务的投票数据。  现在，控制器会将静态字符串数据返回到视图中。
 
 ```csharp
 using System;
@@ -297,6 +303,24 @@ namespace VotingWeb.Controllers
 }
 ```
 
+### <a name="configure-the-listening-port"></a>配置侦听端口
+创建 VotingWeb 前端服务后，Visual Studio 会随机选择服务侦听的端口。  VotingWeb 服务充当此应用程序的前端并接受外部流量，因此让我们将该服务绑定到已知的固定端口。 在解决方案资源管理器中，打开“VotingWeb/PackageRoot/ServiceManifest.xml”。  在“资源”部分中查找“终结点”资源，并将“端口”值更改为 80 或其他端口。 若要在本地部署和运行应用程序，应用程序侦听端口必须为打开状态且在你的计算机上可用。
+
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+    </Endpoints>
+  </Resources>
+```
+
+此外，更新投票项目中的应用程序 URL 属性值，使 Web 浏览器在用户使用“F5”进行调试时打开到正确的端口。  在解决方案资源管理器中，选择“投票”项目并更新“应用程序 URL”属性。
+
+![应用程序 URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
+
 ### <a name="deploy-and-run-the-application-locally"></a>在本地部署并运行应用程序
 现在，可以继续运行应用程序。 在 Visual Studio 中按 `F5`，部署用于调试的应用程序。 如果此前未以管理员身份打开 Visual Studio，则 `F5` 会失败。
 
@@ -332,7 +356,7 @@ Service Fabric 允许使用 Reliable Collections 直接在服务内以一致、�
 
     Visual Studio 会创建一个服务项目，并在解决方案资源管理器中显示它们。
 
-    ![解决方案资源管理器](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
+    ![解决方案资源管理器](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-webapi-service.png)
 
 ### <a name="add-the-votedatacontrollercs-file"></a>添加 VoteDataController.cs 文件
 
@@ -560,4 +584,4 @@ namespace VotingData.Controllers
 > [!div class="nextstepaction"]
 > [将应用程序部署到 Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, add Configure the listening port content-->

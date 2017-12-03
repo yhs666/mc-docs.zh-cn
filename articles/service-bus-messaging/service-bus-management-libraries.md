@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/05/2017
-ms.date: 08/21/2017
+origin.date: 10/18/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: 678aae71249cd98d2d34d001ae4f25dba0247ad7
-ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
+ms.openlocfilehash: 3fe55029d5c290966ba4938aa6cb9cc51c865703
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="service-bus-management-libraries"></a>服务总线管理库
 
@@ -34,13 +34,13 @@ Azure 服务总线管理库可以动态预配服务总线命名空间和实体�
 
 ## <a name="prerequisites"></a>先决条件
 
-若要开始使用服务总线管理库，必须使用 Azure Active Directory (AAD) 服务进行身份验证。 AAD 要求以提供 Azure 资源访问权限的服务主体身份进行身份验证。 有关创建服务主体的信息，请参阅以下文章之一：  
+若要开始使用服务总线管理库，必须使用 Azure Active Directory (AAD) 服务进行身份验证。 AAD 要求身份验证为服务主体，且该主体提供对 Azure 资源的访问权限。 有关创建服务主体的信息，请参阅以下文章之一：  
 
 * [使用 Azure 门户创建可访问资源的 Active Directory 应用程序和服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * [使用 Azure PowerShell 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [使用 Azure CLI 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-这些教程提供 `AppId`（客户端 ID）、`TenantId` 和 `ClientSecret`（身份验证密钥），这些都将用于管理库进行的身份验证。 必须具有要在其中运行的资源组的“所有者”权限。
+这些教程提供 `AppId`（客户端 ID）、`TenantId` 和 `ClientSecret`（身份验证密钥），这些都将用于管理库进行的身份验证。 若要对资源组运行命令，必须拥有“所有者”权限。
 
 ## <a name="programming-pattern"></a>编程模式
 

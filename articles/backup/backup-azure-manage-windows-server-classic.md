@@ -12,21 +12,32 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/14/2017
-ms.date: 06/29/2017
+origin.date: 11/10/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
-ms.openlocfilehash: 09eb9c7c9b040959cbbb9942971f3315cdd3c8c2
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: b5b5b739071b717ca6ba979dabf7f101c6b95a3c
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>使用经典部署模型管理 Azure 备份保管库和服务器
+> [!div class="op_single_selector"]
+> * [资源管理器](backup-azure-manage-windows-server.md)
+> * [经典](backup-azure-manage-windows-server-classic.md)
+>
+>
 
 本文概述了可通过 Azure 经典管理门户和 Azure 备份代理完成的备份管理任务。
 
 > [!IMPORTANT]
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Microsoft 建议大多数新部署使用 Resource Manager 模型。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Microsoft 建议大多数新部署使用资源管理器模型。
+
+> [!IMPORTANT]
+> 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> 2017 年 11 月 30 日之后，将无法使用 PowerShell 创建备份保管库。 在 2017 年 11 月 30 日之前：
+>- 其余所有备份保管库都将自动升级到恢复服务保管库。
+>- 无法在经典管理门户中访问备份数据。 应使用 Azure 门户在恢复服务保管库中访问备份数据。
+>
 
 ## <a name="management-portal-tasks"></a>管理门户任务
 1. 登录到 [管理门户](https://manage.windowsazure.cn)。
@@ -189,3 +200,4 @@ Azure 备份代理提供的“限制”选项卡可让你控制在数据传输�
 - 若要了解有关 Azure 备份的详细信息，请参阅 [Azure 备份概述](backup-introduction-to-azure-backup.md)
 - 访问 [Azure 备份论坛](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
+<!--Update_Description: wording update -->

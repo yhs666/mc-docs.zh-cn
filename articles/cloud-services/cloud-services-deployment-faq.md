@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: v-yiso
-ms.openlocfilehash: 3cca7dfb5d32b6bbb5c9b871df1d181b06364dcc
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.openlocfilehash: 2d7bf13e9c4620dfa4ddddd46baf85d81fdc835b
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的部署问题：常见问题解答 (FAQ)
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/30/2017
 
 
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>部署云服务时，有时为何由于订阅或服务上的限制/配额/约束而发生失败？
-如果需要分配的资源超过区域/数据中心级别的服务允许的默认或最大配额，部署云服务可能会失败。 有关详细信息，请参阅[云服务限制](../azure-subscription-service-limits.md#cloud-services-limits)。
+如果需要分配的资源超过区域/数据中心级别的服务允许的默认或最大配额，部署云服务可能会失败。 
 
 也可以在门户中跟踪订阅的当前用量/配额：Azure 门户 = >“订阅”=> \<相应的订阅> =>“用量 + 配额”。
 

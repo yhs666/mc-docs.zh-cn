@@ -15,14 +15,13 @@ ms.workload: iaas-sql-server
 origin.date: 05/22/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: 8330def2d25167552e7faa5340b4b3c67be34cff
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 96983e8f8eec11c191866ab236363cefbe8f3c20
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 11/28/2017
 ---
-# 配置一个或多个 Always On 可用性组侦听器 - Resource Manager
-<a id="configure-one-or-more-always-on-availability-group-listeners---resource-manager" class="xliff"></a>
+# <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>配置一个或多个 Always On 可用性组侦听器 - Resource Manager
 本主题说明如何执行以下操作：
 
 * 使用 PowerShell cmdlet 为 SQL Server 可用性组创建内部负载均衡器。
@@ -41,14 +40,12 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
-## 配置 Windows 防火墙
-<a id="configure-the-windows-firewall" class="xliff"></a>
+## <a name="configure-the-windows-firewall"></a>配置 Windows 防火墙
 配置 Windows 防火墙以允许 SQL Server 访问。 防火墙规则允许到端口（由 SQL Server 实例使用）的 TCP 连接，并且允许侦听器探测。 有关详细的说明，请参阅[为数据库引擎访问配置 Windows 防火墙](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1)。 为 SQL Server 端口和探测端口创建入站规则。
 
-## 示例脚本：使用 PowerShell 创建内部负载均衡器
-<a id="example-script-create-an-internal-load-balancer-with-powershell" class="xliff"></a>
+## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>示例脚本：使用 PowerShell 创建内部负载均衡器
 
-以下 PowerShell 脚本创建内部负载均衡器、配置负载均衡规则，并设置负载均衡器的 IP 地址。 若要运行该脚本，请打开 Windows PowerShell ISE，然后将脚本粘贴到“脚本”窗格中。 使用 `Login-AzureRMAccount` 登录到 PowerShell。 如果有多个 Azure 订阅，请使用 `Select-AzureRmSubscription ` 设置订阅。 
+以下 PowerShell 脚本创建内部负载均衡器、配置负载均衡规则，并设置负载均衡器的 IP 地址。 如果要运行该脚本，请打开 Windows PowerShell ISE，并将脚本粘贴到“脚本”窗格中。 使用 `Login-AzureRMAccount` 登录到 PowerShell。 如果有多个 Azure 订阅，请使用 `Select-AzureRmSubscription ` 设置订阅。 
 
 ```powershell
 # Login-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -99,14 +96,13 @@ foreach($VMName in $VMNames)
 ```
 
 ## <a name="Add-IP"></a> 示例脚本：使用 PowerShell 将 IP 地址添加到现有负载均衡器
-若要使用多个可用性组，请将附加的 IP 地址添加到负载均衡器。 每个 IP 地址都需要有自身的负载均衡规则、探测端口和前端端口。
+要使用多个可用性组，请将附加的 IP 地址添加到负载均衡器。 每个 IP 地址都需要有自身的负载均衡规则、探测端口和前端端口。
 
 前端端口是应用程序用来连接到 SQL Server 实例的端口。 不同可用性组的 IP 地址可以使用相同的前端端口。
 
 > [!NOTE]
 > 对于 SQL Server 可用性组，每个 IP 地址需要一个特定的探测端口。 例如，如果负载均衡器上有一个 IP 地址使用探测端口 59999，该负载均衡器上的其他任何 IP 地址就不能使用探测端口 59999。
 
-* 有关负载均衡器限制的信息，请参阅[网络限制 - Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits) 下面的**每个负载均衡器的专用前端 IP**。
 * 有关可用性组限制的信息，请参阅[限制（可用性组）](http://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG)。
 
 以下脚本将新的 IP 地址添加到现有负载均衡器。 ILB 使用侦听器端口作为负载均衡前端端口。 此端口可以是 SQL Server 正在侦听的端口。 对于 SQL Server 的默认实例，此端口为 1433。 可用性组的负载均衡规则需要浮动 IP（直接服务器返回），因此后端端口与前端端口相同。 请更新环境的变量。 
@@ -150,24 +146,21 @@ $BEConfig = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $ILB.BackendAd
 $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig  -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort  $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP | Set-AzureRmLoadBalancer   
 ```
 
-## 配置侦听器
-<a id="configure-the-listener" class="xliff"></a>
+## <a name="configure-the-listener"></a>配置侦听器
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
-## 在 SQL Server Management Studio 中设置侦听器端口
-<a id="set-the-listener-port-in-sql-server-management-studio" class="xliff"></a>
+## <a name="set-the-listener-port-in-sql-server-management-studio"></a>在 SQL Server Management Studio 中设置侦听器端口
 
 1. 启动 SQL Server Management Studio 并连接到主副本。
 
 1. 导航到“AlwaysOn 高可用性” | “可用性组” | “可用性组侦听器”。 
 
-1. 你现在应看到在故障转移群集管理器中创建的侦听器名称。 右键单击侦听器名称，然后单击“属性”。
+1. 现在应看到在故障转移群集管理器中创建的侦听器名称。 右键单击侦听器名称，并单击“属性”。
 
 1. 在“端口”框中，通过使用先前使用过的 $EndpointPort 为可用性组侦听器指定端口号（默认值为 1433），然后单击“确定”。
 
-## 测试与侦听器的连接
-<a id="test-the-connection-to-the-listener" class="xliff"></a>
+## <a name="test-the-connection-to-the-listener"></a>测试与侦听器的连接
 
 若要测试连接，请执行以下操作：
 
@@ -185,25 +178,22 @@ $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConf
     sqlcmd -S <listenerName>,1435 -E
     ```
 
-SQLCMD 连接将自动连接到托管主副本的 SQL Server 实例。 
+SQLCMD 连接自动连接到托管主副本的 SQL Server 实例。 
 
 > [!NOTE]
 > 确保指定的端口已在两个 SQL Server 的防火墙上打开。 这两个服务器需要所用 TCP 端口的入站规则。 有关详细信息，请参阅 [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx)（添加或编辑防火墙规则）。 
 > 
 > 
 
-## 指导原则和限制
-<a id="guidelines-and-limitations" class="xliff"></a>
+## <a name="guidelines-and-limitations"></a>指导原则和限制
 请注意有关 Azure 中使用内部负载均衡器的可用性组侦听器的以下指导原则：
 
 * 使用内部负载均衡器只能从同一个虚拟网络中访问侦听器。
 
-## 更多信息
-<a id="for-more-information" class="xliff"></a>
+## <a name="for-more-information"></a>更多信息
 有关详细信息，请参阅[在 Azure VM 中手动配置 Always On 可用性组](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)。
 
-## PowerShell cmdlet
-<a id="powershell-cmdlets" class="xliff"></a>
+## <a name="powershell-cmdlets"></a>PowerShell cmdlet
 使用以下 PowerShell cmdlet 为 Azure 虚拟机创建内部负载均衡器。
 
 * 使用 [New-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt619450.aspx) 创建负载均衡器。 

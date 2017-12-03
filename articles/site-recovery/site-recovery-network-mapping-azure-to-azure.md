@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 08/11/2017
-ms.date: 08/28/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: fb43382160965bcaa3a337c62848b60ba5dbc69c
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 6c1b7ca9a3203dd09327e97e287bf32132af913e
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>两个 Azure 区域之间的网络映射
 
@@ -74,10 +74,10 @@ ms.lasthandoff: 08/25/2017
 按如下方式为目标虚拟机的各个网络接口选择 IP 地址：
 
 ### <a name="dhcp"></a>DHCP
-如果源虚拟机的网络接口使用 DHCP，则目标虚拟机的网络接口也设置为 DHCP。
+如果源虚拟机的网络接口使用的是 DHCP，则目标虚拟机的网络接口也设置为 DHCP。
 
 ### <a name="static-ip"></a>静态 IP
-如果源虚拟机的网络接口使用静态 IP，则目标虚拟机的网络接口也设置为使用静态 IP。 按如下方式选择静态 IP：
+如果源虚拟机的网络接口使用的是静态 IP，则目标虚拟机的网络接口也设置为使用静态 IP。 按如下方式选择静态 IP：
 
 #### <a name="same-address-space"></a>地址空间相同
 
@@ -93,4 +93,4 @@ ms.lasthandoff: 08/25/2017
 
 - 了解 [Azure VM 复制网络指南](site-recovery-azure-to-azure-networking-guidance.md)。
 
-<!--Update_Description: new articles on mapping from azure to azure in site recovery -->
+<!--Update_Description: update meta properties, wording update -->

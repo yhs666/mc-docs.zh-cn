@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 01/18/2017
 ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: f49aa2679048b26983b6c7d19cc9dc13c1676890
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.openlocfilehash: f9439a9a652edcc3c3a6d68c5eeaddd15751dc82
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 
@@ -64,7 +64,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 可以。 有关公共 IP 地址范围的详细信息，请参阅[虚拟网络中的公共 IP 地址空间](virtual-networks-public-ip-within-vnet.md)一文。 无法从 Internet 直接访问公共 IP 地址。
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>VNet 中的子网数量是否有限制？
-可以。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。 子网地址空间不能相互重叠。
+是的。 子网地址空间不能相互重叠。
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>使用这些子网中的 IP 地址是否有任何限制？
 可以。 Azure 会保留每个子网中的某些 IP 地址。 子网的第一个和最后一个 IP 地址仅为协议一致性而保留，其他 3 个地址用于 Azure 服务。
@@ -120,9 +120,6 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 
 ### <a name="can-i-specify-dns-servers-for-a-vnet"></a>是否可以为 VNet 指定 DNS 服务器？
 是的。 可以在 VNet 设置中指定 DNS 服务器 IP 地址。 这将作为 VNet 中所有 VM 的默认 DNS 服务器进行应用。
-
-### <a name="how-many-dns-servers-can-i-specify"></a>可以指定多少 DNS 服务器？
-有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>创建网络后是否可以修改 DNS 服务器？
 是的。 可以随时更改 VNet 的 DNS 服务器列表。 如果更改 DNS 服务器列表，则需要重新启动 VNet 中的每个 VM，以使其拾取新的 DNS 服务器。

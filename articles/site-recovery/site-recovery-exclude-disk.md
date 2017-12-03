@@ -12,23 +12,28 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 06/05/2017
-ms.date: 08/28/2017
+origin.date: 10/24/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: d25b72df06bc7a2bd471ce59dc178a7efbc14e41
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 5b366cc971f7325a1367fea7dfc652c179b151a5
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="exclude-disks-from-replication"></a>从复制中排除磁盘
 本文介绍如何从复制中排除磁盘。 这种排除可以优化消耗的复制带宽，或者优化此类磁盘利用的目标端资源。 VMware 到 Azure 方案和 Hyper-V 到 Azure 方案支持该功能。
+
+## <a name="supported-scenarios"></a>支持的方案
+**功能** | **VMware 到 Azure** | **Hyper-V 到 Azure** | **Azure 到 Azure**| **Hyper-V 到 Hyper-V** 
+--|--|--|--|--
+排除磁盘 | 是 | 是 | 否 | 否
 
 ## <a name="prerequisites"></a>先决条件
 
 默认情况下将复制计算机上的所有磁盘。 若要从复制中排除某个磁盘，则在从 VMware 复制到 Azure 的情况下，必须在启用复制前，手动在计算机上安装移动服务。
 
-## <a name="why-exclude-disks-from-replication"></a>为什么要从复制中排除磁盘？
+## <a name="why-exclude-disks-from-replication"></a>为何要从复制中排除磁盘？
 从复制中排除磁盘通常因以下原因而有必要：
 
 - 排除的磁盘上改动的数据不重要或不需要复制。
@@ -48,7 +53,7 @@ ms.lasthandoff: 08/25/2017
 
 ## <a name="how-to-exclude-disks-from-replication"></a>如何从复制中排除磁盘？
 
-### <a name="vmware-to-azure"></a>VMware 复制到 Azure
+### <a name="vmware-to-azure"></a>VMware 到 Azure
 按照[启用复制](site-recovery-vmware-to-azure.md)工作流，通过 Azure Site Recovery 门户保护虚拟机。 在工作流的第四步，使用“要复制的磁盘”列从复制中排除磁盘。 默认情况下，选择所有磁盘进行复制。 清除要从复制中排除的磁盘所对应的复选框，并完成启用复制的步骤。
 
 ![从复制中排除磁盘，并为 VMware 启用到 Azure 故障回复的复制](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
@@ -82,7 +87,7 @@ ms.lasthandoff: 08/25/2017
 - 页面文件 (pagefile.sys) 磁盘
 
 ### <a name="exclude-the-sql-server-tempdb-disk"></a>排除 SQL Server tempdb 磁盘
-让我们假设存在一台拥有可被排除的 tempdb 的 SQL Server 虚拟机。
+假设有一台拥有可被排除的 tempdb 的 SQL Server 虚拟机。
 
 虚拟磁盘的名称为 SalesDB。
 
@@ -153,8 +158,8 @@ Disk3 为 SQL tempdb 磁盘（tempdb 文件夹路径为 F:\MSSQL\Data\)），已
 
 请参阅以下有关临时存储磁盘的 Azure 指南：
 
-* [在 Azure VM 中使用 SSD 来存储 SQL Server TempDB 和缓冲池扩展](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)
-* [Azure 虚拟机中 SQL Server 的性能最佳做法](/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
+* [Using SSDs in Azure VMs to store SQL Server TempDB and Buffer Pool Extensions](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)（在 Azure VM 中使用 SSD 来存储 SQL Server TempDB 和缓冲池扩展）
+* [Azure 虚拟机中 SQL Server 的性能最佳实践](/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
 
 ### <a name="failback-from-azure-to-an-on-premises-host"></a>故障回复（从 Azure 到本地主机）
 现在，让我们了解从 Azure 故障转移到本地 VMware 或 Hyper-V 主机时会复制的磁盘。 不会复制在 Azure 中手动创建的磁盘。 例如，如果在 Azure 虚拟机中故障转移三个磁盘并直接创建两个磁盘，则只会故障回复完成故障转移的三个磁盘。 不能包括在故障回复过程中或从本地到 Azure 的反向保护过程中手动创建的磁盘。 也不会将临时存储磁盘复制到本地主机。
@@ -170,7 +175,7 @@ Disk1 | E:\ | 临时存储</br /> </br />Azure 添加此磁盘并分配第一个
 Disk2 | D:\ | SQL 系统数据库和用户数据库 1
 Disk3 | G:\ | 用户数据库 2
 
-#### <a name="vmware-to-azure"></a>VMware 复制到 Azure
+#### <a name="vmware-to-azure"></a>VMware 到 Azure
 故障回复到原始位置后，故障回复虚拟机磁盘配置中不包含排除的磁盘。 从 VMware 故障回复到 Azure 时排除的磁盘在故障回复虚拟机中不可用。
 
 完成从 Azure 到本地 VMware 的计划故障转移后，VMWare 虚拟机（原始位置）上的磁盘如下所示：
@@ -259,4 +264,6 @@ DB-Disk3 | Disk3 | F:\ | 用户数据 2
 ![Azure 虚拟机上的页面文件设置](./media/site-recovery-exclude-disk/pagefile-on-Azure-vm-after-failover-2.png)
 
 ## <a name="next-steps"></a>后续步骤
-设置并运行部署后，请[详细了解](site-recovery-failover.md)不同类型的故障转移。
+设置并运行部署后，请 [详细了解](site-recovery-failover.md) 不同类型的故障转移。
+
+<!-- Update_Description: update meta properties, wording update -->

@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/02/2017
-ms.date: 09/04/2017
+origin.date: 11/09/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
-ms.openlocfilehash: 2f6711a0554390bac98e9f5fb2a154bc5a36711a
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 78a087eb99de75353b558a81ea8a32d445363013
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="back-up-azure-virtual-machines-classic-management-portal"></a>备份 Azure 虚拟机（经典管理门户）
 > [!div class="op_single_selector"]
@@ -29,12 +29,12 @@ ms.lasthandoff: 09/08/2017
 >
 >
 
-本文提供了将经典部署的 Azure 虚拟机 (VM) 备份到备份保管库的过程。 需要先执行几个任务，才能备份 Azure 虚拟机。 如果尚未这样做，请完成[先决条件](backup-azure-vms-prepare.md)部分，在环境中做好 VM 备份的准备。
+本文提供了将经典部署的 Azure 虚拟机 (VM) 备份到 Azure 保管库的过程。 在备份 Azure 虚拟机之前，需要注意一些任务。 如果尚未这样做，请完成[先决条件](backup-azure-vms-prepare.md)部分，在环境中做好 VM 备份的准备。
 
 有关其他信息，请参阅[在 Azure 中规划 VM 备份基础结构](./backup-azure-vms-introduction.md)和 [Azure 虚拟机](../virtual-machines/index.md)。
 
 > [!NOTE]
-> Azure 有两种用于创建和使用资源的部署模型： [Resource Manager 部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 备份保管库只能保护经典部署 VM。 无法使用备份保管库保护使用 Resource Manager 部署的 VM。 有关使用恢复服务保管库的详细信息，请参阅[将 VM 备份到恢复服务保管库](backup-azure-arm-vms.md)。
+> Azure 有两种用于创建和使用资源的部署模型： [Resource Manager 部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 备份保管库只能保护经典部署 VM。 无法通过备份保管库保护 Resource Manager 部署的 VM。 有关使用恢复服务保管库的详细信息，请参阅[将 VM 备份到恢复服务保管库](backup-azure-arm-vms.md)。
 >
 >
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 09/08/2017
 >
 > [!IMPORTANT]
 > 从 2017 年 3 月开始，无法再使用经典管理门户来创建备份保管库。
-> 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> 2017 年 10 月 15 日之后，将无法使用 PowerShell 创建备份保管库。 2017 年 11 月 1 日之前：
+> 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> 2017 年 11 月 30 日之后，将无法使用 PowerShell 创建备份保管库。 在 2017 年 11 月 30 日之前：
 >- 其余所有备份保管库都将自动升级到恢复服务保管库。
 >- 无法在经典管理门户中访问备份数据。 应使用 Azure 门户在恢复服务保管库中访问备份数据。
 >
@@ -64,7 +64,7 @@ ms.lasthandoff: 09/08/2017
 
     ![打开“已注册的项”菜单](./media/backup-azure-vms/vault-quick-start.png)
 
-    如果以前已配置了该保管库，门户会打开最近使用的菜单。
+    如果以前已配置了该保管库，门户将打开最近使用的菜单。
 4. 在保管库菜单（位于页面顶部）中，单击“已注册的项”。
 
     ![打开“已注册的项”菜单](./media/backup-azure-vms/vault-menu.png)
@@ -93,7 +93,7 @@ ms.lasthandoff: 09/08/2017
     ![选择工作负荷](./media/backup-azure-vms/discovery-select-workload.png)
 3. 单击页面底部的“**注册**”。
     ![注册按钮](./media/backup-azure-vms/register-button-only.png)
-4. 在“注册项”快捷菜单中，选择要注册的虚拟机。 如果存在两个或两个以上的同名虚拟机，请使用云服务进行区别。
+4. 在“**注册项**”快捷菜单中，选择要注册的虚拟机。 如果存在两个或两个以上的同名虚拟机，请使用云服务进行区别。
 
    > [!TIP]
    > 可以一次注册多个虚拟机。
@@ -173,7 +173,7 @@ ms.lasthandoff: 09/08/2017
 
 1. 在“受保护的项”页面底部，单击“立即备份”。
 
-    Azure 备份服务为初始备份操作创建备份作业。
+    Azure 备份服务将为初始备份操作创建备份作业。
 2. 单击“**作业**”选项卡查看作业列表。
 
     ![备份进行中](./media/backup-azure-vms/protect-inprogress.png)

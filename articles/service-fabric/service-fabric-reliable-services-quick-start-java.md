@@ -12,14 +12,14 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/29/2017
-ms.date: 10/02/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 46a94bbb17234f0ef77c4570f643ba4a4d5670ab
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 4f09928eff864d8996f3a441140b11e56847044a
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services 入门
 > [!div class="op_single_selector"]
@@ -178,4 +178,4 @@ $ ./install.sh
 
 * [Service Fabric CLI 入门](service-fabric-cli.md)
 
-<!--Update_Description: update meta properties, add reference feature on deploy with service fabric CLI  -->
+<!--Update_Description: update meta properties -->

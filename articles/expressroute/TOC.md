@@ -35,6 +35,12 @@
 ## [将关联的虚拟网络从经典部署模型迁移到 Resource Manager 部署模型](expressroute-migration-classic-resource-manager.md)
 ## 为 ExpressRoute 配置路由器
 ### [配置路由器](expressroute-config-samples-routing.md)
+## 经典部署模型文章
+### [修改线路](expressroute-howto-circuit-classic.md)
+### [创建和修改对等互连配置](expressroute-howto-routing-classic.md)
+### [将虚拟网络链接到 ExpressRoute 线路](expressroute-howto-linkvnet-classic.md)
+### [配置 ExpressRoute 和 S2S 并存连接](expressroute-howto-coexist-classic.md)
+### [将网关添加到 VNet](expressroute-howto-add-gateway-classic.md)
 
 ## 最佳实践
 ### [优化路由](expressroute-optimize-routing.md)
@@ -63,5 +69,4 @@
 ## [价格](https://www.azure.cn/pricing/details/expressroute/)
 ## [案例研究](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [SLA](https://www.azure.cn/support/legal/sla/)
-## [订阅和服务限制](../azure-subscription-service-limits.md)
 <!--Update_Description: remove the video related references-->

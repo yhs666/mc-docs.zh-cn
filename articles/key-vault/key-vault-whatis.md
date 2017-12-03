@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/19/2017
-ms.date: 09/07/2017
+origin.date: 10/16/2017
+ms.date: 11/30/2017
 ms.author: v-junlch
-ms.openlocfilehash: eda12b95635d31fb91f6a176158ca2df4823865f
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 70616ddcde805aeb3fe4d1e4f303921cda224952
+ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="what-is-azure-key-vault"></a>什么是 Azure 密钥保管库？
 大多数区域都提供了 Azure 密钥保管库。 有关详细信息，请参阅 [密钥保管库定价页](https://www.azure.cn/pricing/details/key-vault/)。
@@ -60,4 +60,4 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-<!-- Update_Description: wording update -->
+<!--Update_Description: update meta properties --> 

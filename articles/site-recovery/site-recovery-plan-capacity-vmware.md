@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 05/24/2017
-ms.date: 09/11/2017
+origin.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 20eec9fc8c82f9a66f77be1997f3c765a0bc2d98
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 7f66f7bc5f2b20216211809180f4f60d60212bbf
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>规划使用 Azure Site Recovery 的 VMware 复制的容量和规模
+# <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>通过 Azure Site Recovery，针对 VMware 复制规划容量和缩放
 
-请阅读本文，了解将本地 VMware VM 和物理服务器复制到 Azure 时，如何使用 [Azure Site Recovery](site-recovery-overview.md) 规划容量和缩放。
+请阅读本文，了解如何规划容量和缩放，以便使用 [Azure Site Recovery](site-recovery-overview.md) 将本地 VMware VM 和物理服务器复制到 Azure。
 
 ## <a name="how-do-i-start-capacity-planning"></a>如何开始容量规划？
 
-为 VMware 复制运行 [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) 以收集有关复制环境的信息。 [详细了解](site-recovery-deployment-planner.md)此工具。 将收集有关兼容的和不兼容 VM、每个 VM 的磁盘以及每个磁盘数据变化的信息。 该工具还介绍了成功复制和测试故障转移的网络带宽要求，以及所需的 Azure 基础结构。
+为 VMware 复制运行 [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) 以收集有关复制环境的信息。 [详细了解](site-recovery-deployment-planner.md)此工具。 需要收集有关兼容的和不兼容 VM、每个 VM 的磁盘以及每个磁盘数据变化的信息。 该工具还介绍了成功复制和测试故障转移所需的网络带宽要求，以及所需的 Azure 基础结构。
 
 ## <a name="capacity-considerations"></a>容量注意事项
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 09/08/2017
 --- | --- | ---
 **复制** | **每日最大更改率：**一台受保护的计算机只能使用一个进程服务器，一个进程服务器可处理的每日更改率最高可达 2 TB。 因此，2 TB 是受保护计算机支持的每日数据更改率上限。<br/><br/> **最大吞吐量：**在 Azure 中，一个复制的计算机可能属于一个存储帐户。 标准存储帐户每秒最多可以处理 20,000 个请求，因此建议将源计算机中的每秒输入/输出操作数 (IOPS) 保持在 20,000。 例如，如果源计算机有 5 个磁盘，每个磁盘在源计算机上生成 120 IOPS（8K 大小），则 Azure 中单磁盘 IOPS 限制为 500。 （所需的存储帐户数等于源计算机总 IOPS 除以 20,000。）
 **配置服务器** | 配置服务器应该能够处理跨所有工作负荷（运行在受保护的计算机上）的每日更改率容量，并需要有足够的带宽，才能持续将数据复制到 Azure 存储。<br/><br/> 最佳做法是，将配置服务器置于与所要保护的计算机相同的网络和 LAN 网段上。 可以将配置服务器置于另一网络中，但所要保护的计算机应可通过第 3 层网络来查看它。<br/><br/> 以下部分的表中汇总了配置服务器的建议大小。
-**进程服务器** | 默认情况下，第一个进程服务器安装在配置服务器上。 可以部署更多的进程服务器以扩展环境。 <br/><br/> 进程服务器接收受保护计算机提供的复制数据，并对其通过缓存、压缩和加密进行优化， 然后将数据发送到 Azure。 进程服务器计算机应有足够的资源来执行这些任务。<br/><br/> 进程服务器使用基于磁盘的缓存。 在出现网络瓶颈或中断时，使用单独的大小至少为 600 GB 的缓存磁盘来处理存储的数据更改。
+**进程服务器** | 默认情况下，第一个进程服务器安装在配置服务器上。 可以部署更多的进程服务器以扩展环境。 <br/><br/> 进程服务器接收受保护计算机提供的复制数据，并对其通过缓存、压缩和加密进行优化。 然后将数据发送到 Azure。 进程服务器计算机应有足够的资源来执行这些任务。<br/><br/> 进程服务器使用基于磁盘的缓存。 在出现网络瓶颈或中断时，使用单独的大小至少为 600 GB 的缓存磁盘来处理存储的数据更改。
 
 ## <a name="size-recommendations-for-the-configuration-server"></a>配置服务器的建议大小
 
@@ -78,12 +78,12 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="control-network-bandwidth"></a>控制网络带宽
 
-使用 [Deployment Planner 工具](site-recovery-deployment-planner.md)计算复制（初始复制和增量复制）所需的带宽后，可以使用下列几个选项来控制用于复制的带宽量：
+使用[部署计划器工具](site-recovery-deployment-planner.md)计算复制（初始复制和增量复制）所需的带宽后，可以使用下列几个选项来控制用于复制的带宽量：
 
 * **限制带宽**：复制到 Azure 的 VMware 流量会经过特定的进程服务器。 可以在运行进程服务器的计算机上限制带宽。
 * **控制带宽**：可以使用几个注册表项来控制用于复制的带宽：
-  * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\UploadThreadsPerVM** 注册表值指定用于磁盘数据传输（初始或增量复制）的线程数。 使用较大的值会增加复制所用的网络带宽。
-  * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM** 指定故障回复期间用于数据传输的线程数。
+  * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** 注册表值指定用于磁盘数据传输（初始或增量复制）的线程数。 使用较大的值会增加复制所用的网络带宽。
+  * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** 指定故障回复期间用于数据传输的线程数。
 
 ### <a name="throttle-bandwidth"></a>限制带宽
 
@@ -105,14 +105,14 @@ ms.lasthandoff: 09/08/2017
 
 ### <a name="influence-network-bandwidth-for-a-vm"></a>影响 VM 的网络带宽
 
-1. 在 VM 的注册表中导航到 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**。
+1. 在 VM 的注册表中导航到 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsofte Azure Backup\Replication**。
    * 若要影响复制磁盘上的带宽流量，请修改 **UploadThreadsPerVM** 的值，或者创建该项（如果不存在）。
    * 若要影响用于从 Azure 故障回复流量的带宽，请修改 **DownloadThreadsPerVM** 的值。
 2. 默认值为 4。 在“过度预配型”网络中，这些注册表项需要更改，不能使用默认值。 最大值为 32。 监视流量以优化值。
 
 ## <a name="deploy-additional-process-servers"></a>部署额外的进程服务器
 
-如果必须将部署扩大到 200 台以上的源计算机，或者每日总改动率超过 2 TB，则需要额外的进程服务器来处理流量。 按照这些说明设置进程服务器。 设置服务器后，可以迁移源计算机来使用它。
+如果必须将部署扩大到 200 台以上源计算机，或者每日总改动率超过 2 TB，则需要额外的进程服务器来处理流量。 按照这些说明设置进程服务器。 设置服务器后，可以迁移源计算机来使用它。
 
 1. 在“Site Recovery 服务器”中，单击配置服务器，并单击“进程服务器”。
 
@@ -121,8 +121,8 @@ ms.lasthandoff: 09/08/2017
 
     ![“进程服务器”对话框的屏幕截图](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 3. 下载并运行 Site Recovery 统一安装程序文件来安装进程服务器。 这还会将其注册到保管库中。
-4. 在“准备阶段”中选择“添加额外的进程服务器以扩大部署”。
-5. 完成向导，完成方式与 [安装](#step-2-set-up-the-source-environment) 配置服务器时采用的方式相同。
+4. 在“开始之前”中选择“添加额外的进程服务器以扩大部署”。
+5. 完成向导，完成方式与[安装](#step-2-set-up-the-source-environment)配置服务器时采用的方式相同。
 
     ![Azure Site Recovery 统一安装程序向导的屏幕截图](./media/site-recovery-vmware-to-azure/add-ps1.png)
 6. 在“配置服务器详细信息”中，指定配置服务器的 IP 地址和密码。 若要获取密码，请在配置服务器上运行 **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe -n**。
@@ -142,4 +142,4 @@ ms.lasthandoff: 09/08/2017
 
 下载并运行 [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner)
 
-<!--Update_Description: new articles on vmware plan capacity in site recovery -->
+<!--Update_Description: wording update -->

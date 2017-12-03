@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 07/19/2017
 ms.date: 09/13/2017
 ms.author: v-junlch
-ms.openlocfilehash: 54db652427593a1218118cdeab20e62ea5d0a808
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: e350cda78dd56fef98a09b7650c53c94dccab9f0
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>应用程序网关常见问题
 
@@ -108,10 +108,6 @@ Azure 应用程序网关是服务形式的应用程序传送控制器 (ADC)，�
 - 不能阻止出站 Internet 连接。
 
 - 必须允许来自 AzureLoadBalancer 标记的流量。
-
-**问：应用程序网关有哪些限制？是否可以提高这些限制？**
-
-请访问[应用程序网关限制](../azure-subscription-service-limits.md#application-gateway-limits)查看限制。
 
 **问：是否可以同时对外部和内部流量使用应用程序网关？**
 

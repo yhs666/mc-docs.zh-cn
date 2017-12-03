@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/20/2017
+origin.date: 11/09/2017
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: b7d71299458c86e24babfa15dbad097d16e9394d
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 12/11/2017
+ms.openlocfilehash: 57e129decc8fd32e3bb333e8fa4ee6f67d86ca6e
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的配置和管理问题：常见问题解答 (FAQ)
 
@@ -94,9 +94,6 @@ Microsoft 遵循严格的流程，在没有云服务所有者或其受托人的�
 * [将保留 IP 关联到新的云服务](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
 * [将保留 IP 关联到正在运行的部署](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
 * [使用服务配置文件将保留 IP 关联到云服务](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
-
-## <a name="what-is-the-quota-limit-for-my-cloud-service"></a>云服务的配额限制是什么？
-请参阅[服务特定的限制](../azure-subscription-service-limits.md#subscription-limits)。
 
 ## <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>为何云服务 VM 上的驱动器显示可用磁盘空间极少？
 这是预期的行为，不会导致应用程序出现任何问题。 为 Azure PaaS VM 中的 %uproot% 驱动器启用了日记，因此，占用的空间量在实际上是文件平时占用的空间量的两倍。 但是，有几个因素会在本质上消除此状态造成的问题。
@@ -183,6 +180,19 @@ Microsoft 会持续监视服务器、网络和应用程序以检测威胁。 Azu
 
 云服务是一个经典资源。 只有通过 Azure 资源管理器创建的资源才支持标记。 无法将标记应用到云服务等经典资源。 
 
+## <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Azure 门户中即将推出的可帮助管理和监视应用程序的云服务功能是什么？
+
+* 即将推出为远程桌面协议 (RDP) 生成新证书的功能。 或者，可运行以下脚本：
+
+```powershell
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 20 48 -KeySpec "KeyExchange"
+$password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
+Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
+* 选择 blob 或本地作为 csdef 和 cscfg 上传位置的功能即将推出。 使用 [New-AzureDeployment](https://docs.microsoft.com/en-us/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0)，可以设置每个位置值。
+* 能够监视实例级别的指标。 其他监视功能在[如何监视云服务](cloud-services-how-to-monitor.md)中提供。
+
+
 ## <a name="how-to-enable-http2-on-cloud-services-vm"></a>如何在云服务 VM 上启用 HTTP/2？
 
 Windows 10 和 Windows Server 2016 随附了对客户端和服务器端上的 HTTP/2 的支持。 如果客户端（浏览器）通过 TLS（通过 TLS 扩展协商 HTTP/2）连接到 IIS 服务器，则不需要在服务器端进行任何更改。 这是因为，默认情况下会通过 TLS 来发送指定使用 HTTP/2 的 h2-14 标头。 如果在另一方面，客户端要发送升级标头以升级到 HTTP/2，则需要在服务器端进行以下更改，确保能够正常进行升级，并最终建立 HTTP/2 连接。 
@@ -197,7 +207,6 @@ Windows 10 和 Windows Server 2016 随附了对客户端和服务器端上的 HT
 有关详细信息，请参阅：
 
 - [IIS 上的 HTTP/2](https://blogs.iis.net/davidso/http2)
-- [视频：Windows 10 中的 HTTP/2：浏览器、应用和 Web 服务器](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
 请注意，可通过启动任务自动完成上述步骤，这样，每次创建新的 PaaS 实例后，都可以在系统注册表中执行上述更改。 有关详细信息，请参阅[如何配置和运行云服务的启动任务](cloud-services-startup-tasks.md)。

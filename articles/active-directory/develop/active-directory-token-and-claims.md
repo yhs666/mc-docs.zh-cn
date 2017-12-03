@@ -16,11 +16,11 @@ origin.date: 09/07/2017
 ms.date: 09/20/2017
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: c1399dbc49e6b7e9f9f9d1e05d4024d3e712748a
-ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
+ms.openlocfilehash: bb08cd000001c0ea62a6ae977a40183204d0dc3b
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 令牌参考
 Azure Active Directory (Azure AD) 在处理每个身份验证流时会发出多种类型的安全令牌。 本文档说明每种令牌的格式、安全特征和内容。
@@ -307,6 +307,5 @@ https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration
 
 ## <a name="related-content"></a>相关内容
 - 请参阅 Azure AD Graph [策略操作](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations)和[策略实体](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity)以了解有关通过 Azure AD Graph API 管理令牌生存期策略的详细信息。
-- 有关通过 PowerShell cmdlet 管理策略的详细信息和示例，请参阅 [Azure AD 中的可配置令牌生存期](../active-directory-configurable-token-lifetimes.md)。 
 
 <!--Update_Description: wording update-->

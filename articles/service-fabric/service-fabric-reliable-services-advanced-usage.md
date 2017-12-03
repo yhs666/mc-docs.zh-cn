@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/21/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5ba0908fdf31765e81aab391aab84134b52b4d82
-ms.sourcegitcommit: bfdbf6df593eb9ea6ad7372375db671886055a12
+ms.openlocfilehash: 6542c7f20422b11ff4c6e0f8608611a1df50ed1f
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="advanced-usage-of-the-reliable-services-programming-model"></a>Reliable Services 编程模型的高级用法
 Azure Service Fabric 可简化可靠的无状态服务和有状态服务的编写与管理。 本指南讨论 Reliable Services 的高级用法，以便针对服务获得更多控制和灵活性。 阅读本指南之前，自己应熟悉 [Reliable Services 编程模型](service-fabric-reliable-services-introduction.md)。
@@ -49,9 +49,9 @@ Azure Service Fabric 可简化可靠的无状态服务和有状态服务的编�
 
 有状态服务副本的生命周期比无状态服务实例复杂得多。 除了打开、关闭和中止事件，有状态服务副本还会在其生存期内经历角色更改。 有状态服务副本更改角色时，会触发 `OnChangeRoleAsync` 事件：
 
-* `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` 有状态服务副本更改角色（例如，更改为主要副本或次要副本）时，可调用 OnChangeRoleAsync。 主副本将指定为写状态（允许创建和写入可靠集合）。 辅助副本将指定为读取状态（只能从现有的可靠集合读取）。 有状态服务中的大部分工作在主要副本执行。 次要副本可执行只读验证、报表生成、数据挖掘或其他只读作业。
+* `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)`：当有状态服务副本要更改角色（例如，更改为主要副本或次要副本）时调用 OnChangeRoleAsync。 主副本将指定为写状态（允许创建和写入可靠集合）。 辅助副本将指定为读取状态（只能从现有的可靠集合读取）。 有状态服务中的大部分工作在主要副本执行。 次要副本可执行只读验证、报表生成、数据挖掘或其他只读作业。
 
-在有状态服务中，只有主要副本才对状态具有写入访问权限，因此当服务执行实际工作时通常为主要副本。 只有在有状态服务副本为主要副本时，才会执行有状态服务中的 `RunAsync` 方法。 当主要副本的角色变成非主要时，以及在关闭和中止事件期间，会取消 `RunAsync` 方法。
+在有状态服务中，只有主要副本才对状态具有写入访问权限，因此当服务执行实际工作时通常为主要副本。 只有当有状态服务副本为主副本时，才会执行有状态服务中的 `RunAsync` 方法。 当主要副本的角色变成非主要时，以及在关闭和中止事件期间，会取消 `RunAsync` 方法。
 
 使用 `OnChangeRoleAsync` 事件，可以根据副本角色执行工作以及响应角色更改。
 
@@ -71,4 +71,4 @@ Azure Service Fabric 可简化可靠的无状态服务和有状态服务的编�
 * [使用系统运行状况报告进行故障排除](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 * [使用 Service Fabric 群集 Resource Manager 配置服务](service-fabric-cluster-resource-manager-configure-services.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

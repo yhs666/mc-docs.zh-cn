@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/13/2017
-ms.date: 08/21/2017
+origin.date: 11/03/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: fcca8601728c2b0ce7d732103ad0525689cf751f
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: a0cef5af47d1a4d2309f2ff3cf2291efd2461d66
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>在本地群集上部署和升级应用程序入门
 Azure Service Fabric SDK 包含完整的本地开发环境，可让你快速地在本地群集上开始部署和管理应用程序。 本文介绍如何从 Windows PowerShell 创建本地群集、将现有应用程序部署到该群集，并将该应用程序升级到新版本。
@@ -30,9 +30,9 @@ Azure Service Fabric SDK 包含完整的本地开发环境，可让你快速地�
 > 
 
 ## <a name="create-a-local-cluster"></a>创建本地群集
-Service Fabric 群集代表一组可将应用程序到的硬件资源。 通常，群集由任意数量的计算机（从 5 台到数千台）组成。 不过，Service Fabric SDK 包含可在一台计算机上运行的群集配置。
+Service Fabric 群集代表一组可在其中部署应用程序的硬件资源。 通常，群集由任意数量的计算机（从 5 台到数千台）组成。 不过，Service Fabric SDK 包含可在一台计算机上运行的群集配置。
 
-Service Fabric 本地群集不是模拟器或仿真器，了解这一点非常重要。 它会运行在多计算机群集上使用的平台代码。 唯一的差别在于它在一台计算机上运行通常会分散于五台计算机的平台进程。
+Service Fabric 本地群集不是模拟器或仿真器，了解这一点非常重要。 它运行多台计算机群集上使用的相同平台代码。 唯一的差别在于它在一台计算机上运行通常会分散于五台计算机的平台进程。
 
 SDK 提供两种方式来设置本地群集：Windows PowerShell 脚本和本地群集管理器系统托盘应用。 在本教程中，我们使用 PowerShell 脚本。
 
@@ -71,7 +71,7 @@ Service Fabric SDK 包含一组丰富的框架以及用于创建应用程序的�
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
-4. [下载 WordCount 应用程序](http://aka.ms/servicefabric-wordcountapp) 到创建的位置。  注意：Microsoft Edge 浏览器以 *.zip* 扩展名保存文件。  请将文件扩展名更改为 *.sfpkg*。
+4. [下载 WordCount 应用程序](http://aka.ms/servicefabric-wordcountapp) 到创建的位置。  注意：Microsoft Edge 浏览器以 *.zip* 扩展名保存文件。  将文件扩展名更改为 *.sfpkg*。
 5. 连接到本地群集：
 
     ```powershell
@@ -92,7 +92,7 @@ Service Fabric SDK 包含一组丰富的框架以及用于创建应用程序的�
 
     WordCount 应用程序非常简单。 它包含的客户端 JavaScript 代码可生成包含五个随机字符的“单词”，并通过 ASP.NET Web API 将这些单词中继到应用程序。 有状态服务跟踪统计的字数。 这些单词根据其第一个字符进行分区。 可以在[经典入门示例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/WordCount)中查找 WordCount 应用程序的源代码。
 
-    我们部署的应用程序包含四个分区。 因此，以 A 到 G 开头的单词存储在第一个分区，以 N 到 H 开头的单词存储在第二个分区，依此类推。
+    我们部署的应用程序包含四个分区。 因此，以 A 到 G 开头的单词将存储在第一个分区，以 N 到 H 开头的单词将存储在第二个分区，依此类推。
 
 ## <a name="view-application-details-and-status"></a>查看应用程序详细信息和状态
 既已部署应用程序，让我们在 PowerShell 中查看一些应用详细信息。
@@ -115,7 +115,7 @@ Service Fabric SDK 包含一组丰富的框架以及用于创建应用程序的�
     ![在 PowerShell 中列出应用程序的服务][ps-getsfsvc]
 
     该应用程序由两个服务组成：Web 前端服务和可管理单词的有状态服务。
-3. 最后，看看 WordCountService 的分区列表：
+3. 最后，查看 WordCountService 的分区列表：
 
     ```powershell
     Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
@@ -135,11 +135,11 @@ Service Fabric SDK 包含一组丰富的框架以及用于创建应用程序的�
    > 
 
 ## <a name="upgrade-an-application"></a>升级应用程序
-在群集中推出应用程序时，Service Fabric 将监视其运行状况，从而提供无需停机的升级。 对 WordCount 应用程序执行升级。
+Service Fabric 在应用程序推出于群集时监视其运行状况，从而提供无需停机的升级。 对 WordCount 应用程序执行升级。
 
 新版应用程序现在只计算以元音开头的单词。 推出升级后，我们会看到应用程序的行为出现两项变化。 首先，计数增长的速率应该变慢，因为计算的单词比较少。 其次，由于第一个分区有两个元音（A 和 E），而其他每个分区只包含一个元音，因此第一个分区的计数最终会超出其他分区。
 
-1. [下载 WordCount v2 包](http://aka.ms/servicefabric-wordcountappv2) 到 v1 包下载到的位置。
+1. [下载 WordCount v2 包](http://aka.ms/servicefabric-wordcountappv2)并将其保存到已下载的 v1 包的同一位置。
 2. 返回 PowerShell 窗口并，使用 SDK 的升级命令在群集中注册新版本。 然后开始升级 fabric:/WordCount 应用程序。
 
     ```powershell
@@ -153,7 +153,7 @@ Service Fabric SDK 包含一组丰富的框架以及用于创建应用程序的�
 
     ![Service Fabric Explorer 中的升级进度][sfx-upgradeprogress]
 
-    随着每个域不断升级，系统执行运行状况检查，以确保应用程序行为正常。
+    随着每个域不断升级，系统将执行运行状况检查，以确保应用程序行为正常。
 4. 如果重新运行对 fabric:/WordCount 应用程序中的服务集以前的查询，则会发现 WordCountService 的版本已更改，但 WordCountWebService 的版本维持不变：
 
     ```powershell
@@ -179,7 +179,7 @@ Service Fabric SDK 包含一组丰富的框架以及用于创建应用程序的�
     也可以在 Service Fabric Explorer 的“操作”  菜单或在左侧的应用程序列表视图的上下文菜单中删除应用程序。
 
     ![在 Service Fabric Explorer 中删除应用程序][sfe-delete-application]
-2. 从群集中删除应用程序后，注销 WordCount 应用程序类型的版本 1.0.0 和 2.0.0。 删除操作会从群集的映像存储区删除该应用程序包，包括其代码和配置。
+2. 从群集中删除应用程序后，注销 WordCount 应用程序类型的版本 1.0.0 和 2.0.0。 删除操作将从群集的映像存储中删除该应用程序包，包括其代码和配置。
 
     ```powershell
     Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
@@ -188,7 +188,7 @@ Service Fabric SDK 包含一组丰富的框架以及用于创建应用程序的�
 
     或者，在 Service Fabric Explorer 中为应用程序选择“取消预配类型”  。
 3. 若要关闭群集，但保留应用程序数据和跟踪，请在系统托盘应用中单击“停止本地群集”  。
-4. 要完全删除群集，请在系统托盘应用中单击“删除本地群集”  。 选择此选项，下次在 Visual Studio 中按 F5 时会再次慢速部署。 仅当在一段时间内不想使用本地群集时，或者当需要回收资源时，才删除本地群集。
+4. 要完全删除群集，请在系统托盘应用中单击“删除本地群集”  。 此选项会导致下次在 Visual Studio 中按 F5 时部署较慢。 仅当在一段时间内不想使用本地群集时，或者当需要回收资源时，才删除本地群集。
 
 ## <a name="one-node-and-five-node-cluster-mode"></a>单节点群集模式和五节点群集模式
 开发应用程序时，会发现自己经常需要反复地编写代码、调试、更改代码，再调试代码。 为了帮助优化此过程，可在两种模式下运行本地群集：单节点或五节点。 这两种群集模式各有优势。 在五节点群集模式下，可以操作实际群集。 可以测试故障转移方案，使用服务的更多实例和副本。 单节点群集模式经过优化，能够快速执行服务部署和注册，从而帮助使用 Service Fabric 运行时快速验证代码。
@@ -218,7 +218,7 @@ Service Fabric SDK 包含一组丰富的框架以及用于创建应用程序的�
     ![群集设置输出][cluster-setup-success-1-node]
 
 ## <a name="next-steps"></a>后续步骤
-* 现已部署并升级某些预先生成的应用程序，接下来可以[尝试在 Visual Studio 中生成自己的应用程序](service-fabric-create-your-first-application-in-visual-studio.md)。
+* 现在，已部署并升级某些预先生成的应用程序，接下来可以 [尝试在 Visual Studio 中生成自己的应用程序](service-fabric-create-your-first-application-in-visual-studio.md)。
 * 也可以对 [Azure 群集](service-fabric-cluster-creation-via-portal.md) 执行本文中所述的对本地群集执行的所有操作。
 * 本文中执行的升级是基本的升级。 若要深入了解 Service Fabric 升级的功能和灵活性，请参阅 [升级文档](service-fabric-application-upgrade.md) 。
 

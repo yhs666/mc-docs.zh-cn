@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 03/24/2017
 ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: f6fedf025b3b81a3d1c71e949687f9a84dcd1df9
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: b2f5c1ba146fa69187751ff143f1fe302a316dc6
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>使用 PowerShell 将多个 IP 地址分配到虚拟机
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/02/2017
     向 NIC 分配多个 IP 配置时，必须将一个配置指定为 Primary。
 
     > [!NOTE]
-    > 公共 IP 地址会产生少许费用。 有关 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 可在一个订阅中使用的公共 IP 地址数有限制。 有关限制的详细信息，请阅读 [Azure limits](../azure-subscription-service-limits.md#networking-limits)（Azure 限制）一文。
+    > 公共 IP 地址会产生少许费用。 有关 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 可在一个订阅中使用的公共 IP 地址数有限制。 
 
 7. 定义 NIC 的辅助 IP 配置。 可以根据需要添加或删除配置。 每个 IP 配置必须分配有专用 IP 地址。 每个配置可选择性分配有一个公共 IP 地址。
 
@@ -252,7 +252,7 @@ ms.lasthandoff: 11/02/2017
     将公共 IP 地址资源关联到新 IP 配置或现有 IP 配置即可添加公共 IP 地址。 根据需要，完成以下任一部分中的步骤。
 
     > [!NOTE]
-    > 公共 IP 地址会产生少许费用。 有关 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 可在一个订阅中使用的公共 IP 地址数有限制。 有关限制的详细信息，请阅读 [Azure limits](../azure-subscription-service-limits.md#networking-limits)（Azure 限制）一文。
+    > 公共 IP 地址会产生少许费用。 有关 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 可在一个订阅中使用的公共 IP 地址数有限制。
     >
 
     - **将公共 IP 地址资源关联到新 IP 配置**

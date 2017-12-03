@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 09/07/2016
 ms.date: 12/04/2017
 ms.author: v-yiso
-ms.openlocfilehash: 9d0eeb49076c8e29727737fb5433f6afe13047ee
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: a65cced927a7250e4672be859267fb14661ad6b6
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>如何：在 Azure 应用服务中监视 Web 应用
 [应用服务](app-service-web-overview.md)在 [Azure 门户](https://portal.azure.cn)中提供了内置监视功能。
@@ -50,8 +50,6 @@ ms.lasthandoff: 11/24/2017
   * 允许的存储空间总量。
 
 适用于托管在**基本**、**标准**和**高级**计划中的应用的唯一配额是**文件系统**。
-
-有关各种应用服务 SKU 可用的特定配额、限制和功能的详细信息，请参见：[Azure 订阅服务限制](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>配额强制执行
 如果应用程序的使用量超过 **CPU（短期）**、**CPU（天）**或**带宽**配额，则将终止该应用程序，直到配额重置。 在此期间，所有传入请求都将导致 **HTTP 403**。

@@ -1,5 +1,5 @@
 ---
-title: "将 Windows 服务器或工作站备份到 Azure（经典模型）| Microsoft Docs"
+title: "将 Windows 服务器或工作站备份到 Azure（经典模型）| Microsoft 文档"
 description: "将 Windows 服务器或客户端备份到 Azure 中的备份保管库。 了解有关使用 Azure 备份代理将文件和文件夹保护到备份保管库的基础知识。"
 services: backup
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/11/2017
-ms.date: 09/04/2017
+origin.date: 11/10/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
-ms.openlocfilehash: dbcac80e8e0fef1c49086e5f0cefd2183b4572a1
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 0c663518a19d89da0625188721c2263760c63e6d
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="back-up-a-windows-server-or-workstation-to-azure-using-the-classic-management-portal"></a>使用经典管理门户将 Windows 服务器或工作站备份到 Azure
 > [!div class="op_single_selector"]
@@ -42,8 +42,8 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：Resource
 > [!IMPORTANT]
 > 从 2017 年 3 月开始，无法再使用经典管理门户来创建备份保管库。
 >
-> 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> **2017 年 10 月 15 日之后**，无法使用 PowerShell 创建备份保管库。 <br/> **从 2017 年 11 月 1 日起**：
->- 其余的所有备份保管库都会自动升级到恢复服务保管库。
+> 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> 2017 年 11 月 30 日之后，将无法使用 PowerShell 创建备份保管库。 <br/> 在 2017 年 11 月 30 日之前：
+>- 其余所有备份保管库都将自动升级到恢复服务保管库。
 >- 无法在经典管理门户中访问备份数据。 应使用 Azure 门户在恢复服务保管库中访问备份数据。
 >
 
@@ -52,7 +52,7 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：Resource
 本地计算机需要先在备份保存库中通过身份验证才能将数据备份到 Azure。 身份验证是通过 *保管库凭据*实现的。 从经典管理门户通过安全通道下载保管库凭据文件。 证书私钥不会在门户或服务中持久保存。
 
 ### <a name="to-download-the-vault-credential-file-to-a-local-machine"></a>将保管库凭据文件下载到本地计算机
-1. 在左侧导航窗格中单击“恢复服务”，然后选择创建的备份保管库。
+1. 在左侧导航窗格中单击“**恢复服务**”，并选择创建的备份保管库。
 
     ![IR 完成](./media/backup-configure-vault-classic/rs-left-nav.png)
 2. 在“快速启动”页上，单击“**下载保管库凭据**”。
@@ -71,13 +71,13 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：Resource
 创建备份保管库并下载保管库凭据文件之后，必须在每台 Windows 计算机上安装一个代理。
 
 ### <a name="to-download-install-and-register-the-agent"></a>下载、安装和注册代理
-1. 单击“恢复服务”，然后选择要向服务器注册的备份保管库。
+1. 单击“**恢复服务**”，然后选择要向其注册服务器的备份保管库。
 2. 在“快速启动”页上，单击“**Windows Server、System Center Data Protection Manager 或 Windows 客户端的代理**”。 。
 
     ![保存代理](./media/backup-configure-vault-classic/agent.png)
 3. 下载 MARSagentinstaller.exe 后，单击“**运行**”（或双击保存位置中的 **MARSAgentInstaller.exe**）。
-4. 选择代理所需的安装文件夹和缓存文件夹，然后单击“下一步”。 指定的缓存位置必须至少有备份数据的 5% 的可用空间。
-5. 可以继续通过默认代理设置连接到 Internet。             如果使用代理服务器连接到 Internet，请在“代理配置”页上选中“使用自定义代理设置”复选框，然后输入代理服务器详细信息。 如果使用已经过身份验证的代理，请输入用户名和密码详细信息，然后单击“下一步”。
+4. 选择代理所需的安装文件夹和缓存文件夹，并单击“**下一步**”。 指定的缓存位置必须至少有备份数据的 5% 的可用空间。
+5. 可以继续通过默认代理设置连接到 Internet。             如果使用代理服务器连接到 Internet ，请在“代理配置”页上选中“**使用自定义代理设置**”复选框，并输入代理服务器详细信息。 如果使用已经过身份验证的代理，请输入用户名和密码详细信息，并单击“**下一步**”。
 6. 单击“**安装**”开始安装代理。 备份代理将安装 .NET Framework 4.5 和 Windows PowerShell（如果尚未安装）以完成安装。
 7. 安装代理后，单击“**继续注册**”以继续运行工作流。
 8. 在“保管库标识”页上，浏览到前面下载的保管库凭据文件并将其选中。
@@ -114,9 +114,9 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：Resource
     ![计划 Windows Server 备份](./media/backup-configure-vault-classic/schedule-backup-close.png)
 3. 在计划备份向导的“开始使用”页上，单击“**下一步**”。
 4. 在“选择要备份的项”页上，单击“**添加项**”。
-5. 选择要备份的文件和文件夹，然后单击“确定”。
+5. 选择要备份的文件和文件夹，并单击“**确定**”。
 6. 单击“资源组名称” 的 Azure 数据工厂。
-7. 在“指定备份计划”页上指定**备份计划**，然后单击“下一步”。
+7. 在“**指定备份计划**”页上指定**备份计划**，并单击“**下一步**”。
 
     可以计划每日（频率为一天最多三次）或每周备份。
 
@@ -132,8 +132,8 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：Resource
     保留策略指定备份可以存储的时间长短。 可以根据备份的创建时间指定不同的保留策略，而不只是为所有备份点指定一个“通用的策略”。 可以根据需要修改每日、每周、每月和每年保留策略。
 9. 在“选择初始备份类型”页上，选择初始备份类型。 将“自动通过网络”选项保持选中状态，然后单击“下一步”。
 
-    可以通过网络自动备份，或者脱机备份。 本文的余下部分介绍自动备份过程。 如果想要执行脱机备份，请查看 [Azure 备份中的脱机备份工作流](backup-azure-backup-import-export.md)以了解更多信息。
-10. 在“确认”页上复查信息，然后单击“完成”。
+    可以通过网络自动备份，或者脱机备份。 本文的余下部分介绍自动备份过程。 如果想要执行脱机备份，请查看 [Azure 备份中的脱机备份工作流](backup-azure-backup-import-export.md) 以了解更多信息。
+10. 在“确认”页上复查信息，并单击“**完成**”。
 11. 在向导完成创建备份计划后，请单击“**关闭**”。
 
 ### <a name="enable-network-throttling-optional"></a>启用网络限制（可选）
@@ -149,7 +149,7 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：Resource
     ![网络限制](./media/backup-configure-vault-classic/throttling-dialog.png)
 3. 启用限制后，指定在“**工作时间**”和“**非工作时间**”允许使用多少带宽进行备份数据传输。
 
-    带宽值从每秒 512 千字节 (Kbps) 开始，最高可为每秒 1,023 兆字节 (MBps)。 还可以指定“工作时间”的开始和结束时间，以及一周中有哪几天被视为工作日。 指定的工作时间以外的时间视为非工作时间。
+    带宽值从每秒 512 千字节 (Kbps) 开始，最高可为每秒 1,023 兆字节 (MBps)。 还可以指定“**工作时间**”的开始和结束时间，以及一周中有哪几天被视为工作日。 指定的工作时间以外的时间视为非工作时间。
 4. 单击 **“确定”**。
 
 ### <a name="to-back-up-now"></a>立即备份

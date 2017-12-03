@@ -14,11 +14,11 @@ ms.topic: support-article
 origin.date: 09/13/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3d59289d113486046eb686f66e7405eda8250de6
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: f3c7baae26b786c66c03b8c93405ca847fa693ef
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>解决资源配额错误
 
@@ -45,8 +45,7 @@ please delete some resources of this type before creating a new one.
 
 ## <a name="cause"></a>原因
 
-按每个资源组、订阅、帐户和其他作用域应用配额。 例如，订阅可能配置为限制某个区域的核心数目。 如果尝试部署超过允许核心数目的虚拟机，则会收到指出超过配额的错误消息。
-有关完整的配额信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
+按每个资源组、订阅、帐户和其他作用域应用配额。 例如，订阅可能配置为限制某个区域的核心数目。 如果尝试部署超过允许核心数目的虚拟机，将收到指出超过配额的错误消息。
 
 ## <a name="solution"></a>解决方案
 

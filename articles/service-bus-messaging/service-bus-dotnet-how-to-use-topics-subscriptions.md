@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 10/10/2017
 ms.author: v-yiso
-ms.date: 11/13/2017
-ms.openlocfilehash: 61e5d25ea7da2be9e09737a0ddd59c4de24b890a
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.date: 12/11/2017
+ms.openlocfilehash: 1392d77eabe763e3679e1fefbd1042efc3d39638
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>服务总线主题入门
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2.使用 Azure 门户创建主题
 
 1. 登录到 [Azure 门户][azure-portal]。
-2. 在门户的左侧的导航窗格中，单击“服务总线”（如果未看到“服务总线”，请单击“更多服务”）。
+2. 在门户左侧的导航窗格中，单击“服务总线”（如果未看到“服务总线”，请单击“更多服务”或“所有资源”）。
 3. 单击要在其中创建主题的命名空间。 此时会显示命名空间概览边栏选项卡：
    
     ![创建主题][createtopic1]
@@ -101,10 +101,10 @@ ms.lasthandoff: 11/03/2017
     var client = TopicClient.CreateFromConnectionString(connectionString, topicName);
     var message = new BrokeredMessage("This is a test message!");
 
+    client.Send(message);
+
     Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
     Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
-
-    client.Send(message);
 
     Console.WriteLine("Message successfully sent! Press ENTER to exit program");
     Console.ReadLine();
@@ -132,10 +132,10 @@ ms.lasthandoff: 11/03/2017
                 var client = TopicClient.CreateFromConnectionString(connectionString, topicName);
                 var message = new BrokeredMessage("This is a test message!");
 
+                client.Send(message);
+                
                 Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
                 Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
-
-                client.Send(message);
 
                 Console.WriteLine("Message successfully sent! Press ENTER to exit program");
                 Console.ReadLine();

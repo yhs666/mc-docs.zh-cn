@@ -14,11 +14,11 @@ ms.workload: storage-backup-recovery
 origin.date: 07/31/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 24bc259060dc2d6b8af9d8e45e49ae6cd4a976c7
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 4b3c9a0062e5b0f66c649dbca845d7aa1b3df46e
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-a-site-recovery-vault-to-an-azure-resource-manager-based-recovery-services-vault"></a>将 Site Recovery 保管库升级到基于 Azure 资源管理器的恢复服务保管库
 
@@ -157,8 +157,7 @@ ms.lasthandoff: 09/28/2017
 
 ### <a name="replicate-by-using-azure-site-recovery-in-the-recovery-services-vault"></a>在恢复服务保管库中使用 Azure Site Recovery 进行复制
 
-* 现在，可以从不同区域对 Azure VM 进行保护。 
-<!--Not Available  To know more, refer to the documentation [here](site-recovery-azure-to-azure.md).-->
+* 现在，可以从不同区域对 Azure VM 进行保护。 有关详细信息，请参阅[使用 Azure Site Recovery 在区域间复制 Azure VM](site-recovery-azure-to-azure.md)。
 
 * 有关将 VMware VM 复制到 Azure 的详细信息，请参阅[使用 Site Recovery 将 VMware VM 复制到 Azure](vmware-walkthrough-overview.md)。
 
@@ -186,4 +185,4 @@ ms.lasthandoff: 09/28/2017
 
 有关复制策略的详细信息，请参阅[管理从 VMware 到 Azure 的复制策略](site-recovery-setup-replication-settings-vmware.md)。
 
-<!--Update_Description: wording update, update link-->
+<!--Update_Description: update meta properties, wording update -->
