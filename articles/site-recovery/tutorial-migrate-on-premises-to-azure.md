@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/16/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 776df236f89d98b4182f05fd9ba1d4599e564df7
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.custom: MVC
+ms.openlocfilehash: bc24986cc4184dddefa09c63b0e3572094761513
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>将本地计算机迁移到 Azure
 
@@ -110,4 +111,4 @@ ms.lasthandoff: 11/15/2017
 > [!div class="nextstepaction"]
 > [在迁移到 Azure 后，将 Azure VM 复制到另一个区域](site-recovery-azure-to-azure-after-migration.md)
 
-<!-- Update_Description: new articles on site recovery tutorial migrate on premises to azure-->
+<!-- Update_Description: update meta properties, update link -->

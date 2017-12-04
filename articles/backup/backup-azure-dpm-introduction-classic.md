@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/02/2017
-ms.date: 09/04/2017
+origin.date: 11/09/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
-ms.openlocfilehash: cf8c6764a4bdece2552915dc54ad1187a8233af0
-ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
+ms.openlocfilehash: f46dcf3bf4b78c6b389991853716fd0686bff23e
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>使用 DPM 准备将工作负荷备份到 Azure
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ System Center DPM 备份文件和应用程序数据。 备份到 DPM 的数据�
 
     > [!IMPORTANT]
     > 从 2017 年 3 月开始，无法再使用经典管理门户来创建备份保管库。
-    > 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> 2017 年 10 月 15 日之后，将无法使用 PowerShell 创建备份保管库。 2017 年 11 月 1 日之前：
+    > 现在可将备份保管库升级到恢复服务保管库。 有关详细信息，请参阅文章[将备份保管库升级到恢复服务保管库](backup-azure-upgrade-backup-to-recovery-services.md)。 Microsoft 鼓励将备份保管库升级到恢复服务保管库。<br/> 2017 年 11 月 30 日之后，将无法使用 PowerShell 创建备份保管库。 在 2017 年 11 月 30 日之前：
     >- 其余所有备份保管库都将自动升级到恢复服务保管库。
     >- 无法在经典管理门户中访问备份数据。 应使用 Azure 门户在恢复服务保管库中访问备份数据。
     >

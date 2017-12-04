@@ -2,7 +2,7 @@
 title: "Azure 云服务定义WebRole 架构 | Microsoft Docs"
 ms.custom: 
 origin.date: 04/14/2015
-ms.date: 11/06/2017
+ms.date: 12/11/2017
 ms.prod: azure
 ms.reviewer: 
 ms.service: cloud-services
@@ -14,11 +14,11 @@ caps.latest.revision: "60"
 author: thraka
 ms.author: v-yiso
 manager: timlt
-ms.openlocfilehash: fe70400f25cd29387e7b1fb70dafc5b47bbf4c32
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.openlocfilehash: ce00f218b98ad619cbd070112f2b4966756b227a
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure 云服务定义 WebRole 架构
 Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP.NET、PHP、Windows Communication Foundation 和 FastCGI）自定义的角色。
@@ -120,7 +120,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 
 [证书](#Certificates)
 
-证书[](#Certificate)
+[证书](#Certificate)
 
 [Imports](#Imports)
 
@@ -298,7 +298,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 |permissionLevel|字符串|可选。 指定授予角色进程的访问权限。 如果只希望提升的进程访问私钥，则指定 `elevated` 权限。 `limitedOrElevated` 权限允许所有角色进程访问私钥。 可能的值为 `limitedOrElevated` 或 `elevated`。 默认值为 `limitedOrElevated`。|  
 
 ##  <a name="Imports"></a> Imports  
-`Imports` 元素描述向来宾操作系统添加组件的 Web 角色的导入模块集合。 此元素是 `Import` 元素的父级。 此元素是可选的，一个角色只能有一个运行时块。
+`Imports` 元素描述向来宾操作系统添加组件的 Web 角色的导入模块集合。 此元素是 `Import` 元素的父级。 此元素是可选的，一个角色只能有一个 imports 块。 
 
 仅当使用 Azure SDK 1.3 或更高版本时，才提供 `Imports` 元素。
 

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/21/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6b19046698ff5fe486ca6e0b23bf1ff161148867
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: 0a6633d0406d2a40dad0db64ce291079c997a988
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 入门
 > [!div class="op_single_selector"]
@@ -150,4 +150,4 @@ internal static class Program
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

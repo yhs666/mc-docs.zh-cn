@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 05/10/2017
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3462b1bd8212452b068efbc6d25e8455ceb6f73b
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 10067e4241972fc97276145b74b71585cd98bce4
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>添加、更改或删除虚拟网络子网
 
@@ -37,7 +37,6 @@ ms.lasthandoff: 11/10/2017
 在开始执行本文所述的任务之前，需满足以下先决条件：
 
 - 如果不熟悉虚拟网络的用法，建议你查看[创建你的第一个 Azure 虚拟网络](virtual-network-get-started-vnet-subnet.md)中的练习。 此练习可帮助你熟悉虚拟网络。
-- 若要了解虚拟网络的限制，请查看 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 - 使用 Azure 帐户登录到 Azure 门户、Azure 命令行工具 (Azure CLI) 或 Azure PowerShell。 如果没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果你打算使用 PowerShell 命令来完成本文所述的任务，必须先[安装并配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json)。 确保安装最新版本的 Azure PowerShell cmdlet。 若要获取示例中 PowerShell 命令的帮助，请输入 `get-help <command> -full`。
 - 如果打算使用 Azure CLI 命令来完成本文所述的任务，必须：[安装并配置 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest)。 确保安装最新版本的 Azure CLI。 若要获取 Azure CLI 命令的帮助，请输入 `az <command> --help`。

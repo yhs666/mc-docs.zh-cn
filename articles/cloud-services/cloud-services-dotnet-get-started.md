@@ -11,15 +11,15 @@ ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: hero-article
 origin.date: 05/15/2017
-ms.date: 11/06/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: de7be275019f38f9469d8da22f41dcd686a8c5bf
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.openlocfilehash: 95a1d361c31b266d20e785e25798effde5e77ceb
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure 云服务和 ASP.NET 入门
 
@@ -854,6 +854,6 @@ Contoso 广告应用程序有意保持入门教程的简单性。 例如，它�
 有关详细信息，请参阅以下资源：
 
 * [Azure 云服务的第 1 部分：简介](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction)
-* [如何管理云服务](./cloud-services-how-to-manage.md)
+* [如何管理云服务](cloud-services-how-to-manage-portal.md)
 * [Azure 存储](/storage/)
 * [如何选择云服务提供商](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
