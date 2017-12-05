@@ -12,32 +12,46 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/12/2017
+origin.date: 09/23/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 238b0a28416490f7982cd1cfc4ee30b2f467ef7e
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 12/11/2017
+ms.openlocfilehash: cf98830a5a815b0ffafb1ff4454f67e08391b8d1
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="overview-of-azure-monitor"></a>Azure Monitor 概述
 本文概述了 Azure 中的 Azure Monitor 服务。 它讨论了 Azure Monitor 可以执行的工作并指出了可以在哪里找到有关如何使用 Azure Monitor 的其他信息。  
 
-## <a name="why-monitor-your-application-or-system"></a>为何要监视应用程序或系统
-云应用程序很复杂，包含很多移动部件。 监视可以为用户提供数据，确保应用程序始终处于健康运行状态。 监视还有助于避免潜在问题，或者解决过去的问题。 此外，还可以利用监视数据深入了解应用程序的情况。 这些解析可帮助提升应用程序性能或维护性，或者将某些原本需要手动介入的操作自动化。
-
-
 ## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a>Azure Monitor 和 Microsoft 的其他监视产品
-Azure Monitor 针对 Azure 中的大多数服务提供基本级别的基础结构指标和日志。 尚未将其数据放置到 Azure Monitor 中的 Azure 服务在将来会将数据放置到其中。 
+Azure Monitor 针对 Azure 中的大多数服务提供基本级别的基础结构指标和日志。 如果 Azure 服务尚未将数据置于 Azure Monitor 中，今后将会把数据置于其中。 
 
 Microsoft 还提供了其他产品和服务，用以为还具有本地安装的开发人员、DevOps 或 IT 运营人员提供其他监视功能。 若要了解这些不同的产品和服务以及它们如何协作，请参阅 [Microsoft Azure 中的监视功能](monitoring-overview.md)。
 
-## <a name="monitoring-sources---compute"></a>监视源 - 计算
+## <a name="portal-overview-page"></a>门户概述页
+
+Azure Monitor 的登录页有助于用户： 
+- 了解 Azure 提供的监视功能。
+- 发现、配置和载入 Azure 的平台和高级监视功能。
+
+虽然 Azure Monitor 服务已发布，登录概述页仍处于预览状态。 
+
+此页是导航的起点，包括载入。 该页显示来自不同服务且值得注意的特选问题，用户可在上下文中导航到这些问题。
+ 
+![非计算资源的监视和诊断模型](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
+
+打开页面时，可在有权读取的订阅之间进行选择。 对于所选订阅，可看到：
+
+- 已触发的警报和警报源 - 此表显示摘要计数、警报源以及所选时间段触发的警报次数。 它同时适用于指标警报和活动日志警报。
+- 活动日志错误 - 如果任何 Azure 资源日志事件具有严重错误级别，可查看高级计数并单击进入活动日志页来调查每个事件。
+
+
+## <a name="azure-monitor-sources---compute-subset"></a>Azure Monitor 源 - 计算子集
 
 ![非计算资源的监视和诊断模型](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
 
-计算服务包括 
+此处的计算服务包括 
 - 云服务 
 - 虚拟机 
 - 虚拟机规模集 
@@ -63,7 +77,7 @@ Microsoft 还提供了其他产品和服务，用以为还具有本地安装的�
 ### <a name="activity-log"></a>活动日志
 可以搜索活动日志（以前称为操作日志或审核日志）中是否存在通过 Azure 基础结构查看的资源的相关信息。 日志包含多种信息，例如创建或销毁资源的时间。  有关详细信息，请参阅[活动日志概述](./monitoring-overview-activity-logs.md)。 
 
-## <a name="monitoring-sources---everything-else"></a>监视源 - 所有其他项
+## <a name="azure-monitor-sources---everything-else"></a>Azure Monitor 源 - 所有其他项
 
 ![计算资源的监视和诊断模型](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-non-compute_v6.png)
 
@@ -78,10 +92,10 @@ Microsoft 还提供了其他产品和服务，用以为还具有本地安装的�
 活动日志与针对计算资源的活动日志相同。  
 
 ## <a name="uses-for-monitoring-data"></a>用于监视数据
-在收集数据后，可以使用该数据在 Azure Monitor 中执行以下操作
+在收集数据后，可以使用该数据在 Azure Monitor 中执行以下操作。
 
 ### <a name="route"></a>路由
-可以将监视数据实时流式传输到其他位置。
+可以将监视数据流式传输到其他位置。 
 
 示例包括：
 
@@ -108,7 +122,7 @@ Microsoft 还提供了其他产品和服务，用以为还具有本地安装的�
 示例包括：
 
 * 获取所编写的自定义监视应用程序的数据
-* 创建自定义查询，将该数据发送到第三方应用程序。
+* 创建自定义查询，将数据发送到第三方应用程序。
 
 ### <a name="visualize"></a>可视化
 以图形和图表形式将监视数据可视化可以帮助你更快地查明趋势，其速度远非单纯查看数据可比。  
@@ -118,7 +132,7 @@ Microsoft 还提供了其他产品和服务，用以为还具有本地安装的�
 * 使用 Azure 门户
 * 将数据路由到 Azure Application Insights
 * 将数据路由到 Microsoft PowerBI
-* 将数据路由到第三方可视化工具，可以使用实时传送视频流，也可以让工具从 Azure 存储中的存档读取。
+* 通过实时数据流将数据路由到第三方可视化工具，或者让第三方可视化工具从 Azure 存储中读取存档。
 
 
 ### <a name="automate"></a>自动化
@@ -141,4 +155,4 @@ Microsoft 还提供了其他产品和服务，用以为还具有本地安装的�
 ## <a name="next-steps"></a>后续步骤
 详细了解以下内容
 - 如果要尝试诊断云服务、虚拟机、虚拟机规模集或 Service Fabric 应用程序中的问题，请设置 [Azure 诊断扩展](../azure-diagnostics.md)。
-- [Azure 存储故障诊断](../storage/storage-e2e-troubleshooting.md) 在使用存储 Blob、表或队列的情况下。
+- [Azure 存储故障诊断](../storage/common/storage-e2e-troubleshooting.md) 在使用存储 Blob、表或队列的情况下。
