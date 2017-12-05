@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/08/2016
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 34fe30a712fff99faca0e59993dcbce407fa549b
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: d02efd635b99a7d3939dba5f4a9fdf11b0d97903
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>规划和设计 Azure 虚拟网络
 创建要用于试验的 VNet 非常简单，但却可能是，你将在一段时间内部署多个 VNet 以支持组织的生产需要。 通过进行一些规划和设计，你将能够更有效地部署 VNet 和连接所需的资源。 如果你不熟悉 VNet，我们建议你先[了解 VNet](virtual-networks-overview.md) 以及[如何部署](virtual-networks-create-vnet-arm-pportal.md) VNet，然后再继续阅读本文。
@@ -85,7 +85,7 @@ VNet 包含以下属性。
 默认情况下，VNet 使用 [Azure 提供的名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)来解析 VNet 内部和公共 Internet 上的名称。 不过，如果你将 VNet 连接到本地数据中心，则需要提供[你自己的 DNS 服务器](virtual-networks-name-resolution-for-vms-and-role-instances.md)在网络之间解析名称。  
 
 ### <a name="limits"></a>限制
-请查看 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文中的网络限制，确保你的设计不会与任何限制相互冲突。 可以通过开具支持票证增加某些限制。
+请确保自己的设计不与任何限制相冲突。 可以通过开具支持票证增加某些限制。
 
 ### <a name="role-based-access-control-rbac"></a>基于角色的访问控制 (RBAC)
 可以使用 [Azure RBAC](../active-directory/role-based-access-built-in-roles.md) 来控制不同用户可能对 Azure 中的不同资源拥有的访问权限级别。 这样就可以根据团队的需要分隔团队完成的工作。
@@ -113,9 +113,9 @@ VNet 包含以下属性。
 
 | 方案 | 图示 | 优点 | 缺点 |
 | --- | --- | --- | --- |
-| 一个订阅，每个应用两个 VNet |![一个订阅](./media/virtual-network-vnet-plan-design-arm/figure1.png) |只有一个订阅要管理。 |每个 Azure 区域的 Vnet 数量上限。 之后需要更多订阅。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。 |
+| 一个订阅，每个应用两个 VNet |![一个订阅](./media/virtual-network-vnet-plan-design-arm/figure1.png) |只有一个订阅要管理。 |每个 Azure 区域的 Vnet 数量上限。 之后需要更多订阅。 |
 | 每个应用一个订阅，每个应用两个 VNet |![一个订阅](./media/virtual-network-vnet-plan-design-arm/figure2.png) |每个订阅仅使用两个 Vnet。 |当有太多应用时，难于管理。 |
-| 每个业务单位一个订阅，每个应用两个 VNet。 |![一个订阅](./media/virtual-network-vnet-plan-design-arm/figure3.png) |订阅和 VNet 的数量之间的平衡。 |每个业务单位（订阅）的 VNet 数量上限。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。 |
+| 每个业务单位一个订阅，每个应用两个 VNet。 |![一个订阅](./media/virtual-network-vnet-plan-design-arm/figure3.png) |订阅和 VNet 的数量之间的平衡。 |每个业务单位（订阅）的 VNet 数量上限。  |
 | 每个业务单位一个订阅，每个应用组两个 VNet。 |![一个订阅](./media/virtual-network-vnet-plan-design-arm/figure4.png) |订阅和 VNet 的数量之间的平衡。 |必须使用子网和 NSG 隔离应用。 |
 
 ### <a name="number-of-subnets"></a>子网数
@@ -133,7 +133,7 @@ VNet 包含以下属性。
 | --- | --- | --- | --- |
 | 每个应用每个应用程序层单个子网、多个 NSG |![单个子网](./media/virtual-network-vnet-plan-design-arm/figure5.png) |只需要管理一个子网。 |要隔离每个应用程序，需要多个 NSG。 |
 | 每个应用一个子网，每个应用程序层多个 NSG |![每个应用的子网](./media/virtual-network-vnet-plan-design-arm/figure6.png) |需要管理更少 NSG。 |需要管理多个子网。 |
-| 每个应用程序层一个子网，每个应用多个 NSG。 |![每个层的子网](./media/virtual-network-vnet-plan-design-arm/figure7.png) |在子网数和 NSG 数之间取得平衡。 |每个订阅的 NSG 数量上限。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。 |
+| 每个应用程序层一个子网，每个应用多个 NSG。 |![每个层的子网](./media/virtual-network-vnet-plan-design-arm/figure7.png) |在子网数和 NSG 数之间取得平衡。 |每个订阅的 NSG 数量上限。 |
 | 每个应用每个应用程序层一个子网，每个子网多个 NSG |![每个应用每个层的子网](./media/virtual-network-vnet-plan-design-arm/figure8.png) |可能 NSG 数更少。 |需要管理多个子网。 |
 
 ## <a name="sample-design"></a>示例设计

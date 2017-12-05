@@ -12,13 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/18/2017
+origin.date: 11/03/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 05c35e8f32a2e677514fa0b900bf17ec6b2246f0
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: e8a049425eb8e53dbfbcdcee6da3ee34e67203ec
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 上创建第一个 Service Fabric 容器应用程序
 > [!div class="op_single_selector"]
@@ -121,14 +122,14 @@ helloworldapp                 latest              8ce25f5d6a79        2 minutes 
 docker run -d --name my-web-site helloworldapp
 ```
 
-*name* 为运行的容器（而不是容器 ID）命名。
+name 用于为运行的容器（而不是容器 ID）命名。
 
 容器启动以后，查找其 IP 地址，以便通过浏览器连接到正在运行的容器：
 ```
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-连接到正在运行的容器。  打开 Web 浏览器并指向返回的 IP 地址，例如“http://172.31.194.61”。 此时会看到标题“Hello World!” 显示在浏览器中。
+连接到正在运行的容器。  打开 Web 浏览器并指向返回的 IP 地址，例如 “ http://172.31.194.61 ”。 此时会看到标题“Hello World!” 显示在浏览器中。
 
 若要停止容器，请运行：
 
@@ -173,9 +174,9 @@ Service Fabric SDK 和工具提供服务模板，用于创建容器化应用程�
 
 1. 启动 Visual Studio。  选择“文件” > “新建” > “项目”。
 2. 选择“Service Fabric 应用程序”，将其命名为“MyFirstContainer”，并单击“确定”。
-3. 从“服务模板”列表中选择“来宾容器”。
+3. 从“服务模板”列表中选择“容器”。
 4. 在“映像名称”中输入“myregistry.azurecr.io/samples/helloworldapp”，这是已推送到容器存储库中的映像。
-5. 为服务命名，并单击“确定” 。
+5. 为服务命名，并单击“**确定**”。
 
 ## <a name="configure-communication"></a>配置通信
 容器化服务需要使用终结点进行通信。 请将 `Endpoint` 元素以及协议、端口和类型添加到 ServiceManifest.xml 文件。 本文所述的容器化服务在端口 8081 上侦听。  在此示例中，使用固定端口 8081。  如果未指定端口，则从应用程序端口范围中选择一个随机端口。  
@@ -297,6 +298,9 @@ Windows 支持容器的两种隔离模式：进程和 Hyper-V。 使用进程隔
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
+> [!NOTE]
+> hyperv 隔离模式在 Ev3 和 Dv3 Azure SKU 上提供，后者具有嵌套式虚拟化支持。 确保在主机上安装了 hyperv 角色。 可通过连接到主机对此进行验证。
+>
 
 ## <a name="configure-resource-governance"></a>配置资源调控
 [资源调控](service-fabric-resource-governance.md)限制容器能够在主机上使用的资源。 在应用程序清单中指定的 `ResourceGovernancePolicy` 元素用于声明服务代码包的资源限制。 可为以下资源设置资源限制：内存、MemorySwap、CpuShares（CPU 相对权重）、MemoryReservationInMB、BlkioWeight（BlockIO 相对权重）。  在此示例中，服务包 Guest1Pkg 在放置它的群集节点上获得一个核心。  内存限制是绝对的，所以此代码包限制为 1024 MB 内存（和相同的软保证保留）。 代码包（容器或进程）无法分配超出此限制的内存，尝试执行此操作会引发内存不足异常。 若要强制执行资源限制，服务包中的所有代码包均应指定内存限制。
@@ -322,10 +326,10 @@ Windows 支持容器的两种隔离模式：进程和 Hyper-V。 使用进程隔
 
 如果应用程序处于 ```Ready``` 状态，则表示它已准备就绪：![就绪][2]
 
-打开浏览器并导航到 http://containercluster.chinanorth2.chinacloudapp.cn:8081。 此时会看到标题“Hello World!” 显示在浏览器中。
+打开浏览器并导航到 http://containercluster.chinanorth2.cloudapp.chinacloudapi.cn:8081。 此时会看到标题“Hello World!” 显示在浏览器中。
 
 ## <a name="clean-up"></a>清理
-只要群集处于运行状态，就会产生费用。若要避免不必要的费用，可考虑[删除群集](service-fabric-get-started-azure-cluster.md#remove-the-cluster)。  [Party 群集](http://tryazureservicefabric.chinanorth.chinacloudapp.cn/)会在数小时后自动删除。
+只要群集处于运行状态，就会产生费用。若要避免不必要的费用，可考虑[删除群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources)。  [Party 群集](https://try.servicefabric.azure.com/)会在数小时后自动删除。
 
 将映像推送到容器注册表以后，即可从开发计算机中删除本地映像：
 
@@ -469,8 +473,8 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 * 详细了解如何运行 [Service Fabric 上的容器](service-fabric-containers-overview.md)。
 <!--Not Available * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.-->
 * 了解 Service Fabric [应用程序生命周期](service-fabric-application-lifecycle.md)。
-* 查看 GitHub 上的 [Service Fabric 容器代码示例](https://github.com/Azure-Samples/service-fabric-dotnet-containers)。
+* 查看 GitHub 上的 [Service Fabric 容器代码示例](https://github.com/Azure-Samples/service-fabric-containers)。
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png
-<!--Update_Description: new articles get start containers in service fabric -->
+<!--Update_Description: update meta properties, wording update, update link -->

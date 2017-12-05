@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 02/10/2017
 ms.date: 10/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: 701ff3169977614e89dc513e6d1c4c53c809104a
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.openlocfilehash: 70fc6fe1901fb828556abefad237590ec25513d0
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>已升级到恢复服务保管库的备份保管库
 本文提供恢复服务保管库的功能概述、有关将现有备份保管库升级到恢复服务保管库的常见问题，以及升级后的步骤。 恢复服务保管库是与用于容装备份数据的备份保管库相当的 Azure 资源管理器。 不管在本地还是在 Azure 中，数据通常都是虚拟机 (VM)、工作负荷、服务器或工作站的数据或配置信息的副本。
@@ -62,9 +62,6 @@ ms.lasthandoff: 11/03/2017
 
 ## <a name="enhanced-security"></a>增强的安全性
 备份保管库升级到恢复服务保管库后，会自动启用该保管库的安全设置。 启用安全设置后，某些操作（如删除备份或更改密码）需要 [Azure 多重身份验证](../multi-factor-authentication/multi-factor-authentication.md) PIN。 关于增强的安全性的详细信息，请参阅[用于保护混合备份的安全性功能](backup-azure-security-feature.md)一文。 启用增强的安全性后，数据会在恢复点信息从保管库中删除之后至多保留 14 天。 为此安全数据的存储对客户计费。 安全数据保留期适用于针对 Azure 备份代理、Azure 备份服务器和 System Center Data Protection Manager 的恢复点。 
-
-## <a name="gather-data-on-your-vault"></a>收集保管库中的数据
-升级到恢复服务保管库后，请配置 Azure 备份报表（适用于 IaaS VM 和 Azure 恢复服务代理）并使用 Power BI 访问报表。 有关收集数据的其他信息，请参阅文章[配置 Azure 备份报表](backup-azure-configure-reports.md)。
 
 ## <a name="frequently-asked-questions"></a>常见问题
 

@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 09/13/2017
-ms.date: 09/28/2017
+origin.date: 09/15/2017
+ms.date: 11/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: cfcb0715be42ab788ebe7daf653f72152c029c38
-ms.sourcegitcommit: c13aee6f5e18d15bcc29fae1eefd2b72f2558dfa
+ms.openlocfilehash: 3c03c98dd47745a29408c23fd155dae2124e8321
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>使用 Azure 通知中心和必应空间数据发送地域隔离的推送通知
 > [!NOTE]
@@ -123,7 +123,7 @@ ms.lasthandoff: 09/29/2017
 
 ![](./media/notification-hubs-geofence/vs-location-helper.png)
 
-目前， `LocationHelper` 类本身的作用相当简单 - 只是让我们通过系统 API 获取用户位置：
+目前，`LocationHelper` 类本身的作用相当简单 - 只是让我们通过系统 API 获取用户位置：
 
     using System;
     using System.Threading.Tasks;
@@ -381,7 +381,7 @@ ms.lasthandoff: 09/29/2017
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-## <a name="whats-next"></a>接下来要做什么？
+## <a name="next-steps"></a>后续步骤
 除了上述步骤外，可能还需要遵循几个步骤来确保解决方案可用于生产环境。
 
 首先，可能需要确保地域隔离区是动态的。 需要对必应 API 进行一些额外的处理，才能在现有数据源内上传新边界。 有关该主题的详细信息，请参阅 [必应空间数据服务 API 文档](https://msdn.microsoft.com/library/ff701734.aspx) 。

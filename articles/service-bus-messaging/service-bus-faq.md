@@ -12,45 +12,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/02/2017
+origin.date: 11/14/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: 4880331ae859061a030e43423569b4a953c051fd
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 12/11/2017
+ms.openlocfilehash: 5d89938b9fcafbb21887dd8b08c56ab96e4b7174
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="service-bus-faq"></a>服务总线常见问题解答
-本文回答了一些关于 Microsoft Azure 服务总线的常见问题。 你还可以访问 [Azure 支持 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) 了解一般的 Azure 定价和支持信息。
+本文讨论了一些关于 Microsoft Azure 服务总线的常见问题解答。 还可以访问 [Azure 支持常见问题解答](http://go.microsoft.com/fwlink/?LinkID=185083)了解常规的 Azure 定价和支持信息。
 
 ## <a name="general-questions-about-azure-service-bus"></a>关于 Azure 服务总线的一般问题
 ### <a name="what-is-azure-service-bus"></a>什么是 Azure 服务总线？
-[Azure 服务总线](service-bus-messaging-overview.md) 是一个异步消息传送云平台，可让你在分离的系统之间发送数据。 Microsoft 以服务的形式提供此功能，这表示你不需要托管任何自有硬件就能使用它。
+[Azure 服务总线](service-bus-messaging-overview.md)是一个异步消息传送云平台，可允许在分离的系统之间发送数据。 Microsoft 以服务的形式提供此功能，这表示不需要托管任何自有硬件就能使用它。
 
 ### <a name="what-is-a-service-bus-namespace"></a>什么是服务总线命名空间？
-
-[命名空间](./service-bus-create-namespace-portal.md)提供了用于对应用程序中的服务总线资源进行寻址的范围容器。 必须创建命名空间才能使用服务总线，而且这也是入门的第一步。
+[命名空间](service-bus-create-namespace-portal.md)提供了用于对应用程序中的服务总线资源进行寻址的范围容器。 必须创建命名空间才能使用服务总线，而且这也是开始使用的第一步。
 
 ### <a name="what-is-an-azure-service-bus-queue"></a>什么是 Azure 服务总线队列？
-
-[服务总线队列](./service-bus-queues-topics-subscriptions.md)是用于存储消息的实体。 当你有多个应用程序，或者多个需要彼此通信的分布式应用程序部分时，队列特别有用。 队列和发行中心的相似之处在于，两者都会接收多个产品（消息），再从该处送出。
+[服务总线队列](service-bus-queues-topics-subscriptions.md)是用于存储消息的实体。 有多个应用程序，或者有多个需要彼此通信的分布式应用程序部分时，队列特别有用。 队列和发行中心的相似之处在于，两者都会接收多个产品（消息），再从该处送出。
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>什么是 Azure 服务总线主题和订阅？
-主题可被视为队列，使用多个订阅时，它将成为更丰富的消息传送模型；实质上是一种一对多的通信工具。 此发布/订阅模型（或 pub/sub）启用了一个应用程序，该应用程序将消息发送到具有多个订阅的主题中，进而使多个应用程序接收到该消息。
+主题可被视为队列，使用多个订阅时，它成为更丰富的消息传送模型；实质上是一种一对多的通信工具。 此发布/订阅模型（或 pub/sub）启用了一个应用程序，该应用程序将消息发送到具有多个订阅的主题中，进而使多个应用程序接收到该消息。
 
 ### <a name="what-is-a-partitioned-entity"></a>什么是分区实体？
 
-传统的队列或主题由单个消息中转站进行处理并存储在一个消息存储中。 [分区队列或主题](./service-bus-partitioning.md)由多个消息中转站处理，并存储在多个消息传送存储中。 这意味着分区的队列或主题的总吞吐量不再受到单个消息中转站或消息存储的性能所限制。 此外，消息传送存储的临时中断不会导致分区的队列或主题不可用。
+传统的队列或主题由单个消息中转站进行处理并存储在一个消息存储中。 [分区队列或主题](./service-bus-partitioning.md)由多个消息中转站处理，并存储在多个消息传送存储中。 这意味着分区的队列或主题的总吞吐量不再受到单个消息中转站或消息存储的性能所限制。 此外，消息传送存储的临时中断不会导致分区队列或主题不可用。
 
-请注意，使用分区实体时不保证排序。 如果某个分区不可用，你仍可从其他分区发送和接收消息。
+请注意，使用分区实体时不保证排序。 如果某个分区不可用，仍可从其他分区发送和接收消息。
 
 ## <a name="best-practices"></a>最佳实践
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Azure 服务总线的最佳实践有哪些？
-* [使用服务总线改进性能的最佳实践][Best practices for performance improvements using Service Bus] - 本文说明如何在交换消息时优化性能。
+请参阅[使用服务总线改进性能的最佳做法][Best practices for performance improvements using Service Bus] - 本文介绍了如何在交换消息时优化性能。
 
 ### <a name="what-should-i-know-before-creating-entities"></a>创建实体前的须知事项有哪些？
-队列和主题的以下属性是固定不变的。 预配实体时请考虑到这一点，因为若要修改属性，就必须创建新的替代实体。
+队列和主题的以下属性是固定不变的。 预配实体时，请考虑此限制，因为必须创建新的替代实体才可修改这些属性。
 
 -   大小
 
@@ -65,12 +63,12 @@ ms.lasthandoff: 07/14/2017
 ## <a name="service-bus-pricing"></a> 定价
 本部分回答了一些关于服务总线定价结构的常见问题。
 
-[服务总线定价和计费](./service-bus-pricing-billing.md)一文介绍了服务总线中的计费计量，有关服务总线定价选项的信息，请参阅[服务总线定价详细信息](https://www.azure.cn/pricing/details/messaging/)。
+[服务总线定价和计费](./service-bus-pricing-billing.md)一文介绍了服务总线中的计费计量。有关服务总线定价选项的具体信息，请参阅[服务总线定价详细信息](https://www.azure.cn/pricing/details/messaging/)。
 
-还可以访问 [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)（Azure 支持常见问题解答），了解一般的 Azure 定价信息。 
+还可以访问 [Azure 支持常见问题解答](http://go.microsoft.com/fwlink/?LinkID=185083)了解常规的 Azure 定价信息。 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>服务总线如何收取费用？
-有关服务总线定价的完整信息，请参阅 [服务总线定价详细信息][Pricing overview]。 除标示的价格外，你还需为在其中部署应用程序的数据中心之外的相关数据输出支付费用。
+有关服务总线定价的完整信息，请参阅[服务总线定价详细信息][Pricing overview]。 除标示的价格外，还需为在其中部署应用程序的数据中心之外的相关数据输出支付费用。
 
 ### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>服务总线的哪些使用情况受数据传输限制？ 哪些不受其限制？
 在给定 Azure 区域内的任何数据传输和入站数据传输均不收费。 
@@ -84,9 +82,9 @@ ms.lasthandoff: 07/14/2017
 有关服务总线限制和配额的列表，请参阅[服务总线配额概述][Quotas overview]。
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>服务总线是否有任何使用率配额？
-默认情况下，对于任何云服务，Microsoft 每月都会设置聚合的使用率配额，此配额基于客户的所有订阅进行计算。 由于我们清楚你可能需要这些限制之外的更多限制，因此，请随时联系客户服务，以便我们了解你的需求并相应地调整这些限制。 对于服务总线，总用量配额是每月 50 亿条消息。
+默认情况下，对于任何云服务，Microsoft 每月都会设置聚合的使用率配额，此配额基于客户的所有订阅进行计算。 如果需要这些限制之外的更多配额，可以随时联系客户服务，以便我们了解需求并相应地调整这些限制。 对于服务总线，总用量配额是每月 50 亿条消息。
 
-虽然我们保留禁用在给定月份超过使用率配额的客户帐户的权利，但我们仍然会在采取任何措施前发送电子邮件通知并会多次尝试与客户联系。 超过这些配额的客户仍将负责超出配额的费用。
+虽然我们保留禁用在给定月份超过使用配额的客户帐户的权利，但我们仍然会在采取任何措施前发送电子邮件通知，并多次尝试与客户联系。 超过这些配额的客户仍需负责超出配额的费用。
 
 至于 Azure 上的其他服务，服务总线会强制使用一组特定配额，以确保资源的公平使用。 可以在[服务总线配额概述][Quotas overview]中找到有关这些配额的更多详细信息。
 
@@ -98,7 +96,7 @@ ms.lasthandoff: 07/14/2017
 共享访问签名是基于 SHA–256 安全哈希或 URI 的身份验证机制。 有关如何在 Node、PHP、Java 和 C\# 中生成自有签名的信息，请参阅[共享访问签名][Shared Access Signatures]一文。
 
 ## <a name="subscription-and-namespace-management"></a>订阅和命名空间管理
-### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>如何将命名空间迁移到另一个 Azure 订阅？
+### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>如何将命名空间迁移到另一个 Azure 订阅中？
 
 可以使用 [Azure 门户](https://portal.azure.cn)或 PowerShell 命令，将命名空间从一个 Azure 订阅移到另一个 Azure 订阅。 若要执行此操作，命名空间必须已处于活动状态。 执行这些命令的用户必须是源订阅和目标订阅的管理员。
 
@@ -122,7 +120,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ```
 
 ## <a name="next-steps"></a>后续步骤
-若要了解有关服务总线的详细信息，请参阅以下主题。
+若要了解有关服务总线的详细信息，请参阅以下文章：
 
 - [服务总线概述](./service-bus-messaging-overview.md)
 - [Azure 服务总线体系结构概述](./service-bus-fundamentals-hybrid-solutions.md)

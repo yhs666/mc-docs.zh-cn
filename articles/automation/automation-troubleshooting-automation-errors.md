@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 origin.date: 06/26/2017
 ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: ebf5b319f748a6397a29484722350d67de0bf852
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 24f8bd650556ad1521178dfa818054e19a09df86
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure 自动化中的常见问题解答 
 本文介绍如何排除 Azure 自动化中遇到的常见错误，并提供可能的解决方案建议。
@@ -47,12 +47,13 @@ ms.lasthandoff: 07/28/2017
 ### <a name="scenario-unable-to-find-the-azure-subscription"></a>场景：找不到 Azure 订阅
 错误：使用 Select-AzureSubscription 或 Select-AzureRmSubscription cmdlet 时收到“未能找到名为 ``<subscription name>`` 的订阅”错误。
 
-**错误原因：** 如果订阅名称无效或者未将正尝试获取订阅详细信息的 Azure Active Directory 用户配置为订阅的管理员，则会出现此错误。
+**错误原因：**如果订阅名称无效，或者尝试获取订阅详细信息的 Azure Active Directory 用户未配置为订阅的管理员，则会出现此错误。
 
-**疑难解答提示：** 若要确定你是否已向 Azure 进行过适当的身份验证并可访问所要选择的订阅，请执行以下步骤：  
+
+            **疑难解答提示：**要确定你是否已向 Azure 进行过适当的身份验证并可访问所要选择的订阅，请执行以下步骤：  
 
 1. 确保先运行 **Add-AzureAccount -Environment AzureChinaCloud**，然后再运行 **Select-AzureSubscription** cmdlet。  
-2. 如果仍显示此错误消息，可通过添加 **Get-AzureSubscription** cmdlet（在 **Add-AzureAccount -Environment AzureChinaCloud** cmdlet 后）来修改代码，然后执行代码。  现在，请验证 Get-AzureSubscription 的输出是否包含你的订阅详细信息。  
+2. 如果仍显示此错误消息，可通过添加 **Get-AzureSubscription** cmdlet（在 **Add-AzureAccount -Environment AzureChinaCloud** cmdlet 后）来修改代码，然后执行代码。  现在，请验证 Get-AzureSubscription 的输出是否包含订阅详细信息。  
 
    * 如果在输出中看不到任何订阅详细信息，则说明该订阅尚未初始化。  
    * 如果在输出中看到了订阅详细信息，请确认你对 **Select-AzureSubscription** cmdlet 使用了正确的订阅名称或 ID。   
@@ -70,7 +71,7 @@ ms.lasthandoff: 07/28/2017
 
 **错误原因：**此错误可能由以下原因导致：  
 
-1. 内存限制。  我们已经记录了分配给沙盒[自动化服务限制](../azure-subscription-service-limits.md#automation-limits)的内存限制，因此，如果使用超过 400 MB 的内存，作业可能会失败。 
+1. 内存限制。  我们对分配给沙盒自动化服务限制的内存进行了限制，因此，如果使用超过 400 MB 的内存，作业可能会失败。 
 
 2. 模块不兼容。  如果模块依赖关系不正确，则可能会发生这种情况，并且如果模块依赖关系正确，runbook 通常会返回“找不到命令”或“无法绑定参数”消息。 
 
@@ -83,7 +84,8 @@ ms.lasthandoff: 07/28/2017
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>场景：Runbook 因反序列化的对象而失败
 错误：Runbook 失败，出现错误“无法绑定参数 ``<ParameterName>``。 无法将反序列化 ``<ParameterType>`` 类型的 ``<ParameterType>`` 值转换成 ``<ParameterType>`` 类型”。
 
-**错误原因：** 如果你的 Runbook 为 PowerShell 工作流，则会将复杂对象以反序列化格式进行存储，以便在工作流暂停的情况下保留 Runbook 状态。  
+
+            **错误原因：**如果 Runbook 为 PowerShell 工作流，则会将复杂对象以反序列化格式进行存储，以便在工作流暂停的情况下保留 Runbook 状态。  
 
 **疑难解答提示：**  
 下述三种解决方案中的任何一种都可以解决此问题：
@@ -96,7 +98,8 @@ ms.lasthandoff: 07/28/2017
 
 错误原因：作业执行时间超过帐户的 500 分钟免费配额时，就会出现此错误。 此配额适用于所有类型的作业执行任务，例如测试作业、从门户启动作业以及通过 Azure 经典管理门户或数据中心计划要执行的作业。 若要详细了解自动化的定价，请参阅[自动化定价](https://www.azure.cn/pricing/details/automation/)。
 
-**疑难解答提示：** 如果你想要每月使用 500 分钟以上的处理时间，则需将订阅从免费层改为基本层。 可以通过下述步骤升级到基本层：  
+
+            **疑难解答提示：**如果你想要每月使用 500 分钟以上的处理时间，则需将订阅从免费层改为基本层。 可以通过下述步骤升级到基本层：  
 
 1. 登录到 Azure 订阅  
 2. 选择要升级的自动化帐户  
@@ -106,14 +109,15 @@ ms.lasthandoff: 07/28/2017
 ### <a name="scenario-cmdlet-not-recognized-when-executing-a-runbook"></a>场景：在执行 Runbook 时无法识别 Cmdlet
 **错误：**Runbook 作业失败，出现“``<cmdlet name>``: 无法将 ``<cmdlet name>`` 一词识别为 cmdlet、函数、脚本文件或可运行程序的名称”错误。
 
-**错误原因：** 当 PowerShell 引擎找不到你要在 Runbook 中使用的 cmdlet 时，则会导致此错误。  这可能是因为，帐户中缺少包含该 cmdlet 的模块、与 Runbook 名称存在名称冲突，或者该 cmdlet 也存在于其他模块中，而自动化无法解析该名称。
+
+            **错误原因：**当 PowerShell 引擎找不到要在 Runbook 中使用的 cmdlet 时，则会导致此错误。  这可能是因为，帐户中缺少包含该 cmdlet 的模块、与 Runbook 名称存在名称冲突，或者该 cmdlet 也存在于其他模块中，而自动化无法解析该名称。
 
 **疑难解答提示：** 下述解决方案中的任何一种都可以解决此问题：  
 
 * 检查输入的 cmdlet 名称是否正确。  
-* 确保 cmdlet 存在于你的自动化帐户中，且没有冲突。 若要验证 cmdlet 是否存在，请在编辑模式下打开 Runbook，然后搜索希望在库中找到的 cmdlet，或者运行 **Get-Command ``<CommandName>``**。  验证该 cmdlet 可供帐户使用且与其他 cmdlet 或 Runbook 不存在名称冲突以后，可将其添加到画布上，并确保你使用的是 Runbook 中的有效参数集。  
+* 确保 cmdlet 存在于自动化帐户中，且没有冲突。 若要验证 cmdlet 是否存在，请在编辑模式下打开 Runbook，然后搜索希望在库中找到的 cmdlet，或者运行 **Get-Command ``<CommandName>``**。  验证该 cmdlet 可供帐户使用且与其他 cmdlet 或 Runbook 不存在名称冲突以后，可将其添加到画布上，并确保使用的是 Runbook 中的有效参数集。  
 * 如果存在名称冲突且 cmdlet 可在两个不同的模块中使用，则可使用 cmdlet 的完全限定名称来解决此问题。 例如，可以使用 ModuleName\CmdletName。  
-* 如果你是在本地执行混合辅助角色组中的 Runbook，则请确保模块/cmdlet 已安装在托管混合辅助角色的计算机上。
+* 如果是在本地执行混合辅助角色组中的 Runbook，则请确保模块/cmdlet 已安装在托管混合辅助角色的计算机上。
 
 ### <a name="scenario-a-long-running-runbook-consistently-fails-with-the-exception-the-job-cannot-continue-running-because-it-was-repeatedly-evicted-from-the-same-checkpoint"></a>场景：某个长时间运行的 Runbook 不断失败并出现异常：“该作业无法继续运行，因为它已反复从同一个检查点逐出”。
 错误原因：这是设计使然。Azure 自动化中对进程的“公平份额”监视会自动暂停执行时间超过 3 小时的 Runbook。 但是，返回的错误消息不会提供“后续措施”选项。 Runbook 可能会出于多种原因而暂停。 发生暂停的主要原因是出错。 例如，Runbook 中出现未捕获到的异常、网络故障、运行 Runbook 的 Runbook 辅助角色崩溃，都会导致 Runbook 暂停，并在恢复时从其最后一个检查点开始运行。

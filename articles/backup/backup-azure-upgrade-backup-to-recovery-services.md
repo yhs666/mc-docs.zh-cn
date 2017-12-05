@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 08/03/2017
-ms.date: 10/31/2017
+origin.date: 11/09/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
-ms.openlocfilehash: 83e8fafc40b95334d267bb6de78a36237463900d
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: ef4039fed45640e7914cf24f86778c3bddc33a1b
+ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>将备份保管库升级到恢复服务保管库
 
@@ -115,7 +115,7 @@ PowerShell 脚本会提示输入凭据。 请输入凭据两次：一次是输�
 否。 升级期间和之后，正在进行的备份都会继续，而不会中断。
 
 **如果不尽快规划升级，保管库会发生什么情况？**</br>
-由于所有新功能仅适用于恢复服务保管库，我们强烈建议升级保管库。 Microsoft 最终会弃用经典管理门户。 自 2017 年 9 月 1 日起，Microsoft 会将备份保管库自动升级为恢复服务保管库。 2017 年 11 月 1 日之前，Microsoft 会完成升级过程。 保管库可在 9 月或 10 月中的任何时间自动升级。 Microsoft 建议尽快升级保管库。
+由于所有新功能仅适用于恢复服务保管库，我们强烈建议升级保管库。 Microsoft 最终会弃用经典管理门户。 自 2017 年 9 月 1 日起，Microsoft 会将备份保管库自动升级为恢复服务保管库。 2017 年 11 月 30 日后，将不再能够使用 PowerShell 创建备份保管库。 保管库可在其间任何时间自动升级。 Microsoft 建议尽快升级保管库。
 
 **对于现有的工具而言，此升级有何意义？**</br>
 将工具更新为资源管理器部署模型。 恢复服务保管库是为在资源管理器部署模型使用而创建的。 规划资源管理器部署模型以及记录保管库中的差异十分重要。 

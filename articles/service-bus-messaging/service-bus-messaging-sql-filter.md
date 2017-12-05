@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/27/2017
+origin.date: 10/16/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
-ms.openlocfilehash: 5f55aeb8fba67a0862f4e544325cdbbb706f99c0
-ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
+ms.date: 12/11/2017
+ms.openlocfilehash: 7dddf12dfba69b00a3f406581559af6a10b7a3f6
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 语法
 
-*SqlFilter* 是 [SqlFilter 类](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)的实例，代表基于 SQL 语言的筛选器表达式，该表达式针对 [BrokeredMessage](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 进行计算。 SqlFilter 支持 SQL-92 标准的子集。  
+SqlFilter 对象是 [SqlFilter 类](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)的实例，代表基于 SQL 语言的筛选器表达式，该表达式针对 [BrokeredMessage](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 进行计算。 SqlFilter 支持 SQL-92 标准的子集。  
   
  本主题列出有关 SqlFilter 语法的详细信息。  
   
@@ -80,7 +80,7 @@ ms.lasthandoff: 08/14/2017
   
 ### <a name="arguments"></a>参数  
 
- `<regular_identifier>` 是字符串，由以下正则表达式表示：  
+ `<regular_identifier>` 是一个字符串，由以下正则表达式表示：  
   
 ```  
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
@@ -88,7 +88,7 @@ ms.lasthandoff: 08/14/2017
   
 此语法是指任何以字母开头且后跟一个或多个下划线/字母/数字的字符串。  
   
-`[:IsLetter:]` 是指分类为 Unicode 字母的任何 Unicode 字符。 `System.Char.IsLetter(c)` 返回 `true`（如果 `c` 为 Unicode 字母）。  
+`[:IsLetter:]` 是指其类别为 Unicode 字母的任何 Unicode 字符。 `System.Char.IsLetter(c)` 返回 `true`（如果 `c` 为 Unicode 字母）。  
   
 `[:IsDigit:]` 是指分类为十进制数字的任何 Unicode 字符。 `System.Char.IsDigit(c)` 返回 `true`（如果 `c` 为 Unicode 数字）。  
   
@@ -102,7 +102,7 @@ ms.lasthandoff: 08/14/2017
   
 ```  
   
-`<quoted_identifier>` 是指使用双引号引起来的任何字符串。 标识符中的双引号以两个双引号表示。 不建议使用带引号的标识符，因为很容易将其与字符串常量混淆。 如果可能，请使用分隔标识符。 下面是 `<quoted_identifier>`的示例：  
+`<quoted_identifier>` 是指使用双引号引起来的任何字符串。 标识符中的双引号以两个双引号表示。 建议不要使用带引号的标识符，因为很容易与字符串常量混淆。 如果可能，请使用分隔标识符。 下面是 `<quoted_identifier>`的示例：  
   
 ```  
 "Contoso & Northwind"  
@@ -145,7 +145,7 @@ ms.lasthandoff: 08/14/2017
   
 ### <a name="arguments"></a>参数  
   
--   `<integer_constant>` 是指不使用引号引起来且不包含小数点的数字字符串。 这些值作为 `System.Int64` 在内部存储，并具有相同的作用域。  
+-   `<integer_constant>` 是指不使用引号引起来且不包含小数点的数字字符串。 这些值以 `System.Int64` 形式存储在内部，并具有相同的范围。  
   
      下面是长常量的示例：  
   
@@ -154,7 +154,7 @@ ms.lasthandoff: 08/14/2017
     2  
     ```  
   
--   `<decimal_constant>` 是指不使用引号引起来但包含小数点的数字字符串。 这些值作为 `System.Double` 在内部存储，并具有相同的作用域/精度。  
+-   `<decimal_constant>` 是一个数字字符串，不使用引号，但包含小数点。 这些值作为 `System.Double` 在内部存储，并具有相同的作用域/精度。  
   
      在未来版本中，此数字可能以其他数据类型存储，目的是支持确切的数字语义，因此不应依赖于 `<decimal_constant>` 的基础数据类型为 `System.Double` 这一事实。  
   
@@ -225,7 +225,7 @@ ms.lasthandoff: 08/14/2017
   
 -   尝试对不存在的系统属性求值会引发 [FilterException](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.filterexception) 异常。  
   
--   不存在的属性在内部作为 **未知**进行求值。  
+-   不存在的属性在进行内部求值时会被视为**未知**。  
   
  算术运算符中的未知求值：  
   
@@ -237,11 +237,11 @@ ms.lasthandoff: 08/14/2017
   
 -   如果操作数的左侧和/或右侧的求值结果为**未知**，则结果为**未知**。  
   
- `[NOT] LIKE`中的未知求值：  
+ `[NOT] LIKE` 中的未知求值：  
   
 -   如果任何操作数的求值结果为“未知”，则结果为“未知”。  
   
- `[NOT] IN`中的未知求值：  
+ `[NOT] IN` 中的未知求值：  
   
 -   如果左侧操作数的求值结果为“未知”，则结果为“未知”。  
   
@@ -281,5 +281,6 @@ ms.lasthandoff: 08/14/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-- [SQLFilter 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLFilter 类 (.NET Framework)](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLFilter 类 (.NET Framework)](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter)
 - [SQLRuleAction 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)

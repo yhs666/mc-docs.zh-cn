@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 09/19/2017
 ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: f700109cbf9d9833a02dfdcfc9ee5e73a69e1ec5
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: 0b9d367d41ffb770441a928b6ee18bf7027f2861
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="network-security"></a>网络安全性
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/02/2017
 
 ## <a name="security-rules"></a>安全规则
 
-一个网络安全组包含零个或者不超过 Azure 订阅[限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)的任意数量的规则。 每个规则指定以下属性：
+一个网络安全组包含零个或者不超过 Azure 订阅限制的任意数量的规则。 每个规则指定以下属性：
 
 |属性  |说明  |
 |---------|---------|
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/02/2017
 - **负载均衡池中的虚拟机**：应用的源端口和地址范围来自源计算机，而不是来自负载均衡器。 目标端口和地址范围是目标计算机的，而不是负载均衡器的。
 - **Azure 服务实例**：在虚拟网络子网中部署了多个 Azure 服务的实例，例如 HDInsight、应用程序服务环境和虚拟机规模集。 在将网络安全组应用到部署了资源的子网之前，请确保熟悉每个服务的端口要求。 如果拒绝服务所需的端口，服务将无法正常工作。 
 
-安全规则是有状态的。 例如，如果针对通过端口 80 访问的任何地址指定了出站安全规则，则不需要指定入站安全规则来响应出站流量。 如果通信是从外部发起的，则只需指定入站安全规则。 反之亦然。 如果允许通过某个端口发送入站流量，则不需要指定出站安全规则来响应通过该端口发送的流量。 若要了解创建安全规则时的限制，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+安全规则是有状态的。 例如，如果针对通过端口 80 访问的任何地址指定了出站安全规则，则不需要指定入站安全规则来响应出站流量。 如果通信是从外部发起的，则只需指定入站安全规则。 反之亦然。 如果允许通过某个端口发送入站流量，则不需要指定出站安全规则来响应通过该端口发送的流量。 
 
 <!-- Not Available ## Augmented security rules-->
 ## <a name="default-security-rules"></a>默认安全规则

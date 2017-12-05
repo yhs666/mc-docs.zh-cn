@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 09/18/2017
 ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: dd476680a5bd5ea0128962d7eacdc1792e9ea927
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.openlocfilehash: 2a350fb1ffe3accb5bfc89c236590184a1a680ce
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 
@@ -182,7 +182,7 @@ ms.lasthandoff: 11/03/2017
 | 前端 |前端配置 |是 |是 |
 
 ## <a name="limits"></a>限制
-Azure 中的[网络限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits)全面阐述了对 IP 寻址施加的限制。 这些限制根据区域和订阅设置。 可以[与支持人员联系](https://www.azure.cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
+这些限制根据区域和订阅设置。 可以[与支持人员联系](https://www.azure.cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
 
 ## <a name="pricing"></a>定价
 公共 IP 地址可能会产生少许费用。 有关 Azure 中 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。

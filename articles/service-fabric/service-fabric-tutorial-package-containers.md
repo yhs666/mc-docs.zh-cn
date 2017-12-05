@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/12/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 58e0a087cd3ca27890802612597c49532bf828ed
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: a4270bf8d01f20804fab1970eaebed7a53ea3ecd
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>打包容器并将其部署为 Service Fabric 应用程序
 
@@ -218,7 +218,7 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 
 合作群集是 Azure 上托管的免费限时 Service Fabric 群集。 它由 Service Fabric 团队维护，任何人都可以在其中部署应用程序和了解平台。 若要使用合作群集，请[按照说明操作](http://aka.ms/tryservicefabric)。 
 
-若要了解如何创建自己的群集，请参阅[在 Azure 上创建你的第一个 Service Fabric 群集](service-fabric-get-started-azure-cluster.md)。
+若要了解如何创建自己的群集，请参阅[在 Azure 上创建 Service Fabric 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>生成应用程序并将其部署到群集
 可以使用 Service Fabric CLI 将应用程序部署到 Azure 群集。 如果计算机上未安装 Service Fabric CLI，请按照[此处](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli)的说明进行安装。 
@@ -226,7 +226,7 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 连接到 Azure 中的 Service Fabric 群集。
 
 ```bash
-sfctl cluster select --endpoint http://lin4hjim3l4.chinanorth.chinacloudapp.cn:19080
+sfctl cluster select --endpoint http://lin4hjim3l4.chinanorth.cloudapp.chinacloudapi.cn:19080
 ```
 
 使用“TestContainer”目录中提供的安装脚本可将应用程序包复制到群集的映像存储、注册应用程序类型并创建应用程序的实例。
@@ -235,11 +235,11 @@ sfctl cluster select --endpoint http://lin4hjim3l4.chinanorth.chinacloudapp.cn:1
 ./install.sh
 ```
 
-打开浏览器并导航到 Service Fabric Explorer，其网址为 http://lin4hjim3l4.chinanorth.chinacloudapp.cn:19080/Explorer。 展开应用程序节点，注意有一个条目是用于应用程序类型，另一个条目用于实例。
+打开浏览器并导航到 Service Fabric Explorer，其网址为 http://lin4hjim3l4.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer。 展开应用程序节点，注意有一个条目是用于应用程序类型，另一个条目用于实例。
 
 ![Service Fabric Explorer][sfx]
 
-若要连接到运行的应用程序，请打开 Web 浏览器并转到群集 URL，例如 http://lin0823ryf2he.chinacloudapp.cn:80。 在 Web UI 中应会显示投票应用程序。
+若要连接到运行的应用程序，请打开 Web 浏览器并转到群集 URL，例如 http://lin0823ryf2he.cloudapp.chinacloudapi.cn:80。 在 Web UI 中应会显示投票应用程序。
 
 ![votingapp][votingapp]
 
@@ -374,4 +374,4 @@ sfctl cluster select --endpoint http://lin4hjim3l4.chinanorth.chinacloudapp.cn:1
 [votingapp]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
 [sfx]: ./media/service-fabric-tutorial-deploy-run-containers/containerspackagetutorialsfx.png
 
-<!--Update_Description: new articles on service fabric package container -->
+<!--Update_Description: update link -->

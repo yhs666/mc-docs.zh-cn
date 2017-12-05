@@ -3,7 +3,7 @@ title: "Azure 快速入门 - 使用 .NET 将对象转移到 Azure Blob 存储或
 description: "快速了解如何使用 .NET 将对象转移到 Azure Blob 存储或从 Azure Blob 存储转移对象"
 services: storage
 documentationcenter: storage
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: tysonn
 ms.assetid: 
@@ -13,47 +13,28 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 08/01/2017
-ms.date: 10/23/2017
-ms.author: v-johch
-ms.openlocfilehash: b4eeffccc6be00437cff19f1b7ca18fc2e68601a
-ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
+origin.date: 11/10/2017
+ms.date: 12/04/2017
+ms.author: v-nany
+ms.openlocfilehash: 248ef57193aa47b4039f717b5e3f5354d9c4f18b
+ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>使用 .NET 将对象转移到 Azure Blob 存储或从 Azure Blob 存储转移对象
 
-本快速入门介绍如何使用 C#.NET 在 Windows 中上传、下载和列出 Azure Blob 存储的容器中的块 blob。
+本快速入门介绍 Azure 存储的 .NET 客户端库如何在容器中上传、下载和列出块 Blob。
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本快速入门教程，需先执行以下操作：
 
-* 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)：
+若要完成本快速入门，请使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)：
     - **Azure 开发**
 
 如果没有 Azure 订阅，可以在开始前创建一个 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>使用 Azure 门户创建存储帐户
-
-首先，创建用于本快速入门的新通用存储帐户。 
-
-1. 转到 [Azure 门户](https://portal.azure.cn)，使用 Azure 帐户登录。 
-2. 在“中心”菜单上，选择“新建” > “存储” > “存储帐户 - blob、文件、表、队列”。 
-3. 输入存储帐户的名称。 名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。 不能与其他名称重复。
-4. 将 `Deployment model` 设置为“资源管理器”。
-5. 将“`Account kind`”设置为“常规用途”。
-6. 将“`Performance`”设置为“标准”。 
-7. 将“`Replication`”设置为“本地冗余存储(LRS)”。
-8. 将“`Storage service encryption`”设置为“禁用”。
-9. 将“`Secure transfer required`”设置为“禁用”。
-10. 选择订阅。 
-11. 对于“`resource group`”，创建一个新资源组，并为其赋予唯一名称。 
-12. 选择要用于存储帐户的“`Location`”。
-13. 选中“固定到仪表板”，然后单击“创建”，创建存储帐户。 
-
-创建存储帐户后，它被固定到仪表板。 单击可将其打开。 在“设置”下，单击“访问密钥”。 选择一个密钥并将连接字符串复制到剪贴板，然后将其粘贴到记事本，以供将来使用。
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>下载示例应用程序
 
@@ -69,7 +50,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 
 ## <a name="configure-your-storage-connection-string"></a>配置存储连接字符串
 
-在应用程序中，必须为存储帐户提供连接字符串。 从 Visual Studio 中的解决方案资源管理器打开 `app.config` 文件。 找到 StorageConnectionString 条目。 对于“值”，请将整个连接字符串值替换为记事本中从 Azure 门户保存的值。 完成后，应会看到类似于下面的信息。
+在应用程序中，必须为存储帐户提供连接字符串。 从 Visual Studio 中的解决方案资源管理器打开 `app.config` 文件。 查找 `StorageConnectionString` 条目。 对于“值”，请将整个连接字符串值替换为从 Azure 门户保存的值。 `storageConnectionString` 应如下图所示：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -79,8 +60,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
     </startup>
   <appSettings>
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;
-    AccountName=youraccountname;
-    AccountKey=7NGE5jasdfdRzASDFNOMEx1u20W/thisisjustC/anexampleZK/Rt5pz2xNRrDckyv8EjB9P1WGF==;EndpointSuffix=core.chinacloudapi.cn" />
+    AccountName=<NameHere>;
+    AccountKey=<KeyHere>;EndpointSuffix=core.chinacloudapi.cn" />
   </appSettings>
 </configuration>
 ```
@@ -99,27 +80,34 @@ https://mystorage.blob.core.chinacloudapi.cn/quickstartblobs/QuickStart_cbd5f95c
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b8d2-a58e85d7a8e8_DOWNLOADED.txt
 ```
 
-按任意键继续时，会删除存储容器和文件。 继续下一步操作前，请检查“我的文档”中的两个文件 - 可以打开它们，查看它们是否相同。 从控制台窗口复制 blob 的 URL，将其粘贴到浏览器，查看 Blob 存储中的文件的内容。
+按任意键继续时，会删除存储容器和文件。 继续前，请在“我的文档”中查看这两个文件。 可以打开它们，并看到它们完全相同。 从控制台窗口复制 blob 的 URL，将其粘贴到浏览器，查看 Blob 存储中的文件的内容。
 
 还可以使用工具（如 [Azure 存储资源管理器](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)）查看 Blob 存储中的文件。 Azure 存储资源管理器是免费的跨平台工具，可用于访问存储帐户信息。 
 
 验证文件后，按任意键可完成演示并删除测试文件。 既然现在已了解此示例的用途，打开 Program.cs 文件可查看代码。 
 
-## <a name="get-references-to-the-storage-objects"></a>获取对存储对象的引用
+## <a name="understand-the-sample-code"></a>了解示例代码
+
+接下来逐步介绍示例代码，以便展示其工作方式。
+
+### <a name="get-references-to-the-storage-objects"></a>获取对存储对象的引用
 
 首先创建对用于访问和管理 Blob 存储的对象的引用。 这些对象相互关联 - 每个对象被列表中的下一个对象使用。
 
-* 实例化指向存储帐户的 CloudStorageAccount 对象。 
+* 创建指向存储帐户的 **CloudStorageAccount** 对象的实例。 
 
-* 实例化 CloudBlobClient 对象，该对象指向存储帐户中的 Blob 服务。 
+* 创建 **CloudBlobClient** 对象的实例，该对象指向存储帐户中的 Blob 服务。 
 
-* 实例化 CloudBlobContainer 对象，该对象代表你正在访问的容器。 容器用于组织 blob，就像使用计算机上的文件夹组织文件一样。
+* 创建 **CloudBlobContainer** 对象的实例，该对象代表所访问的容器。 容器用于组织 blob，就像使用计算机上的文件夹组织文件一样。
 
-有了 CloudBlobContainer 后，可以实例化 CloudBlockBlob 对象（该对象指向你感兴趣的特定 blob），然后执行上传、下载、复制等操作。
+有了 CloudBlobContainer 后，就可以创建 CloudBlockBlob 对象（该对象指向你感兴趣的特定 blob）的实例，然后执行上传、下载、复制等操作。
 
-本部分中，将实例化对象、创建新容器，并对容器设置权限，使 blob 公开，只需 URL 即可对其进行访问。 容器名称为 quickstartblobs。 
+> [!IMPORTANT]
+> 容器名称必须为小写。 有关容器名称和 blob 名称的详细信息，请参阅[命名和引用容器、Blob 和元数据](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
 
-此示例使用 CreateIfNotExists，因为我们想要每次运行示例时创建新容器。 在应用程序中使用相同容器的生产环境中，建议仅调用 CreateIfNotExists 一次，或提前创建容器，这样就无需在代码中创建它。
+在本部分中，将创建对象的实例、创建新容器，并对容器设置权限，使 blob 公开，只需 URL 即可对其进行访问。 容器名称为 quickstartblobs。 
+
+此示例使用 CreateIfNotExists，因为我们想要每次运行示例时都创建新容器。 在整个应用程序中使用相同容器的生产环境中，建议仅调用 **CreateIfNotExists** 一次， 或提前创建容器，这样就无需在代码中创建它。
 
 ```csharp
 // Create a CloudStorageAccount instance pointing to your storage account.
@@ -140,7 +128,7 @@ permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
 await cloudBlobContainer.SetPermissionsAsync(permissions);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>将 blob 上传到容器
+### <a name="upload-blobs-to-the-container"></a>将 blob 上传到容器
 
 Blob 存储支持块 blob、追加 blob 和页 blob。 块 blob 最常用，此快速入门中也使用块 blob。 
 
@@ -162,11 +150,11 @@ await blockBlob.UploadFromFileAsync(fileAndPath);
 
 Blob 存储支持多种上传方法。 例如，如果有内存流，可以使用 UploadFromStreamAsync 方法，无需使用 UploadFromFileAsync。 
 
-块 blob 最大可以为 4.7 TB，并且可以是从 Excel 电子表格到大视频文件的任何内容。 页 blob 主要用于用于备份 IaaS VM 的 VHD 文件。 追加 blob 用于日志记录，例如有时需要写入到文件，再继续添加更多信息。 存储在 Blob 存储中的大多数对象都是块 blob。
+块 blob 可以是任何类型的文本或二进制文件。 页 blob 主要用于用于备份 IaaS VM 的 VHD 文件。 追加 blob 用于日志记录，例如有时需要写入到文件，再继续添加更多信息。 存储在 Blob 存储中的大多数对象都是块 blob。
 
-## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
+### <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-使用 [CloudBlobContainer.ListBlobsSegmentedAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync) 获取容器中的文件列表。 下面的代码检索 blob 列表，然后循环访问它们，显示找到的 blob 的 URI。 可以从命令窗口中复制 URI，然后将其粘贴到浏览器以查看文件。
+可以使用 [CloudBlobContainer.ListBlobsSegmentedAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync) 获取容器中的文件列表。 下面的代码检索 blob 列表，然后循环访问它们，显示找到的 blob 的 URI。 可以从命令窗口中复制 URI，然后将其粘贴到浏览器以查看文件。
 
 如果容器中有 5000 个以下的 blob，调用一次 ListBlobsSegmentedAsync 可检索出所有 blob 名称。 如果容器中的 blob 超过 5000 个，服务会分批检索列表，每组 5000 个 blob，直到检索出所有 blob 名称。 因此，第一次调用此 API 时，它将返回第一组 5,000 个blob 名称和一个继续令牌。 第二次调用时，提供令牌，服务会检索下一组 blob 名称，以此类推，直到继续令牌为 null（表示已检索出所有 blob 名称）。 
 
@@ -184,7 +172,7 @@ do
 } while (blobContinuationToken != null);
 ```
 
-## <a name="download-blobs"></a>下载 Blob
+### <a name="download-blobs"></a>下载 Blob
 
 使用 [CloudBlob.DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync) 将 blob 下载到本地磁盘。
 
@@ -200,7 +188,7 @@ Console.WriteLine("Downloading blob to {0}", fileAndPath2);
 await cloudBlockBlob.DownloadToFileAsync(fileAndPath2, FileMode.Create);
 ```
 
-## <a name="clean-up-resources"></a>清理资源
+### <a name="clean-up-resources"></a>清理资源
 
 如果不再需要此本快速入门中上传的 blob，可使用 [CloudBlobContainer.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync) 删除整个容器。 还可以删除创建的文件（如果不需要）。
 
@@ -217,4 +205,6 @@ File.Delete(fileAndPath2);
 > [!div class="nextstepaction"]
 > [Blob 存储操作说明](storage-dotnet-how-to-use-blobs.md)
 
-若要详细了解存储资源管理器和 Blob，请参阅[使用存储资源管理器管理 Azure Blob 存储资源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fstorage%2fblobs%2ftoc.json)。
+有关其他可以下载和运行的 Azure 存储代码示例，请参阅[使用 .NET 的 Azure 存储示例](../common/storage-samples-dotnet.md)列表。
+
+若要详细了解存储资源管理器和 Blob，请参阅[使用存储资源管理器管理 Azure Blob 存储资源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。

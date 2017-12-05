@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/29/2017
-ms.date: 09/25/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: e39a4473b043f7533c87628f785add7f3d0b81fa
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: e0168e99d6f399e0bc40ba9941068bc747fc713b
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>专用事件中心概述
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 09/22/2017
 | 发布者策略 | 是 | 是 |   
 | 使用者组 | 20 | 20 |
 | 消息重播 | 是 | 是 |
-| 最大吞吐量单位 | 20（可灵活调整至 100）   | 1 CU≈200 |
+| 最大吞吐量单位 | 20（可灵活调整至 100）   | 1 CU≈50 |
 | 中转连接 | 包括 1,000 个 | 包括 100,000 个 |
 | 其他中转连接 | 是 | 是 |
 | 消息保留期 | 包括 1 天 | 包括最长 7 天 |
@@ -49,18 +49,25 @@ ms.lasthandoff: 09/22/2017
 * 与标准事件中心的 256 KB 相比，消息大小增至 1 MB。
 * 每次可重复性能。
 * 有保障的容量，满足迸发需求。
-* 容量单位 (CU) 可在 1 至 8 之间缩放 — 提供每秒高达两百万个入口事件。
-  * CU 管理专用事件中心的规模，其中，每个 CU 可提供约等于 200 个吞吐量单位 (TU) 的容量。
+* 包括 Azure 事件中心的[捕获](/event-hubs/event-hubs-capture-overview)功能，提供与 micro-batch 和长期保留的集成
 * 零维护：由我们负责管理负载均衡、OS 更新、安全修补及分区。
-* 固定的月度定价。
+* 固定小时定价。
+* 消息保留期长达 7 天，无需支付额外费用
 
 专用事件中心还去除了标准产品的部分吞吐量限制。 基本层的吞吐量单位可达每秒 1000 个事件，或者每个 TU 每秒 1 MB 的流入量和两倍的流出量。 专用规模产品对入口和出口事件计数不设限制。 这些限制仅由已购买事件中心的处理容量管理。
+
+此保留的专用环境提供该层独有的其他功能，例如：
+
+* 控制群集中的命名空间数量
+* 指定每个命名空间的吞吐量限制
+* 配置每个命名空间下事件中心数量
+* 确定分区的数量限制
 
 该服务面向最大的遥测用户，也可提供给具有企业协议的客户。
 
 ## <a name="how-to-onboard"></a>如何加入
 
-专用事件中心平台通过企业协议提供，并具有不同大小的 CU。 每个 CU 提供约等于 200 吞吐量计价单位。 通过添加或删除 CU，可以在一个月内随时扩展或缩小容量，满足自身需求。 专用计划独一无二，它提供了一种亲身实践的加入体验，用户可从事件中心产品团队获得适合自己的灵活部署。 
+通过添加或删除 CU，可以在一个月内随时扩展或缩小容量，满足自身需求。 专用计划独一无二，它提供了一种亲身实践的加入体验，用户可从事件中心产品团队获得适合自己的灵活部署。 若要载入到此 SKU，请联系(计费支持)[https://www.azure.cn/support/support-ticket-form]或 Azure 代表。
 
 ## <a name="next-steps"></a>后续步骤
 请与 Microsoft 销售代表或 Azure 支持部门联系，获取有关专用事件中心容量的其他详细信息。 还可访问以下链接，了解有关事件中心的详细信息：
@@ -70,4 +77,4 @@ ms.lasthandoff: 09/22/2017
 - [专用事件中心定价](https://www.azure.cn/pricing/details/event-hubs/)。 还可以与 Microsoft 销售代表或 Azure 支持部门联系，获取有关专用事件中心容量的其他详细信息。
 - [事件中心常见问题解答](event-hubs-faq.md)中包含了定价信息并解答了一些有关事件中心的常见问题。
 
-<!--Update_Description: update meta properties, wording update, remove the basic column in overview of event hubs dedicated-->
+<!--Update_Description: update meta properties, wording update, update link -->

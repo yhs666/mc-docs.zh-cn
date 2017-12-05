@@ -15,30 +15,27 @@ ms.topic: article
 origin.date: 04/25/2017
 ms.date: 03/01/2017
 ms.author: v-dazen
-ms.openlocfilehash: afc60c79d3175a2cfb661a7ae3ba81e494acc41c
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: a80fc4d97f4703271d2f8f65480611272e61fc06
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 11/28/2017
 ---
-# 在 Azure 应用服务中使用 Socket.IO 创建 Node.js 聊天应用程序
-<a id="create-a-nodejs-chat-application-with-socketio-in-azure-app-service" class="xliff"></a>
-Socket.IO 使用 WebSocket 在 node.js 服务器和客户端之间提供实时通信。 还支持回退到使用低版本浏览器的其他传输（如长轮询）。 本教程将演示如何以 Azure Web 应用的形式托管基于 Socket.IO 的聊天应用程序，并说明如何通过 [Azure Redis 缓存]缩放应用程序。 有关 Socket.IO 的详细信息，请参阅 <http://socket.io/>。
+# <a name="create-a-nodejs-chat-application-with-socketio-in-azure-app-service"></a>在 Azure 应用服务中使用 Socket.IO 创建 Node.js 聊天应用程序
+Socket.IO 使用 WebSocket 在 node.js 服务器和客户端之间提供实时通信。 还支持回退到使用低版本浏览器的其他传输（如长轮询）。 本教程演示如何以 Azure Web 应用的形式托管基于 Socket.IO 的聊天应用程序，并说明如何通过 [Azure Redis 缓存]缩放应用程序。 有关 Socket.IO 的详细信息，请参阅 <http://socket.io/>。
 
 > [!NOTE]
 > 此任务中的过程适用于[应用服务 Web 应用]；对于云服务，请参阅[在 Azure 云服务中使用 Socket.IO 构建 Node.js 聊天应用程序]。
 > 
 > 
 
-## 下载聊天示例
-<a id="download-the-chat-example" class="xliff"></a>
-对于此项目，将使用 [Socket.IO GitHub 存储库]中的聊天示例。 执行以下步骤下载该示例，并将其添加到先前创建的项目中。
+## <a name="download-the-chat-example"></a>下载聊天示例
+对于此项目，我们使用 [Socket.IO GitHub 存储库]中的聊天示例。 执行以下步骤下载该示例，并将其添加到先前创建的项目中。
 
 1. 下载 Socket.IO 项目的 [ZIP 或 GZ 存档版本]（本文档使用版本 1.3.5）
 2. 解压缩存档，并将 **examples\\chat** 目录复制到新位置。 例如，**\\node\\chat**。
 
-## 修改 App.js 并安装模块
-<a id="modify-appjs-and-install-modules" class="xliff"></a>
+## <a name="modify-appjs-and-install-modules"></a>修改 App.js 并安装模块
 1. 将 **index.js** 文件重命名为 **app.js**。 这可支持 Azure 检测它是否为 Node.js 应用程序。
 2. 在文本编辑器中打开 **app.js** 文件。 更改包含 `var io = require('../..')(server);` 的行，如下所示：
 
@@ -55,18 +52,17 @@ Socket.IO 使用 WebSocket 在 node.js 服务器和客户端之间提供实时�
           "express": "3.4.8",
           "socket.io": "1.3.5"
         }
-4. 从命令行中，切换到 **\\node\\chat** 目录，然后使用 npm 安装此应用程序所需的模块：
+4. 从命令行中，切换到 **\\node\\chat** 目录，并使用 npm 安装此应用程序所需的模块：
 
         npm install
 
     将模块安装到名为 **node_modules** 的子文件夹。
 
-## 创建 Azure Web 应用
-<a id="create-an-azure-web-app" class="xliff"></a>
-按照以下步骤创建 Azure Web 应用，启用 Git 发布，然后为 Web 应用启用 WebSocket 支持。
+## <a name="create-an-azure-web-app"></a>创建 Azure Web 应用
+按照以下步骤创建 Azure Web 应用，启用 Git 发布，并为 Web 应用启用 WebSocket 支持。
 
 > [!NOTE]
-> 若要完成本教程，需要一个 Azure 帐户。 如果你没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 <a href="https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A7171371E" target="_blank">Azure 试用版</a>。
+> 若要完成本教程，需要一个 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 <a href="https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A7171371E" target="_blank">Azure 试用版</a>。
 > 
 > 
 
@@ -74,7 +70,7 @@ Socket.IO 使用 WebSocket 在 node.js 服务器和客户端之间提供实时�
 2. 如果首次在 Azure 中设置存储库，需要创建登录凭据。 从 Azure CLI 输入以下命令：
 
         azure site deployment user set [username] [password]
-3. 切换到 **\\node\chat** 目录，然后使用以下命令创建新的 Azure Web 应用和本地 Git 存储库。 此命令还会创建名为“azure”的 Git 远程连接。
+3. 切换到 **\\node\chat** 目录，并使用以下命令创建新的 Azure Web 应用和本地 Git 存储库。 此命令还会创建名为“azure”的 Git 远程连接。
 
         azure site create mysitename --git
 
@@ -87,7 +83,7 @@ Socket.IO 使用 WebSocket 在 node.js 服务器和客户端之间提供实时�
 
         git push azure master
 
-    系统出现提示时，请输入步骤 2 中的凭据。 在服务器上导入模块时会收到状态消息。 此过程完成后，应用程序将托管在 Azure Web 应用中。
+    系统出现提示时，请输入步骤 2 中的凭据。 在服务器上导入模块时会收到状态消息。 此过程完成后，应用程序会托管在 Azure Web 应用中。
 
    > [!NOTE]
    > 在模块安装过程中，可能会出现“找不到导入的项目...”错误。 可以安全地忽略这些错误。
@@ -109,19 +105,17 @@ Socket.IO 使用 WebSocket 在 node.js 服务器和客户端之间提供实时�
 
         azure site browse
 
-你的应用现在即可在 Azure 上运行，并可使用 Socket.IO 在不同客户端之间中继聊天消息。
+应用现在即可在 Azure 上运行，并可使用 Socket.IO 在不同客户端之间中继聊天消息。
 
-## 向外扩展
-<a id="scale-out" class="xliff"></a>
-Socket.IO 应用程序可通过**适配器**实现向外扩展，以在多个应用程序实例之间发布消息和事件。 可使用多个适配器，且可将 [socket.io redis] 适配器与 Azure Redis 缓存功能结合使用。
+## <a name="scale-out"></a>向外扩展
+Socket.IO 应用程序可通过**适配器**实现向外扩展，以在多个应用程序实例之间发布消息和事件。 当多个适配器可用时，可轻松将 [socket.io-redis] 适配器与 Azure Redis 缓存功能结合使用。
 
 > [!NOTE]
 > 向外扩展 Socket.IO 解决方案还要求支持粘滞会话。 默认情况下，可通过 Azure 请求路由为 Azure Web 应用启用粘滞会话。 有关详细信息，请参阅 [Instance Affinity in Azure Web Sites]（Azure 网站中的实例关联）。
 > 
 > 
 
-### 创建 Redis 缓存
-<a id="create-a-redis-cache" class="xliff"></a>
+### <a name="create-a-redis-cache"></a>创建 Redis 缓存
 执行[在 Azure Redis 缓存中创建缓存]中的步骤，创建新缓存。
 
 > [!NOTE]
@@ -129,9 +123,8 @@ Socket.IO 应用程序可通过**适配器**实现向外扩展，以在多个应
 > 
 > 
 
-### 添加 redis 和 socket.io redis 模块
-<a id="add-the-redis-and-socketio-redis-modules" class="xliff"></a>
-1. 从命令行更改为 **\\node\\chat** 目录，然后使用以下命令。
+### <a name="add-the-redis-and-socketio-redis-modules"></a>添加 redis 和 socket.io redis 模块
+1. 从命令行更改为 **\\node\\chat** 目录，并使用以下命令。
 
         npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
@@ -149,7 +142,7 @@ Socket.IO 应用程序可通过**适配器**实现向外扩展，以在多个应
 
     使用 Redis 缓存的主机名和密钥替换 **redishostname** 和 **rediskey**。
 
-    这将创建之前创建的 Redis 缓存的发布和订阅客户端。 然后，结合使用客户端和适配器，配置 Socket.IO 使用 Redis 缓存在应用程序实例之间传递消息和事件
+    这会创建之前创建的 Redis 缓存的发布和订阅客户端。 然后，结合使用客户端和适配器，配置 Socket.IO 使用 Redis 缓存在应用程序实例之间传递消息和事件
 
    > [!NOTE]
    > 尽管 **socket.io-redis** 适配器能够与 Redis 直接通信，但当前版本不支持 Azure Redis 缓存所需的身份验证。 因此，使用 **redis** 模块创建初始连接，然后将客户端传递到 **socket.io-redis** 适配器。
@@ -159,8 +152,7 @@ Socket.IO 应用程序可通过**适配器**实现向外扩展，以在多个应
    > 
 3. 保存修改的 **app.js**
 
-### 提交更改并重新部署
-<a id="commit-changes-and-redeploy" class="xliff"></a>
+### <a name="commit-changes-and-redeploy"></a>提交更改并重新部署
 从 **\\node\\chat** 目录的命令行中，使用以下命令提交更改，并重新部署该应用程序。
 
     git add .
@@ -175,14 +167,11 @@ Socket.IO 应用程序可通过**适配器**实现向外扩展，以在多个应
 
 可从多个浏览器或计算机连接到 Web 应用，验证是否已正确将消息发送到所有客户端。
 
-## 故障排除
-<a id="troubleshooting" class="xliff"></a>
-### 连接限制
-<a id="connection-limits" class="xliff"></a>
-Azure Web 应用可提供多个 SKU，用于确定站点可用的资源。 包括允许的 WebSocket 连接数。 有关详细信息，请参阅 [Web 应用定价页]。
+## <a name="troubleshooting"></a>故障排除
+### <a name="connection-limits"></a>连接限制
+Azure Web 应用可提供多个 SKU，用于确定站点可用的资源。 包括允许的 WebSocket 连接数。 
 
-### 不使用 WebSocket 发送消息
-<a id="messages-arent-being-sent-using-websockets" class="xliff"></a>
+### <a name="messages-arent-being-sent-using-websockets"></a>不使用 WebSocket 发送消息
 如果客户端浏览器保持回退到长轮询而不是使用 Websocket，可能有以下几种原因。
 
 * **试图限制仅传输到 Websocket**
@@ -201,7 +190,7 @@ Azure Web 应用可提供多个 SKU，用于确定站点可用的资源。 包�
 
     Websocket 依赖某些较少使用的 HTTP 标头，如 **Upgrade** 标头。 某些中间网络设备（例如 Web 代理）可能会删除这些标头。 为避免发生此问题，可以建立基于 SSL 的 WebSocket 连接。
 
-    实现此目的的简单方法是将 Socket.IO 配置到 `match origin protocol`。 这会指示 Socket.IO 保护 Websocket 通信，与保护网页的原始 HTTP/HTTPS 请求一样。 如果浏览器使用 HTTPS URL 访问网站，将基于 SSL 保护通过 Socket.IO 的后续 WebSocket 通信。
+    实现此目的的简单方法是将 Socket.IO 配置到 `match origin protocol`。 这会指示 Socket.IO 保护 Websocket 通信，与保护网页的原始 HTTP/HTTPS 请求一样。 如果浏览器使用 HTTPS URL 访问网站，则基于 SSL 保护通过 Socket.IO 的后续 WebSocket 通信。
 
     要将此示例修改为启用此配置，请在 **app.js** 文件中包含 `, nicknames = {};` 的行后面添加以下代码。
 
@@ -214,12 +203,12 @@ Azure Web 应用可提供多个 SKU，用于确定站点可用的资源。 包�
 
         <webSocket enabled="false"/>
 
-    这将禁用 IIS Websocket 模块，包括自身的 Websocket 实施和与 Node.js 特定 WebSocket 模块（如 Socket.IO）的冲突。 如果此行不存在，或者已设置为 `true`，原因是 WebSocket 传输不适用于应用程序。
+    这会禁用 IIS Websocket 模块，包括自身的 Websocket 实施和与 Node.js 特定 WebSocket 模块（如 Socket.IO）的冲突。 如果此行不存在，或者已设置为 `true`，原因是 WebSocket 传输不适用于应用程序。
 
     Node.js 应用程序通常不包括 **web.config** 文件，因此 Azure 网站在部署 Node.js 应用程序时会自动生成 web.config 文件。 由于此文件是在服务器上自动生成，因此必须使用网站的 FTP 或 FTPS URL 查看此文件。 可通过选择 Web 应用，然后选择“仪表板”链接，在经典管理门户中查找站点的 FTP 和 FTPS URL。 URL 显示在“速览”部分。
 
   > [!NOTE]
-  > 如果应用程序未提供 **web.config** 文件，则该文件将仅由 Azure 网站生成。 如果在应用程序项目的根目录下提供了 **web.config** 文件，则 Azure Web 应用将使用该文件。
+  > 如果应用程序未提供 **web.config** 文件，则该文件仅由 Azure 网站生成。 如果在应用程序项目的根目录下提供了 **web.config** 文件，则 Azure Web 应用会使用该文件。
   > 
   > 
 
@@ -276,21 +265,18 @@ Azure Web 应用可提供多个 SKU，用于确定站点可用的资源。 包�
 
     如果应用程序使用入口点而不是 **app.js**，必须将出现的所有 **app.js** 替换为正确的入口点。 例如，将 **app.js** 替换为 **server.js**。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 在本教程中，已学习如何创建托管在 Azure Web 应用中的聊天应用程序。 还可以将该应用程序作为 Azure 云服务托管。 有关如何实现此目的的步骤，请参阅 [在 Azure 云服务中使用 Socket.IO 构建 Node.js 聊天应用程序]。
 
 有关详细信息，另请参阅 [Node.js 开发人员中心]。
 
-## 更改内容
-<a id="whats-changed" class="xliff"></a>
+## <a name="whats-changed"></a>更改内容
 * 有关从网站更改为应用服务的指南，请参阅 [Azure App Service and Its Impact on Existing Azure Services]（Azure 应用服务及其对现有 Azure 服务的影响）。
 
 <!-- URL List -->
 
 [Azure Redis 缓存]: /redis-cache/
 [应用服务 Web 应用]: /app-service-web/app-service-changes-existing-services
-[Web 应用定价页]: /azure-subscription-service-limits
 [在 Azure 云服务中使用 Socket.IO 构建 Node.js 聊天应用程序]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
 [Install and Configure the Azure CLI]: ../cli-install-nodejs.md
 [Azure App Service and Its Impact on Existing Azure Services]: /app-service-web/app-service-changes-existing-services
@@ -299,7 +285,7 @@ Azure Web 应用可提供多个 SKU，用于确定站点可用的资源。 包�
 [Instance Affinity in Azure Web Sites]: https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/
 [在 Azure Redis 缓存中创建缓存]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 
-[socket.io redis]: https://github.com/socketio/socket.io-redis
+[socket.io-redis]: https://github.com/socketio/socket.io-redis
 [Socket.IO GitHub 存储库]: https://github.com/socketio/socket.io
 [ZIP 或 GZ 存档版本]: https://github.com/socketio/socket.io/releases
 

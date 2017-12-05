@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Site Recovery 故障转移到 Azure 后联网以连接 VM | Azure"
-description: "使用 Azure Site Recovery 从本地故障转移后连接 Azure VM 的联网指南"
+title: "设置使用 Azure Site Recovery 故障转移到 Azure 后要连接的 IP 地址 | Azure"
+description: "说明如何设置使用 Azure Site Recovery 从本地故障转移后用于连接到 Azure VM 的 IP 地址"
 services: site-recovery
 documentationcenter: 
 author: rockboyfor
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/12/2017
-ms.date: 11/20/2017
+origin.date: 11/14/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: c443b768b5654bbc1552d50320cc4e294b455a5a
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 19ea97f762fa67145b34078b873957e6c8c4d193
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="networking-for-vm-connectivity-after-failover"></a>故障转移后联网以连接 VM
+# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>设置在故障转移到 Azure 后要连接的 IP 地址
 
 本文介绍使用 [Azure Site Recovery](site-recovery-overview.md) 服务复制和故障转移到 Azure 后，用于连接 Azure VM 的网络要求。
 
@@ -85,4 +85,4 @@ Site Recovery 支持在通过子网故障转移到 Azure 时保留固定的 IP �
 ## <a name="next-steps"></a>后续步骤
 [运行故障转移](site-recovery-failover.md)
 
-<!-- Update_Description: new articles on site recovery concepts on premises to azure networking -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -12,24 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/01/2017
-ms.date: 09/04/2017
+origin.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 89aca7315cbe6c4160e26670605c96acbbb1e13a
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 52c6f81595d9e363258408c25eea997a20b97896
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>使用 Azure 门户创建事件中心命名空间和事件中心
 
 ## <a name="create-an-event-hubs-namespace"></a>创建事件中心命名空间
-
-1. 登录到 [Azure 门户][Azure portal]，然后单击屏幕左上角的“新建”。
+1. 登录到 [Azure 门户][Azure portal]，单击屏幕左上角的“创建资源”。
 2. 单击“物联网”，然后单击“事件中心”。
 
     ![](./media/event-hubs-create/create-event-hub9.png)
-3. 在“创建命名空间”  边栏选项卡中，输入命名空间名称。 系统会立即检查该名称是否可用。
+3. 在“创建命名空间”中输入命名空间名称。 系统会立即检查该名称是否可用。
 
     ![](./media/event-hubs-create/create-event-hub1.png)
 4. 在确保命名空间名称可用后，选择定价层（基本版或标准版）。 另外，请选择一个 Azure 订阅、资源组以及要创建该资源的位置。 
@@ -53,14 +52,14 @@ ms.lasthandoff: 09/04/2017
 
     ![](./media/event-hubs-create/create-event-hub3.png)
 
-3. 在边栏选项卡顶部，单击“添加事件中心”。
+3. 在边栏选项卡顶部，单击“添加事件中心” 。
 
     ![](./media/event-hubs-create/create-event-hub4.png)
-4. 为事件中心键入名称，然后单击“创建”。
+4. 为事件中心键入名称，并单击“创建”。
 
     ![](./media/event-hubs-create/create-event-hub5.png)
 
-现在已创建事件中心，你已有收发事件所需的连接字符串。
+现在已创建事件中心，已具有收发事件所需的连接字符串。
 
 ## <a name="next-steps"></a>后续步骤
 若要了解有关事件中心的详细信息，请访问以下链接：

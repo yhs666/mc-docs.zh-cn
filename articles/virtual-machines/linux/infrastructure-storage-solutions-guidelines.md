@@ -17,11 +17,11 @@ origin.date: 06/26/2017
 ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab94c44ba2581bb5241432b9da5eb7ee53a0b424
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: ace1853d060bb4828c3ddc8a05a3d712dd5ba334
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-storage-infrastructure-guidelines-for-linux-vms"></a>适用于 Linux VM 的 Azure 存储基础结构准则
 
@@ -66,7 +66,7 @@ Azure 使用一个操作系统磁盘、一个临时磁盘和零个或更多可�
 
 操作系统磁盘和数据磁盘的最大大小为 4TB。 可以使用逻辑卷管理器 (LVM) 来超越此限制，方法是将数据磁盘整合在一起，以向 VM 提供大于 1023 GB 的逻辑卷。
 
-设计 Azure 存储部署时有几个可伸缩性限制，请参阅 [Azure 订阅和服务限制、配额和约束条件](../../azure-subscription-service-limits.md#storage-limits)，了解更多详细信息。 另请参阅 [Azure 存储伸缩性和性能目标](../../storage/storage-scalability-targets.md)。
+设计 Azure 存储部署时，存在一些可伸缩性限制。 另请参阅 [Azure 存储伸缩性和性能目标](../../storage/storage-scalability-targets.md)。
 
 针对应用程序存储，可以使用 Blob 存储来存储非结构化对象数据，例如文档、映像、备份、配置数据、 日志等。 应用程序可以直接写入 Azure Blob 存储，而不是写入附加到 VM 的虚拟磁盘。 根据可用性需求和成本限制，Blob 存储还提供[热存储层和冷存储层](../../storage/storage-blob-storage-tiers.md)选项。
 

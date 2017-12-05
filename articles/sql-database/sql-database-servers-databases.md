@@ -16,11 +16,11 @@ ms.workload: data-management
 origin.date: 10/11/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 713cdb5a2e7f1f5f2131dd2058349a1001651baa
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: a4c211ced94113c83380ee1092a1c43fd68b9a1f
+ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>创建并管理 Azure SQL 数据库服务器和数据库
 
@@ -70,7 +70,7 @@ Azure 数据库逻辑服务器：
 - 为数据库访问提供连接终结点 (<serverName>.database.chinacloudapi.cn)
 - 通过连接到 master 数据库通过 DMV 提供对所含资源相关元数据的访问方式 
 - 提供应用于数据库的管理策略的作用域，即登录名、防火墙、审核、威胁检测等。 
-- 受父订阅中的配额限制（默认情况下，每个订阅六个服务器，[请单击此处了解订阅限制](../azure-subscription-service-limits.md)）
+- 受父订阅中的配额限制（默认情况下，每个订阅六个服务器）
 - 提供所含资源的数据库配额和 DTU 配额范围（例如，45,000 个 DTU）
 - 是在包含资源上启用的功能的版本控制作用域 
 - 服务器级主体登录名可以管理服务器上的所有数据库

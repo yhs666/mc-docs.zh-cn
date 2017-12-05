@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/08/2016
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 9131380665150207ec54eb9e909b08572dce6fba
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: a8e80f654db7f1c6cb4a1c022583ea036a750f7b
+ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 ## <a name="overview"></a>概述

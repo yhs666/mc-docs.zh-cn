@@ -2,7 +2,7 @@
 title: "存档 Azure 活动日志 | Azure"
 description: "了解如何存档 Azure 活动日志，将其长期保留在存储帐户中。"
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/09/2016
 ms.author: v-yiso
-ms.date: 10/17/2016
-ms.openlocfilehash: 2178e8fdec87c05e2d986d1433d415777e3ecf65
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 12/11/2017
+ms.openlocfilehash: 99974debf643339071c62eff26521e95e7e44e23
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="archive-the-azure-activity-log"></a>存档 Azure 活动日志
 本文介绍如何使用 Azure 门户、PowerShell Cmdlet 或跨平台 CLI 将 [Azure 活动日志](./monitoring-overview-activity-logs.md)存档到存储帐户中。 此选项适用于对保留时长超过 90 天的活动日志进行审核、静态分析或备份（对保留策略具备完全控制权限）。 如果只需将事件保留 90 天或更短的时间，则不需设置到存储帐户的存档，因为在不启用存档的情况下，活动日志事件保留在 Azure 平台中的时间是 90 天。
@@ -63,7 +63,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | --- | --- | --- |
 | 名称            | 是      | 日志配置文件的名称。                                                                                                                                                                                                                                                                         |
 | storageId       | 否       | 应该将活动日志保存到其中的存储帐户的资源 ID。                                                                                                                                                                                                                        |
-| 位置       | 是      | 要为其收集活动日志事件的逗号分隔区域的列表。 [访问此页](https://azure.microsoft.com/en-us/regions)或使用 [Azure 管理 REST API](https://msdn.microsoft.com/zh-cn/library/azure/gg441293.aspx) 即可查看所有区域的列表。 |
+| 位置       | 是      | 要为其收集活动日志事件的逗号分隔区域的列表。 使用 [Azure 管理 REST API](https://msdn.microsoft.com/zh-cn/library/azure/gg441293.aspx) 即可查看所有区域的列表。 |
 | RetentionInDays | 是      | 事件的保留天数，介于 1 到 2147483647 之间。 值为零时，将无限期（永久）存储日志。                                                                                                                                                                                             |
 | Categories      | 是      | 应收集的事件类别的逗号分隔列表。 可能值包括：Write、Delete 和 Action。                                                                                                                                                                                 |
 

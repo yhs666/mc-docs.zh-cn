@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/12/2017
-ms.date: 08/14/2017
-wacn.date: 
+origin.date: 08/09/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: e0cf2ef2714c5ddfe266f3aa2ab0c85175e47423
-ms.sourcegitcommit: 0a59a44bdc09a8b5801180996adfdf68131579c0
+ms.custom: mvc
+ms.openlocfilehash: 8fe2554bd0b958debe1e34bfde39d89f58fba109
+ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>将具有 CI/CD 的应用程序部署到 Service Fabric 群集
-本教程介绍如何使用 Visual Studio Team Services 为 Azure Service Fabric 应用程序设置持续集成和部署。  需要一个现有的 Service Fabric 应用程序，并使用在[生成 .NET 应用程序](service-fabric-tutorial-create-dotnet-app.md)中创建的应用程序作为示例。
+本教程是一个系列的第三部分，介绍了如何使用 Visual Studio Team Services 为 Azure Service Fabric 应用程序设置持续集成和部署。  需要一个现有的 Service Fabric 应用程序，将使用在[生成 .NET 应用程序](service-fabric-tutorial-create-dotnet-app.md)中创建的应用程序作为示例。
 
-本教程介绍如何执行下列操作：
+在该系列的第三部分中，你会学习如何：
 
 > [!div class="checklist"]
 > * 向项目中添加源代码管理
@@ -33,16 +33,28 @@ ms.lasthandoff: 10/19/2017
 > * 在 Team Services 中创建发布定义
 > * 自动部署和升级应用程序
 
-本教程已拆分为三篇文章，本文是教程系列中的第三篇文章。
+在此系列教程中，你会学习如何：
+> [!div class="checklist"]
+> * [构建 .NET Service Fabric 应用程序](service-fabric-tutorial-create-dotnet-app.md)
+> * [将应用程序部署到远程群集](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * 使用 Visual Studio Team Services 配置 CI/CD
+> * [设置监视和诊断应用程序](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>先决条件
 在开始学习本教程之前：
-- 如果没有 Azure 订阅，请创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
+- 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
 - [安装 Visual Studio 2017](https://www.visualstudio.com/)，并安装 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
 - [安装 Service Fabric SDK](service-fabric-get-started.md)
 - 创建一个 Service Fabric 应用程序，例如[根据此教程](service-fabric-tutorial-create-dotnet-app.md)创建。 
-- 在 Azure 上创建一个 Windows Service Fabric 群集，例如[根据此教程](service-fabric-tutorial-create-cluster-azure-ps.md)创建
+- 在 Azure 上创建一个 Windows Service Fabric 群集，例如[根据此教程](service-fabric-tutorial-create-vnet-and-windows-cluster.md)创建
 - 创建一个 [Team Services 帐户](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)。
+
+## <a name="download-the-voting-sample-application"></a>下载投票示例应用程序
+如果未生成[本系列教程的第一部分](service-fabric-tutorial-create-dotnet-app.md)中的投票示例应用程序，可以下载它。 在命令窗口中，运行以下命令，将示例应用存储库克隆到本地计算机。
+
+```
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
+```
 
 ## <a name="prepare-a-publish-profile"></a>准备一个发布配置文件
 你已[创建了一个应用程序](service-fabric-tutorial-create-dotnet-app.md)并已[将该应用程序部署到了 Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)，现在可以设置持续集成了。  首先，在应用程序中准备一个发布配置文件，供要在 Team Services 中执行的部署进程使用。  应当将发布配置文件配置为以之前创建的群集为目标。  启动 Visual Studio 并打开一个现有的 Service Fabric 应用程序项目。  在“解决方案资源管理器”中，右键单击该应用程序并选择“发布...”。
@@ -67,47 +79,44 @@ ms.lasthandoff: 10/19/2017
 发布存储库时，会在帐户中创建一个与本地存储库同名的新团队项目。 若要在现有团队项目中创建存储库，请单击“存储库名称”旁边的“高级”并选择一个团队项目。 可以通过选择“在 Web 上查看”在 Web 上查看代码。
 
 ## <a name="configure-continuous-delivery-with-vsts"></a>配置“使用 VSTS 实现持续交付”
-使用 Visual Studio 中的内置向导配置“使用 VSTS 实现持续交付”。
+Team Services 生成定义所描述的工作流由一系列按顺序执行的生成步骤组成。 创建一个生成定义，以生成要部署到 Service Fabric 群集的 Service Fabric 应用程序包和其他项目。 详细了解 [Team Services 生成定义](https://www.visualstudio.com/docs/build/define/create)。 
 
-1. 在“解决方案资源管理器”中右键单击“MyApplication”应用程序项目，然后选择“添加” -> “使用 VSTS 实现持续交付”。 此时会弹出一个对话框，用于输入所需配置。
+Team Services 发布定义描述了将应用程序包部署到群集的工作流。 一起使用时，生成定义和发布定义将执行从开始到结束的整个工作流，即一开始只有源文件，而结束时群集中会有一个运行的应用程序。 详细了解 Team Services [发布定义](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)。
 
-    ![使用 VSTS 实现持续交付][continuous-delivery-with-VSTS]
+### <a name="create-a-build-definition"></a>创建生成定义
+打开 Web 浏览器并导航到新的团队项目：https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting。 
 
-    “帐户”、“项目”和“Git 存储库”值会自动输入。
+依次选择“生成和发布”选项卡、“生成”、“+ 新建定义”。  在“选择模板”中，选择“Azure Service Fabric 应用程序”模板，然后单击“应用”。 
 
-2. 选择“Hosted VS2017”作为代理队列。
+![选择“生成模板”][select-build-template] 
 
-3. 在“群集连接”下拉列表中选择“创建连接”，此时会打开一个网站，用于配置 VSTS 中的服务终结点。 
+由于投票应用程序包含 .NET Core 项目，请添加还原依赖项的任务。 在“任务”视图中，选择左下角的“+ 添加任务”。 在“命令行”搜索找到命令行任务，然后单击“添加”。 
 
-4. 将焦点置于浏览器窗口上并选择“新建服务终结点” -> “Service Fabric”。
+![添加任务][add-task] 
 
-    ![新建服务终结点][new-service-endpoint]
+在新的任务中，在“显示名称”中输入“运行 dotnet.exe”，在“工具”中输入“dotnet.exe”，在“参数”中输入“restore”。 
 
-    此时会弹出一个对话框，用于添加新的 Service Fabric 连接。
+![新建任务][new-task] 
 
-5. 选择“基于证书”并完成对话框：
+在“触发器”视图的“持续集成”下，单击“启用此触发器”开关。 
 
-    ![“新建服务终结点”对话框][new-service-endpoint-dialog]
+选择“保存并排队”，并输入“托管 VS2017”作为“代理队列”。 选择“排队”，手动启动生成。  推送或签入时也会触发生成操作。
 
-    1. 输入连接名称。
-    2. 在“群集终结点”字段中输入群集的管理终结点（例如，“tcp://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19000”）。 指定“tcp://”作为协议。  默认管理终结点端口为 19000。
-    3. 输入服务器证书指纹。  可以通过打开群集的 Service Fabric Explorer (https://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19080) 来获取指纹。
-        - 在树视图中选择“群集”节点，然后在右侧窗格中选择“清单”选项卡。
-        - 在 XML 文件中查找 <ServerCertificate> 元素并复制 X509FindValue 属性的内容。
-    4. 在“客户端证书”字段中，以 Base64 编码的字符串形式输入客户端证书，这是在生成代理上安装证书所必需的：
-        - 确保提供 PFX 文件格式的证书。
-        - 运行以下 PowerShell 命令，将 PFX 文件作为 Base64 编码的字符串输出到剪贴板：`[System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(C:\path\to\certificate.pfx)) | clip`
-        - 将剪贴板中的值粘贴 (ctrl+v) 到对话框中的相应字段。
-    5. 在“密码”字段中键入证书密码，然后单击“确定”。
+若要检查生成进度，请切换到“生成”选项卡。在验证生成成功执行后，定义用于将应用程序部署到群集的发布定义。 
 
-6. 在 Visual Studio 的“使用 VSTS 实现持续交付”对话框的“群集连接”字段中选择<Refresh>。 刚才创建的群集终结点现在应当会显示在下拉列表中。
+### <a name="create-a-release-definition"></a>创建发布定义  
 
-7. 选择默认的生成和发布定义名称，或者在对话框中更改建议的名称。 完成后，单击“确定”。
+依次选择“生成和发布”选项卡、“发布”、“+ 新建定义”。  在“创建发布定义”中，从列表中选择“Azure Service Fabric 部署”模板，单击“下一步”。  选择“生成”源，勾选“持续部署”框，单击“创建”。 
 
-过一会儿，Visual Studio 中会弹出一个对话框，询问是否要在浏览器中打开生成和发布定义。 可以选择这样做来检查它们的配置情况，但这不是完成本教程所必需的。
+在“环境”视图中，单击“群集连接”右侧的“添加”。  指定连接名称“mysftestcluster”、群集终结点“tcp://mysftestcluster.chinanorth.cloudapp.chinacloudapi.cn:19000”，以及群集的 Azure Active Directory 或证书凭据。 对于 Azure Active Directory 凭据，可在“用户名”和“密码”字段中定义需要用来连接到群集的凭据。 对于基于证书的身份验证，可在“客户端证书”字段中定义客户端证书文件的 Base64 编码。  若要了解如何获取该值，请参阅有关该字段的弹出帮助。  如果证书受密码保护，可在“密码”  字段中定义密码。  单击“保存”，保存发布定义。
 
-- Team Services 生成定义所描述的工作流由一系列按顺序执行的生成步骤组成。 创建一个生成定义，以生成要部署到 Service Fabric 群集的 Service Fabric 应用程序包和其他项目。 详细了解 [Team Services 生成定义](https://www.visualstudio.com/docs/build/define/create)。
-- Team Services 发布定义描述了将应用程序包部署到群集的工作流。 一起使用时，生成定义和发布定义将执行从开始到结束的整个工作流，即一开始只有源文件，而结束时群集中会有一个运行的应用程序。 详细了解 Team Services [发布定义](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)。
+![添加群集连接][add-cluster-connection] 
+
+单击“在代理上运行”，然后为“部署队列”选择“托管 VS2017”。 单击“保存”，保存发布定义。
+
+![在代理上运行][run-on-agent]
+
+选择“+ 发布” -> “创建发布” -> “创建”，手动创建发布。  验证部署是否已成功以及应用程序是否正在群集中运行。  打开 Web 浏览器并导航到 [http://mysftestcluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/](http://mysftestcluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/)。  记下应用程序版本，在本例中为“1.0.0.20170616.3”。 
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>提交并推送更改，触发发布
 通过将一些代码更改签入到 Team Services 中来验证持续集成管道是否正常工作。    
@@ -126,7 +135,7 @@ ms.lasthandoff: 10/19/2017
 
 若要检查生成进度，请在 Visual Studio 中切换到“团队资源管理器”中的“生成”选项卡。  在验证生成成功执行后，定义用于将应用程序部署到群集的发布定义。
 
-验证部署是否已成功以及应用程序是否正在群集中运行。  打开 Web 浏览器并导航到 [http://mysftestcluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/](http://mysftestcluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/)。  记下应用程序版本，在本例中为“1.0.0.20170616.3”。
+验证部署是否已成功以及应用程序是否正在群集中运行。  打开 Web 浏览器并导航到 [http://mysftestcluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/](http://mysftestcluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/)。  记下应用程序版本，在本例中为“1.0.0.20170815.3”。
 
 ![Service Fabric Explorer][sfx1]
 
@@ -137,7 +146,7 @@ ms.lasthandoff: 10/19/2017
 
 ![Service Fabric Explorer][sfx2]
 
-应用程序升级可能要花费几分钟时间才能完成。 当升级完成后，应用程序会运行下一版本。  在本例中为“1.0.0.20170616.4”。
+应用程序升级可能要花费几分钟时间才能完成。 当升级完成后，应用程序会运行下一版本。  在本例中为“1.0.0.20170815.4”。
 
 ![Service Fabric Explorer][sfx3]
 
@@ -150,10 +159,9 @@ ms.lasthandoff: 10/19/2017
 > * 创建发布定义
 > * 自动部署和升级应用程序
 
-现在已部署应用程序并配置持续集成，请尝试以下操作：
-- [升级应用](service-fabric-application-upgrade.md)
-- [测试应用](service-fabric-testability-overview.md) 
-- [监视和诊断](service-fabric-diagnostics-overview.md)
+转到下一教程：
+> [!div class="nextstepaction"]
+> [设置监视和诊断应用程序](service-fabric-tutorial-monitoring-aspnet.md) 
 
 <!-- Image References -->
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
@@ -174,3 +182,6 @@ ms.lasthandoff: 10/19/2017
 [continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png
+[run-on-agent]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/RunOnAgent.png
+
+<!-- Update_Description: update meta properties, update link -->
