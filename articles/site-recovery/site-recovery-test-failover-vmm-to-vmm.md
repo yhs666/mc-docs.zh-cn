@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# Site Recovery 中的测试故障转移（VMM 到 VMM）
-<a id="test-failover-vmm-to-vmm-in-site-recovery" class="xliff"></a>
+# <a name="test-failover-vmm-to-vmm-in-site-recovery"></a>Site Recovery 中的测试故障转移（VMM 到 VMM）
 
 本文提供针对使用 Azure Site Recovery 保护的虚拟机和物理服务器执行测试故障转移或灾难恢复 (DR) 演练的相关信息与说明。 使用 System Center Virtual Machine Manager (VMM) 托管的本地站点作为恢复站点。
 
@@ -33,38 +32,32 @@ ms.lasthandoff: 06/30/2017
 
 如果要使用自动创建 VM 网络选项运行测试故障转移，则应在恢复计划中要用于测试故障转移的组 1 之前添加一个手动步骤。 然后向自动创建的网络添加基础结构资源，之后再运行测试故障转移。
 
-### 需要注意的事项
-<a id="things-to-note" class="xliff"></a>
+### <a name="things-to-note"></a>需要注意的事项
 复制到辅助站点时，副本计算机使用的网络类型不需要与用于测试故障转移的逻辑网络类型相匹配，但某些组合可能不起作用。 如果副本使用 DHCP 和基于 VLAN 的隔离，则副本的 VM 网络不需要静态 IP 地址池。 因此，无法为测试故障转移使用 Windows 网络虚拟化，因为没有任何可用的地址池。 
 
 此外，如果副本网络使用无隔离且测试网络使用 Windows 网络虚拟化，则测试故障转移将不起作用。 因为无隔离网络不具备创建 Windows 网络虚拟化网络所需的子网。
 
 故障转移后副本虚拟机连接到映射 VM 网络的方式取决于 VMM 控制台中 VM 网络的配置方式。
 
-#### 使用无隔离或 VLAN 隔离配置的 VM 网络
-<a id="vm-network-configured-with-no-isolation-or-vlan-isolation" class="xliff"></a>
+#### <a name="vm-network-configured-with-no-isolation-or-vlan-isolation"></a>使用无隔离或 VLAN 隔离配置的 VM 网络
 如果为 VM 网络定义了 DHCP，则副本虚拟机通过为关联逻辑网络中的网络站点指定的设置连接到 VLAN ID。 虚拟机从可用的 DHCP 服务器接收其 IP 地址。 
 
 无需为目标 VM 网络定义静态 IP 地址池。 如果为 VM 网络使用了静态 IP 地址池，则副本虚拟机通过为关联逻辑网络中的网络站点指定的设置连接到 VLAN ID。
 
 虚拟机从为 VM 网络定义的池接收其 IP 地址。 如果未在目标 VM 网络上定义静态 IP 地址池，则 IP 地址分配将会失败。 同时在将用于保护和恢复的源和目标 VMM 服务器上创建 IP 地址池。
 
-#### 使用 Windows 网络虚拟化的 VM 网络
-<a id="vm-network-with-windows-network-virtualization" class="xliff"></a>
+#### <a name="vm-network-with-windows-network-virtualization"></a>使用 Windows 网络虚拟化的 VM 网络
 如果 VM 网络使用 Windows 网络虚拟化进行配置，则应为目标 VM 网络定义静态池，无论源 VM 网络是配置为使用 DHCP 还是静态 IP 地址池。 
 
 如果定义 DHCP，则目标 VMM 服务器会充当 DHCP 服务器，并从为目标 VM 网络定义的池中提供 IP 地址。 如果为源服务器定义了使用静态 IP 地址池，则目标 VMM 服务器将从池中分配 IP 地址。 在这两种情况下，如果未定义静态 IP 地址池，则 IP 地址分配将会失败。
 
-### 准备 DHCP
-<a id="prepare-dhcp" class="xliff"></a>
+### <a name="prepare-dhcp"></a>准备 DHCP
 如果测试故障转移中涉及的虚拟机使用 DHCP，则应在隔离网络中创建测试 DHCP 服务器，以便进行测试故障转移。
 
-### 准备 Active Directory
-<a id="prepare-active-directory" class="xliff"></a>
+### <a name="prepare-active-directory"></a>准备 Active Directory
 若要运行测试故障转移以进行应用程序测试，测试环境中需要具有生产 Active Directory 环境的副本。 有关详细信息，请参阅 [Active Directory 的测试故障转移注意事项](site-recovery-active-directory.md#test-failover-considerations)。
 
-### 准备 DNS
-<a id="prepare-dns" class="xliff"></a>
+### <a name="prepare-dns"></a>准备 DNS
 按如下所述准备 DNS 服务器以进行测试故障转移：
 
 * DHCP：如果虚拟机使用 DHCP，则应在测试 DHCP 服务器上更新测试 DNS 的 IP 地址。 如果使用的网络类型为 Windows 网络虚拟化，则 VMM 服务器充当 DHCP 服务器。 因此，应在测试性故障转移网络中更新 DNS 的 IP 地址。 在这种情况下，虚拟机向相关的 DNS 服务器注册自身。
@@ -82,8 +75,7 @@ ms.lasthandoff: 06/30/2017
     Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
     ```
 
-## 运行测试故障转移
-<a id="run-a-test-failover" class="xliff"></a>
+## <a name="run-a-test-failover"></a>运行测试故障转移
 本过程描述如何对恢复计划运行测试故障转移。 或者，可以在“虚拟机”选项卡上对单个虚拟机运行故障转移。
 
 ![测试故障转移边栏选项卡](./media/site-recovery-test-failover-vmm-to-vmm/TestFailover.png)
@@ -94,8 +86,7 @@ ms.lasthandoff: 06/30/2017
 1. 故障转移完成后，请验证虚拟机能否成功启动。
 1. 完成后，在恢复计划上单击“清理测试故障转移”。 在“说明”中，记录并保存与测试故障转移相关联的任何观测结果。 此步骤会删除测试故障转移期间创建的虚拟机和网络。
 
-## Site Recovery 中的网络选项
-<a id="network-options-in-site-recovery" class="xliff"></a>
+## <a name="network-options-in-site-recovery"></a>Site Recovery 中的网络选项
 
 运行测试故障转移时，系统将要求为测试副本计算机选择网络设置。 用户拥有多种选择。  
 
@@ -110,14 +101,12 @@ ms.lasthandoff: 06/30/2017
 >
 >
 
-## 在恢复站点上执行到生产网络的测试故障转移
-<a id="test-failover-to-a-production-network-on-a-recovery-site" class="xliff"></a>
+## <a name="test-failover-to-a-production-network-on-a-recovery-site"></a>在恢复站点上执行到生产网络的测试故障转移
 执行测试故障转移时，建议选择与网络映射中提供的生产恢复站点网络不同的网络。 但是，如果确实想要在故障转移后的虚拟机中验证端到端网络连接，请注意以下几点：
 
 * 确保在执行测试故障转移时主虚拟机已关闭。 如果未关闭，则将同时在同一网络中运行两台具有相同标识的虚拟机。 这可能会导致意外后果。
 * 清理测试故障转移虚拟机时，对测试故障转移虚拟机所做的全部更改都会丢失。 这些更改不会复制回主虚拟机。
 * 以这种方式执行测试会导致生产应用程序发生停机。 告知应用程序的用户不要在灾难恢复演练过程中使用该应用程序。  
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 成功运行测试故障转移后，可尝试执行[故障转移](site-recovery-failover.md)。

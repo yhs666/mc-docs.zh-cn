@@ -21,10 +21,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 在 Visual Studio Code 中创建 ASP.NET Core Web 应用
-<a id="create-an-aspnet-core-web-app-in-visual-studio-code" class="xliff"></a>
-## 概述
-<a id="overview" class="xliff"></a>
+# <a name="create-an-aspnet-core-web-app-in-visual-studio-code"></a>在 Visual Studio Code 中创建 ASP.NET Core Web 应用
+## <a name="overview"></a>概述
 本教程演示如何使用 [Visual Studio Code (VS Code)](http://code.visualstudio.com//Docs/whyvscode) 创建 ASP.NET Core Web 应用，并将其部署到 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)。 
 
 > [!NOTE]
@@ -34,13 +32,11 @@ ms.lasthandoff: 06/23/2017
 
 ASP.NET Core 是大幅重新设计的 ASP.NET。 ASP.NET Core 是新的开源跨平台框架，用于通过 .NET 构建基于云的现代 Web 应用。 有关详细信息，请参阅 [Introduction to ASP.NET Core](http://docs.asp.net/latest/conceptual-overview/aspnet.html)（ASP.NET Core 简介）。 有关 Azure 应用服务 Web 应用的信息，请参阅 [Web 应用概述](app-service-web-overview.md)。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 * 安装 [VS Code](http://code.visualstudio.com/Docs/setup)。
 * 安装 Git - 可以从以下位置安装：[Chocolatey](https://chocolatey.org/packages/git) 或 [git-scm.com](http://git-scm.com/downloads)。 如果你是 Git 新手，请选择 [git-scm.com](http://git-scm.com/downloads)，并选择“从 Windows 命令提示符使用 Git”的选项。 安装 Git 后，还需要设置 Git 用户名和电子邮件，因为本教程稍后需要用到（从 VS Code 执行提交时）。  
 
-## 安装 ASP.NET Core
-<a id="install-aspnet-core" class="xliff"></a>
+## <a name="install-aspnet-core"></a>安装 ASP.NET Core
 ASP.NET Core 是精简的 .NET 堆栈，用于构建在 OS X、Linux 和 Windows 上运行的现代云应用及 Web 应用。 它已从头开始构建，可将优化的开发框架提供给已部署到云或本地运行的应用。 它由系统开销最低的模块化组件构成，因此你可以在构建解决方案时保持弹性。
 
 本教程旨在帮助你使用最新开发版本的 ASP.NET Core 开始构建应用程序。 以下说明特定于 Windows。 有关 OS X、Linux 和 Windows 的安装说明，请参阅 [Getting Started with ASP.NET Core](https://docs.microsoft.com/aspnet/core/getting-started)（ASP.NET Core 入门）。 
@@ -50,8 +46,7 @@ ASP.NET Core 是精简的 .NET 堆栈，用于构建在 OS X、Linux 和 Windows
 > 
 > 
 
-## 创建 Web 应用
-<a id="create-the-web-app" class="xliff"></a>
+## <a name="create-the-web-app"></a>创建 Web 应用
 本部分说明如何使用 .NET CLI 工具创建新应用 ASP.NET Web 应用的基架。 
 
 1. 在命令提示符下输入以下命令，以创建项目文件夹，并创建应用的基架。
@@ -69,8 +64,7 @@ dotnet new mvc
     dotnet restore
     ```
 
-## 在本地运行 Web 应用
-<a id="run-the-web-app-locally" class="xliff"></a>
+## <a name="run-the-web-app-locally"></a>在本地运行 Web 应用
 在创建 Web 应用并检索应用的所有 NuGet 包后，你可以在本地运行该 Web 应用。
 
 1. 运行应用（过期时 `dotnet run` 命令将生成应用）：
@@ -86,8 +80,7 @@ dotnet new mvc
     ![浏览器中的本地 Web 应用](./media/web-sites-create-web-app-using-vscode/08-web-app.png)
 3. 关闭浏览器。 在**命令窗口**中，按 **Ctrl+C** 关闭应用程序并关闭**命令窗口**。 
 
-## 在 Azure 门户中创建 Web 应用
-<a id="create-a-web-app-in-the-azure-portal" class="xliff"></a>
+## <a name="create-a-web-app-in-the-azure-portal"></a>在 Azure 门户中创建 Web 应用
 以下步骤将指导用户在 Azure 门户中创建 Web 应用。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
@@ -103,8 +96,7 @@ dotnet new mvc
 
     ![Web 应用边栏选项卡](./media/web-sites-create-web-app-using-vscode/11-azure-webappblade.png)
 
-## 为新 Web 应用启用 Git 发布
-<a id="enable-git-publishing-for-the-new-web-app" class="xliff"></a>
+## <a name="enable-git-publishing-for-the-new-web-app"></a>为新 Web 应用启用 Git 发布
 Git 是分布式版本控制系统，可用于部署 Azure 应用服务 Web 应用。 你将在本地 Git 存储库中存储你为 Web 应用编写的代码，并通过推送到远程存储库将代码部署到 Azure。   
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
@@ -128,8 +120,7 @@ Git 是分布式版本控制系统，可用于部署 Azure 应用服务 Web 应�
 
     ![Azure Git URL](./media/web-sites-create-web-app-using-vscode/17-azure-giturl.png)
 
-## 将 Web 应用发布到 Azure 应用服务
-<a id="publish-your-web-app-to-azure-app-service" class="xliff"></a>
+## <a name="publish-your-web-app-to-azure-app-service"></a>将 Web 应用发布到 Azure 应用服务
 在本部分中，你将创建一个本地 Git 存储库，并从该存储库推送到 Azure，以将 Web 应用部署到 Azure。
 
 1. 在 VS Code 的左侧导航栏中，选择“Git”选项  。
@@ -175,8 +166,7 @@ Git 是分布式版本控制系统，可用于部署 Azure 应用服务 Web 应�
 
 如果需要与其他人对项目进行协作，应该考虑在推送到 Azure 之前先推送到 GitHub。
 
-## 在 Azure 中运行应用
-<a id="run-the-app-in-azure" class="xliff"></a>
+## <a name="run-the-app-in-azure"></a>在 Azure 中运行应用
 在部署 Web 应用后，让我们运行 Azure 中托管的该应用。 
 
 可以通过两种方法实现此目的：
@@ -189,6 +179,5 @@ Git 是分布式版本控制系统，可用于部署 Azure 应用服务 Web 应�
 
 ![Azure Web 应用](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
 
-## 摘要
-<a id="summary" class="xliff"></a>
+## <a name="summary"></a>摘要
 在本教程中，你已学习如何在 VS Code 创建 Web 应用并将其部署到 Azure。 有关 VS Code 的详细信息，请参阅[为何使用 Visual Studio Code？](https://code.visualstudio.com/Docs/)一文 若要了解应用服务 Web 应用，请参阅 [Web 应用概述](app-service-web-overview.md)。

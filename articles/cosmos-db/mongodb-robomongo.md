@@ -22,15 +22,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/07/2017
 ---
-# 将 Robomongo 用于 Azure Cosmos DB: API for MongoDB 帐户
-<a id="use-robomongo-with-an-azure-cosmos-db-api-for-mongodb-account" class="xliff"></a>
+# <a name="use-robomongo-with-an-azure-cosmos-db-api-for-mongodb-account"></a>将 Robomongo 用于 Azure Cosmos DB: API for MongoDB 帐户
 若要使用 Robomongo 连接到 Azure Cosmos DB: API for MongoDB 帐户，必须：
 
 * 下载并安装 [Robomongo](https://robomongo.org/)
 * 具有 Azure Cosmos DB: API for MongoDB 帐户的[连接字符串](connect-mongodb-account.md)信息
 
-## 使用 Robomongo 进行连接
-<a id="connect-using-robomongo" class="xliff"></a>
+## <a name="connect-using-robomongo"></a>使用 Robomongo 进行连接
 若要将 Azure Cosmos DB: API for MongoDB 帐户添加到 Robomongo MongoDB 连接，请执行以下步骤。
 
 1. 使用[此处](connect-mongodb-account.md)的指令检索 Azure Cosmos DB: API for MongoDB 帐户连接信息。
@@ -52,6 +50,5 @@ ms.lasthandoff: 07/07/2017
     ![Robomongo SSL 选项卡的屏幕截图](./media/mongodb-robomongo/SSL.png)
 7. 最后，单击“测试”验证是否能够连接，然后单击“保存”。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 浏览 Azure Cosmos DB: API for MongoDB [示例](mongodb-samples.md)。

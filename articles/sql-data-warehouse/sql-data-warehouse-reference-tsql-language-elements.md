@@ -22,10 +22,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 语言元素
-<a id="language-elements" class="xliff"></a>
-## 核心元素
-<a id="core-elements" class="xliff"></a>
+# <a name="language-elements"></a>语言元素
+## <a name="core-elements"></a>核心元素
 * [语法约定](https://msdn.microsoft.com/zh-cn/library/ms177563.aspx)
 * [对象命名规则](https://msdn.microsoft.com/zh-cn/library/ms175874.aspx)
 * [保留的关键字](https://msdn.microsoft.com/zh-cn/library/ms189822.aspx)
@@ -40,8 +38,7 @@ ms.lasthandoff: 07/05/2017
 * [PRINT](https://msdn.microsoft.com/zh-cn/library/ms176047.aspx)
 * [USE](https://msdn.microsoft.com/zh-cn/library/ms188366.aspx)
 
-## 批、流控制和变量
-<a id="batches-control-of-flow-and-variables" class="xliff"></a>
+## <a name="batches-control-of-flow-and-variables"></a>批、流控制和变量
 * [BEGIN...END](https://msdn.microsoft.com/zh-cn/library/ms190487.aspx)
 * [BREAK](https://msdn.microsoft.com/zh-cn/library/ms181271.aspx)
 * [DECLARE @local_variable](https://msdn.microsoft.com/zh-cn/library/ms188927.aspx)
@@ -52,8 +49,7 @@ ms.lasthandoff: 07/05/2017
 * [TRY...CATCH](https://msdn.microsoft.com/zh-cn/library/ms175976.aspx)
 * [WHILE](https://msdn.microsoft.com/zh-cn/library/ms178642.aspx)
 
-## 运算符
-<a id="operators" class="xliff"></a>
+## <a name="operators"></a>运算符
 * [+（加）](https://msdn.microsoft.com/zh-cn/library/ms178565.aspx)
 * [+（字符串串联）](https://msdn.microsoft.com/zh-cn/library/ms177561.aspx)
 * [-（负）](https://msdn.microsoft.com/zh-cn/library/ms189480.aspx)
@@ -62,8 +58,7 @@ ms.lasthandoff: 07/05/2017
 * [/（除）](https://msdn.microsoft.com/zh-cn/library/ms175009.aspx)
 * [取模](https://msdn.microsoft.com/zh-cn/library/ms190279.aspx)
 
-## 要匹配的通配符
-<a id="wildcard-characters-to-match" class="xliff"></a>
+## <a name="wildcard-characters-to-match"></a>要匹配的通配符
 * [=（等于）](https://msdn.microsoft.com/zh-cn/library/ms175118.aspx)
 * [>（大于）](https://msdn.microsoft.com/zh-cn/library/ms178590.aspx)
 * [<（小于）](https://msdn.microsoft.com/zh-cn/library/ms179873.aspx)
@@ -80,8 +75,7 @@ ms.lasthandoff: 07/05/2017
 * [NOT](https://msdn.microsoft.com/zh-cn/library/ms189455.aspx)
 * [OR](https://msdn.microsoft.com/zh-cn/library/ms188361.aspx)
 
-### 位运算符
-<a id="bitwise-operators" class="xliff"></a>
+### <a name="bitwise-operators"></a>位运算符
 * [&（位与）](https://msdn.microsoft.com/zh-cn/library/ms174965.aspx)
 * [|（位或）](https://msdn.microsoft.com/zh-cn/library/ms186714.aspx)
 * [^（位异或）](https://msdn.microsoft.com/zh-cn/library/ms190277.aspx)
@@ -90,8 +84,7 @@ ms.lasthandoff: 07/05/2017
 * [|=（位或等于）](https://msdn.microsoft.com/zh-cn/library/cc627409.aspx)
 * [&=（位与等于）](https://msdn.microsoft.com/zh-cn/library/cc627427.aspx)
 
-## 函数
-<a id="functions" class="xliff"></a>
+## <a name="functions"></a>函数
 * [@@DATEFIRST](https://msdn.microsoft.com/zh-cn/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/zh-cn/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/zh-cn/library/ms177557.aspx)
@@ -235,16 +228,13 @@ ms.lasthandoff: 07/05/2017
 * [YEAR](https://msdn.microsoft.com/zh-cn/library/ms186313.aspx)
 * [XACT_STATE](https://msdn.microsoft.com/zh-cn/library/ms189797.aspx)
 
-## 事务
-<a id="transactions" class="xliff"></a>
+## <a name="transactions"></a>事务
 * [事务](https://msdn.microsoft.com/zh-cn/library/mt204031.aspx)
 
-## 诊断会话
-<a id="diagnostic-sessions" class="xliff"></a>
+## <a name="diagnostic-sessions"></a>诊断会话
 * [CREATE DIAGNOSTICS SESSION](https://msdn.microsoft.com/zh-cn/library/mt204029.aspx)
 
-## 过程
-<a id="procedures" class="xliff"></a>
+## <a name="procedures"></a>过程
 * [sp_addrolemember](https://msdn.microsoft.com/zh-cn/library/ms187750.aspx)
 * [sp_columns](https://msdn.microsoft.com/zh-cn/library/ms176077.aspx)
 * [sp_configure](https://msdn.microsoft.com/zh-cn/library/ms188787.aspx)
@@ -267,8 +257,7 @@ ms.lasthandoff: 07/05/2017
 * [sp_tables](https://msdn.microsoft.com/zh-cn/library/ms186250.aspx)
 * [sp_unprepare](https://msdn.microsoft.com/zh-cn/library/ff848735.aspx)
 
-## SET 语句
-<a id="set-statements" class="xliff"></a>
+## <a name="set-statements"></a>SET 语句
 * [SET ANSI_DEFAULTS](https://msdn.microsoft.com/zh-cn/library/ms188340.aspx)
 * [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/zh-cn/library/ms187356.aspx)
 * [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/zh-cn/library/ms187375.aspx)
@@ -290,8 +279,7 @@ ms.lasthandoff: 07/05/2017
 * [SET TRANSACTION ISOLATION LEVEL](https://msdn.microsoft.com/zh-cn/library/ms173763.aspx)
 * [SET XACT_ABORT](https://msdn.microsoft.com/zh-cn/library/ms188792.aspx)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关更多参考信息，请参阅 [SQL 数据仓库参考概述][SQL Data Warehouse reference overview]。
 
 <!--Image references-->

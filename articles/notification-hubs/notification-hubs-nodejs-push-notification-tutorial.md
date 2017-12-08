@@ -76,7 +76,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 
 1. 在左侧导航窗格中，单击“浏览” 。
 2. 选择“通知中心” ，然后找到要用于示例的中心。 如果在创建新通知中心时需要获得帮助，可以参阅 [Windows 应用商店入门教程](./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)。
-3. Select **Settings**.
+3. Select <bpt id="p1">**</bpt>Settings<ept id="p1">**</ept>.
 4. 单击“访问策略” 。 你会看到共享连接字符串和完全访问连接字符串。
 
 ![Azure 门户 — 通知中心](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)

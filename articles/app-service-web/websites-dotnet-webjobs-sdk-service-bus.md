@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 06/01/2016
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: d160acdab92deaf067f411551083ced68a427ac9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 8d12815c30ea0d0d58f5c18d17cfa162075966dd
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-use-azure-service-bus-with-the-webjobs-sdk"></a>如何通过 WebJobs SDK 使用 Azure Service Bus
 

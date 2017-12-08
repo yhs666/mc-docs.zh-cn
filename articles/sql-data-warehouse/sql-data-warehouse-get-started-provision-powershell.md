@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 使用 PowerShell 创建 SQL 数据仓库
-<a id="create-sql-data-warehouse-using-powershell" class="xliff"></a>
+# <a name="create-sql-data-warehouse-using-powershell"></a>使用 PowerShell 创建 SQL 数据仓库
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](sql-data-warehouse-get-started-provision.md)
@@ -34,8 +33,7 @@ ms.lasthandoff: 07/05/2017
 
 本文说明如何使用 PowerShell 创建 SQL 数据仓库。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 若要开始，您需要：
 
 * **Azure 帐户**：访问 [Azure 试用版][Azure Trial]，以创建帐户。
@@ -49,8 +47,7 @@ ms.lasthandoff: 07/05/2017
 >
 >
 
-## 创建 SQL 数据仓库
-<a id="create-a-sql-data-warehouse" class="xliff"></a>
+## <a name="create-a-sql-data-warehouse"></a>创建 SQL 数据仓库
 1. 打开 Windows PowerShell。
 2. 运行此 cmdlet 以登录到 Azure Resource Manager 中。
 
@@ -83,8 +80,7 @@ ms.lasthandoff: 07/05/2017
 
 有关参数选项的更多详细信息，请参阅 [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase] 和[创建数据库（Azure SQL 数据仓库）][Create Database (Azure SQL Data Warehouse)]。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 完成 SQL 数据仓库预配之后，可能需要尝试[加载示例数据][loading sample data]或了解如何[开发][develop]、[加载][load]或[迁移][migrate]数据。
 
 如果有兴趣进一步了解如何以编程方式管理 SQL 数据仓库，请查看我们有关如何使用 [PowerShell cmdlet 和 REST API][PowerShell cmdlets and REST APIs] 的文章。

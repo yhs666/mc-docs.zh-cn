@@ -17,21 +17,17 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 使用 VirtualBox 配置 Docker 主机
-<a id="configure-a-docker-host-with-virtualbox" class="xliff"></a>
+# <a name="configure-a-docker-host-with-virtualbox"></a>使用 VirtualBox 配置 Docker 主机
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 本文将引导你完成使用 Docker Machine 和 VirtualBox 配置默认 Docker 实例的过程。 如果使用的是 [Docker for Windows beta 版](http://beta.docker.com/)，则无需进行此配置。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 需要安装以下工具。
 
 - [Docker 工具箱](https://www.docker.com/products/overview#/docker_toolbox)
 
-## 使用 Windows PowerShell 配置 Docker 客户端
-<a id="configuring-the-docker-client-with-windows-powershell" class="xliff"></a>
+## <a name="configuring-the-docker-client-with-windows-powershell"></a>使用 Windows PowerShell 配置 Docker 客户端
 
 要配置 Docker 客户端，只需打开 Windows PowerShell，并执行以下步骤：
 

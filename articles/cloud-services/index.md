@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 云服务文档
-<a id="cloud-services-documentation" class="xliff"></a>
+# <a name="cloud-services-documentation"></a>云服务文档
 
 了解如何使用云服务托管和运行高度可用和可伸缩的云应用程序和 API。  教程、API 参考和其他文档介绍了如何管理虚拟机主机以及配置、修补和安装软件。
 

@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 如何使用 Azure 命令行界面 (Azure CLI) 创建和管理 Azure Redis 缓存
-<a id="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli" class="xliff"></a>
+# <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>如何使用 Azure 命令行界面 (Azure CLI) 创建和管理 Azure Redis 缓存
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
 > * [Azure CLI](cache-manage-cli.md)
@@ -36,8 +35,7 @@ Azure CLI 是从任何平台管理 Azure 基础结构的好办法。 本文演�
 > 
 > 
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 若要使用 Azure CLI 创建和管理 Azure Redis 缓存实例，必须完成以下步骤。
 
 * 你必须具有 Azure 帐户。 如果没有帐户，只需几分钟就能创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
@@ -45,8 +43,7 @@ Azure CLI 是从任何平台管理 Azure 基础结构的好办法。 本文演�
 * 将 Azure CLI 安装与个人 Azure 帐户或者工作或学校 Azure 帐户关联，然后使用 `azure login -e AzureChinaCloud` 命令从 Azure CLI 登录。 若要了解差别并进行选择，请参阅[从 Azure 命令行界面 (Azure CLI) 连接到 Azure 订阅](../xplat-cli-connect.md)。
 * 在运行以下任何命令之前，通过运行 `azure config mode arm` 命令将 Azure CLI 切换到 Resource Manager 模式下。 有关更多详细信息，请参阅[使用 Azure CLI 管理 Azure 资源和资源组](../azure-resource-manager/xplat-cli-azure-resource-manager.md)。
 
-## Redis 缓存属性
-<a id="redis-cache-properties" class="xliff"></a>
+## <a name="redis-cache-properties"></a>Redis 缓存属性
 在创建和更新 Redis 缓存实例时使用以下属性。
 
 | 属性 | 开关 | 说明 |
@@ -67,8 +64,7 @@ Azure CLI 是从任何平台管理 Azure 基础结构的好办法。 本文演�
 | VirtualNetwork |-v, --virtual-network <virtual-network> |在 VNET 中托管缓存时，指定要在其中部署 Redis 缓存的虚拟网络的确切 ARM 资源 ID。 格式示例：/subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | 订阅 |-s, --subscription |订阅标识符。 |
 
-## 查看所有 Redis 缓存命令
-<a id="see-all-redis-cache-commands" class="xliff"></a>
+## <a name="see-all-redis-cache-commands"></a>查看所有 Redis 缓存命令
 若要查看所有 Redis 缓存命令及其参数，请使用 `azure rediscache -h` 命令。
 
     C:\>azure rediscache -h
@@ -100,8 +96,7 @@ Azure CLI 是从任何平台管理 Azure 基础结构的好办法。 本文演�
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## 创建 Redis 缓存
-<a id="create-a-redis-cache" class="xliff"></a>
+## <a name="create-a-redis-cache"></a>创建 Redis 缓存
 若要创建 Redis 缓存，请使用以下命令：
 
     azure rediscache create [--name <name> --resource-group <resource-group> --location <location> [options]]
@@ -134,8 +129,7 @@ Azure CLI 是从任何平台管理 Azure 基础结构的好办法。 本文演�
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## 删除现有 Redis 缓存
-<a id="delete-an-existing-redis-cache" class="xliff"></a>
+## <a name="delete-an-existing-redis-cache"></a>删除现有 Redis 缓存
 若要删除 Redis 缓存，请使用以下命令：
 
     azure rediscache delete [--name <name> --resource-group <resource-group> ]
@@ -158,8 +152,7 @@ Azure CLI 是从任何平台管理 Azure 基础结构的好办法。 本文演�
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## 列出你的订阅或资源组中的所有 Redis 缓存
-<a id="list-all-redis-caches-within-your-subscription-or-resource-group" class="xliff"></a>
+## <a name="list-all-redis-caches-within-your-subscription-or-resource-group"></a>列出你的订阅或资源组中的所有 Redis 缓存
 若要列出订阅或资源组中的所有 Redis 缓存，请使用以下命令：
 
     azure rediscache list [options]
@@ -181,8 +174,7 @@ Azure CLI 是从任何平台管理 Azure 基础结构的好办法。 本文演�
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## 显示现有 Redis 缓存的属性
-<a id="show-properties-of-an-existing-redis-cache" class="xliff"></a>
+## <a name="show-properties-of-an-existing-redis-cache"></a>显示现有 Redis 缓存的属性
 若要显示现有 Redis 缓存的属性，请使用以下命令：
 
     azure rediscache show [--name <name> --resource-group <resource-group>]
@@ -207,8 +199,7 @@ Azure CLI 是从任何平台管理 Azure 基础结构的好办法。 本文演�
 
 <a name="scale"></a>
 
-## 更改现有 Redis 缓存的设置
-<a id="change-settings-of-an-existing-redis-cache" class="xliff"></a>
+## <a name="change-settings-of-an-existing-redis-cache"></a>更改现有 Redis 缓存的设置
 若要更改现有 Redis 缓存的设置，请使用以下命令：
 
     azure rediscache set [--name <name> --resource-group <resource-group> --redis-configuration <redis-configuration>/--redis-configuration-file <redisConfigurationFile>]
@@ -233,8 +224,7 @@ Azure CLI 是从任何平台管理 Azure 基础结构的好办法。 本文演�
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## 为现有 Redis 缓存续订身份验证密钥
-<a id="renew-the-authentication-key-for-an-existing-redis-cache" class="xliff"></a>
+## <a name="renew-the-authentication-key-for-an-existing-redis-cache"></a>为现有 Redis 缓存续订身份验证密钥
 若要为现有 Redis 缓存续订身份验证密钥，请使用以下命令：
 
     azure rediscache renew-key [--name <name> --resource-group <resource-group> --key-type <key-type>]
@@ -260,8 +250,7 @@ Azure CLI 是从任何平台管理 Azure 基础结构的好办法。 本文演�
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## 列出现有 Redis 缓存的主密钥和辅助密钥
-<a id="list-primary-and-secondary-keys-of-an-existing-redis-cache" class="xliff"></a>
+## <a name="list-primary-and-secondary-keys-of-an-existing-redis-cache"></a>列出现有 Redis 缓存的主密钥和辅助密钥
 若要列出现有 Redis 缓存的主密钥和辅助密钥，请使用以下命令：
 
     azure rediscache list-keys [--name <name> --resource-group <resource-group>]

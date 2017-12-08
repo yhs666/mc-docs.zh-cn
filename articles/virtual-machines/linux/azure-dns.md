@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# Azure 中 Linux 虚拟机的 DNS 名称解析选项
-<a id="dns-name-resolution-options-for-linux-virtual-machines-in-azure" class="xliff"></a>
+# <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的 DNS 名称解析选项
 Azure 默认提供单个虚拟网络内的所有虚拟机的 DNS 名称解析。 在 Azure 托管的虚拟机上配置自己的 DNS 服务，即可实现自己的 DNS 名称解析解决方案。 以下方案可帮助你选择适合你情况的解决方案。
 
 * [Azure 提供的名称解析](#azure-provided-name-resolution)
@@ -40,12 +39,10 @@ Azure 默认提供单个虚拟网络内的所有虚拟机的 DNS 名称解析。
 | 解析本地计算机中的 Azure 主机名 |将查询转发到相应虚拟网络中客户托管的 DNS 代理服务器。 代理服务器将查询转发到 Azure 进行解析。 请参阅[使用你自己的 DNS 服务器的名称解析](#name-resolution-using-your-own-dns-server)。 |仅 FQDN |
 | 针对内部 IP 的反向 DNS |[使用你自己的 DNS 服务器的名称解析](#name-resolution-using-your-own-dns-server) |不适用 |
 
-## Azure 提供的名称解析
-<a id="name-resolution-that-azure-provides" class="xliff"></a>
+## <a name="name-resolution-that-azure-provides"></a>Azure 提供的名称解析
 除公共 DNS 名称解析之外，Azure 还为位于相同虚拟网络中的虚拟机和角色实例提供内部名称解析。 在基于 Azure Resource Manager 的虚拟网络中，DNS 后缀在整个虚拟网络中都是一致的；不需要 FQDN。 可以将 DNS 名称分配给网络接口卡 (NIC) 和虚拟机。 虽然 Azure 提供的名称解析不需要任何配置，但并不适合所有部署方案，如上表所示。
 
-### 功能和注意事项
-<a id="features-and-considerations" class="xliff"></a>
+### <a name="features-and-considerations"></a>功能和注意事项
 **功能：**
 
 * 不需要配置就能使用 Azure 提供的名称解析。
@@ -63,8 +60,7 @@ Azure 默认提供单个虚拟网络内的所有虚拟机的 DNS 名称解析。
     名称只能使用 0-9、a-z 和“-”，并且不能以“-”开头或结尾。 请参见 RFC 3696 第 2 节。
 * DNS 查询流量按照虚拟机进行限制。 限制不应影响大部分应用程序。  如果遵循请求限制，请确保启用客户端缓存。  有关详细信息，请参阅[充分利用 Azure 提供的名称解析](#getting-the-most-from-name-resolution-that-azure-provides)。
 
-### 充分利用 Azure 提供的名称解析
-<a id="getting-the-most-from-name-resolution-that-azure-provides" class="xliff"></a>
+### <a name="getting-the-most-from-name-resolution-that-azure-provides"></a>充分利用 Azure 提供的名称解析
 **客户端缓存：**
 
 某些 DNS 查询不通过网络发送。 通过解析本地缓存中的重复性 DNS 查询，客户端缓存有助于减少延迟和提高网络在出现不一致情况下的恢复能力。 DNS 记录包含生存时间 (TTL)，这允许缓存尽可能长时间存储记录，而不影响记录刷新。 因此，客户端缓存适用于大多数情况。
@@ -120,8 +116,7 @@ Rogue Wave Software 的 CentOS（之前为 OpenLogic）（使用 NetworkManager�
 1. 将“echo "options timeout:1 attempts:5"”添加到“/etc/NetworkManager/dispatcher.d/11-dhclient”。
 2. 通过运行“service network restart”进行更新。
 
-## 使用自己的 DNS 服务器的名称解析
-<a id="name-resolution-using-your-own-dns-server" class="xliff"></a>
+## <a name="name-resolution-using-your-own-dns-server"></a>使用自己的 DNS 服务器的名称解析
 你的名称解析需求可能会超出 Azure 所提供的功能的范畴。 例如，你可能需要在虚拟网络之间进行 DNS 解析。 为了涵盖这种情况，你可以使用自己的 DNS 服务器。  
 
 虚拟网络中的 DNS 服务器可以将 DNS 查询转发到 Azure 的递归解析程序，以便解析同一虚拟网络中的主机名。 例如，在 Azure 中运行的 DNS 服务器可以响应对其自身的 DNS 区域文件的 DNS 查询，而将所有其他查询转发到 Azure。 虚拟机可以利用此功能查看你在区域文件中的条目，以及 Azure 提供的主机名（通过转发器）。 可以通过虚拟 IP 168.63.129.16 访问 Azure 的递归解析程序。

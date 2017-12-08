@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 应用程序网关运行状况监视概述
-<a id="application-gateway-health-monitoring-overview" class="xliff"></a>
+# <a name="application-gateway-health-monitoring-overview"></a>应用程序网关运行状况监视概述
 
 默认情况下，Azure 应用程序网关会监视其后端池中所有资源的运行状况，并自动从池中删除任何被视为不正常的资源。 应用程序网关持续监视不正常的实例，一旦这些实例恢复可用状态并能响应运行状况探测，应用程序网关就会将它们添加回正常的后端池中。 应用程序网关发送的运行状况探测所针对的端口与后端 HTTP 设置中定义的端口相同。 此配置可确保探测所测试的端口即是客户用来连接到后端的端口。
 
@@ -34,8 +33,7 @@ ms.lasthandoff: 06/21/2017
 > [!NOTE]
 > 如果应用程序网关子网上存在 NSG，则应在入站流量的应用程序网关子网上打开端口范围 65503-65534。 这些端口是确保后端运行状况 API 正常工作所必需的。
 
-## 默认的运行状况探测
-<a id="default-health-probe" class="xliff"></a>
+## <a name="default-health-probe"></a>默认的运行状况探测
 
 如果未设置任何自定义探测配置，应用程序网关将自动配置默认运行状况探测。 监视行为是向针对后端池配置的 IP 地址发出 HTTP 请求。 对于默认探测，如果后端 http 设置是针对 HTTPS 配置的，则探测也会使用 HTTPS 测试后端的运行状况。
 
@@ -43,8 +41,7 @@ ms.lasthandoff: 06/21/2017
 
 如果服务器 A 的默认探测检查失败，应用程序网关会从后端池删除该服务器，并且网络流量不再流向此服务器。 默认探测仍继续每隔 30 秒检查服务器 A。 当服务器 A 成功响应默认运行状况探测发出的请求时，将变为正常状态并重新添加回后端池，而流量也开始再次流向该服务器。
 
-### 默认的运行状况探测设置
-<a id="default-health-probe-settings" class="xliff"></a>
+### <a name="default-health-probe-settings"></a>默认的运行状况探测设置
 
 | 探测属性 | 值 | 说明 |
 | --- | --- | --- |
@@ -58,13 +55,11 @@ ms.lasthandoff: 06/21/2017
 
 默认探测只查看 http://127.0.0.1:\<端口\> 来判断运行状况。 如果需要配置运行状况探测以使其转到自定义 URL 或修改任何其他设置，必须使用以下步骤中所述的自定义探测：
 
-## 自定义的运行状况探测
-<a id="custom-health-probe" class="xliff"></a>
+## <a name="custom-health-probe"></a>自定义的运行状况探测
 
 使用自定义探测可以更精细地控制运行状况监视。 使用自定义探测时，可以配置探测间隔、要测试的 URL 和路径，以及在将后端池实例标记为不正常之前可接受的失败响应次数。
 
-### 自定义的运行状况探测设置
-<a id="custom-health-probe-settings" class="xliff"></a>
+### <a name="custom-health-probe-settings"></a>自定义的运行状况探测设置
 
 下表提供自定义运行状况探测的属性的定义。
 
@@ -82,8 +77,7 @@ ms.lasthandoff: 06/21/2017
 > 如果在应用程序网关中设置了单站点，则默认情况下，除非已在自定义探测中进行配置，否则应将主机名指定为“127.0.0.1”。
 > 例如，自定义探测发送到 \<协议\>://\<主机\>:\<端口\>\<路径\>。 所使用的端口与后端 HTTP 设置中定义的端口相同。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 了解应用程序网关的运行状况监视后，可以在 Azure 门户中配置[自定义运行状况探测](application-gateway-create-probe-portal.md)，或使用 PowerShell 和 Azure Resource Manager 部署模型配置[自定义运行状况探测](application-gateway-create-probe-ps.md)。
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png

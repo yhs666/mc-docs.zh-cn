@@ -1,5 +1,4 @@
-# 如何创建自定义虚拟机
-<a id="how-to-create-a-custom-virtual-machine" class="xliff"></a>
+# <a name="how-to-create-a-custom-virtual-machine"></a>如何创建自定义虚拟机
 自定义虚拟机是指使用“从库中”方法创建的虚拟机，因为它可以配置比“快速创建”方法更多的选项。 这些选项包括：
 
 * 更多可供映像用于创建虚拟机 (VM) 的选项
@@ -42,8 +41,7 @@
 
     ![成功创建自定义虚拟机](./media/howto-custom-create-vm/VMSuccessWindows.png)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 创建虚拟机后，将自动启动它。 当门户显示状态为正在运行时，你可以登录到该虚拟机。 有关说明，请参阅以下文章之一：
 
 * [如何登录到运行 Linux 的虚拟机](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

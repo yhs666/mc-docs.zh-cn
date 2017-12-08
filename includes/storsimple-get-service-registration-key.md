@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-### 获取 StorSimple 服务注册密钥
-<a id="to-get-the-storsimple-service-registration-key" class="xliff"></a>
+### <a name="to-get-the-storsimple-service-registration-key"></a>获取 StorSimple 服务注册密钥
 
 1. 在“StorSimple Manager 服务”页上，单击创建的服务。 这将转到“快速启动”页。 （可随时单击“快速启动”图标 ![“StorSimple 快速启动”图标](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png) 访问“快速启动”页。）
 

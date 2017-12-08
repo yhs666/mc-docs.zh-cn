@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-### 执行备份
-<a id="to-take-a-backup" class="xliff"></a>
+### <a name="to-take-a-backup"></a>执行备份
 
 1. 在设备“快速启动”页上，单击“添加备份策略”。 这将启动“添加备份策略”向导。 
 

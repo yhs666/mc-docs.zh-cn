@@ -22,15 +22,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/07/2017
 ---
-# 使用 BI 分析工具和 ODBC 驱动程序连接到 Azure Cosmos DB
-<a id="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver" class="xliff"></a>
+# <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具和 ODBC 驱动程序连接到 Azure Cosmos DB
 
 借助 Azure Cosmos DB ODBC 驱动程序，可以使用 SQL Server Integration Services、Power BI Desktop 和 Tableau 等 BI 分析工具连接到 Azure Cosmos DB，以便能够在这些解决方案中分析和创建 Azure Cosmos DB 数据的可视化效果。
 
 Azure Cosmos DB ODBC 驱动程序符合 ODBC 3.8 规范，支持 ANSI SQL-92 语法。 该驱动程序提供丰富的功能来帮助用户重新规范化 Azure Cosmos DB 中的数据。 使用该驱动程序，能够以表和视图的形式表示 Azure Cosmos DB 中的数据。 使用该驱动程序还可以针对表和视图执行 SQL 操作，包括 group by 查询、插入、更新和删除。
 
-## 为何需要将数据规范化？
-<a id="why-do-i-need-to-normalize-my-data" class="xliff"></a>
+## <a name="why-do-i-need-to-normalize-my-data"></a>为何需要将数据规范化？
 Azure Cosmos DB 是一种无架构数据库，它允许应用程序即时迭代其数据模型，而不会将它们限定于一个严格定义的架构，因此可以加快应用的开发。 一个 Azure Cosmos DB 数据库可以包含各种结构的 JSON 文档。 这非常适合快速应用程序开发，但如果用户想要使用数据分析和 BI 工具来分析和创建数据报表，则数据通常需要平展并遵守特定的架构。
 
 这就是 ODBC 驱动程序的作用所在。 借助 ODBC 驱动程序，现可根据数据分析和报告需求，将 Azure Cosmos DB 中的数据重新规范化为表和视图。 重新规范化的架构不会对基础数据造成影响，也不强制要求开发人员遵守，而只是方便用户利用符合 ODBC 规范的工具来访问数据。 因此，Azure Cosmos DB 数据库不仅是开发团队的最爱，数据分析师也对它青睐有加。
@@ -120,8 +118,7 @@ Azure Cosmos DB 是一种无架构数据库，它允许应用程序即时迭代�
 6. 完成定义架构后，请单击“文件” | “保存”，导航到用于保存该架构的目录，然后单击“保存”。
 7. 返回“Azure Cosmos DB ODBC 驱动程序 DSN 设置”窗口，单击“高级选项”。 然后，在“架构文件”框中，导航到保存的架构文件并单击“确定”。 再次单击“确定”保存 DSN。 这会将创建的架构保存到 DSN。 
 
-## （可选）创建视图
-<a id="optional-creating-views" class="xliff"></a>
+## <a name="optional-creating-views"></a>（可选）创建视图
 可在采样过程中定义和创建视图。 这些视图相当于 SQL 视图。 它们是只读的，并且是所定义的 Azure Cosmos DB SQL 的选择和投影范围。 
 
 若要创建数据的视图，请在“架构编辑器”窗口中的“视图定义”列内，单击要采样的集合行中的“添加”。 然后在“视图定义”窗口中执行以下操作：
@@ -130,8 +127,7 @@ Azure Cosmos DB 是一种无架构数据库，它允许应用程序即时迭代�
 
 可以创建任意数量的视图。 定义完视图后，可以采样数据。 
 
-## 步骤 5：在 Power BI Desktop 等 BI 工具中查看数据
-<a id="step-5-view-your-data-in-bi-tools-such-as-power-bi-desktop" class="xliff"></a>
+## <a name="step-5-view-your-data-in-bi-tools-such-as-power-bi-desktop"></a>步骤 5：在 Power BI Desktop 等 BI 工具中查看数据
 
 可以使用新 DSN 将 DocumentADB 连接到任何符合 ODBC 规范的工具。本步骤仅说明如何连接到 Power BI Desktop 并创建 Power BI 可视化效果。
 
@@ -145,14 +141,12 @@ Azure Cosmos DB 是一种无架构数据库，它允许应用程序即时迭代�
 8. 在 Power BI Desktop 的最左侧，选择“数据”选项卡 ![Power BI Desktop 中的“数据”选项卡](./media/odbc-driver/odbc-driver-data-tab.png) 确认数据是否已导入。
 9. 现在，可以使用 Power BI 创建视觉对象：单击“报表”选项卡![Power BI Desktop 中的“报表”选项卡](./media/odbc-driver/odbc-driver-report-tab.png)，单击“新建视觉对象”，然后自定义磁贴。 有关在 Power BI Desktop 中创建可视化效果的详细信息，请参阅 [Power BI 中的可视化效果类型](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/)。
 
-## 故障排除
-<a id="troubleshooting" class="xliff"></a>
+## <a name="troubleshooting"></a>故障排除
 
 如果遇到以下错误，请确保执行[步骤 2](#connect) 时在 Azure 门户中复制的“主机”和“访问密钥”值正确，然后重试。 在 Azure 门户中使用“主机”和“访问密钥”值右侧的复制按钮可以正确无误地复制这些值。
 
     [HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 若要了解有关 Azure Cosmos DB 的详细信息，请参阅[什么是 Azure Cosmos DB？](introduction.md)。

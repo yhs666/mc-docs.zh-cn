@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 使用 Visual Studio 和 SSDT 连接到 SQL 数据仓库
-<a id="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt" class="xliff"></a>
+# <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>使用 Visual Studio 和 SSDT 连接到 SQL 数据仓库
 
 <!--Not Availabel in [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)-->
 <!--Not Availabel in [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)-->
@@ -36,16 +35,14 @@ ms.lasthandoff: 07/05/2017
 
 使用 Visual Studio 只需几分钟便可查询 Azure SQL 数据仓库。 此方法使用 Visual Studio 中的 SQL Server Data Tools (SSDT) 扩展。 
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 要使用本教程，你需要：
 
 * 现有 SQL 数据仓库。 若要创建这样一个数据仓库，请参阅 [创建 SQL 数据仓库][Create a SQL Data Warehouse]。
 * 适用于 Visual Studio 的 SSDT。 如果你具有 Visual Studio，则可以已具有此工具。 有关安装指说明和选项，请参阅 [安装 Visual Studio 和 SSDT][Installing Visual Studio and SSDT]。
 * 完全限定的 SQL Server 名称。 若要查找此名称，请参阅 [连接到 SQL 数据仓库][Connect to SQL Data Warehouse]。
 
-## 1.连接到 SQL 数据仓库
-<a id="1-connect-to-your-sql-data-warehouse" class="xliff"></a>
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1.连接到 SQL 数据仓库
 1. 打开 Visual Studio 2013 或 2015。
 2. 打开 SQL Server 对象资源管理器。 为此，请选择“视图” > “SQL Server 对象资源管理器”。
 
@@ -65,8 +62,7 @@ ms.lasthandoff: 07/05/2017
 
     ![浏览 AdventureWorksDW][4]
 
-## 2.运行示例查询
-<a id="2-run-a-sample-query" class="xliff"></a>
+## <a name="2-run-a-sample-query"></a>2.运行示例查询
 现在，你已建立了与数据库的连接，接下来让我们编写查询。
 
 1. 在 SQL Server 对象资源管理器中右键单击你的数据库。
@@ -85,8 +81,7 @@ ms.lasthandoff: 07/05/2017
 
     ![查询结果][7]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 由于可以执行连接和查询，接下来请尝试 [使用 PowerBI 可视化数据][使用 PowerBI 可视化数据]。
 
 若要为 Azure Active Directory 身份验证配置环境，请参阅 [SQL 数据仓库身份验证][Authenticate to SQL Data Warehouse]。

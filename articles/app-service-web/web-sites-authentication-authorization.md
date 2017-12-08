@@ -15,13 +15,11 @@ ms.workload: web
 origin.date: 08/31/2016
 ms.date: 12/12/2016
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 48463c03b4e9ef83a363a7b7bebc489cb5b5f182
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: c7e6d59e88cac94585f26fe66d7d2d935978377f
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="authenticate-with-on-premises-active-directory-in-your-azure-app"></a>Authenticate with on-premises Active Directory in your Azure app（在 Azure 应用中使用本地 Active Directory 进行身份验证）
 本文说明如何在 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)中使用本地 Active Directory (AD) 进行身份验证。 Azure 应用托管在云中，但可以通过多种方法安全地对本地 AD 用户进行身份验证。 

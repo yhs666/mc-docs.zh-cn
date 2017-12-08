@@ -15,13 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 01/10/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 5bbbd303dd9b82622b2c3391e607a51a56a27693
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: c4442060e88415b29af5e5d7ca0c5d04c61b5299
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>将长期存储从磁带移动到 Azure 云
 Azure 备份和 System Center Data Protection Manager 客户可以：
@@ -78,7 +76,5 @@ Azure 备份和 System Center Data Protection Manager 客户可以：
 ## <a name="next-steps"></a>后续步骤
 关于 Azure 备份的详细信息，请参阅：
 
-- [Azure 备份简介](backup-introduction-to-azure-backup.md)
-- [尝试 Azure 备份](backup-try-azure-backup-in-10-mins.md)
-
-
+- [Azure 备份简介](./backup-introduction-to-azure-backup.md)
+- [尝试 Azure 备份](./backup-try-azure-backup-in-10-mins.md)

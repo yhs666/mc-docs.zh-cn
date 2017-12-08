@@ -21,14 +21,11 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 如何将项目升级到最新版本的 Azure Tools for Visual Studio
-<a id="how-to-upgrade-projects-to-the-current-version-of-the-azure-tools-for-visual-studio" class="xliff"></a>
-## 概述
-<a id="overview" class="xliff"></a>
+# <a name="how-to-upgrade-projects-to-the-current-version-of-the-azure-tools-for-visual-studio"></a>如何将项目升级到最新版本的 Azure Tools for Visual Studio
+## <a name="overview"></a>概述
 安装最新版 Azure Tools（或比 1.6 版更新的旧版）之后，任何使用 1.6 版（2011 年 11 月）以前的 Azure Tools 所创建的项目，在打开时都会立即自动升级。 如果使用这些工具的 1.6 版（2011 年 11 月）创建项目，且仍然安装该版本，可以在较旧版本中打开这些项目，稍后再确定是否要将它们升级。
 
-## 项目升级时有何更改
-<a id="how-your-project-changes-when-you-upgrade-it" class="xliff"></a>
+## <a name="how-your-project-changes-when-you-upgrade-it"></a>项目升级时有何更改
 如果项目自动升级，或指定要将它升级，项目修改为使用最新版本的某些组件，某些属性也更改，如本部分所述。 如果项目需要其他更改，才能与较新版本的工具兼容，必须手动进行这些更改。
 
 - Web 角色的 Web.config 文件和辅助角色的 app.config 文件更新为引用较新版的 Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitoirTraceListener.dll。
@@ -43,8 +40,7 @@ ms.lasthandoff: 06/21/2017
 > 
 > 
 
-### 如何将 Azure 项目升级到最新版本
-<a id="how-to-upgrade-an-azure-project-to-the-current-release" class="xliff"></a>
+### <a name="how-to-upgrade-an-azure-project-to-the-current-release"></a>如何将 Azure 项目升级到最新版本
 1. 将最新版本的 Azure tools 安装到想要用于升级项目的 Visual Studio 安装，然后打开想要升级的项目。 如果项目是使用 1.6 版（2011 年 11 月）以前的 Azure Tools 创建的，项目将自动升级到最新版本。 如果项目是使用 2011 年 11 月版本创建的，且仍然安装该版本，则项目将在该版本中打开。
 2. 在解决方案资源管理器中，打开“项目”节点的快捷菜单，选择“属性”，然后在出现的对话框中选择“应用程序”选项卡。
 

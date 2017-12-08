@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 使用 PowerShell 创建 Azure 应用程序网关（经典）的自定义探测
-<a id="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell" class="xliff"></a>
+# <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>使用 PowerShell 创建 Azure 应用程序网关（经典）的自定义探测
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](application-gateway-create-probe-portal.md)
@@ -37,8 +36,7 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## 创建应用程序网关
-<a id="create-an-application-gateway" class="xliff"></a>
+## <a name="create-an-application-gateway"></a>创建应用程序网关
 
 创建应用程序网关：
 
@@ -46,8 +44,7 @@ ms.lasthandoff: 06/23/2017
 2. 创建配置 XML 文件或配置对象。
 3. 将配置提交到新建的应用程序网关资源。
 
-### 创建使用自定义探测的应用程序网关资源
-<a id="create-an-application-gateway-resource-with-a-custom-probe" class="xliff"></a>
+### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>创建使用自定义探测的应用程序网关资源
 
 若要创建网关，请使用 `New-AzureApplicationGateway` cmdlet，并将值替换为你自己的值。 此时不会开始计收网关的费用。 计费将在后面已成功启动网关时开始。
 
@@ -70,8 +67,7 @@ Get-AzureApplicationGateway AppGwTest
 
 *VirtualIPs* 和 *DnsName* 显示为空白，因为网关尚未启动。 这些值在网关进入运行状态后立即创建。
 
-### 使用 XML 配置应用程序网关
-<a id="configure-an-application-gateway-by-using-xml" class="xliff"></a>
+### <a name="configure-an-application-gateway-by-using-xml"></a>使用 XML 配置应用程序网关
 
 在以下示例中，使用 XML 文件配置所有应用程序网关设置，并将这些设置提交到应用程序网关资源。  
 
@@ -163,8 +159,7 @@ Get-AzureApplicationGateway AppGwTest
 
 \<BackendHttpSettings\> 配置中会引用探测名称，以分配使用自定义探测设置的后端池。
 
-## 将自定义探测添加到现有应用程序网关
-<a id="add-a-custom-probe-to-an-existing-application-gateway" class="xliff"></a>
+## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>将自定义探测添加到现有应用程序网关
 
 更改当前的应用程序网关配置需要完成三个步骤：获取当前的 XML 配置文件，对其进行修改以创建自定义探测，使用新的 XML 设置来配置应用程序网关。
 
@@ -211,8 +206,7 @@ Get-AzureApplicationGateway AppGwTest
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 如果要配置安全套接字层 (SSL) 卸载，请参阅[配置应用程序网关以进行 SSL 卸载](application-gateway-ssl.md)。
 

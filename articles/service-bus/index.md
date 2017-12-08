@@ -18,8 +18,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-#服务总线文档
-<a id="service-bus-documentation" class="xliff"></a>
+#<a name="service-bus-documentation"></a>服务总线文档
 
 了解如何使用服务总线建立跨本地和云环境的连接。 教程、视频、API 参考和其他文档演示了如何在应用程序与服务之间设置云消息传送。
 

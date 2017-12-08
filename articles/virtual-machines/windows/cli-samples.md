@@ -23,8 +23,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 适用于 Windows 虚拟机的 Azure CLI 示例
-<a id="azure-cli-samples-for-windows-virtual-machines" class="xliff"></a>
+# <a name="azure-cli-samples-for-windows-virtual-machines"></a>适用于 Windows 虚拟机的 Azure CLI 示例
 
 下表包含指向使用部署 Windows 虚拟机的 Azure CLI 生成的 bash 脚本的链接。
 

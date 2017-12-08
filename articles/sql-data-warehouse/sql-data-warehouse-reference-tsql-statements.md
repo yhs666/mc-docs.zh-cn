@@ -22,10 +22,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# Transact-SQL 主题
-<a id="transact-sql-topics" class="xliff"></a>
-## 数据定义语言 (DDL) 语句
-<a id="data-definition-language-ddl-statements" class="xliff"></a>
+# <a name="transact-sql-topics"></a>Transact-SQL 主题
+## <a name="data-definition-language-ddl-statements"></a>数据定义语言 (DDL) 语句
 * [ALTER DATABASE](https://msdn.microsoft.com/zh-cn/library/mt204042.aspx)
 * [ALTER INDEX](https://msdn.microsoft.com/zh-cn/library/ms188388.aspx)
 * [ALTER PROCEDURE](https://msdn.microsoft.com/zh-cn/library/ms189762.aspx)
@@ -58,14 +56,12 @@ ms.lasthandoff: 07/05/2017
 * [TRUNCATE TABLE](https://msdn.microsoft.com/zh-cn/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/zh-cn/library/ms187348.aspx)
 
-## 数据操作语言 (DML) 语句
-<a id="data-manipulation-language-dml-statements" class="xliff"></a>
+## <a name="data-manipulation-language-dml-statements"></a>数据操作语言 (DML) 语句
 * [DELETE](https://msdn.microsoft.com/zh-cn/library/ms189835.aspx)
 * [INSERT](https://msdn.microsoft.com/zh-cn/library/ms174335.aspx)
 * [UPDATE](https://msdn.microsoft.com/zh-cn/library/ms177523.aspx)
 
-## 数据库控制台命令
-<a id="database-console-commands" class="xliff"></a>
+## <a name="database-console-commands"></a>数据库控制台命令
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/zh-cn/library/ms187762.aspx)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/zh-cn/library/mt204018.aspx)
 * [DBCC SHRINKLOG](https://msdn.microsoft.com/zh-cn/library/mt204020.aspx)
@@ -74,8 +70,7 @@ ms.lasthandoff: 07/05/2017
 * [DBCC PDW_SHOWSPACEUSED](https://msdn.microsoft.com/zh-cn/library/mt204028.aspx)
 * [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/zh-cn/library/mt204043.aspx)
 
-## 查询语句
-<a id="query-statements" class="xliff"></a>
+## <a name="query-statements"></a>查询语句
 * [SELECT](https://msdn.microsoft.com/zh-cn/library/ms189499.aspx)
 * [WITH common_table_expression](https://msdn.microsoft.com/zh-cn/library/ms175972.aspx)
 * [EXCEPT 和 INTERSECT](https://msdn.microsoft.com/zh-cn/library/ms188055.aspx)
@@ -93,8 +88,7 @@ ms.lasthandoff: 07/05/2017
 * [搜索条件](https://msdn.microsoft.com/zh-cn/library/ms173545.aspx)
 * [子查询](https://msdn.microsoft.com/zh-cn/library/mt631613.aspx)
 
-## 安全语句
-<a id="security-statements" class="xliff"></a>
+## <a name="security-statements"></a>安全语句
 * 权限：[GRANT](https://msdn.microsoft.com/zh-cn/library/ms187965.aspx)、[DENY](https://msdn.microsoft.com/zh-cn/library/ms188338.aspx)、[REVOKE](https://msdn.microsoft.com/zh-cn/library/ms187728.aspx)
 * [ALTER AUTHORIZATION](https://msdn.microsoft.com/zh-cn/library/ms187359.aspx)
 * [ALTER CERTIFICATE](https://msdn.microsoft.com/zh-cn/library/ms189511.aspx)
@@ -119,8 +113,7 @@ ms.lasthandoff: 07/05/2017
 * [DROP USER](https://msdn.microsoft.com/zh-cn/library/ms189438.aspx)
 * [OPEN MASTER KEY](https://msdn.microsoft.com/zh-cn/library/ms174433.aspx)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关更多 TSQL 示例，请参阅 [SQL 数据仓库参考概述][SQL Data Warehouse reference overview]。
 
 <!--Image references-->

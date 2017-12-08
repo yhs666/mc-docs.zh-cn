@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# SQL 数据仓库中的临时表
-<a id="temporary-tables-in-sql-data-warehouse" class="xliff"></a>
+# <a name="temporary-tables-in-sql-data-warehouse"></a>SQL 数据仓库中的临时表
 
 > [!div class="op_single_selector"]
 > * [概述][Overview]
@@ -40,8 +39,7 @@ ms.lasthandoff: 07/05/2017
 
 本文包含使用临时表的基本指导，并重点介绍会话级别临时表的原则。 使用本文中的信息可以帮助你将代码模块化，从而同时提高代码的可重用性和易维护性。
 
-## 创建临时表
-<a id="create-a-temporary-table" class="xliff"></a>
+## <a name="create-a-temporary-table"></a>创建临时表
 只需在表名的前面添加 `#`作为前缀，即可创建临时表。  例如：
 
 ```sql
@@ -120,8 +118,7 @@ FROM    t1
 > 
 > 
 
-## 删除临时表
-<a id="dropping-temporary-tables" class="xliff"></a>
+## <a name="dropping-temporary-tables"></a>删除临时表
 
 创建新会话时，应不存在任何临时表。  但是，如果要调用使用相同名称创建临时表的同一存储过程来确保 `CREATE TABLE` 语句成功执行，可以使用带 `DROP` 的简单预存在检查，如下面的示例所示：
 
@@ -138,8 +135,7 @@ END
 DROP TABLE #stats_ddl
 ```
 
-## 模块化代码
-<a id="modularizing-code" class="xliff"></a>
+## <a name="modularizing-code"></a>模块化代码
 由于可以在用户会话中的任何位置查看临时表，可以利用这一点帮助将应用程序代码模块化。  例如，下面的存储过程会将上面建议的做法组合在一起生成 DDL，该 DDL 会按统计名称更新数据库中的所有统计信息。
 
 ```sql
@@ -235,12 +231,10 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-## 临时表的限制
-<a id="temporary-table-limitations" class="xliff"></a>
+## <a name="temporary-table-limitations"></a>临时表的限制
 SQL 数据仓库在实现临时表时确实会施加一些限制。  目前，仅支持会话范围的临时表。  不支持全局临时表。  此外，不能在临时表上创建视图。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 若要了解详细信息，请参阅有关[表概述][Overview]、[表数据类型][Data Types]、[分布表][Distribute]、[为表编制索引][Index]、[对表进行分区][Partition]和[维护表统计信息][Statistics]的文章。  有关最佳实践的详细信息，请参阅 [SQL 数据仓库最佳实践][SQL Data Warehouse Best Practices]。
 
 <!--Image references-->

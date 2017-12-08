@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# Azure Active Directory v2.0 和 OpenID Connect 协议
+# <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 和 OpenID Connect 协议
 OpenID Connect 是构建在 OAuth 2.0 基础之上的身份验证协议，可用于将用户安全登录到 Web 应用程序。 使用 v2.0 终结点的 OpenID Connect 实现时，可将登录功能和 API 访问权限添加到基于 Web 的应用中。 本文说明如何在各种语言中执行此操作。 其中将会介绍如何在不使用任何 Microsoft 开源库的情况下发送和接收 HTTP 消息。
 
 > [!NOTE]
@@ -31,12 +31,12 @@ OpenID Connect 是构建在 OAuth 2.0 基础之上的身份验证协议，可用
 
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 扩展了 OAuth 2.0 *授权*协议，使其可用作*身份验证*协议，这样一来，用户可使用 OAuth 执行单一登录。 OpenID Connect 引入了 *ID 令牌*的概念，这是一种安全令牌，可让客户端验证用户的标识。 ID 令牌还可获取有关用户的基本配置文件信息。 由于 OpenID Connect 扩展了 OAuth 2.0，因此应用可安全获取访问令牌，访问令牌可用于访问[授权服务器](./active-directory-v2-protocols.md#the-basics)保护的资源。 如果要构建在服务器上托管并通过浏览器访问的 [Web 应用程序](./active-directory-v2-flows.md#web-apps)，建议使用 OpenID Connect。
 
-## 协议图：登录
+## <a name="protocol-diagram-sign-in"></a>协议图：登录
 最基本的登录流包含下图中所示的步骤。 本文将详细描述每个步骤。
 
 ![OpenID Connect 协议：登录](./media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
-## 提取 OpenID Connect 元数据文档
+## <a name="fetch-the-openid-connect-metadata-document"></a>提取 OpenID Connect 元数据文档
 OpenID Connect 描述了元数据文档，该文档包含了应用执行登录所需的大部分信息。 这些信息包括要使用的 URL 以及服务公共签名密钥的位置。 对于 v2.0 终结点，应使用的 OpenID Connect 的元数据文档为：
 
 ```
@@ -71,7 +71,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 通常，使用此元数据文档来配置 OpenID Connect 库或 SDK；该库使用元数据来完成其工作。 但是，如果不使用预生成的 OpenID Connect 库，则可以按照本文剩余部分的步骤来使用 v2.0 终结点执行 Web 应用中的登录。
 
-## 发送登录请求
+## <a name="send-the-sign-in-request"></a>发送登录请求
 当 Web 应用需要对用户进行身份验证时，可以将用户定向到 `/authorize` 终结点。 此请求类似于 [OAuth 2.0 授权代码流](./active-directory-v2-protocols-oauth-code.md)的第一个阶段，但有以下几个重要区别：
 
 - 该请求必须在 `scope` 参数中包含 `openid` 范围。
@@ -117,7 +117,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 用户经过身份验证并许可后，v2.0 终结点将使用 `response_mode` 参数中指定的方法，将响应返回到位于指定重定向 URI 处的应用。
 
-### 成功的响应
+### <a name="successful-response"></a>成功的响应
 使用 `response_mode=form_post` 时的成功响应如下所示：
 
 ```
@@ -133,7 +133,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | id_token |应用请求的 ID 令牌。 可以使用 `id_token` 参数验证用户的标识，开始与用户建立会话。 有关 ID 令牌及其内容的详细信息，请参阅 [v2.0 终结点令牌参考](./active-directory-v2-tokens.md)。 |
 | state |如果请求中包含 `state` 参数，响应中就应该出现相同的值。 应用应该验证请求和响应中的 state 值是否完全相同。 |
 
-### 错误响应
+### <a name="error-response"></a>错误响应
 也可以将错误响应发送到重定向 URI，使应用能够处理这些响应。 错误响应如下所示：
 
 ```
@@ -149,7 +149,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | error |可用于对发生的错误分类以及对错误做出反应的错误代码字符串。 |
 | error_description |帮助识别身份验证错误根本原因的特定错误消息。 |
 
-### 授权终结点错误的错误代码
+### <a name="error-codes-for-authorization-endpoint-errors"></a>授权终结点错误的错误代码
 下表描述了可在错误响应的 `error` 参数中返回的错误代码：
 
 | 错误代码 | 说明 | 客户端操作 |
@@ -162,7 +162,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | temporarily_unavailable |服务器暂时繁忙，无法处理请求。 |重试请求。 客户端应用程序可向用户说明，其响应由于临时状况而延迟。 |
 | invalid_resource |目标资源无效，原因是它不存在，Azure AD 找不到它，或者未正确配置。 |这表示未在租户中配置该资源（如果存在）。 应用程序可以提示用户，说明如何安装应用程序并将其添加到 Azure AD。 |
 
-## 验证 ID 令牌
+## <a name="validate-the-id-token"></a>验证 ID 令牌
 仅接收 ID 令牌并不足以验证用户的身份。 还必须验证 ID 令牌的签名，并根据应用的要求验证令牌中的声明。 v2.0 终结点使用 [JSON Web 令牌 (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)和公钥加密对令牌进行签名并验证其是否有效。
 
 可以选择验证客户端代码中的 ID 令牌，但是常见的做法是将 ID 令牌发送到后端服务器，在那里执行验证。 验证 ID 令牌的签名后，需要验证一些声明。 有关详细信息，包括[验证令牌](./active-directory-v2-tokens.md#validating-tokens)和[有关签名密钥滚动更新的重要信息](./active-directory-v2-tokens.md#validating-tokens)，请参阅 [v2.0 令牌参考](./active-directory-v2-tokens.md)。 我们建议使用库来分析和验证令牌。 大多数语言和平台都至少有一个可用的库。
@@ -178,7 +178,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 完全验证 ID 令牌后，即可开始与用户建立会话。 使用 ID 令牌中的声明来获取有关应用中的用户的信息。 可将此信息用于显示、记录、授权，等等。
 
-## 发送注销请求
+## <a name="send-a-sign-out-request"></a>发送注销请求
 目前，v2.0 终结点不支持 OpenID Connect `end_session_endpoint`。 这意味着应用无法向 v2.0 终结点发送请求，因而无法结束用户会话并清除 v2.0 终结点设置的 Cookie。
 若要将用户注销，应用只需结束自身的用户会话，在 v2.0 终结点中将用户的会话保留不变。 下次用户尝试登录时，将看到列出其有效登录帐户的“选择帐户”页。 在该页上，用户可以选择注销任一帐户，结束 v2.0 终结点中的会话。
 
@@ -199,14 +199,14 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 -->
 
-## 协议图：令牌获取
+## <a name="protocol-diagram-token-acquisition"></a>协议图：令牌获取
 许多 Web 应用不仅需要将用户登录，而且还要代表该用户使用 OAuth 来访问 Web 服务。 此方案合并了用于对用户进行身份验证的 OpenID Connect，同时将获取授权代码，用于通过 OAuth 授权代码流来获取访问令牌。
 
 完整的 OpenID Connect 登录和令牌获取流如下图所示。 本文的后续部分将详细介绍每个步骤。
 
 ![OpenID Connect 协议：令牌获取](./media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-## 获取访问令牌
+## <a name="get-access-tokens"></a>获取访问令牌
 若要获取访问令牌，请修改登录请求：
 
 ```
@@ -232,7 +232,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 
 通过使用 `response_type=id_token code` 在请求中包含权限范围，v2.0 终结点可确保用户已经同意 `scope` 查询参数中指示的权限。 v2.0 终结点会将授权代码返回给应用，以交换访问令牌。
 
-### 成功的响应
+### <a name="successful-response"></a>成功的响应
 使用 `response_mode=form_post` 后的成功响应如下所示：
 
 ```
@@ -249,7 +249,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | code |应用请求的授权代码。 应用可以使用授权代码请求目标资源的访问令牌。 授权代码的生存期很短。 通常，授权代码在大约 10 分钟后即会过期。 |
 | state |如果请求中包含 state 参数，响应中就应该出现相同的值。 应用应该验证请求和响应中的 state 值是否完全相同。 |
 
-### 错误响应
+### <a name="error-response"></a>错误响应
 也可以将错误响应发送到重定向 URI，使应用能够适当地处理这些响应。 错误响应如下所示：
 
 ```

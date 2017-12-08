@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 将本地 AlwaysOn 可用性组扩展到 Azure
-<a id="extend-on-premises-always-on-availability-groups-to-azure" class="xliff"></a>
+# <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>将本地 AlwaysOn 可用性组扩展到 Azure
 AlwaysOn 可用性组通过添加辅助副本为数据库组提供高可用性。 在发生故障时，可以使用这些副本来故障转移数据库。 此外，它们还可用于卸载读取工作负荷或备份任务。
 
 可预配包含 SQL Server 的一个或多个 Azure VM，然后将其作为副本添加到本地可用性组，进而将本地可用性组扩展到 Azure。
@@ -37,8 +36,7 @@ AlwaysOn 可用性组通过添加辅助副本为数据库组提供高可用性�
 > [!IMPORTANT] 
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
 
-## 添加 Azure 副本向导
-<a id="add-azure-replica-wizard" class="xliff"></a>
+## <a name="add-azure-replica-wizard"></a>添加 Azure 副本向导
 本部分演示如何使用“添加 Azure 副本向导”来扩展 AlwaysOn 可用性组解决方案，使其包括 Azure 副本。
 
 > [!IMPORTANT]
@@ -89,12 +87,10 @@ AlwaysOn 可用性组通过添加辅助副本为数据库组提供高可用性�
 > 
 > 
 
-## 创建可用性组侦听器
-<a id="create-an-availability-group-listener" class="xliff"></a>
+## <a name="create-an-availability-group-listener"></a>创建可用性组侦听器
 创建可用性组之后，你应该为客户端创建侦听器，以便连接到副本。 侦听器可将传入连接定向至主副本或只读辅助副本。 有关侦听器的详细信息，请参阅[在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听器](../classic/ps-sql-int-listener.md)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 除了使用 **添加 Azure 副本向导** 将 AlwaysOn 可用性组扩展到 Azure 以外，还可以将某些 SQL Server 工作负荷完全移到 Azure。 若要开始，请参阅[在 Azure 上预配 SQL Server 虚拟机](../sql/virtual-machines-windows-portal-sql-server-provision.md)。
 
 有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [SQL Server on Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。

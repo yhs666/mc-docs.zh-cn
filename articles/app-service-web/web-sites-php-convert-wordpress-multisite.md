@@ -21,10 +21,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 在 Azure 应用服务中将 WordPress 转换为 Multisite
-<a id="convert-wordpress-to-multisite-in-azure-app-service" class="xliff"></a>
-## 概述
-<a id="overview" class="xliff"></a>
+# <a name="convert-wordpress-to-multisite-in-azure-app-service"></a>在 Azure 应用服务中将 WordPress 转换为 Multisite
+## <a name="overview"></a>概述
 *作者：[Ben Lobaugh][ben-lobaugh]，[Microsoft Open Technologies Inc.][ms-open-tech]*
 
 本教程将介绍如何采用通过 Azure 中的库创建的现有 WordPress Web 应用并将其转换为 WordPress Multisite 安装。 此外，你还将了解如何将自定义域分配给安装中的每个子网站。
@@ -35,8 +33,7 @@ ms.lasthandoff: 06/21/2017
 
 让我们开始吧。
 
-## 允许 Multisite
-<a id="allow-multisite" class="xliff"></a>
+## <a name="allow-multisite"></a>允许 Multisite
 首先需要通过带有 **WP\_ALLOW\_MULTISITE** 常量的 `wp-config.php` 文件启用 Multisite。 编辑 Web 应用文件有两种方法：第一种是通过 FTP，第二种是通过 Git。 如果你不熟悉如何设置这两种方法，请参考以下教程：
 
 * [带 MySQL 和 FTP 的 PHP 网站][website-w-mysql-and-ftp-ftp-setup]
@@ -50,8 +47,7 @@ ms.lasthandoff: 06/21/2017
 
 请务必保存该文件并将其上传回服务器！
 
-## 网络设置
-<a id="network-setup" class="xliff"></a>
+## <a name="network-setup"></a>网络设置
 登录到 Web 应用的 *wp-admin* 区域，在“工具”菜单的下方应该会看到一个名为“网络设置”的新项。 单击“网络设置”并填写网络的详细信息。
 
 ![“网络设置”屏幕][wordpress-network-setup]
@@ -60,8 +56,7 @@ ms.lasthandoff: 06/21/2017
 
 有关子域和子目录设置的详细信息，请参阅 WordPress Codex 上的 [多站点网络的类型][wordpress-codex-types-of-networks] 一文。
 
-## 启用网络
-<a id="enable-the-network" class="xliff"></a>
+## <a name="enable-the-network"></a>启用网络
 现已在数据库中配置网络，但剩下的一个步骤是启用网络功能。 完成 `wp-config.php` 设置并确保 `web.config` 正确路由每个站点。
 
 在“网络设置”页上单击“安装”按钮后，WordPress 将尝试更新 `wp-config.php` 和 `web.config` 文件。 不过，应该始终检查这些文件，以便确保更新成功。 如果更新不成功，此屏幕将向你显示必要的更新。 编辑并保存文件。
@@ -70,12 +65,10 @@ ms.lasthandoff: 06/21/2017
 
 现在，管理栏上应额外显示一个标记为“我的网站”的菜单。 利用此菜单，可以通过“网络管理员”仪表板管理新的网络。
 
-## 添加自定义域
-<a id="adding-custom-domains" class="xliff"></a>
+## <a name="adding-custom-domains"></a>添加自定义域
 利用 [WordPress MU 域映射][wordpress-plugin-wordpress-mu-domain-mapping] 插件，可以轻松向网络中的任何站点添加自定义域。 若要使该插件正常运行，你需要额外对门户和域注册机构进行一些设置。
 
-## 启用到 Web 应用的域映射
-<a id="enable-domain-mapping-to-the-web-app" class="xliff"></a>
+## <a name="enable-domain-mapping-to-the-web-app"></a>启用到 Web 应用的域映射
 **免费**的[应用服务](/app-service-web/app-service-changes-existing-services)计划模式不支持向 Web 应用添加自定义域。 需要切换到**共享**或**标准**模式。 为此，请按以下步骤操作：
 
 * 登录到 Azure 门户并找到你的 Web 应用。 
@@ -87,8 +80,7 @@ ms.lasthandoff: 06/21/2017
 
 由于处理新的设置需要花费几秒钟的时间，因此现在正好来开始设置域。
 
-## 验证域
-<a id="verify-your-domain" class="xliff"></a>
+## <a name="verify-your-domain"></a>验证域
 在 Azure Web 应用允许你将域映射到站点前，你首先需要验证自己是否有映射域的权限。 为此，你必须将新的 CNAME 记录添加到 DNS 项。
 
 * 登录到域的 DNS 管理器
@@ -97,8 +89,7 @@ ms.lasthandoff: 06/21/2017
 
 由于 DNS 更改可能需要过段时间才能生效，因此，如果后续步骤无法立即运行，你可以先去冲杯咖啡，然后回来重试。
 
-## 将域添加到 Web 应用
-<a id="add-the-domain-to-the-web-app" class="xliff"></a>
+## <a name="add-the-domain-to-the-web-app"></a>将域添加到 Web 应用
 通过 Azure 门户返回到 Web 应用，单击“设置”，然后单击“自定义域和 SSL”。
 
 显示 *SSL 设置* 时，请在显示的字段里输入希望分配给 Web 应用的所有域。 如果某个域未在此处列出，则无法在 WordPress 中将该域用于映射，无论设置域 DNS 的方式如何。
@@ -109,32 +100,27 @@ ms.lasthandoff: 06/21/2017
 
 记下该对话框底部列出的 IP 地址。 你需要此地址来设置域的 A 记录。
 
-## 设置域 A 记录
-<a id="setup-the-domain-a-record" class="xliff"></a>
+## <a name="setup-the-domain-a-record"></a>设置域 A 记录
 如果已成功执行其他步骤，则你现在可以通过 DNS A 记录将域分配给 Azure Web 应用。 
 
 此处请务必记住，Azure Web 应用同时接受 CNAME 和 A 记录，但 *必须* 使用 A 记录才能启用正确的域映射。 CNAME 无法转发到 Azure 使用 YOUR_DOMAIN.chinacloudsites.cn 为你创建的其他 CNAME。
 
 使用上一个步骤中的 IP 地址可返回你的 DNS 管理器并将 A 记录设置为指向该 IP。
 
-## 安装和设置插件
-<a id="install-and-setup-the-plugin" class="xliff"></a>
+## <a name="install-and-setup-the-plugin"></a>安装和设置插件
 WordPress Multisite 当前没有用于映射自定义域的内置方法。 但是，你可以利用一个名为 [WordPress MU 域映射][wordpress-plugin-wordpress-mu-domain-mapping]的插件来添加该功能。 登录到网站的“网络管理员”部分，并安装“WordPress MU 域映射”插件。
 
 安装并激活该插件后，请访问 “设置” > “域映射”来配置插件。 在第一个文本框“服务器 IP 地址”中，输入用于设置域的 A 记录的 IP 地址。 设置所需的任何*域选项*（通常使用默认值即可）并单击“保存”。
 
-## 映射域
-<a id="map-the-domain" class="xliff"></a>
+## <a name="map-the-domain"></a>映射域
 访问希望将域映射到的网站的**仪表板**。 单击“工具” > “域映射”，在文本框中键入新域，然后单击“添加”。
 
 默认情况下，新域将重写到自动生成的站点域。 若要将所有流量发送到新域，请在保存前选中“此博客的主域”框。 可以向一个站点添加无数个域，但只有一个域可作为主域。
 
-## 再执行一次此操作
-<a id="do-it-again" class="xliff"></a>
+## <a name="do-it-again"></a>再执行一次此操作
 利用 Azure Web 应用，可以向一个 Web 应用添加无数个域。 若要添加另一个域，需要为每个域执行**验证域**和**设置域 A 记录**部分中所述的操作。    
 
-## 发生的更改
-<a id="whats-changed" class="xliff"></a>
+## <a name="whats-changed"></a>发生的更改
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [ben-lobaugh]: http://ben.lobaugh.net

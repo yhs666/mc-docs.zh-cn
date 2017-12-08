@@ -21,12 +21,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 管理 Azure 自动化数据
-<a id="managing-azure-automation-data" class="xliff"></a>
+# <a name="managing-azure-automation-data"></a>管理 Azure 自动化数据
 本文包含有关管理 Azure 自动化环境的多个主题。
 
-## 数据保留
-<a id="data-retention" class="xliff"></a>
+## <a name="data-retention"></a>数据保留
 在删除 Azure 自动化中的某个资源时，该资源在被永久删除之前将保留 90 天以供审核。  在此期间，你无法查看或使用该资源。  此策略也适用于属于已删除的自动化帐户的资源。
 
 Azure 自动化会自动删除并永久移除 90 天之前的作业。
@@ -45,20 +43,16 @@ Azure 自动化会自动删除并永久移除 90 天之前的作业。
 
 保留策略应用于所有用户并且当前无法自定义。
 
-## 备份 Azure 自动化
-<a id="backing-up-azure-automation" class="xliff"></a>
+## <a name="backing-up-azure-automation"></a>备份 Azure 自动化
 当你删除 Azure 中的某个自动化帐户时，该帐户中的所有对象都将被删除，包括 Runbook、模块、配置、设置、作业和资产。 在删除帐户后，这些对象不可恢复。  在删除自动化帐户之前，你可以参考以下信息来备份该帐户的内容。 
 
-### Runbook
-<a id="runbooks" class="xliff"></a>
+### <a name="runbooks"></a>Runbook
 可以使用 Azure 经典管理门户或 Windows PowerShell 中的 [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) cmdlet 将 Runbook 导出为脚本文件。 可以根据[创建或导入 Runbook](/automation/automation-creating-importing-runbook) 中所述，将这些脚本文件导入另一个自动化帐户。
 
-### 集成模块
-<a id="integration-modules" class="xliff"></a>
+### <a name="integration-modules"></a>集成模块
 你无法从 Azure 自动化导出集成模块。  必须确保这些模块可在自动化帐户外部使用。
 
-### 资产
-<a id="assets" class="xliff"></a>
+### <a name="assets"></a>资产
 无法从 Azure 自动化中导出[资产](/automation/)。  使用 Azure 经典管理门户时，必须记下变量、凭据、证书、连接和计划的详细信息。  然后，必须手动创建你导入到另一个自动化中的 Runbook 使用的任何资产。
 
 但可以使用 [Azure cmdlet](https://msdn.microsoft.com/library/dn690262.aspx) 检索未加密资产的详细信息，然后保存这些资产供将来参考，或在另一个自动化帐户中创建等效的资产。
@@ -67,8 +61,7 @@ Azure 自动化会自动删除并永久移除 90 天之前的作业。
 
 你无法从 Azure 自动化导出证书。  必须确保所有证书在 Azure 外部可用。
 
-## Azure 自动化中的异地复制
-<a id="geo-replication-in-azure-automation" class="xliff"></a>
+## <a name="geo-replication-in-azure-automation"></a>Azure 自动化中的异地复制
 Azure 自动化帐户中标配的异地复制可将帐户数据备份到其他地理区域以实现冗余。 你可以在设置帐户时选择主要区域，然后会自动向它分配次要区域。 从主要区域复制的辅助数据将持续更新，以防数据丢失。  
 
 下表显示了可用的主要区域和次要区域配对。

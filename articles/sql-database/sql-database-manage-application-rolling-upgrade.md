@@ -17,8 +17,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/29/2017
 ---
-# 使用 SQL 数据库活动异地复制管理云应用程序的滚动升级
-<a id="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication" class="xliff"></a>
+# <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>使用 SQL 数据库活动异地复制管理云应用程序的滚动升级
 
 > [!NOTE]
 > [活动异地复制](sql-database-geo-replication-overview.md)现可供所有层中的所有数据库使用。
@@ -32,8 +31,7 @@ ms.lasthandoff: 06/29/2017
 * 升级过程中发生灾难性错误时的应用程序的漏洞问题。
 * 总的费用成本。  此成本包括升级过程使用的额外冗余成本和临时组件的增量成本。 
 
-## 升级依赖于数据库备份进行灾难恢复的应用程序
-<a id="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery" class="xliff"></a>
+## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>升级依赖于数据库备份进行灾难恢复的应用程序
 如果你的应用程序依赖于自动的数据库备份，并且使用异地还原来实现灾难恢复，那么通常将它部署到单个 Azure 区域。 在此事例中升级过程包括创建升级所涉及的所有应用程序组件的备份部署。 要最小化对最终用户的干扰，可以使用具有故障转移配置文件的 Azure 流量管理器 (WATM)。  下图说明了在升级过程开始前的操作环境。 终结点 contoso-1.chinacloudsites.cn<i></i> 表示需要升级的应用程序的一个生产槽。 若要启用回滚升级的功能，需要使用应用程序的完全同步副本创建过渡槽。 准备应用程序升级需要执行以下步骤：
 
 1. 为升级创建过渡槽。 执行此操作需要在同一 Azure 区域中创建一个辅助数据库 (1)，并部署相同的网站。 监视此辅助数据库以查看种子设定过程是否已完成。
@@ -73,8 +71,7 @@ ms.lasthandoff: 06/29/2017
 
 此选项的主要优点是可以使用一系列简单步骤升级单个区域中的应用程序。 此升级的费用成本相对较低。 此方法的主要 **缺点** 在于如果在升级过程中发生灾难性故障，那么恢复到升级前的状态将涉及在不同的区域重新部署应用程序，并且使用异地还原从备份中还原数据库。 此过程将导致大量的停机时间。   
 
-## 升级依赖于数据库异地复制进行灾难恢复的应用程序
-<a id="upgrading-applications-that-rely-on-database-geo-replication-for-disaster-recovery" class="xliff"></a>
+## <a name="upgrading-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>升级依赖于数据库异地复制进行灾难恢复的应用程序
 
 如果应用程序利用异地复制来实现业务连续性，那么该应用程序至少部署到两个不同的区域，主要区域为活动部署，备份区域为备用部署。 除了前面提到的各个因素，此升级过程还必须保证：
 
@@ -122,13 +119,11 @@ ms.lasthandoff: 06/29/2017
 
 此升级方法的主要 **优点** 是可以同时升级应用程序及其地理冗余副本，并且不会在升级过程中破坏业务连续性。 此方法的主要 **缺点** 是它需要每个应用程序组件的双倍冗余，因此会导致更高的费用成本。 它还涉及更复杂的工作流。 
 
-## 摘要
-<a id="summary" class="xliff"></a>
+## <a name="summary"></a>摘要
 
 本文中所述的两种升级方法具有不同的复杂性和费用成本，但它们都关注于最小化最终用户仅限于执行只读操作的时间。 该时间由升级脚本的持续时间直接定义。 该时间不依赖于数据库大小、所选的服务层、网站配置和你无法轻松控制的其他因素。 这是因为所有准备步骤都从升级步骤中分离出来，可以在不影响生产应用程序的情况下完成。 升级脚本的效率是决定升级期间的最终用户体验的关键因素。 因此改进升级的最佳做法是致力于尽可能地提高升级脚本的效率。  
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 - 有关业务连续性概述和应用场景，请参阅[业务连续性概述](./sql-database-business-continuity.md)
 - 若要了解 Azure SQL 数据库的自动备份，请参阅 [SQL 数据库自动备份](./sql-database-automated-backups.md)
@@ -136,8 +131,7 @@ ms.lasthandoff: 06/29/2017
 - 若要了解更快的恢复选项，请参阅[活动异地复制](./sql-database-geo-replication-overview.md)  
 - 若要了解如何使用自动备份进行存档，请参阅[数据库复制](./sql-database-copy.md)
 
-## 其他资源
-<a id="additionale-resources" class="xliff"></a>
+## <a name="additionale-resources"></a>其他资源
 
 以下页将有助于你了解执行升级工作流所需的具体操作：
 

@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 在 Azure SQL 数据仓库中监视用户查询
-<a id="monitor-user-queries-in-azure-sql-data-warehouse" class="xliff"></a>
+# <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中监视用户查询
 在 SQL 数据仓库中监视用户查询时的注意事项、最佳实践和任务的概述。
 
 | 类别 | 任务或注意事项 | 说明 |
@@ -31,8 +30,7 @@ ms.lasthandoff: 07/05/2017
 | 降低性能 |查找长时间运行的用户查询 |[查找长时间运行的查询][Find long-running queries] |
 | 并发 |将并发资源分配给用户查询 |[并发性和工作负荷管理][Concurrency and workload management] |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关更多管理提示，请转到 [管理概述][Management overview]。
 
 <!--Image references-->

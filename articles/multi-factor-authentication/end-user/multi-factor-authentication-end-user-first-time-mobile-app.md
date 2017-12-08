@@ -20,15 +20,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 在 Azure 多重身份验证中使用移动应用作为联系方法
-<a id="use-a-mobile-app-as-your-contact-method-with-azure-multi-factor-authentication" class="xliff"></a>
+# <a name="use-a-mobile-app-as-your-contact-method-with-azure-multi-factor-authentication"></a>在 Azure 多重身份验证中使用移动应用作为联系方法
 
 如果要使用 Microsoft Authenticator 应用作为主要联系方法，可以参考本文。  本文介绍如何设置 Azure 多重身份验证，以使用移动应用作为主要联系方法。
 
 Microsoft Authenticator 应用可用于 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073)。
 
-## 使用 Microsoft Authenticator 作为联系方法
-<a id="use-microsoft-authenticator-as-your-contact-method" class="xliff"></a>
+## <a name="use-microsoft-authenticator-as-your-contact-method"></a>使用 Microsoft Authenticator 作为联系方法
 
 1. 在“其他安全性验证”屏幕上，从下拉列表中选择“移动应用”。
 2. 选择“通知”或“一次性密码”，然后选择“设置”。
@@ -62,8 +60,7 @@ Microsoft Authenticator 应用可用于 [Windows Phone](http://go.microsoft.com/
 9. 建议输入手机号码，以免无法访问移动应用。 通过下拉列表指定国家/地区，然后在国家/地区名称旁边的框中输入手机号码。 选择“**下一步**”。
 10. 选择“完成” 。
 
-## 手动添加帐户
-<a id="add-an-account-manually" class="xliff"></a>
+## <a name="add-an-account-manually"></a>手动添加帐户
 如果要手动添加帐户，请执行以下操作：
 
 1. 选择“手动输入帐户”  按钮。  

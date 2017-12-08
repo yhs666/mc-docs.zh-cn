@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 06/01/2016
 ms.date: 12/12/2016
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 60d116638ef1a1f58bfd3c20d47768e2f6f18edf
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 432cc1a3bdc8467e651babaa2065a9d67c34f359
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-use-azure-queue-storage-with-the-webjobs-sdk"></a>如何通过 WebJobs SDK 使用 Azure 队列存储
 
@@ -43,32 +41,32 @@ ms.lasthandoff: 05/19/2017
 本指南涉及以下主题：
 
 * [如何在接收队列消息时触发函数](#trigger)
-    * 字符串队列消息
-    * POCO 队列消息
-    * 异步函数
-    * QueueTrigger 属性适用的类型
-    * 轮询算法
-    * 多个实例
-    * 并行执行
-    * 获取队列或队列消息元数据
-    * 正常关闭
+  * 字符串队列消息
+  * POCO 队列消息
+  * 异步函数
+  * QueueTrigger 属性适用的类型
+  * 轮询算法
+  * 多个实例
+  * 并行执行
+  * 获取队列或队列消息元数据
+  * 正常关闭
 * [如何在处理队列消息时创建队列消息](#createqueue)
-    * 字符串队列消息
-    * POCO 队列消息
-    * 在异步函数中创建多个消息
-    * Queue 属性适用的类型
-    * 在函数正文中使用 WebJobs SDK 属性
+  * 字符串队列消息
+  * POCO 队列消息
+  * 在异步函数中创建多个消息
+  * Queue 属性适用的类型
+  * 在函数正文中使用 WebJobs SDK 属性
 * [如何在处理队列消息时读取和写入 Blob](#blobs)
-    * 字符串队列消息
-    * POCO 队列消息
-    * Blob 属性适用的类型
+  * 字符串队列消息
+  * POCO 队列消息
+  * Blob 属性适用的类型
 * [如何处理有害消息](#poison)
-    * 自动处理有害消息
-    * 手动处理有害消息
+  * 自动处理有害消息
+  * 手动处理有害消息
 * [如何设置配置选项](#config)
-    * 在代码中设置 SDK 连接字符串
-    * 配置 QueueTrigger 设置
-    * 在代码中设置 WebJobs SDK 构造函数参数的值
+  * 在代码中设置 SDK 连接字符串
+  * 配置 QueueTrigger 设置
+  * 在代码中设置 WebJobs SDK 构造函数参数的值
 * [如何手动触发函数](#manual)
 * [如何写入日志](#logs)
 * [如何处理错误和配置超时](#errors)
@@ -588,4 +586,3 @@ public static void ErrorMonitor(
 
 ## <a id="nextsteps"></a>后续步骤
 本指南提供的代码示例演示了如何处理使用 Azure 队列的常见方案。 有关如何使用 Azure WebJobs 和 WebJobs SDK 的详细信息，请参阅 [Azure WebJobs 推荐资源](/app-service-web/websites-webjobs-resources)。
-

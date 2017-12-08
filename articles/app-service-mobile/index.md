@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 移动应用文档
-<a id="mobile-apps-documentation" class="xliff"></a>
+# <a name="mobile-apps-documentation"></a>移动应用文档
 
 了解如何在 Azure 应用服务中使用移动应用生成本机 iOS、Android 或 Windows 应用，或使用 Xamarin 或 Cordova 的跨平台应用。 教程、视频、客户端 SDK 文档和其他资源介绍了如何构建与托管任何移动应用的后端。
 

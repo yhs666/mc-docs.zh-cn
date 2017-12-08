@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# Publish-WebApplicationVM（Windows PowerShell 脚本）
-<a id="publish-webapplicationvm-windows-powershell-script" class="xliff"></a>
+# <a name="publish-webapplicationvm-windows-powershell-script"></a>Publish-WebApplicationVM（Windows PowerShell 脚本）
 将 Web 应用程序部署到虚拟机。 如果资源不存在，脚本会在 Azure 订阅中创建所需的资源。
 
 ```
@@ -36,8 +35,7 @@ Publish-WebApplicationVM
 -Verbose
 ```
 
-### 配置
-<a id="configuration" class="xliff"></a>
+### <a name="configuration"></a>配置
 描述部署的详细信息的 JSON 配置文件的路径。
 
 | 别名 | 无 |
@@ -48,8 +46,7 @@ Publish-WebApplicationVM
 | 接受管道输入？ |false |
 | 接受通配符？ |false |
 
-### SubscriptionName
-<a id="subscriptionname" class="xliff"></a>
+### <a name="subscriptionname"></a>SubscriptionName
 想要在其中创建虚拟机的 Azure 订阅的名称。
 
 | 别名 | 无 |
@@ -60,8 +57,7 @@ Publish-WebApplicationVM
 | 接受管道输入？ |false |
 | 接受通配符？ |false |
 
-### WebDeployPackage
-<a id="webdeploypackage" class="xliff"></a>
+### <a name="webdeploypackage"></a>WebDeployPackage
 要发布到虚拟机的 Web 部署包的路径。 可以在 Visual Studio 中使用“发布 Web”向导来创建此包。 请参阅 [如何：在 Visual Studio 中创建 Web 部署包](https://msdn.microsoft.com/zh-cn/library/dd465323.aspx)。
 
 | 别名 | 无 |
@@ -72,8 +68,7 @@ Publish-WebApplicationVM
 | 接受管道输入？ |false |
 | 接受通配符？ |false |
 
-### AllowUntrusted
-<a id="allowuntrusted" class="xliff"></a>
+### <a name="allowuntrusted"></a>AllowUntrusted
 如果为 true，则允许使用未被受信任的根证书颁发机构签署的证书。
 
 | 别名 | 无 |
@@ -84,8 +79,7 @@ Publish-WebApplicationVM
 | 接受管道输入？ |false |
 | 接受通配符？ |false |
 
-### VMPassword
-<a id="vmpassword" class="xliff"></a>
+### <a name="vmpassword"></a>VMPassword
 虚拟机帐户的凭据。 示例：-VMPassword @{Name = "admin"; Password = "password"}
 
 | 别名 | 无 |
@@ -96,8 +90,7 @@ Publish-WebApplicationVM
 | 接受管道输入？ |false |
 | 接受通配符？ |false |
 
-### DatabaseServerPassword
-<a id="databaseserverpassword" class="xliff"></a>
+### <a name="databaseserverpassword"></a>DatabaseServerPassword
 Azure 中的 SQL 数据库的凭据。 示例：-DatabaseServerPassword @{Name = "admin"; Password = "password"}
 
 | 别名 | 无 |
@@ -108,8 +101,7 @@ Azure 中的 SQL 数据库的凭据。 示例：-DatabaseServerPassword @{Name =
 | 接受管道输入？ |false |
 | 接受通配符？ |false |
 
-### SendHostMessagesToOutput
-<a id="sendhostmessagestooutput" class="xliff"></a>
+### <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
 如果为 true，则将消息从脚本打印到输出流。
 
 | 别名 | 无 |
@@ -120,8 +112,7 @@ Azure 中的 SQL 数据库的凭据。 示例：-DatabaseServerPassword @{Name =
 | 接受管道输入？ |false |
 | 接受通配符？ |false |
 
-## 备注
-<a id="remarks" class="xliff"></a>
+## <a name="remarks"></a>备注
 有关如何使用脚本创建开发和测试环境的完整说明，请参阅[使用 Windows PowerShell 脚本发布到开发和测试环境](./vs-azure-tools-publishing-using-powershell-scripts.md)。
 
 JSON 配置文件指定要部署的内容的详细信息。 它包括当你创建项目时指定的信息，如名称、地缘组、VHD 映像和虚拟机的大小。 它还包括虚拟机上的终结点、要预配的数据库（如果有的话）和 Web 部署参数。 以下代码显示一个示例 JSON 配置文件：

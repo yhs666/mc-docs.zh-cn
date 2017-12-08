@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 如何在 Azure 门户中将非托管数据磁盘附加到 Windows VM
-<a id="how-to-attach-an-unmanaged-data-disk-to-a-windows-vm-in-the-azure-portal" class="xliff"></a>
+# <a name="how-to-attach-an-unmanaged-data-disk-to-a-windows-vm-in-the-azure-portal"></a>如何在 Azure 门户中将非托管数据磁盘附加到 Windows VM
 
 本文介绍如何通过 Azure 门户将新的和现有的非托管磁盘附加到 Windows 虚拟机。 还可以[使用 PowerShell 附加数据磁盘](./attach-disk-ps.md)。 在开始之前，请查看以下提示：
 
@@ -33,8 +32,7 @@ ms.lasthandoff: 06/23/2017
 
 还可以[使用 Powershell 附加数据磁盘](attach-disk-ps.md)。
 
-## 查找虚拟机
-<a id="find-the-virtual-machine" class="xliff"></a>
+## <a name="find-the-virtual-machine"></a>查找虚拟机
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 在左侧菜单中单击“虚拟机”。
 3. 从列表中选择虚拟机。
@@ -42,8 +40,7 @@ ms.lasthandoff: 06/23/2017
 
 按照附加[新磁盘](#option-1-attach-and-initialize-a-new-disk)或[现有磁盘](#option-2-attach-an-existing-disk)的说明继续操作。
 
-## 选项 1：附加并初始化新的磁盘
-<a id="option-1-attach-and-initialize-a-new-disk" class="xliff"></a>
+## <a name="option-1-attach-and-initialize-a-new-disk"></a>选项 1：附加并初始化新的磁盘
 1. 在“磁盘”边栏选项卡上，单击“+ 添加数据磁盘”。
 3. 在“存储容器”下方，单击“浏览”按钮，浏览到要存储新 VHD 的存储帐户和容器，然后单击“选择”。 
 
@@ -52,8 +49,7 @@ ms.lasthandoff: 06/23/2017
 3. 完成数据磁盘设置后，单击“确定”。
 4. 返回“磁盘”边栏选项卡，单击“保存”，将磁盘添加到 VM 配置。
 
-### 初始化新的数据磁盘
-<a id="initialize-a-new-data-disk" class="xliff"></a>
+### <a name="initialize-a-new-data-disk"></a>初始化新的数据磁盘
 
 1. 连接到虚拟机。 有关说明，请参阅[如何连接并登录到运行 Windows 的 Azure 虚拟机](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 1. 单击 VM 中的“开始”菜单，键入 **diskmgmt.msc**，然后按 **Enter**。 这会启动“磁盘管理”管理单元。
@@ -67,8 +63,7 @@ ms.lasthandoff: 06/23/2017
 9. 随即显示格式化磁盘会清除所有数据的警告，请单击“确定”。
 10. 格式化完成后，单击“确定”。
 
-## 选项 2：附加现有磁盘
-<a id="option-2-attach-an-existing-disk" class="xliff"></a>
+## <a name="option-2-attach-an-existing-disk"></a>选项 2：附加现有磁盘
 1. 在“磁盘”边栏选项卡上，单击“+ 添加数据磁盘”。
 2. 在“附加非托管磁盘”边栏选项卡的“源类型”中，选择“现有 blob”。
 
@@ -78,8 +73,7 @@ ms.lasthandoff: 06/23/2017
 4. 在“附加非托管磁盘”边栏选项卡中单击“确定”。
 5. 在“磁盘”边栏选项卡中，单击“保存”，将磁盘添加到 VM 的配置。
 
-## 将 TRIM 与标准存储配合使用
-<a id="use-trim-with-standard-storage" class="xliff"></a>
+## <a name="use-trim-with-standard-storage"></a>将 TRIM 与标准存储配合使用
 
 如果使用标准存储 (HDD)，应启用 TRIM。 TRIM 会丢弃磁盘上未使用的块，使用户只需为实际使用的存储付费。 如果创建了较大的文件，然后将其删除，这样可以节省成本。 
 
@@ -103,6 +97,5 @@ defrag.exe <volume:> -l
 
 还可以确保在通过格式化卷来修整整个卷。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 如果应用程序需要使用 D: 盘存储数据，可以[更改 Windows 临时磁盘的驱动器号](change-drive-letter.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。

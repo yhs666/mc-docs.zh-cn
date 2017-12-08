@@ -20,8 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 计划程序 PowerShell Cmdlet 参考
-<a id="scheduler-powershell-cmdlets-reference" class="xliff"></a>
+# <a name="scheduler-powershell-cmdlets-reference"></a>计划程序 PowerShell Cmdlet 参考
 下表介绍 Azure 计划程序中每个主要 cmdlet 的参考页并链接到该页。
 
 若要安装 Azure PowerShell 并将其与 Azure 订阅相关联，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 
@@ -60,8 +59,7 @@ Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## 另请参阅
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>另请参阅
  [计划程序是什么？](scheduler-intro.md)
 
  [Azure 计划程序的概念、术语和实体层次结构](scheduler-concepts-terms.md)

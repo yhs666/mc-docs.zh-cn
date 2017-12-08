@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-### 创建卷
-<a id="to-create-a-volume" class="xliff"></a>
+### <a name="to-create-a-volume"></a>创建卷
 
 1. 在设备“快速启动”页上，单击“添加卷”。 这将启动“添加卷向导”。
 

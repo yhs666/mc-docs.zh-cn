@@ -21,22 +21,19 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# Azure 应用服务上的操作系统功能
-<a id="operating-system-functionality-on-azure-app-service" class="xliff"></a>
+# <a name="operating-system-functionality-on-azure-app-service"></a>Azure 应用服务上的操作系统功能
 本文介绍了可供在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)上运行的所有应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 
 
 <a id="tiers"></a>
 
-## 应用服务计划层
-<a id="app-service-plan-tiers" class="xliff"></a>
+## <a name="app-service-plan-tiers"></a>应用服务计划层
 应用服务在多租户托管环境中运行客户应用。 部署在“免费”和“共享”层中的应用在共享虚拟机上的辅助进程中运行，而部署在“标准”和“高级”层中的应用在专用于与单个客户关联的应用的虚拟机上运行。
 
 由于应用服务支持不同层之间的无缝缩放体验，因此，为应用服务应用实施的安全配置将保持不变。 这可以确保应用服务计划在切换不同的层时，应用不会突然发生行为上的变化，并且不会以意外的方式失败。
 
 <a id="developmentframeworks"></a>
 
-## 开发框架
-<a id="development-frameworks" class="xliff"></a>
+## <a name="development-frameworks"></a>开发框架
 应用服务定价层控制可用于应用的计算资源量（CPU、磁盘存储、内存和网络出口）。 但是，可用于应用的框架功能范围保持不变，而与缩放层无关。
 
 应用服务支持多种开发框架，包括 ASP.NET、经典 ASP、node.js、PHP 和 Python - 它们全都作为 IIS 中的扩展运行。 为了简化和标准化安全配置，应用服务应用通常使用其默认设置运行不同的开发框架。 用于配置应用的一个方法可能是为每个单独的开发框架自定义 API 外围应用和功能。 而应用服务则是通过实现操作系统功能的公共基准，采用更通用的方法，与应用的开发框架无关。
@@ -45,20 +42,17 @@ ms.lasthandoff: 06/21/2017
 
 <a id="FileAccess"></a>
 
-## 文件访问
-<a id="file-access" class="xliff"></a>
+## <a name="file-access"></a>文件访问
 应用服务中存在各种不同的驱动器，包括本地驱动器和网络驱动器。
 
 <a id="LocalDrives"></a>
 
-### 本地驱动器
-<a id="local-drives" class="xliff"></a>
+### <a name="local-drives"></a>本地驱动器
 就其核心而言，应用服务是在 Azure PaaS（平台即服务）基础结构的基础上运行的服务。 因此，“附加到”虚拟机的本地驱动器是可用于在 Azure 中运行的任何辅助角色的相同驱动器类型。 这包括操作系统驱动器（D:\ 驱动器）、包含应用服务专用（客户不可访问）的 Azure 程序包 cspkg 文件的应用程序驱动器，以及其大小因 VM 大小而异的“user”驱动器（C:\ 驱动器）。
 
 <a id="NetworkDrives"></a>
 
-### 网络驱动器（即 UNC 共享）
-<a id="network-drives-aka-unc-shares" class="xliff"></a>
+### <a name="network-drives-aka-unc-shares"></a>网络驱动器（即 UNC 共享）
 应用服务中有一个独具特色的方面能够简化应用的部署和维护，这就是所有用户内容都存储在一组 UNC 共享中。 此模型非常好地映射到具有多个负载均衡服务器的本地 Web 托管环境所用内容存储的公共模式。 
 
 在应用服务内，每个数据中心都创建了许多 UNC 共享。 在每个数据中心针对所有客户的某个百分比的用户内容将分配给各 UNC 共享。 此外，针对单个客户订阅的所有文件内容将始终置于相同的 UNC 共享中。 
@@ -67,8 +61,7 @@ ms.lasthandoff: 06/21/2017
 
 <a id="TypesOfFileAccess"></a>
 
-### 向应用授予的文件访问的类型
-<a id="types-of-file-access-granted-to-an-app" class="xliff"></a>
+### <a name="types-of-file-access-granted-to-an-app"></a>向应用授予的文件访问的类型
 每个客户的订阅都在一个数据中心内的特定 UNC 共享上具有保留的目录结构。 客户可以在特定数据中心内创建多个应用，因此，属于单个客户订阅的所有目录都在同一个 UNC 共享上创建。 该共享可以包含目录（例如针对内容、错误和诊断日志的目录）以及源代码管理创建的应用的更早版本。 按照预期，客户的应用目录可用于在运行时由应用的应用程序代码进行读写访问。
 
 在附加到运行应用的虚拟机的本地驱动器上，应用服务在 C:\ 驱动器上为特定于应用的临时本地存储预留一处空间。 尽管应用对自己的临时本地存储具有完全读/写访问权限，但该存储实际上并不旨在直接供应用程序代码使用。 而是用于为 IIS 和 Web 应用程序框架提供临时文件存储。 应用服务还限制可用于每个应用的临时本地存储量，以免单个应用占用过多的本地文件存储量。
@@ -79,14 +72,12 @@ ms.lasthandoff: 06/21/2017
 
 <a name="multipleinstances"></a>
 
-### 跨多个实例的文件访问
-<a id="file-access-across-multiple-instances" class="xliff"></a>
+### <a name="file-access-across-multiple-instances"></a>跨多个实例的文件访问
 主目录包含应用的内容，并且应用程序代码可以写入该目录。 如果应用在多个实例上运行，则主目录在所有实例间共享，以便所有实例都看到同一个目录。 所以，举例来说，如果应用将上传的文件保存到主目录，则所有实例都可以立即使用那些文件。 
 
 <a id="NetworkAccess"></a>
 
-## 网络访问
-<a id="network-access" class="xliff"></a>
+## <a name="network-access"></a>网络访问
 应用程序代码可以使用基于 TCP/IP 和 UDP 的协议建立与公开外部服务的 Internet 可访问终结点的出站网络连接。 应用可以使用这些相同协议连接到 Azure 内的服务&#151;例如，建立与 SQL 数据库的 HTTPS 连接即可实现此目的。
 
 还有有限容量以便为应用建立一个本地环回连接，并且让应用侦听该本地环回套接字。 此功能存在主要是为了实现作为其功能的一部分侦听本地环回套接字的应用。 请注意，每个应用都将看到“私有”环回连接；应用“A”无法侦听应用“B”建立的本地环回套接字。
@@ -95,8 +86,7 @@ ms.lasthandoff: 06/21/2017
 
 <a id="Code"></a>
 
-## 代码执行、进程和内存
-<a id="code-execution-processes-and-memory" class="xliff"></a>
+## <a name="code-execution-processes-and-memory"></a>代码执行、进程和内存
 如前所述，应用使用随机应用程序池标识在低权限辅助进程内运行。 应用程序代码有权访问与辅助进程相关联的内存空间，以及可由 CGI 处理器或其他应用程序生成的任何子进程。 但是，一个应用不能访问另一个应用的内存或数据，即使它们位于同一个虚拟机上。
 
 应用可以运行使用支持的 Web 开发框架编写的脚本或页面。 应用服务不将任何 Web 框架设置配置为更受限制的模式。 例如，在应用服务上运行的 ASP.NET 应用以“完全”信任运行，与更受限制的信任模式相反。 Web 框架（包括经典 ASP 和 ASP.NET）可以调用进程中 COM 组件（但不能调用进程外 COM 组件），例如在 Windows 操作系统上默认注册的 ADO（ActiveX 数据对象）。
@@ -105,8 +95,7 @@ ms.lasthandoff: 06/21/2017
 
 <a id="Diagnostics"></a>
 
-## 诊断日志和事件
-<a id="diagnostics-logs-and-events" class="xliff"></a>
+## <a name="diagnostics-logs-and-events"></a>诊断日志和事件
 日志信息是某些应用尝试访问的另外一组数据。 可用于在应用服务中运行的代码的日志信息类型包括应用生成的诊断和日志信息，这些信息对于应用而言也是可以轻松进行访问的。 
 
 例如，某一活动应用生成的 W3C HTTP 日志既可以在为该应用创建的网络共享位置中的日志目录上提供，也可以在 blob 存储中提供（如果客户已经将 W3C 日志记录设置到存储中）。 后者能够收集大量日志，而没有超出与某一网络共享相关联的文件存储限制的风险。
@@ -117,13 +106,11 @@ ms.lasthandoff: 06/21/2017
 
 <a id="RegistryAccess"></a>
 
-## 注册表访问
-<a id="registry-access" class="xliff"></a>
+## <a name="registry-access"></a>注册表访问
 应用对于它们在其上运行的虚拟机的注册表的大部分内容（尽管不是全部内容）具有只读访问权限。 实际上，这意味着应用可以访问允许对本地用户组进行只读访问的注册表项。 注册表中当前不支持读写访问的一个区域是 HKEY\_CURRENT\_USER Hive。
 
 对注册表的写访问被阻止，包括对任何按用户注册表项的访问。 从应用角度来说，对注册表的写访问永远不应依赖于 Azure 环境，因为应用可以（并且也是这样做的）跨不同虚拟机进行迁移。 应用可依赖的唯一持久可写入存储是在应用服务 UNC 共享上存储的按应用内容目录结构。 
 
-## 详细信息
-<a id="more-information" class="xliff"></a>
+## <a name="more-information"></a>详细信息
 
 [Azure Web 应用沙盒](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - 有关应用服务的执行环境的最新信息。 直接由应用服务开发团队维护此页。

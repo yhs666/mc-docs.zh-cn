@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: a45bd676285dfa45d80e954479847e1bcacd48cd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: e4a107102382d343c66bc7a445369eed5269f6c0
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-introduction"></a>Azure Active Directory 概念证明演练手册：简介
 
@@ -28,11 +26,11 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="how-to-use-this-playbook"></a>如何使用此演练手册
 
-1. 使用[主题](active-directory-playbook-ingredients.md#theme)部分，根据需要选取感兴趣的领域。  
+1. 使用[主题](./active-directory-playbook-ingredients.md#theme)部分，根据需要选取感兴趣的领域。  
 2. 选择符合业务目标的方案，为 PoC 设定一个范围。 方案越短越好。 我们建议，方案应尽可能短小、简洁，为利益干系人带来价值的同时，尽量降低其实现过程的复杂性。  
-3. 通过[实现](active-directory-playbook-implementation.md)部分了解方案，以及这些方案对你的环境意味着什么。 在每个方案中，我们会介绍如何建立该方案（涉及[构建基块](active-directory-playbook-building-blocks.md)），以及如何导航这些方案。 
+3. 通过[实现](./active-directory-playbook-implementation.md)部分了解方案，以及这些方案对你的环境意味着什么。 在每个方案中，我们会介绍如何建立该方案（涉及[构建基块](./active-directory-playbook-building-blocks.md)），以及如何导航这些方案。 
 4. 每个构建基块都会说明所需的先决条件，以及大致的完成时间。 在规划过程中，这对你会有帮助。 
-5. 根据上面的步骤 1-3，定义执行操作所需的[环境](active-directory-playbook-ingredients.md#environment)。 我们鼓励你努力打造一个给用户带来良好体验的生产环境。 
+5. 根据上面的步骤 1-3，定义执行操作所需的[环境](./active-directory-playbook-ingredients.md#environment)。 我们鼓励你努力打造一个给用户带来良好体验的生产环境。 
 6. 出现相互冲突的要求时，请根据以下标准进行权衡 
    - 在显示值时以主题为中心  
    - 易于准备、设置和执行方案 
@@ -45,5 +43,3 @@ ms.lasthandoff: 04/22/2017
 
 
 [!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-steps.md)]
-
-

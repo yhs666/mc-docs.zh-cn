@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: d142b0cd89f7ea328aa5028b6a1b1b207f19fa4d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 35328d4b753ed35abef57486828cccd1e9657cda
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Azure Active Directory 概念证明演练手册：实现
 
@@ -30,7 +28,7 @@ ms.lasthandoff: 04/22/2017
 
 | 方案 | 构建基块| 
 | --- | --- |  
-| [将本地标识扩展到云](#extending-your-on-premises-identity-to-the-cloud) | [目录同步 - 密码哈希同步](active-directory-playbook-building-blocks.md#directory-synchronization--password-hash-sync-phs--new-installation) <br/>**注意**：如果已安装 DirSync/ADSync 或旧版的 Azure AD Connect，则此步骤是可选的。 本指南中的某些方案可能需要更新版本的 Azure AD Connect。
+| [将本地标识扩展到云](#extending-your-on-premises-identity-to-the-cloud) | [目录同步 - 密码哈希同步](./active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation) <br/>**注意**：如果已安装 DirSync/ADSync 或旧版的 Azure AD Connect，则此步骤是可选的。 本指南中的某些方案可能需要更新版本的 Azure AD Connect。
 
 ### <a name="extending-your-on-premises-identity-to-the-cloud"></a>将本地标识扩展到云 
 
@@ -42,7 +40,7 @@ ms.lasthandoff: 04/22/2017
 | 方案 | 构建基块| 
 | --- | --- |  
 | [SSO 和标识生命周期事件](#sso-and-identity-lifecycle-events) |  |
-| [将 LDAP 标识同步到 Azure AD](#synchronize-ldap-identities-to-azure-ad) |  [通用 LDAP 连接器配置](active-directory-playbook-building-blocks.md#generic-ldap-connector-configuration) |
+| [将 LDAP 标识同步到 Azure AD](#synchronize-ldap-identities-to-azure-ad) |  [通用 LDAP 连接器配置](./active-directory-playbook-building-blocks.md#generic-ldap-connector-configuration) |
 
 ### <a name="sso-and-identity-lifecycle-events"></a>SSO 和标识生命周期事件
 
@@ -69,8 +67,9 @@ ms.lasthandoff: 04/22/2017
 
 | 方案 | 构建基块| 
 | --- | --- |  
-| [确保管理员帐户访问安全](#secure-administrator-account-access) | [使用电话呼叫执行 Azure MFA](active-directory-playbook-building-blocks.md#azure-multi-factor-authentication-with-phone-calls) |
-| [使用基于证书的身份验证，在没有密码的情况下进行身份验证](#authenticate-without-passwords-using-certificate-based-authentication) | [配置基于证书的身份验证](active-directory-playbook-building-blocks.md#configuring-certificate-based-authentication)
+| [确保管理员帐户访问安全](#secure-administrator-account-access) | [使用电话呼叫执行 Azure MFA](./active-directory-playbook-building-blocks.md#azure-multi-factor-authentication-with-phone-calls) |
+| [根据风险保护标识](#protect-identities-based-on-risk) | |
+| [使用基于证书的身份验证，在没有密码的情况下进行身份验证](#authenticate-without-passwords-using-certificate-based-authentication) | [配置基于证书的身份验证](./active-directory-playbook-building-blocks.md#configuring-certificate-based-authentication)
 
 ### <a name="secure-administrator-account-access"></a>保护对管理员帐户的访问
 
@@ -86,5 +85,3 @@ ms.lasthandoff: 04/22/2017
 3. Susie 访问应用程序时，系统提示她使用证书进行身份验证
 
 [!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-steps.md)]
-
-

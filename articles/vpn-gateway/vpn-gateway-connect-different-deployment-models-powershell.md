@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 使用 PowerShell 从不同的部署模型连接虚拟网络
-<a id="connect-virtual-networks-from-different-deployment-models-using-powershell" class="xliff"></a>
+# <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>使用 PowerShell 从不同的部署模型连接虚拟网络
 
 本文介绍如何将经典 VNet 连接到 Resource Manager VNet，以使位于单独部署模型中的资源能够相互通信。 本文中的步骤使用 PowerShell 完成，但也可通过从此列表中选择文章使用 Azure 门户来创建此配置。
 
@@ -37,13 +36,11 @@ ms.lasthandoff: 06/23/2017
 
 如果 VNet 位于同一区域中，可能需考虑改为使用 VNet 对等互连进行连接。 VNet 对等互连不使用 VPN 网关。 有关详细信息，请参阅 [VNet 对等互连](../virtual-network/virtual-network-peering-overview.md)。 
 
-## 开始之前
-<a id="before-beginning" class="xliff"></a>
+## <a name="before-beginning"></a>开始之前
 
 以下步骤将指导您完成为每个 VNet 配置动态或基于路由的网关以及在网关之间创建 VPN 连接所需的设置。 此配置不支持静态或基于策略的网关。
 
-### 先决条件
-<a id="prerequisites" class="xliff"></a>
+### <a name="prerequisites"></a>先决条件
 
 * 已创建了两个 VNet。
 * 两个 VNet 的地址范围不相互重叠，也不与网关可能连接到的其他连接的任何范围重叠。
@@ -77,8 +74,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
 网关 IP 寻址配置 = gwipconfig
 
 ## <a name="createsmgw"></a>第 1 节 — 配置经典 VNet
-### 第 1 部分 — 下载网络配置文件。
-<a id="part-1---download-your-network-configuration-file" class="xliff"></a>
+### <a name="part-1---download-your-network-configuration-file"></a>第 1 部分 — 下载网络配置文件。
 1. 在 PowerShell 控制台中，使用提升的权限登录到 Azure 帐户。 以下 cmdlet 将提示您提供 Azure 帐户的登录凭据。 登录后它会下载你的帐户设置，以便这些信息可供 Azure PowerShell 使用。 请使用 SM PowerShell cmdlet 完成这部分配置。
 
   ```powershell
@@ -91,8 +87,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
   ```
 3. 打开下载的 .xml 文件进行编辑。 有关网络配置文件的示例，请参阅 [Network Configuration Schema](https://msdn.microsoft.com/library/jj157100.aspx)（网络配置架构）。
 
-### 第 2 部分 — 验证网关子网
-<a id="part-2--verify-the-gateway-subnet" class="xliff"></a>
+### <a name="part-2--verify-the-gateway-subnet"></a>第 2 部分 — 验证网关子网
 在 **VirtualNetworkSites** 元素中，向 VNet 添加一个网关子网（如果尚未创建）。 在使用网络配置文件时，网关子网必须命名为“GatewaySubnet”，否则 Azure 无法识别并将其用作网关子网。
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
@@ -115,8 +110,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
       </VirtualNetworkSite>
     </VirtualNetworkSites>
 
-### 第 3 部分 — 添加本地网络站点
-<a id="part-3---add-the-local-network-site" class="xliff"></a>
+### <a name="part-3---add-the-local-network-site"></a>第 3 部分 — 添加本地网络站点
 所添加的本地网络站点表示要连接到的 RM VNet。 如果文件中尚不存在 **LocalNetworkSites** 元素，请进行添加。 此时，在配置中，VPNGatewayAddress 可以是任何有效的公共 IP 地址，因为我们尚未针对 Resource Manager VNet 创建网关。 一旦创建网关，便会将此占位符 IP 地址替换为已分配给 RM 网关的正确公共 IP 地址。
 
     <LocalNetworkSites>
@@ -128,8 +122,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
       </LocalNetworkSite>
     </LocalNetworkSites>
 
-### 第 4 部分 — 将 VNet 与本地网络站点关联
-<a id="part-4---associate-the-vnet-with-the-local-network-site" class="xliff"></a>
+### <a name="part-4---associate-the-vnet-with-the-local-network-site"></a>第 4 部分 — 将 VNet 与本地网络站点关联
 在此部分中，我们将指定您要将 VNet 连接到的本地网络站点。 在本例中，该站点即前面提到的 Resource Manager VNet。 请确保名称相匹配。 此步骤不会创建网关。 它指定网关将连接到的本地网络。
 
         <Gateway>
@@ -140,8 +133,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-### 第 5 部分 — 保存文件并上传
-<a id="part-5---save-the-file-and-upload" class="xliff"></a>
+### <a name="part-5---save-the-file-and-upload"></a>第 5 部分 — 保存文件并上传
 保存文件，然后运行以下命令以将其导入到 Azure。 确保根据环境需要更改文件路径。
 
 ```powershell
@@ -154,8 +146,7 @@ Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
         --------------------        -----------                      ---------------                                                
         Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
 
-### 第 6 部分 - 创建网关
-<a id="part-6---create-the-gateway" class="xliff"></a>
+### <a name="part-6---create-the-gateway"></a>第 6 部分 - 创建网关
 
 运行此示例之前，请参阅所下载的网络配置文件，了解 Azure 所需要的确切名称。 网络配置文件包含经典虚拟网络的值。 在 Azure 门户中创建经典 VNet 设置时，由于部署模型的不同，有时经典 VNet 的名称在网络配置文件中会发生变化。 例如，如果使用 Azure 门户创建一个名为“Classic VNet”的经典 VNet，并在名为“ClassicRG”的资源组中创建它，则网络配置文件中的名称将变为“Group ClassicRG Classic VNet”。 指定包含空格的 VNet 的名称时，请使用引号将值引起来。
 
@@ -242,8 +233,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
   Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName RG1
   ```
 
-## 第 3 节：修改经典 VNet 本地站点设置
-<a id="section-3-modify-the-classic-vnet-local-site-settings" class="xliff"></a>
+## <a name="section-3-modify-the-classic-vnet-local-site-settings"></a>第 3 节：修改经典 VNet 本地站点设置
 
 本节涉及经典 VNet。 需替换在指定本地站点设置时使用的占位符 IP 地址，这些设置将用于连接到 Resource Manager VNet 网关。 
 
@@ -290,32 +280,25 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
   $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
   ```
 
-## 第 5 节：验证连接
-<a id="section-5-verify-your-connections" class="xliff"></a>
+## <a name="section-5-verify-your-connections"></a>第 5 节：验证连接
 
-### 验证从经典 VNet 到 Resource Manager VNet 的连接
-<a id="to-verify-the-connection-from-your-classic-vnet-to-your-resource-manager-vnet" class="xliff"></a>
+### <a name="to-verify-the-connection-from-your-classic-vnet-to-your-resource-manager-vnet"></a>验证从经典 VNet 到 Resource Manager VNet 的连接
 
-#### PowerShell
-<a id="powershell" class="xliff"></a>
+#### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-classic](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
-#### Azure 门户
-<a id="azure-portal" class="xliff"></a>
+#### <a name="azure-portal"></a>Azure 门户
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
-### 验证从 Resource Manager VNet 到经典 VNet 的连接
-<a id="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet" class="xliff"></a>
+### <a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>验证从 Resource Manager VNet 到经典 VNet 的连接
 
-#### PowerShell
-<a id="powershell" class="xliff"></a>
+#### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [vpn-gateway-verify-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-#### Azure 门户
-<a id="azure-portal" class="xliff"></a>
+#### <a name="azure-portal"></a>Azure 门户
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

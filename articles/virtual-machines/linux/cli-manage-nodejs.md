@@ -16,13 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 05/12/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 65fa44b1c77bd0923a47c7557100840730b07fb9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: a069ea062e8240caf21979093aba005064bd706c
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="common-azure-cli-10-commands-on-linux-and-mac"></a>Linux 和 Mac 上的常用 Azure CLI 1.0 命令
 [!INCLUDE [virtual-machines-common-cli-manage-nodejs](../../../includes/virtual-machines-common-cli-manage-nodejs.md)]

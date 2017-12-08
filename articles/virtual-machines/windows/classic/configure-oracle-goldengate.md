@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 配置适用于 Azure 的 Oracle GoldenGate
-<a id="configuring-oracle-goldengate-for-azure" class="xliff"></a>
+# <a name="configuring-oracle-goldengate-for-azure"></a>配置适用于 Azure 的 Oracle GoldenGate
 本教程演示如何为 Azure 虚拟机环境设置 Oracle GoldenGate，以实现高可用性和灾难恢复。 本教程重点介绍非 RAC Oracle 数据库的[双向复制](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm)，并要求两个站点都处于活动状态。
 
 Oracle GoldenGate 支持数据分发和数据集成。 它允许你通过 Oracle-Oracle 复制配置来设置数据分发和数据同步解决方案，并提供了灵活的高可用性解决方案。 Oracle GoldenGate 补强了 Oracle 数据防护，它的复制功能可以实现企业范围的信息分发和零停机时间的升级与迁移。 有关详细信息，请参阅[将 Oracle GoldenGate 与 Oracle 数据防护配合使用](http://docs.oracle.com/cd/E11882_01/server.112/e17157/unplanned.htm)。
@@ -78,8 +77,7 @@ Oracle GoldenGate 包含以下主要组件：提取、数据抽取、复制、�
 
 对于 Oracle 数据库和 Oracle GoldenGate 的后续版本，可能需要实施一些其他更改。 有关最新版本的具体信息，请参阅 Oracle 网站上的 [Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) 和 [Oracle 数据库](http://www.oracle.com/us/corporate/features/database-12c/index.html)文档。 例如，对于 11.2.0.4 版和更高版本的源数据库，DDL 捕获由日志挖掘服务器以异步方式执行，而不需要安装任何特殊的触发器、表或其他数据库对象。 用户无需停止应用程序便可执行 Oracle GoldenGate 升级。 当提取处于集成模式并且存在版本低于 11.2.0.4 的 Oracle 11g 源数据库时，需要使用 DDL 触发器和支持对象。 有关详细指导，请参阅 [Installing and Configuring Oracle GoldenGate for Oracle Database](http://docs.oracle.com/goldengate/1212/gg-winux/GIORA.pdf)（安装和配置适用于 Oracle 数据库的 Oracle GoldenGate）。
 
-## 1.在站点 A 和站点 B 上安装数据库
-<a id="1-setup-database-on-site-a-and-site-b" class="xliff"></a>
+## <a name="1-setup-database-on-site-a-and-site-b"></a>1.在站点 A 和站点 B 上安装数据库
 本部分介绍如何在站点 A 和站点 B 上执行数据库必备组件安装。必须在两个站点（站点 A 和站点 B）上执行本部分所述的所有步骤。
 
 首先，通过 Azure 门户与站点 A 和站点 B 建立远程桌面连接。 打开 Windows 命令提示符，创建 Oracle GoldenGate 安装文件的主目录：
@@ -129,8 +127,7 @@ Oracle GoldenGate 包含以下主要组件：提取、数据抽取、复制、�
 
 有关所有 Oracle GoldenGate GGSCI 命令的完整列表，请参阅[适用于 Windows 的 Oracle GoldenGate 参考](http://docs.oracle.com/goldengate/1212/gg-winux/GWURF/ggsci_commands.htm)。
 
-### 执行初始数据加载
-<a id="perform-initial-data-load" class="xliff"></a>
+### <a name="perform-initial-data-load"></a>执行初始数据加载
 可以通过以下几种方法在数据库中执行初始数据加载。 例如，可以使用 [Oracle GoldenGate 直接加载](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_initsync.htm)或普通的导出和导入实用工具，将表数据从站点 A 导出到站点 B。
 
 为了演示 Oracle GoldenGate 复制过程，本教程演示了如何使用以下命令在站点 A 和站点 B 上创建一个表。
@@ -166,8 +163,7 @@ Oracle GoldenGate 包含以下主要组件：提取、数据抽取、复制、�
     END;
     /
 
-## 2.准备站点 A 和站点 B 以进行数据库复制
-<a id="2-prepare-site-a-and-site-b-for-database-replication" class="xliff"></a>
+## <a name="2-prepare-site-a-and-site-b-for-database-replication"></a>2.准备站点 A 和站点 B 以进行数据库复制
 本部分说明如何准备站点 A 和站点 B 以进行数据库复制。 必须在两个站点（站点 A 和站点 B）上执行本部分所述的所有步骤。
 
 首先，通过 Azure 门户与站点 A 和站点 B 建立远程桌面连接。 使用 SQL*Plus 命令窗口将数据库切换到 archivelog 模式：
@@ -190,8 +186,7 @@ Oracle GoldenGate 包含以下主要组件：提取、数据抽取、复制、�
     sql>shutdown immediate
     sql>startup
 
-## 3.创建支持 DDL 复制的所有必要对象
-<a id="3-create-all-necessary-objects-to-support-ddl-replication" class="xliff"></a>
+## <a name="3-create-all-necessary-objects-to-support-ddl-replication"></a>3.创建支持 DDL 复制的所有必要对象
 本部分列出了所有需要的脚本，用以创建支持 DDL 复制的所有必要对象。 需要在站点 A 和站点 B 上运行本部分中指定的脚本。
 
 打开 Windows 命令提示符并导航到 Oracle GoldenGate 文件夹，例如 C:\\OracleGG。 在站点 A 和站点 B 上以数据库管理员特权启动 SQL\*Plus 命令提示符，例如，使用 SYSDBA。
@@ -216,8 +211,7 @@ Oracle GoldenGate 工具要求使用表级登录名来支持 DDL（数据定义�
 
     GGSCI(Hostname) 6> add trandata scott.inventory
 
-## 4.在站点 A 和站点 B 上配置 GoldenGate 管理进程
-<a id="4-configure-goldengate-manager-on-site-a-and-site-b" class="xliff"></a>
+## <a name="4-configure-goldengate-manager-on-site-a-and-site-b"></a>4.在站点 A 和站点 B 上配置 GoldenGate 管理进程
 Oracle GoldenGate 管理进程可执行许多功能，例如，启动其他 GoldenGate 进程、跟踪日志文件管理和报告。
 
 需要在站点 A 和站点 B 上配置 Oracle GoldenGate 管理进程。为此，请在站点 A 和站点 B 上执行以下步骤。
@@ -266,10 +260,8 @@ Oracle GoldenGate 管理进程可执行许多功能，例如，启动其他 Gold
     GGSCI (HostName) 48> start manager
     Manager started.
 
-## 5.在站点 A 和站点 B 上创建提取组和数据抽取进程
-<a id="5-create-extract-group-and-data-pump-processes-on-site-a-and-site-b" class="xliff"></a>
-### 在站点 A 上创建提取和数据抽取进程
-<a id="create-extract-and-data-pump-processes-on-site-a" class="xliff"></a>
+## <a name="5-create-extract-group-and-data-pump-processes-on-site-a-and-site-b"></a>5.在站点 A 和站点 B 上创建提取组和数据抽取进程
+### <a name="create-extract-and-data-pump-processes-on-site-a"></a>在站点 A 上创建提取和数据抽取进程
 需要在站点 A 和站点 B 上创建提取和数据抽取进程。通过 Azure 门户与站点 A 和站点 B 建立远程桌面连接。 打开 GGSCI 命令解释器窗口。 在站点 A 上运行以下命令：
 
     GGSCI (MachineGG1) 14> add extract ext1 tranlog begin now
@@ -303,8 +295,7 @@ Oracle GoldenGate 管理进程可执行许多功能，例如，启动其他 Gold
      PASSTHRU
      TABLE scott.inventory;
 
-### 在站点 B 上创建 GoldenGate 检查点表
-<a id="create-a-goldengate-checkpoint-table-on-site-b" class="xliff"></a>
+### <a name="create-a-goldengate-checkpoint-table-on-site-b"></a>在站点 B 上创建 GoldenGate 检查点表
 接下来，需要在站点 B 上添加一个检查点表。为此，需要打开 GoldenGate 命令解释器窗口并运行：
 
     C:\OracleGG\ggsci
@@ -327,8 +318,7 @@ Oracle GoldenGate 管理进程可执行许多功能，例如，启动其他 Gold
 
 最后，请保存并关闭 GLOBALS 参数文件。
 
-### 在站点 B 上添加复制进程
-<a id="add-replicat-on-site-b" class="xliff"></a>
+### <a name="add-replicat-on-site-b"></a>在站点 B 上添加复制进程
 本部分介绍如何在站点 B 上添加复制进程“REP2”。
 
 在站点 B 上使用 ADD REPLICAT 命令创建复制组：
@@ -344,8 +334,7 @@ Oracle GoldenGate 管理进程可执行许多功能，例如，启动其他 Gold
     DISCARDFILE C:\OracleGG\dirdat\discard.txt, append,megabytes 10
     MAP scott.inventory, TARGET scott.inventory;
 
-### 在站点 B 上创建提取和数据抽取进程
-<a id="create-extract-and-data-pump-processes-on-site-b" class="xliff"></a>
+### <a name="create-extract-and-data-pump-processes-on-site-b"></a>在站点 B 上创建提取和数据抽取进程
 本部分介绍如何在站点 B 上创建新的提取进程“EXT2”和新的数据抽取进程“DPUMP2”：
 
     GGSCI (MachineGG2) 3> add extract ext2 tranlog begin now
@@ -379,8 +368,7 @@ Oracle GoldenGate 管理进程可执行许多功能，例如，启动其他 Gold
     PASSTHRU
     TABLE scott.inventory;
 
-### 在站点 A 上创建 GoldenGate 检查点表
-<a id="create-a-goldengate-checkpoint-table-on-site-a" class="xliff"></a>
+### <a name="create-a-goldengate-checkpoint-table-on-site-a"></a>在站点 A 上创建 GoldenGate 检查点表
 打开 Oracle GoldenGate 命令解释器窗口，然后创建一个检查点表：
 
     GGSCI (MachineGG1) 1> DBLOGIN USERID ggate, PASSWORD ggate
@@ -401,8 +389,7 @@ Oracle GoldenGate 管理进程可执行许多功能，例如，启动其他 Gold
 
 保存并关闭 GLOBALS 参数文件。
 
-### 在站点 A 上添加复制进程
-<a id="add-replicat-on-site-a" class="xliff"></a>
+### <a name="add-replicat-on-site-a"></a>在站点 A 上添加复制进程
 本部分介绍如何在站点 A 上添加复制进程“REP1”。
 
 以下命令将使用某个线索的名称以及关联的检查点表创建复制组 rep1。
@@ -419,8 +406,7 @@ Oracle GoldenGate 管理进程可执行许多功能，例如，启动其他 Gold
     DISCARDFILE C:\OracleGG\dirdat\discard.txt, append, megabytes 10
     MAP scott.inventory, TARGET scott.inventory;
 
-### 在站点 A 和站点 B 上添加 trandata
-<a id="add-trandata-on-site-a-and-site-b" class="xliff"></a>
+### <a name="add-trandata-on-site-a-and-site-b"></a>在站点 A 和站点 B 上添加 trandata
 使用 ADD TRANDATA 命令在表级别启用补充日志记录。 打开 Oracle GoldenGate 命令解释器窗口，登录数据库，然后运行 ADD TRANDATA 命令。
 
 与 MachineGG1 建立远程桌面连接，打开 Oracle GoldenGate 命令解释器，然后运行：
@@ -445,8 +431,7 @@ Oracle GoldenGate 管理进程可执行许多功能，例如，启动其他 Gold
     Logging of supplemental redo log data is enabled for table SCOTT.INVENTORY.
     Columns supplementally logged for table SCOTT.INVENTORY: PROD_ID, PROD_CATEGORY, QTY_IN_STOCK, LAST_DML.
 
-### 在站点 A 和站点 B 上添加 trandata
-<a id="add-trandata-on-site-a-and-site-b" class="xliff"></a>
+### <a name="add-trandata-on-site-a-and-site-b"></a>在站点 A 和站点 B 上添加 trandata
 使用 ADD TRANDATA 命令在表级别启用补充日志记录。 打开 Oracle GoldenGate 命令解释器窗口，登录数据库，然后运行 ADD TRANDATA 命令。
 
 与 MachineGG1 建立远程桌面连接，打开 Oracle GoldenGate 命令解释器，然后运行：
@@ -469,8 +454,7 @@ Oracle GoldenGate 管理进程可执行许多功能，例如，启动其他 Gold
     Logging of supplemental redo log data is enabled for table SCOTT.INVENTORY.
     Columns supplementally logged for table SCOTT.INVENTORY: PROD_ID, PROD_CATEGORY, QTY_IN_STOCK, LAST_DML.
 
-### 在站点 A 上启动提取和数据抽取进程
-<a id="start-extract-and-data-pump-processes-on-site-a" class="xliff"></a>
+### <a name="start-extract-and-data-pump-processes-on-site-a"></a>在站点 A 上启动提取和数据抽取进程
 在站点 A 上启动提取进程 ext1：
 
     GGSCI (MachineGG1) 31> start extract ext1
@@ -500,8 +484,7 @@ Oracle GoldenGate 管理进程可执行许多功能，例如，启动其他 Gold
     EXTRACT     RUNNING     DPUMP1      00:00:00      00:46:33
     EXTRACT     RUNNING     EXT1        00:00:00      00:00:04
 
-### 在站点 B 上启动提取和数据抽取进程
-<a id="start-extract-and-data-pump-processes-on-site-b" class="xliff"></a>
+### <a name="start-extract-and-data-pump-processes-on-site-b"></a>在站点 B 上启动提取和数据抽取进程
 在站点 B 上启动提取进程 ext2：
 
     GGSCI (MachineGG2) 22> start extract ext2
@@ -523,8 +506,7 @@ Oracle GoldenGate 管理进程可执行许多功能，例如，启动其他 Gold
     EXTRACT     RUNNING     DPUMP2      00:00:00      136:13:33
     EXTRACT     RUNNING     EXT2        00:00:00      00:00:04
 
-### 在站点 A 上启动复制进程
-<a id="start-replicat-process-on-site-a" class="xliff"></a>
+### <a name="start-replicat-process-on-site-a"></a>在站点 A 上启动复制进程
 本部分介绍如何在站点 A 上启动复制进程“REP1”。
 
 在站点 A 上启动复制进程：
@@ -538,8 +520,7 @@ Oracle GoldenGate 管理进程可执行许多功能，例如，启动其他 Gold
     GGSCI (MachineGG1) 39> status replicat rep1
      REPLICAT REP1: RUNNING
 
-### 在站点 B 上启动复制进程
-<a id="start-replicat-process-on-site-b" class="xliff"></a>
+### <a name="start-replicat-process-on-site-b"></a>在站点 B 上启动复制进程
 本部分介绍如何在站点 B 上启动复制进程“REP2”。
 
 在站点 B 上启动复制进程：
@@ -553,8 +534,7 @@ Oracle GoldenGate 管理进程可执行许多功能，例如，启动其他 Gold
     GGSCI (MachineGG2) 27> status replicat rep2
     REPLICAT REP2: RUNNING
 
-## 6.验证双向复制过程
-<a id="6-verify-the-bi-directional-replication-process" class="xliff"></a>
+## <a name="6-verify-the-bi-directional-replication-process"></a>6.验证双向复制过程
 若要验证 Oracle GoldenGate 配置，请在站点 A 上的数据库中插入一行。与站点 A 建立远程桌面连接。打开 SQL*Plus 命令窗口并运行：
 
     SQL> select name from v$database;

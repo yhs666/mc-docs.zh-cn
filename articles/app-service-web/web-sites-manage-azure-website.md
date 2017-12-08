@@ -21,25 +21,21 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 管理 Azure 应用服务中的 Web 应用
-<a id="manage-a-web-app-in-azure-app-service" class="xliff"></a>
+# <a name="manage-a-web-app-in-azure-app-service"></a>管理 Azure 应用服务中的 Web 应用
 本主题包含用于管理 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)中 Web 应用的资源链接。 管理包括维持 Web 应用平稳运行的所有任务。 
 
 在整个 Web 应用使用期内，您将执行各种管理任务，从初始部署到正常操作、维护与更新。
 
 许多 Web 应用管理任务都可在 Azure 门户中执行。
 
-## 将 Web 应用部署到生产之前
-<a id="before-you-deploy-your-web-app-to-production" class="xliff"></a>
-### 选择层级
-<a id="choose-a-tier" class="xliff"></a>
+## <a name="before-you-deploy-your-web-app-to-production"></a>将 Web 应用部署到生产之前
+### <a name="choose-a-tier"></a>选择层级
 提供五个级别的 Azure 应用服务：免费、共享、基本、标准和高级。 有关各层的功能与定价的信息，请参阅[定价详细信息](https://www.azure.cn/pricing/details/app-service/)。 
 
 * [应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)支持将多个 Web 应用分组到同一层中。
 * 在创建 Web 应用后可以随时[切换层](web-sites-scale.md)。
 
-### 配置
-<a id="configuration" class="xliff"></a>
+### <a name="configuration"></a>配置
 使用 [Azure 门户](https://portal.azure.cn/)设置各种配置选项。 有关详细信息，请参阅[在 Azure 应用服务中配置 Web 应用](web-sites-configure.md)。 下面是快速核对清单：
 
 * 选择用于 .NET、PHP、Java 或 Python 的**运行时版本**（如果需要）。
@@ -57,32 +53,26 @@ ms.lasthandoff: 06/23/2017
 * **PHP**：[在 Azure 应用服务 Web 应用中配置 PHP](web-sites-php-configure.md)。
 * **Python**：[使用 Azure 应用服务 Web 应用配置 Python](web-sites-python-configure.md)
 
-## Web 应用运行期间
-<a id="while-your-web-app-is-running" class="xliff"></a>
+## <a name="while-your-web-app-is-running"></a>Web 应用运行期间
 在 Web 应用运行期间，您要确保其可用性，并能够进行缩放以满足用户流量。 您可能还需要解决错误。
 
-### 监视
-<a id="monitoring" class="xliff"></a>
+### <a name="monitoring"></a>监视
 * 通过 Azure 门户，可以[添加性能指标](web-sites-monitor.md)（如 CPU 使用率和客户端请求数）。
 * [缩放 Web 应用](web-sites-scale.md)以响应流量。 您可以根据不同的层缩放虚拟机数量和/或虚拟机实例的大小。 在标准层和高级层中，您还可以设置自动缩放，那么您的 Web 应用将能够根据固定计划，或以负载为依据进行自动缩放。  
 
-### 备份
-<a id="backups" class="xliff"></a>
+### <a name="backups"></a>备份
 * 设置 Web 应用的[自动备份](web-sites-backup.md)。
 * 了解 Azure SQL 数据库的[数据库恢复](../sql-database/sql-database-business-continuity.md)选项。
 
-### 故障排除
-<a id="troubleshooting" class="xliff"></a>
+### <a name="troubleshooting"></a>故障排除
 * 如果出现问题，可以使用云中的诊断日志和实时调试[在 Visual Studio 中排除故障](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug)。 
 * 在 Visual Studio 之外还提供了不同的诊断日志收集方法。 请参阅[在 Azure 应用服务中为 Web 应用启用诊断日志记录](web-sites-enable-diagnostic-log.md)。
 * 关于 Node.js 应用程序，请参阅[如何调试 Azure 应用服务中的 Node.js Web 应用](web-sites-nodejs-debug.md)。
 
-### 还原数据
-<a id="restoring-data" class="xliff"></a>
+### <a name="restoring-data"></a>还原数据
 * [还原](web-sites-restore.md)之前已备份的 Web 应用。
 
-## 更新 Web 应用时
-<a id="when-you-update-your-web-app" class="xliff"></a>
+## <a name="when-you-update-your-web-app"></a>更新 Web 应用时
 如果尚未启用自动备份，可以创建[手动备份](web-sites-backup.md)。
 
 请考虑使用[过渡部署](web-sites-staged-publishing.md)。 该选项可支持您向与生产部署并排运行的分阶段部署发布更新。 

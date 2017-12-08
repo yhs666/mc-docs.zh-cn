@@ -23,8 +23,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/03/2017
 ---
-# 将 VHD 上传到 Azure 并创建新的 VM 的示例脚本
-<a id="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm" class="xliff"></a>
+# <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>将 VHD 上传到 Azure 并创建新的 VM 的示例脚本
 
 此脚本从通用化 VM 获取本地 .vhd 文件，将其上传到 Azure，创建托管磁盘映像并用以创建新的 VM。
 
@@ -32,8 +31,7 @@ ms.lasthandoff: 07/03/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## 示例脚本
-<a id="sample-script" class="xliff"></a>
+## <a name="sample-script"></a>示例脚本
 
 ```powershell
 # Provide values for the variables
@@ -117,8 +115,7 @@ $vmList.Name
 <!-- 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-iis/create-windows-vm-iis.ps1 "Create VM IIS")] -->
 
-## 清理部署
-<a id="clean-up-deployment" class="xliff"></a> 
+## <a name="clean-up-deployment"></a>清理部署 
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
@@ -126,8 +123,7 @@ $vmList.Name
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## 脚本说明
-<a id="script-explanation" class="xliff"></a>
+## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令创建部署。 表中的每一项均链接到特定于命令的文档。
 
@@ -154,8 +150,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 | [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm)                                                 | 创建虚拟机。                                                                                                                                                            |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | 删除资源组及其中包含的所有资源。                                                                                                                         |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 

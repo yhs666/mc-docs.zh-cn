@@ -22,20 +22,17 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 使用 DMV 监视工作负荷
-<a id="monitor-your-workload-using-dmvs" class="xliff"></a>
+# <a name="monitor-your-workload-using-dmvs"></a>使用 DMV 监视工作负荷
 本文介绍如何使用动态管理视图 (DMV) 在 Azure SQL 数据仓库中监视工作负荷及调查查询执行情况。
 
-## 权限
-<a id="permissions" class="xliff"></a>
+## <a name="permissions"></a>权限
 若要查询本文中的 DMV，需具有 VIEW DATABASE STATE 或 CONTROL 权限。 通常情况下，首选授予 VIEW DATABASE STATE 权限，因为该权限的限制要大得多。
 
 ```sql
 GRANT VIEW DATABASE STATE TO myuser;
 ```
 
-## 监视连接
-<a id="monitor-connections" class="xliff"></a>
+## <a name="monitor-connections"></a>监视连接
 所有登录到 SQL 数据仓库的操作都记录到 [sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions]。  此 DMV 包含最后 10,000 个登录。  session_id 是主键，每次进行新的登录时按顺序分配。
 
 ```sql
@@ -43,8 +40,7 @@ GRANT VIEW DATABASE STATE TO myuser;
 SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <> session_id();
 ```
 
-## 监视查询执行
-<a id="monitor-query-execution" class="xliff"></a>
+## <a name="monitor-query-execution"></a>监视查询执行
 在 SQL 数据仓库上执行的所有查询都记录到 [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests]。  此 DMV 包含最后 10,000 个执行的查询。  request_id 对每个查询进行唯一标识，并且为此 DMV 的主键。  request_id 在每次进行新的查询时按顺序分配，并会加上前缀 QID，代表查询 ID。  针对给定 session_id 查询此 DMV 将显示给定登录的所有查询。
 
 > [!NOTE]
@@ -54,8 +50,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 
 以下是调查特定查询的查询执行计划和时间所要遵循的步骤。
 
-### 步骤 1：确定想要调查的查询
-<a id="step-1-identify-the-query-you-wish-to-investigate" class="xliff"></a>
+### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>步骤 1：确定想要调查的查询
 ```sql
 -- Monitor active queries
 SELECT * 
@@ -90,8 +85,7 @@ OPTION (LABEL = 'My Query')
 ;
 ```
 
-### 步骤 2：调查查询计划
-<a id="step-2-investigate-the-query-plan" class="xliff"></a>
+### <a name="step-2-investigate-the-query-plan"></a>步骤 2：调查查询计划
 使用请求 ID 从 [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps] 检索查询的分布式 SQL (DSQL) 计划。
 
 ```sql
@@ -110,8 +104,7 @@ ORDER BY step_index;
 * 针对以下 **SQL 操作**继续执行步骤 3a：OnOperation、RemoteOperation、ReturnOperation。
 * 针对以下 **数据移动操作**继续执行步骤 3b：ShuffleMoveOperation、BroadcastMoveOperation、TrimMoveOperation、PartitionMoveOperation、MoveOperation、CopyOperation。
 
-### 步骤 3a：查看分布式数据库上的 SQL
-<a id="step-3a-investigate-sql-on-the-distributed-databases" class="xliff"></a>
+### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>步骤 3a：查看分布式数据库上的 SQL
 使用请求 ID 和步骤索引从 [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests] 中检索详细信息，其中包含所有分布式数据库上的查询步骤的执行信息。
 
 ```sql
@@ -131,8 +124,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### 步骤 3b：查看在分布式数据库上进行的数据移动
-<a id="step-3b-investigate-data-movement-on-the-distributed-databases" class="xliff"></a>
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>步骤 3b：查看在分布式数据库上进行的数据移动
 使用请求 ID 和步骤索引检索在 [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers] 中的每个分布上运行的数据移动步骤的相关信息。
 
 ```sql
@@ -180,8 +172,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 
 如果查询正在主动等待另一个查询中的资源，则状态将为 **AcquireResources**。  如果查询具有全部所需资源，则状态将为 **Granted**。
 
-## 监视 tempdb
-<a id="monitor-tempdb" class="xliff"></a>
+## <a name="monitor-tempdb"></a>监视 tempdb
 较高的 tempdb 利用率可能是性能缓慢和内存不足问题的根本原因。 请先检查是否存在数据倾斜或质量不佳的行组，并采取相应的措施。 如果发现 tempdb 在执行查询的过程中达到其限制，请考虑扩展数据仓库。 下面介绍如何确定每个节点上的每个查询的 tempdb 用量。 
 
 创建以下视图，以关联 sys.dm_pdw_sql_requests 的相应节点 ID。 这样，便可以利用其他直通 DMV，并将这些表与 sys.dm_pdw_sql_requests 相联接。
@@ -239,8 +230,7 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
     AND es.login_name <> 'sa' 
 ORDER BY sr.request_id;
 ```
-## 监视内存
-<a id="monitor-memory" class="xliff"></a>
+## <a name="monitor-memory"></a>监视内存
 
 内存可能是性能缓慢和内存不足问题的根本原因。 请先检查是否存在数据倾斜或质量不佳的行组，并采取相应的措施。 如果发现 SQL Server 内存用量在执行查询的过程中达到其限制，请考虑扩展数据仓库。
 
@@ -266,8 +256,7 @@ WHERE
 pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
-## 监视事务日志大小
-<a id="monitor-transaction-log-size" class="xliff"></a>
+## <a name="monitor-transaction-log-size"></a>监视事务日志大小
 以下查询返回每个分布区的事务日志大小。 请检查是否存在数据倾斜或质量不佳的行组，并采取相应的措施。 如果某个日志文件即将达到 160GB，你应考虑扩展实例或限制事务大小。 
 ```sql
 -- Transaction log size
@@ -281,8 +270,7 @@ instance_name like 'Distribution_%'
 AND counter_name = 'Log File(s) Used Size (KB)'
 AND counter_name = 'Target Server Memory (KB)'
 ```
-## 监视事务日志回滚
-<a id="monitor-transaction-log-rollback" class="xliff"></a>
+## <a name="monitor-transaction-log-rollback"></a>监视事务日志回滚
 如果查询失败或需要花费很长时间才能继续，则你可以检查并监视是否发生了任何事务回滚。
 ```sql
 -- Monitor rollback
@@ -295,8 +283,7 @@ JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 请参阅 [系统视图][System views] ，了解 DMV 的详细信息。
 有关最佳实践的详细信息，请参阅 [SQL 数据仓库最佳实践][SQL Data Warehouse best practices]
 

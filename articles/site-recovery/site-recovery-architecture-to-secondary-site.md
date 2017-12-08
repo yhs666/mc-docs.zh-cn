@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 如何使用 Site Recovery 将本地计算机复制到辅助站点？
-<a id="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery" class="xliff"></a>
+# <a name="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery"></a>如何使用 Site Recovery 将本地计算机复制到辅助站点？
 
 本文介绍使用 [Azure Site Recovery](site-recovery-overview.md) 服务将本地虚拟机和物理服务器复制到 Azure 时涉及的组件和进程。
 
@@ -30,11 +29,9 @@ ms.lasthandoff: 06/30/2017
 - 本地 Hyper-V VM：在 System Center Virtual Machine Manager (VMM) 云中托管的 Hyper-V 群集和独立主机上的 Hyper-V VM。
 <!-- Not Available - On-premises VMware VMs and Windows/Linux physical servers. In this scenario replication is managed by Scout. -->
 
-## 将 Hyper-V VM 复制到辅助本地站点
-<a id="replicate-hyper-v-vms-to-a-secondary-on-premises-site" class="xliff"></a>
+## <a name="replicate-hyper-v-vms-to-a-secondary-on-premises-site"></a>将 Hyper-V VM 复制到辅助本地站点
 
-### 体系结构组件
-<a id="architectural-components" class="xliff"></a>
+### <a name="architectural-components"></a>体系结构组件
 
 下面是将 Hyper-V VM 复制到辅助站点时所需的项。
 
@@ -45,8 +42,7 @@ ms.lasthandoff: 06/30/2017
 **Hyper-V 服务器** |  主要和辅助 VMM 云中需要一台或多台 Hyper-V 主机服务器。<br/><br/> 服务器应已连接到 Internet。<br/><br/> 使用 Kerberos 或证书身份验证通过 LAN 或 VPN 在主要和辅助 Hyper-V 主机服务器之间复制数据。  
 **Hyper-V VM** | 位于源 Hyper-V 主机服务器中。 | 源主机服务器应该至少有一个要复制的 VM。
 
-### 复制过程
-<a id="replication-process" class="xliff"></a>
+### <a name="replication-process"></a>复制过程
 
 1. 设置 Azure 帐户。
 2. 为 Site Recovery 创建复制服务保管库，并配置保管库设置，包括：
@@ -62,8 +58,7 @@ ms.lasthandoff: 06/30/2017
 
 ![本地到本地](./media/site-recovery-components/arch-onprem-onprem.png)
 
-### 故障转移和故障回复过程
-<a id="failover-and-failback-process" class="xliff"></a>
+### <a name="failover-and-failback-process"></a>故障转移和故障回复过程
 
 1. 可以在本地站点之间运行计划内或计划外[故障转移](site-recovery-failover.md)。 如果运行计划内故障转移，则源 VM 将关闭以确保不会丢失数据。
 2. 可以故障转移单台计算机，或创建[恢复计划](site-recovery-create-recovery-plans.md)来协调多台计算机的故障转移。
@@ -76,7 +71,6 @@ ms.lasthandoff: 06/30/2017
 
 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 查看[支持矩阵](site-recovery-support-matrix-to-sec-site.md)

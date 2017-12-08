@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 将数据从 Azure Blob 存储加载到 SQL 数据仓库 (PolyBase)
-<a id="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase" class="xliff"></a>
+# <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>将数据从 Azure Blob 存储加载到 SQL 数据仓库 (PolyBase)
 > [!div class="op_single_selector"]
 > * [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 > 
@@ -39,16 +38,13 @@ ms.lasthandoff: 07/05/2017
 2. 将公共数据加载到数据库
 3. 完成加载后执行优化。
 
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>开始之前
 若要运行本教程，需要一个已包含 SQL 数据仓库数据库的 Azure 帐户。 如果没有此帐户，请参阅 [Create a SQL Data Warehouse][Create a SQL Data Warehouse]（创建 SQL 数据仓库）。
 
-## 1.配置数据源
-<a id="1-configure-the-data-source" class="xliff"></a>
+## <a name="1-configure-the-data-source"></a>1.配置数据源
 PolyBase 使用 T-SQL 外部对象，定义外部数据的位置和属性。 外部对象定义存储在 SQL 数据仓库中。 数据本身存储在外部。
 
-### 1.1. 创建凭据
-<a id="11-create-a-credential" class="xliff"></a>
+### <a name="11-create-a-credential"></a>1.1. 创建凭据
 **跳过此步骤** 。 不需要以安全方式访问公共数据，因为它已经可供任何人访问。
 
 **不要跳过此步骤** 。 若要通过凭据访问数据，请使用以下脚本创建数据库范围的凭据，然后在定义数据源的位置时使用该凭据。
@@ -85,8 +81,7 @@ WITH (
 
 跳到步骤 2。
 
-### 1.2. 创建外部数据源
-<a id="12-create-the-external-data-source" class="xliff"></a>
+### <a name="12-create-the-external-data-source"></a>1.2. 创建外部数据源
 使用 [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] 命令存储数据的位置以及数据的类型。 
 
 ```sql
@@ -103,8 +98,7 @@ WITH
 > 
 > 
 
-## 2.配置数据格式
-<a id="2-configure-data-format" class="xliff"></a>
+## <a name="2-configure-data-format"></a>2.配置数据格式
 数据存储在 Azure Blob 存储中的文本文件内，每个字段以分隔符隔开。 运行 [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] 命令，指定文本文件中数据的格式。 Contoso 数据未压缩，以坚线分隔。
 
 ```sql
@@ -119,12 +113,10 @@ WITH
 );
 ```
 
-## 3.创建外部表
-<a id="3-create-the-external-tables" class="xliff"></a>
+## <a name="3-create-the-external-tables"></a>3.创建外部表
 指定数据源和文件格式后，可以开始创建外部表。 
 
-### 3.1. 创建数据的架构。
-<a id="31-create-a-schema-for-the-data" class="xliff"></a>
+### <a name="31-create-a-schema-for-the-data"></a>3.1. 创建数据的架构。
 若要创建一个位置用于存储数据库中的 Contoso 数据，请创建架构。
 
 ```sql
@@ -132,8 +124,7 @@ CREATE SCHEMA [asb]
 GO
 ```
 
-### 3.2. 创建外部表。
-<a id="32-create-the-external-tables" class="xliff"></a>
+### <a name="32-create-the-external-tables"></a>3.2. 创建外部表。
 运行此脚本以创建 DimProduct 和 FactOnlineSales 外部表。 在这里，我们只需定义列名和数据类型，然后以 Azure blob 存储文件的格式将其绑定到这些文件的位置。 定义存储在 SQL 数据仓库中，数据仍位于 Azure 存储 Blob 中。
 
 **LOCATION** 参数是 Azure 存储 Blob 中根文件夹下的文件夹。 每个表位于不同的文件夹中。
@@ -220,12 +211,10 @@ WITH
 ;
 ```
 
-## 4.加载数据
-<a id="4-load-the-data" class="xliff"></a>
+## <a name="4-load-the-data"></a>4.加载数据
 可通过其他方式访问外部数据。  可以直接从外部表查询数据，将数据加载到新数据库表，或者将外部数据添加到现有数据库表。  
 
-### 4.1. 创建新架构
-<a id="41-create-a-new-schema" class="xliff"></a>
+### <a name="41-create-a-new-schema"></a>4.1. 创建新架构
 CTAS 可创建包含数据的新表。  首先，请创建 Contoso 数据的架构。
 
 ```sql
@@ -233,8 +222,7 @@ CREATE SCHEMA [cso]
 GO
 ```
 
-### 4.2. 将数据加载到新表
-<a id="42-load-the-data-into-new-tables" class="xliff"></a>
+### <a name="42-load-the-data-into-new-tables"></a>4.2. 将数据加载到新表
 若要从 Azure Blob 存储加载数据并将其保存到数据库中的某个表内，请使用 [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 语句。 使用 CTAS 进行加载可以利用刚刚创建的强类型化外部表。若要将数据加载到新表，请对每个表使用一个 [CTAS][CTAS] 语句。 
 
 CTAS 将创建新表，并在该表中填充 select 语句的结果。 CTAS 将新表定义为包含与 select 语句结果相同的列和数据类型。 如果选择了外部表中的所有列，新表将是外部表中的列和数据类型的副本。
@@ -249,8 +237,7 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### 4.3 跟踪加载进度
-<a id="43-track-the-load-progress" class="xliff"></a>
+### <a name="43-track-the-load-progress"></a>4.3 跟踪加载进度
 可使用动态管理视图 (DMV) 跟踪加载操作的进度。 
 
 ```sql
@@ -286,8 +273,7 @@ ORDER BY
     gb_processed desc;
 ```
 
-## 5.优化列存储压缩
-<a id="5-optimize-columnstore-compression" class="xliff"></a>
+## <a name="5-optimize-columnstore-compression"></a>5.优化列存储压缩
 默认情况下，SQL 数据仓库将表存储为聚集列存储索引。 加载完成后，某些数据行可能未压缩到列存储中。  发生这种情况的原因多种多样。 若要了解详细信息，请参阅 [管理列存储索引][manage columnstore indexes]。
 
 若要在加载后优化查询性能和列存储压缩，请重新生成表，以强制列存储索引压缩所有行。 
@@ -302,8 +288,7 @@ ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 
 有关维护列存储索引的详细信息，请参阅 [管理列存储索引][manage columnstore indexes] 一文。
 
-## 6.优化统计信息
-<a id="6-optimize-statistics" class="xliff"></a>
+## <a name="6-optimize-statistics"></a>6.优化统计信息
 最好是在加载之后马上创建单列统计信息。 对于统计信息，可以使用多个选项。 例如，如果针对每个列创建单列统计信息，则重新生成所有统计信息可能需要花费很长时间。 如果知道某些列不会在查询谓词中使用，可以不创建有关这些列的统计信息。
 
 如果决定针对每个表的每个列创建单列统计信息，可以使用[统计信息][statistics]一文中的存储过程代码示例 `prc_sqldw_create_stats`。
@@ -352,8 +337,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_PromotionKey] ON [cso].[FactOnlineSa
 CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]([StoreKey]);
 ```
 
-## 大功告成！
-<a id="achievement-unlocked" class="xliff"></a>
+## <a name="achievement-unlocked"></a>大功告成！
 已成功地将公共数据加载到 Azure SQL 数据仓库。 干得不错！
 
 现在，可以使用如下所示的查询，开始查询表：
@@ -366,8 +350,7 @@ JOIN    [cso].[DimProduct]      AS p ON f.[ProductKey] = p.[ProductKey]
 GROUP BY p.[BrandName]
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 若要加载完整的 Contoso 零售数据仓库数据，请使用脚本。有关更多开发技巧，请参阅 [SQL 数据仓库开发概述][SQL Data Warehouse development overview]。
 
 <!--Image references-->

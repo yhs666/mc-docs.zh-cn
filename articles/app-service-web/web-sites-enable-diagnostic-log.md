@@ -21,10 +21,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 在 Azure 应用服务中启用 Web 应用的诊断日志记录
-<a id="enable-diagnostics-logging-for-web-apps-in-azure-app-service" class="xliff"></a>
-## 概述
-<a id="overview" class="xliff"></a>
+# <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure 应用服务中启用 Web 应用的诊断日志记录
+## <a name="overview"></a>概述
 Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)。 在本文中，你将了解如何启用诊断日志记录并将检测添加到应用程序，以及如何访问由 Azure 记录的信息。
 
 本文通过 [Azure 门户](https://portal.azure.cn)、Azure PowerShell 和 Azure 命令行接口 (Azure CLI) 使用诊断日志。 有关通过 Visual Studio 使用诊断日志的信息，请参阅[在 Visual Studio 中对 Azure 进行故障排除](web-sites-dotnet-troubleshoot-visual-studio.md)。
@@ -34,16 +32,14 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 ## <a name="whatisdiag"></a>Web 服务器诊断和应用程序诊断
 应用服务 Web 应用为 Web 服务器和 Web 应用程序中的日志记录信息提供诊断功能。 这些诊断功能按逻辑分为 **Web 服务器诊断**和**应用程序诊断**。
 
-### Web 服务器诊断
-<a id="web-server-diagnostics" class="xliff"></a>
+### <a name="web-server-diagnostics"></a>Web 服务器诊断
 你可以启用或禁用以下种类的日志：
 
 * **详细错误日志记录** - 指示故障的 HTTP 状态代码（状态代码 400 或更大数字）的详细错误消息。 其中可能包含有助于确定服务器返回错误代码的原因的信息。
 * **失败请求跟踪** - 有关失败请求的详细信息，包括对用于处理请求的 IIS 组件和每个组件所用时间的跟踪。 在尝试提高站点性能或隔离导致要返回特定 HTTP 错误的内容时，此信息很有用。
 * **Web 服务器日志记录** - 使用 [W3C 扩展日志文件格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)的 HTTP 事务信息。 这在确定整体站点度量值（如处理的请求数量或来自特定 IP 地址的请求数）时非常有用。
 
-### 应用程序诊断
-<a id="application-diagnostics" class="xliff"></a>
+### <a name="application-diagnostics"></a>应用程序诊断
 应用程序诊断可以捕获由 Web 应用程序产生的信息。 ASP.NET 应用程序可使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 类将信息记录到应用程序诊断日志。 例如：
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -105,8 +101,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 * **Web 服务器日志** - /LogFiles/http/RawLogs。 此文件夹包含使用 [W3C 扩展日志文件格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)进行格式化的一个或多个文本文件。
 * **部署日志** - /LogFiles/Git。 此文件夹包含由 Azure Web 应用使用的内部部署过程生成的日志和 Git 部署的日志。
 
-### FTP
-<a id="ftp" class="xliff"></a>
+### <a name="ftp"></a>FTP
 若要使用 FTP 访问诊断信息，请在[经典管理门户](https://manage.windowsazure.cn)中访问 Web 应用的“仪表板”。 在“速览”部分中，使用“FTP 诊断日志”链接通过 FTP 访问日志文件。 “部署/FTP 用户”项列出了应该用于访问 FTP 站点的用户名。
 
 > [!NOTE]
@@ -114,8 +109,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 >
 >
 
-### 使用 Azure PowerShell 下载
-<a id="download-with-azure-powershell" class="xliff"></a>
+### <a name="download-with-azure-powershell"></a>使用 Azure PowerShell 下载
 若要下载日志文件，请启动 Azure PowerShell 的新实例并使用以下命令：
 
     Save-AzureWebSiteLog -Name webappname
@@ -127,8 +121,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 >
 >
 
-### 使用 Azure 命令行接口下载
-<a id="download-with-azure-command-line-interface" class="xliff"></a>
+### <a name="download-with-azure-command-line-interface"></a>使用 Azure 命令行接口下载
 若要使用 Azure 命令行接口下载日志文件，请打开新的命令提示符、PowerShell、Bash 或终端会话，并输入以下命令：
 
     azure site log download webappname
@@ -151,8 +144,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 >
 >
 
-### 使用 Azure PowerShell 进行流式传输
-<a id="streaming-with-azure-powershell" class="xliff"></a>
+### <a name="streaming-with-azure-powershell"></a>使用 Azure PowerShell 进行流式传输
 若要流式传输日志记录信息，请启动新的 Azure PowerShell 实例并使用以下命令：
 
     Get-AzureWebSiteLog -Name webappname -Tail
@@ -174,8 +166,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 >
 >
 
-### 使用 Azure 命令行接口进行流式传输
-<a id="streaming-with-azure-command-line-interface" class="xliff"></a>
+### <a name="streaming-with-azure-command-line-interface"></a>使用 Azure 命令行接口进行流式传输
 若要流式传输日志记录信息，请打开新的命令行提示、PowerShell、Bash 或终端会话并输入以下命令：
 
     azure site log tail webappname
@@ -196,8 +187,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 >
 
 ## <a name="understandlogs"></a> 如何：了解诊断日志
-### 应用程序诊断日志
-<a id="application-diagnostics-logs" class="xliff"></a>
+### <a name="application-diagnostics-logs"></a>应用程序诊断日志
 应用程序诊断将信息以特定格式存储在 .NET 应用程序中，具体取决于是将日志存储到文件系统、表存储还是 Blob 存储。 三种存储类型存储的基本数据信息相同 — 事件发生的日期和时间，生成事件的进程 ID，事件类型（信息、警告、错误）以及事件消息。
 
 **文件系统**
@@ -256,18 +246,15 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 >
 >
 
-### 失败请求跟踪
-<a id="failed-request-traces" class="xliff"></a>
+### <a name="failed-request-traces"></a>失败请求跟踪
 失败请求跟踪存储在名为 **fr######.xml** 的 XML 文件中。 为了便于查看记录信息，在 XML 文件所在目录中提供了一个名为 **freb.xsl** 的 XSL 样式表。 在 Internet Explorer 中打开其中一个 XML 文件，使用 XSL 样式表提供易于阅读的跟踪信息。 显示结果类似如下所示：
 
 ![在浏览器中查看失败请求](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
-### 详细错误日志
-<a id="detailed-error-logs" class="xliff"></a>
+### <a name="detailed-error-logs"></a>详细错误日志
 详细的错误日志是 HTML 文档，可提供有关发生的 HTTP 错误的详细信息。 由于它们只是 HTML 文档，所以可以使用 Web 浏览器查看。
 
-### Web 服务器日志
-<a id="web-server-logs" class="xliff"></a>
+### <a name="web-server-logs"></a>Web 服务器日志
 可使用 [W3C 扩展日志文件格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)格式化 Web 服务器日志。 可使用文本编辑器读取此信息，或使用诸如[日志分析程序](http://go.microsoft.com/fwlink/?LinkId=246619)等实用工具进行解析。
 
 > [!NOTE]
@@ -280,7 +267,6 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-s
 * [在 Visual Studio 中对 Azure Web 应用进行故障排除](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [在 HDInsight 中分析 Web 应用日志](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
-## 更改内容
-<a id="whats-changed" class="xliff"></a>
+## <a name="whats-changed"></a>更改内容
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 * 有关从旧门户更改为新门户的指南，请参阅：[有关在 Azure 门户中导航的参考](/app-service-web/app-service-web-app-azure-portal)

@@ -15,13 +15,11 @@ ms.workload: na
 origin.date: 03/05/2017
 ms.date: 05/22/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: f3058b20c45204f8188bd46a1e040f85616c3688
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 9720a3ba4cc21d787798b89aeca96b4d8f7d7458
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>通过命令行生成 Azure 项目
 通过使用 Microsoft 生成引擎 (MSBuild)，可以在未安装 Visual Studio 的生成实验室环境中生成产品。 MSBuild 对可扩展且 Microsoft 完全支持的项目文件使用 XML 格式。 通过使用 MSBuild 文件格式，可以描述必须为一个或多个平台和配置生成的项目。
@@ -40,6 +38,5 @@ ms.lasthandoff: 05/12/2017
 
 ## <a name="next-steps"></a>后续步骤
 生成包后，即可将其部署到 Azure。 有关演示如何自动执行此过程的教程，请参阅 [在 Azure 中持续交付云服务](./cloud-services/cloud-services-dotnet-continuous-delivery.md)。
-
 
 

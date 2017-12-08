@@ -3,8 +3,8 @@ title: "Azure PowerShell 脚本示例 - 部署模板 | Azure"
 description: "用于部署 Azure Resource Manager 模板的示例脚本。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 
 ms.service: azure-resource-manager
@@ -13,15 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/19/2017
-ms.date: 06/05/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 7d908b4172d3c9891e9bd5223b70d35b889690b3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 5cc234b954383c307da8efa63fe007f393ada0ce
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="azure-resource-manager-template-deployment---powershell-script"></a>Azure Resource Manager 模板部署 - PowerShell 脚本
 
@@ -40,106 +38,60 @@ ms.lasthandoff: 05/26/2017
 
  .DESCRIPTION
     Deploys an Azure Resource Manager template
-
- .PARAMETER subscriptionId
-    The subscription id where the template will be deployed.
-
- .PARAMETER resourceGroupName
-    The resource group where the template will be deployed. Can be the name of an existing or a new resource group.
-
- .PARAMETER resourceGroupLocation
-    Optional, a resource group location. If specified, will try to create a new resource group in this location. If not specified, assumes resource group is existing.
-
- .PARAMETER deploymentName
-    The deployment name.
-
- .PARAMETER templateFilePath
-    Optional, path to the template file. Defaults to template.json.
-
- .PARAMETER parametersFilePath
-    Optional, path to the parameters file. Defaults to parameters.json. If file is not found, will prompt for parameter values based on template.
 #>
 
-param(
- [Parameter(Mandatory=$True)]
- [string]
- $subscriptionId,
+param (
+    [Parameter(Mandatory)]
+    #The subscription id where the template will be deployed.
+    [string]$SubscriptionId,  
 
- [Parameter(Mandatory=$True)]
- [string]
- $resourceGroupName,
+    [Parameter(Mandatory)]
+    #The resource group where the template will be deployed. Can be the name of an existing or a new resource group.
+    [string]$ResourceGroupName, 
 
- [string]
- $resourceGroupLocation,
+    #Optional, a resource group location. If specified, will try to create a new resource group in this location. If not specified, assumes resource group is existing.
+    [string]$ResourceGroupLocation, 
 
- [Parameter(Mandatory=$True)]
- [string]
- $deploymentName,
+    #The deployment name.
+    [Parameter(Mandatory)]
+    [string]$DeploymentName,    
 
- [string]
- $templateFilePath = "template.json",
+    #Path to the template file. Defaults to template.json.
+    [string]$TemplateFilePath = "template.json",  
 
- [string]
- $parametersFilePath = "parameters.json"
+    #Path to the parameters file. Defaults to parameters.json. If file is not found, will prompt for parameter values based on template.
+    [string]$ParametersFilePath = "parameters.json"
 )
 
-<#
-.SYNOPSIS
-    Registers RPs
-#>
-Function RegisterRP {
-    Param(
-        [string]$ResourceProviderNamespace
-    )
-
-    Write-Host "Registering resource provider '$ResourceProviderNamespace'";
-    Register-AzureRmResourceProvider -ProviderNamespace $ResourceProviderNamespace;
-}
-
-#******************************************************************************
-# Script body
-# Execution begins here
-#******************************************************************************
 $ErrorActionPreference = "Stop"
 
-# sign in
-Write-Host "Logging in...";
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud;
+# Login to Azure and select subscription
+Write-Output "Logging in"
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Write-Output "Selecting subscription '$SubscriptionId'"
+Select-AzureRmSubscription -SubscriptionID $SubscriptionId
 
-# select subscription
-Write-Host "Selecting subscription '$subscriptionId'";
-Select-AzureRmSubscription -SubscriptionID $subscriptionId;
-
-# Register RPs
-$resourceProviders = @();
-if($resourceProviders.length) {
-    Write-Host "Registering resource providers"
-    foreach($resourceProvider in $resourceProviders) {
-        RegisterRP($resourceProvider);
+# Create or check for existing resource group
+$resourceGroup = Get-AzureRmResourceGroup -Name $ResourceGroupName -ErrorAction SilentlyContinue
+if ( -not $ResourceGroup ) {
+    Write-Output "Could not find resource group '$ResourceGroupName' - will create it"
+    if ( -not $ResourceGroupLocation ) {
+        $ResourceGroupLocation = Read-Host -Prompt 'Enter location for resource group'
     }
-}
-
-#Create or check for existing resource group
-$resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
-if(!$resourceGroup)
-{
-    Write-Host "Resource group '$resourceGroupName' does not exist. To create a new resource group, please enter a location.";
-    if(!$resourceGroupLocation) {
-        $resourceGroupLocation = Read-Host "resourceGroupLocation";
-    }
-    Write-Host "Creating resource group '$resourceGroupName' in location '$resourceGroupLocation'";
+    Write-Output "Creating resource group '$ResourceGroupName' in location '$ResourceGroupLocation'"
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
 }
-else{
-    Write-Host "Using existing resource group '$resourceGroupName'";
+else {
+    Write-Output "Using existing resource group '$ResourceGroupName'"
 }
 
 # Start the deployment
-Write-Host "Starting deployment...";
-if(Test-Path $parametersFilePath) {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
-} else {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath;
+Write-Output "Starting deployment"
+if ( Test-Path $ParametersFilePath ) {
+    New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFilePath -TemplateParameterFile $ParametersFilePath
+}
+else {
+    New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFilePath
 }
 ``` 
 

@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 06/01/2016
 ms.date: 12/16/2016
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: a0110f40d2d61574c06888de3a4d110bd5b5f467
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: db45eef3dcb9d9e5752410d1237d064830f7ea09
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-use-azure-blob-storage-with-the-webjobs-sdk"></a>如何通过 WebJobs SDK 使用 Azure Blob 存储
 

@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 如何重置 Azure VM 的本地 Windows 密码
-<a id="how-to-reset-local-windows-password-for-azure-vm" class="xliff"></a>
+# <a name="how-to-reset-local-windows-password-for-azure-vm"></a>如何重置 Azure VM 的本地 Windows 密码
 如果已安装 Azure 来宾代理，可以使用 [Azure 门户或 Azure PowerShell](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 重置 Azure 中 VM 的本地 Windows 密码。 此方法是重置 Azure VM 密码的主要方法。 如果遇到了 Azure 来宾代理无响应的问题，或者上传自定义映像后无法安装，可以手动重置 Windows 密码。 本文详细说明如何通过将源 OS 虚拟磁盘附加到另一个 VM 来重置本地帐户密码。 
 
 > [!WARNING]
@@ -30,8 +29,7 @@ ms.lasthandoff: 06/23/2017
 > 
 > 
 
-## 过程概述
-<a id="overview-of-the-process" class="xliff"></a>
+## <a name="overview-of-the-process"></a>过程概述
 无法访问 Azure 来宾代理时，针对 Azure 中的 Windows VM 执行本地密码重置的核心步骤如下：
 
 * 删除源 VM 虚拟磁盘将会保留。
@@ -41,8 +39,7 @@ ms.lasthandoff: 06/23/2017
 * 在 Resource Manager 模板中使用原始虚拟磁盘创建一个 VM。
 * 新 VM 启动时，创建的配置文件将会更新所需用户的密码。
 
-## 详细步骤
-<a id="detailed-steps" class="xliff"></a>
+## <a name="detailed-steps"></a>详细步骤
 在执行以下步骤之前，始终应该尝试使用 [Azure 门户或 Azure PowerShell](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 来重置密码。 在开始之前，请确保备份 VM。 
 
 1. 在 Azure 门户中删除受影响的 VM。 删除 VM 只会删除元数据，以及 Azure 中对该 VM 的引用。 删除 VM 时，将会保留虚拟磁盘：
@@ -147,6 +144,5 @@ ms.lasthandoff: 06/23/2017
     * 从 %windir%\System32\GroupPolicy 中
       * 删除 gpt.ini（如果 gpt.ini 事先已存在并已重命名为 gpt.ini.bak，请将 .bak 文件改回 gpt.ini）
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 如果仍然无法使用远程桌面建立连接，请参阅 [RDP 故障排除指南](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 [详细的 RDP 故障排除指南](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)探讨的是故障排除方法而不是具体的步骤。 也可以通过[提出 Azure 支持请求](https://www.azure.cn/support/contact/)来获得人工协助。

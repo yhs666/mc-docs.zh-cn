@@ -20,8 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# Azure Service Fabric 中 Reliable Collections 的相关指导原则和建议
-<a id="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric" class="xliff"></a>
+# <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric 中 Reliable Collections 的相关指导原则和建议
 本部分提供有关使用可靠状态管理器和 Reliable Collections 的指导原则。 目的是帮助用户避免常见错误。
 
 这些指导原则被归纳整理成简单的建议，冠以*务必*、*请考虑*、*避免*和*切勿*等提示语。
@@ -49,8 +48,7 @@ ms.lasthandoff: 06/21/2017
   这意味着从单个辅助副本读取的数据版本可能被错误处理。
   从主副本读取的数据始终是可靠的，绝不会被错误处理。
 
-### 后续步骤
-<a id="next-steps" class="xliff"></a>
+### <a name="next-steps"></a>后续步骤
 * [使用可靠集合](service-fabric-work-with-reliable-collections.md)
 * [事务和锁](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * [可靠状态管理器和 Reliable Collection 的内部结构](service-fabric-reliable-services-reliable-collections-internals.md)

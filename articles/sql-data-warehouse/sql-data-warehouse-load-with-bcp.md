@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 使用 bcp 加载数据
-<a id="load-data-with-bcp" class="xliff"></a>
+# <a name="load-data-with-bcp"></a>使用 bcp 加载数据
 
 > [!div class="op_single_selector"]
 > * [Redgate](sql-data-warehouse-load-with-redgate.md)  
@@ -49,8 +48,7 @@ bcp 是将较小数据集移入和移出 SQL 数据仓库数据库的快速轻�
 * 使用 bcp out 命令从表中导出数据
 
 <!-- Not Available [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player] -->
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 
 若要逐步完成本教程，需要满足以下条件：
 
@@ -63,13 +61,11 @@ bcp 是将较小数据集移入和移出 SQL 数据仓库数据库的快速轻�
 > 
 > 
 
-## 将数据导入 SQL 数据仓库
-<a id="import-data-into-sql-data-warehouse" class="xliff"></a>
+## <a name="import-data-into-sql-data-warehouse"></a>将数据导入 SQL 数据仓库
 
 本教程会在 Azure SQL 数据仓库中创建一个表，然后将数据导入该表。
 
-### 步骤 1：在 Azure SQL 数据仓库中创建表
-<a id="step-1-create-a-table-in-azure-sql-data-warehouse" class="xliff"></a>
+### <a name="step-1-create-a-table-in-azure-sql-data-warehouse"></a>步骤 1：在 Azure SQL 数据仓库中创建表
 
 在命令提示符下，使用 sqlcmd 运行以下查询，以在实例上创建表：
 
@@ -94,8 +90,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 > 
 > 
 
-### 步骤 2：创建源数据文件
-<a id="step-2-create-a-source-data-file" class="xliff"></a>
+### <a name="step-2-create-a-source-data-file"></a>步骤 2：创建源数据文件
 
 打开记事本，将以下几行数据复制到新文本文件，然后将此文件保存到本地临时目录，路径为 C:\Temp\DimDate2.txt。
 
@@ -119,8 +114,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 > 
 > 
 
-### 步骤 3：连接并导入数据
-<a id="step-3-connect-and-import-the-data" class="xliff"></a>
+### <a name="step-3-connect-and-import-the-data"></a>步骤 3：连接并导入数据
 在 bcp 中，可以使用以下命令来连接并导入数据（相应地替换其中的值）：
 
 ```sql
@@ -150,8 +144,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 | 20151101 |4 |2 |
 | 20151201 |4 |2 |
 
-### 步骤 4：基于新加载的数据创建统计信息
-<a id="step-4-create-statistics-on-your-newly-loaded-data" class="xliff"></a>
+### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>步骤 4：基于新加载的数据创建统计信息
 Azure SQL 数据仓库尚不支持自动创建或自动更新统计信息。 为了从查询中获得最佳性能，首次加载数据或者在数据发生重大更改之后，创建所有表的所有列统计信息非常重要。 有关统计信息的详细说明，请参阅开发主题组中的 [统计信息][Statistics] 主题。 以下快速示例说明如何基于此示例中加载的表创建统计信息
 
 在 sqlcmd 提示符下执行以下 CREATE STATISTICS 语句：
@@ -164,12 +157,10 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-## 从 SQL 数据仓库导出数据
-<a id="export-data-from-sql-data-warehouse" class="xliff"></a>
+## <a name="export-data-from-sql-data-warehouse"></a>从 SQL 数据仓库导出数据
 本教程介绍如何从 Azure SQL 数据仓库中的表创建数据文件。 我们将上面创建的数据导出到名为 DimDate2_export.txt 的新数据文件。
 
-### 步骤 1：导出数据
-<a id="step-1-export-the-data" class="xliff"></a>
+### <a name="step-1-export-the-data"></a>步骤 1：导出数据
 在 bcp 实用程序中，可以使用以下命令来连接并导出数据（相应地替换其中的值）：
 
 ```sql
@@ -198,8 +189,7 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 > 
 > 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关加载数据的概述，请参阅 [将数据载入 SQL 数据仓库][Load data into SQL Data Warehouse]。
 有关更多开发技巧，请参阅 [SQL 数据仓库开发概述][SQL Data Warehouse development overview]。
 

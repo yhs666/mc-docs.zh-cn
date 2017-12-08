@@ -21,13 +21,11 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 使用 Azure Site Recovery 和 SAN 将 VMM 云中的 Hyper-V VM 复制到辅助站点
-<a id="replicate-hyper-v-vms-in-vmm-clouds-to-a-secondary-site-with-azure-site-recovery-by-using-san" class="xliff"></a>
+# <a name="replicate-hyper-v-vms-in-vmm-clouds-to-a-secondary-site-with-azure-site-recovery-by-using-san"></a>使用 Azure Site Recovery 和 SAN 将 VMM 云中的 Hyper-V VM 复制到辅助站点
 
 若要部署 [Azure Site Recovery](site-recovery-overview.md) 以便在经典管理门户中使用 Azure Site Recovery 管理目标为辅助 VMM 站点的 Hyper-V VM（在 System Center Virtual Machine Manager 云中管理）的复制，请参考本文。 在新 Azure 门户中无法使用此方案。
 
-## 为什么要使用 SAN 和 Site Recovery 进行复制？
-<a id="why-replicate-with-san-and-site-recovery" class="xliff"></a>
+## <a name="why-replicate-with-san-and-site-recovery"></a>为什么要使用 SAN 和 Site Recovery 进行复制？
 
 * SAN 提供一个可缩放的企业级复制解决方案，以便包含 Hyper-V 且具有 SAN 的主站点可通过 SAN 将 LUN 复制到辅助站点。 存储由 VMM 管理，而复制和故障转移通过 Site Recovery 进行协调安排。
 * Site Recovery 与多个 [SAN 存储合作伙伴](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx) 协作，可跨光纤通道和 iSCSI 存储提供复制。  
@@ -40,8 +38,7 @@ ms.lasthandoff: 06/30/2017
 - 不支持从 SAN 复制到 Azure。
 - 不能复制通过 iSCSI 或光纤通道直接连接到 VM 的共享 VHDX 或逻辑单元 (LUN)。 可以复制来宾群集。
 
-## 体系结构
-<a id="architecture" class="xliff"></a>
+## <a name="architecture"></a>体系结构
 
 ![SAN 体系结构](./media/site-recovery-vmm-san/architecture.png)
 
@@ -52,8 +49,7 @@ ms.lasthandoff: 06/30/2017
 - **故障转移**：在 Site Recovery 门户中启用故障转移。 由于复制为同步复制，因此故障转移期间不会发生数据丢失。
 - **故障回复**：若要进行故障回复，请启用反向复制，以便将增量更改从辅助站点转移到主站点。 反向复制完成后，运行已计划的从辅助站点到主站点的故障转移。 此计划的故障转移会停止辅助站点上的副本 VM，并在主站点上启动它们。
 
-## 开始之前
-<a id="before-you-start" class="xliff"></a>
+## <a name="before-you-start"></a>开始之前
 
 **先决条件** | **详细信息**
 --- | ---
@@ -63,8 +59,7 @@ ms.lasthandoff: 06/30/2017
 **SAN 存储** | 可通过 iSCSI 或通道存储，或使用共享虚拟硬盘 (vhdx) 复制来宾群集虚拟机。<br/><br/> 需要两个 SAN 阵列，一个在主站点中，一个在辅助站点中。<br/><br/> 应在阵列之间设置网络基础结构。 应该配置对等互连和复制。 应该根据存储阵列要求设置复制许可证。<br/><br/>在 Hyper-V 主机服务器与存储阵列之间设置网络，使主机能够使用 iSCSI 或光纤通道与存储 LUN 通信。<br/><br/> 请参阅[支持的存储阵列](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx)。<br/><br/> 应安装 SMI-S 提供程序（由存储阵列制造商提供），并且 SAN 阵列应由提供程序管理。 根据制造商说明设置提供程序。<br/><br/>确保阵列的 SMI-S 提供程序位于 VMM 服务器可以使用 IP 地址或 FQDN 通过网络访问的服务器上。<br/><br/> 每个 SAN 阵列应具有一个或多个可用的存储池。<br/><br/> 主 VMM 服务器应管理主阵列，辅助 VMM 服务器应管理辅助阵列。
 **网络映射** | 设置网络映射，以便在故障转移后使复制的虚拟机以最佳方式放置在辅助 Hyper-V 主机服务器上，并使其连接到适当的 VM 网络。 如果不配置网络映射，则故障转移之后，副本 VM 将不会连接到任何网络。<br/><br/> 确保 VMM 网络配置正确，以便在 Site Recovery 部署期间设置网络映射。 在 VMM 中，源 Hyper-V 主机上的 VM 应连接到 VMM VM 网络。 该网络应当链接到与该云相关联的逻辑网络。<br/><br/> 目标云应具有相应的 VM 网络，并且该网络应当链接到与目标云关联的相应逻辑网络。<br/><br/>。
 
-## 步骤 1：准备 VMM 基础结构
-<a id="step-1-prepare-the-vmm-infrastructure" class="xliff"></a>
+## <a name="step-1-prepare-the-vmm-infrastructure"></a>步骤 1：准备 VMM 基础结构
 若要准备 VMM 基础结构，需要：
 
 1. 验证 VMM 云。
@@ -73,13 +68,11 @@ ms.lasthandoff: 06/30/2017
 4. 创建复制组。
 5. 设置 VM 网络。
 
-### 验证 VMM 云
-<a id="verify-vmm-clouds" class="xliff"></a>
+### <a name="verify-vmm-clouds"></a>验证 VMM 云
 
 开始部署 Site Recovery 之前，请确保 VMM 云设置正确。
 
-### 集成并分类 VMM 结构中的 SAN 存储
-<a id="integrate-and-classify-san-storage-in-the-vmm-fabric" class="xliff"></a>
+### <a name="integrate-and-classify-san-storage-in-the-vmm-fabric"></a>集成并分类 VMM 结构中的 SAN 存储
 
 1. 在 VMM 控制台中，转到“结构” > “存储” > “添加资源” > “存储设备”。
 2. 在“添加存储设备”向导中，选择“选择存储提供程序类型”，然后选择“SMI-S 提供程序发现和管理的 SAN 与 NAS 设备”。
@@ -98,8 +91,7 @@ ms.lasthandoff: 06/30/2017
 
     ![为存储分类](./media/site-recovery-vmm-san/classify.png)
 
-### 创建 LUN 并分配存储
-<a id="create-luns-and-allocate-storage" class="xliff"></a>
+### <a name="create-luns-and-allocate-storage"></a>创建 LUN 并分配存储
 
 根据需要保护的应用程序、容量要求以及需要同时复制的内容创建 LUN。
 
@@ -126,8 +118,7 @@ ms.lasthandoff: 06/30/2017
 
     ![为存储分类](./media/site-recovery-vmm-san/classify.png)
 
-### 创建复制组
-<a id="create-replication-groups" class="xliff"></a>
+### <a name="create-replication-groups"></a>创建复制组
 
 创建一个复制组，其中包含需要一起复制的所有 LUN。
 
@@ -136,8 +127,7 @@ ms.lasthandoff: 06/30/2017
 
     ![SAN 复制组](./media/site-recovery-vmm-san/rep-group.png)
 
-### 设置网络
-<a id="set-up-networks" class="xliff"></a>
+### <a name="set-up-networks"></a>设置网络
 
 如果需要配置网络映射，请执行以下操作：
 
@@ -147,8 +137,7 @@ ms.lasthandoff: 06/30/2017
    * [设置逻辑网络](https://technet.microsoft.com/zh-cn/system-center-docs/vmm/manage/manage-network-logical-networks)。
    * [设置 VM 网络](https://technet.microsoft.com/zh-cn/system-center-docs/vmm/manage/manage-network-vm-networks)。
 
-## 步骤 2：创建保管库
-<a id="step-2-create-a-vault" class="xliff"></a>
+## <a name="step-2-create-a-vault"></a>步骤 2：创建保管库
 
 1. 从要在保管库中注册的 VMM 服务器登录到 [Azure 门户](https://portal.azure.cn) 。
 2. 展开“数据服务” > “恢复服务”，然后单击“Site Recovery 保管库”。
@@ -161,8 +150,7 @@ ms.lasthandoff: 06/30/2017
 
 检查状态栏，确认保管库已成功创建。 保管库将以“活动”形式列在主要的“恢复服务”页上。
 
-### 注册 VMM 服务器
-<a id="register-the-vmm-servers" class="xliff"></a>
+### <a name="register-the-vmm-servers"></a>注册 VMM 服务器
 
 1. 在“恢复服务”页中，打开“快速启动”页。 也可随时使用图标打开“快速启动”。
 
@@ -207,8 +195,7 @@ ms.lasthandoff: 06/30/2017
 
 15. 单击“下一步”以完成此过程。 注册后，Azure Site Recovery 将检索 VMM 服务器中的元数据。 服务器显示在保管库中的“服务器” > “VMM 服务器”中。
 
-### 命令行安装
-<a id="command-line-installation" class="xliff"></a>
+### <a name="command-line-installation"></a>命令行安装
 
 也可使用以下命令行安装 Azure Site Recovery 提供程序。 使用此命令可将提供程序安装在 Server Core for Windows Server 2012 R2 上。
 
@@ -242,8 +229,7 @@ ms.lasthandoff: 06/30/2017
 * **/proxyUsername**：可选参数，用于指定代理用户名（如果代理要求身份验证）。
 * **/proxyPassword**：可选参数，用于指定密码，以便通过代理服务器进行身份验证（如果代理要求身份验证的话）。
 
-## 步骤 3：映射存储阵列和池
-<a id="step-3-map-storage-arrays-and-pools" class="xliff"></a>
+## <a name="step-3-map-storage-arrays-and-pools"></a>步骤 3：映射存储阵列和池
 
 映射主阵列和辅助阵列，指定哪个辅助存储池要从主池接收复制数据。 之所以要在配置复制之前映射存储，是因为对复制组启用保护时要使用映射信息。
 
@@ -256,8 +242,7 @@ ms.lasthandoff: 06/30/2017
 
     ![服务器注册](./media/site-recovery-vmm-san/storage-map-pool.png)
 
-## 步骤 4：配置复制设置
-<a id="step-4-configure-replication-settings" class="xliff"></a>
+## <a name="step-4-configure-replication-settings"></a>步骤 4：配置复制设置
 
 注册 VMM 服务器后，请配置云保护设置。
 
@@ -273,8 +258,7 @@ ms.lasthandoff: 06/30/2017
 
 保存设置后会创建一个作业，可在“作业”选项卡中监视该作业。  可在“配置”选项卡上修改设置。 如果想要修改目标位置或目标云，必须删除云配置，然后重新配置该云。
 
-## 步骤 5：启用网络映射
-<a id="step-5-enable-network-mapping" class="xliff"></a>
+## <a name="step-5-enable-network-mapping"></a>步骤 5：启用网络映射
 
 1. 在“快速启动”页上，单击“映射网络”。
 2. 选择源 VMM 服务器，然后选择要将网络映射到的目标 VMM 服务器。 此时将显示源网络及其关联的目标网络的列表。 对于未映射的网络，将显示空值。 单击源和目标网络名称旁的信息图标以查看每个网络的子网。
@@ -288,8 +272,7 @@ ms.lasthandoff: 06/30/2017
 5. 选择某个目标网络时，会显示使用源网络的受保护云。 另外还会显示可用的目标网络。 建议选择一个可供用于复制的所有云使用的目标网络。
 6. 单击复选标记以完成映射过程。 作业将开始跟踪进度。 可以在“作业”选项卡上查看该作业。
 
-## 步骤 6：为复制组启用复制
-<a id="step-6-enable-replication-for-replication-groups" class="xliff"></a>
+## <a name="step-6-enable-replication-for-replication-groups"></a>步骤 6：为复制组启用复制
 
 为虚拟机启用保护之前，需要为存储复制组启用复制。
 
@@ -298,8 +281,7 @@ ms.lasthandoff: 06/30/2017
 
 Site Recovery、VMM 和 SMI-S 提供程序会设置目标站点存储 LUN，并启用存储复制。 如果复制组已复制，Site Recovery 将重用现有的复制关系并更新信息。
 
-## 步骤 7：为虚拟机启用保护
-<a id="step-7-enable-protection-for-virtual-machines" class="xliff"></a>
+## <a name="step-7-enable-protection-for-virtual-machines"></a>步骤 7：为虚拟机启用保护
 
 存储组开始复制后，请在 VMM 控制台中使用以下方法之一为 VM 启用保护：
 
@@ -320,8 +302,7 @@ Site Recovery、VMM 和 SMI-S 提供程序会设置目标站点存储 LUN，并�
 
 ![虚拟机保护作业](./media/site-recovery-vmm-san/job-props.png)
 
-## 步骤 8：测试部署
-<a id="step-8-test-the-deployment" class="xliff"></a>
+## <a name="step-8-test-the-deployment"></a>步骤 8：测试部署
 
 测试部署，确保 VM 按预期方式故障转移。 为此，请创建恢复计划并运行测试故障转移。
 
@@ -358,7 +339,6 @@ Site Recovery、VMM 和 SMI-S 提供程序会设置目标站点存储 LUN，并�
        $newrecord.RecordData[0].IPv4Address  =  $IP
        Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 运行测试性故障转移检查环境是否按预期运行之后，请参阅 [Site Recovery 故障转移](site-recovery-failover.md) ，了解不同类型的故障转移。

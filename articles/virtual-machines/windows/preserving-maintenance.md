@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 使用就地 VM 迁移的 VM 保留维护
-<a id="vm-preserving-maintenance-with-in-place-vm-migration" class="xliff"></a>
+# <a name="vm-preserving-maintenance-with-in-place-vm-migration"></a>使用就地 VM 迁移的 VM 保留维护
 
 尽管大多数更新对托管的 VM 无任何影响，但在某些情况下，组件或服务更新会对运行的 VM（未完全重启虚拟机）产生一些干扰。
 

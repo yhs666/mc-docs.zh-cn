@@ -1,14 +1,12 @@
 切换回浏览器窗口，其中包含 Azure 门户。
 
-#### 添加主机名
-<a id="add-hostname" class="xliff"></a>
+#### <a name="add-hostname"></a>添加主机名
 
 单击“添加主机名”旁边的 **+** 图标。
 
 ![添加主机名](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-#### 验证主机名
-<a id="validate-hostname" class="xliff"></a>
+#### <a name="validate-hostname"></a>验证主机名
 
 键入前面为其配置了 CNAME 记录的完全限定的域名（例如 `www.contoso.com`），然后单击“验证”。
 

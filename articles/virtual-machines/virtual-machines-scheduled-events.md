@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# Azure 元数据服务 - 计划事件（预览）
-<a id="azure-metadata-service---scheduled-events-preview" class="xliff"></a>
+# <a name="azure-metadata-service---scheduled-events-preview"></a>Azure 元数据服务 - 计划事件（预览）
 
 > [!NOTE] 
 > 同意使用条款即可使用预览版。
@@ -31,8 +30,7 @@ ms.lasthandoff: 06/30/2017
 
 计划事件是 Azure 元数据服务中的其中一个子服务。 它负责显示有关即将发生的事件（例如，重新启动）的信息，使应用程序可以为其做准备并限制中断。 它可用于所有 Azure 虚拟机类型（包括 PaaS 和 IaaS）。 计划事件为虚拟机提供了执行预防性任务的时间，将事件的影响降到最低。 
 
-## 简介 - 为什么要有计划事件？
-<a id="introduction---why-scheduled-events" class="xliff"></a>
+## <a name="introduction---why-scheduled-events"></a>简介 - 为什么要有计划事件？
 
 通过计划事件，可以采取措施限制由平台启动的维护或由用户启动的操作对服务带来的影响。 
 
@@ -46,45 +44,36 @@ Azure 元数据服务在以下用例中显示计划事件：
 -   平台启动的维护（例如，主机 OS 部署）
 -   用户启动的调用（例如，用户重启或重新部署 VM）
 
-## 计划事件 - 基础知识
-<a id="scheduled-events---the-basics" class="xliff"></a>  
+## <a name="scheduled-events---the-basics"></a>计划事件 - 基础知识  
 
 Azure 元数据服务公开在 VM 中使用可访问的 REST 终结点运行虚拟机的相关信息。 该信息通过不可路由的 IP 提供，因此不会在 VM 外部公开。
 
-### 范围
-<a id="scope" class="xliff"></a>
+### <a name="scope"></a>范围
 计划事件将显示到云服务中的所有虚拟机或可用性集中的所有虚拟机上。 因此，应查看事件中的 `Resources` 字段以确定将受到影响的 VM。 
 
-### 发现终结点
-<a id="discovering-the-endpoint" class="xliff"></a>
+### <a name="discovering-the-endpoint"></a>发现终结点
 如果在虚拟网络 (VNet) 中创建虚拟机，可从不可路由 IP `169.254.169.254` 获得元数据服务。
 如果不在虚拟网络中创建虚拟机（云服务和经典 VM 的默认情况），需要使用其他逻辑发现可使用的终结点。 请参阅此示例，了解如何[发现主机终结点](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)。
 
-### 版本控制
-<a id="versioning" class="xliff"></a> 
+### <a name="versioning"></a>版本控制 
 已对实例元数据服务进行了版本控制。 版本是必需的，当前版本为 `2017-03-01`。
 
 > [!NOTE] 
 > 支持的计划事件的前一预览版 {latest} 发布为 api-version。 此格式不再受支持，并且将在未来弃用。
 
-### 使用标头
-<a id="using-headers" class="xliff"></a>
+### <a name="using-headers"></a>使用标头
 查询元数据服务时，必须提供标头 `Metadata: true` 以确保不会在无意中重定向该请求。
 
-### 启用计划事件
-<a id="enabling-scheduled-events" class="xliff"></a>
+### <a name="enabling-scheduled-events"></a>启用计划事件
 首次请求计划事件时，Azure 会在虚拟机上隐式启用该功能。 因此，第一次调用时应该会延迟响应最多两分钟。
 
-### 通过用户启动的操作测试逻辑
-<a id="testing-your-logic-with-user-initiated-operations" class="xliff"></a>
+### <a name="testing-your-logic-with-user-initiated-operations"></a>通过用户启动的操作测试逻辑
 若要测试逻辑，可以使用 Azure 门户、API、CLI 或 PowerShell 启动生成计划事件的操作。 重启虚拟机会生成事件类型为“`Reboot`”的计划事件。 重新部署虚拟机会生成事件类型为“`Redeploy`”的计划事件。
 在这两种情况下，用户启动的操作都需要更长的时间才能完成，因为计划事件要为应用程序留出更多的时间来正常关闭。 
 
-## 使用 API
-<a id="using-the-api" class="xliff"></a>
+## <a name="using-the-api"></a>使用 API
 
-### 查询事件
-<a id="query-for-events" class="xliff"></a>
+### <a name="query-for-events"></a>查询事件
 只需进行以下调用即可查询计划事件：
 
 ```
@@ -109,8 +98,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 }
 ```
 
-### 事件属性
-<a id="event-properties" class="xliff"></a>
+### <a name="event-properties"></a>事件属性
 |属性  |  说明 |
 | - | - |
 | EventId | 此事件的全局唯一标识符。 <br><br> 示例： <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
@@ -120,8 +108,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 | 事件状态 | 此事件的状态。 <br><br> 值： <ul><li>`Scheduled`：此事件计划在 `NotBefore` 属性指定的时间之后启动。<li>`Started`：此事件已启动。</ul> 不提供 `Completed` 或类似状态；事件完成后，将不再返回事件。
 | NotBefore| 此事件可能会在之后启动的时间。 <br><br> 示例： <br><ul><li> 2016-09-19T18:29:47Z  |
 
-### 事件计划
-<a id="event-scheduling" class="xliff"></a>
+### <a name="event-scheduling"></a>事件计划
 将根据事件类型为每个事件计划将来的最小量时间。 此时间反映在某个事件的 `NotBefore` 属性上。 
 
 |EventType  | 最小值通知 |
@@ -130,8 +117,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 | 重新启动 | 15 分钟 |
 | 重新部署 | 10 分钟 |
 
-### 启动事件（加快）
-<a id="starting-an-event-expedite" class="xliff"></a>
+### <a name="starting-an-event-expedite"></a>启动事件（加快）
 
 了解即将发生的事件并完成正常关闭逻辑后，可以通过使用 `EventId` 对元数据服务进行 `POST` 调用来批准未完成的事件。 这指示 Azure 可以缩短最小通知时间（如可能）。 
 
@@ -142,11 +128,9 @@ curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [
 > [!NOTE] 
 > 如果确认某个事件，则将允许该事件中的所有 `Resources` 继续进行，而不仅仅是确认该事件的虚拟机。 因此，可以选择一个指挥计算机来协调该确认，为简单起见，可选择 `Resources` 字段中的第一个计算机。
 
-## 示例
-<a id="samples" class="xliff"></a>
+## <a name="samples"></a>示例
 
-### PowerShell 示例
-<a id="powershell-sample" class="xliff"></a> 
+### <a name="powershell-sample"></a>PowerShell 示例 
 
 下例将查询计划事件的元数据服务器并审核所有未完成的事件。
 
@@ -205,8 +189,7 @@ foreach($event in $scheduledEvents.Events)
 }
 ``` 
 
-### C\# 示例
-<a id="c-sample" class="xliff"></a> 
+### <a name="c-sample"></a>C\# 示例 
 
 下例是关于与元数据服务进行通信的简单客户端。
 
@@ -338,8 +321,7 @@ public class Program
 }
 ```
 
-### Python 示例
-<a id="python-sample" class="xliff"></a> 
+### <a name="python-sample"></a>Python 示例 
 
 下例将查询计划事件的元数据服务器并审核所有未完成的事件。
 
@@ -383,8 +365,7 @@ if __name__ == '__main__':
   sys.exit(0)
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a> 
+## <a name="next-steps"></a>后续步骤 
 
 - 有关 API 的更多信息，请参阅[实例元数据服务](virtual-machines-instancemetadataservice-overview.md)。
 - 了解 [Azure 中 Windows 虚拟机的计划内维护](windows/planned-maintenance.md)。

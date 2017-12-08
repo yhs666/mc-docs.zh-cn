@@ -17,13 +17,11 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 在多重身份验证中使用替代方法登录
-<a id="signing-in-using-an-alternate-method-with-azure-multi-factor-authentication" class="xliff"></a>
+# <a name="signing-in-using-an-alternate-method-with-azure-multi-factor-authentication"></a>在多重身份验证中使用替代方法登录
 
 以下部分将会说明当你的主要方法不可用时，如何使用替代方法进行登录。
 
-## 使用替代方法登录
-<a id="to-sign-in-with-an-alternate-method" class="xliff"></a>
+## <a name="to-sign-in-with-an-alternate-method"></a>使用替代方法登录
 
 <ol>
 

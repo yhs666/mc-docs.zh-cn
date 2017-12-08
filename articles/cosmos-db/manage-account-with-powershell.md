@@ -22,18 +22,15 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/07/2017
 ---
-# 使用 PowerShell 创建 Azure Cosmos DB 帐户
-<a id="create-an-azure-cosmos-db-account-using-powershell" class="xliff"></a>
+# <a name="create-an-azure-cosmos-db-account-using-powershell"></a>使用 PowerShell 创建 Azure Cosmos DB 帐户
 
 以下指南介绍了使用 Azure Powershell 自动管理 Azure Cosmos DB 数据库帐户的命令。 它还包括用于管理 [多区域数据库帐户][scaling-globally]的帐户密钥和故障转移优先级的命令。 更新数据库帐户可以修改一致性策略以及添加/删除区域。 对于 Azure Cosmos DB 帐户的跨平台管理，可使用 [Azure CLI](cli-samples.md)、[资源提供程序 REST API][rp-rest-api] 或 [Azure 门户](create-documentdb-dotnet.md#create-account)。
 
-## 入门
-<a id="getting-started" class="xliff"></a>
+## <a name="getting-started"></a>入门
 
 请按照[如何安装和配置 Azure PowerShell][powershell-install-configure] 中的说明在 PowerShell 中安装 Azure Resource Manager 帐户并登录到该帐户。
 
-### 说明
-<a id="notes" class="xliff"></a>
+### <a name="notes"></a>说明
 
 * 如果想要执行以下命令而无需用户确认，请向命令追加 `-Force` 标志。
 * 以下所有命令都是同步执行的。
@@ -66,8 +63,7 @@ ms.lasthandoff: 07/07/2017
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "China North" -Name "docdb-test" -Properties $CosmosDBProperties
 
-### 说明
-<a id="notes" class="xliff"></a>
+### <a name="notes"></a>说明
 * 前面的示例使用两个区域创建数据库帐户。 还可能创建单区域（指定为写入区域并且故障转移优先级值为 0）或多区域数据库帐户。 有关详细信息，请参阅[多区域数据库帐户][scaling-globally]。
 * 这些位置必须是已正式推出 Azure Cosmos DB 的区域。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)提供了当前的区域列表。
 
@@ -197,8 +193,7 @@ ms.lasthandoff: 07/07/2017
     $failoverPolicies = @(@{"locationName"="China East"; "failoverPriority"=0},@{"locationName"="China North"; "failoverPriority"=1})
     Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"failoverPolicies"=$failoverPolicies}
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 * 若要使用 .NET 进行连接，请参阅[使用 .NET 进行连接和查询](create-documentdb-dotnet.md)。
 * 若要使用 .NET Core 进行连接，请参阅[使用 .NET Core 进行连接和查询](create-documentdb-dotnet-core.md)。

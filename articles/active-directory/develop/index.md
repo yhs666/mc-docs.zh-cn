@@ -1,10 +1,8 @@
 ---
 redirect_url: /active-directory/develop/active-directory-developers-guide
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 61d59aa2f54a18859b4d0b27edeaa2cbd6da00ec
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 7fb63ac012538585386c4741d34d66a5c3be06ae
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-

@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 设备孪生入门 (.NET/.NET)
-<a id="get-started-with-device-twins-netnet" class="xliff"></a>
+# <a name="get-started-with-device-twins-netnet"></a>设备孪生入门 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 在本教程结束时，将会创建这些 .NET 控制台应用：
@@ -47,8 +46,7 @@ ms.lasthandoff: 06/23/2017
 
 如果想改为以编程方式创建设备标识，请阅读文章[使用 .NET 将模拟设备连接到 IoT 中心][lnk-device-identity-csharp]中的相应部分。
 
-## 创建服务应用
-<a id="create-the-service-app" class="xliff"></a>
+## <a name="create-the-service-app"></a>创建服务应用
 在本部分中，将创建一个 .NET 控制台应用（使用 C#），该应用将位置元数据添加到与 **myDeviceId** 关联的设备孪生。 然后，该应用将选择位于美国的设备来查询存储在 IoT 中心的设备孪生，然后查询报告手机网络连接的设备孪生。
 
 1. 在 Visual Studio 中，使用“ **控制台应用程序** ”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 将项目命名为 **AddTagsAndQuery**。
@@ -109,8 +107,7 @@ ms.lasthandoff: 06/23/2017
 
 在下一部分中，创建的设备应用将报告连接信息，并更改上一部分中查询的结果。
 
-## 创建设备应用
-<a id="create-the-device-app" class="xliff"></a>
+## <a name="create-the-device-app"></a>创建设备应用
 在此部分，需创建一个 .NET 控制台应用作为“myDeviceId”连接到中心，然后更新其报告属性，使其包含它使用手机网络进行连接的信息。
 
 1. 在 Visual Studio 中，使用“ **控制台应用程序** ”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 将项目命名为“ReportConnectivity”。
@@ -201,8 +198,7 @@ ms.lasthandoff: 06/23/2017
    
     ![成功报告设备连接信息][img-tagappsuccess]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 本教程中，在 Azure 门户中配置了新的 IoT 中心，然后在 IoT 中心的标识注册表中创建了设备标识。 已从后端应用以标记形式添加了设备元数据，并编写了模拟的设备应用，用于报告设备孪生中的设备连接信息。 还学习了如何使用类似 SQL 的 IoT 中心查询语言来查询此信息。
 
 充分利用以下资源：

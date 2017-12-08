@@ -1,5 +1,4 @@
-### 使用 PowerShell 验证连接
-<a id="to-verify-your-connection-by-using-powershell" class="xliff"></a>
+### <a name="to-verify-your-connection-by-using-powershell"></a>使用 PowerShell 验证连接
 
 可以验证连接是否成功，方法是使用“Get-AzureRmVirtualNetworkGatewayConnection”cmdlet，带或不带“-Debug”。 
 
@@ -19,8 +18,7 @@
   "egressBytesTransferred": 4142431
   ```
 
-### 使用 Azure 门户验证连接
-<a id="to-verify-your-connection-by-using-the-azure-portal" class="xliff"></a>
+### <a name="to-verify-your-connection-by-using-the-azure-portal"></a>使用 Azure 门户验证连接
 
 在 Azure 门户中，可通过导航到该连接来查看连接状态。 有多种方法可执行此操作。 以下步骤演示导航到连接并进行验证的一种方法。
 

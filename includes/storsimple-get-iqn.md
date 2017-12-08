@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-### 获取 Windows 主机的 IQN
-<a id="to-get-the-iqn-of-a-windows-host" class="xliff"></a>
+### <a name="to-get-the-iqn-of-a-windows-host"></a>获取 Windows 主机的 IQN
 
 1. 在 Windows 主机上启动 Microsoft iSCSI 发起程序。
 

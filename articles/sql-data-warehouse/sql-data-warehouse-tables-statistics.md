@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 管理 SQL 数据仓库中表的统计信息
-<a id="managing-statistics-on-tables-in-sql-data-warehouse" class="xliff"></a>
+# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>管理 SQL 数据仓库中表的统计信息
 
 > [!div class="op_single_selector"]
 > * [概述][Overview]
@@ -42,16 +41,13 @@ SQL 数据仓库对你的数据了解得越多，其针对你的数据执行查�
 
 目前，创建和更新统计信息只能手动进行，但操作起来很简单。  这与 SQL Server 不一样，后者会自动创建和更新单个列和索引的统计信息。  使用以下信息可大大加强数据统计信息的自动化管理。 
 
-## 统计信息入门
-<a id="getting-started-with-statistics" class="xliff"></a>
+## <a name="getting-started-with-statistics"></a>统计信息入门
  创建每个列的模板统计信息是开始使用统计信息的简单方式。  由于保持统计信息处于最新状态也同样重要，因此即使采用保守的做法，也需每日或每次加载后更新统计信息。 创建和更新统计信息的性能与成本之间总有一些取舍。  如果你发现维护所有统计信息所需时间太长，可能要更谨慎选择哪些列要进行统计信息、哪些列需要频繁更新。  例如，你可能需要每日更新日期列（由于添加的可能是新值），而不是每次加载后进行更新。 同样，获取 JOIN、GROUP BY、HAVING 和 WHERE 子句中涉及的列的统计信息可以获得最大效益。  如果你的表包含的许多列只用在 SELECT 子句中，则这些列的统计信息可能没有用处，这种情况下，多花一点精力来标识其统计信息有用的列，可以减少统计信息的维护时间。
 
-## 多列统计信息
-<a id="multi-column-statistics" class="xliff"></a>
+## <a name="multi-column-statistics"></a>多列统计信息
 你会发现，除了针对单个列创建的统计信息，查询还会从多列统计信息受益。  多列统计信息是基于列列表创建的统计信息。  其中包含列表中第一个列的单列统计信息，加上一些跨列相关性信息（称为密度）。  例如，如果你的表基于两个列联接到另一个表，你会发现，如果 SQL 数据仓库了解两个列之间的关系，就能更好地优化计划。   多列统计信息可以改善某些操作（例如复合 Join 和 Group By）的查询性能。
 
-## 更新统计信息
-<a id="updating-statistics" class="xliff"></a>
+## <a name="updating-statistics"></a>更新统计信息
 更新统计信息是数据库管理日常工作的重要部分。  数据库中的数据发布改变时，就需要更新统计信息。  过期的统计信息会导致查询性能欠佳。
 
 最佳实践之一是每天在添加新日期后，更新有关日期列的统计信息。  每次有新行载入数据仓库时，就会添加新的加载日期或事务日期。 这些操作会更改数据分布情况并使统计信息过时。 相反地，有关客户表中的国家/地区列的统计信息可能永远不需要更新，因为值的分布通常不会变化。 假设客户间的分布固定不变，将新行添加到表变化并不会改变数据分布情况。 但是，如果数据仓库只包含一个国家/地区，并且引入了来自新国家/地区的数据，从而导致存储了多个国家/地区的数据，那么，就绝对需要更新有关国家/地区列的统计信息。
@@ -104,8 +100,7 @@ WHERE
 
 有关更多说明，请参阅 MSDN 上的[统计信息][Statistics]。
 
-## 实施统计信息管理
-<a id="implementing-statistics-management" class="xliff"></a>
+## <a name="implementing-statistics-management"></a>实施统计信息管理
 扩展数据加载过程通常是个不错的想法，可确保在加载结束时更新统计信息。 当表更改其大小和/或其值分布时，数据加载最为频繁。 因此，这是实施某些管理过程的合理位置。
 
 下面提供了有关在加载过程中更新统计信息的一些指导原则：
@@ -123,12 +118,10 @@ WHERE
 
 有关更多说明，请参阅 MSDN 上的[基数估计][Cardinality Estimation]。
 
-## 示例：创建统计信息
-<a id="examples-create-statistics" class="xliff"></a>
+## <a name="examples-create-statistics"></a>示例：创建统计信息
 以下示例演示如何使用各种选项来创建统计信息。 用于每个列的选项取决于数据特征以及在查询中使用列的方式。
 
-### A. 使用默认选项创建单列统计信息
-<a id="a-create-single-column-statistics-with-default-options" class="xliff"></a>
+### <a name="a-create-single-column-statistics-with-default-options"></a>A. 使用默认选项创建单列统计信息
 若要基于某个列创建统计信息，只需提供统计信息对象的名称和列的名称。
 
 此语法使用所有默认选项。 默认情况下，SQL 数据仓库在创建统计信息时对 20% 的表采样。
@@ -143,8 +136,7 @@ CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name])
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
-### B. 通过检查每个行创建单列统计信息
-<a id="b-create-single-column-statistics-by-examining-every-row" class="xliff"></a>
+### <a name="b-create-single-column-statistics-by-examining-every-row"></a>B. 通过检查每个行创建单列统计信息
 20% 的默认采样率足以应付大多数情况。 不过，你可以调整采样率。
 
 若要采样整个表，请使用此语法：
@@ -159,16 +151,14 @@ CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name])
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
-### C. 通过指定样本大小创建单列统计信息
-<a id="c-create-single-column-statistics-by-specifying-the-sample-size" class="xliff"></a>
+### <a name="c-create-single-column-statistics-by-specifying-the-sample-size"></a>C. 通过指定样本大小创建单列统计信息
 或者，你可以以百分比指定样本大小：
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
-### D. 只对某些行创建单列统计信息
-<a id="d-create-single-column-statistics-on-only-some-of-the-rows" class="xliff"></a>
+### <a name="d-create-single-column-statistics-on-only-some-of-the-rows"></a>D. 只对某些行创建单列统计信息
 另一个选项是对表中的部分行创建统计信息。 这称为筛选的统计信息。
 
 例如，在计划查询大型分区表的特定分区时，你可以使用筛选的统计信息。 只对分区值创建统计信息，统计信息的准确度将会改善，并因而改善查询性能。
@@ -184,8 +174,7 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 > 
 > 
 
-### E. 使用所有选项创建单列统计信息
-<a id="e-create-single-column-statistics-with-all-the-options" class="xliff"></a>
+### <a name="e-create-single-column-statistics-with-all-the-options"></a>E. 使用所有选项创建单列统计信息
 当然，你可以将选项组合在一起。 以下示例使用自定义样本大小创建筛选的统计信息对象：
 
 ```sql
@@ -194,8 +183,7 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 有关完整参考，请参阅 MSDN 上的 [CREATE STATISTICS][CREATE STATISTICS] 。
 
-### F. 创建多列统计信息
-<a id="f-create-multi-column-statistics" class="xliff"></a>
+### <a name="f-create-multi-column-statistics"></a>F. 创建多列统计信息
 若要创建多列统计信息，只需使用上述示例，但要指定更多的列。
 
 > [!NOTE]
@@ -211,8 +199,7 @@ CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category)
 
 由于 product\_category 和 product\_sub\_category 之间存在关联，因此在同时访问这些列时，多列统计信息相当有用。
 
-### G. 基于表中的所有列创建统计信息
-<a id="g-create-statistics-on-all-the-columns-in-a-table" class="xliff"></a>
+### <a name="g-create-statistics-on-all-the-columns-in-a-table"></a>G. 基于表中的所有列创建统计信息
 创建统计信息的方法之一是在创建表后发出 CREATE STATISTICS 命令。
 
 ```sql
@@ -233,8 +220,7 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### H. 使用存储过程基于数据库中的所有列创建统计信息
-<a id="h-use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database" class="xliff"></a>
+### <a name="h-use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>H. 使用存储过程基于数据库中的所有列创建统计信息
 SQL 数据仓库不提供相当于 SQL Server 中 [sp_create_stats][] 的系统存储过程。 此存储过程将基于数据库中尚不包含统计信息的每个列创建单列统计信息对象。
 
 这可以帮助你开始进行数据库设计。 你可以根据需要任意改写此存储过程。
@@ -326,15 +312,13 @@ DROP TABLE #stats_ddl;
 prc_sqldw_create_stats;
 ```
 
-## 示例：更新统计信息
-<a id="examples-update-statistics" class="xliff"></a>
+## <a name="examples-update-statistics"></a>示例：更新统计信息
 若要更新统计信息，你可以：
 
 1. 更新一个统计信息对象。 指定要更新的统计信息对象名称。
 2. 更新表中的所有统计信息对象。 指定表名称，而不是一个特定的统计信息对象。
 
-### A. 更新一个特定的统计信息对象
-<a id="a-update-one-specific-statistics-object" class="xliff"></a>
+### <a name="a-update-one-specific-statistics-object"></a>A. 更新一个特定的统计信息对象
 使用以下语法来更新特定的统计信息对象：
 
 ```sql
@@ -349,8 +333,7 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 
 通过更新特定统计信息对象，可以减少管理统计信息所需的时间和资源。 在选择要更新的最佳统计信息对象之前，需要经过一定的思考。
 
-### B. 更新表中的所有统计信息
-<a id="b-update-all-statistics-on-a-table" class="xliff"></a>
+### <a name="b-update-all-statistics-on-a-table"></a>B. 更新表中的所有统计信息
 此示例演示了更新表中所有统计信息对象的一个简单方法。
 
 ```sql
@@ -374,12 +357,10 @@ UPDATE STATISTICS dbo.table1;
 
 有关完整语法，请参阅 MSDN 上的 [更新统计信息][Update Statistics] 。
 
-## 统计信息元数据
-<a id="statistics-metadata" class="xliff"></a>
+## <a name="statistics-metadata"></a>统计信息元数据
 可以使用多个系统视图和函数来查找有关统计信息的信息。 例如，使用 stats-date 函数查看上次创建或更新统计信息的时间，即可了解统计信息对象是否可能已过时。
 
-### 统计信息的目录视图
-<a id="catalog-views-for-statistics" class="xliff"></a>
+### <a name="catalog-views-for-statistics"></a>统计信息的目录视图
 这些系统视图提供有关统计信息的信息：
 
 | 目录视图 | 说明 |
@@ -392,8 +373,7 @@ UPDATE STATISTICS dbo.table1;
 | [sys.tables][sys.tables] |针对每个表（包括外部表）提供一行。 |
 | [sys.table_types][sys.table_types] |针对每个数据类型提供一行。 |
 
-### 统计信息的系统函数
-<a id="system-functions-for-statistics" class="xliff"></a>
+### <a name="system-functions-for-statistics"></a>统计信息的系统函数
 这些系统函数适合用于处理统计信息：
 
 | 系统函数 | 说明 |
@@ -401,8 +381,7 @@ UPDATE STATISTICS dbo.table1;
 | [STATS_DATE][STATS_DATE] |上次更新统计信息对象的日期。 |
 | [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |提供有关统计信息对象识别的值分布的摘要级别和详细信息。 |
 
-### 将统计信息列和函数合并成一个视图
-<a id="combine-statistics-columns-and-functions-into-one-view" class="xliff"></a>
+### <a name="combine-statistics-columns-and-functions-into-one-view"></a>将统计信息列和函数合并成一个视图
 此视图将与统计信息相关的列以及 [STATS_DATE()][] 函数的结果合并在一起。
 
 ```sql
@@ -441,8 +420,7 @@ AND     st.[user_created] = 1
 ;
 ```
 
-## DBCC SHOW_STATISTICS() 示例
-<a id="dbcc-showstatistics-examples" class="xliff"></a>
+## <a name="dbcc-showstatistics-examples"></a>DBCC SHOW_STATISTICS() 示例
 DBCC SHOW_STATISTICS() 显示统计信息对象中保存的数据。 这些数据包括三个组成部分。
 
 1. 标头
@@ -451,8 +429,7 @@ DBCC SHOW_STATISTICS() 显示统计信息对象中保存的数据。 这些数�
 
 有关统计信息的标头元数据。 直方图显示统计信息对象的第一个键列中的值分布。 密度向量可度量跨列相关性。 SQLDW 使用统计信息对象中的任何数据来计算基数估计值。
 
-### 显示标头、密度和直方图
-<a id="show-header-density-and-histogram" class="xliff"></a>
+### <a name="show-header-density-and-histogram"></a>显示标头、密度和直方图
 此简单示例显示了统计信息对象的所有三个组成部分。
 
 ```sql
@@ -465,8 +442,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### 显示 DBCC SHOW_STATISTICS(); 的一个或多个组成部分
-<a id="show-one-or-more-parts-of-dbcc-showstatistics" class="xliff"></a>
+### <a name="show-one-or-more-parts-of-dbcc-showstatistics"></a>显示 DBCC SHOW_STATISTICS(); 的一个或多个组成部分
 如果你只想要查看特定部分，请使用 `WITH` 子句并指定要查看哪些部分：
 
 ```sql
@@ -479,8 +455,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## DBCC SHOW_STATISTICS() 差异
-<a id="dbcc-showstatistics-differences" class="xliff"></a>
+## <a name="dbcc-showstatistics-differences"></a>DBCC SHOW_STATISTICS() 差异
 相比于 SQL Server，在 SQL 数据仓库中，DBCC SHOW_STATISTICS() 的实现更加严格。
 
 1. 未阐述的功能不受支持
@@ -491,8 +466,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 6. 不能使用列名来标识统计信息对象
 7. 不支持自定义错误 2767
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅 MSDN 上的 [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS]。  若要了解详细信息，请参阅有关[表概述][Overview]、[表数据类型][Data Types]、[分布表][Distribute]、[为表编制索引][Index]、[对表进行分区][Partition]和[临时表][Temporary]的文章。  有关最佳实践的详细信息，请参阅 [SQL 数据仓库最佳实践][SQL Data Warehouse Best Practices]。  
 
 <!--Image references-->

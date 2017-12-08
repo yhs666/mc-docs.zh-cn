@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 使用内存中 OLTP 改善 SQL 数据库中应用程序的性能
-<a id="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database" class="xliff"></a>
+# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>使用内存中 OLTP 改善 SQL 数据库中应用程序的性能
 [内存中 OLTP](sql-database-in-memory.md) 可以用来改善[高级](sql-database-service-tiers.md) Azure SQL 数据库中的事务处理、数据引入的性能以及暂时性数据状况，且不需要提高定价层。 
 
 > [!NOTE] 
@@ -31,8 +30,7 @@ ms.lasthandoff: 06/30/2017
 
 请按照以下步骤在现有数据库中采用内存中 OLTP。
 
-## 步骤 1：确保使用的是高级数据库
-<a id="step-1-ensure-you-are-using-a-premium-database" class="xliff"></a>
+## <a name="step-1-ensure-you-are-using-a-premium-database"></a>步骤 1：确保使用的是高级数据库
 只有高级数据库才支持内存中 OLTP。 如果返回的结果为 1（不是 0），则支持内存中 OLTP：
 
 ```
@@ -41,8 +39,7 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 XTP 代表*极端事务处理*
 
-## 步骤 2：标识要迁移到 In-Memory OLTP 的对象
-<a id="step-2-identify-objects-to-migrate-to-in-memory-oltp" class="xliff"></a>
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>步骤 2：标识要迁移到 In-Memory OLTP 的对象
 SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性能分析概述”。 该报告识别要迁移到内存中 OLTP 的候选表和存储过程。
 
 若要在 SSMS 中生成报告，请执行以下操作：
@@ -52,8 +49,7 @@ SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性
 
 有关详细信息，请参阅[确定表或存储过程是否应移植到内存中 OLTP](http://msdn.microsoft.com/library/dn205133.aspx)。
 
-## 步骤 3：创建可比较的测试数据库
-<a id="step-3-create-a-comparable-test-database" class="xliff"></a>
+## <a name="step-3-create-a-comparable-test-database"></a>步骤 3：创建可比较的测试数据库
 假设报告指出数据库的某个表在转换成内存优化的表后会带来好处。 我们建议先进行测试，以确认这项指示。
 
 你需要创建生产数据库的测试副本。 测试数据库应该位于与生产数据库相同的服务层级别。
@@ -69,15 +65,13 @@ SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性
         MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
    ```
 
-## 步骤 4：迁移表
-<a id="step-4-migrate-tables" class="xliff"></a>
+## <a name="step-4-migrate-tables"></a>步骤 4：迁移表
 必须创建并填充想要测试的表的内存优化副本。 你可以使用以下方式之一来创建该副本：
 
 * SSMS 中提供便利的内存优化向导。
 * 手动 T-SQL。
 
-#### SSMS 中提供的内存优化向导
-<a id="memory-optimization-wizard-in-ssms" class="xliff"></a>
+#### <a name="memory-optimization-wizard-in-ssms"></a>SSMS 中提供的内存优化向导
 若要使用此迁移选项，请执行以下操作：
 
 1. 使用 SSMS 连接到测试数据库。
@@ -91,8 +85,7 @@ SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性
    * [迁移到内存中 OLTP](http://msdn.microsoft.com/library/dn247639.aspx)。
 4. 如果该表没有不受支持的功能，顾问可为你执行实际的架构和数据迁移。
 
-#### 手动 T-SQL
-<a id="manual-t-sql" class="xliff"></a>
+#### <a name="manual-t-sql"></a>手动 T-SQL
 若要使用此迁移选项，请执行以下操作：
 
 1. 使用 SSMS（或类似的实用程序）连接到测试数据库。
@@ -111,12 +104,10 @@ INSERT INTO <new_memory_optimized_table>
         SELECT * FROM <old_disk_based_table>;
 ```
 
-## 步骤 5（可选）：迁移存储过程
-<a id="step-5-optional-migrate-stored-procedures" class="xliff"></a>
+## <a name="step-5-optional-migrate-stored-procedures"></a>步骤 5（可选）：迁移存储过程
 In-Memory 功能还可以修改存储过程，以改善性能。
 
-### 本机编译存储过程的注意事项
-<a id="considerations-with-natively-compiled-stored-procedures" class="xliff"></a>
+### <a name="considerations-with-natively-compiled-stored-procedures"></a>本机编译存储过程的注意事项
 本机编译存储过程的 T-SQL WITH 子句必须包含以下选项：
 
 * NATIVE_COMPILATION
@@ -124,8 +115,7 @@ In-Memory 功能还可以修改存储过程，以改善性能。
 
 本机模块必须使用一个大型 [ATOMIC 块](http://msdn.microsoft.com/library/dn452281.aspx)进行事务管理。 显式 BEGIN TRANSACTION 或 ROLLBACK TRANSACTION 没有角色。 如果你的代码检测到违反业务规则，它可以使用 [THROW](http://msdn.microsoft.com/library/ee677615.aspx) 语句终止 ATOMIC 块。
 
-### 本机编译存储过程的典型 CREATE PROCEDURE
-<a id="typical-create-procedure-for-natively-compiled" class="xliff"></a>
+### <a name="typical-create-procedure-for-natively-compiled"></a>本机编译存储过程的典型 CREATE PROCEDURE
 创建本机编译存储过程的 T-SQL 通常类似于以下模板：
 
 ```
@@ -147,8 +137,7 @@ CREATE PROCEDURE schemaname.procedurename
   * SERIALIZABLE
 * sys.languages 视图中必须存在 LANGUAGE 值。
 
-### 如何迁移存储过程
-<a id="how-to-migrate-a-stored-procedure" class="xliff"></a>
+### <a name="how-to-migrate-a-stored-procedure"></a>如何迁移存储过程
 迁移步骤如下：
 
 1. 获取常规解释的存储过程的 CREATE PROCEDURE 脚本。
@@ -159,8 +148,7 @@ CREATE PROCEDURE schemaname.procedurename
 4. 使用 SP_RENAME 重命名旧存储过程。 或直接将它删除。
 5. 运行已编辑的 CREATE PROCEDURE T-SQL 脚本。
 
-## 步骤 6：在测试环境中运行工作负荷
-<a id="step-6-run-your-workload-in-test" class="xliff"></a>
+## <a name="step-6-run-your-workload-in-test"></a>步骤 6：在测试环境中运行工作负荷
 在测试数据库中，运行与在生产数据库中运行的工作负荷类似的工作负荷。 这样，将 In-Memory 功能用于表和存储过程所达到的性能改善应可体现出来。
 
 工作负荷的主要属性包括：
@@ -172,15 +160,13 @@ CREATE PROCEDURE schemaname.procedurename
 
 为了尽可能减少网络延迟，请在数据库所在的同一 Azure 地理区域运行测试。
 
-## 步骤 7：实施后的监视
-<a id="step-7-post-implementation-monitoring" class="xliff"></a>
+## <a name="step-7-post-implementation-monitoring"></a>步骤 7：实施后的监视
 建议你监视在生产环境中实施 In-Memory 后的性能影响：
 
 * [监视内存中存储](sql-database-in-memory-oltp-monitoring.md)。
 * [使用动态管理视图监视 Azure SQL 数据库](sql-database-monitoring-with-dmvs.md)
 
-## 相关链接
-<a id="related-links" class="xliff"></a>
+## <a name="related-links"></a>相关链接
 * [内存中 OLTP（内存中优化）](http://msdn.microsoft.com/library/dn133186.aspx)
 * [本机编译的存储过程简介](http://msdn.microsoft.com/library/dn133184.aspx)
 * [内存优化顾问](http://msdn.microsoft.com/library/dn284308.aspx)

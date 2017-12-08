@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 使用适用于 Azure Resource Manager 的 PowerShell 创建 Azure 应用程序网关的自定义探测
-<a id="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager" class="xliff"></a>
+# <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>使用适用于 Azure Resource Manager 的 PowerShell 创建 Azure 应用程序网关的自定义探测
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](application-gateway-create-probe-portal.md)
@@ -37,11 +36,9 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## 创建使用自定义探测的应用程序网关
-<a id="create-an-application-gateway-with-a-custom-probe" class="xliff"></a>
+## <a name="create-an-application-gateway-with-a-custom-probe"></a>创建使用自定义探测的应用程序网关
 
-### 登录并创建资源组
-<a id="sign-in-and-create-resource-group" class="xliff"></a>
+### <a name="sign-in-and-create-resource-group"></a>登录并创建资源组
 
 1. 使用 `Login-AzureRmAccount` 进行身份验证。
 
@@ -71,8 +68,7 @@ Azure Resource Manager 要求所有资源组指定一个位置。 此位置将�
 
 在上述示例中，我们在位置“中国北部”创建了名为“appgw-RG”的资源组。
 
-### 创建虚拟网络和子网
-<a id="create-a-virtual-network-and-a-subnet" class="xliff"></a>
+### <a name="create-a-virtual-network-and-a-subnet"></a>创建虚拟网络和子网
 
 以下示例将为应用程序网关创建虚拟网络和子网。 应用程序网关需要具有自己的子网才可供使用。 为此，为应用程序网关创建的子网应小于 VNET 的地址空间，以便创建和使用其他子网。
 
@@ -87,8 +83,7 @@ $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -L
 $subnet = $vnet.Subnets[0]
 ```
 
-### 创建前端配置的公共 IP 地址
-<a id="create-a-public-ip-address-for-the-front-end-configuration" class="xliff"></a>
+### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>创建前端配置的公共 IP 地址
 
 在中国北部区域的 **appgw-rg** 资源组中创建公共 IP 资源 **publicIP01**。 此示例使用公共 IP 地址作为应用程序网关的前端 IP 地址。  应用程序网关要求公共 IP 地址具有动态创建的 DNS 名称，因此在公共 IP 地址创建过程中不能指定 `-DomainNameLabel`。
 
@@ -96,8 +91,7 @@ $subnet = $vnet.Subnets[0]
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'China North' -AllocationMethod Dynamic
 ```
 
-### 创建应用程序网关
-<a id="create-an-application-gateway" class="xliff"></a>
+### <a name="create-an-application-gateway"></a>创建应用程序网关
 
 在创建应用程序网关之前设置所有配置项。 以下示例将创建应用程序网关资源所需的配置项。
 
@@ -143,8 +137,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location 'China North' -BackendAddressPools $pool -Probes $probe -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-## 将探测添加到现有应用程序网关
-<a id="add-a-probe-to-an-existing-application-gateway" class="xliff"></a>
+## <a name="add-a-probe-to-an-existing-application-gateway"></a>将探测添加到现有应用程序网关
 
 以下代码片段将向现有应用程序网关添加探测。
 
@@ -162,8 +155,7 @@ $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $g
 Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 ```
 
-## 从现有应用程序网关中删除探测
-<a id="remove-a-probe-from-an-existing-application-gateway" class="xliff"></a>
+## <a name="remove-a-probe-from-an-existing-application-gateway"></a>从现有应用程序网关中删除探测
 
 以下代码片段将从现有应用程序网关删除探测。
 
@@ -181,8 +173,7 @@ $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $g
 Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 ```
 
-## 获取应用程序网关 DNS 名称
-<a id="get-application-gateway-dns-name" class="xliff"></a>
+## <a name="get-application-gateway-dns-name"></a>获取应用程序网关 DNS 名称
 
 创建网关后，下一步是配置用于通信的前端。 使用公共 IP 时，应用程序网关需要动态分配的 DNS 名称，这会造成不方便。 若要确保最终用户能够访问应用程序网关，可以使用指向应用程序网关的公共终结点的 CNAME 记录。 [在 Azure 中配置自定义域名](../cloud-services/cloud-services-custom-domain-name-portal.md)。 为此，可使用附加到应用程序网关的 PublicIPAddress 元素检索应用程序网关及其关联的 IP/DNS 名称的详细信息。 应使用应用程序网关的 DNS 名称来创建 CNAME 记录，使两个 Web 应用程序都指向此 DNS 名称。 不建议使用 A 记录，因为重新启动应用程序网关后 VIP 可能会变化。
 
@@ -212,7 +203,6 @@ DnsSettings              : {
                             }
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 访问[配置 SSL 卸载](application-gateway-ssl-arm.md)，了解如何配置 SSL 卸载

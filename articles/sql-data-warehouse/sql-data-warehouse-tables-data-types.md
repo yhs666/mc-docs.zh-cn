@@ -22,13 +22,11 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 有关在 SQL 数据仓库中定义表的数据类型的指南
-<a id="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse" class="xliff"></a>
+# <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>有关在 SQL 数据仓库中定义表的数据类型的指南
 使用这些建议定义与 SQL 数据仓库兼容的表数据类型。 除了兼容性外，最大限度地减小数据类型大小可以提高查询性能。
 
 <!-- Not Available [data types](http://docs.microsoft.com/zh-cn/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) -->
-## 最大限度地减小行长度
-<a id="minimize-row-length" class="xliff"></a>
+## <a name="minimize-row-length"></a>最大限度地减小行长度
 最大限度地减小数据类型大小可以缩短行长度，从而获得更好的查询性能。 使用适合数据的最小数据类型。 
 
 | **支持的数据类型** |  |  |
@@ -42,16 +40,13 @@ ms.lasthandoff: 07/05/2017
 | [datetime2][datetime2] |[real][real] |[varbinary][varbinary] |
 | [datetimeoffset][datetimeoffset] |[smalldatetime][smalldatetime] |[varchar][varchar] |
 
-## 数据类型最佳实践
-<a id="data-type-best-practices" class="xliff"></a>
+## <a name="data-type-best-practices"></a>数据类型最佳实践
  在定义列类型时，使用可支持数据的最小数据类型，将能够改善查询性能。 这对 CHAR 和 VARCHAR 列尤其重要。 如果列中最长的值是 25 个字符，请将列定义为 VARCHAR(25)。 避免将所有字符列定义为较大的默认长度。 此外，将列定义为 VARCHAR（当它只需要这样的大小时）而非 [NVARCHAR][NVARCHAR]。  尽可能使用 NVARCHAR(4000) 或 VARCHAR(8000)，而非 NVARCHAR(MAX) 或 VARCHAR(MAX)。
 
-## Polybase 限制
-<a id="polybase-limitation" class="xliff"></a>
+## <a name="polybase-limitation"></a>Polybase 限制
 如果使用 Polybase 加载表，请确保数据的长度不超过 1 MB。  虽然你在定义行时可以使用超出此宽度的可变长度数据，并通过 BCP 来加载行，但无法使用 Polybase 来加载此数据。  
 
-## 不支持的数据类型
-<a id="unsupported-data-types" class="xliff"></a>
+## <a name="unsupported-data-types"></a>不支持的数据类型
 如果从另一个 SQL 平台（例如 Azure SQL 数据库）迁移数据库，在迁移时，你可能会遇到 SQL 数据仓库不支持的某些数据类型。  下面是不支持的数据类型，以及一些可用于取代不支持的数据类型的备选项。
 
 | 数据类型 | 解决方法 |
@@ -80,8 +75,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
  AND  y.[is_user_defined] = 1;
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅有关[表概述][Overview]、[分布表][Distribute]、[为表编制索引][Index]、[将表分区][Partition]、维[护表统计信息][Statistics]和[临时表][Temporary]的文章。  有关最佳实践的详细信息，请参阅 [SQL 数据仓库最佳实践][SQL Data Warehouse Best Practices]。
 
 <!--Image references-->

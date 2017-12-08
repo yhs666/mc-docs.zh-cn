@@ -17,13 +17,11 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 在 Azure 多重身份验证中使用手机作为联系方法
-<a id="use-mobile-phone-as-your-contact-method-with-azure-multi-factor-authentication" class="xliff"></a>
+# <a name="use-mobile-phone-as-your-contact-method-with-azure-multi-factor-authentication"></a>在 Azure 多重身份验证中使用手机作为联系方法
 
 如果要使用手机作为主要联系方法，你可以参考本文。  本文将会引导你设置多重身份验证，以使用手机通话或短信作为联系方法。
 
-## 使用手机作为联系方法
-<a id="to-use-your-mobile-phone-as-your-contact-method" class="xliff"></a>
+## <a name="to-use-your-mobile-phone-as-your-contact-method"></a>使用手机作为联系方法
 <ol>
 <li>从下拉列表中选择“身份验证电话”</li>
 

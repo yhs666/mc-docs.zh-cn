@@ -94,7 +94,7 @@ SQL Server IaaS 代理扩展支持以下管理任务：
     Get-AzureVM -ServiceName "service" -Name "vmname" | Get-AzureVMSqlServerExtension
 
 ## <a name="removal"></a>删除
-在 Azure 门户中，可以通过单击虚拟机属性的“扩展”边栏选项卡中的省略号来卸载扩展。 Then click **Uninstall**.
+在 Azure 门户中，可以通过单击虚拟机属性的“扩展”边栏选项卡中的省略号来卸载扩展。 Then click <bpt id="p1">**</bpt>Uninstall<ept id="p1">**</ept>.
 
 ![在 Azure 门户中卸载 SQL Server IaaS 代理扩展](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-uninstall.png)
 

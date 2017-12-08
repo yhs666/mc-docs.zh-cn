@@ -21,16 +21,14 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/28/2017
 ---
-# 参考 - 用于设备孪生、作业和消息路由的 IoT 中心查询语言
-<a id="reference---iot-hub-query-language-for-device-twins-jobs-and-message-routing" class="xliff"></a>
+# <a name="reference---iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>参考 - 用于设备孪生、作业和消息路由的 IoT 中心查询语言
 
 IoT 中心提供类似于 SQL 的强大语言，用于检索有关[设备孪生][lnk-twins]和[作业][lnk-jobs]以及[消息路由][lnk-devguide-messaging-routes]的信息。 本文内容：
 
 * IoT 中心查询语言的主要功能简介，以及
 * 语言的详细说明。
 
-## 设备孪生查询入门
-<a id="get-started-with-device-twin-queries" class="xliff"></a>
+## <a name="get-started-with-device-twin-queries"></a>设备孪生查询入门
 [设备孪生][lnk-twins] 可以包含标记和属性形式的任意 JSON 对象。 通过 IoT 中心，可将设备孪生作为包含所有设备孪生信息的 JSON 文档进行查询。
 例如，假设 IoT 中心设备孪生采用以下结构：
 
@@ -147,8 +145,7 @@ GROUP BY properties.reported.telemetryConfig.status
 
 上述示例阐释了以下情景：3 个设备报告配置成功，2 个设备仍在应用配置，1 个设备报告错误。
 
-### C# 示例
-<a id="c-example" class="xliff"></a>
+### <a name="c-example"></a>C# 示例
 查询功能由 [C# 服务 SDK][lnk-hub-sdks] 在 **RegistryManager** 类中公开。
 下面是一个简单的查询示例：
 
@@ -167,8 +164,7 @@ while (query.HasMoreResults)
 请注意如何使用页面大小（最大 1000）实例化 **query** 对象，然后通过调用 **GetNextAsTwinAsync** 方法多次来检索多个页面。
 请注意，查询对象会公开多个 **Next\***，具体取决于查询所需的反序列化选项（如设备孪生或作业对象）或者使用投影时要用的普通 JSON。
 
-### Node.js 示例
-<a id="nodejs-example" class="xliff"></a>
+### <a name="nodejs-example"></a>Node.js 示例
 查询功能由 [适用于 Node.js 的 Azure IoT 服务 SDK][lnk-hub-sdks] 在 **Registry** 对象中公开。
 下面是一个简单的查询示例：
 
@@ -194,8 +190,7 @@ query.nextAsTwin(onResults);
 请注意如何使用页面大小（最大 1000）实例化 **query** 对象，然后通过调用 **nextAsTwin** 方法多次来检索多个页面。
 请注意，查询对象会公开多个 **next\***，具体取决于查询所需的反序列化选项（如设备孪生或作业对象）或者使用投影时要用的普通 JSON。
 
-### 限制
-<a id="limitations" class="xliff"></a>
+### <a name="limitations"></a>限制
 > [!IMPORTANT]
 > 关于设备孪生中的最新值，查询结果可能有几分钟的延迟。 如果按 ID 查询单个设备孪生，将始终优先使用检索设备孪生 API，它始终包含最新值并具有较高的限制。
 >
@@ -203,8 +198,7 @@ query.nextAsTwin(onResults);
 
 目前，仅支持在基元类型（无对象）之间进行比较，例如，仅在这些属性具有基元值时才支持 `... WHERE properties.desired.config = properties.reported.config`。
 
-## 作业查询入门
-<a id="get-started-with-jobs-queries" class="xliff"></a>
+## <a name="get-started-with-jobs-queries"></a>作业查询入门
 [Jobs][lnk-jobs] 可对一组设备执行操作。 每个设备孪生包含名为 **作业**的集合中该设备参与的作业的信息。
 从逻辑上讲，
 
@@ -272,23 +266,20 @@ SELECT * FROM devices.jobs
 WHERE devices.jobs.jobId = 'myJobId'
 ```
 
-### 限制
-<a id="limitations" class="xliff"></a>
+### <a name="limitations"></a>限制
 目前，对 **devices.jobs** 的查询不支持：
 
 * 投影，因此仅可使用 `SELECT *`。
 * 引用设备孪生和作业属性的条件（参见上一节）。
 * 执行聚合，例如 count、avg、group by。
 
-## 设备到云的消息路由查询表达式入门
-<a id="get-started-with-device-to-cloud-message-routes-query-expressions" class="xliff"></a>
+## <a name="get-started-with-device-to-cloud-message-routes-query-expressions"></a>设备到云的消息路由查询表达式入门
 
 可通过 [设备到云的路由][lnk-devguide-messaging-routes]配置 IoT 中心，根据按各消息计算的表达式将设备到云的消息分派给不同的终结点。
 
 在克隆和作业查询中，路由 [条件][lnk-query-expressions] 使用相同的 IoT 中心查询语言作为条件。 根据消息标头和正文评估路由条件。 路由查询表达式可能只涉及到消息标头、消息正文，或者同时涉及到消息标头和消息正文。 IoT 中心将采用标头和消息正文的特定架构来路由消息，以下部分介绍了 IoT 中心要求满足哪些条件才能正确路由：
 
-### 根据消息标头路由
-<a id="routing-on-message-headers" class="xliff"></a>
+### <a name="routing-on-message-headers"></a>根据消息标头路由
 
 IoT 中心采用消息标头的以下 JSON 表示形式来路由消息：
 
@@ -342,8 +333,7 @@ messageType = 'alerts' AND as_number(severity) <= 2
 
 请参阅 [表达式和条件][lnk-query-expressions] 部分，了解受支持的运算符和函数的完整列表。
 
-### 根据消息正文路由
-<a id="routing-on-message-bodies" class="xliff"></a>
+### <a name="routing-on-message-bodies"></a>根据消息正文路由
 
 如果消息正文采用适当的 UTF-8、UTF-16 或 UTF-32 格式进行 JSON 编码，则 IoT 中心只能根据消息正文内容路由。 必须将消息的内容类型设置为 `application/json`，将内容编码设置为消息标头中支持的 UTF 编码之一，这样，IoT 中心才能根据正文内容路由消息。 如果未指定任一标头，IoT 中心不会针对消息尝试评估涉及到正文的任何查询表达式。 如果消息不是 JSON 消息，或者消息未指定内容类型和内容编码，你仍可以使用消息路由根据消息标头来路由消息。
 
@@ -357,8 +347,7 @@ length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
-## IoT 中心查询基础知识
-<a id="basics-of-an-iot-hub-query" class="xliff"></a>
+## <a name="basics-of-an-iot-hub-query"></a>IoT 中心查询基础知识
 每个 IoT 中心查询包括 SELECT 和 FROM 子句，以及可选的 WHERE 和 GROUP BY 子句。 每个查询针对 JSON 文档的集合（例如，设备孪生）运行。 FROM 子句指示要迭代的文档集合（**devices** 或 **devices.jobs**）。 然后，应用 WHERE 子句中的筛选器。 使用聚合时，根据 GROUP BY 子句中的指定将此步骤的结果分组；对于每个组，将根据 SELECT 子句中的指定生成一行。
 
 ```sql
@@ -368,18 +357,15 @@ FROM <from_specification>
 [GROUP BY <group_specification>]
 ```
 
-## FROM 子句
-<a id="from-clause" class="xliff"></a>
+## <a name="from-clause"></a>FROM 子句
 **FROM <from_specification>** 子句只能采用两个值：**FROM devices** - 查询设备孪生；**FROM devices.jobs** - 查询每个设备上的作业详细信息。
 
-## WHERE 子句
-<a id="where-clause" class="xliff"></a>
+## <a name="where-clause"></a>WHERE 子句
 **WHERE <filter_condition>** 子句是可选的。 它指定要将 FROM 集合中的 JSON 文档内含在结果中时需满足的一项或多项条件。 任何 JSON 文档必须将指定的条件求值为“true”才能包含在结果中。
 
 [表达式和条件][lnk-query-expressions]部分中介绍了允许的条件。
 
-## SELECT 子句
-<a id="select-clause" class="xliff"></a>
+## <a name="select-clause"></a>SELECT 子句
 SELECT 子句 (**SELECT <select_list>**) 是必需的，用于指定要从查询中检索的值。 它指定用于生成新 JSON 对象的 JSON 值。
 对于 FROM 集合中已筛选子集（且可选择性分组）的每个元素，投影阶段将生成一个新 JSON 对象，其由 SELECT 子句中指定的值构造而成。
 
@@ -409,8 +395,7 @@ SELECT 子句的语法如下：
 
 目前，仅支持在针对设备孪生执行的聚合查询中使用除 **SELECT \*** 以外的选择子句。
 
-## GROUP BY 子句
-<a id="group-by-clause" class="xliff"></a>
+## <a name="group-by-clause"></a>GROUP BY 子句
 **GROUP BY <group_specification>** 子句是可选步骤，可在 WHERE 子句中指定的筛选器后、在 SELECT 中指定的投影前执行该子句。 它根据属性值来分组文档。 这些组用于生成 SELECT 子句中指定的聚合值。
 
 下面是使用 GROUP BY 的查询示例：
@@ -435,8 +420,7 @@ GROUP BY 的正式语法为：
 
 目前，仅在查询设备孪生时才支持使用 GROUP BY 子句。
 
-## 表达式和条件
-<a id="expressions-and-conditions" class="xliff"></a>
+## <a name="expressions-and-conditions"></a>表达式和条件
 从较高层面讲，*表达式*可以：
 
 * 求值为 JSON 类型的实例（例如布尔值、数字、字符串、数组或对象），以及
@@ -483,8 +467,7 @@ GROUP BY 的正式语法为：
 | hexadecimal_literal |以字符串“0x”后接十六进制数字符串表示的数字。 |
 | string_literal |字符串文本是以零个或多个 Unicode 字符序列或转义符序列表示的 Unicode 字符串。 字符串文本括在单引号 (') 或双引号 (") 中。 允许的转义符：`\'`、`\"`、`\\`、`\uXXXX`（由 4 个十六进制数字定义的 Unicode 字符）。 |
 
-### 运算符
-<a id="operators" class="xliff"></a>
+### <a name="operators"></a>运算符
 支持以下运算符：
 
 | 系列 | 运算符 |
@@ -493,8 +476,7 @@ GROUP BY 的正式语法为：
 | 逻辑 |AND、OR、NOT |
 | 比较 |=、!=、<、>、<=、>=、<> |
 
-### 函数
-<a id="functions" class="xliff"></a>
+### <a name="functions"></a>函数
 查询克隆和作业时唯一受支持的函数是：
 
 | 函数 | 说明 |
@@ -542,8 +524,7 @@ GROUP BY 的正式语法为：
 | ENDS_WITH(x, y) | 返回一个布尔值，指示第一个字符串表达式是否以第二个字符串表达式结尾。 |
 | CONTAINS(x,y) | 返回一个布尔值，该值指示第一个字符串表达式是否包含第二个字符串表达式。 |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 了解如何使用 [Azure IoT SDK][lnk-hub-sdks]在应用中执行查询。
 
 [lnk-query-where]: ./iot-hub-devguide-query-language.md#where-clause

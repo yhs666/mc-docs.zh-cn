@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 在 Azure 中为 Always On 可用性组配置负载均衡器
-<a id="configure-a-load-balancer-for-an-always-on-availability-group-in-azure" class="xliff"></a>
+# <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>在 Azure 中为 Always On 可用性组配置负载均衡器
 本文说明如何在使用 Azure Resource Manager 运行的 Azure 虚拟机中为 SQL Server Always On 可用性组创建负载均衡器。 当 SQL Server 实例位于 Azure 虚拟机时，可用性组需要负载均衡器。 负载均衡器存储可用性组侦听器的 IP 地址。 如果可用性组跨多个区域，则每个区域都需要一个负载均衡器。
 
 若要完成此任务，需要在 Resource Manager 模型中的 Azure 虚拟机上部署 SQL Server 可用性组。 这两个 SQL Server 虚拟机必须属于同一个可用性集。 可以[手动配置可用性组](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)。
@@ -36,8 +35,7 @@ ms.lasthandoff: 06/23/2017
 
 执行本文中的每个步骤可以在 Azure 门户中创建和配置负载均衡器。 完成该过程后，将配置群集，以将负载均衡器中的 IP 地址用于可用性组侦听器。
 
-## 在 Azure 门户中创建并配置负载均衡器
-<a id="create-and-configure-the-load-balancer-in-the-azure-portal" class="xliff"></a>
+## <a name="create-and-configure-the-load-balancer-in-the-azure-portal"></a>在 Azure 门户中创建并配置负载均衡器
 在任务的这一部分，将执行以下步骤：
 
 1. 在 Azure 门户中创建负载均衡器并配置 IP 地址。
@@ -50,8 +48,7 @@ ms.lasthandoff: 06/23/2017
 > 
 > 
 
-### 步骤 1：创建负载均衡器并配置 IP 地址
-<a id="step-1-create-the-load-balancer-and-configure-the-ip-address" class="xliff"></a>
+### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>步骤 1：创建负载均衡器并配置 IP 地址
 首先，请创建负载均衡器。 
 
 1. 在 Azure 门户中，打开包含 SQL Server 虚拟机的资源组。 
@@ -80,8 +77,7 @@ ms.lasthandoff: 06/23/2017
 
 Azure 将创建负载均衡器。 该负载均衡器属于特定的网络、子网、资源组和位置。 在 Azure 完成任务后，请在 Azure 中验证负载均衡器设置。 
 
-### 步骤 2：配置后端池。
-<a id="step-2-configure-the-back-end-pool" class="xliff"></a>
+### <a name="step-2-configure-the-back-end-pool"></a>步骤 2：配置后端池。
 Azure 将后端地址池称作“后端池”。 在本例中，后端池是可用性组中两个 SQL Server 实例的地址。 
 
 1. 在资源组中，单击已创建的负载均衡器。 
@@ -102,8 +98,7 @@ Azure 将后端地址池称作“后端池”。 在本例中，后端池是可�
 
 Azure 将更新后端地址池的设置。 现在，可用性集有了一个池，其中包含两个 SQL Server 实例。
 
-### 步骤 3：创建探测
-<a id="step-3-create-a-probe" class="xliff"></a>
+### <a name="step-3-create-a-probe"></a>步骤 3：创建探测
 探测定义 Azure 如何确认哪一个 SQL Server 实例当前拥有可用性组侦听器。 Azure 根据创建探测时定义的端口上的 IP 地址来探测服务。
 
 1. 在负载均衡器的“设置”边栏选项卡上，单击“运行状况探测”。 
@@ -129,8 +124,7 @@ Azure 将更新后端地址池的设置。 现在，可用性集有了一个池�
 
 Azure 创建探测，然后使用它来测试哪个 SQL Server 实例具有可用性组的侦听器。
 
-### 步骤 4：设置负载均衡规则
-<a id="step-4-set-the-load-balancing-rules" class="xliff"></a>
+### <a name="step-4-set-the-load-balancing-rules"></a>步骤 4：设置负载均衡规则
 负载均衡规则设置负载均衡器将流量路由到 SQL Server 实例的方式。 对此负载均衡器，需要启用直接服务器返回，因为在两个 SQL Server 实例中，每次只有一个拥有可用性组侦听器资源。
 
 1. 在负载均衡器的“设置”边栏选项卡上，单击“负载均衡规则”。 
@@ -164,22 +158,19 @@ Azure 创建探测，然后使用它来测试哪个 SQL Server 实例具有可�
 > 
 > 
 
-## 将群集配置为使用负载均衡器 IP 地址
-<a id="configure-the-cluster-to-use-the-load-balancer-ip-address" class="xliff"></a>
+## <a name="configure-the-cluster-to-use-the-load-balancer-ip-address"></a>将群集配置为使用负载均衡器 IP 地址
 下一步是在群集上配置侦听器，然后将侦听器联机。 请执行以下操作： 
 
 1. 在故障转移群集上创建可用性组侦听器。 
 
 2. 使侦听器联机。
 
-### 步骤 5：在故障转移群集上创建可用性组侦听器
-<a id="step-5-create-the-availability-group-listener-on-the-failover-cluster" class="xliff"></a>
+### <a name="step-5-create-the-availability-group-listener-on-the-failover-cluster"></a>步骤 5：在故障转移群集上创建可用性组侦听器
 在此步骤中，你在故障转移群集管理器和 SQL Server Management Studio 中手动创建可用性组侦听器。
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
-### 验证侦听器的配置
-<a id="verify-the-configuration-of-the-listener" class="xliff"></a>
+### <a name="verify-the-configuration-of-the-listener"></a>验证侦听器的配置
 
 如果正确配置了群集资源和依赖项，应能够查看 SQL Server Management Studio 中的侦听器。 若要设置侦听器端口，请执行以下操作：
 
@@ -194,8 +185,7 @@ Azure 创建探测，然后使用它来测试哪个 SQL Server 实例具有可�
 
 现在，在 Resource Manager 模式下运行的 Azure 虚拟机中有了一个可用性组。 
 
-## 测试与侦听器的连接
-<a id="test-the-connection-to-the-listener" class="xliff"></a>
+## <a name="test-the-connection-to-the-listener"></a>测试与侦听器的连接
 若要测试连接，请执行以下操作：
 
 1. 通过 RDP 连接到同一虚拟网络中不拥有副本的 SQL Server 实例。 此服务可以是群集中的其他 SQL Server 实例。
@@ -206,8 +196,7 @@ Azure 创建探测，然后使用它来测试哪个 SQL Server 实例具有可�
 
 SQLCMD 连接将自动连接到托管主副本的 SQL Server 实例。 
 
-## 为其他可用性组创建一个 IP 地址
-<a id="create-an-ip-address-for-an-additional-availability-group" class="xliff"></a>
+## <a name="create-an-ip-address-for-an-additional-availability-group"></a>为其他可用性组创建一个 IP 地址
 
 每个可用性组使用单独的侦听器。 每个侦听器都有自己的 IP 地址。 使用同一个负载均衡器以保留其他侦听器的 IP 地址。 创建可用性组后，请将 IP 地址添加到负载均衡器，然后配置侦听器。
 
@@ -257,8 +246,7 @@ SQLCMD 连接将自动连接到托管主副本的 SQL Server 实例。
    |**空闲超时(分钟)** |默认值 (4)
    |**浮动 IP (直接服务器返回)** | Enabled
 
-### 将可用性组配置为使用新 IP 地址
-<a id="configure-the-availability-group-to-use-the-new-ip-address" class="xliff"></a>
+### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>将可用性组配置为使用新 IP 地址
 
 若要完成配置群集，请重复配置第一个可用性组时所遵照的步骤。 也就是说，[将群集配置为使用新 IP 地址](#configure-the-cluster-to-use-the-load-balancer-ip-address)。 
 
@@ -281,7 +269,6 @@ SQLCMD 连接将自动连接到托管主副本的 SQL Server 实例。
 
 将可用性组配置为使用新 IP 地址时，请配置到侦听器的连接。 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 - [在不同区域中的 Azure 虚拟机上创建 SQL Server AlwaysOn 可用性组](virtual-machines-windows-portal-sql-availability-group-dr.md)

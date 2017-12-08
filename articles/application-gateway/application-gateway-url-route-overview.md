@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 基于 URL 路径的路由概述
-<a id="url-path-based-routing-overview" class="xliff"></a>
+# <a name="url-path-based-routing-overview"></a>基于 URL 路径的路由概述
 
 基于 URL 路径的路由可让你根据请求的 URL 路径，将流量路由到后端服务器池。 
 
@@ -34,8 +33,7 @@ ms.lasthandoff: 06/23/2017
 
 对 http://contoso.com/video* 的请求会路由到 VideoServerPool，对 http://contoso.com/images* 的请求会路由到 ImageServerPool。 如果没有任何路径模式匹配，则选择 DefaultServerPool。
 
-## UrlPathMap 配置元素
-<a id="urlpathmap-configuration-element" class="xliff"></a>
+## <a name="urlpathmap-configuration-element"></a>UrlPathMap 配置元素
 
 urlPathMap 元素用于指定后端服务器池映射的路径模式。 以下代码示例是模板文件中 urlPathMap 元素的代码片段。
 
@@ -73,8 +71,7 @@ urlPathMap 元素用于指定后端服务器池映射的路径模式。 以下�
 
 有关详细信息，可以查看[使用基于 URL 的路由的 Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-application-gateway-url-path-based-routing)。
 
-## PathBasedRouting 规则
-<a id="pathbasedrouting-rule" class="xliff"></a>
+## <a name="pathbasedrouting-rule"></a>PathBasedRouting 规则
 
 PathBasedRouting 类型的 RequestRoutingRule 可用于将侦听器绑定到 urlPathMap。 此侦听器收到的所有请求将根据 urlPathMap 中指定的策略进行路由。
 PathBasedRouting 规则的代码片段：
@@ -99,7 +96,6 @@ PathBasedRouting 规则的代码片段：
 ]
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 了解基于 URL 的内容路由之后，请转到[使用基于 URL 的路由创建应用程序网关](application-gateway-create-url-route-portal.md)，使用 URL 路由规则创建应用程序网关。

@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-### 通过串行控制台进行连接
-<a id="to-connect-through-the-serial-console" class="xliff"></a>
+### <a name="to-connect-through-the-serial-console"></a>通过串行控制台进行连接
 
 1. 将串行电缆连接到设备（直接连接或通过 USB 串行适配器连接）。
 

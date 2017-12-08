@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 管理 Azure SQL 数据仓库中的计算能力 (T-SQL)
-<a id="manage-compute-power-in-azure-sql-data-warehouse-t-sql" class="xliff"></a>
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-t-sql"></a>管理 Azure SQL 数据仓库中的计算能力 (T-SQL)
 
 > [!div class="op_single_selector"]
 > * [概述](sql-data-warehouse-manage-compute-overview.md)

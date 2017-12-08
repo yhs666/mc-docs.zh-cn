@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 使用 Azure PowerShell 加密 Windows 虚拟机
-<a id="encrypt-a-windows-virtual-machine-with-azure-powershell" class="xliff"></a>
+# <a name="encrypt-a-windows-virtual-machine-with-azure-powershell"></a>使用 Azure PowerShell 加密 Windows 虚拟机
 
 此脚本创建安全的 Azure Key Vault、加密密钥、Azure Active Directory 服务主体和 Windows 虚拟机 (VM)。 然后使用 Key Vault 和服务主体凭据中的加密密钥对 VM 进行加密。
 
@@ -31,8 +30,7 @@ ms.lasthandoff: 06/30/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## 示例脚本
-<a id="sample-script" class="xliff"></a>
+## <a name="sample-script"></a>示例脚本
 
 ```powershell
 # Edit these global variables with you unique Key Vault name, resource group name and location
@@ -150,8 +148,7 @@ Set-AzureRmVMDiskEncryptionExtension `
 Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName $vmName
 ```
 
-## 清理部署
-<a id="clean-up-deployment" class="xliff"></a> 
+## <a name="clean-up-deployment"></a>清理部署 
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
@@ -159,8 +156,7 @@ Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName $vmName
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## 脚本说明
-<a id="script-explanation" class="xliff"></a>
+## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令创建部署。 表中的每一项均链接到特定于命令的文档。
 
@@ -185,8 +181,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 | [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) | 显示 VM 加密过程的状态。 |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组及其中包含的所有资源。 |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 

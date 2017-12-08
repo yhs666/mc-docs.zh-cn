@@ -22,12 +22,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/28/2017
 ---
-# Azure SQL 数据库中的临时表入门
-<a id="getting-started-with-temporal-tables-in-azure-sql-database" class="xliff"></a>
+# <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL 数据库中的临时表入门
 临时表是 Azure SQL 数据库中新的可编程功能，可用于跟踪和分析数据更改的完整历史记录，而无需编写自定义代码。 临时表保存与时间上下文密切相关的数据，因此，只有特定时段内的存储事实才会解译为有效。 利用临时表的这种属性，可执行基于时间的有效分析，并从数据演变中获得见解。
 
-## 临时表方案
-<a id="temporal-scenario" class="xliff"></a>
+## <a name="temporal-scenario"></a>临时表方案
 本文演示了在应用程序方案中使用临时表的步骤。 假设要跟踪从头开始开发的新网站上的用户活动，或要通过用户活动分析扩展的现有网站上的用户活动。 在这个简化的示例中，我们假设一段时间内浏览过的网页数是需要在托管于 Azure SQL 数据库上的网站数据库中捕获和监视的指标。 用户活动历史分析的目标是获取有关重新设计网站的意见，并为访客提供更好的体验。
 
 此方案的数据库模型非常简单 - 用户活动指标以一个整数字段 **PageVisited** 表示，并与用户配置文件中的基本信息一起捕获。 此外，对于基于时间的分析，需要为每个用户保留一系列的行，其中每行代表特定用户在特定时间段内访问过的网页数。
@@ -36,8 +34,7 @@ ms.lasthandoff: 06/28/2017
 
 幸运的是，无需对应用进行任何操作即可维护此活动信息。 可以使用临时表将过程自动化：使你在网站设计过程中保有完全的弹性并节省更多的时间，从而将重心放在数据分析本身。 唯一要做的事就是确保将 **WebSiteInfo** 表配置为[版本由系统控制的临时表](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0)。 下面描述了在此方案中使用临时表的确切步骤。
 
-## 步骤 1：将表配置为临时表
-<a id="step-1-configure-tables-as-temporal" class="xliff"></a>
+## <a name="step-1-configure-tables-as-temporal"></a>步骤 1：将表配置为临时表
 根据是要开始新的开发工作，还是升级现有的应用程序，可以创建临时表，或者通过添加临时属性来修改现有表。 一般情况下，用户方案可能混用了这两个选项。 使用 [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS)、[SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) 或其他任何 Transact-SQL 开发工具执行以下操作。
 
 > [!IMPORTANT]
@@ -45,8 +42,7 @@ ms.lasthandoff: 06/28/2017
 > 
 > 
 
-### 创建新表
-<a id="create-new-table" class="xliff"></a>
+### <a name="create-new-table"></a>创建新表
 在 SSMS 对象资源管理器中使用上下文菜单项“新建版本由系统控制的表”打开包含临时表模板脚本的查询编辑器，然后使用“指定模板参数的值”(Ctrl+Shift+M) 来填充模板：
 
 ![SSMSNewTable](./media/sql-database-temporal-tables/AzureTemporal2.png)
@@ -90,8 +86,7 @@ WITH (DROP_EXISTING = ON);
 
 ![AlterTable](./media/sql-database-temporal-tables/AzureTemporal4.png)
 
-### 将现有表更改为临时表
-<a id="alter-existing-table-to-temporal" class="xliff"></a>
+### <a name="alter-existing-table-to-temporal"></a>将现有表更改为临时表
 下面探讨替代方案，其中 WebsiteUserInfo 表已存在，但不是针对保留更改历史记录而设计的。 在这种情况下，只需将现有表扩展为临时表即可，如以下示例中所示：
 
 ````
@@ -112,8 +107,7 @@ ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
 ````
 
-## 步骤 2：定期运行工作负荷
-<a id="step-2-run-your-workload-regularly" class="xliff"></a>
+## <a name="step-2-run-your-workload-regularly"></a>步骤 2：定期运行工作负荷
 临时表的主要优点是，不需要以任何方式更改或调整网站就可以执行更改跟踪。 创建临时表后，每当对数据进行修改时，都将自动保存以前的行版本。 
 
 若要利用此特定方案的自动更改跟踪功能，只需在每次用户结束网站上的会话时更新列 **PagesVisited** ：
@@ -127,8 +121,7 @@ WHERE [UserID] = 1;
 
 ![TemporalArchitecture](./media/sql-database-temporal-tables/AzureTemporal5.png)
 
-## 步骤 3：执行历史数据分析
-<a id="step-3-perform-historical-data-analysis" class="xliff"></a>
+## <a name="step-3-perform-historical-data-analysis"></a>步骤 3：执行历史数据分析
 现在，当启用版本由系统控制的临时表时，只需一个查询就能执行历史数据分析。 本文将提供一些解决常见分析方案的示例 - 若要了解所有详细信息，请浏览随 [FOR SYSTEM_TIME](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) 子句一起引入的各种选项。
 
 若要查看按访问网页次数排序的前 10 个用户，请运行以下查询：
@@ -169,8 +162,7 @@ WHERE [UserID] = 1;
 
 ![TemporalGraph](./media/sql-database-temporal-tables/AzureTemporal6.png)
 
-## 不断演变的表架构
-<a id="evolving-table-schema" class="xliff"></a>
+## <a name="evolving-table-schema"></a>不断演变的表架构
 通常，开发应用时需要更改临时表架构。 为此，只需运行常规 ALTER TABLE 语句，Azure SQL 数据库就会正确传播历史记录表的更改。 以下脚本演示如何添加要跟踪的其他属性：
 
 ````
@@ -197,14 +189,12 @@ ALTER TABLE dbo.WebsiteUserInfo
 
 或者，在已连接到数据库（联机模式）或正在开发数据库项目（脱机模式）时，使用最新的 [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) 来更改临时表架构。
 
-## 控制历史数据的保留期
-<a id="controlling-retention-of-historical-data" class="xliff"></a>
+## <a name="controlling-retention-of-historical-data"></a>控制历史数据的保留期
 使用版本由系统控制的临时表时，历史记录表可能比常规表更容易增大数据库大小。 大型以及不断增长的历史记录表可能会成为一个问题，这不单单体现在存储成本的增加上，而且还会降低临时查询的性能。 因此，针对管理历史记录表中的数据制定一个数据保留策略，是规划和管理每个临时表的生命周期的一个重要方面。 使用 Azure SQL 数据库，可以通过以下方法来管理临时历史记录表中的历史数据：
 
 * [表分区](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
 * [自定义清理脚本](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关临时表的详细信息，请参阅 [MSDN 文档](https://msdn.microsoft.com/library/dn935015.aspx)。
 访问第 9 频道收听[客户实施临时表的真实成功案例](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)，观看[临时表现场演示](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)。

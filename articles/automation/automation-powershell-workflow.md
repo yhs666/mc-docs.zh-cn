@@ -21,20 +21,17 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 了解重要的适用于自动化 Runbook 的 Windows PowerShell 工作流概念
-<a id="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks" class="xliff"></a> 
+# <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解重要的适用于自动化 Runbook 的 Windows PowerShell 工作流概念 
 Azure 自动化中的 Runbook 作为 Windows PowerShell 工作流实现。  Windows PowerShell 工作流类似于 Windows PowerShell 脚本，但包括一些可能会让新用户产生混淆的重大差异。  本文适用于已经熟悉 PowerShell 的用户，如果要将 PowerShell 脚本转换为 PowerShell 工作流以便在 Runbook 中使用，需要了解本文简要介绍的概念。  
 
 工作流是一系列编程的连接步骤，用于执行长时间运行的任务，或者要求跨多个设备或托管节点协调多个步骤。 与标准脚本相比，工作流的优点有：能够针对多台设备同时执行操作，并且能够从故障自动恢复。 Windows PowerShell 工作流是使用 Windows Workflow Foundation 的 Windows PowerShell 脚本。 尽管工作流采用 Windows PowerShell 语法编写并通过 Windows PowerShell 启动，但由 Windows Workflow Foundation 对其进行处理。
 
 有关本文中主题的完整详细信息，请参阅 [Windows PowerShell 工作流简介](http://technet.microsoft.com/library/jj134242.aspx)。
 
-## Runbook 类型
-<a id="types-of-runbook" class="xliff"></a>
+## <a name="types-of-runbook"></a>Runbook 类型
 Azure 中国目前仅支持文本 PowerShell 工作流 Runbook。
 
-## 工作流的基本结构
-<a id="basic-structure-of-a-workflow" class="xliff"></a>
+## <a name="basic-structure-of-a-workflow"></a>工作流的基本结构
 将 PowerShell 脚本转换为 PowerShell 工作流的第一步是使用 **Workflow** 关键字将其括起来。  工作流以 **Workflow** 关键字开头，后接括在大括号中的脚本正文。 工作流名称跟在 **Workflow** 关键字之后，如以下语法中所示：
 
     Workflow Test-Workflow
@@ -46,18 +43,15 @@ Azure 中国目前仅支持文本 PowerShell 工作流 Runbook。
 
 若要将参数添加到工作流，请使用 **Param** 关键字，与使用脚本时相同。
 
-## 代码更改
-<a id="code-changes" class="xliff"></a>
+## <a name="code-changes"></a>代码更改
 除了几个重大更改以外，PowerShell 工作流代码看起来几乎与 PowerShell 脚本代码完全相同。  以下各部分介绍要使 PowerShell 脚本能够在工作流中运行所需进行的更改。
 
-### 活动
-<a id="activities" class="xliff"></a>
+### <a name="activities"></a>活动
 活动是工作流中的特定任务。 就像脚本由一个或多个命令构成一样，工作流由一个或多个按顺序执行的活动构成。 Windows PowerShell 工作流在运行工作流时，会将许多 Windows PowerShell cmdlet 自动转换为活动。 在 Runbook 中指定其中的某个 cmdlet 时，相应的活动由 Windows Workflow Foundation 运行。 对于这些没有相应活动的 cmdlet，Windows PowerShell 工作流将自动在 [InlineScript](#inlinescript) 活动中运行该 cmdlet。 有一组 cmdlet 已被排除，不能包含在工作流中，除非显式将它们包含在 InlineScript 块中。 有关这些概念的更多详细信息，请参阅[在脚本工作流中使用活动](http://technet.microsoft.com/library/jj574194.aspx)。
 
 工作流活动共享一组公用参数来配置其操作。 有关工作流通用参数的详细信息，请参阅 [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx)。
 
-### 位置参数
-<a id="positional-parameters" class="xliff"></a>
+### <a name="positional-parameters"></a>位置参数
 无法针对工作流中的活动和 cmdlet 使用位置参数。  这意味着必须使用参数名称。
 
 例如，请注意下面的代码，用于获取所有正在运行的服务。
@@ -71,8 +65,7 @@ Azure 中国目前仅支持文本 PowerShell 工作流 Runbook。
         Get-Service | Where-Object -FilterScript {$_.Status -eq "Running"}
     }
 
-### 反序列化的对象
-<a id="deserialized-objects" class="xliff"></a>
+### <a name="deserialized-objects"></a>反序列化的对象
 工作流中的对象已反序列化。  这意味着其属性仍然可用，但其方法将不再可用。  例如，请注意以下 PowerShell 代码，使用服务对象的 Stop 方法停止一项服务。
 
     $Service = Get-Service -Name MyService
@@ -98,8 +91,7 @@ Azure 中国目前仅支持文本 PowerShell 工作流 Runbook。
         Stop-Service -Name $Service.Name
     }
 
-## InlineScript
-<a id="inlinescript" class="xliff"></a>
+## <a name="inlinescript"></a>InlineScript
 当您需要将一个或多个命令作为传统的 PowerShell 脚本而不是 PowerShell 工作流运行时， **InlineScript** 活动非常有用。  尽管工作流中的命令将发送到 Windows Workflow Foundation 进行处理，但 InlineScript 块中的命令将由 Windows PowerShell 处理。
 
 InlineScript 使用如下所示的语法。
@@ -145,8 +137,7 @@ InlineScript 使用如下所示的语法。
 
 有关使用 InlineScript 的详细信息，请参阅[在工作流中运行 Windows PowerShell 命令](http://technet.microsoft.com/library/jj574197.aspx)和 [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx)。
 
-## 并行处理
-<a id="parallel-processing" class="xliff"></a>
+## <a name="parallel-processing"></a>并行处理
 Windows PowerShell 工作流的一个优点是能够与典型脚本一样并行而不是按顺序执行一组命令。
 
 可以使用 **Parallel** 关键字创建包含将同时运行的多个命令的脚本块。 此脚本块使用如下所示的语法。 在此示例中，Activity1 和 Activity2 将同时启动。 只有在 Activity1 和 Activity2 完成后，Activity3 才会启动。
@@ -206,8 +197,7 @@ Windows PowerShell 工作流的一个优点是能够与典型脚本一样并行�
 > 我们不建议并行运行子 Runbook，这是由于这已被证实将导致不可靠的结果。  子 Runbook 的输出有时不显示，一个子 Runbook 中的设置可能会影响其他并行子 Runbook
 >
 
-## 检查点
-<a id="checkpoints" class="xliff"></a>
+## <a name="checkpoints"></a>检查点
 “检查点”是工作流当前状态的快照，其中包括变量的当前值以及到该点为止生成的任何输出。 如果工作流以错误结束或暂停，则其下次运行时将从其上一个检查点开始，而不是从工作流的起点开始。  您可以使用 **Checkpoint-Workflow** 活动在工作流中设置一个检查点。
 
 在以下示例代码中，Activity2 后发生的异常导致工作流结束。 当工作流再次运行时，它会通过运行 Activity2 来启动，因为此活动刚好在设置的上一个检查点之后。
@@ -266,6 +256,5 @@ Windows PowerShell 工作流的一个优点是能够与典型脚本一样并行�
 
 关于检查点的详细信息，请参阅[向脚本工作流添加检查点](http://technet.microsoft.com/library/jj574114.aspx)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 若要开始使用 PowerShell 工作流 Runbook，请参阅[我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)

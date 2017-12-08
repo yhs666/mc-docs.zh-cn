@@ -21,16 +21,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# Azure 自动化集成模块
-<a id="azure-automation-integration-modules" class="xliff"></a>
+# <a name="azure-automation-integration-modules"></a>Azure 自动化集成模块
 PowerShell 是 Azure 自动化背后的基本技术。 由于 Azure 自动化是基于 PowerShell 构建的，因此 PowerShell 模块对于 Azure 自动化的可扩展性很重要。 在本文中，我们将向你详细介绍 Azure 自动化如何使用 PowerShell 模块（也称“集成模块”），以及如何根据最佳实践创建你自己的 PowerShell 模块，确保这些模块在 Azure 自动化中作为集成模块来运行。 
 
-## 什么是 PowerShell 模块？
-<a id="what-is-a-powershell-module" class="xliff"></a>
+## <a name="what-is-a-powershell-module"></a>什么是 PowerShell 模块？
 PowerShell 模块是指一组可以通过 PowerShell 控制台、脚本、工作流、Runbook 使用的 PowerShell cmdlet（例如 **Get-Date** 或 **Copy-Item**），以及可以通过 PowerShell DSC 配置使用的 PowerShell DSC 资源（例如 WindowsFeature 或文件）。 PowerShell 的所有功能都是通过 cmdlet 和 DSC 资源公开的，所有 cmdlet/DSC 资源都受 PowerShell 模块支持，许多模块是 PowerShell 自带的。 例如，**Get-Date** cmdlet 属于 Microsoft.PowerShell.Utility PowerShell 模块，**Copy-Item** cmdlet 属于 Microsoft.PowerShell.Management PowerShell 模块，Package DSC 资源属于 PSDesiredStateConfiguration PowerShell 模块。 这些模块都是 PowerShell 附带的。 但是，许多 PowerShell 模块不是 PowerShell 附带的，而是通过第一方或第三方产品（例如 System Center 2012 Configuration Manager）分发的，或者由广大的 PowerShell 社区在 PowerShell 库这样的地方分发的。  这些模块很有用，因为模块可以通过封装的功能简化复杂的任务。  你可以 [在 MSDN 上详细了解 PowerShell 模块](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx)。 
 
-## 什么是 Azure 自动化集成模块？
-<a id="what-is-an-azure-automation-integration-module" class="xliff"></a>
+## <a name="what-is-an-azure-automation-integration-module"></a>什么是 Azure 自动化集成模块？
 集成模块与 PowerShell 模块并没有很大的不同。 集成模块就是 PowerShell 模块，只是选择性地包含了另一个文件 - 元数据文件，该文件指定的 Azure 自动化连接类型需要在 Runbook 中用于模块的 cmdlet。 不管是否为选择性文件，这些 PowerShell 模块均可导入到 Azure 自动化中，这样其 cmdlet 就可以在 Runbook 中使用，其 DSC 资源就可以在 DSC 配置中使用。 Azure 自动化在后台存储这些模块，在执行 Runbook 作业和 DSC 编译作业时将其载入 Azure 自动化沙盒中，并在其中执行 Runbook 以及编译 DSC 配置。  此外还会自动将模块中的任何 DSC 资源放置在自动化 DSC 拉取服务器上，供那些尝试应用 DSC 配置的计算机拉取。  
 
 我们在 Azure 自动化中为用户附送许多现成的 Azure PowerShell 模块，以便用户能够立刻使用这些模块进行 Azure 自动化管理，但用户也可以地导入 PowerShell 模块，不管要集成的系统、服务或工具是什么。 
@@ -70,8 +67,7 @@ PowerShell 模块是指一组可以通过 PowerShell 控制台、脚本、工作
 
 如果你已经部署过 Service Management Automation 并为你的自动化 Runbook 创建过集成模块包，则你应当非常熟悉该模板。 
 
-## 创作最佳做法
-<a id="authoring-best-practices" class="xliff"></a>
+## <a name="authoring-best-practices"></a>创作最佳做法
 虽然集成模块本质上是 PowerShell 模块，但建议在进行 PowerShell 模块的创作时注意某些事项，尽量提高其在 Azure 自动化中的可用性。 其中一些事项是特定于 Azure 自动化的，而另一些事项在得到妥当处理后可以提高模块在 PowerShell 工作流中的运行效率，与自动化的使用无关。 
 
 1. 在模块中为每个 cmdlet 提供摘要、说明和帮助 URI。 可以在 PowerShell 中为 cmdlet 定义特定的帮助信息，使用户可以通过 **Get-Help** cmdlet 获取这些 cmdlet 的使用帮助。 例如，下面说明了如何为 .psm1 文件中编写的 PowerShell 模块定义摘要和帮助 URI。<br>  
@@ -213,8 +209,7 @@ PowerShell 模块是指一组可以通过 PowerShell 控制台、脚本、工作
     <br>
 6. 该模块应完全包含在能够进行 Xcopy 操作的包中。 Azure 自动化模块是在需要执行 Runbook 时分发到自动化沙盒中的，因此在使用时需独立于运行时所在的主机。 这意味着，你应该可以在压缩模块包后将其移到任何其他使用相同 PowerShell 版本或更新版本的主机上，并将其导入该主机的 PowerShell 环境中，然后就能正常地运行该模块包了。 因此，该模块不应依赖于模块文件夹（即导入到 Azure 自动化中时需要进行压缩的文件夹）外的任何文件，也不应依赖于主机上任何特殊的注册表设置，例如在安装产品时进行的设置。 如果不遵循此最佳做法，将无法在 Azure 自动化中使用该模块。  
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 * 若要开始使用 PowerShell 工作流 Runbook，请参阅 [我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)
 * 若要详细了解如何创建 PowerShell 模块，请参阅 [编写 Windows PowerShell 模块](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)

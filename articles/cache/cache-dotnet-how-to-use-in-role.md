@@ -17,8 +17,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 如何使用 Azure 缓存的角色中缓存
-<a id="how-to-use-in-role-cache-for-azure-cache" class="xliff"></a>
+# <a name="how-to-use-in-role-cache-for-azure-cache"></a>如何使用 Azure 缓存的角色中缓存
 
 本指南说明了如何开始使用 **Azure 缓存的角色中缓存**。 示例是用 C\# 代码编写的且使用了 .NET API。 涉及的应用场景包括**配置缓存群集**、**配置缓存客户端**、**在缓存中添加和删除对象、在缓存中存储 ASP.NET 会话状态**以及**使用缓存启用 ASP.NET 页面输出缓存**。 有关使用角色中缓存的详细信息，请参阅[后续步骤][]部分。
 
@@ -26,8 +25,7 @@ ms.lasthandoff: 06/21/2017
 > 有关为应用程序选择正确的 Azure 缓存产品的指导，请参阅[哪种 Azure 缓存产品适合我？][]
 
 <a name="what-is"></a>
-## 什么是角色中缓存？
-<a id="what-is-in-role-cache" class="xliff"></a>
+## <a name="what-is-in-role-cache"></a>什么是角色中缓存？
 
 角色中缓存为你的 Azure 应用程序提供了一个缓存层。 缓存通过将来自其他后端源的信息暂时存储在内存中来提高性能，并且可以降低云中与数据库事务相关的成本。 角色中缓存包含以下功能：
 
@@ -61,8 +59,7 @@ ms.lasthandoff: 06/21/2017
 本指南提供了角色中缓存的入门概述。 有关超出本入门指南范围的那些功能的更多详细信息，请参阅[角色中缓存概述][]。
 
 <a name="getting-started-cache-role-instance"></a>
-## 角色中缓存入门
-<a id="getting-started-with-in-role-cache" class="xliff"></a>
+## <a name="getting-started-with-in-role-cache"></a>角色中缓存入门
 
 角色中缓存提供了一种使用托管角色实例的虚拟机上的内存来进行缓存的方法。 托管缓存的角色实例称为**缓存群集**。 有两种部署拓扑可用于角色实例中的缓存：
 
@@ -75,8 +72,7 @@ ms.lasthandoff: 06/21/2017
 - [配置缓存客户端][]
 
 <a name="enable-caching"></a>
-## 配置缓存群集
-<a id="configure-the-cache-cluster" class="xliff"></a>
+## <a name="configure-the-cache-cluster"></a>配置缓存群集
 
 若要配置**并置角色**缓存群集，请选择希望在其中托管缓存群集的角色。 在“解决方案资源管理器”中，右键单击角色属性，然后选择“属性”。
 
@@ -126,8 +122,7 @@ VM 大小的总内存如下：
 在配置缓存群集后，可以配置缓存客户端以允许访问缓存。
 
 <a name="NuGet"></a>
-## 配置缓存客户端
-<a id="configure-the-cache-clients" class="xliff"></a>
+## <a name="configure-the-cache-clients"></a>配置缓存客户端
 
 若要访问角色中缓存，客户端必须位于同一部署中。 如果缓存群集是专用角色缓存群集，则客户端是部署中的其他角色。 如果缓存群集是并置角色缓存群集，则客户端可以是部署中的其他角色或托管缓存群集的角色本身。 提供了 NuGet 包，它可用于配置访问缓存的每个客户端角色。 若要使用 Caching NuGet 包配置角色以访问缓存群集，请在“解决方案资源管理器”中右键单击角色项目，然后选择“管理 NuGet 包”。 
 
@@ -210,8 +205,7 @@ NuGet 包还添加了对以下程序集的引用：
 配置客户端项目的缓存后，就可以使用以下各节中介绍的方法来使用缓存。
 
 <a name="working-with-caches"></a>
-## 使用缓存
-<a id="working-with-caches" class="xliff"></a>
+## <a name="working-with-caches"></a>使用缓存
 
 本节中的步骤介绍了如何使用缓存执行常见任务。
 
@@ -222,8 +216,7 @@ NuGet 包还添加了对以下程序集的引用：
 -   [如何在缓存中存储 ASP.NET 页面输出缓存][]
 
 <a name="create-cache-object"></a>
-## 如何创建 DataCache 对象
-<a id="how-to-create-a-datacache-object" class="xliff"></a>
+## <a name="how-to-create-a-datacache-object"></a>如何创建 DataCache 对象
 
 若要以编程方式使用缓存，你需要引用该缓存。 将以下代码添加到要从中使用角色中缓存的任何文件的顶部：
 
@@ -252,8 +245,7 @@ DataCache cache = cacheFactory.GetDefaultCache();
 ```
 
 <a name="add-object"></a>
-## 如何在缓存中添加和检索对象
-<a id="how-to-add-and-retrieve-an-object-from-the-cache" class="xliff"></a>
+## <a name="how-to-add-and-retrieve-an-object-from-the-cache"></a>如何在缓存中添加和检索对象
 
 若要向缓存中添加项，可以使用 **Add** 或 **Put** 方法。 **Add** 方法将指定的对象添加到缓存中，并按键参数的值进行键控。
 
@@ -293,8 +285,7 @@ cache.Put("item", "value");
 ```
 
 <a name="specify-expiration"></a>
-## 如何指定缓存中对象的有效期
-<a id="how-to-specify-the-expiration-of-an-object-in-the-cache" class="xliff"></a>
+## <a name="how-to-specify-the-expiration-of-an-object-in-the-cache"></a>如何指定缓存中对象的有效期
 
 默认情况下，缓存中的项在放入缓存中 10 分钟后到期。 这可在托管缓存群集的角色的角色属性中的“生存时间(分钟)”设置中进行配置。
 
@@ -320,8 +311,7 @@ TimeSpan timeRemaining = item.Timeout;
 ```
 
 <a name="store-session"></a>
-## 如何在缓存中存储 ASP.NET 会话状态
-<a id="how-to-store-aspnet-session-state-in-the-cache" class="xliff"></a>
+## <a name="how-to-store-aspnet-session-state-in-the-cache"></a>如何在缓存中存储 ASP.NET 会话状态
 
 用于角色中缓存的会话状态提供程序是用于 ASP.NET 应用程序的进程外存储机制。 此提供程序允许你将会话状态存储在 Azure 缓存中而非内存或 SQL Server 数据库中。 若要使用缓存会话状态提供程序，请首先配置缓存群集，然后使用 Caching NuGet 包配置用于缓存的 ASP.NET 应用程序，如[角色中缓存入门][]中所述。 在安装 Caching NuGet 包时，它会在 web.config 中添加一个包含 ASP.NET 应用程序所需配置的注释掉的节，以使用用于角色中缓存的会话状态提供程序。
 
@@ -347,8 +337,7 @@ TimeSpan timeRemaining = item.Timeout;
 有关使用缓存服务会话状态提供程序的详细信息，请参阅[用于角色中缓存的会话状态提供程序][]。
 
 <a name="store-page"></a>
-## 如何在缓存中存储 ASP.NET 页面输出缓存
-<a id="how-to-store-aspnet-page-output-caching-in-the-cache" class="xliff"></a>
+## <a name="how-to-store-aspnet-page-output-caching-in-the-cache"></a>如何在缓存中存储 ASP.NET 页面输出缓存
 
 用于角色中缓存的输出缓存提供程序是适用于输出缓存数据的进程外存储机制。 此数据专门用于完整 HTTP 响应（页面输出缓存）。 此提供程序会插入 ASP.NET 4 中引入的新输出缓存提供程序扩展点。 若要使用输出缓存提供程序，请首先配置缓存群集，然后使用 Caching NuGet 包配置用于缓存的 ASP.NET 应用程序，如[角色中缓存入门][]中所述。 在安装 Caching NuGet 包时，它会在 web.config 中添加以下包含 ASP.NET 应用程序所需配置的注释掉的节，以使用用于角色中缓存的输出缓存提供程序。
 
@@ -382,8 +371,7 @@ TimeSpan timeRemaining = item.Timeout;
 有关使用用于角色中缓存的输出缓存提供程序的详细信息，请参阅[用于角色中缓存的输出缓存提供程序][]。
 
 <a name="next-steps"></a>
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 现在，你已了解角色中缓存的基础知识，单击下面的链接可了解如何执行更复杂的缓存任务。
 

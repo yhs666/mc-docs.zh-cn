@@ -22,18 +22,15 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 用于应用程序身份验证的证书凭据
-<a id="certificate-credentials-for-application-authentication" class="xliff"></a>
+# <a name="certificate-credentials-for-application-authentication"></a>用于应用程序身份验证的证书凭据
 
 Azure Active Directory 允许应用程序使用自身的凭据进行身份验证（例如，在 OAuth 2.0 客户端凭据授予流和代理流中）。
 可以使用的凭据格式之一是使用应用程序拥有的证书签名的 JSON Web 令牌 (JWT) 断言。
 
-## 断言的格式
-<a id="format-of-the-assertion" class="xliff"></a>
+## <a name="format-of-the-assertion"></a>断言的格式
 若要计算断言，需使用选择的语言中的其中一个 [JSON Web 令牌](https://jwt.io/)库。 令牌附带的信息包括：
 
-#### 标头
-<a id="header" class="xliff"></a>
+#### <a name="header"></a>标头
 
 | 参数 |  备注 |
 | --- | --- | --- |
@@ -41,8 +38,7 @@ Azure Active Directory 允许应用程序使用自身的凭据进行身份验证
 | `typ` | 应为 **JWT** |
 | `x5t` | 应为 X.509 证书 SHA-1 指纹 |
 
-#### 声明（有效负载）
-<a id="claims-payload" class="xliff"></a>
+#### <a name="claims-payload"></a>声明（有效负载）
 
 | 参数 |  备注 |
 | --- | --- | --- |
@@ -53,12 +49,10 @@ Azure Active Directory 允许应用程序使用自身的凭据进行身份验证
 | `nbf` | 生效时间：此日期之前不能使用令牌 该时间表示为自 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 至令牌颁发时间的秒数。 |
 | `sub` | 使用者：`iss` 应为 client_id（客户端服务的应用程序 ID） |
 
-#### 签名
-<a id="signature" class="xliff"></a>
+#### <a name="signature"></a>签名
 使用证书计算签名，如 [JSON Web 令牌 RFC7519 规范](https://tools.ietf.org/html/rfc7519)中所述
 
-### 已解码的 JWT 断言示例
-<a id="example-of-a-decoded-jwt-assertion" class="xliff"></a>
+### <a name="example-of-a-decoded-jwt-assertion"></a>已解码的 JWT 断言示例
 ```
 {
   "alg": "RS256",
@@ -79,8 +73,7 @@ Azure Active Directory 允许应用程序使用自身的凭据进行身份验证
 
 ```
 
-### 已编码的 JWT 断言示例
-<a id="example-of-an-encoded-jwt-assertion" class="xliff"></a>
+### <a name="example-of-an-encoded-jwt-assertion"></a>已编码的 JWT 断言示例
 以下字符串是已编码的断言的示例。 仔细查看会发现由句点 (.) 分隔的三部分。
 第一部分编码标头，第二部分编码有效负载，最后一部分是使用前两部分内容中的证书进行计算的签名。
 ```
@@ -88,8 +81,7 @@ Azure Active Directory 允许应用程序使用自身的凭据进行身份验证
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
-### 向 Azure AD 注册证书
-<a id="register-your-certificate-with-azure-ad" class="xliff"></a>
+### <a name="register-your-certificate-with-azure-ad"></a>向 Azure AD 注册证书
 若要将 Azure AD 中的证书凭据与客户端应用程序相关联，则需要编辑应用程序清单。
 拥有证书后需计算：
 - `$base64Thumbprint`，证书哈希的 base64 编码

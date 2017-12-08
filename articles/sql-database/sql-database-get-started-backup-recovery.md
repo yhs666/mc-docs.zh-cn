@@ -71,8 +71,7 @@ Heading must use an industry standard term. If your feature is a proprietary nam
 
 -------------------->
 
-# 开始使用备份和还原进行数据保护和恢复
-<a id="get-started-with-backup-and-restore-for-data-protection-and-recovery" class="xliff"></a>
+# <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery"></a>开始使用备份和还原进行数据保护和恢复
 
 <!------------------
     GUIDELINES for introduction
@@ -99,8 +98,7 @@ Sentence #2 Explains what users will learn and the benefit.
 
 用时估计：完成本教程大约需要 30 分钟（假设满足先决条件）。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 
 * 需要一个 Azure 帐户。 可以[申请 Azure 1 元试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。 
 
@@ -114,8 +112,7 @@ Sentence #2 Explains what users will learn and the benefit.
 >
 -------------------->
 
-## 使用现有帐户登录
-<a id="sign-in-by-using-your-existing-account" class="xliff"></a>
+## <a name="sign-in-by-using-your-existing-account"></a>使用现有帐户登录
 使用 [现有订阅](https://account.windowsazure.cn/Home/Index)，按照以下步骤连接到 Azure 门户。
 
 1. 打开所选浏览器并连接到 [Azure 门户](https://portal.azure.cn/)。
@@ -126,8 +123,7 @@ Sentence #2 Explains what users will learn and the benefit.
 
 <a name="create-logical-server-bk"></a>
 
-## 查看服务生成的数据库备份的最早还原点
-<a id="view-the-oldest-restore-point-from-the-service-generated-backups-of-a-database" class="xliff"></a>
+## <a name="view-the-oldest-restore-point-from-the-service-generated-backups-of-a-database"></a>查看服务生成的数据库备份的最早还原点
 
 在教程的本部分中，从数据库的[服务生成的自动备份](./sql-database-automated-backups.md)中查看有关最早还原点的信息。 
 
@@ -143,8 +139,7 @@ Sentence #2 Explains what users will learn and the benefit.
 
     ![最早还原点](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
 
-## 将数据库还原到以前的时间点
-<a id="restore-a-database-to-a-previous-point-in-time" class="xliff"></a>
+## <a name="restore-a-database-to-a-previous-point-in-time"></a>将数据库还原到以前的时间点
 
 在本教程的此部分，需将数据库还原到特定时间点的新数据库。
 
@@ -183,8 +178,7 @@ Sentence #2 Explains what users will learn and the benefit.
    >
 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 - 若要了解服务生成的自动备份，请参阅[自动备份](./sql-database-automated-backups.md)
 - 若要了解如何从备份中还原，请参阅[从备份中还原](./sql-database-recovery-using-backups.md)

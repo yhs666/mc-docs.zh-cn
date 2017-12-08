@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Bottle 和 Azure 表存储
-<a id="bottle-and-azure-table-storage-on-azure-with-python-tools-22-for-visual-studio" class="xliff"></a>
+# <a name="bottle-and-azure-table-storage-on-azure-with-python-tools-22-for-visual-studio"></a>具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Bottle 和 Azure 表存储
 在本教程中，我们将使用 [Python Tools for Visual Studio] 通过一个 PTVS 样本模板创建简单的轮询 Web 应用。
 
 轮询 Web 应用是对存储库的抽象界定，因此可以轻松地在不同类型的存储库（内存、Azure 表存储、MongoDB）之间进行切换。
@@ -31,8 +30,7 @@ ms.lasthandoff: 06/30/2017
 
 请访问 [Python 开发人员中心] ，查看更多有关使用 PTVS 以及 Bottle、Flask 和 Django Web 框架、MongoDB、Azure 表存储、MySQL、SQL 数据库服务开发 Azure 应用服务 Web 应用的文章。 虽然本文将着重介绍应用服务，但步骤与 [Azure 云服务]的开发步骤类似。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 * Visual Studio 2015
 * [Python Tools 2.2 for Visual Studio]
 * [Python Tools 2.2 for Visual Studio 示例 VSIX]
@@ -41,8 +39,7 @@ ms.lasthandoff: 06/30/2017
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## 创建项目
-<a id="create-the-project" class="xliff"></a>
+## <a name="create-the-project"></a>创建项目
 在此部分中，我们将使用样本模板创建 Visual Studio 项目。 我们将创建虚拟环境并安装所需软件包。 然后，我们将使用默认内存中存储库在本地运行应用程序。
 
 1. 在 Visual Studio 中，选择“文件”“新建项目”。
@@ -60,8 +57,7 @@ ms.lasthandoff: 06/30/2017
 
      ![Web 浏览器](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleInMemoryBrowser.png)
 
-## 创建 Azure 存储帐户
-<a id="create-an-azure-storage-account" class="xliff"></a>
+## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 要使用存储操作，你需要一个 Azure 存储帐户。 可通过以下步骤创建存储帐户。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
@@ -76,8 +72,7 @@ ms.lasthandoff: 06/30/2017
 
     我们将需要使用此信息在下一部分中配置您的项目。
 
-## 配置项目
-<a id="configure-the-project" class="xliff"></a>
+## <a name="configure-the-project"></a>配置项目
 在此部分中，我们将配置应用程序以使用我们刚刚创建的存储帐户。 然后我们将在本地运行应用程序。
 
 1. 在 Visual Studio 中，右键单击 Solution Explorer 中的项目节点，然后选择 **属性**。 单击“调试”  选项卡。
@@ -103,8 +98,7 @@ ms.lasthandoff: 06/30/2017
 
      ![Web 浏览器](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleAzureTableStorageAbout.png)
 
-## 了解 Azure 表存储
-<a id="explore-the-azure-table-storage" class="xliff"></a>
+## <a name="explore-the-azure-table-storage"></a>了解 Azure 表存储
 使用 Visual Studio 中的云资源管理器可以轻松查看和编辑存储表。 本部分中，我们将使用 Server Explorer 查看轮询应用程序表的内容。
 
 > [!NOTE]
@@ -119,8 +113,7 @@ ms.lasthandoff: 06/30/2017
 
      ![表查询结果](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorerTable.png)
 
-## 将 Web 应用发布到 Azure 应用服务
-<a id="publish-the-web-app-to-azure-app-service" class="xliff"></a>
+## <a name="publish-the-web-app-to-azure-app-service"></a>将 Web 应用发布到 Azure 应用服务
 借助 Azure.NET SDK，您可以轻松地将 Web 应用部署到 Azure 应用服务中。
 
 1. 在“解决方案资源管理器”中，右键单击项目节点，然后选择“发布”。
@@ -140,8 +133,7 @@ ms.lasthandoff: 06/30/2017
 
    这是因为未在 Azure 应用服务的 Web 应用实例上设置环境变量，因此它使用的是 **settings.py** 中指定的默认值。
 
-## 配置 Web 应用实例
-<a id="configure-the-web-apps-instance" class="xliff"></a>
+## <a name="configure-the-web-apps-instance"></a>配置 Web 应用实例
 在此部分中，我们将配置 Web 应用实例的环境变量。
 
 1. 在 [Azure 门户]中，单击“浏览” > “应用服务”> Web 应用名称，打开 Web 应用的边栏选项卡。
@@ -156,8 +148,7 @@ ms.lasthandoff: 06/30/2017
 
      ![Web 浏览器](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleAzureBrowser.png)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 请按照下面的链接以了解有关 Python Tools for Visual Studio、 Bottle 和 Azure 表存储的更多信息。
 
 * [Python Tools for Visual Studio 文档]
@@ -169,8 +160,7 @@ ms.lasthandoff: 06/30/2017
 * [Azure SDK for Python]
 * [如何从 Python 使用表存储服务]
 
-## 发生的更改
-<a id="whats-changed" class="xliff"></a>
+## <a name="whats-changed"></a>发生的更改
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!--Link references-->

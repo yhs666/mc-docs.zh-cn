@@ -22,12 +22,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 开发适用于 Azure Active Directory 的业务线应用
-<a id="develop-line-of-business-apps-for-azure-active-directory" class="xliff"></a>
+# <a name="develop-line-of-business-apps-for-azure-active-directory"></a>开发适用于 Azure Active Directory 的业务线应用
 本指南提供开发用于 Azure Active Directory (AD) 的业务线 (LoB) 应用程序的概述，目标受众为 Active Directory/Office 365 全局管理员。
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 构建集成 Azure AD 的应用程序可让组织的用户使用 Office 365 进行单一登录。 将应用程序置于 Azure AD 中即可控制应用程序的身份验证策略。
 
 注册应用程序以使用 Azure Active Directory。 注册应用程序意味着开发人员可以使用 Azure AD 对用户进行身份验证并请求访问用户资源（如电子邮件、日历和文档）。
@@ -59,8 +57,7 @@ ms.lasthandoff: 06/23/2017
 - 将应用配置为要求用户分配，并分配用户
 - 抑制默认的用户同意体验
 
-## 将应用配置为要求用户分配，并分配用户
-<a id="configure-the-app-to-require-user-assignment-and-assign-users" class="xliff"></a>
+## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>将应用配置为要求用户分配，并分配用户
 默认情况下，用户无需分配即可访问应用程序。 不过，如果应用程序公开角色或者你希望应用程序显示在用户的访问面板上，则应该要求用户分配。
 
 [要求进行用户分配](./active-directory-applications-guiding-developers-requiring-user-assignment.md)
@@ -69,13 +66,11 @@ ms.lasthandoff: 06/23/2017
 
 [将用户分配到应用程序](./active-directory-applications-guiding-developers-assigning-users.md)  
 
-## 抑制用户同意
-<a id="suppress-user-consent" class="xliff"></a>
+## <a name="suppress-user-consent"></a>抑制用户同意
 默认情况下，每个用户通过同意体验进行登录。 对于不太熟悉如何做出此类决定的用户而言，同意体验（要求用户授予对应用程序的权限）可能会令其不安。
 
 对于你信任的应用程序，可以代表组织来同意应用程序，以简化用户体验。
 
-## 相关文章
-<a id="related-articles" class="xliff"></a>
+## <a name="related-articles"></a>相关文章
 - [使用 Azure AD 管理对应用的访问](./active-directory-managing-access-to-apps.md)
 - [有关 Azure Active Directory 中应用程序管理的文章索引](./active-directory-apps-index.md)

@@ -208,7 +208,7 @@ ms.lasthandoff: 09/22/2017
 ## <a name="refresh-data-in-powerbicom"></a>刷新 PowerBI.com 中的数据
 有两种方式可以刷新数据：即席刷新和计划刷新。
 
-对于临时刷新，只需单击“数据集”旁的省略号 (…)，例如 PowerBITutorial。 单击“立即刷新”即可刷新数据。 Click **Refresh Now** to refresh the data.
+对于临时刷新，只需单击“数据集”旁的省略号 (…)，例如 PowerBITutorial。 单击“立即刷新”即可刷新数据。 Click <bpt id="p1">**</bpt>Refresh Now<ept id="p1">**</ept> to refresh the data.
 
 ![PowerBI.com 中的“立即刷新”屏幕截图](./media/powerbi-visualize/power-bi-refresh-now.png)
 

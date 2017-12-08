@@ -23,12 +23,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/06/2017
 ---
-# 了解和使用 Azure Linux 代理
-<a id="understanding-and-using-the-azure-linux-agent" class="xliff"></a>
+# <a name="understanding-and-using-the-azure-linux-agent"></a>了解和使用 Azure Linux 代理
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## 介绍
-<a id="introduction" class="xliff"></a>
+## <a name="introduction"></a>介绍
 Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM 与 Azure 结构控制器之间的交互。 它针对 Linux 和 FreeBSD IaaS 部署提供以下功能：
 
 > [!NOTE]
@@ -67,15 +65,13 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
   * 将 Microsoft 和合作伙伴授权的组件注入 Linux VM (IaaS)，以便实现软件和配置的自动化
   * [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
-## 通信
-<a id="communication" class="xliff"></a>
+## <a name="communication"></a>通信
 从平台到代理的信息流通过两个通道进行：
 
 * 用于 IaaS 部署的附加了启动时间的 DVD。 此 DVD 包含一个与 OVF 兼容的配置文件，该文件包括除实际的 SSH 密钥对之外的所有预配信息。
 * 用于获取部署和拓扑配置的一个公开 REST API 的 TCP 终结点。
 
-## 要求
-<a id="requirements" class="xliff"></a>
+## <a name="requirements"></a>要求
 以下系统已经过测试并确认兼容 Azure Linux 代理：
 
 > [!NOTE]
@@ -107,21 +103,17 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 * 网络工具：ip-route
 * 装载 UDF 文件系统的内核支持。
 
-## 安装
-<a id="installation" class="xliff"></a>
+## <a name="installation"></a>安装
 使用分发的包存储库中的 RPM 或 DEB 包进行安装是安装和升级 Azure Linux 代理的首选方法。 所有[认可的分发版提供商](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)会将 Azure Linux 代理包集成到其映像和存储库。
 
 请参阅 [GitHub 上的 Azure Linux 代理存储库](https://github.com/Azure/WALinuxAgent)中的文档了解高级安装选项，例如从源安装，或者安装到自定义位置或前缀。
 
-## 命令行选项
-<a id="command-line-options" class="xliff"></a>
-### 标志
-<a id="flags" class="xliff"></a>
+## <a name="command-line-options"></a>命令行选项
+### <a name="flags"></a>标志
 * verbose：增加指定命令的详细程度
 * force：跳过某些命令的交互式确认
 
-### 命令
-<a id="commands" class="xliff"></a>
+### <a name="commands"></a>命令
 * help：列出支持的命令和标志。
 * deprovision：尝试清除系统并使其能够进行重新预配。 此操作已删除以下各项：
 
@@ -142,8 +134,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 * daemon：将 waagent 作为 daemon 运行以管理与平台的交互。 在 waagent init 脚本中为 waagent 指定此参数。
 * start：将 waagent 作为后台进程运行
 
-## 配置
-<a id="configuration" class="xliff"></a>
+## <a name="configuration"></a>配置
 配置文件 (/etc/waagent.conf) 可控制 waagent 的操作。 下面显示了示例配置文件：
 
     Provisioning.Enabled=y
@@ -301,8 +292,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 
 如果已设置，代理将使用此代理服务器访问 Internet。 
 
-## Ubuntu 云映像
-<a id="ubuntu-cloud-images" class="xliff"></a>
+## <a name="ubuntu-cloud-images"></a>Ubuntu 云映像
 请注意，Ubuntu 云映像利用 [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) 执行多种配置任务，这些任务在其他情况下也可以通过 Azure Linux 代理来管理。  请注意以下不同：
 
 * **Provisioning.Enabled** 在使用 cloud-init 执行预配任务的 Ubuntu 云映像上默认为“n”。

@@ -17,8 +17,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/28/2017
 ---
-# 监视和提高性能
-<a id="monitor-and-improve-performance" class="xliff"></a>
+# <a name="monitor-and-improve-performance"></a>监视和提高性能
 Azure SQL 数据库可识别数据库中的潜在问题，并通过提供智能优化操作和建议来推荐可提高工作负荷性能的操作。
 
 若要了解数据库的性能，请在 [Azure 门户](http://portal.azure.cn)中浏览到该数据库，然后使用“概述”页上的“性能”磁贴，或向下导航到“支持 + 故障排除”部分：
@@ -32,8 +31,7 @@ Azure SQL 数据库可识别数据库中的潜在问题，并通过提供智能�
 3. [查询性能见解](#query-performance-insight)：查找资源消耗量最大的查询。
 4. [自动优化](#automatic-tuning)：让 Azure SQL 数据库自动优化数据库。
 
-## 性能概述
-<a id="performance-overview" class="xliff"></a>
+## <a name="performance-overview"></a>性能概述
 此视图提供了数据库性能摘要，有助于你进行性能优化和故障排除。 
 
 ![性能](./media/sql-database-performance/performance.png)
@@ -43,8 +41,7 @@ Azure SQL 数据库可识别数据库中的潜在问题，并通过提供智能�
 * “自动优化”磁贴显示数据库的[自动优化配置](sql-database-automatic-tuning-enable.md)（已自动应用到数据库的优化选项）。 单击此磁贴可打开自动化配置对话框。
 * “数据库查询”磁贴显示数据库的查询性能摘要（DTU 整体使用情况和排名靠前的资源消耗查询）。 单击此磁贴可转到**[查询性能见解](#query-performance-insight)**。
 
-## 性能建议
-<a id="performance-recommendations" class="xliff"></a>
+## <a name="performance-recommendations"></a>性能建议
 此页提供可提高数据库性能的智能[优化建议](sql-database-advisor.md)。 此页显示以下类型的建议：
 
 * 有关要创建或删除哪些索引的建议。
@@ -57,12 +54,10 @@ Azure SQL 数据库可识别数据库中的潜在问题，并通过提供智能�
 
 在[查找和应用性能建议](sql-database-advisor-portal.md)一文中了解如何查找和应用性能建议。
 
-## 自动优化
-<a id="automatic-tuning" class="xliff"></a>
+## <a name="automatic-tuning"></a>自动优化
 Azure SQL 数据库可以通过应用[性能建议](sql-database-advisor.md)来自动优化数据库性能。 若要了解详细信息，请阅读[自动优化文章](sql-database-automatic-tuning.md)。 若要启用此功能，请阅读[如何启用自动优化](sql-database-automatic-tuning-enable.md)。
 
-## Query Performance Insight
-<a id="query-performance-insight" class="xliff"></a>
+## <a name="query-performance-insight"></a>Query Performance Insight
 [查询性能见解](sql-database-query-performance.md)通过提供以下功能使排查数据库性能问题花费的时间更少：
 
 * 深入洞察数据库资源 (DTU) 的消耗。 
@@ -73,7 +68,6 @@ Azure SQL 数据库可以通过应用[性能建议](sql-database-advisor.md)来�
 
 在**[如何使用查询性能见解](sql-database-query-performance.md)**一文中了解有关此页面的详细信息。
 
-## 其他资源
-<a id="additional-resources" class="xliff"></a>
+## <a name="additional-resources"></a>其他资源
 * [Azure SQL 数据库的单一数据库性能指导](sql-database-performance-guidance.md)
 * [何时使用弹性数据库池？](sql-database-elastic-pool-guidance.md)

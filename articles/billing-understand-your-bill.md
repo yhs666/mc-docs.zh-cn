@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 了解 Microsoft Azure 帐单
-<a id="understand-your-bill-for-microsoft-azure" class="xliff"></a>
+# <a name="understand-your-bill-for-microsoft-azure"></a>了解 Microsoft Azure 帐单
 若要了解 Azure 帐单，请查看包含费用摘要的发票和单独的每日详细使用情况文件。 本文对发票和每日使用情况文件中显示的大部分条款进行说明。 如果使用的是免费试用订阅，则可以获得每日使用情况信息，但没有发票。
 
 Microsoft Azure 订阅的费用因资费套餐而异。 某些资费套餐（如 Visual Studio Enterprise (MPN) 订户）包含可以根据需要用于 Azure 服务的每月信用额度。
@@ -34,8 +33,7 @@ Microsoft Azure 订阅的费用因资费套餐而异。 某些资费套餐（如
 
 下列部分列出了可在发票上看到的大多数条款以及每个条款的说明。
 
-### 了解发票汇总
-<a id="understand-the-invoice-summary" class="xliff"></a>
+### <a name="understand-the-invoice-summary"></a>了解发票汇总
 帐单的“发票汇总”部分汇总了上次帐单之后的交易以及当前的使用费。
 
 ![发票汇总](./media/billing-understand-your-bill/InvoiceSummary.png)
@@ -48,8 +46,7 @@ Microsoft Azure 订阅的费用因资费套餐而异。 某些资费套餐（如
 | 付款 |应用到上次帐单的总付款金额 |
 | 未付余额（从上一计费周期） |上次帐单之后应用到帐户的任何帐单调整（信用额度或结余） |
 
-### 了解当前费用
-<a id="understand-the-current-charges" class="xliff"></a>
+### <a name="understand-the-current-charges"></a>了解当前费用
 帐单的“当前费用”部分显示有关每月费用的详细信息。 
 
 | 术语 | 说明 |
@@ -65,8 +62,7 @@ Microsoft Azure 订阅的费用因资费套餐而异。 某些资费套餐（如
 
 以下部分介绍版本 2 的详细使用情况文件中显示的大部分条款。
 
-### 语句
-<a id="statement" class="xliff"></a> 
+### <a name="statement"></a>语句 
 文件的顶部显示了你在上个月的计费周期期间使用的服务。 下表列出了此部份中显示的条款和说明。
 
 | 术语 | 说明 |
@@ -88,8 +84,7 @@ Microsoft Azure 订阅的费用因资费套餐而异。 某些资费套餐（如
 |费率 |为每个可付费单位支付的费率。 |
 |值 |显示将“超额数量”列与“费率”列相乘的结果。 如果已耗用数量未超过已包含数量，则此列中没有费用。 |
 
-### 每日使用情况
-<a id="daily-usage" class="xliff"></a> 
+### <a name="daily-usage"></a>每日使用情况 
 
 该文件的“每日使用情况”部分显示影响计费费率的使用详细信息。 下表列出了此部份中显示的条款和说明。 
 
@@ -112,16 +107,13 @@ Microsoft Azure 订阅的费用因资费套餐而异。 某些资费套餐（如
 |服务信息 1 |订阅上服务所属的项目名称。 |
 |服务信息 2 |旧字段，用于捕获可选的服务特定元数据。 |
 
-## 如何付款？
-<a id="how-do-i-make-a-payment" class="xliff"></a>
+## <a name="how-do-i-make-a-payment"></a>如何付款？
 如果已将信用卡或借记卡设置为付款方式，则将自动进行付款。 在信用卡对帐单上，行项会显示 **MSFT Azure**。
 
-## 应用商店订单或外部服务收取多少费用？
-<a id="what-about-marketplace-orders-or-external-service-charges" class="xliff"></a>
+## <a name="what-about-marketplace-orders-or-external-service-charges"></a>应用商店订单或外部服务收取多少费用？
 外部服务过去被称为应用商店订单。 外部服务由独立服务供应商提供，但已集成到 Azure 中。 
 
-## 需要帮助？ 请联系支持人员。
-<a id="need-help-contact-support" class="xliff"></a> 
+## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。 
 如果仍需要帮助，可 [联系支持人员](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 来快速解决问题。
  
 

@@ -13,17 +13,15 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/21/2017
+origin.date: 11/13/2016
 ms.date: 05/08/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 9b9159a410164b0be46db5342cd847806f9bf225
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: cf2840cc2838e44228a01791f6d05588a57c4526
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="read-messages-persisted-in-azure-storage"></a>读取保存在 Azure 存储中的消息
 ## <a name="what-you-will-do"></a>执行的操作
 对于从 Adafruit Feather M0 WiFi Arduino 开发板发送到 IoT 中心的设备到云消息，在将其写入 Azure 表存储时对其进行监视。

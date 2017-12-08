@@ -22,15 +22,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 关于 Windows 虚拟机的映像
-<a id="about-images-for-windows-virtual-machines" class="xliff"></a>
+# <a name="about-images-for-windows-virtual-machines"></a>关于 Windows 虚拟机的映像
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关在 Resource Manager 模型中查找和使用映像的信息，请参阅[此处](../../virtual-machines-windows-cli-ps-findimage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 [!INCLUDE [virtual-machines-common-classic-about-images](../../../../includes/virtual-machines-common-classic-about-images.md)]
 
-## 使用映像
-<a id="working-with-images" class="xliff"></a>
+## <a name="working-with-images"></a>使用映像
 
 可以使用 Azure PowerShell 模块和 Azure 门户管理可供 Azure 订阅使用的映像。 Azure PowerShell 模块提供更多命令选项，以便可以明确确定要查看或执行的操作。 Azure 门户为许多日常管理任务提供了 GUI。
 
@@ -48,6 +46,5 @@ ms.lasthandoff: 06/23/2017
 
 * **删除映像**：`Remove-AzureVMImage -ImageName "MyOldVmImage"`
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 还可以[使用 Azure 门户创建 Windows 计算机](tutorial.md)。

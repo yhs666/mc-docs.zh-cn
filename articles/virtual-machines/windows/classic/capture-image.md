@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 捕获使用经典部署模型创建的 Azure Windows 虚拟机的映像。
-<a id="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model" class="xliff"></a>
+# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>捕获使用经典部署模型创建的 Azure Windows 虚拟机的映像。
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 对于 Resource Manager 模型信息，请参阅[捕获 Azure 中通用 VM 的托管映像](../capture-image-resource.md)。
 
@@ -31,8 +30,7 @@ ms.lasthandoff: 06/30/2017
 
 Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure 服务时列出的**计算**服务。 上传的任何映像都会存储在同一位置。 有关映像的详细信息，请参阅[关于虚拟机的映像](about-images.md?toc=%2fvirtual-machines%2fWindows%2fclassic%2ftoc.json)。
 
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>开始之前
 这些步骤假定已创建了 Azure 虚拟机并配置了操作系统，包括附加任何数据磁盘。 如果尚未执行此操作，请参阅以下文章以了解如何创建和准备虚拟机：
 
 * [从映像创建虚拟机](createportal.md)
@@ -46,8 +44,7 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
 
 捕获 Azure 虚拟机映像之前，建议备份目标虚拟机。 可以使用 Azure 备份来备份 Azure 虚拟机。 有关详细信息，请参阅[备份 Azure 虚拟机](../../../backup/backup-azure-vms.md)。 认证合作伙伴提供了其他解决方案。 若要了解当前提供的内容，请搜索 Azure 应用商店。
 
-## 捕获虚拟机
-<a id="capture-the-virtual-machine" class="xliff"></a>
+## <a name="capture-the-virtual-machine"></a>捕获虚拟机
 1. 在 [Azure 门户](http://portal.azure.cn)中，连接到虚拟机。 有关说明，请参阅[如何登录到运行 Windows Server 的虚拟机][How to sign in to a virtual machine running Windows Server]。
 2. 以管理员身份打开“命令提示符”窗口。
 3. 将目录更改为 `%windir%\system32\sysprep`，然后运行 sysprep.exe。
@@ -75,8 +72,7 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
 
     ![成功捕获映像](./media/capture-image/VMCapturedImageAvailable.png)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 该映像已就绪，可用于创建虚拟机了。 为此，通过在服务菜单底部选择“更多服务”菜单项，然后在“计算”组中选择“VM 映像(经典)”来创建虚拟机。 有关说明，请参阅[从映像创建虚拟机](createportal.md)。
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md

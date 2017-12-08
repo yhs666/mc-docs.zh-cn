@@ -22,16 +22,14 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/07/2017
 ---
-# 将 MongoChef 用于 Azure Cosmos DB: API for MongoDB 帐户
-<a id="use-mongochef-with-an-azure-cosmos-db-api-for-mongodb-account" class="xliff"></a>
+# <a name="use-mongochef-with-an-azure-cosmos-db-api-for-mongodb-account"></a>将 MongoChef 用于 Azure Cosmos DB: API for MongoDB 帐户
 
 若要连接到 Azure Cosmos DB: API for MongoDB 帐户，必须：
 
 * 下载并安装 [MongoChef](http://3t.io/mongochef)
 * 具有 Azure Cosmos DB: API for MongoDB 帐户的[连接字符串](connect-mongodb-account.md)信息
 
-## 在 MongoChef 中创建连接
-<a id="create-the-connection-in-mongochef" class="xliff"></a>
+## <a name="create-the-connection-in-mongochef"></a>在 MongoChef 中创建连接
 若要将 Azure Cosmos DB: API for MongoDB 帐户添加到 MongoChef 连接管理器，请执行以下步骤。
 
 1. 使用[此处](connect-mongodb-account.md)的指令检索 Azure Cosmos DB: API for MongoDB 连接信息。
@@ -53,8 +51,7 @@ ms.lasthandoff: 07/07/2017
 
     ![MongoChef 测试连接窗口屏幕截图](./media/mongodb-mongochef/TestConnectionResults.png)
 
-## 使用 MongoChef 创建数据库、集合与文档
-<a id="use-mongochef-to-create-a-database-collection-and-documents" class="xliff"></a>
+## <a name="use-mongochef-to-create-a-database-collection-and-documents"></a>使用 MongoChef 创建数据库、集合与文档
 若要使用 MongoChef 创建数据库、集合与文档，请执行以下步骤。
 
 1. 在“连接管理器”中突出显示连接，然后单击“连接”。
@@ -118,6 +115,5 @@ ms.lasthandoff: 07/07/2017
 
     ![Mongo Chef 查询结果的屏幕截图](./media/mongodb-mongochef/QueryDocument1.png)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 浏览 Azure Cosmos DB: API for MongoDB [示例](mongodb-samples.md)。

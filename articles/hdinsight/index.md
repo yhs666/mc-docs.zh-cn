@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-#Azure HDInsight 文档
-<a id="azure-hdinsight-documentation" class="xliff"></a>
+#<a name="azure-hdinsight-documentation"></a>Azure HDInsight 文档
 
 了解如何在 HDInsight 上使用云中的 Hadoop 分析流式处理数据或历史数据。 教程和其他文档介绍了如何在 Hadoop 生态系统中使用 Hadoop、Spark、HBase、Storm 等技术创建群集、处理和分析大数据，以及开发解决方案。
 

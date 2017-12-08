@@ -1,13 +1,11 @@
-## Azure DNS
-<a id="azure-dns" class="xliff"></a>
+## <a name="azure-dns"></a>Azure DNS
 Azure DNS 是 DNS 域的托管服务，它使用 Azure 基础结构提供名称解析。
 
 | 属性 | 说明 | 示例值 |
 | --- | --- | --- |
 | **DNSzones** |托管特定域的 DNS 记录的域区域信息 |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com" |
 
-### DNS 记录集
-<a id="dns-record-sets" class="xliff"></a>
+### <a name="dns-record-sets"></a>DNS 记录集
 DNS 区域具有一个名为记录集的子对象。 记录集是按 DNS 区域的类型排列的主机记录集合。 记录类型包括 A、AAAA、CNAME、MX、NS、SOA、SRV 和 TXT。
 
 | 属性 | 说明 | 示例值 |
@@ -79,8 +77,7 @@ DNS 区域具有一个名为记录集的子对象。 记录集是按 DNS 区域�
           ]
     }
 
-## 其他资源
-<a id="additional-resources" class="xliff"></a>
+## <a name="additional-resources"></a>其他资源
 有关详细信息，请阅读 [DNS 区域的 REST API 文档](https://msdn.microsoft.com/library/azure/mt130626.aspx)。
 
 有关详细信息，请阅读 [DNS 记录集的 REST API 文档](https://msdn.microsoft.com/library/azure/mt130627.aspx)。

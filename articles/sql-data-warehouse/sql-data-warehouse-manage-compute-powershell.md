@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 管理 Azure SQL 数据仓库中的计算能力 (PowerShell)
-<a id="manage-compute-power-in-azure-sql-data-warehouse-powershell" class="xliff"></a>
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-powershell"></a>管理 Azure SQL 数据仓库中的计算能力 (PowerShell)
 
 > [!div class="op_single_selector"]
 > * [概述](sql-data-warehouse-manage-compute-overview.md)
@@ -34,18 +33,15 @@ ms.lasthandoff: 07/05/2017
 >
 >
 
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>开始之前
 
-### 安装最新版本的 Azure PowerShell
-<a id="install-the-latest-version-of-azure-powershell" class="xliff"></a>
+### <a name="install-the-latest-version-of-azure-powershell"></a>安装最新版本的 Azure PowerShell
 > [!NOTE]
 > 若要对 SQL 数据仓库使用 Azure PowerShell，需要安装 Azure PowerShell 1.0.3 或更高版本。  若要验证当前版本，请运行命令 **Get-Module -ListAvailable -Name Azure**。 可以从 [Microsoft Web 平台安装程序][Microsoft Web Platform Installer]安装最新的版本。  有关详细信息，请参阅 [如何安装和配置 Azure PowerShell][How to install and configure Azure PowerShell]。
 >
 > 
 
-### Azure PowerShell cmdlet 入门
-<a id="get-started-with-azure-powershell-cmdlets" class="xliff"></a>
+### <a name="get-started-with-azure-powershell-cmdlets"></a>Azure PowerShell cmdlet 入门
 
 开始操作：
 

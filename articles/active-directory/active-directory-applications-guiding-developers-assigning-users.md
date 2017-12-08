@@ -22,12 +22,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# Azure AD 和应用程序：将用户分配到应用程序
-<a id="azure-ad-and-applications-assigning-users-to-an-application" class="xliff"></a>
+# <a name="azure-ad-and-applications-assigning-users-to-an-application"></a>Azure AD 和应用程序：将用户分配到应用程序
 在将用户和组分配到应用程序之前，你必须要求用户分配。  若要了解如何要求用户分配，请参阅 [Requiring User Assignment](./active-directory-applications-guiding-developers-requiring-user-assignment.md)（要求用户分配）一文。
 
-## 将用户分配到应用程序
-<a id="assigning-users-to-an-application" class="xliff"></a>
+## <a name="assigning-users-to-an-application"></a>将用户分配到应用程序
 1. 使用管理员帐户登录到 Azure 门户。
 2. 在主菜单中单击“所有项”项。
 3. 选择要用于应用程序的目录。
@@ -38,6 +36,5 @@ ms.lasthandoff: 06/23/2017
 8. 单击“分配”。
 9. 出现提示时单击“是”。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 [!INCLUDE [guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]

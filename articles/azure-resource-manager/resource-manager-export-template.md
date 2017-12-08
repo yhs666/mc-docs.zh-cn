@@ -102,7 +102,7 @@ ms.lasthandoff: 09/22/2017
 
     ![添加到库](./media/resource-manager-export-template/add-to-library.png)
 
-    将模板添加到库时，请为模板提供名称和说明。 Then, select **Save**.
+    将模板添加到库时，请为模板提供名称和说明。 Then, select <bpt id="p1">**</bpt>Save<ept id="p1">**</ept>.
 
     ![设置模板值](./media/resource-manager-export-template/save-library-template.png)
 4. 要查看库中保存的模板，请选择“更多服务”，并键入“模板”以筛选结果，并选择“模板”。

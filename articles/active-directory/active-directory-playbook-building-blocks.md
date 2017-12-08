@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory 概念证明操作手册：构建基块 | Microsoft Docs"
 description: "研究并快速实现标识和访问管理方案"
 services: active-directory
@@ -16,13 +15,11 @@ ms.topic: article
 origin.date: 05/04/2017
 ms.author: v-junlch
 ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 2e7ca8ffa4a9c8f3691644de235100a8e7d00242
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: dce1e9cae74a3c69537a9a157b991c3b9b39fb50
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念证明操作手册：构建基块
 
@@ -48,7 +45,7 @@ ms.lasthandoff: 05/26/2017
 | Azure AD 全局管理员凭据 | 在 Azure Active Directory 中分配管理员角色 |
 | 可选但强烈建议：用作应急措施的并行实验室环境 | [Azure AD Connect 的先决条件](./connect/active-directory-aadconnect-prerequisites.md) |
 
-## <a name="directory-synchronization--password-hash-sync-phs--new-installation"></a>目录同步 - 密码哈希同步 (PHS) - 新安装
+## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>目录同步 - 密码哈希同步 (PHS) - 新安装
 
 大约完成时间：一小时（如果 PoC 用户数不超过 1,000 个）
 
@@ -75,7 +72,7 @@ ms.lasthandoff: 05/26/2017
 1. 在[此处](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)查看密码哈希同步的安全注意事项。  如果试点生产用户的密码哈希同步明显不是一个选项，请考虑以下替代方法：
    - 在生产域中创建测试用户。 确保不要同步任何其他帐户
    - 移到 UAT 环境
-2.    如果想要追求联合，有必要了解使用本地标识提供者关联联合解决方案以及 POC 的成本，并根据想要获得的优势权衡这种做法：
+2.  如果想要追求联合，有必要了解使用本地标识提供者关联联合解决方案以及 POC 的成本，并根据想要获得的优势权衡这种做法：
     - 该解决方案在关键路径中，因此必须采用高可用性设计
     - 它是需要规划容量的本地服务
     - 它是需要监视/维护/修补的本地服务
@@ -172,4 +169,3 @@ ms.lasthandoff: 05/26/2017
 
 
 [!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-steps.md)]
-

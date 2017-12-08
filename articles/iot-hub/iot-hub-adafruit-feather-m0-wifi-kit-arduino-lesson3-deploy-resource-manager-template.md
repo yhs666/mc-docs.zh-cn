@@ -22,30 +22,25 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 创建 Azure Function App 和 Azure 存储帐户
-<a id="create-an-azure-function-app-and-azure-storage-account" class="xliff"></a>
+# <a name="create-an-azure-function-app-and-azure-storage-account"></a>创建 Azure Function App 和 Azure 存储帐户
 Azure Functions 是一个用于轻松在云中运行*函数*（小段代码）的解决方案。 Azure Function App 主导函数在 Azure 中的执行。
 
-## 执行的操作
-<a id="what-will-you-do" class="xliff"></a>
+## <a name="what-will-you-do"></a>执行的操作
 使用 Azure Resource Manager 模板创建 Azure 函数应用和 Azure 存储帐户。 Azure 函数应用可侦听 Azure IoT 中心事件、处理传入消息以及将其写入到 Azure 表存储。
 
 如果遇到任何问题，请在 [Adafruit Feather M0 WiFi Arduino 开发板的故障排除页](./iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)中查找解决方法。
 
-## 学习的内容
-<a id="what-will-you-learn" class="xliff"></a>
+## <a name="what-will-you-learn"></a>学习的内容
 本文介绍：
 * 如何使用 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 部署 Azure 资源。
 * 如何使用 Azure 函数应用处理 IoT 中心消息并将其写入到 Azure 表存储的表中。
 
-## 所需条件
-<a id="what-do-you-need" class="xliff"></a>
+## <a name="what-do-you-need"></a>所需条件
 用户必须已成功完成：
 - [Arduino 开发板入门][get-started]
 - [创建 Azure IoT 中心][create-iot-hub]
 
-## 打开示例应用
-<a id="open-the-sample-app" class="xliff"></a>
+## <a name="open-the-sample-app"></a>打开示例应用
 通过运行以下命令在 Visual Studio Code 中打开示例项目：
 
 ```bash
@@ -61,8 +56,7 @@ code .
 * `arm-template-param.json` 文件是 Azure Resource Manager 模板使用的配置文件。
 * `ReceiveDeviceMessages` 子文件夹包含用于 Azure 函数的 Node.js 代码。
 
-## 在 Azure 中配置 Azure Resource Manager 模板并创建资源
-<a id="configure-azure-resource-manager-templates-and-create-resources-in-azure" class="xliff"></a>
+## <a name="configure-azure-resource-manager-templates-and-create-resources-in-azure"></a>在 Azure 中配置 Azure Resource Manager 模板并创建资源
 在 Visual Studio Code 中更新 `arm-template-param.json` 文件。
 
 ![Azure Resource Manager 模板参数][arm-template-params]
@@ -78,12 +72,10 @@ az group deployment create --template-file arm-template.json --parameters @arm-t
 
 创建这些资源约需五分钟。 在创建这些资源时，用户可以阅读下一篇文章。
 
-## 摘要
-<a id="summary" class="xliff"></a>
+## <a name="summary"></a>摘要
 用户已创建 Azure 函数应用，因此可以处理 IoT 中心消息并通过 Azure 存储帐户存储这些消息。 现在可在 Arduino 开发板上部署和运行示例，发送设备到云消息。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 [在 Arduino 开发板上运行示例应用程序，发送设备到云消息][send-device-to-cloud-messages]
 
 <!-- Images and links -->

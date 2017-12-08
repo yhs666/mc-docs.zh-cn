@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 使用 FTP 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
-<a id="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-ftp" class="xliff"></a>
+# <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-ftp"></a>使用 FTP 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -37,8 +36,7 @@ ms.lasthandoff: 06/30/2017
 
 ![Azure PHP 网站][running-app]
 
-## 创建 Web 应用并设置 FTP 发布
-<a id="create-a-web-app-and-set-up-ftp-publishing" class="xliff"></a>
+## <a name="create-a-web-app-and-set-up-ftp-publishing"></a>创建 Web 应用并设置 FTP 发布
 按照以下步骤创建 Web 应用和 MySQL 数据库：
 
 1. 登录到 [Azure 门户][management-portal]。
@@ -56,8 +54,7 @@ ms.lasthandoff: 06/30/2017
 
     ![创建发布凭据][portal-ftp-username-password]
 
-## 在本地生成并测试应用
-<a id="build-and-test-your-app-locally" class="xliff"></a>
+## <a name="build-and-test-your-app-locally"></a>在本地生成并测试应用
 注册应用程序是一个简单的 PHP 应用程序，在该应用程序中提供姓名和电子邮件地址即可注册事件。 以前的注册者的信息将显示在表中。 注册信息存储在 MySQL 数据库中。 该应用由两个文件组成：
 
 * **index.php**：显示注册形式及包含注册者信息的表。
@@ -195,8 +192,7 @@ ms.lasthandoff: 06/30/2017
 
 你现在可以浏览到 [http://localhost/registration/index.php][localhost-index] 来测试应用。
 
-## 获取 MySQL 和 FTP 连接信息
-<a id="get-mysql-and-ftp-connection-information" class="xliff"></a>
+## <a name="get-mysql-and-ftp-connection-information"></a>获取 MySQL 和 FTP 连接信息
 若要连接到正在 Web 应用中运行的 MySQL 数据库，你将需要连接信息。 若要获取 MySQL 连接信息，请按照以下步骤操作：
 
 1. 在 Azure 经典管理门户中，单击“AZURE 上的 MYSQL 数据库” ，并打开 MYSQL 数据库服务器。 在“仪表板”页上的“速览”下，可以获取主机和端口。
@@ -205,8 +201,7 @@ ms.lasthandoff: 06/30/2017
 
     数据源将为 `<your MYSQL server name>.database.chinacloudapi.cn`
 
-## 发布应用
-<a id="publish-your-app" class="xliff"></a>
+## <a name="publish-your-app"></a>发布应用
 在本地测试你的应用之后，你可以使用 FTP 将其发布到 Web 应用。 但是，首先需要更新应用程序中的数据库连接信息。 使用之前获取的数据库连接信息（在“获取 MySQL 和 FTP 连接信息”部分中），使用适当的值在 `createdatabase.php` 和 `index.php` 文件中更新以下信息：
 
     // DB connection info
@@ -226,8 +221,7 @@ ms.lasthandoff: 06/30/2017
 
 上传 `index.php` 和 `createtable.php` 之后，浏览到 **http://[site name].chinacloudsites.cn/createtable.php** 以创建用于应用程序的 MySQL 表，然后浏览到 **http://[site name].chinacloudsites.cn/index.php** 以开始使用应用程序。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅 [PHP 开发人员中心](/develop/php/)。
 
 [install-php]: http://www.php.net/manual/en/install.php

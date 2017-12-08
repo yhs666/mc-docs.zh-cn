@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-### 完成最低要求的 StorSimple 设备设置
-<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
+### <a name="to-complete-the-minimum-storsimple-device-setup"></a>完成最低要求的 StorSimple 设备设置
 
 1. 选择设备，然后单击“快速启动”。 单击“完成设备设置”以启动配置设备向导。
 

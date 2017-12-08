@@ -21,18 +21,15 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 在 Visual Studio 中调试云服务或虚拟机
-<a id="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio" class="xliff"></a>
+# <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>在 Visual Studio 中调试云服务或虚拟机
 Visual Studio 提供了不同的选项让您调试 Azure 云服务和虚拟机。
 
-## 调试本地计算机上的云服务
-<a id="debug-your-cloud-service-on-your-local-computer" class="xliff"></a>
+## <a name="debug-your-cloud-service-on-your-local-computer"></a>调试本地计算机上的云服务
 使用 Azure 计算模拟器调试本地计算机上的云服务可为您节省时间和金钱。 部署某个服务之前在本地对其进行调试可以提高可靠性和性能，且不会产生计算时间的相关费用。 但是，仅当您在 Azure 自身中运行云服务时，某些错误才可能会出现。 如果您在发布服务时启用远程调试，然后将调试器附加到角色实例，则可以调试这些错误。
 
 该模拟器模拟 Azure 计算服务并在您的本地环境中运行，使您可以在部署云服务之前对其进行测试和调试。 该模拟器将处理角色实例的生命周期，并提供对所模拟资源（如本地存储）的访问。 当您从 Visual Studio 调试或运行服务时，Visual Studio 会自动将模拟器作为后台应用程序启动，然后将服务部署到模拟器。 当模拟器在本地环境中运行时，您可以使用它来查看服务。 可以运行完整版或速成版的模拟器。 （从 Azure 2.3 开始，将默认运行速成版的模拟器。）） 请参阅 [使用 Emulator Express 在本地运行和调试云服务](https://msdn.microsoft.com/zh-cn/library/dn339018.aspx)。
 
-### 调试本地计算机上的云服务
-<a id="to-debug-your-cloud-service-on-your-local-computer" class="xliff"></a>
+### <a name="to-debug-your-cloud-service-on-your-local-computer"></a>调试本地计算机上的云服务
 1. 在菜单栏上，选择“调试”和“开始调试”，以运行 Azure 云服务项目。 或者，你可以按 F5。 你将会看到一条消息，计算模拟器正在启动。 当该模拟器启动时，系统托盘图标将会对其进行确认。
 
     ![系统托盘中的 Azure 模拟器](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC783828.png)
@@ -43,8 +40,7 @@ Visual Studio 提供了不同的选项让您调试 Azure 云服务和虚拟机�
 
     **备注：** 停止运行或调试服务时，不会停止本地计算模拟器和存储模拟器。 您必须从通知区域显式将其停止。
 
-## 在 Azure 中调试云服务
-<a id="debug-a-cloud-service-in-azure" class="xliff"></a>
+## <a name="debug-a-cloud-service-in-azure"></a>在 Azure 中调试云服务
 若要从远程计算机调试云服务，必须在部署云服务时显式启用该功能，以便在运行角色实例的虚拟机上安装所需的服务（例如 msvsmon.exe）。 如果在发布服务时未启用远程调试，则必须在启用远程调试的情况下重新发布该服务。
 
 为云服务启用远程调试不会导致性能下降或费用增加。 不应在生产服务上使用远程调试，因为使用该服务的客户端可能会受到不利影响。
@@ -54,8 +50,7 @@ Visual Studio 提供了不同的选项让您调试 Azure 云服务和虚拟机�
 >
 >
 
-### 为云服务启用远程调试
-<a id="to-enable-remote-debugging-for-a-cloud-service" class="xliff"></a>
+### <a name="to-enable-remote-debugging-for-a-cloud-service"></a>为云服务启用远程调试
 1. 打开 Azure 项目的快捷菜单，然后选择“发布” 。
 2. 选择“过渡”环境和“调试”配置。
 
@@ -66,8 +61,7 @@ Visual Studio 提供了不同的选项让您调试 Azure 云服务和虚拟机�
 
     ![调试配置](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746718.gif)
 
-### 将调试器附加到 Azure 中的云服务
-<a id="to-attach-the-debugger-to-a-cloud-service-in-azure" class="xliff"></a>
+### <a name="to-attach-the-debugger-to-a-cloud-service-in-azure"></a>将调试器附加到 Azure 中的云服务
 1. 在“服务器资源管理器”中，展开云服务的节点。
 2. 打开你想附加的角色或角色实例的快捷菜单，然后选择“附加调试器” 。
 
@@ -88,8 +82,7 @@ Visual Studio 提供了不同的选项让您调试 Azure 云服务和虚拟机�
 
 若要将调试器与实例或角色中的所有进程分离，请打开要调试的角色或实例的快捷菜单，然后选择“分离调试器”。
 
-## 在 Azure 中进行远程调试的限制
-<a id="limitations-of-remote-debugging-in-azure" class="xliff"></a>
+## <a name="limitations-of-remote-debugging-in-azure"></a>在 Azure 中进行远程调试的限制
 从 Azure SDK 2.3 开始，远程调试存在以下限制。
 
 - 启用远程调试后，无法发布其中的任一角色包含 25 个以上实例的云服务。
@@ -99,8 +92,7 @@ Visual Studio 提供了不同的选项让您调试 Azure 云服务和虚拟机�
     角色 “role” 的终结点 Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector 的保留端口范围 “range” 与已定义的端口或范围重叠。
   - 分配失败。 请稍后重试，尝试减少 VM 大小或角色实例数目，或者尝试部署到其他区域。
 
-## 调试 Azure 虚拟机
-<a id="debugging-azure-virtual-machines" class="xliff"></a>
+## <a name="debugging-azure-virtual-machines"></a>调试 Azure 虚拟机
 可以在 Visual Studio 中使用“服务器资源管理器”调试 Azure 虚拟机上运行的程序。 在 Azure 虚拟机上启用远程调试时，Azure 将在该虚拟机上安装远程调试扩展。 然后，您可以附加到虚拟机上的进程中，并像平时一样进行调试。
 
 > [!NOTE]
@@ -108,8 +100,7 @@ Visual Studio 提供了不同的选项让您调试 Azure 云服务和虚拟机�
 >
 >
 
-### 调试 Azure 虚拟机
-<a id="to-debug-an-azure-virtual-machine" class="xliff"></a>
+### <a name="to-debug-an-azure-virtual-machine"></a>调试 Azure 虚拟机
 1. 在“服务器资源管理器”中，展开“虚拟机”节点并选择您要调试的虚拟机的节点。
 2. 打开上下文菜单，然后选择“启用调试” 。 当系统询问你是否确定要在虚拟机上启用调试时，请选择“是” 。
 
@@ -128,14 +119,12 @@ Visual Studio 提供了不同的选项让您调试 Azure 云服务和虚拟机�
     ![选择代码类型对话框](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 5. 选择虚拟机上你想要调试的进程，然后选择“附加” 。 例如，如果您想要调试虚拟机上的某个 Web 应用，则可以选择 w3wp.exe 进程。 有关详细信息，请参阅[在 Visual Studio 中调试一个或多个进程](https://msdn.microsoft.com/zh-cn/library/jj919165.aspx)和 [Azure 角色体系结构](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx)。
 
-## 创建用于调试的 Web 项目和虚拟机
-<a id="create-a-web-project-and-a-virtual-machine-for-debugging" class="xliff"></a>
+## <a name="create-a-web-project-and-a-virtual-machine-for-debugging"></a>创建用于调试的 Web 项目和虚拟机
 在发布 Azure 项目之前，您可能会发现，在支持调试和测试方案并且可以在其中安装测试和监视程序的受控环境中对项目进行测试会很有用。 执行此操作的方法之一是远程调试虚拟机上的应用程序。
 
 Visual Studio ASP.NET 项目提供了一个选项，让您创建可用于应用程序测试且易于操作的虚拟机。 该虚拟机包含通常需要的终结点，例如 PowerShell、远程桌面和 WebDeploy。
 
-### 创建用于调试的 Web 项目和虚拟机
-<a id="to-create-a-web-project-and-a-virtual-machine-for-debugging" class="xliff"></a>
+### <a name="to-create-a-web-project-and-a-virtual-machine-for-debugging"></a>创建用于调试的 Web 项目和虚拟机
 1. 在 Visual Studio 中创建一个新的 ASP.NET Web 应用程序。
 2. 在“新建 ASP.NET 项目”对话框的“Azure”部分，从下拉列表框中选择“虚拟机”  。 保留“创建远程资源”  复选框的选中状态。 选择“确定”  以继续。
 
@@ -174,7 +163,6 @@ Visual Studio ASP.NET 项目提供了一个选项，让您创建可用于应用�
     ![选择代码类型对话框](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 10. 选择虚拟机上你想要调试的进程，然后选择“附加” 。 例如，如果您想要调试虚拟机上的某个 Web 应用，则可以选择 w3wp.exe 进程。 有关详细信息，请参阅 [在 Visual Studio 中调试一个或多个进程](https://msdn.microsoft.com/zh-cn/library/jj919165.aspx) 。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 - 使用“Intellitrace”  从发布服务器中收集调用和事件的日志。 请参阅 [使用 IntelliTrace 和 Visual Studio 调试已发布的云服务](http://go.microsoft.com/fwlink/?LinkID=623016)。
 - 使用“Azure 诊断”  以记录在角色内运行的代码的详细信息，角色是否在开发环境或 Azure 中运行。 请参阅 [使用 Azure 诊断收集日志记录数据](http://go.microsoft.com/fwlink/p/?LinkId=400450)。

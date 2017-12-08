@@ -21,25 +21,20 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 测试云服务的性能
-<a id="testing-the-performance-of-a-cloud-service" class="xliff"></a>
-## 概述
-<a id="overview" class="xliff"></a>
+# <a name="testing-the-performance-of-a-cloud-service"></a>测试云服务的性能
+## <a name="overview"></a>概述
 您可以通过以下方式测试云服务的性能：
 
 - 使用 Azure 诊断，可以收集有关请求和连接的信息，可以查看站点统计信息，其中显示了客户角度的服务执行情况。 若要快速入门，请参阅 [为 Azure 云服务和虚拟机配置诊断](http://go.microsoft.com/fwlink/p/?LinkId=623009)。
 - 通过使用 Visual Studio 探查器，可以获取该服务在计算方面运行情况的深入分析。 如本主题所述，服务在 Azure 中运行时，可使用探查器来测量性能。 有关当服务在计算模拟器中本地运行时如何使用探查器来测量其性能的信息，请参阅 [使用 Visual Studio 探查器来测试在计算模拟器中本地运行的 Azure 云服务的性能](http://go.microsoft.com/fwlink/p/?LinkId=262845)。
 
-## 选择性能测试方法
-<a id="choosing-a-performance-testing-method" class="xliff"></a>
-### 使用 Azure 诊断进行收集：
-<a id="use-azure-diagnostics-to-collect" class="xliff"></a>
+## <a name="choosing-a-performance-testing-method"></a>选择性能测试方法
+### <a name="use-azure-diagnostics-to-collect"></a>使用 Azure 诊断进行收集：
 - 对网页或服务（如请求和连接）的统计信息。
 - 对角色的统计信息，例如角色重启的频率。
 - 有关内存使用率的整体信息，例如垃圾回收器所用时间的百分比，或是正在运行的角色的内存集。
 
-### 希望执行以下任务时，可使用 Visual Studio 探查器：
-<a id="use-the-visual-studio-profiler-to" class="xliff"></a>
+### <a name="use-the-visual-studio-profiler-to"></a>希望执行以下任务时，可使用 Visual Studio 探查器：
 - 确定哪些功能用时最多。
 - 对于计算密集型程序，测量其各部分用了多少时间。
 - 比较服务两个版本的详细性能报告。
@@ -48,24 +43,21 @@ ms.lasthandoff: 06/21/2017
 
 使用探查器时，无论云服务是在本地运行还是在 Azure 中运行，都可以收集数据。
 
-### 希望执行以下任务时，应在本地收集分析数据：
-<a id="collect-profiling-data-locally-to" class="xliff"></a>
+### <a name="collect-profiling-data-locally-to"></a>希望执行以下任务时，应在本地收集分析数据：
 - 针对云服务中不需要实际模拟负载的部分，测试其性能，如特定辅助角色的执行。
 - 在受控的隔离条件下，测试云服务的性能。
 - 将云服务部署到 Azure 之前，测试其性能。
 - 私下测试云服务的性能，而不影响现有的部署。
 - 测试服务的性能，而不产生在 Azure 中运行的费用。
 
-### 希望执行以下任务时，应在 Azure 中收集分析数据：
-<a id="collect-profiling-data-in-azure-to" class="xliff"></a>
+### <a name="collect-profiling-data-in-azure-to"></a>希望执行以下任务时，应在 Azure 中收集分析数据：
 - 测试云服务在模拟或真实负载下的性能。
 - 使用用于收集分析数据的检测方法，如本主题稍后所述。
 - 使用服务在生产中运行时的相同环境，测试服务性能。
 
 通常会通过模拟一个负载，测试正常或压力状况下的云服务。
 
-## 分析在 Azure 中的云服务
-<a id="profiling-a-cloud-service-in-azure" class="xliff"></a>
+## <a name="profiling-a-cloud-service-in-azure"></a>分析在 Azure 中的云服务
 从 Visual Studio 发布云服务时，可以分析服务，指定提供所需信息的分析设置。 为每个角色实例启动分析会话。 有关如何从 Visual Studio 中发布服务的详细信息，请参阅 [从 Visual Studio 发布到 Azure 云服务](https://msdn.microsoft.com/zh-cn/library/azure/ee460772.aspx)。
 
 若要了解有关 Visual Studio 中的性能分析的详细信息，请参阅[性能分析初学者指南](https://msdn.microsoft.com/zh-cn/library/azure/ms182372.aspx)和[使用分析工具分析应用程序性能](https://msdn.microsoft.com/zh-cn/library/azure/z9z62c29.aspx)。
@@ -75,8 +67,7 @@ ms.lasthandoff: 06/21/2017
 > 
 > 
 
-### 分析集合方法
-<a id="profiler-collection-methods" class="xliff"></a>
+### <a name="profiler-collection-methods"></a>分析集合方法
 根据遇到的性能问题，可以使用不同的分析集合方法：
 
 - **CPU 采样** - 此方法为 CPU 利用率问题的初始分析收集有用的应用程序统计信息。 CPU 采样是建议的方法，用于启动大多数性能调查。 收集 CPU 采样数据时，这不会对要分析的应用程序产生很大影响。
@@ -85,8 +76,7 @@ ms.lasthandoff: 06/21/2017
 - **并发性** - 此方法收集资源争用数据和线程执行数据，这些数据可用于分析多线程应用程序和多进程应用程序。 并发性方法收集阻止执行代码的每个事件的数据，例如，当线程等待对应用程序资源的锁定访问权限得到释放时。 此方法可用于分析多线程应用程序。
 - 您还可以启用 **层交互分析**，这种方法提供了有关在可与一个或多个数据库通信的多层应用程序函数中同步 ADO.NET 调用的执行时间的更多信息。 您可以使用任意分析方法收集层交互数据。 有关层交互分析的详细信息，请参阅 [层交互视图](https://msdn.microsoft.com/zh-cn/library/azure/dd557764.aspx)。
 
-## 配置分析设置
-<a id="configuring-profiling-settings" class="xliff"></a>
+## <a name="configuring-profiling-settings"></a>配置分析设置
 下图演示了如何从“发布 Azure 应用程序”对话框配置分析设置。
 
 ![配置分析设置](./media/vs-azure-tools-performance-profiling-cloud-services/IC526984.png)
@@ -96,8 +86,7 @@ ms.lasthandoff: 06/21/2017
 > 
 > 
 
-### 配置分析设置
-<a id="to-configure-profiling-settings" class="xliff"></a>
+### <a name="to-configure-profiling-settings"></a>配置分析设置
 1. 在“解决方案资源管理器”中，打开“Azure 项目”的快捷菜单，然后选择“发布” 。 有关如何发布云服务的详细步骤，请参阅 [使用 Azure Tools 发布云服务](http://go.microsoft.com/fwlink/p?LinkId=623012)。
 2. 在“发布 Azure 应用程序”对话框中，选择“高级设置”选项卡。
 3. 若要启用分析，请选中“启用分析”  复选框。
@@ -108,14 +97,12 @@ ms.lasthandoff: 06/21/2017
 
     当发布此应用程序时，这些设置将用于为每个角色创建分析会话。
 
-## 查看分析报告
-<a id="viewing-profiling-reports" class="xliff"></a>
+## <a name="viewing-profiling-reports"></a>查看分析报告
 为云服务中的角色的每个实例创建分析会话。 若要从 Visual Studio 查看每个会话的分析报告，可以查看“服务器资源管理器”窗口，然后选择“Azure 计算”节点以选择角色的实例。 然后可以查看分析报告，如下图所示。
 
 ![从 Azure 查看分析报告](./media/vs-azure-tools-performance-profiling-cloud-services/IC748914.png)
 
-### 查看分析报告
-<a id="to-view-profiling-reports" class="xliff"></a>
+### <a name="to-view-profiling-reports"></a>查看分析报告
 1. 若要在 Visual Studio 中查看“服务器资源管理器”窗口，请在菜单栏上选择“视图”、“服务器资源管理器”。
 2. 选择“Azure 计算”节点，然后针对从 Visual Studio 发布时您所选的要进行分析的云服务，选择相应 Azure 部署节点。
 3. 若要查看实例的分析报告，请选择服务中的角色，打开特定实例的快捷菜单，然后选择“查看分析报告” 。
@@ -123,8 +110,7 @@ ms.lasthandoff: 06/21/2017
     报告是一个 .vsp 文件，它现在已从 Azure 下载，且下载状态显示在 Azure 活动日志中。 下载完成后，分析报告将显示在名为 <Role name>*<Instance Number>*<identifier>.vsp 的 Visual Studio 编辑器选项卡中。 随即将显示报告的汇总数据。
 4. 若要显示报告的其他视图，请在“当前视图”列表中，选择所需视图类型。 有关详细信息，请参阅 [分析工具报告视图](https://msdn.microsoft.com/zh-cn/library/azure/bb385755.aspx)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 [调试云服务](https://msdn.microsoft.com/zh-cn/library/azure/ee405479.aspx)
 
 [从 Visual Studio 发布到 Azure 云服务](https://msdn.microsoft.com/zh-cn/library/azure/ee460772.aspx)

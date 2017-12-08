@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 如何：通过 Visual Studio 将 Web 应用程序迁移和发布到 Azure 云服务
-<a id="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio" class="xliff"></a>
+# <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>如何：通过 Visual Studio 将 Web 应用程序迁移和发布到 Azure 云服务
 若要利用 Azure 的托管服务和伸缩性，可能要将 Web 应用程序迁移和发布到 Azure 云服务。 只需对现有 Web 应用程序进行最小程度的更改，便可在 Azure 中运行它。
 
 > [!NOTE]
@@ -44,10 +43,8 @@ ms.lasthandoff: 06/21/2017
 
 若要从 Visual Studio 将 Web 应用程序迁移和发布到 Azure，请执行以下步骤。
 
-## 启用要部署到 Azure 的 Web 应用程序
-<a id="enable-a-web-application-for-deployment-to-azure" class="xliff"></a>
-### 启用要部署到 Azure 的 Web 应用程序
-<a id="to-enable-a-web-application-for-deployment-to-azure" class="xliff"></a>
+## <a name="enable-a-web-application-for-deployment-to-azure"></a>启用要部署到 Azure 的 Web 应用程序
+### <a name="to-enable-a-web-application-for-deployment-to-azure"></a>启用要部署到 Azure 的 Web 应用程序
 1. 若要启用要部署到 Azure 的 Web 应用程序，请在解决方案中打开 Web 项目的快捷菜单，然后选择“添加 Azure 部署项目”。
 
     执行以下操作：
@@ -66,8 +63,7 @@ ms.lasthandoff: 06/21/2017
 
    如果 Web 应用程序中有多个 Web 项目，且希望为每个 Web 项目都创建 Web 角色，则必须为每个 Web 项目执行此过程中的步骤。 这将为每个 Web 角色创建独立的 Azure 项目。 可以单独发布每个 Web 项目。 也可以将另一个 Web 角色手动添加到 Web 应用程序中的现有 Azure 项目。 为此，请打开 Azure 项目中“角色”文件夹的快捷菜单，选择“添加”，然后在“解决方案中的 Web 角色项目”中，选择要添加为 Web 角色的项目，然后选择“确定”按钮。
 
-## 为应用程序使用 Azure SQL 数据库
-<a id="use-an-azure-sql-database-for-your-application" class="xliff"></a>
+## <a name="use-an-azure-sql-database-for-your-application"></a>为应用程序使用 Azure SQL 数据库
 如果使用内部 SQL Server 数据库的 Web 应用程序具有连接字符串，必须将此连接字符串改为使用 Azure 托管的 SQL 数据库实例。
 
 > [!IMPORTANT]
@@ -75,8 +71,7 @@ ms.lasthandoff: 06/21/2017
 >
 >
 
-### 为连接字符串使用 Web 角色中的 SQL 数据库实例
-<a id="to-use-a-sql-database-instance-in-your-web-role-for-your-connection-string" class="xliff"></a>
+### <a name="to-use-a-sql-database-instance-in-your-web-role-for-your-connection-string"></a>为连接字符串使用 Web 角色中的 SQL 数据库实例
 1. 若要在 [Azure 经典管理门户](https://manage.windowsazure.cn)中创建 SQL 数据库的实例，请执行以下文章中所述的步骤：[Create a SQL Database Server](http://go.microsoft.com/fwlink/?LinkId=225109)（创建 SQL 数据库服务器）。
 
    > [!NOTE]
@@ -112,8 +107,7 @@ ms.lasthandoff: 06/21/2017
     ```
 7. 保存已修改的文件，然后重新发布应用程序。
 
-### 通过 Azure 经典管理门户使用 SQL 数据库实例
-<a id="to-use-an-instance-of-sql-database-by-using-the-azure-classic-management-portal" class="xliff"></a>
+### <a name="to-use-an-instance-of-sql-database-by-using-the-azure-classic-management-portal"></a>通过 Azure 经典管理门户使用 SQL 数据库实例
 1. 在 [Azure 经典管理门户](https://manage.windowsazure.cn)中，选择“SQL 数据库”节点。
 
    - 如果显示了要使用的 SQL 数据库实例，请选择打开它。
@@ -122,10 +116,8 @@ ms.lasthandoff: 06/21/2017
 3. 在页面底部，选择配置防火墙设置的链接，接受默认值或配置所需的值。
 4. 复制 ADO.NET 连接字符串，粘贴到 web.config 文件中，覆盖本地数据库的旧连接字符串，确保添加 `MultipleActiveResultSets=True`。
 
-## 将 Web 应用程序发布到 Azure
-<a id="publish-a-web-application-to-azure" class="xliff"></a>
-### 将 Web 应用程序发布到 Azure
-<a id="to-publish-a-web-application-to-azure" class="xliff"></a>
+## <a name="publish-a-web-application-to-azure"></a>将 Web 应用程序发布到 Azure
+### <a name="to-publish-a-web-application-to-azure"></a>将 Web 应用程序发布到 Azure
 1. 若要使用 Azure 计算模拟器测试本地开发环境中的应用程序，请打开 Web 角色 Azure 项目的快捷菜单，并选择“设置为启动项目”。 然后选择“调试”、“启动调试”（键盘操作：F5）。
 
     此时将显示“启动 Azure 调试环境”对话框，并在浏览器中启动应用程序。 若要深入了解如何在计算模拟器中启动每种类型的 Web 应用程序，请参阅本部分中的表格。
@@ -171,10 +163,8 @@ ms.lasthandoff: 06/21/2017
    | ASP.NET 动态实体 |在菜单栏中选择“调试”、“启动调试”（键盘操作：选择 F5 键）。 |必须更新连接字符串（请参阅下一部分）。 另外，需要使用以下格式的 URL 导航到应用程序的特定页：`<url for deployment>/<name of page>.aspx` |
    | ASP.NET 动态数据 Linq to SQL |在菜单栏中选择“调试”、“启动调试”（键盘操作：选择 F5 键）。 |必须遵循以下过程中的步骤：为应用程序使用 SQL Azure 数据库（请参阅本主题前面的部分）。 另外，需要使用以下格式的 URL 导航到应用程序的特定页：`<url for deployment>/<name of page>.aspx` |
 
-## 为 ASP.NET 动态实体更新连接字符串
-<a id="update-a-connection-string-for-aspnet-dynamic-entities" class="xliff"></a>
-### 为 ASP.NET 动态实体更新连接字符串
-<a id="to-update-a-connection-string-for-aspnet-dynamic-entities" class="xliff"></a>
+## <a name="update-a-connection-string-for-aspnet-dynamic-entities"></a>为 ASP.NET 动态实体更新连接字符串
+### <a name="to-update-a-connection-string-for-aspnet-dynamic-entities"></a>为 ASP.NET 动态实体更新连接字符串
 1. 若要创建可用于 ASP.NET 动态实体 Web 应用程序的 SQL Azure 数据库，必须遵循以下过程中的步骤：本主题前面的 **为应用程序使用 SQL Azure 数据库** 。
 2. 从 [Azure 经典管理门户](https://manage.windowsazure.cn)添加此数据库所需的表和字段。
 3. 在 web.config 文件中，这种类型的应用程序的连接字符串具有以下格式：  
@@ -190,8 +180,7 @@ ms.lasthandoff: 06/21/2017
     ```
 4. 对连接字符串做出更改后，若要保存 web.config 文件，请在菜单栏上选择“文件”、“保存 web.config”。
 
-## 支持的项目模板
-<a id="supported-project-templates" class="xliff"></a>
+## <a name="supported-project-templates"></a>支持的项目模板
 若要将 Web 应用程序发布到 Azure，应用程序必须使用下表中列出的任一 C# 或 Visual Basic 项目模板。
 
 | 项目模板组 | 项目模板 |
@@ -211,6 +200,5 @@ ms.lasthandoff: 06/21/2017
 | WCF |WCF 工作流服务应用程序 |
 | 工作流 |WCF 工作流服务应用程序 |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关发布的详细信息，请参阅[准备从 Visual Studio 发布或部署 Azure 应用程序](./vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)。 另请参阅[设置命名的身份验证凭据](./vs-azure-tools-setting-up-named-authentication-credentials.md)。

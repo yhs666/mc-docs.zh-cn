@@ -22,14 +22,12 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 将数据仓库迁移到高级存储
-<a id="migrate-your-data-warehouse-to-premium-storage" class="xliff"></a>
+# <a name="migrate-your-data-warehouse-to-premium-storage"></a>将数据仓库迁移到高级存储
 Azure SQL 数据仓库最近推出了 [具有更好的性能可预测性的高级存储][premium storage for greater performance predictability]。 现在可以将标准存储上现有的数据仓库迁移到高级存储。 可以利用自动迁移，如果想要控制迁移时间（这涉及某种停机时间），也可自己执行迁移操作。
 
 如果有多个数据仓库，请使用[自动迁移计划][automatic migration schedule]来确定何时进行迁移。
 
-## 确定存储类型
-<a id="determine-storage-type" class="xliff"></a>
+## <a name="determine-storage-type"></a>确定存储类型
 如果是在以下日期之前创建的数据仓库，则目前使用的是标准存储。
 
 | **区域** | **在此日期之前创建的数据仓库** |
@@ -37,8 +35,7 @@ Azure SQL 数据仓库最近推出了 [具有更好的性能可预测性的高�
 | 中国东部 |2016 年 11 月 1 日 |
 | 中国北部 |2016 年 11 月 1 日 |
 
-## 自动迁移的详细信息
-<a id="automatic-migration-details" class="xliff"></a>
+## <a name="automatic-migration-details"></a>自动迁移的详细信息
 默认情况下，我们将在[自动迁移计划][automatic migration schedule]期间，在用户所在地区当地时间的下午 6:00 至早上 6:00 期间，对用户的数据库进行迁移。 迁移期间，用户的现有数据仓库将不可用。 此迁移对于每个数据仓库中的每 TB 的存储将需要大约 1 小时。 自动迁移过程中的任何部分都不会向用户收取费用。
 
 > [!NOTE]
@@ -62,8 +59,7 @@ Microsoft 执行以下步骤来完成迁移（这些步骤不需要用户参与�
 >
 >
 
-### 自动迁移计划
-<a id="automatic-migration-schedule" class="xliff"></a>
+### <a name="automatic-migration-schedule"></a>自动迁移计划
 在以下服务中断计划期间，将在下午 6:00 到上午 6:00（每个区域的本地时间）之间执行自动迁移。
 
 | **区域** | **预计开始日期** | **预计结束日期** |
@@ -71,12 +67,10 @@ Microsoft 执行以下步骤来完成迁移（这些步骤不需要用户参与�
 | 中国东部 |2017 年 1 月 9 日 |2017 年 1 月 13 日 |
 | 中国北部 |2017 年 1 月 9 日 |2017 年 1 月 13 日 |
 
-## 自行迁移到高级存储
-<a id="self-migration-to-premium-storage" class="xliff"></a>
+## <a name="self-migration-to-premium-storage"></a>自行迁移到高级存储
 如果要控制何时发生停机时间，则可以使用以下步骤将标准存储上的现有数据仓库迁移到高级存储。 如果选择此选项，则必须在该区域的自动迁移开始之前，完成自行迁移。 这可确保避免导致冲突的自动迁移的任何风险（请参阅[自动迁移计划][automatic migration schedule]）。
 
-### 自行迁移说明
-<a id="self-migration-instructions" class="xliff"></a>
+### <a name="self-migration-instructions"></a>自行迁移说明
 若要自行迁移数据仓库，请使用备份和还原功能。 预计迁移的还原部分对于每个数据仓库中的每 TB 的存储将花费大约 1 小时。 如果想在迁移完成后保留相同的名称，请按照 [迁移期间重命名的步骤][steps to rename during migration]进行操作。
 
 1. [暂停][Pause] 数据仓库。 这将执行自动备份。
@@ -91,8 +85,7 @@ Microsoft 执行以下步骤来完成迁移（这些步骤不需要用户参与�
 >
 >
 
-#### 在迁移期间重命名数据仓库（可选）
-<a id="rename-data-warehouse-during-migration-optional" class="xliff"></a>
+#### <a name="rename-data-warehouse-during-migration-optional"></a>在迁移期间重命名数据仓库（可选）
 同一逻辑服务器上的两个数据库不能具有相同的名称。 SQL 数据仓库现在支持重命名数据仓库。
 
 在本示例中，假设用户在标准存储上的现有数据仓库目前名为“MyDW”。
@@ -105,8 +98,7 @@ Microsoft 执行以下步骤来完成迁移（这些步骤不需要用户参与�
 3. 从最新的快照进行[还原][Restore]，并使用它以前的名称（例如，“MyDW”）创建一个新数据库。
 4. 删除“MyDW_BeforeMigration”。 **如果此步骤操作失败，用户将需要为两个数据仓库支付费用。**
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 通过对高级存储的更改，我们还增加了数据仓库基础结构中的数据库 blob 文件的数量。 若要充分利用此更改的性能优势，请使用以下脚本重新生成聚集列存储索引。 该脚本的工作原理是强制将一些现有数据分发到其他 blob。 如果不采取任何操作，当用户将更多数据加载到表时，这些数据将随着时间的推移自然地重新分发。
 
 **先决条件：**

@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 发生影响 Azure VM 的 Azure 服务中断事件时该怎么办
-<a id="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms" class="xliff"></a>
+# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>发生影响 Azure VM 的 Azure 服务中断事件时该怎么办
 Azure.cn 的同仁兢兢业业，只为确保在任何时候都能提供你需要的服务。 但有时候会因为不可抗力的影响，造成服务意外中断。
 
 Azure.cn 为其服务提供服务级别协议 (SLA)，作为运行时间和连接承诺。 可以在 [Azure 服务级别协议](https://www.azure.cn/support/legal/sla/)中找到各种 Azure 服务的 SLA。
@@ -34,12 +33,10 @@ Azure 已在平台中内置多种功能，用于支持高度可用的应用程�
 
 为帮助你处理这些罕见事件，我们提供以下 Azure 虚拟机指导，以应对 Azure 虚拟机应用程序部署所在的整个区域发生服务中断的情况。
 
-## 选项 1：使用 Azure Site Recovery 启动故障转移
-<a id="option-1-initiate-a-failover-by-using-azure-site-recovery" class="xliff"></a>
+## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>选项 1：使用 Azure Site Recovery 启动故障转移
 可以为 VM 配置 Azure Site Recovery，只需单击一下，几分钟内即可恢复应用程序。 可以将虚拟机复制到所选的 Azure 区域，而不局限于配对区域。 可以通过[复制虚拟机](https://aka.ms/a2a-getting-started)来启动。 可以[创建恢复计划](../site-recovery/site-recovery-create-recovery-plans.md)，以便可以对应用程序自动完成整个故障转移过程。 可以预先[测试故障转移](../site-recovery/site-recovery-test-failover-to-azure.md)，这不会影响生成应用程序或正在进行的复制。 在主要区域中断的情况下，只需[启动故障转移](../site-recovery/site-recovery-failover.md)并在将应用程序移至目标区域。
 
-## 选项 2：等待恢复
-<a id="option-2-wait-for-recovery" class="xliff"></a>
+## <a name="option-2-wait-for-recovery"></a>选项 2：等待恢复
 在此情况下，不需要采取任何操作。 但你要知道，我们正在努力还原服务的可用性。 可在 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)上查看当前服务状态。
 
 如果发生中断前尚未设置 Azure Site Recovery、读取访问权限异地冗余存储或异地冗余存储，这便是你的最佳选项。 如果存储 VM 虚拟硬盘 (VHD) 的存储帐户已设置异地冗余存储或读取访问权限异地冗余存储，可以指望恢复基本映像 VHD，并尝试用它预配新的 VM。 由于不能保证同步数据，所以这不是首选的选项。 因此，不保证此选项可行。
@@ -49,8 +46,7 @@ Azure 已在平台中内置多种功能，用于支持高度可用的应用程�
 >
 >
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 - 使用 Azure Site Recovery [保护在 Azure 虚拟机上运行的应用程序](https://aka.ms/a2a-getting-started)
 

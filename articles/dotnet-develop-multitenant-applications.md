@@ -17,8 +17,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# Azure 中的多租户应用程序
-<a id="multitenant-applications-in-azure" class="xliff"></a>
+# <a name="multitenant-applications-in-azure"></a>Azure 中的多租户应用程序
 
 多租户应用程序是一种共享资源，它允许单独的用户或“租户”像使用他们自己的应用程序一样查看该应用程序。 适合实施多租户应用程序的典型情况是，应用程序的所有用户都可能希望定制用户体验，但在其他方面具有相同的基本业务要求。 大型多租户应用程序的示例包括 Office 365、Outlook.com 和 visualstudio.com。
 

@@ -14,17 +14,14 @@ ms.tgt_pltfrm: na
 ms.custom: 
 ms.workload: infrastructure-services
 origin.date: 03/28/2017
-ms.date: 
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
-ms.openlocfilehash: 9d4c630ef6cfb51fad3b1887097aa860043d2eee
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/25/2017
-
-
+ms.openlocfilehash: 043eb625c0dbe69833b996e0f7aa7149037b4b2c
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="customize-web-application-firewall-rules-through-the-portal"></a>通过门户自定义 Web 应用程序防火墙规则
 
 应用程序网关 Web 应用程序防火墙可为 Web 应用程序提供保护。 这些保护由 OWASP CRS 规则集提供。 某些规则可能会导致误报，并会阻止实际流量。  出于此原因，应用程序网关在启用了 Web 应用程序防火墙的应用程序网关上提供了自定义规则组和规则的功能。 有关特定规则组和规则的详细信息，请访问 [Web 应用程序防火墙 CRS 规则组和规则](application-gateway-crs-rulegroups-rules.md)
@@ -54,7 +51,7 @@ ms.lasthandoff: 04/25/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-配置已禁用的规则后，可通过访问[应用程序网关诊断](application-gateway-diagnostics.md#diagnostic-logging)来了解如何查看 WAF 日志
+配置已禁用的规则后，可通过访问[应用程序网关诊断](application-gateway-diagnostics.md#diagnostic-logs)来了解如何查看 WAF 日志
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png

@@ -111,7 +111,7 @@ ms.lasthandoff: 08/30/2017
 
 - 另一种方法是通过 <a href="https://manage.windowsazure.cn">Azure 管理门户</a>远程登录：
   
-  - 在 Azure 管理门户的“云服务”视图中，依次单击你的云服务、“实例”、特定的实例、“连接”按钮。 The **Connect** button appears as the following in the command bar:
+  - 在 Azure 管理门户的“云服务”视图中，依次单击你的云服务、“实例”、特定的实例、“连接”按钮。 The <bpt id="p1">**</bpt>Connect<ept id="p1">**</ept> button appears as the following in the command bar:
     
       ![][ic659273]
 

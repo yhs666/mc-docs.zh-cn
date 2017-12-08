@@ -20,11 +20,9 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# Azure Service Fabric 可靠集合中的事务和锁模式
-<a id="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections" class="xliff"></a>
+# <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Azure Service Fabric 可靠集合中的事务和锁模式
 
-## 事务
-<a id="transaction" class="xliff"></a>
+## <a name="transaction"></a>事务
 事务是作为单个逻辑工作单元执行的一系列操作。
 事务必须显示以下 ACID 属性。 （请参阅：https://technet.microsoft.com/zh-cn/library/ms190612）
 * **原子性**：事务必须是原子工作单元。 换而言之，要么执行其所有数据修改，要么一个数据修改也不执行。
@@ -32,8 +30,7 @@ ms.lasthandoff: 06/21/2017
 * **隔离**：并发事务所做的修改必须与任何其他并发事务所做的修改隔离。 用于 ITransaction 中的某个操作的隔离级别由执行该操作的 IReliableState 确定。
 * **持久性**：事务完成后，其效果永久存在于系统中。 即使系统发生故障，修改也会保留。
 
-### 隔离级别
-<a id="isolation-levels" class="xliff"></a>
+### <a name="isolation-levels"></a>隔离级别
 隔离级别定义必须从其他事务所作修改中隔离事务的程度。
 Reliable Collections 支持两种隔离级别：
 
@@ -60,8 +57,7 @@ Reliable Collections 将在事务创建时根据副本的操作和角色，为�
 Reliable Dictionary 和 Reliable Queue 都支持“读取你的写入”。
 换而言之，事务中的任何写入都将对属于同一事务的后续读取可见。
 
-## 锁
-<a id="locks" class="xliff"></a>
+## <a name="locks"></a>锁
 在可靠集合中，所有事务都严格实施两个阶段的锁定：在以中止或提交操作终止事务之前，该事务不会释放所获取的锁。
 
 Reliable Dictionary 对所有单个实体操作使用行级别锁定。
@@ -91,8 +87,7 @@ Reliable Queue 使用操作级别锁，允许具有 `TryPeekAsync` 和/或 `TryD
 
 此死锁方案很好地说明了更新锁如何可防止死锁。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * [使用可靠集合](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services 通知](service-fabric-reliable-services-notifications.md)
 * [Reliable Services 备份和还原（灾难恢复）](service-fabric-reliable-services-backup-restore.md)

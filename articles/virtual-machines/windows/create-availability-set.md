@@ -24,8 +24,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/06/2017
 ---
-# 通过创建 Azure 可用性集增加 VM 可用性
-<a id="increase-vm-availability-by-creating-an-azure-availability-set" class="xliff"></a> 
+# <a name="increase-vm-availability-by-creating-an-azure-availability-set"></a>通过创建 Azure 可用性集增加 VM 可用性 
 可用性集为应用程序提供冗余。 建议将两个或更多虚拟机组合到一个可用性集中。 这种配置可以确保在发生计划内或计划外维护事件时，至少有一个虚拟机可用，并满足 99.95% 的 Azure SLA 要求。 有关详细信息，请参阅[虚拟机的 SLA](https://www.azure.cn/support/sla/virtual-machines/)。
 
 > [!IMPORTANT]
@@ -36,8 +35,7 @@ ms.lasthandoff: 07/06/2017
 
 有关创建和使用可用性集的详细信息，请参阅[管理虚拟机的可用性](manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-## 在创建 VM 之前使用门户创建可用性集
-<a id="use-the-portal-to-create-an-availability-set-before-creating-your-vms" class="xliff"></a>
+## <a name="use-the-portal-to-create-an-availability-set-before-creating-your-vms"></a>在创建 VM 之前使用门户创建可用性集
 1. 在中心菜单中，单击“浏览”，然后选择“可用性集”。
 2. 在“可用性集”边栏选项卡上，单击“添加”。
 
@@ -55,20 +53,17 @@ ms.lasthandoff: 07/06/2017
 
 4. 完成信息输入后，单击“创建” 。 
 
-## 使用门户同时创建虚拟机和可用性集
-<a id="use-the-portal-to-create-a-virtual-machine-and-an-availability-set-at-the-same-time" class="xliff"></a>
+## <a name="use-the-portal-to-create-a-virtual-machine-and-an-availability-set-at-the-same-time"></a>使用门户同时创建虚拟机和可用性集
 如果要使用门户创建新 VM，还可以在创建该集中的第一个 VM 的同时，为该 VM 创建新的可用性集。
 
 ![显示创建 VM 时创建新可用性集的过程的屏幕截图。](./media/create-availability-set/new-vm-avail-set.png)
 
-## 在门户中将新 VM 添加到现有可用性集
-<a id="add-a-new-vm-to-an-existing-availability-set-in-the-portal" class="xliff"></a>
+## <a name="add-a-new-vm-to-an-existing-availability-set-in-the-portal"></a>在门户中将新 VM 添加到现有可用性集
 对于所创建的应属于该集的每个其他 VM，请确保在同一个 **资源组** 中创建该 VM，然后在步骤 3 中选择现有可用性集。 
 
 ![显示如何选择要用于 VM 的现有可用性集的屏幕截图。](./media/create-availability-set/add-vm-to-set.png)
 
-## 使用 PowerShell 创建可用性集
-<a id="use-powershell-to-create-an-availability-set" class="xliff"></a>
+## <a name="use-powershell-to-create-an-availability-set"></a>使用 PowerShell 创建可用性集
 此示例在位于**中国北部**的 **myResourceGroup** 资源组中创建一个名为 **myAvailabilitySet** 的可用性集。 此操作需在创建属于该集的第一个 VM 之前完成。
 
 在开始之前，请确保你有最新版本的 AzureRM.Compute PowerShell 模块。 运行以下命令来安装该模块。
@@ -94,10 +89,8 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 有关详细信息，请参阅 [New-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermavailabilityset)。
 
-## 故障排除
-<a id="troubleshooting" class="xliff"></a>
+## <a name="troubleshooting"></a>故障排除
 * 创建 VM 时，如果所需的可用性集不在门户的下拉列表中，则表示可能已在不同的资源组中创建该可用性集。 如果不知道可用性集所属的资源组，请转到中心菜单并单击“浏览”>“可用性集”，以查看可用性集及其所属资源组的列表。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 通过添加附加[数据磁盘](attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，向 VM 添加附加存储。

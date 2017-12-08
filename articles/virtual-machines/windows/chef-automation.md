@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 使用 Chef 自动部署 Azure 虚拟机
-<a id="automating-azure-virtual-machine-deployment-with-chef" class="xliff"></a>
+# <a name="automating-azure-virtual-machine-deployment-with-chef"></a>使用 Chef 自动部署 Azure 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef 是一个强大的工具，用于提供自动化和所需的状态配置。
@@ -34,8 +33,7 @@ Chef 是一个强大的工具，用于提供自动化和所需的状态配置。
 
 让我们开始吧！
 
-## Chef 基础知识
-<a id="chef-basics" class="xliff"></a>
+## <a name="chef-basics"></a>Chef 基础知识
 在开始之前，建议复习一下 Chef 的基本概念。 <a href="http://www.chef.io/chef" target="_blank">此处</a>有大量资料，建议在尝试此演练之前快速阅读一下。 不过，在我们开始之前，我会扼要重述一下基础知识。
 
 下图描绘了高级别 Chef 体系结构。
@@ -52,8 +50,7 @@ Chef 工作站是我们的管理工作站，将在其中创建策略并执行管
 
 此外，还引入了“指南”和“配方”的概念。 它们实际上是我们定义并应用于服务器的策略。
 
-## 准备工作站
-<a id="preparing-the-workstation" class="xliff"></a>
+## <a name="preparing-the-workstation"></a>准备工作站
 首先，让我们准备工作站。 我使用的是标准 Windows 工作站。 我们需要创建一个目录来存储配置文件和指南。
 
 首先，创建一个名为 C:\chef 的目录。
@@ -67,8 +64,7 @@ Chef 工作站是我们的管理工作站，将在其中创建策略并执行管
 
 将发布设置文件保存到 C:\chef 中。
 
-## 创建托管的 Chef 帐户
-<a id="creating-a-managed-chef-account" class="xliff"></a>
+## <a name="creating-a-managed-chef-account"></a>创建托管的 Chef 帐户
 在[此处](https://manage.chef.io/signup)注册托管的 Chef 帐户。
 
 在注册过程中，系统会要求创建一个新组织。
@@ -86,8 +82,7 @@ Chef 工作站是我们的管理工作站，将在其中创建策略并执行管
 
 此初学者工具包 zip 文件包含组织的配置文件和密钥。
 
-## 配置 Chef 工作站
-<a id="configuring-the-chef-workstation" class="xliff"></a>
+## <a name="configuring-the-chef-workstation"></a>配置 Chef 工作站
 将 chef-starter.zip 的内容解压缩到 C:\chef。
 
 将 chef-starter\chef-repo\.chef 下的所有文件复制到 c:\chef 目录中。
@@ -114,8 +109,7 @@ knife.rb 文件现在应类似于以下示例。
 
 这些行将确保 Knife 在执行 Azure 操作期间引用 c:\chef\cookbooks 下的 cookbooks 目录并且还使用 Azure 发布设置文件。
 
-## 安装 Chef 开发工具包
-<a id="installing-the-chef-development-kit" class="xliff"></a>
+## <a name="installing-the-chef-development-kit"></a>安装 Chef 开发工具包
 接下来，[下载并安装](http://downloads.getchef.com/chef-dk/windows) ChefDK（Chef 开发工具包），设置 Chef 工作站。
 
 ![][7]
@@ -153,8 +147,7 @@ knife.rb 文件现在应类似于以下示例。
 
 祝贺。 工作站已设置完毕！
 
-## 创建指南
-<a id="creating-a-cookbook" class="xliff"></a>
+## <a name="creating-a-cookbook"></a>创建指南
 Chef 使用指南定义用户希望在托管客户端上执行的一组命令。 创建指南简单明了，我们将使用 chef generate cookbook 命令生成指南模板。 我将像调用自动部署 IIS 的策略一样调用指南 Web 服务器。
 
 在 C:\Chef 目录下运行以下命令。
@@ -183,8 +176,7 @@ Chef 使用指南定义用户希望在托管客户端上执行的一组命令。
 
 完成后，保存该文件。
 
-## 创建模板
-<a id="creating-a-template" class="xliff"></a>
+## <a name="creating-a-template"></a>创建模板
 如前文所述，需要生成一个模板文件，该文件将用作 default.html 页面。
 
 运行以下命令，生成模板。
@@ -193,16 +185,14 @@ Chef 使用指南定义用户希望在托管客户端上执行的一组命令。
 
 现在导航到 C:\chef\cookbooks\webserver\templates\default\Default.htm.erb 文件。 通过添加一些简单的“Hello World”HTML 代码来编辑该文件，然后保存该文件。
 
-## 将指南上传到 Chef 服务器
-<a id="upload-the-cookbook-to-the-chef-server" class="xliff"></a>
+## <a name="upload-the-cookbook-to-the-chef-server"></a>将指南上传到 Chef 服务器
 在此步骤中，将复制已在本地计算机上创建的指南并将其上传到 Chef 托管服务器。 上传完成后，指南将显示在“策略”选项卡下。
 
     knife cookbook upload webserver
 
 ![][9]
 
-## 使用 Knife Azure 部署虚拟机
-<a id="deploy-a-virtual-machine-with-knife-azure" class="xliff"></a>
+## <a name="deploy-a-virtual-machine-with-knife-azure"></a>使用 Knife Azure 部署虚拟机
 现在，部署 Azure 虚拟机并应用“Webserver”指南，该指南将安装 IIS Web 服务和默认网页。
 
 若要执行此操作，请使用 knife azure server create 命令。

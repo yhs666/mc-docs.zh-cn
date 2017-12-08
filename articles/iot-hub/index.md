@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/28/2017
 ---
-# IoT 中心文档
-<a id="iot-hub-documentation" class="xliff"></a> 
+# <a name="iot-hub-documentation"></a>IoT 中心文档 
 
 了解如何使用 IoT 中心连接、监视并控制数百万物联网资产。 教程、API 参考、视频和其他文档可帮助在 IoT 设备和解决方案后端之间部署可靠的双向通信。 
 

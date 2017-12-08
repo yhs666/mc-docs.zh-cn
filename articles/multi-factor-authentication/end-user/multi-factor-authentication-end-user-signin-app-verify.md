@@ -17,13 +17,11 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 在 Azure 多重身份验证中使用验证码登录到移动应用
-<a id="signing-in-to-the-mobile-app-using-a-verification-code-with-azure-multi-factor-authentication" class="xliff"></a>
+# <a name="signing-in-to-the-mobile-app-using-a-verification-code-with-azure-multi-factor-authentication"></a>在 Azure 多重身份验证中使用验证码登录到移动应用
 
 以下信息介绍当你使用验证码执行身份验证时，在移动应用上使用多重身份验证的体验。
 
-## 使用移动应用中的验证码登录
-<a id="to-sign-in-using-a-verification-code-with-your-mobile-app" class="xliff"></a>
+## <a name="to-sign-in-using-a-verification-code-with-your-mobile-app"></a>使用移动应用中的验证码登录
 
 <ol>
 

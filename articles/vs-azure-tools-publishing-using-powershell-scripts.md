@@ -21,14 +21,12 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 使用 Windows PowerShell 脚本发布到开发和测试环境
-<a id="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments" class="xliff"></a>
+# <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>使用 Windows PowerShell 脚本发布到开发和测试环境
 在 Visual Studio 中创建 Web 应用程序时，可以生成一个 Windows PowerShell 脚本，以后，你可以使用该脚本自动将你的网站以 Azure 应用服务或虚拟机中 Web 应用的形式发布到 Azure。 你可以根据需要在 Visual Studio 编辑器中编辑和扩展该 Windows PowerShell 脚本，或者将该脚本与现有的生成、测试和发布脚本相集成。
 
 使用这些脚本，可以预配站点的自定义版本（又称为开发与测试环境），供临时使用。 例如，可以在 Azure 虚拟机中或者 Azure 网站的过渡槽中设置网站的特定版本，以运行测试套件、再现 bug、测试 bug 修复程序、试验建议的更改，或者设置自定义环境用于演示或展示。 创建用于发布项目的脚本后，可以根据需要通过重新运行该脚本来重新创建相同的环境，或者结合你自己的 Web 应用程序版本运行该脚本，以创建自定义环境用于测试。
 
-## 需要什么
-<a id="what-you-need" class="xliff"></a>
+## <a name="what-you-need"></a>需要什么
 - Azure SDK 2.3 或更高版本。 有关详细信息，请参阅 [Visual Studio Downloads](http://go.microsoft.com/fwlink/?LinkID=624384) （Visual Studio 下载）。
 
     无需使用 Azure SDK 就能为 Web 项目生成脚本。 此功能适用于 Web 项目，而不适用于云服务中的 Web 角色。
@@ -36,28 +34,22 @@ ms.lasthandoff: 06/21/2017
 - Azure PowerShell 0.7.4 或更高版本。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](./powershell-install-configure.md) 。
 - [Windows PowerShell 3.0](http://go.microsoft.com/?linkid=9811175) 或更高版本。
 
-## 其他工具
-<a id="additional-tools" class="xliff"></a>
+## <a name="additional-tools"></a>其他工具
 我们还提供其他工具和资源，用于在 Visual Studio 中通过 PowerShell 进行 Azure 开发。 请参阅 [PowerShell Tools for Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012)。
 
-## 生成发布脚本
-<a id="generating-the-publish-scripts" class="xliff"></a>
+## <a name="generating-the-publish-scripts"></a>生成发布脚本
 在创建新项目时，可以遵照[这些说明](./virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json/)为托管网站的虚拟机生成发布脚本。 还可以[为 Azure App Service 中的 Web 应用生成发布脚本](./app-service-web/web-sites-dotnet-get-started.md)。
 
-## Visual Studio 生成的脚本
-<a id="scripts-that-visual-studio-generates" class="xliff"></a>
+## <a name="scripts-that-visual-studio-generates"></a>Visual Studio 生成的脚本
 Visual Studio 会生成名为 **PublishScripts** 的解决方案级文件夹，其中包含两个 Windows PowerShell 文件、一个针对虚拟机或网站的发布脚本，以及一个包含可在脚本中使用的函数的模块。 Visual Studio 还将生成 JSON 格式的文件，用于指定你要部署的项目的详细信息。
 
-### Windows PowerShell 发布脚本
-<a id="windows-powershell-publish-script" class="xliff"></a>
+### <a name="windows-powershell-publish-script"></a>Windows PowerShell 发布脚本
 发布脚本包含有关部署到网站或虚拟机的特定发布步骤。 针对 Windows PowerShell 开发，Visual Studio 提供语法颜色设置。 其中还提供了函数的帮助，并且你可以自由编辑脚本中的函数，以满足不断变化的要求。
 
-### Windows PowerShell 模块
-<a id="windows-powershell-module" class="xliff"></a>
+### <a name="windows-powershell-module"></a>Windows PowerShell 模块
 Visual Studio 生成的 Windows PowerShell 模块包含发布脚本使用的函数。 不应修改这些 Azure PowerShell 函数。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](./powershell-install-configure.md) 。
 
-### JSON 配置文件
-<a id="json-configuration-file" class="xliff"></a>
+### <a name="json-configuration-file"></a>JSON 配置文件
 JSON 文件是在 **Configurations** 文件夹中创建的，其中包含的配置数据用于确切指定要将哪些资源部署到 Azure。 Visual Studio 生成的文件的名称为 project-name-WAWS-dev.json（如果创建的是网站），或 project name-VM-dev.json（如果创建的是虚拟机）。 以下是当你创建网站时生成的 JSON 配置文件的示例。 大多数值的含义都一目了然。 网站名称由 Azure 生成，因此，它可能与你的项目名称不匹配。
 
 json
@@ -156,12 +148,10 @@ json
 
 如果网站具有多个部署环境（称为槽位），而并非仅在 Azure 中有单个生产站点，则可将槽位名称包括在 JSON 配置文件的网站名称中。 例如，如果某个网站的名称为 mysite，该网站的一个槽位名称为 test，则 URI 为 mysite-test.chinacloudapp.cn，但要在配置文件中使用的正确名称为 mysite(test)。 只有当网站和槽已在订阅中存在时，才能这样做。 如果它们不存在，请通过运行脚本而不指定槽位来创建网站，然后在 [Azure 经典管理门户](https://manage.windowsazure.cn)中创建槽位，从而使用经过修改的网站名称运行脚本。 有关 Web 应用的部署槽位的详细信息，请参阅[为 Azure App Service 中的 Web 应用设置过渡环境](./app-service-web/web-sites-staged-publishing.md)。
 
-## 如何运行发布脚本
-<a id="how-to-run-the-publish-scripts" class="xliff"></a>
+## <a name="how-to-run-the-publish-scripts"></a>如何运行发布脚本
 如果你以前从未运行过 Windows PowerShell 脚本，则首先必须设置执行策略以启用要运行的脚本。 这是一项安全功能，旨在为执行 Windows PowerShell 脚本时容易受到恶意软件或病毒攻击的用户提供保护。
 
-### 运行脚本
-<a id="run-the-script" class="xliff"></a>
+### <a name="run-the-script"></a>运行脚本
 1. 为项目创建 Web 部署包。 Web 部署包是一个压缩的存档（.zip 文件），包含你要复制到网站或虚拟机的文件。 可以在 Visual Studio 中为任何 Web 应用程序创建 Web 部署包。
 
     ![创建 Web 部署包](./media/vs-azure-tools-publishing-using-powershell-scripts/IC767885.png)
@@ -226,14 +216,12 @@ json
 
     脚本可以创建数据库，但不会创建数据库服务器。 如果想要创建数据库服务器，可以使用 Azure 模块中的 **New-AzureSqlDatabaseServer** 函数。
 
-## 自定义和扩展发布脚本
-<a id="customizing-and-extending-the-publish-scripts" class="xliff"></a>
+## <a name="customizing-and-extending-the-publish-scripts"></a>自定义和扩展发布脚本
 你可以自定义发布脚本和 JSON 配置文件。 不应修改 Windows PowerShell 模块 **AzureWebAppPublishModule.psm1** 中的函数。 如果你只是想要指定一个不同的数据库或更改虚拟机的某些属性，可以编辑 JSON 配置文件。 如果想要扩展脚本的功能来自动生成和测试项目，可以在 **Publish-WebApplication.ps1**中实现函数存根。
 
 若要自动生成项目，请按照此代码示例所示，添加对 `New-WebDeployPackage` 调用 MSBuild 的代码。 MSBuild 命令的路径各不相同，具体取决于你安装的 Visual Studio 版本。 若要获取正确的路径，可以使用 **Get-MSBuildCmd**函数，如本示例中所示。
 
-### 自动生成项目
-<a id="to-automate-building-your-project" class="xliff"></a>
+### <a name="to-automate-building-your-project"></a>自动生成项目
 1. 在 global param 节中添加 `$ProjectFile` 参数。
 
     powershell
@@ -290,8 +278,7 @@ json
     Write-VerboseWithTime ('Build-WebDeployPackage: ' + $msbuildCmd)
     ```
 
-### 开始执行生成命令
-<a id="start-execution-of-the-build-command" class="xliff"></a>
+### <a name="start-execution-of-the-build-command"></a>开始执行生成命令
 
 powershell
 
@@ -303,8 +290,7 @@ if ($job.ExitCode -ne 0) {
 }
 ```
 
-#获取项目名称
-<a id="obtain-the-project-name" class="xliff"></a>
+#<a name="obtain-the-project-name"></a>获取项目名称
 
 ```powershell
 $projectName = (Get-Item $ProjectFile).BaseName
@@ -346,8 +332,7 @@ return $WebDeployPackage
 
     若要自动测试应用程序，请将代码添加到 `Test-WebApplication`。 请务必取消注释 **Publish-WebApplication.ps1** 中调用这些函数的行。 如果不提供实现，则可以使用 Visual Studio 手动生成项目，然后运行发布脚本来发布到 Azure。
 
-## 发布函数摘要
-<a id="publishing-function-summary" class="xliff"></a>
+## <a name="publishing-function-summary"></a>发布函数摘要
 若要获取可在 Windows PowerShell 命令提示符处使用的函数的相关帮助，请使用 `Get-Help function-name`命令。 帮助中包含参数帮助和示例。 脚本源文件 AzureWebAppPublishModule.psm1 和 Publish-WebApplication.ps1 中也提供了相同的帮助文本。 脚本和帮助已使用你的 Visual Studio 语言本地化。
 
 **AzureWebAppPublishModule**
@@ -389,6 +374,5 @@ return $WebDeployPackage
 | Publish-WebApplication |为 Visual Studio Web 项目创建和部署 Web 应用、虚拟机、SQL 数据库和存储帐户。 |
 | Test-WebApplication |未实现此函数。 你可以在此函数中添加命令以测试应用程序。 |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 如需了解有关 PowerShell 脚本编写的详细信息，请阅读 [使用 Windows PowerShell 编写脚本](https://technet.microsoft.com/zh-cn/library/bb978526.aspx)。

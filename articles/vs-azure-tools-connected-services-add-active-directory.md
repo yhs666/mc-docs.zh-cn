@@ -15,15 +15,12 @@ ms.workload: na
 origin.date: 03/01/2017
 ms.date: 05/22/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 159ed9293df1ae5a88fcfca1600cab96229b9d39
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: dadb01140a37e8c23db6349bbe463b4109fadf61
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>在 Visual Studio 中使用连接服务添加 Azure Active Directory
 ## <a name="overview"></a>概述
 通过使用 Azure Active Directory (Azure AD)，您可以对 ASP.NET MVC Web 应用程序或 Web API 服务中的 AD 身份验证支持单一登录 (SSO)。 通过 Azure AD 身份验证，您的用户可以使用其帐户从 Azure AD 连接到您的 Web 应用程序。 通过 Web API 的 Azure AD 身份验证的优点包括，从 Web 应用程序公开 API 时提供增强的数据安全性。 通过 Azure AD，您不需要使用其自己的帐户和用户管理来管理单独的身份验证系统。
@@ -71,6 +68,5 @@ ms.lasthandoff: 05/12/2017
 - [Azure Active Directory 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=WindowsAzureAD)
 - [Azure Active Directory 文档](./active-directory/index.md)
 - [博客文章：Azure Active Directory 简介](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
-
 
 

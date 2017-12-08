@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 启用或禁用 Azure VM 监视
-<a id="enable-or-disable-azure-vm-monitoring" class="xliff"></a>
+# <a name="enable-or-disable-azure-vm-monitoring"></a>启用或禁用 Azure VM 监视
 
 本部分介绍如何在 Azure 中运行的虚拟机上启用或禁用监视。 可使用门户或适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI) 来启用或禁用监视。
 
@@ -31,8 +30,7 @@ ms.lasthandoff: 06/30/2017
 >
 > 可以改为启用 Linux 诊断扩展的 3.0 版本。 有关详细信息，请参阅[文档](./diagnostic-extension.md)。
 
-## 通过 Azure 门户启用/禁用监视
-<a id="enable--disable-monitoring-through-the-azure-portal" class="xliff"></a>
+## <a name="enable--disable-monitoring-through-the-azure-portal"></a>通过 Azure 门户启用/禁用监视
 
 可以启用 Azure VM 监视，按 1 分钟的时长提供实例相关数据。 （包括存储更改）。 然后，可以通过门户图形或 API 获取 VM 的详细诊断数据。 默认情况下，Azure 门户可以基于主机监视一组有限的指标。 可以在 VM 正在运行或处于停止状态时从 VM 内部监视指标。
 
@@ -45,8 +43,7 @@ ms.lasthandoff: 06/30/2017
 
 ![通过 Azure 门户启用/禁用监视。][1]
 
-## 使用 Azure CLI 启用/禁用监视
-<a id="enable--disable-monitoring-with-azure-cli" class="xliff"></a>
+## <a name="enable--disable-monitoring-with-azure-cli"></a>使用 Azure CLI 启用/禁用监视
 
 启用 Azure VM 监视。
 

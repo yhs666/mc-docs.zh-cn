@@ -22,13 +22,11 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/03/2017
 ---
-# SQL Server Azure VM 的定价指南
-<a id="pricing-guidance-for-sql-server-azure-vms" class="xliff"></a>
+# <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定价指南
 
 本主题提供 Azure 中的 SQL Server 虚拟机的定价指南。 有几个选项会影响成本，请务必选取适当的映像来平衡成本与业务需求。
 
-## SQL Server 免费授权版
-<a id="free-licensed-sql-server-editions" class="xliff"></a>
+## <a name="free-licensed-sql-server-editions"></a>SQL Server 免费授权版
 
 若要开发、测试或生成概念证明，请使用免费授权的“SQL Server Developer 版本”。 此版本具有 SQL Server Enterprise 版本中的所有内容，因此可用于构建所需的任意应用程序。 该版本只是不可在生产环境中运行。 SQL Server Developer VM 将仅收取 VM 的费用，而不收取 SQL Server 许可的费用。
 
@@ -41,8 +39,7 @@ ms.lasthandoff: 07/03/2017
 - [SQL Server 2016 Developer Azure VM](https://portal.azure.cn/#create/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016-ARM)
 - [SQL Server 2016 Express Azure VM](https://portal.azure.cn/#create/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016-ARM)
 
-## SQL Server 付费版
-<a id="paid-sql-server-editions" class="xliff"></a>
+## <a name="paid-sql-server-editions"></a>SQL Server 付费版
 
 若拥有非轻型生产工作负荷，请使用以下 SQL Server 版本之一：
 
@@ -54,8 +51,7 @@ ms.lasthandoff: 07/03/2017
 
 可按两种方法为这些版本的 SQL Server 许可付费：按使用情况付费或自带许可证。
 
-### 按使用情况付费
-<a id="pay-per-usage" class="xliff"></a>
+### <a name="pay-per-usage"></a>按使用情况付费
 
 “按使用情况支付 SQL Server 许可证费用”意味着 Azure VM 的每分钟运行成本包括 SQL Server 许可证的费用。 有关不同 SQL Server 版本（Web、Standard 和 Enterprise）的定价，可参阅 [Azure VM 定价页](https://www.azure.cn/pricing/details/virtual-machines/)。 所有版本的 SQL Server（2008 R2 到 2016）的费用均相同。 通常与 SQL Server 许可一样，每分钟许可费用取决于 VM 内核数。
 
@@ -77,8 +73,7 @@ ms.lasthandoff: 07/03/2017
 >
 >对于 SQL Server 的 Express 和 Developer 免费授权版，这是指总预估成本。 但对于 Web、Standard 和 Enterprise 版本，请在 [Windows 虚拟机定价页](https://www.azure.cn/pricing/details/virtual-machines/windows/)上查看额外的 SQL 许可成本。 在定价页上，选择 SQL Server 的目标版本。
 
-## 避免不必要的成本
-<a id="avoid-unecessary-costs" class="xliff"></a>
+## <a name="avoid-unecessary-costs"></a>避免不必要的成本
 
 若要使用任何不连续运行的工作负荷，请考虑在非活动期间关闭虚拟机。 仅为所用的部分付费。
 
@@ -91,8 +86,7 @@ ms.lasthandoff: 07/03/2017
 > [!IMPORTANT]
 > 关闭和取消分配 VM 是避免产生费用的唯一方法。 只停止或使用电源选项关闭 VM 仍会产生使用费。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关虚拟机最新定价（包括 SQL Server），请参阅 [Azure VM 定价页](https://www.azure.cn/pricing/details/virtual-machines/)。
 

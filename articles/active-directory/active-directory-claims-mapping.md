@@ -18,8 +18,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# Azure Active Directory（公共预览版）中的声明映射
-<a id="claims-mapping-in-azure-active-directory-public-preview" class="xliff"></a>
+# <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory（公共预览版）中的声明映射
 
 
 此功能由租户管理员用来自定义以令牌形式针对其租户中的特定应用程序发出的声明。 声明映射策略可以用来：
@@ -31,30 +30,24 @@ ms.lasthandoff: 06/23/2017
 >[!NOTE]
 >此功能目前以公共预览版形式提供。 应准备好还原或删除所做的任何更改。 在公共预览版推出期间，可在任何 Azure Active Directory 订阅中使用此功能。 但是，在正式版推出后，某些功能可能需要使用 Azure Active Directory Premium 订阅。
 
-## 声明映射策略类型
-<a id="claims-mapping-policy-type" class="xliff"></a>
+## <a name="claims-mapping-policy-type"></a>声明映射策略类型
 在 Azure AD 中，策略对象表示针对组织中的单个应用程序或所有应用程序强制实施的一组规则。 每种类型的策略都有一个唯一的结构，其中的一组属性将应用于它们所分配到的对象。
 
 声明映射策略是一种类型的策略对象，用于修改以令牌形式发出的声明，此类令牌是针对特定应用程序颁发的。
 
-## 声明集
-<a id="claim-sets" class="xliff"></a>
+## <a name="claim-sets"></a>声明集
 存在特定的声明集，用于定义声明在令牌中的使用方式和时间。
 
-## 核心声明集
-<a id="core-claim-set" class="xliff"></a>
+## <a name="core-claim-set"></a>核心声明集
 核心声明集中的声明将存在于每个令牌中，不管策略是什么。 这些声明也被视为受限声明，不能进行修改。
 
-## 基本声明集
-<a id="basic-claim-set" class="xliff"></a>
+## <a name="basic-claim-set"></a>基本声明集
 基本声明集包括默认为令牌发出的声明（核心声明集除外）。 这些声明可以使用声明映射策略来省略或修改。
 
-## 受限声明集
-<a id="restricted-claim-set" class="xliff"></a>
+## <a name="restricted-claim-set"></a>受限声明集
 受限声明不能使用策略来修改。 数据源不能更改，而且在生成这些声明时不会应用转换。
 
-### 表 1 - JWT 受限声明集
-<a id="table-1---jwt-restricted-claim-set" class="xliff"></a>
+### <a name="table-1---jwt-restricted-claim-set"></a>表 1 - JWT 受限声明集
 |声明类型（名称）|
 | ----- |
 |_claim_names|
@@ -188,8 +181,7 @@ ms.lasthandoff: 06/23/2017
 |wids|
 |win_ver|
 
-### 表 2 - SAML 受限声明集
-<a id="table-2---saml-restricted-claim-set" class="xliff"></a>
+### <a name="table-2---saml-restricted-claim-set"></a>表 2 - SAML 受限声明集
 |声明类型 (URI)|
 | ----- |
 |http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
@@ -239,12 +231,10 @@ ms.lasthandoff: 06/23/2017
 |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier|
 |http://schemas.microsoft.com/identity/claims/scope|
 
-## 声明映射策略属性
-<a id="claims-mapping-policy-properties" class="xliff"></a>
+## <a name="claims-mapping-policy-properties"></a>声明映射策略属性
 声明映射策略的属性用于控制所发出的具体声明以及数据的来源。 如果没有设置任何策略，系统会颁发令牌，其中包含核心声明集、基本声明集以及应用程序已选择接收的任何可选声明。
 
-### 包括基本声明集
-<a id="include-basic-claim-set" class="xliff"></a>
+### <a name="include-basic-claim-set"></a>包括基本声明集
 
 属性概述
 
@@ -260,8 +250,7 @@ Summary：此属性决定了是否在受此策略影响的令牌中包括基本�
 >[!NOTE] 
 >核心声明集中的声明将存在于每个令牌中，不管将该属性设置为什么。 
 
-### 声明架构
-<a id="claims-schema" class="xliff"></a>
+### <a name="claims-schema"></a>声明架构
 属性概述
 
 String：ClaimsSchema
@@ -271,8 +260,7 @@ Data Type：包含一个或多个声明架构条目的 JSON Blob（有关格式�
 Summary：此属性用于定义哪些声明将存在于受策略影响的令牌中，基本声明集（如果 IncludeBasicClaimSet 设置为 True）和核心声明集除外。
 对于在此属性中定义的每个声明架构条目，必须确定两方面的信息 - 数据来自何处（Value 或 Source/ID 对），以及数据将作为哪种声明发出 (Claim Type)。
 
-### 声明架构条目元素
-<a id="claim-schema-entry-elements" class="xliff"></a>
+### <a name="claim-schema-entry-elements"></a>声明架构条目元素
 
 Value：Value 元素将静态值定义为要在声明中发出的数据。
 
@@ -292,8 +280,7 @@ Source/ID 对：Source 和 ID 元素定义声明中的数据源自何处。
 
 ID 元素标识源的哪个属性会提供声明的值。 下表列出了适用于 Source 的每个值的 ID 的值。
 
-### 表 3 - 每个源的有效 ID 值
-<a id="table-3---valid-id-values-per-source" class="xliff"></a>
+### <a name="table-3---valid-id-values-per-source"></a>表 3 - 每个源的有效 ID 值
 |源|ID|说明|
 |-----|-----|-----|
 |用户|surname|家族名称|
@@ -352,8 +339,7 @@ Claim Type：JwtClaimType 和 SamlClaimType 元素定义此声明架构条目引
 >[!NOTE]
 >受限声明集中的声明的 Name 和 URI 不能用于声明类型元素。 请参阅下面的“例外和限制”部分。
 
-### 声明转换
-<a id="claims-transformation" class="xliff"></a>
+### <a name="claims-transformation"></a>声明转换
 属性概述
 
 String：ClaimsTransformation
@@ -369,8 +355,7 @@ TransformationMethod：TransformationMethod 元素标识在为声明生成数据
 
 根据所选方法，预期将出现一组特定的输入和输出。 这些输入和输出是使用 InputClaims、InputParameters 和 OutputClaims 元素定义的。
 
-### 表 4 - 转换方法和预期的输入/输出
-<a id="table-4---transformation-methods-and-expected-inputsoutputs" class="xliff"></a>
+### <a name="table-4---transformation-methods-and-expected-inputsoutputs"></a>表 4 - 转换方法和预期的输入/输出
 |TransformationMethod|预期的输入|预期的输出|说明|
 |-----|-----|-----|-----|
 |联接|string1、string2、分隔符|outputClaim|通过在输入字符串之间使用分隔符来联接输入字符串。 例如：string1 为“foo@bar.com”，sring2 为“sandbox”，分隔符为“.”时，将生成 outputClaim“foo@bar.com.sandbox”|
@@ -389,13 +374,11 @@ OutputClaims：OutputClaims 元素用于保存转换生成的数据并将其绑�
 
 ClaimTypeReferenceId 可与声明架构条目的 ID 联接，以便查找相应的输出声明。 TransformationClaimType 用于为此输出提供唯一名称。 此名称必须与转换方法的预期输出之一匹配。
 
-### 例外和限制
-<a id="exceptions-and-restrictions" class="xliff"></a>
+### <a name="exceptions-and-restrictions"></a>例外和限制
 
 SAML NameID 和 UPN：可以从其获取 NameID 和 UPN 值来源的属性以及允许的声明转换是受限的。
 
-### 表 5 - 允许用作 SAML NameID 的数据源的属性
-<a id="table-5---attributes-allowed-as-data-source-for-saml-nameid" class="xliff"></a>
+### <a name="table-5---attributes-allowed-as-data-source-for-saml-nameid"></a>表 5 - 允许用作 SAML NameID 的数据源的属性
 |源|ID|说明|
 |-----|-----|-----|
 |用户|mail|电子邮件地址|
@@ -418,32 +401,26 @@ SAML NameID 和 UPN：可以从其获取 NameID 和 UPN 值来源的属性以及
 |用户|extensionattribute14|扩展属性 14|
 |用户|extensionattribute15|扩展属性 15|
 
-### 表 6 - 允许用于 SAML NameID 的转换方法
-<a id="table-6---transformation-methods-allowed-for-saml-nameid" class="xliff"></a>
+### <a name="table-6---transformation-methods-allowed-for-saml-nameid"></a>表 6 - 允许用于 SAML NameID 的转换方法
 |TransformationMethod|限制|
 | ----- | ----- |
 |ExtractMailPrefix||无|
 |联接|要联接的后缀必须是资源租户的已验证域。|
 
-### 自定义签名密钥
-<a id="custom-signing-key" class="xliff"></a>
+### <a name="custom-signing-key"></a>自定义签名密钥
 必须为服务主体对象分配自定义签名密钥，否则声明映射策略无法生效。 所有颁发的受此策略影响的令牌都会使用此密钥来签名。 必须对应用程序进行配置，使之接受使用此密钥签名的令牌。 这样可确保确认令牌已由声明映射策略的创建者修改， 并保护应用程序免受恶意执行组件创建的声明映射策略的危害。
 
-### 跨租户方案
-<a id="cross-tenant-scenarios" class="xliff"></a>
+### <a name="cross-tenant-scenarios"></a>跨租户方案
 声明映射策略不适用于来宾用户。 如果来宾用户尝试使用分配给应用程序服务主体的声明映射策略来访问应用程序，则会颁发默认的令牌（策略将不起作用）。
 
-## 声明映射策略分配
-<a id="claims-mapping-policy-assignment" class="xliff"></a>
+## <a name="claims-mapping-policy-assignment"></a>声明映射策略分配
 声明映射策略只能分配给服务主体对象。
 
-### 声明映射策略示例
-<a id="example-claims-mapping-policies" class="xliff"></a>
+### <a name="example-claims-mapping-policies"></a>声明映射策略示例
 
 如果可以自定义在令牌中针对特定服务主体发出的声明，则可在 Azure AD 中实现许多方案。 本部分演示一些常见的方案，帮助你了解如何使用声明映射策略类型。
 
-#### 先决条件
-<a id="prerequisites" class="xliff"></a>
+#### <a name="prerequisites"></a>先决条件
 以下示例将创建、更新、链接和删除服务主体的策略。 如果不熟悉 Azure AD，建议你在使用这些示例之前，先了解如何获取 Azure AD 租户。 
 
 若要开始，请执行以下步骤：
@@ -462,8 +439,7 @@ SAML NameID 和 UPN：可以从其获取 NameID 和 UPN 值来源的属性以及
     Get-AzureADPolicy
     
     ```
-#### 示例：创建并分配策略，在颁发给服务主体的令牌中省略基本声明。
-<a id="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal" class="xliff"></a>
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>示例：创建并分配策略，在颁发给服务主体的令牌中省略基本声明。
 在此示例中，你将创建一个策略，从颁发给链接的服务主体的令牌中删除基本声明集。
 
 
@@ -485,8 +461,7 @@ SAML NameID 和 UPN：可以从其获取 NameID 和 UPN 值来源的属性以及
         ``` powershell
         Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
         ```
-#### 示例：创建并分配一个策略，使之包含 EmployeeID 和 TenantCountry（充当颁发给服务主体的令牌中的声明）。
-<a id="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal" class="xliff"></a>
+#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>示例：创建并分配一个策略，使之包含 EmployeeID 和 TenantCountry（充当颁发给服务主体的令牌中的声明）。
 在此示例中，你将创建一个策略，向颁发给链接的服务主体的令牌添加 EmployeeID 和 TenantCountry。 EmployeeID 将在 SAML 令牌和 JWT 中作为名称声明类型发出。 TenantCountry 将在 SAML 令牌和 JWT 中作为国家/地区声明类型发出。 在此示例中，我们还将选择继续在令牌中包括基本声明集。
 
 1. 创建声明映射策略。 此策略（将链接到特定的服务主体）向令牌添加 EmployeeID 和 TenantCountry 声明。
@@ -508,8 +483,7 @@ SAML NameID 和 UPN：可以从其获取 NameID 和 UPN 值来源的属性以及
         ``` powershell
         Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
         ```
-#### 示例：创建并分配策略，在颁发给服务主体的令牌中利用声明转换。
-<a id="example-create-and-assign-a-policy-utilizing-a-claims-transformation-in-tokens-issued-to-a-service-principal" class="xliff"></a>
+#### <a name="example-create-and-assign-a-policy-utilizing-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>示例：创建并分配策略，在颁发给服务主体的令牌中利用声明转换。
 在此示例中，你将创建一个策略，向颁发给链接的服务主体的 JWT 发出自定义声明“JoinedData”。 此声明将包含一个值，该值是通过将存储在用户对象上的 extensionattribute1 属性中的数据与“.sandbox”联接来创建的。 在此示例中，我们还将选择在令牌中排除基本声明集。
 
 

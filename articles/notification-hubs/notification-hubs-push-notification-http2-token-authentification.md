@@ -20,10 +20,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 针对 APNS 的基于令牌的 (HTTP/2) 身份验证
-<a id="token-based-http2-authentication-for-apns" class="xliff"></a>
-## 概述
-<a id="overview" class="xliff"></a>
+# <a name="token-based-http2-authentication-for-apns"></a>针对 APNS 的基于令牌的 (HTTP/2) 身份验证
+## <a name="overview"></a>概述
 本文详细介绍了如何将新的 APNS HTTP/2 协议与基于令牌的身份验证一起使用。
 
 使用新协议的主要好处包括：
@@ -43,28 +41,22 @@ ms.lasthandoff: 06/23/2017
 - 则令牌属性会覆盖你在我们的系统中的证书，
 - 但你的应用程序将继续无缝地接收通知。
 
-## 从 Apple 获取身份验证信息
-<a id="obtaining-authentication-information-from-apple" class="xliff"></a>
+## <a name="obtaining-authentication-information-from-apple"></a>从 Apple 获取身份验证信息
 若要启用基于令牌的身份验证，需要你的 Apple 开发人员帐户中的以下属性：
-### 密钥标识符
-<a id="key-identifier" class="xliff"></a>
+### <a name="key-identifier"></a>密钥标识符
 可以从你的 Apple 开发人员帐户中的“密钥”页面中获取密钥标识符
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
 
-### 应用程序标识符和应用程序名称
-<a id="application-identifier--application-name" class="xliff"></a>
+### <a name="application-identifier--application-name"></a>应用程序标识符和应用程序名称
 可以通过开发人员帐户中的“应用 ID”页面获取该信息。 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/app-identifier-and-app-name.png)
 
-### 身份验证令牌
-<a id="authentication-token" class="xliff"></a>
+### <a name="authentication-token"></a>身份验证令牌
 在为应用程序生成令牌后，可以下载身份验证令牌。 有关如何生成此令牌的详细信息，请参阅 [Apple 的开发人员文档](http://help.apple.com/xcode/mac/current/#/dev11b059073?sub=dev1eb5dfe65)。
 
-## 将通知中心配置为使用基于令牌的身份验证
-<a id="configuring-your-notification-hub-to-use-token-based-authentication" class="xliff"></a>
-### 通过 Azure 门户进行配置
-<a id="configure-via-the-azure-portal" class="xliff"></a>
+## <a name="configuring-your-notification-hub-to-use-token-based-authentication"></a>将通知中心配置为使用基于令牌的身份验证
+### <a name="configure-via-the-azure-portal"></a>通过 Azure 门户进行配置
 若要在门户中启用基于令牌的身份验证，请登录到 Azure 门户并转到你的通知中心 > 通知服务 > APNS 面板。 
 
 这里有一个新属性 -“身份验证模式”。 选择“令牌”将允许你使用所有相关令牌属性更新你的中心。
@@ -75,8 +67,7 @@ ms.lasthandoff: 06/23/2017
 - 选择应用程序模式（“生产”或“沙盒”） 
 - 单击“保存”以更新 APNS 凭据。 
 
-### 通过管理 API (REST) 进行配置
-<a id="configure-via-management-api-rest" class="xliff"></a>
+### <a name="configure-via-management-api-rest"></a>通过管理 API (REST) 进行配置
 
 可以使用[管理 API](https://msdn.microsoft.com/library/azure/dn495827.aspx) 将通知中心更新为使用基于令牌的身份验证。
 根据你配置的应用程序是“沙盒”应用还是“生产”应用（在 Apple 开发人员帐户中指定的），使用对应的终结点之一：
@@ -106,8 +97,7 @@ ms.lasthandoff: 06/23/2017
           }
         
 
-### 通过 .NET SDK 进行配置
-<a id="configure-via-the-net-sdk" class="xliff"></a>
+### <a name="configure-via-the-net-sdk"></a>通过 .NET SDK 进行配置
 可以使用[最新的客户端 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.8) 将中心配置为使用基于令牌的身份验证。 
 
 下面是演示了正确用法的代码示例：
@@ -123,7 +113,6 @@ ms.lasthandoff: 06/23/2017
         desc.ApnsCredential.Endpoint = @"https://api.development.push.apple.com:443/3/device";
         nm.UpdateNotificationHubAsync(desc);
 
-## 恢复为使用基于证书的身份验证
-<a id="reverting-to-using-certificate-based-authentication" class="xliff"></a>
+## <a name="reverting-to-using-certificate-based-authentication"></a>恢复为使用基于证书的身份验证
 任何时候都可以通过使用前面的任何方法并传递证书而非令牌属性来恢复为使用基于证书的身份验证。 该操作将覆盖以前存储的凭据。
 

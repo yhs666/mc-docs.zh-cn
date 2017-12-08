@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-### 创建手动备份
-<a id="to-create-a-manual-backup" class="xliff"></a>
+### <a name="to-create-a-manual-backup"></a>创建手动备份
 
 1. 在“设备”页上，转到“备份策略”选项卡。 此选项卡会以表格形式列出所有备份策略，包括要备份的卷的策略。
 

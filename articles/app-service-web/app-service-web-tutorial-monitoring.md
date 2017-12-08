@@ -15,8 +15,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 监视应用服务
-<a id="monitor-app-service" class="xliff"></a>
+# <a name="monitor-app-service"></a>监视应用服务
 本教程逐步讲解如何监视应用，以及在出现问题时如何使用内置的平台工具解决问题。
 
 本文档的每个部分介绍一项具体功能。 结合使用这些功能可以：
@@ -25,8 +24,7 @@ ms.lasthandoff: 06/23/2017
 - 在代码中缩小问题的起源范围。
 - 调试并解决问题。
 
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>开始之前
 - 需要使用一个 Web 应用来监视活动和遵循所述的步骤。
     - 可以遵循 [Create an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)（在 Azure 中创建包含 SQL 数据库的 ASP.NET 应用）教程中所述的步骤创建一个应用程序。
 
@@ -101,8 +99,7 @@ ms.lasthandoff: 06/23/2017
 
 使用日志记录可以收集 Web 应用的**应用程序诊断**日志和 **Web 服务器诊断**日志。
 
-### 应用程序诊断
-<a id="application-diagnostics" class="xliff"></a>
+### <a name="application-diagnostics"></a>应用程序诊断
 使用应用程序诊断可以捕获应用程序在运行时生成的跟踪。
 
 将跟踪添加到应用程序可以大大提高调试和查明问题的能力。
@@ -137,8 +134,7 @@ public ActionResult Delete(Guid? id)
 > [!IMPORTANT]
 > 启用日志记录会对应用程序的性能和资源利用率造成影响。 对于生产方案，建议使用错误日志。 仅当需要调查问题时，才启用更详细的日志记录。
 
-### Web 服务器诊断
-<a id="web-server-diagnostics" class="xliff"></a>
+### <a name="web-server-diagnostics"></a>Web 服务器诊断
 即使未检测应用，也会生成 Web 服务器日志。 应用服务可以收集三种不同类型的服务器日志：
 
 - **Web 服务器日志记录**
@@ -161,8 +157,7 @@ public ActionResult Delete(Guid? id)
 > [!IMPORTANT]
 > 启用日志记录会对应用程序的性能和资源利用率造成影响。 对于生产方案，建议使用错误日志；仅当需要调查问题时，才启用更详细的日志记录。
 
-### 访问日志
-<a id="accessing-logs" class="xliff"></a>
+### <a name="accessing-logs"></a>访问日志
 使用 Azure 存储资源管理器访问 Blob 存储中存储的日志。 通过 FTP 访问 Web 应用的文件系统中存储的日志，路径如下：
 
 - **应用程序日志** - `%HOME%/LogFiles/Application/`。

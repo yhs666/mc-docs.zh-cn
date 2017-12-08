@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 将远程桌面与 Azure 角色一起使用
-<a id="using-remote-desktop-with-azure-roles" class="xliff"></a>
+# <a name="using-remote-desktop-with-azure-roles"></a>将远程桌面与 Azure 角色一起使用
 使用 Azure SDK 和远程桌面服务，可以访问 Azure 托管的 Azure 角色和虚拟机。 在 Visual Studio 中，可以从 Azure 项目配置远程桌面服务。 若要启用远程桌面服务，必须创建一个包含一个或多个角色的有效的项目，然后将其发布到 Azure 中。
 
 > [!IMPORTANT]
@@ -30,8 +29,7 @@ ms.lasthandoff: 06/21/2017
 > 
 > 
 
-## 为 Azure 角色启用和使用远程桌面
-<a id="to-enable-and-use-remote-desktop-for-an-azure-role" class="xliff"></a>
+## <a name="to-enable-and-use-remote-desktop-for-an-azure-role"></a>为 Azure 角色启用和使用远程桌面
 1. 在解决方案资源管理器中，打开项目的快捷菜单，然后选择“发布”。
 
     此时将显示“发布 Azure 应用程序”  向导。
@@ -71,8 +69,7 @@ ms.lasthandoff: 06/21/2017
 
     如果尚未准备好发布，请选择“取消”  按钮。 将保存远程桌面配置，可以日后发布云服务。
 
-## 使用远程桌面连接到 Azure 角色
-<a id="connect-to-an-azure-role-by-using-remote-desktop" class="xliff"></a>
+## <a name="connect-to-an-azure-role-by-using-remote-desktop"></a>使用远程桌面连接到 Azure 角色
 发布云服务后，可以使用服务器资源管理器登录到 Azure 托管的虚拟机。 
 
 1. 在服务器资源管理器中，展开“Azure”  节点，然后展开云服务及其角色之一的节点，以显示实例列表。

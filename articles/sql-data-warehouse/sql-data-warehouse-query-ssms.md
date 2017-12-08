@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 使用 SQL Server Management Studio (SSMS) 连接到 SQL 数据仓库
-<a id="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms" class="xliff"></a>
+# <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>使用 SQL Server Management Studio (SSMS) 连接到 SQL 数据仓库
 > [!div class="op_single_selector"]
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
@@ -35,16 +34,14 @@ ms.lasthandoff: 07/05/2017
 
 使用 SQL Server Management Studio (SSMS) 可连接并查询 Azure SQL 数据仓库。 
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 要使用本教程，你需要：
 
 * 现有 SQL 数据仓库。 若要创建这样一个数据仓库，请参阅 [创建 SQL 数据仓库][Create a SQL Data Warehouse]。
 * 安装了 SQL Server Management Studio (SSMS)。 [安装 SSMS][Install SSMS] 。
 * 完全限定的 SQL Server 名称。 若要查找此名称，请参阅 [连接到 SQL 数据仓库][Connect to SQL Data Warehouse]。
 
-## 1.连接到 SQL 数据仓库
-<a id="1-connect-to-your-sql-data-warehouse" class="xliff"></a>
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1.连接到 SQL 数据仓库
 1. 打开 SSMS。
 2. 打开对象资源管理器。 若要执行此操作，请选择“文件” > “连接对象资源管理器”。
 
@@ -61,8 +58,7 @@ ms.lasthandoff: 07/05/2017
 
     ![浏览 AdventureWorksDW][3]
 
-## 2.运行示例查询
-<a id="2-run-a-sample-query" class="xliff"></a>
+## <a name="2-run-a-sample-query"></a>2.运行示例查询
 现在，你已建立了与数据库的连接，接下来让我们编写查询。
 
 1. 在 SQL Server 对象资源管理器中右键单击你的数据库。
@@ -81,8 +77,7 @@ ms.lasthandoff: 07/05/2017
 
     ![查询结果][6]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 <!-- Not Available [visualizing the data with PowerBI][visualizing the data with PowerBI].-->
 
 若要为 Azure Active Directory 身份验证配置环境，请参阅 [SQL 数据仓库身份验证][Authenticate to SQL Data Warehouse]。

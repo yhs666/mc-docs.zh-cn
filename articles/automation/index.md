@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 自动化文档
-<a id="automation-documentation" class="xliff"></a>
+# <a name="automation-documentation"></a>自动化文档
 
 了解如何使用自动化节省时间并提高在云环境中执行的常规管理任务的可靠性。 教程、API 参考和其他文档介绍了如何使用 runbook 自动执行过程。
 

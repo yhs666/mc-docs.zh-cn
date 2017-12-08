@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 将 Azure 应用服务中的 Azure Redis 缓存用于会话状态
-<a id="session-state-with-azure-redis-cache-in-azure-app-service" class="xliff"></a>
+# <a name="session-state-with-azure-redis-cache-in-azure-app-service"></a>将 Azure 应用服务中的 Azure Redis 缓存用于会话状态
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -93,8 +92,7 @@ ms.lasthandoff: 06/21/2017
 还可以使用 Redis 缓存在 Web 应用程序中缓存对象。 有关详细信息，请参阅 [15 分钟学会创建包含 Azure Redis 缓存的 MVC 影片应用](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/)。
 有关如何使用 ASP.NET 会话状态的更多详细信息，请参阅 [ASP.NET 会话状态概述][ASP.NET Session State Overview]。
 
-## 发生的更改
-<a id="whats-changed" class="xliff"></a>
+## <a name="whats-changed"></a>发生的更改
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [installed the latest]: /downloads/?sdk=net  

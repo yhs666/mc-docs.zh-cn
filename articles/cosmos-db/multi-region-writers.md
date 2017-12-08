@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/07/2017
 ---
-# 使用 Azure Cosmos DB 多主机全局复制数据库体系结构
-<a id="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db" class="xliff"></a>
+# <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 多主机全局复制数据库体系结构
 Azure Cosmos DB 支持统包的[全局复制](distribute-data-globally.md)，允许在工作负荷中的任意位置以低延迟的访问将数据分布到多个区域。 此模型常用于发布者/使用者工作负荷。在这些工作负荷中，单个地理区域包含一个作者，其他（读取）区域包含分布于全球的读者。 
 
 还可以使用 Azure Cosmos DB 的全局复制支持来构建作者和读者分布于全球的应用程序。 本文档概述一种使用 Azure Cosmos DB 为全球分布的作者实现本地写入和本地读取访问的模式。

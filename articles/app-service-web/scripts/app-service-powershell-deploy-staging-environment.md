@@ -22,15 +22,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 创建 Web 应用并将代码部署到过渡环境
-<a id="create-a-web-app-and-deploy-code-to-a-staging-environment" class="xliff"></a>
+# <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>创建 Web 应用并将代码部署到过渡环境
 
 此示例脚本使用名为“过渡”的附加部署槽在应用服务中创建 Web 应用，然后将示例应用部署到“过渡”槽。
 
 必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，然后运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 创建与 Azure 的连接。
 
-## 示例脚本
-<a id="sample-script" class="xliff"></a>
+## <a name="sample-script"></a>示例脚本
 
 ```powershell
 # Replace the following URL with a public GitHub repo URL
@@ -71,8 +69,7 @@ Switch-AzureRmWebAppSlot -Name $webappname -ResourceGroupName myResourceGroup `
 -SourceSlotName staging -DestinationSlotName production
 ```
 
-## 清理部署
-<a id="clean-up-deployment" class="xliff"></a> 
+## <a name="clean-up-deployment"></a>清理部署 
 
 运行脚本示例后，可以使用以下命令删除资源组、Web 应用以及所有相关资源。
 
@@ -80,8 +77,7 @@ Switch-AzureRmWebAppSlot -Name $webappname -ResourceGroupName myResourceGroup `
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-## 脚本说明
-<a id="script-explanation" class="xliff"></a>
+## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
@@ -95,8 +91,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 | [Set-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermresource) | 修改资源组中的资源。 |
 | [Switch-AzureRmWebAppSlot](https://docs.microsoft.com/powershell/module/azurerm.websites/switch-azurermwebappslot) | 将 Web 应用的部署槽交换到生产环境。 |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 

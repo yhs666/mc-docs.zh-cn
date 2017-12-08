@@ -17,11 +17,9 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-#下载 Azure SDK for PHP
-<a id="download-the-azure-sdk-for-php" class="xliff"></a>
+#<a name="download-the-azure-sdk-for-php"></a>下载 Azure SDK for PHP
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 
 Azure SDK for PHP 包括允许你针对 Azure 开发、部署和管理 PHP 应用程序的组件。 具体而言，Azure SDK for PHP 包括以下组件：
 
@@ -37,15 +35,13 @@ Azure SDK for PHP 包括允许你针对 Azure 开发、部署和管理 PHP 应�
 > [!NOTE]
 > 若要使用 Azure 的 PHP 客户端库，则必须安装 PHP 5.5 或更高版本。
 
-##Azure 的 PHP 客户端库
-<a id="php-client-libraries-for-azure" class="xliff"></a>
+##<a name="php-client-libraries-for-azure"></a>Azure 的 PHP 客户端库
 
 Azure 的 PHP 客户端库提供了一个用于从任何操作系统访问 Azure 功能（例如，数据管理服务和云服务）的接口。 可以通过 Composer 安装这些库。
 
 有关如何使用 Azure 的 PHP 客户端库的信息，请参阅[如何使用 Blob 服务][blob-service]、[如何使用表服务][table-service]以及[如何使用队列服务][queue-service]。
 
-###通过 Composer 安装
-<a id="install-via-composer" class="xliff"></a>
+###<a name="install-via-composer"></a>通过 Composer 安装
 
 1. [安装 Git][install-git]。
 
@@ -70,8 +66,7 @@ Azure 的 PHP 客户端库提供了一个用于从任何操作系统访问 Azure
     php composer.phar install
     ```
 
-##Azure PowerShell 和 Azure 模拟器
-<a id="azure-powershell-and-azure-emulators" class="xliff"></a>
+##<a name="azure-powershell-and-azure-emulators"></a>Azure PowerShell 和 Azure 模拟器
 
 Azure PowerShell 是一组用于部署和管理 Azure 服务（例如，云服务和虚拟机）的 PowerShell cmdlet。 Azure 模拟器是一系列云服务和数据管理服务的模拟器，可让你在本地测试应用程序。 这些组件仅受 Windows 支持。
 
@@ -79,13 +74,11 @@ Azure PowerShell 是一组用于部署和管理 Azure 服务（例如，云服�
 
 有关如何使用 Azure PowerShell 的信息，请参阅[如何使用 Azure PowerShell][powershell-tools]。
 
-##Azure CLI
-<a id="azure-cli" class="xliff"></a>
+##<a name="azure-cli"></a>Azure CLI
 
 Azure CLI 是一组用于部署和管理 Azure 服务（例如 Azure 网站和 Azure 虚拟机）的命令。 有关安装 Azure CLI 的信息，请参阅[安装 Azure CLI](./xplat-cli-install.md)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关详细信息，请参阅 [PHP 开发人员中心](/develop/php/)。
 

@@ -22,11 +22,9 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# SQL 数据仓库常见问题解答
-<a id="sql-data-warehouse-frequently-asked-questions" class="xliff"></a>
+# <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL 数据仓库常见问题解答
 
-## 常规
-<a id="general" class="xliff"></a>
+## <a name="general"></a>常规
 
 问： SQL DW 为数据安全提供哪些功能？
 
@@ -48,8 +46,7 @@ A. 请参阅当前[容量限制]页。
 
 A. 多种因素可能会影响计算管理操作的时间。 一个常见的长时运行操作的例子是事务回退。 缩放或暂停操作启动时，会阻止所有传入会话和查询。 为了使系统处于稳定状态，必须在操作开始前回退事务。 事务数量越多，其日志大小越大，使系统恢复到稳定状态的操作耗时越久。
 
-## 用户支持
-<a id="user-support" class="xliff"></a>
+## <a name="user-support"></a>用户支持
 <!-- UserVoice not available in Azure.cn-->
 
 问： 该如何操作？
@@ -57,8 +54,7 @@ A. 多种因素可能会影响计算管理操作的时间。 一个常见的长�
 A. 有关使用 SQL 数据仓库进行开发的帮助，可在 [Stack Overflow] 页提出问题。 
 <!--Support Tickets not available in Azure.cn-->
 
-## SQL 语言/功能支持
-<a id="sql-languagefeature-support" class="xliff"></a> 
+## <a name="sql-languagefeature-support"></a>SQL 语言/功能支持 
 
 问： SQL 数据仓库支持哪些数据类型？
 
@@ -68,8 +64,7 @@ A. 请参阅 SQL 数据仓库[数据类型]。
 
 A. 虽然 SQL 数据仓库支持许多功能，但不支持某些功能，这些功能记录在[不支持的表功能]中。
 
-## 工具和管理
-<a id="tooling-and-administration" class="xliff"></a>
+## <a name="tooling-and-administration"></a>工具和管理
 
 问： Visual Studio 中是否支持数据库项目？
 
@@ -80,8 +75,7 @@ A. 目前 Visual Studio 对于 SQL 数据仓库，不支持数据库项目。 �
 A. 是的。 SQL 数据仓库还提供可与 SQL 数据库搭配使用的大多数 REST 功能。 可以在 REST 文档页或 [MSDN] 中找到 API 信息。
 
 
-## 加载
-<a id="loading" class="xliff"></a>
+## <a name="loading"></a>加载
 
 问： 支持哪些客户端驱动程序？
 
@@ -100,8 +94,7 @@ A. 可在[连接字符串]页找到 DW 驱动程序支持
 
 答：HDI 可使用 ADLS 或 WASB 作为 HDFS 层。 如果将两者中任意一种作为 HDFS 层，可以将该数据加载到 SQL DW。 但是，无法生成 HDI 实例的下推计算。 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 若要深入了解 SQL 数据仓库的概述信息，请参阅[概述]页。
 
 <!-- Article references -->

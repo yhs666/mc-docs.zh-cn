@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 使用 sqlcmd 连接到 SQL 数据仓库
-<a id="connect-to-sql-data-warehouse-with-sqlcmd" class="xliff"></a>
+# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>使用 sqlcmd 连接到 SQL 数据仓库
 > [!div class="op_single_selector"]
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
@@ -33,8 +32,7 @@ ms.lasthandoff: 07/05/2017
 
 使用 [sqlcmd][sqlcmd] 命令行实用程序来连接到并查询 Azure SQL 数据仓库。  
 
-## 1.连接
-<a id="1-connect" class="xliff"></a>
+## <a name="1-connect"></a>1.连接
 若要开始使用 [sqlcmd][sqlcmd]，请打开命令提示符并输入 **sqlcmd** ，后跟 SQL 数据仓库数据库的连接字符串。 连接字符串需要以下参数：
 
 * 服务器 (-S)：采用 `<`服务器名称`>`.database.chinacloudapi.cn 格式的服务器
@@ -67,8 +65,7 @@ C:\>sqlcmd -S MySqlDw.database.chinacloudapi.cn -d Adventure_Works -G -I
 > 
 > 
 
-## 2.查询
-<a id="2-query" class="xliff"></a>
+## <a name="2-query"></a>2.查询
 连接后，可以对实例发出任何支持的 Transact-SQL 语句。  在此示例中，查询以交互模式进行提交。
 
 ```sql
@@ -88,8 +85,7 @@ sqlcmd -S MySqlDw.database.chinacloudapi.cn -d Adventure_Works -U myuser -P myP@
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.chinacloudapi.cn -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 请参阅 [sqlcmd 文档][sqlcmd] ，详细了解 sqlcmd 中的可用选项。
 
 <!--Image references-->

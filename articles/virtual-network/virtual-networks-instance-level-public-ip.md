@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 实例层级公共 IP（经典）概述
-<a id="instance-level-public-ip-classic-overview" class="xliff"></a>
+# <a name="instance-level-public-ip-classic-overview"></a>实例层级公共 IP（经典）概述
 实例层级公共 IP (ILPIP) 是可直接分配至 VM 或云服务角色实例（而非 VM 或角色实例所在的云服务）的公共 IP 地址。 ILPIP 不会取代分配给云服务的虚拟 IP (VIP)。 而是可以用来直接连接到 VM 或角色实例的其他 IP 地址。
 
 > [!IMPORTANT]
@@ -42,8 +41,7 @@ ms.lasthandoff: 06/21/2017
 > 
 > 
 
-## 为什么要请求 ILPIP？
-<a id="why-would-i-request-an-ilpip" class="xliff"></a>
+## <a name="why-would-i-request-an-ilpip"></a>为什么要请求 ILPIP？
 如果你想要能够通过直接向其分配的 IP 地址链接到 VM 或角色实例，请为 VM 或角色实例请求 ILPIP，而不是使用云服务VIP:&lt;端口号&gt;。
 
 * **主动 FTP** - 通过为 VM 分配 ILPIP，可在任何端口上接收流量。 VM 不需要终结点来接收流量。  有关 FTP 协议的详细信息，请参阅 [FTP 协议概述](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)。
@@ -53,12 +51,10 @@ ms.lasthandoff: 06/21/2017
 > ILPIP 地址以前被称为公共 IP (PIP) 地址。
 > 
 
-## 管理 VM 的 ILPIP
-<a id="manage-an-ilpip-for-a-vm" class="xliff"></a>
+## <a name="manage-an-ilpip-for-a-vm"></a>管理 VM 的 ILPIP
 在以下任务中，可通过 VM 创建、分配和删除 ILPIP：
 
-### 在 VM 创建期间如何使用 PowerShell 请求 ILPIP
-<a id="how-to-request-an-ilpip-during-vm-creation-using-powershell" class="xliff"></a>
+### <a name="how-to-request-an-ilpip-during-vm-creation-using-powershell"></a>在 VM 创建期间如何使用 PowerShell 请求 ILPIP
 下面的 PowerShell 脚本将创建名为 *FTPService* 的云服务，然后从 Azure 中检索映像，并使用检索到的映像创建名为 *FTPInstance* 的 VM，接着将 VM 设置为使用 ILPIP，最后再将 VM 添加到新服务：
 
 ```powershell
@@ -70,8 +66,7 @@ New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageN
 | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "China North"
 ```
 
-### 如何检索 VM 的 ILPIP 信息
-<a id="how-to-retrieve-ilpip-information-for-a-vm" class="xliff"></a>
+### <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>如何检索 VM 的 ILPIP 信息
 若要查看使用以上脚本创建的 VM 的 ILPIP 信息，请运行以下 PowerShell 命令，然后观察 *PublicIPAddress* 和 *PublicIPName* 的值：
 
 ```powershell
@@ -107,24 +102,21 @@ Get-AzureVM -Name FTPInstance -ServiceName FTPService
     OperationId                 : 568d88d2be7c98f4bbb875e4d823718e
     OperationStatus             : OK
 
-### 如何删除 VM 的 ILPIP
-<a id="how-to-remove-an-ilpip-from-a-vm" class="xliff"></a>
+### <a name="how-to-remove-an-ilpip-from-a-vm"></a>如何删除 VM 的 ILPIP
 若要删除在以上脚本中添加到 VM 的 ILPIP，请运行以下 PowerShell 命令：
 
 ```powershell
 Get-AzureVM -ServiceName FTPService -Name FTPInstance | Remove-AzurePublicIP | Update-AzureVM
 ```
 
-### 如何向现有 VM 添加 ILPIP
-<a id="how-to-add-an-ilpip-to-an-existing-vm" class="xliff"></a>
+### <a name="how-to-add-an-ilpip-to-an-existing-vm"></a>如何向现有 VM 添加 ILPIP
 若要向使用以上脚本创建的 VM 添加 ILPIP，请运行以下命令：
 
 ```powershell
 Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -PublicIPName ftpip2 | Update-AzureVM
 ```
 
-## 管理云服务角色实例的 ILPIP
-<a id="manage-an-ilpip-for-a-cloud-services-role-instance" class="xliff"></a>
+## <a name="manage-an-ilpip-for-a-cloud-services-role-instance"></a>管理云服务角色实例的 ILPIP
 
 若要将 ILPIP 添加到云服务角色实例，请完成以下步骤：
 
@@ -153,7 +145,6 @@ Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -Publi
     ```
 3. 通过完成[如何配置云服务](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg)文章中的步骤，上传云服务的 .cscfg 文件。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 了解 [IP 寻址](virtual-network-ip-addresses-overview-classic.md)在经典部署模型中的工作原理。
 * 了解[保留 IP](virtual-networks-reserved-public-ip.md)。

@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 为 Azure 配置 Oracle 数据防护
-<a id="configuring-oracle-data-guard-for-azure" class="xliff"></a>
+# <a name="configuring-oracle-data-guard-for-azure"></a>为 Azure 配置 Oracle 数据防护
 本教程介绍如何在 Azure 虚拟机环境中设置和实施 Oracle 数据防护，以实现高可用性和灾难恢复。 本教程着重于非 RAC Oracle 数据库的单向复制。
 
 Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复。 它是一种简单、高性能、即时的解决方案，可针对整个 Oracle 数据库实现灾难恢复、数据保护和高可用性。
@@ -79,10 +78,8 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
 
 对于 Oracle 数据库和 Oracle 数据防护的后续版本，可能需要实施一些附加更改。 有关最新的版本特定信息，请参阅 Oracle 网站上的[数据防护](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html)和 [Oracle 数据库](http://www.oracle.com/us/corporate/features/database-12c/index.html)文档。
 
-## 实施物理备用数据库环境
-<a id="implement-the-physical-standby-database-environment" class="xliff"></a>
-### 1.创建主数据库
-<a id="1-create-a-primary-database" class="xliff"></a>
+## <a name="implement-the-physical-standby-database-environment"></a>实施物理备用数据库环境
+### <a name="1-create-a-primary-database"></a>1.创建主数据库
 * 在主虚拟机中创建主数据库“TEST”。 有关信息，请参阅“创建和配置 Oracle 数据库”。
 * 若要查看数据库的名称，请在 SQL*Plus 命令提示符下，以具有 SYSDBA 角色的 SYS 用户身份连接到数据库，然后运行以下语句：
 
@@ -104,8 +101,7 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
         C:\<YourLocalFolder>\TEST\SYSTEM01.DBF
         C:\<YourLocalFolder>\TEST\EXAMPLE01.DBF
 
-### 2.准备用于创建备用数据库的主数据库
-<a id="2-prepare-the-primary-database-for-standby-database-creation" class="xliff"></a>
+### <a name="2-prepare-the-primary-database-for-standby-database-creation"></a>2.准备用于创建备用数据库的主数据库
 在创建备用数据库之前，建议用户确保正确配置主数据库。 下面是需执行的步骤的列表：
 
 1. 启用强制日志记录
@@ -114,16 +110,14 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
 4. 启用存档
 5. 设置主数据库初始化参数
 
-#### 启用强制日志记录
-<a id="enable-forced-logging" class="xliff"></a>
+#### <a name="enable-forced-logging"></a>启用强制日志记录
 为了实现备用数据库，需在主数据库中启用“强制日志记录”。 此选项可确保即使已完成“nologging”操作，也会优先处理强制日志记录，并将所有操作记录到重做日志。 因此，请确保记录主数据库中的所有内容，且在复制到备用数据库时包括主数据库中的所有操作。 运行 alter database 语句以启用强制日志记录：
 
     SQL> ALTER DATABASE FORCE LOGGING;
 
     Database altered.
 
-#### 创建密码文件
-<a id="create-a-password-file" class="xliff"></a>
+#### <a name="create-a-password-file"></a>创建密码文件
 若要将存储日志从主服务器传递并应用到备用服务器，主服务器和备用服务器上的 sys 密码必须完全相同。 正因如此，需要在主数据库中创建一个密码文件，并将其复制到备用服务器。
 
 > [!IMPORTANT]
@@ -143,8 +137,7 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
 
 此命令将在 ORACLE\_HOME\\database 目录中创建名为 PWDTEST.ora 的密码文件。 应手动将此文件复制到 Machine2 的 %ORACLE\_HOME%\\database 目录中。
 
-#### 配置备用重做日志
-<a id="configure-a-standby-redo-log" class="xliff"></a>
+#### <a name="configure-a-standby-redo-log"></a>配置备用重做日志
 然后，需要配置备用重做日志，使主服务器在变为备用服务器后可以正确接收重做日志。 另外，在此处预先创建重做日志后，备用服务器上会自动创建备用重做日志。 请务必将备用重做日志 (SRL) 配置为与联机重做日志相同的大小。 当前备用重做日志文件的大小必须与当前主数据库联机重做日志文件的大小完全匹配。
 
 在 Machine1 中的 SQL\*PLUS 命令提示符下运行以下语句。 v$logfile 是一个系统视图，其中包含有关重做日志文件的信息。
@@ -187,8 +180,7 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
     6         STANDBY C:\<YourLocalFolder>\TEST\REDO06.LOG NO
     6 rows selected.
 
-#### 启用存档
-<a id="enable-archiving" class="xliff"></a>
+#### <a name="enable-archiving"></a>启用存档
 然后，通过运行以下语句启用存档，将主数据库置于 ARCHIVELOG 模式，并启用自动存档。 可以通过装入数据库，然后执行 archivelog 命令来启用存档日志模式。
 
 首先，以 sysdba 身份登录。 在 Windows 命令提示符下，运行以下命令：
@@ -226,8 +218,7 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
 
     Database altered.
 
-#### 设置主数据库初始化参数
-<a id="set-primary-database-initialization-parameters" class="xliff"></a>
+#### <a name="set-primary-database-initialization-parameters"></a>设置主数据库初始化参数
 若要配置数据防护，首先需要在正则 pfile（文本初始化参数文件）中创建并配置备用参数。 Pfile 准备就绪后，需将其转换为服务器参数文件 (SPFILE)。
 
 可以使用 INIT.ORA 文件中的参数控制数据防护环境。 在学习本教程时，需要更新主数据库 INIT.ORA，使其能够保存两个角色：主角色和备用角色。
@@ -307,8 +298,7 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
     Database mounted.
     Database opened.
 
-## 创建物理备用数据库
-<a id="create-a-physical-standby-database" class="xliff"></a>
+## <a name="create-a-physical-standby-database"></a>创建物理备用数据库
 本部分重点介绍准备物理备用数据库时必须在 Machine2 中执行的步骤。
 
 首先，需要通过 Azure 门户从远程桌面连接到 Machine2。
@@ -328,8 +318,7 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
 5. 在托管恢复模式下启动物理备用数据库
 6. 验证物理备用数据库
 
-### 1.为备用数据库准备初始化参数文件
-<a id="1-prepare-an-initialization-parameter-file-for-standby-database" class="xliff"></a>
+### <a name="1-prepare-an-initialization-parameter-file-for-standby-database"></a>1.为备用数据库准备初始化参数文件
 本部分介绍如何为备用数据库准备初始化参数文件。 为此，请先手动将 INITTEST.ORA 文件从 Machine1 复制到 Machine2。 应该能在两台计算机的 %ORACLE\_HOME%\\database 文件夹中看到 INITTEST.ORA 文件。 然后，在 Machine2 中修改 INITTEST.ora 文件，根据下面的指定为备用角色设置该文件：
 
     db_name='TEST'
@@ -358,12 +347,10 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
 
 **Oradim** 命令将创建 Oracle 实例，但不会启动它。 可以在 C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\BIN 目录中找到该实例。
 
-## 配置侦听器和 tnsnames，支持主计算机和备用计算机上的数据库
-<a id="configure-the-listener-and-tnsnames-to-support-the-database-on-primary-and-standby-machines" class="xliff"></a>
+## <a name="configure-the-listener-and-tnsnames-to-support-the-database-on-primary-and-standby-machines"></a>配置侦听器和 tnsnames，支持主计算机和备用计算机上的数据库
 在创建备用数据库之前，需确保配置中的主数据库和备用数据库可以互相通信。 为此，需要手动或使用网络配置实用工具 NETCA 来配置侦听器和 TNSNames。 使用恢复管理器实用工具 (RMAN) 时，这是一项强制性任务。
 
-### 在两个服务器上配置 listener.ora，用于保存两个数据库的条目
-<a id="configure-listenerora-on-both-servers-to-hold-entries-for-both-databases" class="xliff"></a>
+### <a name="configure-listenerora-on-both-servers-to-hold-entries-for-both-databases"></a>在两个服务器上配置 listener.ora，用于保存两个数据库的条目
 通过远程桌面连接到 Machine1，并根据下面的指定编辑 listener.ora 文件。 编辑 listener.ora 文件时，请始终确保左括号和右括号在同一列中对齐。 可在以下文件夹中找到 listener.ora 文件：c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\。
 
     # listener.ora Network Configuration File: C:\OracleDatabase\product\11.2.0\dbhome_1\network\admin\listener.ora
@@ -412,8 +399,7 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
         )
       )
 
-### 在主虚拟机和备用虚拟机上配置 tnsnames.ora，用于保存主数据库和备用数据库的条目
-<a id="configure-tnsnamesora-on-the-primary-and-standby-virtual-machines-to-hold-entries-for-both-primary-and-standby-databases" class="xliff"></a>
+### <a name="configure-tnsnamesora-on-the-primary-and-standby-virtual-machines-to-hold-entries-for-both-primary-and-standby-databases"></a>在主虚拟机和备用虚拟机上配置 tnsnames.ora，用于保存主数据库和备用数据库的条目
 通过远程桌面连接到 Machine1，并根据下面的指定编辑 tnsnames.ora 文件。 可在以下文件夹中找到 tnsnames.ora 文件：c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\。
 
     TEST =
@@ -458,8 +444,7 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
         )
       )
 
-### 启动侦听器，并检查是否可以从两个虚拟机 tnsping 到两个服务。
-<a id="start-the-listener-and-check-tnsping-on-both-virtual-machines-to-both-services" class="xliff"></a>
+### <a name="start-the-listener-and-check-tnsping-on-both-virtual-machines-to-both-services"></a>启动侦听器，并检查是否可以从两个虚拟机 tnsping 到两个服务。
 在主虚拟机和备用虚拟机中打开新的 Windows 命令提示符并运行以下语句：
 
     C:\Users\DBAdmin>tnsping test
@@ -484,8 +469,7 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
     VICE_NAME = test_stby)))
     OK (260 msec)
 
-## 在 nomount 状态下启动备用实例
-<a id="start-up-the-standby-instance-in-nomount-state" class="xliff"></a>
+## <a name="start-up-the-standby-instance-in-nomount-state"></a>在 nomount 状态下启动备用实例
 设置环境，使其支持备用虚拟机 (MACHINE2) 上的备用数据库。
 
 首先，将密码文件从主计算机 (Machine1) 手动复制到备用计算机 (Machine2)。 必须执行此操作，因为两个计算机上的 **sys** 密码必须相同。
@@ -510,8 +494,7 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
     Database Buffers          264241152 bytes
     Redo Buffers                7036928 bytes
 
-## 使用 RMAN 克隆数据库并创建备用数据库
-<a id="use-rman-to-clone-the-database-and-to-create-a-standby-database" class="xliff"></a>
+## <a name="use-rman-to-clone-the-database-and-to-create-a-standby-database"></a>使用 RMAN 克隆数据库并创建备用数据库
 可以使用恢复管理器实用工具 (RMAN) 生成主数据库的任何备份副本，创建物理备用数据库。
 
 通过远程桌面连接到备用虚拟机 (MACHINE2)，并通过为 TARGET（主数据库，Machine1）和 AUXILLARY（备用数据库，Machine2）实例指定完整连接字符串来运行 RMAN 实用工具。
@@ -529,8 +512,7 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
       DORECOVER
         NOFILENAMECHECK;
 
-## 在托管恢复模式下启动物理备用数据库
-<a id="start-the-physical-standby-database-in-managed-recovery-mode" class="xliff"></a>
+## <a name="start-the-physical-standby-database-in-managed-recovery-mode"></a>在托管恢复模式下启动物理备用数据库
 本教程介绍如何创建物理备用数据库。 有关创建逻辑备用数据库的信息，请参阅 Oracle 文档。
 
 打开 SQL\*Plus 命令提示符，在备用虚拟机或服务器 (MACHINE2) 上启用数据防护，如下所示：
@@ -549,8 +531,7 @@ Oracle 数据防护支持对 Oracle 数据库实施数据保护和灾难恢复�
     STARTUP MOUNT;
     ALTER DATABASE OPEN READ ONLY;
 
-## 验证物理备用数据库
-<a id="verify-the-physical-standby-database" class="xliff"></a>
+## <a name="verify-the-physical-standby-database"></a>验证物理备用数据库
 本部分介绍如何以管理员身份验证高可用性配置。
 
 打开 SQL\*Plus 命令提示窗口，并检查备用虚拟机 (Machine2) 上的存档重做日志：

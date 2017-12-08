@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 适用于 SQL 数据仓库的 PowerShell cmdlet 和 REST API
-<a id="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse" class="xliff"></a>
+# <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>适用于 SQL 数据仓库的 PowerShell cmdlet 和 REST API
 可以使用 Azure PowerShell cmdlet 或 REST API 来管理许多 SQL 数据仓库管理任务。  下面是如何使用 PowerShell 命令自动执行 SQL 数据仓库中的常见任务的一些示例。  如需一些好的 REST 示例，请参阅 [使用 REST 管理可伸缩性][Manage scalability with REST]一文。
 
 > [!NOTE]
@@ -31,8 +30,7 @@ ms.lasthandoff: 07/05/2017
 > 
 > 
 
-## Azure PowerShell cmdlet 入门
-<a id="get-started-with-azure-powershell-cmdlets" class="xliff"></a>
+## <a name="get-started-with-azure-powershell-cmdlets"></a>Azure PowerShell cmdlet 入门
 1. 打开 Windows PowerShell。
 2. 在 PowerShell 提示符下，运行以下命令以登录到 Azure Resource Manager，然后选择你的订阅。
 
@@ -42,8 +40,7 @@ ms.lasthandoff: 07/05/2017
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```
 
-## 暂停 SQL 数据仓库示例
-<a id="pause-sql-data-warehouse-example" class="xliff"></a>
+## <a name="pause-sql-data-warehouse-example"></a>暂停 SQL 数据仓库示例
 暂停名为“Server01”的服务器上托管的名为“Database02”的数据库。  该服务器位于名为“ResourceGroup1”的 Azure 资源组中。
 
 ```Powershell
@@ -57,8 +54,7 @@ $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-## 启动 SQL 数据仓库示例
-<a id="start-sql-data-warehouse-example" class="xliff"></a>
+## <a name="start-sql-data-warehouse-example"></a>启动 SQL 数据仓库示例
 
 恢复“Server01”的服务器上托管的“Database02”数据库的运行。 该服务器包含在名为“ResourceGroup1”的资源组中。
 
@@ -78,8 +74,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 > 
 > 
 
-## 其他支持的 PowerShell cmdlet
-<a id="other-supported-powershell-cmdlets" class="xliff"></a>
+## <a name="other-supported-powershell-cmdlets"></a>其他支持的 PowerShell cmdlet
 Azure SQL 数据仓库支持以下 PowerShell cmdlet。
 
 * [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase]
@@ -93,8 +88,7 @@ Azure SQL 数据仓库支持以下 PowerShell cmdlet。
 * [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]
 * [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关更多的 PowerShell 示例，请参阅：
 
 * [Create a SQL Data Warehouse using PowerShell（使用 PowerShell 创建 SQL 数据仓库）][Create a SQL Data Warehouse using PowerShell]

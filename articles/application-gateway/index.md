@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 应用程序网关文档
-<a id="application-gateway-documentation" class="xliff"></a>
+# <a name="application-gateway-documentation"></a>应用程序网关文档
 
 了解如何将应用程序网关（即应用程序传送控制器 (ADC)）部署为服务。 教程、API 参考及其他文档显示如何设置应用程序级路由和负载均衡服务，使你可以构建高度可用的可缩放 Web 前端。
 

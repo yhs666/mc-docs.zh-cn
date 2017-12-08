@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-### 配置新的存储帐户
-<a id="to-configure-a-new-storage-account" class="xliff"></a>
+### <a name="to-configure-a-new-storage-account"></a>配置新的存储帐户
 
 1. 在 StorSimple Manager 服务登陆页上，选择服务并双击它。 这将转到“快速启动”页。 选择“配置”页。
 

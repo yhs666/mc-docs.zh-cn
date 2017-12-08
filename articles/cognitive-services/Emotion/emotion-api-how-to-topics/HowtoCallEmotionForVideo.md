@@ -16,7 +16,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
 ---
-# 如何调用视频情感 API
+# <a name="how-to-call-emotion-api-for-video"></a>如何调用视频情感 API
 
 本指南演示如何调用视频情感 API。 这些示例是使用视频情感 API 客户端库以 C# 语言编写的。
 

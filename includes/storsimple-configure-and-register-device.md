@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-### 配置和注册设备
-<a id="to-configure-and-register-the-device" class="xliff"></a>
+### <a name="to-configure-and-register-the-device"></a>配置和注册设备
 
 1. 访问 StorSimple 设备串行控制台上的 Windows PowerShell 接口。 有关说明，请参阅[使用 PuTTY 连接到设备串行控制台](#use-putty-to-connect-to-the-device-serial-console)。 **请务必严格遵照该步骤，否则将无法访问控制台。**
 

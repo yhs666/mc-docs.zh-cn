@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 使用 REST API 管理基于角色的访问控制
-<a id="manage-role-based-access-control-with-the-rest-api" class="xliff"></a>
+# <a name="manage-role-based-access-control-with-the-rest-api"></a>使用 REST API 管理基于角色的访问控制
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
@@ -30,14 +29,12 @@ ms.lasthandoff: 06/23/2017
 
 Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API 有助于精细管理对订阅和资源的访问。 使用此功能，可以通过在特定范围内为 Active Directory 用户、组或服务主体分配某些角色来向其授予访问权限。
 
-## 列出所有角色分配
-<a id="list-all-role-assignments" class="xliff"></a>
+## <a name="list-all-role-assignments"></a>列出所有角色分配
 列出指定范围和子范围内的所有角色分配。
 
 要列出角色分配，必须对 `Microsoft.Authorization/roleAssignments/read` 操作具有范围内的访问权限。 所有内置角色均有权访问此操作。 有关角色分配和管理 Azure 资源的访问权限的详细信息，请参阅 [Azure 基于角色的访问控制](role-based-access-control-configure.md)。
 
-### 请求
-<a id="request" class="xliff"></a>
+### <a name="request"></a>请求
 使用具有以下 URI 的 **GET** 方法：
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
@@ -56,8 +53,7 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
    - 列出特定用户、组或应用程序的角色分配： `principalId%20eq%20'{objectId of user, group, or service principal}'`  
    - 列出特定用户（包括继承自组的用户）的角色分配 | `assignedTo('{objectId of user}')`
 
-### 响应
-<a id="response" class="xliff"></a>
+### <a name="response"></a>响应
 状态代码：200
 
 ```
@@ -83,14 +79,12 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 ```
 
-## 获取有关角色分配的信息
-<a id="get-information-about-a-role-assignment" class="xliff"></a>
+## <a name="get-information-about-a-role-assignment"></a>获取有关角色分配的信息
 获取有关角色分配标识符指定的单个角色分配的信息。
 
 若要获取有关角色分配的信息，必须对 `Microsoft.Authorization/roleAssignments/read` 操作具有访问权限。 所有内置角色均有权访问此操作。 有关角色分配和管理 Azure 资源的访问权限的详细信息，请参阅 [Azure 基于角色的访问控制](role-based-access-control-configure.md)。
 
-### 请求
-<a id="request" class="xliff"></a>
+### <a name="request"></a>请求
 使用具有以下 URI 的 **GET** 方法：
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
@@ -105,8 +99,7 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 2. 将 *{role-assignment-id}* 替换为角色分配的 GUID 标识符。
 3. 将 *{api-version}* 替换为 2015-07-01。
 
-### 响应
-<a id="response" class="xliff"></a>
+### <a name="response"></a>响应
 状态代码：200
 
 ```
@@ -127,14 +120,12 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 ```
 
-## 创建角色分配
-<a id="create-a-role-assignment" class="xliff"></a>
+## <a name="create-a-role-assignment"></a>创建角色分配
 在指定范围内，为授予指定角色的指定主体创建角色分配。
 
 若要创建角色分配，必须对 `Microsoft.Authorization/roleAssignments/write` 操作具有访问权限。 在内置角色中，只有“所有者”和“用户访问管理员”具有对此操作的访问权限。 有关角色分配和管理 Azure 资源的访问权限的详细信息，请参阅 [Azure 基于角色的访问控制](role-based-access-control-configure.md)。
 
-### 请求
-<a id="request" class="xliff"></a>
+### <a name="request"></a>请求
 使用具有以下 URI 的 **PUT** 方法：
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
@@ -166,8 +157,7 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 | roleDefinitionId |是 |字符串 |角色的标识符。 标识符的格式为： `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |是 |String |角色将分配到的 Azure AD 主体（用户、组或服务主体）的 objectId。 |
 
-### 响应
-<a id="response" class="xliff"></a>
+### <a name="response"></a>响应
 状态代码：201
 
 ```
@@ -188,14 +178,12 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 ```
 
-## 删除角色分配
-<a id="delete-a-role-assignment" class="xliff"></a>
+## <a name="delete-a-role-assignment"></a>删除角色分配
 删除指定范围的角色分配。
 
 若要删除角色分配，必须对 `Microsoft.Authorization/roleAssignments/delete` 操作具有访问权限。 在内置角色中，只有“所有者”和“用户访问管理员”具有对此操作的访问权限。 有关角色分配和管理 Azure 资源的访问权限的详细信息，请参阅 [Azure 基于角色的访问控制](role-based-access-control-configure.md)。
 
-### 请求
-<a id="request" class="xliff"></a>
+### <a name="request"></a>请求
 使用具有以下 URI 的 **DELETE** 方法：
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
@@ -210,8 +198,7 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 2. 将 *{role-assignment-id}* 替换为角色分配 id GUID。
 3. 将 *{api-version}* 替换为 2015-07-01。
 
-### 响应
-<a id="response" class="xliff"></a>
+### <a name="response"></a>响应
 状态代码：200
 
 ```
@@ -232,14 +219,12 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 ```
 
-## 列出所有角色
-<a id="list-all-roles" class="xliff"></a>
+## <a name="list-all-roles"></a>列出所有角色
 列出指定范围内可用于分配的所有角色。
 
 若要列出角色，必须对 `Microsoft.Authorization/roleDefinitions/read` 操作具有范围内的访问权限。 所有内置角色均有权访问此操作。 有关角色分配和管理 Azure 资源的访问权限的详细信息，请参阅 [Azure 基于角色的访问控制](role-based-access-control-configure.md)。
 
-### 请求
-<a id="request" class="xliff"></a>
+### <a name="request"></a>请求
 使用具有以下 URI 的 **GET** 方法：
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
@@ -257,8 +242,7 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
    - 列出可在指定范围及其任何子范围内分配的角色： `atScopeAndBelow()`
    - 使用具体的显示名称搜索角色： `roleName%20eq%20'{role-display-name}'`。 使用角色的具体显示名称的 URL 编码形式。 例如，`$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
-### 响应
-<a id="response" class="xliff"></a>
+### <a name="response"></a>响应
 状态代码：200
 
 ```
@@ -318,14 +302,12 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 ```
 
-## 获取有关角色的信息
-<a id="get-information-about-a-role" class="xliff"></a>
+## <a name="get-information-about-a-role"></a>获取有关角色的信息
 获取有关角色定义标识符指定的单个角色的信息。 若要获取有关使用显示名称的单个角色的信息，请参阅[列出所有角色](role-based-access-control-manage-access-rest.md#list-all-roles)。
 
 若要获取有关角色的信息，必须对 `Microsoft.Authorization/roleDefinitions/read` 操作具有访问权限。 所有内置角色均有权访问此操作。 有关角色分配和管理 Azure 资源的访问权限的详细信息，请参阅 [Azure 基于角色的访问控制](role-based-access-control-configure.md)。
 
-### 请求
-<a id="request" class="xliff"></a>
+### <a name="request"></a>请求
 使用具有以下 URI 的 **GET** 方法：
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
@@ -340,8 +322,7 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 2. 将 *{role-definition-id}* 替换为角色定义的 GUID 标识符。
 3. 将 *{api-version}* 替换为 2015-07-01。
 
-### 响应
-<a id="response" class="xliff"></a>
+### <a name="response"></a>响应
 状态代码：200
 
 ```
@@ -401,14 +382,12 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 ```
 
-## 创建自定义角色
-<a id="create-a-custom-role" class="xliff"></a>
+## <a name="create-a-custom-role"></a>创建自定义角色
 创建自定义角色。
 
 若要创建自定义角色，必须在所有 `AssignableScopes` 内具有对 `Microsoft.Authorization/roleDefinitions/write` 操作的访问权限。 在内置角色中，只有“所有者”和“用户访问管理员”具有对此操作的访问权限。 有关角色分配和管理 Azure 资源的访问权限的详细信息，请参阅 [Azure 基于角色的访问控制](role-based-access-control-configure.md)。
 
-### 请求
-<a id="request" class="xliff"></a>
+### <a name="request"></a>请求
 使用具有以下 URI 的 **PUT** 方法：
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
@@ -466,8 +445,7 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 | properties.permissions.notActions |否 |String[] |操作字符串的数组，这些字符串指定自定义角色不授予访问权限的操作。 |
 | properties.assignableScopes |是 |String[] |范围的数组，在这些范围内可以使用自定义角色。 |
 
-### 响应
-<a id="response" class="xliff"></a>
+### <a name="response"></a>响应
 状态代码：201
 
 ```
@@ -507,14 +485,12 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 ```
 
-## 更新自定义角色
-<a id="update-a-custom-role" class="xliff"></a>
+## <a name="update-a-custom-role"></a>更新自定义角色
 修改自定义角色。
 
 若要修改自定义角色，必须在所有 `AssignableScopes` 内具有对 `Microsoft.Authorization/roleDefinitions/write` 操作的访问权限。 在内置角色中，只有“所有者”和“用户访问管理员”具有对此操作的访问权限。 有关角色分配和管理 Azure 资源的访问权限的详细信息，请参阅 [Azure 基于角色的访问控制](role-based-access-control-configure.md)。
 
-### 请求
-<a id="request" class="xliff"></a>
+### <a name="request"></a>请求
 使用具有以下 URI 的 **PUT** 方法：
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
@@ -572,8 +548,7 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 | properties.permissions.notActions |否 |String[] |操作字符串的数组，这些字符串指定更新的自定义角色不授予访问权限的操作。 |
 | properties.assignableScopes |是 |String[] |范围的数组，在这些范围内可以使用更新的自定义角色。 |
 
-### 响应
-<a id="response" class="xliff"></a>
+### <a name="response"></a>响应
 状态代码：201
 
 ```
@@ -613,14 +588,12 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 ```
 
-## 删除自定义角色
-<a id="delete-a-custom-role" class="xliff"></a>
+## <a name="delete-a-custom-role"></a>删除自定义角色
 删除自定义角色。
 
 若要删除自定义角色，必须在所有 `AssignableScopes` 内具有对 `Microsoft.Authorization/roleDefinitions/delete` 操作的访问权限。 在内置角色中，只有“所有者”和“用户访问管理员”具有对此操作的访问权限。 有关角色分配和管理 Azure 资源的访问权限的详细信息，请参阅 [Azure 基于角色的访问控制](role-based-access-control-configure.md)。
 
-### 请求
-<a id="request" class="xliff"></a>
+### <a name="request"></a>请求
 使用具有以下 URI 的 **DELETE** 方法：
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
@@ -635,8 +608,7 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 2. 将 *{role-definition-id}* 替换为自定义角色的 GUID 角色定义 ID。
 3. 将 *{api-version}* 替换为 2015-07-01。
 
-### 响应
-<a id="response" class="xliff"></a>
+### <a name="response"></a>响应
 状态代码：200
 
 ```
@@ -676,8 +648,7 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 

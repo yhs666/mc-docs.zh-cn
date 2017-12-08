@@ -22,12 +22,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# SQL 数据仓库容量限制
-<a id="sql-data-warehouse-capacity-limits" class="xliff"></a>
+# <a name="sql-data-warehouse-capacity-limits"></a>SQL 数据仓库容量限制
 下表包含 Azure SQL 数据仓库的各个组件允许的最大值。
 
-## 工作负荷管理
-<a id="workload-management" class="xliff"></a>
+## <a name="workload-management"></a>工作负荷管理
 | 类别 | 说明 | 最大值 |
 |:--- |:--- |:--- |
 | [数据仓库单位 (DWU)][Data Warehouse Units (DWU)] |单个 SQL 数据仓库的最大 DWU |6000 |
@@ -38,8 +36,7 @@ ms.lasthandoff: 07/05/2017
 | [Tempdb][Tempdb] |Tempdb 的最大大小 |每 DW100 399 GB。 因此，在 DWU1000 的情况下，Tempdb 的大小为 3.99 TB |
 <!-- Not Available [creating a support ticket][creating a support ticket] -->
 
-## 数据库对象
-<a id="database-objects" class="xliff"></a>
+## <a name="database-objects"></a>数据库对象
 | 类别 | 说明 | 最大值 |
 |:--- |:--- |:--- |
 | 数据库 |最大大小 |磁盘上压缩的 240 TB<br/><br/>此空间与 tempdb 或日志空间无关，因此，此空间专用于永久表。  聚集列存储压缩率估计为 5 倍。  此压缩率允许数据库在所有表都为聚集列存储（默认表类型）的情况下增长到大约 1 PB。 |
@@ -60,14 +57,12 @@ ms.lasthandoff: 07/05/2017
 | 存储过程 |最大嵌套级数。 |8 |
 | 查看 |每个视图的列数 |1,024 |
 
-## 加载
-<a id="loads" class="xliff"></a>
+## <a name="loads"></a>加载
 | 类别 | 说明 | 最大值 |
 |:--- |:--- |:--- |
 | Polybase 加载 |每行 MB 数 |1<br/><br/>Polybase 加载限制为加载小于 1MB 的行，并且无法加载到 VARCHR(MAX)、NVARCHAR(MAX) 或 VARBINARY(MAX)。<br/><br/> |
 
-## 查询
-<a id="queries" class="xliff"></a>
+## <a name="queries"></a>查询
 | 类别 | 说明 | 最大值 |
 |:--- |:--- |:--- |
 | 查询 |用户表的排队查询数。 |1000 |
@@ -82,8 +77,7 @@ ms.lasthandoff: 07/05/2017
 | SELECT |每个 ORDER BY 列的字节数 |8060 字节。<br/><br/>ORDER BY 子句中的列的字节数最大为 8060 字节。 |
 | 每个语句的标识符和常量数 |被引用的标识符和常量的数量。 |65,535<br/><br/>SQL 数据仓库限制一条查询的单个表达式中可包含的标识符和常量数。 此限制为 65,535。 超过此数字将导致 SQL Server 错误 8632。 有关详细信息，请参阅 [Internal error: An expression services limit has been reached][Internal error: An expression services limit has been reached]（内部错误：已达到表达式服务限制）。 |
 
-## Metadata
-<a id="metadata" class="xliff"></a>
+## <a name="metadata"></a>Metadata
 | 系统视图 | 最大行数 |
 |:--- |:--- |
 | sys.dm_pdw_component_health_alerts |10,000 |
@@ -96,8 +90,7 @@ ms.lasthandoff: 07/05/2017
 | sys.dm_pdw_os_event_logs |10,000 |
 | sys.dm_pdw_sql_requests |sys.dm_pdw_exec_requests 中存储的最近 1000 个 SQL 请求。 |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关更多参考信息，请参阅 [SQL 数据仓库参考概述][SQL Data Warehouse reference overview]。
 
 <!--Image references-->

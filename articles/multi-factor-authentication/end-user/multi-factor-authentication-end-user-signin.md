@@ -17,17 +17,15 @@ origin.date: 04/02/2017
 ms.author: v-junlch
 ms.custom: end-user
 ms.date: 05/15/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: d3a1002d2cb9a19423250650725f43fbd2b7db51
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 4a59d2f6d715dbf4d764a1663651ea737335d2be
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure 多重身份验证的登录体验
 > [!NOTE]
-> 本文旨在逐步讲解典型的登录体验。 有关登录的帮助或者要排查问题，请参阅[使用 Azure 多重身份验证时遇到问题](multi-factor-authentication-end-user-troubleshoot.md)。
+> 本文旨在逐步讲解典型的登录体验。 有关登录的帮助或者要排查问题，请参阅[使用 Azure 多重身份验证时遇到问题](./multi-factor-authentication-end-user-troubleshoot.md)。
 
 ## <a name="what-will-your-sign-in-experience-be"></a>你的登录体验是怎样的？
 根据所选择的第二重验证因素（拨打电话、身份验证应用或短信），你的登录体验将有所不同。 请选择最适当地描述了你的活动的选项：
@@ -37,6 +35,7 @@ ms.lasthandoff: 04/14/2017
 | [通过拨打我的手机或办公电话](#signing-in-with-a-phone-call) |
 | [通过向我的手机发送短信](#signing-in-with-a-text-message)
 | [使用来自 Microsoft 验证器应用的通知](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
+| [使用来自 Microsoft 验证器应用的验证代码](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
 | [使用备用方法，因为我暂时无法使用首选方法](#signing-in-with-an-alternate-method) |
 
 ## 电话登录 <a name="signing-in-with-a-phone-call"></a>
@@ -91,10 +90,8 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-如果使用双重验证登录时遇到问题，请在[使用 Azure 多重身份验证时遇到问题](multi-factor-authentication-end-user-troubleshoot.md)中获取详细信息。
+如果使用双重验证登录时遇到问题，请在[使用 Azure 多重身份验证时遇到问题](./multi-factor-authentication-end-user-troubleshoot.md)中获取详细信息。
 
-了解如何[管理双重验证设置](multi-factor-authentication-end-user-manage-settings.md)。
+了解如何[管理双重验证设置](./multi-factor-authentication-end-user-manage-settings.md)。
 
-了解如何[开始使用 Microsoft 验证器应用](microsoft-authenticator-app-how-to.md)，以便使用通知（而不是短信和电话呼叫）登录。 
-
-
+了解如何[开始使用 Microsoft 验证器应用](./microsoft-authenticator-app-how-to.md)，以便使用通知（而不是短信和电话呼叫）登录。 

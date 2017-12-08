@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# 还原 Azure SQL 数据仓库（门户）
-<a id="restore-azure-sql-data-warehouse-portal" class="xliff"></a>
+# <a name="restore-azure-sql-data-warehouse-portal"></a>还原 Azure SQL 数据仓库（门户）
 
 > [!div class="op_single_selector"]
 > * [概述][Overview]
@@ -34,14 +33,12 @@ ms.lasthandoff: 07/05/2017
 >
 本文介绍如何使用 Azure 门户还原 Azure SQL 数据仓库。
 
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>开始之前
 
 <!-- Not Available [Request a DTU quota change][Request a DTU quota change] -->
 **验证 DTU 容量。** 每个 SQL 数据仓库实例都由一个具有默认数据吞吐量单位 (DTU) 配额的 SQL 服务器（例如 myserver.database.chinacloudapi.cn）托管。 在还原 SQL 数据仓库之前，请验证 SQL Server 的剩余 DTU 配额是否足够进行数据库还原。
 
-## 还原活动或暂停的数据库
-<a id="restore-an-active-or-paused-database" class="xliff"></a>
+## <a name="restore-an-active-or-paused-database"></a>还原活动或暂停的数据库
 
 还原数据库：
 
@@ -80,8 +77,7 @@ ms.lasthandoff: 07/05/2017
 >
 >
 
-## 还原已删除的数据库
-<a id="restore-a-deleted-database" class="xliff"></a>
+## <a name="restore-a-deleted-database"></a>还原已删除的数据库
 
 还原已删除的数据库：
 
@@ -118,8 +114,7 @@ ms.lasthandoff: 07/05/2017
 >
 >
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 若要了解 Azure SQL 数据库版本的业务连续性功能，请阅读 [Azure SQL 数据库业务连续性概述][Azure SQL Database business continuity overview]。
 
 <!--Image references-->

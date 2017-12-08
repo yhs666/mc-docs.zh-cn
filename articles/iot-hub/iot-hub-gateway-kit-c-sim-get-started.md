@@ -13,11 +13,14 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/21/2016
-ms.date: 06/05/2017
+ms.date: 03/21/2017
 ms.author: v-yiso
+ms.openlocfilehash: 6cceece4042619ad4f48fe7da7f8a8d7a74d8cca
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="get-started-with-iot-gateway-starter-kit-with-a-simulated-device"></a>通过模拟设备开始使用 IoT 网关初学者工具包
 >[!div class="op_single_selector"]
 [SensorTag](./iot-hub-gateway-kit-c-get-started.md)

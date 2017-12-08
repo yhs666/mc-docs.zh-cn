@@ -17,16 +17,14 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 如何使用 Azure 托管缓存服务
-<a id="how-to-use-azure-managed-cache-service" class="xliff"></a>
+# <a name="how-to-use-azure-managed-cache-service"></a>如何使用 Azure 托管缓存服务
 
 本指南演示如何开始使用 **Azure 托管缓存服务**。 示例是用 C\# 代码编写的且使用了 .NET API。 涉及的应用场景包括**创建和配置缓存**、**配置缓存客户端**、 **在缓存中添加和删除对象、在缓存中存储 ASP.NET 会话状态**以及**使用缓存启用 ASP.NET 页面输出缓存**。 有关使用 Azure 缓存的详细信息，请参阅[后续步骤][]部分。
 
 >有关为应用程序选择正确的 Azure 缓存产品的指导，请参阅[哪种 Azure 缓存产品适合我？][]
 
 <a name="what-is"></a>
-## 什么是 Azure 托管缓存服务？
-<a id="what-is-azure-managed-cache-service" class="xliff"></a>
+## <a name="what-is-azure-managed-cache-service"></a>什么是 Azure 托管缓存服务？
 
 Azure 托管缓存服务是内存中的可缩放分布式解决方案，利用该解决方案，可通过对数据进行超高速访问来生成高度可缩放且高度可响应的应用程序。
 
@@ -49,8 +47,7 @@ Azure 托管缓存服务包含以下功能：
 本指南概述了托管缓存服务入门。 有关超出本入门指南范围的功能的更多详细信息，请参阅 [Azure 托管缓存服务概述][]。
 
 <a name="getting-started-cache-service"></a>
-## 缓存服务入门
-<a id="getting-started-with-cache-service" class="xliff"></a>
+## <a name="getting-started-with-cache-service"></a>缓存服务入门
 
 托管缓存服务入门相当容易。 若要开始使用，需要首先设置和配置缓存。 接下来，配置缓存客户端，以便它们可以访问缓存。 在配置了缓存客户端后，就可以开始使用它们。
 
@@ -59,8 +56,7 @@ Azure 托管缓存服务包含以下功能：
 - [配置缓存客户端][]
 
 <a name="create-cache"></a>
-## 创建缓存
-<a id="create-a-cache" class="xliff"></a>
+## <a name="create-a-cache"></a>创建缓存
 
 托管缓存服务中的缓存是使用 PowerShell cmdlet 创建的。 
 
@@ -123,8 +119,7 @@ PS C:\>
 ```
 
 <a name="enable-caching"></a>
-## 配置缓存
-<a id="configure-the-cache" class="xliff"></a>
+## <a name="configure-the-cache"></a>配置缓存
 
 在管理门户中，用于缓存的“配置”选项卡位于配置缓存选项的位置。 每个缓存都具有默认命名缓存，并且标准和高级缓存产品/服务支持最多 9 个附加的命名缓存，总共 10 个。 每个命名缓存都具有自己的一组选项，可用于以高度灵活的方式配置你的缓存。
 
@@ -132,8 +127,7 @@ PS C:\>
 
 若要创建命名缓存，请在“名称”框中键入新缓存的名称，指定所需选项，单击“保存”，然后单击“是”进行确认。 若要取消任何更改，请单击“放弃”。
 
-## 有效期策略和时间（分钟）
-<a id="expiry-policy-and-time-min" class="xliff"></a> ##
+## <a name="expiry-policy-and-time-min"></a>有效期策略和时间（分钟） ##
 
 “过期策略”与“时间(分钟)”设置共同决定缓存项目的过期时间。 有三种过期策略：“绝对”、“可调”和“从不”。 
 
@@ -147,15 +141,13 @@ PS C:\>
 
 有关逐出和有效期策略的详细信息，请参阅[有效期和逐出][]。
 
-## 通知
-<a id="notifications" class="xliff"></a> ##
+## <a name="notifications"></a>通知 ##
 
 允许应用程序在缓存群集上发生多种不同的缓存操作时接收异步通知的缓存通知。 缓存通知还提供本地缓存的对象的自动失效。 有关详细信息，请参阅[通知][]。
 
 >仅在标准和高级缓存产品中提供通知，在基本缓存产品中不提供通知。 有关详细信息，请参阅[缓存产品/服务][]。
 
-## 高可用性
-<a id="high-availability" class="xliff"></a> ##
+## <a name="high-availability"></a>高可用性 ##
 
 在启用高可用性后，将对添加到缓存中的每一项生成一个备份副本。 如果该项的主副本发生了意外失败，则备份副本仍可用。
 
@@ -163,8 +155,7 @@ PS C:\>
 
 >仅在高级缓存产品中提供高可用性，在基本或标准缓存产品中不提供高可用性。 有关详细信息，请参阅[缓存产品/服务][]。
 
-## 逐出
-<a id="eviction" class="xliff"></a> ##
+## <a name="eviction"></a>逐出 ##
 
 为了保持在缓存中提供的内存容量，需支持最近最少使用 (LRU) 逐出。 在内存使用量超出内存阈值时，在内存压力得到缓解之前，将从内存中逐出对象，无论这些对象是否已到期。
 默认情况下启用逐出。 如果禁用了逐出，在达到容量时将不会从缓存中逐出项，并且 Put 和 Add 操作将失败。
@@ -174,8 +165,7 @@ PS C:\>
 在配置缓存后，可以配置缓存客户端以允许访问缓存。
 
 <a name="NuGet"></a>
-## 配置缓存客户端
-<a id="configure-the-cache-clients" class="xliff"></a>
+## <a name="configure-the-cache-clients"></a>配置缓存客户端
 
 使用托管缓存服务创建的缓存可从 Azure 网站、Web 角色、辅助角色和虚拟机中运行的 Azure 应用程序进行访问。 提供了 NuGet 包，它可用于简化缓存客户端应用程序的配置。 
 
@@ -274,8 +264,7 @@ NuGet 包还添加了对以下程序集的引用：
 配置客户端项目的缓存后，就可以使用以下各节中介绍的方法来使用缓存。
 
 <a name="working-with-caches"></a>
-## 使用缓存
-<a id="working-with-caches" class="xliff"></a>
+## <a name="working-with-caches"></a>使用缓存
 
 本节中的步骤介绍如何使用缓存执行常见任务。
 
@@ -286,8 +275,7 @@ NuGet 包还添加了对以下程序集的引用：
 -   [如何在缓存中存储 ASP.NET 页面输出缓存][]
 
 <a name="create-cache-object"></a>
-## 如何创建 DataCache 对象
-<a id="how-to-create-a-datacache-object" class="xliff"></a>
+## <a name="how-to-create-a-datacache-object"></a>如何创建 DataCache 对象
 
 若要以编程方式使用缓存，需要引用该缓存。 将以下代码添加到要从中使用 Azure Cache 的任何文件的顶部：
 
@@ -316,8 +304,7 @@ DataCache cache = cacheFactory.GetDefaultCache();
 ```
 
 <a name="add-object"></a>
-## 如何在缓存中添加和检索对象
-<a id="how-to-add-and-retrieve-an-object-from-the-cache" class="xliff"></a>
+## <a name="how-to-add-and-retrieve-an-object-from-the-cache"></a>如何在缓存中添加和检索对象
 
 若要向缓存中添加项，可以使用 **Add** 或 **Put** 方法。 **Add** 方法将指定的对象添加到缓存中，并按键参数的值进行键控。
 
@@ -357,8 +344,7 @@ cache.Put("item", "value");
 ```
 
 <a name="specify-expiration"></a>
-## 如何指定缓存中对象的有效期
-<a id="how-to-specify-the-expiration-of-an-object-in-the-cache" class="xliff"></a>
+## <a name="how-to-specify-the-expiration-of-an-object-in-the-cache"></a>如何指定缓存中对象的有效期
 
 默认情况下，缓存中的项在放入缓存中 10 分钟后到期。 在管理门户中，可在用于缓存的“配置”选项卡上的“时间(分钟)”设置中配置此选项。
 
@@ -384,8 +370,7 @@ TimeSpan timeRemaining = item.Timeout;
 ```
 
 <a name="store-session"></a>
-## 如何在缓存中存储 ASP.NET 会话状态
-<a id="how-to-store-aspnet-session-state-in-the-cache" class="xliff"></a>
+## <a name="how-to-store-aspnet-session-state-in-the-cache"></a>如何在缓存中存储 ASP.NET 会话状态
 
 用于 Azure Cache 的会话状态提供程序是用于 ASP.NET 应用程序的进程外存储机制。 此提供程序允许你将会话状态存储在 Azure 缓存中而非内存或 SQL Server 数据库中。 若要使用缓存会话状态提供程序，请首先配置缓存，然后使用缓存 NuGet 包配置用于缓存的 ASP.NET 应用程序，如[托管缓存服务入门][]中所述。 在安装缓存 NuGet 包时，它会在 web.config 中添加一个包含 ASP.NET 应用程序所需配置的注释掉的节，以使用用于 Azure Cache 的会话状态提供程序。
 
@@ -411,8 +396,7 @@ TimeSpan timeRemaining = item.Timeout;
 有关使用托管缓存服务会话状态提供程序的详细信息，请参阅[用于 Azure Cache 的会话状态提供程序][]。
 
 <a name="store-page"></a>
-## 如何在缓存中存储 ASP.NET 页面输出缓存
-<a id="how-to-store-aspnet-page-output-caching-in-the-cache" class="xliff"></a>
+## <a name="how-to-store-aspnet-page-output-caching-in-the-cache"></a>如何在缓存中存储 ASP.NET 页面输出缓存
 
 用于 Azure Cache 的输出缓存提供程序是用于输出缓存数据的进程外存储机制。 此数据专门用于完整 HTTP 响应（页面输出缓存）。 此提供程序会插入 ASP.NET 4 中引入的新输出缓存提供程序扩展点。 若要使用该输出缓存提供程序，请首先配置缓存群集，然后使用缓存 NuGet 包配置用于缓存的 ASP.NET 应用程序，如[托管缓存服务入门][]中所述。 在安装 Caching NuGet 包时，它会在 web.config 中添加以下包含 ASP.NET 应用程序所需配置的注释掉的节，以使用用于 Azure Caching 的输出缓存提供程序。
 
@@ -446,8 +430,7 @@ TimeSpan timeRemaining = item.Timeout;
 有关使用用于 Azure Cache 的输出缓存提供程序的详细信息，请参阅[用于 Azure Cache 的输出缓存提供程序][]。
 
 <a name="next-steps"></a>
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 现在，你已了解托管缓存服务的基础知识，请单击下面的链接了解如何执行更复杂的缓存任务。
 

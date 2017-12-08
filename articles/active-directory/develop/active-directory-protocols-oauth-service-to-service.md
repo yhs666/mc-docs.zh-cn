@@ -21,10 +21,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用客户端凭据进行服务到服务调用
+# <a name="service-to-service-calls-using-client-credentials"></a>使用客户端凭据进行服务到服务调用
 OAuth 2.0 客户端凭据授权流允许 Web 服务（机密客户端）在调用其他 Web 服务时使用它自己的凭据（而不是模拟用户）进行身份验证。 在这种情况下，客户端通常是中间层 Web 服务、后台程序服务或网站。
 
-## 客户端凭据授权流关系图
+## <a name="client-credentials-grant-flow-diagram"></a>客户端凭据授权流关系图
 下图说明了客户端凭据授权流在 Azure Active Directory (Azure AD) 中的工作原理。
 
 ![OAuth2.0 客户端凭据授权流](./media/active-directory-protocols-oauth-service-to-service/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
@@ -34,17 +34,17 @@ OAuth 2.0 客户端凭据授权流允许 Web 服务（机密客户端）在调�
 3. 使用访问令牌向受保护资源进行身份验证。
 4. 受保护资源中的数据返回到 Web 应用程序。
 
-## 在 Azure AD 中注册服务
+## <a name="register-the-services-in-azure-ad"></a>在 Azure AD 中注册服务
 在 Azure Active Directory (Azure AD) 中注册调用服务和接收服务。 
 
-## 请求访问令牌
+## <a name="request-an-access-token"></a>请求访问令牌
 若要请求访问令牌，对特定于租户的 Azure AD 终结点使用 HTTP POST。
 
 ```
 https://login.microsoftonline.com/<tenant id>/oauth2/token
 ```
 
-## 服务到服务访问令牌请求
+## <a name="service-to-service-access-token-request"></a>服务到服务访问令牌请求
 服务到服务访问令牌请求包含以下参数。
 
 | 参数 |  | 说明 |
@@ -54,7 +54,7 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 | client_secret |必填 |在 Azure AD 中输入为调用 Web 服务注册的密钥。 若要创建密钥，请在 Azure 管理门户中，依次单击“Active Directory”、目录、应用程序和“配置”。 |
 | resource |必填 |输入接收 Web 服务的应用 ID URI。 若要查找应用 ID URI，请在 Azure 管理门户中，依次单击“Active Directory”、目录、应用程序和“配置”。 |
 
-## 示例
+## <a name="example"></a>示例
 以下 HTTP POST 请求 https://service.contoso.com/ Web 服务的访问令牌。 `client_id` 标识请求访问令牌的 Web 服务。
 
 ```
@@ -65,7 +65,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&client_secret=qkDwDJlDfig2IpeuUZYKH1Wb8q1V0ju6sILxQQqhJ+s=&resource=https%3A%2F%2Fservice.contoso.com%2F
 ```
 
-## 服务到服务访问令牌响应
+## <a name="service-to-service-access-token-response"></a>服务到服务访问令牌响应
 成功响应包含具有以下参数的 JSON OAuth 2.0 响应。
 
 | 参数 | 说明 |
@@ -76,7 +76,7 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 | expires_on |访问令牌的过期时间。 该日期表示为自 1970-01-01T0:0:0Z UTC 至过期时间的秒数。 此值用于确定缓存令牌的生存期。 |
 | resource |接收 Web 服务的应用 ID URI。 |
 
-## 示例
+## <a name="example"></a>示例
 下面的示例演示对 Web 服务的访问令牌请求的成功响应。
 
 ```
@@ -89,5 +89,5 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 }
 ```
 
-## 另请参阅
+## <a name="see-also"></a>另请参阅
 - [Azure AD 中的 OAuth 2.0](./active-directory-protocols-oauth-code.md)

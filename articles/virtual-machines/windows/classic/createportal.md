@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 使用经典部署模型创建运行 Windows 的自定义虚拟机
-<a id="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model" class="xliff"></a>
+# <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>使用经典部署模型创建运行 Windows 的自定义虚拟机
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
 
@@ -31,6 +30,5 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a> 
+## <a name="next-steps"></a>后续步骤 
 还可[创建运行 Linux 的自定义虚拟机](../../linux/classic/createportal.md)。

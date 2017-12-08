@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 应用程序网关中的 WebSocket 支持概述
-<a id="overview-of-websocket-support-in-application-gateway" class="xliff"></a>
+# <a name="overview-of-websocket-support-in-application-gateway"></a>应用程序网关中的 WebSocket 支持概述
 
 应用程序网关跨所有网关大小为 WebSocket 提供本机支持。 用户无法通过配置设置来选择性地启用或禁用 WebSocket 支持。 
 
@@ -30,8 +29,7 @@ ms.lasthandoff: 06/23/2017
 
 可以在端口 80 或 443 上继续使用标准 HTTP 侦听器来接收 WebSocket 流量。 随后会使用应用程序网关规则中指定的相应后端池，将 WebSocket 流量定向到已启用 WebSocket 的后端服务器。 后端服务器必须响应应用程序网关探测，如[运行状况探测概述](application-gateway-probe-overview.md)部分中所述。 应用程序网关运行状况探测仅适用于 HTTP/HTTPS。 每个后端服务器必须响应 HTTP 探测，这样，应用程序网关才能将 WebSocket 流量路由到服务器。
 
-## 侦听器配置元素
-<a id="listener-configuration-element" class="xliff"></a>
+## <a name="listener-configuration-element"></a>侦听器配置元素
 
 现有的 HTTP 侦听器可用于支持 WebSocket 流量。 以下是示例模板文件中 httpListeners 元素的代码片段。 需要同时拥有 HTTP 和 HTTPS 侦听器才能支持 WebSocket 并保护 WebSocket 流量。 同样，可以使用[门户](application-gateway-create-gateway-portal.md)或 [PowerShell](application-gateway-create-gateway-arm.md) 在端口 80/443 上创建具有侦听器的应用程序网关，以支持 WebSocket 通信。
 
@@ -67,8 +65,7 @@ ms.lasthandoff: 06/23/2017
     ],
 ```
 
-## BackendAddressPool、BackendHttpSetting 和路由规则配置
-<a id="backendaddresspool-backendhttpsetting-and-routing-rule-configuration" class="xliff"></a>
+## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>BackendAddressPool、BackendHttpSetting 和路由规则配置
 
 如果后端池具有已启用 WebSocket 的服务器，那么应使用 BackendAddressPool 对其进行定义。 backendHttpSetting 是使用后端端口 80 和 443 定义的。 基于 cookie 的相关性和 requestTimeouts 的属性与 WebSocket 流量不相关。 不需要对路由规则进行更改，可使用“基本”路由规则将适当的侦听器绑定到相应的后端地址池。 
 
@@ -106,8 +103,7 @@ ms.lasthandoff: 06/23/2017
 }]
 ```
 
-## 已启用 WebSocket 的后端
-<a id="websocket-enabled-backend" class="xliff"></a>
+## <a name="websocket-enabled-backend"></a>已启用 WebSocket 的后端
 
 后端必须具有在已配置端口（通常为 80/443）上运行的 HTTP/HTTPS Web 服务器，WebSocket 才能运行。 之所以提出此要求，是因为 WebSocket 协议要求初始握手是 HTTP，且标头字段为升级到 WebSocket 协议。 下面是一个标头示例：
 
@@ -124,7 +120,6 @@ ms.lasthandoff: 06/23/2017
 
 另一个原因是该应用程序网关后端运行状况探测仅支持 HTTP 和 HTTPS 协议。 如果后端服务器未响应 HTTP 或 HTTPS 探测，会将它从后端池中排除。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 了解 WebSocket 支持后，请转到[创建应用程序网关](application-gateway-create-gateway.md)，开始使用已启用 WebSocket 的 Web 应用程序。

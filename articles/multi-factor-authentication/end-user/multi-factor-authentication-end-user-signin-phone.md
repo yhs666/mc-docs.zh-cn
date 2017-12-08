@@ -17,13 +17,11 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 在 Azure 多重身份验证中使用办公电话或手机呼叫进行登录
-<a id="signing-in-using-a-call-to-your-office-or-mobile-phone-with-azure-multi-factor-authentication" class="xliff"></a>
+# <a name="signing-in-using-a-call-to-your-office-or-mobile-phone-with-azure-multi-factor-authentication"></a>在 Azure 多重身份验证中使用办公电话或手机呼叫进行登录
 
 以下信息介绍在使用手机或办公电话执行多重身份验证时的体验。
 
-## 使用办公电话或手机呼叫登录
-<a id="to-sign-in-with-a-call-to-your-office-or-mobile-phone" class="xliff"></a>
+## <a name="to-sign-in-with-a-call-to-your-office-or-mobile-phone"></a>使用办公电话或手机呼叫登录
 
 <ol>
 

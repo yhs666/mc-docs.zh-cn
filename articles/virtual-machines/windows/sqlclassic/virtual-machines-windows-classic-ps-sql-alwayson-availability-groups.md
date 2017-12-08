@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 使用 PowerShell 在 Azure VM 中配置 Always On 可用性组
-<a id="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell" class="xliff"></a>
+# <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>使用 PowerShell 在 Azure VM 中配置 Always On 可用性组
 > [!div class="op_single_selector"]
 > * [经典：UI](../classic/portal-sql-alwayson-availability-groups.md)
 > * [经典：PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
@@ -50,8 +49,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
 * 已安装 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)。
 * 你已深入了解本地解决方案的 Always On 可用性组。 有关详细信息，请参阅 [Always On 可用性组 (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)。
 
-## 连接到 Azure 订阅并创建虚拟网络
-<a id="connect-to-your-azure-subscription-and-create-the-virtual-network" class="xliff"></a>
+## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>连接到 Azure 订阅并创建虚拟网络
 1. 在本地计算机的 PowerShell 窗口中，导入 Azure 模块、将发布设置文件下载到计算机，然后通过导入已下载的发布设置将 PowerShell 会话连接到 Azure 订阅。
 
         Import-Module "C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\Azure\Azure.psd1"
@@ -179,8 +177,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
 
 现在已成功预配了域控制器服务器。 接下来，在域控制器服务器上配置 Active Directory 域。 在本地计算机上使 PowerShell 窗口保持打开。 稍后将再次使用它来创建两个 SQL Server VM。
 
-## 配置域控制器
-<a id="configure-the-domain-controller" class="xliff"></a>
+## <a name="configure-the-domain-controller"></a>配置域控制器
 1. 通过启动远程桌面文件连接到域控制器服务器。 使用创建新 VM 时指定的计算机管理员用户名 AzureAdmin 和密码 **Contoso!000**。
 2. 在管理员模式下打开 PowerShell 窗口。
 3. 运行以下 **DCPROMO.EXE** 命令来设置 **corp.contoso.com** 域，数据目录位于驱动器 M 上。
@@ -246,8 +243,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
 
     现完成 Active Directory 和用户对象的配置，接下来，请创建两个 SQL Server VM 并将其加入此域。
 
-## 创建 SQL Server VM
-<a id="create-the-sql-server-vms" class="xliff"></a>
+## <a name="create-the-sql-server-vms"></a>创建 SQL Server VM
 1. 继续使用本地计算机上已打开的 PowerShell 窗口。 定义以下附加变量：
 
         $domainName= "corp"
@@ -381,8 +377,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
 
     这些 SQL Server VM 现在已预配并正在运行，但它们是使用默认选项与 SQL Server 一同安装的。
 
-## 初始化故障转移群集 VM
-<a id="initialize-the-failover-cluster-vms" class="xliff"></a>
+## <a name="initialize-the-failover-cluster-vms"></a>初始化故障转移群集 VM
 在本部分，需要修改将在故障转移群集和 SQL Server 安装中使用的三个服务器。 具体而言：
 
 * 所有服务器：需要安装**故障转移群集**功能。
@@ -448,8 +443,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
 
 最后，可以开始配置可用性组。 将使用 SQL Server PowerShell 提供程序在 **ContosoSQL1** 上执行所有工作。
 
-## 配置可用性组
-<a id="configure-the-availability-group" class="xliff"></a>
+## <a name="configure-the-availability-group"></a>配置可用性组
 1. 通过启动远程桌面文件再次连接到 **ContosoSQL1**。 使用 **CORP\Install** 登录（而非使用计算机帐户登录）。
 2. 在管理员模式下打开 PowerShell 窗口。
 3. 定义以下变量：
@@ -571,8 +565,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
              -Path "SQLSERVER:\SQL\$server2\Default\AvailabilityGroups\$ag" `
              -Database $db
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 现已通过在 Azure 中创建可用性组成功实现了 SQL Server Always On。 若要为此可用性组配置侦听器，请参阅[在 Azure 中配置 Always On 可用性组的 ILB 侦听器](../classic/ps-sql-int-listener.md)。
 
 有关在 Azure 中使用 SQL Server 的其他信息，请参阅 [SQL Server on Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。

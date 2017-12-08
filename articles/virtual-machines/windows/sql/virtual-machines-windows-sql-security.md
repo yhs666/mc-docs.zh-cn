@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/03/2017
 ---
-# Azure 虚拟机中 SQL Server 的安全注意事项
-<a id="security-considerations-for-sql-server-in-azure-virtual-machines" class="xliff"></a>
+# <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中 SQL Server 的安全注意事项
 
 本主题包括总体安全指南，可帮助建立对 Azure 虚拟机 (VM) 中 SQL Server 实例的安全访问。
 
@@ -31,8 +30,7 @@ Azure 遵守多个行业法规和标准，使用户能够使用虚拟机中运�
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-## 控制对 SQL VM 的访问
-<a id="control-access-to-the-sql-vm" class="xliff"></a>
+## <a name="control-access-to-the-sql-vm"></a>控制对 SQL VM 的访问
 
 创建 SQL Server 虚拟机时，请考虑如何谨慎控制有权访问虚拟机和 SQL Server 的人员。 通常，应执行以下操作：
 
@@ -41,8 +39,7 @@ Azure 遵守多个行业法规和标准，使用户能够使用虚拟机中运�
 
 在考虑这些要点时，以下部分提供了相关建议。
 
-## 安全连接
-<a id="secure-connections" class="xliff"></a>
+## <a name="secure-connections"></a>安全连接
 
 创建具有库映像的 SQL Server 虚拟机时，“SQL Server 连接”选项提供以下选择：“本地（VM 内）”、“专用（虚拟网络内）”或“公共 (Internet)”。
 
@@ -60,8 +57,7 @@ Azure 遵守多个行业法规和标准，使用户能够使用虚拟机中运�
 
 最后，考虑为 Azure 虚拟机中的 SQL Server 数据库引擎实例启用加密连接。 使用签名证书配置 SQL Server 实例。 有关详细信息，请参阅[启用到数据库引擎的加密连接](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)和[连接字符串语法](https://msdn.microsoft.com/library/ms254500.aspx)。
 
-## 使用非默认端口
-<a id="use-a-non-default-port" class="xliff"></a>
+## <a name="use-a-non-default-port"></a>使用非默认端口
 
 默认情况下，SQL Server 侦听已知端口 1433。 为了提高安全性，请将 SQL Server 配置为侦听 1401 等非默认端口。 如果在 Azure 门户中配置 SQL Server 库映像，则可在“SQL Server 设置”边栏选项卡中指定此端口。
 
@@ -78,8 +74,7 @@ Azure 遵守多个行业法规和标准，使用户能够使用虚拟机中运�
 
 SQL Server 侦听非默认端口时，必须在连接时指定该端口。 例如，考虑下服务器 IP 地址为 13.55.255.255，SQL Server 侦听端口 1401 的情况。 若要连接到 SQL Server，需在连接字符串中指定 `13.55.255.255,1401`。
 
-## 管理帐户
-<a id="manage-accounts" class="xliff"></a>
+## <a name="manage-accounts"></a>管理帐户
 
 希望攻击者难以猜测帐户名或密码。 使用以下技巧会有所帮助：
 
@@ -96,13 +91,11 @@ SQL Server 侦听非默认端口时，必须在连接时指定该端口。 例�
 
   - 如果必须使用 SA 登录名，请在预配后启用该登录名，并分配新的强密码。
 
-## 遵循本地最佳做法进行操作
-<a id="follow-on-premises-best-practices" class="xliff"></a>
+## <a name="follow-on-premises-best-practices"></a>遵循本地最佳做法进行操作
 
 除了本主题中描述的做法之外，建议在适用的情况下查看和实施传统的本地安全操作。 有关详细信息，请参阅[安装 SQL Server 的安全注意事项](https://docs.microsoft.com/sql/sql-server/install/security-considerations-for-a-sql-server-installation)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 如果还对性能最佳做法感兴趣，请参阅 [Azure 虚拟机中 SQL Server 的性能最佳做法](virtual-machines-windows-sql-performance.md)。
 

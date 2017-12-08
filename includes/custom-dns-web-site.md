@@ -1,5 +1,4 @@
-# 为 Azure 网站配置自定义域名
-<a id="configuring-a-custom-domain-name-for-an-azure-website" class="xliff"></a>
+# <a name="configuring-a-custom-domain-name-for-an-azure-website"></a>为 Azure 网站配置自定义域名
 创建网站时，Azure 会提供 chinacloudsites.cn 域的友好子域，以便用户可以使用类似于 http://&lt;mysite>.chinacloudsites.cn 的 URL 访问该网站。 但是，如果将网站配置为共享或标准模式，则可以将网站映射到你自己的域名。
 
 另外，还可以使用 Azure 流量管理器对网站的传入流量实现负载均衡。 有关流量管理器在网站中的工作原理的详细信息，请参阅[使用 Azure 流量管理器控制 Azure 网站流量][trafficmanager]。
@@ -24,8 +23,7 @@
 
 CNAME（别名记录）和 A 记录都允许将域名与网站进行关联，但工作原理各不相同。
 
-### CNAME 或别名记录
-<a id="cname-or-alias-record" class="xliff"></a>
+### <a name="cname-or-alias-record"></a>CNAME 或别名记录
 CNAME 记录会将特定的  域（例如 **contoso.com** or **www.contoso.com**）映射到规范域名。 在这种情况下，规范域名是 Azure 网站的 &lt;myapp>.chinacloudsites.cn 域名，或流量管理器配置文件的 &lt;myapp>.trafficmgr.com 域名。 创建后，CNAME 将为 &lt;myapp>.chinacloudsites.c 或 &lt;myapp>.trafficmgr.com 域名创建一个别名。 CNAME 条目将自动解析为 &lt;myapp>.chinacloudsites.cn 或 &lt;myapp>.trafficmgr.com 域名的 IP 地址，因此，如果网站的 IP 地址发生更改，你不需要采取任何措施。
 
 > [!NOTE]
@@ -33,8 +31,7 @@ CNAME 记录会将特定的  域（例如 **contoso.com** or **www.contoso.com**
 > 
 > 
 
-### A 记录
-<a id="a-record" class="xliff"></a>
+### <a name="a-record"></a>A 记录
 A 记录将域（例如 contoso.com 或 www.contoso.com）或通配符域（例如 \*.contoso.com）映射到 IP 地址。。 对 Azure 网站而言，这是服务的虚拟 IP 或者你为网站购买的具体 IP 地址。 与 CNAME 记录相比，A 记录的主要优势是用户可持有使用通配符的条目，例如 *.contoso.com，用于处理多个子域（例如 mail.contoso.com、login.contoso.com 或 www.contso.com）的请求。
 
 > [!NOTE]
@@ -151,8 +148,7 @@ www.contoso.com 的访问者将从不会看到真正的主机 (contoso.azurewebs
 > 
 > 
 
-### 将域名添加到网站
-<a id="add-the-domain-name-to-your-website" class="xliff"></a>
+### <a name="add-the-domain-name-to-your-website"></a>将域名添加到网站
 在域名的 CNAME 记录已传播后，必须将其与你的网站关联。 可以使用 Azure 命令行接口 (Azure CLI) 或 Azure 管理门户将 CNAME 记录定义的自定义域名添加到网站。
 
 **使用命令行工具添加域名**
@@ -242,8 +238,7 @@ www.contoso.com 的访问者将从不会看到真正的主机 (contoso.azurewebs
 > 
 > 
 
-### 将域名添加到网站
-<a id="add-the-domain-name-to-your-website" class="xliff"></a>
+### <a name="add-the-domain-name-to-your-website"></a>将域名添加到网站
 在域名的 awverify CNAME 记录已传播后，必须将 A 记录定义的自定义域与网站相关联。 可以使用 Azure CLI 或 Azure 经典管理门户将 A 记录定义的自定义域名添加到网站。
 
 **使用 Azure 命令行接口 (Azure CLI) 添加域名**
@@ -280,8 +275,7 @@ www.contoso.com 的访问者将从不会看到真正的主机 (contoso.azurewebs
 > 
 > 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * [如何管理网站](/app-service-web/web-sites-manage)
 * [为网站配置 SSL 证书](/app-service-web/web-sites-configure-ssl-certificate)
 

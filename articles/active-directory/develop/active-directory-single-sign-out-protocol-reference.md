@@ -22,14 +22,14 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
 ---
-# 单一注销 SAML 协议
+# <a name="single-sign-out-saml-protocol"></a>单一注销 SAML 协议
 Azure Active Directory (Azure AD) 支持 SAML 2.0 Web 浏览器单一注销配置文件。 若要使单一注销功能正常运行，必须在注册应用程序时在 Azure AD 中显式注册应用程序的 **LogoutURL** 。 Azure AD 使用 LogoutURL 在用户注销后对用户进行重定向。
 
 下图显示了 Azure AD 单一注销过程的工作流。
 
 ![单一注销工作流](./media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
-## LogoutRequest
+## <a name="logoutrequest"></a>LogoutRequest
 云服务将 `LogoutRequest` 消息发送到 Azure AD，以指示会话已终止。 以下摘录显示了一个示例 `LogoutRequest` 元素。
 
 ```
@@ -39,20 +39,20 @@ Azure Active Directory (Azure AD) 支持 SAML 2.0 Web 浏览器单一注销配�
 </samlp:LogoutRequest>
 ```
 
-### LogoutRequest
+### <a name="logoutrequest"></a>LogoutRequest
 发送到 Azure AD 的 `LogoutRequest` 元素需要以下属性：
 
 - `ID` ：标识注销请求。 `ID` 的值不能以数字开头。 典型的做法是在 GUID 的字符串表示形式前面追加 **id** 。
 - `Version` ：将此元素的值设置为 **2.0**。 此值是必需的。
 - `IssueInstant`：一个 `DateTime` 字符串，包含协调世界时 (UTC) 值并采用[往返格式（“o”）](https://msdn.microsoft.com/library/az4se3k1.aspx)。 Azure AD 需要此类型的值，但这不是强制要求。
 
-### 颁发者
+### <a name="issuer"></a>颁发者
 `LogoutRequest` 中的 `Issuer` 元素必须与 Azure AD 云服务中的某一个 ServicePrincipalNames 完全匹配。 通常，此参数设置为应用程序注册期间指定的 **应用 ID URI** 。
 
-### NameID
+### <a name="nameid"></a>NameID
 `NameID` 元素的值必须与要注销的用户的 `NameID` 完全匹配。
 
-## LogoutResponse
+## <a name="logoutresponse"></a>LogoutResponse
 Azure AD 在响应 `LogoutRequest` 元素时发送 `LogoutResponse`。 以下摘录显示了一个示例 `LogoutResponse`。
 
 ```
@@ -64,15 +64,15 @@ Azure AD 在响应 `LogoutRequest` 元素时发送 `LogoutResponse`。 以下摘
 </samlp:LogoutResponse>
 ```
 
-### LogoutResponse
+### <a name="logoutresponse"></a>LogoutResponse
 Azure AD 会在 `LogoutResponse` 元素中设置 `ID`、`Version` 和 `IssueInstant` 值。 它还将 `InResponseTo` 元素设置为获取响应的 `LogoutRequest` 的 `ID` 属性值。
 
-### 颁发者
+### <a name="issuer"></a>颁发者
 Azure AD 将此值设为 `https://login.partner.microsoftonline.cn/<TenantIdGUID>/`，其中，<TenantIdGUID> 是 Azure AD 租户的租户 ID。
 
 若要评估 `Issuer` 元素的值，请使用应用程序注册期间提供的 **应用 ID URI** 值。
 
-### 状态
+### <a name="status"></a>状态
 Azure AD 使用 `Status` 元素中的 `StatusCode` 元素指示注销是否成功。如果注销尝试失败， `StatusCode` 元素还可能包含自定义错误消息。
 
 <!--Update_Description: wording update -->

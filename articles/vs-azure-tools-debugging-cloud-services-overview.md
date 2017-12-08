@@ -15,14 +15,12 @@ ms.workload: na
 origin.date: 03/18/2017
 ms.date: 04/17/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: aba6791f49c6827a78bf6d91a88417d7bae9000a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 4ae172a80ace9f4744e0846f4c5814fd11abdf4a
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="learn-the-various-ways-to-debug-an-azure-cloud-service"></a>了解调试 Azure 云服务的各种方法
 本文提供了调试 Azure 云服务的各种方法的链接。 
 

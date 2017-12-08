@@ -20,15 +20,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 将 Azure 资源部署到多个资源组
-<a id="deploy-azure-resources-to-more-than-one-resource-group" class="xliff"></a>
+# <a name="deploy-azure-resources-to-more-than-one-resource-group"></a>将 Azure 资源部署到多个资源组
 
 通常情况下，将模板中的所有资源部署到单个资源组。 不过，在某些情况下，你可能希望将一组资源一起部署但将其放置在不同的资源组中。 例如，你可能希望将 Azure Site Recovery 的备份虚拟机部署到一个单独的资源组和位置。 Resource Manager 允许你使用嵌套的模板将不同于父模板所用资源组的多个不同资源组作为目标。
 
 资源组是应用程序及其资源集合的生命周期容器。 可在模板外部创建资源组，并在部署期间指定要用作目标的资源组。 有关资源组的简介，请参阅 [Azure Resource Manager 概述](resource-group-overview.md)。
 
-## 示例模板
-<a id="example-template" class="xliff"></a>
+## <a name="example-template"></a>示例模板
 
 若要将不同的资源作为目标，在部署期间必须使用嵌套模板或链接模板。 `Microsoft.Resources/deployments` 资源类型提供 `resourceGroup` 参数，使用该参数可以为嵌套部署指定不同资源组。 在运行部署之前，所有资源组都必须存在。 下面的示例部署两个存储帐户 - 一个在部署期间指定的资源组中，另一个在名为 `crossResourceGroupDeployment` 的资源组中：
 
@@ -88,8 +86,7 @@ ms.lasthandoff: 06/23/2017
 
 如果将 `resourceGroup` 设置为不存在的资源组的名称，则部署将失败。 如果没有为 `resourceGroup` 提供值，则 Resource Manager 将使用父资源组。  
 
-## 部署模板
-<a id="deploy-the-template" class="xliff"></a>
+## <a name="deploy-the-template"></a>部署模板
 
 若要部署示例模板，可以使用门户、Azure PowerShell 或 Azure CLI。 对于 Azure PowerShell 或 Azure CLI，必须使用 2017 年 5 月或之后发布的版本。 这些示例假定已在本地将模板保存为名为 **crossrgdeployment.json** 的文件。
 
@@ -119,8 +116,7 @@ az group deployment create \
 
 在部署完成后，可以看到两个资源组。 每个资源组都包含一个存储帐户。
 
-## 使用 resourceGroup() 函数
-<a id="use-resourcegroup-function" class="xliff"></a>
+## <a name="use-resourcegroup-function"></a>使用 resourceGroup() 函数
 
 对于跨资源组部署，[resouceGroup() 函数](resource-group-template-functions-resource.md#resourcegroup)将根据嵌套模板的指定方式不同地进行解析。 
 
@@ -156,8 +152,7 @@ az group deployment create \
 }
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 * 若要了解如何在模板中定义参数，请参阅[了解 Azure Resource Manager 模板的结构和语法](resource-group-authoring-templates.md)。
 * 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。

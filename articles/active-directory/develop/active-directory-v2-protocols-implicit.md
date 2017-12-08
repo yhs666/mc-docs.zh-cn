@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# v2.0 协议 - 使用隐式流的 SPA
+# <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 协议 - 使用隐式流的 SPA
 使用 v2.0 终结点，你可以让具有 Microsoft 的个人和工作/学校帐户的用户登录单一页面应用。  主要在浏览器上运行的单一页面和其他 JavaScript 应用程序在身份验证时面临一些有趣的挑战：
 
 - 这些应用程序的安全特征与传统的基于服务器的 Web 应用程序大不相同。
@@ -39,12 +39,12 @@ ms.lasthandoff: 06/21/2017
 > 
 > 
 
-## 协议图
+## <a name="protocol-diagram"></a>协议图
 整个隐式登录流如下所示 - 下面将详细描述每个步骤。
 
 ![OpenId Connect Swimlanes](./media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
-## 发送登录请求
+## <a name="send-the-sign-in-request"></a>发送登录请求
 
 最初将用户登录到应用时，可以发送 [OpenID Connect](./active-directory-v2-protocols-oidc.md) 授权请求，并从 v2.0 终结点获取 `id_token`：
 
@@ -85,7 +85,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 用户经过身份验证并同意后，v2.0 终结点将使用 `response_mode` 参数中指定的方法，将响应返回到位于所指示的 `redirect_uri` 的应用。
 
-#### 成功的响应
+#### <a name="successful-response"></a>成功的响应
 
 使用 `response_mode=fragment` 和 `response_type=id_token+token` 的成功响应如下所示（包含换行符以方便阅读）：
 
@@ -108,7 +108,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | id_token |应用请求的 id_token。 可以使用 id_token 验证用户的标识，并开始与用户建立会话。  有关 id_token 及其内容的详细信息，请参阅 [v2.0 终结点令牌参考](./active-directory-v2-tokens.md)。 |
 | state |如果请求中包含 state 参数，响应中就应该出现相同的值。 应用需验证请求和响应中的状态值是否相同。 |
 
-#### 错误响应
+#### <a name="error-response"></a>错误响应
 错误响应可能也发送到 `redirect_uri` ，让应用可以适当地处理：
 
 ```
@@ -122,7 +122,7 @@ error=access_denied
 | error |可用于分类发生的错误类型与响应错误的错误码字符串。 |
 | error_description |可帮助开发人员识别身份验证错误根本原因的特定错误消息。 |
 
-## 验证 id_token
+## <a name="validate-the-idtoken"></a>验证 id_token
 仅接收 id_token 不足以对用户进行身份验证；必须验证 id_token 的签名，并按照应用的要求验证令牌中的声明。  v2.0 终结点使用 [JSON Web 令牌 (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)和公钥加密对令牌进行签名并验证其是否有效。
 
 可以选择验证客户端代码中的 `id_token`，但常见的做法是将 `id_token` 发送到后端服务器，并在那里执行验证。  验证 id_token 的签名后，需要验证一些声明。  有关详细信息，请参阅 [v2.0 令牌参考](./active-directory-v2-tokens.md)，其中包括[验证令牌](./active-directory-v2-tokens.md#validating-tokens)和[有关签名密钥滚动更新的重要信息](./active-directory-v2-tokens.md#validating-tokens)。  我们建议利用库来分析和验证令牌 - 对于大多数语言和平台至少有一个可用。
@@ -138,7 +138,7 @@ error=access_denied
 
 完全验证 id_token 后，即可开始与用户的会话，并使用 id_token 中的声明来获取应用中的用户相关信息。  此信息可以用于显示、记录和授权，等等。
 
-## 获取访问令牌
+## <a name="get-access-tokens"></a>获取访问令牌
 你已经将用户登录到单页面应用，现在可以获取访问令牌以调用受到 Azure AD 保护的 Web API，例如 [Microsoft Graph](https://graph.microsoft.io)。  即使已使用 `token` response_type 收到令牌，仍然可以使用此方法获取其他资源的令牌，而无需再次将用户重定向到登录页。
 
 在正常的 OpenID Connect/OAuth 流中，可以通过对 v2.0 `/token` 终结点进行请求来实现此目的。  但是，v2.0 终结点不支持 CORS 请求，因此进行 AJAX 调用以获取和刷新令牌是不可能的。  相反，你可以在隐藏的 iframe 中使用隐式流，以获取其他 Web API 的新令牌： 
@@ -182,7 +182,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 
 借助 `prompt=none` 参数，此请求将立即成功或立即失败，并返回应用程序。  成功的响应会通过 `response_mode` 参数中指定的方法，发送到位于所指示的 `redirect_uri` 的应用。
 
-#### 成功的响应
+#### <a name="successful-response"></a>成功的响应
 使用 `response_mode=fragment` 的成功响应如下所示：
 
 ```
@@ -202,7 +202,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in |访问令牌的有效期（以秒为单位）。 |
 | scope |访问令牌有效的范围。 |
 
-#### 错误响应
+#### <a name="error-response"></a>错误响应
 错误响应还可能发送到 `redirect_uri` ，因此应用可以适当地对其进行处理。  如果是 `prompt=none`，预期的错误为：
 
 ```
@@ -218,10 +218,10 @@ error=user_authentication_required
 
 如果在 iframe 请求中收到此错误，用户必须再次以交互方式登录以检索新令牌。  可以选择对应用程序合理的任何方式处理这种情况。
 
-## 刷新令牌
+## <a name="refreshing-tokens"></a>刷新令牌
 `id_token` 和 `access_token` 很快就会过期，因此应用必须准备好定期刷新这些令牌。  若要刷新任一类型的令牌，可以通过使用 `prompt=none` 参数控制 Azure AD 的行为，来执行上述同一隐藏的 iframe 请求。  如果想要接收新的 `id_token`，请务必使用 `response_type=id_token`、`scope=openid` 和 `nonce` 参数。
 
-## 发送注销请求
+## <a name="send-a-sign-out-request"></a>发送注销请求
 
 v2.0 终结点目前不支持 OpenIdConnect `end_session_endpoint` 。 这意味着应用程序无法向 v2.0 终结点发送请求，因而无法结束用户会话并清除 v2.0 终结点设置的 Cookie。
 若要将用户注销，应用只需结束自身的用户会话，并完整地将用户会话留给 v2.0 终结点即可。  下次用户尝试登录时，将看到列出其活动登录帐户的“选择帐户”页面。

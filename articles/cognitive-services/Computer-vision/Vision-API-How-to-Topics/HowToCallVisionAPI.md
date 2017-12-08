@@ -16,7 +16,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
 ---
-# 如何调用计算机视觉 API
+# <a name="how-to-call-computer-vision-api"></a>如何调用计算机视觉 API
 
 本指南演示如何使用 REST 调用计算机视觉 API。 这些示例是使用计算机视觉 API 客户端库以 C# 编写的，也是作为 HTTP POST/GET 调用编写的。 我们将重点介绍：
 
@@ -82,13 +82,13 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 ```
 **选项二：**只获取 "Tags" 的列表，或者只获取 "Description" 的列表：
 
-###### 仅标记：
+###### <a name="tags-only"></a>仅标记：
 ```
 POST https://api.cognitive.azure.cn/vision/v1.0/tag&subscription-key=<Your subscription key>
 var analysisResult = await visionClient.GetTagsAsync("http://contoso.com/example.jpg");
 ```
 
-###### 仅说明：
+###### <a name="description-only"></a>仅说明：
 ```
 POST https://api.cognitive.azure.cn/vision/v1.0/describe&subscription-key=<Your subscription key>
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
@@ -96,7 +96,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
   analysisResult = await visionClient.DescribeAsync(fs);
 }
 ```
-### 下面介绍如何获取特定领域的分析（在我们的示例中为名人分析）。
+### <a name="here-is-how-to-get-domain-specific-analysis-in-our-case-for-celebrities"></a>下面介绍如何获取特定领域的分析（在我们的示例中为名人分析）。
 
 **选项一：**范围内分析 - 只分析给定的模型
 ```

@@ -21,15 +21,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 使用 Azure IoT Edge，通过模拟设备发送设备到云的消息 (Linux)
-<a id="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-linux" class="xliff"></a>
+# <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-linux"></a>使用 Azure IoT Edge，通过模拟设备发送设备到云的消息 (Linux)
 
 [!INCLUDE [iot-hub-iot-edge-simulated-selector](../../includes/iot-hub-iot-edge-simulated-selector.md)]
 
 [!INCLUDE [iot-hub-iot-edge-install-build-linux](../../includes/iot-hub-iot-edge-install-build-linux.md)]
 
-## 如何运行示例
-<a id="how-to-run-the-sample" class="xliff"></a>
+## <a name="how-to-run-the-sample"></a>如何运行示例
 
 **build.sh** 脚本在 **iot-edge** 存储库本地副本的 **build** 文件夹中生成输出。 该输出包括此示例中使用的四个 IoT Edge 模块。
 
@@ -168,8 +166,7 @@ simulated\_device\_cloud\_upload\_sample 过程使用 JSON 配置文件的路径
     iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.cn;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"
     ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 若要深入了解 Azure IoT Edge 并尝试一些代码示例，请访问以下开发人员教程和资源：
 

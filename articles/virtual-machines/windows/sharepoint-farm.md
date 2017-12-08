@@ -23,13 +23,11 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 使用 Azure 门户应用商店创建 SharePoint 服务器场
-<a id="create-sharepoint-server-farms-using-the-azure-portal-marketplace" class="xliff"></a>
+# <a name="create-sharepoint-server-farms-using-the-azure-portal-marketplace"></a>使用 Azure 门户应用商店创建 SharePoint 服务器场
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## SharePoint 2013 场
-<a id="sharepoint-2013-farms" class="xliff"></a>
+## <a name="sharepoint-2013-farms"></a>SharePoint 2013 场
 使用 Azure 门户应用商店，可以快速创建预配置的 SharePoint Server 2013 场。 需要基本或高可用性 SharePoint farm 用于开发和测试环境，或者将 SharePoint Server 2013 评估作为组织的协作解决方案时，这可以节约很多时间。
 
 > [!NOTE]
@@ -75,18 +73,15 @@ Azure 门户可以在具有面向 Internet 的网络影响力、仅限云的虚�
 >
 >
 
-## SharePoint 2016 场
-<a id="sharepoint-2016-farms" class="xliff"></a>
+## <a name="sharepoint-2016-farms"></a>SharePoint 2016 场
 请参阅[此文](https://technet.microsoft.com/library/mt723354.aspx)，获取有关构建以下单服务器 SharePoint Server 2016 场的说明。
 
 ![sharepointfarm](./media/sharepoint-farm/SP2016Farm.png)
 
-## 管理 SharePoint 场
-<a id="managing-the-sharepoint-farms" class="xliff"></a>
+## <a name="managing-the-sharepoint-farms"></a>管理 SharePoint 场
 你可以通过远程桌面连接来管理这些场的服务器。 有关详细信息，请参阅[登录到虚拟机](quick-create-portal.md#connect-to-virtual-machine)。
 
 在管理中心 SharePoint 站点中，可以配置“我的站点”、SharePoint 应用程序和其他功能。 有关详细信息，请参阅 [Configure SharePoint](http://technet.microsoft.com/library/ee836142.aspx)（配置 SharePoint）。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 发现 Azure 基础结构服务中的其他 [SharePoint 配置](https://technet.microsoft.com/library/dn635309.aspx)。

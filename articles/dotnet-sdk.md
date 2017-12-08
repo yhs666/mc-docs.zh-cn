@@ -17,11 +17,9 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-# 什么是 Azure SDK for .NET？
-<a id="what-is-the-azure-sdk-for-net" class="xliff"></a>
+# <a name="what-is-the-azure-sdk-for-net"></a>什么是 Azure SDK for .NET？
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 
 Azure SDK for .NET 是一套应用程序，其中包括 Visual Studio 工具、命令行工具、运行时二进制文件和客户端库，可帮助你开发、测试和部署在 Azure 中运行的应用程序。 本文详细介绍了安装 SDK 时获得的内容。 可以从 [Azure 下载页](/downloads/)下载 SDK。 
 

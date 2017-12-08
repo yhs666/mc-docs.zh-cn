@@ -1,5 +1,4 @@
-### 在 Azure 门户中创建新的 SQL 逻辑服务器
-<a id="create-a-new-logical-sql-server-in-the-azure-portal" class="xliff"></a>
+### <a name="create-a-new-logical-sql-server-in-the-azure-portal"></a>在 Azure 门户中创建新的 SQL 逻辑服务器
 
 1. 单击“新建”，搜索“逻辑服务器”，然后按“ENTER”。
 

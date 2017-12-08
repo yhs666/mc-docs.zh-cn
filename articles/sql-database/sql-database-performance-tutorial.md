@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/28/2017
 ---
-# 排查性能问题和优化数据库
-<a id="troubleshoot-performance-issues-and-optimize-your-database" class="xliff"></a>
+# <a name="troubleshoot-performance-issues-and-optimize-your-database"></a>排查性能问题和优化数据库
 
 缺少索引与查询优化不足是数据库性能不佳的常见原因。 本教程介绍以下内容：
 > [!div class="checklist"]
@@ -34,13 +33,11 @@ ms.lasthandoff: 06/28/2017
 > 需要针对存在性能问题（例如，缺少索引）的数据库持续运行一个工作负荷，以接收建议。
 >
 
-## 登录到 Azure 门户
-<a id="log-in-to-the-azure-portal" class="xliff"></a>
+## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
 
 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-## 查看并应用建议
-<a id="review-and-apply-a-recommendation" class="xliff"></a>
+## <a name="review-and-apply-a-recommendation"></a>查看并应用建议
 
 遵循以下步骤，对数据库应用系统提供的建议：
 
@@ -60,8 +57,7 @@ ms.lasthandoff: 06/28/2017
 
     ![自动优化](./media/sql-database-performance-tutorial/auto_tuning.png)
 
-## 撤销建议
-<a id="revert-a-recommendation" class="xliff"></a>
+## <a name="revert-a-recommendation"></a>撤销建议
 
 数据库顾问会监视实施的每条建议。 如果某条建议未改善工作负荷，该建议将自动被撤销。 可以手动撤销建议，但大多数情况下不需要这样做。 撤销建议：
 
@@ -73,8 +69,7 @@ ms.lasthandoff: 06/28/2017
 
     ![撤销建议](./media/sql-database-performance-tutorial/revert.png)
 
-## 查找资源消耗量最大的查询
-<a id="find-the-query-that-consumes-the-most-resources" class="xliff"></a>
+## <a name="find-the-query-that-consumes-the-most-resources"></a>查找资源消耗量最大的查询
 
 遵循以下步骤查找资源消耗量最大的查询：
 
@@ -94,8 +89,7 @@ ms.lasthandoff: 06/28/2017
 
     ![查询见解](./media/sql-database-performance-tutorial/query_details.png)
 
-## 查找运行时间最长的查询
-<a id="find-the-longest-running-query" class="xliff"></a>
+## <a name="find-the-longest-running-query"></a>查找运行时间最长的查询
 
 1. 转到“查询性能见解”，然后选择“长时间运行的查询”选项卡。
 
@@ -111,8 +105,7 @@ ms.lasthandoff: 06/28/2017
 
 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a> 
+## <a name="next-steps"></a>后续步骤 
 缺少索引与查询优化不足是数据库性能不佳的常见原因。 本教程介绍了：
 > [!div class="checklist"]
 > * 查看、应用和撤销性能改善建议

@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-### 新建服务
-<a id="to-create-a-new-service" class="xliff"></a>
+### <a name="to-create-a-new-service"></a>新建服务
 
 1. 使用 Microsoft 帐户凭据登录到此处的 Microsoft Azure 管理门户：[Azure 管理门户](https://manage.windowsazure.com/)。
 

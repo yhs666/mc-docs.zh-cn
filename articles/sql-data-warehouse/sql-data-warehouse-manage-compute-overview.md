@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 管理 Azure SQL 数据仓库中的计算能力（概述）
-<a id="manage-compute-power-in-azure-sql-data-warehouse-overview" class="xliff"></a>
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>管理 Azure SQL 数据仓库中的计算能力（概述）
 
 > [!div class="op_single_selector"]
 > * [概述](sql-data-warehouse-manage-compute-overview.md)
@@ -38,8 +37,7 @@ SQL 数据仓库的体系结构对存储和计算功能进行了分隔，允许�
 
 本概述文章介绍如何扩展 SQL 数据仓库，以及如何利用 SQL 数据仓库的暂停、恢复和缩放功能。 请查阅[数据仓库单位 (DWU)][data warehouse units (DWUs)]页，了解 DWU 与性能的关联方式。 
 
-## SQL 数据仓库中计算管理操作的工作原理
-<a id="how-compute-management-operations-work-in-sql-data-warehouse" class="xliff"></a>
+## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>SQL 数据仓库中计算管理操作的工作原理
 SQL 数据仓库的体系结构由控制节点、计算节点和跨 60 个分布区的存储层组成。 
 
 在 SQL 数据仓库中，系统的头节点管理元数据，并且包含分布式的查询优化器中的正常活动会话。 此头节点下是计算节点和存储层。 对于 DWU 400，系统具有一个头节点、四个计算节点和存储层，包含 60 个分布区。 
@@ -88,8 +86,7 @@ SQL 数据仓库的体系结构由控制节点、计算节点和跨 60 个分布
 
 SQL 数据仓库中的性能以[数据仓库单位 (DWU)][data warehouse units (DWUs)] 度量，这是 CPU、内存和 I/O 带宽等计算资源的抽象度量值。 想要缩放其系统性能的用户可以通过不同的方式实现此目的，例如通过门户、T-SQL 和 REST API。 
 
-### 如何缩放计算资源？
-<a id="how-do-i-scale-compute" class="xliff"></a>
+### <a name="how-do-i-scale-compute"></a>如何缩放计算资源？
 可通过更改 DWU 设置来管理 SQL 数据仓库的计算能力。 为特定的操作添加更多 DWU 后，性能会[线性][linearly]提高。  我们提供确保性能将更改显著时是向上或向下扩展系统的 DWU 产品。 
 
 若要调整 DWU，可以使用以下任何单个方法。
@@ -99,8 +96,7 @@ SQL 数据仓库中的性能以[数据仓库单位 (DWU)][data warehouse units (
 * [通过 REST API 缩放计算能力][Scale compute power with REST APIs]
 * [通过 TSQL 缩放计算能力][Scale compute power with TSQL]
 
-### 应该使用多少 DWU？
-<a id="how-many-dwus-should-i-use" class="xliff"></a>
+### <a name="how-many-dwus-should-i-use"></a>应该使用多少 DWU？
 
 若要了解理想的 DWU 值，请尝试在加载数据之后增加和减少 DWU 并运行几个查询。 由于缩放很快就能完成，可以在一个小时或更少时间内尝试一些不同级别的性能。 
 
@@ -119,8 +115,7 @@ SQL 数据仓库中的性能以[数据仓库单位 (DWU)][data warehouse units (
 >
 > 此外，如果可以计算节点之间拆分工作，与多个并行化只会增加查询性能。 如果发现缩放未更改你的性能，请查看我们的性能优化文章，以检查是否没有数据均匀分布，或者如果正在引入大量的数据移动。 
 
-### 何时应进行 DWU 缩放？
-<a id="when-should-i-scale-dwus" class="xliff"></a>
+### <a name="when-should-i-scale-dwus"></a>何时应进行 DWU 缩放？
 缩放 DWU 会改变以下重要方案：
 
 1. 以线性方式更改系统对扫描、聚合和 CTAS 语句的性能
@@ -157,8 +152,7 @@ SQL 数据仓库中的性能以[数据仓库单位 (DWU)][data warehouse units (
 - [使用 PowerShell 检查数据库状态][Check database state with PowerShell]
 - [使用 REST API 检查数据库状态][Check database state with REST APIs]
 
-## 权限
-<a id="permissions" class="xliff"></a>
+## <a name="permissions"></a>权限
 
 缩放数据库需要 [ALTER DATABASE][ALTER DATABASE] 中所述的权限。  暂停和恢复需要 [SQL DB 参与者][SQL DB Contributor]权限，具体说来就是 Microsoft.Sql/servers/databases/action。
 

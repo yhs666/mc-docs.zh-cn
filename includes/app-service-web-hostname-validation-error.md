@@ -1,5 +1,4 @@
-#### 验证错误
-<a id="validation-error" class="xliff"></a>
+#### <a name="validation-error"></a>验证错误
 
 如果之前错过了某个步骤或者在某个位置的输入不正确，则会在页面的底部看到验证错误。
 

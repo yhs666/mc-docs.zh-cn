@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
 ---
-# 使用 Git 创建 PHP-SQL Web 应用并将其部署到 Azure 应用服务
-<a id="create-a-php-sql-web-app-and-deploy-to-azure-app-service-using-git" class="xliff"></a>
+# <a name="create-a-php-sql-web-app-and-deploy-to-azure-app-service-using-git"></a>使用 Git 创建 PHP-SQL Web 应用并将其部署到 Azure 应用服务
 本教程演示如何在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)中创建连接到 Azure SQL 数据库的 PHP Web 应用以及如何使用 Git 部署该应用。 本教程假定你已在计算机上安装 [PHP][install-php]、[SQL Server Express][install-SQLExpress]、[Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) 和 [Git][install-git]。 完成本指南之后，将获得一个在 Azure 中运行的 PHP-SQL Web 应用。
 
 > [!NOTE]
@@ -41,8 +40,7 @@ ms.lasthandoff: 06/30/2017
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## 创建 Azure Web 应用并设置 Git 发布
-<a id="create-an-azure-web-app-and-set-up-git-publishing" class="xliff"></a>
+## <a name="create-an-azure-web-app-and-set-up-git-publishing"></a>创建 Azure Web 应用并设置 Git 发布
 按照以下步骤创建 Azure Web 应用和 SQL 数据库：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
@@ -70,8 +68,7 @@ ms.lasthandoff: 06/30/2017
     ![](./media/web-sites-php-sql-database-deploy-use-git/deployment-credentials.png)
 10. 在“设置”中，单击“属性”以查看稍后要用于部署 PHP 应用所需的 Git 远程 URL。
 
-## 获取 SQL 数据库连接信息
-<a id="get-sql-database-connection-information" class="xliff"></a>
+## <a name="get-sql-database-connection-information"></a>获取 SQL 数据库连接信息
 若要连接 SQL 数据库实例（已链接到 Web 应用），需要在创建数据库时指定的连接信息。 若要获取 SQL 数据库连接信息，请按照以下步骤操作：
 
 1. 回到资源组的边栏选项卡，单击 SQL 数据库的图标。
@@ -80,8 +77,7 @@ ms.lasthandoff: 06/30/2017
     ![查看数据库属性](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
 3. 从结果对话框的“PHP”部分，记下 `Server`、`SQL Database` 和 `User Name` 的值。 稍后将 PHP Web 应用发布到 Azure 应用服务时，将使用这些值。
 
-## 本地构建和测试应用程序
-<a id="build-and-test-your-application-locally" class="xliff"></a>
+## <a name="build-and-test-your-application-locally"></a>本地构建和测试应用程序
 注册应用程序是一个简单的 PHP 应用程序，在该应用程序中提供姓名和电子邮件地址即可注册事件。 以前的注册者的信息将显示在表中。 注册信息将存储在 SQL 数据库实例中。 应用程序由两个文件组成（复制/粘贴以下可用代码）：
 
 * **index.php**：显示一个用于注册的表单和一个包含注册者信息的表。
@@ -218,8 +214,7 @@ ms.lasthandoff: 06/30/2017
 
 现在可以浏览到 **http://localhost:8000/index.php** 来测试此应用程序。
 
-## 发布应用程序
-<a id="publish-your-application" class="xliff"></a>
+## <a name="publish-your-application"></a>发布应用程序
 在本地测试了应用程序之后，可以使用 Git 将其发布到应用服务 Web 应用。 但是，首先需要更新应用程序中的数据库连接信息。 使用之前获取的数据库连接信息（在“获取 SQL 数据库连接信息”部分中），将 `createdatabase.php` 和 `index.php` 文件中的以下信息更新为合适的值：
 
     // DB connection info
@@ -254,8 +249,7 @@ ms.lasthandoff: 06/30/2017
 
 发布应用程序之后，你可以开始对其进行更改并使用 Git 发布所做的更改。 
 
-## 发布对应用程序所做的更改
-<a id="publish-changes-to-your-application" class="xliff"></a>
+## <a name="publish-changes-to-your-application"></a>发布对应用程序所做的更改
 若要发布对应用程序所做的更改，请执行下列步骤：
 
 1. 本地对应用程序进行更改。
@@ -268,8 +262,7 @@ ms.lasthandoff: 06/30/2017
     系统将提示你输入之前创建的密码。
 3. 浏览到 **http://[web app name].chinacloudsites.cn/index.php** 以查看你的更改。
 
-## 发生的更改
-<a id="whats-changed" class="xliff"></a>
+## <a name="whats-changed"></a>发生的更改
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [install-php]: http://www.php.net/manual/en/install.php

@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-### 创建卷容器
-<a id="to-create-a-volume-container" class="xliff"></a>
+### <a name="to-create-a-volume-container"></a>创建卷容器
 
 1. 在设备“快速启动”页中，单击“添加卷容器”。 这将显示“创建卷容器”对话框。
 

@@ -22,12 +22,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-# SQL 数据仓库中的 Create Table As Select (CTAS)
-<a id="create-table-as-select-ctas-in-sql-data-warehouse" class="xliff"></a>
+# <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>SQL 数据仓库中的 Create Table As Select (CTAS)
 Create Table As Select ( `CTAS` ) 是所提供的最重要的 T-SQL 功能之一。 它是根据 SELECT 语句的输出创建新表的完全并行化操作。 `CTAS` 是最简便快速的方法。 本文档提供 `CTAS`的示例和最佳实践。
 
-## SELECT..INTO 与CTAS
-<a id="selectinto-vs-ctas" class="xliff"></a>
+## <a name="selectinto-vs-ctas"></a>SELECT..INTO 与CTAS
 可将 `CTAS` 视为 `SELECT..INTO` 的增强版本。
 
 下面是简单 `SELECT..INTO` 语句的一个示例：
@@ -64,8 +62,7 @@ FROM    [dbo].[FactInternetSales]
 > 
 > 
 
-## 使用 CTAS 复制表
-<a id="using-ctas-to-copy-a-table" class="xliff"></a>
+## <a name="using-ctas-to-copy-a-table"></a>使用 CTAS 复制表
 `CTAS` 最常见的用途之一就是创建表副本，使你可以更改 DDL。 例如，如果最初将表创建为 `ROUND_ROBIN`，现在想要改为在列上分布的表，则可以使用 `CTAS` 来更改分布列。 `CTAS` 可用来更改分区、索引或列类型。
 
 假设在 `CREATE TABLE` 中没有指定分布列，因而使用 `ROUND_ROBIN` 分布的默认分布类型创建此表。
@@ -134,8 +131,7 @@ DROP TABLE FactInternetSales_old;
 > 
 > 
 
-## 使用 CTAS 解决不支持的功能
-<a id="using-ctas-to-work-around-unsupported-features" class="xliff"></a>
+## <a name="using-ctas-to-work-around-unsupported-features"></a>使用 CTAS 解决不支持的功能
 `CTAS` 还可用于解决以下多种不支持的功能。 这往往是一种经过证实的双赢局面，因为代码不但能够兼容，而且通常可以在 SQL 数据仓库中更快速执行。 这是完全并行化设计的结果。 可以使用 CTAS 解决的方案包括：
 
 * UPDATE 中的 ANSI JOIN
@@ -147,8 +143,7 @@ DROP TABLE FactInternetSales_old;
 > 
 > 
 
-## 替换 Update 语句的 ANSI Join
-<a id="ansi-join-replacement-for-update-statements" class="xliff"></a>
+## <a name="ansi-join-replacement-for-update-statements"></a>替换 Update 语句的 ANSI Join
 你可能有一个复杂的更新使用 ANSI 联接语法来执行 UPDATE 或 DELETE，以将两个以上的表联接在一起。
 
 假设必须更新此表：
@@ -227,8 +222,7 @@ DROP TABLE CTAS_acs
 ;
 ```
 
-## 替换 Delete 语句的 ANSI Join
-<a id="ansi-join-replacement-for-delete-statements" class="xliff"></a>
+## <a name="ansi-join-replacement-for-delete-statements"></a>替换 Delete 语句的 ANSI Join
 有时，删除数据的最佳方法是使用 `CTAS`。 除了删除数据以外，可以只选择想要保留的数据。 这对于使用 ANSI 联接语法的 `DELETE` 语句尤其适用，因为 SQL 数据仓库不支持在 `DELETE` 语句的 `FROM` 子句中使用 ANSI Join。
 
 转换后的 DELETE 语句示例如下所示：
@@ -252,8 +246,7 @@ RENAME OBJECT dbo.DimProduct        TO DimProduct_old;
 RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
-## 替换 Merge 语句
-<a id="replace-merge-statements" class="xliff"></a>
+## <a name="replace-merge-statements"></a>替换 Merge 语句
 使用 `CTAS`至少可以部分替换 Merge 语句。 可以将 `INSERT` 和 `UPDATE` 合并成单个语句。 任何已删除的记录都需要在第二个语句中隔离。
 
 `UPSERT` 的示例如下：
@@ -287,8 +280,7 @@ RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
 RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
 ```
 
-## CTAS 建议：显式声明数据类型和输出是否可为 null
-<a id="ctas-recommendation-explicitly-state-data-type-and-nullability-of-output" class="xliff"></a>
+## <a name="ctas-recommendation-explicitly-state-data-type-and-nullability-of-output"></a>CTAS 建议：显式声明数据类型和输出是否可为 null
 迁移代码时，可能会遇到这种类型的编码模式：
 
 ```sql
@@ -445,8 +437,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 有关使用 [CTAS][CTAS]的详细信息，请参阅 MSDN。 CTAS 是 Azure SQL 数据仓库中最重要的语句之一。 请确保全面了解该语句。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关更多开发技巧，请参阅 [开发概述][development overview]。
 
 <!--Image references-->
