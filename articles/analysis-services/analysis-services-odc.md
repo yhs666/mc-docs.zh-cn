@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 08/23/2017
-ms.date: 09/25/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 72f3691d57f5f06fa0ea3d60eca860d9b7e30737
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: ad0ed80738c50e01d90db65867535cb988bf4dff
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-an-office-data-connection-file"></a>创建 Office 数据连接文件
 
@@ -149,4 +149,4 @@ function init() {
 
 ```
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

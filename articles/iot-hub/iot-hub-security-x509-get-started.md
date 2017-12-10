@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/10/2017
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: yiso
-ms.openlocfilehash: 613e59666ca651037a09b550968d7e61c111fca9
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.openlocfilehash: d48344d49c2c8fdc10a9d924cde2dadc0b311b08
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>在 Azure IoT 中心设置 X.509 安全性
 
@@ -38,7 +38,7 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
 可以选择以下方法之一获取证书：
 - 从*根证书颁发机构 (CA)* 购买 X.509 证书。 建议在生产环境中使用此方法。
 或者，
-- 使用 [OpenSSL](https://www.openssl.org/) 等第三方工具创建自己的 X.509 证书。 此方法适用于测试和开发目的。 标题为[创建 X.509 证书](iot-hub-security-x509-create-certificates.md#createcerts)和[创建 X.509 证书链](iot-hub-security-x509-create-certificates.md#createcertchain)的部分逐步讲解了一个用于通过 OpenSSL 创建证书的示例 PowerShell 脚本。 本教程的余下部分使用此*操作方法*指南中设置的 OpenSSL 环境来逐步讲解 Azure IoT 中心内的端到端 X.509 安全性。
+- 使用 [OpenSSL](https://www.openssl.org/) 等第三方工具创建自己的 X.509 证书。 此方法适用于测试和开发目的。 [如何使用 PowerShell 创建 X.509 证书](iot-hub-security-x509-create-certificates.md)一文中标题为*创建 X.509 证书*和*创建 X.509 证书链*的部分逐步讲解了一个用于通过 OpenSSL 和 PowerShell 创建证书的示例 PowerShell 脚本。 如果希望使用 **Bash** shell（而不是 PowerShell），请参阅[管理 CA 证书示例](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)的相关部分。 本教程的余下部分使用此*操作方法*指南中设置的 OpenSSL 环境来逐步讲解 Azure IoT 中心内的端到端 X.509 安全性。
 
 
 <a id="registercerts"></a>
@@ -186,7 +186,7 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 Azure IoT Edge 模拟设备][lnk-iotedge]
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
 
 [lnk-security-best-practices]: iot-hub-security-best-practices.md
 [lnk-security-architecture]: iot-hub-security-architecture.md

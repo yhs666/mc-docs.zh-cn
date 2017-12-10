@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-origin.date: 07/14/2017
-ms.date: 11/20/2017
+origin.date: 10/23/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1174aab25e9f62932026b661e838c82f54e03ba3
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 21dfe0ceff0bf59da262c225163db3038947b723
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>有关在 Azure SQL 数据仓库中使用复制的表的设计指南
 本文提供了有关在 SQL 数据仓库架构中设计复制的表的建议。 可以使用这些建议通过减少数据移动和降低查询复杂性来提高查询性能。
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/15/2017
 > 
 
 ## <a name="prerequisites"></a>先决条件
-本文假定你熟悉 SQL 数据仓库中的数据分发和数据移动概念。  有关详细信息，请参阅[分布式数据](sql-data-warehouse-distributed-data.md)。 
+本文假定你熟悉 SQL 数据仓库中的数据分发和数据移动概念。  有关详细信息，请参阅[体系结构](massively-parallel-processing-mpp-architecture.md)一文。 
 
 作为表设计的一部分，请尽可能多地去了解你的数据及其查询方式。  例如，请考虑以下问题：
 
@@ -137,7 +137,7 @@ SQL 数据仓库通过维护表的主版本来实现复制的表。 它将主版
 
 发生下列情况后，需要重新生成：
 - 加载或修改了数据
-- 数据仓库缩放到了不同的 DWU 设置
+- 数据仓库缩放为不同的[服务级别](performance-tiers.md#service-levels)
 - 更新了表定义
 
 发生下列情况后，不需要重新生成：
@@ -201,4 +201,4 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 
 有关分布式表的概述，请参阅[分布式表](sql-data-warehouse-tables-distribute.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

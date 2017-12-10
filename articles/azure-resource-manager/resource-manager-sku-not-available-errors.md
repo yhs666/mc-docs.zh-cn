@@ -14,11 +14,11 @@ ms.topic: support-article
 origin.date: 09/13/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9161f1bcd5c4193f963ff90c8220c7b2f9fc953f
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 2819b4f6e8ba497406898bf364a6f2b982b86da1
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>解决 SKU 不可用错误
 
@@ -125,6 +125,6 @@ https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/Mi
 }
 ```
 
-如果在该区域或满足业务需求的备用区域中找不到合适的 SKU，请将 [SKU 请求](https://aka.ms/skurestriction)提交到 Azure 支持。
-
+如果在该区域或满足业务需求的备用区域中找不到合适的 SKU，请将 [SKU 请求](https://support.windowsazure.cn/support/support-azure)提交到 Azure 支持。
+<!-- Redirect  https://aka.ms/skurestriction to https://support.windowsazure.cn/support/support-azure -->
 <!--Update_Description: new articles on resource manager sku not available errors-->

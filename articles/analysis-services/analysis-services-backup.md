@@ -12,14 +12,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2017
-ms.date: 08/28/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2d92fdeebe62621fcfcbba78fe58d2da97c82b43
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: c576efcde74f0239ddbe60d6efe878951e779555
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="backup-and-restore"></a>备份和还原
 
@@ -108,4 +108,4 @@ ms.lasthandoff: 08/25/2017
 [高可用性](analysis-services-bcdr.md)     
 [管理 Azure Analysis Services](analysis-services-manage.md)
 
-<!--Update_Description: update reference link-->
+<!--Update_Description: update meta properties -->

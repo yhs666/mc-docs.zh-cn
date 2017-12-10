@@ -6,7 +6,8 @@
 |----------------------------------------------------------- |------------------------------------|
 | [管理 IoT 中心消息][Mg_IoT_Hub_Msg]                  | iothub-explorer 工具               |
 | [管理 IoT 设备][Mg_IoT_Dv]                        | iothub-explorer 工具               |
-| [直观显示传感器数据][Vis_Data]                          | Microsoft Power BI、Azure Web 应用 |
+| [将 IoT 中心消息保存到 Azure 存储][Sv_IoT_Msg_Stor]  | Azure 表存储                |
+| [直观显示传感器数据][Vis_Data_Web]                      | Azure Web 应用                     |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -15,6 +16,7 @@
 
 [Mg_IoT_Hub_Msg]: ../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md
 [Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iothub-explorer.md
-[Vis_Data]: ../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md
+[Sv_IoT_Msg_Stor]: ../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md
+[Vis_Data_Web]: ../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md
 [lnk-dev-guide]: ../articles/iot-hub/iot-hub-devguide.md
 [lnk-how-to]: ../articles/iot-hub/iot-hub-how-to.md

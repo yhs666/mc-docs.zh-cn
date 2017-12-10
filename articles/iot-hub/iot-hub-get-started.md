@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/25/2017
+origin.date: 08/22/2017
 ms.author: v-yiso
-ms.date: 09/25/2017
-ms.openlocfilehash: 300ddf9996df69d1d94d8998e1237c1623613e62
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 12/18/2017
+ms.openlocfilehash: 40df0bbf7c1720ba8438b4ff3bde58a2e56a8879
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Azure IoT 中心入门教程
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 09/29/2017
 
 | IoT 设备                       | 编程语言 |
 |----------------------------------|----------------------|
-| Raspberry Pi                     | [Node.js][Pi_Nd]、[C][Pi_C]、[Python][Pi_Py]    |
+| Raspberry Pi                     | [Python][Pi_Py]、[Node.js][Pi_Nd]、[C][Pi_C]  |
 | IoT DevKit                       | [VSCode 中的 Arduino][DevKit]     |
 | Intel Edison                     | [Node.js][Ed_Nd]、[C][Ed_C]    |
 | Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
@@ -47,13 +47,6 @@ ms.lasthandoff: 09/29/2017
 | Adafruit Feather M0              | [Arduino][M0_Ard]              |
 | 电脑上的模拟设备           | [.NET][Sim_NET]、[Java][Sim_Jav]、[Node.js][Sim_Nd]、[Python][Sim_Pyth] |
 | 联机设备模拟器         | [Raspberry Pi (Node.js)][Ol_Sim] |
-
-此外，还可以使用 IoT Edge 网关使设备能够连接到 IoT 中心：
-
-| 网关设备               | 编程语言 | 平台         |
-|------------------------------|----------------------|------------------|
-| Intel NUC（模型 DE3815TYKE） | C                    | [Wind River Linux][NUC_Lnx] |
-| 模拟网关            | C                    | [Linux][Sim_Lnx]、[Windows][Sim_Win] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 

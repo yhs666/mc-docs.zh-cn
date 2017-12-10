@@ -3,8 +3,8 @@ title: "排查路由问题 - PowerShell | Azure"
 description: "了解如何使用 Azure PowerShell 在 Azure Resource Manager 部署模型中排查路由问题。"
 services: virtual-network
 documentationcenter: na
-author: AnithaAdusumilli
-manager: narayan
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: bf7dc5e7-9399-460e-8e0d-8992dbed98a6
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/23/2016
-ms.date: 01/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: 26ce9ef48c16878d739758f76c8442b8f6528086
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 12/11/2017
+ms.author: v-yeche
+ms.openlocfilehash: f5538eb7f359c128c269e0695e4d2dad48b4b505
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>使用 Azure PowerShell 排查路由问题
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 07/14/2017
 
 * **系统路由：**默认情况下，在 Azure 虚拟网络 (VNet) 中创建的每个子网都具有系统路由表，允许传送本地 VNet 流量、通过 VPN 网关的本地流量以及 Internet 流量。 对等互连的 VNet 也有系统路由。
 * **BGP 路由：** 通过 ExpressRoute 或站点到站点 VPN 连接传播到网络接口。 阅读[使用 VPN 网关的 BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) 和 [ExpressRoute 概述](../expressroute/expressroute-introduction.md)一文，了解有关 BGP 路由的详细信息。
-* **用户定义的路由 (UDR)：**如果使用网络虚拟设备或强制隧道通过站点到站点 VPN 将流量传送到本地网络，可将用户定义的路由 (UDR) 与子网路由表相关联。 如果不熟悉 UDR，请阅读[用户定义的路由](virtual-networks-udr-overview.md#user-defined-routes)一文。
+* **用户定义的路由 (UDR)：**如果使用网络虚拟设备或强制隧道通过站点到站点 VPN 将流量传送到本地网络，可将用户定义的路由 (UDR) 与子网路由表相关联。 如果不熟悉 UDR，请阅读[用户定义的路由](virtual-networks-udr-overview.md#user-defined)一文。
 
 由于可将各种路由应用到网络接口，因此有时难以确定哪些聚合路由是有效的。 为了帮助排查 VM 网络连接问题，可以查看 Azure Resource Manager 部署模型中某个网络接口的所有有效路由。
 
@@ -136,3 +136,5 @@ ms.lasthandoff: 07/14/2017
 * 要使 VNet 对等互连流量正常工作，对等互连的 VNet 的前缀范围中必须存在 **nextHopType** *VNetPeering* 的系统路由。 如果没有此类路由，并且 VNet 对等互连链接看起来正常：
   * 如果是新建立的对等互连链接，请等待几秒钟并重试。 有时需要花费较长的时间才能将路由传播到子网中的所有网络接口。
   * 网络安全组 (NSG) 规则可能会影响流量流。 有关详细信息，请参阅[网络安全组故障排除](virtual-network-nsg-troubleshoot-powershell.md)一文。
+
+<!-- Update_Description: update meta properties, update link -->

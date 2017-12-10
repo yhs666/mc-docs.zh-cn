@@ -13,19 +13,79 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/14/2017
-ms.date: 10/12/2017
+origin.date: 11/08/2017
+ms.date: 12/06/2017
 ms.author: v-junlch
 ms.custom: na
-ms.openlocfilehash: e0b3caf03f5763b11764397e34e7a4469ec847ca
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: ac0ab278dd83d0da311b6801e3f86d5109033ba9
+ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虚拟机规模集常见问题解答
 
 获取有关 Azure 虚拟机规模集常见问题的解答。
+
+## <a name="autoscale"></a>自动缩放
+
+### <a name="what-are-best-practices-for-azure-autoscale"></a>Azure 自动缩放的最佳做法是什么？
+
+有关自动缩放的最佳做法，请参阅[自动缩放虚拟机的最佳做法](/monitoring-and-diagnostics/insights-autoscale-best-practices)。
+
+### <a name="where-do-i-find-metric-names-for-autoscaling-that-uses-host-based-metrics"></a>在哪里可以找到使用基于主机的指标执行自动缩放时的相关指标名称？
+
+有关使用基于主机的指标执行自动缩放时的相关指标名称，请参阅 [Azure Monitor 支持的指标](/monitoring-and-diagnostics/monitoring-supported-metrics/)。
+
+### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>基于 Azure 服务总线主题和队列长度的自动缩放是否有任何示例可供参考？
+
+是的。 有关基于 Azure 服务总线主题和队列长度的自动缩放示例，请参阅 [Azure Monitor 自动缩放常用指标](/monitoring-and-diagnostics/insights-autoscale-common-metrics/)。
+
+对于服务总线队列，请使用以下 JSON：
+
+```json
+"metricName": "MessageCount",
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue"
+```
+
+对于存储队列，请使用以下 JSON：
+
+```json
+"metricName": "ApproximateMessageCount",
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
+```
+
+将示例值替换为资源的统一资源标识符 (URI)。
+
+
+### <a name="should-i-autoscale-by-using-host-based-metrics-or-a-diagnostics-extension"></a>应该使用基于主机的指标还是使用诊断扩展来执行自动缩放？
+
+可以在 VM 上创建自动缩放设置，以使用主机级指标或基于来宾 OS 的指标。
+
+关于受支持的指标列表，请参阅 [Azure Monitor 自动缩放常用指标](/monitoring-and-diagnostics/insights-autoscale-common-metrics)。 
+
+此示例使用主机级 CPU 指标和消息计数指标。
+
+
+
+### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>如何对虚拟机规模集设置警报规则？
+
+通过 PowerShell 或 Azure CLI，可以为虚拟机规模集创建指标警报。 有关详细信息，请参阅 [Azure Monitor PowerShell 快速入门示例](/monitoring-and-diagnostics/insights-powershell-samples/#create-alert-rules)和 [Azure Monitor 跨平台 CLI 快速入门示例](/monitoring-and-diagnostics/insights-cli-samples/#work-with-alerts)。
+
+虚拟机规模集的 TargetResourceId 如下所示： 
+
+/subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
+
+可以选择任何 VM 性能计数器作为要对其设置警报的指标。 有关详细信息，请参阅 [Azure Monitor 自动缩放常用指标](/monitoring-and-diagnostics/insights-autoscale-common-metrics/)中的[基于 Resource Manager 的 Windows VM 的来宾 OS 指标](/monitoring-and-diagnostics/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms)和 [Linux VM 的来宾 OS 指标](/monitoring-and-diagnostics/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms)。
+
+### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>如何使用 PowerShell 对虚拟机规模集设置自动缩放？
+
+若要使用 PowerShell 对虚拟机规模集设置自动缩放，请参阅博客文章 [How to add autoscale to an Azure virtual machine scale set](https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/)（如何向 Azure 虚拟机规模集添加自动缩放）。
+
+
+
 
 ## <a name="certificates"></a>证书
 
@@ -70,7 +130,7 @@ ms.lasthandoff: 10/13/2017
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location chinanorth -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
 
-    此命令将提供 Azure Resource Manager 模板的输入。
+    此命令将提供 Azure 资源管理器模板的输入。
 
     有关如何在密钥保管库中创建自签名证书的示例，请参阅[Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security/)。
 
@@ -390,12 +450,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>我需要执行一个在专用存储帐户中托管的自定义脚本。 存储为公共存储时脚本成功运行，但尝试使用共享访问签名 (SAS) 时，脚本运行失败。 显示此消息：“缺少有效共享访问签名的强制参数”。 通过本地浏览器可以正常使用“链接+SAS”。
 
-若要执行在私有存储帐户中托管的自定义脚本，请通过存储帐户密钥和名称来设置受保护的设置。 有关详细信息，请参阅[适用于 Windows 的自定义脚本扩展](/virtual-machines/virtual-machines-windows-extensions-customscript/)。
-
-
-
-
-
+若要执行在私有存储帐户中托管的自定义脚本，请通过存储帐户密钥和名称来设置受保护的设置。 有关详细信息，请参阅[适用于 Windows 的自定义脚本扩展](/virtual-machines/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)。
 
 
 ## <a name="networking"></a>联网
@@ -458,7 +513,29 @@ IP 地址是从指定的子网中选择的。
 
 若要将虚拟机规模集中第一个 VM 的 IP 地址添加到模板的输出中，请参阅 [ARM：获取 VMSS 的专用 IP](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips)。
 
-### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>如何配置规模集使用的 DNS 服务器？
+### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>能否将规模集与加速网络结合使用？
+
+是的。 若要使用加速网络，请在规模集的 networkInterfaceConfigurations 设置中将 enableAcceleratedNetworking 设置为 true。 例如
+```json
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+    {
+        "name": "niconfig1",
+        "properties": {
+        "primary": true,
+        "enableAcceleratedNetworking" : true,
+        "ipConfigurations": [
+                ]
+            }
+            }
+        ]
+        }
+    }
+    ]
+}
+```
+
+### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>如何才能配置规模集使用的 DNS 服务器？
 
 若要创建具有自定义 DNS 配置的 VM 规模集，请将 dnsSettings JSON 数据包添加到规模集的 networkInterfaceConfigurations 节。 示例：
 ```json
@@ -496,6 +573,50 @@ IP 地址是从指定的子网中选择的。
 
 若要更改虚拟机规模集中的 VM 数量，请参阅[更改虚拟机规模集的实例计数](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/)。
 
+### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>如何定义达到特定阈值时触发的自定义警报？
+
+可以在一定程度上灵活处理指定阈值的警报。 例如，可以定义自定义的 webhook。 以下 webhook 示例取自 Resource Manager 模板：
+
+```json
+{
+    "type": "Microsoft.Insights/autoscaleSettings",
+    "apiVersion": "[variables('insightsApi')]",
+    "name": "autoscale",
+    "location": "[parameters('resourceLocation')]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]"
+    ],
+    "properties": {
+        "name": "autoscale",
+        "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
+        "enabled": true,
+        "notifications": [
+            {
+                "operation": "Scale",
+                "email": {
+                    "sendToSubscriptionAdministrator": true,
+                    "sendToSubscriptionCoAdministrators": true,
+                    "customEmails": [
+                        "youremail@address.com"
+                    ]
+                },
+                "webhooks": [
+                    {
+                        "serviceUri": "https://events.pagerduty.com/integration/0b75b57246814149b4d87fa6e1273687/enqueue",
+                        "properties": {
+                            "key1": "custommetric",
+                            "key2": "scalevmss"
+                        }
+                    }
+                ]
+            }
+        ],
+```
+
+在此示例中，达到阈值时，警报将转到 Pagerduty.com。
+
+
+
 ## <a name="patching-and-operations"></a>修补和操作
 
 ### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>如何在现有资源组中创建规模集？
@@ -516,7 +637,15 @@ IP 地址是从指定的子网中选择的。
 
 有关详细信息，请参阅[管理虚拟机规模集中的所有 VM](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set)。
 
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>是否可以将规模集与 Azure OMS (Operations Management Suite) 集成？
 
+可以，可在规模集 VM 上安装 OMS 扩展。 Azure CLI 示例如下：
+```
+az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
+```
+可在 OMS 门户中查找所需的 workspaceId 和 workspaceKey。 在“概述”页面上，单击“设置”磁贴。 单击顶部的“相连的源”选项卡。
+
+注意：如果规模集“upgradePolicy”设置为“手动”，则需要通过对 VM 调用升级将扩展应用到集中的所有 VM。 在 CLI 中，这将为“az vmss update-instances”。
 
 ## <a name="troubleshooting"></a>故障排除
 
@@ -567,7 +696,7 @@ IP 地址是从指定的子网中选择的。
 
 - 不再想要支付计算费用，但要保留 VM 的磁盘状态。
 - 想要更快速地启动一组 VM，而不是扩大虚拟机规模集。
-  - 出于这种方案，可能创建了自己的缩放引擎，并希望以更快的速度完成端到端缩放。
+  - 出于这种方案，可能创建了自己的自动缩放引擎，并希望以更快的速度完成端到端缩放。
 - 虚拟机规模集未均匀分布在容错域或更新域。 这可能是由于有选择地删除了 VM，或者因为过度预配后，VM 被删除。 在虚拟机规模集上先运行 `stop deallocate`，并运行 `start`，可将 VM 均匀地分布到容错域或更新域。
 
 <!--Update_Description: wording update-->

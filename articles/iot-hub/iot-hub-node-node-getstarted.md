@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/31/2017
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: v-yiso
-ms.openlocfilehash: 32d9dfdf4b6991a13876cfd3f19648ad6d241df1
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.openlocfilehash: 09dd9d8fb8ac0281c618a11031e3ef803d13a575
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>使用 Node 将模拟设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -289,7 +289,7 @@ ms.lasthandoff: 11/09/2017
 * 
             [连接设备][lnk-connect-device]
 * [设备管理入门][lnk-device-management]
-* [Azure IoT Edge 入门][lnk-iot-edge]
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iot-edge]
 
 若要了解如何扩展 IoT 解决方案和如何大规模处理设备到云的消息，请参阅 [Process device-to-cloud messages][lnk-process-d2c-tutorial] （处理设备到云的消息）教程。
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

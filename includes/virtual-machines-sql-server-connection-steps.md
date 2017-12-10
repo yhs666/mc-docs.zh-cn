@@ -1,5 +1,5 @@
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>在 Windows 防火墙中为数据库引擎的默认实例打开 TCP 端口
-1. 通过远程桌面连接到虚拟机。 有关连接到 VM 的详细说明，请参阅[使用远程桌面打开 SQL VM](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop)。
+1. 通过远程桌面连接到虚拟机。 有关连接到 VM 的详细说明，请参阅[使用远程桌面打开 SQL VM](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop)。
 2. 登录后，在开始屏幕中，键入“WF.msc”，然后按 ENTER。
 
     ![启动防火墙程序](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
@@ -28,25 +28,14 @@
 根据需要为其他组件打开附加端口。 有关详细信息，请参阅[配置 Windows 防火墙以允许 SQL Server 访问](http://msdn.microsoft.com/library/cc646023.aspx)。
 
 ### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>将 SQL Server 配置为侦听 TCP 协议
-1. 在连接到虚拟机时，在开始页面中，键入“SQL Server 配置管理器”，然后按 ENTER。
 
-    ![打开 SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
-2. 在 SQL Server 配置管理器中，在控制台窗格中，展开“SQL Server 网络配置”。
-3. 在控制台窗格中，单击“MSSQLSERVER 的协议”（默认实例名称）。在详细信息窗格中，右键单击“TCP”，然后单击“启用”（如果尚未启用）。
-
-    ![启用 TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. 在控制台窗格中，单击“SQL Server 服务”。 在详细信息窗格中，右键单击 **SQL Server (实例名)**（默认实例为“SQL Server (MSSQLSERVER)”），然后单击“重新启动”以停止并重新启动该 SQL Server 实例。**
-
-    ![重新启动数据库引擎](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
-5. 关闭 SQL Server 配置管理器。
-
-有关启用 SQL Server 数据库引擎的协议的详细信息，请参阅[启用或禁用服务器网络协议](http://msdn.microsoft.com/library/ms191294.aspx)。
+[!INCLUDE [Enable TCP](virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ### <a name="configure-sql-server-for-mixed-mode-authentication"></a>配置混合模式的 SQL Server 身份验证
-在没有域环境的情况下，SQL Server 数据库引擎无法使用 Windows 身份验证。 若要从其他计算机连接到数据库引擎，请将 SQL Server 的身份验证模式配置为混合。 混合模式身份验证同时允许 SQL Server 身份验证和 Windows 身份验证。
+在没有域环境的情况下，SQL Server 数据库引擎无法使用 Windows 身份验证。 要从其他计算机连接到数据库引擎，请将 SQL Server 的身份验证模式配置为混合。 混合模式身份验证同时允许 SQL Server 身份验证和 Windows 身份验证。
 
 > [!NOTE]
-> 如果你已使用配置的域环境配置了 Azure 虚拟网络，可能没有必要配置混合模式身份验证。
+> 如果已使用配置的域环境配置了 Azure 虚拟网络，可能没有必要配置混合模式身份验证。
 > 
 > 
 
@@ -69,9 +58,9 @@
 7. 在 SQL Server Management Studio 对话框中，单击“是”同意重新启动 SQL Server。
 
 ### <a name="create-sql-server-authentication-logins"></a>创建 SQL Server 身份验证登录名
-若要从其他计算机连接到数据库引擎，你必须创建至少一个 SQL Server 身份验证登录名。
+要从其他计算机连接到数据库引擎，必须创建至少一个 SQL Server 身份验证登录名。
 
-1. 在 SQL Server Management Studio 对象资源管理器中，展开你要在其中创建新登录名的服务器实例所在的文件夹。
+1. 在 SQL Server Management Studio 对象资源管理器中，展开要在其中创建新登录名的服务器实例所在的文件夹。
 2. 右键单击“安全性”文件夹，指向“新建”，然后选择“登录名…”。
 
     ![新建登录名](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
@@ -93,3 +82,5 @@
 9. 单击“确定”。
 
 有关 SQL Server 登录名的详细信息，请参阅 [创建登录名](http://msdn.microsoft.com/library/aa337562.aspx)。
+<!--Update_Description: update link-->
+<!--ms.date: 10/30/2017-->

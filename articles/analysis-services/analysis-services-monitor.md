@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 09/14/2017
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9a935f2fd600dd0d35dec3713855c777d4749dda
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 9a207ff4f757a6dde4e41badbcdf12ed64d0c099
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-server-metrics"></a>监视服务器指标
 
@@ -92,4 +92,4 @@ Analysis Services 提供相关指标，可帮助监视服务器的性能和运�
 [Azure 中的指标](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
 [Azure Monitor REST API 中的指标](https://msdn.microsoft.com/library/azure/dn931930.aspx)
 
-<!--Update_Description: new articles on analysis services monitor -->
+<!--Update_Description: update meta properties -->

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/24/2017
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: v-yiso
-ms.openlocfilehash: 264e9997042ee6b89272116c135229db636e1487
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.openlocfilehash: 62f388fa9d06582bbc85d7ba9ec1026fdabe5db9
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Azure IoT 中心和 Azure 事件中心比较
 IoT 中心的主要用例之一是从设备收集遥测数据。 因此，我们经常在 IoT 中心与 [Azure 事件中心][Azure Event Hubs]之间进行比较。 与 IoT 中心一样，事件中心是一种事件处理服务，用于向云提供大规模的事件与遥测数据入口，并且具有较低的延迟和较高的可靠性。
@@ -48,7 +48,7 @@ IoT 中心的主要用例之一是从设备收集遥测数据。 因此，我们
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南][lnk-devguide]
-* [使用 IoT Edge 模拟设备][lnk-iotedge]
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
 
 [lnk-twins]: ./iot-hub-devguide-device-twins.md
 [lnk-c2d-guidance]: ./iot-hub-devguide-c2d-guidance.md

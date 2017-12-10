@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/06/2017
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: v-yiso
-ms.openlocfilehash: 5f1a260721e1cec5da3b7c24b6958ab3dc53bb32
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.openlocfilehash: 1d0aa074328da98172114a53a2319d818b5f54c2
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>计划和广播作业 (Node)
 
@@ -47,7 +47,7 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
 
 **simDevice.js**，它使用设备标识连接到 IoT 中心，并接收 **lockDoor** 直接方法。
 
-**scheduleJobService.js**：调用模拟设备应用中的直接方法，并使用作业更新设备孪生的所需属性。
+scheduleJobService.js，它调用模拟设备应用中的直接方法，并通过作业更新设备孪生的所需属性。
 
 要完成本教程，需要以下各项：
 
@@ -150,7 +150,7 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
     var connectionString = '{iothubconnectionstring}';
     var queryCondition = "deviceId IN ['myDeviceId']";
     var startTime = new Date();
-    var maxExecutionTimeInSeconds =  3600;
+    var maxExecutionTimeInSeconds =  300;
     var jobClient = JobClient.fromConnectionString(connectionString);
     ```
 6. 添加以下用于监视作业执行的函数：

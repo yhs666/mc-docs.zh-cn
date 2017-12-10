@@ -13,12 +13,12 @@ ms.workload: na
 origin.date: 08/25/2017
 ms.author: v-yiso
 ms.custom: na
-ms.date: 10/16/2017
-ms.openlocfilehash: 5dfec3003a17958a75b4fb7cdc0dc75e4828b99d
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 12/18/2017
+ms.openlocfilehash: af14f4c81bc93bd991f3ba1b6e38878c0da250e7
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>使用 Python 将模拟设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -193,6 +193,7 @@ ms.lasthandoff: 09/29/2017
         # set the time until a message times out
         client.set_option("messageTimeout", MESSAGE_TIMEOUT)
         client.set_option("logtrace", 0)
+        client.set_option("product_info", "HappyPath_Simulated-Python")
         return client
     ```
 7. 添加以下函数，将消息格式化并将其从模拟设备发送到 IoT 中心。
@@ -291,7 +292,7 @@ ms.lasthandoff: 09/29/2017
 * 
             [连接设备][lnk-connect-device]
 * [设备管理入门][lnk-device-management]
-* [Azure IoT Edge 入门][lnk-iot-edge]
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iot-edge]
 
 若要了解如何扩展 IoT 解决方案和如何大规模处理设备到云的消息，请参阅 [Process device-to-cloud messages][lnk-process-d2c-tutorial] （处理设备到云的消息）教程。
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

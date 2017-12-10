@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/03/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: e9d55781e3cb3b3cf2998e9dc8bc853cf2a72a13
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 12/18/2017
+ms.openlocfilehash: 6e6742f4c55bad6e6d97a6d78120e100f4b3ab7b
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 08/04/2017
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 Azure IoT Edge 模拟设备][lnk-iotedge]
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
 
 [lnk-security-architecture]: ./iot-hub-security-architecture.md
 [lnk-security-deployment]: ./iot-hub-security-deployment.md

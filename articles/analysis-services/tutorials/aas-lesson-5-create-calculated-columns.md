@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 09/20/2017
-ms.date: 10/23/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0ff47e888b1a16949971f80fbadf72ac4d80a403
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: e772f7fa70a4c6206ed684909d70d4ab9cecaf2e
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="lesson-5-create-calculated-columns"></a>第 5 课：创建计算列
 

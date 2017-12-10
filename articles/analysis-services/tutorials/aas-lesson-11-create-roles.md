@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 09/20/2017
-ms.date: 10/23/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: a2ecc65c2b893a2335e7e4156bca869bf385d71d
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 36800e6d80a0db7f4d8f3de3e56f3c905eddec73
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="lesson-11-create-roles"></a>第 11 课：创建角色
 

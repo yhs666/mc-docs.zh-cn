@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 09/20/2017
-ms.date: 10/23/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 94b13aca971c545213f59904d1e4d9669e57ec7a
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 7972c79a50b10e667de106b85f5d2890c71e5b76
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="lesson-4-create-relationships"></a>第 4 课：创建关系
 
@@ -105,4 +105,4 @@ ms.lasthandoff: 10/20/2017
 ## <a name="whats-next"></a>后续步骤
 [第 5 课：创建计算列](../tutorials/aas-lesson-5-create-calculated-columns.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

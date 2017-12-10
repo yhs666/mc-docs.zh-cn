@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/25/2017
-ms.date: 09/25/2017
+origin.date: 10/13/2017
+ms.date: 12/18/2017
 ms.author: v-yiso
-ms.openlocfilehash: 2e33ef5929b4206ff937c8e7589018af1ed78277
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: 6273ba30f57eb4280207dee1ddb967d41581caec
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-azure-iot-hub"></a>如何使用 Azure IoT 中心
 

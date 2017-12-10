@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/31/2017
-ms.date: 10/16/2017
+origin.date: 10/13/2017
+ms.date: 12/18/2017
 ms.author: v-yiso
-ms.openlocfilehash: 87610c4552957e7e3ffb19bc209b328ffa441ee4
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: 7479092d0921a534d28c9d25cd793e0994412511
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT 中心开发人员指南
 Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备和单个解决方案后端之间实现安全可靠的双向通信。
@@ -48,11 +48,11 @@ Azure IoT 中心提供：
 * [在设备上调用直接方法][devguide-directmethods] 说明直接方法的生命周期，介绍有关如何从后端应用调用设备方法以及在设备上处理直接方法的信息。
 * [在多台设备上计划作业][devguide-jobs] 介绍如何在多台设备上计划作业。 此文章介绍了如何提交作业，这些作业在执行直接方法和利用设备孪生更新设备时执行任务。 它还介绍如何查询作业的状态。
 * [参考 - 选择通信协议][devguide-protocol]介绍 IoT 中心支持用于设备通信的通信协议，并列出了应打开的端口。
-* [参考 - IoT 中心终结点][devguide-endpoints] 说明了每个 IoT 中心针对运行时和管理操作公开的各种终结点。 此文章还介绍如何在 IoT 中心创建附加终结点，以及如何使用现场网关使设备连接到非标准方案中的 IoT 中心终结点。
+* [参考 - IoT 中心终结点][devguide-endpoints] 说明了每个 IoT 中心针对运行时和管理操作公开的各种终结点。 此文还介绍了如何在 IoT 中心创建附加终结点，以及如何在非标准方案中使用现场网关实现到 IoT 中心终结点的连接。
 * [参考 - 用于设备孪生、作业和消息路由的 IoT 中心查询语言][devguide-query]介绍了可用于在中心检索设备孪生和作业相关信息的 IoT 中心查询语言。
-* [参考 - 配额和限制][devguide-quotas] 总结了 IoT 中心服务中设置的配额，以及当超过配额时可以预期看到的限制行为。
+* [参考 - 配额和限制][devguide-quotas]总结了 IoT 中心服务中设置的配额，以及当超过配额时会发生的限制。
 * [参考 - 定价][devguide-pricing]提供有关 IoT 中心的不同 SKU 和定价的常规信息，以及 IoT 中心如何将各种 IoT 中心功能作为消息计量的详细信息。
-* [参考 - 设备和服务 SDK][devguide-sdks] 列出了开发与 IoT 中心交互的设备和服务应用时可使用的 Azure IoT SDK。 此文章包括指向联机 API 文档的链接。
+* [参考 - 设备和服务 SDK][devguide-sdks] 列出了用于开发与 IoT 中心交互的设备和服务应用的 Azure IoT SDK。 此文章包括指向联机 API 文档的链接。
 * [参考 - IoT 中心 MQTT 支持][devguide-mqtt] 详细介绍了 IoT 中心如何支持 MQTT 协议。 此文章介绍了到 Azure IoT SDK 的 MQTT 协议内置支持，并阐述了如何直接使用 MQTT 协议。
 * [词汇表][devguide-glossary] 是与 IoT 中心相关的常见术语的列表。
 

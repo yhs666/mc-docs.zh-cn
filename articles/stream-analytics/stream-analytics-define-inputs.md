@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 07/05/2017
-ms.date: 11/06/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: a18f21b66a1daa2b051dbc3ebea92c9dae7c1610
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: 52c40f961f1da3d09e9612b97370ca801dfc1ae2
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>数据连接：了解从事件到流分析的数据流输入
 与流分析作业的数据连接是数据源提供的事件流，这称为“输入”。 流分析与包括 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)、[Azure IoT 中心](https://www.azure.cn/home/features/iot-hub/)和 [Azure Blob 存储](https://www.azure.cn/home/features/storage/)在内的 Azure 数据流源具有一流的集成。 这些输入源可以来自与分析作业相同的 Azure 订阅，也可以来自其他订阅。
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/02/2017
 
 ## <a name="compression"></a>压缩
 
-不久后将跨所有数据流输入源（事件中心、IoT 中心和 Blob 存储）为 Azure 流分析部署压缩功能。 此功能将新的下拉选项添加到 Azure 门户中的“新建输入”边栏选项卡，用户可以根据需要选择压缩数据流。 当前支持的类型为 None、GZip、和 Deflate 压缩。 
+Azure 流分析支持跨所有数据流输入源（事件中心、IoT 中心和 Blob 存储）的压缩功能。 此功能将新的下拉选项添加到 Azure 门户中的“新建输入”边栏选项卡，用户可以根据需要选择压缩数据流。 当前支持的类型为 None、GZip、和 Deflate 压缩。 
 
 不支持压缩和 Avro 序列化，并且不适用于引用数据。 
 
@@ -81,7 +81,11 @@ SELECT
     EventEnqueuedUtcTime,
     PartitionId
 FROM Input
-```
+````
+
+> [!NOTE]
+> 当使用事件中心作为 IoT 中心路由的终结点时，可通过 [GetMetadataPropertyValue 函数](https://msdn.microsoft.com/library/azure/mt793845.aspx)访问 IoT 中心元数据。
+> 
 
 ## <a name="create-data-stream-input-from-iot-hub"></a>从 IoT 中心创建数据流输入
 Azure Iot 中心是已针对 IoT 进行优化，具有高度伸缩性的发布-订阅事件引入器。
@@ -189,4 +193,4 @@ FROM Input
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!--Update_Description: wording update, add feature Compress optional soon -->
+<!--Update_Description: wording update -->

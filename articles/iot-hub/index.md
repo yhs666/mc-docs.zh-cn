@@ -2,7 +2,7 @@
 title: "Azure IoT 中心文档 - 教程和 API 参考 | Azure"
 description: "了解如何使用 IoT 中心连接、监视并控制数百万物联网资产。 教程、API 参考、视频和其他文档。"
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -13,11 +13,11 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 07/10/2017
 ms.author: v-yiso
-ms.openlocfilehash: 97b519dea5072a87b62c1d119fe7c0d04736c047
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.openlocfilehash: 2f70ac60f53b5b7e1c9bf6b6e55410b583e58ed6
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="iot-hub-documentation"></a>IoT 中心文档 
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 06/28/2017
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/iot-hub.svg" alt="" />
+                            <img src="media/index/iot-hub.svg" alt="Learn about Azure IoT Hub" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -50,7 +50,7 @@ ms.lasthandoff: 06/28/2017
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="media/common/i_get-started.svg" alt="Get started with a simulated device" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -68,7 +68,7 @@ ms.lasthandoff: 06/28/2017
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="media/common/i_get-started.svg" alt="Get started with a physical device" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -86,7 +86,7 @@ ms.lasthandoff: 06/28/2017
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_road-map.svg" alt="" />
+                            <img src="media/common/i_road-map.svg" alt="Read the developer guide" />
                         </div>
                     </div>
                     <div class="cardText">

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 09/20/2017
-ms.date: 10/23/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: dc7793b1bd899ea7a14418f7b276185ba5fa39bc
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 01656e5338791349058b831cfc7901a44a124e5f
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="lesson-9-create-hierarchies"></a>第 9 课：创建层次结构
 
@@ -84,4 +84,4 @@ ms.lasthandoff: 10/20/2017
  ## <a name="whats-next"></a>后续步骤
 [第 10 课：创建分区](../tutorials/aas-lesson-10-create-partitions.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

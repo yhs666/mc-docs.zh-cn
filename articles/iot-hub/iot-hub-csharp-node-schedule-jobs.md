@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 07/10/2017
 ms.author: v-yiso
 ms.date: 11/20/2017
-ms.openlocfilehash: 3438368c373c5dc766e5ec1eccdcd4620f711311
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.openlocfilehash: dd556dc2045cd3b4b12dba031d54519eeef2b3e0
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>计划和广播作业 (.NET/Node.js)
 
@@ -253,7 +253,7 @@ ms.lasthandoff: 11/09/2017
 
 若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅[教程：如何更新固件][lnk-fwupdate]。
 
-若要继续完成 IoT 中心入门内容，请参阅 [IoT Edge 入门][lnk-iot-edge]。
+要了解如何将 AI 部署到具有 Azure IoT Edge 的边缘设备，请参阅 [IoT Edge 入门][lnk-iot-edge]。
 
 <!-- images -->
 [img-servicenuget]: ./media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png

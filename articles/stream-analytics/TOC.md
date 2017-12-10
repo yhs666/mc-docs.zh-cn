@@ -13,18 +13,25 @@
 <!-- Not Available ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md) -->
 <!-- Not Available ### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md) -->
 ### [实时事件处理](stream-analytics-real-time-event-processing-reference-architecture.md)
+<!-- Not Available ### [Stream Analytics on IoT Edge (preview)](stream-analytics-edge.md) -->
 <!-- Not Available ### [Anomaly detection in Azure usage guide (preview)](stream-analytics-machine-learning-anomaly-detection.md)-->
+### [使用流分析进行高频率交易模拟](stream-analytics-high-frequency-trading.md)
 
 ## 创建作业
 ### [创建输入](stream-analytics-define-inputs.md)
 ### [示例输入数据](stream-analytics-sample-data-input.md)
 ### [通用查询模式](stream-analytics-stream-analytics-query-patterns.md)
 ### [窗口函数](stream-analytics-window-functions.md)
+
 ### [使用引用数据](stream-analytics-use-reference-data.md)
 ### [测试查询](stream-analytics-test-query.md)
 ### [集成 JavaScript UDF](stream-analytics-javascript-user-defined-functions.md)
+<!-- Not Available ### [Integrate JavaScript UDAs](stream-analytics-javascript-user-defined-aggregates.md) -->
 <!-- Not Available ### [Integrate REST API & Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md) -->
 ### [创建输出](stream-analytics-define-outputs.md)
+<!-- Not Available ### [Output to Data Lake Store](stream-analytics-data-lake-output.md) -->
+<!-- Not Available ### [Output to Cosmos DB](stream-analytics-documentdb-output.md) -->
+
 ## 使用 Visual Studio 工具
 ### [安装](stream-analytics-tools-for-visual-studio-install.md)
 ### [入门](stream-analytics-tools-for-visual-studio.md)
@@ -39,6 +46,7 @@
 ### [利用查询并行度](stream-analytics-parallelization.md)
 ### [扩大以增加吞吐量](stream-analytics-scale-jobs.md)
 <!-- Not Available ### [Scale for Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md) -->
+<!-- ms.date: 12/11/2017 -->
 ## 管理
 ### [轮转输入/输出凭据](stream-analytics-login-credentials-inputs-outputs.md)
 <!-- Not Available ### [Job reliability during updates](stream-analytics-job-reliability.md) -->

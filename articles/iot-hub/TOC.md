@@ -28,18 +28,15 @@
 #### [将 Sparkfun ESP8266 Thing Dev 与 Arduino IDE 配合使用](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [将 Adafruit Feather M0 与 Arduino IDE 配合使用](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
-#### 使用 IoT 网关初学者工具包
-##### [将 Intel NUC 设置为网关](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [将网关连接到 IoT 中心](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [使用网关进行数据转换](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
-
 ## 扩展的 IoT 方案
 ### [使用 iothub-explorer 管理云设备消息传送](iot-hub-explorer-cloud-device-messaging.md)
+### [将 IoT 中心消息保存到 Azure 数据存储](iot-hub-store-data-in-azure-table-storage.md)
 ### [Power BI 中的数据可视化](iot-hub-live-data-visualization-in-power-bi.md)
 ### [使用 Web 应用进行数据可视化](iot-hub-live-data-visualization-in-web-apps.md)
 ### [使用 iothub-explorer 进行设备管理](iot-hub-device-management-iothub-explorer.md)
 
-# 如何
+
+# 操作指南
 ## 计划
 ### [IoT 中心与事件中心的比较](iot-hub-compare-event-hubs.md)
 ### [缩放解决方案](iot-hub-scaling.md)
@@ -72,14 +69,18 @@
 ### [使用适用于 C 的 IoT 设备 SDK](iot-hub-device-sdk-c-intro.md)
 #### [使用 IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [使用序列化程序](iot-hub-device-sdk-c-serializer.md)
-### 处理设备到云的消息
+### 路由消息
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
+#### [Node.js](iot-hub-node-node-process-d2c.md)
 ### 发送“云到设备”消息
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
-### [从设备上传文件](iot-hub-csharp-csharp-file-upload.md)
+### 从设备上传文件
+#### [.NET](iot-hub-csharp-csharp-file-upload.md)
+#### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.js](iot-hub-node-node-file-upload.md)
 ### 设备孪生入门
 #### [Node.js 后端/Node.js 设备](iot-hub-node-node-twin-getstarted.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-twin-getstarted.md)
@@ -99,66 +100,51 @@
 #### [Node.js 后端/Node.js 设备](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-twin-how-to-configure.md)
+#### [Java 后端/Java 设备](iot-hub-java-java-twin-how-to-configure.md)
 ### 使用设备作业更新设备固件
 #### [Node 后端/Node 设备](iot-hub-node-node-firmware-update.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-firmware-update.md)
+#### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-firmware-update.md)
+#### [Java 后端/Java 设备](iot-hub-java-java-firmware-update.md)
 ### 计划和广播作业
 #### [Node.js 后端/Node.js 设备](iot-hub-node-node-schedule-jobs.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 ## 管理
 ### 创建 IoT 中心 
-#### [使用门户](iot-hub-create-through-portal.md)
-#### [使用 PowerShell](iot-hub-create-using-powershell.md)
-#### [使用 CLI 2.0](iot-hub-create-using-cli.md)
+#### [使用 Azure 门户](iot-hub-create-through-portal.md)
+#### [使用 Azure PowerShell](iot-hub-create-using-powershell.md)
+#### [使用 Azure CLI](iot-hub-create-using-cli.md)
 #### [使用 CLI](iot-hub-create-using-cli-nodejs.md)
 #### [使用 REST API](iot-hub-rm-rest.md)
-#### [通过 PowerShell 使用模板](iot-hub-rm-template-powershell.md)
+#### [通过 Azure PowerShell 使用模板](iot-hub-rm-template-powershell.md)
 #### [通过 .NET 使用模板](iot-hub-rm-template.md)
 ### 配置文件上传
-#### [使用门户](iot-hub-configure-file-upload.md)
-#### [使用 PowerShell](iot-hub-configure-file-upload-powershell.md)
-#### [使用 CLI 2.0](iot-hub-configure-file-upload-cli.md)
-### [批量管理 IoT 设备](iot-hub-bulk-identity-mgmt.md)
+#### [使用 Azure 门户](iot-hub-configure-file-upload.md)
+#### [使用 Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [使用 Azure CLI](iot-hub-configure-file-upload-cli.md)
 ### [使用指标](iot-hub-metrics.md)
-### [操作监视](iot-hub-operations-monitoring.md)
+### [批量管理 IoT 设备](iot-hub-bulk-identity-mgmt.md)
 ### [配置 IP 筛选](iot-hub-ip-filtering.md)
 ## 安全
 ### [安全基础知识](iot-hub-security-ground-up.md)
 ### [安全最佳实践](iot-hub-security-best-practices.md)
 ### [安全体系结构](iot-hub-security-architecture.md)
 ### [保护 IoT 部署](iot-hub-security-deployment.md)
-## Azure IoT Edge
-### [概述](iot-hub-iot-edge-overview.md)
-### 入门
-#### [Linux](iot-hub-linux-iot-edge-get-started.md)
-#### [Windows](iot-hub-windows-iot-edge-get-started.md)
-### 模拟设备
-#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
-#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
-### [使用真实设备](iot-hub-iot-edge-physical-device.md)
-### 创建模块
-#### [Java](./iot-hub-iot-edge-create-module-java.md)
-#### [.NET framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-the-net-module-sample-windows-10)
-#### [.NET Standard](./iot-hub-iot-edge-create-module-dotnet-core.md)
-#### [Node.js](./iot-hub-iot-edge-create-module-js.md)
-### 构建
-#### [.NET framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
-#### [.NET Core 模块](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
-#### [.NET Core 托管网关](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
-#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
-#### [Node.js](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
-#### [动态添加模块](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
-#### [进程外代理模块](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
-#### [本机模块主机](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
+### 使用 X.509 CA 证书进行保护
+#### [X.509 CA 证书安全性概述](iot-hub-x509ca-overview.md)
+##### [X.509 CA 证书安全性概念](iot-hub-x509ca-concept.md)
+#### [X.509 CA 证书安全性入门](iot-hub-security-x509-get-started.md)
+##### [创建证书 - PowerShell](iot-hub-security-x509-create-certificates.md)
 
 # 引用
 ## [Azure CLI](https://docs.azure.cn/zh-cn/cli/iot?view=azure-cli-latest)
 ## [.NET（服务）](https://doc.microsoft.com/dotnet/api/microsoft.azure.devices)
 ## [.NET（设备）](https://doc.microsoft.com/dotnet/api/microsoft.azure.devices.client)
-## [Java（服务）](https://doc.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service)
-## [Java（设备）](https://doc.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device)
-## [Node.js SDK](http://azure.github.io/azure-iot-sdk-node/)
+## [Java（服务）](https://docs.azure.cn/zh-cn/java/api/com.microsoft.azure.sdk.iot.service)
+## [Java（设备）](https://docs.azure.cn/zh-cn/java/api/com.microsoft.azure.sdk.iot.device)
+## [Node.js（设备）](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
+## [Node.js（服务）](https://docs.microsoft.com/en-us/javascript/api/azure-iothub)
 ## [C 设备 SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST（资源提供程序）](https://docs.microsoft.com/rest/api/iothub/iothubresource)
@@ -174,15 +160,13 @@
 
 
 # 资源
+## [Azure IoT Developer Center](https://docs.azure.cn/develop/iot/)
 ## [iothub-explorer 工具](https://github.com/Azure/iothub-explorer)
 ## [iothub-diagnostics 工具](https://github.com/Azure/iothub-diagnostics)
-## [DeviceExplorer 工具](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
-## [价格](https://www.azure.cn/pricing/details/iot-hub/)
-## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [服务更新](https://azure.microsoft.com/updates/?product=iot-hub)
-## [学习路径](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
-## [Azure IoT 开发人员中心](https://azure.microsoft.com/develop/iot/)
-## [Azure IoT 认证设备目录](https://catalog.azureiotsuite.com/)
-## [技术案例研究](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)
+## [iothub-explorer 工具](https://github.com/Azure/iothub-explorer)
 
+## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
+## [定价](https://www.azure.cn/pricing/details/iot-hub/)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
+## [服务更新](https://azure.microsoft.com/updates/?product=iot-hub)
 <!--Update_Description:update link references-->

@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 07/26/2017
 ms.author: v-yiso
 ms.date: 09/25/2017
-ms.openlocfilehash: a1bb0b9e98c603a9542ace76d2b5adc525f61b4e
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: 8894e3ab762e1c92137bf78deccf6b29dda0b28d
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>使用 Azure 门户创建 IoT 中心
 
@@ -175,7 +175,7 @@ Azure IoT 中心自动列出用户帐户所链接的 Azure 订阅。 可以选�
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南][lnk-devguide]
-* [使用 IoT Edge 模拟设备][lnk-iotedge]
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
 * [从根本上保护 IoT 解决方案][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png

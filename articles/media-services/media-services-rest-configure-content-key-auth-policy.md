@@ -3,7 +3,7 @@ title: "使用 REST 配置内容密钥授权策略 - Azure | Azure"
 description: "了解如何使用媒体服务 REST API 配置内容密钥的授权策略。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 7af5f9e2-8ed8-43f2-843b-580ce8759fd4
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/31/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 1b20270a6bf46142d1d0576410b29e110e6864d3
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 11/14/2017
+ms.date: 12/11/2017
+ms.author: v-nany
+ms.openlocfilehash: 0bba5cf360c6a7c24600d4db48baf30c8a46da9c
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -465,20 +465,23 @@ public enum ContentKeyRestrictionType
 {
     Open = 0,
     TokenRestricted = 1,
-    IPRestricted = 2,
+    IPRestricted = 2, // IP restriction on content key is not currently supported, reserved for future.
 }
 ```
 
-###<a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+> [!NOTE]
+> 内容密钥授权策略上的 IP 限制在服务中尚不可用。
 
-```
-public enum ContentKeyDeliveryType
-{
-    None = 0,
-    PlayReadyLicense = 1,
-    BaselineHttp = 2
-}
-```
+
+### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+    public enum ContentKeyDeliveryType
+    {
+        None = 0,
+        PlayReadyLicense = 1,
+        BaselineHttp = 2,
+        Widevine = 3
+    }
+
 
 ## <a name="next-steps"></a>后续步骤
 现在已配置内容密钥的授权策略，请转到[如何配置资产传送策略](media-services-rest-configure-asset-delivery-policy.md)主题。

@@ -2,8 +2,6 @@
 
 ## [什么是 SQL 数据仓库？](sql-data-warehouse-overview-what-is.md)
 ## [数据仓库工作负荷](sql-data-warehouse-overview-workload.md)
-## [分布式数据](sql-data-warehouse-distributed-data.md)
-## [常见问题](sql-data-warehouse-overview-faq.md)
 
 # 入门
 
@@ -13,6 +11,13 @@
 ## [管理](sql-data-warehouse-overview-manage.md)
 
 # 如何
+
+## 服务功能
+### [MPP 体系结构](massively-parallel-processing-mpp-architecture.md)
+### [性能层](performance-tiers.md)
+### [数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [容量限制](sql-data-warehouse-service-capacity-limits.md)
+### [常见问题](sql-data-warehouse-overview-faq.md)
 
 ## 备份和还原
 
@@ -116,13 +121,17 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+<!-- Not Available ### [Automate compute levels](manage-compute-with-azure-functions.md)-->
+
+### 资源类
+#### [指南](resource-classes-for-workload-management.md)
+#### [分析工作负荷](analyze-your-workload.md)
 
 ## 性能
 
 ### [概述](sql-data-warehouse-overview-manage-user-queries.md)
 ### [列存储压缩](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [监视](sql-data-warehouse-manage-monitor.md)
-### [工作负载](sql-data-warehouse-develop-concurrency.md)
 
 ## “安全”
 
@@ -138,7 +147,6 @@
 
 # 引用
 
-## [容量限制](sql-data-warehouse-service-capacity-limits.md)
 ## T-SQL
 ### [完整参考信息](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [SQL DW 语言元素](sql-data-warehouse-reference-tsql-language-elements.md)
@@ -151,10 +159,11 @@
 ## [价格](https://www.azure.cn/pricing/details/sql-data-warehouse/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [服务更新](https://www.azure.cn/what-is-new/)
+<!-- Not Available  ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/) -->
+<!-- Not Available  ## [Support](sql-data-warehouse-get-started-create-support-ticket.md) -->
+<!-- Not Available  ## [Videos](https://www.azure.cn/documentation/videos/index/?services=sql-data-warehouse) -->
 
-<!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse) -->
-<!-- Not Available ## [Videos](https://www.azure.cn/documentation/videos/index/?services=sql-data-warehouse)-->
-<!-- Not Available ## Partners -->
 <!-- Not Available ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)-->
 <!-- Not Available ### [Data integration](sql-data-warehouse-partner-data-integration.md)-->
 <!-- Not Available ### [Data management](sql-data-warehouse-partner-data-management.md) -->
+<!-- ms.date: 12/11/2017 -->

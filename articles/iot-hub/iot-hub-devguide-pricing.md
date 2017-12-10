@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 08/29/2017
 ms.date: 10/16/2017
 ms.author: v-yiso
-ms.openlocfilehash: 429cac9397bfae31f74a4ba04d6f096f36c721f2
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: 4fef1230b03222589df630bdef1389d43a2463d3
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT 中心定价信息
 
@@ -43,9 +43,9 @@ ms.lasthandoff: 09/29/2017
 > [!NOTE]
 > 所有大小均按以字节为单位的有效负载大小进行计算（忽略协议组帧）。 就消息（包含属性和正文）来说，大小以无关协议的方式计算，详见 [IoT 中心消息传送开发人员指南][lnk-message-size]。
 
-## <a name="example-1"></a>示例 1
+## <a name="example-1"></a>示例 #1
 
-某个设备每分钟将一条 1KB 的从设备到云的消息发送到 IoT 中心，该消息随后由 Azure 流分析读取。 解决方案后端每 10 分钟调用设备上的 1 个方法（有效负载为 512 字节），以便触发特定操作。 设备以 200 字节大小的结果响应方法。
+某个设备每分钟将一条 1KB 的设备到云的消息发送到 IoT 中心，该消息随后由 Azure 流分析读取。 解决方案后端每 10 分钟调用设备上的 1 个方法（有效负载为 512 字节），以便触发特定操作。 设备以 200 字节大小的结果响应方法。
 
 对于从设备到云的消息，设备每天使用 1 条消息 * 60 分钟 * 24 小时 = 1440 条消息；而对于方法，则为 2（请求加响应）* 6 次/小时 * 24 小时 = 288 条消息，总计 1728 条消息/天。
 

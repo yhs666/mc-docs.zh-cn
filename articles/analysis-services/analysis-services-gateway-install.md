@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 10/09/2017
-ms.date: 10/23/2017
+origin.date: 10/30/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: b2beb2b7a9e42637665d54cdcdf09b12d2168234
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 199b9a3ac4c368016c3f6297f8691c8487a84d97
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安装并配置本地数据网关
 当同一区域中的一个或多个 Azure Analysis Services 服务器连接到本地数据源时，需要本地数据网关。 若要了解有关网关的详细信息，请参阅[本地数据网关](analysis-services-gateway.md)。
@@ -73,7 +73,10 @@ ms.lasthandoff: 10/20/2017
 
 2. 键入网关的名称和恢复密钥。 默认情况下，网关使用订阅的默认区域。 如需选择不同的区域，请选择“更改区域”。
 
-   ![注册](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+    > [!IMPORTANT]
+    > 将恢复密钥保存在安全位置。 接管、迁移或还原网关时需要使用恢复密钥。 
+
+    ![注册](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 <a name="create-resource"></a>
 ## <a name="create-an-azure-gateway-resource"></a>创建 Azure 网关资源

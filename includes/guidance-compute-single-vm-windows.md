@@ -52,7 +52,7 @@ azure vm sizes --location <location>
 
 为避免达到存储帐户的 IOPS 限制，请为每个 VM 创建单独的 Azure 存储帐户来存放虚拟硬盘 (VHD)。
 
-添加一个或多个数据磁盘。 在创建新 VHD 时，它未设置格式。 登录到 VM 对磁盘进行格式化。 如果有大量数据磁盘，请注意存储帐户的总 I/O 限制。 有关详细信息，请参阅 [virtual machine disk limits][vm-disk-limits]（虚拟机磁盘限制）。
+添加一个或多个数据磁盘。 在创建新 VHD 时，它未设置格式。 登录到 VM 对磁盘进行格式化。 如果有大量数据磁盘，请注意存储帐户的总 I/O 限制。 
 
 如果可能，请将应用程序安装在数据磁盘上，而不是 OS 磁盘上。 但是，某些旧版应用程序可能需要将组件安装在 C: 驱动器上。 在这种情况下，可以使用 PowerShell [调整 OS 磁盘的大小][resize-os-disk]。
 
@@ -192,11 +192,9 @@ azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
 [security-center]: https://www.azure.cn/home/features/security-center/
 [select-vm-image]:../articles/virtual-machines/windows/cli-ps-findimage.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
-[storage-account-limits]: ../articles/azure-subscription-service-limits.md#storage-limits
 [storage-price]: https://www.azure.cn/pricing/details/storage/
 [virtual-machine-sizes]: ../articles/virtual-machines/windows/sizes.md
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
-[vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]:../articles/virtual-machines/linux/change-vm-size.md
 [vm-sla]: https://www.azure.cn/support/sla/virtual-machines
 [vm-size-tables]: ../articles/virtual-machines/windows/sizes.md

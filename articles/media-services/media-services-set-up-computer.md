@@ -3,7 +3,7 @@ title: "设置 Azure 媒体服务开发环境 | Azure"
 description: "设置环境以使用 Azure 媒体服务进行开发。"
 services: media-services
 documentationcenter: 
-author: Juliako
+author: yunan2016
 manager: erikre
 editor: 
 ms.assetid: 0258a633-8b42-4853-acc7-3b5162d1d8cd
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/10/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 04c44b39038319cf637df75c11a07ca902c27108
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+origin.date: 10/24/2017
+ms.date: 12/11/2017
+ms.author: v-nany
+ms.openlocfilehash: b0ce88ed7b3d97a80e40a2a9847dc0e8af0020fb
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="set-up-your-media-services-development-environment"></a>设置媒体服务开发环境
 
@@ -42,4 +42,6 @@ ms.lasthandoff: 08/04/2017
 
 若要连接到 Azure 媒体服务 API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。  
 
-<!--Update_Description: wording update-->
+## <a name="next-steps"></a>后续步骤
+
+在“Azure 代码示例”库中查找多个代码示例：[Azure 媒体服务代码示例](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0)。

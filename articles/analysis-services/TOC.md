@@ -20,6 +20,7 @@
 ## [安装并配置本地数据网关](analysis-services-gateway-install.md)
 ## [获取客户端库](analysis-services-data-providers.md)
 ## [备份和还原](analysis-services-backup.md)
+<!--Not Available ## [Configure scale-out](analysis-services-scale-out.md)-->
 ## [使用 Excel 进行连接](analysis-services-connect-excel.md)
 ## [使用 Power BI 进行连接](analysis-services-connect-pbi.md)
 ## [创建 .odc 文件](analysis-services-odc.md)
@@ -60,3 +61,4 @@
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 <!-- Not Availabel ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)-->
 <!-- Not Availabel ## [Videos](https://www.azure.cn/video-center/&sort=newest)-->
+<!--ms.date: 12/11/2017 -->

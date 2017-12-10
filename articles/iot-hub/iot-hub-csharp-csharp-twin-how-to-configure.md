@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 07/10/2017
 ms.author: dkshir
 ms.date: 08/07/2017
-ms.openlocfilehash: dc4ea6045cdcf07ec932e01bb87e6f2acdd1ec50
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 3831196763e6ba4dc515d92f41484828f977a8d3
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>使用所需属性配置设备
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -200,7 +200,7 @@ ms.lasthandoff: 07/28/2017
             InitTelemetry();
 
             Console.WriteLine("Wait for desired telemetry...");
-            Client.SetDesiredPropertyUpdateCallback(OnDesiredPropertyChanged, null).Wait();
+            Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
             Console.ReadKey();
         }
         catch (AggregateException ex)
@@ -224,13 +224,13 @@ ms.lasthandoff: 07/28/2017
 1. 生成解决方案，单击 **F5** 从 Visual Studio 运行设备应用。 在输出控制台中，应会看到消息指示模拟设备正在检索设备孪生、设置遥测，并等待所需属性发生更改。 使应用保持运行状态。
 
 ## <a name="create-the-service-app"></a>创建服务应用
-在本节中，用户需创建一个 .NET 控制台应用，以便通过新的遥测配置对象在与 *myDeviceId* 关联的设备孪生上更新 **所需属性** 。 然后，它查询存储在 IoT 中心的设备孪生，并显示该设备的所需配置和报告配置之间的差异。
+在本节中，用户需创建一个 .NET 控制台应用，以便通过新的遥测配置对象在与 *myDeviceId* 关联的设备孪生上更新 **所需属性** 。 该应用随后会查询存储在 IoT 中心的设备孪生，并显示设备的所需配置与报告配置之间的差异。
 
 1. 在 Visual Studio 中，使用“**控制台应用程序**”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 **SetDesiredConfigurationAndQuery**。
    
     ![新的 Visual C# Windows 经典桌面项目][img-createapp]
 1. 在“解决方案资源管理器”中，右键单击“SetDesiredConfigurationAndQuery”项目，并单击“管理 NuGet 包...”。
-1. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，并接受使用条款。 该过程将下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
+1. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，并接受使用条款。 此过程会下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
    
     ![“NuGet 包管理器”窗口][img-servicenuget]
 1. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
@@ -300,7 +300,7 @@ ms.lasthandoff: 07/28/2017
    > 
 
 ## <a name="next-steps"></a>后续步骤
-在本教程中，用户已从解决方案后端将所需配置设置为 *所需属性* ，此外还编写了一个设备应用来检测该更改并模拟多步骤更新过程（通过报告属性报告其状态）。
+在本教程中，已从解决方案后端将所需配置设置为“所需属性”，此外还编写了一个设备应用以检测该更改并模拟多步骤更新过程（通过报告属性报告其状态）。
 
 充分利用以下资源：
 

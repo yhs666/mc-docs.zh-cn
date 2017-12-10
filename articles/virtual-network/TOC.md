@@ -1,11 +1,14 @@
 # 概述
 ## [虚拟网络](virtual-networks-overview.md)
-## [用户定义的路由和 IP 转发](virtual-networks-udr-overview.md)
+## [路由](virtual-networks-udr-overview.md)
 ## [虚拟网络对等互连](virtual-network-peering-overview.md)
+## [虚拟网络服务终结点](virtual-network-service-endpoints-overview.md)
+## [Azure 服务的虚拟网络](virtual-network-for-azure-services.md)
 ## [安全性](security-overview.md)
 ## [业务连续性](virtual-network-disaster-recovery-guidance.md)
-## [常见问题](virtual-networks-faq.md)
 ## [IP 寻址](virtual-network-ip-addresses-overview-arm.md)
+<!-- Not Available ## [DDoS Protection](ddos-protection-overview.md) -->
+## [常见问题](virtual-networks-faq.md)
 ## 经典
 ### [IP 寻址](virtual-network-ip-addresses-overview-classic.md)
 ### [访问控制列表](virtual-networks-acl.md)
@@ -21,24 +24,22 @@
 ## 部署
 ### [虚拟网络](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Azure CLI 2.0](virtual-networks-create-vnet-arm-cli.md)
-#### [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md)
+#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [模板](virtual-networks-create-vnet-arm-template-click.md)
 
 ### 网络安全组
 #### [Azure 门户](virtual-networks-create-nsg-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Azure CLI 2.0](virtual-networks-create-nsg-arm-cli.md)
-#### [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md)
+#### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [模板](virtual-networks-create-nsg-arm-template.md)
 #### 经典
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
 ### 用户定义路由
+#### [Azure 门户](create-user-defined-route-portal.md)
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md)
-#### [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md)
+#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
 #### [模板](virtual-network-create-udr-arm-template.md)
 #### 经典
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
@@ -54,8 +55,7 @@
 #### 创建具有静态公共 IP 地址的 VM
 ##### [Azure 门户](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-##### [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+##### [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [模板](virtual-network-deploy-static-pip-arm-template.md)
 ##### 经典
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
@@ -71,8 +71,7 @@
 
 #### 创建具有多个网络接口的 VM
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)
-##### [Azure CLI 2.0](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)
-##### [Azure CLI 1.0](../virtual-machines/linux/multiple-nics-nodejs.md?toc=%2fvirtual-network%2ftoc.json)
+##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)
 ##### [模板](virtual-network-deploy-multinic-arm-template.md)
 
 ##### 经典
@@ -124,7 +123,7 @@
 #### 经典
 ##### 静态 IP 地址
 ###### [PowerShell](virtual-networks-reserved-private-ip.md)
-###### [CLI](virtual-networks-static-private-ip-cli-nodejs.md)
+###### [CLI](virtual-networks-static-private-ip-classic-cli.md)
 ##### [实例层级公共 IP 地址](virtual-networks-instance-level-public-ip.md)
 
 ### 经典
@@ -142,8 +141,8 @@
 ### 网络安全组
 #### [Azure 门户](virtual-network-manage-nsg-arm-portal.md)
 #### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [Azure CLI 2.0](virtual-network-manage-nsg-arm-cli.md)
-#### [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md)
+#### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
+
 <!--Not Available #### [Logs](virtual-network-nsg-manage-log.md)-->
 ### 网络接口 (NIC)
 #### [创建、更改或删除 NIC](virtual-network-network-interface.md)
@@ -164,8 +163,8 @@
 ### [VM 到 VM 连接问题](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
 # 引用
-## [PowerShell (Resource Manager)](https://docs.microsoft.com/powershell/module/azurerm.network)
-## [PowerShell（经典）](https://docs.microsoft.com/powershell/module/azure/)
+## [Azure PowerShell（资源管理器）](https://docs.microsoft.com/powershell/module/azurerm.network)
+## [Azure PowerShell（经典）](https://docs.microsoft.com/powershell/module/azure/)
 ## [Azure CLI](https://docs.azure.cn/zh-cn/cli/network?view=azure-cli-latest)
 ## [Java](https://docs.azure.cn/java/api/overview/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
@@ -189,4 +188,4 @@
 ## [网络资源提供程序](resource-groups-networking.md)
 
 <!--Update_Description: update meta properties, update link-->
-<!--ms.date: 10/06/2017-->
+<!--ms.date: 12/11/2017-->

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 08/01/2017
-ms.date: 08/28/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 707284330b1da629698e85f9d55ce33449530a9e
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 44edf8796c62fe26f1f996813b763ce6358aca97
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>使用 PowerShell 创建 Azure Analysis Services 服务器
 
@@ -29,12 +29,12 @@ ms.lasthandoff: 08/25/2017
 本任务需要 Azure PowerShell 模块 4.0 或更高版本。 若要查找版本，请运行 ` Get-Module -ListAvailable AzureRM`。 若要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 
 
 > [!NOTE]
-> 创建服务器可能会产生新的计费服务。 若要了解详细信息，请参阅 [Analysis Services 定价](https://www.azure.cn/pricing/details/analysis-services/)。
+> 创建服务器可能会导致新的计费服务。 有关详细信息，请参阅 [Analysis Services 定价](https://www.azure.cn/pricing/details/analysis-services/)。
 
 ## <a name="prerequisites"></a>先决条件
 若要完成本快速入门，需要以下项：
 
-* **Azure 订阅**：访问 [Azure 试用版](https://azure.microsoft.com/offers/ms-azr-0044p/)以创建帐户。
+* **Azure 订阅**：访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial-full)以创建帐户。
 * **Azure Active Directory**：订阅必须与 Azure Active Directory 租户相关联，且该目录中必须有一个帐户。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
 
 ## <a name="import-azurermanalysisservices-module"></a>导入 AzureRm.AnalysisServices 模块
@@ -81,4 +81,4 @@ Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myReso
 [从 SSDT 部署模型](analysis-services-deploy.md)   
 [在 Azure 门户中创建模型](analysis-services-create-model-portal.md)
 
-<!--Update_Description: new articles about creating analysis serices with PS -->
+<!--Update_Description: update meta properties, update link -->

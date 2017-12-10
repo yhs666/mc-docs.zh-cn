@@ -3,8 +3,8 @@ title: "Azure 流量管理器终结点监视 | Azure"
 description: "本文有助于你了解，流量管理器如何通过终结点监视和终结点自动故障转移来帮助 Azure 客户部署高可用性应用程序。"
 services: traffic-manager
 documentationcenter: 
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/22/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 530c2cf4cab6b10c7c2ab25a3c2114cd7774e36c
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 12/11/2017
+ms.author: v-yeche
+ms.openlocfilehash: db55256bf3ec7e4e29d6bbae7fd90fb86f9c0e1e
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>流量管理器终结点监视
 
@@ -55,7 +55,7 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 
 ## <a name="endpoint-and-profile-status"></a>终结点和配置文件状态
 
-你可以启用和禁用流量管理器配置文件和终结点。 不过，也可以通过流量管理器的自动设置和过程来更改终结点状态。
+可以启用和禁用流量管理器配置文件和终结点。 不过，也可以通过流量管理器的自动设置和过程来更改终结点状态。
 
 ### <a name="endpoint-status"></a>终结点状态
 
@@ -71,7 +71,7 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 
 | 配置文件状态 | 终结点状态 | 终结点监视器状态 | 说明 |
 | --- | --- | --- | --- |
-| 已禁用 |Enabled |非活动 |配置文件已禁用。 尽管终结点状态为“已启用”，但配置文件状态（“已禁用”）优先。 不会监视已禁用配置文件中的终结点。 将会针对 DNS 查询返回 NXDOMAIN 响应代码。 |
+| 已禁用 |Enabled |非活动 |配置文件已禁用。 尽管终结点状态为“已启用”，但配置文件状态（“已禁用”）优先。 不会监视已禁用配置文件中的终结点。 会针对 DNS 查询返回 NXDOMAIN 响应代码。 |
 | &lt;任意&gt; |已禁用 |已禁用 |终结点已禁用。 不会监视已禁用的终结点。 该终结点不会包括在 DNS 响应中，因此也不会接收流量。 |
 | Enabled |Enabled |联机 |终结点受到监视，处于正常状态。 该终结点会包括在 DNS 响应中，并且可以接收流量。 |
 | Enabled |Enabled |已降级 |监视运行状况检查的终结点将要发生故障。 该终结点不会包括在 DNS 响应中，也不会接收流量。 <br>一种例外的情况是，如果所有终结点已降级，则这些终结点全部被视为在查询响应中返回。</br>|
@@ -121,7 +121,7 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 7. **流量转移到其他终结点**。 流量管理器 DNS 名称服务器进行更新，流量管理器不再返回终结点来响应 DNS 查询。 新连接将定向到其他可用终结点。 不过，包含此终结点的 DNS 响应可能仍由递归 DNS 服务器和 DNS 客户端缓存。 在 DNS 缓存过期之前，客户端将一直使用该终结点。 DNS 缓存过期后，客户端将发出新的 DNS 查询并定向到其他终结点。 缓存持续时间由流量管理器配置文件中的 TTL 设置控制，例如，可以将其设置为 30 秒。
 8. **继续进行运行状况检查**。 在终结点的状态为“已降级”后，流量管理器会继续检查该终结点的运行状况。 当终结点恢复正常时，流量管理器可检测到这种状态。
 9. **服务重新联机**。 该服务变得可用。 终结点会在流量管理器中始终保持“已降级”状态，直至监视系统执行下一次运行状况检查。
-10. **继续将流量定向到服务**。 流量管理器发送 GET 请求，然后收到“200 正常”状态响应。 服务已恢复正常状态。 流量管理器名称服务器进行更新，并开始在 DNS 响应中分发服务的 DNS 名称。 当缓存的 DNS 响应（返回其他终结点）到期时，以及现有的到其他终结点的连接终止时，流量将返回到该终结点。
+10. **继续将流量定向到服务**。 流量管理器发送 GET 请求，并收到“200 正常”状态响应。 服务已恢复正常状态。 流量管理器名称服务器进行更新，并开始在 DNS 响应中分发服务的 DNS 名称。 当缓存的 DNS 响应（返回其他终结点）到期时，以及现有的到其他终结点的连接终止时，流量将返回到该终结点。
 
     > [!NOTE]
     > 由于流量管理器是在 DNS 级别工作的，因此不可能影响任何终结点的现有连接。 在终结点之间引导流量时（不管是通过更改配置文件设置来进行，还是在故障转移或故障回复期间进行），流量管理器都会将新连接引导到可用的终结点。 不过，其他终结点可能仍会通过现有连接继续接收流量，直至相关会话被终止。 若要耗尽现有连接的流量，应通过应用程序来限制适用于每个终结点的会话持续时间。
@@ -132,7 +132,7 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 
 * **优先级**。 终结点构成一个采用优先级的列表。 将始终返回列表中第一个可用的终结点。 如果终结点状态为“已降级”，则返回下一个可用的终结点。
 * **加权**。 根据分配的权重以及其他可用终结点的权重随机选择任何可用的终结点。
-* **性能**。 返回最靠近最终用户的终结点。 如果该终结点不可用，则从其他所有可用的终结点中随机选择一个终结点。 选择随机终结点可以避免下一个最靠近的终结点过载时发生连锁故障。 可以使用[嵌套式流量管理器配置文件](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region)针对性能流量路由来配置替代故障转移计划。
+* **性能**。 返回最靠近最终用户的终结点。 如果终结点不可用，流量管理器会将流量转移给下一个最靠近 Azure 区域的终结点。 可以使用[嵌套式流量管理器配置文件](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region)针对性能流量路由来配置替代故障转移计划。
 * **地理**。 返回基于查询请求 IP 映射的、为地理位置提供服务的终结点。 如果该终结点不可用，则不会选择另一个要故障转移到的终结点，因为一个地理位置只能映射到配置文件中的一个终结点（[常见问题解答](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)中提供了更多详细信息）。 我们建议客户在使用地理路由时，使用包含多个终结点的嵌套式流量管理器配置文件作为配置文件的终结点，这是一种最佳做法。
 
 有关详细信息，请参阅[流量管理器流量路由方法](traffic-manager-routing-methods.md)。

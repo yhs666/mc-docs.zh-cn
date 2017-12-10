@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 10/02/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: f65ce76f398e27083cdc3be87becd84c250bcc6a
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 0e9cf5d66dd913b7e5033f0a053c7cf09804dc4a
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-data-warehouse-documentation"></a>SQL 数据仓库文档
 
@@ -59,5 +59,37 @@ ms.lasthandoff: 09/28/2017
             </div>
         </div>
         </a>
+    </li>
+</ul>
+
+---
+
+<h2>引用</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>命令行</h3>
+                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">PowerShell cmdlets</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>语言</h3>
+                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements">T-SQL 语言元素</a></p>
+                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements">T-SQL 语句</a></p>
+                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views">T-SQL 系统视图</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>

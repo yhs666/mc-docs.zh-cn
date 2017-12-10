@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 08/16/2017
-ms.date: 08/28/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1ffdcd0627893693611303b22118c108f7c5a161
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: fd9f3f9fa652404ce0e54cf182d207cf071507f9
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services 表格模型的兼容性级别
 
@@ -58,4 +58,4 @@ Azure Analysis Services 支持 1200 和 1400 兼容性级别的表格模型。
   [在 Azure 门户中创建模型](analysis-services-create-model-portal.md)   
   [管理 Analysis Services](analysis-services-manage.md)
   
-<!--Update_Description: new articles about analysis serices compat level -->
+<!--Update_Description: update meta properties -->

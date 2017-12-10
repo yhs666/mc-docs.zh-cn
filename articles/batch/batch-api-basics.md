@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-origin.date: 010/04/2017
-ms.date: 11/02/2017
+origin.date: 11/16/2017
+ms.date: 12/04/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5912924992586aaa7ecd8a82942346e16658a660
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.openlocfilehash: c2b3e9566240bebb81bf27a0d8e82bc0f1155db6
+ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 开发大规模并行计算解决方案
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/03/2017
 可以在单个批处理帐户中运行多个批处理工作负荷，或者在相同订阅的不同 Azure 区域的批处理帐户之间分散工作负荷。
 
 > [!NOTE]
-> 创建 Batch 帐户时，通常应选择默认的“Batch 服务”模式。使用此模式时，池在 Azure 托管的订阅中以幕后方式分配。 在备用的“用户订阅”模式（不再推荐使用）下，会在创建池后直接在订阅中创建 Batch VM 和其他资源。
+> 创建 Batch 帐户时，通常应选择默认的“Batch 服务”模式。使用此模式时，池在 Azure 托管的订阅中以幕后方式分配。 在备用的“用户订阅”模式（对于大多数方案不再推荐使用）下，会在创建池时直接在订阅中创建 Batch VM 和其他资源。 若要在用户订阅模式下创建 Batch 帐户，还需将订阅注册到 Azure Batch 中，并将该帐户与 Azure Key Vault 相关联。
 >
 
 
@@ -130,7 +130,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 
 - **虚拟机配置**，它指定池由 Azure 虚拟机组成。 可以从 Linux 或 Windows 映像创建这些 VM。 
 
-    基于虚拟机配置创建池时，不仅要指定节点大小和用于创建它们的映像源，还必须指定要安装在节点上的“虚拟机映像引用”和批处理“节点代理 SKU”。 有关指定这些池属性的详细信息，请参阅 [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md)（在 Azure Batch 池中预配 Linux 计算节点）。
+    基于虚拟机配置创建池时，不仅要指定节点大小和用于创建它们的映像源，还必须指定要安装在节点上的“虚拟机映像引用”和批处理“节点代理 SKU”。 有关指定这些池属性的详细信息，请参阅 [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md)（在 Azure Batch 池中预配 Linux 计算节点）。 可选选择性地将一个或多个空数据磁盘附加到从 Marketplace 映像创建的池 VM，也可将数据磁盘包括在用于创建 VM 的自定义映像中。
 
 - **云服务配置**，它指定池由 Azure 云服务节点组成。 云服务只提供 Windows 计算节点。
 
@@ -143,8 +143,19 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 创建池时，需要选择适当的 **nodeAgentSkuId**，具体取决于 VHD 基本映像的 OS。 可通过调用[列出支持的节点代理 SKU](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) 操作获得可用节点代理 SKU ID 到其 OS 映像引用的映射。
 
 
+#### <a name="custom-images-for-virtual-machine-pools"></a>虚拟机池的自定义映像
 
-### <a name="compute-node-type-and-target-number-of-nodes"></a>计算节点类型和目标节点数
+若要使用自定义映像，需以通用化方式准备映像。 有关从 Azure VM 准备自定义 Linux 映像的信息，请参阅[如何创建虚拟机或 VHD 的映像](../virtual-machines/linux/capture-image.md)。 若要了解如何通过 Azure VM 准备自定义 Windows 映像，请参阅[在 Azure 中创建通用 VM 的托管映像](../virtual-machines/windows/capture-image-resource.md)。 
+
+有关详细要求和步骤，请参阅[使用自定义映像创建虚拟机池](batch-custom-images.md)。
+
+#### <a name="container-support-in-virtual-machine-pools"></a>虚拟机池中的容器支持
+
+使用 Batch API 创建虚拟机配置池时，可以将池设置为在 Docker 容器中运行任务。 目前，必须使用支持 Docker 容器的映像创建池。 将 Windows Server 2016 Datacenter 与 Azure Marketplace 中的容器映像配合使用，或者提供自定义 VM 映像（其中包含 Docker Community Edition 或 Enterprise Edition 以及任何必需的驱动程序）。 池设置必须包括[容器配置](https://docs.microsoft.com/rest/api/batchservice/pool/add#definitions_containerconfiguration)，该配置在创建池时将容器映像复制到 VM。 然后，在池中运行的任务即可引用容器映像和容器运行选项。
+
+有关详细信息，请参阅[在 Azure Batch 上运行 Docker 容器应用程序](batch-docker-container-workloads.md)。
+
+## <a name="compute-node-type-and-target-number-of-nodes"></a>计算节点类型和目标节点数
 
 创建池时，可以指定所需的计算节点类型和每种类型的目标节点数。 有两种类型的计算节点：
 
@@ -252,6 +263,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 - 应用程序所需的 **环境变量** 。 有关详细信息，请参阅下面的 [任务的环境设置](#environment-settings-for-tasks) 部分。
 - 执行任务所依据的 **约束** 。 例如，约束包括允许任务运行的最长时间、重试任务失败的次数上限，以及保留任务工作目录中的文件的最长时间。
 - **Application packages** 。 [应用程序包](#application-packages) 提供任务运行的应用程序的简化部署和版本控制。 在共享池的环境中，任务级应用程序包特别有用：不同的作业在一个池上运行，完成某个作业时不删除该池。 如果作业中的任务少于池中的节点，任务应用程序包可以减少数据传输，因为应用程序只部署到运行任务的节点。
+- Docker 中心的**容器映像**引用，或者专用注册表和其他设置，用于创建 Docker 容器，其中的任务运行在节点上。 如果池使用容器配置进行设置，则仅指定此信息。
 
 除了可以定义在节点上运行计算的任务以外，Batch 服务还提供以下特殊任务：
 
@@ -381,39 +393,12 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>虚拟网络 (VNet) 和防火墙配置 
 
-在 Batch 中预配计算节点池时，可以将池与 Azure [虚拟网络 (VNet)](../virtual-network/virtual-networks-overview.md) 的子网相关联。 若要详细了解如何创建包含子网的 VNet，请参阅[创建包含子网的 Azure 虚拟网络](../virtual-network/virtual-networks-create-vnet-classic-portal.md)。 
+在 Batch 中预配计算节点池时，可以将池与 Azure [虚拟网络 (VNet)](../virtual-network/virtual-networks-overview.md) 的子网相关联。 若要使用 Azure VNet，Batch 客户端 API 必须使用 Azure Active Directory (AD) 身份验证。 有关 Azure AD 的 Azure Batch 支持，请参阅[使用 Active Directory 对 Batch 服务解决方案进行身份验证](batch-aad-auth.md)。  
 
-VNet 要求：
+### <a name="vnet-requirements"></a>VNet 要求
+[!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
-- 虚拟网络与 Azure Batch 帐户必须位于同一 Azure **区域**和**订阅**中。
-
-- 对于使用虚拟机配置创建的池，仅支持基于 Azure 资源管理器 (ARM) 的虚拟网络。 对于使用云服务配置创建的池，ARM 和经典虚拟网络均受支持。 
-
-- 若要使用基于 ARM 的网络，Batch 客户端 API 必须使用 Azure Active Directory 身份验证。 若要使用经典虚拟网络，“MicrosoftAzureBatch”服务主体必须为指定的虚拟网络提供“经典虚拟机参与者”基于角色的访问控制 (RBAC) 角色。 
-
-- 指定的子网应有足够的可用 IP 地址来提供给所有目标节点，即池的 `targetDedicatedNodes` 和 `targetLowPriorityNodes` 属性的总计。 如果子网没有足够的可用 IP 地址，批处理服务将分配池中的部分计算节点，并返回调整大小错误。
-
-- 指定的子网必须允许来自批处理服务的通信，才能在计算节点上计划任务。 如果与 VNet 关联的**网络安全组 (NSG)** 拒绝与计算节点通信，则批处理服务会将计算节点的状态设置为“不可用”。
-
-- 如果指定的 VNet 存在关联的网络安全组 (NSG) 和/或防火墙，则必须为入站通信启用数个保留的系统端口：
-
-- 对于使用虚拟机配置创建的池，请启用端口 29876 和 29877，以及端口 22（适用于 Linux）和 3389（适用于 Windows）。 
-- 对于使用云服务配置创建的池，请启用端口 10100、20100 和 30100。 
-- 在端口 443 上启用到 Azure 存储的出站连接。 另请确保可以通过为 VNET 提供服务的自定义 DNS 服务器解析 Azure 存储终结点。 具体而言，`<account>.table.core.chinacloudapi.cn` 形式的 URL 应当是可以解析的。
-
-    下表对入站端口进行了说明，需为通过虚拟机配置创建的池启用这些端口：
-
-    |    目标端口    |    源 IP 地址      |    Batch 是否添加 NSG？    |    是使用 VM 所必需的吗？    |    来自用户的操作   |
-    |---------------------------|---------------------------|----------------------------|-------------------------------------|-----------------------|
-    |    <ul><li>使用虚拟机配置创建的池：29876、29877</li><li>使用云服务配置创建的池：10100、20100、30100</li></ul>         |    仅 Batch 服务角色 IP 地址 |    是的。 Batch 在附加到 VM 的网络接口 (NIC) 级别添加 NSG。 这些 NSG 仅允许来自 Batch 服务角色 IP 地址的流量。 即使为整个 Web 打开这些端口，系统也会在 NIC 处阻止相关流量。 |    是  |  不需指定 NSG，因为 Batch 仅允许 Batch IP 地址。 <br /><br /> 但是，如果指定 NSG，请确保这些端口对入站流量开放。 <br /><br /> 如果在 NSG 中指定 * 作为源 IP，Batch 仍会在附加到 VM 的 NIC 级别添加 NSG。 |
-    |    3389, 22               |    用户计算机，用于调试目的，方便你远程访问 VM。    |    否                                    |    否                     |    如需允许到 VM 的远程访问 (RDP/SSH)，请添加 NSG。   |                 
-
-    下表对出站端口进行了说明，需启用这些端口才能访问 Azure 存储：
-
-    |    出站端口    |    目标    |    Batch 是否添加 NSG？    |    是使用 VM 所必需的吗？    |    来自用户的操作    |
-    |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
-    |    443    |    Azure 存储    |    否    |    是    |    如果添加 NSG，则请确保该端口对出站流量开放。    |
-
+若要详细了解如何在 VNet 中设置 Batch 池，请参阅[通过虚拟网络创建虚拟机池](batch-virtual-network.md)。
 
 ## <a name="scaling-compute-resources"></a>缩放计算资源
 通过 [自动缩放](batch-automatic-scaling.md)功能，可以让 Batch 服务根据计算方案的当前工作负荷和资源使用状况动态缩放池中的计算节点数目。 这样，便可做到只使用所需资源并可释放不需要的资源，因而能够降低运行应用程序的整体成本。
@@ -428,7 +413,7 @@ VNet 要求：
 - **资源度量值** 基于 CPU 使用率、带宽使用率、内存使用率和节点的数目。
 - **任务指标**基于任务状态，例如“活动”（已排队）、“正在运行”或“已完成”。
 
-如果自动缩放会减少池中的计算节点数，则必须考虑如何处理在执行减少操作时运行的任务。 为了满足这一点，Batch 提供可包含在公式中的 *节点解除分配选项* 。 例如，可以指定运行中的任务立即停止，立即停止然后重新排入队列以便在另一个节点上运行，或允许先完成再从池中删除节点。
+如果自动缩放会减少池中的计算节点数，则必须考虑如何处理在执行减少操作时运行的任务。 为了满足这一点，Batch 提供可包含在公式中的 *节点解除分配选项* 。 例如，可以指定运行中的任务立即停止，然后重新排入队列，以便在另一个节点上运行，或允许先完成再从池中删除节点。
 
 有关自动缩放应用程序的详细信息，请参阅 [自动缩放 Azure Batch 池中的计算节点](batch-automatic-scaling.md)。
 
@@ -520,11 +505,7 @@ VNet 要求：
 ## <a name="next-steps"></a>后续步骤
 - 了解适用于生成批处理解决方案的[批处理 API 和工具](batch-apis-tools.md)。
 - 在 [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md)（适用于 .NET 的 Azure Batch 库入门）中逐步演练一个示例 Batch 应用程序。 另请参阅该教程的 [Python 版本](batch-python-tutorial.md) ，其中介绍了如何在 Linux 计算节点上运行工作负荷。
-- 下载并构建 [Batch 资源管理器][github_batchexplorer] 示例项目，以便在开发 Batch 解决方案时使用。 使用 Batch 资源管理器可以执行以下和其他操作：
-
-  - 监视和管理 Batch 帐户中的池、作业与任务
-  - 从节点下载 `stdout.txt`、`stderr.txt` 和其他文件
-  - 在节点上创建用户，并下载用于远程登录的 RDP 文件
+- 下载并安装 [BatchLabs][batch_labs]，供开发 Batch 解决方案时使用。 借助 BatchLabs 来创建、调试和监视 Azure Batch 应用程序。 
 - 了解如何 [创建 Linux 计算节点池](batch-linux-nodes.md)。
 - 访问 MSDN 上的 [Azure Batch 论坛][batch_forum] 。 无论你是新手还是 Batch 专家，该论坛都是一个提问的好去处。
 
@@ -536,7 +517,7 @@ VNet 要求：
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

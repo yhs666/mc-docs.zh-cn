@@ -13,14 +13,14 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/27/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: acd5127d85f63006bec0ebcf2f65efacd9911392
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 12/18/2017
+ms.openlocfilehash: 193ddd569ea47b2c682123a43519937f64567035
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用 iothub-explorer 在设备与 IoT 中心之间发送和接收消息
 

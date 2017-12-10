@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 08/21/2017
-ms.date: 08/28/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 704c9e4325e8228c7b38c451bd8cf3dc869f02b8
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: d49f2358af98f2c4a315a3b7e5ce86b1ada0e13d
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-model-in-azure-portal"></a>在 Azure 门户中创建模型
 
@@ -72,4 +72,4 @@ Azure 门户的 Azure Analysis Services Web 设计器（预览）功能提供一
 [管理数据库角色和用户](analysis-services-database-users.md)  
 [使用 Excel 进行连接](analysis-services-connect-excel.md)
 
-<!--Update_Description: new articles abort creating model in analysis serices -->
+<!--Update_Description: update meta properties -->

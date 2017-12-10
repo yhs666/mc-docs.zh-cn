@@ -3,7 +3,7 @@ title: "Azure SQL 数据库内存中技术 | Microsoft 文档"
 description: "Azure SQL 数据库内存中技术大幅提升了事务和分析工作负荷的性能。"
 services: sql-database
 documentationCenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
@@ -13,14 +13,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/24/2017
-ms.date: 11/06/2017
-ms.author: v-johch
-ms.openlocfilehash: 26e398c4c39b91c048d9615a700e33e2d78c6654
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+origin.date: 11/16/2017
+ms.date: 12/11/2017
+ms.author: v-nany
+ms.openlocfilehash: 5deaace329d9e49629dd3a00e585e62a632e8636
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>在 SQL 数据库中使用内存中技术优化性能
 
@@ -119,7 +119,6 @@ Azure SQL 数据库采用以下内存中技术：
 
 降级到基本/标准层：标准或基本层中的数据库不支持内存中 OLTP。 此外，不能将包含任何内存中 OLTP 对象的数据库移到标准或基本层。
 
-将数据库降级到标准/基本层之前，请删除所有内存优化表和表类型，以及所有本机编译的 T-SQL 模块。
 
 可通过编程方式了解给定的数据库是否支持内存中 OLTP。 可执行以下 Transact-SQL 查询：
 
@@ -129,7 +128,15 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 如果查询返回 **1**，则此数据库支持内存中 OLTP。
 
-*降级到较低的高级层*：内存优化表中的数据必须在（与数据库的定价层相关或在弹性池中可用的）内存中 OLTP 存储范围内。 如果尝试降低定价层或将数据库移动到可用内存中 OLTP 存储不足的池，操作会失败。
+将数据库降级到标准/基本层之前，请删除所有内存优化表和表类型，以及所有本机编译的 T-SQL 模块。 以下查询确定了将数据库降级为标准/基本版本前需要删除的所有对象：
+
+```
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+降级到较低的高级层：内存优化表中的数据必须在（与数据库的定价层相关或在弹性池中可用的）内存中 OLTP 存储范围内。 如果尝试降低定价层或将数据库移动到可用内存中 OLTP 存储不足的池，操作会失败。
 
 ### <a name="columnstore-indexes"></a>列存储索引
 

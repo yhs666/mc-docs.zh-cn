@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 09/25/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8eb892dc29371b078cff6e7b87cfebfa3ff369ab
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 315042493cdc93057ec0647981c22b560200024c
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="lesson-1-create-a-tabular-model-project"></a>第 1 课：创建表格模型项目
 
@@ -83,4 +83,4 @@ ms.lasthandoff: 09/22/2017
 ## <a name="whats-next"></a>后续步骤
 [第 2 课：获取数据](../tutorials/aas-lesson-2-get-data.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->

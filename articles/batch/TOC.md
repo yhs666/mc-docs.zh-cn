@@ -12,9 +12,14 @@
 ## 开发
 ### [应用程序包](batch-application-packages.md)
 ### [自动缩放计算节点](batch-automatic-scaling.md)
+### Azure AD 身份验证
+#### [将 Azure AD 与批处理服务配合使用](batch-aad-auth.md)
+#### [将 Azure AD 与 Batch 管理配合使用](batch-aad-auth-management.md)
 ### [并发节点任务](batch-parallel-node-tasks.md)
 ### [按状态对任务计数](batch-get-task-counts.md)
-### [高效列表查询](batch-efficient-list-queries.md)
+### [使用自定义映像创建池](batch-custom-images.md)
+### [在虚拟网络中创建池](batch-virtual-network.md)
+### [高效的列表查询](batch-efficient-list-queries.md)
 ### [作业准备和完成任务](batch-job-prep-release.md)
 ### [Linux 计算节点](batch-linux-nodes.md)
 ### [低优先级 VM](batch-low-pri-vms.md)
@@ -40,7 +45,7 @@
 ## [Azure CLI](/cli/batch)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
+## [Node.js](https://docs.microsoft.com/nodejs/api/overview/azure/batch)
 ## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
 ## [REST](https://docs.microsoft.com/rest/api/batchservice)
 ## [批处理诊断日志](batch-diagnostics.md)
@@ -68,5 +73,6 @@
 ## [Python 代码示例](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=batch)
+
 
 

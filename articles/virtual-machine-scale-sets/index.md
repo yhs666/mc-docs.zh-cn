@@ -1,9 +1,9 @@
 ---
-title: "Azure 虚拟机规模集文档 - 教程、API 参考 | Azure"
-description: "了解如何使用虚拟机规模集为大型计算、大数据和容器化解决方案创建自动调整规模的 Windows 或 Linux VM。"
+title: "Azure 虚拟机规模集文档 - 教程和 API 参考 | Microsoft 文档"
+description: "了解如何使用虚拟机规模集为大型计算、大数据和容器化解决方案创建自动缩放的 Windows 或 Linux VM。"
 services: virtual-machine-scale-sets
-author: carolz
-manager: carolz
+author: alexchen2016
+manager: digimobile
 layout: LandingPage
 ms.assetid: 
 ms.service: virtual-machine-scale-sets
@@ -11,18 +11,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 06/20/2017
-ms.author: v-dazen
-ms.openlocfilehash: b69ca4ef491a74d022959092bdebb0c3834bb2eb
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 12/06/2017
+ms.author: v-junlch
+ms.openlocfilehash: 45ccc21eb7f6a141ba89f8b28d17d5fb0afe47bb
+ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 12/07/2017
 ---
-#虚拟机规模集文档
-<a id="virtual-machine-scale-sets-documentation" class="xliff"></a>
+#<a name="virtual-machine-scale-sets-documentation"></a>虚拟机规模集文档
 
-了解如何使用虚拟机规模集来部署和管理一组完全相同、可调整规模的 Windows 或 Linux VM。 文档介绍了如何使用规模集来支持面向大型计算、大数据和容器化解决方案的服务。
+了解如何使用虚拟机规模集来部署和管理一组完全相同、自动调整规模的 Windows 或 Linux VM。 文档介绍了如何使用规模集来支持面向大型计算、大数据和容器化解决方案的服务。
 
 <ul class="panelContent cardsFTitle">
     <li>

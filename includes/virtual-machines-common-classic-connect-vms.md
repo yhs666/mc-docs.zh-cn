@@ -1,13 +1,12 @@
 ![独立云服务中的虚拟机](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
-如果将虚拟机放在虚拟网络中，你可以决定要将多少云服务用于负载均衡和可用性集。 此外，可以采用与本地网络相同的方式，在子网上组织虚拟机，并将虚拟网络连接到本地网络。 下面是一个示例：
+如果将虚拟机放在虚拟网络中，可以决定要将多少云服务用于负载均衡和可用性集。 此外，可以采用与本地网络相同的方式，在子网上组织虚拟机，并将虚拟网络连接到本地网络。 下面是一个示例：
 
 ![虚拟网络中的虚拟机](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
 
-若要在 Azure 中连接虚拟机，建议使用虚拟网络。 最佳做法是在单独的云服务中配置应用程序的每一层。 不过，可能需要将不同应用程序层的部分虚拟机整合到相同的云服务中，以维持在每个订阅最多 200 个云服务的限制内。 若要查看此限制以及其他限制，请参阅 [Azure 订阅和服务限制、配额和约束](../articles/azure-subscription-service-limits.md)。
+若要在 Azure 中连接虚拟机，建议使用虚拟网络。 最佳做法是在单独的云服务中配置应用程序的每一层。 不过，可能需要将不同应用程序层的部分虚拟机整合到相同的云服务中，以维持在每个订阅最多 200 个云服务的限制内。
 
-## 连接虚拟网络中的 VM
-<a id="connect-vms-in-a-virtual-network" class="xliff"></a>
+## <a name="connect-vms-in-a-virtual-network"></a>连接虚拟网络中的 VM
 若要连接虚拟网络中的虚拟机，请执行以下步骤：
 
 1. 在 [Azure 门户](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md)中创建虚拟网络并指定“经典部署”。
@@ -27,11 +26,10 @@
 
   ![使用 VNet 时的 VM“设置”边栏选项卡](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
 
-## 连接独立云服务中的 VM
-<a id="connect-vms-in-a-standalone-cloud-service" class="xliff"></a>
+## <a name="connect-vms-in-a-standalone-cloud-service"></a>连接独立云服务中的 VM
 若要连接独立云服务中的虚拟机，请执行以下步骤：
 
-1. 在 [Azure 门户](http://portal.azure.cn)中创建云服务。 单击“新建”>“计算”>“云服务”。 或者，当你创建第一个虚拟机时，可以为你的部署创建云服务。
+1. 在 [Azure 门户](http://portal.azure.cn)中创建云服务。 单击“新建”>“计算”>“云服务”。 或者，在创建第一个虚拟机时，可以为部署创建云服务。
 2. 创建虚拟机时，请选择云服务所用的同一资源组。
 
   ![将虚拟机添加到现有云服务](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)

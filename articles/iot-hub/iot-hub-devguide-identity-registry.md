@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/08/2017
+origin.date: 10/19/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 08/25/2017
-ms.openlocfilehash: a201e8bfc93ed02a35fa1288b0cf6c4a7947fc42
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 12/18/2017
+ms.openlocfilehash: 0356cae1e001e4d823d89e3b13166eb845942eb7
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中心的标识注册表
 
@@ -29,8 +29,6 @@ ms.lasthandoff: 09/29/2017
 标识注册表中存储的设备 ID 区分大小写。
 
 概括地说，标识注册表是支持 REST 的设备标识资源集合。 在此标识注册表中添加条目时，IoT 中心会创建一组每设备资源，如包含未送达云到设备消息的队列。
-
-### <a name="when-to-use"></a>使用时机
 
 在需要时执行以下操作时可使用标识注册表：
 
@@ -84,8 +82,7 @@ IoT 解决方案通常具有不同的解决方案特定存储，其中包含应�
 
 可以使用 [IoT 中心资源提供程序终结点][lnk-endpoints]上的异步操作，将设备标识批量导入 IoT 中心的标识注册表。 导入是长时间运行的作业，它使用客户提供的 Blob 容器中的数据，将设备标识数据写入标识注册表。
 
-* 有关导入和导出 API 的详细信息，请参阅 [IoT 中心资源提供程序 REST API][lnk-resource-provider-apis]。
-* 若要了解有关如何运行导入和导出作业的详细信息，请参阅 [Bulk management of IoT Hub device identities][lnk-bulk-identity]（批量管理 IoT 中心的设备标识）。
+有关导入和导出 API 的详细信息，请参阅 [IoT 中心资源提供程序 REST API][lnk-resource-provider-apis]。 若要了解有关如何运行导入和导出作业的详细信息，请参阅 [Bulk management of IoT Hub device identities][lnk-bulk-identity]（批量管理 IoT 中心的设备标识）。
 
 ## <a name="device-provisioning"></a>Device Provisioning
 
@@ -147,15 +144,12 @@ iothub-message-schema | deviceLifecycleNotification |
 }
 ```
 
-## <a name="reference-topics"></a>参考主题：
-以下参考主题提供有关标识注册表的详细信息。
-
 ## <a name="device-identity-properties"></a>设备标识属性
 设备识别表示为包含以下属性的 JSON 文档：
 
 | 属性 | 选项 | 说明 |
 | --- | --- | --- |
-| deviceId |必需，更新时只读 |ASCII 7 位字母数字字符 + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}` 的区分大小写字符串（最长为 128 个字符）。 |
+| deviceId |必需，更新时只读 |ASCII 7 位字母数字字符 + 某些特殊字符（`- : . + % _ # * ? ! ( ) , = @ ; $ '`）的区分大小写字符串（最长为 128 个字符）。 |
 | generationId |必需，只读 |IoT 中心生成的区分大小写字符串，最长为 128 个字符。 在删除并重新创建设备时，此值用于区分具有相同 **deviceId**的设备。 |
 | etag |必需，只读 |一个字符串，根据 [RFC7232][lnk-rfc7232] 表示设备标识的弱 ETag。 |
 | auth |可选 |包含身份验证信息和安全材料的复合对象。 |
@@ -182,6 +176,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 * [IoT 中心 MQTT 支持][lnk-devguide-mqtt]提供有关 IoT 中心对 MQTT 协议的支持的详细信息。
 
 ## <a name="next-steps"></a>后续步骤
+
 了解如何使用 IoT 中心标识注册表后，可以根据兴趣参阅以下 IoT 中心开发人员指南主题：
 
 * [控制 IoT 中心的访问权限][lnk-devguide-security]

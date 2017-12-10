@@ -3,7 +3,7 @@ title: "解析 T-SQL 差异 - 迁移 - Azure SQL 数据库 | Azure"
 description: "在 Azure SQL 数据库中不完全支持的 Transact-SQL 语句"
 services: sql-database
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: 
 tags: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 03/17/2017
-ms.date: 11/06/2017
-ms.author: v-johch
-ms.openlocfilehash: dc3bc3ff75dc5ecf9d182979e58d314997e83ece
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+origin.date: 10/23/2017
+ms.date: 12/11/2017
+ms.author: v-nany
+ms.openlocfilehash: 95464099e030572b9979e1fa4116ad3a2c7ffa16
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>解析迁移到 SQL 数据库的过程中的 Transact-SQL 差异   
 从 SQL Server [将数据库迁移](sql-database-cloud-migrate.md)到 Azure SQL Server 时，可能会发现需要对数据库进行一些重新设计才能迁移 SQL Server。 本文提供相关指南来帮助你执行此重新设计和了解重新设计是必需的基本原因。 若要检测不兼容性，请使用 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595)。
@@ -42,14 +42,13 @@ Microsoft SQL Server 和 Azure SQL 数据库都完全支持应用程序使用的
 - CREATE 和 ALTER TABLE 语句具有不能在 SQL 数据库上使用的 FileTable 选项，因为不支持 FILESTREAM。
 - SQL 数据库支持 CREATE 和 ALTER login 语句，但未提供所有选项。 要使数据库更易于移植，SQL 数据库建议尽可能使用包含的数据库用户，而不是使用登录名。 有关详细信息，请参阅 [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) 和[控制和授予数据库访问权限](../sql-database/sql-database-manage-logins.md)。
 
-## <a name="transact-sql-syntax-not-supported-in-sql-database"></a>SQL 数据库不支持的 Transact-SQL 语法   
+## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Azure SQL 数据库不支持的 Transact-SQL 语法   
 除了与 [Azure SQL 数据库功能比较](sql-database-features.md)中所述的不支持功能相关的 Transact-SQL 语句外，也不支持以下语句和语句组。 因此，如果要迁移的数据库使用以下任一功能，请重新设计 T-SQL 以消除这些 T-SQL 功能和语句。
 
 - 系统对象的排序规则
-- 相关的连接：终结点语句、 `ORIGINAL_DB_NAME`。 SQL 数据库不支持 Windows 身份验证，但支持类似的 Azure Active Directory 身份验证。 某些身份验证类型要求使用最新版本的 SSMS。 有关详细信息，请参阅[使用 Azure Active Directory 身份验证连接到 SQL 数据库或 SQL 数据仓库](sql-database-aad-authentication.md)。
+- 相关的连接：终结点语句。 SQL 数据库不支持 Windows 身份验证，但支持类似的 Azure Active Directory 身份验证。 某些身份验证类型要求使用最新版本的 SSMS。 有关详细信息，请参阅[使用 Azure Active Directory 身份验证连接到 SQL 数据库或 SQL 数据仓库](sql-database-aad-authentication.md)。
 - 使用三个或四个部分名称的跨数据库查询。 （使用[弹性数据库查询](sql-database-elastic-query-overview.md)支持只读跨数据库查询。）
 - 跨数据库所有权链接, `TRUSTWORTHY` 设置
-- `DATABASEPROPERTY` 改用 `DATABASEPROPERTYEX`。
 - `EXECUTE AS LOGIN` 改用“EXECUTE AS USER”。
 - 支持加密，但可扩展密钥管理除外
 - 事件：事件、事件通知、查询通知
@@ -57,15 +56,13 @@ Microsoft SQL Server 和 Azure SQL 数据库都完全支持应用程序使用的
 - 高可用性：与通过 Azure 帐户管理的高可用性相关的语法。 这包括备份、还原、Always On、数据库镜像、日志传送、恢复模式的语法。
 - 日志读取器：依赖于在 SQL 数据库上不可用的日志读取器的语法：推送复制、更改数据捕获。 SQL 数据库可以是推送复制项目的订阅服务器。
 - 函数：`fn_get_sql`、`fn_virtualfilestats`、`fn_virtualservernodes`
-- 全局临时表
 - 硬件：与硬件相关的服务器设置（例如，内存、工作线程、CPU 相关性、跟踪标志）有关的语法。 改用服务级别。
-- `HAS_DBACCESS`
 - `KILL STATS JOB`
 - `OPENQUERY`、`OPENROWSET`、`OPENDATASOURCE` 和由四部分构成的名称
 - .NET Framework：CLR 与 SQL Server 集成
 - 语义搜索
 - 服务器凭据：改用[数据库范围的凭据](https://msdn.microsoft.com/library/mt270260.aspx)。
-- 服务器级项目：服务器角色、`IS_SRVROLEMEMBER`、`sys.login_token`。 `GRANT`、`REVOKE` 和 `DENY` 的服务器级权限不可用，某些权限已替换为数据库级权限。 一些有用的服务器级 DMV 具有等效的数据库级 DMV。
+- 服务器级项目：服务器角色、`sys.login_token`。 `GRANT`、`REVOKE` 和 `DENY` 的服务器级权限不可用，某些权限已替换为数据库级权限。 一些有用的服务器级 DMV 具有等效的数据库级 DMV。
 - `SET REMOTE_PROC_TRANSACTIONS`
 - `SHUTDOWN`
 - `sp_addmessage`

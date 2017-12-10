@@ -3,7 +3,7 @@ title: "Azure 媒体服务概述 | Azure"
 description: "本部分提供 Azure 媒体服务的概述"
 services: media-services
 documentationcenter: 
-author: Hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 07/04/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
-ms.openlocfilehash: d39d9949c680e7b0f6f382d217ab31132abb302b
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+origin.date: 10/24/2017
+ms.date: 12/11/2017
+ms.author: v-nany
+ms.openlocfilehash: a86abec2933948185f665a2243f2e1a04dc1bdcd
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒体服务概述
 
@@ -53,6 +53,10 @@ Microsoft Azure 媒体服务是一个可扩展的基于云的平台，使开发�
 * 现有工具：
   * [Azure 门户](https://portal.azure.cn/)
   * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)（Azure 媒体服务资源管理器 (AMSE) 是适用于 Windows 的 Winforms/C# 应用程序）
+
+## <a name="code-samples"></a>代码示例
+
+在“Azure 代码示例”库中查找多个代码示例：[Azure 媒体服务代码示例](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0)。
 
 ## <a name="concepts-and-overview"></a>概念和概述
 

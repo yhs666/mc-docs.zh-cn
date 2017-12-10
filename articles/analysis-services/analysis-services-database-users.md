@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 08/15/2017
-ms.date: 08/28/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: f9ab1ef6646f521c96a6eb84c1c3dc2a4b866419
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 0b9412a312372cd2d8e762a7c93d65e3eb2c54a2
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-database-roles-and-users"></a>管理数据库角色和用户
 
@@ -151,4 +151,4 @@ ms.lasthandoff: 08/25/2017
   [使用 PowerShell 管理 Azure Analysis Services](analysis-services-powershell.md)  
   [表格模型脚本语言 (TMSL) 参考](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
-<!--Update_Description: update reference -->
+<!--Update_Description: update meta properties -->

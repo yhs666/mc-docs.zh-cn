@@ -10,13 +10,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 origin.date: 09/28/2017
-ms.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-junlch
-ms.openlocfilehash: c35c912265143ef3f29fa8f9faf01c592f3afabf
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.openlocfilehash: 1b7e7be04f6fa5d291b8560026da957277224fa8
+ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-low-priority-vms-with-batch"></a>将低优先级 VM 与 Batch 配合使用
 
@@ -72,7 +72,7 @@ Azure Batch 提供多种功能来方便你使用低优先级 VM 并从中受益�
 
 -   当任务被中断时，Batch 将检测并自动请求任务以再次运行。
 
--   低优先级 VM 具有不同于专用 VM 的单独核心配额。 
+-   低优先级 VM 具有不同于专用 VM 的单独 vCPU 配额。 
     因为低优先级 VM 成本更低，因此，低优先级 VM 的配额高于专用 VM 的配额。 有关详细信息，请参阅 [Batch 服务的配额和限制](batch-quota-limit.md#resource-quotas)。    
 
 

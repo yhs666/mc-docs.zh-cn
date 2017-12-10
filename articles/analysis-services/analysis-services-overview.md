@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 08/01/2017
-ms.date: 10/23/2017
+origin.date: 11/07/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1b55ff7972dfd1933042edc553ffd56bee746e5c
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: fa4c8f4ac1518f865738f8d8b6699f066c38bd27
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -48,17 +48,27 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 创建服务器以后，即可直接在 Azure 门户中创建表格模型。 使用新的（预览版）[Web 设计器功能](analysis-services-create-model-portal.md)，可以连接到 Azure SQL 数据库、Azure SQL 数据仓库数据源，还可以导入 Power BI Desktop .pbix 文件。 表之间的关系是自动创建的。可以直接在浏览器中创建度量值或编辑 JSON 格式的 model.bim 文件。
 
 ## <a name="scale-to-your-needs"></a>按需求缩放
+
+### <a name="the-right-tier-when-you-need-it"></a>符合需要的层级
+
 可在开发人员层、基本层和标准层使用 Azure Analysis Services。 每个层中的计划成本因处理能力、QPU 数和内存大小而异。 创建服务器时，会在层内选择计划。 可以在同一层内上下更改计划，或者升级到更高的层，但不能从较高的层降级到较低的层。
 
-扩展、缩减或暂停服务器。 使用 Azure 门户，或者通过 PowerShell 进行完全且即时的控制。 仅为所用的部分付费。 若要详细了解不同的计划和层并使用定价计算器来确定适合自己的计划，请参阅 [Azure Analysis Services 定价](https://www.azure.cn/pricing/details/analysis-services/)。
+纵向扩展、纵向缩减或暂停服务器。 使用 Azure 门户，或者通过 PowerShell 进行完全且即时的控制。 仅为所用的部分付费。 若要详细了解不同的计划和层并使用定价计算器来确定适合自己的计划，请参阅 [Azure Analysis Services 定价](https://www.azure.cn/pricing/details/analysis-services/)。
+
+### <a name="scale-out-resources-for-fast-query-responses"></a>进行快速查询响应的横向扩展资源
+
+启用 Azure Analysis Services 横向扩展后，客户端查询就会分布在查询池中的多个查询副本中。 查询副本已同步表格模型的副本。 可以通过分散查询工作负荷，缩短查询工作负荷高峰期间的响应时间。 可以将模型处理操作与查询池分开，确保客户端查询不受处理操作的负面影响。 创建查询池时，最多可以有七个其他的查询副本（总共为八个，包括你自己的服务器在内）。 
+
+可以根据需要横向扩展查询副本，就像更改层一样。 通过门户或 REST API 配置横向扩展。 若要了解详细信息，请参阅 [Azure Analysis Services 横向扩展](analysis-services-scale-out.md)。
 
 ## <a name="keep-your-data-close"></a>将数据置于较近的位置
 可在以下 [Azure 区域](https://www.azure.cn/support/service-dashboard/)创建 Azure Analysis Services 服务器：
 | 中国 |
 |--------------|
 | 中国北部 |
-<!--Not Available on China East-->
-通过 Azure 门户或 Azure 资源管理器模板创建服务器时，需选择位置。 若要获得最佳性能，请选择最接近最大用户群的位置。 请在多个区域的冗余服务器上部署模型，确保[高可用性](analysis-services-bcdr.md)。
+<!-- Not Available on China East for Azure Analysis Services -->
+将会不断添加新区域，因此此列表可能并不完整。 通过 Azure 门户或 Azure 资源管理器模板创建服务器时，需选择位置。 若要获得最佳性能，请选择最接近最大用户群的位置。 请在多个区域的冗余服务器上部署模型，确保[高可用性](analysis-services-bcdr.md)。
+
 ## <a name="migrate-your-existing-tabular-models"></a>迁移现有的表格模型
 如果现在已经有本地 SQL Server Analysis Services 模型解决方案，则不需重大更改即可迁移到 Azure Analysis Services。 若要进行迁移，可以使用 SSDT 将模型部署到服务器。 也可以在 SSMS 中使用备份和还原或 TMSL。
 
@@ -90,6 +100,10 @@ Azure Analysis services 的用户身份验证通过 [Azure Active Directory (AAD
 
 #### <a name="data-security"></a>数据安全
 Azure Analysis Services 使用 Azure Blob 存储来持久保留 Analysis Services 数据库的存储和元数据。 使用 Azure Blob 服务器端加密 (SSE) 加密 Blob 中的数据文件。 使用“直接查询”模式时，仅存储元数据。 实际数据是在查询时从数据源访问的。
+
+#### <a name="firewall"></a>防火墙
+
+Azure Analysis Services 防火墙阻止所有客户端连接，规则中指定的除外。 配置规则，按个人客户端 IP 或范围指定允许的 IP 地址。 也可允许或阻止 Power BI（服务）连接。 
 
 #### <a name="on-premises-data-sources"></a>本地数据源
 通过安装和配置[本地数据网关](analysis-services-gateway.md)，实现对组织内本地驻留数据的安全访问。 网关提供在直接查询和内存模式下的数据访问。 当 Azure Analysis Services 模型连接到本地数据源时，将创建查询以及本地数据源的加密凭据。 网关云服务分析该查询，并将请求推送到 Azure 服务总线。 本地网关会针对挂起的请求轮询 Azure 服务总线。 然后，网关会获取查询，对凭据进行解密，并连接到数据源开始执行。 随后，结果会从数据源返回到网关，并返回到 Azure Analysis Services 数据库。
@@ -124,4 +138,4 @@ Analysis Services 拥有一个充满活力的用户社区。 参与 [Azure Analy
 ## <a name="next-steps"></a>后续步骤
 现在已详细了解了 Azure Analysis Services，可以开始使用了。 了解如何在 Azure 中[创建服务器](analysis-services-create-server.md)。 服务器就绪以后，请逐步学习 [Adventure Works 教程](tutorials/aas-adventure-works-tutorial.md)，了解如何创建完全正常运行的表格模型并将其部署到服务器。
 
-<!--Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/02/2017
+origin.date: 08/22/2017
 ms.author: v-yiso
-ms.date: 09/25/2017
-ms.openlocfilehash: 37d6851714c2d99740eeefc41595fae4ff9d9bc9
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 12/18/2017
+ms.openlocfilehash: 628ba897cd654461ad445817a580b77743283135
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Azure IoT 中心及物理设备入门教程
 
@@ -27,18 +27,12 @@ ms.lasthandoff: 09/29/2017
 
 | IoT 设备                       | 编程语言 |
 |---------------------------------|----------------------|
-| Raspberry Pi                    | [Node.js][Pi_Nd]、[C][Pi_C]、[Python][Pi_Py]           |
+| Raspberry Pi                    | [Python][Pi_Py]、[Node.js][Pi_Nd]、[C][Pi_C]  |
 | IoT DevKit                      | [VSCode 中的 Arduino][DevKit]     |
 | Intel Edison                    | [Node.js][Ed_Nd]、[C][Ed_C]           |
 | Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
 | Adafruit Feather M0             | [Arduino][M0_Ard]              |
-
-此外，还可以使用 IoT Edge 网关使设备能够连接到 IoT 中心。
-
-| 网关设备               | 编程语言 | 平台         |
-|------------------------------|----------------------|------------------|
-| Intel NUC（模型 DE3815TYKE） | C                    | [Wind River Linux][NUC_Lnx] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 
@@ -52,4 +46,3 @@ ms.lasthandoff: 09/29/2017
 [Hu_Ard]: ./iot-hub-arduino-huzzah-esp8266-get-started.md
 [Th_Ard]: ./iot-hub-sparkfun-esp8266-thing-dev-get-started.md
 [M0_Ard]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
-[NUC_Lnx]: ./iot-hub-gateway-kit-c-lesson1-set-up-nuc.md

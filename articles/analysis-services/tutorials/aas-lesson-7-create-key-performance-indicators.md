@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 09/20/2017
-ms.date: 10/23/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 15911bc466d22e270b419c7c7ddb6599d7d61fae
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 5db23f69aaf28cd738d0f2591aef19695a5bad0c
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>第 7 课：创建关键绩效指标
 
@@ -87,4 +87,4 @@ ms.lasthandoff: 10/20/2017
 ## <a name="whats-next"></a>后续步骤
 [第 8 课：创建透视](../tutorials/aas-lesson-8-create-perspectives.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

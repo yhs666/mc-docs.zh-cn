@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/02/2017
+origin.date: 09/04/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: ad21dcf6c818bdba2f461500d5bdec9e229512d7
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 12/18/2017
+ms.openlocfilehash: ae0206bede348d61ec796ed78db7ee611778a5c9
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-iot-hub-get-started-with-simulated-devices-tutorials"></a>Azure IoT 中心及模拟设备入门教程
 
@@ -32,12 +32,12 @@ ms.lasthandoff: 08/04/2017
 | [Node.js][Sim_Nd]    |
 | [Python][Sim_Pyth]   |
 
-此外，还可以使用 IoT Edge 网关使模拟设备能够连接到 IoT 中心。
+此外，还可以使用 IoT Edge 将 AI 部署到设备：
 
-| 编程语言 | 平台           |
-|----------------------|------------------- |
-| C                    | [Linux][Sim_Lnx]   |
-| C                    | [Windows][Sim_Win] |
+| 平台           |
+|------------------- |
+| [Linux][Sim_Lnx]   |
+| [Windows][Sim_Win] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 09/20/2017
-ms.date: 10/23/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 61f4fc13f159ddc0486dea6ace122ad9deb708e6
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 2b76a2c6780f0641072b5ba1a74caa96a147956a
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="lesson-6-create-measures"></a>第 6 课：创建度量值
 
@@ -131,4 +131,4 @@ ms.lasthandoff: 10/20/2017
 ## <a name="whats-next"></a>后续步骤
 [第 7 课：创建关键绩效指标](../tutorials/aas-lesson-7-create-key-performance-indicators.md)。
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

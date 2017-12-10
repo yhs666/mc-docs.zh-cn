@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 10/09/2017
-ms.date: 10/23/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: a982249580e91fbc2b3ee21f8022632b10f87165
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 00040612890db631398010216a7486c93889f538
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="authentication-and-user-permissions"></a>身份验证和用户权限
 Azure Analysis Services 使用 Azure Active Directory (Azure AD) 进行标识管理和用户身份验证。 在相同订阅中，创建、管理或连接到 Azure Analysis Services 服务器的任何用户均需具备 [Azure AD 租户](../active-directory/active-directory-administer.md)中的有效用户标识。
@@ -84,4 +84,4 @@ Excel 用户可使用 Windows 帐户、组织 ID（电子邮件地址）或外�
 [管理服务器管理员](analysis-services-server-admins.md)  
 [基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)
 
-<!--Update_Description: update meta properties, update reference link, wording update -->
+<!--Update_Description: update meta properties  -->

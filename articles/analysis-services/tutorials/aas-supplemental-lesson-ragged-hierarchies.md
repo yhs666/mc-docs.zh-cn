@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 10/16/2017
-ms.date: 10/23/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 95c6ab1c09bdbaf3effdf9813b6c4f00e6f9e9de
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 37dfe7429ae5b23505c0cd157be028e4e11a336a
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>补充课程 - 不规则层次结构
 
@@ -131,4 +131,4 @@ ms.lasthandoff: 10/20/2017
 [补充课程 - 动态安全性](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [补充课程 - 详细信息行](../tutorials/aas-supplemental-lesson-detail-rows.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

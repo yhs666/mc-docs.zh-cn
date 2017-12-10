@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/04/2017
 ms.author: dobett
-ms.date: 09/25/2017
-ms.openlocfilehash: c249c4df94a24ad2f37e6a0422f6edc9d23dab24
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 12/18/2017
+ms.openlocfilehash: 0a665eb3e23b0955b13afd0a3051326fb05e56a4
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-started-with-device-twins-java"></a>设备孪生入门 (Java)
 
@@ -267,7 +267,7 @@ ms.lasthandoff: 09/29/2017
     private static String deviceId = "myDeviceId";
     ```
 
-    本示例应用在实例化 **DeviceClient** 对象时使用 **protocol** 变量。 目前，若要使用设备孪生功能，必须使用 MQTT 协议。
+    本示例应用在实例化 **DeviceClient** 对象时使用 **protocol** 变量。 
 
 1. 将以下代码添加到 **main** 方法，以便：
     * 创建用来与 IoT 中心通信的设备客户端。

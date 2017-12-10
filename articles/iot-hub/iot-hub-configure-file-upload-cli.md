@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 11/20/2017
-ms.openlocfilehash: 2f06c9db61e94e98e52dcbf7edb727fb585d7306
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.date: 12/18/2017
+ms.openlocfilehash: 9edb9b9cdbf667da7f1bb756d717089a1bd7de94
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>使用 Azure CLI 配置 IoT 中心文件上传
 
@@ -145,7 +145,7 @@ az iot hub show --name {your iot hub name}
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南][lnk-devguide]
-* [使用 IoT Edge 模拟设备][lnk-iotedge]
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
 * [从根本上保护 IoT 解决方案][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
