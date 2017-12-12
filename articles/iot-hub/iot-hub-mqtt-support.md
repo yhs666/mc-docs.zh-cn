@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 07/11/2017
 ms.date: 11/20/2017
 ms.author: v-yiso
-ms.openlocfilehash: ac65a4f79b02ad0823503ff627c500b2f207880f
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.openlocfilehash: bca91f229756d40eef077de01fd8bc13209c7352
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 协议与 IoT 中心通信
 IoT 中心让设备能够在端口 8883 上使用 [MQTT v3.1.1][lnk-mqtt-org] 协议，或在端口 443 上使用基于 WebSocket 的 MQTT v3.1.1 协议来与 IoT 中心设备终结点通信。 IoT 中心要求使用 TLS/SSL 保护所有设备通信（因此，IoT 中心不支持端口 1883 上的非安全连接）。
@@ -70,11 +70,47 @@ IoT 中心让设备能够在端口 8883 上使用 [MQTT v3.1.1][lnk-mqtt-org] �
   3. 在 **SASTokenForm** 上，从 **DeviceID** 下拉列表中选择设备。 设置 **TTL**。
   4. 单击“**生成**”创建令牌。
 
-     所生成的 SAS 令牌具有以下结构：`HostName={your hub name}.azure-devices.cn;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`。
+     所生成的 SAS 令牌具有以下结构：`HostName={your hub name}.azure-devices.cn;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.cn%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`。
 
      此令牌中要用作“**密码**”字段以便使用 MQTT 进行连接的部分是：`SharedAccessSignature sr={your hub name}.azure-devices.cn%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`。
 
 对于 MQTT 连接和断开连接数据包，IoT 中心会在**操作监视**频道发布事件，并提供可帮助对连接问题进行故障排除的其他信息。
+
+### <a name="tlsssl-configuration"></a>TLS/SSL 配置
+
+若要直接使用 MQTT 协议，客户端*必须*通过 TLS/SSL 连接。 尝试跳过此配置会失败并显示连接错误。
+
+若要建立 TLS 连接，可能需要下载并引用 DigiCert Baltimore 根证书。 Azure 使用此证书来保护连接，可以在 [Azure-iot-sdk-c 存储库][lnk-sdk-c-certs]中找到此证书。 可以在 [Digicert 网站][lnk-digicert-root-certs]上找到有关这些证书的详细信息。
+
+例如，下面说明了如何使用 Eclipse Foundation 提供的 Python 版 [Paho MQTT 库][lnk-paho]实现此功能。
+
+首先，从命令行环境安装 Paho 库：
+
+```
+>pip install paho-mqtt
+```
+
+然后，在 Python 脚本中实现客户端：
+
+```
+from paho.mqtt import client as mqtt
+import ssl
+  
+path_to_root_cer = "...local\\path\\to\\digicert.cer"
+device_id = "<device id from device registry>"
+sas_token = "<generated SAS token>"
+subdomain = "<iothub subdomain>"
+
+client = mqtt.Client(client_id=device_id, protocol=mqtt.MQTTv311)
+
+client.username_pw_set(username=subdomain+".azure-devices.cn/" + device_id, password=sas_token)
+
+client.tls_set(ca_certs=path_to_root_cert, certfile=None, keyfile=None, cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+client.tls_insecure_set(False)
+
+client.connect(subdomain+".azure-devices.cn", port=8883)
+```
+
 
 ### <a name="sending-device-to-cloud-messages"></a>发送“设备到云”消息
 成功建立连接后，设备可以使用 `devices/{device_id}/messages/events/` 或 `devices/{device_id}/messages/events/{property_bag}` 作为**主题名称**将消息发送到 IoT 中心。 `{property_bag}` 元素可让设备使用 URL 编码格式发送包含其他属性的消息。 例如：

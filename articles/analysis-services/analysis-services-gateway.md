@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 10/11/2017
-ms.date: 10/23/2017
+origin.date: 10/30/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5b739e2a4b1bc9488ea127eb29d5e8350d3a9e21
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 849d0344d4ce9ffe4d77679994f8682edc620d60
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>使用 Azure 本地数据网关连接到本地数据源
 本地数据网关的作用好似一架桥，提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了在同一区域中使用多个 Azure Analysis Services 服务器，最新版本的网关也适用于 Azure 逻辑应用、Power BI、Power Apps 和 Microsoft Flow。 可将同一区域中的多个服务与单个网关相关联。 
@@ -133,6 +133,9 @@ ms.lasthandoff: 10/20/2017
 **问**：是否可以使用 Azure Active Directory 帐户运行网关 Windows 服务？ <br/>
 **答**：否。 该 Windows 服务必须具有有效的 Windows 帐户。 默认情况下，服务使用服务 SID“NT SERVICE\PBIEgwService”来运行。
 
+**问**：如何接管网关？ <br/>
+**答**：若要接管网关（方法是在“控制面板”>“程序”中运行“设置/更改”），你需要成为 Azure 中网关资源的所有者并且需要拥有恢复密钥。 可在访问控制中配置网管资源所有者。
+
 <a name="high-availability"></a>
 ### <a name="high-availability-and-disaster-recovery"></a>高可用性和灾难恢复
 
@@ -148,7 +151,7 @@ ms.lasthandoff: 10/20/2017
 **答**：有两种可能的原因。 第一种可能性是已在当前或某个其他订阅中为该网关创建了资源。 若要消除该可能性，请从门户枚举“本地数据网关”类型的资源。 枚举所有资源时，请确保选择所有订阅。 请注意，创建资源后，该网关将不会出现在“创建网关资源”门户体验的网关实例列表中。 第二种可能性是安装了该网关的用户的 Azure AD 标识与登录到 Azure 门户的用户不同。 若要解决此问题，请使用与安装了网关的用户相同的帐户登录到门户。
 
 **问**：如何查看正在发送到本地数据源的查询？ <br/>
-**答**：可以启用查询跟踪，包括要发送的查询。 请记得在完成故障排除后将查询跟踪改回原始值。 一直保持启用查询跟踪会创建大量的日志。
+**答**：可以启用查询跟踪（包括已发送的查询）。 请记得在完成故障排除后将查询跟踪改回原始值。 一直保持启用查询跟踪会创建大量的日志。
 
 还可以查看数据源用于跟踪查询的工具。 例如，可以使用 SQL Server 的扩展事件或 SQL 事件探查器以及 Analysis Services。
 
@@ -201,4 +204,4 @@ ms.lasthandoff: 10/20/2017
 * [管理 Analysis Services](analysis-services-manage.md)
 * [从 Azure Analysis Services 获取数据](analysis-services-connect.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, add new question about how do I takeover a gateway. -->

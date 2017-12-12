@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/11/2016
-ms.date: 09/04/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0b6d8349251678e732c63796ab930ee2d4dfaacb
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 5cc9a63e6c37987a1dff37b20941fdf9487eafa4
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>使用网络安全组筛选网络流量
 
@@ -34,9 +34,9 @@ NSG 包含以下属性：
 | 属性 | 说明 | 约束 | 注意事项 |
 | --- | --- | --- | --- |
 | Name |NSG 的名称 |必须在区域内唯一。<br/>可以包含字母、数字、下划线、句点和连字符。<br/>必须以字母或数字开头。<br/>必须以字母、数字或下划线结尾。<br/>不能超过 80 个字符。 |由于可能需要创建多个 NSG，因此请确保设置命名约定，以便轻松标识 NSG 的功能。 |
-| 区域 |在其中创建 NSG 的 Azure 区域。 |只能将多个 NSG 关联到该 NSG 所在区域中的资源。 | |
-| 资源组 |NSG 所在的[资源组](../azure-resource-manager/resource-group-overview.md#resource-groups)。 |虽然 NSG 存在于一个资源组中，但可将其关联到任意资源组中的资源，只要该资源与 NSG 属于同一 Azure 区域。 |资源组用于以部署单元的形式集中管理多个资源。<br/>可以考虑将 NSG 与相关联的资源组合在一起。 |
-| 规则 |入站或出站规则，用于定义允许或拒绝的具体流量。 | |请参阅本文的 [NSG 规则](#Nsg-rules)部分。 |
+| 区域 |在其中创建 NSG 的 Azure [区域](https://www.azure.cn/support/service-dashboard/)。 |只能将多个 NSG 关联到该 NSG 所在区域中的资源。 ||
+<!-- Not Available on azure\-subscription\-service\-limits.md -->
+| 资源组 |NSG 所在的[资源组](../azure-resource-manager/resource-group-overview.md#resource-groups)。 |虽然 NSG 存在于一个资源组中，但可将其关联到任意资源组中的资源，只要该资源与 NSG 属于同一 Azure 区域。 |资源组用于以部署单元的形式集中管理多个资源。<br/>可以考虑将 NSG 与相关联的资源组合在一起。 | | 规则 |入站或出站规则，用于定义允许或拒绝的具体流量。 | |请参阅本文的 [NSG 规则](#Nsg-rules)部分。 |
 
 > [!NOTE]
 > 不支持将基于终结点的 ACL 和网络安全组置于相同 VM 实例上。 如果想要使用 NSG，但已有了终结点 ACL，则请先删除该终结点 ACL。 若要了解如何删除 ACL，请阅读[使用 PowerShell 管理终结点的访问控制列表 (ACL)](virtual-networks-acl-powershell.md) 一文。
@@ -126,7 +126,7 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 | --- | --- | --- |
 | Azure 门户   | 是 | [是](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [是](virtual-networks-create-nsg-classic-ps.md) | [是](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI **V1**   | [是](virtual-networks-create-nsg-classic-cli.md) | [是](virtual-networks-create-nsg-cli-nodejs.md) |
+| Azure CLI **V1**   | [是](virtual-networks-create-nsg-classic-cli.md) | [是](virtual-networks-create-nsg-arm-cli.md) |
 | Azure CLI **V2**   | 否 | [是](virtual-networks-create-nsg-arm-cli.md) |
 | Azure Resource Manager 模板   | 否  | [是](virtual-networks-create-nsg-arm-template.md) |
 
@@ -136,6 +136,7 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 1. 想要使用什么类型的资源来筛选出入流量？ 可以连接多种资源，例如 NIC (Resource Manager)、VM（经典）、云服务、应用程序服务环境以及 VM 规模集。 
 2. 需要过滤其出入流量的资源是否连接到现有 VNet 中的子网？
 
+<!-- Not Available on [Cloud services and network security](../best-practices-network-security.md) -->
 ## <a name="design-considerations"></a>设计注意事项
 了解[规划](#Planning)部分问题的答案以后，请查看以下部分的内容，再定义 NSG：
 
@@ -262,4 +263,4 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 <!--Not Available * [Manage NSG logs](virtual-network-nsg-manage-log.md).-->
 * [对 NSG 进行故障排除](virtual-network-nsg-troubleshoot-portal.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update, update link-->

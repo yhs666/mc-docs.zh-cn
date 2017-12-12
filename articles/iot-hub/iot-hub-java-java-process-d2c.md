@@ -1,6 +1,6 @@
 ---
-title: "处理 Azure IoT 中心设备到云的消息 (Java) | Azure"
-description: "如何使用路由规则和自定义终结点将消息发送到其他后端服务，从而处理 IoT 中心设备到云消息。"
+title: "使用 Azure IoT 中心路由消息 (Java) | Microsoft Docs"
+description: "如何使用路由规则和自定义终结点将消息发送到其他后端服务，从而处理 Azure IoT 中心的设备到云消息。"
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/29/2017
 ms.author: v-yiso
-ms.date: 09/25/2017
-ms.openlocfilehash: 33cef1c821f497fce2d9551f8971f2fd42f95ea5
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 12/18/2017
+ms.openlocfilehash: e0ad4d3218a068ae2f816d4028f15895f885690c
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-java"></a>处理 IoT 中心设备到云的消息 (Java)
+# <a name="routing-messages-with-iot-hub-java"></a>使用 IoT 中心路由消息 (Java)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -47,7 +47,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 * [Maven 3](https://maven.apache.org/install.html)
 + 有效的 Azure 帐户。 <br/>如果没有帐户，可以创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，只需几分钟即可完成。
 
-应具备 [Azure 存储]和 [Azure 服务总线]的一些基础知识。
+我们还建议阅读 [Azure 存储]和 [Azure 服务总线]。
 
 ## <a name="send-interactive-messages-from-a-device-app"></a>从设备应用发送交互式消息
 在本部分中，会修改在 [simulated-device]教程中创建的设备应用，不定期发送需要立即处理的消息。
@@ -68,9 +68,15 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
                     String msgStr;
                     Message msg;
                     if (new Random().nextDouble() > 0.7) {
-                        msgStr = "This is a critical message.";
-                        msg = new Message(msgStr);
-                        msg.setProperty("level", "critical");
+                        if (new Random().nextDouble() > 0.5) {
+                            msgStr = "This is a critical message.";
+                            msg = new Message(msgStr);
+                            msg.setProperty("level", "critical");
+                        } else {
+                            msgStr = "This is a storage message.";
+                            msg = new Message(msgStr);
+                            msg.setProperty("level", "storage");
+                        }
                     } else {
                         double currentTemperature = minTemperature + rand.nextDouble() * 15;
                         double currentHumidity = minHumidity + rand.nextDouble() * 20; 
@@ -100,9 +106,9 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
         }
     }
     ```
-
-    此方法会将 `"level": "critical"` 属性随机添加到设备发送的消息，以模拟需要应用程序后端立即执行操作的消息。 应用程序会在消息属性（而非消息正文）中传递此信息，因此 IoT 中心可将消息路由到适当的消息目标。
-
+   
+    此方法会将 `"level": "critical"` 和 `"level": "storage"` 属性随机添加到设备发送的消息，以模拟需要应用程序后端立即执行操作的消息或需要永久存储的消息。 应用程序会在消息属性（而非消息正文）中传递此信息，因此 IoT 中心可将消息路由到适当的消息目标。
+   
    > [!NOTE]
    > 可使用消息属性根据各种方案路由消息，包括冷路径处理和此处所示的热路径示例。
    > 
@@ -110,10 +116,8 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 
 2. 保存并关闭 simulated-device\src\main\java\com\mycompany\app\App.java 文件。
 
-   > [!NOTE]
-   > 为简单起见，本教程不实现任何重试策略。 在生产代码中，应按 MSDN 文章 [Transient Fault Handling]（暂时性故障处理）中所述实施指数退让等重试策略。
-   > 
-   > 
+    > [!NOTE]
+    > 强烈建议按 MSDN 文章 [Transient Fault Handling]（暂时性故障处理）中所述实施指数退让等重试策略。
 
 3. 若要使用 Maven 构建 **simulated-device** 应用，请在 simulated-device 文件夹的命令提示符处执行以下命令：
 
@@ -212,7 +216,6 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 
 [lnk-c2d]: ./iot-hub-java-java-c2d.md
-
 [lnk-suite]: /iot-suite/
 
 <!--Update_Description:update wording and link references-->

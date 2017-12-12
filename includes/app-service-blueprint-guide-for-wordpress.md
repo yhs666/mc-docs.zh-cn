@@ -1,11 +1,10 @@
 ## <a name="wordpress-and-azure-app-service"></a>WordPress 和 Azure 应用服务
 * [WordPress 是什么？](https://wordpress.org/)
-* [如何设置企业级 WordPress Web 应用](../articles/app-service-web/web-sites-php-enterprise-wordpress.md)
 
 ## <a name="troubleshooting-wordpress-application"></a>WordPress 应用程序故障排除
 * 
             [如何排除 WordPress 应用故障](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
-* [使用各种自动修复规则来自动解决实时事件](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
+* [使用各种自动修复规则来自动解决事件](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
 * [如何备份 Web 应用](../articles/app-service/web-sites-backup.md)和[如何还原 Web 应用](../articles/app-service/web-sites-restore.md)
 
 ## <a name="performance"></a>性能

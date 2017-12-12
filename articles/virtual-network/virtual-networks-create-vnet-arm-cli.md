@@ -1,10 +1,10 @@
 ---
-title: "创建虚拟网络 - Azure CLI 2.0 | Azure"
-description: "了解如何使用 Azure CLI 2.0 创建虚拟网络。"
+title: "创建虚拟网络 - Azure CLI | Azure"
+description: "了解如何使用 Azure CLI 创建虚拟网络。"
 services: virtual-network
 documentationcenter: 
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
@@ -14,30 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 03/24/2017
-ms.author: v-dazen
+ms.date: 12/11/2017
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db6f7c9d70350ebe85ce6066abbc927f4591aebf
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 2c971b033bc8df184c15da747c6e4d278ec5e71e
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建虚拟网络
+# <a name="create-a-virtual-network-using-the-azure-cli"></a>使用 Azure CLI 创建虚拟网络
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure 建议通过 Resource Manager 部署模型创建资源。 若要深入了解这两个模型之间的差异，请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)一文。
 
-## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
-可使用以下 CLI 版本之一完成任务：
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
-- [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md) - 适用于经典部署模型和资源管理部署模型的 CLI
-- [Azure CLI 2.0](#create-a-virtual-network) - 适用于资源管理部署模型的下一代 CLI（详见本文）
-
-    还可以使用其他工具通过 Resource Manager 创建 VNet，或通过从以下列表中选择不同的选项使用经典部署模型创建 VNet：
+此外，也可以使用其他工具通过资源管理器创建虚拟网络，或者从以下列表中选择一个不同的选项，通过经典部署模型创建虚拟网络：
 
 > [!div class="op_single_selector"]
 > * [门户](virtual-networks-create-vnet-arm-pportal.md)
@@ -52,9 +44,11 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure �
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
-若要使用 Azure CLI 2.0 创建虚拟网络，请完成以下步骤：
+若要使用 Azure CLI 创建虚拟网络，请完成以下步骤：
 
 1. 安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录 Azure 帐户。
+
+    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 2. 使用具有 `--name` 和 `--location` 参数的 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 命令创建 VNet 的资源组：
 
@@ -200,3 +194,5 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure �
 - 阅读文章[创建 Linux VM](../virtual-machines/linux/quick-create-cli.md)，将虚拟机 (VM) 连接到虚拟网络。 可选择将 VM 连接到现有 VNet 和子网，而不按文章中的步骤创建 VNet 和子网。
 - 阅读[连接 VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 一文，将一个虚拟网络连接到其他虚拟网络。
 - 使用站点到站点虚拟专用网络 (VPN) 或 ExpressRoute 线路，将虚拟网络连接到本地网络。 阅读文章[使用站点到站点 VPN 将 VNet 连接到本地网络](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)和[将 VNet 链接到 ExpressRoute 线路](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)，了解相关操作方法。
+
+<!-- Update_Description: update meta properties, update link -->

@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/25/17
+origin.date: 10/24/17
 ms.author: v-yiso
-ms.date: 07/10/2017
-ms.openlocfilehash: 8c0bf1fe58663c0fe50e6c7af5fe2b2a23a7c92a
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.date: 12/18/2017
+ms.openlocfilehash: dd034bfe10890e944cf5419fb617e86941a43c12
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="reference---iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>参考 - 用于设备孪生、作业和消息路由的 IoT 中心查询语言
 
@@ -28,7 +28,7 @@ IoT 中心提供类似于 SQL 的强大语言，用于检索有关[设备孪生]
 * IoT 中心查询语言的主要功能简介，以及
 * 语言的详细说明。
 
-## <a name="get-started-with-device-twin-queries"></a>设备孪生查询入门
+## <a name="device-twin-queries"></a>设备孪生查询
 [设备孪生][lnk-twins] 可以包含标记和属性形式的任意 JSON 对象。 通过 IoT 中心，可将设备孪生作为包含所有设备孪生信息的 JSON 文档进行查询。
 例如，假设 IoT 中心设备孪生采用以下结构：
 
@@ -71,7 +71,7 @@ IoT 中心提供类似于 SQL 的强大语言，用于检索有关[设备孪生]
 }
 ```
 
-IoT 中心将设备孪生公开为名为 **设备**的文档集合。
+IoT 中心将设备孪生公开为名为**设备**的文档集合。
 因此，以下查询将检索设备孪生的整个集：
 
 ```sql
@@ -79,19 +79,16 @@ SELECT * FROM devices
 ```
 
 > [!NOTE]
-> [Azure IoT SDK][lnk-hub-sdks] 支持将大量结果分页：
->
->
+> [Azure IoT SDK][lnk-hub-sdks] 支持将大型结果分页：
 
-IoT 中心允许使用任意条件检索设备孪生筛选结果。 例如，
+IoT 中心允许使用任意条件检索设备孪生筛选结果。 例如，若要接收 **location.region** 标记设置为 **CN** 的设备孪生，请使用以下查询：
 
 ```sql
 SELECT * FROM devices
 WHERE tags.location.region = 'CN'
 ```
 
-检索 **location.region** 标记设置为 **US** 的设备孪生。
-也支持布尔运算符和算术比较，例如
+还支持布尔运算符和算术比较。 例如，若要接收位于中国且配置为每隔不到一分钟就发送遥测数据的设备孪生，请使用以下查询：
 
 ```sql
 SELECT * FROM devices
@@ -99,23 +96,23 @@ WHERE tags.location.region = 'CN'
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
-检索位于美国、配置为以小于一分钟的频率发送遥测数据的所有设备孪生。 方便起见，还可将数组常量与 **IN** 和 **NIN**（不包含）运算符结合使用。 例如，
+方便起见，还可将数组常量与 **IN** 和 **NIN**（不包含）运算符结合使用。 例如，若要检索报告了 WiFi 或有线连接的设备孪生，请使用以下查询：
 
 ```sql
 SELECT * FROM devices
 WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
-检索报告了 WiFi 或有线连接的所有设备孪生。 通常需要它才能识别包含特定属性的所有设备孪生。 为此，IoT 中心支持函数 `is_defined()` 。 例如，
+通常需要它才能识别包含特定属性的所有设备孪生。 为此，IoT 中心支持函数 `is_defined()` 。 例如，若要检索定义了 `connectivity` 属性的设备孪生，请使用以下查询：
 
 ```SQL
 SELECT * FROM devices
 WHERE is_defined(properties.reported.connectivity)
 ```
 
-检索定义 `connectivity` 报告属性的所有设备孪生。 有关筛选功能的完整参考，请参阅 [WHERE 子句][lnk-query-where] 部分。
+有关筛选功能的完整参考，请参阅 [WHERE 子句][lnk-query-where] 部分。
 
-此外还支持分组与聚合。 例如，
+此外还支持分组与聚合。 例如，若要查明每个遥测配置中的设备计数，请使用以下查询：
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
@@ -124,7 +121,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-返回处于每种遥测配置状态的设备计数。
+此分组查询将返回类似于以下示例的结果。 这里，三个设备报告了成功配置，两个仍在应用配置，一个报告了错误。 
 
 ```json
 [
@@ -143,8 +140,6 @@ GROUP BY properties.reported.telemetryConfig.status
 ]
 ```
 
-上述示例阐释了以下情景：3 个设备报告配置成功，2 个设备仍在应用配置，1 个设备报告错误。
-
 ### <a name="c-example"></a>C# 示例
 查询功能由 [C# 服务 SDK][lnk-hub-sdks] 在 **RegistryManager** 类中公开。
 下面是一个简单的查询示例：
@@ -161,7 +156,7 @@ while (query.HasMoreResults)
 }
 ```
 
-请注意如何使用页面大小（最大 1000）实例化 **query** 对象，然后通过调用 **GetNextAsTwinAsync** 方法多次来检索多个页面。
+请注意如何使用页面大小（最大 1000）实例化 **query** 对象，并通过调用 **GetNextAsTwinAsync** 方法多次来检索多个页面。
 请注意，查询对象会公开多个 **Next\***，具体取决于查询所需的反序列化选项（如设备孪生或作业对象）或者使用投影时要用的普通 JSON。
 
 ### <a name="nodejs-example"></a>Node.js 示例
@@ -187,7 +182,7 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-请注意如何使用页面大小（最大 1000）实例化 **query** 对象，然后通过调用 **nextAsTwin** 方法多次来检索多个页面。
+请注意如何使用页面大小（最大 1000）实例化 **query** 对象，并通过调用 **nextAsTwin** 方法多次来检索多个页面。
 请注意，查询对象会公开多个 **next\***，具体取决于查询所需的反序列化选项（如设备孪生或作业对象）或者使用投影时要用的普通 JSON。
 
 ### <a name="limitations"></a>限制
@@ -247,7 +242,7 @@ WHERE devices.jobs.deviceId = 'myDeviceId'
 
 请注意此查询如何提供每个返回的作业的设备特定状态（可能还会提供直接方法响应）。
 还可针对 **devices.jobs** 集合中的所有对象属性，使用任意布尔条件进行筛选。
-例如，以下查询：
+若要为特定设备检索在 2016 年 9 月之后创建的所有已完成的设备孪生更新作业，请使用以下查询：
 
 ```sql
 SELECT * FROM devices.jobs
@@ -256,8 +251,6 @@ WHERE devices.jobs.deviceId = 'myDeviceId'
     AND devices.jobs.status = 'completed'
     AND devices.jobs.createdTimeUtc > '2016-09-01'
 ```
-
-检索 2016 年 9 月后为设备 **myDeviceId** 创建的所有已完成设备孪生更新作业。
 
 还可以检索单个作业在每个设备上的结果。
 
@@ -273,11 +266,11 @@ WHERE devices.jobs.jobId = 'myJobId'
 * 引用设备孪生和作业属性的条件（参见上一节）。
 * 执行聚合，例如 count、avg、group by。
 
-## <a name="get-started-with-device-to-cloud-message-routes-query-expressions"></a>设备到云的消息路由查询表达式入门
+## <a name="device-to-cloud-message-routes-query-expressions"></a>设备到云消息路由查询表达式
 
-可通过 [设备到云的路由][lnk-devguide-messaging-routes]配置 IoT 中心，根据按各消息计算的表达式将设备到云的消息分派给不同的终结点。
+可通过[设备到云的路由][lnk-devguide-messaging-routes]配置 IoT 中心，根据按各消息计算的表达式将设备到云的消息分派给不同的终结点。
 
-在克隆和作业查询中，路由 [条件][lnk-query-expressions] 使用相同的 IoT 中心查询语言作为条件。 根据消息标头和正文评估路由条件。 路由查询表达式可能只涉及到消息标头、消息正文，或者同时涉及到消息标头和消息正文。 IoT 中心将采用标头和消息正文的特定架构来路由消息，以下部分介绍了 IoT 中心要求满足哪些条件才能正确路由：
+在克隆和作业查询中，路由 [条件][lnk-query-expressions] 使用相同的 IoT 中心查询语言作为条件。 根据消息标头和正文评估路由条件。 路由查询表达式可能只涉及到消息标头、消息正文，或者同时涉及到消息标头和消息正文。 为了对消息进行路由，IoT 中心为标头和消息正文采用了特定的架构。 以下各节介绍了 IoT 中心正确进行路由所需满足的要求。
 
 ### <a name="routing-on-message-headers"></a>根据消息标头路由
 
@@ -335,7 +328,7 @@ messageType = 'alerts' AND as_number(severity) <= 2
 
 ### <a name="routing-on-message-bodies"></a>根据消息正文路由
 
-如果消息正文采用适当的 UTF-8、UTF-16 或 UTF-32 格式进行 JSON 编码，则 IoT 中心只能根据消息正文内容路由。 必须将消息的内容类型设置为 `application/json`，将内容编码设置为消息标头中支持的 UTF 编码之一，这样，IoT 中心才能根据正文内容路由消息。 如果未指定任一标头，IoT 中心不会针对消息尝试评估涉及到正文的任何查询表达式。 如果消息不是 JSON 消息，或者消息未指定内容类型和内容编码，你仍可以使用消息路由根据消息标头来路由消息。
+如果消息正文采用适当的 UTF-8、UTF-16 或 UTF-32 格式进行 JSON 编码，则 IoT 中心只能根据消息正文内容路由。 在消息标头中，将消息的内容类型设置为 `application/json`，并将内容编码设置为一个受支持 UTF 编码。 如果未指定任一标头，IoT 中心不会针对消息尝试评估涉及到正文的任何查询表达式。 如果消息不是 JSON 消息，或者消息未指定内容类型和内容编码，你仍可以使用消息路由根据消息标头来路由消息。
 
 可以在查询表达式中使用 `$body` 来路由消息。 可以在查询表达式中使用简单正文引用、正文数组引用或多个正文引用。 查询表达式还可以将正文引用与消息标头引用相结合。 例如，下面的所有查询表达式都有效：
 
@@ -348,7 +341,7 @@ $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## <a name="basics-of-an-iot-hub-query"></a>IoT 中心查询基础知识
-每个 IoT 中心查询包括 SELECT 和 FROM 子句，以及可选的 WHERE 和 GROUP BY 子句。 每个查询针对 JSON 文档的集合（例如，设备孪生）运行。 FROM 子句指示要迭代的文档集合（**devices** 或 **devices.jobs**）。 然后，应用 WHERE 子句中的筛选器。 使用聚合时，根据 GROUP BY 子句中的指定将此步骤的结果分组；对于每个组，将根据 SELECT 子句中的指定生成一行。
+每个 IoT 中心查询都包括 SELECT 和 FROM 子句，以及可选的 WHERE 和 GROUP BY 子句。 每个查询针对 JSON 文档的集合（例如，设备孪生）运行。 FROM 子句指示要迭代的文档集合（**devices** 或 **devices.jobs**）。 然后，应用 WHERE 子句中的筛选器。 使用聚合时，根据 GROUP BY 子句中的指定将此步骤的结果分组；对于每个组，根据 SELECT 子句中的指定生成一行。
 
 ```sql
 SELECT <select_list>
@@ -358,7 +351,7 @@ FROM <from_specification>
 ```
 
 ## <a name="from-clause"></a>FROM 子句
-**FROM <from_specification>** 子句只能采用两个值：**FROM devices** - 查询设备孪生；**FROM devices.jobs** - 查询每个设备上的作业详细信息。
+**FROM <from_specification>** 子句只能采用两个值：**FROM devices** 用来查询设备孪生；**FROM devices.jobs** 用来查询每个设备上的作业详细信息。
 
 ## <a name="where-clause"></a>WHERE 子句
 **WHERE <filter_condition>** 子句是可选的。 它指定要将 FROM 集合中的 JSON 文档内含在结果中时需满足的一项或多项条件。 任何 JSON 文档必须将指定的条件求值为“true”才能包含在结果中。
@@ -366,7 +359,7 @@ FROM <from_specification>
 [表达式和条件][lnk-query-expressions]部分中介绍了允许的条件。
 
 ## <a name="select-clause"></a>SELECT 子句
-SELECT 子句 (**SELECT <select_list>**) 是必需的，用于指定要从查询中检索的值。 它指定用于生成新 JSON 对象的 JSON 值。
+**SELECT <select_list>** 是必需的，用于指定要通过查询检索的值。 它指定用于生成新 JSON 对象的 JSON 值。
 对于 FROM 集合中已筛选子集（且可选择性分组）的每个元素，投影阶段将生成一个新 JSON 对象，其由 SELECT 子句中指定的值构造而成。
 
 SELECT 子句的语法如下：
@@ -391,7 +384,7 @@ SELECT 子句的语法如下：
         | max(<projection_element>)
 ```
 
-其中，**attribute_name** 引用 FROM 集合中 JSON 文档的任一属性。 在[设备孪生查询入门][lnk-query-getstarted]部分可以找到 SELECT 子句的一些示例。
+**Attribute_name** 引用 FROM 集合中 JSON 文档的任一属性。 在[设备孪生查询入门][lnk-query-getstarted]部分可以找到 SELECT 子句的一些示例。
 
 目前，仅支持在针对设备孪生执行的聚合查询中使用除 **SELECT \*** 以外的选择子句。
 
@@ -416,14 +409,14 @@ GROUP BY 的正式语法为：
         | < group_by_element > '.' attribute_name
 ```
 
-其中，**attribute_name** 引用 FROM 集合中 JSON 文档的任一属性。
+**Attribute_name** 引用 FROM 集合中 JSON 文档的任一属性。
 
 目前，仅在查询设备孪生时才支持使用 GROUP BY 子句。
 
 ## <a name="expressions-and-conditions"></a>表达式和条件
 从较高层面讲，*表达式*可以：
 
-* 求值为 JSON 类型的实例（例如布尔值、数字、字符串、数组或对象），以及
+* 求值结果为 JSON 类型的实例（例如布尔值、数字、字符串、数组或对象）。
 * 由设备 JSON 文档中的操作数据以及使用内置运算符和函数的常量定义。
 
 条件是求值为布尔值的表达式。 除布尔值 **true** 以外的任何常量均被视为 **false**（包括 **null**、**undefined**、任何对象或数组实例、任何字符串，当然还有布尔值 **false**）。
@@ -456,7 +449,7 @@ GROUP BY 的正式语法为：
     <array_constant> ::= '[' <constant> [, <constant>]+ ']'
 ```
 
-其中：
+若要了解表达式语法中的每个符号表示什么，请参阅下表：
 
 | 符号 | 定义 |
 | --- | --- |
@@ -465,7 +458,7 @@ GROUP BY 的正式语法为：
 | function_name| [函数](#functions)部分列出的任一函数。 |
 | decimal_literal |以十进制表示法表示的浮点数。 |
 | hexadecimal_literal |以字符串“0x”后接十六进制数字符串表示的数字。 |
-| string_literal |字符串文本是以零个或多个 Unicode 字符序列或转义符序列表示的 Unicode 字符串。 字符串文本括在单引号 (') 或双引号 (") 中。 允许的转义符：`\'`、`\"`、`\\`、`\uXXXX`（由 4 个十六进制数字定义的 Unicode 字符）。 |
+| string_literal |字符串文本是以零个或多个 Unicode 字符序列或转义符序列表示的 Unicode 字符串。 字符串文本括在单引号或双引号中。 允许的转义符：`\'`、`\"`、`\\`、`\uXXXX`（由 4 个十六进制数字定义的 Unicode 字符）。 |
 
 ### <a name="operators"></a>运算符
 支持以下运算符：
@@ -494,7 +487,7 @@ GROUP BY 的正式语法为：
 | CEILING(x) | 返回大于或等于指定数值表达式的最小整数值。 |
 | FLOOR(x) | 返回小于或等于指定数值表达式的最大整数。 |
 | SIGN(x) | 返回指定数值表达式的正数 (+1)、零 (0) 或负数 (-1)。|
-| SQRT(x) | 返回指定数字值的平方。 |
+| SQRT(x) | 返回指定数值的平方根。 |
 
 在路由情况下，支持以下检查和强制转换类型的函数：
 
@@ -514,7 +507,7 @@ GROUP BY 的正式语法为：
 
 | 函数 | 说明 |
 | -------- | ----------- |
-| CONCAT(x, …) | 返回一个字符串，该字符串是连接两个或多个字符串值的结果。 |
+| CONCAT(x, y, …) | 返回一个字符串，该字符串是连接两个或多个字符串值的结果。 |
 | LENGTH(x) | 返回指定字符串表达式的字符数。|
 | LOWER(x) | 返回在将大写字符数据转换为小写后的字符串表达式。 |
 | UPPER(x) | 返回在将小写字符数据转换为大写后的字符串表达式。 |

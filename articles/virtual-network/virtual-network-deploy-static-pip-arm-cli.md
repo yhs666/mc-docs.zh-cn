@@ -1,10 +1,10 @@
 ---
-title: "创建具有静态公共 IP 地址的 VM — Azure CLI 2.0 | Azure"
-description: "了解如何使用 Azure 命令行接口 (CLI) 2.0 创建具有静态公共 IP 地址的 VM。"
+title: "创建具有静态公共 IP 地址的 VM - Azure CLI | Azure"
+description: "了解如何使用 Azure 命令行接口 (CLI) 创建具有静态公共 IP 地址的 VM。"
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
@@ -14,22 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 05/02/2017
-ms.author: v-dazen
+ms.date: 12/11/2017
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5adc05f0717fe851ce186bc90bad03c4446346cd
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: dbbe5e9d40e65aa052fc5f5436839bb537c63332
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建具有静态公共 IP 地址的 VM
+# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>使用 Azure CLI 创建具有静态公共 IP 地址的 VM
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [模板](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell（经典）](virtual-networks-reserved-public-ip.md)
 
@@ -41,7 +40,7 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：[Resourc
 
 ## <a name = "create"></a>创建 VM
 
-可以使用 Azure CLI 2.0（本文）或 [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md) 完成此任务。 在以下步骤中，"" 中的变量值使用本方案的设置创建资源。 根据需要更改环境值。
+在以下步骤中，"" 中的变量值使用本方案的设置创建资源。 根据需要更改环境值。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -153,3 +152,5 @@ az vm create \
 ## <a name="next-steps"></a>后续步骤
 
 任何网络流量都可流入和流出本文中创建的 VM。 可以在 NSG 中定义入站和出站规则，以限制可以流入和流出网络接口和/或子网的流量。 若要了解有关 NSG 的详细信息，请阅读 [NSG 概述](virtual-networks-nsg.md)一文。
+
+<!-- Update_Description: update meta properties, wording update -->

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/18/2017
-ms.date: 11/06/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 49a539f0485ee2fc95084e3606f8ac44ff0b52ac
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: 0ba0d973ae398907a0ec06485bea38f11a3f378f
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 
@@ -143,6 +143,10 @@ ms.lasthandoff: 11/02/2017
 
 通常情况下，流量管理器用于将流量引导到部署在不同区域中的应用程序。 不过，流量管理器也可用于一个应用程序在同一区域中存在多个部署的情形。 流量管理器 Azure 终结点不允许将同一 Azure 区域中的多个 Web 应用终结点添加到同一流量管理器配置文件。
 
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>如何将流量管理器配置文件的 Azure 终结点移动到其他资源组？
+
+与流量管理器配置文件关联的 Azure 终结点使用其资源 ID 进行跟踪。 如果 Azure 资源作为终结点（例如公共 IP、经典云服务、WebApp 或以嵌套方式使用的另一流量管理器配置文件）使用，当其移动到其他资源组时，Azure 资源的 ID 会发生更改。 对于这种情况，目前必须删除流量管理器配置文件，方法是先删除这些终结点，然后再将其添加回配置文件。 
+
 ##  <a name="traffic-manager-endpoint-monitoring"></a>流量管理器终结点监视
 
 ### <a name="is-traffic-manager-resilient-to-azure-region-failures"></a>流量管理器能否灵活应对 Azure 区域故障？
@@ -202,6 +206,7 @@ Azure 不提供有关过去终结点运行状况的历史信息，也不提供�
 
 流量管理器在 HTTP 和 HTTPS 运行状况检查中使用 host 标头。 流量管理器使用的 host 标头是在配置文件中配置的终结点目标名称。 在主机头中使用的值不能通过目标属性单独指定。
 
+<!-- Not Available ### What are the IP addresses from which the health checks originate? on 17th Mar 2017-->
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>流量管理器预期会对终结点执行多少次运行状况检查？
 
 对终结点执行的流量管理器运行状况检查次数取决于以下因素：
@@ -257,4 +262,4 @@ Azure 不提供有关过去终结点运行状况的历史信息，也不提供�
 - 详细了解流量管理器[终结点监视和自动故障转移](../traffic-manager/traffic-manager-monitoring.md)。
 - 详细了解流量管理器[流量路由方法](../traffic-manager/traffic-manager-routing-methods.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, add one question on how to move Traffic Manager profile's Azure endpoints to a different resource group-->

@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/11/2016
-ms.date: 09/04/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1ccdf83d58840a7970807bfc94bdf40b2c4788cc
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 496bc1f032fe09601eda5a0e828ce17a20a83519
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 地址类型和分配方法（经典）
 可以将 IP 地址分配到与其他 Azure 资源通信的 Azure 资源，也可以将其分配到本地网络和 Internet。 可以在 Azure 中使用两种类型的 IP 地址：公共地址和专用地址。
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/28/2017
 > 
 
 ### <a name="dns-hostname-resolution"></a>DNS 主机名解析
-在创建云服务或 IaaS VM 时，需要提供在 Azure 的所有资源中唯一的云服务 DNS 名称。 这在 Azure 托管的 DNS 服务器中创建 *dnsname*.chinacloudapp.cn 到资源的公共 IP 地址的映射。 例如，创建云服务 DNS 名称为 **contoso** 的云服务时，完全限定域名 (FQDN) **contoso.chinacloudapp.cn** 将解析为该云服务的公共 IP 地址 (VIP)。 可以使用此 FQDN 创建指向 Azure 中的公共 IP 地址的自定义域 CNAME 记录。
+在创建云服务或 IaaS VM 时，需要提供在 Azure 的所有资源中唯一的云服务 DNS 名称。 这会在 Azure 托管的 DNS 服务器中创建一个映射，将 dnsname.cloudapp.chinacloudapi.cn 映射到资源的公共 IP 地址。 例如，创建云服务 DNS 名称为 **contoso** 的云服务时，完全限定域名 (FQDN) **contoso.cloudapp.chinacloudapi.cn** 将解析为该云服务的公共 IP 地址 (VIP)。 可以使用此 FQDN 创建指向 Azure 中的公共 IP 地址的自定义域 CNAME 记录。
 
 ### <a name="cloud-services"></a>云服务
 云服务始终具有一个称为虚拟 IP 地址 (VIP) 的公共 IP 地址。 可以在云服务中创建终结点，以便将 VIP 中的不同端口关联到 VM 中的内部端口以及云服务中的角色实例。 
@@ -142,9 +142,8 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 
 | 资源 | 动态 | 静态 | 多个 IP 地址 |
 | --- | --- | --- | --- |
-| VM（在*独立*云服务中） |是 |是 |是 |
-| PaaS 角色实例（在*独立*云服务中） |是 |否 |是 |
-| VM 或 PaaS 角色实例（在 VNet 中） |是 |是 |是 |
+| VM（在独立云服务或 VNet 中） |是 |是 |是 |
+| PaaS 角色实例（在独立云服务或 VNet 中） |是 |否 |否 |
 | 内部负载均衡器前端 |是 |是 |是 |
 | 应用程序网关前端 |是 |是 |是 |
 
@@ -157,6 +156,8 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 | 保留的公共 IP 地址 |20 |联系支持人员 |
 | 每个部署（云服务）的公共 VIP |5 |联系支持人员 |
 | 每个部署（云服务）的专用 VIP (ILB) |1 |1 |
+
+<!-- Not Available Make sure you read the full set of [limits for Networking](../azure-subscription-service-limits.md#networking-limits) in Azure. -->
 
 ## <a name="pricing"></a>定价
 在大多数情况下，公共 IP 地址是免费的。 使用额外和/或静态公共 IP 地址要收取少许费用。 确保你了解[公共 IP 的定价结构](https://www.azure.cn/pricing/details/reserved-ip-addresses/)。

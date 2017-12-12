@@ -1,11 +1,11 @@
 ---
-title: "创建网络安全组 - Azure CLI 2.0 | Azure"
-description: "了解如何使用 Azure CLI 2.0 创建和部署网络安全组。"
+title: "创建网络安全组 - Azure CLI | Azure"
+description: "了解如何使用 Azure CLI 创建和部署网络安全组。"
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: tysonn
+author: rockboyfor
+manager: digimobile
+editor: 
 tags: azure-resource-manager
 ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
 ms.service: virtual-network
@@ -14,34 +14,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/17/2017
-ms.date: 03/31/2017
-ms.author: v-dazen
+ms.date: 12/11/2017
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 64ae84d845df1f5334ab08c7f123bd382d3959d1
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: e8e16dc6bf7dff3a4870daa019b554df7bd76f11
+ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="create-network-security-groups-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建网络安全组
+# <a name="create-network-security-groups-using-the-azure-cli"></a>使用 Azure CLI 创建网络安全组
 
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本 
-
-可使用以下 CLI 版本之一完成任务： 
-
-- [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md) - 适用于经典部署模型和资源管理部署模型的 CLI 
-- [Azure CLI 2.0](#Create-the-nsg-for-the-front-end-subnet) - 适用于资源管理部署模型的下一代 CLI（详见本文）
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-下面的 Azure CLI 2.0 命令示例需要一个已基于上述方案创建的简单环境。 请下载模板，执行一些必要的修改，并使用 Azure CLI 进行部署。 
-
->[!NOTE]
-> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
+以下示例 Azure CLI 命令基于前面的方案需要现有的简单环境。 
 
 ## <a name="create-the-nsg-for-the-frontend-subnet"></a>为 `FrontEnd` 子网创建 NSG
 
@@ -363,3 +353,5 @@ ms.lasthandoff: 11/10/2017
     "routeTable": null
     }
     ```
+
+<!-- Update_Description: update meta properties, update link -->
