@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 10888683d9e53528d8a0fa22c5f692f3f0c8d8c6
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.openlocfilehash: b128a9a5a7f9a9882f2b71d31de9096243e7d5c7
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>使用网络观察程序和开源工具执行网络入侵检测
 
@@ -281,10 +281,9 @@ tail -f /var/log/suricata/fast.log
 通过将网络观察程序提供的数据包捕获与 Suricata 等开源 IDS 工具相结合，可以针对各种威胁执行网络入侵检测。 使用这些仪表板可以快速探查网络中的趋势和异常，以及挖掘数据来发现恶意用户代理或有漏洞的端口触发警报的根本原因。 使用这些提取的数据，可以在如何抵御网络中的任何有害入侵企图方面做出明智的决策，并创建规则来防范网络中将来发生入侵。
 
 ## <a name="next-steps"></a>后续步骤
+<!--Not Available on [Use packet capture to do proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md) -->
 
-访问 [Use packet capture to do proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md)（在 Azure Functions 中使用数据包捕获执行主动网络监视），了解如何根据警报触发数据包捕获
-
-访问 [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)（使用 Power BI 可视化 NSG 流日志），了解如何使用 Power BI 可视化 NSG 流日志
+访问[使用 Power BI 可视化 NSG 流日志](network-watcher-visualize-nsg-flow-logs-power-bi.md)，了解如何使用 Power BI 可视化 NSG 流日志
 
 <!-- images -->
 [1]: ./media/network-watcher-intrusion-detection-open-source-tools/figure1.png

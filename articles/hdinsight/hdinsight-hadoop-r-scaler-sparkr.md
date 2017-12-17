@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/19/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 6091432399638793118f673826b89d3c73d24eab
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: afc9db570100fe7866366f0cb7cc476719db3812
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>在 HDInsight 中将 ScaleR 和 SparkR 配合使用
 
@@ -208,7 +208,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>将航班和天气数据导入 Spark DataFrames
 
-现在，我们使用 SparkR [read.df()](https://docs.databricks.com/spark/latest/sparkr/functions/read.df.html) 函数将天气和航班数据导入 Spark DataFrames。 与其他许多 Spark 方法一样，此函数是惰式执行的，也就是说，它会排入执行队列，但只在需要时才会执行。
+现在，使用 SparkR [read.df()](https://docs.databricks.com/spark/latest/sparkr/functions/read.df.html) 函数将天气和航班数据导入 Spark DataFrame。 与其他许多 Spark 方法一样，此函数是惰式执行的，也就是说，它会排入执行队列，但只在需要时才会执行。
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")

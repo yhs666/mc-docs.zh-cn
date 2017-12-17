@@ -3,8 +3,8 @@ title: "VM 上的计算密集型 Java 应用程序 | Azure"
 description: "了解如何创建运行可由其他 Java 应用程序监视的、计算密集型的 Java 应用程序的 Azure 虚拟机。"
 services: virtual-machines-windows
 documentationcenter: java
-author: rmcmurray
-manager: erikre
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: ae6f2737-94c7-4569-9913-d871450c2827
@@ -14,19 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 03/01/2017
-ms.author: v-dazen
-ms.openlocfilehash: b6a3c48ec4cfa5610b44c51ee27826ec9f6ee7b0
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: c93a7f1854c0a16a17cb5a8320215bf9cdc4842d
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>如何在虚拟机上通过 Java 运行计算密集型任务
 > [!IMPORTANT] 
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-借助 Azure，可以使用虚拟机来处理计算密集型任务。 例如，虚拟机可以处理任务并将结果传送给客户端计算机或移动应用程序。 阅读完本文后，将了解如何创建运行可由其他 Java 应用程序监视的、计算密集型 Java 应用程序的虚拟机。
+借助 Azure，可以使用虚拟机来处理计算密集型任务。 例如，虚拟机可以处理任务并将结果传送给客户端计算机或移动应用程序。 阅读完本文后，可以了解如何创建运行可由其他 Java 应用程序监视的、计算密集型 Java 应用程序的虚拟机。
 
 本教程假定你知道如何创建 Java 控制台应用程序，而且你可以将库导入 Java 应用程序并生成 Java 存档 (JAR)。 假定不了解 Azure。
 
@@ -59,7 +60,7 @@ ms.lasthandoff: 07/13/2017
 5. 在“虚拟机配置”  对话框中：
    1. 指定虚拟机的名称。
    2. 指定要用于虚拟机的大小。
-   3. 在“用户名”  字段中输入管理员的名称。 请记住接下来要输的名称和密码，此名称和密码将用于远程登录虚拟机。
+   3. 在“用户名”  字段中输入管理员的名称。 请记住接下来要输的名称和密码，此名称和密码用于远程登录虚拟机。
    4. 在“新密码”字段中输入密码，然后在“确认”字段中再次输入密码。 这是 Administrator 帐户密码。
    5. 单击“下一步” 。
 6. 在下一个“虚拟机配置”  对话框中：
@@ -93,7 +94,7 @@ ms.lasthandoff: 07/13/2017
    ![“服务总线节点”屏幕截图][svc_bus_node]
 4. 在“新建服务命名空间”对话框中，输入一个**命名空间**，然后单击“检查可用性”按钮以确保该命名空间是唯一的。  
    ![“创建新的命名空间”屏幕截图][create_namespace]
-5. 确保该命名空间名称可用之后，选择应在其中托管命名空间的国家或地区，然后单击“创建命名空间”  按钮。  
+5. 确保该命名空间名称可用之后，选择应在其中托管命名空间的国家或地区，并单击“创建命名空间”  按钮。  
 
    创建的命名空间随后将显示在 Azure 经典管理门户中，并需要一段时间激活。 请等到状态变为“活动”  后再继续下一步。
 
@@ -104,7 +105,7 @@ ms.lasthandoff: 07/13/2017
    ![“可用命名空间”屏幕截图][avail_namespaces]
 2. 从显示的列表中选择刚刚创建的命名空间。
    ![“命名空间列表”屏幕截图][namespace_list]
-3. 右侧的“属性”  窗格将列出新命名空间的属性。
+3. 右侧的“属性”  窗格列出新命名空间的属性。
    ![“属性窗格”屏幕截图][properties_pane]
 4. “默认密钥”  为隐藏状态。 单击“查看”  按钮以显示安全凭据。
    ![“默认密钥”屏幕截图][default_key]
@@ -112,8 +113,8 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="how-to-create-a-java-application-that-performs-a-compute-intensive-task"></a>如何创建执行计算密集型任务的 Java 应用程序
 1. 在开发计算机（不需要为所创建的虚拟机）上，下载 [Azure SDK for Java](/develop/java/)。
-2. 使用本节末尾的示例代码创建 Java 控制台应用程序。 在本教程中，将使用 **TSPSolver.java** 作为 Java 文件名。 将 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 和 **your\_service\_bus\_key** 占位符修改为分别使用服务总线的**命名空间**、**默认颁发者**和**默认密钥**值。
-3. 编码后，将应用程序导出到可运行的 Java 存档 (JAR)，并将所需的库打包到生成的 JAR 中。 在本教程中，将使用 **TSPSolver.jar** 作为生成的 JAR 名称。
+2. 使用本节末尾的示例代码创建 Java 控制台应用程序。 本教程会使用 **TSPSolver.java** 作为 Java 文件名。 将 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 和 **your\_service\_bus\_key** 占位符修改为分别使用服务总线的**命名空间**、**默认颁发者**和**默认密钥**值。
+3. 编码后，将应用程序导出到可运行的 Java 存档 (JAR)，并将所需的库打包到生成的 JAR 中。 本教程会使用 **TSPSolver.jar** 作为生成的 JAR 名称。
 
 <p/>
 
@@ -299,8 +300,8 @@ ms.lasthandoff: 07/13/2017
     }
 
 ## <a name="how-to-create-a-java-application-that-monitors-the-progress-of-the-compute-intensive-task"></a>如何创建监视计算密集型任务的进度的 Java 应用程序
-1. 在开发计算机上，使用本节末尾的示例代码创建 Java 控制台应用程序。 在本教程中，将使用 **TSPClient.java** 作为 Java 文件名。 如前所述，将 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 和 **your\_service\_bus\_key** 占位符修改为分别使用服务总线的**命名空间**、**默认颁发者**和**默认密钥**值。
-2. 将应用程序导出到可运行的 JAR，并将所需的库打包到生成的 JAR 中。 在本教程中，将使用 **TSPClient.jar** 作为生成的 JAR 名称。
+1. 在开发计算机上，使用本节末尾的示例代码创建 Java 控制台应用程序。 本教程会使用 **TSPClient.java** 作为 Java 文件名。 如前所述，将 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 和 **your\_service\_bus\_key** 占位符修改为分别使用服务总线的**命名空间**、**默认颁发者**和**默认密钥**值。
+2. 将应用程序导出到可运行的 JAR，并将所需的库打包到生成的 JAR 中。 本教程会使用 **TSPClient.jar** 作为生成的 JAR 名称。
 
 <p/>
 
@@ -482,7 +483,7 @@ ms.lasthandoff: 07/13/2017
 
         java -jar TSPSolver.jar 8
 
-   如果没有指定数字，则它将对 10 个城市运行。 在解算器找到当前最短的路线后，它会将这些路线添加到该队列中。
+   如果没有指定数字，则它会对 10 个城市运行。 在解算器找到当前最短的路线后，它会将这些路线添加到该队列中。
 
 > [!NOTE]
 > 指定的数字越大，解算器运行的时间将越长。 例如，对 14 个城市运行可能只需要几分钟，而对 15 个城市运行则可能需要几小时。 增加到 16 个或更多城市可能需要数天的运行时间（最终数周、数月和数年的时间）。 这是因为，随着城市数量的增加，解算器评估的排列数会迅速增加。
@@ -503,7 +504,7 @@ ms.lasthandoff: 07/13/2017
 
         java -jar TSPClient.jar 1
 
-    客户端会一直运行，直到它看到“完成”的队列消息为止。 请注意，如果多次运行解算器而没有运行客户端，则可能需要多次运行客户端才能完全清空队列。 或者，可以删除该队列，然后重新创建一个。 若要删除队列，请运行以下 **TSPSolver**（不是 **TSPClient**）命令。
+    客户端会一直运行，直到它看到“完成”的队列消息为止。 请注意，如果多次运行解算器而没有运行客户端，则可能需要多次运行客户端才能完全清空队列。 或者，可以删除该队列，并重新创建一个。 若要删除队列，请运行以下 **TSPSolver**（不是 **TSPClient**）命令。
 
         java -jar TSPSolver.jar deletequeue
 
@@ -521,3 +522,4 @@ ms.lasthandoff: 07/13/2017
 [properties_pane]:media/java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
 [default_key]:media/java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../../../java-add-certificate-ca-store.md
+<!-- Update_Description: add classic portal migration notice. -->

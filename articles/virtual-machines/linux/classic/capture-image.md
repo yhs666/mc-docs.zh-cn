@@ -3,8 +3,8 @@ title: "捕获 Linux VM 的映像 | Azure"
 description: "了解如何使用经典部署模型捕获基于 Linux 的 Azure 虚拟机 (VM) 的映像。"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 17d7ffee-a58e-4290-9de1-64c3cf1ddc05
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: a6e73fcf57561060c740e777fc1c939960b36b31
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: d1409a9521dcd6093c79be50b1e3064edf2b37c0
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>如何捕获经典 Linux 虚拟机以用作映像
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何[使用 Resource Manager 模型执行这些步骤](../capture-image.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 本文演示如何捕获运行 Linux 的经典 Azure 虚拟机 (VM) 作为创建其他虚拟机的映像。 此映像包括 OS 磁盘和附加到 VM 的数据磁盘。 它不包括网络配置，因此在使用此映像创建其他 VM 时需要进行网络配置。
 

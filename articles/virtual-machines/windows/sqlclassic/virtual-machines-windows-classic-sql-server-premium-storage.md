@@ -3,7 +3,7 @@ title: "将 Azure 高级存储用于 SQL Server | Azure"
 description: "本文使用通过经典部署模型创建的资源并介绍如何将 Azure 高级存储用于 Azure 虚拟机上运行的 SQL Server。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: monicar
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/01/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 572043c8060713bbb7bbb04e7261e7ca68c6d0e7
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: 7c5ab2e696c8552ec4f7393d31404cbe0329f08f
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>将 Azure 高级存储用于虚拟机上的 SQL Server
 ## <a name="overview"></a>概述
@@ -48,7 +48,7 @@ ms.lasthandoff: 08/29/2017
 
 ### <a name="machine-size"></a>虚拟机大小
 要使用高级存储，需要使用 DS 系列虚拟机 (VM)。 如果以前尚未在云服务中使用 DS 系列虚拟机，则必须在重新创建 VM 作为 DS* 角色大小之前，删除现有 VM、保留附加磁盘，然后创建新的云服务。 有关虚拟机大小的详细信息，请参阅 [Azure 的虚拟机和云服务大小](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-
+<!-- Update_Description: update meta properties, update link -->
 ### <a name="cloud-services"></a>云服务
 在新的云服务中创建 VM 时，只能将 DS* VM 用于高级存储。 如果在 Azure 中使用 SQL Server AlwaysOn，则 AlwaysOn 侦听器将引用与云服务关联的 Azure 内部或外部负载均衡器 IP 地址。 本文重点介绍如何在此场景中迁移，同时保持可用性。
 

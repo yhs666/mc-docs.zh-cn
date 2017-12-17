@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 75d6fee0669cd343d97cd070759184f1f4a386a9
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 77a71f512d065880e9b6c629295f7e28f95f7695
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>使用 PowerShell 创建 Azure VM 的自定义映像
 
@@ -96,7 +96,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
 
 ## <a name="create-vms-from-the-image"></a>从映像创建 VM
 
-现在，你已有了一个映像，可以从该映像创建一个或多个新 VM。 从自定义映像创建 VM 与使用应用商店映像创建 VM 非常相似。 如果使用应用商店映像，需提供有关映像、映像提供程序、产品/服务、SKU 和版本的信息。 如果使用自定义映像，则仅需提供自定义映像资源的 ID。 
+现在，你已有了一个映像，可以从该映像创建一个或多个新 VM。 从自定义映像创建 VM 与使用应用商店映像创建 VM 非常相似。 如果使用 Marketplace 映像，需提供有关映像、映像提供程序、产品/服务、SKU 和版本的信息。 如果使用自定义映像，则仅需提供自定义映像资源的 ID。 
 
 在以下脚本中，我们使用 [Get-AzureRmImage](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermimage) 创建变量 $image 来存储自定义映像的相关信息，然后使用 [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage) 并通过刚创建的 $image 变量指定 ID。 
 
@@ -207,4 +207,4 @@ Remove-AzureRmImage `
 > [!div class="nextstepaction"]
 > [创建高度可用的 VM](tutorial-availability-sets.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/31/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 01c85ba2e3e9eef5d51a08e3495b431c48a5991e
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 10/24/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: 7fbfab4adf457d7c34af0a34eebff6a1bf5e1c4e
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 群集上安装 Giraph 并使用 Giraph 处理大型图形
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 09/12/2017
 > [!WARNING]
 > 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门将帮助找出并解决与这些组件相关的问题。
 >
-> 自定义组件（如 Giraph）可获得合理范围的支持，以帮助你进一步排查问题。 Azure.cn 支持可能能够解决问题。 如果不能，你必须去开源社区查阅资料，可以在那里找到关于该技术的深层专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自定义组件（如 Giraph）可获得合理范围的支持，以帮助你进一步排查问题。 Azure.cn 支持可能能够解决问题。 如果不能，你必须去开源社区查阅资料，可以在那里找到关于该技术的深层专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 
 ## <a name="what-the-script-does"></a>脚本功能
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 09/12/2017
 
 1. 使用[创建基于 Linux 的 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-portal.md)中的步骤开始创建群集，但是不完成创建。
 
-2. 在“可选配置”边栏选项卡上，选择“脚本操作”，并提供以下信息：
+2. 在“可选配置”部分中，选择“脚本操作”，并提供以下信息：
 
    * **名称**：输入脚本操作的友好名称。
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 09/12/2017
 
    * **参数**：将此字段留空
 
-3. 在“脚本操作”的底部，使用“选择”按钮保存配置。 最后，使用“可选配置”边栏选项卡底部的“选择”按钮保存可选配置信息。
+3. 在“脚本操作”的底部，使用“选择”按钮保存配置。 最后，使用“可选配置”部分底部的“选择”按钮保存可选配置信息。
 
 4. 根据[创建基于 Linux 的 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-portal.md)中所述继续创建群集。
 

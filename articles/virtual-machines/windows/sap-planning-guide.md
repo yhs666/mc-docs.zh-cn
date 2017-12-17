@@ -18,11 +18,11 @@ origin.date: 11/08/2016
 ms.date: 05/22/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b02e66c9e84068af1eb518be1542599bd75f96f
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 024f2dd6036287debfdb64af91f63287b2036225
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="sap-netweaver-on-azure-windows-virtual-machines-vms---planning-and-implementation-guide"></a>Azure Windows 虚拟机 (VM) 上的 SAP NetWeaver - 规划和实施指南
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -244,7 +244,8 @@ ms.lasthandoff: 11/28/2017
 [storage-azure-cli]:../../storage/storage-azure-cli.md
 [storage-azure-cli-copy-blobs]:../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../storage/storage-introduction.md
-[storage-powershell-guide-full-copy-vhd]:../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
+[storage-powershell-guide-full-copy-vhd]:../../storage/common/storage-powershell-guide-full.md
+<!--Not Available on #how-to-copy-blobs-from-one-storage-container-to-another -->
 [storage-premium-storage-preview-portal]:../../storage/storage-premium-storage.md
 [storage-redundancy]:../../storage/storage-redundancy.md
 [storage-scalability-targets]:../../storage/storage-scalability-targets.md

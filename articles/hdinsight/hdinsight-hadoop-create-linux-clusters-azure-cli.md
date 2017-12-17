@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 09/26/2017
-ms.date: 11/27/2017
+origin.date: 12/01/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 57c196d3d9ba152a0bccee4ae090bc3841789e4a
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.openlocfilehash: 3341cb6a14b359bc494549e71e7dd1eefdd1007a
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>使用 Azure CLI 创建 HDInsight 群集
 
@@ -135,19 +135,17 @@ ms.lasthandoff: 11/17/2017
 
 ### <a name="hadoop-clusters"></a>Hadoop 群集
 
-* [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
-* [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
+* [将 Hive 与 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
+* [将 Pig 与 HDInsight 配合使用](hadoop/hdinsight-use-pig.md)
+* [将 MapReduce 与 HDInsight 配合使用](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>HBase 群集
 
-* [HBase on HDInsight 入门](hdinsight-hbase-tutorial-get-started-linux.md)
-* [为 HBase on HDInsight 开发 Java 应用程序](hdinsight-hbase-build-java-maven-linux.md)
+* [HBase on HDInsight 入门](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [为 HBase on HDInsight 开发 Java 应用程序](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm 群集
 
-* [为 Storm on HDInsight 开发 Java 拓扑](hdinsight-storm-develop-java-topology.md)
-* [在 Storm on HDInsight 中使用 Python 组件](hdinsight-storm-develop-python-topology.md)
-* [使用 Storm on HDInsight 部署和监视拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)
-
-<!--Update_Description: wording update-->
+* [为 Storm on HDInsight 开发 Java 拓扑](storm/apache-storm-develop-java-topology.md)
+* [在 Storm on HDInsight 中使用 Python 组件](storm/apache-storm-develop-python-topology.md)
+* [使用 Storm on HDInsight 部署和监视拓扑](storm/apache-storm-deploy-monitor-topology-linux.md)

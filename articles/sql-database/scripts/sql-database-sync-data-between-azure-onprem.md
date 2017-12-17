@@ -18,11 +18,11 @@ origin.date: 7/31/2017
 ms.date: 12/11/2017
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: a624a03e33bb4ad1596479c053b079ecd7596924
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 0c4bcd0d40078c850ef2bd815174fd534b452b54
+ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>使用 PowerShell 在 SQL 数据库和 SQL Server 本地数据库之间进行同步
 
@@ -379,7 +379,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 | [Get-AzureRmSqlSyncAgentLinkedDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  获取有关同步代理的所有信息 |
 | [New-AzureRmSqlSyncMember](https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  向同步组中添加新成员 |
 | [Update-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  刷新数据库架构信息 |
-| [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchem) |  获取数据库架构信息 |
+| [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncschema) |  获取数据库架构信息 |
 | [Update-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  更新同步组 |
 | [Start-AzureRmSqlSyncGroupSync](https://docs.microsoft.com/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | 触发同步 |
 | [Get-AzureRmSqlSyncGroupLog](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  查看同步日志 |

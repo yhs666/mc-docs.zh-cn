@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/04/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: ced45b093ac40ea415a81469be5e7ceb37dcf161
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.openlocfilehash: 54f7c90063eae7082cb5a81d3d1d285fc2227f8a
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>从基于 Windows 的 HDInsight 群集迁移到基于 Linux 的群集
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 11/17/2017
 | --- | --- |
 | **PowerShell**（服务器端脚本，包含群集创建期间使用的脚本操作） |重新编写为 Bash 脚本。 有关脚本操作的信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)和[针对基于 Linux 的 HDInsight 的脚本操作开发](hdinsight-hadoop-script-actions-linux.md)。 |
 | **Azure CLI**（服务器端脚本） |尽管 Azure CLI 可在 Linux 上使用，但它并没有预先安装在 HDInsight 群集头节点上。 有关安装 Azure CLI 的详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-lastest)。 |
-| **.NET 组件** |.NET 在基于 Linux 的 HDInsight 上通过 [Mono](http://mono-project.com) 受支持。 有关详细信息，请参阅[将 .NET 解决方案迁移到基于 Linux 的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)。 |
+| **.NET 组件** |.NET 在基于 Linux 的 HDInsight 上通过 [Mono](https://mono-project.com) 受支持。 有关详细信息，请参阅[将 .NET 解决方案迁移到基于 Linux 的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)。 |
 | **Win32 组件或其他仅限 Windows 的技术** |指南取决于组件或技术。 你也许能够找到与 Linux 兼容的版本。 如果未找到，则必须找到一个替代解决方案或重写此组件。 |
 
 > [!IMPORTANT]
@@ -189,8 +189,8 @@ Pig 和 MapReduce 工作负荷在基于 Linux 的群集上很相似。 但是，
 基于 Linux 的 HDInsight 不提供远程桌面功能。 可以改用 SSH 远程连接到群集头节点。 有关详细信息，请参阅以下文档：
 
 * [将 Hive 与 SSH 配合使用](hdinsight-hadoop-use-hive-ssh.md)
-* [将 Pig 与 SSH 配合使用](hdinsight-hadoop-use-pig-ssh.md)
-* [将 MapReduce 与 SSH 配合使用](hdinsight-hadoop-use-mapreduce-ssh.md)
+* [将 Pig 与 SSH 配合使用](hadoop/apache-hadoop-use-pig-ssh.md)
+* [将 MapReduce 与 SSH 配合使用](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### <a name="hive"></a>Hive
 
@@ -201,11 +201,11 @@ Pig 和 MapReduce 工作负荷在基于 Linux 的群集上很相似。 但是，
 
 | 对于基于 Windows 的群集，我使用... | 对于基于 Linux 的群集... |
 | --- | --- |
-| **Hive 编辑器** |[Ambari 中的 Hive 视图](hdinsight-hadoop-use-hive-ambari-view.md) |
+| **Hive 编辑器** |[Ambari 中的 Hive 视图](hadoop/apache-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;` 以启用 Tez |Tez 是基于 Linux 的群集的默认执行引擎，因此不再需要 set 语句。 |
 | C# 用户定义函数 | 有关通过基于 Linux 的 HDInsight 验证 C# 组件的信息，请参阅[将 .NET 解决方案迁移到基于 Linux 的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | 服务器上的 CMD 文件或脚本作为 Hive 作业的一部分调用 |使用 Bash 脚本 |
-| 从远程桌面运行 `hive` 命令 |使用 [Beeline](hdinsight-hadoop-use-hive-beeline.md)，或者[从 SSH 会话使用 Hive](hdinsight-hadoop-use-hive-ssh.md) |
+| 从远程桌面运行 `hive` 命令 |使用 [Beeline](hadoop/apache-hadoop-use-hive-beeline.md)，或者[从 SSH 会话使用 Hive](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -234,7 +234,7 @@ Oozie 工作流支持 shell 操作。 shell 操作将默认 shell 用于操作�
 
 | 对于基于 Windows 的群集，我使用... | 对于基于 Linux 的群集... |
 | --- | --- |
-| Storm 仪表板 |Storm 仪表板不可用。 请参阅[在基于 Linux 的 HDInsight 上部署和管理 Storm 拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)，了解提交拓扑的方法 |
+| Storm 仪表板 |Storm 仪表板不可用。 请参阅[在基于 Linux 的 HDInsight 上部署和管理 Storm 拓扑](storm/apache-storm-deploy-monitor-topology-linux.md)，了解提交拓扑的方法 |
 | Storm UI |可在 https://CLUSTERNAME.azurehdinsight.cn/stormui 获得 Storm UI |
 | 使用 Visual Studio 创建、部署和管理 C# 或混合拓扑 |可以使用 Visual Studio 在基于 Linux 的 Storm on HDInsight 上创建、部署和管理 C# (SCP.NET) 或混合拓扑。 它只能与在 2016 年 10 月 28 日之后创建的群集一起使用。 |
 

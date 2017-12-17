@@ -3,8 +3,8 @@ title: "导出包含 VM 扩展的 Azure 资源组 | Azure"
 description: "导出包含虚拟机扩展的 Resource Manager 模板。"
 services: virtual-machines-windows
 documentationcenter: 
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/05/2016
-ms.date: 03/28/2017
-ms.author: v-dazen
-ms.openlocfilehash: ba52ff2400a6412c9740c3165c487ef3815ec8a4
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: febaba7c78371527ad952681b1eba849ec0f6228
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>导出包含 VM 扩展的资源组
 
-可以将 Azure 资源组导出到新的 Resource Manager 模板，然后重新部署该模板。 导出过程会对现有资源进行解释，并创建一个 Resource Manager 模板，该模板在部署后会生成类似的资源组。 针对包含虚拟机扩展的资源组使用资源组导出选项时，需考虑多个事项，例如扩展兼容性和受保护设置。
+可以将 Azure 资源组导出到新的 Resource Manager 模板，并重新部署该模板。 导出过程会对现有资源进行解释，并创建一个 Resource Manager 模板，该模板在部署后会生成类似的资源组。 针对包含虚拟机扩展的资源组使用资源组导出选项时，需考虑多个事项，例如扩展兼容性和受保护设置。
 
 本文档详细介绍在使用虚拟机扩展（包括支持的扩展的列表）时如何实施资源组导出过程，以及如何处理受保护的数据。
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="export-the-resource-group"></a>导出资源组
 
-若要将资源组导出到可重用模板中，请完成以下步骤：
+要将资源组导出到可重用模板中，请完成以下步骤：
 
 1. 登录到 Azure 门户
 2. 在“中心”菜单上，单击“资源组”
@@ -146,7 +146,7 @@ Azure Resource Manager 自动化脚本生成一个 Resource Manager 模板、一
 
 如果使用模板参数提供属性值，则需创建这些参数。 为受保护的设置值创建模板参数时，请确保使用 `SecureString` 参数类型，以便保护敏感值。 如需详细了解如何使用参数，请参阅[创作 Azure Resource Manager 模板](../../resource-group-authoring-templates.md)。
 
-以 `IaasDiagnostic` 扩展为例，将在 Resource Manager 模板的参数部分创建以下参数。
+以 `IaasDiagnostic` 扩展为例，会在 Resource Manager 模板的参数部分创建以下参数。
 
 ```json
 "storageAccountName": {
@@ -160,3 +160,4 @@ Azure Resource Manager 自动化脚本生成一个 Resource Manager 模板、一
 ```
 
 目前可以使用任何模板部署方法部署此模板。
+<!-- Update_Description: update meta properties, wording update -->

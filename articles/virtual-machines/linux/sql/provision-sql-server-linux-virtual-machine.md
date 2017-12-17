@@ -5,19 +5,19 @@ services: virtual-machines-linux
 author: rockboyfor
 ms.author: v-yeche
 manager: digimobile
-origin.date: 10/04/2017
-ms.date: 12/01/2017
+origin.date: 10/25/2017
+ms.date: 12/18/2017
 ms.topic: hero-article
 tags: azure-service-management
 ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: b042260828217f5e50e9d294ef7eeecdd84baf52
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.openlocfilehash: 7e160628cbe56fb22d791d840badb8212d6cb8cd
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 门户中预配 Linux SQL Server 虚拟机
 
@@ -172,7 +172,7 @@ ssh azureadmin@40.55.55.555
 
    ```bash
    sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
-   sudo firewall-cmd -reload
+   sudo firewall-cmd --reload
    ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -183,4 +183,4 @@ ssh azureadmin@40.55.55.555
 
 有关 Linux 上的 SQL Server 的更多常规信息，请参阅 [Linux 上的 SQL Server 2017 概述](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)。 若要详细了解如何使用 SQL Server 2017 Linux 虚拟机，请参阅 [Azure 上的 SQL Server 2017 虚拟机概述](sql-server-linux-virtual-machines-overview.md)。
 
-<!--Update_Description: new articles on provision SQL server linux VM-->
+<!--Update_Description: update meta properties, wording update -->

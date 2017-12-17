@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/07/2017
-ms.date: 05/31/2017
-ms.author: v-dazen
+ms.date: 12/25/2017
+ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 124a0264c6225c69fa867aa57f265b04e26b250b
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 3232367c52728e2d13bb6bff34468731c0567a9d
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>使用 Ambari API 在 HDInsight 中监视 Hadoop 群集
 了解如何使用 Ambari API 监视 HDInsight 群集。
@@ -47,7 +47,7 @@ HDInsight 目前仅支持 Ambari 监视功能。 Ambari API 1.0 受 HDInsight �
   > 在 Windows 中使用 cURL 命令时，对选项值使用双引号而非单引号。
   > 
   > 
-* **一个 Azure HDInsight 群集**。 有关群集预配的说明，请参阅[开始使用 HDInsight][hdinsight-get-started] 或[预配 HDInsight 群集][hdinsight-provision]。 你需要以下数据才能完成本教程：
+* **一个 Azure HDInsight 群集**。 有关群集预配的说明，请参阅[开始使用 HDInsight][hdinsight-get-started] 或[预配 HDInsight 群集][hdinsight-provision]。 需要以下数据才能完成本教程：
 
   | 群集属性 | Azure PowerShell 变量名 | 值 | 说明 |
   | --- | --- | --- | --- |
@@ -123,7 +123,7 @@ HDInsight 目前仅支持 Ambari 监视功能。 Ambari API 1.0 受 HDInsight �
 
 **对于 10/8/2014 版本**：
 
-使用 Ambari 终结点“https://{clusterDns}.azurehdinsight.cn/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.cn/services/{servicename}/components/{componentname}”时，host_name 字段会返回节点的完全限定域名 (FQDN)，而不是主机名。 在 10/8/2014 版本之前，此示例仅返回 "**headnode0**"。 在 10/8/2014 版本之后，你将获取 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.cn**"，如以上示例所示。 需要这种改变促进实现可以在一个虚拟网络 (VNET) 中部署多个群集类型（如 HBase 和 Hadoop）的方案。 例如，使用 HBase 作为 Hadoop 的后端平台时，会发生这种情况。
+使用 Ambari 终结点“https://{clusterDns}.azurehdinsight.cn/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.cn/services/{servicename}/components/{componentname}”时，host_name 字段会返回节点的完全限定域名 (FQDN)，而不是主机名。 在 10/8/2014 版本之前，此示例仅返回 "**headnode0**"。 在 10/8/2014 版本之后，你获取 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.cn**"，如以上示例所示。 需要这种改变促进实现可以在一个虚拟网络 (VNET) 中部署多个群集类型（如 HBase 和 Hadoop）的方案。 例如，使用 HBase 作为 Hadoop 的后端平台时，会发生这种情况。
 
 ## <a name="ambari-monitoring-apis"></a>监视 API 的 Ambari
 下表列出了一些最常用的 Ambari 监视 API 调用。 有关该 API 的详细信息，请参阅 [Ambari API 参考][ambari-api-reference]。
@@ -167,7 +167,7 @@ HDInsight 目前仅支持 Ambari 监视功能。 Ambari API 1.0 受 HDInsight �
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-documentation]: /hdinsight/
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png

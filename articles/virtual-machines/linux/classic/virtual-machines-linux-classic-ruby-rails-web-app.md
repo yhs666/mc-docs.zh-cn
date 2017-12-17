@@ -3,7 +3,7 @@ title: "在 Linux VM 上托管 Ruby on Rails 网站 | Azure"
 description: "在 Azure 上使用 Linux 虚拟机设置和托管基于 Ruby on Rails 的网站。"
 services: virtual-machines-linux
 documentationcenter: ruby
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: b4a10d393f39b825212769a586197fb7a0a8100b
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: 07a752bf5974ce913b41cee4e68c7dfbb5d4f602
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM 上的 Ruby on Rails Web 应用程序
 本教程介绍如何在 Azure 中使用 Linux 虚拟机托管 Ruby on Rails 网站。  
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/29/2017
 
 > [!IMPORTANT]
 > Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../../../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。
->
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 >
 
 ## <a name="create-an-azure-vm"></a>创建 Azure VM
@@ -157,4 +157,4 @@ ms.lasthandoff: 08/29/2017
 [new-endpoint]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
 [new-endpoint1]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!--Update_Description: update storage links-->
+<!--Update_Description: update meta properties, add classic portal migration notice.-->

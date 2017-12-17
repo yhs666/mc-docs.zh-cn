@@ -3,8 +3,8 @@ title: "登录到经典 Azure VM | Azure"
 description: "使用 Azure 门户登录到使用经典部署模型创建的 Windows 虚拟机。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 3c1239ed-07dc-48b8-8b3d-dc8c5f0ab20e
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 5de137f21786c0cd029ca02fcb0a9cd48cebffa4
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: 9227a86ac716c2e1fd6b3d2d65e08fa2169296bf
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>使用 Azure 门户登录到 Windows 虚拟机
 在 Azure 门户中，使用“连接”按钮启动远程桌面会话，然后登录到 Windows VM。
@@ -34,6 +34,7 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关如何使用 Resource Manager 模型登录到 VM 的信息，请参阅[此处](../connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="connect-to-the-virtual-machine"></a>连接到虚拟机
 1. 登录到 Azure 门户。
@@ -65,4 +66,6 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 
     ![Reset-password](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
 
-如果这些提示不起作用或不是所需的内容，请参阅[对与基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](../troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 此文将指导你完成诊断和解决常见问题。
+如果这些提示不起作用或不是所需的内容，请参阅[对与基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](../troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 此文指导你完成诊断和解决常见问题。
+
+<!-- Update_Description: add classic portal migration notice. -->

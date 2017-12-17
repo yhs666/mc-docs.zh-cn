@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 05/26/2017
-ms.date: 10/30/2017
+origin.date: 11/03/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 27a035b2e6d8f95a3ed87e9ca4f1d13261958570
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 84c7016289c34251ef7e57654f4efa4c79fcefa3
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="understand-common-error-messages-when-you-manage-windows-virtual-machines-in-azure"></a>了解在 Azure 中管理 Windows 虚拟机时遇到的常见错误消息
 

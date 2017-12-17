@@ -8,6 +8,7 @@
 - Windows 8.1（32 位和 64 位）
 - Windows Server 2012（仅 64 位）
 - Windows Server 2012 R2（仅 64 位）
+- Windows Server 2016（仅 64 位）
 - Windows 10
 - 适用于 Mac 的 OSX 版本 10.11 (El Capitan)
 - 适用于 Mac 的 macOS 版本 10.12 (Sierra)
@@ -62,4 +63,4 @@ Azure 仅支持在 Windows 和 Mac 上使用 P2S VPN。
 
 是的，可以通过 Powershell 和 Azure 门户，在已部署的网关启用这些新功能。
 
-<!-- ms.date: 11/07/2017 -->
+<!-- ms.date: 12/12/2017 -->

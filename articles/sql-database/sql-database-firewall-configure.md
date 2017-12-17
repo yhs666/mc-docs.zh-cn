@@ -18,11 +18,11 @@ ms.workload: data-management
 origin.date: 10/11/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 51aa10955c9efc28760d7c87026fb64b016c7fe9
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: a796edfb1a625591b2f86b435b9a102c266add81
+ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Azure SQL 数据库服务器级和数据库级防火墙规则 
 
@@ -67,7 +67,7 @@ Azure SQL 数据库为 Azure 和其他基于 Internet 的应用程序提供关�
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>创建和管理防火墙规则
-第一个服务器级防火墙设置可以使用 [Azure 门户](https://portal.azure.cn/)进行创建，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql)、[Azure CLI](https://docs.azure/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules) 通过编程方式创建。 后续的服务器级防火墙规则可以使用这些方法和通过 Transact-SQL 创建和管理。 
+第一个服务器级防火墙设置可以使用 [Azure 门户](https://portal.azure.cn/)进行创建，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql)、[Azure CLI](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules) 通过编程方式创建。 后续的服务器级防火墙规则可以使用这些方法和通过 Transact-SQL 创建和管理。 
 
 > [!IMPORTANT]
 > 只能使用 Transact-SQL 创建和管理数据库级防火墙规则。 

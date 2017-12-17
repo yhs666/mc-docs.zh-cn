@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-data
-origin.date: 08/15/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 0b8dafe2d4d7750faa496841b41dc0d8fb85b63f
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 11/06/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: 740b0a176e0922f618acf55f519326ea4b6eaaea
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>HDInsight 中的 Hadoop 索引疑难解答文章
 这些文章已按错误类型进行组织。

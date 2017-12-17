@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 09/26/2017
-ms.date: 10/30/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1b3f3d4297c984de8ce776d25009c4f7c7914ee5
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: ee5a63b1389fada62060bb2f59a8206d3e3ea546
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虚拟机上配置 SQL Server 故障转移群集实例
 
@@ -159,7 +159,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
    | SQL Server | 1433 | SQL Server 的默认实例正常使用的端口。 如果使用了库中的某个映像，此端口会自动打开。
    | 运行状况探测 | 59999 | 任何打开的 TCP 端口。 在后面的步骤中，需要将负载均衡器[运行状况探测](#probe)和群集配置为使用此端口。  
 
-1. 将存储添加到虚拟机。 有关详细信息，请参阅[添加存储](../../../storage/common/storage-premium-storage.md)。
+1. 将存储添加到虚拟机。 有关详细信息，请参阅[添加存储](../premium-storage.md)。
 
    这两个虚拟机至少需要两个数据磁盘。
 
@@ -425,7 +425,7 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 
 在 PowerShell 中设置群集探测端口参数。
 
-若要设置群集探测端口参数，请在环境中更新以下脚本中的变量。
+若要设置群集探测端口参数，请使用环境中的值更新以下脚本中的变量。 从脚本中删除尖括号 `<>`。 
 
 ```PowerShell
    $ClusterNetworkName = "<Cluster Network Name>" 

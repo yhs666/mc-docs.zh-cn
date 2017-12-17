@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/05/2016
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 12/25/2017
+ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 199135179abcc1839b973ffb48a2c8d6cff01614
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+ms.openlocfilehash: 3776d101dd22e4baec77a341a65638d948769ab4
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>在基于 Windows 的 HDInsight 群集上安装并使用 Giraph
 

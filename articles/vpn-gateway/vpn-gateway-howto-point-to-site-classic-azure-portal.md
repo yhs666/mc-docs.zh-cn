@@ -14,13 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/12/2017
-ms.date: 11/07/2017
+ms.date: 12/11/2017
 ms.author: v-junlch
-ms.openlocfilehash: f04e08e3d56e2a8270c21a65e74ddb78db1b75d3
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 79d4a308ef0b4c5db590926a64bf1fb1e58c001e
+ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>使用证书身份验证配置与 VNet 的点到站点连接（经典）：Azure 门户
 
@@ -34,9 +34,9 @@ ms.lasthandoff: 11/10/2017
 > * [Azure 门户（经典）](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 
-点到站点 (P2S) VPN 网关用于创建从单个客户端计算机到虚拟网络的安全连接。 若要从远程位置连接到 VNet，例如从家里或会议室进行远程通信，则可使用点到站点 VPN。 如果只有一些客户端需要连接到 VNet，则可使用 P2S VPN 这种解决方案来代替站点到站点 VPN。 
+点到站点 (P2S) VPN 网关用于创建从单个客户端计算机到虚拟网络的安全连接。 若要从远程位置连接到 VNet，例如从家里或会议室进行远程通信，则可使用点到站点 VPN。 如果只有一些客户端需要连接到 VNet，则可使用 P2S VPN 这种解决方案来代替站点到站点 VPN。 可通过从客户端计算机启动连接来建立 P2S VPN 连接。
 
-P2S 使用安全套接字层隧道协议 (SSTP)，这是一种基于 SSL 的 VPN 协议。 可通过从客户端计算机启动连接来建立 P2S VPN 连接。
+经典部署模型仅支持 Windows VPN 客户端，并使用安全套接字隧道协议 (SSTP)，一种基于 SSL 的 VPN 协议。 为了支持非 Windows VPN 客户端，VNet 必须使用资源管理器部署模型创建。 除了 SSTP，资源管理器部署模型还支持 IKEv2 VPN。 有关详细信息，请参阅[关于 P2S 连接](point-to-site-about.md)。
 
 
 ![点到站点连接示意图](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
@@ -64,7 +64,7 @@ P2S 使用安全套接字层隧道协议 (SSTP)，这是一种基于 SSL 的 VPN
 - 
             **订阅：**如果有多个订阅，请确保使用正确的订阅。
 - **资源组：TestRG**
-* **位置：中国东部**
+- **位置：中国北部**
 - **连接类型：点到站点**
 - **客户端地址空间：172.16.201.0/24**。 使用此点到站点连接连接到 VNet 的 VPN 客户端接收来自指定池的 IP 地址。
 - **网关子网：192.168.200.0/24**。 网关子网必须使用名称“GatewaySubnet”。

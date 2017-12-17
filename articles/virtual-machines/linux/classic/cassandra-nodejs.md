@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7678492dcfe633016700f38969cf1527893b7c2e
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 0624b6f6f62a47e1052e0c0aef3b1a9c3bb2a6db
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>在 Azure 上同时运行 Cassandra 和 Linux 并通过 Node.js 进行访问
 > [!IMPORTANT] 
@@ -162,7 +162,7 @@ Azure 在进行配置时需要用 PEM 或 DER 编码的 X509 公钥。 按照“
 <tr><td>可用性集 </td><td>    无 </td><td>    将此字段留空</td></tr>
 <tr><td>终结点    </td><td>使用默认值 </td><td>    使用默认 SSH 配置 </td></tr>
 </table>
-<!-- cloudapp.net  to chinacloudapp.cn -->
+<!-- cloudapp.net  to chinacloudapp.cn(Correct) -->
 
 单击右键头，保留屏幕 #3 中的默认设置，然后单击“对号”按钮完成 VM 预配过程。 几分钟后，名为“ubuntu-template”的 VM 应处于“正在运行”状态。
 
@@ -709,4 +709,4 @@ Azure 是一个灵活的平台，可运行 Microsoft 软件和开源软件，如
 * [http://www.datastax.com](http://www.datastax.com)
 * [http://www.nodejs.org](http://www.nodejs.org)
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

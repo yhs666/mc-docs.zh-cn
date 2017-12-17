@@ -14,17 +14,17 @@ ms.topic: article
 origin.date: 06/17/2017
 ms.date: 08/07/2017
 ms.author: v-haiqya
-ms.openlocfilehash: bdedb3384ece6c8726136b38471b6e303409a3de
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: 5a748aaeeb502b347954b244e5d9e81e76ffe6e8
+ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API
 
 Azure 媒体服务团队发布了 Azure Active Directory (Azure AD) 身份验证支持，以供访问 Azure 媒体服务。 它还宣布了计划停止通过 Azure 访问控制服务身份验证来访问媒体服务。 由于每个 Azure 订阅和每个媒体服务帐户都附加到 Azure AD 租户，因此 Azure AD 身份验证支持增添了许多安全保障。 若要详细了解此更改和迁移（如果对应用程序使用媒体服务 .NET SDK），请参阅以下博文和文章：
 
-- [Azure 媒体服务团队宣布支持 Azure AD 身份验证，并弃用访问控制身份验证](https://azure.microsoft.com/blog/azure%20media%20service%20aad%20auth%20and%20acs%20deprecation)
+- [Azure 媒体服务团队宣布支持 Azure AD 身份验证，并弃用访问控制身份验证](https://azure.microsoft.com/en-us/blog/azure-media-services-announces-support-for-aad-and-deprecation-of-acs-authentication/)
 - [通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)
 - [通过 Azure AD 身份验证使用 Microsoft .NET 访问 Azure 媒体服务 API](media-services-dotnet-get-started-with-aad.md)
 - [通过 Azure 门户开始使用 Azure AD 身份验证](media-services-portal-get-started-with-aad.md)

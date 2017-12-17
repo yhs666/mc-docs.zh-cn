@@ -3,8 +3,8 @@ title: "使用 PowerShell 创建 Windows VM | Azure"
 description: "使用 Azure PowerShell 和经典部署模型创建 Windows 虚拟机。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: 42c0d4be-573c-45d1-b9b0-9327537702f7
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: 4e8ba2554708350b93927c0b4d45689590856b32
-ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: 97009fb3c0ad42390c745ef11516ac1e3b5e0f0c
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>使用 Powershell 和经典部署模型创建 Windows 虚拟机
 > [!div class="op_single_selector"]
@@ -33,31 +33,32 @@ ms.lasthandoff: 07/10/2017
 
 > [!IMPORTANT] 
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何[使用 Resource Manager 模型执行这些步骤](../../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 这些步骤演示了如何使用构建基块方法自定义一组 Azure PowerShell 命令以创建和预配置基于 Windows 的 Azure 虚拟机。 可以使用此过程快速创建用于基于 Windows 的新虚拟机的命令集并扩展现有部署，或者创建多个命令集以快速构建出自定义开发/测试或 IT 专业环境。
 
-这些步骤采用填空方法来创建 Azure PowerShell 命令集。 如果你不熟悉 PowerShell 或只想知道为成功的配置指定什么值，则此方法很有用。 高级 PowerShell 用户可以使用命令并将变量（以“$”开头的行）替换为他们自己的值。
+这些步骤采用填空方法来创建 Azure PowerShell 命令集。 如果不熟悉 PowerShell 或只想知道为成功的配置指定什么值，则此方法很有用。 高级 PowerShell 用户可以使用命令并将变量（以“$”开头的行）替换为他们自己的值。
 
 如果尚未这样做，请按[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 中的说明在本地计算机上安装 Azure PowerShell。 然后，打开 Windows PowerShell 命令提示符。
 
 ## <a name="step-1-add-your-account"></a>步骤 1：添加帐户
 1. 在 PowerShell 命令提示符处，键入 Add-AzureAccount -Environment AzureChinaCloud 并单击“Enter”。 
-2. 键入与你的 Azure 订阅相关联的电子邮件地址并单击“继续” 。 
-3. 键入你的帐户的密码。 
+2. 键入与 Azure 订阅相关联的电子邮件地址并单击“继续”。 
+3. 键入帐户的密码。 
 4. 单击“登录” 。
 
 ## <a name="step-2-set-your-subscription-and-storage-account"></a>步骤 2：设置订阅和存储帐户
-通过在 Windows PowerShell 命令提示符处运行以下命令，设置你的 Azure 订阅和存储帐户。 将引号内的所有内容（包括 < and > 字符）替换为相应的名称。
+通过在 Windows PowerShell 命令提示符处运行以下命令，设置 Azure 订阅和存储帐户。 将引号内的所有内容（包括 < and > 字符）替换为相应的名称。
 
     $subscr="<subscription name>"
     $staccount="<storage account name>"
     Select-AzureSubscription -SubscriptionName $subscr -Current
     Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-你可以从 **Get-AzureSubscription** 命令输出的 SubscriptionName 属性获取相应的订阅名称。 运行 Select-AzureSubscription 命令后，可以从 Get-AzureStorageAccount 命令输出的 Label 属性获取相应的存储帐户名称。
+可以从 **Get-AzureSubscription** 命令输出的 SubscriptionName 属性获取相应的订阅名称。 运行 Select-AzureSubscription 命令后，可以从 Get-AzureStorageAccount 命令输出的 Label 属性获取相应的存储帐户名称。
 
 ## <a name="step-3-determine-the-imagefamily"></a>步骤 3：确定 ImageFamily
-接下来，你需要确定与要创建的 Azure 虚拟机对应的特定映像的 ImageFamily 或 Label 值。 你可以使用此命令获取可用 ImageFamily 值的列表。
+接下来，需要确定与要创建的 Azure 虚拟机对应的特定映像的 ImageFamily 或 Label 值。 可以使用此命令获取可用 ImageFamily 值的列表。
 
     Get-AzureVMImage | select ImageFamily -Unique
 
@@ -73,7 +74,7 @@ ms.lasthandoff: 07/10/2017
     $family="<ImageFamily value>"
     $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-在某些情况下，映像名称在 Label 属性中，而不是 ImageFamily 值。 如果你使用 ImageFamily 属性找不到要查找的映像，请使用此命令按映像的 Label 属性列出映像。
+在某些情况下，映像名称在 Label 属性中，而不是 ImageFamily 值。 如果使用 ImageFamily 属性找不到要查找的映像，请使用此命令按映像的 Label 属性列出映像。
 
     Get-AzureVMImage | select Label -Unique
 
@@ -92,6 +93,7 @@ ms.lasthandoff: 07/10/2017
     $vmname="<machine name>"
     $vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7>"
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
+<!--Not Available on A8 - A11 -->
 
 选项 2：指定名称、大小和可用性集名称。
 
@@ -99,17 +101,20 @@ ms.lasthandoff: 07/10/2017
     $vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7>"
     $availset="<set name>"
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image -AvailabilitySetName $availset
+<!--Not Available on A8 - A11 -->
 
 有关 D、DS 或 G 系列虚拟机的 InstanceSize 值，请参阅 [Azure 的虚拟机和云服务大小](/cloud-services/cloud-services-sizes-specs)。
 
+<!-- Not Available on Hybrid Use Benefit -->
 （可选）为独立 Windows 计算机指定本地管理员帐户和密码。
 
     $cred=Get-Credential -Message "Type the name and password of the local administrator account."
     $vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.Username -Password $cred.GetNetworkCredential().Password
 
 选择一个强密码。
+<!-- Not Available on (https://www.microsoft.com/security/pc-security/password-checker.aspx) -->
 
-（可选）若要将 Windows 计算机添加到现有的 Active Directory 域，请指定本地管理员帐户和密码、域以及域帐户的名称和密码。
+（可选）要将 Windows 计算机添加到现有的 Active Directory 域，请指定本地管理员帐户和密码、域以及域帐户的名称和密码。
 
     $cred1=Get-Credential -Message "Type the name and password of the local administrator account."
     $cred2=Get-Credential -Message "Now type the name (not including the domain) and password of an account that has permission to add the machine to the domain."
@@ -168,11 +173,11 @@ ms.lasthandoff: 07/10/2017
     New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 ## <a name="step-5-run-your-command-set"></a>步骤 5：运行命令集
-复查你在步骤 4 中在文本编辑器或 PowerShell ISE 中生成的包含多个命令块的 Azure PowerShell 命令集。 确保你指定了所需的所有变量，并且这些变量具有正确的值。 另请确保已删除所有 < and > 字符。
+复查你在步骤 4 中在文本编辑器或 PowerShell ISE 中生成的包含多个命令块的 Azure PowerShell 命令集。 确保指定了所需的所有变量，并且这些变量具有正确的值。 另请确保已删除所有 < and > 字符。
 
-如果你使用的是文本编辑器，则将命令集复制到剪贴板，然后右键单击打开的 Windows PowerShell 命令提示符。 这将发出作为一系列 PowerShell 命令的命令集，并创建 Azure 虚拟机。 或者，在 PowerShell ISE 中运行命令集。
+如果用户使用的是文本编辑器，则将命令集复制到剪贴板，并右键单击打开的 Windows PowerShell 命令提示符。 这会发出作为一系列 PowerShell 命令的命令集，并创建 Azure 虚拟机。 或者，在 PowerShell ISE 中运行命令集。
 
-如果你要再次创建此虚拟机或类似的虚拟机，则可以：
+如果要再次创建此虚拟机或类似的虚拟机，则可以：
 
 * 将此命令集保存为 PowerShell 脚本文件 (*.ps1)。
 * 在 Azure 门户的“自动化账户”部分中将此命令集保存为 Azure 自动化 Runbook  。
@@ -254,3 +259,4 @@ ms.lasthandoff: 07/10/2017
 
 ## <a name="next-steps"></a>后续步骤
 如果需要大于 127 GB 的操作系统磁盘，可[展开 OS 驱动器](../../virtual-machines-windows-expand-os-disk.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+<!-- Update_Description: update meta properties, wording update -->

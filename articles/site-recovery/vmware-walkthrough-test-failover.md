@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/27/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 10014d5ea1a5bea56a6d1a510a579d355ea9e13f
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 5b1e3b30a1a193b0e7b4b60719bd4d61223e0686
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="step-12-run-a-test-failover-to-azure-for-vmware-vms"></a>步骤 12：运行 VMware VM 到 Azure 的测试故障转移
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 09/28/2017
 ## <a name="next-steps"></a>后续步骤
 
 - [详细了解](site-recovery-failover.md)不同类型的故障转移，以及如何运行它们。
-- 如果要迁移计算机而不执行复制和故障回复，请[阅读详细信息](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers)。
+- 如果要迁移计算机而不执行复制和故障回复，请[阅读详细信息](site-recovery-migrate-to-azure.md)。
 - [详细了解故障回复](site-recovery-failback-azure-to-vmware.md)，以便将 Azure VM 故障回复和复制回本地主站点。
 
 <!--Update_Description: wording update-->

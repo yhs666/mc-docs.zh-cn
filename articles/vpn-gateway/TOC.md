@@ -43,7 +43,7 @@
 ### [Azure 门户](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Azure PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 ## 配置站点到站点和 ExpressRoute 的共存连接
-### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fvpn-gateway%2ftoc.json)
+### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md)
 ## 配置多个站点到站点连接
 ### [Azure 门户](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell（经典）](vpn-gateway-multi-site.md)
@@ -80,13 +80,12 @@
 ### [点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [站点到站点连接间歇性地断开](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [站点到站点连接无法连接](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
-### [应用程序网关会话相关性问题](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 ### [配置和验证 VNet 或 VPN 连接](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # 引用
-## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
-## [Azure PowerShell（经典）](/powershell/module/azure/?view=azuresmps-3.7.0#networking)
-## [REST](/rest/api/network/virtualnetworkgateways)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
+## [Azure PowerShell（经典）](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0#networking)
+## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
 ## [REST（经典）](https://msdn.microsoft.com/library/jj154113)
 ## [Azure CLI](/cli/network/vnet-gateway)
 

@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 08/28/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: f5e5fd40ae782cb470cffceab4e89fd48a8c2d2c
-ms.sourcegitcommit: 0a59a44bdc09a8b5801180996adfdf68131579c0
+ms.openlocfilehash: c9ced78709710cb8eba5eaa9deb0202d1a2d3f14
+ms.sourcegitcommit: 228b8811c3045a9db62264cb67f925746ef4e994
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery Deployment Planner 用户指南。
@@ -144,9 +144,14 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Server | 要分析其 VM 的 vCenter 服务器/vSphere ESXi 主机的完全限定域名或 IP 地址。|
 | -User | 用于连接到 vCenter 服务器/vSphere ESXi 主机的用户名。 该用户至少需要拥有只读访问权限。|
 | -VMListFile | 一个文件，其中包含要分析的 VM 的列表。 文件路径可以是绝对或相对路径。 此文件应该每行包含一个 VM 名称/IP 地址。 此文件中指定的虚拟机名称应与 vCenter 服务器/vSphere ESXi 主机上的 VM 名称相同。<br>例如，VMList.txt 文件包含以下 VM：<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
+| -NoOfMinutesToProfile |运行分析的分钟数。 最小值为 30 分钟。|
+| -NoOfHoursToProfile |运行分析的小时数。|
 | -NoOfDaysToProfile | 运行分析的天数。 建议运行分析 15 天以上，确保在指定时间段内观察环境中的工作负荷模式，并根据该模式提供准确的建议。 |
+| -Virtualization |指定虚拟化类型（VMware 或 Hyper-V）。|
 | -Directory | （可选）通用命名约定 (UNC) 或本地目录路径，用于存储在分析期间生成的分析数据。 如果未指定目录名称，则使用当前路径下名为“ProfiledData”的目录作为默认目录。 |
 | -Password | （可选）用于连接到 vCenter 服务器/vSphere ESXi 主机的密码。 如果现在不指定密码，则在执行命令时，系统会提示指定密码。|
+| -Port |（可选）用于连接到 vCenter/ESXi 主机的端口号。 默认端口为 443。|
+| -Protocol | （可选）用于连接到 vCenter 的指定协议，即“http”或“https”。 默认协议为 https。|
 | -StorageAccountName | （可选）存储帐户名称，用于确定在将数据从本地复制到 Azure 时可实现的吞吐量。 该工具会将测试数据上传到此存储帐户来计算吞吐量。|
 | -StorageAccountKey | （可选）用于访问存储帐户的存储帐户密钥。 转到 Azure 门户 >“存储帐户”> <存储帐户名称> >“设置”>“访问密钥”> 密钥 1（或经典存储帐户的主访问密钥）。 |
 | -Environment | （可选）这是目标 Azure 存储帐户环境。 此项可能采用下述三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureCloud。 当目标 Azure 区域为 Azure 美国政府版或 Azure 中国云时，请使用此参数。 |
@@ -166,18 +171,23 @@ VM 配置会在分析操作开始时捕获一次，存储在名为 VMDetailList.
 
 #### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>示例 1：分析 VM 30 天，确定从本地到 Azure 的吞吐量
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Directory "E:\vCenter1_ProfiledData" -Server vCenter1.contoso.com -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 #### <a name="example-2-profile-vms-for-15-days"></a>示例 2：分析 VM 15 天
 
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Directory "E:\vCenter1_ProfiledData" -Server vCenter1.contoso.com -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile  15  -User vCenterUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
 #### <a name="example-3-profile-vms-for-1-hour-for-a-quick-test-of-the-tool"></a>示例 3：分析 VM 1 小时以快速测试工具
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Directory "E:\vCenter1_ProfiledData" -Server vCenter1.contoso.com -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile  0.04  -User vCenterUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60  -User vCenterUser1
+```
+
+#### <a name="example-4-profile-vms-for-2-hours-for-a-proof-of-concept"></a>示例 4：分析 VM 2 小时以获取概念证明
+```
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfHoursToProfile 2 -User vCenterUser1
 ```
 
 >[!NOTE]
@@ -197,10 +207,13 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Directory "E:\vCenter1_Profi
 | -Operation | GenerateReport |
 | -Server |  vCenter/vSphere 服务器完全限定域名或 IP 地址（使用的名称或 IP 地址与分析时使用的相同），其中包含需要生成其报告的已分析 VM。 请注意，如果在分析时使用了 vCenter 服务器，则不能使用 vSphere 服务器来生成报告，反之亦然。|
 | -VMListFile | 一个文件，其中包含一系列需为其生成报告的已分析 VM。 文件路径可以是绝对或相对路径。 此文件应该每行包含一个 VM 名称或 IP 地址。 此文件中指定的 VM 名称应与 vCenter 服务器/vSphere ESXi 主机上的 VM 名称相同，并与分析时使用的名称匹配。|
+| -Virtualization |指定虚拟化类型（VMware 或 Hyper-V）。|
 | -Directory | （可选）UNC 或本地目录路径，其中存储了分析数据（在分析期间生成的文件）。 需要使用此数据来生成报告。 如果未指定名称，则使用“ProfiledData”目录。 |
 | -GoalToCompleteIR | （可选）小时数，需在此时间段内完成已分析 VM 的初始复制。 生成的报告将提供可在指定时间内完成初始复制的 VM 数。 默认值为 72 小时。 |
 | -User | （可选）用于连接到 vCenter/vSphere 服务器的用户名。 此名称用于获取要在报告中使用的最新 VM 配置信息，例如磁盘数、核心数、NIC 数。 如果未提供此名称，则使用开始分析时收集的配置信息。 |
 | -Password | （可选）用于连接到 vCenter 服务器/vSphere ESXi 主机的密码。 如果密码未作为参数指定，则稍后在执行命令时，系统会提示指定。 |
+|-Port|（可选）用于连接到 vCenter/ESXi 主机的端口号。 默认端口为 443。|
+|-Protocol|（可选）用于连接到 vCenter 的指定协议，即“http”或“https”。 默认协议为 https。|
 | -DesiredRPO | （可选）以分钟为单位的所需恢复点目标。 默认值为 15 分钟。|
 | -Bandwidth | 以 Mbps 为单位的带宽。 一个参数，用于计算指定的带宽可实现的 RPO。 |
 | -StartDate | （可选）采用 MM-DD-YYYY:HH:MM 格式（24 小时制）的开始日期和时间。 “StartDate”必须与“EndDate”一起指定。 如果指定 StartDate，会根据从 StartDate 到 EndDate 收集的分析数据生成报告。 |
@@ -210,34 +223,34 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Directory "E:\vCenter1_Profi
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>示例 1：当分析数据位于本地驱动器上时，使用默认值生成报告
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory "\\PS1-W2K12R2\vCenter1_ProfiledData" -VMListFile "\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt"
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualiztion VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
 #### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>示例 2：当分析数据位于远程服务器上时生成报告
 应该对远程目录拥有读/写访问权限。
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory "\\PS1-W2K12R2\vCenter1_ProfiledData" -VMListFile "\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt"
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
 #### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>示例 3：生成一个报告，列出指定的带宽，以及在指定时间内完成 IR 的目标
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory "E:\vCenter1_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt" -Bandwidth 100 -GoalToCompleteIR 24
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
 
 #### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>示例 4：使用 5% 的增长系数而不是默认值 30% 来生成报告
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory "E:\vCenter1_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt" -GrowthFactor 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
 #### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>示例 5：使用分析数据的子集生成报告
 例如，有 30 天的分析数据，但只想生成 20 天的报告。
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory "E:\vCenter1_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt" -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
 #### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>示例 6：生成 5 分钟 RPO 报告
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory "E:\vCenter1_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -DesiredRPO 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>用于计算的百分位值
@@ -288,6 +301,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com 
 |参数名称 | 说明 |
 |-|-|
 | -Operation | GetThroughput |
+| -Virtualization |指定虚拟化类型（VMware 或 Hyper-V）。|
 | -Directory | （可选）UNC 或本地目录路径，其中存储了分析数据（在分析期间生成的文件）。 需要使用此数据来生成报告。 如果未指定目录名称，则使用“ProfiledData”目录。 |
 | -StorageAccountName | 存储帐户名称，用于确定在将数据从本地复制到 Azure 时消耗的带宽。 该工具会将测试数据上传到此存储帐户来确定消耗的带宽。 |
 | -StorageAccountKey | 用于访问存储帐户的存储帐户密钥。 转到 Azure 门户 >“存储帐户”> <存储帐户名称> >“设置”>“访问密钥”> 密钥 1（或经典存储帐户的主访问密钥）。 |

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: e0362a3ff64069edc656518e1e07e2d807c413bb
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 4a942b6be30ea97f9e97b29bb6e433068b52e1a9
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>使用 Azure CLI 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型
 以下步骤演示如何使用 Azure 命令行接口 (CLI) 命令将基础结构即服务 (IaaS) 资源从经典部署模型迁移到 Azure Resource Manager 部署模型。 本文中的操作需要 [Azure CLI 1.0](../../cli-install-nodejs.md)。 由于 Azure CLI 2.0 仅适用于 Azure 资源管理器资源，因此它不能用于此迁移。
@@ -78,14 +78,15 @@ ms.lasthandoff: 11/28/2017
 
     azure config mode asm
 
-## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>步骤 3：请确保在当前部署或 VNET 的 Azure 区域中有足够的 Azure Resource Manager 虚拟机核心
+## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>步骤 3：确保在当前部署或 VNET 的 Azure 区域中有足够的 Azure 资源管理器虚拟机 vCPU
 要执行此步骤，需要切换到 `arm` 模式。 使用以下命令执行此操作。
 
 ```
 azure config mode arm
 ```
 
-可以使用以下 CLI 命令检查当前 Azure Resource Manager 中已有的核心数量。 
+可以使用以下 CLI 命令检查 Azure 资源管理器中目前的 vCPU 数量。  
+<!-- Not Available on azure-subscription-service-limits.md -->
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"

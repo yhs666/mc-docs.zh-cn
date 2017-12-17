@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/04/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 74bee4a06152b0e3d06f48a1bc4a7d324f817084
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.openlocfilehash: 9399ededbf3bdd2e1a2bf3c317227162054ca22d
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>使用 Ambari 视图来调试 HDInsight 上的 Tez 作业
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/17/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-* 基于 Linux 的 HDInsight 群集。 有关创建群集的步骤，请参阅[开始使用基于 Linux 的 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)。
+* 基于 Linux 的 HDInsight 群集。 有关创建群集的步骤，请参阅[开始使用基于 Linux 的 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 * 支持 HTML5 的现代 Web 浏览器。
 
 ## <a name="understanding-tez"></a>了解 Tez
@@ -107,7 +107,7 @@ Tez 视图提供进程的历史信息，还提供正在运行的进程的相关�
 
 ## <a name="next-steps"></a>后续步骤
 
-既然已了解如何使用 Tez 视图，接下来将详细了解如何[使用 Hive on HDInsight](hdinsight-use-hive.md)。
+既然已了解如何使用 Tez 视图，接下来将详细了解如何[使用 Hive on HDInsight](hadoop/hdinsight-use-hive.md)。
 
 有关 Tez 的更详细的技术信息，请参阅 [Hortonworks 的 Tez 页](http://hortonworks.com/hadoop/tez/)。
 

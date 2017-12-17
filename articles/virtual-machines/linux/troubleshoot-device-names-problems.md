@@ -12,21 +12,20 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-origin.date: 07/12/2017
-ms.date: 10/30/2017
+origin.date: 11/03/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: b9971a162ea1889f31a48941a150782a2b7592ae
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 8a3dc5d835a3831e34fad3b2ad60c511b3624f69
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>排查 Linux VM 设备名更改问题
 
 本文解释重启 Linux VM 或重新附加数据磁盘后，设备名为何发生更改。 此外，本文还提供针对此问题的解决方案。
 
 ## <a name="symptoms"></a>症状
-
 在 Azure 中运行 Linux VM 时，可能会遇到以下问题：
 
 - 重启后 VM 无法引导。
@@ -154,4 +153,4 @@ Azure Linux 代理 Udev 规则在 /dev/disk/azure 路径下构造一组符号链
 - [Red Hat：持久命名](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
 - [Linux：UUID 有什么作用](https://www.linux.com/news/what-uuids-can-do-you)
 - [Udev：新式 Linux 系统中的设备管理简介](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
-<!--Update_Description: update meta properties， update link-->
+<!--Update_Description: update meta properties，-->

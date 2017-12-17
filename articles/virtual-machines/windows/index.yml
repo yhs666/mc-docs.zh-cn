@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Windows 虚拟机文档
+title: "Windows 虚拟机文档"
 metadata:
   document_id: 1d98d530-28c7-635f-d41b-8da3ae02970c
-  title: Azure Windows 虚拟机文档 - 教程和 API 参考
-  meta.description: 'Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.'
+  title: "Azure Windows 虚拟机文档 - 教程和 API 参考"
+  meta.description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
   services: virtual-machines\windows
   author: rockboyfor
   manager: digimobile
@@ -13,66 +13,72 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 10/30/2017
-  ms.author: v-dazen
+  ms.date: 12/18/2017
+  ms.author: v-yeche
+  ms.openlocfilehash: 9dc817dcf778082279dc0f4d1caef465d6854ef0
+  ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 12/15/2017
 abstract:
-  description: Azure Windows 虚拟机使用 Windows Server 按需提供具有高可伸缩性且十分安全的虚拟化基础结构。 使用我们的快速入门、教程和示例了解如何创建、配置、管理和缩放 Windows VM。
+  description: "Azure Windows 虚拟机使用 Windows Server 按需提供具有高可伸缩性且十分安全的虚拟化基础结构。 使用我们的快速入门、教程和示例了解如何创建、配置、管理和缩放 Windows VM。"
 sections:
-  - title: 5 分钟快速入门
+- title: "5 分钟快速入门"
+  items:
+  - type: paragraph
+    text: "了解如何在运行 Windows Server 2016 的虚拟机中部署 IIS Web 服务器："
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 了解如何在运行 Windows Server 2016 的虚拟机中部署 IIS Web 服务器：
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.azure.cn/virtual-machines/windows/media/index/portal.svg'
-            text: Azure 门户
-            href: 'https://docs.azure.cn/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fvirtual-machines%2fwindows%2ftoc.json'
-          - image:
-              src: 'https://docs.azure.cn/virtual-machines/windows/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: 'https://docs.azure.cn/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fvirtual-machines%2fwindows%2ftoc.json'
-          - image:
-              src: 'https://docs.azure.cn/virtual-machines/windows/media/index/cli.svg'
-            text: Azure CLI
-            href: 'https://docs.azure.cn/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fvirtual-machines%2fwindows%2ftoc.json'
-      - type: paragraph
-        text: 了解如何进行持续部署：
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.azure.cn/media/index/logo_vs-team-services.svg'
-            text: VSTS
-            href: 'https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json'
-  - title: 分步教程
+    - image:
+        src: https://docs.azure.cn/virtual-machines/windows/media/index/portal.svg
+      text: "Azure 门户"
+      href: https://docs.azure.cn/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fvirtual-machines%2fwindows%2ftoc.json
+    - image:
+        src: https://docs.azure.cn/virtual-machines/windows/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: https://docs.azure.cn/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fvirtual-machines%2fwindows%2ftoc.json
+    - image:
+        src: https://docs.azure.cn/virtual-machines/windows/media/index/cli.svg
+      text: Azure CLI
+      href: https://docs.azure.cn/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fvirtual-machines%2fwindows%2ftoc.json
+  - type: paragraph
+    text: "了解如何进行持续部署："
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 了解如何在 Azure 上部署、管理和监视 Windows VM
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/virtual-machines/windows/tutorial-manage-vm">创建和管理 Windows VM</a>
-          - html: <a href="/virtual-machines/windows/tutorial-manage-data-disk">创建和管理 VM 磁盘</a>
-          - html: <a href="/virtual-machines/windows/tutorial-automate-vm-deployment">自动执行 VM 配置</a>
-          - html: <a href="/virtual-machines/windows/tutorial-custom-images">创建自定义 VM 映像</a>
-          - html: <a href="/virtual-machines/windows/tutorial-availability-sets">创建高度可用的 VM</a>
-          - html: <a href="/virtual-machines/windows/tutorial-create-vmss">创建 VM 规模集</a>
-          - html: <a href="/virtual-machines/windows/tutorial-load-balancer">对 VM 进行负载均衡</a>
-          - html: <a href="/virtual-machines/windows/tutorial-virtual-network">管理 VM 与虚拟网络</a>
-          - html: <a href="/virtual-machines/windows/tutorial-backup-vms">备份 VM</a>
-          - html: <a href="/virtual-machines/windows/tutorial-monitoring">监视 VM</a>
-          - html: <a href="/virtual-machines/windows/tutorial-azure-security">管理 VM 上的安全性</a>
-          - html: <a href="/virtual-machines/windows/tutorial-vsts-iis-cicd">使用 Visual Studio 创建持续集成管道</a>
-          - html: <a href="/virtual-machines/windows/tutorial-secure-web-server">使用 SSL 保护 Web 服务器</a>
-  - title: 示例
+    - image:
+        src: https://docs.azure.cn/media/index/logo_vs-team-services.svg
+      text: VSTS
+      href: https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
+- title: "分步教程"
+  items:
+  - type: paragraph
+    text: "了解如何在 Azure 上部署、管理和监视 Windows VM"
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 将第一个应用程序部署到 Azure。
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a>
-          - html: <a href="/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a>
+    - html: "<a href=\"/virtual-machines/windows/tutorial-manage-vm\">创建和管理 Windows VM</a>"
+    - html: "<a href=\"/virtual-machines/windows/tutorial-manage-data-disk\">创建和管理 VM 磁盘</a>"
+    - html: "<a href=\"/virtual-machines/windows/tutorial-automate-vm-deployment\">自动执行 VM 配置</a>"
+    - html: "<a href=\"/virtual-machines/windows/tutorial-custom-images\">创建自定义 VM 映像</a>"
+    - html: "<a href=\"/virtual-machines/windows/tutorial-availability-sets\">创建高度可用的 VM</a>"
+    - html: "<a href=\"/virtual-machines/windows/tutorial-create-vmss\">创建 VM 规模集</a>"
+    - html: "<a href=\"/virtual-machines/windows/tutorial-load-balancer\">对 VM 进行负载均衡</a>"
+    - html: "<a href=\"/virtual-machines/windows/tutorial-virtual-network\">管理 VM 与虚拟网络</a>"
+    - html: "<a href=\"/virtual-machines/windows/tutorial-backup-vms\">备份 VM</a>"
+    - html: "<a href=\"/virtual-machines/windows/tutorial-monitoring\">监视 VM</a>"
+    - html: "<a href=\"/virtual-machines/windows/tutorial-azure-security\">管理 VM 上的安全性</a>"
+    - html: "<a href=\"/virtual-machines/windows/tutorial-vsts-iis-cicd\">使用 Visual Studio 创建持续集成管道</a>"
+    - html: "<a href=\"/virtual-machines/windows/tutorial-iis-sql\">安装 SQL\\IIS\\.NET 堆栈</a>"
+    - html: "<a href=\"/virtual-machines/windows/tutorial-secure-web-server\">使用 SSL 保护 Web 服务器</a>"
+- title: "示例"
+  items:
+  - type: paragraph
+    text: "将第一个应用程序部署到 Azure。"
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a>
+    - html: <a href="/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a>

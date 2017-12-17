@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/05/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 12/25/2017
+ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8a426ca0de8fd4830c6baa3bada49d7321925329
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+ms.openlocfilehash: a95f574a68072ddffc7e1bb37b151e2e9526c3df
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>借助 Maven 构建可将 HBase 与基于 Windows 的 HDInsight (Hadoop) 配合使用的 Java 应用程序
 了解如何通过使用 Apache Maven 在 Java 中创建和构建 [Apache HBase](http://hbase.apache.org/) 应用程序。 然后，将该应用程序用于 Azure HDInsight (Hadoop)。

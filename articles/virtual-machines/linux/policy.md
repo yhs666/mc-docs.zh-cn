@@ -3,7 +3,7 @@ title: "在 Azure 中的 Linux VM 上通过策略强制执行安全措施 | Azur
 description: "如何向 Azure Resource Manager Linux 虚拟机应用策略"
 services: virtual-machines-linux
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -14,18 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 5028f46aa61b5bab86d065ea0f70a8c8295fcb43
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: 538aede98e42b52f05c57cfe4c6a2f3f73c73e3f
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>使用 Azure 资源管理器向 Linux VM 应用策略
 通过使用策略，组织可以在整个企业中强制实施各种约定和规则。 强制实施所需行为有助于消除风险，同时为组织的成功做出贡献。 本文介绍如何使用 Azure 资源管理器策略，为组织中的虚拟机定义所需的行为。
-
-有关策略简介，请参阅[使用策略管理资源并控制访问](../../azure-resource-manager/resource-manager-policy.md)。
+<!-- Not Available For an introduction to policies, see [What is Azure Policy?](../../azure-policy/azure-policy-introduction.md). -->
 
 ## <a name="permitted-virtual-machines"></a>允许的虚拟机
 若要确保组织的虚拟机与应用程序兼容，可以限制获准操作系统。 在以下策略示例中，只允许创建 Ubuntu 14.04.2-LTS 虚拟机。
@@ -89,7 +88,7 @@ ms.lasthandoff: 08/29/2017
 }
 ```
 
-有关策略字段的信息，请参阅[策略别名](../../azure-resource-manager/resource-manager-policy.md#aliases)。
+<!-- Not Available For information about policy fields, see [Policy aliases](../../azure-policy/policy-definition.md#aliases). -->
 
 ## <a name="managed-disks"></a>托管磁盘
 
@@ -208,10 +207,9 @@ ms.lasthandoff: 08/29/2017
 }
 ```
 
-
 ## <a name="next-steps"></a>后续步骤
 * 定义策略规则后（如上述示例所示），需要创建策略定义并将其分配给作用域。 作用域可以是订阅、资源组或资源。
-* 有关资源策略的简介，请参阅[资源策略概述](../../azure-resource-manager/resource-manager-policy.md)。
+<!-- Not Available on azure-policy/* -->
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](../../azure-resource-manager/resource-manager-subscription-governance.md)。
 
-<!--Update_Description: add section "Images for Virtual Machines" and "Virtual Machine extensions"-->
+<!--Update_Description: wording update -->

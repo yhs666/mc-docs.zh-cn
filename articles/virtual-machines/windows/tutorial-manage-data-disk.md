@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 10/30/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 52fd5d00211de9f348aedee1af386bee34279415
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 763e735ce4127977a856791d6b8b3521693eb63c
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>使用 PowerShell 管理 Azure 磁盘
 
@@ -77,7 +77,7 @@ Azure 提供两种类型的磁盘。
 ### <a name="premium-disk"></a>高级磁盘
 
 高级磁盘由基于 SSD 的高性能、低延迟磁盘提供支持。 完美适用于运行生产工作负荷的 VM。 高级存储支持 DS 系列、DSv2 系列和 FS 系列 VM。 高级磁盘分为 3 种类型（P10、P20 和 P30），磁盘大小决定磁盘类型。 选择时，磁盘大小值舍入为下一类型。 例如，大小在 128 GB 以下的磁盘类型为 P10，大小在 129 和 512 之间的磁盘类型为 P20，大小在 512 以上的磁盘类型为 P30。 
-
+<!-- Not Available on GS Series -->
 ### <a name="premium-disk-performance"></a>高级磁盘性能
 
 |高级存储磁盘类型 | P10 | P20 | P30 |

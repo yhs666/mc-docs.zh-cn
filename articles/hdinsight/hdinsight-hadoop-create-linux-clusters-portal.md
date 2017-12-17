@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/28/2017
-ms.date: 10/23/2017
+origin.date: 11/28/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: fd03e1cbeb28a4ca0e806e956856e428f6fcdc56
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 2c3977470f1482a66729b30c5b2c6f8b32c03d72
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -153,23 +153,23 @@ Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager �
 成功创建 HDInsight 群集后，请参考以下主题来了解如何使用群集：
 
 ### <a name="hadoop-clusters"></a>Hadoop 群集
-* [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
-* [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
+* [将 Hive 与 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
+* [将 Pig 与 HDInsight 配合使用](hadoop/hdinsight-use-pig.md)
+* [将 MapReduce 与 HDInsight 配合使用](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>HBase 群集
-* [HBase on HDInsight 入门](hdinsight-hbase-tutorial-get-started-linux.md)
-* [为 HBase on HDInsight 开发 Java 应用程序](hdinsight-hbase-build-java-maven-linux.md)
+* [HBase on HDInsight 入门](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [为 HBase on HDInsight 开发 Java 应用程序](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm 群集
-* [为 Storm on HDInsight 开发 Java 拓扑](hdinsight-storm-develop-java-topology.md)
-* [在 Storm on HDInsight 中使用 Python 组件](hdinsight-storm-develop-python-topology.md)
-* [使用 Storm on HDInsight 部署和监视拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [为 Storm on HDInsight 开发 Java 拓扑](storm/apache-storm-develop-java-topology.md)
+* [在 Storm on HDInsight 中使用 Python 组件](storm/apache-storm-develop-python-topology.md)
+* [使用 Storm on HDInsight 部署和监视拓扑](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="spark-clusters"></a>Spark 群集
-* [使用 Scala 创建独立的应用程序](hdinsight-apache-spark-create-standalone-application.md)
-* [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
-* [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](hdinsight-apache-spark-eventhub-streaming.md)
-<!--Update_Description: wording update-->
+* [使用 Scala 创建独立的应用程序](spark/apache-spark-create-standalone-application.md)
+* [使用 Livy 在 Spark 群集中远程运行作业](spark/apache-spark-livy-rest-interface.md)
+* [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](spark/apache-spark-use-bi-tools.md)
+* [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](spark/apache-spark-eventhub-streaming.md)
+

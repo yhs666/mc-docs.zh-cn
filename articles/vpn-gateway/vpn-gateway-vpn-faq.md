@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/30/2017
-ms.date: 11/07/2017
+origin.date: 10/19/2017
+ms.date: 12/11/2017
 ms.author: v-junlch
-ms.openlocfilehash: 7371898eb37986c544551254278f09013347ed48
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: b37802a6c790e7077072556d1bb9aa61e32612de
+ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="vpn-gateway-faq"></a>VPN 网关常见问题
 
@@ -169,9 +169,13 @@ VPN 网关基本上是一个多宿主设备，其中一个 NIC 进入客户专�
 
 ## <a name="P2S"></a>点到站点 - 本机 Azure 证书身份验证
 
+本部分适用于资源管理器部署模型。
+
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="P2SRADIUS"></a>点到站点 - RADIUS 身份验证
+
+本部分适用于资源管理器部署模型。
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 

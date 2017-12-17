@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: required
 origin.date: 01/10/2017
-ms.date: 10/30/2017
+ms.date: 12/18/2017
 ms.devlang: na
 ms.author: v-yeche
-ms.openlocfilehash: 60e7c2adb1a471ffd81014db7daf13fc94a2a8dd
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 010bc5cc0f230dca0d003a06bce499a3311fbc4a
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>排查在 Azure 中重新启动或调整现有 Linux 虚拟机时遇到的经典部署问题
 > [!div class="op_single_selector"]
@@ -33,6 +33,7 @@ ms.lasthandoff: 10/27/2017
 
 > [!IMPORTANT] 
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关 Resource Manager 版本，请参阅[此处](../restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -82,4 +83,4 @@ ms.lasthandoff: 10/27/2017
 
 ## <a name="next-steps"></a>后续步骤
 如果在 Azure 中创建新的 Linux VM 时遇到问题，请参阅[排查在 Azure 中新建 Linux 虚拟机时遇到的部署问题](../troubleshoot-deployment-new-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties， Add classic portal migration notice. -->

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/21/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: c035ad508f721338a56b20d4e77914b4a7208009
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 11/10/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: 0d23aec6535225d8cf772071570aed45409e65a8
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>使用 SSH 隧道访问 Ambari Web UI、JobHistory、NameNode、Oozie 和其他 Web UI
 
@@ -49,7 +49,7 @@ Ambari 中的多个菜单只能通过 SSH 隧道工作。 这些菜单依赖于�
 
 ## <a name="prerequisites"></a>先决条件
 
-* SSH 客户端。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+* SSH 客户端。 大多数操作系统通过 `ssh` 命令提供 SSH 客户端。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 * 可配置为使用 SOCKS5 代理的 Web 浏览器。
 
@@ -59,7 +59,7 @@ Ambari 中的多个菜单只能通过 SSH 隧道工作。 这些菜单依赖于�
     > * Microsoft Edge
     > * Microsoft Internet Explorer
     >
-    > Google Chrome 也依赖于 Windows 代理设置。 但是，可以安装支持 SOCKS5 的扩展。 我们建议使用 FoxyProxy Standard。
+    > Google Chrome 也依赖于 Windows 代理设置。 但是，可以安装支持 SOCKS5 的扩展。 我们建议使用 [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp)。
 
 ## <a name="usessh"></a>使用 SSH 命令创建隧道
 
@@ -75,9 +75,9 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 * **C** - 压缩所有数据，因为 Web 流量大多为文本。
 * **2** - 强制 SSH 仅尝试协议版本 2。
 * **q** - 静默模式。
-* **T** - 禁用 pseudo-tty 分配，因为我们只要转发端口。
-* **n** - 防止读取 STDIN，因为我们将仅转发端口。
-* **N** - 不执行远程命令，因为我们只要转发端口。
+* **T** - 禁用 pseudo-tty 分配，因为将仅转发端口。
+* **n** - 防止读取 STDIN，因为将仅转发端口。
+* **N** - 不执行远程命令，因为将仅转发端口。
 * **f** - 在后台运行。
 
 在命令完成后，发送到本地计算机上的端口 9876 的流量将路由到群集头节点。

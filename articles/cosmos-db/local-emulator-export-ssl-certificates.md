@@ -17,11 +17,11 @@ origin.date: 06/06/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b480c0fdc66101c2ebe65bfb7850a6a9f5ac31d7
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 4b91a5534d53ecfbf4a62eaa85bd8c8921c579ee
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>使用 Java、Python 和 Node.js 导出要使用的 Azure Cosmos DB 模拟器证书
 
@@ -103,9 +103,6 @@ Azure Cosmos DB 模拟器提供了一个模拟用于开发的 Azure Cosmos DB �
 > * 导出 SSL 证书
 > * 了解如何在 Java、Python 和 Node.js 中使用证书
 
-现在可以继续完成“使用 Azure Cosmos DB 输入绑定创建 Azure Functions HTTP 触发器”教程。
-
-> [!div class="nextstepaction"]
-> [通过从 Azure Cosmos DB 输入创建 Azure Function](tutorial-functions-http-trigger.md)
+<!-- Not Available on [Create an Azure Function with input from Azure Cosmos DB](tutorial-functions-http-trigger.md) -->
 
 <!--Update_Description: wording update, update link -->

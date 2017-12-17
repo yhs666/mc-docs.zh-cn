@@ -4,7 +4,7 @@ description: "了解一些优化提示，以确保正确设置 Linux VM，从而
 keywords: "linux 虚拟机,虚拟机 linux,ubuntu 虚拟机"
 services: virtual-machines-linux
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 09/06/2016
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: a442d5e53b14c77034a89792feabeaa3af679fae
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: 020430e54ef943c46d8fbefa11125fbef9ab4a3b
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上优化 Linux VM
 通过命令行或门户创建运行 Linux 虚拟机 (VM) 是一项很简单的操作。 本教程说明如何在 Azure 平台上设置 VM 以确保优化其性能。 本主题使用 Ubuntu Server VM，不过也可以[将自己的映像作为模板](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)来创建 Linux 虚拟机。  
@@ -35,7 +35,8 @@ ms.lasthandoff: 11/09/2017
 在 Azure 中创建 Linux VM 后，它具有两个与之关联的磁盘。 **/dev/sda** 是 OS 磁盘，**/dev/sdb** 是临时磁盘。  请勿将主要 OS 磁盘 (**/dev/sda**) 用于操作系统以外的用途，因为它已针对快速启动 VM 进行优化，无法为工作负荷提供良好的性能。 要获得持久且经过优化的数据存储，可以将一个或多个磁盘附加到 VM。 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>添加磁盘以实现大小和性能目标
-根据 VM 大小，可以分别在 A 系列、D 系列计算机上额外附加最多 16 个、32 个磁盘，每个磁盘最大可为 1 TB。 可以根据空间和 IOps 要求以及自己的需要添加额外的磁盘。 标准存储的每个磁盘的性能目标为 500 IOps，高级存储的每个磁盘的性能目标最高为 5000 IOps。  有关高级存储磁盘的详细信息，请参阅[高级存储：适用于 Azure VM 的高性能存储](../../storage/common/storage-premium-storage.md)
+根据 VM 大小，可以分别在 A 系列、D 系列计算机上额外附加最多 16 个、32 个磁盘，每个磁盘最大可为 1 TB。 可以根据空间和 IOps 要求以及自己的需要添加额外的磁盘。 标准存储的每个磁盘的性能目标为 500 IOps，高级存储的每个磁盘的性能目标最高为 5000 IOps。  有关高级存储磁盘的详细信息，请参阅[高级存储：适用于 Azure VM 的高性能存储](../windows/premium-storage.md)
+<!--Not Available on G-Series -->
 
 对于缓存设置为“ReadOnly”或“None”的高级存储磁盘，必须在 Linux 中装入文件系统时禁用“barrier”（屏障）才能达到最高 IOps。 不需要屏障，因为写入高级存储支持的磁盘对于这些缓存设置是持久的。
 
@@ -133,7 +134,9 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 其他有用资源的链接： 
 
-* [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../storage/common/storage-premium-storage.md)
+* [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../windows/premium-storage.md)
 * [Azure Linux 代理用户指南](../windows/agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [优化 Azure Linux VM 上的 MySQL 性能](classic/optimize-mysql.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [在 Linux 上配置软件 RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+
+<!-- Update_Description: update meta properties, wording update -->

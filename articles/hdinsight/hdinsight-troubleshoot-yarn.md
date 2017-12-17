@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/07/2017
-ms.date: 10/23/2017
+origin.date: 11/02/2017
+ms.date: 11/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 9561dfca1b25d2fcd2893b2813835bdd0375b5ca
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: cd9f25f7744797c06e09db96a57cde49c78e9d3b
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 YARN 进行故障排除
 
 了解处理 Apache Ambari 中的 Apache Hadoop YARN 有效负载时的最常见问题及其解决方法。
 
-## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>如何在群集上创建新的 YARN 队列
+## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>如何在群集上创建新的 YARN 队列？
 
 
 ### <a name="resolution-steps"></a>解决步骤 
@@ -67,10 +67,10 @@ YARN 计划程序 UI 中会立即显示这些更改。
 
 ### <a name="additional-reading"></a>其他阅读材料
 
-- [Yarn 容量计划程序](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
+- [YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
-## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>如何从群集下载 YARN 日志
+## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>如何从群集下载 YARN 日志？
 
 
 ### <a name="resolution-steps"></a>解决步骤 
@@ -143,6 +143,8 @@ YARN 计划程序 UI 中会立即显示这些更改。
 - [Apache Hadoop YARN 的概念和应用](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 
+### <a name="see-also"></a>另请参阅
+[使用 Azure HDInsight 进行故障排除](hdinsight-troubleshoot-guide.md)
 
 
 

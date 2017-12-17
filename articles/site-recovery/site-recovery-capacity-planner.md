@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 10/30/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6f463e06344880f95de75189d5da53eb6ddfe235
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: bf26f33ceb6dadfaeb6522163bbcbd2ecbdf1483
+ms.sourcegitcommit: 228b8811c3045a9db62264cb67f925746ef4e994
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>计划用于使用 Site Recovery 保护 Hyper-V VM 的容量
 
@@ -45,9 +45,8 @@ Azure Site Recovery Capacity Planner 工具可帮助用户确定通过 Azure Sit
 3. 在“Capacity Planner”工作表中输入所需信息。 必须填写以下屏幕快照中标有红圈的所有字段。
 
     * 在“选择你的方案”中，选择“Hyper-V 到 Azure”或“VMware/物理设备到 Azure”.
-    * 在“平均每日数据更改率(%)”中输入使用[Hyper-V 容量计划工具](site-recovery-capacity-planning-for-hyper-v-replication.md)搜集的信息。 
-    <!-- Not Available on [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) -->
-    *  仅适用于将 VMware VM 或物理服务器复制到 Azure 时提供的压缩。 我们的估计值是 30% 或以上，不过用户可以根据需要修改此设置。 将 Hyper-V VM 复制到 Azure 时，如果需要进行压缩，可以使用第三方工具，例如 Riverbed。
+    * 在“平均每日数据更改率(%)”中输入使用 [Hyper-V 容量计划工具](site-recovery-capacity-planning-for-hyper-v-replication.md)或 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) 收集的信息。  
+    * “**压缩**”仅适用于将 VMware VM 或物理服务器复制到 Azure 时提供的压缩。 我们的估计值是 30% 或以上，不过用户可以根据需要修改此设置。 将 Hyper-V VM 复制到 Azure 时，如果需要进行压缩，可以使用第三方工具，例如 Riverbed。
     * 将 Hyper-V VM 复制到 Azure 时，不使用“压缩”设置。 对于压缩，请使用第三方应用程序（例如 Riverbed）。
     * 在“保留输入”中，指定副本应保留的小时数。
     * 在“完成成批虚拟机的初始复制所需的小时数”和“初始复制批处理的虚拟机数”中，可以输入用于计算初始复制要求的设置。  部署 Site Recovery 时，应上传整个初始数据集。

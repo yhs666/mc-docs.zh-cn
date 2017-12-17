@@ -13,19 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-origin.date: 08/25/2017
-ms.date: 10/16/2017
+origin.date: 10/26/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: e0e6daa26d1a1b3ef33bf004c88a41a0e3c36b70
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 5465e981cb4705bcba38b98743de5febafcbc8cd
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="options-with-hpc-pack-to-create-and-manage-a-cluster-for-windows-hpc-workloads-in-azure"></a>使用 HPC Pack 为 Azure 中的 Windows HPC 工作负荷创建和管理群集的选项
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
-## <a name="hpc-pack-cluster-in-azure-vms"></a>Azure VM 中的 HPC Pack 群集
+本文重点介绍用于创建 HPC Pack 群集以便运行 Windows 工作负荷的选项。 
+<!-- Not Available on [Linux HPC workloads](../linux/hpcpack-cluster-options.md)-->
+
+## <a name="hpc-pack-cluster-in-azure-vms-and-vm-scale-sets"></a>Azure VM 和 VM 规模集中的 HPC Pack 群集
 ### <a name="azure-templates"></a>Azure 模板
 
 >[!NOTE]
@@ -34,6 +37,7 @@ ms.lasthandoff: 10/13/2017
 * （快速入门）[创建 HPC 群集](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster)
 * （快速入门）[使用自定义计算节点映像创建 HPC 群集](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-custom-image)
 
+<!-- Not Available on ### Azure VM images -->
 ### <a name="powershell-deployment-script-for-hpc-pack-2012-r2"></a>适用于 HPC Pack 2012 R2 的 PowerShell 部署脚本
 * [使用 HPC Pack IaaS 部署脚本创建 HPC 群集](classic/hpcpack-cluster-powershell-script.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

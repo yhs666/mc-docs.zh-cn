@@ -4,11 +4,11 @@ hide_bc: True
 title: "Azure 文档"
 description: "了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
 featureFlags: clicktale
-ms.openlocfilehash: dc3fff22b113c21c7c3a8574f2899343e61c3f3a
-ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
+ms.openlocfilehash: 228794fe0b9ec8eee98a83d4e1ad5748a63d08d2
+ms.sourcegitcommit: cc3fd1a8a5cfd0220df0430d2504ec5214c6c19d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/12/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1796,7 +1796,26 @@ ms.lasthandoff: 12/01/2017
                         <a href="#security">安全性 + 标识</a>
                         <ul id="security" class="cardsA">
                             <li>
-                                <a href="/key-vault/">
+                                <a href="/active-directory/develop">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>面向开发人员的 Azure Active Directory</h3>
+                                                    <p>用于 Web API、移动 API 和后端 API 的安全跨平台身份验证</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/key-vault/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

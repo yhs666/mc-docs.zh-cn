@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 88cf4555a7a8032c49686774abe17a092865e013
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: af6900e8f5806eca2a7a180b381b05b2eba41a37
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>使用 Azure 资源管理器向 Windows VM 应用策略
 通过使用策略，组织可以在整个企业中强制实施各种约定和规则。 强制实施所需行为有助于消除风险，同时为组织的成功做出贡献。 本文介绍如何使用 Azure 资源管理器策略，为组织中的虚拟机定义所需的行为。
 
-有关策略简介，请参阅[使用策略管理资源并控制访问](../../azure-resource-manager/resource-manager-policy.md)。
+<!-- Not Available on  [What is Azure Policy?](../../azure-policy/azure-policy-introduction.md). -->
 
 ## <a name="permitted-virtual-machines"></a>允许的虚拟机
 若要确保组织的虚拟机与应用程序兼容，可以限制获准操作系统。 在以下策略示例中，只允许创建 Windows Server 2012 R2 数据中心虚拟机：
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/13/2017
 }
 ```
 
-有关策略字段的信息，请参阅[策略别名](../../azure-resource-manager/resource-manager-policy.md#aliases)。
+<!-- Not Available on [Policy aliases](../../azure-policy/policy-definition.md#aliases).-->
 
 ## <a name="managed-disks"></a>托管磁盘
 
@@ -250,7 +250,7 @@ ms.lasthandoff: 10/13/2017
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 有关资源策略的简介，请参阅[资源策略概述](../../azure-resource-manager/resource-manager-policy.md)。
+<!-- Not Available on /azure-policy/*-->
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](../../azure-resource-manager/resource-manager-subscription-governance.md)。
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update link, wording update-->

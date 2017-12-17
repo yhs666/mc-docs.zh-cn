@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/10/2017
-ms.date: 11/27/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 19d170c9d1f624aaec9e9ba58df6195d97d6661b
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+origin.date: 11/06/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: 13a91600807aaff9058b47d04c28848f7790c552
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>使用 Azure REST API 创建 Hadoop 群集
 
@@ -131,7 +131,7 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 
                 },
                 "properties": {
-                    "clusterVersion": "3.5",
+                    "clusterVersion": "3.6",
                     "osType": "Linux",
                     "clusterDefinition": {
                         "kind": "[parameters('clusterType')]",
@@ -219,7 +219,7 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 本文档中的步骤使用了此示例。 将“参数”部分中的示例值替换为群集的值。
 
 > [!IMPORTANT]
-> 此模板对 HDInsight 群集使用默认数目（4 个）的辅助角色节点。 如果计划使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
+> 此模板对 HDInsight 群集使用默认数目（4 个）的辅助角色节点。 如果计划使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14 GB ram 的头节点大小。
 >
 > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
@@ -232,7 +232,7 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 ## <a name="create-a-service-principal"></a>创建服务主体
 
 > [!NOTE]
-> 这些步骤是[使用 Azure CLI 创建服务主体以访问资源](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password)文档的“使用密码创建服务主体”部分的缩减版本。 这些步骤创建用于向 Azure REST API 进行身份验证的服务主体。
+> 这些步骤是[使用 Azure CLI 创建服务主体以访问资源](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)文档的“使用密码创建服务主体”部分的缩减版本。 这些步骤创建用于向 Azure REST API 进行身份验证的服务主体。
 
 1. 从命令行使用以下命令列出 Azure 订阅。
 
@@ -364,18 +364,18 @@ curl -X "GET" "https://management.chinacloudapi.cn/subscriptions/$SUBSCRIPTIONID
 
 ### <a name="hadoop-clusters"></a>Hadoop 群集
 
-* [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
-* [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
+* [将 Hive 与 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
+* [将 Pig 与 HDInsight 配合使用](hadoop/hdinsight-use-pig.md)
+* [将 MapReduce 与 HDInsight 配合使用](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>HBase 群集
 
-* [HBase on HDInsight 入门](hdinsight-hbase-tutorial-get-started-linux.md)
-* [为 HBase on HDInsight 开发 Java 应用程序](hdinsight-hbase-build-java-maven-linux.md)
+* [HBase on HDInsight 入门](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [为 HBase on HDInsight 开发 Java 应用程序](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm 群集
 
-* [为 Storm on HDInsight 开发 Java 拓扑](hdinsight-storm-develop-java-topology.md)
-* [在 Storm on HDInsight 中使用 Python 组件](hdinsight-storm-develop-python-topology.md)
-* [使用 Storm on HDInsight 部署和监视拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [为 Storm on HDInsight 开发 Java 拓扑](storm/apache-storm-develop-java-topology.md)
+* [在 Storm on HDInsight 中使用 Python 组件](storm/apache-storm-develop-python-topology.md)
+* [使用 Storm on HDInsight 部署和监视拓扑](storm/apache-storm-deploy-monitor-topology-linux.md)
 <!--Update_Description: update metadata-->

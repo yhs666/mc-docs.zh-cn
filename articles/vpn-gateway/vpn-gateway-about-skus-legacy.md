@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/01/2017
-ms.date: 08/31/2017
+origin.date: 10/31/2017
+ms.date: 12/11/2017
 ms.author: v-junlch
-ms.openlocfilehash: 5374dddda3e31a7bffcbac6afaab97d6cb15ebcb
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.openlocfilehash: f750349a5458cea9dffaa49587a10c90145de775
+ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>使用虚拟网关 SKU（传统 SKU）
 
@@ -40,7 +40,12 @@ ms.lasthandoff: 09/01/2017
 
 ## <a name="resize"></a>重设网关大小（更改网关 SKU）
 
-可以在同一 SKU 系列内重设网关 SKU 大小。 例如，如果具有标准 SKU，则可重设大小为高性能 SKU。 不能在旧的 SKU 和新的 SKU 系列之间重设 VPN 网关大小。 例如，不能从标准 SKU 调整为 VpnGw2 SKU。 
+可以在同一 SKU 系列内重设网关 SKU 大小。 例如，如果具有标准 SKU，则可重设大小为高性能 SKU。 不能在旧的 SKU 和新的 SKU 系列之间重设 VPN 网关大小。 例如，不能从标准 SKU 调整为 VpnGw2 SKU。
+
+>[!IMPORTANT]
+>调整网关时，该网关将有 20-30 分钟的故障时间。
+>
+>
 
 若要重设经典部署模型的网关 SKU 大小，请使用以下命令：
 
@@ -57,7 +62,7 @@ Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighP
 
 ## <a name="migrate"></a>迁移到新式网关 SKU
 
-如果使用的是资源管理器部署模型，则可迁移到新式网关 SKU。 如果使用的是经典部署模型，则无法迁移到新式 SKU，必须继续使用旧式 SKU。
+如果使用的是资源管理器部署模型，则可迁移到新式网关 SKU。 如果在使用经典部署模型，则无法迁移到新式 SKU，必须继续使用旧式 SKU。
 
 [!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
 
@@ -67,3 +72,4 @@ Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighP
 
 有关配置设置的详细信息，请参阅[关于 VPN 网关配置设置](vpn-gateway-about-vpn-gateway-settings.md)。
 
+<!--Update_Description: wording update-->

@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/04/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 3fa00f560df6b2cf712cc6ebe63b75bcd57650ab
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.openlocfilehash: 22a4a50154a808ac39fa4413c6baaca3d6b531af
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>将基于 Windows 的 HDInsight 的 .NET 解决方案迁移到基于 Linux 的 HDInsight
 
@@ -34,7 +34,7 @@ Mono 版本 4.2.1 包含在 HDInsight 版本 3.5 中。 有关包含在 HDInsigh
 有关 Mono 与 .NET 间兼容性的详细信息，请参阅 [Mono 兼容性 (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) 文档。
 
 > [!IMPORTANT]
-> SCP.NET 框架与 Mono 兼容。 有关将 SCP.NET 与 Mono 配合使用的详细信息，请参阅[使用 Visual Studio 为 HDInsight 上的 Apache Storm 开发 C# 拓扑](hdinsight-storm-develop-csharp-visual-studio-topology.md)。
+> SCP.NET 框架与 Mono 兼容。 有关将 SCP.NET 与 Mono 配合使用的详细信息，请参阅[使用 Visual Studio 为 HDInsight 上的 Apache Storm 开发 C# 拓扑](storm/apache-storm-develop-csharp-visual-studio-topology.md)。
 
 ## <a name="automated-portability-analysis"></a>自动可移植性分析
 
@@ -75,10 +75,10 @@ Mono 版本 4.2.1 包含在 HDInsight 版本 3.5 中。 有关包含在 HDInsigh
 
 ## <a name="next-steps"></a>后续步骤
 
-* [在 HDInsight 上将 C# 与 MapReduce 配合使用](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [在 HDInsight 上将 C# 与 MapReduce 配合使用](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [将 C# 用户定义函数与 Hive 和 Pig 配合使用](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [将 C# 用户定义函数与 Hive 和 Pig 配合使用](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [为 HDInsight 上的 Storm 开发 C# 拓扑](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [为 HDInsight 上的 Storm 开发 C# 拓扑](storm/apache-storm-develop-csharp-visual-studio-topology.md)
 
 <!--Update_Description: wording update-->

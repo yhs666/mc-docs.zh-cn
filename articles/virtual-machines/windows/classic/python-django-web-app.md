@@ -3,7 +3,7 @@ title: "Windows Server Azure VM 上的 Django Web 应用 | Azure"
 description: "了解如何使用经典部署模型在 Azure 中使用 Windows Server 2012 R2 Datacenter VM 托管基于 Django 的网站。"
 services: virtual-machines-windows
 documentationcenter: python
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-service-management
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: python
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: ee88be306175c043af608ae03d847664486e4230
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: f32aa22c587d50cc69babdcf70af4a9a650d0afd
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Windows Server VM 上的 Django Hello World Web 应用
 
 > [!IMPORTANT] 
 > Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure 资源管理器和经典部署模型](../../../resource-manager-deployment-model.md)。 本文介绍经典部署模型。 我们建议在大多数新部署中使用 Resource Manager 模型。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 本教程演示如何在 Azure 虚拟机的 Windows Server 中托管基于 Django 的网站。 本教程假设读者以前没有使用过 Azure。 完成本教程后，即可在云中启动和运行基于 Django 的应用程序。
 
@@ -177,4 +178,4 @@ ms.lasthandoff: 08/29/2017
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!--Update_Description: remove selector-->
+<!-- Update_Description: add classic portal migration notice. -->

@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 10/24/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: a86abec2933948185f665a2243f2e1a04dc1bdcd
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 0ca717232007db0c7d1ce1b800166127e3ac0a31
+ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒体服务概述
 
@@ -62,7 +62,7 @@ Microsoft Azure 媒体服务是一个可扩展的基于云的平台，使开发�
 
 有关 Azure 媒体服务的概念，请参阅[概念](media-services-concepts.md)。
 
-有关介绍 Azure 媒体服务所有主要组件的操作说明系列文章，请参阅 [Azure 媒体服务分步教程](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series)。 此系列文章全面概述了各个概念，并使用 AMSE 工具演示了 AMS 任务。 AMSE 工具是一种 Windows 工具。 使用 [AMS SDK for.NET](https://github.com/Azure/azure-sdk-for-media-services)、[Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java) 或 [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php) 以编程方式完成的大多数任务也可以使用此工具来完成。
+有关介绍 Azure 媒体服务所有主要组件的操作说明系列文章，请参阅 [Azure 媒体服务分步教程](https://docs.com/shigeyf/1220/azure-media-services-step-by-step-tutorial-series)。 此系列文章全面概述了各个概念，并使用 AMSE 工具演示了 AMS 任务。 AMSE 工具是一种 Windows 工具。 使用 [AMS SDK for.NET](https://github.com/Azure/azure-sdk-for-media-services)、[Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java) 或 [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php) 以编程方式完成的大多数任务也可以使用此工具来完成。
 
 ## <a name="supported-scenarios-and-availability-of-media-services-across-data-centers"></a>媒体服务支持的跨数据中心方案和可用性
 

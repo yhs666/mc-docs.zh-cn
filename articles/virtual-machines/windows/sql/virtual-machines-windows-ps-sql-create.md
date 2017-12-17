@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 08/29/2017
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: ba2b6e4b30100db48cb8698d477b9a37a95a74fe
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 7c30e97efbbc77f378faafb1211d919ba9922013
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-resource-manager"></a>使用 Azure PowerShell 预配 SQL Server 虚拟机 (Resource Manager)
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ $ResourceGroupName = "sqlvm1"
 ### <a name="storage-properties"></a>存储属性
 使用以下变量来定义存储帐户和虚拟机要使用的存储类型。
 
-根据需要修改并执行以下 cmdlet，以初始化这些变量。 请注意，在本示例中，我们将使用建议用于生产工作负荷的[高级存储](../../../storage/common/storage-premium-storage.md)。 有关指导和其他建议的详细信息，请参阅 [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md)（Azure 虚拟机中 SQL Server 的性能最佳实践）。
+根据需要修改并执行以下 cmdlet，以初始化这些变量。 请注意，在本示例中，我们将使用建议用于生产工作负荷的[高级存储](../premium-storage.md)。 有关指导和其他建议的详细信息，请参阅 [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md)（Azure 虚拟机中 SQL Server 的性能最佳实践）。
 
 ```PowerShell
 $StorageName = $ResourceGroupName + "storage"
@@ -163,8 +163,6 @@ $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupNam
 
 > [!NOTE]
 > 可以使用此 cmdlet 来定义虚拟网络子网配置的其他属性，但这已超出本教程的范围。
->
->
 
 执行以下 cmdlet，以创建虚拟子网配置。
 
@@ -186,8 +184,6 @@ $VNet = New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGr
 
 > [!NOTE]
 > 可以使用此 cmdlet 来定义公共 IP 地址的其他属性，但这已超出本初步教程的范围。 也可以创建专用地址或具有静态地址的地址，但这也超出了本教程的范围。
->
->
 
 执行以下 cmdlet，以创建公共 IP 地址。
 
@@ -348,4 +344,4 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 ## <a name="next-steps"></a>后续步骤
 创建虚拟机后，可以使用 RDP 和设置连接来连接虚拟机。 有关详细信息，请参阅 [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-sql-connect.md)（连接到 Azure 上的 SQL Server 虚拟机 (Resource Manager)）。
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update links -->

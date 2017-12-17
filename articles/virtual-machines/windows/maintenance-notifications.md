@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/26/2017
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8e72986a6606812931b2005dc49ba64256cc7230
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 5d09fe2b63fb6fa1826ab9ada549d6f37f66720c
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>处理 Windows 虚拟机的计划内维护通知
 
@@ -194,4 +194,4 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 了解如何使用[计划事件](scheduled-events.md)从 VM 内注册维护事件。
 
-<!--Update_Description: update meta properties, add FAQ and Classic Deployment content -->
+<!--Update_Description: update meta properties, wording update -->

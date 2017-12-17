@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 10/30/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8ce94375d79a1cbfcab7f48a1169ba4a2826598e
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 7e2806f74648eeb6096c8f7c762f9513d3148885
+ms.sourcegitcommit: 228b8811c3045a9db62264cb67f925746ef4e994
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>可以通过 Azure Site Recovery 保护哪些工作负荷？
 
@@ -142,6 +142,7 @@ Azure Site Recovery 可以将环境中的关键组件复制到冷远程站点或
 -   能够在适用于 DR 演练的隔离环境中测试恢复计划。
 
 [详细了解](https://aka.ms/asr-iis)如何保护 IIS Web 场。
+<!-- https://aka.ms/asr-iis Redirect to ../site-recovery/site-recovery-iis.md -->
 
 ## <a name="protect-citrix-xenapp-and-xendesktop"></a>保护 Citrix XenApp 和 XenDesktop
 使用 Site Recovery 保护 Citrix XenApp 和 XenDesktop 部署，如下所示：

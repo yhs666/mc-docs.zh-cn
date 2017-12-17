@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 10/25/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 634db766525ceba4ff5246149be817a75b926203
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: de50d04b08bf945193298d8bb582a19dc0afaf52
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-documentation"></a>Azure Cosmos DB: DocumentDB API 文档
 
@@ -74,11 +74,7 @@ ms.lasthandoff: 11/24/2017
 - [查询](tutorial-query-documentdb.md)
 - [全局分配数据](tutorial-global-distribution-documentdb.md)
 
-### <a name="work-with-azure-functions"></a>使用 Azure Functions
-
-- [创建 Azure Cosmos DB 触发器](../azure-functions/functions-create-cosmos-db-triggered-function.md)
-- [在输入和输出绑定中使用 Azure Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
-
+<!-- Not Available ### Work with Azure Functions -->
 ## <a name="developers-guide"></a>开发人员指南
 
 - [SQL 查询](documentdb-sql-query.md)
@@ -106,7 +102,7 @@ Azure Cosmos DB 提供许多 SDK 来支持客户端应用程序开发。
 - [REST](https://docs.microsoft.com/rest/api/documentdb/)
 - [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 - [SQL 查询参考](documentdb-sql-query-reference.md)
-- [Azure Functions 参考](../azure-functions/functions-bindings-documentdb.md)
+<!-- Not Available on - [Azure Functions reference](../azure-functions/functions-bindings-documentdb.md) -->
 
 ## <a name="samples"></a>示例
 

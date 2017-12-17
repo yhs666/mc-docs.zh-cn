@@ -17,11 +17,11 @@ ms.topic: article
 origin.date: 08/25/2017
 ms.date: 10/23/2017
 ms.author: v-yiso
-ms.openlocfilehash: 825b35f2005ec4f7e44994eed65c283acd328b5c
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: e070c6d361af730230d8af162d9c8016a4306760
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -222,15 +222,15 @@ $resourceGroupName = $cluster.ResourceGroup
 
 **提交 Hive 作业**
 
-请参阅[使用 PowerShell 运行 Hive 查询](hdinsight-hadoop-use-hive-powershell.md)。
+请参阅[使用 PowerShell 运行 Hive 查询](hadoop/apache-hadoop-use-hive-powershell.md)。
 
 **提交 Pig 作业**
 
-请参阅[使用 PowerShell 运行 Pig 作业](hdinsight-hadoop-use-pig-powershell.md)。
+请参阅[使用 PowerShell 运行 Pig 作业](hadoop/apache-hadoop-use-pig-powershell.md)。
 
 **提交 Sqoop 作业**
 
-请参阅[将 Sqoop 与 HDInsight 配合使用](hdinsight-use-sqoop.md)。
+请参阅[将 Sqoop 与 HDInsight 配合使用](hadoop/hdinsight-use-sqoop.md)。
 
 **提交 Oozie 作业**
 
@@ -252,16 +252,16 @@ $resourceGroupName = $cluster.ResourceGroup
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-provision-custom-options]: hdinsight-hadoop-provision-linux-clusters.md#configuration
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 

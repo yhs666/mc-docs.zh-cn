@@ -62,7 +62,7 @@
 ## [在 Azure Log Analytics 中分析应用程序网关日志](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fnetwork-watcher%2ftoc.json)
 ## 数据包捕获
 ### [查找异常](network-watcher-deep-packet-inspection.md)
-### [使用 Azure Functions 执行主动网络监视](network-watcher-alert-triggered-packet-capture.md)
+<!--Not Available ### [Proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md) -->
 ### [使用开放源代码工具执行入侵检测](network-watcher-intrusion-detection-open-source-tools.md)
 ### [使用开放源代码工具可视化网络流量模式](network-watcher-using-open-source-tools.md)
 ## 分析 NSG 流日志

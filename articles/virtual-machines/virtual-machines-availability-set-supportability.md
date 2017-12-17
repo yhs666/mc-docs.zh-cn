@@ -12,14 +12,14 @@ ms.workload: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 07/15/2017
-ms.date: 10/30/2017
+origin.date: 11/03/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 711c2484c1685a65415f74faf64b89a60524a943
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: cc285e313c18ad1e27dd8fcd1441d46d0533d656
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>将 Azure VM 添加到现有可用性集的可支持性
 
@@ -40,4 +40,4 @@ ms.lasthandoff: 10/27/2017
 
 <!--Not Available on A8/A9 -->
 
-<!--Update_Description: remove A8/A9 due to unsuitable to azure.cn-->
+<!--Update_Description: update meta properties -->

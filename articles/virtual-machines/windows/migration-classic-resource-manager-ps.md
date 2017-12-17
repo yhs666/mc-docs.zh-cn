@@ -3,7 +3,7 @@ title: "通过 PowerShell 迁移到 Resource Manager | Azure"
 description: "本文介绍如何在支持的平台上使用 Azure PowerShell 命令将 IaaS 资源（例如虚拟机 (VM)、虚拟网络 (VNET) 和存储帐户）从经典部署模型迁移到 Azure Resource Manager (ARM) 部署模型"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: f1b95f08407b9cb162713397d1c7c12606d33a2f
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: dfde75b0eeba0de2074365ee498d67a0fd10f0df
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>使用 Azure PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器
 以下步骤演示了如何使用 Azure PowerShell 命令将基础结构即服务 (IaaS) 资源从经典部署模型迁移到 Azure 资源管理器部署模型。
@@ -83,7 +83,7 @@ ms.lasthandoff: 11/28/2017
 设置当前会话的 Azure 订阅。 此示例将默认订阅名称设置为“我的 Azure 订阅”。 使用自己的订阅名称替换示例名称。
 
 ```powershell
-    Select-AzureRmSubscription –SubscriptionName "My Azure Subscription"
+    Select-AzureRmSubscription -SubscriptionName "My Azure Subscription"
 ```
 
 > [!NOTE]
@@ -127,8 +127,8 @@ ms.lasthandoff: 11/28/2017
 
 <br>
 
-## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>步骤 5：确保在当前部署或 VNET 的 Azure 区域中有足够的 Azure Resource Manager 虚拟机核心
-可以使用以下 PowerShell 命令检查 Azure Resource Manager 中目前的核心数量。 
+## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>步骤 5：确保在当前部署或 VNET 的 Azure 区域中有足够的 Azure 资源管理器虚拟机 vCPU
+可以使用以下 PowerShell 命令检查 Azure 资源管理器中目前的 vCPU 数量。
 
 此示例检查 **中国北部** 区域的可用性。 使用自己的区域名称替换示例名称。
 
@@ -276,7 +276,6 @@ Get-AzureRmVMUsage -Location "China North"
 * **迁移其磁盘存储在存储帐户中的经典虚拟机**
 
     上述命令返回存储帐户中所有经典 VM 磁盘的 RoleName 和 DiskName 属性。 RoleName 是磁盘附加到的虚拟机的名称。 如果上述命令返回了磁盘，请确保先迁移这些磁盘所附加到的虚拟机，再迁移存储帐户。
-
     ```powershell
      $storageAccountName = 'yourStorageAccountName'
       Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
@@ -350,4 +349,4 @@ Get-AzureRmVMUsage -Location "China North"
 * [用于帮助将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的社区工具](migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-
+<!-- Update_Description: update meta properties, update link -->

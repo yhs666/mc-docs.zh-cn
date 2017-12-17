@@ -3,7 +3,7 @@ title: "示例 Azure 基础结构演练 | Azure"
 description: "了解用于在 Azure 中部署示例基础结构的关键设计和实施准则。"
 documentationcenter: 
 services: virtual-machines-windows
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 12/18/2017
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ad87d564b1ec4e65cdbd6c4cbe152a7109c3918
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 9d24662e79f3e9d165ceb6135624db52305c9c54
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>适用于 Windows VM 的 Azure 示例基础结构演练
 
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
-本文逐步讲述如何构建示例应用程序基础结构。 我们详细介绍如何设计简单在线商店的基础结构，此在线商店可将关于命名约定、可用性集、虚拟网络及负载均衡器的所有准则和决策聚集在一起；以及如何实际部署你的虚拟机 (VM)。
+本文逐步讲述如何构建示例应用程序基础结构。 我们将详细介绍如何设计简单在线商店的基础结构，此在线商店可将关于命名约定、可用性集、虚拟网络及负载均衡器的所有准则和决策聚集在一起；以及如何实际部署虚拟机 (VM)。
 
 ## <a name="example-workload"></a>示例工作负荷
-Adventure Works Cycles 想要在 Azure 中生成一个在线商店应用程序，该应用程序包含：
+Adventure Works Cycles 想要在 Azure 中生成一个在线商店应用程序，该应用程序将包含：
 
 * 位于 Web 层中、用于运行客户端前端的两个 IIS 服务器
 * 位于应用程序层中、用于处理数据和订单的两个 IIS 服务器
@@ -118,3 +118,4 @@ Adventure Works Cycles 决定为其 Azure VM 使用以下名称：
 * 用于从 Internet 到 Web 服务器的基于 HTTPS 的 Web 流量的外部负载均衡集
 * 用于从 Web 服务器到应用程序服务器的未加密 Web 流量的内部负载均衡集
 * 单个资源组
+<!-- Update_Description: wording update -->

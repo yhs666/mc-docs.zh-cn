@@ -3,6 +3,8 @@
 * Azure 在 Marketplace 中提供映像。 可以找到最新的 Windows Server 和 Linux 操作系统分发版。 一些映像还包含应用程序，如 SQL Server。 MSDN 权益和 MSDN 即付即用订户有权访问其他映像。
 * 开源社区通过 VM 仓库提供映像。
 * 还可以通过捕获现有的 Azure 虚拟机用作映像或上传映像来在 Azure 中存储和使用自己的映像。
+<!-- Not Available [Marketplace](https://azure.microsoft.com/gallery/virtual-machines/) -->
+<!-- Not Available [VM Depot](http://vmdepot.msopentech.com/List/Index) -->
 
 ## <a name="about-vm-images-and-os-images"></a>关于 VM 映像和 OS 映像
 可以在 Azure 中使用两种类型的映像：*VM 映像*和 *OS 映像*。 VM 映像包括在创建该映像时附加到虚拟机的操作系统和所有磁盘。 VM 映像是较新类型的映像。 在引入 VM 映像之前，Azure 中的映像只能包含一个通用操作系统，而不能包含任何附加磁盘。 只包含一个通用操作系统的 VM 映像基本上与原始类型的映像（即，OS 映像）相同。

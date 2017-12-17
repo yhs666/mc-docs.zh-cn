@@ -15,11 +15,11 @@ origin.date: 09/19/2017
 ms.date: 10/23/2017
 ms.author: v-johch
 ms.custom: mvc
-ms.openlocfilehash: ecdbd3155d9629c0e210a530865aa8df6828367c
-ms.sourcegitcommit: 10a649bfdf30765955ed964f7b5e05205bb9670a
+ms.openlocfilehash: 0afc492c8365d5a6ade20b8ed451f770bad39416
+ms.sourcegitcommit: cc3fd1a8a5cfd0220df0430d2504ec5214c6c19d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>使用 Azure 存储在云中上传图像数据
 
@@ -66,7 +66,7 @@ az storage account create --name <blob_storage_account> \
  
 ## <a name="create-blob-storage-containers"></a>创建 blob 存储容器
  
-应用使用 Blob 存储帐户中的两个容器。 这些容器类似于文件夹，用于存储 blob。 images 容器是应用在其中上传完整分辨率图像的位置。 在本系列的后面部分中，一个 Azure 函数应用将调整大小后的图像缩略图上传到 thumbs 容器。 
+应用使用 Blob 存储帐户中的两个容器。 这些容器类似于文件夹，用于存储 blob。 images 容器是应用在其中上传完整分辨率图像的位置。 
 
 使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#list) 命令获取存储帐户密钥。 然后使用此密钥通过 [az storage container create](https://docs.azure.cn/cli/storage/container#create) 命令创建两个容器。  
  

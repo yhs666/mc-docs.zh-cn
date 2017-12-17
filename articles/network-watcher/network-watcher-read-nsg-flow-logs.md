@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 origin.date: 07/25/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: ef71ccd17eef155ca60c4108697b2693f040388d
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 5d2508f3f7927bd245e8f2e546b0d316dfc87164
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="read-nsg-flow-logs"></a>读取 NSG 流日志
 
@@ -157,7 +157,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ## <a name="next-steps"></a>后续步骤
 
 若要详细了解查看 NSG 流日志的其他方式，请访问[使用开源工具可视化 Azure 网络观察程序 NSG 流日志](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)。
-
-若要了解有关存储 blob 的详细信息，请访问 [Azure Functions Blob 存储绑定](../azure-functions/functions-bindings-storage-blob.md)
+<!--Not Available To learn more about storage blobs visit: [Azure Functions Blob storage bindings](../azure-functions/functions-bindings-storage-blob.md) -->
 
 <!--Update_Description: new articles on network watcher read nsg flow logs -->

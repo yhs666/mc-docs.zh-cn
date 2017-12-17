@@ -3,7 +3,7 @@ title: "使用 Powershell 创建和上传 VM 映像 | Azure"
 description: "了解如何使用经典部署模型和 Azure Powershell 创建并上传通用化 Windows Server 映像 (VHD)。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
@@ -14,19 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: a9c13cad70b349498d769522da32d4cfedd340d5
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: d74dd86810267969fce61725b14ccaec4bb9783c
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>创建 Windows Server VHD 并将其上传到 Azure
 本文说明如何上传自己的通用化 VM 映像作为虚拟硬盘 (VHD)，以便使用它来创建虚拟机。 有关 Azure 中的磁盘和 VHD 的更多详细信息，请参阅 [About Disks and VHDs for Virtual Machines](../about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（关于虚拟机的磁盘和 VHD）。
 
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 也可以使用 Resource Manager 模型来[上传](../upload-generalized-managed.md)虚拟机。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="prerequisites"></a>先决条件
 本文假定你具备以下条件：
@@ -39,7 +40,7 @@ ms.lasthandoff: 08/29/2017
     > Azure 不支持 VHDX 格式。 可使用 Hyper-V 管理器或 [Convert-VHD cmdlet](http://technet.microsoft.com/library/hh848454.aspx) 将磁盘转换为 VHD 格式。 有关详细信息，请参阅此 [blogpost](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx)。
 
 ## <a name="step-1-prep-the-vhd"></a>步骤 1：准备 VHD
-在将 VHD 上传到 Azure 之前，需要使用 Sysprep 工具对 VHD 进行一般化。 这样就可以将 VHD 作为映像使用。 有关 Sysprep 的详细信息，请参阅[如何使用 Sysprep：简介](http://technet.microsoft.com/library/bb457073.aspx)。 在运行 Sysprep 之前备份 VM。
+在将 VHD 上传到 Azure 之前，需要使用 Sysprep 工具对 VHD 进行一般化。 以此准备 VHD 作为映像使用。 有关 Sysprep 的详细信息，请参阅[如何使用 Sysprep：简介](http://technet.microsoft.com/library/bb457073.aspx)。 在运行 Sysprep 之前备份 VM。
 
 在操作系统已安装到的虚拟机中，完成以下过程：
 
@@ -105,3 +106,4 @@ Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountN
 
 ## <a name="next-steps"></a>后续步骤
 现在可以使用上传的映像来[创建自定义的 VM](createportal.md)。
+<!-- Update_Description: update meta properties, add classic portal migration notice. -->

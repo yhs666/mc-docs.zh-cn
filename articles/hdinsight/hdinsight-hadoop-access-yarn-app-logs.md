@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 12/25/2017
+ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 406cb91cdbee7c4c71781460250f875f440b2eb2
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+ms.openlocfilehash: 1f345dd8cd8e40b332232cdbec91c18ef283eda9
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 上访问 YARN 应用程序日志
 本主题说明如何访问 Azure HDInsight 中基于 Windows 的 Hadoop 群集上已完成的 YARN (Yet Another Resource Negotiator) 应用程序的日志
@@ -46,7 +46,7 @@ ms.lasthandoff: 09/12/2017
 * 尝试完成应用程序的相关信息
 * 任何给定应用程序尝试所用的容器
 
-在 HDInsight 群集上，由 Azure Resource Manager 将这项信息存储到默认存储帐户的默认容器中的历史记录存储中。 可以通过 REST API 检索有关完成应用程序的此类通用数据：
+在 HDInsight 群集上，由 Azure 资源管理器将这项信息存储到默认 Azure 存储帐户的默认容器中的历史记录存储中。 可以通过 REST API 检索有关完成应用程序的此类通用数据：
 
     GET on https://<cluster-dns-name>.azurehdinsight.cn/ws/v1/applicationhistory/apps
 

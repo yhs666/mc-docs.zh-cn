@@ -3,8 +3,8 @@ title: "关于 Azure 中的 Linux VM 映像 | Azure"
 description: "了解如何对 Azure 中的虚拟机使用 Linux 映像。"
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: e6ea8adc-4e7a-467a-9394-cd05e67898b7
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/21/2016
-ms.date: 01/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: d0366f53c85c2844caa8b6ccb692874ce98eec3e
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: bebcd8bb356e513ba3df8dde5f8a75dd975b1205
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="about-images-for-linux-virtual-machines"></a>关于 Linux 虚拟机的映像
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关使用 Resource Manager 模型的映像的信息，请参阅[此处](../cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [virtual-machines-common-classic-about-images](../../../../includes/virtual-machines-common-classic-about-images.md)]
 
@@ -35,3 +36,6 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="next-steps"></a>后续步骤
 还可以[上传自己的映像](create-upload-vhd.md)。
+<!-- Update_Description: wording update -->
+<!--Not Available the parent file of includes file of virtual-machines-classic-portal.md-->
+<!--ms.date:11/27/2017-->

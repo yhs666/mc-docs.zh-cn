@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/23/2017
-ms.date: 11/27/2017
+origin.date: 11/13/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: f0b67508f38cea5f43ccd9946b61b92b5d5f9fe1
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.openlocfilehash: b1e268c68d9ca90ae0438a145a13a25ba38518ba
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>由 HDInsight 上的 Hadoop 服务使用的端口
 
@@ -48,17 +48,17 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 | sshd |23 |SSH |将客户端连接到辅助头节点上的 sshd。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。 |
 | Ambari |443 |HTTPS |Ambari Web UI。 请参阅[使用 Ambari Web UI 管理 HDInsight](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API。 请参阅[使用 Ambari REST API 管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API。 请参阅[将 Hive 与 Curl 配合使用](hdinsight-hadoop-use-pig-curl.md)、[将 Pig 与 Curl 配合使用](hdinsight-hadoop-use-pig-curl.md)、[将 MapReduce 与 Curl 配合使用](hdinsight-hadoop-use-mapreduce-curl.md) |
-| HiveServer2 |443 |ODBC |使用 ODBC 连接到 Hive。 请参阅[使用 Microsoft ODBC 驱动程序将 Excel 连接到 HDInsight](hdinsight-connect-excel-hive-odbc-driver.md)。 |
-| HiveServer2 |443 |JDBC |使用 JDBC 连接到 Hive。 请参阅[使用 Hive JDBC 驱动程序连接到 HDInsight 上的 Hive](hdinsight-connect-hive-jdbc-driver.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API。 请参阅[将 Hive 与 Curl 配合使用](hadoop/apache-hadoop-use-pig-curl.md)、[将 Pig 与 Curl 配合使用](hadoop/apache-hadoop-use-pig-curl.md)、[将 MapReduce 与 Curl 配合使用](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| HiveServer2 |443 |ODBC |使用 ODBC 连接到 Hive。 请参阅[使用 Microsoft ODBC 驱动程序将 Excel 连接到 HDInsight](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)。 |
+| HiveServer2 |443 |JDBC |使用 JDBC 连接到 Hive。 请参阅[使用 Hive JDBC 驱动程序连接到 HDInsight 上的 Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 以下各项适用于特定的群集类型：
 
 | 服务 | 端口 | 协议 | 群集类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST API。 请参阅[开始使用 HBase](hdinsight-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |Spark REST API。 请参阅[使用 Livy 远程提交 Spark 作业](hdinsight-apache-spark-livy-rest-interface.md) |
-| Storm |443 |HTTPS |Storm |Storm Web UI。 请参阅[在 HDInsight 上部署和管理 Storm 拓扑](hdinsight-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |HBase REST API。 请参阅[开始使用 HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |Spark REST API。 请参阅[使用 Livy 远程提交 Spark 作业](spark/apache-spark-livy-rest-interface.md) |
+| Storm |443 |HTTPS |Storm |Storm Web UI。 请参阅[在 HDInsight 上部署和管理 Storm 拓扑](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>身份验证
 
@@ -169,8 +169,8 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 | 服务 | Nodes | 端口 | 协议 | URL 路径 | 说明 |
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift 服务器 |头节点 |10002 |Thrift | &nbsp; | 用于连接到 Spark SQL 的服务 (Thrift/JDBC) |
-| Livy 服务器 | 头节点 | 8998 | HTTP | /batches | 用于运行语句、作业和应用程序的服务 |
+| Livy 服务器 | 头节点 | 8998 | HTTP | &nbsp; | 用于运行语句、作业和应用程序的服务 |
 
 示例:
 
-* Livy：`curl "http://10.0.0.11:8998/batches"`。 在此示例中，`10.0.0.11` 是托管 Livy 服务的头节点的 IP 地址。
+* Livy：`curl -u admin -G "http://10.0.0.11:8998/"`。 在此示例中，`10.0.0.11` 是托管 Livy 服务的头节点的 IP 地址。

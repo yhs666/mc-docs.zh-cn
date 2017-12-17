@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/05/2016
-ms.date: 03/10/2017
-ms.author: v-dazen
+ms.date: 12/25/2017
+ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: ae8c967f574333edce8907ff0712c414db85db82
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 7b3391e49676d4610b586f4bbb88f45b27d8138f
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>在基于 Windows 的 HDInsight 群集上安装并使用 Solr
 
@@ -64,17 +64,17 @@ ms.lasthandoff: 07/28/2017
             <td>根据脚本的需要，请指定参数。 用于安装 Solr 的脚本不需要任何参数，因此，可将此项保留为空。</td></tr>
     </table>
 
-    你可以添加多个脚本操作，以在群集上安装多个组件。 在添加了脚本后，单击复选标记以开始创建群集。
+    可以添加多个脚本操作，以在群集上安装多个组件。 在添加了脚本后，单击复选标记以开始创建群集。
 
 ## <a name="use-solr"></a>使用 Solr
 必须从使用一些数据文件为 Solr 编制索引开始。 然后，可以使用 Solr 对索引数据运行搜索查询。 执行以下步骤，以在 HDInsight 群集中使用 Solr：
 
 1. 使用远程桌面协议 (RDP) 远程连接到安装有 Solr 的 HDInsight 群集。 在 Azure 门户中，对创建的安装有 Solr 的群集启用远程桌面，然后远程连接到该群集。 有关说明，请参阅[使用 RDP 连接到 HDInsight 群集](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)。
-2. **通过上传数据文件为 Solr 编制索引**。 在为 Solr 编制索引时，你应将可能需要搜索的文档放置在其中。 若要为 Solr 编制索引，请使用 RDP 远程连接到群集，导航到桌面，打开 Hadoop 命令行，然后导航到 C:\apps\dist\solr-4.7.2\example\exampledocs。 运行以下命令：
+2. **通过上传数据文件为 Solr 编制索引**。 在为 Solr 编制索引时，应将可能需要搜索的文档放置在其中。 若要为 Solr 编制索引，请使用 RDP 远程连接到群集，导航到桌面，打开 Hadoop 命令行，然后导航到 C:\apps\dist\solr-4.7.2\example\exampledocs。 运行以下命令：
 
         java -jar post.jar solr.xml monitor.xml
 
-    你将会在控制台上看到以下输出：
+    控制台上会显示以下输出：
 
         POSTing file solr.xml
         POSTing file monitor.xml
@@ -85,7 +85,7 @@ ms.lasthandoff: 07/28/2017
     post.jar 实用程序通过以下两个示例文档为 Solr 编制索引：solr.xml 和 monitor.xml。 post.jar 实用工具和示例文档随 Solr 安装一起提供。
 3. **使用 Solr 仪表板在索引文档中搜索**。 在连接到 HDInsight 群集的 RDP 会话中，打开 Internet Explorer，然后启动位于 http://headnodehost:8983/solr/#/ 的 Solr 仪表板。 在左窗格的“核心选择器”下拉列表中，选择“collection1”，然后在其中单击“查询”。 作为示例，若要在 Solr 中选择并返回所有文档，请提供以下值：
 
-   * 在 **q** 文本框中，输入 **\*:**\*。 这将返回所有已在 Solr 中编制索引的文档。 如果要在文档中搜索特定字符串，则可以在此处输入该字符串。
+   * 在 **q** 文本框中，输入 **\*:**\*。 这会返回所有已在 Solr 中编制索引的文档。 如果要在文档中搜索特定字符串，则可以在此处输入该字符串。
    * 在 **wt** 文本框中，选择输出格式。 默认值为 **json**。 单击“执行查询” 。
 
      ![使用脚本操作自定义群集](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "在 Solr 仪表板上运行查询")
@@ -149,7 +149,7 @@ ms.lasthandoff: 07/28/2017
 
            http://localhost:8983/solr/replication?command=backup
 
-       你应该看到如下所示的响应：
+       应该看到如下所示的响应：
 
            <?xml version="1.0" encoding="UTF-8"?>
            <response>
@@ -170,7 +170,7 @@ ms.lasthandoff: 07/28/2017
 请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。  此示例演示如何使用 Azure PowerShell 安装 Spark。 需要自定义脚本以使用 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)。
 
 ## <a name="install-solr-using-net-sdk"></a>使用 .NET SDK 安装 Solr
-请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-net-sdk)。 此示例演示如何使用 .NET SDK 安装 Spark。 需要自定义脚本以使用 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)。
+请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。 此示例演示如何使用 .NET SDK 安装 Spark。 需要自定义脚本以使用 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)。
 
 ## <a name="see-also"></a>另请参阅
 * [在 HDInsight Hadoop 群集 (Linux) 上安装并使用 Solr](hdinsight-hadoop-solr-install-linux.md)

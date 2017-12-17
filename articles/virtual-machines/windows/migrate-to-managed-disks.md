@@ -3,7 +3,7 @@ title: "将 Azure VM 迁移到托管磁盘 | Azure"
 description: "迁移使用存储帐户中的非托管磁盘创建的 Azure 虚拟机以使用托管磁盘。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: db233b17442bc47d53e55e145af4eb64e227a408
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: 6b6a5c7b83df526d8bae5bc690567926a5c94776
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>将 Azure VM 迁移到 Azure 中的托管磁盘
 
-Azure 托管磁盘无需单独管理存储帐户，从而简化了存储管理。  还可以将现有的 Azure VM 迁移到托管磁盘，以便受益于可用性集中 VM 的更佳可靠性。 它可确保可用性集中不同 VM 的磁盘完全相互隔离，以避免出现单点故障。 它会自动将可用性集中不同 VM 的磁盘置于不同的存储缩放单位（戳），限制由于硬件和软件故障引起的单个存储缩放单位故障影响。
+Azure 托管磁盘无需单独管理存储帐户，从而简化了存储管理。  还可以将现有的 Azure VM 迁移到托管磁盘，以利用可用性集中更好的 VM 可靠性。 它可确保可用性集中不同 VM 的磁盘完全相互隔离，以避免出现单点故障。 它会自动将可用性集中不同 VM 的磁盘置于不同的存储缩放单位（戳），限制由于硬件和软件故障引起的单个存储缩放单位故障影响。
 根据需求，可以从两种类型的存储选项中进行选择：
 
-- [高级托管磁盘](../../storage/common/storage-premium-storage.md)是基于固态硬盘 (SSD) 的存储介质，可为运行 I/O 密集型工作负荷的虚拟机提供高性能、低延迟的磁盘支持。 可以通过迁移到高级托管磁盘，充分利用这些磁盘的速度和性能。
+- [高级托管磁盘](premium-storage.md)是基于固态硬盘 (SSD) 的存储介质，可为运行 I/O 密集型工作负荷的虚拟机提供高性能、低延迟的磁盘支持。 可以通过迁移到高级托管磁盘，充分利用这些磁盘的速度和性能。
 
-- [标准托管磁盘](../../storage/common/storage-standard-storage.md)使用基于硬盘驱动器 (HDD) 的存储介质，最适合用于对性能变化不太敏感的开发/测试和其他不频繁的访问工作负荷。
+- [标准托管磁盘](standard-storage.md)使用基于硬盘驱动器 (HDD) 的存储介质，最适合用于对性能变化不太敏感的开发/测试和其他不频繁的访问工作负荷。
 
 可以在以下方案中迁移到托管磁盘：
 
 | 迁移...                                            | 文档链接                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 将可用性集中的独立 VM 和多个 VM 转换为托管磁盘   | [转换 VM 以使用托管磁盘](convert-unmanaged-to-managed-disks.md) |
-| 将托管磁盘上的单个 VM 从经典部署模型迁移到 Resource Manager 部署模型     | [迁移单个 VM](migrate-single-classic-to-resource-manager.md)  | 
-| 将托管磁盘上的所有 VM 从经典部署模型迁移到 Resource Manager 部署模型     | [将 IaaS 资源从经典迁移到 Resource Manager](migration-classic-resource-manager-ps.md)，然后[将 VM 从非托管磁盘转换为托管磁盘](convert-unmanaged-to-managed-disks.md) | 
+| 单个 VM 从经典迁移到托管磁盘上的 Resource Manager     | [迁移单个 VM](migrate-single-classic-to-resource-manager.md)  | 
+| vNet 中的所有 VM 从经典迁移到托管磁盘上的 Resource Manager     | [将 IaaS 资源从经典迁移到 Resource Manager](migration-classic-resource-manager-ps.md)，然后[将 VM 从非托管磁盘转换为托管磁盘](convert-unmanaged-to-managed-disks.md) | 
 
 ## <a name="plan-for-the-conversion-to-managed-disks"></a>转换为托管磁盘的计划
 
@@ -45,11 +45,11 @@ Azure 托管磁盘无需单独管理存储帐户，从而简化了存储管理�
 
 ## <a name="location"></a>位置
 
-选取 Azure 托管磁盘可用位置。 如果要迁移到高级托管磁盘，还请确保高级存储在计划迁移到的区域中可用。
+选取 Azure 托管磁盘可用位置。 如果要迁移到高级托管磁盘，还请确保高级存储在计划迁移到的目标区域中可用。 有关可用位置的最新信息，请参阅 [Azure 服务（按区域）](https://www.azure.cn/support/service-dashboard)。
 
 ## <a name="vm-sizes"></a>VM 大小
 
-如果要迁移到高级托管磁盘，需要将 VM 的大小更新为该 VM 所在区域中支持高级存储的可用大小。 查看支持高级存储的 VM 大小。 [虚拟机大小](sizes.md)中列出了 Azure VM 大小规范。
+如果要迁移到高级托管磁盘，必须将 VM 的大小更新为该 VM 所在区域中提供的支持高级存储的大小。 查看支持高级存储的 VM 大小。 [虚拟机大小](sizes.md)中列出了 Azure VM 大小规范。
 查看适用于高级存储的虚拟机的性能特征并选择最适合工作负荷的 VM 大小。 确保 VM 上有足够的带宽来驱动磁盘通信。
 
 ## <a name="disk-sizes"></a>磁盘大小
@@ -87,3 +87,4 @@ Azure 托管磁盘无需单独管理存储帐户，从而简化了存储管理�
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解[托管磁盘](managed-disks-overview.md)
+<!-- Update_Description: wording update -->

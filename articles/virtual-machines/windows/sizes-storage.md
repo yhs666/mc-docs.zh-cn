@@ -1,6 +1,6 @@
 ---
 title: "Azure Windows VM 大小 - 存储 | Azure"
-description: "列出 Azure 中适用于 Windows 虚拟机的各种存储优化大小。"
+description: "列出 Azure 中适用于 Windows 虚拟机的各种存储优化大小。 针对此系列中的大小列出了 vCPU、数据磁盘和 NIC 的数量，以及存储吞吐量和网络带宽。"
 services: virtual-machines-windows
 documentationcenter: 
 author: rockboyfor
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 07/28/2017
-ms.date: 11/20/2017
+origin.date: 11/08/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 69db9af014175b63ccea04db4c7e00d64aef7042
-ms.sourcegitcommit: 5eaf07fa3b6aa00db2b094c53beda76a917d4485
+ms.openlocfilehash: 772d270c7d7fbbd71177a94879a56dce17e61269
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="storage-optimized"></a>存储优化
+# <a name="storage-optimized-virtual-machine-sizes"></a>存储优化虚拟机大小
 
 <!-- Not Available [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)] -->
 
@@ -38,4 +38,4 @@ ms.lasthandoff: 11/17/2017
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
-<!-- Update_Description: new articles on virtual machine windows size storage -->
+<!-- Update_Description: update meta properties, wording update -->

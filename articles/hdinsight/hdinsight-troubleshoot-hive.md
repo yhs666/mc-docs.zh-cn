@@ -13,21 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/07/2017
-ms.date: 10/23/2017
+origin.date: 11/02/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 0170d2657c8901cc7a15697f68d9dbf109bc6e71
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: b29c3080c37f7214c08cfbf968bbb7dca8a6c700
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Hive 进行故障排除
 
 了解处理 Apache Ambari 中的 Apache Hive 有效负载时的最常见问题及其解决方法。
 
 
-## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>如何导出 Hive 元存储并将其导入另一个群集
+## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>如何导出 Hive 元存储并将其导入另一个群集？
 
 
 ### <a name="resolution-steps"></a>解决步骤
@@ -55,7 +55,7 @@ hive -f alltables.sql
 - [使用 SSH 连接到 HDInsight 群集](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>如何在群集上查找 Hive 日志
+## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>如何在群集上查找 Hive 日志？
 
 ### <a name="resolution-steps"></a>解决步骤
 
@@ -84,7 +84,7 @@ hive -f alltables.sql
 - [使用 SSH 连接到 HDInsight 群集](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>如何在群集上使用特定配置启动 Hive shell
+## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>如何在群集上使用特定配置启动 Hive shell？
 
 ### <a name="resolution-steps"></a>解决步骤
 
@@ -111,7 +111,7 @@ hive -f alltables.sql
 - [Hive 配置属性](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>如何在群集关键路径上分析 Tez DAG 数据
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>如何在群集关键路径上分析 Tez DAG 数据？
 
 
 ### <a name="resolution-steps"></a>解决步骤
@@ -126,9 +126,9 @@ hive -f alltables.sql
 
 3. 若要列出可用于分析 Tez DAG 的其他分析程序，请使用以下命令：
 
-```apache
-hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
-```
+  ```apache
+  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
+  ```
 
   必须提供一个示例程序作为第一个参数。
 
@@ -151,7 +151,7 @@ hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
 - [使用 SSH 连接到 HDInsight 群集](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>如何从群集下载 Tez DAG 数据
+## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>如何从群集下载 Tez DAG 数据？
 
 
 #### <a name="resolution-steps"></a>解决步骤
@@ -178,6 +178,8 @@ hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
 [使用 SSH 连接到 HDInsight 群集](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
+### <a name="see-also"></a>另请参阅
+[使用 Azure HDInsight 进行故障排除](hdinsight-troubleshoot-guide.md)
 
 
 

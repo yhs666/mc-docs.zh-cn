@@ -3,8 +3,8 @@ title: "将突发节点添加到 HPC Pack 群集 | Azure"
 description: "了解如何添加云服务中运行的辅助角色实例在 Azure 中按需扩展 HPC Pack 群集"
 services: virtual-machines-windows
 documentationcenter: 
-author: dlepow
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-service-management,hpc-pack
 ms.assetid: 24b79a8a-24ad-4002-ae76-75abc9b28c83
@@ -14,19 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 origin.date: 10/14/2016
-ms.date: 12/26/2016
-ms.author: v-dazen
-ms.openlocfilehash: a02cbfbb02b940011508f83bfc49c9f7dd408a2e
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: c9a91f504a3ec5bedcb6a000a19a4f677ea5e03a
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>在 Azure 中将按需“突发”节点添加到 HPC Pack 群集
 如果在 Azure 中设置了 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 群集，则可能希望有一种方法能够快速增加/减少群集容量，而无需维护一组预配置的计算节点 VM。 本文介绍了如何按需将“突发”节点（云服务中运行的辅助角色实例）作为计算资源添加到 Azure 中的头节点。 
 
 > [!IMPORTANT] 
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![突发节点][burst]
 
@@ -40,13 +41,13 @@ ms.lasthandoff: 07/13/2017
   > 
   > 
 * **Azure 订阅** - 若要添加 Azure 节点，可选择部署头节点 VM 时所用的相同订阅，还可选用一个或多个不同订阅。
-* **内核配额** — 你可能需要增加核心配额，尤其是在你选择部署具有多核大小的多个 Azure 节点时。 若要增加配额，可免费 [建立联机客户支持请求](https://www.azure.cn/support/support-ticket-form/?l=zh-cn) 。
+* **内核配额** - 可能需要增加核心配额，尤其是在选择部署具有多核大小的多个 Azure 节点时。 若要增加配额，可免费 [建立联机客户支持请求](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) 。
 
 ## <a name="step-1-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>步骤 1：为 Azure 节点创建云服务和存储帐户
-使用 Azure 经典管理门户或等效工具配置部署 Azure 节点时所需的以下资源：
+使用 Azure 门户或等效工具来配置 Azure 节点部署时所需的以下资源：
 
-* 新的 Azure 云服务
-* 新的 Azure 存储帐户
+* 新的 Azure 云服务（经典）
+* 新的 Azure 存储帐户（经典）
 
 > [!NOTE]
 > 请勿重复使用订阅中的现有云服务。 
@@ -55,13 +56,17 @@ ms.lasthandoff: 07/13/2017
 
 **注意事项**
 
-* 为你计划创建的各个 Azure 节点模板配置一个单独的云服务。 但是，多个节点模板可以使用相同的存储帐户。
+* 为计划创建的各个 Azure 节点模板配置一个单独的云服务。 但是，多个节点模板可以使用相同的存储帐户。
 * 建议在同一 Azure 区域中查找用于部署的云服务和存储帐户。
 
 ## <a name="step-2-configure-an-azure-management-certificate"></a>步骤 2：配置 Azure 管理证书
 若要将 Azure 节点添加为计算资源，头节点上必须有管理证书，并必须将相应证书上传到用于部署的 Azure 订阅。
 
-对于此案例，可以选择 HPC Pack 在头节点上自动安装和配置的 **默认 HPC Azure 管理证书** 。 此证书对进行测试和概念证明部署很有用。 若要使用此证书，请将文件 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer 从头节点 VM 上传到订阅。 若要在 [Azure 经典管理门户](https://manage.windowsazure.cn)中上传证书，请单击“设置” > “管理证书”。
+对于此案例，可以选择 HPC Pack 在头节点上自动安装和配置的 **默认 HPC Azure 管理证书** 。 此证书对进行测试和概念证明部署很有用。 若要使用此证书，请将文件 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer 从头节点 VM 上传到订阅。 要在 [Azure 门户](https://portal.azure.cn)中上传证书：
+
+1. 单击“订阅” > your_subscription_name。
+
+2. 单击“管理证书” > “上传”。
 
 有关配置管理证书的其他选项，请参阅 [为 Azure 突发部署配置 Azure 管理证书的方案](http://technet.microsoft.com/library/gg481759.aspx)。
 
@@ -77,7 +82,10 @@ ms.lasthandoff: 07/13/2017
 如果部署 Azure 节点时遇到问题，请参阅[排除使用 Microsoft HPC Pack 部署 Azure 节点时发生的故障](http://technet.microsoft.com/library/jj159097.aspx)。
 
 ## <a name="next-steps"></a>后续步骤
+<!-- Not Available on H, A8-A11 [High performance compute VM sizes](../sizes-hpc.md) -->
 * 如果想根据群集工作负荷自动增加或减少 Azure 计算资源，请参阅[自动增加和减少 HPC Pack 群集中的 Azure 计算资源](hpcpack-cluster-node-autogrowshrink.md)。
 
 <!--Image references-->
 [burst]: ./media/hpcpack-cluster-node-burst/burst.png
+
+<!-- Update_Description: update meta properties, wording update -->

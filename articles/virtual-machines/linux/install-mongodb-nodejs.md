@@ -3,8 +3,8 @@ title: "使用 Azure CLI 1.0 在 Linux VM 上安装 MongoDB | Azure"
 description: "了解如何使用 Resource Manager 部署模型在 Azure 中的 Linux 虚拟机上安装和配置 MongoDB。"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/11/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 2ccf6045ba3db02999b4e0b7493a9566ccec1947
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: 877f352f569c0661ad3669da8f2b8a020ff10cdd
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>如何使用 Azure CLI 1.0 在 Linux VM 上安装和配置 MongoDB
 [MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文说明如何使用 Resource Manager 部署模型在 Azure 中的 Linux VM 上安装和配置 MongoDB。 文中提供了一些示例，详细说明如何执行以下操作：
@@ -109,21 +109,22 @@ sudo chkconfig mongod on
 ```
 
 ## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>使用模板在 CentOS 上创建基本的 MongoDB 实例
-可以使用 GitHub 中的以下 Azure 快速入门模板，在单个 CentOS VM 上创建基本的 MongoDB 实例。 此模板使用适用于 Linux 的自定义脚本扩展将 `yum` 存储库添加到新建的 CentOS VM，然后安装 MongoDB。
+可以使用 GitHub 中的以下 Azure 快速入门模板，在单个 CentOS VM 上创建基本的 MongoDB 实例。 此模板使用适用于 Linux 的自定义脚本扩展将 `yum` 存储库添加到新建的 CentOS VM，并安装 MongoDB。
 
 * [CentOS 上的基本 MongoDB 实例](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
 以下示例在 `chinaeast` 区域中创建名为 `myResourceGroup` 的资源组。 按如下所示输入自己的值：
 
->[!NOTE]
+> [!NOTE]
 > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
 
 ```azurecli
 azure group create \
     --name myResourceGroup \
     --location chinaeast \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
+    --template-file /path/to/azuredeploy.json
 ```
+<!-- Not Available on template to match Azure.cn -->
 
 > [!NOTE]
 > 创建部署后的几秒内，Azure CLI 会返回到提示符，但安装和配置需要几分钟才能完成。 使用 `azure group deployment show myResourceGroup`检查部署状态，并相应地输入资源组的名称。 等到 **ProvisioningState** 显示“已成功”后，尝试通过 SSH 连接到 VM。
@@ -158,12 +159,12 @@ test
 ```
 
 ## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>使用模板在 CentOS 上创建复杂的 MongoDB 分片群集
-可以使用 GitHub 中的以下 Azure 快速入门模板创建复杂的 MongoDB 分片群集。 此模板遵循 [MongoDB 分片群集最佳实践](https://docs.mongodb.com/manual/core/sharded-cluster-components/) 来提供冗余和高可用性。 该模板将创建两个分片，其中每个副本集包含三个节点。 另外，它还会创建一个包含三个节点的配置服务器副本集，以及两个 **mongos** 路由器服务器（用于对各个分片中的应用程序提供一致性）。
+可以使用 GitHub 中的以下 Azure 快速入门模板创建复杂的 MongoDB 分片群集。 此模板遵循 [MongoDB 分片群集最佳实践](https://docs.mongodb.com/manual/core/sharded-cluster-components/) 来提供冗余和高可用性。 该模板会创建两个分片，其中每个副本集包含三个节点。 另外，它还会创建一个包含三个节点的配置服务器副本集，以及两个 **mongos** 路由器服务器（用于对各个分片中的应用程序提供一致性）。
 
 * [CentOS 上的 MongoDB 分片群集](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
-> 部署这种复杂 MongoDB 分片群集需要 20 个以上的核心（每个区域中一个订阅的默认核心计数通常为 20 个）。 请提出 Azure 支持请求，以增加核心计数。
+> 部署这种复杂 MongoDB 分片群集需要 20 个以上的 vCPU（每个区域中一个订阅的默认 vCPU 计数通常为 20 个）。 提出 Azure 支持请求，以增加 vCPU 计数。
 
 以下示例在 *chinaeast* 区域中创建名为 *myResourceGroup* 的资源组。 按如下所示输入自己的值：
 
@@ -174,15 +175,17 @@ test
 azure group create \
     --name myResourceGroup \
     --location chinaeast \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
+    --template-file /path/to/azuredeploy.json
 ```
+<!-- Not Available on template to match Azure.cn -->
 
 > [!NOTE]
 > 创建部署后的几秒内，Azure CLI 会返回到提示符，但安装和配置可能需要一小时以上才能完成。 使用 `azure group deployment show myResourceGroup`检查部署状态，并相应地调整资源组的名称。 等到 **ProvisioningState** 显示“已成功”后，可连接到 VM。
 
 ## <a name="next-steps"></a>后续步骤
-在上述示例中，你已在本地从 VM 连接到 MongoDB 实例。 如果想要从另一个 VM 或网络连接到 MongoDB 实例，请确保[创建相应的网络安全组规则](nsg-quickstart.md)。
+在上述示例中，已在本地从 VM 连接到 MongoDB 实例。 如果想要从另一个 VM 或网络连接到 MongoDB 实例，请确保[创建相应的网络安全组规则](nsg-quickstart.md)。
 
 有关使用模板创建这些规则的详细信息，请参阅 [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)。
 
 Azure Resource Manager 模板使用自定义脚本扩展在 VM 上下载并执行脚本。 有关详细信息，请参阅[在 Linux 虚拟机上使用 Azure 自定义脚本扩展](extensions-customscript.md)。
+<!-- Update_Description: update meta properties, update link -->

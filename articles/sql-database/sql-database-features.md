@@ -16,11 +16,11 @@ ms.workload: data-management
 origin.date: 10/25/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: 0d08460f9cd7f4d05f90fcb461b2b47b984d4244
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: af6c3b7080a2ddde8e106624b9341e276911c2b6
+ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL 数据库功能
 
@@ -67,7 +67,7 @@ Azure SQL 数据库与 SQL Server 共享通用基本代码，并在数据库级�
 | [DML 语句](https://docs.microsoft.com/sql/t-sql/queries/queries) | 是 |
 | [DML 触发器](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | 大多数 - 请参阅单个语句 | 
 | [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | 部分 - 请参阅单个 DMV |
-|[动态数据屏蔽](/sql/relational-databases/security/dynamic-data-masking)|[是](sql-database-dynamic-data-masking-get-started.md)|
+|[动态数据屏蔽](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[是](sql-database-dynamic-data-masking-get-started.md)|
 | [事件通知](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | 否 - 请参阅[警报](sql-database-insights-alerts-portal.md) |
 | [表达式](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |是 |
 | [扩展事件](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 部分 - 请参阅 [SQL 数据库中的扩展事件](sql-database-xevent-db-diff-from-svr.md) |
@@ -105,7 +105,7 @@ Azure SQL 数据库与 SQL Server 共享通用基本代码，并在数据库级�
 | [SQL Server 代理](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | 否 |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | 请参阅 [Azure Analysis Services](https://www.azure.cn/home/features/analysis-services/) |
 | [SQL Server 审核](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | 否 - 请参阅 [SQL 数据库审核](sql-database-auditing.md) |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | 请参阅 [Azure 数据工厂](https://www.azure.cn/home/features/data-factory/) |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | 
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | 是 |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | 否 - 请参阅[扩展事件](sql-database-xevent-db-diff-from-svr.md) |
 | [SQL Server 复制](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [仅限事务性和快照复制订户](sql-database-cloud-migrate.md) |

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/17/2017
-ms.date: 10/23/2017
+origin.date: 11/06/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: ed12d7a777a584cfa30aa36549a789ed0ac9c015
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 230424c2b50af905707da99010641fbfea67a15e
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 10/13/2017
             private const string NewClusterLocation = "CHINA EAST"; // Must be the same as the default Storage account
             private const OSType NewClusterOSType = OSType.Linux;
             private const string NewClusterType = "Hadoop";
-            private const string NewClusterVersion = "3.5";
+            private const string NewClusterVersion = "3.6";
             private const string NewClusterUsername = "admin";
             private const string NewClusterPassword = "<Enter HTTP User Password>";
             private const string NewClusterSshUserName = "sshuser";
@@ -381,29 +381,29 @@ static void Main(string[] args)
 成功创建 HDInsight 群集后，请参考以下主题来了解如何使用群集。 
 
 ### <a name="hadoop-clusters"></a>Hadoop 群集
-* [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
-* [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
+* [将 Hive 与 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
+* [将 Pig 与 HDInsight 配合使用](hadoop/hdinsight-use-pig.md)
+* [将 MapReduce 与 HDInsight 配合使用](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>HBase 群集
-* [HBase on HDInsight 入门](hdinsight-hbase-tutorial-get-started-linux.md)
-* [为 HBase on HDInsight 开发 Java 应用程序](hdinsight-hbase-build-java-maven-linux.md)
+* [HBase on HDInsight 入门](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [为 HBase on HDInsight 开发 Java 应用程序](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm 群集
-* [为 Storm on HDInsight 开发 Java 拓扑](hdinsight-storm-develop-java-topology.md)
-* [在 Storm on HDInsight 中使用 Python 组件](hdinsight-storm-develop-python-topology.md)
-* [使用 Storm on HDInsight 部署和监视拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [为 Storm on HDInsight 开发 Java 拓扑](storm/apache-storm-develop-java-topology.md)
+* [在 Storm on HDInsight 中使用 Python 组件](storm/apache-storm-develop-python-topology.md)
+* [使用 Storm on HDInsight 部署和监视拓扑](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="spark-clusters"></a>Spark 群集
-* [使用 Scala 创建独立的应用程序](hdinsight-apache-spark-create-standalone-application.md)
-* [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
-* [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](hdinsight-apache-spark-eventhub-streaming.md)
+* [使用 Scala 创建独立的应用程序](spark/apache-spark-create-standalone-application.md)
+* [使用 Livy 在 Spark 群集中远程运行作业](spark/apache-spark-livy-rest-interface.md)
+* [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](spark/apache-spark-use-bi-tools.md)
+* [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](spark/apache-spark-eventhub-streaming.md)
 
 ### <a name="run-jobs"></a>运行作业
-* [使用.NET SDK 在 HDInsight 中运行 Hive 作业](hdinsight-hadoop-use-hive-dotnet-sdk.md)
-* [使用.NET SDK 在 HDInsight 中运行 Pig 作业](hdinsight-hadoop-use-pig-dotnet-sdk.md)
-* [使用.NET SDK 在 HDInsight 中运行 Sqoop 作业](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+* [使用.NET SDK 在 HDInsight 中运行 Hive 作业](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [使用.NET SDK 在 HDInsight 中运行 Pig 作业](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
+* [使用.NET SDK 在 HDInsight 中运行 Sqoop 作业](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [在 HDInsight 中运行 Oozie 作业](hdinsight-use-oozie.md)
 

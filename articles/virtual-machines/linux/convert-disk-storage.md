@@ -1,10 +1,10 @@
 ---
-title: "Azure 标准与高级托管磁盘存储的相互转换 | Microsoft Docs"
+title: "Azure 标准与高级托管磁盘存储的相互转换 | Azure"
 description: "如何使用 Azure CLI 实现 Azure 标准与高级托管磁盘存储的相互转换。"
 services: virtual-machines-linux
 documentationcenter: 
-author: hayley244
-manager: kavithag
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/07/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 1e6b25bcbb54cc93c729180923e6ed8062629adb
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: 31d6d4a8f69f9985e2a67e4a171fa671655d542e
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure 标准与高级托管磁盘存储的相互转换
 
-托管磁盘提供两种存储选项：[高级](../../storage/storage-premium-storage.md)（基于 SSD）和[标准](../../storage/storage-standard-storage.md)（基于 HDD）。 它允许基于性能需求在这两个选项之间轻松切换，并保障最短停机时间。 非托管磁盘不具备此功能。 但可以轻松[转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，以便在这两个选项之间轻松切换。
+托管磁盘提供两种存储选项：[高级](../windows/premium-storage.md)（基于 SSD）和[标准](../windows/standard-storage.md)（基于 HDD）。 它允许基于性能需求在这两个选项之间轻松切换，并保障最短停机时间。 非托管磁盘不具备此功能。 但可以轻松[转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，以便在这两个选项之间轻松切换。
 
 本文介绍了如何使用 Azure CLI 实现标准与高级托管磁盘的相互转换。 如果需要对其进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
@@ -32,7 +32,6 @@ ms.lasthandoff: 11/09/2017
 
 * 该转换需要重启 VM，因此请在预先存在的维护时段内计划磁盘存储迁移。 
 * 如果使用的是非托管磁盘，请先[转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，以便按照本文中的说明在两个存储选项之间切换。 
-
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>实现 VM 的所有标准与高级托管磁盘的相互转换
 
@@ -110,3 +109,4 @@ az vm start --ids $vmId
 
 使用[快照](snapshot-copy-managed-disk.md)获取 VM 的只读副本。
 
+<!-- Update_Description: update meta properties, update link -->

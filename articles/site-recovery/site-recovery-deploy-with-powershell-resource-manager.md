@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 10/19/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 18c55a1584207882d33431ca024c39382d07b009
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 1abc738cbb7f39c2cc96d60f0d54377ae3f3f881
+ms.sourcegitcommit: 228b8811c3045a9db62264cb67f925746ef4e994
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>使用 PowerShell 和 Azure 资源管理器对 Hyper-V VM 设置到 Azure 的灾难恢复
 
@@ -179,9 +179,11 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
     PS C:\> $DRjob | Select-Object -ExpandProperty State
     Succeeded
 
-        PS C:\> $DRjob | Select-Object -ExpandProperty StateDescription
-        Completed
-4. Update recovery properties (such as the VM role size,), and the Azure network to which to attach the VM NIC after failover.
+    PS C:\> $DRjob | Select-Object -ExpandProperty StateDescription
+    Completed
+    ```
+    
+4. 更新各种恢复属性（例如 VM 角色大小），以及进行故障转移后需要将 VM NIC 连接到的 Azure 网络。
 
     ```
     PS C:\> $nw1 = Get-AzureRmVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"
@@ -196,18 +198,35 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
 
     PS C:\> $UpdateJob
 
-    Name             : b8a647e0-2cb9-40d1-84c4-d0169919e2c5  ID               : /Subscriptions/a731825f-4bf2-4f81-a611-c331b272206e/resourceGroups/MyRG/providers/Microsoft.RecoveryServices/vault                     s/MyVault/replicationJobs/b8a647e0-2cb9-40d1-84c4-d0169919e2c5  Type             : Microsoft.RecoveryServices/vaults/replicationJobs  JobType          : UpdateVmProperties  DisplayName      : 更新虚拟机  ClientRequestId  : 805a22a3-be86-441c-9da8-f32685673112-2015-12-10 17:55:51Z-P  State            : 成功  StateDescription : 完成  StartTime        : 10-12-2015 17:55:53 +00:00  EndTime          : 10-12-2015 17:55:54 +00:00  TargetObjectId   : 289682c6-c5e6-42dc-a1d2-5f9621f78ae6  TargetObjectType : ProtectionEntity  TargetObjectName : Fabrikam-App  AllowedActions   : {Restart}  Tasks            : {UpdateVmPropertiesTask}  Errors           : {}
+    Name             : b8a647e0-2cb9-40d1-84c4-d0169919e2c5
+    ID               : /Subscriptions/a731825f-4bf2-4f81-a611-c331b272206e/resourceGroups/MyRG/providers/Microsoft.RecoveryServices/vault
+                       s/MyVault/replicationJobs/b8a647e0-2cb9-40d1-84c4-d0169919e2c5
+    Type             : Microsoft.RecoveryServices/vaults/replicationJobs
+    JobType          : UpdateVmProperties
+    DisplayName      : Update the virtual machine
+    ClientRequestId  : 805a22a3-be86-441c-9da8-f32685673112-2015-12-10 17:55:51Z-P
+    State            : Succeeded
+    StateDescription : Completed
+    StartTime        : 10-12-2015 17:55:53 +00:00
+    EndTime          : 10-12-2015 17:55:54 +00:00
+    TargetObjectId   : 289682c6-c5e6-42dc-a1d2-5f9621f78ae6
+    TargetObjectType : ProtectionEntity
+    TargetObjectName : Fabrikam-App
+    AllowedActions   : {Restart}
+    Tasks            : {UpdateVmPropertiesTask}
+    Errors           : {}
     ```
 
-## Step 8: Run a test failover
-1. Run a test failover as follows:
+## <a name="step-8-run-a-test-failover"></a>步骤 8：运行测试故障转移
+1. 按如下所述运行测试故障转移：
 
     ```
-    $nw = Get-AzureRmVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #指定 Azure vnet 名称和资源组
+    $nw = Get-AzureRmVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group
 
     $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMFriendlyName -ProtectionContainer $protectionContainer
 
-        $TFjob = Start-AzureRmSiteRecoveryTestFailoverJob -ProtectionEntity $protectionEntity -Direction PrimaryToRecovery -AzureVMNetworkId $nw.Id
+    $TFjob = Start-AzureRmSiteRecoveryTestFailoverJob -ProtectionEntity $protectionEntity -Direction PrimaryToRecovery -AzureVMNetworkId $nw.Id
+    ```
 2. 验证是否在 Azure 中创建了测试 VM。 在 Azure 中创建测试 VM 之后，暂停测试故障转移作业。
 3. 若要清理并完成测试故障转移，请运行：
 

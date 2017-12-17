@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 07/03/2017
-ms.date: 10/30/2017
+origin.date: 11/03/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1f563a05ac97acb262ad0b27bc26fcc0cd222abf
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 9928bedbdddb43792e746686b59e7fd593848659
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>如何在 Azure VM 上重置本地 Linux 密码
 
@@ -91,21 +91,23 @@ ms.lasthandoff: 10/27/2017
     cp /etc/shadow /tempmount/etc/shadow
     cp /etc/passwd_orig /etc/passwd
     cp /etc/shadow_orig /etc/shadow
+    ~~~~
     
-10. Go back to the root and unmount the disk.
+10. 返回到根目录并卸载磁盘。
 
     ~~~~
-    cd / umount /tempmount
+    cd /
+    umount /tempmount
     ~~~~
 
-11. Detach the disk from the management portal.
+11. 从管理门户分离磁盘。
 
-12. Recreate the VM.
+12. 重新创建 VM。
 
-## Next steps
+## <a name="next-steps"></a>后续步骤
 
-* [Troubleshoot Azure VM by attaching OS disk to another Azure VM](http://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
+* [Troubleshoot Azure VM by attaching OS disk to another Azure VM](http://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)（通过将 OS 磁盘附加到另一个 Azure VM 对 Azure VM 进行故障排除）
 
-* [Azure CLI: How to delete and re-deploy a VM from VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [Azure CLI: How to delete and re-deploy a VM from VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)（Azure CLI：如何从 VHD 删除和重新部署 VM）
 
 <!--Update_Description: update meta properties， wording update -->

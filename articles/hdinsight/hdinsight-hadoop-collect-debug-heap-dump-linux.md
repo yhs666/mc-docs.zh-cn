@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: e56bdbe6d94354f9def112a9fa5a884072f86d82
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 10/04/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: 153ce56e775943436764a672e4fc650431c82c67
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上为 Hadoop 服务启用堆转储
 

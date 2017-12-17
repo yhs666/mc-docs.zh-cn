@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/08/2017
-ms.date: 10/23/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 59fa5f6653e872f9a757e576c7ee538a06810229
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: ef70ee97d36e59dc5697f9a3035926f28d6e86b4
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/13/2017
    * 单击左侧菜单中的“新建”以创建新群集： 
 
        ![新建 HDInsight 群集按钮](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
-   * 在左侧菜单中单击“HDInsight 群集”以列出现有群集 
+   * 在左侧菜单中单击“HDInsight 群集”以列出现有群集：
 
        ![Azure 门户中的 HDInsight 群集按钮](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
@@ -116,7 +116,7 @@ HDInsight 使用各种 Hadoop 组件。 有关已验证和支持的组件的列�
    * 创建日期：部署群集的日期。
    * **操作系统**：**Windows** 或 **Linux**。
    * **类型**：Hadoop、HBase、Storm、Spark。
-   * **版本**。 请参阅 [HDInsight 版本](hdinsight-component-versioning.md)
+   * **版本**。 请参阅 [HDInsight 版本](hdinsight-component-versioning.md)。
    * **订阅**：订阅名称。
    * **默认数据源**：默认的群集文件系统。
    * 辅助角色节点大小：辅助角色节点的所选 VM 大小。
@@ -162,7 +162,7 @@ HDInsight 使用各种 Hadoop 组件。 有关已验证和支持的组件的列�
     >balancer
     ```
 
-    有关使用 HBase shell 的详细信息，请参阅 [HDInsight 中的 Apache HBase 示例入门](hdinsight-hbase-tutorial-get-started-linux.md)。
+    有关使用 HBase shell 的详细信息，请参阅 [HDInsight 中的 Apache HBase 示例入门](hbase/apache-hbase-tutorial-get-started-linux.md)。
 
 * Storm
 
@@ -207,7 +207,7 @@ HDInsight 使用各种 Hadoop 组件。 有关已验证和支持的组件的列�
 
 * 使用 Azure PowerShell。  请参阅[分析航班延误数据](hdinsight-analyze-flight-delay-data.md)。
 * 使用 Azure CLI。 请参阅[使用 Azure CLI 管理 HDInsight 群集](hdinsight-administer-use-command-line.md)。
-* 使用 HDInsight .NET SDK。 请参阅[提交 Hadoop 作业](hdinsight-submit-hadoop-jobs-programmatically.md)。
+* 使用 HDInsight .NET SDK。 请参阅[提交 Hadoop 作业](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
 
 有关定价信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。 要从门户中删除群集，请参阅 [删除群集](#delete-clusters)
 
@@ -338,7 +338,7 @@ HDInsight 群集边栏选项卡的“使用情况”部分会显示相关信息�
 
 ## <a name="connect-to-a-cluster"></a>连接到群集
 
-* [将 Hive 与 HDInsight 配合使用](hdinsight-hadoop-use-hive-ambari-view.md)
+* [将 Hive 与 HDInsight 配合使用](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>后续步骤
@@ -350,10 +350,10 @@ HDInsight 群集边栏选项卡的“使用情况”部分会显示相关信息�
 * [创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)
 * [深入了解如何使用 Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 * [有关使用 Ambari REST API 的详细信息](hdinsight-hadoop-manage-ambari-rest-api.md)
-* [在 HDInsight 中使用 Hive](hdinsight-use-hive.md)
-* [在 HDInsight 中使用 Pig](hdinsight-use-pig.md)
-* [在 HDInsight 中使用 Sqoop](hdinsight-use-sqoop.md)
-* [Azure HDInsight 入门](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [在 HDInsight 中使用 Hive](hadoop/hdinsight-use-hive.md)
+* [在 HDInsight 中使用 Pig](hadoop/hdinsight-use-pig.md)
+* [在 HDInsight 中使用 Sqoop](hadoop/hdinsight-use-sqoop.md)
+* [Azure HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Azure HDInsight 包含哪个版本的 Hadoop？](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.cn

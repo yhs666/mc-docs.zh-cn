@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/07/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 66ecacab93a0c906609dd6ad1f4c0bd5244a7a7f
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 11/02/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: 91a103865f1c6bb2829d162159ec445e64ea126a
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>使用 Ambari REST API 管理 HDInsight 群集
 
@@ -33,16 +33,16 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
 ## <a id="whatis"></a>什么是 Ambari
 
-[Apache Ambari](http://ambari.apache.org) 提供可以用于设置、管理和监视 Hadoop 群集的 Web UI。 开发人员可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md) 在其应用程序中集成这些功能。
+[Apache Ambari](http://ambari.apache.org) 提供可用于管理和监视 Hadoop 群集的 Web UI。 开发人员可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)在其应用程序中集成这些功能。
 
 基于 Linux 的 HDInsight 群集已按默认提供 Ambari。
 
 ## <a name="how-to-use-the-ambari-rest-api"></a>如何使用 Ambari REST API
 
 > [!IMPORTANT]
-> 本文档中的信息和示例需要使用 Linux 操作系统的 HDInsight 群集。 有关详细信息，请参阅 [HDInsight 入门](hdinsight-hadoop-linux-tutorial-get-started.md)。
+> 本文档中的信息和示例需要使用 Linux 操作系统的 HDInsight 群集。 有关详细信息，请参阅 [HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 
-本文档针对 Bourne 外壳 (bash) 和 PowerShell 都提供了示例。 Bash 示例使用 GNU bash 4.3.11 进行了测试，但也应适用于其他 Unix shell。 PowerShell 示例使用 PowerShell 5.0 进行了测试，但也应适用于 PowerShell 3.0 或更高版本。
+本文档针对 Bourne 外壳 (bash) 和 PowerShell 都提供了示例。 测试 bash 示例时使用的是 GNU bash 版本 4.3.11，但应结合使用其他 Unix shell。 PowerShell 示例使用 PowerShell 5.0 进行了测试，但也应适用于 PowerShell 3.0 或更高版本。
 
 如果使用 __Bourne 外壳__ (Bash)，则必须安装以下各项：
 
@@ -76,15 +76,15 @@ HDInsight 上 Ambari REST API 的基本 URI 是 https://CLUSTERNAME.azurehdinsig
 以下示例演示如何针对基本 Ambari REST API 发出 GET 请求：
 
 ```bash
-curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME"
+curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME"
 ```
 
 > [!IMPORTANT]
 > 本文档中的 Bash 示例作出以下假设：
 >
 > * 群集的登录名是默认值 `admin`。
-> * `$PASSWORD` 包含 HDInsight 登录命令的密码。 可以使用 `PASSWORD='mypassword'` 设置此值。
 > * `$CLUSTERNAME` 包含群集名称。 可以使用 `set CLUSTERNAME='clustername'` 设置此值
+> * 出现提示时，输入群集登录（管理员）帐户的密码。
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName" `
@@ -125,7 +125,7 @@ $resp.Content
 以下示例使用 `jq` 来分析 JSON 响应文档并仅显示结果中的 `health_report` 信息。
 
 ```bash
-curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME" \
+curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME" \
 | jq '.Clusters.health_report'
 ```
 
@@ -150,7 +150,7 @@ $respObj.Clusters.health_report
 * **所有节点**
 
     ```bash
-    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/hosts" \
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/hosts" \
     | jq '.items[].Hosts.host_name'
     ```
 
@@ -164,7 +164,7 @@ $respObj.Clusters.health_report
 * **头节点**
 
     ```bash
-    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/HDFS/components/NAMENODE" \
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/HDFS/components/NAMENODE" \
     | jq '.host_components[].HostRoles.host_name'
     ```
 
@@ -178,7 +178,7 @@ $respObj.Clusters.health_report
 * **辅助角色节点**
 
     ```bash
-    curl -u admin:PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" \
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" \
     | jq '.host_components[].HostRoles.host_name'
     ```
 
@@ -192,7 +192,7 @@ $respObj.Clusters.health_report
 * **Zookeeper 节点**
 
     ```bash
-    curl -u admin:PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
     | jq '.host_components[].HostRoles.host_name'
     ```
 
@@ -220,6 +220,9 @@ do
 done
 ```
 
+> [!TIP]
+> 前面的示例会提示输入密码。 此示例将多次运行 `curl` 命令，因此将以 `$PASSWORD` 形式提供密码以避免出现多次提示。
+
 ```powershell
 $uri = "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/hosts"
 $resp = Invoke-WebRequest -Uri $uri -Credential $creds
@@ -241,7 +244,7 @@ foreach($item in $respObj.items) {
 以下示例检索群集的默认存储配置：
 
 ```bash
-curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
+curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
 | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
 ```
 
@@ -267,7 +270,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 1. 获取可用于群集的配置。
 
     ```bash
-    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
     ```
 
     ```powershell
@@ -299,7 +302,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 2. 获取感兴趣的组件的配置。 在以下示例中，将 `INITIAL` 替换为从上一请求返回的标记值。
 
     ```bash
-    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
     ```
 
     ```powershell
@@ -315,7 +318,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 1. 获取当前配置，即 Ambari 存储为“所需配置”的配置：
 
     ```bash
-    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
     ```
 
     ```powershell
@@ -348,7 +351,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 2. 使用以下命令检索组件和标记的配置：
 
     ```bash
-    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" \
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" \
     | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     ```
 
@@ -404,7 +407,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 4. 使用以下命令将更新的配置提交到 Ambari。
 
     ```bash
-    curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" -X PUT -d @newconfig.json "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME"
+    curl -u admin -sS -H "X-Requested-By: ambari" -X PUT -d @newconfig.json "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME"
     ```
 
     ```powershell
@@ -426,7 +429,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 1. 使用以下命令启用 Spark 服务的维护模式。
 
     ```bash
-    curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
+    curl -u admin -sS -H "X-Requested-By: ambari" \
     -X PUT -d '{"RequestInfo": {"context": "turning on maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}' \
     "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/SPARK"
     ```
@@ -443,7 +446,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     这些命令将向服务器发送用于开启维护模式的 JSON 文档。 可以使用以下请求来验证服务当前是否处于维护模式：
 
     ```bash
-    curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
+    curl -u admin -sS -H "X-Requested-By: ambari" \
     "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/SPARK" \
     | jq .ServiceInfo.maintenance_state
     ```
@@ -460,7 +463,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 2. 接下来，使用以下命令关闭服务：
 
     ```bash
-    curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
+    curl -u admin -sS -H "X-Requested-By: ambari" \
     -X PUT -d '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"INSTALLED"}}}' \
     "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/SPARK"
     ```
@@ -492,7 +495,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     以下命令检索请求的状态：
 
     ```bash
-    curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
+    curl -u admin -sS -H "X-Requested-By: ambari" \
     "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/requests/29" \
     | jq .Requests.request_status
     ```
@@ -509,7 +512,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 3. 完成前一个请求后，请使用以下命令来启动服务。
 
     ```bash
-    curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
+    curl -u admin -sS -H "X-Requested-By: ambari" \
     -X PUT -d '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"STARTED"}}}' \
     "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/SPARK"
     ```
@@ -526,7 +529,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 4. 最后，使用以下命令关闭维护模式。
 
     ```bash
-    curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
+    curl -u admin -sS -H "X-Requested-By: ambari" \
     -X PUT -d '{"RequestInfo": {"context": "turning off maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"OFF"}}}' \
     "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/SPARK"
     ```

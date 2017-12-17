@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 10/30/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e9b579f45b10886e1f8a405856126da1eba940a5
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: f274a4754ee45b6251e499f204453da2392013e4
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>使用 Azure PowerShell 模块创建和管理 Windows VM
 
@@ -34,6 +34,7 @@ Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azu
 > * 调整 VM 的大小
 > * 查看并了解 VM 状态
 
+<!-- Not Available on [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)] -->
 本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
 
 ## <a name="create-resource-group"></a>创建资源组
@@ -213,7 +214,7 @@ New-AzureRmVM -ResourceGroupName myResourceGroupVM -Location ChinaEast -VM $vm
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupVM  | Select IpAddress
 ```
 
-使用以下命令创建与虚拟机的远程桌面会话。 将 IP 地址替换为虚拟机的 publicIPAddress。 出现提示时，输入创建虚拟机时使用的凭据。
+在本地计算机上使用以下命令创建与虚拟机的远程桌面会话。 将 IP 地址替换为虚拟机的 publicIPAddress。 出现提示时，输入创建虚拟机时使用的凭据。
 
 ```powershell
 mstsc /v:<publicIpAddress>
@@ -287,10 +288,12 @@ $vm = Set-AzureRmVMSourceImage `
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | 常规用途         |DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
 | 计算优化      | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
-| 内存优化       | GS, G, DSv2, DS, Dv2, D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
-| 存储优化       | Ls                | 高磁盘吞吐量和 IO。 适用于大数据、SQL 和 NoSQL 数据库。                                                         |
-| GPU           | NV, NC            | 专门针对大量图形绘制和视频编辑的 VM。       |
-| 高性能 | H, A8-11          | 功能极其强大的 CPU VM 具有可选的高吞吐量网络接口 (RDMA)。 
+| 内存优化       | DSv2, DS, Dv2, D   | 高内存与 CPU 之比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
+<!-- Not Available on GS, G Series -->
+<!-- Not Available on | Storage optimized       | Ls   -->
+<!-- Not Available on | GPU           | NV, NC         -->
+<!-- Not Available on | High performance | H, A8-11    -->
+
 
 ### <a name="find-available-vm-sizes"></a>查找可用的 VM 大小
 
@@ -407,4 +410,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroupVM -Force
 > [!div class="nextstepaction"]
 > [创建和管理 VM 磁盘](./tutorial-manage-data-disk.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

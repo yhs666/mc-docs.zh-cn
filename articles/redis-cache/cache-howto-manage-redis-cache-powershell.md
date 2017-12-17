@@ -13,13 +13,13 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 09/14/2017
+ms.date: 12/11/2017
 ms.author: v-junlch
-ms.openlocfilehash: 3013dbeea0bdc8b1c26efef30afdecd3cb29ece5
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: 94144ccd5a0ceeab013758c79b4e8412f4c17dcb
+ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Redis 缓存
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 09/15/2017
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-若要深入了解经典部署模型，请参阅 [Azure Resource Manager 与经典部署：了解部署模型和资源状态](../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics)。
+若要深入了解经典部署模型，请参阅 [Azure Resource Manager 与经典部署：了解部署模型和资源状态](../azure-resource-manager/resource-manager-deployment-model.md)。
 
 ## <a name="prerequisites"></a>先决条件
 如果已安装 Azure PowerShell，则必须确保安装的是 Azure PowerShell 版本 1.0.0 或更高版本。 可以使用此命令在 Azure PowerShell 命令提示符下查看已安装的 Azure PowerShell 版本。
@@ -43,8 +43,6 @@ ms.lasthandoff: 09/15/2017
 首先，必须使用以下命令登录到 Azure。
 
     Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-
-[!INCLUDE [azurerm-azurechinacloud-environment-parameter](../../includes/azurerm-azurechinacloud-environment-parameter.md)]
 
 在 Azure 登录对话框中指定 Azure 帐户的电子邮件地址及其密码。
 
@@ -67,6 +65,22 @@ ms.lasthandoff: 09/15/2017
 例如，若要获取有关 `New-AzureRmRedisCache` cmdlet 的帮助，请键入：
 
     Get-Help New-AzureRmRedisCache -Detailed
+
+### <a name="to-connect-to-the-azure-china-cloud"></a>连接到 Azure 中国云
+若要连接到 Azure 中国云，请使用以下命令之一。
+
+    Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+
+或
+
+    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+
+若要在 Azure 中国云中创建缓存，请使用以下位置之一。
+
+- 中国东部
+- 中国北部
+
+有关中国 Azure 云的详细信息，请参阅[由中国 21Vianet 运营的 AzureChinaCloud for Azure](http://www.azure.cn/)。
 
 ### <a name="properties-used-for-azure-redis-cache-powershell"></a>Azure Redis 缓存 PowerShell 使用的属性
 下表包含使用 Azure PowerShell 创建和管理 Azure Redis 缓存实例时常用的参数的属性和说明。
@@ -304,7 +318,7 @@ ms.lasthandoff: 09/15/2017
     Name               : mycache
     Id                 : /subscriptions/12ad12bd-abdc-2231-a2ed-a2b8b246bbad4/resourceGroups/mygroup/providers/Mi
                          crosoft.Cache/Redis/mycache
-    Location           : China East
+    Location           : China North
     Type               : Microsoft.Cache/Redis
     HostName           : mycache.redis.cache.chinacloudapi.cn
     Port               : 6379
@@ -386,7 +400,7 @@ ms.lasthandoff: 09/15/2017
     Name               : mycache
     Id                 : /subscriptions/12ad12bd-abdc-2231-a2ed-a2b8b246bbad4/resourceGroups/myGroup/providers/Mi
                          crosoft.Cache/Redis/mycache
-    Location           : China East
+    Location           : China North
     Type               : Microsoft.Cache/Redis
     HostName           : mycache.redis.cache.chinacloudapi.cn
     Port               : 6379

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 09/25/2017
-ms.date: 10/30/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9b951341cf81a40e0c52bd4771e0fc96aefcc815
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 2e455aa44fe0a51e3e3e81e9f6c9d888869b114b
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>使用门户将数据磁盘附加到 Linux VM 
 本文介绍如何通过 Azure 门户将新磁盘和现有磁盘附加到 Linux 虚拟机。 也可以[在 Azure 门户中将数据磁盘附加到 Windows VM](../windows/attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
@@ -28,7 +28,8 @@ ms.lasthandoff: 10/27/2017
 将磁盘附加到 VM 之前，请查看以下提示：
 
 * 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-* 若要使用高级存储，需要使用 DS 系列或 GS 序列虚拟机。 可以将高级磁盘和标准磁盘同时用于这些虚拟机。 高级存储只在某些区域可用。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../storage/common/storage-premium-storage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+* 若要使用高级存储，需要一个 DS 系列虚拟机。 可以将高级磁盘和标准磁盘用于这些虚拟机。 高级存储只在某些区域可用。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../storage/common/storage-premium-storage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+<!-- Not Available on DG-series in Azure China -->
 * 附加到虚拟机的磁盘实际上是存储在 Azure 中的 .vhd 文件。 有关详细信息，请参阅[关于虚拟机的磁盘和 VHD](about-disks-and-vhds.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="find-the-virtual-machine"></a>查找虚拟机
@@ -72,4 +73,4 @@ ms.lasthandoff: 10/27/2017
 
 ## <a name="next-steps"></a>后续步骤
 还可使用 Azure CLI [附加数据磁盘](add-disk.md)。
-<!--Update_Description: update meta properties, remove the Use unmanaged disked content-->
+<!--Update_Description: update meta properties, wording update -->

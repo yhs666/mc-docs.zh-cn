@@ -3,8 +3,8 @@ title: "捕获 Azure Windows VM 的映像| Azure"
 description: "捕获使用经典部署模型创建的 Azure Windows 虚拟机的映像。"
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: a5986eac-4cf3-40bd-9b79-7c811806b880
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: fdae43c4ae8b35f988571fc53a7d7843c1244cf3
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: 7b8a14e416164f7865e7dcf011aa42df1eb58f8d
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>捕获使用经典部署模型创建的 Azure Windows 虚拟机的映像。
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 对于 Resource Manager 模型信息，请参阅[捕获 Azure 中通用 VM 的托管映像](../capture-image-resource.md)。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 本文将演示如何捕获运行 Windows 的 Azure 虚拟机，可以将它用作映像来创建其他虚拟机。 此映像包含操作系统磁盘和任何附加到虚拟机的数据磁盘。 由于其不包括网络配置，因此创建使用此映像的其他虚拟机时，需设置网络配置。
 
@@ -47,7 +48,7 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
 ## <a name="capture-the-virtual-machine"></a>捕获虚拟机
 1. 在 [Azure 门户](http://portal.azure.cn)中，连接到虚拟机。 有关说明，请参阅[如何登录到运行 Windows Server 的虚拟机][How to sign in to a virtual machine running Windows Server]。
 2. 以管理员身份打开“命令提示符”窗口。
-3. 将目录更改为 `%windir%\system32\sysprep`，然后运行 sysprep.exe。
+3. 将目录更改为 `%windir%\system32\sysprep`，运行 sysprep.exe。
 4. 此时会显示 **“系统准备工具”** 对话框。 请执行以下操作：
 
    * 在“系统清理操作”中，选择“进入系统全新体验(OOBE)”，并确保选中“通用化”。 有关使用 Sysprep 的详细信息，请参阅[如何使用 Sysprep：简介][How to Use Sysprep: An Introduction]。
@@ -55,14 +56,14 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
    * 单击 **“确定”**。
 
    ![运行 Sysprep](./media/capture-image/SysprepGeneral.png)
-5. Sysprep 将关闭虚拟机，这会在 Azure 门户中将虚拟机的状态更改为 **“已停止”**。
+5. Sysprep 将关闭虚拟机，这会在 Azure 门户中将虚拟机的状态更改为“已停止”。
 6. 在 Azure 门户中，单击“虚拟机(经典)”，然后选择要捕获的虚拟机。 查看“更多服务”时，“VM 映像(经典)”组在“计算”下列出。
 
 7. 在命令栏中，单击“捕获”。
 
    ![捕获虚拟机](./media/capture-image/CaptureVM.png)
 
-   此时将显示“捕获虚拟机”对话框。
+   此时显示“捕获虚拟机”对话框。
 
 8. 在“映像名称”中，键入新映像的名称。 在“映像标签”中，键入新映像的标签。
 
@@ -73,7 +74,7 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
     ![成功捕获映像](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>后续步骤
-该映像已就绪，可用于创建虚拟机了。 为此，通过在服务菜单底部选择“更多服务”菜单项，然后在“计算”组中选择“VM 映像(经典)”来创建虚拟机。 有关说明，请参阅[从映像创建虚拟机](createportal.md)。
+该映像已就绪，可用于创建虚拟机了。 为此，通过在服务菜单底部选择“更多服务”菜单项，并在“计算”组中选择“VM 映像(经典)”来创建虚拟机。 有关说明，请参阅[从映像创建虚拟机](createportal.md)。
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx
@@ -84,3 +85,5 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
 [Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
+
+<!-- Update_Description: update meta properties, add classic portal migration notice. -->

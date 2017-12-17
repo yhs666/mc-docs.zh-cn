@@ -14,13 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/09/2017
-ms.date: 11/07/2017
+ms.date: 12/11/2017
 ms.author: v-junlch
-ms.openlocfilehash: d57fced55deb941e8fc034e884d629174d163e28
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 367750fc585392fab2ac6b142b4b110fecf9bd98
+ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>使用 CLI 创建具有站点到站点 VPN 连接的虚拟网络
 
@@ -88,6 +88,11 @@ az group create --name TestRG1 --location chinanorth
 ## <a name="VNet"></a>3.创建虚拟网络
 
 如果还没有虚拟网络，请使用 [az network vnet create](/cli/network/vnet#create) 命令创建一个。 创建虚拟网络时，请确保指定的地址空间不与本地网络的任一个地址空间重叠。
+
+>[!NOTE]
+>为了让此 VNet 连接到本地位置，需与本地网络管理员协调操作，指定一个 IP 地址范围，将其专用于此虚拟网络。 否则，如果 VPN 连接的两侧存在重复的地址范围，则流量不会正确路由。
+>
+>
 
 以下示例创建一个名为“TestVNet1”的虚拟网络和一个名为“Subnet1”的子网。
 

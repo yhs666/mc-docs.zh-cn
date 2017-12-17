@@ -12,15 +12,15 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: required
-origin.date: 06/13/2017
-ms.date: 10/30/2017
+origin.date: 11/03/2017
+ms.date: 12/18/2017
 ms.devlang: na
 ms.author: v-yeche
-ms.openlocfilehash: bd2740da6fee24e0ea429feeeffc40248a9089a3
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 128df46735158c148fac5729b9fd19b6e4fa16f3
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的经典部署问题
 > [!div class="op_single_selector"]

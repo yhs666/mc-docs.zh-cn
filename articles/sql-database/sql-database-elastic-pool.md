@@ -17,11 +17,11 @@ ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: d3331b996a8351a345939a28a05e4b4b70b20052
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: f9fcd8359346e3a2a3508c3f108cb41e9482aa70
+ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>弹性池有助于管理和缩放多个 Azure SQL 数据库
 
@@ -40,7 +40,7 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-弹性池可让开发人员为由多个数据库共享的池购买[弹性数据库事务单位](sql-database-what-is-a-dtu.md) (eDTU)，以适应单一数据库使用时段不可预测的情况。 池的 eDTU 要求取决于其数据库的聚合使用量。 池可用的 eDTU 数量由开发人员预算控制。 开发人员只需将数据库添加到池，为数据库设置 eDTU 最小值和最大值，并根据其预算设置池的 eDTU。 开发人员可以使用池顺畅地扩大其服务，以渐增的规模从精简的新创公司发展到成熟的企业。
+弹性池可让开发人员为由多个数据库共享的池购买[弹性数据库事务单位](sql-database-what-is-a-dtu.md) (eDTU)，以适应单一数据库使用时段不可预测的情况。 池的 eDTU 要求取决于其数据库的聚合使用量。 池可用的 eDTU 数量由开发人员预算控制。 开发人员只需将数据库添加到池，为数据库设置 eDTU 最小值和最大值，然后根据其预算设置池的 eDTU。 开发人员可以使用池顺畅地扩大其服务，以渐增的规模从精简的新创公司发展到成熟的企业。
 
 在池中，单独的数据库都被赋予了在固定参数内自动缩放的灵活性。 高负载下的数据库可能会消耗更多的 eDTU 来满足需求。 轻负载下的数据库占用较少 eDTU，没有任何负载的数据库不会消耗任何 eDTU。 设置整个池（而非单个数据库）的资源简化了管理任务。 此外，必须具有该池的可预测预算。 可将更多 eDTU 添加现有池而不会造成数据库关闭，除非需要移动数据库以便提供更多计算资源来预留新 eDTU。 同样，可随时从现有池中删除不再需要的额外 eDTU。 并且可以向池添加或缩减数据库。 如果可以预测到数据库的资源利用率不足，则将其移出。
 
@@ -48,7 +48,7 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
 池很适合具有特定使用模式的大量数据库。 对于给定的数据库，此模式的特征是低平均使用量与相对不频繁的使用高峰。
 
-可以加入池的数据库越多，就可以节省更多的成本。 具体取决于应用程序使用模式，可能会看到与使用两个 S3 数据库相同的成本节约。  
+可以加入池的数据库越多，就可以节省更多的成本。 但根据应用程序使用模式，可能会看到与使用两个 S3 数据库一样少的节约。  
 
 以下各部分有助于了解如何评估特定的数据库集合是否会因使用池而受益。 这些示例使用标准池，但同样的原理也适用于基本和高级池。
 
@@ -111,7 +111,7 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
 有关可用的大小，请参阅[弹性池和弹性数据库的 eDTU 和存储限制](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)。
 
-SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源使用率，并在 Azure 门户中推荐适当的池配置。 除推荐外，内置体验还估算服务器上自定义组数据库的 eDTU 使用率。 这样可以执行“假设”分析，其方法为：通过交互方式将数据库添加到池并删除它们以在提交所做的更改之前获取资源使用率分析和调整建议。 相关操作方式，请参阅[监视、管理弹性池并调整其大小](sql-database-elastic-pool-manage-portal.md)。
+SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源使用率，并在 Azure 门户中推荐适当的池配置。 除推荐外，内置体验还估算服务器上自定义组数据库的 eDTU 使用率。 这样便可以执行“假设”分析，其方法为：通过交互方式将数据库添加到池并删除它们以在提交所做的更改之前获取资源使用率分析和调整建议。 相关操作方式，请参阅[监视、管理弹性池并调整其大小](sql-database-elastic-pool-manage-portal.md)。
 
 在无法使用工具的情况下，以下分步步骤有助于评估池是否比单一数据库更具成本效益：
 
@@ -149,7 +149,7 @@ SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源
 
 该池的定价层决定了池中弹性数据库的可用功能、eDTU 数目上限 (eDTU MAX)，以及每个数据库的可用存储 (GB)。 有关详细信息，请参阅[弹性池的资源限制](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)。
 
-若要更改池的定价层，请单击“定价层”，单击所需的定价层，然后单击“选择”。
+要更改池的定价层，请单击“定价层”，单击所需的定价层，并单击“选择”。
 
 > [!IMPORTANT]
 > 选择定价层并在最后一个步骤中单击“确定”来提交更改之后，便无法更改池的定价层。 若要更改现有弹性池的定价层，请在所需的定价层中创建弹性池，然后将数据库迁移到这个新池。
@@ -216,7 +216,7 @@ SQL 数据库服务将评估使用量历史记录，并在比使用单一数据�
 
 ![弹性池监视](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
 
-在“弹性数据库监视”下单击“前一小时数据库的 eDTU 使用率”。 这将打开“数据库资源使用率”并提供池中数据库使用率的详细视图。 使用该页下半部分中的网格，可以选择池中的任何数据库以在图表中显示其使用率（最多 5 个数据库）。 还可以通过单击“编辑图表” 来自定义在图表中显示的指标和时间范围。
+在“弹性数据库监视”下单击“前一小时数据库的 eDTU 使用率”。 这将打开“数据库资源使用率”并提供池中数据库使用率的详细视图。 使用该页下半部分中的网格，可以选择池中的任何数据库以在图表中显示其使用率（最多 5 个数据库）。 还可以通过单击“编辑图表”来自定义在图表中显示的指标和时间范围。
 
 ![数据库资源利用率页](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
@@ -362,7 +362,7 @@ SQL 数据库服务将评估使用量历史记录，并在比使用单一数据�
 |[数据库 - 按弹性池列出](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|返回弹性池中数据库的列表。|
 |[数据库 - 按推荐的弹性池列出](https://docs.microsoft.com/rest/api/sql/databases/listbyrecommendedelasticpool)|返回推荐弹性池内的数据库列表。|
 |[数据库 - 按服务器列出](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|返回服务器中的数据库列表。|
-|[数据库 - 更新](https://docs.microsoft.com/api/sql/databases/update)|更新现有的数据库。|
+|[数据库 - 更新](https://docs.microsoft.com/rest/api/sql/databases/update)|更新现有的数据库。|
 
 ## <a name="next-steps"></a>后续步骤
 

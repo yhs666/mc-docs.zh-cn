@@ -3,7 +3,7 @@ title: "适用于 Linux 的虚拟机扩展和功能 | Azure"
 description: "了解可为 Azure 虚拟机提供的扩展，这些虚拟机扩展按它们提供或改进的功能进行分组。"
 services: virtual-machines-linux
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-service-management,azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/26/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 70537bc454270b0588d2dcd73293b070be6dee19
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: fbff22d7b057d604621327491d156713e2116a64
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>适用于 Linux 的虚拟机扩展和功能
 
@@ -38,7 +38,6 @@ Azure 虚拟机扩展是小型应用程序，可在Azure 虚拟机上提供部�
 - 使用 Docker VM 扩展在 Azure 虚拟机上配置 Docker 主机。 有关详细信息，请参阅 [Docker VM extension](dockerextension.md)（Docker VM 扩展）。
 
 除了进程特定的扩展外，自定义脚本扩展也可用于 Windows 和 Linux 虚拟机。 适用于 Linux 的“自定义脚本”扩展允许在虚拟机上运行任何 Bash 脚本。 在设计需要本机 Azure 工具无法提供的配置的 Azure 部署时，自定义脚本很有用。 有关详细信息，请参阅 [Linux VM Custom Script extension](extensions-customscript.md)（Linux VM“自定义脚本”扩展）。
-
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -244,4 +243,4 @@ az vm extension delete --name customScript --resource-group myResourceGroup --vm
 | VM 访问扩展 |重新获取对 Azure 虚拟机的访问权限 |[VM 访问扩展](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure 诊断扩展 |管理 Azure 诊断 |[Azure 诊断扩展](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM 访问扩展 |管理用户和凭据 |[适用于 Linux 的 VM 访问扩展](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
-<!--Update_Description: update one link-->
+<!--Update_Description: update meta properties -->

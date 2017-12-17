@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/11/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 9b69f0c2bf484d68fc49f20cbfe085539ce96bc4
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+origin.date: 11/02/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: 0c82017b5f0819416b6fb2b0477299867e3578c7
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 存储共享访问签名来限制访问 HDInsight 中的数据
 
@@ -302,9 +302,9 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 
 现在你已了解如何将访问受限的存储添加到 HDInsight 群集，接下来请了解在群集上处理数据的其他方法：
 
-* [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
-* [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
+* [将 Hive 与 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
+* [将 Pig 与 HDInsight 配合使用](hadoop/hdinsight-use-pig.md)
+* [将 MapReduce 与 HDInsight 配合使用](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 <!--Update_Description: wording update: change 'wasbs' into 'wasb', update storage link ref-->

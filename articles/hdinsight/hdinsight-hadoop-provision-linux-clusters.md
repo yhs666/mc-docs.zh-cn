@@ -16,13 +16,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 09/06/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 1763cdfda40c0442c0406fc31525ee833b009989
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.openlocfilehash: a8e01abcc262fa0fdd3e343b09cd51aee7b0353f
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark、Kafka 等等在 HDInsight 中设置群集
 
@@ -76,13 +76,13 @@ Azure HDInsight 目前提供以下群集类型，每种类型都具有一组用�
 
 | 群集类型 | 功能 |
 | --- | --- |
-| [Hadoop](hdinsight-hadoop-introduction.md) |Batch 查询和存储数据的分析 |
-| [HBase](hdinsight-hbase-overview.md) |大量无架构 NoSQL 数据的处理 |
-| [Storm](hdinsight-storm-overview.md) |实时事件处理 |
-| [Spark](hdinsight-apache-spark-overview.md) |内存中处理、交互式查询、微批流处理 |
-| [Kafka（预览版）](hdinsight-apache-kafka-introduction.md) | 分布式流式处理平台，可用于构建实时流数据管道和应用程序 |
-| [R Server](hdinsight-hadoop-r-server-overview.md) |各种大数据统计信息、预测模型和机器学习功能 |
-| [交互式查询](hdinsight-hadoop-use-interactive-hive.md) |更快的交互式 Hive 查询的内存中缓存 |
+| [Hadoop](hadoop/apache-hadoop-introduction.md) |Batch 查询和存储数据的分析 |
+| [HBase](hbase/apache-hbase-overview.md) |大量无架构 NoSQL 数据的处理 |
+| [Storm](storm/apache-storm-overview.md) |实时事件处理 |
+| [Spark](spark/apache-spark-overview.md) |内存中处理、交互式查询、微批流处理 |
+| [Kafka（预览版）](kafka/apache-kafka-introduction.md) | 分布式流式处理平台，可用于构建实时流数据管道和应用程序 |
+| [R Server](r-server/r-server-overview.md) |各种大数据统计信息、预测模型和机器学习功能 |
+| [交互式查询](./interactive-query/apache-interactive-query-get-started.md) |更快的交互式 Hive 查询的内存中缓存 |
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>每个群集类型的节点数
 每个群集类型有自身的节点数目、节点术语和默认的 VM 大小。 下表中的括号内列出了每个节点类型的节点数目。
@@ -203,7 +203,7 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 
 可以在创建期间通过使用脚本安装其他组件或自定义群集配置。 此类脚本可通过 **脚本操作**调用，脚本操作是一种配置选项，可通过 Azure 门户、HDInsight Windows PowerShell cmdlet 或 HDInsight .NET SDK 使用。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-某些本机 Java 组件（如 Mahout 和 Cascading）可以在群集上作为 Java 存档 (JAR) 文件运行。 可以使用 Hadoop 作业提交机制将这些 JAR 文件分发到 Azure 存储，然后提交到 HDInsight 群集。 有关详细信息，请参阅[以编程方式提交 Hadoop 作业](hdinsight-submit-hadoop-jobs-programmatically.md)。
+某些本机 Java 组件（如 Mahout 和 Cascading）可以在群集上作为 Java 存档 (JAR) 文件运行。 可以使用 Hadoop 作业提交机制将这些 JAR 文件分发到 Azure 存储，然后提交到 HDInsight 群集。 有关详细信息，请参阅[以编程方式提交 Hadoop 作业](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
 
 > [!NOTE]
 > 如果在将 JAR 文件部署到 HDInsight 群集或调用 HDInsight 群集上的 JAR 文件时遇到问题，请联系 [Azure 支持](https://www.azure.cn/support/contact/)。
@@ -237,7 +237,7 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 
 有关将 Azure 虚拟网络与 HDInsight 配合使用的详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight](hdinsight-extend-hadoop-virtual-network.md)。
 
-有关在一个 Azure 虚拟网络中使用两种群集类型的示例，请参阅[使用 Storm 和 HBase 分析传感器数据](hdinsight-storm-sensor-data-analysis.md)。 有关将 HDInsight 与虚拟网络配合使用的详细信息（包括虚拟网络的特定配置要求），请参阅[使用 Azure 虚拟网络扩展 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
+有关在一个 Azure 虚拟网络中使用两种群集类型的示例，请参阅[使用 Storm 和 HBase 分析传感器数据](storm/apache-storm-sensor-data-analysis.md)。 有关将 HDInsight 与虚拟网络配合使用的详细信息（包括虚拟网络的特定配置要求），请参阅[使用 Azure 虚拟网络扩展 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
 
 ## <a name="troubleshoot-access-control-issues"></a>排查访问控制问题
 
@@ -245,7 +245,7 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [HDInsight、Hadoop 生态系统和 Hadoop 群集是什么？](hdinsight-hadoop-introduction.md)
-- [开始在 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
+- [HDInsight、Hadoop 生态系统和 Hadoop 群集是什么？](hadoop/apache-hadoop-introduction.md)
+- [开始在 HDInsight 中使用 Hadoop](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [在 Windows 电脑中操作 Hadoop on HDInsight](hdinsight-hadoop-windows-tools.md)
 <!--Update_Description: add a include-->

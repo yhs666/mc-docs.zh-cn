@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/05/2016
-ms.date: 03/10/2017
-ms.author: v-dazen
+ms.date: 12/25/2017
+ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: a854152b5cfd34696e04e3bc1673efc96ac34f29
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 759fd872eae0342aa3138c2f6a51fbea2bd87f69
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>使用脚本操作自定义基于 Windows 的 HDInsight 群集
 在创建群集的过程中，可以使用脚本操作来调用[自定义脚本](hdinsight-hadoop-script-actions.md)，以便在群集上安装其他软件。
@@ -43,11 +43,11 @@ ms.lasthandoff: 07/28/2017
 当脚本运行时，群集进入 **ClusterCustomization** 阶段。 在此阶段，脚本在系统管理员帐户下，以并行方式在群集中所有指定的节点上运行，而在节点上提供完全的系统管理员权限。
 
 > [!NOTE]
-> 你在 **ClusterCustomization** 阶段中于群集节点上拥有系统管理员权限，所以可以使用脚本来运行作业，例如停止和启动服务，包括 Hadoop 相关服务。 因此，在脚本中，你必须在脚本完成运行之前，确定 Ambari 服务及其他 Hadoop 相关服务已启动并且正在运行。 这些服务必须在群集创建时，成功地确定群集的运行状况和状态。 如果你更改群集上的任何影响这些服务的配置，必须使用所提供的帮助器函数。 有关帮助器函数的详细信息，请参阅 [为 HDInsight 开发脚本操作脚本][hdinsight-write-script]。
+> 你在 **ClusterCustomization** 阶段中于群集节点上拥有系统管理员权限，所以可以使用脚本来运行作业，例如停止和启动服务，包括 Hadoop 相关服务。 因此，在脚本中，必须在脚本完成运行之前，确定 Ambari 服务及其他 Hadoop 相关服务已启动并且正在运行。 这些服务必须在群集创建时，成功地确定群集的运行状况和状态。 如果更改群集上的任何影响这些服务的配置，必须使用所提供的帮助器函数。 有关帮助器函数的详细信息，请参阅 [为 HDInsight 开发脚本操作脚本][hdinsight-write-script]。
 >
 >
 
-脚本的输出以及错误日志文件存储在你为群集指定的默认存储帐户中。 这些日志存储在名为 u<\cluster-name-fragment><\time-stamp>setuplog 的表中。 这是从群集中所有节点上（头节点和辅助节点）运行的脚本聚合的日志文件。
+脚本的输出以及错误日志文件存储在为群集指定的默认存储帐户中。 这些日志存储在名为 u<\cluster-name-fragment><\time-stamp>setuplog 的表中。 这是从群集中所有节点上（头节点和辅助节点）运行的脚本聚合的日志文件。
 
 每个群集可接受多个脚本操作，这些脚本依其指定顺序被调用。 脚本可在头节点和/或辅助节点上运行。
 
@@ -292,19 +292,19 @@ HDInsight 服务中有两种类型的开放源代码组件：
 * **内置组件** - 这些组件预先安装在 HDInsight 群集上，并提供在群集的核心功能。 例如，Yarn ResourceManager、Hive 查询语言 (HiveQL) 及 Mahout 库均属于此类别。 [HDInsight 提供的 Hadoop 群集版本有哪些新功能？](hdinsight-component-versioning.md)</a>中提供了群集组件的完整列表。
 * **自定义组件** - 作为群集用户，可以安装，或者在工作负荷中使用由社区提供或自己创建的任何组件。
 
-完全支持内置组件，Azure 支持部门将帮助找出并解决与这些组件相关的问题。
+完全支持内置组件，Azure 支持部门帮助找出并解决与这些组件相关的问题。
 
 > [!WARNING]
-> 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门将帮助找出并解决与这些组件相关的问题。
+> 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门帮助找出并解决与这些组件相关的问题。
 >
-> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
+> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 >
 >
 
 HDInsight 服务提供多种方式来使用自定义组件。 不论在群集上使用组件或安装组件的方式为何，均适用相同级别的支持。 以下是可以在 HDInsight 群集上使用的自定义组件最常见方式的列表：
 
 1. 作业提交 - Hadoop 或其他类型的作业可以提交到执行或使用自定义组件的群集。
-2. 群集自定义 - 在群集创建期间，你可以指定将安装在群集节点的其他设置和自定义组件。
+2. 群集自定义 - 在群集创建期间，可以指定要安装在群集节点的其他设置和自定义组件。
 3. 示例 - 对于常见的自定义组件，Microsoft 和其他人可能会提供演示如何在 HDInsight 群集上使用这些组件的示例。 我们不针对这些示例提供支持。
 
 ## <a name="develop-script-action-scripts"></a>开发脚本操作脚本

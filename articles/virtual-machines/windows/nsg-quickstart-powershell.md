@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 08/21/2017
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 69b13fd5251698b797b1f46b3e5c25cb3353cb81
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: ab02dcc0bdf880dce9916dd8ca1cc7de1095d4b3
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>如何在 Azure 中使用 PowerShell 打开 VM 的端口和终结点
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -88,7 +88,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
 ## <a name="more-information-on-network-security-groups"></a>有关网络安全组的详细信息
-利用此处的快速命令，可以让流向 VM 的流量开始正常运行。 网络安全组提供许多出色的功能和粒度来控制资源的访问。 可以[在此处详细了解如何创建网络安全组和 ACL 规则](tutorial-virtual-network.md#manage-internal-traffic)。
+利用此处的快速命令，可以让流向 VM 的流量开始正常运行。 网络安全组提供许多出色的功能和粒度来控制资源的访问。 可以[在此处详细了解如何创建网络安全组和 ACL 规则](tutorial-virtual-network.md#secure-network-traffic)。
 
 对于高可用性 Web 应用程序，应将 VM 放置在 Azure 负载均衡器后。 当负载均衡器向 VM 分配流量时，网络安全组可以筛选流量。 有关详细信息，请参阅[如何在 Azure 中均衡 Linux 虚拟机负载以创建高可用性应用程序](tutorial-load-balancer.md)。
 
@@ -99,4 +99,4 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 * [什么是网络安全组 (NSG)？](../../virtual-network/virtual-networks-nsg.md)
 * [Azure Resource Manager 中负载均衡器的概述](../../load-balancer/load-balancer-arm.md)
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: wording update -->

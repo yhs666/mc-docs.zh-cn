@@ -3,8 +3,8 @@ title: "使用负载均衡集组建 MySQL 的群集 | Azure"
 description: "在 Azure 上设置使用经典部署模型创建的负载均衡且高度可用的 Linux MySQL 群集"
 services: virtual-machines-linux
 documentationcenter: 
-author: bureado
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: 6c413a16-e9b5-4ffe-a8a3-ae67046bbdf3
@@ -14,25 +14,28 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/14/2015
-ms.date: 02/20/2017
-ms.author: v-dazen
-ms.openlocfilehash: a04b70ed657ab14e31dd584500ff1a74889ed0f1
-ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: e57463866a2822a9c7bf5e74964850ff2e4e0747
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>使用负载均衡的集来群集化 Linux 上的 MySQL
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Azure Resource Manager](../../../resource-manager-deployment-model.md) 模型和经典模型。 本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 如果需要部署 MySQL 群集，可以使用 [Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/mysql-replication/) 。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-本文探讨并演示在 Microsoft Azure 上部署基于 Linux 的高度可用服务时可用的不同方法，并在 MySQL Server 高可用性方面提供入门性的探讨。 演示此方法的视频可在 [第 9 频道](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL)上找到。
+本文探讨并演示在 Microsoft Azure 上部署基于 Linux 的高度可用服务时可用的不同方法，并在 MySQL Server 高可用性方面提供入门性的探讨。
+<!-- Not Available on  A video illustrating this approach is available on [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL). -->
 
 我们将基于 DRBD、Corosync 和 Pacemaker 概述无共享双节点单主机 MySQL 高可用性解决方案。 一次只有一个节点运行 MySQL。 读取和写入 DRBD 资源也限制为一次只有一个节点。
 
-无需使用类似 LVS 的 VIP 解决方案，因为我们将使用 Azure 中的负载均衡集来同时提供轮循功能和 VIP 的终结点检测、删除和正常恢复功能。 VIP 是在首次创建云服务时由 Microsoft Azure 分配的全局可路由 IPv4 地址。
+无需使用类似 LVS 的 VIP 解决方案，因为我们使用 Azure 中的负载均衡集来同时提供轮循功能和 VIP 的终结点检测、删除和正常恢复功能。 VIP 是在首次创建云服务时由 Microsoft Azure 分配的全局可路由 IPv4 地址。
 
 MySQL 的其他可能体系结构包括 NBD 群集、Percona 和 Galera 以及多个中间件解决方案，其中至少有一个以 VM Depot 中的 VM 的形式提供。 只要这些解决方案可以复制到单播、多播或广播上，并且不要依赖于共享存储或多个网络接口，这些方案就应该很容易在 Azure 上部署。
+<!-- Not Available on [VM Depot](http://vmdepot.msopentech.com) -->
 
 这些群集体系结构可以类似方式扩展到其他产品（如 PostgreSQL 和 OpenLDAP）。 例如，此无共享的负载均衡过程已成功在多主机 OpenLDAP 上测试，并可以在我们的第 9 频道博客上观看。
 
@@ -55,17 +58,17 @@ MySQL 的其他可能体系结构包括 NBD 群集、Percona 和 Galera 以及�
 为该解决方案创建地缘组：登录到 Azure 经典门户，选择“设置”，然后创建地缘组。 稍后创建的已分配资源将分配给此地缘组。
 
 ### <a name="networks"></a>网络
-将创建新网络，并在该网络内部创建子网。 本示例使用只包含一个 /24 子网的 10.10.10.0/24 网络。
+会创建新网络，并在该网络内部创建子网。 本示例使用只包含一个 /24 子网的 10.10.10.0/24 网络。
 
 ### <a name="virtual-machines"></a>虚拟机
-第一个 Ubuntu 13.10 VM 是使用 Endorsed Ubuntu 库映像创建的，其名为 `hadb01`。 在此过程中，将创建名为 hadb 的新云服务。 这样命名是为了说明在添加更多资源时，该服务具有共享的负载均衡性质。 `hadb01` 的创建是直截了当的，可以使用门户完成。 系统会自动创建 SSH 的终结点，并选择新网络。 现在，可为 VM 创建可用性集。
+第一个 Ubuntu 13.10 VM 是使用 Endorsed Ubuntu 库映像创建的，其名为 `hadb01`。 此过程会创建名为 hadb 的新云服务。 这样命名是为了说明在添加更多资源时，该服务具有共享的负载均衡性质。 `hadb01` 的创建是直截了当的，可以使用门户完成。 系统会自动创建 SSH 的终结点，并选择新网络。 现在，可为 VM 创建可用性集。
 
-创建第一个 VM 后（从技术上讲，创建云服务时），请继续创建第二个 VM `hadb02`。 对于第二个 VM，请通过门户使用库中的 Ubuntu 13.10 VM，但要使用现有的云服务 `hadb.chinacloudapp.cn`，而不是新建一个。 系统会自动选择网络和可用性集。 也将创建 SSH 终结点。
+创建第一个 VM 后（从技术上讲，创建云服务时），请继续创建第二个 VM `hadb02`。 对于第二个 VM，请通过门户使用库中的 Ubuntu 13.10 VM，但要使用现有的云服务 `hadb.chinacloudapp.cn`，而不是新建一个。 系统会自动选择网络和可用性集。 也会创建 SSH 终结点。
 
 创建两个 VM 后，请记下 `hadb01` 的 SSH 端口 (TCP 22) 和 `hadb02`（由 Azure 自动分配）。
 
 ### <a name="attached-storage"></a>附加存储
-将新磁盘附加到两个 VM，并在附加过程中创建 5-GB 磁盘。 这些磁盘托管在 VHD 容器中，用作主要操作系统磁盘。 创建并附加磁盘后，无需重启 Linux，因为内核将会发现新设备。 此设备通常为 `/dev/sdc`。 检查 `dmesg` 的输出。
+将新磁盘附加到两个 VM，并在附加过程中创建 5-GB 磁盘。 这些磁盘托管在 VHD 容器中，用作主要操作系统磁盘。 创建并附加磁盘后，无需重启 Linux，因为内核会发现新设备。 此设备通常为 `/dev/sdc`。 检查 `dmesg` 的输出。
 
 在每个 VM 上，使用 `cfdisk` 创建分区（主 Linux 分区），并写入新的分区表。 不要在此分区中创建文件系统。
 
@@ -74,7 +77,7 @@ MySQL 的其他可能体系结构包括 NBD 群集、Percona 和 Galera 以及�
 
     sudo apt-get install corosync pacemaker drbd8-utils.
 
-暂时不要安装 MySQL。 Debian 和 Ubuntu 安装脚本将在 `/var/lib/mysql`上初始化 MySQL 数据目录，但由于该目录将由 DRBD 文件系统取代，因此稍后需要安装 MySQL。
+暂时不要安装 MySQL。 Debian 和 Ubuntu 安装脚本在 `/var/lib/mysql`上初始化 MySQL 数据目录，但由于该目录将由 DRBD 文件系统取代，因此稍后需要安装 MySQL。
 
 使用 `/sbin/ifconfig` 验证两个 VM 是否使用 10.10.10.0/24 子网中的地址，以及它们是否可以按名称彼此 ping 通。 还可以使用 `ssh-keygen` 和 `ssh-copy-id` 确保这两个 VM 可以通过 SSH 通信而无需密码。
 
@@ -109,7 +112,7 @@ MySQL 的其他可能体系结构包括 NBD 群集、Percona 和 Galera 以及�
 
 如果你在这两个 VM 中检查 /proc/drbd (`sudo cat /proc/drbd`) 的内容，应在 `hadb01` 上看到 `Primary/Secondary`，在 `hadb02` 上看到 `Secondary/Primary`，与此时的解决方案一致。 5-GB 磁盘通过 10.10.10.0/24 网络进行同步，不会向客户收费。
 
-同步磁盘后，可在 `hadb01`上创建文件系统。 出于测试目的，我们使用了 ext2，但以下代码将创建 ext3 文件系统：
+同步磁盘后，可在 `hadb01`上创建文件系统。 出于测试目的，我们使用了 ext2，但以下代码创建 ext3 文件系统：
 
     mkfs.ext3 /dev/drbd1
 
@@ -120,17 +123,17 @@ MySQL 的其他可能体系结构包括 NBD 群集、Percona 和 Galera 以及�
     sudo mount /dev/drbd1 /var/lib/mysql
 
 ## <a name="set-up-mysql"></a>设置 MySQL
-现在你已准备好在 `hadb01`上安装 MySQL：
+现在已准备好在 `hadb01`上安装 MySQL：
 
     sudo apt-get install mysql-server
 
-对于 `hadb02`，可以使用两个选项。 可以安装 mysql-server，这会创建 /var/lib/mysql 并在其中填入一个新的数据目录，然后删除内容。 若要执行此选项，请在 `hadb02`上运行以下代码：
+对于 `hadb02`，可以使用两个选项。 可以安装 mysql-server，这会创建 /var/lib/mysql 并在其中填入一个新的数据目录，并删除内容。 若要执行此选项，请在 `hadb02`上运行以下代码：
 
     sudo apt-get install mysql-server
     sudo service mysql stop
     sudo rm -rf /var/lib/mysql/*
 
-第二个选项用于故障转移到 `hadb02` ，然后在该位置安装 mysql-server。 安装脚本会检测到现有安装，并且不会对它进行修改。
+第二个选项用于故障转移到 `hadb02` ，并在该位置安装 mysql-server。 安装脚本会检测到现有安装，并且不会对它进行修改。
 
 在 `hadb01`上运行以下代码：
 
@@ -141,7 +144,7 @@ MySQL 的其他可能体系结构包括 NBD 群集、Percona 和 Galera 以及�
     sudo drbdadm primary -force r0
     sudo apt-get install mysql-server
 
-如果你现在不打算故障转移 DRBD，则第一个选项虽说算不上极好但更容易。 设置此项后，但可以开始处理 MySQL 数据库了。 在 `hadb02` 上（或根据 DRBD 而判定处于活动状态的任何服务器上）运行以下代码：
+如果现在不打算故障转移 DRBD，则第一个选项虽说算不上极好但更容易。 设置此项后，但可以开始处理 MySQL 数据库了。 在 `hadb02` 上（或根据 DRBD 而判定处于活动状态的任何服务器上）运行以下代码：
 
     mysql -u root -p
     CREATE DATABASE azureha;
@@ -157,7 +160,7 @@ MySQL 的其他可能体系结构包括 NBD 群集、Percona 和 Galera 以及�
 ### <a name="create-the-mysql-load-balanced-set"></a>创建 MySQL 负载均衡集
 返回门户，转到 `hadb01`，然后选择“终结点”。 若要创建终结点，请从下拉列表中选择“MySQL (TCP 3306)”，然后选择“新建负载均衡集”。 将负载均衡的终结点命名为 `lb-mysql`。 将“时间”设置为 5 秒（最小值）。
 
-创建终结点后，转到 `hadb02`，选择“终结点”，然后创建一个终结点。 `lb-mysql`，然后从下拉列表中选择“MySQL”。 还可以将 Azure CLI 用于此步骤。
+创建终结点后，转到 `hadb02`，选择“终结点”，然后创建一个终结点。 选择 `lb-mysql`，并从下拉列表中选择“MySQL”。 还可以将 Azure CLI 用于此步骤。
 
 现已做好手动操作群集所需的一切准备。
 
@@ -233,7 +236,7 @@ Azure 上 Corosync 的主要约束是 Corosync 首选多播，其次广播，再
       provider: corosync_votequorum
     }
 
-将此配置文件复制到两个 VM，然后在这两个节点上启动 Corosync：
+将此配置文件复制到两个 VM，并在这两个节点上启动 Corosync：
 
     sudo service start corosync
 
@@ -241,16 +244,16 @@ Azure 上 Corosync 的主要约束是 Corosync 首选多播，其次广播，再
 
     sudo corosync-quorumtool -l
 
-将看到如下图所示的输出：
+会看到如下图所示的输出：
 
 ![corosync-quorumtool -l sample output](./media/mysql-cluster/image001.png)
 
 ## <a name="set-up-pacemaker"></a>设置 Pacemaker
 Pacemaker 使用群集监视资源、定义主节点何时停机，并将这些资源切换到辅助节点。 可以通过一组可用脚本或 LSB（类似 init）脚本以及其他选项定义资源。
 
-我们希望 Pacemaker“拥有”DRBD 资源、装入点和 MySQL 服务。 如果在主节点出现问题时 Pacemaker 可以启用和关闭 DRBD，请按正确的顺序装载和卸载它，然后启动并停止 MySQL，这样就完成了设置。
+我们希望 Pacemaker“拥有”DRBD 资源、装入点和 MySQL 服务。 如果在主节点出现问题时 Pacemaker 可以启用和关闭 DRBD，请按正确的顺序装载和卸载它，并启动并停止 MySQL，这样就完成了设置。
 
-首次安装 Pacemaker 时，你的配置应足够简单，如下所示：
+首次安装 Pacemaker 时，配置应足够简单，如下所示：
 
     node $id="1" hadb01
       attributes standby="off"
@@ -312,14 +315,14 @@ Pacemaker 使用群集监视资源、定义主节点何时停机，并将这些�
 ## <a name="testing"></a>测试
 现已准备好自动故障转移模拟。 可通过两种方式执行此操作：软方式和硬方式。
 
-软方式使用群集的关闭功能： ``crm_standby -U `uname -n` -v on``。 在主节点上使用此功能时，从节点将会接管。 请记得将此功能重新设为 off。 否则，crm_mon 会显示一个节点处于待机状态。
+软方式使用群集的关闭功能： ``crm_standby -U `uname -n` -v on``。 在主节点上使用此功能时，从节点会接管。 请记得将此功能重新设为 off。 否则，crm_mon 会显示一个节点处于待机状态。
 
 硬方式是通过门户或更改 VM 上的运行级别（即，停止、关闭）关闭主 VM (hadb01)。 这可以通过指示主节点即将关闭来帮助 Corosync 和 Pacemaker。 可以对此进行测试（适用于维护窗口），但也可以通过只冻结 VM 来强制实施该方案。
 
 ## <a name="stonith"></a>STONITH
 它应该能够通过 Azure CLI 代替用于控制物理设备的 STONITH 脚本向 VM 发出关闭命令。 可以使用 `/usr/lib/stonith/plugins/external/ssh` 作为基础并在群集的配置中启用 STONITH。 应全局安装 Azure CLI 并应为群集的用户加载发布设置和配置文件。
 
-[GitHub](https://github.com/bureado/aztonith)上提供了资源的示例代码。 可通过将以下代码添加到 `sudo crm configure`来更改群集的配置：
+[GitHub](https://github.com/bureado/aztonith)上提供了资源的示例代码。 可通过将以下代码添加到 `sudo crm configure` 来更改群集的配置：
 
     primitive st-azure stonith:external/azure \
       params hostlist="hadb01 hadb02" \
@@ -333,9 +336,11 @@ Pacemaker 使用群集监视资源、定义主节点何时停机，并将这些�
 ## <a name="limitations"></a>限制
 以下限制适用：
 
-* 管理 DRBD 的 linbit DRBD 资源脚本作为 Pacemaker 中的资源在关闭节点时使用 `drbdadm down` ，即使该节点只是转为待机状态也是如此。 这并不理想，因为当主节点获得写入时，从节点将不会同步 DRBD 资源。 如果主节点未按正常方式失败，则从节点可以接受较旧的文件系统状态。 可通过两种可能方式来解决此问题：
+* 管理 DRBD 的 linbit DRBD 资源脚本作为 Pacemaker 中的资源在关闭节点时使用 `drbdadm down` ，即使该节点只是转为待机状态也是如此。 这并不理想，因为当主节点获得写入时，从节点不会同步 DRBD 资源。 如果主节点未按正常方式失败，则从节点可以接受较旧的文件系统状态。 可通过两种可能方式来解决此问题：
   * 通过本地（非群集化）监视程序在所有群集节点中强制执行 `drbdadm up r0`
   * 编辑 linbit DRBD 脚本以确保未在 `/usr/lib/ocf/resource.d/linbit/drbd` 中调用 `down`
 * 负载均衡器至少需要 5 秒钟才能做出响应，因此应用程序应是群集感知的并更容忍超时。 其他体系结构（如应用中队列和查询中间件）也会有帮助。
 * 有必要进行 MySQL 优化，确保以受控的速度完成写入，并且尽可能频繁地将缓存刷新到磁盘。
 * 写入性能依赖于虚拟交换机中的 VM 互连，因为这是 DRBD 用于复制设备的机制。
+
+<!-- Update_Description: update meta properties, update link -->

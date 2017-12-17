@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 10/23/2017
+origin.date: 11/28/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: d5cfaccb58b5344dfe029440f95d0315baef9078
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 738fab01ecc1a54003fe74f99ffe25811fd76fa5
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具
 
@@ -57,11 +57,11 @@ Azure CLI 提供的用于通过 Azure 服务管理 (ASM) 使用 HDInsight 的基
 ### <a name="deprecated-commands"></a>已弃用的命令
 如果使用 `azure hdinsight job` 命令将作业提交到 HDInsight 群集，则无法通过 ARM 命令使用这些作业。 如果需要以编程方式通过脚本将作业提交到 HDInsight，应改用 HDInsight 提供的 REST API。 有关如何使用 REST API 提交作业的详细信息，请参阅以下文档。
 
-* [使用 cURL 通过 HDInsight 上的 Hadoop 运行 MapReduce 作业](hdinsight-hadoop-use-mapreduce-curl.md)
-* [使用 cURL 通过 HDInsight 上的 Hadoop 运行 Hive 查询](hdinsight-hadoop-use-hive-curl.md)
-* [使用 cURL 通过HDInsight 上的 Hadoop 运行 Pig 作业](hdinsight-hadoop-use-pig-curl.md)
+* [使用 cURL 通过 HDInsight 上的 Hadoop 运行 MapReduce 作业](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [使用 cURL 通过 HDInsight 上的 Hadoop 运行 Hive 查询](hadoop/apache-hadoop-use-hive-curl.md)
+* [使用 cURL 通过HDInsight 上的 Hadoop 运行 Pig 作业](hadoop/apache-hadoop-use-pig-curl.md)
 
-有关以其他交互方式运行 MapReduce、Hive 和 Pig 的信息，请参阅[对 HDInsight 上的 Hadoop 使用 MapReduce](hdinsight-use-mapreduce.md)、[对 HDInsight 上的 Hadoop 使用 Hive](hdinsight-use-hive.md)和[对 HDInsight 上的 Hadoop 使用 Pig](hdinsight-use-pig.md)。
+有关以其他交互方式运行 MapReduce、Hive 和 Pig 的信息，请参阅[对 HDInsight 上的 Hadoop 使用 MapReduce](hadoop/hdinsight-use-mapreduce.md)、[对 HDInsight 上的 Hadoop 使用 Hive](hadoop/hdinsight-use-hive.md)和[对 HDInsight 上的 Hadoop 使用 Pig](hadoop/hdinsight-use-pig.md)。
 
 ### <a name="examples"></a>示例
 创建群集
@@ -90,7 +90,7 @@ Azure CLI 提供的用于通过 Azure 服务管理 (ASM) 使用 HDInsight 的基
 * 新命令 (ARM) - `azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>将 Azure PowerShell 迁移到 Azure Resource Manager
-有关处于 Azure Resource Manager (ARM) 模式的 Azure PowerShell 的一般信息，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../powershell-azure-resource-manager.md)。
+有关处于 Azure 资源管理器 (ARM) 模式的 Azure PowerShell 的一般信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../powershell-azure-resource-manager.md)。
 
 Azure PowerShell ARM cmdlet 可与 ASM cmdlet 一同安装。 两种模式下的 cmdlet 可按其名称来区分。  ARM 模式下的 cmdlet 名称中包含 AzureRmHDInsight，而在 ASM 模式下则包含 AzureHDInsight。  例如，前者为 New-AzureRmHDInsightCluster，后者为New-AzureHDInsightCluster。 某些参数和开关可能有新名称，并且在使用 ARM 时，有许多新参数可供使用。  例如，多个 cmdlet 需要名为 -ResourceGroupName 的新开关。 
 
@@ -215,9 +215,9 @@ Azure PowerShell ARM cmdlet 可与 ASM cmdlet 一同安装。 两种模式下的
 
 #### <a name="other-samples"></a>其他示例
 * [创建 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [提交 Hive 作业](hdinsight-hadoop-use-hive-powershell.md)
-* [提交 Pig 作业](hdinsight-hadoop-use-pig-powershell.md)
-* [提交 Sqoop 作业](hdinsight-hadoop-use-sqoop-powershell.md)
+* [提交 Hive 作业](hadoop/apache-hadoop-use-hive-powershell.md)
+* [提交 Pig 作业](hadoop/apache-hadoop-use-pig-powershell.md)
+* [提交 Sqoop 作业](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-arm-based-hdinsight-net-sdk"></a>迁移到基于 ARM 的 HDInsight .NET SDK
 基于 Azure 服务管理 (ASM) 的 [HDInsight.NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) 现已弃用。 建议使用基于 Azure 资源管理 (ARM) 的 [HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt271028.aspx)。 以下基于 ASM 的 HDInsight 包即将弃用。
@@ -231,11 +231,11 @@ Azure PowerShell ARM cmdlet 可与 ASM cmdlet 一同安装。 两种模式下的
 | --- | --- |
 | 使用 .NET SDK 创建 HDInsight 群集 |请参阅[使用 .NET SDK 创建 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
 | 配合使用脚本操作与 .NET SDK 自定义群集 |请参阅[使用脚本操作自定义 HDInsight Linux 群集](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
-| 配合使用 Azure Active Directory 与 .NET SDK 以交互方式对应用程序进行身份验证 |请参阅[使用 .NET SDK 运行 Hive 查询](hdinsight-hadoop-use-hive-dotnet-sdk.md)。 本文中的代码片段使用交互式身份验证方法。 |
+| 配合使用 Azure Active Directory 与 .NET SDK 以交互方式对应用程序进行身份验证 |请参阅[使用 .NET SDK 运行 Hive 查询](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。 本文中的代码片段使用交互式身份验证方法。 |
 | 配合使用 Azure Active Directory 与 .NET SDK 以非交互方式对应用程序进行身份验证 |请参阅[为 HDInsight 创建非交互式应用程序](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
-| 使用 .NET SDK 提交 Hive 作业 |请参阅[提交 Hive 作业](hdinsight-hadoop-use-hive-dotnet-sdk.md) |
-| 使用 .NET SDK 提交 Pig 作业 |请参阅[提交 Pig 作业](hdinsight-hadoop-use-pig-dotnet-sdk.md) |
-| 使用 .NET SDK 提交 Sqoop 作业 |请参阅[提交 Sqoop 作业](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) |
+| 使用 .NET SDK 提交 Hive 作业 |请参阅[提交 Hive 作业](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
+| 使用 .NET SDK 提交 Pig 作业 |请参阅[提交 Pig 作业](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) |
+| 使用 .NET SDK 提交 Sqoop 作业 |请参阅[提交 Sqoop 作业](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
 | 使用 .NET SDK 列出 HDInsight 群集 |请参阅[列出 HDInsight 群集](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
 | 使用 .NET SDK 缩放 HDInsight 群集 |请参阅[缩放 HDInsight 群集](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
 | 使用 .NET SDK 授予/吊销对 HDInsight 群集的访问权限 |请参阅[授予/吊销对 HDInsight 群集的访问权限](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |

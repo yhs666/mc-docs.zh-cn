@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/07/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 8e96a63c122058246fbe3549cf21f646a036e059
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+origin.date: 12/01/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: b3fdc266c2f6ef17a3c3510542822f407b268882
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Solr
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/28/2017
 > [!WARNING]
 > Microsoft 完全支持 HDInsight 群集提供的组件。
 >
-> 自定义组件（如 Solr）可获得合理范围的支持，以帮助进一步排查问题。 Azure 支持可能无法解决与自定义组件有关的问题。 用户可能需要寻求开源社区的帮助。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自定义组件（如 Solr）可获得合理范围的支持，以帮助进一步排查问题。 Azure 支持可能无法解决与自定义组件有关的问题。 用户可能需要寻求开源社区的帮助。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 
 ## <a name="what-the-script-does"></a>脚本功能
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 07/28/2017
 
 若要创建安装了 Solr 的群集，请使用[创建 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-portal.md)文档中的步骤。 在创建过程中，使用以下步骤安装 Solr：
 
-1. 在“群集摘要”边栏选项卡中，选择“高级设置”，然后选择“脚本操作”。 使用以下信息填充表格：
+1. 在“群集摘要”部分中，依次选择“高级设置”、“脚本操作”。 使用以下信息填充表格：
 
    * **名称**：输入脚本操作的友好名称。
    * **脚本 URI**：https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
@@ -68,7 +68,7 @@ ms.lasthandoff: 07/28/2017
    * **ZOOKEEPER**：选中此选项以在 Zookeeper 节点上安装
    * **参数**：将此字段留空
 
-2. 在“脚本操作”边栏选项卡底部，使用“选择”按钮保存配置。 最后，使用“下一步”按钮返回到“群集摘要”
+2. 在“脚本操作”部分的底部，使用“选择”按钮保存配置。 最后，使用“下一步”按钮返回到“群集摘要”
 
 3. 在“群集摘要”页上，选择“创建”以创建群集。
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 07/28/2017
 
 ### <a name="index-data"></a>索引数据
 
-使用以下步骤将示例数据添加到 Solr，然后查询该数据：
+使用以下步骤将示例数据添加到 Solr，并查询该数据：
 
 1. 使用 SSH 连接到 HDInsight 群集：
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 07/28/2017
     有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
      > [!IMPORTANT]
-     > 本文档中的后续步骤使用 SSL 隧道连接到 Solr Web UI。 若要使用这些步骤，必须建立 SSL 隧道，然后将浏览器配置为使用该隧道。
+     > 本文档中的后续步骤使用 SSL 隧道连接到 Solr Web UI。 要使用这些步骤，必须建立 SSL 隧道，然后将浏览器配置为使用该隧道。
      >
      > 有关详细信息，请参阅[将 SSH 隧道与 HDInsight 配合使用](hdinsight-linux-ambari-ssh-tunnel.md)文档。
 
@@ -201,7 +201,7 @@ Solr 仪表板是一个 Web UI，可让你通过 Web 浏览器使用 Solr。 Sol
 
     ![Solr 仪表板图像](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
 
-3. 在左窗格中，使用“核心选择器”下拉列表选择 **collection1**。 然后，**collection1** 下面应会出现多个条目。
+3. 在左窗格中，使用“核心选择器”下拉列表选择 **collection1**。 **collection1**下面应会出现多个条目。
 
 4. 从 **collection1** 下面的条目中选择“查询”。 使用以下值来填充搜索页：
 
@@ -279,7 +279,7 @@ sudo start solr
 
 使用以下步骤，将 Solr 数据备份到群集的默认存储：
 
-1. 使用 SSH 连接到群集，然后使用以下命令来获取头节点的主机名：
+1. 使用 SSH 连接到群集，并使用以下命令来获取头节点的主机名：
 
     ```bash
     hostname -f

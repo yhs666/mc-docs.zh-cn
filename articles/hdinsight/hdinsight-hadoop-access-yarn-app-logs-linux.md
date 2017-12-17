@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/31/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: e6a19159142e33ba3d7604ebbde151d4d087f7f2
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 10/23/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: 7fb02ca9f525dedbf2653db5afe1bf7e4c247820
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上访问 YARN 应用程序日志
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 09/12/2017
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server
 
-[YARN Timeline Server](http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) 通过两个不同的接口提供已完成应用程序的通用信息，以及框架特定的应用程序信息。 具体而言：
+[YARN Timeline Server](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) 通过两个不同的接口提供已完成应用程序的通用信息，以及框架特定的应用程序信息。 具体而言：
 
 * 已通过 3.1.1.374 版或更高版本启用存储和检索 HDInsight 群集的通用应用程序信息。
 * Timeline Server 的架构特定应用程序信息组件目前不适用于 HDInsight 群集。

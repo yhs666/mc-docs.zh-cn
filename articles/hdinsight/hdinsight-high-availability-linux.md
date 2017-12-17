@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 07/28/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: dfc68efbde7f48825fec735dcbc87b309f1c36f9
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 10/19/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: 82f7ca0e5ef15d9f1b6b0ac609f8d8198a4b5435
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight 中 Hadoop 群集的可用性和可靠性
 

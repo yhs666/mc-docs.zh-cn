@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 09/05/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 02e9d7b7859d186554adfd93adcbc3ae7596f9f1
-ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
+ms.openlocfilehash: 015ca4cb5e1ca2020e166149fcf53774dda3d8d3
+ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>开始使用 REST 传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -428,7 +428,7 @@ HTTP/1.1 204 No Content
 
 ## <a id="encode"></a>将源文件编码为一组自适应比特率 MP4 文件
 
-将资产引入媒体服务后，即可对媒体进行编码、传输复用、打水印等处理，并将其传送至客户端。 根据多个后台角色实例调度把那个运行这些活动，以确保较高的性能和可用性。 这些活动称为作业，每个作业由原子任务构成，这些原子任务在资产文件上完成具体的工作（有关详细信息，请参阅[作业](https://docs.microsoft.com/rest/api/media/services/job)、[任务](https://docs.microsoft.com/rest/api/media/services/task)描述）。
+将资产引入媒体服务后，即可对媒体进行编码、传输复用、打水印等处理，并将其传送至客户端。 根据多个后台角色实例调度把那个运行这些活动，以确保较高的性能和可用性。 这些活动称为作业，每个作业由原子任务构成，这些原子任务在资产文件上完成具体的工作（有关详细信息，请参阅[作业](https://docs.microsoft.com/en-us/rest/api/media/operations/job)、[任务](https://docs.microsoft.com/en-us/rest/api/media/operations/task)描述）。
 
 如前所述，使用 Azure 媒体服务最常见的方案之一是将自适应比特率流传送至客户端。 媒体服务可将一组自适应比特率 MP4 文件动态打包为以下格式之一：HTTP Live Streaming (HLS)、平滑流式处理、MPEG DASH。
 

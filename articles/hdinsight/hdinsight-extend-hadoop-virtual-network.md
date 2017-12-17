@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 09/21/2017
-ms.date: 11/27/2017
+origin.date: 12/01/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 4868dddd67d1f7d17c4d7ba4ee50ed6115efac8f
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.openlocfilehash: 63e967e5a3fc8d18b07a4bc61720b849495bc64c
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -674,8 +674,8 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 ## <a name="next-steps"></a>后续步骤
 
 * 如需通过端到端示例来了解如何将 HDInsight 配置为连接到本地网络，请参阅[将 HDInsight 连接到本地网络](./connect-on-premises-network.md)。
-* 要了解如何在 Azure 虚拟网络中配置 Hbase 群集，请参阅[在 Azure 虚拟网络中的 HDInsight 上创建 HBase 群集](./hdinsight-hbase-provision-vnet.md)。
-* 要了解如何配置 HBase 异地复制，请参阅[在 Azure 虚拟网络中设置 HBase 群集复制](./hdinsight-hbase-replication.md)。
+* 要了解如何在 Azure 虚拟网络中配置 Hbase 群集，请参阅[在 Azure 虚拟网络中的 HDInsight 上创建 HBase 群集](hbase/apache-hbase-provision-vnet.md)。
+* 要了解如何配置 HBase 异地复制，请参阅[在 Azure 虚拟网络中设置 HBase 群集复制](hbase/apache-hbase-replication.md)。
 * 有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
 
 * 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/virtual-networks-nsg.md)。

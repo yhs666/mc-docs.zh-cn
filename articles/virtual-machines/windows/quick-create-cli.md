@@ -14,18 +14,18 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/11/2017
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6aa91b9ca3be582dba41f4509e625952c18cccfc
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 73dab2ee0555944b41abfef82219adf965a7b3d9
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 创建 Windows 虚拟机
 
-Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本指南详细介绍如何使用 Azure CLI 部署运行 Windows Server 2016 的虚拟机。 部署完成后，我们连接到服务器并安装 IIS。
+Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门教程详细介绍了如何使用 Azure CLI 部署运行 Windows Server 2016 的虚拟机。 部署完成后，我们连接到服务器并安装 IIS。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
@@ -81,7 +81,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 使用以下命令创建与虚拟机的远程桌面会话。 将 IP 地址替换为虚拟机的公共 IP 地址。 出现提示时，输入创建虚拟机时使用的凭据。
 
 ```bash 
-mstsc /v:<Public IP Address>
+mstsc /v:Public IP Address
 ```
 
 ## <a name="install-iis-using-powershell"></a>使用 PowerShell 安装 IIS

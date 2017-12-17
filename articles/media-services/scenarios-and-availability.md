@@ -14,11 +14,11 @@ ms.topic: hero-article
 origin.date: 07/10/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 3c973322d76414d37823d8f0c13e96d0fc026e79
-ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
+ms.openlocfilehash: d0c2e76b5341ecbe728f4589fa7685067fe93556
+ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>媒体服务功能的跨数据中心方案和可用性
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 09/19/2017
 
 若要开始使用 Azure 媒体服务，应该具备以下条件：
 
-* 一个 Azure 帐户。 如果没有帐户，可以创建一个 1 元试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 1 元试用](ttps://www.azure.cn/pricing/1rmb-trial-full/)。
+* 一个 Azure 帐户。 如果没有帐户，可以创建一个 1 元试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/pricing/1rmb-trial-full/)。
 * Azure 媒体服务帐户。 有关详细信息，请参阅[创建帐户](media-services-portal-create-account.md)。
 * 要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。
 

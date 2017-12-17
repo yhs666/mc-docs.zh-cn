@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 09/07/2017
-ms.date: 10/16/2017
+origin.date: 11/08/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: e2e3e6aef5a2784369c9f5739fc617654b9b1d06
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: c6716c3697c56583133458ce9cadda97567410b1
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -39,6 +39,7 @@ ms.lasthandoff: 11/28/2017
 <br> 
 
 - 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/#Windows)。 
+<!-- Not Available on [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md). -->
 - 存储成本根据存储帐户中的已使用页数进行单独计算。 有关详细信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)。
 - 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
@@ -60,4 +61,4 @@ ms.lasthandoff: 11/28/2017
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
 - [内存优化](../virtual-machines-windows-sizes-memory.md)
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->

@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/31/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: fc85fd6fcd67ed7bcbcd240b618b44f4b45ce9f6
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 10/23/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: 5b8b846e7b631b823a1bedb0628b800a796e6973
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 进行脚本操作开发
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 09/12/2017
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-基于 Linux 的 HDInsight 取决于 Ubuntu Linux 分发版。 不同版本的 HDInsight 依赖不同版本的 Ubuntu，这可能会改变脚本的行为方式。 例如，HDInsight 3.4 及更低版本基于使用 Upstart 的 Ubuntu 版本。 3.5 版本取决于使用 Systemd 的 Ubuntu 16.04。 Systemd 和 Upstart 依赖不同的命令，因此编写的脚本应该同时使用两者。
+基于 Linux 的 HDInsight 取决于 Ubuntu Linux 分发版。 不同版本的 HDInsight 依赖不同版本的 Ubuntu，这可能会改变脚本的行为方式。 例如，HDInsight 3.4 及更低版本基于使用 Upstart 的 Ubuntu 版本。 版本 3.5 和更高版本取决于使用 Systemd 的 Ubuntu 16.04。 Systemd 和 Upstart 采用不同的命令，因此，编写的脚本应能与这两者配合使用。
 
 HDInsight 3.4 和 3.5 的另一个重要区别在于 `JAVA_HOME` 现在能够指向 Java 8。
 
@@ -374,6 +374,6 @@ Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。 参阅�
 ## <a name="seeAlso"></a>后续步骤
 
 * 了解如何[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)
-* 通过 [HDInsight.NET SDK 参考](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight)详细了解如何创建用于管理 HDInsight 的 .NET 应用程序
+* 通过 [HDInsight.NET SDK 参考](https://msdn.microsoft.com/library/mt271028.aspx)详细了解如何创建用于管理 HDInsight 的 .NET 应用程序
 * 使用 [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) 了解如何通过 REST 在 HDInsight 群集上执行管理操作。
 <!--Update_Description: wording update-->

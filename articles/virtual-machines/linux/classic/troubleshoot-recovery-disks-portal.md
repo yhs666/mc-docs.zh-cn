@@ -11,16 +11,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 07/21/2017
-ms.date: 10/30/2017
+origin.date: 11/03/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 06a91e93f25debd531266ad63a294d92f73410be
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: a187dccc0c83dc23bd27b2cb4b68275b45839d6b
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="troubleshoot-a-linux-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>通过将 OS 磁盘附加到恢复 VM，对 Linux 经典 VM 进行故障排除
+
+> [!IMPORTANT] 
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [virtual-machines-classic-recovery-disks-portal](../../../../includes/virtual-machines-classic-recovery-disks-portal.md)]
 
@@ -29,4 +32,4 @@ ms.lasthandoff: 10/27/2017
 
 对于访问 VM 上运行的应用程序时遇到的问题，请参阅[排查 Azure 中 Linux 虚拟机上的应用程序连接问题](../troubleshoot-app-connection.md)。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, add classic portal migration notice.-->

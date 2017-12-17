@@ -3,7 +3,7 @@ title: "Azure 中适用于 Windows 的虚拟机扩展和功能 | Azure"
 description: "了解可为 Azure 虚拟机提供的扩展，这些虚拟机扩展按它们提供或改进的功能进行分组。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-service-management,azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/06/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 12/18/2017
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06f7474087fdd9ebac5e7e2f70c69dca24a3ef4d
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 013ff184b6cb8af7935a47eca21f2c7500246e53
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>适用于 Windows 的虚拟机扩展和功能
 
@@ -34,11 +34,11 @@ Azure 虚拟机扩展是小型应用程序，可在Azure 虚拟机上提供部�
 有许多不同的 Azure VM 扩展可用，每个都有特定用例。 一些示例用例包括：
 
 - 使用适用于 Windows 的 DSC 扩展将 PowerShell 所需状态配置应用于虚拟机。 有关详细信息，请参阅 [Azure Desired State configuration extension](extensions-dsc-overview.md)（Azure Desired State Configuration 扩展）。
+<!-- Not Available on  see [Connect Azure virtual machines to Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).-->
 - 使用 Datadog 扩展配置 Azure 基础结构监视功能。 有关详细信息，请参阅 [Datadog 博客](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
 - 使用 Chef 配置 Azure 虚拟机。 有关详细信息，请参阅[使用 Chef 自动执行 Azure 虚拟机部署](chef-automation.md)。
 
 除了进程特定的扩展外，自定义脚本扩展也可用于 Windows 和 Linux 虚拟机。 适用于 Windows 的自定义脚本扩展允许在虚拟机上运行任何 PowerShell 脚本。 在设计需要本机 Azure 工具无法提供的配置的 Azure 部署时，这很有用。 有关详细信息，请参阅 [Windows VM 自定义脚本扩展](extensions-customscript.md)。
-
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -91,7 +91,7 @@ Cmdlet          Set-AzureRmVMExtension                             2.2.0      Az
 Cmdlet          Set-AzureRmVMSqlServerExtension                    2.2.0      AzureRM.Compute
 ```
 
-以下示例使用自定义脚本扩展从 GitHub 存储库将脚本下载到目标虚拟机上，并运行该脚本。 有关自定义脚本扩展的详细信息，请参阅[自定义脚本扩展概述](extensions-customscript.md)。
+以下示例使用自定义脚本扩展从 GitHub 存储库将脚本下载到目标虚拟机上，然后运行该脚本。 有关自定义脚本扩展的详细信息，请参阅[自定义脚本扩展概述](extensions-customscript.md)。
 
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
@@ -122,7 +122,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 模板
 
-VM 扩展可添加到 Azure Resource Manager 模板，并在部署模板的过程中执行。 使用模板部署扩展对于创建完全配置的 Azure 部署很有用。 例如，以下 JSON 取自一个 Resource Manager 模板，该模板将在每个 VM 上部署一组负载均衡虚拟机和一个 Azure SQL 数据库，并安装一个 .NET Core 应用程序。 VM 扩展负责安装软件。
+VM 扩展可添加到 Azure Resource Manager 模板，并在部署模板的过程中执行。 使用模板部署扩展对于创建完全配置的 Azure 部署很有用。 例如，以下 JSON 取自一个 Resource Manager 模板，该模板会在每个 VM 上部署一组负载均衡的虚拟机、一个 Azure SQL 数据库，然后安装一个 .NET Core 应用程序。 VM 扩展负责安装软件。
 
 有关详细信息，请参阅完整的 [Resource Manager 模板](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)。
 
@@ -156,11 +156,11 @@ VM 扩展可添加到 Azure Resource Manager 模板，并在部署模板的过�
 }
 ```
 
-有关详细信息，请参阅[使用 Windows VM 扩展创作 Azure Resource Manager 模板](template-description.md#extensions)。
+有关详细信息，请参阅[使用 Windows VM 扩展创作 Azure 资源管理器模板](template-description.md#extensions)。
 
 ## <a name="secure-vm-extension-data"></a>保护 VM 扩展数据
 
-运行 VM 扩展时，可能需要提供敏感信息，例如凭据、存储帐户名称和存储帐户访问密钥。 许多 VM 扩展包括用于对数据进行加密，并且仅在目标虚拟机内对数据进行解密的受保护配置。 每个扩展都有特定的受保护配置架构，在特定于扩展的文档中会详细介绍此架构。
+运行 VM 扩展时，可能需要提供敏感信息，例如凭据、存储帐户名称和存储帐户访问密钥。 许多 VM 扩展包括用于对数据进行加密，并且仅在目标虚拟机内对数据进行解密的受保护配置。 每个扩展都有一个特定的受保护的配置架构，扩展特定的文档中详述了各个架构。
 
 以下示例显示适用于 Windows 的自定义脚本扩展的实例。 请注意，要执行的命令包含一组凭据。 在此示例中，不会加密要执行的命令。
 
@@ -259,11 +259,11 @@ AutoUpgradeMinorVersion : False
 ForceUpdateTag          :
 ```
 
-此外，还可以在 Azure 门户中找到扩展执行状态。 如果要查看扩展的状态，请选择虚拟机，选择“扩展” ，并选择所需的扩展。
+此外，还可以在 Azure 门户中找到扩展执行状态。 要查看扩展的状态，请选择虚拟机，选择“扩展”，并选择所需的扩展。
 
 ### <a name="rerun-vm-extensions"></a>重新运行 VM 扩展
 
-在某些情况下，可能需要重新运行虚拟机扩展。 可以通过删除扩展，并使用所选执行方法重新运行扩展来执行此操作。 若要删除扩展，请使用 Azure PowerShell 模块运行以下命令。 请将示例参数名称替换成自己的值。
+在某些情况下，可能需要重新运行虚拟机扩展。 这可以通过删除扩展，并使用所选执行方法重新运行扩展来实现。 若要删除扩展，请使用 Azure PowerShell 模块运行以下命令。 请将示例参数名称替换成自己的值。
 
 ```powershell
 Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
@@ -283,3 +283,4 @@ Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name 
 | 适用于 Windows 的 DSC 扩展 |PowerShell DSC (Desired State Configuration) 扩展 |[适用于 Windows 的 DSC 扩展](extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure 诊断扩展 |管理 Azure 诊断 |[Azure 诊断扩展](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM 访问扩展 |管理用户和凭据 |[适用于 Linux 的 VM 访问扩展](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+<!-- Update_Description: update meta properties -->

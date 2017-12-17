@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 08/11/2017
-ms.date: 10/16/2017
+origin.date: 11/13/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7cecdee6f1ce175b4eef4d99649787533386d447
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: f1438c6023f9a0b9ff45450e83c0a42833d9e528
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>如何在 Azure 中均衡 Linux 虚拟机负载以创建高可用性应用程序
 负载均衡通过将传入请求分布到多个虚拟机来提供更高级别的可用性。 本教程介绍了 Azure 负载均衡器的不同组件，这些组件用于分发流量和提供高可用性。 你将学习如何执行以下操作：
@@ -160,10 +160,12 @@ for i in `seq 1 3`; do
 done
 ```
 
+创建所有三个虚拟 NIC 之后，请继续执行下一步骤
+
 ## <a name="create-virtual-machines"></a>创建虚拟机
 
 ### <a name="create-cloud-init-config"></a>创建 cloud-init 配置
-在有关[如何在首次启动时自定义 Linux 虚拟机](tutorial-automate-vm-deployment.md)的上一个教程中，你已了解如何使用 cloud-init 自动执行 VM 自定义。 可使用同一个 cloud-init 配置文件安装 NGINX 并运行简单的“Hello World”Node.js 应用。
+在有关[如何在首次启动时自定义 Linux 虚拟机](tutorial-automate-vm-deployment.md)的上一个教程中，你已了解如何使用 cloud-init 自动执行 VM 自定义。 在下一步骤中，可使用同一个 cloud-init 配置文件安装 NGINX 并运行简单的“Hello World”Node.js 应用。 若要查看负载均衡器的工作方式，完成本教程时，可以在 Web 浏览器中访问这个简单的应用。
 
  创建名为“cloud-init.txt”的文件并粘贴以下配置。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
 
@@ -250,7 +252,7 @@ az network public-ip show \
     --output tsv
 ```
 
-然后，可将公共 IP 地址输入 Web 浏览器中。 请记住：在负载均衡器开始向 VM 分发流量之前，VM 需要几分钟才能准备就绪。 随即显示应用，包括负载均衡器将流量分发到的 VM 的主机名，如下例所示：
+然后，可将公共 IP 地址输入 Web 浏览器中。 请记住 - 在负载均衡器开始向 VM 分发流量之前，VM 需要几分钟才能准备就绪。 随即显示应用，包括负载均衡器将流量分发到的 VM 的主机名，如下例所示：
 
 ![运行 Node.js 应用](./media/tutorial-load-balancer/running-nodejs-app.png)
 
@@ -273,6 +275,24 @@ az network nic ip-config address-pool remove \
 
 若要查看负载均衡器如何在运行应用的其余两个 VM 之间分发流量，可强制刷新 Web 浏览器。 现在可以对 VM 执行维护，例如安装 OS 更新或执行 VM 重新启动。
 
+若要查看包含与负载均衡器连接的虚拟 NIC 的 VM 列表，请使用 [az network lb address-pool show](https://docs.azure.cn/zh-cn/cli/network/lb/address-pool?view=azure-cli-latest#show)。 如下所示根据虚拟 NIC 的 ID 进行查询和筛选：
+
+```azurecli
+az network lb address-pool show \
+    --resource-group myResourceGroupLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myBackEndPool \
+    --query backendIpConfigurations \
+    --output tsv | cut -f4
+```
+
+输出类似于以下示例，其中显示 VM 2 的虚拟 NIC 不再是后端地址池的一部分：
+
+```bash
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
+```
+
 ### <a name="add-a-vm-to-the-load-balancer"></a>将 VM 添加到负载均衡器
 可以在执行 VM 维护后或需要扩展容量的情况下，使用 [az network nic ip-config address-pool add](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config/address-pool?view=azure-cli-latest#add) 将 VM 添加到后端地址池。 以下示例将“myVM2”的虚拟 NIC 添加到“myLoadBalancer”：
 
@@ -284,6 +304,8 @@ az network nic ip-config address-pool add \
     --lb-name myLoadBalancer \
     --address-pool myBackEndPool
 ```
+
+若要验证虚拟 NIC 是否已连接到后端地址池，请再次使用上一步骤中所示的 [az network lb address-pool show](https://docs.azure.cn/zh-cn/cli/network/lb/address-pool?view=azure-cli-latest#show)。
 
 ## <a name="next-steps"></a>后续步骤
 在本教程中，你已创建了一个负载均衡器并已将 VM 附加到它。 你已了解如何：

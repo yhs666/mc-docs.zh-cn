@@ -1,6 +1,11 @@
 若要使用 Azure 门户在 Resource Manager 部署模型中创建 VNet，请执行以下步骤。 这些屏幕截图作为示例提供。 请务必替换成自己的值。 有关使用虚拟网络的详细信息，请参阅 [虚拟网络概述](../articles/virtual-network/virtual-networks-overview.md)。
 
-1. 从浏览器导航到 [Azure 门户](http://portal.azure.cn)，并在必要时用 Azure 帐户登录。
+>[!NOTE]
+>若要让此 VNet 连接到本地位置（并且还创建 P2S 配置），需与本地网络管理员协调操作，指定一个 IP 地址范围，将其专用于此虚拟网络。 如果 VPN 连接的两侧存在重复的地址范围，则流量不会按预期的方式路由。 另外，若要将此 VNet 连接到其他 VNet，则地址空间不能与其他 VNet 重叠。 请注意对网络配置进行相应的计划。
+>
+>
+
+1. 从浏览器导航到 [Azure 门户](http://portal.azure.cn)，并在必要时使用 Azure 帐户登录。
 2. 单击“+”。 在“搜索应用商店”字段中，键入“虚拟网络”。 从返回的列表中找到“虚拟网络”，单击打开“虚拟网络”页。
 
     ![查找虚拟网络资源页](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/newvnetportal700.png "查找虚拟网络资源页")
@@ -26,4 +31,4 @@
 
     ![创建虚拟网络磁贴](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/deploying150.png "创建虚拟网络磁贴")
 
-<!-- ms.date: 11/07/2017 -->
+<!-- ms.date: 12/12/2017 -->

@@ -14,16 +14,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/14/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: f684f04d395fcfb79a66aa29c5387d850af7afeb
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 11/6/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: fb2f82b79ca2d5883e5b4913b4120ac18a69a611
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>使用脚本操作自定义基于 Linux 的 HDInsight 群集
+# <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用脚本操作自定义基于 Linux 的 HDInsight 群集
 
 HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调用用于自定义群集的自定义脚本。 这些脚本用于安装其他组件以及更改配置设置。 可在创建群集期间或者之后使用脚本操作。
 
@@ -32,7 +32,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 >
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-还可以将脚本操作作为 HDInsight 应用程序发布到 Azure 应用商店。 本文档中的某些示例演示如何使用 PowerShell 和 .NET SDK 的脚本操作命令来安装 HDInsight 应用程序。
+还可以将脚本操作作为 HDInsight 应用程序发布到 Azure Marketplace。 本文档中的某些示例演示如何使用 PowerShell 和 .NET SDK 的脚本操作命令来安装 HDInsight 应用程序。
 
 ## <a name="permissions"></a>权限
 
@@ -54,7 +54,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 ## <a name="understanding-script-actions"></a>了解脚本操作
 
-脚本操作只是一个提供 URI 和参数的 Bash 脚本。 该脚本在 HDInsight 群集节点上运行。 下面是脚本操作的特征和功能。
+脚本操作是一个 Bash 脚本，为其提供 URI 和参数。 该脚本在 HDInsight 群集节点上运行。 下面是脚本操作的特征和功能。
 
 * 必须存储在可从 HDInsight 群集访问的 URI 上。 下面是可能的存储位置：
 
@@ -200,229 +200,29 @@ HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
 
 3. 要创建群集，请从“群集摘要”部分中选择“创建”。
 
-### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>从 Azure Resource Manager 模板使用脚本操作
+### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>从 Azure 资源管理器模板使用脚本操作
 
-本部分中的示例演示如何将脚本操作与 Azure Resource Manager 模板配合使用。
+可通过 Azure 资源管理器模板使用脚本操作。 有关示例，请参阅 [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/)。
 
-#### <a name="before-you-begin"></a>开始之前
+在此示例中，使用了以下代码添加脚本操作：
 
-* 有关配置工作站以运行 HDInsight Powershell cmdlet 的信息，请参阅 [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
-* 有关如何创建模板的说明，请参阅[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。
-* 如果以前没有对 Resource Manager 使用过 Azure PowerShell，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../azure-resource-manager/powershell-azure-resource-manager.md)。
-
-#### <a name="create-clusters-using-script-action"></a>使用脚本操作创建群集
-
-1. 将以下模板复制到计算机上的某个位置。 此模板在群集中的头节点和辅助角色节点上安装 Giraph。 还可以验证 JSON 模板是否有效。 将模板内容粘贴到在线 JSON 验证工具 [JSONLint](http://jsonlint.com/) 中。
-
-            {
-            "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {
-                "clusterLocation": {
-                    "type": "string",
-                    "defaultValue": "China North",
-                    "allowedValues": [ "China North" ]
-                },
-                "clusterName": {
-                    "type": "string"
-                },
-                "clusterUserName": {
-                    "type": "string",
-                    "defaultValue": "admin"
-                },
-                "clusterUserPassword": {
-                    "type": "securestring"
-                },
-                "sshUserName": {
-                    "type": "string",
-                    "defaultValue": "username"
-                },
-                "sshPassword": {
-                    "type": "securestring"
-                },
-                "clusterStorageAccountName": {
-                    "type": "string"
-                },
-                "clusterStorageAccountResourceGroup": {
-                    "type": "string"
-                },
-                "clusterStorageType": {
-                    "type": "string",
-                    "defaultValue": "Standard_LRS",
-                    "allowedValues": [
-                        "Standard_LRS",
-                        "Standard_GRS",
-                        "Standard_ZRS"
-                    ]
-                },
-                "clusterStorageAccountContainer": {
-                    "type": "string"
-                },
-                "clusterHeadNodeCount": {
-                    "type": "int",
-                    "defaultValue": 1
-                },
-                "clusterWorkerNodeCount": {
-                    "type": "int",
-                    "defaultValue": 2
-                }
-            },
-            "variables": {
-            },
-            "resources": [
-                {
-                    "name": "[parameters('clusterStorageAccountName')]",
-                    "type": "Microsoft.Storage/storageAccounts",
-                    "location": "[parameters('clusterLocation')]",
-                    "apiVersion": "2015-05-01-preview",
-                    "dependsOn": [ ],
-                    "tags": { },
-                    "properties": {
-                        "accountType": "[parameters('clusterStorageType')]"
-                    }
-                },
-                {
-                    "name": "[parameters('clusterName')]",
-                    "type": "Microsoft.HDInsight/clusters",
-                    "location": "[parameters('clusterLocation')]",
-                    "apiVersion": "2015-03-01-preview",
-                    "dependsOn": [
-                        "[concat('Microsoft.Storage/storageAccounts/', parameters('clusterStorageAccountName'))]"
-                    ],
-                    "tags": { },
-                    "properties": {
-                        "clusterVersion": "3.5",
-                        "osType": "Linux",
-                        "clusterDefinition": {
-                            "kind": "hadoop",
-                            "configurations": {
-                                "gateway": {
-                                    "restAuthCredential.isEnabled": true,
-                                    "restAuthCredential.username": "[parameters('clusterUserName')]",
-                                    "restAuthCredential.password": "[parameters('clusterUserPassword')]"
-                                }
-                            }
-                        },
-                        "storageProfile": {
-                            "storageaccounts": [
-                                {
-                                    "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.chinacloudapi.cn')]",
-                                    "isDefault": true,
-                                    "container": "[parameters('clusterStorageAccountContainer')]",
-                                    "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
-                                }
-                            ]
-                        },
-                        "computeProfile": {
-                            "roles": [
-                                {
-                                    "name": "headnode",
-                                    "targetInstanceCount": "[parameters('clusterHeadNodeCount')]",
-                                    "hardwareProfile": {
-                                        "vmSize": "Large"
-                                    },
-                                    "osProfile": {
-                                        "linuxOperatingSystemProfile": {
-                                            "username": "[parameters('sshUserName')]",
-                                            "password": "[parameters('sshPassword')]"
-                                        }
-                                    },
-                                    "scriptActions": [
-                                        {
-                                            "name": "installGiraph",
-                                            "uri": "https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh",
-                                            "parameters": ""
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "workernode",
-                                    "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
-                                    "hardwareProfile": {
-                                        "vmSize": "Large"
-                                    },
-                                    "osProfile": {
-                                        "linuxOperatingSystemProfile": {
-                                            "username": "[parameters('sshUserName')]",
-                                            "password": "[parameters('sshPassword')]"
-                                        }
-                                    },
-                                    "scriptActions": [
-                                        {
-                                            "name": "installR",
-                                            "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
-                                            "parameters": ""
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    }
-                }
-            ],
-            "outputs": {
-                "cluster":{
-                    "type" : "object",
-                    "value" : "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
-                }
-            }
+    "scriptActions": [
+        {
+            "name": "setenvironmentvariable",
+            "uri": "[parameters('scriptActionUri')]",
+            "parameters": "headnode"
         }
-2. 启动 Azure PowerShell 并登录到 Azure 帐户。 提供凭据后，该命令将返回有关帐户的信息。
+    ]
 
-        Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+有关如何部署模板的信息，请参阅以下文档：
 
-        Id                             Type       ...
-        --                             ----
-        someone@example.com            User       ...
-3. 如果有多个订阅，请提供要用于部署的订阅 ID。
+* [使用模板和 Azure PowerShell 部署资源](../azure-resource-manager/resource-group-template-deploy.md)
 
-        Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
-
-    > [!NOTE]
-    > 可以使用 `Get-AzureRmSubscription` 来获取与你帐户关联的所有订阅的列表，包括每个订阅的订阅 ID。
-
-4. 如果目前没有资源组，请创建资源组。 提供资源组的名称，以及解决方案所需的位置。 将返回新资源组的摘要。
-
-        New-AzureRmResourceGroup -Name myresourcegroup -Location "China North"
-
-        ResourceGroupName : myresourcegroup
-        Location          : chinanorth
-        ProvisioningState : Succeeded
-        Tags              :
-        Permissions       :
-                            Actions  NotActions
-                            =======  ==========
-                            *
-        ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
-
-5. 若要为资源组创建部署，请运行 **New-AzureRmResourceGroupDeployment** 命令并提供所需的参数。 参数包含以下数据：
-
-    * 部署名称
-    * 资源组名称
-    * 所创建模板的路径或 URL。
-
-  如果模板需要任何参数，则也必须传递这些参数。 在此示例中，用于在群集上安装 R 的脚本操作不需要任何参数。
-
-        New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
-
-    系统会提示用户为模板中定义的参数提供值。
-
-1. 部署资源组后，会显示部署摘要。
-
-          DeploymentName    : mydeployment
-          ResourceGroupName : myresourcegroup
-          ProvisioningState : Succeeded
-          Timestamp         : 8/14/2017 7:00:27 PM
-          Mode              : Incremental
-          ...
-
-2. 如果部署失败，则可以使用以下 cmdlet 获取有关故障的信息。
-
-        Get-AzureRmResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
+* [使用模板和 Azure CLI 部署资源](../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>在创建群集期间从 Azure PowerShell 使用脚本操作
 
-本部分使用 [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet 通过脚本操作来调用脚本，以自定义群集。 在继续前，确保已安装并配置 Azure PowerShell。 有关配置工作站以运行 HDInsight PowerShell cmdlet 的信息，请参阅 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)（安装和配置 Azure PowerShell）。
+本部分使用 [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet 来调用脚本，以自定义群集。 在继续前，确保已安装并配置 Azure PowerShell。 有关配置工作站以运行 HDInsight PowerShell cmdlet 的信息，请参阅 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)（安装和配置 Azure PowerShell）。
 
 以下脚本演示如何在使用 PowerShell 创建群集时应用脚本操作：
 
@@ -724,7 +524,7 @@ HDInsight 服务中有两种类型的开放源代码组件：
 > [!WARNING]
 > 完全支持通过 HDInsight 群集提供的组件。 Azure 支持部门将帮助找出并解决与这些组件相关的问题。
 >
-> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 Azure 支持部门也许能够解决问题，也可能要求参与可用的开放源代码技术渠道，获取该技术的深入专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 Azure 支持部门也许能够解决问题，也可能要求参与可用的开放源代码技术渠道，获取该技术的深入专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 
 HDInsight 服务提供多种方式来使用自定义组件。 不论在群集上使用组件或安装组件的方式为何，均适用相同级别的支持。 以下列表描述了在 HDInsight 群集上使用自定义组件的最常见方式：
 
@@ -756,7 +556,7 @@ HDInsight 服务提供多种方式来使用自定义组件。 不论在群集上
 
 ### <a name="access-logs-from-the-default-storage-account"></a>从默认的存储帐户访问日志
 
-如果群集创建因脚本操作错误失败，可以从群集存储帐户访问日志。
+如果因脚本错误导致群集创建失败，则日志会保存在群集存储帐户中。
 
 * 存储日志位于 `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`。
 
@@ -812,7 +612,7 @@ sudo pip install azure-storage==0.20.0
 
 ### <a name="history-doesnt-show-scripts-used-during-cluster-creation"></a>历史记录未显示创建群集期间使用的脚本
 
-如果群集是在 2016 年 3 月 15 日之前创建的，则脚本操作历史记录中可能不显示任何条目。 如果在 2016 年 3 月 15 日之后调整了群集的大小，则创建群集期间使用的脚本会出现在历史记录中，因为它们在调整大小操作过程中已应用到群集中的新节点。
+如果群集是在 2016 年 3 月 15 日之前创建的，则脚本操作历史记录中可能不显示任何条目。 调整群集大小后，脚本会出现在脚本操作历史记录中。
 
 有两种例外情况：
 

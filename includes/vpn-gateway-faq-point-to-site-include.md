@@ -1,3 +1,5 @@
+此常见问题解答适用于使用经典部署模型进行的 P2S 连接。
+
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>点到站点连接允许使用哪些客户端操作系统？
 
 支持以下客户端操作系统：
@@ -46,4 +48,4 @@
 
 很难维持 VPN 隧道的准确吞吐量。 IPsec 和 SSTP 是重重加密的 VPN 协议。 本地网络与 Internet 之间的延迟和带宽也限制了吞吐量。
 
-<!-- ms.date: 10/10/2017 -->
+<!-- ms.date: 12/12/2017 -->

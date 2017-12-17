@@ -3,8 +3,8 @@ title: "优化 Linux 上的 MySQL 性能 | Azure"
 description: "了解如何优化运行 Linux 的 Azure 虚拟机 (VM) 上运行的 MySQL。"
 services: virtual-machines-linux
 documentationcenter: 
-author: NingKuang
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: 0c1c7fc5-a528-4d84-b65d-2df225f2233f
@@ -14,19 +14,20 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: cb587b294762977eb2de9b6d9b7bbf365765cd4d
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: 6211d216e35c51b7e003c2bc0c9f42fa85bcefb8
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>优化 Azure Linux VM 上的 MySQL 性能
 影响 Azure 上 MySQL 性能的因素有很多，主要体现在虚拟硬件选择和软件配置两个方面。 本文重点介绍如何通过存储、系统和数据库配置优化性能。
 
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Azure Resource Manager](../../../resource-manager-deployment-model.md) 模型和经典模型。 本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 若要了解如何通过 Resource Manager 模型进行 Linux VM 优化，请参阅[优化 Azure 上的 Linux VM](../optimization.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="utilize-raid-on-an-azure-virtual-machine"></a>利用 Azure 虚拟机上的 RAID
 存储是影响云环境中的数据库性能的关键因素。 与单个磁盘相比，RAID 可以通过并发访问提供更快的访问速度。 有关详细信息，请参阅 [Standard RAID levels](http://en.wikipedia.org/wiki/Standard_RAID_levels)（标准 RAID 级别）。   
@@ -39,11 +40,11 @@ ms.lasthandoff: 06/30/2017
 
 对于不同的虚拟机类型，可添加的磁盘数量存在多种限制。 [Azure 的虚拟机和云服务大小](/cloud-services/cloud-services-sizes-specs)中详细介绍了这些限制。 可以选择设置磁盘较少的 RAID，不过，在本文的 RAID 示例中，需要附加 4 个数据磁盘。  
 
-本文假定你已经创建 Linux 虚拟机，并且安装和配置了 MYSQL。 有关入门的详细信息，请参阅“如何在 Azure 上安装 MySQL”。  
+本文假定已经创建 Linux 虚拟机，并且安装和配置了 MYSQL。 有关入门的详细信息，请参阅“如何在 Azure 上安装 MySQL”。  
 
 ### <a name="set-up-raid-on-azure"></a>在 Azure 上设置 RAID
 以下步骤介绍了如何使用 Azure 门户在 Azure 上创建 RAID。 也可以使用 Windows PowerShell 脚本设置 RAID。
-在本示例中，我们将使用 4 个磁盘配置 RAID 0。  
+在本示例中，我们将使用四个磁盘配置 RAID 0。  
 
 #### <a name="add-a-data-disk-to-your-virtual-machine"></a>向虚拟机添加数据磁盘
 在 Azure 门户中，转到仪表板并选择想要向其添加数据磁盘的虚拟机。 在本示例中，该虚拟机为 mysqlnode1。  
@@ -58,7 +59,7 @@ ms.lasthandoff: 06/30/2017
 
 ![附加空磁盘](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-attach-empty-disk.png)
 
-这将向虚拟机添加一个空磁盘。 再重复此步骤三次，以便为 RAID 附加 4 个数据磁盘。  
+这会向虚拟机添加一个空磁盘。 再重复此步骤三次，以便为 RAID 附加 4 个数据磁盘。  
 
 通过查看内核消息日志，可以看到虚拟机中添加的驱动器。 例如，若要在 Ubuntu 上查看，请使用以下命令：  
 
@@ -103,13 +104,13 @@ Linux 实现了四种类型的 I/O 计划算法：
 * 完全公平队列算法 (CFQ)
 * 预算期算法（预测）  
 
-在不同的情况下，你可以选择使用不同的 I/O 计划程序来优化性能。 在完全随机的访问环境中，CFQ 算法和截止时间算法对性能的影响区别不大。 为保持稳定性，建议将 MySQL 数据库环境设置为截止时间算法。 如果有大量的顺序 I/O，CFQ 可能会降低磁盘 I/O 性能。   
+在不同的情况下，可以选择使用不同的 I/O 计划程序来优化性能。 在完全随机的访问环境中，CFQ 算法和截止时间算法对性能的影响区别不大。 为保持稳定性，建议将 MySQL 数据库环境设置为截止时间算法。 如果有大量的顺序 I/O，CFQ 可能会降低磁盘 I/O 性能。   
 
 对于 SSD 和其他设备，NOOP 或截止时间算法可以比默认计划程序实现更好的性能。   
 
 在内核 2.5 之前，默认 I/O 计划算法为“截止时间”。 从内核 2.6.18 开始，CFQ 成为默认 I/O 计划算法。  可以在内核启动时指定此设置，或者在系统运行时动态修改此设置。  
 
-以下示例演示如何在 Debian 系列分发版本中检查默认计划程序并将其设置为 NOOP 算法。  
+下面的示例演示如何在 Debian 分发系列中检查默认计划程序并将其设置为 NOOP 算法。  
 
 ### <a name="view-the-current-io-scheduler"></a>查看当前的 I/O 调度器
 若要查看计划程序，请运行以下命令：  
@@ -216,7 +217,7 @@ MySQL 是高并发数据库。 对于 Linux，默认的并发句柄数量是 102
 * Innodb_file_per_table：此设置可允许或禁止 InnoDB 将表存储在单独的文件中。 启用该选项可确保有效地应用多项高级管理操作。 从性能角度来看，它可以提高表空间传输的速度和优化碎片管理性能。 此选项的推荐设置是“开启”。</br></br>
 从 MySQL 5.6 开始，默认设置为“开启”，因此不需要任何操作。 对于早期版本，默认设置为“关闭”。 应在加载数据之前更改此设置，因为只有新创建的表才会受影响。
 * innodb_flush_log_at_trx_commit：默认值为 1，范围设置为 0~2。 默认值是最适合独立 MySQL DB 的选项。 设置为 2 可确保最大程度的数据完整性，适用于 MySQL 群集中的主节点。 设置 0 允许数据丢失，这可能会影响可靠性（但在某些情况下能提供更好的性能），适用于 MySQL 群集中的从属节点。
-* Innodb_log_buffer_size：借助日志缓冲区，即使在事务提交之前未将日志刷新到磁盘，事务也可以运行。 但是，如果有大型的二进制对象或文本字段，将快速耗尽缓存，并触发频繁的磁盘 I/O。 如果 Innodb_log_waits 状态变量不为 0，最好增加缓冲区大小。
+* Innodb_log_buffer_size：借助日志缓冲区，即使在事务提交之前未将日志刷新到磁盘，事务也可以运行。 但是，如果有大型的二进制对象或文本字段，将很快地耗尽缓存，并触发频繁的磁盘 I/O。 如果 Innodb_log_waits 状态变量不为 0，最好增加缓冲区大小。
 * query_cache_size：最好是从一开始就禁用。 将 query_cache_size 设置为 0（这是 MySQL 5.6 中的默认设置）并使用其他方法来提高查询速度。  
 
 请参阅 [附录 D](#AppendixD) ，了解优化前后的性能比较情况。
@@ -242,7 +243,7 @@ MySQL 慢查询日志有助于识别 MySQL 的慢查询。 在启用 MySQL 慢�
 
 ![Slow-query-log 结果][8]
 
-在本示例中，可以看到慢查询功能已启用。 然后可以使用 **mysqldumpslow** 工具来确定性能瓶颈和优化性能，比如添加索引。
+在本示例中，可以看到慢查询功能已启用。 然后可以使用“mysqldumpslow”工具来确定性能瓶颈和优化性能，比如添加索引。
 
 ## <a name="appendices"></a>附录
 以下为在目标实验室环境中生成的性能测试数据示例。 这些数据提供了在使用不同性能调优方法的情况下，性能数据趋势的常规背景。 结果可能因环境或产品版本而异。
@@ -339,3 +340,5 @@ MySQL 慢查询日志有助于识别 MySQL 的慢查询。 在启用 MySQL 慢�
 [12]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-12.png
 [13]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png
+
+<!-- Update_Description: add classic portal migrate notice -->

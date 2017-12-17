@@ -2,8 +2,8 @@
 title: "将 HDInsight 连接到本地网络 - Azure HDInsight | Azure"
 description: "了解如何在 Azure 虚拟网络中创建 HDInsight 群集，然后将其连接到本地网络。 了解如何使用自定义 DNS 服务器在 HDInsight 和本地网络之间配置名称解析。"
 documentationcenter: 
-author: hayley244
-manager: digimobile
+author: Blackmist
+manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/21/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 3aa5f57fa6f6e4c94e0d6f3566fbad24975cf7d4
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 12/01/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: 13e7041ee538fdb5f71e811fbedeacf9e17cfb52
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>将 HDInsight 连接到本地网络
 
@@ -33,9 +33,6 @@ ms.lasthandoff: 09/12/2017
 * 虚拟网络上由 HDInsight 提供的端口。
 
 ## <a name="create-the-virtual-network-configuration"></a>创建虚拟网络配置
-
-> [!IMPORTANT]
-> 如果正在查找有关如何使用 Azure 虚拟网络将 HDInsight 连接到本地网络的分步指南，请参阅[将 HDInsight 连接到本地网络](connect-on-premises-network.md)文档。
 
 请参阅以下文档，了解如何创建连接到本地网络的 Azure 虚拟网络：
 
@@ -73,7 +70,10 @@ ms.lasthandoff: 09/12/2017
 若要创建使用 [Bind](https://www.isc.org/downloads/bind/) DNS 软件的 Linux VM，请执行以下步骤：
 
 > [!NOTE]
-> 以下步骤使用 [Azure 门户](https://portal.azure.cn)来创建 Azure 虚拟机。 关于其他创建虚拟机的方法，请参阅[创建 VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md) 和[创建 VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md) 文档。
+> 以下步骤使用 [Azure 门户](https://portal.azure.cn)来创建 Azure 虚拟机。 有关创建虚拟机的其他方法，请参阅以下文档：
+>
+> * [创建 VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+> * [创建 VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，依次选择“+”、“计算”和“Ubuntu Server 16.04 LTS”。
 
@@ -298,6 +298,7 @@ nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn 196.16
 ## <a name="connecting-to-hdinsight"></a>连接到 HDInsight
 
 HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 例如，这些文档假定你可以连接到 https://CLUSTERNAME.azurehdinsight.cn 上的群集。 此地址使用公共网关，如果你使用了 NSG 或 UDR 限制来自 Internet 的访问，则该网关不可用。
+一些文档在通过 SSH 会话连接到群集时还引用了 `headnodehost`。 该地址仅可在群集中的节点上使用，在通过虚拟网络连接的客户端上不可用。
 
 若要通过虚拟网络直接连接到 HDInsight，请使用以下步骤：
 

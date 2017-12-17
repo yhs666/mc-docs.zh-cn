@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 12/25/2017
+ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 259f868760d2018c8b4dcbe48981246508be1491
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: eb166f94737a4243341d29af941f9fe69d498b12
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>为 HDInsight 基于 Windows 的群集开发脚本操作脚本
 了解如何为 HDInsight 编写脚本操作脚本。 有关如何使用脚本操作脚本的信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster.md)。 有关为基于 Linux 的 HDInsight 群集编写的同一篇文章，请参阅[为 HDInsight 开发脚本操作脚本](hdinsight-hadoop-script-actions-linux.md)。
@@ -240,7 +240,8 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装附加组件�
 
 ## <a name="debug-custom-scripts"></a>调试自定义脚本
 脚本错误日志随同其他输出一起存储在创建群集时为该群集指定的默认存储帐户中。 这些日志存储在名为 u<\cluster-name-fragment><\time-stamp>setuplog 的表中。 这些是包含所有节点（头节点和辅助节点）中的记录的聚合日志，脚本在群集中的这些节点上运行。
-要查看日志，一个简单方法是使用 HDInsight Tools for Visual Studio。 若要安装这些工具，请参阅[开始使用适用于 HDInsight 的 Visual Studio Hadoop 工具](hdinsight-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
+
+要查看日志，一个简单方法是使用 HDInsight Tools for Visual Studio。 若要安装这些工具，请参阅[开始使用适用于 HDInsight 的 Visual Studio Hadoop 工具](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-and-upgrade-data-lake-tools-for-visual-studio)
 
 **使用 Visual Studio 查看日志的步骤**
 
@@ -303,7 +304,7 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装附加组件�
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-r-scripts]: hdinsight-hadoop-r-scripts.md
-[powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install-configure]: install-configure-powershell.md
 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx

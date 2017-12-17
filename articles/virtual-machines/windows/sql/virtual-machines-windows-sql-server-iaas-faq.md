@@ -14,14 +14,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 10/04/2017
-ms.date: 10/30/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f486de831c14c36d1a0bfa0aa43e9da526c3ef08
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 982397a998607dccdbaeecd784cc60ed14cec60d
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Windows Azure 虚拟机上的 SQL Server 常见问题
 
@@ -58,9 +58,12 @@ ms.lasthandoff: 10/27/2017
 
     可以。 但有一些注意事项。 如前面的解答中所述，依赖于 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)的功能仅对默认实例起作用。 卸载默认实例后，该扩展会继续查找默认实例并可能生成事件日志错误。 这些错误来自以下两个来源：**Microsoft SQL Server 凭据管理**和 **Microsoft SQL Server IaaS 代理**。 其中一个错误可能类似于以下内容：
 
-        A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. 
+    建立与 SQL Server 的连接时，出现网络相关或特定于实例的错误。 找不到或无法访问服务器。 
 
     如果决定卸载默认实例，还要卸载 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)。
+
+   >[!NOTE]
+   >SQL Server Azure 虚拟机计费如 [SQL Server Azure VM 的定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)中所述。 如果删除 SQL Server，将会继续收取使用费。 如果不再需要 SQL Server，可以部署新的虚拟机并将数据和应用程序迁移到新的虚拟机。 然后可以删除 SQL Server 虚拟机。
 
 1. **如何将 Azure VM 中的 SQL Server 升级到新版本？**
 

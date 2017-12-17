@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/11/2017
-ms.date: 10/30/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 53c5258316b7568a11f58c65536c4dc424298f1a
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: ec5e0675c1a2848c2aa6c61b678d1f618ecbac9b
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>使用 PowerShell 将数据磁盘附加到 Windows VM
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/27/2017
 
 在开始之前，请查看以下提示：
 * 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-* 若要使用高级存储，需要支持高级存储的 VM 大小，如 DS 系列或 GS 系列虚拟机。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../storage/common/storage-premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 若要使用高级存储，需要支持高级存储的 VM 大小，如 DS 系列或 GS 系列虚拟机。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 <!--Not Available [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]-->
 
@@ -48,11 +48,9 @@ $storageType = 'PremiumLRS'
 $dataDiskName = $vmName + '_datadisk1'
 
 $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
-
 $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
 $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
-
 $vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
@@ -128,4 +126,4 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ## <a name="next-steps"></a>后续步骤
 
 创建[快照](snapshot-copy-managed-disk.md)。
-<!--Update_Description: update meta properties, update the powershell cmdlet-->
+<!--Update_Description: update meta properties, update link -->

@@ -12,11 +12,11 @@ ms.workload: big-compute
 origin.date: 05/22/2017
 ms.date: 07/03/2017
 ms.author: v-junlch
-ms.openlocfilehash: e236dffa872f5b2bc19462b79a62e6dc3b8b021c
-ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
+ms.openlocfilehash: ca1b16e96e7c30290cb443136af2597429752819
+ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>用于 Node.js 的 Batch SDK 入门
 
@@ -59,11 +59,6 @@ node.js 客户端通过一个准备任务（稍后详细介绍）和一系列其
 `npm install azure-batch`
 
 该命令安装最新版的 azure-batch Node SDK。
-
->[!Tip]
-> 在 Azure 函数应用中，若要运行 npm install 命令，可以转到 Azure Function 的“设置”选项卡中的“Kudu 控制台”。 在此示例中，目的是安装用于 Node.js 的 Azure Batch SDK。
->
->
 
 ### <a name="step-2-create-an-azure-batch-account"></a>步骤 2：创建 Azure Batch 帐户
 

@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/07/2017
-ms.date: 10/23/2017
+origin.date: 11/02/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: bc480bca3db58188155a21bd25cb2c29f28448c4
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 25cd6d5c37336c0f221f152dc069f53220e7a977
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>使用 Azure HDInsight 排除 HDFS 故障
 
 了解在 Apache Ambari 中使用 Hadoop 分布式文件系统 (HDFS) 有效负载时遇到的常见问题及其解决方法。
 
-## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>如何从群集内访问本地 HDFS
+## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>如何从群集内访问本地 HDFS？
 
 ### <a name="issue"></a>问题
 
@@ -79,7 +79,7 @@ hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
 ```
 
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>如何在群集中强制禁用 HDFS 安全模式
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>如何在群集中强制禁用 HDFS 安全模式？
 
 ### <a name="issue"></a>问题
 
@@ -227,8 +227,10 @@ FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
 The filesystem under path '/' is HEALTHY
 ```
 
-3. 如果确定没有缺失、损坏或正在复制的块，或者这些块可以忽略，请运行以下命令使名称节点退出安全模式：
+3. 如果确定没有缺失、损坏或复制不足的块，或者这些块可以忽略，请运行以下命令使名称节点退出安全模式：
 
 ```apache
 hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
 ```
+### <a name="see-also"></a>另请参阅
+[使用 Azure HDInsight 进行故障排除](hdinsight-troubleshoot-guide.md)

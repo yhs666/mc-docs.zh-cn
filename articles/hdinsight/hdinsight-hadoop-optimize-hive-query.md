@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/26/2016
-ms.date: 09/18/2017
-ms.author: v-haiqya
-ms.openlocfilehash: fc546f80b5eb99a0d90bb87c2c804b02c566596d
-ms.sourcegitcommit: c2a877dfd2f322f513298306882c7388a91c6226
+origin.date: 11/03/2016
+ms.date: 12/25/2017
+ms.author: v-yiso
+ms.openlocfilehash: f313a778f90467711723ee77bcf8cc3001912fed
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>优化 Azure HDInsight 中的 Hive 查询
 
@@ -54,7 +54,7 @@ Tez 速度更快，因为：
 * **重复使用容器**。 Tez 会尽可能地重复使用容器，以确保降低由于启动容器而产生的延迟。
 * **连续优化技术**。 传统上，优化是在编译阶段完成的。 但是，由于可以提供有关输入的详细信息，因此可以在运行时更好地进行优化。 Tez 使用连续优化技术，从而可以在运行时阶段进一步优化计划。
 
-有关这些概念的更多详细信息，请参阅 [Apache TEZ](http://hortonworks.com/hadoop/tez/)。
+有关这些概念的详细信息，请参阅 [Apache TEZ](http://hortonworks.com/hadoop/tez/)。
 
 可以在查询前加上以下设置作为前缀，执行 Tez 支持的任何 Hive 查询：
 
@@ -90,8 +90,7 @@ Hive 分区的实现方法是将原始数据刷新成新的目录，而每个分
 
 创建分区表后，可以创建静态分区或动态分区。
 
-* 
-            **静态分区**表示已在相应目录中创建了分片数据，可以请求根据目录位置在 Hive 中手动分区。 以下代码片段是一个示例。
+* **静态分区**表示已在相应目录中创建了分片数据，可以请求根据目录位置在 Hive 中手动分区。 以下代码片段是一个示例。
 
         INSERT OVERWRITE TABLE lineitem_part
         PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM')
@@ -100,8 +99,7 @@ Hive 分区的实现方法是将原始数据刷新成新的目录，而每个分
 
         ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM'))
         LOCATION 'wasb://sampledata@ignitedemo.blob.core.chinacloudapi.cn/partitions/5_23_1996/'
-* 
-            **动态分区**表示希望 Hive 自动创建分区。 由于已基于暂存表创建了分区表，因此需要做的就是将数据插入分区表：
+* **动态分区**表示希望 Hive 自动创建分区。 由于已基于暂存表创建了分区表，因此需要做的就是将数据插入分区表：
 
         SET hive.exec.dynamic.partition = true;
         SET hive.exec.dynamic.partition.mode = nonstrict;
@@ -112,7 +110,7 @@ Hive 分区的实现方法是将原始数据刷新成新的目录，而每个分
               L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
              L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as           L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as           L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as      L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as      L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
 
-有关更多详细信息，请参阅 [分区表](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables)。
+有关详细信息，请参阅[分区表](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables)。
 
 ## <a name="use-the-orcfile-format"></a>使用 ORCFile 格式
 Hive 支持不同的文件格式。 例如：
@@ -182,10 +180,10 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 ## <a name="next-steps"></a>后续步骤
 在本文中，已学习了几种常见的 Hive 查询优化方法。 要了解更多信息，请参阅下列文章：
 
-* [使用 HDInsight 中的 Apache Hive](hdinsight-use-hive.md)
+* [使用 HDInsight 中的 Apache Hive](hadoop/hdinsight-use-hive.md)
 * [使用 HDInsight 中的 Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data.md)
-* [使用 HDInsight 中 Hadoop上的 Hive 查询控制台分析传感器数据](hdinsight-hive-analyze-sensor-data.md)
-* [将 Hive 与 HDInsight 配合使用来分析来自网站的日志](hdinsight-hive-analyze-website-log.md)
+* [使用 HDInsight 中 Hadoop上的 Hive 查询控制台分析传感器数据](hadoop/apache-hive-analyze-sensor-data.md)
+* [将 Hive 与 HDInsight 配合使用来分析来自网站的日志](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
