@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/13/2017
-ms.date: 11/07/2017
+ms.date: 12/11/2017
 ms.author: v-junlch
-ms.openlocfilehash: 193dd525762ad37c014ba70e9f8120116a41a837
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 66f34440eea0761333bd4b9effb8bc0d20f763d5
+ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell-preview"></a>使用 RADIUS 身份验证配置 VNet 的点到站点连接：PowerShell（预览版）
 
@@ -70,9 +70,9 @@ RADIUS 服务器可以驻留在本地或 Azure VNet 中。 在身份验证期间
 
 ## <a name="before"></a>开始之前
 
-- 确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://www.azure.cn/pricing/member-offers/msdn-benefits-details)或注册获取[试用版](https://www.azure.cn/pricing/1rmb-trial)。
+- 确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用版](https://www.azure.cn/pricing/1rmb-trial)。
 
-- 安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅[如何安装和配置 Azure PowerShell](/powershell/azure/overview)。
+- 安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
 ### <a name="log-in"></a>登录
 
@@ -176,31 +176,32 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     ```
 3. 添加 VPN 客户端地址池和 RADIUS 服务器信息。
 
-  对于 SSTP 配置：
+    对于 SSTP 配置：
 
-    ```powershell
-    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName '
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols "SSTP" '
-    -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
-    ```
+      ```powershell
+      $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+      Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+      -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "SSTP" `
+      -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
+      ```
 
-  对于 IKEv2 配置：
+    对于 IKEv2 配置：
 
-    ```powershell
-    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName '
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols "IKEv2" '
-    -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
-    ```
+      ```powershell
+      $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+      Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+      -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "IKEv2" `
+      -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
+      ```
 
-  对于 SSTP + IKEv2
+    对于 SSTP + IKEv2
 
-    ```powershell
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols @{ "SSTP", "IkeV2" } '
-    -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
-    ```
+      ```powershell
+      $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+      Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+      -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol @( "SSTP", "IkeV2" ) `
+      -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
+      ```
 
 ## 5.<a name="vpnclient"></a>下载 VPN 客户端配置包并设置 VPN 客户端
 
@@ -253,5 +254,6 @@ VPN 客户端配置可让设备通过 P2S 连接来与 VNet 建立连接。 若�
 
 ## <a name="next-steps"></a>后续步骤
 
-连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。
+连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/#pivot=services&panel=Compute)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。
 
+<!--Update_Description: code update-->

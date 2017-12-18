@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 09/07/2017
-ms.date: 10/16/2017
+origin.date: 11/08/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: ba92c7a105f075706a5792b6d7a6ee6c689ffeea
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 7d3b98738fd898c94ef9b2a1a4c53b4ed0a91a11
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的大小
 本文介绍可用于运行 Linux 应用和工作负荷的 Azure 虚拟机的可用大小与选项。 此外，还提供在计划使用这些资源时要考虑的部署注意事项。 本文也适用于 [Windows 虚拟机](../windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/28/2017
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](sizes-general.md)          | DSv2, Dv2, DS, D, Av2, A0-7,  | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
 <!--Not Available B(Preview), Dsv3,Dv3-->
-| [计算优化](sizes-compute.md)        | Fs、F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        | | [内存优化](sizes-memory.md)         | DSv2、DS、Dv2、D   | 高内存与核心之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
+| [计算优化](sizes-compute.md)        | Fs、F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        | | [内存优化](sizes-memory.md)         | DSv2、DS、Dv2、D   | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
 <!--Not Available Esv3, Ev3, M, GS, G -->
 <!--Not Available Ls-->
 <!--Not Available NV, NC-->
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/28/2017
 <br>
 
 - 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/#Linux)。 
-<!--Not Available- For availability of VM sizes in Azure regions, see [Products available by region](https://www.azure.cn/support/service-dashboard/services/).-->
+- 如需了解 Azure 区域中各种 VM 大小的可用性，请参阅 [可用产品（按区域）](https://www.azure.cn/support/service-dashboard/)。
 - 了解有关 [Azure 计算单元 (ACU)](../windows/acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
 ## <a name="rest-api"></a>REST API
@@ -59,8 +59,8 @@ ms.lasthandoff: 11/28/2017
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
 - [内存优化](sizes-memory.md)
-<!--Not Available- [Storage optimized](sizes-storage.md)-->
+<!--Not Available- [Storage optimized](sizes-storage.md) -->
 <!--Not Available- [GPU](sizes-gpu.md)-->
 <!--Not Available- [High performance compute](sizes-hpc.md)-->
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update, update link-->

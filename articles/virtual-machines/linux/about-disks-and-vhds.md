@@ -1,10 +1,10 @@
 ---
-title: "关于 Azure Linux VM 的磁盘和 VHD | Microsoft Docs"
-description: "了解 Azure 中 Linux 虚拟机磁盘和 VHD 的基础知识。"
+title: "关于 Azure Linux VM 的非托管（页 blob）和托管磁盘存储 | Azure"
+description: "了解有关 Azure 中 Linux 虚拟机的非托管（页 blob）和托管磁盘存储的基础知识。"
 services: storage
 documentationcenter: 
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 7be8dd52-98f7-4187-9b78-55197915bc9b
 ms.service: storage
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/15/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: a2d39595576a004b2a1612e8c77c667dd63aeeb6
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+origin.date: 11/15/2017
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: 71896443f690c89e0d939f4eee9d8831773ff940
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="about-disks-and-vhds-for-azure-linux-vms"></a>关于 Azure Linux VM 的磁盘和 VHD
+# <a name="about-disks-storage-for-azure-linux-vms"></a>关于用于 Azure Linux VM 的磁盘存储
 就像其他任何计算机一样，Azure 中的虚拟机将磁盘用作存储操作系统、应用程序和数据的位置。 所有 Azure 虚拟机都至少有两个磁盘，即 Linux 操作系统磁盘和临时磁盘。 操作系统磁盘基于映像创建，操作系统磁盘和该映像实际上都存储在 Azure 存储帐户中的虚拟硬盘 (VHD) 内。 虚拟机还可以有一个或多个数据磁盘，而这些磁盘也存储为 VHD。 
 
 在本文中，我们将讨论磁盘的不同用法，并讨论可以创建和使用的不同磁盘类型。 本文也适用于 [Windows 虚拟机](../windows/about-disks-and-vhds.md)。
@@ -60,6 +60,6 @@ ms.lasthandoff: 08/25/2017
 
 ## <a name="next-steps"></a>后续步骤
 * [附加磁盘](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)可为 VM 添加额外的存储。
-* [配置软件 RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 实现冗余。
-* [捕获 Linux 虚拟机](./classic/capture-image.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)以便可以快速部署更多 VM。
-
+* [创建快照](snapshot-copy-managed-disk.md)。
+* [转换为托管磁盘](convert-unmanaged-to-managed-disks.md)。
+<!-- Update_Description: update meta properties, update link -->

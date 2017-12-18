@@ -3,7 +3,7 @@ title: "在 Azure 中使用 Team Services 创建 CI/CD 管道 | Azure"
 description: "了解如何创建 Visual Studio Team Services 管道，用于将 Web 应用部署到 Windows VM 上的 IIS，实现持续集成和持续交付"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/12/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 12/18/2017
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 48541f696f7ef835a1d18d71d38e9db839345c8f
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: bf541dc5459415d5a35a042badde2b60a713ab36
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>使用 Visual Studio Team Services 和 IIS 创建持续集成管道
 若要将应用程序开发的生成、测试和部署阶段自动化，可以使用持续集成和部署 (CI/CD) 管道。 本教程介绍如何在 Azure 中使用 Visual Studio Team Services 和 Windows 虚拟机 (VM) 创建一个运行 IIS 的 CI/CD 管道。 你将学习如何执行以下操作：
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/29/2017
 本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 
 ## <a name="create-project-in-team-services"></a>在 Team Services 中创建项目
-使用 Visual Studio Team Services 可以轻松进行协作和开发，而无需维护本地代码管理解决方案。 Team Services 提供云代码测试、生成和应用程序见解信息。 可以选择最适合用于代码开发的版本控制存储库和 IDE。 对于本教程，可以使用免费帐户来创建基本的 ASP.NET Web 应用和 CI/CD 管道。 如果还没有 Team Services 帐户，请[创建一个](http://go.microsoft.com/fwlink/?LinkId=307137)。
+使用 Visual Studio Team Services 可以轻松进行协作和开发，而无需维护本地代码管理解决方案。 Team Services 提供云代码测试、生成和应用程序见解信息。 可以选择最适合用于代码开发的版本控制存储库和 IDE。 对于本教程，可以使用试用帐户来创建基本的 ASP.NET Web 应用和 CI/CD 管道。 如果还没有 Team Services 帐户，请[创建一个](http://go.microsoft.com/fwlink/?LinkId=307137)。
 
 若要管理代码提交过程、生成定义及发布定义，请按如下所示在 Team Services 中创建一个项目：
 
@@ -221,7 +221,8 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 > * 创建发布定义，用于将新的 Web 部署包发布到 IIS
 > * 测试 CI/CD 管道
 
-转到下一教程，了解如何使用 SSL 证书保护 Web 服务器。
+转到下一教程，了解如何在一对 Windows VM 上安装 SQL&#92;IIS&#92;.NET 网络堆栈。
 
 > [!div class="nextstepaction"]
-> [使用 SSL 保护 Web 服务器](tutorial-secure-web-server.md)
+> [SQL&#92;IIS&#92;.NET 堆栈](tutorial-iis-sql.md)
+<!-- Update_Description: update meta properties, update link -->

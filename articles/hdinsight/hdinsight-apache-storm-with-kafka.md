@@ -13,16 +13,16 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/12/2017
-ms.date: 11/27/2017
+origin.date: 11/07/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: fba7921811a09ebf8efe5202010b0cb856f1866f
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.openlocfilehash: 39c5c745ab6f8d9999156d190a52537759b75538
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>将 Apache Kafka（预览版）与 Storm on HDInsight 配合使用
+# <a name="use-apache-kafka-with-storm-on-hdinsight"></a>将 Apache Kafka 与 HDInsight 中的 Storm 配合使用
 
 了解如何使用 Apache Storm 执行对 Apache Kafka 的读写操作。 本示例还演示如何将数据从 Storm 拓扑保存到由 HDInsight 使用的 HDFS 兼容文件系统。
 
@@ -67,9 +67,9 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 1. 使用以下按钮登录到 Azure，并在 Azure 门户中打开模板。
    
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.chinacloudapi.cn%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Azure 资源管理器模板位于 https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v1.json。 它创建以下资源：
+    如需 Azure 资源管理器模板，请访问 **https://hditutorialdata.blob.core.chinacloudapi.cn/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v1.json**。 它创建以下资源：
     
     * Azure 资源组
     * Azure 虚拟网络
@@ -343,6 +343,6 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 ## <a name="next-steps"></a>后续步骤
 
-有关更多可用于 Storm on HDInsight 的示例拓扑，请参阅[示例 Storm 拓扑和组件](hdinsight-storm-example-topology.md)。
+有关更多可用于 Storm on HDInsight 的示例拓扑，请参阅[示例 Storm 拓扑和组件](storm/apache-storm-example-topology.md)。
 
-有关在基于 Linux 的 HDInsight 上部署和监视拓扑的详细信息，请参阅[在基于 Linux 的 HDInsight 上部署和管理 Apache Storm 拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)
+有关在基于 Linux 的 HDInsight 上部署和监视拓扑的详细信息，请参阅[在基于 Linux 的 HDInsight 上部署和管理 Apache Storm 拓扑](storm/apache-storm-deploy-monitor-topology-linux.md)

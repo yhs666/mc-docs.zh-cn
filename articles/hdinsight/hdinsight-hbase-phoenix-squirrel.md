@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 12/25/2017
+ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2aa6069f015645e94e6297ca35dfad261cd3ce35
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 52b07f44c03882e2447d11f593b877fc325e2f2e
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>将 Apache Phoenix 和 SQuirreL 与 HDInsight 中基于 Windows 的 HBase 群集配合使用
+# <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>将 Apache Phoenix 和 SQuirreL 与 HDInsight 中基于 Windows 的 HBase 配合使用
 了解如何在 HDInsight 中使用 [Apache Phoenix](http://phoenix.apache.org/) ，以及如何在工作站上安装和配置 SQuirrel 以连接到 HDInsight 中的 HBase 群集。 有关 Phoenix 的详细信息，请参阅 [在 15 分钟或以下了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。 有关 Phoenix 语法，请参阅 [Phoenix 语法](http://phoenix.apache.org/language/index.html)。
 
 > [!NOTE]
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/28/2017
 >
 
 > [!IMPORTANT]
-> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 有关如何在基于 Linux 的 HDInsight 上使用 Phoenix 的信息，请参阅[将 Apache Phoenix 与 HDInsight 中基于 Linux 的 HBase 群集配合使用](hdinsight-hbase-phoenix-squirrel-linux.md)。
+> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 有关如何在基于 Linux 的 HDInsight 上使用 Phoenix 的信息，请参阅[将 Apache Phoenix 与 HDInsight 中基于 Linux 的 HBase 群集配合使用](hbase/apache-hbase-phoenix-squirrel-linux.md)。
 >
 
 ## <a name="use-sqlline"></a>使用 SQLLine
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/28/2017
 在使用 SQLLine 之前，必须先准备好以下各项：
 
 * **HDInsight 中的 HBase 群集**。 有关预配 HBase 群集的信息，请参阅 [HDInsight 中的 Apache HBase 入门][hdinsight-hbase-get-started]。
-* **通过远程桌面协议连接到 HBase 群集**。 有关说明，请参阅 [使用 Azure 经典管理门户管理 HDInsight 中的 Hadoop 群集][hdinsight-manage-portal]。
+* **通过远程桌面协议连接到 HBase 群集**。 有关说明，请参阅[使用 Azure 经典门户在 HDInsight 中管理 Hadoop 群集][hdinsight-manage-portal]。
 
 **找出主机名**
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 07/28/2017
 
 * 已将一个 HBase 群集部署到包含 DNS 虚拟机的 Azure 虚拟网络。  有关说明，请参阅 [在 Azure 虚拟网络上创建 HBase 群集][hdinsight-hbase-provision-vnet]。
 
-* 获取 HBase 群集的特定于连接的 DNS 后缀。 若要获取该后缀，请与群集建立连接桌面连接 (RDP)，然后运行 IPConfig。  DNS 后缀类似于：
+* 获取 HBase 群集的特定于连接的 DNS 后缀。 如果要获取该后缀，请与群集建立连接桌面连接 (RDP)，并运行 IPConfig。  DNS 后缀类似于：
 
         myhbase.b7.internal.chinacloudapp.cn
 * 在工作站中下载并安装 [Microsoft Visual Studio Express for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)。 需要使用该程序包的 makecert 来创建证书。  
@@ -131,13 +131,13 @@ ms.lasthandoff: 07/28/2017
 
 1. 在工作站上打开命令提示窗口。
 2. 导航到 Visual Studio 工具文件夹。
-3. 以下示例中的以下命令将在工作站上的“个人”证书存储中创建和安装根证书，还创建随后要上传到 Azure 经典管理门户的相应 .cer 文件。
+3. 以下示例中的以下命令会在工作站上的“个人”证书存储中创建和安装根证书，还创建随后要上传到 Azure 经典管理门户的相应 .cer 文件。
 
         makecert -sky exchange -r -n "CN=HBaseVnetVPNRootCertificate" -pe -a sha1 -len 2048 -ss My "C:\Users\JohnDole\Desktop\HBaseVNetVPNRootCertificate.cer"
 
     切换到要用于放置该 .cer 文件的目录，其中 BaseVnetVPNRootCertificate 是要用于证书的名称。
 
-    请勿关闭命令提示符。  下一个过程中将使用它。
+    请勿关闭命令提示符。  下一个过程将要用到它。
 
    > [!NOTE]
    > 因为创建了将从其生成客户端证书的根证书，可能需要导出此根证书及其私钥，并将其保存到可以恢复的安全位置。
@@ -200,7 +200,7 @@ ms.lasthandoff: 07/28/2017
 4. 指定具有其写入权限的路径，然后单击“下一步”。
 
   > [!NOTE]
-  > 默认的安装文件夹为 C:\Program Files\squirrel-sql-3.6 文件夹。  若要写入此路径，必须为安装程序授予管理员权限。 可以管理员身份打开命令提示符，导航到 Java 的 bin 文件夹，然后运行：
+  > 默认的安装文件夹为 C:\Program Files\squirrel-sql-3.6 文件夹。  若要写入此路径，必须为安装程序授予管理员权限。 可以管理员身份打开命令提示符，导航到 Java 的 bin 文件夹，运行：
   >
   >     java.exe -jar [SQuirreL jar 文件的路径]
 5. 单击“确定”确认创建目标目录。
@@ -214,7 +214,7 @@ Phoenix 驱动程序 jar 文件位于 HBase 群集上。 根据具体的版本�
     C:\apps\dist\phoenix-4.0.0.2.1.11.0-2316\phoenix-4.0.0.2.1.11.0-2316-client.jar
 需要将它复制到工作站的 [SQuirreL 安装文件夹]/lib 路径下。  最简单的方法是与群集建立 RDP，然后使用文件复制/粘贴功能（CTRL+C 和 CTRL+V）将其复制到工作站。
 
-**将 Phoenix 驱动程序添加到 SQuirreL**
+**将 Phoenix 驱动程序添加到 SQuirrel**
 
 1. 从工作站打开 SQuirreL SQL 客户端。
 2. 在左侧单击“驱动程序”选项卡。
@@ -264,11 +264,11 @@ Phoenix 驱动程序 jar 文件位于 HBase 群集上。 根据具体的版本�
 5. 展开别名，然后展开“表”。  应会看到下面列出新表。
 
 ## <a name="next-steps"></a>后续步骤
-在本文中，你已了解如何在 HDInsight 中使用 Apache Phoenix。  若要了解详细信息，请参阅
+在本文中，已了解如何在 HDInsight 中使用 Apache Phoenix。  若要了解详细信息，请参阅
 
 * [HDInsight HBase 概述][hdinsight-hbase-overview]：HBase 是构建于 Hadoop 上的 Apache 开源 NoSQL 数据库，用于为大量非结构化和半结构化数据提供随机访问和高度一致性。
 * [在 Azure 虚拟网络上设置 HBase 群集][hdinsight-hbase-provision-vnet]：通过虚拟网络集成，可将 HBase 群集部署到应用程序所在的虚拟网络，以便应用程序直接与 HBase 进行通信。
-* [在 HDInsight 中配置 HBase 复制](hdinsight-hbase-replication.md)：了解如何跨两个 Azure 数据中心配置 HBase 复制。
+* [在 HDInsight 中配置 HBase 复制](hbase/apache-hbase-replication.md)：了解如何跨两个 Azure 数据中心配置 HBase 复制。
 
 [azure-portal]: https://manage.windowsazure.cn/
 [vnet-point-to-site-connectivity]: /vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal
@@ -276,8 +276,8 @@ Phoenix 驱动程序 jar 文件位于 HBase 群集上。 根据具体的版本�
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
-[hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-[hdinsight-hbase-overview]: hdinsight-hbase-overview.md
+[hdinsight-hbase-provision-vnet]:hbase/apache-hbase-provision-vnet.md
+[hdinsight-hbase-overview]:hbase/apache-hbase-overview.md
 
 [hdinsight-hbase-phoenix-sqlline]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-phoenix-sqlline.png
 [img-certificate]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vpn-certificate.png

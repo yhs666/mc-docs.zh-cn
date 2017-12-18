@@ -1,10 +1,10 @@
 ---
-title: "Azure 中 Windows VM 的计划事件 | Microsoft Docs"
+title: "Azure 中 Windows VM 的计划事件 | Azure"
 description: "Windows 虚拟机上使用 Azure 元数据服务的计划事件。"
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: 
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: 
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/14/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: a3135617b43b70e59fa1af451c7e60bc8cfd592d
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: fa8b293bb80a366e167c08b70b115a41d586d91c
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Azure 元数据服务：适用于 Windows VM 的计划事件（预览）
 
@@ -43,7 +43,6 @@ ms.lasthandoff: 08/25/2017
 Azure 元数据服务在以下用例中显示计划事件：
 -   平台启动的维护（例如，主机 OS 部署）
 -   用户启动的调用（例如，用户重启或重新部署 VM）
-
 
 ## <a name="the-basics"></a>基础知识  
 
@@ -136,7 +135,6 @@ curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [
 > [!NOTE] 
 > 确认事件后，即可允许事件针对事件中所有的 `Resources` 继续进行，而不仅仅是确认该事件的虚拟机。 因此，可以选择一个指挥计算机来协调该确认，为简单起见，可选择 `Resources` 字段中的第一个计算机。
 
-
 ## <a name="powershell-sample"></a>PowerShell 示例 
 
 下例将查询计划事件的元数据服务器并审核所有未完成的事件。
@@ -157,7 +155,7 @@ function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
     # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
     $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
-    
+
     # Convert to JSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
 
@@ -195,7 +193,6 @@ foreach($event in $scheduledEvents.Events)
     }
 }
 ``` 
-
 
 ## <a name="c-sample"></a>C\# 示例 
 
@@ -300,7 +297,7 @@ public class Program
             {
                 DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
             };
-        
+
             foreach (CloudControlEvent event in scheduledEventsDocument.Events)
             {
                 scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(event.EventId));
@@ -367,7 +364,7 @@ def handle_scheduled_events(data):
 def main():
    data = get_scheduled_events()
    handle_scheduled_events(data)
-   
+
 if __name__ == '__main__':
   main()
   sys.exit(0)
@@ -377,4 +374,4 @@ if __name__ == '__main__':
 
 - 有关 API 的更多信息，请参阅[实例元数据服务](instance-metadata-service.md)。
 - 了解 [Azure 中 Windows 虚拟机的计划内维护](planned-maintenance.md)。
-
+<!-- Update_Description: update meta properties -->

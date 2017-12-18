@@ -12,16 +12,16 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 09/06/2017
-ms.date: 10/23/2017
+origin.date: 11/07/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 1b159576f044776895c9cbbc8664b763b3c112cb
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 90a6dfa964ba93bbd8bed6c75eef9b3d313642c4
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>将 Spark 结构化流式处理与 Kafka on HDInsight（预览版）配合使用
+# <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>将 Spark 结构化流式处理与 Kafka on HDInsight 配合使用
 
 了解如何使用 Spark 结构化流式处理读取 Apache Kafka on Azure HDInsight 中的数据。
 
@@ -47,13 +47,13 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 1. 使用以下按钮登录到 Azure，并在 Azure 门户中打开模板。
     
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.chinacloudapi.cn%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Azure 资源管理器模板位于 https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json 中。
+    如需 Azure 资源管理器模板，请访问 **https://hditutorialdata.blob.core.chinacloudapi.cn/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json**。
 
     此模板可创建以下资源：
 
-    * Kafka on HDInsight 3.5 群集。
+    * Kafka on HDInsight 3.6 群集。
     * Spark on HDInsight 3.6 群集。
     * 包含 HDInsight 群集的 Azure 虚拟网络。
 
@@ -159,4 +159,4 @@ curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUST
 现在你已了解如何使用 Spark 结构化流式处理，请参阅下列文档，深入了解如何使用 Spark 和 Kafka：
 
 * [如何将 Spark 流式处理 (DStream) 与 Kafka 配合使用](hdinsight-apache-spark-with-kafka.md)。
-* [开始使用 Jupyter Notebook 和 Spark on HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md)
+* [开始使用 Jupyter Notebook 和 Spark on HDInsight](spark/apache-spark-jupyter-spark-sql.md)

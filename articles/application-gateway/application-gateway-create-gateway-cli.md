@@ -1,6 +1,6 @@
 ---
-title: "创建 Azure 应用程序网关 - Azure CLI 2.0 | Microsoft 文档"
-description: "了解如何在 Resource Manager 中使用 Azure CLI 2.0 创建应用程序网关"
+title: "创建应用程序网关 - Azure CLI 2.0 | Microsoft Docs"
+description: "了解如何在资源管理器中使用 Azure CLI 2.0 创建应用程序网关。"
 services: application-gateway
 documentationcenter: na
 author: alexchen2016
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/31/2017
-ms.date: 09/13/2017
+ms.date: 12/11/2017
 ms.author: v-junlch
-ms.openlocfilehash: ab89579a9b2ab310a6cf58ec97159cd5893469dd
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: b7fa860864c34836e394fb7f08e8ff321dc1d0ac
+ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建应用程序网关
 
@@ -32,25 +32,25 @@ ms.lasthandoff: 09/15/2017
 > * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
 > * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 
-应用程序网关是一个专用的虚拟设备，以服务形式提供应用程序传送控制器 (ADC)，为应用程序提供各种第 7 层负载均衡功能。
+Azure 应用程序网关是专用虚拟设备，以服务形式提供应用程序传送控制器 (ADC)，为应用程序提供各种第 7 层负载均衡功能。
 
-## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
+## <a name="cli-versions"></a>CLI 版本
 
-可使用以下 CLI 版本之一完成任务：
+可以使用下面一种版本的命令行接口 (CLI) 创建应用程序网关：
 
-- [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md) - 适用于经典部署模型和资源管理部署模型的 CLI。
-- [Azure CLI 2.0](application-gateway-create-gateway-cli.md) - 适用于资源管理部署模型的下一代 CLI
+- [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)：适用于经典部署模型和 Azure 资源管理器部署模型的 Azure CLI
+- [Azure CLI 2.0](application-gateway-create-gateway-cli.md)：适用于资源管理器部署模型的新一代 CLI
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>先决条件：安装 Azure CLI 2.0
 
-若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)。
+若要执行本文中的步骤，需要[安装适用于 macOS、Linux 和 Windows 的 Azure CLI](/cli/install-az-cli2)。
 
 > [!NOTE]
-> 如果没有 Azure 帐户，则需要注册一个。 请[在此处注册试用版](../active-directory/sign-up-organization.md)。
+> 必须有 Azure 帐户，才能创建应用程序网关。 如果没有，请注册[试用版](../active-directory/sign-up-organization.md)。
 
 ## <a name="scenario"></a>方案
 
-在此方案中，将学习如何使用 Azure 门户创建应用程序网关。
+在此方案中，将了解如何使用 Azure 门户创建应用程序网关。
 
 此方案将：
 
@@ -59,15 +59,15 @@ ms.lasthandoff: 09/15/2017
 - 创建名为 Appgatewaysubnet 且使用 10.0.0.0/28 作为其 CIDR 块的子网。
 
 > [!NOTE]
-> 针对应用程序网关进行的其他配置（包括自定义运行状况探测、后端池地址以及其他规则）是在对应用程序网关配置以后配置的，不是在初始部署期间配置的。
+> 在应用程序网关创建后（而不是在初始部署期间），进一步配置应用程序网关，包括自定义运行状况探测、后端池地址和其他规则。
 
 ## <a name="before-you-begin"></a>开始之前
 
-Azure 应用程序网关需要自己的子网。 在创建虚拟网络时，请确保保留足够的地址空间，以便设置多个子网。 将应用程序网关部署到子网后，只能向该子网添加其他应用程序网关。
+应用程序网关需要自己的子网。 创建虚拟网络时，请务必为多个子网留出足够的地址空间。 将应用程序网关部署到子网后，只能向此子网添加其他应用程序网关。
 
-## <a name="log-in-to-azure"></a>登录 Azure
+## <a name="sign-in-to-azure"></a>登录 Azure
 
-打开 **Azure 命令提示符**，并登录。 
+打开 **Azure 命令提示符**，并登录：
 
 ```azurecli
 az cloud set -n AzureChinaCloud
@@ -75,34 +75,36 @@ az login -u "username"
 ```
 
 > [!NOTE]
-> 还可以使用不带开关的 `az login` 进行设备登录，登录时需要在 aka.ms/deviceloginchina 输入代码。
+> 还可以使用不带开关的 `az login` 进行设备登录，登录时需要在 https://aka.ms/deviceloginchina 中输入代码。
 
-键入前述示例后，会提供代码。 在浏览器中导航到 https://aka.ms/deviceloginchina，继续登录过程。
+输入上一命令后，便会收到代码。 在浏览器中，转到 https://aka.ms/deviceloginchina，继续登录过程。
 
-在浏览器中，输入收到的代码。 将重定向至登录页。
+![显示设备登录信息的命令提示符][1]
+
+在浏览器中，输入收到的代码。 这样，可以重定向到登录页。
 
 ![用于输入代码的浏览器][2]
 
-输入代码后即已登录，关闭浏览器以继续完成方案。
+输入代码进行登录，再关闭浏览器，以便继续操作。
 
 ![已成功登录][3]
 
 ## <a name="create-the-resource-group"></a>创建资源组
 
-在创建应用程序网关前，会创建资源组以包含应用程序网关。 以下显示该命令。
+创建应用程序网关前，先创建一个用于容纳它的资源组。 请使用以下命令：
 
 ```azurecli
-az group create --name myresourcegroup --location "China North"
+az group create --name myresourcegroup --location "chinanorth"
 ```
 
 ## <a name="create-the-application-gateway"></a>创建应用程序网关
 
-用于后端的 IP 地址是后端服务器的 IP 地址。 这些值可以是虚拟网络中的专用 IP、公共 IP 或后端服务器的完全限定域名。 以下示例使用用于 http 设置、端口和规则的其他配置设置创建应用程序网关。
+对后端服务器 IP 地址使用后端 IP 地址。 这些值可以是虚拟网络中的专用 IP、公共 IP 或后端服务器的完全限定域名。 下面的示例创建应用程序网关，针对 HTTP 设置、端口和规则进行了其他配置：
 
 ```azurecli
 az network application-gateway create \
 --name "AdatumAppGateway" \
---location "chinaeast" \
+--location "chinanorth" \
 --resource-group "myresourcegroup" \
 --vnet-name "AdatumAppGatewayVNET" \
 --vnet-address-prefix "10.0.0.0/16" \
@@ -121,30 +123,32 @@ az network application-gateway create \
 
 ```
 
-前面的示例展示创建应用程序网关期间不需要的许多属性。 以下代码示例创建含所需信息的应用程序网关。
+上一示例展示了应用程序网关创建期间的可选属性。 以下代码示例使用必需属性创建应用程序网关：
 
 ```azurecli
 az network application-gateway create \
 --name "AdatumAppGateway" \
---location "chinaeast" \
+--location "chinanorth" \
 --resource-group "myresourcegroup" \
 --vnet-name "AdatumAppGatewayVNET" \
 --vnet-address-prefix "10.0.0.0/16" \
---subnet "Appgatewaysubnet \
+--subnet "Appgatewaysubnet" \
 --subnet-address-prefix "10.0.0.0/28" \
 --servers "10.0.0.5"  \
 --public-ip-address pip
 ```
  
 > [!NOTE]
-> 如需在创建过程中能够提供的参数的列表，请运行以下命令：`az network application-gateway create --help`。
+> 有关要在创建期间使用的参数列表，请运行以下命令：`az network application-gateway create --help`。
 
-此示例会创建基本的应用程序网关，提供的默认设置适用于侦听器、后端池、后端 http 设置以及规则。 预配成功后，即可根据部署修改这些设置。
-如果在之前的步骤中已使用后端池定义 Web 应用程序，则在创建后，负载均衡即会开始。
+此示例使用侦听器、后端池、后端 HTTP 设置和规则的默认设置，创建基本应用程序网关。 预配成功后，即可根据部署需求修改这些设置。
 
-## <a name="get-application-gateway-dns-name"></a>获取应用程序网关 DNS 名称
+如果 Web 应用程序是通过前面步骤中的后端池进行定义，负载均衡便会立即生效。
 
-创建网关后，下一步是配置用于通信的前端。 使用公共 IP 时，应用程序网关需要动态分配的 DNS 名称，这会造成不方便。 若要确保最终用户能够访问应用程序网关，可以使用 CNAME 记录指向应用程序网关的公共终结点。 若要配置别名，可使用附加到应用程序网关的 PublicIPAddress 元素检索应用程序网关及其关联的 IP/DNS 名称的详细信息。 应使用应用程序网关的 DNS 名称来创建 CNAME 记录，使两个 Web 应用程序都指向此 DNS 名称。 不建议使用 A 记录，因为重新启动应用程序网关后 VIP 可能会变化。
+## <a name="get-the-application-gateway-dns-name"></a>获取应用程序网关 DNS 名称
+创建网关后，需要配置用于通信的前端。 使用公共 IP 时，应用程序网关需要动态分配的 DNS 名称，但这并不易用。 为了确保用户能够访问应用程序网关，可以使用 CNAME 记录，指向应用程序网关的公共终结点。 
+
+若要配置别名，可使用附加到应用程序网关的 PublicIPAddress 元素检索应用程序网关及其关联的 IP/DNS 名称的详细信息。 使用应用程序网关的 DNS 名称来创建 CNAME 记录，使两个 Web 应用程序都指向此 DNS 名称。 请勿使用 A 记录，因为重启应用程序网关后 VIP 可能会发生变化。
 
 
 ```azurecli
@@ -173,7 +177,7 @@ az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
     "resourceGroup": "AdatumAppGatewayRG",
     "subnet": null
   },
-  "location": "chinaeast",
+  "location": "chinanorth",
   "name": "pip2",
   "provisioningState": "Succeeded",
   "publicIpAddressVersion": "IPv4",
@@ -189,17 +193,17 @@ az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
 
 ## <a name="delete-all-resources"></a>删除所有资源
 
-若要删除本文中创建的所有资源，请完成以下步骤：
+若要删除在本文中创建的所有资源，请运行以下命令：
 
 ```azurecli
 az group delete --name AdatumAppGatewayRG
 ```
-
+ 
 ## <a name="next-steps"></a>后续步骤
 
-访问[创建自定义运行状况探测](application-gateway-create-probe-portal.md)，了解如何创建自定义运行状况探测
+若要了解如何创建自定义运行状况探测，请转到[使用门户创建应用程序网关的自定义探测](application-gateway-create-probe-portal.md)。
 
-访问[配置 SSL 卸载](application-gateway-ssl-arm.md)，了解如何配置 SSL 卸载并从 Web 服务器中剥离开销较高的 SSL 解密
+若要了解如何配置 SSL 卸载，并从 Web 服务器中移除成本高昂的 SSL 解密，请参阅[使用 Azure 资源管理器配置应用程序网关以进行 SSL 卸载](application-gateway-ssl-arm.md)。
 
 <!--Image references-->
 

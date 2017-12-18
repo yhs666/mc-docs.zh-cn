@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/04/2017
-ms.date: 11/07/2017
+origin.date: 11/03/2017
+ms.date: 12/11/2017
 ms.author: v-junlch
-ms.openlocfilehash: 12b96aac5fb70275fe23280cfefbb085550bb76e
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 5a5b2d7b07288f26b6fa21ac8a101019ca781bf4
+ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/10/2017
 |Cisco ASA  |[适用于 Azure VPN 上的 Cisco ASA 的社区建议解决方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco)   |
 |Cisco ISR  |[适用于 Azure VPN 上的 Cisco ISR 的社区建议解决方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |
 |Cisco ASR  |[适用于 Azure VPN 上的 Cisco ASR 的社区建议解决方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco)   |
-|Sonicwall |在 [Sonicwall 站点](https://support.sonicwall.com/search)上搜索 **Azure VPN** |
+|Sonicwall |在 Sonicwall 站点上搜索 **Azure VPN** |
 | 检查点    |在 [Checkpoint 站点](https://supportcenter.checkpoint.com/supportcenter/portal)上搜索 **Azure VPN** |
 |Juniper |在 [Juniper 站点]( http://www.juniper.net/search/public/)上搜索 **Azure VPN**|
 |Barracuda  |[适用于 Azure VPN 上的 Barracuda 的社区建议解决方案](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0)   |

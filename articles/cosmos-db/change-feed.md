@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 10/30/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2ebcce47003e84d785ab73dc9d74801b1ff19ad7
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 9197b0a227e1a9e6c409d8be40e1c89ffa9ef9fa
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的更改源支持
 
@@ -43,9 +43,9 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
 
 可以通过三种不同的方式读取更改源，如本文后面所述：
 
-1.  [使用 Azure Functions](#azure-functions)
-2.  [使用 Azure Cosmos DB SDK](#rest-apis)
-3.  [使用 Azure Cosmos DB 更改源处理器库](#change-feed-processor)
+<!-- Not Available on Azure Functions -->
+1.  [使用 Azure Cosmos DB SDK](#rest-apis)
+2.  [使用 Azure Cosmos DB 更改源处理器库](#change-feed-processor)
 
 更改源适用于文档集合中的每个分区键范围，因此，可以将其分散到一个或多个使用者进行并行处理，如下图所示。
 
@@ -79,17 +79,12 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
 
 ![用于引入和查询的基于 Azure Cosmos DB 的 lambda 管道](./media/change-feed/lambda.png)
 
-另外，可以在[无服务器](http://azure.com/serverless) Web 应用和移动应用中跟踪各种事件（例如，对客户配置文件、首选项或位置的更改），这些事件会触发特定的操作，例如，使用 [Azure Functions](#azure-functions) 向客户的设备发送推送通知。 例如，若要使用 Azure Cosmos DB 来构建游戏，可以使用更改源，根据已完成的游戏的分数实时更新排行榜。
+<!-- Not Available Serverless -->
 
-<a id="azure-functions"></a>
-## <a name="using-azure-functions"></a>使用 Azure Functions 
-
-如果使用的是 Azure Functions，则若要连接到 Azure Cosmos DB 更改源，最简单的方法是向 Azure Functions 应用添加 Azure Cosmos DB 触发器。 在 Azure Functions 应用中创建 Azure Cosmos DB 触发器时，请选择要连接到的 Azure Cosmos DB 集合。然后，每当出现集合更改时，系统就会触发该函数。 
-
-可以通过 Azure Functions 门户、Azure Cosmos DB 门户或编程方式创建触发器。 有关详细信息，请参阅 [Azure Cosmos DB：使用 Azure Functions 的无服务器数据库计算](serverless-computing-database.md)。
+<!-- Not Available ## Using Azure Functions -->
 
 <a id="rest-apis"></a>
-## <a name="using-the-sdk"></a>使用 SDK
+## 使用 SDK
 
 用于 Azure Cosmos DB 的 [DocumentDB SDK](documentdb-sdk-dotnet.md) 提供了读取和管理更改源所需的所有功能。 但是，功能越强，责任也越重。 若要管理检查点、处理文档序列号、对分区键进行精细控制，则可使用 SDK。
 
@@ -273,7 +268,7 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解如何将 Azure Cosmos DB 与 Azure Functions 配合使用，请参阅 [Azure Cosmos DB：使用 Azure Functions 的无服务器数据库计算](serverless-computing-database.md)。
+<!-- Not Available on [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md).-->
 
 若要详细了解如何使用更改源处理器库，请参阅以下资源：
 

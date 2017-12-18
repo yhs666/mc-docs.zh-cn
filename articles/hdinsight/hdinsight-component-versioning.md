@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/14/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 432a1a995e8ce3f9a28b920b02bd0bafb5807055
-ms.sourcegitcommit: b3e84137d1ba9cb26d2012b4d15b3a9430a75bb0
+ms.openlocfilehash: 4ac2b4a268d8513f89ce22df2f8fd5dd3df2ab36
+ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight 提供了哪些 Hadoop 组件和版本？
 
-了解 Azure HDInsight 中的 Hadoop 生态系统组件和版本。 另外，还将了解如何检查 HDInsight 中的 Hadoop 组件版本。 
+了解 Azure HDInsight 中的 Apache Hadoop 生态系统组件和版本，以及标准和高级服务级别。 另外，还将了解如何检查 HDInsight 中的 Hadoop 组件版本。 
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
@@ -100,7 +100,7 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 ## <a name="hdinsight-windows-retirement"></a>HDInsight Windows 停用
 Azure HDInsight 版本 3.3 是适用于 Windows 的最后一个 HDInsight 版本。 Windows 上的 HDInsight 的停用日期是 2018 年 7 月 31 日。 如果在 Windows 上具有 HDInsight 3.3 或更低版本的群集，则必须在 2018 年 7 月 31 日之前迁移到 Linux 上的 HDInsight（HDInsight 版本 3.5 或更高版本）。 迁移到 Linux OS 后，仍然能够创建 HDInsight 群集或调整其大小。 对 Windows 上的 HDInsight 版本 3.3 的支持已于 2016 年 6 月 27 日到期。
 
-从 HDInsight 版本 3.4 开始，Microsoft 仅在 Linux OS 上发行了 HDInsight。 因此，HDInsight 中的某些组件仅可供 Linux 使用。 这些组件包括 Apache Ranger、Kafka、Interactive Hive、Spark 和 HDInsight 应用程序。 HDInsight 的将来版本仅在 Linux OS 上可用。 Windows 上的 HDInsight 将不会有任何将来版本。 
+从 HDInsight 版本 3.4 开始，Microsoft 仅在 Linux OS 上发行了 HDInsight。 因此，HDInsight 中的某些组件仅可供 Linux 使用。 这些组件包括 Apache Ranger、Kafka、交互式查询、Spark、HDInsight 应用程序。 HDInsight 的将来版本仅在 Linux OS 上可用。 Windows 上的 HDInsight 将不会有任何将来版本。 
 
 ## <a name="faqs"></a>常见问题
 
@@ -137,7 +137,7 @@ HDInsight Windows 群集将按现样运行，但是你将无法创建新的 HDIn
 * 能够利用 Hadoop 和其他大数据技术的开源社区练习主动开发
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>Linux 上的 HDInsight 是否比 Windows 上的 HDInsight 提供了更多的功能？
-从 HDInsight 版本 3.4 开始，Microsoft 仅在 Linux OS 上发行了 HDInsight。 因此，HDInsight 中的某些组件仅可供 Linux 使用。 这些组件包括 Apache Ranger、Kafka、Interactive Hive、Spark 和 HDInsight 应用程序。 
+从 HDInsight 版本 3.4 开始，Microsoft 仅在 Linux OS 上发行了 HDInsight。 因此，HDInsight 中的某些组件仅可供 Linux 使用。 这些组件包括 Apache Ranger、Kafka、交互式查询、Spark、HDInsight 应用程序。 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 群集版本的服务级别协议
 服务级别协议 (SLA) 是按“支持窗口”定义的。 支持窗口是 HDInsight 群集版本受 Microsoft 客户服务和支持部门支持的时间段。 如果版本的“支持到期日期”已过，则 HDInsight 处于支持窗口外。 有关支持的版本的详细信息，请参阅[支持的 HDInsight 群集版本](/hdinsight/hdinsight-migrate-from-windows-to-linux)列表。 指定的 HDInsight 版本 X 的支持到期日期（在提供更新的 X+1 版本后）为按以下公式计算所得时间的较晚者：  

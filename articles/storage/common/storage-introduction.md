@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 11/10/2017
 ms.date: 12/04/2017
 ms.author: v-nany
-ms.openlocfilehash: 4a00021b92512266ed790755fbd47901fc682aa1
-ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
+ms.openlocfilehash: bf6f5536901d32adef00dbd90fad9a2cd3a5bfaf
+ms.sourcegitcommit: cc3fd1a8a5cfd0220df0430d2504ec5214c6c19d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 存储简介
 
@@ -77,7 +77,7 @@ Azure 文件不同于公司文件共享的一点是，可以在全球任何地�
 
 Azure 队列服务用于存储和检索消息。 队列消息最大可以为 64 KB，一个队列可以包含数百万条消息。 队列通常用于存储需要异步处理的消息的列表。 
 
-例如，假设你需要客户能够上传图片，并且你需要创建每个图片的缩略图。 可以让客户在上传图片时等待你创建缩略图， 也可以使用队列。 当客户完成上传操作后，向队列写入一条消息。 然后通过 Azure Function 从队列检索该消息并创建缩略图。 此处理过程的每一部分都可以单独进行缩放，让你可以根据使用情况进行调整，加强控制。
+例如，假设你需要客户能够上传图片，并且你需要创建每个图片的缩略图。 可以让客户在上传图片时等待你创建缩略图， 也可以使用队列。 当客户完成上传操作后，向队列写入一条消息。 然后可从队列检索该消息并创建缩略图。 此处理过程的每一部分都可以单独进行缩放，让你可以根据使用情况进行调整，加强控制。
 
 ## <a name="table-storage"></a>表存储
 

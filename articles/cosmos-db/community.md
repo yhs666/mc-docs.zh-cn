@@ -15,11 +15,11 @@ ms.workload: data-services
 origin.date: 03/07/2017
 ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7c45b00ece32de74229b1f16139218692cb5494d
-ms.sourcegitcommit: 5939c7db1252c1340f06bdce9ca2b079c0ab1684
+ms.openlocfilehash: 6edff7f138922e293ba6388eb1a779aacf429437
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="community-portal"></a>社区门户
 ## <a name="community-spotlight"></a>社区聚焦
@@ -103,11 +103,11 @@ fluent-plugin-documentdb 是用于输出到 Azure Cosmos DB DocumentDB API 的 F
 | --- | --- | --- | --- |
 |[南佛罗里达编解码器：NoSQL for .NET 开发人员使用 Azure DocumentDB 在 10 分钟内完成](http://www.fladotnet.com/codecamp/Agenda.aspx)| Santosh Hari |佛罗里达州戴维|2017 年 3 月 11 日|
 |[奥兰多编解码器：NoSQL for .NET 开发人员使用 Azure DocumentDB 在 10 分钟内完成](http://orlandocodecamp.com/Sessions/Details/20)|  Santosh Hari |佛罗里达州桑福德|2017 年 4 月 8 日|
-|[Global Azure Bootcamp：使用 Azure Functions 和 DocumentDB 在 Azure 中进行的无服务器计算](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638)| Josh Lane |佐治亚州亚特兰大|2017 年 4 月 22 日|
+<!-- Not Available on Serverless -->
 |[NDC Olso 2017: Azure DocumentDB - 可能尚未使用的最佳 NoSQL 数据库](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/)| Josh Lane |挪威奥斯陆|2017 年 6 月 14 日|
 <!-- Not Available on Hashtag about https://twitter.com/ -->
 
-*要演讲或举办活动吗？[让我们知道](mailto:askcosmosdb@microsoft.com)我们能为你做些什么！*
+*要演讲或举办活动吗？[让我们知道](mailto:askcosmosdb@microsoft.com)我们能做些什么！*
 
 ### <a name="previous-events-and-recordings"></a>先前的活动和录像
 | 事件名称 | 主讲人 | 位置 | 日期 | 记录 |

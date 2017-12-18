@@ -3,7 +3,7 @@ title: "SQL Server 可用性组 - Azure 虚拟机 - 先决条件 | Azure"
 description: "本教程演示如何配置用于在 Azure VM 中创建 SQL Server AlwaysOn 可用性组的必备组件。"
 services: virtual-machines
 documentationCenter: na
-authors: hayley244
+author: rockboyfor
 manager: digimobile
 editor: monicar
 tags: azure-service-management
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/09/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 3ac52573a7a3abdd47f1b1610c87794046583f88
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 12/18/2017
+ms.author: v-yeche
+ms.openlocfilehash: 244d0aca2e403e7258354b2bcded7a205809998e
+ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>完成在 Azure 虚拟机中创建 Alwayson 可用性组的先决条件
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/29/2017
 本教程假设你已基本了解 SQL Server AlwaysOn 可用性组。 若不熟悉此技术，请参阅 [AlwaysOn 可用性组概述 (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx)。
 
 ## <a name="create-an-azure-account"></a>创建 Azure 帐户
-需要一个 Azure 帐户。 可以[建立 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。 
+需要一个 Azure 帐户。 可以[建立一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)或[激活 Visual Studio 订户权益](https://www.azure.cn/support/legal/offer-rate-plans/?WT.mc_id=A261C142F)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 1. 登录到 [Azure 门户](http://portal.azure.cn)。
@@ -60,7 +60,7 @@ ms.lasthandoff: 08/29/2017
 
 10. 单击“创建”  以创建资源组。
 
-Azure 会创建资源组，并在门户中固定资源组的快捷方式。
+Azure 将创建资源组，并在门户中固定资源组的快捷方式。
 
 ## <a name="create-the-network-and-subnets"></a>创建网络和子网
 下一步是在 Azure 资源组中创建网络和子网。
@@ -98,7 +98,7 @@ Azure 会创建资源组，并在门户中固定资源组的快捷方式。
 
    ![配置虚拟网络](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/06-configurevirtualnetwork.png)
 
-Azure 返回到门户仪表板，并在创建好新网络时发出通知。
+Azure 会将返回到门户仪表板，并在创建新网络时发出通知。
 
 ### <a name="create-a-second-subnet"></a>创建第二个子网。
 新虚拟网络包含一个名为 **Admin**的子网。域控制器使用此子网。 SQL Server VM 使用名为 **SQL** 的另一个子网。 若要配置此子网，请执行以下操作：
@@ -159,7 +159,7 @@ Azure 返回到门户仪表板，并在创建好新网络时发出通知。
 
 1. 单击 **“添加”**。 此时会打开“全部” 边栏选项卡。
 2. 键入 **Windows Server 2016 Datacenter**。
-3. 单击“Windows Server 2016 Datacenter”。 在“Windows Server 2016 Datacenter”边栏选项卡中，确认部署模型为“Resource Manager”，然后单击“创建”。 Azure 打开“创建虚拟机”边栏选项卡。
+3. 单击“Windows Server 2016 Datacenter”。 在“Windows Server 2016 Datacenter”边栏选项卡中，确认部署模型为“Resource Manager”，然后单击“创建”。 Azure 将打开“创建虚拟机”边栏选项卡。
 
 重复上述步骤创建两个虚拟机。 将两个虚拟机命名为：
 
@@ -179,10 +179,9 @@ Azure 返回到门户仪表板，并在创建好新网络时发出通知。
 | **VM 磁盘类型** |SSD |
 | **用户名** |DomainAdmin |
 | **密码** |Contoso!0000 |
-| **订阅** |
-            *订阅* |
+| **订阅** |用户的订阅 |
 | **资源组** |sql-ha-rg |
-| **位置** |*你的位置* |
+| **位置** |用户所在的位置 |
 | **大小** |DS1_V2 |
 | **存储** | **使用托管磁盘** - **是** |
 | **虚拟网络** |autoHAVNET |
@@ -193,17 +192,17 @@ Azure 返回到门户仪表板，并在创建好新网络时发出通知。
 | **诊断** |已启用 |
 | **诊断存储帐户** |*自动创建* |
 
->[!IMPORTANT]
->只能在创建 VM 时将 VM 放入可用性集。 创建 VM 后，无法更改可用性集。 请参阅[管理虚拟机的可用性](../manage-availability.md)。
+   >[!IMPORTANT]
+   >只能在创建 VM 时将 VM 放入可用性集。 创建 VM 后，无法更改可用性集。 请参阅[管理虚拟机的可用性](../manage-availability.md)。
 
-Azure 会创建虚拟机。
+Azure 将创建虚拟机。
 
 创建虚拟机后，请配置域控制器。
 
 ### <a name="configure-the-domain-controller"></a>配置域控制器
 执行以下步骤，将 **ad-primary-dc** 计算机配置为 corp.contoso.com 的域控制器。
 
-1. 在门户中打开 **SQL-HA-RG** 资源组，然后选择 **ad-primary-dc** 计算机。 在“ad-primary-dc”边栏选项卡中，单击“连接”，打开用于远程桌面访问的 RDP 文件。
+1. 在门户中打开 **SQL-HA-RG** 资源组，并选择 **ad-primary-dc** 计算机。 在“ad-primary-dc”边栏选项卡中，单击“连接”，打开用于远程桌面访问的 RDP 文件。
 
     ![连接到虚拟机](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
 2. 使用已配置的管理员帐户 (**\DomainAdmin**) 和密码 (**Contoso!0000**) 登录。
@@ -215,7 +214,7 @@ Azure 会创建虚拟机。
 6. 选择“Active Directory 域服务”和“DNS 服务器”角色。 出现提示时，添加这些角色所需的任何其他功能。
 
    > [!NOTE]
-   > Windows 会警告你没有静态 IP 地址。 若要测试配置，请单击“继续”。 对于生产方案，请在 Azure 门户中将 IP 地址设置为静态，或[使用 PowerShell 设置域控制器计算机的静态 IP 地址](../../../virtual-network/virtual-networks-reserved-private-ip.md)。
+   > Windows 会警告没有静态 IP 地址。 若要测试配置，请单击“继续”。 对于生产方案，请在 Azure 门户中将 IP 地址设置为静态，或[使用 PowerShell 设置域控制器计算机的静态 IP 地址](../../../virtual-network/virtual-networks-reserved-private-ip.md)。
    >
    >
 
@@ -277,7 +276,7 @@ Azure 会创建虚拟机。
 5. 单击“属性”。
 6. 选择“Internet 协议版本 4 (TCP/IPv4)”，然后单击“属性”。
 7. 选择“使用以下 DNS 服务器地址”，并在“首选 DNS 服务器”中指定主域控制器的地址。
-8. 单击“确定”，然后单击“关闭”提交更改。 现在能够将该 VM 加入到 **corp.contoso.com**中。
+8. 单击“确定”，然后单击“关闭”提交更改。 现在可将该 VM 加入 **corp.contoso.com**。
 
    >[!IMPORTANT]
    >如果在更改 DNS 设置后与远程桌面断开了连接，请转到 Azure 门户并重新启动虚拟机。
@@ -350,7 +349,7 @@ Azure 会创建虚拟机。
 
 ## <a name="create-sql-server-vms"></a>创建 SQL Server VM
 
-再创建三个虚拟机。 该解决方案需要两个具有 SQL Server 实例的虚拟机。 第三个虚拟机充当见证服务器。 Windows Server 2016 可以使用[云见证服务器](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)，但是为了与旧版操作系统保持一致，本文档使用虚拟机作为见证服务器。  
+再创建三个虚拟机。 该解决方案需要两个具有 SQL Server 实例的虚拟机。 第三个虚拟机充当见证服务器。 Windows Server 2016 可以使用[云见证服务器](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)，但是为了与旧版操作系统保持一致，本文档使用虚拟机作为见证服务器。  
 
 在继续操作之前，请考虑以下设计决策。
 
@@ -369,7 +368,7 @@ Azure 会创建虚拟机。
 | --- | --- | --- | --- |
 | 选择相应的库项 |**Windows Server 2016 Datacenter** |**Windows Server 2016 上的 SQL Server 2016 SP1 Enterprise** |**Windows Server 2016 上的 SQL Server 2016 SP1 Enterprise** |
 | 虚拟机配置**基本信息** |**名称** = cluster-fsw<br/>**用户名** = DomainAdmin<br/>**密码** = Contoso!0000<br/>**订阅** = 自己的订阅<br/>**资源组** = SQL-HA-RG<br/>**位置** = 所在的 Azure 位置 |**名称** = sqlserver-0<br/>**用户名** = DomainAdmin<br/>**密码** = Contoso!0000<br/>**订阅** = 自己的订阅<br/>**资源组** = SQL-HA-RG<br/>**位置** = 所在的 Azure 位置 |**名称** = sqlserver-1<br/>**用户名** = DomainAdmin<br/>**密码** = Contoso!0000<br/>**订阅** = 自己的订阅<br/>**资源组** = SQL-HA-RG<br/>**位置** = 所在的 Azure 位置 |
-| 虚拟机配置**大小** |**大小** = DS1\_V2（单核，3.5 GB） |**大小** = DS2\_V2（双核，7 GB）</br>大小必须支持 SSD 存储（高级磁盘支持。 )) |**大小** = DS2\_V2（双核，7 GB） |
+| 虚拟机配置**大小** |大小 = DS1\_V2（1 个 vCPU、3.5GB） |大小 = DS2\_V2（2 个 vCPU、7GB）</br>大小必须支持 SSD 存储（高级磁盘支持。 )) |大小 = DS2\_V2（2 个 vCPU、7GB） |
 | 虚拟机配置**设置** |**存储**：使用托管磁盘。<br/>**虚拟网络** = autoHAVNET<br/>**子网** = sqlsubnet(10.1.1.0/24)<br/>**公共 IP 地址**自动生成。<br/>**网络安全组** = 无<br/>**监视诊断** = 已启用<br/>**诊断存储帐户** = 使用自动生成的存储帐户<br/>**可用性集** = sqlAvailabilitySet<br/> |**存储**：使用托管磁盘。<br/>**虚拟网络** = autoHAVNET<br/>**子网** = sqlsubnet(10.1.1.0/24)<br/>**公共 IP 地址**自动生成。<br/>**网络安全组** = 无<br/>**监视诊断** = 已启用<br/>**诊断存储帐户** = 使用自动生成的存储帐户<br/>**可用性集** = sqlAvailabilitySet<br/> |**存储**：使用托管磁盘。<br/>**虚拟网络** = autoHAVNET<br/>**子网** = sqlsubnet(10.1.1.0/24)<br/>**公共 IP 地址**自动生成。<br/>**网络安全组** = 无<br/>**监视诊断** = 已启用<br/>**诊断存储帐户** = 使用自动生成的存储帐户<br/>**可用性集** = sqlAvailabilitySet<br/> |
 | 虚拟机配置 **SQL Server 设置** |不适用 |**SQL 连接** = 专用（虚拟网络内部）<br/>**端口** = 1433<br/>**SQL 身份验证** = 禁用<br/>**存储配置** = 常规<br/>**自动修补** = 星期日 2:00<br/>**自动备份** = 已禁用</br>**Azure 密钥保管库集成** = 已禁用 |**SQL 连接** = 专用（虚拟网络内部）<br/>**端口** = 1433<br/>**SQL 身份验证** = 禁用<br/>**存储配置** = 常规<br/>**自动修补** = 星期日 2:00<br/>**自动备份** = 已禁用</br>**Azure 密钥保管库集成** = 已禁用 |
 
@@ -442,7 +441,7 @@ Azure 会创建虚拟机。
 
 1. 使用安装帐户。
 
-1. 将该登录名设置为 **sysadmin** 固定服务器角色的成员。
+1. 将该登录名设置为 sysadmin 固定服务器角色的成员。
 
 1. 单击 **“确定”**。
 
@@ -497,3 +496,4 @@ Azure 会创建虚拟机。
 ## <a name="next-steps"></a>后续步骤
 
 * [在 Azure 虚拟机上创建 SQL Server AlwaysOn 可用性组](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+<!-- Update_Description: wording update -->
