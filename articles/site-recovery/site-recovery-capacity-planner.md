@@ -12,15 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 10/30/2017
-ms.date: 12/04/2017
+origin.date: 11/28/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: bf26f33ceb6dadfaeb6522163bbcbd2ecbdf1483
-ms.sourcegitcommit: 228b8811c3045a9db62264cb67f925746ef4e994
+ms.openlocfilehash: 8879555d0101bfaf855ed4ce701c5560c14cf78b
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/29/2017
 ---
+[适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器](site-recovery-hyper-v-deployment-planner.md)的新增强版本现已可用，并替换旧工具。 使用新工具规划部署。 该工具提供了以下指导原则：
+* 根据磁盘数量、磁盘大小、IOPS、变动量和一些 VM 特征评估 VM 的合格性。
+* 网络带宽需求与 RPO 评估。
+* Azure 基础结构需求。
+* 本地基础结构需求。
+* 初始复制批处理指南。
+* DR 到 Azure 的估算总成本。
+
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>计划用于使用 Site Recovery 保护 Hyper-V VM 的容量
 
 Azure Site Recovery Capacity Planner 工具可帮助用户确定通过 Azure Site Recovery 复制 Hyper-V VM 时的容量要求。
@@ -32,7 +40,7 @@ Azure Site Recovery Capacity Planner 工具可帮助用户确定通过 Azure Sit
 * **快速规划**：在此模式下运行该工具时，可以根据 VM 平均数、磁盘、存储和更改率来获取网络和服务器投影。
 * **详细规划**：在此模式下运行该工具时，可以提供 VM 级别每个工作负荷的详细信息。 分析 VM 兼容性，获取网络和服务器投影。
 
-## <a name="before-you-start"></a>准备阶段
+## <a name="before-you-start"></a>开始之前
 
 1. 收集环境信息，包括 VM 数、每个 VM 的磁盘数、每个磁盘的存储。
 2. 确定已复制数据的每日更改（改动）率。 若要执行此操作，请下载 [Hyper-V Capacity Planner 工具](https://www.microsoft.com/download/details.aspx?id=39057)获取更改率。 [详细了解](site-recovery-capacity-planning-for-hyper-v-replication.md)此工具。 建议运行此工具一周以上的时间以获取平均值。
@@ -41,18 +49,16 @@ Azure Site Recovery Capacity Planner 工具可帮助用户确定通过 Azure Sit
 1. 下载并打开 [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) 工具。 需要运行宏，因此在系统提示启用编辑功能和启用内容时，请选择执行相应的操作。
 2. 在“选择规划器类型”中，从列表框选择“快速规划器”。
 
-   ![入门](./media/site-recovery-capacity-planner/getting-started.png)
+    ![入门](./media/site-recovery-capacity-planner/getting-started.png)
 3. 在“Capacity Planner”工作表中输入所需信息。 必须填写以下屏幕快照中标有红圈的所有字段。
 
     * 在“选择你的方案”中，选择“Hyper-V 到 Azure”或“VMware/物理设备到 Azure”.
     * 在“平均每日数据更改率(%)”中输入使用 [Hyper-V 容量计划工具](site-recovery-capacity-planning-for-hyper-v-replication.md)或 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) 收集的信息。  
-    * “**压缩**”仅适用于将 VMware VM 或物理服务器复制到 Azure 时提供的压缩。 我们的估计值是 30% 或以上，不过用户可以根据需要修改此设置。 将 Hyper-V VM 复制到 Azure 时，如果需要进行压缩，可以使用第三方工具，例如 Riverbed。
     * 将 Hyper-V VM 复制到 Azure 时，不使用“压缩”设置。 对于压缩，请使用第三方应用程序（例如 Riverbed）。
     * 在“保留输入”中，指定副本应保留的小时数。
     * 在“完成成批虚拟机的初始复制所需的小时数”和“初始复制批处理的虚拟机数”中，可以输入用于计算初始复制要求的设置。  部署 Site Recovery 时，应上传整个初始数据集。
 
     ![输入](./media/site-recovery-capacity-planner/inputs.png)
-
 4. 输入源环境的值以后，显示的输出包括：
 
    * **增量复制所需的带宽** (MB/sec)。 根据每日数据更改率的平均值计算增量复制的网络带宽。
@@ -81,7 +87,7 @@ Azure Site Recovery Capacity Planner 工具可帮助用户确定通过 Azure Sit
    * 在“处理器核心数” 中指定源服务器上的核心总数。
    * 在“内存分配(MB)” 中指定源服务器的 RAM 大小。
    * **NIC 数**：指定源服务器上的网络适配器数。
-   * 在“中存储空间(GB)”中，制定 VM 存储空间的总大小。 例如，如果源服务器有 3 个磁盘，每个磁盘的大小为 500 GB，则总的存储大小为 1500 GB。
+   * 在“中存储空间(GB)”中，制定 VM 存储空间的总大小。 例如，如果源服务器有 3 个磁盘，每个磁盘的大小为 500 GB，则总的存储空间大小为 1500 GB。
    * 在“附加磁盘数” 中指定源服务器的磁盘总数。
    * 在“磁盘容量使用率” 中指定平均使用率。
    * 在“每日更改率(%)”中指定源服务器的每日数据更改率。
@@ -114,7 +120,7 @@ AA 到 AE 列为输出，提供的是每个 VM 的信息。
   * VM4 可以使用第二个标准存储帐户。
   * VM5 和 VM6 需要高级存储帐户，并且都可以使用单个帐户。
 
-    >[!NOTE]
+    > [!NOTE]
     > 标准存储和高级存储的 IOPS 在 VM 级别（而非磁盘级别）进行计算。 标准虚拟机最多可处理每个磁盘 500 IOPS。 如果磁盘的 IOPS 大于 500，则需要高级存储。 不过，如果某个磁盘的 IOPS 超出 500 但所有 VM 磁盘的 IOPS 仍在标准 Azure VM 的支持范围（VM 大小、磁盘数、适配器数、CPU、内存）内，则规划器会选取标准 VM 而不是 DS 或 GS 系列。 需要使用相应的 DS 或 GS 系列 VM 来手动更新“映射 Azure 大小”单元格。
 
 输入所有详细信息以后，单击“将数据提交到规划器工具”以打开“Capacity Planner” 。工作负荷会突出显示，以表明其是否符合受保护资格。

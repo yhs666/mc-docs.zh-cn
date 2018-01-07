@@ -68,8 +68,11 @@
           href: sizes-compute.md
         - name: 内存优化
           href: sizes-memory.md
+          items:
+            - name: 约束的 vCPU
+              href: constrained-vcpu.md
         - name: Azure 计算单元 (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: 认可的发行版
       href: endorsed-distros.md
     - name: 维护和更新
@@ -93,6 +96,8 @@
       href: network-overview.md
     - name: 基础结构自动化
       href: infrastructure-automation.md
+    - name: 安全和策略
+      href: security-policy.md
     - name: 监视
       href: monitor.md
     - name: 备份和恢复
@@ -101,6 +106,8 @@
       items:
         - name: 基础结构指南
           href: infrastructure-example.md
+        - name: vCPU 配额
+          href: quotas.md
 - name: 操作指南
   items:
     - name: 创建 VM
@@ -218,6 +225,22 @@
               href: terraform-install-configure.md
             - name: 创建完整 VM
               href: terraform-create-complete-vm.md
+        - name: Cloud-init
+          items:
+            - name: Cloud-init 概述
+              href: using-cloud-init.md
+            - name: 配置 VM 主机名
+              href: cloudinit-update-vm-hostname.md
+            - name: 更新 VM 中的包
+              href: cloudinit-update-vm.md
+            - name: 在 VM 上添加用户
+              href: cloudinit-add-user.md
+            - name: 配置交换文件
+              href: cloudinit-configure-swapfile.md
+            - name: 运行现有的 Bash 脚本
+              href: cloudinit-bash-script.md
+            - name: 准备适用于 cloud-init 的现有 VM
+              href: cloudinit-prepare-custom-image.md
     - name: 运行容器
       items:
         - name: 创建 Docker 主机
@@ -252,10 +275,10 @@
               href: install-mongodb.md
             - name: PostgreSQL
               href: postgresql-install.md
+            - name: Linux 上的 MS SQL
+              href: /sql/provision-sql-server-linux-virtual-machine.md
     - name: 管理存储
       items:
-        - name: 了解托管磁盘
-          href: managed-disks-overview.md
         - name: 磁盘常见问题解答
           href: faq-for-disks.md
         - name: 添加磁盘
@@ -278,6 +301,8 @@
           href: convert-disk-storage.md
         - name: 将文件复制到 VM
           href: copy-files-to-linux-vm-using-scp.md
+        - name: 使用 Azure Site Recovery 迁移到高级存储
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: 使用文件存储
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: 使用模板部署磁盘
@@ -312,8 +337,6 @@
           href: extensions-features.md
         - name: 自定义脚本扩展
           href: extensions-customscript.md
-        - name: Linux 诊断扩展
-          href: diagnostic-extension.md
         - name: VMAccess 扩展
           href: using-vmaccess-extension.md
     - name: 迁移 VM
@@ -327,7 +350,7 @@
               href: upload-vhd.md
             - name: 使用 Azure Site Recovery
               href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 从经典部署迁移到 Azure 资源管理器部署
+        - name: 从经典部署迁移到 Azure Resource Manager 部署
           href: migration-classic-resource-manager-overview.md
           items:
             - name: 深入了解迁移
@@ -369,16 +392,16 @@
           href: redeploy-to-new-node.md
         - name: 常见错误消息
           href: error-messages.md
-        - name: VM 恢复方法
+        - name: VM 恢复访问
           items:
             - name: Azure CLI
               href: troubleshoot-recovery-disks.md
             - name: Azure 门户
               href: troubleshoot-recovery-disks-portal.md
-- name: 引用
+- name: 参考
   items:
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/vm'
+      href: 'https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest'
     - name: PowerShell
       href: 'https://docs.microsoft.com/powershell/azureps-cmdlets-docs'
     - name: .NET

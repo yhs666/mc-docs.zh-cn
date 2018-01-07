@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/20/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 23230ccd58efc6ac0f3b87818d1012193176552c
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 07a085df6e9e2ca262ee31f0dda639811b1d4610
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>平台级别事件和日志生成
 
@@ -113,4 +113,4 @@ if (!result.HasValue)
 
 需要将日志和事件聚合后，才能将其发送到任何分析平台。 阅读有关 [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 和 [WAD](service-fabric-diagnostics-event-aggregation-wad.md) 的信息，更好地了解一些推荐的选项。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

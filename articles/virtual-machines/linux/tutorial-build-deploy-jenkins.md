@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/19/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f43ebb5cedc160cf8196163e4e9122c2a09055c9
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: e70bffd13e85a600901e8191d08034cb7b5a592f
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>通过使用 Jenkins 和 Team Services 将应用部署到 Linux VM
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/15/2017
 > * 创建 Team Services 发布定义。
 > * 执行手动和 CI 触发的部署。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 * 需要具有对 Jenkins 服务器的访问权限。 如果尚未创建 Jenkins 服务器，请参阅 [Jenkins 文档](https://jenkins.io/doc/)。 
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 12/15/2017
 5. 返回 Jenkins 仪表板，然后选择“管理 Jenkins”。
 6. 选择“全局工具配置”。 查找“NodeJS”，然后选择“NodeJS 安装”。
 7. 选择“自动安装”选项，然后输入“名称”值。
-8. 选择“保存”。
+8. 选择“其他安全性验证” 。
 
 ## <a name="configure-a-jenkins-freestyle-project-for-nodejs"></a>为 Node.js 配置 Jenkins 自由风格项目
 
@@ -168,7 +168,7 @@ ms.lasthandoff: 12/15/2017
 5. 在浏览器中，打开已添加到部署组的其中一个服务器的 URL。 例如，输入 http://{your-server-ip-address}。
 6. 转到源 Git 存储库，使用某些已更改的文本来修改文件 app/views/index.jade 中 h1 标题的内容。
 7. 提交更改。
-8. 数分钟后，你将看到 Team Services 或 Team Foundation Server 的“发布”页上创建了一个新发布。 打开此发布可以看到部署正在进行。 祝贺你！
+8. 数分钟后，你将看到 Team Services 或 Team Foundation Server 的“发布”页上创建了一个新发布。 打开此发布可以看到部署正在进行。 祝贺！
 
 ## <a name="next-steps"></a>后续步骤
 

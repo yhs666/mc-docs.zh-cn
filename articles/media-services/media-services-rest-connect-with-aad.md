@@ -3,41 +3,41 @@ title: "通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API | 
 description: "了解如何通过 Azure Active Directory 身份验证使用 REST 访问 Azure 媒体服务 API。"
 services: media-services
 documentationcenter: 
-author: willzhan
-manager: erikre
+author: yunan2016
+manager: digimobile
 editor: 
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/17/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 5a748aaeeb502b347954b244e5d9e81e76ffe6e8
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+origin.date: 11/02/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: 0860ee568457c0b855569422663216d55670b71a
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API
 
 Azure 媒体服务团队发布了 Azure Active Directory (Azure AD) 身份验证支持，以供访问 Azure 媒体服务。 它还宣布了计划停止通过 Azure 访问控制服务身份验证来访问媒体服务。 由于每个 Azure 订阅和每个媒体服务帐户都附加到 Azure AD 租户，因此 Azure AD 身份验证支持增添了许多安全保障。 若要详细了解此更改和迁移（如果对应用程序使用媒体服务 .NET SDK），请参阅以下博文和文章：
 
-- [Azure 媒体服务团队宣布支持 Azure AD 身份验证，并弃用访问控制身份验证](https://azure.microsoft.com/en-us/blog/azure-media-services-announces-support-for-aad-and-deprecation-of-acs-authentication/)
 - [通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)
 - [通过 Azure AD 身份验证使用 Microsoft .NET 访问 Azure 媒体服务 API](media-services-dotnet-get-started-with-aad.md)
 - [通过 Azure 门户开始使用 Azure AD 身份验证](media-services-portal-get-started-with-aad.md)
 
 一些客户需要在以下约束条件下开发媒体服务解决方案：
 
-* 不使用 Microsoft.NET 或 C# 编程语言，或运行时环境不是 Windows。
-* Azure AD 库（如 Active Directory 身份验证库）既不能用于编程语言，也不能用于运行时环境。
+*   不使用 Microsoft.NET 或 C# 编程语言，或运行时环境不是 Windows。
+*   Azure AD 库（如 Active Directory 身份验证库）既不能用于编程语言，也不能用于运行时环境。
 
 一些客户开发了应用程序，将 REST API 用于访问控制身份验证和 Azure 媒体服务访问。 对于此类客户，需要有一种方法，只对 Azure AD 身份验证和后续 Azure 媒体服务访问使用 REST API。 无需依赖任何 Azure AD 库或媒体服务 .NET SDK。 本文介绍一种解决方案，并提供此方案的示例代码。 由于代码全都是 REST API 调用，不依赖任何 Azure AD 或 Azure 媒体服务库，因此可以将代码轻松转换为其他任何编程语言。
 
 > [!IMPORTANT]
 > 目前，媒体服务支持 Azure 访问控制服务身份验证模型。 不过，访问控制身份验证将于 2018 年 6 月 1 日弃用。 建议尽快迁移到 Azure AD 身份验证模型。
+
 
 ## <a name="design"></a>设计
 
@@ -92,15 +92,8 @@ Azure 媒体服务团队发布了 Azure Active Directory (Azure AD) 身份验证
 
 ## <a name="steps-for-setup"></a>设置步骤
 
-若要注册并设置用于 Azure AD 身份验证的 Azure AD 应用程序，并获取访问令牌来调用 Azure 媒体服务 REST API 终结点，请完成以下步骤：
+若要注册和设置 Azure Active Directory (AAD) 应用程序并获取用于调用 Azure 媒体服务 REST API 终结点的密钥，请参阅[通过 Azure 门户开始使用 Azure AD 身份验证](media-services-portal-get-started-with-aad.md)
 
-1.  在 [Azure 经典管理门户](http://manage.windowsazure.cn/)中，将 Azure AD 应用程序（例如，wzmediaservice）注册到 Azure AD 租户（例如，microsoft.partner.onmschina.cn）。 无论注册的是 Web 应用程序，还是本机应用程序，都没有问题。 此外，还可以选择任意登录 URL 和回复 URL（例如，两个 URL 都为 http://wzmediaservice.com）。
-2. 在 [Azure 经典管理门户](http://manage.windowsazure.cn/)中，转到应用程序的“配置”选项卡。 记下“客户端 ID”。 然后，在“密钥”下，生成“客户端密钥”（客户端机密）。 
-
-    > [!NOTE] 
-    > 记下客户端机密。 它不会再次显示。
-
-3.  在 [Azure 门户](http://portal.azure.cn)中，转到媒体服务帐户。 选择“访问控制(IAM)”窗格。 添加具有所有者或参与者角色的新成员。 对于主体，搜索在第 1 步中注册的应用程序名称（在此示例中，为 wzmediaservice）。
 
 ## <a name="info-to-collect"></a>要收集的信息
 
@@ -133,16 +126,17 @@ Azure 媒体服务团队发布了 Azure Active Directory (Azure AD) 身份验证
 *   只使用 REST API 访问 Azure 媒体服务。
 *   只使用 REST API 访问 Azure 存储（就像曾使用 REST API 创建媒体服务帐户）。
 
+
 ## <a name="where-is-the-refresh-token"></a>刷新令牌在哪里？
 
 一些读者可能会问：刷新令牌在哪里？ 本文为什么不使用刷新令牌？
 
-刷新令牌并不旨在刷新访问令牌。 相反，它的用途是规避最终用户身份验证或用户干预，在早期生成的令牌过期时仍可以获得有效的访问令牌。 刷新令牌的更准确名称可能是“规避用户重新登录令牌”。
+刷新令牌并不旨在刷新访问令牌。 它的用途是规避最终用户身份验证并在早期生成的令牌过期时仍获得有效的访问令牌。 刷新令牌的更准确名称可能是“规避用户重新登录令牌”。
 
-如果使用 OAuth 2.0 授权流（用户名和密码，以用户身份操作），刷新令牌有助于获取续订的访问令牌，无需请求用户干预。 不过，对于本文中介绍的 OAuth 2.0 客户端凭据授权流，客户端是以自身身份操作。 根本就无需用户干预，所以授权服务器不需要（也不会）提供刷新令牌。 如果调试 **GetUrlEncodedJWT** 方法，则会注意到，来自令牌终结点的响应包含访问令牌，但不含刷新令牌。
+如果使用 OAuth 2.0 授权流（用户名和密码，以用户身份操作），刷新令牌有助于获取续订的访问令牌，无需请求用户干预。 不过，对于本文中介绍的 OAuth 2.0 客户端凭据授权流，客户端是以自身身份操作。 完全无需用户干预，所以授权服务器不需要提供刷新令牌。 如果调试 **GetUrlEncodedJWT** 方法，则会注意到，来自令牌终结点的响应包含访问令牌，但不含刷新令牌。
 
 ## <a name="next-steps"></a>后续步骤
 
 开始[将文件上传到帐户](media-services-dotnet-upload-files.md)。
 
-<!--Update_Description:new file-->
+<!--Update_Description:wording content-->

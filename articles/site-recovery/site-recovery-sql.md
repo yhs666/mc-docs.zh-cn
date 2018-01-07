@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/11/2017
-ms.date: 08/28/2017
+origin.date: 12/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 32fad851fa90ce06a6fd52bb67f14ecfc9894f29
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: c66030d4f1cbd91687ef96328a6d58701d28ee6e
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>使用 SQL Server 灾难恢复和 Azure Site Recovery 来保护 SQL Server
 
@@ -50,6 +50,7 @@ Site Recovery 可以保护下表中汇总的 SQL Server。
 **Hyper-V** | 是 | 是
 **VMware** | 是 | 是
 **物理服务器** | 是 | 是
+**Azure**|不可用| 是
 
 ### <a name="supported-sql-server-versions"></a>支持的 SQL Server 版本
 支持的方案支持以下 SQL Server 版本：
@@ -67,7 +68,7 @@ Site Recovery 可与表中汇总的本机 SQL Server BCDR 技术集成，以提�
 --- | --- | ---
 **Always On 可用性组** | SQL Server 的多个独立实例，每个实例在包含多个节点的故障转移群集中运行。<br/><br/>数据库可以分组到可在 SQL Server 实例上复制（镜像）的故障转移组，因此不需要任何共享存储。<br/><br/>在主站点与一个或多个辅助站点之间提供灾难恢复。 使用同步复制与自动故障转移在可用性组中配置了 SQL Server 数据库时，可以在不共享任何内容的群集中设置两个节点。 | SQL Server 2014 和 2012 Enterprise 版本
 **故障转移群集 (Always On FCI)** | SQL Server 利用 Windows 故障转移群集实现本地 SQL Server 工作负载的高可用性。<br/><br/>在故障转移群集中配置了使用共享磁盘运行 SQL Server 实例的节点。 如果实例关闭，群集将故障转移到另一个节点。<br/><br/>群集无法防止共享存储的故障或中断。 共享磁盘可以使用 iSCSI、光纤通道或共享 VHDX 来实现。 | SQL Server Enterprise 版本<br/><br/>SQL Server Standard 版本（仅限两个节点）
-**数据库镜像（高安全性模式）** | 在单个辅助副本中保护单一数据库。 提供高安全性（同步）和高性能（异步）两种复制模式。 不需要故障转移群集。 | SQL Server 2008 R2<br/><br/>SQL Server Enterprise 的所有版本
+**数据库镜像（高安全性模式）** | 在单个辅助副本中保护单个数据库。 提供高安全性（同步）和高性能（异步）两种复制模式。 不需要故障转移群集。 | SQL Server 2008 R2<br/><br/>SQL Server Enterprise 的所有版本
 **独立 SQL Server** | SQL Server 和数据库托管在单个服务器（物理或虚拟）上。 如果是虚拟服务器，则主机群集用于高可用性。 没有来宾级别的高可用性。 | Enterprise 或 Standard 版本
 
 ## <a name="deployment-recommendations"></a>部署建议
@@ -94,7 +95,7 @@ Site Recovery 可与表中汇总的本机 SQL Server BCDR 技术集成，以提�
 
 在辅助恢复站点上安装 Active Directory，使 SQL Server 能够正常运行。
 
-* **小型企业**：如果使用少量应用程序和适用于本地站点的单个域控制器，并且需要故障转移整个站点，则建议使用 Site Recovery 复制将域控制器复制到辅助数据中心或 Azure。
+* **小型企业** - 如果使用少量的应用程序和适用于本地站点的单个域控制器，并且想要故障转移整个站点，我们建议使用 Site Recovery 复制将域控制器复制到辅助数据中心或 Azure。
 * **中大型企业**：如果使用大量的应用程序和 Active Directory 林，并且需要按应用程序或工作负荷进行故障转移，则建议在辅助数据中心或 Azure 中设置附加的域控制器。 如果使用 Always On 可用性组恢复到远程站点，我们建议在辅助站点或 Azure 中配置另一个域控制器，供已恢复的 SQL Server 实例使用。
 
 本文中的说明假设辅助位置中提供了域控制器。 [详细了解](site-recovery-active-directory.md)如何使用 Site Recovery 保护 Active Directory。
@@ -115,7 +116,7 @@ Site Recovery 可与表中汇总的本机 SQL Server BCDR 技术集成，以提�
 
 SQL Always On 无法原生支持测试性故障转移。 因此，我们建议：
 
-1. 在 Azure 中托管着可用性组副本的虚拟机上设置 [Azure 备份](../backup/backup-azure-vms.md)。
+1. 在 Azure 中托管着可用性组副本的虚拟机上设置 [Azure 备份](../backup/backup-azure-arm-vms.md)。
 
 1. 触发对恢复计划进行测试故障转移之前，请从上一步骤中进行的备份恢复虚拟机。
 
@@ -145,7 +146,7 @@ SQL Always On 无法原生支持测试性故障转移。 因此，我们建议�
 
 ## <a name="integrate-with-sql-server-always-on-for-replication-to-a-secondary-on-premises-site"></a>与 SQL Server Always On 集成以便复制到辅助本地站点
 
-如果 SQL Server 使用可用性组（或 FCI）实现高可用性，则建议也在恢复站点上使用可用性组。 请注意，这适用于不使用分布式事务的应用。
+如果 SQL Server 使用可用性组（或 FCI）实现高可用性，我们建议也在恢复站点上使用可用性组。 请注意，这适用于不使用分布式事务的应用。
 
 1. [配置数据库](https://msdn.microsoft.com/library/hh213078.aspx) 。
 2. 在辅助站点上创建虚拟网络。
@@ -154,6 +155,7 @@ SQL Always On 无法原生支持测试性故障转移。 因此，我们建议�
 5. 将现有的 Always On 可用性组扩展到新的 SQL Server VM。 将此 SQL Server 实例配置为异步副本。
 6. 创建可用性组侦听器，或更新现有的侦听器，以包含异步副本虚拟机。
 7. 确保应用程序场是使用侦听器设置的。 如果它是使用数据库服务器名称设置的，请将其更新为使用侦听器，以便不需要在故障转移后重新配置该场。
+
 对于使用分布式事务的应用程序，我们建议使用 [VMware/物理服务器站点到站点复制](site-recovery-vmware-to-vmware.md)部署 Site Recovery。
 
 ### <a name="recovery-plan-considerations"></a>恢复计划注意事项
@@ -178,7 +180,7 @@ SQL Always On 无法原生支持测试性故障转移。 因此，我们建议�
 ### <a name="on-premises-to-on-premises"></a>本地到本地
 
 * 如果应用使用分布式事务，我们建议针对 Hyper-V 环境使用 [SAN 复制](site-recovery-vmm-san.md)，或者针对 VMware 环境使用 [VMware/物理服务器到 VMware 的复制](site-recovery-vmware-to-vmware.md)，来部署 Site Recovery。
-* 对于非 DTC 应用程序，可以使用上述方法通过利用本地高安全性 DB 镜像将群集恢复为独立服务器。
+* 对于非 DTC 应用程序，可以使用上述方法通过利用本地高安全性数据库镜像将群集恢复为独立服务器。
 
 ### <a name="on-premises-to-azure"></a>本地到 Azure
 

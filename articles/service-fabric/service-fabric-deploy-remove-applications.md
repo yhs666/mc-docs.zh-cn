@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/05/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: b8b350ae14f2c006c1d6505bc1ff495bdf2c014c
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 01f038a3d3ee91fe4281a96c3011cc3f30e13663
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>使用 PowerShell 部署和删除应用程序
 > [!div class="op_single_selector"]
@@ -199,7 +199,7 @@ ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
 ApplicationParameters  : {}
 ```
-可以为已注册应用程序类型的任何给定版本创建多个应用程序实例。 每个应用程序实例都会隔离运行，具有其自己的工作目录和进程。
+可以为已注册应用程序类型的任何给定版本创建多个应用程序实例。 每个应用程序实例都将隔离运行，具有其自己的工作目录和进程。
 
 若要查看有哪些已命名应用和服务正在群集中运行，请运行 [Get-ServiceFabricApplication](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricapplication) 和 [Get-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps) cmdlet：
 
@@ -341,7 +341,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 [在 Service Fabric 中对应用程序建模](service-fabric-application-model.md)
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
-[10]: service-fabric-application-model.md
+[10]: service-fabric-package-apps.md
 [11]: service-fabric-application-upgrade.md
 
 <!--Update_Description: wording update, update link -->

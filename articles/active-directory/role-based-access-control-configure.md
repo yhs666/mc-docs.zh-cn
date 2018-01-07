@@ -15,13 +15,16 @@ origin.date: 07/17/2017
 ms.date: 08/22/2017
 ms.author: v-junlch
 ms.reviewer: rqureshi
-ms.openlocfilehash: 846404b72c9bc83e496740c15e7e3e83bed576d1
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 7042132fe57aa46784feb148159b91aea55b2738
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>使用基于角色的访问控制管理 Azure 订阅资源的访问权限
+> [!div class="op_single_selector"]
+> * [管理用户或组的访问权限](role-based-access-control-manage-assignments.md)
+> * [管理资源的访问权限](role-based-access-control-configure.md)
 
 Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访问管理。 使用 RBAC，可以仅授予用户执行其作业所需的访问次数。 本文可帮助你在 Azure 门户中启动并运行 RBAC。 如果想要了解有关 RBAC 如何帮助管理访问权限的详细信息，请参阅[什么是基于角色的访问控制](role-based-access-control-what-is.md)。
 
@@ -38,7 +41,7 @@ Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访�
    
     ![用户边栏选项卡 - 继承的与分配的访问权限屏幕截图](./media/role-based-access-control-configure/view-access.png)
 
-请注意，有些角色的作用域已限制为**此资源**，而其他角色则从另一个作用域**继承**权限。 特定于资源组分配访问权限，或者从父订阅的分配继承访问权限。
+请注意，有些角色的权限范围已划归到**此资源**，还有一些角色从另一个范围**继承**权限。 特定于资源组分配访问权限，或者从父订阅的分配继承访问权限。
 
 > [!NOTE]
 > 经典订阅管理员和共同管理员被视为新 RBAC 模型中的订阅所有者。
@@ -69,13 +72,13 @@ Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访�
 ## <a name="other-tools-to-manage-access"></a>管理访问权限的其他工具
 可以使用 Azure 门户以外的工具中的 Azure RBAC 命令分配角色和管理访问权限。  依照该链接以了解有关先决条件和 Azure RBAC 命令入门的详细信息。
 
-- [Azure PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure 命令行界面](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+* [Azure PowerShell](role-based-access-control-manage-access-powershell.md)
+* [Azure 命令行界面](role-based-access-control-manage-access-azure-cli.md)
+* [REST API](role-based-access-control-manage-access-rest.md)
 
 ## <a name="next-steps"></a>后续步骤
-- [创建访问变更历史记录报表](role-based-access-control-access-change-history-report.md)
-- 请参阅 [RBAC 内置角色](role-based-access-built-in-roles.md)
-- 定义自己在 [Azure RBAC 中的自定义角色](role-based-access-control-custom-roles.md)
+* [创建访问变更历史记录报表](role-based-access-control-access-change-history-report.md)
+* 请参阅 [RBAC 内置角色](role-based-access-built-in-roles.md)
+* 定义自己在 [Azure RBAC 中的自定义角色](role-based-access-control-custom-roles.md)
 
 <!--Update_Description: wording update -->

@@ -13,18 +13,17 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4160c02d771e07244d99e2dd10f7820a14aba929
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 0acc9012fe8b71323719d582a29f872f648c71e5
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>开始在 PowerShell 中创建面向 Internet 的负载均衡器（经典）
 
 > [!div class="op_single_selector"]
-> * [Azure 经典管理门户](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
 > * [Azure 云服务](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
@@ -75,4 +74,4 @@ Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name htt
 
 如果应用程序需要始终保持对负载均衡器后面的服务器的连接，可详细了解[负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)。 可借助该文章了解使用 Azure 负载均衡器时的空闲连接行为。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: wording update -->

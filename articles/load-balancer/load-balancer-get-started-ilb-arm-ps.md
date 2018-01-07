@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/11/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5064ae6ed84fe13bbb7fb0da53f3bd4131405056
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: bedfcf12df5de3c3ed81b9018b7ebe468b3c98ed
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>使用 Azure PowerShell 模块创建内部负载均衡器
 
@@ -32,9 +32,6 @@ ms.lasthandoff: 12/08/2017
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
-
-> [!NOTE]
-> Azure 提供两个用于创建和处理资源的部署模型：[资源管理器](../azure-resource-manager/resource-manager-deployment-model.md)和[经典](load-balancer-get-started-ilb-classic-ps.md)。 本文介绍如何使用资源管理器部署模型创建负载均衡器。 Azure 建议将 Azure 资源管理器用于大多数新的部署。
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -335,4 +332,4 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 * [配置负载均衡器分发模式](load-balancer-distribution-mode.md)
 * [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
 
-<!-- Update_Description: update meta properties, add content of Create the configuration rules, wording update -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 81a1ec66dd918523b619597b78293778fbab9a59
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 738454c98b14b8c1777d7168c9bceae64b18982a
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>为 Azure 导入/导出服务创建导出作业
 使用 REST API 为 Azure 导入/导出服务创建导出作业的过程包括以下步骤：
@@ -51,22 +51,22 @@ ms.lasthandoff: 08/25/2017
 
 -   可以导出存储帐户中的所有 Blob 和快照。
 
- 有关指定要导出的 Blob 的详细信息，请参阅 [Put Job](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) （放置作业）操作。
+ 有关指定要导出的 Blob 的详细信息，请参阅[放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate)操作。
 
 ## <a name="obtaining-your-shipping-location"></a>获取寄送位置
 在创建导出作业之前，需要通过调用[获取位置](https://portal.azure.cn)或[列出位置](https://docs.microsoft.com/rest/api/storageimportexport/listlocations)操作获取寄送位置名称和地址。 
-            `List Locations` 返回位置及其邮寄地址的列表。 可以从返回的列表中选择一个位置，并将硬盘驱动器寄送到该地址。 也可以使用“ `Get Location` ”操作直接获取特定位置的寄送地址。
+            `List Locations` 返回位置及其邮寄地址的列表。 可以从返回的列表中选择一个位置，然后将硬盘驱动器寄送到该地址。 也可以使用“ `Get Location` ”操作直接获取特定位置的寄送地址。
 
 遵循以下步骤获取寄送位置：
 
--   指定存储帐户位置的名称。 可在经典管理门户中存储帐户的“仪表板”上的“位置”字段下找到该值，或者使用服务管理 API 操作[获取存储帐户属性](https://docs.microsoft.com/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties)来查询该值。
+-   指定存储帐户位置的名称。 可在 Azure 门户中存储帐户的“仪表板”上的“位置”字段下找到该值，或者使用服务管理 API 操作[获取存储帐户属性](https://docs.microsoft.com/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties)来查询该值。
 
 -   通过调用“ `Get Location` ”操作来检索可用于处理此存储帐户的位置。
 
 -   如果位置的 `AlternateLocations` 属性包含位置本身，则可以使用此位置。 否则，请使用某个备用位置再次调用“ `Get Location` ”操作。 原始位置可能会出于维护目的而暂时关闭。
 
 ## <a name="creating-the-export-job"></a>创建导出作业
- 若要创建导出作业，请调用 [放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 操作。 需要提供以下信息：
+ 若要创建导出作业，请调用[放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate)操作。 需要提供以下信息：
 
 -   作业的名称。
 

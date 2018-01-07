@@ -12,15 +12,15 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 08/22/2017
-ms.date: 10/02/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d93069c35998ecbcb9ead38556e3d620df3fb518
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 9aae7a1d54a8830213b2869baf91184494a33fbc
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>将应用程序部署到 Service Fabric 群集
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 09/28/2017
 
 # Select cluster
 sfctl cluster select \
-    --endpoint http://svcfab1.chinanorth2.chinacloudapp.cn:19080
+    --endpoint http://svcfab1.chinanorth.cloudapp.chinacloudapi.cn:19080
 
 # Upload the application files to the image store
 # (note the last folder name, Debug in this example)
@@ -68,4 +68,4 @@ sfctl application create \
 
 在 [Service Fabric CLI 示例](../samples-cli.md)中可找到 Azure Service Fabric 的其他 Service Fabric CLI 示例。
 
-<!--Update_Description: update meta properties, wroding update, update link -->
+<!--Update_Description: update meta properties, update link -->

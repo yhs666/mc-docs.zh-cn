@@ -17,18 +17,22 @@
       items:
         - name: SSMS
           href: sql-database-connect-query-ssms.md
+        - name: Azure 门户
+          href: sql-database-connect-query-portal.md
         - name: VS Code
           href: sql-database-connect-query-vscode.md
         - name: 将 .NET 与 Visual Studio 配合使用
           href: sql-database-connect-query-dotnet-visual-studio.md
         - name: .NET Core
           href: sql-database-connect-query-dotnet-core.md
-        - name: PHP
-          href: sql-database-connect-query-php.md
-        - name: Node.js
-          href: sql-database-connect-query-nodejs.md
+        - name: Go
+          href: sql-database-connect-query-go.md
         - name: Java
           href: sql-database-connect-query-java.md
+        - name: Node.js
+          href: sql-database-connect-query-nodejs.md
+        - name: PHP
+          href: sql-database-connect-query-php.md
         - name: Python
           href: sql-database-connect-query-python.md
         - name: Ruby
@@ -54,9 +58,8 @@
 - name: 概念
   items:
     - name: 服务功能
+      href: sql-database-servers-databases.md
       items:
-        - name: 概述
-          href: sql-database-servers-databases.md
         - name: 服务层
           href: sql-database-service-tiers.md
         - name: 资源限制
@@ -93,10 +96,9 @@
           href: sql-vulnerability-assessment.md
         - name: SQL Server 常用功能
           href: sql-database-features.md
-    - name: “安全”
+    - name: 安全性
+      href: sql-database-security-overview.md
       items:
-        - name: 概述
-          href: sql-database-security-overview.md
         - name: 访问控制
           href: sql-database-control-access.md
         - name: Azure AD
@@ -110,9 +112,8 @@
         - name: 数据屏蔽
           href: sql-database-dynamic-data-masking-get-started.md
     - name: 业务连续性
+      href: sql-database-business-continuity.md
       items:
-        - name: 概述
-          href: sql-database-business-continuity.md
         - name: 数据库恢复
           href: sql-database-recovery-using-backups.md
         - name: 配置安全性
@@ -128,9 +129,8 @@
         - name: 执行恢复演练
           href: sql-database-disaster-recovery-drills.md
     - name: 迁移到 SQL 数据库
+      href: sql-database-cloud-migrate.md
       items:
-        - name: 迁移 SQL Server DB
-          href: sql-database-cloud-migrate.md
         - name: T-SQL 的更改
           href: sql-database-transact-sql-information.md
         - name: 在迁移后管理数据库
@@ -143,10 +143,11 @@
           href: sql-database-import.md
         - name: 导出 DB
           href: sql-database-export.md
+        - name: 同步数据
+          href: sql-database-sync-data.md
     - name: 监视和优化
+      href: sql-database-troubleshoot-performance.md
       items:
-        - name: 概述
-          href: sql-database-troubleshoot-performance.md
         - name: 性能监视
           href: sql-database-single-database-monitor.md
         - name: 性能建议
@@ -162,9 +163,8 @@
         - name: 监视内存中存储
           href: sql-database-in-memory-oltp-monitoring.md
     - name: 向外扩展
+      href: sql-database-elastic-scale-introduction.md
       items:
-        - name: 概述
-          href: sql-database-elastic-scale-introduction.md
         - name: 分片映射
           href: sql-database-elastic-scale-shard-map-management.md
         - name: 查询路由
@@ -181,12 +181,6 @@
           href: sql-database-elastic-scale-working-with-dapper.md
         - name: 弹性工具常见问题
           href: sql-database-elastic-scale-faq.md
-    - name: 多租户 SaaS
-      items:
-        - name: SaaS 设计模式
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-        - name: SaaS 应用安全
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
     - name: 开发数据库
       items:
         - name: JSON 数据
@@ -200,9 +194,8 @@
         - name: 配置“内存中”设置
           href: sql-database-in-memory-oltp-migration.md
     - name: 开发应用
+      href: sql-database-develop-overview.md
       items:
-        - name: 概述
-          href: sql-database-develop-overview.md
         - name: 连接
           href: sql-database-libraries.md
         - name: 应用身份验证
@@ -227,7 +220,7 @@
           href: sql-database-elastic-query-horizontal-partitioning.md
         - name: 在具有不同架构的表中进行查询
           href: sql-database-elastic-query-vertical-partitioning.md
-    - name: “安全”
+    - name: 安全性
       items:
         - name: 配置 Azure AD 身份验证
           href: sql-database-aad-authentication-configure.md
@@ -247,6 +240,10 @@
       items:
         - name: 使用 BCP 加载数据
           href: sql-database-load-from-csv-with-bcp.md
+        - name: 使用 ADF 加载数据
+          href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+        - name: 同步数据
+          href: sql-database-get-started-sql-data-sync.md
     - name: 监视和优化
       items:
         - name: 监视和提高性能
@@ -269,6 +266,10 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure 自动化
           href: sql-database-manage-automation.md
+        - name: SQL 数据同步最佳做法
+          href: sql-database-best-practices-data-sync.md
+        - name: SQL 数据同步故障排除
+          href: sql-database-troubleshoot-data-sync.md
     - name: 向外扩展
       items:
         - name: 创建分片应用
@@ -295,7 +296,7 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
-- name: 引用
+- name: 参考
   items:
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/azurerm.sql/#sql'

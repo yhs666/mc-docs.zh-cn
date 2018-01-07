@@ -13,20 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 06/26/2017
-ms.date: 12/18/2017
+origin.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9d24662e79f3e9d165ceb6135624db52305c9c54
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 71d0f2789912caa0dc92e9f1065f982ac662b1de
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>适用于 Windows VM 的 Azure 示例基础结构演练
-
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
-
 本文逐步讲述如何构建示例应用程序基础结构。 我们将详细介绍如何设计简单在线商店的基础结构，此在线商店可将关于命名约定、可用性集、虚拟网络及负载均衡器的所有准则和决策聚集在一起；以及如何实际部署虚拟机 (VM)。
 
 ## <a name="example-workload"></a>示例工作负荷
@@ -118,4 +115,4 @@ Adventure Works Cycles 决定为其 Azure VM 使用以下名称：
 * 用于从 Internet 到 Web 服务器的基于 HTTPS 的 Web 流量的外部负载均衡集
 * 用于从 Web 服务器到应用程序服务器的未加密 Web 流量的内部负载均衡集
 * 单个资源组
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update -->

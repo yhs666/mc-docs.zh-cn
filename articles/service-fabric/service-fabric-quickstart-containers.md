@@ -9,17 +9,18 @@ editor: vturecek
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/02/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 92ac2c55ce27c08747b678ceb19de36e3ffd804f
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.custom: mvc
+ms.openlocfilehash: 264b8ac2a5f7cb921b11e1fc6f12d2cbf4aaa0d6
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>在 Azure 上部署 Service Fabric Windows 容器应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
@@ -36,7 +37,7 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 > * 将容器应用程序部署到 Azure
 
 ## <a name="prerequisites"></a>先决条件
-* 一个 Azure 订阅（可以创建[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)）。
+* 一个 Azure 订阅（可以创建[试用帐户](https://www.azure.cn/pricing/1rmb-trial)）。
 * 一台运行以下软件的开发计算机：
   * Visual Studio 2015 或 Visual Studio 2017。
   * [Service Fabric SDK 和工具](service-fabric-get-started.md)。
@@ -192,7 +193,7 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 > * 将容器应用程序部署到 Azure
 
 * 详细了解如何运行 [Service Fabric 上的容器](service-fabric-containers-overview.md)。
-<!-- Not Available * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.-->
+* 阅读[在容器中部署 .NET 应用程序](service-fabric-host-app-in-a-container.md)教程。
 * 了解 Service Fabric [应用程序生命周期](service-fabric-application-lifecycle.md)。
 * 查看 GitHub 上的 [Service Fabric 容器代码示例](https://github.com/Azure-Samples/service-fabric-containers)。
 

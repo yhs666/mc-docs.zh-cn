@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 06/29/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 11/20/2017
-ms.openlocfilehash: d623497fbf7bf094918bc3888c74e5f6166d395e
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.date: 01/15/2018
+ms.openlocfilehash: 1bad67a9dfc64ee62d50f347a26cbd6600adba12
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-java"></a>使用 Java 将设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -136,7 +136,7 @@ ms.lasthandoff: 11/09/2017
 13. 记下**设备 ID** 和**设备密钥**。 稍后在创建连接到作为设备的 IoT 中心的应用时需要这些值。
 
 > [!NOTE]
-> IoT 中心标识注册表仅存储用于实现 IoT 中心安全访问的设备标识。 它存储设备 ID 和密钥作为安全凭据，以及启用或禁用标志（可用于禁用对单个设备的访问）。 如果应用需要存储设备特定的其他元数据，需使用应用特定的存储。 有关详细信息，请参阅 [IoT 中心开发人员指南][lnk-devguide-identity]。
+> IoT 中心标识注册表只存储设备标识，以启用对 IoT 中心的安全访问。 它存储设备 ID 和密钥作为安全凭据，以及启用或禁用标志（可用于禁用对单个设备的访问）。 如果应用需要存储设备特定的其他元数据，需使用应用特定的存储。 有关详细信息，请参阅 [IoT 中心开发人员指南][lnk-devguide-identity]。
 > 
 > 
 
@@ -206,7 +206,7 @@ ms.lasthandoff: 11/09/2017
                   Iterable<EventData> receivedEvents = receiver.receive(100).get();
                   int batchSize = 0;
                   if (receivedEvents != null) {
-                    System.out.println("Got some evenst");
+                    System.out.println("Got some events");
                     for (EventData receivedEvent : receivedEvents) {
                       System.out.println(String.format("Offset: %s, SeqNo: %s, EnqueueTime: %s",
                         receivedEvent.getSystemProperties().getOffset(),
@@ -237,6 +237,7 @@ ms.lasthandoff: 11/09/2017
    > 在创建开始运行后只读取发送到 IoT 中心的消息的接收方时，此方法使用筛选器。 此方法很适合测试环境，因为这样可以看到当前的消息集。 在生产环境中，代码应确保它能处理所有消息。有关详细信息，请参阅[如何处理 IoT 中心设备到云的消息][lnk-process-d2c-tutorial]教程。
    > 
    > 
+   
 9. 修改 **main** 方法的签名，包含如下所示的异常：
 
     ```java
@@ -263,6 +264,7 @@ ms.lasthandoff: 11/09/2017
     > 此代码假设已在 F1（免费）层创建 IoT 中心。 免费 IoT 中心有“0”和“1”这两个分区。
     > 
     > 
+    
 11. 保存并关闭 App.java 文件。
 12. 若要使用 Maven 生成 **read-d2c-messages** 应用，请在 read-d2c-messages 文件夹中的命令提示符下执行以下命令：
 

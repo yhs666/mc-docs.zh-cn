@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/23/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 70f442e8838e43e3cba26da11effcc2456170297
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: eceeec4c372f601b24b96c1d7f50a0d651fa919c
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>将 Windows 虚拟机从非托管磁盘转换为托管磁盘
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/15/2017
 
 本文介绍如何使用 Azure PowerShell 转换 VM。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 * 请查看[计划迁移到托管磁盘](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)。
 * 请查看[有关迁移到托管磁盘的常见问题](faq-for-disks.md#migrate-to-managed-disks)。
@@ -89,6 +89,7 @@ ms.lasthandoff: 12/15/2017
      $vm = Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
      Stop-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name -Force
      ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
+     Start-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name
   }
   ```
 
@@ -103,4 +104,4 @@ ms.lasthandoff: 12/15/2017
 
 使用[快照](snapshot-copy-managed-disk.md)获取 VM 的只读副本。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update Start-AzureRmVM cmdlet -->

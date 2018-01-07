@@ -3,7 +3,7 @@ title: "使用 REST 创建 ContentKey | Azure"
 description: "了解如何创建提供对资产进行安全访问的内容密钥。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 5637682dbaae710974b1c13b4a4763439cf22d95
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 12/07/2017
+ms.date: 12/11/2017
+ms.author: v-nany
+ms.openlocfilehash: b9834cd3156af13a3674cb6c7b7504d323fc73f4
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-content-keys-with-rest"></a>使用 REST 创建内容密钥
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/31/2017
 > 
 > 
 
-媒体服务允许创建新资产和传送加密的资产。 “ContentKey”提供对“资产”的安全访问。 
+媒体服务允许创建新资产和传送加密的资产。 **ContentKey** 提供对**资产**的安全访问。 
 
 创建新资产时（例如，[上传文件](media-services-rest-upload-files.md)之前），可以指定以下加密选项：“StorageEncrypted”、“CommonEncryptionProtected”或“EnvelopeEncryptionProtected”。 
 
@@ -39,39 +39,37 @@ ms.lasthandoff: 08/31/2017
 以下是用于生成内容密钥的常规步骤，会将这些内容密钥与你想要进行加密的资产关联。 
 
 1. 随机生成一个 16 字节 AES 密钥（用于常规和信封加密）或 32 字节 AES 密钥（用于存储加密）。 
-
+   
     这会成为资产的内容密钥，这意味着该资产的所有关联文件在解密过程中需要使用同一内容密钥。 
 2. 调用 [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) 和 [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) 方法来获取正确的 X.509 证书，必须使用该证书加密内容密钥。
 3. 使用 X.509 证书的公钥来加密内容密钥。 
-
-    媒体服务 .NET SDK 在加密时使用 RSA 和 OAEP。  可在 [EncryptSymmetricKeyData 函数](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)中查看示例。
+   
+   媒体服务 .NET SDK 在加密时使用 RSA 和 OAEP。  可在 [EncryptSymmetricKeyData 函数](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)中查看示例。
 4. 创建一个使用密钥标识符和内容密钥计算得出的校验和值（基于 PlayReady AES 密钥校验和算法）。 有关详细信息，请参阅位于 [此处](http://www.microsoft.com/playready/documents/)的 PlayReady 标头对象文档的“PlayReady AES 密钥校验和算法”部分。
-
-    下面的 .NET 示例将使用密钥标识符和明文内容密钥的 GUID 部分计算校验和。
-
-    ```
-    public static string CalculateChecksum(byte[] contentKey, Guid keyId)
-    {
-        byte[] array = null;
-        using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
-        {
-            aesCryptoServiceProvider.Mode = CipherMode.ECB;
-            aesCryptoServiceProvider.Key = contentKey;
-            aesCryptoServiceProvider.Padding = PaddingMode.None;
-            ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
-            array = new byte[16];
-            cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
-        }
-        byte[] array2 = new byte[8];
-        Array.Copy(array, array2, 8);
-        return Convert.ToBase64String(array2);
-    }
-    ```
-
+   
+   下面的 .NET 示例使用密钥标识符和明文内容密钥的 GUID 部分计算校验和。
+   
+        public static string CalculateChecksum(byte[] contentKey, Guid keyId)
+         {
+ 
+             byte[] array = null;
+             using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+             {
+                 aesCryptoServiceProvider.Mode = CipherMode.ECB;
+                 aesCryptoServiceProvider.Key = contentKey;
+                 aesCryptoServiceProvider.Padding = PaddingMode.None;
+                 ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
+                 array = new byte[16];
+                 cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+             }
+             byte[] array2 = new byte[8];
+             Array.Copy(array, array2, 8);
+             return Convert.ToBase64String(array2);
+         }
 5. 使用前面步骤中收到的“EncryptedContentKey”（转换为 base64 编码的字符串）、“ProtectionKeyId”、“ProtectionKeyType”、“ContentKeyType”和“Checksum”值创建内容密钥。
 6. 通过 $links 操作将“ContentKey”实体与“资产”实体相关联。
 
-请注意，本主题中未说明如何生成 AES 密钥、加密密钥以及计算校验和。 
+本文中未说明如何生成 AES 密钥、加密密钥以及计算校验和。 
 
 >[!NOTE]
 
@@ -80,7 +78,6 @@ ms.lasthandoff: 08/31/2017
 ## <a name="connect-to-media-services"></a>连接到媒体服务
 
 若要了解如何连接到 AMS API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
-
 
 ## <a name="retrieve-the-protectionkeyid"></a>检索 ProtectionKeyId
 以下示例演示了如何检索证书的证书指纹 ProtectionKeyId，在加密内容密钥时必须使用此指纹。 执行此步骤以确保计算机已具备适当的证书。
@@ -94,7 +91,7 @@ Accept: application/json
 Accept-Charset: UTF-8
 User-Agent: Microsoft ADO.NET Data Services
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
@@ -129,7 +126,7 @@ Accept: application/json
 Accept-Charset: UTF-8
 User-Agent: Microsoft ADO.NET Data Services
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
@@ -199,7 +196,7 @@ Accept: application/json
 Accept-Charset: UTF-8
 User-Agent: Microsoft ADO.NET Data Services
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 {
 "Name":"ContentKey",
@@ -252,7 +249,7 @@ Accept: application/json
 Accept-Charset: UTF-8
 Content-Type: application/json
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: //wamsshaclus001rest-hs.chinacloudapp.cn
 
 {"uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}

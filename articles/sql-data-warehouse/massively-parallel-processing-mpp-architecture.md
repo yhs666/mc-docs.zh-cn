@@ -15,11 +15,11 @@ ms.custom: architecture
 origin.date: 11/15/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: ecd6facc30417f55222c2606ccce1bc13216f131
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 5a31f107150f1cf989e11c802ddbb44da9e5b3ca
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL 数据仓库 - 大规模并行处理 (MPP) 体系结构
 了解 Azure SQL 数据仓库如何将大规模并行处理 (MPP) 与 Azure 存储结合，实现高性能和可伸缩性。 
@@ -94,21 +94,21 @@ SQL 数据仓库使用 Azure 存储保护用户数据。  由于数据通过 Azu
 ## <a name="next-steps"></a>后续步骤
 对 SQL 数据仓库有了初步的认识后，请继续学习如何快速[创建 SQL 数据仓库][create a SQL Data Warehouse]和[加载示例数据][load sample data]。 如果用户不熟悉 Azure，可在遇到新术语时查看 [Azure 术语表][Azure glossary] 。 或者，查看一下以下一些其他 SQL 数据仓库资源。  
 
-* [客户成功案例]
-* [博客]
+<!-- Not Available * [Customer success stories] -->
+<!-- Not Available * [Blogs]-->
 * [功能请求]
-* [视频]
-* [客户顾问团队博客]
-* [创建支持票证]
-* [MSDN 论坛]
-* [Stack Overflow 论坛]
-* [Twitter]
+<!-- Not Available * [Videos]-->
+<!-- Not Available * [Customer Advisory Team blogs]-->
+<!-- Not Available * [Create support ticket]-->
+<!-- Not Available * [MSDN forum]-->
+<!-- Not Available * [Stack Overflow forum]-->
+<!-- Not Available * [Twitter] -->
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[创建支持票证]: ./sql-data-warehouse-get-started-create-support-ticket.md
+<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
 [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
@@ -120,14 +120,8 @@ SQL 数据仓库使用 Azure 存储保护用户数据。  由于数据通过 Azu
 <!--MSDN references-->
 
 <!--Other Web references-->
-[客户成功案例]: https://www.azure.cn/case-studies/?service=sql-data-warehouse
-[博客]: https://azure.microsoft.com/blogtag/azure-sql-data-warehouse/
-[客户顾问团队博客]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[功能请求]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN 论坛]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
-[Stack Overflow 论坛]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[Twitter]: https://twitter.com/hashtag/SQLDW
-[视频]: https://www.azure.cn/documentation/videos/index/?services=sql-data-warehouse
+[功能请求]: https://support.windowsazure.cn/support/support-azure
+
 [SLA for SQL Data Warehouse]: https://www.azure.cn/support/sla/sql-data-warehouse/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://www.azure.cn/support/legal/sla/

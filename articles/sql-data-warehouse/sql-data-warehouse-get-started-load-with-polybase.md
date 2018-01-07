@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 origin.date: 03/01/2017
-ms.date: 09/18/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9e7dbdeb1161bb041a27fc044e3931e7957c4378
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 5263211c2d7b9e29ed5856f4f5c2d73c8eedaf9b
+ms.sourcegitcommit: 3996e0f27bae21fc48f6ebfab423e9b29f9d9bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>在 SQL 数据仓库中使用 PolyBase 加载数据
 
@@ -269,4 +269,4 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
 
-<!--Update_Description: wording update, wording update-->
+<!--Update_Description: wording update -->

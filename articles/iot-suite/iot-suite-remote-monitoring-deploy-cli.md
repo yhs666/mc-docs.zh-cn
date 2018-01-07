@@ -7,17 +7,17 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 11/10/2017
-ms.date: 12/04/2017
+origin.date: 12/12/2017
+ms.date: 01/08/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 9228c2552255c828acf505947e62f6da8539eb2d
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 8ac2594220864345beff6a96d1f3082fd05b8409
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>使用 CLI 部署远程监视预配置解决方案
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/24/2017
 
 要部署远程监视预配置解决方案，需要一个有效的 Azure 订阅。
 
-如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 试用](http://www.azure.cn/pricing/1rmb-trial/)。
+如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 试用版](http://www.azure.cn/pricing/1rmb-trial/)。
 
 要运行 CLI，需在本地计算机上安装 [Node.js](https://nodejs.org/)。
 

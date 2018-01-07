@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 10/02/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: cc22cc753c44f78c0694c8184fe82c6ea899002e
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: be90cb02ca32d6abe67fcb5fc7f8e826fad3ddb9
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="scaling-in-service-fabric"></a>在 Service Fabric 中进行缩放
 Azure Service Fabric 通过管理服务、分区以及群集的节点上的副本，让生成可缩放的应用程序更简单。 在同一硬件上运行多个工作负荷不仅可实现最大资源使用率，还可提供在如何选择缩放工作负荷方面的灵活性。 
@@ -151,4 +151,4 @@ Remove-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clu
 * [Service Fabric 服务的可用性](service-fabric-availability-services.md)
 * [Service Fabric 服务分区](service-fabric-concepts-partitioning.md)
 
-<!--Update_Description: update meta properties, wording update.-->
+<!--Update_Description: update meta properties-->

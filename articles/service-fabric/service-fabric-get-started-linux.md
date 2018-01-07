@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/19/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 073f3e73fc4edc9826b0f46bf50fa8d6f08ed471
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 83b5dc82d36815bca58d5fc0577e6af209dcaf2f
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -131,7 +131,7 @@ sudo apt-get install servicefabricsdkcommon
 ## <a name="set-up-the-service-fabric-cli"></a>设置 Service Fabric CLI
 
 [Service Fabric CLI](service-fabric-cli.md) 包含用来与 Service Fabric 实体（包括群集和应用程序）交互的命令。
-请按照 [Service Fabric CLI](service-fabric-cli.md) 中的说明安装 CLI。
+按照 [Service Fabric CLI](service-fabric-cli.md) 中的说明安装 CLI。
 
 ## <a name="set-up-yeoman-generators-for-containers-and-guest-executables"></a>为容器和来宾可执行文件安装 Yeoman 生成器
 Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模板生成器从终端创建 Service Fabric 应用程序。 遵循以下步骤安装 Service Fabric Yeoman 模板生成器：
@@ -220,6 +220,7 @@ sudo apt-get install -f
 * [使用适用于 Eclipse 的 Service Fabric 插件在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-get-started-eclipse.md)
 * [在 Linux 上创建第一个 CSharp 应用程序](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [在 OSX 上准备开发环境](service-fabric-get-started-mac.md)
+* [在 Windows 上准备 Linux 开发环境](service-fabric-local-linux-cluster-windows.md)
 * [使用 Service Fabric CLI 管理应用程序](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows/Linux 差异](service-fabric-linux-windows-differences.md)
 * [Service Fabric CLI 入门](service-fabric-cli.md)
@@ -235,4 +236,4 @@ sudo apt-get install -f
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
 
-<!--Update_Description: update meta properties, add cmdlet of Remove the SDK -->
+<!--Update_Description: update meta properties, wording udpate, update link -->

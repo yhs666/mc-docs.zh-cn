@@ -13,34 +13,26 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 origin.date: 11/08/2017
-ms.date: 12/18/2017
+ms.date: 01/01/2018
 ms.author: v-nany
-ms.openlocfilehash: 2f8078e33cff9ae5c7d29d8f8a4887c167393025
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: 5a73836dacd6580fce82d8532161d9a70be705d2
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 记录和记录集
 
 > [!div class="op_single_selector"]
-> * [Azure 门户](dns-operations-recordsets-portal.md)
-> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+> * [Azure Portal](dns-operations-recordsets-portal.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 本文介绍如何使用适用于 Windows、Mac 和 Linux 的跨平台 Azure 命令行接口 (CLI) 2.0 管理 DNS 区域的 DNS 记录。 也可以使用 [Azure PowerShell](dns-operations-recordsets.md) 或 [Azure 门户](dns-operations-recordsets-portal.md)管理 DNS 记录。
 
-## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
-
-可使用以下 CLI 版本之一完成任务：
-
-* [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md) - 适用于经典部署模型和资源管理部署模型的 CLI。
-* [Azure CLI 2.0](dns-operations-recordsets-cli.md) - 适用于资源管理部署模型的下一代 CLI。
-
 本文中的示例假设你[已安装 Azure CLI 2.0、已登录，并且已创建一个 DNS 区域](dns-operations-dnszones-cli.md)。
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 
 在 Azure DNS 中创建 DNS 记录之前，首先需了解 Azure DNS 如何将 DNS 记录组织到 DNS 记录集中。
 

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 05/08/2017
-ms.date: 12/18/2017
+origin.date: 12/07/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 77a71f512d065880e9b6c629295f7e28f95f7695
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 40af3f7dfcb6dab5ca730f969f5975a4c523f34e
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>使用 PowerShell 创建 Azure VM 的自定义映像
 
-自定义映像类似于应用商店映像，不同的是自定义映像的创建者是你自己。 自定义映像可用于启动配置，例如预加载应用程序、应用程序配置和其他 OS 配置。 在本教程中，你将创建自己的 Azure 虚拟机自定义映像。 你将学习如何执行以下操作：
+自定义映像类似于应用商店映像，不同的是自定义映像的创建者是你自己。 自定义映像可用于启动配置，例如预加载应用程序、应用程序配置和其他 OS 配置。 在本教程中，你将创建自己的 Azure 虚拟机自定义映像。 你将学习如何：
 
 > [!div class="checklist"]
 > * 使用 Sysprep 通用化 VM
@@ -34,9 +34,9 @@ ms.lasthandoff: 12/15/2017
 > * 列出订阅中的所有映像
 > * 删除映像
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 ` Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 下列步骤详细说明了如何将现有 VM 转换为可重用自定义映像，用于创建新的 VM 实例。
 
@@ -74,7 +74,7 @@ Set-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Generalized
 
 ## <a name="create-the-image"></a>创建映像
 
-现在，可以使用 [New-AzureRmImageConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimageconfig) 和 [New-AzureRmImage](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage) 来创建 VM 的映像。 以下示例从名为 myVM 的 VM 创建名为 myImage 的映像。
+现在，可以使用 [New-AzureRmImageConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimageconfig) 和 [New-AzureRmImage](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage) 来创建 VM 的映像。 以下示例从名为“myVM”的 VM 创建名为“myImage”的映像。
 
 获取虚拟机。 
 
@@ -193,7 +193,7 @@ Remove-AzureRmImage `
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已创建了一个自定义 VM 映像。 你已学习了如何执行以下操作：
+在本教程中，你已创建了一个自定义 VM 映像。 你已了解如何：
 
 > [!div class="checklist"]
 > * 使用 Sysprep 通用化 VM

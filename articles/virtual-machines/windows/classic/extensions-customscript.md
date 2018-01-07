@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 01/17/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2b5ebbe4056e0b3b858fc2f4c74629742f833457
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: d929c96ab31c729a208bb309e90ba26280b4de74
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>使用经典部署模型完成的适用于 Windows 的自定义脚本扩展
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/15/2017
 
 ## <a name="extension-schema"></a>扩展架构
 
-以下 JSON 显示自定义脚本扩展的架构。 扩展需要脚本位置（Azure 存储或其他具有有效 URL 的位置）以及命令才能执行。 如果使用 Azure 存储作为脚本源，则需 Azure 存储帐户名称和帐户密钥。 这些项目应视为敏感数据，并在扩展的受保护设置配置中指定。 Azure VM 扩展的受保护设置数据已加密，并且只能在目标虚拟机上解密。
+以下 JSON 显示自定义脚本扩展的架构。 扩展需要脚本位置（Azure 存储或其他具有有效 URL 的位置）以及命令才能执行。 如果使用 Azure 存储作为脚本源，则需要 Azure 存储帐户名称和帐户密钥。 这些项目应视为敏感数据，并在扩展的受保护设置配置中指定。 Azure VM 扩展的受保护设置数据已加密，并且只能在目标虚拟机上解密。
 
 ```json
 {
@@ -74,10 +74,10 @@ ms.lasthandoff: 12/15/2017
 
 ### <a name="property-values"></a>属性值
 
-| 名称 | 值/示例 |
+| Name | 值/示例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| publisher | Microsoft.Compute |
+| 发布者 | Microsoft.Compute |
 | 扩展 | CustomScriptExtension |
 | typeHandlerVersion | 1.8 |
 | fileUris（例如） | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
@@ -127,4 +127,4 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads
 ### <a name="support"></a>支持
 
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
-<!-- Update_Description:  add classic portal migration notice. -->
+<!-- Update_Description: update meta properties -->

@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-origin.date: 10/12/2017
-ms.date: 10/23/2017
+origin.date: 12/05/2017
+ms.date: 01/01/2018
 ms.author: v-johch
 ms.custom: mvc
-ms.openlocfilehash: a76b6177fc1407aa37d8cf53bac60e391ca3d27e
-ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
+ms.openlocfilehash: eff2af121653950ccc1c4ec04c75ed4e1742b334
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>模拟在访问读取访问冗余存储时出现的故障
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/18/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，需执行以下操作：
+完成本教程：
 
 * 下载并安装 [Fiddler](https://www.telerik.com/download/fiddler)
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/18/2017
 
 ## <a name="start-and-pause-the-application"></a>启动和暂停应用程序
 
-在 Visual Studio 中，按 F5 或选择“开始”即可开始调试应用程序。 应用程序开始从主终结点读取数据以后，按控制台窗口中的任意键即可暂停应用程序。
+在 Visual Studio 中，按 F5 或选择“启动”，开始调试应用程序。 应用程序开始从主终结点读取数据以后，按控制台窗口中的任意键即可暂停应用程序。
 
 ## <a name="simulate-failure"></a>模拟故障
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 10/18/2017
 
 应用程序重新开始运行以后，对主终结点的请求就会失败。 应用程序尝试重新连接到主终结点 5 次。 达到故障阈值（五次尝试）以后，就会从处于只读状态的辅助终结点请求图像。 成功地从辅助终结点检索图像 20 次以后，应用程序就会尝试连接到主终结点。 如果仍无法访问主终结点，应用程序会继续从辅助终结点读取数据。 此模式为[断路器](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker)模式，在前一教程中已介绍过。
 
-![粘贴自定义的规则](media/storage-simulate-failure-ragrs-account-app/figure3.png)
+![粘贴自定义规则](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
 ## <a name="simulate-primary-endpoint-restoration"></a>模拟主终结点还原
 

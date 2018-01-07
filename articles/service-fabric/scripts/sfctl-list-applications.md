@@ -12,17 +12,17 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: article
-origin.date: 09/19/2017
-ms.date: 11/13/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: 
-ms.openlocfilehash: 564dfaacb0f811d049079a0a844d2b4d60b47370
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 0e79f08a68dde85e36d315973d20207316356106
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
-# <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>将应用程序证书添加到 Service Fabric 群集
+# <a name="list-applications-running-in-a-service-fabric-cluster"></a>列出在 Service Fabric 群集中运行的应用程序
 
 此脚本示例将连接到 Service Fabric 群集并列出所有预配的应用程序。
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/09/2017
 
 # Select cluster
 sfctl cluster select \
-    --endpoint http://svcfab1.chinanorth2.cloudapp.chinacloudapi.cn:19080
+    --endpoint http://svcfab1.chinanorth.cloudapp.chinacloudapi.cn:19080
 
 # Retrieve all applications from the cluster
 sfctl application list
@@ -46,4 +46,4 @@ sfctl application list
 有关详细信息，请参阅 [Service Fabric CLI 文档](../service-fabric-cli.md)。
 
 在 [Service Fabric CLI 示例](../samples-cli.md)中可找到 Azure Service Fabric 的其他 Service Fabric CLI 示例。
-<!--Update_Description: new articles on list application with sfctl-->
+<!--Update_Description: update meta properties, wording update -->

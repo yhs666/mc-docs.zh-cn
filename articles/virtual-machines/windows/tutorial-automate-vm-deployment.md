@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 08/11/2017
-ms.date: 10/30/2017
+origin.date: 12/13/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 91807b26c1bab9a53002124fcb38e3deaeec98e6
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 3fc395f3503f2c24beff2f3914736058c586725e
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>如何在 Azure 中自定义 Windows 虚拟机
 若要以快速一致的方式配置虚拟机 (VM)，通常需要某种形式的自动化。 自定义 Windows VM 的一种常用方法是使用[适用于 Windows 的自定义脚本扩展](extensions-customscript.md)。 本教程介绍如何执行下列操作：
@@ -44,19 +44,19 @@ ms.lasthandoff: 10/27/2017
 ## <a name="create-virtual-machine"></a>创建虚拟机
 创建 VM 之前，需使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建资源组。 以下示例在“ChinaEast”位置创建名为“myResourceGroupAutomate”的资源组：
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location ChinaEast
 ```
 
 使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 的管理员用户名和密码：
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
 现在，可使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM。 以下示例创建所需的虚拟网络组件、OS 配置，然后创建名为“myVM”的 VM：
 
-```powershell
+```azurepowershell-interactive
 # Create a subnet configuration
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
     -Name mySubnet `
@@ -125,6 +125,7 @@ Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
     -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
+# Create a virtual machine using the configuration
 New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location ChinaEast -VM $vmConfig
 ```
 
@@ -133,13 +134,13 @@ New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location ChinaEast -VM
 ## <a name="automate-iis-install"></a>自动安装 IIS
 使用 [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) 安装自定义脚本扩展。 该扩展运行 `powershell Add-WindowsFeature Web-Server` 以安装 IIS Web 服务器，然后更新 Default.htm 页以显示 VM 的主机名：
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
     -ExtensionName IIS `
     -VMName myVM `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
-    -TypeHandlerVersion 1.4 `
+    -TypeHandlerVersion 1.8 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
     -Location ChinaEast
 ```
@@ -147,7 +148,7 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
 ## <a name="test-web-site"></a>测试网站
 使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例获取前面创建的“myPublicIP”的 IP 地址：
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmPublicIPAddress `
     -ResourceGroupName myResourceGroupAutomate `
     -Name myPublicIP | select IpAddress

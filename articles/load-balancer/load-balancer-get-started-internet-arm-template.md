@@ -13,18 +13,18 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2127f3cb0fe66216f591feeb60f4622af9587a21
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 83fcd81687e1e6a2a510e0962d43e3268063ff4b
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-a-template"></a>使用模板创建面向 Internet 的负载均衡器
 
 > [!div class="op_single_selector"]
-> * [门户](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [模板](../load-balancer/load-balancer-get-started-internet-arm-template.md)
@@ -32,10 +32,6 @@ ms.lasthandoff: 11/15/2017
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
-
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-本文介绍 Resource Manager 部署模型。 还可以[了解如何使用经典部署模型创建面向 Internet 的负载均衡器](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -72,7 +68,7 @@ ms.lasthandoff: 11/15/2017
         info:    New mode is arm
 
 3. 从浏览器中，导航到[快速入门模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules)，复制 json 文件的内容并粘贴到计算机中的一个新文件。 对于此方案，需要将下面的值复制到名为 **c:\lb\azuredeploy.parameters.json** 的文件。
-4. 运行 **azure group deployment create** cmdlet 以使用在前面下载并修改的模板和参数文件部署新的负载均衡器。 在输出后显示的列表说明了所用的参数。
+4. 运行 **azure group deployment create** cmdlet 以使用在前面下载并修改的模板和参数文件部署新的负载均衡器。 在输出后显示的列表说明了所使用的参数。
 
     ```azurecli
     azure group create --name TestRG --location chinanorth --template-file 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' --parameters-file 'c:\lb\azuredeploy.parameters.json'
@@ -86,4 +82,4 @@ ms.lasthandoff: 11/15/2017
 
 [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description:  wording update -->

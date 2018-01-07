@@ -15,17 +15,17 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 09/20/2017
-ms.date: 11/06/2017
+ms.date: 01/08/2018
 ms.author: v-johch
-ms.openlocfilehash: 8b3a71f4e46caf049849a1b1fe1671e05cbdfcba
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 1c8868a50fac078deae10ac31f6324078fbee603
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什么是 Azure SQL 数据库服务？ 
 
-SQL 数据库是 Azure 中通用的关系型数据库服务，支持关系数据、JSON、空间和 XML 等结构。 它提供[动态可缩放性能](sql-database-service-tiers.md)，并提供[列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)（用于极端分析和报告）和[内存中 OLTP](sql-database-in-memory.md)（用于极端事务处理）等选项。 Microsoft 可无缝处理 SQL 代码库的所有修补和更新，并避开底层基础结构的所有管理。 SQL 数据库在多个服务级别提供可预测的、动态可缩放的性能，主要表现在：无停机时间、内置智能优化、全局可伸缩性和可用性，以及高级安全选项 - 一切几乎不用人工管理。 借助这些功能，用户可将注意力集中在如何快速进行应用开发、加快推向市场，而不需要投入宝贵的时间和资源来管理虚拟机与基础结构。
+SQL 数据库是 Azure 中通用的关系型数据库服务，支持关系数据、JSON、空间和 XML 等结构。 它提供[动态可缩放性能](sql-database-service-tiers.md)，并提供[列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)（用于极端分析和报告）和[内存中 OLTP](sql-database-in-memory.md)（用于极端事务处理）等选项。 Microsoft 可无缝处理 SQL 代码库的所有修补和更新，并避开底层基础结构的所有管理。 SQL 数据库在多个服务级别提供可预测的、动态可缩放的性能，主要表现在：无停机时间、内置智能优化、全局可伸缩性和可用性，以及高级安全选项 - 一切几乎不用人工管理。 凭借这些功能，客户可将注意力集中在如何快速进行应用开发、加快推向市场，而无需将宝贵的时间和资源投入在管理虚拟机和基础结构上。
 
 > [!NOTE]
 > 有关 Azure 平台安全性的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/)。
@@ -44,6 +44,7 @@ SQL 数据库提供四个服务层，支持轻型到重型数据库工作负荷�
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>弹性池可以最大化资源利用率
 
 许多业务和应用程序只要能够创建单一数据库并按需调高或调低性能即可，尤其是当使用模式相对容易预测时。 但如果有无法预测的使用模式，则管理成本和业务模式就会变得相当困难。 [弹性池](sql-database-elastic-pool.md)旨在解决此问题。 概念很简单。 可以向池而不是单个数据库分配性能资源，并且仅需为池的总体性能资源付费，而无需为单一数据库的性能付费。 
+
    ![弹性池](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
 使用弹性池时，不需要在资源需求波动时担心如何上下调节数据库性能。 入池的数据库可根据需要使用弹性池的性能资源。 入池的数据库会使用该池，但不会超出其限制，因此即使单个数据库的使用情况仍不可预测，成本也仍是可预测的。 此外，可以 [向池添加和删除数据库](sql-database-elastic-pool-manage-portal.md)，将应用从少量数据库扩展到数千个，而一切费用不会超出由你控制的预算范围。 还可以控制池中数据库可用的资源量上限与下限，确保池中不会有任何数据库使用所有的池资源，每个入池数据库的可用资源量都有最低保障。 若要深入了解如何通过弹性池设计 SaaS 应用程序的模式，请参阅[具有 SQL 数据库的多租户 SaaS 应用程序的设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
@@ -109,9 +110,9 @@ SQL 数据库[透明数据加密](https://docs.microsoft.com/sql/relational-data
 
 SQL 数据库是使用 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 在动态、静态和查询处理期间提供敏感数据保护的唯一数据库系统。 Always Encrypted 是业界首创功能，可针对涉及关键数据被盗的漏洞提供无与伦比的数据安全性。 例如，借助 Always Encrypted，客户的信用卡卡号即使在查询处理期间也始终加密存储在数据库中，允许经授权员工或需要处理该数据的应用程序在使用时进行解密。
 
-### <a name="dynamic-data-masking"></a>动态数据掩码
+### <a name="dynamic-data-masking"></a>动态数据屏蔽
 
-[SQL 数据库动态数据掩码](sql-database-dynamic-data-masking-get-started.md)通过对非特权用户模糊化敏感数据来限制此类数据的泄露。 动态数据屏蔽允许客户指定在对应用层产生最小影响的前提下可以透露的敏感数据量，从而帮助防止未经授权的用户访问敏感数据。 它是一种基于策略的安全功能，会在针对指定的数据库字段运行查询后返回的结果集中隐藏敏感数据，同时保持数据库中的数据不变。
+[SQL 数据库动态数据掩码](sql-database-dynamic-data-masking-get-started.md)通过对非特权用户模糊化敏感数据来限制此类数据的泄露。 动态数据掩码允许客户指定在对应用层产生最小影响的前提下可以透露的敏感数据量，从而帮助防止未经授权的用户访问敏感数据。 它是一种基于策略的安全功能，会在针对指定的数据库字段运行查询后返回的结果集中隐藏敏感数据，同时保持数据库中的数据不变。
 
 ### <a name="row-level-security"></a>行级别安全性
 
@@ -119,7 +120,7 @@ SQL 数据库是使用 [Always Encrypted](https://docs.microsoft.com/sql/relatio
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 集成和多重身份验证
 
-通过 SQL 数据库，可使用 [Azure Active Directory 集成](sql-database-aad-authentication.md)集中管理数据库用户和其他 Microsoft 服务的身份。 此功能简化了权限管理，增强了安全性。 Azure Active Directory 支持[多重身份验证](sql-database-ssms-mfa-authentication.md) (MFA)，以便在支持单个单一进程的同时提高数据和应用程序安全性。
+通过 SQL 数据库，可使用 [Azure Active Directory 集成](sql-database-aad-authentication.md)集中管理数据库用户和其他 Microsoft 服务的身份。 此功能简化了权限管理，增强了安全性。 Azure Active Directory 支持[多重身份验证](sql-database-ssms-mfa-authentication.md) (MFA)，以便在支持单一登录进程的同时提高数据和应用程序安全性。
 
 ### <a name="compliance-certification"></a>符合性认证
 

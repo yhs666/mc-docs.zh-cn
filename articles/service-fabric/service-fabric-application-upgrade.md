@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9cc994b262c6bedcd9727d532bb229c259b412d2
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 9f92e72d5b5f3b939a09a0407a5772fd3968065a
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 应用程序升级
-Azure Service Fabric 应用程序是多个服务的集合。 在升级期间，Service Fabric 将新的[应用程序清单](service-fabric-application-model.md#describe-an-application)与前一版进行比较，并确定应用程序中的哪些服务需要更新。 Service Fabric 会将服务清单中的版本号与前一版中的版本号进行比较。 如果服务未更改，则不升级服务。
+Azure Service Fabric 应用程序是多个服务的集合。 在升级期间，Service Fabric 将新的[应用程序清单](service-fabric-application-and-service-manifests.md)与前一版进行比较，并确定应用程序中的哪些服务需要更新。 Service Fabric 会将服务清单中的版本号与前一版中的版本号进行比较。 如果服务未更改，则不升级服务。
 
 ## <a name="rolling-upgrades-overview"></a>滚动升级概述
 在应用程序滚动升级过程中，分阶段进行升级。 在每个阶段，对群集中的部分节点进行升级，这一部分节点称为更新域。 因此，应用程序在整个升级过程中保持可用。 升级期间，群集中可能混合了新旧版本。
@@ -48,14 +48,14 @@ Azure Service Fabric 应用程序是多个服务的集合。 在升级期间，S
 不受监视的手动模式在每次对更新域升级之后都需要人工干预，以开始进行下一个更新域的升级。 系统不会执行任何 Service Fabric 运行状况检查。 管理员开始在下一个更新域中升级之前，需执行状况或状态检查。
 
 ## <a name="upgrade-default-services"></a>升级默认服务
-可在应用程序升级过程中升级 Service Fabric 应用程序中的默认服务。 在[应用程序清单](service-fabric-application-model.md#describe-an-application)中定义默认服务。 升级默认服务的标准规则包括：
+可在应用程序升级过程中升级 Service Fabric 应用程序中的默认服务。 在[应用程序清单](service-fabric-application-and-service-manifests.md)中定义默认服务。 升级默认服务的标准规则包括：
 
-1. 创建该群集中不存在的新[应用程序清单](service-fabric-application-model.md#describe-an-application)中的默认服务。
+1. 创建该群集中不存在的新[应用程序清单](service-fabric-application-and-service-manifests.md)中的默认服务。
 > [!TIP]
 > 需将 [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) 设置为 true，以便启用以下规则。 从 v5.5 支持此功能。
 
-2. 更新默认服务，这些服务同时存在于以前的[应用程序清单](service-fabric-application-model.md#describe-an-application)及新版清单中。 新版中的服务说明会覆盖群集已有的说明。 默认服务更新失败时自动回滚应用程序升级。
-3. 删除以前的[应用程序清单](service-fabric-application-model.md#describe-an-application)中有的但新版本中没有的默认服务。 **请注意，删除的默认服务不能还原。**
+2. 更新默认服务，这些服务同时存在于以前的[应用程序清单](service-fabric-application-and-service-manifests.md)及新版清单中。 新版中的服务说明会覆盖群集已有的说明。 默认服务更新失败时自动回滚应用程序升级。
+3. 删除以前的[应用程序清单](service-fabric-application-and-service-manifests.md)中有的但新版本中没有的默认服务。 **请注意，删除的默认服务不能还原。**
 
 如果发生应用程序升级回退，默认服务将还原至升级开始前的状态。 但是，永远无法创建已删除的服务。
 
@@ -79,4 +79,4 @@ Azure Service Fabric 应用程序是多个服务的集合。 在升级期间，S
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

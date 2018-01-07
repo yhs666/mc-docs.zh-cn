@@ -12,32 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 06/29/2017
-ms.date: 08/28/2017
+origin.date: 11/23/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: aed8dbe10101fa2525e6aa632f9dc27d9ad8c431
-ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
+ms.openlocfilehash: 1645d78f5e0ba26edbdfdbbb310c1578605f5a0e
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 12/29/2017
 ---
-# <a name="manage-a-process-server-running-in-azure-resource-manager"></a>管理在 Azure（资源管理器）中运行的进程服务器
+# <a name="manage-a-process-server-running-in-azure-resource-manager"></a>管理在 Azure (Resource Manager) 中运行的进程服务器
 > [!div class="op_single_selector"]
 > * [Resource Manager](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
-<!-- Not Avaialble > * [Classic ](./site-recovery-vmware-setup-azure-ps-classic.md)-->
+> * [经典](./site-recovery-vmware-setup-azure-ps-classic.md)
+<!-- redirection  site-recovery-vmware-setup-azure-ps-classic.md to site-recovery-vmware-setup-azure-ps-resource-manager.md-->
 
 故障回复期间，如果 Azure 虚拟网络与本地网络之间存在高延迟，建议在 Azure 中部署进程服务器。 本文介绍如何设置、配置和管理在 Azure 中运行的进程服务器。
 
 > [!NOTE]
-> 本文适用于在故障转移期间使用 **Resource Manager** 作为虚拟机部署模型的情况。
-<!--  If you used **Classic** as the deployment model, follow the steps in [How to set up & configure a Failback process server (Classic)](./site-recovery-vmware-setup-azure-ps-classic.md) -->
+> 本文适用于在故障转移期间使用 **Resource Manager** 作为虚拟机部署模型的情况。 如果使用**经典**部署模型作为部署模型，请按照[如何设置和配置故障回复进程服务器（经典）](./site-recovery-vmware-setup-azure-ps-classic.md)中的步骤进行操作
+
 ## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
 ## <a name="deploy-a-process-server-on-azure"></a>在 Azure 上部署进程服务器
 1. 在“保管库”>“Site Recovery 基础结构”（在“管理”标题下）>“配置服务器”（在“针对 VMware 和物理计算机”标题下）中，选择配置服务器。
-2. 在打开的“配置服务器”详细信息页中，单击“+ 进程服务器”
+2. 在打开的“配置服务器详细信息”页中，单击“+ 进程服务器”
 
   ![添加进程服务器库](./media/site-recovery-vmware-setup-azure-ps-arm/add-ps.png)
 
@@ -48,9 +49,9 @@ ms.lasthandoff: 09/04/2017
 |-|-|
 |选择想要部署进程服务器的位置|选择“在 Azure 中部署故障回复进程服务器”  |
 |订阅|选择在其中故障转移了虚拟机的 Azure 订阅|
-|资源组|可创建资源组来部署此进程服务器，或选择将进程服务器部署到现有资源组中|
+|资源组|可以创建资源组以部署此进程服务器，或者选择在现有资源组中部署进程服务器|
 |位置|选择虚拟机要故障转移到其中的 Azure 数据中心|
-|Azure 网络|选择虚拟机已故障转移到的 Azure 虚拟网络 (VNet)。 如果将虚拟机故障转移到多个 Azure Vnet 中，则需要在每 VNet 中部署一台进程服务器|
+|Azure 网络|选择虚拟机已故障转移到的 Azure 虚拟网络(VNet)。 如果将虚拟机故障转移到多个 Azure Vnet 中，则需要在每 VNet 中部署一台进程服务器|
 
 4. 填写其余的进程服务器属性
 
@@ -78,3 +79,4 @@ ms.lasthandoff: 09/04/2017
 ## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>将进程服务器（在 Azure 中运行）从配置服务器（在本地运行）中注销
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
+<!-- Update_Description: update link -->

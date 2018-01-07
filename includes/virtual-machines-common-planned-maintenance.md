@@ -37,6 +37,7 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 ### <a name="paired-regions"></a>配对区域
 
 每个 Azure 区域与同一地理位置中另一个区域配对，共同组成一个区域对。 在计划内维护期间，Azure 只会更新一个区域对中单个区域的 VM。 例如，更新中国北部的虚拟机时，Azure 不会同时更新中国东部的任何虚拟机。 但是，中国北部等其他区域可以与中国东部同时进行维护。 了解区域对的工作原理有助于更好地跨区域分配 VM。
+<!-- Not Available on  For more information, see [Azure region pairs](/best-practices-availability-paired-regions) -->
 
 ### <a name="availability-sets-and-scale-sets"></a>可用性集和规模集
 
@@ -46,7 +47,7 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 虚拟机规模集是一种 Azure 计算资源，支持将一组相同的 VM 作为单个资源进行部署和管理。 规模集自动跨更新域进行部署，此类更新域就像可用性集中的 VM 一样。 使用规模集时，就像使用可用性集一样，在任何给定的时间都只会影响单个更新域。
 
-有关配置虚拟机以实现高可用性的详细信息，请参阅“管理适用于 Windows (../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 的虚拟机的可用性”。
+有关配置虚拟机以实现高可用性的详细信息，请参阅“管理 [Windows](../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虚拟机的可用性”。
 
 <!--Update_Description: wording update-->
-<!--ms.date: 10/23/2017-->
+<!--ms.date: 01/08/2018,  NO Changes TO OVERWRITE ON ZH-CN REPOSITORY -->

@@ -14,20 +14,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/10/2017
-ms.date: 12/18/2017
+ms.date: 01/01/2018
 ms.author: v-nany
-ms.openlocfilehash: 90dd19547030bbfa2033b57660040ec3c448b74b
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: 58b0bec621367b3fbe562353f1060908cb08b644
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>通过 Azure CLI 2.0 开始使用 Azure DNS
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
-> * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
 本文指导完成使用跨平台的 Azure CLI 2.0（适用于 Windows、Mac 和 Linux）创建第一个 DNS 区域和记录的步骤。 也可以使用 Azure 门户或 Azure PowerShell 执行这些步骤。

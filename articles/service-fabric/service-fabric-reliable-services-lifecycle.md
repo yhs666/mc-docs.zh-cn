@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 696e62c016e44db1a22bb46f2a254b7ac2111a84
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 037efda2359b9a796e5c6ec2e745c19763ec33c9
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 生命周期概述
 > [!div class="op_single_selector"]
@@ -136,4 +136,4 @@ Service Fabric 更改有状态服务的主要副本的原因有多种。 最常�
 - [Reliable Services 高级用法](service-fabric-reliable-services-advanced-usage.md)
 - [副本和实例](service-fabric-concepts-replica-lifecycle.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

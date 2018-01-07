@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/10/2017
-ms.date: 11/20/2017
+origin.date: 12/08/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 21b7c834fd568eacd5695a335abd89677e96fad2
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 0eb28446e3e1a10c5c58c37ed627ea1585157c4f
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure 到 Azure 复制体系结构
 
@@ -81,4 +81,4 @@ ms.lasthandoff: 11/15/2017
 复查支持矩阵，按照本教程启用从 Azure VM 到次要区域的复制。
 运行故障转移和故障回复。
 
-<!-- Update_Description: new articles on site recovery concepts azure to azure architecture -->
+<!-- Update_Description: update meta properties -->

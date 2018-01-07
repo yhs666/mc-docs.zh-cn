@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 origin.date: 09/08/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: f23b3bab22382a92cc9052e59713acb8cc8789f8
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 6a31e9c66296df8ac4701e4edf7cfccc70a1169a
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
@@ -29,7 +29,7 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 
 ## <a name="sign-in-issues"></a>登录问题
 
-仅支持 Azure Active Directory (AAD) 帐户。 如果使用 ADFS 帐户，预计将无法正常登录存储资源管理器。 继续之前，请尝试重新启动应用程序，看问题是否能够解决。
+仅支持 Azure Active Directory (AAD) 帐户。 如果使用 ADFS 帐户，预计将无法正常登录存储资源管理器。 在继续之前，尝试重启应用程序，并检查是否已解决问题。
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>错误：证书链中的自签名证书
 
@@ -172,7 +172,15 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 
 - 请确认 URL 未过期。
 
-- 如果 SAS URL建立在访问策略基础上，请验证该访问策略是否被撤销。
+- 如果 SAS URL 基于访问策略，请确认访问策略尚未吊销。
+
+如果意外附加了无效的 SAS URL，并且无法分离，请执行以下步骤：
+1.  运行存储资源管理器时，按 F12 打开开发人员工具窗口。
+2.  单击“应用程序”选项卡，然后单击左侧树中的“本地存储”> file://。
+3.  查找与有问题的 SAS URI 服务类型关联的键。 例如，如果用于 blob 容器的 SAS URI 错误，请查找名为“StorageExplorer_AddStorageServiceSAS_v1_blob”的键。
+4.  键的值应为 JSON 数组。 查找与错误 URI 关联的对象，并将其删除。
+5.  按 Ctrl+R 重新加载存储资源管理器。
+
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4a942b6be30ea97f9e97b29bb6e433068b52e1a9
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: fd8ce3bbba8995372c7be343730edf3a0bb193a3
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>使用 Azure CLI 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型
 以下步骤演示如何使用 Azure 命令行接口 (CLI) 命令将基础结构即服务 (IaaS) 资源从经典部署模型迁移到 Azure Resource Manager 部署模型。 本文中的操作需要 [Azure CLI 1.0](../../cli-install-nodejs.md)。 由于 Azure CLI 2.0 仅适用于 Azure 资源管理器资源，因此它不能用于此迁移。
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/15/2017
 > 
 
 ## <a name="step-2-set-your-subscription-and-register-the-provider"></a>步骤 2：设置订阅并注册提供程序
-对于迁移方案，需要针对经典部署模型和 Resource Manager 部署模型设置环境。 [安装 Azure CLI](../../cli-install-nodejs.md) 并[选择订阅](../../xplat-cli-connect.md)。
+对于迁移方案，需要针对经典部署模型和 Resource Manager 部署模型设置环境。 [安装 Azure CLI](../../cli-install-nodejs.md) 并[选择订阅](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest)。
 
 登录到帐户。
 
@@ -85,8 +85,7 @@ ms.lasthandoff: 12/15/2017
 azure config mode arm
 ```
 
-可以使用以下 CLI 命令检查 Azure 资源管理器中目前的 vCPU 数量。  
-<!-- Not Available on azure-subscription-service-limits.md -->
+可以使用以下 CLI 命令检查 Azure 资源管理器中目前的 vCPU 数量。 若要了解有关 vCPU 配额的详细信息，请参阅[限制和 Azure 资源管理器](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)。
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
@@ -189,4 +188,4 @@ azure network vnet validate-migration <virtualNetworkName>
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

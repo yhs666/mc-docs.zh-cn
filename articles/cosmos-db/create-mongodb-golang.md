@@ -8,13 +8,14 @@ editor: mimig1
 ms.service: cosmos-db
 ms.topic: quickstart
 origin.date: 07/21/2017
-ms.date: 10/23/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: e62007ccfbd147569ae276b6696a546e9e0cf801
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.custom: mvc
+ms.openlocfilehash: 9efda5aa846565eecb50f94093eafcbeb95ebe46
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB：使用 Golang 和 Azure 门户生成 MongoDB API 控制台应用
 
@@ -247,4 +248,4 @@ if err != nil {
 > [!div class="nextstepaction"]
 > [将 MongoDB API 的数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->

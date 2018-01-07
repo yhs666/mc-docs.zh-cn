@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/05/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: dd636ed351d476e91de3388aa4c7fa09b6e66ffc
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 224cc165e23d15d2a90a1ea9f29b1b72cb13b893
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-use-availability-sets"></a>如何使用可用性集
 
-本教程介绍如何使用称作“可用性集”的功能提高 Azure 上虚拟机解决方案的可用性和可靠性。 可用性集可确保在 Azure 上部署的 VM 能够跨多个隔离的硬件群集分布。 这样，就可以确保当 Azure 中发生硬件或软件故障时，只有一部分 VM 会受到影响，整体解决方案仍可使用和正常工作。 
+本教程介绍如何使用称作“可用性集”的功能提高 Azure 上虚拟机解决方案的可用性和可靠性。 可用性集可确保在 Azure 上部署的 VM 能够跨群集中多个隔离的硬件节点分布。 这样，就可以确保当 Azure 中发生硬件或软件故障时，只有一部分 VM 会受到影响，整体解决方案仍可使用和正常工作。 
 
 本教程介绍如何执行下列操作：
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/15/2017
 > * 检查可用的 VM 大小
 <!-- Not Available on > * Check Azure Advisor-->
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 ` Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 
 ## <a name="availability-set-overview"></a>可用性集概述
 
@@ -53,13 +53,13 @@ ms.lasthandoff: 12/15/2017
 
 创建资源组。
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location ChinaEast
 ```
 
 使用 -sku aligned 参数通过 [New-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermavailabilityset) 创建托管的可用性集。
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmAvailabilitySet `
    -Location ChinaEast `
    -Name myAvailabilitySet `
@@ -79,7 +79,7 @@ New-AzureRmAvailabilitySet `
 
 在可用性集中使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建两个 VM。
 
-```powershell
+```azurepowershell-interactive
 $availabilitySet = Get-AzureRmAvailabilitySet `
     -ResourceGroupName myResourceGroupAvailability `
     -Name myAvailabilitySet
@@ -184,7 +184,7 @@ for ($i=1; $i -le 2; $i++)
 
 稍后可向可用性集添加更多 VM，但需了解在硬件上可用的 VM 大小。 使用 [Get-AzureRMVMSize](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmsize) 列出可用性集的硬件群集上所有可用的大小。
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVMSize `
    -AvailabilitySetName myAvailabilitySet `
    -ResourceGroupName myResourceGroupAvailability  

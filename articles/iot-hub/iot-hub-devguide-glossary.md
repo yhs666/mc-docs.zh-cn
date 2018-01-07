@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 12/18/2017
-ms.openlocfilehash: 015715e97d6cf438d06f37fb541ceb21e66e92c4
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 01/15/2018
+ms.openlocfilehash: 10d8bb9923f41f0e117ced3583f0e04f37635517
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。
@@ -36,9 +36,6 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="azure-iot-device-sdks"></a>Azure IoT 设备 SDK
 提供了多种语言的 _设备 SDK_ ，以便于用户创建与 IoT 中心交互的 [设备应用](#device-app) 。 IoT 中心教程介绍了如何使用这些设备 SDK。 可以在此 GitHub [存储库](https://github.com/Azure/azure-iot-sdks)中找到有关设备 SDK 的源代码和进一步信息。
-
-## <a name="azure-iot-edge"></a>Azure IoT Edge
-可以使用 IoT Edge 编写应用程序，使连接到网关的设备能够与 [IoT 中心](#iot-hub)通信。 IoT Edge 教程介绍了如何使用此服务。 可以在此 GitHub [存储库](https://github.com/Azure/iot-edge)中找到有关 Azure IoT Edge 的源代码和更多信息。
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT 服务 SDK
 提供了多种语言的 _服务 SDK_ ，以便于用户创建与 IoT 中心交互的 [后端应用](#back-end-app) 。 IoT 中心教程介绍了如何使用这些服务 SDK。 可以在此 GitHub [存储库](https://github.com/Azure/azure-iot-sdks)中找到有关服务 SDK 的源代码和进一步信息。
@@ -76,7 +73,7 @@ ms.lasthandoff: 12/08/2017
 - *IoT 中心连接字符串* 使后端应用能够连接到 IoT 中心上面向服务的终结点。
 
 ## <a name="custom-endpoints"></a>自定义终结点
-可在 IoT 中心创建自定义[终结点](./iot-hub-devguide-endpoints.md)来传递由[路由规则](#routing-rules)调度的消息。 自定义终结点会直接连接到事件中心、服务总线队列或服务总线主题。
+可在 IoT 中心创建自定义[终结点](./iot-hub-devguide-endpoints.md)来传递由[路由规则](#routing-rules)调度的消息。 自定义终结点直接连接事件中心、服务总线队列或服务总线主题。
 
 ## <a name="custom-gateway"></a>自定义网关
 网关使不能直接连接到 [IoT 中心](#iot-hub)的设备能建立连接。 可以使用 [Azure IoT Edge](#azure-iot-edge) 生成自定义网关，以便使用自定义逻辑处理消息、自定义协议转换和进行边缘上的其他处理。
@@ -123,7 +120,7 @@ ms.lasthandoff: 12/08/2017
 ## <a name="device-messaging-rest-api"></a>设备消息传送 REST API
 可以在设备上使用[设备消息传送 REST API](https://docs.microsoft.com/rest/api/iothub/httpruntime)，将设备到云消息发送到 IoT 中心，以及从 IoT 中心接收[云到设备](#cloud-to-device)的消息。 通常情况下，使用 IoT 中心教程中演示的一种较高级别的 [设备 SDK](#azure-iot-device-sdks) 。
 
-## <a name="device-provisioning"></a>设备预配
+## <a name="device-provisioning"></a>Device Provisioning
 设备预配是将初始[设备数据](#device-data)添加到解决方案中的存储的过程。 要使新设备能够连接到中心，必须将新设备 ID 和密钥添加到 IoT 中心的[标识注册表](#identity-registry)。 在预配过程中，可能需要初始化其他解决方案存储中的设备特定数据。
 
 ## <a name="device-twin"></a>设备孪生
@@ -165,6 +162,8 @@ IoT 中心公开了多个[终结点](./iot-hub-devguide-endpoints.md)，以便�
 ## <a name="interactive-message"></a>交互式消息
 交互式消息是 [云到设备](#cloud-to-device) 的消息，可在解决方案后端触发即时操作。 例如，设备可能会发送故障警报，而该故障会自动记录到 CRM 系统中。
 
+[!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
+
 ## <a name="iot-hub"></a>IoT 中心
 IoT 中心是一项完全托管的 Azure 服务，可在数百万个设备和一个解决方案后端之间实现安全可靠的双向通信。 有关详细信息，请参阅[什么是 Azure IoT 中心？](./iot-hub-what-is-iot-hub.md) 使用 [Azure 订阅](#subscription)可以创建 IoT 中心来处理 IoT 消息传送工作负荷。
 
@@ -178,7 +177,7 @@ IoT 中心是一项完全托管的 Azure 服务，可在数百万个设备和一
 可以使用 [IoT 中心资源提供程序 REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) 管理 [Azure 订阅](#subscription)中的 IoT 中心，以便执行创建、更新和删除中心等操作。
 
 ## <a name="iot-suite"></a>IoT 套件
-Azure IoT 套件将多个 Azure 服务与预配置解决方案打包在一起。 有了这些预配置解决方案，用户就可以快速启动常见 IoT 方案的端到端实现。 有关详细信息，请参阅 [什么是 Azure IoT 套件？](../iot-suite/iot-suite-overview.md)
+Azure IoT 套件将多个 Azure 服务和预配置解决方案打包在一起。 有了这些预配置解决方案，用户就可以快速启动常见 IoT 方案的端到端实现。 有关详细信息，请参阅 [什么是 Azure IoT 套件？](../iot-suite/iot-suite-overview.md)
 
 ## <a name="iothub-explorer"></a>iothub-explorer
 [iothub-explorer](https://github.com/azure/iothub-explorer) 是跨平台的命令行工具。 使用该工具可以管理 [标识注册表](#identity-registry)中的设备、向设备发送消息和文件和接收来自设备的消息和文件，以及监视 IoT 中心的操作。
@@ -188,9 +187,6 @@ Azure IoT 套件将多个 Azure 服务与预配置解决方案打包在一起。
 
 ## <a name="jobs-rest-api"></a>作业 REST API
 使用[作业 REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) 可以管理 IoT 中心内运行的[作业](#job)。
-
-## <a name="module"></a>模块
-在 [Azure IoT Edge](./iot-hub-linux-iot-edge-get-started.md) 中，[模块](./iot-hub-linux-iot-edge-get-started.md)是执行特定任务的组件。 任务可能包括从设备引入消息、转换消息，或者将消息发送到 IoT 中心。 中转站负责在模块之间转发消息。 Azure IoT Edge 包括一组示例模块。 用户还可以创建自己的自定义模块。
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) 是 [IoT 中心](#iot-hub)支持的与设备进行通信的消息传递协议之一。 有关 IoT 中心支持的消息传递协议的详细信息，请参阅[使用 IoT 中心发送和接收消息](./iot-hub-devguide-messaging.md)。

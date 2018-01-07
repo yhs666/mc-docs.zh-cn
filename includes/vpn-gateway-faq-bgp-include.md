@@ -10,7 +10,7 @@
 ### <a name="are-there-asns-reserved-by-azure"></a>是否存在由 Azure 保留的 ASN？
 是，Azure 保留了以下 ASN 用于内部和外部的对等互连：
 
-- 公用 ASN：8075、8076、12076
+- 公用 ASN：8074、8075、12076
 - 专用 ASN：65515、65517、65518、65519、65520
 
 连接到 Azure VPN 网关时，不能为本地 VPN 设备指定这些 ASN。
@@ -23,7 +23,7 @@
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>能否将同一个 ASN 同时用于本地 VPN 网络和 Azure VNet？
 否，必须在本地网络和 Azure VNet 之间分配不同 ASN（如果要使用 BGP 将它们连接在一起）。 无论是否为跨界连接启用了 BGP，都会为 Azure VPN 网关分配默认 ASN（即 65515）。 可以通过在创建 VPN 网关时分配不同 ASN，或者在创建网关后更改 ASN 来覆盖此默认值。 需要将本地 ASN 分配给相应的 Azure 本地网关。
 
-### <a name="what-address-prefixes-will-azure-vpn-gateways-advertise-to-me"></a>Azure VPN 网关会播发给我哪些地址前缀？
+### <a name="what-address-prefixes-will-azure-vpn-gateways-advertise-to-me"></a>Azure VPN 网关将播发给我哪些地址前缀？
 Azure VPN 网关会将以下路由播发到本地 BGP 设备：
 
 - VNet 地址前缀
@@ -73,4 +73,4 @@ Azure 本地网关为本地网络指定初始地址前缀。 使用 BGP 时，�
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>应为 BGP 对等会话添加到本地 VPN 设备什么内容？
 应在指向 IPsec S2S VPN 隧道的 VPN 设备上添加 Azure BGP 对等节点 IP 地址的主机路由。 例如，如果 Azure VPN 对等节点 IP 为“10.12.255.30”，则应在 VPN 设备上添加“10.12.255.30”的主机路由（包含匹配的 IPsec 隧道接口的下一跃点接口）。
 
-<!-- ms.date: 11/07/2017 -->
+<!-- ms.date: 01/02/2018 -->

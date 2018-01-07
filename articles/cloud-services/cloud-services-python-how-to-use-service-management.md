@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 09/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6ec2cfe6a1e649ea1b6832a18d2e1cff865163c2
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.openlocfilehash: 5fa1c99d023e2a14f46b5ff9e4ed8b54061787b2
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-use-service-management-from-python"></a>如何从 Python 使用服务管理
 本指南说明如何以编程方式从 Python 执行常见服务管理任务。 [用于 Python 的 Azure SDK](https://github.com/Azure/azure-sdk-for-python) 中的 ServiceManagementService 类支持以编程方式访问 [Azure 经典门户][management-portal]中提供的众多与服务管理相关的功能（例如创建、更新和删除云服务、部署、数据管理服务和虚拟机）。 此功能可用于构建需要以编程方式访问服务管理的应用程序。
@@ -418,7 +418,7 @@ result = sms.capture_vm_image(
 images = sms.list_vm_images()
 ```
 
-为了最后使用捕获的映像创建虚拟机，请像前面一样使用 create\_virtual\_machine\_deployment 方法，不过这次改为传入 vm_image_name
+最后，为了使用捕获的映像创建虚拟机，请像前面一样使用 **create\_virtual\_machine\_deployment** 方法，不过这次要传入 vm_image_name
 
 ```
 from azure import *
@@ -445,9 +445,9 @@ sms.create_virtual_machine_deployment(service_name=name,
     vm_image_name = image_name)
 ```
 
-若要了解有关如何捕获 Linux 虚拟机的详细信息，请参阅[如何捕获 Linux 虚拟机。](../virtual-machines/virtual-machines-linux-classic-capture-image.md)
+若要了解有关如何捕获 Linux 虚拟机的详细信息，请参阅[如何捕获 Linux 虚拟机。](../virtual-machines/linux/classic/capture-image.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
-若要了解有关如何捕获 Windows 虚拟机的详细信息，请参阅[如何捕获 Windows 虚拟机。](../virtual-machines/virtual-machines-windows-classic-capture-image.md)
+若要了解有关如何捕获 Windows 虚拟机的详细信息，请参阅[如何捕获 Windows 虚拟机。](../virtual-machines/windows/classic/capture-image.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="What's Next"> </a>后续步骤
 
@@ -473,7 +473,7 @@ sms.create_virtual_machine_deployment(service_name=name,
 [How to: Create a virtual machine]: #CreateVM
 [How to: Delete a virtual machine]: #DeleteVM
 [Next Steps]: #NextSteps
-[management-portal]: https://manage.windowsazure.cn/
+[management-portal]: https://portal.azure.cn/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/zh-cn/library/windowsazure/ee460799.aspx
 
 [云服务]: /cloud-services/

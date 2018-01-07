@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9928bedbdddb43792e746686b59e7fd593848659
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 3f3bcc9fe3469221dec740e3f4f2dd31665759c1
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>如何在 Azure VM 上重置本地 Linux 密码
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 12/15/2017
     cp /etc/passwd_orig /etc/passwd
     cp /etc/shadow_orig /etc/shadow
     ~~~~
-    
+
 10. 返回到根目录并卸载磁盘。
 
     ~~~~
@@ -110,4 +110,4 @@ ms.lasthandoff: 12/15/2017
 
 * [Azure CLI: How to delete and re-deploy a VM from VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)（Azure CLI：如何从 VHD 删除和重新部署 VM）
 
-<!--Update_Description: update meta properties， wording update -->
+<!--Update_Description: update meta properties -->

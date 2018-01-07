@@ -15,11 +15,11 @@ ms.workload: storage
 origin.date: 06/03/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 36cc6dbc2425c5ae6195b6cd7a2aa7c094ef3a1c
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 006f27b22ae24dd5cd9535fafd43ed8853284ef2
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-storage-samples"></a>Azure 存储示例
 
@@ -71,7 +71,7 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 | 语言 | API 参考 | 源代码 |
 |----------|---------------|-------------|
 | .NET | [.NET 客户端库参考](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [.NET 存储客户端库的源代码](https://github.com/Azure/azure-storage-net) |
-| Java | [Java 客户端库参考](https://docs.azure.cn/java/api/overview/azure/storage) | [Java 存储客户端库的源代码](https://github.com/azure/azure-storage-java) |
+| Java | [Java 客户端库参考](https://docs.microsoft.com/java/api/overview/azure/storage) | [Java 存储客户端库的源代码](https://github.com/azure/azure-storage-java) |
 | Node.js | [Node.js 客户端库参考](http://azure.github.io/azure-storage-node) | [Node.js 存储客户端库的源代码](https://github.com/Azure/azure-storage-node) |
 | C++ | [C++ 客户端库参考](http://azure.github.io/azure-storage-cpp/) | [C++ 存储客户端库的源代码](https://github.com/Azure/azure-storage-cpp)|
 

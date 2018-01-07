@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/04/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: a21168b95c89f1218a15838b6d50fa8eeba2e64e
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 88fe2ba03b4d9dd6757b0104c626228e596e812f
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>创建第一个 C# Service Fabric 有状态 Reliable Services 应用程序
 
@@ -83,7 +83,7 @@ Visual Studio 会创建应用程序项目和有状态服务项目，并在解决
 
 我们使用的有状态服务模板直接显示在 **MyStatefulService.cs** 的 `RunAsync` 方法中递增的计数器值。
 
-展开事件之一可查看更多详细信息，包括运行代码的节点。 在此例中，它是 \_Node\_2，不过在你的计算机上可能会有所不同。
+展开事件之一可查看更多详细信息，包括运行代码的节点。 在此例中，它是 \_Node\_0，不过在你的计算机上可能会有所不同。
 
 ![诊断事件查看器详细信息][6]
 
@@ -145,4 +145,4 @@ Visual Studio 会创建应用程序项目和有状态服务项目，并在解决
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

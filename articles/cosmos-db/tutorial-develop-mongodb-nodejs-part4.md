@@ -11,15 +11,16 @@ ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: tutorial
 origin.date: 09/05/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 62573d42b3d35425fefb0d1a9d48cf847fafaf96
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.custom: mvc
+ms.openlocfilehash: 62a4170cc54bda99f0e63ec854a1798dd048bb41
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 - 第 4 部分：使用 Azure CLI 创建 Azure Cosmos DB 帐户
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 11/24/2017
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
 
 > [!TIP]
-> 本教程介绍分步生成应用程序的步骤。 若要下载完成的项目，可从 GitHub 上的 [angular-cosmosdb 存储库](https://github.com/Azure-Samples/angular-cosmosdb)获取完成的应用程序。
+> 本教程介绍生成应用程序的各个步骤。 若要下载完成的项目，可从 GitHub 上的 [angular-cosmosdb 存储库](https://github.com/Azure-Samples/angular-cosmosdb)获取完成的应用程序。
 
 ## <a name="create-an-azure-cosmos-db-account"></a>创建 Azure Cosmos DB 帐户
 

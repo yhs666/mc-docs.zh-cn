@@ -10,17 +10,18 @@ tags:
 ms.assetid: 14bcb94e-583c-46f7-9ea8-db010eb2ab43
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 origin.date: 11/15/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3adce9eaaba588623d835500cae4bc4624bc28d4
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.custom: mvc
+ms.openlocfilehash: d3ec53944fb5bd718c116f3838e7669edd72b3eb
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB：如何使用表 API 查询表数据
 
@@ -39,7 +40,7 @@ Azure Cosmos DB [表 API](table-introduction.md) 支持针对键/值（表）数
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-有关如何使用表 API 进行查询的详细信息，请参阅[查询表和实体] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities)。 
+有关如何使用表 API 执行查询的详细信息，请参阅[查询表和实体](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities)。 
 
 有关 Azure Cosmos DB 所提供的高级功能的详细信息，请参阅 [Azure Cosmos DB 表 API](table-introduction.md) 和[使用 .NET 通过表 API 进行开发](tutorial-develop-table-dotnet.md)。 
 

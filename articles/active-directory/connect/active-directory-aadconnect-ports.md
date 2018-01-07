@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 08/02/2017
 ms.date: 08/23/2017
 ms.author: v-junlch
-ms.openlocfilehash: c04164092cb81cbd896bf84fd8f1a2d69f1d0c62
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 2c2a8d90c41b569dd3b7c261ab3bd7f38bb36fd7
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>混合标识所需的端口和协议
 以下文档是用于实现混合标识解决方案所需的端口和协议的技术参考。 使用下图并参考相应的表格。
@@ -34,7 +34,7 @@ ms.lasthandoff: 08/25/2017
 | DNS |53 (TCP/UDP) |在目标林中进行 DNS 查找。 |
 | Kerberos |88 (TCP/UDP) |对 AD 林进行 Kerberos 身份验证。 |
 | MS-RPC |135 (TCP/UDP) |该端口绑定到 AD 林后，将在初始配置 Azure AD Connect 向导期间及密码同步期间使用。 |
-| LDAP |389 (TCP/UDP) |用于从 AD 导入数据。 数据将使用 Kerberos 签名和签章加密。 |
+| LDAP |389 (TCP/UDP) |用于从 AD 导入数据。 使用 Kerberos 签名和封装加密数据。 |
 | RPC | 445 (TCP/UDP) |由无缝 SSO 用于在 AD 林中创建计算机帐户。 |
 | LDAP/SSL |636 (TCP/UDP) |用于从 AD 导入数据。 数据传输经过签名和加密。 仅使用 SSL 时才使用该端口。 |
 | RPC |49152-65535（随机高 RPC 端口）(TCP/UDP) |该端口绑定到 AD 林后，将在初始配置 Azure AD Connect 期间及密码同步期间使用。 有关详细信息，请参阅 [KB929851](https://support.microsoft.com/kb/929851)、[KB832017](https://support.microsoft.com/kb/832017) 和 [KB224196](https://support.microsoft.com/kb/224196)。 |
@@ -84,23 +84,12 @@ ms.lasthandoff: 08/25/2017
 
 此外，Azure AD Connect 需要能够建立到 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/details.aspx?id=42064)的直接 IP 连接。
 
-### <a name="table-6b---password-hash-sync-with-sso"></a>表 6b - SSO 的密码哈希同步
+### <a name="table-6b---password-hash-sync-with-sso"></a>表 6b - 通过 SSO 进行密码哈希同步
 
 |协议|端口号|说明
 | --- | --- | ---
 |HTTPS|443| 启用 SSO 注册（只有 SSO 注册过程才需要）。
 
 此外，Azure AD Connect 需要能够建立到 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/details.aspx?id=42064)的直接 IP 连接。 同样，这只是 SSO 注册过程所需的。
-
-## <a name="table-7a--7b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>表 7a 和 7b - 适用于 (AD FS/Sync) 和 Azure AD 的 Azure AD Connect Health 代理
-下表描述了在 Azure AD Connect Health 代理与 Azure AD 之间通信所需的终结点、端口和协议
-
-### <a name="table-7a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>表 7a - 适用于 (AD FS/Sync) 和 Azure AD 的 Azure AD Connect Health 代理的端口和协议
-此表描述了 Azure AD Connect Health 代理与 Azure AD 之间通信所需的以下出站端口和协议。  
-
-| 协议 | 端口 | 说明 |
-| --- | --- | --- |
-| HTTPS |443 (TCP/UDP) |出站 |
-| Azure 服务总线 |5671 (TCP/UDP) |出站 |
 
 <!--Update_Description: wording update -->

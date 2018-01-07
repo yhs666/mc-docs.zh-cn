@@ -15,14 +15,14 @@ ms.topic: article
 origin.date: 07/07/2017
 ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: 61dae2bc1f8907df5dab3eaf6c784f639a6896c8
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 10b407654fddc48ed7db165fa2489ddbfc0a43f1
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="best-practices-for-autoscale"></a>自动缩放最佳实践
-本文讲解 Azure 中自动缩放的最佳实践。 Azure 监视器自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/cloud-services/)和[应用服务 - Web 应用](/app-service/web/)。 其他 Azure 服务使用不同的缩放方法。
+本文介绍在 Azure 中自动缩放的最佳做法。 Azure 监视器自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/cloud-services/)和[应用服务 - Web 应用](/app-service/web/)。 其他 Azure 服务使用不同的缩放方法。
 
 ## <a name="autoscale-concepts"></a>自动缩放概念
 * 一个资源只能具有 *一个* 自动缩放设置
@@ -41,13 +41,10 @@ ms.lasthandoff: 12/01/2017
 如果设置的最小值和最大值都为 2，并且当前的实例计数为 2，则不可能执行缩放操作。 在最大和最小实例计数（包含）之间保留足够的余量。 自动缩放始终在这些限值之间执行缩放操作。
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>手动缩放通过自动缩放最小和最大值来重置
-如果手动将实例计数更新为高于或低于最大值的值，则自动缩放引擎会自动缩放回最小值（如果低于）或最大值（如果高于）。 例如，将范围设置在 3 和 6 之间。 如果有一个正在运行的实例，则自动缩放引擎会在下次运行时缩放为 3 个实例。 同样，它会在下次运行时将 8 个实例缩放回 6 个。  手动缩放效果只是暂时的，除非也重置了自动缩放规则。
+如果手动将实例计数更新为高于或低于最大值的值，则自动缩放引擎会自动缩放回最小值（如果低于）或最大值（如果高于）。 例如，将范围设置在 3 和 6 之间。 如果有 1 个正在运行的实例，自动缩放引擎会在其下次运行时将其扩大为 3 个实例。 同样，如果将缩放规模手动设置为 8 个实例，则自动缩放会在下次运行时缩放回 6 个实例。  除非同时重置自动缩放规则，否则手动缩放只是临时有效。
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>始终使用执行增加和减少的扩大和缩小规则组合
-如果只使用该组合的一部分，则自动缩放只会进行单向扩大或缩小，直到达到最大值或最小值。
-
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>管理自动缩放时，请勿在 Azure 门户与 Azure 经典门户之间切换
-对于云服务和应用服务（Web 应用），请使用 Azure 门户 (portal.azure.com) 创建和管理自动缩放设置。 对于虚拟机规模集，请使用 PowerShell、CLI 或 REST API 创建和管理自动缩放设置。 管理自动调整规模配置时，请勿在 Azure 经典门户 (manage.windowsazure.com) 与 Azure 门户 (portal.azure.com) 之间切换。 Azure 经典门户及其基础后端具有限制。 请使用图形用户界面移动到 Azure 门户来管理自动缩放。 这些选项是使用自动缩放 PowerShell、CLI 或 REST API（通过 Azure 资源浏览器）。
+如果只使用组合的一部分，则自动缩放只会单向扩大或缩小，直到达到最大值或最小值。
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>为诊断指标选择相应统计信息
 对于诊断指标，可以选择“平均值”、“最小值”、“最大值”和“总计”作为用作缩放依据的指标。 最常见的统计信息是“平均值”。
@@ -55,7 +52,7 @@ ms.lasthandoff: 12/01/2017
 ### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>认真为所有指标类型选择阈值
 我们建议基于实际情况为扩大和缩小认真选择不同阈值。
 
-*建议不要*使用类似以下示例的自动缩放设置，其中针对扩大和缩小条件的阈值相同或非常相似：
+我们 *建议不要* 使用如同以下示例的自动缩放设置，其中针对扩大和缩小条件的阈值相同或非常相似：
 
 * 当线程计数 <= 600 时，按 1 计数增加实例
 * 当线程计数 >= 600 时，按 1 计数减少实例
@@ -114,7 +111,7 @@ ms.lasthandoff: 12/01/2017
 
 下图显示一个自动缩放设置，其默认配置文件的最小实例数 = 2，最大实例数 = 10。 在此示例中，规则配置为在队列中的消息计数大于 10 时进行扩大，在队列中的消息计数小于 3 时进行缩小。 因此，现在资源可以在 2 到 10 个实例之间进行缩放。
 
-此外，为星期一设置了定期配置文件。 它设置为最小实例数 = 2，并且最大实例数 = 12。 这意味着在星期一，自动缩放首次检查此条件时，如果实例计数是 2，则它缩放为新的最小值 3。 只要自动缩放继续发现匹配此配置文件条件（星期一），它便只处理为此配置文件配置的基于 CPU 的扩大/缩小规则。 此时，它不会检查队列长度。 但是，如果还要检查队列长度条件，则应在星期一配置文件中也包括默认配置文件中的那些规则。
+此外，为星期一设置了定期配置文件。 它设置为最小实例数 = 3，并且最大实例数 = 10。 这意味着在星期一，自动缩放首次检查此条件时，如果实例计数是 2，它会缩放为新的最小值 3。 只要自动缩放继续发现匹配此配置文件条件（星期一），它便只处理为此配置文件配置的基于 CPU 的扩大/缩小规则。 此时，它不会检查队列长度。 但是，如果还要检查队列长度条件，则应在星期一配置文件中也包括默认配置文件中的那些规则。
 
 同样，自动缩放切换回默认配置文件时，它会首先检查是否符合最小值和最大值条件。 如果当时的实例数是 12，则它会缩小为 10（默认配置文件允许的最大值）。
 
@@ -144,13 +141,14 @@ ms.lasthandoff: 12/01/2017
 默认实例计数十分重要，当指标不可用时，自动缩放将服务缩放到该计数。 因此，请选择对工作负荷安全的默认实例计数。
 
 ### <a name="configure-autoscale-notifications"></a>配置自动缩放通知
-如果发生以下任何情况，则自动缩放会通过电子邮件通知资源的管理员和参与者：
+发生以下任何一种情况时，自动缩放会发布至活动日志：
 
-* 自动缩放服务未能执行操作。
+* 自动缩放发出缩放操作
+* 自动缩放服务成功完成缩放操作
+* 自动缩放服务未能执行缩放操作。
 * 自动缩放服务无法使用指标进行缩放决策。
 * 指标再次可用（恢复）于进行缩放决策。
-  除了以上条件，还可以配置电子邮件或 webhook 通知，以获得有关成功缩放操作的通知。
-  
+
 还可以使用活动日志警报监视自动缩放引擎的运行状况。 下面举例说明如何[创建活动日志警报以监视订阅上的所有自动缩放引擎操作](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)或[创建活动日志警报以监视订阅上所有失败的自动缩放缩小/扩大操作](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)。
 
 ## <a name="next-steps"></a>后续步骤

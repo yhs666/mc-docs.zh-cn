@@ -1,9 +1,9 @@
 ---
 title: "使用 .NET 通过 Media Encoder Standard 对资产进行编码 | Azure"
-description: "本主题介绍如何使用 .NET 通过 Media Encoder Standard 对资产进行编码。"
+description: "本文介绍如何使用 .NET 通过 Media Encoder Standard 对资产进行编码。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 03431b64-5518-478a-a1c2-1de345999274
@@ -12,19 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/31/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 0d3957e46ac98290ba9f14bf6aa945d6c709ea6b
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 12/09/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: b40925a59e25b0cbe82e0a8be35ae0f7c34056a4
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 通过 Media Encoder Standard 对资产进行编码
-编码作业是媒体服务中最常见的处理操作之一。 可通过创建编码作业将媒体文件从一种编码转换为另一种编码。 进行编码时，可以使用媒体服务内置的 Media Encoder。 也可以使用媒体服务合作伙伴提供的编码器；可通过 Azure 应用商店获取第三方编码器。 
+编码作业是媒体服务中最常见的处理操作之一。 可通过创建编码作业将媒体文件从一种编码转换为另一种编码。 进行编码时，可以使用媒体服务内置的 Media Encoder。 另外，也可以使用媒体服务合作伙伴提供的编码器；第三方编码器可通过 Azure Marketplace 购得。 
 
-本主题介绍如何使用 .NET 通过媒体编码器标准 (MES) 对资产进行编码。 Media Encoder Standard 使用[此处](media-services-mes-presets-overview.md)所述的编码器预设之一进行配置。
+本文介绍如何使用 .NET 通过 Media Encoder Standard (MES) 对资产进行编码。 Media Encoder Standard 使用[此处](media-services-mes-presets-overview.md)所述的编码器预设之一进行配置。
 
 建议始终将源文件编码为自适应比特率 MP4 集，然后使用[动态打包](media-services-dynamic-packaging-overview.md)将该集转换为所需的格式。 
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 08/31/2017
 [格式和编解码器](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>MES 预设
-Media Encoder Standard 使用[此处](media-services-mes-presets-overview.md)所述的编码器预设之一进行配置。
+Media Encoder Standard 使用[此处](media-services-mes-presets-overview.md)所述的其中一个编码器预设进行配置。
 
 ### <a name="input-and-output-metadata"></a>输入和输出元数据
 如果使用 MES 为输入资产（或资产）编码，在该编码任务成功完成时，便能获取输出资产。 输出资产包含视频、音频、缩略图、清单等等，具体视你使用的编码预设而定。
@@ -62,7 +62,7 @@ Media Encoder Standard 使用[此处](media-services-mes-presets-overview.md)所
 * 指定使用[自适应流式处理](media-services-autogen-bitrate-ladder-with-mes.md)预设。 
 * 将一个编码任务添加到该作业。 
 * 指定要编码的输入资产。
-* 创建要包含所编码资产的输出资产。
+* 创建包含所编码资产的输出资产。
 * 添加事件处理程序以检查作业进度。
 * 提交作业。
 
@@ -72,120 +72,131 @@ Media Encoder Standard 使用[此处](media-services-mes-presets-overview.md)所
 
 #### <a name="example"></a>示例 
 
-        using System;
-        using System.Linq;
-        using System.Configuration;
-        using System.IO;
-        using System.Threading;
-        using Microsoft.WindowsAzure.MediaServices.Client;
+```
+using System;
+using System.Linq;
+using System.Configuration;
+using System.IO;
+using System.Threading;
+using Microsoft.WindowsAzure.MediaServices.Client;
 
-        namespace MediaEncoderStandardSample
+namespace MediaEncoderStandardSample
+{
+    class Program
+    {
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+
+        // Field for service context.
+        private static CloudMediaContext _context = null;
+
+        private static readonly string _supportFiles =
+            Path.GetFullPath(@"../..\Media");
+
+        static void Main(string[] args)
         {
-            class Program
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+
+
+            // Get an uploaded asset.
+            var asset = _context.Assets.FirstOrDefault();
+
+            // Encode and generate the output using the "Adaptive Streaming" preset.
+            EncodeToAdaptiveBitrateMP4Set(asset);
+
+            Console.ReadLine();
+        }
+
+        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+        {
+            // Declare a new job.
+            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+            // Get a media processor reference, and pass to it the name of the 
+            // processor to use for the specific task.
+            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+
+            // Create a task with the encoding details, using a string preset.
+            // In this case "Adaptive Streaming" preset is used.
+            ITask task = job.Tasks.AddNew("My encoding task",
+                processor,
+                "Adaptive Streaming",
+                TaskOptions.None);
+
+            // Specify the input asset to be encoded.
+            task.InputAssets.Add(asset);
+            // Add an output asset to contain the results of the job. 
+            // This output is specified as AssetCreationOptions.None, which 
+            // means the output asset is not encrypted. 
+            task.OutputAssets.AddNew("Output asset",
+                AssetCreationOptions.None);
+
+            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+            job.Submit();
+            job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+            return job.OutputMediaAssets[0];
+        }
+
+        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+        {
+            Console.WriteLine("Job state changed event:");
+            Console.WriteLine("  Previous state: " + e.PreviousState);
+            Console.WriteLine("  Current state: " + e.CurrentState);
+            switch (e.CurrentState)
             {
-                private static readonly string _AADTenantDomain =
-                    ConfigurationManager.AppSettings["AADTenantDomain"];
-                private static readonly string _RESTAPIEndpoint =
-                    ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Field for service context.
-                private static CloudMediaContext _context = null;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                private static readonly string _supportFiles =
-                    Path.GetFullPath(@"../..\Media");
-
-                static void Main(string[] args)
-                {
-                    var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
-                    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-
-                    _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-
-                    // Get an uploaded asset.
-                    var asset = _context.Assets.FirstOrDefault();
-
-                    // Encode and generate the output using the "Adaptive Streaming" preset.
-                    EncodeToAdaptiveBitrateMP4Set(asset);
-
-                    Console.ReadLine();
-                }
-
-                static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-                {
-                    // Declare a new job.
-                    IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-                    // Get a media processor reference, and pass to it the name of the 
-                    // processor to use for the specific task.
-                    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-
-                    // Create a task with the encoding details, using a string preset.
-                    // In this case "Adaptive Streaming" preset is used.
-                    ITask task = job.Tasks.AddNew("My encoding task",
-                        processor,
-                        "Adaptive Streaming",
-                        TaskOptions.None);
-
-                    // Specify the input asset to be encoded.
-                    task.InputAssets.Add(asset);
-                    // Add an output asset to contain the results of the job. 
-                    // This output is specified as AssetCreationOptions.None, which 
-                    // means the output asset is not encrypted. 
-                    task.OutputAssets.AddNew("Output asset",
-                        AssetCreationOptions.None);
-
-                    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-                    job.Submit();
-                    job.GetExecutionProgressTask(CancellationToken.None).Wait();
-
-                    return job.OutputMediaAssets[0];
-                }
-
-                private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-                {
-                    Console.WriteLine("Job state changed event:");
-                    Console.WriteLine("  Previous state: " + e.PreviousState);
-                    Console.WriteLine("  Current state: " + e.CurrentState);
-                    switch (e.CurrentState)
-                    {
-                        case JobState.Finished:
-                            Console.WriteLine();
-                            Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                            break;
-                        case JobState.Canceling:
-                        case JobState.Queued:
-                        case JobState.Scheduled:
-                        case JobState.Processing:
-                            Console.WriteLine("Please wait...\n");
-                            break;
-                        case JobState.Canceled:
-                        case JobState.Error:
-
-                            // Cast sender as a job.
-                            IJob job = (IJob)sender;
-
-                            // Display or log error details as needed.
-                            break;
-                        default:
-                            break;
-                    }
-                }
-
-                private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-                {
-                    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-                    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-
-                    if (processor == null)
-                        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-                    return processor;
-                }
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
+
+        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
+            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+            ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+
+            if (processor == null)
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+
+            return processor;
+        }
+    }
+}
+```
 
 
 
 ## <a name="next-steps"></a>后续步骤
 [如何使用 Media Encoder Standard 通过 .NET 来生成缩略图](media-services-dotnet-generate-thumbnail-with-mes.md)
 [媒体服务编码概述](media-services-encode-asset.md)
-<!--Update_Description: update code to use AAD token instead of ACS-->
+<!--Update_Description: update token get code-->

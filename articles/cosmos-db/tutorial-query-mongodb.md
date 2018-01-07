@@ -10,17 +10,18 @@ tags:
 ms.assetid: 
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 origin.date: 05/10/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9a913eb7c0d5cac522cbc248fe171a679a486179
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.custom: mvc
+ms.openlocfilehash: 36d45cd4ac838dfdc5e2e7848d16c81a44aa8f46
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB：如何使用 MongoDB API 进行查询？
 
@@ -302,7 +303,7 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，已完成以下内容：
+在本教程中已完成以下操作：
 
 > [!div class="checklist"]
 > * 现已了解如何使用 MongoDB 进行查询 
@@ -310,6 +311,6 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
 现可继续学习下一教程，了解如何全局分发数据。
 
 > [!div class="nextstepaction"]
-> [全局分发数据](tutorial-global-distribution-documentdb.md)
+> [全局分发数据](tutorial-global-distribution-sql-api.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, update link -->

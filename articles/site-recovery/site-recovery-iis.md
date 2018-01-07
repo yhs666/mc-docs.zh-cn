@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/11/2017
-ms.date: 08/28/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0272b4a4e56798d54bf5b4e13e7235037c12b37c
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 09504eb54214fec973e8496567b49567de7928ca
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>使用 Azure Site Recovery 复制基于 IIS 的多层 Web 应用程序
 
@@ -68,6 +68,7 @@ ms.lasthandoff: 08/25/2017
 **Hyper-V** | 是 | 是
 **VMware** | 是 | 是
 **物理服务器** | 否 | 是
+**Azure**|不可用|是
 
 ## <a name="replicate-virtual-machines"></a>复制虚拟机
 
@@ -160,4 +161,4 @@ d) IP 地址 – 如果 SSL 证书是针对 IIS 服务器的 IP 颁发的，则�
 ## <a name="next-steps"></a>后续步骤
 详细了解如何使用 Site Recovery [复制其他应用程序](site-recovery-workload.md)。
 
-<!--Update_Description: new articles on site recovery iis-->
+<!--Update_Description: update meta properties, wording update -->

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/27/2017
-ms.openlocfilehash: 3f5207550510a23899d94b85fccf329d789e1b92
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.date: 01/08/2018
+ms.openlocfilehash: 4c409846f97757994cfb49a05bd6d30154008965
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>在 Azure 中部署 OpenShift 所要满足的一般先决条件
 
@@ -48,7 +48,7 @@ OpenShift 的安装使用 Ansible 攻略。 Ansible 使用安全外壳 (SSH) 连
 > * 创建一个 Key Vault 用于管理 OpenShift 群集的 SSH 密钥。
 > * 创建一个供 Azure 云解决方案提供程序使用的服务主体。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure 
 使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 命令登录到 Azure 订阅，按屏幕说明操作，或者单击“试用”使用 Cloud Shell。
@@ -135,3 +135,4 @@ az ad sp create-for-rbac --name openshiftsp \
 
 - [部署 OpenShift Origin](./openshift-origin.md)
 - [部署 OpenShift Container Platform](./openshift-container-platform.md)
+<!--Update_Description: update meta properties, update link -->

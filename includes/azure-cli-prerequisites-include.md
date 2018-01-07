@@ -1,7 +1,9 @@
 ## <a name="prerequisite-install-the-azure-cli"></a>先决条件：安装 Azure CLI
-若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](../articles/cli-install-nodejs.md)，还需要[登录 Azure](../articles/xplat-cli-connect.md)。 
+若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](../articles/cli-install-nodejs.md)，还需要[登录 Azure](/cli/authenticate-azure-cli)。 
 
 > [!NOTE]
-> 如果没有 Azure 帐户，则需要注册一个。 请[在此处注册试用版](https://www.azure.cn/pricing/1rmb-trial/)。 此外，若要顺利完成整个过程，需要安装 [jq](https://stedolan.github.io/jq/) 或其他某种 JSON 解析工具或库。
+> 如果没有 Azure 帐户，则需要注册一个。 请[在此处注册试用版](../articles/active-directory/sign-up-organization.md)。 此外，若要顺利完成整个过程，需要安装 [jq](https://stedolan.github.io/jq/) 或其他某种 JSON 解析工具或库。
 > 
->
+> 
+
+<!--ms.date: 12/28/2017 -->

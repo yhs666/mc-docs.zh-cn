@@ -15,11 +15,11 @@ origin.date: 04/07/2017
 ms.date: 11/23/2017
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 7455945e9ec35531e11d94c727561fbeff13bdf0
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 70a1799508064c3bb6e93a8872ea07cae73938b6
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>针对开发人员的 Azure Active Directory
 Azure Active Directory 是一项云标识服务，开发人员可以使用它将任何用户登录到 Microsoft 支持的工作或学校帐户。  本文档介绍了如何使用行业的标准身份验证协议、OAuth 与 OpenID Connect 向应用程序添加 Azure AD 支持。
@@ -50,7 +50,7 @@ Azure Active Directory 是一项云标识服务，开发人员可以使用它将
 |[OAuth 与 OpenID Connect](active-directory-protocols-openid-connect-code.md)| 如何使用我们的新式身份验证协议使用户登录并调用 Web API |
 |[更多指南...](active-directory-developers-guide-index.md#guides)        |     |
 
-## <a name="reference"></a>引用
+## <a name="reference"></a>参考
 这些文章详细介绍了在 Azure Active Directory 中使用的 API、协议消息和术语。
 
 |                                                                                   | |
@@ -59,10 +59,6 @@ Azure Active Directory 是一项云标识服务，开发人员可以使用它将
 | [代码示例](active-directory-code-samples.md)                                  | 所有 Azure AD 代码示例的列表 |
 | [术语表](active-directory-dev-glossary.md)                                      | 本文档通篇使用的术语和单词的定义 |
 | [更多参考资料...](active-directory-developers-guide-index.md#reference)|     |
-
-
-> [!NOTE]
-> 若需登录 Microsoft 个人帐户，可以考虑使用 [Azure AD v2.0 终结点](active-directory-appmodel-v2-overview.md)。  Azure AD v2.0 终结点将 Microsoft 个人帐户和 Microsoft 工作帐户（由 Azure AD 提供）统一成单个身份验证系统。
 
 
 [!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]

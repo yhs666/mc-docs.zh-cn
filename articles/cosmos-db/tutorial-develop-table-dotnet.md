@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 11/20/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d71ef68cfe761680338eeebd0fcb3864644e56cc
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: fb36b58a9dd3901f4699e18578f1773eb3eb0042
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB：在 .NET 中使用表 API 进行开发
 
@@ -33,12 +33,12 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > * 创建 Azure Cosmos DB 帐户 
 > * 启用 app.config 文件中的功能 
 > * 使用[表 API](table-introduction.md) 创建表
-> * 向表中添加条目 
+> * 将实体添加到表 
 > * 插入一批实体 
-> * 检索单个条目 
+> * 检索单个实体 
 > * 使用自动辅助索引查询实体 
 > * 替换条目 
-> * 删除实体 
+> * 删除条目 
 > * 删除表
 
 ## <a name="tables-in-azure-cosmos-db"></a>Azure Cosmos DB 中的表 
@@ -67,7 +67,7 @@ Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduct
 ### <a name="about-this-tutorial"></a>关于本教程
 本教程供熟悉 Azure 表存储 SDK 并想要通过 Azure Cosmos DB 使用高级功能的开发人员使用。 本教程基于[通过 .NET 开始使用 Azure 表存储](table-storage-how-to-use-dotnet.md)，并演示如何利用辅助索引、预配的吞吐量和多宿主等附加功能。 涵盖如何使用 Azure 门户创建 Azure Cosmos DB 帐户，然后生成并部署表应用程序。 还会演练用于创建和删除表，以及插入、更新、删除和查询表数据的 .NET 示例。 
 
-如果尚未安装 Visual Studio 2017，可以下载并使用**免费的** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
+如果尚未安装 Visual Studio 2017，可以下载并使用免费的 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -75,11 +75,15 @@ Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduct
 
 首先在 Azure 门户中创建 Azure Cosmos DB 帐户。  
 
+> [!IMPORTANT]  
+> 需创建新的适用于公开发表版表 API SDK 的表 API 帐户。 在预览期间创建的表 API 帐户不受公开发布版 SDK 的支持。 
+>
+
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在让我们从 github 克隆表应用、设置连接字符串，并运行。 你会看到以编程方式处理数据是多么容易。 
+现在让我们从 github 克隆表应用、设置连接字符串，并运行。 会看到以编程方式处理数据是多么容易。 
 
 1. 打开诸如 git bash 之类的 git 终端窗口，并使用 `cd` 命令更改为相应的示例应用程序安装文件夹。 
 
@@ -204,7 +208,7 @@ table.CreateIfNotExists();
 
 接下来，我们使用 Azure 表存储 SDK 逐步演练简单的读取和写入 (CRUD) 操作。 本教程演示通过 Azure Cosmos DB 实现的可预测的低至个位数的毫秒延迟和快速查询。
 
-## <a name="add-an-entity-to-a-table"></a>向表中添加条目
+## <a name="add-an-entity-to-a-table"></a>将实体添加到表
 Azure 表存储中的实体从 `TableEntity` 类扩展，且必须具有 `PartitionKey` 和 `RowKey` 属性。 以下是客户实体定义的示例。
 
 ```csharp
@@ -265,7 +269,7 @@ batchOperation.Insert(customer2);
 // Execute the batch operation.
 table.ExecuteBatch(batchOperation);
 ```
-## <a name="retrieve-a-single-entity"></a>检索单个条目
+## <a name="retrieve-a-single-entity"></a>检索单个实体
 在同一 Azure 区域中，Azure Cosmos DB 中的检索 (GET) 完成延迟为 < 10 毫秒（p99）和约 1 毫秒（p50）。 通过设置 `TablePreferredLocations`，可以将任意多个区域添加到帐户中以实现低延迟读取，并部署应用程序以便从其本地区域（“多宿主”）读取。 
 
 可以使用以下代码片段检索单个实体：
@@ -298,9 +302,9 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-对于表 API，Azure Cosmos DB 支持与 Azure 表存储相同的查询功能。 Azure Cosmos DB 还支持排序、聚合、地理空间查询、层次结构和各种内置函数。 在将来的服务更新中，表 API 将提供更多功能。 有关这些功能的概述，请参阅 [Azure Cosmos DB 查询](documentdb-sql-query.md)。 
+对于表 API，Azure Cosmos DB 支持与 Azure 表存储相同的查询功能。 Azure Cosmos DB 还支持排序、聚合、地理空间查询、层次结构和各种内置函数。 在将来的服务更新中，表 API 将提供更多功能。 有关这些功能的概述，请参阅 [Azure Cosmos DB 查询](sql-api-sql-query.md)。 
 
-## <a name="replace-an-entity"></a>替换条目
+## <a name="replace-an-entity"></a>替换实体
 要更新实体，请从表服务中检索它，修改实体对象，然后将更改保存回表服务。 以下代码更改现有客户的电话号码。 
 
 ```csharp
@@ -309,7 +313,7 @@ table.Execute(updateOperation);
 ```
 同样，可以执行 `InsertOrMerge` 或 `Merge` 操作。  
 
-## <a name="delete-an-entity"></a>删除实体
+## <a name="delete-an-entity"></a>删除条目
 在检索实体之后，可使用更新实体的相同演示模式轻松删除该实体。 以下代码检索并删除一个客户实体。
 
 ```csharp
@@ -350,4 +354,4 @@ table.DeleteIfExists();
 > [!div class="nextstepaction"]
 > [使用表 API 查询](tutorial-query-table.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

@@ -1,6 +1,6 @@
 1. 创建并运行 Azure 虚拟机以后，单击 Azure 门户中的“虚拟机”图标即可查看 VM。
 
-1. 单击对应于新建 VM 的省略号“...”。
+1. 单击对应于新建 VM 的省略号 ...。
 
 1. 单击“连接”。
 
@@ -15,3 +15,5 @@
    ![远程桌面身份验证](./media/virtual-machines-sql-server-remote-desktop-connect/remote-desktop-connect.png)
 
 1. 单击“确定”进行连接。
+<!--Update_Description: wording update-->
+<!--ms.date: 01/08/2018-->

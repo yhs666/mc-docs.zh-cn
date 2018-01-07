@@ -17,11 +17,11 @@ ms.workload: database
 origin.date: 06/23/2017
 ms.date: 07/31/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 56ced00c8e5800264dff0735da1971c62720f3a1
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 8edfb13ae88c084ffaff06855b929c032442a536
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure PowerShell 示例
 
@@ -45,6 +45,9 @@ ms.lasthandoff: 07/28/2017
 | [还原数据库](scripts/sql-database-restore-database-powershell.md)| 此 PowerShell 脚本从异地冗余备份还原 Azure SQL 数据库，并根据最新备份还原已删除的 Azure SQL 数据库。 |
 | [将数据库复制到新服务器](scripts/sql-database-copy-database-to-new-server-powershell.md)| 此 PowerShell 脚本在新的 Azure SQL 服务器中创建现有 Azure SQL 数据库的副本。 |
 | [从 bacpac 文件导入数据库](scripts/sql-database-import-from-bacpac-powershell.md)| 此 PowerShell 脚本将数据库从 bacpac 文件导入到 Azure SQL 服务器。 |
+| **在数据库之间同步数据**||
+| [在 SQL 数据库之间同步数据](scripts/sql-database-sync-data-between-sql-databases.md) | 此 PowerShell 脚本将数据同步配置为在多个 Azure SQL 数据库之间进行同步。 |
+| [在 SQL 数据库和本地 SQL Server 之间同步数据](scripts/sql-database-sync-data-between-azure-onprem.md) | 此 PowerShell 脚本将数据同步配置为在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步。 |
 |||
-
+|||
 <!--Update_Description: wording update-->

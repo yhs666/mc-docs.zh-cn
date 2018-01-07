@@ -1,10 +1,10 @@
 ---
-title: "升级 Azure 虚拟机规模集 | Azure"
+title: "升级 Azure 虚拟机规模集 | Microsoft Docs"
 description: "升级 Azure 虚拟机规模集"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: f1aac93afa012257f3e72a87ee5d07be023c8908
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 12/29/2017
+ms.author: v-junlch
+ms.openlocfilehash: 07e656c50a62c1b8e776b37a220cb5480149a231
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>升级虚拟机规模集
 本文介绍了如何在不停机的情况下为 Azure 虚拟机规模集推出 OS 更新。 在此上下文中，OS 更新涉及到更改 OS 的版本或 SKU，或者更改自定义映像的 URI。 在不停机的情况下更新意味着一次只更新一台虚拟机或分组更新（如一次更新一个容错域），而不是一次更新所有虚拟机。 这样做能使没有进行升级的虚拟机继续运行。
 
 为了避免混淆，我们来区分一下可能要执行的 OS 更新的四种类型：
 
-* 更改平台映像的版本或 SKU。 例如，将 Ubuntu 14.04.2-LTS 版本从 14.04.201506100 更改为 14.04.201507060，或者将 Ubuntu 15.10/最新 SKU 更改为 16.04.0-LTS/最新。 本文中介绍了此方案。
-* 更改指向生成的自定义映像的新版本的 URI（“属性” > “virtualMachineProfile” > “storageProfile” > “osDisk” > “映像” > “URI”）。 本文中介绍了此方案。
-* 更改使用 Azure 托管磁盘创建的规模集的映像引用。
-* 从虚拟机内部修补 OS（这样的示例包括安装安全修补程序以及运行 Windows 更新）。 尽管此方案是受支持的，但在本文中不予讨论。
+- 更改平台映像的版本或 SKU。 例如，将 Ubuntu 14.04.2-LTS 版本从 14.04.201506100 更改为 14.04.201507060，或者将 Ubuntu 15.10/最新 SKU 更改为 16.04.0-LTS/最新。 本文中介绍了此方案。
+- 更改指向生成的自定义映像的新版本的 URI（“属性” > “virtualMachineProfile” > “storageProfile” > “osDisk” > “映像” > “URI”）。 本文中介绍了此方案。
+- 更改使用 Azure 托管磁盘创建的规模集的映像引用。
+- 从虚拟机内部修补 OS（这样的示例包括安装安全修补程序以及运行 Windows 更新）。 尽管此方案是受支持的，但在本文中不予讨论。
 
-此处不讨论部署为 [Azure Service Fabric](https://www.azure.cn/home/features/service-fabric/) 群集的一部分的虚拟机规模集。
+此处不讨论部署为 [Azure Service Fabric](/service-fabric/) 群集的一部分的虚拟机规模集。 有关修补 Service Fabric 的详细信息，请参阅[在 Service Fabric 群集中修补 Windows OS](/service-fabric/service-fabric-patch-orchestration-application)。
 
 更改平台映像的 OS 版本/SKU 或自定义映像的 URI 的基本顺序，如下所示：
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 07/14/2017
 在记住了这些信息后，来看一下如何在 PowerShell 中以及使用 REST API 更新规模集的版本。 尽管这些示例涵盖了关于平台映像的示例，但是本文提供了足量的信息使用户能够适应此过程以自定义映像。
 
 ## <a name="powershell"></a>PowerShell
-此示例会更新 Windows 虚拟机规模集（创建到新版本 4.0.20160229。 更新模型后，它将一次更新一个虚拟机实例。
+此示例会更新 Windows 虚拟机规模集（创建到新版本 4.0.20160229。 更新模型后，它会一次更新一个虚拟机实例。
 
 ```powershell
 $rgname = "myrg"
@@ -90,7 +90,7 @@ $vmss.virtualMachineProfile.storageProfile.imageReference.id = $newImageReferenc
 使用此脚本，可选择要更新的具体虚拟机或者指定更新域。 它支持更改平台映像版本或更改自定义映像的 URI。
 
 ### <a name="vmsseditor"></a>Vmsseditor
-[Vmsseditor](https://github.com/gbowerman/vmssdashboard) 是一个适用于虚拟机规模集的通用编辑器，用于显示状态为 heatmap 的虚拟机规模集，其中一行表示一个更新域。 除此之外，还可以使用新版本、SKU 或自定义映像 URI 来更新规模集的模型，然后选择要升级的容错域。 执行此操作时，该更新域中的所有虚拟机都将升级到新模型。 或者，可以根据所选的批大小执行滚动升级。  
+[Vmsseditor](https://github.com/gbowerman/vmssdashboard) 是一个适用于虚拟机规模集的通用编辑器，用于显示状态为 heatmap 的虚拟机规模集，其中一行表示一个更新域。 除此之外，还可以使用新版本、SKU 或自定义映像 URI 来更新规模集的模型，并选择要升级的容错域。 执行此操作时，该更新域中的所有虚拟机都会升级到新模型。 或者，可以根据所选的批大小执行滚动升级。  
 
 以下屏幕截图显示了 Ubuntu 14.04-2LTS 版本 14.04.201507060 的规模集的模型。 自此屏幕截图截取之后，又为此工具添加了更多的选项。
 
@@ -99,3 +99,6 @@ $vmss.virtualMachineProfile.storageProfile.imageReference.id = $newImageReferenc
 单击“升级”和“获取详细信息”之后，UD 0 中的虚拟机将开始进行更新。
 
 ![显示正在进行更新的 Vmsseditor](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
+
+
+<!--Update_Description: link update -->

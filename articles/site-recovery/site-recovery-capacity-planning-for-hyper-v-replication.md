@@ -12,22 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 10/30/2017
-ms.date: 12/04/2017
+origin.date: 11/28/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 86db458afa5d75d3c2778ea5d22671bd5ab8d9dc
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 17f6d7dc99e17758e28bd4b88d7007e278e42c29
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
+[适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器](site-recovery-hyper-v-deployment-planner.md)的新增强版本现已可用，并替换旧工具。 使用新工具规划部署。 该工具提供了以下指导原则： 
+* 根据磁盘数量、磁盘大小、IOPS、变动量和一些 VM 特征评估 VM 的合格性。
+* 网络带宽需求与 RPO 评估。
+* Azure 基础结构需求。
+* 本地基础结构需求。
+* 初始复制批处理指南。
+* DR 到 Azure 的估算总成本。
+
 # <a name="hyper-v-capacity-planner-tool-for-site-recovery"></a>Site Recovery 的 Hyper-V Capacity Planner 工具
 
 作为 Azure Site Recovery 部署的一部分，需要确定复制和带宽要求。 Site Recovery 的 Hyper-V Capacity Planner 工具可帮助用户针对 Hyper-V 虚拟机复制执行此操作。
 
 本文介绍如何运行 Hyper-V Capacity Planner 工具。 应结合 [Site Recovery 容量规划](site-recovery-capacity-planner.md)中的信息使用此工具。
 
-## <a name="before-you-start"></a>准备阶段
+## <a name="before-you-start"></a>开始之前
 在主站点中的 Hyper-V 服务器或群集节点上运行该工具。 若要运行 Hyper-V 主机服务器所需的工具，需满足以下要求：
 
 * 操作系统：Windows Server 2012 或 2012 R2
@@ -47,9 +55,7 @@ ms.lasthandoff: 12/01/2017
    * Windows Server 2012 R2 群集
 2. 在所有 Hyper-V 主机和群集上启用 WMI 远程访问。 在每个服务器/群集上运行以下命令，以确保设置防火墙规则和用户权限：
 
-    ```
-    netsh firewall set service RemoteAdmin enable
-    ```
+        netsh firewall set service RemoteAdmin enable
 3. 在服务器和群集上启用性能监视，如下所示：
 
    * 使用“高级安全性”管理单元打开 Windows 防火墙，然后启用以下入站规则：“COM+ 网络访问(DCOM-IN)”，以及“远程事件日志管理组”中的所有规则。

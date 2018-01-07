@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-origin.date: 08/22/2017
-ms.date: 11/13/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 66067d050614dd1bdf22408c035b4561897dedce
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 35c30a5a4b36b64e7bd298ef77718a844e892617
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="azure-service-fabric-cli-samples"></a>Azure Service Fabric CLI 示例
 
@@ -39,4 +39,4 @@ ms.lasthandoff: 11/09/2017
 | [删除应用程序](./scripts/cli-remove-application.md)| 从群集中删除应用程序。|
 | [升级应用程序](./scripts/sfctl-upgrade-application.md)| 升级已部署的应用程序。|
 
-<!--Update_Description: update reference link, add service-fabric-sfctl.md-->
+<!--Update_Description: update meta properties -->

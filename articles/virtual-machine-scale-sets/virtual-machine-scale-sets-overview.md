@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 09/01/2017
-ms.date: 10/12/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a3e5f01fffa771c759c142626e2c15ebd50ab59
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 471f5a31af56e6077908bbdf99818d11d04bbb6a
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>什么是 Azure 中的虚拟机规模集？
-虚拟机规模集是一种 Azure 计算资源，可用于部署和管理一组相同的 VM。 由于所有 VM 的配置都相同，因此无需对 VM 进行任何预先配置。 这样就可以更方便地构建面向大型计算、大数据、容器化工作负荷的大规模服务。
+虚拟机规模集是一种 Azure 计算资源，可用于部署和管理一组相同的 VM。 规模集中的所有 VM 采用相同的配置，支持真正的自动缩放 - 无需对 VM 进行预配。 这样就可以更方便地构建面向大型计算、大数据、容器化工作负荷的大规模服务。
 
 对于需要扩大和缩小计算资源的应用程序，缩放操作在容错域和更新域之间进行隐式平衡。 有关规模集的更多介绍，请参阅 [Azure 博客公告](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/)。
 
 
 ## <a name="creating-and-managing-scale-sets"></a>创建和管理规模集
-可以在 [Azure 门户](https://portal.azure.cn)中创建规模集，方法是：选择“新建”，然后在搜索栏中键入“规模”。 结果中会列出“虚拟机规模集”。 从这里，可以填写必填字段，自定义和部署规模集。
+可以在 [Azure 门户](https://portal.azure.cn)中创建规模集，方法是：选择“新建”，然后在搜索栏中键入“规模”。 结果中会列出“虚拟机规模集”。 从这里，可以填写必填字段，自定义和部署规模集。 还可以使用相应的选项根据 CPU 使用率设置基本的自动缩放规则。 若要管理规模集，可以使用 Azure 门户、[Azure PowerShell cmdlet](virtual-machine-scale-sets-windows-manage.md) 或 Azure CLI 2.0。
 
 也可以使用 JSON 模板与 [REST API](https://msdn.microsoft.com/library/mt589023.aspx) 来定义和部署规模集，就像定义和部署单个 Azure Resource Manager VM 一样。 因此，可以使用任何标准的 Azure Resource Manager 部署方法。 有关模板的详细信息，请参阅[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 
@@ -38,12 +38,22 @@ ms.lasthandoff: 10/13/2017
 
 以“快速启动”模板为例，每个模板的自述文件中的“部署到 Azure”按钮都会链接到门户部署功能。 如果要部署规模集，请单击该按钮，并填写门户中所需的任何参数。 
 
-## <a name="scaling-a-scale-set-out-and-in"></a>扩大和缩小规模集
-若要在 Azure 门户中更改规模集的容量，可单击“设置”下的“缩放”部分。 
+
+## <a name="autoscale"></a>自动缩放
+为了保持应用程序性能一致，可以自动增加或减少规模集中的 VM 实例数。 此自动缩放功能可以减少在客户需求随时间变化时对规模集进行监视和优化所需的管理开销。 可以根据性能指标、应用程序响应或固定的计划来定义规则，而规模集会根据需要自动缩放。
+
+对于基本的自动缩放规则，可以使用基于主机的性能指标，例如 CPU 使用情况或磁盘 I/O。 这些基于主机的指标是现成的，不需安装和配置其他代理或扩展。 可通过以下工具之一创建使用基于主机的指标的自动缩放规则：
+
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+
+若要使用更细化的性能指标，可以在规模集中的 VM 实例上安装和配置 Azure 诊断扩展。 可以使用 Azure 诊断扩展，从每个 VM 实例内部收集其他性能指标，例如内存使用情况。 这些性能指标流式传输到 Azure 存储帐户，你可以创建自动缩放规则来使用此数据。 有关详细信息，请参阅有关如何在 [Linux VM](../virtual-machines/linux/diagnostic-extension.md) 或 [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md) 上启用 Azure 诊断扩展的文章。
+
+
+## <a name="manually-scaling-a-scale-set-out-and-in"></a>手动扩大和缩小规模集
+若要在 Azure 门户中手动更改规模集的容量，可单击“设置”下的“缩放”部分。 
 
 若要在命令行中更改规模集容量，请在 [Azure CLI](https://github.com/Azure/azure-cli) 中使用 **scale** 命令。 例如，使用以下命令可将规模集设置为 10 个 VM 的容量：
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```bash
 az vmss scale -g resourcegroupname -n scalesetname --new-capacity 10 
@@ -57,9 +67,10 @@ $vmss.Sku.Capacity = 10
 Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -VirtualMachineScaleSet $vmss
 ```
 
-若要通过 Azure Resource Manager 模板增加或减少规模集中的虚拟机数，请更改 **capacity** 属性并重新部署模板。 
+若要通过 Azure 资源管理器模板增加或减少规模集中的虚拟机数，请更改 **capacity** 属性并重新部署模板。 这种操作很简单，因此可以方便地将规模集与 Azure 自动缩放集成，或者在需要定义不受 Azure 自动缩放支持的自定义缩放事件时，方便地编写自己的自定义缩放层。 
 
-若要重新部署 Azure Resource Manager 模板以更改容量，可以定义一个小得多的模板，只包括 **SKU** 属性数据包和更新的容量。 [下面是一个示例](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)。
+若要重新部署 Azure 资源管理器模板以更改容量，可以定义一个小得多的模板，只包括 **SKU** 属性数据包和更新的容量。 [下面是一个示例](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)。
+
 
 ## <a name="monitoring-your-scale-set"></a>监视规模集
 [Azure 门户](https://portal.azure.cn)列出规模集并显示其属性。 门户还支持管理操作。 可以针对规模集和规模集中的单个 VM 执行这些操作。 该门户还提供了一个可自定义的资源使用情况图。 
@@ -97,16 +108,16 @@ Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -Virt
 - 一个规模集最多支持 1,000 个 VM。 如果创建和上传自己的自定义 VM 映像，则该限制为 300。 如需使用大型规模集时的注意事项，请参阅[使用大型虚拟机规模集](virtual-machine-scale-sets-placement-groups.md)。
 - 无需预先创建 Azure 存储帐户即可使用规模集。 规模集支持 Azure 托管磁盘，因此不需担心因单个存储帐户磁盘数不足而造成的性能问题。 有关详细信息，请参阅 [Azure 虚拟机规模集和托管磁盘](virtual-machine-scale-sets-managed-disks.md)。
 - 可以考虑使用 Azure 高级存储而不是 Azure 存储，以便加快 VM 预配速度、提高 VM 预配时间的可预测性，以及改进 I/O 性能。
-- 可以创建的 VM 数受到在其中进行部署的区域中核心配额的限制。 即使目前用于 Azure 云服务的核心数上限已较高，也仍可能需要联系客户支持来提高计算配额限制。 若要查询配额，请运行以下 Azure CLI 命令：`azure vm list-usage`。 或者，运行以下 PowerShell 命令：`Get-AzureRmVMUsage`。
+- 可以创建的 VM 数受到在其中进行部署的区域中 vCPU 配额的限制。 即使目前用于 Azure 云服务的 vCPU 数上限已较高，也仍可能需要联系客户支持来提高计算配额限制。 若要查询配额，请运行以下 Azure CLI 命令：`az vm list-usage`。 或者，运行以下 PowerShell 命令：`Get-AzureRmVMUsage`。
 
 ## <a name="frequently-asked-questions-for-scale-sets"></a>有关规模集的常见问题
 **问：** 可在规模集中包含多少个 VM？
 
-**答：** 一个规模集可以包含 0 到 1,000 个基于平台映像的 VM，或者 0 到 300 个基于自定义映像的 VM。 
+**A.** 一个规模集可以包含 0 到 1,000 个基于平台映像的 VM，或者 0 到 300 个基于自定义映像的 VM。 
 
 **问：** 规模集是否支持数据磁盘？
 
-**答：** 是的。 规模集可以定义适用于集中所有 VM 的附加数据磁盘配置。 有关详细信息，请参阅 [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md)（Azure 规模集和附加的数据磁盘）。 可用于存储数据的其他选项包括：
+**A.** 是的。 规模集可以定义适用于集中所有 VM 的附加数据磁盘配置。 有关详细信息，请参阅 [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md)（Azure 规模集和附加的数据磁盘）。 可用于存储数据的其他选项包括：
 
 - Azure 文件（SMB 共享驱动器）
 - OS 驱动器
@@ -116,27 +127,27 @@ Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -Virt
 
 **问：** 哪些 Azure 区域支持规模集？
 
-**答：** 所有区域都支持规模集。
+**A.** 所有区域都支持规模集。
 
 **问：** 如何使用自定义映像创建规模集？
 
-**答：** 根据自定义映像 VHD 创建托管磁盘，并在规模集模板中引用该磁盘。 [下面是一个示例](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os)。
+**A.** 根据自定义映像 VHD 创建托管磁盘，并在规模集模板中引用该磁盘。 [下面是一个示例](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os)。
 
 **问：** 如果我将规模集容量从 20 减少到 15，将删除哪些 VM？
 
-**答：** 将从跨更新域和容错域的规模集中均匀地删除虚拟机，以最大限度地提高可用性。 首先删除 ID 最大的 VM。
+**A.** 将从跨更新域和容错域的规模集中均匀地删除虚拟机，以最大限度地提高可用性。 首先删除 ID 最大的 VM。
 
 **问：** 如果将容量从 15 增加到 18，会发生什么情况？
 
-**答：** 如果将容量增加到 18，则创建 3 个新 VM。 每增加容量一次，VM 实例 ID 就会从以前的最高值（例如 20、21、22）递增。 容错域与和更新域中的 VM 是均衡的。
+**A.** 如果将容量增加到 18，则创建 3 个新 VM。 每增加容量一次，VM 实例 ID 就会从以前的最高值（例如 20、21、22）递增。 容错域与和更新域中的 VM 是均衡的。
 
 **问：** 在一个规模集中使用多个扩展时，是否可以强制规定执行序列？
 
-**答：** 不能直接强制执行，但对于 customScript 扩展，脚本可以等待另一个扩展来完成。 在 [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)（Azure VM 规模集中的扩展序列）博客文章中可以获取有关扩展序列的其他指导。
+**A.** 不能直接强制执行，但对于 customScript 扩展，脚本可以等待另一个扩展来完成。 在 [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)（Azure VM 规模集中的扩展序列）博客文章中可以获取有关扩展序列的其他指导。
 
 **问：** 规模集是否适用于 Azure 可用性集？
 
-**答：** 是的。 规模集是包含 5 个容错域和 5 个更新域的隐式可用性集。 规模集如果包含 100 个以上的 VM，则会跨多个*位置组*，等效于多个可用性集。 有关位置组的详细信息，请参阅[使用大型虚拟机规模集](virtual-machine-scale-sets-placement-groups.md)。 由 VM 组成的可用性集可以与由 VM 组成的规模集位于相同的虚拟网络中。 常见的配置是将控件节点 VM（经常需要独特的配置）放在可用性集中，将数据节点放在规模集中。
+**A.** 是的。 规模集是包含 5 个容错域和 5 个更新域的隐式可用性集。 规模集如果包含 100 个以上的 VM，则会跨多个*位置组*，等效于多个可用性集。 有关位置组的详细信息，请参阅[使用大型虚拟机规模集](virtual-machine-scale-sets-placement-groups.md)。 由 VM 组成的可用性集可以与由 VM 组成的规模集位于相同的虚拟网络中。 常见的配置是将控件节点 VM（经常需要独特的配置）放在可用性集中，将数据节点放在规模集中。
 
 可在 [Azure 虚拟机规模集常见问题](virtual-machine-scale-sets-faq.md)中找到有关规模集的更多常见问题解答。
 

@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 11/03/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: e8a049425eb8e53dbfbcdcee6da3ee34e67203ec
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 0ff28a5c7cc589a8c80d2771c18477ebbd350e81
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 上创建第一个 Service Fabric 容器应用程序
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ helloworldapp                 latest              8ce25f5d6a79        2 minutes 
 docker run -d --name my-web-site helloworldapp
 ```
 
-name 用于为运行的容器（而不是容器 ID）命名。
+*name* 为运行的容器（而不是容器 ID）命名。
 
 容器启动以后，查找其 IP 地址，以便通过浏览器连接到正在运行的容器：
 ```
@@ -176,7 +176,7 @@ Service Fabric SDK 和工具提供服务模板，用于创建容器化应用程�
 2. 选择“Service Fabric 应用程序”，将其命名为“MyFirstContainer”，并单击“确定”。
 3. 从“服务模板”列表中选择“容器”。
 4. 在“映像名称”中输入“myregistry.azurecr.io/samples/helloworldapp”，这是已推送到容器存储库中的映像。
-5. 为服务命名，并单击“**确定**”。
+5. 为服务命名，并单击“确定” 。
 
 ## <a name="configure-communication"></a>配置通信
 容器化服务需要使用终结点进行通信。 请将 `Endpoint` 元素以及协议、端口和类型添加到 ServiceManifest.xml 文件。 本文所述的容器化服务在端口 8081 上侦听。  在此示例中，使用固定端口 8081。  如果未指定端口，则从应用程序端口范围中选择一个随机端口。  
@@ -320,7 +320,7 @@ Windows 支持容器的两种隔离模式：进程和 Hyper-V。 使用进程隔
 
 在“连接终结点”中输入群集的管理终结点。  例如“containercluster.chinanorth2.cloudapp.chinacloudapi.cn:19000”。 在 [Azure 门户](https://portal.azure.cn)中，可以在群集的“概览”边栏选项卡中查找客户端连接终结点。
 
-单击“发布” 。
+单击“发布”。
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 是一项基于 Web 的工具，用于检验和管理 Service Fabric 群集中的应用程序和节点。 打开浏览器，导航到 http://containercluster.chinanorth2.cloudapp.chinacloudapi.cn:19080/Explorer/，并遵循应用程序部署过程操作。  将映像下载到群集节点（这可能需要一段时间，具体时间取决于映像大小）之前，应用程序可部署但处于错误状态：![错误][1]
 
@@ -329,8 +329,8 @@ Windows 支持容器的两种隔离模式：进程和 Hyper-V。 使用进程隔
 打开浏览器并导航到 http://containercluster.chinanorth2.cloudapp.chinacloudapi.cn:8081。 此时会看到标题“Hello World!” 显示在浏览器中。
 
 ## <a name="clean-up"></a>清理
-只要群集处于运行状态，就会产生费用。若要避免不必要的费用，可考虑[删除群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources)。  [Party 群集](https://try.servicefabric.azure.com/)会在数小时后自动删除。
-
+只要群集处于运行状态，就会产生费用。若要避免不必要的费用，可考虑[删除群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources)。
+<!-- Not Available on  [Party clusters](https://try.servicefabric.azure.com/) -->
 将映像推送到容器注册表以后，即可从开发计算机中删除本地映像：
 
 ```

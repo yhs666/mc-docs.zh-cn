@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/19/2017
-ms.date: 12/06/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: 3bdf62e0b5d63f1ad1c85a0f891340e4c95d3b9b
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: 622a302b73a6665cce6ef68070c36e41e19d6baa
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理虚拟机规模集
 在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 此外，可能还需要创建自动执行各种生命周期任务的脚本。 本文详细介绍了执行这些任务常用的一些 Azure CLI 2.0 命令。
@@ -37,7 +37,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>查看规模集中的 VM
-要在规模集中查看 VM 实例的列表，请使用 [az vmss list-instances](/cli/vmss#list-instances)。 以下示例将列出 myScaleSet 规模集和 myResourceGroup 资源组中的所有 VM 实例。 为这些名称提供自己的值：
+要在规模集中查看 VM 实例的列表，请使用 [az vmss list-instances](/cli/vmss#list-instances)。 以下示例将在 myResourceGroup 资源组中列出名为 myScaleSet 规模集的所有 VM 实例。 为这些名称提供自己的值：
 
 ```azurecli
 az vmss list-instances \
@@ -140,3 +140,4 @@ az vmss delete-instances --resource-group myResourceGroup --name myScaleSet --in
 ## <a name="next-steps"></a>后续步骤
 规模集的其他常见任务包括如何[部署应用程序](virtual-machine-scale-sets-deploy-app.md)和[升级 VM 实例](virtual-machine-scale-sets-upgrade-scale-set.md)。 也可使用 Azure CLI 来[配置自动缩放规则](virtual-machine-scale-sets-autoscale-overview.md)。
 
+<!--Update_Description: wording update -->

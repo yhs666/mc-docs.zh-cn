@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 01/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7992d9e806b6ed97db95fc4fa3d39351c558ddf4
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 20c7a1e20615c4cfaea36c71c64a5a787212cbcb
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecn-site"></a>azureiotsuite.cn 站点权限
 
@@ -105,7 +105,7 @@ Azure 管理员角色可控制将 Azure 订阅映射到 AD 租户的能力。
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>我是服务管理员，要更改我的订阅与特定 AAD 租户之间的目录映射。 如何完成此任务？
 
-请参阅[如何将现有订阅添加到 Azure AD 目录](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
+请参阅[如何将现有订阅添加到 Azure AD 目录](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>我是 AAD 租户上的域用户/成员，我创建了一个预配置解决方案。 如何针对我的应用程序向我分配角色？
 

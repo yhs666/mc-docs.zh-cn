@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 09/18/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: c01ad9391b9e1522b2f3330f3933b7460b9a3b86
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 3a7a3abad7bd86a6055b510d6f75f0035fca28d9
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>使用 Node.js 生成 Azure Cosmos DB: API for MongoDB 应用
 > [!div class="op_single_selector"]
-> * [.NET](documentdb-get-started.md)
-> * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [.NET](sql-api-get-started.md)
+> * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [Java](sql-api-java-get-started.md)
 > * [用于 MongoDB 的 Node.js](mongodb-samples.md)
-> * [Node.js](documentdb-nodejs-get-started.md)
-> * [C++](documentdb-cpp-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [C++](sql-api-cpp-get-started.md)
 >  
 >
 
@@ -134,4 +134,4 @@ ms.lasthandoff: 09/13/2017
 ## <a name="next-steps"></a>后续步骤
 * 了解如何配合[使用 MongoChef](mongodb-mongochef.md) 与 Azure Cosmos DB: API for MongoDB 帐户。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update link -->

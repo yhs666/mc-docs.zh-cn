@@ -1,6 +1,6 @@
 ---
 title: "创建 Azure 应用程序网关 - 模板 | Microsoft Docs"
-description: "本页提供有关使用 Azure Resource Manager 模板创建 Azure 应用程序网关的说明"
+description: "本页提供有关使用 Azure 资源管理器模板创建 Azure 应用程序网关的说明"
 documentationcenter: na
 services: application-gateway
 author: alexchen2016
@@ -12,30 +12,28 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/31/2017
-ms.date: 09/13/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: e4a6f4cf8f699d3c4ebf6bac5e8d94dac0acca8c
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: 93b120d397cfd5e55ca7bb3a78990e7ad005b9e1
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建应用程序网关
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+> * [Azure 资源管理器 PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure 经典 PowerShell](application-gateway-create-gateway.md)
-> * [Azure Resource Manager 模板](application-gateway-create-gateway-arm-template.md)
+> * [Azure 资源管理器模板](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地​​的服务器间提供故障转移和性能路由 HTTP 请求。 应用程序网关提供许多应用程序传送控制器 (ADC) 功能，包括 HTTP 负载均衡、基于 Cookie 的会话相关性、安全套接字层 (SSL) 卸载、自定义运行状况探测、多站点支持，以及许多其他功能。 
+Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地​​的服务器间提供故障转移和性能路由 HTTP 请求。 应用程序网关提供许多应用程序传送控制器 (ADC) 功能，包括 HTTP 负载均衡、基于 Cookie 的会话相关性、安全套接字层 (SSL) 卸载、自定义运行状况探测、多站点支持，以及许多其他功能。 若要查找支持功能的完整列表，请参阅[应用程序网关概述](application-gateway-introduction.md)。
 
-若要查找受支持功能的完整列表，请访问[应用程序网关概述](application-gateway-introduction.md)
+本文介绍如何从 GitHub 下载并修改现有 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)，以及如何通过 GitHub、PowerShell 和 Azure CLI 部署该模板。
 
-本文介绍如何从 GitHub 下载并修改现有 Azure 资源管理器模板，以及如何通过 GitHub、PowerShell 和 Azure CLI 部署该模板。
-
-如果只是直接从 GitHub 部署 Azure Resource Manager 模板，而不进行任何更改，请跳到“从 GitHub 部署模板”。
+如果只是直接从 GitHub 部署模板，而不进行任何更改，请跳到“从 GitHub 部署模板”。
 
 ## <a name="scenario"></a>方案
 
@@ -79,9 +77,6 @@ Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地�
    - **name**。 资源的名称。 请注意 `[parameters('applicationGatewayName')]`的使用，这意味着该名称是在部署过程中由用户或参数文件作为输入提供的。
    - **properties**。 资源的属性列表。 此模板在应用程序网关创建过程中，使用虚拟网络与公共 IP 地址。
 
-   > [!NOTE]
-   > 有关模板的详细信息，请参阅：[Resource Manager 模板参考](https://github.com/Azure/azure-quickstart-templates/)
-
 1. 导航回 [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf)。
 1. 单击 **azuredeploy-parameters.json**，然后单击 **RAW**。
 1. 将该文件保存到计算机上的本地文件夹中。
@@ -89,7 +84,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地�
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "$schema": "http://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "addressPrefix": {
@@ -130,7 +125,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地�
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>使用 PowerShell 部署 Azure Resource Manager 模板
 
-如果从未使用过 Azure PowerShell，请参阅：[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)，并按照说明进行操作，登录到 Azure 并选择订阅。
+如果从未使用过 Azure PowerShell，请参阅：[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)，并按照说明进行操作，以登录到 Azure 并选择订阅。
 
 1. 登录 PowerShell
 
@@ -159,7 +154,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地�
     ```
 
 1. 运行 **New-AzureRmResourceGroupDeployment** cmdlet，使用在前面下载并修改的模板和参数文件部署新虚拟网络。
-
+    
     ```powershell
     New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
@@ -167,11 +162,9 @@ Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地�
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-the-azure-cli"></a>使用 Azure CLI 部署 Azure Resource Manager 模板
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 若要使用 Azure CLI 部署下载的 Azure Resource Manager 模板，请执行以下步骤：
 
-1. 如果从未使用过 Azure CLI，请参阅[安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)，并按照说明进行操作，直到选择 Azure 帐户和订阅。
+1. 如果从未使用过 Azure CLI，请参阅[安装和配置 Azure CLI](/cli/install-azure-cli)，并按照说明进行操作，直到选择 Azure 帐户和订阅。
 
 1. 如有必要，请运行 `az group create` 命令创建一个资源组，如以下代码片段中所示。 请注意命令的输出。 在输出后显示的列表说明了所使用的参数。 有关资源组的详细信息，请访问 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)。
 
@@ -183,7 +176,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地�
 
     **-l（或 --location）**。 会创建新资源组的 Azure 区域。 在本方案中为 *chinanorth*。
 
-1. 运行 `az group deployment create` cmdlet，使用上述步骤中下载并修改的模板和参数文件部署新虚拟网络。 在输出后显示的列表说明了所用的参数。
+1. 运行 `az group deployment create` cmdlet，使用上述步骤中下载并修改的模板和参数文件部署新虚拟网络。 在输出后显示的列表说明了所使用的参数。
 
     ```azurecli
     az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
@@ -191,23 +184,23 @@ Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地�
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-click-to-deploy"></a>使用“单击部署”来部署 Azure Resource Manager 模板
 
-“单击部署”是另一种使用 Azure Resource Manager 模板的方式。 这是将模板与 Azure 门户配合使用的简便方法。
+“单击部署”是另一种使用 Azure 资源管理器模板的方式。 这是将模板与 Azure 门户配合使用的简便方法。
 
-1. 转到[创建具有 Web 应用程序防火墙的应用程序网关](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf/)。
+1. 转到[创建具有 Web 应用程序防火墙的应用程序网关](https://azure.microsoft.com/documentation/templates/101-application-gateway-waf/)。
 
 1. 单击 **“部署到 Azure”**。
 
-    [![“部署到 Azure”](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-application-gateway-public-ip%2Fazuredeploy.json)
-
+    ![“部署到 Azure”](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
+    
 1. 在门户上填写部署模板的参数，并单击“确定”。
 
-    ![Parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
-
-1. 单击“法律条款”，然后单击“购买”。
+    ![parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
+    
+1. 选择“我同意上述条款和条件”，并单击“购买”。
 
 1. 在“自定义部署”边栏选项卡上，单击“创建” 。
 
-## <a name="providing-certificate-data-to-resource-manager-templates"></a>向 Resource Manager 模板提供证书数据
+## <a name="providing-certificate-data-to-resource-manager-templates"></a>对 Resource Manager 模板提供证书数据
 
 如果将 SSL 与模板一起使用，需要提供 base64 字符串格式的证书，而不是上传证书。 若要将 .pfx 或 .cer 转换为 base64 字符串，请运行以下命令之一。 以下命令将证书转换为可提供给模板的 base64 字符串。 预期输出为一个字符串，它可以存储在变量中，并粘贴到模板中。
 
@@ -236,6 +229,7 @@ Remove-AzureRmResourceGroup -Name appgatewayRG
 
 ```azurecli
 az group delete --name appgatewayRG
+
 ```
 
 ## <a name="next-steps"></a>后续步骤

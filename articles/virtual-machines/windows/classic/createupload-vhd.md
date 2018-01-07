@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: d74dd86810267969fce61725b14ccaec4bb9783c
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: b33dd23bd0c78c335099c010d85c851ec37d5a76
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>创建 Windows Server VHD 并将其上传到 Azure
 本文说明如何上传自己的通用化 VM 映像作为虚拟硬盘 (VHD)，以便使用它来创建虚拟机。 有关 Azure 中的磁盘和 VHD 的更多详细信息，请参阅 [About Disks and VHDs for Virtual Machines](../about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（关于虚拟机的磁盘和 VHD）。
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/15/2017
 ## <a name="prerequisites"></a>先决条件
 本文假定你具备以下条件：
 
-* **Azure 订阅** - 如果没有，可以[建立一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+* **Azure 订阅** - 如果没有，可以[建立一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial)。
 * **[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)** - 已安装 Azure PowerShell 模块并将其配置为使用订阅。
 * **.VHD 文件** - 存储在 .vhd 文件中并附加到虚拟机的受支持 Windows 操作系统。 检查 Sysprep 是否支持 VHD 上运行的服务器角色。 有关详细信息，请参阅 [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)（Sysprep 对服务器角色的支持）。
 
@@ -106,4 +106,4 @@ Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountN
 
 ## <a name="next-steps"></a>后续步骤
 现在可以使用上传的映像来[创建自定义的 VM](createportal.md)。
-<!-- Update_Description: update meta properties, add classic portal migration notice. -->
+<!-- Update_Description: update meta properties, update link  -->

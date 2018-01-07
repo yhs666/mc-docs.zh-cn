@@ -1,6 +1,6 @@
 # 概述
 ## [Windows SQL Server VM](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-## [价格](https://www.azure.cn/pricing/details/virtual-machines/windows/)
+## [价格](https://www.azure.cn/pricing/details/virtual-machines/)
 ## [常见问题](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # 入门
@@ -12,7 +12,7 @@
 # 如何
 ## 配置高可用性
 ### [高可用性选项](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [在经典管理门户中配置 Always On 可用性组](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+### [在门户中配置 Always On 可用性组](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [使用 PowerShell 配置 Always On 可用性组](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [为可用性组配置内部侦听器](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [为可用性组配置外部侦听器](virtual-machines-windows-classic-ps-sql-ext-listener.md)
@@ -34,7 +34,7 @@
 ## [性能最佳做法](../sql/virtual-machines-windows-sql-performance.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## [应用程序模式](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
-# 引用
+# 参考
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azuresmps-3.7.0)
 ## [Azure CLI](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
@@ -47,4 +47,4 @@
 ## [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 ## [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 ## [SQL Server 工具](https://docs.microsoft.com/sql/tools/overview-sql-tools)
-<!--ms.date: 10/30/2017-->
+<!--ms.date: 01/08/2018-->

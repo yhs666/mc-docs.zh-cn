@@ -3,7 +3,7 @@ title: "Azure SQL 数据库连接体系结构 | Azure"
 description: "本文档从 Azure 内或 Azure 外介绍 Azure SQLDB 连接体系结构。"
 services: sql-database
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: monicar
 ms.assetid: 
@@ -13,24 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 06/05/2017
-ms.date: 11/06/2017
-ms.author: v-johch
-ms.openlocfilehash: 856902927877c6a83901c7ea3d781f834c35215d
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+origin.date: 01/02/2018
+ms.date: 01/08/2018
+ms.author: v-nany
+ms.openlocfilehash: 11a2cc2f525f15ced9e8155dc6e88295b2913f30
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL 数据库连接体系结构 
 
-本文介绍 Azure SQL Database 连接体系结构，并说明不同组件如何将流量定向到 Azure SQL 数据库的实例。 这些 Azure SQL 数据库连接组件通过从 Azure 内连接的客户端以及从 Azure 外连接的客户端将网络流量定向到 Azure 数据库。 本文还提供脚本示例（用于更改连接发生的方式）以及与更改默认连接设置相关的注意事项。 如果阅读本文后有任何问题，请通过 dmalik@microsoft.com 与 Dhruv 联系。 
+本文介绍 Azure SQL Database 连接体系结构，并说明不同组件如何将流量定向到 Azure SQL 数据库的实例。 这些 Azure SQL 数据库连接组件通过从 Azure 内连接的客户端以及从 Azure 外连接的客户端将网络流量定向到 Azure 数据库。 本文还提供脚本示例（用于更改连接发生的方式）以及与更改默认连接设置相关的注意事项。 
 
 ## <a name="connectivity-architecture"></a>连接体系结构
 
-下图提供 Azure SQL 数据库连接体系结构的高级概述。 
+下图提供 Azure SQL 数据库连接体系结构的高级概述。
 
 ![体系结构概述](./media/sql-database-connectivity-architecture/architecture-overview.png)
+
 
 以下步骤介绍如何通过 Azure SQL 数据库软件负载均衡器 (SLB) 和 Azure SQL 数据库网关建立到 Azure SQL 数据库的连接。
 
@@ -59,10 +60,10 @@ ms.lasthandoff: 10/31/2017
 
 若要为 Azure SQL 数据库服务器更改 Azure SQL 数据库连接策略，请使用 [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx)。 
 
-- 如果将连接策略设置为“代理”，所有网络数据包都将通过 Azure SQL 数据库网关流动。 对于此设置，需要只允许出站到 Azure SQL 数据库网关 IP。 使用“代理”设置比使用“重定向”设置的延迟时间更长。 
-- 如果将连接策略设置为“重定向”，则所有网络数据包将直接流向中间件代理。 对于此设置，需要允许出站到多个 IP。 
+- 如果将连接策略设置为“代理”，所有网络数据包都将通过 Azure SQL 数据库网关流动。 对于此设置，需要只允许出站到 Azure SQL 数据库网关 IP。 使用“代理”设置比使用“重定向”设置的延迟时间更长。
+- 如果将连接策略设置为“重定向”，则所有网络数据包将直接流向中间件代理。 对于此设置，需要允许出站到多个 IP。
 
-## <a name="script-to-change-connection-settings-via-powershell"></a>通过 PowerShell 编写脚本以更改连接设置 
+## <a name="script-to-change-connection-settings-via-powershell"></a>通过 PowerShell 编写脚本以更改连接设置
 
 > [!IMPORTANT]
 > 此脚本需要 [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
@@ -129,23 +130,20 @@ Invoke-RestMethod -Uri "https://management.chinacloudapi.cn/subscriptions/$subsc
 
 以下 CLI 脚本演示如何更改连接策略。
 
-```azurecli
- # Get SQL Server ID
- sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+<pre>
+# Get SQL Server ID
+sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
 
 # Set URI
-uri="https://management.chinacloudapi.cn/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
-
-# Get Access Token 
-accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy 
-curl -H "authorization: Bearer $accessToken" -X GET $uri
+az resource show --ids $id
 
-#Update connection policy 
-curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+# Update connection policy 
+az resource update --ids $id --set properties.connectionType=Proxy
 
-```
+</pre>
 
 ## <a name="next-steps"></a>后续步骤
 

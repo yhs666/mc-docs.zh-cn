@@ -4,7 +4,7 @@
 
 首先介绍 Azure 平台内置的容错功能，此功能有助于预防本地故障的发生。 然后介绍内置功能未全面涵盖的灾难恢复方案。 这是本文档探讨的主要主题。 此外，本文档演示了几个工作负荷方案示例，它们的备份和 DR 注意事项各不相同。 最后，介绍适用于 IaaS 磁盘 DR 的可行解决方案。 
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 
 Azure 平台使用各种方法实现冗余和容错，以帮助客户避免本地硬件故障。 本地故障可能包括存储部分虚拟磁盘数据的 Azure 存储服务器计算机出现问题，或此服务器上的 SSD 或 HDD 发生故障。 此类隔离的硬件组件故障可能会在正常操作期间发生。 
 
@@ -123,7 +123,7 @@ IaaS 应用程序数据问题是另一种可能的情况。 假设有一个应�
 
 ### <a name="steps-to-enable-a-backup"></a>备份启用步骤
 
-执行以下步骤可以使用 [Azure 门户](https://portal.azure.cn/)启用 VM 备份。 步骤可能有一些差异，具体视确切方案而定。 如需了解完整详情，请参阅 [Azure 备份](../articles/backup/backup-azure-vms-introduction.md)一文。 Azure 备份还[支持使用托管磁盘的 VM](https://azure.microsoft.com/blogazure-managed-disk-backup/)。
+执行以下步骤可以使用 [Azure 门户](https://portal.azure.cn/)启用 VM 备份。 步骤可能有一些差异，具体视确切方案而定。 如需了解完整详情，请参阅 [Azure 备份](../articles/backup/backup-azure-vms-introduction.md)一文。 Azure 备份还[支持使用托管磁盘的 VM](https://azure.microsoft.com/blog/azure-managed-disk-backup/)。
 
 1.  为 VM 创建恢复服务保管库：
 
@@ -187,7 +187,7 @@ IaaS 应用程序数据问题是另一种可能的情况。 假设有一个应�
 
 2. 创建每个虚拟硬盘 Blob 的快照，这只需要几秒钟的时间。
 
-    若要创建快照，可以使用 [PowerShell](../articles/storage/common/storage-powershell-guide-full.md)、[Azure 存储 REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx)、[Azure CLI](https://docs.azure.cn/zh-cn/cli/) 或 Azure 存储客户端库之一（如[用于 .NET 的存储客户端库](https://msdn.microsoft.com/library/azure/hh488361.aspx?view=azure-cli-latest)）。
+    若要创建快照，可以使用 [PowerShell](../articles/storage/common/storage-powershell-guide-full.md)、[Azure 存储 REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx)、[Azure CLI](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest) 或 Azure 存储客户端库之一（如[用于 .NET 的存储客户端库](https://msdn.microsoft.com/library/azure/hh488361.aspx)）。
 
 3. 启动 VM，这将终止故障时间。 整个过程通常会在几分钟内完成。
 
@@ -250,3 +250,5 @@ IaaS 应用程序数据问题是另一种可能的情况。 假设有一个应�
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
+<!--Update_Description: wording update-->
+<!--ms.date: 01/08/2018-->

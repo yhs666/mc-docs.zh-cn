@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2016
-ms.date: 12/04/2017
+ms.date: 01/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: ad0ece22ae0c07f154824d3abb68c2a60476cdc1
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 1fe5616606f195cafbf8f750f9c3ffde295a1f99
+ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/25/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure 应用服务中启用 Web 应用的诊断日志记录
 ## <a name="overview"></a>概述
-Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-service-web-overview.md)。 本文介绍如何启用诊断日志记录并将检测添加到应用程序，以及如何访问由 Azure 记录的信息。
+Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-service-web-overview.md)。 在本文中，将了解如何启用诊断日志记录并将检测添加到应用程序，以及如何访问由 Azure 记录的信息。
 
 本文通过 [Azure 门户](https://portal.azure.cn)、Azure PowerShell 和 Azure 命令行接口 (Azure CLI) 使用诊断日志。 有关通过 Visual Studio 使用诊断日志的信息，请参阅[在 Visual Studio 中对 Azure 进行故障排除](web-sites-dotnet-troubleshoot-visual-studio.md)。
 
@@ -36,8 +36,8 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 可以启用或禁用以下种类的日志：
 
 * **详细错误日志记录** - 指示故障的 HTTP 状态代码（状态代码 400 或更大数字）的详细错误消息。 其中可能包含有助于确定服务器返回错误代码的原因的信息。
-* **失败请求跟踪** - 有关失败请求的详细信息，包括对用于处理请求的 IIS 组件和每个组件所用时间的跟踪。 在尝试提高站点性能或隔离导致要返回特定 HTTP 错误的内容时，此信息很有用。
-* **Web 服务器日志记录** - 使用 [W3C 扩展日志文件格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)的 HTTP 事务信息。 这在确定整体站点度量值（如处理的请求数量或来自特定 IP 地址的请求数）时非常有用。
+* **失败请求跟踪** - 有关失败请求的详细信息，包括对用于处理请求的 IIS 组件和每个组件所用的时间的跟踪。 在尝试提高站点性能或隔离导致要返回特定 HTTP 错误的内容时，此信息很有用。
+* **Web 服务器日志记录** - 使用 [W3C 扩展日志文件格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)的 HTTP 事务信息。 这在确定整体站点指标（如处理的请求数量或来自特定 IP 地址的请求数）时非常有用。
 
 ### <a name="application-diagnostics"></a>应用程序诊断
 应用程序诊断可以捕获由 Web 应用程序产生的信息。 ASP.NET 应用程序可使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 类将信息记录到应用程序诊断日志。 例如：
@@ -61,14 +61,13 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 >
 >
 
-在[经典管理门户](https://manage.windowsazure.cn) Web 应用的“配置”选项卡中，可选择“存储”或“文件系统”**记录 Web 服务器日志**。 选择“存储”可选择存储帐户，然后将日志写入 Blob 容器。 仅将“站点诊断”的所有其他日志写入文件系统。
+对于“应用程序日志记录”，可以临时打开文件系统选项以便调试。 此选项将在 12 小时后自动关闭。 还可打开 blob 存储选项，选择某个 blob 容器来写入日志。
 
-[经典管理门户](https://manage.windowsazure.cn) Web 应用的“配置”选项卡还包含用于应用程序诊断的其他设置：
+对于“Web 服务器日志记录”，可选择“存储”或“文件系统”。 选择“存储”可选择存储帐户，然后将日志写入 Blob 容器。 
 
-* **文件系统** - 将应用程序诊断信息存储到 Web 应用文件系统。 可通过 FTP 访问这些文件，或使用 Azure PowerShell 或 Azure 命令行接口 (Azure CLI) 将这些文件作为 Zip 存档下载。
-* **表存储** - 将应用程序诊断信息存储在指定的 Azure 存储帐户和表名中。
-* **Blob 存储** - 将应用程序诊断信息存储在指定的 Azure 存储帐户和 Blob 容器中。
-* **保留期** - 默认情况下，不会从“Blob 存储”自动删除日志。 如果希望自动删除日志，可选择“设置保留”并输入保存日志的天数。
+如果将日志存储在文件系统，可通过 FTP 访问这些文件，或使用 Azure PowerShell 或 Azure 命令行接口 (Azure CLI) 将这些文件作为 Zip 存档下载。
+
+默认情况下，日志不会自动删除（除非是“应用程序日志记录(文件系统)”）。 要自动删除日志，请设置“保留期(天)”字段。
 
 > [!NOTE]
 > 如果[重新生成存储帐户的访问密钥](../storage/common/storage-create-storage-account.md)，则必须重置相应的日志记录配置才能使用更新的密钥。 为此，请按以下步骤操作：
@@ -102,12 +101,10 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 * **部署日志** - /LogFiles/Git。 此文件夹包含由 Azure Web 应用使用的内部部署过程生成的日志和 Git 部署的日志。
 
 ### <a name="ftp"></a>FTP
-若要使用 FTP 访问诊断信息，请在[经典管理门户](https://manage.windowsazure.cn)中访问 Web 应用的“仪表板”。 在“速览”部分中，使用“FTP 诊断日志”链接通过 FTP 访问日志文件。 “部署/FTP 用户”项列出了应该用于访问 FTP 站点的用户名。
 
-> [!NOTE]
-> 如果未设置“部署/FTP 用户”项或忘记该用户的密码，可通过使用“仪表板”中“速览”部分的“重置部署凭据”链接创建新用户和密码。
->
->
+要开启到应用的 FTP 服务器的 FTP 连接，请参阅[使用 FTP/S 将应用部署到 Azure App Service](app-service-deploy-ftp.md)。
+
+一旦连接到 Web 应用的 FTP/S 服务器，请打开“LogFiles”文件夹，所有日志文件都存储于此。
 
 ### <a name="download-with-azure-powershell"></a>使用 Azure PowerShell 下载
 若要下载日志文件，请启动 Azure PowerShell 的新实例并使用以下命令：
@@ -134,7 +131,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 >
 
 ## <a name="streamlogs"></a> 如何：流式传输日志
-开发应用程序时，以近乎实时的方式查看日志记录信息通常很有用。 通过使用 Azure PowerShell 或 Azure 命令行接口将日志记录信息流式传输到开发环境，可以实现此目的。
+开发应用程序时，以近乎实时的方式查看日志记录信息通常很有用。 通过使用 Azure PowerShell 或 Azure 命令行接口将日志记录信息流式传输到开发环境。
 
 > [!NOTE]
 > 某些类型的日志记录缓冲区会对日志文件执行写入操作，这可能会导致流中的事件变成混乱。 例如，用户访问页面时出现的应用程序日志项可能显示在该页面请求所对应的 HTTP 日志项的前面。
@@ -194,7 +191,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 
 记录到文件系统或使用流式传输收到的每行都会采用以下格式：
 
-    {Date}  PID[{process id}] {event type/level} {message}
+    {Date}  PID[{process ID}] {event type/level} {message}
 
 例如，错误事件可能类似如下所示：
 
@@ -213,8 +210,8 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 | Timestamp |事件发生的日期和时间 |
 | EventTickCount |事件发生的日期和时间，刻度格式（精度更高） |
 | ApplicationName |Web 应用名称 |
-| 级别 |事件级别（例如错误、警告、信息） |
-| EventId |此事件的事件 ID<p><p>如果未指定，默认为 0 |
+| 级别 |事件级别（例如“错误”、“警告”或“信息”） |
+| EventId |此事件的事件 ID<p><p>如果未指定，则默认为 0 |
 | InstanceId |发生事件的 Web 应用实例 |
 | Pid |进程 ID |
 | Tid |生成事件的线程的线程 ID |
@@ -227,7 +224,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 | 属性名称 | 值/格式 |
 | --- | --- |
 | 日期 |事件发生的日期和时间 |
-| 级别 |事件级别（例如错误、警告、信息） |
+| 级别 |事件级别（例如“错误”、“警告”或“信息”） |
 | ApplicationName |Web 应用名称 |
 | InstanceId |发生事件的 Web 应用实例 |
 | EventTickCount |事件发生的日期和时间，刻度格式（精度更高） |
@@ -236,7 +233,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 | Tid |生成事件的线程的线程 ID |
 | 消息 |事件详细消息 |
 
-存储在 Blob 中的数据如下所示：
+存储在 blob 中的数据如下方示例所示：
 
     date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
@@ -247,7 +244,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 >
 
 ### <a name="failed-request-traces"></a>失败请求跟踪
-失败请求跟踪存储在名为 **fr######.xml** 的 XML 文件中。 为了便于查看记录信息，在 XML 文件所在目录中提供了一个名为 **freb.xsl** 的 XSL 样式表。 如果在 Internet Explorer 中打开其中一个 XML 文件，Internet Explorer 会使用 XSL 样式表提供易于阅读的跟踪信息。 这会显示类似如下内容：
+失败请求跟踪存储在名为 **fr######.xml** 的 XML 文件中。 为了便于查看记录信息，在 XML 文件所在目录中提供了一个名为 **freb.xsl** 的 XSL 样式表。 如果在 Internet Explorer 中打开其中一个 XML 文件，Internet Explorer 会使用 XSL 样式表提供易于阅读的跟踪信息，如下方示例所示：
 
 ![在浏览器中查看失败请求](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -262,7 +259,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 >
 >
 
-## <a name="nextsteps"></a>后续步骤
+## <a name="nextsteps"></a> 后续步骤
 * [如何监视 Web 应用](web-sites-monitor.md)
 * [在 Visual Studio 中对 Azure Web 应用进行故障排除](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [在 HDInsight 中分析 Web 应用日志](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

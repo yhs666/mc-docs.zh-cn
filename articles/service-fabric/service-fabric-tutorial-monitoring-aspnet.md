@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/14/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ab18e095c223b48e5fac75ccd64cecddd74ec7f2
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 4fb8a984e385a632b0d06c8d605cc154d4855795
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>在 Service Fabric 上监视和诊断 ASP.NET Core 应用程序
 本教程是一个系列中的第四部分， 介绍了使用 Application Insights 针对 Service Fabric 群集上运行的 ASP.NET Core 应用程序设置监视和诊断的步骤。 我们会从本教程第一部分（即[构建 .NET Service Fabric 应用程序](service-fabric-tutorial-create-dotnet-app.md)）开发的应用程序中收集遥测数据。 
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="prerequisites"></a>先决条件
 在开始学习本教程之前：
-- 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
+- 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
 - [安装 Visual Studio 2017](https://www.visualstudio.com/)，并安装 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
 - [安装 Service Fabric SDK](service-fabric-get-started.md)
 
@@ -238,4 +238,4 @@ public async Task<IActionResult> Delete(string name)
 - [使用 Application Insights 进行 Service Fabric 事件分析](service-fabric-diagnostics-event-analysis-appinsights.md)
 - 若要详细了解 Application Insights，请参阅 [Application Insights Documentation](/application-insights/)（Application Insights 文档）
 
-<!--Update_Description: new articles on service fabric monitor aspnet -->
+<!--Update_Description: wording update -->

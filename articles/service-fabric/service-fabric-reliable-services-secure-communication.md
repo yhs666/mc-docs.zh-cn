@@ -3,8 +3,8 @@ title: "在 Azure Service Fabric 中帮助保护服务的通信 | Azure"
 description: "概述如何帮助保护在 Azure Service Fabric 群集中运行的 Reliable Services 的通信。"
 services: service-fabric
 documentationcenter: .net
-author: suchiagicha
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: vturecek
 ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
 ms.service: service-fabric
@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 04/20/2017
-ms.author: v-johch
-ms.openlocfilehash: 11a5466cb1e84ccb14ce821493377a1ab01211f8
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 04/20/2017
+ms.date: 01/01/2018
+ms.author: v-yeche
+ms.openlocfilehash: c870910171f88cdcb48a5deff707efaee5f4585b
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>在 Azure Service Fabric 中帮助保护服务的通信
 > [!div class="op_single_selector"]
@@ -57,7 +58,7 @@ ms.lasthandoff: 06/21/2017
     ```
 2. 添加侦听器设置和安全凭据。
 
-    确保你要用来帮助保护服务通信的证书安装在群集中的所有节点上。 有两种方式可用于提供侦听器设置和安全凭据：
+    确保要用来帮助保护服务通信的证书安装在群集中的所有节点上。 有两种方式可用于提供侦听器设置和安全凭据：
 
     1. 在服务代码中直接提供：
 
@@ -92,8 +93,7 @@ ms.lasthandoff: 06/21/2017
             return x509Credentials;
         }
         ```
-
-    2. 使用[配置包](./service-fabric-application-model.md)提供：
+    2. 使用[配置包](service-fabric-application-and-service-manifests.md)提供：
 
         在 settings.xml 文件中添加 `TransportSettings` 节。
 
@@ -146,7 +146,7 @@ ms.lasthandoff: 06/21/2017
             };
         }
         ```
-3. 在安全服务上使用远程堆栈（而不是使用 `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` 类）调用方法来创建服务代理时，请使用 `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`。 传入包含 `SecurityCredentials` 的 `FabricTransportRemotingSettings`。
+3. 在安全服务上使用远程堆栈而不是使用 `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` 类调用方法来创建服务代理时，请使用 `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`。 传入包含 `SecurityCredentials` 的 `FabricTransportRemotingSettings`。
 
     ```csharp
 
@@ -193,13 +193,15 @@ ms.lasthandoff: 06/21/2017
 
     类似于服务，如果在客户端 settings.xml/client_name.settings.xml 中添加 `TransportSettings` 节，则 `FabricTransportRemotingSettings` 将默认加载此节中的所有设置。
 
-    在此情况下，上述代码将进一步简化：  
+    在此情况下，上述代码会进一步简化：  
 
     ```csharp
+
     IHelloWorldStateful client = ServiceProxy.Create<IHelloWorldStateful>(
                  new Uri("fabric:/MyApplication/MyHelloWorldService"));
 
     string message = await client.GetHelloWorld();
+
     ```
 
 ## <a name="help-secure-a-service-when-youre-using-a-wcf-based-communication-stack"></a>使用基于 WCF 的通信堆栈时帮助保护服务
@@ -310,3 +312,4 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="next-steps"></a>后续步骤
 * [Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)
+<!-- Update_Description: update meta properties, wording update -->

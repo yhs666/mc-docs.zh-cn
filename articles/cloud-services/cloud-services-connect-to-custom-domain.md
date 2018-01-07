@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 5f98fa96463bb4b5a8212befb32e5b745279b962
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 01/15/2018
+ms.openlocfilehash: 85e6f881ab934f0be42a39f815776bee66716fad
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>将 Azure 云服务角色连接到 Azure 中托管的自定义 AD 域控制器
 我们先在 Azure 中设置一个虚拟网络 (VNet)。 然后将 Active Directory 域控制器（托管在 Azure 虚拟机上）添加到该 VNet。 接下来，将现有云服务角色添加预先创建的 VNet，然后将它们连接到域控制器。
@@ -138,19 +138,23 @@ Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-
 ```powershell
 # Initialize domain variables
 
-```
-$domain = '<域名>' $dmuser = '$domain\<用户名>' $dmpswd = '<域密码>' $dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force $dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd)
-```
+
+$domain = '<your-domain-name>'
+$dmuser = '$domain\<your-username>'
+$dmpswd = '<your-domain-password>'
+$dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force
+$dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd)
+
 
 # Add AD Domain Extension to the cloud service roles
 
-```
-Set-AzureServiceADDomainExtension -Service <云服务托管的服务名称> -Role <角色名称> -Slot <staging 或 production> -DomainName $domain -Credential $dmcred -JoinOption 35
+
+Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-name> -Role <your-role-name> -Slot <staging-or-production> -DomainName $domain -Credential $dmcred -JoinOption 35
 ```
 
-And that's it.
+这就是所有的操作。
 
-Your cloud services should be joined to your custom domain controller. If you would like to learn more about the different options available for how to configure AD Domain Extension, use the PowerShell help. A couple of examples follow:
+云服务应已加入自定义域控制器。 如果你想要深入了解用于配置 AD 域扩展的其他选项，请使用 PowerShell 帮助。 下面是一些示例：
 
 ```powershell
 help Set-AzureServiceADDomainExtension

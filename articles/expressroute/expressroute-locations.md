@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/20/2017
+origin.date: 12/12/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 9ee5a36f78949caffa5eb294723416b887b193d6
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 01/08/2018
+ms.openlocfilehash: 4ae952691d4175cb95e4b49f31fe3232f4ef85ea
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作伙伴和对等位置
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 12/01/2017
 | **PCCW Global Limited** | 支持 | 支持 | 香港特别行政区 |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  支持 | 支持 | 新加坡 |
 | **Softbank** | 支持 | 支持 | 大坂、东京 | 
-| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | 支持 | 支持 | 阿姆斯特丹、金奈、中国香港特别行政区、伦敦、孟买、硅谷、新加坡、华盛顿特区 |
+| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | 支持 | 支持 | 阿姆斯特丹、金奈、香港特别行政区、伦敦、孟买、硅谷、新加坡、华盛顿特区 |
 | **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | 支持 | 支持 | 阿姆斯特丹、伦敦 |
 | **Telefonica** | 即将支持 | 即将支持 | 圣保罗+ |
 | **Telenor** | 支持 | 支持 | 阿姆斯特丹、伦敦 |

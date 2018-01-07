@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 11/16/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: cde9d29270d536c20bfcc26bfbbdea874b11daf4
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.custom: mvc
+ms.openlocfilehash: cbac4709a92097bb49162331aebf122c6ddac085
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>快速入门：使用 Python 和 Azure Cosmos DB 生成表 API 应用
 
@@ -65,7 +66,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在让我们从 github 克隆表应用、设置连接字符串，并运行。 你会看到以编程方式处理数据是多么容易。 
+现在让我们从 github 克隆表应用、设置连接字符串，并运行。 会看到以编程方式处理数据是多么容易。 
 
 1. 打开诸如 git bash 之类的 git 终端窗口，并使用 `cd` 命令更改为相应的示例应用程序安装文件夹。 
 
@@ -124,4 +125,4 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > [!div class="nextstepaction"]
 > [将表数据导入表 API](table-import.md)
 
-<!-- Update_Description: new articles on cassandra creating table with python -->
+<!-- Update_Description: update meta properties -->

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 10/16/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: f045fc97f84da57fea518f9bd234920a302ba71b
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 6acbbba0d2a9d5347aa6784a2af5285824626591
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>使用 Java 创建和管理 Azure 中的 Windows VM
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 10/13/2017
 
 ## <a name="create-credentials"></a>创建凭据
 
-在开始此步骤之前，请确保能够访问 [Active Directory 服务主体](../../azure-resource-manager/resource-group-create-service-principal-portal.md)。 此外，应记下应用程序 ID、身份验证密钥和租户 ID，以便在后面的步骤中使用。
+在开始此步骤之前，请确保能够访问 [Active Directory 服务主体](../../azure-resource-manager/resource-group-create-service-principal-portal.md)。 还应该记录稍后步骤需要的应用程序 ID、身份验证秘钥和的租户 ID。
 
 ### <a name="create-the-authorization-file"></a>创建授权文件
 
@@ -389,7 +389,7 @@ input.nextLine();
 
 ### <a name="stop-the-vm"></a>停止 VM
 
-可停止虚拟机并保留其所有设置，但需继续付费；还可停止虚拟机并解除分配。 解除分配某个虚拟机也会解除分配与其关联的所有资源，并停止该虚拟机的计费。
+可停止虚拟机并保留其所有设置，但需继续付费；还可停止虚拟机并解除分配。 解除分配虚拟机时，也会解除分配与其关联的所有资源并将停止计费。
 
 若要停止虚拟机而不解除分配虚拟机，请将此代码添加到 main 方法的 try 块：
 
@@ -473,4 +473,4 @@ azure.resourceGroups().deleteByName("myResourceGroup");
 ## <a name="next-steps"></a>后续步骤
 * 详细了解如何使用[用于 Java 的 Azure 库](https://docs.azure.cn/java/java-sdk-azure-overview)。
 
-<!--Update_Description: new articles on creating and managing VM in Azure using java-->
+<!--Update_Description: update meta properties -->

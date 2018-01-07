@@ -1,26 +1,26 @@
 ---
 title: "结合使用弹性查询和 Azure SQL 数据仓库的教程 | Azure"
-description: "了解如何结合使用弹性查询和 Azure SQL 数据仓库 "
+description: "了解如何结合使用弹性查询和 Azure SQL 数据仓库"
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
 editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
+ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67g
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: integrate
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 11/03/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 31e360acf9a8414be00b3343b9a364836462847d
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: bb8502b3b87ee1e9a0fbf0d1e0df5bf85877f364
+ms.sourcegitcommit: 3996e0f27bae21fc48f6ebfab423e9b29f9d9bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-elastic-query-with-sql-data-warehouse"></a>配置结合使用弹性查询和 SQL 数据仓库
 
@@ -119,7 +119,11 @@ ms.lasthandoff: 11/15/2017
    ,   [CustomerID] [int] NOT NULL 
    ) 
    WITH 
-   (DATA_SOURCE = EnterpriseDwSrc)
+   (
+         DATA_SOURCE = EnterpriseDwSrc
+   ,    SCHEMA_NAME = N'dbo'
+   ,    OBJECT_NAME = N'OrderInformation'
+   )
    ```
 
 5. 请注意，现在 SQL 数据库实例中有一个外部表定义。
@@ -148,4 +152,4 @@ SELECT * FROM [dbo].[OrderInformation];
 
 <!--Other Web references-->
 
-<!-- Update_Description: new articles on elastic query with SQL database and SQL data warehouse -->
+<!-- Update_Description: update meta properties, wording update -->

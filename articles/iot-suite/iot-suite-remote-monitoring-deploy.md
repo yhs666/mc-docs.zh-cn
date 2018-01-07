@@ -7,17 +7,17 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-origin.date: 11/10/2017
-ms.date: 12/04/2017
+origin.date: 12/12/2017
+ms.date: 01/08/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: b31548c482c52e7bc0565fadfb8c58d24900ebe5
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 9bc8b081dd6e02d3f4ec4e608e225e1265a47d53
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>部署远程监视预配置解决方案
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/24/2017
 
 需要有效的 Azure 订阅才能完成此教程。
 
-如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 试用](http://www.azure.cn/pricing/1rmb-trial/)。
+如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 试用版](http://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="deploy-the-preconfigured-solution"></a>部署预配置解决方案
 

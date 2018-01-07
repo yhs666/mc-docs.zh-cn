@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: d65d8dd355e2922482185bccd6111f24833bf514
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: ff5180a09124496fd34566382ee5f752b5e2c01d
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>存在现有的租户时如何使用 Azure AD Connect
 有关如何使用 Azure AD Connect 的大多数主题假设一开始使用的是新 Azure AD 租户，其中不包含任何用户或其他对象。 但是，如果一开始使用的 Azure AD 租户中填充了用户和其他对象，现在想要使用 Connect，那么，本主题适合你阅读。
@@ -52,12 +52,13 @@ Azure AD 中的对象在云中 (Azure AD) 或本地掌控。 对于单个对象�
 对于全新的 Connect 安装，软匹配与硬匹配之间没有实质的差别。 主要差别在于灾难恢复情形。 如果解除了装有 Azure AD Connect 的服务器，可以重新安装一个新实例，而不会丢失任何数据。 在初始安装期间，会向 Connect 发送一个包含 sourceAnchor 的对象。 然后，客户端 (Azure AD Connect) 便可以评估匹配，与在 Azure AD 中执行相同的操作相比，速度要快得多。 硬匹配同时由 Connect 和 Azure AD 评估。 软匹配只由 Azure AD 评估。
 
 ### <a name="other-objects-than-users"></a>除用户以外的其他对象
-用户通常具有 userPrincipalName 和 proxyAddresses，因此匹配很轻松。 但其他对象（例如安全组）没有这些属性。 在这种情况下，只能使用 sourceAnchor 执行硬匹配。 sourceAnchor 始终是本地经过 Base64 转换的 **objectGUID** ，因此，在需要两个对象匹配时，必须更新 Azure AD 中的值。 只能使用 PowerShell 更新 sourceAnchor/immutableID，而不能通过门户更新。
+对于启用了邮件的组和联系人，可以根据 proxyAddresses 进行软匹配。 硬匹配不适用，因为只能对用户更新 sourceAnchor/immutableID（使用 PowerShell）。 对于未启用邮件的组，目前不支持软匹配和硬匹配。
 
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>基于 Azure AD 中的数据创建新的本地 Active Directory
 某些客户最初在 Azure AD 中使用仅限云的解决方案，而没有构建本地 AD。 后来，他们想要使用本地资源，并希望基于 Azure AD 数据构建本地 AD。 对于这种情况，Azure AD Connect 无法起到作用。 它不会创建本地用户，并且没有能力将本地密码设置为与 Azure AD 中的密码相同。
 
-## <a name="next-steps"></a>后续步骤
-了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: update meta properties -->
+## <a name="next-steps"></a>后续步骤
+了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
+
+<!--Update_Description: wording update -->

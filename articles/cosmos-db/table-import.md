@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2017
-ms.date: 11/27/2017
+origin.date: 11/28/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1990ed4290802b251f12accf841d45c39d9ff37b
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 52a4d7974ef8e133d447f4b960541b1b829043bc
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>导入要在 Azure Cosmos DB 表 API 中使用的数据
 
@@ -33,11 +33,11 @@ ms.lasthandoff: 11/24/2017
 
 ## <a name="data-migration-tool"></a>数据迁移工具
 
-可以使用命令行形式的 Azure Cosmos DB 数据迁移工具 (dt.exe) 将现有 Azure 表存储数据导入到表 API GA 帐户，或者将数据从表 API（预览版）帐户迁移到表 API GA 帐户。 目前不支持其他源。
+可以使用命令行形式的 Azure Cosmos DB 数据迁移工具 (dt.exe) 将现有 Azure 表存储数据导入到表 API GA 帐户，或者将数据从表 API（预览版）帐户迁移到表 API GA 帐户。 目前不支持其他源。 基于 UI 的数据迁移工具 (dtui.exe) 目不支持表 API 帐户。 
 
 若要执行表数据迁移，请完成以下任务：
 
-1. 从 [Microsoft 下载中心](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)或从 [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool) 下载迁移工具。
+1. 从 [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool) 下载迁移工具。
 2. 使用适用于你的方案的命令行参数运行 `dt.exe`。
 
 dt.exe 采用以下格式的命令：
@@ -93,7 +93,7 @@ dt.exe 采用以下格式的命令：
 下面的命令行示例展示了如何从 Azure 表存储导入到表 API：
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey==<Account Key>;EndpointSuffix=core.chinacloudapi.cn /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.chinacloudapi.cn /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.cn:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
 ### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>示例命令：源是 Azure Cosmos DB 表 API（预览版）
@@ -101,7 +101,7 @@ dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=
 下面的命令行示例展示了如何从表 API 预览版导入到表 API GA：
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.cn; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.cn; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.cn:443 /t.TableName:<Table name> /t.Overwrite
 ```
 
 ## <a name="azcopy-command"></a>AzCopy 命令
@@ -146,4 +146,4 @@ AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.chinacloudapi
 > [!div class="nextstepaction"]
 >[如何查询数据？](../cosmos-db/tutorial-query-table.md)
 
-<!-- Update_Description: new articles on table import -->
+<!-- Update_Description: wording update, update link -->

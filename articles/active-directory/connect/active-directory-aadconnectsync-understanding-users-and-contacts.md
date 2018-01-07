@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Connect 同步：了解用户和联系人 | Microsoft Docs"
-description: "介绍 Azure AD Connect 同步中的用户和联系人。"
+title: "Azure AD Connect 同步：了解用户、组和联系人 | Microsoft Docs"
+description: "介绍 Azure AD Connect 同步中的用户、组和联系人。"
 services: active-directory
 documentationcenter: 
 author: alexchen2016
@@ -12,26 +12,46 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/17/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: 363e4b56bd472ca1d01c2f975459a92a270b1150
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 3641db73e402a05e23bf60b8c77866360533b230
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/28/2017
 ---
-# <a name="azure-ad-connect-sync-understanding-users-and-contacts"></a>Azure AD Connect 同步：了解用户和联系人
+# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 同步：了解用户、组和联系人
 有几个不同的原因导致有多个 Active Directory 林，并且有几个不同的部署拓扑。 常见的模型包括合并和收购之后的帐户-资源部署和 GAL 同步的林。 但即使有纯模型，混合模型也是常见的模型。 Azure AD Connect 同步中的默认配置不会假定任何特定模型，但根据安装指南中选择用户匹配的方式，可以观察到不同的行为。
 
 本主题讨论默认配置在某些拓扑中的行为方式。 我们讨论配置，并且同步规则编辑器可用于查看配置。
 
 配置假定了几条一般规则：
-
-- 不管按什么顺序从源 Active Directory 导入，最终结果应始终相同。
+- 不管按什么顺序从源 Active Directory 导入，最终结果始终相同。
 - 活动帐户会始终提供登录信息，包括 **userPrincipalName** 和 **sourceAnchor**。
 - 如果找不到活动帐户，已禁用帐户会提供 userPrincipalName 和 sourceAnchor，除非该帐户为已链接邮箱。
 - 具有已链接邮箱的帐户永远不会用于 userPrincipalName 和 sourceAnchor。 假定稍后会找到活动帐户。
 - 可能会为 Azure AD 设置联系人对象，作为联系人或用户。 在处理完所有源 Active Directory 林之前，确实不会知道。
+
+## <a name="groups"></a>组
+将组从 Active Directory 同步到 Azure AD 时，注意的要点是：
+
+- Azure AD Connect 会从目录同步中排除内置安全组。
+
+- Azure AD Connect 不支持将[主要组成员身份](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx)同步到 Azure AD。
+
+- Azure AD Connect 不支持将[动态分发组成员身份](https://technet.microsoft.com/library/bb123722(v=exchg.160).aspx)同步到 Azure AD。
+
+- 若要以启用邮件的组的形式将 Active Directory 组同步到 Azure AD：
+
+    - 如果该组的 *proxyAddress* 属性为空，则其 *mail* 属性必须包含一个值
+
+    - 如果组的 *proxyAddress* 属性为非空，则必须至少包含一个 SMTP 代理地址值。 下面是一些示例：
+    
+      - 其 proxyAddress 属性包含值 *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* 的 Active Directory 组在 Azure AD 中不会启用邮件。 它没有 SMTP 地址。
+      
+      - 其 proxyAddress 属性包含值 *{"X500:/0=contoso.com/ou=users/cn=testgroup", "SMTP:johndoe@contoso.com"}* 的 Active Directory 组在 Azure AD 中会启用邮件。
+      
+      - 其 proxyAddress 属性包含值 *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* 的 Active Directory 组也会在 Azure AD 中启用邮件。
 
 ## <a name="contacts"></a>联系人
 合并和收购（即 GALSync 解决方案对两个或多个 Exchange 林进行桥接）之后，不同林中具有代表一个用户的多个联系人很常见。 联系人对象始终使用邮件属性从连接器空间联接到 metaverse。 如果已存在具有相同邮件地址的联系人对象或用户对象，则会将这些对象联接在一起。 这在规则 **In from AD - Contact Join**中进行配置。 另外，还有一条名为 **In from AD - Contact Common** 的规则，该规则具有到包含常量 **Contact** 的 metaverse 属性 **sourceObjectType** 的属性流。 如果将任何用户对象联接到相同的 metaverse 对象，则此规则的优先级非常低，并且 **In from AD - User Common** 规则会为此属性提供值 User。 在使用此规则的情况下，如果没有联接任何用户，此属性则会具有值 Contact，如果至少找到了一个用户，则会具有值 User。

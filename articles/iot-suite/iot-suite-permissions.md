@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/10/2017
 ms.author: v-yiso
-ms.date: 12/04/2017
-ms.openlocfilehash: 6bb0efb9434380b227f1d87e6c017d26b68d986b
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.date: 01/08/2018
+ms.openlocfilehash: fdc85b95d30e164615e01f7fd81ecb48c7362ba5
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecn-site"></a>azureiotsuite.cn 站点权限
 ## <a name="what-happens-when-you-sign-in"></a>登录时发生的情况
@@ -70,19 +70,19 @@ Azure 管理员角色可控制将 Azure 订阅映射到 AD 租户的能力。
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>我是服务管理员，要更改我的订阅与特定 AAD 租户之间的目录映射。 如何完成此任务？
 
-请参阅[如何将现有订阅添加到 Azure AD 目录](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
+请参阅[如何将现有订阅添加到 Azure AD 目录](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organisational-account"></a>我在使用组织帐户登录时要更改服务管理员或协同管理员
 
 请参阅支持文章 [使用组织帐户登录时更改服务管理员和协同管理员][lnk-service-admins]。
 
 ### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>为何会出现以下错误？ “你的帐户没有创建解决方案的正确权限。 请咨询帐户管理员或使用其他帐户进行尝试。”
-请查看下图以获得指南：
+请查看以下指南示意图：
 
 ![][img-flowchart]
 
 > [!NOTE]
-> 如果在验证你是 AAD 租户的全局管理员和订阅的协同管理员后，仍看到此错误，请让帐户管理员删除该用户，并按以下顺序重新分配必要的权限。 首先，将用户添加为全局管理员，然后将用户添加为 Azure 订阅的协同管理员。 如果问题仍然存在，请联系[帮助和支持][lnk-help-support]。
+> 如果在验证你是 AAD 租户的全局管理员和订阅的共同管理员后，仍看到此错误，请让帐户管理员删除该用户，并按以下顺序重新分配必要的权限。 首先，将用户添加为全局管理员，然后将用户添加为 Azure 订阅的协同管理员。 如果问题仍然存在，请联系[帮助和支持][lnk-help-support]。
 ### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>为何在我具有 Azure 订阅时会出现以下错误？ “创建预配置解决方案需要 Azure 订阅。 只需几分钟即可创建一个免费试用帐户。”
 
 如果确定具有 Azure 订阅，请验证订阅的租户映射，并确保在下拉列表中选择正确租户。 如果验证了所需租户是正确的，请按照上图，验证订阅和此 AAD 租户的映射。

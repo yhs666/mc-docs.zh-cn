@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 88028cb81342f3b491feda0add15ba8877fb9262
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 9842cf691044a157e2f8b2bf88336f21f4aec68f
+ms.sourcegitcommit: ac0aab977d289366db6a9b230f27a6a8c6c190e9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>创建虚拟网络对等互连 - 不同的部署模型，相同的订阅 
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/08/2017
 
 |Azure 部署模型  | Azure 订阅  |
 |--------- |---------|
-|[均为 Resource Manager 模型](virtual-network-create-peering.md) |相同|
-|[均为资源管理器模型](create-peering-different-subscriptions.md) |不同|
+|[均为资源管理器模型](virtual-network-create-peering.md) |相同|
+|[均为 Resource Manager 模型](create-peering-different-subscriptions.md) |不同|
 |[一个为资源管理器模型，一个为经典模型](create-peering-different-deployment-models-subscriptions.md) |不同|
 
 不能在通过经典部署模型部署的两个虚拟网络之间创建对等互连。 如需连接两个通过经典部署模型创建的虚拟网络，可使用 Azure [VPN 网关](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)来连接它们。 
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/08/2017
 3. 在“创建虚拟网络”边栏选项卡中，为以下设置输入或选择值，然后单击“创建”：
     - 名称：myVnet1
     - 地址空间：10.0.0.0/16
-    - 子网名称：默认值
+    - **子网名称**：默认值
     - 子网地址范围：10.0.0.0/24
     - 订阅：选择订阅
     - 资源组：选择“新建”并输入 myResourceGroup
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/08/2017
 4. 单击“+ 新建”。 在“搜索 Marketplace”框中，键入“虚拟网络”。 单击搜索结果中出现的“虚拟网络”。 
 5. 在“虚拟网络”边栏选项卡的“选择部署模型”框中选择“经典”，然后单击“创建”。
 6. 在“创建虚拟网络”边栏选项卡中，为以下设置输入或选择值，然后单击“创建”：
-    - **名称**：*myVnet2*
+    - 名称：myVnet2
     - 地址空间：10.1.0.0/16
     - 子网名称：默认值
     - 子网地址范围：10.1.0.0/24
@@ -69,16 +69,16 @@ ms.lasthandoff: 12/08/2017
 9. 在显示的“myVnet1”边栏选项卡中，单击左侧垂直选项列表中的“对等互连”。
 10. 在显示的“myVnet1 - 对等互连”边栏选项卡中，单击“+ 添加”
 11. 在显示的“添加对等互连”边栏选项卡中，输入或选择以下选项，然后单击“确定”：
-     - 名称：myVnet1ToMyVnet2
-     - **虚拟网络部署模型**：选择“经典”。 
-     - **订阅**：选择你的订阅
+     - **名称**：*myVnet1ToMyVnet2*
+     - 虚拟网络部署模型：选择“经典”。 
+     - 订阅：选择订阅
      - 虚拟网络：单击“选择虚拟网络”，然后单击“myVnet2”。
      - 允许虚拟网络访问：确保选择“启用”。
-    本教程不使用其他任何设置。 若要了解所有对等互连设置，请阅读[管理虚拟网络对等互连](virtual-network-manage-peering.md#create-a-peering)。
+    本教程不使用其他任何设置。 若要了解所有对等互连设置，请参阅[管理虚拟网络对等互连](virtual-network-manage-peering.md#create-a-peering)。
 12. 在上一步骤中单击“确定”后，“添加对等互连”边栏选项卡将会关闭，并再次出现“myVnet1 - 对等互连”边栏选项卡。 几秒钟后，创建的对等互连将显示在该边栏选项卡中。 创建的 myVnet1ToMyVnet2 对等互连的“对等互连状态”列中列出了“已连接”。
 
     现已建立对等互连。 在任一虚拟网络中创建的任何 Azure 资源现在都可通过其 IP 地址相互通信。 如果为虚拟网络使用默认的 Azure 名称解析，则虚拟网络中的资源无法跨虚拟网络解析名称。 若要跨对等互连中的虚拟网络解析名称，必须创建自己的 DNS 服务器。 了解如何[使用自己的 DNS 服务器进行名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)。
-13. **可选**：尽管本教程未介绍如何创建虚拟机，但你可以在每个虚拟网络中创建一个虚拟机并将其相互连接，以验证连接性。
+13. 可选：尽管本教程未介绍如何创建虚拟机，但你可以在每个虚拟网络中创建一个虚拟机并将其相互连接，以验证连接性。
 14. **可选：**若要删除在本教程中创建的资源，请完成本文的[删除资源](#delete-portal)部分中所述的步骤。
 
 ## <a name="cli"></a>创建对等互连 - Azure CLI
@@ -92,7 +92,8 @@ ms.lasthandoff: 12/08/2017
     azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "China East"
     ```
 
-5. 创建资源组和虚拟网络（资源管理器）。 可使用 CLI 1.0 或 2.0（[安装](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)）。 本教程中使用 CLI 2.0 创建虚拟网络（资源管理器），因为必须使用 2.0 来创建对等互连。 从安装有 CLI 2.0.4 或更高版本的本地计算机执行以下 bash CLI 脚本。 有关在 Windows 客户端上运行 bash CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)。 还可使用 Azure Cloud Shell 运行该脚本。 Azure Cloud Shell 是可直接在 Azure 门户中运行的免费 Bash shell。 它预安装有 Azure CLI 并将其配置与你的帐户一起使用。 单击下面脚本中的“试用”按钮，调用一个可用于登录 Azure 帐户的 Cloud Shell。 若要执行脚本，请单击“复制”按钮，将内容粘贴到 Cloud Shell，按 `Enter`。
+5. 创建资源组和虚拟网络（资源管理器）。 可使用 CLI 1.0 或 2.0（[安装](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)）。 本教程中使用 CLI 2.0 创建虚拟网络（资源管理器），因为必须使用 2.0 来创建对等互连。 从安装有 CLI 2.0.4 或更高版本的本地计算机执行以下 bash CLI 脚本。 有关在 Windows 客户端上运行 bash CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)。
+<!-- Not Available on Cloud Shell -->
 
     [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -142,8 +143,8 @@ ms.lasthandoff: 12/08/2017
     该输出将在 PeeringState 列中显示“已连接”。 
 
     在任一虚拟网络中创建的任何 Azure 资源现在都可通过其 IP 地址相互通信。 如果为虚拟网络使用默认的 Azure 名称解析，则虚拟网络中的资源无法跨虚拟网络解析名称。 若要跨对等互连中的虚拟网络解析名称，必须创建自己的 DNS 服务器。 了解如何[使用自己的 DNS 服务器进行名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)。
-8. **可选**：尽管本教程未介绍如何创建虚拟机，但你可以在每个虚拟网络中创建一个虚拟机并将其相互连接，以验证连接性。
-9. 可选：若要删除在本教程中创建的资源，请完成本文的[删除资源](#delete-cli)中所述的步骤。
+8. 可选：尽管本教程未介绍如何创建虚拟机，但你可以在每个虚拟网络中创建一个虚拟机并将其相互连接，以验证连接性。
+9. 可选：若要删除在本教程中创建的资源，请完成本文[删除资源](#delete-cli)部分所述步骤。
 
 ## <a name="powershell"></a>创建对等互连 - PowerShell
 
@@ -168,7 +169,7 @@ ms.lasthandoff: 12/08/2017
     > [!WARNING]
     > 导入更改的网络配置文件会导致订阅中现有虚拟网络（经典）发生变化。 请确保只添加之前的虚拟网络，且不会从订阅中更改或删除任何现有虚拟网络。 
 5. 输入 `login-azurermaccount` 命令，登录 Azure，创建虚拟网络（资源管理器）。 用于登录的帐户必须拥有创建虚拟网络对等互连的必要权限。 有关详细信息，请参阅本文的[权限](#permissions)部分。
-6. 创建资源组和虚拟网络 (Resource Manager)。 复制该脚本，将其粘贴到 PowerShell，按 `Enter`。
+6. 创建资源组和虚拟网络（资源管理器）。 复制该脚本，将其粘贴到 PowerShell，按 `Enter`。
 
     ```powershell
     # Create a resource group.
@@ -201,12 +202,12 @@ ms.lasthandoff: 12/08/2017
       | Format-Table VirtualNetworkName, PeeringState
     ```
 
-    该输出将在 PeeringState 列中显示“已连接”。
+    该输出会在 **PeeringState** 列中显示“已连接”。
 
     在任一虚拟网络中创建的任何 Azure 资源现在都可通过其 IP 地址相互通信。 如果为虚拟网络使用默认的 Azure 名称解析，则虚拟网络中的资源无法跨虚拟网络解析名称。 若要跨对等互连中的虚拟网络解析名称，必须创建自己的 DNS 服务器。 了解如何[使用自己的 DNS 服务器进行名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)。
 
-9. **可选**：尽管本教程未介绍如何创建虚拟机，但你可以在每个虚拟网络中创建一个虚拟机并将其相互连接，以验证连接性。
-10. 可选：若要删除在本教程中创建的资源，请完成本文的[删除资源](#delete-powershell)中所述的步骤。
+9. 可选：尽管本教程未介绍如何创建虚拟机，但你可以在每个虚拟网络中创建一个虚拟机并将其相互连接，以验证连接性。
+10. 可选：若要删除在本教程中创建的资源，请完成本文[删除资源](#delete-powershell)部分所述步骤。
 
 ## <a name="permissions"></a>权限
 

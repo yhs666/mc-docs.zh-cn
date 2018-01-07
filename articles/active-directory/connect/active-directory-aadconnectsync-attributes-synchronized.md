@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: fb97cfa7979846902e8d4387cb5a482dfa806579
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 83da5531d1b2393e14c6737aa89a61a99ab9e3a5
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步：与 Azure Active Directory 同步的属性
 本主题列出通过 Azure AD Connect 同步进行同步的属性。  
@@ -49,11 +49,11 @@ ms.lasthandoff: 11/24/2017
 | userPrincipalName |X |UPN 是用户的登录 ID。 大多数情况下与 [mail] 值相同。 |
 
 ## <a name="exchange-online"></a>Exchange Online
-| 属性名称 | 用户 | 联系人 | 组 | 注释 |
+| 属性名称 | User | 联系人 | 组 | 注释 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |如果启用了帐户，则进行定义。 |
 | assistant |X |X | | |
-| altRecipient |X | | |需要 Azure AD Connect 内部版本 1.1.552.0 或更高版本。 |
+| altRecipient |X | | |需要 Azure AD Connect 版本 1.1.552.0 或更高版本。 |
 | authOrig |X |X |X | |
 | c |X |X | | |
 | cn |X | |X | |
@@ -61,7 +61,7 @@ ms.lasthandoff: 11/24/2017
 | company |X |X | | |
 | countryCode |X |X | | |
 | department |X |X | | |
-| description |X |X |X | |
+| 说明 |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -150,7 +150,7 @@ ms.lasthandoff: 11/24/2017
 | pager |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
-| proxyAddresses |X |X |X | |
+| ProxyAddresses |X |X |X | |
 | publicDelegates |X |X |X | |
 | pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码同步和联合使用。 |
 | reportToOriginator | | |X | |
@@ -173,7 +173,7 @@ ms.lasthandoff: 11/24/2017
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| 属性名称 | 用户 | 联系人 | 组 | 注释 |
+| 属性名称 | User | 联系人 | 组 | 注释 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |如果启用了帐户，则进行定义。 |
 | authOrig |X |X |X | |
@@ -183,7 +183,7 @@ ms.lasthandoff: 11/24/2017
 | company |X |X | | |
 | countryCode |X |X | | |
 | department |X |X | | |
-| description |X |X |X | |
+| 说明 |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -234,7 +234,7 @@ ms.lasthandoff: 11/24/2017
 | postalCode |X |X | | |
 | postOfficeBox |X |X | |SharePoint Online 当前不使用此属性。 |
 | preferredLanguage |X | | | |
-| proxyAddresses |X |X |X | |
+| ProxyAddresses |X |X |X | |
 | pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码同步和联合使用。 |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
@@ -255,7 +255,7 @@ ms.lasthandoff: 11/24/2017
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online（后来称为“Skype for Business”）
-| 属性名称 | 用户 | 联系人 | 组 | 注释 |
+| 属性名称 | User | 联系人 | 组 | 注释 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |如果启用了帐户，则进行定义。 |
 | c |X |X | | |
@@ -263,7 +263,7 @@ ms.lasthandoff: 11/24/2017
 | co |X |X | | |
 | company |X |X | | |
 | department |X |X | | |
-| description |X |X |X | |
+| 说明 |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
@@ -289,7 +289,7 @@ ms.lasthandoff: 11/24/2017
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
-| proxyAddresses |X |X |X | |
+| ProxyAddresses |X |X |X | |
 | pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码同步和联合使用。 |
 | securityEnabled | | |X |派生自 groupType |
 | sn |X |X | | |
@@ -304,7 +304,7 @@ ms.lasthandoff: 11/24/2017
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| 属性名称 | 用户 | 联系人 | 组 | 注释 |
+| 属性名称 | User | 联系人 | 组 | 注释 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |如果启用了帐户，则进行定义。 |
 | cn |X | |X |公用名或别名。 大多数情况下是 [mail] 值的前缀。 |
@@ -312,7 +312,7 @@ ms.lasthandoff: 11/24/2017
 | mail |X |X |X |完整的电子邮件地址。 |
 | member | | |X | |
 | objectSID |X | |X |机械属性。 用于维护 Azure AD 和 AD 之间的同步的 AD 用户标识符。 |
-| proxyAddresses |X |X |X |机械属性。 由 Azure AD 使用。 包含用户的所有辅助电子邮件地址。 |
+| ProxyAddresses |X |X |X |机械属性。 由 Azure AD 使用。 包含用户的所有辅助电子邮件地址。 |
 | pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 |
 | securityEnabled | | |X |派生自 groupType。 |
 | sourceAnchor |X |X |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
@@ -320,18 +320,18 @@ ms.lasthandoff: 11/24/2017
 | userPrincipalName |X | | |此 UPN 是用户的登录 ID。 大多数情况下与 [mail] 值相同。 |
 
 ## <a name="intune"></a>Intune
-| 属性名称 | 用户 | 联系人 | 组 | 注释 |
+| 属性名称 | User | 联系人 | 组 | 注释 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |如果启用了帐户，则进行定义。 |
 | c |X |X | | |
 | cn |X | |X | |
-| description |X |X |X | |
+| 说明 |X |X |X | |
 | displayName |X |X |X | |
 | mail |X |X |X | |
 | mailNickname |X |X |X | |
 | member | | |X | |
 | objectSID |X | |X |机械属性。 用于维护 Azure AD 和 AD 之间的同步的 AD 用户标识符。 |
-| proxyAddresses |X |X |X | |
+| ProxyAddresses |X |X |X | |
 | pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码同步和联合使用。 |
 | securityEnabled | | |X |派生自 groupType |
 | sourceAnchor |X |X |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
@@ -339,7 +339,7 @@ ms.lasthandoff: 11/24/2017
 | userPrincipalName |X | | |UPN 是用户的登录 ID。 大多数情况下与 [mail] 值相同。 |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| 属性名称 | 用户 | 联系人 | 组 | 注释 |
+| 属性名称 | User | 联系人 | 组 | 注释 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |如果启用了帐户，则进行定义。 |
 | c |X |X | | |
@@ -347,7 +347,7 @@ ms.lasthandoff: 11/24/2017
 | co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
-| description |X |X |X | |
+| 说明 |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
@@ -375,11 +375,10 @@ ms.lasthandoff: 11/24/2017
 此组是用作常规工作负荷或应用程序所需的最低属性。 它可以用于另一部分中未列出的工作负荷或非 Microsoft 应用。 它显式用于以下目的：
 
 - Yammer（只使用 User）
-- [SharePoint 等资源提供的混合企业到企业 (B2B) 跨组织协作方案](http://go.microsoft.com/fwlink/?LinkId=747036)
 
 如果不使用 Azure AD 目录来支持 Office 365、Dynamics 或 Intune，则可以使用这一组属性。 它包含一小部分核心属性。
 
-| 属性名称 | 用户 | 联系人 | 组 | 注释 |
+| 属性名称 | User | 联系人 | 组 | 注释 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |如果启用了帐户，则进行定义。 |
 | cn |X | |X | |
@@ -390,7 +389,7 @@ ms.lasthandoff: 11/24/2017
 | mailNickname |X |X |X | |
 | member | | |X | |
 | objectSID |X | | |机械属性。 用于维护 Azure AD 和 AD 之间的同步的 AD 用户标识符。 |
-| proxyAddresses |X |X |X | |
+| ProxyAddresses |X |X |X | |
 | pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码同步和联合使用。 |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
@@ -422,7 +421,7 @@ ms.lasthandoff: 11/24/2017
 ## <a name="exchange-hybrid-writeback"></a>Exchange 混合写回
 选择启用 **Exchange 混合**部署时，这些属性从 Azure AD 写回到本地 Active Directory。 根据 Exchange 版本，可能会同步更少的属性。
 
-| 属性名称 | 用户 | 联系人 | 组 | 注释 |
+| 属性名称 | User | 联系人 | 组 | 注释 |
 | --- |:---:|:---:|:---:| --- |
 | msDS-ExternalDirectoryObjectID |X | | |派生自 Azure AD 中的 cloudAnchor。 此属性是 Exchange 2016 和 Windows Server 2016 AD 中的新增属性。 |
 | msExchArchiveStatus |X | | |联机存档：使客户能够存档邮件。 |
@@ -434,7 +433,7 @@ ms.lasthandoff: 11/24/2017
 | proxyAddresses |X |X |X |只插入 Exchange Online 中的 x500 地址。 |
 | publicDelegates |X | | |允许向拥有本地 Exchange 邮箱的用户授予 Exchange Online 邮箱的 SendOnBehalfTo 权限。 需要 Azure AD Connect 内部版本 1.1.552.0 或更高版本。 |
 
-## <a name="exchange-mail-public-folder"></a>Exchange 邮件公用文件夹
+## <a name="exchange-mail-public-folder"></a>Exchange 邮件公共文件夹
 如果选择启用 Exchange 邮件公用文件夹，这些属性将从本地 Active Directory 同步到 Azure AD。
 
 | 属性名称 | PublicFolder | 注释 |
@@ -443,30 +442,10 @@ ms.lasthandoff: 11/24/2017
 | mail | X |  |
 | msExchRecipientTypeDetails | X |  |
 | objectGUID | X |  |
-| proxyAddresses | X |  |
+| ProxyAddresses | X |  |
 | targetAddress | X |  |
 
-## <a name="device-writeback"></a>设备写回
-设备对象是在 Active Directory 中创建的。 这些对象可以是加入 Azure AD 的设备，或加入域的 Windows 10 计算机。
-
-| 属性名称 | 设备 | 注释 |
-| --- |:---:| --- |
-| altSecurityIdentities |X | |
-| displayName |X | |
-| dn |X | |
-| msDS-CloudAnchor |X | |
-| msDS-DeviceID |X | |
-| msDS-DeviceObjectVersion |X | |
-| msDS-DeviceOSType |X | |
-| msDS-DeviceOSVersion |X | |
-| msDS-DevicePhysicalIDs |X | |
-| msDS-KeyCredentialLink |X |只能在 Windows Server 2016 AD 架构上使用 |
-| msDS-IsCompliant |X | |
-| msDS-IsEnabled |X | |
-| msDS-IsManaged |X | |
-| msDS-RegisteredOwner |X | |
-
-## <a name="notes"></a>说明
+## <a name="notes"></a>注释
 - 使用替代 ID 时，本地属性 userPrincipalName 将与 Azure AD 属性 onPremisesUserPrincipalName 同步。 替代 ID 属性（例如 mail）将与 Azure AD 属性 userPrincipalName 同步。
 - 在上述列表中，对象类型 User 也适用于对象类型 iNetOrgPerson。
 
@@ -475,4 +454,3 @@ ms.lasthandoff: 11/24/2017
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!--Update_Description: wording update -->

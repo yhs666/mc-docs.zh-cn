@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure 存储文档
+title: "Azure 存储文档"
 metadata:
-  title: Azure 存储文档 - 教程和 API 参考 | Microsoft 文档
-  description: Azure 存储是 Microsoft 托管的云服务，其所提供存储的可用性、安全性、持久性、可伸缩性和冗余性都很高。 Azure 存储包括 Blob 存储、文件存储和队列存储。
+  title: "Azure 存储文档 - 教程和 API 参考 | Microsoft 文档"
+  description: "Azure 存储是 Microsoft 托管的云服务，其所提供存储的可用性、安全性、持久性、可伸缩性和冗余性都很高。 Azure 存储包括 Blob 存储、文件存储和队列存储。"
   services: storage
   author: forester123
   manager: digimobile
@@ -14,39 +14,67 @@ metadata:
   origin.date: 09/20/2017
   ms.date: 10/23/2017
   ms.author: v-johch
+  ms.openlocfilehash: 3246ccac04ce8fc1fc915074197f5b84baa87141
+  ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 12/29/2017
 abstract:
-  description: Azure 存储是 Microsoft 托管的云服务，其所提供存储的可用性、安全性、持久性、可伸缩性和冗余性都很高。 Azure 存储包括 Blob 存储、文件存储和队列存储。  使用快速入门和教程了解如何在应用程序中利用 Azure 存储。
+  description: "Azure 存储是 Microsoft 托管的云服务，其所提供存储的可用性、安全性、持久性、可伸缩性和冗余性都很高。 Azure 存储包括 Blob 存储、文件存储和队列存储。  使用快速入门和教程了解如何在应用程序中利用 Azure 存储。"
 sections:
-  - title: 5 分钟快速入门
+- title: "5 分钟快速入门"
+  items:
+  - type: paragraph
+    text: "通过浏览这些快速入门了解如何使用 Azure 存储。"
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_powershell.svg
+        text: Powershell
+    - image:
+        src: media/index/cli.svg
+        text: Azure CLI
+    - image:
+        src: media/index/logo_net.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_python.svg
+    - image:
+        src: media/index/logo_nodejs.svg
+    rows:
+    - title: "创建存储帐户"
+      values:
+      - href: /storage/common/storage-quickstart-create-storage-account-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - href: /storage/common/storage-quickstart-create-storage-account-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: "Blob 快速入门"
+      values:
+      - href: /storage/blobs/storage-quickstart-blobs-powershell
+      - href: /storage/blobs/storage-quickstart-blobs-cli
+      - href: /storage/blobs/storage-quickstart-blobs-dotnet
+      - href: /storage/blobs/storage-quickstart-blobs-java
+      - href: /storage/blobs/storage-quickstart-blobs-python
+      - href: /storage/blobs/storage-quickstart-blobs-nodejs
+- title: "分步教程"
+  items:
+  - type: paragraph
+    text: "了解如何在云中上传和处理图像数据。"
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 创建唯一的命名空间来存储和访问 Azure 存储数据对象。
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/powershell.svg'
-            text: Azure Powershell
-            href: /storage/common/storage-quickstart-create-storage-account-powershell
-          - image:
-              src: /virtual-machines/linux/media/index/cli.svg
-            text: Azure CLI
-            href: /storage/common/storage-quickstart-create-storage-account-cli
-  - title: 分步教程
+    - html: "<a href=\"/storage/blobs/storage-upload-process-images\">上传和检索云中的图像数据</a>"
+- title: "示例"
+  items:
+  - type: paragraph
+    text: "查找常见管理任务的脚本。"
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: 了解如何在云中上传和处理图像数据。
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/storage/blobs/storage-upload-process-images">上传和检索云中的图像数据</a>
-  - title: 示例
-    items:
-      - type: paragraph
-        text: 查找常见管理任务的脚本。
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
-          - html: <a href="/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
+    - html: <a href="/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
+    - html: <a href="/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>

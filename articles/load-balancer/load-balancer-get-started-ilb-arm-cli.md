@@ -13,18 +13,18 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1534df96faa0577c2663cc6a7bebbd84f622235e
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 7b7055bb0c59d6871c1c7302c683960403b3bbdb
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-cli"></a>使用 Azure CLI 创建内部负载均衡器
 
 > [!div class="op_single_selector"]
-> * [Azure 门户](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [模板](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
@@ -32,9 +32,6 @@ ms.lasthandoff: 11/15/2017
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
-
-> [!NOTE]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是使用[经典部署模型](load-balancer-get-started-ilb-classic-cli.md)。
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -62,10 +59,8 @@ ms.lasthandoff: 11/15/2017
     ```
 
     预期输出：
-    
-    ```
-    info:    New mode is arm
-    ```
+
+        info:    New mode is arm
 
 ## <a name="create-an-internal-load-balancer-step-by-step"></a>逐步创建内部负载均衡器集
 

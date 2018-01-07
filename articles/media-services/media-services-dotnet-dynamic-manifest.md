@@ -3,7 +3,7 @@ title: "使用 Azure 媒体服务 .NET SDK 创建筛选器"
 description: "本主题介绍如何创建筛选器，以便客户端能够使用它们来流式传输流的特定部分。 媒体服务创建动态清单来存档此选择性流。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 07/21/2017
-ms.date: 07/21/2017
-ms.author: v-haiqya
-ms.openlocfilehash: f9ebc90ab638bf86960c3ca09d06e077cd1a995b
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 12/07/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: 156a0a40703de2aacaa9fc5ccd28639f2d090c1c
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>使用 Azure 媒体服务 .NET SDK 创建筛选器
 > [!div class="op_single_selector"]
@@ -28,13 +28,13 @@ ms.lasthandoff: 08/31/2017
 > 
 > 
 
-从 2.11 版开始，媒体服务支持为资产定义筛选器。 这些筛选器是服务器端规则，可让客户选择运行如下操作：只播放一段视频（而非播放完整视频），或只指定客户设备可以处理的一部分音频和视频再现内容（而非与该资产相关的所有再现内容）。 通过按客户请求创建的动态清单可以实现对资产进行筛选，并基于指定的筛选器流式传输视频。
+从 2.17 版开始，可使用媒体服务为资产定义筛选器。 这些筛选器是服务器端规则，可让客户选择运行如下操作：只播放一段视频（而非播放完整视频），或只指定客户设备可以处理的一部分音频和视频再现内容（而非与该资产相关的所有再现内容）。 通过按客户请求创建的动态清单可以实现对资产进行筛选，并基于指定的筛选器流式传输视频。
 
 有关与筛选器和动态清单相关的更多详细信息，请参阅[动态清单概述](media-services-dynamic-manifest-overview.md)。
 
-本主题介绍如何使用媒体服务 .NET SDK 创建、更新和删除筛选器。 
+本文介绍如何使用媒体服务 .NET SDK 创建、更新和删除筛选器。 
 
-请注意，如果更新筛选器，流式处理终结点可能需要 2 分钟的时间来刷新规则。 如果内容是通过使用此筛选器提供的（并在代理和 CDN 缓存中缓存），则更新此筛选器会导致播放器失败。 建议在更新筛选器之后清除缓存。 如果此选项不可用，请考虑使用其他筛选器。 
+请注意，如果更新筛选器，则流式处理终结点需要两分钟的时间来刷新规则。 如果内容是通过使用此筛选器提供的（并在代理和 CDN 缓存中缓存），则更新此筛选器会导致播放器失败。 请始终在更新筛选器之后清除缓存。 如果此选项不可用，请考虑使用其他筛选器。 
 
 ## <a name="types-used-to-create-filters"></a>用于创建筛选器的类型
 创建筛选器时使用以下类型： 
@@ -45,7 +45,7 @@ ms.lasthandoff: 08/31/2017
 * FilterTrackSelectStatement 和 IFilterTrackPropertyCondition。 这些类型基于以下 REST API [FilterTrackSelect 和 FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 ## <a name="createupdatereaddelete-global-filters"></a>创建/更新/读取/删除全局筛选器
-下面的代码演示如何使用 .NET 创建、更新、读取和删除资产筛选器。
+以下代码演示如何使用 .NET 创建、更新、读取和删除资产筛选器。
 
     string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 08/31/2017
 
 
 ## <a name="createupdatereaddelete-asset-filters"></a>创建/更新/读取/删除资产筛选器
-下面的代码演示如何使用 .NET 创建、更新、读取和删除资产筛选器。
+以下代码演示如何使用 .NET 创建、更新、读取和删除资产筛选器。
 
     string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
     var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
@@ -131,12 +131,6 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 
 ```
 http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
-```
-
-**HDS**
-
-```
-http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
 ```
 
 ##<a name="see-also"></a>另请参阅 

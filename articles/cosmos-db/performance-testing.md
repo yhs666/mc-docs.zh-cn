@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/29/2017
-ms.date: 09/25/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 904993b87a2895aab6f9fa401c0d0fcc2349b5d2
-ms.sourcegitcommit: f2556abb77e9ebe6d45a5666c32aebf8af514485
+ms.openlocfilehash: 3d43655c451e2ea943b2b5b08291f0f473efcc90
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 执行性能和规模测试
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 性能和规模测试是应用程序开发过程中的关键步骤。 对许多应用程序而言，数据库层对整体性能和可伸缩性有重大影响。 因此，它是性能测试的关键组成部分。 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 专为弹性缩放和可预测性能而构建。 这些功能使它非常适合需要高性能数据库层的应用程序。 
 
 要对 Azure Cosmos DB 工作负载实施性能测试的开发人员可将本文作为参考。 此外，本文还可用于评估 Azure Cosmos DB 是否适用于高性能应用程序方案。 本文重点演示隔离的数据库性能测试，但也提供适用于生产应用程序的最佳实践。
@@ -55,7 +58,7 @@ ms.lasthandoff: 10/16/2017
 
 **步骤 3：** 从命令行编译并运行控制台应用。 应会看到如下输出：
 
-    C:\Users\documentdb\Desktop\Benchmark>DocumentDBBenchmark.exe
+    C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
     ---------------------------------------------------------------------
     Endpoint: https://arramacquerymetrics.documents.azure.cn:443/
@@ -95,7 +98,7 @@ ms.lasthandoff: 10/16/2017
     DocumentDBBenchmark completed successfully.
     Press any key to exit...
 
-**步骤 4（如有必要）：**工具报告的吞吐量（RU/秒）应该等于或大于预配的集合吞吐量。 如果情况并非如此，以较小的增量提高 DegreeOfParallelism 可帮助达到该限制。 如果客户端应用的吞吐量达到持平状态，请在其他客户端计算机上启动多个应用实例。 如需此步骤的帮助，请通过 [Azure 门户](https://portal.azure.cn)开具支持票证。
+**步骤 4（如有必要）：**工具报告的吞吐量（RU/秒）应该等于或大于预配的集合吞吐量。 如果情况并非如此，以较小的增量提高 DegreeOfParallelism 可帮助达到该限制。 如果客户端应用的吞吐量达到持平状态，请在其他客户端计算机上启动多个应用实例。 如需此步骤的帮助，请通过 [Azure 门户](https://www.azure.cn/support/support-ticket-form)开具支持票证。
 
 应用处于运行状态后，可以尝试不同的[编制索引策略](indexing-policies.md)和[一致性级别](consistency-levels.md)，以了解它们对吞吐量和延迟的影响。 用户也可以查看源代码，并在自己的测试套件或生产应用程序中实施类似的配置。
 
@@ -106,4 +109,4 @@ ms.lasthandoff: 10/16/2017
 * [用于提高 Azure Cosmos DB 性能的客户端配置选项](performance-tips.md)
 * [Azure Cosmos DB 中的服务器端分区](partition-data.md)
 
-<!--Update_Description: update meta properties, wording update-->s
+<!--Update_Description: update meta properties, wording update, update link -->

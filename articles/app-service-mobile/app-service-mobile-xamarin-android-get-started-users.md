@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/05/2017
 ms.author: v-yiso
-ms.date: 07/31/2017
-ms.openlocfilehash: 6edc58a80db80efe4ff28c783908990db253f6b1
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 01/02/2018
+ms.openlocfilehash: 4ebcf2a9f044c725fb6d9f1c6f98b11b156fe1f4
+ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 12/25/2017
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>向 Xamarin.Android 应用添加身份验证
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 07/28/2017
 
 2. 单击“身份验证/授权”菜单选项。
 
-3. 在“允许的外部重定向 URL”中，输入 `url_scheme_of_your_app://easyauth.callback`。  此字符串中的 **url_scheme_of_your_app** 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  请记下所选的字符串，因为需要在几个地方使用 URL 方案调整移动应用程序代码。
+3. 在“允许的外部重定向 URL”中，输入 `url_scheme_of_your_app://easyauth.callback`。  此字符串中的 **url_scheme_of_your_app** 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  应记下此字符串，因为在一些地方需要使用此 URL 方案调整移动应用代码。
 
 4. 单击 **“确定”**。
 
@@ -125,7 +125,9 @@ ms.lasthandoff: 07/28/2017
 
     ```
     <string name="login_button_text">Sign in</string>
-5. Open the AndroidManifest.xml file, add the following code inside `<application>` XML element:
+    ```
+
+5. 打开 AndroidManifest.xml 文件，并在 `<application>` XML 元素中添加以下代码：
 
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
           <intent-filter>
@@ -136,10 +138,10 @@ ms.lasthandoff: 07/28/2017
           </intent-filter>
         </activity>
 
-6. In Visual Studio or Xamarin Studio, run the client project on a device or emulator and sign in with your chosen identity provider. When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
+6. 在 Visual Studio 或 Xamarin Studio 中，运行设备或模拟器中的客户端项目，并使用所选的标识提供者登录。 成功登录后，应用会显示登录 ID 和待办事项列表，用户可以对数据进行更新。
 
 <!-- URLs. -->
-[Create a Xamarin.Android app]: ./app-service-mobile-xamarin-android-get-started.md
+[创建 Xamarin.Android 应用]: ./app-service-mobile-xamarin-android-get-started.md
 
 
 <!--Update_Description: update wording and code-->

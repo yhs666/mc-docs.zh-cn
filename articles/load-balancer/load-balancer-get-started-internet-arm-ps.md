@@ -13,18 +13,18 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 104ecd30480402a3a32fbe6a0fcb841f57cf3b84
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 6f4505031afa2698401476379b7fa5d50f07e4fd
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started"></a>使用 PowerShell 在 Resource Manager 中创建面向 Internet 的负载均衡器
 
 > [!div class="op_single_selector"]
-> * [门户](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [模板](../load-balancer/load-balancer-get-started-internet-arm-template.md)
@@ -32,10 +32,6 @@ ms.lasthandoff: 11/15/2017
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
-
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-本文介绍 Resource Manager 部署模型。 还可以[了解如何使用经典部署模型创建面向 Internet 的负载均衡器](load-balancer-get-started-internet-classic-cli.md)。
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 

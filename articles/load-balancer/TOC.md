@@ -1,7 +1,7 @@
 # 概述
 ## [什么是负载均衡器？](load-balancer-overview.md)
 <!-- Not Available ## [What is Load Balancer Standard?](load-balancer-standard-overview.md)-->
-## [内部负载均衡器](load-balancer-internet-overview.md)
+## [公共负载均衡器](load-balancer-internet-overview.md)
 ## [Internal Load Balancer（内部负载均衡器）](load-balancer-internal-overview.md)
 ## [了解负载均衡器探测](load-balancer-custom-probe-overview.md)
 <!-- Not Available ## [Understand High Availability Ports](load-balancer-ha-ports-overview.md)-->
@@ -17,18 +17,12 @@
 ### [配置内部负载均衡器 (CLI)](load-balancer-get-started-ilb-arm-cli.md)
 ### [配置内部负载均衡器（模板）](load-balancer-get-started-ilb-arm-template.md)
 
-## [为云服务配置内部负载均衡器](load-balancer-get-started-ilb-classic-cloud.md)
-### [为云服务配置内部负载均衡器 (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
-### [为云服务配置内部负载均衡器 (CLI)](load-balancer-get-started-ilb-classic-cli.md)
+## [配置公共负载均衡器](load-balancer-get-started-internet-portal.md)
+### [配置公共负载均衡器 (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
+### [配置公共负载均衡器 (CLI)](load-balancer-get-started-internet-arm-cli.md)
+### [配置公共负载均衡器（模板）](load-balancer-get-started-internet-arm-template.md)
 
-## [配置面向 Internet 的负载均衡器](load-balancer-get-started-internet-portal.md)
-### [配置面向 Internet 的负载均衡器 (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-### [配置面向 Internet 的负载均衡器 (CLI)](load-balancer-get-started-internet-arm-cli.md)
-### [配置面向 Internet 的负载均衡器（模板）](load-balancer-get-started-internet-arm-template.md)
 
-## [配置面向 Internet 的负载均衡器 - （经典 PowerShell）](load-balancer-get-started-internet-classic-ps.md)
-### [配置面向 Internet 的负载均衡器（经典云）](load-balancer-get-started-internet-classic-cloud.md)
-### [配置面向 Internet 的负载均衡器（经典 CLI）](load-balancer-get-started-internet-classic-cli.md)
 
 <!-- Not Available ## [Create an Internet facing load balancer with IPv6](load-balancer-ipv6-internet-ps.md)-->
 <!-- Not Available ### [Create an Internet facing load balancer with IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)-->
@@ -49,13 +43,19 @@
 ## [Azure 负载均衡器的 Log Analytics](load-balancer-monitor-log.md)
 <!-- Not Available ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)-->
 <!-- Not Available ## [Configure High Availability Ports for Internal Load Balancer](load-balancer-configure-ha-ports.md)-->
-<!-- Not Available ## [Create a public IP address in an availability zone](../virtual-network/create-public-ip-availability-zone-portal.md)-->
-<!-- Not Available ## [Create a public IP address in an availability zone (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)-->
-<!-- Not Available ## [Create a public IP address in an availability zone (CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)-->
+
 ## 故障排除
 ### [对 Azure 负载均衡器进行故障排除](load-balancer-troubleshoot.md)
 
-# 引用
+## 经典部署模型文章
+### [为云服务配置内部负载均衡器](load-balancer-get-started-ilb-classic-cloud.md)
+#### [为云服务配置内部负载均衡器 (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
+#### [为云服务配置内部负载均衡器 (CLI)](load-balancer-get-started-ilb-classic-cli.md)
+### [配置公共负载均衡器（经典 PowerShell）](load-balancer-get-started-internet-classic-ps.md)
+#### [配置公共负载均衡器（经典云）](load-balancer-get-started-internet-classic-cloud.md)
+#### [配置公共负载均衡器（经典 CLI）](load-balancer-get-started-internet-classic-cli.md)
+
+# 参考
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network)
 ## [Azure CLI](https://docs.azure.cn/zh-cn/cli/network/lb?view=azure-cli-latest)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network.models)
@@ -80,4 +80,4 @@
 ## [服务更新](https://www.azure.cn/what-is-new/)
 
 <!--Update_Description: wording update, update link -->
-<!-- ms.date: 11/20/2017 -->
+<!-- ms.date: 12/25/2017 -->

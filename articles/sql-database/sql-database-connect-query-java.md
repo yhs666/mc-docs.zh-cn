@@ -3,24 +3,24 @@ title: "使用 Java 查询 Azure SQL 数据库 | Azure"
 description: "本主题介绍如何使用 Java 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。"
 services: sql-database
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: drivers
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-origin.date: 07/10/2017
-ms.date: 10/02/2017
-ms.author: v-johch
-ms.openlocfilehash: 64ad77fb4db296be73deeff2620fa1313bae9545
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+origin.date: 07/11/2017
+ms.date: 01/08/2018
+ms.author: v-nany
+ms.openlocfilehash: ccfb0682d9ab44c64012647c9d13adc268d9e1a6
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>使用 Java 查询 Azure SQL 数据库
 
@@ -28,17 +28,13 @@ ms.lasthandoff: 09/28/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本快速入门教程，请确保具备以下先决条件：
+若要完成本快速入门教程，请确保符合以下先决条件：
 
-- Azure SQL 数据库。 此快速入门使用以下某个快速入门中创建的资源： 
-
-    - [创建 DB - 门户](sql-database-get-started-portal.md)
-    - [创建 DB - CLI](sql-database-get-started-cli.md)
-    - [创建 DB - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - 针对用于本快速入门教程的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
 
-- 已为操作系统安装 Java 和相关软件。
+- 已为操作系统安装 Java 和相关软件：
 
     - **MacOS**：安装 Homebrew 和 Java，然后再安装 Maven。 请参阅[步骤 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/)。
     - **Ubuntu**：安装 Java 开发工具包，并安装 Maven。 请参阅[步骤 1.2、1.3 和 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/)。
@@ -46,42 +42,34 @@ ms.lasthandoff: 09/28/2017
 
 ## <a name="sql-server-connection-information"></a>SQL Server 连接信息
 
-获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称、数据库名称和登录信息。
-
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 从左侧菜单中选择“SQL 数据库”，并单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“概述”页上，查看完全限定的服务器名称（如下图所示）：可以将鼠标悬停到服务器名称上方以显示“单击以复制”选项。  
-
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. 如果忘了服务器的登录信息，请导航到 SQL 数据库服务器页，以查看服务器管理员名称。  如有必要，可重置密码。     
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="create-maven-project-and-dependencies"></a>**创建 Maven 项目和依赖项**
 1. 从终端创建一个名为 **sqltest** 的新 Maven 项目。 
 
-    ```bash
-    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
-    ```
+   ```bash
+   mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
+   ```
 
 2. 出现提示时输入“Y”。
 3. 将目录更改为 **sqltest**，然后使用常用文本编辑器打开 pom.xml。  使用以下代码，将 **Microsoft JDBC Driver for SQL Server** 添加到项目的依赖项：
 
-    ```xml
-    <dependency>
+   ```xml
+   <dependency>
        <groupId>com.microsoft.sqlserver</groupId>
        <artifactId>mssql-jdbc</artifactId>
        <version>6.2.1.jre8</version>
-    </dependency>
-    ```
+   </dependency>
+   ```
 
 4. 另外，在 pom.xml 中添加项目的以下属性。  如果没有 properties 节，可以将其添加到 dependencies 后面。
 
-    ```xml
-    <properties>
+   ```xml
+   <properties>
        <maven.compiler.source>1.8</maven.compiler.source>
        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-    ```
+   </properties>
+   ```
 
 5. 保存并关闭 pom.xml。
 
@@ -156,7 +144,9 @@ ms.lasthandoff: 09/28/2017
 
 2. 验证是否已返回前 20 行，然后关闭应用程序窗口。
 
+
 ## <a name="next-steps"></a>后续步骤
 - [设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)
 - [用于 SQL Server 的 Microsoft JDBC 驱动程序](https://github.com/microsoft/mssql-jdbc)
 - [报告问题/提出问题](https://github.com/microsoft/mssql-jdbc/issues)
+

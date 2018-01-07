@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/04/2017
-ms.date: 12/18/2017
+origin.date: 11/20/2017
+ms.date: 01/01/2018
 ms.author: v-nany
-ms.openlocfilehash: 665bd13c534f33b5bb715b33598c3c27834275a3
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: c40b41f388e9b87586cfa75233bdc39e9d58b9fc
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="using-azure-dns-for-private-domains"></a>将 Azure DNS 用于专用域
 域名系统（或称为 DNS）负责将服务名称转换（或解析）为其 IP 地址。 Azure DNS 是 DNS 域的托管服务，它使用 Microsoft Azure 基础结构提供名称解析。  除了面向 Internet 的 DNS 域之外，作为一项预览版功能，Azure DNS 现在还支持专用 DNS 域。  
@@ -40,14 +40,14 @@ Azure DNS 提供了可靠、安全的 DNS 服务来管理和解析虚拟网络�
 
 * **虚拟网络之间的主机名解析。** 不同于 Azure 提供的主机名，专用 DNS 区域可以在虚拟网络之间共享。  此功能简化了跨网络和服务发现方案，例如，虚拟网络对等互连。
 
-* **熟悉的工具和用户体验。** 为了降低学习难度，此新的产品/服务使用已经成熟的 Azure DNS 工具（PowerShell、资源管理器模板、REST API）并且会尽快支持使用 CLI 和门户。
+* **熟悉的工具和用户体验。** 为了降低学习难度，此新的产品/服务使用已经成熟的 Azure DNS 工具（PowerShell、资源管理器模板、REST API）。
 
 * **水平分割 DNS 支持。** Azure DNS 允许使用相同的名称创建在虚拟网络内与在公共 Internet 内分别解析为不同结果的区域。  水平分割 DNS 的典型方案是提供一个专用服务版本以在虚拟网络内部使用。
 
 
 ## <a name="pricing"></a>定价
 
-在托管预览版期间，专用 DNS 区域将免费。 在公开上市时，此功能将使用基于使用量的定价模型，这与现有的 Azure DNS 产品/服务类似。 
+在托管预览版期间，专用 DNS 区域免费。 在公开上市期间，此功能将使用基于使用量的定价模型，这与现有的 Azure DNS 产品/服务类似。 
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -56,5 +56,5 @@ Azure DNS 提供了可靠、安全的 DNS 服务来管理和解析虚拟网络�
 
 若要了解 DNS 区域和记录，请访问 [DNS 区域和记录概述](dns-zones-records.md)。
 
-了解 Azure 的部分其他关键[网络功能](../networking/networking-overview.md)。
+了解 Azure 的一些其他关键[网络功能](../networking/networking-overview.md)。
 

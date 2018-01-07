@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 07/04/2017
 ms.date: 08/07/2017
 ms.author: v-haiqya
-ms.openlocfilehash: ae15ce5a679cf8c48426d6c6971230e85413aadb
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: c240df0b3676295ca093632160eccd301b38d85c
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="change-the-reserved-unit-type"></a>更改保留单位类型
 
@@ -29,13 +29,18 @@ ms.lasthandoff: 08/04/2017
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
->
+> 
+> 
+
+> [!NOTE]
+> 若要获取最新版本的 Java SDK 并开始使用 Java 进行开发，请参阅[媒体服务的 Java 客户端 SDK 入门](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)。 <br/>
+> 若要下载最新的媒体服务 PHP SDK，请在 [Packagist 存储库](https://packagist.org/packages/microsoft/windowsazure#v0.5.7)中查找 0.5.7 版 Microsoft/WindowAzure 包。  
 
 ## <a name="overview"></a>概述
 
 媒体服务帐户与保留单位类型关联，后者决定了编码处理任务的处理速度。 可以在以下保留单位类型中进行选择：**S1**、**S2** 或 **S3**。 例如，与 **S1** 保留单位类型相比，使用 **S2** 保留单位类型时，同一编码作业运行速度更快。
 
-除了指定保留单位类型，还可以指定为帐户预配保留单位 (RU)。 预配的 RU 数决定了给定帐户中可并发处理的媒体任务数。
+除了指定保留单位类型，还可以指定为帐户预配**保留单位** (RU)。 预配的 RU 数决定了给定帐户中可并发处理的媒体任务数。
 
 > [!NOTE]
 > RU 可用于并行化所有媒体处理，包括使用 Azure Media Indexer 为作业编制索引。 但是，与编码不同，索引作业使用更快的保留单位并不能更快地完成处理。

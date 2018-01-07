@@ -1,26 +1,26 @@
 ---
-title: "删除虚拟网络网关：Azure 门户：Resource Manager | Azure"
-description: "在资源管理器部署模型中使用 Azure 门户删除虚拟网络网关。"
+title: "删除虚拟网络网关：Azure 门户：Resource Manager | Microsoft Docs"
+description: "在 Resource Manager 部署模型中使用 Azure 门户删除虚拟网络网关。"
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/20/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
-ms.openlocfilehash: e171da7cd6aa5f97c81e2f4b8550bc04e6344d54
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 12/29/2017
+ms.author: v-junlch
+ms.openlocfilehash: 1cf7db0d21aea2ad1c514619791e4b5803b51196
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>使用门户删除虚拟网络网关
 
@@ -29,11 +29,17 @@ ms.lasthandoff: 08/04/2017
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell（经典）](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 
-可以使用多种不同的方法来删除 VPN 网关配置中的虚拟网络网关。
+本文提供了有关删除使用资源管理器部署模型部署的 Azure VPN 网关的说明。 可以使用多种不同的方法来删除 VPN 网关配置中的虚拟网络网关。
 
 - 如果要删除所有信息并从头开始配置（例如，在测试环境中），可以删除资源组。 删除某个资源组时，会删除该组中的所有资源。 仅当不想保留资源组中的任何资源时，才建议使用此方法。 使用这种方法时，无法做到有选择性地删除一部分资源。
 
 - 如果想要保留资源组中的某些资源，则删除虚拟网络网关的过程会略微复杂一些。 在删除虚拟网络网关之前，必须先删除任何依赖于该网关的资源。 遵循的步骤取决于创建的连接类型，以及每个连接的依赖资源。
+
+> [!IMPORTANT]
+> 下面的说明介绍如何删除使用资源管理器部署模型部署的 Azure VPN 网关。 若要删除使用经典部署模型部署的 VPN 网关，请使用[此处](vpn-gateway-delete-vnet-gateway-classic-powershell.md)所述的 Azure PowerShell。
+
+
+## <a name="delete-a-vpn-gateway"></a>删除 VPN 网关
 
 若要删除虚拟网络网关，必须先删除与该虚拟网络网关相关的每个资源。 由于存在依赖关系，必须按特定的顺序删除资源。
 
@@ -43,7 +49,7 @@ ms.lasthandoff: 08/04/2017
 
 ### <a name="to-delete-the-local-network-gateway"></a>删除本地网络网关
 
-1. 在“所有资源”中，找到与每个连接相关联的本地网关。
+1. 在“所有资源”中，找到与每个连接相关联的本地网络网关。
 2. 在本地网关的“概述”边栏选项卡上，单击“删除”。
 
 ### <a name="to-delete-the-public-ip-address-resource-for-the-gateway"></a>删除网关的公共 IP 地址资源

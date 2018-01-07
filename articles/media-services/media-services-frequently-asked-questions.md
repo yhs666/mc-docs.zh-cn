@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 09/29/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: ff520c96b103b415898feddb0f5c50a925b1715d
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.openlocfilehash: 0e654b0426eee9194f40d465495d22e6694aadfb
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="frequently-asked-questions"></a>常见问题
 
@@ -43,13 +43,13 @@ ms.lasthandoff: 11/03/2017
 
 答：Azure 媒体服务当前不提供实时流上的合成操作，因此需要在计算机上进行预合成。
 
-问：我是否可以将 Azure CDN 与实时流式处理一起使用？
+问：是否可以将 Azure CDN 与实时传送视频流一起使用？
 
-答：媒体服务支持与 Azure CDN 集成（有关详细信息，请参阅[如何在媒体服务帐户中管理流式处理终结点](media-services-portal-manage-streaming-endpoints.md)）。  可以将实时流式处理与 CDN 结合使用。 Azure 媒体服务提供平滑流式处理、HLS 和 MPEG-DASH 输出。 所有这些格式均使用 HTTP 来传输数据并从 HTTP 缓存中获益。 实时流式处理中，实际视频/音频数据被分为数个片段，并且单个片段缓存于 CDN 中。 唯一需要刷新的数据是清单数据。 CDN 定期刷新清单数据。
+答：媒体服务支持与 Azure CDN 集成（有关详细信息，请参阅[如何在媒体服务帐户中管理流式处理终结点](media-services-portal-manage-streaming-endpoints.md)）。  可以将实时传送视频流与 CDN 结合使用。 Azure 媒体服务提供平滑流式处理、HLS 和 MPEG-DASH 输出。 所有这些格式均使用 HTTP 来传输数据并从 HTTP 缓存中获益。 实时流式处理中，实际视频/音频数据被分为数个片段，并且单个片段缓存于 CDN 中。 唯一需要刷新的数据是清单数据。 CDN 定期刷新清单数据。
 
 问：Azure 媒体服务是否支持存储图像？
 
-答：如果只需要存储 JPEG 或 PNG 图像，应将其存储在 Azure Blob 存储中。 除非想要将图像与视频或音频资产相关联，否则将图像放入媒体服务帐户毫无益处。 如果需要在视频编码器中将图像作为叠加层使用，Media Encoder Standard 支持在视频上叠加图像，且它将 JPEG 和 PNG 列为支持的输入格式。 有关详细信息，请参阅[创建覆盖](media-services-advanced-encoding-with-mes.md#overlay)。
+答：如果需要存储 JPEG 或 PNG 图像，应将其存储在 Azure Blob 存储中。 除非想要将图像与视频或音频资产相关联，否则将图像放入媒体服务帐户毫无益处。 如果需要在视频编码器中将图像作为叠加层使用，Media Encoder Standard 支持在视频上叠加图像，且它将 JPEG 和 PNG 列为支持的输入格式。 有关详细信息，请参阅[创建覆盖](media-services-advanced-encoding-with-mes.md#overlay)。
 
 问：如何将资产从一个媒体服务帐户复制到另一个媒体服务帐户？
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 11/03/2017
 
 问：如何使用 REST 进行连接？
 
-答：有关如何连接到 AMS API 的信息，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 成功连接到 https://media.windows.net 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须对这个新 URI 进行后续调用。 
+答：有关如何连接到 AMS API 的信息，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
 问：如何在编码过程中旋转视频。
 

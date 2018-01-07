@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: e7b466ba4c06167c7dbf640271350070c24bf208
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 21d8607ee90794dea233e2a089f6814b74639d9c
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="container-security"></a>容器安全性
 
@@ -37,13 +37,13 @@ Service Fabric 提供一种机制，供容器内服务访问在 Windows 或 Linu
 
 对于 Windows 群集，运行时在启动应用程序时读取证书，并为每个证书生成 PFX 文件和密码。 可在容器内使用以下环境变量访问此 PFX 文件和密码： 
 
-* Certificate_ServicePackageName_CodePackageName_CertName_PFX
-* Certificate_ServicePackageName_CodePackageName_CertName_Password
+* **Certificates_ServicePackageName_CodePackageName_CertName_PFX**
+* **Certificates_ServicePackageName_CodePackageName_CertName_Password**
 
 对于 Linux 群集，证书 (PEM) 只是从 X509StoreName 指定的存储中复制到容器中。 对应的 linux 环境变量为：
 
-* Certificate_ServicePackageName_CodePackageName_CertName_PEM
-* Certificate_ServicePackageName_CodePackageName_CertName_PrivateKey
+* **Certificates_ServicePackageName_CodePackageName_CertName_PEM**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey**
 
 或者，如果已有所需形式的证书且只想在容器内访问它，可在应用包内创建数据包，并在应用程序清单中指定以下内容：
 
@@ -55,8 +55,8 @@ Service Fabric 提供一种机制，供容器内服务访问在 Windows 或 Linu
 容器服务或进程负责将证书文件导入到容器中。 要导入证书，可以在容器进程内使用 `setupentrypoint.sh` 脚本或执行自定义代码。 用于导入 PFX 文件的 C# 示例代码如下所示：
 
 ```c#
-    string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
-    string passwordFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
+    string certificateFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
+    string passwordFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
     X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
     string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
     password = password.Replace("\0", string.Empty);

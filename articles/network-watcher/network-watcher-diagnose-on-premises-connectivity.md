@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 09ad258d810ae3696f0d83370270d06589b4c9ef
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.openlocfilehash: 1ce9e5537095eadbe2bf234c9a65ebdc431ac509
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>通过 VPN 网关诊断本地连接
 
@@ -115,4 +115,4 @@ Error: On-premises device rejected Quick Mode settings. Check values.
 
 [1]: ./media/network-watcher-diagnose-on-premises-connectivity/figure1.png
 
-<!--Update_Description: new articles on network watcher diagnose on premises connectivity -->
+<!--Update_Description: update meta properties -->

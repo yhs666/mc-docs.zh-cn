@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 08/24/2017
-ms.date: 10/02/2017
+origin.date: 11/22/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 322b0ce887b4cdd3570d5ab3626706ce64ceb969
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: c72b5cb7893571e157ce2abbaf06662e876b797c
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>解决从虚拟机到 Azure 的故障转移时出现的错误
 在执行从虚拟机到 Azure 的故障转移时，可能会收到以下错误之一。 若要解决错误，请为每个错误条件使用所述步骤。
@@ -48,4 +48,4 @@ Site Recovery 无法在 Azure 中创建故障转移的经典虚拟机。 这可�
 
 如需更多帮助，请将疑问发布到 [Site Recovery 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr)，或在本文档结尾处留下注释。 我们的活动社区应能够为你提供帮助。
 
-<!--Update_Description: new articles on how to troubleshoot the site recovery failover to azure -->
+<!--Update_Description: update meta properties -->

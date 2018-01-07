@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/28/2017
-ms.date: 11/20/2017
+origin.date: 12/12/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5df20dc51b20537eb5659098764bcc3a867b4c34
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: a831899279d084a212c16ee9e546d31dd257a14a
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>解决移动服务推送安装问题
 
@@ -99,4 +99,4 @@ ms.lasthandoff: 11/15/2017
 ## <a name="next-steps"></a>后续步骤
 - [启用 VMware 虚拟机的复制](vmware-walkthrough-enable-replication.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

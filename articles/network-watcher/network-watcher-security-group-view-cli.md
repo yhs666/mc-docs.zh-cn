@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: d4863e18ff8029a5c0e0e8d87e499d56f207c2a3
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 1766186d0e771e8dccd6850b1f155814e200000d
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>使用 Azure CLI 2.0 通过安全组视图分析虚拟机安全性
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/14/2017
 
 若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 此方案假定已按照[创建网络观察程序](network-watcher-create.md)中的步骤创建网络观察程序。
 
@@ -165,4 +165,4 @@ az network watcher show-security-group-view --resource-group resourceGroupName -
 
 请访问[安全组视图概述](network-watcher-security-group-view-overview.md)，了解有关应用于网络资源的安全规则的详细信息
 
-<!--Update_Description: new articles on network watcher security group view CLI -->
+<!--Update_Description: update meta properties -->

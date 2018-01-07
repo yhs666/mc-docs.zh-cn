@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1af53b940db3d85c66c7f7b3f0f45d1f85a65686
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 08b6a1e6aac66b983af7993c5c22ec0f3b7bce77
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 创建完整的 Linux 虚拟机基础结构
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/15/2017
 
 我们来详细地了解 Terraform 模板的每个部分。 还可以看到完整版本的 [Terraform 模板](#complete-terraform-script)，可以复制并粘贴这些模板。
 
-`provider` 部分告知 Terraform 使用 Azure 提供程序。 若要获取 subscription_id、client_id、client_secret 和 *tenant_id* 的值，请参阅[安装和配置 Terraform](terraform-install-configure.md)。 如果为这些值创建环境变量，则不包含此部分。
+`provider` 部分告知 Terraform 使用 Azure 提供程序。 若要获取 subscription_id、client_id、client_secret 和 *tenant_id* 的值，请参阅[安装和配置 Terraform](terraform-install-configure.md)。 
 
 ```tf
 provider "azurerm" {
@@ -348,9 +348,8 @@ resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     location            = "China East"
-    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
     account_tier = "Standard"           # account_tier = "Standard" is Correct
-
+    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
 
     tags {
         environment = "Terraform Demo"

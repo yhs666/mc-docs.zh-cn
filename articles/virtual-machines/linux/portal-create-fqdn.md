@@ -3,8 +3,8 @@ title: "在 Azure 门户中为 Linux VM 创建 FQDN | Azure"
 description: "了解如何在 Azure 门户中为基于 Resource Manager 的虚拟机创建完全限定域名或 FQDN。"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 2cd6c249-a737-4a0a-b5ba-e1c09e551b30
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 07/05/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+origin.date: 12/13/2017
+ms.date: 01/08/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89699a6f1a453df7db24f5b7577ed83ab07d8bee
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: 23588d92aea22811f856669ece89bd10bb1c8ced
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>在 Azure 门户中为 Linux VM 创建完全限定的域名
 
@@ -32,11 +32,14 @@ ms.lasthandoff: 08/18/2017
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-现在可以使用此 DNS 名称（例如搭配 `ssh azureuser@mydns.chinanorth.chinacloudapp.cn`）远程连接至 VM。
+现在可以使用此 DNS 名称（例如搭配 `ssh azureuser@mydns.chinanorth.cloudapp.chinacloudapi.cn`）远程连接至 VM。
+<!-- cloudapp.azure.com to cloudapp.chinacloudapi.cn is Correct -->
 
 ## <a name="next-steps"></a>后续步骤
 VM 已经有公共 IP 和 DNS 名称，现在可以部署通用应用程序框架或服务，例如 nginx、MongoDB、Docker 等等。
 
 也可以深入了解[使用 Resource Manager](../../azure-resource-manager/resource-group-overview.md)，获取生成 Azure 部署的相关提示。
 
-<!--Update_Description: wording update-->
+<!--Not Available the parent file of includes file of virtual-machines-common-portal-create-fqdn.md-->
+<!--ms.date:01/08/2018-->
+<!--Update_Description: update meta properties -->

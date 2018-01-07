@@ -1,6 +1,6 @@
 ---
-title: "将虚拟网络连接到另一 VNet：Azure CLI | Microsoft Docs"
-description: "本文介绍如何使用 Azure 资源管理器和 Azure CLI 将虚拟网络连接在一起。"
+title: "使用 VNet 到 VNet 连接将虚拟网络连接到另一 VNet：Azure CLI | Microsoft Docs"
+description: "本文介绍如何使用 VNet 到 VNet 连接和 Azure CLI 将虚拟网络连接起来。"
 services: vpn-gateway
 documentationcenter: na
 author: alexchen2016
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/17/2017
-ms.date: 12/11/2017
+origin.date: 11/29/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: 521b23a7027dca88f2db6f78236474a9d9794cfe
-ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
+ms.openlocfilehash: 792fdf2e4ddd619790d25ff138f3ceb0a64e8ff6
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>使用 Azure CLI 配置 VNet 到 VNet 的 VPN 网关连接
 
-本文介绍如何在虚拟网络之间创建 VPN 网关连接。 虚拟网络可位于相同或不同的区域，来自相同或不同的订阅。 从不同的订阅连接 VNet 时，订阅不需要与相同的 Active Directory 租户相关联。 
+本文介绍如何使用 VNet 到 VNet 连接类型来连接虚拟网络。 虚拟网络可位于相同或不同的区域，来自相同或不同的订阅。 从不同的订阅连接 VNet 时，订阅不需要与相同的 Active Directory 租户相关联。
 
-本文中的步骤适用于资源管理器部署模型并使用 Azure CLI。 也可使用不同的部署工具或部署模型来创建此配置，方法是从以下列表中选择另一选项：
+本文中的步骤适用于资源管理器部署模型并使用 Azure CLI。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -38,15 +38,25 @@ ms.lasthandoff: 12/12/2017
 >
 >
 
-将一个虚拟网络连接到另一个虚拟网络（VNet 到 VNet）类似于将 VNet 连接到本地站点位置。 这两种连接类型都使用 VPN 网关来提供使用 IPsec/IKE 的安全隧道。 如果 VNet 位于同一区域，可能会考虑使用 VNet 对等互连进行连接。 VNet 对等互连不使用 VPN 网关。 有关详细信息，请参阅 [VNet 对等互连](../virtual-network/virtual-network-peering-overview.md)。
+## <a name="about"></a>关于连接 VNet
 
-可以将 VNet 到 VNet 通信与多站点配置组合使用。 这样，便可以建立将跨界连接与虚拟网络间连接相结合的网络拓扑，如下图所示：
+可通过多种方式来连接 VNet。 以下各节介绍了如何通过不同方式来连接虚拟网络。
 
-![关于连接](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
+### <a name="vnet-to-vnet"></a>VNet 到 VNet
 
-### <a name="why"></a>为什么要连接虚拟网络？
+配置一个 VNet 到 VNet 连接即可轻松地连接 VNet。 使用 VNet 到 VNet 连接类型将一个虚拟网络连接到另一个虚拟网络类似于创建到本地位置的站点到站点 IPsec 连接。 这两种连接类型都使用 VPN 网关来提供使用 IPsec/IKE 的安全隧道，二者在通信时使用同样的方式运行。 连接类型的差异在于本地网关的配置方式。 创建 VNet 到 VNet 连接时，看不到本地网关地址空间。 它是自动创建并填充的。 如果更新一个 VNet 的地址空间，另一个 VNet 会自动知道路由到更新的地址空间。 与在 VNet 之间创建站点到站点连接相比，创建 VNet 到 VNet 连接通常速度更快且更容易。
 
-你可能会出于以下原因而连接虚拟网络：
+### <a name="connecting-vnets-using-site-to-site-ipsec-steps"></a>使用站点到站点 (IPsec) 步骤连接 VNet
+
+如果要进行复杂的网络配置，则与使用 VNet 到 VNet 步骤相比，使用[站点到站点](vpn-gateway-howto-site-to-site-resource-manager-cli.md)步骤来连接 VNet 会更好。 使用站点到站点步骤时，可以手动创建和配置本地网关。 每个 VNet 的本地网关都将其他 VNet 视为本地站点。 这样可以为本地网关指定路由流量所需的其他地址空间。 如果 VNet 的地址空间更改，则需根据更改手动更新相应的本地网关。 它不自动进行更新。
+
+### <a name="vnet-peering"></a>VNet 对等互连
+
+可以考虑使用 VNet 对等互连来连接 VNet。 VNet 对等互连不使用 VPN 网关，并且有不同的约束。 另外，[VNet 对等互连定价](https://www.azure.cn/pricing/details/networking)的计算不同于 [VNet 到 VNet VPN 网关定价](https://www.azure.cn/pricing/details/vpn-gateway)的计算。 有关详细信息，请参阅 [VNet 对等互连](../virtual-network/virtual-network-peering-overview.md)。
+
+## <a name="why"></a>为何创建 VNet 到 VNet 连接？
+
+你可能会出于以下原因而使用 VNet 到 VNet 连接来连接虚拟网络：
 
 - **跨区域地域冗余和地域存在**
 
@@ -56,29 +66,32 @@ ms.lasthandoff: 12/12/2017
 
   - 在同一区域中，由于存在隔离或管理要求，可以设置具有多个虚拟网络的多层应用程序，这些虚拟网络相互连接在一起。
 
-有关 VNet 到 VNet 连接的详细信息，请参阅本文末尾的 [VNet 到 VNet 常见问题解答](#faq) 。
+可以将 VNet 到 VNet 通信与多站点配置组合使用。 这样，便可以建立将跨界连接与虚拟网络间连接相结合的网络拓扑。
 
-### <a name="which-set-of-steps-should-i-use"></a>我应使用哪个步骤集？
+## <a name="steps"></a>应使用哪些 VNet 到 VNet 步骤？
 
-在本文中，可以看到两组不同的步骤。 一组步骤适用于[位于同一订阅中的 VNet](#samesub)。 此配置的步骤使用 TestVNet1 和 TestVNet4。
+在本文中，可以看到两组不同的 VNet 到 VNet 连接步骤。 一组步骤适用于[驻留在同一订阅中的 VNet](#samesub)，另一组适用于[驻留在不同订阅中的 VNet](#difsub)。 
 
-![v2v 示意图](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+就本练习来说，可以将配置组合起来，也可以只是选择要使用的配置。 所有配置使用 VNet 到 VNet 连接类型。 网络流量在彼此直接连接的 VNet 之间流动。 在此练习中，流量不从 TestVNet4 路由到 TestVNet5。
 
-单独有一篇文章针对[位于不同订阅中的 VNet](#difsub)。 该配置的步骤使用 TestVNet1 和 TestVNet5。
+- [驻留在同一订阅中的 VNet](#samesub)：此配置的步骤使用 TestVNet1 和 TestVNet4。
 
-![v2v 示意图](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+  ![v2v 示意图](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-可以根据需要组合配置，也可以只是选择要使用的配置。
+- [驻留在不同订阅中的 VNet](#difsub)：此配置的步骤使用 TestVNet1 和 TestVNet5。
+
+  ![v2v 示意图](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
 
 ## <a name="samesub"></a>连接同一订阅中的 VNet
 
-### <a name="before-you-begin"></a>开始之前
+### <a name="before-you-begin"></a>准备阶段
 
 在开始之前，请安装最新版本的 CLI 命令（2.0 或更高版本）。 有关安装 CLI 命令的信息，请参阅 [Install Azure CLI 2.0](/cli/install-azure-cli)（安装 Azure CLI 2.0）。
 
 ### <a name="Plan"></a>计划 IP 地址范围
 
-以下步骤创建两个虚拟网络，以及它们各自的网关子网和配置。 然后在两个 VNet 之间创建 VPN 连接。 必须计划用于网络配置的 IP 地址范围。 请记住，必须确保没有任何 VNet 范围或本地网络范围存在任何形式的重叠。 在这些示例中，我们没有包括 DNS 服务器。 如果需要虚拟网络的名称解析，请参阅[名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
+以下步骤将创建两个虚拟网络，以及它们各自的网关子网和配置。 然后在两个 VNet 之间创建 VPN 连接。 必须计划用于网络配置的 IP 地址范围。 请记住，必须确保没有任何 VNet 范围或本地网络范围存在任何形式的重叠。 在这些示例中，我们没有包括 DNS 服务器。 如果需要虚拟网络的名称解析，请参阅[名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 示例中使用了以下值：
 
@@ -96,7 +109,6 @@ ms.lasthandoff: 12/12/2017
 - VPNType：RouteBased
 - Connection(1to4)：VNet1toVNet4
 - Connection(1to5)：VNet1toVNet5（适用于不同订阅中的 VNet）
-- ConnectionType：VNet2VNet
 
 **TestVNet4 的值：**
 
@@ -111,7 +123,6 @@ ms.lasthandoff: 12/12/2017
 - 公共 IP：VNet4GWIP
 - VPNType：RouteBased
 - 连接：VNet4toVNet1
-- ConnectionType：VNet2VNet
 
 
 ### <a name="Connect"></a>步骤 1 - 连接到订阅
@@ -179,8 +190,9 @@ ms.lasthandoff: 12/12/2017
 4. 创建网关子网。
 
     ```azurecli
-    az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g    TestRG4 --address-prefix 10.42.255.0/27
+    az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g TestRG4 --address-prefix 10.42.255.0/27
     ```
+
 5. 请求公共 IP 地址。
 
     ```azurecli
@@ -263,7 +275,7 @@ ms.lasthandoff: 12/12/2017
 
 ## <a name="difsub"></a>连接不同订阅中的 VNet
 
-在此方案中，我们连接 TestVNet1 和 TestVNet5。 VNet 驻留在不同订阅中。 订阅不需要与相同的 Active Directory 租户相关联。 此配置的步骤会添加一个额外的 VNet 到 VNet 连接，以便将 TestVNet1 连接到 TestVNet5。
+在此方案中，连接 TestVNet1 和 TestVNet5。 VNet 驻留在不同订阅中。 订阅不需要与相同的 Active Directory 租户相关联。 此配置的步骤将添加额外的 VNet 到 VNet 连接，将 TestVNet1 连接到 TestVNet5。
 
 ### <a name="TestVNet1diff"></a>步骤 5 - 创建并配置 TestVNet1
 

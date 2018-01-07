@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/25/2017
-ms.date: 11/07/2017
+origin.date: 12/04/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: 9240d6375c0ae893ae2ee247f1f0a701570914bb
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 39d362ea9700df375bfd475626e66823ba932f9f
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：PowerShell
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/10/2017
 
 连接方客户端可以使用以下身份验证方法：
 
-- RADIUS 服务器 - 目前以预览版提供
+- RADIUS 服务器
 - VPN 网关本机 Azure 证书身份验证
 
 本文可用来帮助使用本机 Azure 证书身份验证配置采用身份验证的 P2S 配置。 如果希望使用 RADIUS 对进行连接的用户进行身份验证，请参阅[使用 RADIUS 身份验证的 P2S](point-to-site-how-to-radius-ps.md)。
@@ -46,13 +46,9 @@ ms.lasthandoff: 11/10/2017
 
 点到站点连接不需要 VPN 设备或面向公众的 IP 地址。 P2S 基于 SSTP（安全套接字隧道协议）或 IKEv2 创建 VPN 连接。
 
-- SSTP 是基于 SSL 的 VPN 隧道，仅在 Windows 客户端平台上受支持。 它可以穿透防火墙，这使得它成为一个可用来从任何位置连接到 Azure 的理想选项。 在服务器端，我们支持 SSTP 1.0、1.1 和 1.2 版。 客户端决定要使用的版本。 对于 Windows 8.1 及更高版本，SSTP 默认使用 1.2。
+- SSTP 是基于 SSL 的 VPN 隧道，仅在 Windows 客户端平台上受支持。 它可以穿透防火墙，这使得它成为一个可用来从任何位置连接到 Azure 的理想选项。 服务器端支持 SSTP 1.0、1.1 和 1.2 版。 客户端决定要使用的版本。 对于 Windows 8.1 及更高版本，SSTP 默认使用 1.2。
 
-- IKEv2 VPN，这是一种基于标准的 IPsec VPN 解决方案。 IKEv2 VPN 可用于从 Mac 设备进行连接（OSX 10.11 和更高版本）。 IKEv2 目前以预览版提供。
-
->[!NOTE]
->IKEv2 for P2S 目前以预览版提供。
->
+- IKEv2 VPN，这是一种基于标准的 IPsec VPN 解决方案。 IKEv2 VPN 可用于从 Mac 设备进行连接（OSX 10.11 和更高版本）。
 
 点到站点本机 Azure 证书身份验证连接需要以下项：
 
@@ -63,17 +59,17 @@ ms.lasthandoff: 11/10/2017
 
 有关点到站点连接的详细信息，请参阅[关于点到站点连接](point-to-site-about.md)。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 - 确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-- 安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
+- 安装最新版本的资源管理器 PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
 ### <a name="example"></a>示例值
 
-可使用示例值创建测试环境，或参考这些值以更好地理解本文中的示例。 在本文的第 [1](#declare) 部分设置变量。 可以使用这些步骤作为演练并按原样使用这些值，或者根据环境更改这些值。
+可使用示例值创建测试环境，或参考这些值以更好地理解本文中的示例。 变量在本文的第 [1](#declare) 部分设置。 可以使用这些步骤作为演练并按原样使用这些值，或者根据环境更改这些值。
 
 - **名称：VNet1**
-- **地址空间：192.168.0.0/16** 和 **10.254.0.0/16**<br>本示例中使用了多个地址空间，说明此配置可与多个地址空间一起使用。 但是，对于此配置，多个地址空间并不必要。
+- **地址空间：192.168.0.0/16** 和 **10.254.0.0/16**<br>本示例使用了多个地址空间，说明此配置可与多个地址空间一起使用。 但是，对于此配置，多个地址空间并不必要。
 - **子网名称：FrontEnd**
   - **子网地址范围：192.168.1.0/24**
 - **子网名称：BackEnd**
@@ -92,7 +88,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="declare"></a>1.登录并设置变量
 
-在本部分中，将登录并声明用于此配置的值。 声明的值会在示例脚本中使用。 根据自己的环境更改值。 也可以使用声明的值完成这些步骤作为练习。
+在本部分，可以登录并声明用于此配置的值。 声明的值会在示例脚本中使用。 根据自己的环境更改值。 也可以使用声明的值完成这些步骤作为练习。
 
 1. 使用提升的权限打开 PowerShell 控制台，并登录到 Azure 帐户。 该 cmdlet 会提示提供登录凭据。 登录后它会下载帐户设置，以便这些信息可供 Azure PowerShell 使用。
 
@@ -145,7 +141,7 @@ ms.lasthandoff: 11/10/2017
     ```
 3. 创建虚拟网络。
 
-    在本示例中，-DnsServer 服务器参数是可选的。 指定一个值不会创建新的 DNS 服务器。 指定的 DNS 服务器 IP 地址应该是可以解析从 VNet 所连接到的资源名称的 DNS 服务器。 对于此示例，我们使用了专用 IP 地址，但这可能不是你 DNS 服务器的 IP 地址。 请务必使用自己的值。 你指定的值将由部署到 VNet 的资源使用，而不是由 P2S 连接或 VPN 客户端使用。
+    在本示例中，-DnsServer 服务器参数是可选的。 指定一个值不会创建新的 DNS 服务器。 指定的 DNS 服务器 IP 地址应该是可以解析从 VNet 所连接到的资源名称的 DNS 服务器。 此示例使用了专用 IP 地址，但这可能不是你 DNS 服务器的 IP 地址。 请务必使用自己的值。 你指定的值将由部署到 VNet 的资源使用，而不是由 P2S 连接或 VPN 客户端使用。
 
     ```powershell
     New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location  -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
@@ -158,7 +154,7 @@ ms.lasthandoff: 11/10/2017
     $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
     ```
 
-5. VPN 网关必须具有公共 IP 地址。 请先请求 IP 地址资源，并在创建虚拟网关时参阅该资源。 创建 VPN 网关时，IP 地址是动态分配给资源的。 VPN 网关当前仅支持动态公共 IP 地址分配。 不能请求静态公共 IP 地址分配。 但这并不意味着 IP 地址在分配到 VPN 网关后会更改。 公共 IP 地址只在删除或重新创建网关时更改。 该地址不会因为 VPN 网关大小调整、重置或其他内部维护/升级而更改。
+5. VPN 网关必须具有公共 IP 地址。 请先请求 IP 地址资源，然后在创建虚拟网关时参阅该资源。 创建 VPN 网关时，IP 地址是动态分配给资源的。 VPN 网关当前仅支持动态公共 IP 地址分配。 不能请求静态公共 IP 地址分配。 但这并不意味着 IP 地址在分配到 VPN 网关后会更改。 公共 IP 地址只在删除或重新创建网关时更改。 该地址不会因为 VPN 网关大小调整、重置或其他内部维护/升级而更改。
 
     请求动态分配的公共 IP 地址。
 
@@ -171,14 +167,14 @@ ms.lasthandoff: 11/10/2017
 
 为 VNet 配置和创建虚拟网络网关。
 
-- -GatewayType 必须是 **Vpn**，且 -VpnType 必须是 **RouteBased**。
-- -VpnClientProtocols 用来指定要启用的隧道的类型。 两个隧道选项是 **SSTP** 和 **IKEv2**。 可以选择启用其中之一或启用两者。 如果要启用两者，请同时指定两个名称，以逗号分隔。 Android 和 Linux 上的 Strongswan 客户端以及 iOS 和 OSX 上的本机 IKEv2 VPN 客户端仅会使用 IKEv2 隧道进行连接。 Windows 客户端会首先尝试 IKEv2，如果不能连接，则会回退到 SSTP。
+- -GatewayType 必须是 **Vpn**，-VpnType 必须是 **RouteBased**。
+- -VpnClientProtocol 用来指定要启用的隧道的类型。 两个隧道选项是 **SSTP** 和 **IKEv2**。 可以选择启用其中之一或启用两者。 如果要启用两者，请同时指定两个名称，以逗号分隔。 Android 和 Linux 上的 Strongswan 客户端以及 iOS 和 OSX 上的本机 IKEv2 VPN 客户端仅会使用 IKEv2 隧道进行连接。 Windows 客户端会首先尝试 IKEv2，如果不能连接，则会回退到 SSTP。
 - VPN 网关可能需要长达 45 分钟的时间才能完成，具体取决于所选[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md)。 本示例使用 IKEv2（目前以预览版提供）。
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
--VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocols "IKEv2"
+-VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 ```
 
 ## <a name="addresspool"></a>4.添加 VPN 客户端地址池
@@ -192,7 +188,7 @@ Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddre
 
 ## <a name="Certificates"></a>5.生成证书
 
-Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将根证书的公钥信息上传到 Azure， 然后即可将该公钥视为“受信任”公钥。 必须根据可信根证书生成客户端证书，并将其安装在每个客户端计算机的 Certificates-Current User/个人证书存储中。 当客户端发起到 VNet 的连接时，使用证书对客户端进行身份验证。 
+Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将根证书的公钥信息上传到 Azure， 然后即可将该公钥视为“受信任”公钥。 必须根据可信根证书生成客户端证书，并将其安装在每个客户端计算机的 Certificates-Current User/个人证书存储中。 当客户端启动到 VNet 的连接时，使用证书进行身份验证。 
 
 如果使用自签名证书，这些证书必须使用特定的参数创建。 可以按照 [PowerShell 和 Windows 10](vpn-gateway-certificates-point-to-site.md) 或 [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)（如果没有 Windows 10）的说明，创建自签名证书。 生成自签名根证书和客户端证书时，必须按说明中的步骤操作，这一点很重要。 否则，生成的证书将不兼容 P2S 连接，并且会出现连接错误。
 
@@ -207,14 +203,14 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
 
 ## <a name="upload"></a>6.上传根证书的公钥信息
 
-验证 VPN 网关是否已创建完毕。 创建完以后，即可为委托给 Azure 的根证书上传 .cer 文件（其中包含公钥信息）。 上传 .cer 文件后，Azure 可以使用该文件对已安装客户端证书（根据可信根证书生成）的客户端进行身份验证。 可在以后根据需要上传更多的可信根证书文件（最多 20 个）。
+验证 VPN 网关是否已创建完毕。 创建完以后，即可为委托给 Azure 的根证书上传 .cer 文件（其中包含公钥信息）。 上传 .cer 文件后，Azure 可以使用该文件对已安装客户端证书（根据受信任根证书生成）的客户端进行身份验证。 可在以后根据需要上传更多的受信任根证书文件（最多 20 个）。
 
 1. 为证书名称声明变量，将值替换为自己的值。
 
     ```powershell
     $P2SRootCertName = "P2SRootCert.cer"
     ```
-2. 将文件路径替换为自己的路径，然后运行 cmdlet。
+2. 将文件路径替换为自己的路径，并运行 cmdlet。
 
     ```powershell
     $filePathForCert = "C:\cert\P2SRootCert.cer"
@@ -244,7 +240,7 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>从 Windows VPN 客户端进行连接
 
-1. 若要连接到 VNet，请在客户端计算机上导航到 VPN 连接，找到创建的 VPN 连接。 其名称与虚拟网络的名称相同。 单击“连接”。 可能会出现与使用证书相关的弹出消息。 单击“继续”使用提升的权限。 
+1. 若要连接到 VNet，请在客户端计算机上导航到 VPN 连接，找到创建的 VPN 连接。 其名称与虚拟网络的名称相同。 单击“连接” 。 可能会出现与使用证书相关的弹出消息。 单击“继续”使用提升的权限。 
 2. 在“连接”状态页上，单击“连接”以启动连接。 如果看到“选择证书”屏幕，请确保所显示的客户端证书是要用来连接的证书。 如果不是，请使用下拉箭头选择正确的证书，并单击“确定”。
 
     ![VPN 客户端连接到 Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png)

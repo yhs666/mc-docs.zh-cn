@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 10/19/2017
 ms.date: 12/06/2017
 ms.author: v-junlch
-ms.openlocfilehash: 17dc6a9ed0bf5fcd610ac274eb79a571e977ccd7
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: 88378c87a31517da120981d47885b9c6ca091069
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>使用 Azure PowerShell 自动缩放虚拟机规模集
 创建规模集时，可定义想运行的 VM 实例数。 若应用程序需要更改，可自动增加或减少 VM 实例数。 通过自动缩放功能，可随客户需求的改变而进行调整，或在应用的整个生命周期内响应应用程序性能更改。
@@ -58,7 +58,7 @@ $myLocation = "China North"
 | *-Threshold*            | 使自动缩放规则触发操作的值。                                                      | 70%            |
 | *-ScaleActionDirection* | 定义应用规则时，规模集应扩展还是缩减。                                             | 增加       |
 | -ScaleActionScaleType | 表明 VM 实例数应该增加一定的百分比。                                 | 百分比更改 |
-| *-ScaleActionValue*     | 规则触发时，应更改 VM 实例的百分比。                                            | 20             |
+| *-ScaleActionValue*     | 规则触发时，应更改 VM 实例的百分比。                                            | 20 个             |
 | *-ScaleActionCooldown*  | 为使自动缩放操作有时间生效，再次应用规则前需要等待的时间。 | 5 分钟      |
 
 以下示例将创建名为 *myRuleScaleOut* 的对象，用于保存此扩展规则。 -MetricResourceId 使用以前为订阅 ID、资源组名称和规模集名称定义的变量：
@@ -144,6 +144,4 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 本文详细介绍了如何使用自动缩放规则来进行横向缩放，即增加或减少规模集中的 VM 实例数。 还可进行纵向缩放，即增大或减小 VM 实例的大小。
 
 有关如何管理 VM 实例的信息，请参阅[使用 Azure PowerShell 管理虚拟机规模集](virtual-machine-scale-sets-windows-manage.md)。
-
-若要了解如何在触发自动缩放规则时生成警报，请参阅[在 Azure Monitor 中使用自动缩放操作发送电子邮件和 Webhook 警报通知](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)。 还可以[在 Azure Monitor 中使用审核日志发送电子邮件和 Webhook 警报通知](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)。
 

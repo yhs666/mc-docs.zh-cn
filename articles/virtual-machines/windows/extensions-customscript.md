@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/16/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5435849f8e480a783bf3845626d1be1d315a4aea
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: b2e64db57614b077b273d35e978eb56857a642d7
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="custom-script-extension-for-windows"></a>适用于 Windows 的自定义脚本扩展
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 12/15/2017
 
 ## <a name="extension-schema"></a>扩展架构
 
-以下 JSON 显示自定义脚本扩展的架构。 扩展需要脚本位置（Azure 存储或其他具有有效 URL 的位置）以及命令才能执行。 如果使用 Azure 存储作为脚本源，则需 Azure 存储帐户名称和帐户密钥。 这些项目应视为敏感数据，并在扩展的受保护设置配置中指定。 Azure VM 扩展的受保护设置数据已加密，并且只能在目标虚拟机上解密。
+以下 JSON 显示自定义脚本扩展的架构。 扩展需要脚本位置（Azure 存储或其他具有有效 URL 的位置）以及命令才能执行。 如果使用 Azure 存储作为脚本源，则需要 Azure 存储帐户名称和帐户密钥。 这些项目应视为敏感数据，并在扩展的受保护设置配置中指定。 Azure VM 扩展的受保护设置数据已加密，并且只能在目标虚拟机上解密。
 
 ```json
 {
@@ -80,10 +80,10 @@ ms.lasthandoff: 12/15/2017
 
 ### <a name="property-values"></a>属性值
 
-| 名称 | 值/示例 |
+| Name | 值/示例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| publisher | Microsoft.Compute |
+| 发布者 | Microsoft.Compute |
 | type | 扩展 |
 | typeHandlerVersion | 1.9 |
 | fileUris（例如） | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
@@ -124,7 +124,7 @@ Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myE
 C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
 ```
 
-指定的文件下载到目标虚拟机上的以下目录中。
+指定的文件将下载到目标虚拟机上的以下目录中。
 ```cmd
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
@@ -150,6 +150,6 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure] (https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure] (https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 <!--Update_Description: update meta properties-->

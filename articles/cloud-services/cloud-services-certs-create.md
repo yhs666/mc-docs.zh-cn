@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/19/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: e637dd8cff075b6f101e9b29e6fb4d9a15a5b90c
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 01/15/2018
+ms.openlocfilehash: 19299c76797ea9d277d56cfacfa3a7b105023f03
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 云服务证书概述
-证书在 Azure 中用于云服务（[服务证书](#what-are-service-certificates)）以及用于通过管理 API 进行身份验证（[管理证书](#what-are-management-certificates)，适用于使用 Azure 经典门户而不是非经典 Azure 门户的情况）。 本主题提供了这两种证书类型的一般概述，并说明了如何[创建](#create)并将其[部署](#deploy)到 Azure。
+证书在 Azure 中用于云服务（[服务证书](#what-are-service-certificates)）以及用于通过管理 API 进行身份验证（[管理证书](#what-are-management-certificates)）。 本主题提供了这两种证书类型的一般概述，并说明了如何[创建](#create)并将其[部署](#deploy)到 Azure。
 
 Azure 中使用的证书是 x.509 v3 证书，可自签名或由另一个受信任的证书签名。 自签名证书由其创建者签名，因此，默认情况下不受信任。 大多数浏览器可以忽略此问题。 自签名证书应仅在开发和测试云服务时使用。 
 
@@ -31,7 +31,7 @@ Azure 使用的证书可以包含一个私钥或公钥。 证书具有指纹，�
 ## <a name="what-are-service-certificates"></a>什么是服务证书？
 服务证书被附加到云服务，可实现与服务之间的安全通信。 例如，如果部署了 Web 角色，则需要提供可对公开 HTTPS 终结点进行身份验证的证书。 在服务定义中定义的服务证书会自动部署到运行角色实例的虚拟机。 
 
-使用 Azure 经典门户或经典部署模型可将服务证书上传到 Azure 经典门户。 服务证书与特定的云服务相关联。 它们在服务定义文件中分配给部署。
+可使用 Azure 门户或使用经典部署模型将服务证书上传到 Azure。 服务证书与特定的云服务相关联。 它们在服务定义文件中分配给部署。
 
 服务证书可与服务分开管理，且可由不同的人员管理。 例如，开发人员上传的服务包可以使用 IT 管理员以前上传到 Azure 的证书。 IT 管理员可以管理并续订该证书（更改服务配置）而无需上传新的服务包。 在没有新服务包的情况下更新之所以可能是因为证书的逻辑名称、存储名称和存储位置是在服务定义文件中指定的，而证书指纹则是在服务配置文件中指定的。 若要更新证书，只需上传新证书并更改服务配置文件中的指纹值。
 
@@ -70,7 +70,7 @@ Azure 使用的证书可以包含一个私钥或公钥。 证书具有指纹，�
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
-$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 2048 -KeySpec "KeyExchange"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
@@ -93,5 +93,5 @@ Internet 上有许多关于如何使用 IIS 实现此操作的信息。 [此页�
 ## <a name="next-steps"></a>后续步骤
 [将服务证书上传到 Azure 门户](cloud-services-configure-ssl-certificate-portal.md)。
 
-将[管理 API 证书](../azure-api-management-certs.md)上传到 Azure 经典门户。 Azure 门户不使用管理证书进行身份验证。
+将[管理 API 证书](../azure-api-management-certs.md)上传到 Azure 门户。
 

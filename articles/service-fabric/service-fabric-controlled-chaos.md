@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/10/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: fbff55bd78edf6114662c5fb747970338ce4c205
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: a7e52b98fbfe1fe1858b9a16badc27cb354835d7
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>在 Service Fabric 群集中引入受控的混沌测试
 大规模分布式系统，例如云基础结构，在本质上都是不可靠的。 Azure Service Fabric 可让开发人员在不可靠的基础结构之上编写可靠的分布式服务。 若要在不可靠的基础结构之上编写可靠的分布式服务，开发人员应能够在不可靠的底层基础结构因故障而进行复杂的状态转换时，测试其服务的稳定性。
@@ -48,14 +48,14 @@ ms.lasthandoff: 12/01/2017
 * 移动主副本（可配置）
 * 移动辅助副本（可配置）
 
-混沌测试在多个迭代中运行。 每个迭代包含指定时间段的故障和群集验证。 可以配置使群集达到稳定状态以及成功完成验证所用的时间。 如果在群集验证中发现故障，混沌测试会生成并保留一个包含 UTC 时间戳与故障详细信息的 ValidationFailedEvent。 例如，假设某个混沌测试实例设置为运行 1 小时，并且最多有 3 个并发故障。 该混沌测试将引入三个故障，并验证群集运行状况。 它会循环访问上一步骤，直到通过 StopChaosAsync API 或者在一小时后将它显式停止。 如果在任何一次迭代中群集变得不正常（即在传入的 MaxClusterStabilizationTimeout 内不稳定或未变得正常），混沌测试会生成 ValidationFailedEvent。 此事件指明系统出现问题，可能需要进一步调查。
+混沌测试在多个迭代中运行。 每个迭代包含指定时间段的故障和群集验证。 可以配置使群集达到稳定状态以及成功完成验证所用的时间。 如果在群集验证中发现故障，混沌测试将生成并保留一个包含 UTC 时间戳与故障详细信息的 ValidationFailedEvent。 例如，假设某个混沌测试实例设置为运行 1 小时，并且最多有 3 个并发故障。 该混沌测试将引入三个故障，并验证群集运行状况。 它会循环访问上一步骤，直到通过 StopChaosAsync API 或者在一小时后将它显式停止。 如果在任何一次迭代中群集变得不正常（即在传入的 MaxClusterStabilizationTimeout 内不稳定或未变得正常），混沌测试会生成 ValidationFailedEvent。 此事件指明系统出现问题，可能需要进一步调查。
 
 若要获取混沌测试引入的故障，可以使用 GetChaosReport API（powershell、C# 或 REST）。 该 API 根据传入的继续标记或传入的时间范围获取混沌测试报告的下一段。 可以指定 ContinuationToken 以获取混沌测试报告的下一段或者通过 StartTimeUtc 和 EndTimeUtc 指定时间范围，但不能在同一调用中同时指定 ContinuationToken 和时间范围。 如果发生了 100 个以上的混沌测试事件，混沌测试报告会分段返回，每一段包含的混沌测试事件均不能超过 100 个。
 
 ## <a name="important-configuration-options"></a>重要的配置选项
 * **TimeToRun**：混沌测试在成功完成之前的总运行时间。 在混沌测试运行了 TimeToRun 这段时间之前，可以通过 StopChaos API 将它停止。
 
-* **MaxClusterStabilizationTimeout**：在生成 ValidationFailedEvent 之前，等待群集变得正常的最长时间。 等待这段时间的目的是在恢复时减少群集上的负载。 执行的检查包括：
+* MaxClusterStabilizationTimeout：在生成 ValidationFailedEvent 之前，等待群集变得正常的最长时间。 等待这段时间的目的是在恢复时减少群集上的负载。 执行的检查包括：
   * 群集运行状况是否正常
   * 服务运行状况是否正常
   * 服务分区是否达到目标副本集大小
@@ -71,9 +71,6 @@ ms.lasthandoff: 12/01/2017
 * WaitTimeBetweenFaults：单个迭代中每两次连续故障之间的等待时间。 该值越高，故障的并发性（即故障之间的重叠）越低。
 * ClusterHealthPolicy：群集运行状况策略用于验证两次混沌测试迭代之间的群集运行状况。 如果群集运行状况出错或者如果在故障执行期间发生了意外的异常，混沌测试会等 30 分钟后再进行下一轮运行状况检查，从而为群集留出一些恢复时间。
 * Context：一组 (string, string) 类型的键值对。 此映射可用于记录混沌测试的相关运行信息。 这种键值对不能超过 100 个，并且每个字符串（键或值）的长度不能超过 4095 个字符。 此映射由混沌测试运行的启动程序设置为根据需要存储特定运行的相关上下文。
-* **ChaosTargetFilter**：此筛选器可指定混沌测试故障仅面向特定节点类型或特定应用程序实例。 如未使用 ChaosTargetFilter，混沌测试会使所有群集实体故障。 如果使用 ChaosTargetFilter，混沌测试仅使满足 ChaosTargetFilter 规定的实体故障。 NodeTypeInclusionList 和 ApplicationInclusionList 仅允许联合语义。 换句话说，不可指定 NodeTypeInclusionList 和 ApplicationInclusionList 的交集。 例如，不可指定“仅当此应用程序在该节点类型上时使其故障”。 一旦实体包含在 NodeTypeInclusionList 或 ApplicationInclusionList 中，便不能使用 ChaosTargetFilter 排除该实体。 即使 applicationX 未出现在 ApplicationInclusionList 中，在一些混沌测试迭代中，也可使 applicationX 故障，因为它恰好在 NodeTypeInclusionList 中的 nodeTypeY 的节点上。 如果 NodeTypeInclusionList 和 ApplicationInclusionList 都为 null 或者为空，则会引发 ArgumentException。
-    * **NodeTypeInclusionList**：包括在混沌测试故障中的节点类型列表。 所有类型故障（重启节点、重启代码包、删除副本、重启副本、移动主副本和移动辅助副本）均为这些节点类型的节点启用。 如果节点类型（比如 NodeTypeX）未出现在 NodeTypeInclusionList 中，节点级别故障（比如 NodeRestart）将不会为 NodeTypeX 的节点启用。但是，如果 ApplicationInclusionList 中的应用程序碰巧位于 NodeTypeX 的节点上，那么代码包和副本故障仍可为 NodeTypeX 启用。 此列表最多可以包含 100 个节点类型名称，若要增加，MaxNumberOfNodeTypesInChaosTargetFilter 配置需要升级。
-    * **ApplicationInclusionList**：包含在混沌测试故障中的应用程序 URI 列表。 所有属于这些应用程序服务的副本服从混沌测试的副本故障（重启副本、删除副本、移动主副本和移动辅助副本）。 仅在代码包仅托管这些应用程序的副本时，混沌测试可重启代码包。 如果应用程序未出现在此列表中，那么还是可以在某些混沌测试迭代中使它故障，条件是应用程序最终位于 NodeTypeInclusionList 中的节点类型的节点上。 但是，如果 applicationX 通过放置约束固定为 nodeTypeY，并且 applicationX 不在 ApplicationInclusionList 中同时 nodeTypeY 不在 NodeTypeInclusionList 中，那么不会使 applicationX 故障。 此列表最多可以包含 1000 个应用程序名称，若要增加，MaxNumberOfApplicationsInChaosTargetFilter 配置需要升级。
 
 ## <a name="how-to-run-chaos"></a>如何运行混沌测试
 
@@ -141,22 +138,6 @@ class Program
                 MaxPercentUnhealthyNodes = 100
             };
 
-            // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-            // for nodes of type 'FrontEndType'
-            var nodetypeInclusionList = new List<string> { "FrontEndType"};
-
-            // In addition to the faults included by nodetypeInclusionList, 
-            // restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
-            // even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
-            var applicationInclusionList = new List<string> { "fabric:/TestApp2" };
-
-            // List of cluster entities to target for Chaos faults.
-            var chaosTargetFilter = new ChaosTargetFilter
-            {
-                NodeTypeInclusionList = nodetypeInclusionList,
-                ApplicationInclusionList = applicationInclusionList
-            };
-
             var parameters = new ChaosParameters(
                 maxClusterStabilizationTimeout,
                 maxConcurrentFaults,
@@ -165,7 +146,7 @@ class Program
                 startContext,
                 waitTimeBetweenIterations,
                 waitTimeBetweenFaults,
-                clusterHealthPolicy) {ChaosTargetFilter = chaosTargetFilter};
+                clusterHealthPolicy);
 
             try
             {
@@ -270,26 +251,12 @@ $clusterHealthPolicy.ConsiderWarningAsError = $False
 # This map is set by the starter of the Chaos run to optionally store the context about the specific run.
 $context = @{"ReasonForStart" = "Testing"}
 
-#List of cluster entities to target for Chaos faults.
-$chaosTargetFilter = new-object -TypeName System.Fabric.Chaos.DataStructures.ChaosTargetFilter
-$chaosTargetFilter.NodeTypeInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
-
-# All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-# for nodes of type 'FrontEndType'
-$chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("FrontEndType") )
-$chaosTargetFilter.ApplicationInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
-
-# In addition to the faults included by nodetypeInclusionList, 
-# restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
-# even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
-$chaosTargetFilter.ApplicationInclusionList.Add("fabric:/TestApp2")
-
 Connect-ServiceFabricCluster $clusterConnectionString
 
 $events = @{}
 $now = [System.DateTime]::UtcNow
 
-Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy -ChaosTargetFilter $chaosTargetFilter
+Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy
 
 while($true)
 {
@@ -320,6 +287,7 @@ while($true)
 
     Start-Sleep -Seconds 1
 }
+
 ```
 
 <!--Update_Description: wording update, update cmdlet code -->

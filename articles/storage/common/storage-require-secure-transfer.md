@@ -15,11 +15,11 @@ ms.workload: storage
 origin.date: 06/20/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 9c1c009d466b5d92beb4675d3c16a358a7e0e835
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 7fe04879525c2307fd68b1d13b8c043b0782690f
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>在 Azure 存储中需要安全传输
 
@@ -55,8 +55,8 @@ ms.lasthandoff: 10/23/2017
 
 若要以编程方式启用“需要安全传输”，请通过 REST API、工具或库使用存储帐户属性中的 supportsHttpsTrafficOnly 设置：
 
-* [REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts)（版本：2016-12-01）
-* [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0)（版本：4.1.0）
+* [REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts)（版本：2016-12-01）
+* [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0)（版本：4.1.0）
 * [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11)（版本：2.0.11）
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/)（版本：1.1.0）
 * [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview)（版本：6.3.0）

@@ -13,16 +13,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/21/2016
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 849c8d0c0527dc64b9e8af457e52b7bb77c777ff
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 9a2ed89a15d9d409c43a34ba443cb26466faffca
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>使用适用于 Eclipse 的 Service Fabric 插件开发 Java 应用程序
-Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一。 本文介绍如何设置适用于 Azure Service Fabric 的 Eclipse 开发环境。 了解如何安装 Service Fabric 插件、创建 Service Fabric 应用程序，以及将 Service Fabric 应用程序部署到 Eclipse Neon 中的本地或远程 Service Fabric 群集。
+Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一。 本文介绍如何设置适用于 Azure Service Fabric 的 Eclipse 开发环境。 了解如何安装 Service Fabric 插件、创建 Service Fabric 应用程序，以及将 Service Fabric 应用程序部署到 Eclipse Neon 中的本地或远程 Service Fabric 群集。 
+
+> [!NOTE]
+> Windows 当前不支持 Eclipse 插件。 
 
 ## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>在 Eclipse Neon 中安装或更新 Service Fabric 插件
 可在 Eclipse 中安装 Service Fabric 插件。 该插件可帮助简化生成和部署 Java 服务的过程。
@@ -174,4 +177,4 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
 <!-- Links -->
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
-<!--Update_Description: update meta properties, add Notes for Mac users-->
+<!--Update_Description: update meta properties, wording update -->

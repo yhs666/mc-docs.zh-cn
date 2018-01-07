@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/02/2017
-ms.date: 12/04/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3dda272e24f89aab9223cd16737c58e920abb6f9
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: fc12564cc6df0195c7b2ebd96d87e34239fec563
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>将应用程序和服务作为 Azure 资源管理器资源进行管理
 

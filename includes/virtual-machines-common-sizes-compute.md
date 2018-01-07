@@ -1,6 +1,6 @@
 <!-- F-series, Fs-series* -->
 
-计算优化的 VM 大小具有较高的 CPU 内存比，适用于中等流量 Web 服务器、网络设备、批处理进程和应用程序服务器。 本文介绍了此分组中各个大小的 vCPU 数、数据磁盘数、NIC 数、存储吞吐量及网络带宽的相关信息。
+计算优化的 VM 大小具有较高的 CPU 内存比，适用于中等流量 Web 服务器、网络设备、批处理进程和应用程序服务器。 本文针对此分组中每种大小提供有关 vCPU、数据磁盘和 NIC 的数量，以及存储吞吐量和网络带宽的信息。
 
 F 系列基于 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器，该处理器使用 Intel Turbo Boost 技术 2.0，可实现高达 3.1 GHz 的时钟速度。 此 CPU 性能与 Dv2 系列的 VM 相同。  
 
@@ -42,5 +42,5 @@ ACU：210 - 250
 <!-- Correct the F-Series Max Disk Count 4,8,16,32,64 -->
 
 <br>
-<!-- ms.date: 12/11/2017 -->
+<!-- ms.date: 01/08/2018 -->
 <!-- Update_Description: wording update -->

@@ -12,40 +12,42 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/15/2017
-ms.date: 12/04/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: ceb09ffd84ef7b538eb46e4dfdf0891558ebd7e5
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 1fd8ede37d4f32657e0108ea40d229d7d4d713e2
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>独立 Windows 群集的配置设置
-本文介绍如何使用 ClusterConfig.JSON 文件来配置独立的 Azure Service Fabric 群集。 可以使用此文件指定 Service Fabric 节点及其 IP 地址，以及群集上不同类型的节点等信息。 此外，还可以指定安全配置，以及独立群集的容错域/升级域相关网络拓扑。
+本文介绍如何使用 ClusterConfig.json 文件配置独立的 Azure Service Fabric 群集。 需要使用该文件指定有关群集节点、安全配置以及有关容错域和升级域的网络拓扑信息。
 
-[下载独立的 Service Fabric 包](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)时，一些 ClusterConfig.JSON 文件示例将下载到工作计算机。 名称中包含 DevCluster 的示例可帮助创建所有三个节点都在同一台计算机上（例如逻辑节点）的群集。 在这些节点中，必须至少将一个节点标记为主节点。 此群集可用于开发或测试环境。 不支持将它用作生产群集。 名称中包含 MultiMachine 的示例可帮助创建生产质量群集，其中的每个节点位于不同的计算机上。 这些群集的主节点数将基于[可靠性级别](#reliability)。 在版本 5.7 API 版本 05-2017 中，我们删除了可靠性级别属性。 取而代之的是，我们的代码将计算群集的最优可靠性级别。 请不要在 5.7 及更高代码版本中使用此属性。
+[下载独立的 Service Fabric 包](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)时还会附带 ClusterConfig.json 示例。 名称中包含“DevCluster”的示例可使用逻辑节点创建所有三个节点都在同一台计算机上的群集。 在这些节点中，必须至少将一个节点标记为主节点。 此群集类型可用于开发或测试环境。 不支持将它用作生产群集。 名称中包含“MultiMachine”的示例可帮助创建生产等级群集，其中的每个节点位于不同的计算机上。 这些群集的主节点数取决于群集的[可靠性级别](#reliability)。 在版本 5.7 API 版本 05-2017 中，我们删除了可靠性级别属性。 取而代之的是，我们的代码将计算群集的最优可靠性级别。 请勿尝试在版本 5.7 及以上版本中设置此属性的值。
 
-* ClusterConfig.Unsecure.DevCluster.JSON 和 ClusterConfig.Unsecure.MultiMachine.JSON 分别说明如何创建不安全的测试群集和生产群集。
+* ClusterConfig.Unsecure.DevCluster.json 和 ClusterConfig.Unsecure.MultiMachine.json 分别说明如何创建不安全的测试群集和生产群集。
 
-* ClusterConfig.Windows.DevCluster.JSON 和 ClusterConfig.Windows.MultiMachine.JSON 说明如何创建使用 [Windows 安全性](service-fabric-windows-cluster-windows-security.md)保护的测试群集和生产群集。
+* ClusterConfig.Windows.DevCluster.json 和 ClusterConfig.Windows.MultiMachine.json 说明如何创建使用 [Windows 安全性](service-fabric-windows-cluster-windows-security.md)保护的测试群集和生产群集。
 
-* ClusterConfig.X509.DevCluster.JSON 和 ClusterConfig.X509.MultiMachine.JSON 说明如何创建使用[基于 X509 证书的安全性](service-fabric-windows-cluster-x509-security.md)保护的测试群集和生产群集。
+* ClusterConfig.X509.DevCluster.json 和 ClusterConfig.X509.MultiMachine.json 说明如何创建使用[基于 X509 证书的安全性](service-fabric-windows-cluster-x509-security.md)保护的测试群集和生产群集。
 
-现在，让我们查看 ClusterConfig.JSON 文件的各个节。
+现在，让我们查看 ClusterConfig.json 文件的各个部分。
 
 ## <a name="general-cluster-configurations"></a>常规群集配置
 常规群集配置包括特定于群集的配置，如以下 JSON 代码片段中所示：
 
+```json
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
+```
 
 可为 Service Fabric 群集指定任何友好名称，只需将该名称分配到 name 变量即可。 clusterConfigurationVersion 是群集的版本号。 每次升级 Service Fabric 群集时，都应该递增该编号。 请将 apiVersion 保留为默认值。
 
 <a id="clusternodes"></a>
-
 ##<a name="nodes-on-the-cluster"></a>群集上的节点
+
 可以使用 nodes 节配置 Service Fabric 群集上的节点，如以下代码片段中所示：
 
     "nodes": [{
@@ -79,10 +81,9 @@ ms.lasthandoff: 12/01/2017
 | upgradeDomain |升级域描述几乎在相同时间关闭以进行 Service Fabric 升级的节点集。 可以选择将哪些节点分配到哪些升级域，因为这不受任何物理要求的限制。 |
 
 ##<a name="cluster-properties"></a>群集属性
-ClusterConfig.JSON 中的 properties 节用于配置群集，如下所示：
+ClusterConfig.json 中的属性部分用于配置群集，如下所示：
 
 <a id="reliability"></a>
-
 ### <a name="reliability"></a>可靠性
 reliabilityLevel 的概念定义可在群集的主节点上运行的 Service Fabric 系统服务副本或实例数。 它确定这些服务以及群集的可靠性。 在群集创建和升级过程中，由系统计算该值。
 
@@ -107,7 +108,7 @@ metadata 用于描述群集诊断，可以根据具体的情况进行设置。 �
         "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
     }
 
-### <a name="security"></a>“安全”
+### <a name="security"></a>安全性
 对于安全的 Service Fabric 独立群集，必须使用 security 节。 以下代码片段显示了该部分的一部分内容：
 
     "security": {
@@ -120,7 +121,6 @@ metadata 用于描述群集诊断，可以根据具体的情况进行设置。 �
 metadata 用于描述安全群集，可根据具体的情况进行设置。 ClusterCredentialType 和 ServerCredentialType 确定群集与节点将要实现的安全类型。 可将这两项设置为 *X509* 来实现基于证书的安全性，或者设置为 *Windows* 来实现基于 Azure Active Directory 的安全性。 security 节的余下设置基于安全类型。 若要了解如何填充 security 节的余下设置，请参阅[独立群集中基于证书的安全性](service-fabric-windows-cluster-x509-security.md)，或[独立群集中的 Windows 安全性](service-fabric-windows-cluster-windows-security.md)。
 
 <a id="nodetypes"></a>
-
 ### <a name="node-types"></a>节点类型
 nodeTypes 节描述群集中的节点类型。 一个群集必须指定至少一个节点类型，如以下代码片段所示： 
 
@@ -196,6 +196,6 @@ name 是此特定节点类型的友好名称。 要创建这种类型的节点�
 若要为 Windows Server 容器和独立群集的 Hyper-V 容器启用容器支持，必须启用 DnsService 附加功能。
 
 ## <a name="next-steps"></a>后续步骤
-根据独立群集设置配置一个完整的 ClusterConfig.JSON 文件后，可以部署群集。 请遵循[创建独立 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)中所述的步骤。 然后继续[使用 Service Fabric Explorer 可视化群集](service-fabric-visualizing-your-cluster.md)并遵循此文中的步骤操作。
+根据独立群集设置配置一个完整的 ClusterConfig.json 文件后，可以部署群集。 请遵循[创建独立 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)中所述的步骤。 然后继续[使用 Service Fabric Explorer 可视化群集](service-fabric-visualizing-your-cluster.md)并遵循此文中的步骤操作。
 
-<!--Update_Description: wording update, update meta properties -->
+<!--Update_Description: wording update -->

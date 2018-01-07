@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/26/2017
 ms.author: v-yiso
-ms.date: 11/13/2017
-ms.openlocfilehash: a42f12f1be8a649969655c09dadf573b6c0feb61
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.date: 01/08/2018
+ms.openlocfilehash: 4e2085728a1bfb0b57cea47107c9794410b2ed57
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>验证 ExpressRoute 连接
 ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络扩展到 Microsoft 云中，涉及以下三个不同的网络区域：
@@ -70,7 +70,7 @@ ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络�
 将来会添加更多的验证和检查，请每月回来查看！
 
 ##<a name="validate-circuit-provisioning-and-state"></a>验证线路预配和状态
-不管什么连接模型，都必须创建 ExpressRoute 线路，从而生成用于线路预配的服务密钥。 预配 ExpressRoute 线路即可在 PE-MSEE (4) 和 MSEE (5) 之间建立冗余性的第 2 层连接。 若要详细了解如何创建、修改、预配和验证 ExpressRoute 线路，请参阅 [创建和修改 ExpressRoute 线路][CreateCircuit]一文。
+不管什么连接模型，都必须创建 ExpressRoute 线路，从而生成用于线路预配的服务密钥。 预配 ExpressRoute 线路即可在 PE-MSEE (4) 和 MSEE (5) 之间建立冗余性的第 2 层连接。 如需详细了解如何创建、修改、预配和验证 ExpressRoute 线路，请参阅[创建和修改 ExpressRoute 线路][CreateCircuit]一文。
 
 >[!TIP]
 >服务密钥可以唯一地标识 ExpressRoute 线路。 对于本文档中提到的大多数 PowerShell 命令，此密钥是必需的。 另外，如果需要 Microsoft 或 ExpressRoute 合作伙伴的帮助来排查 ExpressRoute 问题，请提供服务密钥，以便标识线路。
@@ -195,7 +195,7 @@ Status                           : Enabled
 如以上示例所述，Azure 专用对等互连路由上下文已启用，而 Azure 公共对等互连路由上下文则未启用。 成功启用的对等互连上下文还会列出主要的和辅助的点到点（BGP 所必需）子网。 /30 子网用于 MSEE 和 PE-MSEE 的接口 IP 地址。 
 
 >[!NOTE]
->如果未启用对等互连，请检查分配的主要子网和辅助子网是否符合 PE-MSEE 上的配置。 否则，若要更改 MSEE 路由器上的配置，请参阅 [创建和修改 ExpressRoute 线路的路由][CreatePeering]
+>如果未启用对等互连，请检查分配的主要子网和辅助子网是否符合 PE-MSEE 上的配置。 否则，若要更改 MSEE 路由器上的配置，请参阅[创建和修改 ExpressRoute 线路的路由][CreatePeering]
 >
 >
 
@@ -204,7 +204,7 @@ Status                           : Enabled
 
 ```
 $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
+Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 ```
 
 已成功配置的专用对等互连的示例响应如下：
@@ -236,7 +236,7 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit 
 ```
 
 
-如果未配置对等互连，则会出现错误消息。 当所述对等互连（本示例中为 Azure 公共对等互连）未在线路中配置时的示例响应如下：
+如果未配置对等互连，则会出现错误消息。 当所述对等互连（本示例中为 Azure 公共对等互连）未在线路中配置时，示例的响应如下：
 
 ```
 Get-AzureRmExpressRouteCircuitPeeringConfig : Sequence contains no matching element
@@ -312,7 +312,7 @@ Get-AzureBGPPeering -AccessType Public -ServiceKey "****************************
 Get-AzureDedicatedCircuitPeeringArpInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
 ```
 
-如果成功，该命令的示例响应如下：
+成功情况下，该命令的示例响应如下：
 
 ```
 ARP Info:
@@ -341,7 +341,7 @@ ARP Info:
 本部分使用 PowerShell（经典）命令。 如果一直使用 PowerShell Azure 资源管理器命令，请确保对订阅具有管理员/共同管理员权限。
 
 >[!NOTE]
->若要获取 BGP 信息，可以使用 Azure 门户和 Azure Resource Manager PowerShell 命令。 如果使用 Azure Resource Manager PowerShell 命令时出错，则应使用经典 PowerShell 命令，因为经典 PowerShell 命令也适用于 Azure Resource Manager ExpressRoute 线路。
+>若要获取 BGP 信息，可以使用 Azure 门户和 Azure Resource Manager PowerShell 命令。 如果使用 Azure 资源管理器 PowerShell 命令时出错，则应使用经典 PowerShell 命令，因为经典 PowerShell 命令也适用于 Azure 资源管理器 ExpressRoute 线路。
 >
 >
 
@@ -363,7 +363,7 @@ Route Table Summary:
 如以上示例所示，该命令用于确定路由上下文已建立多长时间。 它还指示对等互连的路由器播发的路由前缀的数。
 
 >[!NOTE]
->如果状态为“活动”或“空闲”，请检查分配的主要对等子网和辅助对等子网是否符合链接的 PE-MSEE 上的配置。 另请检查是否在 MSEE 上使用了正确的 VlanId、AzureAsn 和 PeerAsn，以及这些值是否映射到链接的 PE-MSEE 上使用的对应项。 如果选择了 MD5 哈希，则 MSEE 和 PE-MSEE 对上的共享密钥应相同。 若要更改 MSEE 路由器上的配置，请参阅[创建和修改 ExpressRoute 线路的路由][CreatePeering]。
+>如果状态为“活动”或“空闲”，请检查分配的主要对等子网和辅助对等子网是否符合链接的 PE-MSEE 上的配置。 另请检查是否在 MSEE 上使用了正确的 VlanId、AzureAsn 和 PeerAsn，以及这些值是否映射到链接的 PE-MSEE 上使用的对应项。 如果选择了 MD5 哈希，则 MSEE 和 PE-MSEE 对上的共享密钥应相同。 若要更改 MSEE 路由器上的配置，请参阅 [创建和修改 ExpressRoute 线路的路由][CreatePeering]。
 >
 >
 
@@ -379,7 +379,7 @@ Route Table Summary:
 Get-AzureDedicatedCircuitPeeringRouteTableInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
 ```
 
-如果成功，该命令的示例结果如下：
+成功情况下，该命令的示例结果如下：
 
 ```
 Route Table Info:

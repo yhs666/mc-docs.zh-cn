@@ -15,11 +15,11 @@ origin.date: 10/21/2017
 ms.date: 11/22/2017
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: ad60bcf7f102d25b59a2f52a9a09a4c086444c9f
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 3229e8cae8d38c6c8ff81bb2f2681f8643f4c60e
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>有关 Azure Active Directory 中应用程序管理的文章索引
 本页提供了一份完整列表，列出编写的 Azure Active Directory (Azure AD) 中各种应用程序相关功能的所有文章。
@@ -31,9 +31,9 @@ ms.lasthandoff: 11/24/2017
 
 | 文章指南 |  |
 |:---:| --- |
-| 介绍 Azure AD 解决的应用程序管理问题 |[使用 Azure Active Directory (AD) 管理应用程序](active-directory-enable-sso-scenario.md) |
+| 介绍 Azure AD 解决的应用程序管理问题	 |[使用 Azure Active Directory (AD) 管理应用程序](active-directory-enable-sso-scenario.md) |
 | Azure AD 中与启用单一登录、定义有权访问应用的人员，以及用户如何启动应用相关的各种功能概述 |[Azure Active Directory 中的应用程序访问和单一登录](active-directory-appssoaccess-whatis.md) |
-| 探讨将应用集成到 Azure AD 时所涉及的不同步骤 |[将 Azure Active Directory 与应用程序集成](./active-directory-integrating-applications-getting-started.md)<br /><br />[启用对 SaaS 应用的单一登录](./active-directory-sso-integrate-saas-apps.md)<br /><br />[管理对应用的访问](./active-directory-managing-access-to-apps.md) |
+| 探讨将应用程序集成到 Azure AD 时所涉及的不同步骤 |[将 Azure Active Directory 与应用程序集成](./active-directory-integrating-applications-getting-started.md)<br /><br />[启用对 SaaS 应用的单一登录](./active-directory-sso-integrate-saas-apps.md)<br /><br />[管理对应用的访问](./active-directory-managing-access-to-apps.md) |
 | 如何在 Azure AD 中表示应用的技术说明 |[如何以及为何将应用程序添加到 Azure AD](./develop/active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>疑难解答文章
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/24/2017
 | 文章指南 |  |
 |:---:| --- |
 | 联合身份验证和其他登录类型简介 |[使用 Azure AD 进行单一登录](active-directory-appssoaccess-whatis.md) |
-| 通过简化的单一登录配置步骤与 Azure AD 预先集成的数千个 SaaS 应用 |[Azure AD 应用程序库入门](./active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[支持联合身份验证的预先集成应用完整列表](http://aka.ms/aadfederatedapps)|
+| 通过已简化的单一登录配置步骤与 Azure AD 预先集成的数千个 SaaS 应用程序 |[Azure AD 应用程序库入门](./active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[支持联合身份验证的预先集成应用完整列表](http://aka.ms/aadfederatedapps)|
 | 150 个以上的应用教程，介绍如何为应用配置单一登录 |
 | 如何手动设置和自定义单一登录配置 |如何为不在 Azure Active Directory 应用程序库中的应用配置联合单一登录 |
 | 使用 SAML 协议的联合应用的故障排除指南 |[排查基于 SAML 的单一登录问题](./develop/active-directory-saml-debugging.md) |
@@ -107,18 +107,6 @@ Azure AD Connect 适用于[所有版本的 Azure Active Directory](https://www.a
 
 ## <a name="managing-access-to-applications"></a>管理对应用程序的访问
 
-### <a name="access-panel-a-portal-for-accessing-apps-and-self-service-features"></a>访问面板：用于访问应用和自助功能的门户
-用户可以在 Azure AD 访问面板上启动应用程序和访问自助功能，而自助功能可让用户管理自己的应用程序和组成员资格。 除了访问面板外，以下列表还包括其他用于访问启用 SSO 的应用的选项。
-
-| 文章指南 |  |
-|:---:| --- |
-| 可用于将单一登录应用部署到用户的各种选项比较 |[为用户部署 Azure AD 集成的应用程序](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
-| 访问面板及其移动对应产品 MyApps 的概述 | 访问面板和 MyApps 简介 <br />- [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />- [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
-| 如何从 Office 365 网站访问 Azure AD 应用 |[使用 Office 365 应用启动程序](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
-| 如何从 Intune Managed Browser 移动应用访问 Azure AD 应用 |[Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />- [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />- [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
-| 如何使用深层链接访问 Azure AD 应用和启动单一登录 |[获取应用的直接登录链接](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
-
-访问面板适用于[所有版本的 Azure Active Directory](https://www.azure.cn/pricing/details/identity/)。
 
 ## <a name="see-also"></a>另请参阅
 [什么是 Azure Active Directory？](active-directory-whatis.md)

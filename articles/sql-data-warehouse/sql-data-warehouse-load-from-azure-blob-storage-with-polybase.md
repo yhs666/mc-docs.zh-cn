@@ -1,6 +1,6 @@
 ---
 title: "从 Azure blob 加载到 Azure 数据仓库 | Azure"
-description: "了解如何使用 PolyBase 将数据从 Azure Blob 存储加载到 SQL 数据仓库。 将公共数据中的一些表载入 Contoso 零售数据仓库架构。"
+description: "了解如何使用 PolyBase 将数据从 Azure Blob 存储载入 SQL 数据仓库。 将公共数据中的一些表载入 Contoso 零售数据仓库架构。"
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 origin.date: 10/31/2016
-ms.date: 07/17/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 28be1ffdbf3d9f3b38acf7e907b72b4004381c28
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: 0e43db397960e6c5c2aaa62ba87b6738b059770d
+ms.sourcegitcommit: 3996e0f27bae21fc48f6ebfab423e9b29f9d9bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>将数据从 Azure Blob 存储加载到 SQL 数据仓库 (PolyBase)
 > [!div class="op_single_selector"]
@@ -32,22 +33,22 @@ ms.lasthandoff: 07/05/2017
 
 为简单起见，本教程会将两个表从公共 Azure 存储 Blob 加载到 Contoso 零售数据仓库架构。 若要加载完整的数据集，请运行 Microsoft SQL Server 示例存储库中的 [Load the full Contoso Retail Data Warehouse][Load the full Contoso Retail Data Warehouse] （加载完整的 Contoso 零售数据仓库）示例。
 
-在本教程中，将了解：
+在本教程中，你会：
 
 1. 配置 PolyBase 以从 Azure Blob 存储加载数据
 2. 将公共数据加载到数据库
 3. 完成加载后执行优化。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 若要运行本教程，需要一个已包含 SQL 数据仓库数据库的 Azure 帐户。 如果没有此帐户，请参阅 [Create a SQL Data Warehouse][Create a SQL Data Warehouse]（创建 SQL 数据仓库）。
 
 ## <a name="1-configure-the-data-source"></a>1.配置数据源
-PolyBase 使用 T-SQL 外部对象，定义外部数据的位置和属性。 外部对象定义存储在 SQL 数据仓库中。 数据本身存储在外部。
+PolyBase 使用 T-SQL 外部对象来定义外部数据的位置和属性。 外部对象定义存储在 SQL 数据仓库中。 数据本身存储在外部。
 
 ### <a name="11-create-a-credential"></a>1.1. 创建凭据
 **跳过此步骤** 。 不需要以安全方式访问公共数据，因为它已经可供任何人访问。
 
-**不要跳过此步骤** 。 若要通过凭据访问数据，请使用以下脚本创建数据库范围的凭据，然后在定义数据源的位置时使用该凭据。
+**不要跳过此步骤** 。 要通过凭据访问数据，请使用以下脚本创建数据库范围的凭据，并在定义数据源的位置时使用该凭据。
 
 ```sql
 -- A: Create a master key.
@@ -94,7 +95,7 @@ WITH
 ```
 
 > [!IMPORTANT]
-> 如果选择公开 Azure Blob 存储容器，请记住，由于你是数据所有者，因此在数据离开数据中心时，需要支付数据传出费用。 
+> 如果选择公开 Azure Blob 存储容器，请记住，由于是数据所有者，因此在数据离开数据中心时，需要支付数据传出费用。 
 > 
 > 
 
@@ -125,11 +126,12 @@ GO
 ```
 
 ### <a name="32-create-the-external-tables"></a>3.2. 创建外部表。
-运行此脚本以创建 DimProduct 和 FactOnlineSales 外部表。 在这里，我们只需定义列名和数据类型，然后以 Azure blob 存储文件的格式将其绑定到这些文件的位置。 定义存储在 SQL 数据仓库中，数据仍位于 Azure 存储 Blob 中。
+运行此脚本以创建 DimProduct 和 FactOnlineSales 外部表。 在这里，我们只需定义列名和数据类型，并以 Azure blob 存储文件的格式将其绑定到这些文件的位置。 定义存储在 SQL 数据仓库中，数据仍位于 Azure 存储 Blob 中。
 
 **LOCATION** 参数是 Azure 存储 Blob 中根文件夹下的文件夹。 每个表位于不同的文件夹中。
 
 ```sql
+
 --DimProduct
 CREATE EXTERNAL TABLE [asb].DimProduct (
     [ProductKey] [int] NOT NULL,
@@ -225,9 +227,9 @@ GO
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. 将数据加载到新表
 若要从 Azure Blob 存储加载数据并将其保存到数据库中的某个表内，请使用 [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 语句。 使用 CTAS 进行加载可以利用刚刚创建的强类型化外部表。若要将数据加载到新表，请对每个表使用一个 [CTAS][CTAS] 语句。 
 
-CTAS 将创建新表，并在该表中填充 select 语句的结果。 CTAS 将新表定义为包含与 select 语句结果相同的列和数据类型。 如果选择了外部表中的所有列，新表将是外部表中的列和数据类型的副本。
+CTAS 会创建新表，并在该表中填充 select 语句的结果。 CTAS 将新表定义为包含与 select 语句结果相同的列和数据类型。 如果选择了外部表中的所有列，新表将是外部表中的列和数据类型的副本。
 
-在此示例中，我们将以哈希分布表的形式创建维度表和事实表。 
+在此示例中，我们以哈希分布表的形式创建维度表和事实表。 
 
 ```sql
 SELECT GETDATE();
@@ -365,12 +367,14 @@ GROUP BY p.[BrandName]
 [label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/zh-cn/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/zh-cn/library/dn935026.aspx
-[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/zh-cn/library/mt204041.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/zh-cn/library/mt203887.aspx
-[REBUILD]: https://msdn.microsoft.com/zh-cn/library/ms188388.aspx
+[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
+[REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
+
+<!--Update_Description: wording update -->

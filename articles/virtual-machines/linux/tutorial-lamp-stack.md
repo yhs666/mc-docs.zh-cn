@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-origin.date: 08/03/2017
-ms.date: 10/30/2017
+origin.date: 11/27/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: c471eb036617aeb1433a0afe71cf48efb67fe9e9
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 8ffab7f6645aafe73bd260a4bd14ed77abc15ea8
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>在 Azure VM 上安装 LAMP Web 服务器
 本文逐步讲解如何在 Azure 中的 Ubuntu VM 上部署 Apache Web 服务器、MySQL 和 PHP（LAMP 堆栈）。 如果想要部署 NGINX Web 服务器，请参阅 [LEMP 堆栈](tutorial-lemp-stack.md)教程。 若要了解 LAMP 服务器的运作情况，可以选择性地安装并配置 WordPress 站点。 本教程介绍如何执行下列操作：
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/27/2017
 > * 验证安装和配置
 > * 在 LAMP 服务器上安装 WordPress
 
-有关 LAMP 堆栈的详细信息，包括针对生产环境的建议，请参阅 [Ubuntu 文档](https://help.ubuntu.com/community/ApacheMySQLPHP)。
+此设置用于快速测试或概念证明。 有关 LAMP 堆栈的详细信息，包括针对生产环境的建议，请参阅 [Ubuntu 文档](https://help.ubuntu.com/community/ApacheMySQLPHP)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/27/2017
 
 ## <a name="install-apache-mysql-and-php"></a>安装 Apache、MySQL 和 PHP
 
-运行以下命令更新 Ubuntu 包源并安装 Apache、MySQL 和 PHP。 请注意命令末尾的插入符号 (^)。
+运行以下命令更新 Ubuntu 包源并安装 Apache、MySQL 和 PHP。 请注意命令末尾的脱字号 (^)，它是 `lamp-server^` 包名称的一部分。 
 
 ```bash
 sudo apt update && sudo apt install lamp-server^
@@ -73,15 +73,15 @@ apache2 -v
 mysql -V
 ```
 
-建议运行以下脚本来帮助保护 MySQL 的安装：
+若要帮助保护 MySQL 的安装，请运行 `mysql_secure_installation` 脚本。 如果只是设置临时服务器，则可以跳过此步骤。
 
 ```bash
 mysql_secure_installation
 ```
 
-输入 MySQL root 密码，并配置环境的安全设置。
+输入 MySQL 的 root 密码，并配置环境的安全设置。
 
-如果想要创建 MySQL 数据库，请添加用户或更改配置设置，并登录到 MySQL：
+如果想要试用 MySQL 功能（创建 MySQL 数据库、添加用户或更改配置设置），请登录到 MySQL。 此步骤非本教程必需步骤。
 
 ```bash
 mysql -u root -p
@@ -129,4 +129,8 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png
 
+<!--Not Available the parent file of includes file of virtual-machines-linux-tutorial-stack-intro.md-->
+<!--ms.date:01/08/2018-->
+<!--Not Available the parent file of includes file of virtual-machines-linux-tutorial-wordpress.md-->
+<!--ms.date:01/08/2018-->
 <!--Update_Description: update meta properties, wording update-->

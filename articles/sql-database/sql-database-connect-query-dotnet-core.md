@@ -3,24 +3,24 @@ title: "使用 .NET Core 查询 Azure SQL 数据库 | Azure"
 description: "本主题介绍如何使用 .NET Core 创建连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。"
 services: sql-database
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: drivers
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-origin.date: 07/05/2017
-ms.date: 11/06/2017
-ms.author: v-johch
-ms.openlocfilehash: bd17f5efcd1efe65e5cf8fcf874409f2726e866a
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+origin.date: 07/07/2017
+ms.date: 01/08/2018
+ms.author: v-nany
+ms.openlocfilehash: 8f6b4666bcfa212840b29b673b33655e480d70ea
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>使用 .NET Core (C#) 查询 Azure SQL 数据库
 
@@ -28,39 +28,30 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本快速入门教程，请确保具备以下条件：
+若要完成本快速入门教程，请确保符合以下条件：
 
-- Azure SQL 数据库。 此快速入门使用以下某个快速入门中创建的资源： 
-
-   - [创建 DB - 门户](sql-database-get-started-portal.md)
-   - [创建 DB - CLI](sql-database-get-started-cli.md)
-   - [创建 DB - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - 针对用于本快速入门教程的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
+
 - 已安装[适用于操作系统的 .NET Core](https://www.microsoft.com/net/core)。 
 
 ## <a name="sql-server-connection-information"></a>SQL Server 连接信息
 
-获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称、数据库名称和登录信息。
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 从左侧菜单中选择“SQL 数据库”，并单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 将鼠标悬停在服务器名称上即可打开“通过单击进行复制”选项。 
+#### <a name="for-adonet"></a>适用于 ADO.NET
 
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+1. 单击“显示数据库连接字符串”继续。
 
-4. 如果忘了 Azure SQL 数据库服务器的登录信息，请导航到 SQL 数据库服务器页，以查看服务器管理员名称。 必要时可重置密码。
-
-5. 单击“显示数据库连接字符串”。
-
-6. 查看完整的 ADO.NET 连接字符串。
+2. 查看完整的 ADO.NET 连接字符串。
 
     ![ADO.NET 连接字符串](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
 > [!IMPORTANT]
 > 对于在其上执行本教程操作的计算机，必须为其公共 IP 地址制定防火墙规则。 如果使用其他计算机或其他公共 IP 地址，则[使用 Azure 门户创建服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。 
 >
-
+  
 ## <a name="create-a-new-net-project"></a>新建 .NET 项目
 
 1. 打开命令提示符，并创建一个名为 *sqltest* 的文件夹。 导航到已创建的文件夹，并运行以下命令：
@@ -106,7 +97,7 @@ namespace sqltest
                 {
                     Console.WriteLine("\nQuery data example:");
                     Console.WriteLine("=========================================\n");
-
+                    
                     connection.Open();       
                     StringBuilder sb = new StringBuilder();
                     sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
@@ -152,6 +143,6 @@ namespace sqltest
 
 - [在 Windows/Linux/macOS 中通过命令行使用 .NET Core 入门](https://docs.microsoft.com/dotnet/core/tutorials/using-with-xplat-cli)。
 - 了解如何[使用 .NET Framework 和 Visual Studio 连接和查询 Azure SQL 数据库](sql-database-connect-query-dotnet-visual-studio.md)。  
-- 了解如何[使用 SSMS 设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)，或者如何[使用 .NET 设计第一个 Azure SQL 数据库](sql-database-design-first-database-csharp.md)。
+- 了解如何[使用 SSMS 设计你的第一个 Azure SQL 数据库](sql-database-design-first-database.md)，或者如何[使用 .NET 设计你的第一个 Azure SQL 数据库](sql-database-design-first-database-csharp.md)。
 - 有关 .NET 的详细信息，请参阅 [.NET 文档](https://docs.microsoft.com/dotnet/)。
 <!--Update_Description:update System.Data.SqlClient from 4.3.0 to 4.4.0-->

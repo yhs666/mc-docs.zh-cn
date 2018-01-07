@@ -16,11 +16,11 @@ ms.workload: data-management
 origin.date: 10/11/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: a4c211ced94113c83380ee1092a1c43fd68b9a1f
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 548c113bfbde4eaf78b626be478e175ace1d2b80
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>创建并管理 Azure SQL 数据库服务器和数据库
 
@@ -170,7 +170,7 @@ Azure 数据库逻辑服务器：
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>使用 Transact-SQL 管理 Azure SQL 服务器、数据库和防火墙
 
-若要使用 Transact-SQL 创建并管理 Azure SQL 服务器、数据库和防火墙，请运行以下 T-SQL 命令。 可以使用 Azure 门户、[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/use-sql-server-management-studio)、[Visual Studio Code](https://code.visualstudio.com/docs) 或可以连接到 Azure SQL 数据库服务器并传递 Transact-SQL 命令的其他任何程序，发出这些命令。 若要管理弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
+若要使用 Transact-SQL 创建并管理 Azure SQL 服务器、数据库和防火墙，请运行以下 T-SQL 命令。 可以使用 Azure 门户、[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/use-sql-server-management-studio)、[Visual Studio Code](https://code.visualstudio.com/docs) 或可以连接到 Azure SQL 数据库服务器并传递 Transact-SQL 命令的其他任何程序来发出这些命令。 若要管理弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
 
 > [!IMPORTANT]
 > 无法使用 Transact-SQL 创建或删除服务器。
@@ -182,7 +182,7 @@ Azure 数据库逻辑服务器：
 | [ALTER DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) |修改 Azure SQL 数据库。 |
 |[ALTER DATABASE（Azure SQL 数据仓库）](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|修改 Azure SQL 数据仓库。|
 |[DROP DATABASE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql)|删除数据库。|
-|[sys.database_service_objectives（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|返回 Azure SQL 数据库或 Azure SQL 数据仓库的版本（服务层）、服务目标（定价层）和弹性池名称（若有）。 如果已登录到 Azure SQL 数据库服务器中的 master 数据库，则会返回所有数据库的相关信息。 对于 Azure SQL 数据仓库，必须连接到 master 数据库。|
+|[sys.database_service_objectives (Azure SQL Database)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|返回 Azure SQL 数据库或 Azure SQL 数据仓库的版本（服务层）、服务目标（定价层）和弹性池名称（若有）。 如果已登录到 Azure SQL 数据库服务器中的 master 数据库，则会返回所有数据库的相关信息。 对于 Azure SQL 数据仓库，必须连接到 master 数据库。|
 |[sys.dm_db_resource_stats（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| 返回“Azure SQL 数据库”数据库的 CPU、I/O 和内存消耗量。 即使数据库中没有活动，也会每隔 15 秒返回一行数据。|
 |[sys.resource_stats（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|返回 Azure SQL 数据库的 CPU 使用率和存储数据。 在五分钟间隔内收集并聚合数据。|
 |[sys.database_connection_stats（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|包含“SQL 数据库”数据库连接事件的统计信息，提供数据库连接成功和失败状态的概述。 |
@@ -210,14 +210,14 @@ Azure 数据库逻辑服务器：
 |[Servers - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|返回资源组中服务器的列表。|
 |[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|更新现有服务器。|
 |[Servers - Sql](https://docs.microsoft.com/rest/api/sql/servers%20-%20sql)|判断是否能使用指定名称创建资源。|
-|[Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|创建新数据库或更新现有数据库。|
+|[数据库 - 创建或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|创建新数据库或更新现有数据库。|
 |[数据库 - 获取](https://docs.microsoft.com/rest/api/sql/databases/get)|获取数据库。|
 |[数据库 - 按弹性池获取](https://docs.microsoft.com/rest/api/sql/databases/getbyelasticpool)|获取弹性池内的数据库。|
 |[数据库 - 按推荐的弹性池获取](https://docs.microsoft.com/rest/api/sql/databases/getbyrecommendedelasticpool)|获取推荐弹性池内的数据库。|
 |[数据库 - 按弹性池列出](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|返回弹性池中数据库的列表。|
 |[数据库 - 按推荐的弹性池列出](https://docs.microsoft.com/rest/api/sql/databases/listbyrecommendedelasticpool)|返回推荐弹性池内的数据库列表。|
 |[数据库 - 按服务器列出](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|返回服务器中的数据库列表。|
-|[数据库 - 更新](https://docs.microsoft.com/api/sql/databases/update)|更新现有的数据库。|
+|[数据库 - 更新](https://docs.microsoft.com/rest/api/sql/databases/update)|更新现有的数据库。|
 |[Firewall Rules - Create Or Update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|创建或更新防火墙规则。|
 |[Firewall Rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|删除防火墙规则。|
 |[Firewall Rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|获取防火墙规则。|

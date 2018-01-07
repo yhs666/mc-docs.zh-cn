@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 01/31/2017
-ms.date: 12/18/2017
+origin.date: 12/05/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: dadec10cc899aee34160ff804835271000682f19
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 468b0407bf041daa8c5833305d5748911a40dbcb
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的存储配置
 在 Azure 中配置 SQL Server 虚拟机映像时，可以借助门户自动完成存储配置。 这包括将存储附加到 VM、使该存储可供 SQL Server 访问，并对其进行配置以根据特定的性能要求优化。
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/15/2017
 ## <a name="prerequisites"></a>先决条件
 若要使用自动存储配置设置，虚拟机需有以下特征：
 
-* 已使用 [SQL Server 库映像](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing)预配。
+* 已使用 [SQL Server 库映像](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)预配。
 * 使用 [Resource Manager 部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。
 * 使用[高级存储](../premium-storage.md)。
 
@@ -144,4 +144,4 @@ Azure 使用以下设置在 SQL Server VM 上创建存储池。
 
 ## <a name="next-steps"></a>后续步骤
 有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。
-<!--Update_Description: update storage links-->
+<!--Update_Description: update meta properties -->

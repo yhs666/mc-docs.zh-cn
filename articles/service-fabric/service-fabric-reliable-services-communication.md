@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 11/01/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: c03ea93701abb0a8bfc9a3200ce1b1cd664036e2
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 91be1f6919826e5099429ffbba3d03dfbf1ab3f6
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>如何使用 Reliable Services 通信 API
 “Azure Service Fabric 即平台”完全不受服务间通信的影响。 所有协议和堆栈（从 UDP 到 HTTP）都可接受。 至于服务应以哪种方式通信，完全由服务开发人员选择。 Reliable Services 应用程序框架提供了一些内置的通信堆栈和 API，可用于生成自定义通信组件。
@@ -97,7 +97,7 @@ class MyStatefulService : StatefulService
 
 在无状态服务中，重写会返回 ServiceInstanceListeners 的集合。 `ServiceInstanceListener` 包含一个函数，用于创建 `ICommunicationListener(C#) / CommunicationListener(Java)` 并为其提供名称。 对于有状态服务，重写会返回 ServiceReplicaListeners 集合。 这与无状态服务稍有不同，因为 `ServiceReplicaListener` 可以选择在辅助副本上打开 `ICommunicationListener`。 不仅可以在服务中使用多个通信侦听器，而且还可以指定哪些侦听器要在辅助副本上接受请求，以及哪些侦听器只能在主副本上进行侦听。
 
-例如，可以创建一个只在主副本上接受 RPC 调用的 ServiceRemotingListener，并创建另一个可通过 HTTP 在辅助副本上接受读取请求的自定义侦听器：
+例如，可以创建一个只在主要副本上接受 RPC 调用的 ServiceRemotingListener，并创建另一个可通过 HTTP 在次要副本上接受读取请求的自定义侦听器：
 
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -122,7 +122,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 >
 >
 
-最后，在[服务清单](service-fabric-application-model.md)中有关终结点的节下面描述服务所需的终结点。
+最后，在[服务清单](service-fabric-application-and-service-manifests.md)中有关终结点的节下面描述服务所需的终结点。
 
 ```xml
 <Resources>
@@ -430,4 +430,4 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 * [使用 Reliable Services 远程控制执行远程过程调用](service-fabric-reliable-services-communication-remoting.md)
 * [使用 Reliable Services 的 WCF 通信](service-fabric-reliable-services-communication-wcf.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update link -->

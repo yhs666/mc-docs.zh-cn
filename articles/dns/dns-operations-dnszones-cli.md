@@ -12,45 +12,37 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/27/2017
-ms.date: 12/18/2017
+ms.date: 01/01/2018
 ms.author: v-nany
-ms.openlocfilehash: bf364ff0445e4dc592184f766f188b632d4549a9
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: 3f4f255983e600c66c3d8392eda6531d2e0f39be
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>如何使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 区域
 
 > [!div class="op_single_selector"]
-> * [门户](dns-operations-dnszones-portal.md)
+> * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 
 本指南介绍如何通过使用适用于 Windows、Mac 和 Linux 的跨平台 Azure CLI 管理 DNS 区域。 也可以使用 [Azure PowerShell](dns-operations-dnszones.md) 或 Azure 门户管理 DNS 记区域。
 
-## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
-
-可使用以下 CLI 版本之一完成任务：
-
-* [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md) - 适用于经典部署模型和资源管理部署模型的 CLI。
-* [Azure CLI 2.0](dns-operations-dnszones-cli.md) - 适用于资源管理部署模型的下一代 CLI。
-
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 ## <a name="set-up-azure-cli-20-for-azure-dns"></a>设置适用于 Azure DNS 的 Azure CLI 2.0
 
-### <a name="before-you-begin"></a>开始之前
+### <a name="before-you-begin"></a>准备阶段
 
 在开始配置之前，请确保具备以下各项。
 
 * Azure 订阅。 如果还没有 Azure 订阅，可在开始前创建一个 [1 元人民币的帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-* 安装最新版本的 Azure CLI 2.0（在 Windows、Linux 或 MAC 中可用）。 有关详细信息，请参阅 [安装 Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)。
+* 安装最新版本的 Azure CLI 2.0（在 Windows、Linux 或 MAC 中可用）。 有关详细信息，请参阅 [安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)。
 
 ### <a name="sign-in-to-your-azure-account"></a>登录到 Azure 帐户
 
@@ -76,7 +68,7 @@ az account set --subscription "subscription name"
 
 ### <a name="create-a-resource-group"></a>创建资源组
 
-Azure 资源管理器要求所有资源组指定一个位置。 此位置用作该资源组中的资源的默认位置。 但是，由于所有 DNS 资源都是全局性而非区域性的，因此资源组位置的选择不会影响 Azure DNS。
+Azure Resource Manager 要求所有资源组指定一个位置。 此位置用作该资源组中的资源的默认位置。 但是，由于所有 DNS 资源都是全局性而非区域性的，因此资源组位置的选择不会影响 Azure DNS。
 
 如果使用现有资源组，可跳过此步骤。
 

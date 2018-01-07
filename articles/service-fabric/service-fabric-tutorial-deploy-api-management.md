@@ -13,16 +13,17 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/10/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: c49488f3ba84fe2dff7c85120ab411e62e0451cb
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.custom: mvc
+ms.openlocfilehash: 6c1da96ee8639031dc1a221788777a73e929ce7a
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>部署 API 管理与 Service Fabric
-本教程是一个系列中的第三部分。  使用 Service Fabric 部署 Azure API 管理是一个高级方案。  当需要使用一组丰富的路由规则为后端 Service Fabric 服务发布 API 时，API 管理非常有用。 云应用程序通常都需要使用前端网关，为用户、设备或其他应用程序提供同一个入口点。 在 Service Fabric 中，网关可以是专为流量入口（如 APP.NET Core 应用程序、事件中心、IoT 中心或 Azure API 管理）设计的任意无状态服务。 
+本教程是一个系列中的第四部分，  使用 Service Fabric 部署 Azure API 管理是一个高级方案。  当需要使用一组丰富的路由规则为后端 Service Fabric 服务发布 API 时，API 管理非常有用。 云应用程序通常都需要使用前端网关，为用户、设备或其他应用程序提供同一个入口点。 在 Service Fabric 中，网关可以是专为流量入口（如 APP.NET Core 应用程序、事件中心、IoT 中心或 Azure API 管理）设计的任意无状态服务。 
 
 本教程演示如何设置 [Azure API 管理](../api-management/api-management-key-concepts.md)与 Service Fabric，以在 Service Fabric 中将流量路由至后端服务。  完成后，便已将 API 管理部署到 VNET，并已将 API 操作配置为将流量发送到后端无状态服务。 若要详细了解使用 Service Fabric 的 Azure API 管理方案，请参阅[概述](service-fabric-api-management-overview.md)一文。
 
@@ -39,15 +40,17 @@ ms.lasthandoff: 12/01/2017
 > [!div class="checklist"]
 > * 使用模板在 Azure 上创建安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 > * [缩小或扩大群集](/service-fabric-tutorial-scale-cluster.md)
+> * [升级群集的运行时](service-fabric-tutorial-upgrade-cluster.md)
 > * 部署 API 管理与 Service Fabric
 
 ## <a name="prerequisites"></a>先决条件
 在开始学习本教程之前：
-- 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
-- 安装 [Azure PowerShell 模块 4.1 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli)。
+- 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+- 安装 [Azure PowerShell 模块 4.1 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 - 在 Azure 上创建安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 - 如果部署 Windows 群集，请设置 Windows 开发环境。 安装 [Visual Studio 2017](http://www.visualstudio.com) 和 **Azure 开发**、**ASP.NET 和 Web 开发**以及 **.NET Core 跨平台开发**工作负荷。  然后设置 [.NET 开发环境](service-fabric-get-started.md)。
 - 如果部署 Linux 群集，请在 [Linux](service-fabric-get-started-linux.md) 或 [MacOS](service-fabric-get-started-mac.md) 上设置一个 Java 开发环境。  安装 [Service Fabric CLI](service-fabric-cli.md)。 
+
 ## <a name="network-topology"></a>网络拓扑
 既然在 Azure 上拥有安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)，可以在子网和专为 API 管理指定的 NSG 中将 API 管理部署到虚拟网络 (VNET)。 在本教程中，已预配置 API 管理资源管理器模板以使用在前文 [Windows 群集教程](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 群集教程](service-fabric-tutorial-create-vnet-and-linux-cluster.md)中设置的 VNET、子网和 NSG 的名称。 本教程将以下拓扑部署到 Azure，其中 API 管理和 Service Fabric 位于同一虚拟网络的子网中：
 
@@ -327,7 +330,7 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="conclusion"></a>结束语
+## <a name="next-steps"></a>后续步骤
 在本教程中，你已学习了如何执行以下操作：
 
 > [!div class="checklist"]

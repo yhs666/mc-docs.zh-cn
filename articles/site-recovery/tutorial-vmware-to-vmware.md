@@ -12,14 +12,14 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/11/2017
-ms.date: 12/04/2017
+origin.date: 12/12/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 36499b797d75457e76900cfca2a3e4fbf22b957d
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 47f297141af73e75a1f076ec0c15e9c84da58db1
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>将本地 VMware 虚拟机或物理服务器的灾难恢复设置到辅助站点
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，需执行以下操作：
+完成本教程：
 
 - [查看](site-recovery-support-matrix-to-sec-site.md)所有组件的支持要求。
 - 确保要复制的计算机符合[复制计算机支持](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions)。

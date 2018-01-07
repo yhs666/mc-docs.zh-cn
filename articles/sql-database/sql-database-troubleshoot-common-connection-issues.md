@@ -3,7 +3,7 @@ title: "排查 Azure SQL 数据库的常见连接问题"
 description: "识别和解决 Azure SQL 数据库常见连接错误的步骤。"
 services: sql-database
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
@@ -13,14 +13,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 06/13/2017
-ms.date: 11/06/2017
-ms.author: v-johch
-ms.openlocfilehash: 93c7544e379c8d4b52fddeb9b2c0073c4e57a60c
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+origin.date: 11/03/2017
+ms.date: 01/08/2018
+ms.author: v-nany
+ms.openlocfilehash: d8856e4f7a97fd2914e089df59cff3559b972eb8
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>排查 Azure SQL 数据库的连接问题
 与 Azure SQL 数据库连接失败时，会收到[错误消息](sql-database-develop-error-messages.md)。 本文是一个集中介绍对 Azure SQL 数据库连接问题进行故障排除的主题。 本文介绍连接问题的[常见原因](#cause)，推荐可帮助确定问题的[故障排除工具](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)，还提供解决[暂时性错误](#troubleshoot-transient-errors)和[持久或非暂时性错误](#troubleshoot-persistent-errors)的故障排除步骤。 
@@ -59,7 +59,7 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 > 
 > 
 
-移动（或重新配置）Azure 数据库时发生此错误，应用程序失去与 SQL 数据库的连接。 之所以会发生 SQL 数据库重新配置事件是因为有计划内事件（例如，软件升级）或计划外事件（例如，进程故障或负载均衡）。 大多数重新配置事件的生存期通常较短，并且应在最多 60 秒内完成。 但是，这些事件偶尔可能需要更长时间才能完成，例如当大型事务导致长时间运行的恢复时。
+移动（或重新配置）Azure 数据库时发生此错误，应用程序失去与 SQL 数据库的连接。 之所以会发生 SQL 数据库重新配置事件是因为有计划内事件（例如，软件升级）或计划外事件（例如，进程故障或负载均衡）。 大多数重新配置事件的生存期通常较短，应在最多 60 秒内完成。 但是，这些事件偶尔可能需要更长时间才能完成，例如当大型事务导致长时间运行的恢复时。
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>解决暂时性连接问题的步骤
 
@@ -78,7 +78,7 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>解决永久性连接问题的步骤
 1. 设置[防火墙规则](sql-database-configure-firewall-settings.md)以允许客户端 IP 地址。 若要进行临时测试，可设置一项防火墙规则，使用 0.0.0.0 作为起始 IP 地址范围，使用 255.255.255.255 作为结束 IP 地址范围。 这样会使服务器向所有 IP 地址开放。 如果这样可以解决连接性问题，请删除此规则，再针对适当限制的 IP 地址或地址范围创建防火墙规则。 
 2. 在客户端与 Internet 之间的所有防火墙上，确保为出站连接打开端口 1433。 有关需要为 Azure Active Directory 身份验证打开的其他端口的其他信息，请查看[配置 Windows 防火墙以允许 SQL Server 访问](https://msdn.microsoft.com/library/cc646023.aspx)和[混合标识所需的端口和协议](../active-directory/connect/active-directory-aadconnect-ports.md)。
-3. 验证连接字符串和其他连接设置。 请参阅[连接问题主题](sql-database-connectivity-issues.md#connections-to-azure-sql-database)中的“连接字符串”部分。
+3. 验证连接字符串和其他连接设置。 请参阅[连接问题主题](sql-database-connectivity-issues.md#connections-to-sql-database)中的“连接字符串”部分。
 4. 在仪表板中检查服务运行状况。 如果认为存在区域性的中断，请参阅[从中断恢复](sql-database-disaster-recovery.md)，以了解恢复到新区域的步骤。
 
 ## <a name="next-steps"></a>后续步骤

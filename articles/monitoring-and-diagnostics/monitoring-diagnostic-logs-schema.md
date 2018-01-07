@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/10/2017
-ms.date: 12/11/2017
+origin.date: 12/04/2017
+ms.date: 01/08/2017
 ms.author: v-yiso
-ms.openlocfilehash: 4af9a9e4dc23ad04335037291ea7385d0debfed7
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 4a16cc4a36cbac325927126b143aa5ea73c15c16
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 诊断日志支持的服务、架构和类别
 
@@ -49,6 +49,7 @@ ms.lasthandoff: 12/01/2017
 ## <a name="supported-log-categories-per-resource-type"></a>每种资源类型支持的日志类别
 |资源类型|类别|类别显示名称|
 |---|---|---|
+|microsoft.aadiam/tenants|登录|登录|
 |Microsoft.AnalysisServices/servers|引擎|引擎|
 |Microsoft.AnalysisServices/servers|服务|服务|
 |Microsoft.ApiManagement/service|GatewayLogs|与 ApiManagement 网关相关的日志|
@@ -80,7 +81,7 @@ ms.lasthandoff: 12/01/2017
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|存档日志|
-|Microsoft.EventHub/namespaces|OperationalLogs|操作日志|
+|Microsoft.EventHub/namespaces|OperationalLogs|运行日志|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|自动缩放日志|
 |Microsoft.KeyVault/vaults|AuditEvent|审核日志|
 |Microsoft.Logic/workflows|WorkflowRuntime|工作流运行时诊断事件|

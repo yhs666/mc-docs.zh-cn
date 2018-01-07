@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6e3a055bc651ca216204c08576fe8448edce1035
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 43609d25f9e491e3f88a84c315a3ba3a3bb4a929
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>通过 Azure CLI 2.0 使用 Azure 网络观察程序管理数据包捕获
 
@@ -34,16 +34,16 @@ ms.lasthandoff: 11/14/2017
 
 本文使用资源管理部署模型的新一代 CLI (Azure CLI 2.0)，其适用于 Windows、Mac 和 Linux。
 
-若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](https://docs.azure.cn/zh-cn/cli/install-az-cli2)。
+若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)。
 
 本文将引导完成当前可用于数据包捕获的不同管理任务。
 
-- [**启动数据包捕获**](?view=azure-cli-latest#start-a-packet-capture)
+- [**启动数据包捕获**](#start-a-packet-capture)
 - [**停止数据包捕获**](#stop-a-packet-capture)
 - [**删除数据包捕获**](#delete-a-packet-capture)
 - [**下载数据包捕获**](#download-a-packet-capture)
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 本文假定你拥有以下资源：
 
@@ -282,4 +282,4 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/network-watcher-logs/sub
 
 <!-- Image references -->
 
-<!--Update_Description: new articles on network watcher packet capture manage CLI -->
+<!--Update_Description: update meta properties -->

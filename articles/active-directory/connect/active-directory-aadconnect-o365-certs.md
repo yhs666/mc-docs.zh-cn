@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/20/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: c719752de4d616c96f80f4a526f1451add6323cc
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 0511935299adc034b6db65f4d1d91af060877f17
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>续订 Office 365 和 Azure Active Directory 的联合身份验证证书
 ## <a name="overview"></a>概述
@@ -78,7 +78,7 @@ Get-Adfsproperties
 >
 
 ```
-Connect-MsolService
+Connect-MsolService -AzureEnvironment AzureChinaCloud
 ```
 
 检查 AD FS 和 Azure AD 信任属性中针对指定域配置的证书。
@@ -158,7 +158,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 1. 打开用于 Windows PowerShell 的 Azure Active Directory 模块。
 2. 运行 $cred=Get-Credential。 当此 cmdlet 提示输入凭据时，键入云服务管理员帐户凭据。
-3. 运行 Connect-MsolService -Credential $cred。此 cmdlet 会你将连接到云服务。 通过工具运行任何其他已安装的 cmdlet 之前，必须创建你将连接到云服务的上下文。
+3. 运行 Connect-MsolService -Credential $cred。此 cmdlet 会将你连接到云服务。 通过工具运行任何其他已安装的 cmdlet 之前，必须创建你将连接到云服务的上下文。
 4. 如果不是在 AD FS 主联合服务器上运行这些命令，请运行 Set-MSOLAdfscontext -Computer <AD FS primary server>，其中 <AD FS primary server> 是主 AD FS 服务器的内部 FQDN 名称。 此 cmdlet 会创建你将连接到 AD FS 的上下文。
 5. 运行 Update-MSOLFederatedDomain -DomainName <domain>。 此 cmdlet 会将 AD FS 的设置更新到云服务中，并配置两者之间的信任关系。
 

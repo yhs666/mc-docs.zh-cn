@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: bb09998b5d7fe3ee0e066be8a21dff8bbd13ab8b
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 02856cf769ecbfa2974f523e1e9e5c29947cab13
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务
 > [!IMPORTANT]
@@ -33,14 +33,8 @@ ms.lasthandoff: 12/15/2017
 
 如果已经有针对本地解决方案的 Trend Micro 当前订阅，则可用它来帮助保护 Azure 虚拟机。 如果还不是客户，则可注册试用订阅。 有关此解决方案的详细信息，请参阅 Trend Micro 博客文章 [Azure VM Agent Extension For Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945)（用于 Deep Security 的 Azure VM 代理扩展）。
 
-## <a name="install-the-deep-security-agent-on-a-new-vm"></a>在新 VM 上安装 Deep Security Agent
-使用“从库中”选项创建虚拟机时，[Azure 经典管理门户](http://manage.windowsazure.cn)允许安装 VM 代理和 Trend Micro 安全扩展。 如果要创建的是单个虚拟机，则可通过此门户轻松地添加来自 Trend Micro 的保护。
-
-1. 在“VM 代理”下，选中“安装 VM 代理”。
-2. 在“安全扩展”下，选中“Trend Micro Deep Security Agent”。
-
-    ![安装 VM 代理和 Deep Security Agent](./media/install-trend/InstallVMAgentandTrend.png)
-3. 单击复选标记可创建虚拟机。
+<!-- Not Available on ## Install the Deep Security Agent on a new VM -->
+<!-- Deep Security Agent is not Available on Mooncake -->
 
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>在现有 VM 上安装 Deep Security Agent
 若要在现有 VM 上安装代理，需要以下各项：
@@ -85,4 +79,4 @@ ms.lasthandoff: 12/15/2017
 <!-- Link references -->
 [如何登录到运行 Windows Server 的虚拟机]:connect-logon.md
 [Azure VM 扩展和功能]: /virtual-machines/windows/extensions-features
-<!-- Update_Description: add classic portal migration notice. -->
+<!-- Update_Description: remove the content of install Trend on portal -->

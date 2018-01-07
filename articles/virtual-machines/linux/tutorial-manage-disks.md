@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 69d65e310e6f64eb49c5647e53d21b3cdc139130
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 50915395c884ee76f2355bcfc52230161230f10a
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>使用 Azure CLI 管理 Azure 磁盘
 
@@ -295,6 +295,6 @@ az vm disk attach -g myResourceGroupDisk --vm-name myVM --disk $datadisk
 转到下一教程，了解如何自动配置 VM。
 
 > [!div class="nextstepaction"]
-> [自动执行 VM 配置](./tutorial-automate-vm-deployment.md)
+> [自动配置 VM](./tutorial-automate-vm-deployment.md)
 
 <!--Update_Description: update meta properties, wording update -->

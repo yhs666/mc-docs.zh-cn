@@ -16,11 +16,11 @@ ms.custom: performance
 origin.date: 10/31/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: a7e84f269183e3e1bd8d771d8020f7d6d9b0090c
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: ec335b289372309728cc34b70e874345b336c972
+ms.sourcegitcommit: 3996e0f27bae21fc48f6ebfab423e9b29f9d9bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库最佳实践
 本文包含一系列最佳实践，可确保用户从 Azure SQL 数据仓库获得最佳性能。  本文的有些概念很基本且很容易解释，而有些概念则相对高级，本文只对其进行大致介绍。  本文的目的是提供一些基本指导，让用户在生成数据仓库时更加关注那些重要的方面。  每部分都介绍一个概念，并提供哪里可以阅读深度介绍的详细文章。
@@ -113,9 +113,9 @@ SQL 数据仓库有多个 DMV 可用于监视查询执行。  以下监视相关
 ## <a name="other-resources"></a>其他资源
 另请参阅 [故障诊断][Troubleshooting] 一文，了解常见的问题和解决方案。
 
-如果在本文中没有找到所需内容，可尝试使用本页面左侧的“搜索文档”来搜索所有 Azure SQL 数据仓库文档。  我们还创建了 [Azure SQL 数据仓库 MSDN 论坛][Azure SQL Data Warehouse MSDN Forum]，可以向其他用户和 SQL 数据仓库的产品小组提出问题。  我们会主动观察此论坛，确保用户的问题获得其他用户或我们的回答。  若要提问有关 Stack Overflow 的问题，请访问 [Azure SQL 数据仓库 Stack Overflow 论坛][Azure SQL Data Warehouse Stack Overflow Forum]。
-
-最后，如需提出功能方面的请求，请使用 [Azure SQL 数据仓库反馈][Azure SQL Data Warehouse Feedback] 页。  添加请求或对其他请求投赞成票对我们确定功能的优先级有很大的帮助。
+如果在本文中没有找到所需内容，可尝试使用本页面左侧的“搜索文档”来搜索所有 Azure SQL 数据仓库文档。 
+<!-- Not Available on [Azure SQL Data Warehouse MSDN Forum][Azure SQL Data Warehouse MSDN Forum], [Azure SQL Data Warehouse Stack Overflow Forum][Azure SQL Data Warehouse Stack Overflow Forum].-->
+<!-- Not Available on [Azure SQL Data Warehouse Feedback][Azure SQL Data Warehouse Feedback] -->
 
 <!--Image references-->
 

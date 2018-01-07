@@ -51,12 +51,12 @@
 ## [Office 365 卖家仪表板](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 ## 使用 Visual Studio
 ### [开始使用 Visual Studio 连接的服务](vs-active-directory-dotnet-getting-started.md)
-### [身份验证检测期间的错误](vs-active-directory-error.md)
+### [身份验证检测期间出错](vs-active-directory-error.md)
 ### [WebApi 入门](vs-active-directory-webapi-getting-started.md)
 ### [我的 Web API 项目发生了什么情况](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [ACS 迁移](active-directory-acs-migration.md)
-# 引用
+# 参考
 ## [代码示例](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [身份验证库 (ADAL)](active-directory-authentication-libraries.md)
 ## [代码示例文章](active-directory-code-samples.md)
@@ -72,31 +72,6 @@
 ## [应用程序对象](active-directory-application-objects.md)
 ### [应用和 Azure AD](active-directory-how-applications-are-added.md)
 ## [应用程序清单](active-directory-application-manifest.md)
-# v2.0 终结点
-## [概述](active-directory-appmodel-v2-overview.md)
-### [应用类型](active-directory-v2-flows.md)
-### [限制](active-directory-v2-limitations.md)
-### [v1-v2 比较](active-directory-v2-compare.md)
-## 入门
-### 移动应用和桌面应用
-#### [iOS](guidedsetups/active-directory-ios.md)
-#### [Android](guidedsetups/active-directory-android.md)
-#### [Windows 桌面 .NET](guidedsetups/active-directory-windesktop.md)
-### Web 应用
-#### [NodeJS Web 应用](active-directory-v2-devquickstarts-node-web.md)
-## 指南
-### [注册应用](active-directory-v2-app-registration.md)
-## 引用
-### [身份验证库](active-directory-v2-libraries.md)
-### [v2.0 身份验证协议](active-directory-v2-protocols.md)
-#### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-#### [OAuth 2.0 授权代码授予](active-directory-v2-protocols-oauth-code.md)
-#### [OAuth 2.0 隐式授予](active-directory-v2-protocols-implicit.md)
-#### [Oauth 2.0 客户端凭据授予](active-directory-v2-protocols-oauth-client-creds.md)
-#### [Oauth 2.0 代理流](active-directory-v2-protocols-oauth-on-behalf-of.md)
-#### [令牌参考](active-directory-v2-tokens.md)
-#### [证书凭据](active-directory-certificate-credentials.md)
-### [范围](active-directory-v2-scopes.md)
 # 资源
 ## [获取帮助](active-directory-develop-help-support.md)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)

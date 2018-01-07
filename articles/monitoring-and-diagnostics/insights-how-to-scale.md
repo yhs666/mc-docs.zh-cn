@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 607f17b38a6369563226e2cb551edec2a1582254
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 01/08/2018
+ms.openlocfilehash: 9329cc447e97893e4c1d5e669224bbd65eca2f98
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>手动或自动缩放实例计数
 
@@ -28,11 +28,6 @@ ms.lasthandoff: 12/01/2017
 基于实例计数进行缩放之前，应考虑的除了实例计数之外，缩放还会受 **定价层** 影响。 不同定价层可以具有不同数量的核心和内存，因此它们对于相同数量的实例具有更佳性能（即增加或减少）。 本文专门介绍 *缩小* 和 *扩大*。
 
 可以在门户中进行缩放，也可以使用 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931953.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) 手动或自动调整规模。
-
-> [!NOTE]
-> 本文介绍了如何在位于 [http://portal.azure.cn](http://portal.azure.cn)的门户中创建自动缩放设置。 不可在经典门户（[http://manage.windowsazure.cn](http://manage.windowsazure.cn)）中对此门户中创建的自动缩放设置进行编辑。
-> 
-> 
 
 ## <a name="scaling-manually"></a>手动缩放
 1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“浏览”，然后导航到要缩放的资源（如“应用服务计划”）。
@@ -103,7 +98,7 @@ ms.lasthandoff: 12/01/2017
 
 ![多个缩放规则](./media/insights-how-to-scale/Insights_MultipleScaleRules.png)
 
-启用这条附加规则后，如果在执行缩放操作之前负载超出 85%，你会看到两个附加实例而不是一个。 
+启用这条附加规则后，如果在执行缩放操作之前负载超出 85%，会看到两个附加实例而不是一个。 
 
 ## <a name="scale-based-on-a-schedule"></a>基于计划的缩放
 

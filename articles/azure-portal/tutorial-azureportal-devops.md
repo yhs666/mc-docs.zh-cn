@@ -2,22 +2,24 @@
 title: "教程：Azure 门户中的 DevOps | Azure"
 description: "了解 Azure 门户中的各种 DevOps 工作流。"
 services: azure-portal
-documentationCenter: 
-authors: mlearned
+documentationcenter: 
+author: mlearned
 manager: douge
 editor: mlearned
-ms.service: multiple
+ms.assetid: 4f1c5bc1-c732-4d35-b5df-0fd68e547d38
+ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 06/05/2016
+ms.topic: tutorial
+origin.date: 06/05/2016
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 419a59156efc6e1914e0839422c21994099cd523
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: c5941109934963cc5141c22743bb670290513715
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>教程：Azure 门户中的 DevOps
 
@@ -31,7 +33,7 @@ Azure 平台提供各式各样的灵活 DevOps 工作流。 在本教程中，�
 
 4.  常规应用程序管理任务
 
-## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>创建 Web 应用和启用持续部署
+## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>创建 Web 应用程序和启用连续部署
 
 创建一个包含 [Azure App Service](../app-service/index.md) 的 Web 应用，本教程剩余部分中将使用该应用。 首先，需要启用从源代码存储库到正在运行的 Azure 环境的持续部署。
 
@@ -328,8 +330,7 @@ Azure 提供了许多功能，用于对正在运行的应用程序进行监视�
 ## <a name="next-steps"></a>后续步骤 
 
 * Azure Resource Manager 对于在 Azure 平台中启用 DevOps 至关重要。  有关详细信息，请访问 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)。
-
-* 有关 Azure App Service 部署的详细信息，请访问 [将应用部署到 Azure App Service](../app-service-web/web-sites-deploy.md)
+* 有关 Azure App Service 部署的详细信息，请访问 [将应用部署到 Azure App Service](../app-service/app-service-deploy-local-git.md)
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
 [image2]: ./media/tutorial-azureportal-devops/image2.png

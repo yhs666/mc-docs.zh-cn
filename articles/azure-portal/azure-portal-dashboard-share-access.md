@@ -7,19 +7,19 @@ author: tfitzmac
 manager: timlt
 editor: tysonn
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 08/01/2016
 ms.author: tomfitz
-ms.date: 10/16/2017
-ms.openlocfilehash: 3e1594f5e6860ab7e5c94bba324dfbdd7bef94d3
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 01/15/2018
+ms.openlocfilehash: 9bc48aec5f81ff9e9e13e06830409ae7b66c16db
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>通过使用基于角色的访问控制来共享 Azure 仪表板
 配置仪表板后，可将其发布，并与组织中的其他用户共享。 通过使用 Azure [基于角色的访问控制](../active-directory/role-based-access-control-configure.md)，允许他人查看仪表板。 将一个用户或一组用户分配到某角色，该角色定义这些用户是否可以查看或修改已发布的仪表板。 
@@ -40,7 +40,7 @@ ms.lasthandoff: 09/29/2017
 
 分配的权限从订阅向下继承到资源。 已发布的仪表板是一个资源。 因此，可能已将用户分配到订阅的角色，这些角色也适用于已发布的仪表板。 
 
-下面是一个示例。  假设已有 Azure 订阅，并且团队中的各个成员都分配了订阅的**所有者**、**参与者**或**读取者**角色。 作为所有者或参与者的用户能够列出、查看、创建、修改或删除该订阅中的仪表板。  作为读取者的用户能够列出并查看仪表板，但不能修改或删除它们。  具有读取者访问权限的用户能够对已发布的仪表板进行本地编辑（例如排查问题时），但不能将这些更改发布回服务器。  他们可以为自己制作仪表板的私有副本
+以下是示例。  假设已有 Azure 订阅，并且团队中的各个成员都分配了订阅的**所有者**、**参与者**或**读取者**角色。 作为所有者或参与者的用户能够列出、查看、创建、修改或删除该订阅中的仪表板。  作为读取者的用户能够列出并查看仪表板，但不能修改或删除它们。  具有读取者访问权限的用户能够对已发布的仪表板进行本地编辑（例如排查问题时），但不能将这些更改发布回服务器。  他们可以为自己制作仪表板的私有副本
 
 但是，也可以将权限分配给包含若干个仪表板的资源组或单个仪表板。 例如，可以决定一组用户在整个订阅中应具有有限的权限，但对特定仪表板具有更高的访问权限。 将这些用户分配给该仪表板的角色。 
 
@@ -76,4 +76,5 @@ ms.lasthandoff: 09/29/2017
 
 ## <a name="next-steps"></a>后续步骤
 * 有关角色列表，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。
+* 若要了解有关管理资源的信息，请参阅[通过门户管理 Azure 资源](../azure-resource-manager/resource-group-portal.md)。
 

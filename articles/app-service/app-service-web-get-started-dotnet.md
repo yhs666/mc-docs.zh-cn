@@ -13,25 +13,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 06/14/2017
-ms.date: 12/04/2017
+ms.date: 01/02/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 0b838ea0da0f3b628f69dbcd060a086f90904385
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 8f865da7062bbd309365f9214b96c2f04b088045
+ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/25/2017
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Web 应用
 
 [Azure Web 应用](./app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将第一个 ASP.NET Web 应用部署到 Azure Web 应用中。 完成后，便拥有了一个资源组，该资源组包含一个应用服务计划和一个具有已部署的 Web 应用程序的 Azure Web 应用。
 
+> [!NOTE]
+> 如果想要了解如何生成和部署 ASP.NET Framework Web 应用，请参阅[此文](app-service-web-get-started-dotnet-framework.md)。 
+>
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，需执行以下操作：
+完成本教程：
 
-* 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
+* 使用以下工作负荷安装 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>：
     - **ASP.NET 和 Web 开发**
     - **Azure 开发**
 
@@ -41,37 +44,41 @@ ms.lasthandoff: 11/24/2017
 
 [!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
-## <a name="create-an-aspnet-web-app"></a>创建 ASP.NET Web 应用
+## <a name="create-an-aspnet-core-web-app"></a>创建一个 ASP.NET Core Web 应用
 
 在 Visual Studio 中，通过依次选择“文件”>“新建”>“项目”创建项目。 
 
-在“新建项目”对话框中，选择“Visual C#”>“Web”>“ASP.NET Web 应用程序(.NET Framework)”。
+在“新建项目”对话框中，选择“Visual C#”>“Web”>“ASP.NET Core Web 应用程序”。
 
 将应用程序命名为 _myFirstAzureWebApp_，然后选择“确定”。
 
 ![“新建项目”对话框](./media/app-service-web-get-started-dotnet/new-project.png)
 
-可将任何类型的 ASP.NET Web 应用部署到 Azure。 在本快速入门教程中，请选择“MVC”模板，并确保将身份验证设置为“无身份验证”。
-
+可将任何类型的 ASP.NET Core Web 应用部署到 Azure。 在本快速入门教程中，请选择“Web 应用程序”模板，并确保将身份验证设置为“无身份验证”。
+      
 选择“确定” 。
 
-![“新建 ASP.NET 项目”对话框](./media/app-service-web-get-started-dotnet/select-mvc-template.png)
+![“新建 ASP.NET 项目”对话框](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
+
+创建 ASP.NET Core 项目后，将显示 ASP.NET Core 欢迎页上，其中提供了大量资源的链接来帮助用户入门。 
+
+![欢迎页](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
 在菜单中，选择“调试>启动但不调试”以在本地运行 Web 应用。
 
-![在本地运行应用](./media/app-service-web-get-started-dotnet/local-web-app.png)
+![在本地运行应用](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
 ## <a name="publish-to-azure"></a>发布到 Azure
 
 在“解决方案资源管理器”中右键单击“myFirstAzureWebApp”项目，然后选择“发布”。
 
-![从解决方案资源管理器发布](./media/app-service-web-get-started-dotnet/solution-explorer-publish.png)
+![从解决方案资源管理器发布](./media/app-service-web-get-started-dotnet/right-click-publish.png)
 
-确保已选择“Azure 应用服务”，然后选择“发布”。
+确保已选择“Microsoft Azure 应用服务”，然后选择“发布”。
 
 ![从项目概述页发布](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-此时将打开“创建应用服务”对话框，它可帮助你创建在 Azure 中运行 ASP.NET Web 应用所需的所有 Azure 资源。
+此时将打开“创建应用服务”对话框，用于创建在 Azure 中运行 ASP.NET Core Web 应用所需的所有 Azure 资源。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -118,19 +125,19 @@ ms.lasthandoff: 11/24/2017
 
 ![配置 Web 应用名称](./media/app-service-web-get-started-dotnet/web-app-name.png)
 
-向导完成后，它会将 ASP.NET Web 应用发布到 Azure，然后在默认浏览器中启动该应用。
+向导完成后，它会将 ASP.NET Core Web 应用发布到 Azure，然后在默认浏览器中启动该应用。
 
-![已在 Azure 中发布的 ASP.NET Web 应用](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
+![已在 Azure 中发布的 ASP.NET Web 应用](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
-在[创建和发布步骤](#create-and-publish-the-web-app)中指定的 Web 应用名称用作 `http://<app_name>.chinacloudsites.cn` 格式的 URL 前缀。
+将[创建和发布步骤](#create-and-publish-the-web-app)中指定的 Web 应用名称用作 `http://<app_name>.chinacloudsites.cn` 格式的 URL 前缀。
 
-恭喜，你的 ASP.NET Web 应用已在 Azure 应用服务中实时运行！
+恭喜，ASP.NET Core Web 应用已在 Azure 应用服务中实时运行！
 
 ## <a name="update-the-app-and-redeploy"></a>更新应用并重新部署
 
-在“解决方案资源管理器”中打开“Views\Home\Index.cshtml”。
+在“解决方案资源管理器”中打开“Pages/Index.cshtml”。
 
-在顶部附近找到 `<div class="jumbotron">` HTML 标记，将整个元素替换为以下代码：
+在顶部附近找到 `<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">` HTML 标记，将整个元素替换为以下代码：
 
 ```HTML
 <div class="jumbotron">
@@ -145,7 +152,7 @@ ms.lasthandoff: 11/24/2017
 
 发布完成后，Visual Studio 将启动浏览器并转到 Web 应用的 URL。
 
-![已在 Azure 中更新的 ASP.NET Web 应用](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
+![已在 Azure 中更新的 ASP.NET Web 应用](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
 ## <a name="manage-the-azure-web-app"></a>管理 Azure Web 应用
 

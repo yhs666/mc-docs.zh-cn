@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/31/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2459568f66d272a71d37275878b17edc8b8dde1a
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 3d74e17a363353439b1225bb9984f87fd72a6cae
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure 企业基架 - 出于合规目的监管订阅
 为了实现敏捷性和灵活性，企业越来越多地采用公有云。 它们利用云的优势来产生营收或优化企业资源。 Azure 提供多种不同的服务，企业可以像构建块一样将它们组合，解决广泛的工作负荷与应用程序需求。 
@@ -79,7 +79,7 @@ Azure 注册的三种常见模式为：
 可以在订阅级别应用基架，将企业的监管要求扩展到订阅中。
 
 ## <a name="naming-standards"></a>命名标准
-基架的第一个支柱是命名标准。 使用妥善设计的命名标准，可以在门户、帐单和脚本中识别资源。 企业很可能已针对本地基础结构制定了命名标准。 将 Azure 添加到环境时，应该将这些命名标准扩展到 Azure 资源。 命名标准有助于在所有级别提高环境管理的效率。
+基架的第一个支柱是命名标准。 使用妥善设计的命名标准，可以在门户、帐单和脚本中识别资源。 企业很可能已针对本地基础结构制定了命名标准。 将 Azure 添加到环境时，应该将这些命名标准扩展到 Azure 资源。 命名约定有助于在所有级别提高环境管理的效率。
 
 <!--Not Available on ../guidance/*.* such as guidance-naming-conventions.md -->
 > [!TIP]
@@ -174,7 +174,7 @@ Azure Resource Manager 策略是 Azure 工具包中的一个强大工具。 使�
 > [!TIP]
 > 资源组的组织方式根据“传统 IT”工作负荷与“敏捷 IT”工作负荷而有所不同：
 > 
-> * 而有所不同“传统 IT”工作负荷通常按同一生命周期中的项（例如某个应用程序）分组。 由于可按应用程序分组，因此可以管理每个应用程序。
+> * “传统 IT”工作负荷通常按同一生命周期中的项（例如某个应用程序）分组。 由于可按应用程序分组，因此可以管理每个应用程序。
 > * “敏捷 IT”工作负荷往往侧重面向外部客户的云应用程序。 资源组应反映部署层（如 Web 层、应用程序层）和管理层。
 > 
 > 了解工作负荷可帮助制定资源组策略。
@@ -231,6 +231,7 @@ Azure 在最初发布时，对订阅的访问控制非常简单：只允许管�
 
 ### <a name="automation"></a>自动化
 单独管理每个资源不仅费时，而且在执行某些操作时还很容易出错。 Azure 提供多种自动化功能，包括 Azure 自动化、逻辑应用。 [Azure 自动化](../automation/automation-intro.md)可让管理员创建和定义 Runbook 来处理常见的资源管理任务。 可以使用 PowerShell 代码编辑器或图形编辑器创建 Runbook。 可以生成复杂的多阶段工作流。 Azure 自动化通常用于处理常见任务，例如，关闭未使用的资源，无需人工干预创建资源来响应特定的触发器。
+<!-- Not Available on Azure Function -->
 
 > [!TIP]
 > 对于自动化：
@@ -241,20 +242,9 @@ Azure 在最初发布时，对订阅的访问控制非常简单：只允许管�
 > 
 > 
 
-## <a name="azure-security-center"></a>Azure 安全中心
-在采用云的过程中，最大的阻碍之一也许是安全忧虑。 IT 风险管理人员和安全部门需确保 Azure 中资源的安全。 
-
-<!-- Not Available on ../security-center/*.* -->
-Azure 安全中心在一个中心视图中提供订阅中资源的安全状态，并提供建议帮助避免资源泄密。 它支持更精细的策略（例如，向特定的资源组应用策略，使企业能够根据面临的风险调整立场）。 最后，Azure 安全中心是一个开放式平台，允许 Microsoft 合作伙伴和独立软件供应商创建可与 Azure 安全中心对接的软件来增强其功能。 
-
-> [!TIP]
-> Azure 安全中心默认已在每个订阅中启用。 但是，必须通过虚拟机启用数据收集，才能允许 Azure 安全中心安装其代理并开始收集数据。
-> 
-> ![数据收集](./media/resource-manager-subscription-governance/data-collection.png)
-> 
-> 
+<!-- Not Available on ## Azure Security Center-->
 
 ## <a name="next-steps"></a>后续步骤
 * 了解订阅监管后，接下来可以了解如何实施这些建议。 请参阅 [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md)（Azure 订阅监管实施示例）。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, remove the unsuitable Secury Center content.-->

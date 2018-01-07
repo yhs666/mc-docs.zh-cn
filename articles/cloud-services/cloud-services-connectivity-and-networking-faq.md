@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/20/2017
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: d1e8e0d6b8dac62e51351ad9f25e2df32a6f828d
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 01/15/2018
+ms.openlocfilehash: 934a709d33f342e3855f86ea8cace27b26dde60e
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的连接和网络问题：常见问题解答 (FAQ)
 
@@ -49,8 +49,8 @@ Azure 实施多层网络安全性来防范其平台服务遭到分布式拒绝�
 
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>尝试通过 RDP 连接到云服务实例时收到消息“用户帐户已过期”。
 如果绕过 RDP 设置中配置的过期日期，则可能会收到错误消息“此用户帐户已过期”。 可以在门户中执行以下步骤来更改过期日期：
-1. 登录到 Azure 管理控制台 (https://manage.windowsazure.cn)，导航到你的云服务，然后选择“配置”选项卡。
-2. 选择“远程”。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，导航到云服务并选择“远程桌面”选项卡。
+2. 选择“生产”或“暂存”部署槽位。
 3. 更改“过期”日期，然后保存配置。
 
 现在，应该能够通过 RDP 连接到计算机。

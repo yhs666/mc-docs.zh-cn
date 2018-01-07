@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 origin.date: 06/19/2017
-ms.date: 07/03/2017
+ms.date: 01/08/2018
 ms.author: v-johch
-ms.openlocfilehash: 21f49e809e3feef8cbec2184ddda7e0be4c30ad7
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 69ec0f49531fd1d3cfa4d604f5a789a76e9f4c40
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sql-database-threat-detection"></a>SQL 数据库威胁检测
 
@@ -28,21 +28,21 @@ SQL 威胁检测会检测异常活动，这些活动表示异常和可能有害�
 
 ## <a name="overview"></a>概述
 
-SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全警报，让客户检测潜在威胁并做出响应。  出现可疑数据库活动、潜在漏洞、SQL 注入攻击和异常数据库访问模式时，用户将收到警报。 SQL 威胁检测警报提供可疑活动的详细信息，以及如何调查和缓解威胁的推荐操作。 用户可以使用 [SQL 数据库审核](sql-database-auditing.md)来探查可疑事件，判断这些可疑事件是否是因为有人尝试访问、破坏或利用数据库中的数据而生成的。 你不必是安全专家，也不需要管理先进的安全监视系统，就能使用威胁检测轻松解决数据库的潜在威胁。
+SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全警报，让客户检测潜在威胁并做出响应。  出现可疑数据库活动、潜在漏洞、SQL 注入攻击和异常数据库访问模式时，用户将收到警报。 SQL 威胁检测警报提供可疑活动的详细信息，以及如何调查和缓解威胁的推荐操作。 用户可以使用 [SQL 数据库审核](sql-database-auditing.md)来探查可疑事件，判断这些可疑事件是否是因为有人尝试访问、破坏或利用数据库中的数据而生成的。 不必是安全专家，也不需要管理先进的安全监视系统，就能使用威胁检测轻松解决数据库的潜在威胁。
 
 例如，SQL 注入是 Internet 上常见的 Web 应用程序安全问题之一，用于攻击数据驱动的应用程序。 攻击者利用应用程序漏洞将恶意 SQL 语句注入应用程序入口字段，以破坏或修改数据库中的数据。
 
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>在 Azure 门户中为数据库设置威胁检测
 1. 启动 Azure 门户 ( [https://portal.azure.cn](https://portal.azure.cn))。
-2. 导航到要监视的 SQL 数据库的配置边栏选项卡。 在“设置”边栏选项卡中，选择“审核和威胁检测”。 
+2. 导航到要监视的 SQL 数据库的“配置”页。 在“设置”页中，选择“审核和威胁检测”。 
     ![导航窗格][1]
-3. 在“审核和威胁检测”配置边栏选项卡中，将审核设置为“打开”，随后会显示威胁检测设置。
-
+3. 在“审核和威胁检测”配置页中，将审核设置为“打开”，随后会显示威胁检测设置。
+  
     ![导航窗格][2]
 4. 将威胁检测设置为“打开”。
 5. 配置在检测到异常数据库活动时需要接收安全警报的电子邮件列表。
-6. 在“审核和威胁检测”边栏选项卡中单击“保存”，以保存新的或更新的审核和威胁检测设置。
+6. 在“审核和威胁检测”页中单击“保存”，以保存新的或更新的审核和威胁检测设置。
        
     ![导航窗格][3]
 
@@ -51,7 +51,7 @@ SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全�
 有关脚本示例，请参阅[使用 PowerShell 配置审核和威胁检测](scripts/sql-database-auditing-and-threat-detection-powershell.md)。
 
 ## <a name="explore-anomalous-database-activities-upon-detection-of-a-suspicious-event"></a>检测到可疑事件时探查异常数据库活动
-1. 检测到异常数据库活动时，你将收到电子邮件通知。 <br/>
+1. 检测到异常数据库活动时，将收到电子邮件通知。 <br/>
    电子邮件将提供可疑安全事件的相关信息，包括异常活动的性质、数据库名称、服务器名称、应用程序名称和事件时间。 此外，电子邮件还会提供可能原因和建议操作的相关信息，帮助调查和缓解数据库的潜在威胁。<br/>
      
     ![导航窗格][4]

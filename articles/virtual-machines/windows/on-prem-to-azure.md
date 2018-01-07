@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/07/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4645f41ab353b189960ae6d3fc24c471fff0c265
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 8019ca692143fe965302437ddc5b7f1e5876fbae
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>从 Amazon Web Services (AWS) 和其他平台迁移到 Azure 中的托管磁盘
 
@@ -60,7 +60,7 @@ Azure 托管磁盘无需管理存储帐户，从而简化了 VM 管理。 托管
 
 ### <a name="vm-sizes"></a>VM 大小
 
-如果要迁移到高级托管磁盘，必须将 VM 的大小更新为该 VM 所在区域中提供的支持高级存储的大小。 查看支持高级存储的 VM 大小。 [虚拟机大小](sizes.md)中列出了 Azure VM 大小规范。
+如果要迁移到高级托管磁盘，需要将 VM 的大小更新为该 VM 所在区域中支持高级存储的可用大小。 查看支持高级存储的 VM 大小。 [虚拟机大小](sizes.md)中列出了 Azure VM 大小规范。
 查看适用于高级存储的虚拟机的性能特征并选择最适合工作负荷的 VM 大小。 确保 VM 上有足够的带宽来驱动磁盘通信。
 
 ### <a name="disk-sizes"></a>磁盘大小
@@ -93,9 +93,9 @@ Azure 托管磁盘无需管理存储帐户，从而简化了 VM 管理。 托管
 
 ### <a name="pricing"></a>定价
 
-查看[托管磁盘定价](https://www.azure.cn/pricing/details/managed-disks/)。 高级托管磁盘的定价与高级非托管磁盘相同。 但是，标准托管磁盘的定价不同于标准非托管磁盘。
+查看[托管磁盘定价](https://www.azure.cn/pricing/details/managed-disks/)。 高级托管磁盘的定价与高级非托管磁盘相同。 但标准托管磁盘的定价与标准非托管磁盘不同。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 将任何 VHD 上传到 Azure 之前，应该遵循[准备要上传到 Azure 的 Windows VHD 或 VHDX](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, wording update -->

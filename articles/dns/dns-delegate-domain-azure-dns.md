@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/31/2017
-ms.date: 12/18/2017
+origin.date: 12/18/2017
+ms.date: 01/01/2018
 ms.author: v-nany
-ms.openlocfilehash: d633052f68b332fc063f33df057e3e08b10e9be1
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: b92bc283c1cbf1f7437d37e8068d7c2ae7195cad
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>将域委托给 Azure DNS
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/15/2017
 
 ## <a name="create-a-dns-zone"></a>创建 DNS 区域
 
-1. 登录到 Azure 门户
+1. 登录到 Azure 门户。
 1. 在“中心”菜单上，单击“新建”>“网络”，然后单击“DNS 区域”以打开“创建 DNS 区域”页。
 
     ![DNS 区域](./media/dns-domain-delegation/dns.png)
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/15/2017
 
    | **设置** | **值** | **详细信息** |
    |---|---|---|
-   |**Name**|contoso.net|DNS 区域的名称|
+   |**名称**|contoso.net|DNS 区域的名称|
    |**订阅**|[你的订阅]|选择要在其中创建应用程序网关的订阅。|
    |**资源组**|**新建：**contosoRG|创建资源组。 资源组名称在所选订阅中必须唯一。 若要详细了解资源组，请阅读 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 概述文章。|
    |**位置**|中国东部||
@@ -170,7 +170,7 @@ default TTL = 300 (5 mins)
 
    | **设置** | **值** | **详细信息** |
    |---|---|---|
-   |**Name**|partners.contoso.net|DNS 区域的名称|
+   |**名称**|partners.contoso.net|DNS 区域的名称|
    |**订阅**|[你的订阅]|选择要在其中创建应用程序网关的订阅。|
    |**资源组**|**使用现有：**contosoRG|创建资源组。 资源组名称在所选订阅中必须唯一。 若要详细了解资源组，请阅读 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 概述文章。|
    |**位置**|中国东部|
@@ -196,7 +196,7 @@ Azure DNS 自动在包含所分配名称服务器的区域中创建权威 NS 记
 
    | **设置** | **值** | **详细信息** |
    |---|---|---|
-   |**Name**|合作伙伴|子 DNS 区域的名称|
+   |**名称**|合作伙伴|子 DNS 区域的名称|
    |**类型**|NS|将 NS 用户名称服务器记录。|
    |**TTL**|1|生存时间。|
    |**TTL 单位**|小时|将生存时间单位设置为小时|
@@ -296,11 +296,11 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 ## <a name="delete-all-resources"></a>删除所有资源
 
-若要删除本文中创建的所有资源，请完成以下步骤：
+若要删除在本文中创建的所有资源，请完成以下步骤：
 
 1. 在 Azure 门户的“收藏夹”窗格中单击“所有资源”。 在“所有资源”页中单击“contosorg”资源组。 如果所选订阅中已包含多个资源，则可在“按名称筛选…”框中输入“contosorg”， 轻松访问资源组。
 1. 在“contosorg”页中，单击“删除”按钮。
-1. 门户将要求键入资源组的名称以确认要将其删除。 键入“contosorg”作为资源组名称，然后单击“删除”。 删除资源组会删除资源组中的所有资源，因此在删除资源组之前，请确保始终确认其内容。 门户将删除资源组中包含的所有资源，然后删除资源组本身。 此过程需耗时几分钟。
+1. 门户将要求键入资源组的名称以确认要将其删除。 键入“contosorg”作为资源组名称，然后单击“删除”。 资源组将连同其内附的所有资源一并删除，因此在删除前，请始终要确认资源组的内容。 门户将删除资源组中包含的所有资源，然后删除资源组本身。 此过程需耗时几分钟。
 
 ## <a name="next-steps"></a>后续步骤
 

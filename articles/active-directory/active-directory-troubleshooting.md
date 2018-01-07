@@ -15,36 +15,36 @@ ms.workload: identity
 origin.date: 04/27/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.openlocfilehash: da4fc3c1abdca9c4e28a4e1bf6ea17e9204f64a6
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 2ccd0468c64410b8919625571dd2c8602e3ce125
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>故障排除：“Active Directory”项缺失或不可用
 关于使用 Azure Active Directory 功能和服务的很多说明都以“转到 Azure 管理门户并单击‘Active Directory’”开头。 但是，如果未出现 Active Directory 扩展或菜单项或者它被标记为“不可用”，该怎么办？ 本主题旨在提供帮助。 其中描述了 **Active Directory** 未出现或不可用的情况，并解释了如何继续执行操作。
 
 ## <a name="active-directory-is-missing"></a>缺少 Active Directory
-通常， **Active Directory** 项出现在左侧导航菜单中。 Azure Active Directory 过程中的说明假定你可以看见该项。
+通常， **Active Directory** 项出现在左侧导航菜单中。 Azure Active Directory 过程中的说明假定可以看见该项。
 
 ![屏幕截图：Azure 中的 Active Directory](./media/active-directory-troubleshooting/typical-view.png)
 
-如果以下任一情况属实，Active  Directory 项将出现在左侧导航菜单中。 否则，该项不会出现。
+如果以下任一情况属实，Active  Directory 项出现在左侧导航菜单中。 否则，该项不会出现。
 
-- 当前用户已使用 Microsoft 帐户（以前称为 Windows Live ID）登录。
+* 当前用户已使用 Microsoft 帐户（以前称为 Windows Live ID）登录。
   
-    或
-- Azure 租户具有目录，且当前帐户为目录管理员。
+    OR
+* Azure 租户具有目录，且当前帐户为目录管理员。
   
-    或
-- Azure 租户至少有一个 Azure AD 访问控制 (ACS) 命名空间。 有关详细信息，请参阅[访问控制命名空间](https://msdn.microsoft.com/library/azure/gg185908.aspx)。
+    OR
+* Azure 租户至少有一个 Azure AD 访问控制 (ACS) 命名空间。 有关详细信息，请参阅[访问控制命名空间](https://msdn.microsoft.com/library/azure/gg185908.aspx)。
   
-    或
+    OR
 - Azure 租户至少有一个 Azure 多重身份验证提供程序。 有关详细信息，请参阅[管理 Azure 多重身份验证提供程序](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)。
 
 若要创建访问控制命名空间或多重身份验证提供程序，请单击“+新建” > “应用服务” > “Active Directory”。
 
-要获取对目录的管理权限，请让管理员为你的帐户分配管理员角色。 有关详细信息，请参阅[分配管理员角色](active-directory-assign-admin-roles.md)。
+要获取对目录的管理权限，请让管理员为帐户分配管理员角色。 有关详细信息，请参阅[分配管理员角色](active-directory-assign-admin-roles-azure-portal.md)。
 
 ## <a name="active-directory-is-not-available"></a>Active Directory 不可用
 当单击“+新建” > “应用服务”时，将显示“Active Directory”项。 具体而言，当前用户可以使用任何 Active Directory 功能（如“目录”、“访问控制”或“多重身份验证提供程序”）时，会显示 Active Directory 项。

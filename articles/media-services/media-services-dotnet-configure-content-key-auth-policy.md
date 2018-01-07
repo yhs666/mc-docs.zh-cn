@@ -3,7 +3,7 @@ title: "使用媒体服务 .NET SDK 配置内容密钥授权策略 | Azure"
 description: "了解如何使用适用于 .NET 的媒体服务 SDK 配置内容密钥的授权策略。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 1a0aedda-5b87-4436-8193-09fc2f14310c
@@ -13,36 +13,33 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/09/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 351b2c28ebdea4f76a3dd83d8af1eb68f7aa2543
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: 2a9fe98f1c8116589c9efbb84169a58f44f7e8a6
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
-
-[!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)] 
+[!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>概述
-Azure 媒体服务允许传送受高级加密标准 (AES)（使用 128 位加密密钥）或受 [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/) 保护的 MPEG-DASH 流、平滑流式处理流和 HTTP-Live-Streaming (HLS) 流。 PlayReady 是按通用加密 (ISO/IEC 23001-7 CENC) 规范加密的。 
+Azure 媒体服务允许传送受高级加密标准 (AES)（使用 128 位加密密钥）或受 [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/) 保护的 MPEG-DASH 流、平滑流式处理流和 HTTP-Live-Streaming (HLS) 流。  PlayReady 是按通用加密 (ISO/IEC 23001-7 CENC) 规范加密的。
 
-媒体服务还提供了一个密钥/许可证传送服务，客户端可从中获取 AES 密钥或 PlayReady 许可证，以用于播放加密的内容。 
+媒体服务还提供了一个密钥/许可证传送服务，客户端可从中获取 AES 密钥或 PlayReady 许可证，以用于播放加密的内容。
 
 如果希望媒体服务加密资产，需要将加密密钥（CommonEncryption 或 EnvelopeEncryption）与资产相关联（如[此处](media-services-dotnet-create-contentkey.md)所述），并配置密钥授权策略（如本文所述）。
 
-播放器请求流时，媒体服务会使用指定的密钥通过 AES 或 DRM 加密来动态加密内容。 为了解密流，播放器会从密钥传送服务请求密钥。 为了确定用户是否有权获取密钥，服务会评估为密钥指定的授权策略。
+播放器请求流时，媒体服务会使用指定的密钥通过 AES 或 DRM 加密来动态加密内容。 为了解密流，播放器将从密钥传送服务请求密钥。 为了确定用户是否有权获取密钥，服务会评估为密钥指定的授权策略。
 
 媒体服务支持通过多种方式对发出密钥请求的用户进行身份验证。 内容密钥授权策略可能受到一种或多种授权限制：开放或令牌限制。 令牌限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。 媒体服务支持采用**简单 Web 令牌** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) 格式和 **JSON Web 令牌** ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)) 格式的令牌。
 
-媒体服务不提供安全令牌服务。 可以创建自定义 STS 或利用 Microsoft Azure ACS 颁发令牌。 必须将 STS 配置为创建令牌，该令牌使用指定密钥以及你在令牌限制配置中指定的颁发声明进行签名（如本文所述）。 如果令牌有效，而且令牌中的声明与为内容密钥配置的声明相匹配，则媒体服务密钥传送服务会将加密密钥返回到客户端。
+媒体服务不提供安全令牌服务。 可以创建自定义 STS 或利用 Microsoft Azure ACS 颁发令牌。 必须将 STS 配置为创建令牌，该令牌使用指定密钥以及你在令牌限制配置中指定的颁发声明进行签名（如本文所述）。 如果令牌有效，并且令牌中的声明与为内容密钥配置的声明相匹配，则媒体服务密钥传送服务会将加密密钥返回到客户端。
 
-有关详细信息，请参阅 
-
-[JWT 令牌身份验证](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-
-[将基于 Azure 媒体服务 OWIN MVC 的应用与 Azure Active Directory 相集成，并基于 JWT 声明限制内容密钥传送](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)。
+有关详细信息，请参阅以下文章：
+- [JWT 令牌身份验证](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+- [将基于 Azure 媒体服务 OWIN MVC 的应用与 Azure Active Directory 相集成，并基于 JWT 声明限制内容密钥传送](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)。
 
 [使用 Azure ACS 颁发令牌](http://mingfeiy.com/acs-with-key-services)。
 
@@ -50,7 +47,7 @@ Azure 媒体服务允许传送受高级加密标准 (AES)（使用 128 位加密
 * 创建 AMS 帐户后，会将一个处于“已停止”状态的默认流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，流式处理终结点必须处于“正在运行”状态。 
 * 资产必须包含一组自适应比特率 MP4 或自适应比特率平滑流式处理文件。 有关详细信息，请参阅[对资产进行编码](media-services-encode-asset.md)。
 * 使用 **AssetCreationOptions.StorageEncrypted** 选项上传资产并对其进行编码。
-* 如果打算创建需要相同策略配置的多个内容密钥，我们强烈建议创建单个授权策略，并将其重复用于多个内容密钥。
+* 如果打算创建需要相同策略配置的多个内容密钥，建议创建单个授权策略，并将其重复用于多个内容密钥。
 * 密钥传送服务将 ContentKeyAuthorizationPolicy 及其相关对象（策略选项和限制）缓存 15 分钟。  如果创建 ContentKeyAuthorizationPolicy 并指定使用“令牌”限制，并对其进行测试，再将策略更新为“开放”限制，则现有策略切换到“开放”版本的策略需要大约 15 分钟。
 * 如果添加或更新资产的传送策略，则必须删除现有定位符（如果有）并创建新定位符。
 * 目前，无法加密渐进式下载。
@@ -101,7 +98,7 @@ Azure 媒体服务允许传送受高级加密标准 (AES)（使用 128 位加密
 ### <a name="token-restriction"></a>令牌限制
 本部分介绍如何创建内容密钥授权策略，以及如何将其与内容密钥相关联。 授权策略描述了必须达到什么授权要求才能确定用户是否有权接收密钥（例如，“验证密钥”列表是否包含令牌签名时使用的密钥）。
 
-要配置令牌限制选项，需要使用 XML 描述令牌的授权要求。 令牌限制配置 XML 必须符合以下 XML 架构。
+要配置令牌限制选项，需要使用 XML 描述令牌的授权要求。 令牌限制配置 XML 必须符合以下 XML 架构：
 
 #### <a id="schema"></a>令牌限制架构
     <?xml version="1.0" encoding="utf-8"?>
@@ -151,7 +148,7 @@ Azure 媒体服务允许传送受高级加密标准 (AES)（使用 128 位加密
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-配置令牌限制策略时，必须指定主验证密钥、颁发者和受众参数。 主验证密钥包含用于为令牌签名的密钥，颁发者是颁发令牌的安全令牌服务。 受众（有时称为范围）描述该令牌的意图，或者令牌授权访问的资源。 媒体服务密钥传送服务验证令牌中的这些值是否与模板中的值匹配。 
+配置令牌限制策略时，必须指定主验证密钥、颁发者和受众参数。 主验证密钥包含用来为令牌签名的密钥，颁发者是颁发令牌的安全令牌服务。 受众（有时称为范围）描述该令牌的意图，或者令牌授权访问的资源。 媒体服务密钥传送服务验证令牌中的这些值是否与模板中的值匹配。
 
 使用适用于 .NET 的媒体服务 SDK 时，可以使用 TokenRestrictionTemplate 类来生成限制令牌。
 以下示例创建包含令牌限制的授权策略。 在此示例中，客户端必须出示令牌，其中包含：签名密钥 (VerificationKey)、令牌颁发者和必需的声明。
@@ -235,7 +232,7 @@ Azure 媒体服务允许传送受高级加密标准 (AES)（使用 128 位加密
 
 使用 PlayReady 保护内容时，需要在授权策略中指定的项目之一是用于定义 [PlayReady 许可证模板](media-services-playready-license-template-overview.md)的 XML 字符串。 在适用于 .NET 的媒体服务 SDK 中，PlayReadyLicenseResponseTemplate 和 PlayReadyLicenseTemplate 类有助于定义 PlayReady 许可证模板。
 
-[本主题](media-services-protect-with-drm.md)演示如何使用 PlayReady 加密内容。
+
 
 ### <a name="open-restriction"></a>开放限制
 开放限制意味着系统会将密钥传送到发出密钥请求的任何用户。 此限制可能适用于测试用途。
@@ -279,7 +276,7 @@ Azure 媒体服务允许传送受高级加密标准 (AES)（使用 128 位加密
     }
 
 ### <a name="token-restriction"></a>令牌限制
-要配置令牌限制选项，需要使用 XML 描述令牌的授权要求。 令牌限制配置 XML 必须符合 [此](#schema) 部分中所示的 XML 架构。
+要配置令牌限制选项，需要使用 XML 来描述令牌的授权要求。 令牌限制配置 XML 必须符合 [此](#schema) 部分中所示的 XML 架构。
 
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
@@ -415,6 +412,6 @@ Azure 媒体服务允许传送受高级加密标准 (AES)（使用 128 位加密
     }
 
 
-## <a name="next-step"></a>后续步骤
-现在已配置内容密钥的授权策略，请转到[如何配置资产传送策略](media-services-dotnet-configure-asset-delivery-policy.md)主题。
+## <a name="next-steps"></a>后续步骤
+配置内容密钥的授权策略后，请转到[如何配置资产传送策略](media-services-dotnet-configure-asset-delivery-policy.md)。
 

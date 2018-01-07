@@ -14,13 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 89f00dacd1547b56c78d5df9a3cdea9a3ef46e4d
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 3ac5a84acffd4798a8769e47ed2835ead831f390
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>在 Azure 门户中创建内部负载均衡器
 
@@ -33,9 +33,6 @@ ms.lasthandoff: 11/15/2017
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
-
-> [!NOTE]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是使用[经典部署模型](load-balancer-get-started-ilb-classic-ps.md)。
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -59,7 +56,7 @@ ms.lasthandoff: 11/15/2017
     > 如果选择使用静态 IP 地址，则必须为负载均衡器提供一个地址。
 
 8. 在“资源组”下，为负载均衡器指定新资源组的名称，或者单击“选择现有”，然后选择现有资源组。
-9. 单击“创建” 。
+9. 单击“创建”。
 
 ## <a name="configure-load-balancing-rules"></a>配置负载均衡规则
 

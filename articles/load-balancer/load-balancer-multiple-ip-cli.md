@@ -16,13 +16,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ---
 # <a name="load-balancing-on-multiple-ip-configurations"></a>在多个 IP 配置上进行负载均衡
 
 > [!div class="op_single_selector"]
-> * [门户](load-balancer-multiple-ip.md)
+> * [Portal](load-balancer-multiple-ip.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
@@ -37,7 +37,7 @@ ms.author: v-yeche
 若要实现本文中所述的方案，请完成以下步骤：
 
 1. 按照所链接的文章中的步骤[安装和配置 Azure CLI](../cli-install-nodejs.md)，然后登录到 Azure 帐户。
-2. 如下所述[创建一个资源组](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)并将其命名为 *contosofabrikam*。
+2. 如下所述[创建一个资源组](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)并将其命名为 *contosofabrikam*，如下所示：
 <!-- Not Available create-resource-group --> 
 
     ```azurecli
@@ -105,7 +105,7 @@ ms.author: v-yeche
     azure storage account create --location chinaeast --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. 为 VM1 [创建网络接口](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)，添加另一个 IP 配置 *VM1-ipconfig2*，并[创建 VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-the-linux-vms)，如下所示：
+11. 为 VM1 [创建网络接口](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)，添加另一个 IP 配置 *VM1-ipconfig2*，并[创建 VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-vm)，如下所示：
 <!-- Not Available create-a-virtual-nic -->
 
     ```azurecli
@@ -133,4 +133,4 @@ ms.author: v-yeche
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。
 - 若要了解如何在 Azure 中使用不同类型的日志对负载均衡器进行管理和故障排除，请参阅 [Azure 负载均衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update link, wording update -->

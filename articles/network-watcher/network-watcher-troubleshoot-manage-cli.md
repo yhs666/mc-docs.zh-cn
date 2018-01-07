@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/19/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: ccd5032bbb242b8742ac9dda746105690fa60ec4
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 8349f017e600ccd3fc39856ddc663686e3123c02
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>使用 Azure 网络观察程序 Azure CLI 2.0 对虚拟网络网关和连接进行故障排除
 
 > [!div class="op_single_selector"]
-> - [门户](network-watcher-troubleshoot-manage-portal.md)
+> - [Portal](network-watcher-troubleshoot-manage-portal.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/14/2017
 
 若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 此方案假定已按照[创建网络观察程序](network-watcher-create.md)中的步骤创建网络观察程序。
 
@@ -104,4 +104,4 @@ az network watcher troubleshooting start --resource-group resourceGroupName --re
 
 如果停止 VPN 连接的设置已更改，请参阅[管理网络安全组](../virtual-network/virtual-network-manage-nsg-arm-portal.md)找到可能有问题的网络安全组和安全规则。
 
-<!--Update_Description: new articles on network watcher troubleshot manage CLi -->
+<!--Update_Description: update meta properties -->

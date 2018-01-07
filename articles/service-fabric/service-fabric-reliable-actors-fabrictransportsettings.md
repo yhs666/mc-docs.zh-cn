@@ -3,8 +3,8 @@ title: "更改 Azure 微服务中的 FabricTransport 设置 | Azure"
 description: "了解如何配置 Azure Service Fabric 执行组件通信设置。"
 services: Service-Fabric
 documentationcenter: .net
-author: suchiagicha
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: Service-Fabric
@@ -12,35 +12,35 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/20/2017
-ms.author: v-johch
-ms.openlocfilehash: 19d419c47f6d9b06ba7ce55258db69e3afd87bbd
-ms.sourcegitcommit: bfdbf6df593eb9ea6ad7372375db671886055a12
+origin.date: 04/20/2017
+ms.date: 01/01/2018
+ms.author: v-yeche
+ms.openlocfilehash: 0fcbc6d5d3f63f226a9b1ed4074ecc588b81b139
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>配置 Reliable Actors 的 FabricTransport 设置
 
 以下为用户可以配置的设置：
-- C#: [FabricTransportRemotingSettings](
-https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
+- C#: [FabricTransportRemotingSettings](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 - Java：[FabricTransportRemotingSettings](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 可以通过以下方式修改 FabricTransport 的默认配置。
 
 ## <a name="assembly-attribute"></a>程序集属性
 
-需要在执行组件客户端和执行组件服务程序集上应用 [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) 属性。
+需要在执行组件客户端和执行组件服务程序集上应用 [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) 属性。
 
 以下示例演示如何更改 FabricTransport OperationTimeout 设置的默认值：
 
   ```csharp
-     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
+    using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
   ```
 
-    Second example changes default Values of FabricTransport MaxMessageSize and OperationTimeoutInSeconds
+   第二个示例更改 FabricTransport MaxMessageSize 和 OperationTimeoutInSeconds 的默认值。
 
    ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
@@ -49,7 +49,7 @@ https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.fabrict
 
 ## <a name="config-package"></a>配置包
 
-可以使用[配置包](service-fabric-application-model.md)修改默认配置。
+可以使用[配置包](service-fabric-application-and-service-manifests.md)修改默认配置。
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>配置执行组件服务的 FabricTransport 设置
 
@@ -153,3 +153,4 @@ https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.fabrict
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
      ```
+<!-- Update_Description: update meta properties, wording update -->

@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/01/2017
-ms.date: 08/28/2017
+origin.date: 11/22/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 03055399f691a9567f46d220e62ea83133b6dd31
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 1f21f34994cbbb2bc6e31ffd2f14d84db6a04c86
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>使用 Azure Automation DSC 部署移动服务以复制 VM
 在 Operations Management Suite 中，我们提供了一个可在业务连续性计划中使用的综合性备份和灾难恢复解决方案。
@@ -33,9 +33,9 @@ ms.lasthandoff: 08/25/2017
 
 管理服务器运行多个服务器角色。 其中一个角色是 *配置*，负责协调通信，以及管理数据复制与恢复过程。
 
-此外， *进程* 角色充当复制网关。 此角色接收受保护源计算机提供的复制数据，通过缓存、压缩和加密对其进行优化，并将数据发送到 Azure 存储帐户。 进程角色的一大功能是，它还可以将移动服务的安装推送到受保护的计算机，并执行自动发现 VMware VM 的操作。
+此外， *进程* 角色充当复制网关。 此角色从受保护的源计算机接收复制数据，通过缓存、压缩和加密对数据进行优化，并将数据发送到 Azure 存储帐户。 进程角色的一大功能是，它还可以将移动服务的安装推送到受保护的计算机，并执行自动发现 VMware VM 的操作。
 
-从 Azure 故障回复时，*主目标*角色将处理此操作过程中的复制数据。
+如果有来自 Azure 的故障回复，则*主目标*角色会处理此操作过程中的复制数据。
 
 对于受保护的计算机，我们依赖于 *移动服务*。 此组件部署在要复制到 Azure 的每个计算机（VMware VM 或物理服务器）上。 它捕获计算机上的数据写入操作，并将这些操作转发到管理服务器（进程角色）。
 
@@ -77,10 +77,10 @@ ms.lasthandoff: 08/25/2017
     **.\Microsoft-ASR_UA_9.1.0.0_Windows_GA_02May2016_release.exe /q /x:C:\Users\Administrator\Desktop\Mobility_Service\Extract**
 2. 选择所有文件，将其发送到压缩的文件夹 (zip)。
 
-现已获得所需的二进制文件，可以使用 Automation DSC 自动安装移动服务了。
+现在，已拥有了所需的二进制文件，可以使用 Automation DSC 自动安装移动服务。
 
 ### <a name="passphrase"></a>通行短语
-接下来，需要确定在何处放置这个压缩的文件夹。 可以使用稍后所述的 Azure 存储帐户来存储设置所需的通行短语。 然后，代理将在此过程中注册到管理服务器。
+接下来，需要确定在何处放置这个压缩的文件夹。 可以使用稍后所述的 Azure 存储帐户来存储设置所需的通行短语。 然后，作为进程一部分，代理向管理服务器注册。
 
 部署管理服务器时获取的通行短语可以保存到 txt 文件 (passphrase.txt) 中。
 
@@ -190,15 +190,14 @@ configuration ASRMobilityService {
     }
 }
 ```
-
 配置会执行以下操作：
 
 * 变量告诉配置要在何处获取移动服务和 Azure VM 代理的二进制文件、在何处获取通行短语，以及在何处存储输出。
-* 配置将导入 xPSDesiredStateConfiguration DSC 资源，以便可以使用 `xRemoteFile` 从存储库下载文件。
-* 配置将创建用于存储二进制文件的目录。
-* 存档资源将提取压缩文件夹中的文件。
+* 配置将导入 xPSDesiredStateConfiguration DSC 资源，以便使用 `xRemoteFile` 下载存储库中的文件。
+* 配置将创建需存储二进制文件的目录。
+* 存档资源将从已压缩文件夹中提取文件。
 * 包安装资源将使用特定参数安装 UNIFIEDAGENT.EXE 安装程序的移动服务。 （需要根据实际环境对构造参数的变量进行更改。）
-* 包 AzureAgent 资源安装 Azure VM 代理，这是针对 Azure 中运行的每个 VM 建议安装的代理。 故障转移后，还能通过 Azure VM 代理将扩展添加到 VM。
+* 包 AzureAgent 资源将安装 Azure VM 代理（推荐在 Azure 中运行的每个 VM 上安装此代理）。 Azure VM 代理还可以在故障转移后向 VM 添加扩展。
 * 服务资源可确保相关的移动服务和 Azure 服务始终运行。
 
 将配置保存为 **ASRMobilityService**。
@@ -220,7 +219,7 @@ configuration ASRMobilityService {
 完成此操作后，请转到已安装 Azure Resource Manager 模块的计算机，并继续导入新建的 DSC 配置。
 
 ### <a name="import-cmdlets"></a>导入 cmdlet
-在 PowerShell 中，登录到 Azure 订阅。 修改 cmdlet 以反映环境，并捕获变量中的自动化帐户信息：
+在 PowerShell 中，登录到 Azure 订阅。 修改 Cmdlet 以反映环境，并捕获变量中的 Automation 帐户信息：
 
 ```powershell
 $AAAccount = Get-AzureRmAutomationAccount -ResourceGroupName 'KNOMS' -Name 'KNOMSAA'
@@ -244,13 +243,13 @@ $AAAccount | Import-AzureRmAutomationDscConfiguration @ImportArgs
 $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobilityService
 ```
 
-这可能需要几分钟的时间，因为配置主要部署到托管的 DSC 拉取服务。
+这可能需要数分钟的时间，因为基本上是将配置部署到托管的 DSC 拉取服务。
 
 编译配置完成后，即可使用 PowerShell (Get-AzureRmAutomationDscCompilationJob) 或 [Azure 门户](https://portal.azure.cn/)来检索作业信息。
 
 ![检索作业](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
 
-现已成功发布 DSC 配置并将其上传到 Automation DSC。
+现在，已成功发布 DSC 配置并将其上传到 Automation DSC。
 
 ## <a name="step-4-onboard-machines-to-automation-dsc"></a>步骤 4：将计算机加入 Automation DSC
 > [!NOTE]
@@ -265,14 +264,13 @@ $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobi
 在本示例中，需要使用 Site Recovery 来保护一台 Windows Server 2012 R2 物理服务器。
 
 ### <a name="check-for-any-pending-file-rename-operations-in-the-registry"></a>查看注册表中是否有待完成的文件重命名操作
-在开始将服务器关联到 Automation DSC 终结点之前，建议查看注册表中是否有待完成的文件重命名操作。 这些操作可能导致设置无法完成，因为系统等待重新启动。
+在开始将服务器与 Automation DSC 终结点进行关联前，我们建议检查在注册表中是否有待完成的文件重命名操作。 这些操作可能导致设置无法完成，因为系统等待重新启动。
 
 运行以下 cmdlet，确保服务器上没有待完成的重新启动操作：
 
 ```powershell
 Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\' | Select-Object -Property PendingFileRenameOperations
 ```
-
 如果显示的结果为空，则可继续操作。 否则，应在维护时段内重新启动服务器以解决此问题。
 
 若要在服务器上应用配置，请启动 PowerShell 集成脚本环境 (ISE) 并运行以下脚本。 这实质上是一个 DSC 本地配置，将指示本地配置管理器引擎注册到 Automation DSC 服务并检索特定的配置 (ASRMobilityService.localhost)。
@@ -318,7 +316,7 @@ Set-DscLocalConfigurationManager .\metaconfig -Force -Verbose
 
 此配置导致本地配置管理器引擎向 Automation DSC 注册自身。 它还将决定引擎的正确工作方式、存在配置偏差 (ApplyAndAutoCorrect) 时应采取的操作以及需要重启时应如何处理配置。
 
-运行此脚本后，节点应启动注册到 Automation DSC 的过程
+运行此脚本后，节点就会启动注册到 Automation DSC 的过程。
 
 ![正在注册节点](./media/site-recovery-automate-mobilitysevice-install/register-node.png)
 
@@ -344,13 +342,14 @@ Get-DscConfigurationStatus
 
 此外，移动服务安装程序自带的日志位于 *SystemDrive*\ProgramData\ASRSetupLogs 中。
 
-就这么简单。 现在，已在要使用 Site Recovery 保护的计算机上成功部署和注册移动服务。 DSC 可确保所需的服务始终处于运行状态。
+就这么简单。 现在，已在要使用 Site Recovery 保护的计算机上成功部署和注册移动服务。 DSC 将确保所需的服务始终运行。
 
 ![成功部署](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
 
-在管理服务器检测到部署成功之后，可以使用 Site Recovery 在计算机上配置保护并启用复制。
+管理服务器检测到成功部署后，即可使用 Site Recovery 配置保护措施并允许在计算机上进行复制。
 
-##<a name="Use DSC in disconnected environments"></a> 在断开连接的环境中使用 DSC
+<a name="Use DSC in disconnected environments"></a>
+## <a name="use-dsc-in-disconnected-environments"></a>在断开连接的环境中使用 DSC
 即使计算机未连接到 Internet，也可通过 DSC 在需要保护的工作负荷上部署和配置移动服务。
 
 可以在环境中将自己的 DSC 实例化，这样，基本上就能获得 Automation DSC 所提供的相同功能。 即，客户端将请求到 DSC 终结点的配置（在其注册后）。 另一种做法是将 DSC 配置手动推送到计算机（无论是在本地还是远程）。
@@ -480,7 +479,7 @@ Start-DscConfiguration .\ASRMobilityService -Wait -Force -Verbose
 
 部署模板后，只需参阅本指南中的步骤 4 即可登记计算机。
 
-该模板会执行以下操作：
+该模板将执行以下操作：
 
 1. 使用现有的自动化帐户或创建新的自动化帐户
 2. 获取以下各项的输入参数：
@@ -513,4 +512,4 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ## <a name="next-steps"></a>后续步骤
 部署移动服务代理后，可为虚拟机[启用复制](site-recovery-vmware-to-azure.md)。
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, wording update -->

@@ -3,7 +3,7 @@ title: "示例 Azure 基础结构演练 | Azure"
 description: "了解用于在 Azure 中部署示例基础结构的关键设计和实施准则。"
 documentationcenter: 
 services: virtual-machines-linux
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 06/26/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 12/15/2017
+ms.date: 01/08/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11e91c590612bc40cc221f7efb2abc28b07dc552
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 2f2cb77be7fb4f2c860a3bf11d955dbbf7ed8527
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>适用于 Linux VM 的 Azure 示例基础结构演练
 
@@ -118,4 +118,4 @@ Adventure Works Cycles 决定为其 Azure VM 使用以下名称：
 * 用于从 Internet 到 Web 服务器的基于 HTTPS 的 Web 流量的外部负载均衡集
 * 用于从 Web 服务器到应用程序服务器的未加密 Web 流量的内部负载均衡集
 * 单个资源组
-<!--Update_Description: remove next steps-->
+<!--Update_Description: update meta properties, wording update -->

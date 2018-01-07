@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: c8a10a4fb99daf3cd2e2c4f59b97767736a7e3f2
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: a4e6f105ba4e80fbb17381e00db48eac53eb9047
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="managing-secrets-in-service-fabric-applications"></a>管理 Service Fabric 应用程序中的机密
 本指南逐步讲解管理 Service Fabric 应用程序中的机密的步骤。 机密可以是任何敏感信息，例如存储连接字符串、密码或其他不应以明文形式处理的值。
@@ -182,7 +182,7 @@ SecureString mySecretValue = configPackage.Settings.Sections["MySettings"].Param
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
-[config-package]: service-fabric-application-model.md
+[config-package]: service-fabric-application-and-service-manifests.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 
 <!-- Images -->

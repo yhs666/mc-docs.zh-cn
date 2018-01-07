@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-origin.date: 12/05/2016
+origin.date: 12/18/2017
 ms.date: 12/18/2017
 ms.author: v-nany
-ms.openlocfilehash: 911549e4855344d351b76e87e535d518ce391a2b
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: e691ab3b155288b5834b8896d2ac770799d48ecc
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 区域和记录概述
 
@@ -117,7 +117,7 @@ DNS 记录中的多个字符串不应与 TXT 记录集的多个 TXT 记录混淆
 
 Azure DNS 支持使用 DNS 区域资源上的 Azure 资源管理器标记。  它不支持 DNS 记录集的标记，不过作为替代方法，在 DNS 记录集上支持“元数据”，如下所述。
 
-### <a name="metadata"></a>元数据
+### <a name="metadata"></a>Metadata
 
 作为记录集标记的替代方法，Azure DNS 支持使用“元数据”批注记录集。  与标记相类似，通过元数据可将名称/值对与每个记录集相关联。  这非常有用，例如可用于记录每个记录集的用途。  与标记不同的是，元数据不能用于提供 Azure 帐单的筛选视图，且不能在 Azure 资源管理器策略中指定。
 

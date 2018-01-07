@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/05/2017
-ms.date: 11/20/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 47ea31bda4d9ff1c7f51092065673009fbdb4272
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 37168594bd36359fa2c14c56e1526a9cc15474f0
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>在本地站点中重新保护 Azure 上的虚拟机
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/15/2017
 本文介绍了如何将 Azure 虚拟机从 Azure 重新保护到本地站点。 如[使用 Azure Site Recovery 将 VMware 虚拟机和物理服务器复制到 Azure](site-recovery-failover.md) 中所述将 VMware 虚拟机或 Windows/Linux 物理服务器从本地站点故障转移到 Azure 后，准备对它们进行故障回复时，请遵循本文中的说明。
 
 > [!WARNING]
-> 如果[已完成迁移](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)、已将虚拟机移至另一资源组或已删除 Azure 虚拟机，则无法进行故障回复。 如果禁用虚拟机的保护，则无法进行故障回复。
+> 如果[已完成迁移](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)、已将虚拟机移至另一资源组或已删除 Azure 虚拟机，则无法进行故障回复。 如果禁用虚拟机的保护，则无法进行故障回复。 如果在 Azure（基于云）中首次创建虚拟机，则无法重新保护该回本地。 计算机应具有已在本地最初受保护和故障转移到 Azure 之前重新保护。
 
 在重新保护完成并且受保护的虚拟机正在复制后，可以在虚拟机上启动故障回复将其恢复到本地站点。
 
@@ -56,13 +56,18 @@ ms.lasthandoff: 11/15/2017
   * **主目标服务器**：主目标服务器接收故障回复数据。 创建的本地管理服务器默认情况下已安装主目标服务器。 但是，可能需要创建单独的故障回复用主目标服务器，具体取决于故障回复流量。
     * [Linux 虚拟机需要 Linux 主目标服务器](site-recovery-how-to-install-linux-master-target.md)。
     * Windows 虚拟机需要 Windows 主目标服务器。 可以重复使用本地进程服务器和主目标计算机。
+    * 主目标具有[在重新保护前要在主目标上检查的公共事项](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server)中列出的其他先决条件。
 
-    主目标具有[在重新保护前要在主目标上检查的公共事项](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server)中列出的其他先决条件。
+> [!NOTE]
+> 复制组的所有虚拟机应都为相同的操作系统类型（所有 Windows 或所有 Linux）。 混合操作系统的复制组当前不支持重新保护和故障回复到本地。 这是操作系统的因为主目标应为作为虚拟机相同和的复制组的所有虚拟机应都具有相同的主目标。 
 
 * 执行故障回复时，本地需有配置服务器。 故障回复期间，虚拟机必须位于配置服务器数据库中。 否则，故障回复不会成功。 
 
 > [!IMPORTANT]
 > 请确保定期计划配置服务器备份。 如果发生灾难，请使用相同的 IP 地址还原服务器，以便故障回复正常工作。
+
+> [!WARNING]
+> 复制组仅应有 Windows VM 或 Linux VM，并不这二者的融合因为 replictaion 组中的所有 VM 都使用相同的主目标服务器和 Linux VM 需要的 Linux 主目标服务器和 Windows 虚拟机喜欢明智的做法。
 
 * 在 VMware 中的主目标虚拟机的配置参数中设置 `disk.EnableUUID=true` 设置。 如果此行不存在，请添加此行。 若要为虚拟机磁盘 (VMDK) 提供一致的 UUID，以便能够正确进行装载，则必须指定此设置。
 
@@ -79,7 +84,7 @@ ms.lasthandoff: 11/15/2017
 
 要重新保护的 Azure虚拟机会将复制数据发送到进程服务器。 对网络进行设置，以使 Azure 上的虚拟机可以访问进程服务器。
 
-可以在 Azure 中部署进程服务器，也可以使用故障转移期间使用的现有进程服务器。 要考虑的要点是将数据从虚拟机发送到进程服务器时的延迟。
+可在 Azure 中部署进程服务器，或使用故障转移期间用过的现有进程服务器。 要考虑的要点是将数据从 Azure 中的虚拟机发送到进程服务器时的延迟。
 
 如果已设置了 ExpressRoute 连接，则可以使用本地进程服务器发送数据，因为虚拟机与进程服务器之间的延迟较低。
 
@@ -157,7 +162,9 @@ ms.lasthandoff: 11/15/2017
 
 * 主目标不能具有半虚拟化 SCSI 控制器。 控制器只能是 LSI 逻辑控制器。 如果没有 LSI 逻辑控制器，重新保护会失败。
 
-## <a name="steps-to-reprotect"></a>重新保护的步骤
+* 在任何给定的实例，主目标可以具有 atmst 60 磁盘附加到它。 如果正在重新保护到本地主目标虚拟机数之和总磁盘数超过 60，则重新保护到主目标会失败。 确保有足够的主目标的磁盘槽或部署更多的主目标服务器。
+
+## <a name="steps-to-reprotect"></a>重新保护步骤
 
 > [!NOTE]
 > 虚拟机在 Azure 中启动后，会留出一段时间让代理重新注册到配置服务器（最多 15 分钟）。 在此期间，重新保护会失败并返回一条错误消息，指出未安装代理。 请等待几分钟，并重试重新保护。
@@ -167,7 +174,7 @@ ms.lasthandoff: 11/15/2017
 3. 在“主目标服务器”和“进程服务器”中，选择本地主目标服务器和进程服务器。
 4. 对于“数据存储”，选择要将本地磁盘恢复到的数据存储。 删除本地虚拟机后，如果需要创建新磁盘，可使用此选项。 如果磁盘已存在，则会忽略此选项，但你仍然需要指定一个值。
 5. 选择保留驱动器。
-6. 将自动选择故障回复策略。
+6. 会自动选择故障回复策略。
 7. 单击“确定”开始重新保护。 一个作业会开始将虚拟机从 Azure 复制到本地站点。 可以在“作业”选项卡上跟踪进度。
 
 如果要恢复到备用位置（删除了本地虚拟机时），请选择针对主目标服务器配置的保留驱动器和数据存储。 故障回复到本地站点时，故障回复保护计划中的 VMware 虚拟机会使用与主目标服务器相同的数据存储。 会在 vCenter 中创建一个新虚拟机。
@@ -201,7 +208,7 @@ ms.lasthandoff: 11/15/2017
 
 * 当 Linux 虚拟机配置有静态 IP 地址且故障转移到 Azure 时，会通过 DHCP 获取 IP 地址。 当故障转移回复到本地时，该虚拟机会继续使用 DHCP 获取 IP 地址。 如有需要，请手动登录到该计算机并将 IP 地址设置回静态地址。 Windows 虚拟机可以重新获取其静态 IP。
 
-* 如果使用 ESXi 5.5 免费版或 vSphere 6 虚拟机监控程序免费版，则故障转移会成功，但故障回复不会成功。 要启用故障回复，请升级为程序的评估许可证。
+* 如果使用 ESXi 5.5 免费版或 vSphere 6 虚拟机监控程序免费版，则故障转移会成功，但故障回复不会成功。 若要启用故障回复，请升级到以上任一程序的评估许可证。
 
 * 如果无法从进程服务器访问配置服务器，请使用 Telnet 在端口 443 上检查与配置服务器的连接。 也可以尝试从进程服务器 ping 配置服务器。 连接到配置服务器后，进程服务器也应会发出检测信号。
 

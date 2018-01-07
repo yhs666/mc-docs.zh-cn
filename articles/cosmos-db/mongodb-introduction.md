@@ -13,19 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2017
-ms.date: 11/27/2017
+origin.date: 12/08/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: adeda5a030958b72359f1db3fea7cbe72df6727a
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: b39b8d77edd9b5a1d102a5b57d990131e0a65b31
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB: API for MongoDB 简介
 
 [Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 针对任务关键型应用程序提供的全局分布式多模型数据库服务。 Azure Cosmos DB 在全球范围内提供[统包全局分发](distribute-data-globally.md)、[吞吐量和存储的弹性扩展](partition-data.md)、99% 的情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键/值和列式数据模型。 
-
+<!--Not Available on Graph -->
 ![Azure Cosmos DB: MongoDB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
 可将 Azure Cosmos DB 数据库用作针对 [MongoDB](https://docs.mongodb.com/manual/introduction/) 编写的应用的数据存储。 此功能意味着，通过使用现有[驱动程序](https://docs.mongodb.org/ecosystem/drivers/)，为 MongoDB 编写的应用程序现在可与 Azure Cosmos DB 进行通信，并可使用 Azure Cosmos DB 数据库而不是 MongoDB 数据库。 在许多情况下，只需更改连接字符串便可从使用 Azure Cosmos DB 切换到使用 MongoDB。 使用此功能，可以在 Azure 云中轻松生成和运行 MongoDB 数据库应用程序（利用 Azure Cosmos DB 的全球分布和[行业领先的综合性 SLA](https://www.azure.cn/support/sla/cosmos-db)），并且可继续使用熟悉的技能和 MongoDB 工具。
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/24/2017
 
 **自动编制索引：**默认情况下，Azure Cosmos DB 自动为 MongoDB 数据库文档中的所有属性编制索引，无需任何架构或创建二级索引。 此外，唯一索引功能可以针对已在 Azure Cosmos DB 中自动编制索引的所有文档字段启用唯一性约束。
 
-企业级 - Azure Cosmos DB 支持多个本地副本，可在本地或区域出现故障时，提供 99.99% 的可用性和数据保护。 Azure Cosmos DB 具有企业级符合性认证和安全功能。
+**企业级**：Azure Cosmos DB 支持多个本地副本，在面对本地和区域故障时提供 99.99％ 的可用性和数据保护。 Azure Cosmos DB 具有企业级符合性认证和安全功能。
 <!--Not Available on (https://www.microsoft.com/trustcenter) for China--> 
 <!-- Not Available [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Introducing-Azure-Cosmos-DB/player] -->
 

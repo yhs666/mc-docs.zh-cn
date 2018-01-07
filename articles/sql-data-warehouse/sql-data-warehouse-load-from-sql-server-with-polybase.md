@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 origin.date: 10/31/2016
-ms.date: 09/18/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: d21c110774d163b3d979c7e2f461d6fb18b234ba
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 31f6199ee07a062975ad6c671ff11abd96758bc2
+ms.sourcegitcommit: 3996e0f27bae21fc48f6ebfab423e9b29f9d9bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>在 SQL 数据仓库中使用 PolyBase 加载数据
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/09/2017
-ms.date: 12/04/2017
+ms.date: 01/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8344e84e7f7a7abee907d74b0f6fdd807c0c90d6
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 2def592eef8a05298a0b2e4dc89c6a970654af4d
+ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/25/2017
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure 应用服务计划概述
 
@@ -101,4 +101,4 @@ ms.lasthandoff: 11/24/2017
 ## <a name="manage-an-app-service-plan"></a>管理应用服务计划
 
 > [!div class="nextstepaction"]
-> [纵向扩展 Azure 中的应用](app-service-plan-manage.md)
+> [管理应用服务计划](app-service-plan-manage.md)

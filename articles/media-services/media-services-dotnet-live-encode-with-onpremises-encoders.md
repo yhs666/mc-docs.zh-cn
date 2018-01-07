@@ -3,7 +3,7 @@ title: "如何使用 .NET 通过本地编码器执行实时传送视频流 | Azu
 description: "本主题演示如何使用 .NET 通过本地编码器执行实时编码。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 07/18/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 005783376ff7200844292b71a11b997643454404
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 12/09/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: 5cdf174ba1b30512f42f774dc70e37fb48d3e1e0
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>如何使用 .NET 通过本地编码器执行实时传送视频流
 > [!div class="op_single_selector"]
-> * [门户](media-services-portal-live-passthrough-get-started.md)
+> * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
@@ -35,7 +35,7 @@ ms.lasthandoff: 08/31/2017
 以下是完成本教程所需具备的条件：
 
 * 一个 Azure 帐户。
-* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](media-services-portal-create-account.md)。
+* 一个媒体服务帐户。    若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * 设置开发环境。 有关详细信息，请参阅[设置环境](media-services-set-up-computer.md)。
 * 网络摄像机。 例如， [Telestream Wirecast 编码器](http://www.telestream.net/wirecast/overview.htm)。
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 08/31/2017
 下面的代码示例演示如何完成以下任务：
 
 * 连接到媒体服务
-* 创建频道
+* 创建通道
 * 更新频道
 * 检索频道的输入终结点。 应向本地实时编码器提供输入终结点。 实时编码器将相机的信号转换为流，以便发送到通道的输入（插入）终结点。
 * 检索频道的预览终结点
@@ -66,22 +66,23 @@ ms.lasthandoff: 08/31/2017
 >确保要从中流式传输内容的流式处理终结点处于“正在运行”状态。 
     
 >[!NOTE]
->不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies)主题。
+>不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[本文](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
 有关如何配置实时编码器的信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)。
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Linq;
-    using System.Net;
-    using System.Security.Cryptography;
-    using Microsoft.WindowsAzure.MediaServices.Client;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Net;
+using System.Security.Cryptography;
+using Microsoft.WindowsAzure.MediaServices.Client;
 
-    namespace AMSLiveTest
+namespace AMSLiveTest
+{
+    class Program
     {
-        class Program
-        {
         private const string StreamingEndpointName = "streamingendpoint001";
         private const string ChannelName = "channel001";
         private const string AssetlName = "asset001";
@@ -89,15 +90,23 @@ ms.lasthandoff: 08/31/2017
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -126,9 +135,9 @@ ms.lasthandoff: 08/31/2017
             IChannel channel = _context.Channels.Create(
             new ChannelCreationOptions
             {
-            Name = ChannelName,
-            Input = CreateChannelInput(),
-            Preview = CreateChannelPreview()
+                Name = ChannelName,
+                Input = CreateChannelInput(),
+                Preview = CreateChannelPreview()
             });
 
             //Starting and stopping Channels can take some time to execute. To determine the state of operations after calling Start or Stop, query the IChannel.State .
@@ -142,10 +151,10 @@ ms.lasthandoff: 08/31/2017
         {
             return new ChannelInput
             {
-            StreamingProtocol = StreamingProtocol.RTMP,
-            AccessControl = new ChannelAccessControl
-            {
-                IPAllowList = new List<IPRange>
+                StreamingProtocol = StreamingProtocol.RTMP,
+                AccessControl = new ChannelAccessControl
+                {
+                    IPAllowList = new List<IPRange>
                     {
                     new IPRange
                     {
@@ -156,7 +165,7 @@ ms.lasthandoff: 08/31/2017
                     SubnetPrefixLength = 0
                     }
                 }
-            }
+                }
             };
         }
 
@@ -164,9 +173,9 @@ ms.lasthandoff: 08/31/2017
         {
             return new ChannelPreview
             {
-            AccessControl = new ChannelAccessControl
-            {
-                IPAllowList = new List<IPRange>
+                AccessControl = new ChannelAccessControl
+                {
+                    IPAllowList = new List<IPRange>
                 {
                     new IPRange
                     {
@@ -177,7 +186,7 @@ ms.lasthandoff: 08/31/2017
                     SubnetPrefixLength = 0
                     }
                 }
-            }
+                }
             };
         }
 
@@ -246,24 +255,24 @@ ms.lasthandoff: 08/31/2017
             IStreamingEndpoint streamingEndpoint = null;
             if (createNew)
             {
-            var options = new StreamingEndpointCreationOptions
-            {
-                Name = StreamingEndpointName,
-                ScaleUnits = 1,
-                AccessControl = GetAccessControl(),
-                CacheControl = GetCacheControl()
-            };
+                var options = new StreamingEndpointCreationOptions
+                {
+                    Name = StreamingEndpointName,
+                    ScaleUnits = 1,
+                    AccessControl = GetAccessControl(),
+                    CacheControl = GetCacheControl()
+                };
 
-            streamingEndpoint = _context.StreamingEndpoints.Create(options);
+                streamingEndpoint = _context.StreamingEndpoints.Create(options);
             }
             else
             {
-            streamingEndpoint = _context.StreamingEndpoints.FirstOrDefault();
+                streamingEndpoint = _context.StreamingEndpoints.FirstOrDefault();
             }
 
 
             if (streamingEndpoint.State == StreamingEndpointState.Stopped)
-            streamingEndpoint.Start();
+                streamingEndpoint.Start();
 
             return streamingEndpoint;
         }
@@ -272,7 +281,7 @@ ms.lasthandoff: 08/31/2017
         {
             return new StreamingEndpointAccessControl
             {
-            IPAllowList = new List<IPRange>
+                IPAllowList = new List<IPRange>
                 {
                 new IPRange
                 {
@@ -282,7 +291,7 @@ ms.lasthandoff: 08/31/2017
                 }
                 },
 
-            AkamaiSignatureHeaderAuthenticationKeyList = new List<AkamaiSignatureHeaderAuthenticationKey>
+                AkamaiSignatureHeaderAuthenticationKeyList = new List<AkamaiSignatureHeaderAuthenticationKey>
                 {
                 new AkamaiSignatureHeaderAuthenticationKey
                 {
@@ -299,7 +308,7 @@ ms.lasthandoff: 08/31/2017
             var bytes = new byte[length];
             using (var rng = new RNGCryptoServiceProvider())
             {
-            rng.GetBytes(bytes);
+                rng.GetBytes(bytes);
             }
 
             return bytes;
@@ -309,7 +318,7 @@ ms.lasthandoff: 08/31/2017
         {
             return new StreamingEndpointCacheControl
             {
-            MaxAge = TimeSpan.FromSeconds(1000)
+                MaxAge = TimeSpan.FromSeconds(1000)
             };
         }
 
@@ -347,38 +356,39 @@ ms.lasthandoff: 08/31/2017
         {
             if (streamingEndpoint != null)
             {
-            streamingEndpoint.Stop();
-            if(streamingEndpoint.Name != "default")
-                streamingEndpoint.Delete();
+                streamingEndpoint.Stop();
+                if (streamingEndpoint.Name != "default")
+                    streamingEndpoint.Delete();
             }
 
             IAsset asset;
             if (channel != null)
             {
 
-            foreach (var program in channel.Programs)
-            {
-                asset = _context.Assets.Where(se => se.Id == program.AssetId)
-                            .FirstOrDefault();
-
-                program.Stop();
-                program.Delete();
-
-                if (asset != null)
+                foreach (var program in channel.Programs)
                 {
-                foreach (var l in asset.Locators)
-                    l.Delete();
+                    asset = _context.Assets.Where(se => se.Id == program.AssetId)
+                                .FirstOrDefault();
 
-                asset.Delete();
+                    program.Stop();
+                    program.Delete();
+
+                    if (asset != null)
+                    {
+                        foreach (var l in asset.Locators)
+                            l.Delete();
+
+                        asset.Delete();
+                    }
                 }
-            }
 
-            channel.Stop();
-            channel.Delete();
+                channel.Stop();
+                channel.Delete();
             }
-        }
         }
     }
+}
+```
 
 
 <!--Update_Description: update code to use AAD token instead of ACS-->

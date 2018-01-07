@@ -11,17 +11,17 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: overview-samples
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
 ms.date: 07/31/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 9c03839477dfa36931e1b78cc9747e01062a98be
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 4163b31cb22d47f227d47370f9b312c712290ae4
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure CLI 示例
 

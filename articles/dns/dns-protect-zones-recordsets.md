@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/16/2016
-ms.date: 12/18/2017
+origin.date: 10/20/2016
+ms.date: 01/01/2018
 ms.author: v-nany
-ms.openlocfilehash: 073adddc442af709d0554acea5db9ddc3c32be32
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: f9835bbcb1931f18eeb4c54897d3c4a42e4a9ed9
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>如何保护 DNS 区域和记录
 
@@ -71,7 +71,7 @@ Azure RBAC 规则可应用于订阅，资源组或单个资源。 在 Azure DNS 
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
 ```
 
-也可[通过 Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md) 提供等效命令：
+等效命令也可[通过 Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md) 提供：
 
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to a specific zone
@@ -162,7 +162,7 @@ azure role create -inputfile <file path>
 
 ## <a name="resource-locks"></a>资源锁
 
-除支持 RBAC 外，Azure 资源管理器还支持另一种类型的安全控制，即“锁定”资源的能力。 其中 RBAC 规则用于控制特定用户和组的操作，而资源锁将应用于资源且对所有用户和角色都有效。 有关详细信息，请参阅 [使用 Azure 资源管理器锁定资源](../azure-resource-manager/resource-group-lock-resources.md)。
+除支持 RBAC 外，Azure 资源管理器还支持另一种类型的安全控制，即“锁定”资源的能力。 其中 RBAC 规则用于控制特定用户和组的操作，而资源锁将应用于资源且对所有用户和角色都有效。 有关详细信息，请参阅 [使用 Azure Resource Manager 锁定资源](../azure-resource-manager/resource-group-lock-resources.md)。
 
 有两种类型的资源锁：**DoNotDelete** 和 **ReadOnly**。 它们都可应用到 DNS 区域或单个记录集。  以下各节描述了几种常见情况以及如何使用资源锁支持它们。
 

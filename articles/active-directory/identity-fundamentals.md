@@ -4,7 +4,7 @@ description:
 keywords: 
 author: jeffgilb
 manager: femila
-origin.date: 05/01/2017
+origin.date: 07/05/2017
 ms.topic: article
 ms.prod: 
 ms.service: azure
@@ -12,18 +12,18 @@ ms.technology:
 ms.assetid: 
 ms.date: 06/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: 7fb216dcafc387e3a7e163cc5474fa71a81c11c8
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 373745fe3ceec795ed9211d6487ba2c10cef84ed
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Azure 标识管理基础知识
 随着公司的数字资源逐渐转向公司网络外部、云中和设备上，为了对用户访问公司应用程序和数据的方式和时间进行控制和监视，最好的方式是使用卓越的基于云的标识和访问管理解决方案。
 
-十多年来，Microsoft 一直在保护基于云的标识的安全，而现在则通过 [Azure Active Directory (AD)](active-directory-editions.md) 为你提供相同的保护系统。 有了 Azure AD，企业管理员就可以轻松地确认用户和管理员的责任，提供比以前更好的安全性和监管。
+十多年来，Microsoft 一直在保护基于云的标识的安全，而现在则通过 [Azure Active Directory (AD)](active-directory-editions.md) 提供相同的保护系统。 有了 Azure AD，企业管理员就可以轻松地确认用户和管理员的责任，提供比以前更好的安全性和监管。
 
-Azure AD Premium 是基于云的标识和访问管理解决方案，提供的高级保护功能支持对所有应用使用一个安全标识、支持标识保护（通过 [Microsoft Intelligence Security Graph](https://www.microsoft.com/en-us/security/intelligence) 增强），以及支持 Privileged Identity Management。 Azure AD Premium 不只是另一个监视或报告工具，它还能实时保护用户的标识，允许你创建基于风险的自适应访问策略来保护组织的数据。
+Azure AD Premium 是基于云的标识和访问管理解决方案，提供的高级保护功能支持对所有应用使用一个安全标识、支持标识保护（通过 [Microsoft Intelligence Security Graph](https://www.microsoft.com/en-us/security/intelligence) 增强），以及支持 Privileged Identity Management。 Azure AD Premium 不只是另一个监视或报告工具，它还能实时保护用户的标识，允许创建基于风险的自适应访问策略来保护组织的数据。
 
 Microsoft 不仅提供各处通用的标识，而且提供一套可以在组织中实现 IT 自动化、确保 IT 安全性以及进行 IT 管理的工具。 即使在出现云计算以后，也仍然需要管理和控制各种 IT 任务，例如通过呼叫支持人员来重置用户密码、进行用户组管理，以及提出应用程序请求。 让情况更为复杂的是，员工现在会将其个人设备带到工作中，并且会使用随时可用的 SaaS 应用程序。 这就使得跨公司数据中心和公有云平台维持对应用程序的控制极具挑战性。
 

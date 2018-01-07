@@ -12,15 +12,15 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: article
-origin.date: 09/19/2017
-ms.date: 11/13/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: 
-ms.openlocfilehash: 23431d3ea43df67b7d69ccfab293970cc5bd73e1
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 6879be515ad13cf2f28fcbb6945c739d664f925b
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>将应用程序证书添加到 Service Fabric 群集
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/09/2017
 
 # Select cluster
 sfctl cluster select \
-    --endpoint http://svcfab1.chinanorth2.cloudapp.chinacloudapi.cn:19080
+    --endpoint http://svcfab1.chinanorth.cloudapp.chinacloudapi.cn:19080
 
 # Upload the latest bits of an application
 sfctl application upload --path ~/app_package_dir_2
@@ -52,4 +52,4 @@ sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"
 有关详细信息，请参阅 [Service Fabric CLI 文档](../service-fabric-cli.md)。
 
 在 [Service Fabric CLI 示例](../samples-cli.md)中可找到 Azure Service Fabric 的其他 Service Fabric CLI 示例。
-<!--Update_Description: new articles on upgrade application with sfctl-->
+<!--Update_Description: update meta properties, wording update -->

@@ -3,7 +3,7 @@ title: "如何创建媒体处理器 | Microsoft Docs"
 description: "了解如何创建一个媒体处理器组件来为 Azure 媒体服务编码、转换格式、加密或解密媒体内容。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: bd63a7021fb582d67ec2317c836b8144bc23867d
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 12/07/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: 4d3aac20d50534319810ab6dee5ee56285716e79
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>如何获取媒体处理器实例
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/31/2017
 > 
 
 ## <a name="overview"></a>概述
-在媒体服务中，媒体处理器是完成特定处理任务（例如，对媒体内容进行编码、格式转换、加密或解密）的组件。 通常，创建一个任务以便对媒体内容进行编码、加密或格式转换时，就需要创建一个媒体处理器。
+媒体处理器是完成特定视频或音频处理任务（例如，对媒体内容进行编码、格式转换、加密或解密）的组件。 提交到媒体服务的所有任务需要通过一个媒体处理器来编码、加密或转换视频或音频内容。 
 
 ## <a name="azure-media-processors"></a>Azure 媒体处理器 
 
@@ -60,7 +60,7 @@ Accept: application/json
 Accept-Charset: UTF-8
 User-Agent: Microsoft ADO.NET Data Services
 Authorization: Bearer <token>
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
@@ -86,4 +86,4 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 ## <a name="next-steps"></a>后续步骤
 了解如何获取媒体处理器实例后，请转到[如何对资产进行编码](media-services-rest-get-started.md)主题，其中说明了如何使用 Media Encoder Standard 对资产进行编码。
-<!--Update_Description: add section "Azure media processors" and "Connect to Media Services"-->
+<!--Update_Description: modify x-ms-version-->

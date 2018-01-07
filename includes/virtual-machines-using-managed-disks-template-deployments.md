@@ -70,14 +70,14 @@
 
 ## <a name="managed-disks-template-formatting"></a>托管磁盘模板的格式设置
 
-若使用 Azure 托管磁盘，磁盘将成为顶级资源，不再需要用户创建存储帐户。 托管磁盘在 `2016-04-30-preview` API 版本中首次公开，并在所有后续 API 版本中可用，现在是默认磁盘类型。 以下各部分将讲解默认设置，并详细介绍如何进一步自定义磁盘。
+具有 Azure 托管磁盘时，该磁盘将成为顶级资源，用户不再需要创建存储帐户。 托管磁盘在 `2016-04-30-preview` API 版本中首次公开，并在所有后续 API 版本中可用，现在是默认磁盘类型。 以下各部分将讲解默认设置，并详细介绍如何进一步自定义磁盘。
 
 > [!NOTE]
 > 建议使用 `2016-04-30-preview` 以后的 API 版本，因为在 `2016-04-30-preview` 和 `2017-03-30` 之间存在重大更改。
 >
 >
 
-### <a name="default-managed-disk-settings"></a>默认托管磁盘设置
+### <a name="default-managed-disk-settings"></a>默认的托管磁盘设置
 
 若要创建带托管磁盘的 VM，无需再创建存储帐户资源，可如下所示更新虚拟机资源。 特别要注意，`apiVersion` 反映 `2017-03-30`，并且 `osDisk` 和 `dataDisks` 不再为 VHD 引用特定 URI。 如果部署时未指定其他属性，磁盘将使用[标准 LRS 存储](../articles/storage/common/storage-redundancy.md)。 如果未指定任何名称，则 OS 磁盘采用格式 `<VMName>_OsDisk_1_<randomstring>`，每个数据磁盘采用格式 `<VMName>_disk<#>_<randomstring>`。 默认情况下，Azure 磁盘加密处于禁用状态；缓存对于 OS 磁盘为“读/写”，对于数据磁盘则为“无”。 你可能会注意到以下示例中仍然存在一个存储帐户依赖项，但这仅用于诊断的存储，磁盘存储并不需要。
 
@@ -140,7 +140,7 @@
 }
 ```
 
-随后可在该 VM 对象内引用此要附加的磁盘对象。 创建 VM 时，通过指定在 `managedDisk` 属性中创建的托管磁盘的资源 ID，允许附加磁盘。 请注意，VM 资源的 `apiVersion` 设置为 `2017-03-30`。 另请注意，我们已在磁盘资源上创建了一个依赖项，确保它在创建 VM 之前已成功创建。 
+随后可在该 VM 对象内引用此要附加的磁盘对象。 创建 VM 时，通过指定在 `managedDisk` 属性中创建的托管磁盘的资源 ID，允许附加磁盘。 请注意，VM 资源的 `apiVersion` 设置为 `2017-03-30`。 另请注意，我们已在磁盘资源中创建了一个依赖项，以确保在创建 VM 之前成功创建该磁盘资源。 
 
 ```
 {
@@ -185,7 +185,7 @@
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>通过使用托管磁盘的 VM 创建托管可用性集
 
-若要通过使用托管磁盘的 VM 创建托管可用性集，请将 `sku` 对象添加到可用性集资源中，并将 `name` 属性设置为 `Aligned`。 这可确保每个 VM 的磁盘彼此充分隔离，避免出现单点故障。 另请注意，可用性集资源的 `apiVersion` 设置为 `2017-03-30`。
+若要通过使用托管磁盘的 VM 创建托管可用性集，请将 `sku` 对象添加到可用性集资源中，并将 `name` 属性设置为 `Aligned`。 这可确保每个 VM 的磁盘彼此充分隔离，避免发生单点故障。 另请注意，可用性集资源的 `apiVersion` 设置为 `2017-03-30`。
 
 ```
 {
@@ -203,7 +203,7 @@
 }
 ```
 
-### <a name="additional-scenarios-and-customizations"></a>其他方案和自定义项
+### <a name="additional-scenarios-and-customizations"></a>其他方案和自定义
 
 若要查找有关 REST API 规范的完整信息，请查看[创建托管磁盘 REST API 文档](https://docs.microsoft.com/rest/api/manageddisks/disks/disks-create-or-update)。 该文档介绍了其他方案以及可通过模板部署提交到 API 的默认值和可接受的值。 
 
@@ -217,3 +217,5 @@
 * 访问文档 [Microsoft.Compute/virtualMachines template reference](https://docs.microsoft.com/templates/microsoft.compute/virtualmachines)（Microsoft.Compute/virtualMachines 模板参考），查看虚拟机资源的模板参考文档。
 * 访问文档 [ template reference](https://docs.microsoft.com/templates/microsoft.compute/disks)（Microsoft.Compute/disks 模板参考），查看虚拟机资源的模板参考文档。
  
+<!--Update_Description: wording update-->
+<!--ms.date: 01/08/2018-->

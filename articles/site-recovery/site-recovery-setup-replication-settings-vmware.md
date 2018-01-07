@@ -12,16 +12,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 06/05/2017
-ms.date: 08/28/2017
+origin.date: 11/21/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: a4b92f9e79dc459cf84d619c0e1ae5a17aae4ddd
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 41419cdf8dd830a76773a0d75c7b87f49b9d2a32
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/29/2017
 ---
-# <a name="manage-replication-policy-for-vmware-to-azure"></a>管理 VMware 到 Azure 的复制策略
+# <a name="manage-replication-policy-for-vmware-to-azure"></a>管理从 VMware 复制到 Azure 的复制策略
 
 ## <a name="create-a-replication-policy"></a>创建复制策略
 
@@ -86,3 +86,4 @@ ms.lasthandoff: 08/25/2017
 
     > [!NOTE]
     > 如果至少有 1 台配置服务器与某个复制策略关联，则无法删除该策略。 在删除策略前，请确保没有复制项正在使用该策略，并删除所有关联的配置服务器。
+<!-- Update_Description: update meta properties -->

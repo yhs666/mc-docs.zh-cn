@@ -13,18 +13,17 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 38f4075b7b5623797fb8db3e5906b5df7c6296db
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: e3f5f959b171543f48e56d9f30440fc4b944438e
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>开始为云服务创建面向 Internet 的负载均衡器
 
 > [!div class="op_single_selector"]
-> * [Azure 经典管理门户](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
 > * [Azure 云服务](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
@@ -92,4 +91,4 @@ ms.lasthandoff: 11/15/2017
 
 [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: wording update -->

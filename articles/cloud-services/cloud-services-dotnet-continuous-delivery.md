@@ -2,9 +2,9 @@
 title: "在 Azure 中使用 TFS 持续交付云服务 | Azure"
 description: "了解如何设置 Azure 云应用的持续交付。 MSBuild 命令行语句和 PowerShell 脚本的代码示例。"
 services: cloud-services
-documentationCenter: 
-authors: TomArcher
-manager: douge
+documentationcenter: 
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 4f3c93c6-5c82-4779-9d19-7404a01e82ca
 ms.service: cloud-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 06/12/2017
-ms.date: 09/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6a72b5997247348661e35059b958716deb771719
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.openlocfilehash: 0c2d9d7899f84b7c2eca695dd94b07ecc6eabc69
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>在 Azure 中持续交付云服务
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 09/01/2017
 
     默认情况下，每个 Azure 项目均包含两个服务配置文件（.cscfg 文件），这两个文件分别针对本地（调试）生成和云（过渡或生产）生成，可根据需要添加或删除服务配置文件。 在 Visual Studio 中生成包时，系统会询问要将哪个服务配置文件与包一起包含。
 
-5.  指定服务配置文件。 使用 MSBuild 生成包时，默认情况下包含本地服务配置文件。 若要包含其他服务配置文件，请设置 MSBuild 命令的 TargetProfile 属性，如以下示例所示：
+5.  指定服务配置文件。 使用 MSBuild 生成包时，默认情况下将包含本地服务配置文件。 若要包含其他服务配置文件，请设置 MSBuild 命令的 TargetProfile 属性，如以下示例所示：
 
     ```
     MSBuild /t:Publish /p:TargetProfile=Cloud
@@ -135,7 +135,7 @@ ms.lasthandoff: 09/01/2017
 
     `Get-AzureSubscription`
 
-    这会显示有关订阅的信息。 验证所有内容是否正确。
+    这会显示有关订阅的信息。 确认所有内容正确。
 
 4.  将本文末尾提供的脚本模板保存到脚本文件夹，路径为 C:\\scripts\\WindowsAzure\\PublishCloudService.ps1。
 
@@ -143,7 +143,7 @@ ms.lasthandoff: 09/01/2017
 
 6.  确保已在订阅中创建可通过发布脚本定位的有效云服务和存储帐户。 存储帐户（Blob 存储）将用于在创建部署时上传和临时存储部署包和配置文件。
 
-    -   若要创建新的云服务，可以调用此脚本或使用 [Azure 门户](https://portal.azure.cn)。 云服务名称会用作完全限定域名中的前缀，因此该名称必须是唯一的。
+    -   若要创建新的云服务，可以调用此脚本或使用 [Azure 门户](https://portal.azure.cn)。 云服务名称将用作完全限定域名中的前缀，因此该名称必须是唯一的。
 
         ```
         New-AzureService -ServiceName "mytestcloudservice" -Location "China North" -Label "mytestcloudservice"
@@ -159,6 +159,9 @@ ms.lasthandoff: 09/01/2017
 
     >[!IMPORTANT]
     > 默认情况下，此脚本始终删除或替换现有部署（如果检测到这些部署）。 这对于从没有用户提示的自动化中启用持续交付是必需的。
+    >
+    >
+    
 
     **示例方案 1：** 对服务的过渡环境进行持续部署：
 
@@ -176,7 +179,7 @@ ms.lasthandoff: 09/01/2017
 
     **远程桌面：**
 
-    如果在 Azure 项目中启用远程桌面，则需要执行额外的一次性步骤以确保将正确的云服务证书上传到通过此脚本定位的所有云服务中。
+    如果在 Azure 项目中启用远程桌面，则将需要执行额外的一次性步骤以确保将正确的云服务证书上传到通过此脚本定位的所有云服务中。
 
     查找角色所需的证书指纹值。 这些指纹值在云配置文件（即 ServiceConfiguration.Cloud.cscfg）的“证书”部分中可见。 此外，在显示选项并查看选定证书时，可在 Visual Studio 的“远程桌面配置”对话框中查看这些指纹值。
 
@@ -224,7 +227,7 @@ ms.lasthandoff: 09/01/2017
 
 3. 按照[这些说明](http://msdn.microsoft.com/zh-cn/library/dd647551.aspx)添加生成过程模板的活动项目，下载默认模板，将其添加到项目并将其签入。 为生成过程模板指定新名称，如 AzureBuildProcessTemplate。
 
-3.  返回到“进程”选项卡，然后使用“显示详细信息”显示可用生成过程模板的列表。 选择“新建...”按钮，并导航到用户刚刚添加并签入的项目  。 找到刚刚创建的模板，并选择“确定” 。
+3.  返回到“进程”选项卡，然后使用“显示详细信息”显示可用生成过程模板的列表。 选择“**新建...**”按钮，然后导航到刚刚添加并签入的项目。 找到刚刚创建的模板，并选择“确定” 。
 
 4.  打开选定的过程模板以进行编辑。 可以直接在工作流设计器或 XML 编辑器中打开以处理 XAML。
 
@@ -299,7 +302,7 @@ ms.lasthandoff: 09/01/2017
 
             ![新建变量][4]
 
-    4.  如果使用的是 TFS 2012 或更低版本，请在新序列的开头添加一个 ConvertWorkspaceItem 活动。 如果使用的是 TFS 2013 或更高版本，请在新序列的开头添加一个 GetLocalPath 活动。 对于 ConvertWorkspaceItem，请按如下所示设置属性：Direction=ServerToLocal, DisplayName='Convert publish script filename', Input=' PublishScriptLocation', Result='PublishScriptFilePath', Workspace='Workspace'。 对于 GetLocalPath 活动，请将属性 IncomingPath 设置为“PublishScriptLocation”，并将 Result 设置为“PublishScriptFilePath”。 此活动将发布脚本的路径从 TFS 服务器位置（如果适用）转换为标准本地磁盘路径。
+    4.  如果使用的是 TFS 2012 或更低版本，请在新序列的开头添加一个 ConvertWorkspaceItem 活动。 如果使用的是 TFS 2013 或更高版本，请在新序列的开头添加一个 GetLocalPath 活动。 对于 ConvertWorkspaceItem，请按如下所示设置属性：Direction=ServerToLocal, DisplayName='Convert publish script filename', Input=' PublishScriptLocation', Result='PublishScriptFilePath', Workspace='Workspace'。 对于 GetLocalPath 活动，请将属性 IncomingPath 设置为“PublishScriptLocation”，将 Result 设置为“PublishScriptFilePath”。 此活动将发布脚本的路径从 TFS 服务器位置（如果适用）转换为标准本地磁盘路径。
 
     5.  如果使用的是 TFS 2012 或更低版本，请在新序列的末尾添加另一个 ConvertWorkspaceItem 活动。 Direction=ServerToLocal, DisplayName='Convert subscription filename', Input=' SubscriptionDataFileLocation', Result= 'SubscriptionDataFilePath', Workspace='Workspace'。 如果使用的是 TFS 2013 或更高版本，请添加另一个 GetLocalPath。 IncomingPath='SubscriptionDataFileLocation' 和 Result='SubscriptionDataFilePath'。
 
@@ -316,7 +319,7 @@ ms.lasthandoff: 09/01/2017
 
     7.  在 InvokeProcess 的“处理标准输出”部分文本框中，将文本框值设置为“data”。 这是一个用于存储标准输出数据的变量。
 
-    8.  在“处理错误输出”部分的正下方添加一个 WriteBuildError 活动  。 设置 Importance = 'Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High' 和 Message='data'。 这可确保脚本的标准输出会写入到生成输出中。
+    8.  在“处理错误输出”部分的正下方添加一个 WriteBuildError 活动  。 设置 Importance = 'Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High' 和 Message='data'。 这可确保脚本的标准输出将写入到生成输出中。
 
     9.  在 InvokeProcess 的“处理错误输出”部分文本框中，将文本框值设置为“data”。 这是一个用于存储标准错误数据的变量。
 
@@ -394,7 +397,7 @@ ms.lasthandoff: 09/01/2017
 
 ### <a name="publishcloudserviceps1-script-template"></a>PublishCloudService.ps1 脚本模板
 
-```
+```powershell
 Param(  $serviceName = "",
         $storageAccountName = "",
         $packageLocation = "",
@@ -606,7 +609,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [Scale out your build system]: https://msdn.microsoft.com/zh-cn/library/dd793166.aspx
   [Deploy and configure a build server]: https://msdn.microsoft.com/zh-cn/library/ms181712.aspx
   [Azure PowerShell cmdlets]:../powershell-install-configure.md
-  [the .publishsettings file]: https://manage.windowsazure.cn/download/publishprofile.aspx?wa=wsignin1.0
+
   [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
   [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
   [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png

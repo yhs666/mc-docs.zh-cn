@@ -13,18 +13,18 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3bf007fc90efb735542db1cab1a1f5d9e70aaf95
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 48f9fff2aa32cc28304f97d3828a0d3594bf11be
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>使用模板创建内部负载均衡器
 
 > [!div class="op_single_selector"]
-> * [Azure 门户](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [模板](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
@@ -32,9 +32,6 @@ ms.lasthandoff: 11/15/2017
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
-
-> [!NOTE]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是使用[经典部署模型](load-balancer-get-started-ilb-classic-ps.md)。
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -73,7 +70,7 @@ ms.lasthandoff: 11/15/2017
         info:    New mode is arm
 
 3. 打开参数文件，选择其内容，并将其保存到计算机上的文件中。 对于本示例，我们将参数文件保存到 *parameters.json*。
-4. 运行 **azure group deployment create** 命令以使用在前面下载并修改的模板和参数文件部署新的内部负载均衡器。 在输出后显示的列表说明了所用的参数。
+4. 运行 **azure group deployment create** 命令以使用在前面下载并修改的模板和参数文件部署新的内部负载均衡器。 在输出后显示的列表说明了所使用的参数。
 
     ```azurecli
     azure group create --name TestRG --location chinanorth --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json
@@ -85,4 +82,4 @@ ms.lasthandoff: 11/15/2017
 
 [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description:  wording update -->

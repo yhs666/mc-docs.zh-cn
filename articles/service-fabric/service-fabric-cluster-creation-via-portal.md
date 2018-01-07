@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/21/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8b45bafe27dc6934218d9d264dfa4bdd03ce0fc8
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: aa2896b1da869285eca44aaf7434ddb5fdf5423d
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 门户在 Azure 中创建 Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -41,8 +41,7 @@ ms.lasthandoff: 12/01/2017
 
 安全的群集是防止未经授权访问管理操作的群集，这些操作包括部署、升级和删除应用程序、服务及其包含的数据。 不安全的群集是任何人都可以随时连接并执行管理操作的群集。 尽管可以创建不安全的群集，但 **强烈建议创建安全的群集**。 不安全的群集 **无法在事后受到保护** - 要保护群集，必须创建新群集。
 
-无论群集是 Linux 群集还是 Windows 群集，创建安全群集的思路都一样。 可以按[在 Azure 门户中创建群集](#create-cluster-portal)部分中所述，将所提供的帮助器脚本获取的参数直接输入到门户中。
-<!-- Need Validation [Creating secure clusters on Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-cluster) -->
+无论群集是 Linux 群集还是 Windows 群集，创建安全群集的思路都一样。 有关创建安全 Linux 群集的详细信息和帮助器脚本，请参阅[创建安全群集](service-fabric-cluster-creation-via-arm.md)。 可以按照[在 Azure 门户中创建群集](#create-cluster-portal)部分中所述，直接向门户输入通过提供的帮助器脚本获取的参数。
 
 ## <a name="configure-key-vault"></a>配置 Key Vault 
 ### <a name="log-in-to-azure"></a>登录 Azure
@@ -115,7 +114,15 @@ Service Fabric 使用 X.509 证书保护群集。 Azure 密钥保管库用于管
     Tags                             :
 ```
 
-如果有现有的密钥保管库，可以使用 Azure CLI 针对部署启用该保管库：
+如果有现有的 Key Vault，可使用以下方式之一针对部署启用它：
+
+##### <a name="azure-powershell"></a>Azure PowerShell
+
+```powershell
+PS C:\Users\vturecek> Set-AzureRmKeyVaultAccessPolicy -VaultName 'myvault' -EnabledForDeployment
+```
+
+##### <a name="azure-cli"></a>Azure CLI：
 
 ```cli
 > azure login -e AzureChinaCloud
@@ -251,7 +258,7 @@ Value : https://myvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c09
 > 
 > 
 
-#### <a name="3-security"></a>3.“安全”
+#### <a name="3-security"></a>3.安全性
 ![Azure 门户上安全配置的屏幕截图。][SecurityConfigs]
 
 最后一个步骤是使用前面创建的密钥保管库和证书信息，提供证书信息来保护群集。
@@ -323,4 +330,4 @@ Value : https://myvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c09
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
 
-<!--Update_Description: update meta properties, update reference link -->
+<!--Update_Description: update meta properties, wording update -->

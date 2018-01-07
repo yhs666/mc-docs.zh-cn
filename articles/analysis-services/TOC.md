@@ -21,6 +21,7 @@
 ## [获取客户端库](analysis-services-data-providers.md)
 ## [备份和还原](analysis-services-backup.md)
 <!--Not Available ## [Configure scale-out](analysis-services-scale-out.md)-->
+## [配置服务器名称别名](analysis-services-server-alias.md)
 ## [使用 Excel 进行连接](analysis-services-connect-excel.md)
 ## [使用 Power BI 进行连接](analysis-services-connect-pbi.md)
 ## [创建 .odc 文件](analysis-services-odc.md)
@@ -43,7 +44,7 @@
 ### [补充课程 - 动态安全性](tutorials/aas-supplemental-lesson-dynamic-security.md)
 ### [补充课程 - 不规则层次结构](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
-# 引用
+# 参考
 ## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](https://docs.microsoft.com/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
@@ -61,4 +62,4 @@
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 <!-- Not Availabel ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)-->
 <!-- Not Availabel ## [Videos](https://www.azure.cn/video-center/&sort=newest)-->
-<!--ms.date: 12/11/2017 -->
+<!--ms.date: 12/25/2017 -->

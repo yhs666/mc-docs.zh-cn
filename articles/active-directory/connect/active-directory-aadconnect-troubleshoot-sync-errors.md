@@ -13,20 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 08/24/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: c6c91b9a4ac1b45957be641d0b3e36fccc037794
-ms.sourcegitcommit: d43bb3a378692299062777197a5a030daa9d67d1
+ms.openlocfilehash: e660db414be9c74dc18a0e586206a3ccb1385254
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>排查同步过程中发生的错误
 将标识数据从 Windows Server Active Directory (AD DS) 同步到 Azure Active Directory (Azure AD) 时可能会发生错误。 本文概述不同类型的同步错误、导致这些错误的某些可能情况，以及这些错误的可能解决方法。 本文介绍常见错误类型，不一定涵盖所有可能的错误。
 
  本文假设读者熟悉 [Azure AD 和 Azure AD Connect 的基础设计概念](active-directory-aadconnect-design-concepts.md)。
-
-在最新版本的 Azure AD Connect（\(2016 年 8 月版或更高版本\)）中，[Azure 门户](https://aka.ms/aadconnecthealth)会针对用于同步的 Azure AD Connect Health 提供同步错误报告。
 
 从 2016 年 9 月 1 日开始，默认为所有*新的* Azure Active Directory 租户启用 [Azure Active Directory 重复属性复原](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)功能。 在接下来的几个月，自动为现有租户启用此功能。
 
@@ -63,8 +61,8 @@ Azure Active Directory 架构不允许两个或更多个对象的以下属性使
 #### <a name="example-scenarios-for-invalidsoftmatch"></a>发生 InvalidSoftMatch 的示例情景
 1. 本地 Active Directory 中有两个或更多个对象的 ProxyAddresses 属性值相同。 在 Azure AD 中只会预配其中一个对象。
 2. 本地 Active Directory 中有两个或更多个对象的 userPrincipalName 值相同。 在 Azure AD 中只会预配其中一个对象。
-3. 在本地 Active Directory 中添加了一个对象，该对象的 ProxyAddresses 属性值与 Azure Active Directory 中现有对象的该属性值相同。 在本地添加的对象将不会在 Azure Active Directory 中预配。
-4. 在本地 Active Directory 中添加了一个对象，该对象的 userPrincipalName 属性值与 Azure Active Directory 中某个帐户的该属性值相同。 该对象将不会在 Azure Active Directory 中预配。
+3. 在本地 Active Directory 中添加了一个对象，该对象的 ProxyAddresses 属性值与 Azure Active Directory 中现有对象的该属性值相同。 在本地添加的对象不会在 Azure Active Directory 中预配。
+4. 在本地 Active Directory 中添加了一个对象，该对象的 userPrincipalName 属性值与 Azure Active Directory 中某个帐户的该属性值相同。 该对象不会在 Azure Active Directory 中预配。
 5. 将某个已同步的帐户从林 A 移到了林 B。Azure AD Connect（同步引擎）已使用 ObjectGUID 属性计算 SourceAnchor。 移动林后，SourceAnchor 值会不同。 林 B 中的新对象无法与 Azure AD 中的现有对象同步。
 6. 从本地 Active Directory 中意外删除了一个已同步的对象，同时，在 Active Directory 中为同一实体（例如用户）创建了新对象，但未删除 Azure Active Directory 中的帐户。 新帐户将无法与现有的 Azure AD 对象同步。
 7. 卸载后重新安装 Azure AD Connect。 重新安装期间，将一个不同的属性选作 SourceAnchor。 以前同步的所有对象不再同步，并出现 InvalidSoftMatch 错误。
@@ -92,12 +90,10 @@ Azure Active Directory 架构不允许两个或更多个对象的以下属性使
 #### <a name="how-to-fix-invalidsoftmatch-error"></a>如何解决 InvalidSoftMatch 错误
 发生 InvalidSoftMatch 错误的最常见原因是两个对象的 SourceAnchor \(immutableId\) 不同，但 ProxyAddresses 和/或 UserPrincipalName 属性（在 Azure AD 中执行软匹配过程中会使用这些属性）的值相同。 解决软匹配无效错误
 
-1. 识别导致错误的重复 proxyAddresses、userPrincipalName 或其他属性值。 另外，识别冲突中涉及到哪两个\(或更多个\)对象。 [用于同步的 Azure AD Connect Health](https://aka.ms/aadchsyncerrors) 生成的报告可帮助识别这两个对象。
+1. 识别导致错误的重复 proxyAddresses、userPrincipalName 或其他属性值。 另外，识别冲突中涉及到哪两个\(或更多个\)对象。
 2. 识别哪个对象会以及哪个对象不会继续使用重复值。
 3. 从不会继续使用该值的对象中删除重复值。 请注意，应该在对象的来源目录中进行更改。 在某些情况下，可能需要删除其中一个有冲突的对象。
 4. 如果在本地 AD 中进行更改，请让 Azure AD Connect 同步更改。
-
-请注意，用于同步的 Azure AD Connect Health 中的同步错误报告每隔 30 分钟更新一次，其中包含最近一次同步尝试出现的错误。
 
 > [!NOTE]
 > 根据定义，ImmutableId 在对象的生存期内不应更改。 如果在配置 Azure AD Connect 时未考虑到上述列表中的某些情景，Azure AD Connect 为代表相同实体（同一个用户/组/联系人等）的、存在你想要继续使用的 Azure AD 对象的 AD 对象计算的 SourceAnchor 值不同。
@@ -122,10 +118,10 @@ Azure Active Directory 架构不允许两个或更多个对象的以下属性使
 #### <a name="how-to-fix-objecttypemismatch-error"></a>如何解决 ObjectTypeMismatch 错误
 发生 ObjectTypeMismatch 错误的最常见原因是两个对象的类型（用户、组、联系人等）不同，但 ProxyAddresses 属性值相同。 解决 ObjectTypeMismatch：
 
-1. 识别导致错误的重复 proxyAddresses（或其他属性）值。 另外，识别冲突中涉及到哪两个\(或更多个\)对象。 [用于同步的 Azure AD Connect Health](https://aka.ms/aadchsyncerrors) 生成的报告可帮助识别这两个对象。
+1. 识别导致错误的重复 proxyAddresses（或其他属性）值。 另外，识别冲突中涉及到哪两个\(或更多个\)对象。 
 2. 识别哪个对象会以及哪个对象不会继续使用重复值。
 3. 从不会继续使用该值的对象中删除重复值。 请注意，应该在对象的来源目录中进行更改。 在某些情况下，可能需要删除其中一个有冲突的对象。
-4. 如果在本地 AD 中进行更改，请让 Azure AD Connect 同步更改。 用于同步的 Azure AD Connect Health 中的同步错误报告每隔 30 分钟更新一次，其中包含最近一次同步尝试出现的错误。
+4. 如果在本地 AD 中进行更改，请让 Azure AD Connect 同步更改。 
 
 ## <a name="duplicate-attributes"></a>重复属性
 ### <a name="attributevaluemustbeunique"></a>AttributeValueMustBeUnique
@@ -157,7 +153,7 @@ Azure Active Directory 架构不允许两个或更多个对象的以下属性使
 #### <a name="how-to-fix-attributevaluemustbeunique-error"></a>如何解决 AttributeValueMustBeUnique 错误
 发生 AttributeValueMustBeUnique 错误的最常见原因是两个对象的 SourceAnchor \(immutableId\) 不同，但 ProxyAddresses 和/或 UserPrincipalName 属性值相同。 解决 AttributeValueMustBeUnique 错误
 
-1. 识别导致错误的重复 proxyAddresses、userPrincipalName 或其他属性值。 另外，识别冲突中涉及到哪两个\(或更多个\)对象。 [用于同步的 Azure AD Connect Health](https://aka.ms/aadchsyncerrors) 生成的报告可帮助识别这两个对象。
+1. 识别导致错误的重复 proxyAddresses、userPrincipalName 或其他属性值。 另外，识别冲突中涉及到哪两个\(或更多个\)对象。 
 2. 识别哪个对象会以及哪个对象不会继续使用重复值。
 3. 从不会继续使用该值的对象中删除重复值。 请注意，应该在对象的来源目录中进行更改。 在某些情况下，可能需要删除其中一个有冲突的对象。
 4. 如果在本地 AD 中进行更改，请让 Azure AD Connect 同步更改，使错误得到解决。
@@ -178,7 +174,7 @@ b. UserPrincipalName 属性不符合所需的格式。
 a. 确保 userPrincipalName 属性包含支持的字符并使用所需的格式。
 
 #### <a name="related-articles"></a>相关文章
-- [Prepare to provision users through directory synchronization to Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)（准备在 Office 365 中通过目录同步来预配用户）
+- [Prepare to provision users through directory synchronization to Office 365（准备在 Office 365 中通过目录同步来预配用户）](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>说明

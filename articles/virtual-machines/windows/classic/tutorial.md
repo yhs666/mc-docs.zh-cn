@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 684b184614bfa86ee9083fb3a60db40bf6b5ec5c
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: e749a55831abe441da6a9b61f07a7e95655a4873
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>在 Azure 门户中创建运行 Windows 的虚拟机
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/15/2017
 
 本部分演示如何使用 Azure 门户中的“仪表板”选择并创建虚拟机。
 
-也可以使用[自己的映像](createupload-vhd.md)创建 VM。 若要了解此方法和其他方法，请参阅[创建 Windows 虚拟机的不同方式](../../virtual-machines-windows-creation-choices.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+也可以使用 [自己的映像](createupload-vhd.md)创建 VM。 若要了解此方法和其他方法，请参阅[创建 Windows 虚拟机的不同方式](../../virtual-machines-windows-creation-choices.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 <!-- 02/27/2017 Video removed as it was based on the Classic Management Portal. -->
 
@@ -50,4 +50,4 @@ ms.lasthandoff: 12/15/2017
 * 了解如何在 Azure 门户中[使用 Resource Manager 部署模型创建 VM](../../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 登录到虚拟机。 有关说明，请参阅[登录到运行 Windows Server 的虚拟机](connect-logon.md)。
 * 附加磁盘以存储数据。 可以附加空磁盘和包含数据的磁盘。 有关说明，请参阅[将数据磁盘附加到使用经典部署模型创建的 Windows 虚拟机](attach-disk.md)。
-<!-- Update_Description: add classic portal migration notice, wording update -->
+<!-- Update_Description: update meta properties -->

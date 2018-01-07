@@ -61,11 +61,14 @@
         - name: 计算优化
           href: sizes-compute.md
         - name: 内存优化
+          items:
+            - name: 约束的 vCPU
+              href: constrained-vcpu.md
           href: sizes-memory.md
         - name: 存储优化
           href: sizes-storage.md
         - name: Azure 计算单元 (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: 维护和更新
       href: maintenance-and-updates.md
     - name: 磁盘存储
@@ -87,6 +90,8 @@
       href: network-overview.md
     - name: 基础结构自动化
       href: infrastructure-automation.md
+    - name: 安全和策略
+      href: security-policy.md
     - name: 监视
       href: monitor.md
     - name: 备份和恢复
@@ -95,6 +100,8 @@
       items:
         - name: 基础结构指南
           href: infrastructure-example.md
+        - name: vCPU 配额
+          href: quotas.md
 - name: 操作指南
   items:
     - name: 创建 VM
@@ -178,6 +185,8 @@
           href: create-vm-generalized-managed.md
         - name: 使用 Packer 生成映像
           href: build-image-with-packer.md
+        - name: 使用 Windows 客户端映像
+          href: client-images.md
         - name: 下载现有磁盘
           href: download-vhd.md
     - name: 可用性和规模
@@ -190,6 +199,8 @@
       items:
         - name: Chef
           href: chef-automation.md
+        - name: 从 Visual Studio 发布 Web 应用
+          href: publish-web-app-from-visual-studio.md
     - name: 运行应用程序
       items:
         - name: SQL Server
@@ -319,7 +330,7 @@
           href: reset-rdp.md
         - name: 在不使用 Azure 代理的情况下重置本地密码
           href: reset-local-password-without-agent.md
-        - name: 了解系统重启
+        - name: 了解系统重新启动
           href: understand-vm-reboot.md
         - name: 重置 NIC
           href: reset-network-interface.md
@@ -349,10 +360,10 @@
               href: troubleshoot-recovery-disks-portal.md
         - name: 使用嵌套虚拟化
           href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: 引用
+- name: 参考
   items:
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/vm'
+      href: 'https://docs.azure.cn/cli/azure/vm?view=azure-cli-latest'
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/azureps-cmdlets-docs'
     - name: .NET
@@ -372,6 +383,6 @@
     - name: 创作模板
       href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - name: 定价
-      href: 'https://www.azure.cn/pricing/details/virtual-machines'
+      href: 'https://www.azure.cn/pricing/details/virtual-machines/'
     - name: 常见问题
       href: faq.md

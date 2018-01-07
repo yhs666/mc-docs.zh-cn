@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 08/31/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 57f0ec3abac20edb3213d47cd4a1ab52cab3b87e
-ms.sourcegitcommit: 0a59a44bdc09a8b5801180996adfdf68131579c0
+ms.openlocfilehash: 1ff3cc658efc7a66150dd47f8f612c574eabbda2
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="networking-guidance-for-replicating-azure-virtual-machines"></a>有关复制 Azure 虚拟机的网络指南
 

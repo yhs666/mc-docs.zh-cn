@@ -3,8 +3,8 @@ title: "Resource Manager 模式下的 Azure CLI 命令 | Azure"
 description: "用于在 Resource Manager 部署模型中管理资源的 Azure 命令行界面 (CLI) 命令"
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
 documentationcenter: 
-author: dlepow
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
 origin.date: 04/18/2017
-ms.date: 04/17/2017
-ms.author: v-dazen
-ms.openlocfilehash: 326e051a6dc82ec11f152dbc109324532f65ab71
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.date: 01/08/2018
+ms.author: v-yeche
+ms.openlocfilehash: 0fcb030d7c5a96c028c722704d7b987240229799
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Resource Manager 模式下的 Azure CLI 命令
 本文提供常用于在 Azure Resource Manager 部署模型中创建和管理 Azure 资源的 Azure 命令行接口 (CLI) 命令的语法和选项。 通过在 Resource Manager (arm) 模式下运行 CLI 可以访问这些命令。 本参考内容并不完整，CLI 版本可能会显示稍微不同的命令或参数。 有关 Azure 资源和资源组的一般概述，请参阅 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)。  
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/09/2017
 >了解有关 [旧版和新版 Azure CLI](https://docs.azure.cn/zh-cn/cli/old-and-new-clis?view=azure-cli-latest)的详细信息。
 >
 
-若要开始，请先[安装 Azure CLI](../cli-install-nodejs.md) 并[连接到 Azure 订阅](../xplat-cli-connect.md)。
+若要开始，请先[安装 Azure CLI](../cli-install-nodejs.md) 并[连接到 Azure 订阅](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest)。
 
 要在 Resource Manager 模式下在命令行中查看当前的命令语法和选项，请键入 `azure help`；要显示某个命令的帮助，请键入 `azure help [command]`。 还可以在创建和管理特定 Azure 服务的说明文档中找到 CLI 示例。
 
@@ -305,7 +305,7 @@ ms.lasthandoff: 11/09/2017
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-metrics"></a>azure insights：与监视 Insights（事件、警报规则、指标）相关的命令
+## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>azure insights：与监视 Insights（事件、警报规则、自动缩放设置、度量值）相关的命令
 **检索订阅、correlationId、资源组、资源或资源提供程序的操作日志**
 
     insights logs list [options]
@@ -1262,7 +1262,7 @@ ms.lasthandoff: 11/09/2017
     data:    Allocation method:    Dynamic
     data:    Idle timeout:         4
     data:    Domain name label:    azureclitest
-    data:    FQDN:                 azureclitest.chinaeast.chinacloudapp.cn
+    data:    FQDN:                 azureclitest.chinaeast.cloudapp.chinacloudapi.cn
     info:    network public-ip create command OK
 
 参数选项：
@@ -1274,7 +1274,7 @@ ms.lasthandoff: 11/09/2017
     -n, --name <name>                            the name of the public ip
     -l, --location <location>                    the location
     -d, --domain-name-label <domain-name-label>  the domain name label.
-    This set DNS to <domain-name-label>.<location>.chinacloudapp.cn
+    This set DNS to <domain-name-label>.<location>.cloudapp.chinacloudapi.cn
     -a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
     -i, --idletimeout <idletimeout>              the idle timeout in minutes
     -f, --reverse-fqdn <reverse-fqdn>            the reverse fqdn
@@ -1302,7 +1302,7 @@ ms.lasthandoff: 11/09/2017
     data:    Idle timeout:         4
     data:    IP Address:           (static IP address)
     data:    Domain name label:    azureclitest
-    data:    FQDN:                 azureclitest.chinaeast.chinacloudapp.cn
+    data:    FQDN:                 azureclitest.chinaeast.cloudapp.chinacloudapi.cn
     info:    network public-ip set command OK
 
 参数选项：
@@ -1313,7 +1313,7 @@ ms.lasthandoff: 11/09/2017
     -g, --resource-group <resource-group>        the name of the resource group
     -n, --name <name>                            the name of the public ip
     -d, --domain-name-label [domain-name-label]  the domain name label.
-    This set DNS to <domain-name-label>.<location>.chinacloudapp.cn
+    This set DNS to <domain-name-label>.<location>.cloudapp.chinacloudapi.cn
     -a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
     -i, --idletimeout <idletimeout>              the idle timeout in minutes
     -f, --reverse-fqdn [reverse-fqdn]            the reverse fqdn
@@ -1335,10 +1335,10 @@ ms.lasthandoff: 11/09/2017
     + Getting the public ip addresses
     data:    Name             Location  Allocation  IP Address    Idle timeout  DNS Name
     data:    ---------------  --------  ----------  ------------  ------------  -------------------------------------------
-    data:    mypubip5         chinanorth    Dynamic                   4             "domain name".chinanorth.chinacloudapp.cn
-    data:    myPublicIP       chinaeast    Dynamic                   4             "domain name".chinaeast.chinacloudapp.cn
-    data:    mytestpublicip   chinaeast    Dynamic                   4             "domain name".chinaeast.chinacloudapp.cn
-    data:    mytestpublicip1  chinaeast   Static (Static IP address) 4             azureclitest.chinaeast.chinacloudapp.cn
+    data:    mypubip5         chinanorth    Dynamic                   4             "domain name".chinanorth.cloudapp.chinacloudapi.cn
+    data:    myPublicIP       chinaeast    Dynamic                   4             "domain name".chinaeast.cloudapp.chinacloudapi.cn
+    data:    mytestpublicip   chinaeast    Dynamic                   4             "domain name".chinaeast.cloudapp.chinacloudapi.cn
+    data:    mytestpublicip1  chinaeast   Static (Static IP address) 4             azureclitest.chinaeast.cloudapp.chinacloudapi.cn
 
 参数选项：
 
@@ -1366,7 +1366,7 @@ ms.lasthandoff: 11/09/2017
     data:    Idle timeout:         4
     data:    IP Address:           (static IP address)
     data:    Domain name label:    azureclitest
-    data:    FQDN:                 azureclitest.chinaeast.chinacloudapp.cn
+    data:    FQDN:                 azureclitest.chinaeast.cloudapp.chinacloudapi.cn
     info:    network public-ip show command OK
 
 参数选项：
@@ -1777,3 +1777,4 @@ ms.lasthandoff: 11/09/2017
     vm image list-offers [options] <location> <publisher>
     vm image list-skus [options] <location> <publisher> <offer>
     vm image list [options] <location> <publisher> [offer] [sku]
+<!-- Update_Description: update meta properties, wording update, update link  -->

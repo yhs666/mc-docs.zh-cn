@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 06/30/2017
-ms.date: 08/21/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 169789d7c4914f1ae591abd50e279ebaa20ddc38
-ms.sourcegitcommit: ece23dc9b4116d07cac4aaaa055290c660dc9dec
+ms.openlocfilehash: e4c39a7b62fdff164f341ce94cea7c896b142b59
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>在 Azure Service Fabric 中帮助保护服务的通信
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ ms.lasthandoff: 08/17/2017
 
     确保要用来帮助保护服务通信的证书安装在群集中的所有节点上。 有两种方式可用于提供侦听器设置和安全凭据：
 
-   1. 使用[配置包](service-fabric-application-model.md)提供：
+    1. 使用[配置包](service-fabric-application-and-service-manifests.md)提供：
 
        在 settings.xml 文件中添加 `TransportSettings` 节。
 

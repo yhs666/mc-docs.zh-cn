@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-origin.date: 10/06/2017
-ms.date: 11/20/2017
+origin.date: 11/23/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6036f519a082e08ca1ddf466274ae82fe29ec530
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 49e5045fd445a264c57ed1204d4cb936d2a6ee98
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="manage-a-configuration-server"></a>管理配置服务器
 
@@ -90,7 +90,7 @@ ProxyPassword="Password"
 ## <a name="modifying-proxy-settings-for-configuration-server"></a>修改配置服务器的代理设置
 1. 登录到配置服务器。
 2. 使用桌面上的快捷方式启动 cspsconfigtool.exe。
-3. 单击“保管库注册”  选项卡。
+3. 单击“保管库注册”选项卡。
 4. 从门户下载新的保管库注册文件，并将其作为输入提供给该工具。
 
   ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
@@ -120,7 +120,7 @@ ProxyPassword="Password"
 ## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>将配置服务器重新注册到同一个恢复服务保管库
   1. 登录到配置服务器。
   2. 使用桌面上的快捷方式启动 cspsconfigtool.exe。
-  3. 单击“保管库注册”选项卡。
+  3. 单击“保管库注册”  选项卡。
   4. 从门户下载新的注册文件，并将其作为输入提供给该工具。
         ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
   5. 提供代理服务器的详细信息，并单击“注册”按钮  。  

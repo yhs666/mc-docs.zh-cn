@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/15/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5bdca26a28229ec3563e0cf652b5c3cfcca484e3
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 471b81c2446a0c9060b843ea47c8bcda99eb62ab
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="create-container-images-for-service-fabric"></a>创建 Service Fabric 的容器映像
 
@@ -44,19 +44,19 @@ ms.lasthandoff: 11/10/2017
 ## <a name="prerequisites"></a>先决条件
 
 - 设置 Service Fabric 的 Linux 开发环境。 按照[此处](service-fabric-get-started-linux.md)的说明设置 Linux 环境。 
-- 本教程需要运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli)。 
+- 本教程需要运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 - 此外，还需要拥有可用的 Azure 订阅。 有关试用版的详细信息，请转到[此处](https://www.azure.cn/pricing/1rmb-trial/)。
 
-?view=azure-cli-latest## 获取应用程序代码
+## <a name="get-application-code"></a>获取应用程序代码
 
 本教程使用的示例应用程序是一个投票应用。 该应用程序由前端 Web 组件和后端 Redis 实例组成。 该组件打包到容器映像中。 
 
 使用 git 可将应用程序的副本下载到开发环境。
 
 ```bash
-git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
+git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
-cd service-fabric-dotnet-containers/Linux/container-tutorial/
+cd service-fabric-containers/Linux/container-tutorial/
 ```
 
 “container-tutorial”目录包含一个名为“azure-vote”的文件夹。 “azure-vote”文件夹包含前端源代码和 Dockerfile，可用于生成前端。 “container-tutoria”目录还包含“redis”目录，其中包含 Dockerfile，可用于生成 redis 映像。 这些目录包含本组教程所需的资产。 
@@ -94,7 +94,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>部署 Azure 容器注册表
 
-首先，运行 [az login](https://docs.azure.cn/zh-cn/cli/login) 命令，登录 Azure 帐户。 
+首先，运行 [az login](https://docs.azure.cn/zh-cn/cli/login?view=azure-cli-latest) 命令，登录 Azure 帐户。 
 
 接下来，使用 [az account](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#set) 命令来选择订阅，创建 Azure 容器注册表。 
 
@@ -236,4 +236,4 @@ azure-vote-front
 > [!div class="nextstepaction"]
 > [打包容器并将其部署为 Service Fabric 应用程序](service-fabric-tutorial-package-containers.md)
 
-<!--Update_Description: new articles on service fabric container images-->
+<!--Update_Description: update link, wording update -->

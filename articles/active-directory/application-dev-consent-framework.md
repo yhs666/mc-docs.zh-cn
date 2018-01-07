@@ -14,20 +14,21 @@ ms.topic: article
 origin.date: 07/11/2017
 ms.date: 07/28/2017
 ms.author: v-junlch
-ms.openlocfilehash: bbe9b492bce18a6eed0b5575c3f5b34836feebe6
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 328dae2a4ba4baeb8808744e51c2e7bdad67cd57
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="how-application-consent-works"></a>应用程序许可工作原理
 
-本文旨在帮助你详细了解 Azure AD 许可框架工作原理，让你更有效地开发应用程序。
+本文旨在帮助读者深入了解 Azure AD 同意框架的工作原理以便更有效地开发应用程序。
 
 ## <a name="recommended-documents"></a>建议的文档
 
-- 大致了解[资源所有者如何通过许可控制应用程序对资源的访问](/active-directory/develop/active-directory-dev-glossary#consent)。
-- 如需更深入的了解，请参阅[多租户应用程序如何使用许可框架](/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)来实现“用户”许可和“管理员”许可，为更高级的多层应用程序模式提供支持。
+- 概括性了解：[允许资源所有者如何通过同意操作管理应用程序对资源的访问权限](/active-directory/develop/active-directory-dev-glossary#consent)。
+- 获取有关 [Azure AD 同意框架如何实现同意](/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework)的分步概述。
+- 有关详细信息，请参阅[多租户应用程序如何使用同意框架](/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)实现“用户”和“管理员”同意（支持更多高级多层应用程序模式）。
 - 如需更深入的了解，请参阅[如何在授权代码授予流程中在 OAuth 2.0 协议层提供许可支持](/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)。
 
 ## <a name="next-steps"></a>后续步骤

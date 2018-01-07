@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: f0373d495cc2aecd75ccb7fbfb14162ea2750f8e
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: d2a48ed9f5bb524628049a1bc0d7744d2dd331fc
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>与 Azure AD 联合的多域支持
 以下文档提供有关与 Office 365 或 Azure AD 域联合时如何使用多个顶级域和子域的指导。
@@ -38,9 +38,7 @@ ms.lasthandoff: 08/04/2017
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
 
-当我们想要添加多个顶级域时，问题便油然而生。  例如，假设已设置 Azure AD 和本地环境之间的联合。  在本文中我使用 bmcontoso.com。  现在我已添加第二个顶级域 bmfabrikam.com。
-
-![域](./media/active-directory-multiple-domains/domains.png)
+当我们想要添加多个顶级域时，问题便油然而生。  例如，假设已设置 Azure AD 和本地环境之间的联合。  在本文中我使用 bmcontoso.com。现在我已添加第二个顶级域 bmfabrikam.com。
 
 当我们尝试将 bmfabrikam.com 域转换为联合时，会收到错误。  此错误的原因在于，Azure AD 有一项限制，此限制不允许多个域的 IssuerUri 属性拥有相同的值。  
 
@@ -71,9 +69,8 @@ ms.lasthandoff: 08/04/2017
 
 以下是实现此逻辑的自定义声明规则：
 
-```
-c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
-```
+    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+
 
 > [!IMPORTANT]
 > 若要在尝试添加新域或转换已添加的域时使用 -SupportMultipleDomain 开关，需要先设置联合信任才能以本机方式支持。  
@@ -136,16 +133,14 @@ c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://sche
 ## <a name="support-for-sub-domains"></a>子域的支持
 添加子域时，因为 Azure AD 处理域的方式，导致子域继承父项的设置。  这表示 IssuerUri 需要与父项匹配。
 
-假设我有 bmcontoso.com，后来再添加 corp.bmcontoso.com。  这意味着 corp.bmcontoso.com 中的用户 IssuerUri 必须为 http://bmcontoso.com/adfs/services/trust。  但是，为 Azure AD 实施的上述标准规则将包含颁发者的令牌生成为 http://corp.bmcontoso.com/adfs/services/trust。 这与域的所需值不匹配，身份验证将失败。
+假设我有 bmcontoso.com，后来再添加 corp.bmcontoso.com。这意味着 corp.bmcontoso.com 中的用户 IssuerUri 必须为 http://bmcontoso.com/adfs/services/trust。  但是，为 Azure AD 实施的上述标准规则将包含颁发者的令牌生成为 http://corp.bmcontoso.com/adfs/services/trust。 这与域的所需值不匹配，身份验证将失败。
 
 ### <a name="how-to-enable-support-for-sub-domains"></a>如何启用子域的支持
 若要解决此问题，需要更新 Microsoft Online 的 AD FS 信赖方信任。  为此，必须配置自定义声明规则，使其在构造自定义 Issuer 值时能够从用户的 UPN 后缀中删除任何子域。 
 
 以下声明将执行此操作：
 
-```
-c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
-```
+    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
 >[!NOTE]
 正则表达式中的最后一个数字设置根域中存在的父域数。 我这里是 bmcontoso.com，因此两个父域是必需的。 如果保留三个父域（即：corp.bmcontoso.com），则该数字为 3。 最终可以指示一个范围，并且始终会以匹配方式来匹配最大域数。 “{2,3}”将匹配两到三个域（即：bmfabrikam.com 和 corp.bmcontoso.com）。
@@ -156,17 +151,15 @@ c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://sche
 2. 右键单击 Microsoft Online RP 信任，并选择“编辑声明规则”
 3. 选择第三个声明规则并替换![编辑声明](./media/active-directory-multiple-domains/sub1.png)
 4. 替换当前声明：
-
-    ```
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
-    ```
-
+   
+        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+   
        with
-
+   
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
     ![替换声明](./media/active-directory-multiple-domains/sub2.png)
 
 5. 单击“确定”。  单击“应用”。  单击“确定”。  关闭“AD FS 管理”。
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

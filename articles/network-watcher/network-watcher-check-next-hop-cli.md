@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 31e20c2579dddb9a6789b3ba1364d99da8b14fd6
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 0576989ade09dce636730ff47a1c072d858453c8
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>使用 Azure CLI 2.0 通过 Azure 网络观察程序中的“下一跃点”功能找到下一跃点类型
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/14/2017
 
 若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在此方案中，将使用 Azure CLI 来查找下一跃点类型和 IP 地址。
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/14/2017
 
 为了获取下一跃点，我们将调用 `az network watcher show-next-hop` cmdlet。 我们向该 cmdlet 传递网络观察程序资源组 NetworkWatcher、虚拟机 ID、源 IP 地址和目标 IP 地址。 在此示例中，目标 IP 地址属于另一个虚拟网络中的 VM。 在两个虚拟网络之间有一个虚拟网络网关。
 
-如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录 Azure 帐户。 然后运行以下命令：
+如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录 Azure 帐户。 然后运行以下命令：
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -60,7 +60,7 @@ az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNa
 ```
 
 > [!NOTE]
-如果 VM 具有多个 NIC 并且在任何 NIC 上启用了 IP 转发，则必须指定 NIC 参数 (-i nic-id)。 否则其则是可选项。
+如果 VM 具有多个 NIC 并且在任何 NIC 上启用了 IP 转发，则必须指定 NIC 参数 (-i nic-id)。 否则，该参数是可选的。
 
 ## <a name="review-results"></a>查看结果
 
@@ -90,4 +90,4 @@ az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNa
 
 通过访问[使用网络观察程序进行 NSG 审核](network-watcher-nsg-auditing-powershell.md)，了解如何以编程方式查看网络安全组设置
 
-<!--Update_Description: new articles on network watcher check next hop-->
+<!--Update_Description: update meta properties -->

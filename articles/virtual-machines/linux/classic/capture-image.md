@@ -14,24 +14,24 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: d1409a9521dcd6093c79be50b1e3064edf2b37c0
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: d2926e2ff396458d3e98d75cf18fa53a1b53532e
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>如何捕获经典 Linux 虚拟机以用作映像
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何[使用 Resource Manager 模型执行这些步骤](../capture-image.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-本文演示如何捕获运行 Linux 的经典 Azure 虚拟机 (VM) 作为创建其他虚拟机的映像。 此映像包括 OS 磁盘和附加到 VM 的数据磁盘。 它不包括网络配置，因此在使用此映像创建其他 VM 时需要进行网络配置。
+本文将演示如何捕获运行 Linux 的经典 Azure 虚拟机 (VM) 作为创建其他虚拟机的映像。 此映像包括操作系统磁盘和附加到 VM 的数据磁盘。 它不包括网络配置，因此在使用此映像创建其他 VM 时需要进行网络配置。
 
 Azure 在“映像”下存储映像 ，以及任何已上传的映像。 有关映像的详细信息，请参阅 [关于 Azure 中的虚拟机映像][About Virtual Machine Images in Azure]。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 这些步骤假定已使用经典部署模型创建了 Azure VM 并配置了操作系统，包括附加任何数据磁盘。 如果需要创建 VM，请阅读 [如何创建 Linux 虚拟机][How to Create a Linux Virtual Machine]。
 
 ## <a name="capture-the-virtual-machine"></a>捕获虚拟机
@@ -60,7 +60,7 @@ Azure 在“映像”下存储映像 ，以及任何已上传的映像。 有关
    > [!NOTE]
    > 剩余步骤假定已在客户端计算机上[安装 Azure CLI](../../../cli-install-nodejs.md)。 以下所有步骤也可在 [Azure 门户](http://portal.azure.cn)中执行。
 
-5. 从客户端计算机中打开 Azure CLI 并登录到 Azure 订阅。 有关详细信息，请阅读[从 Azure CLI 连接到 Azure 订阅](../../../xplat-cli-connect.md)。
+5. 从客户端计算机中打开 Azure CLI 并登录到 Azure 订阅。 有关详细信息，请阅读[从 Azure CLI 连接到 Azure 订阅](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest)。
 
    > [!NOTE]
    > 登录到 Azure 门户。
@@ -114,4 +114,4 @@ Azure 在“映像”下存储映像 ，以及任何已上传的映像。 有关
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk.md
 [How to Create a Linux Virtual Machine]:create-custom.md
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

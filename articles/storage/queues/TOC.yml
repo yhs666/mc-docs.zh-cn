@@ -52,6 +52,8 @@
           href: ../common/storage-configure-connection-string.md?toc=%2fstorage%2fqueues%2ftoc.json
         - name: 使用存储模拟器
           href: ../common/storage-use-emulator.md?toc=%2fstorage%2fqueues%2ftoc.json
+        - name: 使用 Azure 存储 REST API
+          href: ../common/storage-rest-api-auth.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: 管理
       items:
         - name: PowerShell
@@ -92,7 +94,7 @@
               href: ../common/storage-enable-and-view-metrics.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: 示例
       href: 'https://github.com/Azure-Samples/?service=storage&term=queue'
-- name: 引用
+- name: 参考
   items:
     - name: PowerShell
       href: 'https://docs.microsoft.com/powershell/module/azure.storage'

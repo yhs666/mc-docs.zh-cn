@@ -17,10 +17,10 @@ origin.date: 06/28/2017
 ms.date: 10/23/2017
 ms.author: v-johch
 ms.openlocfilehash: cf1c125e9e28a517d325f3cd95cf9c058aff1250
-ms.sourcegitcommit: 10a649bfdf30765955ed964f7b5e05205bb9670a
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="create-a-storage-account-using-the-azure-cli"></a>使用 Azure CLI 创建存储帐户
 

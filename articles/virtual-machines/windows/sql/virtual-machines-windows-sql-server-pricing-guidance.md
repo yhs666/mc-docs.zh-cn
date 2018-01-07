@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 10/17/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: a796e0f07643980c8d77acfe7fbe980bb2e52764
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: d331e75639b2f2c32aa07509b57bd40157295406
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定价指南
 
@@ -50,14 +50,14 @@ ms.lasthandoff: 12/15/2017
 | SQL Server 版本 | 工作负载 |
 |-----|-----|
 | Web | 小型网站 |
-| 标准 | 中小型工作负荷 |
+| Standard | 中小型工作负荷 |
 | Enterprise | 大型或任务关键型工作负荷|
 
 可按一种方法为这些版本的 SQL Server 许可付费：按使用情况付费。
 
 ### <a name="pay-per-usage"></a>按使用情况付费
 
-“按使用情况支付 SQL Server 许可证费用”意味着 Azure VM 的每分钟运行成本包括 SQL Server 许可证的费用。 有关不同 SQL Server 版本（Web、Standard 和 Enterprise）的定价，可参阅 [Azure VM 定价页](https://www.azure.cn/pricing/details/virtual-machines/sql-server-standard)。 所有版本的 SQL Server（2012 SP3 到 2017）的费用相同。 通常与 SQL Server 许可一样，每分钟许可费用取决于 VM 内核数。
+“按使用情况支付 SQL Server 许可证费用”意味着 Azure VM 的每分钟运行成本包括 SQL Server 许可证的费用。 有关不同 SQL Server 版本（Web、Standard 和 Enterprise）的定价，可参阅 [Azure VM 定价页](https://www.azure.cn/pricing/details/virtual-machines/)。 所有版本的 SQL Server（2012 SP3 到 2017）的费用相同。 通常与 SQL Server 许可一样，每分钟许可费用取决于 VM 内核数。
 
 建议在以下情况采用“按使用情况支付 SQL Server 许可费用”：
 
@@ -97,9 +97,9 @@ SQL Server 的许可成本直接与核心数相关。 请选择与 CPU、内存�
 | **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51,200 IOPS 或 768 MB/秒 | 低 75% | 低 57% |
 
 > [!IMPORTANT]
-> 这是一个时间点示例。 有关最新的规范，请参阅适用于 [Windows](https://www.azure.cn/pricing/details/virtual-machines/windows/) 和 [Linux](https://www.azure.cn/pricing/details/virtual-machines/linux/) 的计算机大小文章和 Azure 定价页。
+> 这是一个时间点示例。 有关最新的规范，请参阅适用于 [Windows](https://www.azure.cn/pricing/details/virtual-machines/) 和 [Linux](https://www.azure.cn/pricing/details/virtual-machines/) 的计算机大小文章和 Azure 定价页。
 
-在前面的示例中可以看到，除 vCPU 以外，**Standard_DS14v2** 和 **Standard_DS14-4v2** 的规范在其他方面相同。 **Standard_DS14-4v2** 计算机大小末尾的后缀 **-4v2** 表示活动的 vCPU 数目。 由于 SQL Server 许可成本与核心数密切相关，因此，在不需要额外的 vCPU 的情况下，此计算机大小可以大幅降低 VM 的成本。 这只是其中一个示例，还有许多计算机大小的 vCPU 数目受到限制，具体数字以此后缀模式标识。 有关详细信息，请参阅博客文章 [Announcing new Azure VM sizes for more cost-effective database work](https://azure.microsoft.com/blogannouncing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/)（宣布推出新的 Azure VM 大小来提高数据库工作的性价比）。
+在前面的示例中可以看到，除 vCPU 以外，**Standard_DS14v2** 和 **Standard_DS14-4v2** 的规范在其他方面相同。 **Standard_DS14-4v2** 计算机大小末尾的后缀 **-4v2** 表示活动的 vCPU 数目。 由于 SQL Server 许可成本与核心数密切相关，因此，在不需要额外的 vCPU 的情况下，此计算机大小可以大幅降低 VM 的成本。 这只是其中一个示例，还有许多计算机大小的 vCPU 数目受到限制，具体数字以此后缀模式标识。 有关详细信息，请参阅博客文章 [Announcing new Azure VM sizes for more cost-effective database work](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/)（宣布推出新的 Azure VM 大小来提高数据库工作的性价比）。
 
 ### <a name="shut-down-your-vm-when-possible"></a>在可能的情况下关闭 VM
 

@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/14/2017
-ms.date: 10/30/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 60428033db2741659f9bcffd54e60ff8d3e2397f
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: e9da591b04655c994e746fd871cb3d8d430635a7
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="using-the-azure-cli-on-windows"></a>在 Windows 上使用 Azure CLI
 
@@ -61,7 +61,7 @@ docker run -it azuresdk/azure-cli-python:latest bash
 
 [用于 Azure 虚拟机的 CLI 示例](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[用于 Azure Web 应用的 CLI 示例](../../app-service-web/app-service-cli-samples.md)
+[用于 Azure Web 应用的 CLI 示例](../../app-service/app-service-cli-samples.md)
 
 [用于 Azure SQL 的 CLI 示例](../../sql-database/sql-database-cli-samples.md)
 

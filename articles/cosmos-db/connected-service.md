@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 09/19/2017
-ms.date: 10/23/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 887f4a12828f293a57263bd5463e2504ff3202c1
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 98b22482a4e3489362b05ddeb8d90ee3436b9e7c
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB：Visual Studio 连接服务（预览）
 
@@ -34,7 +34,7 @@ Visual Studio 连接服务可让开发人员轻松连接其 Azure Cosmos DB 帐�
 确保具有以下内容：
 
 * 有效的 Azure 帐户。 如果没有，可以注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
-* 一个 Azure Cosmos DB 帐户。 如果没有帐户，请遵循[创建 Azure Cosmos DB 帐户](create-documentdb-dotnet.md)中的步骤在 Azure 门户中创建一个帐户，或参阅[在连接服务工具中创建 Azure Cosmos DB 帐户](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool)。 
+* 一个 Azure Cosmos DB 帐户。 如果没有帐户，请遵循[创建 Azure Cosmos DB 帐户](create-sql-api-dotnet.md)中的步骤在 Azure 门户中创建一个帐户，或参阅[在连接服务工具中创建 Azure Cosmos DB 帐户](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool)。 
 * 如果想要出于开发目的使用本地环境，可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)。 该环境可以模拟 Azure Cosmos DB 服务。
 * [Visual Studio](http://www.visualstudio.com/)。
 * 最新的 Azure Cosmos DB 连接服务软件。 可按以下屏幕截图所示，从 Visual Studio Marketplace 下载 Azure Cosmos DB 连接服务。 在计算机中打开 **Visual Studio**。 在“工具”菜单中选择“扩展和更新...”，再选择“联机” / “Visual Studio Marketplace”。 输入 **cosmosdb** 搜索该软件。
@@ -120,10 +120,10 @@ Visual Studio 连接服务可让开发人员轻松连接其 Azure Cosmos DB 帐�
 
 使用 Azure Cosmos DB 帐户启动并运行连接服务后，请继续阅读以下教程之一，以开始开发解决方案：
 
-* [在 .NET 中使用 DocumentDB API 进行开发](tutorial-develop-documentdb-dotnet.md)。
-* [Azure Cosmos DB：DocumentDB API 入门教程](documentdb-get-started.md)。
+* [在 .NET 中使用 SQL API 进行开发](tutorial-develop-sql-api-dotnet.md)。
+* [Azure Cosmos DB：SQL API 入门教程](sql-api-get-started.md)。
 * 希望使用 Azure Cosmos DB 执行规模和性能测试？ 请参阅[使用 Azure Cosmos DB 执行性能和缩放测试](performance-testing.md)。
 * 了解如何[监视 Azure Cosmos DB 帐户](monitor-accounts.md)。
 
-<!--Update_Description: new articles on cosmosdb connected service-->
+<!--Update_Description: update link -->
 

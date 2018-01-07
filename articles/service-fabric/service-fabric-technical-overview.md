@@ -12,17 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/30/2017
-ms.date: 11/13/2017
+origin.date: 12/18/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9042fadcaebf4513cb798a9190947ad73205bd60
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: cb1bd139d1524a617aacae86354441473f6104e5
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric 术语概述
-Azure Service Fabric 是一种分布式系统平台，适用于打包、部署和管理可缩放的可靠微服务。 本文详细介绍 Service Fabric 所使用的术语，帮助了解文档中使用的术语。
+Service Fabric 是分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务。 本文详细介绍 Service Fabric 所使用的术语，帮助了解文档中使用的术语。
 <!-- Not Available  Microsoft Virtual Academy videos -->
 
 ## <a name="infrastructure-concepts"></a>基础结构概念
@@ -107,4 +107,4 @@ Azure Service Fabric 是一种分布式系统平台，适用于打包、部署�
 * [为什么要使用微服务方法构建应用程序？](service-fabric-overview-microservices.md)
 * [应用程序方案](service-fabric-application-scenarios.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

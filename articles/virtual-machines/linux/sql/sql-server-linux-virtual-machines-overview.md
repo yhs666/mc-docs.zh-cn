@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
 origin.date: 10/02/2017
-ms.date: 12/01/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: dbcac64b71237f24b8cab8c7815c6ea362bfcd26
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.openlocfilehash: 6a8fd28dad9cbe397b38b3a7c3d9736b99187aa1
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure 虚拟机 (Linux) 上的 SQL Server 概述
 
@@ -38,6 +38,7 @@ ms.lasthandoff: 11/10/2017
 
 可用使用“在 Azure VM 中运行 SQL Server”选项在 Azure 中存储关系数据。 也可使用 Azure SQL 数据库服务。 若要详细了解如何在虚拟机上的 SQL Server 与 Azure SQL 数据库之间进行选择，请参阅[选择云 SQL Server 选项：Azure SQL (PaaS) 数据库或 Azure VM 上的 SQL Server (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)。
 
+<a id="create"></a>
 ## <a name="create-a-new-sql-vm"></a>创建新的 SQL VM
 
 在以下教程中查找创建新 SQL VM 的分步指南：[在 Azure 中预配 Linux SQL Server VM](provision-sql-server-linux-virtual-machine.md)。
@@ -45,7 +46,7 @@ ms.lasthandoff: 11/10/2017
 下表提供了虚拟机库中提供的最新 SQL Server 映像的矩阵。 单击任何链接，即可开始创建具有指定版本和操作系统的新 SQL VM。
 
 > [!TIP]
-> 若要了解这些映像的 VM 和 SQL 定价，请参阅 [Linux SQL Server VM 定价页](https://www.azure.cn/pricing/details/virtual-machines/linux/)。
+> 若要了解这些映像的 VM 和 SQL 定价，请参阅 [Linux SQL Server VM 定价页](https://www.azure.cn/pricing/details/virtual-machines/)。
 
 | 版本 | 操作系统 | 版本 |
 | --- | --- | --- |
@@ -70,4 +71,4 @@ ms.lasthandoff: 11/10/2017
 
 若要详细了解如何在 Linux 上配置和使用 SQL Server，请参阅 [Linux 上的 SQL Server 概述](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)。
 
-<!--Update_Description: new articles on SQL server linux VM overview-->
+<!--Update_Description: update meta properties, wording update -->

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/09/2017
-ms.date: 10/30/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: c12c20dd417aca32f2c4302cea18d0f1ec473534
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 2ba2cc10f2be42e5600175a4e1aca557a8192e10
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中创建通用 VM 的托管映像
 
@@ -44,7 +44,7 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 5. 单击 **“确定”**。
 
     ![启动 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. 在 Sysprep 完成时，它会关闭虚拟机。 请勿重启 VM。
+6. 在 Sysprep 完成时，它会关闭虚拟机。 不要重新启动 VM。
 
 ## <a name="create-a-managed-image-in-the-portal"></a>在门户中创建托管映像 
 
@@ -106,7 +106,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
     ``` 
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>使用 PowerShell 从托管磁盘创建映像
 
-如果你只想创建 OS 磁盘的映像，还可通过将托管磁盘 ID 指定为 OS 磁盘来创建映像。
+如果只想创建 OS 磁盘的映像，还可通过将托管磁盘 ID 指定为 OS 磁盘来创建映像。
 
 1. 创建一些变量。 
 
@@ -178,7 +178,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 从存储帐户中的通用 OS VHD 创建托管映像。 需要存储帐户中 VHD 的 URI，其格式为 https://*mystorageaccount*.blob.core.chinacloudapi.cn/*container*/*vhd_filename.vhd*。 在本示例中，使用的 VHD 位于名为 vhdcontainer 的容器中的 mystorageaccount 中，且 VHD 文件名为 osdisk.vhd。
 
-1.  首先，设置公共参数：
+1.  首先，设置通用参数：
 
     ```azurepowershell-interactive
     $vmName = "myVM"
@@ -208,4 +208,4 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 ## <a name="next-steps"></a>后续步骤
 - 现在，可以[从通用托管映像创建 VM](create-vm-generalized-managed.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-<!--Update_Description: wording update, add new section of  "Create image from a VHD in a storage account"-->
+<!--Update_Description: wording update -->

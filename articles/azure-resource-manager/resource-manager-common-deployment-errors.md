@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/08/2017
-ms.date: 11/27/2017
+origin.date: 11/29/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: b2e470702c371df5e7a33116d174bd209d469f4f
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 039b2528d5e6a952fbd7e29dadb5ef2ad582e906
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>排查使用 Azure Resource Manager 时的常见 Azure 部署错误
 
@@ -32,9 +32,10 @@ ms.lasthandoff: 11/24/2017
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | 遵循存储帐户的命名限制。 | [解析存储帐户名称](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | 查看可用的存储帐户属性。 | [storageAccounts](/templates/microsoft.storage/storageaccounts) |
+| AllocationFailed | 群集或区域没有可用的资源或无法支持所请求的 VM 大小。 稍后重试请求，或者请求不同的 VM 大小。 | [Linux 预配和分配问题](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)和 [Windows 预配和分配问题](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | 等待并发操作完成。 | |
 | AuthorizationFailed | 帐户或服务主体没有完成部署所需的足够访问权限。 请检查帐户所属的角色，及其与部署范围相对应的访问权限。 | [Azure 基于角色的访问控制](../active-directory/role-based-access-control-configure.md) |
-| BadRequest | 所发送的部署值与资源管理器所预期的不匹配。 请检查内部状态消息，获取故障排除帮助。 | [模板参考](https://docs.microsoft.com/en-us/azure/templates/)和[支持的位置](resource-manager-template-location.md) |
+| BadRequest | 所发送的部署值与资源管理器所预期的不匹配。 请检查内部状态消息，获取故障排除帮助。 | [模板参考](https://docs.microsoft.com/en-us/azure/templates/)和[支持的位置](resource-manager-templates-resources.md#location) |
 | 冲突 | 资源的当前状态不允许你所请求的操作。 例如，仅当创建 VM 或该 VM 已取消分配时，才允许磁盘重设大小。 | |
 | DeploymentActive | 等待目标为此资源组的并发部署完成。 | |
 | DnsRecordInUse | DNS 记录名称必须唯一。 提供其他名称，或者修改现有的记录。 | |
@@ -51,7 +52,7 @@ ms.lasthandoff: 11/24/2017
 | InvalidTemplate | 检查模板语法是否存在错误。 | [解决模板无效的问题](resource-manager-invalid-template-errors.md) |
 | LinkedAuthorizationFailed | 检查帐户与要部署到的资源组是否属于同一租户。 | |
 | LinkedInvalidPropertyId | 无法正确解析资源的资源 ID。 请检查是否提供了资源 ID 的所有必需值，包括订阅 ID、资源组名称、资源类型、父资源名称（如果需要）、资源名称。 | |
-| LocationRequired | 提供资源的位置。 | [设置位置](resource-manager-template-location.md) |
+| LocationRequired | 提供资源的位置。 | [设置位置](resource-manager-templates-resources.md#location) |
 | MissingRegistrationForLocation | 检查资源提供程序注册状态，以及支持的位置。 | [解决注册问题](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | 向资源提供程序注册订阅。 | [解决注册问题](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | 检查资源提供程序注册状态。 | [解决注册问题](resource-manager-register-provider-errors.md) |

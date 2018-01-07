@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/22/2017
-ms.date: 10/02/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 82d277e711e51adcd97e18dd048198fcab248da6
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 8176ce16fe36aa1dbf7669e613f12a9599ed256a
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>为 Service Fabric 群集打开端口
 
@@ -107,3 +107,4 @@ $lb | Set-AzureRmLoadBalancer
 ## <a name="next-steps"></a>后续步骤
 
 详细了解 [Service Fabric 中的网络](service-fabric-patterns-networking.md)。
+<!-- Update_Description: update meta properties, wording update -->

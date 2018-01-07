@@ -3,8 +3,8 @@ title: "在 Azure 中管理 Linux VM 的可用性 | Azure"
 description: "了解如何使用多个虚拟机来确保 Linux 应用程序在 Azure 中的高可用性"
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 891c852a-84c0-4940-a61e-ada6e185bf37
@@ -13,21 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 03/21/2017
-ms.date: 05/31/2017
-ms.author: v-dazen
+origin.date: 12/06/2017
+ms.date: 01/08/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ed90d1134aff7076a85644cc5b1a8d194baf843
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 557ddbb19ae35bc972901a0507a4c4d104788c9a
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>管理 Linux 虚拟机的可用性
 
 了解如何设置和管理多个虚拟机，以确保 Linux 应用程序在 Azure 中的高可用性。 也可以[管理 Windows 虚拟机的可用性](../windows/manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 有关在 Resource Manager 部署模型中使用 CLI 创建可用性集的说明，请参阅 [azure availset：用于管理可用性集的命令](../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets)。
 
@@ -35,3 +33,7 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="next-steps"></a>后续步骤
 若要了解对虚拟机进行负载均衡的详细信息，请参阅[对虚拟机进行负载均衡](../virtual-machines-linux-load-balance.md)。
+
+<!--The parent file of includes file of virtual-machines-common-manage-availability.md-->
+<!--ms.date:01/08/2018-->
+<!--Update_Description: update meta properties -->

@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 06/29/2017
-ms.date: 09/11/2017
+origin.date: 11/23/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0a0fa889f2bc2c07b83998ac46676c7222ec0cd5
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: b80b986ae0e4a258f9ba357ab84448f81e103d12
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>设置源环境（物理服务器到 Azure）
 > [!div class="op_single_selector"]
 > * [VMware 到 Azure](./site-recovery-set-up-vmware-to-azure.md)
 > * [物理机到 Azure](./site-recovery-set-up-physical-to-azure.md)
 
-本文介绍如何设置本地环境，以便开始将运行 Windows 或 Linux 的物理服务器复制到 Azure 中。
+本文介绍如何设置本地环境，以便开始将运行 Windows 或 Linux 的物理服务器复制到 Azure。
 
 ## <a name="prerequisites"></a>先决条件
 
 本文假设已有：
 1. [Azure 门户](http://portal.azure.cn "Azure 门户")中的恢复服务保管库。
-3. 要在其上安装配置服务器的物理计算机。
+3. 安装配置服务器的物理计算机。
 
 ### <a name="configuration-server-minimum-requirements"></a>配置服务器的最低要求
 下表列出了配置服务器的最低硬件、软件和网络要求。
@@ -81,4 +81,5 @@ ms.lasthandoff: 09/08/2017
 
 下一步涉及在 Azure 中[设置目标环境](./site-recovery-prepare-target-physical-to-azure.md)。
 
-<!--Update_Description: new articles on setup physical to azure in site recovery -->
+<!--Not Available the parent file of includes file of site-recovery-configuration-and-scaleout-process-server-requirements.md-->
+<!--ms.date:01/01/2018-->

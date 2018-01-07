@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7b8a14e416164f7865e7dcf011aa42df1eb58f8d
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: cfb472f45e0510657b1c13c533b66cf6dfb21764
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>捕获使用经典部署模型创建的 Azure Windows 虚拟机的映像。
 > [!IMPORTANT]
@@ -31,19 +31,19 @@ ms.lasthandoff: 12/15/2017
 
 Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure 服务时列出的**计算**服务。 上传的任何映像都会存储在同一位置。 有关映像的详细信息，请参阅[关于虚拟机的映像](about-images.md?toc=%2fvirtual-machines%2fWindows%2fclassic%2ftoc.json)。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 这些步骤假定已创建了 Azure 虚拟机并配置了操作系统，包括附加任何数据磁盘。 如果尚未执行此操作，请参阅以下文章以了解如何创建和准备虚拟机：
 
 * [从映像创建虚拟机](createportal.md)
 * [如何将数据磁盘附加到虚拟机](attach-disk.md)
-* 确保 Sysprep 支持服务器角色。 有关详细信息，请参阅 [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)（Sysprep 对服务器角色的支持）。
+* 确保 Sysprep 支持服务器角色。 有关详细信息，请参阅 [Sysprep 对服务器角色的支持](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)。
 
 > [!WARNING]
 > 此过程会在捕获原始虚拟机后将其删除。
 >
 >
 
-捕获 Azure 虚拟机映像之前，建议备份目标虚拟机。 可以使用 Azure 备份来备份 Azure 虚拟机。 有关详细信息，请参阅[备份 Azure 虚拟机](../../../backup/backup-azure-vms.md)。 认证合作伙伴提供了其他解决方案。 若要了解当前提供的内容，请搜索 Azure 应用商店。
+捕获 Azure 虚拟机映像之前，建议备份目标虚拟机。 可以使用 Azure 备份来备份 Azure 虚拟机。 有关详细信息，请参阅[备份 Azure 虚拟机](../../../backup/backup-azure-arm-vms.md)。 认证合作伙伴提供了其他解决方案。 若要了解当前提供的内容，请搜索 Azure 应用商店。
 
 ## <a name="capture-the-virtual-machine"></a>捕获虚拟机
 1. 在 [Azure 门户](http://portal.azure.cn)中，连接到虚拟机。 有关说明，请参阅[如何登录到运行 Windows Server 的虚拟机][How to sign in to a virtual machine running Windows Server]。
@@ -86,4 +86,4 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!-- Update_Description: update meta properties, add classic portal migration notice. -->
+<!-- Update_Description: update meta properties, update link -->

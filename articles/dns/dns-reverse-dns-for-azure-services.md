@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 origin.date: 05/29/2017
 ms.date: 12/18/2017
 ms.author: v-nany
-ms.openlocfilehash: 970cd216d2bcb20e3e8458f23dde156c7e817be4
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: 2a81855e14ff5d4cc6e61f39cd3228daa2ae3b23
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>为 Azure 中托管的服务配置反向 DNS
 
@@ -29,9 +29,8 @@ Azure 中的服务使用 Azure 分配的、Microsoft 所有的 IP 地址。 必�
 
 阅读本文之前，应已熟悉此[反向 DNS 和 Azure 支持概述](dns-reverse-dns-overview.md)。
 
-Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。
-* 在 Resource Manager 部署模型中，通过 PublicIpAddress 资源公开计算资源（如虚拟机、虚拟机规模集或 Service Fabric 群集）。 使用 PublicIpAddress 的“ReverseFqdn”属性配置反向 DNS 查找。
-* 在经典部署模型中，使用云服务公开计算资源。 使用云服务的“ReverseDnsFqdn”属性配置反向 DNS 查找。
+在 Azure DNS 中，通过 PublicIpAddress 资源公开计算资源（如虚拟机、虚拟机规模集或 Service Fabric 群集）。 使用 PublicIpAddress 的“ReverseFqdn”属性配置反向 DNS 查找。
+
 
 Azure 应用服务目前不支持反向 DNS。
 
@@ -223,7 +222,7 @@ Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse 
 
 ### <a name="are-default-reverse-dns-records-created-for-my-azure-services"></a>是否为 Azure 服务创建默认的反向 DNS 记录？
 
-不能。 反向 DNS 是可选功能。 如果选择不配置反向 DNS，则不会创建任何默认的反向 DNS 记录。
+否。 反向 DNS 是可选功能。 如果选择不配置反向 DNS，则不会创建任何默认的反向 DNS 记录。
 
 ### <a name="what-is-the-format-for-the-fully-qualified-domain-name-fqdn"></a>完全限定的域名 (FQDN) 的格式是什么？
 
@@ -235,19 +234,19 @@ FQDN 以正向顺序指定，且必须以点号结尾（例如“app1.contoso.co
 
 ### <a name="can-i-configure-reverse-dns-for-azure-app-service"></a>是否可以为 Azure 应用服务配置反向 DNS？
 
-不能。 Azure 应用服务不支持反向 DNS。
+否。 Azure 应用服务不支持反向 DNS。
 
 ### <a name="can-i-configure-multiple-reverse-dns-records-for-my-azure-service"></a>是否可以为 Azure 服务配置多个反向 DNS 记录？
 
-不能。 Azure 仅支持为每个 Azure 云服务或 PublicIpAddress 配置一个反向 DNS 记录。
+否。 Azure 仅支持为每个 Azure 云服务或 PublicIpAddress 配置一个反向 DNS 记录。
 
 ### <a name="can-i-configure-reverse-dns-for-ipv6-publicipaddress-resources"></a>是否可以为 IPv6 PublicIpAddress 资源配置反向 DNS？
 
-不能。 Azure 当前仅支持为 IPv4 PublicIpAddress 资源和云服务配置反向 DNS。
+否。 Azure 当前仅支持为 IPv4 PublicIpAddress 资源和云服务配置反向 DNS。
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>是否可以从 Azure 计算服务将电子邮件发送到外部域？
 
-不能。 [Azure 计算服务不支持向外部域发送电子邮件](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)
+否。 [Azure 计算服务不支持向外部域发送电子邮件](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)
 
 ## <a name="next-steps"></a>后续步骤
 

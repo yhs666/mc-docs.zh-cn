@@ -13,13 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2767dea930bba9d0012487baebdd676389f10c2a
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.custom: mvc
+ms.openlocfilehash: 37829d13a0c04620ac49ef86bbebe7e2a11a3d67
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>将 Service Fabric Windows 群集部署到 Azure 虚拟网络
 本教程是一个系列中的第一部分。 你将学习如何使用 PowerShell 将运行 Windows 的 Service Fabric 群集部署到现有 Azure 虚拟网络 (VNET) 及子网。 完成本教程后，云中会运行一个可在其中部署应用程序的群集。  若要使用 Azure CLI 创建 Linux 群集，请参阅[在 Azure 上创建安全的 Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
@@ -38,17 +39,18 @@ ms.lasthandoff: 12/01/2017
 > [!div class="checklist"]
 > * 在 Azure 上创建安全群集
 > * [缩小或扩大群集](/service-fabric-tutorial-scale-cluster.md)
+> * [升级群集的运行时](service-fabric-tutorial-upgrade-cluster.md)
 > * [部署 API 管理与 Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>先决条件
 在开始学习本教程之前：
-- 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
+- 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
 - 安装 [Service Fabric SDK 和 PowerShell 模块](service-fabric-get-started.md)
 - 安装 [Azure PowerShell 模块 4.1 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 
 以下步骤将创建一个五节点 Service Fabric 群集。 若要计算在 Azure 中运行 Service Fabric 群集的成本，请使用 [Azure 定价计算器](https://www.azure.cn/pricing/calculator/)。
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 本教程将单个节点类型的五个节点群集部署到 Azure 的虚拟网络中。
 
 [Service Fabric 群集](service-fabric-deploy-anywhere.md)是一组通过网络连接在一起的虚拟机或物理计算机，你的微服务将在其中部署和管理。 群集可以扩展到成千上万台计算机。 构成群集的计算机或 VM 称为节点。 需为每个节点分配节点名称（字符串）。 节点具有各种特征，如放置属性。

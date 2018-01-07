@@ -3,7 +3,7 @@ title: "使用 REST 将文件上传到媒体服务帐户| Azure"
 description: "了解如何通过创建和上传资产将媒体内容加入媒体服务。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 41df7cbe-b8e2-48c1-a86c-361ec4e5251f
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: f07b5aafa01e13ad02e73b9b4d5ca8017e0e5952
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: 91a12898a279302d2c4a285bd31c42b10d842009
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 将文件上传到媒体服务帐户
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
-> * [门户](media-services-portal-upload-files.md)
+> * [Portal](media-services-portal-upload-files.md)
 > 
 > 
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/31/2017
 > 
 > * 构建流内容的 URL 时，媒体服务会使用 IAssetFile.Name 属性的值（如 http://{AMSAccount}.origin.mediaservices.chinacloudapi.cn/{GUID}/{IAssetFile.Name}/streamingParameters。）出于这个原因，不允许使用百分号编码。 **Name** 属性的值不能含有任何以下[百分号编码保留字符](http://zh.wikipedia.org/wiki/百分号编码#.E4.BF.9D.E7.95.99.E5.AD.97.E7.AC.A6.E7.9A.84.E7.99.BE.E5.88.86.E5.8F.B7.E7.BC.96.E7.A0.81)：!*'();:@&=+$,/?%#[]"。 此外，文件扩展名中只能含有一个“.”。
 > * 名称长度不应超过 260 个字符。
-> * 在媒体服务中进行处理时，系统支持的最大文件大小存在限制。 有关文件大小限制的详细信息，请参阅[此主题](media-services-quotas-and-limitations.md)。
+> * 在媒体服务中进行处理时，系统支持的最大文件大小存在限制。 有关文件大小限制的详细信息，请参阅[此文](media-services-quotas-and-limitations.md)。
 > 
 
 上传资产的基本工作流分为下列各节：
@@ -64,16 +64,16 @@ AMS 还可用于批量上传资产。 有关详细信息，请参阅[此](media-
 
 创建资产时可以指定的属性之一是 **Options**。 **Options** 是一个枚举值，描述可用于创建资产的加密选项。 有效值为以下列表中的某个值，而不是这些值的组合。 
 
-* None = 0：不使用加密。 这是默认值。 请注意，使用此选项时，内容在传送过程中或静态存储过程中都不会受到保护。
-    如果计划使用渐进式下载交付 MP4，则使用此选项。 
+* **None** = **0**：不使用加密。 这是默认值。 使用此选项时，内容在传送过程中或静态存储过程中都不会受到保护。
+    如果计划使用渐进式下载交付 MP4，请使用此选项。 
 * StorageEncrypted = 1：如果要使用 AES-256 位加密法对文件加密以方便上传和存储，请指定此值。
   
     如果资产已经过存储加密，则必须配置资产传送策略。 有关详细信息，请参阅[配置资产传送策略](media-services-rest-configure-asset-delivery-policy.md)。
 * CommonEncryptionProtected = 2：如果要上传使用通用加密法（例如 PlayReady）保护的文件，请指定此值。 
-* EnvelopeEncryptionProtected = 4：如果要上传使用 AES 文件加密的 HLS，请指定此值。 请注意，Transform Manager 必须已对文件进行编码和加密。
+* EnvelopeEncryptionProtected = 4：如果要上传使用 AES 文件加密的 HLS，请指定此值。 Transform Manager 必须已对文件进行编码和加密。
 
 > [!NOTE]
-> 如果资产要使用加密，必须按以下主题中所述创建 ContentKey 并将其链接到资产：[如何创建 ContentKey](media-services-rest-create-contentkey.md)。 请注意，将文件上传到资产后，需要使用加密资产期间获取的值更新 AssetFile 实体上的加密属性。 使用 **MERGE** HTTP 请求完成此操作。 
+> 如果资产要使用加密，必须按以下文章中所述创建 **ContentKey** 并将其链接到资产：[如何创建 ContentKey](media-services-rest-create-contentkey.md)。 将文件上传到资产后，需要使用加密**资产**期间获取的值更新 **AssetFile** 实体上的加密属性。 使用 **MERGE** HTTP 请求完成此操作。 
 > 
 > 
 
@@ -89,7 +89,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 {"Name":"BigBuckBunny.mp4"}
@@ -97,7 +97,7 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 **HTTP 响应**
 
-如果成功，返回以下响应：
+如果成功，将返回以下响应：
 
 ```
 HTP/1.1 201 Created
@@ -130,9 +130,9 @@ Date: Sun, 18 Jan 2015 22:06:40 GMT
 ### <a name="create-an-assetfile"></a>创建 AssetFile
 [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) 实体表示 blob 容器中存储的视频或音频文件。 一个资产文件始终与一个资产关联，而一个资产则可能包含一个或多个资产文件。 如果资产文件对象未与 blob 容器中的数字文件关联，则媒体服务编码器任务将失败。
 
-请注意， **AssetFile** 实例和实际媒体文件是两个不同的对象。 AssetFile 实例包含有关媒体文件的元数据，而媒体文件包含实际媒体内容。
+**AssetFile** 实例和实际媒体文件是两个不同的对象。 AssetFile 实例包含有关媒体文件的元数据，而媒体文件包含实际媒体内容。
 
-将数字媒体文件上传到 blob 容器后，需要使用 MERGE HTTP 请求来更新 AssetFile 中有关媒体文件的信息（如本主题稍后所述）。 
+将数字媒体文件上传到 blob 容器后，需要使用 **MERGE** HTTP 请求来更新 AssetFile 中有关媒体文件的信息（如本文稍后所述）。 
 
 **HTTP 请求**
 
@@ -144,7 +144,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 164
 
@@ -196,7 +196,7 @@ Date: Mon, 19 Jan 2015 00:34:07 GMT
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>创建具有写入权限的 AccessPolicy。
 
 >[!NOTE]
->不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies)主题。
+>不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[本文](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
 将任何文件上传到 blob 存储之前，请设置用于对资产执行写入操作的访问策略权限。 为此，请向 AccessPolicy 实体集发送一个 HTTP POST 请求。 请在执行创建操作时定义 DurationInMinutes 值，否则会在响应中收到 500 内部服务器错误消息。 有关 AccessPolicies 的详细信息，请参阅 [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy)。
 
@@ -212,7 +212,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 {"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
@@ -274,7 +274,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 {  
    "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
@@ -286,7 +286,7 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 **HTTP 响应**
 
-如果成功，返回以下响应：
+如果成功，将返回以下响应：
 
 ```
 HTTP/1.1 201 Created
@@ -319,12 +319,12 @@ Date: Mon, 19 Jan 2015 03:01:29 GMT
 ```
 
 ### <a name="upload-a-file-into-a-blob-storage-container"></a>将文件上传到 Blob 存储容器
-设置 AccessPolicy 和定位符后，即可使用 Azure 存储 REST API 将实际文件上传到 Azure BLOB 存储容器。 必须将文件作为块 blob 上传。 页 blob 不受 Azure 媒体服务支持。  
+设置 AccessPolicy 和定位符后，即可使用 Azure 存储 REST API 将实际文件上传到 Azure BLOB 存储容器。 必须将文件作为块 blob 上传。 Azure 媒体服务不支持页 blob。  
 
 >[!NOTE]
-> 必须将要上传的文件的文件名添加到上一部分中收到的定位符 **Path** 值中。 例如，https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 。 。 。 
+> 必须将要上传的文件的文件名添加到上一部分中收到的定位符 **Path** 值中。 例如，https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 上获取。 上获取。 上获取。 
 
-有关使用 Azure 存储 blob 的详细信息，请参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API)。
+有关使用 Azure 存储 blob 的详细信息，请参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)。
 
 ### <a name="update-the-assetfile"></a>更新 AssetFile 
 
@@ -338,7 +338,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 {  
@@ -364,7 +364,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
@@ -386,7 +386,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
@@ -411,7 +411,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 36
@@ -431,7 +431,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 55
@@ -441,7 +441,7 @@ Expect: 100-continue
 ```
 
 ### <a name="create-the-ingestmanifestassets"></a>创建 IngestManifestAsset
-IngestManifestAsset 表示 IngestManifest 内与批量引入一起使用的资产。 IngestManifestAsset 主要用于将资产链接到清单。 Azure 媒体服务会在内部根据关联到 IngestManifestAsset 的 IngestManifestFile 集合来监视文件上传。 上传这些文件后，即完成资产操作。 可以使用 HTTP POST 请求创建新的 IngestManifestAsset。 在请求正文中包括 IngestManifest ID 和资产 ID，以便 IngestManifestAsset 将其链接到一起进行批量引入。
+IngestManifestAsset 表示 IngestManifest 内与批量引入一起使用的资产。 IngestManifestAsset 主用于将资产链接到清单。 Azure 媒体服务会在内部根据关联到 IngestManifestAsset 的 IngestManifestFile 集合来监视文件上传。 上传这些文件后，即完成资产操作。 可以使用 HTTP POST 请求创建新的 IngestManifestAsset。 在请求正文中包括 IngestManifest ID 和资产 ID，以便 IngestManifestAsset 将其链接到一起进行批量引入。
 
 **HTTP 响应**
 
@@ -451,7 +451,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 152
@@ -460,7 +460,7 @@ Expect: 100-continue
 ```
 
 ### <a name="create-the-ingestmanifestfiles-for-each-asset"></a>为每个资产创建 IngestManifestFile
-IngestManifestFile 表示将在批量引入资产的过程中上传的实际视频或音频 blob 对象。 除非资产使用加密选项，否则不需要与加密相关的属性。 本部分使用的示例演示了如何创建 IngestManifestFile，以便将 StorageEncryption 用于之前创建的资产。
+IngestManifestFile 代表将作为批量引入资产的一部分上传的实际视频或音频 blob 对象。 除非资产使用加密选项，否则不需要与加密相关的属性。 本部分使用的示例演示了如何创建 IngestManifestFile，以便将 StorageEncryption 用于之前创建的资产。
 
 **HTTP 响应**
 
@@ -470,7 +470,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 367
@@ -480,19 +480,19 @@ Expect: 100-continue
 ```
 
 ### <a name="upload-the-files-to-blob-storage"></a>将文件上传到 Blob 存储
-可以使用任何能够将资产文件上传到 Blob 存储容器 URI（由 IngestManifest 的 BlobStorageUriForUpload 属性提供）的高速客户端应用程序。 
+可以使用任何能够将资产文件上传到 Blob 存储容器 URI（由 IngestManifest 的 BlobStorageUriForUpload 属性提供）的高速客户端应用程序。 一个明显的高速上传服务就是 [Aspera On Demand for Azure 应用程序](http://go.microsoft.com/fwlink/?LinkId=272001)。
 
 ### <a name="monitor-bulk-ingest-progress"></a>监视批量引入进度
 可以通过轮询 IngestManifest 的 Statistics 属性来监视 IngestManifest 的批量引入操作的进度。 该属性为复杂类型，即 [IngestManifestStatistics](https://docs.microsoft.com/rest/api/media/operations/ingestmanifeststatistics)。 若要轮询 Statistics 属性，请提交一个传递 IngestManifest ID 的 HTTP GET 请求。
 
 ## <a name="create-contentkeys-used-for-encryption"></a>创建用于加密的 ContentKey
-如果资产要使用加密，则在创建资产文件之前，必须创建用于加密的 ContentKey。 对于存储加密，应在请求正文中包括以下属性。
+如果资产将使用加密，则在创建资产文件之前，必须创建用于加密的 ContentKey。 对于存储加密，应在请求正文中包括以下属性。
 
 | 请求正文属性 | 说明 |
 | --- | --- |
 | ID |使用以下格式自行生成的 ContentKey Id：“nb:kid:UUID:<NEW GUID>”。 |
 | ContentKeyType |这是此内容密钥的内容密钥类型（为整数）。 我们为存储加密传递了值 1。 |
-| EncryptedContentKey |我们创建一个新的内容密钥值，这是一个 256 位（32 字节）的值。 该密钥通过使用存储加密 X.509 证书进行加密，我们通过执行 GetProtectionKeyId 和 GetProtectionKey 方法的 HTTP GET 请求从 Azure 媒体服务中检索该证书。 |
+| EncryptedContentKey |我们创建一个新的内容密钥值，这是一个 256 位（32 字节）的值。 此密钥使用存储加密 X.509 证书进行加密，该证书是我们通过执行 GetProtectionKeyId 和 GetProtectionKey 方法的 HTTP GET 请求从 Microsoft Azure 媒体服务中检索到的。 |
 | ProtectionKeyId |这是存储加密 X.509 证书的保护密钥 ID，用于加密内容密钥。 |
 | ProtectionKeyType |这是用于加密内容密钥的保护密钥的加密类型。 对于示例，此值为 StorageEncryption (1)。 |
 | 校验和 |内容密钥的 MD5 计算的校验和。 它通过使用内容密钥加密内容 ID 计算得出。 此示例代码演示了如何计算校验和。 |
@@ -505,7 +505,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 572
@@ -515,7 +515,6 @@ Expect: 100-continue
 ```
 
 ### <a name="link-the-contentkey-to-the-asset"></a>将 ContentKey 链接到资产
-
 ContentKey 通过发送 HTTP POST 请求关联到一个或多个资产。 以下请求是一个示例，说明了如何按 ID 将示例 ContentKey 链接到示例资产。
 
 **HTTP 响应**
@@ -526,7 +525,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 113
@@ -543,13 +542,13 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 ## <a name="next-steps"></a>后续步骤
 
-现即可编码已上传的资产。 有关详细信息，请参阅[对资产进行编码](media-services-portal-encode.md)。
+现即可编码已上传的资产。 有关详细信息，请参阅 [对资产进行编码](media-services-portal-encode.md)。
 
 
 [How to Get a Media Processor]: media-services-get-media-processor.md

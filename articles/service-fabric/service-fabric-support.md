@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/12/2017
-ms.date: 11/13/2017
+origin.date: 11/22/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: e15cfd6de65079bb577d8381971e4c2b5117d4cd
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: b0c5c7e1bd15b0cec17f9c8f16dddee8a163bd16
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支持选项
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/09/2017
 <a name="releasesuport"></a>
 ## <a name="supported-service-fabric-versions"></a>支持的 Service Fabric 版本。
 
-请确保群集始终运行受支持的 Service Fabric 版本。 当我们宣布发行新版 Service Fabric 时，以前的版本标记为自发布日期起至少 60 天后结束支持。 新版本在 [Service Fabric 团队博客](https://blogs.msdn.microsoft.com/azureservicefabric/)中公布。
+确保群集始终运行支持的 Service Fabric 版本。 当我们宣布发行新版 Service Fabric 时，以前的版本标记为自发布日期起至少 60 天后结束支持。 新版本在 [Service Fabric 团队博客](https://blogs.msdn.microsoft.com/azureservicefabric/)中公布。
 
 有关如何使群集保持运行受支持的 Service Fabric 版本的详细信息，请参阅以下文档。
 
@@ -72,15 +72,15 @@ ms.lasthandoff: 11/09/2017
 
 下面是支持的 Service Fabric 版本列表和这些版本的支持结束日期。
 
-| **Service Fabric 运行时群集** | **兼容的 SDK/NuGet 包版本** | **支持结束日期** |
-| --- | --- | --- |
-| 5.3.121 之前的所有群集版本 |低于或等于版本 2.3 |2017 年 1 月 20 日 |
-| 5.3.* |低于或等于版本 2.3 |2017 年 2 月 24 日 |
-| 5.4.* |低于或等于版本 2.4 |2017 年 5 月 10 日       |
-| 5.5.* |低于或等于版本 2.5 |2017 年 8 月 10 日    |
-| 5.6.* |低于或等于版本 2.6 |2017 年 10 月 13 日   |
-| 5.7.* |低于或等于版本 2.7 |2017 年 12 月 15 日  |
-| 6.0.* |版本 2.8 或更低版本 |当前版本，因此无结束日期
+| **群集中的 Service Fabric 运行时** | **可以直接从群集版本升级** |**兼容的 SDK/NuGet 包版本** | **支持结束日期** |
+| --- | --- |--- | --- |
+| 5.3.121 之前的所有群集版本 | 5.1.158* |低于或等于版本 2.3 |2017 年 1 月 20 日 |
+| 5.3.* | 5.1.158.* |低于或等于版本 2.3 |2017 年 2 月 24 日 |
+| 5.4.* | 5.1.158.* |低于或等于版本 2.4 |2017 年 5 月 10 日       |
+| 5.5.* | 5.4.164.* |低于或等于版本 2.5 |2017 年 8 月 10 日    |
+| 5.6.* | 5.4.164.* |低于或等于版本 2.6 |2017 年 10 月 13 日   |
+| 5.7.* | 5.4.164.* |低于或等于版本 2.7 |2017 年 12 月 15 日  |
+| 6.0.* | 5.6.205.* |版本 2.8 或更低版本 |当前版本，因此无结束日期 |
 
 <a name="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 预览版本 - 不支持在生产环境中使用。

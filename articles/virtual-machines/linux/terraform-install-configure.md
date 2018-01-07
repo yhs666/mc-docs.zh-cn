@@ -14,18 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/23/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: ee682be54a1bfb96727fdb8c38afe3ceea95178b
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 596b1cdd7b42a251dffe088f827e8dd5653c360e
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>安装和配置 Terraform 以在 Azure 中预配 VM 和其他基础结构
 
 借助 Terraform，可以轻松使用[简单模板语言](https://www.terraform.io/docs/configuration/syntax.html)来定义、预览和部署云基础结构。 本文介绍使用 Terraform 在 Azure 中预配资源的必要步骤。 
 
+<!--Not Available on Cloud Shell -->
 
 ## <a name="install-terraform"></a>安装 Terraform
 
@@ -40,7 +41,7 @@ Usage: terraform [--version] [--help] <command> [args]
 
 ## <a name="set-up-terraform-access-to-azure"></a>设置 Terraform 对 Azure 的访问权限
 
-配置 [Azure AD 服务主体](https://docs.azure.cn/zh-cn/cli/create-an-azure-service-principal-azure-cli)，以使 Terraform 将资源预配到 Azure。 服务主体可向你授予 Terraform 脚本，使用凭据在 Azure 订阅中预配资源。
+配置 [Azure AD 服务主体](https://docs.azure.cn/zh-cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)，以使 Terraform 将资源预配到 Azure。 服务主体可向你授予 Terraform 脚本，使用凭据在 Azure 订阅中预配资源。
 
 创建 Azure AD 应用程序和 Azure AD 服务主体的方法有许多种。 目前最简单快捷的方法是使用 Azure CLI 2.0，[可在 Windows、Linux 或 Mac 上下载并安装](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)此工具。
 

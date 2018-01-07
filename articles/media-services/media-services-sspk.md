@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 08/09/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: a97f233d508ea207ee5adbebb360605eb3479d8e
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.openlocfilehash: f265d5721266bdb7a9cd69087b070489e271e7eb
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>授权 Microsoft® 平滑流式处理客户端移植工具包
 ## <a name="overview"></a>概述
@@ -71,11 +71,11 @@ Microsoft 根据此许可证提供全部所需的知识产权，以便从其他�
 * 每年的前 10,000 个设备实现无需支付特许权使用费 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>许可过程和 SSPK 访问权限
-若要咨询许可事宜，请向 [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) 发送电子邮件。
+
 
 已注册的中期受证者可以访问 [SSPK 分发门户](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) 。
 
-中期和最终 SSPK 受证者可以将技术问题提交到 [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)。
+
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Microsoft 平滑流式处理客户端中期产品协议受证人
 * Adroit Business Solutions, Inc

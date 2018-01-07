@@ -14,19 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/31/2017
-ms.date: 09/13/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: 45b315ffef5a31028f83fd0011f0e9a32059bb9d
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: a60cada14a2bb74d2a29b3d5deec9d0772f0f0cf
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>使用 Azure CLI 创建应用程序网关
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+> * [Azure 资源管理器 PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure 经典 PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager 模板](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
@@ -38,7 +38,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 ## <a name="prerequisite-install-the-azure-cli"></a>先决条件：安装 Azure CLI
 
-若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](../xplat-cli-install.md)，还需要[登录 Azure](../xplat-cli-connect.md)。 
+若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](../xplat-cli-install.md)，还需要[登录 Azure](/cli/authenticate-azure-cli)。 
 
 > [!NOTE]
 > 如果没有 Azure 帐户，则需要注册一个。 请[在此处注册试用版](../active-directory/sign-up-organization.md)。
@@ -56,7 +56,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 > [!NOTE]
 > 针对应用程序网关进行的其他配置（包括自定义运行状况探测、后端池地址以及其他规则）是在对应用程序网关配置以后配置的，不是在初始部署期间配置的。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 Azure 应用程序网关需要自己的子网。 在创建虚拟网络时，请确保保留足够的地址空间，以便设置多个子网。 将应用程序网关部署到子网后，只能向该子网添加其他应用程序网关。
 
@@ -69,6 +69,8 @@ azure login -e AzureChinaCloud
 ```
 
 键入前述示例后，会提供代码。 在浏览器中导航到 https://aka.ms/deviceloginchina，继续登录过程。
+
+![显示设备登录信息的 cmd][1]
 
 在浏览器中，输入收到的代码。 将重定向至登录页。
 
@@ -91,7 +93,7 @@ azure config mode arm
 ```azurecli
 azure group create \
 --name ContosoRG \
---location chinaeast
+--location chinanorth
 ```
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
@@ -103,7 +105,7 @@ azure network vnet create \
 --name ContosoVNET \
 --address-prefixes 10.0.0.0/16 \
 --resource-group ContosoRG \
---location chinaeast
+--location chinanorth
 ```
 
 ## <a name="create-a-subnet"></a>创建子网
@@ -125,7 +127,7 @@ azure network vnet subnet create \
 ```azurecli
 azure network application-gateway create \
 --name AdatumAppGateway \
---location chinaeast \
+--location chinanorth \
 --resource-group ContosoRG \
 --vnet-name ContosoVNET \
 --subnet-name subnet01 \

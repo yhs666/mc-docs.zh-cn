@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 10/30/2017
+ms.date: 01/01/2018
 ms.author: v-johch
-ms.openlocfilehash: dfbba8a3ca9934af1d46c940d184633d1631e28b
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: f8e21c23ee50a7e9560be724a2febae22fe3af77
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>在 Linux 中排查 Azure 文件问题
 
@@ -156,4 +156,17 @@ COPYFILE 中的强制标志 **f** 导致在 Unix 上执行 **cp -p -f**。 此�
 
 若要解决此问题，请使用 [Troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089)（用于 Linux 上 Azure 文件装载错误的故障排除工具）。 此工具可在以下方面提供帮助：验证客户端运行环境，检测会导致 Azure 文件访问失败的不兼容客户端配置，为自行修复提供规范指导，以及收集诊断跟踪。
 
-<!--Update_Description: add "Cannot connect or mount an Azure File share" section-->
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: 无法访问 '&lt;path&gt;': 输入/输出错误
+
+尝试使用 ls 命令列出 Azure 文件共享中的文件时，ls 命令挂起并出现以下错误：
+
+**ls: 无法访问 '&lt;path&gt;': 输入/输出错误**
+
+
+### <a name="solution"></a>解决方案
+将 Linux 内核升级到以下版本即可解决此问题：
+
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
+- 4.13 或更高的所有版本

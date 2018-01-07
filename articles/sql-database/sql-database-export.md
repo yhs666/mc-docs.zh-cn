@@ -16,11 +16,11 @@ ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 0df578e459a994a81e1f161ca5875d4584d105e2
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 272f75dbba21d42bdd462d5e386f8e09e72e4c86
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>将 Azure SQL 数据库导出到 BACPAC 文件
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/31/2017
 * 为保证导出的事务处理方式一致，必须确保导出期间未发生写入活动，或者正在从 Azure SQL 数据库的[事务处理方式一致性副本](sql-database-copy.md)中导出。
 * 如果是导出到 Blob 存储，则 BACPAC 文件的最大大小为 200 GB。 若要存档更大的 BACPAC 文件，请导出到本地存储。
 * 本文介绍的方法不支持将 BACPAC 文件导出到 Azure 高级存储。
-* 如果从 Azure SQL 数据库进行的导出操作超过 20 个小时，系统可能会取消该操作。 为提高导出过程中的性能，可以进行如下操作：
+* 如果从 Azure SQL 数据库的导出操作超过 20 个小时，则可能会取消操作。 为提高导出过程中的性能，可以进行如下操作：
   * 暂时提高服务级别。
   * 在导出期间终止所有读取和写入活动。
   * 对所有大型表上的非 null 值使用[聚集索引](https://msdn.microsoft.com/library/ms190457.aspx)。 如果不使用聚集索引，当时间超过 6-12 个小时时，导出可能会失败。 这是因为导出服务需要完成表格扫描，才能尝试导出整个表格。 确认表是否针对导出进行优化的一个好方法是，运行 **DBCC SHOW_STATISTICS** 并确保 *RANGE_HI_KEY* 不是 null 并且值分布良好。 有关详细信息，请参阅 [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx)。
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/31/2017
 
 若要使用 [Azure 门户](https://portal.azure.cn)导出数据库，请打开数据库页，并在工具栏上单击“导出”。 指定 BACPAC 文件名，为导出提供 Azure 存储帐户和容器，并提供用于连接到源数据库的凭据。  
 
-   ![数据库导出](./media/sql-database-export/database-export.png)
+![数据库导出](./media/sql-database-export/database-export.png)
 
 若要监视导出操作的进度，请打开包含所导出数据库的逻辑服务器的相应页面。 向下滚动到“操作”，并单击“导入/导出”历史记录。
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/31/2017
 
 若要使用 [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) 命令行实用工具导出 SQL 数据库，请参阅[导出参数和属性](https://msdn.microsoft.com/library/hh550080.aspx#Export Parameters and Properties)。 SQLPackage 实用工具附带最新版本的 [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 和[用于 Visual Studio 的 SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)，也可以直接从 Microsoft 下载中心下载最新版本的 [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876)。
 
-在大多数生产环境中，建议使用 SQLPackage 实用工具来实现缩放和性能。 有关 SQL Server 客户咨询团队介绍如何使用 BACPAC 文件进行迁移的博客，请参阅 [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)（使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库）。
+在大多数生产环境中，建议使用 SQLPackage 实用工具来实现缩放和性能。 如需 SQL Server 客户顾问团队编写的有关使用 BACPAC 文件进行迁移的博客，请参阅 [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)（使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库）。
 
 此示例演示如何通过 Active Directory 通用身份验证，使用 SqlPackage.exe 来导出数据库：
 
@@ -96,7 +96,7 @@ $exportStatus
 
 * 如需 SQL Server 客户顾问团队编写的有关使用 BACPAC 文件进行迁移的博客，请参阅 [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)（使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库）。
 * 要了解如何将 BACPAC 导入到 SQL Server 数据库，请参阅[将 BACPCAC 导入到 SQL Server 数据库](https://msdn.microsoft.com/library/hh710052.aspx)。
-* 若要了解如何从 SQL Server 数据库导出 BACPAC，请参阅[导出数据层应用程序](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)和[迁移第一个数据库](sql-database-migrate-your-sql-server-database.md)。
-* 如果要从 SQL Server 中导出作为迁移到 Azure SQL 数据库的准备，请参阅[将 SQL Server 数据库迁移到 Azure SQL 数据库](sql-database-cloud-migrate.md)。
+* 要了解如何从 SQL Server 数据库导出 BACPAC，请参阅[导出数据层应用程序](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)和[迁移第一个数据库](sql-database-migrate-your-sql-server-database.md)。
+* 如果将从 SQL Server 中导出作为迁移到 Azure SQL 数据库的准备，请参阅[将 SQL Server 数据库迁移到 Azure SQL 数据库](sql-database-cloud-migrate.md)。
 
 <!--Update_Description: add example shows how to export a database using SqlPackage.exe with Active Directory Universal Authentication-->

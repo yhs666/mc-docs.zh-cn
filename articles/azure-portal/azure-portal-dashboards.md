@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 09/06/2016
 ms.author: v-yiso
 ms.date: 10/16/2017
-ms.openlocfilehash: ec597aeed7a5dcb3539e345a69d8c547fae1a43b
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: 4aee8f90adc45f809f02ef3d6dc004d5aa220ccd
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>在 Azure 门户中创建和共享仪表板
 可以创建多个仪表板，并与对 Azure 订阅有访问权限的其他用户共享。  本文介绍创建、编辑、发布和管理仪表板访问权限的基础知识。
@@ -96,5 +96,5 @@ ms.lasthandoff: 09/29/2017
 ![管理访问控制](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>后续步骤
-
+- 若要管理资源，请参阅[通过门户管理 Azure 资源](../azure-resource-manager/resource-group-portal.md)。
 - 若要部署资源，请参阅[使用 Resource Manager 模板和 Azure 门户部署资源](../azure-resource-manager/resource-group-template-deploy-portal.md)。

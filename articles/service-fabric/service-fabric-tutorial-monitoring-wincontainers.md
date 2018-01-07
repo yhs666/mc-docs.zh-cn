@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/20/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 465b517be9a5612bb386ae972d6871028c6552c6
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: f689d5ba28f9300a45081b9d500d95075e2c7874
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>使用 OMS 监视 Service Fabric 上的 Windows 容器
 
@@ -246,4 +246,4 @@ ms.lasthandoff: 12/01/2017
 * 浏览 Service Fabric 的[性能计数器建议](service-fabric-diagnostics-event-generation-perf.md)列表，以为群集配置它们。
 * 掌握 Log Analytics 中提供的[日志搜索和查询](../log-analytics/log-analytics-log-searches.md)功能。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

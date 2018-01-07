@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/20/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: bbc7e7edcb6937a5ca64e2626de11073bc4105da
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 5b2cc657ed01e01f565880b6129f17149fb3ace7
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 表 API 简介
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/24/2017
 | 吞吐量 | 可变吞吐量模型。 表的可伸缩性限制为 20,000 个操作/秒。 | 使用 SLA 支持的[每个表专用保留吞吐量](request-units.md)实现高度可缩放。 帐户没有吞吐量上限，每个表支持 >1000 万个操作/秒。 |
 | 全球分布 | 具有一个可选可读辅助读取区域以实现高可用性的单一区域。 不能启动故障转移。 | 从 1 个到 30 多个区域进行[统包式全局分发](distribute-data-globally.md)。 支持在全球各地随时[自动和手动故障转移](regional-failover.md)。 |
 | 索引 | 仅对 PartitionKey 和 RowKey 建立主索引。 没有辅助索引。 | 自动对所有属性完成编制索引，没有索引管理。 |
-| 查询 | 执行查询时使用主键的索引，否则进行扫描。 | 查询可以利用属性的自动索引缩短查询时间。 Azure Cosmos DB 数据库引擎能够支持聚合查询、地理空间查询和排序查询。 |
+| 查询 | 执行查询时使用主键的索引，否则进行扫描。 | 查询可以利用属性的自动索引缩短查询时间。 |
 | 一致性 | 在主要区域内实现强一致性。 在辅助区域内实现最终一致性。 | [五个定义完善的一致性级别](consistency-levels.md)可基于应用程序需要权衡可用性、延迟、吞吐量和一致性。 |
 | 定价 | 存储优化。 | 吞吐量优化。 |
 | SLA | 99.99% 可用性。 | 在公开发布时，为所有单区域帐户和具有松散一致性的所有多区域帐户提供 99.99% 的可用性 SLA，为所有多区域数据库帐户提供 99.999% 的读取可用性方面的[行业领先的综合 SLA](https://www.azure.cn/support/sla/cosmos-db/)。 |
@@ -55,7 +55,7 @@ ms.lasthandoff: 11/24/2017
 在 [Azure 门户](https://portal.azure.cn)中创建 Azure Cosmos DB 帐户。 然后开始使用我们的[通过 .NET 使用表 API 的快速入门](create-table-dotnet.md)。 
 
 > [!IMPORTANT]
-> 如果已在预览期间创建表 API 帐户，请创建[新的表 API 帐户](create-table-dotnet.md#create-a-database-account)以使用正式发布的表 API SDK。
+> 如果已在预览期间创建表 API 帐户，请[新建表 API 帐户](create-table-dotnet.md#create-a-database-account)，这样才能使用正式版表 API SDK。
 >
 
 ## <a name="next-steps"></a>后续步骤
@@ -70,4 +70,4 @@ ms.lasthandoff: 11/24/2017
 * [Azure Cosmos DB 表 Node.js API](table-sdk-nodejs.md)
 * [用于 Python 的 Azure Cosmos DB 表 SDK](table-sdk-python.md)
 
-<!--Update_Description: update meta properties, update link, wording update-->
+<!--Update_Description: update link, wording update-->

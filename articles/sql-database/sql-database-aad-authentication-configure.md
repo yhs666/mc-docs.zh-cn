@@ -17,11 +17,11 @@ ms.workload: data-management
 origin.date: 07/10/2017
 ms.date: 11/06/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 6858a8498bb722a41547c2202209dad00cebc122
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 8007d099740ea8e41a613dbede615ee33bd13336
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>使用 SQL 数据库或 SQL 数据仓库配置和管理 Azure Active Directory 身份验证
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/31/2017
 ## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>可选：关联或更改当前与 Azure 订阅关联的活动目录
 要将数据库与组织的 Azure AD 目录相关联，请允许该目录成为托管数据库的 Azure 订阅的一个受信任目录。 有关详细信息，请参阅 [Azure 订阅与 Azure AD 的关联方式](https://msdn.microsoft.com/library/azure/dn629581.aspx)。
 
-**其他信息：** 每个 Azure 订阅都与某个 Azure AD 实例存在信任关系。 这意味着，此订阅信任该目录对用户、服务和设备执行身份验证。 多个订阅可以信任同一个目录，但一个订阅只能信任一个目录。 可以访问 [https://manage.windowsazure.cn/](https://manage.windowsazure.cn/)，在“设置”选项卡下查看你的订阅信任的目录。 订阅与目录之间的这种信任关系不同于订阅与 Azure 中所有其他资源（网站、数据库等）之间的关系，在后一种关系中，这些资源更像是订阅的子资源。 如果某个订阅过期，则对该订阅关联的其他那些资源的访问权限也将终止。 但是，目录将保留在 Azure 中，并且可以将另一个订阅与该目录相关联，然后继续管理目录用户。 有关资源的详细信息，请参阅[了解 Azure 中的资源访问](https://msdn.microsoft.com/library/azure/dn584083.aspx)。
+**其他信息：** 每个 Azure 订阅都与某个 Azure AD 实例存在信任关系。 这意味着，此订阅信任该目录对用户、服务和设备执行身份验证。 多个订阅可以信任同一个目录，但一个订阅只能信任一个目录。 可以访问 [https://manage.windowsazure.cn/](https://manage.windowsazure.cn/)，在“设置”选项卡下查看你的订阅信任的目录。 订阅与目录之间的这种信任关系不同于订阅与 Azure 中所有其他资源（网站、数据库等）之间的关系，在后一种关系中，这些资源更像是订阅的子资源。 如果某个订阅过期，则对该订阅关联的其他那些资源的访问权限也会终止。 但是，目录将保留在 Azure 中，并且可以将另一个订阅与该目录相关联，然后继续管理目录用户。 有关资源的详细信息，请参阅[了解 Azure 中的资源访问](https://msdn.microsoft.com/library/azure/dn584083.aspx)。
 
 以下过程说明如何更改给定订阅的关联目录。
 1. 使用 Azure 订阅管理员连接到 [Azure 经典管理门户](https://manage.windowsazure.cn/)。
@@ -98,7 +98,7 @@ ms.lasthandoff: 10/31/2017
 之后若要删除管理员，请在“Active Directory 管理员”边栏选项卡顶部，单击“删除管理员”，然后单击“保存”。
 
 ### <a name="powershell"></a>PowerShell
-若要运行 PowerShell cmdlet，需要已安装并运行 Azure PowerShell。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](/powershell/azure/overview)。
+若要运行 PowerShell cmdlet，需要已安装并运行 Azure PowerShell。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
 若要预配 Azure AD 管理员，请执行以下 Azure PowerShell 命令：
 
@@ -158,7 +158,7 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 | 命令 | 说明 |
 | --- | --- |
 |[az sql server ad-admin create](https://docs.azure.cn/cli/sql/server/ad-admin#az_sql_server_ad_admin_create) |为 Azure SQL Server 或 Azure SQL 数据仓库预配 Azure Active Directory 管理员。 （必须来自当前订阅。） |
-|[az sql server ad-admin delete](https://docs.azure.cn/cli/sql/server/ad-admin#az_sql_server_ad_admin_delete) |为 Azure SQL Server 或 Azure SQL 数据仓库删除 Azure Active Directory 管理员。 |
+|[az sql server ad-admin delete](https://docs.azure.cn/cli/sql/server/ad-admin#az_sql_server_ad_admin_delete) |删除 Azure SQL Server 或 Azure SQL 数据仓库的 Azure Active Directory 管理员。 |
 |[az sql server ad-admin list](https://docs.azure.cn/cli/sql/server/ad-admin#az_sql_server_ad_admin_list) |返回有关为 Azure SQL Server 或 Azure SQL 数据仓库配置的当前 Azure Active Directory 管理员的信息。 |
 |[az sql server ad-admin update](https://docs.azure.cn/cli/sql/server/ad-admin#az_sql_server_ad_admin_update) |为 Azure SQL Server 或 Azure SQL 数据仓库更新 Azure Active Directory 管理员。 |
 
@@ -211,7 +211,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 ```
 
 >  [!TIP]
->  除了与 Azure 订阅关联的 Azure Active Directory 以外，无法从 Azure Active Directory 直接创建用户。 但是，可将关联的 Active Directory 中导入的用户（称为外部用户）的其他 Active Directory 成员添加到租户 Active Directory 中的 Active Directory 组。 通过创建该 AD 组的包含数据库用户，来自外部 Active Directory 的用户可以访问 SQL 数据库。   
+>  除了与 Azure 订阅关联的 Azure Active Directory 以外，无法从 Azure Active Directory 直接创建用户。 但是，可将关联的 Active Directory 中导入的用户（称为外部用户）的其他 Active Directory 成员添加到租户 Active Directory 中的 Active Directory 组。 通过为该 AD 组创建包含的数据库用户，外部 Active Directory 中的用户可以获取对 SQL 数据库的访问权限。   
 
 有关基于 Azure Active Directory 标识创建包含的数据库用户的详细信息，请参阅 [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)。
 
@@ -246,7 +246,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 1. 启动 Management Studio 或 Data Tools 后，在“连接到服务器”（或“连接到数据库引擎”）对话框的“身份验证”框中，选择“Active Directory - 集成”。 由于会为连接提供现有凭据，因此无需密码，也无法输入密码。   
 
     ![选择 AD 集成身份验证][11]
-2. 单击“选项”按钮，在“连接属性”页上的“连接到数据库”框中，键入你所要连接的用户数据库的名称。 （仅对“通用且具有 MFA 连接”选项支持“AD 域名或租户 ID”，否则它处于灰显状态。）  
+2. 单击“选项”按钮，在“连接属性”页上的“连接到数据库”框中，键入要连接的用户数据库的名称。 （仅对“通用且具有 MFA 连接”选项支持“AD 域名或租户 ID”，否则它处于灰显状态。）  
 
     ![选择数据库名称][13]
 
@@ -261,7 +261,7 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 3. 在“密码”框中，为 Azure Active Directory 帐户或联合域帐户键入用户密码。
 
     ![选择 AD 密码身份验证][12]
-4. 单击“选项”按钮，在“连接属性”页上的“连接到数据库”框中，键入要连接的用户数据库的名称。 （请参阅前一选项的图。）
+4. 单击“选项”按钮，在“连接属性”页上的“连接到数据库”框中，键入你所要连接的用户数据库的名称。 （请参阅前一选项的图。）
 
 ## <a name="using-an-azure-ad-identity-to-connect-from-a-client-application"></a>使用 Azure AD 标识从客户端应用程序进行连接
 
@@ -280,7 +280,7 @@ SqlConnection conn = new SqlConnection(ConnectionString);
 conn.Open();
 ```
 
-不支持使用连接字符串关键字 ``Integrated Security=True`` 连接到 Azure SQL 数据库。 在进行 ODBC 连接时，需删除空格，并将“Authentication”设置为“ActiveDirectoryIntegrated”。
+不支持使用连接字符串关键字 ``Integrated Security=True`` 连接到 Azure SQL 数据库。 进行 ODBC 连接时，需要删除空格，并将“Authentication”设置为“ActiveDirectoryIntegrated”。
 
 ### <a name="active-directory-password-authentication"></a>Active Directory 密码身份验证
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 08/21/2017
-ms.date: 12/18/2017
+origin.date: 12/13/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: ab02dcc0bdf880dce9916dd8ca1cc7de1095d4b3
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: ba7115ff1c64ea845feeba9f7c5db39f49b19e0e
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>如何在 Azure 中使用 PowerShell 打开 VM 的端口和终结点
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/15/2017
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 
-在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括了 myResourceGroup、myNetworkSecurityGroup 和 myVnet。
+在以下示例中，请将参数名称替换成自己的值。 示例参数名称包括了 myResourceGroup、myNetworkSecurityGroup 和 myVnet。
 
 使用 [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) 创建规则。 以下示例创建一个名为 myNetworkSecurityGroupRule 的规则，以允许端口 80 上的 tcp 流量：
 
@@ -99,4 +99,4 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 * [什么是网络安全组 (NSG)？](../../virtual-network/virtual-networks-nsg.md)
 * [Azure Resource Manager 中负载均衡器的概述](../../load-balancer/load-balancer-arm.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update meta properties -->

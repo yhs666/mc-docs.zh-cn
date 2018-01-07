@@ -9,15 +9,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/01/2017
-ms.date: 12/04/2017
+origin.date: 12/08/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d3e305320fac668be0033c10b0b08d1bf2091ab7
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 85c1f98d755750bb6967f9e0d1c8635efb86846e
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>将 Azure VM 复制到另一个 Azure 区域（预览）
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/01/2017
 
 本快速入门介绍如何将 Azure VM 复制到不同的 Azure 区域。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 

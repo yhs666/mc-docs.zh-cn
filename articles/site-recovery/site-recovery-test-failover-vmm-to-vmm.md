@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 06/05/2017
-ms.date: 07/10/2017
+origin.date: 11/22/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: e5784a1ae0a416a554794f844ad7073dd76c9bdb
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: 4d01846547262ea4bb6e7f7314e832a3b762ed78
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="test-failover-vmm-to-vmm-in-site-recovery"></a>Site Recovery 中的测试故障转移（VMM 到 VMM）
 
@@ -27,6 +27,7 @@ ms.lasthandoff: 06/30/2017
 
 运行测试故障转移可验证复制策略或执行灾难恢复演练，且不会造成任何数据丢失或停机。 测试故障转移不会对进行中的复制或者生产环境造成任何影响。 可在虚拟机或[恢复计划](site-recovery-create-recovery-plans.md)中运行此操作。 触发测试故障转移时，需指定测试虚拟机要连接到的网络。 可在“作业”页中跟踪测试故障转移的进度。  
 
+<!-- Not Available on [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr) -->
 ## <a name="preparing-infrastructure-for-test-failover" ></a>准备用于测试故障转移的基础结构
 如果要使用现有网络运行测试故障转移，则应在该网络中准备 Active Directory、DHCP 和 DNS。
 
@@ -44,18 +45,18 @@ ms.lasthandoff: 06/30/2017
 
 无需为目标 VM 网络定义静态 IP 地址池。 如果为 VM 网络使用了静态 IP 地址池，则副本虚拟机通过为关联逻辑网络中的网络站点指定的设置连接到 VLAN ID。
 
-虚拟机从为 VM 网络定义的池接收其 IP 地址。 如果未在目标 VM 网络上定义静态 IP 地址池，则 IP 地址分配将会失败。 同时在将用于保护和恢复的源和目标 VMM 服务器上创建 IP 地址池。
+虚拟机从为 VM 网络定义的池接收其 IP 地址。 如果未在目标 VM 网络上定义静态 IP 地址池，则 IP 地址分配会失败。 同时在将用于保护和恢复的源和目标 VMM 服务器上创建 IP 地址池。
 
 #### <a name="vm-network-with-windows-network-virtualization"></a>使用 Windows 网络虚拟化的 VM 网络
 如果 VM 网络使用 Windows 网络虚拟化进行配置，则应为目标 VM 网络定义静态池，无论源 VM 网络是配置为使用 DHCP 还是静态 IP 地址池。 
 
-如果定义 DHCP，则目标 VMM 服务器会充当 DHCP 服务器，并从为目标 VM 网络定义的池中提供 IP 地址。 如果为源服务器定义了使用静态 IP 地址池，则目标 VMM 服务器将从池中分配 IP 地址。 在这两种情况下，如果未定义静态 IP 地址池，则 IP 地址分配将会失败。
+如果定义 DHCP，则目标 VMM 服务器会充当 DHCP 服务器，并从为目标 VM 网络定义的池中提供 IP 地址。 如果为源服务器定义了使用静态 IP 地址池，则目标 VMM 服务器将从池中分配 IP 地址。 在这两种情况下，如果未定义静态 IP 地址池，则 IP 地址分配会失败。
 
 ### <a name="prepare-dhcp"></a>准备 DHCP
 如果测试故障转移中涉及的虚拟机使用 DHCP，则应在隔离网络中创建测试 DHCP 服务器，以便进行测试故障转移。
 
 ### <a name="prepare-active-directory"></a>准备 Active Directory
-若要运行测试故障转移以进行应用程序测试，测试环境中需要具有生产 Active Directory 环境的副本。 有关详细信息，请参阅 [Active Directory 的测试故障转移注意事项](site-recovery-active-directory.md#test-failover-considerations)。
+要运行测试故障转移以进行应用程序测试，测试环境中需要具有生产用 Active Directory 环境的副本。 有关详细信息，请参阅 [Active Directory 的测试故障转移注意事项](site-recovery-active-directory.md#test-failover-considerations)。
 
 ### <a name="prepare-dns"></a>准备 DNS
 按如下所述准备 DNS 服务器以进行测试故障转移：
@@ -63,17 +64,15 @@ ms.lasthandoff: 06/30/2017
 * DHCP：如果虚拟机使用 DHCP，则应在测试 DHCP 服务器上更新测试 DNS 的 IP 地址。 如果使用的网络类型为 Windows 网络虚拟化，则 VMM 服务器充当 DHCP 服务器。 因此，应在测试性故障转移网络中更新 DNS 的 IP 地址。 在这种情况下，虚拟机向相关的 DNS 服务器注册自身。
 * 静态地址：如果虚拟机使用静态 IP 地址，则应在测试故障转移网络中更新测试 DNS 服务器的 IP 地址。 可能需要使用测试虚拟机的 IP 地址更新 DNS。 可以使用以下示例脚本实现此目的：
 
-    ```
-    Param(
-    [string]$Zone,
-    [string]$name,
-    [string]$IP
-    )
-    $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-    $newrecord = $record.clone()
-    $newrecord.RecordData[0].IPv4Address  =  $IP
-    Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
-    ```
+        Param(
+        [string]$Zone,
+        [string]$name,
+        [string]$IP
+        )
+        $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+        $newrecord = $record.clone()
+        $newrecord.RecordData[0].IPv4Address  =  $IP
+        Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 ## <a name="run-a-test-failover"></a>运行测试故障转移
 本过程描述如何对恢复计划运行测试故障转移。 或者，可以在“虚拟机”选项卡上对单个虚拟机运行故障转移。
@@ -102,11 +101,12 @@ ms.lasthandoff: 06/30/2017
 >
 
 ## <a name="test-failover-to-a-production-network-on-a-recovery-site"></a>在恢复站点上执行到生产网络的测试故障转移
-执行测试故障转移时，建议选择与网络映射中提供的生产恢复站点网络不同的网络。 但是，如果确实想要在故障转移后的虚拟机中验证端到端网络连接，请注意以下几点：
+执行测试故障转移时，建议选择与[网络映射](/site-recovery/site-recovery-network-mapping)中提供的生产恢复站点网络不同的网络。 但是，如果确实想要在故障转移后的虚拟机中验证端到端网络连接，请注意以下几点：
 
 * 确保在执行测试故障转移时主虚拟机已关闭。 如果未关闭，则将同时在同一网络中运行两台具有相同标识的虚拟机。 这可能会导致意外后果。
 * 清理测试故障转移虚拟机时，对测试故障转移虚拟机所做的全部更改都会丢失。 这些更改不会复制回主虚拟机。
-* 以这种方式执行测试会导致生产应用程序发生停机。 告知应用程序的用户不要在灾难恢复演练过程中使用该应用程序。  
+* 以这种方式执行测试会导致生产应用程序发生停机。 灾难恢复演练正在进行时，需告知应用程序的用户不要使用该应用程序。  
 
 ## <a name="next-steps"></a>后续步骤
-成功运行测试故障转移后，可尝试执行[故障转移](site-recovery-failover.md)。
+成功运行测试故障转移后，可以尝试执行[故障转移](site-recovery-failover.md)。
+<!-- Update_Description: update meta properties, wording update -->

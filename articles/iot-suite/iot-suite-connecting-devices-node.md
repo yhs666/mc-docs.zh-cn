@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/10/2017
+origin.date: 12/12/2017
 ms.author: v-yiso
-ms.date: 12/04/2017
-ms.openlocfilehash: ba252d38d36f0451a25206ff8fae5217e9f42aa1
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.date: 01/08/2018
+ms.openlocfilehash: 1dc982de31ce583e5320a6f964fccbbd4343fbbd
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>将设备连接到远程监视预配置解决方案 (Node.js)
 
@@ -206,7 +206,7 @@ ms.lasthandoff: 11/24/2017
     * 设置所需属性的处理程序。
     * 发送报告的属性。
     * 为直接方法注册处理程序。
-    * 开始发送遥测数据。
+    * 开始发送遥测。
 
     ```nodejs
     client.open(function (err) {

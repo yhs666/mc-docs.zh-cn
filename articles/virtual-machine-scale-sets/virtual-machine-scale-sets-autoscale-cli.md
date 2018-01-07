@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 10/19/2017
 ms.date: 12/06/2017
 ms.author: v-junlch
-ms.openlocfilehash: e1273755e5b3554f9a0a398ba6edb62e7ee7d56f
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: 7df9d37e88e92ba9e8f075695531041b482813ec
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 自动缩放虚拟机规模集
 创建规模集时，可定义想运行的 VM 实例数。 若应用程序需要更改，可自动增加或减少 VM 实例数。 通过自动缩放功能，可随客户需求的改变而进行调整，或在应用的整个生命周期内响应应用程序性能更改。
@@ -74,7 +74,7 @@ location_name="chinanorth"
 | *threshold*       | 使自动缩放规则触发操作的值。                                                      | 70%             |
 | direction       | 定义应用规则时，规模集应扩展还是缩减。                                             | 增加        |
 | *类型*            | 表明 VM 实例数应该增加一定的百分比。                                 | 百分比更改  |
-| value           | 应用规则时应增加或减少多少 VM 实例。                                            | 20              |
+| value           | 应用规则时应增加或减少多少 VM 实例。                                            | 20 个              |
 | *cooldown*        | 为使自动缩放操作有时间生效，再次应用规则前需要等待的时间。 | 5 分钟       |
 
 以下示例定义增加 VM 实例数的规则。 metricResourceUri 使用以前为订阅 ID、资源组名称和规模集名称定义的变量：
@@ -329,5 +329,5 @@ az monitor autoscale-settings create \
 
 有关如何管理 VM 实例的信息，请参阅[使用 Azure PowerShell 管理虚拟机规模集](virtual-machine-scale-sets-windows-manage.md)。
 
-若要了解如何在触发自动缩放规则时生成警报，请参阅[在 Azure Monitor 中使用自动缩放操作发送电子邮件和 Webhook 警报通知](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)。 还可以[在 Azure Monitor 中使用审核日志发送电子邮件和 Webhook 警报通知](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)。
+
 

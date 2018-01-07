@@ -3,8 +3,8 @@ title: "使用适用于 Azure 上的 Linux 的 Docker VM 扩展"
 description: "介绍 Docker 以及 Azure 虚拟机扩展，并说明如何在 Azure 上，使用 Azure CLI 通过命令行以编程方式创建用作 Docker 主机的虚拟机。"
 services: virtual-machines-linux
 documentationcenter: 
-author: squillace
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: eaff75e3-d929-4931-a4a1-8c377a8e7302
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/29/2016
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: ff98b7b90f4c8ea41dbf0afbf541fe6dc08c912c
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 01/08/2018
+ms.author: v-yeche
+ms.openlocfilehash: 0d851eb81b6287500ba87754b75dea27e459b60b
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>从 Azure 命令行接口 (Azure CLI) 使用 Docker VM 扩展
 > [!IMPORTANT] 
@@ -38,15 +38,15 @@ ms.lasthandoff: 07/14/2017
 * 使用本地 Docker 命令在 Azure 中的 Docker VM 内管理 Docker 容器。
 
 ### <a name="install-the-azure-command-line-interface-azure-cli"></a>安装 Azure 命令行接口 (Azure CLI)
-若要安装和配置 Azure CLI，请参阅[如何安装 Azure 命令行接口](../../../cli-install-nodejs.md)。 若要确认安装，请在命令提示符下键入 `azure` ，片刻之后，你就会看到 Azure CLI ASCII 图文，其中列出了可用的基本命令。 如果安装正常，你应该可以键入 `azure help vm` ，并看到列出的其中一个命令是“docker”。
+若要安装和配置 Azure CLI，请参阅[如何安装 Azure 命令行接口](../../../cli-install-nodejs.md)。 要确认安装，请在命令提示符下键入 `azure`，片刻之后，就会看到 Azure CLI ASCII 图文，其中列出了可用的基本命令。 如果安装正常，应该可以键入 `azure help vm`，并看到列出的其中一个命令是“docker”。
 
 > [!NOTE]
 > Docker 提供适用于 Windows [Docker 计算机](https://docs.docker.com/installation/windows/)的工具，也可以使用这些工具自动创建可以配合用作 docker 主机的 Azure VM 使用的 docker 客户端。
 > 
 > 
 
-### <a name="connect-the-azure-cli-to-to-your-azure-account"></a>将 Azure CLI 连接到你的 Azure 帐户
-在使用 Azure CLI 之前，必须将 Azure 帐户凭据与平台上的 Azure CLI 相关联。 [如何连接到 Azure 订阅](../../../xplat-cli-connect.md)部分说明了如何下载和导入 **.publishsettings** 文件，或者将 Azure CLI 与组织 ID 相关联。
+### <a name="connect-the-azure-cli-to-to-your-azure-account"></a>将 Azure CLI 连接到 Azure 帐户
+在使用 Azure CLI 之前，必须将 Azure 帐户凭据与平台上的 Azure CLI 相关联。 [如何连接到 Azure 订阅](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest)部分说明了如何下载和导入 **.publishsettings** 文件，或者将 Azure CLI 与组织 ID 相关联。
 
 > [!NOTE]
 > 由于使用一个或其他多个身份验证方法的行为有一些差异，因此请务必阅读上述文档，以了解不同的功能。
@@ -66,7 +66,7 @@ ms.lasthandoff: 07/14/2017
 
 `azure vm image list | grep Ubuntu-14_04`
 
-选择其中一个映像名称（例如 `b549f4301d0b4295b8e76ceb65df47d4__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB`），然后使用以下命令创建使用该映像的新 VM。
+选择其中一个映像名称（例如 `b549f4301d0b4295b8e76ceb65df47d4__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB`），并使用以下命令创建使用该映像的新 VM。
 
 ```
 azure vm docker create -e 22 -l "China North" <vm-cloudservice name> "b549f4301d0b4295b8e76ceb65df47d4__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB" <username> <password>
@@ -83,7 +83,7 @@ azure vm docker create -e 22 -l "China North" <vm-cloudservice name> "b549f4301d
 > 
 > 
 
-如果命令成功，根据使用的确切参数和选项，你应会可以看到如下所示的内容：
+如果命令成功，根据使用的确切参数和选项，应会可以看到如下所示的内容：
 
 ![](media/cli-use-docker/dockercreateresults.png)
 
@@ -92,11 +92,12 @@ azure vm docker create -e 22 -l "China North" <vm-cloudservice name> "b549f4301d
 > 
 > 
 
-若要测试你在 Azure 中创建的 Docker VM，请键入
+要测试你在 Azure 中创建的 Docker VM，请键入
 
 `docker --tls -H tcp://<vm-name-you-used>.chinacloudapp.cn:2376 info`
+<!-- cloudapp.net to chinacloudapp.cn is correct -->
 
-其中，*&lt;vm-name-you-used&gt;* 是在 `azure vm docker create` 调用中使用的虚拟机名称。 你应会看到如下所示的内容，这表示 Docker 主机 VM 已在 Azure 中启动和运行，并且正等待你的命令。 
+其中，*&lt;vm-name-you-used&gt;* 是在 `azure vm docker create` 调用中使用的虚拟机名称。 应会看到如下所示的内容，这表示 Docker 主机 VM 已在 Azure 中启动和运行，并且正等待命令。 
 
 现在，可以尝试使用你的 Docker 客户端进行连接以获取信息（在某些 Docker 客户端设置（如 Mac 上的 Docker 客户端设置）中可能需要使用 `sudo`）：
 
@@ -130,7 +131,7 @@ azure vm docker create -e 22 -l "China North" <vm-cloudservice name> "b549f4301d
     Name: testsshasm
     WARNING: No swap limit support
 
-为了确认它一直在工作，你可以检查 Docker 扩展的 VM：
+为了确认它一直在工作，可以检查 Docker 扩展的 VM：
 
     azure vm extension get testsshasm
     info: Executing command vm extension get
@@ -141,9 +142,9 @@ azure vm docker create -e 22 -l "China North" <vm-cloudservice name> "b549f4301d
     info: vm extension get command OK
 
 ### <a name="docker-host-vm-authentication"></a>Docker 主机 VM 身份验证
-除了创建 Docker VM 以外，`azure vm docker create` 命令还会自动创建所需的证书，这些证书将适当地存储在客户端和主计算机上。 在后续尝试时，现有证书将被重复使用并与新主机共享。
+除了创建 Docker VM 以外，`azure vm docker create` 命令还会自动创建所需的证书，使 Docker 客户端计算机能够使用 HTTPS 连接到 Azure 容器主机；这些证书将适当地存储在客户端和主计算机上。 在后续尝试时，现有证书会被重复使用并与新主机共享。
 
-默认情况下，证书放置在 `~/.docker`中，而 Docker 将配置为在端口 **2376**上运行。 如果你要使用不同的端口或目录，则可以使用下列其中一个 `azure vm docker create` 命令行选项将 Docker 容器主机 VM 配置为使用不同端口或不同证书来连接客户端：
+默认情况下，证书放置在 `~/.docker` 中，而 Docker 将配置为在端口 **2376** 上运行。 如果要使用不同的端口或目录，则可以使用下列其中一个 `azure vm docker create` 命令行选项将 Docker 容器主机 VM 配置为使用不同端口或不同证书来连接客户端：
 
 ```
 -dp, --docker-port [port]              Port to use for docker [2376]
@@ -158,7 +159,7 @@ azure vm docker create -e 22 -l "China North" <vm-cloudservice name> "b549f4301d
 > 
 
 ## <a name="next-steps"></a>后续步骤
-* 现在，你可以转到 [Docker 用户指南] 并开始使用你的 Docker VM。 若要在新门户中创建启用 Docker 的 VM，请参阅 [如何在门户中使用 Docker VM 扩展]。
+* 现在，可以转到 [Docker 用户指南]，开始使用该 Docker VM。 若要在新门户中创建启用 Docker 的 VM，请参阅 [如何在门户中使用 Docker VM 扩展]。
 * Azure Docker VM 扩展还支持 Docker Compose，它使用声明性 YAML 文件在任何环境中获取由开发人员建模的应用程序，并生成一致的部署。 请参阅[开始使用 Docker 和 Compose 在 Azure 虚拟机上定义和运行多容器应用程序]。  
 
 <!--Anchors-->
@@ -180,3 +181,5 @@ azure vm docker create -e 22 -l "China North" <vm-cloudservice name> "b549f4301d
 [Docker 用户指南]:https://docs.docker.com/userguide/
 
 [开始使用 Docker 和 Compose 在 Azure 虚拟机上定义和运行多容器应用程序]:../docker-compose-quickstart.md。
+
+<!-- Update_Description: wording update, update link -->

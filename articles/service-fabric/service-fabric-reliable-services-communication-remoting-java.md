@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 06/30/2017
-ms.date: 08/21/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 31956819ee11e7ac74eb1aa33b2dfc34e3d9c50d
-ms.sourcegitcommit: bfdbf6df593eb9ea6ad7372375db671886055a12
+ms.openlocfilehash: 4b3143f366bbc9c59bee5d4596d1f4f0752696b5
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>通过 Reliable Services 进行服务远程处理
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 该远程处理框架将服务引发的异常传播到客户端。 因此，在客户端使用 `ServiceProxyBase` 的异常处理逻辑可直接处理服务引发的异常。
 
 ## <a name="service-proxy-lifetime"></a>服务代理生存期
-由于 ServiceProxy 创建是轻量型操作，因此用户可根据需求随意创建，数目不限。 如有需要，用户可重复使用服务代理。 用户可以在异常情况下重复使用相同的代理。 每个 ServiceProxy 都包含用于通过线路发送消息的通信客户端。 调用 API 时，我们通过内部检查来查看使用的通信客户端是否有效。 基于该结果，我们将重新创建通信客户端。 因此在异常情况下，用户无需重新创建 serviceproxy。
+由于 ServiceProxy 创建是轻量型操作，因此用户可根据需求随意创建，数目不限。 如有需要，用户可重复使用服务代理。 用户可以在异常情况下重复使用相同的代理。 每个 ServiceProxy 都包含用于通过线路发送消息的通信客户端。 在调用 API 时，我们通过内部检查来查看使用的通信客户端是否有效。 基于该结果，我们将重新创建通信客户端。 因此在异常情况下，用户无需重新创建 serviceproxy。
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory 生存期
 [FabricServiceProxyFactory](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) 是为不同远程接口创建代理的工厂。 如果使用 API `ServiceProxyBase.create` 创建代理，则框架创建 `FabricServiceProxyFactory`。
@@ -107,4 +107,4 @@ ServiceProxy 对为其创建的服务分区，处理所有故障转移异常。 
 ## <a name="next-steps"></a>后续步骤
 * [确保 Reliable Services 的通信安全](service-fabric-reliable-services-secure-communication.md)
 
-<!--Update_Description: update meta properties， add new feature of Service Proxy  and ServiceProxyFactory Lifetime and error handing.-->
+<!--Update_Description: update meta properties -->

@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/13/2017
-ms.date: 11/13/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 212ba0217186a69a4890af1c6d6872611626f937
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 82f8b80b20802564d2cdf4b6c592d724628c3bd2
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>在 Azure Service Fabric 上托管 Node.js 应用程序
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/09/2017
 将应用程序命名为“MyGuestApp”，并按“确定”。
 
 >[!IMPORTANT]
->Node.js 可能会轻松突破针对 Windows 路径的 260 字符限制。 请对项目本身使用短路径，例如 **c:\code\svc1**。 （可选）可以按照[这些说明](https://stackoverflow.com/a/41687101/1664231)在 Windows 10 中启用长文件路径。
+>Node.js 可能会轻松突破针对 Windows 路径的 260 字符限制。 请对项目本身使用短路径，例如 **c:\code\svc1**。 （可选）可以按照**[这些说明](https://stackoverflow.com/a/41687101/1664231)**在 Windows 10 中启用长文件路径。
 
 ![Visual Studio 中的新建项目对话框][new-project]
 
@@ -74,7 +74,7 @@ Visual Studio 会创建应用程序项目和执行组件服务项目，并在解
 * **脚本**  
 用于部署/升级应用程序的 PowerShell 脚本。
 
-* **应用程序定义**  
+* 应用程序定义  
 包括 *ApplicationPackageRoot* 下的应用程序清单。 关联应用程序参数文件位于 *ApplicationParameters* 下，它们定义应用程序并使你可以专门为给定环境对其进行配置。
 
 有关服务项目的内容概述，请参阅 [Reliable Services 入门](service-fabric-reliable-services-quick-start.md)。
@@ -96,7 +96,7 @@ Visual Studio 会创建应用程序项目和执行组件服务项目，并在解
   </Resources>
 ```
 
-## <a name="deploy-to-azure"></a>部署到 Azure
+## <a name="deploy-to-azure"></a>“部署到 Azure”
 
 如果通过按 **F5** 来运行项目，则会将其部署到本地群集。 但请将其部署到 Azure。
 
@@ -126,7 +126,7 @@ Visual Studio 会创建应用程序项目和执行组件服务项目，并在解
 
 首先，打开 Azure 门户并找到 Service Fabric 服务。
 
-检查服务地址的概览边栏选项卡。 使用“客户端连接终结点”属性中的域名。 例如，`http://mysvcfab1.chinanorth2.chinacloudapp.cn`。
+检查服务地址的概览边栏选项卡。 使用“客户端连接终结点”属性中的域名。 例如，`http://mysvcfab1.chinanorth.cloudapp.chinacloudapi.cn`。
 
 ![Azure 门户中的 Service Fabric 概览边栏选项卡][overview]
 
@@ -149,5 +149,5 @@ Visual Studio 会创建应用程序项目和执行组件服务项目，并在解
 [custom-endpoint]: ./media/quickstart-guest-app/custom-endpoint.png
 
 [download-sample]: https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/service-fabric-node-website.zip
-[create-account]: https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F
-<!--Update_Description: update meta properties, wording update-->
+[create-account]: https://www.azure.cn/pricing/1rmb-trial
+<!--Update_Description: update meta properties, update link -->

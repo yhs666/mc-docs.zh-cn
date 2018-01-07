@@ -3,8 +3,8 @@ title: "Azure 到 Azure 复制问题和错误的 Azure Site Recovery 故障排�
 description: "排查复制 Azure 虚拟机进行灾难恢复时出现的错误和问题"
 services: site-recovery
 documentationcenter: 
-author: sujayt
-manager: rochakm
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 06/10/2017
-ms.date: 07/10/2017
+origin.date: 11/21/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 31f44b669a6874c2a9b06305d7f428db8eb26662
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: 186c4ed2d5d0c3e7e1a1946938cd835ff489513c
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 到 Azure VM 复制问题故障排除
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 06/30/2017
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Azure 资源配额问题（错误代码 150097）
 应启用订阅，在计划用作灾难恢复区域的目标区域中创建 Azure VM。 此外，订阅应启用充足的配额以创建特定大小的 VM。 默认情况下，Site Recovery 选取与源 VM 同样大小的目标 VM。 如果无法选择匹配的大小，则会自动选取最接近的大小。 如果没有支持源 VM 配置的匹配大小，将出现下面的错误消息：
 
-错误代码 | 可能的原因 | 建议
+错误代码 | **可能的原因** | 建议
 --- | --- | ---
 150097<br></br>消息：无法为虚拟机 VmName 启用复制。 | - 可能未启用订阅 ID，无法在目标区域位置中创建任何 VM。</br></br>- 可能未启用订阅 ID 或没有足够的配额，无法在目标区域位置中创建特定大小的 VM。</br></br>- 对于订阅 ID，在目标区域位置中找不到与源 VM NIC 计数 (2) 匹配的合适的目标 VM 大小。| 联系 [Azure 计费支持](/azure-supportability/resource-manager-core-quotas-request)，对订阅启用 VM 创建，以便在目标位置中创建所需大小的 VM。 启用后，重试失败的操作。
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 06/30/2017
 
 要使 Site Recovery 复制正常运行，必须具有从 VM 到特定 URL 或 IP 范围的出站连接。 如果 VM 位于防火墙之后，或其使用网络安全组 (NSG) 规则来控制出站连接，则可能会出现以下错误消息之一：
 
-**错误代码** | 可能的原因 | 建议
+**错误代码** | 可能的原因 | **建议**
 --- | --- | ---
 151037<br></br>消息：无法向 Site Recovery 注册 Azure 虚拟机。 | - 正在使用 NSG 来控制 VM 上的出站访问权限，而所需的 IP 范围未列在出站访问权限允许列表上。</br></br>- 正在使用第三方防火墙工具，而所需的 IP 范围/URL 未列在允许列表上。</br>| - 如果使用防火墙代理控制 VM 上的出站网络连接，请确保先决条件 URL 或数据中心 IP 范围已列入允许列表。 有关信息，请参阅[防火墙代理指南](https://aka.ms/a2a-firewall-proxy-guidance)。</br></br>- 如果使用 NSG 规则来控制 VM 上的出站网络连接，请确保先决条件数据中心 IP 范围已列入允许列表。 有关信息，请参阅[网络安全组指南](https://aka.ms/a2a-nsg-guidance)。
 151072<br></br>消息：Site Recovery 配置失败。 | 无法建立与 Site Recovery 服务终结点的连接。 | - 如果使用防火墙代理控制 VM 上的出站网络连接，请确保先决条件 URL 或数据中心 IP 范围已列入允许列表。 有关信息，请参阅[防火墙代理指南](https://aka.ms/a2a-firewall-proxy-guidance)。</br></br>- 如果使用 NSG 规则来控制 VM 上的出站网络连接，请确保先决条件数据中心 IP 范围已列入允许列表。 有关信息，请参阅[网络安全组指南](https://aka.ms/a2a-nsg-guidance)。
@@ -119,17 +119,16 @@ ms.lasthandoff: 06/30/2017
 
 如果问题仍然存在，请联系支持部门。
 
-## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>无法查看 Azure VM 中“启用复制”的选择
+## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>在“启用复制”选项中看不到 Azure VM
 
-出现此问题可能是因为 Azure VM 中留有过时的 Site Recovery 配置。 在以下情况下，Azure VM 中可能留有过时的配置：
-<!-- Not Available site-recovery-azure-to-azure.md -->
+在[启用复制：步骤 2](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines) 的选项中可能看不到 Azure VM。 此问题可能由留在 Azure VM 上的过时 Site Recovery 配置导致。 在以下情况下，Azure VM 中可能留有过时的配置：
 
 - 使用 Site Recovery 启用了 Azure VM 的复制，然后在删除 Site Recovery 保管库时未显式禁用 VM 上的复制。
 - 使用 Site Recovery 启用了 Azure VM 的复制，然后在删除包含 Site Recovery 保管库的资源组时未显式禁用 VM 上的复制。
 
 ### <a name="fix-the-problem"></a>解决问题
 
-可以使用[删除过时的 ASR 配置脚本](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)，删除 Azure VM 上过时的 Site Recovery 配置。
-<!-- Not Available site-recovery-azure-to-azure.md -->
+可使用[删除过时 ASR 配置脚本](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)，删除 Azure VM 上的过时 Site Recovery 配置。 删除过时配置后，应在[启用复制：步骤 2](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines) 中看到 VM。
 
 ## <a name="next-steps"></a>后续步骤
+<!-- Update_Description: update meta properties, wording update -->

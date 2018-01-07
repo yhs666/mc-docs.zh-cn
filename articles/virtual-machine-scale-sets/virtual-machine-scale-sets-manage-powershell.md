@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/13/2017
-ms.date: 12/06/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: 861f4f89bd3bee09dd945bab0bfb930a3f154068
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: 45217f0b857e86608c30e484fca17660da24843a
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>使用 Azure PowerShell 管理虚拟机规模集
 在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 此外，可能还需要创建自动执行各种生命周期任务的脚本。 本文详细介绍了执行这些任务常用的一些 Azure PowerShell cmdlet。
@@ -61,7 +61,7 @@ $vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "my
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 5
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet $vmss 
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
 ```
 
 更新规模集容量需要花费数分钟。 如果减少规模集的容量，将首先删除实例 ID 最大的 VM。
@@ -112,3 +112,4 @@ Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScale
 ## <a name="next-steps"></a>后续步骤
 规模集的其他常见任务包括如何[部署应用程序](virtual-machine-scale-sets-deploy-app.md)和[升级 VM 实例](virtual-machine-scale-sets-upgrade-scale-set.md)。 也可使用 Azure PowerShell 来[配置自动缩放规则](virtual-machine-scale-sets-autoscale-overview.md)。
 
+<!--Update_Description: code update -->

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 09/25/2017
-ms.date: 11/20/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7a47d0066a18c74d85d8bd5bceb4780d96445b24
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: a44cd27bb96bab08681dfc97f52b823d1b573dfe
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="failover-in-site-recovery"></a>Site Recovery 中的故障转移
 本文介绍了如何对由 Site Recovery 保护的虚拟机和物理服务器进行故障回复。
@@ -71,7 +71,7 @@ ms.lasthandoff: 11/15/2017
 
 <a name="failover-and-failback"></a> 
 ## <a name="planned-failover"></a>计划的故障转移
-使用 Site Recovery 保护的虚拟机/物理服务器也支持计划的故障转移。 计划的故障转移是一个不会丢失任何数据的故障转移选项。 触发计划的故障转移时，首先会关闭源虚拟机，同步尚未同步的数据，然后触发故障转移。
+使用 Site Recovery 保护的虚拟机/物理服务器也支持计划的故障转移。 计划的故障转移是一个不会丢失任何数据的故障转移选项。 触发计划的故障转移时，首先会关闭源虚拟机，同步最新的数据，然后触发故障转移。
 
 > [!NOTE]
 > 在不同的本地站点之间故障转移 Hyper-V 虚拟机时，若要返回到主要本地站点，必须先将虚拟机“反向复制”回到主站点，然后触发故障转移。 如果主虚拟机不可用，则在开始 **反向复制** 前必须从备份还原虚拟机。   

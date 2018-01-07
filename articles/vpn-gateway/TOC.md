@@ -1,6 +1,7 @@
 # 概述
 ## [关于 VPN 网关](vpn-gateway-about-vpngateways.md)
 ## [VPN 网关常见问题](vpn-gateway-vpn-faq.md)
+## [订阅和服务限制](../azure-subscription-service-limits.md)
 
 # 入门
 ## [规划和设计 VPN 网关](vpn-gateway-plan-design.md)
@@ -39,7 +40,7 @@
 ### [Azure PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure 门户（经典）](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-## 在部署模型之间配置 VNet 到 VNet 连接
+## 配置部署模型之间的 VNet 到 VNet 连接
 ### [Azure 门户](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Azure PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 ## 配置站点到站点和 ExpressRoute 的共存连接
@@ -74,6 +75,7 @@
 ## 配置第三方 VPN 设备
 ### [概述和 Azure 配置](vpn-gateway-3rdparty-device-config-overview.md)
 ### [示例：Cisco ASA 设备（IKEv2/无 BGP）](vpn-gateway-3rdparty-device-config-cisco-asa.md)
+## [从经典部署模型迁移到资源管理器部署模型](vpn-gateway-classic-resource-manager-migration.md)
 ## 故障排除
 ### [验证 VNet 的 VPN 吞吐量](vpn-gateway-validate-throughput-to-vnet.md)
 ### [社区建议的 VPN 或防火墙设备设置](vpn-gateway-third-party-settings.md)
@@ -82,7 +84,7 @@
 ### [站点到站点连接无法连接](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
 ### [配置和验证 VNet 或 VPN 连接](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
-# 引用
+# 参考
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
 ## [Azure PowerShell（经典）](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0#networking)
 ## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
@@ -99,7 +101,7 @@
 # 资源
 ## [博客](https://azure.microsoft.com/blog/topics/networking)
 ## [论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [定价](https://www.azure.cn/pricing/details/vpn-gateway)
+## [价格](https://www.azure.cn/pricing/details/vpn-gateway)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [SLA](https://www.azure.cn/support/legal/sla)
 

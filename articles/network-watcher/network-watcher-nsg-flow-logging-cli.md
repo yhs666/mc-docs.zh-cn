@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9081d1ac2181af76d8fb40856fa4398db3659519
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: efcfd84b76fa13fa65d9b5e473f3d82f97ce9a12
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>使用 Azure CLI 配置网络安全组流日志
 
@@ -80,4 +80,4 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/insights-logs-networksec
 
 了解如何[使用开源工具直观地显示 NSG 流日志](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
-<!--Update_Description: new articles on network watcher nsg flow logging CLI -->
+<!--Update_Description: update meta properties -->

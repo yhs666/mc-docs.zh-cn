@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/27/2017
-ms.openlocfilehash: 8191ea6c36d355853fa5198f69fd482e52b3b374
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 01/08/2018
+ms.openlocfilehash: 3e0a3c195fc0c0859b0cdf274137e1a32c0cb8bb
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>在 Azure 中部署 OpenShift Origin
 
@@ -136,3 +136,4 @@ az group delete --name myResourceGroup
 - [部署后任务](./openshift-post-deployment.md)
 - [OpenShift 部署故障排除](./openshift-troubleshooting.md)
 - [OpenShift Origin 入门](https://docs.openshift.org/latest/getting_started/index.html)
+<!--Update_Description: wording meta properties -->

@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 08/10/2017
-ms.date: 10/16/2017
+origin.date: 12/13/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 403fb2555e4ec8779e30296905c26b20d54100a6
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 495a38f2d9dd1652b07e3d12bc3e15a39c98c64c
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 [!INCLUDE [virtual-machines-common-infrastructure-automation](../../../includes/virtual-machines-common-infrastructure-automation.md)]
 
-<!--Update_Description: new articles on infrastructure automation -->
+<!--Not Available the parent file of includes file of virtual-machines-common-infrastructure-automation.md-->
+<!--ms.date:01/08/2018-->
+<!--Update_Description: update meta properties -->

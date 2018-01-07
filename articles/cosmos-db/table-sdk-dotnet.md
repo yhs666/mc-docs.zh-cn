@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 11/20/2017
-ms.date: 11/27/2017
+origin.date: 12/12/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: c83f4072d4a6908ac81f1a7955e2517576431790
-ms.sourcegitcommit: 9f55dd21ae5f1183ea2d95fdafc9b3327cdb0996
+ms.openlocfilehash: 966defbd2e6b918a3347c4523facd35879d2da19
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 表 .NET API：下载和发行说明
 > [!div class="op_single_selector"]
@@ -37,13 +37,14 @@ ms.lasthandoff: 11/24/2017
 |**当前受支持的框架**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 > [!IMPORTANT]
-> 如果已在预览期间创建表 API 帐户，请创建[新的表 API 帐户](create-table-dotnet.md#create-a-database-account)以使用正式发布的表 API SDK。
+> 如果已在预览期间创建表 API 帐户，请[新建表 API 帐户](create-table-dotnet.md#create-a-database-account)，这样才能使用正式版表 API SDK。
 >
 
 <!-- Not Avaialble ## Release notes -->
 <!-- Not Avaialble ## Release and Retirement dates --》
 
 ## <a name="troubleshooting"></a> Troubleshooting
+## Troubleshooting
 
 If you get the error 
 
@@ -68,4 +69,4 @@ when attempting to use the Microsoft.Azure.CosmosDB.Table NuGet package, you hav
 ## See also
 To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](table-introduction.md).
 
-<!-- Update_Description: update meta properties, add Troubleshooting content -->
+<!-- Update_Description: update meta properties, wording update -->

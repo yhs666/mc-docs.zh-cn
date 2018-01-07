@@ -11,15 +11,16 @@ ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: tutorial
 origin.date: 09/05/2017
-ms.date: 09/25/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1c0b5aec7f27f5b1738848d6b9cc63325c79253f
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.custom: mvc
+ms.openlocfilehash: e810ce2f8d024fc75c89ce98dde626b6001e9bbb
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 - 第 3 部分：通过 Angular 生成 UI
 
@@ -97,7 +98,7 @@ ms.lasthandoff: 09/22/2017
     > 可以使用 John Papa 提供的适用于 Visual Studio Code 的 Angular Essentials 扩展和代码片段来加快开发速度。 
     > 1. 单击“扩展”按钮 ![Visual Studio Code 的“扩展”按钮](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png)。
     > 2. 在搜索框中键入“angular essentials”。
-    > 3. 单击“安装” 。 
+    > 3. 单击“安装”。 
     > 4. 单击“重新加载”按钮以使用新扩展。
     > 或者从 [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials) 下载。 
     > ![Angular Essentials 扩展](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
@@ -107,8 +108,8 @@ ms.lasthandoff: 09/22/2017
     ```html
     <div>
       <ul class="heroes">
-        <li *ngFor="let hero of heroes" (https://docs.microsoft.com/click)="onSelect(hero)" [class.selected]="hero === selectedHero">
-          <button class="delete-button" (https://docs.microsoft.com/click)="deleteHero(hero)">Delete</button>
+        <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+          <button class="delete-button" (click)="deleteHero(hero)">Delete</button>
           <div class="hero-element">
             <div class="badge">{{hero.id}}</div>
             <div class="name">{{hero.name}}</div>
@@ -117,7 +118,7 @@ ms.lasthandoff: 09/22/2017
         </li>
       </ul>
       <div class="editarea">
-        <button (https://docs.microsoft.com/click)="enableAddMode()">Add New Hero</button>
+        <button (click)="enableAddMode()">Add New Hero</button>
         <div *ngIf="selectedHero">
           <div class="editfields">
             <div>
@@ -134,8 +135,8 @@ ms.lasthandoff: 09/22/2017
               <input [(ngModel)]="selectedHero.saying" placeholder="saying" />
             </div>
           </div>
-          <button (https://docs.microsoft.com/click)="cancel()">Cancel</button>
-          <button (https://docs.microsoft.com/click)="save()">Save</button>
+          <button (click)="cancel()">Cancel</button>
+          <button (click)="save()">Save</button>
         </div>
       </div>
     </div>
@@ -557,3 +558,4 @@ ms.lasthandoff: 09/22/2017
 
 > [!div class="nextstepaction"]
 > [使用 Azure CLI 创建 Azure Cosmos DB 帐户](tutorial-develop-mongodb-nodejs-part4.md)
+<!-- Update_Description: update meta properties, wording update -->

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 10/19/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: ffd21035be11450fe6e7bce42dfc6002b4ad4ff1
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: ec59ae4c15d99c86afbebf6ccc1a15c046ee0577
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自定义 Active Directory 联合身份验证服务
 本文介绍如何使用 Azure Active Directory (Azure AD) Connect 管理和自定义 Active Directory 联合身份验证服务 (AD FS)。 另外，还介绍了可能需要针对完整的 AD FS 场配置执行的其他常见 AD FS 任务。
@@ -69,7 +69,7 @@ ms.lasthandoff: 10/20/2017
 > Azure AD Connect 只能对自签名的证书进行修复或采取措施。 Azure AD Connect 无法修复第三方证书。
 
 ## <a name="alternateid"></a>使用 AlternateID 与 Azure AD 进行联合 
-建议使本地用户主体名称 (UPN) 和云用户主体名称保持相同。 如果本地 UPN 使用不可路由的域（例如 Contoso.local），或由于本地应用程序依赖关系而无法更改，建议设置备用登录 ID。 备用登录 ID 允许配置登录体验，用户可以使用其 UPN 以外的属性（如邮件）登录。 用于 Azure AD Connect 中用户主体名称的属性默认为 Active Directory 中的 userPrincipalName 属性。 如果为用户主体名称选择任何其他属性，并使用 AD FS 进行联合，则 Azure AD Connect 将为备用登录 ID 配置 AD FS。 以下是为用户主体名称选择其他属性的一个示例：
+建议使本地用户主体名称 (UPN) 和云用户主体名称保持相同。 如果本地 UPN 使用不可路由的域（例如 Contoso.local），或由于本地应用程序依赖关系而无法更改，建议设置备用登录 ID。 备用登录 ID 允许配置登录体验，用户可以使用其 UPN 以外的属性（如邮件）登录。 用于 Azure AD Connect 中用户主体名称的属性默认为 Active Directory 中的 userPrincipalName 属性。 如果为用户主体名称选择任何其他属性，并使用 AD FS 进行联合，则 Azure AD Connect 为备用登录 ID 配置 AD FS。 以下是为用户主体名称选择其他属性的一个示例：
 
 ![备用 ID 属性选择](./media/active-directory-aadconnect-federation-management/attributeselection.png)
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 10/20/2017
 
    ![域管理员凭据](./media/active-directory-aadconnect-federation-management/AddNewADFSServer3.PNG)
 
-4. Azure AD Connect 将要求提供在使用 Azure AD Connect 配置新的 AD FS 场时提供的 PFX 文件的密码。 单击“输入密码”提供 PFX 文件的密码。
+4. Azure AD Connect 会要求你提供在使用 Azure AD Connect 配置新的 AD FS 场时提供的 PFX 文件的密码。 单击“输入密码”提供 PFX 文件的密码。
 
    ![证书密码](./media/active-directory-aadconnect-federation-management/AddNewADFSServer4.PNG)
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 10/20/2017
 
    ![已准备好配置](./media/active-directory-aadconnect-federation-management/WapServer7.PNG)
 
-7. 单击“安装”完成配置。 完成配置后，向导将提供验证到服务器的连接性的选项。 单击“验证”检查连接性。
+7. 单击“安装”完成配置。 完成配置后，向导提供验证到服务器的连接性的选项。 单击“验证”检查连接性。
 
    ![安装完成](./media/active-directory-aadconnect-federation-management/WapServer8.PNG)
 
@@ -171,9 +171,9 @@ ms.lasthandoff: 10/20/2017
 
    ![Azure AD 域](./media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
-    选择域后，向导将提供有关向导将采取的进一步操作以及配置产生的影响的适当信息。 在某些情况下，如果选择的域尚未在 Azure AD 中进行验证，则向导将提供帮助验证域的信息。 有关更多详细信息，请参阅[将自定义域名添加到 Azure Active Directory](../active-directory-add-domain.md)。
+    选择域后，向导将提供有关向导将采取的进一步操作以及配置产生的影响的适当信息。 在某些情况下，如果选择的域尚未在 Azure AD 中进行验证，则向导将提供帮助验证域的信息。 有关更多详细信息，请参阅[将自定义域名添加到 Azure Active Directory](../active-directory-domains-add-azure-portal.md)。
 
-5. 单机“下一步” “已准备好配置”页会显示 Azure AD Connect 将要执行的操作列表。 单击“安装”完成配置。
+5. 单击“下一步”。 “已准备好配置”页会显示 Azure AD Connect 将要执行的操作列表。 单击“安装”完成配置。
 
    ![已准备好配置](./media/active-directory-aadconnect-federation-management/AdditionalDomain5.PNG)
 

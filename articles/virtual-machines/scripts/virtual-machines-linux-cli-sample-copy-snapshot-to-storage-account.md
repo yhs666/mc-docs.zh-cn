@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/19/2017
-ms.date: 10/30/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7f44bf988658a8a9f0216adcd1216ad4295cf180
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 6c75f16cfc0c36209a19678fee50f1db4ee7ed7d
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-cli"></a>使用 CLI 将托管快照作为 VHD 导出/复制到不同区域中的存储帐户
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/27/2017
 
 ```azurecli
 #Provide the subscription Id where snapshot is created
-subscriptionId=<your_subscription_id>
+subscriptionId=dd80b94e-0463-4a65-8d04-c94f403879dc
 
 #Provide the name of your resource group where snapshot is created
 resourceGroupName=myResourceGroupName
@@ -44,7 +44,7 @@ resourceGroupName=myResourceGroupName
 snapshotName=mySnapshotName
 
 #Provide Shared Access Signature (SAS) expiry duration in seconds e.g. 3600.
-#Know more about SAS here: https://docs.azure.cn/storage/common/storage-dotnet-shared-access-signature-part-1
+#Know more about SAS here: https://docs.azure.cn/storage/storage-dotnet-shared-access-signature-part-1
 sasExpiryDuration=3600
 
 #Provide storage account name where you want to copy the snapshot. 
@@ -71,7 +71,7 @@ az storage blob copy start --destination-blob $destinationVHDFileName --destinat
 
 此脚本使用以下命令为托管快照生成 SAS URI，并使用 SAS URI 将快照复制到存储帐户。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az snapshot grant-access](https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az_snapshot_grant_access) | 生成只读 SAS，用于将基础 VHD 文件复制到存储帐户或将其下载到本地  |
 | [az storage blob copy start](https://docs.azure.cn/zh-cn/cli/storage/blob/copy?view=azure-cli-latest#az_storage_blob_copy_start) | 以异步方式将 blob 从一个存储帐户复制到另一个存储帐户 |

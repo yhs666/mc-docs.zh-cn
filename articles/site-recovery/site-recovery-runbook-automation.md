@@ -12,21 +12,21 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-origin.date: 06/23/2017
-ms.date: 08/28/2017
+origin.date: 11/28/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: d4b3aee77948fc49c916316cb12919fbe6601567
-ms.sourcegitcommit: 06019e3df5b85811e1f45f29d415dc666305166f
+ms.openlocfilehash: 52ec307fb2d6c52296934c2db437217f478fbfe1
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>将 Azure 自动化 Runbook 添加到恢复计划
 本文将介绍 Azure Site Recovery 如何与 Azure 自动化集成，以便扩展恢复计划。 恢复计划可以安排恢复受 Site Recovery 保护的 VM。 恢复计划支持复制到辅助云和复制到 Azure。 恢复计划还有助于实现恢复的**一致准确性**、**可重复性**和**自动化**。 如果从 VM 故障转移到 Azure，与 Azure 自动化集成可以扩展恢复计划。 可用于执行 Runbook，从而提供功能强大的自动化任务。
 
-如果刚开始接触 Azure 自动化，可以[注册](https://www.azure.cn/home/features/automation/)和[下载示例脚本](https://www.azure.cn/documentation/scripts/)。 有关详细信息，以及若要了解如何使用[恢复计划](https://azure.microsoft.com/blog/?p=166264)来安排恢复到 Azure，请参阅 [Azure Site Recovery](https://www.azure.cn/home/features/site-recovery/)。
+如果刚开始接触 Azure 自动化，可以[注册](https://www.azure.cn/home/features/automation/)和[下载示例脚本](../automation/automation-runbook-gallery.md)。 有关详细信息，以及若要了解如何使用[恢复计划](https://azure.microsoft.com/blog/?p=166264)来安排恢复到 Azure，请参阅 [Azure Site Recovery](https://www.azure.cn/home/features/site-recovery/)。
 
-本文介绍如何将 Azure 自动化 Runbook 集成到恢复计划中。 我们使用示例，自动执行以前需要手动干预的基本任务。 本文还介绍如何将多步骤恢复过程转换为一键式恢复操作。
+本文介绍如何将 Azure 自动化 Runbook 集成到恢复计划中。 我们使用示例，自动执行以前需要手动干预的基本任务。 本文还将介绍如何将多步骤恢复过程转换为一键式恢复操作。
 
 ## <a name="customize-the-recovery-plan"></a>自定义恢复计划
 1. 转到“Site Recovery”恢复计划资源边栏选项卡。 对于此示例，恢复计划包含两个要恢复的 VM。 若要开始添加 Runbook，请单击“自定义”选项卡。
@@ -119,10 +119,10 @@ $vmMap = $RecoveryPlanContext.VmMap
  foreach($VMID in $VMinfo)
  {
      $VM = $vmMap.$VMID                
-         if( !(($VM -eq $Null) -Or ($VM.ResourceGroupName -eq $Null) -Or ($VM.RoleName -eq $Null))) {
+     if( !(($VM -eq $Null) -Or ($VM.ResourceGroupName -eq $Null) -Or ($VM.RoleName -eq $Null))) {
          #this check is to ensure that we skip when some data is not available else it will fail
-     Write-output "Resource group name ", $VM.ResourceGroupName
-     Write-output "Rolename " = $VM.RoleName
+         Write-output "Resource group name ", $VM.ResourceGroupName
+         Write-output "Rolename " = $VM.RoleName
      }
  }
 
@@ -197,7 +197,7 @@ workflow AddPublicIPAndNSG {
 1. 在 PowerShell 中，登录 Azure 订阅：
 
     ```
-    login-azurermaccount -EnvironmentName AzureChinaCloud
+    Login-AzureRMAccount -EnvironmentName AzureChinaCloud
     $sub = Get-AzureRmSubscription -Name <SubscriptionName>
     $sub | Select-AzureRmSubscription
     ```
@@ -249,10 +249,11 @@ workflow AddPublicIPAndNSG {
 
 有关其他示例，请观看下面的视频。 它演示了如何将两层 WordPress 应用程序恢复到 Azure：
 
+<!-- Not Available on Channel9 VIDEO -->
 
 ## <a name="additional-resources"></a>其他资源
 <!-- Not Available automation-sec-configure-azure-runas-account.md -->
-[Azure 自动化概述](https://docs.azure.cn/zh-cn/automation/ "Azure 自动化概述")
+* [Azure 自动化概述](https://docs.azure.cn/zh-cn/automation/ "Azure 自动化概述")
 * [Azure 自动化示例脚本](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure 自动化示例脚本")
 
 <!--Update_Description: update meta properties, wording update-->

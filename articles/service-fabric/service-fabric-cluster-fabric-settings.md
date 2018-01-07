@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/15/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: b9e6ae30b278e5c1b97a79836b873f32525f21a3
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 04bcf7f1038ac37fed2556a16fd5b2da880e2d8a
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自定义 Service Fabric 群集设置和结构升级策略
 本文档说明如何为 Service Fabric 群集自定义各种结构设置和结构升级策略。 可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板完成自定义。
@@ -27,20 +27,22 @@ ms.lasthandoff: 12/01/2017
 > [!NOTE]
 > 并非所有设备在门户中皆为可用。 如果不能通过门户使用下面列出的设置，请使用 Azure 资源管理器模板对其进行自定义。
 > 
+
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>使用资源管理器模板自定义群集设置
+<!-- Not Avaialbel on steps on https://resources.azure.com-->
 以下为可自定义的 Fabric 设置列表（按分区排序）。
 
 ### <a name="section-name-diagnostics"></a>节名称：Diagnostics
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
-| ConsumerInstances |字符串 | 动态 |DCA 使用者实例列表。 |
-| ProducerInstances |字符串 | 动态 |DCA 生成者实例列表。 |
+| ConsumerInstances |String | 动态 |DCA 使用者实例列表。 |
+| ProducerInstances |String | 动态 |DCA 生成者实例列表。 |
 | AppEtwTraceDeletionAgeInDays |Int，默认值为 3 | 动态 |在多少天后删除包含应用程序 ETW 跟踪的旧 ETL 文件。 |
 | AppDiagnosticStoreAccessRequiresImpersonation |Bool，默认值为 true | 动态 |代表应用程序访问诊断存储时是否需要模拟。 |
 | MaxDiskQuotaInMB |Int，默认值为 65536 | 动态 |Windows Fabric 日志文件的磁盘配额（以 MB 为单位）。 |
 | DiskFullSafetySpaceInMB |Int，默认值为 1024 | 动态 |要避免被 DCA 使用的剩余磁盘空间（以 MB 为单位）。 |
 | ApplicationLogsFormatVersion |Int，默认值为 0 | 动态 |应用程序日志格式的版本。 支持的值为 0 和 1。 版本 1 比版本 0 包含更多 ETW 事件记录的字段。 |
-| ClusterId |字符串 | 动态 |群集的唯一 ID。 在创建群集时生成。 |
+| ClusterId |String | 动态 |群集的唯一 ID。 在创建群集时生成。 |
 | EnableTelemetry |Bool，默认值为 true | 动态 |启用或禁用遥测。 |
 | EnableCircularTraceSession |Bool，默认值为 false | 静态 |标志指示是否应使用循环跟踪会话。 |
 
@@ -54,16 +56,16 @@ ms.lasthandoff: 12/01/2017
 | --- | --- | --- | --- |
 | IsEnabled |Bool，默认值为 true | 动态 |标志指示是否启用本地节点上的性能计数器集合。 |
 | SamplingIntervalInSeconds |Int，默认值为 60 | 动态 |正在收集的性能计数器的采样间隔。 |
-| Counters |字符串 | 动态 |要收集的性能计数器的逗号分隔列表。 |
+| Counters |String | 动态 |要收集的性能计数器的逗号分隔列表。 |
 | MaxCounterBinaryFileSizeInMB |Int，默认值为 1 | 动态 |每个性能计数器二进制文件的最大大小（以 MB 为单位）。 |
 | NewCounterBinaryFileCreationIntervalInMinutes |Int，默认值为 10 | 动态 |在其之后创建新的性能计数器二进制文件的最大间隔（以秒为单位）。 |
 
 ### <a name="section-name-setup"></a>节名称：Setup
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
-| FabricDataRoot |字符串 | 不允许 |Service Fabric 数据根目录。 Azure 默认位置为 d:\svcfab |
-| FabricLogRoot |字符串 | 不允许 |Service Fabric 日志根目录。 这是 SF 日志和跟踪的放置位置。 |
-| ServiceRunAsAccountName |字符串 | 不允许 |运行结构主机服务的帐户名。 |
+| FabricDataRoot |String | 不允许 |Service Fabric 数据根目录。 Azure 默认位置为 d:\svcfab |
+| FabricLogRoot |String | 不允许 |Service Fabric 日志根目录。 这是 SF 日志和跟踪的放置位置。 |
+| ServiceRunAsAccountName |String | 不允许 |运行结构主机服务的帐户名。 |
 | SkipFirewallConfiguration |Bool，默认值为 false | 不允许 |指定是否需要由系统设置防火墙设置。 仅当使用 Windows 防火墙时才适用。 如果使用第三方防火墙，必须打开要使用的系统和应用程序的端口 |
 |NodesToBeRemoved|string，默认值为“”| 动态 |应在配置升级过程中删除的节点。 （仅适用于独立部署）|
 |ContainerNetworkSetup|bool，默认值为 FALSE| 静态 |是否设置容器网络。|
@@ -88,10 +90,10 @@ ms.lasthandoff: 12/01/2017
 | CheckpointThresholdInMB |Int，默认值为 50 |静态|日志使用量超过此值时，会启动检查点。 |
 | MaxAccumulatedBackupLogSizeInMB |Int，默认值为 800 |静态|给定备份日志链中备份日志的最大累积大小（以 MB 为单位）。 如果增量备份会生成导致累积备份日志的备份日志，增量备份请求会失败，因为相关完整备份会大于此大小。 在这种情况下，用户需要执行完整备份。 |
 | MaxWriteQueueDepthInKB |Int，默认值为 0 |不允许| 最大写入队列深度的 Int，该写入队列深度指核心记录器可用于与此副本关联的日志的写入队列深度（以千字节为单位）。 此值是核心记录器更新期间可以处于未完成状态的最大字节数。 该值可能为 0，以便核心记录器计算适当值，或是 4 的倍数。 |
-| SharedLogId |字符串 |不允许|共享日志标识符。 这是一个 GUID，对于每个共享日志应该唯一。 |
-| SharedLogPath |字符串 |不允许|共享日志的路径。 如果此值为空，则使用默认共享日志。 |
+| SharedLogId |String |不允许|共享日志标识符。 这是一个 GUID，对于每个共享日志应该唯一。 |
+| SharedLogPath |String |不允许|共享日志的路径。 如果此值为空，则使用默认共享日志。 |
 | SlowApiMonitoringDuration |以秒为单位的时间，默认值为 300 |静态| 在触发运行状况事件警告前，指定 API 的持续时间。|
-| MinLogSizeInMB |Int，默认值为 0 |静态|事务日志的最小大小。 不允许将日志截断为低于此设置的大小。 0 表示复制器根据其他设置确定最小日志大小。 增加此值会提高执行部分复制和增量备份的可能性，因为这会降低截断相关日志记录的可能性。 |
+| MinLogSizeInMB |Int，默认值为 0 |静态|事务日志的最小大小。 不允许将日志截断为低于此设置的大小。 0 表示复制器会根据其他设置确定最小日志大小。 增加此值会提高执行部分复制和增量备份的可能性，因为这会降低截断相关日志记录的可能性。 |
 
 ### <a name="section-name-fabricclient"></a>节名称：FabricClient
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
@@ -305,7 +307,7 @@ ms.lasthandoff: 12/01/2017
 |DisableServerSideCopy | Bool，默认值为 false |静态|此配置可以在应用程序预配过程中启用或禁用 ImageStore 上应用程序包的服务器端副本。 |
 
 ### <a name="section-name-healthmanagerclusterhealthpolicy"></a>节名称：HealthManager/ClusterHealthPolicy
-| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
+| **Parameter** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
 | ConsiderWarningAsError |Bool，默认值为 false |静态|群集运行状况评估策略：警告视为错误。 |
 | MaxPercentUnhealthyNodes | Int，默认值为 0 |静态|群集运行状况评估策略：为确保群集运行正常，可允许的最高运行不正常节点百分比。 |
@@ -339,7 +341,7 @@ ms.lasthandoff: 12/01/2017
 | NamingOperationTimeout |以秒为单位的时间，默认值为 60 |动态|指定以秒为单位的时间跨度。 执行命名操作时的超时时间。 |
 | QueryOperationTimeout | 以秒为单位的时间，默认值为 60 |动态|指定以秒为单位的时间跨度。 执行查询操作的超时时间。 |
 | MaxCopyOperationThreads | Uint，默认值为 0 |动态| 辅助节点可从主节点复制的最大并行文件数。 '0' == 核心数。 |
-| MaxFileOperationThreads | Uint，默认值为 100 |静态| 可在主节点中执行 FileOperations（复制/移动）操作的最大并行线程数。 '0' == 核心数。 |
+| MaxFileOperationThreads | Uint，默认值为 100 |静态| 可在主节点中执行 FileOperations（复制/移动）操作的最大并行线程数。 ‘0’== 内核数。 |
 | MaxStoreOperations | Uint，默认值为 4096 |静态|主节点上可允许的最大并行存储事务操作数。 '0' == 核心数。 |
 | MaxRequestProcessingThreads | Uint，默认值为 200 |静态|可在主节点中处理请求的最大并行线程数。 '0' == 核心数。 |
 | MaxSecondaryFileCopyFailureThreshold | Uint，默认值为 25|动态|放弃前，辅助节点上的最大文件副本重试次数。 |
@@ -516,7 +518,7 @@ PropertyGroup|X509NameMap，默认值为 None|动态| |
 | FileContent |string，默认值为“Admin” |动态| 用于传输映像存储客户端文件（群集外部）的安全性配置。 |
 | FileDownload |string，默认值为“Admin” |动态| 用于启动映像存储客户端文件下载（群集外部）的安全性配置。 |
 | InternalList |string，默认值为“Admin” | 动态|用于映像存储客户端文件列表操作（内部）的安全性配置。 |
-| 删除 |string，默认值为“Admin” |动态| 用于映像存储区客户端删除操作的安全性配置。 |
+| Delete |string，默认值为“Admin” |动态| 用于映像存储区客户端删除操作的安全性配置。 |
 | 上传 |string，默认值为“Admin” | 动态|用于映像存储客户端上传操作的安全配置。 |
 | GetStagingLocation |string，默认值为“Admin” |动态| 用于检索映像存储客户端暂存位置的安全配置。 |
 | GetStoreLocation |string，默认值为“Admin” |动态| 用于检索映像存储客户端存储位置的安全配置。 |
@@ -658,7 +660,7 @@ PropertyGroup|X509NameMap，默认值为 None|动态| |
 |GetCodePackageActivationContextTimeout|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(120)|动态|指定以秒为单位的时间跨度。 CodePackageActivationContext 调用的超时时间。 这不适用于临时服务。 |
 |IPProviderEnabled|bool，默认值为 FALSE|静态|启用 IP 地址的管理。 |
 |NTLMAuthenticationEnabled|bool，默认值为 FALSE|静态| 启用对以其他用户身份运行的代码包使用 NTLM 的支持，以跨计算机的进程进行安全通信。 |
-|NTLMAuthenticationPasswordSecret|SecureString，默认值为 Common::SecureString(L"")|静态|用于生成 NTLM 用户的密码的加密方式。 如果 NTLMAuthenticationEnabled 为 true，则必须设置。 由部署器进行验证。 |
+|NTLMAuthenticationPasswordSecret|SecureString，默认值为 Common::SecureString(L"")|静态|用于生成 NTLM 用户的密码的加密哈希。 如果 NTLMAuthenticationEnabled 为 true，则必须设置。 由部署器进行验证。 |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan，默认值为 Common::TimeSpan::FromMinutes(3)|动态|指定以秒为单位的时间跨度。 特定于环境的设置，主机以此定期时间间隔进行扫描，查找用于 FileStoreService NTLM 配置的新证书。 |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|TimeSpan，默认值为 Common::TimeSpan::FromMinutes(4)|动态| 指定以秒为单位的时间跨度。 使用证书公用名称配置 NTLM 用户的超时时间。 FileStoreService 共享需要 NTLM 用户。 |
 |RegisterCodePackageHostTimeout|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(120)|动态| 指定以秒为单位的时间跨度。 FabricRegisterCodePackageHost 同步调用的超时时间值。 这仅适用于多代码包应用程序主机，如 FWP |
@@ -752,8 +754,8 @@ PropertyGroup|X509NameMap，默认值为 None|动态| |
 |MaxPrimaryReplicationQueueMemorySize|uint，默认值为 0|静态|这是主复制队列的最大值（以字节为单位）。|
 |MaxSecondaryReplicationQueueSize|uint，默认值为 2048|静态|这是辅助复制队列中可以存在的最大操作数量。 请注意，它必须是 2 的幂。|
 |MaxSecondaryReplicationQueueMemorySize|uint，默认值为 0|静态|这是辅助复制队列的最大值（以字节为单位）。|
-|QueueHealthMonitoringInterval|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(30)|静态|指定以秒为单位的时间跨度。 此值确定复制器用于监视复制操作队列中任何警告/错误运行状况事件的时间段。 如果值为 "0"，则禁用运行状况监视 |
-|QueueHealthWarningAtUsagePercent|uint，默认值为 80|静态|此值确定复制队列使用率（以百分比表示），超过该值后我们会报告高队列使用率警告。 QueueHealthMonitoringInterval 的宽限期间隔后，进行此操作。 如果宽限期时间间隔内队列使用率低于此百分比|
+|QueueHealthMonitoringInterval|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(30)|静态|指定以秒为单位的时间跨度。 此值确定复制器用于监视复制操作队列中任何警告/错误运行状况事件的时间段。 如果值为 "0"，则禁用运行状况监视。 |
+|QueueHealthWarningAtUsagePercent|uint，默认值为 80|静态|此值确定复制队列使用率（以百分比表示），超过该值后我们会报告高队列使用率警告。 QueueHealthMonitoringInterval 的宽限期间隔后，进行此操作。 如果宽限期时间间隔内队列使用率低于此百分比，则不报告警告。|
 |RetryInterval|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(5)|静态|指定以秒为单位的时间跨度。 丢失或拒绝操作时，此计时器确定复制器重试发送该操作的频率。|
 
 ### <a name="section-name-transport"></a>节名称：Transport
@@ -767,4 +769,4 @@ PropertyGroup|X509NameMap，默认值为 None|动态| |
 
 [在 Azure 群集中添加、滚动更新和删除证书 ](service-fabric-cluster-security-update-certs-azure.md)
 
-<!--Update_Description: update meta properties, add Upgrade Policy content column in all parameters, add security parameters list -->
+<!--Update_Description: update meta properties, wording update -->

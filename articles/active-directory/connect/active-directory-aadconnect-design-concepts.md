@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
 origin.date: 07/13/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: fe2c2d35e1e137dcbcbe36d069f5a8f77670769b
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 508e1101803e2ff576dfab2fa068e9ed01dfacdd
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：设计概念
 本主题旨在说明 Azure AD Connect 实现设计期间必须考虑到的各个方面。 本主题是对特定领域的深入探讨，其他主题中也简要描述了这些概念。
@@ -69,7 +69,7 @@ sourceAnchor 属性区分大小写。 “JohnDoe”与“johndoe”是不同的�
 
 - 只能在初始安装期间设置 sourceAnchor 属性。 如果重新运行安装向导，此选项显示为只读。 如果需要更改此设置，则必须卸载并重新安装。
 - 如果要安装其他 Azure AD Connect 服务器，则必须选择以前所用的同一 sourceAnchor 属性。 如果以前使用 DirSync，现在想要迁移到 Azure AD Connect，则必须使用 **objectGUID** ，因为这是 DirSync 所用的属性。
-- 如果 sourceAnchor 值在对象导出到 Azure AD 之后发生更改，Azure AD Connect 同步服务会引发错误，并且在更正问题且在源目录中改回 sourceAnchor 之前，不允许对此对象进行任何其他更改。
+- 如果 sourceAnchor 值在对象导出到 Azure AD 之后发生更改，Azure AD Connect Sync 将引发错误，并且不允许在更正问题且在源目录中改回 sourceAnchor 之前，对此对象进行任何其他更改。
 
 ## <a name="using-msds-consistencyguid-as-sourceanchor"></a>将 msDS-ConsistencyGuid 用作 sourceAnchor
 默认情况下，Azure AD Connect（1.1.486.0 及更低版本）将 objectGUID 用作 sourceAnchor 属性。 ObjectGUID 是系统生成的。 创建本地 AD 对象时，不能指定其值。 如 [sourceAnchor](#sourceanchor) 部分所述，在某些情况下，需要指定 sourceAnchor 值。 如果这些方案适合你的情况，则必须使用可配置的 AD 属性（例如 msDS-ConsistencyGuid）作为 sourceAnchor 属性。
@@ -192,11 +192,11 @@ John 是 contoso.com 中的用户。将用户同步到 Azure AD 目录 contoso.p
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>不可路由的本地域与 Azure AD 的 UPN
 有些组织使用不可路由的域（例如 contoso.local）或简单的单标签域（例如 contoso）。 在 Azure AD 中，无法验证不可路由的域。 Azure AD Connect 只能同步到 Azure AD 中已验证的域。 创建 Azure AD 目录时，会创建可路由的域，该域成为 Azure AD 的默认域，例如 contoso.partner.onmschina.cn。 因此，如果不希望同步到默认的 partner.onmschina.cn 域，必须在此类方案中验证任何其他可路由的域。
 
-有关添加和验证域的详细信息，请阅读 [Add your custom domain name to Azure Active Directory](../active-directory-add-domain.md)（将自定义域名添加到 Azure Active Directory）。
+有关添加和验证域的详细信息，请阅读 [Add your custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md)（将自定义域名添加到 Azure Active Directory）。
 
 Azure AD Connect 将检测是否在不可路由的域环境中运行，并在适当的情况下警告你不要继续使用快速设置。 如果在不可路由的域中操作，用户的 UPN 可能也包含不可路由的后缀。 例如，如果在 contoso.local 下运行，Azure AD Connect 建议使用自定义设置而不是快速设置。 使用自定义设置，可以在用户同步到 Azure AD 之后，指定要用作 UPN 以供登录 Azure 的属性。
 
 ## <a name="next-steps"></a>后续步骤
-了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
+了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
 <!--Update_Description: wording update -->

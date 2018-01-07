@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 07/07/2017
+origin.date: 12/15/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
-ms.openlocfilehash: 52741782e5d87b7012a45d1893bdb93f739558f0
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 01/08/2018
+ms.openlocfilehash: 720b68801655d47c09c46feae73bfe741518ffef
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>中继混合连接入门
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -77,4 +77,4 @@ ms.lasthandoff: 08/18/2017
 * [创建命名空间](./relay-create-namespace-portal.md)
 * [节点入门](./relay-hybrid-connections-node-get-started.md)
 
-<!--Update_Description:update meta properties and wording-->
+<!--Update_Description:update meta properties only-->

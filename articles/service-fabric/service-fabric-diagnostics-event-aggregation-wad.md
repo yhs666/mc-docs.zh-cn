@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: c9e2fd1ca30fac214bd0c248064bc528003f88cf
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: e9769dfab33d231bf6e7bf05ff6aa5428fbd212b
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 诊断聚合和集合事件
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/01/2017
 >
 >
 
-运行 Azure Service Fabric 群集时，最好是从一个中心位置的所有节点中收集日志。 将日志放在中心位置可帮助分析和排查群集中的问题，或该群集中运行的应用程序与服务的问题。
+当你运行 Azure Service Fabric 群集时，最好是从一个中心位置的所有节点中收集日志。 将日志放在中心位置可帮助分析和排查群集中的问题，或该群集中运行的应用程序与服务的问题。
 
 上传和收集日志的方式之一是使用可将日志上传到 Azure 存储、也能选择发送日志到 Azure Application Insights 或 Azure 事件中心的 Windows Azure 诊断 (WAD) 扩展。 也可以使用外部进程读取存储中的事件，并将它们放在分析平台产品中。
 <!-- Not Available [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) -->
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/01/2017
 使用门户创建群集时，我们强烈建议先下载模板， **并单击“确定”** 创建群集。 有关详细信息，请参阅[使用 Azure Resource Manager 模板设置 Service Fabric 群集](service-fabric-cluster-creation-via-arm.md)。 以后，需要通过模板进行更改，因为无法使用门户进行某些更改。
 
 ### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 在创建群集过程中部署诊断扩展
-要使用 Resource Manager 创建群集，需要在创建群集之前，将诊断配置 JSON 添加到整个群集 Resource Manager 模板。 我们会在 Resource Manager 模板示例中提供包含五个 VM 的群集 Resource Manager 模板，并在演示 Resource Manager 模板示例的过程中添加诊断配置。 可以在 Azure 示例库中的以下位置找到该示例： [包含五节点群集的诊断 Resource Manager 模板示例](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad)。
+要使用 Resource Manager 创建群集，需要在创建群集之前，将诊断配置 JSON 添加到整个群集 Resource Manager 模板。 我们将在 Resource Manager 模板示例中提供包含五个 VM 的群集 Resource Manager 模板，并在演示 Resource Manager 模板示例的过程中添加诊断配置。 可以在 Azure 示例库中的以下位置找到该示例： [包含五节点群集的诊断 Resource Manager 模板示例](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)。
 
 若要查看 Resource Manager 模板中的诊断设置，请打开 azuredeploy.json 文件并搜索 **IaaSDiagnostics**。 若要使用此模板创建群集，请选择在上面的链接中提供的“部署到 Azure”  按钮。
 
@@ -174,7 +174,7 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="collect-health-and-load-events"></a>收集运行状况和负载事件
 
-从 Service Fabric 5.4 版开始，可以收集运行状况和负载指标事件。 这些事件反映了由系统或代码使用 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 或 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx) 等运行状况或加载报告 API 生成的事件。 这样就可以随着时间的推移聚合和查看系统运行状况，以及基于运行状况或负载事件触发警报。 要在 Visual Studio 的诊断事件查看器中查看这些事件，请将“Microsoft-ServiceFabric:4:0x4000000000000008”添加到 ETW 提供程序列表。
+从 5.4 版本的 Service Fabric 开始，可收集运行状况和加载指标事件。 这些事件反映了由系统或代码使用 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 或 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx) 等运行状况或加载报告 API 生成的事件。 这允许随时间聚合和查看系统运行状况，以及基于运行状况或加载事件进行警报。 要在 Visual Studio 的诊断事件查看器中查看这些事件，请将“Microsoft-ServiceFabric:4:0x4000000000000008”添加到 ETW 提供程序列表。
 
 若要收集群集中的事件，请将资源管理器模板的 WadCfg 中的 `scheduledTransferKeywordFilter` 修改为 `4611686018427387912`。
 
@@ -238,7 +238,7 @@ ms.lasthandoff: 12/01/2017
 
 若要将诊断更新为从新的 EventSource 通道（表示要部署的新应用程序）收集日志，请执行之前描述的相同的步骤，其中描述了现有群集的诊断设置。
 
-在使用 `New-AzureRmResourceGroupDeployment` PowerShell 命令应用配置更新之前，请更新 template.json 文件中的 `EtwEventSourceProviderConfiguration` 节，添加新 EventSource 通道的条目。 事件源的名称定义为 Visual Studio 生成的 ServiceEventSource.cs 文件中代码的一部分。
+在使用 `New-AzureRmResourceGroupDeployment` PowerShell 命令应用配置更新之前，请更新 template.json 文件中的 `EtwEventSourceProviderConfiguration` 节，添加新 EventSource 通道的条目。 事件源的名称定义为 Visual Studio 生成的 ServiceEventSource.cs 文件中的代码的一部分。
 
 例如，如果事件源名为 My-Eventsource，请添加以下代码，将来自 My-Eventsource 的事件放入名为 MyDestinationTableName 的表中。
 
@@ -275,4 +275,4 @@ ms.lasthandoff: 12/01/2017
 * [使用 Application Insights 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [使用 OMS 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-oms.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update link -->

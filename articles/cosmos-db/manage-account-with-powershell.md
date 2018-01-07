@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/21/2017
-ms.date: 07/17/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 764783a893d7864e73101558f10ef71aa921c580
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 06687ae1f24eda6f77846ad48ef207ad190a5ad0
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>使用 PowerShell 创建 Azure Cosmos DB 帐户
 
-以下指南介绍了使用 Azure Powershell 自动管理 Azure Cosmos DB 数据库帐户的命令。 它还包括用于管理 [多区域数据库帐户][scaling-globally]的帐户密钥和故障转移优先级的命令。 更新数据库帐户可以修改一致性策略以及添加/删除区域。 对于 Azure Cosmos DB 帐户的跨平台管理，可使用 [Azure CLI](cli-samples.md)、[资源提供程序 REST API][rp-rest-api] 或 [Azure 门户](create-documentdb-dotnet.md#create-account)。
+以下指南介绍了使用 Azure Powershell 自动管理 Azure Cosmos DB 数据库帐户的命令。 它还包括用于管理 [多区域数据库帐户][scaling-globally]的帐户密钥和故障转移优先级的命令。 更新数据库帐户可以修改一致性策略以及添加/删除区域。 对于 Azure Cosmos DB 帐户的跨平台管理，可使用 [Azure CLI](cli-samples.md)、[资源提供程序 REST API][rp-rest-api] 或 [Azure 门户](create-sql-api-dotnet.md#create-account)。
 
 ## <a name="getting-started"></a>入门
 
 请按照[如何安装和配置 Azure PowerShell][powershell-install-configure] 中的说明在 PowerShell 中安装 Azure Resource Manager 帐户并登录到该帐户。
 
-### <a name="notes"></a>说明
+### <a name="notes"></a>注释
 
 * 如果想要执行以下命令而无需用户确认，请向命令追加 `-Force` 标志。
 * 以下所有命令都是同步执行的。
@@ -47,7 +47,7 @@ ms.lasthandoff: 07/07/2017
 
 * `<write-region-location>` 数据库帐户的写入区域位置名称。 此位置的故障转移优先级值需要为 0。 每个数据库帐户必须有且只有一个写入区域。
 * `<read-region-location>` 数据库帐户的读取区域位置名称。 此位置的故障转移优先级值需要大于 0。 每个数据库帐户可以有多个读取区域。
-* `<ip-range-filter>` 指定 IP 地址集合或者 CIDR 格式的 IP 地址范围，以便将这些地址作为指定数据库帐户所允许的客户端 IP 列表。 IP 地址/范围必须以逗号分隔，且不得包含空格。 有关详细信息，请参阅 [Azure Cosmos DB 防火墙支持](firewall-support.md)
+* `<ip-range-filter>` 指定 CIDR 格式的 IP 地址集或 IP 地址范围，将这些地址纳入给定数据库帐户所允许的客户端 IP 列表内。 IP 地址/范围必须以逗号分隔，且不得包含空格。 有关详细信息，请参阅 [Azure Cosmos DB 防火墙支持](firewall-support.md)
 * `<default-consistency-level>` Azure Cosmos DB 帐户的默认一致性级别。 有关详细信息，请参阅 [Azure Cosmos DB 中的一致性级别](consistency-levels.md)。
 * `<max-interval>` 与有限过期一致性一起使用时，此值表示允许的过期时间（以秒为单位）。 此值的接受范围为 1-100。
 * `<max-staleness-prefix>` 与有限过期一致性一起使用时，此值表示允许的过期请求数。 此值的接受范围为 1 - 2,147,483,647。
@@ -63,11 +63,11 @@ ms.lasthandoff: 07/07/2017
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "China North" -Name "docdb-test" -Properties $CosmosDBProperties
 
-### <a name="notes"></a>说明
-* 前面的示例使用两个区域创建数据库帐户。 还可能创建单区域（指定为写入区域并且故障转移优先级值为 0）或多区域数据库帐户。 有关详细信息，请参阅[多区域数据库帐户][scaling-globally]。
-* 这些位置必须是已正式推出 Azure Cosmos DB 的区域。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)提供了当前的区域列表。
+### <a name="notes"></a>注释
+* 上述示例创建具有两个区域的数据库帐户。 还可能创建单区域（指定为写入区域并且故障转移优先级值为 0）或多区域数据库帐户。 有关详细信息，请参阅[多区域数据库帐户][scaling-globally]。
+* 这些位置必须是已正式推出 Azure Cosmos DB 的区域。 [Azure 区域页面](https://www.azure.cn/support/service-dashboard/#services)提供当前的区域列表。
 
-## <a id="update-documentdb-account-powershell"></a> 更新 DocumentDB 数据库帐户
+## <a id="update-documentdb-account-powershell"></a> 更新 Azure Cosmos DB 数据库帐户
 
 此命令可更新 Azure Cosmos DB 数据库帐户属性。 这包括一致性策略和数据库帐户所在的位置。
 
@@ -83,11 +83,11 @@ ms.lasthandoff: 07/07/2017
 * `<write-region-location>` 数据库帐户的写入区域位置名称。 此位置的故障转移优先级值需要为 0。 每个数据库帐户必须有且只有一个写入区域。
 * `<read-region-location>` 数据库帐户的读取区域位置名称。 此位置的故障转移优先级值需要大于 0。 每个数据库帐户可以有多个读取区域。
 * `<default-consistency-level>` Azure Cosmos DB 帐户的默认一致性级别。 有关详细信息，请参阅 [Azure Cosmos DB 中的一致性级别](consistency-levels.md)。
-* `<ip-range-filter>` 指定 IP 地址集合或者 CIDR 格式的 IP 地址范围，以便将这些地址作为指定数据库帐户所允许的客户端 IP 列表。 IP 地址/范围必须以逗号分隔，且不得包含空格。 有关详细信息，请参阅 [Azure Cosmos DB 防火墙支持](firewall-support.md)
+* `<ip-range-filter>` 指定 CIDR 格式的 IP 地址集或 IP 地址范围，将这些地址纳入给定数据库帐户所允许的客户端 IP 列表内。 IP 地址/范围必须以逗号分隔，且不得包含空格。 有关详细信息，请参阅 [Azure Cosmos DB 防火墙支持](firewall-support.md)
 * `<max-interval>` 与有限过期一致性一起使用时，此值表示允许的过期时间（以秒为单位）。 此值的接受范围为 1-100。
 * `<max-staleness-prefix>` 与有限过期一致性一起使用时，此值表示允许的过期请求数。 此值的接受范围为 1 - 2,147,483,647。
 * `<resource-group-name>` 新的 Azure Cosmos DB 数据库帐户所属的 [Azure 资源组][azure-resource-groups] 的名称。
-* `<resource-group-location>` 新的 Azure Cosmos DB 数据库帐户所属的 Azure 资源组的位置。
+* `<resource-group-location>` 新 Azure Cosmos DB 数据库帐户所属的 Azure 资源组的位置。
 * `<database-account-name>` 要更新的 Azure Cosmos DB 数据库帐户的名称。
 
 示例： 
@@ -98,7 +98,7 @@ ms.lasthandoff: 07/07/2017
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Properties $CosmosDBProperties
 
-## <a id="delete-documentdb-account-powershell"></a> 删除 DocumentDB 数据库帐户
+## <a id="delete-documentdb-account-powershell"></a> 删除 Azure Cosmos DB 数据库帐户
 
 此命令可删除现有 Azure Cosmos DB 数据库帐户。
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 07/07/2017
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="get-documentdb-properties-powershell"></a> 获取 DocumentDB 数据库帐户的属性
+## <a id="get-documentdb-properties-powershell"></a> 获取 Azure Cosmos DB 数据库帐户的属性
 
 此命令可获取现有 Azure Cosmos DB 数据库帐户的属性。
 
@@ -142,7 +142,7 @@ ms.lasthandoff: 07/07/2017
 
     $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` 新的 Azure Cosmos DB 数据库帐户所属的 [Azure 资源组][azure-resource-groups] 的名称。
+* `<resource-group-name>` 新 Azure Cosmos DB 数据库帐户所属的 [Azure 资源组][azure-resource-groups]的名称。
 * `<database-account-name>` Azure Cosmos DB 数据库帐户的名称。
 
 示例：
@@ -164,7 +164,7 @@ ms.lasthandoff: 07/07/2017
 
 ## <a id="regenerate-account-key-powershell"></a> 重新生成帐户密钥
 
-应定期更改 Azure Cosmos DB 帐户的访问密钥，加强连接的安全性。 为你分配两个访问密钥是为了让你使用一个访问密钥保持与 Azure Cosmos DB 帐户的连接，同时可以重新生成另一个访问密钥。
+应定期更改 Azure Cosmos DB 帐户的访问密钥，加强连接的安全性。 将分配两个访问密钥，从而可以在使用一个访问密钥保持连接到 Azure Cosmos DB 帐户的同时，再生成另一个访问密钥。
 
     Invoke-AzureRmResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>" -Parameters @{"keyKind"="<key-kind>"}
 
@@ -195,8 +195,7 @@ ms.lasthandoff: 07/07/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要使用 .NET 进行连接，请参阅[使用 .NET 进行连接和查询](create-documentdb-dotnet.md)。
-* 若要使用 .NET Core 进行连接，请参阅[使用 .NET Core 进行连接和查询](create-documentdb-dotnet-core.md)。
+* 若要使用 .NET 进行连接，请参阅[使用 .NET 进行连接和查询](create-sql-api-dotnet.md)。
 * 若要使用 Node.js 进行连接，请参阅[使用 Node.js 和 MongoDB 应用进行连接和查询](create-mongodb-nodejs.md)。
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
@@ -205,4 +204,5 @@ ms.lasthandoff: 07/07/2017
 [distribute-data-globally]: distribute-data-globally.md
 [azure-resource-groups]: /azure-resource-manager/resource-group-overview#resource-groups
 [azure-resource-tags]: /azure-resource-manager/resource-group-using-tags
-[rp-rest-api]: https://docs.microsoft.com/zh-cn/rest/api/documentdbresourceprovider/
+[rp-rest-api]: https://docs.microsoft.com/rest/api/documentdbresourceprovider/
+<!-- Update_Description: update meta properties, update link, wording update -->

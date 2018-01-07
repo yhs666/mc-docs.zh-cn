@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/12/2016
-ms.date: 12/11/2017
+ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: f9a032e143ab3989e023bcdcb6f194fddcbaa512
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 99f10325c370c53fffc4d0552836c05fbcdabe8b
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="building-scalable-cloud-databases"></a>构建可缩放的云数据库
 使用 Azure SQL 数据库的可缩放工具和功能，可以轻松扩大数据库。 特别是，可以使用 **弹性数据库客户端库** 来创建和管理扩大的数据库。 此功能可让你使用成百上千个 Azure SQL 数据库，轻松地开发分片应用程序。
 
 若要下载：
-* .NET 版本的库，请参阅 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
 * Java 版本的库，请参阅 [Maven 中央存储库](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools)。
+* .NET 版本的库，请参阅 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
 
 ## <a name="documentation"></a>文档
 1. [弹性数据库工具入门](sql-database-elastic-scale-get-started.md)
@@ -57,13 +57,15 @@ ms.lasthandoff: 12/08/2017
 
 一般而言，当使用弹性数据库工具的客户提交具有其自己的语义的局部分片操作（与跨分片操作相对）时，预期可获取完整的 T-SQL 功能。
 
+
+
 ## <a name="next-steps"></a>后续步骤
 
-- 弹性数据库客户端库（[.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)、[Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)）- 用于**下载**该库。
+- 弹性数据库客户端库（[Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)[.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)）- 用于下载库。
 
 - [弹性数据库工具入门](sql-database-elastic-scale-get-started.md) - 试用演示客户端功能的**示例应用**。
 
-- GitHub（[.NET](https://github.com/Azure/elastic-db-tools)、[Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)）- 用于为代码做出贡献。
+- GitHub（[Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)[.NET](https://github.com/Azure/elastic-db-tools)）- 用于为代码做出贡献。
 - [Azure SQL 数据库弹性查询概述](sql-database-elastic-query-overview.md) - 使用弹性查询。
 
 - [在横向扩展云数据库之间移动数据](sql-database-elastic-scale-overview-split-and-merge.md) - 获取有关使用**拆分/合并工具**的说明。
@@ -74,6 +76,9 @@ ms.lasthandoff: 12/08/2017
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-database-client-library/glossary.png
+
+[1]: ./media/sql-database-elastic-database-client-library/glossary.png
+

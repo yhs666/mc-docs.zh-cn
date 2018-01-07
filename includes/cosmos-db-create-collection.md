@@ -13,8 +13,7 @@
     数据库 ID|任务|输入 *Tasks* 作为新数据库的名称。 数据库名称必须包含 1 到 255 个字符，不能包含 /、\\、#、? 或尾随空格。
     集合 ID|Items|输入 *Items* 作为新集合的名称。 集合 ID 与数据库名称的字符要求相同。
     存储容量| 固定 (10 GB)|将值更改为“固定(10GB)”。 此值是数据库的存储容量。
-    吞吐量|400 RU|将吞吐量更改为每秒 400 个请求单位 (RU/s)。 如果想要减少延迟，以后可以增加吞吐量。
-    分区键|/category|一个分区键，用于将数据均匀分配到每个分区。 选择正确的分区键对于创建高性能集合而言很重要。 若要了解详细信息，请参阅[设计分区](../articles/cosmos-db/partition-data.md#designing-for-partitioning)。
+    吞吐量|400 RU|将吞吐量更改为每秒 400 个请求单位 (RU/s)。 存储容量必须设置为“固定(10 GB)”，才能将吞吐量设置为 400 RU/s。 如果想要减少延迟，以后可以增加吞吐量。 
 
     单击 **“确定”**。
 
@@ -22,4 +21,4 @@
 
     ![显示新的数据库和集合的 Azure 门户数据资源管理器](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection.png)
 <!--Update_Description: wording update-->
-<!--ms.date: 11/27/2017-->
+<!--ms.date: 12/25/2017-->

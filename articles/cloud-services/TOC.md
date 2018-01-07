@@ -16,10 +16,6 @@
 ### [创建 PHP Web 角色和辅助角色](../cloud-services-php-create-web-role.md)
 ### [构建和部署 Node.js 应用程序](cloud-services-nodejs-develop-deploy-app.md)
 ### [使用 Express 构建 Node.js Web 应用程序](cloud-services-nodejs-develop-deploy-express-app.md)
-### 存储和 Visual Studio
-#### [Blob 存储和连接的服务](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [队列存储和连接的服务](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [表存储和连接的服务](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### 配置持续生成和部署包
 #### [TFS 和 Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [配置角色的流量规则](cloud-services-enable-communication-role-instances.md)
@@ -32,14 +28,13 @@
 #### [使用任务在云服务角色上安装 .NET](cloud-services-dotnet-install-dotnet.md)
 
 ### 配置远程桌面
-#### [门户](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## 部署
 ### [在门户中创建和部署云服务](cloud-services-how-to-create-deploy-portal.md)
 ### [在 PowerShell 中创建空云服务容器](cloud-services-powershell-create-cloud-container.md)
 ### [配置自定义域名](cloud-services-custom-domain-name-portal.md)
-### [暂存云服务部署 (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [连接到自定义域控制器](cloud-services-connect-to-custom-domain.md)
 
 ## 管理服务
@@ -89,7 +84,7 @@
 #### [连接和网络常见问题解答](cloud-services-connectivity-and-networking-faq.md)
 #### [部署常见问题解答](cloud-services-deployment-faq.md)
 
-# 引用
+# 参考
 ## [代码示例](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
 ## [.csdef XML 架构](schema-csdef-file.md)
 ### [LoadBalancerProbe 架构](schema-csdef-loadbalancerprobe.md)
@@ -104,3 +99,4 @@
 # 资源
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
 ## [价格](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)

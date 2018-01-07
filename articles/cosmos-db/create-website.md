@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 10/23/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6596abab4b62e38992117697889a44dfa980e9a8
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.custom: mvc
+ms.openlocfilehash: 78eaaf4f0fc449326cb57a127a027d032b589056
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板部署 Azure Cosmos DB 和 Azure 应用服务 Web 应用
 本教程说明如何使用 Azure Resource Manager 模板来部署和集成 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/)、[Azure 应用服务](/app-service-web/app-service-changes-existing-services)、Web 应用以及示例 Web 应用程序。

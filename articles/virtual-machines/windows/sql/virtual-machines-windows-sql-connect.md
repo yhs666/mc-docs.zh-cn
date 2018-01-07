@@ -3,7 +3,7 @@ title: "连接到 SQL Server 虚拟机 (Resource Manager) | Azure"
 description: "了解如何连接到 Azure 中虚拟机上运行的 SQL Server。 本主题使用经典部署模型。 方案根据网络配置和客户端位置的不同而异。"
 services: virtual-machines-windows
 documentationcenter: na
-author: hayley244
+author: rockboyfor
 manager: digimobile
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
@@ -12,26 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 08/14/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 98c398d9e35252db772371be58c382f9185b6353
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+origin.date: 12/12/2017
+ms.date: 01/08/2018
+ms.author: v-yeche
+ms.openlocfilehash: ef37822ba8e8378268a3bce931c03bc154507cc9
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>连接到 Azure (Resource Manager) 上的 SQL Server 虚拟机
-> [!div class="op_single_selector"]
-> * [Resource Manager](virtual-machines-windows-sql-connect.md)
-> * [经典](../classic/sql-connect.md)
-> 
-> 
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>连接到 Azure 上的 SQL Server 虚拟机
 
 ## <a name="overview"></a>概述
-本主题介绍如何连接到运行于 Azure 虚拟机的 SQL Server 实例。 它介绍了一些[常规连接方案](#connection-scenarios)，并提供了[在 Azure VM 中配置 SQL Server 连接的详细步骤](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)。
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+本主题介绍如何连接到运行于 Azure 虚拟机的 SQL Server 实例。 涵盖一些[常规连接方案](#connection-scenarios)，并在门户中提供更改连接设置的相关[步骤](#change)。 如果需要在门户外排除连接故障或配置连接，请参阅主题末尾部分的[手动配置](#manual)。 
 
 如需观看预配和连接的完整演练，请参阅[在 Azure 上预配 SQL Server 虚拟机](virtual-machines-windows-portal-sql-server-provision.md)。
 
@@ -65,18 +59,20 @@ ms.lasthandoff: 08/29/2017
 > [!IMPORTANT]
 > SQL Server Developer Edition 和 Express Edition 的虚拟机映像不会自动启用 TCP/IP 协议。 对于 Developer Edition 和 Express Edition，在创建 VM 后，必须使用 SQL Server 配置管理器[手动启用 TCP/IP 协议](#manualtcp) 。
 
-任何可以访问 Internet 的客户端都可以连接到 SQL Server 实例，只需指定虚拟机的公共 IP 地址或分配到该 IP 地址的任何 DNS 标签即可。 如果 SQL Server 端口为 1433，则不需在连接字符串中进行指定。 以下连接字符串使用 SQL 身份验证（还可以使用公共 IP 地址）连接到具有 DNS 标签 `sqlvmlabel.eastus.cloudapp.azure.com` 的 SQL VM。
+任何可以访问 Internet 的客户端都可以连接到 SQL Server 实例，只需指定虚拟机的公共 IP 地址或分配到该 IP 地址的任何 DNS 标签即可。 如果 SQL Server 端口为 1433，则不需在连接字符串中进行指定。 以下连接字符串使用 SQL 身份验证（还可以使用公共 IP 地址）连接到具有 DNS 标签 `sqlvmlabel.chinaeast.cloudapp.chinacloudapi.cn` 的 SQL VM。
 
-    "Server=sqlvmlabel.chinaeast.chinacloudapp.cn;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```
+Server=sqlvmlabel.chinaeast.cloudapp.chinacloudapi.cn;Integrated Security=false;User ID=<login_name>;Password=<your_password>
+```
 
 尽管客户端可通过 Internet 进行连接，但这并不意味着任何人都可以连接到 SQL Server。 外部客户端必须有正确的用户名和密码。 但是，为了提高安全性，可以不使用 1433 这个众所周知的端口。 例如，如果将 SQL Server 配置为在端口 1500 上进行侦听并制定了适当的防火墙和网络安全组规则，则可将端口号附加到服务器名称上进行连接。 下面的示例通过将自定义端口号 1500 添加到服务器名称，对前一个端口号进行了更改：
 
-    "Server=sqlvmlabel.chinaeast.chinacloudapp.cn,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```
+Server=sqlvmlabel.chinaeast.cloudapp.chinacloudapi.cn,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+```
 
 > [!NOTE]
 > 在 VM 中通过 Internet 查询 SQL Server 时，Azure 数据中心的所有传出数据都将服从常规[出站数据传输的定价](https://www.azure.cn/pricing/details/data-transfer/)。
-> 
-> 
 
 ## <a name="connect-to-sql-server-within-a-virtual-network"></a>在虚拟网络中连接到 SQL Server
 
@@ -119,11 +115,11 @@ Server=mysqlvm;Integrated Security=true
 
 首先，通过远程桌面连接到 SQL Server 计算机。
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 接下来，通过“SQL Server 配置管理器”启用 TCP/IP 协议。
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a name="connect-with-ssms"></a>使用 SSMS 进行连接
 
@@ -131,8 +127,26 @@ Server=mysqlvm;Integrated Security=true
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
+## <a id="manual"></a> 手动配置和故障排除
+
+尽管门户提供自动配置连接的选项，但了解如何手动配置连接也非常重要。 了解相关要求也有助于进行故障排除。
+
+下表列出了连接到在 Azure VM 中运行的 SQL Server 的要求。
+
+| 要求 | 说明 |
+|---|---|
+| [启用 SQL Server 身份验证模式](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | 除非已在虚拟网络上配置 Active Directory，否则需要进行 SQL Server 身份验证才能连接到远程 VM。 |
+| [创建 SQL 登录名](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | 如果使用的是 SQL 身份验证，则需要提供 SQL 登录名，并且用户名和密码还有权访问目标数据库。 |
+| [启用 TCP/IP 协议](#manualTCP) | SQL Server 必须允许通过 TCP 连接。 |
+| [启用 SQL Server 端口的防火墙规则](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | VM 上的防火墙必须允许 SQL Server 端口（默认为 1433）上的入站流量。 |
+| [创建 TCP 1433 的网络安全组规则](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | 如果希望通过 Internet 连接，必须允许 VM 接收 SQL Server 端口（默认为 1433）上的流量。 本地和仅虚拟网路连接对此无要求。 这是在 Azure 门户中所要求的唯一步骤。 |
+
+> [!TIP]
+> 在门户中配置连接时，已为你完成上表中的步骤。 只需使用这些步骤来确认配置或手动为 SQL Server 设置连接。
+
 ## <a name="next-steps"></a>后续步骤
+
 若要查看预配说明以及这些连接步骤，请参阅[在 Azure 上预配 SQL Server 虚拟机](virtual-machines-windows-portal-sql-server-provision.md)。
 
 有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。
-<!--Update_Description: whole content updates-->
+<!--Update_Description: wording update, add Manual configuration and troubleshooting content -->

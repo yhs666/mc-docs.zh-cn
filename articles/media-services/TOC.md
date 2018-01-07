@@ -97,7 +97,8 @@
 
 ## [实时流](media-services-manage-channels-overview.md)
 ### [本地编码器](media-services-live-streaming-with-onprem-encoders.md)
-#### [门户](media-services-portal-live-passthrough-get-started.md)
+#### [推荐的本地编码器](media-services-recommended-encoders.md)
+#### [Azure 门户](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [使用云编码器实时传送视频流](media-services-manage-live-encoder-enabled-channels.md)
 #### [Azure 门户](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -110,17 +111,13 @@
 ### [处理长时间运行的操作](media-services-dotnet-long-operations.md)
 ### [碎片化 MP4 实时引入规范](media-services-fmp4-live-ingest-overview.md)
 
-## [保护](media-services-content-protection-overview.md)
-### [在 Azure 门户中配置内容保护](media-services-portal-protect-content.md)
-### [为流配置 AES-128 明文密钥](media-services-protect-with-aes128.md)
-### [将 REST 与存储加密配合使用来加密内容](media-services-rest-storage-encryption.md)
-### [媒体服务 PlayReady 许可证模板概述](media-services-playready-license-template-overview.md)
-### [DRM 许可证传送](media-services-deliver-keys-and-licenses.md)
-### [使用 PlayReady 和/或 Widevine 动态通用加密](media-services-protect-with-drm.md)
-### [流式传输受 Apple FairPlay 保护的 HLS 内容](media-services-protect-hls-with-fairplay.md)
-### 配置资产传送策略
-#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
-#### [REST](media-services-rest-configure-asset-delivery-policy.md)
+## [保护内容](media-services-content-protection-overview.md)
+### [存储加密](media-services-rest-storage-encryption.md)
+### [AES-128 加密](media-services-protect-with-aes128.md)
+### [适用于流式处理的 FairPlay](media-services-protect-hls-with-fairplay.md)
+### [脱机 PlayReady](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
+### [脱机 FairPlay](media-services-protect-hls-with-offline-fairplay.md)
+### [在 Azure 门户中配置](media-services-portal-protect-content.md)
 ### 创建内容密钥
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
@@ -189,7 +186,7 @@
 ### [错误代码](media-services-error-codes.md)
 ### [重试逻辑](media-services-retry-logic-in-dotnet-sdk.md)
 
-# 引用
+# 参考
 ## [Azure PowerShell（资源管理器）](https://docs.microsoft.com/powershell/module/azurerm.media)
 ## [Azure PowerShell（服务管理）](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client)

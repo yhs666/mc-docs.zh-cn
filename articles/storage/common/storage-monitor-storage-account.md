@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 03/14/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: b1aedc84d4057dfb7b399795875bebeac8315a73
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: ec95de8d87396a44b2112ef0668f65ebf7f3ce4c
+ms.sourcegitcommit: 9f926683e9ccb9adab4816ae004bda0f386e3507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/26/2017
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>监视 Azure 门户中的存储帐户
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/23/2017
    * **聚合**：收集入口/出口、可用性、延迟和成功百分比等指标。 系统将聚合 Blob、队列、表和文件服务的这些指标。
    * **按 API**：除了聚合指标以外，还在 Azure 存储服务 API 中为每项存储操作收集一组相同的指标。
 
-   若要设置数据保留策略，请移动“保留期(天)”滑块，或输入数据的保留天数（1 到 365 天）。 新存储帐户的默认保留期为 7 天。 如果不需要设置保留策略，请输入零。 如果没有保留策略，则由用户自行决定是否删除监视数据。
+   若要设置数据保留策略，请移动“保留期(天)”滑块，或输入数据的保留天数（1 到 365 天）。 新存储帐户的默认保留期为 7 天。 如果不需要设置保留策略，请输入零。 如果没有保留策略，则是否删除监视数据由自己决定。
 
    > [!WARNING]
    > 手动删除指标数据会产生费用。 陈旧的分析数据（超过保留策略的数据）将被系统删除，不会产生费用。 建议根据要将帐户的存储分析数据保留多长时间来设置保留策略。 有关详细信息，请参阅[启用存储指标时需要支付多少费用？](../common/storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics)。
@@ -113,7 +113,7 @@ ms.lasthandoff: 10/23/2017
 1. 从下拉列表中选择一个资源（Blob、文件、队列或表），然后输入新警报规则的名称和说明。
 1. 选择要为其添加警报的指标，以及警报条件和阈值。 阈值单位类型根据所选的指标而异。 例如，“计数”是 ContainerCount 的单位类型，而 PercentNetworkError 指标的单位是百分比。
 1. 选择“时间段”。 在该时间段内达到或超过阈值的指标将触发警报。
-1. （可选）配置电子邮件和 Webhook 通知。 有关 Webhook 的详细信息，请参阅[针对 Azure 指标警报配置 Webhook](../../monitoring-and-diagnostics/insights-webhooks-alerts.md)。 如果未配置电子邮件或 Webhook 通知，警报只会显示在 Azure 门户中。
+1. （可选）配置电子邮件和 Webhook 通知。 如果未配置电子邮件或 Webhook 通知，警报只会显示在 Azure 门户中。
 
 ![Azure 门户中的“添加警报规则”边栏选项卡](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
 

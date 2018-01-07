@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-origin.date: 08/11/2017
-ms.date: 08/28/2017
+origin.date: 11/22/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1310c64da8d1c8a6eb601aac0f0ee647e40a95a9
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 4085058eaebc480c960f80418e94cdff0a65a345
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="install-a-linux-master-target-server"></a>安装 Linux 主目标服务器
 故障转移虚拟机后，可将虚拟机故障回复到本地站点。 若要故障回复，需要在本地站点中重新保护 Azure 中的虚拟机。 对于此过程，需要安装一个本地主目标服务器用于接收流量。 
@@ -363,7 +363,7 @@ wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
 
 ### <a name="upgrade-the-master-target"></a>升级主目标服务器
 
-运行安装程序。 它会自动检测是否在主目标服务器上安装了代理。 选择“是”进行升级。安装完成后，可运行下列命令，检查安装的主目标版本。
+运行安装程序。 它会自动检测是否在 master 目标服务器上安装了代理。 选择“是”进行升级。安装完成后，可运行下列命令，检查安装的主目标版本：
 
     ```
     cat /usr/local/.vx_version
@@ -376,7 +376,7 @@ wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
 需将 VMware 工具安装在主目标上，使其可发现数据存储。 若未安装这些工具，则数据存储中不会列出重新保护屏幕。 安装 VMware 工具后，需重启计算机。
 
 ## <a name="next-steps"></a>后续步骤
-主目标安装和注册完成后，“Site Recovery 基础结构”中“主目标”部分的配置服务器概述下面即会显示此主目标。
+主目标安装和注册完成后，在“Site Recovery 基础结构”中“主目标”部分的配置服务器概述下即会显示此主目标。
 
 现在，可以继续执行[重新保护](site-recovery-how-to-reprotect.md)过程，并执行故障回复。
 
@@ -390,4 +390,4 @@ wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
     * BOOTPROTO=dhcp
     * ONBOOT=yes
     
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

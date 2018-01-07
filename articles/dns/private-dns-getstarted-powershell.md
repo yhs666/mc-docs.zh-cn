@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/04/2017
-ms.date: 12/18/2017
+origin.date: 11/20/2017
+ms.date: 01/01/2018
 ms.author: v-nany
-ms.openlocfilehash: da83b701844f2851a0fe5e55f2f98e86c62ec79c
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: e457591e44404be0e48600839beec7036ef4a3bf
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>Azure DNS 专用区域入门（使用 PowerShell）
 

@@ -12,15 +12,15 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 08/22/2017
-ms.date: 10/02/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: dae112993f3bab6c653664217672d3bf20a72a11
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 66c7faf7668a97effcb03909487e5c2c380a7219
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster"></a>从 Service Fabric 群集中删除应用程序
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 09/28/2017
 
 # Select cluster
 sfctl cluster select \
-    --endpoint http://svcfab1.chinanorth2.cloudapp.chinacloudapi.cn:19080
+    --endpoint http://svcfab1.chinanorth.cloudapp.chinacloudapi.cn:19080
 
 # Delete the application
 sfctl application delete \
@@ -59,4 +59,4 @@ sfctl store delete \
 
 在 [Service Fabric CLI 示例](../samples-cli.md)中可找到 Azure Service Fabric 的其他 Service Fabric CLI 示例。
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties, update link -->

@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/15/2017
-ms.date: 12/11/2017
+origin.date: 11/29/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: d261e0dbd6a4d8d4c06cafafd2c8af5cebacfa35
-ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
+ms.openlocfilehash: c0a0518fbbf006cefc7c759d98c38d3bc92396c5
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>使用 Azure 门户配置 VNet 到 VNet VPN 网关连接
 
-本文介绍如何在虚拟网络之间创建 VPN 网关连接。 虚拟网络可位于相同或不同的区域，来自相同或不同的订阅。 从不同的订阅连接 VNet 时，订阅不需要与相同的 Active Directory 租户相关联。 
+本文介绍如何使用 VNet 到 VNet 连接类型来连接虚拟网络。 虚拟网络可位于相同或不同的区域，来自相同或不同的订阅。 从不同的订阅连接 VNet 时，订阅不需要与相同的 Active Directory 租户相关联。 
 
-本文中的步骤适用于资源管理器部署模型，并使用 Azure 门户。 也可使用不同的部署工具或部署模型来创建此配置，方法是从以下列表中选择另一选项：
+本文中的步骤适用于资源管理器部署模型，并使用 Azure 门户。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -40,17 +40,25 @@ ms.lasthandoff: 12/12/2017
 
 ![v2v 示意图](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-将一个虚拟网络连接到另一个虚拟网络（VNet 到 VNet）类似于将 VNet 连接到本地站点位置。 这两种连接类型都使用 VPN 网关来提供使用 IPsec/IKE 的安全隧道。 可以在 VNet 之间创建站点到站点 (IPsec) 连接而非 VNet 到 VNet 连接。 通信时，这两种连接类型作用方式一样。 不过，在创建 VNet 到 VNet 连接时，如果更新一个 VNet 的地址空间，另一个 VNet 会自动知道路由到更新的地址空间。 如果创建站点到站点 (IPsec) 连接，则需手动更新本地网络的地址空间。
+## <a name="about"></a>关于连接 VNet
 
-如果 VNet 位于同一区域，可能会考虑使用 VNet 对等互连进行连接。 VNet 对等互连不使用 VPN 网关。 有关详细信息，请参阅 [VNet 对等互连](../virtual-network/virtual-network-peering-overview.md)。
+可通过多种方式来连接 VNet。 以下各节介绍了如何通过不同方式来连接虚拟网络。
 
-可以将 VNet 到 VNet 通信与多站点配置组合使用。 这样，便可以建立将跨界连接与虚拟网络间连接相结合的网络拓扑，如下图所示：
+### <a name="vnet-to-vnet"></a>VNet 到 VNet
 
-![关于连接](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "关于连接")
+配置一个 VNet 到 VNet 连接即可轻松地连接 VNet。 使用 VNet 到 VNet 连接类型 (VNet2VNet) 将一个虚拟网络连接到另一个虚拟网络类似于创建到本地位置的站点到站点 IPsec 连接。 这两种连接类型都使用 VPN 网关来提供使用 IPsec/IKE 的安全隧道，二者在通信时使用同样的方式运行。 连接类型的差异在于本地网关的配置方式。 创建 VNet 到 VNet 连接时，看不到本地网关地址空间。 它是自动创建并填充的。 如果更新一个 VNet 的地址空间，另一个 VNet 会自动知道路由到更新的地址空间。 与在 VNet 之间创建站点到站点连接相比，创建 VNet 到 VNet 连接通常速度更快且更容易。
 
-### <a name="why-connect-virtual-networks"></a>为什么要连接虚拟网络？
+### <a name="site-to-site-ipsec"></a>站点到站点 (IPsec)
 
-出于以下原因可能要连接虚拟网络：
+如果要进行复杂的网络配置，则使用[站点到站点](vpn-gateway-howto-site-to-site-resource-manager-portal.md)步骤来连接 VNet 会较好。 使用站点到站点 IPsec 步骤时，可以手动创建和配置本地网关。 每个 VNet 的本地网关都将其他 VNet 视为本地站点。 这样可以为本地网关指定路由流量所需的其他地址空间。 如果 VNet 的地址空间更改，则需根据更改更新相应的本地网关。 它不自动进行更新。
+
+### <a name="vnet-peering"></a>VNet 对等互连
+
+可以考虑使用 VNet 对等互连来连接 VNet。 VNet 对等互连不使用 VPN 网关，并且有不同的约束。 另外，[VNet 对等互连定价](https://www.azure.cn/pricing/details/networking)的计算不同于 [VNet 到 VNet VPN 网关定价](https://www.azure.cn/pricing/details/vpn-gateway)的计算。 有关详细信息，请参阅 [VNet 对等互连](../virtual-network/virtual-network-peering-overview.md)。
+
+## <a name="why"></a>为何创建 VNet 到 VNet 连接？
+
+你可能会出于以下原因而使用 VNet 到 VNet 连接来连接虚拟网络：
 
 - **跨区域地域冗余和地域存在**
 
@@ -60,7 +68,11 @@ ms.lasthandoff: 12/12/2017
 
   - 在同一区域中，由于存在隔离或管理要求，可以设置具有多个虚拟网络的多层应用程序，这些虚拟网络相互连接在一起。
 
-使用这些步骤作为练习时，可以使用示例设置值。 示例中的虚拟网络在同一订阅中，但却在不同的资源组中。 如果 VNet 在不同的订阅中，则无法在门户中创建连接。 可以使用 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) 或 [CLI](vpn-gateway-howto-vnet-vnet-cli.md)。 有关 VNet 到 VNet 连接的详细信息，请参阅本文末尾的 [VNet 到 VNet 常见问题解答](#faq) 。
+可以将 VNet 到 VNet 通信与多站点配置组合使用。 这样，便可以建立将跨界连接与虚拟网络间连接相结合的网络拓扑，如下图所示：
+
+![关于连接](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "关于连接")
+
+本文介绍如何使用 VNet 到 VNet 连接类型来连接 VNet。 使用这些步骤作为练习时，可以使用示例设置值。 示例中的虚拟网络在同一订阅中，但却在不同的资源组中。 如果 VNet 在不同的订阅中，则无法在门户中创建连接。 可以使用 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) 或 [CLI](vpn-gateway-howto-vnet-vnet-cli.md)。 有关 VNet 到 VNet 连接的详细信息，请参阅本文末尾的 [VNet 到 VNet 常见问题解答](#faq) 。
 
 ### <a name="values"></a>示例设置
 
@@ -94,7 +106,7 @@ ms.lasthandoff: 12/12/2017
 - 子网名称：FrontEnd
 - 子网地址范围：10.41.0.0/24
 - 网关子网名称：GatewaySubnet（这会在门户中自动填充）
-- 网关子网地址范围：10.41.255.0/27
+- GatewaySubnet 地址范围：10.41.255.0/27
 - DNS 服务器：使用 DNS 服务器的 IP 地址
 - 虚拟网络网关名称：TestVNet4GW
 - 网关类型：VPN
@@ -137,7 +149,7 @@ VNet 到 VNet 连接不需要 DNS。 但是，如果希望对部署到虚拟网�
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 ## <a name="CreateTestVNet4"></a>6.创建并配置 TestVNet4
-配置 TestVNet1 后，请通过重复上述步骤，并将值替换为 TestVNet4 的这些值来创建 TestVNet4。 不必等到 TestVNet1 的虚拟网络网关已完成创建，就可以配置 TestVNet4。 如果要使用自己的值，请确保地址空间未与要连接到的任何 VNet 重叠。
+配置 TestVNet1 后，请通过重复上述步骤，并将值替换为 TestVNet4 的这些值来创建 TestVNet4。 无需等待 TestVNet1 的虚拟网络网关完成创建即可配置 TestVNet4。 如果要使用自己的值，请确保地址空间未与要连接到的任何 VNet 重叠。
 
 ## <a name="TestVNet1Connection"></a>7.配置 TestVNet1 网关连接
 TestVNet1 和 TestVNet4 的虚拟网络网关都已完成后，便可以创建虚拟网络网关连接。 在本部分，请创建从 VNet1 到 VNet4 的连接。 这些步骤仅适用于同一订阅中的 VNet。 如果 VNet 属于不同的订阅，则必须使用 PowerShell 进行连接。 请参阅 [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) 一文。 不过，如果 VNet 位于同一订阅的不同资源组中，则可使用门户来连接它们。
@@ -145,9 +157,11 @@ TestVNet1 和 TestVNet4 的虚拟网络网关都已完成后，便可以创建�
 1. 在“所有资源” 中，导航到 VNet 的虚拟网络网关。 例如，“TestVNet1GW” 。 单击“TestVNet1GW”打开虚拟网关页。
 
     ![“连接”页](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "“连接”页")
+
 2. 单击“+添加”打开“添加连接”页。
 
     ![](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "添加连接")
+
 3. 在“添加连接”页的“名称”字段中，键入连接名称。 例如，**TestVNet1toTestVNet4**。
 4. 对于“连接类型”，请从下拉列表中选择“VNet 到 VNet”。
 5. 自动填充“第一个虚拟网络网关”  字段值，因为正在从指定的虚拟网络网关创建此连接。

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 10/26/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: 5a59117547ffc40a81511e81ab98092d305d2184
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 80f32992ea763cd2b525526c7802f2ecc2ba3c43
+ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/25/2017
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>用于 Azure 媒体服务的 Java 客户端 SDK 入门
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/08/2017
 
 以下是完成本教程所要做好的准备：
 
-* 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。 
-* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[如何创建媒体服务帐户](media-services-portal-create-account.md)。
+* 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
+* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * 当前的 [Azure 媒体服务 Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
 ## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>如何：导入 Azure 媒体服务 Java 客户端 SDK 包
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/08/2017
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->自 `azure-media` 包的版本 `0.9.8` 开始，SDK 添加了对 Auzre Active Directory (AAD) 身份验证的支持，删除了对 Azure 访问控制服务 (ACS) 身份验证的支持。 ACS 服务将在 2018 年 6 月 1 日弃用。 建议尽快迁移到 Azure AD 身份验证模型。 有关迁移的详细信息，请阅读[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md) 一文。
+>自 `azure-media` 包的版本 `0.9.8` 开始，SDK 添加了对 Azure Active Directory (AAD) 身份验证的支持，删除了对 Azure 访问控制服务 (ACS) 身份验证的支持。 ACS 服务将在 2018 年 6 月 1 日弃用。 建议尽快迁移到 Azure AD 身份验证模型。 有关迁移的详细信息，请阅读[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md) 一文。
 
 >[!NOTE]
 >可以在 [GitHub 存储库](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media)中找到 Azure 媒体服务的源代码。 请确保切换到 0.9 分支而非主分支。 
@@ -105,7 +105,7 @@ ms.lasthandoff: 12/08/2017
     public class Program
     {
         // Media Services account credentials configuration
-        private static String tenant = "tenant.onmschina.cn";
+        private static String tenant = "tenant.partner.onmschina.cn";
         private static String clientId = "<client id>";
         private static String clientKey = "<client key>";
         private static String restApiEndpoint = "https://account_name.restv2.region_name.media.chinacloudapi.cn/api/";
@@ -129,7 +129,7 @@ ms.lasthandoff: 12/08/2017
                 AzureAdTokenCredentials credentials = new AzureAdTokenCredentials(
                         tenant,
                         new AzureAdClientSymmetricKey(clientId, clientKey),
-                        AzureEnvironments.AZURE_CLOUD_ENVIRONMENT);
+                        AzureEnvironments.AzureChinaCloudEnvironment);
 
                 AzureAdTokenProvider provider = new AzureAdTokenProvider(credentials, executorService);
 

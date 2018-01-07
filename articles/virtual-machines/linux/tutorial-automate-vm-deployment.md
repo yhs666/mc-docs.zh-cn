@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 08/11/2017
-ms.date: 10/16/2017
+origin.date: 12/13/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a4e312a5d7a390d7bfd923303446b8b4e58ee6a3
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 13577a3f8a8f51c6d7cd06ae0da2bf8d26cf270b
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>如何在首次启动 Linux 虚拟机时对其进行自定义
 在前面的教程中，你已学习如何通过 SSH 连接到虚拟机 (VM) 并手动安装 NGINX。 若要以快速一致的方式创建 VM，通常需要某种形式的自动化。 在首次启动 VM 时实现自定义的常见方法是使用 [cloud-init](https://cloudinit.readthedocs.io)。 本教程介绍如何执行下列操作：
@@ -44,11 +44,11 @@ Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 
 
 我们正在与合作伙伴协作，将 cloud-init 纳入用户向 Azure 提供的映像中并使其在映像中正常运行。 下表概述了 cloud-init 当前在 Azure 平台映像上的可用性：
 
-| 别名 | 发布者 | 产品 | SKU | Version |
+| 别名 | 发布者 | 产品 | SKU | 版本 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |最新 |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |最新 |
-| CoreOS |CoreOS |CoreOS |Stable |latest |
+| CoreOS |CoreOS |CoreOS |Stable |最新 |
 
 ## <a name="create-cloud-init-config-file"></a>创建 cloud-init 配置文件
 若要运行 cloud-init，请创建一个 VM，以便安装 NGINX 并运行简单的“Hello World”Node.js 应用。 以下 cloud-init 配置会安装所需的程序包，创建 Node.js 应用，然后初始化并启动该应用。
@@ -121,7 +121,7 @@ az vm create \
 
 创建 VM、安装程序包和启动应用需耗时几分钟。 在 Azure CLI 返回提示之后，仍然存在继续运行的后台任务。 可能还需等待几分钟才能访问应用。 创建 VM 后，请记下 Azure CLI 显示的 `publicIpAddress`。 此地址用于通过 Web 浏览器访问 Node.js 应用。
 
-若要使 VM 能使用 Web 流量，请通过 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port) 从 Internet 打开端口 80：
+若要使 VM 能使用 Web 流量，请通过 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port) 从 Internet 中打开端口 80：
 
 ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM

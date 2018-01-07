@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 origin.date: 11/09/2017
-ms.date: 11/30/2017
+ms.date: 12/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: de43461dc6df31e1779bcd477a5bc84ff2492abc
-ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
+ms.openlocfilehash: f79b60c63894410e298da6ae0f372aee812617cd
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地保存 Web 应用的密钥应用程序设置
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/01/2017
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET 和 .NET Core 应用程序
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>将密钥设置保存在源代码管理文件夹外部的用户密钥存储中。
-如果你正在快速建立原型或无法访问 Internet，请先将源代码管理文件夹外部的密钥设置移动到用户密钥存储。 用户密钥存储是保存在用户探查器文件夹下的一个文件，因此密钥不会签入到源代码管理。 下图演示了[用户密钥](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager)的工作原理。
+如果你正在快速建立原型或无法访问 Internet，请先将源代码管理文件夹外部的密钥设置移动到用户密钥存储。 用户密钥存储是保存在用户探查器文件夹下的一个文件，因此密钥不会签入到源代码管理。 下图演示了[用户密钥](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager)的工作原理。
 
 ![用户密钥将密钥设置保持在源代码管理外部](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/01/2017
 
     ![创建 Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. 授予你和团队成员访问密钥保管库的权限。 如果团队规模较大，可以创建 Azure Active Directory 组并向该安全组添加访问 Key Vault 的权限。 在“密钥权限”下拉列表中，检查“密钥管理操作”下的“获取”和“列表”。
+2. 授予你和团队成员访问密钥保管库的权限。 如果你的团队规模较大，可以创建 [Azure Active Directory 组](/active-directory/active-directory-groups-create-azure-portal)并将该安全组访问权限添加到密钥保管库。 在“密钥权限”下拉列表中，检查“密钥管理操作”下的“获取”和“列表”。
 
     ![添加密钥保管库访问策略](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
@@ -175,3 +175,4 @@ Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
 
 4. 开始调试项目。 它应已成功运行。
 
+<!--Update_Description: wording update -->

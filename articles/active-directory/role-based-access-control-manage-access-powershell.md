@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/12/2017
-ms.date: 08/22/2017
+ms.date: 01/01/2018
 ms.author: v-junlch
 ms.reviewer: rqureshi
-ms.openlocfilehash: 188a830667ead72a54a4c90c2a9b4f7452029bcb
-ms.sourcegitcommit: d43bb3a378692299062777197a5a030daa9d67d1
+ms.openlocfilehash: 00689690e0b19c40363b0a972fbfa6b009c367c1
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>使用 Azure PowerShell 管理基于角色的访问控制
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 09/11/2017
 
 在使用 PowerShell 管理 RBAC 之前，需具备以下先决条件：
 
-- Azure PowerShell 0.8.8 版或更高版本。 若要安装最新版本并将其与 Azure 订阅相关联，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
-- Azure Resource Manager cmdlets。 在 PowerShell 中安装 [Azure Resource Manager cmdlets](https://docs.microsoft.com/powershell/azure/overview) 。
+* Azure PowerShell 0.8.8 版或更高版本。 若要安装最新版本并将其与 Azure 订阅相关联，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
+* Azure Resource Manager cmdlets。 在 PowerShell 中安装 [Azure Resource Manager cmdlets](https://docs.microsoft.com/powershell/azure/overview) 。
 
 ## <a name="list-roles"></a>列出角色
 ### <a name="list-all-available-roles"></a>列出所有可用的角色
@@ -81,9 +81,7 @@ Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups
 ### <a name="list-classic-service-administrator-and-coadmin-role-assignments"></a>列出经典服务管理员和共同管理员角色分配
 若要列出经典订阅管理员和共同管理员的访问权限分配，请使用：
 
-```
-Get-AzureRmRoleAssignment -IncludeClassicAdministrators
-```
+    Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="grant-access"></a>授予访问权限
 ### <a name="search-for-object-ids"></a>搜索对象 ID
@@ -91,53 +89,47 @@ Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 
 如果不知道订阅 ID，可以在 Azure 门户的“订阅”  边栏选项卡中查找。 若要了解如何通过查询获取订阅 ID，请参阅 MSDN 上的 [Get-AzureSubscription](https://docs.microsoft.com/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) 。
 
+若要获取 Azure AD 组的对象 ID，请使用：
+
+    Get-AzureRmADGroup -SearchString <group name in quotes>
+
 若要获取 Azure AD 服务主体或应用程序的对象 ID，请使用：
 
-```
-Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
-```
+    Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 
 ### <a name="assign-a-role-to-an-application-at-the-subscription-scope"></a>将角色分配给订阅范围内的应用程序
 若要授权访问订阅范围内的应用程序，请使用：
 
-```
-New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
-```
+    New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - 屏幕截图](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
 ### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>将角色分配给资源组范围内的用户
 若要授权访问资源组范围内的用户，请使用：
 
-```
-New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
-```
+    New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - 屏幕截图](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment3.png)
 
 ### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>将角色分配给资源范围内的组
 若要授权访问资源范围内的组，请使用：
 
-```
-New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
-```
+    New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - 屏幕截图](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
 
 ## <a name="remove-access"></a>删除访问权限
 若要删除用户、组和应用程序的访问权限，请使用：
 
-```
-Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
-```
+    Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
 
 ![RBAC PowerShell - Remove-AzureRmRoleAssignment - 屏幕截图](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## <a name="create-a-custom-role"></a>创建自定义角色
-若要创建自定义角色，请使用 ```New-AzureRmRoleDefinition``` 命令。 构造角色有两种方法：使用 PSRoleDefinitionObject 或 JSON 模板。 
+若要创建自定义角色，请使用 ```New-AzureRmRoleDefinition``` 命令。 可以通过两种方法来构造角色，即使用 PSRoleDefinitionObject 或 JSON 模板。 
 
 ## <a name="get-actions-for-a-resource-provider"></a>获取资源提供程序的操作
-从头开始创建自定义角色时，请务必了解资源提供程序的所有可能操作。
+从头开始创建自定义角色时，必须了解资源提供程序提供的所有可能的操作。
 请使用 ```Get-AzureRMProviderOperation``` 命令获取该信息。
 例如，若要查看虚拟机的所有可用操作，请使用以下命令：
 
@@ -174,7 +166,7 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 屏幕截图](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### <a name="create-role-with-json-template"></a>使用 JSON 模板创建角色
-JSON 模板可以用作自定义角色的源定义。 下面的示例创建一个有权读取存储和计算资源以及有权访问支持的自定义角色，并将该角色添加到两个订阅。 创建包含以下示例的新文件 `C:\CustomRoles\customrole1.json`。 创建初始角色时，应将 ID 设置为 `null`，因为会自动生成新的 ID。 
+JSON 模板可以用作自定义角色的源定义。 以下示例创建一个可以对存储和计算资源进行读取访问以及获取支持的自定义角色，并将该角色添加到两个订阅。 创建包含以下示例的新文件 `C:\CustomRoles\customrole1.json`。 创建初始角色时，应将 ID 设置为 `null`，因为会自动生成新的 ID。 
 
 ```
 {
@@ -286,7 +278,7 @@ Get-AzureRmRoleDefinition | FT Name, IsCustom
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 屏幕截图](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## <a name="see-also"></a>另请参阅
-- [将 Azure PowerShell 与 Azure Resource Manager 配合使用](../azure-resource-manager/powershell-azure-resource-manager.md)
+- [将 Azure PowerShell 与 Azure 资源管理器配合使用](../azure-resource-manager/powershell-azure-resource-manager.md)
   [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 <!--Update_Description: wording update -->

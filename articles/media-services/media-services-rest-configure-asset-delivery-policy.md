@@ -3,7 +3,7 @@ title: "使用媒体服务 REST API 配置资产传送策略 | Azure"
 description: "本主题介绍如何使用媒体服务 REST API 配置不同的资产传送策略。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 2a50181a08dde2c2be824545869f16ce2d402485
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 12/07/2017
+ms.date: 12/11/2017
+ms.author: v-nany
+ms.openlocfilehash: 39858bb0332e4bb9845d14970530d001a7d55c25
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="configuring-asset-delivery-policies"></a>配置资产传送策略
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 08/31/2017
 本主题介绍创建和配置资产传送策略的原因和方式。
 
 >[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
+>创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
 >
 >此外，若要使用动态打包和动态加密，用户的资产必须包含一组自适应比特率 MP4 或自适应比特率平滑流式处理文件。
 
-可以将不同的策略应用到同一个资产。 例如，可以将 PlayReady 加密应用到平滑流式处理，将 AES 信封加密应用到 MPEG DASH 和 HLS。 将阻止流式处理传送策略中未定义的任何协议（例如，添加仅将 HLS 指定为协议的单个策略）。 如果根本没有定义任何传送策略，则情况不是这样。 此时，所有协议都可以通过。
+可以将不同的策略应用到同一个资产。 例如，可以将 PlayReady 加密应用到平滑流式处理，将 AES 信封加密应用到 MPEG DASH 和 HLS。 将阻止流式处理传送策略中未定义的任何协议（例如，添加仅将 HLS 指定为协议的单个策略）。 如果根本没有定义任何传送策略，则情况不是这样。 此时，将允许所有明文形式的协议。
 
 如果要传送存储加密资产，则必须配置资产的传送策略。 在流式传输资产之前，流式处理服务器会删除存储加密，再使用指定的传送策略流式传输用户的内容。 例如，若要传送使用高级加密标准 (AES) 信封加密密钥加密的资产，请将策略类型设为“DynamicEnvelopeEncryption”。 要删除存储加密并以明文的形式流式传输资产，请将策略类型设置为 **NoDynamicEncryption**。 下面是演示如何配置这些策略类型的示例。
 
@@ -89,9 +89,9 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423397827&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=Szo6lbJAvL3dyecAeVmyAnzv3mGzfUNClR5shk9Ivbk%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
-Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 {
     "Name":"Clear Policy",
@@ -145,9 +145,9 @@ Accept: application/json
 Accept-Charset: UTF-8
 Content-Type: application/json
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-e769-3344-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423397827&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=Szo6lbJAvL3dyecAeVmyAnzv3mGzfUNClR5shk9Ivbk%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: 56d2763f-6e72-419d-ba3c-685f6db97e81
-Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 {"uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')"}
 ```
@@ -179,9 +179,9 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423452029&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=IEXV06e3drSIN5naFRBdhJZCbfEqQbFZsGSIGmawhEo%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: 569d4b7c-a446-4edc-b77c-9fb686083dd8
-Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 21
 
 {"keyDeliveryType":2}
@@ -226,9 +226,9 @@ Accept: application/json
 Accept-Charset: UTF-8
 User-Agent: Microsoft ADO.NET Data Services
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423480651&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=T2FG3tIV0e2ETzxQ6RDWxWAsAzuy3ez2ruXPhrBe62Y%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
-Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\\/\"}]"}
 ```
@@ -283,7 +283,7 @@ User-Agent: Microsoft ADO.NET Data Services
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423480651&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=T2FG3tIV0e2ETzxQ6RDWxWAsAzuy3ez2ruXPhrBe62Y%3d
 x-ms-version: 2.11
 x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
-Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\/PlayReady\/"}]"}
 ```
@@ -296,7 +296,7 @@ Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
 
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
 
-以下枚举说明可以为资产传送协议设置的值。
+以下枚举说明可以为资产传递协议设置的值。
 ```
 [Flags]
 public enum AssetDeliveryProtocol
@@ -366,7 +366,7 @@ public enum AssetDeliveryPolicyType
 
 ### <a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
 
-以下枚举说明可用于配置将内容密钥传送到客户端的方法的值。
+以下枚举说明可用于配置到客户端的内容密钥传递方法的值。
 ```
 public enum ContentKeyDeliveryType
 {

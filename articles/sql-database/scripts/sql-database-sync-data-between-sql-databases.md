@@ -18,11 +18,11 @@ origin.date: 7/31/2017
 ms.date: 12/11/2017
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: b461f9aee47328beaa8cd34820bc8c64fc118423
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: 3f80b63bf979b05c5b13502d88dfc94573054572
+ms.sourcegitcommit: ac0aab977d289366db6a9b230f27a6a8c6c190e9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>使用 PowerShell 在多个 SQL 数据库之间进行同步
  
@@ -142,7 +142,7 @@ New-AzureRmSqlSyncMember   -ResourceGroupName $ResourceGroupName `
                             -Name $SyncMemberName `
                             -MemberDatabaseCredential $Credential `
                             -MemberDatabaseName $MemberDatabaseName `
-                            -MemberServerName ($MemberServerName + ".database.windows.net") `
+                            -MemberServerName ($MemberServerName + ".database.chinacloudapi.cn") `
                             -MemberDatabaseType $MemberDatabaseType `
                             -SyncDirection $SyncDirection
 
@@ -346,7 +346,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 
 此脚本使用以下命令。 表中的每条命令链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmSqlSyncAgent](https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  新建同步代理 |
 | [New-AzureRmSqlSyncAgentKey](https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  生成与同步代理关联的代理密钥 |

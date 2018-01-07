@@ -8,10 +8,9 @@
 > [!NOTE]
 > Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../articles/resource-manager-deployment-model.md)。 这篇文章介绍了如何使用这两种模型，但 Azure 建议大多数最新部署使用 Resource Manager 模型。
 
-如果你对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，你也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。
 
-## 快速入门故障排除步骤
-<a id="quick-start-troubleshooting-steps" class="xliff"></a>
+## <a name="quick-start-troubleshooting-steps"></a>快速入门故障排除步骤
 如果在连接到应用程序时发生问题，请尝试以下一般故障排除步骤。 执行每个步骤之后，尝试重新连接到应用程序：
 
 * 重启虚拟机
@@ -26,8 +25,7 @@
 
 有关详细信息，请参阅[对终结点连接（RDP/SSH/HTTP 等故障）进行故障排除](https://social.msdn.microsoft.com/Forums/azure/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows)。
 
-## 详细故障排除概述
-<a id="detailed-troubleshooting-overview" class="xliff"></a>
+## <a name="detailed-troubleshooting-overview"></a>详细故障排除概述
 有四个主要区域需要对 Azure 虚拟机上运行的应用程序的访问进行故障排除。
 
 ![对无法启动应用程序进行故障排除](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
@@ -47,8 +45,7 @@
 
 若要确定问题根源并进行更正，请执行以下步骤。
 
-## 步骤 1：从目标 VM 访问应用程序
-<a id="step-1-access-application-from-target-vm" class="xliff"></a>
+## <a name="step-1-access-application-from-target-vm"></a>步骤 1：从目标 VM 访问应用程序
 尝试使用适当的客户端程序，从运行该程序的 VM 访问应用程序。 使用本地主机名、本地 IP 地址或环回地址 (127.0.0.1)。
 
 ![直接从 VM 启动应用程序](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
@@ -62,7 +59,7 @@
 * 应用程序是否在目标虚拟机上运行。
 * 应用程序是否在预期 TCP 和 UDP 端口侦听。
 
-在基于 Windows 和基于 Linux 的虚拟机上，使用 **netstat -a** 命令显示活动的侦听端口。 检查应用程序应侦听的预期端口的输出。 重新启动应用程序，或根据需要将其配置为使用预期的端口，然后尝试在本地重新访问应用程序。
+在基于 Windows 和基于 Linux 的虚拟机上，使用 **netstat -a** 命令显示活动的侦听端口。 检查应用程序应侦听的预期端口的输出。 重新启动应用程序，或根据需要将其配置为使用预期的端口，并尝试在本地重新访问应用程序。
 
 ## <a id="step2"></a>步骤 2：从同一虚拟网络中的另一个 VM 访问应用程序
 使用 VM 的主机名或其 Azure 分配的公共、专用或提供程序 IP 地址尝试访问位于不同 VM 但相同虚拟网络中的应用程序。 对于使用经典部署模型创建的虚拟机，请不要使用云服务的公共 IP 地址。
@@ -80,7 +77,7 @@
 * 云服务终结点或网络安全组允许流量：
   * [经典模型 - 管理云服务终结点](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
   * [Resource Manager 模型 - 管理网络安全组](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
-* VM 中在测试 VM 和你的 VM 之间的路径运行的单独组件（例如负载均衡器或防火墙）允许流量。
+* VM 中在测试 VM 和 VM 之间的路径运行的单独组件（例如负载均衡器或防火墙）允许流量。
 
 在基于 Windows 的虚拟机上，使用具有高级安全性的 Windows 防火墙确定防火墙规则是否排除应用程序的入站和出站流量。
 
@@ -116,8 +113,11 @@
 * 从客户端计算机到 Azure 虚拟机的出站应用程序请求流量。
 * 来自 Azure 虚拟机的入站应用程序响应流量。
 
-## 其他资源
-<a id="additional-resources" class="xliff"></a>
+<!-- Not Available on [Azure network monitoring overview](/network-watcher/network-watcher-monitoring-overview) -->
+## <a name="additional-resources"></a>其他资源
 [对与基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 
 [对与基于 Linux 的 Azure 虚拟机的 Secure Shell (SSH) 连接进行故障排除](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
+
+<!--Update_Description: wording update-->
+<!--ms.date: 01/08/2018-->

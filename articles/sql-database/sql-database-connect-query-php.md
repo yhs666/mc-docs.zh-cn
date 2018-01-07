@@ -3,98 +3,96 @@ title: "使用 PHP 查询 Azure SQL 数据库 | Azure"
 description: "本主题介绍如何使用 PHP 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。"
 services: sql-database
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: 
-ms.assetid: 4e71db4a-a22f-4f1c-83e5-4a34a036ecf3
+ms.assetid: 4e71db4a-a 22f-4f1c-83e5-4a34a036ecf3
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: drivers
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-origin.date: 08/08/2017
-ms.date: 10/02/2017
-ms.author: v-johch
-ms.openlocfilehash: 82d41cffff0fb6cc85fb141a1614cd4571d38ce9
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+origin.date: 11/29/2017
+ms.date: 01/08/2018
+ms.author: v-nany
+ms.openlocfilehash: 18f6ec11d7eb357f43f1567290bd649b10117c78
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>使用 PHP 查询 Azure SQL 数据库
 
-本快速入门教程演示了如何使用 [PHP](http://php.net/manual/en/intro-whatis.php) 创建可连接到 Azure SQL 数据库的程序，并使用 Transact-SQL 语句查询数据。
+本快速入门教程演示了如何使用 [PHP](http://php.net/manual/en/intro-whatis.php) 来创建连接到 Azure SQL 数据库的程序，并使用 Transact-SQL 语句来查询数据。
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本快速入门教程，请确保具备以下条件：
+若要完成本快速入门教程，请确保符合以下条件：
 
-- Azure SQL 数据库。 此快速入门使用以下某个快速入门中创建的资源： 
-
-   - [创建 DB - 门户](sql-database-get-started-portal.md)
-   - [创建 DB - CLI](sql-database-get-started-cli.md)
-   - [创建 DB - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - 针对用于本快速入门教程的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
 
-- 已为操作系统安装 PHP 和相关软件。
+- 已为操作系统安装 PHP 和相关软件：
 
-    - **MacOS**：安装 Homebrew 和 PHP，接着安装 ODBC 驱动程序和 SQLCMD，再安装 PHP Driver for SQL Server。 请参阅[步骤 1.2、1.3 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/)。
-    - **Ubuntu**：安装 PHP 和其他所需包，然后安装 PHP Driver for SQL Server。 请参阅[步骤 1.2 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)。
+    - **MacOS**：安装 Homebrew 和 PHP，安装 ODBC 驱动程序和 SQLCMD，再安装用于 SQL Server 的 PHP 驱动程序。 请参阅[步骤 1.2、1.3 和 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/)。
+    - **Ubuntu**：安装 PHP 和其他所需包，然后安装用于 SQL Server 的 PHP 驱动程序。 请参阅[步骤 1.2 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)。
     - **Windows**：安装最新版的 PHP for IIS Express、最新版的 Microsoft Drivers for SQL Server（位于 IIS Express 中）、Chocolatey、ODBC 驱动程序以及 SQLCMD。 请参阅[步骤 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/)。    
 
 ## <a name="sql-server-connection-information"></a>SQL Server 连接信息
 
-获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称、数据库名称和登录信息。
-
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 从左侧菜单中选择“SQL 数据库”，并单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 将鼠标悬停在服务器名称上即可打开“通过单击进行复制”选项。  
-
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. 如果忘了服务器的登录信息，请导航到 SQL 数据库服务器页，查看服务器管理员名称并重置密码（如果需要）。     
-
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+    
 ## <a name="insert-code-to-query-sql-database"></a>插入用于查询 SQL 数据库的代码
 
 1. 在常用的文本编辑器中，创建一个新文件 **sqltest.php**。  
 
 2. 将内容替换为以下代码，为服务器、数据库、用户和密码添加相应的值。
-    ```PHP
-    <?php
-    $serverName = "your_server.database.chinacloudapi.cn";
-    $connectionOptions = array(
-        "Database" => "your_database",
-        "Uid" => "your_username",
-        "PWD" => "your_password"
-    );
-    //Establishes the connection
-    $conn = sqlsrv_connect($serverName, $connectionOptions);
-    $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-        FROM [SalesLT].[ProductCategory] pc
-        JOIN [SalesLT].[Product] p
+
+   ```PHP
+   <?php
+   $serverName = "your_server.database.chinacloudapi.cn";
+   $connectionOptions = array(
+       "Database" => "your_database",
+       "Uid" => "your_username",
+       "PWD" => "your_password"
+   );
+   //Establishes the connection
+   $conn = sqlsrv_connect($serverName, $connectionOptions);
+   $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+           FROM [SalesLT].[ProductCategory] pc
+           JOIN [SalesLT].[Product] p
         ON pc.productcategoryid = p.productcategoryid";
-    $getResults= sqlsrv_query($conn, $tsql);
-    echo ("Reading data from table" . PHP_EOL);
-    if ($getResults == FALSE)
-        echo (sqlsrv_errors());
-    while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-        echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
-    }
-    sqlsrv_free_stmt($getResults);
-    ?>
-    ```
-    
+   $getResults= sqlsrv_query($conn, $tsql);
+   echo ("Reading data from table" . PHP_EOL);
+   if ($getResults == FALSE)
+       echo (sqlsrv_errors());
+   while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+    echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
+   }
+   sqlsrv_free_stmt($getResults);
+   ?>
+   ```
+
 ## <a name="run-the-code"></a>运行代码
 
 1. 在命令提示符下运行以下命令：
-    ```PHP
-    php sqltest.php
-    ```
+
+   ```php
+   php sqltest.php
+   ```
+
 2. 验证是否已返回前 20 行，然后关闭应用程序窗口。
 
 ## <a name="next-steps"></a>后续步骤
 - [设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)
 - [用于 SQL Server 的 Microsoft PHP 驱动程序](https://github.com/Microsoft/msphpsql/)
 - [报告问题或提出问题](https://github.com/Microsoft/msphpsql/issues)
+- [重试逻辑示例：使用 PHP 弹性连接到 SQL][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+

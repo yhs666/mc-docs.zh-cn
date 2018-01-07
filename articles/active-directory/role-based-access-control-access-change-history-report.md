@@ -12,27 +12,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/17/2017
-ms.date: 09/20/2017
+ms.date: 01/01/2018
 ms.author: v-junlch
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c02f89f02c52ef831bbb152c306986e152723225
-ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
+ms.openlocfilehash: 1eee53cf7929c00a0edd4966954f97bbbef16238
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>为基于角色的访问控制创建访问报告
-无论何时授予或撤销订阅中的访问权限，更改都会记录在 Azure 事件中。 可创建访问权限更改历史记录报告来查看过去 90 天的所有更改。
+无论何时授予或撤销订阅中的访问权限，更改都将记录在 Azure 事件中。 可创建访问权限更改历史记录报告来查看过去 90 天的所有更改。
 
 ## <a name="create-a-report-with-azure-powershell"></a>使用 Azure PowerShell 创建报告
-若要在 PowerShell 中创建访问权限更改历史记录报告，请使用 `Get-AzureRMAuthorizationChangeLog` 命令。
+若要在 PowerShell 中创建访问权限更改历史记录报告，请使用 [Get-AzureRMAuthorizationChangeLog](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermauthorizationchangelog) 命令。
 
 调用此命令时，可指定要列出的分配的属性，包括以下方面：
 
 | 属性 | 说明 |
 | --- | --- |
-| **操作** |是授予还是撤销访问权限 |
+| **Action** |是授予还是撤销访问权限 |
 | **调用方** |负责访问权限更改的所有者 |
 | **PrincipalId** | 已分配了角色的用户、组或应用程序的唯一标识符 |
 | **PrincipalName** |用户、组或应用程序的名称 |

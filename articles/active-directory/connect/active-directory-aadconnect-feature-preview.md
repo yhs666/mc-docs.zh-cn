@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: b9a6d5f135acbfa077942b3215b6cf9aab6ecbf7
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: d73d7498ab36b27565070b71eed6a9ce705a6cdc
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="more-details-about-features-in-preview"></a>有关预览版功能的详细信息
 本主题介绍如何使用当前以预览版形式提供的功能。
@@ -54,4 +54,3 @@ Office 365 组在本地 AD DS 中显示为分发组。 本地 Exchange 服务器
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: update meta properties -->

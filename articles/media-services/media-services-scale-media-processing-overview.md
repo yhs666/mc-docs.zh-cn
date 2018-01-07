@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 07/04/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: d4ca614ea8e39a6335bd877834c6568e8b8e7c3c
-ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
+ms.openlocfilehash: 078c42549ea89be19c6d82a31a2df0f3232aa285
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="scaling-media-processing-overview"></a>调整媒体处理的规模概述
 此页概述了如何以及为何调整媒体处理的规模。 
@@ -49,7 +49,7 @@ ms.lasthandoff: 09/19/2017
 
 ## <a name="billing"></a>计费
 
-根据媒体保留单位的实际使用分钟数对你进行收费。 有关详细说明，请参阅[媒体服务定价](https://www.azure.cn/pricing/details/media-services/)页的“常见问题”部分。   
+将根据媒体保留单位的实际使用分钟数对你进行收费。 有关详细说明，请参阅[媒体服务定价](https://www.azure.cn/pricing/details/media-services/)页的“常见问题”部分。   
 
 ## <a name="quotas-and-limitations"></a>配额和限制
 有关配额和限制以及如何开具支持票证的信息，请参阅[配额和限制](media-services-quotas-and-limitations.md)。
@@ -65,4 +65,9 @@ ms.lasthandoff: 09/19/2017
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 
-<!--Update_Description: add one link-->
+> [!NOTE]
+> 若要获取最新版本的 Java SDK 并开始使用 Java 进行开发，请参阅[媒体服务的 Java 客户端 SDK 入门](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)。 <br/>
+> 若要下载最新的媒体服务 PHP SDK，请在 [Packagist 存储库](https://packagist.org/packages/microsoft/windowsazure#v0.5.7)中查找 0.5.7 版 Microsoft/WindowAzure 包。  
+
+
+

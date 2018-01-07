@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/12/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0ac373e65d698de20d9a6d03b171dbf7baf463ea
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 30e10d54ad14df94d91a77e2b8fbb69142fb7458
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 <a name="preparemachines"></a>
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>规划和准备 Service Fabric 独立群集部署
@@ -81,7 +81,7 @@ ms.lasthandoff: 11/09/2017
 
 有关此文件中相关部分的详细信息，请参阅 [Windows 独立群集的配置设置](service-fabric-cluster-manifest.md)。
 
-从已下载的程序包中打开某个 ClusterConfig.json 文件，并修改以下设置：
+从已下载的包中打开某个 ClusterConfig.json 文件，并修改以下设置：
 | **配置设置** | **说明** |
 | --- | --- |
 | **NodeTypes** |节点类型可让你将群集节点划分到不同的组中。 一个群集必须至少有一个节点类型。 组中的所有节点具有以下共同特征： <br> 名称 - 即节点类型名称。 <br>终结点端口 - 即与此节点类型关联的各种命名终结点（端口）。 可以使用任何端口号，只要它们不会与此清单中的其他部分发生冲突，并且未被计算机/VM 上运行的其他应用程序使用。 <br> 放置属性 - 即此节点类型的相应属性，可用作系统服务或你拥有的服务的放置约束。 这些属性是用户定义的键/值对，可为指定节点提供额外的元数据。 节点属性的示例包括节点是否有硬盘或图形卡、其硬盘的轴数、内核数和其他物理属性。 <br> 容量 - 节点容量，定义特定节点提供的特定资源的名称和数量。 例如，节点可以定义名为“MemoryInMb”的指标容量，而且默认有 2048 MB 的可用内存。 这些容量在运行时使用，以确保将需要特定资源量的服务放在具有所需数量的可用资源的节点上。<br>IsPrimary - 如果定义了多个 NodeType，请确保只有一个设置为主节点（值为 true），系统服务将在该主节点上运行。 应将所有其他节点类型设置为 false 值 |
@@ -101,7 +101,7 @@ ms.lasthandoff: 11/09/2017
 * 已启用 Windows 防火墙服务 (mpssvc)
 * 已启用远程注册表服务 (remoteregistry)
 * 已启用文件共享 (SMB)
-* 已基于群集配置端口打开了必要的端口
+* 已基于群集配置端口打开所需的端口
 * 已为 Windows SMB 和远程注册表服务打开了必要的端口：135、137、138、139 和 445
 * 已相互建立网络连接
 3. 群集节点计算机不应为域控制器。
@@ -167,4 +167,4 @@ Passed                     : True
 ## <a name="next-steps"></a>后续步骤
 * [创建在 Windows Server 上运行的独立群集](service-fabric-cluster-creation-for-windows-server.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->

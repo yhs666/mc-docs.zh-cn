@@ -11,15 +11,16 @@ ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: tutorial
 origin.date: 09/05/2017
-ms.date: 09/25/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: a5b56001c16c6bf5aeff4e8a2dc251b9288dd781
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.custom: mvc
+ms.openlocfilehash: 649ed9c095a432d7037d3ec93ebfc1f18b08cb70
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 - 第 6 部分：向应用添加 Post、Put 和 Delete 函数
 
@@ -38,7 +39,7 @@ ms.lasthandoff: 09/22/2017
 开始教程的此部分之前，请确保已完成教程[第 5 部分](tutorial-develop-mongodb-nodejs-part5.md)的步骤。
 
 > [!TIP]
-> 本教程介绍分步生成应用程序的步骤。 若要下载完成的项目，可从 GitHub 上的 [angular-cosmosdb 存储库](https://github.com/Azure-Samples/angular-cosmosdb)获取完成的应用程序。
+> 本教程介绍生成应用程序的各个步骤。 若要下载完成的项目，可从 GitHub 上的 [angular-cosmosdb 存储库](https://github.com/Azure-Samples/angular-cosmosdb)获取完成的应用程序。
 
 ## <a name="add-a-post-function-to-the-hero-service"></a>向 hero 服务添加 Post 函数
 
@@ -199,3 +200,5 @@ ms.lasthandoff: 09/22/2017
 > * 向应用添加 Post、Put 和 Delete 函数 
 
 本教程系列会添加更多的视频，请稍后回来观看。
+
+<!-- Update_Description: update meta properties -->

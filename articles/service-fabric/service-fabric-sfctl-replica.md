@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 09/22/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 17353393f6c593d332681c1e45da68ed4a7dd2cc
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 2302e78db0c16c860897e95bb39c5b7c4af3540b
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 管理属于服务分区的副本。
@@ -30,8 +30,7 @@ ms.lasthandoff: 11/09/2017
 | --- | --- |
 |    deployed  | 获取部署在 Service Fabric 节点上的副本的详细信息。|
 |    deployed-list| 获取部署在 Service Fabric 节点上的副本的列表。|
-|    health    | 获取 Service Fabric 有状态服务副本或无状态服务实例的
-                   运行状况。|
+|    health    | 获取 Service Fabric 有状态服务副本或无状态服务实例的运行状况。|
 |    info      | 获取有关 Service Fabric 分区的副本的信息。|
 |    list      | 获取有关 Service Fabric 服务分区的副本的信息。|
 |    remove    | 删除节点上运行的服务副本。|
@@ -60,7 +59,7 @@ ms.lasthandoff: 11/09/2017
 | --help -h             | 显示此帮助消息并退出。|
 | --output -o           | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
 | --query               | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-| --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+| --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-replica-health"></a>sfctl replica health
 获取 Service Fabric 有状态服务副本或无状态服务实例的运行状况。
@@ -84,7 +83,7 @@ ms.lasthandoff: 11/09/2017
 | --help -h                | 显示此帮助消息并退出。|
 | --output -o              | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
 | --query                  | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-| --verbose                | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+| --verbose                | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
 获取有关 Service Fabric 分区的副本的信息。
@@ -108,7 +107,7 @@ ms.lasthandoff: 11/09/2017
 | --help -h             | 显示此帮助消息并退出。|
 | --output -o           | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
 | --query               | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-| --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+| --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list
 获取有关 Service Fabric 服务分区的副本的信息。
@@ -132,7 +131,7 @@ GetReplicas 终结点返回有关指定分区的副本的信息。
 | --help -h             | 显示此帮助消息并退出。|
 | --output -o           | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
 | --query               | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-| --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+| --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-replica-remove"></a>sfctl replica remove
 删除节点上运行的服务副本。
@@ -157,7 +156,7 @@ GetReplicas 终结点返回有关指定分区的副本的信息。
 | --help -h             | 显示此帮助消息并退出。|
 | --output -o           | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
 | --query               | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-| --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+| --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-replica-restart"></a>sfctl replica restart
 重启节点上运行的持久性服务的服务副本。
@@ -187,4 +186,4 @@ GetReplicas 终结点返回有关指定分区的副本的信息。
 - [安装](service-fabric-cli.md) Service Fabric CLI。
 - 了解如何通过[示例脚本](/service-fabric/scripts/sfctl-upgrade-application)使用 Service Fabric CLI。
 
-<!--Update_Description: new articles on service fabric sfctl replica-->
+<!--Update_Description: wording update -->

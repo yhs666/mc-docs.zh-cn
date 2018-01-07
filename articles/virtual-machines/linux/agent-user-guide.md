@@ -3,8 +3,8 @@ title: "Azure Linux VM 代理概述 | Azure"
 description: "了解如何安装和配置 Linux 代理 (waagent) 以管理虚拟机与 Azure 结构控制器的交互。"
 services: virtual-machines-linux
 documentationcenter: 
-author: szarkos
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 10/17/2016
-ms.date: 11/21/2016
-ms.author: v-dazen
+ms.date: 01/08/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4ff88483eeb23ef56c9a18a99c742de9320b9ba
-ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.openlocfilehash: d8e013fb775ad8bafb35122f1a37e65f825643ac
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解和使用 Azure Linux 代理
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM 与 Azure 结构控制器之间的交互。 它针对 Linux 和 FreeBSD IaaS 部署提供以下功能：
 
 > [!NOTE]
@@ -120,7 +120,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
   * 所有 SSH 主机密钥（如果在配置文件中 Provisioning.RegenerateSshHostKeyPair 为“y”）
   * /etc/resolv.conf 中的 Nameserver 配置
   * /etc/shadow 中的根密码（如果在配置文件中 Provisioning.DeleteRootPassword 为“y”）
-  * 缓存的 DHCP 客户端租用
+  * 缓存的 DHCP 客户端租赁
   * 将主机名重置为 localhost.localdomain
 
 > [!WARNING]
@@ -144,6 +144,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -158,6 +159,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 下面详细描述了各种配置选项。 配置选项分为三种类型：布尔值、字符串或整数。 布尔值配置选项可指定为“y”或“n”。 特殊关键字“无”可用于某些字符串类型配置条目，详细信息如下所示。
 
@@ -196,19 +198,23 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 类型：布尔值  
 默认值：y
 
-如果设置此参数，则 waagent 将监视 Linux 虚拟机的主机名更改情况（由“hostname”命令返回），并自动更新映像中的网络配置以反映此更改。 若要将名称更改推送到 DNS 服务器，会重新启用虚拟机中的网络。 这将导致 Internet 连接暂时中断。
+如果设置此参数，则 waagent 将监视 Linux 虚拟机的主机名更改情况（由“hostname”命令返回），并自动更新映像中的网络配置以反映此更改。 要将名称更改推送到 DNS 服务器，会重新启用虚拟机中的网络。 这会导致 Internet 连接暂时中断。
 
 **Provisioning.DecodeCustomData**  
 类型：布尔值  
 默认值：n
 
-如果已设置，waagent 将从 Base64 解码 CustomData。
+如果已设置，waagent 从 Base64 解码 CustomData。
 
 **Provisioning.ExecuteCustomData**  
 类型：布尔值  
 默认值：n
 
-如果已设置，waagent 将在预配后执行 CustomData。
+如果已设置，waagent 会在预配后执行 CustomData。
+
+**Provisioning.AllowResetSysUser** 类型：布尔值 默认值：n
+
+此选项允许重置 sys 用户的密码；默认为禁用。
 
 **Provisioning.PasswordCryptId**  
 类型：字符串  
@@ -230,19 +236,19 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 类型：布尔值  
 默认值：y
 
-如果设置此参数，则当“ResourceDisk.Filesystem”中用户请求的 filesystem 类型是“ntfs”之外的任何值时，平台提供的资源磁盘将通过 waagent 进行格式化和装载。 磁盘上将提供类型为 Linux (83) 的单个分区。 请注意，如果可以成功装载此分区，则不会对其进行格式化。
+如果设置此参数，则当“ResourceDisk.Filesystem”中用户请求的 filesystem 类型是“ntfs”之外的任何值时，平台提供的资源磁盘通过 waagent 进行格式化和装载。 磁盘上将提供类型为 Linux (83) 的单个分区。 请注意，如果可以成功装载此分区，则不会对其进行格式化。
 
 **ResourceDisk.Filesystem：**  
 类型：字符串  
 默认值：ext4
 
-这将指定资源磁盘的 filesystem 类型。 受支持的值因 Linux 分发而异。 如果字符串为 X，则 mkfs.X 应呈现在 Linux 映像上。 SLES 11 映像通常应使用“ext3”。 FreeBSD 映像在此处应使用“ufs2”。
+这会指定资源磁盘的 filesystem 类型。 受支持的值因 Linux 分发而异。 如果字符串为 X，则 mkfs.X 应呈现在 Linux 映像上。 SLES 11 映像通常应使用“ext3”。 FreeBSD 映像在此处应使用“ufs2”。
 
 **ResourceDisk.MountPoint：**  
 类型：字符串  
 默认值：/mnt/resource 
 
-这将指定资源磁盘的装载路径。 请注意，资源磁盘是 *临时* 磁盘，可能在取消预配 VM 时被清空。
+这会指定资源磁盘的装载路径。 请注意，资源磁盘是 *临时* 磁盘，可能在取消预配 VM 时被清空。
 
 **ResourceDisk.MountOptions：**  
 类型：字符串  
@@ -278,7 +284,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 类型：整数  
 默认值：300
 
-这将配置 OS 磁盘和数据驱动器上的 SCSI 超时（以秒为单位）。 如果未设置此参数，则使用系统默认值。
+这会配置 OS 磁盘和数据驱动器上的 SCSI 超时（以秒为单位）。 如果未设置此参数，则使用系统默认值。
 
 **OS.OpensslPath：**  
 类型：字符串  
@@ -290,7 +296,11 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 类型：字符串  
 默认值：无
 
-如果已设置，代理将使用此代理服务器访问 Internet。 
+如果已设置，代理会使用此代理服务器访问 Internet。 
+
+**AutoUpdate.Enabled** 类型：布尔值 默认值：y
+
+启用或禁用目标状态处理的自动更新；默认为启用。
 
 ## <a name="ubuntu-cloud-images"></a>Ubuntu 云映像
 请注意，Ubuntu 云映像利用 [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) 执行多种配置任务，这些任务在其他情况下也可以通过 Azure Linux 代理来管理。  请注意以下不同：
@@ -306,4 +316,5 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 * 请参阅以下资源来配置资源磁盘装入点，并在预配期间交换 Ubuntu 云映像上的空间：
 
   * [Ubuntu Wiki：配置交换分区](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [将自定义数据注入到 Azure 虚拟机](../windows/classic/inject-custom-data.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+  * [将自定义数据注入到 Azure 虚拟机中](../windows/classic/inject-custom-data.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+<!--Update_Description: wording update-->

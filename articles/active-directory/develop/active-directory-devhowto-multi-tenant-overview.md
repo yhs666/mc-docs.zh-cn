@@ -16,11 +16,11 @@ origin.date: 09/26/2017
 ms.date: 10/19/2017
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: b3401fd0f885779dd5ed0a5be8ccb43f2c3839fd
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: b1510f51c6a593afcc684baf79e77332d3005cde
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-ad-user-using-the-multi-tenant-application-pattern"></a>如何使用多租户应用程序模式将任何 Azure Active Directory (AD) 用户登录
 如果向许多组织提供软件即服务应用程序，可以将应用程序配置为可接受来自任何 Azure AD 租户的登录。  在 Azure AD 中，此配置称为使应用程序成为多租户应用程序。  任何 Azure AD 租户中的用户在同意配合应用程序使用其帐户之后，便可登录到应用程序。  
@@ -130,7 +130,7 @@ Web 应用程序和 Web API 接收并验证来自 Azure AD 的令牌。
 租户管理员可以禁用普通用户同意应用程序的能力。  如果禁用此功能，则始终需要管理员同意，才能在租户中设置应用程序。  如果想要在禁用普通用户同意的情况下测试应用程序，可以在 [Azure 经典门户][AZURE-classical-portal]的 Azure AD 租户配置部分中找到配置开关。
 
 > [!NOTE]
-> 某些应用程序想要提供一种体验，让普通用户能够一开始即表示同意，应用程序可让管理员参与操作并请求需要管理员同意的权限。  目前在 Azure AD 中还没有任何办法可以使用单个应用程序注册来实现此目的。  即将推出的 Azure AD 资源管理器部署模型终结点可允许应用程序在运行时（而不是在注册时）请求权限，这样会使这种方案成为可能。  有关详细信息，请参阅 [Azure AD App Model Resource Manager deployment model Developer Guide][AAD-V2-Dev-Guide]（Azure AD 应用模型资源管理器部署模型开发人员指南）。
+> 某些应用程序想要提供一种体验，让普通用户能够一开始即表示同意，应用程序可让管理员参与操作并请求需要管理员同意的权限。  目前在 Azure AD 中还没有任何办法可以使用单个应用程序注册来实现此目的。  即将推出的 Azure AD 资源管理器部署模型终结点可允许应用程序在运行时（而不是在注册时）请求权限，这样会使这种方案成为可能。
 > 
 > 
 
@@ -149,7 +149,7 @@ Web 应用程序和 Web API 接收并验证来自 Azure AD 的令牌。
 
 **多个租户中的多个层**
 
-如果在不同的租户中注册不同的应用程序层，将发生类似的情况。  例如，考虑构建一个调用 Office 365 Exchange Online API 的本机客户端应用程序的情况。  要开发该本机应用程序，并让该本机应用程序在客户的租户中运行，必须存在 Exchange Online 服务主体。  在此情况下，开发人员和客户必须购买 Exchange Online，才能在其租户中创建服务主体。  
+如果在不同的租户中注册不同的应用程序层，将发生类似的情况。  例如，考虑构建一个调用 Office 365 Exchange Online API 的本机客户端应用程序的情况。  如果要开发该本机应用程序，并让该本机应用程序在客户的租户中运行，必须存在 Exchange Online 服务主体。  在此情况下，开发人员和客户必须购买 Exchange Online，才能在其租户中创建服务主体。  
 
 对于 Microsoft 之外的组织构建的 API，API 的开发人员需要提供一个可供其客户同意将其应用程序添加到客户租户中的方式。 对于第三方开发人员，推荐使用的设计是使所构建的 API 能够同时用作 Web 客户端来实现注册：
 
@@ -226,7 +226,6 @@ Web 应用程序和 Web API 接收并验证来自 Azure AD 的令牌。
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
-[AAD-V2-Dev-Guide]: ./active-directory-appmodel-v2-overview.md
 [AZURE-classical-portal]: https://manage.windowsazure.cn
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32

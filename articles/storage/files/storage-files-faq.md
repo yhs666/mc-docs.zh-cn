@@ -11,14 +11,14 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 10/13/2017
+origin.date: 12/04/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 9eb70af93db4079209ad5a71643ed83892fdf557
-ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
+ms.openlocfilehash: f8f7029937ee08429d3dcff9da5c6a18a6fd73ce
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>有关 Azure 文件的常见问题解答
 
@@ -105,11 +105,11 @@ ms.lasthandoff: 12/01/2017
 
 * **是否可以增加文件共享的最大大小？**
 
-    不可以。 文件共享的最大大小为 5 TB。
+    否。 文件共享的最大大小为 5 TB。
 
 * **是否可以转换到高级存储帐户以进行文件共享？**
 
-    不可以。 高级存储目前在 Azure 文件共享上不可用。
+    否。 高级存储目前在 Azure 文件共享上不可用。
 
 
 ## <a name="security-authentication-and-access-control"></a>安全性、身份验证和访问控制
@@ -152,7 +152,7 @@ ms.lasthandoff: 12/01/2017
 
 * **是否可以使用域帐户凭据访问文件共享？**
 
-    不可以。 目前 Azure 文件共享只支持存储密钥身份验证。 因此我们无法使用域帐户凭据对其进行访问。
+    否。 目前 Azure 文件共享只支持存储密钥身份验证。 因此我们无法使用域帐户凭据对其进行访问。
 
 ## <a name="on-premises-access"></a>本地访问
 * **必须使用 Azure ExpressRoute 才能连接到 Azure 文件吗？**  
@@ -169,7 +169,7 @@ ms.lasthandoff: 12/01/2017
     - [在 macOS 中通过 SMB 装载 Azure 文件共享](storage-how-to-use-files-mac.md)
     - [如何与 Mac 上的“文件共享”进行连接](https://support.apple.com/en-us/HT204445)
 
-## <a name="backup"></a>备份
+## <a name="backup"></a>Backup
 * **如何备份我的 Azure 文件共享？**  
 
     可以使用定期共享快照（预览版）来防止意外删除。 可以使用 AzCopy、RoboCopy 或能够备份已装载文件共享的第三方备份工具。
@@ -189,7 +189,7 @@ ms.lasthandoff: 12/01/2017
 
     单个文件有 2000 个打开句柄配额。 一旦有 2000 个打开句柄，就会收到错误，指示已达到配额。
 
-* **尝试将文件解压缩到 Azure 文件中时性能降低。我该怎样做？**  
+* **尝试将文件解压缩到 Azure 文件中时性能降低。**  
 
     若要将大量文件传输到 Azure 文件，建议使用 AzCopy（Windows 版、Linux/Unix 预览版）或 Azure Powershell，因为这些工具已针对网络传输进行优化。
 

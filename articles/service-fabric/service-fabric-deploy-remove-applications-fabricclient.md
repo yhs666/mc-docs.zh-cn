@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/05/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7559fb748bd65f1c3b63a66a7267fad61dbff25b
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: b85c4388f664d64fd1e8e051ead47697f529a042
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>使用 FabricClient 部署和删除应用程序
 > [!div class="op_single_selector"]
@@ -340,7 +340,7 @@ static void Main(string[] args)
 [在 Service Fabric 中对应用程序建模](service-fabric-application-model.md)
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
-[10]: service-fabric-application-model.md
+[10]: service-fabric-package-apps.md
 [11]: service-fabric-application-upgrade.md
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update link -->

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 origin.date: 05/16/2017
-ms.date: 06/21/2017
+ms.date: 01/01/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5b75164f55fb31dcced9213cd7302b38b7a2aaf3
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 4b8209004a2772c8d4ac7851cf2a856e34d488bd
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>使用 REST API 管理基于角色的访问控制
 > [!div class="op_single_selector"]
@@ -41,17 +41,17 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 在 URI 中，进行以下替代来自定义请求：
 
-1. 将 *{scope}* 替换为要列出角色分配的范围。 下面的示例演示如何指定不同级别的范围：
+1. 使用要列出角色分配的范围替换 *{scope}*。 下面的示例演示如何指定不同级别的范围：
 
-   - 订阅：/subscriptions/{subscription-id}  
-   - 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. 将 *{api-version}* 替换为 2015-07-01。
-3. 将 *{filter}* 替换为要用于筛选角色分配列表的条件：
+   * 订阅：/subscriptions/{subscription-id}  
+   * 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+2. 使用 2015-07-01 替换 *{api-version}*。
+3. 使用筛选角色分配列表时要适用的条件替换 *{filter}*：
 
-   - 只列出指定范围内的角色分配，而不包括子范围内的角色分配： `atScope()`    
-   - 列出特定用户、组或应用程序的角色分配： `principalId%20eq%20'{objectId of user, group, or service principal}'`  
-   - 列出特定用户（包括继承自组的用户）的角色分配 | `assignedTo('{objectId of user}')`
+   * 只列出指定范围内的角色分配，而不包括子范围内的角色分配： `atScope()`    
+   * 列出特定用户、组或应用程序的角色分配： `principalId%20eq%20'{objectId of user, group, or service principal}'`  
+   * 列出特定用户（包括继承自组的用户）的角色分配 | `assignedTo('{objectId of user}')`
 
 ### <a name="response"></a>响应
 状态代码：200
@@ -91,13 +91,13 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 在 URI 中，进行以下替代来自定义请求：
 
-1. 将 *{scope}* 替换为要列出角色分配的范围。 下面的示例演示如何指定不同级别的范围：
+1. 使用要列出角色分配的范围替换 *{scope}*。 下面的示例演示如何指定不同级别的范围：
 
-   - 订阅：/subscriptions/{subscription-id}  
-   - 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. 将 *{role-assignment-id}* 替换为角色分配的 GUID 标识符。
-3. 将 *{api-version}* 替换为 2015-07-01。
+   * 订阅：/subscriptions/{subscription-id}  
+   * 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+2. 使用角色分配的 GUID 标识符替换 *{role-assignment-id}*。
+3. 使用 2015-07-01 替换 *{api-version}*。
 
 ### <a name="response"></a>响应
 状态代码：200
@@ -132,13 +132,13 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 在 URI 中，进行以下替代来自定义请求：
 
-1. 将 *{scope}* 替换为要创建角色分配的范围。 如果在父范围上创建角色分配，所有子范围将继承相同的角色分配。 下面的示例演示如何指定不同级别的范围：
+1. 使用要创建角色分配的范围替换 *{scope}*。 如果在父范围上创建角色分配，所有子范围将继承相同的角色分配。 下面的示例演示如何指定不同级别的范围：
 
-   - 订阅：/subscriptions/{subscription-id}  
-   - 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1   
-   - 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. 将 *{role-assignment-id}* 替换为新 GUID，该 GUID 将成为新角色分配的 GUID 标识符。
-3. 将 *{api-version}* 替换为 2015-07-01。
+   * 订阅：/subscriptions/{subscription-id}  
+   * 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1   
+   * 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+2. 将 *{role-assignment-id}* 替换为新 GUID，该 GUID 成为新角色分配的 GUID 标识符。
+3. 使用 2015-07-01 替换 *{api-version}*。
 
 对于请求正文，请提供以下格式的值：
 
@@ -152,9 +152,9 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 ```
 
-| 元素名称 | 必选 | 类型 | 说明 |
+| 元素名称 | 必须 | 类型 | 说明 |
 | --- | --- | --- | --- |
-| roleDefinitionId |是 |字符串 |角色的标识符。 标识符的格式为： `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| roleDefinitionId |是 |String |角色的标识符。 标识符的格式为： `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |是 |String |角色将分配到的 Azure AD 主体（用户、组或服务主体）的 objectId。 |
 
 ### <a name="response"></a>响应
@@ -190,13 +190,13 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 在 URI 中，进行以下替代来自定义请求：
 
-1. 将 *{scope}* 替换为要创建角色分配的范围。 下面的示例演示如何指定不同级别的范围：
+1. 使用要创建角色分配的范围替换 *{scope}*。 下面的示例演示如何指定不同级别的范围：
 
-   - 订阅：/subscriptions/{subscription-id}  
-   - 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. 将 *{role-assignment-id}* 替换为角色分配 id GUID。
-3. 将 *{api-version}* 替换为 2015-07-01。
+   * 订阅：/subscriptions/{subscription-id}  
+   * 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+2. 使用角色分配 ID GUID 替换 *{role-assignment-id}*。
+3. 使用 2015-07-01 替换 *{api-version}*。
 
 ### <a name="response"></a>响应
 状态代码：200
@@ -222,7 +222,7 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 ## <a name="list-all-roles"></a>列出所有角色
 列出指定范围内可用于分配的所有角色。
 
-若要列出角色，必须对 `Microsoft.Authorization/roleDefinitions/read` 操作具有范围内的访问权限。 所有内置角色均有权访问此操作。 有关角色分配和管理 Azure 资源的访问权限的详细信息，请参阅 [Azure 基于角色的访问控制](role-based-access-control-configure.md)。
+若要列出角色，必须对 `Microsoft.Authorization/roleDefinitions/read` 操作具有范围内的访问权限。 所有内置角色均具有对此操作的访问权限。 有关角色分配和管理 Azure 资源的访问权限的详细信息，请参阅 [Azure 基于角色的访问控制](role-based-access-control-configure.md)。
 
 ### <a name="request"></a>请求
 使用具有以下 URI 的 **GET** 方法：
@@ -231,16 +231,16 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 在 URI 中，进行以下替代来自定义请求：
 
-1. 将 *{scope}* 替换为要列出角色的范围。 下面的示例演示如何指定不同级别的范围：
+1. 使用要列出角色的范围替换 *{scope}*。 下面的示例演示如何指定不同级别的范围：
 
-   - 订阅：/subscriptions/{subscription-id}  
-   - 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - 资源 /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. 将 *{api-version}* 替换为 2015-07-01。
-3. 将 *{filter}* 替换为要用于筛选角色列表的条件：
+   * 订阅：/subscriptions/{subscription-id}  
+   * 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * 资源 /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+2. 使用 2015-07-01 替换 *{api-version}*。
+3. 使用要用于筛选角色列表的条件替换 *{filter}*：
 
-   - 列出可在指定范围及其任何子范围内分配的角色： `atScopeAndBelow()`
-   - 使用具体的显示名称搜索角色： `roleName%20eq%20'{role-display-name}'`。 使用角色的具体显示名称的 URL 编码形式。 例如，`$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+   * 列出可在指定范围及其任何子范围内分配的角色： `atScopeAndBelow()`
+   * 使用具体的显示名称搜索角色： `roleName%20eq%20'{role-display-name}'`。 使用角色的具体显示名称的 URL 编码形式。 例如，`$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ### <a name="response"></a>响应
 状态代码：200
@@ -314,13 +314,13 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 在 URI 中，进行以下替代来自定义请求：
 
-1. 将 *{scope}* 替换为要列出角色分配的范围。 下面的示例演示如何指定不同级别的范围：
+1. 使用要列出角色分配的范围替换 *{scope}*。 下面的示例演示如何指定不同级别的范围：
 
-   - 订阅：/subscriptions/{subscription-id}  
-   - 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. 将 *{role-definition-id}* 替换为角色定义的 GUID 标识符。
-3. 将 *{api-version}* 替换为 2015-07-01。
+   * 订阅：/subscriptions/{subscription-id}  
+   * 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+2. 使用角色定义的 GUID 标识符替换 *{role-definition-id}*。
+3. 使用 2015-07-01 替换 *{api-version}*。
 
 ### <a name="response"></a>响应
 状态代码：200
@@ -396,11 +396,11 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 1. 使用自定义角色的第一个 *AssignableScope* 替换 *{scope}*。 下面的示例演示如何指定不同级别的范围。
 
-   - 订阅：/subscriptions/{subscription-id}  
-   - 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. 将 *{role-definition-id}* 替换为新 GUID，该 GUID 将成为新自定义角色的 GUID 标识符。
-3. 将 *{api-version}* 替换为 2015-07-01。
+   * 订阅：/subscriptions/{subscription-id}  
+   * 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+2. 将 *{role-definition-id}* 替换为新 GUID，该 GUID 成为新自定义角色的 GUID 标识符。
+3. 使用 2015-07-01 替换 *{api-version}*。
 
 对于请求正文，请提供以下格式的值：
 
@@ -435,15 +435,15 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 ```
 
-| 元素名称 | 必选 | 类型 | 说明 |
+| 元素名称 | 必须 | 类型 | 说明 |
 | --- | --- | --- | --- |
-| 名称 |是 |字符串 |自定义角色的 GUID 标识符。 |
-| properties.roleName |是 |字符串 |自定义角色的显示名称。 最大大小为 128 个字符。 |
-| properties.description |否 |字符串 |自定义角色的说明。 最大大小为 1024 个字符。 |
-| properties.type |是 |字符串 |设置为“CustomRole”。 |
-| properties.permissions.actions |是 |String[] |操作字符串的数组，这些字符串指定自定义角色授予访问权限的操作。 |
-| properties.permissions.notActions |否 |String[] |操作字符串的数组，这些字符串指定自定义角色不授予访问权限的操作。 |
-| properties.assignableScopes |是 |String[] |范围的数组，在这些范围内可以使用自定义角色。 |
+| name |是 |String |自定义角色的 GUID 标识符。 |
+| properties.roleName |是 |String |自定义角色的显示名称。 最大大小为 128 个字符。 |
+| properties.description |否 |String |自定义角色的说明。 最大大小为 1024 个字符。 |
+| properties.type |是 |String |设置为“CustomRole”。 |
+| properties.permissions.actions |是 |String[] |操作字符串的数组，用于指定自定义角色授予访问权限的操作。 |
+| properties.permissions.notActions |否 |String[] |操作字符串的数组，用于指定自定义角色不授予访问权限的操作。 |
+| properties.assignableScopes |是 |String[] |范围的数组，可在这些范围中使用自定义角色。 |
 
 ### <a name="response"></a>响应
 状态代码：201
@@ -499,11 +499,11 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 1. 使用自定义角色的第一个 *AssignableScope* 替换 *{scope}*。 下面的示例演示如何指定不同级别的范围：
 
-   - 订阅：/subscriptions/{subscription-id}  
-   - 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. 将 *{role-definition-id}* 替换为自定义角色的 GUID 标识符。
-3. 将 *{api-version}* 替换为 2015-07-01。
+   * 订阅：/subscriptions/{subscription-id}  
+   * 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+2. 使用自定义角色的 GUID 标识符替换 *{role-definition-id}*。
+3. 使用 2015-07-01 替换 *{api-version}*。
 
 对于请求正文，请提供以下格式的值：
 
@@ -538,12 +538,12 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 ```
 
-| 元素名称 | 必选 | 类型 | 说明 |
+| 元素名称 | 必须 | 类型 | 说明 |
 | --- | --- | --- | --- |
-| 名称 |是 |字符串 |自定义角色的 GUID 标识符。 |
-| properties.roleName |是 |字符串 |更新的自定义角色的显示名称。 |
-| properties.description |否 |字符串 |更新的自定义角色的描述。 |
-| properties.type |是 |字符串 |设置为“CustomRole”。 |
+| name |是 |String |自定义角色的 GUID 标识符。 |
+| properties.roleName |是 |String |更新的自定义角色的显示名称。 |
+| properties.description |否 |String |更新的自定义角色的描述。 |
+| properties.type |是 |String |设置为“CustomRole”。 |
 | properties.permissions.actions |是 |String[] |操作字符串的数组，这些字符串指定更新的自定义角色授予访问权限的操作。 |
 | properties.permissions.notActions |否 |String[] |操作字符串的数组，这些字符串指定更新的自定义角色不授予访问权限的操作。 |
 | properties.assignableScopes |是 |String[] |范围的数组，在这些范围内可以使用更新的自定义角色。 |
@@ -600,13 +600,13 @@ Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Manager API
 
 在 URI 中，进行以下替代来自定义请求：
 
-1. 将 *{scope}* 替换为要删除角色定义的范围。 下面的示例演示如何指定不同级别的范围：
+1. 使用要删除角色定义的范围替换 *{scope}*。 下面的示例演示如何指定不同级别的范围：
 
-   - 订阅：/subscriptions/{subscription-id}  
-   - 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. 将 *{role-definition-id}* 替换为自定义角色的 GUID 角色定义 ID。
-3. 将 *{api-version}* 替换为 2015-07-01。
+   * 订阅：/subscriptions/{subscription-id}  
+   * 资源组：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * 资源：/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+2. 使用自定义角色的 GUID 角色定义 ID 替换 *{role-definition-id}*。
+3. 使用 2015-07-01 替换 *{api-version}*。
 
 ### <a name="response"></a>响应
 状态代码：200

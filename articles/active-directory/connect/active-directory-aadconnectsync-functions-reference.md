@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: df6788a935a3d48c6c31f09db04bfac7cc211a02
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: 0e2fbe02d08f6b813561d5bf13a094cc3a8b8549
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步：函数引用
 在 Azure AD Connect 中，函数用于在同步期间操作属性值。  
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/11/2017
 
 如果函数被重载并接受多个语法，则会列出所有的有效语法。  
 该函数为强类型函数，并会验证传递的类型是否匹配记录的类型。  
-如果类型不匹配，会引发错误。
+如果类型不匹配，将引发错误。
 
 类型使用以下语法表示：
 
@@ -616,12 +616,12 @@ FormatDateTime 函数用于为具有指定格式的字符串设置 DateTime 格�
 结果可能是 "20140905081453.0Z"
 
 - - -
-### <a name="guid"></a>GUID
+### <a name="guid"></a>Guid
 **说明：**  
 函数 GUID 生成新的随机 GUID
 
 **语法：**  
-`str GUID()`
+`str Guid()`
 
 - - -
 ### <a name="iif"></a>IIF
@@ -829,7 +829,7 @@ Item 函数与 Contains 函数一起使用很有利，因为后一函数返回�
 如果索引超出界限，则引发错误。
 
 **示例：**  
-`Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)`  
+`Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 返回主电子邮件地址。
 
 - - -
@@ -1183,7 +1183,7 @@ RTrim 函数从字符串中删除尾随空格。
 - condition：可以处理属性中某个项的任何函数
 
 **示例：**  
-`Select($item,[otherPhone],Replace($item,“-”,“”))`  
+`Select($item,[otherPhone],Replace($item,"-",""))`  
 在删除连字符 (-) 后，返回多值属性 otherPhone 中的所有值。
 
 - - -

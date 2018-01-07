@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 10/30/2017
+ms.date: 01/01/2018
 ms.author: v-johch
-ms.openlocfilehash: 34781c5e24e7dc3de9b13ef9e5d2089f291073db
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 8a74ba4517deddea0d68e17bb0145ab82fc4eff3
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>如何通过 Python 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -99,7 +99,7 @@ for message in messages:
     queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 ```
 
-可通过两种方式自定义队列中消息的检索。
+可以通过两种方式自定义队列中的消息检索。
 首先，可获取一批消息（最多 32 条）。 其次，可以设置更长或更短的不可见超时时间，从而允许代码使用更多或更少时间来完全处理每个消息。 以下代码示例使用 get\_messages 方法在一次调用中获取 16 条消息。 然后，它会使用 for 循环处理每条消息。 它还将每条消息的不可见超时时间设置为 5 分钟。
 
 ```python
@@ -111,7 +111,7 @@ for message in messages:
 
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>如何：更改已排队消息的内容
 
-可以更改队列中现有消息的内容。 如果消息表示工作任务，可使用此功能来更新该工作任务的状态。 以下代码使用 update\_message 方法来更新消息。 可见性超时设为 0，这意味着消息会立刻出现且内容将更新。
+可以更改队列中现有消息的内容。 如果消息表示工作任务，则可以使用此功能来更新该工作任务的状态。 以下代码使用 update\_message 方法来更新消息。 可见性超时设为 0，这意味着消息会立刻出现且内容将更新。
 
 ```python
 messages = queue_service.get_messages('taskqueue')

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: ac0ff9896b8353b6ae5be5313a1459a55b37f890
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: 70ae50efea58d5cc16404eefd4d025fac37ccadc
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 同步：第二次运行安装向导
-首次运行 Azure AD Connect 安装向导时，该向导会逐步引导你配置安装。 如果再次运行安装向导，它会提供维护选项。
+首次运行 Azure AD Connect 安装向导时，该向导将逐步引导配置安装。 如果再次运行安装向导，它会提供维护选项。
 
 可以在“开始”菜单中找到名为 **Azure AD Connect**的安装向导。
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 08/11/2017
 
 ![列出其他任务的页面](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
 
-如果已使用 Azure AD Connect 安装 ADFS，则会有更多选项。 [ADFS 管理](active-directory-aadconnect-federation-management.md#ad-fs-management)中记录了可用于 ADFS 的其他选项。
+如果已使用 Azure AD Connect 安装 ADFS，则会有更多选项。 [ADFS 管理](active-directory-aadconnect-federation-management.md#manage-ad-fs)中记录了可用于 ADFS 的其他选项。
 
 请选择其中一项任务，然后单击“下一步”继续。
 
@@ -77,12 +77,12 @@ ms.lasthandoff: 08/11/2017
 ![同时显示暂存模式当前状态的选项](./media/active-directory-aadconnectsync-installation-wizard/stagingmodecurrentstate.png)
 
 若要更改状态，请选择此选项，并选中或取消选中复选框。  
-![同时显示暂存模式当前状态的选项](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
+![同时显示过渡模式当前状态的选项](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
 ## <a name="change-user-sign-in"></a>更改用户登录
 此选项可让你从密码同步更改为联合身份验证，反之亦然。 但不能更改为“不配置”。
 
-有关此选项的详细信息，请参阅[用户登录](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method)。
+有关此选项的详细信息，请参阅[用户登录](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method)。
 
 ## <a name="next-steps"></a>后续步骤
 - 在[了解声明性设置](active-directory-aadconnectsync-understanding-declarative-provisioning.md)中了解 Azure AD Connect 同步使用的配置模型的详细信息。

@@ -14,17 +14,17 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/07/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: d0986c685bebbfe568789ad0c57e2a336bd4b7fd
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 6cce2641043d29ba4b85264905c386f2dedc2a64
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：Azure 门户
 
-本文介绍如何在 Resource Manager 部署模型中使用 PowerShell 通过点到站点连接来创建 VNet。 此配置使用证书进行身份验证。 在此配置中，由 Azure VPN 网关而非 RADIUS 服务器执行证书验证。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
+本文介绍如何在资源管理器部署模型中使用 Azure 门户通过点到站点连接来创建 VNet。 此配置使用证书进行身份验证。 在此配置中，由 Azure VPN 网关而非 RADIUS 服务器执行证书验证。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -67,7 +67,8 @@ ms.lasthandoff: 11/10/2017
 - 地址空间：192.168.0.0/16<br>对于此示例，我们只使用一个地址空间。 VNet 可以有多个地址空间。
 - 子网名称：FrontEnd
 - 子网地址范围：192.168.1.0/24
-- **订阅：** 如果有多个订阅，请验证是否正在使用正确的订阅。
+- 
+            **订阅：**如果有多个订阅，请确保使用正确的订阅。
 - 资源组：TestRG
 - **位置：**中国北部
 - 网关子网：192.168.200.0/24<br>
@@ -87,7 +88,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="gatewaysubnet"></a>2.添加网关子网
 
-将虚拟网络连接到网关之前，必须先创建要连接的虚拟网络的网关子网。 网关服务使用网关子网中指定的 IP 地址。 在可能的情况下，建议使用 /28 或 /27 的 CIDR 块创建网关子网，以便提供足够的 IP 地址，满足将来的其他配置要求。
+将虚拟网络连接到网关之前，必须先创建要连接的虚拟网络的网关子网。 网关服务使用网关子网中指定的 IP 地址。 如果可能，请使用 CIDR 块 /28 或 /27 创建网关子网，以便提供足够的 IP 地址，满足将来的其他配置要求。
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-p2s-rm-portal-include.md)]
 
@@ -120,7 +121,7 @@ Azure 使用证书对通过点到站点 VPN 连接连接到 VNet 的客户端进
 1. 创建虚拟网关后，请导航到虚拟网关页的“设置”部分。 在“设置”部分，单击“点到站点配置”可打开“点到站点配置”页。
 
     ![“点到站点”页](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png)
-2. 在“点到站点配置”页上，可以删除自动填充的范围，然后添加要使用的专用 IP 地址范围。 单击“保存”验证和保存设置。
+2. 在“点到站点配置”页上，可以删除自动填充的范围，然后添加要使用的专用 IP 地址范围。 单击“保存”验证并保存设置。
 
     ![客户端地址池](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 
@@ -154,7 +155,7 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>从 Windows VPN 客户端进行连接
 
-1. 若要连接到 VNet，请在客户端计算机上导航到 VPN 连接，找到创建的 VPN 连接。 其名称与虚拟网络的名称相同。 单击“连接”。 可能会出现与使用证书相关的弹出消息。 单击“继续”使用提升的权限。
+1. 若要连接到 VNet，请在客户端计算机上导航到 VPN 连接，找到创建的 VPN 连接。 其名称与虚拟网络的名称相同。 单击“连接” 。 可能会出现与使用证书相关的弹出消息。 单击“继续”使用提升的权限。
 
 2. 在“连接”状态页上，单击“连接”以启动连接。 如果看到“选择证书”屏幕，请确保所显示的客户端证书是要用来连接的证书。 如果不是，请使用下拉箭头选择正确的证书，并单击“确定”。
 
@@ -238,4 +239,4 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 ## <a name="next-steps"></a>后续步骤
 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/#pivot=services&panel=Compute)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update metedata properties -->

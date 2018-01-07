@@ -17,11 +17,11 @@ ms.workload:
 origin.date: 05/26/2017
 ms.date: 10/02/2017
 ms.author: v-johch
-ms.openlocfilehash: 4643354ea23adf4a54e65263df30a87fe4f026c2
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: fdcbbfcb27bb1777c06727c6dae7455dad50d5a1
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="implement-a-geo-distributed-database"></a>实现地理分散的数据库
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 09/28/2017
 
 - 已确定了对数据库执行 SQL 脚本的一种方法，可以使用以下查询工具之一：
    - [Azure 门户](https://portal.azure.cn)中的查询编辑器。 有关使用 Azure 门户中的查询编辑器的详细信息，请参阅[使用查询编辑器进行连接和查询](sql-database-get-started-portal.md#query-the-sql-database)。
-   - 最新版本的 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)，它是用于管理任何 SQL 基础结构（从适用于 Microsoft Windows 的 SQL Server 到 SQL 数据库，不一而足）的集成环境。
+   - 最新版本的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)，它是用于管理任何 SQL 基础结构（从适用于 Microsoft Windows 的 SQL Server 到 SQL 数据库，不一而足）的集成环境。
    - 最新版本的 [Visual Studio Code](https://code.visualstudio.com/docs)，它是一种图形代码编辑器，适用于 Linux、macOS 和 Windows，并且支持各种扩展，其中包括 [mssql 扩展](https://aka.ms/mssql-marketplace)（用于查询 Microsoft SQL Server、Azure SQL 数据库和 SQL 数据仓库）。 有关对 Azure SQL 数据库使用此工具的详细信息，请参阅[使用 VS Code 进行连接和查询](sql-database-connect-query-vscode.md)。 
 
 ## <a name="create-database-users-and-grant-permissions"></a>创建数据库用户并授予权限
@@ -76,7 +76,7 @@ ms.lasthandoff: 09/28/2017
 
 ## <a name="create-database-level-firewall"></a>创建数据库级防火墙
 
-为 SQL 数据库创建[数据库级防火墙规则](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)。 此数据库级防火墙规则将自动复制到在本教程中创建的辅助服务器。 为简单起见（在本教程中），使用执行本教程中步骤的计算机的公共 IP 地址。 若要确定用于服务器级防火墙规则（针对当前计算机）的 IP 地址，请参阅[创建服务器级防火墙](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。  
+为 SQL 数据库创建[数据库级防火墙规则](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)。 此数据库级防火墙规则将自动复制到在本教程中创建的辅助服务器。 为简单起见（在本教程中），使用执行本教程中步骤的计算机的公共 IP 地址。 若要确定用于服务器级防火墙规则（针对当前计算机）的 IP 地址，请参阅[创建服务器级防火墙](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。  
 
 - 在打开的查询窗口中，将之前的查询替换为以下查询，将 IP 地址替换为环境中相应的 IP 地址。  
 
@@ -358,7 +358,7 @@ sudo apt-get install maven
 
 2. 在故障转移期间观察应用程序结果。 DNS 缓存刷新时，某些插入会失败。     
 
-3. 了解灾难恢复服务器正在执行的角色。
+3. 找出灾难恢复服务器正在执行的角色。
 
    ```powershell
    $mydrserver.ReplicationRole
@@ -373,7 +373,7 @@ sudo apt-get install maven
    -FailoverGroupName $myfailovergroupname
    ```
 
-5. 在故障回复期间观察应用程序结果。 DNS 缓存刷新时，某些插入会失败。     
+5. 在故障回复期间观察应用程序结果。 DNS 缓存刷新时，某些插入将失败。     
 
 6. 了解灾难恢复服务器正在执行的角色。
 

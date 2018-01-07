@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/13/2017
-ms.date: 10/19/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: d1d0657ad3b5a25d4add279cd64335167f51abce
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 92e0dc9e9716988976d38dffcad66f4bd3a9f629
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect：自动升级
 此功能是随内部版本 1.1.105.0（于 2016 年 2 月发布）一起推出的。
@@ -37,14 +37,11 @@ ms.lasthandoff: 10/20/2017
 
 | 状态 | 注释 |
 | --- | --- |
-| 已启用 |自动升级已启用。 |
+| Enabled |自动升级已启用。 |
 | 已挂起 |只能由系统设置。 系统不再能够接受自动升级。 |
 | 已禁用 |自动升级已禁用。 |
 
 可以使用 `Set-ADSyncAutoUpgrade` 在“已启用”与“已禁用”之间切换。 只有系统才能设置“暂停”状态。
-
-自动升级使用 Azure AD Connect Health 作为升级基础结构。 为使自动升级正常工作，请确保根据 **Office 365 URL 和 IP 地址范围** 中所述，在代理服务器中打开 [Azure AD Connect Health](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)的 URL。
-
 
 如果服务器上正在运行 **同步服务管理器** UI，则会暂停升级，直到 UI 关闭为止。
 
@@ -100,6 +97,6 @@ ms.lasthandoff: 10/20/2017
 | UpgradeNotSupportedUserWritebackEnabled |已启用[用户写回](active-directory-aadconnect-feature-preview.md#user-writeback)功能。 |
 
 ## <a name="next-steps"></a>后续步骤
-了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
+了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: wording update -->

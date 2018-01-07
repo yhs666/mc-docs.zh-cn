@@ -16,11 +16,11 @@ ms.workload: data-management
 origin.date: 10/25/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: af6c3b7080a2ddde8e106624b9341e276911c2b6
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: 7c17f5d4d715535eac39c1c382630f11f7939ee6
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL 数据库功能
 
@@ -105,7 +105,7 @@ Azure SQL 数据库与 SQL Server 共享通用基本代码，并在数据库级�
 | [SQL Server 代理](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | 否 |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | 请参阅 [Azure Analysis Services](https://www.azure.cn/home/features/analysis-services/) |
 | [SQL Server 审核](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | 否 - 请参阅 [SQL 数据库审核](sql-database-auditing.md) |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | 
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | 是 - 请参阅[将 SQL Server Integration Services 工作负荷直接迁移到云](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | 是 |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | 否 - 请参阅[扩展事件](sql-database-xevent-db-diff-from-svr.md) |
 | [SQL Server 复制](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [仅限事务性和快照复制订户](sql-database-cloud-migrate.md) |

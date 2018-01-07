@@ -3,7 +3,7 @@ title: "使用持续交付启用远程调试 | Microsoft Docs"
 description: "了解在使用持续交付部署到 Azure 时如何启用远程调试"
 services: cloud-services
 documentationcenter: .net
-author: kraigb
+author: mikejo
 manager: ghogen
 editor: 
 ms.assetid: 7d423639-3b2f-4ca5-ac5a-9ac19a217c29
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 11/18/2016
-ms.date: 10/09/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 209079d1b1a28e26e056705decd31deb2f25ee89
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.openlocfilehash: 293e47ad4f339741da027b802df41c197362adc1
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>使用持续交付功能发布到 Azure 时如何启用远程调试
 
@@ -37,13 +37,13 @@ ms.lasthandoff: 09/22/2017
 
 3. 根据 [Azure 云服务的证书概述](cloud-services-certs-create.md)中所述创建证书。 保留 .pfx 和 RDP 证书指纹，并将证书上传到目标云服务。
 4. 在 MSBuild 命令行中使用以下选项生成一个已启用远程调试的包。 （将尖括号中的项替换为系统和项目文件的实际路径）。
-
-    ```
-    msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
-    ```
-
-    `VSX64RemoteDebuggerPath` 是 Visual Studio 远程工具中 msvsmon.exe 所在的文件夹的路径。
-    
+   
+   ```cmd
+   msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
+   ```
+   
+   `VSX64RemoteDebuggerPath` 是 Visual Studio 远程工具中 msvsmon.exe 所在的文件夹的路径。
+   
             `RemoteDebuggerConnectorVersion` 是云服务中的 Azure SDK 版本。 它也应与随 Visual Studio 一起安装的版本匹配。
 
 5. 使用上一步中生成的包和 .cscfg 文件发布到目标云服务。
@@ -52,7 +52,7 @@ ms.lasthandoff: 09/22/2017
 ## <a name="enabling-remote-debugging-for-virtual-machines"></a>为虚拟机启用远程调试
 
 1. 创建一个 Azure 虚拟机。 请参阅[创建运行 Windows Server 的虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)或[在 Visual Studio 中创建和管理 Azure 虚拟机](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
-2. 在 [Azure 经典门户页](http://go.microsoft.com/fwlink/p/?LinkID=269851)上的虚拟机仪表板中，查看虚拟机的“**RDP 证书指纹**”。 扩展配置中的 `ServerThumbprint` 值使用此值。
+2. 在 Azure 门户中 (http://go.microsoft.com/fwlink/p/?LinkID=269851)，导航到虚拟机的 RDP CERTIFICATE THUMBPRINT。 扩展配置中的 `ServerThumbprint` 值使用此值。
 3. 根据 [Azure 云服务的证书概述](./cloud-services-certs-create.md)中所述创建客户端证书（保留 .pfx 和 RDP 证书指纹）。
 4. 根据[如何安装和配置 Azure PowerShell](../powershell-install-configure.md) 中所述安装 Azure Powershell（0.7.4 或更高版本）。
 5. 运行以下脚本以启用 RemoteDebug 扩展。 将路径和个人数据替换为自己的数据，例如，订阅名称、服务名称和指纹。

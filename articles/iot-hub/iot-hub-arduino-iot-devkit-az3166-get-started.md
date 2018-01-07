@@ -12,14 +12,14 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/11/2017
+origin.date: 11/20/2017
 ms.author: v-yiso
-ms.date: 12/18/2017
-ms.openlocfilehash: c89501bb3fac9f40804708b08d6104c82309ba2c
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 01/15/2018
+ms.openlocfilehash: 23fb5320fa33020c0e6c1a84a8e49595f960643e
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>将 IoT DevKit AZ3166 连接到云中的 Azure IoT 中心
 

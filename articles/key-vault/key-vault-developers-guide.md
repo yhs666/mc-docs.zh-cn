@@ -8,13 +8,13 @@ ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 origin.date: 10/12/2017
-ms.date: 11/30/2017
+ms.date: 12/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 80194aa3e266f3093ce4ac0569eca416c3d77d98
-ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
+ms.openlocfilehash: 6bc7cfd13eab6b07678ae4849e160489fd753323
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 密钥保管库开发人员指南
 
@@ -101,14 +101,14 @@ ms.lasthandoff: 12/01/2017
 
 ### <a name="code-examples"></a>代码示例
 
-有关在应用程序中使用密钥保管库的完整示例，请参阅：
+有关将密钥保管库用于应用程序的完整示例，请参阅：
 
 - [Azure Key Vault 代码示例](http://www.microsoft.com/download/details.aspx?id=45343) - .NET 示例应用程序 HelloKeyVault 和 Azure Web 服务示例。 
 - [从 Web 应用程序使用 Azure Key Vault](key-vault-use-from-web-application.md) - 此教程介绍如何从 Azure 中的 Web 应用程序使用 Azure Key Vault。 
 
 ## <a name="how-tos"></a>操作方法
 
-以下文章和方案提供了特定于任务的指导，方便用户使用 Azure Key Vault：
+以下文章和方案提供了特定于任务的指导，以便使用 Azure Key Vault：
 
 - [订阅移动后更改密钥保管库租户 ID](key-vault-subscription-move-fix.md) - 将 Azure 订阅从租户 A 移到租户 B 时，租户 B.中的主体（用户和应用程序）无法访问现有的密钥保管库。使用本指南解决此问题。
 - [访问防火墙后面的密钥保管库](key-vault-access-behind-firewall.md) - 若要访问密钥保管库，密钥保管库客户端应用程序需要能够访问多个终结点才能使用各种功能。
@@ -117,6 +117,7 @@ ms.lasthandoff: 12/01/2017
 - [如何将证书从密钥保管库部署到虚拟机](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - 在 Azure 虚拟机上运行的云应用程序需要证书。 现在，要如何将此证书部署到此 VM 中呢？
 - [如何使用端到端密钥轮换和审核设置 Key Vault](key-vault-key-rotation-log-monitoring.md) - 逐步介绍如何设置 Azure Key Vault 的密钥轮换和审核。
 - [通过 Key Vault 部署 Azure Web 应用证书]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)提供有关部署作为[应用服务证书](https://azure.microsoft.com/blog/internals-of-app-service-certificate/)产品的一部分存储在 Key Vault 中的证书的分步说明。
+- [向多个应用程序授予 Key Vault 的访问权限](key-vault-group-permissions-for-apps.md) Key Vault 访问控制策略仅支持 16 个条目。 但是，可以创建一个 Azure Active Directory 安全组。 将所有关联的服务主体添加到此安全组，并为此安全组授予密钥保管库的访问权限。
 - 如需更多将 Key Vault 与 Azure 集成和结合使用的特定于任务的指导，请参阅 [Ryan Jones Azure Resource Manager template examples for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)（针对 Key Vault 的 Ryan Jones Azure 资源管理器模板示例）。
 - [如何将 Key Vault 软删除与 CLI 配合使用](key-vault-soft-delete-cli.md)介绍了 Key Vault 的使用和生命周期以及各种已启用软删除的 Key Vault 对象。
 - [如何将 Key Vault 软删除与 PowerShell 配合使用](key-vault-soft-delete-powershell.md)介绍了 Key Vault 的使用和生命周期以及各种已启用软删除的 Key Vault 对象。

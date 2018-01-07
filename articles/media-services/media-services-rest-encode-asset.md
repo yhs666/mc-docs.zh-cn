@@ -3,7 +3,7 @@ title: "如何使用 Media Encoder Standard 对 Azure 资产进行编码 | Micro
 description: "了解如何使用 Media Encoder Standard 为 Azure 媒体服务上的媒体内容编码。 代码示例使用 REST API。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 96c54e858a967365bf774fe70c238717a8085701
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 12/07/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: 7acfe9b41db8963ac4138df06e7e4c8e8fe755cf
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>如何使用 Media Encoder Standard 对资产进行编码
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/31/2017
 ## <a name="overview"></a>概述
 若要通过 Internet 传送数字视频，必须压缩媒体文件。 数字视频文件较大，可能因过大而无法通过 Internet 传送或者无法在客户的设备上正常显示。 编码是压缩视频和音频以便客户能够查看媒体的过程。
 
-编码作业是 Azure 媒体服务中最常见的处理操作之一。 可通过创建编码作业将媒体文件从一种编码转换为另一种编码。 编码时，可以使用媒体服务的内置编码器（Media Encoder Standard）。 还可使用媒体服务合作伙伴提供的编码器。 可通过 Azure 应用商店获取第三方编码器。 可以使用为编码器定义的预设字符串，或使用预设配置文件来指定编码任务的详细信息。 若要查看可用预设的类型，请参阅 [Media Encoder Standard 的任务预设](http://msdn.microsoft.com/library/mt269960)。
+编码作业是 Azure 媒体服务中最常见的处理操作之一。 可通过创建编码作业将媒体文件从一种编码转换为另一种编码。 编码时，可以使用媒体服务的内置编码器（Media Encoder Standard）。 还可使用媒体服务合作伙伴提供的编码器。 可通过 Azure Marketplace 获取第三方编码器。 可以使用为编码器定义的预设字符串，或使用预设配置文件来指定编码任务的详细信息。 若要查看可用预设的类型，请参阅 [Media Encoder Standard 的任务预设](http://msdn.microsoft.com/library/mt269960)。
 
 每个作业可以有一个或多个任务，具体因要完成的处理类型而异。 通过 REST API，可采用以下两种方式之一创建作业及相关任务：
 
@@ -53,16 +53,13 @@ ms.lasthandoff: 08/31/2017
 
 若要了解如何连接到 AMS API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
-
 ## <a name="create-a-job-with-a-single-encoding-task"></a>创建包含单个编码任务的作业
 > [!NOTE]
 > 使用媒体服务 REST API 时，需注意以下事项：
 >
 > 访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
 >
-> 若要了解如何连接到 AMS API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。
->
-> 使用 JSON 并指定在请求中使用 __metadata 关键字进行某项操作（例如，引用某个链接对象的请求）时，必须将 Accept 标头设置为 [JSON 详细格式](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)：Accept: application/json;odata=verbose。
+> 使用 JSON 并指定在请求（例如，引用某个链接对象的请求）中使用 **__metadata** 关键字时，必须将 **Accept** 标头设置为 [JSON 详细格式](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)：Accept: application/json;odata=verbose。
 >
 >
 
@@ -76,7 +73,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer <token value>
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
@@ -101,7 +98,7 @@ HTTP/1.1 201 Created
 ```
 
 ## <a name="considerations"></a>注意事项
-* TaskBody 属性必须使用文本 XML 来定义任务使用的输入资产或输出资产的数量。 任务主题包含 XML 的 XML 架构定义。
+* TaskBody 属性必须使用文本 XML 来定义任务使用的输入资产或输出资产的数量。 任务文章包含 XML 的 XML 架构定义。
 * 在 TaskBody 定义中，必须将 <inputAsset> 和 <outputAsset> 的每个内部值设置为 JobInputAsset(value) 或 JobOutputAsset(value)。
 * 一个任务可以有多个输出资产。 一个 JobOutputAsset(x) 只能一次用作作业中任务的输出。
 * 可以将 JobInputAsset 或 JobOutputAsset 指定为任务的输入资产。
@@ -114,7 +111,7 @@ HTTP/1.1 201 Created
 ## <a name="create-a-job-with-chained-tasks"></a>创建包含连锁任务的作业
 在许多应用程序方案中，开发人员希望创建一系列处理任务。 在媒体服务中，可以创建一系列连锁任务。 每个任务执行不同的处理步骤，并且可以使用不同的媒体处理器。 连锁任务可以将资产从一个任务转给另一个任务，从而对资产执行线性序列的任务。 但是，在作业中执行的任务不需要处于序列中。 创建连锁任务时，连锁 ITask 对象在单个 IJob 对象中创建。
 
->[!NOTE]
+> [!NOTE]
 > 每个作业当前有 30 个任务的限制。 如果需要连锁 30 个以上的任务，请创建多个作业以包含任务。
 
 ```
@@ -123,7 +120,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer <token value>
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
@@ -168,7 +165,7 @@ Content-Type: multipart/mixed; boundary=batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d3
 Accept: multipart/mixed
 Accept-Charset: UTF-8
 Authorization: Bearer <token>
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
@@ -187,7 +184,7 @@ DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
 Accept-Charset: UTF-8
 Authorization: Bearer <token>
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
 {"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
@@ -204,7 +201,7 @@ DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
 Accept-Charset: UTF-8
 Authorization: Bearer <token>
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
 {  
@@ -229,7 +226,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer <token value>
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
@@ -257,7 +254,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer <token value>
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
@@ -272,10 +269,19 @@ HTTP/1.1 201 Created
 . . . 
 ```
 
+## <a name="advanced-encoding-features-to-explore"></a>要浏览的高级编码功能
+* [如何生成缩略图](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [在编码期间生成缩略图](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [在编码期间剪辑视频](media-services-crop-video.md)
+* [自定义编码预设](media-services-custom-mes-presets-with-dotnet.md)
+* [使用图像叠加视频或给视频加水印](media-services-advanced-encoding-with-mes.md#overlay)
+
+
+
 ## <a name="next-steps"></a>后续步骤
 了解如何创建对资产进行编码的作业后，请参阅[如何使用媒体服务检查作业进度](media-services-rest-check-job-progress.md)。
 
 ## <a name="see-also"></a>另请参阅
 [获取媒体处理器](media-services-rest-get-media-processor.md)
 
-<!--Update_Description: add section "Considerations" and "Connect to Media Services"-->
+<!--Update_Description: add section "Advanced Encoding Features to explore" and modify "x-ms-version"-->

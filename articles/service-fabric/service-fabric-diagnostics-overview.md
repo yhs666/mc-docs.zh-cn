@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 07/17/2017
 ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 720c3670391212997b4cc9486565739b4beff5ac
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: a94b5127df920b2b7d8d9b48fa76cc4fc561b6b1
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 的监视和诊断
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 09/08/2017
 
 监视和诊断的整体工作流程分为三个步骤：
 
-1. **事件生成**：这包括基础结构（群集）、平台和应用程序/服务级别的事件（日志、跟踪、自定义事件）
+1. **事件生成**：这包括基础结构（群集）级、平台级、应用程序/服务级事件（日志、跟踪、自定义事件）
 2. **事件聚合**：需要先收集和聚合生成的事件才能显示这些事件
 3. **分析**：需可视化事件并能够以某种格式访问事件，以便按需进行分析和显示
 
@@ -42,11 +42,11 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="event-generation"></a>事件生成
 
-监视和诊断工作流的第一个步骤是创建和生成事件与日志。 这些事件、日志和跟踪在以下两个级别生成：平台层（包括群集、计算机或 Service Fabric 操作）或应用程序层（向群集中部署的应用和服务添加的任何检测）。 其中每个级别的事件可自定义，不过，Service Fabric 默认提供一些检测。
+监视和诊断工作流的第一个步骤是创建和生成事件与日志。 这些事件、日志和跟踪在以下两个级别生成：平台层（包括群集、计算机或 Service Fabric 操作）或应用程序层（向群集中部署的应用和服务添加的任何检测）。 Service Fabric 确实会默认提供一些检测，但两个级别中的事件都可以自定义。
 
 请参阅[平台级事件](service-fabric-diagnostics-event-generation-infra.md)和[应用程序级事件](service-fabric-diagnostics-event-generation-app.md)，了解所含内容以及如何添加其他检测。
 
-在确定要使用的日志记录提供程序后，需确保正确聚合和存储日志。
+在决定要使用哪个日志记录提供程序后，需要确保日志能够正常聚合和存储。
 
 ## <a name="event-aggregation"></a>事件聚合
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 09/08/2017
 使用 [EventFlow](https://github.com/Azure/diagnostics-eventflow) 可让服务将其日志直接发送到分析与可视化平台和/或存储。 其他库（ILogger、Serilog 等）可用于同一用途，但 EventFlow 的优势在于它是专门为进程内日志收集所设计的，支持 Service Fabric 服务。 这往往会带来许多潜在优势：
 
 * 易于配置及部署
-    * 诊断数据收集配置只是服务配置的一部分。 很容易让其始终保持与应用程序的其余部分“同步”
+    * 诊断数据收集配置只是服务配置的一部分。 将其与应用程序的其余部分始终保持“同步”很简单
     * 可轻松基于每个应用程序或每个服务进行配置。
     * 通过 EventFlow 配置数据目标只需添加相应的 NuGet 包并更改 *eventFlowConfig.json* 文件
 * 灵活性
@@ -66,7 +66,7 @@ ms.lasthandoff: 09/08/2017
 * 访问内部应用程序数据与上下文
     * 应用程序/服务进程内运行的诊断子系统可以轻松地随着上下文信息而扩展跟踪
 
-需要注意的一点是，这两个选项并不互斥。尽管使用其中的一个选项即可完成类似的作业，但同时设置这两个选项可能会有所帮助。 在大多数情况下，将代理与进程内收集相结合可使监视工作流更加可靠。 可以选择 Azure 诊断扩展（代理）作为平台级日志的路径，而对应用程序级日志使用 EventFlow（进程内集合）。 确定最合适的选项后，可以开始考虑如何显示和分析数据。
+需要注意的一点是，这两个选项并不互斥。尽管使用其中的一个选项即可完成类似的作业，但同时设置这两个选项可能会有所帮助。 在大部分情况下，将代理与进程内收集结合使用可以实现更可靠的监视工作流。 可以选择 Azure 诊断扩展（代理）作为平台级日志的路径，而对应用程序级日志使用 EventFlow（进程内集合）。 确定最合适的选项后，可以开始考虑如何显示和分析数据。
 
 ## <a name="event-analysis"></a>事件分析
 
@@ -76,15 +76,18 @@ ms.lasthandoff: 09/08/2017
 
 除了所选的平台以外，将 Service Fabric 群集设置为 Azure 资源后，还可以访问 Azure 的现成计算机监视功能，这在执行特定的性能和指标监视时可能非常有用。
 
-### <a name="azure-monitor"></a>Azure Monitor
+### <a name="azure-monitor"></a>Azure 监视器
 
 可以使用 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) 来监视构建 Service Fabric 群集时所在的许多 Azure 资源。
 <!-- Not Available [virtual machine scale set](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets) -->
 <!-- Not Available [virtual machines](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesetsvirtualmachines) -->
 ![Azure 门户中收集的指标信息视图](media/service-fabric-diagnostics-overview/azure-monitoring-metrics.png)
 
-若要自定义图表，请遵照 [Metrics in Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)（Azure 中的指标）中的说明。 还可以根据 [Create alerts in Azure Monitor for Azure services](../monitoring-and-diagnostics/insights-alerts-portal.md)（在 Azure Monitor 中为 Azure 服务创建警报）中所述，基于这些指标创建警报。 可以根据 [Configure a web hook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md)（针对 Azure 指标警报配置 Webhook）中所述，使用 Webhook 将警报发送到通知服务。 Azure Monitor 仅支持一个订阅。 
+若要自定义图表，请遵照 [Metrics in Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)（Azure 中的指标）中的说明。 Azure Monitor 仅支持一个订阅。 
 <!-- Not Avaialble [Log Analytics](/log-analytics/) -->
+<!-- Remove on (../monitoring-and-diagnostics/insights-alerts-portal.md). -->
+<!-- Remove on (../monitoring-and-diagnostics/insights-webhooks-alerts.md) -->
+
 ## <a name="next-steps"></a>后续步骤
 
 ### <a name="watchdogs"></a>监视器

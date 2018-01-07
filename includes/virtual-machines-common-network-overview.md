@@ -1,4 +1,4 @@
-创建 Azure 虚拟机 (VM) 时，必须创建[虚拟网络](../articles/virtual-network/virtual-networks-overview.md) (VNet) 或使用现有的 VNet。 此外，还需要确定如何在 VNet 上访问 VM。 必须[在创建资源之前进行计划](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)。
+创建 Azure 虚拟机 (VM) 时，必须创建[虚拟网络](../articles/virtual-network/virtual-networks-overview.md) (VNet) 或使用现有的 VNet。 此外，还需要确定如何在 VNet 上访问 VM。 [在创建资源之前必须做好规划](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)，确保了解[网络资源的限制](../articles/azure-subscription-service-limits.md#networking-limits)。
 
 在下图中，VM 显示为 Web 服务器和数据库服务器。 每组 VM 已分配到 VNet 中的独立子网。
 
@@ -156,5 +156,5 @@ NSG 包含两种类型的规则：入站规则和出站规则。 在每组中，
 - 了解如何配置 [VNet 到 VNet 连接](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
 - 了解如何[排查路由问题](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md)。
 
-<!--Update_Description: wording update-->
-<!--ms.date: 10/30/2017-->
+<!--Update_Description: update link -->
+<!--ms.date: 01/08/2018-->

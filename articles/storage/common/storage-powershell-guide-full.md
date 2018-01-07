@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 11/02/2017
 ms.date: 12/04/2017
 ms.author: v-nany
-ms.openlocfilehash: 35d6b62404ec74c97bd481a29bd25a8d06a0ab64
-ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
+ms.openlocfilehash: e46d5761555b9a33491614d475b9e06e45a6bc29
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>对 Azure 存储 使用 Azure PowerShell
 
@@ -55,7 +55,7 @@ Login-AzureRmAccount
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>列出订阅中的存储帐户
 
-运行 [Get-AzureRMStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermstorageaccount) cmdlet 来检索当前订阅中的存储帐户列表。 
+运行 [Get-AzureRMStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccount?view=azurermps-5.1.1) cmdlet 来检索当前订阅中的存储帐户列表。 
 
 ```powershell
 Get-AzureRMStorageAccount | Select StorageAccountName, Location
@@ -108,7 +108,7 @@ $ctx = $storageAccount.Context
 
 该脚本使用以下 PowerShell cmdlet： 
 
-*   [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmLocation) -- 检索有效位置的列表。 该示例使用 `chinanorth` 作为位置。
+*   [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation?view=azurermps-5.1.1) -- 检索有效位置的列表。 该示例使用 `chinanorth` 作为位置。
 
 *   [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/New-AzureRmResourceGroup) -- 创建新资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。 我们的资源组称为 `teststoragerg`。 
 

@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2016
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: ddb6e7adab7e01115331951d93ba18ce0e31217c
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: e9f6222dacf1f166619feaa5452c0635318a0682
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>为 NoSQL 数据库的文档数据建模
 尽管无架构的数据库（如 Azure Cosmos DB）能够非常容易地接受对数据模型的更改，但用户仍需花一些时间来研究数据。 
 
 将如何存储数据？ 应用程序将如何检索和查询数据？ 应用程序是读取频繁，还是写入频繁？ 
 
-阅读本文后，你能够回答以下问题：
+阅读本文后，能够回答以下问题：
 
 * 我该如何考虑文档数据库中的文档？
 * 什么是数据建模，我为什么应该关注？ 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/24/2017
 
 在深入探讨之前，让我们先回顾一下在关系数据库中我们会如何建模，许多人对该主题已很熟悉。 下面的示例演示了如何在关系数据库中存储某个人的信息。 
 
-![关系数据库模型](./media/documentdb-modeling-data/relational-data-model.png)
+![关系数据库模型](./media/sql-api-modeling-data/relational-data-model.png)
 
 多年来我们在使用关系数据库时一直被教导要规范化、规范化、规范化。
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 11/24/2017
 ### <a name="when-not-to-embed"></a>何时不嵌入
 虽然文档数据库的经验法则是将所有事物非规范化，并将所有数据嵌入到单个文档中，但是这可能导致一些情况的发生，而这些情况是应该避免的。
 
-以下面的 JSON 代码片段为例。
+以下面的 JSON 代码段为例。
 
     {
         "id": "1",
@@ -121,7 +121,7 @@ ms.lasthandoff: 11/24/2017
 
 如果我们要对一个典型博客或 CMS 系统建模，那么具有嵌入式评论的发布实体可能就如上面的代码所示。 此示例中的问题是评论数组**没有限制**，这意味着任何单个发布的评论数都没有（实际）限制。 随着文档大小的显著增长，这将成为一个问题。
 
-随着文档大小的不断增长，通过网络传输数据和大规模读取和更新文档的能力将受到影响。
+随着文档大小的不断增长，通过网络传输数据和大规模读取和更新文档的能力会受到影响。
 
 在此情况下，考虑以下模型会更好。
 
@@ -183,7 +183,7 @@ ms.lasthandoff: 11/24/2017
 在一天时间里股票 *zaza* 可能交易成百上千次，并且数以千计的用户可能在其投资组合中拥有股票 *zaza*。 使用类似上面的数据模型，我们需要每天更新成千上万的投资组合文档许多次，导致系统无法很好地扩展。 
 
 ## <a id="Refer"></a>引用数据
-因此，嵌入式数据在很多情况下都可以很好运作，但很明显在一些情况下，非规范化数据将导致更多问题而得不偿失。 因此我们现在该怎么办？ 
+因此，嵌入式数据在很多情况下都可以很好运作，但很明显在一些情况下，非规范化数据会导致更多问题而得不偿失。 因此我们现在该怎么办？ 
 
 关系数据库不是可以在实体之间创建关系的唯一数据库。 在文档数据库中，一个文档中的信息实际与其他文档中的数据相关。 现在，我甚至一分钟也不提倡在 Azure Cosmos DB 或任何其他文档数据库中生成可以更好地适应关系数据库的系统，但是简单关系是可以的，并且还非常有用。 
 
@@ -290,7 +290,7 @@ ms.lasthandoff: 11/24/2017
 ### <a name="how-do-i-model-manymany-relationships"></a>如何对多对多关系建模？
 在关系型数据库中， *多对多*关系通常使用联接表来建模，这种方法只是将其他表中的记录联接在一起。 
 
-![联接表](./media/documentdb-modeling-data/join-table.png)
+![联接表](./media/sql-api-modeling-data/join-table.png)
 
 可能想要使用文档复制相同内容，并生成类似以下示例的数据模型。
 
@@ -395,6 +395,6 @@ ms.lasthandoff: 11/24/2017
 
 若要了解有关 Azure Cosmos DB 的详细信息，请参阅服务的[文档](/cosmos-db/)页。 
 
-若要了解如何在多个分区之间对数据进行分片，请参阅[在 Azure Cosmos DB 中对数据进行分区](documentdb-partition-data.md)。
+若要了解如何在多个分区之间对数据进行分片，请参阅[在 Azure Cosmos DB 中对数据进行分区](sql-api-partition-data.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update link -->

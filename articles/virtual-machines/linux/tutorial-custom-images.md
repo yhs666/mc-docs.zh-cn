@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 05/21/2017
-ms.date: 10/16/2017
+origin.date: 12/13/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 521c1926316d17145c48b75dcd6b1e2bff1b467a
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: a6bde84a10ca2bbb4a11637eea0edc483df7e02a
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>使用 CLI 创建 Azure VM 的自定义映像
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/09/2017
 
 如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 下列步骤详细说明了如何将现有 VM 转换为可重用自定义映像，用于创建新的 VM 实例。
 
@@ -117,7 +117,7 @@ az vm create \
 
 ```azurecli 
 az image list \
-  --resource-group myResourceGroup
+    --resource-group myResourceGroup
 ```
 
 删除映像。 此示例将从 myResourceGroup 中删除名为 myOldImage 的映像。
@@ -133,7 +133,7 @@ az image delete \
 在本教程中，你已创建了一个自定义 VM 映像。 你已了解如何：
 
 > [!div class="checklist"]
-> * 取消预配和通用化 VM
+> * 预配和通用化 VM
 > * 创建自定义映像
 > * 从自定义映像创建 VM
 > * 列出订阅中的所有映像

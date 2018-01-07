@@ -5,54 +5,46 @@ metacanonical:
 keywords: "连接到 sql 数据库, sql server management studio"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
+ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-origin.date: 05/26/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 2a899ccd86f88da0948cfca06f0ddaf36755bc59
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.topic: quickstart
+origin.date: 11/28/2017
+ms.date: 01/08/2018
+ms.author: v-nany
+ms.openlocfilehash: dd07c1400c5f441288aab5ac49e9e0cac57c9ea9
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL 数据库：使用 SQL Server Management Studio 进行连接和数据查询
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) 是用于管理任何 SQL 基础结构（从适用于 Microsoft Windows 的 SQL Server 到 SQL 数据库，不一而足）的集成环境。 本快速入门演示了如何使用 SSMS 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。 
+[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) 是用于管理任何 SQL 基础结构（从适用于 Microsoft Windows 的 SQL Server 到 SQL 数据库，不一而足）的集成环境。 本快速入门演示了如何使用 SSMS 连接到 Azure SQL 数据库，并使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。 
 
 ## <a name="prerequisites"></a>先决条件
 
-此快速入门使用以下某个快速入门中创建的资源作为其起点：
+本快速入门使用以下某个快速入门中创建的资源作为其起点：
 
-- [创建 DB - 门户](sql-database-get-started-portal.md)
-- [创建 DB - CLI](sql-database-get-started-cli.md)
-- [创建 DB - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-在开始之前，请确保已安装最新版本的 [SSMS](https://msdn.microsoft.com/library/mt238290.aspx)。 
+#### <a name="install-the-latest-ssms"></a>安装最新的 SSMS
+
+在开始之前，请确保已安装最新版本的 [SSMS][ssms-install-latest-84g]。 
 
 ## <a name="sql-server-connection-information"></a>SQL Server 连接信息
 
-获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称、数据库名称和登录信息。
-
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 将鼠标悬停在服务器名称上即可打开“通过单击进行复制”选项。
-
-   ![连接信息](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. 如果忘了 Azure SQL 数据库服务器的登录信息，请导航到 SQL 数据库服务器页，查看服务器管理员名称并重置密码（如果需要）。 
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="connect-to-your-database"></a>连接到数据库
 
-使用 SQL Server Management Studio 建立到 Azure SQL 数据库服务器的连接。
+使用 SQL Server Management Studio 建立到 Azure SQL 数据库服务器的连接。 
 
 > [!IMPORTANT]
 > Azure SQL 数据库逻辑服务器在端口 1433 上进行侦听。 如果尝试在企业防火墙内连接到 Azure SQL 数据库逻辑服务器，则必须在企业防火墙中打开此端口，否则无法成功进行连接。
@@ -69,6 +61,7 @@ ms.lasthandoff: 07/28/2017
    | **身份验证** | SQL Server 身份验证 | SQL 身份验证是本教程中配置的唯一身份验证类型。 |
    | **登录名** | 服务器管理员帐户 | 这是在创建服务器时指定的帐户。 |
    | **密码** | 服务器管理员帐户的密码 | 这是在创建服务器时指定的密码。 |
+   ||||
 
    ![连接到服务器](./media/sql-database-connect-query-ssms/connect.png)  
 
@@ -76,17 +69,17 @@ ms.lasthandoff: 07/28/2017
 
    ![连接到服务器上的 DB](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. 单击“连接”。 此时会在 SSMS 中打开“对象资源管理器”窗口。 
+4. 单击“连接” 。 此时会在 SSMS 中打开“对象资源管理器”窗口。 
 
    ![已连接到服务器](./media/sql-database-connect-query-ssms/connected.png)  
 
-5. 在对象资源管理器中展开“数据库”，然后展开 **mySampleDatabase**，查看示例数据库中的对象。
+5. 在对象资源管理器中展开“数据库”，并展开 **mySampleDatabase**，查看示例数据库中的对象。
 
 ## <a name="query-data"></a>查询数据
 
 通过以下代码使用 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 语句，以便按类别查询前 20 个产品。
 
-1. 在“对象资源管理器”中，右键单击“mySampleDatabase”，然后单击“新建查询”。 此时会打开一个空白查询窗口，该窗口连接到数据库。
+1. 在“对象资源管理器”中，右键单击“mySampleDatabase”，并单击“新建查询”。 此时会打开一个空白查询窗口，该窗口连接到数据库。
 2. 在查询窗口中输入以下查询：
 
    ```sql
@@ -165,6 +158,7 @@ ms.lasthandoff: 07/28/2017
 
 - 若要了解如何使用 Transact-SQL 创建和管理服务器和数据库，请参阅[了解 Azure SQL 数据库服务器和数据库](sql-database-servers-databases.md)。
 - 有关 SSMS 的信息，请参阅[使用 SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)。
+- 若要使用 Azure 门户进行连接和查询，请参阅[使用 Azure 门户 SQL 查询编辑器进行连接和查询](sql-database-connect-query-portal.md)。
 - 若要使用 Visual Studio Code 进行连接和查询，请参阅[使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。
 - 若要使用 .NET 进行连接和查询，请参阅[使用 .NET 进行连接和查询](sql-database-connect-query-dotnet.md)。
 - 若要使用 PHP 进行连接和查询，请参阅[使用 PHP 进行连接和查询](sql-database-connect-query-php.md)。
@@ -173,4 +167,8 @@ ms.lasthandoff: 07/28/2017
 - 若要使用 Python 进行连接和查询，请参阅[使用 Python 进行连接和查询](sql-database-connect-query-python.md)。
 - 若要使用 Ruby 进行连接和查询，请参阅[使用 Ruby 进行连接和查询](sql-database-connect-query-ruby.md)。
 
-<!--Update_Description: update word & link-->
+
+<!-- Article link references. -->
+
+[ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms
+

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9ee49f86bee4e4a1e8b22558ab95bc7b0d4b961a
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: b19e8b3af55942da9e0001ebb494ed279b5a62c7
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-manage-cloud-services"></a>如何管理云服务
-在 Azure 门户的“云服务(经典)”区域中，可以更新服务角色或部署、将预留部署提升到生产、将资源链接到云服务，以便查看资源依赖关系并对资源进行整体缩放，以及删除云服务或部署。
+在 Azure 门户的“云服务”区域中，可以更新服务角色或部署、将预留部署提升到生产、将资源链接到云服务，以便查看资源依赖关系并对资源进行整体缩放，以及删除云服务或部署。
 
 有关如何扩展云服务的详细信息，请参阅[此文](./cloud-services-how-to-scale-portal.md)。
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/01/2017
 
 如果决定部署云服务的新版本，可以在云服务过渡环境中暂存和测试新版本。 使用“交换”将用于寻址这两个部署的 URL 地址互换，将新版本提升到生产环境。 
 
-可以通过“云服务”页或仪表板来交换部署。
+可以通过“云服务”  页面或仪表板交换部署。
 
 1. 在 [Azure 门户][Azure portal]中，选择要更新的云服务。 此步骤打开云服务实例边栏选项卡。
 2. 在边栏选项卡中，单击“交换”  按钮。
@@ -85,15 +85,11 @@ ms.lasthandoff: 12/01/2017
 
 如在上一部分中所述，部署交换通常很快，因为它只更改 Azure 负载均衡器中的配置。 但是，在某些情况下，它会需要 10 秒或更长时间并导致暂时性连接故障。 
 
-## <a name="how-to-link-a-resource-to-a-cloud-service"></a>如何：将资源链接到云服务
-
-Azure 门户不会像当前 Azure 经典门户一样将资源链接在一起。 而是将其他资源部署到云服务正在使用的同一资源组。
-
 ## <a name="how-to-delete-deployments-and-a-cloud-service"></a>如何：删除部署和云服务
 
 必须先删除每个现有部署，才能删除云服务。
 
-若要节省计算成本，可以在验证生产部署是否能够按预期运行后删除过渡部署。 停止的已部署角色实例仍会产生计算成本。
+为节省计算成本，可以在验证生产部署能够按预期运行后删除过渡部署。 停止的已部署角色实例仍会产生计算成本。
 
 可使用以下过程删除部署或云服务。 
 

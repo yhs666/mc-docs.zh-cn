@@ -3,7 +3,7 @@ title: "创建并上传可在 Azure 中使用的 Red Hat Enterprise Linux VHD | 
 description: "了解如何创建和上传包含 Red Hat Linux 操作系统的 Azure 虚拟硬盘 (VHD)。"
 services: virtual-machines-linux
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 04/28/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 54372043b7ee4d106360ec4408030d494b88c1c3
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+origin.date: 12/01/2017
+ms.date: 01/08/2018
+ms.author: v-yeche
+ms.openlocfilehash: 98a5b36bd91c636c162b35a8ba8bd521d384a4bd
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>为 Azure 准备基于 Red Hat 的虚拟机
-本文介绍如何准备 Red Hat Enterprise Linux (RHEL) 虚拟机，以供在 Azure 中使用。 本文介绍的 RHEL 版本为 6.7+ 和 7.1+。 本文所述的用于准备工作的虚拟机监控程序为 Hyper-V、基于内核的虚拟机 (KVM) 和 VMware。 有关参与 Red Hat 云访问计划的资格要求的详细信息，请参阅 [Red Hat 的云访问网站](http://www.redhat.com/en/technologies/cloud-computing/cloud-access)和[在 Azure 上运行 RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure)。
+在本文中，将了解如何准备 Red Hat Enterprise Linux (RHEL) 虚拟机，以供在 Azure 中使用。 本文介绍的 RHEL 版本为 6.7+ 和 7.1+。 本文所述的用于准备工作的虚拟机监控程序为 Hyper-V、基于内核的虚拟机 (KVM) 和 VMware。 有关参与 Red Hat 云访问计划的资格要求的详细信息，请参阅 [Red Hat 的云访问网站](http://www.redhat.com/en/technologies/cloud-computing/cloud-access)和[在 Azure 上运行 RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure)。
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>从 Hyper-V 管理器准备基于 Red Hat 的虚拟机
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 08/29/2017
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-10. 在 grub 配置中修改内核引导行，以使其包含 Azure 的其他内核参数。 若要执行此修改，请在文本编辑器中打开 `/boot/grub/menu.lst`，并确保默认内核包含以下参数：
+10. 在 grub 配置中修改内核引导行，使其包含 Azure 的其他内核参数。 若要执行此修改，请在文本编辑器中打开 `/boot/grub/menu.lst`，并确保默认内核包含以下参数：
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
@@ -133,13 +133,13 @@ ms.lasthandoff: 08/29/2017
 
         # logout
 
-16. 在 Hyper-V 管理器中单击“操作” > “关闭”。 Linux VHD 现已准备好上传到 Azure。
+16. 在 Hyper-V 管理器中单击“操作” > “关闭”。 现在，准备将 Linux VHD 上传到 Azure。
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>从 Hyper-V 管理器准备 RHEL 7 虚拟机
 
 1. 在 Hyper-V 管理器中，选择虚拟机。
 
-2. 单击“连接”打开该虚拟机的控制台窗口。
+2. 单击“连接”  以打开该虚拟机的控制台窗口。
 
 3. 创建或编辑 `/etc/sysconfig/network` 文件并添加以下文本：
 
@@ -165,7 +165,7 @@ ms.lasthandoff: 08/29/2017
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7. 在 grub 配置中修改内核引导行，以使其包含 Azure 的其他内核参数。 若要执行此修改，请在文本编辑器中打开 `/etc/default/grub` 并编辑 `GRUB_CMDLINE_LINUX` 参数。 例如：
+7. 在 grub 配置中修改内核引导行，使其包含 Azure 的其他内核参数。 若要执行此修改，请在文本编辑器中打开 `/etc/default/grub` 并编辑 `GRUB_CMDLINE_LINUX` 参数。 例如：
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
@@ -215,7 +215,7 @@ ms.lasthandoff: 08/29/2017
 
         # logout
 
-15. 在 Hyper-V 管理器中单击“操作” > “关闭”。 Linux VHD 现已准备好上传到 Azure。
+15. 在 Hyper-V 管理器中单击“操作” > “关闭”。 现在，准备将 Linux VHD 上传到 Azure。
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>从 KVM 准备基于 Red Hat 的虚拟机
 ### <a name="prepare-a-rhel-6-virtual-machine-from-kvm"></a>从 KVM 准备 RHEL 6 虚拟机
@@ -270,7 +270,7 @@ ms.lasthandoff: 08/29/2017
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9. 在 grub 配置中修改内核引导行，以使其包含 Azure 的其他内核参数。 若要执行此配置，请在文本编辑器中打开 `/boot/grub/menu.lst`，并确保默认内核包含以下参数：
+9. 在 grub 配置中修改内核引导行，使其包含 Azure 的其他内核参数。 若要执行此配置，请在文本编辑器中打开 `/boot/grub/menu.lst`，并确保默认内核包含以下参数：
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
@@ -342,22 +342,30 @@ ms.lasthandoff: 08/29/2017
 
 19. 将 qcow2 映像转换为 VHD 格式。
 
-    首先将此映像转换为原始格式：
+> [!NOTE]
+> qemu-img 版本（>=2.2.1）中有一个已知 bug，会导致 VHD 格式不正确。 QEMU 2.6 中已修复此问题。 建议使用 qemu-img 2.2.0 或更低版本，或者更新到 2.6 或更高版本。 参考：https://bugs.launchpad.net/qemu/+bug/1490611。
+>
 
-        # qemu-img convert -f qcow2 -O raw rhel-6.8.qcow2 rhel-6.8.raw
+    First convert the image to raw format:
 
-    请确保原始映像大小为 1 MB。 如果不是，请将大小四舍五入，使其等于 1 MB：
+        # qemu-img convert -f qcow2 -O raw rhel-6.9.qcow2 rhel-6.9.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-6.9.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-6.9.raw $rounded_size
 
-    将原始磁盘转换为固定大小的 VHD：
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.8.raw rhel-6.8.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.9.raw rhel-6.9.vhd
+        
+    Or, with qemu version **2.6+** include the `force_size` option:
+
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-kvm"></a>从 KVM 准备 RHEL 7 虚拟机
 
@@ -406,7 +414,7 @@ ms.lasthandoff: 08/29/2017
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-8. 在 grub 配置中修改内核引导行，以使其包含 Azure 的其他内核参数。 若要执行此配置，请在文本编辑器中打开 `/etc/default/grub` 并编辑 `GRUB_CMDLINE_LINUX` 参数。 例如：
+8. 在 grub 配置中修改内核引导行，使其包含 Azure 的其他内核参数。 若要执行此配置，请在文本编辑器中打开 `/etc/default/grub` 并编辑 `GRUB_CMDLINE_LINUX` 参数。 例如：
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
@@ -481,22 +489,30 @@ ms.lasthandoff: 08/29/2017
 
 19. 将 qcow2 映像转换为 VHD 格式。
 
-    首先将此映像转换为原始格式：
+> [!NOTE]
+> qemu-img 版本（>=2.2.1）中有一个已知 bug，会导致 VHD 格式不正确。 QEMU 2.6 中已修复此问题。 建议使用 qemu-img 2.2.0 或更低版本，或者更新到 2.6 或更高版本。 参考：https://bugs.launchpad.net/qemu/+bug/1490611。
+>
 
-        # qemu-img convert -f qcow2 -O raw rhel-7.3.qcow2 rhel-7.3.raw
+    First convert the image to raw format:
 
-    请确保原始映像大小为 1 MB。 如果不是，请将大小四舍五入，使其等于 1 MB：
+        # qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-7.4.raw $rounded_size
 
-    将原始磁盘转换为固定大小的 VHD：
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.3.raw rhel-7.3.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+
+    Or, with qemu version **2.6+** include the `force_size` option:
+
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>从 VMware 准备基于 Red Hat 的虚拟机
 ### <a name="prerequisites"></a>先决条件
@@ -507,7 +523,7 @@ ms.lasthandoff: 08/29/2017
 * 创建虚拟硬盘时，选择“将虚拟磁盘存储为单个文件”。
 
 ### <a name="prepare-a-rhel-6-virtual-machine-from-vmware"></a>从 VMware 准备 RHEL 6 虚拟机
-1. 在 RHEL 6 中，NetworkManager 可能会干扰 Azure Linux 代理。 运行以下命令卸载此包：
+1. 在 RHEL 6 中，NetworkManager 可能会干扰 Azure Linux 代理。 请运行以下命令来卸载该包：
 
         # sudo rpm -e --nodeps NetworkManager
 
@@ -544,7 +560,7 @@ ms.lasthandoff: 08/29/2017
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-8. 在 grub 配置中修改内核引导行，以使其包含 Azure 的其他内核参数。 为此，请在文本编辑器中打开 `/etc/default/grub` 并编辑 `GRUB_CMDLINE_LINUX` 参数。 例如：
+8. 在 grub 配置中修改内核引导行，使其包含 Azure 的其他内核参数。 为此，请在文本编辑器中打开 `/etc/default/grub` 并编辑 `GRUB_CMDLINE_LINUX` 参数。 例如：
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
@@ -598,22 +614,30 @@ ms.lasthandoff: 08/29/2017
 
 15. 关闭虚拟机，并将 VMDK 文件转换为 .vhd 文件。
 
-    首先将此映像转换为原始格式：
+> [!NOTE]
+> qemu-img 版本（>=2.2.1）中有一个已知 bug，会导致 VHD 格式不正确。 QEMU 2.6 中已修复此问题。 建议使用 qemu-img 2.2.0 或更低版本，或者更新到 2.6 或更高版本。 参考：https://bugs.launchpad.net/qemu/+bug/1490611。
+>
 
-        # qemu-img convert -f vmdk -O raw rhel-6.8.vmdk rhel-6.8.raw
+    First convert the image to raw format:
 
-    请确保原始映像大小为 1 MB。 如果不是，请将大小四舍五入，使其等于 1 MB：
+        # qemu-img convert -f vmdk -O raw rhel-6.9.vmdk rhel-6.9.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-6.9.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-6.9.raw $rounded_size
 
-    将原始磁盘转换为固定大小的 VHD：
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.8.raw rhel-6.8.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.9.raw rhel-6.9.vhd
+
+    Or, with qemu version **2.6+** include the `force_size` option:
+
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-vmware"></a>从 VMware 准备 RHEL 7 虚拟机
 1. 创建或编辑 `/etc/sysconfig/network` 文件并添加以下文本：
@@ -640,7 +664,7 @@ ms.lasthandoff: 08/29/2017
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-5. 在 grub 配置中修改内核引导行，以使其包含 Azure 的其他内核参数。 若要执行此修改，请在文本编辑器中打开 `/etc/default/grub` 并编辑 `GRUB_CMDLINE_LINUX` 参数。 例如：
+5. 在 grub 配置中修改内核引导行，使其包含 Azure 的其他内核参数。 若要执行此修改，请在文本编辑器中打开 `/etc/default/grub` 并编辑 `GRUB_CMDLINE_LINUX` 参数。 例如：
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
@@ -702,22 +726,30 @@ ms.lasthandoff: 08/29/2017
 
 14. 关闭虚拟机，将 VMDK 文件转换为 VHD 格式。
 
-    首先将此映像转换为原始格式：
+> [!NOTE]
+> qemu-img 版本（>=2.2.1）中有一个已知 bug，会导致 VHD 格式不正确。 QEMU 2.6 中已修复此问题。 建议使用 qemu-img 2.2.0 或更低版本，或者更新到 2.6 或更高版本。 参考：https://bugs.launchpad.net/qemu/+bug/1490611。
+>
 
-        # qemu-img convert -f vmdk -O raw rhel-7.3.vmdk rhel-7.3.raw
+    First convert the image to raw format:
 
-    请确保原始映像大小为 1 MB。 如果不是，请将大小四舍五入，使其等于 1 MB：
+        # qemu-img convert -f vmdk -O raw rhel-7.4.vmdk rhel-7.4.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-7.4.raw $rounded_size
 
-    将原始磁盘转换为固定大小的 VHD：
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.3.raw rhel-7.3.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+
+    Or, with qemu version **2.6+** include the `force_size` option:
+
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>使用 kickstart 文件自动从 ISO 准备基于 Red Hat 的虚拟机
 ### <a name="prepare-a-rhel-7-virtual-machine-from-a-kickstart-file"></a>从 kickstart 文件准备 RHEL 7 虚拟机
@@ -859,7 +891,7 @@ ms.lasthandoff: 08/29/2017
 
 6. 在启动选项的末尾输入 `inst.ks=<the location of the kickstart file>` ，并按 **Enter**键。
 
-7. 等待安装完成。 完成后，虚拟机自动关闭。 Linux VHD 现已准备好上传到 Azure。
+7. 等待安装完成。 完成后，虚拟机会自动关闭。 Linux VHD 现已准备好上传到 Azure。
 
 ## <a name="known-issues"></a>已知问题
 ### <a name="the-hyper-v-driver-could-not-be-included-in-the-initial-ram-disk-when-using-a-non-hyper-v-hypervisor"></a>使用非 Hyper-V 虚拟机监控程序时，初始 RAM 磁盘未包含 Hyper-V 驱动程序
@@ -884,3 +916,4 @@ ms.lasthandoff: 08/29/2017
 现在，可以使用 Red Hat Enterprise Linux 虚拟硬盘在 Azure 中创建新的虚拟机。 如果这是第一次将 .vhd 文件上传到 Azure，请参阅[创建和上传包含 Linux 操作系统的虚拟硬盘](classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)中的步骤 2 和步骤 3。
 
 有关已通过认证可运行 Red Hat Enterprise Linux 的虚拟机监控程序的更多详细信息，请参阅 [Red Hat 网站](https://access.redhat.com/certified-hypervisors)。
+<!--Update_Description: wording update, add known bug information notes -->

@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/19/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: a72574405fbc64aaefa41b73d821d1e2158b9816
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 3171b2a67ed918f1b366d8ee9dcd0ed4c6dd0dfe
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>在 Azure 中使用网络观察程序与 Graylog 来管理和分析网络安全组流日志
 
@@ -248,4 +248,4 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 访问[使用 Power BI 可视化网络安全组流日志](network-watcher-visualize-nsg-flow-logs-power-bi.md)，了解如何使用 Power BI 可视化网络安全组流日志。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties -->

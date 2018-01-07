@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/27/2017
-ms.openlocfilehash: 528f15a1383334f2bf7d826862e90d64c8aafc78
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 01/08/2018
+ms.openlocfilehash: 318f580fb50b0e105366162f1da28eac824a4d18
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>在 Azure 中部署 OpenShift 容器平台
 
@@ -189,3 +189,4 @@ az group delete --name myResourceGroup
 - [部署后任务](./openshift-post-deployment.md)
 - [在 Azure 中排查 OpenShift 部署问题](./openshift-troubleshooting.md)
 - [OpenShift 容器平台入门](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
+<!--Update_Description: wording update, -->

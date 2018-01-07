@@ -17,10 +17,10 @@ origin.date: 06/29/2017
 ms.date: 10/23/2017
 ms.author: v-johch
 ms.openlocfilehash: 24982067e5c3a6e14e9fc802c032bd063b0927ff
-ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="create-a-storage-account-using-powershell"></a>使用 PowerShell 创建存储帐户
 

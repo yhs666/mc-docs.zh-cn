@@ -11,21 +11,23 @@ ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: tutorial
 origin.date: 09/05/2017
-ms.date: 09/25/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 548afbdf9ab8441a94692149a8826103a91adf03
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.custom: mvc
+ms.openlocfilehash: 97b0fbac2debe24ccf4e33fdd3e08d46b7cc6701
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app-with-the-angular-cli"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 - 第 2 部分：通过 Angular CLI 创建 Node.js Express 应用 
 
 本教程包含多个部分，演示了如何通过 Express、Angular 和 Azure Cosmos DB 数据库创建以 Node.js 编写的新 [MongoDB API](mongodb-introduction.md) 应用。
 
-<!-- Not Avaialbe [the introduction](tutorial-develop-mongodb-nodejs.md) due to it is all invalid VIDEO-->
+本教程的第 2 部分基于[简介](tutorial-develop-mongodb-nodejs.md)，涵盖以下任务：
+
 > [!div class="checklist"]
 > * 安装 Angular CLI 和 TypeScript
 > * 使用 Angular 创建新项目
@@ -44,7 +46,7 @@ ms.lasthandoff: 09/22/2017
 * [Visual Studio Code](https://code.visualstudio.com/) 或你喜欢用的代码编辑器。
 
 > [!TIP]
-> 本教程介绍分步生成应用程序的步骤。 若要下载完成的项目，可从 GitHub 上的 [angular-cosmosdb 存储库](https://github.com/Azure-Samples/angular-cosmosdb)获取完成的应用程序。
+> 本教程介绍生成应用程序的各个步骤。 若要下载完成的项目，可从 GitHub 上的 [angular-cosmosdb 存储库](https://github.com/Azure-Samples/angular-cosmosdb)获取完成的应用程序。
 
 ## <a name="install-the-angular-cli-and-typescript"></a>安装 Angular CLI 和 TypeScript
 
@@ -180,3 +182,4 @@ ms.lasthandoff: 09/22/2017
 
 > [!div class="nextstepaction"]
 > [通过 Angular 生成 UI](tutorial-develop-mongodb-nodejs-part3.md)
+<!-- Update_Description: update meta properties, wording update -->
