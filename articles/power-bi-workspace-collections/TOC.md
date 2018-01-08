@@ -26,8 +26,7 @@
 # 引用
 ## [代码示例](https://azure.microsoft.com/resources/samples/?service=power-bi-embedded)
 ## [PowerShell](/powershell/module/azurerm.powerbiembedded)
-## 
-            [.NET Azure 资源管理器](/dotnet/api/microsoft.azure.management.powerbiembedded)
+## [.NET Azure 资源管理器](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [.NET SDK 下载](https://www.nuget.org/profiles/powerbi)
 ## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
 ## [管理 REST API](/rest/api/powerbiembedded/)
