@@ -1,31 +1,49 @@
 # 概述
-## [什么是 Azure Active Directory？](./active-directory-whatis.md)
-## [选择版本](./active-directory-editions.md)
-## [关于 Azure 标识管理](./fundamentals-identity.md)
+## [什么是 Azure Active Directory？](active-directory-whatis.md)
+## [关于 Azure 标识管理](identity-fundamentals.md)
+## [了解 Azure 标识解决方案](understand-azure-identity-solutions.md)
+## [关联 Azure 订阅](active-directory-how-subscriptions-associated-directory.md)
+## [常见问题](active-directory-faq.md)
+
 
 
 # 入门
-## [关联 Azure 订阅](./active-directory-how-subscriptions-associated-directory.md)
-## [为组织获取 Azure](./sign-up-organization.md)
-## [常见问题](./active-directory-faq.md)
+## [Azure AD 入门](get-started-azure-ad.md)
+## [添加自定义域名](add-custom-domain.md)
+## [配置公司品牌](customize-branding.md)
+## [将用户添加到 Azure AD](add-users-azure-active-directory.md)
+
 
 # 如何
+## 规划和设计
+### [了解 Azure AD 体系结构](active-directory-architecture.md)
+### [Azure Active Directory 中的声明映射](active-directory-claims-mapping.md)
+
+
 ## 管理用户
-### 添加用户
-#### [经典门户](./active-directory-create-users.md)
-### 从其他目录添加用户
-#### [经典门户](./active-directory-create-users-external.md)
-### [共享帐户](./active-directory-sharing-accounts.md)
+### [将新用户添加到 Azure AD](add-users-azure-active-directory.md)
+### [管理用户个人资料](active-directory-users-profile-azure-portal.md)
+### [共享帐户](active-directory-sharing-accounts.md)
+### [将用户分配到管理员角色](active-directory-users-assign-role-azure-portal.md)
+
+## [管理组和成员](active-directory-manage-groups.md)
+### 管理组
+#### [Azure 门户](active-directory-groups-create-azure-portal.md)
+#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+### [管理组成员](active-directory-groups-members-azure-portal.md)
+### [管理组成员身份](active-directory-groups-membership-azure-portal.md)
+### [查看所有组](active-directory-groups-view-azure-portal.md)
+### 管理组设置
+#### [Azure 门户](active-directory-groups-settings-azure-portal.md)
 
 
-## [管理密码](./active-directory-manage-passwords.md)
+## 管理密码
 ### [更新自己的密码](./active-directory-passwords-update-your-own-password.md)
 ### [了解策略和限制](./active-directory-passwords-policy.md)
 ### 重置密码
-#### [经典门户](./active-directory-create-users-reset-password.md)
+
 ### [设置过期策略](./active-directory-passwords-set-expiration-policy.md)
-### 启用密码管理
-#### [设置自助密码重置](./active-directory-passwords.md)
+
 
 ## 管理设备
 ### 基于证书的身份验证
@@ -33,64 +51,77 @@
 #### [iOS](./active-directory-certificate-based-authentication-ios.md)
 
 ## 管理应用
-### [概述](./active-directory-enable-sso-scenario.md)
-### [入门](./active-directory-integrating-applications-getting-started.md)
-### [了解应用 SSO](./active-directory-appssoaccess-whatis.md)
-### 集成 SaaS 应用
-#### [经典门户](./active-directory-sso-integrate-saas-apps.md)
+### [概述](active-directory-enable-sso-scenario.md)
+### [入门](active-directory-integrating-applications-getting-started.md)
 
-### 开发
-#### [分配用户](./active-directory-applications-guiding-developers-assigning-users.md)
-#### [需要分配](./active-directory-applications-guiding-developers-requiring-user-assignment.md)
-#### [开发 LoB 应用](./active-directory-applications-guiding-developers-for-lob-applications.md)
-### [管理对应用的访问](./active-directory-managing-access-to-apps.md)
+
+
+
+
+
+### 管理企业应用
+#### [分配用户](active-directory-coreapps-assign-user-azure-portal.md)
+#### [自定义品牌](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+#### [禁用用户登录](active-directory-coreapps-disable-app-azure-portal.md)
+#### [删除用户](active-directory-coreapps-remove-assignment-azure-portal.md)
+#### [查看我的所有应用](active-directory-coreapps-view-azure-portal.md)
+
+
+### [管理对应用的访问](active-directory-managing-access-to-apps.md)
+
+
+### [故障排除](active-directory-application-troubleshoot-content-map.md)
+#### [应用程序开发](active-directory-application-dev-troubleshoot-content-map.md)
+##### [配置和注册](active-directory-application-dev-config-content-map.md)
+##### [开发](active-directory-application-dev-development-content-map.md)
+#### [应用程序管理](active-directory-application-management-troubleshoot-content-map.md)
+##### [登录](active-directory-application-sign-in-content-map.md)
+
+##### [管理访问](active-directory-application-access-content-map.md)
+### [开发应用](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [文档库](active-directory-apps-index.md)
 
-
 ## 管理目录
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 自定义域名
-#### [概述](./active-directory-add-domain-concepts.md)
-#### 添加域名
-##### [经典门户](./active-directory-add-domain.md)
-##### [使用 AD FS](./active-directory-add-domain-federated.md)
-#### [分配用户](./active-directory-add-domain-add-users.md)
-#### 管理域名
-##### [经典门户](./active-directory-add-manage-domain-names.md)
-### 自定义登录页
-### [管理目录](./active-directory-administer.md)
-### [自助注册](./active-directory-self-service-signup.md)
+#### [快速入门](add-custom-domain.md)
+#### [添加自定义域名](active-directory-domains-manage-azure-portal.md)
+### [管理目录](active-directory-administer.md)
+
+
+
+
 ### [使用 Azure AD Connect 集成本地标识](./connect/active-directory-aadconnect.md)
 
+## [管理对 Azure 的访问权限](toc.yml)
 
 ## 委托对资源的访问权限
-### [管理员角色](./active-directory-assign-admin-roles.md)
-### [Azure 中的资源访问权限](./active-directory-understanding-resource-access.md)
-### [基于角色的访问控制](./role-based-access-control-what-is.md)
-#### 管理访问权限
-##### [经典门户](./role-based-access-control-configure.md)
-#### [内置角色](./role-based-access-built-in-roles.md)
-#### [自定义角色](./role-based-access-control-custom-roles.md)
-#### [报告](./role-based-access-control-access-change-history-report.md)
-#### 管理角色的更多方式
-##### [Azure CLI](./role-based-access-control-manage-access-azure-cli.md)
-##### [PowerShell](./role-based-access-control-manage-access-powershell.md)
-##### [REST](./role-based-access-control-manage-access-rest.md)
-#### [故障排除](./role-based-access-control-troubleshooting.md)
-
-## [在 Azure VM 上部署](./virtual-networks-windows-server-active-directory-virtual-machines.md)
-### [Azure VM 上的 Windows Server Active Directory](./active-directory-deploying-ws-ad-guidelines.md)
-### [Azure 虚拟网络中的副本域控制器](./active-directory-install-replica-active-directory-domain-controller.md)
-### [在 Azure 虚拟网络中新建林](./active-directory-new-forest-virtual-machine.md)
-### [高可用性](./active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-### [更改签名哈希算法](./active-directory-federation-sha256-guidance.md)
-
-## [故障排除](./active-directory-troubleshooting.md)
+### [管理员角色](active-directory-assign-admin-roles-azure-portal.md)
+#### [分配管理员角色](active-directory-users-assign-role-azure-portal.md)
 
 
-# 引用
-## [PowerShell cmdlets](http://docs.microsoft.com/powershell/ )
-## [Java API 参考](/java/api/overview)
+
+
+
+
+
+
+## [在 Azure 中部署 AD FS](./connect/active-directory-aadconnect-azure-adfs.md)
+### [高可用性](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+### [更改签名哈希算法](active-directory-federation-sha256-guidance.md)
+
+
+## 部署 Azure AD 概念证明 (PoC)
+### [PoC 演练手册：简介](active-directory-playbook-intro.md)
+### [PoC 演练手册：要素](active-directory-playbook-ingredients.md)
+### [PoC 演练手册：实现](active-directory-playbook-implementation.md)
+### [PoC 演练手册：构建基块](active-directory-playbook-building-blocks.md)
+
+# 参考
+## [PowerShell cmdlet](http://docs.microsoft.com/powershell/azure/overview )
+## [Java API 参考](/java/api)
 ## [.NET API](http://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
+## [服务限制和局限性](active-directory-service-limits-restrictions.md)
 
 # 相关内容
 ## [多重身份验证](/multi-factor-authentication/)

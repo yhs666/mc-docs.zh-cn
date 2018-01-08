@@ -3,7 +3,7 @@ title: "了解 Azure IoT 中心消息格式 | Azure"
 description: "开发人员指南 - 描述 IoT 中心消息的格式和预期内容。"
 services: iot-hub
 documentationcenter: .net
-author: Derek1101
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/25/2017
 ms.author: v-yiso
-ms.date: 11/20/2017
-ms.openlocfilehash: 43167bda66628c94c881714f0173a70406e24763
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.date: 01/15/2018
+ms.openlocfilehash: 4771eb5d36ea023a28d045b7aa0b849081dbaedd
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>创建和读取 IoT 中心消息
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/09/2017
 * 一组 *应用程序属性*。 应用程序可以定义的字符串属性字典，而不需将消息正文反序列化即可进行访问。 IoT 中心永不修改这些属性。
 * 不透明的二进制正文。
 
-以下情况下，属性名称和值只能包含 ASCII 字母数字字符加上 ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``：
+以下情况下，属性名称和值只能包含 ASCII 字母数字字符加上 ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``：  
 
 * 使用 HTTPS 协议发送设备到云的消息。
 * 发送云到设备的消息。

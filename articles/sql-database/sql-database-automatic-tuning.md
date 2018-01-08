@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/08/2017
-ms.date: 12/11/2017
+origin.date: 01/02/2018
+ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 41124df0b9c8d2acc471ceeca3521edbf7fc1b3c
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 14096ea26b6999b4e457dc46d014d1f73696cef8
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL 数据库中的自动优化
 
@@ -49,7 +49,7 @@ Azure SQL 数据库所应用的优化操作非常安全，可满足最紧张工�
 
 ![自动优化的工作原理](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
-Azure SQL 数据库自动优化与 SQL Server 自动优化引擎共享其核心逻辑。 有关内置智能机制的其他技术信息，请参阅 [SQL Server 自动优化](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning)。
+Azure SQL 数据库自动优化与 SQL Server 自动优化引擎共享其核心逻辑。 有关内置智能机制的其他技术信息，请参阅 [SQL Server 自动优化](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)。
 
 ## <a name="use-automatic-tuning"></a>使用自动优化
 
@@ -74,12 +74,11 @@ Azure SQL 数据库中可用的自动优化选项包括：
 
 Azure SQL 数据库确定可优化数据库的“创建索引”、“删除索引”和“强制执行上一个卓越计划”建议，并在 Azure 门户中显示它们。 如需详细了解如何标识应更改的索引，请参阅[在 Azure 门户中查找索引建议](sql-database-advisor-portal.md)。 可以使用门户手动应用建议，也可以让 Azure SQL 数据库自动应用建议，在更改后监视工作负载，并验证该建议是否改进了工作负载的性能。
 
-每个数据库都可以独立打开或关闭自动优化选项，也可以在逻辑服务器上配置这些选项，并将其应用于从服务器继承设置的每个数据库。 在服务器上配置[自动优化](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)选项，并继承服务器中数据库的设置，这是配置自动优化的建议方法，因为它可简化对大量数据库的自动优化选项的管理。
-
+每个数据库都可以独立打开或关闭自动优化选项，也可以在逻辑服务器上配置这些选项，并将其应用于从服务器继承设置的每个数据库。 要配置自动优化，建议在服务器上配置自动优化选项并继承服务器中数据库的设置，因为这会简化对大量数据库的自动优化选项的管理。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 若要在 Azure SQL 数据库中启用自动优化以管理工作负载，请参阅[启用自动优化](sql-database-automatic-tuning-enable.md)。
 - 若要手动查看并应用自动优化建议，请参阅[查找并应用性能建议](sql-database-advisor-portal.md)。
 - 若要详细了解自动优化中使用的内置智能，请参阅 [Artificial Intelligence tunes Azure SQL Databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/)（人工智能优化 Azure SQL 数据库）。
-- 若要了解有关 Azure SQL 数据库和 SQL Server 2017 中自动优化工作原理的详细信息，请参阅 [SQL Server 自动优化](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning)。
+- 若要了解有关 Azure SQL 数据库和 SQL Server 2017 中自动优化工作原理的详细信息，请参阅 [SQL Server 自动优化](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)。

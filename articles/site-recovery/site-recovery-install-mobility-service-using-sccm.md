@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 07/31/2017
+origin.date: 11/29/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: d4a6e6b5eff9d7d4deab0d4d86bb237756783649
-ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
+ms.openlocfilehash: f39346c45057d79868a6b9efb0fc8105aca3b38d
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="automate-mobility-service-installation-by-using-software-deployment-tools"></a>使用软件部署工具自动执行移动服务安装
 
@@ -176,7 +176,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 | **参数名称** | **值** |
 |--|--|
-| 名称 | 安装 Azure 移动服务 (Windows) |
+| Name | 安装 Azure 移动服务 (Windows) |
 | 命令行 | install.bat |
 | 程序可运行 | 用户是否已登录 |
 
@@ -194,7 +194,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 ### <a name="step-3-deploy-the-package"></a>步骤 3：部署包
 1. 在 Configuration Manager 控制台中，右键单击包，然后选择“分发内容”。
     ![Configuration Manager 控制台的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
-2. 选择包应复制到的“分发点”**[](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
+2. 选择包应复制到的**[“分发点”](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
 3. 完成该向导。 包随后开始复制到指定的分发点。
 4. 完成包分发后，右键单击包，然后选择“部署”。
     ![Configuration Manager 控制台的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
@@ -399,7 +399,7 @@ cd /tmp
 
 | **参数名称** | **值** |
 |--|--|
-| 名称 | 安装 Azure 移动服务 (Linux) |
+| Name | 安装 Azure 移动服务 (Linux) |
 | 命令行 | ./install_linux.sh |
 | 程序可运行 | 用户是否已登录 |
 
@@ -416,7 +416,7 @@ cd /tmp
 ### <a name="step-3-deploy-the-package"></a>步骤 3：部署包
 1. 在 Configuration Manager 控制台中，右键单击包，然后选择“分发内容”。
     ![Configuration Manager 控制台的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
-2. 选择包应复制到的“分发点”**[](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
+2. 选择包应复制到的**[“分发点”](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
 3. 完成该向导。 包随后开始复制到指定的分发点。
 4. 完成包分发后，右键单击包，然后选择“部署”。
     ![Configuration Manager 控制台的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
@@ -428,6 +428,7 @@ cd /tmp
 7. 在“指定设置以控制此软件的部署方式”页上，确保目的为“必需”。
 
     ![部署软件向导的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
+
 8. 在“为此部署指定计划”页中，指定计划。 有关详细信息，请参阅[计划包](https://technet.microsoft.com/library/gg682178.aspx)。
 9. 在“分发点”页上，根据数据中心的需求配置属性。 然后完成向导。
 
@@ -467,4 +468,4 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 ## <a name="next-steps"></a>后续步骤
 现在，可为虚拟机 [启用保护](/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications)。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

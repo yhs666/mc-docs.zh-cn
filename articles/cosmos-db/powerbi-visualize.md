@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/16/2017
-ms.date: 09/25/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1f376d92fecd3a71582dc20f152d892c1aa97977
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: cf67d105403b6d059a56c7c4c4f75e905bccbf5d
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>针对 Azure Cosmos DB 的 Power BI 教程：使用 Power BI 连接器来将数据可视化
+# <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB 的 Power BI 教程：使用 Power BI 连接器可视化数据
 
             [PowerBI.com](https://powerbi.microsoft.com/) 是一个在线服务，在此处可以创建和共享包含对你和组织来说很重要的数据的仪表板和报表。  Power BI Desktop 是一个专用的报表创作工具，用于从各种数据源检索数据、合并和转换数据、创建功能强大的报表和可视化效果以及将报表发布到 Power BI。  使用最新版本的 Power BI Desktop，现在可以通过 Power BI 的 Cosmos DB 连接器连接到 Cosmos DB 帐户。   
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 09/22/2017
 
 * [最新版本的 Power BI Desktop](https://powerbi.microsoft.com/desktop)。
 * 在 Cosmos DB 帐户中访问我们的演示帐户或数据。
-  * 演示帐户使用本教程中显示的火山数据填充。 此演示帐户未被任何 SLA 绑定且只用于演示意图。  我们保留对此演示帐户进行修改的权利，包括但不限于在任何时间无需提前通知或理由而终止帐户、更改密钥、限制访问、更改和删除数据。
+  * 演示帐户使用本教程中显示的火山数据填充。 此演示帐户未由任何 SLA 绑定且只用于演示目的。  我们保留对此演示帐户进行修改的权利，包括但不限于在任何时间无需提前通知或理由而终止帐户、更改密钥、限制访问、更改和删除数据。
     * URL：https://analytics.documents.azure.cn
     * 只读密钥：MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
   * 或者，若要创建自己的帐户，请参阅“使用 Azure 门户创建 Azure Cosmos DB 数据库帐户”。 然后，要获取类似于本教程中使用的示例火山数据（但不包含 GeoJSON 块），请参阅 [NOAA 站点](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5)，并使用 [Azure Cosmos DB 数据迁移工具](import-data.md)导入数据。
@@ -95,14 +95,14 @@ ms.lasthandoff: 09/22/2017
 6. 在“预览连接器”页中，单击“继续”。 此时将显示“Azure Cosmos DB 连接”窗口。
 7. 如下所示指定想要从其中检索数据的 Cosmos DB 帐户终结点 URL，并单击“确定”。 要使用自己的帐户，可以在 Azure 门户的[“密钥”](manage-account.md#keys)边栏选项卡的 URI 框检索 URL。 要使用此演示帐户，请为 URL 输入 `https://analytics.documents.azure.cn`。 
 
-    将数据库名称、集合名称和 SQL 声明留空，因为这些字段为可选。  我们使用导航器选择数据库和集合以指定数据来源。
+    数据库名称、集合名称和 SQL 语句都可留空，因为这些字段是可选的。  我们使用导航器选择数据库和集合以指定数据来源。
 
     ![Azure Cosmos DB Power BI 连接器的 Power BI 教程 - 桌面连接窗口](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
 8. 如果是首次连接到此终结点，则会提示输入帐户密钥。 若使用自己的帐户，请从 Azure 门户的[“只读密钥”](manage-account.md#keys)边栏选项卡中的“主密钥”框中检索密钥。 对于演示帐户，该密钥为 `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`。 输入相应的密钥，然后单击“连接”。
 
-    我们建议在生成报表时使用只读密钥。  这会防止主密钥不必要地暴露于潜在的安全风险中。 只读密钥从 Azure 门户的“密钥”[](manage-account.md#keys)边栏选项卡中可用，或者可以使用上文提供的演示帐户信息。
+    我们建议在生成报表时使用只读密钥。  这会防止主密钥不必要地暴露于潜在的安全风险中。 只读密钥从 Azure 门户的[“密钥”](manage-account.md#keys)边栏选项卡中可用，或者可以使用上文提供的演示帐户信息。
 
-    ![Azure Cosmos DB Power BI 连接器的 Power BI 教程 - 帐户密钥](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
+    ![针对 Azure Cosmos DB Power BI 连接器的 Power BI 教程 - 帐户密钥](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
 
     > [!NOTE] 
     > 如果收到“未找到指定的数据库”的错误消息， 请参阅此 [Power BI 问题](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200)中的变通办法步骤。
@@ -113,7 +113,7 @@ ms.lasthandoff: 09/22/2017
 
     预览窗格显示“记录”项的列表。  文档在 Power BI 中表示为一种“记录”类型。 同样，文档内部的嵌套 JSON 块也是“记录”。
 
-    ![Azure Cosmos DB Power BI 连接器的 Power BI 教程 - 导航器窗口](./media/powerbi-visualize/power_bi_connector_pbinavigator.png)
+    ![针对 Azure Cosmos DB Power BI 连接器的 Power BI 教程 - 导航器窗口](./media/powerbi-visualize/power_bi_connector_pbinavigator.png)
 12. 单击“编辑”在新窗口中启动查询编辑器，以转换数据。
 
 ## <a name="flattening-and-transforming-json-documents"></a>平展和转换 JSON 文档
@@ -125,7 +125,7 @@ ms.lasthandoff: 09/22/2017
 3. 中心窗格以所选字段显示结果预览。
 
     ![针对 Azure Cosmos DB Power BI 连接器的 Power BI 教程 - 平展结果](./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png)
-4. 在我们的示例中，“位置”属性是文档中的一个 GeoJSON 块。  可以看到，“位置”在 Power BI Desktop 中表示为一种“记录”类型。  
+4. 在我们的示例中，“位置”属性在文档中为 GeoJSON 块。  可以看到，“位置”在 Power BI Desktop 中表示为一种“记录”类型。  
 5. 单击“位置”列标题右侧的扩展器。  会显示具有类型和坐标字段的上下文菜单。  选择坐标字段并单击“确定”。
 
     ![针对 Azure Cosmos DB Power BI 连接器的 Power BI 教程 - 位置记录](./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png)
@@ -169,7 +169,7 @@ ms.lasthandoff: 09/22/2017
 3. “报表”画布，可以在其中为报表生成视觉效果。
 4. “报表”页。 可以在 Power BI Desktop 中添加多个报表页。
 
-下面演示创建简单交互地图视图报表的基本步骤。
+下面将演示创建简单交互地图视图报表的基本步骤。
 
 1. 对于我们的示例，我们创建显示每座火山的位置的地图视图。  在“可视化”窗格中，单击如上屏幕截图中突出显示的“地图”视觉对象类型。  应会看到绘制在“报表”画布上的地图视觉对象类型。  “可视化”窗格还应该显示一组与地图视觉对象类型相关的属性。
 2. 现在，从“字段”窗格中将经纬度字段拖放到“可视化”窗格中的“位置”属性。
@@ -184,11 +184,11 @@ ms.lasthandoff: 09/22/2017
 要共享报表，必须在 PowerBI.com 中拥有帐户。
 
 1. 在 Power BI Desktop 中，单击“主页”功能区。
-2. 单击“发布” 。  系统会提示输入 PowerBI.com 帐户的用户名和密码。
+2. 单击“发布”。  系统会提示输入 PowerBI.com 帐户的用户名和密码。
 3. 凭据通过身份验证后，报表将发布到选择的目标。
 4. 单击“在 Power BI 中打开‘PowerBITutorial.pbix’”，以在 Power BI.com 上查看并共享报表。
 
-    ![已成功发布到 Power BI！ 在 Power BI 中打开教程](./media/powerbi-visualize/power_bi_connector_open_in_powerbi.png)
+    ![成功发布到 Power BI！ 在 Power BI 中打开教程](./media/powerbi-visualize/power_bi_connector_open_in_powerbi.png)
 
 ## <a name="create-a-dashboard-in-powerbicom"></a>在 PowerBI.com 中创建仪表板
 现在，已创建一份可在 PowerBI.com 上共享的报表
@@ -206,7 +206,7 @@ ms.lasthandoff: 09/22/2017
 还可在创建仪表板之前进行即席修改。 但是，我们建议使用 Power BI Desktop 执行修改，并将报表重新发布到 PowerBI.com。
 
 ## <a name="refresh-data-in-powerbicom"></a>刷新 PowerBI.com 中的数据
-有两种方式可以刷新数据：即席刷新和计划刷新。
+刷新数据有两种方法，临时和计划。
 
 对于临时刷新，只需单击“数据集”旁的省略号 (…)，例如 PowerBITutorial。 单击“立即刷新”即可刷新数据。 Click <bpt id="p1">**</bpt>Refresh Now<ept id="p1">**</ept> to refresh the data.
 
@@ -226,7 +226,7 @@ ms.lasthandoff: 09/22/2017
 6. 单击“应用”，这便完成了计划刷新设置。
 
 ## <a name="next-steps"></a>后续步骤
-* 有关 Power BI 的详细信息，请参阅 [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)（Power BI 入门）。
+* 有关 Power BI 的详细信息，请参阅 [Power BI 入门](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)。
 * 有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB 文档登陆页](/documentdb/)。
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: wording update, update link-->
