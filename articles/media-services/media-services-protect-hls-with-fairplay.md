@@ -3,7 +3,7 @@ title: "使用 Microsoft PlayReady 或 Apple FairPlay 保护 HLS 内容 - Azure 
 description: "本主题概括介绍并演示了如何使用 Azure 媒体服务通过 Apple FairPlay 动态加密 HTTP Live Streaming (HLS) 内容。 它还演示了如何使用媒体服务许可证传送服务将 FairPlay 许可证传送到客户端。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
@@ -12,46 +12,43 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/18/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 62375f31078d033363750871f152b3bfc5fc1c04
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 12/09/2017
+ms.date: 12/11/2017
+ms.author: v-nany
+ms.openlocfilehash: acceb41bad3012368b0403385988cc78dd063d36
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容
 使用 Azure 媒体服务，可使用以下格式动态加密 HTTP Live Streaming (HLS) 内容：  
 
 * **AES-128 信封明文密钥**
 
-    整个区块使用 AES-128 CBC 模式进行加密。 iOS 和 OS X 播放器本身支持解密流。 有关详细信息，请参阅[使用 AES-128 动态加密和密钥传递服务](media-services-protect-with-aes128.md)。
+    整个区块使用 **AES-128 CBC** 模式进行加密。 iOS 和 OS X 播放器本身支持解密流。 有关详细信息，请参阅[使用 AES-128 动态加密和密钥传递服务](media-services-protect-with-aes128.md)。
 * **Apple FairPlay**
 
-    各视频和音频示例都使用 AES-128 CBC 模式进行加密。 FairPlay 流式处理 (FPS) 集成到设备操作系统，iOS 和 Apple TV 本身支持这项功能。 OS X 上的 Safari 通过加密媒体扩展 (EME) 接口支持来启用 FPS。
+    各视频和音频示例都使用 **AES-128 CBC** 模式进行加密。 **FairPlay 流式处理** (FPS) 集成到设备操作系统，iOS 和 Apple TV 本身支持这项功能。 OS X 上的 Safari 使用加密媒体扩展 (EME) 接口支持启用 FPS。
 * **Microsoft PlayReady**
 
-下图显示了 HLS + FairPlay 或 PlayReady 动态加密工作流。
+下图显示了 **HLS + FairPlay 或 PlayReady 动态加密**工作流。
 
 ![动态加密工作流的图示](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
 
-本主题演示如何使用媒体服务通过 Apple FairPlay 动态加密 HLS 内容。 它还演示了如何使用媒体服务许可证传送服务将 FairPlay 许可证传送到客户端。
+本文演示如何使用媒体服务通过 Apple FairPlay 动态加密 HLS 内容。 它还演示了如何使用媒体服务许可证传送服务将 FairPlay 许可证传送到客户端。
 
-> [!NOTE]
-> 如果还想要使用 PlayReady 加密 HLS 内容，则需要创建一个通用的内容密钥并将其与资产相关联。 还需要配置内容密钥的授权策略，如[使用 PlayReady 动态通用加密](media-services-protect-with-drm.md)中所述。
->
->
+
 
 ## <a name="requirements-and-considerations"></a>要求和注意事项
 
 在使用媒体服务传送通过 FairPlay 加密的 HLS 和传送 FairPlay 许可证时，需要以下各项：
 
-    - 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
-    - 一个媒体服务帐户。若要创建媒体服务帐户，请参阅[使用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
-    - 注册 [Apple 开发计划](https://developer.apple.com/)。
-    - Apple 要求内容所有者获取 [部署包](https://developer.apple.com/contact/fps/)。 说明已使用媒体服务实现密钥安全模块 (KSM)，以及正在请求最终 FPS 包。 最终 FPS 包中有如何生成证书和获取应用程序密钥 (ASK) 的说明。 可使用 ASK 配置 FairPlay。 
-    - Azure 媒体服务 .NET SDK **3.6.0** 版本或更高版本。
+    * 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+    * 一个媒体服务帐户。若要创建媒体服务帐户，请参阅[使用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
+    * 注册 [Apple 开发计划](https://developer.apple.com/)。
+    * Apple 要求内容所有者获取 [部署包](https://developer.apple.com/contact/fps/)。 说明已使用媒体服务实现密钥安全模块 (KSM)，以及正在请求最终 FPS 包。 最终 FPS 包中有如何生成证书和获取应用程序密钥 (ASK) 的说明。 可使用 ASK 配置 FairPlay。 
+    * Azure 媒体服务 .NET SDK **3.6.0** 版本或更高版本。
 
 必须在媒体服务密钥传送端上设置以下各项：
 
@@ -70,15 +67,15 @@ ms.lasthandoff: 08/31/2017
     3. 从命令行运行以下命令。 这会将 .pem 文件转换为包含私钥的 .pfx 文件。 然后， OpenSSL 会要求提供 .pfx 文件的密码。
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
-  * 应用证书密码：用于创建 .pfx 文件的密码。
+  * **应用证书密码**：用于创建 .pfx 文件的密码。
   * 应用证书密码 ID：必须上传密码，其方式与上传其他媒体服务密钥类似。 使用 ContentKeyType.FairPlayPfxPassword 枚举值获取媒体服务 ID。 需要在密钥传送策略选项中使用此 ID。
   * iv：这是 16 字节的随机值。 该值必须与资产传送策略中的 iv 相匹配。 生成 iv 并将其放入以下两个位置：资产传送策略和密钥传送策略选项。
-  * ASK：使用 Apple 开发人员门户生成证书时会收到此密钥。 每个开发团队会收到唯一的 ASK。 请保存一份 ASK 副本，并将其存储在安全位置。 稍后需要将 ASK 作为 FairPlayAsk 配置到媒体服务。
+  * ASK：使用 Apple 开发人员门户生成证书时会收到此密钥。 每个开发团队都会收到唯一的 ASK。 请保存一份 ASK 副本，并将其存储在安全位置。 稍后需要将 ASK 作为 FairPlayAsk 配置到媒体服务。
   * ASK ID：将 ASK 上传到媒体服务中时，将获取此 ID。 必须使用 ContentKeyType.FairPlayAsk 枚举值上传 ASK。 因此，将返回媒体服务 ID，在设置密钥传送策略选项时应使用此 ID。
 
 以下事项必须通过 FPS 客户端来设置：
 
-  * 应用证书 (AC)：这是一个包含公钥的 .cer/.der 文件，操作系统使用它来加密某些负载。 媒体服务需要了解它，因为播放器需要它。 密钥传送服务使用相应的私钥对其进行解密。
+  * **应用证书 (AC)**：这是一个包含公钥的 .cer/.der 文件，操作系统使用它来加密某些负载。 媒体服务需要了解它，因为播放器需要它。 密钥传送服务使用相应的私钥对其进行解密。
 
 若要播放 FairPlay 加密的流，需要先获取实际 ASK，然后生成实际证书。 该过程将创建所有三个部分：
 
@@ -97,7 +94,7 @@ ms.lasthandoff: 08/31/2017
 4. 配置内容密钥授权策略。 指定以下项：
 
    * 传送方法（在本例中为 FairPlay）。
-   * FairPlay 策略选项配置。 有关如何配置 FairPlay 的详细信息，请参阅以下示例中的 ConfigureFairPlayPolicyOptions() 方法。
+   * FairPlay 策略选项配置。 有关如何配置 FairPlay 的详细信息，请参阅以下示例中的 **ConfigureFairPlayPolicyOptions()** 方法。
 
      > [!NOTE]
      > 通常，可能只需配置一次 FairPlay 策略选项，因为仅有一套证书和 ASK。
@@ -114,7 +111,7 @@ ms.lasthandoff: 08/31/2017
      > [!NOTE]
      > 如果要传送使用 FairPlay 和其他数字版权管理 (DRM) 系统加密的流，则必须配置单独的传送策略：
      >
-     > * 一个 IAssetDeliveryPolicy，用于使用通用加密 (CENC) (PlayReady + Widevine) 和 Smooth with PlayReady 配置 HTTP 上的动态自适应流式处理 (DASH)
+     > * 一个 IAssetDeliveryPolicy，用于使用通用加密 (CENC) (PlayReady) 和 Smooth with PlayReady 配置 HTTP 上的动态自适应流式处理 (DASH)
      > * 另一个 IAssetDeliveryPolicy 用来配置 HLS 的 FairPlay
      >
      >
@@ -126,7 +123,7 @@ ms.lasthandoff: 08/31/2017
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player 不支持现成的 FairPlay 播放。 若要获得 MAC OS X 上的 FairPlay 播放，需要通过 Apple 开发人员帐户获得示例播放器。
+> Azure Media Player 支持 FairPlay 播放。 请参阅 [Azure Media Player 文档](https://amp.azure.net/libs/amp/latest/docs/index.html)了解详细信息。
 >
 >
 
@@ -135,17 +132,17 @@ ms.lasthandoff: 08/31/2017
 
 请注意以下事项：
 
-* 仅可指定零个或一个加密类型。
+* 仅可以指定零个或一个加密类型。
 * 如果资产仅应用了一种加密，则无需在 URL 中指定加密类型。
 * 加密类型不区分大小写。
 * 可以指定以下加密类型：  
   * cenc：通用加密 (PlayReady)
   * cbcs-aapl：Fairplay
-  * cbc：AES 信封加密
+  * **cbc**：AES 信封加密
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>创建和配置 Visual Studio 项目
 
-1. 设置开发环境，并在 app.config 文件中填充连接信息，如[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述。 
+1. 设置开发环境，并根据[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述，在 app.config 文件中填充连接信息。 
 2. 将以下元素添加到 app.config 文件中定义的 appSettings：
 
         <add key="Issuer" value="http://testacs.com"/>
@@ -158,32 +155,37 @@ ms.lasthandoff: 08/31/2017
 使用本部分中所示的代码覆盖 Program.cs 文件中的代码。
 
 >[!NOTE]
->不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies)主题。
+>不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[本文](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
 请务必将变量更新为指向输入文件所在的文件夹。
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Threading;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
-    using Microsoft.WindowsAzure.MediaServices.Client.FairPlay;
-    using Newtonsoft.Json;
-    using System.Security.Cryptography.X509Certificates;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
+using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+using Microsoft.WindowsAzure.MediaServices.Client.FairPlay;
+using Newtonsoft.Json;
+using System.Security.Cryptography.X509Certificates;
 
-    namespace DynamicEncryptionWithFairPlay
+namespace DynamicEncryptionWithFairPlay
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static readonly Uri _sampleIssuer =
             new Uri(ConfigurationManager.AppSettings["Issuer"]);
@@ -201,7 +203,11 @@ ms.lasthandoff: 08/31/2017
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -221,9 +227,9 @@ ms.lasthandoff: 08/31/2017
             Console.WriteLine();
 
             if (tokenRestriction)
-            tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
+                tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
             else
-            AddOpenAuthorizationPolicy(key);
+                AddOpenAuthorizationPolicy(key);
 
             Console.WriteLine("Added authorization policy: {0}", key.AuthorizationPolicyId);
             Console.WriteLine();
@@ -234,19 +240,19 @@ ms.lasthandoff: 08/31/2017
 
             if (tokenRestriction && !String.IsNullOrEmpty(tokenTemplateString))
             {
-            // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
-            // back into a TokenRestrictionTemplate class instance.
-            TokenRestrictionTemplate tokenTemplate =
-                TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
+                // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
+                // back into a TokenRestrictionTemplate class instance.
+                TokenRestrictionTemplate tokenTemplate =
+                    TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-            // Generate a test token based on the the data in the given TokenRestrictionTemplate.
-            // Note, you need to pass the key id Guid because we specified
-            // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
-            Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
-            string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
-                                        DateTime.UtcNow.AddDays(365));
-            Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
-            Console.WriteLine();
+                // Generate a test token based on the the data in the given TokenRestrictionTemplate.
+                // Note, you need to pass the key id Guid because we specified
+                // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
+                Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
+                string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
+                                            DateTime.UtcNow.AddDays(365));
+                Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+                Console.WriteLine();
             }
 
             string url = GetStreamingOriginLocator(encodedAsset);
@@ -259,8 +265,8 @@ ms.lasthandoff: 08/31/2017
         {
             if (!File.Exists(singleFilePath))
             {
-            Console.WriteLine("File does not exist.");
-            return null;
+                Console.WriteLine("File does not exist.");
+                return null;
             }
 
             var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
@@ -486,6 +492,7 @@ ms.lasthandoff: 08/31/2017
 
         }
 
+
         /// <summary>
         /// Gets the streaming origin locator.
         /// </summary>
@@ -530,13 +537,13 @@ ms.lasthandoff: 08/31/2017
             using (var rng =
             new System.Security.Cryptography.RNGCryptoServiceProvider())
             {
-            rng.GetBytes(returnValue);
+                rng.GetBytes(returnValue);
             }
 
             return returnValue;
         }
-        }
     }
-
+}
+```
 
 <!--Update_Description: update code to use AAD token instead of ACS-->

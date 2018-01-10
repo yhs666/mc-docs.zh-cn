@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 11/16/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: c0586a18b17db17227006efc12a3197d3a8bef91
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: c95a14fa4e94ec1157558d36a9f43f0c77bfe042
+ms.sourcegitcommit: ac0aab977d289366db6a9b230f27a6a8c6c190e9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 
@@ -48,8 +48,7 @@ ms.lasthandoff: 12/08/2017
 
 ### <a name="ip-address-version"></a>IP 地址版本
 
-公共 IP 地址是使用 IPv4 或 IPv6 地址创建的。 公共 IPv6 地址只能分配到面向 Internet 的负载均衡器。
-
+公共 IP 地址是使用 IPv4 地址创建的。
 ### <a name="sku"></a>SKU
 
 使用以下 SKU 之一创建公共 IP 地址：
@@ -90,7 +89,7 @@ ms.lasthandoff: 12/08/2017
 
 * 必须更新防火墙规则才能与 Azure 资源通信。
 * 对 DNS 名称进行解析时，如果更改了 IP 地址，则需更新 A 记录。
-* Azure 资源与其他使用 IP 地址型安全模型的应用或服务通信。
+* Azure 资源可与使用基于 IP 地址的安全模型的其他应用或服务通信。
 * 使用链接到 IP 地址的 SSL 证书。
 
 > [!NOTE]

@@ -4,7 +4,7 @@ description: "使用活动日志查看用户操作和错误。 显示 Azure 门�
 services: azure-resource-manager
 documentationcenter: 
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 ms.assetid: fcdb3125-13ce-4c3b-9087-f514c5e41e73
 ms.service: azure-resource-manager
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
-ms.date: 03/03/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: cb4c362f22df00a8e420c2452397096a8c84c7cb
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: ad63b42c7b744d4e888fef725158ba16cec8bbcb
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>查看活动日志，以便审核对资源的操作
 通过活动日志，可以确定：
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/13/2017
 * 谁启动了该操作（虽然由后端服务启动的操作不返回用户作为调用方）
 * 操作何时发生
 * 操作的状态
-* 其他可能有助于你研究操作的属性的值
+* 其他可能有助于研究操作的属性的值
 
 [!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
 
@@ -39,10 +39,10 @@ ms.lasthandoff: 07/13/2017
 
     ![选择活动日志](./media/resource-group-audit/select-monitor.png)
 
-    或者，若要自动筛选特定资源或资源组的活动日志，请从该资源边栏选项卡中选择“活动日志”  。 请注意，将通过所选资源对活动日志进行自动筛选。
+    或者，若要自动筛选特定资源或资源组的活动日志，请选择“活动日志”。 请注意，会通过所选资源对活动日志进行自动筛选。
 
     ![按资源筛选](./media/resource-group-audit/filtered-by-resource.png)
-2. 在“活动日志”  边栏选项卡中，可以看到最近操作的摘要。
+2. 在“活动日志”中，可以看到最近操作的摘要。
 
     ![显示操作](./media/resource-group-audit/audit-summary.png)
 3. 若要限制显示的操作的数量，请选择不同条件。 例如，下图显示更改“时间跨度”和“事件发起者”字段，以查看过去一个月内由特定用户或应用程序执行的操作。 选择“应用”  ，查看查询结果。
@@ -65,7 +65,7 @@ ms.lasthandoff: 07/13/2017
     ![查看操作](./media/resource-group-audit/view-operation.png)  
 
 ## <a name="powershell"></a>PowerShell
-1. 若要检索日志条目，请运行 **Get-AzureRmLog** 命令。 你可以提供附加参数来筛选条目列表。 如果未指定开始和结束时间，将返回最后一个小时的条目。 例如，若要检索过去一小时针对某个资源组的操作，请运行：
+1. 若要检索日志条目，请运行 **Get-AzureRmLog** 命令。 可以提供附加参数来筛选条目列表。 如果未指定开始和结束时间，则返回最后一个小时的条目。 例如，若要检索过去一小时针对某个资源组的操作，请运行：
 
     ```powershell
     Get-AzureRmLog -ResourceGroup ExampleGroup
@@ -83,7 +83,7 @@ ms.lasthandoff: 07/13/2017
     Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
     ```
 
-2. 根据指定的开始时间，前面的命令可能会返回对该资源组执行的一长串操作。 你可以提供搜索条件，以筛选所要查找的结果。 例如，若要调查 Web 应用的停止方式，可运行以下命令：
+2. 根据指定的开始时间，前面的命令可能会返回对该资源组执行的一长串操作。 可以提供搜索条件，以筛选所要查找的结果。 例如，若要调查 Web 应用的停止方式，可运行以下命令：
 
     ```powershell
     Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
@@ -109,7 +109,7 @@ ms.lasthandoff: 07/13/2017
     SubStatus         : OK
     ```
 
-3. 你可以查看特定用户针对某个资源组执行的操作，即使该资源组不再存在。
+3. 可以查看特定用户针对某个资源组执行的操作，即使该资源组不再存在。
 
     ```powershell
     Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
@@ -123,17 +123,13 @@ ms.lasthandoff: 07/13/2017
 
 5. 可以专注于一个错误，只需查看该条目的状态消息即可。
 
-    ```
-    ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
-    ```
+        ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
 
-    将返回：
+    返回：
 
-    ```
-    code           message                                                                        
-    ----           -------                                                                        
-    DnsRecordInUse DNS record dns.chinanorth.chinacloudapp.cn is already used by another public IP. 
-    ```
+        code           message                                                                        
+        ----           -------                                                                        
+        DnsRecordInUse DNS record dns.chinanorth.chinacloudapp.cn is already used by another public IP. 
 
 ## <a name="azure-cli"></a>Azure CLI
 * 若要检索日志条目，请运行 **azure group log show** 命令。
@@ -143,10 +139,13 @@ ms.lasthandoff: 07/13/2017
     ```
 
 ## <a name="rest-api"></a>REST API
-用于处理活动日志的 REST 操作是 [Insights REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931943.aspx)的一部分。 若要检索活动日志事件，请参阅 [列出订阅中的管理事件](https://msdn.microsoft.com/zh-cn/library/azure/dn931934.aspx)。
+用于处理活动日志的 REST 操作是 [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx)的一部分。 若要检索活动日志事件，请参阅 [列出订阅中的管理事件](https://msdn.microsoft.com/library/azure/dn931934.aspx)。
 
 ## <a name="next-steps"></a>后续步骤
-* Azure 活动日志可以与 Power BI 一起使用，以便更深入地了解在你的订阅中执行的操作。 请参阅 [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)（在 Power BI 和其他组件中查看和分析 Azure 活动日志）。
+* Azure 活动日志可以与 Power BI 一起使用，以便更深入地了解在订阅中执行的操作。 请参阅 [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)（在 Power BI 和其他组件中查看和分析 Azure 活动日志）。
 * 若要了解如何设置安全策略，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-configure.md)。
-* 若要了解用于查看部署操作的命令，请参阅[查看部署操作](./resource-manager-deployment-operations.md)。
-* 若要了解如何防止对所有用户的资源执行删除操作，请参阅[使用 Azure Resource Manager 锁定资源](./resource-group-lock-resources.md)。
+* 若要了解用于查看部署操作的命令，请参阅[查看部署操作](resource-manager-deployment-operations.md)。
+* 若要了解如何防止对所有用户的资源执行删除操作，请参阅[使用 Azure Resource Manager 锁定资源](resource-group-lock-resources.md)。
+* 若要查看可用于每个 Azure 资源管理器提供程序的操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)
+<!--Not Available the parent file of includes file of resource-manager-audit-limitations.md-->
+<!--ms.date:12/25/2017-->

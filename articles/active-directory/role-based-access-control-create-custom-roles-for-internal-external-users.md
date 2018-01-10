@@ -1,10 +1,10 @@
 ---
-title: "在 Azure 中创建自定义的基于角色的访问控制角色并将其分配给内部和外部用户 | Microsoft Docs"
+title: "在 Azure 中创建自定义的基于角色的访问控制角色并将其分配给内部和外部用户 | Azure"
 description: "为内部和外部用户分配使用 PowerShell 与 CLI 创建的自定义 RBAC 角色"
 services: active-directory
 documentationcenter: 
-author: andreicradu
-manager: catadinu
+author: yunan2016
+manager: digimobile
 editor: kgremban
 ms.assetid: 
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/10/2017
-ms.author: v-junlch
-ms.date: 06/12/2017
-ms.openlocfilehash: 4e310c77659fcc65eca1d4f10530349019b16994
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 12/06/2017
+ms.date: 1/1/2018
+ms.author: v-nany
+ms.openlocfilehash: 84c4c83062ae706cedaf7aae165994aff6959041
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 12/29/2017
 ---
-## <a name="intro-on-role-based-access-control"></a>基于角色的访问控制简介
+# <a name="intro-on-role-based-access-control"></a>基于角色的访问控制简介
 
 基于角色的访问控制是只能在 Azure 门户中使用的功能，可让订阅所有者将具体的角色分配到可在环境中管理特定资源范围的其他用户。
 
@@ -30,26 +30,26 @@ ms.lasthandoff: 06/21/2017
 ## <a name="prerequisites"></a>先决条件
 在 Azure 环境中使用 RBAC 需要满足以下要求：
 
-- 向所有者用户分配独立的 Azure 订阅（订阅角色）
-- 获取 Azure 订阅的所有者角色
-- 有权访问 [Azure 门户](https://portal.azure.cn)
-- 确保为用户订阅注册以下资源提供程序：**Microsoft.Authorization**。 有关如何注册资源提供程序的详细信息，请参阅 [Resource Manager 提供程序、区域、API 版本和架构](../azure-resource-manager/resource-manager-supported-services.md)。
+* 向所有者用户分配独立的 Azure 订阅（订阅角色）
+* 获取 Azure 订阅的所有者角色
+* 有权访问 [Azure 门户](https://portal.azure.cn)
+* 确保为用户订阅注册以下资源提供程序：**Microsoft.Authorization**。 有关如何注册资源提供程序的详细信息，请参阅 [Resource Manager 提供程序、区域、API 版本和架构](../azure-resource-manager/resource-manager-supported-services.md)。
 
 > [!NOTE]
-> 从 O365 门户预配的 Office 365 订阅或 Azure Active Directory 许可证（例如：Azure Active Directory 访问权限）不符合 RBAC 的使用条件。
+> 从 Office 365 管理中心预配的 Office 365 订阅或 Azure Active Directory 许可证（例如：Azure Active Directory 访问权限）不符合 RBAC 的使用条件。
 
 ## <a name="how-can-rbac-be-used"></a>如何使用 RBAC
 可在 Azure 中的三个不同范围应用 RBAC。 这些范围从最高到最低的顺序为：
 
-- 订阅（最高）
-- 资源组
-- 资源范围（最低访问级别，提供对单个 Azure 资源范围的所需权限）
+* 订阅（最高）
+* 资源组
+* 资源范围（最低访问级别，提供对单个 Azure 资源范围的所需权限）
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>在订阅范围分配 RBAC 角色
 使用 RBAC 时，有两个（但不限于）常见的示例：
 
-- 邀请组织外部的用户（不属于管理员用户的 Azure Active Directory 租户）管理特定的资源或整个订阅
-- 与组织内部的、但属于不同团队或组的用户（属于用户的 Azure Active Directory 租户）合作，这些团队或组需要对环境中的整个订阅或者特定资源组或资源范围拥有精细访问权限
+* 邀请组织外部的用户（不属于管理员用户的 Azure Active Directory 租户）管理特定的资源或整个订阅
+* 与组织内部的、但属于不同团队或组的用户（属于用户的 Azure Active Directory 租户）合作，这些团队或组需要对环境中的整个订阅或者特定资源组或资源范围拥有精细访问权限
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>为 Azure Active Directory 外部的用户授予订阅级访问权限
 RBAC 角色只能由订阅的“所有者”授予，因此管理员用户必须使用已预先分配有此角色或已创建 Azure 订阅的用户名登录。
@@ -103,7 +103,7 @@ RBAC 角色只能由订阅的“所有者”授予，因此管理员用户必须
 
 ![RBAC 角色的电子邮件邀请消息](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-从现在开始，该外部用户将显示在 Azure Active Directory 租户中，可以在 Azure 门户和经典管理门户中查看该用户。
+从现在开始，该外部用户会作为外部用户显示在 Azure Active Directory 租户中，可以在 Azure 门户中查看该用户。
 
 
 
@@ -141,10 +141,10 @@ Azure Active Directory 与 Azure 订阅之间不像其他 Azure 资源（例如�
 
 在订阅级别分配“虚拟机参与者”内置 RBAC 角色意味着分配有该角色的用户：
 
-- 可以查看所有虚拟机，不管这些虚拟机的部署日期及其所属的资源组是什么
-- 对订阅中的虚拟机拥有完全管理访问权限
-- 无法查看订阅中的其他任何资源类型
-- 从计费角度无法操作任何更改
+* 可以查看所有虚拟机，不管这些虚拟机的部署日期及其所属的资源组是什么
+* 对订阅中的虚拟机拥有完全管理访问权限
+* 无法查看订阅中的其他任何资源类型
+* 从计费角度无法操作任何更改
 
 > [!NOTE]
 > RBAC 是只能在 Azure 门户中使用的功能，不授予对经典管理门户的访问权限。
@@ -157,9 +157,7 @@ Azure Active Directory 与 Azure 订阅之间不像其他 Azure 资源（例如�
 
 ![虚拟机参与者内置角色](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-使用此内置角色的此外部用户的正常行为是仅查看和管理虚拟机，以及部署时所需的仅限 Resource Manager 的相邻资源。 根据设计，这些受限角色只提供对在 Azure 门户中创建的相应资源的访问权限，不管是否仍可在经典管理门户中部署其他某些资源（例如：虚拟机）。
-
-
+使用此内置角色的此外部用户的正常行为是仅查看和管理虚拟机，以及部署时所需的仅限 Resource Manager 的相邻资源。 按照设计，这些有限的角色仅提供对在 Azure 门户中创建的其对应资源的访问权限。
 
 
 
@@ -265,9 +263,9 @@ New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
 ![导入的自定义 RBAC 角色的权限屏幕截图](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
 
 该示例经过进一步的具体化，突出此自定义 RBAC 角色的限制，如下所述：
-- 可以创建新的支持请求
-- 无法创建新的资源范围（例如：虚拟机）
-- 无法创建新的资源组
+* 可以创建新的支持请求
+* 无法创建新的资源范围（例如：虚拟机）
+* 无法创建新的资源组
 
 
 

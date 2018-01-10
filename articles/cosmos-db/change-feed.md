@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
 origin.date: 10/30/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9197b0a227e1a9e6c409d8be40e1c89ffa9ef9fa
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: e3ce1f9528e174b63e36aa78507b302f96a868c6
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的更改源支持
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/15/2017
 ![使用 Azure Cosmos DB 更改源促成实时分析和事件驱动的计算方案](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> 为 Azure Cosmos DB 中的所有数据模型和容器提供更改源支持。 但是，更改源是使用 DocumentDB 客户端读取的，并将项目序列化为 JSON 格式。 由于 JSON 格式化，MongoDB 客户端会体验到 BSON 格式文档和 JSON 格式更改源之间的不匹配。 
+> 为 Azure Cosmos DB 中的所有数据模型和容器提供更改源支持。 但是，更改源是使用 SQL 客户端读取的，并将项目序列化为 JSON 格式。 由于 JSON 格式化，MongoDB 客户端会体验到 BSON 格式文档和 JSON 格式更改源之间的不匹配。 
 
 ## <a name="how-does-change-feed-work"></a>更改源工作原理
 
@@ -73,7 +73,7 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
 * 使用 [Apache Hadoop](run-hadoop-with-hdinsight.md) 实现数据批量分析。
 * 在不造成任何停机的情况下迁移到使用不同分区方案的另一个 Azure Cosmos DB 帐户。
 * 使用 Azure Cosmos DB [在 Azure 上实现 lambda 管道](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/)。 Azure Cosmos DB 提供了一种可缩放的数据库解决方案，该解决方案可处理引入和查询，实现 TCO 较低的 lambda 体系结构。 
-* 接收和存储设备、传感器、基础结构和应用程序发出的事件数据，并使用 [Azure 流分析](../stream-analytics/stream-analytics-documentdb-output.md)、[Apache Storm](../hdinsight/hdinsight-storm-overview.md) 或 [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md) 实时处理这些事件。 
+* 接收和存储设备、传感器、基础结构和应用程序发出的事件数据，并使用 [Azure 流分析](../stream-analytics/stream-analytics-documentdb-output.md)、[Apache Storm](../hdinsight/storm/apache-storm-overview.md) 或 [Apache Spark](../hdinsight/spark/apache-spark-overview.md) 实时处理这些事件。 
 
 下图显示了 lambda 管道如何使用更改源支持，这些管道使用 Azure Cosmos DB 进行引入和查询： 
 
@@ -86,11 +86,11 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
 <a id="rest-apis"></a>
 ## 使用 SDK
 
-用于 Azure Cosmos DB 的 [DocumentDB SDK](documentdb-sdk-dotnet.md) 提供了读取和管理更改源所需的所有功能。 但是，功能越强，责任也越重。 若要管理检查点、处理文档序列号、对分区键进行精细控制，则可使用 SDK。
+用于 Azure Cosmos DB 的 [SQL SDK](sql-api-sdk-dotnet.md) 提供了读取和管理更改源所需的所有功能。 但是，功能越强，责任也越重。 若要管理检查点、处理文档序列号、对分区键进行精细控制，则可使用 SDK。
 
-此部分详细介绍如何使用 DocumentDB SDK 来处理更改源。
+本部分详细介绍了如何使用 SQL SDK 来处理更改源。
 
-1. 一开始请读取 appconfig 中的以下资源。 [更新连接字符串](create-documentdb-dotnet.md#update-your-connection-string)中提供了检索终结点和授权密钥的说明。
+1. 一开始请读取 appconfig 中的以下资源。 [更新连接字符串](create-sql-api-dotnet.md#update-your-connection-string)中提供了检索终结点和授权密钥的说明。
 
     ``` csharp
     DocumentClient client;
@@ -162,7 +162,7 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>使用更改源处理器库 
 
-使用 [Azure Cosmos DB 更改源处理器库](/cosmos-db/documentdb-sdk-dotnet-changefeed)，可以轻松地跨多个使用者分发事件处理。 此库简化了跨分区和多个并行工作的线程读取更改的过程。
+使用 [Azure Cosmos DB 更改源处理器库](/cosmos-db/sql-api-sdk-dotnet-changefeed)，可以轻松地跨多个使用者分发事件处理。 此库简化了跨分区和多个并行工作的线程读取更改的过程。
 
 更改源处理器库的主要好处是，不需管理每个分区和继续标记，也不需手动轮询每个集合。
 
@@ -272,13 +272,13 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 若要详细了解如何使用更改源处理器库，请参阅以下资源：
 
-* [信息页](documentdb-sdk-dotnet-changefeed.md) 
+* [信息页](sql-api-sdk-dotnet-changefeed.md) 
 * [Nuget 包](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [演示上述步骤 (1-6) 的示例代码](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [GitHub 上的其他示例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 若要详细了解如何通过 SDK 使用更改源，请参阅以下资源：
 
-* [SDK 信息页](documentdb-sdk-dotnet.md)
+* [SDK 信息页](sql-api-sdk-dotnet.md)
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, update link, wording update -->

@@ -13,18 +13,18 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-origin.date: 11/20/2017
-ms.date: 11/27/2017
+origin.date: 12/01/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7c0192b1f0cd6f215de50d4a66d1a965d75c0a2b
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: ffa46d07f0cd60b6e92905b2163c2e96f0827c6b
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>快速入门：使用 .NET 和 Azure Cosmos DB 生成表 API 应用 
 
-本快速入门介绍如何使用 Java 和 Azure Cosmos DB [表 API](table-introduction.md)，通过克隆 GitHub 中的示例来生成应用。 此外，本快速入门还介绍了如何创建 Azure Cosmos DB 帐户，以及如何在基于 Web 的 Azure 门户中使用数据资源管理器创建表和实体。
+本快速入门介绍如何使用 .NET 和 Azure Cosmos DB [表 API](table-introduction.md)，通过克隆 GitHub 中的示例来生成应用。 此外，本快速入门还介绍了如何创建 Azure Cosmos DB 帐户，以及如何在基于 Web 的 Azure 门户中使用数据资源管理器创建表和实体。
 
 Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
 <!-- Not Available Graph-->
@@ -38,7 +38,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 ## <a name="create-a-database-account"></a>创建数据库帐户
 
 > [!IMPORTANT] 
-> 需创建新的适用于公开发表版表 API SDK 的表 API 帐户。 在预览期间创建的表 API 帐户不受公开发布版 SDK 的支持。
+> 必须新建表 API 帐户，才能使用正式发布的表 API SDK。 在预览期间创建的表 API 帐户不受公开发布版 SDK 的支持。
 >
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
@@ -54,7 +54,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 1. 在数据资源管理器中，展开 **sample-table**，单击“实体”，然后单击“添加实体”。
 
    ![在 Azure 门户的数据资源管理器中创建新实体](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. 现在请将数据添加到 PartitionKey 值框和 RowKey 值框，然后单击“添加实体”。
+2. 现在请将数据添加到 PartitionKey 值框和 RowKey 值框，并单击“添加实体”。
 
    ![为新实体设置分区键和行键](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
 
@@ -62,9 +62,9 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在让我们从 github 克隆表应用、设置连接字符串，并运行。 你会看到以编程方式处理数据是多么容易。 
+现在让我们从 GitHub 克隆表应用，设置连接字符串，然后运行该应用。 会看到以编程方式处理数据是多么容易。 
 
-1. 打开诸如 git bash 之类的 git 终端窗口，并使用 `cd` 命令更改为相应的示例应用程序安装文件夹。 
+1. 打开诸如 Git Bash 之类的 Git 终端窗口，然后使用 `cd` 命令转到示例应用安装文件夹。 
 
     ```bash
     cd "C:\git-samples"
@@ -75,8 +75,15 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
+## <a name="open-the-sample-application-in-visual-studio"></a>在 Visual Studio 中打开示例应用程序
 
-3. 然后在 Visual Studio 中打开 TableStorage 解决方案文件。 
+1. 在 Visual Studio 的“文件”菜单中选择“打开”，然后选择“项目/解决方案”。 
+
+   ![打开解决方案](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
+
+2. 导航到克隆示例应用程序的文件夹，然后打开 TableStorage.sln 文件。
+
+   ![打开克隆的应用程序](media/create-table-dotnet/azure-cosmos-db-open-clone.png) 
 
 ## <a name="update-your-connection-string"></a>更新连接字符串
 
@@ -84,23 +91,23 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 1. 在 [Azure 门户](http://portal.azure.cn/)中，单击“连接字符串”。 
 
-    使用屏幕右侧的复制按钮复制“主连接字符串”。
+    使用窗口右侧的复制按钮复制“主连接字符串”。
 
     ![在“连接字符串”窗格中查看并复制“主连接字符串”](./media/create-table-dotnet/connection-string.png)
 
 2. 在 Visual Studio 中打开 App.config 文件。 
 
-3. 取消注释第 8 行的 StorageConnectionString 并注释掉第 7 行的 StorageConnectionString，因为本教程不使用存储模拟器。 第 7 行和第 8 行现在应如下所示：
+3. 取消注释第 8 行的 StorageConnectionString，注释掉第 7 行的 StorageConnectionString，因为本教程不使用 Azure SDK 存储模拟器。 第 7 行和第 8 行现在应如下所示：
 
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. 将“主连接字符串”值从门户粘贴到第 8 行的 StorageConnectionString 值中。 粘贴引号内的字符串。 
+4. 将主连接字符串从门户粘贴到第 8 行的 StorageConnectionString 值。 粘贴引号内的字符串。 
 
     > [!IMPORTANT]
-    > 如果终结点使用 documents.azure.cn，则意味着帐户为预览版帐户，需创建适用于公开发布版表 API SDK 的[新的表 API 帐户](#create-a-database-account)。 
+    > 如果终结点使用 documents.azure.cn，表示已有预览帐户。必须[新建表 API 帐户](#create-a-database-account)，才能使用正式版表 API SDK。 
     > 
 
     第 8 行现在应类似于：
@@ -109,7 +116,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.documents.azure.cn;EndpointSuffix=core.chinacloudapi.cn" />
     ```
 
-5. 保存 App.config 文件。
+5. 按 CTRL+S 保存 App.config 文件。
 
 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
 
@@ -117,29 +124,42 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 1. 在 Visual Studio 中，右键单击“解决方案资源管理器”中的“TableStorage”项目，并单击“管理 NuGet 包”。 
 
-2. 在 NuGet“浏览”框中，键入 *Microsoft.Azure.CosmosDB.Table*。
+   ![管理 NuGet 包](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
+2. 在 NuGet“浏览”框中，键入 *Microsoft.Azure.CosmosDB.Table*。 这样会查找 Cosmos DB 表 API 客户端库。
 
-3. 安装结果中显示的 **Microsoft.Azure.CosmosDB.Table** 库。 这会安装 Azure Cosmos DB 表 API 包以及所有依赖项。
+   ![NuGet 的“浏览”选项卡](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 
-4. 打开 BasicSamples.cs，向第 30 行和第 52 行添加断点。
+3. 单击“安装”，安装 **Microsoft.Azure.CosmosDB.Table** 库。 这会安装 Azure Cosmos DB 表 API 包和所有依赖项。
 
-5. 单击 Ctrl+F5 运行应用程序。
+    ![单击“安装”](media/create-table-dotnet/azure-cosmosdb-nuget-install.png)
 
-    控制台窗口显示，正在将表数据添加到 Azure Cosmos DB 中的新表数据库。 
+4. 打开 BasicSamples.cs。 右键单击第 52 行，选择“断点”，然后选择“插入断点”。 在第 55 行中插入另一个断点。
+
+   ![添加断点](media/create-table-dotnet/azure-cosmosdb-breakpoint.png) 
+
+5. 按 F5 运行应用程序。
+
+    控制台窗口显示 Azure Cosmos DB 中新的表数据库的名称（在本示例中为 demo91ab4）。 
+
+    ![控制台输出](media/create-table-dotnet/azure-cosmosdb-console.png)
 
     如果遇到有关依赖项的错误，请参阅[故障排除](table-sdk-dotnet.md#troubleshooting)。
 
-    遇到第一个断点时，请回到 Azure 门户中的数据资源管理器，展开演示* 表，然后单击“实体”。 右侧的“实体”选项卡显示已添加的新实体。请注意，用户的电话号码为 425-555-0101。
+    点击第一个断点后，返回到 Azure 门户中的数据资源管理器。 单击“刷新”按钮，展开 demo* 表，然后单击“实体”。 右侧的“实体”选项卡将显示为 Walter Harp 添加的新实体。 请注意，新实体的电话号码为 425-555-0101。
+
+    ![新建实体](media/create-table-dotnet/azure-cosmosdb-entity.png)
 
 6. 关闭数据资源管理器中的“实体”选项卡。
 
-7. 继续运行应用，直到下一个断点。
+7. 按 F5，运行应用到下一个断点。 
 
-    遇到该断点时，切换回门户，再次单击“实体”以打开“实体”选项卡，此时可以看到电话号码已更新为 425-555-0105。
+    点击该断点后，切换回 Azure 门户，再次单击“实体”以打开“实体”选项卡，请注意该电话号码已更新为 425-555-0105。
 
-8. 回到控制台窗口，按 CTRL + C 终止应用的执行。 
+8. 按 F5 运行该应用。 
 
-    现在可以回到数据资源管理器来添加或修改实体，以及查询数据。
+   该应用添加的实体可在表 API 目前不支持的高级示例应用中使用。 该应用然后会删除示例应用创建的表。
+
+9. 在控制台窗口中，按 Enter 结束应用的执行。 
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 
@@ -156,4 +176,4 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 > [!div class="nextstepaction"]
 > [将表数据导入表 API](table-import.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link  -->

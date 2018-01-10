@@ -1,7 +1,7 @@
 ---
 title: "使用 Azure 导入/导出服务 REST API | Azure"
 description: "了解可在何处查找使用 Azure 导入/导出服务 REST API 的资源，包括操作说明和参考材料。"
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: tysonn
 services: storage
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/15/2017
-ms.date: 10/16/2017
-ms.author: v-johch
-ms.openlocfilehash: 5cd1d2d0f5cf548940ee8e59b1cc512f8355ffba
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.date: 01/01/2018
+ms.author: v-nany
+ms.openlocfilehash: 06efa94b1330fa02ce722070b59f9d0ab7092f54
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>使用 Azure 导入/导出服务 REST API
 
-Azure 导入/导出服务公开一个 REST API 来实现对导入/导出作业的编程控制。 可通过 [Azure 门户](https://portal.azure.cn/)执行的所有导入/导出操作也都可以使用 REST API 来完成。 此外，可以使用 REST API 来执行某些精细操作，例如查询作业完成百分比，而这些操作目前在经典管理门户中未提供。
+Azure 导入/导出服务公开一个 REST API 来实现对导入/导出作业的编程控制。 可通过 [Azure 门户](https://portal.azure.cn/)执行的所有导入/导出操作也都可以使用 REST API 来完成。 此外，可以使用 REST API 来执行某些精细的操作，例如查询作业完成百分比，该操作目前在 Azure 门户中未提供。
 
-有关导入/导出服务的概述以及演示如何使用经典管理门户创建和管理导入和导出作业的教程，请参阅 [Using the Azure Import/Export service to Transfer Data to Blob Storage](../storage-import-export-service.md)（使用 Azure 导入/导出服务将数据传输到 Blob 存储）。
+有关导入/导出服务的概述以及演示如何使用 Azure 门户创建和管理导入和导出作业的教程，请参阅[使用 Azure 导入/导出服务将数据传输到 Blob 存储](../storage-import-export-service.md)。
 
 ## <a name="service-endpoints"></a>服务终结点
 

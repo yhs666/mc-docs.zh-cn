@@ -15,15 +15,15 @@ ms.topic: article
 origin.date: 05/15/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: ac50966749f2116ee10149fb6b0af5a28b4532c8
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 788505312680578089363e177ceab31adc26eb03
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-storage-replication"></a>Azure 存储复制
 
-始终复制 Azure 存储帐户中的数据，确保持久性和高可用性。 根据所选的复制选项，复制操作将在同一数据中心内复制数据或将其复制到另一个数据中心。 发生临时硬件故障时，复制会保护数据，并保证应用程序继续正常运行。 如果数据复制到第二个数据中心，还可以保护数据，以免主要位置发生灾难性故障。
+始终复制 Azure 存储帐户中的数据，确保持久性和高可用性。 根据所选的复制选项，复制操作将在同一数据中心内复制数据或将其复制到另一个数据中心。 复制可保护数据，并在发生暂时性硬件故障时保留应用程序正常运行时间。 如果数据复制到第二个数据中心，还可以保护数据，以免主要位置发生灾难性故障。
 
 即使面临故障时，复制也可确保存储帐户满足[存储的服务级别协议 (SLA)](https://www.azure.cn/support/sla/storage/)的要求。 请参阅 SLA，了解有关 Azure 存储确保持续性和可用性的信息。
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/23/2017
 |:--- |:--- |:--- |:--- |:--- |
 | 数据在多个数据中心之间进行复制。 |否 |是 |是 |是 |
 | 可以从辅助位置和主位置读取数据。 |否 |否 |否 |是 |
-| 在单独的节点上维护的数据副本数。 |3 |3 |6 |6 |
+| 设计为在给定的一年内提供 ___ 对象持久性。 |至少 99.999999999%（11 个 9）|至少 99.9999999999%（12 个 9）|至少 99.99999999999999%（16 个 9）|至少 99.99999999999999%（16 个 9）|
 
 有关不同冗余选项的定价信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)。
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/23/2017
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## <a name="zone-redundant-storage"></a>区域冗余存储
-除了像 LRS 一样存储三个副本，区域冗余存储空间 (ZRS) 还会在一两个区域的数据中心之间异步复制数据，提供高于 LRS 的持久性。 即使主数据中心不可用或不可恢复，ZRS 中存储的数据仍持久存在。
+除了像 LRS 一样存储三个副本，区域冗余存储空间 (ZRS) 还会在一两个区域的数据中心之间异步复制数据，提供高于 LRS 的持久性。 即使主数据中心不可用或不可恢复，存储在 ZRS 中的数据也是持久的。
 计划使用 ZRS 的客户需注意：
 
 * ZRS 仅可用于通用存储帐户中的块 blob，并且仅在存储服务版本 2014-02-14 及更高版本中受支持。
@@ -93,7 +93,7 @@ ms.lasthandoff: 10/23/2017
 <a id="changecost"></a>
 #### <a name="3-will-there-be-any-additional-cost-if-i-change-the-replication-type-of-my-storage-account"></a>3.更改我的存储帐户的复制类型是否会有任何额外成本？
 
-   是的。 如果将你的存储帐户从 LRS 更改为 GRS（或 RA-GRS），对于将现有数据从主位置复制到辅助位置时涉及的出口，将产生额外的费用。 在复制初始数据后，对于从主位置到辅助位置的数据异地复制，不再产生额外的出口费用。 有关带宽费用的详细信息，请参阅 [Azure 存储定价页](https://www.azure.cn/pricing/details/storage/blobs/)。 如果从 GRS 更改到 LRS，不会有额外的成本，但会将你的数据从辅助位置中删除。
+   是的。 如果将你的存储帐户从 LRS 更改为 GRS（或 RA-GRS），对于将现有数据从主位置复制到辅助位置时涉及的出口，将产生额外的费用。 在复制初始数据后，对于从主位置到辅助位置的数据异地复制，不再产生额外的出口费用。 有关带宽费用的详细信息，请参阅 [Azure 存储定价页](https://www.azure.cn/pricing/details/storage)。 如果从 GRS 更改到 LRS，不会有额外的成本，但会将你的数据从辅助位置中删除。
 
 <a id="ragrsbenefits"></a>
 #### <a name="4-how-can-ra-grs-help-me"></a>4.RA-GRS 对我有何帮助？

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 08/21/2017
-ms.date: 10/16/2017
+origin.date: 12/13/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3f81c67b0a763ba38cfb9477b1d4a5fb579d4291
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 079d972da6c61e3e5958db486210e53ecc83486e
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>如何使用 Azure 门户打开虚拟机端口
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -39,7 +39,12 @@ ms.lasthandoff: 10/13/2017
 
 ![添加入站规则](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-从下拉菜单中选择常见的“服务”，如 HTTP。 还可以选择“自定义”，提供要使用的特定端口。 如果需要，请更改优先级或名称。 优先级会影响应用规则的顺序 - 数值越小，越先应用规则。 例如，还可在此屏幕顶部选择“高级”，输入特定的源 IP 块或端口范围。 准备就绪后，选择“确定”即可创建规则：
+若要创建允许流量的规则：
+
+- 选择“基本”按钮。 默认情况下，“高级”窗口提供了一些额外的配置选项，例如，定义具体的源 IP 块或端口范围。
+- 从下拉菜单中选择常见的“服务”，如 HTTP。 还可以选择“自定义”，提供要使用的特定端口。 
+- 如果需要，请更改优先级或名称。 优先级会影响应用规则的顺序 - 数值越小，越先应用规则。
+- 准备就绪后，选择“确定”即可创建规则：
 
 ![创建入站规则](./media/nsg-quickstart-portal/create-inbound-rule.png)
 
@@ -64,4 +69,4 @@ ms.lasthandoff: 10/13/2017
 * [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)
 * [什么是网络安全组 (NSG)？](../../virtual-network/virtual-networks-nsg.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, add content on creating rule which allow traffic -->

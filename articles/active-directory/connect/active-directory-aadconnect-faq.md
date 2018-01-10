@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/12/2017
-ms.date: 09/20/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: 64e939b67fae4a6b1267be4459e00ff0d0c1e6ce
-ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
+ms.openlocfilehash: b78c541703df2309f10bb071330ce46119d086b0
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>有关 Azure Active Directory Connect 的常见问题
 
@@ -37,6 +37,11 @@ ms.lasthandoff: 09/21/2017
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
+**问：AADConnect 是否支持从两个域同步到 Azure AD？**</br>
+是，系统支持该操作。 请参阅[多个域](active-directory-aadconnect-multiple-domains.md)
+ 
+**问：对于 Azure AD Connect 中的同一个 Active Directory 域，是否支持具有多个连接器？**</br> 否，不支持。 
+
 ## <a name="network"></a>网络
 **问：我的防火墙、网络设备或其他软硬件会限制在网络上打开连接的最长时间。使用 Azure AD Connect 时，客户端超时阈值应设为多少？**  
 所有网络软件、物理设备或其他软硬件限制最长连接时间的阈值应该至少为 5 分钟 (300 秒)，使装有 Azure AD Connect 客户端的服务器能够与 Azure Active Directory 连接。 这同样适用于以前发布的所有 Microsoft 标识同步工具。
@@ -44,8 +49,14 @@ ms.lasthandoff: 09/21/2017
 **问：是否支持 SLD（单一标签域）？**  
 Azure AD Connect 不支持使用 SLD 的本地林/域。
 
+**问：是否支持具有非连续 AD 域的林？**  
+Azure AD Connect 不支持包含非连续命名空间的本地林。
+
 **问：是否支持包含句点的 NetBios 名称？**  
 Azure AD Connect 不支持 NetBios 名称包含句点“.”的本地林/域。
+
+**问：是否支持纯 IPv6 环境？**  
+Azure AD Connect 不支持纯 IPv6 环境。
 
 ## <a name="federation"></a>联合
 **问：如果我收到一封电子邮件，要求我续订 Office 365 证书，我该怎么办？**  
@@ -56,7 +67,7 @@ Azure AD Connect 不支持 NetBios 名称包含句点“.”的本地林/域。
 
 ## <a name="environment"></a>环境
 **问：安装 Azure AD Connect 之后，是否支持重命名服务器？**  
-不支持。 更改服务器名称会导致同步引擎无法连接到 SQL 数据库，并且服务将无法启动。
+否。 更改服务器名称将导致同步引擎无法连接到 SQL 数据库，并且服务将无法启动。
 
 ## <a name="identity-data"></a>标识数据
 **问：Azure AD 中的 UPN (userPrincipalName) 属性与本地 UPN 不匹配，这是为什么？**  
@@ -71,27 +82,23 @@ Azure AD Connect 不支持 NetBios 名称包含句点“.”的本地林/域。
 否，目前不支持。
 
 **问：是否支持手动设置现有 Azure AD 组/联系人对象的 ImmutableId 属性，以将其硬匹配到本地 AD 组/联系人对象？**  
-否，目前不支持。
-
-
+不能，目前不支持。
 
 ## <a name="custom-configuration"></a>自定义配置
 **问：在哪里可以找到 Azure AD Connect 的 PowerShell cmdlet 介绍？**  
 仅支持客户使用本站点上介绍的 cmdlet，而不支持使用 Azure AD Connect 中的其他 PowerShell cmdlet。
 
 **问：我是否可以使用 *Synchronization Service Manager* 中的“服务器导出/服务器导入”在服务器之间移动配置？**  
-不可以。 此选项不会检索所有配置设置，因此不应使用。 应该改用向导在第二台服务器上创建基础配置，并使用同步规则编辑器生成 PowerShell 脚本，如此即可在服务器之间移动任何自定义规则。 请参阅[交叉迁移](active-directory-aadconnect-upgrade-previous-version.md#swing-migration)。
+否。 此选项不会检索所有配置设置，因此不应使用。 应该改用向导在第二台服务器上创建基础配置，并使用同步规则编辑器生成 PowerShell 脚本，如此即可在服务器之间移动任何自定义规则。 请参阅[交叉迁移](active-directory-aadconnect-upgrade-previous-version.md#swing-migration)。
 
 **问：是否可以为 Azure 登录页缓存密码，这是否会因为它包含一个具有 autocomplete = "false" 属性的密码输入元素而被阻止？**</br>
-我们目前不支持修改密码输入字段的 HTML 属性，包括 autocomplete 标记。 我们当前正在开发一种功能，该功能允许使用自定义 Javascript，以便将任何属性添加到密码字段。 该功能应该在 2017 年下半年可用。
+我们目前不支持修改密码输入字段的 HTML 属性，包括 autocomplete 标记。 我们目前正在开发一种功能，它将允许使用自定义 Javascript 向密码字段添加任何属性。 此功能应当会在 2017 年的下半年推出。
 
 **问：Azure 登录页上显示之前已成功登录的用户的用户名。此行为是否可以关闭？**</br>
 目前不支持修改登录页的 HTML 属性。 我们当前正在开发一种功能，该功能允许使用自定义 Javascript，以便将任何属性添加到密码字段。 该功能应该在 2017 年下半年可用。
 
 **问：是否有方法来阻止并发会话？**</br>
-不可以。
-
-
+否。
 
 ## <a name="troubleshooting"></a>故障排除
 **问：如何获取有关 Azure AD Connect 的帮助？**

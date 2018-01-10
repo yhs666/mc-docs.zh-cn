@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 11/03/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 75e4b034e20ac4fb1627b9c3afdc7c4815196f6b
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 01/15/2018
+ms.openlocfilehash: 691734d1c2296a93043279682df3d373ed4a521a
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>对无法启动的云服务角色进行故障排除
 
@@ -72,13 +72,8 @@ DLL 或程序集缺失的症状可能为：
 可使用远程桌面来访问角色并远程查看更完整的错误信息。 通过以下步骤使用远程桌面来查看错误：
 
 1. 确保安装了 Azure SDK 1.3 或更高版本。
-
-2. 在使用 Visual Studio 部署解决方案的过程中，选择“配置远程桌面连接...”。 有关配置远程桌面连接的详细信息，请参阅[将远程桌面与 Azure 角色一起使用](../vs-azure-tools-remote-desktop-roles.md)。
-
-3. 在 Azure 经典门户中，实例显示“就绪” 状态后，请单击其中一个角色实例。
-
-4. 在功能区的“远程访问”区域中单击“连接”图标。
-
+2. 在使用 Visual Studio 部署解决方案的过程中，选择“配置远程桌面连接”。 有关配置远程桌面连接的详细信息，请参阅[将远程桌面与 Azure 角色一起使用](../vs-azure-tools-remote-desktop-roles.md)。
+3. 在 Azure 门户中，在实例显示“就绪”状态后，远程连接到该实例。 有关通过云服务使用远程桌面的详细信息，请参阅[远程连接到角色实例](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances)。
 5. 使用在远程桌面配置期间指定的凭据登录到虚拟机。
 
 6. 打开命令窗口。

@@ -2,21 +2,17 @@
 title: 'Azure 门户：使用查询编辑器查询 Azure SQL 数据库 | Azure description: 了解如何使用 SQL 查询编辑器在 Azure 门户中连接到 SQL 数据库。 然后，通过运行 Transact-SQL (T-SQL) 语句来查询和编辑数据。
 metacanonical: '' keywords: 连接到 sql 数据库, azure 门户, 门户, 查询编辑器 services: sql-database documentationcenter: '' author: yunan2016 manager: digimobile editor: ''
 
-ms.assetid: ms.service: sql-database ms.custom: mvc,DBs & servers ms.workload: data-management ms.tgt_pltfrm: na ms.devlang: na ms.topic: hero-article origin.date: 08/01/2017 ms.date: 12/11/2017 ms.author: v-nany
+ms.assetid: ms.service: sql-database ms.custom: mvc,DBs & servers ms.workload: data-management ms.tgt_pltfrm: na ms.devlang: na ms.topic: hero-article origin.date: 08/02/2017 ms.date: 01/08/2018 ms.author: v-nany
 ---
-
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure 门户：使用 SQL 查询编辑器进行连接并查询数据
 
 SQL 查询编辑器是一款浏览器查询工具，可以轻松有效地在 Azure SQL 数据库或 Azure SQL 数据仓库中执行 SQL 查询，不需离开 Azure 门户。 本快速入门演示了如何使用查询编辑器连接到 SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。 
 
 ## <a name="prerequisites"></a>先决条件
 
-此快速入门使用以下某个快速入门中创建的资源作为其起点：
+本快速入门使用以下某个快速入门中创建的资源作为其起点：
 
-- [创建 DB - 门户](sql-database-get-started-portal.md)
-- [创建 DB - CLI](sql-database-get-started-cli.md)
-- [创建 DB - PowerShell](sql-database-get-started-powershell.md)
-
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 ## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
 

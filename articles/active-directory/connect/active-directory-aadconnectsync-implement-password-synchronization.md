@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 10/21/2017
 ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 69351f4848c48eeb16971f8f0f596cfb69c53c1b
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: f78813e5d23a8315396569260c4422adaedbe4e1
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="implement-password-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步实现密码同步
 本文提供将用户密码从本地 Active Directory 实例同步到基于云的 Azure Active Directory (Azure AD) 实例时所需的信息。
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/24/2017
 因为忘记密码而无法完成工作的机率与需要记住的不同密码数目有关。 要记住的密码越多，忘记密码的机率就越高。 就密码重置和其他密码相关问题的疑问和来电占据了最多的技术服务资源。
 
 密码同步是用于将用户密码从本地 Active Directory 实例同步到基于云的 Azure AD 实例的功能。
-使用此功能可登录到各种 Azure AD 服务，例如 Office 365、Microsoft Intune、CRM Online 和 Azure Active Directory 域服务 (Azure AD DS)。 登录到该服务时使用的密码与登录到本地 Active Directory 实例时使用的密码相同。
+使用此功能可登录到各种 Azure AD 服务，例如 Office 365、Microsoft Intune、CRM Online。 登录到该服务时使用的密码与登录到本地 Active Directory 实例时使用的密码相同。
 
 ![什么是 Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-synchronization/arch1.png)
 
@@ -47,11 +47,6 @@ ms.lasthandoff: 11/24/2017
 
 有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)。
 
-> [!NOTE]
-> 有关为 FIPS 和密码同步配置的 Azure Active Directory 域服务的更多详细信息，请参阅本文后面的“密码同步和 FIPS”。
->
->
-
 ## <a name="how-password-synchronization-works"></a>密码同步的工作原理
 Active Directory 域服务以实际用户密码的哈希值表示形式存储密码。 哈希值是单向数学函数（*哈希算法*）的计算结果。 没有任何方法可将单向函数的结果还原为纯文本版本的密码。 无法使用密码哈希来登录本地网络。
 
@@ -61,7 +56,7 @@ Active Directory 域服务以实际用户密码的哈希值表示形式存储密
 
 首次启用密码同步功能时，它会对范围内的所有用户执行初始密码同步。 无法显式定义一部分要同步的用户密码。
 
-当你更改本地密码时，更新后的密码会同步，此操作基本上在几分钟内就可完成。
+更改本地密码时，更新后的密码会同步，此操作基本上在几分钟内就可完成。
 密码同步功能会自动重试失败的同步尝试。 如果尝试同步密码期间出现错误，该错误会被记录在事件查看器中。
 
 同步密码对当前登录的用户没有任何影响。
@@ -114,7 +109,7 @@ Active Directory 域服务以实际用户密码的哈希值表示形式存储密
 #### <a name="password-expiration-policy"></a>密码过期策略  
 如果用户属于密码同步的范围，云帐户密码则设置为“永不过期”。
 
-可以继续使用在本地环境中过期的同步密码来登录云服务。 当你下次在本地环境中更改密码时，云密码会更新。
+可以继续使用在本地环境中过期的同步密码来登录云服务。 下次在本地环境中更改密码时，云密码会更新。
 
 #### <a name="account-expiration"></a>帐户过期
 如果组织在用户帐户管理中使用了 accountExpires 属性，请注意，此属性不会同步到 Azure AD。 因此，环境中为密码同步配置的过期 Active Directory 帐户仍会在 Azure AD 中处于活动状态。 我们建议，如果帐户已过期，工作流操作应触发一个 PowerShell 脚本以禁用用户的 Azure AD 帐户。 相反，在启用帐户后，Azure AD 实例应该开启。

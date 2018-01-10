@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 10/30/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 45e6b6ad7f37412f653a775b2289eccdd59836fe
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 1f0e15a7b02a40f37bb81ed1d70a456b4231b44e
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>从本地复制到 Azure 时的 Azure Site Recovery 支持矩阵
 
@@ -32,9 +32,9 @@ ms.lasthandoff: 12/01/2017
 
 **部署** | **VMware/物理服务器** | **Hyper-V（具有/不具有 Virtual Machine Manager）** |
 --- | --- | ---
-**Azure 门户** | 本地 VMware VM 到 Azure 存储，使用 Azure Resource Manager 或经典存储和网络。<br/><br/> 故障转移到基于 Resource Manager 的 VM 或经典 VM。 | 本地 Hyper-V VM 到 Azure 存储，使用 Resource Manager 或经典存储和网络。<br/><br/> 故障转移到基于 Resource Manager 的 VM 或经典 VM。
+**Azure 门户** | 本地 VMware VM 到 Azure 存储，使用 Azure Resource Manager 或经典存储和网络。<br/><br/> 故障转移到基于资源管理器的 VM 或经典 VM。 | 本地 Hyper-V VM 到 Azure 存储，使用 Resource Manager 或经典存储和网络。<br/><br/> 故障转移到基于 Resource Manager 的 VM 或经典 VM。
 **经典管理门户** | 仅限维护模式。 无法创建新的保管库。 | 仅限维护模式。
-**PowerShell** | 目前不支持。 | 支持
+**PowerShell** | 支持 | 支持
 
 ## <a name="support-for-datacenter-management-servers"></a>数据中心管理服务器支持
 
@@ -141,6 +141,7 @@ ELB | 是 | 是
 保留 IP | 是 | 是
 IPv4 | 是 | 是
 保留源 IP | 是 | 是
+虚拟网络服务终结点（Azure 存储防火墙和虚拟网络） | 否 | 否
 
 ## <a name="support-for-storage"></a>存储支持
 下表总结了使用 Azure Site Recovery 复制到 Azure 时的各种部署方案中的存储配置支持。
@@ -152,7 +153,7 @@ IPv4 | 是 | 是
 NFS | 在 VMware 上支持<br/><br/> 在物理服务器上不支持 | 不适用
 SMB 3.0 | 不适用 | 是
 SAN (ISCSI) | 是 | 是
-多路径 (MPIO)<br></br>已使用 Microsoft DSM、EMC PowerPath 5.7 SP4、EMC PowerPath DSM for CLARiiON 进行测试 | 是 | 是
+多路径 (MPIO)<br></br>测试使用对象：Microsoft DSM、EMC PowerPath 5.7 SP4、EMC PowerPath DSM for CLARiiON | 是 | 是
 
 ### <a name="guest-or-physical-server-storage-configuration"></a>来宾或物理服务器存储配置
 
@@ -183,9 +184,12 @@ GRS | 是 | 是
 RA-GRS | 是 | 是
 冷存储 | 否 | 否
 热存储| 否 | 否
+块 Blob | 否 | 否
 静态加密 (SSE)| 是 | 是
 高级存储 | 是 | 是
 导入/导出服务 | 否 | 否
+在用于存储复制数据的目标存储帐户或缓存存储帐户上配置的虚拟网络服务终结点（Azure 存储防火墙和虚拟网络） | 否 | 否
+常规用途 V2 存储帐户（包括热存储层和冷存储层） | 否 | 否
 
 ## <a name="support-for-azure-compute-configuration"></a>Azure 计算配置支持
 
@@ -210,7 +214,7 @@ HUB | 是 | 是
 **网络适配器** | 支持多个适配器 |
 **共享 VHD** | 不支持 | 如果不支持，先决条件检查会失败
 **FC 磁盘** | 不支持 | 如果不支持，先决条件检查会失败
-**硬盘格式** | VHD <br/><br/> VHDX | 尽管 Azure 当前不支持 VHDX，但故障转移到 Azure 时，站点恢复会自动将 VHDX 转换为 VHD。 故障回复到本地时，虚拟机将继续使用 VHDX 格式。
+**硬盘格式** | VHD <br/><br/> VHDX | 尽管 Azure 目前不支持 VHDX，但故障转移到 Azure 时，Site Recovery 会自动将 VHDX 转换为 VHD。 故障回复到本地时，虚拟机将继续使用 VHDX 格式。
 **Bitlocker** | 不支持 | 保护虚拟机之前，必须先禁用 Bitlocker。
 **VM 名称** | 介于 1 和 63 个字符之间。 限制为字母、数字和连字符。 VM 名称必须以字母或数字开头和结尾。 | 在 Site Recovery 中更新虚拟机属性中的值。
 **VM 类型** | 第 1 代<br/><br/> 第 2 代 - Windows | OS 磁盘类型为“基本”的第 2 代 VM（其中包括一个或两个格式化为 VHDX 的数据卷），并且支持的磁盘空间大小小于 300 GB。<br></br>不支持 Linux 第 2 代 VM。 [了解详细信息](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
@@ -224,10 +228,10 @@ HUB | 是 | 是
 
 ## <a name="support-for-provider-and-agent"></a>提供程序和代理支持
 
-**Name** | **说明** | **最新版本** | **详细信息**
+**名称** | **说明** | **最新版本** | **详细信息**
 --- | --- | --- | --- | ---
 **Azure Site Recovery 提供程序** | 协调本地服务器与 Azure 之间的通信 <br/><br/> 安装在本地 Virtual Machine Manager 服务器或 Hyper-V 服务器（如果没有 Virtual Machine Manager 服务器）上 | 5.1.2700.1（可从门户获取） | [最新功能和修复](https://aka.ms/latest_asr_updates)
-**Azure Site Recovery 统一安装（VMware 到 Azure）** | 协调本地 VMware 服务器和 Azure 之间的通信 <br/><br/> 安装在本地 VMware 服务器上 | 9.12.4653.1（可从门户获取） | [最新功能和修复](https://aka.ms/latest_asr_updates)
+**Azure Site Recovery 统一安装（VMware 到 Azure）** | 协调本地 VMware 服务器与 Azure 之间的通信 <br/><br/> 安装在本地 VMware 服务器上 | 9.12.4653.1（可从门户获取） | [最新功能和修复](https://aka.ms/latest_asr_updates)
 **移动服务** | 协调本地 VMware 服务器/物理服务器和 Azure/辅助站点之间的复制<br/><br/> 在想要复制的 VMware VM 或物理服务器上安装  | 9.12.4653.1（可从门户获取） | [最新功能和修复](https://aka.ms/latest_asr_updates)
 **Azure 恢复服务 (MARS) 代理** | 协调 Hyper-V VM 与 Azure 之间的复制<br/><br/> 在本地 Hyper-V 服务器（包含或不包含 Virtual Machine Manager 服务器）上安装 | 最新代理（可从门户获取） |
 

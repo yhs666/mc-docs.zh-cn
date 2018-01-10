@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 11/01/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 081807cffd99960edc77b251e3c535e83469b917
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 2e80549dd53e104eb06977da53f6f2d01591afd2
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>将 Amazon Web Services (AWS) VM 迁移到 Azure
 
@@ -145,7 +145,7 @@ ms.lasthandoff: 12/01/2017
 
 1. 在“订阅”中，选择用于[准备 Azure](tutorial-prepare-azure.md)教程的 Azure 订阅。
 2. 选择 **Resource Manager** 作为部署模型。
-3. Site Recovery 会检查是否有一个或多个兼容的 Azure 存储帐户和网络。 这些资源应该是在完成本教程前面的[准备 Azure 资源](#prepare-azure-resources)部分时创建的
+3. Site Recovery 检查是否有一个或多个兼容的 Azure 存储帐户和网络。 这些资源应该是在完成本教程前面的[准备 Azure 资源](#prepare-azure-resources)部分时创建的
 4. 完成后，单击“确定”。
 
 ### <a name="4-replication-settings-prepare"></a>4 复制设置准备 
@@ -230,7 +230,7 @@ ms.lasthandoff: 12/01/2017
     **Site Recovery 作业** 中单击 **测试故障转移** 作业。
 5. 故障转移完成后，副本 Azure VM 会显示在 Azure 门户 >“虚拟机”中。 请确保虚拟机的大小适当、已连接到正确的网络，并且正在运行。
 6. 现在应该能够连接到 Azure 中复制的虚拟机。
-7. 若要删除在测试故障转移期间创建的 Azure VM，请在恢复计划上单击“清理测试故障转移”。 在“说明”中，记录并保存与测试性故障转移相关联的任何观测结果。
+7. 若要删除在测试故障转移期间创建的 Azure VM，请在恢复计划上单击“清理测试故障转移”。 在“说明”中，记录并保存与测试故障转移相关联的任何观测结果。
 
 在某些情况下，故障转移需要大约八到十分钟的时间完成其他进程。 
 

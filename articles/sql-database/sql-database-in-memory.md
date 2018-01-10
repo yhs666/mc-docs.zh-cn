@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 11/16/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: 5deaace329d9e49629dd3a00e585e62a632e8636
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 427ede21f76d2436eaec56fbbade736935964b04
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>在 SQL 数据库中使用内存中技术优化性能
 
@@ -48,7 +48,7 @@ Azure SQL 数据库采用以下内存中技术：
 - 用于 HTAP 的非聚集列存储索引通过直接查询操作数据库来帮助获取对业务的实时见解，无需运行开销不菲的提取、转换和加载 (ETL) 过程，也无需等待填充数据仓库。 非聚集列存储索引允许非常快速地对 OLTP 数据库执行分析查询，同时减少对操作工作负荷的影响。
 - 也可以使用内存优化表与列存储的组合。 使用这种组合可以针对相同的数据极快执行事务处理和并发运行分析查询。
 
-列存储索引和内存中 OLTP 分别在 2012 年和 2014 年加入 SQL Server 产品。 Azure SQL 数据库和 SQL Server 共享内存中技术的相同实现。 今后，这些技术的新功能将首先在 Azure SQL 数据库中发布，再加入到下一个版本的 SQL Server。
+列存储索引和内存中 OLTP 分别在 2012 年和 2014 年加入 SQL Server 产品。 Azure SQL 数据库和 SQL Server 共享内存中技术的相同实现。 今后，这些技术的新功能将首先在 Azure SQL 数据库中发布，然后在 SQL Server 中发布。
 
 本主题全面介绍特定于 Azure SQL 数据库的内存中 OLTP 和列存储索引，并提供示例：
 - 介绍这些技术对存储和数据大小限制的影响。
@@ -78,9 +78,7 @@ Azure SQL 数据库采用以下内存中技术：
 
 内存中 OLTP 包括用于存储用户数据的内存优化表。 这些表必需在内存可容纳的范围内。 由于内存是直接在 SQL 数据库服务中管理的，因此我们提出了用户数据配额的概念。 这种概念称为“内存中 OLTP 存储”。
 
-每个受支持的独立数据库定价层和每个弹性池定价层都包括一定量的内存中 OLTP 存储。 在编写本文时，每 125 个数据库事务单位 (DTU) 或弹性数据库事务单位 (eDTU) 可使用 1 GB 存储。
-
-对于每个受支持的独立数据库和弹性池定价层可用的内存中 OLTP 存储，[SQL 数据库服务层](sql-database-service-tiers.md)一文提供了正式列表。
+每个受支持的独立数据库定价层和每个弹性池定价层都包括一定量的内存中 OLTP 存储。 在编写本文时，每 125 个数据库事务单位 (DTU) 或弹性数据库事务单位 (eDTU) 可使用 1 GB 存储。 有关详细信息，请参阅[资源限制](sql-database-resource-limits.md)。
 
 以下各项计入内存中 OLTP 存储上限：
 
@@ -119,7 +117,6 @@ Azure SQL 数据库采用以下内存中技术：
 
 降级到基本/标准层：标准或基本层中的数据库不支持内存中 OLTP。 此外，不能将包含任何内存中 OLTP 对象的数据库移到标准或基本层。
 
-
 可通过编程方式了解给定的数据库是否支持内存中 OLTP。 可执行以下 Transact-SQL 查询：
 
 ```
@@ -146,6 +143,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 *降级到较低的高级层*：如果整个数据库处于目标定价层的最大数据库大小或弹性池中可用存储的范围内，则此降级操作会成功。 列存储索引不会造成特殊影响。
 
+
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
 &nbsp;
@@ -169,6 +167,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 4. 将 T-SQL 脚本粘贴到 SSMS，并执行该脚本。 `MEMORY_OPTIMIZED = ON` 子句 CREATE TABLE 语句至关重要。 例如：
 
+
 ```
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
     [SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
@@ -176,15 +175,20 @@ CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
 ) WITH (MEMORY_OPTIMIZED = ON);
 ```
 
+
 #### <a name="error-40536"></a>错误 40536
 
+
 如果运行 T-SQL 脚本时收到错误 40536，请运行以下 T-SQL 脚本来验证数据库是否支持内存中功能：
+
 
 ```
 SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
+
 结果“0”表示不支持内存中，结果“1”表示支持。 若要诊断问题，请确保数据库位于高级服务层。
+
 
 #### <a name="about-the-created-memory-optimized-items"></a>关于创建的内存优化项
 
@@ -196,9 +200,12 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 - Demo.DemoSalesOrderHeaderSeed
 - Demo.DemoSalesOrderDetailSeed
 
+
 可以通过 SSMS 中的“对象资源管理器”检查内存优化表。 右键单击“表” > “筛选器” > “筛选器设置” > “内存优化”。 值等于 1。
 
+
 或者可以查询目录视图，例如：
+
 
 ```
 SELECT is_memory_optimized, name, type_desc, durability_desc
@@ -206,13 +213,16 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
     WHERE is_memory_optimized = 1;
 ```
 
+
 本机编译的存储过程：可以通过目录视图查询来检查 SalesLT.usp_InsertSalesOrder_inmem：
+
 
 ```
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
     FROM sys.sql_modules
     WHERE uses_native_compilation = 1;
 ```
+
 
 &nbsp;
 
@@ -223,23 +233,30 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 - SalesLT.usp_InsertSalesOrder_inmem
 - SalesLT.usp_InsertSalesOrder_ondisk
 
+
 本部分介绍如何使用便利的 **ostress.exe** 实用程序在压力级别执行两个存储过程。 可以比较完成两个压力回合所需的时间。
+
 
 运行 ostress.exe 时，建议将参数值传递到以下两个存储过程：
 
 - 使用 -n100 运行大量的并发连接。
 - 使用 -r500，让每个连接循环数百次。
 
+
 但是，建议从较小的值（-n10 和 -r50）开始，确保一切运行正常。
+
 
 ### <a name="script-for-ostressexe"></a>Ostress.exe 的脚本
 
+
 本部分显示 ostress.exe 命令行中内嵌的 T-SQL 脚本。 此脚本使用前面安装的 T-SQL 脚本所创建的项。
+
 
 以下脚本会在以下内存优化*表*中插入包含 5 个细目的示例销售订单：
 
 - SalesLT.SalesOrderHeader_inmem
 - SalesLT.SalesOrderDetail_inmem
+
 
 ```
 DECLARE
@@ -264,11 +281,15 @@ begin;
 end
 ```
 
+
 若要创建上述适用于 ostress.exe 的 T-SQL 脚本的 *_ondisk* 版本，请将两处出现的 *_inmem* 子字符串替换为 *_ondisk*。 这种替换将影响表和存储过程的名称。
+
 
 ### <a name="install-rml-utilities-and-ostress"></a>安装 RML 实用工具和 ostress
 
-最好规划在 Azure 虚拟机 (VM) 上运行 ostress.exe。 在 AdventureWorksLT 数据库所在的同一 Azure 地理区域中创建 [Azure VM](/virtual-machines/)。 但可以改为在便携式计算机上运行 ostress.exe。
+
+最好规划在 Azure 虚拟机 (VM) 上运行 ostress.exe。 在 AdventureWorksLT 数据库所在的同一 Azure 地理区域中创建 [Azure VM](/virtual-machines/)。 也可以改为在便携式计算机上运行 ostress.exe。
+
 
 在 VM 或选择的任何主机上，安装重放标记语言 (RML) 实用工具。 这些实用工具包括 ostress.exe。
 
@@ -276,6 +297,8 @@ end
 - [内存中 OLTP 的示例数据库](http://msdn.microsoft.com/library/mt465764.aspx)中的 ostress.exe 介绍。
 - [内存中 OLTP 的示例数据库](http://msdn.microsoft.com/library/mt465764.aspx)。
 - [有关安装 ostress.exe 的博客](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)。
+
+
 
 <!--
 dn511655.aspx is for SQL 2014,
@@ -287,18 +310,24 @@ whereas for SQL 2016+
 (http://msdn.microsoft.com/library/mt465764.aspx)
 -->
 
+
+
 ### <a name="run-the-inmem-stress-workload-first"></a>首先运行 _inmem 压力工作负荷
+
 
 可以使用 *RML 命令提示符* 窗口来运行 ostress.exe 命令行。 命令行参数将指示 ostress：
 
 - 同时运行 100 个连接 (-n100)。
 - 每个连接运行 T-SQL 脚本 50 次 (-r50)。
 
+
 ```
 ostress.exe -n100 -r50 -S<servername>.database.chinacloudapi.cn -U<login> -P<password> -d<database> -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_inmem, @SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() * 8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand()* 10000; INSERT INTO @od SELECT OrderQty, ProductID FROM Demo.DemoSalesOrderDetailSeed WHERE OrderID= cast((rand()*60) as int); WHILE (@i < 20) begin; EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT, @DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od; set @i += 1; end"
 ```
 
+
 若要运行上述 ostress.exe 命令行：
+
 
 1. 请在 SSMS 中运行以下命令重置数据库数据内容，以删除前面运行的命令所插入的所有数据：
 
@@ -312,15 +341,20 @@ ostress.exe -n100 -r50 -S<servername>.database.chinacloudapi.cn -U<login> -P<pas
 
 4. 在 RML Cmd 窗口中运行编辑后的命令行。
 
+
 #### <a name="result-is-a-duration"></a>结果是一个持续时间
+
 
 ostress.exe 完成时，将在 RML 命令窗口中写入运行持续时间作为输出的最后一行。 例如，一个较短的测试回合持续大约 1.5 分钟：
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
+
 #### <a name="reset-edit-for-ondisk-then-rerun"></a>重置，编辑 _ondisk，然后重新运行
 
+
 在获得 _inmem 运行结果之后，请针对 _ondisk 运行执行以下步骤：
+
 
 1. 在 SSMS 中运行以下命令重置数据库，删除前面运行的命令所插入的所有数据：
 ```
@@ -333,6 +367,7 @@ EXECUTE Demo.usp_DemoReset;
 
 4. 再次重置数据库（可靠地删除大量测试数据）。
 
+
 #### <a name="expected-comparison-results"></a>预期比较结果
 
 在与数据库处于同一 Azure 区域的 Azure VM 上运行 ostress，内存中测试已显示此简化工作负荷大约有 9 倍的性能改善。
@@ -343,11 +378,16 @@ EXECUTE Demo.usp_DemoReset;
 
 ## <a name="2-install-the-in-memory-analytics-sample"></a>2.安装内存中分析示例
 
+
 本部分比较使用列存储索引与传统 b 树索引时的 IO 和统计信息结果。
+
 
 通常，在对 OLTP 工作负荷进行实时分析时，最好是使用非群集列存储索引。 有关详细信息，请参阅[列存储索引介绍](http://msdn.microsoft.com/library/gg492088.aspx)。
 
+
+
 ### <a name="prepare-the-columnstore-analytics-test"></a>准备列存储分析测试
+
 
 1. 使用 Azure 门户基于示例创建全新的 AdventureWorksLT 数据库。
  - 使用相同的名称。
@@ -364,22 +404,29 @@ EXECUTE Demo.usp_DemoReset;
 
     级别 130 并不与内存中功能直接相关。 但级别 130 通常提供比级别 120 更快的查询性能。
 
+
 #### <a name="key-tables-and-columnstore-indexes"></a>关键表和列存储索引
+
 
 - dbo.FactResellerSalesXL_CCI 是具有群集列存储索引的表，已在数据级别进一步压缩。
 
 - dbo.FactResellerSalesXL_PageCompressed 是具有等效常规群集索引的表，只在页面级别压缩。
 
+
 #### <a name="key-queries-to-compare-the-columnstore-index"></a>用于比较列存储索引的关键查询
 
+
 [可以运行多种 T-SQL 查询类型](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql)来查看性能改进情况。 在 T-SQL 脚本的步骤 2 中，请注意这一对查询。 这一对查询只是在一行上有所不同：
+
 
 - `FROM FactResellerSalesXL_PageCompressed a`
 - `FROM FactResellerSalesXL_CCI a`
 
+
 群集列存储索引位于 FactResellerSalesXL\_CCI 表中。
 
 以下 T-SQL 脚本摘录列出了每个表查询的 IO 和 TIME 统计信息。
+
 
 ```
 /*********************************************************************
@@ -416,6 +463,7 @@ SET STATISTICS IO OFF
 SET STATISTICS TIME OFF
 GO
 
+
 -- This is the same Prior query on a table with a clustered columnstore index CCI
 -- The comparison numbers are even more dramatic the larger the table is (this is an 11 million row table only)
 SET STATISTICS IO ON
@@ -444,6 +492,8 @@ GO
 
 在采用 P2 定价层的数据库中，与传统索引相比，使用聚集列存储索引时，此查询预期可获得约 9 倍的性能提升。 对于 P15，使用列存储索引有望获得约 57 倍的性能提升。
 
+
+
 ## <a name="next-steps"></a>后续步骤
 
 - [快速入门 1：通过内存中 OLTP 技术加速 T-SQL 性能](http://msdn.microsoft.com/library/mt694156.aspx)
@@ -451,6 +501,7 @@ GO
 - [在现有的 Azure SQL 应用程序中使用内存中 OLTP](sql-database-in-memory-oltp-migration.md)
 
 - [监视内存中 OLTP 存储](sql-database-in-memory-oltp-monitoring.md)（适用于内存中 OLTP）
+
 
 ## <a name="additional-resources"></a>其他资源
 

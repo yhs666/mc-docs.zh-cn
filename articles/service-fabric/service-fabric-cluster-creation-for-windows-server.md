@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/10/2017
-ms.date: 09/11/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: bf86b4a04b4d0335d3f3ba95d975d301d2f60145
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 4bb4c11e9332564270f03d71cc99440aa25add26
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>创建在 Windows Server 上运行的独立群集
 可以使用 Azure Service Fabric 在运行 Windows Server 的任何虚拟机或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组相互连接的 Windows Server 计算机的任何环境（无论是本地环境还是任何云提供商所提供的环境）中部署和运行 Service Fabric 应用程序。 Service Fabric 提供了一个安装程序包，用于创建名为“Windows Server 独立包”的 Service Fabric 群集。
@@ -35,7 +35,8 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>获取用于 Windows Server 的 Service Fabric 包的支持
 * 在 [Azure Service Fabric 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric?)中询问社区关于 Windows Server 的 Service Fabric 独立包的信息。
-* 开具 [Service Fabric 专业支持](http://support.microsoft.com/oas/default.aspx?prid=16146)票证。  在[此处](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0)了解有关 Microsoft 专业支持的详细信息。
+* 开具 [Service Fabric 专业支持](https://www.azure.cn/support/support-ticket-form)票证。
+<!-- Not Available on Learn more about Professional Support from Microsoft [here](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0).-->
 * 还可以获取作为 [Microsoft 顶级支持](https://support.microsoft.com/premier)的一部分的对此包的支持。
 * 有关详细信息，请参阅 [Azure Service Fabric 支持选项](/service-fabric/service-fabric-support)。
 * 若要出于支持目的收集日志，请运行 [Service Fabric 独立日志收集器](service-fabric-cluster-standalone-package-contents.md)。
@@ -48,11 +49,11 @@ ms.lasthandoff: 09/08/2017
 
 在[此处](service-fabric-cluster-standalone-package-contents.md)查找有关包内容的详细信息。
 
-创建群集时，会自动下载 Service Fabric 运行时包。 如果从未连接到 Internet 的计算机进行部署，请从此处下载带外的运行时包： <br>
+在创建群集时自动下载 Service Fabric 运行时包。 如果通过未连接到 Internet 的计算机部署，请从此处下载带外的运行时包： <br>
 [下载链接 - Service Fabric 运行时 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)
 
 在此处查找独立群集配置示例： <br>
-[独立群集配置示例](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
+[独特群集配置示例](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
 <a id="createcluster"></a>
 
@@ -69,8 +70,8 @@ ms.lasthandoff: 09/08/2017
 
 如果已完成运行开发方案，则可以引用“[删除群集](#removecluster_anchor)”部分的步骤，从计算机中删除 Service Fabric 群集。 
 
-### <a name="step-1b-create-a-multi-machine-cluster"></a>步骤 1B：创建多机群集
-在完成下面链接中详述的计划和准备步骤后，就可以使用群集配置文件创建生产群集。 <br>
+### <a name="step-1b-create-a-multi-machine-cluster"></a>步骤 1B：创建多台计算机的群集
+完成以下链接中详述的规划和准备步骤后，可以使用群集配置文件创建生产群集。 <br>
 [计划和准备群集部署](service-fabric-cluster-standalone-deployment-preparation.md)
 
 1. 从独立包文件夹中运行 *TestConfiguration.ps1* 脚本，以验证写入的配置文件：  
@@ -104,7 +105,7 @@ ms.lasthandoff: 09/08/2017
     ```
 
 > [!NOTE]
-> 部署跟踪已写入运行 CreateServiceFabricCluster.ps1 PowerShell 脚本的 VM/计算机。 可在运行脚本的目录中的子文件夹 DeploymentTraces 中找到这些信息。 要确定是否已将 Service Fabric 正确部署到计算机，请根据群集配置文件 FabricSettings 部分中的详述找到 FabricDataRoot 目录（默认为 c:\ProgramData\SF）中安装的文件。 在任务管理器中也可以看到 FabricHost.exe 和 Fabric.exe 进程正在运行。
+> 部署跟踪已写入运行 CreateServiceFabricCluster.ps1 PowerShell 脚本的 VM/计算机。 可在运行脚本的目录中的子文件夹 DeploymentTraces 中找到这些信息。 要确定是否已将 Service Fabric 正确部署到计算机，请根据群集配置文件 FabricSettings 部分中的详述找到 FabricDataRoot 目录（默认为 c:\ProgramData\SF）中安装的文件。 同样，可以看到 FabricHost.exe 和 Fabric.exe 进程在任务管理器中运行。
 > 
 > 
 
@@ -139,7 +140,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ## <a name="remove-a-cluster"></a>删除群集
 若要删除群集，请运行包文件夹中的 *RemoveServiceFabricCluster.ps1* Powershell 脚本，并传入 JSON 配置文件的路径。 可以选择性地指定删除日志的位置。
 
-可以在对群集配置文件中列为节点的所有计算机具有管理员访问权限的任何计算机上运行此脚本。 运行此脚本的计算机不必要是群集的一部分。
+可以在对群集配置文件中列为节点的所有计算机具有管理员访问权限的任何计算机上运行此脚本。 运行此脚本的计算机不一定是群集的一部分。
 
 ```
 # Removes Service Fabric from each machine in the configuration

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/14/2015
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: e57463866a2822a9c7bf5e74964850ff2e4e0747
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: a2e6ae37c68f288cf59760125c7369a6da861eba
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>使用负载均衡的集来群集化 Linux 上的 MySQL
 > [!IMPORTANT]
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Azure Resource Manager](../../../resource-manager-deployment-model.md) 模型和经典模型。 本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 如果需要部署 MySQL 群集，可以使用 [Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/mysql-replication/) 。
+> Azure 提供了用于创建和处理资源的两个不同部署模型：[Azure Resource Manager](../../../resource-manager-deployment-model.md) 模型和经典模型。 本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 如果需要部署 MySQL 群集，可以使用 [Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/mysql-replication/) 。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 本文探讨并演示在 Microsoft Azure 上部署基于 Linux 的高度可用服务时可用的不同方法，并在 MySQL Server 高可用性方面提供入门性的探讨。
@@ -55,7 +55,7 @@ MySQL 的其他可能体系结构包括 NBD 群集、Percona 和 Galera 以及�
   * Corosync 和 Pacemaker
 
 ### <a name="affinity-group"></a>地缘组
-为该解决方案创建地缘组：登录到 Azure 经典门户，选择“设置”，然后创建地缘组。 稍后创建的已分配资源将分配给此地缘组。
+通过以下方法创建解决方案的地缘组：登录到 Azure 门户，选择“设置”，并创建地缘组。 稍后创建的已分配资源将分配给此地缘组。
 
 ### <a name="networks"></a>网络
 会创建新网络，并在该网络内部创建子网。 本示例使用只包含一个 /24 子网的 10.10.10.0/24 网络。
@@ -64,6 +64,7 @@ MySQL 的其他可能体系结构包括 NBD 群集、Percona 和 Galera 以及�
 第一个 Ubuntu 13.10 VM 是使用 Endorsed Ubuntu 库映像创建的，其名为 `hadb01`。 此过程会创建名为 hadb 的新云服务。 这样命名是为了说明在添加更多资源时，该服务具有共享的负载均衡性质。 `hadb01` 的创建是直截了当的，可以使用门户完成。 系统会自动创建 SSH 的终结点，并选择新网络。 现在，可为 VM 创建可用性集。
 
 创建第一个 VM 后（从技术上讲，创建云服务时），请继续创建第二个 VM `hadb02`。 对于第二个 VM，请通过门户使用库中的 Ubuntu 13.10 VM，但要使用现有的云服务 `hadb.chinacloudapp.cn`，而不是新建一个。 系统会自动选择网络和可用性集。 也会创建 SSH 终结点。
+<!-- cloudapp.net to chinacloudapp.cn is correct -->
 
 创建两个 VM 后，请记下 `hadb01` 的 SSH 端口 (TCP 22) 和 `hadb02`（由 Azure 自动分配）。
 
@@ -144,7 +145,7 @@ MySQL 的其他可能体系结构包括 NBD 群集、Percona 和 Galera 以及�
     sudo drbdadm primary -force r0
     sudo apt-get install mysql-server
 
-如果现在不打算故障转移 DRBD，则第一个选项虽说算不上极好但更容易。 设置此项后，但可以开始处理 MySQL 数据库了。 在 `hadb02` 上（或根据 DRBD 而判定处于活动状态的任何服务器上）运行以下代码：
+如果现在不打算故障转移 DRBD，则第一个选项虽说算不上极好但更容易。 设置此项后，就可以开始处理 MySQL 数据库了。 在 `hadb02` 上（或根据 DRBD 而判定处于活动状态的任何服务器上）运行以下代码：
 
     mysql -u root -p
     CREATE DATABASE azureha;
@@ -343,4 +344,4 @@ Pacemaker 使用群集监视资源、定义主节点何时停机，并将这些�
 * 有必要进行 MySQL 优化，确保以受控的速度完成写入，并且尽可能频繁地将缓存刷新到磁盘。
 * 写入性能依赖于虚拟交换机中的 VM 互连，因为这是 DRBD 用于复制设备的机制。
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: wording update, update link -->

@@ -1,5 +1,5 @@
 ---
-title: "了解 Azure Active Directory 体系结构 | Microsoft Docs"
+title: "了解 Azure Active Directory 体系结构 | Azure"
 description: "介绍什么是 Azure AD 租户，以及如何通过 Azure Active Directory 管理 Azure。"
 services: active-directory
 documentationcenter: 
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/08/2017
-ms.date: 11/22/2017
-ms.author: v-junlch
-ms.openlocfilehash: 339b2a6a6dd2b24c3bdb3d9e2b8f1e8db71c9756
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: 61a490455a00c071935d63c142567b89cc08bcee
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>了解 Azure Active Directory 体系结构
-使用 Azure Active Directory (Azure AD) 可以安全地管理用户对 Azure 服务和资源的访问。 Azure AD 随附了整套标识管理功能。 有关 Azure AD 功能的信息，请参阅[什么是 Azure Active Directory？](/active-directory/active-directory-whatis)
+使用 Azure Active Directory (Azure AD) 可以安全地管理用户对 Azure 服务和资源的访问。 Azure AD 随附了整套标识管理功能。 有关 Azure AD 功能的信息，请参阅[什么是 Azure Active Directory？](active-directory-whatis.md)
 
-在 Azure AD 中可以创建及管理用户，并使用权限来允许和拒绝对企业资源的访问。 有关标识管理的信息，请参阅 [Azure 标识管理基础知识](/active-directory/fundamentals-identity)。
+在 Azure AD 中可以创建及管理用户和组，并使用权限来允许和拒绝对企业资源的访问。 
 
 ## <a name="azure-ad-architecture"></a>Azure AD 体系结构
 Azure AD 的地理分布式体系结构整合了全面监视、自动重新路由、故障转移和恢复功能，使我们能够为客户提供企业级的可用性与性能。
@@ -84,8 +84,8 @@ Azure AD 的副本存储在分布于世界各地的数据中心内。 有关详�
 
 Azure AD 可跨数据中心运行，其特征如下：
 
- - 身份验证、Graph 其他 AD 服务驻留在网关服务的后面。 网关管理这些服务的负载均衡。 如果使用事务运行状况探测检测到任何不正常的服务器，网关自动故障转移。 网关根据这些运行状况探测，将流量动态路由到正常的数据中心。
- - 对于*读取*操作，目录提供辅助副本以及在多个数据中心运行的、采用主动-主动配置的相应前端服务。 当整个数据中心发生故障时，流量自动路由到其他数据中心。
+ * 身份验证、Graph 其他 AD 服务驻留在网关服务的后面。 网关管理这些服务的负载均衡。 如果使用事务运行状况探测检测到任何不正常的服务器，网关自动故障转移。 网关根据这些运行状况探测，将流量动态路由到正常的数据中心。
+ * 对于*读取*操作，目录提供辅助副本以及在多个数据中心运行的、采用主动-主动配置的相应前端服务。 当整个数据中心发生故障时，流量自动路由到其他数据中心。
  *  对于*写入*操作，目录将通过计划的（将新的主副本同步到旧的主副本）或紧急故障转移过程，跨数据中心故障转移主（主控）副本。 通过将所有提交项复制到至少两个数据中心来实现数据持久性。
 
 **数据一致性**

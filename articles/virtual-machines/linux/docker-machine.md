@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 06/19/2017
-ms.date: 12/18/2017
+origin.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 42612a24def1909df82d1e9ad80dac2ca041f848
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 5cc193d20b077904ac2fc600bb27672b0b15e58f
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>如何使用 Docker Machine 在 Azure 中创建主机
 本文详细介绍如何使用 [Docker Machine](https://docs.docker.com/machine/) 在 Azure 中创建主机。 `docker-machine` 命令在 Azure 中创建一个 Linux 虚拟机 (VM)，然后安装 Docker。 然后，可以使用相同的本地工具和工作流来管理 Azure 中的 Docker 主机。 若要在 Windows 10 中使用 docker-machine，必须使用 Linux bash。
@@ -44,25 +44,25 @@ docker-machine create -d azure \
     myvm
 ```
 
-输出内容类似于下面的示例：
+输出与以下示例类似：
 
 ```bash
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
 Creating client certificate: /Users/user/.docker/machine/certs/cert.pem
 Running pre-create checks...
-(myvmdocker) Completed machine pre-create checks.
+(myvm) Completed machine pre-create checks.
 Creating machine...
-(myvmdocker) Querying existing resource group.  name="docker-machine"
-(myvmdocker) Creating resource group.  name="docker-machine" location="chinanorth"
-(myvmdocker) Configuring availability set.  name="docker-machine"
-(myvmdocker) Configuring network security group.  name="myvmdocker-firewall" location="chinanorth"
-(myvmdocker) Querying if virtual network already exists.  rg="docker-machine" location="chinanorth" name="docker-machine-vnet"
-(myvmdocker) Creating virtual network.  name="docker-machine-vnet" rg="docker-machine" location="chinanorth"
-(myvmdocker) Configuring subnet.  name="docker-machine" vnet="docker-machine-vnet" cidr="192.168.0.0/16"
-(myvmdocker) Creating public IP address.  name="myvmdocker-ip" static=false
-(myvmdocker) Creating network interface.  name="myvmdocker-nic"
-(myvmdocker) Creating storage account.  sku=Standard_LRS name="vhdski0hvfazyd8mn991cg50" location="chinanorth"
-(myvmdocker) Creating virtual machine.  location="chinanorth" size="Standard_A2" username="azureuser" osImage="canonical:UbuntuServer:16.04.0-LTS:latest" name="myvmdocker"
+(myvm) Querying existing resource group.  name="docker-machine"
+(myvm) Creating resource group.  name="docker-machine" location="chinanorth"
+(myvm) Configuring availability set.  name="docker-machine"
+(myvm) Configuring network security group.  name="myvm-firewall" location="chinanorth"
+(myvm) Querying if virtual network already exists.  rg="docker-machine" location="chinanorth" name="docker-machine-vnet"
+(myvm) Creating virtual network.  name="docker-machine-vnet" rg="docker-machine" location="chinanorth"
+(myvm) Configuring subnet.  name="docker-machine" vnet="docker-machine-vnet" cidr="192.168.0.0/16"
+(myvm) Creating public IP address.  name="myvm-ip" static=false
+(myvm) Creating network interface.  name="myvm-nic"
+(myvm) Creating storage account.  sku=Standard_LRS name="vhdski0hvfazyd8mn991cg50" location="chinanorth"
+(myvm) Creating virtual machine.  location="chinanorth" size="Standard_A2" username="azureuser" osImage="canonical:UbuntuServer:16.04.0-LTS:latest" name="myvm"
 Waiting for machine to be running, this may take a few minutes...
 Detecting operating system of created instance...
 Waiting for SSH to be available...
@@ -74,14 +74,14 @@ Copying certs to the remote machine...
 Setting Docker configuration on the remote daemon...
 Checking connection to Docker...
 Docker is up and running!
-To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env myvmdocker
+To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env myvm
 ```
 
 ## <a name="configure-your-docker-shell"></a>配置 Docker shell
 若要连接到 Azure 中的 Docker 主机，请定义适当的连接设置。 按输出末尾所示，查看 Docker 主机的连接信息，如下所示： 
 
 ```bash
-docker-machine env myvmdocker
+docker-machine env myvm
 ```
 
 输出类似于以下示例：
@@ -92,10 +92,10 @@ export DOCKER_HOST="tcp://40.68.254.142:2376"
 export DOCKER_CERT_PATH="/Users/user/.docker/machine/machines/machine"
 export DOCKER_MACHINE_NAME="machine"
 # Run this command to configure your shell:
-# eval $(docker-machine env myvmdocker)
+# eval $(docker-machine env myvm)
 ```
 
-若要定义连接设置，可以运行建议的配置命令 (`eval $(docker-machine env myvmdocker)`)，也可以手动设置环境变量。 
+若要定义连接设置，可以运行建议的配置命令 (`eval $(docker-machine env myvm)`)，也可以手动设置环境变量。 
 
 ## <a name="run-a-container"></a>运行容器
 若要查看运行中的容器，请运行一个基本的 NGINX Web 服务器。 使用 `docker run` 创建一个容器，并为 Web 流量公开端口 80，如下所示：
@@ -128,7 +128,7 @@ d5b78f27b335    nginx    "nginx -g 'daemon off"    5 minutes ago    Up 5 minutes
 获取 Docker 主机的公共 IP 地址，如下所示：
 
 ```bash
-docker-machine ip myvmdocker
+docker-machine ip myvm
 ```
 
 若要查看运行中的容器，请打开 Web 浏览器并输入上述命令输出中注明的公共 IP 地址：
@@ -138,4 +138,4 @@ docker-machine ip myvmdocker
 ## <a name="next-steps"></a>后续步骤
 也可以使用 [Docker VM 扩展](dockerextension.md)创建主机。 有关使用 Docker Compose 的示例，请参阅 [Azure 中的 Docker 和 Compose 入门](docker-compose-quickstart.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update meta properties -->

@@ -1,9 +1,9 @@
 ---
-title: "将托管数据磁盘附加到 Windows VM - Azure | Microsoft Docs"
+title: "将托管数据磁盘附加到 Windows VM - Azure | Azure"
 description: "如何使用资源管理器部署模型在 Azure 门户中将新的托管数据磁盘附加到 Windows VM。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 05/09/2017
-ms.date: 09/04/2017
-ms.author: cynthn
-ms.openlocfilehash: 0549841f56018301d12e5185014f6d3dd375ea10
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+origin.date: 12/13/2017
+ms.date: 01/08/2018
+ms.author: v-yeche
+ms.openlocfilehash: b6e3ff4a271db76f3e3cd6e20d5cfbcbde534563
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>如何在 Azure 门户中将托管数据磁盘附加到 Windows VM
 
@@ -36,31 +36,30 @@ ms.lasthandoff: 08/29/2017
 ## <a name="add-a-data-disk"></a>添加数据磁盘
 1. 在左侧菜单中单击“虚拟机”。
 2. 从列表中选择虚拟机。
-3. 在“虚拟机”边栏选项卡上，单击“磁盘”。
-   4. 在“磁盘”边栏选项卡上，单击“+ 添加数据磁盘”。
-5. 在新磁盘的下拉列表中，选择“创建空磁盘”。
-6. 在“创建托管磁盘”边栏选项卡中，键入磁盘名称，并根据需要调整其他设置。 完成后，单击“创建”。
-7. 在“磁盘”边栏选项卡中，单击“保存”，保存 VM 的新磁盘配置。
-6. 在 Azure 创建磁盘并将磁盘附加到虚拟机之后，新磁盘出现在“数据磁盘” 下的虚拟机磁盘设置中。
-
+3. 在虚拟机页面上，单击“磁盘”。
+4. 在“磁盘”窗格上，单击“+ 添加数据磁盘”。
+5. 在新磁盘的下拉列表中，选择“创建磁盘”。
+6. 在“创建托管磁盘”页面中，键入磁盘名称，并根据需要调整其他设置。 完成后，单击“创建”。
+7. 在“磁盘”页面中，单击“保存”以保存 VM 的新磁盘配置。
+8. 在 Azure 创建磁盘并将磁盘附加到虚拟机之后，新磁盘出现在“数据磁盘”下的虚拟机磁盘设置中。
 
 ## <a name="initialize-a-new-data-disk"></a>初始化新的数据磁盘
 
 1. 连接到 VM。
-1. 单击 VM 中的“开始”菜单，键入“diskmgmt.msc”，并点击“Enter”。 这会启动“磁盘管理”管理单元。
-2. “磁盘管理”会识别出空的未初始化磁盘，并弹出“初始化磁盘”窗口。
+1. 单击 VM 中的“开始”菜单，键入“diskmgmt.msc”，并点击“Enter”。 “磁盘管理”管理单元随即打开。
+2. “磁盘管理”会识别出存在新的未初始化磁盘，并且弹出“初始化磁盘”窗口。
 3. 请确保已选择新磁盘，单击“确定”对其进行初始化。
-4. 现在新磁盘显示为“未分配”。 右键单击磁盘上任意位置，选择“新建简单卷”。 此时会启动“新建简单卷向导”。
+4. 新磁盘显示为“未分配”。 右键单击磁盘上任意位置，选择“新建简单卷”。 此时会打开“新建简单卷向导”。
 5. 完成向导中的每一步，保留所有默认值，完成后，选择“完成”。
 6. 关闭“磁盘管理”。
-7. 随即弹出提示：需要先格式化新磁盘，然后才能使用新磁盘。 单击“格式化磁盘”。
+7. 随即弹出需要先格式化新磁盘才能使用新磁盘的提示。 单击“格式化磁盘”。
 8. 在“格式化新磁盘”对话框中，检查设置，然后单击“启动”。
 9. 随即显示格式化磁盘会清除所有数据的警告，请单击“确定”。
 10. 格式化完成后，单击“确定”。
 
 ## <a name="use-trim-with-standard-storage"></a>将 TRIM 与标准存储配合使用
 
-如果使用标准存储 (HDD)，应启用 TRIM。 TRIM 会丢弃磁盘上未使用的块，使用户只需为实际使用的存储付费。 如果创建了较大的文件，并将其删除，这样可以节省成本。 
+如果使用标准存储 (HDD)，应启用 TRIM。 TRIM 会放弃磁盘上未使用的块，以便仅对实际使用的存储进行收费。 如果创建了较大的文件，并将其删除，这样可以节省成本。 
 
 可以运行此命令来检查 TRIM 设置。 在 Windows VM 上打开命令提示符，并键入：
 
@@ -83,3 +82,4 @@ defrag.exe <volume:> -l
 
 ## <a name="next-steps"></a>后续步骤
 如果应用程序需要使用 D: 盘存储数据，可以[更改 Windows 临时磁盘的驱动器号](change-drive-letter.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+<!-- Update_Description: update meta properties, wording update -->

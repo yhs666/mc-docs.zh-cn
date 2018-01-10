@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 05/04/2017
-ms.date: 12/04/2017
+ms.date: 01/02/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 9f6ba6aa3017b4dbda543025084415b0371d31d9
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 15e84d5371a37981bbe0264ad56c4586c8025d1a
+ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/25/2017
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>在 Azure 中构建 Node.js 和 MongoDB Web 应用
+# <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>在 Azure 中生成 Node.js 和 MongoDB Web 应用
 
 Azure Web 应用提供高度可缩放、自修补的 Web 托管服务。 本教程演示如何在 Azure 中创建 Node.js Web 应用，并将其连接至 MongoDB 数据库。 完成本教程后，将获得一个在 [Azure App Service](app-service-web-overview.md) 中运行的 MEAN（MongoDB、Express、AngularJS 和 Node.js）应用程序）。 为简单起见，示例应用程序使用了 [MEAN.js web 框架](http://meanjs.org/)。
 
@@ -44,6 +44,7 @@ Azure Web 应用提供高度可缩放、自修补的 Web 托管服务。 本教�
 
 1. [安装 Git](https://git-scm.com/)
 1. [安装 Node.js 和 NPM](https://nodejs.org/)
+1. [安装 Bower](https://bower.io/)（[MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started) 所需的）
 1. [安装 Gulp.js](http://gulpjs.com/) [（MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started) 要求的）
 1. [安装并运行 MongoDB 社区版](https://docs.mongodb.com/manual/administration/install-community/) 
 
@@ -115,7 +116,7 @@ MEAN.js 示例应用程序将用户数据存储在数据库中。 如果成功�
 
 ## <a name="create-production-mongodb"></a>创建生产 MongoDB
 
-此步骤在 Azure 中创建一个 MongoDB 数据库。 将应用部署到 Azure 后，它会使用此云数据库。
+此步骤在 Azure 中创建一个 MongoDB 数据库。 应用部署到 Azure 后，它将使用该云数据库。
 
 对于 MongoDB，本教程使用了 [Azure Cosmos DB](/documentdb/)。 Cosmos DB 支持 MongoDB 客户端连接。
 
@@ -127,7 +128,7 @@ MEAN.js 示例应用程序将用户数据存储在数据库中。 如果成功�
 
 使用 [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) 命令创建 Cosmos DB 帐户。
 
-在下面命令中，将 *\<cosmosdb_name>* 占位符替换为一个唯一的 Cosmos DB 名称。 此名称将用作 Cosmos DB 终结点 `https://<cosmosdb_name>.documents.azure.cn/` 的一部分，因此这个名称需要在 Azure 中的所有 Cosmos DB 帐户中具有唯一性。 此名称只能包含小写字母、数字以及连字符 (-)，同时长度必须为 3 到 50 个字符。
+在下面的命令中，用唯一 Cosmos DB 名称替换 *\<cosmosdb_name>* 占位符。 此名称将用作 Cosmos DB 终结点 `https://<cosmosdb_name>.documents.azure.cn/` 的一部分，因此这个名称需要在 Azure 中的所有 Cosmos DB 帐户中具有唯一性。 此名称只能包含小写字母、数字以及连字符 (-)，同时长度必须为 3 到 50 个字符。
 
 ```azurecli
 az cosmosdb create \
@@ -136,7 +137,7 @@ az cosmosdb create \
     --kind MongoDB
 ```
 
---Kind MongoDB 参数启用 MongoDB 客户端连接。
+--kind MongoDB 参数启用 MongoDB 客户端连接。
 
 创建 Cosmos DB 帐户后，Azure CLI 将显示类似于以下示例的信息：
 
@@ -160,7 +161,7 @@ az cosmosdb create \
 
 在此步骤中，使用 MongoDB 连接字符串将 MEAN.js 示例应用程序连接至刚创建的 Cosmos DB 数据库。 
 
-### <a name="retrieve-the-database-key"></a>检索数据库密钥
+### <a name="retrieve-the-database-key"></a>检索数据库键
 
 若要连接到 Cosmos DB 数据库，需要数据库键。 使用 [az cosmosdb list-keys](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) 命令检索主键。
 
@@ -235,7 +236,7 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-在浏览器中导航到 http://localhost:8443。 在顶部菜单点击“注册”并创建一个测试用户。 如果成功创建用户并登陆，那么应用会将数据写入 Azure 中的 Cosmos DB 数据库。 
+在浏览器中导航到 `http://localhost:8443`。 在顶部菜单点击“注册”并创建一个测试用户。 如果成功创建用户并登陆，那么应用会将数据写入 Azure 中的 Cosmos DB 数据库。 
 
 在终端中，通过键入 `Ctrl+C` 停止 Node.js。 
 
@@ -259,7 +260,7 @@ MEAN.JS version: 0.5.0
 
 默认情况下，MEAN.js 项目会在 Git 存储库外部保留 _config/env/local-production.js_。 因此对于 Azure Web 应用，请使用应用设置来定义 MongoDB 连接字符串。
 
-若要设置应用设置，请使用 [az webapp config appsettings update](https://docs.azure.cn/zh-cn/cli/webapp/config/appsettings?view=azure-cli-latest)。 
+若要设置应用设置，请在 Cloud Shell 中使用 [az webapp config appsettings set](https://docs.azure.cn/zh-cn/cli/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 命令。 
 
 以下示例在 Azure Web 应用中配置 `MONGODB_URI` 应用设置。 替换 \<app_name>、\<cosmosdb_name> 和 \<primary_master_key> 占位符。
 
@@ -310,7 +311,7 @@ To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
 - _.deployment_ - 此文件告知应用服务将 `bash deploy.sh` 作为自定义部署脚本运行。
 - _deploy.sh_ - 自定义部署脚本。 查看该文件可以发现，它先运行 `npm install` 和 `bower install`，再运行 `gulp prod`。 
 
-可以通过此方法向基于 Git 的部署添加任意步骤。 无论何时重新启动 Azure Web 应用，应用服务都不会重新运行这些自动化任务。
+可以使用此方法将任何步骤添加到基于 Git 的部署。 无论何时重新启动 Azure Web 应用，应用服务都不会重新运行这些自动化任务。
 
 ### <a name="browse-to-the-azure-web-app"></a>浏览到 Azure Web 应用 
 
@@ -326,7 +327,7 @@ http://<app_name>.chinacloudsites.cn
 
 ![在 Azure 应用服务中运行的 MEAN.js 应用](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-选择“管理员”>“管理文章”以添加一些文章。 
+选择“管理员”>“管理文章”，添加一些文章。 
 
 **祝贺你！** 现已在 Azure 应用服务中运行数据驱动的 Node.js 应用。
 
@@ -472,7 +473,7 @@ git push azure master
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ``` 
 
-启动日志流式处理后，请立即在浏览器中刷新 Azure Web 应用，以获取一些 Web 通信流。 现在能看到控制台日志传送到终端。
+启动日志流式处理后，请立即在浏览器中刷新 Azure Web 应用，以获取一些 Web 通信流。 现在看到传送到终端的控制台日志。
 
 通过键入 `Ctrl+C`，随时停止日志流式处理。 
 

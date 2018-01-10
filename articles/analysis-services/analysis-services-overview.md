@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/07/2017
-ms.date: 12/11/2017
+origin.date: 12/08/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6265c89bb66ffccc702195066459cf6123e55b13
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: a021462a2bbd3901b4a5ac7bac76e823f8b3f943
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -38,12 +38,13 @@ Azure Analysis Services 兼容 SQL Server Analysis Services Enterprise Edition �
 表格模型提供快速开发功能，其自定义程度可以很高。 面向开发人员的表格模型包括用于描述模型对象的表格对象模型 (TOM)。 TOM 通过[表格模型脚本语言 (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) 在 JSON 中公开，通过 [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) 命名空间在 AMO 数据定义语言中公开。
 
 ## <a name="better-with-azure"></a>更好地与 Azure 配合使用
-Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的分析解决方案。 集成 [Azure Active Directory](../active-directory/active-directory-whatis.md) 后可以对关键数据进行安全的基于角色的访问。 只需包括一项将数据加载到模型中的活动，即可集成 Azure 数据工厂管道。 可通过自定义代码将 [Azure 自动化](../automation/automation-intro.md)用于模型的轻型业务流程。
+Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的分析解决方案。 集成 [Azure Active Directory](../active-directory/active-directory-whatis.md) 后可以对关键数据进行安全的基于角色的访问。 可通过自定义代码将 [Azure 自动化](../automation/automation-intro.md)用于模型的轻型业务流程。
 <!-- Not Available [Azure Data Factory](../data-factory/data-factory-introduction.md) -->
 <!-- Not Available [Azure Functions](../azure-functions/functions-overview.md) -->
 
 ## <a name="get-up-and-running-quickly"></a>快速启动和运行
 在 Azure 门户中，数分钟即可[创建服务器](analysis-services-create-server.md)。 另外，有了 Azure 资源管理器[模板](../azure-resource-manager/resource-manager-create-first-template.md)和 PowerShell，就可以使用声明性模板来预配服务器。 利用单个模板可以部署多个服务和其他 Azure 组件，例如存储帐户。 
+<!-- Not Available on Azure Function -->
 
 创建服务器以后，即可直接在 Azure 门户中创建表格模型。 使用新的（预览版）[Web 设计器功能](analysis-services-create-model-portal.md)，可以连接到 Azure SQL 数据库、Azure SQL 数据仓库数据源，还可以导入 Power BI Desktop .pbix 文件。 表之间的关系是自动创建的。可以直接在浏览器中创建度量值或编辑 JSON 格式的 model.bim 文件。
 
@@ -98,7 +99,7 @@ Azure Analysis Services 支持[连接到数据源](analysis-services-datasource.
 #### <a name="authentication"></a>身份验证
 Azure Analysis services 的用户身份验证通过 [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md) 处理。 用户尝试登录 Azure Analysis Services 数据库时，使用组织帐户标识，该标识对用户尝试访问的数据库具有访问权限。 这些用户标识必须是 Azure Analysis Services 服务器所在订阅的默认 Azure Active Directory 的成员。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
 
-#### <a name="data-security"></a>数据安全
+#### <a name="data-security"></a>数据安全性
 Azure Analysis Services 使用 Azure Blob 存储来持久保留 Analysis Services 数据库的存储和元数据。 使用 Azure Blob 服务器端加密 (SSE) 加密 Blob 中的数据文件。 使用“直接查询”模式时，仅存储元数据。 实际数据是在查询时从数据源访问的。
 
 #### <a name="firewall"></a>防火墙
@@ -114,26 +115,21 @@ Azure Analysis Services 受 [Microsoft 联机服务条款](http://www.microsoftv
 ## <a name="supports-the-latest-client-tools"></a>支持最新的客户端工具
 ![数据可视化](./media/analysis-services-overview/aas-overview-clients.png)
 
-利用新式的数据浏览和可视化工具（例如 Power BI、Excel 和第三方工具），用户可以通过交互性强且视觉效果丰富的方式来了解模型数据。
+利用新式的数据浏览和可视化工具（例如 Power BI、Excel、SQL Server 2017 Reporting Services 和第三方工具），用户可以通过交互性强且视觉效果丰富的方式来了解模型数据。 
 
-客户端使用 MSOLAP、AMO 或 ADOMD [客户端库](analysis-services-data-providers.md)连接到 Analysis Services 服务器。 Microsoft 客户端应用程序（例如 Power BI Desktop 和 Excel）会安装所有这三个客户端库。 但请记住，客户端库可能不是 Azure Analysis Services 所需要的最新版本，具体取决于更新的版本或频率。 这同样适用于自定义应用程序或其他界面，例如 AsCmd、TOM、ADOMD.NET。 这些应用程序通常需要手动安装包中的库。
+客户端使用 MSOLAP、AMO 或 ADOMD [客户端库](analysis-services-data-providers.md)连接到 Analysis Services 服务器。 Microsoft 客户端应用程序（例如 Power BI Desktop 和 Excel）会安装所有这三个客户端库。 但请记住，客户端库可能不是 Azure Analysis Services 所需要的最新版本，具体取决于更新的版本或频率。 这同样适用于自定义应用程序或其他接口，例如 AsCmd、TOM、ADOMD.NET。 这些应用程序通常需要手动安装包中的库。
 
 ## <a name="get-help"></a>获取帮助
 
 #### <a name="documentation"></a>文档
-Azure Analysis Services 的设置和管理非常简单。 可以在这里找到创建和管理服务器服务所需的所有信息。 在创建要部署到服务器的数据模型时，过程与创建部署到本地服务器的数据模型的非常相似。 [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services) 中提供了内容丰富的概念、过程、教程和参考文章库。
+Azure Analysis Services 的设置和管理非常简单。 可以在这里找到创建和管理服务器服务所需的所有信息。 在创建要部署到服务器的数据模型时，过程与创建部署到本地服务器的数据模型的非常相似。 在 [SQL Server Analysis Services 帮助](https://docs.microsoft.com/sql/analysis-services/analysis-services)中提供了内容丰富的概念、过程、教程和参考文章库。
 
 <!-- Not Available ### Videos -->
 #### <a name="blogs"></a>博客
-信息会不断更新。 在 [Analysis Services 团队博客](https://blogs.msdn.microsoft.com/analysisservices/)和 [Azure 博客](https://azure.microsoft.com/blog)上可以随时获取最新信息。
+信息会不断更新。 可以随时在 [Analysis Services 团队博客](https://www.azure.cn/blog/tags/Azure%20分析服务)上获取最新信息。
 
-#### <a name="community"></a>社区
-Analysis Services 拥有一个充满活力的用户社区。 参与 [Azure Analysis Services 论坛](https://aka.ms/azureanalysisservicesforum)上的对话。
-
-## <a name="feedback"></a>反馈
-想提出建议或功能请求？ 请务必在 [Azure Analysis Services 反馈](https://aka.ms/azureanalysisservicesfeedback)中发表评论。
-
-有关于文档的建议？ 可使用 Livefyre 在每篇文章底部添加意见。
+<!-- Not Available #### Community -->
+<!-- Not Available ## Feedback -->
 
 ## <a name="next-steps"></a>后续步骤
 现在已详细了解了 Azure Analysis Services，可以开始使用了。 了解如何在 Azure 中[创建服务器](analysis-services-create-server.md)。 服务器就绪以后，请逐步学习 [Adventure Works 教程](tutorials/aas-adventure-works-tutorial.md)，了解如何创建完全正常运行的表格模型并将其部署到服务器。

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: ee010efb2ae4162bc336e0788b03dd5937ebb8a3
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 38f81301380802cd86dc8e6f0aa7f6bb90350bfa
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 同步：有关更改默认配置的最佳实践
 本主题旨在说明支持和不支持的 Azure AD Connect 同步更改。
@@ -27,7 +27,7 @@ ms.lasthandoff: 08/04/2017
 通过 Azure AD Connect 创建的配置无需更改即可适用于同步本地 Active Directory 与 Azure AD 的大多数环境。 但是，在某些情况下，必须对配置应用某些更改，以满足特殊需求或要求。
 
 ## <a name="changes-to-the-service-account"></a>对服务帐户的更改
-Azure AD Connect 同步在安装向导创建的服务帐户下运行。 此服务帐户保存了同步使用的数据库加密密钥。 它是使用 127 个字符长的密码创建的，密码设置为永不过期。
+Azure AD Connect 同步在安装向导创建的服务帐户下运行。 此服务帐户保存了同步使用的数据库加密密钥。它是使用 127 个字符长的密码创建的，密码设置为永不过期。
 
 - **不支持** 更改或重置服务帐户的密码。 这样做会破坏加密密钥，服务无法访问数据库且无法启动。
 
@@ -46,7 +46,7 @@ Azure AD Connect 同步在安装向导创建的服务帐户下运行。 此服�
 > [!WARNING]
 > 现成的同步规则具有指纹。 如果更改这些规则，指纹不再匹配。 将来尝试应用 Azure AD Connect 的新版本时可能会遇到问题。 只能根据本文所述的方式进行更改。
 
-### <a name="disable-an-unwanted-sync-rule"></a>禁用不需要的同步规则
+### 禁用不需要的同步规则 <a name="disable-an-unwanted-sync-rule"></a>
 不要删除现成的同步规则。 下一次升级期间会重新创建该规则。
 
 在某些情况下，安装向导生成的配置不适用于拓扑。 例如，如果使用帐户资源林拓扑，但已在具有 Exchange 架构的帐户林中扩展该架构，则系统针对帐户林和资源林创建适用于 Exchange 的规则。 在此情况下，需要禁用适用于 Exchange 的同步规则。
@@ -55,7 +55,7 @@ Azure AD Connect 同步在安装向导创建的服务帐户下运行。 此服�
 
 在上图中，安装向导已在帐户林中找到旧的 Exchange 2003 架构。 此架构扩展是在 Fabrikam 环境中引入资源林之前添加的。 若要确保不同步任何来自旧 Exchange 实现的属性，应该按所述方式禁用同步规则。
 
-### <a name="change-an-out-of-box-rule"></a>更改现成的规则
+### 更改现成的规则 <a name="change-an-out-of-box-rule"></a>
 仅当需要更改联接规则时，才应更改现成的规则。 若需更改属性流，则应在创建同步规则时，让其优先级高于现成的规则。 实际上，需克隆的唯一规则是规则 **In from AD - User Join**。 可以使用优先级更高的规则重写所有其他规则。
 
 如果需要对现成的规则进行更改，应该复制该现成的规则，并禁用原始规则。 然后对克隆的规则进行更改。 同步规则编辑器会帮助完成这些步骤。 打开现成的规则时，会显示此对话框：  
@@ -72,4 +72,4 @@ Azure AD Connect 同步在安装向导创建的服务帐户下运行。 此服�
 - [Azure AD Connect 同步：理解和自定义同步](active-directory-aadconnectsync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: links update -->

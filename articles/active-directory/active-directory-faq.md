@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory 常见问题解答 | Microsoft Docs"
+title: "Azure Active Directory 常见问题 | Azure"
 description: "“Azure Active Directory 常见问题”解答有关如何访问 Azure 和 Azure Active Directory、管理密码以及访问应用程序的问题。"
 services: active-directory
 documentationcenter: 
-author: alexchen2016
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 11/08/2017
-ms.date: 11/22/2017
-ms.author: v-junlch
-ms.openlocfilehash: 5ed52afaea524bf52add886f06ca34218ed6182f
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+origin.date: 12/14/2017
+ms.date: 1/1/2018
+ms.author: v-nany
+ms.openlocfilehash: 9f65a22d862b8e6f49b0453a3438f95474521cc0
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -28,13 +28,14 @@ Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决�
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>访问 Azure 和 Azure Active Directory
-**问：尝试在 Azure 经典管理门户中访问 Azure AD 时，为何收到“找不到订阅”？**
+**问：尝试在 Azure 门户中访问 Azure AD 时，为何出现“找不到订阅”错误？**
 
-**答：** 若要访问 Azure 经典管理门户，每个用户都需要 Azure 订阅的权限。 如果订阅为付费型 Office 365 订阅或 Azure AD 订阅，请访问 [http://aka.ms/accessAAD](http://aka.ms/accessAAD) ，了解一次性激活步骤。 否则需要激活 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/) 或付费型订阅。
+**答：**若要访问 Azure 门户，每个用户都需要 Azure 订阅的权限。 如果订阅为付费型 Office 365 订阅或 Azure AD 订阅，请访问 [http://aka.ms/accessAAD](http://aka.ms/accessAAD) ，了解一次性激活步骤。 否则需要激活 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/) 或付费型订阅。
 
 有关详细信息，请参阅：
 
-- [Azure 订阅与 Azure Active Directory 的关联方式](active-directory-how-subscriptions-associated-directory.md)
+* [Azure 订阅与 Azure Active Directory 的关联方式](active-directory-how-subscriptions-associated-directory.md)
+
 
 - - -
 **问：Azure AD、Office 365 与 Azure 之间是什么关系？**
@@ -45,10 +46,7 @@ Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决�
 
 Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合性的企业级管理和安全解决方案来弥补其他 Web 服务（例如 Office 365 和 Azure）的不足。
 - - -
-**问：为什么可以登录到 Azure 门户，但不能登录到 Azure 经典管理门户？**
 
-**答：**Azure 门户不需要有效的订阅，而经典管理门户则需要有效的订阅。  如果没有订阅，则无法登录到经典管理门户。
-- - -
 **问：订阅管理员与目录管理员的区别是什么？**
 
 **答：** 默认情况下，当用户注册 Azure 时，系统会为其分配订阅管理员角色。 订阅管理员可以使用 Microsoft 帐户，也可以使用 Azure 订阅与之关联的目录中的工作或学校帐户。  此角色有权在 Azure 门户中管理服务。
@@ -56,7 +54,7 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 如果其他人需要使用同一个订阅登录和访问服务，则可将其添加为共同管理员。 此角色具有与服务管理员一样的访问特权，但不能更改订阅与 Azure 目录之间的关联关系。  有关订阅管理员的其他信息，请参阅 [Azure 订阅与 Azure Active Directory 的关联方式](./active-directory-how-subscriptions-associated-directory.md)。
 
 
-Azure AD 提供另一组管理员角色来管理与目录和标识相关的功能。  这些管理员将有权访问 Azure 门户或 Azure 经典管理门户中的各种功能。 管理员的角色决定了其所能执行的操作，例如创建或编辑用户、向其他用户分配管理角色、重置用户密码、管理用户许可证，或者管理域。  有关 Azure AD 目录管理员及其角色的其他信息，请参阅[在 Azure Active Directory 中分配管理员角色](active-directory-assign-admin-roles.md)。
+Azure AD 提供另一组管理员角色来管理与目录和标识相关的功能。  这些管理员将有权访问 Azure 门户中的各种功能。 管理员的角色决定了其所能执行的操作，例如创建或编辑用户、向其他用户分配管理角色、重置用户密码、管理用户许可证，或者管理域。  有关 Azure AD 目录管理员及其角色的其他信息，请参阅[在 Azure Active Directory 中分配管理员角色](active-directory-assign-admin-roles-azure-portal.md)。
 
 另外，Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合性的企业级管理和安全解决方案来弥补其他 Web 服务（例如 Office 365 和 Azure）的不足。
 
@@ -120,16 +118,18 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 对于 Azure AD 帐户，管理员可以使用以下选项之一重置密码：
 
-- [在经典管理门户中重置帐户](active-directory-create-users-reset-password.md)
-- [使用 PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
+- [在 Azure 门户中重置帐户](active-directory-users-reset-password-azure-portal.md)
+- [使用 PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
 - - -
-## <a name="security"></a>“安全”
-**问：是将在失败尝试次数达到特定数字后锁定帐户，还是会使用更复杂的策略？**</br>
-我们使用更复杂的策略锁定帐户。  此策略基于请求的 IP 和输入的密码。 根据存在攻击的可能性，锁定持续时间也会增加。  
+## <a name="security"></a>安全性
+**问：是将在失败尝试次数达到特定数字后锁定帐户，还是会使用更复杂的策略？**
 
-**问：某些（常用）密码被拒绝并显示消息“此密码已使用多次”，这是指当前 Active Directory 中使用的密码吗？**</br>
+我们使用更复杂的策略来锁定帐户。  此策略基于请求的 IP 和输入的密码。 根据存在攻击的可能性，锁定持续时间也会增加。  
+
+**问：某些（常用）密码被拒绝并显示消息“此密码已使用多次”，这是指当前 Active Directory 中使用的密码吗？**
+
 这是指全局通用的密码，例如“Password”和“123456”的任何变体。
 
 ## <a name="application-access"></a>应用程序访问
@@ -149,10 +149,10 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 **答：** Azure AD 提供多种方式供用户查看和访问其应用程序，例如：
 
-- Azure AD 访问面板
-- Office 365 应用程序启动器
-- 直接登录到联合应用
-- 联合、基于密码或现有应用的深层链接
+* Azure AD 访问面板
+* Office 365 应用程序启动器
+* 直接登录到联合应用
+* 联合、基于密码或现有应用的深层链接
 
 有关详细信息，请参阅[为用户部署 Azure AD 集成的应用程序](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)。
 
@@ -163,13 +163,13 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 有关详细信息，请参阅：
 
-- [Azure AD 的身份验证方案](./develop/active-directory-authentication-scenarios.md)
-- [Active Directory 身份验证协议](./develop/active-directory-developers-guide.md)
-- [Azure Active Directory 中单一登录的工作原理是什么？](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Azure AD 的身份验证方案](./develop/active-directory-authentication-scenarios.md)
+* [Active Directory 身份验证协议](./develop/active-directory-developers-guide.md)
+* [Azure Active Directory 中单一登录的工作原理是什么？](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -
 
-**问：SaaS 应用程序的自动用户预配是什么？**
+**问：SaaS 应用的自动用户预配是什么？**
 
 **答：** 使用 Azure AD 可在许多流行的云 (SaaS) 应用程序中自动创建、维护和删除用户标识。
 

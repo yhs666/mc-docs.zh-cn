@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/08/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: 12737985d810d63e66f2e0027aac6b969d9f9240
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: e99721185dd7390f8ad1c052117284dbe65a0e64
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Azure AD 联合身份验证兼容性列表
 Azure Active Directory 为 Office 365 和其他 Microsoft Online 服务提供单一登录与增强的应用程序访问安全性，以便在不使用任何非 Microsoft 解决方案的情况下实施混合部署和仅限云的部署。 与大多数 Microsoft Online 服务一样，Office 365 可与 Azure Active Directory 集成，以利用目录服务、身份验证和授权。 Azure Active Directory 还为数千种 SaaS 应用程序与本地 Web 应用程序提供单一登录。 有关支持的 SaaS 应用程序，请参阅 Azure Active Directory 应用程序库。
 
-对于投资了非 Microsoft 联合身份验证解决方案的组织，本主题指导如何通过以下“Azure Active Directory 联合身份验证兼容性列表”中所列的非 Microsoft 标识提供程序，为使用 Microsoft Online Services 的 Windows Server Active Directory 用户配置单一登录。 
+对于投资了非 Microsoft 联合解决方案的组织，本主题包含有关通过以下“Azure Active Directory 联合兼容性列表”中所列的非 Microsoft 标识提供者，为使用 Microsoft 联机服务的 Windows Server Active Directory 用户配置单一登录的指导。 
 
 ![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)   
 [Oxford Computer Group](http://oxfordcomputergroup.com/)作为代表 Microsoft 的第三方，利用非 Microsoft 标识提供者针对 Azure Active Directory 的一组常见用例测试了这些单一登录体验。
@@ -68,7 +68,7 @@ Azure Active Directory 为 Office 365 和其他 Microsoft Online 服务提供单
 > [!IMPORTANT]
 > 由于这些是第三方产品，Microsoft 不会对与这些标识提供程序相关的问题和疑问提供支持，例如部署、配置、故障排除、最佳实践等方面的问题和疑问。 如果需要获得支持或者存在有关这些标识提供程序的疑问，请直接联系提供支持的第三方。
 > 
-> 仅使用 WS 联合身份验证和 WS-Trust 协议测试了这些第三方标识提供程序与 Microsoft 云服务的互操作性。 测试不包括使用 SAML 协议。
+> 仅使用 WS 联合身份验证和 WS-Trust 协议测试了这些第三方标识提供程序与 Azure 云服务的互操作性。 测试不包括使用 SAML 协议。
 > 
 
 

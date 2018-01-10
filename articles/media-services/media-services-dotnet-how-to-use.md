@@ -3,7 +3,7 @@ title: "如何设置计算机以使用 .NET 进行媒体服务开发"
 description: "了解使用适用于 .NET 的媒体服务 SDK 进行媒体服务开发所要满足的先决条件。 此外，了解如何创建 Visual Studio 应用程序。"
 services: media-services
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
@@ -12,27 +12,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 08/23/2017
-ms.date: 11/06/2017
-ms.author: v-johch
-ms.openlocfilehash: 6233cfa88773701b0642a0d4ed6eff6e948c7c3a
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+origin.date: 12/09/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: 43112ee86e1892bda20fcbcba013fb8859797e2e
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 进行媒体服务开发
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-本主题介绍如何开始使用 .NET 开发媒体服务应用程序。
+本文介绍了如何开始使用 .NET 开发媒体服务应用程序。
 
 
             **Azure 媒体服务 .NET SDK** 库允许使用 .NET 为媒体服务编程。 为了进一步方便使用 .NET 进行开发，提供了 **Azure 媒体服务 .NET SDK 扩展**库。 此库包含一组扩展方法和帮助器函数，可简化 .NET 代码。 这两个库都通过 **NuGet** 和 **GitHub** 提供。
 
 ## <a name="prerequisites"></a>先决条件
-* 在新的或现有的 Azure 订阅中拥有一个媒体服务帐户。 请参阅主题[如何创建媒体服务帐户](media-services-portal-create-account.md)。
+* 在新的或现有的 Azure 订阅中拥有一个媒体服务帐户。 请参阅[如何创建媒体服务帐户](media-services-portal-create-account.md)一文。
 * 操作系统：Windows 10、Windows 7、Windows 2008 R2 或 Windows 8。
-* .NET Framework 4.5。
+* .NET Framework 4.5 或更高版本。
 * Visual Studio。
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>创建和配置 Visual Studio 项目
@@ -62,26 +62,23 @@ ms.lasthandoff: 11/03/2017
    
     2. 此时显示“管理引用”对话框。
     3. 在 .NET Framework 程序集下，找到并选择 System.Configuration 程序集，并按“确定”。
-6. 打开 App.config 文件并将 **appSettings** 节添加到文件。     
-   
-    设置连接到媒体服务 API 所需的值。 有关详细信息，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
+6. 打开 App.config 文件并将 **appSettings** 节添加到文件。 设置连接到媒体服务 API 所需的值。 有关详细信息，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
-    如果使用[用户身份验证](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication)，配置文件可能具有 Azure AD 租户域和 AMS REST API 终结点的值。
-
-    >[!Important]
-    >Azure 媒体服务文档集中的大多数代码示例都使用用户（交互）类型的身份验证连接到 AMS API。 此身份验证方法非常适合于管理或监视本机应用：移动应用、Windows 应用和控制台应用程序。 此身份验证方法不适合服务器、Web 服务、API 类型的应用程序。  有关详细信息，请参阅[通过 Azure AD 身份验证访问 AMS API](media-services-use-aad-auth-to-access-ams-api.md)。
+设置使用**服务主体**身份验证方法进行连接所需的值。  
 
         <configuration>
         ...
             <appSettings>
-              <add key="AADTenantDomain" value="YourAADTenantDomain" />
-              <add key="MediaServiceRESTAPIEndpoint" value="YourRESTAPIEndpoint" />
+                <add key="AMSAADTenantDomain" value="tenant"/>
+                <add key="AMSRESTAPIEndpoint" value="endpoint"/>
+                <add key="AMSClientId" value="id"/>
+                <add key="AMSClientSecret" value="secret"/>
             </appSettings>
 
         </configuration>
-
-7. 使用以下代码覆盖位于 Program.cs 文件开头的现有 **using** 语句。
-   
+7. 向你的项目中添加 **System.Configuration** 引用。
+7. 使用以下代码覆盖位于 Program.cs 文件开头的现有 **using** 语句：
+           
         using System;
         using System.Configuration;
         using System.IO;
@@ -99,15 +96,24 @@ ms.lasthandoff: 11/03/2017
     class Program
     {
         // Read values from the App.config file.
-        private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
-        private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+    
         private static CloudMediaContext _context = null;
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -125,4 +131,4 @@ ms.lasthandoff: 11/03/2017
 现在[可以连接到 AMS API](media-services-use-aad-auth-to-access-ams-api.md) 并开始[开发](media-services-dotnet-get-started.md)。
 
 
-<!--Update_Description: update Nuget install steps-->
+<!--Update_Description: update CODE-->

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 10/26/2017
-ms.date: 12/04/2017
+origin.date: 12/13/2017
+ms.date: 01/02/2018
 ms.author: v-yiso
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f04dc9399227daa1dcd93ac09be8977ebea00092
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: da2012cad850bab95b398ff7441039c54efb2e0a
+ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/25/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -28,14 +28,13 @@ ms.lasthandoff: 11/24/2017
 
 ![在 Azure 中运行的示例应用](./media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-可以在 Mac、Windows 或 Linux 计算机上执行以下步骤。 安装先决条件后，大约需要五分钟完成这些步骤。
+可以在 Mac、Windows 或 Linux 计算机上执行此处的步骤。 安装先决条件后，大约需要五分钟完成这些步骤。   
 
 ## <a name="prerequisites"></a>先决条件
 
 若要完成本快速入门教程，需先执行以下操作：
 
-* [安装 Git](https://git-scm.com/)
-* [安装 Node.js 和 NPM](https://nodejs.org/)
+* <a href="https://nodejs.org/" target="_blank">安装 Node.js 和 NPM</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -146,7 +145,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-完成部署后，切换回在“浏览到应用”步骤中打开的浏览器窗口，然后点击“刷新”。
+切换回在“浏览到应用”步骤中打开的浏览器窗口，然后刷新页面。
 
 ![已更新的在 Azure 中运行的示例应用](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
@@ -160,7 +159,7 @@ git push azure master
 
 随后会显示 Web 应用的概述页。 在此处可以执行基本的管理任务，例如浏览、停止、启动、重启和删除。 
 
-![Azure 门户中的“应用服务”边栏选项卡](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
+![Azure 门户中的“应用服务”页](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 左侧菜单提供用于配置应用的不同页面。 
 

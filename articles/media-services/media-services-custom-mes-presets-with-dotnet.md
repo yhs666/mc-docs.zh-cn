@@ -3,7 +3,7 @@ title: "自定义 Media Encoder Standard 预设 | Microsoft Docs"
 description: "本主题说明如何通过自定义 Media Encoder Standard 任务预设执行高级编码。 本主题说明如何使用媒体服务 .NET SDK 创建编码任务和作业。 此外，还说明如何向编码作业提供自定义预设。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
@@ -12,28 +12,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: ea7546bb9ca1aa53cd3cf2ac41532dc639bf4663
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 12/09/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: 740d5fb1b772d577ab642db1d94bb28b6690eab4
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>自定义 Media Encoder Standard 预设
 
 ## <a name="overview"></a>概述
 
-本主题演示如何通过使用自定义预设的 Media Encoder Standard (MES) 执行高级编码。 本主题使用 .NET 创建编码任务和执行此任务的作业。  
+本文展示了如何通过使用自定义预设的 Media Encoder Standard (MES) 执行高级编码。 本文使用 .NET 创建一个编码任务和一个执行此任务的作业。  
 
-本主题介绍如何使用 [H264 多比特率 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 预设和减少层数来进行自定义预设。 [自定义 Media Encoder Standard 预设](media-services-advanced-encoding-with-mes.md)主题演示了可用于执行高级编码任务的自定义预设。
+本文展示了何通过使用 [H264 多比特率 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 预设并减少层数来自定义预设。 [自定义 Media Encoder Standard 预设](media-services-advanced-encoding-with-mes.md)一文演示了可用于执行高级编码任务的自定义预设。
 
 ## <a id="customizing_presets"></a> 自定义 MES 预设
 
 ### <a name="original-preset"></a>原始预设
 
-将 [H264 多比特率 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 主题中定义的 JSON 保存到某个具有 .json 扩展名的文件。 例如，CustomPreset_JSON.json。
+将 [H264 多比特率 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 一文中定义的 JSON 保存到某个具有 .json 扩展名的文件。 例如，CustomPreset_JSON.json。
 
 ### <a name="customized-preset"></a>自定义的预设
 
@@ -116,16 +116,14 @@ ms.lasthandoff: 08/31/2017
 
 - 创建编码作业。
 - 获取对 Media Encoder Standard 编码器的引用。
-- 加载前面部分中创建的自定义 JSON 预设。
+- 加载前面部分中创建的自定义 JSON 预设。 
+  
+        // Load the JSON from the local file.
+        string configuration = File.ReadAllText(fileName);  
 
-    ```.net
-    // Load the JSON from the local file.
-    string configuration = File.ReadAllText(fileName);
-    ```
-
-- 将编码任务添加到作业。
+- 将编码任务添加到作业。 
 - 指定要编码的输入资产。
-- 创建要包含所编码资产的输出资产。
+- 创建包含所编码资产的输出资产。
 - 添加事件处理程序以检查作业进度。
 - 提交作业。
    
@@ -135,22 +133,27 @@ ms.lasthandoff: 08/31/2017
 
 #### <a name="example"></a>示例   
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace CustomizeMESPresests
+namespace CustomizeMESPresests
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
@@ -163,7 +166,11 @@ ms.lasthandoff: 08/31/2017
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -216,26 +223,26 @@ ms.lasthandoff: 08/31/2017
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -245,13 +252,14 @@ ms.lasthandoff: 08/31/2017
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
 
-        }
     }
+}
+```
 
 ## <a name="see-also"></a>另请参阅
 [媒体服务编码概述](media-services-encode-asset.md)

@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/08/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0a8c20c92c8b0e445e8fa66f3b9b271ea797218a
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 713b6731459757818f6909a8fcda05447a1779c8
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>创建 FreeBSD VHD 并将其上传到 Azure
 本文说明如何创建和上传包含 FreeBSD 操作系统的虚拟硬盘 (VHD)。 将其上传后，可以使用它作为自己的映像在 Azure 中创建虚拟机 (VM)。
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/15/2017
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关使用 Resource Manager 模型上传 VHD 的信息，请参阅[此文](../upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="prerequisites"></a>先决条件
-本文假设拥有以下项目：
+本文假定你拥有以下项目：
 
-* **Azure 订阅** - 如果没有帐户，只需几分钟即可创建一个。 请参阅 [Visual Studio 订户的 Azure 信用额度](https://www.azure.cn/support/legal/offer-rate-plans/)。 了解如何[创建试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。  
+* **Azure 订阅** - 如果没有帐户，只需几分钟即可创建一个。 如果有 MSDN 订阅，请参阅 [Visual Studio 订户的每月 Azure 信用额度](https://www.azure.cn/support/legal/offer-rate-plans/)。 否则，请了解如何[创建试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。  
 * **Azure PowerShell 工具** - 必须安装 Azure PowerShell 模块并将其配置为使用你的 Azure 订阅。 若要下载该模块，请参阅 [Azure 下载](https://www.azure.cn/downloads/)。 可在此处获取介绍如何安装和配置该模块的教程。 使用 [Azure 下载](https://www.azure.cn/downloads/) cmdlet 上传 VHD。
 * **安装在 .vhd 文件中的 FreeBSD 操作系统** - 必须将受支持的 FreeBSD 操作系统安装到虚拟硬盘中。 可使用多个工具创建 .vhd 文件。 例如，可使用 Hyper-V 等虚拟化解决方案创建 .vhd 文件并安装操作系统。 有关如何安装和使用 Hyper-V 的说明，请参阅[安装 Hyper-V 和创建虚拟机](http://technet.microsoft.com/library/hh846766.aspx)。
 
@@ -132,7 +132,7 @@ azure login -e AzureChinaCloud
 
 * **BlobStorageURL** 是在步骤 2 中创建的存储帐户的 URL。
 * **YourImagesFolder** 是 Blob 存储中用于存储映像的容器
-* **VHDName** 是显示在 Azure 经典管理门户中用于标识虚拟硬盘的标签。
+* **VHDName** 是显示在 Azure 门户中用于标识虚拟硬盘的标签。
 * **PathToVHDFile** 是 .vhd 文件的完整路径和名称。
 
 从你在上一步中使用的 Azure PowerShell 窗口中，键入：

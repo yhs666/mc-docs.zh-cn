@@ -13,23 +13,25 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
-origin.date: 11/02/2017
-ms.date: 11/27/2017
+origin.date: 11/29/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: aba9e1dff5fda1f0191f727f3605a8a8f38b277b
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: abe2333392e76ffb171d0852133d9fe5be111799
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 下表包括用于 Azure Cosmos DB 的示例 Azure CLI 脚本的链接。 所有 Azure Cosmos DB CLI 命令参考页可在 [Azure CLI 2.0 参考](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest)中找到。
 
 | |  |
 |---|---|
 |**创建 Azure Cosmos DB 帐户、数据库和容器**||
-|[创建 DocumentDB API 帐户](scripts/create-database-account-collections-cli.md)| 创建单个 Azure Cosmos DB API 帐户、数据库及容器，以用于 DocumentDB API。 |
+|[创建 SQL API 帐户](scripts/create-database-account-collections-cli.md)| 创建单个 Azure Cosmos DB API 帐户、数据库及容器，以用于 SQL API。 |
 | [创建 MongoDB API 帐户](scripts/create-mongodb-database-account-cli.md) | 创建单个 Azure Cosmos DB MongoDB API 帐户、数据库和集合。 |
 |**缩放 Azure Cosmos DB**||
 | [缩放容器吞吐量](scripts/scale-collection-throughput-cli.md) | 更改容器上预配的吞吐量。|
@@ -40,10 +42,11 @@ ms.lasthandoff: 11/24/2017
 |[重新生成帐户密钥](scripts/secure-regenerate-key-cli.md)|重新生成帐户的主密钥或只读密钥。|
 |[创建防火墙](scripts/create-firewall-cli.md)| 创建入站 IP 访问控制策略，仅允许从获批准的一组计算机和/或云服务访问帐户。|
 |**高可用性、灾难恢复、备份和还原**||
-|[配置故障转移策略](scripts/ha-failover-policy-cli.md)|为在其中复制帐户的每个区域设置故障转移优先级。|
+|[配置故障转移策略](scripts/ha-failover-policy-cli.md)|为帐户所复制的每个区域设置故障转移优先级。|
 |**将 Azure Cosmos DB 连接到资源**||
 |[将 Web 应用连接到 Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md)|创建并连接 Azure Cosmos DB 数据库和 Azure Web 应用。|
 |||
 
-<!-- Not Available ?toc=%2fcli%2fazure%2ftoc.json in docs.microsoft.com website(extenal site) -->
-<!--Update_Description: update meta properties, wording update -->
+<!--Not Available the parent file of includes file of cosmos-db-sql-api.md-->
+<!--ms.date:12/25/2017-->
+<!--Update_Description: update meta properties, wording update, update link -->

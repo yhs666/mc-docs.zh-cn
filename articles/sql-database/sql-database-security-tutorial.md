@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 origin.date: 06/28/2017
-ms.date: 10/02/2017
+ms.date: 01/08/2018
 ms.author: v-johch
-ms.openlocfilehash: 2433329891b75a068ff7e8d997603137baf92a5f
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 2b62d88f9d9245308e9b991df6b8477d020785b0
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>保护 Azure SQL 数据库
 
@@ -52,7 +52,7 @@ SQL 数据库通过限制对数据库的访问来保护数据，具体措施包�
 
 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>在 Azure 门户中创建服务器级别的防火墙规则
+##  <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>在 Azure 门户中创建服务器级别的防火墙规则
 
 SQL 数据库受 Azure 中的防火墙保护。 默认情况下，将拒绝与服务器和服务器内数据库的所有连接，连接自其他 Azure 服务的连接除外。 有关详细信息，请参阅 [Azure SQL 数据库服务器级和数据库级防火墙规则](sql-database-firewall-configure.md)。
 
@@ -109,7 +109,7 @@ SQL 数据库受 Azure 中的防火墙保护。 默认情况下，将拒绝与�
 
 这会使用传输层安全性 (TLS) 建立连接并减少中间人攻击的风险。 可从 Azure 门户为支持的客户端驱动程序的 SQL 数据库获得正确配置的连接字符串，如 ADO.net 的以下屏幕截图所示。
 
-1. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。
+1. 从左侧菜单中选择“SQL 数据库”，并单击“SQL 数据库”页上的数据库。
 
 2. 在数据库“概述”边栏选项卡上，单击“显示数据库连接字符串”。
 
@@ -150,6 +150,7 @@ Azure Active Directory 身份验证，使用 Azure Active Directory 管理的标
 
 最好在数据库级别创建这些非管理员帐户以连接到数据库，除非需要执行创建新用户等管理员任务。 请查看 [Azure Active Directory 教程](./sql-database-aad-authentication-configure.md)，了解如何使用 Azure Active Directory 进行身份验证。
 
+
 ## <a name="protect-your-data-with-encryption"></a>通过加密保护数据
 
 Azure SQL 数据库透明数据加密 (TDE) 会自动加密静态数据，无需对访问加密数据库的应用程序做任何更改。 对于新建的数据库，默认情况下 TDE 已启用。 若要为数据库启用 TDE 或验证 TDE 是否已启用，请按照以下步骤操作：
@@ -168,7 +169,7 @@ Azure SQL 数据库透明数据加密 (TDE) 会自动加密静态数据，无需
 
 Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储帐户中的审核日志。 审核可帮助你一直保持遵从法规、了解数据库活动，以及深入了解可以指明潜在安全违规的偏差和异常。 请按照以下步骤操作，为 SQL 数据库创建默认审核策略：
 
-1. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。
+1. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
 
 2. 在“设置”边栏选项卡中，选择“审核和威胁检测”。 请注意，服务器级审核已禁用，可以单击“查看服务器设置”链接，在此上下文中查看或修改服务器审核设置。
 
@@ -227,15 +228,16 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 
     ![在 Excel 中打开记录](./media/sql-database-threat-detection-get-started/7_td_audit_records_open_excel.png)
 
-9. 配置“快速合并”设置 - 在“POWER QUERY”功能区选项卡中，选择“选项”以显示“选项”对话框。 选择“隐私”部分，然后选择第二个选项 -“忽略隐私级别并潜在地改善性能”：
+9. 配置“快速合并”设置 - 在“POWER QUERY”功能区选项卡中，选择“选项”以显示“选项”对话框。 选择“隐私”部分，并选择第二个选项 -“忽略隐私级别并潜在地改善性能”：
 
     ![Excel 快速合并](./media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png)
 
-10. 要加载 SQL 审核日志，请确保设置选项卡中的参数设置正确，选择“数据”功能区，并单击“全部刷新”按钮。
+10. 如果要加载 SQL 审核日志，请确保设置选项卡中的参数设置正确，选择“数据”功能区，并单击“全部刷新”按钮。
 
     ![Excel 参数](./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png)
 
-11. 结果将显示在“SQL 审核日志”工作表中，使你能够对检测到的异常活动运行更深入的分析，并缓解应用程序中安全事件造成的影响。
+11. 结果会显示在“SQL 审核日志”工作表中，使你能够对检测到的异常活动运行更深入的分析，并缓解应用程序中安全事件造成的影响。
+
 
 ## <a name="next-steps"></a>后续步骤
 学习本教程后，只需几个简单的步骤，即可大大提升数据库抵御恶意用户或未经授权的访问的能力。  你已了解如何： 

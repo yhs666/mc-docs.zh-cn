@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: b2ccc703a75c21333db89d63839a2f9bb8d483d0
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 19889e4ac0e58760ce7dd3869ae53b90e739e57a
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>使用 Azure AD Connect 排查连接问题
 本文说明 Azure AD Connect 与 Azure AD 之间的连接的工作方式，以及如何排查连接问题。 这些问题很有可能出现在包含代理服务器的环境中。
@@ -39,7 +39,7 @@ Azure AD Connect 使用现代身份验证（使用 ADAL 库）来进行身份验
 
 还必须在代理服务器上打开所需的 URL。 [Office 365 URL 和 IP 地址范围](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)中提供了正式列表。
 
-下表列出了连接到 Azure AD 时最起码需要的那部分 URL。 此列表未包含任何可选功能，例如密码写回或 Azure AD Connect Health。 本文中描述这些功能是为了帮助排查初始配置问题。
+下表列出了连接到 Azure AD 时最起码需要的那部分 URL。 此列表未包括任何可选功能。 本文中描述这些功能是为了帮助排查初始配置问题。
 
 | URL | 端口 | 说明 |
 | --- | --- | --- |
@@ -62,7 +62,7 @@ Azure AD Connect 使用现代身份验证（使用 ADAL 库）来进行身份验
 - 如果看到此错误，请检查是否已正确配置 [machine.config](active-directory-aadconnect-prerequisites.md#connectivity)。
 - 如果配置看起来正确，请按照 [验证代理连接](#verify-proxy-connectivity) 中的步骤，查看问题是否也出现在向导外部的位置。
 
-### <a name="a-microsoft-account-is-used"></a>已使用 Microsoft 帐户
+### <a name="a-microsoft-account-is-used"></a>使用 Microsoft 帐户
 如果使用的是 Microsoft 帐户而不是学校或组织帐户，将会看到一个常规错误。  
 ![A Microsoft Account is used](./media/active-directory-aadconnect-troubleshoot-connectivity/unknownerror.png)
 
@@ -94,15 +94,56 @@ PowerShell 使用 machine.config 中的配置来联系代理。 winhttp/netsh �
 | 错误 | 错误文本 | 注释 |
 | --- | --- | --- |
 | 403 |禁止 |代理尚未对请求的 URL 打开。 请重新访问代理配置，并确保已打开 [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 。 |
-| 407 |需要代理身份验证 |代理服务器要求登录，但未提供任何登录信息。 如果代理服务器需要身份验证，请确保在 machine.config 中配置该设置。 另外，请确保对运行向导的用户和服务帐户使用域帐户。 |
+| 407 |需要代理身份验证 |代理服务器要求登录，但未提供任何登录信息。 如果代理服务器需要身份验证，请确保在 machine.config 中配置该设置。另外，请确保对运行向导的用户和服务帐户使用域帐户。 |
+
+### <a name="proxy-idle-timeout-setting"></a>代理空闲超时设置
+Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Azure AD 最多可用 5 分钟的时间来处理该请求。 如果同一导出请求中包含大量具有大型组成员身份的组对象，则会出现这种情况。 确保将代理空闲超时配置为大于 5 分钟。 否则，Azure AD Connect 服务器上可能会出现 Azure AD 的间歇性连接问题。
 
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Azure AD Connect 与 Azure AD 之间的通信模式
 如果已按上述步骤操作但仍无法连接，现在可以开始查看网络日志。 本部分说明正常且成功的连接模式。 此外，还会列出用户在阅读网络日志时可能会忽略的常见辅助信息。
 
-- 将调用 https://dc.services.visualstudio.com。 不需要在代理中打开该 URL 即可成功安装，可以忽略这些调用。
-- 可以看到 DNS 解析列出要处于 DNS 命名空间 nsatc.net 的实际主机，以及不在 microsoftonline.com 下的其他命名空间。 但是，实际服务器名称中不会有任何 Web 服务请求，因此不需要将这些 URL 添加到代理。
+- 将调用 https://dc.services.visualstudio.com。不需要在代理中打开该 URL 即可成功安装，可以忽略这些调用。
+- 可以看到 DNS 解析列出要处于 DNS 命名空间 nsatc.net 的实际主机，以及不在 microsoftonline.com 下的其他命名空间。但是，实际服务器名称中不会有任何 Web 服务请求，因此不需要将这些 URL 添加到代理。
 - 终结点 adminwebservice 和 provisioningapi 是发现终结点，用于找出要使用的实际终结点。 这些终结点根据区域而有所不同。
 
+### <a name="reference-proxy-logs"></a>引用代理日志
+下面是实际代理日志中的转储以及获取此转储的安装向导页（已删除同一终结点的重复条目）。 可以使用此部分作为自己的代理和网络日志的参考。 环境中的实际终结点可能有所不同（尤其是以斜体显示的 URL）。
+
+**连接到 Azure AD**
+
+| 时间 | URL |
+| --- | --- |
+| 1/11/2016 8:31 |connect://login.partner.microsoftonline.cn:443 |
+| 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://bba800-anchor.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://login.partner.microsoftonline.cn:443 |
+| 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
+
+**配置**
+
+| 时间 | 代码 |
+| --- | --- |
+| 1/11/2016 8:43 |connect://login.partner.microsoftonline.cn:443 |
+| 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://login.partner.microsoftonline.cn:443 |
+| 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://login.partner.microsoftonline.cn:443 |
+| 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://login.partner.microsoftonline.cn:443 |
+| 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://bwsc02-relay.microsoftonline.com:443 |
+
+**初始同步**
+
+| 时间 | URL |
+| --- | --- |
+| 1/11/2016 8:48 |connect://login.chinacloudapi.cn:443 |
+| 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://bba900-anchor.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://bba800-anchor.microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>身份验证错误
 本部分介绍了 ADAL（Azure AD Connect 使用的身份验证库）和 PowerShell 可能返回的错误。 其中说明的错误可帮助了解后续步骤。
@@ -147,7 +188,7 @@ PowerShell 使用 machine.config 中的配置来联系代理。 winhttp/netsh �
 ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>未正确配置登录助理
-当登录助理无法访问代理或代理不允许该请求时，此错误出现。
+当登录助理无法访问代理或代理不允许该请求时，将出现此错误。
 ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 
 - 如果看到此错误，请在 [netsh](active-directory-aadconnect-prerequisites.md#connectivity) 中查看代理配置并确认配置是否正确。
@@ -155,6 +196,6 @@ PowerShell 使用 machine.config 中的配置来联系代理。 winhttp/netsh �
 - 如果配置看起来正确，请按照 [验证代理连接](#verify-proxy-connectivity) 中的步骤，查看问题是否也出现在向导外部的位置。
 
 ## <a name="next-steps"></a>后续步骤
-了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
+了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
 <!-- Update_Description: wording update -->

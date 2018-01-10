@@ -1,4 +1,3 @@
-
 * 该转换需要重启 VM，因此请在预先存在的维护时段内计划 VM 迁移。 
 
 * 该转换是不可逆的。 
@@ -8,3 +7,7 @@
 * 在转换期间，会解除分配 VM。 转换完成后，VM 在启动时会接收新的 IP 地址。 如果需要，可向 VM [分配静态 IP 地址](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md)。
 
 * 不会删除在转换之前由 VM 使用的原始 VHD 和存储帐户。 它们会继续产生费用。 若要避免这些项目产生的费用，请在验证转换已完成后删除原始 VHD Blob。
+
+* 查看支持转换过程所需的 Azure VM 代理最低版本。 有关如何检查和更新目标版本的信息，请参阅 [Minimum version support for VM agents in Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)（对 Azure 中的 VM 代理的最低版本支持）
+<!--Update_Description: wording update-->
+<!--ms.date: 01/08/2018-->

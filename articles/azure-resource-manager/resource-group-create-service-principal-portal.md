@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/16/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 601a273a3c921908595549a993c7d0e4f73b5e89
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 6bd3b0ccf2d840347622bd2c76e72513725f3664
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/24/2017
 
 1. 通过 [Azure 门户](https://portal.azure.cn)登录 Azure 帐户。
 
-1. 选择“Azure Active Directory”。
+1. 选择“Azure Active Directory” 。
 
     ![选择 azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 11/24/2017
 ## <a name="create-an-azure-active-directory-application"></a>创建 Azure Active Directory 应用程序
 
 1. 通过 [Azure 门户](https://portal.azure.cn)登录 Azure 帐户。
-1. 选择“Azure Active Directory”。
+1. 选择“Azure Active Directory” 。
 
     ![选择 azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/24/2017
 
     ![选择应用程序](./media/resource-group-create-service-principal-portal/select-app.png)
 
-1. 复制“应用程序 ID”并将其存储在应用程序代码中。 [示例应用程序](#sample-applications)部分的应用程序引用此值作为客户端 ID。
+1. 复制“应用程序 ID”并将其存储在应用程序代码中。 一些[示例应用程序](#log-in-as-the-application)将此值称为“客户端 ID”。
 
     ![客户端 ID](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 11/24/2017
 
 要访问订阅中的资源，必须将应用程序分配到角色。 决定哪个角色表示应用程序的相应权限。 若要了解有关可用角色的信息，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。
 
-可将作用域设置为订阅、资源组或资源级别。 较低级别的作用域将继承权限。 例如，将某个应用程序添加到资源组的“读取者”角色意味着该应用程序可以读取该资源组及其包含的所有资源。
+可将作用域设置为订阅、资源组或资源级别。 较低级别的作用域会继承权限。 例如，将某个应用程序添加到资源组的“读取者”角色意味着该应用程序可以读取该资源组及其包含的所有资源。
 
 1. 导航到要将应用程序分配到的作用域级别。 例如，若要在订阅范围内分配角色，选择“订阅” 。 可改为选择资源组或资源。
 
@@ -197,8 +197,8 @@ ms.lasthandoff: 11/24/2017
 * [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>后续步骤
-* 若要设置多租户应用程序，请参阅[使用 Azure 资源管理器 API 进行授权的开发人员指南](resource-manager-api-authentication.md)。
+* 若要设置多租户应用程序，请参阅 [使用 Azure Resource Manager API 进行授权的开发人员指南](resource-manager-api-authentication.md)。
 * 若要了解如何指定安全策略，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-configure.md)。  
-* 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure Resource Manager 资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。
+* 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

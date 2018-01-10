@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 10/17/2017
 ms.author: v-yiso
 ms.date: 12/11/2017
-ms.openlocfilehash: 0538e81cfd310e4f38b12a30e604717ab850e97b
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 05276dbde849017f2e07a39b8e0d1209452e606f
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活动日志监视订阅活动
 **Azure 活动日志**是一种方便用户深入了解 Azure 中发生的订阅级别事件的订阅日志。 这包括从 Azure 资源管理器操作数据到服务运行状况事件更新的一系列数据。 活动日志之前称为“审核日志”或“操作日志”，因为“管理”类别报告订阅的控制面事件。 通过活动日志，可确定订阅中资源上进行的任何写入操作 (PUT, POST, DELETE) 的“什么操作、谁操作和操作时间”等信息。 还可以了解该操作和其他相关属性的状态。 活动日志未包括读取 (GET) 操作或针对使用经典/“RDFE”模型的资源的操作。
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/01/2017
 
 
 > [!WARNING]
-> Azure 活动日志主要适用于 Azure Resource Manager 中发生的活动。 它不跟踪使用经典/RDFE 模型的资源。 某些经典资源类型在 Azure Resource Manager 中具有代理资源提供程序（例如 Microsoft.ClassicCompute）。 如果通过 Azure 资源管理器使用这些代理资源提供程序与经典资源类型进行交互，则操作会显示在活动日志中。 如果在经典门户中与经典资源类型交互，或以其他方式不通过 Azure Resource Manager 代理与经典资源类型交互，则操作只会记录在操作日志中。 可以在门户的一个单独部分中浏览操作日志。
+> Azure 活动日志主要适用于 Azure Resource Manager 中发生的活动。 它不跟踪使用经典/RDFE 模型的资源。 某些经典资源类型在 Azure Resource Manager 中具有代理资源提供程序（例如 Microsoft.ClassicCompute）。 如果使用这些代理资源提供程序通过 Azure Resource Manager 与经典资源类型交互，相关操作出现在活动日志中。 如果在 Azure 资源管理器代理外部与经典资源类型进行交互，则操作只会记录在操作日志中。 可以在门户的一个单独部分中浏览操作日志。
 >
 >
 ## <a name="categories-in-the-activity-log"></a>活动日志中的类别
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/01/2017
 * 在 **Azure 门户**中查询和查看活动日志。
 * [将活动日志流式传输到事件中心](./monitoring-stream-activity-logs-event-hubs.md)，方便第三方服务或自定义分析解决方案（例如 PowerBI）引入。
 * 在 PowerBI 中使用 [PowerBI 内容包](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)分析活动日志。
-* [将活动日志保存到存储帐户进行存档或手动检查](./monitoring-archive-activity-log.md)。 可以使用日志配置文件指定保留时间（天）。
+* [将活动日志保存到存储帐户进行存档或手动检查](monitoring-archive-activity-log.md)。 可以使用“日志配置文件”指定保留时间（天）。
 * 通过 PowerShell Cmdlet、CLI 或 REST API 查询活动日志。
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>在 Azure 门户中查询活动日志
@@ -89,13 +89,13 @@ ms.lasthandoff: 12/01/2017
 * 应发送哪些事件类别（写入、删除、操作）。 日志配置文件中“类别”的含义与活动日志事件中不同。在日志配置文件中，“类别”表示操作类型（写入、删除、操作）。在活动日志事件中，“类别”属性表示事件的来源或类型（例如，管理、服务运行状况、警报，等等）。
 * 应该导出哪些区域（位置）
 * 活动日志应在存储帐户中保留多长时间。
-    - 保留期为 0 天意味着永久保留日志。 如果不需永久保留，则可将该值设置为 1 到 2147483647 之间的任意天数。
+    - 保留期为零天表示日志将永久保留。 如果不需永久保留，则可将该值设置为 1 到 2147483647 之间的任意天数。
     - 如果设置了保留策略，但禁止将日志存储在存储帐户中（例如，如果仅选择事件中心或 OMS 选项），则保留策略无效。
     - 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。
 
 可以使用与发出日志的订阅不同的订阅中的存储帐户或事件中心命名空间。 配置此设置的用户必须对两个订阅都具有合适的 RBAC 访问权限。
 
-这些设置可以通过门户中活动日志边栏选项卡上的“导出”选项进行配置。 还可 [使用 Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx)、PowerShell cmdlet 或 CLI 以编程方式配置这些设置。 一个订阅只能有一个日志配置文件。
+可通过门户中“活动日志”边栏选项卡的“导出”选项配置这些设置。 还可 [使用 Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx)、PowerShell cmdlet 或 CLI 以编程方式配置这些设置。 一个订阅只能有一个日志配置文件。
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>通过 Azure 门户配置日志配置文件
 可以在 Azure 门户中使用“导出”选项将活动日志流式传输到事件中心，或者将其存储在存储帐户中。
@@ -127,9 +127,9 @@ Get-AzureRmLogProfile
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
-| 属性 | 必选 | 说明 |
+| 属性 | 必须 | 说明 |
 | --- | --- | --- |
-| 名称 |是 |日志配置文件的名称。 |
+| Name |是 |日志配置文件的名称。 |
 | StorageAccountId |否 |应该将活动日志保存到其中的存储帐户的资源 ID。 |
 | serviceBusRuleId |否 |服务总线命名空间（需在其中创建事件中心）的服务总线规则 ID。 是以下格式的字符串： `{service bus resource ID}/authorizationrules/{key name}`。 |
 | 位置 |是 |要为其收集活动日志事件的逗号分隔区域的列表。 |
@@ -156,14 +156,14 @@ azure insights logprofile get --name my_log_profile
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 
-| 属性 | 必选 | 说明 |
+| 属性 | 必须 | 说明 |
 | --- | --- | --- |
-| 名称 |是 |日志配置文件的名称。 |
+| name |是 |日志配置文件的名称。 |
 | storageId |否 |应该将活动日志保存到其中的存储帐户的资源 ID。 |
-| serviceBusRuleId |否 |服务总线命名空间（需在其中创建事件中心）的服务总线规则 ID。 是以下格式的字符串： `{service bus resource ID}/authorizationrules/{key name}`。 |
+| serviceBusRuleId |否 |服务总线命名空间（需在其中创建事件中心）的服务总线规则 ID。 是以下格式的字符串：`{service bus resource ID}/authorizationrules/{key name}`。 |
 | 位置 |是 |要为其收集活动日志事件的逗号分隔区域的列表。 |
 | RetentionInDays |是 |事件的保留天数，介于 1 到 2147483647 之间。 值为零时，将无限期（永久）存储日志。 |
-| Categories |否 |应收集的事件类别的逗号分隔列表。 可能值包括：Write、Delete 和 Action。 |
+| categories |否 |应收集的事件类别的逗号分隔列表。 可能值包括：Write、Delete 和 Action。 |
 
 #### <a name="remove-a-log-profile"></a>删除日志配置文件
 ```

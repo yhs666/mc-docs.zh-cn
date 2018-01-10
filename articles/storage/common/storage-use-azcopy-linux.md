@@ -3,7 +3,7 @@ title: "使用 Linux 上的 AzCopy 将数据复制或移动到 Azure 存储 | Mi
 description: "使用 Linux 上的 AzCopy 实用程序将数据移动或复制到 blob 和文件内容或从中移动或复制数据。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。"
 services: storage
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: tysonn
 ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
@@ -12,26 +12,26 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2017
-ms.date: 10/30/2017
-ms.author: v-johch
-ms.openlocfilehash: 35d04565555a93de80877cfc75b32eccdbb1aea0
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+origin.date: 12/11/2017
+ms.date: 01/01/2018
+ms.author: v-nany
+ms.openlocfilehash: dd27a349017e7043957ebdc9bcea58b17b620642
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 Linux 上的 AzCopy 传输数据
-Linux 上的 AzCopy 是一个命令行实用程序，专用于使用具有优化性能的简单命令将数据复制到 Azure Blob 和文件存储以及从这些位置复制数据。 可在存储帐户中将数据从一个对象复制到另一个对象，或者在存储帐户之间复制。
+Linux 上的 AzCopy 是一个命令行实用程序，专用于使用具有优化性能的简单命令将数据复制到 Azure Blob 和文件存储以及从这些位置复制数据。 也可在存储帐户中将数据从一个对象复制到另一个对象，或者在存储帐户之间复制。
 
-有两个版本的 AzCopy 可供下载。 Linux 上的 AzCopy 使用 .NET Core Framework 构建而成，以提供 POSIX 样式的命令行选项的 Linux 平台为目标。 [Windows 上的 AzCopy](../storage-use-azcopy.md) 使用 .NET Framework 构建而成，提供 Windows 样式的命令行选项。 本文介绍 Linux 上的 AzCopy。
+有两个版本的 AzCopy 可下载。 Linux 上的 AzCopy 使用 .NET Core Framework 构建而成，以提供 POSIX 样式的命令行选项的 Linux 平台为目标。 [Windows 上的 AzCopy](../storage-use-azcopy.md) 使用 .NET Framework 构建而成，提供 Windows 样式的命令行选项。 本文介绍 Linux 上的 AzCopy。
 
 ## <a name="download-and-install-azcopy"></a>下载并安装 AzCopy
 ### <a name="installation-on-linux"></a>Linux 上的安装
 
 本文包括各种版本 Ubuntu 的命令。  使用 `lsb_release -a` 命令确认分发版本和代码名称。 
 
-AzCopy on Linux 要求在平台上安装 .NET Core 框架（版本 1.1.x）。 请参阅 [.NET Core](https://www.microsoft.com/net/download/linux) 页面上的安装说明。
+AzCopy on Linux 要求在平台上安装 .NET Core 框架（2.0 版）。 请参阅 [.NET Core](https://www.microsoft.com/net/download/linux) 页面上的安装说明。
 
 例如，在 Ubuntu 16.04 上安装 .NET Core。 有关最新的安装指南，请访问 [Linux 上的 .NET Core](https://www.microsoft.com/net/download/linux) 安装页面。
 
@@ -41,7 +41,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-get update
-sudo apt-get install dotnet-dev-1.1.4
+sudo apt-get install dotnet-sdk-2.0.2
 ```
 
 安装 .NET Core 后，下载并安装 AzCopy。
@@ -69,22 +69,20 @@ azcopy --source <source> --destination <destination> [Options]
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.chinacloudapi.cn/mycontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount.blob.core.chinacloudapi.cn/mycontainer/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key> 
 ```
 
-如果文件夹 `/mnt/myfiles` 不存在，AzCopy 会创建该文件夹并将 `abc.txt ` 下载到新文件夹中。
+如果文件夹 `/mnt/myfiles` 不存在，AzCopy 会创建该文件夹并将 `abc.txt ` 下载到新文件夹中。 
 
 ### <a name="download-single-blob-from-secondary-region"></a>从次要区域下载单个 blob
 
 ```azcopy
 azcopy \
-    --source https://myaccount-secondary.blob.core.chinacloudapi.cn/mynewcontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount-secondary.blob.core.chinacloudapi.cn/mynewcontainer/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key>
 ```
 
 请注意，必须已启用读取访问异地冗余存储。
@@ -190,10 +188,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.blob.core.chinacloudapi.cn/mycontainer \
-    --dest-key <key> \
-    --include "abc.txt"
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.core.chinacloudapi.cn/mycontainer/abc.txt \
+    --dest-key <key>
 ```
 
 如果指定的目标容器不存在，则 AzCopy 将创建它并将文件上传到其中。
@@ -202,10 +199,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.blob.core.chinacloudapi.cn/mycontainer \
-    --dest-key <key> \
-    --include "abc.txt"
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.core.chinacloudapi.cn/mycontainer/vd/abc.txt \
+    --dest-key <key>
 ```
 
 如果指定的虚拟目录不存在，AzCopy 将上传文件以在其 blob 名称中包括虚拟目录（例如，上述示例中的 `vd/abc.txt`）。
@@ -230,7 +226,7 @@ azcopy \
 /mnt/myfiles/subfolder/abcd.txt
 ```
 
-上传操作完成后，容器中将包括以下文件：
+上传操作完成后，容器中将包含以下文件：
 
 ```
 abc.txt
@@ -316,11 +312,10 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.chinacloudapi.cn/mycontainer1 \
-    --destination https://myaccount.blob.core.chinacloudapi.cn/mycontainer2 \
+    --source https://myaccount.blob.core.chinacloudapi.cn/mycontainer1/abc.txt \
+    --destination https://myaccount.blob.core.chinacloudapi.cn/mycontainer2/abc.txt \
     --source-key <key> \
-    --dest-key <key> \
-    --include "abc.txt"
+    --dest-key <key>
 ```
 
 不使用 --sync-copy 选项复制 blob 时，将执行[服务器端复制](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)操作。
@@ -329,11 +324,10 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://sourceaccount.blob.core.chinacloudapi.cn/mycontainer1 \
-    --destination https://destaccount.blob.core.chinacloudapi.cn/mycontainer2 \
+    --source https://sourceaccount.blob.core.chinacloudapi.cn/mycontainer1/abc.txt \
+    --destination https://destaccount.blob.core.chinacloudapi.cn/mycontainer2/abc.txt \
     --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt"
+    --dest-key <key2>
 ```
 
 不使用 --sync-copy 选项复制 blob 时，将执行[服务器端复制](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx)操作。
@@ -342,11 +336,10 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://myaccount1-secondary.blob.core.chinacloudapi.cn/mynewcontainer1 \
-    --destination https://myaccount2.blob.core.chinacloudapi.cn/mynewcontainer2 \
+    --source https://myaccount1-secondary.blob.core.chinacloudapi.cn/mynewcontainer1/abc.txt \
+    --destination https://myaccount2.blob.core.chinacloudapi.cn/mynewcontainer2/abc.txt \
     --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt"
+    --dest-key <key2>
 ```
 
 请注意，必须已启用读取访问异地冗余存储。
@@ -355,8 +348,8 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://sourceaccount.blob.core.chinacloudapi.cn/mycontainer1 \
-    --destination https://destaccount.blob.core.chinacloudapi.cn/mycontainer2 \
+    --source https://sourceaccount.blob.core.chinacloudapi.cn/mycontainer1/ \
+    --destination https://destaccount.blob.core.chinacloudapi.cn/mycontainer2/ \
     --source-key <key1> \
     --dest-key <key2> \
     --include "abc.txt" \
@@ -393,10 +386,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://myaccount.file.core.chinacloudapi.cn/myfileshare/myfolder1/ \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount.file.core.chinacloudapi.cn/myfileshare/myfolder1/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key>
 ```
 
 如果指定的源是 Azure 文件共享，则必须指定确切的文件名（例如 `abc.txt`）以下载单个文件，或者指定选项 `--recursive` 以递归方式下载该共享中的所有文件。 尝试同时指定文件模式和选项 `--recursive` 会导致错误。
@@ -418,10 +410,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.file.core.chinacloudapi.cn/myfileshare/ \
-    --dest-key <key> \
-    --include abc.txt
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.file.core.chinacloudapi.cn/myfileshare/abc.txt \
+    --dest-key <key>
 ```
 
 ### <a name="upload-all-files"></a>上传全部文件
@@ -544,11 +535,10 @@ azcopy --config-file "azcopy-config.ini"
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.chinacloudapi.cn/mycontainer1 \
-    --destination https://myaccount.blob.core.chinacloudapi.cn/mycontainer2 \
+    --source https://myaccount.blob.core.chinacloudapi.cn/mycontainer1/abc.txt \
+    --destination https://myaccount.blob.core.chinacloudapi.cn/mycontainer2/abc.txt \
     --source-sas <SAS1> \
-    --dest-sas <SAS2> \
-    --include abc.txt
+    --dest-sas <SAS2>
 ```
 
 此外，还可以在容器 URI 上指定一个 SAS：
@@ -559,8 +549,6 @@ azcopy \
     --destination /mnt/myfiles \
     --recursive
 ```
-
-请注意，AzCopy 当前仅支持[帐户 SAS](/storage/storage-dotnet-shared-access-signature-part-1)。
 
 ### <a name="journal-file-folder"></a>日志文件文件夹
 每次向 AzCopy 发出命令时，它都会检查默认文件夹中是否存在日志文件，或者通过此选项指定的文件夹中是否存在日志文件。 如果这两个位置中都不存在日志文件，AzCopy 则会将操作视为新操作并生成一个新的日志文件。
@@ -614,43 +602,8 @@ azcopy \
 > 若要查看 AzCopy 参数的完整列表，请查看“azcopy --help”菜单。
 
 ## <a name="known-issues-and-best-practices"></a>已知问题和最佳做法
-### <a name="error-net-core-is-not-found-in-the-system"></a>错误: 系统中未找到 .NET Core。
-如果遇到指出系统中未安装 .NET Core 的错误，.NET Core 二进制文件 `dotnet` 的 PATH 可能丢失。
-
-为了解决此问题，请在系统中查找 .NET Core 二进制文件：
-```bash
-sudo find / -name dotnet
-```
-
-这会返回 dotnet 二进制文件的路径。 
-
-    /opt/rh/rh-dotnetcore11/root/usr/bin/dotnet
-    /opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/dotnet
-    /opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/shared/Microsoft.NETCore.App/1.1.2/dotnet
-
-现在将此路径添加到 PATH 变量中。 对于 sudo，请编辑 secure_path，使其中包含 dotnet 二进制文件的路径：
-```bash 
-sudo visudo
-### Append the path found in the preceding example to 'secure_path' variable
-```
-
-在此示例中，secure_path 变量读取为：
-
-```
-secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/opt/rh/rh-dotnetcore11/root/usr/bin/
-```
-
-对于当前用户，请编辑 .bash_profile/.profile，使 dotnet 二进制文件的路径包含在 PATH 变量中 
-```bash
-vi ~/.bash_profile
-### Append the path found in the preceding example to 'PATH' variable
-```
-
-验证 .NET Core 现在是否位于 PATH 中：
-```bash
-which dotnet
-sudo which dotnet
-```
+### <a name="error-net-sdk-20-is-not-found-in-the-system"></a>错误: 系统中找不到 .NET SDK 2.0。
+AzCopy 依赖于 .NET SDK 2.0（从 AzCopy 7.0 版开始）。 此版本之前，AzCopy 使用 .NET Core 1.1。 如果遇到一个错误，指出系统中未安装 .NET Core 2.0，则可能需要根据 [.NET Core 安装说明](https://www.microsoft.com/net/learn/get-started/linuxredhat)进行安装或升级。
 
 ### <a name="error-installing-azcopy"></a>安装 AzCopy 时出错
 如果遇到 AzCopy 安装问题，可尝试使用提取的 `azcopy` 文件夹中的 bash 脚本运行 AzCopy。

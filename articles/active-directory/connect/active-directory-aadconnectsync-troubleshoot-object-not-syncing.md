@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: 7654debdadd39b5049a7e909c5265689ae56d7d4
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: b684256cb6fbdc513441f744b657572dd9593c3b
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>对未同步到 Azure AD 的对象进行故障排除
 
-如果某个对象没有按预期同步到 Azure AD，则可能有多种原因。 如果从 Azure AD 收到错误电子邮件或者在 Azure AD Connect Health 中看到错误，请改为阅读[排查导出错误](active-directory-aadconnect-troubleshoot-sync-errors.md)。 但如果是要排查不在 Azure AD 中的对象的问题，则本主题适用于你。 它介绍了如何在本地组件 Azure AD Connect 同步中查找错误。
+如果某个对象没有按预期同步到 Azure AD，则可能有多种原因。 如果从 Azure AD 收到错误电子邮件，请改为阅读[排查导出错误](active-directory-aadconnect-troubleshoot-sync-errors.md)。 但如果是要排查不在 Azure AD 中的对象的问题，则本主题适用于你。 它介绍了如何在本地组件 Azure AD Connect 同步中查找错误。
 
 若要查找错误，可以按以下顺序查看几个不同的位置：
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 08/11/2017
 如果错误本身未提供足够的信息，则请查看数据本身。 可以单击具有对象标识符的链接并继续对 [连接器空间导入的对象](#cs-import)进行故障排除。
 
 ## <a name="connector-space-object-properties"></a>连接器空间对象属性
-如果没有在“操作”[](#operations)选项卡中找到任何错误，则下一步是从 Active Directory 到 metaverse 然后到 Azure AD 查找连接器空间对象的问题。 在此路径中，应能找到问题所在。
+如果没有在[操作](#operations)选项卡中找到任何错误，则下一步是从 Active Directory 到 metaverse 然后到 Azure AD 查找连接器空间对象的问题。 在此路径中，应能找到问题所在。
 
 ### <a name="search-for-an-object-in-the-cs"></a>搜索 CS 中的对象
 
@@ -97,12 +97,12 @@ ms.lasthandoff: 08/11/2017
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineageout.png)  
 在“PasswordSync”列中，还会发现入站连接器空间可进行密码更改，因为有一个同步规则的值为 **True**。 此密码接着会通过出站规则发送到 Azure AD。
 
-从“沿袭”选项卡中，可以单击“Metaverse 对象属性”转到 Metaverse。[](#mv-attributes)
+从“沿袭”选项卡中，可以单击[Metaverse 对象属性](#mv-attributes)转到 Metaverse。
 
 所有选项卡的底部都有两个按钮：“预览”和“日志”。
 
 ### <a name="preview"></a>预览
-“预览”页用来同步单个对象。 如果正在对某些自定义同步规则进行故障排除，并且想要在单个对象上查看更改的效果，则此页面非常有用。 可以在“完全同步”和“增量同步”之间选择。 还可以在“生成预览”（仅在内存中保留更改）和“提交预览”（将更新 metaverse 并暂存对目标连接器空间的所有更改）之间选择。  
+“预览”页用来同步单个对象。 如果正在对某些自定义同步规则进行故障排除，并且想要在单个对象上查看更改的效果，则此页面非常有用。 可以在“完全同步”和“增量同步”之间选择。还可以在“生成预览”（仅在内存中保留更改）和“提交预览”（将更新 metaverse 并暂存对目标连接器空间的所有更改）之间选择。  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/preview.png)  
 可以检查对象，以及哪一个规则适用于特定的属性流。  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
@@ -132,7 +132,7 @@ ms.lasthandoff: 08/11/2017
 ### <a name="mv-connectors"></a>Metaverse 连接器
 “连接器”选项卡显示具有对象表示形式的所有连接器空间。  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvconnectors.png)  
-应当具有连接到以下项的连接器：
+应具有连接到以下项的连接器：
 
 - 其中表示了用户的每个 Active Directory 林。 此表示形式可能包括 foreignSecurityPrincipals 和 Contact 对象。
 - Azure AD 中的某个连接器。
@@ -146,4 +146,3 @@ ms.lasthandoff: 08/11/2017
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: update meta properties -->

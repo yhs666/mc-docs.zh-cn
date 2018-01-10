@@ -3,7 +3,7 @@ title: "Azure SQL 数据库单一数据库 | Microsoft Docs"
 description: "管理单个 Azure SQL 数据库的服务层、性能级别和存储量。"
 services: sql-database
 documentationcenter: na
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-origin.date: 10/11/2017
-ms.date: 11/06/2017
-ms.author: v-johch
-ms.openlocfilehash: 81526d12e1e294c4d0cf1c6905a5183be738e4b4
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.workload: On Demand
+origin.date: 12/14/2017
+ms.date: 01/08/2018
+ms.author: v-nany
+ms.openlocfilehash: 9bf7c32d28fa0767173b576a0fae9dd08540f01d
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>管理 Azure SQL 数据库中单一数据库的资源
 
@@ -36,9 +36,6 @@ ms.lasthandoff: 11/28/2017
 
 ![配置服务层和性能级别](./media/sql-database-single-database-resources/change-service-tier.png)
 
-> [!IMPORTANT]
-> 当选择 P11 或 P15 服务层时，请查看[最大大小为 4 TB 的 P11 和 P15 数据库的当前限制](sql-database-resource-limits.md)。
->
 
 ## <a name="manage-single-database-resources-using-powershell"></a>使用 PowerShell 管理单一数据库资源
 
@@ -49,6 +46,8 @@ ms.lasthandoff: 11/28/2017
 |[New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase)|创建数据库 |
 |[Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase)|获取一个或多个数据库|
 |[Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)|设置数据库的属性，或将现有数据库移到弹性池中。 例如，使用 MaxSizeBytes 属性来设置数据库的最大大小。|
+|[Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)|获取数据库操作的状态。 |
+|[Stop-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)|取消数据库上的异步更新操作。|
 
 
 > [!TIP]
@@ -65,7 +64,8 @@ ms.lasthandoff: 11/28/2017
 |[az sql server firewall-rule show](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|显示防火墙规则的详细信息|
 |[az sql server firewall-rule update](/cli/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|更新防火墙规则|
 |[az sql server firewall-rule delete](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|删除防火墙规则。|
-
+|[az sql db op list](/cli/sql/db/op?#az_sql_db_op_list)|获取在数据库上执行的操作的列表。|
+|[az sql db op cancel](/cli/sql/db/op#az_sql_db_op_cancel)|取消数据库上的异步操作。|
 
 > [!TIP]
 > 可以使用 Azure CLI 脚本在查询数据库的大小信息后将单一 Azure SQL 数据库缩放到不同的性能级别，有关这样的示例脚本，请参阅[使用 CLI 监视和缩放单一 SQL 数据库](scripts/sql-database-monitor-and-scale-database-cli.md)。
@@ -73,7 +73,7 @@ ms.lasthandoff: 11/28/2017
 
 ## <a name="manage-single-database-resources-using-transact-sql"></a>使用 Transact-SQL 管理单一数据库资源
 
-若要使用 Transact-SQL 设置或更改 Azure SQL 数据库服务层、性能级别和存储量，请使用以下 T-SQL 命令。 可以使用 Azure 门户、[SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio)、[Visual Studio Code](https://code.visualstudio.com/docs) 或可以连接到 Azure SQL 数据库服务器并传递 Transact-SQL 命令的其他任何程序，发出这些命令。 
+若要使用 Transact-SQL 设置或更改 Azure SQL 数据库服务层、性能级别和存储量，请使用以下 T-SQL 命令。 可以使用 Azure 门户、[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/use-sql-server-management-studio)、[Visual Studio Code](https://code.visualstudio.com/docs) 或可以连接到 Azure SQL 数据库服务器并传递 Transact-SQL 命令的其他任何程序来发出这些命令。 
 
 | 命令 | 说明 |
 | --- | --- |
@@ -102,7 +102,8 @@ ALTER DATABASE <myDatabaseName>
 |[数据库 - 按弹性池列出](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|返回弹性池中数据库的列表。|
 |[数据库 - 按推荐的弹性池列出](https://docs.microsoft.com/rest/api/sql/databases/listbyrecommendedelasticpool)|返回推荐弹性池内的数据库列表。|
 |[数据库 - 按服务器列出](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|返回服务器中的数据库列表。|
-|[数据库 - 更新](https://docs.microsoft.com/api/sql/databases/update)|更新现有的数据库。|
+|[数据库 - 更新](https://docs.microsoft.com/rest/api/sql/databases/update)|更新现有的数据库。|
+|[操作 - 列出](https://docs.microsoft.com/rest/api/sql/Operations/List)|列出所有可用的 SQL Rest API 操作。|
 
 
 

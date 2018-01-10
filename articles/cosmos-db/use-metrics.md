@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/25/2017
-ms.date: 10/23/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 16a08d59bcd23ce501cc1f497761ec770e51fadd
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 8bc18ee53c88fc4c84054f9ab7dad6691c1e873c
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的指标进行监视和调试
 
@@ -70,7 +70,7 @@ ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentC
 
 ## <a name="debugging-why-queries-are-running-slow"></a>调试查询运行缓慢的原因
 
-在 DocumentDB API SDK 中，Azure Cosmos DB 提供查询执行的统计信息。 
+在 SQL API SDK 中，Azure Cosmos DB 提供查询执行的统计信息。 
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -98,5 +98,5 @@ QueryMetrics 提供执行各查询组件所用时长的详细信息。 查询运
 * [执行 Azure Cosmos DB 缩放和性能测试](performance-testing.md)
 * [Azure Cosmos DB 性能提示](performance-tips.md)
 
-<!--Update_Description: new articles on use metrics -->
+<!--Update_Description: wording update -->
 

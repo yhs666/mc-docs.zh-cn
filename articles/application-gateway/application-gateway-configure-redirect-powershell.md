@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/18/2017
-ms.date: 09/14/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: 28e6f9c9f2814f1d64d808199a8169eea4d62f05
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: a6043dace42631bb8ee0eb649e9293fc4fddf64a
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-redirection-on-application-gateway-with-powershell"></a>使用 PowerShell 在应用程序网关上配置重定向
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 09/15/2017
 
 ```powershell
 # Get the application gateway
-$gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName testChinaNorthGroup
+$gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
 
 # Get the existing HTTPS listener
 $httpslistener = Get-AzureRmApplicationGatewayHttpListener -Name appgatewayhttplistener -ApplicationGateway $gw
@@ -85,7 +85,7 @@ Content-Length: 145
 
 ```powershell
 # Get the application gateway
-$gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName testChinaNorthGroup
+$gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
 
 # Get the existing HTTPS listener
 $httpslistener = Get-AzureRmApplicationGatewayHttpListener -Name appgatewayhttplistener -ApplicationGateway $gw
@@ -114,8 +114,8 @@ $poolSetting = Get-AzureRmApplicationGatewayBackendHttpSettings -Name "appGatewa
 # Retrieve an existing backend pool
 $pool = Get-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw
 
-# Create a new path based rule
-$pathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule6" -Paths "/image/*" -BackendAddressPool $pool -BackendHttpSettings $poolSetting
+# Create a new path rule for the path map configuration
+$pathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule6" -Paths "/image/*" -RedirectConfiguration $redirectconfig
 
 # Create a path map to add to the rule
 Add-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $pathRule -DefaultBackendAddressPool $pool -DefaultBackendHttpSettings $poolSetting -ApplicationGateway $gw
@@ -124,7 +124,7 @@ Add-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $pat
 $urlPathMap = Get-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -ApplicationGateway $gw
 
 # Add a new rule to handle the redirect and use the new listener
-Add-AzureRmApplicationGatewayRequestRoutingRule -Name "rule6" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap -RedirectConfiguration $redirectconfig -ApplicationGateway $gw
+Add-AzureRmApplicationGatewayRequestRoutingRule -Name "rule6" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap -ApplicationGateway $gw
 
 # Update the application gateway
 Set-AzureRmApplicationGateway -ApplicationGateway $gw 
@@ -226,7 +226,7 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -Public
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp 
 
 # Create the redirect configuration that will point traffic to the 
-$redirectconfig = New-AzureRmApplicationGatewayRedirectConfiguration -Name myredirect -RedirectType Temporary -TargetUrl "http://bing.com" -IncludePath $true -IncludeQueryString $true
+$redirectconfig = New-AzureRmApplicationGatewayRedirectConfiguration -Name myredirect -RedirectType Temporary -TargetUrl "http://bing.com"
 
 #Create a load balancer routing rule that configures the load balancer behavior. In this example, a basic round robin rule is created.
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -HttpListener $listener -RedirectConfiguration $redirectconfig 
@@ -240,5 +240,6 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 ## <a name="next-steps"></a>后续步骤
 
-访问[使用 PowerShell 为应用程序网关配置端到端 SSL](application-gateway-end-to-end-ssl-powershell.md)
+访问[使用 PowerShell 为应用程序网关配置端到端 SSL](application-gateway-end-to-end-ssl-powershell.md)。
 
+<!--Update_Description: wording update -->

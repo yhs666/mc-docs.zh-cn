@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 09/26/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0829e62175fec5022d14ae2c0ba07c87ff6aac9e
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 4901087006be76e077be21b46232ecd35d78cbe4
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>创建并管理具有多个 NIC 的 Windows 虚拟机
 Azure 中的虚拟机 (VM) 可附有多个虚拟网络接口卡 (NIC)。 一种常见方案是为前端和后端连接使用不同子网，或为监视或备份解决方案使用一个专用网络。 本文详述了如何创建附有多个 NIC 的 VM。 还可以了解如何从现有 VM 中添加或删除 NIC。 不同的 [VM 大小](sizes.md)支持不同数目的 NIC，因此请相应地调整 VM 的大小。
@@ -130,7 +130,7 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
     Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-2. 通过 [Get-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) 获取 VM 的现有配置。 以下示例从 *myResourceGroup* 中获取名为 *myVM* 的 VM 的信息：
+2. 通过 [Get-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) 获取 VM 的现有配置。 以下示例从“myResourceGroup”中获取名为“myVM”的信息：
 
     ```powershell
     $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
@@ -224,7 +224,7 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
 
 有关详细信息，请参阅[使用“copy”创建多个实例](../../resource-group-create-multiple.md)。 
 
-还可以使用 `copyIndex()` 在资源名称后面追加一个数字。 然后可创建“myNic1”、“MyNic2”等。 以下代码演示了追加索引值的示例：
+也可使用 `copyIndex()` 向资源名追加数字。 然后可创建“myNic1”、“MyNic2”等。 以下代码显示了追加索引值的示例：
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
@@ -232,7 +232,61 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
 
 可以阅读有关[使用 Resource Manager 模板创建多个 NIC](../../virtual-network/virtual-network-deploy-multinic-arm-template.md) 的完整示例。
 
+## <a name="configure-guest-os-for-multiple-nics"></a>为多个 NIC 配置来宾 OS
+
+Azure 会将默认网关分配给附加到虚拟机的第一个（主）网络接口。 Azure 不会将默认网关分配给附加到虚拟机的其他（辅助）网络接口。 因此，默认情况下无法与辅助网络接口所在子网的外部资源进行通信。 但是，辅助网络接口可以与子网外部的资源进行通信，尽管对不同操作系统而言，启用通信的步骤有所不同。
+
+1. 从 Windows 命令提示符下，运行 `route print` 命令，这将返回类似于以下虚拟机输出的输出，该虚拟机包含两个附加的网络接口：
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+
+    在本例中，Microsoft Hyper-V 网络适配器 #4（接口 7）是辅助网络接口，系统不会向其分配默认网关。
+
+2. 从命令提示符处，运行 `ipconfig` 命令查看分配给辅助网络接口的 IP 地址。 在本例中，192.168.2.4 被分配到接口 7。 辅助网络接口没有返回任何默认网关地址。
+
+3. 若要将发往辅助网络接口子网外部地址的所有流量路由到子网网关，请运行以下命令：
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    子网的网关地址是为该子网定义的地址范围中的第一个 IP 地址（以 .1 结尾）。 如果不想路由子网外部的所有流量，可改为向特定目标添加单独的路由。 例如，如果只想将流量从辅助网络接口路由到 192.168.3.0 网络，请输入以下命令：
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+
+4. 例如，若要确认与 192.168.3.0 网络中资源的通信是否成功，请输入以下命令使用接口 7 (192.168.2.4) 对 192.168.3.4 执行 ping 操作：
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    可能需要使用以下命令通过正在 ping 的设备的 Windows 防火墙打开 ICMP：
+
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+
+5. 若要确认已添加的路由是否在路由表中，请输入 `route print` 命令，它将返回一个类似于以下文本的输出：
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    “网关”下列出的路由 192.168.1.1 是主网络接口的默认路由。 “网关”下列出的路由 192.168.2.1 是你所添加的路由。
+
 ## <a name="next-steps"></a>后续步骤
 尝试创建具有多个 NIC 的 VM 时，请查看 [Windows VM 大小](sizes.md)。 注意每个 VM 大小支持的 NIC 数目上限。
 
-<!--Update_Description: update link-->
+<!--Update_Description: update link, add content of Configure guest OS for multiple NICs -->

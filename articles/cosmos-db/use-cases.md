@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 51166a001cdbfaeb02f2bbf7eeb47c917bdebf81
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 868be047cfbf2f2624129fc3cd3696632353a365
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Azure Cosmos DB 常见用例
 本文概述了 Azure Cosmos DB 的几个常见用例。  本文中的建议可以作为使用 Cosmos DB 开发应用程序的一个起点。   
@@ -31,12 +31,12 @@ ms.lasthandoff: 12/15/2017
 * 将 Azure Cosmos DB 用作物联网 (IoT) 系统的数据存储空间有什么好处？
 * 对 Web 和移动应用程序使用 Azure Cosmos DB 有什么好处？
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 [Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 提供的全球分布式数据库服务。 该服务允许客户跨数目不限的地理区域弹性（独立）缩放吞吐量与存储。 Azure Cosmos DB 是一项全球分布式数据库服务，它在当前市场中率先提供了综合[服务级别协议](https://www.azure.cn/support/sla/cosmos-db/)，包含吞吐量、延迟、可用性和一致性。 
 
-Azure Cosmos DB 项目在 2011 年以“Project Florence”的名义开始解决 Microsoft 内部大型 Internet 规模应用程序开发人员所面临的难题。 考虑到这些问题并不单纯发生在 Microsoft 的应用程序中，因此，2015 年我们决定以 [Azure Cosmos DB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/) 的形式向外部开发人员正式推出 Azure Cosmos DB。 该服务在 Microsoft 内部很普及，在外部，它是 Azure 开发人员使用的发展最快的服务之一。 
-
-Azure Cosmos DB 是在各种应用程序和用例中广泛使用的全球分布式多模型数据库。 它对于需要低延迟毫秒级响应时间或需要全局快速缩放的任何[无服务器的](http://azure.com/serverless)应用程序都是一个不错的选择。 它以可扩展的方式本机支持多种数据模型（键值、文档和纵栏式）和许多用于数据访问的 API，包括 [MongoDB API](mongodb-introduction.md)、[Cosmos DB API (SQL)](documentdb-introduction.md) 和[表 API](table-introduction.md)。 
+Azure Cosmos DB 是在各种应用程序和用例中广泛使用的全球分布式多模型数据库。 它以可扩展的方式本机支持多种数据模型（键值、文档和纵栏式）和许多用于数据访问的 API，包括 [MongoDB API](mongodb-introduction.md)、[SQL API](documentdb-introduction.md) 和[表 API](table-introduction.md)。 
+<!--Not Available on [Graph API (Gremlin)](graph-introduction.md) -->
+<!--Not Available on [serverless](http://azure.com/serverless) -->
 
 下面介绍了 Azure Cosmos DB 的几个属性，这些属性使 Cosmos DB 非常适用于想要实现全球分布的高性能应用程序。
 
@@ -58,7 +58,7 @@ IoT 用例在引入、处理和存储数据方法方面通常具有相同的模�
 
 有关使用 Azure Cosmos DB、EventHubs 和 Storm 的 IoT 解决方案示例，请参阅 [GitHub 上的 hdinsight-storm-examples 存储库](https://github.com/hdinsight/hdinsight-storm-examples/)。
 
-有关 Azure IoT 产品/服务的详细信息，请参阅[创建物联网](http://www.microsoft.com/server-cloud/internet-of-things.aspx)。 
+有关 Azure IoT 产品/服务的详细信息，请参阅 [创建物联网](http://www.microsoft.com/server-cloud/internet-of-things.aspx)。 
 
 ## <a name="retail-and-marketing"></a>零售和营销
 Azure Cosmos DB 广泛用于 Microsoft 旗下运行 Windows 应用商店和 XBox Live 的电子商务平台。 它还在零售业中用于存储目录数据，以及在订单处理管道中用于事件寻源。
@@ -93,29 +93,29 @@ Azure Cosmos DB 用于 [Next Games](http://www.nextgames.com/) 推出的 [The Wa
 Azure Cosmos DB 通常用于 Web 和移动应用程序内部，非常适用于社交互动建模、与第三方服务集成和积累丰富的个性化体验。 可以使用 Cosmos DB SDK 构建使用常用 [Xamarin 框架](mobile-apps-with-xamarin.md)的丰富 iOS 和 Android 应用程序。  
 
 ### <a name="social-applications"></a>社交应用程序
-Azure Cosmos DB 的一个常见用例就是存储和查询 Web、移动和社交媒体应用程序的用户生成内容 (UGC)。 UGC 的部分示例包括聊天会话、推文、博客文章、评级和评论。 通常情况下，社交媒体应用程序中的 UGC 混合了不受刚性结构约束的自由格式文本、属性、标记和关系。 可将聊天、评论和帖子等内容存储在 Cosmos DB 中，无需转换或复杂对象关系映射层。  可以轻易添加或修改数据属性以满足开发人员遍历应用程序代码的要求，从而促进快速开发。  
+Azure Cosmos DB 的一个常见用例就是存储和查询 Web、移动和社交媒体应用程序的用户生成内容 (UGC)。 UGC 的部分示例包括聊天会话、推文、博客文章、评级和评论。 通常情况下，社交媒体应用程序中的 UGC 混合了不受刚性结构约束的自由格式文本、属性、标记和关系。 可将聊天、评论和帖子等内容存储在 Cosmos DB 中，而无需转换或复杂对象关系映射层。  可以轻易添加或修改数据属性以满足开发人员遍历应用程序代码的要求，从而促进快速开发。  
 
 与第三方社交网络集成的应用程序必须响应这些网络中不断更改的架构。 由于 Cosmos DB 中的数据默认自动编制索引，因此可以随时查询数据。 因此，这些应用程序可以根据其各自的需求灵活地检索投影。
 
-许多社交应用程序在全球范围内运行并表现出不可预测的使用模式。 因此，应用程序层能根据用量需求缩放时，缩放数据存储的灵活性至关重要。  可通过在 Cosmos DB 帐户之下添加额外的数据分区来进行扩大。  也可在多个区域中创建额外的 Cosmos DB 帐户。 有关 Cosmos DB 服务区域可使用性的信息，请参阅 [Azure 区域](https://azure.microsoft.com/regions/#services)。
+许多社交应用程序在全球范围内运行并表现出不可预测的使用模式。 因此，应用程序层能根据用量需求缩放时，缩放数据存储的灵活性至关重要。  可通过在 Cosmos DB 帐户之下添加额外的数据分区来进行扩大。  也可在多个区域中创建额外的 Cosmos DB 帐户。 有关 Cosmos DB 服务区域可使用性的信息，请参阅 [Azure 区域](https://www.azure.cn/support/service-dashboard)。
 
 ![Azure Cosmos DB Web 应用参考体系结构](./media/use-cases/apps-with-global-reach.png)
 
 ### <a name="personalization"></a>个性化
-如今，新式应用程序都具有复杂的视图和体验。 它们通常采用动态设计，迎合对用户首选项或情绪以及品牌塑造的需求。 因此，应用程序需要能够有效地检索个性化设置，以便快速呈现 UI 元素和体验。 
+如今，新式应用程序都具有复杂的视图和体验。 它们通常采用动态设计，迎合对用户首选项或情绪以及品牌塑造的需求。 因此，应用程序需要能够有效地检索个性化设置，以快速呈现 UI 元素和体验。 
 
 Cosmos DB 支持的 JSON 格式是一种用于呈现 UI 布局数据的有效格式，它不仅轻量而且可由 JavaScript 轻松理解。 Cosmos DB 提供可调的一致性级别，可以实现快速读取和低延迟写入。 因此，在 Cosmos DB 中将包括个性化设置的 UI 布局数据存储为 JSON 文档是获取网络数据的一种有效方法。
 
 ![Azure Cosmos DB Web 应用参考体系结构](./media/use-cases/personalization.png)
 
 ## <a name="next-steps"></a>后续步骤
-可以根据[快速入门](create-documentdb-dotnet.md)开始使用 Azure Cosmos DB，其中逐步讲解了如何创建帐户并开始使用 Cosmos DB。 
+可以根据[快速入门](create-sql-api-dotnet.md)开始使用 Azure Cosmos DB，其中逐步讲解了如何创建帐户并开始使用 Cosmos DB。 
 
 或者，如果想要了解有关使用 Cosmos DB 的客户的详细信息，可参阅以下客户案例：
 
 * [Jet.com](https://jet.com)。电子商务挑战者利用 Microsoft 云中运行全球规模服务 Cosmos DB 争取冠军宝座。
 * [Asos.com](http://www.asos.com/)。Asos.com 是英国的一家在线时尚与美容商店。 Asos 的产品主要面向年轻的成年人，销售 850 多个品牌，以及自营的一系列服装和饰品。
-* [Toyota](https://www.toyota.com/)。 Toyota Motor Corporation 是日本的一家汽车制造商。 Toyota 对全球 IoT 应用利用 Cosmos DB。
+* [Toyota](https://www.toyota.com/)。 Toyota Motor Corporation 是一家日本汽车制造商。 Toyota 对全球 IoT 应用利用 Cosmos DB。
 * [Citrix](https://customers.microsoft.com/story/citrix)。 Citrix 使用 Azure Service Fabric 和 Azure Cosmos DB 开发单一登录解决方案
 * [TEXA](https://customers.microsoft.com/story/texaspa) TEXA 的革新性 IoT 解决方案可帮助车主节省时间、资金和燃气 - 同时有助于保护其安全。
 * [Domino's Pizza](https://www.dominos.com)。 Domino's Pizza Inc. 是美国的一家披萨连锁餐馆。

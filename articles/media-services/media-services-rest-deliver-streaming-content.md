@@ -1,7 +1,7 @@
 ---
 title: "使用 REST 发布 Azure 媒体服务内容"
 description: "了解如何创建用于生成流式处理 URL 的定位符。 代码使用 REST API。"
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 services: media-services
@@ -12,29 +12,29 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 88509df58946d0c5c76aa8e17914e9e91de5bbcc
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 12/07/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: 0fed36b5d27e9c595e42bc0ff0519ecb57924226
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>使用 REST 发布 Azure 媒体服务内容
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST](media-services-rest-deliver-streaming-content.md)
-> * [门户](media-services-portal-publish.md)
+> * [Portal](media-services-portal-publish.md)
 > 
 > 
 
 ## <a name="overview"></a>概述
-可通过创建 OnDemand 流式处理定位符并生成流式处理 URL，来流式处理自适应比特率 MP4 集。 [对资产进行编码](media-services-rest-encode-asset.md)主题说明了如何编码成自适应比特率 MP4 集。 如果内容已加密，则在创建定位符之前配置资产传送策略（如[本主题](media-services-rest-configure-asset-delivery-policy.md)中所述）。 
+可通过创建 OnDemand 流式处理定位符并生成流式处理 URL，来流式处理自适应比特率 MP4 集。 [对资产进行编码](media-services-rest-encode-asset.md)一文说明了如何编码成自适应比特率 MP4 集。 如果内容已加密，则在创建定位符之前配置资产传送策略（如[此文](media-services-rest-configure-asset-delivery-policy.md)中所述）。 
 
 也可以使用 OnDemand 流式处理定位符生成指向可渐进式下载的 MP4 文件的 URL。  
 
-本主题说明如何创建 OnDemand 流式处理定位符，以发布资产及生成平滑流式处理、MPEG DASH 和 HLS 流式处理 URL。 此外，还会示范如何生成渐进式下载 URL。
+本文说明如何创建 OnDemand 流式处理定位符，以发布资产及生成平滑流、MPEG DASH 和 HLS 流式处理 URL。 此外，还会示范如何生成渐进式下载 URL。
 
 
             [以下](#types) 部分显示了其值会在 REST 调用中使用的枚举类型。   
@@ -47,6 +47,8 @@ ms.lasthandoff: 08/31/2017
 
 若要了解如何连接到 AMS API，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
+>[!NOTE]
+>成功连接到 https://media.chinacloudapp.cn 后，将收到指定另一个媒体服务 URI 的 301 重定向。 必须对这个新 URI 进行后续调用。
 
 ## <a name="create-an-ondemand-streaming-locator"></a>创建 OnDemand 流式处理定位符
 若要创建 OnDemand 流式处理定位符并获取 URL，需执行以下操作：
@@ -55,14 +57,14 @@ ms.lasthandoff: 08/31/2017
 2. 创建 OnDemand 流式处理定位符。
 3. 如果计划进行流式处理，请获取资产中的流式处理清单文件 (.ism)。 
    
-   若计划进行渐进式下载，请获取资产中的 MP4 文件名。 
+   如果想要渐进式下载，请获取资产中的 MP4 文件名。 
 4. 生成清单文件或 MP4 文件的 URL。 
-5. 请注意，不能使用包含写入或删除权限的 AccessPolicy 创建流式处理定位符。
+5. 无法使用包含写入或删除权限的 AccessPolicy 创建流式处理定位符。
 
 ### <a name="create-an-access-policy"></a>创建访问策略
 
 >[!NOTE]
->不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies)主题。
+>不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，请使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[本文](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
 请求：
 
@@ -74,7 +76,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: 6bcfd511-a561-448d-a022-a319a89ecffa
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 68
@@ -117,7 +119,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: ac159492-9a0c-40c3-aacc-551b1b4c5f62
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 181

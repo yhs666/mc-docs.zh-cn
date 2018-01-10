@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: c93a7f1854c0a16a17cb5a8320215bf9cdc4842d
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: ed932b41de8f4aea9b28801431444f7af0db6480
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>如何在虚拟机上通过 Java 运行计算密集型任务
 > [!IMPORTANT] 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/15/2017
 
 本教程假定你知道如何创建 Java 控制台应用程序，而且你可以将库导入 Java 应用程序并生成 Java 存档 (JAR)。 假定不了解 Azure。
 
-学习内容：
+学习内容包括：
 
 * 如何创建已安装 Java 开发工具包 (JDK) 的虚拟机。
 * 如何远程登录到虚拟机。
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/15/2017
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>创建虚拟机
-1. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 依次单击“新建”、“计算”、“虚拟机”和“从库中”。
 3. 在“虚拟机映像选择”对话框中，选择“JDK 7 Windows Server 2012”。
    请注意，万一安装的是尚不能在 JDK 7 中运行的旧版应用程序，则可选择“JDK 6 Windows Server 2012”  。
@@ -61,11 +61,11 @@ ms.lasthandoff: 12/15/2017
    1. 指定虚拟机的名称。
    2. 指定要用于虚拟机的大小。
    3. 在“用户名”  字段中输入管理员的名称。 请记住接下来要输的名称和密码，此名称和密码用于远程登录虚拟机。
-   4. 在“新密码”字段中输入密码，然后在“确认”字段中再次输入密码。 这是 Administrator 帐户密码。
-   5. 单击“下一步” 。
+   4. 在“新密码”字段中输入密码，然后在“确认”字段中再次输入密码。 这是“管理员”帐户密码。
+   5. 单击“下一步”。
 6. 在下一个“虚拟机配置”  对话框中：
    1. 对于“云服务”，使用默认的“创建新的云服务”。
-   2. “云服务 DNS 名称”  的值在 chinacloudapp.cn 中必须唯一。 如有必要，请修改此值，使 Azure 能够将其指示为唯一值。
+   2. “云服务 DNS 名称”的值在 cloudapp.chinacloudapi.cn 中必须唯一。 如有必要，请修改此值，使 Azure 能够将其指示为唯一值。
    3. 指定区域、地缘组或虚拟网络。 出于本教程的目的，请指定区域，如**华北**。
    4. 对于“存储帐户”框，请选择“使用自动生成的存储帐户”。
    5. 对于“可用性集”，请选择“(无)”。
@@ -75,7 +75,7 @@ ms.lasthandoff: 12/15/2017
    2. 单击“完成” 。
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>远程登录到虚拟机
-1. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 单击“虚拟机” 。
 3. 单击要登录的虚拟机名称。
 4. 单击“连接” 。
@@ -88,15 +88,15 @@ ms.lasthandoff: 12/15/2017
 
 创建服务命名空间：
 
-1. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)。
-2. 在 Azure 经典管理门户的左下方导航窗格中，单击“服务总线、访问控制和缓存”。
-3. 在 Azure 经典管理门户的左上方窗格中，单击“服务总线”节点，然后单击“新建”按钮。  
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
+2. 在 Azure 门户的左下方导航窗格中，单击“服务总线、访问控制和缓存”。
+3. 在 Azure 门户的左上方窗格中，单击“服务总线”节点，并单击“新建”按钮。  
    ![“服务总线节点”屏幕截图][svc_bus_node]
 4. 在“新建服务命名空间”对话框中，输入一个**命名空间**，然后单击“检查可用性”按钮以确保该命名空间是唯一的。  
    ![“创建新的命名空间”屏幕截图][create_namespace]
 5. 确保该命名空间名称可用之后，选择应在其中托管命名空间的国家或地区，并单击“创建命名空间”  按钮。  
 
-   创建的命名空间随后将显示在 Azure 经典管理门户中，并需要一段时间激活。 请等到状态变为“活动”  后再继续下一步。
+   创建的命名空间随后会显示在 Azure 门户中，并需要一段时间激活。 请等到状态变为“活动”  后再继续下一步。
 
 ## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>获取命名空间的默认管理凭据
 若要在新命名空间上执行管理操作（如创建队列），则需要获取该命名空间的管理凭据。
@@ -522,4 +522,4 @@ ms.lasthandoff: 12/15/2017
 [properties_pane]:media/java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
 [default_key]:media/java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../../../java-add-certificate-ca-store.md
-<!-- Update_Description: add classic portal migration notice. -->
+<!-- Update_Description: update link -->

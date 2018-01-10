@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 036f522b3009874b0372d101879027ddcc58f7e8
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 39b3b81093524a6a138eb9441318858a1ee81952
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>在 Azure 云服务中使用 Socket.IO 生成 Node.js 聊天应用程序
 
-Socket.IO 在 node.js 服务器和客户端之间提供实时通信。 本教程指导如何在 Azure 上托管一个基于 socket.IO 的聊天应用程序。 有关 Socket.IO 的详细信息，请参阅 <http://socket.io/>。
+Socket.IO 在 node.js 服务器和客户端之间提供实时通信。 本教程指导你在 Azure 上托管一个基于 socket.IO 的聊天应用程序。 有关 Socket.IO 的详细信息，请参阅 [socket.io](http://socket.io)。
 
-以下是已完成应用程序的屏幕快照：
+以下是已完成应用程序的屏幕截图：
 
 ![显示托管在 Azure 上的服务的浏览器窗口][completed-app]  
 
@@ -146,7 +146,7 @@ Socket.IO 在 node.js 服务器和客户端之间提供实时通信。 本教程
 2.  打开浏览器并导航到 http://127.0.0.1。
 
 3.  浏览器窗口打开后，输入昵称，并按 Enter。
-   这样，就可以用特定昵称发布消息。 要测试多用户功能，请使用同一 URL 打开其他浏览器窗口但输入不同的昵称。
+   这样，就可以用特定昵称发布消息。 要测试多用户功能，请使用同一 URL 打开另外的浏览器窗口但输入不同的昵称。
 
     ![显示用户 1 和用户 2 聊天消息的两个浏览器窗口](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
 
@@ -166,16 +166,21 @@ Socket.IO 在 node.js 服务器和客户端之间提供实时通信。 本教程
     > 确保使用唯一名称，否则发布过程会失败。 部署完成后，会打开浏览器并导航到已部署的服务。
     > 
     > 如果收到错误消息，指出导入的发布配置文件中不存在提供的订阅名称，则必须先为用户的订阅下载和导入发布配置文件，再部署到 Azure。 请参阅[生成 Node.js 应用程序并将其部署到 Azure 云服务](./cloud-services-nodejs-develop-deploy-app.md)中的“将应用程序部署到 Azure”部分
-
+    > 
+    > 
     ![显示托管在 Azure 上的服务的浏览器窗口][completed-app]
 
     > [!NOTE]
     > 如果收到错误消息，指出导入的发布配置文件中不存在提供的订阅名称，则必须先为用户的订阅下载和导入发布配置文件，再部署到 Azure。 请参阅[生成 Node.js 应用程序并将其部署到 Azure 云服务](./cloud-services-nodejs-develop-deploy-app.md)中的“将应用程序部署到 Azure”部分
+    > 
+    > 
 
 应用程序现在即可在 Azure 上运行，并可使用 Socket.IO 在不同客户端之间中继聊天消息。
 
 > [!NOTE]
 > 为简单起见，此示例仅限于连接到同一实例的用户之间的聊天。 这意味着如果云服务创建两个辅助角色实例，用户只能够与连接到同一辅助角色实例的其他用户聊天。 要缩放应用程序以使用多个角色实例，可以使用类似于服务总线的技术在实例之间共享 Socket.IO 存储状态。 有关示例，请参阅 [Azure SDK for Node.js GitHub 存储库](https://github.com/WindowsAzure/azure-sdk-for-node)中的服务总线队列和主题使用示例。
+> 
+> 
 
 ##<a name="next-steps"></a>后续步骤
 
@@ -183,7 +188,7 @@ Socket.IO 在 node.js 服务器和客户端之间提供实时通信。 本教程
 
 有关详细信息，另请参阅 [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)。
 
-  [chatwebsite]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
+  [chatwebsite]: ../app-service/app-service-web-get-started-nodejs
 
   [Azure SLA]: https://www.azure.cn/support/legal/sla/
   [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node

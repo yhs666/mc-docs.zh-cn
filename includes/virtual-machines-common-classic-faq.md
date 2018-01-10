@@ -13,17 +13,20 @@
 
 • 对于 Linux VM — [Azure 认可的分发中的 Linux](/virtual-machines/linux/endorsed-distros)
 
+对于 Windows 客户端映像，某些版本的 Windows 7 和 Windows 8.1 可供 MSDN Azure 权益订户及 MSDN 开发订户用于开发和测试任务。
+<!-- Not Available on Mooncake [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog//2014/05/29/windows-client-images-on-azure/)-->
+
 ## <a name="why-are-affinity-groups-being-deprecated"></a>为什么要弃用地缘组？
 地缘组是一个旧概念，指的是在 Azure 中客户的云服务部署和存储帐户的地理分组。 在早期的 Azure 网络设计中，它们最初用于改进 VM 到 VM 的网络性能。 它们还支持仅限于使用一个区域中的一小部分硬件的虚拟网络 (VNet) 的初始版本。
 
 当前一个区域内的 Azure 网络已被设计为不再需要地缘组。 虚拟网络也在区域范围内，因此使用虚拟网络时不再需要地缘组。 由于这些改进，我们不再建议客户使用地缘组，因为在某些情况下它们可能存在一些限制。 使用地缘组将不必要地将 VM 和特定的硬件相关联，这样限制了可供你选择的 VM 大小。 当与地缘组相关联的特定硬件接近容量上限时，如果尝试添加新的 VM，还可能导致与容量相关的错误。
 
-Azure Resource Manager 部署模型和 Azure 门户已弃用地缘组功能。 对于 Azure 经典管理门户，我们禁止支持创建地缘组以及创建固定到地缘组的存储资源。 无需修改现有的使用地缘组的云服务。 但是，不能在新的云服务中使用地缘组，除非 Azure 支持专业人员建议使用它们。
+Azure 资源管理器部署模型和 Azure 门户已弃用地缘组功能。 对于经典 Azure 门户，我们将禁止支持创建地缘组以及创建固定到地缘组的存储资源。 无需修改现有的使用地缘组的云服务。 但是，不能在新的云服务中使用地缘组，除非 Azure 支持专业人员建议使用它们。
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>使用虚拟机时，我可以使用多少存储？
 每个数据磁盘的容量高达 1 TB。 可以使用的数据磁盘数取决于虚拟机大小。 有关详细信息，请参阅[虚拟机大小](../articles/virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空间。 每个磁盘都是一个 .vhd 文件，以页 blob 形式存储。 有关定价详细信息，请参阅 [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/blob/)（存储定价详细信息）。
+Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空间。 每个磁盘都是一个 .vhd 文件，以页 blob 形式存储。 有关定价详细信息，请参阅 [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/)（存储定价详细信息）。
 
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>可以使用哪些虚拟硬盘类型？
 Azure 只支持固定的 VHD 格式的虚拟硬盘。 若要在 Azure 中使用 VHDX，需先使用 Hyper-V 管理器或 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet 对其进行转换。 然后，使用 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet（在“服务管理”模式下）将 VHD 上传到 Azure 的存储帐户，用于虚拟机。
@@ -53,7 +56,7 @@ Azure 只支持固定的 VHD 格式的虚拟硬盘。 若要在 Azure 中使用 
 
 Windows VM 的其他选项包括：
 
-* 在 Azure 经典管理门户中找到 VM，然后单击命令栏中的“重置远程访问”。
+* 在 Azure 门户中找到 VM，并单击命令栏中的“重置远程访问”。
 * 查看[对基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 使用 Windows PowerShell 远程连接到 VM，或创建其他终结点以方便其他资源连接到 VM。 有关详细信息，请参阅[如何设置虚拟机的终结点](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
@@ -80,17 +83,18 @@ Azure 提供的映像没有预先配置的用户名和密码。 使用其中一�
 
 其他详细信息：
 
-* 对于 Linux 映像，如果使用 Azure 经典管理门户，系统会提供“azureuser”作为默认用户名，但可以更改该用户名，只需使用“从库中”而非“快速创建”作为创建虚拟机的方法即可。 使用“从库中”，可以决定在登录时是使用密码、SSH 密钥还是二者都使用。 用户帐户是非特权用户，但具有运行特权命令所需的“sudo”访问权限。 “root”帐户已禁用。
+* 对于 Linux 映像，如果用户使用 Azure 门户，系统会提供“azureuser”作为默认用户名，但用户可以更改该用户名，方法是使用“从库中”而非“快速创建”作为创建虚拟机的方法。 使用“从库中”，可以决定在登录时是使用密码、SSH 密钥还是二者都使用。 用户帐户是非特权用户，但具有运行特权命令所需的“sudo”访问权限。 “root”帐户已禁用。
 * 对于 Windows 映像，需要在创建 VM 时提供用户名和密码。 该帐户会添加到管理员组。
 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Azure 能否在虚拟机上运行防病毒软件？
-Azure 针对防病毒解决方案提供多种选项，但需要用户自行管理。 例如，可能需要另外订阅反恶意软件的软件，并需要自行决定运行扫描和安装更新的时间。 可以在创建 Windows 虚拟机时通过适用于 Microsoft 反恶意软件或 TrendMicro Deep Security Agent 的 VM 扩展来添加防病毒支持，也可以稍后进行。 有关详细信息，请参阅：
+Azure 针对防病毒解决方案提供多种选项，但需要用户自行管理。 例如，可能需要另外订阅反恶意软件的软件，并需要自行决定运行扫描和安装更新的时间。 可以在创建 Windows 虚拟机时通过适用于 Microsoft 反恶意软件或 TrendMicro Deep Security Agent 的 VM 扩展来添加防病毒支持，也可以稍后进行。 TrendMicro 扩展允许使用免费的限时试用订阅或使用现有的企业订阅。 Microsoft 反恶意软件免费。 有关详细信息，请参阅：
 
+<!-- Not Available on Symantec -->
 * [如何在 Azure VM 上安装和配置 Trend Micro Deep Security 即服务](/virtual-machines/windows/classic/install-trend)
 * [在 Azure 虚拟机上部署反恶意软件解决方案](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>哪些选项可用于备份和恢复？
-在某些区域，可将 Azure 备份用作预览。 有关详细信息，请参阅[备份 Azure 虚拟机](../articles/backup/backup-azure-vms.md)。 认证合作伙伴提供了其他解决方案。 若要了解当前提供的内容，请搜索 Azure 应用商店。
+在某些区域，可将 Azure 备份用作预览。 有关详细信息，请参阅[备份 Azure 虚拟机](../articles/backup/backup-azure-arm-vms.md)。 认证合作伙伴提供了其他解决方案。 若要了解当前提供的内容，请搜索 Azure 应用商店。
 
 另一个选项是使用 blob 存储的快照功能。 为此，需要在进行任何依赖 blob 快照的操作前关闭 VM。 这会保存挂起的数据写入，并将文件系统保持为一致状态。
 
@@ -99,7 +103,7 @@ Azure 根据 VM 的大小和操作系统按小时进行收费。 对于不足一
 
 当 VM 状态为“正在运行”或“已停止”时计费，但是当 VM 状态为“已停止”（“已释放”）时不计费。 若要将 VM 置于“已停止”（“已释放”）状态，请执行以下操作之一：
 
-* 从 Azure 经典管理门户关闭或删除该 VM。
+* 从 Azure 门户关闭或删除 VM。
 * 使用 Azure PowerShell 模块中提供的 Stop-AzureVM cmdlet。
 * 使用服务管理 REST API 中的关闭角色操作，并为 PostShutdownAction 元素指定 StoppedDeallocated。
 
@@ -112,7 +116,7 @@ Azure 根据 VM 的大小和操作系统按小时进行收费。 对于不足一
 
 对于任何独立的 VM（表示该 VM 不属于可用性集），Azure 在进行计划内维护前提前至少 1 周向订阅服务管理员发送电子邮件通知，因为在更新期间各个 VM 可能会重新启动。 在 VM 上运行的应用程序可能会遭遇停机。
 
-因计划内维护而重新启动时，还可以使用 Azure 经典管理门户或 Azure PowerShell 查看重新启动日志。 有关详细信息，请参阅 [Viewing VM Reboot Logs](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)（查看 VM 重新启动日志）。
+因计划内维护而重新启动时，还可以使用 Azure 门户或 Azure PowerShell 查看重启日志。 有关详细信息，请参阅 [Viewing VM Reboot Logs](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)（查看 VM 重新启动日志）。
 
 要提供冗余，可将两个或多个采用类似配置的 VM 放到同一个可用性集中。 这可以确保在计划内或计划外维护期间至少有一个 VM 可用。 对于此配置，Azure 可以保证某些级别的 VM 可用性。 有关详细信息，请参阅[管理虚拟机的可用性](../articles/virtual-machines/windows/manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
@@ -122,3 +126,4 @@ Azure 根据 VM 的大小和操作系统按小时进行收费。 对于不足一
 [使用 Azure CLI 创建和管理 Linux VM](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [使用 Azure PowerShell 创建和管理 Windows VM](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+<!-- Update_Description: wording update -->

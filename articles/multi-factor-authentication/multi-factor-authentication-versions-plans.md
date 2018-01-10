@@ -6,7 +6,7 @@ services: multi-factor-authentication
 documentationcenter: 
 author: alexchen2016
 manager: digimobile
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/25/2017
-ms.date: 09/25/2017
+ms.date: 12/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: e12691884304161d8e410a343e65a004d82568d3
-ms.sourcegitcommit: c13aee6f5e18d15bcc29fae1eefd2b72f2558dfa
+ms.openlocfilehash: 86d43a6b53107b1ccbd906bad44acfacabd88f3f
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何获取 Azure 多重身份验证
 
@@ -39,6 +39,7 @@ ms.lasthandoff: 09/29/2017
 | --- | --- |
 | 适用于 Office 365 的多重身份验证 |此版本专门与 Office 365 应用程序配合使用，可以从 Office 365 门户进行管理。 管理员可以[使用双重验证来保护 Office 365 资源](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)。 此版本是 Office 365 订阅的一部分。 |
 | 面向 Azure 管理员的多重身份验证 | Azure 租户的全局管理员可以免费为其全局管理员帐户启用双重验证。|
+| Azure 多重身份验证 | Azure 多重身份验证（通常称为“完整”版本）提供了最丰富的功能集。 它为一系列云应用程序提供了更多配置选项。|
 
 ## <a name="feature-comparison-of-versions"></a>版本功能比较
 下表提供了 Azure 多重身份验证的各个版本中可用的功能列表。
@@ -53,18 +54,10 @@ ms.lasthandoff: 09/29/2017
 | 将移动应用用作第二个因素 |● |● |● |
 | 将电话呼叫用作第二个因素 |● |● |● |
 | 将短信用作第二个因素 |● |● |● |
-| 不支持 MFA 的客户端的应用密码 |● |● |● |
 | 管理员控制验证方法 |● |● |● |
 | PIN 模式 | | |● |
-| 欺诈警报 | | |● |
-| MFA 报告 | | |● |
-| 一次性跳过 | | |● |
 | 通话的自定义问候语 | | |● |
 | 通话的自定义呼叫方 ID | | |● |
-| 受信任的 IP | | |● |
-| 记住受信任的设备的 MFA |● |● |● |
-| MFA SDK | | |●（需要多重身份验证提供程序和完整的 Azure 订阅） |
-| 适用于本地应用程序的 MFA | | |● |
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 09/18/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: b7c6ce4227de604028c17273a32adaf83ba9ec5f
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 6971d9e41d834a15b24595baf54c71db854dfcf7
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的日期
 Azure Cosmos DB 通过本机 [JSON](http://www.json.org) 数据模型提供架构灵活性和丰富的索引。 所有 Azure Cosmos DB 资源（包括数据库、集合、文档和存储过程）均作为 JSON 文档进行建模和存储。 JSON（和 Azure Cosmos DB）仅支持一小部分基本类型：字符串、数字、布尔值、数组、对象和 Null。这是对可移植性的要求。 但是，JSON 具有相当的灵活性，允许开发人员和框架使用这些基元并将其编写为对象或数组，以便表示更复杂的类型。 
@@ -27,7 +27,7 @@ Azure Cosmos DB 通过本机 [JSON](http://www.json.org) 数据模型提供架�
 除了基本类型，许多应用程序还需要表示日期和时间戳的 [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) 类型。 本文介绍开发人员可如何使用 .NET SDK 在 Azure Cosmos DB 中存储、检索和查询日期。
 
 ## <a name="storing-datetimes"></a>存储 DateTime
-默认情况下，[Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 会将 DateTime 值串行化为 [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) 字符串。 由于以下原因，大多数应用程序可以使用 DateTime 的默认字符串表示形式：
+默认情况下，[Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 会将 DateTime 值串行化为 [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) 字符串。 由于以下原因，大多数应用程序可以使用 DateTime 的默认字符串表示形式：
 
 * 字符串可以进行比较，而 DateTime 值的相对顺序在这些值转换为字符串时得以保留。 
 * 此方法不需要进行 JSON 转换所需的任何自定义代码或属性。
@@ -66,7 +66,7 @@ Azure Cosmos DB 通过本机 [JSON](http://www.json.org) 数据模型提供架�
 也可将 DateTime 存储为 Unix 时间戳，即存储为数字，用于表示自 1970 年 1 月 1 日以来已过去的秒数。 Azure Cosmos DB 的内部时间戳 (`_ts`) 属性遵循这种方法。 可以使用 [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) 类将 DateTime 序列化为数字。 
 
 ## <a name="indexing-datetimes-for-range-queries"></a>编制 DateTime 的索引以执行范围查询
-通常可以使用 DateTime 值执行范围查询。 例如，如果需要查找昨天以来创建的所有订单，或者查找过去五分钟内发运的所有订单，则要执行范围查询。 若要有效地执行这些查询，必须针对字符串的范围索引配置集合。
+通常可以使用 DateTime 值执行范围查询。 例如，如果需要查找昨天以来创建的所有订单，或者查找过去五分钟内发运的所有订单，则要执行范围查询。 若要有效执行这些查询，必须针对字符串的范围索引配置集合。
 
     DocumentCollection collection = new DocumentCollection { Id = "orders" };
     collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
@@ -75,7 +75,7 @@ Azure Cosmos DB 通过本机 [JSON](http://www.json.org) 数据模型提供架�
 如需详细了解如何配置索引策略，可参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
 
 ## <a name="querying-datetimes-in-linq"></a>在 LINQ 中查询 Datetime
-DocumentDB .NET SDK 自动支持通过 LINQ 查询存储在 Azure Cosmos DB 中的数据。 例如，下面的代码片段显示一个 LINQ 查询，该查询筛选在过去三天中发运的订单。
+SQL .NET SDK 自动支持通过 LINQ 查询存储在 Azure Cosmos DB 中的数据。 例如，以下代码片段显示一个 LINQ 查询，该查询筛选在过去三天中发运的订单。
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
@@ -83,13 +83,13 @@ DocumentDB .NET SDK 自动支持通过 LINQ 查询存储在 Azure Cosmos DB 中�
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-可在[查询 Cosmos DB](documentdb-sql-query.md) 中详细了解 Azure Cosmos DB 的 SQL 查询语言和 LINQ 提供程序。
+可在[查询 Cosmos DB](sql-api-sql-query.md) 中详细了解 Azure Cosmos DB 的 SQL 查询语言和 LINQ 提供程序。
 
 本文探讨了如何在 Azure Cosmos DB 中存储、索引和查询 DateTime。
 
 ## <a name="next-steps"></a>后续步骤
 * 下载并运行 [GitHub 上的代码示例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* 详细了解 [DocumentDB API 查询](documentdb-sql-query.md)
+* 详细了解 [SQL 查询](sql-api-sql-query.md)
 * 详细了解 [Azure Cosmos DB 索引策略](indexing-policies.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

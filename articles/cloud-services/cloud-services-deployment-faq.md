@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Azure 云服务部署常见问题解答 | Microsoft Docs"
-description: "本文列出有关 Microsoft Azure 云服务的部署的常见问题。"
+description: "本文将介绍一些关于 Microsoft Azure 云服务部署的常见问题解答。"
 services: cloud-services
 documentationcenter: 
 author: genlin
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2d7bf13e9c4620dfa4ddddd46baf85d81fdc835b
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 83514d8d575bd4093755b90492f0ced04ffa3266
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的部署问题：常见问题解答 (FAQ)
 
@@ -73,3 +73,8 @@ ms.lasthandoff: 11/28/2017
 
     这将从 [Azure 门户](https://portal.azure.cn)进行，因为调用将通过一个代理/填充程序完成，该代理/填充程序使得 Azure 资源管理器可以与经典资源通信。 
  
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>为什么 Azure 门户要求提供存储帐户才能进行部署？ 
+
+在经典门户中，用户首先将包直接上传到管理 API 层，然后 API 层会临时将包置于内部存储帐户中。  此过程会引发性能和可伸缩性问题，因为按照设计，API 层不是一项文件上传服务。  在 Azure 门户（资源管理器部署模型）中，我们跳过了首先将包上传到 API 层这个中间步骤，加快了部署速度，使部署更可靠。 
+
+这样做的代价很低，而好处则是可以在所有部署中重复使用同一存储帐户。 可以使用[存储费用计算器](https://www.azure.cn/pricing/calculator/)来确定服务包 (CSPKG) 的上传、下载和删除费用。 

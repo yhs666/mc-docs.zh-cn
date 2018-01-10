@@ -7,17 +7,17 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 11/10/2017
-ms.date: 12/04/2017
+origin.date: 12/12/2017
+ms.date: 01/08/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 0566f74fd207726e2d8bd5512841ab471fbcd0f7
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 5c6a1bd8b9316115d77024c637b678af130d4233
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>使用基于阈值的规则检测问题
 
@@ -67,13 +67,13 @@ Contoso 的某个规则可在**冷却器**设备报告的压力超过 250 PSI �
 
 | 设置          | 值                                 |
 | ---------------- | ------------------------------------- |
-| 名称             | 冷却器警告                       |
-| 源           | **冷却器**设备组              |
-| 触发器字段    | 压力                              |
+| Name             | 冷却器警告                       |
+| 源           | **冷却器**设备组             |
+| 触发器字段    | 压强                              |
 | 触发器运算符 | 大于                          |
 | 触发器值    | 150                                   |
 | 严重性级别   | 警告                               |
-| 警报事件文本 | 冷却器压力超过 150 PSI |
+| 说明      | 冷却器压力超过 150 PSI |
 
 若要保存新规则，请选择“应用”。
 

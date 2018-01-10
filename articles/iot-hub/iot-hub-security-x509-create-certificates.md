@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-orign.date: 10/10/2017
-ms.date: 11/20/2017
+orign.date: 12/10/2017
+ms.date: 01/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 5cefabbaac477dc96df0494d0999cbffd6fcee57
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.openlocfilehash: 565d3a27638b25d6f0da4d958fed02a8db626c3a
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>用于管理 CA 签名的 X.509 证书的 PowerShell 脚本
 
@@ -236,7 +236,7 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
     New-CAVerificationCert "<your verification code>"
     ```
     
-   这将以名为 VerifyCert4.cer 的文件在工作目录中创建具有给定使用者名称且由 CA 签名的证书。 此证书文件有助于向 IoT 中心验证你是否具有此 CA 的签名权限（即私钥）。
+此代码将一个证书创建为你的工作目录中名为 *VerifyCert4.cer* 的文件，该证书具有给定的使用者名称且由 CA 签名。 此证书文件有助于向 IoT 中心验证你是否具有此 CA 的签名权限（即私钥）。
 
 
 <a id="createx509device"></a>
@@ -290,3 +290,12 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
     
    然后使用用于创建设备的友好名称在 PowerShell 窗口中运行 `New-CADevice "<yourTestDevice>"`。 当系统提示输入 CA 私钥的密码时，请输入“123”。 这将在工作目录中创建 <yourTestDevice>.pfx 文件。
 
+## <a name="clean-up-certificates"></a>清理证书
+
+在开始栏或“设置”应用中，搜索并选择“管理计算机证书”。 删除由 **Azure IoT CA TestOnly** 颁发的任何证书。 这些证书应存在于以下三个位置： 
+
+* Certificates - Local Computer > Personal > Certificates
+* Certificates - Local Computer > Trusted Root Certification Authorities > Certificates
+* Certificates - Local Computer > Intermediate Certificate Authorities > Certificates
+
+   ![删除 Azure IoT CA TestOnly 证书](./media/iot-hub-security-x509-create-certificates/cleanup.png)

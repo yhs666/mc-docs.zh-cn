@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 07/17/2017
-ms.date: 10/16/2017
+origin.date: 12/14/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6cd14f511cad8ec4706fd16e74cbeac98f11488f
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 2779ce85c55d8916d069e237880ddb52911d8119
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>在 Azure 中的 Linux 虚拟机上使用 SSL 证书保护 Web 服务器
 若要保护 Web 服务器，可以使用安全套接字层 (SSL) 证书来加密 Web 流量。 这些 SSL 证书可存储在 Azure Key Vault 中，并可安全部署到 Azure 中的 Linux 虚拟机 (VM)。 本教程介绍如何执行下列操作：
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/10/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。  
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.22 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。  
 
 ## <a name="overview"></a>概述
 Azure Key Vault 保护加密密钥和机密、此类证书或密码。 Key Vault 有助于简化证书管理过程，让我们持续掌控用于访问这些证书的密钥。 可以在 Key Vault 中创建自签名证书，或者上传已拥有的现有受信任证书。
@@ -44,7 +44,7 @@ Azure Key Vault 保护加密密钥和机密、此类证书或密码。 Key Vault
 ## <a name="create-an-azure-key-vault"></a>创建 Azure Key Vault
 创建 Key Vault 和证书之前，需使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建资源组。 以下示例在“chinanorth”位置创建名为“myResourceGroupSecureWeb”的资源组：
 
-```
+```azurecli 
 az group create --name myResourceGroupSecureWeb --location chinanorth
 ```
 
@@ -59,7 +59,7 @@ az keyvault create \
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>生成证书并存储在 Key Vault 中
-为供生产使用，应通过 [az keyvault certificate import](https://docs.azure.cn/zh-cn/cli/certificate?view=azure-cli-latest#import) 导入由受信任的提供程序签名的有效证书。 在本教程中，以下示例显示了如何使用 [az keyvault certificate create](https://docs.azure.cn/zh-cn/cli/certificate?view=azure-cli-latest#create) 生成使用默认证书策略的自签名证书：
+为供生产使用，应通过 [az keyvault certificate import](https://docs.azure.cn/zh-cn/cli/keyvault/certificate?view=azure-cli-latest#az_keyvault_certificate_import) 导入由受信任的提供程序签名的有效证书。 在本教程中，以下示例显示了如何使用 [az keyvault certificate create](https://docs.azure.cn/zh-cn/cli/keyvault/certificate?view=azure-cli-latest#az_keyvault_certificate_create) 生成使用默认证书策略的自签名证书：
 
 ```azurecli 
 az keyvault certificate create \
@@ -69,7 +69,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>准备用于 VM 的证书
-若要在 VM 创建过程中使用该证书，请使用 [az keyvault secret list-versions](https://docs.azure.cn/zh-cn/cli/keyvault/secret?view=azure-cli-latest#list-versions) 获取证书的 ID。 使用 [az vm format-secret] 来转换证书((https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#format-secret)。 以下示例将这些命令的输出分配给变量，以便在后续步骤中使用：
+若要在 VM 创建过程中使用该证书，请使用 [az keyvault secret list-versions](https://docs.azure.cn/zh-cn/cli/keyvault/secret?view=azure-cli-latest#list-versions) 获取证书的 ID。 使用 [az vm format-secret](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#format-secret) 转换该证书。 以下示例将这些命令的输出分配给变量，以便在后续步骤中使用：
 
 ```azurecli 
 secret=$(az keyvault secret list-versions \
@@ -82,7 +82,7 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ### <a name="create-a-cloud-init-config-to-secure-nginx"></a>创建 cloud-init 配置以保护 NGINX
 [Cloud-init](https://cloudinit.readthedocs.io) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 来安装程序包和写入文件，或者配置用户和安全性。 在初始启动期间运行 cloud-init 时，无需额外的步骤和代理即可应用配置。
 
-创建 VM 时，证书和密钥都将存储在受保护的 /var/lib/waagent/ 目录中。 若要自动将证书添加到 VM 并配置 Web 服务器，请使用 cloud-init。 本示例会安装并配置 NGINX Web 服务器。 可以使用相同的过程来安装和配置 Apache。 
+创建 VM 时，证书和密钥都将存储在受保护的 /var/lib/waagent/ 目录中。 若要自动将证书添加到 VM 并配置 Web 服务器，请使用 cloud-init。 本示例中将安装并配置 NGINX Web 服务器。 可以使用相同的过程来安装和配置 Apache。 
 
 创建名为 *cloud-init-web-server.txt* 的文件并粘贴以下配置：
 

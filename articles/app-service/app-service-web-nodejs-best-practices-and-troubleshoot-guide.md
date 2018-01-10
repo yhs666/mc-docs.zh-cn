@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 11/09/2016
-ms.date: 12/04/2017
+ms.date: 01/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1f16233e96a9eb126a6d655e3f8e13a36fac7641
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 66ce014a851d9a6adee5e7608c5eec5d5d178e7b
+ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/25/2017
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Azure Web 应用上节点应用程序的最佳做法和故障排除指南
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
@@ -100,13 +100,13 @@ ms.lasthandoff: 11/24/2017
     默认值为 false。 如果设置为 true，iisnode 会将 HTTP 响应标头 iisnode-debug 添加到它所发送的每个 HTTP 响应，而 iisnode-debug 标头值是 URL。 查看 URL 片段即可收集个别诊断信息，但在浏览器中打开 URL 可达到更好的视觉效果。
 * loggingEnabled
   
-    此设置控制 iisnode 记录 stdout 和 stderr 的功能。 Iisnode 从它所启动的节点进程捕获 stdout/stderr，并写入“logDirectory”设置中指定的目录。 一旦启用，应用程序会将日志写入文件系统，这可能会影响性能，但具体要视应用程序完成的日志记录量而定。
+    此设置控制 iisnode 记录 stdout 和 stderr 的功能。 Iisnode 从它所启动的节点进程捕获 stdout/stderr，并写入到“logDirectory”设置中指定的目录。 一旦启用，应用程序会将日志写入文件系统，这可能会影响性能，但具体要视应用程序完成的日志记录量而定。
 * devErrorsEnabled
   
    默认值为 false。 如果设置为 true，iisnode 会在浏览器上显示 HTTP 状态代码和 Win32 错误代码。 在调试特定类型的问题时，win32 代码很有用。
 * debuggingEnabled（请勿在实际生产站点上启用）
   
-    此设置控制调试功能。 Iisnode 与节点检查器集成。 通过启用此设置，可启用节点应用程序的调试功能。 启用此设置后，iisnode 会在对 node 应用程序发出第一个调试请求时，在“debuggerVirtualDir”目录中布置所需的节点检查器文件。 可以将请求发送到 http://yoursite/server.js/debug，加载节点检查器。 可以使用“debuggerPathSegment”设置来控制调试 URL 段。 默认情况下，debuggerPathSegment ="debug"。 可将其设置为 GUID 之类的值，这样，其他人就更难发现。
+    此设置控制调试功能。 Iisnode 与节点检查器集成。 通过启用此设置，可启用节点应用程序的调试功能。 启用此设置后，iisnode 会在对 node 应用程序发出第一个调试请求时，在“debuggerVirtualDir”目录中布置所需的节点检查器文件。 可以将请求发送到 http://yoursite/server.js/debug，加载节点检查器。 可以使用“debuggerPathSegment”设置来控制调试 URL 段。 默认情况下，debuggerPathSegment='debug'。 可将其设置为 GUID 之类的值，这样，其他人就更难发现。
   
     访问此[链接](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html)，更详细地了解调试。
 
@@ -209,7 +209,7 @@ http.createServer(function (req, res) {
 ### <a name="my-nodeexes-are-getting-killed-randomly"></a>node.exe 随机终止
 发生这种情况有以下几个原因：
 
-1. 应用程序正在引发未捕获的异常 – 请检查 d:\\home\\LogFiles\\Application\\logging-errors.txt 文件，了解有关所引发异常的详细信息。 此文件有堆栈跟踪，因此可据此修复应用程序。
+1. 应用程序正在引发未捕获的异常 - 请检查 d:\\home\\LogFiles\\Application\\logging-errors.txt 文件，了解有关所引发异常的详细信息。 此文件有堆栈跟踪，因此可据此修复应用程序。
 2. 应用程序耗用太多内存，其他进程无法开始运行。 如果 VM 内存总量接近 100%，进程管理器会终止 node.exe，让其他进程有机会执行一些操作。 若要解决此问题，请确保应用程序未泄漏内存；如果应用程序需要使用大量的内存，请扩展为具有更多 RAM 的较大 VM。
 
 ### <a name="my-node-application-does-not-start"></a>节点应用程序未启动
@@ -218,7 +218,7 @@ http.createServer(function (req, res) {
 1. Node.exe 未出现在正确的位置。 检查 nodeProcessCommandLine 设置。
 2. 主要脚本文件未出现在正确的位置。 检查 web.config，确保处理程序节中的主要脚本文件名与主要脚本文件匹配。
 3. Web.config 配置不正确 - 检查设置名称/值。
-4. 冷启动 – 应用程序的启动时间太长。 如果应用程序所花的时间超过 (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000 秒，则 iisnode 会返回 500 错误。 增加这些设置的值，使其与应用程序启动时间匹配，防止 iisnode 超时并返回 500 错误。
+4. 冷启动 - 应用程序的启动时间太长。 如果应用程序所花的时间超过 (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000 秒，则 iisnode 会返回 500 错误。 增加这些设置的值，使其与应用程序启动时间匹配，防止 iisnode 超时并返回 500 错误。
 
 ### <a name="my-node-application-crashed"></a>节点应用程序崩溃
 应用程序正在引发未捕获的异常 - 请检查 d:\\home\\LogFiles\\Application\\logging-errors.txt 文件，了解有关所引发异常的详细信息。 此文件有堆栈跟踪，因此可据此修复应用程序。
@@ -228,7 +228,7 @@ http.createServer(function (req, res) {
 加速此过程的某些解决方法包括：
 
 1. 使用 npm3 来安装模块，确保采用平面依赖关系结构，并且没有重复的依赖项。
-2. 尝试延迟加载 node\_modules，而不要在应用程序启动时加载所有模块。 这意味着，对 require('module') 发出的调用应在尝试使用模块的函数中有实际需要时进行。
+2. 尝试延迟加载 node\_modules，而不要在应用程序启动时加载所有模块。 这意味着，对 require('module') 的调用应在尝试使用模块的函数中有实际需要时进行。
 3. Azure Web 应用提供一项称为本地缓存的功能。 此功能会将内容从网络共享复制到 VM 上的本地磁盘。 由于文件位于本地，因此 node\_modules 的加载速度要快很多。
 
 ## <a name="iisnode-http-status-and-substatus"></a>IISNODE http 状态和子状态
@@ -238,7 +238,7 @@ http.createServer(function (req, res) {
 
 | Http 状态 | Http 子状态 | 可能的原因？ |
 | --- | --- | --- |
-| 500 |1000 |将请求分派到 IISNODE 时发生某种问题 – 检查 node.exe 是否已启动。 Node.exe 可能在启动时已崩溃。 检查 web.config 配置是否有错误。 |
+| 500 |1000 |将请求分派到 IISNODE 时发生某种问题 - 检查 node.exe 是否已启动。 Node.exe 可能在启动时已崩溃。 检查 web.config 配置是否有错误。 |
 | 500 |1001 |- Win32Error 0x2 - 应用未响应 URL。 检查 URL 重写规则，或检查是否为 Express 应用定义了正确的路由。 - Win32Error 0x6d - 命名管道繁忙 - Node.exe 不接受请求，因为管道繁忙。 检查 CPU 使用率是否偏高。 - 其他错误 - 检查 node.exe 是否已崩溃。 |
 | 500 |1002 |Node.exe 崩溃 - 检查 d:\\home\\LogFiles\\logging-errors.txt 中的堆栈跟踪。 |
 | 500 |1003 |管道配置问题 - 此问题应该永远不会出现，但如果确实出现，则表示命名管道配置不正确。 |
@@ -246,7 +246,7 @@ http.createServer(function (req, res) {
 | 503 |1000 |内存不足，无法分配更多命名管道连接。 检查应用为何耗用大量内存。 检查 maxConcurrentRequestsPerProcess 设置值。 如果此值并非无限，而且有许多请求，请增大此值来防止此错误。 |
 | 503 |1001 |无法将请求分派至 node.exe，因为应用程序正在回收。 应用程序回收之后，应该会正常处理请求。 |
 | 503 |1002 |检查 win32 错误代码的实际原因 - 无法将请求分派到 node.exe。 |
-| 503 |1003 |命名管道太忙 – 检查节点是否正在消耗过多的 CPU |
+| 503 |1003 |指定的管道太忙 - 检查节点是否正在消耗过多的 CPU |
 
 NODE.exe 内有名为 NODE\_PENDING\_PIPE\_INSTANCES 的设置。 默认情况下，此值在 Azure Web 应用外部为 4。 这表示 node.exe 在命名管道上一次只能接受四个请求。 在 Azure Web 应用中，此值设置为 5000。 此值应足以满足 Azure Web 应用中运行的大多数 node 应用程序。 Azure Web 应用中不应出现 503.1003，因为 NODE\_PENDING\_PIPE\_INSTANCES 的值较高。  |
 

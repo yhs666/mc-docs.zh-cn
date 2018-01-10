@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/12/2017
-ms.date: 07/17/2017
+origin.date: 12/13/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8a7dd87eb699d9e6a9cdd7a21939c17a12d1b018
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 6bed10b6ff6db0bdbdfee33b06b4fcf62283cb40
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>设置 Azure Cosmos DB 容器的吞吐量
 
@@ -37,12 +37,12 @@ ms.lasthandoff: 07/26/2017
         <tr>
             <td valign="top"><p>最小吞吐量</p></td>
             <td valign="top"><p>400 个请求单位/秒</p></td>
-            <td valign="top"><p>2,500 个请求单位/秒</p></td>
+            <td valign="top"><p>1000 个请求单位/秒</p></td>
         </tr>
         <tr>
             <td valign="top"><p>最大吞吐量</p></td>
             <td valign="top"><p>10,000 个请求单位/秒</p></td>
-            <td valign="top"><p>不受限制</p></td>
+            <td valign="top"><p>无限制</p></td>
         </tr>
     </tbody>
 </table>
@@ -52,16 +52,16 @@ ms.lasthandoff: 07/26/2017
 1. 在新窗口中，打开 [Azure 门户](https://portal.azure.cn)。
 2. 在左侧栏中单击“Azure Cosmos DB”，或者单击底部的“更多服务”，滚动到“数据库”，并单击“Azure Cosmos DB”。
 3. 选择 Cosmos DB 帐户。
-4. 在新窗口中的导航菜单内单击“数据资源管理器(预览)”。
+4. 在新窗口中，单击导航菜单中的“数据资源管理器”。
 5. 在新窗口中展开数据库和容器，然后单击“设置和缩放”。
 6. 在新窗口中的“吞吐量”框内键入新吞吐量值，然后单击“保存”。
 
 <a id="set-throughput-sdk"></a>
 
-## <a name="to-set-the-throughput-by-using-the-documentdb-api-for-net"></a>使用用于 .NET 的 DocumentDB API 设置吞吐量
+## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>使用用于 .NET 的 SQL API 设置吞吐量
 
 ```C#
-//Fetch the resource to be updated
+// Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
@@ -70,20 +70,21 @@ Offer offer = client.CreateOfferQuery()
 // Set the throughput to the new value, for example 12,000 request units per second
 offer = new OfferV2(offer, 12000);
 
-//Now persist these changes to the database by replacing the original resource
+// Now persist these changes to the collection by replacing the original offer resource
 await client.ReplaceOfferAsync(offer);
 ```
 
 ## <a name="throughput-faq"></a>吞吐量常见问题
 
-**可否将吞吐量设置为 400 RU/s 以下？**
+**是否可以将吞吐量设置为小于 400 RU/s？**
 
-400 RU/秒是 Cosmos DB 单区集合提供的最小吞吐量（分区集合的最小值为 2500 RU/秒）。 请求单位按 100 RU/秒间隔进行设置，但吞吐量不能设置为 100 RU/秒或小于 400 RU/秒的任何值。 如果正在寻找一种经济高效的方法来开发和测试 Cosmos DB，则可以使用免费的 [Azure Cosmos DB 模拟器](local-emulator.md)来免费进行本地部署。 
+400 RU/秒是 Cosmos DB 单区容器提供的最小吞吐量（分区容器的最小值为 1000 RU/秒）。 请求单位按 100 RU/秒间隔进行设置，但吞吐量不能设置为 100 RU/秒或小于 400 RU/秒的任何值。 如果在寻找一种经济高效的方法来开发和测试 Cosmos DB，则可以使用免费的 [ 模拟器](local-emulator.md)（可以在本地免费部署）。 
 
 **如何使用 MongoDB API 设置吞吐量？**
 
-没有任何 MongoDB API 扩展可设置吞吐量。 建议根据[使用用于 .NET 的 DocumentDB API 设置吞吐量](#set-throughput-sdk)中所述使用 DocumentDB API。
+没有任何 MongoDB API 扩展可设置吞吐量。 建议使用 SQL API，如[使用用于 .NET 的 SQL API 设置吞吐量](#set-throughput-sdk)中所述。
 
 ## <a name="next-steps"></a>后续步骤
 
 若要了解有关使用 Cosmos DB 进行预配和全球扩展的详细信息，请参阅[使用 Cosmos DB 进行分区和缩放](partition-data.md)。
+<!-- Update_Description: update link , wording update -->

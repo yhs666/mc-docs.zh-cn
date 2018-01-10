@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/01/2017
-ms.date: 12/04/2017
+origin.date: 12/08/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0d367068ed944289bc155b7eca12dfc35bb88c54
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: be50f0cde223c8d61f47719da401695716ad5b4a
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>为 Azure VM 设置到辅助 Azure 区域的灾难恢复（预览版）
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，需执行以下操作：
+完成本教程：
 
 - 请确保了解[方案体系结构和组件](concepts-azure-to-azure-architecture.md)。
 - 查看所有组件的[支持要求](site-recovery-support-matrix-azure-to-azure.md)。
@@ -117,7 +117,7 @@ Azure Site Recovery 提供了三个用于控制 Site Recovery 管理操作的内
 3. 在“源位置”中，选择当前运行 VM 的 Azure 源区域。
 4. 为 VM 选择 Azure 虚拟机部署模型：“资源管理器”或“经典”。
 5. 为资源管理器 VM 选择“源资源组”，为经典 VM 选择“云服务”。
-6. 单击“确定”保存设置。
+6. 单击“确定”  保存设置。
 
 ### <a name="select-the-vms"></a>选择 VM
 
@@ -169,4 +169,4 @@ Site Recovery 会针对目标区域创建默认设置和复制策略。 你可�
 > [!div class="nextstepaction"]
 > [运行灾难恢复演练](azure-to-azure-tutorial-dr-drill.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

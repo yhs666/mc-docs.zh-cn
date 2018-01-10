@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/23/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: cf98830a5a815b0ffafb1ff4454f67e08391b8d1
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 01/08/2018
+ms.openlocfilehash: 30c1dba4bc375106fbbeb9c81b6c78757d1d7a2f
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="overview-of-azure-monitor"></a>Azure Monitor 概述
 本文概述了 Azure 中的 Azure Monitor 服务。 它讨论了 Azure Monitor 可以执行的工作并指出了可以在哪里找到有关如何使用 Azure Monitor 的其他信息。  
@@ -75,7 +75,7 @@ Azure Monitor 的登录页有助于用户：
 前面列出的计算资源具有它们与之交互的专用宿主 VM 和来宾 OS。 宿主 VM 和来宾 OS 是 Hyper-V 虚拟机监控程序模型中的根 VM 和来宾 VM 的等效项。 可以收集关于这两者的指标。 还可以收集关于来宾 OS 的诊断日志。   
 
 ### <a name="activity-log"></a>活动日志
-可以搜索活动日志（以前称为操作日志或审核日志）中是否存在通过 Azure 基础结构查看的资源的相关信息。 日志包含多种信息，例如创建或销毁资源的时间。  有关详细信息，请参阅[活动日志概述](./monitoring-overview-activity-logs.md)。 
+可以在活动日志（以前称为操作日志或审核日志）中搜索 Azure 基础结构所看到的资源的信息。 日志包含多种信息，例如创建或销毁资源的时间。  有关详细信息，请参阅[活动日志概述](./monitoring-overview-activity-logs.md)。 
 
 ## <a name="azure-monitor-sources---everything-else"></a>Azure Monitor 源 - 所有其他项
 
@@ -83,7 +83,7 @@ Azure Monitor 的登录页有助于用户：
 
 
 ### <a name="resource---metrics-and-diagnostics-logs"></a>资源 - 指标和诊断日志
-可收集的指标和诊断日志因资源类型而异。 例如，Web 应用提供有关磁盘 IO 和 CPU 百分比的统计信息。 对于服务总线队列来说，这些统计信息不存在，该队列提供的是队列大小和消息吞吐量之类的指标。
+可收集的指标和诊断日志因资源类型而异。 例如，Web 应用提供有关磁盘 IO 和 CPU 百分比的统计信息。 对于服务总线队列来说，这些统计信息不存在，该队列提供的是队列大小和消息吞吐量之类的指标。 [支持的指标](monitoring-supported-metrics.md)中提供了每种资源的可收集指标的列表。 
 
 ### <a name="host-and-guest-vm-metrics"></a>宿主和来宾 VM 指标
 因为在资源与特定宿主 VM 或来宾 VM 之间不一定存在 1:1 映射关系，因此，这些指标不可用。
@@ -108,7 +108,7 @@ Azure Monitor 的登录页有助于用户：
 - 活动日志条目存储 90 天。 
 - 诊断日志根本不存储。 
 
-若要将数据存储比上面列出的时间段更长的时间，可以使用 Azure 存储。 监视数据根据设置的保留策略保留在存储帐户中。 不需要为数据在 Azure 存储中占用的空间付款。 
+若要将数据存储比上面列出的时间段更长的时间，可以使用 Azure 存储。 监视数据根据你设置的保留策略保留在存储帐户中。 不需要为数据在 Azure 存储中占用的空间付款。 
 
 可以通过多种方式使用该数据：
 
@@ -122,7 +122,7 @@ Azure Monitor 的登录页有助于用户：
 示例包括：
 
 * 获取所编写的自定义监视应用程序的数据
-* 创建自定义查询，将数据发送到第三方应用程序。
+* 创建自定义查询，将该数据发送到第三方应用程序。
 
 ### <a name="visualize"></a>可视化
 以图形和图表形式将监视数据可视化可以帮助你更快地查明趋势，其速度远非单纯查看数据可比。  

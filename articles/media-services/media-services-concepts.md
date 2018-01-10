@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 07/07/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 8ae6c6aec1065e256304e4d0a5c6380d3959902f
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: 44900ad190e27856b1c7ce6c817816fd0d6c0e55
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒体服务概念
 本部分概述最重要的媒体服务概念。
@@ -53,14 +53,14 @@ ms.lasthandoff: 12/15/2017
 
             **StorageEncrypted** - 使用此选项可以通过 AES 256 位加密在本地加密明文内容，并将其上传到 Azure 存储中以加密形式静态存储相关内容。 受存储加密保护的资产会在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。 
 
-若要传送存储加密资产，必须配置资产的传送策略，以使媒体服务了解要如何传送内容。 在流式传输资产之前，流式处理服务器会删除存储加密，再使用指定的传传送策略（例如 AES、PlayReady 或无加密）流式传输用户的内容。 
+要传送存储加密资产，必须配置资产的传送策略，以使媒体服务了解要如何传送内容。 在流式传输资产之前，流式处理服务器会删除存储加密，再使用指定的传传送策略（例如 AES、PlayReady 或无加密）流式传输用户的内容。 
 
 **CommonEncryptionProtected** - 如果要采用通用加密或 PlayReady DRM 加密（或上传已加密的）内容（例如，受 PlayReady DRM 保护的平滑流式处理），请使用此选项。
 
 **EnvelopeEncryptionProtected** - 如果要保护（或上传已加密的）采用高级加密标准 (AES) 加密的 HTTP Live Streaming (HLS)，请使用此选项。 如果上传已采用 AES 加密的 HLS，则该 HLS 必须已经由 Transform Manager 加密。
 
 ### <a name="access-policy"></a>访问策略
-[AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) 定义对资产的访问权限（如读取、写入和列出）和持续时间。 通常将 AccessPolicy 对象传递给某个定位符，并使用该定位符来访问资产中包含的文件。
+[AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) 定义对资产的访问权限（如读取、写入和列出）和持续时间。 通常将 AccessPolicy 对象传递给某个定位符，然后使用该定位符来访问资产中包含的文件。
 
 >[!NOTE]
 >不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies)主题。
@@ -108,10 +108,10 @@ Azure 媒体服务提供了多个用于在云中对媒体进行编码的选项�
 ## <a name="live-streaming"></a>实时流式处理
 在 Azure 媒体服务中，频道表示用于处理实时流内容的管道。 频道通过以下两种方式之一接收实时输入流：
 
-* 本地实时编码器将多比特率 RTMP 或平滑流（分片 MP4）发送到频道。 可以使用以下输出多比特率平滑流式处理的实时编码器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco、Elemental。 以下实时编码器输出 RTMP：Adobe Flash Live Encoder、Telestream Wirecast、Teradek、Haivision 和 Tricaster 编码器。 引入流会通过通道，但不会进行任何进一步的转码和编码操作。 收到请求时，媒体服务会将该流传送给客户。
+* 本地实时编码器将多比特率 RTMP 或平滑流（分片 MP4）发送到通道。 可以使用以下输出多比特率平滑流的实时编码器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco 和 Elemental。 以下实时编码器输出 RTMP：Adobe Flash Live Encoder、Telestream Wirecast、Teradek、Haivision 和 Tricaster 编码器。 引入流会通过通道，但不会进行任何进一步的转码和编码操作。 收到请求时，媒体服务会将该流传递给客户。
 * 将单比特率流（采用以下格式之一：RTP (MPEG-TS)、RTMP 或平滑流（分片 MP4）发送到能够使用媒体服务执行实时编码的频道。 然后，频道将对传入的单比特率流执行实时编码，使之转换为多比特率（自适应）视频流。 收到请求时，媒体服务会将该流传送给客户。
 
-### <a name="channel"></a>频道
+### <a name="channel"></a>通道
 在媒体服务中，[频道](https://docs.microsoft.com/rest/api/media/operations/channel)负责处理实时传送视频流内容。 通道提供输入终结点（引入 URL），并将该终结点提供给实时转码器。 频道从实时转码器接收实时输入流，并通过一个或多个 StreamingEndpoints 使其可用于流式处理。 频道还提供可用于预览的预览终结点（预览 URL），并在进一步处理和传递流之前对流进行验证。
 
 可以在创建频道时获取引入 URL 和预览 URL。 若要获取这些 URL，频道不一定要处于已启动状态。 准备好开始将数据从实时转码器推送到频道时，频道必须已启动。 实时转码器开始引入数据后，可以预览流。
@@ -144,18 +144,18 @@ ArchiveWindowLength 还决定了客户端能够从当前实时位置按时间向
 
 如果要流式传输存储加密的资产，必须配置资产的传送策略，以指定想要如何传送资产。
 
-播放器请求流时，媒体服务使用指定的密钥通过信封加密（使用 AES）或通用加密（使用 PlayReady）来动态加密你的内容。 为了解密流，播放器会从密钥传送服务请求密钥。 为了确定用户是否有权获取密钥，该服务会评估为密钥指定的授权策略。
+播放器请求流时，媒体服务使用指定的密钥通过信封加密（使用 AES）或通用加密（使用 PlayReady）来动态加密你的内容。 为了解密流，播放器会从密钥传送服务请求密钥。 为了确定用户是否有权获取密钥，服务会评估为密钥指定的授权策略。
 
 ### <a name="token-restriction"></a>令牌限制
 内容密钥授权策略可能受到一种或多种授权限制：开放、令牌限制或 IP 限制。 令牌限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。 媒体服务支持采用简单 Web 令牌 (SWT) 格式和 JSON Web 令牌 (JWT) 格式的令牌。 媒体服务不提供安全令牌服务。 可以创建自定义 STS 或利用 Azure ACS 来颁发令牌。 必须将 STS 配置为创建令牌，该令牌使用指定密钥以及在令牌限制配置中指定的颁发声明进行签名。 如果令牌有效，而且令牌中的声明与为密钥（或许可证）配置的声明相匹配，则媒体服务密钥传送服务会将请求的密钥（或许可证）返回到客户端。
 
-配置令牌限制策略时，必须指定主验证密钥、颁发者和受众参数。 主验证密钥包含用于为令牌签名的密钥，颁发者是颁发令牌的安全令牌服务。 受众（有时称为范围）描述该令牌的意图，或者令牌授权访问的资源。 媒体服务密钥传送服务验证令牌中的这些值是否与模板中的值匹配。
+配置令牌限制策略时，必须指定主验证密钥、颁发者和受众参数。 主验证密钥包含用来为令牌签名的密钥，颁发者是颁发令牌的安全令牌服务。 受众（有时称为范围）描述该令牌的意图，或者令牌授权访问的资源。 媒体服务密钥传送服务验证令牌中的这些值是否与模板中的值匹配。
 
 有关详细信息，请参阅以下文章：
 
 [保护内容概述](media-services-content-protection-overview.md)
 [使用 AES-128 提供保护](media-services-protect-with-aes128.md)
-[使用 DRM 提供保护](media-services-protect-with-drm.md)
+
 
 ## <a name="delivering"></a>传送
 ### <a id="dynamic_packaging"></a>动态打包
@@ -169,7 +169,7 @@ StreamingEndpoint 表示一个流服务，该服务可以直接将内容传递�
 建议使用动态打包和/或动态加密。
 
 >[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
+>创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
 
 有关详细信息，请参阅[此](media-services-portal-manage-streaming-endpoints.md)主题。
 
@@ -195,7 +195,7 @@ http://amstest1.streaming.mediaservices.chinacloudapi.cn/3c5fe676-199c-4620-9b03
 ### <a name="streaming-urls"></a>流 URL
 将内容流式传输到客户端。 若要为用户提供流式处理 URL，必须先创建一个 OnDemandOrigin 定位符。 创建定位符可提供包含要流式传输的内容的资产的基本路径。 但是，为了能够流式传输此内容，需要进一步修改此路径。 要构造流清单文件的完整 URL，必须将定位符的 Path 值与清单 (filename.ism) 文件名连接起来。 然后，向定位符路径追加 /Manifest 和相应的格式（如果需要）。
 
-也可以通过 SSL 连接流式传输内容。 为此，请确保流式处理 URL 以 HTTPS 开头。 目前，AMS 对自定义域不支持 SSL。  
+也可通过 SSL 连接流式传输内容。 为此，请确保流 URL 以 HTTPS 开头。 目前，AMS 对自定义域不支持 SSL。  
 
 > [!NOTE]
 > 仅当要从中传送内容的流式处理终结点是在 2014 年 9 月 10 日之后创建的情况下，才可以通过 SSL 流式传输内容。 如果流式处理 URL 基于 9 月 10 日之后创建的流式处理终结点，则 URL 会包含“streaming.mediaservices.chinacloudapi.cn”（新格式）。 包含“origin.mediaservices.chinacloudapi.cn”（旧格式）的流式处理 URL 不支持 SSL。 如果 URL 采用旧格式，并且希望能够通过 SSL 流式传输内容，请创建新的流式处理终结点。 使用基于新流式处理终结点创建的 URL 通过 SSL 流式传输内容。

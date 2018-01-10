@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/12/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: 852e49ad7a2aa1a87b7bb675e52345c7027686f4
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 81f47ebc6aba1e2b86ca3086a771708fe5a40b6c
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 同步：目录扩展
-目录扩展支持使用本地 Active Directory 中自己的属性来扩展 Azure AD 中的架构。 借助此功能，可以构建 LOB 应用并让其使用可继续在本地管理的属性。 可以通过 [Azure AD Graph 目录扩展](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)或 [Microsoft Graph](https://graph.microsoft.io/) 使用这些属性。 使用 [Azure AD Graph 资源管理器](https://graphexplorer.cloudapp.net/)和 [Microsoft Graph 资源管理器](https://developer.microsoft.com/en-us/graph/graph-explorer)分别可以查看可用属性。
+目录扩展支持使用本地 Active Directory 中自己的属性来扩展 Azure AD 中的架构。 借助此功能，可以构建 LOB 应用并让其使用可继续在本地管理的属性。 可以通过 [Azure AD Graph 目录扩展](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)或 [Microsoft Graph](https://graph.microsoft.io/) 使用这些属性。 可以分别使用 Azure AD Graph 资源管理器和 [Microsoft Graph 资源管理器](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china)查看可用属性。
 
 目前没有任何 Office 365 工作负荷使用这些属性。
 
@@ -33,6 +33,10 @@ ms.lasthandoff: 11/24/2017
 - “用户”和“组”对象类型
 - 单值属性：String、Boolean、Integer、Binary
 - 多值属性：String、Binary
+
+
+>[!NOTE]
+> 虽然 Azure AD Connect 支持将多值 AD 属性同步到 Azure AD 作为多值目录扩展，但是目前 Azure AD 中没有功能支持使用多值目录扩展。
 
 属性列表是在安装 Azure AD Connect 的过程中从架构缓存读取的。 如果已使用附加属性扩展 Active Directory 架构，则只有在[刷新架构](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema)后，这些新属性才可见。
 
@@ -51,4 +55,4 @@ Azure AD 中的对象最多可以有 100 个目录扩展属性。 最大长度�
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -3,7 +3,7 @@ title: "使用 Azure 媒体视频缩略图创建视频摘要 | Azure"
 description: "视频摘要可通过自动选择来自源视频的有趣片段帮助你创建长视频的摘要。 要提供有关长视频内容的快速概述时，这很有用。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/18/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: fe9572a7519e2d93ccd1f2325e66e5a534616828
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 12/09/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: f1b51d6e6b61a0a455d1aaefc96875c26bcc846f
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒体视频缩略图创建视频摘要
 ## <a name="overview"></a>概述
@@ -27,7 +27,7 @@ ms.lasthandoff: 08/31/2017
 
 **Azure 媒体视频缩略图** MP 目前处于预览状态。
 
-此主题提供有关 Azure Media Video Thumbnail 的详细信息，并演示如何将它与用于 .NET 的媒体服务 SDK 配合使用。
+本文提供了有关 **Azure 媒体视频缩略图**的详细信息，并演示了如何将它与适用于 .NET 的媒体服务 SDK 配合使用。
 
 ## <a name="limitations"></a>限制
 
@@ -82,19 +82,16 @@ ms.lasthandoff: 08/31/2017
 以下程序演示如何：
 
 1. 创建资产并将媒体文件上传到资产。
-2. 使用基于包含以下 json 预设值的配置文件的视频缩略图任务，创建一个作业。 
-
-    ```
-    {               
-        "version": "1.0",
-        "options": {
-            "outputAudio": "true",
-            "maxMotionThumbnailDurationInSecs": "30",
-            "fadeInFadeOut": "false"
+2. 基于包含以下 json 预设的配置文件创建含有视频缩略图任务的作业： 
+   
+        {                
+            "version": "1.0",
+            "options": {
+                "outputAudio": "true",
+                "maxMotionThumbnailDurationInSecs": "30",
+                "fadeInFadeOut": "false"
+            }
         }
-    }
-    ```
-
 3. 下载输出文件。 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>创建和配置 Visual Studio 项目
@@ -117,16 +114,24 @@ ms.lasthandoff: 08/31/2017
         {
             // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
-                ConfigurationManager.AppSettings["AADTenantDomain"];
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
-                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
 
             // Field for service context.
             private static CloudMediaContext _context = null;
 
             static void Main(string[] args)
             {
-                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
+                AzureAdTokenCredentials tokenCredentials = 
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
+
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);

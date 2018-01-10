@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: 42f1c176eaa54ccf962c17f7f3a607f5764eca52
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: f53b002a964f46b2b4fb0a98ee9467c83cf459c0
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect：从 DirSync 升级
 Azure AD Connect 是 DirSync 的后继产品。 将在本主题中了解可从 DirSync 升级的方式。 这些步骤不适用于从另一个版本的 Azure AD Connect 或从 Azure AD Sync 升级。
@@ -31,7 +31,7 @@ Azure AD Connect 是 DirSync 的后继产品。 将在本主题中了解可从 D
 - 代理服务器中需要打开的 URL。 就基本方案来说，DirSync 也支持这些方案，要求相同。 如果要使用 Azure AD Connect 的一些新功能，则必须打开一些新 URL。
 
 > [!NOTE]
-> 启用新的 Azure AD Connect 服务器并开始将更改同步到 Azure AD 以后，不得通过回退来使用 DirSync 或 Azure AD Sync。 不支持从 Azure AD Connect 降级到旧版客户端（包括 DirSync 和 Azure AD Sync），降级会导致 Azure AD 中的数据丢失等问题。
+> 启用新的 Azure AD Connect 服务器并开始将更改同步到 Azure AD 以后，不得通过回退来使用 DirSync 或 Azure AD Sync。不支持从 Azure AD Connect 降级到旧版客户端（包括 DirSync 和 Azure AD Sync），降级会导致 Azure AD 中的数据丢失等问题。
 
 ## <a name="upgrade-from-dirsync"></a>从 DirSync 升级
 根据当前的 DirSync 部署，可以使用不同的升级选项。 如果升级时间预计少于 3 小时，建议进行就地升级。 如果升级时间预计超过 3 小时，建议在另一台服务器上进行并行部署。 如果对象数超过 50,000 个，预计需要 3 个多小时才能完成升级。
@@ -45,7 +45,7 @@ Azure AD Connect 是 DirSync 的后继产品。 将在本主题中了解可从 D
 > 规划从 DirSync 升级到 Azure AD Connect 时，在升级之前请勿自行卸载 DirSync。 Azure AD Connect 将读取和迁移 DirSync 的配置，并在检查服务器之后卸载 DirSync。
 
 **就地升级**  
-向导会显示完成升级的预期所需时间。 这个估计是基于需要 3 小时才能完成包含 50,000 个对象（用户、联系人和组）的数据库的升级的假设。 如果数据库中的对象数少于 50,000 个，Azure AD Connect 会建议进行就地升级。 如果确定继续，升级期间会自动应用当前设置，服务器也会自动恢复活动的同步。
+向导会显示完成升级的预期所需时间。 这个估计是基于需要 3 小时才能完成包含 50,000 个对象（用户、联系人和组）的数据库的升级的假设。 如果数据库中的对象数少于 50,000 个，则 Azure AD Connect 建议就地升级。 如果确定继续，升级期间会自动应用当前设置，服务器也会自动恢复活动的同步。
 
 若要进行配置迁移和并行部署，可以忽略就地升级建议。 例如，可以借机刷新硬件和操作系统。 有关详细信息，请参阅[并行部署](#parallel-deployment)部分。
 
@@ -139,10 +139,10 @@ Azure AD Connect 是 DirSync 的后继产品。 将在本主题中了解可从 D
 
 ![分析已完成](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
 
-成功导出设置后，可以退出 DirSync 服务器上的 Azure AD Connect 向导。 继续执行下一步，以 [在不同的服务器上安装 Azure AD Connect](#installation-of-azure-ad-connect-on-separate-server)。
+成功导出设置后，可以退出 DirSync 服务器上的 Azure AD Connect 向导。 继续执行下一步，[在不同的服务器上安装 Azure AD Connect](#installation-of-azure-ad-connect-on-separate-server)。
 
-### 在不同的服务器上安装 Azure AD Connect <a name="installation-of-azure-ad-connect-on-separate-server"></a>
-在新的服务器上安装 Azure AD Connect 时，假设用户想要运行 Azure AD Connect 的全新安装。 由于要使用 DirSync 配置，因此还需要执行一些额外的步骤：
+### <a name="install-azure-ad-connect-on-separate-server"></a>在不同的服务器上安装 Azure AD Connect
+在新的服务器上安装 Azure AD Connect 时，假设要执行 Azure AD Connect 的全新安装。 由于想要使用 DirSync 配置，因此还要执行一些额外的步骤：
 
 1. 运行 Azure AD Connect 安装程序 (MSI)。
 2. 看到“欢迎使用 Azure AD Connect”屏幕时，请单击窗口右上角的“X”退出安装向导。
@@ -157,10 +157,11 @@ Azure AD Connect 是 DirSync 的后继产品。 将在本主题中了解可从 D
    - 现有 SQL Server 实例（默认：Azure AD Connect 将安装 SQL Server 2012 Express）。 请不要使用与 DirSync 服务器相同的数据库实例。
    - 用于连接 SQL Server 的服务帐户（如果 SQL Server 数据库位于远程，则此帐户必须是域服务帐户）。
      可以在此屏幕上看到以下选项：  
-     ![输入你的 Azure AD 凭据](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
-7. 单击“资源组名称” 的 Azure 数据工厂。
+     
+            ![输入 Azure AD 凭据](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
+7. 单击“下一步”。
 8. 在“已准备好配置”页上，保留选中“配置完成后立即开始同步过程”。 服务器当前为[过渡模式](active-directory-aadconnectsync-operations.md#staging-mode)，更改不会导出到 Azure AD。
-9. 单击“安装” 。
+9. 单击“安装”。
 10. 安装完成后，请注销并再次登录到 Windows，即可使用同步服务管理器或同步规则编辑器，或者尝试进行其他任何配置更改。
 
 > [!NOTE]
@@ -169,7 +170,7 @@ Azure AD Connect 是 DirSync 的后继产品。 将在本主题中了解可从 D
 ### <a name="verify-that-azure-ad-connect-is-ready-to-begin-synchronization"></a>验证 Azure AD Connect 是否已准备好开始同步
 若要验证 Azure AD Connect 是否已准备好接管 DirSync，需要从“开始”菜单的“Azure AD Connect”组中，打开“同步服务管理器”。
 
-在应用程序中，转到“操作”选项卡。 在此选项卡上，确认以下操作已完成：
+在应用程序中，转到“操作”选项卡。在此选项卡上，确认以下操作已完成：
 
 - 在 AD 连接器上导入
 - 在 Azure AD 连接器上导入
@@ -218,4 +219,4 @@ Azure AD Connect 现在是活动服务器，用户不得切换回去使用现有
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

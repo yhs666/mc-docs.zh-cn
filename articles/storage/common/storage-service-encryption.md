@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 05/09/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: a34eeb1792753dc2f5707cc96eabdf8caa9c3c34
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 382a2b2607fdd82c842ab3c7dc8996d197300ac9
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>静态数据的 Azure 存储服务加密
 静态数据的 Azure 存储服务加密 (SSE) 可用于保护数据，使组织能够信守在安全性与合规性方面所做的承诺。 使用此功能，Azure 存储可以先自动加密数据，再将数据保存到存储，并在检索之前解密数据。 加密、解密和密钥管理对于用户而言是完全透明的。
@@ -61,7 +61,7 @@ SSE 的工作方式是在数据写入到 Azure 存储时对其加密，可用于
 SSE 具有以下限制：
 
 * 不支持经典存储帐户的加密。
-* 现有数据 - SSE 只会加密启用加密之后新建的数据。 例如，如果创建新的 Resource Manager 存储帐户但未打开加密，并将 Blob 或存档 VHD 上传到该存储帐户，然后打开 SSE，则那些 Blob 不会被加密，除非重新写入或复制。
+* 现有数据 - SSE 只会加密启用加密之后新建的数据。 例如，如果创建新的 Resource Manager 存储帐户但未打开加密，然后将 Blob 或存档 VHD 上传到该存储帐户，然后打开 SSE，则那些 Blob 不会被加密，除非重新写入或复制。
 * 应用商店支持 - 使用 [Azure 门户](https://portal.azure.cn)、PowerShell 和 Azure CLI 为应用商店中创建的 VM 启用加密。 VHD 基础映像将保持未加密状态；但是，在 VM 启动之后完成的任何写入将会加密。
 * 表和队列数据不会加密。
 
@@ -93,7 +93,7 @@ Azure 文件在云端通过标准 SMB 协议提供文件共享。 可以从本�
 有关详细信息，请访问[使用 .NET 的 Azure Blob 存储入门](../blobs/storage-dotnet-how-to-use-blobs.md)。
 
 #### <a name="using-a-storage-explorer"></a>使用存储空间资源管理器
-可以使用存储资源管理器创建存储帐户、上传和下载数据、查看 Blob 内容，以及浏览目录。 可以使用其中一个存储空间资源管理器将 Blob 上传到已启用加密的存储帐户。 使用某些存储资源管理器，还可以将现有 Blob 存储中的数据复制到存储帐户中的不同容器或已启用 SSE 的新存储帐户。
+可以使用存储资源管理器创建存储帐户、上传和下载数据、查看 Blob 内容，以及浏览目录。 可以使用其中一个存储资源管理器将 Blob 上传到已启用加密的存储帐户。 使用某些存储资源管理器，还可以将现有 Blob 存储中的数据复制到存储帐户中的不同容器或已启用 SSE 的新存储帐户。
 
 有关详细信息，请访问 [Azure 存储资源管理器](../storage-explorers.md)。
 
@@ -161,7 +161,7 @@ Azure 文件在云端通过标准 SMB 协议提供文件共享。 可以从本�
 
 **问：创建新的存储帐户时是否会按默认启用 SSE？**
 
-答：默认情况下不启用 SSE；可以使用 Azure 门户来启用它。 也可以编程方式使用存储资源提供程序 REST API 来启用此功能。
+答：Azure 存储团队正在通过为写入到 Azure 存储（Blob、文件、表和队列存储）的所有数据以及所有存储帐户（Azure 资源管理器和经典存储帐户）（包括新的和现有的）使用 Azure 托管密钥来实现默认情况下启用加密。
 
 **问：此功能与 Azure 磁盘加密有何不同？**
 

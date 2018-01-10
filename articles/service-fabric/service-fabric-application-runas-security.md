@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/30/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 62ebcd039207a15583b93d3b2e741d84da9ee8a2
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: a15ccef8230100e0c0c1a43f95917f7246df5003
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>为应用程序配置安全策略
 使用 Azure Service Fabric，可以保护群集中以不同用户帐户运行的应用程序。 使用用户帐户进行部署时，Service Fabric 还有助于保护应用程序所使用的资源，例如文件、目录和证书。 这样，即使是在共享托管环境中，运行应用程序会更加安全。
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/09/2017
 可以定义和创建用户组，以便将一个或多个要统一管理的用户添加到每个组。 如果不同的服务入口点有多个用户，而且这些用户需要拥有可在组级别使用的某些常用权限，则这种做法很有用。
 
 ## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>配置服务安装程序入口点的策略
-如[应用程序模型](service-fabric-application-model.md)中所述，安装程序入口点 SetupEntryPoint 是特权入口点，以与 Service Fabric 相同的凭据（通常是 NetworkService 帐户）先于任何其他入口点运行。 **EntryPoint** 指定的可执行文件通常是长时间运行的服务主机。 因此，具有单独的安装程序入口点可避免长时间使用高特权运行服务主机可执行文件。 由 EntryPoint 指定的可执行文件在 SetupEntryPoint 成功退出后运行。 如果出现终止或崩溃，则监视并重启所产生的进程（再次从 **SetupEntryPoint** 开始）。
+如[应用和服务清单](service-fabric-application-and-service-manifests.md)中所述，安装程序入口点 SetupEntryPoint 是特权入口点，以与 Service Fabric 相同的凭据（通常是 NetworkService 帐户）先于任何其他入口点运行。 **EntryPoint** 指定的可执行文件通常是长时间运行的服务主机。 因此，具有单独的安装程序入口点可避免长时间使用高特权运行服务主机可执行文件。 由 EntryPoint 指定的可执行文件在 SetupEntryPoint 成功退出后运行。 如果出现终止或崩溃，则监视并重启所产生的进程（再次从 **SetupEntryPoint** 开始）。
 
 下面是一个简单的服务清单示例，其中介绍了服务的 SetupEntryPoint 和主要 EntryPoint。
 
@@ -113,7 +113,7 @@ PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ```
 
-然后，记下已在 Service Fabric Explorer 中部署并启动服务的节点名称，例如“节点 2”。 接下来，导航到应用程序实例工作文件夹，找到显示 **TestVariable**值的 out.txt 文件。 例如，如果此服务已部署到节点 2，则可以转到 **MyApplicationType**的以下路径：
+接下来，记下已在 Service Fabric Explorer 中部署并启动服务的节点名称，例如“节点 2”。 接下来，导航到应用程序实例工作文件夹，找到显示 **TestVariable**值的 out.txt 文件。 例如，如果此服务已部署到节点 2，则可以转到 **MyApplicationType**的以下路径：
 
 ```
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
@@ -145,7 +145,7 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ## <a name="start-powershell-commands-from-a-setup-entry-point"></a>从安装程序入口点启动 PowerShell 命令
 若要从 SetupEntryPoint 点运行 PowerShell，可以在指向 PowerShell 文件的批处理文件中运行 PowerShell.exe。 首先，将 PowerShell 文件添加到服务项目（例如 **MySetup.ps1**）。 请记住设置“如果较新则复制”属性，以便文件还包括在服务包中。 下面的示例演示一个示例批处理文件，可启动名为 MySetup.ps1 的 PowerShell 文件，该文件用于设置系统环境变量 TestVariable。
 
-用于启动 PowerShell 文件的 MySetup.bat：
+MySetup.bat 可启动 PowerShell 文件：
 
 ```
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
@@ -172,7 +172,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 </SetupEntryPoint>
 ```
 
-## <a name="use-console-redirection-for-local-debugging"></a>使用控制台重定向进行本地调试
+## <a name="use-console-redirection-for-local-debugging"></a>对本地调试使用控制台重定向
 有时，需要查看运行脚本的控制台输出以便进行调试。 为此，可以设置控制台重定向策略以将输出写入到文件。 文件输出写入到部署和运行应用程序的节点上的应用程序文件夹 log 中。 （上面的示例说明了在何处找到此文件夹）。
 
 > [!WARNING]
@@ -204,7 +204,7 @@ Echo "Test console redirection which writes to the application log folder on the
 上述步骤已说明如何将 RunAs 策略应用于 SetupEntryPoint。 让我们深入了解如何创建可作为服务策略应用的不同主体。
 
 ### <a name="create-local-user-groups"></a>创建本地用户组
-可以定义和创建允许将一个或多个用户添加到组的用户组。 如果不同的服务入口点对应有多个用户，而且这些用户需要拥有特定的常见组级别权限，这种做法就特别有用。 以下示例演示一个名为 **LocalAdminGroup** 且具有管理员特权的本地组。 Customer1 和 Customer2 这两个用户已成为此本地组的成员。
+可以定义和创建允许将一个或多个用户添加到组的用户组。 如果不同的服务入口点对应有多个用户，而且这些用户需要拥有特定的常见组级别权限，这种做法就特别有用。 下面的示例演示一个名为 **LocalAdminGroup** 的具有管理员权限的本地组。 Customer1 和 Customer2 这两个用户已成为此本地组的成员。
 
 ```xml
 <Principals>
@@ -424,4 +424,4 @@ Test-AdServiceAccount svc-Test$
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update link -->

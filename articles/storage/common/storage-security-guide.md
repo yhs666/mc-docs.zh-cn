@@ -15,17 +15,17 @@ ms.topic: article
 origin.date: 12/08/2016
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: a8e80f654db7f1c6cb4a1c022583ea036a750f7b
-ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
+ms.openlocfilehash: 659449b875d9215034a4aacdb7cc9040fe327e78
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 ## <a name="overview"></a>概述
 Azure 存储提供一套完善的安全功能，这些功能相辅相成，让开发人员能够生成安全的应用程序。 存储帐户本身可以通过基于角色的访问控制和 Azure Active Directory 来保护。 在应用程序和 Azure 之间传输数据时，可使用[客户端加密](../storage-client-side-encryption.md)、HTTPS 或 SMB 3.0 保护数据。 使用[存储服务加密 (SSE)](storage-service-encryption.md) 写入 Azure 存储时，可将数据设置为自动加密。 虚拟机使用的 OS 和数据磁盘可设置为使用 [Azure 磁盘加密](../../security/azure-security-disk-encryption.md)进行加密。 在 Azure 存储中，可以使用[共享访问签名](../storage-dotnet-shared-access-signature-part-1.md)授予数据对象的委派访问权限。
 
-本文概述其中可用于 Azure 存储的每项安全功能。 提供了详述每项功能的文章的链接，让你能够轻松深入每个主题。
+本文将概述其中每项可配合 Azure 存储使用的安全功能。 提供了详述每项功能的文章的链接，让你能够轻松深入每个主题。
 
 本文涵盖以下主题：
 
@@ -37,7 +37,7 @@ Azure 存储提供一套完善的安全功能，这些功能相辅相成，让�
   此部分探讨如何在存储帐户（例如 Blob、文件、队列和表）中，允许使用共享访问签名和存储访问策略来访问实际的数据对象。 我们介绍服务级别 SAS 和帐户级别 SAS。 此外，介绍如何限制访问特定的 IP 地址（或 IP 地址范围）、如何限制用于 HTTPS 的协议，以及如何吊销共享访问签名而无需等到它过期。
 * [传输中加密](#encryption-in-transit)
 
-  此部分讨论如何在将数据传输到 Azure 存储或从中传出时提供保护。 我们将讨论 HTTPS 的建议用法，以及 SMB 3.0 针对 Azure 文件共享使用的加密。 同时还会探讨客户端加密，它可让你在将数据传输到客户端应用程序中的存储之前加密数据，以及从存储传出后解密数据。
+  此部分讨论如何在将数据传输到 Azure 存储或从中传出时提供保护。 我们将讨论 HTTPS 的建议用法，以及 SMB 3.0 针对 Azure 文件共享使用的加密。 同时还将探讨客户端加密，它可让你在将数据传输到客户端应用程序中的存储之前加密数据，以及从存储传出后解密数据。
 * [静态加密](#encryption-at-rest)
 
   我们将讨论存储服务加密 (SSE) 以及如何对存储帐户启用它，从而使块 Blob、页 Blob 以及追加 Blob 在写入到 Azure 存储时自动进行加密。 还会介绍如何使用 Azure 磁盘加密，并探究磁盘加密、SSE 与客户端加密之间的基本差异和情况。 我们将简要探讨美国政府针对计算机实施的FIPS 合规性。
@@ -56,7 +56,7 @@ Azure 存储提供一套完善的安全功能，这些功能相辅相成，让�
 本指南着重于 Resource Manager 模型，即创建存储帐户的建议方法。 使用 Resource Manager 存储帐户而不是提供整个订阅的访问权限，可以使用基于角色的访问控制 (RBAC) 以更高的限制级别来控制对管理平面的访问。
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>如何使用基于角色的访问控制 (RBAC) 来保护存储帐户
-接下来，我们将讨论什么是 RBAC 以及如何使用它。 每个 Azure 订阅都有 Azure Active Directory。 可以向该目录中的用户、组和应用程序授予访问权限，以便其管理使用 Resource Manager 部署模型的 Azure 订阅中的资源。 这称为基于角色的访问控制 (RBAC)。 若要管理此访问权限，可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure CLI 工具](../../cli-install-nodejs.md)、[PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 或 [Azure 存储资源提供程序 REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx)。
+接下来，我们将讨论什么是 RBAC 以及如何使用它。 每个 Azure 订阅都有一个 Azure Active Directory。 可以为来自该目录的用户、组和应用程序授予访问权限，以便在使用 Resource Manager 部署模型的 Azure 订阅中管理资源。 这称为基于角色的访问控制 (RBAC)。 若要管理此访问权限，可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure CLI 工具](../../cli-install-nodejs.md)、[PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 或 [Azure 存储资源提供程序 REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx)。
 
 使用资源管理器模型可以将存储帐户放在资源组中，并使用 Azure Active Directory 来控制对该特定存储帐户的管理平面的访问。 例如，可以授权特定用户访问存储帐户密钥，而其他用户可以查看有关存储帐户的信息，但无法访问存储帐户密钥。
 
@@ -71,12 +71,12 @@ Azure 存储提供一套完善的安全功能，这些功能相辅相成，让�
 * 每个角色都有“操作”和“非操作”列表。 例如，“虚拟机参与者”角色具有“listKeys”操作，允许读取存储帐户密钥。 “参与者”具有“非操作”，例如在 Active Directory 中更新用户的访问权限。
 * 存储的角色包括（但不限于）：
 
-  * 所有者 - 他们可以管理一切，包括访问权限。
-  * 参与者 - 他们可以执行所有者可执行的所有操作，但分配访问权限除外。 拥有此角色的用户可以查看和重新生成存储帐户密钥。 他们可以使用存储帐户密钥来访问数据对象。
-  * 读者 - 他们可以查看有关存储帐户的信息（机密除外）。 例如，如果将存储帐户中拥有读取者权限的角色分配给某个用户，该用户就可以查看存储帐户的属性，但无法对属性进行任何更改或查看存储帐户密钥。
+  * 所有者 – 他们可以管理一切，包括访问权限。
+  * 参与者 – 他们可以执行所有者可执行的所有操作，但分配访问权限除外。 拥有此角色的用户可以查看和重新生成存储帐户密钥。 他们可以使用存储帐户密钥来访问数据对象。
+  * 读者 – 他们可以查看有关存储帐户的信息（机密除外）。 例如，如果将存储帐户中拥有读取者权限的角色分配给某个用户，该用户就可以查看存储帐户的属性，但无法对属性进行任何更改或查看存储帐户密钥。
   * 存储帐户参与者 - 他们可以管理存储帐户 - 他们可以读取订阅的资源组和资源，以及创建和管理订阅资源组部署。 他们也可以访问存储帐户密钥，这又意味着他们可以访问数据平面。
-  * 用户访问管理员 - 他们可以管理对存储帐户的用户访问。 例如，他们可将“读者”权限授予特定用户。
-  * 虚拟机参与者 - 他们可以管理虚拟机，但无法管理已连接的存储帐户。 此角色可以列出存储帐户密钥，意味着分配此角色的用户可以更新数据平面。
+  * 用户访问管理员 – 他们可以管理对存储帐户的用户访问。 例如，他们可将“读者”权限授予特定用户。
+  * 虚拟机参与者 – 他们可以管理虚拟机，但无法管理已连接的存储帐户。 此角色可以列出存储帐户密钥，意味着分配此角色的用户可以更新数据平面。
 
     为了让用户能够创建虚拟机，他们必须能够在存储帐户中创建相应的 VHD 文件。 为此，他们需要能够检索存储帐户密钥，并将它传递给创建 VM 的 API。 因此，他们必须拥有此权限才能列出存储帐户密钥。
 * 利用定义自定义角色的功能，可以从可对 Azure 资源执行的操作的列表中整理出一组操作。
@@ -84,7 +84,7 @@ Azure 存储提供一套完善的安全功能，这些功能相辅相成，让�
 * 可以创建一份报告，描述哪个用户使用了 PowerShell 或 Azure CLI 在哪个范围为哪些对象授予/撤销哪种类型的访问权限。
 
 #### <a name="resources"></a>资源
-* [Azure Active Directory Role-based Access Control（Azure Active Directory 基于角色的访问控制）](../../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory 基于角色的访问控制](../../active-directory/role-based-access-control-configure.md)
 
   此文解释了 Azure Active Directory 基于角色的访问控制及其工作原理。
 * [RBAC：内置角色](../../active-directory/role-based-access-built-in-roles.md)
@@ -96,9 +96,9 @@ Azure 存储提供一套完善的安全功能，这些功能相辅相成，让�
 * [使用 REST API 管理基于角色的访问控制](../../active-directory/role-based-access-control-manage-access-rest.md)
 
   此文说明如何使用 REST API 来管理 RBAC。
-* [Azure 存储资源提供程序 REST API 参考](https://msdn.microsoft.com/library/azure/mt163683.aspx)
+* [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/azure/mt163683.aspx)（Azure 存储资源提供程序 REST API 参考）
 
-  有关使用 API 以编程方式管理存储帐户的参考信息。
+  该参考信息介绍了可用于按编程方式管理存储帐户的 API。
 * [开发人员指南：使用 Azure Resource Manager API 进行身份验证](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
 
   此文说明如何使用 Resource Manager API 进行身份验证。
@@ -115,14 +115,14 @@ Azure 存储提供一套完善的安全功能，这些功能相辅相成，让�
 
 * 可出于安全原因而定期重新生成密钥。
 * 如果有人设法侵入应用程序并检索硬编码或存储在配置文件中的密钥，为其提供存储帐户的完整访问权限，则必须重新生成存储帐户密钥。
-* 如果团队使用存储资源管理器应用程序来保留存储帐户密钥，则有团队成员离职时也需要重新生成密钥。 在某人离职后，应用程序仍将继续运行，使其他成员可以访问存储帐户。 这实际上是他们创建帐户级别共享访问签名的主要原因 - 可以改用帐户级别的 SAS，而不是将访问密钥存储在配置文件中。
+* 如果团队使用存储资源管理器应用程序来保留存储帐户密钥，则有团队成员离职时也需要重新生成密钥。 在某人离职后，应用程序仍将继续运行，使其他成员可以访问存储帐户。 这实际上是他们创建帐户级别共享访问签名的主要原因 – 可以改用帐户级别的 SAS，而不是将访问密钥存储在配置文件中。
 
 #### <a name="key-regeneration-plan"></a>密钥重新生成计划
 你不希望在不进行某些规划的情况下单纯重新生成你使用的密钥。 如果这样做，可能会切断对该存储帐户的所有访问权限，而这会造成严重中断。 因此有两个密钥。 一次只应重新生成一个密钥。
 
 重新生成密钥之前，请务必列出依赖于存储帐户的所有应用程序，以及 Azure 中使用的所有其他服务。 例如，如果 Azure 媒体服务依赖于存储帐户，则必须在重新生成密钥后将访问密钥与媒体服务重新同步。 如果使用存储资源管理器之类的任何应用程序，也必须为这些应用程序提供新的密钥。 请注意，如果 VM 的 VHD 文件存储在存储帐户中，它们不会受到重新生成存储帐户密钥的影响。
 
-可以在 Azure 门户中重新生成密钥。 重新生成密钥之后，它们最多可能需要 10 分钟的时间跨存储服务进行同步。
+可以在 Azure 门户中重新生成密钥。 重新生成密钥之后，最多 10 分钟后即可跨存储服务进行同步。
 
 准备就绪后，请遵循以下常规过程，详细了解应如何更改密钥。 在本例中，假设你当前使用的是密钥 1，并想要更改所有项目以改用密钥 2。
 
@@ -148,11 +148,11 @@ Azure 存储提供一套完善的安全功能，这些功能相辅相成，让�
   此文提供存储帐户的概述，并介绍如何查看、复制和重新生成存储访问密钥。
 * [Azure 存储资源提供程序 REST API 参考](https://msdn.microsoft.com/library/mt163683.aspx)
 
-  此文包含有关检索存储帐户密钥，以及使用 REST API 为 Azure 帐户重新生成存储帐户密钥的具体文章链接。 注意：这适用于 Resource Manager 存储帐户。
+  本文提供了特定文章的链接，可据此了解如何检索存储帐户密钥和如何使用 REST API 为 Azure 帐户重新生成存储帐户密钥。 注意：这适用于 Resource Manager 存储帐户。
 * [针对存储帐户的操作](https://msdn.microsoft.com/library/ee460790.aspx)
 
   这篇存储服务管理器 REST API 参考文章包含有关使用 REST API 来检索和重新生成存储帐户密钥的具体文章链接。 注意：此文适用于经典存储帐户。
-* [Say goodbye to key management – manage access to Azure Storage data using Azure AD](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)（告别密钥管理 – 使用 Azure AD 管理对 Azure 存储数据的访问）
+* [Say goodbye to key management – manage access to Azure Storage data using Azure AD](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
 
   本文介绍如何使用 Active Directory 来控制 Azure 密钥保管库中 Azure 存储密钥的访问。 此外，说明如何使用 Azure 自动化作业每小时重新生成密钥。
 
@@ -166,7 +166,7 @@ Azure 存储提供一套完善的安全功能，这些功能相辅相成，让�
 ### <a name="storage-account-keys"></a>存储帐户密钥
 存储帐户密钥是由 Azure 创建的 512 位字符串，配合存储帐户名称用于访问存储于存储帐户中的数据对象。
 
-例如，可以读取 Blob、写入队列、创建表，以及修改文件。 可以通过 Azure 门户或使用众多存储资源管理器应用程序之一来执行这其中的许多操作。 也可编写代码来使用 REST API 或某个存储客户端库来执行这些操作。
+例如，可读取 Blob、写入队列、创建表，还可修改文件。 可以通过 Azure 门户或使用众多存储资源管理器应用程序之一来执行这其中的许多操作。 也可编写代码来使用 REST API 或某个存储客户端库来执行这些操作。
 
 如 [管理平面安全性](#management-plane-security)部分中所述，对经典存储帐户的存储密钥的访问权限可以通过提供对 Azure 订阅的完全访问权限来授予。 可以通过基于角色的访问控制 (RBAC) 来控制对使用 Azure Resource Manager 模型的存储帐户的存储密钥的访问权限。
 
@@ -178,7 +178,7 @@ Azure 存储提供一套完善的安全功能，这些功能相辅相成，让�
 另举一例，可以为 Web 应用程序提供 SAS 令牌，使它能够将条目写入队列，并为辅助角色应用程序提供 SAS 令牌，以便从队列中获取和处理消息。 或者，可以为某位客户提供 SAS 令牌，使他们能够将图片上传到 Blob 存储中的容器，并为 Web 应用程序提供权限来读取这些图片。 在这两种情况下，都可实现关注点分离 – 每个应用程序只能获取执行其任务所需的访问权限。 这是通过使用共享访问签名来实现的。
 
 #### <a name="why-you-want-to-use-shared-access-signatures"></a>使用共享访问签名的原因
-为什么要使用 SAS 而不只是分发存储帐户密钥，哪一种方法更方便？ 分发存储帐户密钥就像是在存储王国中共享密钥。 它会授予完全访问权限。 其他人可以使用密钥，并将其整个音乐库上传到存储帐户。 他们也许还能将文件替换为受病毒感染的版本，或窃取数据。 不应草率地无限制分发对存储帐户的访问权限。
+为什么要使用 SAS 而不只是分发存储帐户密钥，哪一种方法更方便？ 分发存储帐户密钥就像是在存储王国中共享密钥。 它会授予完全访问权限。 其他人可以使用密钥，并将其整个音乐库上传到你的存储帐户。 他们也许还能将文件替换为受病毒感染的版本，或窃取数据。 不应草率地无限制分发对存储帐户的访问权限。
 
 如果使用共享访问签名，可以只为客户端提供有限时间内所需的权限。 例如，如果有人将 Blob 上传到帐户，则你可以授予他们刚好足够时间的写入权限来上传 Blob（当然，这取决于 Blob 的大小）。 如果改变想法，可以撤销该访问权限。
 
@@ -201,7 +201,7 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Azure 存储服务如何对共享访问签名进行身份验证
+#### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Azure 存储服务对共享访问签名进行身份验证的方式
 当存储服务收到请求时，它获取输入查询参数，并使用与调用程序相同的方法来创建签名。 然后比较这两个签名。 如果它们相符，则存储服务可以检查存储服务版本以确保它有效、检查当前日期和时间是在指定时段内、确保请求的访问权限对应于发出的请求，等等。
 
 以上述 URL 为例，如果 URL 指向文件而不是 Blob，此请求会失败，因为它指定共享访问签名适用于 Blob。 如果调用的 REST 命令是更新 Blob，则该命令会失败，因为共享访问签名指定只准许读访问权限。
@@ -218,7 +218,7 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
 
    例如，如果要让许多人读取特定容器中的 Blob，则可以创建存储访问策略，表示“提供读访问权限”以及每次都一样的任何其他设置。 然后，可以使用存储访问策略的设置，并指定过期日期/时间，来创建 SAS URI。 这样做的优点是不需要每次指定所有查询参数。
 
-#### <a name="revocation"></a>撤销
+#### <a name="revocation"></a>吊销
 假设 SAS 已泄露，或者要基于公司安全或法规遵循要求更改 SAS。 如何使用该 SAS 撤销对资源的访问权限？ 这取决于 SAS URI 的创建方式。
 
 如果使用即席 URI，将有三个选项。 可以颁发具有短期过期策略的 SAS 令牌，然后只需等待 SAS 过期。 可以重命名或删除资源（假设令牌范围只限于单个对象）。 可以更改存储帐户密钥。 根据使用该存储帐户的服务数目而定，最后一个选项可能造成很大的影响，而且在没有任何规划的情况下可能达不到想要的效果。
@@ -237,7 +237,7 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
     此文提供有关使用服务级别 SAS 配合 Blob、队列、表范围和文件的示例。
   * [构造服务 SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [构造帐户 SAS](https://msdn.microsoft.com/library/mt584140.aspx)
-* 这些是使用 .NET 客户端库来创建共享访问签名和存储访问策略的教程。
+* 这些教程介绍了如何使用 .NET 客户端库创建共享访问签名和存储访问策略。
 
   * [使用共享访问签名 (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
   * [共享访问签名 - 第 2 部分：创建 SAS 并将 SAS 用于 Blob 服务](../blobs/storage-dotnet-shared-access-signature-part-2.md)
@@ -293,7 +293,7 @@ SSE 允许请求存储服务在将数据写入 Azure 存储时自动加密数据
 
 目前，用于加密的密钥由 Microsoft 管理。 我们最初会生成密钥，管理密钥的安全存储，并根据 Microsoft 内部策略的定义定期轮转密钥。 将来，能够管理自己的加密密钥，并可提供从 Microsoft 管理的密钥到客户管理的密钥的迁移路径。
 
-此功能可用于使用 Resource Manager 部署模型创建的标准和高级存储帐户。 SSE 仅适用于块 Blob、页 Blob 以及追加 Blob。 其他类型的数据（包括表、队列和文件）不会加密。
+此功能可用于使用 Resource Manager 部署模型创建的标准和高级存储帐户。 SSE 适用于任何类型的数据：块 blob、页 blob、追加 blob、表、队列和文件。
 
 数据只有在启用 SSE 并将数据写入 Blob 存储时才会加密。 启用或禁用 SSE 并不会影响现有的数据。 换句话说，启用此加密时，不会返回并加密已存在的数据；也不会解密禁用 SSE 时已存在的数据。
 
@@ -306,7 +306,7 @@ SSE 允许请求存储服务在将数据写入 Azure 存储时自动加密数据
 
 例如，如果 Web 应用程序会存储 Blob 和检索 Blob，而你想让应用程序和数据尽可能保持安全，可使用此功能。 在此情况下，请使用客户端加密。 客户端与 Azure Blob 服务之间的流量包含加密的资源，并且没有人能够解释传输中的数据并将它重组到专用 Blob。
 
-客户端加密内置于 Java 和 .NET 存储客户端库，这些库使用 Azure 密钥保管库 API 让实现变得很简单。 加密和解密数据的程序会使用信封技术，并在每个存储对象中存储加密使用的元数据。 例如，对于 Blob，会会其存储在 Blob 元数据中；对于队列，会它添加到每个队列消息。
+客户端加密内置于 Java 和 .NET 存储客户端库，这些库使用 Azure 密钥保管库 API 让实现变得很简单。 加密和解密数据的程序将使用信封技术，并在每个存储对象中存储加密使用的元数据。 例如，对于 Blob，会会其存储在 Blob 元数据中；对于队列，会它添加到每个队列消息。
 
 对于加密本身，可以生成和管理自己的加密密钥。 也可以使用 Azure 存储客户端库所生成的密钥，或者让 Azure 密钥保管库生成密钥。 可以将加密密钥存储在本地密钥存储中，或将它们存储在 Azure Key Vault 中。 Azure 密钥保管库允许使用 Azure Active Directory 为特定用户授予 Azure 密钥保管库中密码的访问权限。 这意味着，并非每个人都能读取 Azure Key Vault，以及检索用于进行客户端加密的密钥。
 
@@ -360,11 +360,11 @@ Azure 磁盘加密是一项新功能。 此功能允许加密 IaaS 虚拟机使�
 
 如果使用 Azure 应用商店创中的映像建 VM，Azure 将在 Azure 存储中对存储帐户执行映像的[浅层复制](https://en.wikipedia.org/wiki/Object_copying) ，并且即使已启用 SSE，也不会将其加密。 创建 VM 并启动更新映像后，SSE 将开始加密数据。 出于此原因，如果你想要将它们完全加密，最好是在通过 Azure Marketplace 中的映像创建的 VM 上使用 Azure 磁盘加密。
 
-如果通过本地将预先加密的 VM 带入 Azure 中，就能将加密密钥上传到 Azure 密钥保管库，并继续针对使用本地的 VM 使用加密。 启用 Azure 磁盘加密即可处理此方案。
+如果从本地将预先加密的 VM 带入 Azure 中，就能将加密密钥上传到 Azure Key Vault，并继续针对本地使用的 VM 使用加密。 启用 Azure 磁盘加密即可处理此方案。
 
-如果本地存在未加密 VHD，可将其作为自定义映像上传到库并从中预配 VM。 如果使用 Resource Manager 模板执行此操作，可以要求它在启动 VM 时打开 Azure 磁盘加密。
+如果你有来自本地的未加密 VHD，可以作为自定义映像将它上传到库并从中预配 VM。 如果使用 Resource Manager 模板执行此操作，可以要求它在启动 VM 时打开 Azure 磁盘加密。
 
-添加数据磁盘并将其装载到 VM 时，可在该数据磁盘上开启 Azure 磁盘加密。 它先在本地加密该数据磁盘，然后服务管理层会对存储进行延迟写入，如此即可加密存储内容。
+添加数据磁盘并将其装载到 VM 时，可在该数据磁盘上开启 Azure 磁盘加密。 它先在本地加密该数据磁盘，然后服务管理层将会对存储进行延迟写入，如此即可加密存储内容。
 
 #### <a name="client-side-encryption"></a>客户端加密
 客户端加密是加密数据的最安全方法，因为它会在传输前加密数据，并加密静态数据。 但是，它需要向使用存储的应用程序添加代码，这可能不是理想行为。 在这些情况下，可以针对传输中的数据使用 HTTPs，并使用 SSE 来加密静态数据。
@@ -378,9 +378,9 @@ Azure 磁盘加密是一项新功能。 此功能允许加密 IaaS 虚拟机使�
 #### <a name="storage-service-encryption-sse"></a>存储服务加密 (SSE)
 SSE 由 Azure 存储管理。 使用 SSE 不是针对传输中数据安全性提供的，但它会在数据写入 Azure 存储时加密数据。 使用此功能时不会对性能造成任何影响。
 
-使用 SSE 只可以加密块 Blob、追加 Blob 和页 Blob。 如果需要加密表数据或队列数据，应该考虑使用客户端加密。
+可以使用 SSE 加密存储帐户的任何类型的数据（块 blob、追加 blob、页 blob、表数据、队列数据和文件）。
 
-如果使用 VHD 文件的存档或库作为创建新虚拟机的基础，可以创建新的存储帐户、启用 SSE，并将 VHD 文件上传到该帐户。 这些 VHD 文件由 Azure 存储加密。
+如果使用 VHD 文件的存档或库作为创建新虚拟机的基础，可以创建新的存储帐户、启用 SSE，然后将 VHD 文件上传到该帐户。 这些 VHD 文件由 Azure 存储加密。
 
 如果已针对 VM 中的磁盘启用 Azure 磁盘加密，并对保存 VHD 文件的存储帐户启用了 SSE，则它会正常运行；它会导致任何新写入的数据加密两次。
 
@@ -395,13 +395,13 @@ SSE 由 Azure 存储管理。 使用 SSE 不是针对传输中数据安全性提
 #### <a name="what-do-the-logs-look-like"></a>日志的外观
 通过 Azure 门户启用存储帐户指标和日志记录后，分析数据会开始快速累积。 每个服务的日志记录与指标是分开的；只有在该存储帐户中有活动时才将写入日志，而根据设置指标的方式，会每分钟、每小时或每天记录指标。
 
-日志存储在存储帐户中名为 $logs 的容器的块 Blob 中。 启用存储分析后，自动创建此容器。 创建此容器之后，无法将它删除，但可以删除其内容。
+日志将存储在存储帐户中名为 $logs 的容器的块 Blob 中。 启用存储分析后，自动创建此容器。 创建此容器之后，无法将它删除，但可以删除其内容。
 
 在 $logs 容器下面，每个服务都有一个文件夹，另外还有对应于年/月/日/小时的子文件夹。 在小时下面，日志只带有编号。 下面是目录结构的外观：
 
 ![日志文件视图](./media/storage-security-guide/image1.png)
 
-将记录对 Azure 存储的每个请求。 下面是日志文件的快照，其中显示了前几个字段。
+针对 Azure 存储发出的每个请求都将记录。 下面是日志文件的快照，其中显示了前几个字段。
 
 ![日志文件快照](./media/storage-security-guide/image2.png)
 
@@ -429,13 +429,13 @@ SSE 由 Azure 存储管理。 使用 SSE 不是针对传输中数据安全性提
 
    1.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
 
-可以使用 Microsoft Message Analyzer 来查看和分析这些日志。 它包含搜索和筛选功能。 例如，可能需要搜索 GetBlob 的实例，以查看其使用方式是否符合预期，例如为了确保其他人不会不恰当地访问存储帐户。
+可使用 Microsoft Message Analyzer 查看和分析这些日志。 它包含搜索和筛选功能。 例如，可能需要搜索 GetBlob 的实例，以查看其使用方式是否符合预期，例如为了确保其他人不会不恰当地访问存储帐户。
 
 #### <a name="resources"></a>资源
 * [存储分析](../storage-analytics.md)
 
   此文概述存储分析及其启用方法。
-* [存储分析日志格式](https://msdn.microsoft.com/library/azure/hh343259.aspx)
+* [Storage Analytics Log Format](https://msdn.microsoft.com/library/azure/hh343259.aspx)（存储分析日志格式）
 
   此文介绍存储分析日志格式，并详细说明其中的可用字段，包括身份验证类型（指示请求使用的身份验证类型）。
 * [在 Azure 门户中监视存储帐户](../storage-monitor-storage-account.md)
@@ -457,7 +457,7 @@ SSE 由 Azure 存储管理。 使用 SSE 不是针对传输中数据安全性提
 #### <a name="possible-solutions"></a>可能的解决方案
 解决此问题的方法之一是将类似于“storage.contoso.com”的自定义域分配给 fabrikam.blob.core.chinacloudapi.cn。 问题在于，只能将该自定义域分配给一个存储帐户。 如果资产存储在多个存储帐户中该怎么办？
 
-解决此问题的另一种方法是让 Web 应用程序充当存储调用的代理。 这意味着，如果要将文件上传到 Blob 存储，Web 应用程序可以在本地写入它，并将它复制到 Blob 存储，或者将它全部读入内存，并将它写入 Blob 存储。 或者，你可以编写专门的 Web 应用程序（例如 Web API），以在本地上传文件并将它们写入 Blob 存储。 无论如何，都必须在确定伸缩性需求时考虑该功能。
+解决此问题的另一种方法是让 Web 应用程序充当存储调用的代理。 这意味着，如果要将文件上传到 Blob 存储，Web 应用程序可以在本地写入它，然后将它复制到 Blob 存储，或者将它全部读入内存，然后将它写入 Blob 存储。 或者，你可以编写专门的 Web 应用程序（例如 Web API），以在本地上传文件并将它们写入 Blob 存储。 无论如何，都必须在确定伸缩性需求时考虑该功能。
 
 #### <a name="how-can-cors-help"></a>CORS 有何用途？
 Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户，可以指定可访问该存储帐户中的资源的域。 例如，在上述用例中，我们可以在 fabrikam.blob.core.chinacloudapi.cn 存储帐户中启用 CORS，并将它设置为允许访问 contoso.com。然后，Web 应用程序 contoso.com 就能直接访问 fabrikam.blob.core.chinacloudapi.cn 中的资源。
@@ -491,7 +491,7 @@ Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户
 
 * [Azure.com 上对 Azure 存储服务的跨域资源共享 (CORS) 支持](../storage-cors-support.md)
 
-  此文概述 CORS，以及如何为不同的存储服务设置规则。
+  此文概要讲述了 CORS，并介绍了如何为不同的存储服务设置规则。
 * [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)（MSDN 上对 Azure 存储服务的跨域资源共享 (CORS) 支持）
 
   这是有关对 Azure 存储服务的 CORS 支持的参考文档。 其中提供了适用于每个存储服务的文章链接，并提供示例演示，解释 CORS 文件中的每个元素。

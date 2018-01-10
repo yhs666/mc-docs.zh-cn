@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/08/2017
-ms.date: 12/06/2017
+origin.date: 12/12/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
 ms.custom: na
-ms.openlocfilehash: ac0ab278dd83d0da311b6801e3f86d5109033ba9
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: 253dc28dc1d4318aace077bb2b89b4b1c1523b36
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虚拟机规模集常见问题解答
 
@@ -65,6 +65,8 @@ ms.lasthandoff: 12/07/2017
 可以在 VM 上创建自动缩放设置，以使用主机级指标或基于来宾 OS 的指标。
 
 关于受支持的指标列表，请参阅 [Azure Monitor 自动缩放常用指标](/monitoring-and-diagnostics/insights-autoscale-common-metrics)。 
+
+关于虚拟机规模集的完整示例，请参阅[使用虚拟机规模集的 Resource Manager 模板的高级自动缩放配置](/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets)。 
 
 此示例使用主机级 CPU 指标和消息计数指标。
 
@@ -215,7 +217,7 @@ ms.lasthandoff: 12/07/2017
     }
 ```
  
-linuxConfiguration 元素名称 | 必选 | 类型 | 说明
+linuxConfiguration 元素名称 | 必须 | 类型 | 说明
 --- | --- | --- | --- |  ---
 ssh | 否 | 集合 | 指定 Linux OS 的 SSH 密钥配置
 path | 是 | String | 指定 SSH 密钥或证书应放置到的 Linux 文件路径
@@ -240,7 +242,7 @@ keyData | 是 | String | 指定 base64 编码的 SSH 公钥
 > 目前，不能通过使用虚拟机规模集 API 删除 VM 中的证书。
 >
 
-新的 VM 将不具有旧证书。 但是，具有证书的 VM 和已部署的 VM 将具有旧证书。
+新的 VM 不具有旧证书。 但是，具有证书的 VM 和已部署的 VM 将具有旧证书。
  
 ### <a name="can-i-push-certificates-to-the-virtual-machine-scale-set-without-providing-the-password-when-the-certificate-is-in-the-secret-store"></a>如果证书位于机密存储中，是否可以在不提供密码的情况下将证书推送到虚拟机规模集？
 
@@ -363,7 +365,13 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 ### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>如何对虚拟机规模集中的 VM 重置密码？
 
-若要对虚拟机规模集中的 VM 重置密码，请使用 VM 访问扩展。 
+可采用两种主要方法为规模集中的 VM 更改密码。
+
+1. 直接更改 VMSS 模型。 适用于计算 API 2017-12-01 和更高版本。
+
+直接在规模集模型中更新管理凭据（例如，使用 Azure 资源浏览器、PowerShell 或 CLI）。 在更新规模集后，所有新 VM 都将具有新凭据。 如果为现有 VM 重置了映像，则它们将仅具有新凭据。 
+
+2. 使用 VM 访问扩展重置密码。
 
 使用以下 PowerShell 示例：
 
@@ -455,7 +463,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ## <a name="networking"></a>联网
  
-### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>是否可以将网络安全组 (NSG) 分配给规模集，以便将其应用于集中的所有 VM NIC？
+### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>是否可以将网络安全组 (NSG) 分配给一个规模集，以便应用于规模集中的所有 VM Nic？
 
 是的。 网络安全组可以直接应用于规模集，方法是在网络配置文件的 networkInterfaceConfigurations 部分引用该组。 示例：
 
@@ -621,7 +629,7 @@ IP 地址是从指定的子网中选择的。
 
 ### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>如何在现有资源组中创建规模集？
 
-尚不能通过 Azure 门户在现有资源组中创建规模集，但从 Azure Resource Manager 模板部署规模集时，可以指定现有资源组。 使用 Azure PowerShell 或 CLI 创建规模集时，也可指定现有的资源组。
+尚不能通过 Azure 门户在现有资源组中创建规模集，但从 Azure Resource Manager 模板部署规模集时，可以指定现有资源组。 也可以在使用 Azure PowerShell 或 CLI 创建规模集时指定现有资源组。
 
 ### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>可以将规模集移至另一个资源组吗？
 

@@ -14,17 +14,18 @@ ms.topic: article
 origin.date: 10/25/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: de50d04b08bf945193298d8bb582a19dc0afaf52
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: ca76a6c6f817c0940dc1db2df236b999f51b941a
+ms.sourcegitcommit: a4ef22d361b2b930db6ed52cc0c22abc781ab7cb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-documentation"></a>Azure Cosmos DB: DocumentDB API 文档
 
 本文提供指向特定于 DocumentDB API 的所有 Azure Cosmos DB 内容的链接。
 
-这些文章不适用于图形 API、表 API 或 MongoDB API。 
+这些文章不适用于表 API 或 MongoDB API。 
+<!-- Not Available on Graph API -->
 
 ## <a name="introduction-and-concepts"></a>简介和概念
 
@@ -97,7 +98,7 @@ Azure Cosmos DB 提供许多 SDK 来支持客户端应用程序开发。
 - [Node.js](documentdb-sdk-node.md)
 - [Python](documentdb-sdk-python.md)
 
-## <a name="reference"></a>引用
+## <a name="reference"></a>参考
 
 - [REST](https://docs.microsoft.com/rest/api/documentdb/)
 - [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)

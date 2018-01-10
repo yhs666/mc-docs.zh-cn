@@ -10,17 +10,17 @@ ms.service: key-vault
 ms.workload: identity
 ms.topic: article
 origin.date: 09/15/2017
-ms.date: 11/30/2017
+ms.date: 12/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: ce887be1465f22d0dbf75eb96b685503f8f8862f
-ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
+ms.openlocfilehash: df2b4e44e618af6f73b5ab1ca9a85afcd29f8703
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>从 Web 应用程序使用 Azure 密钥保管库
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 
 本教程介绍如何从 Azure 中的 Web 应用程序使用 Azure 密钥保管库。 其中讲解了如何访问 Azure 密钥保管库中的机密，以便在 Web 应用程序中使用。
 
@@ -144,11 +144,11 @@ Utils.EncryptSecret = sec.Value;
 针对我们所需的用途，我们将生成一个测试证书。 下面是几个可在开发人员命令提示符下创建证书的命令。 将目录更改为要在其中创建证书文件的位置。  此外，对于证书的开始和结束日期，使用当前日期加上 1 年。
 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-记下 .pfx 的结束日期和密码（在此示例中为：07/31/2016 和 test123）。 稍后需要使用这些信息。
+记下 .pfx 的结束日期和密码（在此示例中为：07/31/2017 和 test123）。 稍后需要使用这些信息。
 
 有关创建测试证书的详细信息，请参阅 [如何：创建自己的测试证书](https://msdn.microsoft.com/library/ff699202.aspx)
 

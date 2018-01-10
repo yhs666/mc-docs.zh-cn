@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 11/27/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: c7f6b0835c46102479001df6dd4585c825b83fca
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: e39a717db250357098fa11e44cebc96d5fc06fcc
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 迁移到高级存储
 
@@ -47,7 +47,7 @@ Site Recovery 支持多种类型的、停机时间极短或不造成停机的故
   2. 通过缓存、压缩和解密来优化数据。
   3. 向存储帐户发送数据。 
 
-  它还处理从移动服务到源 VM 的推送安装，执行源 VM 的自动发现。 默认的进程服务器安装在配置服务器上。 可以部署更多的独立进程服务器以扩展部署。 请阅读[进程服务器部署的最佳做法](https://azure.microsoft.com/blogbest-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/)和[部署其他进程服务器](../../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers)。 进程服务器只需配置一次，在迁移到同一区域的所有过程中都可以使用它。
+  它还处理从移动服务到源 VM 的推送安装，执行源 VM 的自动发现。 默认的进程服务器安装在配置服务器上。 可以部署更多的独立进程服务器以扩展部署。 请阅读[进程服务器部署的最佳做法](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/)和[部署其他进程服务器](../../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers)。 进程服务器只需配置一次，在迁移到同一区域的所有过程中都可以使用它。
 
 * 移动服务是在想要复制的每个标准 VM 上部署的组件。 它可以捕获标准 VM 上的数据写入，并将其转发到进程服务器。 阅读[复制的计算机先决条件](../../site-recovery/vmware-walkthrough-overview.md)。
 
@@ -195,7 +195,7 @@ Site Recovery 检查是否有一个或多个兼容的 Azure 存储帐户和网�
 
 请务必选择“关闭 VM 并同步最新数据”。 此操作将指定 Site Recovery 应尝试关闭受保护的 VM 并同步数据，以便对最新版的数据进行故障转移。 如果不选择此选项或尝试不成功，系统将从 VM 的最近恢复点开始故障转移。 
 
-Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM 实例。 可以参阅 [Windows 虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/windows/)或 [Linux 虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/linux/)了解各种 VM 实例的性能和价格。
+Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM 实例。 可以参阅 [Windows 虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)或 [Linux 虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)了解各种 VM 实例的性能和价格。
 
 ## <a name="post-migration-steps"></a>迁移后的步骤
 
@@ -203,7 +203,7 @@ Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM �
    * 对于使用经典部署模型创建的 VM：在 Azure 门户中将 VM 添加到可用性集。 有关详细步骤，请参阅[将现有虚拟机添加到可用性集](../linux/classic/configure-availability.md#addmachine)。
    * 对于通过资源管理器部署模型创建的 VM：保存 VM 的配置，并在可用性集中删除再重新创建 VM。 为此，请使用 [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)（设置 Azure Resource Manager VM 可用性集）中所述的脚本。 运行此脚本之前，请检查其自身的限制并规划停机时间。
 
-2. **删除旧 VM 和磁盘**。 请确保高级磁盘与源磁盘一致，并且新 VM 执行的功能与源 VM 相同。 在资源管理器部署模型中，通过 Azure 门户删除源存储帐户中的 VM 和磁盘。 在经典部署模型中，可通过经典管理门户或 Azure 门户删除 VM 和磁盘。 如果出现了即使删除 VM 也无法删除磁盘的问题，请参阅 [排查在删除 VHD 时遇到的错误](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)。
+2. **删除旧 VM 和磁盘**。 请确保高级磁盘与源磁盘一致，并且新 VM 执行的功能与源 VM 相同。 通过 Azure 门户删除源存储帐户中的 VM 和磁盘。 如果出现了即使删除 VM 也无法删除磁盘的问题，请参阅 [排查在删除 VHD 时遇到的错误](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)。
 
 3. **清理 Azure Site Recovery 基础结构**。 如果不再需要 Site Recovery，可清理其基础结构。 删除复制的项、配置服务器和恢复策略，然后删除 Azure Site Recovery 保管库。
 
@@ -216,7 +216,7 @@ Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM �
 
 有关虚拟机迁移的特定方案，请参阅以下资源：
 
-* [Migrate Azure Virtual Machines between Storage Accounts（在存储帐户之间迁移 Azure 虚拟机）](https://azure.microsoft.com/blog2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
+* [Migrate Azure Virtual Machines between Storage Accounts（在存储帐户之间迁移 Azure 虚拟机）](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [创建 Windows Server VHD 并将其上传到 Azure](../windows/classic/createupload-vhd.md)
 * [创建并上传包含 Linux 操作系统的虚拟硬盘](../linux/classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [将虚拟机从 Amazon AWS 迁移到 Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
@@ -242,3 +242,4 @@ Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM �
 [13]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-13.png
 [14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png
 [15]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-14.png
+<!--Update_Description: wording update, update meta properties -->

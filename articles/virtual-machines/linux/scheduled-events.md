@@ -1,10 +1,10 @@
 ---
-title: "Azure 中 Linux VM 的计划事件 | Microsoft Docs"
-description: "Linux 虚拟机上使用 Azure 元数据服务的计划事件。"
+title: "Azure 中 Linux VM 的计划事件 | Azure"
+description: "使用 Azure 元数据服务为 Linux 虚拟机计划事件。"
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: 
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: 
 ms.assetid: 
@@ -14,80 +14,107 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/14/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: d1dd759d0ad1e89bf50e676bbee6beac360f43e9
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.date: 01/08/2018
+ms.author: v-yeche
+ms.openlocfilehash: cc858fa32f53ea5ddef93f4e1333a4808cb9e97e
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Azure 元数据服务：适用于 Linux VM 的计划事件（预览）
 
-计划事件是 Azure 元数据服务中的其中一个子服务。 它负责显示有关即将发生的事件（例如，重新启动）的信息，使应用程序可以为其做准备并限制中断。 它可用于所有 Azure 虚拟机类型（包括 PaaS 和 IaaS）。 计划事件为虚拟机提供了执行预防性任务的时间，将事件的影响降到最低。 
+> [!NOTE] 
+> 同意使用条款即可使用预览版。 
+>
+<!-- Not Available on  (https://www.azure.cn/support/legal/preview-supplemental-terms/). -->
 
-计划事件可用于 Windows 和 Linux VM。 有关 Windows 上的计划事件的信息，请参阅[适用于 Windows VM 的计划事件](../windows/scheduled-events.md)。
+计划事件是 Azure 元数据服务下的一个子服务，可提供应用程序时间用于准备虚拟机 (VM) 维护。 它提供有关即将发生的维护事件的信息（例如重新启动），使应用程序可以为其准备并限制中断。 它可用于 Windows 和 Linux 上的所有 Azure 虚拟机类型（包括 PaaS 和 IaaS）。 
 
-## <a name="why-scheduled-events"></a>为何使用计划事件？
+有关 Windows 上的计划事件的信息，请参阅[适用于 Windows VM 的计划事件](../windows/scheduled-events.md)。
 
-通过计划事件，可以采取措施限制由平台启动的维护或由用户启动的操作对服务带来的影响。 
+## <a name="why-use-scheduled-events"></a>为何使用计划事件？
 
-使用复制技术保持状态的多实例工作负荷可能易受到跨多个实例频繁发生的服务中断的影响。 此类中断可能导致任务开销昂贵（例如，重新生成索引）甚至副本丢失。 
+许多应用程序都可以受益于时间来准备 VM 维护。 时间可以用于执行应用程序的特定任务的提高可用性、可靠性和可维护性，包括： 
 
-在很多其他情况下，通过正常关闭序列（如完成或取消正在进行的事务）、将任务重新分配给群集中的其他 VM（手动故障转移）或从网络负载均衡器池中删除虚拟机，可能都可提高服务的整体可用性。 
+- 检查点和还原。
+- 连接清空。
+- 主要副本故障转移。
+- 从负载均衡器池删除。
+- 事件日志记录。
+- 正常关闭。
 
-有时通知管理员即将发生的事件或记录此类事件也可帮助提高在云中托管的应用程序的可服务性。
+使用计划事件，应用程序可以发现维护的发生，并触发任务以限制其影响。  
 
-Azure 元数据服务在以下用例中显示计划事件：
--   平台启动的维护（例如，主机 OS 部署）
--   用户启动的调用（例如，用户重启或重新部署 VM）
+预定事件提供以下用例中的事件：
 
+- 平台启动的维护（例如，主机 OS 更新）
+- 用户启动的维护（例如，用户重启或重新部署 VM）
 
 ## <a name="the-basics"></a>基础知识  
 
-Azure 元数据服务公开在 VM 中使用可访问的 REST 终结点运行虚拟机的相关信息。 该信息通过不可路由的 IP 提供，因此不会在 VM 外部公开。
+元数据服务公开在 VM 中使用可访问的 REST 终结点运行 VM 的相关信息。 该信息通过不可路由的 IP 提供，因此不会在 VM 外部公开。
 
-### <a name="scope"></a>范围
-计划事件会显示到云服务中的所有虚拟机或可用性集中的所有虚拟机上。 因此，应查看事件中的 `Resources` 字段以确定将受到影响的 VM。 
+### <a name="scope"></a>作用域
+计划的事件传送到：
 
-### <a name="discovering-the-endpoint"></a>发现终结点
-如果在虚拟网络 (VNet) 中创建虚拟机，可从不可路由 IP `169.254.169.254` 获得元数据服务。
-如果不在虚拟网络中创建虚拟机（云服务和经典 VM 的默认情况），需要使用其他逻辑发现可使用的终结点。 
+- 云服务中的所有 VM。
+- 可用性集中的所有 VM。
+- 规模集位置组中的所有 VM。 
+
+因此，检查事件中的 `Resources` 字段可确定哪些 VM 受到了影响。
+
+### <a name="discover-the-endpoint"></a>发现终结点
+对于启用虚拟网络的 VM，最新版计划事件的完整终结点是： 
+
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+
+如果在虚拟网络中创建 VM，可以从不可路由 IP `169.254.169.254` 获得元数据服务。
+如果不是在虚拟网络中创建 VM（云服务和经典 VM 的默认情况），则需使用额外的逻辑以发现要使用的 IP 地址。 若要了解如何[发现主机终结点](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)，请参阅此示例。
 
 ### <a name="versioning"></a>版本控制 
-已对实例元数据服务进行了版本控制。 版本是必需的，当前版本为 `2017-03-01`。
+计划事件服务受版本控制。 版本是必需的，当前版本为 `2017-08-01`。
+
+| 版本 | 发行说明 | 
+| - | - | 
+| 2017-08-01 | <li> 已从 Iaas VM 的资源名称中删除下划线<br><li>针对所有请求强制执行元数据标头要求 | 
+| 2017-03-01 | <li>公共预览版 |
 
 > [!NOTE] 
 > 支持的计划事件的前一预览版 {latest} 发布为 api-version。 此格式不再受支持，并且将在未来弃用。
 
-### <a name="using-headers"></a>使用标头
-查询元数据服务时，必须提供标头 `Metadata: true` 以确保不会在无意中重定向该请求。
+### <a name="use-headers"></a>使用标头
+查询元数据服务时，必须提供标头 `Metadata:true` 以确保不会在无意中重定向该请求。 `Metadata:true` 标头对于所有预定事件请求是必需的。 不在请求中包含标头会导致元数据服务发出的“错误的请求”响应。
 
-### <a name="enabling-scheduled-events"></a>启用计划事件
-首次请求计划事件时，Azure 会在虚拟机上隐式启用该功能。 因此，第一次调用时应该会延迟响应最多两分钟。
+### <a name="enable-scheduled-events"></a>启用计划事件
+首次请求计划事件时，Azure 会在 VM 上隐式启用该功能。 因此，第一次调用时应会延迟响应最多两分钟。
+
+> [!NOTE]
+> 如果服务有一天未调用终结点，会自动为服务禁用预定事件。 为服务禁用计划事件后，不会为用户启动的维护创建事件。
 
 ### <a name="user-initiated-maintenance"></a>用户启动的维护
-用户通过 Azure 门户、API、CLI 或 PowerShell 启动的虚拟机维护会生成计划事件。 这样便可以在应用程序中测试维护准备逻辑，并可以通过应用程序准备用户启动的维护。
+用户通过 Azure 门户、API、CLI 或 PowerShell 启动的 VM 维护会生成计划事件。 然后，可以在应用程序中测试维护准备逻辑，并可以通过应用程序准备用户启动的维护。
 
-重启虚拟机会计划 `Reboot` 类型的事件。 重新部署虚拟机会计划 `Redeploy` 类型的事件。
+如果重启 VM，将计划 `Reboot` 类型的事件。 如果重新部署 VM，将计划 `Redeploy` 类型的事件。
 
 > [!NOTE] 
-> 目前，可以同时计划最多 10 个用户启动的维护操作。 在计划事件公开发布之前将放宽此限制。
+> 目前，可以同时计划最多 100 个用户启动的维护操作。
 
 > [!NOTE] 
 > 目前，生成计划事件的用户启动的维护不可配置。 可配置性已计划在将来的版本中推出。
 
-## <a name="using-the-api"></a>使用 API
+## <a name="use-the-api"></a>使用 API
 
 ### <a name="query-for-events"></a>查询事件
 只需进行以下调用即可查询计划事件：
 
+#### <a name="bash"></a>Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 响应包含计划事件的数组。 数组为空意味着目前没有计划事件。
-如果有计划事件，响应会包含事件的数组： 
+如果有计划事件，响应会包含事件的数组。 
 ```
 {
     "DocumentIncarnation": {IncarnationID},
@@ -108,34 +135,43 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 |属性  |  说明 |
 | - | - |
 | EventId | 此事件的全局唯一标识符。 <br><br> 示例： <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | 此事件造成的影响。 <br><br> 值： <br><ul><li> `Freeze`：虚拟机计划暂停数秒。 暂停 CPU，但不会对内存、打开文件或网络连接造成影响。 <li>`Reboot`：虚拟机将计划重新启动（非持久性内存将丢失）。 <li>`Redeploy`：虚拟机计划移到另一个节点（临时磁盘将丢失）。 |
-| ResourceType | 此事件影响的资源的类型。 <br><br> 值： <ul><li>`VirtualMachine`|
-| 资源| 此事件影响的资源的列表。 它保证最多只能包含一个[更新域](manage-availability.md)的计算机，但可能不包含该更新域中的所有计算机。 <br><br> 示例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| 事件状态 | 此事件的状态。 <br><br> 值： <ul><li>`Scheduled`：此事件计划在 `NotBefore` 属性指定的时间之后启动。<li>`Started`：此事件已启动。</ul> 不提供 `Completed` 或类似状态；事件完成后，将不再返回事件。
-| NotBefore| 此事件可能会在之后启动的时间。 <br><br> 示例： <br><ul><li> 2016-09-19T18:29:47Z  |
+| EventType | 此事件造成的影响。 <br><br> 值： <br><ul><li> `Freeze`：VM 计划暂停的数秒。 暂停 CPU，但不会对内存、打开文件或网络连接造成影响。 <li>`Reboot`：已计划重新启动 VM。 （非持久内存将会丢失。） <li>`Redeploy`：VM 已计划转移到另一个节点。 （临时磁盘将会丢失。） |
+| ResourceType | 此事件影响的资源类型。 <br><br> 值： <ul><li>`VirtualMachine`|
+| 资源| 此事件影响的资源列表。 它保证最多只能包含一个[更新域](manage-availability.md)的计算机，但可能不包含该更新域中的所有计算机。 <br><br> 示例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| EventStatus | 此事件的状态。 <br><br> 值： <ul><li>`Scheduled`：此事件计划在 `NotBefore` 属性指定的时间之后启动。<li>`Started`：此事件已启动。</ul> 不提供 `Completed` 或类似状态。 事件完成后，将不再返回该事件。
+| NotBefore| 在可以启动此事件之前所要经过的时间。 <br><br> 示例： <br><ul><li> 2016-09-19T18:29:47Z  |
 
 ### <a name="event-scheduling"></a>事件计划
 将根据事件类型为每个事件计划将来的最小量时间。 此时间反映在某个事件的 `NotBefore` 属性上。 
 
-|EventType  | 最小值通知 |
+|EventType  | 最小通知 |
 | - | - |
 | 冻结| 15 分钟 |
 | 重新启动 | 15 分钟 |
 | 重新部署 | 10 分钟 |
 
-### <a name="starting-an-event"></a>启动事件 
+### <a name="start-an-event"></a>启动事件 
 
-了解即将发生的事件并完成正常关闭逻辑后，可以通过使用 `EventId` 对元数据服务进行 `POST` 调用来批准未完成的事件。 这指示 Azure 可以缩短最小通知时间（如可能）。 
+了解即将发生的事件并完成正常关闭逻辑后，可以通过使用 `EventId` 对元数据服务进行 `POST` 调用来批准未完成的事件。 此调用指示 Azure 可以缩短最小通知时间（如可能）。 
 
+下面是 `POST` 请求正文中所需的 JSON 示例。 请求应包含 `StartRequests` 列表。 每个 `StartRequest` 包含想要加速的事件的 `EventId`：
 ```
-curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+{
+    "StartRequests" : [
+        {
+            "EventId": {EventId}
+        }
+    ]
+}
+```
+
+#### <a name="bash-sample"></a>Bash 示例
+```
+curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
-> 确认事件后，即可允许事件针对事件中所有的 `Resources` 继续进行，而不仅仅是确认该事件的虚拟机。 因此，可以选择一个指挥计算机来协调该确认，为简单起见，可选择 `Resources` 字段中的第一个计算机。
-
-
-
+> 确认事件后，即可允许事件针对事件中所有的 `Resources` 继续进行，而不仅仅是确认该事件的 VM。 因此，可以选择一个指挥计算机来协调该确认，为简单起见，可选择 `Resources` 字段中的第一个计算机。
 
 ## <a name="python-sample"></a>Python 示例 
 
@@ -175,13 +211,14 @@ def handle_scheduled_events(data):
 def main():
    data = get_scheduled_events()
    handle_scheduled_events(data)
-   
+
 if __name__ == '__main__':
   main()
   sys.exit(0)
 ```
 
 ## <a name="next-steps"></a>后续步骤 
-
-- 有关 API 的更多信息，请参阅[实例元数据服务](instance-metadata-service.md)。
+- 在 [Azure 实例元数据计划事件 Github 存储库](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)中查看预定事件代码示例。
+- 详细了解[实例元数据服务](instance-metadata-service.md)中提供的 API。
 - [Azure 中 Linux 虚拟机的计划内维护](planned-maintenance.md)。
+<!-- Update_Description: update meta properties, wording update， update link -->

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: 619b83444ef236e155366f804471715494291596
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: 3d72d3b60c35353157150ff01ad7faf62f9a2e2b
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="generic-sql-connector-step-by-step"></a>通用 SQL 连接器分步说明
 本主题是一份循序渐进的指南。 其中将会创建一个简单的示例 HR 数据库，并使用它导入一些用户及其组成员身份。
@@ -104,7 +104,7 @@ ms.lasthandoff: 08/11/2017
 ![cs1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs1.png)  
 ![cs2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs2.png)  
 
-## <a name="appendix-a"></a>附录 A
+## 附录 A <a name="appendix-a"></a>
 **用于创建示例数据库的 SQL 脚本**
 
 ```SQL
@@ -203,4 +203,4 @@ GO
 ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: link update -->

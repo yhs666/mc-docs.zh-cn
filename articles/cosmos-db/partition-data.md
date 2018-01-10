@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/06/2017
-ms.date: 10/23/2017
+origin.date: 12/15/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c6e1b4619fc9f7377315d18075635ff680859bc2
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: ff792cfccc37660a30ea22366a9807b976b5dcac
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中分区和缩放
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/20/2017
 
 * 使用每秒请求数吞吐量 `T` 预配 Azure Cosmos DB 容器。
 * Azure Cosmos DB 在幕后预配所需的分区来提供每秒请求数 `T`。 如果 `T` 高于每个分区的最大吞吐量 `t`，则 Azure Cosmos DB 会预配 `N` = `T/t` 个分区。
-* Azure Cosmos DB 在 `N` 个分区之间均衡分配分区键哈希的键空间。 因此，每个分区（物理分区）托管 1-N 个分区键值（逻辑分区）。
+* Azure Cosmos DB 在 `N` 个分区之间均衡分配分区键哈希的键空间。 因此，每个分区（物理分区）托管 `1/N` 个分区键值（逻辑分区）。
 * 当物理分区 `p` 达到其存储上限时，Azure Cosmos DB 会将 `p` 无缝拆分为两个新的分区 `p1` 和 `p2`。 它会向每个分区分发对应于大约一半键的值。 此拆分操作对应用程序不可见。
 * 同样，预配吞吐量高于 `t*N` 时，Azure Cosmos DB 会拆分一个或多个分区，以支持更高的吞吐量。
 
@@ -58,7 +58,7 @@ Azure Cosmos DB 使用基于哈希的分区。 写入某个项时，Azure Cosmos
 > 采用具有大量不同值（最少几百到几千个）的分区键是最佳做法。
 >
 
-可以“固定”或“无限制”模式创建 Azure Cosmos DB 容器。 固定大小的容器上限为 10 GB，10,000 RU/s 吞吐量。 某些 API 允许对固定大小的容器省略分区键。 若要以无限制模式创建容器，必须指定最低 2,500 RU/秒的吞吐量。
+可以“固定”或“无限制”模式创建 Azure Cosmos DB 容器。 固定大小的容器上限为 10 GB，10,000 RU/s 吞吐量。 若要以无限制模式创建容器，必须指定最低 2,500 RU/秒的吞吐量。
 
 建议检查数据在分区中的分配方式。 若要在门户中检查此项，请转到 Azure Cosmos DB 帐户并单击“监视”部分中的“指标”，然后在右窗格中单击“存储”选项卡以查看数据在不同物理分区中进行分区的的方式。
 
@@ -105,7 +105,7 @@ DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
 ```
 
 ### <a name="mongodb-api"></a>MongoDB API
-使用 MongoDB API 可以通过常用的工具、驱动程序或 SDK 创建分片集合。 在此示例中，我们将使用 Mongo Shell 创建集合。
+使用 MongoDB API 可以通过常用的工具、驱动程序或 SDK 创建分片集合。 此示例使用 Mongo Shell 创建集合。
 
 在 Mongo Shell 中：
 
@@ -194,4 +194,4 @@ Azure Cosmos DB 最常见的用例之一是日志记录和遥测。 选取恰当
 * 了解 [Azure Cosmos DB 中的预配吞吐量](request-units.md)。
 * 了解 [Azure Cosmos DB 中的全局分布](distribute-data-globally.md)。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: wording update, update link -->

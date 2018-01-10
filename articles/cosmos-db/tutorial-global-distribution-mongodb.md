@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 09/25/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3761e037f4738dc76f82e7b2ab17fe2c59389825
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.custom: mvc
+ms.openlocfilehash: a196045bfad6db8fa5b449340f8deee4ea4aa8d6
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>如何使用 MongoDB API 设置 Azure Cosmos DB 全局分发
 
@@ -100,7 +101,7 @@ collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode
 
 > [!div class="checklist"]
 > * 使用 Azure 门户配置全局分发
-> * 使用 DocumentDB API 配置全局分发
+> * 使用 SQL API 配置全局分发
 
 现可继续学习下一个教程，了解如何使用 Azure Cosmos DB 本地模拟器在本地开发。
 

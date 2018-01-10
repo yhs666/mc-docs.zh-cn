@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: af8d791db16f4578544ea2997ac09080960e09ac
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: c2513f3f7ee1f2eeb17fefa472d7fb0002a992d1
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Windows PowerShell 连接器技术参考
 本文介绍 Windows PowerShell 连接器。 本文适用于以下产品：
@@ -43,7 +43,7 @@ ms.lasthandoff: 08/11/2017
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
 
 ## <a name="create-a-new-connector"></a>创建新连接器
-若要在同步服务中创建 Windows PowerShell 连接器，必须提供一系列 Windows PowerShell 脚本用于执行同步服务请求的步骤。 根据所要连接到的数据源和所需的功能，需要实现的脚本有所不同。 本部分概述可以实现的每个脚本以及何时需要用到它们。
+若要在同步服务中创建 Windows PowerShell 连接器，必须提供一系列 Windows PowerShell 脚本用于执行同步服务请求的步骤。 根据所要连接到的数据源和所需的功能，需要实现的脚本将有所不同。 本部分概述可以实现的每个脚本以及何时需要用到它们。
 
 Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本。 虽然可以运行存储在文件系统中的脚本，但将每个脚本的主体直接插入连接器配置要方便得多。
 
@@ -64,9 +64,9 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 | --- | --- | --- |
 | 服务器 |<Blank> |连接器应连接到的服务器名称。 |
 | 域 |<Blank> |要存储的以便在连接器运行时使用的凭据域。 |
-| 用户 |<Blank> |要存储的以便在连接器运行时使用的凭据用户名。 |
+| User |<Blank> |要存储的以便在连接器运行时使用的凭据用户名。 |
 | 密码 |<Blank> |要存储的以便在连接器运行时使用的凭据密码。 |
-| 模拟连接器帐户 |False |如果为 true，同步服务在提供的凭据上下文中运行 Windows PowerShell 脚本。 如果可能，建议使用传递给每个脚本的 **$Credentials** 参数来代替模拟。 有关使用此选项时必须具有的其他权限的详细信息，请参阅 [Additional Configuration for Impersonation](#additional-configuration-for-impersonation)（其他模拟配置）。 |
+| 模拟连接器帐户 |False |如果为 true，同步服务将对提供的凭据上下文中运行 Windows PowerShell 脚本。 如果可能，建议使用传递给每个脚本的 **$Credentials** 参数来代替模拟。 有关使用此选项时必须具有的其他权限的详细信息，请参阅 [Additional Configuration for Impersonation](#additional-configuration-for-impersonation)（其他模拟配置）。 |
 | 模拟时加载用户配置文件 |False |指示 Windows 在模拟期间加载连接器凭据的用户配置文件。 如果要模拟的用户具有漫游配置文件，连接器不会加载漫游配置文件。 有关使用此参数时必须具有的其他权限的详细信息，请参阅 [Additional Configuration for Impersonation](#additional-configuration-for-impersonation)（其他模拟配置）。 |
 | 模拟时的登录类型 |无 |模拟期间的登录类型。 有关详细信息，请参阅 [dwLogonType][dw] 文档。 |
 | 仅限已签名的脚本 |False |如果为 true，Windows PowerShell 连接器会验证每个脚本是否具有有效的数字签名。 如果为 false，请确保同步服务服务器的 Windows PowerShell 执行策略是 RemoteSigned 或 Unrestricted。 |
@@ -89,7 +89,7 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 
 验证脚本从连接器接收以下参数：
 
-| 名称 | 数据类型 | 说明 |
+| Name | 数据类型 | 说明 |
 | --- | --- | --- |
 | ConfigParameterPage |[ConfigParameterPage][cpp] |触发验证请求的配置选项卡或对话框。 |
 | ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |连接器的配置参数表。 |
@@ -100,9 +100,9 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 **架构发现**  
 架构发现脚本是必需的。 此脚本返回对象类型和属性，以及同步服务在配置属性流规则时使用的属性约束。 架构发现脚本在创建连接器期间运行，并填充连接器的架构。 它还由同步服务管理器中的“刷新架构”操作使用。
 
-架构发现脚本从连接器接收以下参数：
+架构发现脚本将从连接器接收以下参数：
 
-| 名称 | 数据类型 | 说明 |
+| Name | 数据类型 | 说明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |连接器的配置参数表。 |
 | 凭据 |[PSCredential][pscred] |包含管理员在“连接”选项卡上输入的任何凭据。 |
@@ -133,7 +133,7 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 | 层次结构 |选中时，连接器可支持 LDAP 样式的层次结构。 |
 | 启用导入 |选中时，连接器通过导入脚本导入数据。 |
 | 启用增量导入 |选中时，连接器可以从导入脚本请求增量。 |
-| 启用导出 |选中时，连接器会通过导出脚本导出数据。 |
+| 启用导出 |选中时，连接器将通过导出脚本导出数据。 |
 | 启用完整导出 |选中时，导出脚本可支持导出整个连接器空间。 若要使用此选项，还必须选中“启用导出”。 |
 | 第一个导出阶段没有引用值 |选中时，在第二个导出阶段导出引用属性。 |
 | 启用对象重命名 |选中时，可以修改可分辨名称。 |
@@ -147,9 +147,9 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 **分区发现**  
 分区是一个共享架构内的独立命名空间。 例如在 Active Directory 中，每个域就是一个林内的分区。 分区是导入和导出操作的逻辑组。 导入和导出将分区用作上下文，所有操作会在此上下文中发生。 分区应该代表 LDAP 中的层次结构。 导入操作使用分区的可分辨名称来验证所有返回的对象是否都在分区的范围内。 在从 Metaverse 预配到连接器空间的期间，也使用分区可分辨名称来确定对象应该在导出期间与哪个分区关联。
 
-分区发现脚本从连接器接收以下参数：
+分区发现脚本将从连接器接收以下参数：
 
-| 名称 | 数据类型 | 说明 |
+| Name | 数据类型 | 说明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |连接器的配置参数表。 |
 | 凭据 |[PSCredential][pscred] |包含管理员在“连接”选项卡上输入的任何凭据。 |
@@ -159,9 +159,9 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 **层次结构发现**  
 仅当可分辨名称样式功能是 LDAP 时，才使用层次结构发现脚本。 可以使用该脚本来浏览和选择一组被视为在导入和导出操作范围之内或之外的容器。 此脚本只应提供节点列表，这些节点是提供给脚本的根节点的直接子级。
 
-层次结构发现脚本从连接器接收以下参数：
+层次结构发现脚本将从连接器接收以下参数：
 
-| 名称 | 数据类型 | 说明 |
+| Name | 数据类型 | 说明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |连接器的配置参数表。 |
 | 凭据 |[PSCredential][pscred] |包含管理员在“连接”选项卡上输入的任何凭据。 |
@@ -177,12 +177,12 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 
 开始导入脚本从连接器接收以下参数：
 
-| 名称 | 数据类型 | 说明 |
+| Name | 数据类型 | 说明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |连接器的配置参数表。 |
 | 凭据 |[PSCredential][pscred] |包含管理员在“连接”选项卡上输入的任何凭据。 |
 | OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |告知脚本导入运行的类型（增量或完整）、分区、层次结构、水印和预期的页面大小。 |
-| 类型 |[架构][schema] |要导入的连接器空间的架构。 |
+| 类型 |[Schema][schema] |要导入的连接器空间的架构。 |
 
 脚本必须将单个 [OpenImportConnectionResults][oicres] 对象返回到管道中，例如：`Write-Output (New-Object Microsoft.MetadirectoryServices.OpenImportConnectionResults)`
 
@@ -191,13 +191,13 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 
 导入数据脚本从连接器接收以下参数：
 
-| 名称 | 数据类型 | 说明 |
+| Name | 数据类型 | 说明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |连接器的配置参数表。 |
 | 凭据 |[PSCredential][pscred] |包含管理员在“连接”选项卡上输入的任何凭据。 |
 | GetImportEntriesRunStep |[ImportRunStep][irs] |保留可在分页导入与增量导入期间使用的水印 (CustomData)。 |
 | OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |告知脚本导入运行的类型（增量或完整）、分区、层次结构、水印和预期的页面大小。 |
-| 类型 |[架构][schema] |要导入的连接器空间的架构。 |
+| 类型 |[Schema][schema] |要导入的连接器空间的架构。 |
 
 导入数据脚本必须将 List[[CSEntryChange][csec]] 对象写入管道中。 此集合由代表每个所导入对象的 CSEntryChange 属性组成。 在运行完整导入时，此集合应有一组完整的 CSEntryChange 对象，这些对象拥有每个对象的所有属性。 在增量导入期间，CSEntryChange 对象应该包含要导入的每个对象的属性级差异，或已更改的对象的完整表示形式（替换模式）。
 
@@ -223,7 +223,7 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 
 开始导出脚本从连接器接收以下参数：
 
-| 名称 | 数据类型 | 说明 |
+| Name | 数据类型 | 说明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |连接器的配置参数表。 |
 | 凭据 |[PSCredential][pscred] |包含管理员在“连接”选项卡上输入的任何凭据。 |
@@ -237,7 +237,7 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 
 导出数据脚本从连接器接收以下参数：
 
-| 名称 | 数据类型 | 说明 |
+| Name | 数据类型 | 说明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |连接器的配置参数表。 |
 | 凭据 |[PSCredential][pscred] |包含管理员在“连接”选项卡上输入的任何凭据。 |
@@ -252,7 +252,7 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 
 结束导出脚本从连接器接收以下参数：
 
-| 名称 | 数据类型 | 说明 |
+| Name | 数据类型 | 说明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |连接器的配置参数表。 |
 | 凭据 |[PSCredential][pscred] |包含管理员在“连接”选项卡上输入的任何凭据。 |
@@ -264,9 +264,9 @@ Windows PowerShell 连接器用于存储同步服务数据库中的每个脚本�
 #### <a name="password-synchronization"></a>密码同步
 Windows PowerShell 连接器可以用作密码更改/重置的目标。
 
-密码脚本从连接器接收以下参数：
+密码脚本将从连接器接收以下参数：
 
-| 名称 | 数据类型 | 说明 |
+| Name | 数据类型 | 说明 |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |连接器的配置参数表。 |
 | 凭据 |[PSCredential][pscred] |包含管理员在“连接”选项卡上输入的任何凭据。 |
@@ -274,8 +274,8 @@ Windows PowerShell 连接器可以用作密码更改/重置的目标。
 | CSEntry |[CSEntry][cse] |接收密码更改或重置的对象的连接器空间项。 |
 | OperationType |String |指示操作是重置 (**SetPassword**) 还是更改 (**ChangePassword**)。 |
 | PasswordOptions |[PasswordOptions][pwdopt] |指定所需密码重置行为的标志。 仅当 OperationType 为 **SetPassword**时，才可以使用此参数。 |
-| OldPassword |字符串 |填充对象的旧密码以进行密码更改。 仅当 OperationType 为 **ChangePassword**时，才可以使用此参数。 |
-| NewPassword |字符串 |填充脚本应该设置的对象新密码。 |
+| OldPassword |String |填充对象的旧密码以进行密码更改。 仅当 OperationType 为 **ChangePassword**时，才可以使用此参数。 |
+| NewPassword |String |填充脚本应该设置的对象新密码。 |
 
 密码脚本不应将任何结果返回到 Windows PowerShell 管道。 如果密码脚本中发生错误，脚本应引发以下异常之一，以告知同步服务此问题：
 
@@ -287,7 +287,7 @@ Windows PowerShell 连接器可以用作密码更改/重置的目标。
 有关可用示例连接器的完整概述，请参阅 [Windows PowerShell Connector Sample Connector Collection][samp]（Windows PowerShell 连接器示例连接器集合）。
 
 ## <a name="other-notes"></a>其他说明
-### <a name="additional-configuration-for-impersonation"></a>Additional Configuration for Impersonation
+### 其他模拟配置 <a name="additional-configuration-for-impersonation"></a>
 对要模拟的用户授予同步服务服务器上的以下权限：
 
 对以下注册表项的读取权限：

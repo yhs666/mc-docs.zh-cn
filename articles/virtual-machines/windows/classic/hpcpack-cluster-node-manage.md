@@ -3,8 +3,8 @@ title: "管理 HPC Pack 群集计算节点 | Azure"
 description: "了解 PowerShell 脚本工具如何添加、删除、启动和停止 Azure 的 HPC Pack 2012 R2 群集计算节点"
 services: virtual-machines-windows
 documentationcenter: 
-author: dlepow
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-service-management,hpc-pack
 ms.assetid: 4193f03b-94e9-4704-a7ad-379abde063a9
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 origin.date: 12/29/2016
-ms.date: 03/28/2017
-ms.author: v-dazen
-ms.openlocfilehash: 371e8de86d66c1c36c8d72b7c8e467ab0a72b2b5
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 01/08/2018
+ms.author: v-yeche
+ms.openlocfilehash: 48bf21a50638696c1fadcdb5676c3f9851b3add6
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>管理 Azure 的 HPC Pack 群集中计算节点的数量和可用性
-如果在 Azure VM 中创建了一个 HPC Pack 2012 R2 群集，可能希望有轻松添加、删除、启动（预配）或停止（取消预配）群集中一些计算节点 VM 的方法。 若要执行这些任务，请运行头节点 VM 中安装的 Azure PowerShell 脚本。 这些脚本可帮助你控制 HPC Pack 群集资源的数量和可用性，以便你可以控制成本。
+如果在 Azure VM 中创建了一个 HPC Pack 2012 R2 群集，可能希望有轻松添加、删除、启动（预配）或停止（取消预配）群集中一些计算节点 VM 的方法。 若要执行这些任务，请运行头节点 VM 中安装的 Azure PowerShell 脚本。 这些脚本可帮助你控制 HPC Pack 群集资源的数量和可用性，以便可以控制成本。
 
 > [!IMPORTANT] 
 > 本文仅适用于 Azure 中使用经典部署模型创建的 HPC Pack 2012 R2 群集。 Azure 建议大多数新部署使用 Resource Manager 模型。
@@ -58,9 +58,10 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
  [[-NodeNameSeries] <String>] [<CommonParameters>]
 
 ```
-### <a name="parameters"></a>Parameters
-* **ServiceName**：云服务的名称，新计算节点 VM 将添加到该服务。
-* **ImageName**：Azure VM 映像名称，可以通过 Azure 经典管理门户或 Azure PowerShell cmdlet **Get-AzureVMImage** 获得。 映像必须满足以下要求：
+### <a name="parameters"></a>parameters
+* 
+            **ServiceName**：云服务的名称，新计算节点 VM 会添加到该服务。
+* **ImageName**：Azure VM 映像名称，可以通过 Azure 门户或 Azure PowerShell cmdlet **Get-AzureVMImage** 获得。 映像必须满足以下要求：
 
   1. 必须安装了 Windows 操作系统。
   2. HPC Pack 必须安装在计算节点角色中。
@@ -90,7 +91,7 @@ Remove-HPCIaaSNode.ps1 -Name <String[]> [-DeleteVHD] [-Force] [-WhatIf] [-Confir
 Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonParameters>]
 ```
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 * **Name**：要删除的群集节点的名称。 支持通配符。 参数集名称是“名称”。 不能同时指定 **Name** 和 **Node** 参数。
 * **Node**：要删除的节点的 HpcNode 对象，可通过 HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) 获得。 参数集名称是“节点”。 不能同时指定 **Name** 和 **Node** 参数。
 * **DeleteVHD**（可选）：用于删除已删除 VM 的关联磁盘的设置。
@@ -99,7 +100,7 @@ Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonP
 * **WhatIf**：一项设置，用于说明如果用户执行了命令，但命令没有被实际执行时出现的情况。
 
 ### <a name="example"></a>示例
-下面的示例强制名称以 *HPCNode-CN-* 开头的脱机节点，然后删除这些节点及其关联磁盘。
+下面的示例强制名称以 *HPCNode-CN-* 开头的脱机节点，并删除这些节点及其关联磁盘。
 
 ```PowerShell
 Remove-HPCIaaSNode.ps1 -Name HPCNodeCN-* -DeleteVHD -Force
@@ -114,7 +115,7 @@ Start-HPCIaaSNode.ps1 -Name <String[]> [<CommonParameters>]
 
 Start-HPCIaaSNode.ps1 -Node <Object> [<CommonParameters>]
 ```
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 * **Name**：要启动的群集节点的名称。 支持通配符。 参数集名称是“名称”。 不能同时指定 **Name** 和 **Node** 参数。
 * **Node**：要启动的节点的 HpcNode 对象，可以通过 HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) 获得。 参数集名称是“节点”。 不能同时指定 **Name** 和 **Node** 参数。
 
@@ -135,13 +136,13 @@ Stop-HPCIaaSNode.ps1 -Name <String[]> [-Force] [<CommonParameters>]
 Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
 ```
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 * **Name**- 要停止的群集节点的名称。 支持通配符。 参数集名称是“名称”。 不能同时指定 **Name** 和 **Node** 参数。
 * **Node**：要停止的节点的 HpcNode 对象，可通过 HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) 获得。 参数集名称是“节点”。 不能同时指定 **Name** 和 **Node** 参数。
 * **Force**（可选）：用于在停止 HPC 节点之前强制其脱机的设置。
 
 ### <a name="example"></a>示例
-下面的示例强制名称以 *HPCNode-CN-* 开头的脱机节点，然后停止这些节点。
+下面的示例强制名称以 *HPCNode-CN-* 开头的脱机节点，并停止这些节点。
 
 ```PowerShell
 Stop-HPCIaaSNode.ps1 -Name HPCNodeCN-* -Force
@@ -149,3 +150,4 @@ Stop-HPCIaaSNode.ps1 -Name HPCNodeCN-* -Force
 
 ## <a name="next-steps"></a>后续步骤
 * 若要根据群集上作业及任务的当前工作负荷自动扩展或收缩群集节点，请参阅[在 Azure 中根据群集工作负荷自动扩展和收缩 HPC Pack 群集资源](hpcpack-cluster-node-autogrowshrink.md)。
+<!-- Update_Description: update meta properties, wording update -->

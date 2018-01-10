@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 10/16/2017
 ms.author: v-johch
-ms.openlocfilehash: 2d0b9a33e189fb3d512c09f041563b1174a1296f
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: 841ef61c305913bee1e98a0a1b2a6b68674559f1
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器的示例工作流
 本主题讲解如何完成为导入作业准备驱动器的整个过程。  
@@ -170,8 +170,8 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## <a name="copy-session-completion"></a>复制会话完成
 
-复制会话完成后，可断开两个驱动器与复制计算机的连接，并将其寄送到相应的 Microsoft Azure 数据中心。 在 [Windows Azure 管理门户](https://manage.windowsazure.cn/)中创建导入作业时，上传两个日记文件：`FirstDrive.jrn` 和 `SecondDrive.jrn`。  
-
+复制会话完成后，可断开两个驱动器与复制计算机的连接，并将其寄送到相应的 Microsoft Azure 数据中心。 在 [Azure 门户](https://portal.azure.cn)中创建导入作业时，上传两个日记文件：`FirstDrive.jrn` 和 `SecondDrive.jrn`。  
+  
 ## <a name="next-steps"></a>后续步骤
 
 * [为导入作业准备硬盘驱动器](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   

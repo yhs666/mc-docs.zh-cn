@@ -1,7 +1,7 @@
 ---
-title: "Azure 中的 Active Directory 联合身份验证服务 | Microsoft Docs"
+title: "Azure 中的 Active Directory 联合身份验证服务 | Microsoft 文档"
 description: "在本文档中，可以学习如何在 Azure 中部署 AD FS 以实现高可用性。"
-keywords: "在 azure 中部署 AD FS, 部署 azure adfs, azure adfs, azure ad fs,部署 adfs, 部署 ad fs, azure 中的 adfs, 在 azure 中部署 adfs, 在 azure 中部署 AD FS, adfs azure, AD FS 简介, Azure, Azure 中的 AD FS, iaas, ADFS, 将 adfs 移到 azure"
+keywords: "在 Azure 中部署 AD FS, 部署 Azure ADFS, Azure ADFS, Azure AD FS, 部署 ADFS, 部署 AD FS, Azure 中的 ADFS, 在 Azure 中部署 ADFS, 在 Azure 中部署 AD FS, ADFS Azure, AD FS 简介, Azure, Azure 中的 AD FS, IaaS, ADFS, 将 ADFS 移动到 Azure"
 services: active-directory
 documentationcenter: 
 author: alexchen2016
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 08/23/2017
+ms.date: 12/19/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e3c67a2ee8f13c33f74020bd3843d4188168be1
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: a071dbd318298fce8440408136c3d701237a8fb8
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>在 Azure 中部署 Active Directory 联合身份验证服务
 AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 与 Azure AD 或 O365 联合可让用户使用本地凭据进行身份验证，并访问云中的所有资源。 这样，就务必建立高度可用的 AD FS 基础结构来确保能够访问本地和云中的资源。 在 Azure 中部署 AD FS 有助于以最少量的工作实现所需的高可用性。
@@ -70,7 +70,7 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 �
 **1.2.创建网络安全组**
 
 网络安全组 (NSG) 包含一系列访问控制列表 (ACL) 规则，这些规则可以允许或拒绝虚拟网络中流向 VM 实例的网络流量。 NSG 可以与子网或该子网中的各个 VM 实例相关联。 当 NSG 与某个子网相关联时，ACL 规则会应用到该子网中的所有 VM 实例。
-在本指南中，我们创建两个 NSG：一个应用于内部网络，另一个应用于外围网络。 其标签分别为 NSG_INT 和 NSG_DMZ。
+在本指南中，我们将创建两个 NSG：一个应用于内部网络，另一个应用于外围网络。 其标签分别为 NSG_INT 和 NSG_DMZ。
 
 ![创建 NSG](./media/active-directory-aadconnect-azure-adfs/creatensg1.png)
 
@@ -160,7 +160,7 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 �
 ![浏览负载均衡器](./media/active-directory-aadconnect-azure-adfs/browseloadbalancer.png)
 
 - **名称**：为负载均衡器指定适当的名称
-- **方案**：由于此负载均衡器将放在 AD FS 服务器的前面并且仅用于内部网络连接，因此请选择“内部”
+- **方案**：由于此负载均衡器将放在 AD FS 服务器的前面以便只用于内部网络连接，因此请选择“内部”
 - **虚拟网络**：选择要在其中部署 AD FS 的虚拟网络
 - **子网**：在此处选择内部子网
 - **IP 地址分配**：静态
@@ -227,7 +227,7 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 �
 2. **方案**：公共 – 此选项告知 Azure，此负载均衡器需要公共地址。
 3. IP 地址：创建新 IP 地址（动态）
 
-![面向 Internet 的负载均衡器](./media/active-directory-aadconnect-azure-adfs/elbdeployment1.png)
+![Internet Facing 负载均衡器](./media/active-directory-aadconnect-azure-adfs/elbdeployment1.png)
 
 部署后，负载均衡器出现在“负载均衡器”列表中。
 
@@ -239,7 +239,7 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 �
 
 1. 单击该公共 IP 地址。 此时会打开公共 IP 及其设置的面板
 2. 单击“配置”
-3. 提供 DNS 标签。 此标签将成为可从任意位置访问的公共 DNS 标签，例如 contosofs.westus.cloudapp.azure.com。可以在外部 DNS 中添加用于联合身份验证服务的条目（例如 fs.contoso.com），该条目将解析为外部负载均衡器的 DNS 标签 (contosofs.westus.cloudapp.azure.com)。
+3. 提供 DNS 标签。 此标签成为可从任意位置访问的公共 DNS 标签，例如 contosofs.chinanorth.chinacloudapp.cn。 可以在外部 DNS 中添加用于联合身份验证服务的条目（例如 fs.contoso.com），该条目将解析为外部负载均衡器的 DNS 标签 (contosofs.chinanorth.chinacloudapp.cn)。
 
 ![配置面向 Internet 的负载均衡器](./media/active-directory-aadconnect-azure-adfs/elbdeployment3.png) 
 
@@ -304,7 +304,7 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 �
 ![测试成功](./media/active-directory-aadconnect-azure-adfs/test2.png)
 
 ## <a name="template-for-deploying-ad-fs-in-azure"></a>用于在 Azure 中部署 AD FS 的模板
-该模板部署包含 6 台计算机的设置，为域控制器、AD FS 和 WAP 各部署 2 台。
+该模板将部署包含 6 台计算机的设置，为域控制器、AD FS 和 WAP 各部署 2 台。
 
 [Azure 部署模板中的 AD FS](https://github.com/paulomarquesc/adfs-6vms-regular-template-based)
 
@@ -312,7 +312,7 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 �
 
 | 参数 | 说明 |
 |:--- |:--- |
-| 位置 |要将资源部署到的区域，例如“中国东部”。 |
+| 位置 |要将资源部署到的区域，例如“中国北部”。 |
 | StorageAccountType |创建的存储帐户的类型 |
 | VirtualNetworkUsage |指示是要新建虚拟网络，还是使用现有的虚拟网络 |
 | VirtualNetworkName |要创建的虚拟网络的名称，不管是使用现有虚拟网络还是新建虚拟网络，都必须指定此参数 |
@@ -339,12 +339,12 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 �
 | AdminPassword |虚拟机的本地管理员帐户密码 |
 
 ## <a name="additional-resources"></a>其他资源
-- [可用性集](https://aka.ms/Azure/Availability) 
-- [Azure 负载均衡器](https://aka.ms/Azure/ILB)
-- [Internal Load Balancer（内部负载均衡器）](https://aka.ms/Azure/ILB/Internal)
-- [Internet Facing Load Balancer（面向 Internet 的负载均衡器）](https://aka.ms/Azure/ILB/Internet)
-- [存储帐户](https://aka.ms/Azure/Storage)
-- [Azure 虚拟网络](https://aka.ms/Azure/VNet)
+- [可用性集](/virtual-machines/windows/manage-availability) 
+- [Azure 负载均衡器](/load-balancer/load-balancer-overview)
+- [Internal 负载均衡器](/load-balancer/load-balancer-get-started-ilb-arm-ps)
+- [Internet Facing Load Balancer（面向 Internet 的负载均衡器）](/load-balancer/load-balancer-get-started-internet-arm-ps)
+- [存储帐户](/storage/common/storage-introduction)
+- [Azure 虚拟网络](/virtual-network/virtual-networks-overview)
 - [AD FS and Web Application Proxy Links（AD FS 和 Web 应用程序代理链接）](http://aka.ms/ADFSLinks) 
 
 ## <a name="next-steps"></a>后续步骤

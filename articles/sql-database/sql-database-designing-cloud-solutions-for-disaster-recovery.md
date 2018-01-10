@@ -4,7 +4,7 @@ description: "了解如何使用 Azure SQL 数据库对应用程序设计高可�
 keywords: "云灾难恢复, 灾难恢复解决方案, 应用数据备份, 异地复制, 业务连续性规划"
 services: sql-database
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: monicar
 ms.assetid: e8a346ac-dd08-41e7-9685-46cebca04582
@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-origin.date: 09/08/2017
-ms.date: 10/02/2017
-ms.author: v-johch
-ms.openlocfilehash: b5b8324ca8e66e2db3ffd3afa324e8f81572e94c
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+origin.date: 12/13/2017
+ms.date: 01/08/2018
+ms.author: v-nany
+ms.openlocfilehash: 84b903071ea259d8d5908fa9bc5424d8e1c55f82
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>使用 Azure SQL 数据库设计高可用性服务
 

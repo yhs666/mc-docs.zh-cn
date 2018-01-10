@@ -42,7 +42,7 @@
     
   在本教程中，不需要使用数据库。 选择应用服务计划后，选择“确定”以创建项目。
    
- ![“配置 Azure Web 应用”窗口][B5]
+  ![“配置 Azure Web 应用”窗口][B5]
 
 ## <a name="authenticate-clients-to-the-webapi-back-end"></a>在 WebAPI 后端对客户端进行身份验证
 在本部分中，将为新的后端创建名为 **AuthenticationTestHandler** 的新消息处理程序类。 此类派生自 [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) 并已添加为消息处理程序，以便处理传入后端的所有请求。 
@@ -68,11 +68,16 @@
    - 请求使用基本身份验证。 
    - 用户名字符串和密码字符串是相同的字符串。
      
-    否则，将会拒绝该请求。 这不是真正的身份验证和授权方法。 它只是本教程中一个非常简单的示例。
+  否则，将会拒绝该请求。 这不是真正的身份验证和授权方法。 它只是本教程中一个非常简单的示例。
      
-    如果请求消息已经过 `AuthenticationTestHandler` 的身份验证和授权，则基本身份验证用户将附加到 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) 上的当前请求。 稍后，另一个控制器 (RegisterController) 会使用 HttpContext 中的用户信息，将[标记](https://msdn.microsoft.com/library/azure/dn530749.aspx)添加到通知注册请求。
+  如果请求消息已经过 `AuthenticationTestHandler` 的身份验证和授权，则基本身份验证用户将附加到 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) 上的当前请求。 稍后，另一个控制器 (RegisterController) 会使用 HttpContext 中的用户信息，将[标记](https://msdn.microsoft.com/library/azure/dn530749.aspx)添加到通知注册请求。
      
-       public class AuthenticationTestHandler : DelegatingHandler   {       protected override Task<HttpResponseMessage> SendAsync(       HttpRequestMessage request, CancellationToken cancellationToken)       {           var authorizationHeader = request.Headers.GetValues("Authorization").First();
+       public class AuthenticationTestHandler : DelegatingHandler
+       {
+           protected override Task<HttpResponseMessage> SendAsync(
+           HttpRequestMessage request, CancellationToken cancellationToken)
+           {
+               var authorizationHeader = request.Headers.GetValues("Authorization").First();
      
                if (authorizationHeader != null && authorizationHeader
                    .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
@@ -114,10 +119,10 @@
            }
        }
      
-    > [!NOTE]
-    > 安全说明：`AuthenticationTestHandler` 类不提供真正的身份验证。 它仅用于模拟基本身份验证并且是不安全的。 必须在生产应用程序和服务中实现安全的身份验证机制。                
-    > 
-    > 
+> [!NOTE]
+> 安全说明：`AuthenticationTestHandler` 类不提供真正的身份验证。 它仅用于模拟基本身份验证并且是不安全的。 必须在生产应用程序和服务中实现安全的身份验证机制。                
+> 
+> 
 
 5. 若要注册消息处理程序，请在 **App_Start/WebApiConfig.cs** 类中 `Register` 方法的末尾添加以下代码：
    
@@ -144,7 +149,7 @@
    
         using Microsoft.Azure.NotificationHubs;
 
-6. 将 `Notifications` 类定义替换为以下代码，并将两个占位符替换为通知中心的连接字符串（具有完全访问权限）和中心名称（可在 [Azure 经典管理门户](http://manage.windowsazure.cn)中找到）：
+6. 将 `Notifications` 类定义替换为以下代码，并将两个占位符替换为通知中心的连接字符串（具有完全访问权限）和中心名称（可在 [Azure 门户](http://portal.azure.cn)中找到）：
    
         public class Notifications
         {
@@ -378,3 +383,4 @@ URL 使用前面指定的 Web 应用名称，其格式为 http://<app_name>.chin
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
+<!-- ms.date: 12/25/2017 -->

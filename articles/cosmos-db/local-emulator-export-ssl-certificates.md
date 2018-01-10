@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/06/2017
-ms.date: 10/23/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b91a5534d53ecfbf4a62eaa85bd8c8921c579ee
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: f72d5f77179b29e33003f7cedbd906d60ae8bdce
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>使用 Java、Python 和 Node.js 导出要使用的 Azure Cosmos DB 模拟器证书
 
@@ -54,7 +54,7 @@ Azure Cosmos DB 模拟器提供了一个模拟用于开发的 Azure Cosmos DB �
 
     ![Azure Cosmos DB 本地模拟器导出步骤 2](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png)
 
-3. 单击“复制到文件...” 。
+3. 单击“复制到文件...”。
 
     ![Azure Cosmos DB 本地模拟器导出步骤 3](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
 
@@ -74,7 +74,7 @@ Azure Cosmos DB 模拟器提供了一个模拟用于开发的 Azure Cosmos DB �
 
     ![Azure Cosmos DB 本地模拟器导出步骤 7](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png)
 
-8. 单击“**完成**”。
+8. 单击“完成” 。
 
     ![Azure Cosmos DB 本地模拟器导出步骤 8](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png)
 
@@ -88,11 +88,11 @@ Azure Cosmos DB 模拟器提供了一个模拟用于开发的 Azure Cosmos DB �
 
 ## <a name="how-to-use-the-certificate-in-python"></a>如何在 Python 中使用证书
 
-默认情况下，用于 DocumentDB API 的 [Python SDK（版本 2.0.0 或更高版本）](documentdb-sdk-python.md)在连接到本地模拟器时不会尝试使用 SSL 证书。 但是，如果要使用 SSL 验证，则可以按照 [Python 套接字包装器](https://docs.python.org/2/library/ssl.html) 文档中的示例进行操作。
+默认情况下，用于 SQL API 的 [Python SDK（版本 2.0.0 或更高版本）](sql-api-sdk-python.md)在连接到本地模拟器时不会尝试使用 SSL 证书。 但是，如果要使用 SSL 验证，则可以按照 [Python 套接字包装器](https://docs.python.org/2/library/ssl.html) 文档中的示例进行操作。
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>如何在 Node.js 中使用证书
 
-默认情况下，用于 DocumentDB API 的 [Node.js SDK（版本 1.10.1 或更高版本）](documentdb-sdk-node.md)在连接到本地模拟器时不会尝试使用 SSL 证书。 但是，如果要使用 SSL 验证，则可以按照 [Node.js 文档](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback)中的示例进行操作。
+默认情况下，用于 SQL API 的 [Node.js SDK（版本 1.10.1 或更高版本）](sql-api-sdk-node.md)在连接到本地模拟器时不会尝试使用 SSL 证书。 但是，如果要使用 SSL 验证，则可以按照 [Node.js 文档](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback)中的示例进行操作。
 
 ## <a name="next-steps"></a>后续步骤
 

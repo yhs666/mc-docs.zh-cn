@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: 100c9f1d0f17909ab05b3bbac5a6a96789e036d0
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: ee50abd842589746f70df62b4e7bf60e1772d887
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 同步：防止意外删除
 本主题说明 Azure AD Connect 中的防止意外删除功能。
@@ -33,7 +33,7 @@ ms.lasthandoff: 08/11/2017
 - 删除了 OU 中的所有对象。
 - 对某个 OU 进行了重命名，因此其中的所有对象被视为超出同步范围。
 
-可以使用 PowerShell 的 `Enable-ADSyncExportDeletionThreshold`进行更改的默认值是 500 个对象。 应对此值进行配置以适合组织的规模。 由于同步计划程序每隔 30 分钟运行一次，因此该值是 30 分钟内看到的删除数目。
+可以通过 PowerShell 使用 `Enable-ADSyncExportDeletionThreshold`（这是随 Azure Active Directory Connect 安装的 AD Sync 模块的一部分）更改默认值 500 个对象。 应对此值进行配置以适合组织的规模。 由于同步计划程序每隔 30 分钟运行一次，因此该值是 30 分钟内看到的删除数目。
 
 如果暂存了太多要导出到 Azure AD 的删除项目，就不会继续导出，并且会收到一封内容如下所示的电子邮件：
 
@@ -70,4 +70,3 @@ ms.lasthandoff: 08/11/2017
 - [Azure AD Connect 同步：理解和自定义同步](active-directory-aadconnectsync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
-<!-- Update_Description: wording update -->

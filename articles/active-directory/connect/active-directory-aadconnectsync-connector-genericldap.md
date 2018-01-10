@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: 6ea729090ec331b4c1f9334f76a9447cf126bb7c
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: 34e0c6f44011cf4837aa84d65437cfcd41226115
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>泛型 LDAP 连接器技术参考
 本指南介绍泛型 LDAP 连接器。 本文适用于以下产品：
@@ -44,7 +44,7 @@ IETF RFC 中未指定某些操作和架构元素，例有关要执行增量导�
 | --- | --- |
 | 连接的数据源 |所有 LDAP v3 服务器（RFC 4510 兼容）都支持此连接器。 此连接器已进行以下各项的测试： <li>Microsoft Active Directory 轻型目录服务 (AD LDS)</li><li>Microsoft Active Directory 全局目录 (AD GC)</li><li>389 目录服务器</li><li>Apache Directory 服务器</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle（以前为 Sun）Directory Server Enterprise Edition</li><li>RadiantOne 虚拟目录服务器 (VDS)</li><li>Sun One Directory 服务器</li>请注意以下不受支持的目录： <li>Microsoft Active Directory 域服务 (AD DS) [改用内置的 Active Directory 连接器]</li><li>Oracle Internet 目录 (OID)</li> |
 | 方案 |<li>对象生命周期管理</li><li>组管理</li><li>密码管理</li> |
-| 操作 |所有 LDAP 目录都支持以下操作： <li>完全导入</li><li>导出</li>只有指定目录支持以下操作：<li>增量导入</li><li>设置密码、更改密码</li> |
+| 操作 |支持在所有 LDAP 目录上执行以下操作： <li>完全导入</li><li>导出</li>只有指定目录支持以下操作：<li>增量导入</li><li>设置密码、更改密码</li> |
 | 架构 |<li>在 LDAP 架构中检测到架构（RFC3673 和 RFC4512/4.2）</li><li>支持结构化类、aux 类和 extensibleObject 对象类 (RFC4512/4.3)</li> |
 
 ### <a name="delta-import-and-password-management-support"></a>增量导入和密码管理支持
@@ -127,7 +127,7 @@ True/False 筛选器通常不被报告为受 LDAP 目录支持，并且可能出
 `2.16.840.1.113730.3.4.9` VLVControl  
 `1.2.840.113556.1.4.473` SortControl
 
-如果连接器配置中已启用这两个选项，则使用 pagedResultsControl。
+如果连接器配置中已启用这两个选项，将使用 pagedResultsControl。
 
 `1.2.840.113556.1.4.417` ShowDeletedControl
 
@@ -138,7 +138,7 @@ True/False 筛选器通常不被报告为受 LDAP 目录支持，并且可能出
 ### <a name="delta-import"></a>增量导入
 只有在检测到支持目录时，才可使用增量导入。 当前使用以下方法：
 
-- LDAP Accesslog。 请参阅 [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
+- LDAP Accesslog。 请参阅 [http://www.openldap.org/doc/admin24/overlays.html](http://www.openldap.org/doc/admin24/overlays.html)
 - LDAP Changelog。 请参阅 [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
 - TimeStamp。 对于 Novell/NetIQ eDirectory，连接器使用最后的日期/时间来获取已创建和更新的对象。 Novell/NetIQ eDirectory 不提供等效方法来检索已删除的对象。 如果 LDAP 服务器上没有其他作用中的增量导入方法，也可以使用此选项。 此选项无法导入已删除的对象。
 - USNChanged。 请参阅：[https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
@@ -241,6 +241,7 @@ True/False 筛选器通常不被报告为受 LDAP 目录支持，并且可能出
 
 ![anchors](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
 
+
 以下是 LDAP 服务器列表和使用的定位点：
 
 | Directory | 定位点属性 |
@@ -270,4 +271,4 @@ Open LDAP 中的增量水印是 UTC 日期/时间。 出于此原因，FIM 同�
 ## <a name="troubleshooting"></a>故障排除
 - 有关如何启用记录来排查连接器问题的信息，请参阅 [如何启用连接器的 ETW 跟踪](http://go.microsoft.com/fwlink/?LinkId=335731)。
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: link update -->

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 9/25/2017
-ms.date: 12/11/2017
+ms.date: 01/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: 429b52cfec0d0e6d78836615266d11dca43b649d
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 835cde9caae41e1152788b76dd1212bf324a0ed9
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure 监视器支持的指标
 Azure 监视器提供多种方式来与指标交互，包括在门户中制作指标图表、通过 REST API 访问指标，或者使用 PowerShell 或 CLI 查询指标。 下面是目前可在 Azure 监视器的指标管道中使用的完整指标列表。
@@ -31,7 +31,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |qpu_metric|QPU|计数|平均值|QPU。 S1 范围为 0-100，S2 范围为 0-200，S4 范围为 0-400|无维度|
 |memory_metric|内存|字节|平均值|内存。 S1 范围为 0-25 GB，S2 范围为 0-50 GB，S4 范围为 0-100 GB|无维度|
@@ -79,7 +79,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |TotalRequests|网关请求总数|计数|总计|网关请求数|位置、主机名|
 |SuccessfulRequests|成功的网关请求数|计数|总计|成功的网关请求数|位置、主机名|
@@ -97,7 +97,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |CoreCount|专用核心计数|计数|总计|批处理帐户中的专用核心总数|无维度|
 |TotalNodeCount|专用节点计数|计数|总计|批处理帐户中的专用节点总数|无维度|
@@ -126,7 +126,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |connectedclients|连接的客户端数|计数|最大值||无维度|
 |totalcommandsprocessed|总操作数|计数|总计||无维度|
@@ -308,7 +308,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |TotalCalls|总调用数|计数|总计|调用总数。|无维度|
 |SuccessfulCalls|成功调用数|计数|总计|成功调用数。|无维度|
@@ -324,7 +324,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |CPU 百分比|CPU 百分比|百分比|平均值|当前虚拟机正在使用的已分配计算单元百分比|无维度|
 |网络传入|网络传入|字节|总计|虚拟机在所有网络接口上收到的字节数（传入流量）|无维度|
@@ -338,7 +338,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |CPU 百分比|CPU 百分比|百分比|平均值|当前虚拟机正在使用的已分配计算单元百分比|无维度|
 |网络传入|网络传入|字节|总计|虚拟机在所有网络接口上收到的字节数（传入流量）|无维度|
@@ -402,7 +402,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |d2c.telemetry.ingress.allProtocol|遥测消息发送尝试次数|计数|总计|尝试发送到 IoT 中心的、设备到云的遥测消息数|无维度|
 |d2c.telemetry.ingress.success|发送的遥测消息数|计数|总计|成功发送到 IoT 中心的、设备到云的遥测消息数|无维度|
@@ -460,7 +460,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |jobs.completed|已完成的作业|计数|总计|所有已完成的作业的计数。|无维度|
 |jobs.failed|失败的作业数|计数|总计|所有失败的作业的计数。|无维度|
 |d2c.telemetry.ingress.sendThrottle|限制错误数|计数|总计|由于设备吞吐量限制而导致的限制错误数|无维度|
-|dailyMessageQuotaUsed|已使用的消息总数|计数|平均值|今天使用的消息总数|无维度|
+|dailyMessageQuotaUsed|已使用的消息总数|计数|平均值|今天使用的消息总数。 这是累积值，每日 00:00 UTC 重置为零。|无维度|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
@@ -470,7 +470,9 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |DeviceAssignments|已分配设备|计数|总计|已分配给 IoT 中心的设备数|ProvisioningServiceName、IotHubName|
 |AttestationAttempts|证明尝试次数|计数|总计|已尝试的设备证明次数|ProvisioningServiceName、Status、Protocol|
 
-## <a name="microsoftdocumentdbdatabaseaccounts-cosmosdb"></a>Microsoft.DocumentDB/databaseAccounts (CosmosDB)
+<a id="cosmosdb"></a>
+
+## <a name="microsoftdocumentdbdatabaseaccounts-azure-cosmos-db"></a>Microsoft.DocumentDB/databaseAccounts (Azure Cosmos DB)
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |TotalRequests|请求总数|计数|计数|已发出的请求数|DatabaseAccount、CollectionName、DatabaseName、Region、StatusCode|
@@ -478,7 +480,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |INREQS|传入的发送请求数|计数|总计|命名空间的传入发送请求总数|无维度|
 |SUCCREQ|成功的请求数|计数|总计|命名空间的成功请求总数|无维度|
@@ -550,7 +552,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |吞吐量|吞吐量|每秒字节数|平均值|应用程序网关每秒提供的字节数|无维度|
 
@@ -585,7 +587,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |registration.all|注册操作|计数|总计|所有成功的注册操作（创建、更新、查询和删除）的计数。 |无维度|
 |registration.create|注册创建操作数目|计数|总计|所有成功的注册创建操作的计数。|无维度|
@@ -598,7 +600,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |scheduled.pending|挂起的已计划通知数|计数|总计|挂起的已计划通知数|无维度|
 |installation.all|安装管理操作数目|计数|总计|安装管理操作数目|无维度|
 |installation.get|获取安装操作数目|计数|总计|获取安装操作数目|无维度|
-|installation.upsert|创建或更新安装操作数目|计数|总计|创建或更新安装操作数目|无维度|
+|installation.upsert|创建或更新安装操作数|计数|总计|创建或更新安装操作数目|无维度|
 |installation.patch|修补安装操作数目|计数|总计|修补安装操作数目|无维度|
 |installation.delete|删除安装操作数目|计数|总计|删除安装操作数目|无维度|
 |outgoing.allpns.success|成功的通知数|计数|总计|所有成功的通知的计数。|无维度|
@@ -652,7 +654,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |SearchLatency|搜索延迟|秒|平均值|搜索服务的平均搜索延迟|无维度|
 |SearchQueriesPerSecond|每秒搜索查询数|每秒计数|平均值|搜索服务的每秒搜索查询数|无维度|
@@ -660,14 +662,14 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |CPUXNS|每个命名空间的 CPU 使用率|百分比|最大值|服务总线高级命名空间 CPU 使用率指标|无维度|
 |WSXNS|每个命名空间的内存使用量|百分比|最大值|服务总线高级命名空间内存使用率指标|无维度|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |cpu_percent|CPU 百分比|百分比|平均值|CPU 百分比|无维度|
 |physical_data_read_percent|数据 IO 百分比|百分比|平均值|数据 IO 百分比|无维度|
@@ -770,7 +772,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |ResourceUtilization|流单元利用率 %|百分比|最大值|流单元利用率 %|无维度|
 |InputEvents|输入事件数|计数|总计|输入事件数|无维度|
@@ -786,7 +788,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |CpuPercentage|CPU 百分比|百分比|平均值|CPU 百分比|实例|
 |MemoryPercentage|内存百分比|百分比|平均值|内存百分比|实例|
@@ -821,7 +823,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |CpuTime|CPU 时间|秒|总计|CPU 时间|实例|
 |请求|请求|计数|总计|请求|实例|

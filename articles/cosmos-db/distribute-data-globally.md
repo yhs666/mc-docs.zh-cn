@@ -13,51 +13,51 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/15/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3aee45a735d768fc3b1654add12c45c768c7e010
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 329f26a695674677414fca4d8f6bdcafc701b30a
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>如何使用 Azure Cosmos DB 在全球范围内分发数据
-Azure 无处不在 - 它的足迹遍布全球 30 多个地理区域，并且还在不断扩展。 遍及全球的 Azure 为开发人员提供一种差异化功能，让他们轻松构建、部署和管理全球分布的应用程序。 
+Azure 无所不在 - 跨 30 多个地理区域，遍布全球并且仍在持续扩展中。 遍及全球的 Azure 为开发人员提供一种差异化功能，让他们轻松构建、部署和管理全球分布的应用程序。 
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 针对任务关键型应用程序提供的全球分布式多模型数据库服务。 Azure Cosmos DB 在全球范围内提供统包数据分发、[吞吐量和存储空间弹性缩放](../cosmos-db/partition-data.md)、99% 情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键/值和列式数据模型。 作为一种基于云的服务，Azure Cosmos DB 通过多租户和全局分发获得了全面彻底的精心设计。
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是 21Vianet 针对任务关键型应用程序提供的全局分布式多模型数据库服务。 Azure Cosmos DB 在全球范围内提供统包数据分发、[吞吐量和存储空间弹性缩放](../cosmos-db/partition-data.md)、99% 情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键/值和列式数据模型。 作为一种基于云的服务，Azure Cosmos DB 通过多租户和全局分发获得了全面彻底的精心设计。
 <!-- Not Available on Graph -->
 
 **跨多个 Azure 区域进行分区和分布的一个 Azure Cosmos DB 集合**
 
 ![跨 3 个区域进行分区和分布的 Azure Cosmos DB 集合](./media/distribute-data-globally/global-apps.png)
 
-正如我们生成 Azure Cosmos DB 时所获知的那样，添加全局分发不能事后才进行 - 不能将其“锁定”到“单一站点”数据库系统之上。 全球分布式数据库提供的功能远远超过“单站点”数据库提供的传统地区性灾难恢复（异地灾难恢复）功能。 提供异地灾难恢复功能的单站点数据库是分布在全球各地的数据库的严格子集。 
+正如我们生成 Azure Cosmos DB 时所获知的那样，添加全局分发不能事后才进行 - 不能将其“锁定”到“单一站点”数据库系统之上。 全球分布式数据库提供的功能远远超过“单站点”数据库提供的传统地区性灾难恢复（异地灾难恢复）功能。 提供 GEO-DR 功能的单一站点数据库是全局分布式数据库的严格子集。 
 
 使用 Azure Cosmos DB 周全的全局分布功能，开发人员可以通过数据库日志采用 Lambda 模式（例如，[AWS DynamoDB 复制](https://github.com/awslabs/dynamodb-cross-region-library/blob/master/README.md)），或跨多个区域执行“重复写入”，而无需构建自己的复制基架。 由于无法确保这些做法的正确性并提供完善的 SLA，因此我们不建议使用此类做法。 
 
 本文提供 Azure Cosmos DB 全球分布功能的概述。 同时介绍 Azure Cosmos DB 用于提供综合 SLA 的独特方法。 
 
 ## <a id="EnableGlobalDistribution"></a>启用统包式全球分发
-Azure Cosmos DB 提供了以下功能，方便用户轻松编写全球规模的应用程序。 可以通过 Azure Cosmos DB 的基于资源提供程序的 [REST API](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) 以及 Azure 门户来获取这些功能。
+Azure Cosmos DB 提供以下功能让你轻松编写全球规模的应用程序。 可以通过 Azure Cosmos DB 的基于资源提供程序的 [REST API](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) 以及 Azure 门户来获取这些功能。
 
 ### <a id="RegionalPresence"></a>遍及各个区域 
 Azure 通过上线[新区域](https://www.azure.cn/support/service-dashboard/)，不断扩大地理覆盖面。 Azure Cosmos DB 默认在所有新的 Azure 区域提供。 这样，一旦 Azure 开辟了新的业务区域，就能将某个地理区域与 Azure Cosmos DB 数据库帐户相关联。
 
 ### <a id="UnlimitedRegionsPerAccount"></a>将数目不限的区域与 Azure Cosmos DB 数据库帐户相关联
-Azure Cosmos DB 允许将任意数量的 Azure 区域与 Azure Cosmos DB 数据库帐户关联。 除了地域隔离限制（例如在中国和德国）以外，可与 Azure Cosmos DB 数据库帐户关联的区域数目没有限制。 下图显示了一个配置跨越了 25 个 Azure 区域的数据库帐户。  
+Azure Cosmos DB 允许将任意数量的 Azure 区域与 Azure Cosmos DB 数据库帐户关联。 除了地域隔离限制（例如在中国和德国）以外，可与 Azure Cosmos DB 数据库帐户关联的区域数目没有限制。 下图显示一个配置跨越 25 个 Azure 区域的数据库帐户。  
 
 **某个租户的跨 25 个 Azure 区域的 Azure Cosmos DB 数据库帐户**
 
 ![跨 25 个 Azure 区域的 Azure Cosmos DB 数据库帐户](./media/distribute-data-globally/spanning-regions.png)
 
 ### <a id="PolicyBasedGeoFencing"></a>基于策略的地域隔离
-Azure Cosmos DB 在设计上提供基于策略的地域隔离功能。 地理围栏是保障数据监管和合规性限制的重要元素，可能会阻止特定区域与帐户的关联。 地域隔离的例子包括但不限于：不能超过主权云（例如中国和德国）或政府税务边界（例如澳洲）界定各区域的全局分布范畴。 策略是使用 Azure 订阅的元数据控制的。
+Azure Cosmos DB 在设计上提供基于策略的地域隔离功能。 地域隔离是一个重要组件，确保遵循数据监管与法规遵循限制，防止将特定的地区与帐户相关联。 地域隔离的例子包括但不限于：不能超过主权云（例如中国和德国）或政府税务边界（例如澳洲）界定各区域的全局分布范畴。 策略是使用 Azure 订阅的元数据控制的。
 
 ### <a id="DynamicallyAddRegions"></a>动态添加和删除区域
 Azure Cosmos DB 允许在任何时间点向数据库帐户添加（关联）或删除（取消关联）区域（请参阅[前图](#UnlimitedRegionsPerAccount)）。 通过跨分区并行复制数据，Azure Cosmos DB 可确保新的区域上线后 30 分钟内即可在全球任何位置使用 Azure Cosmos DB（最多 100 TB）。 
 
 ### <a id="FailoverPriorities"></a>故障转移优先级
-为了在出现多区域故障时精确控制区域故障转移序列，Azure Cosmos DB 允许将优先级关联到与数据库帐户关联的各个区域（参见下图）。 Azure Cosmos DB 确保自动故障转移序列以指定的优先级顺序发生。 有关区域故障转移的详细信息，请参阅 [Azure Cosmos DB 中的自动区域故障转移以实现业务连续性](regional-failover.md)。
+为了在出现多个区域性故障时准确控制区域故障转移的顺序，Azure Cosmos DB 允许将优先级关联到与数据库帐户关联的各个区域（参阅下图）。 Azure Cosmos DB 确保自动故障转移序列以指定的优先级顺序发生。 有关区域故障转移的详细信息，请参阅 [Azure Cosmos DB 中的自动区域故障转移以实现业务连续性](regional-failover.md)。
 
 **Azure Cosmos DB 的租户可对与数据库帐户关联的区域配置故障转移优先级顺序（右窗格）**
 
@@ -90,7 +90,7 @@ Azure Cosmos DB 支持在发生一个或多个区域性故障时自动进行故�
 ### <a id="MultiHomingAPIs"></a>Azure Cosmos DB 中的多宿主 API
 Azure Cosmos DB 允许使用逻辑（区域不可知）或物理（特定于区域）终结点与数据库交互。 使用逻辑终结点可确保发生故障转移时，应用程序可以透明方式采用多个宿主。 后者（物理终结点）提供对应用程序的细粒度控制，将读取和写入重定向到特定区域。
 
-可在相应的链接文章中找到有关如何为 [DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md)、[表 API](../cosmos-db/tutorial-global-distribution-table.md) 和 [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) 配置读取首选项的信息。
+可在相应的链接文章中找到有关如何为 [SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md)、[表 API](../cosmos-db/tutorial-global-distribution-table.md) 和 [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) 配置读取首选项的信息。
 <!-- Not Available [Graph API](../cosmos-db/tutorial-global-distribution-graph.md)-->
 
 ### <a id="TransparentSchemaMigration"></a>透明且一致的数据库架构和索引迁移 
@@ -110,7 +110,7 @@ Azure Cosmos DB 确保无需读取操作便可跨多个区域联系副本，提�
 ### <a id="LatencyAndAvailability"></a>延迟与可用性的关系 
 延迟与可用性类似于同一硬币的两面。 我们讨论的是出现故障时的操作延迟（稳定状态下）和可用性。 从应用程序角度来看，慢速运行的数据库操作与不可用的数据库没有区别。 
 
-为了将高延迟与不可用区分开来，Azure Cosmos DB 对各种数据库操作的延迟提供绝对上限。 如果完成数据库操作所用的时间超过上限，Azure Cosmos DB 将返回超时错误。 Azure Cosmos DB 可用性 SLA 确保根据可用性 SLA 计算超时。 
+为将高延迟与不可用区分开来，Azure Cosmos DB 针对各种数据库操作的延迟提供绝对上限。 如果数据库操作完成所用时间超过上限，Azure Cosmos DB 返回超时错误。 Azure Cosmos DB 可用性 SLA 确保根据可用性 SLA 计算超时。 
 
 ### <a id="LatencyAndThroughput"></a>延迟与吞吐量的关系
 Azure Cosmos DB 不会让用户在延迟和吞吐量之间做出选择。 它遵循 SLA，两者延迟均为 P99 并提供预配的吞吐量。 
@@ -191,11 +191,11 @@ Azure Cosmos DB 允许根据需求，弹性地跨不同区域缩放吞吐量（�
 Azure Cosmos DB 集合使用两个维度进行分布 - 先在某个区域内，并跨区域分布。 方法如下： 
 
 * 在单个区域内，Azure Cosmos DB 集合根据资源分区进行扩展。 凭借一组副本中的状态机复制，每个资源分区管理一组密钥，且实现强一致性并高度可用。 Azure Cosmos DB 是一种完全由资源管理的系统，其中资源分区负责传递系统资源分配给它的预算吞吐量。 Azure Cosmos DB 集合的缩放完全透明 - Azure Cosmos DB 管理资源分区并根据需要进行拆分和合并。 
-* 然后，每个资源分区跨多个区域分布。 跨各个区域拥有相同密钥集的资源分区构成分区集（请参阅[前图](#ThroughputGuarantees)）。  通过跨多个区域使用状态机复制，对分区集内的资源分区进行协调。 根据配置的一致性级别，使用不同的拓扑（例如，星形、菊花链、树状等）动态配置分区集内的资源分区。 
+* 然后，每个资源分区跨多个区域分布。 跨各个区域拥有相同密钥集的资源分区构成分区集（请参阅[前图](#ThroughputGuarantees)）。  通过跨多个区域使用状态机复制，对分区集内的资源分区进行协调。 根据配置的一致性级别，使用不同的拓扑（例如，星号、菊花链、树等）动态配置分区集内的资源分区。 
 
 凭借高响应分区管理、负载均衡和严格的资源监控，Azure Cosmos DB 允许跨多个 Azure 区域在 Azure Cosmos DB 集合上弹性缩放吞吐量。 集合上不断变化的吞吐量是 Azure Cosmos DB 中的运行时操作，例如，通过其他数据库操作，Azure Cosmos DB 可保证请求延迟的绝对上限以更改吞吐量。 例如，下图显示了一个根据需求弹性预配吞吐量（在两个区域之间，范围为 1M-10M 个请求/秒）的客户集合。
 
-**弹性预配吞吐量的客户集合（1M-10M 个请求/秒）**
+**灵活预配吞吐量的客户集合（1M-10M 个请求/秒）**
 
 ![Azure Cosmos DB 弹性预配的吞吐量](./media/distribute-data-globally/elastic-throughput.png)
 
@@ -206,23 +206,23 @@ Azure Cosmos DB 集合使用两个维度进行分布 - 先在某个区域内，�
 吞吐量更改时，Azure Cosmos DB 继续保持其可用性。 Azure Cosmos DB 以透明方式管理分区（例如，拆分、合并、克隆操作），并确保应用程序弹性增加或减少吞吐量时，操作不会降低性能或可用性。 
 
 ## <a id="AvailabilityGuarantees"></a>可用性保证
-Azure Cosmos DB 为所有单区域帐户和具有松散一致性的所有多区域帐户提供 99.99% 的可用性 SLA，为所有多区域数据库帐户提供 99.999% 的读取可用性。 如前所述，Azure Cosmos DB 的可用性保证包括针对每一个数据和控制平面操作的绝对延迟上限。 可用性保证固定不变，不会随区域数量或区域间的地理距离而更改。 可用性保证适用于手动及自动故障转移。 Azure Cosmos DB 提供透明的多宿主 API，可确保应用程序能够针对逻辑终结点运行，并且在发生故障转移时能够以透明方式将请求路由到新区域。 换而言之，应用程序不需要在区域性故障转移时重新进行部署，并会保持可用性 SLA。
+Azure Cosmos DB 为所有单区域帐户和具有松散一致性的所有多区域帐户提供 99.99% 的可用性 SLA，为所有多区域数据库帐户提供 99.999% 的读取可用性。 如前所述，Azure Cosmos DB 的可用性保证包括针对每一个数据和控制平面操作的绝对延迟上限。 可用性保证固定不变，不会随区域数量或区域间的地理距离而更改。 可用性保证适用于手动及自动故障转移。 Azure Cosmos DB 提供透明的多宿主 API，可确保应用程序能够针对逻辑终结点运行，并且在发生故障转移时能够以透明方式将请求路由到新区域。 换句话说，应用程序不需要在区域性故障转移时重新进行部署，并会保持可用性 SlA。
 
 ### <a id="AvailabilityAndConsistency"></a>可用性与一致性、延迟和吞吐量的关系
 [一致性与可用性的关系](#ConsistencyAndAvailability)、[延迟与可用性的关系](#LatencyAndAvailability)和[吞吐量与可用性的关系](#ThroughputAndAvailability)中介绍了可用性与一致性、延迟和吞吐量的关系。 
 
 ## <a id="GuaranteesAgainstDataLoss"></a>针对“数据丢失”的保证和系统行为
-在 Azure Cosmos DB 中，集合的每个分区通过至少跨 10-20 个容错域分布的大量副本实现高度可用。 所有写入先由副本的多数仲裁进行同步和持久地提交，才会确认到客户端。 通过协调，在跨多个区域分布的分区中应用异步复制。 Azure Cosmos DB 保证租户启动的手动故障转移不会发生数据丢失。 在自动故障转移期间，作为其 SLA 的一部分，Azure Cosmos DB 会保证所配置的关于数据丢失时段的有限过期间隔的上限。
+在 Azure Cosmos DB 中，集合的每个分区通过至少跨 10-20 个容错域分布的大量副本实现高度可用。 所有写入先由副本的多数仲裁进行同步和持久地提交，才会确认到客户端。 通过协调，在跨多个区域分布的分区中应用异步复制。 Azure Cosmos DB 保证租户启动的手动故障转移不会发生数据丢失。 在自动故障转移期间，作为其 SLA 的一部分，Azure Cosmos DB 会保证所配置的关于数据丢失窗口的有限过期间隔的上限。
 
 ## <a id="CustomerFacingSLAMetrics"></a>面向客户的 SLA 指标
 Azure Cosmos DB 以透明方式公开吞吐量、延迟、一致性和可用性指标。 这些指标可通过 Azure 门户以编程方式进行访问（参阅下图）。 还可以使用 Azure Application Insights 对各种阈值设置警报。
 
 **一致性、延迟、吞吐量和可用性指标以透明方式向每个租户提供**
 
-![Azure Cosmos DB 的客户可见的 SLA 指标](./media/distribute-data-globally/customer-slas.png)
+![Azure Cosmos DB 中客户可见的 SLA 指标](./media/distribute-data-globally/customer-slas.png)
 
 ## <a id="Next Steps"></a>后续步骤
-* 若要使用 Azure 门户实现 Azure Cosmos DB 帐户的全局复制，请参阅[如何使用 Azure 门户执行 Azure Cosmos DB 全局数据库复制](tutorial-global-distribution-documentdb.md)。
+* 若要使用 Azure 门户实现 Azure Cosmos DB 帐户的全局复制，请参阅[如何使用 Azure 门户执行 Azure Cosmos DB 全局数据库复制](tutorial-global-distribution-sql-api.md)。
 * 若要了解如何通过 Azure Cosmos DB 实现多主体系结构，请参阅[使用 Azure Cosmos DB 实现的多主数据库体系结构 ](multi-region-writers.md)。
 * 若要深入了解 Azure Cosmos DB 中自动和手动故障转移如何工作，请参阅 [Azure Cosmos DB 中的区域故障转移](regional-failover.md)。
 
@@ -237,4 +237,4 @@ Azure Cosmos DB 以透明方式公开吞吐量、延迟、一致性和可用性�
 8. Herlihy 和 Wing。 [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)（Lineralizability：并发对象的正确性条件）
 9. [Azure Cosmos DB SLA](https://www.azure.cn/support/sla/cosmos-db/)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

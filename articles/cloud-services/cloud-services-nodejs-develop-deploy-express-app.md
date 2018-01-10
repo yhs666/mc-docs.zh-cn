@@ -1,6 +1,6 @@
 ---
-title: "使用 Express 构建 Web 应用程序 (Node.js) | Azure"
-description: "本教程以云服务教程为基础，演示如何使用 Express 模块。"
+title: "构建 Node.js Express 应用并将其部署到 Azure 云服务"
+description: "在 Node.js 中构建 Express.js 应用程序并将其部署到 Azure 云服务"
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4f41b38c9ca7369176bda7a62085e6a02d35d90c
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 077e43104b24aae10d85b62e7d6b80e99e4b1a01
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>使用 Express 在 Azure 云服务中生成 Node.js Web 应用程序
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>使用 Express 在 Azure 云服务中构建并部署 Node.js Web 应用程序
 
 Node.js 包含核心运行时中最小的一个功能集。
-开发人员在开发 Node.js 应用程序时经常会使用第三方模块来提供额外功能。 本教程使用 [Express][Express] 模块新建一个应用程序，该模块可提供用于创建 Node.js Web 应用程序的 MVC 框架。
+开发人员在开发 Node.js 应用程序时经常会使用第三方模块来提供额外功能。 本教程使用 [Express](https://github.com/expressjs/express) 模块新建一个应用程序，该模块提供了用于创建 Node.js Web 应用程序的 MVC 框架。
 
 以下是已完成应用程序的屏幕截图：
 
@@ -35,7 +35,7 @@ Node.js 包含核心运行时中最小的一个功能集。
 
 执行下列步骤可新建一个名为“expressapp”的云服务项目：
 
-1. 在“开始”菜单或“开始”屏幕中，搜索“Windows PowerShell”。 最后，右键单击“Windows PowerShell”并选择“以管理员身份运行”。
+1. 在“开始”菜单或“开始”屏幕中，搜索 **Windows PowerShell**。 最后，右键单击“Windows PowerShell”并选择“以管理员身份运行”。
 
     ![Azure PowerShell 图标](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
 
@@ -49,6 +49,8 @@ Node.js 包含核心运行时中最小的一个功能集。
 
     > [!NOTE]
     > 默认情况下， **Add-azurenodewebrole** 使用旧版 Node.js。 上述 **Set-azureserviceprojectrole** 语句将指示 Azure 使用 v0.10.21 版本的节点。  请注意，这些参数区分大小写。  通过检查 WebRole1\package.json 中的“engines”属性可以验证是否已选择正确的 Node.js 版本。
+    > 
+    > 
 
 ##<a name="install-express"></a>安装 Express
 

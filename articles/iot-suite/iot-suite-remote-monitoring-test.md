@@ -7,27 +7,27 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 11/10/2017
-ms.date: 12/04/2017
+origin.date: 12/12/2017
+ms.date: 01/08/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 1111a66cf0e24e015975b0b4d03ba9b3214bdaaf
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 014de601e8d420c23583e2dfb75bc36d4744296d
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>使用模拟设备测试解决方案
 
-本教程介绍如何在远程监视预配置解决方案中使用和自定义设备模拟器微服务。 为了演示设备模拟器的功能，本教程在 Contoso IoT 应用程序中使用了两个方案。
+本教程展示了如何在远程监视预配置解决方案中自定义设备模拟器微服务。 为了演示设备模拟器的功能，本教程在 Contoso IoT 应用程序中使用了两个方案。
 
 在第一个方案中，Contoso 想要测试新的智能灯泡设备。 为了执行测试，我们创建了具有以下特征的新模拟设备：
 
 *属性*
 
-| 名称                     | 值                      |
+| Name                     | 值                      |
 | ------------------------ | --------------------------- |
 | 颜色                    | 白、红、蓝            |
 | 亮度               | 0 到 100                    |
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/24/2017
 
 下表显示了灯泡以数据流形式报告给云的数据：
 
-| 名称   | 值      |
+| Name   | 值      |
 | ------ | ----------- |
 | 状态 | "on"、"off" |
 | 联机 | true、false |
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/24/2017
 
 下表显示了新设备支持的操作：
 
-| 名称        |
+| Name        |
 | ----------- |
 | 打开   |
 | 关闭  |
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/24/2017
 
 下表显示了设备的初始状态：
 
-| 名称                     | 值 |
+| Name                     | 值 |
 | ------------------------ | -------|
 | 初始颜色            | 白色  |
 | 初始亮度       | 75     |
@@ -178,7 +178,7 @@ ms.lasthandoff: 11/24/2017
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
@@ -274,9 +274,9 @@ ms.lasthandoff: 11/24/2017
 
 配置项目，将新的“灯泡”设备文件复制到输出目录：
 
-* 如果使用 Visual Studio，请确保将上一部分中创建的三个新的灯泡文件复制到解决方案中的“服务”项目。 然后使用**解决方案资源管理器**将其标记为要复制到输出目录。
+* 如果使用 Visual Studio，请确保将上一部分中创建的四个新的灯泡文件复制到解决方案中的“服务”项目。 然后使用**解决方案资源管理器**将其标记为要复制到输出目录。
 
-* 如果使用 Visual Studio Code，请打开 **Services.csproj** 文件并添加在上一部分中创建的三个新的灯泡文件。 请参阅 **Services.csproj** 文件中的现有设备模型文件条目作为示例。
+* 如果使用 Visual Studio Code，请打开 **Services.csproj** 文件并添加在上一部分中创建的四个新的灯泡文件。 请参阅 **Services.csproj** 文件中的现有设备模型文件条目作为示例。
 
 若要在已部署的解决方案中测试新设备，请参阅以下文档之一：
 

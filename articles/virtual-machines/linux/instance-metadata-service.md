@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 10/30/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 62f2b6cd2447098bd000485fecbd178d1373c416
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 9dcd2e6ee6ec71838dd75ee092123eb3c494e8cf
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -35,7 +35,7 @@ Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM
 此服务在所有 Azure 区域中提供有可用的正式版。 并非所有 API 版本在所有 Azure 区域中可用。
 
 区域                                        | 可用性？                                 | 支持的版本
------------------------------------------------|-----------------------------------------------
+-----------------------------------------------|-----------------------------------------------|-----------------
 [全球所有公开上市的 Azure 区域](https://azure.microsoft.com/regions/)     | 正式版   | 2017-04-02, 2017-08-01 
 [Azure 政府](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02 
 [Azure 中国](https://www.azure.cn/)                                                           | 正式版 | 2017-04-02
@@ -116,7 +116,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 **响应**
 
 > [!NOTE] 
-> 此响应是 JSON 字符串。 以下响应示例以美观的形式输出以提高可读性。
+> 此响应是 JSON 字符串。 以下示例响应显示清晰，可供阅读。
 
 ```
 {
@@ -163,7 +163,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 **响应**
 
 > [!NOTE] 
-> 此响应是 JSON 字符串。 以下响应示例以美观的形式输出以提高可读性。
+> 此响应是 JSON 字符串。 以下示例响应显示清晰，可供阅读。
 
 ```
 {
@@ -230,7 +230,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 **响应**
 
 > [!NOTE] 
-> 此响应是 JSON 字符串。 以下响应示例以美观的形式输出以提高可读性。
+> 响应为 JSON 字符串。 以下响应示例以美观的形式输出以提高可读性。
 
 ```
 {
@@ -380,7 +380,7 @@ Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 
@@ -389,7 +389,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
    * 实例元数据服务需要在请求中传递标头 `Metadata: true`。 将该标头传入 REST 调用将允许访问实例元数据服务。 
 2. 为什么我无法获取我的 VM 的计算信息？
    * 当前实例元数据服务仅支持 Azure Resource Manager 创建的实例。 将来可能添加对云服务 VM 的支持。
-3. 我刚才通过 Azure Resource Manager 创建了我的虚拟机。 为什么我无法看到计算元数据信息？
+3. 我刚才通过 Azure Resource Manager 创建了我的虚拟机。 为什么我看不到计算元数据信息？
    * 对于 2016 年 9 月之后创建的所有 VM，请添加[标记](../../azure-resource-manager/resource-group-using-tags.md)以开始查看计算元数据。 对于早期 VM（在 2016 年 9 月之前创建），请在 VM 中添加/删除扩展或数据磁盘以刷新元数据。
 4. 我看不到为新版本 2017-08-01 填充的任何数据
    * 对于 2016 年 9 月之后创建的所有 VM，请添加[标记](../../azure-resource-manager/resource-group-using-tags.md)以开始查看计算元数据。 对于早期 VM（在 2016 年 9 月之前创建），请在 VM 中添加/删除扩展或数据磁盘以刷新元数据。
@@ -400,7 +400,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 7. 这是否适用于虚拟机规模集实例？
    * 是的，元数据服务可用于规模集实例。 
 8. 如何获取服务支持？
-   * 若要获取服务支持，请针对无法在长时间重试后获得元数据响应的 VM，在 Azure 门户中创建支持问题。 
+   * 若要获取服务支持，请针对无法在长时间重试后获得元数据响应的 VM，在 Azure 门户中创建支持请求。 
 
    ![实例元数据支持](./media/instance-metadata-service/InstanceMetadata-support.png)
 
@@ -408,4 +408,4 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 
 - 详细了解由实例元数据服务提供的公共预览版 [scheduledevents](scheduled-events.md) API。
 
-<!--Update_Description: update meta properties， update link， add the 2017.8.1 verion for all regions-->
+<!--Update_Description: update meta properties， wording update -->

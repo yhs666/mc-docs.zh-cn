@@ -1,34 +1,46 @@
 ---
-title: "从 Azure 中的托管 VM 映像创建 VM | Azure"
-description: "在 Resource Manager 部署模型中，使用 Azure PowerShell 从通用托管 VM 映像创建 Windows 虚拟机。"
+title: "从 Azure 中的托管映像创建 VM | Azure"
+description: "在资源管理器部署模型中，使用 Azure PowerShell 或 Azure 门户从通用托管映像创建 Windows 虚拟机。"
 services: virtual-machines-windows
 documentationcenter: 
 author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
-ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 05/22/2017
-ms.date: 10/30/2017
+origin.date: 12/01/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2927ec7a32bed1f3b63da311a685d8822cd4888f
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 2d519c66f2868d412f83c0dea52868378c1e2805
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>从托管映像创建 VM
 
-可以从 Azure 中托管的 VM 映像创建多个 VM。 托管 VM 映像包含创建 VM 所需的信息，包括 OS 和数据磁盘。 构成映像的 VHD（包括 OS 磁盘和任何数据磁盘）存储为托管磁盘。 
-
-## <a name="prerequisites"></a>先决条件
+可以使用 PowerShell 或 Azure 门户从托管 VM 映像创建多个 VM。 托管 VM 映像包含创建 VM 所需的信息，包括 OS 和数据磁盘。 构成映像的 VHD（包括 OS 磁盘和任何数据磁盘）存储为托管磁盘。 
 
 必须已[创建托管 VM 映像](capture-image-resource.md)以用于创建新 VM。 
+
+## <a name="use-the-portal"></a>使用门户
+
+1. 打开 [Azure 门户](https://portal.azure.cn)。
+2. 在左侧菜单中，选择“所有资源”。 可以按“类型”对资源进行排序以方便查找映像。
+3. 从列表中选择需要使用的映像。 随即打开映像“概述”页。
+4. 从菜单中单击“+ 创建 VM”。
+5. 输入虚拟机信息。 在此处输入的用户名和密码用于登录到虚拟机。 完成后，单击“确定”。 可以在现有资源组中创建新的 VM，或者选择“新建”创建一个新的资源组用于存储 VM。
+6. 为 VM 选择大小。 若要查看更多的大小，请选择“全部查看”或更改“支持的磁盘类型”筛选器。 
+7. 在“设置”下，按需做出更改并单击“确定”。 
+8. 在摘要页上，应该可以看见为“专用映像”列出的映像名称。 单击“确定”启动虚拟机部署。
+
+## <a name="use-powershell"></a>使用 PowerShell
+
+### <a name="prerequisites"></a>先决条件
 
 请确保具有最新版本的 AzureRM.Compute 和 AzureRM.Network PowerShell 模块。 以管理员身份打开 PowerShell 提示符，并运行以下命令进行安装。
 
@@ -37,7 +49,7 @@ Install-Module AzureRM.Compute,AzureRM.Network
 ```
 有关详细信息，请参阅 [Azure PowerShell 版本控制](https://docs.microsoft.com/powershell/azure/overview)。
 
-## <a name="collect-information-about-the-image"></a>收集有关映像的信息
+### <a name="collect-information-about-the-image"></a>收集有关映像的信息
 
 首先需要收集有关映像的基本信息并创建映像的变量。 此示例使用“中国北部”位置的 myResourceGroup 资源组中名为 myImage 的托管 VM 映像。 
 
@@ -48,43 +60,57 @@ $imageName = "myImage"
 $image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
 ```
 
-## <a name="create-a-virtual-network"></a>创建虚拟网络
+### <a name="create-a-virtual-network"></a>创建虚拟网络
 创建[虚拟网络](../../virtual-network/virtual-networks-overview.md)的 vNet 和子网。
 
-1. 创建子网。 此示例创建名为 **mySubnet** 的子网，其地址前缀为 **10.0.0.0/24**。  
+创建子网。 此示例创建名为 **mySubnet** 的子网，其地址前缀为 **10.0.0.0/24**。  
 
-    ```azurepowershell-interactive
-    $subnetName = "mySubnet"
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-    ```
-2. 创建虚拟网络。 此示例创建名为 **myVnet** 的虚拟网络，其地址前缀为 **10.0.0.0/16**。  
+```azurepowershell-interactive
+$subnetName = "mySubnet"
+$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+    -Name $subnetName -AddressPrefix 10.0.0.0/24
+```
 
-    ```azurepowershell-interactive
-    $vnetName = "myVnet"
-    $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
-        -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-    ```    
+创建虚拟网络。 此示例创建名为 **myVnet** 的虚拟网络，其地址前缀为 **10.0.0.0/16**。  
 
-## <a name="create-a-public-ip-address-and-network-interface"></a>创建公共 IP 地址和网络接口
+```azurepowershell-interactive
+$vnetName = "myVnet"
+$vnet = New-AzureRmVirtualNetwork `
+    -Name $vnetName `
+    -ResourceGroupName $rgName `
+    -Location $location `
+    -AddressPrefix 10.0.0.0/16 `
+    -Subnet $singleSubnet
+```    
+
+### <a name="create-a-public-ip-address-and-network-interface"></a>创建公共 IP 地址和网络接口
 
 若要与虚拟网络中的虚拟机通信，需要一个 [公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 和网络接口。
 
-1. 创建公共 IP 地址。 此示例创建名为 **myPip**的公共 IP 地址。 
+创建公共 IP 地址。 此示例创建名为 **myPip**的公共 IP 地址。 
 
-    ```azurepowershell-interactive
-    $ipName = "myPip"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
-        -AllocationMethod Dynamic
-    ```       
-2. 创建 NIC。 此示例创建名为 **myNic**的 NIC。 
+```azurepowershell-interactive
+$ipName = "myPip"
+$pip = New-AzureRmPublicIpAddress `
+    -Name $ipName `
+    -ResourceGroupName $rgName `
+    -Location $location `
+    -AllocationMethod Dynamic
+```
 
-    ```azurepowershell-interactive
-    $nicName = "myNic"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
-        -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-    ```
+创建 NIC。 此示例创建名为 **myNic**的 NIC。 
 
-## <a name="create-the-network-security-group-and-an-rdp-rule"></a>创建网络安全组和 RDP 规则
+```azurepowershell-interactive
+$nicName = "myNic"
+$nic = New-AzureRmNetworkInterface `
+    -Name $nicName `
+    -ResourceGroupName $rgName `
+    -Location $location `
+    -SubnetId $vnet.Subnets[0].Id `
+    -PublicIpAddressId $pip.Id
+```
+
+### <a name="create-the-network-security-group-and-an-rdp-rule"></a>创建网络安全组和 RDP 规则
 
 若要使用 RDP 登录到 VM，需要创建一个允许在端口 3389 上进行 RDP 访问的网络安全规则 (NSG)。 
 
@@ -102,7 +128,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
     -Name $nsgName -SecurityRules $rdpRule
 ```
 
-## <a name="create-a-variable-for-the-virtual-network"></a>为虚拟网络创建变量
+### <a name="create-a-variable-for-the-virtual-network"></a>为虚拟网络创建变量
 
 为完成的虚拟网络创建变量。 
 
@@ -111,7 +137,7 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
 ```
 
-## <a name="get-the-credentials-for-the-vm"></a>获取 VM 的凭据
+### <a name="get-the-credentials-for-the-vm"></a>获取 VM 的凭据
 
 以下 cmdlet 将打开一个窗口，需在其中输入远程访问 VM 所用的本地管理员帐户的新用户名和密码。 
 
@@ -119,27 +145,28 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 $cred = Get-Credential
 ```
 
-## <a name="set-variables-for-the-vm-name-computer-name-and-the-size-of-the-vm"></a>设置 VM 名称和计算机名称的变量以及 VM 的大小
+### <a name="set-variables-for-the-vm-name-computer-name-and-the-size-of-the-vm"></a>设置 VM 名称和计算机名称的变量以及 VM 的大小
 
-1. 创建 VM 名称与计算机名称的变量。 此示例将 VM 名称设置为 **myVM**，将计算机名称设置为 **myComputer**。
+创建 VM 名称与计算机名称的变量。 此示例将 VM 名称设置为 **myVM**，将计算机名称设置为 **myComputer**。
 
-    ```azurepowershell-interactive
-    $vmName = "myVM"
-    $computerName = "myComputer"
-    ```
-2. 设置虚拟机的大小。 此示例创建 **Standard_DS1_v2** 大小的 VM。 有关详细信息，请参阅 [VM 大小](/virtual-machines/windows/sizes/)文档。
+```azurepowershell-interactive
+$vmName = "myVM"
+$computerName = "myComputer"
+```
 
-    ```azurepowershell-interactive
-    $vmSize = "Standard_DS1_v2"
-    ```
+设置虚拟机的大小。 此示例创建 **Standard_DS1_v2** 大小的 VM。 有关详细信息，请参阅 [VM 大小](/virtual-machines/windows/sizes/)文档。
 
-3. 向 VM 配置中添加 VM 的名称和大小。
+```azurepowershell-interactive
+$vmSize = "Standard_DS1_v2"
+```
+
+将 VM 的名称和大小添加到 VM 配置。
 
 ```azurepowershell-interactive
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 ```
 
-## <a name="set-the-vm-image-as-source-image-for-the-new-vm"></a>将 VM 映像设置为新 VM 的源映像
+### <a name="set-the-vm-image-as-source-image-for-the-new-vm"></a>将 VM 映像设置为新 VM 的源映像
 
 使用托管 VM 映像的 ID 设置源映像。
 
@@ -147,13 +174,16 @@ $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 ```
 
-## <a name="set-the-os-configuration-and-add-the-nic"></a>设置 OS 配置并添加 NIC。
+### <a name="set-the-os-configuration-and-add-the-nic"></a>设置 OS 配置并添加 NIC。
 
 输入 OS 磁盘的存储类型（PremiumLRS 或 StandardLRS）和大小。 此示例将帐户类型设置为 **PremiumLRS**，将磁盘大小设置为 **128 GB**，将磁盘缓存设置为 **ReadWrite**。
 
 ```azurepowershell-interactive
-$vm = Set-AzureRmVMOSDisk -VM $vm  -StorageAccountType PremiumLRS -DiskSizeInGB 128 `
--CreateOption FromImage -Caching ReadWrite
+$vm = Set-AzureRmVMOSDisk -VM $vm  `
+    -StorageAccountType PremiumLRS `
+    -DiskSizeInGB 128 `
+    -CreateOption FromImage `
+    -Caching ReadWrite
 
 $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName `
 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
@@ -161,7 +191,7 @@ $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName 
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 ```
 
-## <a name="create-the-vm"></a>创建 VM
+### <a name="create-the-vm"></a>创建 VM
 
 使用在 **$vm** 变量中生成和存储的配置创建新 VM。
 
@@ -169,12 +199,12 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 New-AzureRmVM -VM $vm -ResourceGroupName $rgName -Location $location
 ```
 
-## <a name="verify-that-the-vm-was-created"></a>验证是否已创建 VM
+### <a name="verify-that-the-vm-was-created"></a>验证是否已创建 VM
 完成后，应会在 [Azure 门户](https://portal.azure.cn)的“浏览” > “虚拟机”下看到新建的 VM，也可以使用以下 PowerShell 命令查看该 VM：
 
 ```azurepowershell-interactive
-    $vmList = Get-AzureRmVM -ResourceGroupName $rgName
-    $vmList.Name
+$vmList = Get-AzureRmVM -ResourceGroupName $rgName
+$vmList.Name
 ```
 
 ## <a name="next-steps"></a>后续步骤

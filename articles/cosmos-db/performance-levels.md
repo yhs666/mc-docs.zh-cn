@@ -1,6 +1,6 @@
 ---
-title: "DocumentDB API 性能级别 | Azure"
-description: "了解如何通过 DocumentDB API 性能级别在每个容器的基础上保留吞吐量。"
+title: "停用的 Azure Cosmos DB 性能级别 | Azure"
+description: "了解 Azure Cosmos DB 中以前提供的 S1、S2 和 S3 性能级别。"
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
@@ -12,21 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 11/27/2017
+origin.date: 11/29/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 299d451a0d05a5873558fb3957421b4a34cfdaa2
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 4481d8b24fb8111720bd5faef6f09796309afb6b
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
 
 > [!IMPORTANT] 
-> 本文所述的 S1、S2 和 S3 性能级别即将停用，不再适用于新的 DocumentDB API 帐户。
+> 本文所述的 S1、S2 和 S3 性能级别即将停用，在新的 Azure Cosmos DB 帐户中将不再提供。
 >
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 本文概述 S1、S2 和 S3 性能级别，并介绍在 2017 年下旬如何将使用这些性能级别的集合迁移到单分区集合。 阅读本文后，可以回答以下问题：
 
@@ -45,7 +47,7 @@ ms.lasthandoff: 11/24/2017
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>为何要停用 S1、S2 和 S3 性能级别？
 
-S1、S2 和 S3 性能级别无法提供 Cosmos DB API 集合可提供的灵活性。 使用 S1、S2、S3 性能级别时，吞吐量和存储容量都是预设的，没有任何弹性。 现在，Azure Cosmos DB 允许用户自定义吞吐量和存储，大幅提高随需求变化而缩放的灵活性。
+S1、S2 和 S3 性能级别无法提供标准 Azure Cosmos DB 产品提供的灵活性。 使用 S1、S2、S3 性能级别时，吞吐量和存储容量都是预设的，没有任何弹性。 现在，Azure Cosmos DB 允许用户自定义吞吐量和存储，大幅提高随需求变化而缩放的灵活性。
 
 <a name="compare"></a>
 
@@ -55,10 +57,10 @@ S1、S2 和 S3 性能级别无法提供 Cosmos DB API 集合可提供的灵活�
 
 |   |分区集合|单区集合|S1|S2|S3|
 |---|---|---|---|---|---|
-|最大吞吐量|不受限制|10K RU/s|250 RU/s|1 K RU/s|2.5 K RU/秒|
-|最小吞吐量|2.5 K RU/秒|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/秒|
-|最大存储|不受限制|10 GB|10 GB|10 GB|10 GB|
-<!-- 不可用 |价格|吞吐量：6 美元/100 RU/s<br><br>存储：0.25 美元/GB|吞吐量：6 美元/100 RU/s<br><br>存储：0.25 美元/GB|25 美元|50 美元|100 美元|-->
+|最大吞吐量|无限制|10K RU/s|250 RU/秒|1 K RU/秒|2.5 K RU/秒|
+|最小吞吐量|2.5 K RU/秒|400 RU/s|250 RU/s|1 K RU/秒|2.5 K RU/秒|
+|最大存储|无限制|10 GB|10 GB|10 GB|10 GB|
+<!-- 不可用 |价格|吞吐量：6 美元/100 RU/秒<br><br>存储：0.25 美元/GB|吞吐量：6 美元/100 RU/s<br><br>存储：0.25 美元/GB|25 美元|50 美元|100 美元|-->
 
 <!-- Not Avaialbel Are you an EA customer? If so, see [How am I impacted if I'm an EA customer?](#ea-customer) -->
 
@@ -91,7 +93,7 @@ S1、S2 和 S3 性能级别无法提供 Cosmos DB API 集合可提供的灵活�
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>如果需要 10 GB 以上的存储，应该怎么做？
 
-无论使用的是 S1、S2 或 S3 性能级别的集合还是单分区集合，它们的可用存储都是 10 GB。可以使用 Cosmos DB 数据迁移工具将数据迁移到存储几乎无限的分区集合。 有关分区集合优势的信息，请参阅 [Azure Cosmos DB 中的分区和缩放](documentdb-partition-data.md)。 有关如何将 S1、S2、S3 或单分区集合迁移到分区集合的信息，请参阅[从单分区迁移到分区集合](documentdb-partition-data.md#migrating-from-single-partition)。 
+无论使用的是 S1、S2 或 S3 性能级别的集合还是单分区集合，它们的可用存储都是 10 GB。可以使用 Cosmos DB 数据迁移工具将数据迁移到存储几乎无限的分区集合。 有关分区集合优势的信息，请参阅 [Azure Cosmos DB 中的分区和缩放](sql-api-partition-data.md)。 
 
 <a name="change-before"></a>
 
@@ -130,7 +132,7 @@ S1、S2 和 S3 性能级别无法提供 Cosmos DB API 集合可提供的灵活�
 
 4.  以保存更改。
 
-    如果确定需要更多吞吐量（大于 10,000 RU/秒）或更多存储（大于 10GB），可以创建分区集合。 若要将单分区集合迁移到分区集合，请参阅[从单分区迁移到分区集合](documentdb-partition-data.md#migrating-from-single-partition)。
+    如果确定需要更多吞吐量（大于 10,000 RU/秒）或更多存储（大于 10GB），可以创建分区集合。 若要将单分区集合迁移到分区集合，请参阅[从单分区迁移到分区集合](sql-api-partition-data.md#migrating-from-single-partition)。
 
     > [!NOTE]
     > 从 S1、S2 或 S3 更改为“标准”定价层最长可能需要 2 分钟时间。
@@ -139,7 +141,7 @@ S1、S2 和 S3 性能级别无法提供 Cosmos DB API 集合可提供的灵活�
 
 **使用 .NET SDK 迁移到单区集合**
 
-另一个更改集合的性能级别的选项便是通过 Azure Cosmos DB SDK 进行操作。 本部分只介绍了使用 [Cosmos DB .NET API](documentdb-sdk-dotnet.md) 更改集合的性能级别，但对于我们的其他 SDK，过程也是相似的。
+另一个更改集合的性能级别的选项便是通过 Azure Cosmos DB SDK 进行操作。 本部分只介绍了使用 [SQL .NET API](sql-api-sdk-dotnet.md) 更改集合的性能级别，但对于我们的其他 SDK，过程也是相似的。
 
 以下代码片段可将集合吞吐量更改为每秒 5,000 个请求单位：
 
@@ -172,8 +174,8 @@ S1、S2 和 S3 性能级别无法提供 Cosmos DB API 集合可提供的灵活�
 ## <a name="next-steps"></a>后续步骤
 若要了解更多有关 Azure Cosmos DB 的定价和管理数据的信息，请浏览以下资源：
 
-1.  [对 Cosmos DB 中的数据进行分区](documentdb-partition-data.md)。 了解单区容器与分区容器的差异，以及有关实施分区策略以进行无缝缩放的提示。
+1.  [对 Cosmos DB 中的数据进行分区](sql-api-partition-data.md)。 了解单区容器与分区容器的差异，以及有关实施分区策略以进行无缝缩放的提示。
 2.  [Cosmos DB 定价](https://www.azure.cn/pricing/details/cosmos-db/)。 了解预配吞吐量和使用存储的费用。
 3.  [请求单位](request-units.md)。 了解不同操作类型（例如读取、写入和查询）的吞吐量消耗。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

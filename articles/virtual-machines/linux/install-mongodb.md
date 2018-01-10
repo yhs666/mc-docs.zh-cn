@@ -3,8 +3,8 @@ title: "使用 Azure CLI 在 Linux VM 上安装 MongoDB | Azure"
 description: "了解如何使用 Azure CLI 2.0 在 Linux 虚拟机上安装和配置 MongoDB"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
@@ -12,17 +12,17 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 06/23/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: 34ef8b00c2b0975207db19ee7d02a367f7e28825
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+origin.date: 12/15/2017
+ms.date: 01/08/2018
+ms.author: v-yeche
+ms.openlocfilehash: ab2b73ecc93fcc8b551d0f683f5dd0435a825af1
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>如何在 Linux VM 上安装和配置 MongoDB
-[MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文介绍如何使用 Azure CLI 2.0 在 Linux VM 上安装和配置 MongoDB。 还可以使用 [Azure CLI 1.0](install-mongodb-nodejs.md) 执行这些步骤。 文中提供了一些示例，详细说明如何执行以下操作：
+[MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文介绍如何使用 Azure CLI 2.0 在 Linux VM 上安装和配置 MongoDB。 也可以使用 [Azure CLI 1.0](install-mongodb-nodejs.md) 执行这些步骤。 文中提供了一些示例，详细说明如何执行以下操作：
 
 * [手动安装和配置基本的 MongoDB 实例](#manually-install-and-configure-mongodb-on-a-vm)
 * [使用 Resource Manager 模板创建基本的 MongoDB 实例](#create-basic-mongodb-instance-on-centos-using-a-template)
@@ -56,21 +56,21 @@ az vm create \
 ssh azureuser@<publicIpAddress>
 ```
 
-若要为 MongoDB 添加安装源，请按如下所示创建一个 yum 存储库文件：
+若要为 MongoDB 添加安装源，请按如下所示创建一个 **yum** 存储库文件：
 
 ```bash
-sudo touch /etc/yum.repos.d/mongodb-org-3.4.repo
+sudo touch /etc/yum.repos.d/mongodb-org-3.6.repo
 ```
 
-打开该 MongoDB 存储库文件进行编辑。 添加以下行：
+打开该 MongoDB 存储库文件进行编辑，例如，使用 `vi` 或 `nano`。 添加以下行：
 
 ```sh
-[mongodb-org-3.4]
+[mongodb-org-3.6]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
 ```
 
 按如下所示使用 **yum** 安装 MongoDB：
@@ -126,33 +126,25 @@ sudo chkconfig mongod on
 az group create --name myResourceGroup --location chinaeast
 ```
 
-接下来，使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create) 部署 MongoDB 模板。 根据需要定义自己的资源名称和大小，例如针对 newStorageAccountName、virtualNetworkName 和 vmSize：
+接下来，使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create) 部署 MongoDB 模板。 在出现提示时，为 *newStorageAccountName*、*dnsNameForPublicIP* 以及管理员用户名和密码输入你自己的唯一值。
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"},
-    "virtualNetworkName": {"value": "myVnet"},
-    "vmSize": {"value": "Standard_DS2_v2"},
-    "vmName": {"value": "myVM"},
-    "publicIPAddressName": {"value": "myPublicIP"},
-    "nicName": {"value": "myNic"}}' \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
 使用 VM 的公共 DNS 地址登录到 VM。 可以使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show)查看公共 DNS 地址：
 
 ```azurecli
-az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
+az vm show -g myResourceGroup -n myLinuxVM -d --query [fqdns] -o tsv
 ```
 
 使用自己的用户名和公共 DNS 地址通过 SSH 连接到 VM：
 
 ```bash
-ssh azureuser@mypublicdns.chinaeast.chinacloudapp.cn
+ssh azureuser@mypublicdns.chinaeast.cloudapp.chinacloudapi.cn
 ```
+<!-- cloudapp.azure.com to cloudapp.chinacloudapi.cn is Correct -->
 
 如下所示，通过使用本地 `mongo` 客户端进行连接来验证 MongoDB 安装：
 
@@ -194,7 +186,7 @@ az group deployment create --resource-group myResourceGroup \
     "mongoAdminUsername": {"value": "mongoadmin"},
     "mongoAdminPassword": {"value": "P@ssw0rd!"},
     "dnsNamePrefix": {"value": "mypublicdns"},
-    "environment": {"value": "AzureCloud"},
+    "environment": {"value": "AzureChinaCloud"},
     "numDataDisks": {"value": "4"},
     "sizeOfDataDiskInGB": {"value": 20},
     "centOsVersion": {"value": "7.0"},

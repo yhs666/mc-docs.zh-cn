@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/09/2017
+origin.date: 12/11/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 57e129decc8fd32e3bb333e8fa4ee6f67d86ca6e
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 01/15/2018
+ms.openlocfilehash: 447643eff66a2525f9115d04b4bcb04966487032
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的配置和管理问题：常见问题解答 (FAQ)
 
@@ -95,8 +95,11 @@ Microsoft 遵循严格的流程，在没有云服务所有者或其受托人的�
 * [将保留 IP 关联到正在运行的部署](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
 * [使用服务配置文件将保留 IP 关联到云服务](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
+## <a name="what-is-the-quota-limit-for-my-cloud-service"></a>云服务的配额限制是什么？
+请参阅[服务特定的限制](../azure-subscription-service-limits.md#subscription-limits)。
+
 ## <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>为何云服务 VM 上的驱动器显示可用磁盘空间极少？
-这是预期的行为，不会导致应用程序出现任何问题。 为 Azure PaaS VM 中的 %uproot% 驱动器启用了日记，因此，占用的空间量在实际上是文件平时占用的空间量的两倍。 但是，有几个因素会在本质上消除此状态造成的问题。
+这是预期的行为，不会导致应用程序出现任何问题。 为 Azure PaaS VM 中的 %approot% 驱动器启用了日记，因此，占用的空间量在实际上是文件平时占用的空间量的两倍。 但是，有几个因素会在本质上消除此状态造成的问题。
 
 %approot% 的大小计算为 <.cspkg 大小 + 最大日记大小 + 富余的可用空间> 或 1.5 GB，以较大者为准。 VM 大小对于计算结果没有任何影响。 （VM 大小只会影响临时 C: 驱动器的大小。） 
 
@@ -218,3 +221,43 @@ Windows 10 和 Windows Server 2016 随附了对客户端和服务器端上的 HT
 - 在 Internet Explorer/Edge 中启用 F12 开发人员工具，并切换到“网络”选项卡来验证协议。 
 
 有关详细信息，请参阅 [IIS 上的 HTTP/2](https://blogs.iis.net/davidso/http2)。
+
+## <a name="the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that"></a>Azure 门户不显示我的云服务的 SDK 版本。 如何查看版本？
+
+我们正努力在 Azure 门户中实现此功能。 在此同时，你可以使用以下 PowerShell 命令获取 SDK 版本：
+
+    Get-AzureService -ServiceName "<Cloud service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+
+## <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>无法使用 RDP 文件通过远程桌面连接到云服务 VM。 收到以下错误：发生身份验证错误 (代码: 0x80004005)
+
+如果在已加入 Azure Active Directory 的计算机上使用 RDP 文件，则可能会发生此错误。 若要解决此问题，请执行以下步骤：
+
+1. 右键单击下载的 RDP 文件，然后选择“编辑”。
+2. 在用户名的前面添加“&#92;”前缀。 例如，使用 **.\username** 而不要使用 **username**。
+
+## <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>我想要关闭云服务几个月。 如何在不丢失 IP 地址的情况下降低云服务的计费成本？
+
+已部署的云服务使用的计算和存储资源会产生费用。 因此，即使关闭 Azure VM，也仍要支付存储费用。 
+
+下面是可以在不丢失服务 IP 地址的情况下节省费用的办法：
+
+1. 在删除部署之前[保留 IP 地址](../virtual-network/virtual-networks-reserved-public-ip.md)。  这样，就只需支付此 IP 地址的费用。 有关 IP 地址计费的详细信息，请参阅 [IP 地址定价](https://azure.microsoft.com/pricing/details/ip-addresses/)。
+2. 删除部署。 不要删除 xxx.chinacloudapp.cn，以备将来使用。
+3. 如果想要使用订阅中的相同保留 IP 来重新部署云服务，请参阅[云服务和虚拟机的保留 IP 地址](https://azure.microsoft.com/blog/reserved-ip-addresses/)。
+
+## <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>我的云服务管理证书即将过期。 如何续订？
+
+可使用以下 PowerShell 命令续订管理证书：
+
+    Add-AzureAccount
+    Select-AzureSubscription -Current -SubscriptionName <your subscription name>
+    Get-AzurePublishSettingsFile
+
+**AzurePublishSettingsFile** 将在 Azure 门户上的“订阅” > “管理证书”中创建新的管理证书。 新证书的名称类似于“[订阅名称]-[当前日期]-credentials”。
+## <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>如何自动安装主要 SSL 证书 (.pfx) 和中间证书 (.p7b)？
+
+可以使用启动脚本 (batch/cmd/PowerShell) 自动完成此任务，并将该启动脚本注册到服务定义文件中。 将启动脚本和证书（.p7b 文件）添加到启动脚本所在的同一目录中的项目文件夹。
+
+有关详细信息，请参阅以下文章：
+- [如何配置和运行云服务的启动任务](./cloud-services/cloud-services-startup-tasks.md)
+- [常见的云服务启动任务](./cloud-services/cloud-services-startup-tasks-common.md)

@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/13/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: c4ae6c78008e112958c7e4a703e08b3b3bb64047
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 50c97df49e162a040137348537b8fdfe5a32b3db
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect 同步：操作任务和注意事项
 本主题旨在介绍 Azure AD Connect 同步的操作任务。
 
-## <a name="staging-mode"></a>暂存模式
+## 暂存模式 <a name="staging-mode"></a>
 暂存模式可以用于许多方案，包括：
 
 - 高可用性。
@@ -34,6 +34,11 @@ ms.lasthandoff: 11/24/2017
 当服务器处于暂存模式时，可以在激活服务器之前更改配置并预览更改。 它还允许运行完全导入和完全同步，以便在生产环境中应用所有更改之前验证这些更改是否符合预期。
 
 可以在安装过程中选择将服务器置于**暂存模式**。 此操作可以激活服务器进行导入和同步，但不会运行任何导出。 处于暂存模式的服务器不会运行密码同步或密码写回，即使在安装期间选择了这些功能。 如果禁用暂存模式，服务器将开始导出，启用密码同步，并启用密码写回。
+
+> [!NOTE]
+> 假设拥有已启用密码哈希同步功能的 Azure AD Connect。 如果启用暂存模式，则服务器停止同步本地 AD 的密码更改。 如果禁用暂存模式，则服务器从上次离开的位置恢复同步密码更改。 如果服务器长时间处于暂存模式，则服务器可能需要一段时间才能同步该时间段内发生的所有密码更改。
+>
+>
 
 仍然可以使用 Synchronization Service Manager 强制导出。
 
@@ -50,7 +55,7 @@ ms.lasthandoff: 11/24/2017
 4. [验证](#verify)
 5. [切换活动服务器](#switch-active-server)
 
-#### <a name="prepare"></a>准备
+#### 准备 <a name="prepare"></a>
 1. 安装 Azure AD Connect，选择“暂存模式”，然后取消选择安装向导中最后一页上的“启动同步”。 此模式允许手动运行同步引擎。
    ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/readytoconfigure.png)
 2. 注销/登录并从“开始”菜单选择“同步服务”。
@@ -58,11 +63,11 @@ ms.lasthandoff: 11/24/2017
 #### 配置 <a name="configuration"></a>
 如果对主服务器进行了自定义更改并希望比较配置和临时服务器，则使用 [Azure AD Connect 配置文档管理器](https://github.com/Microsoft/AADConnectConfigDocumenter)。
 
-#### <a name="import-and-synchronize"></a>导入和同步
+#### 导入和同步 <a name="import-and-synchronize"></a>
 1. 选择“连接器”，并选择第一个 Active Directory 域服务类型的连接器。 单击“运行”，然后依次选择“完全导入”和“确定”。 针对此类型的所有连接器执行这些步骤。
 2. 选择 Azure Active Directory (Microsoft) 类型的连接器。 单击“运行”，然后依次选择“完全导入”和“确定”。
 3. 确保“连接器”选项卡仍处于选中状态。 针对每个 Active Directory 域服务类型的连接器，单击“运行”，然后依次选择“增量同步”和“确定”。
-4. 选择 Azure Active Directory (Microsoft) 类型的连接器。 单击“运行”，然后依次选择“增量同步”和“确定”。
+4. 选择 **Azure Active Directory (Microsoft)** 类型的连接器。 单击“运行”，然后依次选择“增量同步”和“确定”。
 
 现在，已将导出更改暂存到 Azure AD 和本地 AD（如果你正在使用 Exchange 混合部署）。 后续步骤可让你在实际开始导出到目录之前，检查将要更改的内容。
 
@@ -108,13 +113,14 @@ ms.lasthandoff: 11/24/2017
 同步引擎服务器不会存储有关对象的任何状态，因此可以通过 Active Directory 与 Azure AD 中的数据重建数据库。 **sourceAnchor** 属性可用于联接来自本地和云的对象。 如果重新生成包含本地与云中现有对象的服务器，同步引擎会在重新安装时再次同时匹配这些对象。 需要记录和保存的内容是对服务器进行的配置更改，例如筛选和同步规则。 在开始同步之前，必须重新应用这些自定义配置。
 
 ### <a name="have-a-spare-standby-server---staging-mode"></a>具有备用的待机服务器 - 暂存模式
-如果环境更复杂，我们建议使用一个或多个待机服务器。 可以在安装过程中启用服务器的 **暂存模式**。
+如果环境更复杂，我们建议使用一个或多个待机服务器。 可以在安装过程中启用服务器的**暂存模式**。
 
+有关详细信息，请参阅[暂存模式](#staging-mode)。
 
 ### <a name="use-virtual-machines"></a>使用虚拟机
 常用的受支持方法是在虚拟机中运行同步引擎。 如果主机有问题，可将包含同步引擎服务器的映像迁移到另一个服务器。
 
-### <a name="sql-high-availability"></a>SQL 高可用性
+### SQL 高可用性 <a name="sql-high-availability"></a>
 如果未使用 Azure AD Connect 随附的 SQL Server Express，还应考虑 SQL Server 的高可用性。 支持的高可用性解决方案包括 SQL 群集和 AOA（Always On 可用性组）。 不支持的解决方案包括镜像。
 
 Azure AD Connect 版本 1.1.524.0 中添加了对 SQL AOA 的支持。 安装 Azure AD Connect 之前，必须启用 SQL AOA。 在安装期间，Azure AD Connect 会检测是否已为提供的 SQL 实例启用 SQL AOA。 如果启用了 SQL AOA，Azure AD Connect 进一步指出如果 SQL AOA 配置为使用同步复制或异步复制。 设置可用性组侦听器时，我们建议将 RegisterAllProvidersIP 属性设置为 0。 这是因为，Azure AD Connect 目前使用 SQL Native Client 连接到 SQL，而 SQL Native Client 不支持使用 MultiSubNetFailover 属性。

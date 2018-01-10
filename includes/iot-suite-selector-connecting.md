@@ -53,7 +53,7 @@
 
 1. 找到包含远程监视解决方案所用 Azure 服务的资源组。 该资源组与预配的远程监视解决方案同名。
 
-1. 在此资源组中导航到 IoT 中心。 然后选择“设备资源管理器”：
+1. 在此资源组中导航到 IoT 中心。 然后选择“IoT 设备”：
 
     ![设备资源管理器](media/iot-suite-selector-connecting/deviceexplorer.png)
 
@@ -68,13 +68,3 @@
 * 设备报告给解决方案的属性。 例如，**冷却器**设备报告有关其固件和位置的信息。
 * 由设备发送到解决方案的遥测数据类型。 例如，**冷却器**设备发送温度、湿度和压力值。
 * 可以在解决方案中计划的、要在设备上运行的方法。 例如，**冷却器**设备必须实现 **Reboot**、**FirmwareUpdate**、**EmergencyValveRelease** 和 **IncreasePressuree** 方法。
-
-[img-dashboard]: ./media/iot-suite-selector-connecting/dashboard.png
-[1]: ./media/iot-suite-selector-connecting/suite0.png
-[2]: ./media/iot-suite-selector-connecting/suite1.png
-[3]: ./media/iot-suite-selector-connecting/suite2.png
-[4]: ./media/iot-suite-selector-connecting/suite3.png
-
-[lnk-what-are-preconfig-solutions]:../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md
-[lnk-remote-monitoring]:../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
-[lnk-1rmb-trial]: https://www.azure.cn/pricing/1rmb-trial/

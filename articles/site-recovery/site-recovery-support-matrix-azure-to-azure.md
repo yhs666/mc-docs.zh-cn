@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 08/31/2017
-ms.date: 12/04/2017
+origin.date: 12/08/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3203e92ce5653eda5b5e9fe5406792114ca35c4e
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: d5bfe58b37b23051a271009f544167a7b129b1a8
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>从 Azure 复制到 Azure 的 Azure Site Recovery 支持矩阵
 
@@ -41,10 +41,10 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="resource-move-support"></a>资源移动支持
 
-资源移动类型 | 支持/不支持 | **备注**  
+资源移动类型 | **支持/不支持** | **备注**  
 --- | --- | ---
 跨资源组移动保管库 | 不支持 |无法跨资源组移动恢复服务保管库。
-跨资源组移动计算、存储和网络 | 不支持 |如果在启用复制后移动虚拟机（或其关联的组件，如存储和网络），需要禁用复制，然后重新启用虚拟机的复制。
+**跨资源组移动计算、存储和网络** | 不支持 |如果在启用复制后移动虚拟机（或其关联的组件，如存储和网络），需要禁用复制，然后重新启用虚拟机的复制。
 
 ## <a name="support-for-deployment-models"></a>部署模型支持
 
@@ -153,6 +153,8 @@ GRS | 支持 |
 RA-GRS | 支持 |
 ZRS | 不支持 |  
 冷存储和热存储 | 不支持 | 冷存储和热存储不支持虚拟机磁盘
+虚拟网络服务终结点（Azure 存储防火墙和虚拟网络）  | 否 | 不支持访问用于存储复制数据的缓存存储帐户上特定的 Azure 虚拟网络。 
+常规用途 V2 存储帐户（包括热存储层和冷存储层） | 否 | 与常规用途 V1 存储帐户相比，事务成本大幅增加
 
 >[!IMPORTANT]
 > 确保观察 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 或 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 虚拟机的 VM 磁盘可伸缩性和性能目标，以避免任何性能问题。 如果遵从默认设置，Site Recovery 将基于源配置创建所需的磁盘和存储帐户。 如果自定义和选择自己的设置，请确保遵循源 VM 的磁盘可伸缩性和性能目标。
@@ -175,7 +177,7 @@ Azure 托管 DNS | 支持 |
 未经身份验证的代理 | 支持 | 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)    
 经过身份验证的代理 | 不支持 | 如果 VM 正在使用经过身份验证的代理进行出站连接，则不可使用 Azure Site Recovery 进行复制。    
 本地站点到站点 VPN（使用或不使用 ExpressRoute）| 支持 | 确保将 UDR 和 NSG 配置为站点恢复流量不会路由到本地。 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)  
-VNET 到 VNET 连接 | 支持 | 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)  
+VNET 到 VNET 连接 | 支持 | 请参阅[网络指南文档](site-recovery-azure-to-azure-networking-guidance.md)。  
 
 ## <a name="next-steps"></a>后续步骤
 - 详细了解 [Azure VM 复制网络指南](site-recovery-azure-to-azure-networking-guidance.md)

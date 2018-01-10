@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 01/30/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: ee20d6c4195fe09037a0aab18278dd9a59860084
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: 34510e6f429b21545e2b1489c5e3f0777f36b6d6
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>将 Azure CLI 1.0 用于 Azure 存储
 
@@ -41,7 +41,7 @@ Azure CLI 提供了一组开源且跨平台的命令，这些命令可以用于 
 ## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>在 5 分钟内开始使用 Azure 存储和 Azure CLI
 本指南使用 Ubuntu 作为示例，但其他 OS 平台的操作应与此类似。
 
-**Azure 新用户：** 获取一个 Azure 订阅以及与该订阅关联的 Microsoft 帐户。 有关 Azure 购买选项的信息，请参阅 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)、[购买选项](https://www.azure.cn/pricing/purchase-options/)。
+**Azure 新用户：** 获取一个 Azure 订阅以及与该订阅关联的 Microsoft 帐户。 有关 Azure 购买选项的信息，请参阅 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
 
 请参阅[在 Azure Active Directory (Azure AD) 中分配管理员角色](https://msdn.microsoft.com/library/azure/hh531793.aspx)，以了解有关 Azure 订阅的更多信息。
 
@@ -50,7 +50,7 @@ Azure CLI 提供了一组开源且跨平台的命令，这些命令可以用于 
 1. 按照[安装 Azure CLI](../../cli-install-nodejs.md) 中所述的说明下载并安装 Azure CLI。
 2. 安装了 Azure CLI 之后，你将可以从命令行界面（Bash、终端、命令提示符）使用 azure 命令访问 Azure CLI 命令。 键入 _azure_ 命令，可看到以下输出。
 
-    ![Azure 命令输出](../media/storage-azure-cli/azure_command.png)   
+    ![Azure 命令输出](./media/storage-azure-cli/azure_command.png)   
 3. 在命令行界面中，键入 `azure storage` 即可列出所有 Azure 存储命令，并初步了解 Azure CLI 提供的功能。 可以键入带 -h 参数的命令名称（例如，`azure storage share create -h`），了解命令语法的详细信息。
 4. 现在，我们提供一个简单的脚本，演示用于访问 Azure 存储的基本 Azure CLI 命令。 该脚本会首先要求针对存储帐户和密钥设置两个变量。 然后，该脚本将在此新存储帐户中创建新容器，并将现有图像文件 (Blob) 上传到该容器。 脚本在列出该容器中的所有 Blob 后，就会将图像文件下载到本地计算机上的目标目录。
 
@@ -84,7 +84,7 @@ Azure CLI 提供了一组开源且跨平台的命令，这些命令可以用于 
 5. 在本地计算机中，打开首选的文本编辑器（例如 vim）。 在文本编辑器中键入上述脚本。
 6. 现在，需要基于配置设置更新脚本变量。
 
-   * <storage_account_name>：使用脚本中给定的名称，或输入存储帐户的新名称。 **重要提示：** 在 Azure 中，存储帐户的名称必须是唯一的。 它还必须为小写！
+   * <storage_account_name>：使用脚本中给定的名称，或输入存储帐户的新名称。 **重要提示：**在 Azure 中，存储帐户的名称必须是唯一的。 它还必须为小写！
    * <storage_account_key>：存储帐户的访问密钥。
    * <container_name>：使用脚本中给定的名称，或输入容器的新名称。
    * <image_to_upload>：输入本地计算机上图片的路径，例如：“~/images/HelloWorld.png”。
@@ -96,7 +96,7 @@ Azure CLI 提供了一组开源且跨平台的命令，这些命令可以用于 
 
 ## <a name="manage-storage-accounts-with-the-azure-cli"></a>通过 Azure CLI 管理存储帐户
 ### <a name="connect-to-your-azure-subscription"></a>连接到 Azure 订阅
-大多数存储命令没有 Azure 订阅也可以使用，不过仍建议通过 Azure CLI 连接到订阅。 若要配置 Azure CLI 与订阅一起使用，请执行[从 Azure CLI 连接到 Azure 订阅](../../xplat-cli-connect.md)中的步骤。
+大多数存储命令没有 Azure 订阅也可以使用，不过仍建议通过 Azure CLI 连接到订阅。 若要配置 Azure CLI 与订阅一起使用，请执行[从 Azure CLI 连接到 Azure 订阅](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)中的步骤。
 
 ### <a name="create-a-new-storage-account"></a>新建存储帐户
 要使用 Azure 存储，需要一个存储帐户。 可以在将计算机配置为连接到订阅之后，创建新的 Azure 存储帐户。

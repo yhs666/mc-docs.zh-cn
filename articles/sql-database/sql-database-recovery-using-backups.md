@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/13/2017
-ms.date: 11/06/2017
+origin.date: 11/20/2017
+ms.date: 01/08/2018
 ms.author: v-johch
-ms.openlocfilehash: 67bb0c13f3a33fd821ffa30d8c39773a2b9db323
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 29e2456d095b0319e0c3a7c5672852a4399895ef
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自动数据库备份恢复 Azure SQL 数据库
 SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为数据库恢复提供三个选项。 可从数据库备份还原到：
@@ -64,7 +64,7 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为
 
 ## <a name="point-in-time-restore"></a>时间点还原
 
-通过使用 Azure 门户、[PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/restore-azurermsqldatabase) 或 [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)，可将现有数据库还原到早期的时间点，作为同一逻辑服务器上的新数据库。 
+通过使用 Azure 门户、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 或 [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)，可将现有数据库还原到早期的时间点，作为同一逻辑服务器上的新数据库。 
 
 > [!TIP]
 > 有关展示了如何执行数据库的时间点还原的示例 PowerShell 脚本，请参阅[使用 PowerShell 还原 SQL 数据库](scripts/sql-database-restore-database-powershell.md)。
@@ -74,12 +74,12 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为
 
 为了恢复目的，通常会将数据库还原到一个较早的点。 这样做时，可以将还原的数据库作为原始数据库的替代数据库，或使用它来检索数据，并更新原始数据库。 
 
-* ***数据库替换***：如果还原的数据库旨在替换原始数据库，那么应验证性能级别和/或服务层是否合适，如有必要，还应调整该数据库的规模。 用户可以使用 T-SQL 中的 ALTER DATABASE 命令来重命名原始数据库，并为还原的数据库指定原有的名称。 
+* ***数据库替换***：如果还原的数据库旨在替换原始数据库，那么应验证性能级别和/或服务层是否合适，如有必要，还应调整该数据库的规模。 可以使用 T-SQL 中的 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) 命令来重命名原始数据库，然后为还原的数据库指定原有的名称。 
 * ***数据恢复：***如果打算从还原的数据库检索数据以从用户或应用程序错误中恢复，则需要编写和执行要从还原的数据库将数据提取到原始数据库时所必需的数据恢复脚本。 尽管还原操作可能需要很长时间才能完成，但整个还原过程中，都可在数据库列表中看到还原数据库。 如果在还原期间删除数据库，将取消还原操作，则不会针对未完成还原的数据库向你收费。 
 
 ### <a name="azure-portal"></a>Azure 门户
 
-若要使用 Azure 门户恢复到某个时间点，请打开数据库页，并在工具栏上单击“还原”。
+若要使用 Azure 门户还原到某个时间点，请打开数据库页，并在工具栏上单击“还原”。
 
 ![时间点还原](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -96,9 +96,10 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为
 
 ### <a name="azure-portal"></a>Azure 门户
 
-若要使用 Azure 门户在[保留期](sql-database-service-tiers.md)期间恢复已删除的数据库，请打开服务器的页面，然后在“操作”区中，单击“已删除的数据库”。
+要使用 Azure 门户在[保留期](sql-database-service-tiers.md)期间还原已删除的数据库，请打开服务器的页面，并在“操作”区中，单击“已删除的数据库”。
 
 ![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
+
 
 ![deleted-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
 
@@ -121,7 +122,7 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为
 
 ### <a name="azure-portal"></a>Azure 门户
 
-若要使用 Azure 门户在[保留期](sql-database-service-tiers.md)期间对数据库进行异地还原，请打开 SQL 数据库页，然后单击“添加”。 在“选择源”文本框中，选择“备份”。 在所选的区域和服务器上指定要从中执行恢复的备份。 
+要使用 Azure 门户在[保留期](sql-database-service-tiers.md)期间对数据库进行异地还原，请打开 SQL 数据库页，并单击“添加”。 在“选择源”文本框中，选择“备份”。 在所选的区域和服务器上指定要从中执行恢复的备份。 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>使用自动备份以编程方式执行恢复
 如前所述，除了使用 Azure 门户外，还可以使用 Azure PowerShell 或 REST API 以编程方式执行数据库恢复。 下表描述了可用的命令集。

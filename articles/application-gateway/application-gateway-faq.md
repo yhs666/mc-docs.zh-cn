@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/19/2017
-ms.date: 09/13/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
-ms.openlocfilehash: e350cda78dd56fef98a09b7650c53c94dccab9f0
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 688d6bdfc77a34422e9c9968d6e62528d116f36a
+ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>应用程序网关常见问题
 
@@ -47,7 +47,7 @@ Azure 应用程序网关是服务形式的应用程序传送控制器 (ADC)，�
 
 **问：该服务已在哪些区域推出？**
 
-应用程序网关已在公共 Azure 的所有区域推出。
+应用程序网关已在国际版 Azure 的所有区域推出。 在 [Azure 中国区](https://www.azure.cn/)中也已推出。
 
 **问：应用程序网关是订阅专门的部署，还是在所有客户之间共享？**
 
@@ -103,11 +103,15 @@ Azure 应用程序网关是服务形式的应用程序传送控制器 (ADC)，�
 
 应用程序网关子网支持网络安全组，但具有以下限制：
 
-- 必须提交端口 65503-65534 上传入流量的异常，以便后台运行状况正常工作。
+- 必须针对端口 65503-65534 上的传入流量设置异常，后端运行状况才能正常工作。
 
 - 不能阻止出站 Internet 连接。
 
 - 必须允许来自 AzureLoadBalancer 标记的流量。
+
+**问：应用程序网关有哪些限制？是否可以提高这些限制？**
+
+请访问[应用程序网关限制](../azure-subscription-service-limits.md#application-gateway-limits)查看限制。
 
 **问：是否可以同时对外部和内部流量使用应用程序网关？**
 
@@ -141,7 +145,7 @@ Azure 应用程序网关是服务形式的应用程序传送控制器 (ADC)，�
 
 Host 字段指定要将探测发送到的名称。 仅在应用程序网关上配置了多站点的情况下适用，否则使用“127.0.0.1”。 此值不同于 VM 主机名，它采用 \<协议\>://\<主机\>:\<端口\>\<路径\> 格式。
 
-**问：我可以将某些源 IP 的应用程序网关访问权限列入允许列表吗？**
+**问：是否可以将一些源 IP 的应用程序网关访问权限列入允许列表？**
 
 对应用程序网关子网使用 NSG 可以完成此方案。 应按列出的优先顺序对子网采取以下限制：
 
@@ -159,7 +163,7 @@ Host 字段指定要将探测发送到的名称。 仅在应用程序网关上�
 
 **问：应用程序网关如何支持高可用性和可伸缩性？**
 
-如果已部署两个或更多个实例，则应用程序网关支持高可用性方案。 Azure 将跨更新域和容错域分配这些实例，确保所有实例不会同时发生故障。 为了支持可伸缩性，应用程序网关会添加同一网关的多个实例来分担负载。
+如果已部署两个或更多个实例，则应用程序网关支持高可用性方案。 Azure 跨更新域和容错域分配这些实例，确保所有实例不会同时发生故障。 为了支持可伸缩性，应用程序网关会添加同一网关的多个实例来分担负载。
 
 **问：如何使用应用程序网关实现跨数据中心的灾难恢复方案？**
 
@@ -175,7 +179,7 @@ Host 字段指定要将探测发送到的名称。 仅在应用程序网关上�
 
 **问：是否可以在不造成中断的情况下，将实例大小从中型更改为大型？**
 
-可以。Azure 将跨更新域和容错域分配实例，确保所有实例不会同时发生故障。 为了支持缩放，应用程序网关可添加同一网关的多个实例来分担负载。
+可以。Azure 会跨更新域和容错域分配实例，确保所有实例不会同时发生故障。 为了支持缩放，应用程序网关可添加同一网关的多个实例来分担负载。
 
 ## <a name="ssl-configuration"></a>SSL 配置
 
@@ -187,6 +191,8 @@ Host 字段指定要将探测发送到的名称。 仅在应用程序网关上�
 
 应用程序网关当前支持以下密码套件。 请访问[在应用程序网关上配置 SSL 策略版本和密码套件](application-gateway-configure-ssl-policy-powershell.md)，了解如何自定义 SSL 选项。
 
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
@@ -283,7 +289,7 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 - 防止自动程序、爬网程序和扫描程序
 
-- 检测常见应用程序错误配置（即 Apache、IIS 等）
+ - 检测常见应用程序错误配置（即 Apache、IIS 等）
 
 **问：WAF 是否也支持 DDoS 防护？**
 

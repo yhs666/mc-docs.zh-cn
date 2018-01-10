@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 08/21/2017
-ms.date: 10/16/2017
+origin.date: 12/13/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0b6c092f2fc35e8e804cc688865f7cf04bba0289
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 47ee59b95c27b5c215996e3a06aef926f9e0d158
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>如何使用 Azure CLI 扩展 Linux VM 上的虚拟硬盘
 在 Azure 的 Linux 虚拟机 (VM) 上，操作系统 (OS) 的默认虚拟硬盘大小通常为 30 GB。 可通过[添加数据磁盘](add-disk.md)来扩充存储空间，但也可能想要扩展现有的数据磁盘。 本文详述如何使用 Azure CLI 2.0 扩展 Linux VM 的托管磁盘。 也可使用 [Azure CLI 1.0](expand-disks-nodejs.md) 扩展非托管 OS 磁盘。
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/09/2017
 > [!WARNING]
 > 执行磁盘重设大小操作前请务必确保已备份数据。 有关详细信息，请参阅[在 Azure 中备份 Linux VM](tutorial-backup-vms.md)。
 
-## <a name="expand-disk"></a>扩展磁盘
+## <a name="expand-azure-managed-disk"></a>扩展 Azure 托管磁盘
 确保已安装了最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录到 Azure 帐户。
 
 本文需要 Azure 中的现有 VM 已附加至少一个数据磁盘并且该磁盘已准备就绪。 如果尚无可用的 VM，请参阅[使用数据磁盘创建和准备 VM](tutorial-manage-disks.md#create-and-attach-disks)。
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/09/2017
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 
-在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup* 和 *myVM*。
+在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 myResourceGroup 和 myVM。
 
 1. 当 VM 正在运行时，无法执行虚拟硬盘上的操作。 使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#deallocate) 解除分配 VM。 以下示例在名为 myResourceGroup 的资源组中解除分配名为 myVM 的 VM：
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/09/2017
     ```
 
     > [!NOTE]
-    > `az vm stop` 不释放计算资源。 若要释放计算资源，请使用 `az vm deallocate`。 只有释放 VM 才能扩展虚拟硬盘。
+    > 只有释放 VM 才能扩展虚拟硬盘。 `az vm stop` 不释放计算资源。 若要释放计算资源，请使用 `az vm deallocate`。
 
 2. 使用 [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#list) 查看资源组中的托管磁盘列表。 以下示例显示名为 myResourceGroup 的资源组中的托管磁盘列表：
 
@@ -73,13 +73,16 @@ ms.lasthandoff: 11/09/2017
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-4. 使用相应的凭据通过 SSH 连接到 VM。 可使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show) 获取 VM 的 公共 IP 地址：
+## <a name="expand-disk-partition-and-filesystem"></a>扩展磁盘分区和文件系统
+若要使用扩展磁盘，需扩展基础分区和文件系统。
+
+1. 使用相应的凭据通过 SSH 连接到 VM。 可使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show) 获取 VM 的 公共 IP 地址：
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-5. 若要使用扩展磁盘，需扩展基础分区和文件系统。
+2. 若要使用扩展磁盘，需扩展基础分区和文件系统。
 
     a. 如果已装载，请卸载磁盘：
 
@@ -105,7 +108,7 @@ ms.lasthandoff: 11/09/2017
     Sector size (logical/physical): 512B/4096B
     Partition Table: loop
     Disk Flags:
-    
+
     Number  Start  End    Size   File system  Flags
         1      0.00B  107GB  107GB  ext4
     ```
@@ -118,27 +121,27 @@ ms.lasthandoff: 11/09/2017
     End?  [107GB]? 215GB
     ```
 
-    d.单击“下一步”。 若要退出，请输入 `quit`
+    d.单击“验证存储凭据”以验证存储帐户。 若要退出，请输入 `quit`
 
-5. 重设分区大小后，请使用 `e2fsck` 验证分区一致性：
+3. 重设分区大小后，请使用 `e2fsck` 验证分区一致性：
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-6. 现在使用 `resize2fs` 重设文件系统大小：
+4. 现在使用 `resize2fs` 重设文件系统大小：
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-7. 将分区安装到目标位置，例如 `/datadrive`：
+5. 将分区安装到目标位置，例如 `/datadrive`：
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-8. 若要验证是否已调整 OS 磁盘的大小，请使用 `df -h`。 以下示例输出显示数据驱动器 (/dev/sdc1) 现在为 200 GB：
+6. 若要验证是否已调整 OS 磁盘的大小，请使用 `df -h`。 以下示例输出显示数据驱动器 (/dev/sdc1) 现在为 200 GB：
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
@@ -147,4 +150,4 @@ ms.lasthandoff: 11/09/2017
 
 ## <a name="next-steps"></a>后续步骤
 如需更多存储，也可[向 Linux VM 添加数据磁盘](add-disk.md)。 有关磁盘加密的详细信息，请参阅[使用 Azure CLI 加密 Linux VM 上的磁盘](encrypt-disks.md)。
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties, wording update -->

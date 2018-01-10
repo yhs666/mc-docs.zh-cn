@@ -1,0 +1,108 @@
+---
+title: "Azure 快速入门 - 使用 Azure 存储资源管理器将对象传入/传出 Azure Blob 存储 | Microsoft Docs"
+description: "快速了解如何使用 Azure 存储资源管理器将对象传入/传出 Azure Blob 存储"
+services: storage
+documentationcenter: storage
+author: yunan2016
+manager: digimobile
+editor: 
+ms.assetid: 
+ms.custom: mvc
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: quickstart
+origin.date: 12/04/2017
+ms.date: 01/01/2018
+ms.author: v-nany
+ms.openlocfilehash: 5c8ddbd26181e8848db67a7ac9c54e0a9328e952
+ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/29/2017
+---
+# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器将对象传入/传出 Azure Blob 存储
+
+[Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)是多平台用户界面，可用于管理存储帐户的内容。 本指南详细介绍如何使用 Azure 存储资源管理器在本地磁盘与 Azure Blob 存储之间传输文件。
+
+如果没有 Azure 订阅，可以在开始前创建一个 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+
+本快速入门教程要求安装 Azure 存储资源管理器。 如果需要安装，请访问 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)，以下载适用于 Windows、Macintosh 或 Linux 的版本。
+
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+
+## <a name="log-in-to-storage-explorer"></a>登录到存储资源管理器
+
+首次启动时，会显示“Microsoft Azure 存储资源管理器 - 连接”窗口。 存储资源管理器提供多种连接到存储帐户的方式。 下表列出了连接方式的差别：
+
+|任务|目的|
+|---|---|
+|添加 Azure 帐户 | 将你重定向到组织登录页，以便在 Azure 上进行身份验证。 |
+|使用连接字符串或共享访问签名 URI | 可用于通过 SAS 令牌或共享连接字符串直接访问容器或存储帐户。 |
+|使用存储帐户名称和密钥| 使用存储帐户的存储帐户名称和密钥连接到 Azure 存储。|
+
+选择“添加 Azure 帐户”，并单击“登录”。遵照屏幕提示登录到 Azure 帐户。
+
+![“Microsoft Azure 存储资源管理器 - 连接”窗口](media/storage-quickstart-blobs-storage-explorer/connect.png)
+
+完成连接后，将会加载 Azure 存储资源管理器并显示“资源管理器”选项卡。 在此视图中，可以洞察所有 Azure 存储帐户，以及通过 [Azure 存储仿真器](../common/storage-use-emulator.md?toc=%2fstorage%2fblobs%2ftoc.json)和 [Cosmos DB](../../cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json) 帐户环境配置的本地存储。
+
+![“Microsoft Azure 存储资源管理器 - 连接”窗口](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
+
+## <a name="create-a-container"></a>创建容器
+
+始终将 Blob 上传到容器中。 这样，就能够整理 blob 组，就像在计算机的文件夹中整理文件一样。
+
+若要创建容器，请展开在前一步骤中创建的存储帐户。 选择并右键单击“Blob 容器”，然后选择“创建 Blob 容器”。 输入 Blob 容器的名称。 请参阅[容器命名规则](storage-dotnet-how-to-use-blobs.md#create-a-container)部分，查看有关命名 Blob 容器的规则和限制列表。 完成后，请按 **Enter** 创建 Blob 容器。 成功创建 Blob 容器后，该容器将显示在所选存储帐户的“Blob 容器”文件夹下。
+
+## <a name="upload-blobs-to-the-container"></a>将 blob 上传到容器
+
+blob 存储支持块 blob、追加 blob 和页 blob。 用于备份 IaaS VM 的 VHD 文件都是页 blob。 追加 blob 用于日志记录，例如有时需要写入到文件，再继续添加更多信息。 Blob 存储中存储的大多数文件都是块 blob。
+
+在容器功能区中选择“上传”。 此操作提供上传文件夹或文件的选项。
+
+选择要上传的文件或文件夹。 选择“Blob 类型”。 可接受的选项包括“追加”、“页 Blob”或“块 Blob”。
+
+若要上传 .vhd 或 .vhdx 文件，请选择“以页 Blob 形式上传 .vhd/.vhdx 文件(推荐)”。
+
+在“上传到文件夹(可选)”字段中，请输入容器下面用于存储文件或文件夹的某个文件夹的名称。 如果未选择任何文件夹，则文件将直接上传到容器下面。
+
+![Microsoft Azure 存储资源管理器 - 上传 Blob](media/storage-quickstart-blobs-storage-explorer/uploadblob.png)
+
+选择“确定”后，选定的文件会排队等待上传，然后上传每个文件。 上传完成后，结果将显示在“活动”窗口中。
+
+## <a name="view-blobs-in-a-container"></a>查看容器中的 Blob
+
+在“Azure 存储资源管理器”应用程序中，选择存储帐户下的某个容器。 主窗格将显示选定容器中的 Blob 列表。
+
+![Microsoft Azure 存储资源管理器 - 列出容器中的 Blob](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
+
+## <a name="download-blobs"></a>下载 Blob
+
+若要使用“Azure 存储资源管理器”下载 Blob，请选择所需的 Blob，然后在功能区中选择“下载”。 此时将打开文件对话框，可在其中输入文件名。 选择“保存”，开始将 Blob 下载到本地位置。
+
+## <a name="manage-snapshots"></a>管理快照
+
+Azure 存储资源管理器提供创建和管理 Blob [快照](storage-blob-snapshots.md)的功能。 若要创建某个 Blob 的快照，请右键单击该 Blob 并选择“创建快照”。 若要查看某个 Blob 的快照，请右键单击该 Blob 并选择“管理快照”。 当前选项卡中会显示 Blob 的快照列表。
+
+![Microsoft Azure 存储资源管理器 - 列出容器中的 Blob](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
+
+## <a name="manage-access-policies"></a>管理访问策略
+
+存储资源管理器提供相应的功能用于管理其用户界面中容器的访问策略。 有两种类型的安全访问策略 (SAS)：服务级别和帐户级别。 帐户级别 SAS 以存储帐户为目标，可应用到多个服务和资源。 服务级别 SAS 是针对特定服务下的资源定义的。 若要生成服务级别 SAS，请右键单击任一容器，并选择“管理访问策略...”。若要生成帐户级别 SAS，请右键单击存储帐户。
+
+选择“添加”以添加新的访问策略，并定义策略的权限。 完成后，请选择“保存”以保存访问策略。 现在，在配置共享访问签名时，可以使用此策略。
+
+## <a name="work-with-shared-access-signatures"></a>使用共享访问签名
+
+可以通过存储资源管理器检索共享访问签名 (SAS)。 右键单击某个存储帐户、容器或 Blob，并选择“获取共享访问签名...”。选择开始时间和过期时间以及 SAS URL 的权限，并选择“创建”。 系统会提供包含查询字符串的完整 URL 以及查询字符串本身，在下一个屏幕中可以复制这些信息。
+
+![Microsoft Azure 存储资源管理器 - 列出容器中的 Blob](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
+
+## <a name="next-steps"></a>后续步骤
+
+在此快速入门教程中，我们学习了如何使用 **Azure 存储资源管理器**在本地磁盘与 Azure Blob 存储之间传输文件。 要深入了解如何使用 Blob 存储，请继续学习 Blob 存储操作说明。
+
+> [!div class="nextstepaction"]
+> [Blob 存储操作说明](storage-how-to-use-blobs-powershell.md)

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/12/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3b4a5c05585c43f9726997d4bcbf9fb3d1f71fe5
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 08b692a61f18401854576be05d31b95a9a9b0d36
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 群集容量规划注意事项
 对于任何生产部署，容量规划都是一个重要的步骤。 下面是在规划过程中必须注意的一些事项。
@@ -51,10 +51,10 @@ ms.lasthandoff: 12/01/2017
 ### <a name="primary-node-type"></a>主节点类型
 对于包含多个节点类型的群集，需要选择其中一个作为主节点类型。 下面是主节点类型的特征：
 
-* 主节点类型的 **VM 大小下限**取决于选择的**持久性层**。 持久性层的默认值为 Bronze。 有关持久性层的定义以及可采用的值的详细信息，请向下滚动。  
+* 主节点类型的 **VM 大小下限**取决于选择的**持久性层**。 耐久性层的默认值为“青铜”。 有关持久性层的定义以及可采用的值的详细信息，请向下滚动。  
 * 主节点类型的 **VM 数目下限**取决于选择的**可靠性层**。 可靠性层的默认值为 Silver。 向下滚动，可查看有关可靠性层的定义以及可采用的值的详细信息。 
 
-* Service Fabric 系统服务（例如，群集管理器服务或映像存储服务）放在主节点类型上，因此，群集的可靠性和持久性取决于为主节点类型选择的可靠性层值与持久性层值。
+* Service Fabric 系统服务（例如，群集管理器服务或映像存储服务）放在主节点类型上，因此，群集的可靠性和耐久性取决于你为主节点类型选择的可靠性层值与耐久性层值。
 
 ![显示具有两个节点类型的群集的屏幕截图 ][SystemServices]
 
@@ -65,11 +65,11 @@ ms.lasthandoff: 12/01/2017
 * 此节点类型的 VM 数目下限可以是 1。 但是，应该根据想要在此节点类型中运行的应用程序/服务的副本数目选择此数目。 部署群集之后，节点类型中的 VM 数目可能会增加。
 
 ## <a name="the-durability-characteristics-of-the-cluster"></a>群集的持久性特征
-持久性层用于向系统指示 VM 对于基本 Azure 基础结构拥有的权限。 在主节点类型中，此权限可让 Service Fabric 暂停影响系统服务及有状态服务的仲裁要求的任何 VM 级别基础结构请求（例如，VM 重启、VM 重置映像或 VM 迁移）。 在非主节点类型中，此特权可让 Service Fabric 暂停影响其中运行的有状态服务的仲裁要求的任何 VM 级别基础结构请求，例如，VM 重新启动、VM 重置映像、VM 迁移，等等。
+耐久性层用于向系统指示 VM 对于基本 Azure 基础结构拥有的权限。 在主节点类型中，此权限可让 Service Fabric 暂停影响系统服务及有状态服务的仲裁要求的任何 VM 级别基础结构请求（例如，VM 重启、VM 重置映像或 VM 迁移）。 在非主节点类型中，此特权可让 Service Fabric 暂停影响其中运行的有状态服务的仲裁要求的任何 VM 级别基础结构请求，例如，VM 重新启动、VM 重置映像、VM 迁移，等等。
 
 此权限表示为以下值：
 
-* 黄金 - 每个 UD 可持续暂停基础结构作业 2 小时。 仅可在 D15_V2、G5 等完整节点 VM sku 上启用 Gold 持续性。
+* 黄金 - 每个 UD 可持续暂停基础结构作业 2 小时。 仅可在 D15_V2、G5 等完整节点 VM sku 上启用“黄金”耐久性。
 * 白银 - 可以为每个 UD 持续暂停基础结构作业 10 分钟，并且可在所有单核及多核的标准 VM 上使用。
 * Bronze - 无权限。 这是默认值。 仅将此持续性级别用于只运行无状态工作负载的节点类型。 
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 12/01/2017
 * Bronze - 运行包含 3 个目标副本集的系统服务
 
 > [!NOTE]
-> 选择的可靠性层决定了主节点类型必须具有的节点数下限。 
+> 选择的可靠性层决定了主节点类型必须具有的最少节点数。 
 > 
 > 
 
@@ -172,13 +172,14 @@ ms.lasthandoff: 12/01/2017
 
 因此，对于生产工作负荷，如果在节点中运行有状态工作负荷，建议使用的最小非主节点类型大小为 5。
 
-**VM SKU：**这是运行应用程序服务的节点类型，因此，为其选择的 VM SKU 必须将你计划在每个节点中放置的峰值负荷考虑在内。 节点类型的容量需求是由你计划在群集中运行的工作负荷决定的，因此，我们无法针对具体工作负荷提供定性指导，但是下面的宽泛指导可帮助你入门
+
+            **VM SKU：**这是运行应用程序服务的节点类型，因此，为其选择的 VM SKU 必须将你计划在每个节点中放置的峰值负荷考虑在内。 节点类型的容量需求是由你计划在群集中运行的工作负荷决定的，因此，我们无法针对具体工作负荷提供定性指导，但是下面的宽泛指导可帮助你入门
 
 对于生产工作负荷 
 
 - 建议的 VM SKU 为标准 D3 或标准 D3_V2，或者相当于一块至少 14 GB 的本地 SSD 的容量。
 - 支持使用的最小 VM SKU 为标准 D1 或标准 D1_V2，或者相当于一块至少 14 GB 的本地 SSD 的容量。 
-- 生产工作负荷不支持不完整的核心 VM SKU，例如标准 A0。
+- 部分核心 VM SKU（例如标准 A0）不支持用于生产工作负荷。
 - 具体而言，出于性能原因，生产工作负荷不支持标准 A1 SKU。
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateless-workloads"></a>非主节点类型 - 针对无状态工作负荷的容量指导
@@ -192,13 +193,14 @@ ms.lasthandoff: 12/01/2017
 > 
 >
 
-**VM SKU：**这是运行应用程序服务的节点类型，因此，为其选择的 VM SKU 必须将你计划在每个节点中放置的峰值负荷考虑在内。 节点类型的容量需求是由你计划在群集中运行的工作负荷决定的，因此，我们无法针对具体工作负荷提供定性指导，但是下面的宽泛指导可帮助你入门
+
+            **VM SKU：**这是运行应用程序服务的节点类型，因此，为其选择的 VM SKU 必须将你计划在每个节点中放置的峰值负荷考虑在内。 节点类型的容量需求是由你计划在群集中运行的工作负荷决定的，因此，我们无法针对具体工作负荷提供定性指导，但是下面的宽泛指导可帮助你入门
 
 对于生产工作负荷 
 
 - 建议的 VM SKU 为标准 D3、标准 D3_V2 或相当的容量。 
 - 支持使用的最小 VM SKU 为标准 D1、标准 D1_V2 或相当的容量。 
-- 部分核心 VM SKU（例如标准 A0）不支持用于生产工作负荷。
+- 生产工作负荷不支持不完整的核心 VM SKU，例如标准 A0。
 - 由于性能原因，不支持将标准 A1 SKU 用于生产工作负荷。
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -213,4 +215,4 @@ ms.lasthandoff: 12/01/2017
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
-<!--Update_Description: add Changing durability levels content, wording update -->
+<!--Update_Description: wording update -->

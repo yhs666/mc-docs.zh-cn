@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/15/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 530975e137b65dcaf02ab0d0bd7301c4c4d63cd5
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 50b4e182a29b67053f14c3d65154ac63ea64f0c1
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>使用 X.509 证书在 Windows 上保护独立群集
 本文介绍如何保护独立 Windows 群集的不同节点之间的通信。 此外，还介绍如何使用 X.509 证书针对连接到此群集的客户端进行身份验证。 身份验证可确保只有经过授权的用户才能访问该群集和部署的应用程序，以及执行管理任务。 创建群集时，应在该群集上启用证书安全性。  
@@ -255,7 +255,7 @@ ms.lasthandoff: 12/01/2017
     Write-Host $cert.ToString($true)
     ```
 
-或者，如果具有 Azure 订阅，请遵循[将证书添加到 Key Vault](service-fabric-cluster-creation-via-arm.md#add-certificates-to-your-key-vault) 部分中的步骤操作。
+此外，如果你有 Azure 订阅，请按照[使用 Azure 资源管理器创建 Service Fabric 群集](service-fabric-cluster-creation-via-arm.md)中的步骤进行操作。
 
 ## <a name="install-the-certificates"></a>安装证书
 获取证书后，可将其安装在群集节点上。 节点上需安装最新的 Windows PowerShell 3.x。 每个节点上，针对群集证书和服务器证书以及任何辅助证书重复这些步骤。

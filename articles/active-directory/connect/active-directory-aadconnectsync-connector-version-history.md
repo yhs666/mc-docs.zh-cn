@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/06/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: f22000eb8b76c819c660899731e5471d0352827a
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 20fb5b9f6b6b59a98d98c4fe53b2775ccad5b3fc
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="connector-version-release-history"></a>连接器版本发行历史记录
 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接器会经常更新。
@@ -45,7 +45,7 @@ Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接�
 
 - Lotus Notes：
   - 筛选自定义认证者选项
-  - 修复了类 ImportOperations 的导入，以便决定哪些操作可在“示图”模式下运行，哪些操作可在“搜索”模式下运行。
+  - ImportOperations 类的导入修复了有关哪些操作可在“视图”模式下运行以及哪些操作可在“搜索”模式下运行的定义。
 - 泛型 LDAP：
   - OpenLDAP 目录使用 DN 而非 entryUUI 作为定位点。 增加了 GLDAP 连接器的新选项，用于修改定位点
 - 泛型 SQL：
@@ -132,7 +132,7 @@ Lotus：
 
 
 - 泛型 LDAP：</br>
- **方案：** 如果在特定分区中只选择了数个容器，则会在整个分区中进行搜索。 特定的会通过同步服务进行筛选，但不通过 MA 进行筛选，后者可能导致性能下降。 </br>
+ **方案：** 如果在特定分区中只选择了数个容器，则会在整个分区中进行搜索。 具体的信息由同步服务而不是 MA 筛选，这可能会导致性能下降。 </br>
 
  **解决方案说明：** 更改了 GLDAP 连接器的代码，以便浏览所有容器，在每个容器中搜索对象，不必在整个分区进行搜索。
 
@@ -170,7 +170,7 @@ Lotus：
  - 在 Lotus MA 的配置 GUI 中添加了一个选项，允许选择“追加底部的项”作为导出模式，以便在多值属性的导出过程中追加底部的新项。
  - 连接器会添加所需的逻辑，以便从邮件文件夹和 ID 保管库中删除文件。
  - 删除不适用于跨 NAB 成员的成员身份。
- - 应可从多值属性中成功删除值
+ - 应该从多值属性中成功删除值
 
 ## <a name="111170"></a>1.1.117.0
 发布时间：2016 年 3 月
@@ -250,4 +250,3 @@ Lotus：
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!--Update_Description: wording update -->

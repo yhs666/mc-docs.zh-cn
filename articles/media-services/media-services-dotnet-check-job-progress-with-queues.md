@@ -3,7 +3,7 @@ title: "使用 Azure 队列存储通过 .NET 监视媒体服务作业通知 | Az
 description: "了解如何使用 Azure 队列存储监视媒体服务作业通知。 代码示例用 C# 编写，并使用用于 .NET 的媒体服务 SDK。"
 services: media-services
 documentationcenter: 
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: f535d0b5-f86c-465f-81c6-177f4f490987
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 08/14/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 31eb79ae736d4122e7571fa917c785d2434f959d
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+origin.date: 12/09/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: a75971714668494de0418564ac310da0a9e30553
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure 队列存储通过 .NET 监视媒体服务作业通知
 运行编码作业时，通常需要采用某种方式来跟踪作业进度。 可以配置媒体服务将通知传送到 [Azure 队列存储](../storage/storage-dotnet-how-to-use-queues.md)。 然后可以通过从队列存储获取通知来监视作业进度。 
@@ -28,14 +28,14 @@ ms.lasthandoff: 08/31/2017
 
 一种常见的媒体服务通知侦听方案是：正在开发一个内容管理系统，完成编码作业后，该系统需要执行一些其他任务（例如触发工作流的下一步骤或者发布内容）。
 
-本主题说明如何从队列存储获取通知消息。  
+本文展示了如何从队列存储获取通知消息。  
 
 ## <a name="considerations"></a>注意事项
-开发使用队列存储的媒体服务应用程序时，请注意以下几点：
+开发使用存储队列的媒体服务应用程序时，请注意以下几点：
 
 * 队列存储不保证按照先进先出 (FIFO) 的顺序传递消息。 有关详细信息，请参阅 [Azure 队列和 Azure 服务总线队列比较与对照](https://msdn.microsoft.com/library/azure/hh767287.aspx)。
 * 队列存储不是推送服务。 必须轮询队列。
-* 可以有任意数目的队列。 有关详细信息，请参阅 [队列服务 REST API](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API)。
+* 可以有任意数目的队列。 有关详细信息，请参阅[队列服务 REST API](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API)。
 * 队列存储存在一些需注意的限制和细节问题。 相关说明请参阅 [Azure 队列和 Azure 服务总线队列比较与对照](/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)。
 
 ## <a name="net-code-example"></a>.NET 代码示例
@@ -57,7 +57,7 @@ ms.lasthandoff: 08/31/2017
 9. 删除队列和通知终结点。
 
 > [!NOTE]
-> 监视作业状态的建议方法是侦听通知消息，如以下示例所示。
+> 监视作业状态的建议方法是侦听通知消息，如以下示例所示：
 >
 > 或者，可以使用 IJob.State 属性检查作业状态。  在 **IJob** 的状态设置为“已完成”之前，可能会先收到一条指示作业已完成的通知消息。 IJob.State 属性在延迟片刻之后反映正确的状态。
 >
@@ -67,6 +67,7 @@ ms.lasthandoff: 08/31/2017
 
 1. 设置开发环境，并在 app.config 文件中填充连接信息，如[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述。 
 2. 创建新的文件夹（文件夹可以位于本地驱动器上的任何位置），然后复制需要编码和流式处理或渐进式下载的 .mp4 文件。 在此示例中，我们使用了“C:\Media”路径。
+3. 添加对 **System.Runtime.Serialization** 库的引用。
 
 ### <a name="code"></a>代码
 
@@ -123,9 +124,14 @@ namespace JobNotification
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+
         private static readonly string _StorageConnectionString = 
             ConfigurationManager.AppSettings["StorageConnectionString"];
 
@@ -141,7 +147,11 @@ namespace JobNotification
             string endPointAddress = Guid.NewGuid().ToString();
 
             // Create the context.
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -329,7 +339,8 @@ namespace JobNotification
     }
 }
 ```
-以上示例生成了以下输出。 值会有所变化。
+
+以上示例生成以下输出：您的值会有所变化。
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

@@ -5,7 +5,7 @@ metakeywords: Elastic Database certificates security
 services: sql-database
 documentationcenter: 
 manager: digimobile
-author: forester123
+author: yunan2016
 ms.assetid: f9e89c57-61a0-484f-b787-82dae2349cb6
 ms.service: sql-database
 ms.custom: scale out apps
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/27/2016
-ms.date: 11/06/2017
-ms.author: v-johch
-ms.openlocfilehash: 0e97d6635026eea6b8768f5c9ce021230f6986e8
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.date: 01/08/2018
+ms.author: v-nany
+ms.openlocfilehash: a35f8b61b8136e20223168f1bc49986c1b4b4131
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="split-merge-security-configuration"></a>拆分/合并安全配置
 若要使用拆分/合并服务，必须正确配置安全性。 该服务是 Azure SQL 数据库弹性缩放功能的一部分。 有关详细信息，请参阅[弹性缩放拆分和合并服务教程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。
@@ -42,12 +42,10 @@ ms.lasthandoff: 10/31/2017
 
 ### <a name="to-run-the-tools"></a>运行工具
 * 有关适用于 Visual Studio 的开发人员命令提示符，请参阅 [Visual Studio 命令提示符](http://msdn.microsoft.com/library/ms229859.aspx) 
-
+  
     如果已安装工具，请转到：
-
-    ```
-    %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-    ```
+  
+        %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 * 从 [Windows 8.1：下载工具包和工具](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>配置 SSL 证书
@@ -121,26 +119,22 @@ ms.lasthandoff: 10/31/2017
 ### <a name="changing-the-configuration"></a>更改配置
 在**服务配置文件**的 **<EndpointAcls>** 节中配置应用的访问控制组规则和终结点。
 
-```
-<EndpointAcls>
-  <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
-  <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
-</EndpointAcls>
-```
+    <EndpointAcls>
+      <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
+      <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
+    </EndpointAcls>
 
 在服务配置文件的 <AccessControl name=""> 节中配置访问控制组中的规则。 
 
 在网络访问控制列表文档中对格式进行了说明。
 例如，要仅允许范围 100.100.0.0 到 100.100.255.255 中的 IP 访问 HTTPS 终结点，规则如下所示：
 
-```
-<AccessControl name="Retricted">
-  <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
-  <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
-</AccessControl>
-<EndpointAcls>
-<EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
-```
+    <AccessControl name="Retricted">
+      <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
+      <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
+    </AccessControl>
+    <EndpointAcls>
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
 
 ## <a name="denial-of-service-prevention"></a>防止拒绝服务
 可使用两种受支持的不同机制检测和防止拒绝服务攻击：
@@ -156,28 +150,22 @@ ms.lasthandoff: 10/31/2017
 ## <a name="restricting-number-of-concurrent-accesses"></a>限制并发访问数
 配置此行为的设置如下：
 
-```
-<Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
-<Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
-```
+    <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
+    <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
 
 将 DynamicIpRestrictionDenyByConcurrentRequests 更改为 true 以启用此保护。
 
 ## <a name="restricting-rate-of-access"></a>限制访问率
 配置此行为的设置如下：
 
-```
-<Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
-<Setting name="DynamicIpRestrictionMaxRequests" value="100" />
-<Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
-```
+    <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
+    <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
+    <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
 
 ## <a name="configuring-the-response-to-a-denied-request"></a>配置对拒绝请求的响应
 以下设置将配置对拒绝请求的响应：
 
-```
-<Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
-```
+    <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
 有关其他受支持的值，请参考 IIS 中动态 IP 安全文档。
 
 ## <a name="operations-for-configuring-service-certificates"></a>用于配置服务证书的操作
@@ -189,14 +177,12 @@ ms.lasthandoff: 10/31/2017
 ## <a name="create-a-self-signed-certificate"></a>创建自签名证书
 执行：
 
-```
-makecert ^
-  -n "CN=myservice.chinacloudapp.cn" ^
-  -e MM/DD/YYYY ^
-  -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-  -a sha1 -len 2048 ^
-  -sv MySSL.pvk MySSL.cer
-```
+    makecert ^
+      -n "CN=myservice.chinacloudapp.cn" ^
+      -e MM/DD/YYYY ^
+      -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
+      -a sha1 -len 2048 ^
+      -sv MySSL.pvk MySSL.cer
 
 自定义：
 
@@ -206,9 +192,7 @@ makecert ^
 ## <a name="create-pfx-file-for-self-signed-ssl-certificate"></a>为自签名 SSL 证书创建 PFX 文件
 执行：
 
-```
-    pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
-```
+        pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
 
 输入密码，并使用以下选项导出证书：
 
@@ -230,9 +214,7 @@ makecert ^
 ## <a name="update-ssl-certificate-in-service-configuration-file"></a>在服务配置文件中更新 SSL 证书
 在服务配置文件中，使用已上传到云服务的证书指纹更新以下设置的指纹值：
 
-```
-<Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
-```
+    <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
 
 ## <a name="import-ssl-certification-authority"></a>导入 SSL 证书颁发机构
 在将与该服务通信的所有帐户/计算机中，按照以下步骤进行操作：
@@ -246,29 +228,23 @@ makecert ^
 
 在服务配置文件中，将这些设置更改为 false 以关闭该功能：
 
-```
-<Setting name="SetupWebAppForClientCertificates" value="false" />
-<Setting name="SetupWebserverForClientCertificates" value="false" />
-```
+    <Setting name="SetupWebAppForClientCertificates" value="false" />
+    <Setting name="SetupWebserverForClientCertificates" value="false" />
 
 然后，复制与 CA 证书设置中 SSL 证书相同的指纹：
 
-```
-<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
-```
+    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
 ## <a name="create-a-self-signed-certification-authority"></a>创建自签名证书颁发机构
 执行以下步骤来创建自签名证书，以充当证书颁发机构：
 
-```
-makecert ^
--n "CN=MyCA" ^
--e MM/DD/YYYY ^
- -r -cy authority -h 1 ^
- -a sha1 -len 2048 ^
-  -sr localmachine -ss my ^
-  MyCA.cer
-```
+    makecert ^
+    -n "CN=MyCA" ^
+    -e MM/DD/YYYY ^
+     -r -cy authority -h 1 ^
+     -a sha1 -len 2048 ^
+      -sr localmachine -ss my ^
+      MyCA.cer
 
 对其进行自定义
 
@@ -300,30 +276,24 @@ makecert ^
 ## <a name="update-ca-certificate-in-service-configuration-file"></a>在服务配置文件中更新 CA 证书
 在服务配置文件中，使用已上传到云服务的证书指纹更新以下设置的指纹值：
 
-```
-<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
-```
+    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
 使用同一指纹更新以下设置的值：
 
-```
-<Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
-```
+    <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
 ## <a name="issue-client-certificates"></a>颁发客户端证书
 授予了访问服务权限的每个用户都应具有一个颁发的客户端证书供其独占使用，并且应选择自己的强密码来保护其私钥。 
 
 必须在生成和存储了自签名 CA 证书的同一计算机上执行以下步骤：
 
-```
-makecert ^
-  -n "CN=My ID" ^
-  -e MM/DD/YYYY ^
-  -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-  -a sha1 -len 2048 ^
-  -in "MyCA" -ir localmachine -is my ^
-  -sv MyID.pvk MyID.cer
-```
+    makecert ^
+      -n "CN=My ID" ^
+      -e MM/DD/YYYY ^
+      -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
+      -a sha1 -len 2048 ^
+      -in "MyCA" -ir localmachine -is my ^
+      -sv MyID.pvk MyID.cer
 
 自定义：
 
@@ -336,15 +306,11 @@ makecert ^
 ## <a name="create-pfx-files-for-client-certificates"></a>为客户端证书创建 PFX 文件
 针对每个生成的客户端证书，执行：
 
-```
-pvk2pfx -pvk MyID.pvk -spc MyID.cer
-```
+    pvk2pfx -pvk MyID.pvk -spc MyID.cer
 
 自定义：
 
-```
-MyID.pvk and MyID.cer with the filename for the client certificate
-```
+    MyID.pvk and MyID.cer with the filename for the client certificate
 
 输入密码，并使用以下选项导出证书：
 
@@ -360,7 +326,7 @@ MyID.pvk and MyID.cer with the filename for the client certificate
   * 包括选中的所有扩展属性
 
 ## <a name="copy-client-certificate-thumbprints"></a>复制客户端证书指纹
-为其颁发了客户端证书的每个用户都必须遵循以下步骤，才能获取将添加到服务配置文件的证书的指纹：
+为其颁发了客户端证书的每个用户都必须遵循以下步骤，才能获取会添加到服务配置文件的证书的指纹：
 
 * 运行 certmgr.exe
 * 选择“个人”选项卡
@@ -373,30 +339,21 @@ MyID.pvk and MyID.cer with the filename for the client certificate
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>在服务配置文件中配置允许的客户端
 在服务配置文件中，使用以逗号分隔的客户端证书（允许访问服务）的指纹列表更新以下设置的值：
 
-```
-<Setting name="AllowedClientCertificateThumbprints" value="" />
-```
+    <Setting name="AllowedClientCertificateThumbprints" value="" />
 
 ## <a name="configure-client-certificate-revocation-check"></a>配置客户端证书吊销检查
-
 默认设置不会通过证书颁发机构检查客户端证书吊销状态。 若要启用检查，请在颁发了客户端证书的证书颁发机构支持此类检查时，使用在 X509RevocationMode 枚举中定义的值之一更改以下设置：
 
-```
-<Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
-```
+    <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
 
 ## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>为自签名加密证书创建 PFX 文件
 对于加密证书，请执行：
 
-```
-pvk2pfx -pvk MyID.pvk -spc MyID.cer
-```
+    pvk2pfx -pvk MyID.pvk -spc MyID.cer
 
 自定义：
 
-```
-MyID.pvk and MyID.cer with the filename for the encryption certificate
-```
+    MyID.pvk and MyID.cer with the filename for the encryption certificate
 
 输入密码，并使用以下选项导出证书：
 
@@ -420,9 +377,7 @@ MyID.pvk and MyID.cer with the filename for the encryption certificate
 ## <a name="update-encryption-certificate-in-service-configuration-file"></a>在服务配置文件中更新加密证书
 在服务配置文件中，使用已上传到云服务的证书指纹更新以下设置的指纹值：
 
-```
-<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
-```
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 ## <a name="common-certificate-operations"></a>公用证书操作
 * 配置 SSL 证书
@@ -437,7 +392,7 @@ MyID.pvk and MyID.cer with the filename for the encryption certificate
 4. 单击“添加” 。
 5. 选择证书存储位置。
 6. 单击“完成” 。
-7. 单击“确定” 。
+7. 单击 **“确定”**。
 8. 展开“证书” 。
 9. 展开证书存储节点。
 10. 展开证书子节点。
@@ -457,31 +412,30 @@ MyID.pvk and MyID.cer with the filename for the encryption certificate
 9. 在证书的存储位置键入或浏览文件名（使用 .PFX 扩展名）。
 10. 单击“下一步”。
 11. 单击“完成” 。
-12. 单击“确定” 。
+12. 单击 **“确定”**。
 
 ## <a name="import-certificate"></a>导入证书
 在“证书导入向导”中：
 
 1. 选择存储位置。
-
+   
    * 如果只有在当前用户下运行的进程将访问该服务，请选择“当前用户”
    * 如果此计算机中的其他进程将访问该服务，请选择“本地计算机”
-2. 单击“下一步” 。
+2. 单击“下一步”。
 3. 如果要从文件中导入，请确认文件路径。
 4. 如果要导入 .PFX 文件，请执行以下操作：
    1. 输入用于保护私钥的密码
    2. 选择导入选项
 5. 选择“将证书放入以下存储”
-6. 单击“浏览” 。
+6. 单击“浏览”。
 7. 选择所需的存储。
 8. 单击“完成” 。
-
+   
    * 如果已选中“受信任的根证书颁发机构”存储，请单击“是” 。
 9. 在所有对话框窗口上单击“确定”  。
 
 ## <a name="upload-certificate"></a>上传证书
-
-在“证书导出向导” [Azure 门户](https://portal.azure.cn/)
+在 [Azure 门户](https://portal.azure.cn/)中
 
 1. 选择“云服务” 。
 2. 选择云服务。
@@ -492,11 +446,9 @@ MyID.pvk and MyID.cer with the filename for the encryption certificate
 7. 完成操作后，从列表中的新条目复制证书指纹。
 
 ## <a name="other-security-considerations"></a>其他安全注意事项
-使用 HTTPS 终结点时，本文档中介绍的 SSL 设置将对服务及其客户端之间的通信进行加密。 这一点很重要，因为该通信中包含了数据库访问凭据以及其他可能的敏感信息。 但是，请注意，该服务会将内部状态（包括凭据）保存在其内部表中，该表位于在 Azure 订阅中为元数据存储提供的 Azure SQL 数据库中。 在服务配置文件（.CSCFG 文件）中，该数据库已定义为以下设置的一部分： 
+使用 HTTPS 终结点时，本文档中介绍的 SSL 设置对服务及其客户端之间的通信进行加密。 这一点很重要，因为该通信中包含了数据库访问凭据以及其他可能的敏感信息。 但是，请注意，该服务会将内部状态（包括凭据）保存在其内部表中，该表位于在 Azure 订阅中为元数据存储提供的 Azure SQL 数据库中。 在服务配置文件（.CSCFG 文件）中，该数据库已定义为以下设置的一部分： 
 
-```
-<Setting name="ElasticScaleMetadata" value="Server=…" />
-```
+    <Setting name="ElasticScaleMetadata" value="Server=…" />
 
 对此数据库中存储的凭据进行加密。 但是，最佳实践是，确保服务部署的 Web 角色和辅助角色保持最新且是安全的，因为它们都有权访问元数据数据库和用于加密和解密存储凭据的证书。 
 

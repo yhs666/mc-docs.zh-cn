@@ -15,16 +15,16 @@ ms.topic: sample
 origin.date: 10/30/2017
 ms.author: v-yiso
 ms.custom: mvc
-ms.date: 12/04/2017
-ms.openlocfilehash: cc560ff5cd171eafcdc43f2deec49af3cdc153ca
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.date: 01/02/2018
+ms.openlocfilehash: 88834d6bc884def3f54ee2048b3adcd8506ec1f5
+ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/25/2017
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app"></a>为 Web 应用创建计划备份
 
-此示例脚本使用其相关资源，在应用服务中创建 Web 应用，然后为其创建一次性备份。 
+此示例脚本在应用服务中创建一个 Web 应用及其相关资源，然后为其创建计划的备份。 
 
 必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/en-us/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Login-AzureRmAccount` 创建与 Azure 的连接。 
 
@@ -86,12 +86,12 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzureRmStorageAccount](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/new-azurermstorageaccount) | 创建存储帐户。 |
 | [New-AzureStorageContainer](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer) | 创建 Azure 存储容器。 |
-| [New-AzureStorageContainerSASToken](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzureStorageContainerSASToken](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainersastoken) | 为 Azure 存储容器生成 SAS 令牌。 |
 | [New-AzureRmAppServicePlan](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/new-azurermappserviceplan) | 创建应用服务计划。 |
 | [New-AzureRmWebApp](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/new-azurermwebapp) | 创建 Web 应用。 |
 | [Edit-AzureRmWebAppBackupConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/edit-azurermwebappbackupconfiguration) | 编辑 Web 应用的备份配置。 |

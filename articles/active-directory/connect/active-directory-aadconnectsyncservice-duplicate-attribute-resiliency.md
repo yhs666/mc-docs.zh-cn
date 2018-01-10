@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/17/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: 33e0fb3f2bbb4fb3bbf18a44d7f39c6e6b9d4760
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: e6d586f23c436d28b1e663ed2f917d55bcfae867
+ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>标识同步和重复属性复原
-重复属性复原是 Azure Active Directory 的一项功能，可在运行 Microsoft 的同步工具之一时消除 UserPrincipalName 和 ProxyAddress 冲突所造成的不便。
+重复属性复原是 Azure Active Directory 的一项功能，可在运行 Microsoft 的同步工具之一时消除 **UserPrincipalName** 和 **ProxyAddress** 冲突所造成的不便。
 
-在给定 Azure Active Directory 租户的所有“User”或“Contact”对象中，这两个属性通常必须唯一。
+在给定 Azure Active Directory 租户的所有“User”、“Group”或“Contact”对象中，这两个属性通常必须唯一。
 
 > [!NOTE]
 > 只有用户可以拥有 UPN。
@@ -49,7 +49,7 @@ Azure Active Directory 并不是完全无法预配或更新具有重复属性的
 这是一个多值属性，用于存储正常添加时违反唯一性约束的冲突属性。 Azure Active Directory 中已启用后台计时器任务，该任务每小时运行一次，用于查找已解决的重复属性冲突，并自动从隔离区中删除有问题的属性。
 
 ### <a name="enabling-duplicate-attribute-resiliency"></a>启用重复属性复原
-在所有 Azure Active Directory 租户中，重复属性复原将是新的默认行为。 对于所有在 2016 年 8 月 22 日或之后第一次启用同步的租户，该行为默认启用。 在此日期之前启用同步的租户会通过批处理方式启用此功能。 此部署于 2016 年 9 月开始，我们会向每个租户的技术通知联系人发送电子邮件通知，告知启用此功能的具体日期。
+重复属性复原将是所有 Azure Active Directory 租户上的新默认行为。 对于所有在 2016 年 8 月 22 日或之后第一次启用同步的租户，该行为默认启用。 在此日期之前启用同步的租户会通过批处理方式启用此功能。 此部署于 2016 年 9 月开始，我们会向每个租户的技术通知联系人发送电子邮件通知，告知启用此功能的具体日期。
 
 > [!NOTE]
 > 重复属性复原在启用后无法禁用。
@@ -72,7 +72,7 @@ Azure Active Directory 并不是完全无法预配或更新具有重复属性的
 - 以下所有 cmdlet 都区分大小写。
 - 始终必须包含 **-ErrorCategory PropertyConflict** 。 目前没有其他类型的 **ErrorCategory**，但将来可能会扩展此项。
 
-首先，应运行 **Connect-MsolService** 并输入租户管理员的凭据。
+首先，应运行 **Connect-MsolService -AzureEnvironment AzureChinaCloud** 并输入租户管理员的凭据。
 
 然后，使用以下 cmdlet 和运算符以不同方式查看错误：
 
@@ -160,7 +160,7 @@ ProxyAddress 冲突的电子邮件通知示例如下所示：
    
     c. **用户 B** 的 UPN 已更改为 **User1234@contoso.partner.onmschina.cn**，**User@contoso.com** 已添加到 **DirSyncProvisioningErrors**。
    
-    d. **用户 B** 的错误消息应指出**用户 A** 已有用作 UPN 的 **User@contoso.com**，但却显示**用户 B** 自己的 displayName。
+    d.单击“验证存储凭据”以验证存储帐户。 **用户 B** 的错误消息应指出**用户 A** 已有用作 UPN 的 **User@contoso.com**，但却显示**用户 B** 自己的 displayName。
 
 **标识同步错误报告**：
 
@@ -175,4 +175,4 @@ ProxyAddress 冲突的电子邮件通知示例如下所示：
 - [识别 Office 365 中的目录同步错误](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

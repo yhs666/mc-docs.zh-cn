@@ -3,7 +3,7 @@ title: "了解 Azure IoT 中心 MQTT 支持 | Azure"
 description: "开发人员指南 - 支持设备使用 MQTT 协议连接到面向设备的 IoT 中心终结点。 介绍了 Azure IoT 设备 SDK 中的内置 MQTT 支持。"
 services: iot-hub
 documentationcenter: .net
-author: kdotchkoff
+author: fsautomata
 manager: timlt
 editor: 
 ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/11/2017
-ms.date: 11/20/2017
+origin.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: bca91f229756d40eef077de01fd8bc13209c7352
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 64948a01ed7bfd4654f4a03fcc275f6ea8bf53de
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 协议与 IoT 中心通信
 IoT 中心让设备能够在端口 8883 上使用 [MQTT v3.1.1][lnk-mqtt-org] 协议，或在端口 443 上使用基于 WebSocket 的 MQTT v3.1.1 协议来与 IoT 中心设备终结点通信。 IoT 中心要求使用 TLS/SSL 保护所有设备通信（因此，IoT 中心不支持端口 1883 上的非安全连接）。
@@ -60,6 +60,11 @@ IoT 中心让设备能够在端口 8883 上使用 [MQTT v3.1.1][lnk-mqtt-org] �
 
     例如，如果 IoT 中心的名称为 **contoso.azure-devices.cn**，设备的名称为 **MyDevice01**，则完整“用户名”字段应包含 `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`。
 * “密码”  字段使用 SAS 令牌。 对于 HTTPS 和 AMQP 协议，SAS 令牌的格式是相同的：<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`。
+
+    >[!NOTE]
+    >如果使用 X.509 证书身份验证，则不需要使用 SAS 令牌密码。 有关详细信息，请参阅[在 Azure IoT 中心设置 X.509 安全性][lnk-x509]
+    >
+    >
 
     有关如何生成 SAS 令牌的详细信息，请参阅 [使用 IoT 中心安全令牌][lnk-sas-tokens]的设备部分。
 
@@ -133,7 +138,8 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 有关详细信息，请参阅[消息传送开发人员指南][lnk-messaging]。
 
 ### <a name="receiving-cloud-to-device-messages"></a>接收“云到设备”消息
-若要从 IoT 中心接收消息，设备应使用 `devices/{device_id}/messages/devicebound/#` 作为 **主题筛选器**来进行订阅。 主题筛选器中的多级通配符 **#** 仅用于允许设备接收主题名称中的其他属性。 IoT 中心不允许使用 **#** 或 **?** 用于筛选子主题的通配符。 由于 IoT 中心不是一般用途的发布-订阅消息传送中转站，因此它仅支持存档的主题名称和主题筛选器。
+
+若要从 IoT 中心接收消息，设备应使用 `devices/{device_id}/messages/devicebound/#` 作为 **主题筛选器**来进行订阅。 主题筛选器中的多级通配符 `#` 仅用于允许设备接收主题名称中的其他属性。 IoT 中心不允许使用 `#` 或 `?` 通配符来筛选子主题。 由于 IoT 中心不是一般用途的发布-订阅消息传送中转站，因此它仅支持存档的主题名称和主题筛选器。
 
 设备成功订阅其 `devices/{device_id}/messages/devicebound/#` 主题筛选器表示的设备特定终结点前，不会从 IoT 中心收到任何消息。 成功建立订阅后，设备仅会开始收到建立订阅后发送给它的“云到设备”消息。 如果设备在“CleanSession”标志设置为“0”的情况下进行连接，订阅在经历不同的会话后将仍然持久存在。 在此情况下，下次使用“CleanSession 0”进行连接时，设备会收到断开连接时发送给它的未处理消息。 但是，如果设备使用设置为“1”的“CleanSession”标志，在订阅其设备终结点前，它不会从 IoT 中心收到任何消息。
 
@@ -168,7 +174,7 @@ request id 可以是消息属性值的任何有效值（如 [IoT 中心消息传
 
 |状态 | 说明 |
 | ----- | ----------- |
-| 200 | 成功 |
+| 200 | Success |
 | 429 | 请求过多（受限），如 [IoT 中心限制][lnk-quotas]中所述 |
 | 5** | 服务器错误 |
 
@@ -196,7 +202,7 @@ JSON 文档中的每个成员都会在设备孪生文档中更新或添加相应
 
 |状态 | 说明 |
 | ----- | ----------- |
-| 200 | 成功 |
+| 200 | Success |
 | 400 | 错误的请求。 格式不正确的 JSON |
 | 429 | 请求过多（受限），如 [IoT 中心限制][lnk-quotas]中所述 |
 | 5** | 服务器错误 |
@@ -246,7 +252,7 @@ JSON 文档中的每个成员都会在设备孪生文档中更新或添加相应
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南][lnk-devguide]
-* [使用 Azure IoT Edge 模拟设备][lnk-iotedge]
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-mqtt-org]: http://mqtt.org/
@@ -266,7 +272,7 @@ JSON 文档中的每个成员都会在设备孪生文档中更新或添加相应
 [lnk-scaling]: ./iot-hub-scaling.md
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
-
+[lnk-x509]: iot-hub-security-x509-get-started.md
 
 <!--Update_Description:update meta properties and link references-->
 
