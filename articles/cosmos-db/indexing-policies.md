@@ -1,7 +1,7 @@
 ---
 title: "Azure Cosmos DB 索引策略 | Azure"
 description: "了解如何在 Azure Cosmos DB 中为工作编制索引。 了解如何配置和更改索引策略，实现自动索引并提高性能。"
-keywords: "索引工作原理, 自动索引, 索引数据库"
+keywords: "索引的工作原理, 自动索引, 索引数据库"
 services: cosmos-db
 documentationcenter: 
 author: rockboyfor
@@ -14,19 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 08/17/2017
-ms.date: 09/25/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: afbddf2a2b2aa4111b5e9ca33033b7c81b93e26a
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: f486f881053258fca070af9ea8decf9d66f646b2
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何为数据编制索引？
 
 默认情况下为所有 Azure Cosmos DB 数据编制索引。 尽管许多客户都愿意让 Azure Cosmos DB 自动处理索引的方方面面，但 Azure Cosmos DB 还支持在创建过程中为集合指定自定义索引策略。 与其他数据库平台中提供的辅助索引相比，Azure Cosmos DB 中的索引策略更加灵活且功能强大，因为它们允许设计和自定义索引形状，无需牺牲架构的灵活性。 若要了解 Azure Cosmos DB 中的索引工作原理，必须通过管理索引策略进行了解，可以在索引存储开销、写入和查询吞吐量以及查询一致性之间进行细化权衡。  
 
-本文中将详细介绍 Azure Cosmos DB 索引策略、自定义索引策略的方法和相关的权衡方案。 
+在本文中，我们将仔细研究 Azure Cosmos DB 索引策略、自定义索引策略的方法和相关的权衡方案。 
 
 阅读本文后，可以回答以下问题：
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 09/22/2017
 * **配置各种索引类型**。 对于每个包括的路径，开发人员还可以根据其数据和预期查询工作负荷以及每个路径的数字/字符串“精度”，指定集合上需要的索引类型。
 * **配置索引更新模式**。 Azure Cosmos DB 支持三种索引模式，可通过索引策略对 Azure Cosmos DB 集合进行配置：一致、延迟和无。 
 
-下面的 .NET 代码片段演示了如何在集合创建过程中设置自定义索引策略。 我们在此处以最大精度为字符串和数字设置范围索引策略。 此策略可以让我们对字符串执行 Order By 查询。
+下面的.NET 代码段演示了如何在集合创建过程中设置自定义索引策略。 我们在此处以最大精度为字符串和数字设置范围索引策略。 此策略可以让我们对字符串执行 Order By 查询。
 
     DocumentCollection collection = new DocumentCollection { Id = "myCollection" };
 
@@ -68,7 +68,7 @@ Azure Cosmos DB 支持三种索引模式，可通过索引策略对 Azure Cosmos
 
 **一致**：如果将 Azure Cosmos DB 集合的策略指定为“一致”，针对指定 Azure Cosmos DB 集合的查询将按照为点读取指定的一致性级别进行（即强、有限过期性、会话或最终）。 索引会在文档更新（即插入、替换、更新和删除 Azure Cosmos DB 集合中的文档）过程中进行同步更新。  一致索引支持一致的查询，但代价是可能降低写入吞吐量。 这种减少受需要索引的唯一路径和“一致性级别”的影响。 一致的索引模式适用于“快速写入、立即查询”工作负荷。
 
-延迟：若要实现最大的文档引入吞吐量，可为 Azure Cosmos DB 集合配置延迟一致性；也就是说，查询最终是一致的。 Azure Cosmos DB 集合处于静止状态时（即为用户请求提供服务时没有完全利用集合的吞吐量），索引将以异步方式更新。 对于需要无阻碍文档引入的“现在引入、稍后查询”工作负荷，可能适合“延迟”索引模式。
+**延迟**：在这个具体的示例中，Azure Cosmos DB 集合处于静止状态时（即处理用户请求时没有完全利用集合的吞吐量），以异步方式更新索引。 需要文档引入的“现在引入、稍后查询”工作负荷可能适合“延迟”索引模式。 注意，如果数据引入和索引速度缓慢，则可能出现不一致的结果。 这意味着，在任何给定时刻的 COUNT 查询或特定查询的结果都可能是不一致或不可重复的。 引入数据的索引通常处于追赶模式。 至于延迟索引，生存时间 (TTL) 的变化导致索引被删除和重新创建，因此某段时间的 COUNT 和查询结果会不一致。 由于这些原因，大部分 Azure Cosmos DB 帐户应使用一致的索引。
 
 **无**：索引模式标记为“无”的集合没有与之关联的索引。 如果 Azure Cosmos DB 用作键值存储，并且只通过其 ID 属性访问文档，则通常使用该模式。 
 
@@ -131,7 +131,7 @@ Azure Cosmos DB 将 JSON 文档和索引建模为树形，从而可以针对树�
 > 
 > 
 
-下面的示例通过范围索引和 20 个字节的自定义精度值配置特定路径：
+下面的示例通过范围索引和 20 个字节的自定义精度值来配置特定路径：
 
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 
@@ -155,7 +155,7 @@ Azure Cosmos DB 将 JSON 文档和索引建模为树形，从而可以针对树�
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
 
 ### <a name="index-data-types-kinds-and-precisions"></a>索引数据类型、种类和精度
-现在，我们已经介绍了如何指定路径，让我们来讨论配置路径的索引策略时可以使用的选项。 可以为每个路径指定一个或多个索引定义：
+现在，我们已经介绍了如何指定路径，让我们来讨论配置路径的索引策略时可以使用的选项。 可以为每个路径指定一个或多个索引定义︰
 
 * 数据类型：String、Number、Point、Polygon 或 LineString（每个路径每种数据类型只能包含一个条目）
 * 索引种类：“哈希”（等式查询）、“范围”（等式、范围或 Order By 查询）或“空间”（空间查询） 
@@ -164,12 +164,12 @@ Azure Cosmos DB 将 JSON 文档和索引建模为树形，从而可以针对树�
 #### <a name="index-kind"></a>索引种类
 Azure Cosmos DB 针对每个路径都支持哈希和范围索引种类（即可以配置为字符串、数字或两者）。
 
-* **哈希** 支持高效的等式查询和联接查询。 在大多数用例下，哈希索引需要的精度不会高于 3 个字节的默认值。 DataType 可以是 String 或 Number。
+* **哈希** 支持高效的等式查询和联接查询。 在大多数用例下，哈希索引需要的精度不会高于 3 个字节的默认值。 数据类型可以是 String 或 Number。
 * “范围”支持高效的等式查询、范围查询（使用 >、<、>=、<=、!=）和 Order By 查询。 默认情况下，Order By 查询还需要最大索引精度 (-1)。 DataType 可以是 String 或 Number。
 
 Azure Cosmos DB 还支持每个路径的空间索引种类，可为 Point、Polygon 或 LineString 数据类型指定空间索引。 指定路径中的值必须是有效的 GeoJSON 片段，如 `{"type": "Point", "coordinates": [0.0, 10.0]}`。
 
-* “空间”支持高效的空间（在其中和距离）查询。 DataType 可以是 Point、Polygon 或 LineString。
+* “空间”支持高效的空间（在其中和距离）查询。 数据类型可以是 Point、Polygon 或 LineString。
 
 > [!NOTE]
 > Azure Cosmos DB 支持 Point、Polygon 和 LineString 的自动索引。
@@ -180,9 +180,9 @@ Azure Cosmos DB 还支持每个路径的空间索引种类，可为 Point、Poly
 
 | 索引种类 | 说明/用例                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 哈希       | 对 /prop/?（或 /）应用哈希索引 可用于有效完成下列查询：<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>对 /props/[]/?（或 / 和 /props/）应用哈希索引 可用于有效完成下列查询：<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
+| 哈希       | 对 /prop/?（或 /）应用哈希索引 (or /) 可用于有效完成下列查询：<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>对 /props/[]/?（或 / 和 /props/）应用哈希索引 可用于有效完成下列查询：<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
 | 范围      | 对 /prop/?（或 /）应用范围索引 可用于有效完成下列查询：<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
-| 空间     | 对 /prop/?（或 /）应用范围索引 可用于有效完成下列查询：<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --启用对点的索引编制<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --启用对多边形的索引编制              |
+| 空间     | /prop/? 可用于有效完成下列查询：<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --启用对点的索引编制<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --启用对多边形的索引编制              |
 
 默认情况下，如果没有范围索引（任何精度），则使用范围运算符（如 > =）的查询会返回错误，提示执行查询必须执行一次扫描。 使用 REST API 中的 x-ms-documentdb-enable-scan 标头或使用 .NET SDK 的 EnableScanInQuery 请求选项，可以在没有范围索引的情况下执行范围查询。 如果在 Azure Cosmos DB 可以使用索引筛选的查询中有其他筛选器，则不返回错误。
 
@@ -207,7 +207,7 @@ Azure Cosmos DB 还支持每个路径的空间索引种类，可为 Point、Poly
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), rangeDefault);   
 
 > [!NOTE]
-> 当查询使用 Order By，但针对最大精度的查询路径没有范围索引时，Azure Cosmos DB 返回错误。 
+> 当查询使用 Order By，但针对最大精度的查询路径没有范围索引时，Azure Cosmos DB 会返回一个错误。 
 > 
 > 
 
@@ -246,16 +246,16 @@ Azure Cosmos DB 还支持每个路径的空间索引种类，可为 Point、Poly
 
 索引转换还会就地进行，即 Azure Cosmos DB 不维护索引的两个副本，而是用新索引代替旧索引。 这意味着，执行索引转换时集合中不需要也不占用额外的磁盘空间。
 
-更改索引策略时，与其他值（如包括/排除的路径、索引种类和精度）相比，如何应用更改以将旧索引转换为新索引主要取决于索引模式配置。 如果新旧策略都使用一致的索引，则 Azure Cosmos DB 执行联机索引转换。 进行转换时，不能在一致索引模式下应用另一个索引策略更改。
+更改索引策略时，与其他值（如包括/排除的路径、索引种类和精度）相比，如何应用更改以将旧索引转换为新索引主要取决于索引模式配置。 如果新旧策略都使用一致的索引，则 Azure Cosmos DB 执行联机索引转换。 进行转换时，不能在一致索引模式下应用另一个索引策略应用更改。
 
 但是在进行转换时，可以切换到延迟或无索引模式。 
 
 * 切换到延迟模式时，索引策略更改立即生效，并且 Azure Cosmos DB 开始以异步方式重新创建索引。 
 * 当切换到无模式时，索引会立即删除。 当想要取消正在进行的转换，并开始使用不同的索引策略时，切换到无模式非常有用。 
 
-如果使用 .NET SDK，则可以使用新的 **ReplaceDocumentCollectionAsync** 方法进行索引策略更改，并利用从 **ReadDocumentCollectionAsync** 调用中获得的 **IndexTransformationProgress** 响应属性跟踪索引转换的百分比进度。 其他 SDK 和 REST API 支持使用等效属性和方法进行索引策略更改。
-
 以下代码片段演示了如何将集合的索引策略从一致索引模式修改为延迟。
+
+如果使用 .NET SDK，可以通过新的 **ReplaceDocumentCollectionAsync** 方法对索引策略进行更改。
 
 **将索引策略从一致改为延迟**
 
@@ -266,9 +266,9 @@ Azure Cosmos DB 还支持每个路径的空间索引种类，可为 Point、Poly
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-可以通过调用 ReadDocumentCollectionAsync 查看索引转换的进度，如下图所示。
-
 **跟踪索引转换进度**
+
+可以使用 **ReadDocumentCollectionAsync** 调用中的 **IndexTransformationProgress** 响应属性，对索引转换为一致性索引的百分比进度进行跟踪。 其他 SDK 和 REST API 支持使用等效属性和方法进行索引策略更改。 可以通过调用 **ReadDocumentCollectionAsync** 查看索引转换为一致性索引的进度： 
 
     long smallWaitTimeMilliseconds = 1000;
     long progress = 0;
@@ -282,6 +282,14 @@ Azure Cosmos DB 还支持每个路径的空间索引种类，可为 Point、Poly
 
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
     }
+
+> [!NOTE]
+> 仅当转换为一致性索引后，IndexTransformationProgress 属性才适用。 请使用 ResourceResponse.LazyIndexingProgress 属性来跟踪转换为延迟索引的情况。
+>
+
+> [!NOTE]
+> IndexTransformationProgress 和 LazyIndexingProgress 属性仅在使用非分区集合的情况下填充，换句话说，该集合是在没有分区键的情况下创建的。
+>
 
 通过切换到无索引模式，可以删除集合的索引。 如果想要取消正在进行的转换并立即启动一个新的索引，这个操作工具可能非常有用。
 
@@ -309,7 +317,7 @@ Azure Cosmos DB 还支持每个路径的空间索引种类，可为 Point、Poly
 > 
 
 ## <a name="performance-tuning"></a>性能调优
-DocumentDB API 提供有关性能指标的信息，如所用的索引存储以及每次操作的吞吐量成本（请求单位）。 此信息可用于比较各种索引策略和优化性能。
+SQL API 提供有关性能指标的信息，如所用的索引存储以及每次操作的吞吐量成本（请求单位数）。 此信息可用于比较各种索引策略和优化性能。
 
 若要检查存储配额和集合用法，请针对集合资源运行 HEAD 或 GET 请求，并检查 x-ms-request-quota 和 x-ms-request-usage 标头。 在 .NET SDK 中，[ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) 中的 [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) 和 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) 属性包含这些相应的值。
 
@@ -402,8 +410,7 @@ JSON 规范中实现了以下更改：
 ## <a name="next-steps"></a>后续步骤
 通过下面的链接查看索引策略管理示例，并了解有关 Azure Cosmos DB 的查询语言的详细信息。
 
-1. [DocumentDB API .NET 索引管理代码示例](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [DocumentDB API REST 集合操作](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-3. [使用 SQL 进行查询](documentdb-sql-query.md)
-
-<!--Update_Description: wording update-->
+1. [SQL API .NET Index Management code samples](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)（SQL API .NET 索引管理代码示例）
+2. [SQL API REST 集合操作](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+3. [使用 SQL 进行查询](sql-api-sql-query.md)
+<!--Update_Description: wording update, update link -->

@@ -1,7 +1,7 @@
 ---
 title: "Azure Cosmos DB 的服务器端 JavaScript 编程 | Azure"
 description: "了解如何使用 Azure Cosmos DB 以 JavaScript 编写存储过程、数据库触发器和用户定义的函数 (UDF) 了解数据库编程技巧以及更多内容。"
-keywords: "数据库触发器, 存储过程, 存储过程, 数据库程序, sproc, DocumentDB, Azure, Microsoft Azure"
+keywords: "数据库触发器, 存储过程, 数据库程序, sproc, Azure, Microsoft Azure"
 services: cosmos-db
 documentationcenter: 
 author: rockboyfor
@@ -13,16 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/13/2016
-ms.date: 11/27/2017
+origin.date: 12/07/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 65db77994ffc478c3ba709fd31571ffe964a1ea3
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: b3321c30aa3fd16865fafb54433bf4cdec8bc102
+ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 服务器端编程：存储过程、数据库触发器和 UDF
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 了解 Azure Cosmos DB 的语言如何集成、JavaScript 的事务执行如何使开发人员以 [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript 本机编写**存储过程**、**触发器**和**用户定义的函数 (UDF)**。 因此，我们能够编写可以在数据库存储分区上直接传送和执行的数据库程序应用程序逻辑。 
 
 <!-- Not Available VIDEO https://channel9.msdn.com-->
@@ -50,9 +53,9 @@ ms.lasthandoff: 11/24/2017
   * 它会在原始数据之上添加抽象层，这使得数据架构师能够从数据独立发展他们的应用程序。 当数据无架构时，如果他们必须直接处理数据，则由于可能需要兼并到应用程序中的脆性假设，使得这样做尤其有益。  
   * 这种抽象使企业通过从脚本简化访问来保证他们的数据安全。  
 
-数据库触发器、存储过程和自定义查询运算符的创建和执行通过 [REST API](https://docs.microsoft.com/rest/api/documentdb/)、[Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) 和[客户端 SDK](documentdb-sdk-dotnet.md) 在许多平台（包括 .NET、Node.js 和 JavaScript）中得到支持。
+数据库触发器、存储过程和自定义查询运算符的创建和执行通过 [Azure 门户](https://portal.azure.cn)、[REST API](https://docs.microsoft.com/rest/api/documentdb/)、[Azure Cosmos DB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) 和[客户端 SDK](sql-api-sdk-dotnet.md) 在许多平台（包括 .NET、Node.js 和 JavaScript）中获取支持。
 
-本教程使用[具有 Q Promises 的 Node.js SDK](http://azure.github.io/azure-documentdb-node-q/) 来阐明存储过程、触发器和 UDF 的语法和用法。   
+本教程使用 [具有 Q Promises 的 Node.js SDK](http://azure.github.io/azure-documentdb-node-q/) 来阐明存储过程、触发器和 UDF 的语法和用法。   
 
 ## <a name="stored-procedures"></a>存储过程
 ### <a name="example-write-a-simple-stored-procedure"></a>示例：编写简单的存储过程
@@ -95,7 +98,7 @@ ms.lasthandoff: 11/24/2017
 让我们扩展此示例，并将更多数据库相关的功能添加到存储过程中。 存储过程可以创建、更新、读取、查询和删除集合内部的文档和附件。    
 
 ### <a name="example-write-a-stored-procedure-to-create-a-document"></a>示例：编写创建文档的存储过程。
-下一个代码段将演示如何使用上下文对象与 Cosmos DB 资源进行交互。
+下一个代码片段演示如何使用上下文对象与 Cosmos DB 资源进行交互。
 
     var createDocumentStoredProc = {
         id: "createMyDocument",
@@ -142,7 +145,7 @@ ms.lasthandoff: 11/24/2017
 
 请注意，可以修改该存储过程以将文档主体的数组作为输入并在同一存储过程执行中创建它们全部，而不用执行多个网络请求以单独创建它们中的每一个。 这可用来实现 Cosmos DB 的有效批量导入程序（已在本教程的后面部分讨论）。   
 
-所述的示例演示了如何使用存储过程。 我们会在教程的后面部分介绍触发器和用户定义的函数 (UDF)。
+所述的示例演示了如何使用存储过程。 稍后我们会在教程中介绍触发器和用户定义的函数 (UDF)。
 
 ## <a name="database-program-transactions"></a>数据库程序事务
 典型数据库中的事务可以定义为一系列作为单个逻辑单元工作执行的操作。 每个事务提供 **ACID 保证**。 ACID 是一个很有名的缩写词，代表四个属性：Atomicity（原子性）、Consistency（一致性）、Isolation（隔离）和 Durability（持续性）。  
@@ -214,7 +217,7 @@ ms.lasthandoff: 11/24/2017
         }
     );
 
-此存储过程使用游戏应用内的事务在单个操作中的两个玩家之间交易项。 该存储过程尝试读取两个分别与作为参数传递的玩家 ID 对应的文档。 如果两个玩家文档都被找到，那么存储过程会通过交换它们的项来更新文档。 如果在此过程中遇到了任何错误，它会引发隐式终止事务的 JavaScript 异常。
+此存储过程使用游戏应用内的事务在单个操作中的两个玩家之间交易项。 该存储过程尝试读取两个分别与作为参数传递的玩家 ID 对应的文档。 如果两个玩家文档都被找到，那么存储过程将通过交换它们的项来更新文档。 如果在此过程中遇到了任何错误，它将引发隐式终止事务的 JavaScript 异常。
 
 如果存储过程针对其注册的集合是单区集合，那么该事务的范围为该集合内的所有文档。 如果集合已分区，那么存储过程会在单个分区键的事务范围中执行。 每个存储过程执行必须包含对应于事务在其下运行的范围的分区键值。 有关详细信息，请参阅 [Azure Cosmos DB 分区](partition-data.md)。
 
@@ -422,10 +425,10 @@ Cosmos DB 提供由对文档的操作执行或触发的触发器。 例如，创
 
 此触发器查询元数据文档并在其中更新新建文档的详细信息。  
 
-务必要注意的一点是 Cosmos DB 中的触发器的**事务性**执行。 此后触发器作为与原始文档的创建相同的事务的一部分运行。 因此，如果我们从后触发器引发异常（假设我们无法更新元数据文档），整个事务都会失败并回滚。 不会创建文档，而会返回异常。  
+务必要注意的一点是 Cosmos DB 中的触发器的**事务性**执行。 此后触发器作为与原始文档的创建相同的事务的一部分运行。 因此，如果我们从后触发器引发异常（假设我们无法更新元数据文档），那么整个事务都会失败并回滚。 不会创建文档，而会返回异常。  
 
 ## <a id="udf"></a>用户定义的函数
-将用户定义的函数 (UDF) 用来扩展 DocumentDB API SQL 查询语言语法和实现自定义业务逻辑。 它们只能从查询内部调用。 它们不具有对上下文对象的访问权限且旨在被用作仅计算的 JavaScript。 因此，UDF 可以在 Cosmos DB 服务的次要副本上运行。  
+将用户定义的函数 (UDF) 用来扩展 Azure Cosmos DB SQL 查询语言语法和实现自定义业务逻辑。 它们只能从查询内部调用。 它们不具有对上下文对象的访问权限且旨在被用作仅计算的 JavaScript。 因此，UDF 可以在 Cosmos DB 服务的次要副本上运行。  
 
 以下示例创建 UDF 来计算基于各种收入档次的税率的所得税，并在查询内部使用它查找所有支付税款超过 $20,000 的人。
 
@@ -466,7 +469,7 @@ UDF 随后可以用在诸如下面示例的查询中：
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>JavaScript 语言集成的查询 API
-除了使用 DocumentDB 的 SQL 语法发起查询外，服务器端 SDK 还允许在没有任何 SQL 知识的情况下使用流畅的 JavaScript 接口来执行优化的查询。 JavaScript 查询 API 允许使用与 ECMAScript5 的数组内置项类似的语法和如 lodash 等热门的 JavaScript 库，通过将谓词函数传递到可链的函数调用中以编程方式生成查询。 查询由将使用 Azure Cosmos DB 的索引有效执行的 JavaScript 运行时进行分析。
+除了使用 Azure Cosmos DB 的 SQL 语法发起查询外，服务器端 SDK 还允许在没有任何 SQL 知识的情况下使用流畅的 JavaScript 接口来执行优化的查询。 JavaScript 查询 API 允许使用与 ECMAScript5 的数组内置项类似的语法和如 lodash 等热门的 JavaScript 库，通过将谓词函数传递到可链的函数调用中以编程方式生成查询。 查询由将使用 Azure Cosmos DB 的索引有效执行的 JavaScript 运行时进行分析。
 
 > [!NOTE]
 > `__`（双下划线）是 `getContext().getCollection()` 的别名。
@@ -624,19 +627,19 @@ UDF 随后可以用在诸如下面示例的查询中：
 3. 查询具有此谓词的文档：id = "X998_Y998"。
 4. 查询具有 Tags 属性且 Tags 为一个包含值 123 的数组的文档。
 5. 查询具有谓词 id = "X998_Y998" 的文档，并投影 ID 和消息（别名为 msg）。
-6. 筛选具有数组属性 Tags 的文档，按 _ts 时间戳系统属性对生成的文档进行排序，并投影并平展 Tags 数组。
+6. 筛选具有数组属性 Tags 的文档，按 _ts 时间戳系统属性对结果文档进行排序，并投影并平展 Tags 数组。
 
 ## <a name="runtime-support"></a>运行时支持
-[DocumentDB JavaScript 服务器端 API](http://azure.github.io/azure-documentdb-js-server/) 为大多数 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 规范的主流 JavaScript 语言功能提供支持。
+Azure Cosmos DB [JavaScript 服务器端 API](http://azure.github.io/azure-documentdb-js-server/) 为大多数 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 规范的主流 JavaScript 语言功能提供支持。
 
-### <a name="security"></a>“安全”
+### <a name="security"></a>安全性
 JavaScript 存储过程和触发器经过沙盒处理，以使一个脚本的效果不会在未经过数据库级别的快照事务隔离的情况下泄漏到其他脚本。 运行时环境是共用的，但是在每次运行后都会清理上下文。 因此可以保证它们安全避免互相之间的任何意外副作用。
 
 ### <a name="pre-compilation"></a>预编译
 存储过程、触发器和 UDF 是隐式预编译到字节代码格式的，这是为了避免每次脚本调用时产生的编译成本。 这可确保存储过程的调用迅速且痕迹较少。
 
 ## <a name="client-sdk-support"></a>客户端 SDK 支持
-除了适用于 [Node.js](documentdb-sdk-node.md) 客户端的 DocumentDB API 外，Azure Cosmos DB 还有适用于 DocumentDB API 的 [.NET](documentdb-sdk-dotnet.md)、[.NET Core](documentdb-sdk-dotnet-core.md)、[Java](documentdb-sdk-java.md)、[JavaScript](http://azure.github.io/azure-documentdb-js/) 和[Python SDK](documentdb-sdk-python.md)。 也可以使用这些 SDK 来创建和执行存储过程、触发器和 UDF。 以下示例演示如何使用 .NET 客户端创建和执行存储过程。 请注意 .NET 类型是如何以 JSON 传递到存储过程中并从中读回的。
+除了 Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API 外，Azure Cosmos DB 还有适用于 SQL API 的 [.NET](sql-api-sdk-dotnet.md)、[.NET Core](sql-api-sdk-dotnet-core.md)、[Java](sql-api-sdk-java.md)、[JavaScript](http://azure.github.io/azure-documentdb-js/) 和 [Python SDK](sql-api-sdk-python.md)。 也可以使用这些 SDK 来创建和执行存储过程、触发器和 UDF。 以下示例演示如何使用 .NET 客户端创建和执行存储过程。 请注意 .NET 类型是如何以 JSON 传递到存储过程中并从中读回的。
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -668,7 +671,7 @@ JavaScript 存储过程和触发器经过沙盒处理，以使一个脚本的效
     // execute stored procedure
     Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
-本示例演示如何使用 [DocumentDB .NET API](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) 创建预触发器，并使用已启用的触发器创建文档。 
+本示例演示如何使用 [SQL .NET API](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) 创建预触发器，并使用已启用的触发器创建文档。 
 
     Trigger preTrigger = new Trigger()
     {
@@ -688,7 +691,7 @@ JavaScript 存储过程和触发器经过沙盒处理，以使一个脚本的效
             PreTriggerInclude = new List<string> { "CapitalizeName" },
         });
 
-以下示例演示了如何创建用户定义的函数 (UDF) 并在 [DocumentDB API SQL 查询](documentdb-sql-query.md)中使用它。
+以下示例演示如何创建用户定义的函数 (UDF) 并在 [SQL 查询](sql-api-sql-query.md)中使用它。
 
     UserDefinedFunction function = new UserDefinedFunction()
     {
@@ -774,11 +777,11 @@ JavaScript 存储过程和触发器经过沙盒处理，以使一个脚本的效
 想要共享令人惊叹的存储过程吗？ 请向我们发送拉取请求！ 
 
 ## <a name="next-steps"></a>后续步骤
-创建了一个或多个存储过程、触发器和用户定义的函数之后，可以使用数据资源管理器在 Azure 门户中加载和查看它们。
+在创建了一个或多个存储过程、触发器和用户定义的函数之后，可以使用数据资源管理器在 Azure 门户中加载和查看它们。
 
 还可以查找以下参考和资源，可帮助了解更多有关 Azure Cosmos DB 服务器端编程的信息：
 
-* [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md)
+* [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
 * [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
@@ -786,4 +789,4 @@ JavaScript 存储过程和触发器经过沙盒处理，以使一个脚本的效
 * [面向服务的数据库体系结构](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [在 Microsoft SQL 服务器中托管 .NET 运行时](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

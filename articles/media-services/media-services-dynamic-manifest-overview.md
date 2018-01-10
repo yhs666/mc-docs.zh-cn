@@ -3,7 +3,7 @@ title: "筛选器和动态清单 | Azure"
 description: "本主题介绍如何创建筛选器，以便客户端能够使用它们来流式传输流的特定部分。 媒体服务会创建动态清单来存档此选择性的流。"
 services: media-services
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
@@ -12,18 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 09/25/2017
-ms.author: v-johch
-ms.openlocfilehash: 80e16ffef56b53cbdd0fc71cbf5d86615e21c924
-ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
+origin.date: 12/07/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+ms.openlocfilehash: 35fd575c853c0d0f95083834326180edadc2f8f6
+ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="filters-and-dynamic-manifests"></a>筛选器和动态清单
-
-从 2.11 版开始，媒体服务支持为资产定义筛选器。 这些筛选器是服务器端规则，可让客户选择运行如下操作：只播放一段视频（而非播放完整视频），或只指定客户设备可以处理的一部分音频和视频再现内容（而非与该资产相关的所有再现内容）。 通过按客户请求创建的动态清单可以实现对资产进行这种筛选，并基于指定的筛选器流式传输视频。
+从 2.17 版开始，可使用媒体服务为资产定义筛选器。 这些筛选器是服务器端规则，可让客户选择运行如下操作：只播放一段视频（而非播放完整视频），或只指定客户设备可以处理的一部分音频和视频再现内容（而非与该资产相关的所有再现内容）。 通过按客户请求创建的动态清单可以实现对资产进行这种筛选，并基于指定的筛选器流式传输视频。
 
 本主题讨论一些常见方案，其中使用筛选器对于客户和到主题的链接非常有利，这些主题演示如何以编程方式创建筛选器（目前，仅可以使用 REST API 创建筛选器）。
 
@@ -116,13 +115,13 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 
 ## <a name="rendition-filtering"></a>再现内容筛选
 
-可选择将资产编码成多个编码配置文件（H.264 Baseline、H.264 High、AACL、AACH、Dolby Digital Plus），以及多个优质比特率。 不过，并非所有的客户端设备都支持所有的资产配置文件和比特率。 例如，早期的 Android 设备只支持 H.264 Baseline+AACL。 将较高的比特率发送到不能利用这些优势的设备会浪费带宽及设备计算资源。 此类设备必须解码所有给定信息，目的仅仅是为了缩小信息以便能够显示。
+可选择将资产编码成多个编码配置文件（H.264 Baseline、H.264 High、AACL、AACH、Dolby Digital Plus），以及多个优质比特率。 不过，并非所有的客户端设备都支持资产的所有配置文件和比特率。 例如，早期的 Android 设备只支持 H.264 Baseline+AACL。 将较高的比特率发送到不能利用这些优势的设备会浪费带宽及设备计算资源。 此类设备必须解码所有给定信息，目的仅仅是为了缩小信息以便能够显示。
 
 借助动态清单，可以创建设备配置文件（例如移动配置文件、控制台、HD/SD 等），并包含想要纳入配置文件中的曲目与质量。
 
 ![再现内容筛选示例][renditions2]
 
-以下示例使用编码器将夹层资产编码成七个 ISO MP4 视频再现内容（从 180p 到 1080p）。 编码的资产可动态打包成以下任一流协议：HLS、平滑流和 MPEG DASH。  图表顶部显示了不包含筛选器的资产的 HLS 清单（包含全部七个再现内容）。  左下角显示名为“ott”的筛选器已应用到 HLS 清单。 “ott”筛选器指定要删除所有不低于 1Mbps 的比特率，因此质量最差的两个级别会从响应中剥除。  右下角显示名为 "mobile" 的筛选器已应用到 HLS 清单。 “mobile”筛选器指定删除分辨率大于 720p 的再现内容，因此会剥除两个 1080p 再现内容。
+以下示例使用编码器将夹层资产编码成七个 ISO MP4 视频再现内容（从 180p 到 1080p）。 编码的资产可动态打包成以下任一流协议：HLS、平滑流和 MPEG DASH。  图表顶部显示了不包含筛选器的资产的 HLS 清单（包含全部七个再现内容）。  左下角显示名为“ott”的筛选器已应用到 HLS 清单。 “ott”筛选器指定要删除所有不低于 1Mbps 的比特率，因此质量最差的两个级别会从响应中剥除。  右下角显示名为 "mobile" 的筛选器已应用到 HLS 清单。 “mobile”筛选器指定要删除分辨率大于 720p 的再现内容，因此将剥除两个 1080p 再现内容。
 
 ![再现内容筛选][renditions1]
 
@@ -133,16 +132,14 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 ![语言音轨筛选][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>修剪资产开头
-
 大多数实时流事件中，操作员必须在发生实际事件之前进行某些测试。 例如，他们可以在事件开始之前提供如下盖板：“节目即将开始”。 如果节目正在存档，测试和静态数据也会一并存档并包含在演播中。 但是，此信息不应向客户端显示。 借助动态清单，可以创建开始时间筛选器，并从清单中删除不需要的数据。
 
 ![剪裁开始][trim_filter]
 
-## <a name="creating-sub-clips-views-from-a-live-archive"></a>基于实时存档创建子剪辑（视图）
+## <a name="creating-subclips-views-from-a-live-archive"></a>基于实时存档创建子剪辑（视图）
+许多实时事件的运行时间较长，并且实时存档可能包含多个事件。 实时事件结束后，广播者可能需要将实时存档分解成符合逻辑的节目启动和停止序列。 接下来，分别发布这些虚拟节目，但不后续处理实时存档，也不创建独立的资产（这无法利用 CDN 中现有缓存片段的优势）。 此类虚拟节目的示例包括橄榄球或篮球比赛中的节、棒球比赛中的局，或者任何体育节目中的单项赛事。
 
-许多实时事件的运行时间较长，并且实时存档可能包含多个事件。 实时事件结束后，广播者可能想要将实时存档分解成符合逻辑的节目启动和停止序列。 然后分别发布这些虚拟节目，但不后续处理实时存档，也不创建独立的资产（这将无法利用 CDN 中现有缓存片段的优势）。 此类虚拟节目（子剪辑）的示例包括足球或篮球比赛中的上下半场（第几节）、棒球比赛中的局，或者奥运会下午赛程的单项赛事。
-
-借助动态清单，可以使用开始/结束时间创建筛选器，并基于实时存档创建虚拟视图。
+借助动态清单，可以使用开始/结束时间创建筛选器，并基于实时存档创建虚拟视图。 
 
 ![子剪辑筛选器][subclip_filter]
 
@@ -151,40 +148,35 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 ![滑雪][skiing]
 
 ## <a name="adjusting-presentation-window-dvr"></a>调整演播窗口 (DVR)
-
-目前，Azure 媒体服务提供持续时间可设为 5 分钟到 25 小时的循环存档。 清单筛选可以基于存档创建循环 DVR 窗口存档，而不会删除媒体。 许多情况下，广播者想要提供受限制的 DVR 窗口，此窗口可随着实时边缘移动，并同时保留更大的存档窗口。 广播者可能想要使用超出 DVR 窗口的数据来突出显示剪辑，或者想要为不同的设备提供不同的 DVR 窗口。 例如，大多数移动设备不处理大的 DVR 窗口（可让移动设备有 2 分钟的 DVR 窗口，桌面客户端有 1 小时的 DVR 窗口）。
+目前，Azure 媒体服务提供持续时间可设为 5 分钟到 25 小时的循环存档。 清单筛选可以基于存档创建循环 DVR 窗口存档，而不会删除媒体。 许多情况下，广播者需要提供受限制的 DVR 窗口，此窗口可随着实时边缘移动，并同时保留更大的存档窗口。 广播者可能想要使用超出 DVR 窗口的数据来突出显示剪辑，或者想要为不同的设备提供不同的 DVR 窗口。 例如，大多数移动设备不处理大的 DVR 窗口（可让移动设备有 2 分钟的 DVR 窗口，桌面客户端有一小时的 DVR 窗口）。
 
 ![DVR 窗口][dvr_filter]
 
 ## <a name="adjusting-livebackoff-live-position"></a>调整实时补偿（实时位置）
+清单筛选可用于删除实时节目的实时边缘几秒钟的时间。 通过筛选，广播者便可以在观众收到流之前（倒退 30 秒）先观赏预览发布点的演播，并创建广告插入点。 接下来，广播者可将这些广告及时推送到他们的客户端框架，以便能够接收与处理信息，并借机播放广告。
 
-清单筛选可用于删除实时节目的实时边缘几秒钟的时间。 这样，广播者便可以在观众收到流之前（通常倒退 30 秒）先观赏预览发布点的演播，并创建广告插入点。 接下来，广播者可将这些广告及时推送到他们的客户端框架，以便能够接收与处理信息，并借机播放广告。
-
-除了广告支持外，实时补偿可用于调整客户端实时下载位置，以便在客户端偏移并命中实时边缘时，仍然可以从服务器获取片段，而不会收到 404 或 412 HTTP 错误。
+除了广告支持外，还可使用实时补偿设置来调整观看者位置，以便在客户端偏移并命中实时边缘时，仍然可以从服务器获取片段，而不会收到 HTTP 404 或 412 错误。
 
 ![livebackoff_filter][livebackoff_filter]
 
 ## <a name="combining-multiple-rules-in-a-single-filter"></a>将多个规则合并成单个筛选器
-
-可以将多个筛选规则合并成单个筛选器。 例如，可以定义一个范围规则，将静态内容从实时存档中删除，并筛选可用的比特率。 对于多个筛选规则而言，最终结果将是这些规则的构成部分（只有交集）。
+可以将多个筛选规则合并成单个筛选器。 例如，可以定义一个“范围规则”，将静态内容从实时存档中删除，并筛选出可用的比特率。 应用多项筛选规则时，最终结果是所有规则的交集。
 
 ![多规则][multiple-rules]
 
 ## <a name="create-filters-programmatically"></a>以编程方式创建筛选器
-
-以下主题讨论与筛选器相关的媒体服务实体。 该主题还说明如何以编程方式创建筛选器。
+下文讨论与筛选器相关的媒体服务实体。 该文还说明如何以编程方式创建筛选器。  
 
 [使用 REST API 创建筛选器](media-services-rest-dynamic-manifest.md)。
 
 ## <a name="combining-multiple-filters-filter-composition"></a>组合多个筛选器（筛选器组合）
-
-也可以在单个 URL 中组合多个筛选器。
+也可以在单个 URL 中组合多个筛选器。 
 
 以下方案演示了可能需要组合多个筛选器的原因：
 
-1. 你需要筛选视频质量（目的是限制视频质量）以供 Android 或 iPAD 之类的移动设备使用。 若要删除质量不符合要求的视频，可以创建一个适用于设备配置文件的全局筛选器。 如上所述，全局筛选器可用于在同一媒体服务帐户下的所有资产，这些资产并没有更多的其他联系。 
+1. 你需要筛选视频质量（目的是限制视频质量）以供 Android 或 iPAD 之类的移动设备使用。 若要删除质量不符合要求的视频，可以创建一个适用于设备配置文件的全局筛选器。 如本文前面所述，全局筛选器可用于在同一媒体服务帐户下的所有资产，这些资产并没有更多的其他联系。 
 2. 还可以修改资产的开始时间和结束时间。 为此，可以创建一个本地筛选器并设置开始/结束时间。 
-3. 你希望能够将这些筛选器组合起来（如果不组合的话，则需要将质量筛选添加到进行修改的筛选器上，这会导致筛选器的使用很困难）。
+3. 你希望能够将这些筛选器组合起来（如果不组合的话，则需要将质量筛选添加到进行修改的筛选器上，这会导致筛选器的使用更困难）。
 
 若要组合筛选器，需要在清单/播放列表 URL 中设置筛选器名称，用分号对名称进行分隔。 假设你有一个名为 MyMobileDevice 的筛选器，用于筛选质量，另外还有一个名为 MyStartTime 的筛选器，用于设置具体的开始时间。 可将它们组合成下面这样：
 
@@ -192,9 +184,9 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 http://teststreaming.streaming.mediaservices.chinacloudapi.cn/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
 ```
 
-最多可以组合 3 个筛选器。
+最多可以组合三个筛选器。 
 
-有关详细信息，请参阅 [此博客](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 。
+有关详细信息，请参阅 [这一](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 博客。
 
 ## <a name="know-issues-and-limitations"></a>已知问题和限制
 * 动态清单在 GOP 边界（主键帧）内运行，因此修剪后具有精确的 GOP。 

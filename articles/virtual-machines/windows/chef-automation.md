@@ -3,8 +3,8 @@ title: "使用 Chef 部署 Azure 虚拟机 | Azure"
 description: "了解如何使用 Chef 在 Azure 中自动部署和配置虚拟机"
 services: virtual-machines-windows
 documentationcenter: 
-author: diegoviso
-manager: timlt
+author: rockboyfor
+manager: digimobile
 tags: azure-service-management,azure-resource-manager
 editor: 
 ms.assetid: 0b82ca70-89ed-496d-bb49-c04ae59b4523
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: 8481c7ccad2599a7b8d1f017f64533427ed96062
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.date: 01/08/2018
+ms.author: v-yeche
+ms.openlocfilehash: 2ff6c951529072a55597fe561288cdd5cf0cf555
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>使用 Chef 自动部署 Azure 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef 是一个强大的工具，用于提供自动化和所需的状态配置。
 
-通过我们的最新 cloud-api 版本，Chef 提供了与 Azure 的无缝集成，使用户能够通过单个命令设置和部署配置状态。
+通过最新的 cloud api 版本，Chef 提供了与 Azure 的无缝集成，使用户能够通过单个命令设置和部署配置状态。
 
-本文将演示如何设置 Chef 环境来预配 Azure 虚拟机，并引导用户完成创建策略或“指南”并将此指南部署到 Azure 虚拟机。
+本文介绍如何设置 Chef 环境来预配 Azure 虚拟机，以及如何创建策略或“指南”并将此指南部署到 Azure 虚拟机。
 
 让我们开始吧！
 
 ## <a name="chef-basics"></a>Chef 基础知识
-在开始之前，建议复习一下 Chef 的基本概念。 <a href="http://www.chef.io/chef" target="_blank">此处</a>有大量资料，建议在尝试此演练之前快速阅读一下。 不过，在我们开始之前，我会扼要重述一下基础知识。
+在开始之前，请[查看 Chef 的基本概念](http://www.chef.io/chef)。 
 
 下图描绘了高级别 Chef 体系结构。
 
@@ -42,24 +42,23 @@ Chef 是一个强大的工具，用于提供自动化和所需的状态配置。
 
 Chef 有三个主要的体系结构组件：Chef 服务器、Chef 客户端（节点）和 Chef 工作站。
 
-Chef 服务器是我们的管理点，针对 Chef 服务器有两种选项：托管解决方案和本地解决方案。 我们将使用托管解决方案。
+Chef 服务器是管理点，针对 Chef 服务器有两种选项：托管解决方案和本地解决方案。 我们将使用托管解决方案。
 
 Chef 客户端（节点）是位于所管理的服务器上的代理。
 
-Chef 工作站是我们的管理工作站，将在其中创建策略并执行管理命令。 从 Chef 工作站运行 knife 命令来管理基础结构。
+Chef 工作站是管理工作站，将在其中创建策略并执行管理命令。 可以从 Chef 工作站运行 knife 命令来管理基础结构。
 
 此外，还引入了“指南”和“配方”的概念。 它们实际上是我们定义并应用于服务器的策略。
 
 ## <a name="preparing-the-workstation"></a>准备工作站
-首先，让我们准备工作站。 我使用的是标准 Windows 工作站。 我们需要创建一个目录来存储配置文件和指南。
+首先，让我们准备工作站。 我使用的是标准 Windows 工作站。 需要创建一个目录来存储配置文件和指南。
 
 首先，创建一个名为 C:\chef 的目录。
 
 然后，创建另一个名为 c:\chef\cookbooks 的目录。
 
-现在，需要下载 Azure 设置文件，以便 Chef 可以与 Azure 订阅进行通信。
+现在，需要下载 Azure 设置文件，以便 Chef 可以与 Azure 订阅通信。
 
-<!--Download your publish settings from [here](https://manage.windowsazure.cn/publishsettings/).-->
 使用 PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) 命令下载发布设置。 
 
 将发布设置文件保存到 C:\chef 中。
@@ -148,7 +147,7 @@ knife.rb 文件现在应类似于以下示例。
 祝贺。 工作站已设置完毕！
 
 ## <a name="creating-a-cookbook"></a>创建指南
-Chef 使用指南定义用户希望在托管客户端上执行的一组命令。 创建指南简单明了，我们将使用 chef generate cookbook 命令生成指南模板。 我将像调用自动部署 IIS 的策略一样调用指南 Web 服务器。
+Chef 使用指南定义用户希望在托管客户端上执行的一组命令。 创建指南简单明了，我们使用 chef generate cookbook 命令来生成指南模板。 我将像调用自动部署 IIS 的策略一样调用指南 Web 服务器。
 
 在 C:\Chef 目录下运行以下命令。
 
@@ -240,3 +239,5 @@ Chef 使用指南定义用户希望在托管客户端上执行的一组命令。
 [13]: media/chef-automation/13.png
 
 <!--Link references-->
+
+<!-- Update_Description: wording update -->

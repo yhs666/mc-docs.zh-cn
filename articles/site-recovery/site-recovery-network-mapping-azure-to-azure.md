@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 08/11/2017
-ms.date: 12/04/2017
+origin.date: 12/15/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6c1b7ca9a3203dd09327e97e287bf32132af913e
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 70ebcc2ba9c92cebec95c9a57583a944448e6848
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>两个 Azure 区域之间的网络映射
 
@@ -34,13 +34,14 @@ ms.lasthandoff: 12/01/2017
 
 ![网络映射](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
-在下面的示例中，我的虚拟机在中国东部区域运行，要复制到中国东部。
+在下面的示例中，虚拟机在中国东部区域运行，要复制到中国东部。
 
-选择源网络和目标网络，并单击“确定”创建从中国东部到中国东部的网络映射。
+选择源网络和目标网络，并单击“确定”创建从中国东部到中国北部的网络映射。
 
 ![网络映射](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
-执行与上面相同的操作，创建从中国东部到中国东部的网络映射。  
+重复上面的过程，创建从中国东部到中国北部的网络映射。
+
 ![网络映射](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 ## <a name="mapping-network-when-enabling-replication"></a>启用复制时映射网络
@@ -81,16 +82,16 @@ ms.lasthandoff: 12/01/2017
 
 #### <a name="same-address-space"></a>地址空间相同
 
-如果源子网和目标子网具有相同的地址空间，则将目标 IP 设置为与源虚拟机网络接口的 IP 相同。 如果相同的 IP 不可用，则将其他可用的 IP 设置为目标 IP。
+如果源子网和目标子网具有相同的地址空间，则将源虚拟机的网络接口的 IP 地址设置为目标 IP 地址。 如果同一 IP 地址不可用，则将下一可用 IP 地址设置为目标 IP 地址。
 
 #### <a name="different-address-space"></a>地址空间不同
 
-如果源子网和目标子网具有不同的地址空间，则将目标 IP 设置为目标子网中任何可用的 IP。
+如果源子网和目标子网具有不同的地址空间，则将目标子网中的下一可用 IP 地址设置为目标 IP 地址。
 
 可以转到虚拟机的“计算和网络”设置来修改各网络接口上的目标 IP。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解 [Azure VM 复制网络指南](site-recovery-azure-to-azure-networking-guidance.md)。
+了解 [Azure VM 复制网络指南](site-recovery-azure-to-azure-networking-guidance.md)。
 
 <!--Update_Description: update meta properties, wording update -->

@@ -9,23 +9,23 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/01/2017
-ms.date: 12/04/2017
+origin.date: 12/11/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 0b2581dc8925f28862b978ba76d947827e2f21f3
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 1f7a3ae43860183100cda789ba8f931746465551
+ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>针对本地 VMware VM 设置到 Azure 的灾难恢复
 
 本教程演示如何针对运行 Windows 的本地 VMware VM 设置到 Azure 的灾难恢复。 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
-> * 为 Site Recovery 创建恢复服务保管库
-> * 设置源和目标复制环境
+> * 指定复制源和目标。
+> * 设置源复制环境（包括本地 Site Recovery 组件）和目标复制环境。
 > * 创建复制策略
 > * 为虚拟机启用复制
 
@@ -36,37 +36,27 @@ ms.lasthandoff: 12/01/2017
 
 在开始之前，[查看灾难恢复方案的体系结构](concepts-vmware-to-azure-architecture.md)会有所帮助。
 
-## <a name="configure-vmware-account-permissions"></a>配置 VMware 帐户权限
+## <a name="select-a-replication-goal"></a>选择复制目标
 
-1. 在 vCenter 级别创建角色。 为该角色指定名称 Azure_Site_Recovery。
-2. 将以下权限分配到 Azure_Site_Recovery 角色。
-
-   **任务** | **角色/权限** | **详细信息**
-   --- | --- | ---
-   **VM 发现** | 数据中心对象 –> 传播到子对象，角色=只读 | 至少一个只读用户。<br/><br/> 在数据中心级别分配的对数据中心内所有对象具有访问权限的用户。<br/><br/> 若要限制访问权限，请在选中“传播到子对象”的情况下将“无访问权”角色分配给子对象（vSphere 主机、数据存储、VM 和网络）。
-   **完全复制、故障转移、故障回复** |  数据中心对象 –> 传播到子对象，角色=Azure_Site_Recovery<br/><br/> 数据存储 -> 分配空间、浏览数据存储、低级别文件操作、删除文件、更新虚拟机文件<br/><br/> 网络 -> 网络分配<br/><br/> 资源 -> 将 VM 分配到资源池、迁移关闭的 VM、迁移打开的 VM<br/><br/> 任务 -> 创建任务、更新任务<br/><br/> 虚拟机 -> 配置<br/><br/> 虚拟机 -> 交互 -> 回答问题、设备连接、配置 CD 媒体、配置软盘媒体、关闭电源、打开电源、安装 VMware 工具<br/><br/> 虚拟机 -> 清单 -> 创建、注册、取消注册<br/><br/> 虚拟机 -> 预配 -> 允许虚拟机下载、允许虚拟机文件上传<br/><br/> 虚拟机 -> 快照 -> 删除快照 | 在数据中心级别分配的对数据中心内所有对象具有访问权限的用户。<br/><br/> 若要限制访问权限，请在选中“传播到子对象”的情况下将“无访问权”角色分配给子对象（vSphere 主机、数据存储、VM 和网络）。
-
-3. 在 vCenter 服务器或 vSphere 主机上创建一个用户。 向该用户分配角色。
-
-## <a name="specify-what-you-want-to-replicate"></a>指定要复制的内容
-
-必须在要复制的每个 VM 上安装 Mobility Service。 为 VM 启用复制后，Site Recovery 会自动安装此服务。 为了实现自动安装，你需要准备一个由 Site Recovery 用于访问 VM 的帐户。
-
-可以使用域或本地帐户。 对于 Linux VM，该帐户应是源 Linux 服务器上的根帐户。 对于 Windows VM，如果使用的不是域帐户，则在本地计算机上禁用远程用户访问控制：
-
-  - 在注册表的 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 下，添加 DWORD 项 LocalAccountTokenFilterPolicy，并将值设为 1。
+1. 在“恢复服务保管库”中，单击保管库名称“ContosoVMVault”。
+2. 在“入门”中单击“Site Recovery”。 然后单击“准备基础结构”。
+3. 在“保护目标” > “计算机所在位置”中，选择“本地”。
+4. 在“要将计算机复制到何处”中，选择“到 Azure”。**
+5. 在“计算机是否已虚拟化”中，选择“是，已使用 VMware vSphere 虚拟机监控程序虚拟化”。 。
 
 ## <a name="set-up-the-source-environment"></a>设置源环境
 
-设置源环境包括下载 Site Recovery 统一安装程序、设置配置服务器并将其注册到保管库中，以及发现 VM。
+若要设置源环境，请下载 Site Recovery 统一安装程序文件。 可以运行安装程序来安装本地 Site Recovery 组件、在保管库中注册 VMware 服务器，以及发现本地 VM。
 
-配置服务器是一个用于承载所有 Site Recovery 组件的本地 VMware VM。 此 VM 运行配置服务器、进程服务器和主目标服务器。
+### <a name="verify-on-premises-site-recovery-requirements"></a>验证本地 Site Recovery 要求
+
+需要单个可用性高的本地 VMware VM 来托管本地 Site Recovery 组件。 组件包括配置服务器、进程服务器和主目标服务器。
 
 - 配置服务器在本地与 Azure 之间协调通信并管理数据复制。
-- 进程服务器充当复制网关。 接收复制数据，通过缓存、压缩和加密对其进行优化，然后将数据发送到 Azure 存储。 进程服务器还会将移动服务安装在要复制的 VM 上，并在本地 VMware 服务器上执行 VM 的自动发现。
+- 进程服务器充当复制网关。 接收复制数据，通过缓存、压缩和加密对其进行优化，然后将数据发送到 Azure 存储。 进程服务器还会将移动服务安装在要复制的 VM 上，并执行本地 VMware VM 的自动发现。
 - 主目标服务器处理从 Azure 进行故障回复期间产生的复制数据。
 
-配置服务器 VM 应该是满足以下要求的高可用性 VMware VM：
+VM 应满足以下要求。
 
 | **要求** | **详细信息** |
 |-----------------|-------------|
@@ -83,30 +73,24 @@ ms.lasthandoff: 12/01/2017
 | IP 地址类型 | 静态 |
 | 端口 | 443（控制通道协调）<br/>9443（数据传输）|
 
-在配置服务器 VM 上，确保将系统时钟与时间服务器进行同步。
-时间必须在 15 分钟内得到同步。 如果时间差大于 15 分钟，则安装程序将失败。
+此外： 
+- 确保 VM 上的系统时钟与时间服务器同步。 时间必须在 15 分钟内得到同步。 如果超出该时间，安装会失败。
+安装失败。
+- 请确保配置服务器 VM 可以访问以下 URL：
 
-请确保配置服务器可以访问以下 URL：
+    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
-   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-
-    - 任何基于 IP 地址的防火墙规则都应允许与 Azure 通信。
-
-- 允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)和 HTTPS (443) 端口。
+- 请确保基于 IP 地址的防火墙规则允许与 Azure 通信。
+    - 允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)、端口 443 (HTTPS) 和端口 9443（数据复制）。
     - 允许订阅的 Azure 区域的 IP 地址范围以及中国北部的 IP 地址范围（用于访问控制和标识管理）。
 
-任何基于 IP 地址的防火墙规则应允许与 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)，以及端口 443 (HTTPS) 和 9443（数据复制）进行通信。 确保允许订阅的 Azure 区域的 IP 地址范围以及中国北部的 IP 地址范围（用于访问控制和标识管理）。
+### <a name="download-the-site-recovery-unified-setup-file"></a>下载 Site Recovery 统一安装程序文件
 
-### <a name="download-the-site-recovery-unified-setup"></a>下载 Site Recovery 统一安装程序
-
-1. 打开 [Azure 门户](https://portal.azure.cn)，然后单击“所有资源”。
-2. 单击名为 ContosoVMVault 的恢复服务保管库。
-3. 单击“Site Recovery” > “准备基础结构” > “保护目标”。
-4. 将计算机所在的位置选择为“本地”，将想要复制计算机的位置选择为“到 Azure”，然后选择“是，使用 VMware vSphere 虚拟机监控程序”。 然后单击“确定”。
-5. 在“准备源”面板中，单击“+配置服务器”。
-6. 在“添加服务器”中，检查“配置服务器”是否已显示在“服务器类型”中。
-7. 下载站点恢复统一安装程序安装文件。
-8. 下载保管库注册密钥。 运行统一安装程序时需要用到此密钥。 生成的密钥有效期为 5 天。
+1. 在“保管库”>“准备基础结构”中，单击“源”。
+1. 在“准备源”中，单击“+配置服务器”。
+2. 在“添加服务器”中，检查“配置服务器”是否已显示在“服务器类型”中。
+3. 下载站点恢复统一安装程序安装文件。
+4. 下载保管库注册密钥。 运行统一安装程序时需要用到此密钥。 生成的密钥有效期为 5 天。
 
    ![设置源](./media/tutorial-vmware-to-azure/source-settings.png)
 
@@ -127,7 +111,7 @@ ms.lasthandoff: 12/01/2017
 
    ![防火墙](./media/tutorial-vmware-to-azure/combined-wiz4.png)
 
-6. 在“先决条件检查”设置中运行检查，确保安装可以运行。 如果看到有关**全局时间同步检查**的警告，请检查系统时钟的时间（“日期和时间”设置）是否与时区相同。
+6. 在“先决条件检查” **全局时间同步检查**的警告，请检查系统时钟的时间（“日期和时间”设置）是否与时区相同。 如果看到有关全局时间同步检查的警告，请检查系统时钟的时间（“日期和时间”设置）是否与时区相同。
 
    ![先决条件](./media/tutorial-vmware-to-azure/combined-wiz5.png)
 
@@ -147,9 +131,11 @@ ms.lasthandoff: 12/01/2017
 
 ### <a name="configure-automatic-discovery"></a>配置自动发现
 
-若要发现 VM，配置服务器需要连接到本地 VMware 服务器。 本教程的目的是，使用在服务器具有管理员特权的帐户添加 vCenter 服务器或 vSphere 主机。
+若要发现 VM，配置服务器需要连接到本地 VMware 服务器。 本教程的目的是，使用在服务器具有管理员特权的帐户添加 vCenter 服务器或 vSphere 主机。 已在[以前的教程](tutorial-prepare-on-premises-vmware.md)中创建此帐户。 
 
-1. 在配置服务器上启动 CSPSConfigtool.exe。 桌面上已提供该工具的快捷方式，在安装位置\home\svsystems\bin 文件夹中也可以找到它。
+若要添加此帐户，请执行以下操作：
+
+1. 在配置服务器 VM 上启动 **CSPSConfigtool.exe**。 桌面上已提供该工具的快捷方式，在安装位置\home\svsystems\bin 文件夹中也可以找到它。
 
 2. 单击“管理帐户” > “添加帐户”。
 
@@ -159,12 +145,12 @@ ms.lasthandoff: 12/01/2017
 
    ![详细信息](./media/tutorial-vmware-to-azure/credentials2.png)
 
-若要添加服务器，请执行以下操作：
+若要添加 VMware 服务器，请执行以下操作：
 
 1. 打开 [Azure 门户](https://portal.azure.cn)，然后单击“所有资源”。
 2. 单击名为 ContosoVMVault 的恢复服务保管库。
 3. 单击“Site Recovery” > “准备基础结构” > “源”
-4. 选择“+vCenter”，以连接到 vCenter 服务器或 vSphere ESXi 主机。
+4. 选择“+vCenter”，连接到 vCenter 服务器或 vSphere ESXi 主机。
 5. 在“添加 vCenter”中，为服务器指定一个友好名称。 然后，指定 IP 地址或 FQDN。
 6. 除非 VMware 服务器在不同的端口上侦听请求，否则请保持端口设置为 443。
 7. 选择要用于连接到服务器的帐户。 单击 **“确定”**。
@@ -215,7 +201,7 @@ Site Recovery 使用指定的设置连接到 VMware 服务器并发现 VM。
 9. 选择“立即为选定的计算机配置”，将网络设置应用到选择保护的所有计算机。  选择“稍后配置”以选择每个计算机的 Azure 网络。
 10. 在“虚拟机” > “选择虚拟机”中，单击并选择要复制的每个计算机。 只能选择可以启用复制的计算机。 。
 11. 在“属性”>“配置属性”中，选择进程服务器在计算机上自动安装移动服务时使用的帐户。
-12. 在“复制设置”>“配置复制设置”中，检查是否选择了正确的复制策略。
+12. 在“复制设置”>“配置复制设置”中，验证是否选择了正确的复制策略。
 13. 单击“启用复制”。
 
 可以在“设置” > “作业” > “Site Recovery 作业”中，跟踪“启用保护”作业的进度。 在“完成保护”作业运行之后，计算机就可以进行故障转移了。
@@ -228,4 +214,4 @@ Site Recovery 使用指定的设置连接到 VMware 服务器并发现 VM。
 > [!div class="nextstepaction"]
 > [运行灾难恢复演练](site-recovery-test-failover-to-azure.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update -->
