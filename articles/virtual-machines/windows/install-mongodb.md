@@ -3,7 +3,7 @@ title: "在 Azure 的 Windows VM 上安装 MongoDB | Azure"
 description: "了解如何在使用 Resource Manager 部署模型创建的、运行 Windows Server 2012 R2 的 Azure VM 上安装 MongoDB。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba
@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: f8e868192a5aa70650e06d22fd3d31ebadfcac87
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+origin.date: 12/15/2017
+ms.date: 01/08/2018
+ms.author: v-yeche
+ms.openlocfilehash: 0d0614c69d8758f8285c058b079f7ba4358bb59a
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>在 Azure 中的 Windows VM 上安装和配置 MongoDB
-[MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文逐步讲解如何在 Azure 中的 Windows Server 2012 R2 虚拟机 (VM) 上安装和配置 MongoDB。 也可以[在 Azure 中的 Linux VM 上安装 MongoDB](../linux/install-mongodb.md)。
+[MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文分步讲解了如何在 Azure 中的 Windows Server 2016 虚拟机 (VM) 上安装和配置 MongoDB。 也可以[在 Azure 中的 Linux VM 上安装 MongoDB](../linux/install-mongodb.md)。
 
 ## <a name="prerequisites"></a>先决条件
 在安装和配置 MongoDB 之前，需要创建一个 VM，并且最好将一个磁盘添加到该 VM。 请参阅以下文章创建 VM 并向其添加数据磁盘：
@@ -36,28 +36,29 @@ ms.lasthandoff: 08/29/2017
 > [!IMPORTANT]
 > 默认情况下，不启用 MongoDB 安全功能，例如身份验证和 IP 地址绑定。 在将 MongoDB 部署到生产环境之前，应启用安全功能。 有关详细信息，请参阅 [MongoDB Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication)（MongoDB 安全性和身份验证）。
 
-1. 使用远程桌面连接到 VM 后，请在 VM 上从“开始”菜单打开 Internet Explorer。
+1. 使用远程桌面连接到 VM 后，从任务栏打开 Internet Explorer。
 2. 当 Internet Explorer 首次打开时，请选择“使用推荐的安全性、隐私和兼容性设置”，然后单击“确定”。
 3. 默认情况下已启用 Internet Explorer 增强的安全性配置。 将 MongoDB 网站添加到允许的站点列表：
 
    * 选择右上角的“工具”图标。
    * 在“Internet 选项”中，选择“安全”选项卡，然后选择“受信任的站点”图标。
-   * 单击“站点”按钮。 将 *https://\*.mongodb.org* 添加到受信任的站点列表，然后关闭对话框。
+   * 单击“站点”按钮。 将 *https://\*.mongodb.com* 添加到受信任站点的列表，然后关闭对话框。
 
      ![配置 Internet Explorer 安全设置](./media/install-mongodb/configure-internet-explorer-security.png)
-4. 浏览到“MongoDB - 下载”页 (http://www.mongodb.org/downloads)。[](http://www.mongodb.org/downloads)
-5. 如果需要，请选择 **社区服务器** 版本，并选择 Windows Server 2008 R2 64 位及更高版本的最新稳定版本。 若要下载安装程序，请单击“下载(msi)”。
+4. 浏览到[MongoDB - 下载](http://www.mongodb.com/downloads)页 (http://www.mongodb.com/downloads)。
+5. 如果需要，请选择**社区服务器**版本，并选择 *Windows Server 2008 R2 64 位及更高版本*的最新稳定版本。 若要下载安装程序，请单击“下载(msi)”。
 
     ![下载 MongoDB 安装程序](./media/install-mongodb/download-mongodb.png)
 
     下载完成后，请运行安装程序。
 6. 阅读并接受许可协议。 出现提示时，请选择“完整”安装。
-7. 在最后一个屏幕上，单击“安装”。
+7. 如果需要，还可以选择安装 Compass（MongoDB 的图形界面）。
+8. 在最后一个屏幕上，单击“安装”。
 
 ## <a name="configure-the-vm-and-mongodb"></a>配置 VM 和 MongoDB
 1. MongoDB 安装程序不会更新路径变量。 如果路径变量中不包含 MongoDB `bin` 位置，则每次使用 MongoDB 可执行文件时都需要指定完整路径。 要将位置添加到路径变量，请执行以下操作：
 
-   * 右键单击“开始”菜单，然后选择“系统”。
+   * 右键单击“开始”菜单，并选择“系统”。
    * 依次单击“高级系统设置”和“环境变量”。
    * 在“系统变量”下，选择“路径”，然后单击“编辑”。
 
@@ -66,7 +67,7 @@ ms.lasthandoff: 08/29/2017
      添加 MongoDB `bin` 文件夹的路径。 MongoDB 通常安装在 C:\Program Files\MongoDB 下。 检查 VM 上的安装路径。 以下示例将默认的 MongoDB 安装位置添加到 `PATH` 变量：
 
      ```
-     ;C:\Program Files\MongoDB\Server\3.2\bin
+     ;C:\Program Files\MongoDB\Server\3.6\bin
      ```
 
      > [!NOTE]
@@ -92,8 +93,7 @@ ms.lasthandoff: 08/29/2017
 4. 为获得更健全的 MongoDB 体验，请将 `mongod.exe` 作为服务安装。 创建服务意味着不需要每次使用 MongoDB 时都要运行命令提示符。 按如下所示创建服务，并相应地调整数据和日志目录的路径：
 
     ```
-    mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log `
-        --logappend  --install
+    mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log --logappend  --install
     ```
 
     上述命令创建一个名为“MongoDB”的服务，其描述为“Mongo DB”。 也可以指定以下参数：
@@ -162,3 +162,4 @@ New-NetFirewallRule `
 
 ## <a name="next-steps"></a>后续步骤
 本教程已介绍如何在 Windows VM 上安装和配置 MongoDB。 现在，可以遵循 [MongoDB 文档](https://docs.mongodb.com/manual/)中的高级主题访问 Windows VM 上的 MongoDB。
+<!-- Update_Description: update meta properties, wording update -->

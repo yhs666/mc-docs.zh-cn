@@ -3,7 +3,7 @@ title: "设计灾难恢复解决方案 - Azure SQL 数据库 | Azure"
 description: "了解如何通过选择合适的故障转移模式来设计可实现灾难恢复的云解决方案。"
 services: sql-database
 documentationcenter: 
-author: Hayley244
+author: yunan2016
 manager: digimobile
 editor: monicar
 ms.assetid: 2db99057-0c79-4fb0-a7f1-d1c057ec787f
@@ -12,15 +12,14 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
-origin.date: 04/07/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 9be14658eeb49e0833a1ce7c483b9fc93c1e440c
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+origin.date: 12/13/2017
+ms.date: 01/08/2018
+ms.author: v-nany
+ms.openlocfilehash: cd4e268986378d8e2b14cdef127dd592d3ce1509
+ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>使用 SQL 数据库弹性池的应用程序的灾难恢复策略
 这些年来，我们已经认识到云服务并不能做到万无一失，并且会发生灾难性事件。 SQL 数据库具备许多功能，可在发生这些事件时保证应用程序的业务连续性。 [弹性池](sql-database-elastic-pool.md)和单一数据库支持相同类型的灾难恢复功能。 本文介绍了几种针对利用这些 SQL 数据库业务连续性功能的弹性池的 DR 策略。
@@ -43,6 +42,7 @@ ms.lasthandoff: 09/28/2017
 * 故障转移组启动管理数据库向 DR 区域的自动故障转移。 应用程序将自动重新连接到新的主要区域，将在 DR 区域中创建所有新帐户和租户数据库。 现有客户的数据将暂时不可用。
 * 创建与原始池具有相同配置的弹性池 (2)。
 * 使用异地还原来创建租户数据库的副本 (3)。 可以考虑通过最终用户连接或使用其他应用程序的特定优先级方案来触发单个还原。
+
 
 此时，应用程序便已在 DR 区域中恢复在线状态，但某些客户会在访问数据时遇到延迟。
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 09/28/2017
 > 
 > 
 
-该策略的主要 **优点** 在于它为付费客户提供了最高的 SLA。 它还确保一旦创建了试用 DR 池，系统将取消阻止新试用。 **权衡**是指此设置需对付费客户的辅助 DR 池成本进行收费从而增加租户数据库的总成本。 此外，如果辅助池大小不同，付费客户会在故障转移后体验较低性能，直到完成 DR 区域的池升级才能恢复往常性能。 
+该策略的主要 **优点** 在于它为付费客户提供了最高的 SLA。 它还确保一旦创建了试用 DR 池，系统会取消阻止新试用。 **权衡**是指此设置需对付费客户的辅助 DR 池成本进行收费从而增加租户数据库的总成本。 此外，如果辅助池大小不同，付费客户会在故障转移后体验较低性能，直到完成 DR 区域的池升级才能恢复往常性能。 
 
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>方案 3. 具有分层服务的地理分布式应用程序
 <i>我在使用一款具有分层服务功能的成熟 SaaS 应用程序。我希望向付费客户提供极高性能的 SLA，并使中断发生时所带来的影响风险降到最低，因为即使是短暂的中断也会导致客户不满。付费客户始终可以访问其数据，这一点至关重要。试用都是免费的，试用期间不会提供 SLA。</i> 
@@ -118,7 +118,7 @@ ms.lasthandoff: 09/28/2017
 
 如前面的方案所示，管理数据库将会非常活跃，因此应该将其配置为异地复制的单一数据库 (1)。 这可以确保新的客户订阅、配置文件更新和其他管理操作具有可预测的性能。 区域 A 将是管理数据库的主要区域，而区域 B 将用于恢复管理数据库。
 
-同样会对付费客户的租户数据库进行异地复制，但将在区域 A 和区域 B 之间拆分主数据库和辅助数据库 (2)。 这样，受中断影响的租户主要数据库就可以故障转移到其他区域并变得可用。 租户数据库的另一半不会受到任何影响。 
+同样会对付费客户的租户数据库进行异地复制，但会在区域 A 和区域 B 之间拆分主数据库和辅助数据库 (2)。 这样，受中断影响的租户主要数据库就可以故障转移到其他区域并变得可用。 租户数据库的另一半不会受到任何影响。 
 
 下图说明了区域 A 发生中断时要采取的恢复步骤。
 
@@ -166,9 +166,9 @@ ms.lasthandoff: 09/28/2017
 本文重点介绍了关于 SaaS ISV 多租户应用程序使用的数据库层的灾难恢复策略。 基于应用程序的需要选择策略，例如业务模式、想要为客户提供的 SLA、预算限制等。所述的每个策略都概述了其优点和权衡，以便可以做出明智的决策。 此外，特定应用程序可能包括其他 Azure 组件。 因此，请查看其业务连续性指南并根据指南安排数据库层的恢复。 若要深入了解如何管理 Azure 中的数据库应用程序恢复，请参阅[设计灾难恢复云解决方案](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。  
 
 ## <a name="next-steps"></a>后续步骤
-* 若要了解 Azure SQL 数据库的自动备份，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)
-* 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)
-* 若要了解如何使用自动备份进行恢复，请参阅[从服务启动的备份中还原数据库](sql-database-recovery-using-backups.md)
-* 若要了解更快的恢复选项，请参阅[活动异地复制](sql-database-geo-replication-overview.md)
-* 若要了解如何使用自动备份进行存档，请参阅[数据库复制](sql-database-copy.md)
+* 若要了解 Azure SQL 数据库的自动备份，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)。
+* 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)。
+* 若要了解如何使用自动备份进行恢复，请参阅[从服务启动的备份中还原数据库](sql-database-recovery-using-backups.md)。
+* 若要了解更快的恢复选项，请参阅[活动异地复制](sql-database-geo-replication-overview.md)。
+* 若要了解如何使用自动备份进行存档，请参阅[数据库复制](sql-database-copy.md)。
 
