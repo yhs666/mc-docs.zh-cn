@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7012851f7832b3dbce605b09fc27be378b7ab523
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.openlocfilehash: c09287d3f0144c5e311045ead824119d3d963b8b
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure 流分析入门：实时检测欺诈行为
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/03/2017
 
 在本教程中，我们将使用基于电话呼叫数据的实时欺诈检测的示例。 但我们所演示的技术也适用于其他类型的欺诈检测，如信用卡欺诈或身份盗用。 
 
-## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>方案：实时进行电信和 SIM 欺诈检测
+## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>方案：实时远程通信和 SIM 欺诈检测
 
 电信公司的传入呼叫数据量很大。 公司希望实时检测欺诈呼叫，以便他们可以通知客户或针对特定号码关闭服务。 有一种 SIM 欺诈涉及在同一时间以同一身份发起但位于不同地理位置的多个呼叫。 若要检测此类欺诈，公司需要检查来电记录，并查找特定模式 - 在本例中，将查找在不同国家/地区同时发起的呼叫。 任何属于此类别的电话记录都将写入到存储中，以供后续分析。
 
@@ -80,8 +80,7 @@ ms.lasthandoff: 11/03/2017
 
     ![用于创建新事件中心的边栏选项卡](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
 
-7. 单击“创建” 。
-
+7. 单击“创建”。
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>授予对事件中心的访问权限，并获取连接字符串
 
 在进程可以将数据发送到事件中心之前，事件中心必须具有允许适当访问的策略。 访问策略生成包含授权信息的连接字符串。
@@ -97,7 +96,7 @@ ms.lasthandoff: 11/03/2017
 
     ![用于创建新事件中心访问策略的边栏选项卡](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
 
-4.  单击“创建” 。
+4.  单击“创建”。
 
 5.  部署策略后，在共享访问策略列表中单击该策略。
 
@@ -173,7 +172,7 @@ ms.lasthandoff: 11/03/2017
 
     ![创建新的流分析作业](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png)
 
-3. 单击“创建” 。
+3. 单击“创建”。
 
     创建作业后，门户将显示作业详细信息。 尽管尚无任何应用正在运行，但必须先配置该作业，然后才能启动。
 
@@ -196,7 +195,7 @@ ms.lasthandoff: 11/03/2017
 
     ![为流分析作业创建新输入](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png)
 
-4. 单击“创建” 。
+4. 单击“创建”。
 
 ## <a name="create-queries-to-transform-real-time-data"></a>创建查询以转换实时数据
 
@@ -354,7 +353,7 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
     ![流分析作业的“新建输出”窗格](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
 
-4. 单击“创建” 。 
+4. 单击“创建”。 
 
     Azure 将创建存储帐户，并自动生成密钥。 
 
@@ -411,6 +410,7 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 <!-- Not Avaialble * [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](stream-analytics-power-bi-dashboard.md). This article shows you how to send the TelCo output of the Stream Analytics job to Power BI for real-time visualization and analysis.-->
 有关常规流分析的详细信息，请查看以下文章：
+
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)

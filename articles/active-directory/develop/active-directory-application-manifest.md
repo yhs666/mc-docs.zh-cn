@@ -3,8 +3,8 @@ title: "了解 Azure Active Directory 应用程序清单 | Microsoft Docs"
 description: "详细介绍 Azure Active Directory 应用程序清单，该清单表示 Azure AD 租户中的应用程序标识配置，并方便实现 OAuth 授权、许可体验和其他功能。"
 services: active-directory
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: sureshja
+manager: mtillman
 editor: 
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -13,129 +13,57 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/20/2017
-ms.date: 08/24/2017
+ms.date: 01/09/2018
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: 282f09d8df1adaf0e6fe5dc964704c435fefc5b6
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: f8b62462ecf4417088dfc79cecd24441df4a7368
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="understanding-the-azure-active-directory-application-manifest"></a>了解 Azure Active Directory 应用程序清单
-与 Azure Active Directory (AD) 集成的应用程序必须向 Azure AD 租户注册，提供应用程序的持久性标识配置。 在运行时查阅此配置，启用允许应用程序通过 Azure AD 外包和中转身份验证/授权的方案。 有关 Azure AD 应用程序模型的详细信息，请参阅 [添加、更新和删除应用程序][ADD-UPD-RMV-APP] 一文。
+# <a name="azure-active-directory-application-manifest"></a>Azure Active Directory 应用程序清单
+与 Azure AD 集成的应用必须向 Azure AD 租户注册。 可以在 [Azure 门户](https://portal.azure.cn)中使用应用清单（在“Azure AD”边栏选项卡下）配置此应用。
 
-## <a name="updating-an-applications-identity-configuration"></a>更新应用程序的标识配置
-实际上有多个可用的选项可以更新应用程序的标识配置属性，这些选项因功能与难度而有所不同，包括：
+## <a name="manifest-reference"></a>清单参考
 
-- 在 [Azure 经典门户][AZURE-CLASSIC-PORTAL]的 Web 用户界面中可以更新应用程序的最常见属性。 这是更新应用程序属性最快且最不容易出错的方法，但无法像下面两种方法一样提供对所有属性的完全访问权限。
-- 对于需要在其中更新 Azure 经典管理门户中未公开的属性更高级方案，可以修改 **应用程序清单**。 这是本文的重点，会在下一部分中开始详细讨论。
-- 也可以编写使用[图形 API][GRAPH-API] 的应用程序来更新应用程序，这是最费力的方法。 如果要编写管理软件或需要自动定期更新应用程序属性，这可能是个不错的选择。
-
-## <a name="using-the-application-manifest-to-update-an-applications-identity-configuration"></a>使用应用程序清单更新应用程序的标识配置
-借助 [Azure 经典管理门户][AZURE-CLASSIC-PORTAL]，可以通过使用内联清单编辑器更新应用程序清单来管理应用程序的标识配置。 还可以下载应用程序清单并将其作为 JSON 文件上传。 不会将实际的文件存储在目录中。 应用程序清单只是 Azure AD 图形 API 应用程序实体上的 HTTP GET 操作，上传是应用程序实体上的 HTTP PATCH 操作。
-
-因此，要了解应用程序清单的格式和属性，需要参考图形 API [应用程序实体][APPLICATION-ENTITY] 文档。 可通过应用程序清单上传执行的更新示例包括：
-
-- 声明 Web API 公开的权限范围 (oauth2Permissions)。 有关使用 oauth2Permissions 委派权限范围实现用户模拟的信息，请参阅[将应用程序与 Azure Active Directory 集成][INTEGRATING-APPLICATIONS-AAD]中的“向其他应用程序公开 Web API”。 如前所述，图形 API [实体和复杂类型][APPLICATION-ENTITY]参考文章中介绍了应用程序实体属性，包括属于 [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION] 类型集合的 oauth2Permissions 属性。
-- 声明应用公开的应用程序角色 (appRoles)。 应用程序实体的 appRoles 属性是 [AppRole][APPLICATION-ENTITY-APP-ROLE]类型的集合。 请参阅 [使用 Azure AD 在云应用程序中执行基于角色的访问控制][RBAC-CLOUD-APPS-AZUREAD] 一文，以获取实现示例。
-- 声明已知的客户端应用程序 (knownClientApplications)，可让你以逻辑方式将指定客户端应用程序的许可绑定到资源/Web API。
-- 请求 Azure AD 对登录用户发出组成员资格声明 (groupMembershipClaims)。  也可将此配置为发出有关用户目录角色成员资格的声明。 请参阅 [使用 AD 组在云应用程序中执行授权][AAD-GROUPS-FOR-AUTHORIZATION] 一文，以获取实现示例。
-- 允许应用程序支持 OAuth 2.0 隐式授权流 (oauth2AllowImplicitFlow)。 这种类型的授权流可用于嵌入式 JavaScript 网页或单页应用程序 (SPA)。 有关隐式授权许可的详细信息，请参阅 [了解 Azure Active Directory 中的 OAuth2 隐式授予流][IMPLICIT-GRANT]。
-- 允许使用 X509 证书作为密钥 (keyCredentials)。 有关实现示例，请参阅文章[在 Office 365 中构建服务和守护程序应用][O365-SERVICE-DAEMON-APPS]和 [使用 Azure Resource Manager API 进行身份验证的开发人员指南][DEV-GUIDE-TO-AUTH-WITH-ARM]。
-- 为应用程序（标识符 URI[]）添加新的应用 ID URI。 应用 ID URI 用于唯一标识其 Azure AD 租户中的应用程序（或是通过已验证的自定义域限定多个租户方案时跨多个 Azure AD 租户中的应用程序）。 在请求资源应用程序的权限，或获取资源应用程序的访问令牌时使用应用程序 ID URI。 更新此元素时，相应的服务主体的 servicePrincipalNames[] 集合将做出同样的更新，该集合位于应用程序的主租户中。
-
-使用应用程序清单还能很好地跟踪应用程序注册状态。 由于它以 JSON 格式提供，因此文件表示形式可以签入源代码管理，以及应用程序的源代码。
-
-## <a name="step-by-step-example"></a>分步示例
-现在，让我们逐步了解通过应用程序清单更新应用程序标识配置所需执行的步骤。 我们重点演示前述示例之一，说明如何在资源应用程序中声明新的权限范围：
-
-1. 导航到 [Azure 经典管理门户][AZURE-CLASSIC-PORTAL] ，使用具有服务管理员或协同管理员权限的帐户登录。
-2. 在经过身份验证后，向下滚动并选择左侧导航面板中的 Azure“Active Directory”扩展 (1)，然后单击应用程序注册的 Azure AD 租户 (2)。
-
-    ![选择 Azure AD 租户][SELECT-AZURE-AD-TENANT]
-3. 出现“目录”页时，单击页面顶部的“应用程序”(1) 以查看在租户中注册的应用程序列表。 然后在列表中找到要更新的应用程序并单击 (2)。
-
-    ![选择 Azure AD 租户][SELECT-AZURE-AD-APP]
-4. 选择应用程序的主页后，注意页面底部的“管理清单”功能 (1)。 如果单击此链接，系统将提示下载或上传 JSON 清单文件。 单击“下载清单”(2)。 随后即会出现下载确认对话框，提示你单击“下载清单”(3) 进行确认。然后，可打开文件或将其保存到本地 (4)。
-
-    ![管理清单，下载选项][MANAGE-MANIFEST-DOWNLOAD]
-
-    ![下载清单][DOWNLOAD-MANIFEST]
-5. 在此示例中，我们已在本地保存了文件，因此可以在编辑器中打开该文件，对 JSON 进行更改，并再次保存。 下面是 JSON 结构在 Visual Studio JSON 编辑器中的外观。 请注意，它遵循 [应用程序实体][APPLICATION-ENTITY] 的架构，如前所述：
-
-    ![更新清单 JSON][UPDATE-MANIFEST]
-
-    例如，假设要在资源应用程序 (API) 中实现/公开名为“Employees.Read.All”的新权限，你只需将新的/第二个元素添加到 oauth2Permissions 集合，如下所示：
-
-    ```
-    "oauth2Permissions": [
-    {
-    "adminConsentDescription": "Allow the application to access MyWebApplication on behalf of the signed-in user.",
-    "adminConsentDisplayName": "Access MyWebApplication",
-    "id": "aade5b35-ea3e-481c-b38d-cba4c78682a0",
-    "isEnabled": true,
-    "type": "User",
-    "userConsentDescription": "Allow the application to access MyWebApplication on your behalf.",
-    "userConsentDisplayName": "Access MyWebApplication",
-    "value": "user_impersonation"
-    },
-    {
-    "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
-    "adminConsentDisplayName": "Read-only access to Employee records",
-    "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
-    "isEnabled": true,
-    "type": "User",
-    "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
-    "userConsentDisplayName": "Read-only access to your Employee records",
-    "value": "Employees.Read.All"
-    }
-    ],
-    ```
-
-    条目必须唯一，因此必须为 `"id"` 属性生成新的全局唯一 ID (GUID)。 在本例中，由于我们指定了 `"type": "User"`，此权限可由资源/API 应用程序注册所在的 Azure AD 租户所验证的任何帐户同意。 此操作授予客户端应用程序代表帐户进行访问的权限。 说明和显示名称字符串将在同意期间使用，并显示在 Azure 经典门户中。
-6. 完成更新清单后，请返回到 Azure 经典门户中的 Azure AD 应用程序页并再次单击“管理清单”功能 (1)。 但这次请选择“上传清单”选项 (2)。 与下载时类似，你将看到另一个对话框，提示你选择 JSON 文件的位置。 单击“浏览文件...”(3)，使用“选择要上传的文件”对话框选择 JSON 文件 (4)，然后按下“打开”。 对话框消失后，请选择“确定”复选标记 (5)，随即会上传清单。  
-
-    ![管理清单，上传选项][MANAGE-MANIFEST-UPLOAD]
-
-    ![上传清单 JSON][UPLOAD-MANIFEST]
-
-    ![上传清单 JSON - 确认][UPLOAD-MANIFEST-CONFIRM]
-
-保存清单后，即可允许注册的客户端应用程序访问上面添加的新权限。 此时可以使用 Azure 经典管理门户的 Web UI，不必编辑客户端应用程序的清单：  
-
-1. 首先，转到要添加新 API 的访问权限的客户端应用程序的“配置”页，并单击“添加应用程序”按钮。
-2. 屏幕中会显示租户中已注册的资源应用程序 (API) 的列表。 单击资源应用程序名称旁边的加号 (+) 进行选择。  
-3. 然后，单击右下角的复选标记。
-4. 返回到客户端配置页的“添加应用程序”部分时，可在列表中看到新的资源应用程序。 如果将光标转到该行右侧的“委派的权限”部分上方，可以看到显示的下拉列表。 单击该列表，并选择新权限，以将其添加到客户端请求的权限列表。 注意：此新权限存储在客户端应用程序标识配置的“requiredResourceAccess”集合属性中。
-
-![针对其他应用程序的权限][PERMS-TO-OTHER-APPS]
-
-![针对其他应用程序的权限][PERMS-SELECT-APP]
-
-![针对其他应用程序的权限][PERMS-SELECT-PERMS]
-
-就这么简单。 现在，你的应用程序使用其新标识配置来运行。
+>[!div class="mx-tdBreakAll"]
+>[!div class="mx-tdCol2BreakAll"]
+|键  |值类型 |示例值  |说明  |
+|---------|---------|---------|---------|
+|appID     |  标识符字符串       |""|  由 Azure AD 分配给应用的应用程序唯一标识符。|
+|appRoles     |    数组类型     |[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"Read only access to device information",<br>&emsp;"displayName":"Read Only",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]|应用程序可以声明的角色集合。 可将这些角色分配给用户、组或服务主体。|
+|availableToOtherTenants|布尔值|是|如果此值设置为 true，则应用程序可供其他租户使用。  如果设置为 false，则应用程序只可供它注册到的租户使用。  有关详细信息，请参阅：[如何使用多租户应用程序模式将任何 Azure Active Directory (AD) 用户登录](active-directory-devhowto-multi-tenant-overview.md)。 |
+|displayName     |字符串         |MyRegisteredApp         |应用程序的显示名称。 |
+|errorURL     |字符串         |http:<i></i>//MyRegisteredAppError         |应用程序中出现的错误的 URL。 |
+|groupMembershipClaims     |    字符串     |    1     |   一个位掩码，用于配置应用程序所需的用户或 OAuth 2.0 访问令牌中颁发的“groups”声明。 位掩码值包括：0：无；1：安全组和 Azure AD 角色；2：保留；4：保留。 将位掩码设置为 7 可获取登录用户所属的所有安全组、通讯组和 Azure AD 目录角色。      |
+|optionalClaims     |  字符串       |     Null    |    此特定应用的安全令牌服务在令牌中返回的可选声明。     |
+|acceptMappedClaims    |      布尔值   | 是        |    如果此值设置为 true，则允许应用程序使用声明映射，而无需指定自定义的签名密钥。|
+|homepage     |  字符串       |http:<i></i>//MyRegistererdApp         |    应用程序主页的 URL。     |
+|identifierUris     |  字符串数组       | http:<i></i>//MyRegistererdApp        |   用户定义的 URI，用于在 Web 应用程序的 Azure AD 租户中唯一标识该应用程序；如果应用程序是多租户的，则用于在已验证的自定义域中唯一标识该应用程序。      |
+|keyCredentials     |   数组类型      |   [{<br>&nbsp;"customKeyIdentifier":null,<br>"endDate":"2018-09-13T00:00:00Z",<br>"keyId":"\<guid>",<br>"startDate":"2017-09-12T00:00:00Z",<br>"type":"AsymmetricX509Cert",<br>"usage":"Verify",<br>"value":null<br>}]      |   此属性包含对应用程序分配的凭据、基于字符串的共享机密和 X.509 证书的引用。  在请求访问令牌时，这些凭据可派上用场（如果应用充当客户端而不是资源）。     |
+|knownClientApplications     |     数组类型    |    [guid]     |     如果解决方案包含两个部分：客户端应用程序和自定义 Web API 应用程序，则该值用于捆绑许可。 如果在此值中输入客户端应用程序的 appID，则用户只需许可该客户端应用程序一次。 Azure AD 将知道许可客户端意味着隐式许可 Web API，并自动为客户端和 Web API 同时预配服务主体（客户端和 Web API 应用程序必须已注册到同一个租户）。|
+|logoutUrl     |   字符串      |     http:<i></i>//MyRegisteredAppLogout    |   应用程序的注销 URL。      |
+|oauth2AllowImplicitFlow     |   布尔值      |  false       |       指定此 Web 应用程序是否可以请求 OAuth2.0 隐式流令牌。 默认值为 false。 此值用于基于浏览器的应用，例如 Javascript 单页应用。 |
+|oauth2AllowUrlPathMatching     |   布尔值      |  false       |   指定在 OAuth 2.0 令牌请求过程中，Azure AD 是否允许在重定向 URI 与应用程序的 replyUrls 之间执行路径匹配。 默认值为 false。      |
+|oauth2Permissions     | 数组类型         |      [{<br>"adminConsentDescription":"Allow the application to access resources on behalf of the signed-in user.",<br>"adminConsentDisplayName":"Access resource1",<br>"id":"\<guid>",<br>"isEnabled":true,<br>"type":"User",<br>"userConsentDescription":"Allow the application to access resource1 on your behalf.",<br>"userConsentDisplayName":"Access resources",<br>"value":"user_impersonation"<br>}]   |  Web API（资源）应用程序向客户端应用程序公开的 OAuth 2.0 权限范围集合。 在许可期间，可将这些权限范围授予客户端应用程序。 |
+|oauth2RequiredPostResponse     | 布尔值        |    false     |      指定在 OAuth 2.0 令牌请求过程中，Azure AD 是否允许与 GET 请求相反的 POST 请求。 默认值为 false，即指定只允许 GET 请求。   
+|objectId     | 标识符字符串        |     ""    |    应用程序在目录中的唯一标识符。  这不是用于在任何协议事务中标识应用的标识符。  它是引用目录查询中对象的用户。|
+|passwordCredentials     | 数组类型        |   [{<br>"customKeyIdentifier":null,<br>"endDate":"2018-10-19T17:59:59.6521653Z",<br>"keyId":"\<guid>",<br>"startDate":"2016-10-19T17:59:59.6521653Z",<br>"value":null<br>}]      |    请参阅 keyCredentials 属性的说明。     |
+|publicClient     |  布尔值       |      false   | 指定应用程序是否是公共客户端（例如在移动设备上运行的已安装应用程序）。 默认值为 false。        |
+|supportsConvergence     |  布尔值       |   false      | 不应编辑此属性。  请接受默认值。        |
+|replyUrls     |  字符串数组       |   http:<i></i>//localhost     |  此多值属性保存 Azure AD 在返回令牌时接受用作目标的已注册 redirect_uri 值列表。 |
+|requiredResourceAccess     |     数组类型    |    [{<br>"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>"resourceAccess":[{<br>&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;}]<br>}]     |   指定此应用程序需要访问的资源，以及其中每个资源所需的 OAuth 权限范围和应用程序角色集。 这项预先配置的所需资源访问权限有利于提升许可体验。|
+|resourceAppId     |    标识符字符串     |  ""      |   应用程序需要访问的资源的唯一标识符。 此值应等于目标资源应用程序中声明的 appId。     |
+|resourceAccess     |  数组类型       | 请参阅 requiredResourceAccess 属性的示例值。        |   应用程序需要从指定资源获取的 OAuth2.0 权限范围和应用角色列表（包含指定资源的 ID 和类型值）        |
+|samlMetadataUrl|字符串|http:<i></i>//MyRegisteredAppSAMLMetadata|应用程序的 SAML 元数据 URL。| 
 
 ## <a name="next-steps"></a>后续步骤
-- 有关 Azure AD 中应用程序的应用程序对象与服务主体对象之间关系的详细信息，请参阅 [Azure AD 中的应用程序对象和服务主体对象][AAD-APP-OBJECTS]。
+- 有关应用程序的应用程序对象与服务主体对象之间关系的详细信息，请参阅 [Azure AD 中的应用程序对象和服务主体对象][AAD-APP-OBJECTS]。
 - 请参阅 [Azure AD 开发人员术语表][AAD-DEVELOPER-GLOSSARY]，了解某些核心的 Azure Active Directory (AD) 开发人员概念的定义。
 
-欢迎使用以下 DISQUS 意见部分提供反馈，以帮助我们改进与制作内容。
-
-<!--Image references-->
-[DOWNLOAD-MANIFEST]: ./media/active-directory-application-manifest/download-manifest.png
-[MANAGE-MANIFEST-DOWNLOAD]: ./media/active-directory-application-manifest/manage-manifest-download.png
-[MANAGE-MANIFEST-UPLOAD]: ./media/active-directory-application-manifest/manage-manifest-upload.png
-[PERMS-SELECT-APP]: ./media/active-directory-application-manifest/portal-perms-select-app.png
-[PERMS-SELECT-PERMS]: ./media/active-directory-application-manifest/portal-perms-select-perms.png
-[PERMS-TO-OTHER-APPS]: ./media/active-directory-application-manifest/portal-perms-to-other-apps.png
-[SELECT-AZURE-AD-APP]: ./media/active-directory-application-manifest/select-azure-ad-application.png
-[SELECT-AZURE-AD-TENANT]: ./media/active-directory-application-manifest/select-azure-ad-tenant.png
-[UPDATE-MANIFEST]: ./media/active-directory-application-manifest/update-manifest.png
-[UPLOAD-MANIFEST]: ./media/active-directory-application-manifest/upload-manifest.png
-[UPLOAD-MANIFEST-CONFIRM]: ./media/active-directory-application-manifest/upload-manifest-confirm.png
+使用以下评论部分提供反馈，帮助我们改进和组织内容。
 
 <!--article references -->
 [AAD-APP-OBJECTS]: active-directory-application-objects.md
@@ -145,7 +73,6 @@ ms.lasthandoff: 08/25/2017
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type
 [APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type
-[AZURE-CLASSIC-PORTAL]: https://manage.windowsazure.cn
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
 [IMPLICIT-GRANT]: active-directory-dev-understanding-oauth2-implicit-grant.md

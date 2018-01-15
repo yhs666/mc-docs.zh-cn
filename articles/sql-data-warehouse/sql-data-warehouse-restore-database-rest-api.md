@@ -4,7 +4,7 @@ description: "用于还原 SQL 数据仓库的 REST API 任务。"
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: 
 ms.assetid: fca922c6-b675-49c7-907e-5dcf26d451dd
 ms.service: sql-data-warehouse
@@ -13,17 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-origin.date: 10/31/2016
-ms.date: 12/19/2016
+origin.date: 12/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9379f9b0733a51238fe32d504f8fe98e8487ddc1
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 2ca7099ecc1f3d3381a28442aaa33ad31b564772
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="restore-an-azure-sql-data-warehouse-rest-api"></a>还原 Azure SQL 数据仓库 (REST API)
-
 > [!div class="op_single_selector"]
 > * [概述][Overview]
 > * [门户][Portal]
@@ -32,15 +31,13 @@ ms.lasthandoff: 06/23/2017
 > 
 > 
 
-在本文中，你将学习如何使用 REST API 还原 Azure SQL 数据仓库。
+在本文中，可以学习如何使用 REST API 还原 Azure SQL 数据仓库。
 
-## <a name="before-you-begin"></a>开始之前
-
-<!-- Not Available [Request a DTU quota change][Request a DTU quota change] -->
+## <a name="before-you-begin"></a>准备阶段
 **验证 DTU 容量。** 每个 SQL 数据仓库都由一个具有默认 DTU 配额的 SQL 服务器（例如 myserver.database.chinacloudapi.cn）托管。  在还原 SQL 数据仓库之前，请确保 SQL Server 的剩余 DTU 配额足够进行数据库还原。
+<!-- Not Available [Request a DTU quota change][Request a DTU quota change] -->
 
 ## <a name="restore-an-active-or-paused-database"></a>还原活动或暂停的数据库
-
 还原数据库：
 
 1. 使用“获取数据库还原点”操作获取数据库还原点列表。
@@ -53,7 +50,6 @@ ms.lasthandoff: 06/23/2017
 > 
 
 ## <a name="restore-a-deleted-database"></a>还原已删除的数据库
-
 若要还原已删除的数据库：
 
 1. 使用[列出可还原的已删除数据库][List restorable dropped databases]操作列出所有可还原的已删除数据库。
@@ -91,3 +87,4 @@ ms.lasthandoff: 06/23/2017
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.cn/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
+<!-- Update_Description: update meta properties -->

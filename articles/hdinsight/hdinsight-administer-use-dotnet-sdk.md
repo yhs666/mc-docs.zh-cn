@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/25/2017
-ms.date: 11/25/2017
+origin.date: 12/15/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: a81dbfc21680cdb0fadefc669fbfea35795797c1
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: ca8a7066fac30e0f77ab3cdfc90cec70f757191d
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -134,7 +134,7 @@ foreach (var name in results.Clusters) {
 ```
 
 ## <a name="delete-clusters"></a>删除群集
-使用以下代码片段以同步或异步方式删除群集： 
+使用以下代码段以同步或异步方式删除群集： 
 
 ```csharp
 _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
@@ -145,7 +145,7 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 使用群集缩放功能，可更改 Azure HDInsight 中运行的群集使用的辅助节点数，而无需重新创建群集。
 
 > [!NOTE]
-> 只支持使用 HDInsight 3.1.3 或更高版本的群集。 如果不确定群集的版本，可以查看“属性”页面。  请参阅 [列出并显示群集](hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。
+> 只支持使用 HDInsight 3.1.3 或更高版本的群集。 如果不确定群集的版本，可以查看“属性”页面。  请参阅[列出和显示群集](hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。
 > 
 > 
 

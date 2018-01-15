@@ -3,8 +3,8 @@ title: "适用于应用程序的品牌准则 | Microsoft Docs"
 description: "介绍面向开发人员的 Azure Active Directory 资源的综合性指南"
 services: active-directory
 documentationcenter: dev-center-name
-author: alexchen2016
-manager: digimobile
+author: skwan
+manager: mtillman
 editor: 
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/27/2017
-ms.date: 06/26/2017
+ms.date: 01/09/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 19069efedc7ddef0720cbf3dc4a229a96f3556eb
-ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.openlocfilehash: 2ab093989abd7802895d5283d689ee90873e4574
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="branding-guidelines-for-applications"></a>适用于应用程序的品牌准则
 本主题讨论在使用 Azure Active Directory (Azure AD) 开发应用程序时应使用的品牌准则。 在客户需要使用 Azure AD 中托管的工作或学校帐户或个人帐户进行注册和登录到应用程序时，这些准则将帮助指导客户进行相关操作。
@@ -34,36 +34,37 @@ Microsoft 管理两种类型的用户帐户：
 Microsoft 工作或学校帐户通常由组织（公司、学校、政府机构）分配给最终用户（员工、学生、联邦雇员）。 这些帐户可以直接在云中或Azure AD 中直接控制，也可以从本地目录（如 Windows Server Active Directory）同步到 Azure AD。 Microsoft 是工作或学校帐户的 *监管员* ，但这些帐户由组织所有和控制。
 
 ## <a name="referring-to-azure-ad-accounts-in-your-application"></a>在应用程序中引用 Azure AD 帐户
-Microsoft 不会向最终用户显示 Azure 或 Active Directory 品牌名称，你也应该如此。
+Microsoft 不会向最终用户显示 Azure 或 Active Directory 品牌名称，也应该如此。
 
-- 在用户登录后，你应尽量使用组织的名称和徽标。 这比使用“你的组织”等常用词语来好。
+- 在用户登录后，应尽量使用组织的名称和徽标。 这比使用“组织”等常用词语来好。
 - 如果用户未登录，你应该将他们的帐户称为“工作或学校帐户”，并使用 Microsoft 徽标来表明这些帐户由 Microsoft 管理。 请勿使用“企业帐户”、“业务帐户”或“公司帐户”等词语，这会给用户造成混淆。
 
 ## <a name="user-account-pictogram"></a>用户帐户象形图
-在先前版本的准则中，我们建议使用“蓝色徽章”象形图。 根据用户和开发人员的反馈，我们现在建议改用 Microsoft 徽标。 这会帮助用户了解，他们可以重用其用于 Office 365 或其他 Microsoft 业务服务的帐户来登录你的应用程序。
+在先前版本的准则中，我们建议使用“蓝色徽章”象形图。 根据用户和开发人员的反馈，我们现在建议改用 Microsoft 徽标。 这会帮助用户了解，他们可以重用其用于 Office 365 或其他 Microsoft 业务服务的帐户来登录应用程序。
 
 ## <a name="signing-up-and-signing-in-with-azure-ad"></a>使用 Azure AD 注册和登录
-你的应用程序可以为注册和登录提供不同的路径，以下部分提供了这两种应用场景的可视指南。
+应用程序可以为注册和登录提供不同的路径，以下部分提供了这两种应用场景的可视指南。
 
-**如果应用支持最终用户注册（例如免费试用或免费增值模式）**：可以显示“登录”按钮，让用户使用其工作帐户或个人帐户访问应用。 当用户首次访问你的应用程序时，Azure AD 将显示许可提示。
+**如果应用支持最终用户注册（例如免费试用或免费增值模式）**：可以显示“登录”按钮，让用户使用其工作帐户或个人帐户访问应用。 当用户首次访问你的应用程序时，Azure AD 会显示许可提示。
 
-**如果应用程序需要只有管理员才能授予的权限，或者应用程序需要组织许可**：应该将管理员请求与用户登录区别开来。 **“获取此应用程序”按钮** 会将管理员重定向到登录页，然后要求他们代表其组织中的用户授权。 带来的额外好处是，应用程序中不会显示最终用户许可提示。
+**如果应用需要只有管理员才能授予的权限，或者需要组织许可**：应该将管理员请求与用户登录区别开来。 
+            **“获取此应用程序”按钮** 会将管理员重定向到登录页，并要求他们代表其组织中的用户授权。 带来的额外好处是，应用程序中不会显示最终用户许可提示。
 
 ## <a name="visual-guidance-for-app-acquisition"></a>有关获取应用程序的可视指南
-“获取应用程序”链接必须将用户重定向到 Azure AD 的访问权限授予（授权）页，以方便组织的管理员对应用进行授权，使其有权访问 Microsoft 托管的组织数据。 
+“获取应用程序”链接必须将用户重定向到 Azure AD 的访问权限授予（授权）页，以方便组织的管理员对应用进行授权，使其有权访问 Microsoft 托管的组织数据。 有关如何请求访问权限的详细信息，请参阅[将应用程序与 Azure Active Directory 集成](active-directory-integrating-applications.md)一文。
 
-管理员许可应用后，可以选择将应用添加到其用户的 Office 365 应用启动器体验（可从 waffle 和 [https://portal.office.com/myapps](https://portal.office.com/myapps) 访问）。 如果你想要广告此功能，可以使用类似于“将此应用程序添加到你的组织”词语，并显示类似于下面的按钮：
+管理员许可应用后，可以选择将应用添加到其用户的 Office 365 应用启动器体验（可从 waffle 和 [https://portal.partner.microsoftonline.cn/myapps](https://portal.partner.microsoftonline.cn/myapps) 访问）。 如果想要广告此功能，可以使用类似于“将此应用程序添加到组织”词语，并显示类似于下面的按钮：
 
 ![应用程序类型和方案](./media/active-directory-branding-guidelines/add-to-my-org.png)
 
-但是，我们建议你编写说明性的文本而不要依赖于按钮。 例如：
+但是，我们建议编写说明性的文本而不要依赖于按钮。 例如：
 
 > *如果已使用 Office 365 或 Microsoft 的其他业务服务，则只需授予 <your_app_name> 对组织数据的访问权限。这样，用户便可以使用其现有工作帐户访问 <your_app_name>。*
 > 
 > 
 
 ## <a name="visual-guidance-for-sign-in"></a>有关登录的可视指南
-你的应用程序应显示登录按钮，用于将用户重定向到对应于用来与 Azure AD 集成的协议的登录终结点。 以下部分详细描述了该按钮的外观。
+应用程序应显示登录按钮，用于将用户重定向到对应于用来与 Azure AD 集成的协议的登录终结点。 以下部分详细描述了该按钮的外观。
 
 ### <a name="pictogram-and-sign-in-with-microsoft"></a>图标和“通过 Microsoft 登录”
 Microsoft 徽标和“通过 Microsoft 登录”词语的关联可唯一地将 Azure AD 与应用支持的其他标识提供者区别开来。 如果没有足够的空间来容纳“通过 Microsoft 登录”，则可以将其缩短为“登录”。
@@ -72,14 +73,14 @@ Microsoft 徽标和“通过 Microsoft 登录”词语的关联可唯一地将 A
 
 ![应用程序类型和方案](./media/active-directory-branding-guidelines/sign-in-light.png)
 
-你还可以对该按钮使用深色方案。
+还可以对该按钮使用深色方案。
 
 ![应用程序类型和方案](./media/active-directory-branding-guidelines/sign-in-with-microsoft-dark.png)
 
 ![应用程序类型和方案](./media/active-directory-branding-guidelines/sign-in-dark.png)
 
 ## <a name="branding-dos-and-donts"></a>品牌注意事项
-**务必** 将“工作或学校帐户”与“通过 Microsoft 登录”按钮结合使用来提供附加说明，以便帮助最终用户识别他们是否可以使用该应用。 **请勿** 使用“企业帐户”、“业务帐户”或“公司帐户”等其他词语。
+**务必**将“工作或学校帐户”与“通过 Microsoft 登录”按钮结合使用来提供附加说明，以便帮助最终用户识别他们是否可以使用该应用。 **请勿** 使用“企业帐户”、“业务帐户”或“公司帐户”等其他词语。
 
 **不要** 使用“Office 365 ID”或“Azure ID”。 Office 365 也是 Microsoft 的消费型产品名称，它不使用 Azure AD 进行身份验证。
 
@@ -91,3 +92,4 @@ Microsoft 徽标和“通过 Microsoft 登录”词语的关联可唯一地将 A
 **要** 提供让用户注销以及切换到其他用户帐户的方法。 即将推出支持多个登录用户的功能。
 
 
+<!-- Update_Description: wording update -->

@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/16/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: c95a14fa4e94ec1157558d36a9f43f0c77bfe042
-ms.sourcegitcommit: ac0aab977d289366db6a9b230f27a6a8c6c190e9
+ms.openlocfilehash: e1a3ddedc7cdfcd0d60dbf7a53afbf0942cc452c
+ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 
@@ -49,6 +49,8 @@ ms.lasthandoff: 12/18/2017
 ### <a name="ip-address-version"></a>IP 地址版本
 
 公共 IP 地址是使用 IPv4 地址创建的。
+<!-- Not Available on IPv6 -->
+
 ### <a name="sku"></a>SKU
 
 使用以下 SKU 之一创建公共 IP 地址：
@@ -150,7 +152,7 @@ ms.lasthandoff: 12/18/2017
 分配专用 IP 地址有两种方法：
 
 - **动态**：Azure 会分配子网的地址范围内下一个未分配或未保留的可用 IP 地址。 例如，如果地址 10.0.0.4-10.0.0.9 已分配给其他资源，Azure 会将 10.0.0.10 分配给新资源。 动态方法是默认的分配方法。 动态 IP 地址在分配后，仅在以下情况下才会释放：网络接口已删除、已分配到同一虚拟网络中的另一子网，或者分配方法已更改为静态，这种情况下会指定另一 IP 地址。 默认情况下，当分配方法从动态更改为静态时，Azure 会将以前动态分配的地址作为静态地址分配。
-- **静态**：选择并分配子网的地址范围内任何未分配或未保留的 IP 地址。 例如，如果子网的地址范围是 10.0.0.0/16，并且地址 10.0.0.4-10.0.0.9 已分配给其他资源，则可以指定 10.0.0.10 - 10.0.255.254 之间的任何地址。 只有在删除网络接口之后，静态地址才会释放。 如果将分配方法更改为静态，Azure 会动态地将以前分配的静态 IP 地址作为动态地址分配，即使该地址不是子网地址范围内的下一个可用地址。 如果将网络接口分配给同一虚拟网络中的另一子网，则该地址也会更改。但是，若要将网络接口分配给另一子网，必须先将分配方法从静态更改为动态。 将网络接口分配给另一子网以后，即可将分配方法改回为静态，并根据新子网的地址范围分配 IP 地址。
+- **静态**：选择并分配子网的地址范围内任何未分配或未保留的 IP 地址。 例如，如果子网的地址范围是 10.0.0.0/16，并且地址 10.0.0.4-10.0.0.9 已分配给其他资源，则可以指定 10.0.0.10 - 10.0.255.254 之间的任何地址。 只有在删除网络接口之后，静态地址才会释放。 如果将分配方法更改为动态，Azure 会动态地将以前分配的静态 IP 地址作为动态地址分配，即使该地址不是子网地址范围内的下一个可用地址。 如果将网络接口分配给同一虚拟网络中的另一子网，则该地址也会更改。但是，若要将网络接口分配给另一子网，必须先将分配方法从静态更改为动态。 将网络接口分配给另一子网以后，即可将分配方法改回为静态，并根据新子网的地址范围分配 IP 地址。
 
 ### <a name="virtual-machines"></a>虚拟机
 
@@ -178,7 +180,7 @@ ms.lasthandoff: 12/18/2017
 | 应用程序网关 |前端配置 |是 |是 |
 
 ## <a name="limits"></a>限制
-这些限制根据区域和订阅设置。 可以[与支持人员联系](https://www.azure.cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
+Azure 中全面指定了对 IP 寻址施加的限制。 这些限制根据区域和订阅设置。 可以[与支持人员联系](https://www.azure.cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
 
 ## <a name="pricing"></a>定价
 公共 IP 地址可能会产生少许费用。 有关 Azure 中 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。
@@ -188,4 +190,4 @@ ms.lasthandoff: 12/18/2017
 * [使用模板通过静态公共 IP 部署 VM](virtual-network-deploy-static-pip-arm-template.md)
 * [通过 Azure 门户使用静态专用 IP 地址部署 VM](virtual-networks-static-private-ip-arm-pportal.md)
 
-<!--Update_Description: update reference link, wording update-->
+<!--Update_Description: wording update -->

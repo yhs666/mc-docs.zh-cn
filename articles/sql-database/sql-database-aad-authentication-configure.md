@@ -17,11 +17,11 @@ ms.workload: data-management
 origin.date: 07/10/2017
 ms.date: 11/06/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 8007d099740ea8e41a613dbede615ee33bd13336
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 57ba41053ea05058096a0eba92493bd5b5f23bc7
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>使用 SQL 数据库或 SQL 数据仓库配置和管理 Azure Active Directory 身份验证
 
@@ -35,31 +35,7 @@ ms.lasthandoff: 01/05/2018
 
 有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../active-directory/connect/active-directory-aadconnect.md)、[将自己的域名添加到 Azure AD](../active-directory/active-directory-add-domain.md)、[Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)、[管理 Azure AD 目录](https://msdn.microsoft.com/library/azure/hh967611.aspx)、[使用 Windows PowerShell 管理 Azure AD](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) 和[混合标识所需端口和协议](../active-directory/connect/active-directory-aadconnect-ports.md)。
 
-## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>可选：关联或更改当前与 Azure 订阅关联的活动目录
-要将数据库与组织的 Azure AD 目录相关联，请允许该目录成为托管数据库的 Azure 订阅的一个受信任目录。 有关详细信息，请参阅 [Azure 订阅与 Azure AD 的关联方式](https://msdn.microsoft.com/library/azure/dn629581.aspx)。
 
-**其他信息：** 每个 Azure 订阅都与某个 Azure AD 实例存在信任关系。 这意味着，此订阅信任该目录对用户、服务和设备执行身份验证。 多个订阅可以信任同一个目录，但一个订阅只能信任一个目录。 可以访问 [https://manage.windowsazure.cn/](https://manage.windowsazure.cn/)，在“设置”选项卡下查看你的订阅信任的目录。 订阅与目录之间的这种信任关系不同于订阅与 Azure 中所有其他资源（网站、数据库等）之间的关系，在后一种关系中，这些资源更像是订阅的子资源。 如果某个订阅过期，则对该订阅关联的其他那些资源的访问权限也会终止。 但是，目录将保留在 Azure 中，并且可以将另一个订阅与该目录相关联，然后继续管理目录用户。 有关资源的详细信息，请参阅[了解 Azure 中的资源访问](https://msdn.microsoft.com/library/azure/dn584083.aspx)。
-
-以下过程说明如何更改给定订阅的关联目录。
-1. 使用 Azure 订阅管理员连接到 [Azure 经典管理门户](https://manage.windowsazure.cn/)。
-2. 在左侧标题中，选择“设置” 。
-3. 订阅显示在“设置”屏幕中。 如果未显示所需订阅，请单击顶部的“订阅”，下拉“按目录筛选”框，并选择包含你的订阅的目录，然后单击“应用”。
-
-    ![选择订阅][4]
-4. 在“设置”区域中，单击订阅，然后单击页面底部的“编辑目录”。
-
-    ![AD-设置-门户][5]
-5. 在“编辑目录”  框中，选择与 SQL Server 或 SQL 数据仓库相关联的 Azure Active Directory，并单击箭头转到下一步。
-
-    ![编辑-目录-选择][6]
-6. 在“确认”目录“映射”对话框中，确认“全部协同管理员都将被删除”。
-
-    ![编辑-目录-确认][7]
-7. 单击复选标记以重新加载门户。
-
-   > [!NOTE]
-   > 更改目录时，将删除所有协同管理员、Azure AD 用户和组以及目录支持的资源用户的访问权限，他们不再有权访问此订阅或其资源。 只有作为服务管理员时，用户才能基于新的目录配置主体的访问权限。 此更改可能需要大量时间来传播到所有资源。 更改目录时还会更改 SQL 数据库和 SQL 数据仓库的 Azure AD 管理员，并且不允许任何现有 Azure AD 用户访问数据库。 必须重置 Azure AD 管理员（如下所述），并且必须创建新的 Azure AD 用户。
-   >  
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>为 Azure SQL Server 创建 Azure AD 管理员
 每个 Azure SQL Server（托管 SQL 数据库或 SQL 数据仓库）开始时只使用单个服务器管理员帐户，即整个 Azure SQL Server 的管理员。 必须创建第二个 SQL Server 管理员，这是一个 Azure AD 帐户。 此主体在 master 数据库中作为包含的数据库用户创建。 作为管理员，服务器管理员帐户是每个用户数据库中 **db_owner** 角色的成员，并且以 **dbo** 用户身份输入每个用户数据库。 有关服务器管理员帐户的详细信息，请参阅[在 Azure SQL 数据库中管理数据库和登录名](sql-database-manage-logins.md)。
@@ -136,7 +112,7 @@ Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
 ```
 
 > [!NOTE]
-> 当 **DisplayName** 不唯一时，需要使用 Azure AD **ObjectID**。 若要检索 **ObjectID** 和 **DisplayName** 值，请使用 Azure 经典管理门户的 Active Directory 部分，并查看用户或组的属性。
+> 当 **DisplayName** 不唯一时，需要使用 Azure AD **ObjectID**。 若要检索 **ObjectID** 和 **DisplayName** 值，请使用 Azure 门户的 Active Directory 部分，并查看用户或组的属性。
 > 
 
 以下示例返回有关 Azure SQL Server 的当前 Azure AD 管理员的信息：

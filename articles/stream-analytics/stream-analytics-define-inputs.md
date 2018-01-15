@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-origin.date: 07/05/2017
-ms.date: 12/11/2017
+origin.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 52c40f961f1da3d09e9612b97370ca801dfc1ae2
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 25a6d6b89f1694c1c7e7dedcf056d68363a30dd6
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>数据连接：了解从事件到流分析的数据流输入
 与流分析作业的数据连接是数据源提供的事件流，这称为“输入”。 流分析与包括 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)、[Azure IoT 中心](https://www.azure.cn/home/features/iot-hub/)和 [Azure Blob 存储](https://www.azure.cn/home/features/storage/)在内的 Azure 数据流源具有一流的集成。 这些输入源可以来自与分析作业相同的 Azure 订阅，也可以来自其他订阅。
@@ -38,9 +38,9 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="compression"></a>压缩
 
-Azure 流分析支持跨所有数据流输入源（事件中心、IoT 中心和 Blob 存储）的压缩功能。 此功能将新的下拉选项添加到 Azure 门户中的“新建输入”边栏选项卡，用户可以根据需要选择压缩数据流。 当前支持的类型为 None、GZip、和 Deflate 压缩。 
+Azure 流分析支持跨所有数据流输入源（事件中心、IoT 中心和 Blob 存储）的压缩功能。 此功能将新的下拉选项添加到 Azure 门户中的“新建输入”边栏选项卡，用户可以根据需要选择压缩数据流。 当前支持的引用类型为 None、GZip、和 Deflate 压缩。 对压缩的支持不可用于参考数据。
 
-不支持压缩和 Avro 序列化，并且不适用于引用数据。 
+不需要通过 Avro 序列化指定压缩类型。 如果输入 Avro 数据已压缩，它会以透明方式进行处理。 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>从事件中心创建数据流输入
 
@@ -81,7 +81,7 @@ SELECT
     EventEnqueuedUtcTime,
     PartitionId
 FROM Input
-````
+```
 
 > [!NOTE]
 > 当使用事件中心作为 IoT 中心路由的终结点时，可通过 [GetMetadataPropertyValue 函数](https://msdn.microsoft.com/library/azure/mt793845.aspx)访问 IoT 中心元数据。
@@ -161,7 +161,7 @@ CSV 格式的输入需要标头行，以便为数据集定义字段。 此外，
 
 | 属性 | 说明 |
 | --- | --- |
-| **BlobName** |提供事件源自的输入 blob 的名称。 |
+| **BlobName** |提供事件的输入 blob 的名称。 |
 | **EventProcessedUtcTime** |流分析处理事件的日期和时间。 |
 | **BlobLastModifiedUtcTime** |上次修改 blob 的日期和时间。 |
 | **PartitionId** |输入适配器的从零开始的分区 ID。 |
@@ -176,7 +176,9 @@ SELECT
 FROM Input
 ```
 
-<!-- Not Available ## Get help-->
+## <a name="get-help"></a>获取帮助
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/forums/)。
+
 ## <a name="next-steps"></a>后续步骤
 已经了解了 Azure 中针对流分析作业的数据连接选项。 若要了解有关流分析的详细信息，请参阅：
 
@@ -193,4 +195,4 @@ FROM Input
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

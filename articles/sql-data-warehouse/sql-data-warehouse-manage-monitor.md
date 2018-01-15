@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-origin.date: 10/31/2016
-ms.date: 07/17/2017
+origin.date: 12/14/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: a406d364fbf7ea719babff80358f9f1b756162da
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: b5b6bfbf76a0ab167d30ed4723332bd3514521c0
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>使用 DMV 监视工作负荷
 本文介绍如何使用动态管理视图 (DMV) 在 Azure SQL 数据仓库中监视工作负荷及调查查询执行情况。
@@ -147,7 +147,9 @@ WHERE request_id = 'QID####' AND step_index = 2;
 DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
-## <a name="waiting"></a>监视正在等待的查询
+<a name="waiting"></a>
+
+## <a name="monitor-waiting-queries"></a>监视正在等待的查询
 如果查询未取得进展（因其正在等待资源），下面是显示查询正在等待的所有资源的查询。
 
 ```sql
@@ -173,7 +175,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 如果查询正在主动等待另一个查询中的资源，则状态将为 **AcquireResources**。  如果查询具有全部所需资源，则状态将为 **Granted**。
 
 ## <a name="monitor-tempdb"></a>监视 tempdb
-较高的 tempdb 利用率可能是性能缓慢和内存不足问题的根本原因。 请先检查是否存在数据倾斜或质量不佳的行组，并采取相应的措施。 如果发现 tempdb 在执行查询的过程中达到其限制，请考虑扩展数据仓库。 下面介绍如何确定每个节点上的每个查询的 tempdb 用量。 
+较高的 tempdb 利用率可能是性能缓慢和内存不足问题的根本原因。 如果发现 tempdb 在执行查询的过程中达到其限制，请考虑扩展数据仓库。 下面介绍如何确定每个节点上的每个查询的 tempdb 用量。 
 
 创建以下视图，以关联 sys.dm_pdw_sql_requests 的相应节点 ID。 这样，便可以利用其他直通 DMV，并将这些表与 sys.dm_pdw_sql_requests 相联接。
 
@@ -232,7 +234,7 @@ ORDER BY sr.request_id;
 ```
 ## <a name="monitor-memory"></a>监视内存
 
-内存可能是性能缓慢和内存不足问题的根本原因。 请先检查是否存在数据倾斜或质量不佳的行组，并采取相应的措施。 如果发现 SQL Server 内存用量在执行查询的过程中达到其限制，请考虑扩展数据仓库。
+内存可能是性能缓慢和内存不足问题的根本原因。 如果发现 SQL Server 内存用量在执行查询的过程中达到其限制，请考虑扩展数据仓库。
 
 以下查询返回每个节点的 SQL Server 内存用量和内存压力：   
 ```sql
@@ -257,7 +259,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>监视事务日志大小
-以下查询返回每个分布区的事务日志大小。 请检查是否存在数据倾斜或质量不佳的行组，并采取相应的措施。 如果某个日志文件即将达到 160GB，你应考虑扩展实例或限制事务大小。 
+以下查询返回每个分布区的事务日志大小。 如果某个日志文件即将达到 160GB，你应考虑扩展实例或限制事务大小。 
 ```sql
 -- Transaction log size
 SELECT
@@ -305,4 +307,6 @@ GROUP BY t.pdw_node_id, nod.[type]
 [sys.dm_pdw_sql_requests]: http://msdn.microsoft.com/library/mt203889.aspx
 [DBCC PDW_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
-[LABEL]: https://msdn.microsoft.com/zh-cn/library/ms190322.aspx
+[LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
+
+<!-- Update_Description: update meta properties, wording update -->

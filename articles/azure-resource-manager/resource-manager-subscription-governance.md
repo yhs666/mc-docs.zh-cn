@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 03/31/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3d74e17a363353439b1225bb9984f87fd72a6cae
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: b224dff9079d23a593dc173527e1dfa33330c2bc
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure 企业基架 - 出于合规目的监管订阅
 为了实现敏捷性和灵活性，企业越来越多地采用公有云。 它们利用云的优势来产生营收或优化企业资源。 Azure 提供多种不同的服务，企业可以像构建块一样将它们组合，解决广泛的工作负荷与应用程序需求。 
@@ -116,7 +116,7 @@ Azure Resource Manager 策略是 Azure 工具包中的一个强大工具。 使�
 
 * 强制针对所有资源使用“部门”和“所有者”标记
 * 仅限在北美区域创建资源
-* 仅限创建 G 系列 VM 和 HDInsight 群集
+<!-- Not Available on * Restrict the ability to create G-Series VMs and HDInsight Clusters-->
 
 创建云应用程序的业务单位使用的“敏捷”环境
 
@@ -137,9 +137,11 @@ Azure Resource Manager 策略是 Azure 工具包中的一个强大工具。 使�
 > 
 
 ### <a name="audit---what-happened"></a>审核 - 发生了什么？
-若要查看环境是否正常运行，需要审核用户活动。 Azure 中的大多数资源类型都会创建诊断日志，可以通过日志工具或在 Azure Operations Management Suite 中对其进行分析。 可以跨多个订阅收集活动日志，提供部门或企业视图。 审核记录既是一个重要的诊断工具，也是在 Azure 环境中触发事件的关键机制。
+若要查看环境是否正常运行，需要审核用户活动。 Azure 中的大多数资源类型都会创建诊断日志，可以通过日志工具对其进行分析。 可以跨多个订阅收集活动日志，提供部门或企业视图。 审核记录既是一个重要的诊断工具，也是在 Azure 环境中触发事件的关键机制。
+<!-- Not Available on Azure Operations Management Suite -->
 
-使用 Resource Manager 部署中的活动日志，可以确定执行了哪些 **操作** ，以及谁执行了这些操作。 可以使用 Log Analytics 等工具来收集和聚合活动日志。
+使用 Resource Manager 部署中的活动日志，可以确定执行了哪些 **操作** ，以及谁执行了这些操作。
+<!--Not Available on  Activity logs can be collected and aggregated using tools like Log Analytics. -->
 
 ## <a name="resource-tags"></a>资源标记
 随着组织中的用户不断地在订阅中添加资源，将资源与相应的部门、客户和环境相关联就变得越发重要。 可以通过[标记](resource-group-using-tags.md)将元数据附加到资源。 可以使用标记提供有关资源或所有者的信息。 使用标记不仅可以通过多种方式聚合与分组资源，而且还能使用这些数据实现费用分摊的目的。 可以标记最多包含 15 个“键:值”对的资源。 

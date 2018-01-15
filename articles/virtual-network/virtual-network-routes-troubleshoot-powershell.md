@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/23/2016
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: f5538eb7f359c128c269e0695e4d2dad48b4b505
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 5220e6e08ec599643ee74d7558d47543dea7c184
+ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>使用 Azure PowerShell 排查路由问题
 > [!div class="op_single_selector"]
-> * [Azure 门户](virtual-network-routes-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 > 
 > 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/08/2017
 ### <a name="view-effective-routes-for-a-network-interface"></a>查看网络接口的有效路由
 若要查看应用到网络接口的聚合路由，请完成以下步骤：
 
-1. 启动 Azure PowerShell 会话并登录到 Azure。 如果不熟悉 Azure PowerShell，请阅读 [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)（如何安装和配置 Azure PowerShell）一文。
+1. 启动 Azure PowerShell 会话并登录到 Azure。 如果不熟悉 Azure PowerShell，请阅读 [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)（如何安装和配置 Azure PowerShell）一文。 你的帐户必须有权对网络接口执行 *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* 操作。 若要了解如何向帐户分配操作，请参阅[创建用于 Azure 基于角色的访问控制的自定义角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions)。
 2. 以下命令返回对资源组 *RG1* 中名为 *VM1-NIC1* 的网络接口应用的所有路由。
 
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -137,4 +137,4 @@ ms.lasthandoff: 12/08/2017
   * 如果是新建立的对等互连链接，请等待几秒钟并重试。 有时需要花费较长的时间才能将路由传播到子网中的所有网络接口。
   * 网络安全组 (NSG) 规则可能会影响流量流。 有关详细信息，请参阅[网络安全组故障排除](virtual-network-nsg-troubleshoot-powershell.md)一文。
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

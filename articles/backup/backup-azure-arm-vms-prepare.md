@@ -3,8 +3,8 @@ title: "Azure 备份：准备备份虚拟机 | Microsoft 文档"
 description: "确保对环境进行准备，以便在 Azure 中备份虚拟机。"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: 
 keywords: "备份; 备份;"
 ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
@@ -14,29 +14,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/03/2017
-ms.date: 11/27/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: f409a0c4f38a25a5b1ebca3caf1366d5a6748f02
-ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
+ms.openlocfilehash: ac03c94b5163cd5291e7e3c797d1745525b5f28e
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>准备环境以备份 Resource Manager 部署的虚拟机
-> [!div class="op_single_selector"]
-> * [Resource Manager 模型](backup-azure-arm-vms-prepare.md)
-> * [经典模型](backup-azure-vms-prepare.md)
->
->
 
-本文提供有关准备环境以备份 Resource Manager 部署的虚拟机 (VM) 的步骤。 过程中显示的步骤将使用 Azure 门户。  
+本文提供有关准备环境以备份 Resource Manager 部署的虚拟机 (VM) 的步骤。 过程中显示的步骤要使用 Azure 门户。  
 
 Azure 备份服务提供两种类型的保管库（备份保管库和恢复服务保管库）来保护 VM。 备份保管库保护使用经典部署模型部署的 VM。 恢复服务保管库保护 **经典部署和 Resource Manager 部署的 VM**。 必须使用恢复服务保管库来保护 Resource Manager 部署的 VM。
 
 > [!NOTE]
-> Azure 有两种用于创建和使用资源的部署模型： [Resource Manager 部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 有关使用经典部署模型 VM 的详细信息，请参阅[准备好环境以备份 Azure 虚拟机](backup-azure-vms-prepare.md)。
->
->
+> Azure 有两种用于创建和使用资源的部署模型： [Resource Manager 部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 
 
 请确保符合以下先决条件，这样才能保护或备份 Resource Manager 部署的虚拟机 (VM)：
 
@@ -46,7 +39,7 @@ Azure 备份服务提供两种类型的保管库（备份保管库和恢复服�
 - 检查网络连接
 - 对于 Linux VM，如果要自定义备份环境以进行应用程序一致的备份，请按照[配置快照前和快照后脚本的步骤](/backup/backup-azure-linux-app-consistent)进行操作
 
-如果确定环境满足这些条件，请转到[备份 VM 的文章](backup-azure-vms.md)。 如果需要设置或检查上述任何先决条件，本文将引导逐步完成先决条件的准备步骤。
+如果确定环境满足这些条件，请转到[备份 VM 的文章](backup-azure-arm-vms.md)。 如果需要设置或检查上述任何先决条件，本文将引导逐步完成先决条件的准备步骤。
 
 ##<a name="supported-operating-system-for-backup"></a>支持用于备份的操作系统
  - **Linux**：Azure 备份支持 [Azure 认可的分发版列表](../virtual-machines/linux/endorsed-distros.md) ，但 Core OS Linux 除外。 _只要虚拟机上装有 VM 代理且支持 Python，其他自带 Linux 分发版应该也能正常运行。但是，我们不赞同将这些分发版用于备份。_
@@ -70,8 +63,9 @@ Azure 备份服务提供两种类型的保管库（备份保管库和恢复服�
 - 不支持在恢复过程中替换现有虚拟机。 如果在 VM 存在时尝试还原 VM，还原操作会失败。
 - 不支持跨区域备份和还原。
 - 可以在 Azure 的所有公共区域中备份虚拟机（请参阅支持区域的[清单](https://azure.microsoft.com/regions/#services)）。 在创建保管库期间，如果要寻找的区域目前不受支持，则不会在下拉列表中显示它。
-- 仅支持通过 PowerShell 还原属于多 DC 配置的域控制器 (DC) VM。 阅读有关[还原多 DC 域控制器](backup-azure-restore-vms.md#restoring-domain-controller-vms)的详细信息。
-- 仅支持通过 PowerShell 还原采用以下特殊网络配置的虚拟机。 还原操作完成后，在 UI 中使用还原工作流创建的 VM 将不采用这些网络配置。 若要了解详细信息，请参阅[还原采用特殊网络配置的 VM](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations)。
+- 仅支持通过 PowerShell 还原属于多 DC 配置的域控制器 (DC) VM。 阅读有关[还原多 DC 域控制器](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)的详细信息。
+- 仅支持通过 PowerShell 还原采用以下特殊网络配置的虚拟机。 还原操作完成后，在 UI 中使用还原工作流创建的 VM 将不采用这些网络配置。 若要了解详细信息，请参阅[还原采用特殊网络配置的 VM](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)。
+
   - 采用负载均衡器配置的虚拟机（内部和外部）
   - 使用多个保留 IP 地址的虚拟机
   - 使用多个网络适配器的虚拟机
@@ -82,7 +76,7 @@ Azure 备份服务提供两种类型的保管库（备份保管库和恢复服�
 若要创建恢复服务保管库，请执行以下操作：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 在“中心”菜单中，单击“浏览”，然后在资源列表中，键入“恢复服务”。 开始键入时，会根据输入内容筛选该列表。 单击“**恢复服务保管库**”。
+2. 在“中心”菜单中，单击“浏览”，然后在资源列表中，键入“恢复服务”。 开始键入时，会根据输入内容筛选该列表。 单击“恢复服务保管库”。
 
     ![单击“浏览”按钮并键入“恢复服务”。 看到恢复服务保管库选项时，单击打开恢复服务保管库边栏选项卡。](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
@@ -104,7 +98,7 @@ Azure 备份服务提供两种类型的保管库（备份保管库和恢复服�
    >
    >
 
-8. 单击“创建” 。 创建恢复服务保管库可能需要一段时间。 可以在门户右上区域监视状态通知。 创建保管库后，它会显示在“恢复服务保管库”的列表中。 如果没有看到保管库，请单击“刷新”。
+8. 单击“创建”。 创建恢复服务保管库可能需要一段时间。 可以在门户右上区域监视状态通知。 创建保管库后，它会显示在“恢复服务保管库”的列表中。 如果没有看到保管库，请单击“刷新”。
 
     ![备份保管库列表](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
@@ -195,7 +189,7 @@ Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 
 ### <a name="backup-extension"></a>备份扩展
 在虚拟机上安装 VM 代理后，Azure 备份服务会将备份扩展安装到 VM 代理上。 Azure 备份服务会无缝地升级和修补备份扩展。
 
-无论 VM 是否在运行，备份服务都安装备份扩展。 VM 运行时，很有可能会获得应用程序一致的恢复点。 但是，即使 VM 已关闭并且无法安装扩展，Azure 备份服务也会继续备份 VM。 这被称为脱机 VM。 在这种情况下，恢复点将是 *崩溃一致性*恢复点。
+无论 VM 是否在运行，备份服务都安装备份扩展。 VM 运行时，很有可能会获得应用程序一致的恢复点。 但是，即使 VM 已关闭并且无法安装扩展，Azure 备份服务也会继续备份 VM。 这被称为脱机 VM。 在这种情况下，恢复点会是崩溃一致性恢复点。
 
 ## <a name="network-connectivity"></a>网络连接
 为了管理 VM 快照，备份扩展需要连接 Azure 公共 IP 地址。 如果未建立适当的 Internet 连接，虚拟机的 HTTP 请求会超时，并且备份操作会失败。 如果部署中配置了访问限制（如通过网络安全组 (NSG)），请选择其中一个选项来提供备份流量的明确路径：
@@ -232,8 +226,6 @@ Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 
 - 应用程序 VM 通过代理 VM 路由所有发往公共 Internet 的 HTTP 流量。
 - 代理 VM 允许来自虚拟网络中 VM 的传入流量。
 - 名为 NSF-lockdown 的网络安全组 (NSG) 需要一个安全规则来允许代理 VM 的出站 Internet 流量。
-
-![NSG 与 HTTP 代理部署图](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
 若要使用 HTTP 代理来与公共 Internet 通信，请遵循以下步骤：
 
@@ -286,16 +278,10 @@ HttpProxy.Port=<proxy port>
 
 #### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>步骤 2. 在代理服务器上允许传入连接：
 1. 在代理服务器上打开 Windows 防火墙。 访问防火墙的最简单方法是搜索“具有高级安全性的 Windows 防火墙”。
-
-    ![打开防火墙](./media/backup-azure-vms-prepare/firewall-01.png)
 2. 在“Windows 防火墙”对话框中，右键单击“入站规则”，并单击“新建规则...”。
-
-    ![创建新规则](./media/backup-azure-vms-prepare/firewall-02.png)
-3. 在“**新建入站规则向导**”中针对“**规则类型**”选择“**自定义**”选项，并单击“**下一步**”。
+3. 在“新建入站规则向导”中针对“规则类型”选择“自定义”选项，并单击“下一步”。
 4. 若要在页面上选择“程序”，可先选择“所有程序”，并后单击“下一步”。
-5. 在“**协议和端口**”页面上输入以下信息，并单击“**下一步**”：
-
-    ![创建新规则](./media/backup-azure-vms-prepare/firewall-03.png)
+5. 在“协议和端口”页面上输入以下信息，并单击“下一步”：
 
    - 对于“*协议类型*”，请选择 *TCP*
    - 对于“*本地端口*”，请选择“*特定端口*”，并在下面的字段中指定已配置的 ```<Proxy Port>```。
@@ -324,7 +310,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 ## <a name="next-steps"></a>后续步骤
 现在已准备好环境来备份 VM，下一个逻辑步骤是创建备份。 “计划”一文提供了有关备份 VM 的更详细信息。
 
-- [备份虚拟机](backup-azure-vms.md)
+- [备份虚拟机](backup-azure-arm-vms.md)
 - [规划 VM 备份基础结构](backup-azure-vms-introduction.md)
 - [管理虚拟机备份](backup-azure-manage-vms.md)
 

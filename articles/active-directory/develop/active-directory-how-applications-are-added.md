@@ -3,8 +3,8 @@ title: "如何将应用程序添加到 Azure Active Directory。"
 description: "本文介绍如何将应用程序添加到 Azure Active Directory 的实例。"
 services: active-directory
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: shoatman
+manager: mtillman
 editor: 
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/09/2016
-ms.date: 11/23/2017
+ms.date: 01/10/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 3072553ad936b928509c335b74a7a8a887009cc5
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: a735e1b39014576db138597b2aa05534e10f11a2
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>如何以及为何将应用程序添加到 Azure AD
 在 Azure Active Directory 实例中查看应用程序列表时，最初让令人费解的事情之一是不知道应用程序来自何处，以及它们为何会出现在那里。  本文将全面概述如何在目录中表示应用程序，并提供上下文帮助你了解应用程序如何进入目录。
@@ -59,7 +59,7 @@ Azure AD 中的应用程序是使用 2 个对象表示的：应用程序对象�
 - 记录本地策略，包括条件性访问策略
 - 记录应用程序的本地替代设置
   - 声明转换规则
-  - 属性映射（用户预配）
+  - 属性映射（用户设置）
   - 租户特定的应用角色（如果应用支持自定义角色）
   - 名称/徽标
 
@@ -91,13 +91,12 @@ Azure AD 中的应用程序是使用 2 个对象表示的：应用程序对象�
 ## <a name="how-are-apps-added-to-my-azure-ad-instance"></a>如何将应用程序添加到 Azure AD 实例？
 可以使用多种方法将应用程序添加到 Azure AD：
 
-- 从 [Azure Active Directory 应用库](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)添加应用
 - 注册/登录与 Azure Active Directory 集成的第三方应用（例如：[Smartsheet](https://app.smartsheet.com/b/home) 或 [DocuSign](https://www.docusign.net/member/MemberLogin.aspx)）
   - 在注册/登录期间，系统会要求用户向应用程序授予访问其配置文件的权限和其他权限。  第一个授权者会导致生成一个服务主体，表示要添加到目录中的应用程序。
 - 注册/登录到 [Office 365](http://products.office.com/)
   - 当你订阅 Office 365 或开始试用时，会在目录中创建一个或多个服务主体，表示传递所有与 Office 365 关联的功能的各种服务。
   - 某些 Office 365 服务（如 SharePoint）会不断地创建服务主体，以允许在组件（包括工作流）之间进行安全通信。
-- 在 Azure 管理门户中添加正在开发的应用，请参阅：https://msdn.microsoft.com/library/azure/dn132599.aspx
+- 在 Azure 门户中添加正在开发的应用。
 - 使用 Visual Studio 添加你正在开发的应用程序，具体请参阅：
   - [ASP.Net 身份验证方法](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)
   - [连接的服务](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
@@ -124,17 +123,14 @@ Azure AD 中的应用程序是使用 2 个对象表示的：应用程序对象�
 
 **注意：** *到目前为止，Microsoft 本身已使用默认配置运行了好几个月。*
 
-总而言之，我们可以防止目录中的用户添加应用程序，并可防止他们通过在 Azure 管理门户中修改目录配置，来决定要与应用程序共享哪些信息。  可以在 Azure 管理门户中通过目录的“配置”选项卡访问以下配置。
-
-![用于配置集成应用程序设置的 UI 屏幕截图][app_settings]
-
+总而言之，我们可以防止目录中的用户添加应用程序，并可防止他们通过在 Azure 门户中修改目录配置，来决定要与应用程序共享哪些信息。
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>后续步骤
 了解有关如何将应用程序添加到 Azure AD 以及如何为应用程序配置服务的详细信息。
 
 - 开发人员：[了解如何将应用程序与 AAD 集成](https://msdn.microsoft.com/library/azure/dn151122.aspx)
 - 开发人员：[在 GitHub 上查看与 Azure Active Directory 集成的应用的示例代码](https://github.com/AzureADSamples)
-- 开发人员和 IT 专业人员：[查看 Azure Active Directory Graph API 的 REST API 文档](https://msdn.microsoft.com/library/azure/hh974478.aspx)
+- 开发人员和 IT 专业人员： [查看 Azure Active Directory Graph API 的 REST API 文档](https://msdn.microsoft.com/library/azure/hh974478.aspx)
 - IT 专业人员： [了解如何从应用程序库使用 Azure Active Directory 预先集成的应用程序](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 - IT 专业人员： [查找有关配置特定预先集成应用程序的教程](https://msdn.microsoft.com/library/azure/dn893637.aspx)
 - IT 专业人员： [了解如何使用 Azure Active Directory 应用程序代理发布应用程序](https://msdn.microsoft.com/library/azure/dn768219.aspx)
@@ -143,7 +139,7 @@ Azure AD 中的应用程序是使用 2 个对象表示的：应用程序对象�
 - [有关 Azure Active Directory 中应用程序管理的文章索引](../active-directory-apps-index.md)
 
 <!--Image references-->
-[apps_service_principals_directory]: ./media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-[app_settings]: ./media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
+[apps_service_principals_directory]:./media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
+[app_settings]:./media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-<!--Update_Description: link update -->
+<!-- Update_Description: wording update -->

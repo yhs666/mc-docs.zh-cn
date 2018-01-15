@@ -3,8 +3,8 @@ title: "在计算节点上安装应用程序包 - Azure Batch | Microsoft Docs"
 description: "使用 Azure Batch 的应用程序包功能轻松管理要安装在 Batch 计算节点上的多个应用程序和版本。"
 services: batch
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: tamram
+manager: timlt
 editor: 
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
 ms.service: batch
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 origin.date: 07/20/2017
-ms.date: 12/04/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7753c210635ddf8078957d02b1f8731a4056de51
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: cdebc7e3217ffe06a0a09cb83361d9282cd315f7
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>使用 Batch 应用程序包将应用程序部署到计算节点
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/07/2017
 >
 > 用于创建和管理应用程序包的 API 属于 [Batch Management .NET][[api_net_mgmt]] 库。 用于在计算节点上安装应用程序包的 API 属于 [Batch .NET][api_net] 库。  
 >
-> 此处所述的应用程序包功能替换了旧版服务中的“批处理应用”功能。
+> 此处所述的应用程序包功能替换了旧版服务中的“Batch 应用”功能。
 > 
 > 
 
@@ -118,11 +118,11 @@ Batch 服务使用关联的存储帐户存储应用程序包。 链接两个帐�
 
 ![列出应用程序][3]
 
-“应用程序”边栏选项卡显示帐户中每个应用程序的 ID，以及以下属性：
+“应用程序”边栏选项卡显示帐户中每个应用程序的 ID，以及以下属性： 
 
 - **包**：与此应用程序关联的版本号。
 - **默认版本**：如果在指定池的应用程序时未指出版本，系统将安装此应用程序版本。 此设置是可选的。
-- **允许更新**：该值指定是否允许更新、删除和添加包。 如果此值设置为“否”，将禁用对应用程序包执行更新和删除操作。 只能添加新的应用程序包版本。 默认值为“是”。
+- **允许更新**：该值指定是否允许更新、删除和添加包。 如果此值设置为“否”，会禁用对应用程序包执行更新和删除操作。 只能添加新的应用程序包版本。 默认值为“是”。
 
 ### <a name="view-application-details"></a>查看应用程序详细信息
 在“应用程序”边栏选项卡中选择应用程序，即可打开包含该应用程序详细信息的边栏选项卡。
@@ -228,7 +228,7 @@ await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> 如果应用程序包部署出于任何原因而失败，Batch 服务会将该节点标记为 [unusable][net_nodestate]，并且不会在该节点上计划执行任何任务。 在此情况下，应**重启**节点，以重新启动包部署。 重启节点也会在节点上再次启用任务计划。
+> 如果应用程序包部署出于任何原因而失败，Batch 服务会将该节点标记为 [unusable][net_nodestate]，并且不会在该节点上计划执行任何任务。 在此情况下，应该 **重新启动** 节点，以重新启动包部署。 重启节点也会在节点上再次启用任务计划。
 > 
 > 
 
@@ -353,7 +353,7 @@ foreach (ApplicationSummary app in applications)
 
 [api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet
 [api_net_mgmt]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet
-[api_rest]: https://docs.microsoft.com/en-us/rest/api/batchservice/
+[api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [storage_pricing]: https://www.azure.cn/pricing/details/storage/
@@ -382,4 +382,4 @@ foreach (ApplicationSummary app in applications)
 [11]: ./media/batch-application-packages/app_pkg_11.png "Azure 门户中的更新包边栏选项卡"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Azure 门户中的删除包确认对话框"
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

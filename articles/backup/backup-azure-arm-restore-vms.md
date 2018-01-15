@@ -3,8 +3,8 @@ title: "Azure 备份：使用 Azure 门户还原虚拟机 | Microsoft Docs"
 description: "使用 Azure 门户从恢复点还原 Azure 虚拟机"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: 
 keywords: "还原备份; 如何还原; 恢复点;"
 ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
@@ -14,27 +14,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/04/2017
-ms.date: 10/31/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: be4f8588c2d064ca309416f49e17d3a0deb8d483
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.openlocfilehash: 7ac2468809246e42c0fe0ce06445f32ce3302892
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>使用 Azure 门户还原虚拟机
-> [!div class="op_single_selector"]
-> * [在经典管理门户中还原 VM](backup-azure-restore-vms.md)
-> * [在 Azure 门户中还原 VM](backup-azure-arm-restore-vms.md)
->
->
-
 可以通过按定义的间隔创建数据快照来保护数据。 这些快照称为恢复点，存储在恢复服务保管库中。 当需要修复或重新生成虚拟机 (VM) 时，可以从保存的任何恢复点还原 VM。 还原恢复点时，可以：
 
 - 新建 VM，表示处于特定时间点的已备份 VM。
 - 还原磁盘，并使用进程随附的模板自定义已还原的 VM，或恢复单独的文件。 
 
-本文介绍如何将 VM 还原到新 VM，或者还原所有已备份的磁盘。 
+本文介绍如何将 VM 还原到新 VM，或者还原所有已备份的磁盘。 有关单独的文件恢复，请参阅[从 Azure VM 备份恢复文件](backup-azure-restore-files-from-vm.md)。
 
 ![从 VM 备份还原的三种方式](./media/backup-azure-arm-restore-vms/azure-vm-backup-restore.png)
 
@@ -111,7 +105,7 @@ ms.lasthandoff: 11/03/2017
 
    - 还原磁盘
 
-门户为已还原的 VM 提供“快速创建”选项。 如果想要自定义在创建新 VM 过程中创建的资源的 VM 配置或名称，请使用 PowerShell 或门户还原已备份的磁盘。 使用 PowerShell 命令将其附加到所选 VM 配置。 或者可以使用附带了已还原磁盘的模板来自定义已还原的 VM。 有关如何还原具有多个 NIC 或采用负载均衡器的 VM 的详细信息，请参阅[还原采用特殊网络配置的 VM](#restore-a vm-with-special-network-configurations)。 如果 Windows VM 使用 [HUB 许可](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，请还原磁盘并使用本文中所指定的 PowerShell/模板来创建 VM。 确保在创建 VM 时将“许可证类型”指定为“Windows_Server”以利用还原的 VM 上的 HUB 优势。 
+门户为已还原的 VM 提供“快速创建”选项。 如果想要自定义在创建新 VM 过程中创建的资源的 VM 配置或名称，请使用 PowerShell 或门户还原已备份的磁盘。 使用 PowerShell 命令将其附加到所选 VM 配置。 或者可以使用附带了已还原磁盘的模板来自定义已还原的 VM。 有关如何还原具有多个 NIC 或采用负载均衡器的 VM 的详细信息，请参阅[还原采用特殊网络配置的 VM](#restore-a vm-with-special-network-configurations)。 如果 Windows VM 使用 HUB 许可，请还原磁盘并使用本文中所指定的 PowerShell/模板来创建 VM。 确保在创建 VM 时将“许可证类型”指定为“Windows_Server”以利用还原的 VM 上的 HUB 优势。 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>从还原点创建新的 VM
 1. 如果尚未执行此操作，请[选择一个还原点](#restore-a vm-with-special-network-configurations)，然后开始从还原点创建新的 VM。 选择还原点后，请在“还原配置”边栏选项卡中，输入或选择以下每个字段的值：
@@ -122,7 +116,7 @@ ms.lasthandoff: 11/03/2017
 
     c. 资源组。 使用现有资源组，或创建一个新的资源组。 如果要还原经典 VM，请使用此字段来指定新云服务的名称。 创建新的资源组/云服务时，该名称必须全局唯一。 通常，云服务名称与面向公众的 URL 相关联：例如，[cloudservice].chinacloudapp.cn。 如果尝试使用已用的云资源组/云服务名称，Azure 会为资源组/云服务分配与 VM 相同的名称。 Azure 显示不与任何地缘组关联的资源组/云服务和 VM。 有关详细信息，请参阅[如何从地缘组迁移到区域虚拟网络](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)。
 
-    d.单击“下一步”。 虚拟网络。 创建 VM 时，选择虚拟网络。 该字段提供与订阅关联的所有虚拟网络。 VM 的资源组显示在括号中。
+    d.单击“验证存储凭据”以验证存储帐户。 虚拟网络。 创建 VM 时，选择虚拟网络。 该字段提供与订阅关联的所有虚拟网络。 VM 的资源组显示在括号中。
 
     e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 子网。 如果虚拟网络包含子网，则默认情况下选择第一个子网。 如果包含其他子网，请选择所需的子网。
 
@@ -240,6 +234,16 @@ ms.lasthandoff: 11/03/2017
 > 创建 VM 的特殊网络配置时，必须使用 PowerShell 从已还原的磁盘创建 VM。
 >
 >
+
+若要在还原到磁盘之后完全重新创建 VM，请执行以下步骤：
+
+1. 使用 [PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm) 从恢复服务保管库还原磁盘。
+
+2. 使用 PowerShell cmdlet 创建负载均衡器/多个 NIC/多个保留 IP 所需的 VM 配置。 使用该配置来创建采用所需配置的 VM：
+
+   a. 创建具有[多个 NIC 的 VM](/virtual-network/virtual-networks-multiple-nics/)。
+
+   b. 创建具有[多个保留 IP](/virtual-network/virtual-networks-reserved-public-ip/) 的 VM。
 
 ## <a name="next-steps"></a>后续步骤
 既然可以还原 VM，接下来请参阅故障排除文章中有关 VM 常见错误的信息。 另请参阅有关在 VM 中管理任务的文章。

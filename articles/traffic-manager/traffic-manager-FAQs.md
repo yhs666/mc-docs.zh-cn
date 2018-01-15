@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/18/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0ba0d973ae398907a0ec06485bea38f11a3f378f
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 3324ff73735c8605f549b95f138d88c36997ecdc
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 12/08/2017
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>是否可以对“裸”域名使用流量管理器？
 
-不可以。 DNS 标准不允许 CNAME 与其他同名的 DNS 记录共存。 DNS 区域的顶点（或根）始终包含两条预先存在的 DNS 记录：SOA 和权威 NS 记录。 这意味着在不违反 DNS 标准的情况下，无法在区域顶点位置创建 CNAME 记录。
+否。 DNS 标准不允许 CNAME 与其他同名的 DNS 记录共存。 DNS 区域的顶点（或根）始终包含两条预先存在的 DNS 记录：SOA 和权威 NS 记录。 这意味着在不违反 DNS 标准的情况下，无法在区域顶点位置创建 CNAME 记录。
 
 流量管理器需要使用一条 DNS CNAME 记录来映射虚构 DNS 名称。 例如，将 www.contoso.com 映射到流量管理器配置文件 DNS 名称 contoso.trafficmanager.cn。 此外，流量管理器配置文件还会返回另一条 DNS CNAME 来指示客户端应连接到的终结点。
 
@@ -168,7 +168,7 @@ Azure Resource Manager 要求所有资源组指定一个位置，这决定了部
 
 除了总体配置文件，每个终结点的当前监视状态也显示在 Azure 门户中。 此信息也可通过流量监视器 [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx)、[PowerShell cmdlet](https://msdn.microsoft.com/library/mt125941.aspx) 和[跨平台 Azure CLI](../cli-install-nodejs.md) 获取。
 
-Azure 不提供有关过去终结点运行状况的历史信息，也不提供在终结点运行状况发生变化时引发警报的功能。
+可以使用 Azure Monitor 来跟踪终结点的运行状况，并查看其可视表示形式。 有关使用 Azure Monitor 的详细信息，请参阅 [Azure 监视文档](/monitoring-and-diagnostics/monitoring-overview-metrics)。
 
 ### <a name="can-i-monitor-https-endpoints"></a>能否监视 HTTPS 终结点？
 
@@ -179,6 +179,10 @@ Azure 不提供有关过去终结点运行状况的历史信息，也不提供�
 * 不验证服务器端证书
 * 不支持 SNI 服务器端证书
 * 不支持客户端证书
+
+### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>我在流量管理器配置文件中停止了 Azure 云服务/Web 应用程序终结点，但即使重启，也仍未收到任何流量。 如何解决此问题？
+
+当 Azure 云服务/Web 应用程序终结点停止时，流量管理器会停止检查其运行状况，仅当检测到终结点已重启时，才重新开始运行状况检查。 若要防止这种延迟，请在流量管理器配置文件中禁用该终结点，然后在重启该终结点后将其重新启用。   
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>是否即使应用程序不支持 HTTP 或 HTTPS，我也可以使用流量管理器？
 
@@ -217,7 +221,7 @@ Azure 不提供有关过去终结点运行状况的历史信息，也不提供�
 
 ### <a name="how-do-i-configure-nested-profiles"></a>如何配置嵌套式配置文件？
 
-可以使用 Azure Resource Manager、经典 Azure REST API、Azure PowerShell cmdlet 和跨平台 Azure CLI 命令配置嵌套式流量管理器配置文件。 也支持通过新 Azure 门户配置这些配置文件。 不支持使用经典管理门户。
+可以使用 Azure 资源管理器、经典 Azure REST API、Azure PowerShell cmdlet 和跨平台 Azure CLI 命令配置嵌套式流量管理器配置文件。 也支持通过新 Azure 门户配置这些配置文件。
 
 ### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>流量管理器支持多少层嵌套？
 
@@ -250,10 +254,10 @@ Azure 不提供有关过去终结点运行状况的历史信息，也不提供�
 
 下表描述了针对嵌套式终结点执行的流量管理器运行状况检查的行为。
 
-| 子配置文件监视器状态 | 父级终结点监视器状态 | 说明 |
+| 子配置文件监视器状态 | 父级终结点监视器状态 | 注释 |
 | --- | --- | --- |
 | 已禁用。 子配置文件已禁用。 |已停止 |父级终结点状态为“已停止”，而不是“已禁用”。 “已禁用”状态保留用于指示已在父配置文件中禁用了终结点。 |
-| 已降级。 至少一个子配置文件终结点处于“已降级”状态。 |联机：子配置文件中处于“联机”状态的终结点的数目至少是 MinChildEndpoints 的值。<BR>正在检查终结点：子配置文件中处于“联机”和“正在检查终结点”状态的终结点的数目至少是 MinChildEndpoints 的值。<BR>已降级：其他。 |流量将路由到状态为“正在检查终结点”的终结点。 如果将 MinChildEndpoints 设置得过高，终结点将始终处于降级状态。 |
+| 已降级。 至少一个子配置文件终结点处于“已降级”状态。 |联机：子配置文件中处于“联机”状态的终结点的数目至少是 MinChildEndpoints 的值。<BR>正在检查终结点：子配置文件中处于“联机”和“正在检查终结点”状态的终结点的数目至少是 MinChildEndpoints 的值。<BR>已降级：其他。 |流量路由到状态为“正在检查终结点”的终结点。 如果将 MinChildEndpoints 设置得过高，终结点将始终处于降级状态。 |
 | 联机。 至少一个子配置文件终结点处于“联机”状态。 没有任何终结点处于“已降级”状态。 |见上。 | |
 | 正在检查终结点。 至少一个子配置文件终结点处于“正在检查终结点”状态。 没有任何终结点处于“联机”或“已降级”状态 |同上。 | |
 | 非活动。 所有子配置文件终结点都处于“Disabled”或“Stopped”状态，除非这是没有终结点的配置文件。 |已停止 | |
@@ -262,4 +266,4 @@ Azure 不提供有关过去终结点运行状况的历史信息，也不提供�
 - 详细了解流量管理器[终结点监视和自动故障转移](../traffic-manager/traffic-manager-monitoring.md)。
 - 详细了解流量管理器[流量路由方法](../traffic-manager/traffic-manager-routing-methods.md)。
 
-<!--Update_Description: wording update, add one question on how to move Traffic Manager profile's Azure endpoints to a different resource group-->
+<!--Update_Description: wording update -->

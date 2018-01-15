@@ -1,10 +1,10 @@
 ---
-title: "什么是 Azure 备份？ | Microsoft 文档"
+title: "什么是 Azure 备份？ | Microsoft Docs"
 description: "使用 Azure 备份，可以从 Windows Server、Windows 工作站、System Center DPM 服务器以及 Azure 虚拟机备份和还原数据与工作负荷。"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: 
 keywords: "备份和还原;恢复服务;备份解决方案"
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
@@ -12,22 +12,22 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 origin.date: 09/29/2017
-ms.date: 11/27/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be991e9620301d56c23232ffe33e213e45b732d4
-ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
+ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: b3647657a770c0b0f3128f756522a3a25ad07e7b
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 备份功能概述
-Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 Microsoft 云端数据。 Azure 备份取代了现有的本地或异地备份解决方案，并且是可靠、安全、高性价比的基于云的解决方案。 Azure 备份提供多个组件，可将其下载并部署到适当计算机、服务器或云端。 可根据要保护的内容选择部署的组件或代理。 无论是保护本地数据还是云中数据，所有 Azure 备份组件均可用于将数据备份到 Azure 的恢复服务保管库中。 请参阅本文稍后部分的 [Azure 备份组件表格](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)，了解保护特定数据、应用程序或工作负荷所用的组件。
+Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 Azure 云中的数据。 Azure 备份取代了现有的本地或异地备份解决方案，并且是可靠、安全、高性价比的基于云的解决方案。 Azure 备份提供多个组件，可将其下载并部署到适当的计算机、服务器或云中。 依据要保护的内容选择部署的组件或代理。 无论是保护本地数据还是云中数据，所有 Azure 备份组件均可用于将数据备份到 Azure 的恢复服务保管库中。 请参阅本文稍后部分的 [Azure 备份组件表格](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)，了解保护特定数据、应用程序或工作负荷所用的组件。
 
 ## <a name="why-use-azure-backup"></a>为何使用 Azure 备份？
-传统的备份解决方案已演变成将云端视为类似于磁盘/磁带的终结点或静态存储目标。 该方法很简单，但用途有限，不能充分利用基础云平台，由此变成了一种效率低的昂贵解决方案。 其他解决方案也很昂贵，你最终会为错误的存储类型或不需要的存储支付费用。 其他解决方案的效率通常不高，因为它们不会提供所需的存储类型/存储量，或者管理任务需要耗费太多时间。 与此相反，Azure 备份具有以下主要优势：
+传统的备份解决方案已演变成将云视为类似于磁盘/磁带的终结点或静态存储目标。 该方法很简单，但用途有限，不能充分利用基础云平台，由此变成了一种效率低的昂贵解决方案。 其他解决方案也很昂贵，你最终会为错误的存储类型或不需要的存储支付费用。 其他解决方案的效率通常不高，因为它们不会提供所需的存储类型/存储量，或者管理任务需要耗费太多时间。 与此相反，Azure 备份具有以下主要优势：
 
 **自动存储管理** - 混合环境常常需要异类存储（部分在本地，部分在云）。 通过 Azure 备份，使用本地存储设备时无需付费。 Azure 备份会自动分配和管理备份存储，且采用即用即付模型。 即用即付是指只需为所用的存储付费。 有关详细详细，请参阅 [有关 Azure 定价的文章](https://www.azure.cn/pricing/details/backup)。
 
@@ -35,9 +35,9 @@ Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 
 
 **多个存储选项** - 高可用性的一个方面是存储复制。 Azure 备份提供两种类型的复制：[本地冗余存储](../storage/common/storage-redundancy.md#locally-redundant-storage)和[异地冗余存储](../storage/common/storage-redundancy.md#geo-redundant-storage)。 根据需要选择备份存储选项：
 
-- 本地冗余存储 (LRS) 将同一区域的成对数据中心内的数据复制三次（创建三个数据副本）。 LRS 是一个低成本选项，可在本地硬件故障时保护数据。
+- 本地冗余存储 (LRS) 将同一区域的配对数据中心内的数据复制三次（创建三个数据副本）。 LRS 是一个低成本选项，可在本地硬件故障时保护数据。
 
-- 异地冗余存储 (GRS) 将数据复制到离源数据主位置数英里之外的次要区域中。 GRS 的成本比 LRS 的高，但 GRS 可让数据更为持久，即使出现区域性中断也是如此。
+- 异地冗余存储 (GRS) 将数据复制到源数据主位置数英里之外的次要区域中。 GRS 的成本比 LRS 的高，但 GRS 可让数据更为持久，即使出现区域性中断也是如此。
 
 **无限制的数据传输** - Azure 备份不会限制传输的入站或出站数据量。 Azure 备份也不会对传输的数据收费。 但如果使用 Azure 导入/导出服务来导入大量数据，则入站数据将产生相关费用。 有关此费用的详细信息，请参阅 [Azure 备份中的脱机备份工作流](backup-azure-backup-import-export.md)。 出站数据是指还原操作期间从恢复服务保管库传输的数据。
 
@@ -52,7 +52,7 @@ Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 
 
 | 组件 | 优点 | 限制 | 哪些内容受到保护？ | 备份存储在何处？ |
 | --- | --- | --- | --- | --- |
-| Azure 备份 (MARS) 代理 |<li>将文本和文件夹备份到物理或虚拟 Windows OS（VM 可以在本地或在 Azure 中）<li>无需单独的备份服务器。 |<li>每天备份三次 <li>不感知应用程序；仅支持文件、文件夹和卷级别的还原， <li>  不支持 Linux。 |<li>文件、 <li>文件夹 |恢复服务保管库 |
+| Azure 备份 (MARS) 代理 |<li>将文本和文件夹备份到物理或虚拟 Windows OS（VM 可以在本地或在 Azure 中）<li>无需单独的备份服务器。 |<li>每天备份三次 <li>不感知应用程序；仅支持文件、文件夹和卷级别的还原， <li>  不支持 Linux。 |<li>文件、 <li>文件夹、 <li>系统状态 |恢复服务保管库 |
 | System Center DPM |<li>应用程序感知快照 (VSS)<li>在备份时间上完全灵活<li>恢复粒度（全部）<li>可以使用恢复服务保管库<li>Hyper-V 和 VMware VM 对 Linux 的支持 <li>使用 DPM 2012 R2 备份和还原 VMware VM |无法备份 Oracle 工作负荷。|<li>文件、 <li>文件夹、<li> 卷、 <li>VM、<li> 应用程序、<li> 工作负荷 |<li>恢复服务保管库、<li> 本地附加磁盘、<li>  磁带（仅限本地） |
 | Azure 备份服务器 |<li>应用感知快照 (VSS)<li>在备份时间上完全灵活<li>恢复粒度（全部）<li>可以使用恢复服务保管库<li>Hyper-V 和 VMware VM 对 Linux 的支持<li>备份和还原 VMware VM <li>不需要 System Center 许可证 |<li>无法备份 Oracle 工作负荷。<li>始终需要实时 Azure 订阅<li>不支持磁带备份 |<li>文件、 <li>文件夹、<li> 卷、 <li>VM、<li> 应用程序、<li> 工作负荷 |<li>恢复服务保管库、<li> 本地附加磁盘 |
 | Azure IaaS VM 备份 |<li>针对 Windows/Linux 的本地备份<li>无需安装特定代理<li>无需使用备份基础结构进行结构级备份 |<li>每天备份 VM 一次 <li>仅在磁盘级还原 VM<li>无法本地备份 |<li>VM、 <li>所有磁盘（使用 PowerShell） |<p>恢复服务保管库</p> |
@@ -89,13 +89,13 @@ Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 
 | Azure 备份 (MARS) 代理 |否（仅限基于 Windows 的代理） |
 | System Center DPM |<li> 在 Hyper-V 和 VMWare 上对 Linux 来宾 VM 进行文件一致性备份<br/> <li> 对 Hyper-V 和 VMWare Linux 来宾 VM 进行 VM 还原 </br> </br>  *文件一致性备份不适用于 Azure VM* <br/> |
 | Azure 备份服务器 |<li>在 Hyper-V 和 VMWare 上对 Linux 来宾 VM 进行文件一致性备份<br/> <li> 对 Hyper-V 和 VMWare Linux 来宾 VM 进行 VM 还原 </br></br> *文件一致性备份不适用于 Azure VM*  |
-| Azure IaaS VM 备份 |应用程序一致性备份，使用[前脚本和后脚本框架](backup-azure-linux-app-consistent.md)<br/> [还原所有 VM 磁盘](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM 还原](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
+| Azure IaaS VM 备份 |应用程序一致性备份，使用[前脚本和后脚本框架](backup-azure-linux-app-consistent.md)<br/> [精细文件恢复](backup-azure-restore-files-from-vm.md)<br/> [还原所有 VM 磁盘](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM 还原](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>结合使用高级存储 VM 和 Azure 备份
-Azure 备份可保护高级存储 VM。 Azure 高级存储是基于固态硬盘 (SSD) 的存储，用于支持 I/O 密集型工作负荷。 高级存储很适合虚拟机 (VM) 工作负荷。 有关高级存储的详细信息，请参阅[高级存储：Azure 虚拟机工作负荷的高性能存储](../virtual-machines/windows/premium-storage.md)一文。
+Azure 备份会保护高级存储 VM。 Azure 高级存储是基于固态硬盘 (SSD) 的存储，用于支持 I/O 密集型工作负荷。 高级存储很适合虚拟机 (VM) 工作负荷。 有关高级存储的详细信息，请参阅[高级存储：Azure 虚拟机工作负荷的高性能存储](../virtual-machines/windows/premium-storage.md)一文。
 
 ### <a name="back-up-premium-storage-vms"></a>备份高级存储 VM
-在备份高级存储 VM 时，备份服务在高级存储帐户中创建名为“AzureBackup-”的临时暂存位置。 暂存位置大小与恢复点快照大小相同。 请确保高级存储帐户有足够的可用空间，可以容纳临时暂存位置。 有关详细信息，请参阅[高级存储限制](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)一文。 备份作业完成后，将删除暂存位置。 用于暂存位置的存储的价格与所有 [高级存储定价](../virtual-machines/windows/premium-storage.md#pricing-and-billing)一致。
+在备份高级存储 VM 时，备份服务在高级存储帐户中创建名为“AzureBackup-”的临时暂存位置。 暂存位置大小与恢复点快照大小相同。 请确保高级存储帐户有足够的可用空间，可以容纳临时暂存位置。 有关详细信息，请参阅[高级存储限制](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)一文。 备份作业完成后，会删除暂存位置。 用于暂存位置的存储的价格与所有 [高级存储定价](../virtual-machines/windows/premium-storage.md#pricing-and-billing)一致。
 
 > [!NOTE]
 > 请不要修改或编辑暂存位置。
@@ -103,7 +103,7 @@ Azure 备份可保护高级存储 VM。 Azure 高级存储是基于固态硬盘 
 >
 
 ### <a name="restore-premium-storage-vms"></a>还原高级存储 VM
-可将高级存储 VM 还原到高级存储或常规存储中。 将高级存储 VM 的恢复点还原到高级存储是典型的还原过程。 但是，将高级存储 VM 的恢复点还原到标准存储更符合成本效益。 如果需要 VM 中的一部分文件，可以使用这种还原类型。
+可以将高级存储 VM 还原为高级存储或常规存储。 将高级存储 VM 的恢复点还原到高级存储是典型的还原过程。 但是，将高级存储 VM 的恢复点还原到标准存储更符合成本效益。 如果需要 VM 中的一部分文件，可以使用这种还原类型。
 
 ## 将托管磁盘 VM 与 Azure 备份结合使用<a name="using-managed-disk-vms-with-azure-backup"></a>
 Azure 备份可保护托管磁盘 VM。 使用托管磁盘，用户就不需要管理虚拟机的存储帐户，大大简化 VM 预配。
@@ -139,7 +139,7 @@ Azure 备份可以还原使用托管磁盘的完整 VM，或者将托管磁盘�
 在 [Hyper-V 虚拟机](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx)上部署 System Center DPM 或 Azure 备份服务器时，可使用重复数据删除。 Windows Server 会在以备份存储形式附加到虚拟机的虚拟硬盘 (VHD) 上执行主机级别的重复数据删除。
 
 > [!NOTE]
-> 重复数据删除不一定适用于 Azure 中的所有备份组件。 如果 System Center DPM 和备份服务器部署在 Azure 中，则附加到 VM 的存储磁盘无法进行重复数据删除。
+> 重复数据删除不适用于 Azure 中的所有备份组件。 如果 System Center DPM 和备份服务器部署在 Azure 中，则附加到 VM 的存储磁盘无法进行重复数据删除。
 >
 >
 
@@ -152,16 +152,16 @@ Azure 备份可以还原使用托管磁盘的完整 VM，或者将托管磁盘�
 
 ![备份方法比较图](./media/backup-introduction-to-azure-backup/backup-method-comparison.png)
 
-借助**完整备份**，每个备份副本包含整个数据源。 完整备份将占用大量的网络带宽和存储，每次传输一份备份副本。
+借助**完整备份**，每个备份副本包含整个数据源。 完整备份占用大量的网络带宽和存储，每次传输一份备份副本。
 
 **差异备份**仅存储自初始完整备份后发生变化的数据块，这会占用较少的网络、消耗较少的存储。 差异备份不保留无变化数据的冗余副本。 但是，由于会传输并存储后续备份之间保持不变的数据块，所以差异备份的效率比较低。 第二个月，对已更改的存储块 A2、A3、A4 和 A9 进行备份。 第三个月，会再次备份这些相同的存储块，以及已更改的存储块 A5。 下次进行完整备份之前，将继续对已更改的存储块进行备份。
 
 **增量备份**通过仅存储上次备份后更改的数据块，从而实现高存储效率和高网络效率。 采用增量备份，没有必要进行定期的完整备份。 在示例中，第一个月进行完整备份后，已更改存储块 A2、A3、A4 和 A9 将标记为“已更改”，在第二个月进行传输。 在第三个月，仅标记已更改的存储块 A5，并进行传输。 移动较少的数据可以节省存储和网络资源，从而降低 TCO。   
 
-### <a name="security"></a>“安全”
+### <a name="security"></a>安全性
 | 功能 | Azure 备份代理 | System Center DPM | Azure 备份服务器 | Azure IaaS VM 备份 |
 | --- | --- | --- | --- | --- |
-| 网络安全<br/> （到 Azure） |![是][green] |![是][green] |![是][green] |![部分][yellow] |
+| 网络安全性<br/> （到 Azure） |![是][green] |![是][green] |![是][green] |![部分][yellow] |
 | 数据安全<br/> （在 Azure 中） |![是][green] |![是][green] |![是][green] |![部分][yellow] |
 
 ![表键](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -206,10 +206,10 @@ Azure 备份针对每个受保护实例实施 9999 个恢复点（也称为备�
 | 每个受保护实例的最大恢复点数 |9999|9999|9999|9999|
 | 最大保留期 |取决于备份频率 |取决于备份频率 |取决于备份频率 |取决于备份频率 |
 | 本地磁盘上的恢复点 |不适用 |<li>对于文件服务器为 64，<li>对于应用程序服务器为 448 |<li>对于文件服务器为 64，<li>对于应用程序服务器为 448 |不适用 |
-| 磁带上的恢复点 |不适用 |不受限制 |不适用 |不适用 |
+| 磁带上的恢复点 |不适用 |无限制 |不适用 |不适用 |
 
-## <a name="what-is-a-protected-instance"></a>受保护实例是什么
-受保护实例通常指配置为备份到 Azure 的 Windows 计算机、物理或虚拟服务器，或者 SQL 数据库。 为计算机、服务器或数据库设置备份策略，并为数据创建副本后，实例即受到保护。 该受保护实例的备份数据的后续副本（称为恢复点）增加了所使用的存储量。 可为每个受保护实例创建最多 9999 个恢复点。 如果从存储中删除恢复点，则不计入 9999 个总恢复点数。
+## <a name="what-is-a-protected-instance"></a>什么是受保护实例
+受保护实例通常指配置为备份到 Azure 的 Windows 计算机、物理或虚拟服务器，或者 SQL 数据库。 为计算机、服务器或数据库配置备份策略并创建数据的备份副本后，实例会受到保护。 该受保护实例的备份数据的后续副本（称为恢复点）增加了所使用的存储量。 最多可为受保护实例创建 9999 个恢复点。 如果从存储中删除恢复点，则不计入 9999 个总恢复点数。
 受保护实例的一些常见示例包括运行 Windows 操作系统的虚拟机、应用程序服务器、数据库和个人计算机。 例如：
 
 - 运行 Hyper-V 或 Azure IaaS 虚拟机监控程序结构的虚拟机。 此虚拟机的来宾操作系统可以是 Windows Server 或 Linux。
@@ -237,7 +237,7 @@ Azure 备份保护本地和云端的数据。 Azure Site Recovery 就虚拟机�
 
 以下概念可帮助你做出有关备份和灾难恢复的重要决策。
 
-| 概念 | 详细信息 | 备份 | 灾难恢复 (DR) |
+| 概念 | 详细信息 | Backup | 灾难恢复 (DR) |
 | --- | --- | --- | --- |
 | 恢复点目标 (RPO) |在需要执行恢复的情况下可接受的数据丢失量。 |备份解决方案的可接受 RPO 存在很大差异。 虚拟机备份的 RPO 通常为一天，而数据库备份的 RPO 只有 15 分钟。 |灾难恢复解决方案的 RPO 较低。 DR 复制可以落后几秒钟或几分钟时间。 |
 | 恢复时间目标 (RTO) |完成恢复或还原所需的时间量。 |由于 RPO 较大，备份解决方案需要处理的数据量通常更多，这会导致 RTO 较长。 例如，根据从异地转送磁带所需的时间，从磁带还原数据可能需要数天的时间。 |由于灾难恢复解决方案与源之间的同步程度更高，因此其 RTO 更小， 需要处理的更改也更少。 |
@@ -253,7 +253,7 @@ Azure 备份保护本地和云端的数据。 Azure Site Recovery 就虚拟机�
 
 - [备份 Windows Server](backup-configure-vault.md)
 - [备份应用程序工作负荷](backup-azure-microsoft-azure-backup.md)
-- [Backup Azure IaaS VMs（备份 Azure IaaS VM）](backup-azure-vms-prepare.md)
+- [Backup Azure IaaS VMs（备份 Azure IaaS VM）](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

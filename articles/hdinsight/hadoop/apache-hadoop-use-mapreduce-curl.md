@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/03/2017
-ms.date: 12/18/2017
+origin.date: 12/04/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2ff3873ea80acd56d90f61e84bf72b4707cfa7bf
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: e9b2eca9f76ee844439168729703a2e929fc5b21
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>使用 REST 在 HDInsight 上通过 Hadoop 运行 MapReduce 作业
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/08/2017
     * **class**：包含 MapReduce 逻辑的类
     * **arg**：要传递到 MapReduce 作业的参数。 在此示例中是用于输出的输入文本文件和目录
 
-     此命令应会返回可用来检查作业状态的作业 ID：
+     此命令应返回可用来检查作业状态的作业 ID：
 
        {"id":"job_1415651640909_0026"}
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 12/08/2017
 
 4. 在作业的状态更改为 `SUCCEEDED` 后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置。 在本示例中，位置为 `/example/curl`。 此地址在群集默认存储的 `/example/curl` 中存储作业的输出。
 
-使用 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 可以列出和下载这些文件。 有关从 Azure CLI 中使用 blob 的详细信息，请参阅[将 Azure CLI 2.0 与 Azure 存储配合使用](../storage/common/storage-azure-cli.md#create-and-manage-blobs)文档。
+使用 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 可以列出和下载这些文件。 有关从 Azure CLI 中使用 blob 的详细信息，请参阅[将 Azure CLI 2.0 与 Azure 存储配合使用](../../storage/common/storage-azure-cli.md#create-and-manage-blobs)文档。
 
 ## <a id="nextsteps"></a>后续步骤
 

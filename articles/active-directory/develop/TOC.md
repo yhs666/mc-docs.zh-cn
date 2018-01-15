@@ -13,7 +13,7 @@
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## Web 应用
 ### [概述](active-directory-authentication-scenarios.md#web-browser-to-web-application)
-### [ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)
+### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
 ### [Java](active-directory-devquickstarts-webapp-java.md)
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -56,6 +56,7 @@
 ### [我的 Web API 项目发生了什么情况](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [ACS 迁移](active-directory-acs-migration.md)
+## [ADAL 错误处理最佳做法](active-directory-devhowto-adal-error-handling.md)
 # 参考
 ## [代码示例](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [身份验证库 (ADAL)](active-directory-authentication-libraries.md)
@@ -65,6 +66,7 @@
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [服务到服务的调用](active-directory-protocols-oauth-service-to-service.md)
+### [代理流](active-directory-protocols-oauth-on-behalf-of.md)
 ### [支持的令牌和声明类型](active-directory-token-and-claims.md)
 ### [签名密钥滚动更新](active-directory-signing-key-rollover.md)
 ### [联合元数据](active-directory-federation-metadata.md)
@@ -72,6 +74,7 @@
 ## [应用程序对象](active-directory-application-objects.md)
 ### [应用和 Azure AD](active-directory-how-applications-are-added.md)
 ## [应用程序清单](active-directory-application-manifest.md)
+## [服务限制](../active-directory-service-limits-restrictions.md)
 # 资源
 ## [获取帮助](active-directory-develop-help-support.md)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)

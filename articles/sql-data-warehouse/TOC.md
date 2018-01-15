@@ -1,52 +1,53 @@
 # 概述
 
-## [什么是 SQL 数据仓库？](sql-data-warehouse-overview-what-is.md)
-## [数据仓库工作负荷](sql-data-warehouse-overview-workload.md)
+## [关于 SQL 数据仓库](sql-data-warehouse-overview-what-is.md)
 
-# 入门
+<!-- Not Available # Quickstarts-->
 
-## [初级教程](sql-data-warehouse-get-started-tutorial.md)
-## [弹性查询教程](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
-## [最佳实践](sql-data-warehouse-best-practices.md)
-## [管理](sql-data-warehouse-overview-manage.md)
+<!-- Not Available ## [Create and connect - portal](create-data-warehouse-portal.md)-->
 
-# 如何
+# 教程
+## [1 - 从 blob 加载数据](load-data-from-azure-blob-storage-using-polybase.md)
 
+# 概念
 ## 服务功能
 ### [MPP 体系结构](massively-parallel-processing-mpp-architecture.md)
 ### [性能层](performance-tiers.md)
 ### [数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [数据仓库备份](sql-data-warehouse-backups.md)
+### [审核](sql-data-warehouse-auditing-overview.md)
 ### [容量限制](sql-data-warehouse-service-capacity-limits.md)
 ### [常见问题](sql-data-warehouse-overview-faq.md)
 
-## 备份和还原
+## 安全性
+### [概述](sql-data-warehouse-overview-manage-security.md)
+### [身份验证](sql-data-warehouse-authentication.md)
 
-### [备份概述](sql-data-warehouse-backups.md)
-### [还原概述](sql-data-warehouse-restore-database-overview.md)
-#### [Azure 门户](sql-data-warehouse-restore-database-portal.md)
-#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
-#### [REST](sql-data-warehouse-restore-database-rest-api.md)
+## 迁移到 SQL 数据仓库
+### [概述](sql-data-warehouse-overview-migrate.md)
+### [迁移架构](sql-data-warehouse-migrate-schema.md)
+### [迁移代码](sql-data-warehouse-migrate-code.md)
+### [迁移数据](sql-data-warehouse-migrate-data.md)
 
-## 连接
+## 加载和移动数据
+### [概述](design-elt-data-loading.md)
+### [指南](guidance-for-loading-data.md)
 
-### [概述](sql-data-warehouse-connect-overview.md)
-### [SSMS](sql-data-warehouse-query-ssms.md)
-### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-### [安装 Visual Studio](sql-data-warehouse-install-visual-studio.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-### [连接字符串](sql-data-warehouse-connection-strings.md)
+## 集成
+### [概述](sql-data-warehouse-overview-integrate.md)
+### [SQL 数据库弹性查询](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
-## 创建
-### [Azure 门户](sql-data-warehouse-get-started-provision.md)
-### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## 监视和优化
+### [指南](resource-classes-for-workload-management.md)
+### [列存储压缩](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
+### [监视](sql-data-warehouse-manage-monitor.md)
+### [故障排除](sql-data-warehouse-troubleshoot.md)
 
-## 开发
-
+## 开发数据仓库
 ### [概述](sql-data-warehouse-overview-develop.md)
+### [数据仓库组件](sql-data-warehouse-overview-workload.md)
 
 ### 表
-
 #### [概述](sql-data-warehouse-tables-overview.md)
 #### [CTAS](sql-data-warehouse-develop-ctas.md)
 #### [数据类型](sql-data-warehouse-tables-data-types.md)
@@ -59,13 +60,11 @@
 #### [临时](sql-data-warehouse-tables-temporary.md)
 
 ### 查询
-
 #### [动态 SQL](sql-data-warehouse-develop-dynamic-sql.md)
 #### [Group By 选项](sql-data-warehouse-develop-group-by-options.md)
 #### [标签](sql-data-warehouse-develop-label.md)
 
 ### T-SQL 语言元素
-
 #### [循环](sql-data-warehouse-develop-loops.md)
 #### [存储过程](sql-data-warehouse-develop-stored-procedures.md)
 #### [事务](sql-data-warehouse-develop-transactions.md)
@@ -74,90 +73,56 @@
 #### [变量赋值](sql-data-warehouse-develop-variable-assignment.md)
 #### [视图](sql-data-warehouse-develop-views.md)
 
+# 操作指南
+## 服务功能
+### [还原数据仓库 - 门户](sql-data-warehouse-restore-database-portal.md)
+### [还原数据仓库 - PowerShell](sql-data-warehouse-restore-database-powershell.md)
+### [还原数据仓库 - REST API](sql-data-warehouse-restore-database-rest-api.md)
+
+## 安全性
+### [启用加密 - 门户](sql-data-warehouse-encryption-tde.md)
+### [启用加密 - T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
+### [威胁检测](sql-data-warehouse-security-threat-detection.md)
+
+## 加载和移动数据
+### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+<!-- Not Available ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)-->
+### [BCP](sql-data-warehouse-load-with-bcp.md)
+<!-- Not Available ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)-->
+### [从 Blob 存储使用 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+### [从 SQL Server 使用 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [RedGate](sql-data-warehouse-load-with-redgate.md)
+### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+
 ## 集成
+### [配置 SQL 数据库弹性查询](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [添加 Azure 流分析作业](sql-data-warehouse-integrate-azure-stream-analytics.md)
+<!-- Not Available ### [Use machine learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) -->
+<!-- Not Available ### [Visualize with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) -->
 
-### [概述](sql-data-warehouse-overview-integrate.md)
-<!-- Not Available ### [Data Factory](sql-data-warehouse-integrate-azure-data-factory.md)-->
-<!-- Not Available ### [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)-->
-<!-- Not Available ### [Machine Learning tutorial](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) -->
-<!-- Not Available ### [Power BI](sql-data-warehouse-integrate-power-bi.md)-->
-<!-- Not Available ### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)-->
-### [流分析](sql-data-warehouse-integrate-azure-stream-analytics.md)
+## 监视和优化
+### [分析工作负荷](analyze-your-workload.md)
 
-### [将弹性查询与 SQL 数据库和 SQL 数据仓库配合使用](how-to-use-elastic-query-with-sql-data-warehouse.md)
-
-## 加载
-
-### 概念
-#### [概述](sql-data-warehouse-overview-load.md)
-#### [PolyBase 指南](sql-data-warehouse-load-polybase-guide.md)
-
-### 教程
-#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-
-### 操作指南
-#### [样本数据](sql-data-warehouse-load-sample-databases.md)
-<!-- Not Available #### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)-->
-#### [BCP](sql-data-warehouse-load-with-bcp.md)
-<!-- Not Available #### [Data Factory](sql-data-warehouse-load-with-data-factory.md)-->
-#### [从 Blob 存储使用 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-#### [从 SQL Server 使用 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-#### [RedGate](sql-data-warehouse-load-with-redgate.md)
-#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-
-## 迁移
-
-### [概述](sql-data-warehouse-overview-migrate.md)
-### [迁移实用工具](sql-data-warehouse-migrate-migration-utility.md)
-### [迁移架构](sql-data-warehouse-migrate-schema.md)
-### [迁移代码](sql-data-warehouse-migrate-code.md)
-### [迁移数据](sql-data-warehouse-migrate-data.md)
-### [迁移到高级存储](sql-data-warehouse-migrate-to-premium-storage.md)
-
-## 管理计算
-
-### [概述](sql-data-warehouse-manage-compute-overview.md)
-### [Azure 门户](sql-data-warehouse-manage-compute-portal.md)
-### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
-### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+## 向外扩展
+<!-- Not Available ### [Manage compute - portal](sql-data-warehouse-manage-compute-portal.md) -->
+### [管理计算 - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+### [管理计算 - REST API](sql-data-warehouse-manage-compute-rest-api.md)
 <!-- Not Available ### [Automate compute levels](manage-compute-with-azure-functions.md)-->
 
-### 资源类
-#### [指南](resource-classes-for-workload-management.md)
-#### [分析工作负荷](analyze-your-workload.md)
-
-## 性能
-
-### [概述](sql-data-warehouse-overview-manage-user-queries.md)
-### [列存储压缩](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [监视](sql-data-warehouse-manage-monitor.md)
-
-## “安全”
-
-### [概述](sql-data-warehouse-overview-manage-security.md)
-### [审核](sql-data-warehouse-auditing-overview.md)
-<!-- Not Available ### [Auditing for down-level clients](sql-data-warehouse-auditing-downlevel-clients.md)-->
-### [身份验证](sql-data-warehouse-authentication.md)
-### [加密](sql-data-warehouse-encryption-tde.md)
-### [使用 T-SQL 加密](sql-data-warehouse-encryption-tde-tsql.md)
-<!-- Not Available ### [Threat detection](sql-data-warehouse-security-threat-detection.md)-->
-## 故障排除
-### [故障排除](sql-data-warehouse-troubleshoot.md)
-
-# 引用
+# 参考
 
 ## T-SQL
 ### [完整参考信息](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [SQL DW 语言元素](sql-data-warehouse-reference-tsql-language-elements.md)
 ### [SQL DW 语句](sql-data-warehouse-reference-tsql-statements.md)
 ## [系统视图](sql-data-warehouse-reference-tsql-system-views.md)
-## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # 资源
 
 ## [价格](https://www.azure.cn/pricing/details/sql-data-warehouse/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
+## [功能请求](https://www.azure.cn/support/forums/)
 ## [服务更新](https://www.azure.cn/what-is-new/)
 <!-- Not Available  ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/) -->
 <!-- Not Available  ## [Support](sql-data-warehouse-get-started-create-support-ticket.md) -->
@@ -166,4 +131,4 @@
 <!-- Not Available ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)-->
 <!-- Not Available ### [Data integration](sql-data-warehouse-partner-data-integration.md)-->
 <!-- Not Available ### [Data management](sql-data-warehouse-partner-data-management.md) -->
-<!-- ms.date: 12/11/2017 -->
+<!-- ms.date: 01/15/2018 -->

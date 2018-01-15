@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/04/2017
-ms.date: 12/25/2017
+origin.date: 12/05/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 54f7c90063eae7082cb5a81d3d1d285fc2227f8a
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: c96260370190f4a960fbd5aea3cc32dc39dc6976
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>从基于 Windows 的 HDInsight 群集迁移到基于 Linux 的群集
 
@@ -158,7 +158,7 @@ ms.lasthandoff: 12/15/2017
 
 ### <a name="ambari-alerts"></a>Ambari 警报
 
-Ambari 提供能够通知群集潜在问题的警报系统。 警报以红色或黄色条目出现在 Ambari Web UI 中，你也可以通过 REST API 检索警报。
+Ambari 提供能够通知群集潜在问题的警报系统。 警报以红色或黄色条目出现在 Ambari Web UI 中，也可以通过 REST API 检索警报。
 
 > [!IMPORTANT]
 > Ambari 警报表示可能有问题，而不表示已发生问题。 例如，你可能会收到无法访问 HiveServer2 的警报，但实际上仍可以正常访问它。

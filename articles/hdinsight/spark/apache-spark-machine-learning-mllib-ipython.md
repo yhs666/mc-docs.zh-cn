@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 12/25/2017
+origin.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: edc2c30ffe14fd86f18a2e2650c69d66c585447e
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: df632822b8fbe93fe5bcb2d413b6eeee4716e61b
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>使用 Spark MLlib 生成机器学习应用程序和分析数据集
 
@@ -42,7 +42,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
 * 单值分解 (SVD) 和主体组件分析 (PCA)
 * 假设测试和计算示例统计信息
 
-## <a name="what-are-classification-and-logistic-regression"></a>分类和逻辑回归是什么？
+## <a name="what-are-classification-and-logistic-regression"></a>什么是分类和逻辑回归？
 “分类”是一种很常见的机器学习任务，是将输入数据归入各类别的过程。 分类算法的作用是找出如何为提供的输入数据分配“标签”。 例如，可以联想机器学习算法，该算法接受股票信息作为输入并将股票划分为两个类别：应该卖出的股票和应该保留的股票。
 
 逻辑回归是用于分类的算法。 Spark 的逻辑回归 API 可用于 *二元分类*，或将输入数据归类到两组中的一组。 有关逻辑回归的详细信息，请参阅 [维基百科](https://en.wikipedia.org/wiki/Logistic_regression)。
@@ -59,7 +59,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
 1. 在 Spark 群集边栏选项卡中单击“群集仪表板”，然后单击“Jupyter Notebook”。 出现提示时，请输入群集的管理员凭据。
 
    > [!NOTE]
-   > 也可以在浏览器中打开以下 URL 访问群集的 Jupyter 笔记本。 将 **CLUSTERNAME** 替换为群集的名称：
+   > 也可以在浏览器中打开以下 URL 来访问群集的 Jupyter 笔记本。 将 **CLUSTERNAME** 替换为群集的名称：
    >
    > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
    >
@@ -70,7 +70,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
 1. 随即创建新笔记本，并以 Untitled.pynb 名称打开。 单击顶部的笔记本名称，并输入一个友好名称。
 
     ![提供笔记本的名称](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-name-jupyter.png "提供笔记本的名称")
-1. 使用笔记本是使用 PySpark 内核创建的，因此不需要显式创建任何上下文。 运行第一个代码单元格时，系统自动为你创建 Spark 和 Hive 上下文。 可以通过导入此方案所需的类型来开始构建机器学习应用程序。 为此，请将光标放在单元格中，并按 **SHIFT + ENTER**。
+1. 使用笔记本是使用 PySpark 内核创建的，因此不需要显式创建任何上下文。 运行第一个代码单元格时，系统会自动创建 Spark 和 Hive 上下文。 可以通过导入此方案所需的类型来开始构建机器学习应用程序。 为此，请将光标放在单元格中，并按 **SHIFT + ENTER**。
 
         from pyspark.ml import Pipeline
         from pyspark.ml.classification import LogisticRegression
@@ -82,7 +82,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
 ## <a name="construct-an-input-dataframe"></a>构造输入数据帧
 可以使用 `sqlContext` 对结构化数据执行转换。 第一个任务是将示例数据 ((**Food_Inspections1.csv**)) 加载到 Spark SQL 数据帧中。
 
-1. 由于原始数据是 CSV 格式，所以需要使用 Spark 上下文将文件的每一行拉取到内存中作为非结构化文本，并使用 Python 的 CSV 库单独分析每一行。
+1. 因为原始数据是 CSV 格式，所以需要使用 Spark 上下文将文件的每一行拉入内存中作为非结构化文本；然后，便可以使用 Python 的 CSV 库来单独分析每一行。
 
         def csvParse(s):
             import csv
@@ -180,7 +180,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
 
     后接 `-o countResultsdf` 的 `%%sql` magic 可确保查询输出本地保存在 Jupyter 服务器上（通常在群集的头节点）。 输出将作为 [Pandas](http://pandas.pydata.org/) 数据帧进行保存，指定名称为 **countResultsdf**。
 
-    应该会显示如下输出：
+    应该看到如下输出：
 
     ![SQL 查询输出](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "SQL 查询输出")
 
@@ -234,7 +234,7 @@ MLlib 是一个核心 Spark 库，它提供了许多可用于机器学习任务�
         [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>从输入数据帧创建逻辑回归模型
-最后一项任务是将标签数据转换为逻辑回归可分析的格式。 逻辑回归算法的输入应为一组“标签特征向量对”，其中“特征向量”是表示输入点的数字向量。 因此，我们需要将“违规”列（它是半结构化的，并且包含大量自定义文本形式的注释）转换为机器容易理解的实数数组。
+我们的最终任务是将标记的数据转换为可以通过逻辑回归分析的格式。 逻辑回归算法的输入应为一组“标签特征向量对”，其中“特征向量”是表示输入点的数字向量。 因此，我们需要将“违规”列（它是半结构化的，并且包含大量自定义文本形式的注释）转换为机器容易理解的实数数组。
 
 用于处理自然语言的一种标准机器学习方法是为每个不同的单词分配一个“索引”，并将一个向量传递给机器学习算法，以使每个索引的值包含该词在文本字符串中的相对频率。
 

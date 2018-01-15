@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/21/2017
-ms.date: 09/04/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: ae3b93174ae89dea9684a5a128c7aefe680515b5
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 15c99e8b66e849e2dffe4adde42a9d919f675265
+ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>带宽/吞吐量测试 (NTTTCP)
 
-在 Azure 中测试网络吞吐量性能时，最好使用以要测试的网络为目标并能最大程度减少其他资源（这些资源可能会对性能产生影响）的使用的工具。 建议使用 NTTTCP。
+在 Azure 中测试网络吞吐量性能时，最好使用以要测试的网络为目标并能在最大程度减少其他资源（这些资源可能会对性能产生影响）的使用的工具。 建议使用 NTTTCP。
 
 将此工具复制到大小相同的两个 Azure VM 中。 一个 VM 充当发送方，另一个充当接收方。
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 09/04/2017
 
 请考虑将 NTTTCP 放在单独的文件夹中，如 c:\\tools
 
-#### <a name="allow-ntttcp-through-the-windows-firewall"></a>允许 NTTTCP 通过 Windows 防火墙
+#### <a name="allow-ntttcp-through-the-windows-firewall"></a>通过 Windows 防火墙允许 NTTTCP
 在接收方上，在 Windows 防火墙上创建允许规则，以允许接收 NTTTCP 流量。 最简单的方法是按名称允许整个 NTTTCP 程序，而不是允许特定的 TCP 端口入站。
 
 允许 ntttcp 通过 Windows 防火墙，如下所示：
@@ -93,7 +93,7 @@ ntttcp -s -m 8,\*,10.0.0.4 -t 300
 
 在 Linux VM 上（发送方和接收方），运行以下命令以在 VM 上准备 ntttcp-for-linux：
 
-CentOS — 安装 Git：
+CentOS - 安装 Git：
 
 ``` bash
   yum install gcc -y  
@@ -108,7 +108,7 @@ Ubuntu — 安装 Git：
 在两个 VM 上同时获取并安装：
 
 ``` bash
- git clone <https://github.com/Microsoft/ntttcp-for-linux>
+ git clone https://github.com/Microsoft/ntttcp-for-linux
  cd ntttcp-for-linux/src
  make && make install
 ```
@@ -151,7 +151,7 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 接收方 <Linux>：
 
-``` bash 
+``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
@@ -165,4 +165,4 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 * 根据得到的结果，也许能够为方案[优化网络吞吐量计算机](virtual-network-optimize-network-bandwidth.md)。
 * 通过 [Azure 虚拟网络常见问题解答 (FAQ)](virtual-networks-faq.md) 了解详细信息
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

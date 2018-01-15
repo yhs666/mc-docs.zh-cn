@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/04/2017
-ms.date: 12/25/2017
+origin.date: 12/05/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9399ededbf3bdd2e1a2bf3c317227162054ca22d
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: e653bc90beec2b549aa93ad504989df1bd4755dc
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>使用 Ambari 视图来调试 HDInsight 上的 Tez 作业
 

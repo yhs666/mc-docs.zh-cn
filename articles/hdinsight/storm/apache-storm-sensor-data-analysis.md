@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/09/2017
-ms.date: 12/25/2017
+origin.date: 10/19/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: a3d4001596b04543373aab748f3d241f17b8011b
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 2257d0a2a82f892ee6444bd0e71d8afc9609f003
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>使用 Apache Storm、事件中心和 HDInsight 中的 HBase (Hadoop) 分析传感器数据
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/15/2017
 > [!NOTE]
 > 本文档中的信息和示例演示需要安装 HDInsight 3.6。
 >
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="architecture"></a>体系结构
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/15/2017
 * **Azure 虚拟网络服务**：在 Storm on HDInsight 和 HBase on HDInsight 群集之间启用安全通信。
 
   > [!NOTE]
-  > 使用 Java HBase 客户端 API 时，虚拟网络是必需的。 它不通过 HBase 群集的公用网关进行公开。 通过将 HBase 和 Storm 群集安装到同一个虚拟网络，Storm 群集（或虚拟网络上的任何其他系统）便能够直接访问使用客户端 API 的 HBase。
+  > 使用 Java HBase 客户端 API 时，虚拟网络是必需的。 此虚拟网络不是通过 HBase 群集的公共网关进行公开。 通过将 HBase 和 Storm 群集安装到同一个虚拟网络，Storm 群集（或虚拟网络上的任何其他系统）便能够直接访问使用客户端 API 的 HBase。
 
 * **仪表板网站**：实时绘制数据图表的示例仪表板。
 

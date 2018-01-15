@@ -3,32 +3,32 @@ title: "Azure 快速入门 - 使用 Azure CLI 备份 VM | Microsoft Docs"
 description: "了解如何使用 Azure CLI 备份虚拟机"
 services: backup, virtual-machines-linux
 documentationcenter: virtual-machines
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
 ms.service: backup, virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: storage-backup-recovery
 origin.date: 10/02/2017
-ms.date: 11/02/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 97044c45bf963f1d06542909c7354e44cdf617c9
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: 613d85c07d0ea8a339a9f35a6f577e9b4cf365d7
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>使用 CLI 在 Azure 中备份虚拟机
-Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点可存储在异地冗余的恢复保管库中。 本文详细介绍如何使用 Azure CLI 在 Azure 中备份虚拟机 (VM)。 也可以使用 [Azure PowerShell](quick-backup-vm-powershell.md) 执行这些步骤。
+Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点可存储在异地冗余的恢复保管库中。 本文详细介绍如何使用 Azure CLI 在 Azure 中备份虚拟机 (VM)。 也可以使用 [Azure PowerShell](quick-backup-vm-powershell.md) 或 [Azure 门户](quick-backup-vm-portal.md)执行这些步骤。
 
 参考本快速入门可在现有的 Azure VM 上备份。 如果需要创建 VM，可以[使用 Azure CLI 创建 VM](../virtual-machines/linux/quick-create-cli.md)。
 
-若要在本地安装和使用 CLI，必须运行 Azure CLI 2.0.18 或更高版本。 若要查找 CLI 版本，请运行 ༖༗。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
+若要在本地安装和使用 CLI，必须运行 Azure CLI 2.0.18 或更高版本。 若要查找 CLI 版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
 
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
@@ -107,7 +107,7 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 ## <a name="clean-up-deployment"></a>清理部署
 如果不再需要，可以在 VM 上禁用保护，删除还原点和恢复服务保管库，然后删除资源组和关联的 VM 资源。 如果使用了现有的 VM，可以跳过最后一个 [az group delete](/cli/group?view=azure-cli-latest#az_group_delete) 命令，以保留资源组和 VM。
 
-若要尝试备份教程，了解如何还原 VM 的数据，请转到“后续步骤”。[](#next-steps) 
+若要尝试备份教程，了解如何还原 VM 的数据，请转到[后续步骤](#next-steps)。 
 
 ```azurecli 
 az backup protection disable \
@@ -129,3 +129,4 @@ az group delete --name myResourceGroup
 > [!div class="nextstepaction"]
 > [备份多个 Azure VM](./tutorial-backup-vm-at-scale.md)
 
+<!-- Update_Description: wording update -->

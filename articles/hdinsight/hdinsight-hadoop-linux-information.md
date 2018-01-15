@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/04/2017
-ms.date: 12/25/2017
+origin.date: 12/05/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 23a746c1e97b9206bade67827f388ab073619f38
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 36beca5ab81acfa38feaf8aab49fcc46788b38ac
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>有关在 Linux 上使用 HDInsight 的信息
 
 Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运行的 Hadoop。 在大多数情况下，它的工作方式应该与其他任何 Hadoop-on-Linux 安装完全相同。 本文档指出了应注意的具体差异。
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -89,6 +89,8 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
     > [!NOTE]
     > 只能通过 SSH 从客户端计算机访问群集头节点。 在连接后，可以通过使用 SSH 从头节点访问从节点。
 
+有关详细信息，请参阅 [Hadoop on HDInsight 服务所使用的端口](hdinsight-hadoop-port-settings-for-services.md)文档。
+
 ## <a name="file-locations"></a>文件位置
 
 Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包含以下子目录：
@@ -107,10 +109,7 @@ HDInsight 使用 Azure 存储中的 Blob 作为默认存储。 这些服务提�
 * 成本低廉的长期存储
 * 可从外部服务访问，例如网站、文件上传/下载实用程序、各种语言 SDK 和 Web 浏览器
 
-> [!WARNING]
-> HDInsight 仅支持__通用__ Azure 存储帐户。 它目前不支持 __Blob 存储__帐户类型。
-
-Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角度来说是文件）大小最多为 195 GB。 有关详细信息，请参阅[了解 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)。
+Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角度来说是文件）大小最多为 195 GB。 Azure Data Lake Store 可以动态增长以保存数万亿个文件，并且单个文件大于 1 PB。 有关详细信息，请参阅[了解 blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 和 [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。
 
 使用 Azure 存储时，不需要从 HDInsight 执行任何特殊操作即可访问数据。 例如，以下命令列出 `/example/data` 文件夹中的文件：
 
@@ -118,7 +117,7 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 
 ### <a name="uri-and-scheme"></a>URI 和方案
 
-某些命令可能需要你在访问文件时会方案指定为 URI 的一部分。 例如，Storm-HDFS 组件需要用户指定方案。 使用非默认存储（作为“附加”存储添加到群集的存储）时，必须始终将方案作为 URI 的一部分来使用。
+某些命令可能需要你在访问文件时会方案指定为 URI 的一部分。 例如，Storm-HDFS 组件就需要指定方案。 使用非默认存储（作为“附加”存储添加到群集的存储）时，必须始终将方案作为 URI 的一部分来使用。
 
 使用 __Azure 存储__时，可以使用以下 URI 方案之一：
 
@@ -147,7 +146,7 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 HDInsight 群集。
 
-2. 在“属性”部分中，选择“存储帐户”。 将显示群集的存储信息。
+2. 在“属性”部分中，选择“存储帐户”。 会显示群集的存储信息。
 
 ### <a name="how-do-i-access-files-from-outside-hdinsight"></a>如何从 HDInsight 外部访问文件
 
@@ -199,6 +198,8 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
         1. 在 Web 浏览器中打开 **https://CLUSTERNAME.azurehdinsight.cn/stormui**，其中“CLUSTERNAME”是 Storm 群集的名称。 如果出现提示，请输入在创建 HDInsight 群集时指定的群集管理员用户名和密码。
         2. 选择要重新平衡的拓扑，并选择“重新平衡”按钮。 输入执行重新平衡操作前的延迟。
 
+* **Kafka**：执行缩放操作后，应重新均衡分区副本。 有关详细信息，请参阅[通过 Kafka on HDInsight 实现数据的高可用性](./kafka/apache-kafka-high-availability.md)文档。
+
 有关缩放 HDInsight 群集的特定信息，请参阅：
 
 * [使用 Azure 门户管理 HDInsight 中的 Hadoop 群集](hdinsight-administer-use-portal-linux.md#scale-clusters)
@@ -206,7 +207,7 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>如何安装 Hue（或其他 Hadoop 组件）？
 
-HDInsight 是托管服务。 如果 Azure 检测到群集存在问题，则可能会删除故障节点，再创建一个节点来代替。 如果在群集节点上手动安装组件，则发生此操作时，这些组件不会保留。 应该改用 [HDInsight 脚本操作](hdinsight-hadoop-customize-cluster.md)。 脚本操作可用于进行以下更改：
+HDInsight 是一个托管服务。 如果 Azure 检测到群集存在问题，则可能会删除故障节点，再创建一个节点来代替。 如果在群集节点上手动安装组件，则发生此操作时，这些组件不会保留。 应该改用 [HDInsight 脚本操作](hdinsight-hadoop-customize-cluster.md)。 脚本操作可用于进行以下更改：
 
 * 安装并配置服务或网站。
 * 安装和配置需要在群集的多个节点上进行配置更改的组件。

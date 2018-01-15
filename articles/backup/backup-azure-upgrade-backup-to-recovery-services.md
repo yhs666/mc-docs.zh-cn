@@ -3,8 +3,8 @@ title: "将备份保管库升级到恢复服务保管库（预览）| Microsoft 
 description: "将 Azure 备份保管库升级到恢复服务保管库的说明和支持信息。"
 services: backup
 documentationcenter: dev-center-name
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 ms.assetid: 228fef19-2f6b-4067-acc3-fb6e501afb88
 ms.service: backup
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 11/09/2017
-ms.date: 11/27/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: ef4039fed45640e7914cf24f86778c3bddc33a1b
-ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
+ms.openlocfilehash: 41088bc6c2186d6b830c4c470701c548af900046
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>将备份保管库升级到恢复服务保管库
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/29/2017
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>自动化与工具在升级之后的变化
 
 在为保管库升级准备基础结构时，必须更新现有的自动化或工具，确保它在升级后可继续运行。
-请参阅 [Service Manager 部署模型](backup-client-automation-classic.md)和[资源管理器部署模型](backup-client-automation.md)的 PowerShell cmdlet 参考。
+请参阅[资源管理器部署模型](backup-client-automation.md)的 PowerShell cmdlet 参考。
 
 
 ## <a name="before-you-upgrade"></a>升级之前
@@ -73,7 +73,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 以下代码片段是 PowerShell 命令大致形式的示例：
 
 ```
-RecoveryServicesVaultUpgrade.ps1 -SubscriptionID 53a3c692-5283-4f0a-baf6-49412f5ebefe -VaultName "TestVault" -Location "China East" -ResourceType BackupVault -TargetResourceGroupName "ContosoRG"
+RecoveryServicesVaultUpgrade.ps1 -SubscriptionID 53a3c692-5283-4f0a-baf6-49412f5ebefe -VaultName "TestVault" -Location "China North" -ResourceType BackupVault -TargetResourceGroupName "ContosoRG"
 ```
 
 也可以不结合任何参数运行该脚本，在这种情况下，系统会要求提供所有必需参数的输入。

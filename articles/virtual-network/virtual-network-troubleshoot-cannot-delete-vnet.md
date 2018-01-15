@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/03/2017
-ms.date: 12/11/2017
+origin.date: 12/12/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 89fe6f4f3b1af574e046acbafaff6b7be5efa528
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: c4fa51ba85fb355526807265166924045738aa74
+ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>故障排除：无法在 Azure 中删除虚拟网络
 
@@ -66,13 +66,7 @@ ms.lasthandoff: 12/08/2017
 
 ![检查已连接的设备](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-若要禁用该服务，请遵循以下步骤：
-
-1. 转到 [Azure 经典管理门户](https://manage.windowsazure.cn)。
-2. 在左窗格中选择“Active Directory”。
-3. 选择已启用 Active Directory 域服务的 Azure Active Directory (Azure AD) 目录。
-4. 选择“配置”  选项卡。
-5. 在“域服务”下，将“对该目录启用域服务”选项更改为“否”。  
+<!-- Not Available on  [Disable Azure Active Directory Domain Services using the Azure portal](../active-directory-domain-services/active-directory-ds-disable-aadds.md). -->
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>检查虚拟网络是否已连接到其他资源
 
@@ -101,4 +95,4 @@ ms.lasthandoff: 12/08/2017
 - [Azure 虚拟网络](virtual-networks-overview.md)
 - [Azure 虚拟网络常见问题解答 (FAQ)](virtual-networks-faq.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update wording -->

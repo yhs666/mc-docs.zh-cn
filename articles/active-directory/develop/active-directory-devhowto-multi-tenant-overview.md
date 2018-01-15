@@ -3,8 +3,8 @@ title: "如何构建可让任何 Azure AD 用户登录的应用"
 description: "有关如何构建一个可使用户从任何 Azure Active Directory 租户登录的应用程序（也称为多租户应用程序）的分步说明。"
 services: active-directory
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: bryanla
+manager: mtillman
 editor: 
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/26/2017
-ms.date: 10/19/2017
+ms.date: 01/09/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: b1510f51c6a593afcc684baf79e77332d3005cde
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: d56866c3378fe8e406b82fd28f7e0fbbd3353e7c
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-ad-user-using-the-multi-tenant-application-pattern"></a>如何使用多租户应用程序模式将任何 Azure Active Directory (AD) 用户登录
 如果向许多组织提供软件即服务应用程序，可以将应用程序配置为可接受来自任何 Azure AD 租户的登录。  在 Azure AD 中，此配置称为使应用程序成为多租户应用程序。  任何 Azure AD 租户中的用户在同意配合应用程序使用其帐户之后，便可登录到应用程序。  
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/04/2018
 让我们详细了解每个步骤。 也可以直接跳转到 [此多租户示例列表][AAD-Samples-MT]。
 
 ## <a name="update-registration-to-be-multi-tenant"></a>将注册更新为多租户
-Azure AD 中的 Web 应用/API 注册默认为单租户。  可以将注册转换为多租户，方法是在 [Azure 经典管理门户][AZURE-classical-portal]中的应用程序注册属性页上，找到“多租户”开关并将其设置为“是”。
+Azure AD 中的 Web 应用/API 注册默认为单租户。  可以将注册转换为多租户，方法是在 [Azure 门户][AZURE-portal]中的应用程序注册属性页上，找到“多租户”开关并将其设置为“是”。
 
 另请注意，在将某个应用程序设为多租户之前，Azure AD 要求该应用程序的应用 ID URI 全局唯一。 应用 ID URI 是在协议消息中标识应用程序的方式之一。  就单租户应用程序而言，应用 ID URI 在该租户中保持唯一便已足够。  就多租户应用程序而言，该 URI 必须全局唯一，以便 Azure AD 能够在所有租户中找到该应用程序。  系统通过要求应用 ID URI 必须具有与已验证 Azure AD 租户域匹配的主机名，来强制实施全局唯一性。  例如，如果租户的名称为 contoso.onmicrosoft.com，则有效的应用 ID URI 为 `https://contoso.partner.onmschina.cn/myapp`。  如果租户具有已验证的域 `contoso.com`，则有效的应用 ID URI 也是 `https://contoso.com/myapp`。  如果应用程序 ID URI 不遵循此模式，则将应用程序设置为多租户就会失败。
 
@@ -103,7 +103,7 @@ Web 应用程序和 Web API 接收并验证来自 Azure AD 的令牌。
 现在，让我们看看用户登录多租户应用程序时的体验。
 
 ## <a name="understanding-user-and-admin-consent"></a>了解用户和管理员同意
-若要让用户登录 Azuer AD 中的某个应用程序，必须以用户租户的形式表示该应用程序。  这样，组织便可以采取一些措施，例如，当其租户中的用户登录应用程序时应用唯一策略。  对于单租户应用程序，此注册过程相当简单，也就是在 [Azure 经典门户][AZURE-classical-portal]中注册应用程序所采用的同一个过程。
+若要让用户登录 Azuer AD 中的某个应用程序，必须以用户租户的形式表示该应用程序。  这样，组织便可以采取一些措施，例如，当其租户中的用户登录应用程序时应用唯一策略。  对于单租户应用程序，此注册过程相当简单，它与在 [Azure 门户][AZURE-portal]中注册应用程序时的过程相同。
 
 对于多租户应用程序，应用程序的初始注册过程是在开发人员使用的 Azure AD 租户中进行的。  当来自不同租户的用户首次登录应用程序时，Azure AD 会要求他们同意应用程序所请求的权限。  如果他们同意，系统将在用户的租户中创建一个称为“服务主体”的应用程序表示形式，然后登录即可继续进行。 系统还会在记录用户对应用程序的同意意向的目录中创建委托。 有关应用程序的 Application 和 ServicePrincipal 对象的详细信息，请参阅 [Application Objects and Service Principal Objects][AAD-App-SP-Objects] （应用程序对象和服务主体对象）。
 
@@ -127,7 +127,7 @@ Web 应用程序和 Web API 接收并验证来自 Azure AD 的令牌。
 
 如果应用程序要求管理员同意，并且某个管理员登录但 `prompt=admin_consent` 参数未发送，则该管理员将**只会仅针对其用户帐户**成功地向应用程序表示同意。  普通用户仍然无法登录并同意该应用程序。  如果想要让租户管理员浏览应用程序，然后允许其他用户访问，则此功能就很有用。
 
-租户管理员可以禁用普通用户同意应用程序的能力。  如果禁用此功能，则始终需要管理员同意，才能在租户中设置应用程序。  如果想要在禁用普通用户同意的情况下测试应用程序，可以在 [Azure 经典门户][AZURE-classical-portal]的 Azure AD 租户配置部分中找到配置开关。
+租户管理员可以禁用普通用户同意应用程序的能力。  如果禁用此功能，则始终需要管理员同意，才能在租户中设置应用程序。  如果想要在禁用普通用户同意的情况下测试应用程序，可以在 [Azure 门户][AZURE-portal]的 Azure AD 租户配置部分中找到配置开关。
 
 > [!NOTE]
 > 某些应用程序想要提供一种体验，让普通用户能够一开始即表示同意，应用程序可让管理员参与操作并请求需要管理员同意的权限。  目前在 Azure AD 中还没有任何办法可以使用单个应用程序注册来实现此目的。  即将推出的 Azure AD 资源管理器部署模型终结点可允许应用程序在运行时（而不是在注册时）请求权限，这样会使这种方案成为可能。
@@ -166,7 +166,7 @@ Web 应用程序和 Web API 接收并验证来自 Azure AD 的令牌。
 用户和管理员可以随时吊销对应用程序的同意：
 
 - 用户可通过将单个应用程序从其[访问面板应用程序][AAD-Access-Panel]列表中删除，来吊销对这些应用程序的访问权限。
-- 管理员可以通过使用 [Azure 经典门户][AZURE-classical-portal]的 Azure AD 管理部分将应用程序从 Azure AD 中删除，来吊销对这些应用程序的访问权限。
+- 管理员可以通过使用 [Azure 门户][AZURE-portal]的 Azure AD 管理部分将应用程序从 Azure AD 中删除，来吊销对这些应用程序的访问权限。
 
 如果是由管理员代表租户中的所有用户对应用程序行使同意权，用户就不能单独吊销访问权限。  只有管理员才能吊销访问权限，并且只能针对整个应用程序吊销。
 
@@ -218,6 +218,7 @@ Web 应用程序和 Web API 接收并验证来自 Azure AD 的令牌。
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
+[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
@@ -226,7 +227,7 @@ Web 应用程序和 Web API 接收并验证来自 Azure AD 的令牌。
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
-[AZURE-classical-portal]: https://manage.windowsazure.cn
+[AZURE-portal]: https://portal.azure.cn
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest

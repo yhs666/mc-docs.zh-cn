@@ -2,8 +2,8 @@
 title: "Azure Active Directory 应用程序和服务主体对象"
 description: "介绍 Azure Active Directory 中应用程序对象与服务主体对象之间的关系"
 documentationcenter: dev-center-name
-author: alexchen2016
-manager: digimobile
+author: bryanla
+manager: mtillman
 services: active-directory
 editor: 
 ms.assetid: adfc0569-dc91-48fe-92c3-b5b4833703de
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/19/2017
-ms.date: 11/23/2017
+ms.date: 01/09/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 5da897ec0d43f7b4e5c4990588c28e76e43c42ac
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 67b906bc0d72583f17e32a7d1800cd6951897421
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD) 中的应用程序对象和服务主体对象
 在 Azure AD 的上下文中使用时，术语“应用程序”的含义有时可能会被误解。 本文旨在阐述 Azure AD 应用程序集成的概念和具体层面，并演示如何注册和同意[多租户应用程序](active-directory-dev-glossary.md#multi-tenant-application)。
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/24/2017
 已与 Azure AD 集成的应用程序具有超出软件方面的含意。 “应用程序”常作为一个概念性术语，不仅指应用程序软件，而且还指其 Azure AD 注册和运行时在身份验证/授权“对话”中的角色。 根据定义，应用程序能够以[客户端](active-directory-dev-glossary.md#client-application)角色（使用资源）和/或[资源服务器](active-directory-dev-glossary.md#resource-server)角色（向客户端公开 API）运行。 对话协议由 [OAuth 2.0 授权流](active-directory-dev-glossary.md#authorization-grant)定义，目标是要让客户端/资源能够各自访问/保护资源的数据。 现在让我们再深入一点，看看 Azure AD 应用程序模型在设计时和运行时如何代表应用程序。 
 
 ## <a name="application-registration"></a>应用程序注册
-在 [Azure 经典管理门户][AZURE-Classic-Portal]中注册应用程序时，会在 Azure AD 租户中创建两个对象：应用程序对象和服务主体对象。
+在 [Azure 门户][AZURE-Portal]中注册 Azure AD 应用程序时，会在 Azure AD 租户中创建两个对象：应用程序对象和服务主体对象。
 
 #### <a name="application-object"></a>应用程序对象
 Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象位于应用程序注册到的 Azure AD 租户（称为应用程序的“宿主”租户）中。 Azure AD Graph [Application 实体][AAD-Graph-App-Entity]定义应用程序对象属性的架构。 
@@ -67,17 +67,17 @@ Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象�
 在步骤 3 中，HR 应用程序的使用者租户（例如 Contoso 和 Fabrikam）各有自己的服务主体对象。 每个对象代表其在运行时使用的应用程序实例，该实例受相关管理员同意的权限控制。
 
 ## <a name="next-steps"></a>后续步骤
-可以通过 Azure AD Graph API、[Azure 经典门户的][AZURE-Classic-Portal]应用程序清单编辑器或 [Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) 访问应用程序的应用程序对象（由其 OData [Application 实体][AAD-Graph-App-Entity]表示）。
+可以通过 Azure AD Graph API、[Azure 门户的][AZURE-Portal]应用程序清单编辑器或 [Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) 访问应用程序的应用程序对象（由其 OData [Application 实体][AAD-Graph-App-Entity]表示）。
 
 可以通过 Azure AD Graph API 或 [Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) 访问应用程序的服务主体对象（由其 OData [ServicePrincipal 实体][AAD-Graph-Sp-Entity]表示）。
 
-[Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) 可用于查询应用程序和服务主体对象。
+[Azure AD Graph Explorer](graphexplorerchina.azurewebsites.net) 可用于查询应用程序和服务主体对象。
 
 <!--Image references-->
 
 <!--Reference style links -->
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AZURE-Classic-Portal]: https://manage.windowsazure.cn
+[AZURE-Portal]: https://portal.azure.cn
 
 <!--Update_Description: wording update-->

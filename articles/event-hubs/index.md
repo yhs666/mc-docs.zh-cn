@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 09/25/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3a14d7cd818abb09dae0117aa1cb63af45077ebb
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 8366c3ed6d6475f4044366e5118057234a8c714f
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="event-hubs-documentation"></a>事件中心文档
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 09/22/2017
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/event-hubs.svg" alt="" />
+                            <img src="media/index/event-hubs.svg" alt="Learn about Azure Event Hubs" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -50,7 +50,7 @@ ms.lasthandoff: 09/22/2017
                <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="Get started with Event Hubs programming guide" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -68,7 +68,7 @@ ms.lasthandoff: 09/22/2017
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="Get started with Event Hubs using the Azure portal" />
                         </div>
                     </div>
                     <div class="cardText">

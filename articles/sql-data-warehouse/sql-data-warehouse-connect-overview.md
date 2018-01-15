@@ -13,24 +13,24 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-origin.date: 10/31/2016
-ms.date: 07/17/2017
+origin.date: 12/14/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 67f11d37a660cbaef1a5b70191d9f4921cecfd10
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: cd83f2c81a485ee410992beb65d1598511536f16
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>连接到 Azure SQL 数据仓库
 本文介绍首次连接到 SQL 数据仓库的操作方法。
 
 ## <a name="find-your-server-name"></a>查找服务器名称
-连接到 SQL 数据仓库时，第一步是了解如何查找服务器名称。  例如，以下示例中的服务器名称是 sample.database.chinacloudapi.cn。 若要查找完全限定的服务器名称，请执行以下操作：
+连接到 SQL 数据仓库时，第一步是了解如何查找服务器名称。  例如，以下示例中的服务器名称是 samplesvr.database.chinacloudapi.cn。 若要查找完全限定的服务器名称，请执行以下操作：
 
 1. 转到 [Azure 门户][Azure portal]。
-2. 单击“SQL 数据库”  
-3. 单击要连接到的数据库。
+2. 单击“SQL 数据仓库”。
+3. 单击要连接到的数据仓库。
 4. 找到完整的服务器名称。
 
     ![完整服务器名称][1]
@@ -81,17 +81,18 @@ SQL 数据仓库在连接和创建对象期间标准化一些设置。 这些设
 [Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
-[ADO.NET]: https://msdn.microsoft.com/zh-cn/library/e80y5yhx(v=vs.110).aspx
-[ODBC]: https://msdn.microsoft.com/zh-cn/library/jj730314.aspx
-[PHP]: https://msdn.microsoft.com/zh-cn/library/cc296172.aspx?f=255&MSPPError=-2147217396
-[JDBC]: https://msdn.microsoft.com/zh-cn/library/mt484311(v=sql.110).aspx
-[ANSI_NULLS]: https://msdn.microsoft.com/zh-cn/library/ms188048.aspx
-[QUOTED_IDENTIFIERS]: https://msdn.microsoft.com/zh-cn/library/ms174393.aspx
-[DATEFORMAT]: https://msdn.microsoft.com/zh-cn/library/ms189491.aspx
-[DATEFIRST]: https://msdn.microsoft.com/zh-cn/library/ms181598.aspx
+[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
+[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
+[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
+[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
+[ANSI_NULLS]: https://msdn.microsoft.com/library/ms188048.aspx
+[QUOTED_IDENTIFIERS]: https://msdn.microsoft.com/library/ms174393.aspx
+[DATEFORMAT]: https://msdn.microsoft.com/library/ms189491.aspx
+[DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
 
 <!--Other-->
 [Azure portal]: https://portal.azure.cn
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
+<!-- Update_Description: update meta properties, wording update -->

@@ -3,8 +3,8 @@ title: "备份 Azure VM | Microsoft Docs"
 description: "发现 Azure 虚拟机以及将其注册和备份到恢复服务保管库。"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: 
 keywords: "虚拟机备份; 备份虚拟机; 备份和灾难恢复; arm vm 备份"
 ms.assetid: 5c68481d-7be3-4e68-b87c-0961c267053e
@@ -14,21 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 09/04/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 181bdf7f0b8464f62a18a7cb48621411b9f84f96
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: a7e1fb4a49fe3643420ed7c0601604da01b851ef
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>将 Azure 虚拟机备份到恢复服务保管库
-> [!div class="op_single_selector"]
-> * [将 VM 备份到恢复服务保管库](backup-azure-arm-vms.md)
-> * [将 VM 备份到备份保管库](backup-azure-vms.md)
->
->
 
 本文详细介绍了如何将 Azure VM（使用资源管理器部署和经典模型部署）备份到恢复服务保管库。 备份 VM 的大部分工作是准备工作。 在进行备份或保护 VM 之前，必须完成[先决条件](backup-azure-arm-vms-prepare.md)中的步骤来准备好保护 VM 的环境。 完成先决条件后，可以启动备份操作来创建 VM 的快照。
 
@@ -38,7 +33,7 @@ ms.lasthandoff: 09/08/2017
 有关详细信息，请参阅[在 Azure 中规划 VM 备份基础结构](backup-azure-vms-introduction.md)和 [Azure 虚拟机](/virtual-machines/)。
 
 ## <a name="triggering-the-backup-job"></a>触发备份作业
-与恢复服务保管库关联的备份策略定义备份操作的运行频率和时间。 默认情况下，第一个计划的备份是初始备份。 在执行初始备份之前，“备份作业”边栏选项卡上的“上次备份状态”显示为“警告(等待初始备份)”。
+与恢复服务保管库关联的备份策略定义备份操作的运行频率和时间。 默认情况下，第一个计划的备份是初始备份。 在执行初始备份之前，“**备份作业**”边栏选项卡上的“上次备份状态”显示为“**警告(等待初始备份)**”。
 
 ![等待中的备份](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
@@ -102,8 +97,9 @@ ms.lasthandoff: 09/08/2017
 如果在备份虚拟机时遇到问题，请参阅 [VM 故障排除文章](backup-azure-vms-troubleshoot.md)以获取帮助。
 
 ## <a name="next-steps"></a>后续步骤
-现在已保护了 VM，请参阅以下文章了解 VM 管理任务以及如何还原 VM。
+现已保护 VM，请参阅以下文章了解 VM 管理任务以及如何还原 VM。
 
 - [管理和监视虚拟机](backup-azure-manage-vms.md)
 - [恢复虚拟机](backup-azure-arm-restore-vms.md)
 
+<!--Update_Description: wording update -->

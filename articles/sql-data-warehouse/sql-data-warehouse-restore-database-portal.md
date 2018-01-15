@@ -13,17 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-origin.date: 09/21/2016
-ms.date: 07/17/2017
+origin.date: 12/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: c8303835e91feab9e8ab66cf4a426d4a8af31701
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: 354d4448fc57b9772e4d9d2e19ad0022bc3cb8df
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>还原 Azure SQL 数据仓库（门户）
-
 > [!div class="op_single_selector"]
 > * [概述][Overview]
 > * [门户][Portal]
@@ -33,43 +32,33 @@ ms.lasthandoff: 07/05/2017
 >
 本文介绍如何使用 Azure 门户还原 Azure SQL 数据仓库。
 
-## <a name="before-you-begin"></a>开始之前
-
+## <a name="before-you-begin"></a>准备阶段
+**验证 DTU 容量。** 每个 SQL 数据仓库实例都由一个具有默认数据吞吐量单位 (DTU) 配额的 SQL 服务器（例如 myserver.database.chinacloudapi.cn）托管。 在还原 SQL 数据仓库之前，请验证 SQL Server 的剩余 DTU 配额是否足够进行数据库还原。 若要了解如何计算所需 DTU 配额或请求更多的 DTU，请参阅[请求 DTU 配额更改][请求 DTU 配额更改]。
 <!-- Not Available [Request a DTU quota change][Request a DTU quota change] -->
-**验证 DTU 容量。** 每个 SQL 数据仓库实例都由一个具有默认数据吞吐量单位 (DTU) 配额的 SQL 服务器（例如 myserver.database.chinacloudapi.cn）托管。 在还原 SQL 数据仓库之前，请验证 SQL Server 的剩余 DTU 配额是否足够进行数据库还原。
 
 ## <a name="restore-an-active-or-paused-database"></a>还原活动或暂停的数据库
-
 还原数据库：
 
 1. 登录到 [Azure 门户][Azure portal]。
-
 2. 在左侧面板中选择“浏览”，然后选择“SQL Server”。
 
     ![依次选择“浏览”>“SQL Server”](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
-
-3. 查找服务器，然后选择它。
+3. 查找服务器，并选择它。
 
     ![选择服务器](./media/sql-data-warehouse-restore-database-portal/01-select-server.png)
-
-4. 查找要从中还原的 SQL 数据仓库的实例，然后选择它。
+4. 查找要从中还原的 SQL 数据仓库的实例，并选择它。
 
     ![选择要还原的 SQL 数据仓库的实例](./media/sql-data-warehouse-restore-database-portal/01-select-active-dw.png)
-
 5. 在数据仓库边栏选项卡顶部，选择“还原” 。
 
     ![选择“还原”](./media/sql-data-warehouse-restore-database-portal/01-select-restore-from-active.png)
-
 6. 指定新的“数据库名称” 。
-
 7. 选择最新“还原点” 。
 
     请确保选择最新还原点。 因为还原点按照协调世界时 (UTC) 显示，所以默认选项可能不是最新还原点。
 
       ![选择还原点](./media/sql-data-warehouse-restore-database-portal/01-restore-blade-from-active.png)
-
 8. 选择“确定” 。
-
 9. 数据库还原过程将开始，可使用“通知”监视该过程。
 
 > [!NOTE]
@@ -78,35 +67,26 @@ ms.lasthandoff: 07/05/2017
 >
 
 ## <a name="restore-a-deleted-database"></a>还原已删除的数据库
-
 还原已删除的数据库：
 
 1. 登录到 [Azure 门户][Azure portal]。
-
 2. 在左侧面板中选择“浏览”，然后选择“SQL Server”。
 
     ![依次选择“浏览”>“SQL Server”](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
-
-3. 查找服务器，然后选择它。
+3. 查找服务器，并选择它。
 
     ![选择服务器](./media/sql-data-warehouse-restore-database-portal/02-select-server.png)
-
 4. 向下滚动到服务器边栏选项卡上的“操作”部分。
-
 5. 选择“已删除的数据库”磁贴  。
 
     ![选择“已删除的数据库”磁贴](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dws.png)
-
 6. 选择要还原的已删除数据库。
 
     ![选择要还原的数据库](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dw.png)
-
 7. 指定新的“数据库名称” 。
 
     ![添加数据库的名称](./media/sql-data-warehouse-restore-database-portal/02-restore-blade-from-deleted.png)
-
 8. 选择“确定” 。
-
 9. 数据库还原过程将开始，可使用“通知”监视该过程。
 
 > [!NOTE]
@@ -134,3 +114,4 @@ ms.lasthandoff: 07/05/2017
 
 <!--Other Web references-->
 [Azure portal]: https://portal.azure.cn/
+<!-- Update_Description: update meta properties -->

@@ -3,8 +3,8 @@ title: "将文件从 Azure 恢复到 Windows Server | Microsoft Docs"
 description: "本教程详细介绍了如何将项目从 Azure 恢复到 Windows Server。"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: saurabhsensharma
+manager: shivamg
 editor: 
 keywords: "windows server 备份; 还原文件 windows server; 备份和灾难恢复"
 ms.assetid: 
@@ -12,16 +12,16 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 origin.date: 09/20/2017
-ms.date: 10/31/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
-ms.custom: 
-ms.openlocfilehash: 6bb95e2e6868eba825819896f06db1c7ed2ea26f
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.custom: mvc
+ms.openlocfilehash: 3d7b7965db6c6cc4168972adac91c4ec8fcec19e
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>将文件从 Azure 恢复到 Windows Server
 
@@ -83,3 +83,4 @@ ms.lasthandoff: 11/02/2017
 > [!div class="nextstepaction"]
 > [备份加密 VM](./scripts/backup-powershell-sample-backup-encrypted-vm.md)
 
+<!-- Update_Description: update metedata properties -->

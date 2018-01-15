@@ -15,24 +15,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/28/2017
-ms.date: 12/25/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: a085b81f17ab44f6ef8ef9b3e7365dc6182d2016
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 7b1bfdcfd15c5f199c80e0a6e33aea0f20cd93ce
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>管理 Azure HDInsight 上 Apache Spark 群集的资源 
 
-本文介绍如何访问与 Spark 群集关联的界面，例如 Ambari UI、YARN UI 和 Spark History Server。 此外，介绍如何优化群集配置以获得最佳性能。
+了解如何访问与 Spark 群集关联的界面（如 Ambari UI、YARN UI 和 Spark History Server），以及如何优化群集配置以达到最佳性能。
 
 **先决条件：**
 
-* Azure 订阅。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。
 
-## <a name="how-do-i-launch-the-ambari-web-ui"></a>如何启动 Ambari Web UI？
+## <a name="open-the-ambari-web-ui"></a>打开 Ambari Web UI
 1. 在 [Azure 门户](https://portal.azure.cn/)上的启动板中，单击 Spark 群集的磁贴（如果已将它固定到启动板）。 也可以单击“全部浏览” > “HDInsight 群集”导航到群集。
 2. 单击 Spark 群集的“仪表板”。 出现提示时，输入 Spark 群集的管理员凭据。
 
@@ -41,7 +40,7 @@ ms.lasthandoff: 12/15/2017
 
     ![Ambari Web UI](./media/apache-spark-resource-manager/ambari-web-ui.png "Ambari Web UI")   
 
-## <a name="how-do-i-launch-the-spark-history-server"></a>如何启动 Spark History Server？
+## <a name="open-the-spark-history-server"></a>打开 Spark History Server
 1. 在 [Azure 门户](https://portal.azure.cn/)上的启动板中，单击 Spark 群集的磁贴（如果已将它固定到启动板）。
 2. 在群集边栏选项卡中的“快速链接”下，单击“群集仪表板”。 在“群集仪表板”边栏选项卡中，单击“Spark History Server”。
 
@@ -49,10 +48,10 @@ ms.lasthandoff: 12/15/2017
 
     出现提示时，输入 Spark 群集的管理员凭据。
 
-## <a name="how-do-i-launch-the-yarn-ui"></a>如何启动 Yarn UI？
+## <a name="open-the-yarn-ui"></a>打开 YARN UI
 可以使用 YARN UI 监视当前正在 Spark 群集上运行的应用程序。
 
-1. 在群集边栏选项卡中，单击“群集仪表板”，然后单击“YARN”。
+1. 在群集边栏选项卡中，单击“群集仪表板”，并单击“YARN”。
 
     ![启动 YARN UI](./media/apache-spark-resource-manager/launch-yarn-ui.png)
 
@@ -61,7 +60,7 @@ ms.lasthandoff: 12/15/2017
    >
    >
 
-## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications"></a>用于运行 Spark 应用程序的最佳群集配置是什么？
+## <a name="the-optimum-cluster-configuration-to-run-spark-applications"></a>用于运行 Spark 应用程序的最佳群集配置
 根据应用程序的要求，可用于 Spark 配置的三个关键参数为 `spark.executor.instances`、`spark.executor.cores` 和 `spark.executor.memory`。 执行器是针对 Spark 应用程序启动的进程。 它在工作节点上运行，负责执行应用程序的任务。 执行器的默认数目和每个群集的执行器大小均根据工作节点数目和工作节点大小计算。 这些信息存储在群集头节点上的 `spark-defaults.conf` 中。
 
 这三个配置参数可在群集级别配置（适用于群集上运行的所有应用程序），也可以针对每个应用程序指定。
@@ -123,7 +122,7 @@ Spark Thrift 服务器驱动程序内存配置为头节点 RAM 大小的 25%，�
 2. 在下一页中，单击“Spark Thrift 服务器” 。
 
     ![重新启动 Thrift 服务器](./media/apache-spark-resource-manager/restart-thrift-server-1.png)
-3. 应会看到正在运行 Spark Thrift 服务器的两个头节点。 单击其中一个头节点。
+3. 应看到正在运行 Spark Thrift 服务器的两个头节点。 单击其中一个头节点。
 
     ![重新启动 Thrift 服务器](./media/apache-spark-resource-manager/restart-thrift-server-2.png)
 4. 下一页将列出该头节点上运行的所有服务。 在该列表中，单击 Spark Thrift 服务器旁边的下拉按钮，并单击“停止” 。

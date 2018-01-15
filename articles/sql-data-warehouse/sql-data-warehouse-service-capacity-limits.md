@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-origin.date: 11/10/2017
-ms.date: 12/11/2017
+origin.date: 12/14/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 44722c03ab7e574e3c8930457d6ba09863421f69
-ms.sourcegitcommit: 3996e0f27bae21fc48f6ebfab423e9b29f9d9bf4
+ms.openlocfilehash: e5c510332f6993c50900fbe9504f686be9279dbd
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL 数据仓库容量限制
 下表包含 Azure SQL 数据仓库的各个组件允许的最大值。
@@ -107,4 +107,4 @@ ms.lasthandoff: 12/21/2017
 [Row-Overflow Data Exceeding 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
 [Internal error: An expression services limit has been reached]: https://support.microsoft.com/kb/913050
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties  -->

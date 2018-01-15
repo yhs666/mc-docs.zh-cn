@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/07/2017
-ms.date: 11/25/2017
+origin.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 46feab23b197cf2c445d1bde49eb72044ff15a60
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 6c653ea939cf4b3e77fe9e86bd88e2a468eda005
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Spark 群集上的 Jupyter Notebook 的内核 
 
@@ -129,7 +129,7 @@ HDInsight Spark 群集提供可在 Spark 上的 Jupyter Notebook 中用于测试
 
 ## <a name="show-me-some-examples"></a>举例说明
 
-打开 Jupyter Notebook 时，可以在根级别看到两个文件夹。
+打开 Jupyter 笔记本时，可以在根级别看到两个文件夹。
 
 * **PySpark** 文件夹包含使用新 **Python** 内核的示例 Notebook。
 * **Scala** 文件夹包含使用新 **Spark** 内核的示例 Notebook。

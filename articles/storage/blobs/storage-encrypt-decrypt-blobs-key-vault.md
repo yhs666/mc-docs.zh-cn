@@ -15,14 +15,14 @@ ms.workload: required
 origin.date: 01/23/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 692acf90fa4b8b375a19a2cc5d2df2ce35649ef4
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 5d8d12c346708f9369aa5f2468ca48229fe98165
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-azure-storage-using-azure-key-vault"></a>教程：在 Azure 存储中使用 Azure Key Vault 加密和解密 blob
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 本教程介绍如何结合使用客户端存储加密与 Azure 密钥保管库。 它会逐步演示如何使用这些技术在控制台应用程序中加密和解密 Blob。
 
 **估计完成时间：** 20 分钟。
@@ -144,9 +144,9 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 > 
 > 密钥保管库客户端与 REST API 进行交互，并了解密钥保管库中包含的两种模型的 JSON Web 密钥和密码。
 > 
-> 密钥保管库扩展似乎是专为 Azure 存储中的客户端加密而创建的类。 根据密钥解析程序的概念，它们包含密钥 (IKey) 和类的接口。 需要了解两种 IKey 实现：RSAKey 和 SymmetricKey。 现在它们碰巧与 Key Vault 中包含的内容保持一致，但此时它们是独立的类（因此，Key Vault 客户端检索到的密钥与秘密检索未实现 IKey）。
+> 密钥保管库扩展似乎是专门为 Azure 存储中的客户端加密所创建的类。 根据密钥解析程序的概念，它们包含密钥 (IKey) 和类的接口。 需要了解两种 IKey 实现：RSAKey 和 SymmetricKey。 现在它们碰巧与 Key Vault 中包含的内容保持一致，但此时它们是独立的类（因此，Key Vault 客户端检索到的密钥与秘密检索未实现 IKey）。
 
-## <a name="encrypt-blob-and-upload"></a>加密 Blob 和上传
+## <a name="encrypt-blob-and-upload"></a>加密 blob 和上传
 添加以下代码以加密 Blob 并将其上传到 Azure 存储帐户。 使用的 **ResolveKeyAsync** 方法会返回 IKey。
 
 ```csharp
@@ -167,9 +167,6 @@ using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
-下面是 [Azure 经典管理门户](https://manage.windowsazure.cn)中一个 Blob 的屏幕截图，该 Blob 已使用客户端加密通过 Key Vault 中存储的密钥进行加密。 **KeyId** 属性是密钥保管库中充当 KEK 的密钥的 URI。 **EncryptedKey** 属性包含 CEK 的加密版本。
-
-![显示包含加密元数据的 Blob 元数据的屏幕截图](./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png)
 
 > [!NOTE]
 > 如果查看 BlobEncryptionPolicy 构造函数，会看到它可以接受密钥和/或解析程序。 请注意，现在无法将解析程序用于加密，因为它当前不支持默认密钥。

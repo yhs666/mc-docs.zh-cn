@@ -14,18 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4fdc620d187759780052511ad0f86dca02ffcf96
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: b4543ef091e10fc537e47a207503c5d487aa0e0a
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>使用用于 Visual Studio 的 Azure 流分析工具
 用于 Visual Studio 的 Azure 流分析工具现已推出正式版。 这些工具为流分析用户带来了更丰富的体验，可让他们进行故障排除以及编写复杂的查询，甚至可以在本地编写查询。 还可将流分析作业导出到 Visual Studio 项目中。
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 本教程介绍如何使用用于 Visual Studio 的流分析工具来创建、编写、本地测试、管理和调试流分析作业。 
 
 完成本教程之后，能够：
@@ -116,7 +116,7 @@ ms.lasthandoff: 12/08/2017
 
 4. 对于“用户名”，输入“tolladmin”。 对于“密码”，输入“123toll!”。 对于“表”，输入“TollDataRefJoin”。
 
-5. 选择“保存”。
+5. 选择“其他安全性验证” 。
 
     ![输出设置](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
 
@@ -159,7 +159,7 @@ ms.lasthandoff: 12/08/2017
 
     ![添加本地输入](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
 
-2. 在弹出窗口中，从本地路径选择示例数据。 选择“保存”。
+2. 在弹出窗口中，从本地路径选择示例数据。 选择“其他安全性验证” 。
 
     ![添加本地输入](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
 
@@ -265,4 +265,4 @@ ms.lasthandoff: 12/08/2017
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

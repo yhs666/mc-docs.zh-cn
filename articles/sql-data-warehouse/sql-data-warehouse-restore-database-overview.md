@@ -4,7 +4,7 @@ description: "在 Azure SQL 数据仓库中恢复数据库时的数据库还原�
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: 
 ms.assetid: 3e01c65c-6708-4fd7-82f5-4e1b5f61d304
 ms.service: sql-data-warehouse
@@ -13,17 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-origin.date: 10/31/2016
-ms.date: 03/20/2017
+origin.date: 12/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7e8a45d1db5be44021b3c12b9295a7ef0849220e
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: f37543d42d57875e8ce915633dbe49033a27c41e
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="sql-data-warehouse-restore"></a>SQL 数据仓库还原
-
 > [!div class="op_single_selector"]
 > * [概述][Overview]
 > * [门户][Portal]
@@ -45,19 +44,21 @@ SQL 数据仓库提供本地和异地还原功能，这是其数据仓库灾难�
 * [业务连续性概述](../sql-database/sql-database-business-continuity.md)
 
 ## <a name="data-warehouse-restore-points"></a>数据仓库还原点
-使用 Azure 高级存储的好处是，SQL 数据仓库可以使用 Azure 存储 Blob 快照备份主数据仓库。 每个快照都有一个还原点，代表启动快照的时间。 若要还原数据仓库，请选择一个还原点，然后发出还原命令。  
+使用 Azure 高级存储的好处是，SQL 数据仓库可以使用 Azure 存储 Blob 快照备份主数据仓库。 每个快照都有一个还原点，代表启动快照的时间。 如果要还原数据仓库，请选择一个还原点，并发出还原命令。  
 
-SQL 数据仓库始终将备份还原到新的数据仓库。 可以保留还原的数据仓库和当前的数据仓库，也可以删除其中一个。 若要将当前的数据仓库替换为还原的数据仓库，将其重命名即可。
+SQL 数据仓库始终将备份还原到新的数据仓库。 可以保留还原的数据仓库和当前的数据仓库，也可以删除其中一个。 要将当前的数据仓库替换为还原的数据仓库，将其重命名即可。
 
 <!-- Not Available [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md). -->
 
-<!-- Not Available on ### Can I restore a deleted data warehouse?
-### Can I restore a deleted data warehouse?
+<!-- Not Available on ### Can I restore a deleted data warehouse?-->
 
-Yes, you can restore the last available restore point.
+## <a name="geo-redundant-restore"></a>异地冗余还原
+可以将数据仓库还原到支持所选性能级别的 Azure SQL 数据仓库的任何区域。 请注意，在预览期间，所有区域都不支持 9000 和 18000 DWU。
 
-Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, you won't be able to restore to any of the restore points. -->
-
+> [!NOTE]
+> 若要执行异地冗余还原，不能选择退出此功能。
+> 
+> 
 
 ## <a name="restore-timeline"></a>还原时间线
 可以将数据库还原到过去 7 天的任何可用还原点。 快照 4 到 8 小时启动一次，可供使用 7 天。 快照超过 7 天将过期，其还原点不再可用。
@@ -82,9 +83,9 @@ Yes, for the next seven calendar days. When you delete a data warehouse, SQL Dat
 
 若要执行数据仓库还原，请使用以下还原方式：
 
-* Azure 门户，请参阅[使用 Azure 门户还原数据仓库](./sql-data-warehouse-restore-database-portal.md)
-* PowerShell cmdlet，请参阅[使用 PowerShell cmdlet 还原数据仓库](./sql-data-warehouse-restore-database-powershell.md)
-* REST API，请参阅[使用 REST API 还原数据仓库](./sql-data-warehouse-restore-database-rest-api.md)
+* Azure 门户，请参阅[使用 Azure 门户还原数据仓库](sql-data-warehouse-restore-database-portal.md)
+* PowerShell cmdlet，请参阅[使用 PowerShell cmdlet 还原数据仓库](sql-data-warehouse-restore-database-powershell.md)
+* REST API，请参阅[使用 REST API 还原数据仓库](sql-data-warehouse-restore-database-rest-api.md)
 
 <!-- ### Tutorials -->
 
@@ -100,3 +101,4 @@ Yes, for the next seven calendar days. When you delete a data warehouse, SQL Dat
 <!--MSDN references-->
 
 <!--Other Web references-->
+<!-- Update_Description: update meta properties, wording update -->

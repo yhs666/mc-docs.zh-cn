@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/06/2017
-ms.date: 12/18/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 35c37fcedd3d8407b55df77bc8b70c91a45c8394
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 3965f267d3118cb6a4095184c478f31510f29e34
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>使用 HDInsight 中的用于 Hadoop 的 Azure PowerShell 运行 Sqoop 作业
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -173,7 +173,7 @@ ms.lasthandoff: 12/08/2017
 * 批处理：如果在执行插入时使用 `-batch` 开关，Sqoop 将执行多次插入而不是批处理插入操作。 
 
 ## <a name="next-steps"></a>后续步骤
-现在你已了解如何使用 Sqoop。 若要了解详细信息，请参阅以下文章：
+现在你已了解如何使用 Sqoop。 若要了解更多信息，请参阅以下文章：
 
 * [将 Oozie 与 HDInsight 配合使用](../hdinsight-use-oozie.md)：在 Oozie 工作流中使用 Sqoop 操作。
 * [使用 HDInsight 分析航班延误数据](../hdinsight-analyze-flight-delay-data.md)：使用 Hive 分析航班延误数据，然后使用 Sqoop 将数据导出到 Azure SQL 数据库。

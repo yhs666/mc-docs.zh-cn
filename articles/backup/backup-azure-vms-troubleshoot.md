@@ -3,8 +3,8 @@ title: "排查 Azure 虚拟机备份错误 | Microsoft 文档"
 description: "Azure 虚拟机备份和还原疑难解答"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: trinadhk
+manager: shreeshd
 editor: 
 ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
@@ -13,24 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 11/27/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: ca2bd85beb54a95e77f28ab4f27f49761fab8906
-ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
+ms.openlocfilehash: 96519557ecba47f6d47255953dbc9a459713ec33
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虚拟机备份疑难解答
-> [!div class="op_single_selector"]
-> * [恢复服务保管库](backup-azure-vms-troubleshoot.md)
-> * [备份保管库](backup-azure-vms-troubleshoot-classic.md)
->
->
-
 可参考下表中所列的信息，排查使用 Azure 备份时遇到的错误。
 
-## <a name="backup"></a>备份
+## <a name="backup"></a>Backup
 
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>错误：不支持指定的磁盘配置
 
@@ -56,9 +50,9 @@ ms.lasthandoff: 11/29/2017
 | 无法执行操作，因为 VM 代理没有响应 |如果 VM 代理出现问题，或以某种方式阻止了对 Azure 基础结构的网络访问，则会引发此错误。 对于 Windows VM，请检查服务中的 VM 代理服务状态，以及代理是否显示在控制面板的程序中。 尝试从控制面板中删除程序，再重新安装代理，[如下](#vm-agent)所述。 重新安装代理后，将触发临时备份进行验证。 |
 | 恢复服务扩展操作失败。 - 确保虚拟机上有最新的虚拟机代理，并且代理服务正在运行。 请重试备份操作，如果失败，请与 Microsoft 支持部门联系。 |VM 代理过期会引发此错误。 请参阅以下“更新 VM 代理”部分，更新 VM 代理。 |
 | 虚拟机不存在。 - 请确保该虚拟机存在，或选择其他虚拟机。 |当主 VM 已删除，而备份策略仍继续查找用于执行备份的 VM 时，会发生这种情况。 若要修复此错误，请执行以下操作： <ol><li> 使用相同的名称和相同的资源组名称 [云服务名称] 重新创建虚拟机，<br>（或者）<br></li><li>停止保护虚拟机，无需删除备份数据。 [更多详细信息](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
-| 命令执行失败。 - 此项上当前正在进行另一项操作。 请等待前一项操作完成，并重试 |VM 的现有备份正在运行，现有作业正在运行时，无法启动新作业。 |
+| 命令执行失败。 - 此项上当前正在进行另一项操作。 请等待前一项操作完成，并重试 |VM 上的现有备份正在运行，而当现有作业正在运行时，无法启动新的作业。 |
 | 从备份保管库复制 VHD 超时 - 请在几分钟后重试操作。 如果问题持续出现，请联系 Microsoft 支持。 | 如果存储端存在暂时性错误，或备份服务未从托管 VM 的存储帐户获得足够的 IOPS 以在超时期限内将数据传输到保管库，将发生这种情况。 设置备份时，请确保遵循[最佳做法](backup-azure-vms-introduction.md#best-practices)。 尝试将 VM 移到未加载的其他存储帐户，然后重试备份。|
-| 发生内部错误，备份失败 - 请在几分钟后重试操作。 如果问题仍然存在，请联系 Microsoft 支持 |导致此错误发生的原因有 2 个： <ol><li> 访问 VM 存储时发生暂时性问题。 请检查 [Azure 状态](https://azure.microsoft.com/en-us/status/) ，确定区域中是否存在与计算、存储或网络相关的任何问题。 问题解决后，请重试此备份作业。 <li>已删除原始 VM，因此无法获取恢复点。 若要保留已删除 VM 的备份数据，但要删除备份错误：请取消保护 VM 并选择保留数据选项。 此操作会停止计划备份作业和重复错误消息。 |
+| 发生内部错误，备份失败 - 请在几分钟后重试操作。 如果问题持续出现，请联系 Microsoft 支持 |导致此错误发生的原因有 2 个： <ol><li> 访问 VM 存储时发生暂时性问题。 请检查 Azure 状态，确定区域中是否存在与计算、存储或网络相关的任何问题。 问题解决后，请重试此备份作业。 <li>已删除原始 VM，因此无法获取恢复点。 若要保留已删除 VM 的备份数据，但要删除备份错误：请取消保护 VM 并选择保留数据选项。 此操作会停止计划备份作业和重复错误消息。 |
 | 无法在选择的项上安装 Azure 恢复服务扩展 - VM 代理是 Azure 恢复服务扩展的必备组件。 安装 Azure VM 代理并重启注册操作 |<ol> <li>检查是否已正确安装 VM 代理。 <li>确保已正确设置 VM 配置中的标志。</ol> [详细了解](#validating-vm-agent-installation)如何安装 VM 代理以及如何验证 VM 代理安装。 |
 | 扩展安装失败，出现错误“COM+ 无法与 Microsoft 分布式事务处理协调器通信”。 |这通常意味着 COM+ 服务未运行。 请与 Microsoft 支持部门联系，以获取解决此问题所需的帮助。 |
 | 快照操作失败，出现 VSS 操作错误"此驱动器已通过 BitLocker 驱动器加密锁定”。 必须通过控制面板解锁此驱动器。 |关闭 VM 上所有驱动器的 BitLocker，观察 VSS 问题是否得到解决 |
@@ -81,7 +75,7 @@ ms.lasthandoff: 11/29/2017
 | --- | --- |
 | 此作业类型不支持取消操作 - 请等待作业完成。 |无 |
 | 作业未处于可取消状态 - 请等待作业完成。 <br>或<br> 所选作业未处于可取消状态 - 请等待作业完成。 |作业很可能已接近完成状态。 请等待作业完成。|
-| 不能取消作业，因为作业并未处于进行状态 - 只能对正在进行的作业执行取消操作。 请尝试取消正在进行的作业。 |如果存在临时状态，则可能会发生这种情况。 请稍等片刻，并重试取消操作。 |
+| 不能取消作业，因为作业并未处于进行状态 - 只能对处于进行状态的作业执行取消操作。 请尝试取消正在进行的作业。 |如果存在临时状态，则可能会发生这种情况。 请稍等片刻，并重试取消操作。 |
 | 无法取消作业 - 请等待作业完成。 |无 |
 
 ## <a name="restore"></a>还原
@@ -91,7 +85,7 @@ ms.lasthandoff: 11/29/2017
 | 所选 DNS 名称已被使用 - 请指定其他 DNS 名称，并重试。 |此处的 DNS 名称是指云服务名称（通常以 .chinacloudapp.cn 结尾）。 此名称必须是唯一名称。 如果遇到此错误，则需在还原过程中选择其他 VM 名称。 <br><br> 此错误仅向 Azure 门户用户显示。 通过 PowerShell 进行的还原操作会成功，因为它只还原磁盘，不创建 VM。 如果在磁盘还原操作之后显式创建 VM，则会遇到该错误。 |
 | 指定的虚拟网络配置不正确 - 请指定其他虚拟网络配置，并重试。 |无 |
 | 指定的云服务使用的是保留 IP，这不符合要还原的虚拟机的配置 - 请指定其他不使用保留 IP 的云服务，或者选择其他用于还原的恢复点。 |无 |
-| 云服务已达到输入终结点的数目限制 - 请指定其他云服务或使用现有终结点，重新尝试该操作。 |无 |
+| 云服务已达到输入终结点的数目限制 - 请重新尝试该操作，指定其他云服务或使用现有终结点。 |无 |
 | 备份保管库和目标存储帐户位于两个不同的区域 - 请确保还原操作中指定的存储帐户与备份保管库位于相同的 Azure 区域。 |无 |
 | 不支持为还原操作指定的存储帐户 - 仅支持具有本地冗余或地域冗余复制设置的“基本/标准”存储帐户。 请选择支持的存储帐户 |无 |
 | 针对还原操作指定的存储帐户类型不处于在线状态 - 请确保在还原操作中指定的存储帐户处于在线状态 |Azure 存储中出现暂时性错误或中断时，可能会发生这种情况。 请选择另一个存储帐户。 |
@@ -116,7 +110,7 @@ ms.lasthandoff: 11/29/2017
 对于 Linux VM：
 
 - 从分发存储库中安装最新版本。 我们**强烈建议**只通过分发存储库安装代理。 有关包名称的详细信息，请参阅[Linux 代理存储库](https://github.com/Azure/WALinuxAgent) 
-- 对于经典 VM，请[更新 VM 属性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)，指明代理已安装。 对于 Resource Manager 虚拟机，无需执行这一步。
+- 对于经典 VM，请[更新 VM 属性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)，指明代理已安装。 对于资源管理器虚拟机，无需执行这一步。
 
 ### <a name="updating-the-vm-agent"></a>更新 VM 代理
 对于 Windows VM：
@@ -132,13 +126,13 @@ ms.lasthandoff: 11/29/2017
 如何检查 Windows VM 上的 VM 代理版本：
 
 1. 登录 Azure 虚拟机并导航到 *C:\WindowsAzure\Packages* 文件夹。 应会发现 WaAppAgent.exe 文件已存在。
-2. 右键单击该文件，转到“**属性**”，并选择“**详细信息**”选项卡。“产品版本”字段应为 2.6.1198.718 或更高
+2. 右键单击该文件，转到“属性”，并选择“详细信息”选项卡。“产品版本”字段应为 2.6.1198.718 或更高
 
 ## <a name="troubleshoot-vm-snapshot-issues"></a>排查 VM 快照问题
 VM 备份依赖于向底层存储发出快照命令。 如果无法访问存储或者快照任务执行延迟，则可能会导致备份作业失败。 以下因素可能会导致快照任务失败。
 
 1. 使用 NSG 阻止对存储进行网络访问<br>
-    详细了解如何使用 IP 允许列表或代理服务器[启用对存储的网络访问权限](backup-azure-vms-prepare.md#network-connectivity)。
+    详细了解如何使用 IP 允许列表或代理服务器[启用对存储的网络访问权限](backup-azure-arm-vms-prepare.md#network-connectivity)。
 2. 配置了 SQL Server 备份的 VM 可导致快照任务延迟 <br>
    默认情况下，VM 备份在 Windows VM 上发起 VSS 完整备份。 在运行 SQL Server 且已配置 SQL Server 备份的 VM 上，这可能会造成快照执行延迟。 如果由于快照问题而导致备份失败，请设置以下注册表项。
 
@@ -168,7 +162,7 @@ VM 备份依赖于向底层存储发出快照命令。 如果无法访问存储�
    - 使用 New-NetRoute cmdlet 取消阻止 IP。 在 Azure VM 上提升权限的 PowerShell 窗口中运行此 cmdlet（以管理员身份运行）。
    - 向 NSG 添加规则（如果已创建规则），以允许访问这些 IP。
 2. 为 HTTP 流量创建路径
-   - 如果指定了某种网络限制（例如网络安全组），请部署 HTTP 代理服务器来路由流量。 可在[此处](backup-azure-vms-prepare.md#network-connectivity)找到部署 HTTP 代理服务器的步骤。
+   - 如果指定了某种网络限制（例如网络安全组），请部署 HTTP 代理服务器来路由流量。 可在[此处](backup-azure-arm-vms-prepare.md#network-connectivity)找到部署 HTTP 代理服务器的步骤。
    - 向 NSG 添加规则（如果已创建规则），以允许从 HTTP 代理访问 INTERNET。
 
 > [!NOTE]
@@ -177,4 +171,4 @@ VM 备份依赖于向底层存储发出快照命令。 如果无法访问存储�
 >
 >
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

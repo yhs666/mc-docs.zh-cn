@@ -15,71 +15,76 @@ ms.workload: infrastructure-services
 origin.date: 08/07/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 5c56f120175151b243584f92284730785c5a29c4
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 5d022bb775153a513133544e8f6adb7a16b78c3c
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>在 Azure 自动化中启动 Runbook
-下表帮助你确定如何在 Azure 自动化中以最适合你方案的方法启动 Runbook。 本文包含有关使用 Azure 经典管理门户和 Windows PowerShell 启动 Runbook 的详细信息。 有关其他方法的详细信息会在其他文档中提供，可以通过以下链接来访问。
+下表帮助你确定如何在 Azure 自动化中以最适合你方案的方法启动 Runbook。 本文包含有关使用 Azure 门户和 Windows PowerShell 启动 Runbook 的详细信息。 有关其他方法的详细信息会在其他文档中提供，可以通过以下链接来访问。
 
 | **方法** | **特征** |
 | --- | --- |
-| [Azure 经典管理门户](#starting-a-runbook-with-the-azure-portal) | <li>使用交互式用户界面的最简单方法。<br> <li>用于提供简单参数值的窗体。<br> <li>轻松跟踪作业状态。<br> <li>使用 Azure 登录对访问进行身份验证。 |
+| [Azure Portal](#starting-a-runbook-with-the-azure-portal) |<li>使用交互式用户界面的最简单方法。<br> <li>用于提供简单参数值的窗体。<br> <li>轻松跟踪作业状态。<br> <li>使用 Azure 登录对访问进行身份验证。 |
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>使用 Windows PowerShell cmdlet 从命令行调用。<br> <li>可以使用多个步骤包含在自动化解决方案中。<br> <li>使用证书或 OAuth 用户主体/服务主体对请求进行身份验证。<br> <li>提供简单和复杂的参数值。<br> <li>跟踪作业状态。<br> <li>支持 PowerShell cmdlet 所需的客户端。 |
-| [Azure 自动化 API](http://msdn.microsoft.com/library/azure/mt163849.aspx) | <li>最有弹性的方法，但也最复杂。<br> <li>从任何可发出 HTTP 请求的自定义代码调用。<br> <li>使用证书或 OAuth 用户主体/服务主体对请求进行身份验证。<br> <li>提供简单和复杂的参数值。<br> <li>跟踪作业状态。 |
-| [计划](automation-schedules.md) | <li>按每小时、每天、每周或每月计划自动启动 Runbook。<br> <li>通过 Azure 经典管理门户、PowerShell cmdlet 或 Azure API 操作计划。<br> <li>提供与计划配合使用的参数值。 |
+| [Azure 自动化 API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>最有弹性的方法，但也最复杂。<br> <li>从任何可发出 HTTP 请求的自定义代码调用。<br> <li>使用证书或 OAuth 用户主体/服务主体对请求进行身份验证。<br> <li>提供简单和复杂的参数值。<br> <li>跟踪作业状态。 |
+| [Webhook](automation-webhooks.md) |<li>从单个 HTTP 请求启动 Runbook。<br> <li>使用 URL 中的安全令牌进行身份验证。<br> <li>客户端无法覆盖创建 Webhook 时指定的参数值。 Runbook 可以定义填入了 HTTP 请求详细信息的单个参数。<br> <li>无法通过 Webhook URL 跟踪作业状态。 |
+| [响应 Azure 警报](../log-analytics/log-analytics-alerts.md) |<li>启动 Runbook 以响应 Azure 警报。<br> <li>为 Runbook 配置 webhook 并链接到警报。<br> <li>使用 URL 中的安全令牌进行身份验证。 |
+| [计划](automation-schedules.md) |<li>按每小时、每天、每周或每月计划自动启动 Runbook。<br> <li>通过 Azure 门户、PowerShell cmdlet 或 Azure API 来操作计划。<br> <li>提供与计划配置使用的参数值。 |
 | [从另一个 Runbook](automation-child-runbooks.md) |<li>将一个 Runbook 作为另一个 Runbook 中的活动使用。<br> <li>对多个 Runbook 使用的功能很有用。<br> <li>为子 Runbook 提供参数值，并使用父 Runbook 中的输出。 |
 
-下图演示了 Runbook 生命周期的详细分步过程。 它包括在 Azure 自动化中启动 Runbook 的不同方式、本地计算机执行 Azure 自动化 Runbook 所需的组件以及不同组件之间的交互方式。
+下图演示了 Runbook 生命周期的详细分步过程。 它包括在 Azure 自动化中启动 Runbook 的不同方式、混合 Runbook 辅助角色执行 Azure 自动化 Runbook 所需的组件以及不同组件之间的交互方式。 若要了解如何在数据中心执行自动化 Runbook，请参阅[混合 Runbook 辅助角色](automation-hybrid-runbook-worker.md)
 
-![Runbook 体系结构](./media/automation-starting-runbook/runbooks-architecture.png)
+![Runbook 体系结构](media/automation-starting-runbook/runbooks-architecture.png)
 
-## <a name="starting-a-runbook-with-the-azure-classic-management-portal"></a>使用 Azure 经典管理门户启动 Runbook
-1. 在 Azure 经典管理门户中，选择“自动化”  ，并单击自动化帐户的名称。
-2. 选择“Runbook”选项卡  。
-3. 选择一个 Runbook，并单击“启动” 。
-4. 如果 Runbook 包含参数，则系统会提示在文本框中提供每个参数的值。 请参阅下面的 [Runbook 参数](#Runbook-parameters) ，以获取有关参数的更多详细信息。
-5. 选择“启动 Runbook”消息旁边的“查看作业”，或选择 Runbook 的“作业”选项卡，查看 Runbook 作业的状态。
+## <a name="starting-a-runbook-with-the-azure-portal"></a>使用 Azure 门户启动 Runbook
+1. 在 Azure 门户中，选择“自动化”，并单击自动化帐户的名称。
+2. 在“中心”菜单中选择“Runbook”。
+3. 在“Runbook”边栏选项卡上，选择 Runbook 并单击“启动”。
+4. 如果 Runbook 包含参数，则系统会提示在文本框中提供每个参数的值。 请参阅下面的 [Runbook 参数](#Runbook-parameters)，获取有关参数的更多详细信息。
+5. 在“作业”边栏选项卡上，可以查看 runbook 作业的状态。
 
 ## <a name="starting-a-runbook-with-windows-powershell"></a>使用 Windows PowerShell 启动 Runbook
-可以在 Windows PowerShell 中使用 [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/azure/dn690259.aspx) 启动 Runbook。 以下示例代码启动名为 Test-Runbook 的 Runbook。
+可以在 Windows PowerShell 中使用 [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) 启动 Runbook。 以下示例代码启动名为 Test-Runbook 的 Runbook。
 
-    Start-AzureAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook"
+```
+Start-AzureRmAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
+```
 
-Start-AzureAutomationRunbook 返回一个作业对象，启动 Runbook 后，可以使用该对象来跟踪 Runbook 的状态。 然后可以搭配使用此作业对象和 [Get-AzureAutomationJob](http://msdn.microsoft.com/library/azure/dn690263.aspx)，确定作业的状态，也可以搭配使用此作业对象和 [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/azure/dn690268.aspx)，获取作业的输出。 以下示例代码将启动名为 Test-Runbook 的 Runbook，等待它完成，并显示其输出。
+Start-AzureRmAutomationRunbook 将返回一个作业对象，启动 Runbook 后，可以使用该对象来跟踪 Runbook 的状态。 然后可结合使用此作业对象和 [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)，以确定作业的状态，也可以结合使用此作业对象和 [Get-AzureRmAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx)，以获取作业的输出。 以下示例代码将启动名为 Test-Runbook 的 Runbook，等待它完成，并显示其输出。
 
 ```
 $runbookName = "Test-Runbook"
+$ResourceGroup = "ResourceGroup01"
 $AutomationAcct = "MyAutomationAccount"
 
-$job = Start-AzureAutomationRunbook -AutomationAccountName $AutomationAcct -Name $runbookName
+$job = Start-AzureRmAutomationRunbook �AutomationAccountName $AutomationAcct -Name $runbookName -ResourceGroupName $ResourceGroup
 
 $doLoop = $true
 While ($doLoop) {
-   $job = Get-AzureAutomationJob -AutomationAccountName $AutomationAcct -Id $job.Id
+   $job = Get-AzureRmAutomationJob �AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup
    $status = $job.Status
    $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
 }
 
-Get-AzureAutomationJobOutput -AutomationAccountName $AutomationAcct -Id $job.Id -Stream Output
+Get-AzureRmAutomationJobOutput �AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup �Stream Output
 ```
 
 如果 Runbook 需要参数，则必须以[哈希表](http://technet.microsoft.com/library/hh847780.aspx)的形式提供参数，其中，哈希表的密钥与参数名称匹配，值为参数值。 以下示例演示如何启动包含两个名称分别为 FirstName 和 LastName 的字符串参数、一个名为 RepeatCount 的整数和一个名为 Show 的布尔参数的 Runbook。 有关参数的其他信息，请参阅下面的 [Runbook 参数](#Runbook-parameters) 。
 
 ```
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
-Start-AzureAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -Parameters $params
+Start-AzureRmAutomationRunbook �AutomationAccountName "MyAutomationAccount" �Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" �Parameters $params
 ```
 
 ## <a name="runbook-parameters"></a>Runbook 参数
-使用 Azure 经典管理门户或 Windows PowerShell 启动 Runbook 时，系统将通过 Azure 自动化 Web 服务发送指令。 此服务不支持复杂数据类型的参数。 如果需要提供复杂参数的值，则必须根据 [Azure 自动化中的子 Runbook](automation-child-runbooks.md) 中所述，以内联方式从另一个 Runbook 调用该参数值。
+使用 Azure 门户或 Windows PowerShell 启动 Runbook 时，系统将通过 Azure 自动化 Web 服务发送指令。 此服务不支持复杂数据类型的参数。 如果需要提供复杂参数的值，则必须根据 [Azure 自动化中的子 Runbook](automation-child-runbooks.md) 中所述，以内联方式从另一个 Runbook 调用该参数值。
 
-Azure 自动化 Web 服务为使用特定数据类型的参数提供特殊功能，如以下部分中所述。
+Azure 自动化 Web 服务将为使用特定数据类型的参数提供特殊功能，如以下部分中所述。
 
 ### <a name="named-values"></a>命名值
-如果参数的数据类型为 [object]，则可以使用以下 JSON 格式向它发送命名值列表：{Name1:'Value1', Name2:'Value2', Name3:'Value3'}。 这些值必须使用简单类型。 Runbook 将以 [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) 的形式接收参数，该对象的属性对应于每个命名值。
+如果参数的数据类型为 [object]，则可以使用以下 JSON 格式向它发送命名值列表：{Name1:'Value1', Name2:'Value2', Name3:'Value3'}。 这些值必须使用简单类型。 Runbook 以 [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) 的形式接收参数，该对象的属性对应于每个命名值。
 
 请考虑以下接受名为 user 的参数的测试 Runbook。
 
@@ -177,6 +182,7 @@ jsmith
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 若要详细了解如何创建模块化 Runbook，供其他 Runbook 用于特定或常用函数，请参阅[子 Runbook](automation-child-runbooks.md)。
+* 本文中的 Runbook 体系结构提供了在本地和 Azure 中使用混合 Runbook 辅助角色管理资源的 Runbook 的高级概述。  若要了解如何在数据中心执行自动化 Runbook，请参阅[混合 Runbook 辅助角色](automation-hybrid-runbook-worker.md)。
+* 若要详细了解如何创建模块化 Runbook，以供其他 Runbook 用于特定或常用函数，请参阅[子 Runbook](automation-child-runbooks.md)。
 
 <!--Update_Description: wording update-->

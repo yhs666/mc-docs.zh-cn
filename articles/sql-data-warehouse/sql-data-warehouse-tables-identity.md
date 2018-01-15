@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-origin.date: 06/13/2017
-ms.date: 07/24/2017
+origin.date: 12/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 334595899ef2e199bdea75baab240a2a0cc0e30c
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: f84c22d8a2989a300b6ba161c2c8a41ee2ebc6f9
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-surrogate-keys-by-using-identity"></a>使用 IDENTITY 创建代理键
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ WITH
 然后，可以使用 `INSERT..SELECT` 来填充表。
 
 ## <a name="behavior"></a>行为
-IDENTITY 属性设计为能够在数据仓库的所有分布区中扩展，不会影响负载性能。 因此，IDENTITY 的实现旨在实现这些目标。 本部分重点介绍了实现的微妙之处，以帮助你更全面地了解它们。  
+IDENTITY 属性设计为能够在数据仓库的所有分布区中扩展，不会影响负载性能。 因此，IDENTITY 的实现旨在实现这些目标。 本部分重点介绍实现的细微差别，以帮助用户更全面地了解这些实现。  
 
 ### <a name="allocation-of-values"></a>值的分配
 IDENTITY 属性不保证分配代理值的顺序，这反映了 SQL Server 和 Azure SQL 数据库的行为。 但是，在 Azure SQL 数据仓库中，保证的缺乏更为明显。 
@@ -132,7 +132,7 @@ IDENTITY 属性的存在对数据加载代码有一定影响。 本节重点介�
 ### <a name="load-data-with-polybase"></a>使用 PolyBase 加载数据
 若要使用 IDENTITY 将数据加载到表中并生成代理键，请创建表，然后使用 INSERT..SELECT 或 INSERT..VALUES 执行加载。
 
-下面的示例重点介绍了基本模式：
+以下示例重点介绍基本模式：
 
 ```sql
 --CREATE TABLE with IDENTITY
@@ -166,13 +166,13 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 
 有关使用大容量复制程序 (BCP) 工具加载数据的详细信息，请参阅以下文章：
 
-- [使用 PolyBase 加载数据][]
+- [使用 PolyBase 加载][]
 - [PolyBase 最佳做法][]
 
 ### <a name="load-data-with-bcp"></a>使用 BCP 加载数据
 BCP 是一个命令行工具，可用于将数据加载到 SQL 数据仓库。 在将数据加载到包含 IDENTITY 列的表中时，其中一个参数 (-E) 控制 BCP 的行为。 
 
-在指定 -E 后，会保留输入文件中为 IDENTITY 列保留的值。 如果未指定 -E，则会忽略此列中的值。 如果未包括标识列，则会照常加载数据。 将根据属性的增量和种子策略来生成值。
+在指定 -E 后，会保留输入文件中为 IDENTITY 列保留的值。 如果未指定 -E，则会忽略此列中的值。 如果未包括标识列，则会照常加载数据。 根据属性的增量和种子策略生成这些值。
 
 有关使用 BCP 加载数据的详细信息，请参阅以下文章：
 
@@ -223,7 +223,7 @@ SQL 数据仓库中不支持以下相关函数：
 本部分提供在使用 IDENTITY 列时可用于执行常见任务的一些示例代码。
 
 > [!NOTE] 
-> 在下列所有任务中，C1 列都是 IDENTITY。
+> 在以下所有任务中，列 C1 是 IDENTITY。
 > 
 
 ### <a name="find-the-highest-allocated-value-for-a-table"></a>查找表的最高已分配值
@@ -271,8 +271,8 @@ AND     tb.name = 'T1'
 [Identity]: ./sql-data-warehouse-tables-identity.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
-[使用 bcp 加载数据]: /sql-data-warehouse/sql-data-warehouse-load-with-bcp/
-[使用 PolyBase 加载数据]: /sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase/
+[使用 BCP 加载]: /sql-data-warehouse/sql-data-warehouse-load-with-bcp/
+[使用 PolyBase 加载]: /sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase/
 [PolyBase 最佳做法]: /sql-data-warehouse/sql-data-warehouse-load-polybase-guide/
 
 <!--MSDN references-->
@@ -290,4 +290,4 @@ AND     tb.name = 'T1'
 
 <!--Other Web references-->
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->

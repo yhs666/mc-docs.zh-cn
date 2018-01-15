@@ -13,19 +13,21 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-origin.date: 10/31/2017
-ms.date: 12/11/2017
+origin.date: 12/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: ec335b289372309728cc34b70e874345b336c972
-ms.sourcegitcommit: 3996e0f27bae21fc48f6ebfab423e9b29f9d9bf4
+ms.openlocfilehash: 8a090ba3bc120a84cdbe847e095d25b102dca7f3
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库最佳实践
 本文包含一系列最佳实践，可确保用户从 Azure SQL 数据仓库获得最佳性能。  本文的有些概念很基本且很容易解释，而有些概念则相对高级，本文只对其进行大致介绍。  本文的目的是提供一些基本指导，让用户在生成数据仓库时更加关注那些重要的方面。  每部分都介绍一个概念，并提供哪里可以阅读深度介绍的详细文章。
 
 如果刚开始使用 Azure SQL 数据仓库，千万别让本文吓到。  主题的顺序主要按照重要性排列。  如果一开始就关注头几个概念，则效果应该不错。  更熟悉 SQL 数据仓库且能运用自如后，请再回来看看其他概念。  融会贯通不需要很长时间。
+
+有关加载指南，请参阅[加载数据的指南](guidance-for-loading-data.md)。
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>使用暂停和缩放来降低成本
 SQL 数据仓库的一个重要功能，是能够在不使用它时予以暂停，这会停止计算资源的计费。  另一个重要功能是能够缩放资源。  暂停和缩放可以通过 Azure 门户或 PowerShell 命令完成。  请熟悉这些功能，因为这些功能可以在数据仓库不使用时大幅降低成本。  如果希望随时可访问数据仓库，建议将其缩放到最小的大小 (DW100)，而不是暂停。
@@ -58,6 +60,7 @@ SQL 数据仓库支持通过多种工具（包括 PolyBase 和 BCP）来加载�
 
 ## <a name="load-then-query-external-tables"></a>加载并查询外部表
 虽然 Polybase（也称外部表）可以最快速地加载数据，但并不特别适合查询。 SQL 数据仓库 Polybase 表目前只支持 Azure blob 文件。 这些文件并没有任何计算资源的支持。  因此，SQL 数据仓库无法卸载此工作，因此必须读取整个文件，方法是将其加载到 tempdb 来读取数据。  因此，如果有多个查询需要查询此数据，则最好是先加载一次此数据，然后让查询使用本地表。
+<!-- Not Available on  Azure Data Lake storage-->
 
 另请参阅 [Guide for using PolyBase][Guide for using PolyBase]
 
@@ -89,7 +92,7 @@ SQL 数据仓库支持通过多种工具（包括 PolyBase 和 BCP）来加载�
 ## <a name="optimize-clustered-columnstore-tables"></a>优化聚集列存储表
 聚集列存储索引是将数据存储在 SQL 数据仓库中最有效率的方式之一。  默认情况下，SQL 数据仓库中的表会创建为聚集列存储。  为了让列存储表的查询获得最佳性能，良好的分段质量很重要。  当行在内存不足的状态下写入列存储表时，列存储分段质量可能降低。  压缩行组中的行数可以测量分段质量。  有关检测和改善聚集列存储表分段质量的分步说明，请参阅[表索引][Table indexes]一文中的[列存储索引质量不佳的原因][Causes of poor columnstore index quality]。  由于高质量列存储段很重要，因此可以考虑使用用户 ID（就加载数据来说属于中型或大型资源类）。 使用较低的[服务级别](performance-tiers.md#service-levels)意味着，需向加载用户分配更大的资源类。
 
-由于列存储表通常要等到每个表有超过 1 百万个行之后才会数据推送到压缩的列存储区段，并且每个 SQL 数据仓库表分区成 60 个表，根据经验法则，列存储表对于查询没有好处，除非表有超过 6 千万行。  小于 6 千万列的表使用列存储索引似乎不太合理，  但也无伤大雅。  此外，如果要进行数据分区，则要考虑的是每个分区必须有 1 百万个行，使用聚集列存储索引才有益。  如果表有 100 个分区，则它至少必须拥有 60 亿个行才将受益于聚集列存储（60 个分布区 * 100 个分区 * 1 百万行）。  如果表在本示例中并没有 60 亿个行，请减少分区数目，或考虑改用堆表。  使用辅助索引配合堆表而不是列存储表，也可能是值得进行的实验，看看是否可以获得较佳的性能。  列存储表尚不支持辅助索引。
+由于列存储表通常要等到每个表有超过 1 百万个行之后才会数据推送到压缩的列存储区段，并且每个 SQL 数据仓库表分区成 60 个表，根据经验法则，列存储表对于查询没有好处，除非表有超过 6 千万行。  小于 6 千万列的表使用列存储索引似乎不太合理，  但也无伤大雅。  此外，如果要进行数据分区，则要考虑的是每个分区必须有 1 百万个行，使用聚集列存储索引才有益。  如果表有 100 个分区，则它至少必须拥有 60 亿个行才将受益于聚集列存储（60 个分布区 * 100 个分区 * 1 百万行）。  如果表在本示例中并没有 60 亿个行，请减少分区数目，或考虑改用堆表。  使用辅助索引配合堆表而不是列存储表，也可能是值得进行的实验，看看是否可以获得较佳的性能。
 
 查询列存储表时，如果只选择需要的列，查询运行速度更快。  
 
@@ -132,8 +135,8 @@ SQL 数据仓库有多个 DMV 可用于监视查询执行。  以下监视相关
 [Table partitioning]: ./sql-data-warehouse-tables-partition.md
 [Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
-[Guide for using PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
-[Load data]: ./sql-data-warehouse-overview-load.md
+[Guide for using PolyBase]: ./guidance-for-loading-data.md
+[Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
 [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
@@ -173,4 +176,4 @@ SQL 数据仓库有多个 DMV 可用于监视查询执行。  以下监视相关
 [Azure SQL Data Warehouse Stack Overflow Forum]:  http://stackoverflow.com/questions/tagged/azure-sqldw
 [Azure SQL Data Warehouse loading patterns and strategies]: http://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties, wording update, update link -->

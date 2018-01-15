@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: integrate
 origin.date: 11/03/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: bb8502b3b87ee1e9a0fbf0d1e0df5bf85877f364
-ms.sourcegitcommit: 3996e0f27bae21fc48f6ebfab423e9b29f9d9bf4
+ms.openlocfilehash: d0b8607b40f42597fc191abf6b39f7c19c5264cd
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="configure-elastic-query-with-sql-data-warehouse"></a>配置结合使用弹性查询和 SQL 数据仓库
 
@@ -40,9 +40,9 @@ ms.lasthandoff: 12/21/2017
 
 2. 创建表示 SQL 数据库与数据仓库之间连接的登录用户凭据。
 
-  ```sql
-  CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
-  ```
+    ```sql
+    CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
+    ```
 
 3. 使用 SSMS 或其他查询客户端，在逻辑服务器上对 SQL 数据仓库实例打开新查询。
 
@@ -76,14 +76,14 @@ ms.lasthandoff: 12/21/2017
 
 9. 创建指向数据仓库实例的外部数据源。
 
-  ```sql
-  CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
-      (TYPE = RDBMS, 
-      LOCATION = '<SERVER NAME>.database.chinacloudapi.cn', 
-      DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
-      CREDENTIAL = SalesDBElasticCredential, 
-  ) ;
-  ```
+   ```sql
+   CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
+       (TYPE = RDBMS, 
+       LOCATION = '<SERVER NAME>.database.chinacloudapi.cn', 
+       DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
+       CREDENTIAL = SalesDBElasticCredential, 
+   ) ;
+   ```
 
 10. 现在，可以创建外部表来引用此外部数据源。 使用这些表的查询被发送到数据仓库实例，以供处理并发送回数据库实例。
 

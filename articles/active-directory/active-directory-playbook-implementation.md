@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory PoC 演练手册的实现 | Microsoft Docs"
-description: "研究并快速实现标识和访问管理方案"
+description: "浏览并快速实现标识和访问管理方案"
 services: active-directory
 keywords: "azure active directory, 演练手册, 概念证明, PoC"
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: v-junlch
-ms.openlocfilehash: 35328d4b753ed35abef57486828cccd1e9657cda
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 94316496b69809b512fe3f843b8a29f72baeb4d6
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Azure Active Directory 概念证明演练手册：实现
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 06/21/2017
 
 | 方案 | 构建基块| 
 | --- | --- |  
-| [将本地标识扩展到云](#extending-your-on-premises-identity-to-the-cloud) | [目录同步 - 密码哈希同步](./active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation) <br/>**注意**：如果已安装 DirSync/ADSync 或旧版的 Azure AD Connect，则此步骤是可选的。 本指南中的某些方案可能需要更新版本的 Azure AD Connect。
+| [将本地标识扩展到云](#extending-your-on-premises-identity-to-the-cloud) | [目录同步 - 密码哈希同步](./active-directory-playbook-building-blocks.md#directory-synchronization--password-hash-sync-phs--new-installation) <br/>**注意**：如果已安装 DirSync/ADSync 或旧版的 Azure AD Connect，则此步骤是可选的。 本指南中的某些方案可能需要更新版本的 Azure AD Connect。
 
 ### <a name="extending-your-on-premises-identity-to-the-cloud"></a>将本地标识扩展到云 
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 06/21/2017
 
 ### <a name="sso-and-identity-lifecycle-events"></a>SSO 和标识生命周期事件
 
-1. Susie 请了假，根据公司策略，她的本地 AD 帐户将被暂时禁用。 Susie 现在无法登录到 Azure AD，因此无法访问 ServiceNow。 
+1. Susie 请了假，根据公司策略，她的本地 AD 帐户被暂时禁用。 Susie 现在无法登录到 Azure AD，因此无法访问 ServiceNow。 
 2. Susie 从营销部平级调动了到销售部。 Kevin 从 ServiceNow 中删除了其访问权限。 Susie 登录到 Azure AD myapps，但再也看不到 ServiceNow 磁贴。 10 分钟后，Kevin 确认已通过 ServiceNow 管理控制台禁用 Susie 的帐户。
 
 

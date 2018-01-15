@@ -13,13 +13,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 origin.date: 10/23/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 21dfe0ceff0bf59da262c225163db3038947b723
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 4b7923244bc42a41936e9d6778bd16bc425b82cd
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>有关在 Azure SQL 数据仓库中使用复制的表的设计指南
 本文提供了有关在 SQL 数据仓库架构中设计复制的表的建议。 可以使用这些建议通过减少数据移动和降低查询复杂性来提高查询性能。
@@ -165,7 +165,7 @@ SQL 数据仓库通过维护表的主版本来实现复制的表。 它将主版
 
 例如，以下加载模式从四个源加载数据，但仅调用一个重新生成。
 
-- 从源 1 进行加载。
+- 从源 1 加载。
 - 从源 2 进行加载。
 - 从源 3 进行加载。
 - 从源 4 进行加载。
@@ -201,4 +201,4 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 
 有关分布式表的概述，请参阅[分布式表](sql-data-warehouse-tables-distribute.md)。
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties -->

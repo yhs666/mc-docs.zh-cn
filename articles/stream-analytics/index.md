@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 05/23/2017
-ms.date: 10/02/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3abeb75380ce1a3dc6025e7f972a2a4ddab8b884
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 42d432623f59aeb5e9145d3f4d45e51417a013fa
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="stream-analytics-documentation"></a>流分析文档
 
@@ -31,11 +31,12 @@ ms.lasthandoff: 09/28/2017
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/stream-analytics.svg" alt="" />
+                            <img src="media/index/stream-analytics.svg" alt="Learn about Azure Stream Analytics" />
                         </div>
                     </div>
                     <div class="cardText">
                         <h3>了解 Azure 流分析</h3>
+<!-- Not Available on VIDEO -->
                     </div>
                 </div>
             </div>
@@ -49,7 +50,7 @@ ms.lasthandoff: 09/28/2017
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="Get started with Stream Analytics" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -67,7 +68,7 @@ ms.lasthandoff: 09/28/2017
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="Get Started with an IoT solution using Stream Analytics" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -81,3 +82,5 @@ ms.lasthandoff: 09/28/2017
     <!-- Not Available /Stream-Analytics/stream-analytics-twitter-sentiment-analysis-trends-->
     <!-- Not Available /Stream-Analytics/stream-analytics-machine-learning-integration-tutorial-->
 </ul>
+<!-- Not Available on Reference -->
+<!-- ms.date: 01/15/2018 -->

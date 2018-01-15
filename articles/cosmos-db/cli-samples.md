@@ -16,11 +16,11 @@ ms.workload: database
 origin.date: 11/29/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: abe2333392e76ffb171d0852133d9fe5be111799
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: dbc928437fe1d8d9be60dfa8a6dec00ab2986349
+ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
 
@@ -46,6 +46,7 @@ ms.lasthandoff: 12/22/2017
 |**将 Azure Cosmos DB 连接到资源**||
 |[将 Web 应用连接到 Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md)|创建并连接 Azure Cosmos DB 数据库和 Azure Web 应用。|
 |||
+<!--NOTICES: Line 35 全球范围 to 多个数据中心范围  -->
 
 <!--Not Available the parent file of includes file of cosmos-db-sql-api.md-->
 <!--ms.date:12/25/2017-->

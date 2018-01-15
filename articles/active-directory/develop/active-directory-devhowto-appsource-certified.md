@@ -3,8 +3,8 @@ title: "如何使 AppSource 通过 Azure Active Directory 的认证 | Microsoft 
 description: "详细说明如何使应用程序 AppSource 通过 Azure Active Directory 的认证。"
 services: active-directory
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: andretms
+manager: mtillman
 editor: 
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 08/03/2017
-ms.date: 11/23/2017
+ms.date: 01/09/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: ce8221893556dfc5042bdda7693cf012417774c3
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 39c20e3eb334c3b53eff5e4e1bb40d725eea6989
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>如何使 AppSource 通过 Azure Active Directory 的认证
 [Microsoft AppSource](https://appsource.microsoft.com/) 是一个可供业务用户发现、尝试和管理业务线 SaaS 应用程序（独立 SaaS 和现有 Microsoft SaaS 产品的加载项）的目的地。
@@ -49,21 +49,6 @@ ms.lasthandoff: 11/24/2017
 
 ## <a name="appsource-trial-experiences"></a>AppSource 试用体验
 
-### <a name="customer-led-trial-experience"></a>客户导向型试用体验 
-客户导向型试用是 AppSource 所推荐的体验，因为它提供对应用程序的单击访问。 以下内容将具体说明此体验：<br/><br/>
-
-<table >
-<tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>用户在 AppSource 网站中查找你的应用程序</li><li>选择“免费试用”选项</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource 将用户重定向到你网站中的 URL</li><li>网站将自动开始<i>单一登录</i>过程（页面加载中）</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>用户被重定向到 Microsoft 登录页</li><li>用户提供凭据以登录</li></ul></td>
-</tr>
-<tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>用户对你的应用程序授权</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>登录完成，且用户被重定向回你的网站</li><li>用户开始试用</li></ul></td>
-    <td></td>
-</tr>
-</table>
 
 ### <a name="contact-me-partner-led-trial-experience"></a>与我联系（合作伙伴导向型试用体验）
 当需要执行手动或长期操作来预配用户/公司（例如，应用程序需要预配虚拟机、数据库实例或耗费大量时间才可完成的操作）时，可使用合作伙伴试用体验。 在这种情况下，当用户选择“请求试用”按钮并填写表单后，AppSource 将向你发送用户的联系信息。 收到此信息后，需预配环境并就如何访问试用体验向用户发送说明：<br/><br/>

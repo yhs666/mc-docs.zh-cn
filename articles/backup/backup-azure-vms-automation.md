@@ -3,8 +3,8 @@ title: "使用 PowerShell 部署和管理 Resource Manager 部署型 VM 的备�
 description: "使用 PowerShell 在 Azure 中部署和管理 Resource Manager 部署型 VM 的备份"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: 
 ms.assetid: 68606e4f-536d-4eac-9f80-8a198ea94d52
 ms.service: backup
@@ -12,24 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/17/2017
-ms.date: 11/27/2017
+origin.date: 11/28/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 80ba835098369abf48e2c88b5f87cce8eec893e9
-ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
+ms.openlocfilehash: 351fa756d6e29bbf13d24e4c5f6748667cfd77d7
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>使用 AzureRM.RecoveryServices.Backup cmdlet 来备份虚拟机
-> [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-vms-automation.md)
-> * [经典](backup-azure-vms-classic-automation.md)
->
->
 
-本文说明如何使用 Azure PowerShell cmdlet 从恢复服务保管库备份和恢复 Azure 虚拟机 (VM)。 恢复服务保管库是一种 Azure Resource Manager 资源，用于保护 Azure 备份和 Azure Site Recovery 服务中的数据与资产。 可以使用恢复服务保管库来保护 Azure Service Manager 部署型 VM 以及 Azure Resource Manager 部署型 VM。
+本文说明如何使用 Azure PowerShell cmdlet 从恢复服务保管库备份和恢复 Azure 虚拟机 (VM)。 恢复服务保管库是一种 Azure 资源管理器资源，用于保护 Azure 备份和 Azure Site Recovery 服务中的数据与资产。 可以使用恢复服务保管库来保护 Azure Service Manager 部署型 VM 以及 Azure Resource Manager 部署型 VM。
 
 > [!NOTE]
 > Azure 有两种用于创建和使用资源的部署模型： [Resource Manager 部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 本文针对使用 Resource Manager 模型创建的 VM。
@@ -123,7 +118,7 @@ ms.lasthandoff: 11/29/2017
     ```
 
    > [!TIP]
-   > 许多 Azure 备份 cmdlet 要求使用恢复服务保管库对象作为输入。 因此，在变量中存储备份恢复服务保管库对象可提供方便。
+   > 许多 Azure 备份 cmdlet 要求使用恢复服务保管库对象作为输入。 出于此原因，在变量中存储备份恢复服务保管库对象可提供方便。
    >
    >
 
@@ -569,7 +564,7 @@ OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
 ```
-在要在它上面恢复文件的计算机上运行此脚本。 需要输入上述密码才能执行此脚本。 附加磁盘后，使用 Windows 文件资源管理器浏览新的卷和文件。 
+在要在它上面恢复文件的计算机上运行此脚本。 需要输入上述密码才能执行此脚本。 附加磁盘后，使用 Windows 文件资源管理器浏览新的卷和文件。 有关详细信息，请参阅[文件恢复文档](backup-azure-restore-files-from-vm.md)
 
 ### <a name="unmount-the-disks"></a>卸载磁盘
 复制所需的文件后，使用 [Disable-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0) cmdlet 卸载磁盘。 强烈建议使用上述步骤，因为它可确保删除对恢复点的文件的访问权限

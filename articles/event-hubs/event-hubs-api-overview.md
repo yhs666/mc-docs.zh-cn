@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/15/2017
-ms.date: 09/04/2017
+origin.date: 11/28/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 770aca30893c48a0cccc9ef686aa47d71075afe6
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 717741bb7e87725f403f38a749fb97b9a0fa34fa
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="available-event-hubs-apis"></a>可用的事件中心 API
+
+本文介绍一组可用于管理事件中心资源的 API 客户端。
 
 ## <a name="runtime-apis"></a>运行时 API
 
@@ -37,7 +39,7 @@ ms.lasthandoff: 09/04/2017
 | 节点 | [NPM](https://www.npmjs.com/package/azure-event-hubs) | 不适用 | [GitHub](https://github.com/Azure/azure-event-hubs-node) |
 | C | 不适用 | 不适用 | [GitHub](https://github.com/Azure/azure-event-hubs-c) |
 
-### <a id="additional-information"></a> 其他信息
+### <a name="additional-information"></a> 其他信息
 
 #### <a name="net"></a>.NET
 .NET 生态系统具有多个运行时，因此事件中心有多个 .NET 库。 可以使用 .NET Core 或 .NET Framework 运行 .NET Standard 库，但 .NET Framework 库只能在 .NET Framework 环境中运行。 有关 .NET Frameworks 的详细信息，请参阅 [framework 版本](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions)。

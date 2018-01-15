@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-origin.date: 10/31/2016
-ms.date: 10/02/2017
+origin.date: 12/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: b00fe9048250d1a94a91318b5ce0edbe9e23b391
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 906403cd35b39ef68a99b74402f03fda86a917ab
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>还原 Azure SQL 数据仓库 (PowerShell)
 > [!div class="op_single_selector"]
@@ -33,8 +33,9 @@ ms.lasthandoff: 09/28/2017
 
 本文会介绍如何使用 PowerShell 还原 Azure SQL 数据仓库。
 
-## <a name="before-you-begin"></a>开始之前
-**验证 DTU 容量。** 每个 SQL 数据仓库都由一个具有默认 DTU 配额的 SQL 服务器（例如 myserver.database.chinacloudapi.cn）托管。  在还原 SQL 数据仓库之前，请确保 SQL Server 的剩余 DTU 配额足够进行数据库还原。 若要了解如何计算所需 DTU 或请求更多的 DTU，请参阅[请求 DTU 配额更改][Request a DTU quota change]。
+## <a name="before-you-begin"></a>准备阶段
+**验证 DTU 容量。** 每个 SQL 数据仓库都由一个具有默认 DTU 配额的 SQL 服务器（例如 myserver.database.chinacloudapi.cn）托管。  在还原 SQL 数据仓库之前，请确保 SQL Server 的剩余 DTU 配额足够进行数据库还原。 
+<!-- Not Available [Request a DTU quota change][Request a DTU quota change] -->
 
 ### <a name="install-powershell"></a>安装 PowerShell
 若要对 SQL 数据仓库使用 Azure PowerShell，需要安装 Azure PowerShell 1.0 或更高版本。  可以通过运行 **Get-Module -ListAvailable -Name AzureRM**来检查版本。  可通过 [Microsoft Web 平台安装程序][Microsoft Web Platform Installer]安装最新版本。  有关安装最新版本的详细信息，请参阅[如何安装和配置 Azure PowerShell][How to install and configure Azure PowerShell]。
@@ -178,4 +179,4 @@ $GeoRestoredDatabase.status
 [Azure Portal]: https://portal.azure.cn/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

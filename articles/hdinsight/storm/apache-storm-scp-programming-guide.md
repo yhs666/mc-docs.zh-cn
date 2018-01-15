@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/16/2016
-ms.date: 12/25/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: b0f99723cc7a0f1227415c818b2c7c15056e6461
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: a57b1c5179b0d899fff9b080eca18d4f08af9a52
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="scp-programming-guide"></a>SCP 编程指南
 SCP 是一个用于构建实时、可靠、一致和高性能的数据处理应用程序的平台。 它在 [Apache Storm](http://storm.incubator.apache.org/) 的基础上构建而成 -- Storm 是开源软件 (OSS) 社区设计的一个流处理系统。 Storm 由 Nathan Marz 设计，在 Twitter 上进行开源。 其利用 [Apache ZooKeeper](http://zookeeper.apache.org/)（另一个 Apache 项目）来实现高可靠性的分布式协调和状态管理。 
@@ -170,7 +170,7 @@ SCP.NET 还会提供可供开发人员用于编程的简单密钥对象集。 �
         public static readonly String STORM_ZOOKEEPER_PORT = "storm.zookeeper.port";                 
     }
 
-`TopologyContext` 用于获取拓扑上下文，对于具有多种并行执行能力的组件最有用。 下面是一个示例：
+`TopologyContext` 用于获取拓扑上下文，对于具有多种并行执行能力的组件最有用。 以下是示例：
 
     //demo how to get TopologyContext info
     if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)                      
@@ -466,7 +466,7 @@ SCP.NET 添加了一个自定义的分组方法，该方法会使用 byte[] 的�
 其中， `microsoft.scp.example.HybridTopology.Generator` 是 Java Spout 类的名称。
 
 ### <a name="specify-java-classpath-in-runspec-command"></a>在 runSpec 命令中指定 Java Classpath
-如果想要提交包含 Java Spout 或 Bolt 的拓扑，则首先需要编译 Java Spout 或 Bolt 并获取 Jar 文件。 然后，应在提交拓扑时指定包含 Jar 文件的 Java Classpath。 下面是一个示例：
+如果想要提交包含 Java Spout 或 Bolt 的拓扑，则首先需要编译 Java Spout 或 Bolt 并获取 Jar 文件。 然后，应在提交拓扑时指定包含 Jar 文件的 Java Classpath。 以下是示例：
 
     bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
 

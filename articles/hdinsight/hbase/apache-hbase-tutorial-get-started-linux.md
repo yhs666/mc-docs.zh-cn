@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: b488f605d8c4a649eedff90d3011171497c16e42
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 80164293c69496d1405397d103ec5580e0cf9434
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight 中的 Apache HBase 入门示例
 
 了解如何使用 Hive 在 HDInsight 中创建 HBase 群集、创建 HBase 表和查询表。 有关 HBase 的一般信息，请参阅 [HDInsight HBase 概述][hdinsight-hbase-overview]。
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="prerequisites"></a>先决条件
 开始使用本 HBase 示例前，必须具有以下项目：
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/08/2017
 
 1. 单击下面的图像可在 Azure 门户中打开模板。 模板位于公共 blob 容器中。 
 
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     >[!NOTE]
     > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换一些终结点 - 将“blob.core.chinacloudapi.cn”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”；将允许的位置更改为“中国北部”和“中国东部”；将 HDInsight Linux 版本更改为 Azure 中国区支持的版本：3.5。
@@ -61,14 +61,14 @@ ms.lasthandoff: 12/08/2017
 3. 选择“我同意上述条款和条件”，并单击“购买”。 创建群集大约需要 20 分钟时间。
 
 > [!NOTE]
-> 在删除 HBase 群集后，可以通过使用相同的默认 Blob 容器创建另一个 HBase 群集。 新群集会选取在原始群集中创建的 HBase 表。 为了避免不一致，建议在删除群集之前先禁用 HBase 表。
+> 删除 HBase 群集后，可使用同一默认 Blob 容器创建另一 HBase 群集。 新群集会选取在原始群集中创建的 HBase 表。 为了避免不一致，建议在删除群集之前先禁用 HBase 表。
 > 
 > 
 
 ## <a name="create-tables-and-insert-data"></a>创建表和插入数据
 可以使用 SSH 连接到 HBase 群集，并使用 HBase Shell 来创建 HBase 表以及插入和查询数据。 有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
-对于大多数人而言，数据以表格形式显示：
+对大多数用户而言，数据以表格形式显示：
 
 ![HDInsight HBase 表格数据][img-hbase-sample-data-tabular]
 
@@ -272,7 +272,7 @@ HDInsight 中的 HBase 随附了一个 Web UI 用于监视群集。 使用该 We
 
 ## <a name="troubleshoot"></a>故障排除
 
-如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](../hdinsight-administer-use-portal-linux.md#create-clusters)。
 
 ## <a name="next-steps"></a>后续步骤
 本文已介绍如何创建 HBase 群集、如何创建表以及如何从 HBase shell 查看这些表中的数据。 此外，学习了如何对 HBase 表中的数据使用 Hive 查询，以及如何使用 HBase C# REST API 创建 HBase 表并从该表中检索数据。
@@ -298,7 +298,7 @@ HDInsight 中的 HBase 随附了一个 Web UI 用于监视群集。 使用该 We
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [azure-portal]: https://portal.azure.cn/
-[azure-create-storageaccount]: /storage/storage-create-storage-account/
+[azure-create-storageaccount]: /storage/common/storage-create-storage-account/
 
 [img-hbase-shell]: ./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png
 [img-hbase-sample-data-tabular]: ./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png

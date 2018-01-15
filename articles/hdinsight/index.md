@@ -2,7 +2,7 @@
 title: "Azure HDInsight 文档 - 教程和 API 参考 | Azure"
 description: "了解 Hadoop on HDInsight。 文档介绍了如何使用 Hadoop、Spark、HBase 等技术处理、分析大数据并从中获得见解。"
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -10,18 +10,20 @@ ms.service: hdinsight
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 01/23/2017
-ms.date: 06/20/2017
-ms.author: v-dazen
-ms.openlocfilehash: 687da1229ecb1265aceed3ab1b1bff3c527fc488
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 12/05/2017
+ms.date: 01/15/2018
+ms.author: v-yiso
+ms.openlocfilehash: 45fd27f233800dae43305a1624c319563d0d6514
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 #<a name="azure-hdinsight-documentation"></a>Azure HDInsight 文档
 
-了解如何在 HDInsight 上使用云中的 Hadoop 分析流式处理数据或历史数据。 教程和其他文档介绍了如何在 Hadoop 生态系统中使用 Hadoop、Spark、HBase、Storm 等技术创建群集、处理和分析大数据，以及开发解决方案。
+了解如何使用 Azure HDInsight 来分析流数据或历史数据。 教程和其他文档介绍了如何使用最常用的开源框架（例如 Hadoop、Spark、Hive、LLAP、Kafka、Storm 等）来创建群集、处理与分析大数据，以及开发解决方案。 
+
+Azure HDInsight 是适用于企业的分析服务，具有完全托管、全面且开源的特点。 HDInsight 是一项云服务，可以轻松、快速且经济有效地处理大量数据。 HDInsight 还支持各种各样的方案，例如提取、转换和加载 (ETL)；数据仓库操作；机器学习；IoT。  
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -49,29 +51,11 @@ ms.lasthandoff: 06/21/2017
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>在 HDInsight 中开始使用基于 Linux 的 Hadoop 群集</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/hdinsight/hdinsight-hbase-tutorial-get-started-linux">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>在 HDInsight 中开始使用 HBase 群集</h3>
+                        <h3>Hadoop on HDInsight 入门</h3>
                     </div>
                 </div>
             </div>
@@ -79,7 +63,102 @@ ms.lasthandoff: 06/21/2017
         </a>
     </li>
     <li>
-        <a href="/hdinsight/hdinsight-apache-storm-tutorial-get-started-linux">
+        <a href="/hdinsight/spark/apache-spark-jupyter-spark-sql">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Spark on HDInsight 入门</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/hdinsight/kafka/apache-kafka-get-started">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Kafka on HDInsight 入门</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/hdinsight/storm/apache-storm-tutorial-get-started-linux">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Storm on HDInsight 入门</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/hdinsight/hbase/apache-hbase-tutorial-get-started-linux">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>HBase on HDInsight 入门</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/hdinsight/hdinsight-apps-install-applications">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>在 HDInsight 上安装第三方应用程序</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
+
+---
+<h2>学习资源</h2>
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="https://github.com/hdinsight/hdinsight-dev-guide/blob/master/HDInsight%20Developer%20Guide.pdf">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -89,11 +168,13 @@ ms.lasthandoff: 06/21/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>在 HDInsight 中开始使用 Apache Storm 群集</h3>
+                        <h3>HDInsight 开发人员指南</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
+     <li>
 </ul>
+

@@ -3,8 +3,8 @@ title: "了解 Azure AD 中的 OAuth 2.0 授权代码流 | Microsoft Docs"
 description: "本文介绍如何使用 Azure Active Directory 和 OAuth 2.0，通过 HTTP 消息来授权访问租户中的 Web 应用程序和 Web API。"
 services: active-directory
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: dstrockis
+manager: mtillman
 editor: 
 ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
 ms.service: active-directory
@@ -13,22 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/08/2017
-ms.date: 10/19/2017
+ms.date: 01/10/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 55443314a803edd301a1150c9e30c68ef969bcbe
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 71877eb1727af8b74775540cb3c51f475d3095d9
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>使用 OAuth 2.0 和 Azure Active Directory 来授权访问 Web 应用程序
 Azure Active Directory (Azure AD) 使用 OAuth 2.0，使你能够授权访问 Azure AD 租户中的 Web 应用程序和 Web API。 本指南与语言无关，介绍在不使用我们的任何开放源代码库的情况下，如何发送和接收 HTTP 消息。
 
 [OAuth 2.0 规范第 4.1 部分](https://tools.ietf.org/html/rfc6749#section-4.1)描述了 OAuth 2.0 授权代码流。 它用于在大多数应用程序类型（包括 Web 应用和本机安装的应用）中执行身份验证与授权。
 
-<!-- [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]-->
-<!-- Not suitable for Portal-->
+[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
 ## <a name="oauth-20-authorization-flow"></a>OAuth 2.0 授权流
 概括而言，应用程序的整个授权流看起来有点类似于：
@@ -36,7 +35,7 @@ Azure Active Directory (Azure AD) 使用 OAuth 2.0，使你能够授权访问 Az
 ![OAuth 授权代码流](./media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>请求授权代码
-授权代码流始于客户端将用户定向到的 `/authorize` 终结点。 在此请求中，客户端指示了用户需要提供的权限。 可以在 Azure 经典管理门户的应用程序页中，通过底部抽屉中的“查看终结点”按钮获取 OAuth 2.0 终结点。
+授权代码流始于客户端将用户定向到的 `/authorize` 终结点。 在此请求中，客户端指示了用户需要提供的权限。 可以通过 Azure 门户中的应用程序页获取 OAuth 2.0 终结点。
 
 ```
 // Line breaks for legibility only
@@ -53,9 +52,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 参数 |  | 说明 |
 | --- | --- | --- |
 | tenant |必填 |请求路径中的 `{tenant}` 值可用于控制哪些用户可以登录应用程序。  允许值为租户标识符，例如独立于租户令牌的 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`、`contoso.partner.onmschina.cn` 或 `common` |
-| client_id |必填 |将应用注册到 Azure AD 时，分配给应用的应用程序 ID。 可以在 Azure 门户中找到该值。 依次单击“Active Directory”和目录，选择应用程序，然后单击“配置” |
+| client_id |必填 |将应用注册到 Azure AD 时，分配给应用的应用程序 ID。 可在 Azure 门户中找到该值。 依次单击“Active Directory”和目录，选择应用程序，然后单击“配置” |
 | response_type |必填 |必须包括授权代码流的 `code` 。 |
-| redirect_uri |建议 |应用的 redirect_uri，应用可向其发送及从其接收身份验证响应。  它必须完全符合在门户中注册的其中一个 redirect_uris，否则必须是编码的 url。  对于本机和移动应用，应使用默认值 `urn:ietf:wg:oauth:2.0:oob`。 |
+| redirect_uri |建议 |应用的 redirect_uri，应用可向其发送及从其接收身份验证响应。  其必须完全符合在门户中注册的其中一个 redirect_uris，否则必须是编码的 url。  对于本机和移动应用，应使用默认值 `urn:ietf:wg:oauth:2.0:oob`。 |
 | response_mode |建议 |指定将生成的令牌送回到应用程序所应该使用的方法。  可以是 `query` 或 `form_post`。 |
 | state |建议 |同时随令牌响应返回的请求中所包含的值。 随机生成的唯一值通常用于 [防止跨站点请求伪造攻击](http://tools.ietf.org/html/rfc6749#section-10.12)。  该状态也用于在身份验证请求出现之前，于应用中编码用户的状态信息，例如之前所在的网页或视图。 |
 | resource |可选 |Web API 的应用 ID URI（受保护的资源）。 若要查找该 Web API 的应用 ID URI，请在 Azure 门户中，依次单击“Active Directory”、该目录、该应用程序和“配置”。 |
@@ -83,7 +82,7 @@ Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | admin_consent |如果管理员同意许可请求提示的内容，则该值为 True。 |
 | code |应用程序请求的授权代码。 应用程序可以使用该授权代码请求目标资源的访问令牌。 |
 | session_state |一个标识当前用户会话的唯一值。 此值为 GUID，但应将其视为无需检查即可传递的不透明值。 |
-| state |如果请求中包含 state 参数，响应中就应该出现相同的值。 应用程序在使用响应之前最好验证请求和响应中的 state 值是否完全相同。 这可以帮助检测客户端的[跨网站请求伪造 (CSRF) 攻击](https://tools.ietf.org/html/rfc6749#section-10.12)。 |
+| state |如果请求中包含 state 参数，响应中就应该出现相同的值。 应用程序在使用响应之前最好验证请求和响应中的状态值是否完全相同。 这可以帮助检测客户端的[跨网站请求伪造 (CSRF) 攻击](https://tools.ietf.org/html/rfc6749#section-10.12)。 |
 
 ### <a name="error-response"></a>错误响应
 错误响应也可能发送到 `redirect_uri` ，以便应用程序可以适当地处理。
@@ -107,7 +106,7 @@ error=access_denied
 | --- | --- | --- |
 | invalid_request |协议错误，例如，缺少必需的参数。 |修复并重新提交请求。 这通常是在初始测试期间捕获的开发错误。 |
 | unauthorized_client |不允许客户端应用程序请求授权代码。 |客户端应用程序未注册到 Azure AD 中或者未添加到用户的 Azure AD 租户时，通常会出现这种情况。 应用程序可以提示用户，并说明如何安装应用程序并将其添加到 Azure AD。 |
-| access_denied |资源所有者拒绝了许可 |客户端应用程序可以通知用户，除非用户许可，否则无法继续。 |
+| access_denied |资源所有者拒绝了许可 |客户端应用程序可以通知用户除非用户许可，否则无法继续。 |
 | unsupported_response_type |授权服务器不支持请求中的响应类型。 |修复并重新提交请求。 这通常是在初始测试期间捕获的开发错误。 |
 | server_error |服务器遇到意外的错误。 |重试请求。 这些错误可能是临时状况导致的。 客户端应用程序可向用户说明，其响应由于临时错误而延迟。 |
 | temporarily_unavailable |服务器暂时繁忙，无法处理请求。 |重试请求。 客户端应用程序可向用户说明，其响应由于临时状况而延迟。 |
@@ -139,13 +138,13 @@ grant_type=authorization_code
 | grant_type |必填 |必须是授权代码流的 `authorization_code` 。 |
 | code |必填 |在上一部分中获取的 `authorization_code` |
 | redirect_uri |必填 |用于获取 `authorization_code` 的相同 `redirect_uri` 值。 |
-| client_secret |必填（对于 Web 应用） |在应用注册门户中为应用创建的应用程序机密。  它不应用于本机应用，因为设备无法可靠地存储 client_secrets。  Web 应用和 Web API 都需要应用程序机密，能够将 `client_secret` 安全地存储在服务器端。 |
-| resource |如果已在授权代码请求中指定，则为必需参数，否则为可选参数 |Web API 的应用 ID URI（受保护的资源）。 |
+| client_secret |Web 应用所需 |在应用程序注册门户中为应用程序创建的应用程序机密。  其不应用于本机应用程序，因为设备无法可靠地存储 client_secrets。  Web 应用和 Web API 都需要应用程序机密，能够将 `client_secret` 安全地存储在服务器端。 |
+| resource |如果已在授权代码请求中指定，则是必需的，否则是可选的 |Web API 的应用 ID URI（受保护的资源）。 |
 
 若要查找应用 ID URI，请在 Azure 管理门户中，依次单击“Active Directory”、目录、应用程序和“配置”。
 
 ### <a name="successful-response"></a>成功的响应
-成功响应后，Azure AD 将返回访问令牌。 为了尽量减少来自客户端应用程序的网络调用及其相关延迟，客户端应用程序应该根据 OAuth 2.0 响应中指定的令牌生存期缓存访问令牌。 若要确定令牌生存期，请使用 `expires_in` 或 `expires_on` 参数值。
+成功响应后，Azure AD 返回访问令牌。 为了尽量减少来自客户端应用程序的网络调用及其相关延迟，客户端应用程序应该根据 OAuth 2.0 响应中指定的令牌生存期缓存访问令牌。 若要确定令牌生存期，请使用 `expires_in` 或 `expires_on` 参数值。
 
 如果 Web API 资源返回 `invalid_token` 错误代码，则可能表示该资源确定令牌已过期。 如果客户端和资源时钟时间不同（称为“时间偏差”），该资源可能会将令牌视为已过期，随后从客户端缓存中清除。 如果发生这种情况，请从缓存中清除令牌，即使它仍处于其计算生存期内。
 
@@ -201,7 +200,7 @@ grant_type=authorization_code
 }.
 ```
 
-有关 JSON Web 令牌的详细信息，请参阅 [JWT IETF 草案规范](http://go.microsoft.com/fwlink/?LinkId=392344)。 有关令牌类型和声明的详细信息，请阅读[支持的令牌和声明类型](./active-directory-token-and-claims.md)
+有关 JSON Web 令牌的详细信息，请参阅 [JWT IETF 草案规范](http://go.microsoft.com/fwlink/?LinkId=392344)。 有关令牌类型和声明的详细信息，请阅读[支持的令牌和声明类型](active-directory-token-and-claims.md)
 
 `id_token` 参数包含以下声明类型：
 
@@ -241,8 +240,8 @@ grant_type=authorization_code
 ```
 | 参数 | 说明 |
 | --- | --- |
-| error |可用于分类发生的错误类型与响应错误的错误码字符串。 |
-| error_description |可帮助开发人员识别身份验证错误根本原因的特定错误消息。 |
+| error |用于分类发生的错误类型与响应错误的错误码字符串。 |
+| error_description |帮助开发人员识别身份验证错误根本原因的特定错误消息。 |
 | error_codes |可帮助诊断的 STS 特定错误代码列表。 |
 | timestamp |发生错误的时间。 |
 | trace_id |可帮助诊断的请求唯一标识符。 |
@@ -268,7 +267,7 @@ grant_type=authorization_code
 | unsupported_grant_type |授权服务器不支持权限授予类型。 |更改请求中的授权类型。 这种类型的错误应该只在开发过程中发生，并且应该在初始测试过程中检测到。 |
 | invalid_resource |目标资源无效，原因是它不存在，Azure AD 找不到它，或者未正确配置。 |这表示未在租户中配置该资源（如果存在）。 应用程序可以提示用户，并说明如何安装应用程序并将其添加到 Azure AD。 |
 | interaction_required |请求需要用户交互。 例如，需要额外的身份验证步骤。 | 请对同一资源使用交互式授权请求进行重试，而不是非交互式请求。 |
-| temporarily_unavailable |服务器暂时繁忙，无法处理请求。 |重试请求。 客户端应用程序可向用户说明，其响应由于临时状况而延迟。 |
+| temporarily_unavailable |服务器暂时繁忙，无法处理请求。 |重试请求。 客户端应用程序可能向用户说明，其响应由于临时状况而延迟。 |
 
 ## <a name="use-the-access-token-to-access-the-resource"></a>使用访问令牌访问资源
 已经成功获取 `access_token`，现在可以通过在 `Authorization` 标头中包含令牌，在 Web API 的请求中使用令牌。 [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) 规范说明了如何使用 HTTP 请求中的持有者令牌访问受保护的资源。
@@ -281,7 +280,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ### <a name="error-response"></a>错误响应
-实现 RFC 6750 的受保护资源会发出 HTTP 状态代码。 如果请求不包含身份验证凭据或缺少令牌，则响应包含 `WWW-Authenticate` 标头。 当某个请求失败时，资源服务器将使用 HTTP 状态代码和错误代码做出响应。
+实现 RFC 6750 的受保护资源会发出 HTTP 状态代码。 如果请求不包含身份验证凭据或缺少令牌，则响应将包含 `WWW-Authenticate` 标头。 当某个请求失败时，资源服务器使用 HTTP 状态代码和错误代码做出响应。
 
 以下是当客户端请求不包含持有者令牌时的不成功响应示例：
 
@@ -372,8 +371,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | 参数 | 说明 |
 | --- | --- |
-| error |可用于分类发生的错误类型与响应错误的错误码字符串。 |
-| error_description |可帮助开发人员识别身份验证错误根本原因的特定错误消息。 |
+| error |用于分类发生的错误类型与响应错误的错误码字符串。 |
+| error_description |帮助开发人员识别身份验证错误根本原因的特定错误消息。 |
 | error_codes |可帮助诊断的 STS 特定错误代码列表。 |
 | timestamp |发生错误的时间。 |
 | trace_id |可帮助诊断的请求唯一标识符。 |
@@ -381,4 +380,3 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 有关错误代码的描述和建议的客户端操作，请参阅 [令牌终结点错误的错误代码](#error-codes-for-token-endpoint-errors)。
 
-<!--Update_Description: wording update-->

@@ -3,8 +3,8 @@ title: "Azure 标识开发人员的支持和帮助选项 | Microsoft Docs"
 description: "了解在创建与 Azure 标识（Azure Active Directory 和 MSA）集成的应用程序时，如何获取所遇到的开发相关问题的帮助和支持"
 services: active-directory
 documentationcenter: dev-center-name
-author: alexchen2016
-manager: digimobile
+author: andretms
+manager: mtillman
 editor: 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/27/2017
-ms.date: 11/23/2017
+ms.date: 01/09/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: c0ce19a4c47f2e222d43c0d0f906342414e187f5
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 5ca776859202c62dc068f44eacdd3927dd77fc26
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="support-and-help-options-for-developers"></a>开发人员的支持和帮助选项 
 
@@ -51,8 +51,7 @@ ms.lasthandoff: 11/24/2017
 |工具  |说明  |
 |---------|---------|
 |[jwt.ms](https://jwt.ms)| 粘贴 ID 或访问令牌来解码声明名称和值 |
-|[错误代码分析器](https://apps.dev.microsoft.com/portal/tools/errors)| 粘贴在登录或许可页面期间收到的错误代码，以查看可能的原因和补救措施 |
-|[Microsoft Graph 浏览器](https://developer.microsoft.com/graph/graph-explorer)| 用于针对 Microsoft 图形 API 发出请求和查看响应的工具|
+|[Microsoft Graph 浏览器](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china)| 用于针对 Microsoft 图形 API 发出请求和查看响应的工具|
 
 <br/>
 
@@ -68,7 +67,7 @@ Stack Overflow 是解决开发相关问题的首选渠道 - 社区成员和 Micr
 |ADAL 库 |[[adal]](http://stackoverflow.com/questions/tagged/adal)|
 |MSAL 库     |[[msal]](http://stackoverflow.com/questions/tagged/msal)|
 |OWIN 中间件  |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)|
-|[Microsoft 图形 API](https://developer.microsoft.com/graph/) |[[microsoft-graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
+|[Microsoft 图形 API](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china/) |[[microsoft-graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
 |与身份验证或授权主题相关的其他任何方面 |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]

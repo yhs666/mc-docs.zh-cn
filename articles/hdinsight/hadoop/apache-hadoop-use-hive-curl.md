@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/03/2017
-ms.date: 12/18/2017
+origin.date: 12/04/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2047a70eb474c473900d4bb7ae95af77e65a00d7
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 758a72e0d4497ab4b20bf5718e21c2af440968a8
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>使用 REST 在 HDInsight 中通过 Hadoop 运行 Hive 查询
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 12/08/2017
      > [!NOTE]
      > 如果希望通过外部源更新基础数据，应使用外部表。 例如，使用自动化数据上传过程或其他 MapReduce 操作。
      >
-     > 删除外部表**不会**删除数据，只会删除表定义。
+     > 删除外部表 **不会** 删除数据，只会删除表定义。
 
    * **ROW FORMAT** - 如何设置数据的格式。 每个日志中的字段都用空格分隔。
    * **STORED AS TEXTFILE LOCATION** - 数据的存储位置（example/data 目录），以及数据已存储为文本。
@@ -124,7 +124,7 @@ ms.lasthandoff: 12/08/2017
 
 4. 在作业的状态更改为“SUCCEEDED”后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中，位置为 **/example/curl**。 此地址在群集默认存储的 **example/curl** 目录中存储输出。
 
-    可以使用 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 列出并下载这些文件。 有关将 Azure CLI 与 Azure 存储配合使用的详细信息，请参阅[将 Azure CLI 2.0 与 Azure 存储配合使用](/storage/storage-azure-cli#create-and-manage-blobs)文档。
+    可以使用 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 列出并下载这些文件。 有关将 Azure CLI 与 Azure 存储配合使用的详细信息，请参阅[将 Azure CLI 2.0 与 Azure 存储配合使用](../../storage/storage-azure-cli.md#create-and-manage-blobs)文档。
 
 5. 使用以下语句创建名为 **errorLogs** 的新“内部”表：
 

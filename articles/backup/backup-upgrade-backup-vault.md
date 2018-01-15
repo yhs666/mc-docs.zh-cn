@@ -3,8 +3,8 @@ title: "将备份保管库升级到 Azure 备份的恢复服务保管库 | Micro
 description: "将备份保管库升级到恢复服务保管库可获取新的功能，例如，资源管理器 VM 备份、增强的安全性、VMware VM 备份，以及 Windows Server 的系统状态备份"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: trinadhk
+manager: vijayts
 editor: 
 keyword: backup vault; upgrade vault; recovery services vault
 ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/10/2017
-ms.date: 10/31/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 70fc6fe1901fb828556abefad237590ec25513d0
-ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
+ms.openlocfilehash: 29a83723a87f7e44f0829eadba7abb693c9f29a0
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>已升级到恢复服务保管库的备份保管库
 本文提供恢复服务保管库的功能概述、有关将现有备份保管库升级到恢复服务保管库的常见问题，以及升级后的步骤。 恢复服务保管库是与用于容装备份数据的备份保管库相当的 Azure 资源管理器。 不管在本地还是在 Azure 中，数据通常都是虚拟机 (VM)、工作负荷、服务器或工作站的数据或配置信息的副本。
@@ -69,10 +69,10 @@ ms.lasthandoff: 11/29/2017
 否。 升级期间和之后，正在进行的备份都会继续，而不会中断。
 
 **对于现有的工具而言，此升级有何意义？**</br>
-必须将现有的自动化或工具更新到资源管理器部署模型，确保其在升级后可继续运行。 请参阅 [Service Manager 部署模型](backup-client-automation-classic.md)和[资源管理器部署模型](backup-client-automation.md)的 PowerShell cmdlet 参考。
+必须将现有的自动化或工具更新到资源管理器部署模型，确保其在升级后可继续运行。 请参阅[资源管理器部署模型](backup-client-automation.md)的 PowerShell cmdlet 参考。
 
 **升级后是否可以回滚？**</br>
-不可以。 成功升级资源后，就不支持回滚。
+否。 成功升级资源后，就不支持回滚。
 
 **升级后是否可以查看经典保管库？**</br>
 否。 升级后无法查看或管理经典保管库。 只能使用新式 Azure 门户针对保管库执行所有管理操作。
@@ -103,3 +103,4 @@ ms.lasthandoff: 11/29/2017
 [备份 Azure 备份服务器](backup-azure-microsoft-azure-backup.md)</br>
 [备份 Windows Server](backup-configure-vault.md)
 
+<!-- Update_Description: wording update -->

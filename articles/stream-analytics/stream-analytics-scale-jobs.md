@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 06/22/2017
-ms.date: 11/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4db48162189047d5f3ffff39a7cfff523736299a
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: 86508a1c702faaa5b13cab840197a5a05227cb7b
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>扩展 Azure 流分析作业以增加吞吐量
 本文介绍如何优化流分析查询，增加流分析作业的吞吐量。 可以使用以下指南来扩展作业，以便处理较高负载并充分利用更多的系统资源（如更多带宽、更多 CPU 资源、更多内存）。
@@ -32,6 +32,7 @@ ms.lasthandoff: 11/02/2017
 如果在各个输入分区中，查询本质上是完全可并行的，则可以按照以下步骤操作：
 1.  通过使用 PARTITION BY 关键字来创作查询使之易并行。 请参阅[此页](stream-analytics-parallelization.md)易并行作业部分中的更多详细信息。
 2.  根据查询中使用的输出类型，某些输出可能是不可并行的，或者需要进一步配置来实现易并行。 例如，SQL、SQL DW 输出是不可并行的。 请始终先合并输出，然后再将其发送到输出接收器。 Blob、表、ADLS 和服务总线会自动并行化。 事件中心需要设置 PartitionKey 配置，使之匹配 PARTITION BY 字段（通常为 PartitionId）。 对于事件中心，还要格外注意匹配所有输入和所有输出的分区数量，以避免分区之间的交叉。 
+<!-- Not Available on PowerBI, Azure Funtion, Cosmos DB-->
 3.  使用 6 SU（即单个计算节点的全部容量）来运行查询，以度量最大可实现的吞吐量，如果你使用的是 GROUP BY，则度量作业能处理的组数（基数）。 达到系统资源限制的作业，一般症状将如下所示。
     - SU 利用率指标超过 80%。 该指示内存使用率较高。 [此处](stream-analytics-streaming-unit-consumption.md)描述了导致此指标增加的因素。 
     -   输出时间戳滞后于时钟时间。 根据查询逻辑，输出时间戳可能与时钟时间之间存在一个逻辑偏差。 但是，它们应该以大致相同的速度增进。 如果输出时间戳进一步滞后，则指示系统工作时间过长。 它可能是由于下游输出接收器限制，或高 CPU 利用率所致。 我们目前没有提供 CPU 利用率指标，因此很难区分两者。
@@ -167,7 +168,6 @@ ms.lasthandoff: 11/02/2017
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.cn
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md

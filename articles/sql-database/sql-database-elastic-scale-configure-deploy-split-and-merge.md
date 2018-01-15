@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 10/24/2016
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 68687a93ad0f481b5b3af72378cb3fe6935d94c6
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: b610948c26a9fc0955366aea1448984f965e2e98
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>部署拆分/合并服务
 可使用拆分/合并工具在分片数据库之间移动数据。 请参阅[在扩展云数据库之间移动数据](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/31/2017
 文件放置在名为 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** 的目录中，其中 *x.x.xxx.x* 表示版本号。 拆分/合并服务文件可在 **content\splitmerge\service** 子目录中找到；拆分/合并 PowerShell 脚本（和所需的客户端 dll）可在 **content\splitmerge\powershell** 子目录中找到。
 
 ## <a name="prerequisites"></a>先决条件
-1. 创建将用作拆分/合并状态数据库的 Azure SQL DB。 转到 [Azure 门户](https://portal.azure.cn)。 新建 **SQL 数据库**。 为数据库指定一个名称，并新建管理员和密码。 确保记录该名称和密码以供日后使用。
+1. 创建要用作拆分/合并状态数据库的 Azure SQL DB 数据库。 转到 [Azure 门户](https://portal.azure.cn)。 新建 **SQL 数据库**。 为数据库指定一个名称，并新建管理员和密码。 确保记录该名称和密码以供日后使用。
 2. 确保 Azure SQL DB 服务器允许 Azure 服务与其连接。 在门户上的“防火墙设置”中，确保“允许访问 Azure 服务”设置设为“打开”。 单击“保存”图标。
 
    ![允许的服务][1]
@@ -127,7 +127,7 @@ pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
 请注意，对于生产部署，应针对用于加密的 CA 使用单独的证书（服务器证书和客户端证书）。 有关此内容的详细说明，请参阅[安全配置](sql-database-elastic-scale-split-merge-security-configuration.md)。
 
 ## <a name="deploy-your-service"></a>部署服务
-1. 转到 [Azure 门户](https://manage.windowsazure.cn)。
+1. 转到 [Azure 门户](https://portal.azure.cn)。
 2. 单击左侧的“云服务”  选项卡，并选择用户之前创建的云服务。
 3. 单击“仪表板” 。
 4. 选择过渡环境，并单击“上传新的过渡部署” 。
@@ -137,7 +137,7 @@ pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
 6. 确保选中标记为“即使一个或多个角色包含单个实例也部署”  的复选框。
 7. 点击右下角的勾选按钮以开始部署。 它预计需要几分钟的时间才能完成。
 
-   ![上传][4]
+   ![上载][4]
 
 ## <a name="troubleshoot-the-deployment"></a>排查部署问题
 如果 Web 角色无法联机，可能是安全配置出现了问题。 检查 SSL 是否如上所述进行配置。
@@ -153,11 +153,11 @@ pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
     ```
 
 * 确保服务器名称不以 **https://** 开头。
-* 确保 Azure SQL DB 服务器允许 Azure 服务与其连接。 若要执行此操作，请打开 https://manage.windowsazure.cn、依次单击左侧的“SQL 数据库”和顶部的“服务器”，然后选择你的服务器。 在顶部单击“配置”并确保将“Azure 服务”设置为“是”。 （请参阅此文章顶部的“先决条件”部分）。
+* 确保 Azure SQL DB 服务器允许 Azure 服务与其连接。 若要执行此操作，请打开 https://portal.azure.cn，依次单击左侧的“SQL 数据库”和顶部的“服务器”，然后选择你的服务器。 在顶部单击“配置”并确保将“Azure 服务”设置为“是”。 （请参阅此文章顶部的“先决条件”部分）。
 
 ## <a name="test-the-service-deployment"></a>测试服务部署
 ### <a name="connect-with-a-web-browser"></a>使用 Web 浏览器建立连接
-确定拆分/合并服务的 Web 终结点。 可以在 Azure 经典管理门户中找到此终结点，方法是转到云服务的“仪表板”并在右侧的“站点 URL”下查找。 由于默认的安全设置将禁用 HTTP 终结点，因此请将 **http://** 替换为 **https://**。 将此 URL 的页面加载到浏览器中。
+确定拆分/合并服务的 Web 终结点。 可以在 Azure 门户中找到此终结点，方法是转到云服务的“仪表板”并在右侧的“站点 URL”下查找。 由于默认的安全设置将禁用 HTTP 终结点，因此请将 **http://** 替换为 **https://**。 将此 URL 的页面加载到浏览器中。
 
 ### <a name="test-with-powershell-scripts"></a>使用 PowerShell 脚本进行测试
 可以通过运行包含的示例 PowerShell 脚本测试部署和环境。
@@ -227,7 +227,7 @@ pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
    确保 Azure SQL 服务器已配置为允许从运行这些脚本的计算机的 IP 地址进行访问。 可以在“Azure SQL 服务器”/“配置”/“允许的 IP 地址”下找到此设置。
 3. 执行 SetupSampleSplitMergeEnvironment.ps1 脚本以创建示例环境。
 
-   运行此脚本将擦除分片映射管理器数据库和分片上任何现有的分片映射管理数据结构。 如果想要重新初始化分片映射或分片，重新运行脚本可能会很有用。
+   运行此脚本会擦除分片映射管理器数据库和分片上任何现有的分片映射管理数据结构。 如果想要重新初始化分片映射或分片，重新运行脚本可能会很有用。
 
    示例命令行：
 

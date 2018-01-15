@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 06/22/2017
-ms.date: 11/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 654f032dd9d977631331098acddbfa073b862fb5
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: 2b34b584091e9f16b76c8b21363ff21e3d4f98ec
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 流分析中的查询并行化
 本文说明了如何利用 Azure 流分析中的并行化。 了解如何通过配置输入分区和调整分析查询定义来缩放流分析作业。
@@ -237,7 +237,6 @@ PowerBI 输出当前不支持分区。 因此，此方案不易并行。
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.cn
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
@@ -245,4 +244,4 @@ PowerBI 输出当前不支持分区。 因此，此方案不易并行。
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!--Update_Description: new articles on stream analytics paralleliztion-->
+<!--Update_Description: wording update, update link -->

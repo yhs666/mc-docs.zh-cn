@@ -2,7 +2,7 @@
 title: "数据类型指南 - Azure SQL 数据仓库 | Azure"
 description: "定义与 SQL 数据仓库兼容的数据类型的建议。"
 services: sql-data-warehouse
-documentationCenter: NA
+documentationcenter: NA
 author: rockboyfor
 manager: digimobile
 editor: 
@@ -13,43 +13,46 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-origin.date: 06/02/2017
-ms.date: 07/17/2017
+origin.date: 12/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0cbe4bd874a09b4c3c6a7b24cc62eec62364c538
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: 051f8367c6a81db1b12c5ad9396cc178dc8beb1b
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>有关在 SQL 数据仓库中定义表的数据类型的指南
-使用这些建议定义与 SQL 数据仓库兼容的表数据类型。 除了兼容性外，最大限度地减小数据类型大小可以提高查询性能。
+使用这些建议定义与 SQL 数据仓库兼容的表数据类型。 除兼容性外，最大限度降低数据类型大小将提高查询性能。
 
-<!-- Not Available [data types](http://docs.microsoft.com/zh-cn/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) -->
-## <a name="minimize-row-length"></a>最大限度地减小行长度
-最大限度地减小数据类型大小可以缩短行长度，从而获得更好的查询性能。 使用适合数据的最小数据类型。 
+SQL 数据仓库支持最常用的数据类型。 有关受支持数据类型的列表，请参阅 CREATE TABLE 语句中的[数据类型](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes)。 
 
-| **支持的数据类型** |  |  |
-| --- | --- | --- |
-| [bigint][bigint] |[decimal][decimal] |[smallint][smallint] |
-| [binary][binary] |[float][float] |[smallmoney][smallmoney] |
-| [bit][bit] |[int][int] |[sysname][sysname] |
-| [char][char] |[money][money] |[time][time] |
-| [日期][date] |[nchar][nchar] |[tinyint][tinyint] |
-| [datetime][datetime] |[nvarchar][nvarchar] |[uniqueidentifier][uniqueidentifier] |
-| [datetime2][datetime2] |[real][real] |[varbinary][varbinary] |
-| [datetimeoffset][datetimeoffset] |[smalldatetime][smalldatetime] |[varchar][varchar] |
+## <a name="minimize-row-length"></a>最大限度缩短行长度
+最大限度地减小数据类型大小可以缩短行长度，从而获得更好的查询性能。 使用适用于数据的最小数据类型。 
 
-## <a name="data-type-best-practices"></a>数据类型最佳实践
- 在定义列类型时，使用可支持数据的最小数据类型，将能够改善查询性能。 这对 CHAR 和 VARCHAR 列尤其重要。 如果列中最长的值是 25 个字符，请将列定义为 VARCHAR(25)。 避免将所有字符列定义为较大的默认长度。 此外，将列定义为 VARCHAR（当它只需要这样的大小时）而非 [NVARCHAR][NVARCHAR]。  尽可能使用 NVARCHAR(4000) 或 VARCHAR(8000)，而非 NVARCHAR(MAX) 或 VARCHAR(MAX)。
+- 避免使用较大默认长度定义字符列。 例如，如果最长的值是 25 个字符，则将列定义为 VARCHAR(25)。 
+- 避免在仅需要 VARCHAR 时使用 [NVARCHAR][NVARCHAR]。
+- 尽可能使用 NVARCHAR(4000) 或 VARCHAR(8000)，而非 NVARCHAR(MAX) 或 VARCHAR(MAX)。
 
-## <a name="polybase-limitation"></a>Polybase 限制
-如果使用 Polybase 加载表，请确保数据的长度不超过 1 MB。  虽然你在定义行时可以使用超出此宽度的可变长度数据，并通过 BCP 来加载行，但无法使用 Polybase 来加载此数据。  
+如果使用 Polybase 加载表，则定义的表行长度不能超过 1 MB。 当数据长度可变的行超过 1 MB 时，可使用 BCP 而不是 PolyBase 加载行。
 
-## <a name="unsupported-data-types"></a>不支持的数据类型
-如果从另一个 SQL 平台（例如 Azure SQL 数据库）迁移数据库，在迁移时，你可能会遇到 SQL 数据仓库不支持的某些数据类型。  下面是不支持的数据类型，以及一些可用于取代不支持的数据类型的备选项。
+## <a name="identify-unsupported-data-types"></a>识别不支持的数据类型
+如果从另一个 SQL 数据库迁移数据库，可能会遇到 SQL 数据仓库不支持的数据类型。 使用此查询发现现有 SQL 架构中不支持的数据类型。
 
-| 数据类型 | 解决方法 |
+```sql
+SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
+FROM sys.tables  t
+JOIN sys.columns c on t.[object_id]    = c.[object_id]
+JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
+WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
+ AND  y.[is_user_defined] = 1;
+```
+
+## <a name="unsupported-data-types"></a> 使用适用于不支持的数据类型的解决方法
+
+以下列表显示 SQL 数据仓库不支持的数据类型，同时提供可替代不支持的数据类型的可用数据类型。
+
+| 不支持的数据类型 | 解决方法 |
 | --- | --- |
 | [geometry][geometry] |[varbinary][varbinary] |
 | [geography][geography] |[varbinary][varbinary] |
@@ -61,22 +64,19 @@ ms.lasthandoff: 07/05/2017
 | [表][table] |转换成暂时表。 |
 | [timestamp][timestamp] |修改代码以使用 [datetime2][datetime2] 和 `CURRENT_TIMESTAMP` 函数。  仅支持常量作为默认值，因此，不能将 current_timestamp 定义为默认约束。 如果需要从 timestamp 类型化列迁移行版本值，请对 NOT NULL 或 NULL 行版本值使用 [BINARY][BINARY](8) 或 [VARBINARY][BINARY](8)。 |
 | [xml][xml] |[varchar][varchar] |
-| [用户定义的类型][user defined types] |尽可能转换回本机类型 |
-| 默认值 |默认值仅支持文本和常量。  不支持非确定性表达式或函数，例如 `GETDATE()` 或 `CURRENT_TIMESTAMP`。 |
-
-可以在当前 SQL 数据库上运行以下 SQL 来识别 Azure SQL 数据仓库不支持的列：
-
-```sql
-SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
-FROM sys.tables  t
-JOIN sys.columns c on t.[object_id]    = c.[object_id]
-JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
-WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
- AND  y.[is_user_defined] = 1;
-```
+| [用户定义类型][user defined types] |尽可能转换回本机数据类型。 |
+| 默认值 | 默认值仅支持文本和常量。  不支持非确定性表达式或函数，例如 `GETDATE()` 或 `CURRENT_TIMESTAMP`。 |
 
 ## <a name="next-steps"></a>后续步骤
-有关详细信息，请参阅有关[表概述][Overview]、[分布表][Distribute]、[为表编制索引][Index]、[将表分区][Partition]、维[护表统计信息][Statistics]和[临时表][Temporary]的文章。  有关最佳实践的详细信息，请参阅 [SQL 数据仓库最佳实践][SQL Data Warehouse Best Practices]。
+若要了解更多信息，请参阅以下文章：
+
+- [SQL 数据仓库最佳实践][SQL Data Warehouse Best Practices]
+- [表概述][Overview]
+- [分布表][Distribute]
+- [为表编制索引][Index]
+- [对表进行分区][Partition]
+- [维护表统计信息][Statistics]
+- [临时表][Temporary]
 
 <!--Image references-->
 
@@ -93,37 +93,38 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 <!--MSDN references-->
 
 <!--Other Web references-->
-[create table]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
-[bigint]: https://msdn.microsoft.com/zh-cn/library/ms187745.aspx
-[binary]: https://msdn.microsoft.com/zh-cn/library/ms188362.aspx
-[bit]: https://msdn.microsoft.com/zh-cn/library/ms177603.aspx
-[char]: https://msdn.microsoft.com/zh-cn/library/ms176089.aspx
-[date]: https://msdn.microsoft.com/zh-cn/library/bb630352.aspx
-[datetime]: https://msdn.microsoft.com/zh-cn/library/ms187819.aspx
-[datetime2]: https://msdn.microsoft.com/zh-cn/library/bb677335.aspx
-[datetimeoffset]: https://msdn.microsoft.com/zh-cn/library/bb630289.aspx
-[decimal]: https://msdn.microsoft.com/zh-cn/library/ms187746.aspx
-[float]: https://msdn.microsoft.com/zh-cn/library/ms173773.aspx
-[geometry]: https://msdn.microsoft.com/zh-cn/library/cc280487.aspx
-[geography]: https://msdn.microsoft.com/zh-cn/library/cc280766.aspx
-[hierarchyid]: https://msdn.microsoft.com/zh-cn/library/bb677290.aspx
-[int]: https://msdn.microsoft.com/zh-cn/library/ms187745.aspx
-[money]: https://msdn.microsoft.com/zh-cn/library/ms179882.aspx
-[nchar]: https://msdn.microsoft.com/zh-cn/library/ms186939.aspx
-[nvarchar]: https://msdn.microsoft.com/zh-cn/library/ms186939.aspx
-[ntext,text,image]: https://msdn.microsoft.com/zh-cn/library/ms187993.aspx
-[real]: https://msdn.microsoft.com/zh-cn/library/ms173773.aspx
-[smalldatetime]: https://msdn.microsoft.com/zh-cn/library/ms182418.aspx
-[smallint]: https://msdn.microsoft.com/zh-cn/library/ms187745.aspx
-[smallmoney]: https://msdn.microsoft.com/zh-cn/library/ms179882.aspx
-[sql_variant]: https://msdn.microsoft.com/zh-cn/library/ms173829.aspx
-[sysname]: https://msdn.microsoft.com/zh-cn/library/ms186939.aspx
-[table]: https://msdn.microsoft.com/zh-cn/library/ms175010.aspx
-[time]: https://msdn.microsoft.com/zh-cn/library/bb677243.aspx
-[timestamp]: https://msdn.microsoft.com/zh-cn/library/ms182776.aspx
-[tinyint]: https://msdn.microsoft.com/zh-cn/library/ms187745.aspx
-[uniqueidentifier]: https://msdn.microsoft.com/zh-cn/library/ms187942.aspx
-[varbinary]: https://msdn.microsoft.com/zh-cn/library/ms188362.aspx
-[varchar]: https://msdn.microsoft.com/zh-cn/library/ms186939.aspx
-[xml]: https://msdn.microsoft.com/zh-cn/library/ms187339.aspx
-[user defined types]: https://msdn.microsoft.com/zh-cn/library/ms131694.aspx
+[create table]: https://msdn.microsoft.com/library/mt203953.aspx
+[bigint]: https://msdn.microsoft.com/library/ms187745.aspx
+[binary]: https://msdn.microsoft.com/library/ms188362.aspx
+[bit]: https://msdn.microsoft.com/library/ms177603.aspx
+[char]: https://msdn.microsoft.com/library/ms176089.aspx
+[date]: https://msdn.microsoft.com/library/bb630352.aspx
+[datetime]: https://msdn.microsoft.com/library/ms187819.aspx
+[datetime2]: https://msdn.microsoft.com/library/bb677335.aspx
+[datetimeoffset]: https://msdn.microsoft.com/library/bb630289.aspx
+[decimal]: https://msdn.microsoft.com/library/ms187746.aspx
+[float]: https://msdn.microsoft.com/library/ms173773.aspx
+[geometry]: https://msdn.microsoft.com/library/cc280487.aspx
+[geography]: https://msdn.microsoft.com/library/cc280766.aspx
+[hierarchyid]: https://msdn.microsoft.com/library/bb677290.aspx
+[int]: https://msdn.microsoft.com/library/ms187745.aspx
+[money]: https://msdn.microsoft.com/library/ms179882.aspx
+[nchar]: https://msdn.microsoft.com/library/ms186939.aspx
+[nvarchar]: https://msdn.microsoft.com/library/ms186939.aspx
+[ntext,text,image]: https://msdn.microsoft.com/library/ms187993.aspx
+[real]: https://msdn.microsoft.com/library/ms173773.aspx
+[smalldatetime]: https://msdn.microsoft.com/library/ms182418.aspx
+[smallint]: https://msdn.microsoft.com/library/ms187745.aspx
+[smallmoney]: https://msdn.microsoft.com/library/ms179882.aspx
+[sql_variant]: https://msdn.microsoft.com/library/ms173829.aspx
+[sysname]: https://msdn.microsoft.com/library/ms186939.aspx
+[table]: https://msdn.microsoft.com/library/ms175010.aspx
+[time]: https://msdn.microsoft.com/library/bb677243.aspx
+[timestamp]: https://msdn.microsoft.com/library/ms182776.aspx
+[tinyint]: https://msdn.microsoft.com/library/ms187745.aspx
+[uniqueidentifier]: https://msdn.microsoft.com/library/ms187942.aspx
+[varbinary]: https://msdn.microsoft.com/library/ms188362.aspx
+[varchar]: https://msdn.microsoft.com/library/ms186939.aspx
+[xml]: https://msdn.microsoft.com/library/ms187339.aspx
+[user defined types]: https://msdn.microsoft.com/library/ms131694.aspx
+<!-- Update_Description: update meta properties, wording update, update link -->

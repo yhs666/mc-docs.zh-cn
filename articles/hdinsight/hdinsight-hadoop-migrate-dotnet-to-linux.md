@@ -14,22 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/04/2017
-ms.date: 12/25/2017
+origin.date: 12/05/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 22a4a50154a808ac39fa4413c6baaca3d6b531af
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: b664ff79fc6008d1fd4210af867857d099dcf94c
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>将基于 Windows 的 HDInsight 的 .NET 解决方案迁移到基于 Linux 的 HDInsight
 
-基于 Linux 的 HDInsight 群集使用 [Mono (http://mono-project.com)](http://mono-project.com) 运行 .NET 应用程序。 Mono 支持将 .NET 组件（例如 MapReduce 应用程序）与基于 Linux 的 HDInsight 配合使用。 在此文档中，了解如何迁移为基于 Windows 的 HDInsight 群集创建的 .NET 解决方案，以与基于 Linux 的 HDInsight 上的 Mono 配合使用。
+基于 Linux 的 HDInsight 群集使用 [Mono (https://mono-project.com)](https://mono-project.com) 运行 .NET 应用程序。 Mono 支持将 .NET 组件（例如 MapReduce 应用程序）与基于 Linux 的 HDInsight 配合使用。 在此文档中，了解如何迁移为基于 Windows 的 HDInsight 群集创建的 .NET 解决方案，以与基于 Linux 的 HDInsight 上的 Mono 配合使用。
 
 ## <a name="mono-compatibility-with-net"></a>Mono 与 .NET 的兼容性
 
-Mono 版本 4.2.1 包含在 HDInsight 版本 3.5 中。 有关包含在 HDInsight 中的 Mono 版本的详细信息，请参阅 [HDInsight 组件版本](hdinsight-component-versioning.md)。 若要安装 Mono 的特定版本，请参阅[安装或更新 Mono](hdinsight-hadoop-install-mono.md) 文档。
+HDInsight 版本 3.6 附带了 Mono 版本 4.2.1。 有关包含在 HDInsight 中的 Mono 版本的详细信息，请参阅 [HDInsight 组件版本](hdinsight-component-versioning.md)。 若要安装 Mono 的特定版本，请参阅[安装或更新 Mono](hdinsight-hadoop-install-mono.md) 文档。
 
 有关 Mono 与 .NET 间兼容性的详细信息，请参阅 [Mono 兼容性 (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) 文档。
 

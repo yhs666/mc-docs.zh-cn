@@ -3,8 +3,8 @@ title: "Azure 备份故障排除：来宾代理状态不可用 | Microsoft Docs"
 description: "与代理、扩展、磁盘相关的 Azure 备份失败的症状、原因及解决方法"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: genlin
+manager: cshepard
 editor: 
 keywords: "Azure 备份; VM 代理; 网络连接;"
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 09/08/2017
-ms.date: 11/27/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 50b1b5b743a677b2546f809800e7bece39c39870
-ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
+ms.openlocfilehash: d79da2ff749ef0e9c054a4ba7bb5efd8583c8e38
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure 备份故障排除：代理和/或扩展的问题
 
@@ -35,6 +35,7 @@ ms.lasthandoff: 11/29/2017
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>原因 3：[VM 中安装的代理已过时（针对 Linux VM）](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>原因 4：[无法检索快照状态或无法拍摄快照](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>原因 5：[备份扩展无法更新或加载](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>原因 6：[Azure 经典 VM 可能需要附加的步骤才能完成注册](#azure-classic-vms-may-require-additional-step-to-complete-registration)
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>由于虚拟机上无网络连接，快照操作失败
 注册和计划 Azure 备份服务的 VM 后，备份会通过与 VM 备份扩展通信来获取时间点快照，从而启动作业。 以下任何条件都可能阻止快照的触发，这反过来会导致备份失败。 请依序执行以下故障排除步骤，然后重试操作。
@@ -85,7 +86,7 @@ ms.lasthandoff: 11/29/2017
 ### <a name="the-vm-has-no-internet-access"></a>VM 不具备 Internet 访问权限
 VM 无法根据部署要求访问 Internet，或者现有的限制阻止其访问 Azure 基础结构。
 
-备份扩展需要连接到 Azure 公共 IP 地址才能正常工作。 该扩展会将命令发送到 Azure 存储终结点 (HTTP URL) 来管理 VM 的快照。 如果该扩展无法访问公共 Internet，则备份最终会失败。
+若要正常工作，备份扩展需要连接到 Azure 公共 IP 地址。 该扩展会将命令发送到 Azure 存储终结点 (HTTP URL) 来管理 VM 的快照。 如果该扩展无法访问公共 Internet，则备份最终会失败。
 
 ####  <a name="solution"></a>解决方案
 若要解决此问题，请尝试此处列出的方法之一。
@@ -100,7 +101,7 @@ VM 无法根据部署要求访问 Internet，或者现有的限制阻止其访�
 1. 如果指定了网络限制（例如网络安全组），请部署 HTTP 代理服务器来路由流量。
 2. 要允许从 HTTP 代理服务器访问 Internet，如果有网络安全组，请向其添加规则。
 
-若要了解如何设置 HTTP 代理进行 VM 备份，请参阅[进行备份 Azure 虚拟机所需的环境准备](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups)。
+若要了解如何设置 HTTP 代理进行 VM 备份，请参阅[进行备份 Azure 虚拟机所需的环境准备](backup-azure-arm-vms-prepare.md#network-connectivity)。
 
 如果使用托管磁盘，可能需要在防火墙上打开另一个端口 (8443)。
 
@@ -116,7 +117,7 @@ VM 代理可能已损坏或服务可能已停止。 重新安装 VM 代理能够
 6. 然后可以在服务中查看 Windows 来宾代理服务
 7. 尝试在门户中单击“立即备份”来运行按需/临时备份。
 
-还需验证虚拟机是否已[在系统中安装了 .NET 4.5](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)。 VM 代理需要与服务进行通信
+还需验证虚拟机是否已[在系统中安装了 .NET 4.5](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)。 VM 代理需要与服务进行通信
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM 中安装的代理已过时（针对 Linux VM）
 
@@ -156,7 +157,7 @@ VM 备份依赖于向基础存储帐户发出快照命令。 备份失败的原�
 
 | 原因 | 解决方案 |
 | --- | --- |
-| VM 已配置 SQL Server 备份。 | 默认情况下，VM 备份在 Windows VM 上运行 VSS 完整备份。 在运行基于 SQL Server 的服务器并配置了 SQL Server 备份的 VM 上，快照执行可能发生延迟。<br><br>如果由于快照问题而导致备份失败，请设置以下注册表项：<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
+| VM 具有已配置的 SQL Server 备份。 | 默认情况下，VM 备份在 Windows VM 上运行 VSS 完整备份。 在运行基于 SQL Server 的服务器并配置了 SQL Server 备份的 VM 上，快照执行可能发生延迟。<br><br>如果由于快照问题而导致备份失败，请设置以下注册表项：<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | 由于在 RDP 中关闭了 VM，VM 状态报告不正确。 | 如果在远程桌面协议 (RDP) 中关闭了 VM，请检查门户，以确定 VM 状态是否正确。 如果不正确，请在门户中使用 VM 仪表板上的“关闭”  选项来关闭 VM。 |
 | 同一个云服务中的许多 VM 配置为同时备份。 | 最佳做法是将备份计划分给同一云服务中的 VM。 |
 | VM 在运行时使用了很高的 CPU 或内存。 | 如果 VM 在运行时使用了很高的 CPU 使用率（超过 90%）或内存使用率，快照任务将排入队列、延迟并最终超时。在这种情况下，请尝试进行按需备份。 |

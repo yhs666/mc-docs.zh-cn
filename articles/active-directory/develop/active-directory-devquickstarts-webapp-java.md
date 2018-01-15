@@ -1,10 +1,10 @@
 ---
-title: "Azure AD Java Web 应用入门 | Azure"
-description: "生成可让用户使用工作或学校帐户登录的 Java Web 应用。"
+title: "Azure AD Java Web 应用入门 | Microsoft 文档"
+description: "构建一个可让用户使用工作或学校帐户登录的 Java Web 应用。"
 services: active-directory
 documentationcenter: java
-author: alexchen2016
-manager: mbaldwin
+author: navyasric
+manager: mtillman
 editor: 
 ms.assetid: 2b92b605-9cd5-4b99-bcbb-66c026558119
 ms.service: active-directory
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 02/01/2017
-ms.date: 03/13/2017
+ms.date: 01/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 08627edbbc64beb449b039d15f51aec4424f78f5
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.custom: aaddev
+ms.openlocfilehash: 0bf3c470667723253fc1b0f751e4d36e39990d47
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>通过 Azure AD 实现 Java Web 应用登录和注销
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -35,27 +36,27 @@ ms.lasthandoff: 06/23/2017
 ## <a name="before-you-get-started"></a>准备工作
 
 - 下载[应用框架](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip)或下载[已完成的示例](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip)。
-- 还需要一个用于注册应用的 Azure AD 租户。 如果没有 Azure AD 租户，请[了解如何获取租户](./active-directory-howto-tenant.md)。
+- 还需要一个用于注册应用的 Azure AD 租户。 如果没有 Azure AD 租户，请[了解如何获取租户](active-directory-howto-tenant.md)。
 
 准备好后，请按照以下 9 个部分中的步骤操作。
 
 ## <a name="step-1-register-the-new-app-with-azure-ad"></a>步骤 1：向 Azure AD 注册新应用
-若要设置应用以便对用户进行身份验证，请先通过执行以下操作在租户中对其进行注册：
+若要设置应用对用户进行身份验证，请先执行以下操作，在租户中注册用户：
 
-- 登录到 Azure 管理门户。
-- 在左侧的导航栏中单击“Active Directory” 。
-- 选择你要在其中注册应用程序的租户。
-- 单击“应用程序”选项卡，然后在底部抽屉中单击“添加”  。
-- 根据提示创建一个新的 **Web 应用程序和/或 WebAPI**。
-    - 应用程序的 **名称** 向最终用户描述你的应用程序
-    - “登录 URL”  是应用的基本 URL。  框架的默认值为 `http://localhost:8080/adal4jsample/`。
-    - “应用程序 ID URI”是应用程序的唯一标识符  。  约定是使用 `https://<tenant-domain>/<app-name>`，例如 `http://localhost:8080/adal4jsample/`
-- 完成注册后，AAD 将为应用分配唯一的客户端标识符。  在后面的部分中将会用到此值，因此，请从“配置”选项卡复制此值。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
+2. 在顶部栏中，单击帐户名。 在“目录”列表下选择要注册应用的 Active Directory 租户。
+3. 在左窗格中，单击“更多服务”，并选择“Azure Active Directory”。
+4. 单击“应用注册”，然后选择“新建应用程序注册”。
+5. 创建一个 **Web 应用程序和/或 WebAPI**。
+  - **名称** - 向用户描述应用。
+  - “登录 URL”是应用的基 URL。 框架的默认 URL 为 http://localhost:8080/adal4jsample/。
+6. 完成注册后，Azure AD 将为应用分配唯一的应用程序 ID。 请复制应用页中的值，以便在后续部分中使用。
+7. 从应用程序的“设置” -> “属性”页中，更新应用 ID URI。 **应用 ID URI** 是应用的唯一标识符。 命名约定为 `https://<tenant-domain>/<app-name>`（例如 `http://localhost:8080/adal4jsample/`）。
 
-进入应用门户后，为应用程序创建一个 **密钥** 并复制该密钥。  稍后将需要它。
+进入应用的门户后，请在“设置”页上创建并复制应用的密钥。 稍后需要用到该密钥。
 
 ## <a name="step-2-set-up-the-app-to-use-the-adal4j-and-prerequisites-by-using-maven"></a>步骤2：使用 Maven 将应用设置为使用 ADAL4J 和先决条件
-在此步骤中，将 ADAL4J 配置为使用 OpenID Connect 身份验证协议。 使用 ADAL4J 发出登录和注销请求、管理用户会话以及获取用户信息等。
+此步骤 ADAL4J 配置为使用 OpenID Connect 身份验证协议。 使用 ADAL4J 发出登录和注销请求、管理用户会话以及获取用户信息等。
 
 在项目的根目录中，打开/创建 `pom.xml`，找到 `// TODO: provide dependencies for Maven` 并将其替换为以下代码：
 
@@ -169,26 +170,26 @@ ms.lasthandoff: 06/23/2017
 ```
 
 ## <a name="step-3-create-the-java-web-app-files-web-inf"></a>步骤 3：创建 Java Web 应用文件 (WEB-INF)
-在此步骤中，将 Java Web 应用配置为使用 OpenID Connect 身份验证协议。 使用 ADAL4J 发出登录和注销请求、管理用户会话以及获取用户信息等。
+此步骤 Java Web 应用配置为使用 OpenID Connect 身份验证协议。 使用 ADAL4J 发出登录和注销请求、管理用户会话以及获取用户信息等。
 
-1. 打开位于 \webapp\WEB-INF\, 中的 web.xml 文件，然后在 XML 中输入应用配置值。 XML 文件应包含以下代码：
+1. 打开位于 \webapp\WEB-INF\, 中的 web.xml 文件，然后在 XML 中输入应用配置值。 该 XML 文件应包含以下代码：
 
     ```xml
+
     <?xml version="1.0"?>
     <web-app id="WebApp_ID" version="2.4"
         xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
         http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
         <display-name>Archetype Created Web Application</display-name>
         <context-param>
             <param-name>authority</param-name>
-            <param-value>https://login.chinacloudapi.cn/</param-value>
+            <param-value>https://login.partner.microsoftonline.cn/</param-value>
         </context-param>
         <context-param>
             <param-name>tenant</param-name>
             <param-value>YOUR_TENANT_NAME</param-value>
         </context-param>
-
         <filter>
             <filter-name>BasicFilter</filter-name>
             <filter-class>com.microsoft.aad.adal4jsample.BasicFilter</filter-class>
@@ -205,49 +206,44 @@ ms.lasthandoff: 06/23/2017
             <filter-name>BasicFilter</filter-name>
             <url-pattern>/secure/*</url-pattern>
         </filter-mapping>
-
         <servlet>
             <servlet-name>mvc-dispatcher</servlet-name>
             <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
             <load-on-startup>1</load-on-startup>
         </servlet>
-
         <servlet-mapping>
             <servlet-name>mvc-dispatcher</servlet-name>
             <url-pattern>/</url-pattern>
         </servlet-mapping>
-
         <context-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
         </context-param>
-
         <listener>
             <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
         </listener>
     </web-app>
     ```
 
-    -    YOUR_CLIENT_ID 是在注册门户中为应用分配的**应用程序 ID**。
-    -    YOUR_CLIENT_SECRET 是在门户中创建的**密钥**。
-    -    YOUR_TENANT_NAME 是应用的**租户名称**，例如 contoso.partner.onmschina.cn
+    - YOUR_CLIENT_ID 是在注册门户中为应用分配的**应用程序 ID**。
+    - YOUR_CLIENT_SECRET 是在门户中创建的**应用程序机密**。
+    - YOUR_TENANT_NAME 是应用的**租户名称**（例如 contoso.partner.onmschina.cn）。
 
- 从 XML 文件中可以看到，我们要编写一个名为 mvc-dispatcher 的 JavaServer 页 (JSP) 或 Java Servlet Web 应用，每当我们访问 /secure URL 时，该应用就会使用 BasicFilter。 在相同的代码中，使用 /secure 作为受保护内容的位置，并强制向 Azure AD 进行身份验证。
+    从 XML 文件中可以看到，我们要编写一个名为 mvc-dispatcher 的 JavaServer 页 (JSP) 或 Java Servlet Web 应用，每当我们访问 /secure URL 时，该应用就会使用 BasicFilter。 在相同的代码中，使用 /secure 作为受保护内容的位置，并强制向 Azure AD 进行身份验证。
 
 2. 在 \webapp\WEB-INF\, 中创建 mvc-dispatcher-servlet.xml 文件并输入以下代码：
 
     ```xml
+
     <beans xmlns="http://www.springframework.org/schema/beans"
         xmlns:context="http://www.springframework.org/schema/context"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="
             http://www.springframework.org/schema/beans     
             http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-
         <context:component-scan base-package="com.microsoft.aad.adal4jsample" />
-
         <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
             <property name="prefix">
@@ -257,14 +253,13 @@ ms.lasthandoff: 06/23/2017
                 <value>.jsp</value>
             </property>
         </bean>
-
     </beans>
     ```
 
  此代码让 Web 应用使用 Spring，并指示用于查找 JSP 文件（在下一部分中编写）的位置。
 
 ## <a name="step-4-create-the-jsp-view-files-for-basicfilter-mvc"></a>步骤 4：创建 JSP 视图文件（适用于 BasicFilter MVC）
-在 WEB-INF 中设置 Web 应用这一操作已完成一半。 接下来，需要为 Web 应用将要执行的 BasicFilter 模型视图控制器 (MVC) 创建 JSP 文件。 之前曾提示过在配置期间创建文件。
+在 WEB-INF 中设置 Web 应用这一操作已完成一半。 接下来，需要为 Web 应用将要执行的 BasicFilter 模型视图控制器 (MVC) 创建 JSP 文件。 我们已经提示过需要在配置过程中创建一些文件。
 
 前面我们已在 XML 配置文件中告知 Java，有某个 `/` 资源将要加载 JSP 文件，并且某个 `/secure` 资源会通过名为 BasicFilter 的筛选器。
 
@@ -283,11 +278,12 @@ ms.lasthandoff: 06/23/2017
     </html>
     ```
 
- 此代码仅重定向到筛选器保护的安全页。
+    此代码仅重定向到筛选器保护的安全页。
 
 2. 在同一个目录中创建 error.jsp 文件，用于捕获可能发生的任何错误：
 
     ```jsp
+
     <html>
     <body>
         <h2>ERROR PAGE!</h2>
@@ -300,34 +296,31 @@ ms.lasthandoff: 06/23/2017
     </body>
     </html>
     ```
-
 3. 若要生成该安全网页，请在 \webapp 中创建名为 \secure 的文件夹，因此，目录现在为 \webapp\secure。
 4. 在 \webapp\secure 目录中创建 aad.jsp 文件，然后粘贴以下代码：
 
     ```jsp
+
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     <html>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>AAD Secure Page</title>
-    </head>
-    <body>
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>AAD Secure Page</title>
+        </head>
+        <body>
 
         <h1>Directory - Users List</h1>
         <p>${users}</p>
-
         <ul>
-            <li><a href="<%=request.getContextPath()%>/secure/aad?cc=1">Get
-                    new Access Token via Client Credentials</a></li>
+            <li><a href="<%=request.getContextPath()%>/secure/aad?cc=1">Get new Access Token via Client Credentials</a></li>
         </ul>
         <ul>
-            <li><a href="<%=request.getContextPath()%>/secure/aad?refresh=1">Get
-                    new Access Token via Refresh Token</a></li>
+            <li><a href="<%=request.getContextPath()%>/secure/aad?refresh=1">Get new Access Token via Refresh Token</a></li>
         </ul>
         <ul>
             <li><a href="<%=request.getContextPath()%>/index.jsp">Go Home</a></li>
         </ul>
-    </body>
+        </body>
     </html>
     ```
 
@@ -336,7 +329,7 @@ ms.lasthandoff: 06/23/2017
 现在需要设置 Java 文件，以便 servlet 可以执行其工作。
 
 ## <a name="step-5-create-some-java-helper-files-for-basicfilter-mvc"></a>步骤 5：创建一些 Java 帮助器文件（适用于 BasicFilter MVC）
-在此步骤中，我们的目标是创建 Java 文件，用于：
+此步骤的目标是创建 Java 文件，以便：
 
 - 允许用户登录和注销。
 - 获取有关用户的一些数据。
@@ -346,15 +339,16 @@ ms.lasthandoff: 06/23/2017
     > * 授权给请求数据的用户。
     > * 意外获得令牌（例如，通过越狱的手机或台式机上的 Web 浏览器缓存）的任何用户无法获取有关用户或组织的重要详细信息
 
-编写一些用于此工作的 Java 文件：
+编写一些 Java 文件来执行此工作：
 
 1. 在名为“adal4jsample”的根目录中创建一个文件夹用于存储所有 Java 文件。
 
-    本示例中，将在 Java 文件中使用命名空间 com.microsoft.aad.adal4jsample。 大多数 IDE 为此创建嵌套的文件夹结构（例如 /com/microsoft/aad/adal4jsample）。 可执行此操作（但并非必要）。
+    本示例在 Java 文件中使用命名空间 com.microsoft.aad.adal4jsample。 大多数 IDE 为此创建嵌套的文件夹结构（例如 /com/microsoft/aad/adal4jsample）。 也可以这样做，但不是非要这样做。
 
-2. 在此文件夹中，创建名为 JSONHelper.java 的文件，该文件将用于帮助分析来自令牌的 JSON 数据。 若要创建该文件，请粘贴以下代码：
+2. 在此文件夹中，创建名为 JSONHelper.java 的文件，该文件用于帮助分析来自令牌的 JSON 数据。 若要创建该文件，请粘贴以下代码：
 
     ```Java
+
     package com.microsoft.aad.adal4jsample;
 
     import java.lang.reflect.Field;
@@ -386,12 +380,12 @@ ms.lasthandoff: 06/23/2017
         }
 
         /**
-         * This method parses an JSON Array out of a collection of JSON Objects
+         * This method parses a JSON array out of a collection of JSON objects
          * within a string.
-         * 
+         *
          * @param jSonData
-         *            The JSON String that holds the collection.
-         * @return An JSON Array that would contains all the collection object.
+         *            The JSON string that holds the collection
+         * @return A JSON array that contains all the collection objects
          * @throws Exception
          */
         public static JSONArray fetchDirectoryObjectJSONArray(JSONObject jsonObject) throws Exception {
@@ -401,11 +395,11 @@ ms.lasthandoff: 06/23/2017
         }
 
         /**
-         * This method parses an JSON Object out of a collection of JSON Objects
-         * within a string
-         * 
+         * This method parses a JSON object out of a collection of JSON objects
+         * within a string.
+         *
          * @param jsonObject
-         * @return An JSON Object that would contains the DirectoryObject.
+         * @return A JSON object that contains the DirectoryObject
          * @throws Exception
          */
         public static JSONObject fetchDirectoryObjectJSONObject(JSONObject jsonObject) throws Exception {
@@ -415,11 +409,11 @@ ms.lasthandoff: 06/23/2017
         }
 
         /**
-         * This method parses the skip token from a json formatted string.
-         * 
+         * This method parses the skip token from a JSON-formatted string.
+         *
          * @param jsonData
-         *            The JSON Formatted String.
-         * @return The skipToken.
+         *            The JSON-formatted string
+         * @return The skipToken
          * @throws Exception
          */
         public static String fetchNextSkiptoken(JSONObject jsonObject) throws Exception {
@@ -458,12 +452,12 @@ ms.lasthandoff: 06/23/2017
         }
 
         /**
-         * This method would create a string consisting of a JSON document with all
+         * This method creates a string consisting of a JSON document with all
          * the necessary elements set from the HttpServletRequest request.
-         * 
+         *
          * @param request
          *            The HttpServletRequest
-         * @return the string containing the JSON document.
+         * @return The string containing the JSON document
          * @throws Exception
          *             If there is any error processing the request.
          */
@@ -493,7 +487,6 @@ ms.lasthandoff: 06/23/2017
                                 obj.put("passwordProfile", new JSONObject("{\"password\": \"" + param + "\"}"));
                             } else {
                                 obj.put(fieldName, param);
-
                             }
                         }
                     }
@@ -504,15 +497,15 @@ ms.lasthandoff: 06/23/2017
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
-            }
+            }            
             return obj.toString();
         }
 
         /**
-         * 
+         *
          * @param key
          * @param value
-         * @return string format of this JSON obje
+         * @return string format of this JSON object
          * @throws Exception
          */
         public static String createJSONString(String key, String value) throws Exception {
@@ -530,13 +523,13 @@ ms.lasthandoff: 06/23/2017
         /**
          * This is a generic method that copies the simple attribute values from an
          * argument jsonObject to an argument generic object.
-         * 
+         *
          * @param jsonObject
          *            The jsonObject from where the attributes are to be copied.
          * @param destObject
-         *            The object where the attributes should be copied into.
+         *            The object where the attributes should be copied to.
          * @throws Exception
-         *             Throws a Exception when the operation are unsuccessful.
+         *             Throws an Exception when the operation is unsuccessful.
          */
         public static <T> void convertJSONObjectToDirectoryObject(JSONObject jsonObject, T destObject) throws Exception {
 
@@ -571,11 +564,13 @@ ms.lasthandoff: 06/23/2017
         }
 
     }
+
     ```
 
-3. 创建名为 HttpClientHelper.java 的文件，该文件将用于帮助分析来自 Azure AD 终结点的 HTTP 数据。 若要创建该文件，请粘贴以下代码：
+3. 创建名为 HttpClientHelper.java 的文件，该文件用于帮助分析来自 Azure AD 终结点的 HTTP 数据。 若要创建该文件，请粘贴以下代码：
 
     ```Java
+
     package com.microsoft.aad.adal4jsample;
 
     import java.io.BufferedReader;
@@ -725,12 +720,13 @@ ms.lasthandoff: 06/23/2017
         }
 
     }
+
     ```
 
 ## <a name="step-6-create-the-java-graph-api-model-files-for-basicfilter-mvc"></a>步骤 6：创建 Java 图形 API 模型文件（适用于 BasicFilter MVC）
 如前所述，使用图形 API 获取有关登录用户的数据。 为了让此过程用于执行，请同时创建一个表示目录对象的文件以及一个表示用户的文件，如此便可以使用 Java 的 OO 模式。
 
-1. 创建名为 DirectoryObject.java 的文件，该文件将用于存储有关任何目录对象的基本数据。 可在以后将此文件用于可能执行的任何其他图形查询。 若要创建该文件，请粘贴以下代码：
+1. 创建名为 DirectoryObject.java 的文件，该文件用于存储有关任何目录对象的基本数据。 稍后可以使用此文件执行其他任何 Graph 查询。 若要创建该文件，请粘贴以下代码：
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -783,9 +779,10 @@ ms.lasthandoff: 06/23/2017
     }
     ```
 
-2. 创建名为 User.java 的文件，该文件将用于存储有关目录中任何用户的基本数据。 这些是用于目录数据的基本 getter 和 setter 方法，可粘贴以下代码：
+2. 创建名为 User.java 的文件，该文件用于存储有关目录中任何用户的基本数据。 这些是用于目录数据的基本 getter 和 setter 方法，可粘贴以下代码：
 
     ```Java
+
     package com.microsoft.aad.adal4jsample;
 
     import java.security.acl.Group;
@@ -796,14 +793,14 @@ ms.lasthandoff: 06/23/2017
     import org.json.JSONObject;
 
     /**
-     *  The User Class holds together all the members of a WAAD User entity and all the access methods and set methods
-     *  @author Azure Active Directory Contributor
-     */
+    *  The **User** class holds together all the members of a WAAD User entity and all the access methods and set methods.
+    *  @author Azure Active Directory Contributor
+    */
     @XmlRootElement
     public class User extends DirectoryObject{
 
         // The following are the individual private members of a User object that holds
-        // a particular simple attribute of an User object.
+        // a particular simple attribute of a User object.
         protected String objectId;
         protected String objectType;
         protected String accountEnabled;
@@ -833,22 +830,22 @@ ms.lasthandoff: 06/23/2017
         protected boolean isDeleted;  // this will move to dto
 
         /**
-         * below 4 properties are for future use
+         * These four properties are for future use.
          */
-        // managerDisplayname of this user
+        // managerDisplayname of this user.
         protected String managerDisplayname;
 
-        // The directReports holds a list of directReports
+        // The directReports holds a list of directReports.
         private ArrayList<User> directReports;
 
-        // The groups holds a list of group entity this user belongs to. 
+        // The groups holds a list of group entities this user belongs to.
         private ArrayList<Group> groups;
 
-        // The roles holds a list of role entity this user belongs to. 
+        // The roles holds a list of role entities this user belongs to.
         private ArrayList<Group> roles;
 
         /**
-         * The constructor for the User class. Initializes the dynamic lists and managerDisplayname variables.
+         * The constructor for the **User** class. Initializes the dynamic lists and managerDisplayname variables.
          */
         public User(){
             directReports = null;
@@ -1116,7 +1113,7 @@ ms.lasthandoff: 06/23/2017
         }
 
         /**
-         * @param givenName The givenName to set to this User.
+         * @param givenName The givenName to set to this User object.
          */
         public void setGivenName(String givenName) {
             this.givenName = givenName;
@@ -1158,7 +1155,7 @@ ms.lasthandoff: 06/23/2017
         }
 
         /**
-         * @param dirSyncEnabled The dirSyncEnabled to set to this User.
+         * @param dirSyncEnabled The dirSyncEnabled to set to this User object.
          */
         public void setDirSyncEnabled(String dirSyncEnabled) {
             this.dirSyncEnabled = dirSyncEnabled;
@@ -1172,7 +1169,7 @@ ms.lasthandoff: 06/23/2017
         }
 
         /**
-         * @param department The department to set to this User.
+         * @param department The department to set to this User object.
          */
         public void setDepartment(String department) {
             this.department = department;
@@ -1186,7 +1183,7 @@ ms.lasthandoff: 06/23/2017
         }
 
         /**
-         * @param lastDirSyncTime The lastDirSyncTime to set to this User.
+         * @param lastDirSyncTime The lastDirSyncTime to set to this User object.
          */
         public void setLastDirSyncTime(String lastDirSyncTime) {
             this.lastDirSyncTime = lastDirSyncTime;
@@ -1257,8 +1254,8 @@ ms.lasthandoff: 06/23/2017
     }
 
     /**
-     * The Class DirectReports Holds the essential data for a single DirectReport entry. Namely,
-     * it holds the displayName and the objectId of the direct entry. Furthermore, it provides the
+     * The DirectReports class holds the essential data for a single DirectReport entry. That is,
+     * it holds the displayName and the objectId of the direct entry. It also provides the
      * access methods to set or get the displayName and the ObjectId of this entry.
      */
     //class DirectReport extends User{
@@ -1277,7 +1274,7 @@ ms.lasthandoff: 06/23/2017
     //  }
     //
     //  /**
-    //   * @return The diaplayName of this direct report entry.
+    //   * @return The displayName of this direct report entry.
     //   */
     //  public String getDisplayName() {
     //      return displayName;
@@ -1295,15 +1292,15 @@ ms.lasthandoff: 06/23/2017
     ```
 
 ## <a name="step-7-create-the-authentication-model-and-controller-files-for-basicfilter"></a>步骤 7：创建身份验证模型和控制器文件（适用于 BasicFilter）
-Java 确实可能比较冗长，但就快完成了。 在编写用于处理请求的 BasicFilter servlet 之前，需要再编写一些 ADAL4J 所需的帮助器文件。
+我承认 Java 代码可能相当冗长，但我们很快就要完成了。 在编写用于处理请求的 BasicFilter servlet 之前，需要再编写一些 ADAL4J 所需的帮助器文件。
 
 1. 创建名为 AuthHelper.java 的文件，该文件提供用于确定已登录用户状态的方法。 方法包括：
 
- - **isAuthenticated()**：返回有关用户是否已登录的信息。
- - **containsAuthenticationData()**：返回有关令牌是否包含数据的信息。
- - **isAuthenticationSuccessful()**：返回有关用户身份验证是否成功的信息。
+    - **isAuthenticated()**：返回有关用户是否已登录的信息。
+    - **containsAuthenticationData()**：返回有关令牌是否包含数据的信息。
+    - **isAuthenticationSuccessful()**：返回有关用户身份验证是否成功的信息。
 
- 若要创建 AuthHelper.java 文件，请粘贴以下代码：
+    若要创建 AuthHelper.java 文件，请粘贴以下代码：
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1369,7 +1366,7 @@ Java 确实可能比较冗长，但就快完成了。 在编写用于处理请�
     }
     ```
 
-3. 创建名为 AadController.java 的文件，该文件是 MVC 模式的控制器。 该文件提供 JSP 控制器，并公开应用的 secure/aad URL 终结点。 该文件还包括图形查询。 若要创建该文件，请粘贴以下代码：
+3. 创建名为 AadController.java 的文件，这是 MVC 模式的控制器。 该文件提供 JSP 控制器，并公开应用的 secure/aad URL 终结点。 该文件还包括图形查询。 若要创建该文件，请粘贴以下代码：
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1443,12 +1440,14 @@ Java 确实可能比较冗长，但就快完成了。 在编写用于处理请�
         }
 
     }
+
     ```
 
 ## <a name="step-8-create-the-basicfilter-file-for-basicfilter-mvc"></a>步骤 8：创建 BasicFilter 文件（适用于 BasicFilter MVC）
 现在可以创建 BasicFilter.java 文件，它处理来自 JSP 视图文件的请求。 若要创建该文件，请粘贴以下代码：
 
 ```Java
+
 package com.microsoft.aad.adal4jsample;
 
 import java.io.IOException;
@@ -1685,9 +1684,10 @@ public class BasicFilter implements Filter {
     }
 
 }
+
 ```
 
-此 servlet 公开 ADAL4J 预期应用会运行的所有方法。 方法包括：
+此 Servlet 公开 ADAL4J 希望通过应用运行的所有方法。 方法包括：
 
 - **getAccessTokenFromClientCredentials()**：从机密中获取访问令牌。
 - **getAccessTokenFromRefreshToken()**：从刷新令牌中获取访问令牌。
@@ -1707,14 +1707,17 @@ public class BasicFilter implements Filter {
 现在，/targets 目录中应具有 adal4jsample.war 文件。 可在 Tomcat 容器中部署该文件并访问 URL http://localhost:8080/adal4jsample/。
 
 > [!NOTE]
-> 可使用最新的 Tomcat 服务器轻松部署 .war 文件。 转到 http://localhost:8080/manager/ 并遵循有关上传 adal4jsample.war 文件的说明即可。 它会为你自动部署正确的终结点。
+> 使用最新的 Tomcat 服务器可以轻松部署 .war 文件。 转到 http://localhost:8080/manager/ 并遵循有关上传 adal4jsample.war 文件的说明即可。 它会自动部署正确的终结点。
+
 
 ## <a name="next-steps"></a>后续步骤
-现在，已创建一个有效的 Java 应用，它可以对用户进行身份验证，使用 OAuth 2.0 安全调用 Web API，并获取有关用户的基本信息。 如果尚未将用户填充到租户，现在正是执行此操作的最佳时机。
+现在，已创建一个有效的 Java 应用，它可以对用户进行身份验证，使用 OAuth 2.0 安全调用 Web API，并获取有关用户的基本信息。 如果尚未在租户中填充用户，现在便可执行此操作。
 
 如需其他参考，可通过以下两种方法之一获取已完成的示例（不包括你的配置值）：
 
-- 将其下载为 [.zip 文件](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip)。
+- 下载以 [.zip 文件](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip)提供的示例。
 - 通过输入以下命令，从 GitHub 克隆文件：
 
-    git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git
+ ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
+
+<!-- Update_Description: wording update -->

@@ -3,7 +3,7 @@ title: "排查 Azure HDInsight 中的 Apache Spark 群集问题 | Azure"
 description: "了解与 Azure HDInsight 中的 Apache Spark 群集相关的问题以及如何解决这些问题。"
 services: hdinsight
 documentationcenter: 
-author: mumian
+author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 12/25/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0221662add89f98d6a5fca6dfd360f7ad6ee1a0e
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 52b045e85835a76707e391e05ae3aaeca739f772
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight 上的 Apache Spark 群集的已知问题
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 12/15/2017
 下面是与 Jupyter 笔记本相关的一些已知问题。
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>笔记本的文件名中包含非 ASCII 字符
-可在 Spark HDInsight 群集中使用的 Jupyter 笔记本的文件名不应包含非 ASCII 字符。 如果你尝试通过 Jupyter UI 上传文件名中包含非 ASCII 字符的文件，操作会失败且不发出提示（即，Jupyter 不允许你上传该文件，但同时也不引发可视的错误）。 
+可在 Spark HDInsight 群集中使用的 Jupyter 笔记本的文件名不应包含非 ASCII 字符。 如果尝试通过 Jupyter UI 上传文件名中包含非 ASCII 字符的文件，操作会失败且不发出提示（即，Jupyter 不允许上传该文件，但同时也不引发可视的错误）。 
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>加载大型笔记本时发生错误
 加载大型笔记本时，可能会看到错误“ **`Error loading notebook`** 。  

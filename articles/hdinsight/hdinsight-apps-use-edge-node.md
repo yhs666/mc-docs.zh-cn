@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/22/2017
-ms.date: 12/25/2017
+origin.date: 12/15/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: e74658a9ec10cc286cfa99b9aae16a0015718959
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: bb826206768c27bd8a800f25fbfcf4c3293d7687
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>在 HDInsight 中的 Hadoop 群集上使用空边缘节点
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 12/15/2017
 5. 单击“是”确认。
 
 ## <a name="next-steps"></a>后续步骤
-本文介绍了如何添加边缘节点以及如何访问边缘节点。 若要了解更多信息，请参阅下列文章：
+本文介绍了如何添加边缘节点以及如何访问边缘节点。 要了解更多信息，请参阅下列文章：
 
 * [安装 HDInsight 应用程序](hdinsight-apps-install-applications.md)：了解如何将 HDInsight 应用程序安装到群集。
 * [安装自定义 HDInsight 应用程序](hdinsight-apps-install-custom-applications.md)：了解如何将未发布的 HDInsight 应用程序部署到 HDInsight。

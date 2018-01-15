@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: queries
-origin.date: 01/30/2017
-ms.date: 07/17/2017
+origin.date: 12/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 376b9be8d3988d6ff581eb973659953f330c4165
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: 3af846b6deda917e5fc37616101dd6f11de8df1c
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>SQL 数据仓库中的 Create Table As Select (CTAS)
 Create Table As Select ( `CTAS` ) 是所提供的最重要的 T-SQL 功能之一。 它是根据 SELECT 语句的输出创建新表的完全并行化操作。 `CTAS` 是最简便快速的方法。 本文档提供 `CTAS`的示例和最佳实践。
@@ -58,7 +58,7 @@ FROM    [dbo].[FactInternetSales]
 通过 `CTAS`，可以更改表数据的分布以及表类型。 
 
 > [!NOTE]
-> 如果只是想要尝试更改 `CTAS` 操作中的索引并且源表经过哈希分布，那么，在保留相同的分布列和数据类型的情况下，`CTAS` 操作的效果最佳。 这将避免操作期间的交叉分布数据移动，从而更加高效。
+> 如果只是想要尝试更改 `CTAS` 操作中的索引并且源表经过哈希分布，那么，在保留相同的分布列和数据类型的情况下，`CTAS` 操作的效果最佳。 这可以避免操作期间发生交叉分布数据移动，从而提高效率。
 > 
 > 
 
@@ -117,7 +117,7 @@ WITH
 AS SELECT * FROM FactInternetSales;
 ```
 
-最后，你可以重命名表以切换到新表，然后删除旧表。
+最后，可以重命名表以切换到新表，然后删除旧表。
 
 ```sql
 RENAME OBJECT FactInternetSales TO FactInternetSales_old;
@@ -139,7 +139,7 @@ DROP TABLE FactInternetSales_old;
 * MERGE 语句
 
 > [!NOTE]
-> 尽量考虑“CTAS 优先”。 如果你认为可以使用 `CTAS` 解决问题，则它往往就是最佳的解决方法，即使你要因此写入更多的数据。
+> 尽量考虑“CTAS 优先”。 如果认为可以使用 `CTAS` 解决问题，则它往往就是最佳的解决方法，即使你要因此写入更多的数据。
 > 
 > 
 
@@ -188,7 +188,7 @@ AND    [acs].[CalendarYear]                = [fis].[CalendarYear]
 
 由于 SQL 数据仓库不支持在 `UPDATE` 语句的 `FROM` 子句中使用 ANSI Join，因此必须稍微更改一下此代码才能将它复制过去。
 
-你可以使用 `CTAS` 和隐式联接的组合来替换此代码：
+可以使用 `CTAS` 和隐式联接的组合来替换此代码：
 
 ```sql
 -- Create an interim table
@@ -278,6 +278,7 @@ WHERE NOT EXISTS
 
 RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
 RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
+
 ```
 
 ## <a name="ctas-recommendation-explicitly-state-data-type-and-nullability-of-output"></a>CTAS 建议：显式声明数据类型和输出是否可为 null
@@ -333,7 +334,7 @@ from ctas_r
 
 这对于数据迁移特别重要。 尽管第二个查询看起来更准确，但仍有一个问题。 与源系统相比，此数据有所不同，会在迁移中造成完整性问题。 这是“错误”答案其实是正确答案的极少见情况之一！
 
-我们看到这两个结果之间有差异，追根究底的原因是隐式类型转型。 在第一个示例中，表定义了列定义。 插入行后，将发生隐式类型转换。 在第二个示例中，没有隐式类型转换，因为表达式定义了列的数据类型。 请注意，第二个示例中的列已定义为可为 Null 的列，而在第一个示例中还没有定义。 在第一个示例中创建表时，尚未显式定义列可为 null。 在第二个示例中，它只留给了表达式，默认情况下，这会导致 NULL 定义。  
+我们看到这两个结果之间有差异，追根究底的原因是隐式类型转型。 在第一个示例中，表定义了列定义。 插入行后，会发生隐式类型转换。 在第二个示例中，没有隐式类型转换，因为表达式定义了列的数据类型。 请注意，第二个示例中的列已定义为可为 Null 的列，而在第一个示例中还没有定义。 在第一个示例中创建表时，尚未显式定义列可为 null。 在第二个示例中，它只留给了表达式，默认情况下，这会导致 NULL 定义。  
 
 若要解决这些问题，必须在 `CTAS` 语句的 `SELECT` 部分中明确设置类型转换和可为 null 属性。 无法在创建表的部分中设置这些属性。
 
@@ -384,7 +385,7 @@ WITH
 ;
 ```
 
-然而，值字段是计算的表达式，而不是源数据的一部分。
+但是，值字段是计算的表达式，且不是源数据的一部分。
 
 若要创建分区数据集，可能需要执行以下操作：
 
@@ -410,7 +411,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create')
 ;
 ```
 
-该查询会顺利运行。 但是，尝试执行分区切换时，将会出现问题。 表定义不匹配。 若要使表定义匹配，需要修改 CTAS。
+该查询会顺利运行。 但是，尝试执行分区切换时，会出现问题。 表定义不匹配。 若要使表定义匹配，需要修改 CTAS。
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -448,6 +449,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[CTAS]: https://msdn.microsoft.com/zh-cn/library/mt204041.aspx
+[CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->
+<!-- Update_Description: update meta properties -->

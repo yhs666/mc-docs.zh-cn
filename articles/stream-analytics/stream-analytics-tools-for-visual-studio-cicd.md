@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 09/27/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 73e68d37abab01342a99b678dd491840c6b0ba5c
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: f013b4b7b7cb9ca61c92a9a723ebf9a74b4084db
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-stream-analytics-visual-studio-tools-to-set-up-a-continuous-integration-and-deployment-process"></a>使用流分析 Visual Studio 工具设置持续集成和部署过程
 在本教程中，了解如何使用 Azure 流分析 Visual Studio 工具设置持续集成和部署过程。
@@ -91,4 +91,4 @@ arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-O
 ```
 ./tools/SA.exe arm -JobTemplate "ProjectA.JobTemplate.json" -JobParameterFile "ProjectA.JobTemplate.parameters.json" -OutputFile "JobDefinition.json" 
 ```
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties -->

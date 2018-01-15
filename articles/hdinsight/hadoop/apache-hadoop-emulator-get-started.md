@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 12/18/2017
+origin.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: b6177269daa21af4a429a9f489ccf8eba801fdfc
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 4c06a0675b3b914394e397b91016ed7ada26dbef
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>开始使用 Hadoop 沙盒, 虚拟机上的模拟器
 

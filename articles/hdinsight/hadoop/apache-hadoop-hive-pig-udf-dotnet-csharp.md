@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 10/04/2017
-ms.date: 12/18/2017
+origin.date: 12/05/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: a35edb46b1396e8246743c237f9e2cf435e50d06
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: e617477a3781e6ed152ac053797279e291947c71
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>在 HDInsight 中的 Hadoop 上将 C# 用户定义函数与 Hive 和 Pig 流式处理配合使用
 
@@ -221,9 +221,9 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
 1. 使用以下方法之一连接到 HDInsight 群集：
 
-    * 如果使用的是__基于 Linux__ 的 HDInsight 群集，请使用 SSH。 例如，`ssh sshuser@mycluster-ssh.azurehdinsight.cn`。 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * 如果使用的是__基于 Linux__ 的 HDInsight 群集，请使用 SSH。 例如，`ssh sshuser@mycluster-ssh.azurehdinsight.cn`。 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * 如果使用的是__基于 Windows__ 的 HDInsight 群集，请[使用远程桌面连接到群集](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+    * 如果使用的是__基于 Windows__ 的 HDInsight 群集，请[使用远程桌面连接到群集](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
 
 2. 使用以下命令之一启动 Pig 命令行：
 
@@ -261,7 +261,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
 ## <a name="next-steps"></a>后续步骤
 
-在本文档中，已了解了如何在 HDInsight 上通过 Hive 和 Pig 使用 .NET Framework 应用程序。 如果希望了解如何将 Python 与 Hive 和 Pig 配合使用，请参阅[在 HDInsight 中将 Python 与 Hive 和 Pig 配合使用](hdinsight-python.md)。
+在本文档中，已了解了如何在 HDInsight 上通过 Hive 和 Pig 使用 .NET Framework 应用程序。 如果希望了解如何将 Python 与 Hive 和 Pig 配合使用，请参阅[在 HDInsight 中将 Python 与 Hive 和 Pig 配合使用](python-udf-hdinsight.md)。
 
 若要了解使用 Pig 和 Hive 的其他方式以及如何使用 MapReduce，请参阅以下文档：
 

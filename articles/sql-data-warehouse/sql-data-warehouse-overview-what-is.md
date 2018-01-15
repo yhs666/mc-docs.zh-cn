@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
 origin.date: 10/23/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 22e81152fb04b4edd5fae796211bba1101ded92a
-ms.sourcegitcommit: 3996e0f27bae21fc48f6ebfab423e9b29f9d9bf4
+ms.openlocfilehash: 6ee480e89ebec28bbefd1ddbaa6535c97cc14873
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>什么是 Azure SQL 数据仓库？
 
@@ -48,14 +48,14 @@ SQL 数据仓库提供[性能层](performance-tiers.md)，方便用户根据数�
 ## <a name="next-steps"></a>后续步骤
 对 SQL 数据仓库有了初步的认识后，请继续学习如何快速[创建 SQL 数据仓库][create a SQL Data Warehouse]和[加载示例数据][load sample data]。 如果用户不熟悉 Azure，可在遇到新术语时查看 [Azure 术语表][Azure glossary] 。 或者，查看一下以下一些其他 SQL 数据仓库资源。  
 
-* [客户成功案例]
+<!-- Not Available * [Customer success stories]-->
 * [博客]
 * [功能请求]
 <!-- Not Available * [Videos] -->
-* [客户顾问团队博客]
+<!-- Not Available * [Customer Advisory Team blogs]-->
 <!-- Not Available * [Create support ticket]-->
 * [MSDN 论坛]
-* [Stack Overflow 论坛]
+<!-- Not Available * [Stack Overflow forum]-->
 <!-- Not Available * [Twitter] -->
 
 <!--Image references-->
@@ -74,16 +74,16 @@ SQL 数据仓库提供[性能层](performance-tiers.md)，方便用户根据数�
 <!--MSDN references-->
 
 <!--Other Web references-->
-[客户成功案例]: https://azure.microsoft.com/en-us/case-studies/?service=sql-data-warehouse
-[博客]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[客户顾问团队博客]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[功能请求]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+<!--Not Available [Customer success stories]: https://azure.microsoft.com/en-us/case-studies/?service=sql-data-warehouse -->
+[博客]: https://www.azure.cn/blog/tags/SQL%20数据库
+<!--Not Available [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/ -->
+[功能请求]: https://www.azure.cn/support/support-ticket-form/?l=zh-cn
 [MSDN 论坛]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
-[Stack Overflow 论坛]: http://stackoverflow.com/questions/tagged/azure-sqldw
+<!--Not Available [Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw-->
 <!--Not Available on [Twitter]: https://twitter.com/hashtag/SQLDW -->
 <!--Not Available on [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse -->
 [SLA for SQL Data Warehouse]: https://www.azure.cn/support/sla/sql-data-warehouse/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://www.azure.cn/support/legal/sla/
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

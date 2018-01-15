@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/03/2017
-ms.date: 12/18/2017
+origin.date: 12/04/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 113510dc6d3e698fbc25c8ca3c6cbb95cf5d34f5
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 79289ecb17a6cf2a8dbeba709bae936e78f4433f
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>使用 Pig 命令 (SSH) 在基于 Linux 的群集上运行 Pig 作业
 
@@ -30,41 +30,45 @@ ms.lasthandoff: 12/08/2017
 了解如何以交互方式从 HDInsight 群集的 SSH 连接中运行 Pig 作业。 可以使用 Pig Latin 编程语言来描述应用到输入数据以生成所需输出的转换。
 
 > [!IMPORTANT]
-> 本文档中的步骤要求使用基于 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 本文档中的步骤要求使用基于 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a id="ssh"></a>使用 SSH 进行连接
 
 使用 SSH 连接到 HDInsight 群集。 以下示例连接到名为 **myhdinsight** 的群集，以作为名为 **sshuser** 的帐户：
 
-    ssh sshuser@myhdinsight-ssh.azurehdinsight.cn
+```bash
+ssh sshuser@myhdinsight-ssh.azurehdinsight.cn
+```
 
-如果创建 HDInsight 群集时**提供了 SSH 身份验证的证书密钥**，则可能需要指定客户端系统上的私钥位置。
-
-    ssh sshuser@myhdinsight-ssh.azurehdinsight.cn -i ~/mykey.key
-
-如果在创建 HDInsight 群集时**提供了 SSH 身份验证密码**，请在系统提示时提供该密码。
-
-有关将 SSH 与 HDInsight 配合使用的详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 ## <a id="pig"></a>使用 Pig 命令
 
 1. 连接后，请使用以下命令启动 Pig 命令行接口 (CLI)：
 
-        pig
+    ```bash
+    pig
+    ```
 
-    稍后，应该会看到 `grunt>` 提示符。
+    片刻后，提示符更改为 `grunt>`。
 
 2. 输入以下语句：
 
-        LOGS = LOAD '/example/data/sample.log';
+    ```piglatin
+    LOGS = LOAD '/example/data/sample.log';
+    ```
 
     此命令会将 sample.log 文件的内容载入到 LOGS。 可以使用以下语句查看该文件的内容：
 
-        DUMP LOGS;
+    ```piglatin
+    DUMP LOGS;
+    ```
 
 3. 接下来，应用正则表达式以使用以下语句仅提取每条记录的日志记录级别，从而转换数据：
 
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    ```piglatin
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    ```
 
     转换后，可以使用 **DUMP** 来查看数据。 在这种情况下，使用 `DUMP LEVELS;`。
 
@@ -82,36 +86,48 @@ ms.lasthandoff: 12/08/2017
 
 5. 也可以使用 `STORE` 语句保存转换结果。 例如，以下语句将 `RESULT` 保存到群集的默认存储的 `/example/data/pigout` 目录：
 
-        STORE RESULT into '/example/data/pigout';
+    ```piglatin
+    STORE RESULT into '/example/data/pigout';
+    ```
 
    > [!NOTE]
    > 该数据存储在名为 `part-nnnnn` 的文件的指定目录中。 如果该目录已存在，则会收到错误。
 
 6. 若要退出 grunt 提示符，请输入以下语句：
 
-        QUIT;
+    ```piglatin
+    QUIT;
+    ```
 
 ### <a name="pig-latin-batch-files"></a>Pig Latin 批处理文件
 
 也可以使用 Pig 命令运行文件中包含的 Pig Latin。
 
-1. 退出 grunt 提示符之后，请使用以下命令将 STDIN 发送到名为 `pigbatch.pig` 的文件中。 此文件创建于 SSH 用户帐户的主目录中。
+1. 退出 Grunt 提示符之后，请使用以下命令创建名为 `pigbatch.pig` 的文件：
 
-        cat > ~/pigbatch.pig
+    ```bash
+    nano ~/pigbatch.pig
+    ```
 
-2. 输入或粘贴以下行，并在完成后按 Ctrl+D。
+2. 键入或粘贴以下行：
 
-        LOGS = LOAD '/example/data/sample.log';
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-        FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-        GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-        FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-        RESULT = order FREQUENCIES by COUNT desc;
-        DUMP RESULT;
+    ```piglatin
+    LOGS = LOAD '/example/data/sample.log';
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+    RESULT = order FREQUENCIES by COUNT desc;
+    DUMP RESULT;
+    ```
+
+    完成后，使用 Ctrl + X, Y，然后按 Enter 保存文件。
 
 3. 使用以下命令，以使用 Pig 命令运行 `pigbatch.pig` 文件。
 
-        pig ~/pigbatch.pig
+    ```bash
+    pig ~/pigbatch.pig
+    ```
 
     批处理作业完成后，会看到以下输出：
 

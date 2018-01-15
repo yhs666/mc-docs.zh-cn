@@ -19,7 +19,7 @@
 
 ## 创建作业
 ### [创建输入](stream-analytics-define-inputs.md)
-### [示例输入数据](stream-analytics-sample-data-input.md)
+### [测试查询和示例输入数据](stream-analytics-sample-data-input.md)
 ### [通用查询模式](stream-analytics-stream-analytics-query-patterns.md)
 ### [窗口函数](stream-analytics-window-functions.md)
 
@@ -46,7 +46,7 @@
 ### [利用查询并行度](stream-analytics-parallelization.md)
 ### [扩大以增加吞吐量](stream-analytics-scale-jobs.md)
 <!-- Not Available ### [Scale for Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md) -->
-<!-- ms.date: 12/11/2017 -->
+
 ## 管理
 ### [轮转输入/输出凭据](stream-analytics-login-credentials-inputs-outputs.md)
 <!-- Not Available ### [Job reliability during updates](stream-analytics-job-reliability.md) -->
@@ -56,7 +56,7 @@
 <!-- Not Available ### [Resource health blade](stream-analytics-resource-health.md) -->
 ### [作业关系图和指标](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO 调试](stream-analytics-select-into.md)
-### [事件顺序处理](stream-analytics-out-of-order-and-late-events.md)
+### [事件排序注意事项](stream-analytics-out-of-order-and-late-events.md)
 ### [事件中心读取器限制](stream-analytics-event-hub-consumer-groups.md)
 <!-- Not Available ### [Diagnostics logs](stream-analytics-job-diagnostic-logs.md) -->
 
@@ -64,7 +64,7 @@
 ### [使用 Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
 ### [一键式 Azure PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
-# 引用
+# 参考
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [查询语言](https://msdn.microsoft.com/library/azure/dn834998)
@@ -72,7 +72,6 @@
 
 # 资源
 <!-- Not Available ## [Azure Roadmap](https://azure.microsoft.com/roadmap/) -->
-<!-- Not Available ## [Blog](http://blogs.msdn.com/b/streamanalytics/) -->
 <!-- Not Available ## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics) -->
 <!-- Not Available ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) -->
 ## [价格](https://www.azure.cn/pricing/details/stream-analytics/)
@@ -82,4 +81,4 @@
 <!-- Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)-->
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics) -->
 
-<!--Update_Description: update link-->
+<!--ms.date: 01/015/2018 -->

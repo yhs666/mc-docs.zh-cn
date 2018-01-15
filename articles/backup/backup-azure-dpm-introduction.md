@@ -3,8 +3,8 @@ title: "使用 DPM 将工作负荷备份到 Azure 门户 | Microsoft Docs"
 description: "使用 Azure 备份服务备份 DPM 服务器的简介"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: adigan
+manager: nkolli
 editor: 
 keywords: "System Center Data Protection Manager, Data Protection Manager, dpm 备份"
 ms.assetid: c8c322cf-f5eb-422c-a34c-04a4801bfec7
@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 11/27/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 31761d966251763b8d86089f6c5442cd2753a7b8
-ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
+ms.openlocfilehash: 81c6b5c103693fe6ac47160872833f3a36ed083e
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>使用 DPM 准备将工作负荷备份到 Azure
 > [!div class="op_single_selector"]
 > * [Azure 备份服务器](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
-> * [Azure 备份服务器（经典）](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM（经典）](backup-azure-dpm-introduction-classic.md)
 >
 >
 
@@ -43,7 +41,7 @@ ms.lasthandoff: 11/29/2017
 >
 >
 
-[System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview) 备份文件和应用程序数据。 可在[此处](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix)查看受支持工作负荷的详细信息。备份到 DPM 的数据可以存储在磁带、磁盘上，也可以使用 Azure 备份备份到 Azure。 DPM 可与 Azure 备份交互，如下所述：
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) 备份文件和应用程序数据。 在[此处](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix)可以找到有关受支持工作负荷的详细信息。 备份到 DPM 的数据可以存储在磁带、磁盘上，或者使用 Azure Backup 备份到 Azure。 DPM 可与 Azure 备份交互，如下所述：
 
 - **部署为物理服务器或本地虚拟机的 DPM** - 如果 DPM 部署为物理服务器或本地 Hyper-V 虚拟机，则除了磁盘和磁带备份外，还可以将数据备份到恢复服务保管库。
 - **部署为 Azure 虚拟机的 DPM** - 通过 System Center 2012 R2 Update 3，可以将 DPM 部署为 Azure 虚拟机。 如果 DPM 部署为 Azure 虚拟机部署，则可以将数据备份到附加到 DPM Azure 虚拟机的 Azure 磁盘，也可以通过将数据备份到恢复服务保管库来卸载数据存储。
@@ -91,7 +89,7 @@ ms.lasthandoff: 11/29/2017
 5. 单击“订阅”查看可用订阅列表。 如果不确定要使用哪个订阅，请使用默认的（或建议的）订阅。 仅当组织帐户与多个 Azure 订阅关联时，才会有多个选项。
 6. 单击“资源组”查看可用资源组列表，或单击“新建”创建新的资源组。 有关资源组的完整信息，请参阅 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)
 7. 单击“位置”，为保管库选择地理区域  。
-8. 单击“创建” 。 创建恢复服务保管库可能需要一段时间。 可以在门户右上区域监视状态通知。
+8. 单击“创建”。 创建恢复服务保管库可能需要一段时间。 可以在门户右上区域监视状态通知。
    创建保管库后，它会在门户中打开。
 
 ### <a name="set-storage-replication"></a>设置存储复制
@@ -140,7 +138,7 @@ ms.lasthandoff: 11/29/2017
 
     ![下载](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
-   下载代理后，双击 MARSAgentInstaller.exe 以启动 Azure 备份代理的安装。 选择代理所需的安装文件夹和临时文件夹。 指定的缓存位置必须至少有备份数据的 5% 的可用空间。
+   下载代理后，请运行 MARSAgentInstaller.exe 以启动 Azure 备份代理的安装。 选择代理所需的安装文件夹和临时文件夹。 指定的缓存位置必须至少有备份数据的 5% 的可用空间。
 4. 如果使用代理服务器连接到 Internet，请在“代理配置”屏幕中，输入代理服务器详细信息。 如果使用已经过身份验证的代理，请在此屏幕中输入用户名和密码详细信息。
 5. Azure 备份代理将安装 .NET Framework 4.5 和 Windows PowerShell（如果没有）以完成安装。
 6. 安装代理后，**关闭**该窗口。
@@ -208,4 +206,4 @@ ms.lasthandoff: 11/29/2017
 >
 >
 
-<!--Update_Description: add content about "Key Definitions"-->
+<!--Update_Description: wording update -->

@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/04/2017
-ms.date: 12/25/2017
+origin.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: c2812618c0461cdc05728722968d34d8c807d232
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 8d0276af0754e6d2584a587c080eca14d90b0b64
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight 上的 Hadoop 组件发行说明
 
@@ -92,18 +92,11 @@ Spark 2.0.1 现已在 Spark 群集（HDInsight 版本 3.5）上发行。
 
 ## <a name="11162016---release-of-r-server-90-on-hdinsight-35-spark-20"></a>2016 年 11 月 16 日：发布 R Server 9.0 on HDInsight 3.5 (Spark 2.0)
 *   R Server 群集现在包括适用于两个版本的选项：R Server 9.0 on HDI 3.5 (Spark 2.0) 和 R Server 8.0 on HDI 3.4 (Spark 1.6)。
-*   R Server 9.0 on HDI 3.5 (Spark 2.0) 是基于 R 3.3.2 构建的，包括新 ScaleR 数据源函数（称为 RxHiveData 和 RxParquetData），用于将数据直接从 Hive 和 Parquet 加载到 Spark DataFrames，由 ScaleR 分析。 有关详细信息，请通过使用 ?RxHiveData 和 ?RxParquetData 命令在 R 中查看关于这些函数的内联帮助。
+*   R Server 9.0 on HDI 3.5 (Spark 2.0) 以 R 3.3.2 为基础构建，包括名为 RxHiveData 和 RxParquetData 的全新 ScaleR 数据源功能，可以将数据从 Hive 和 Parquet 直接加载到 Spark DataFrames 供 ScaleR 分析。 有关详细信息，请通过使用 ?RxHiveData 和 ?RxParquetData 命令在 R 中查看关于这些函数的内联帮助。
 *   现在，作为预配流的一部分，RStudio Server 社区版（通过选择退出选项）默认安装在“群集预配”边栏选项卡上。
 
 ## <a name="11092016---release-of-spark-20-on-hdinsight"></a>2016 年 11 月 9 日：发布 Spark 2.0 on HDInsight
 * HDInsight 3.5 上的 Spark 2.0 群集现支持 Livy 和 Jupyter 服务。
-
-## <a name="10262016---release-of-r-server-on-hdinsight"></a>2016 年 10 月 26 日：发布 R Server on HDInsight
-* 边缘节点访问 URI 已更改为 **clustername**-ed-ssh.azurehdinsight.net
-* R Server on HDInsight 群集预配已简化。
-* R Server on HDInsight 现已作为常用的 HDInsight“R Server”群集类型推出，不再作为单独的 HDInsight 应用程序安装。 边缘节点和 R Server 二进制文件现在会在 R Server 群集部署过程中进行预配。 这会提高预配的速度和可靠性。 R Server 的定价模型会相应地进行更新。
-* R Server 群集类型价格现基于标准层价格加上 R Server 额外费用价格。 高级层现在为不同群集类型中可用的高级功能进行保留，且不用于 R Server 群集类型。 此更改不会影响 R Server 的有效定价，它只会更改费用在帐单中的呈现方式。 所有现有 R Server 群集将继续生效，并且 Resource Manager 模板仍可在发出弃用通知前正常使用。 **建议更新脚本化的部署，以使用新的 Resource Manager 模板。**
-
 
 
 

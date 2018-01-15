@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 10/02/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: b268035a2e1363ad4b1c76d0b9375250b7613378
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 10859a1ebc47018ea984ded66657cf85772db6d9
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>向流分析作业添加流数据输入或引用数据
 了解如何通过事件中心将数据源作为流数据挂接到流分析作业，或者通过 Blob 存储挂接引用数据。
@@ -38,7 +38,7 @@ Azure 流分析作业可以连接到一个或多个数据输入，每个数据�
 
 1. 在 Azure 门户中，单击“输入”，并在流分析作业中单击“添加输入”。
 
-    ![Azure 经典管理门户 - 添加输入。](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Azure 门户 - 添加输入。](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
 
     在 Azure 门户中，单击流分析作业中的“输入”磁贴。  
 
@@ -73,7 +73,7 @@ Azure 流分析作业可以连接到一个或多个数据输入，每个数据�
     ![测试流式数据输入的连接](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## <a name="get-help-with-streaming-data-inputs"></a>获取有关流数据输入的帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/forums/)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

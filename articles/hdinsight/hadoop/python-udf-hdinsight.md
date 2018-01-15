@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 10/06/2017
-ms.date: 11/28/2017
+origin.date: 12/05/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: c1723dda95ffbfcc1190dafe922159689f025bcc
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: d90b78e866a21057f06b428b3f79c3b5efb17c95
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>在 HDInsight 中通过 Hive 和 Pig 使用 Python 用户定义的函数 (UDF)
 
@@ -43,7 +43,7 @@ HDInsight 还包含 Jython，后者是用 Java 编写的 Python 实现。 Jython
 
 ## <a name="hivepython"></a>Hive UDF
 
-可以通过 HiveQL `TRANSFORM` 语句将 Python 用作 Hive 中的 UDF。 例如，以下 HiveQL 调用群集默认 Azure 存储帐户中存储的 `hiveudf.py` 文件。
+可通过 HiveQL `TRANSFORM` 语句将 Python 用作 Hive 中的 UDF。 例如，以下 HiveQL 调用群集默认 Azure 存储帐户中存储的 `hiveudf.py` 文件。
 
 **基于 Linux 的 HDInsight**
 
@@ -106,7 +106,7 @@ while True:
 1. 从 STDIN 读取一行数据。
 2. 尾随的换行符使用 `string.strip(line, "\n ")`删除。
 3. 执行流式处理时，一个行就包含了所有值，每两个值之间有一个制表符。 因此， `string.split(line, "\t")` 可用于在每个制表符处拆分输入，并只返回字段。
-4. 在处理完成后，必须将输出以单行形式写入到 STDOUT，并在每两个字段之间提供一个制表符。 例如， `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`。
+4. 在处理完成后，必须将输出以单行形式写入到 STDOUT，并在每两个字段之间提供一个制表符。 例如，`print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`。
 5. `while` 循环一直重复到没有 `line` 可以读取。
 
 脚本输出是 `devicemake` 和 `devicemodel` 的输入值的连接，并且是连接值的哈希。
@@ -162,7 +162,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-在 Pig Latin 示例中，我们已将 `LINE` 输入定义为 chararray，因为输入没有一致的架构。 Python 脚本将数据转换成用于输出的一致架构。
+在 Pig Latin 示例中，已将 `LINE` 输入定义为 chararray，因为此输入没有一致的架构。 Python 脚本将数据转换成用于输出的一致架构。
 
 1. `@outputSchema` 语句定义返回到 Pig 的数据的格式。 在本例中，该格式为**数据袋**，这是一种 Pig 数据类型。 该数据袋包含以下字段，所有这些字段都是 chararray（字符串）：
 
@@ -174,7 +174,7 @@ def create_structure(input):
 
 2. 接下来，`def create_structure(input)` 定义一个函数，以便 Pig 将行项传递到其中。
 
-3. 示例数据 `sample.log` 基本上符合我们要返回的日期、时间、类名、级别和详细信息架构。 但是，它还包含了一些以字符串 `*java.lang.Exception*` 开头的行。 我们需要修改这些行，使之与架构匹配。 `if` 语句将检查这些行，然后调整输入数据以将 `*java.lang.Exception*` 字符串移到末尾，使数据与预期的输出架构相一致。
+3. 示例数据 `sample.log` 基本上符合日期、时间、类名、级别和详细信息架构。 但是，它还包含了一些以字符串 `*java.lang.Exception*` 开头的行。 我们需要修改这些行，使之与架构匹配。 `if` 语句会检查这些行，然后调整输入数据以将 `*java.lang.Exception*` 字符串移到末尾，使数据与预期的输出架构相一致。
 
 4. 接下来，使用 `split` 命令在前四个空格字符处拆分数据。 输出将分配到 `date`、`time`、`classname`、`level` 和 `detail`。
 
@@ -267,7 +267,7 @@ def create_structure(input):
    DUMP DETAILS;
    ```
 
-3. 输入以下行后，应会启动作业。 作业完成后，将返回类似于以下数据的输出：
+3. 输入以下行后，应会启动作业。 作业完成后，其返回的输出类似于以下数据：
 
         ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
         ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
@@ -287,7 +287,7 @@ def create_structure(input):
     #from pig_util import outputSchema
     ```
 
-    这将修改 Python 脚本以使用 C Python 而不是 Jython。 更改后，请使用 Ctrl+X 退出编辑器。 选择 Y，然后选择 Enter 保存更改。
+    此行会修改 Python 脚本以使用 C Python 而不是 Jython。 更改后，请使用 Ctrl+X 退出编辑器。 选择 Y，然后选择 Enter 保存更改。
 
 6. 使用 `pig` 命令再次启动 shell。 在 `grunt>` 提示符下，使用以下命令运行带有 Jython 解释器的 Python 脚本。
 
@@ -351,7 +351,7 @@ Set-AzureStorageBlobContent `
 > [!IMPORTANT]
 > 将 `C:\path\to` 值更改为开发环境中的文件路径。
 
-此脚本将检索 HDInsight 群集的信息，并提取默认存储帐户的名称和密钥，并将文件上传到容器的根目录。
+此脚本将检索 HDInsight 群集的信息，然后提取默认存储帐户的名称和密钥，并将文件上传到容器的根目录。
 
 > [!NOTE]
 > 有关上传文件的详细信息，请参阅[在 HDInsight 中上传 Hadoop 作业的数据](../hdinsight-upload-data.md)文档。
@@ -487,7 +487,7 @@ Get-AzureRmHDInsightJobOutput `
 
 此问题可能是由 Python 文件中的行尾结束符号导致的。 许多 Windows 编辑器默认为使用 CRLF 作为行尾结束符号，但 Linux 应用程序通常应使用 LF。
 
-可以使用 PowerShell 语句删除 CR 字符，然后再将文件上传到 HDInsight：
+可以使用以下 PowerShell 语句删除 CR 字符，此后再将文件上传到 HDInsight：
 
 ```powershell
 $original_file ='c:\path\to\hiveudf.py'

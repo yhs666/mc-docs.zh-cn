@@ -3,21 +3,21 @@ title: "Azure 备份服务器可以备份哪些内容 | Microsoft Docs"
 description: "本文提供一个支持矩阵，其中列出 Azure 备份服务器 v2 可以保护的所有工作负荷、数据类型和安装。"
 services: backup
 documentation center: 
-author: alexchen2016
+author: markgalioto
 ms.assetid: 
 ms.service: backup
 ms.workload: storage-backup-recovery
 keywords: 
-origin.date: 05/15/2017
-ms.date: 06/30/2017
+origin.date: 11/28/2017
+ms.date: 01/08/2018
 ms.topic: article
 ms.author: v-junlch
-manager: digimobile
-ms.openlocfilehash: 95cf4242a3797e082a630599ef878a95ccd3a2b7
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+manager: carmonm
+ms.openlocfilehash: 8442a9467360eb1cf95183aa2a39dc9ef02dd616
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure 备份服务器保护矩阵
 
@@ -40,21 +40,21 @@ ms.lasthandoff: 07/14/2017
 |客户端计算机（64 位和 32 位）|Windows Vista|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y|Y|文件<br /><br />受保护的卷必须采用 NTFS 格式，并且至少有 1 GB 空间。|
 |客户端计算机（64 位和 32 位）|Windows Vista|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y|Y|卷、共享、文件夹、文件、系统状态/裸机、已删除重复数据的卷|
 |服务器（32 位和 64 位）|Windows Server 2016|Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）<br /><br />VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）<br /><br />物理服务器<br /><br />本地 Hyper-V 虚拟机|Y<br /><br />非 Nano Server|N|卷、共享、文件夹、文件、系统状态/裸机、已删除重复数据的卷|
-|服务器（32 位和 64 位）|Windows Server 2012 R2 - Datacenter 和 Standard|Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）|Y|Y |卷、共享、文件夹、文件<br /><br />DPM 必须至少在 Windows Server 2012 R2 上运行才能保护 Windows Server 2012 已删除重复数据的卷。|
-|服务器（32 位和 64 位）|Windows Server 2012 R2 - Datacenter 和 Standard|VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y|Y|卷、共享、文件夹、文件、系统状态/裸机<br /><br />DPM 必须在 Windows Server 2012 或 2012 R2 上运行才能保护 Windows Server 2012 已删除重复数据的卷。|
-|服务器（32 位和 64 位）|Windows Server 2012/2012 SP1 - Datacenter 和 Standard|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y|Y|卷、共享、文件夹、文件、系统状态/裸机<br /><br />DPM 必须至少在 Windows Server 2012 R2 上运行才能保护 Windows Server 2012 已删除重复数据的卷。|
-|服务器（32 位和 64 位）|Windows Server 2012/2012 SP1 - Datacenter 和 Standard|Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）|Y|Y|卷、共享、文件夹、文件<br /><br />DPM 必须至少在 Windows Server 2012 R2 上运行才能保护 Windows Server 2012 已删除重复数据的卷。|
+|服务器（32 位和 64 位）|Windows Server 2012 R2 - Datacenter 和 Standard|Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）|Y|Y |卷、共享、文件夹、文件<br /><br />必须至少在 Windows Server 2012 R2 上运行 DPM，才能保护 Windows Server 2012 删除重复数据的卷。|
+|服务器（32 位和 64 位）|Windows Server 2012 R2 - 数据中心和标准版|VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y|Y|卷、共享、文件夹、文件、系统状态/裸机<br /><br />DPM 必须在 Windows Server 2012 或 2012 R2 上运行才能保护 Windows Server 2012 已删除重复数据的卷。|
+|服务器（32 位和 64 位）|Windows Server 2012/Windows Server 2012 SP1 - 数据中心和标准版|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y|Y|卷、共享、文件夹、文件、系统状态/裸机<br /><br />DPM 必须至少在 Windows Server 2012 R2 上运行才能保护 Windows Server 2012 已删除重复数据的卷。|
+|服务器（32 位和 64 位）|Windows Server 2012/2012 SP1 - Datacenter 和 Standard|Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）|Y|Y|卷、共享、文件夹、文件<br /><br />必须至少在 Windows Server 2012 R2 上运行 DPM，才能保护 Windows Server 2012 删除重复数据的卷。|
 |服务器（32 位和 64 位）|Windows Server 2012/2012 SP1 - Datacenter 和 Standard|VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y|Y|卷、共享、文件夹、文件、系统状态/裸机<br /><br />DPM 必须至少在 Windows Server 2012 R2 上运行才能保护 Windows Server 2012 已删除重复数据的卷。|
 |服务器（32 位和 64 位）|Windows Server 2008 R2 SP1 - Standard 和 Enterprise|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y<br /><br />需要运行 SP1 并安装 [Windows Management Frame 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855)|Y|卷、共享、文件夹、文件、系统状态/裸机|
 |服务器（32 位和 64 位）|Windows Server 2008 R2 SP1 - Standard 和 Enterprise|Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）|Y<br /><br />需要运行 SP1 并安装 [Windows Management Frame 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855)|Y |卷、共享、文件夹、文件|
 |服务器（32 位和 64 位）|Windows Server 2008 R2 SP1 - Standard 和 Enterprise|VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y<br /><br />需要运行 SP1 并安装 [Windows Management Frame 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855)|Y |卷、共享、文件夹、文件、系统状态/裸机|
 |服务器（32 位和 64 位）|Windows Server 2008 R2|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y|Y|卷、共享、文件夹、文件、系统状态/裸机|
 |服务器（32 位和 64 位）|Windows Server 2008 R2|Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）|N|Y|卷、共享、文件夹、文件|
-|服务器（32 位和 64 位）|Windows Server 2008 R2|VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|N|Y|卷、共享、文件夹、文件、系统状态/裸机|
+|服务器（32 位和 64 位）|Windows Server 2008 R2|VMWare 中的 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机中运行的工作负荷）|N|Y|卷、共享、文件夹、文件、系统状态/裸机|
 |服务器（32 位和 64 位）|Windows Server 2008|物理服务器<br /><br />本地 Hyper-V 虚拟机|N|Y|卷、共享、文件夹、文件、系统状态/裸机|
 |服务器（32 位和 64 位）|Windows Server 2008|VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y|Y |卷、共享、文件夹、文件、系统状态/裸机|
 |服务器（32 位和 64 位）|Windows Storage Server 2008|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y|Y|卷、共享、文件夹、文件、系统状态/裸机|
-|SQL Server|SQL Server 2016|物理服务器 <br /><br /> 本地 Hyper-V 虚拟机 <br /> <br /> Azure 虚拟机 <br /><br /> VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y（UR2 和更高版本）|N|所有部署方案：数据库|
+|SQL Server|SQL Server 2016|物理服务器 <br /><br /> 本地 Hyper-V 虚拟机 <br /> <br /> Azure 虚拟机 <br /><br /> VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y |N|所有部署方案：数据库|
 |SQL Server|SQL Server 2014|Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）|Y|Y |所有部署方案：数据库|
 |SQL Server|SQL Server 2014|VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y|Y|所有部署方案：数据库|
 |SQL Server|SQL Server 2012 SP2|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y|Y |所有部署方案：数据库|
@@ -74,10 +74,10 @@ ms.lasthandoff: 07/14/2017
 |Exchange|Exchange 2013|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y|Y|保护（所有部署方案）：独立 Exchange Server、数据库可用性组 (DAG) 中的数据库<br /><br />恢复（所有部署方案）：邮箱、DAG 中的邮箱数据库|
 |Exchange|Exchange 2013|VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y|Y |保护（所有部署方案）：独立 Exchange Server、数据库可用性组 (DAG) 中的数据库<br /><br />恢复（所有部署方案）：邮箱、DAG 中的邮箱数据库|
 |Exchange|Exchange 2010|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y|Y|保护（所有部署方案）：独立 Exchange Server、数据库可用性组 (DAG) 中的数据库<br /><br />恢复（所有部署方案）：邮箱、DAG 中的邮箱数据库|
-|Exchange|Exchange 2010|VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y|Y |保护（所有部署方案）：独立 Exchange Server、数据库可用性组 (DAG) 中的数据库<br /><br />恢复（所有部署方案）：邮箱、DAG 中的邮箱数据库|
+|Exchange|Exchange 2010|VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y|Y |保护（所有部署方案）：独立 Exchange 服务器，数据库可用性组 (DAG) 下的数据库<br /><br />恢复（所有部署方案）：邮箱、DAG 中的邮箱数据库|
 |Exchange|Exchange 2007|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y|Y|保护（所有部署方案）：存储组<br /><br />恢复（所有部署方案）：存储组、数据库、邮箱|
 |Exchange|Exchange 2007|VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y|Y |保护（所有部署方案）：存储组<br /><br />恢复（所有部署方案）：存储组、数据库、邮箱|
-|SharePoint|SharePoint 2016|物理服务器<br /><br />本地 Hyper-V 虚拟机<br /><br />Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）<br /><br />VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y（UR2 和更高版本）|N|保护（所有部署方案）：场、前端 Web 服务器内容<br /><br />恢复（所有部署方案）：场、数据库、Web 应用程序、文件或列表项、SharePoint 搜索、前端 Web 服务器<br /><br />请注意，不支持使用内容数据库的 SQL Server 2012 AlwaysOn 功能保护 SharePoint 场。|
+|SharePoint|SharePoint 2016|物理服务器<br /><br />本地 Hyper-V 虚拟机<br /><br />Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）<br /><br />VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y |N|保护（所有部署方案）：场、前端 Web 服务器内容<br /><br />恢复（所有部署方案）：场、数据库、Web 应用程序、文件或列表项、SharePoint 搜索、前端 Web 服务器<br /><br />请注意，不支持使用内容数据库的 SQL Server 2012 AlwaysOn 功能保护 SharePoint 场。|
 |SharePoint|SharePoint 2013|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y|Y|保护（所有部署方案）：场、前端 Web 服务器内容<br /><br />恢复（所有部署方案）：场、数据库、Web 应用程序、文件或列表项、SharePoint 搜索、前端 Web 服务器<br /><br />请注意，不支持使用内容数据库的 SQL Server 2012 AlwaysOn 功能保护 SharePoint 场。|
 |SharePoint|SharePoint 2013|Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）- DPM 2012 R2 Update Rollup 3 和更高版本|Y|Y|保护（所有部署方案）：场、SharePoint 搜索、前端 Web 服务器内容<br /><br />恢复（所有部署方案）：场、数据库、Web 应用程序、文件或列表项、SharePoint 搜索、前端 Web 服务器<br /><br />请注意，不支持使用内容数据库的 SQL Server 2012 AlwaysOn 功能保护 SharePoint 场。|
 |SharePoint|SharePoint 2013|VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y|Y |保护（所有部署方案）：场、SharePoint 搜索、前端 Web 服务器内容<br /><br />恢复（所有部署方案）：场、数据库、Web 应用程序、文件或列表项、SharePoint 搜索、前端 Web 服务器<br /><br />请注意，不支持使用内容数据库的 SQL Server 2012 AlwaysOn 功能保护 SharePoint 场。|
@@ -91,7 +91,8 @@ ms.lasthandoff: 07/14/2017
 |Hyper-V 主机 - Hyper-V 主机服务器、群集或 VM 上的 DPM 保护代理|Windows Server 2012 - Datacenter 和 Standard|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y|Y|保护：Hyper-V 计算机、群集共享卷 (CSV)<br /><br />恢复：虚拟机，以及文件和文件夹、卷、虚拟硬盘的项级恢复|
 |Hyper-V 主机 - Hyper-V 主机服务器、群集或 VM 上的 DPM 保护代理|Windows Server 2008 R2 SP1 - Enterprise 和 Standard|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y|Y|保护：Hyper-V 计算机、群集共享卷 (CSV)<br /><br />恢复：虚拟机，以及文件和文件夹、卷、虚拟硬盘的项级恢复|
 |Hyper-V 主机 - Hyper-V 主机服务器、群集或 VM 上的 DPM 保护代理|Windows Server 2008|物理服务器<br /><br />本地 Hyper-V 虚拟机|N|N|保护：Hyper-V 计算机、群集共享卷 (CSV)<br /><br />恢复：虚拟机，以及文件和文件夹、卷、虚拟硬盘的项级恢复|
-|Linux|作为 Hyper-V 来宾运行的 Linux|本地 Hyper-V 虚拟机|Y|Y|Hyper-V 必须在 Windows Server 2012 R2 或 Windows Server 2016 上运行。 保护：整个虚拟机<br /><br />恢复：整个虚拟机|
+|VMware VM|VMware 服务器 5.5、6.0 或 6.5 |本地 Hyper-V 虚拟机|Y|Y（具有 UR1）|群集共享卷 (CSV)、NFS 和 SAN 存储中的 VMware VM<br /> 仅适用于 Windows 的项目级恢复文件和文件夹<br /> 不支持 VMware vApp|
+|Linux|以 Hyper-V 或 VMware 来宾身份运行的 Linux|本地 Hyper-V 虚拟机|Y|Y|Hyper-V 必须在 Windows Server 2012 R2 或 Windows Server 2016 上运行。 保护：整个虚拟机<br /><br />恢复：整个虚拟机 <br/><br/> 有关支持的 Linux 分发版和版本的完整列表，请参阅 [Azure 认可的分发中的 Linux](../virtual-machines/linux/endorsed-distros.md) 一文。|
 
 ## <a name="cluster-support"></a>群集支持
 Azure 备份服务器可以保护以下群集应用程序中的数据：
@@ -111,3 +112,4 @@ Azure 备份服务器可以保护以下群集应用程序中的数据：
 
 Azure 备份服务器可以保护 DPM 服务器所在的同一个域中，以及子域或受信任域中的群集工作负荷。 若要保护不受信任的域或工作组中的数据源，请对单个服务器使用 NTLM 或证书身份验证，或者只对群集使用证书身份验证。
 
+<!-- Update_Description: wording update -->

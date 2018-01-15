@@ -35,11 +35,11 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 * **高级存储磁盘**
 
-    高级存储支持可附加到特定大小系列 VM 的 VM 磁盘。 高级存储支持 DS 系列、DSv2 系列、GS 系列和 LS 系列和 Fs 系列 VM。 有七种磁盘大小可供选择：P4 (32GB)、P6 (64GB)、P10 (128GB)、P20 (512GB)、P30 (1024GB)、P40 (2048GB)、P50 (4095GB)。 P4 和 P6 磁盘大小目前只能用于托管磁盘。 每种磁盘大小都有自身的性能规范。 根据应用程序的要求，可将一个或多个磁盘附加到 VM。 [高级存储的可伸缩性和性能目标](#scalability-and-performance-targets)中更详细介绍了规范。
-
+    高级存储支持可附加到特定大小系列 VM 的 VM 磁盘。 高级存储支持 DS 系列、DSv2 系列和 Fs 系列 VM。 可以选择七个磁盘大小：P4 (32GB)、P6 (64GB)、P10 (128GB)、P20 (512GB)、P30 (1024GB)、P40 (2048GB)、P50 (4095GB)。 P4 和 P6 磁盘大小目前只能用于托管磁盘。 每种磁盘大小都有自身的性能规范。 根据应用程序的要求，可将一个或多个磁盘附加到 VM。 [高级存储的可伸缩性和性能目标](#scalability-and-performance-targets)中更详细介绍了规范。
+<!-- Not Available on GS Series LS Series-->
 * **高级页 Blob**
 
-    高级存储支持页 Blob。 使用页 Blob 可在高级存储中存储 VM 的持久性非托管磁盘。 与标准 Azure 存储不同，高级存储不支持块 Blob、追加 Blob、文件、表或队列。 高级页 Blob 支持从 P10 至 P50 和 P60 (8191GiB) 这六种大小。 P60 高级页 Blob 无法作为 VM 磁盘附加。 
+    高级存储支持页 Blob。 使用页 Blob 可在高级存储中存储 VM 的持久性非托管磁盘。 与标准 Azure 存储不同，高级存储不支持块 Blob、追加 Blob、文件、表或队列。 高级页 Blob 支持从 P10 至 P50 和 P60 (8191GiB) 这六种大小。 不支持将 P60 高级页 Blob 作为 VM 磁盘进行连接。 
 
     放在高级存储帐户中的任何对象都是页 Blob。 页 Blob 对应于某种受支持的预配大小。 因此，高级存储帐户不适合用于存储微型 Blob。
 
@@ -57,10 +57,12 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
     高级存储帐户仅支持使用本地冗余存储作为复制选项。 本地冗余存储在单个区域中保留三个数据副本。 对于区域性灾难恢复，必须使用 [Azure 备份](../articles/backup/backup-introduction-to-azure-backup.md)在不同区域中备份 VM 磁盘。 此外，必须使用异地冗余存储 (GRS) 帐户作为备份保管库。 
 
-    Azure 使用存储帐户作为非托管磁盘的容器。 如果使用非托管磁盘创建 Azure DS、DSv2、GS 或 Fs 系列 VM 并选择高级存储帐户，操作系统和数据磁盘会存储在该存储帐户中。
+    Azure 使用存储帐户作为非托管磁盘的容器。 如果使用非托管磁盘创建 Azure DS、DSv2 或 Fs 系列 VM 并选择高级存储帐户，操作系统和数据磁盘会存储在该存储帐户中。
+<!-- Not Available on GS Series -->
 
 ## <a name="supported-vms"></a>支持的 VM
-高级存储支持 DS 系列、DSv2 系列、GS 系列和 LS 系列和 Fs 系列 VM。 可将标准和高级存储磁盘用于这些 VM 类型。 不能在不兼容高级存储的 VM 系列中使用高级存储磁盘。
+高级存储支持 DS 系列、DSv2 系列和 Fs 系列 VM。 可将标准和高级存储磁盘用于这些 VM 类型。 不能在不兼容高级存储的 VM 系列中使用高级存储磁盘。
+<!-- Not Available on GS Series LS Series-->
 
 有关 Azure 中适用于 Windows 的 VM 类型和大小的信息，请参阅 [Windows VM 大小](../articles/virtual-machines/windows/sizes.md)。 有关 Azure 中适用于 Linux 的 VM 类型和大小的信息，请参阅 [Linux VM 大小](../articles/virtual-machines/linux/sizes.md)。
 
@@ -99,7 +101,8 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
     例如，STANDARD_DS1 VM 为高级存储磁盘流量提供 32 MB/秒的专用带宽。 P10 高级存储磁盘可以提供 100 MB/秒的带宽。 如果将 P10 高级存储磁盘附加到此 VM，此 VM 的带宽最高只能达到 32 MB/秒， 而无法使用 P10 磁盘提供的最高 100 MB/秒带宽。
 
-    目前，DS 系列的最大 VM 是 Standard_DS15_v2。 Standard_DS15_v2 可以在所有磁盘上提供最高 960 MB/秒的带宽。 GS 系列的最大 VM 是 Standard_GS5。 Standard_GS5 可以在所有磁盘上提供最高 2,000 MB/秒的带宽。
+    目前，DS 系列的最大 VM 是 Standard_DS15_v2。 Standard_DS15_v2 可以在所有磁盘上提供最高 960 MB/秒的带宽。
+    <!-- Not Available on  The largest VM in the GS-series is the Standard_GS5. The Standard_GS5 can provide up to 2,000 MB/s across all disks.-->
 
     请注意，这些限制只适用于磁盘流量， 而不包括缓存命中和网络流量。 VM 网络流量可以使用单独的带宽。 网络流量使用的带宽不同于高级存储磁盘使用的专用带宽。
 
@@ -158,7 +161,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 * **吞吐量**
 
-    吞吐量限制包括磁盘写入，以及不是从缓存进行的磁盘读取操作。 例如，每个 P10 磁盘有 100 MB/秒的吞吐量。 下表显示了 P10 磁盘的一些有效吞吐量示例：
+    吞吐量限制包括磁盘写入，以及不是从缓存进行的磁盘读取操作。 例如，P10 磁盘有 100 MB/秒的每磁盘吞吐量。 下表显示了 P10 磁盘的一些有效吞吐量示例：
 
     | 每个 P10 磁盘的吞吐量上限 | 从磁盘进行的非缓存读取 | 对磁盘的非缓存写入 |
     | --- | --- | --- |
@@ -243,10 +246,10 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
 | CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [需要 LIS4](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *请参阅下一部分中的注释* |
 | CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [建议使用 LIS4](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *请参阅下一部分中的注释* |
-| Red Hat Enterprise Linux (RHEL) | 6.8+、7.2+ | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 或 RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 或带[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)的 RHCK |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 或带[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)的 RHCK |
+<!-- 不可用于 | Red Hat Enterprise Linux (RHEL) | 6.8+、7.2+ | &nbsp; | &nbsp; | -->
+<!-- 不可用于 | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 或 RHCK | -->
+<!-- 不可用于 | Oracle | 7.0-7.1 | &nbsp; | UEK4 或带[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)的 RHCK | -->
+<!-- 不可用于 | Oracle | 6.4-6.7 | &nbsp; | UEK4 或带[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)的 RHCK | -->
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS 的 LIS 驱动程序
 
@@ -283,7 +286,7 @@ sudo yum install microsoft-hyper-v
 
 * [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)
 * [虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)
-* [托管磁盘定价](https://www.azure.cn/pricing/details/managed-disks/)
+<!-- Not Available on * [Managed disks pricing](https://www.azure.cn/pricing/details/managed-disks/) -->
 
 ## <a name="azure-backup-support"></a>Azure 备份支持 
 
@@ -303,4 +306,4 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="blog-posts"></a>博客文章
 * [Azure Premium Storage generally available](https://azure.microsoft.com/blogazure-premium-storage-now-generally-available-2/)（Azure 高级存储已正式推出）
-* [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud](https://azure.microsoft.com/blogazure-has-the-most-powerful-vms-in-the-public-cloud/)（GS 系列公告：将高级存储支持添加到公有云中的最大 VM）
+<!-- Not Available on * [Announcing the GS-series: Adding Premium Storage support to the largest VMs in the public cloud](https://azure.microsoft.com/blogazure-has-the-most-powerful-vms-in-the-public-cloud/) -->

@@ -4,11 +4,11 @@ hide_bc: True
 title: "Azure 文档"
 description: "了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
 featureFlags: clicktale
-ms.openlocfilehash: 228794fe0b9ec8eee98a83d4e1ad5748a63d08d2
-ms.sourcegitcommit: cc3fd1a8a5cfd0220df0430d2504ec5214c6c19d
+ms.openlocfilehash: afc9fb394bf82d54e2a755464acb1f93a529dcdd
+ms.sourcegitcommit: dd2f175fb148a16f317a882401f4771d7171bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -161,6 +161,7 @@ ms.lasthandoff: 12/12/2017
                                                 <h4>关系数据库</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/sql-database/">SQL 数据库即服务</a></li>
+                                                    <li><a class="barLink" href="/sql-data-warehouse/">SQL 数据仓库即服务</a></li>
                                                     <li><a class="barLink" href="/mysql/">MySQL 数据库即服务</a></li>
                                                 </ul>
                                                 <h4>NoSQL</h4>
@@ -384,6 +385,12 @@ ms.lasthandoff: 12/12/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/dns/">
+                                                <img src="media/index/DNS.svg" alt="" />
+                                                <p>Azure DNS</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
                                                 <p>内容传送网络</p>
@@ -412,19 +419,19 @@ ms.lasthandoff: 12/12/2017
                                     <ul>
                                         <li>
                                             <a href="/cognitive-services/computer-vision/">
-                                                <img src="media/index/API_Vis_ComputerVision.svg" alt="" />
+                                                <img src="media/index/API_Computer_Vision.svg" alt="" />
                                                 <p>计算机视觉</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/cognitive-services/emotion/home">
-                                                <img src="media/index/API_Vis_Emotion.svg" alt="" />
+                                                <img src="media/index/API_Emotion.svg" alt="" />
                                                 <p>情感 API</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/cognitive-services/face/">
-                                                <img src="media/index/API_Vis_Face.svg" alt="" />
+                                                <img src="media/index/API_Face.svg" alt="" />
                                                 <p>人脸 API</p>
                                             </a>
                                         </li>
@@ -468,7 +475,7 @@ ms.lasthandoff: 12/12/2017
                                         <li>
                                             <a href="/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>备份</p>
+                                                <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
@@ -656,7 +663,7 @@ ms.lasthandoff: 12/12/2017
                                         <li>
                                             <a href="/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>备份</p>
+                                                <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
@@ -678,6 +685,11 @@ ms.lasthandoff: 12/12/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/billing/">
+                                                <img src="media/index/billing.svg" alt="" />
+                                                <p>计费</p>
+                                            </a>
+                                        </li>
                                             <a href="/azure-resource-manager/">
                                                 <img src="media/index/azuredefaultblack.svg" alt="" />
                                                 <p>Azure Resource Manager</p>
@@ -760,7 +772,7 @@ ms.lasthandoff: 12/12/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Web 应用</h3>
-                                                    <p>快速创建并大规模部署任务关键型 Web 应用</p>
+                                                    <p>快速创建并部署可缩放的关键任务 Web 应用</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -919,6 +931,25 @@ ms.lasthandoff: 12/12/2017
                                                 <div class="cardText">
                                                     <h3>VPN 网关</h3>
                                                     <p>建立安全的跨界连接</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/dns/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/DNS.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure DNS</h3>
+                                                    <p>在 Azure 中托管 DNS 域</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1112,7 +1143,7 @@ ms.lasthandoff: 12/12/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>备份</h3>
+                                                    <h3>Backup</h3>
                                                     <p>以简单可靠的方式将服务器数据备份到云中</p>
                                                 </div>
                                             </div>
@@ -1574,13 +1605,13 @@ ms.lasthandoff: 12/12/2017
                                                         <h3>影像</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/cognitive-services/computer-vision/"><img src="media/index/API_Vis_ComputerVision.svg" alt="" />计算机视觉</a>
+                                                                <a class="barLink" href="/cognitive-services/computer-vision/"><img src="media/index/API_Computer_Vision.svg" alt="" />计算机视觉</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/cognitive-services/emotion/home"><img src="media/index/API_Vis_Emotion.svg" alt="" /><span>情感 API&nbsp;<sup style="font-size:70%">预览</sup></span></a>
+                                                                <a class="barLink" href="/cognitive-services/emotion/home"><img src="media/index/API_Emotion.svg" alt="" /><span>情感 API&nbsp;<sup style="font-size:70%">预览</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/cognitive-services/face/"><img src="media/index/API_Vis_Face.svg" alt="" />人脸 API</a>
+                                                                <a class="barLink" href="/cognitive-services/face/"><img src="media/index/API_Face.svg" alt="" />人脸 API</a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -1883,7 +1914,7 @@ ms.lasthandoff: 12/12/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>安全信息</h3>
-                                                    <p>了解 Azure 如何提供用于生成云解决方案的安全基础结构</p>
+                                                    <p>了解 Azure 如何提供安全基础结构用于构建云解决方案</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1949,7 +1980,7 @@ ms.lasthandoff: 12/12/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>备份</h3>
+                                                    <h3>Backup</h3>
                                                     <p>以简单可靠的方式将服务器数据备份到云中</p>
                                                 </div>
                                             </div>
@@ -1968,7 +1999,7 @@ ms.lasthandoff: 12/12/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>站点恢复</h3>
+                                                    <h3>Site Recovery</h3>
                                                     <p>协调私有云的保护和恢复</p>
                                                 </div>
                                             </div>
@@ -2015,6 +2046,25 @@ ms.lasthandoff: 12/12/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/billing/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/billing.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>计费</h3>
+                                                    <p>了解如何阅读/理解 Azure 订阅的使用情况和计费</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure-resource-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2045,7 +2095,7 @@ ms.lasthandoff: 12/12/2017
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
-                                    <h2>语言和框架</h2>
+                                    <h2>语言 &amp; 框架</h2>
                                 </div>
                             </li>
                             <li>

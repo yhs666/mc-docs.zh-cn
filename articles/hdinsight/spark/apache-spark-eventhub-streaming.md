@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/28/2017
-ms.date: 12/25/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: fd2a5860e0c573f5f2abee6fc49ff2affb687479
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 23be5da9868de7a43c31c63b8d23b4fc2891e4fc
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Apache Spark 流式处理：在 HDInsight 上使用 Spark 群集处理来自 Azure 事件中心的数据
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 12/15/2017
 
 1. 确保已在运行此应用程序的计算机上安装以下组件。
 
-    * Oracle Java 开发工具包。 可以从 [此处](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)安装它。
+    * Oracle Java 开发工具包。 可从[此处](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)进行安装。
     * Apache Maven。 可以从[此处](https://maven.apache.org/download.cgi)下载它。 [此处](https://maven.apache.org/install.html)提供了有关安装 Maven 的说明。
 
 2. 打开命令提示符并导航到将示例 Scala 应用程序的 GitHub 存储库克隆到的位置，然后运行以下命令生成应用程序。
@@ -385,7 +385,7 @@ Spark 流式处理应用程序将继续运行，直到被终止。 若要终止�
     Time taken: 4.434 seconds, Fetched: 10 row(s)
 
 ### <a name="run-the-applications-to-receive-the-events-into-an-azure-sql-database-table"></a>运行应用程序以将事件接收到 Azure SQL 数据库表中
-在运行此步骤之前，请确保已创建 Azure SQL 数据库。 有关说明，请参阅[快速创建 SQL 数据库](../sql-database/sql-database-get-started.md)。 若要完成本部分，需要指定数据库名称、数据库服务器名称和数据库管理员凭据的值作为参数。 但是，不需要创建数据库表。 Spark 流式处理应用程序将创建该表。
+在运行此步骤之前，请确保已创建 Azure SQL 数据库。 有关说明，请参阅[快速创建 SQL 数据库](../../sql-database/sql-database-get-started-portal.md)。 若要完成本部分，需要指定数据库名称、数据库服务器名称和数据库管理员凭据的值作为参数。 但是，不需要创建数据库表。 Spark 流式处理应用程序将创建该表。
 
 打开命令提示符，导航到安装 CURL 的目录，并运行以下命令：
 
@@ -395,7 +395,7 @@ Spark 流式处理应用程序将继续运行，直到被终止。 若要终止�
 
     { "file":"wasb:///example/jars/spark-streaming-data-persistence-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToAzureSQLTable", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--sql-server-fqdn", "<database-server-name>.database.chinacloudapi.cn", "--sql-database-name", "mysparkdatabase", "--database-username", "sparkdbadmin", "--database-password", "<put-password-here>", "--event-sql-table", "EventContent" ], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
-若要验证应用程序是否已成功运行，可以使用 SQL Server Management Studio 连接到 Azure SQL 数据库。 有关如何执行该操作的说明，请参阅[使用 SQL Server Management Studio 连接到 SQL 数据库](../sql-database/sql-database-connect-query-ssms.md)。 连接到数据库之后，可以导航到流应用程序所创建的 **EventContent** 表。 可以运行快速查询以获取该表中的数据。 运行以下查询：
+若要验证应用程序是否已成功运行，可以使用 SQL Server Management Studio 连接到 Azure SQL 数据库。 有关如何执行该操作的说明，请参阅[使用 SQL Server Management Studio 连接到 SQL 数据库](../../sql-database/sql-database-connect-query-ssms.md)。 连接到数据库之后，可以导航到流应用程序所创建的 **EventContent** 表。 可以运行快速查询以获取该表中的数据。 运行以下查询：
 
     SELECT * FROM EventCount
 
@@ -415,33 +415,33 @@ Spark 流式处理应用程序将继续运行，直到被终止。 若要终止�
     004a11a9-0c2c-4bc0-a7d5-2e0ebd947ab9
 
 ## <a name="seealso"></a>另请参阅
-* [概述：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)
+* [概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 * [基于接收方的连接和 Direct DStream 的设计](https://www.slideshare.net/NanZhu/seattle-sparkmeetup032317)
 
 ### <a name="scenarios"></a>方案
-* [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [使用 HDInsight 中的 Spark 分析网站日志](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
+* [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](apache-spark-ipython-notebook-machine-learning.md)
+* [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
+* [使用 HDInsight 中的 Spark 分析网站日志](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序
-* [使用 Scala 创建独立的应用程序](hdinsight-apache-spark-create-standalone-application.md)
-* [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
+* [使用 Scala 创建独立的应用程序](../hdinsight-apache-spark-create-standalone-application.md)
+* [使用 Livy 在 Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和扩展
-* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-zeppelin-notebook.md)
-* [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](apache-spark-intellij-tool-plugin.md)
+* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](apache-spark-zeppelin-notebook.md)
+* [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](apache-spark-jupyter-notebook-kernels.md)
+* [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理资源
-* [管理 Azure HDInsight 中 Apache Spark 群集的资源](hdinsight-apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](hdinsight-apache-spark-job-debugging.md)
+* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](apache-spark-job-debugging.md)
 
 [hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/

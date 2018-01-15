@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/11/2016
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5cc9a63e6c37987a1dff37b20941fdf9487eafa4
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: f09a64eb807f666374a87ae07d5a67ec2a8de743
+ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>使用网络安全组筛选网络流量
 
@@ -34,9 +34,9 @@ NSG 包含以下属性：
 | 属性 | 说明 | 约束 | 注意事项 |
 | --- | --- | --- | --- |
 | Name |NSG 的名称 |必须在区域内唯一。<br/>可以包含字母、数字、下划线、句点和连字符。<br/>必须以字母或数字开头。<br/>必须以字母、数字或下划线结尾。<br/>不能超过 80 个字符。 |由于可能需要创建多个 NSG，因此请确保设置命名约定，以便轻松标识 NSG 的功能。 |
-| 区域 |在其中创建 NSG 的 Azure [区域](https://www.azure.cn/support/service-dashboard/)。 |只能将多个 NSG 关联到该 NSG 所在区域中的资源。 ||
-<!-- Not Available on azure\-subscription\-service\-limits.md -->
-| 资源组 |NSG 所在的[资源组](../azure-resource-manager/resource-group-overview.md#resource-groups)。 |虽然 NSG 存在于一个资源组中，但可将其关联到任意资源组中的资源，只要该资源与 NSG 属于同一 Azure 区域。 |资源组用于以部署单元的形式集中管理多个资源。<br/>可以考虑将 NSG 与相关联的资源组合在一起。 | | 规则 |入站或出站规则，用于定义允许或拒绝的具体流量。 | |请参阅本文的 [NSG 规则](#Nsg-rules)部分。 |
+| 区域 |在其中创建 NSG 的 Azure [区域](https://www.azure.cn/support/service-dashboard/)。 |只能将多个 NSG 关联到该 NSG 所在区域中的资源。 |若要了解一个区域可以有多少 NSG，请阅读文章。|
+| 资源组 |NSG 所在的[资源组](../azure-resource-manager/resource-group-overview.md#resource-groups)。 |虽然 NSG 存在于一个资源组中，但可将其关联到任意资源组中的资源，只要该资源与 NSG 属于同一 Azure 区域。 |资源组用于以部署单元的形式集中管理多个资源。<br/>可以考虑将 NSG 与相关联的资源组合在一起。 |
+| 规则 |入站或出站规则，用于定义允许或拒绝的具体流量。 | |请参阅本文的 [NSG 规则](#Nsg-rules)部分。 |
 
 > [!NOTE]
 > 不支持将基于终结点的 ACL 和网络安全组置于相同 VM 实例上。 如果想要使用 NSG，但已有了终结点 ACL，则请先删除该终结点 ACL。 若要了解如何删除 ACL，请阅读[使用 PowerShell 管理终结点的访问控制列表 (ACL)](virtual-networks-acl-powershell.md) 一文。
@@ -47,7 +47,7 @@ NSG 规则包含以下属性：
 
 | 属性 | 说明 | 约束 | 注意事项 |
 | --- | --- | --- | --- |
-| **Name** |规则的名称。 |必须在区域内唯一。<br/>可以包含字母、数字、下划线、句点和连字符。<br/>必须以字母或数字开头。<br/>必须以字母、数字或下划线结尾。<br/>不能超过 80 个字符。 |一个 NSG 中可以有多个规则，因此请确保遵循命名约定，以便标识规则的功能。 |
+| **名称** |规则的名称。 |必须在区域内唯一。<br/>可以包含字母、数字、下划线、句点和连字符。<br/>必须以字母或数字开头。<br/>必须以字母、数字或下划线结尾。<br/>不能超过 80 个字符。 |一个 NSG 中可以有多个规则，因此请确保遵循命名约定，以便标识规则的功能。 |
 | **协议** |要与规则匹配的协议。 |TCP、UDP 或 * |使用 * 作为协议时，会包括 ICMP（仅限东西通信），以及 UDP 和 TCP，可能会减少所需规则的数量。<br/>同时，使用 * 可能是过于宽泛的方法，因此建议只在必要时使用 *。 |
 | **Source port range** |要与规则匹配的源端口范围。 |单个端口号（从 1 到 65535）、端口范围（示例：1-65535）、或 *（表示所有端口）。 |源端口可以是暂时的。 除非客户端程序在使用特定端口，否则请在大多数情况下使用 *。<br/>尽可能尝试使用端口范围，这样就不需使用多个规则。<br/>不能使用逗号对多个端口或端口范围分组。 |
 | **Destination port range** |要与规则匹配的目标端口范围。 |单个端口号（从 1 到 65535）、端口范围（示例：1-65535）、或 \*（表示所有端口）。 |尽可能尝试使用端口范围，这样就不需使用多个规则。<br/>不能使用逗号对多个端口或端口范围分组。 |
@@ -80,19 +80,19 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 
 **入站默认规则**
 
-| Name | 优先级 | Source IP | Source Port | Destination IP | Destination Port | 协议 | Access |
+| Name | Priority | Source IP | Source Port | Destination IP | Destination Port | 协议 | 访问 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | ALLOW |
-| AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | ALLOW |
-| DenyAllInBound |65500 | * | * | * | * | * | DENY |
+| AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | 允许 |
+| AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | 允许 |
+| DenyAllInBound |65500 | * | * | * | * | * | 拒绝 |
 
 **出站默认规则**
 
-| Name | 优先级 | Source IP | Source Port | Destination IP | Destination Port | 协议 | Access |
+| Name | Priority | Source IP | Source Port | Destination IP | Destination Port | 协议 | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | ALLOW |
-| AllowInternetOutBound | 65001 | * | * | Internet | * | * | ALLOW |
-| DenyAllOutBound | 65500 | * | * | * | * | * | DENY |
+| AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | 允许 |
+| AllowInternetOutBound | 65001 | * | * | Internet | * | * | 允许 |
+| DenyAllOutBound | 65500 | * | * | * | * | * | 拒绝 |
 
 ## <a name="associating-nsgs"></a>关联 NSG
 可以根据所使用的部署模型将 NSG 关联到 VM、NIC 和子网，如下所示：
@@ -124,7 +124,7 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 
 | 部署工具 | 经典 | Resource Manager |
 | --- | --- | --- |
-| Azure 门户   | 是 | [是](virtual-networks-create-nsg-arm-pportal.md) |
+| Azure 门户   | 否 | [是](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [是](virtual-networks-create-nsg-classic-ps.md) | [是](virtual-networks-create-nsg-arm-ps.md) |
 | Azure CLI **V1**   | [是](virtual-networks-create-nsg-classic-cli.md) | [是](virtual-networks-create-nsg-arm-cli.md) |
 | Azure CLI **V2**   | 否 | [是](virtual-networks-create-nsg-arm-cli.md) |
@@ -141,7 +141,7 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 了解[规划](#Planning)部分问题的答案以后，请查看以下部分的内容，再定义 NSG：
 
 ### <a name="limits"></a>限制
-订阅中的 NSG 数目以及每个 NSG 的规则数目均存在限制。 
+订阅中的 NSG 数目以及每个 NSG 的规则数目均存在限制。  有关限制的详细信息，请阅读 [Azure limits](../azure-subscription-service-limits.md#networking-limits)（Azure 限制）一文。
 
 ### <a name="vnet-and-subnet-design"></a>VNet 和子网设计
 由于 NSG 可以应用于子网，因此可以通过按子网来组合资源以及将 NSG 应用到子网来尽量减少 NSG 的数量。  如果决定将 NSG 应用到子网，你可能会发现，现有的 VNet 和子网不是通过所要的 NSG 定义的。 为了支持 NSG 设计以及将新资源部署到新子网，可能需要定义新的 VNet 和子网。 然后，才能定义一个迁移策略，将现有资源移到新子网。 
@@ -193,40 +193,40 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 ### <a name="frontend"></a>FrontEnd
 **入站规则**
 
-| 规则 | 访问 | 优先级 | Source address range | Source Port | Destination address range | Destination Port | 协议 |
+| 规则 | 访问 | Priority | Source address range | Source Port | Destination address range | Destination Port | 协议 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Allow-Inbound-HTTP-Internet | ALLOW | 100 | Internet | * | * | 80 | TCP |
-| Allow-Inbound-RDP-Internet | ALLOW | 200 | Internet | * | * | 3389 | TCP |
-| Deny-Inbound-All | DENY | 300 | Internet | * | * | * | TCP |
+| Allow-Inbound-HTTP-Internet | 允许 | 100 | Internet | * | * | 80 | TCP |
+| Allow-Inbound-RDP-Internet | 允许 | 200 | Internet | * | * | 3389 | TCP |
+| Deny-Inbound-All | 拒绝 | 300 | Internet | * | * | * | TCP |
 
 **出站规则**
 
-| 规则 | 访问 | 优先级 | Source address range | Source Port | Destination address range | Destination Port | 协议 |
+| 规则 | 访问 | Priority | Source address range | Source Port | Destination address range | Destination Port | 协议 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All |DENY |100 | * | * | Internet | * | * |
+| Deny-Internet-All |拒绝 |100 | * | * | Internet | * | * |
 
 ### <a name="backend"></a>BackEnd
 **入站规则**
 
-| 规则 | 访问 | 优先级 | Source address range | Source Port | Destination address range | Destination Port | 协议 |
+| 规则 | 访问 | Priority | Source address range | Source Port | Destination address range | Destination Port | 协议 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All | DENY | 100 | Internet | * | * | * | * |
+| Deny-Internet-All | 拒绝 | 100 | Internet | * | * | * | * |
 
 **出站规则**
 
-| 规则 | 访问 | 优先级 | Source address range | Source Port | Destination address range | Destination Port | 协议 |
+| 规则 | 访问 | Priority | Source address range | Source Port | Destination address range | Destination Port | 协议 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All | DENY | 100 | * | * | Internet | * | * |
+| Deny-Internet-All | 拒绝 | 100 | * | * | Internet | * | * |
 
 以下 NSG 在以下 VM 中创建并关联到 NIC：
 
 ### <a name="web1"></a>WEB1
 **入站规则**
 
-| 规则 | 访问 | 优先级 | Source address range | Source Port | Destination address range | Destination Port | 协议 |
+| 规则 | 访问 | Priority | Source address range | Source Port | Destination address range | Destination Port | 协议 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Allow-Inbound-RDP-Internet | ALLOW | 100 | Internet | * | * | 3389 | TCP |
-| Allow-Inbound-HTTP-Internet | ALLOW | 200 | Internet | * | * | 80 | TCP |
+| Allow-Inbound-RDP-Internet | 允许 | 100 | Internet | * | * | 3389 | TCP |
+| Allow-Inbound-HTTP-Internet | 允许 | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
 > 上述规则的源地址范围是 **Internet**，而不是负载均衡器的虚拟 IP 地址。 源端口是 *，而不是 500001。 负载均衡器的 NAT 规则不同于 NSG 安全规则。 NSG 安全规则始终与流量的最初源和最终目标相关，与二者之间的负载均衡器**无关**。 
@@ -236,24 +236,24 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 ### <a name="web2"></a>WEB2
 **入站规则**
 
-| 规则 | 访问 | 优先级 | Source address range | Source Port | Destination address range | Destination Port | 协议 |
+| 规则 | 访问 | Priority | Source address range | Source Port | Destination address range | Destination Port | 协议 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Deny-Inbound-RDP-Internet | DENY | 100 | Internet | * | * | 3389 | TCP |
-| Allow-Inbound-HTTP-Internet | ALLOW | 200 | Internet | * | * | 80 | TCP |
+| Allow-Inbound-HTTP-Internet | 允许 | 200 | Internet | * | * | 80 | TCP |
 
 ### <a name="db-servers-management-nic"></a>DB 服务器（管理 NIC）
 **入站规则**
 
-| 规则 | 访问 | 优先级 | Source address range | Source Port | Destination address range | Destination Port | 协议 |
+| 规则 | 访问 | Priority | Source address range | Source Port | Destination address range | Destination Port | 协议 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Allow-Inbound-RDP-Front-end | ALLOW | 100 | 192.168.1.0/24 | * | * | 3389 | TCP |
+| Allow-Inbound-RDP-Front-end | 允许 | 100 | 192.168.1.0/24 | * | * | 3389 | TCP |
 
 ### <a name="db-servers-database-traffic-nic"></a>DB 服务器（数据库流量 NIC）
 **入站规则**
 
-| 规则 | 访问 | 优先级 | Source address range | Source Port | Destination address range | Destination Port | 协议 |
+| 规则 | 访问 | Priority | Source address range | Source Port | Destination address range | Destination Port | 协议 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Allow-Inbound-SQL-Front-end | ALLOW | 100 | 192.168.1.0/24 | * | * | 1433 | TCP |
+| Allow-Inbound-SQL-Front-end | 允许 | 100 | 192.168.1.0/24 | * | * | 1433 | TCP |
 
 由于某些 NSG 关联到单个 NIC，因此这些规则适用于通过 Resource Manager 部署的资源。 规则针对子网和 NIC 进行组合，具体取决于其关联方式。 
 

@@ -16,18 +16,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: a4fc5324c1f55a1e058df98ab845424f711c839e
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: aa497ea326194e7c8124fd74ce1c79941df91a7f
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>HDInsight 中的 HBase 是什么：为 Hadoop 提供类似于 BigTable 的功能的 NoSQL 数据库
 Apache HBase 是一种开源 NoSQL 数据库，它构建于 Hadoop 基础之上，并基于 Google BigTable 模型化。 HBase 针对按列系列组织的无架构数据库中的大量非结构化和结构化数据提供随机访问和强一致性。
 
 数据存储在表的各行中，行中的数据按列系列分组。 HBase 是无架构数据库，也就是说，不必在使用其中数据前定义列和列中所存储数据类型。 开放源代码可进行线性伸缩，以处理上千节点上数 PB 的数据。 开放源代码可依赖数据冗余、批处理以及 Hadoop 生态系统中的分布式应用程序提供的其他功能。
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="how-is-hbase-implemented-in-azure-hdinsight"></a>如何在 Azure HDInsight 中实施 HBase？
 HDInsight HBase 以集成到 Azure 环境中的托管群集形式提供。 这些群集配置为在 [Azure 存储](./../hdinsight-hadoop-use-blob-storage.md)中直接存储数据，这样就减少了延迟，并提高了选择性能和价格的弹性。 这样，客户便可构建用于处理大型数据集的交互式网站，构建用于存储数百万个终结点的传感器数据与遥测数据的服务，并通过 Hadoop 作业来分析这些数据。 HBase 和 Hadoop 是在 Azure 中构建大数据项目的良好起点，特别是可以支持实时应用程序来处理大数据集。
@@ -49,7 +51,7 @@ HDInsight 实施利用 HBase 的横向扩展架构来提供表自动分片、使
     HBase 可用作键值存储，适用于管理消息系统。 Facebook 使用 HBase 作为消息系统，适用于存储和管理 Internet 通信。 WebTable 使用 HBase 搜索和管理从网页中提取的表。
 * 传感器数据
 
-    HBase 用于捕获从各种源逐步收集的数据。 这包括社交分析、时间序列、使交互式仪表板与趋势和计数器保持同步，以及管理审核日志系统。 具体示例包括：Bloomberg 交易终端以及开放时间序列数据库 (Open Time Series Database, OpenTSDB)，后者用于存储所收集的服务器系统运行状况指标并对其进行访问。
+    HBase 用于捕获从各种源逐步收集的数据。 这包括社交分析、时间序列、使交互式仪表板与趋势和计数器保持同步，以及管理审计日志系统。 具体示例包括：Bloomberg 交易终端以及开放时间序列数据库 (Open Time Series Database, OpenTSDB)，后者用于存储所收集的服务器系统运行状况指标并对其进行访问。
 * 实时查询
 
     [Phoenix](http://phoenix.apache.org/) 是 Apache HBase 的 SQL 查询引擎。 该引擎以 JDBC 驱动程序的形式供用户访问，并且支持使用 SQL 来查询和管理 HBase 表。

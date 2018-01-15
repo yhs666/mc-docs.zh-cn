@@ -14,17 +14,17 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/07/2017
-ms.date: 12/18/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: a75d75fa9bfa6b43c777827b2ba891448d075be2
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: f4b2aeee33258a9d6442faa2255921a2ff39637e
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>Apache Kafka on HDInsight 入门
 
-了解如何在 Azure HDInsight 上创建和使用 [Apache Kafka](https://kafka.apache.org) 群集。 Kafka 是开源分布式流式处理平台，可与 HDInsight 配合使用。 通常将其用作消息代理，因为它可提供类似于发布-订阅消息队列的功能。
+了解如何在 Azure HDInsight 上创建和使用 [Apache Kafka](https://kafka.apache.org) 群集。 Kafka 是开源分布式流式处理平台，可与 HDInsight 配合使用。 它提供类似于发布-订阅消息队列的功能，因此通常用作消息中转站。
 
 > [!NOTE]
 > 目前，有两个 Kafka 版本可用于 HDInsight；0.9.0 (HDInsight 3.4) 和 0.10.0（HDInsight 3.5 和 3.6）。 本文档中的步骤假设使用 Kafka on HDInsight 3.6。
@@ -33,9 +33,9 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="create-a-kafka-cluster"></a>创建 Kafka 群集
 
-使用以下步骤创建 Kafka on HDInsight 群集：
+使用以下步骤可以创建 Kafka on HDInsight 群集：
 
-1. 从 [Azure 门户](https://portal.azure.cn)，选择“+ 新建”**、“智能 + 分析”**，并选择“HDInsight”。
+1. 从 [Azure 门户](https://portal.azure.cn)依次选择“+ 新建”**、“数据 + 分析”**、“HDInsight”。
 
     ![创建 HDInsight 群集](./media/apache-kafka-get-started/create-hdinsight.png)
 
@@ -65,9 +65,9 @@ ms.lasthandoff: 12/08/2017
      
  ![选择群集类型](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
 
-4. 选择群集类型后，请使用“选择”  按钮设置群集类型。 接下来，使用“下一步”按钮完成基本配置。
+4. 选择群集类型后，使用“选择”按钮设置群集类型。 接下来，使用“下一步”  按钮完成基本配置。
 
-5. 在“存储”中选择或创建存储帐户。 对于本文档中的步骤，请让其他字段保留默认值。 使用“下一步”按钮保存存储配置。
+5. 在“存储”中选择或创建存储帐户。 对于本文档中的步骤，请让其他字段保留默认值。 使用“下一步”  按钮保存存储配置。
 
     ![设置 HDInsight 的存储帐户设置](./media/apache-kafka-get-started/set-hdinsight-storage-account.png)
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 12/08/2017
 
 使用以下步骤创建包含主机信息的环境变量。 这些环境变量在本文档的步骤中使用。
 
-1. 与群集建立 SSH 连接后，使用以下命令安装 `jq` 实用工具。 此实用工具用于分析 JSON 文档且有助于检索代理主机的信息：
+1. 与群集建立 SSH 连接后，使用以下命令安装 `jq` 实用工具。 此实用工具用于分析 JSON 文档，在检索中转站主机信息时非常有用：
 
     ```bash
     sudo apt -y install jq
@@ -135,7 +135,7 @@ ms.lasthandoff: 12/08/2017
     > [!IMPORTANT]
     > 将 `CLUSTERNAME=` 设置为 Kafka 群集的名称。 将 `PASSWORD=` 设置为在创建群集时使用的登录（管理员）密码。
 
-    以下文本是 `$KAFKAZKHOSTS` 的内容示例：
+    以下文本是 `$KAFKAZKHOSTS`的内容示例：
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.chinacloudapp.cn:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.chinacloudapp.cn:2181`
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 12/08/2017
     > `cut` 命令用于将主机列表剪裁为两个主机条目。 创建 Kafka 使用者或生成者时，不需提供主机的完整列表。
 
     > [!WARNING]
-    > 不要期望从此会话中返回的信息始终准确。 如果缩放群集，会相应地新增或删除中转站。 如果发生故障或更换了节点，节点的主机名可能会更改。
+    > 请不要认为从此会话返回的信息总是准确的。 如果缩放群集，会相应地新增或删除中转站。 如果发生故障或更换了节点，节点的主机名可能会更改。
     >
     > 应在检索 Zookeeper 和中转站主机信息后尽快使用这些信息，确保信息有效。
 
@@ -169,9 +169,9 @@ Kafka 将数据流存储在名为*主题*的类别中。 在与群集头节点�
 
 ## <a name="produce-and-consume-records"></a>生成和使用记录
 
-Kafka 将记录存储在主题中。 记录由*生成者*生成，由*使用者*使用。 生成者从 Kafka *中转站*检索记录。 HDInsight 群集中的每个辅助角色节点都是一个 Kafka 中转站。
+Kafka 将*记录*存储在主题中。 记录由*生成者*生成，由*使用者*使用。 生成者将记录生成到 Kafka 代理。 HDInsight 群集中的每个辅助角色节点都是一个 Kafka 中转站。
 
-使用以下步骤将记录存储到之前创建的测试主题，并通过使用者对其进行读取：
+使用以下步骤将记录存储到前面创建的 test 主题中，然后使用使用者读取这些记录：
 
 1. 从 SSH 会话，使用随 Kafka 提供的脚本将记录写入主题：
 
@@ -181,34 +181,34 @@ Kafka 将记录存储在主题中。 记录由*生成者*生成，由*使用者*
 
     完成此命令后，不会返回到提示窗口。 而是键入一些文本消息，并使用 **Ctrl + C** 停止发送到主题。 每行应作为单独的记录发送。
 
-2. 使用随 Kafka 提供的脚本从主题中读取记录：
+2. 使用 Kafka 随附的脚本从主题中读取记录：
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
     ```
 
-    此命令从主题中检索并显示记录。 使用 `--from-beginning` 告知使用者从流的开头开始，以检索所有记录。
+    此命令从主题中检索并显示记录。 使用 `--from-beginning` 告知使用者要从流的开头开始读取，以便检索所有记录。
 
 3. 使用 __Ctrl + C__ 停止使用者。
 
 ## <a name="producer-and-consumer-api"></a>生成者和使用者 API
 
-还可使用 [Kafka API](http://kafka.apache.org/documentation#api) 以编程方式生成和使用记录。 若要构建 Java 生成者和使用者，请在开发环境中执行以下步骤。
+可以使用 [Kafka API](http://kafka.apache.org/documentation#api)以编程方式生成和使用记录。 若要构建 Java 生成者和使用者，请在开发环境中执行以下步骤。
 
 > [!IMPORTANT]
 > 必须在开发环境中安装以下组件：
 >
-> * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或类似程序，如 OpenJDK。
+> * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或等效版本，如 OpenJDK。
 >
 > * [Apache Maven](http://maven.apache.org/)
 >
 > * SSH 客户端和 `scp` 命令。 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)文档。
 
-1. 从 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 下载示例。 对于生成者/使用者示例，请使用 `Producer-Consumer` 目录中的项目。 本示例包含以下类：
+1. 从 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)下载示例。 对于生成者/使用者示例，请使用 `Producer-Consumer` 目录中的项目。 本示例包含以下类：
 
     * **运行** - 启动使用者或生成者。
 
-    * **生成者** - 将 1,000,000 个记录存储到主题中。
+    * 生成者 - 将 1,000,000 个记录存储到主题中。
 
     * **使用者** - 从主题中读取记录。
 
@@ -226,7 +226,7 @@ Kafka 将记录存储在主题中。 记录由*生成者*生成，由*使用者*
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.cn:kafka-producer-consumer.jar
     ```
 
-    将 **SSHUSER** 替换为群集的 SSH 用户，并将 **CLUSTERNAME** 替换为群集的名称。 出现提示时，请输入 SSH 用户密码。
+    将 **SSHUSER** 替换为群集的 SSH 用户，并将 **CLUSTERNAME** 替换为群集的名称。 出现提示时，请输入 SSH 用户的密码。
 
 4. 等 `scp` 命令复制完文件以后，使用 SSH 连接到群集。 使用以下命令将记录写入测试主题：
 
@@ -246,9 +246,9 @@ Kafka 将记录存储在主题中。 记录由*生成者*生成，由*使用者*
 
 ### <a name="multiple-consumers"></a>多个使用者
 
-在读取记录时，Kafka 使用者使用使用者组。 让多个使用者使用同一个组会导致对主题的读取进行负载均衡操作。 组中的每个使用者都会接收一部分记录。 若要在实际操作中了解此过程，请使用以下步骤：
+在读取记录时，Kafka 使用者使用使用者组。 对多个使用者使用相同的组会导致从主题进行负载均衡读取。 组中的每个使用者都会接收一部分记录。 若要在实际操作中了解此过程，请使用以下步骤：
 
-1. 向群集打开新 SSH 会话，从而具有两个会话。 在每个会话中，使用以下命令通过同一使用者组 ID 启动使用者：
+1. 打开与群集的新 SSH 会话，以便建立两个会话。 在每个会话中，使用以下命令通过同一使用者组 ID 启动使用者：
 
     ```bash
     java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
@@ -261,12 +261,12 @@ Kafka 将记录存储在主题中。 记录由*生成者*生成，由*使用者*
 
 2. 观察每个会话对从主题中收到的记录进行计数。 两个会话的总数应与前面从一个使用者收到的数目相同。
 
-同一个组中客户端的使用方式由主题的分区处理。 前面创建的 `test` 主题有 8 个分区。 若打开 8 个 SSH 会话，并在所有会话中启动一个使用者，每个使用者都将从主题的单个分区中读取记录。
+同一个组中客户端的使用方式由主题的分区处理。 前面创建的 `test` 主题有 8 个分区。 如果打开 8 个 SSH 会话并在所有会话中启动使用者，则每个使用者从该主题的单个分区读取记录。
 
 > [!IMPORTANT]
-> 使用者组中存在的使用者实例不能比分区多。 此示例中，一个使用者组最多可包含八个使用者，因为这是本主题中的分区数。 也可拥有多个使用者组，每个组的使用者不能超过八个。
+> 使用者组中的使用者实例数不能超过分区数。 此示例中，一个使用者组最多可包含八个使用者，因为这是本主题中的分区数。 也可拥有多个使用者组，每个组的使用者不能超过八个。
 
-存储在 Kafka 中的记录都按在分区中接收的顺序进行存储。 若要 *在分区中*实现有序的记录传送，可以创建使用者实例数与分区数相匹配的使用者组。 若要 *在主题中*实现有序的记录传送，可以创建仅包含一个使用者实例的使用者组。
+Kafka 中存储的记录将按接收顺序存储在分区中。 若要 *在分区中*实现有序的记录传送，可以创建使用者实例数与分区数相匹配的使用者组。 若要 *在主题中*实现有序的记录传送，可以创建仅包含一个使用者实例的使用者组。
 
 ## <a name="streaming-api"></a>流式处理 API
 
@@ -276,7 +276,7 @@ Kafka 将记录存储在主题中。 记录由*生成者*生成，由*使用者*
 
     此项目只包含一个类 (`Stream`)，该类从前面创建的 `test` 主题读取记录。 它会统计读取的字数，并发出每个字，计数到名为 `wordcounts` 的主题。 本部分后面的步骤会创建 `wordcounts` 主题。
 
-2. 从开发环境中的命令行，将目录更改为 `Streaming` 目录的位置，然后使用以下命令创建 jar 包：
+2. 在开发环境中的命令行下，将目录更换为 `Streaming` 目录所在的位置，并使用以下命令创建 jar 包：
 
     ```bash
     mvn clean package
@@ -290,7 +290,7 @@ Kafka 将记录存储在主题中。 记录由*生成者*生成，由*使用者*
     scp ./target/kafka-streaming-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.cn:kafka-streaming.jar
     ```
 
-    将 **SSHUSER** 替换为群集的 SSH 用户，并将 **CLUSTERNAME** 替换为群集的名称。 出现提示时，请输入 SSH 用户的密码。
+    将 **SSHUSER** 替换为群集的 SSH 用户，并将 **CLUSTERNAME** 替换为群集的名称。 出现提示时，请输入 SSH 用户密码。
 
 4. `scp` 命令完成文件复制后，请使用 SSH 连接到群集，然后使用以下命令创建 `wordcounts` 主题：
 

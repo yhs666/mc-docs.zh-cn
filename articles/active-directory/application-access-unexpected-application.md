@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 07/11/2017
 ms.date: 1/1/2018
 ms.author: v-nany
-ms.openlocfilehash: 5b40d2c1b237851fcb336600b596ef8d5b21d1a9
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 8e7bd19669952c6bfdf4e6cc713301e34de2ab09
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>应用程序列表中意料之外的应用程序
 
@@ -62,17 +62,16 @@ ms.lasthandoff: 12/29/2017
 
 4.  当通过使用[应用程序注册表](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)创建以自定义方式开发的应用程序，来添加新应用程序注册之时。
 
-5.  当通过使用 [V2.0 应用程序注册门户](./develop/active-directory-v2-app-registration.md#visit-the-microsoft-app-registration-portal)创建以自定义方式开发的应用程序，来添加新应用程序注册之时。
 
-6.  添加正在使用 Visual Studio 的 [ASP.net 身份验证方法](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)或[连接的服务](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)开发的应用程序时。
+5.  添加正在使用 Visual Studio 的 [ASP.net 身份验证方法](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)或[连接的服务](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)开发的应用程序时。
 
-7.  使用 [Azure AD PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0)创建服务主体对象时。
+6.  使用 [Azure AD PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0)创建服务主体对象时。
 
-8.  以管理员身份[同意某应用程序](./develop/active-directory-devhowto-multi-tenant-overview.md#understanding-user-and-admin-consent)使用租户中的数据时。
+7.  以管理员身份[同意某应用程序](./develop/active-directory-devhowto-multi-tenant-overview.md#understanding-user-and-admin-consent)使用租户中的数据时。
 
-9.  [用户同意某应用程序](./develop/active-directory-devhowto-multi-tenant-overview.md#understanding-user-and-admin-consent)使用租户中的数据时。
+8.  [用户同意某应用程序](./develop/active-directory-devhowto-multi-tenant-overview.md#understanding-user-and-admin-consent)使用租户中的数据时。
 
-10. 启用某些在租户中存储数据的服务时。 相应的一个示例是密码重置，密码重置是作为服务主体进行建模的，以便安全存储密码重置策略。
+9. 启用某些在租户中存储数据的服务时。 相应的一个示例是密码重置，密码重置是作为服务主体进行建模的，以便安全存储密码重置策略。
 
 要详细深入地了解如何将应用添加到目录，请参阅[如何以及为何将应用程序添加到 Azure AD](./develop/active-directory-how-applications-are-added.md)。
 

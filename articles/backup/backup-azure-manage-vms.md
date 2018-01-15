@@ -3,8 +3,8 @@ title: "管理 Resource Manager 部署型虚拟机备份 | Microsoft Docs"
 description: "了解如何管理和监视 Resource Manager 部署型虚拟机备份"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: trinadhk
+manager: shreeshd
 editor: 
 ms.assetid: f3050283-d60f-472d-b464-cb844e70d67e
 ms.service: backup
@@ -13,22 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2016
-ms.date: 11/27/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 97646816a7a8d039a9b22e9e3d88ac425a266ee1
-ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
+ms.openlocfilehash: 40f65d6ed83d2f9a3dbf4662fd9582307f490dbd
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>管理 Azure 虚拟机备份
-> [!div class="op_single_selector"]
-> * [管理 Azure VM 备份](backup-azure-manage-vms.md)
-> * [管理经典 VM 备份](backup-azure-manage-vms-classic.md)
->
->
 
-本文指导管理 VM 备份，并说明门户仪表板中提供的备份警报信息。 本文中的指导的适用范围是将 VM 用于恢复服务保管库。 本文不介绍如何创建虚拟机，也不说明如何保护虚拟机。 如需在 Azure 中使用恢复服务保管库保护 Azure 资源管理器部署型 VM 的入门指导，请参阅[初步了解：将 VM 备份到恢复服务保管库](backup-azure-vms-first-look-arm.md)。
+本文指导管理 VM 备份，并说明门户仪表板中提供的备份警报信息。 本文中的指导的适用范围是将 VM 用于恢复服务保管库。 本文不介绍如何创建虚拟机，也不说明如何保护虚拟机。 如需在 Azure 中使用恢复服务保管库保护 Azure 资源管理器部署的 VM 的入门指导，请参阅[初步了解：将 VM 备份到恢复服务保管库](backup-azure-vms-first-look-arm.md)。
 
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>管理保管库和受保护的虚拟机
 在 Azure 门户中，恢复服务保管库仪表板可用于访问有关保管库的信息，包括：
@@ -61,7 +56,7 @@ ms.lasthandoff: 11/29/2017
    > 如果将保管库固定到 Azure 仪表板，则打开 Azure 门户即可访问该保管库。 要将某个保管库固定到仪表板，可在保管库列表中，右键单击该保管库，选择“固定到仪表板”。
    >
    >
-3. 从保管库列表中，选择要打开其仪表板的保管库。 选择保管库后，将打开保管库仪表板和“**设置**”边栏选项卡。 在下图中，突出显示了“**Contoso-vault**”仪表板。
+3. 从保管库列表中，选择要打开其仪表板的保管库。 选择保管库后，会打开保管库仪表板和“设置”边栏选项卡。 在下图中，突出显示了“**Contoso-vault**”仪表板。
 
     ![打开保管库仪表板和“设置”边栏选项卡](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
@@ -211,7 +206,7 @@ ms.lasthandoff: 11/29/2017
 
     ![VM 类型](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    此时会打开“**删除备份数据**”边栏选项卡。
+    此时会打开“删除备份数据”边栏选项卡。
 
     ![VM 类型](./media/backup-azure-manage-vms/delete-backup-blade.png)
 2. 键入项的名称，以便确认需要删除恢复点。
@@ -225,6 +220,6 @@ ms.lasthandoff: 11/29/2017
     可以通过通知消息了解到备份数据已删除。
 
 ## <a name="next-steps"></a>后续步骤
-有关如何从恢复点重新创建虚拟机的信息，请查看 [Restore Azure VMs](backup-azure-restore-vms.md)（还原 Azure VM）。 如果需要有关如何保护虚拟机的信息，请参阅[初步了解：将 VM 备份到恢复服务保管库](backup-azure-vms-first-look-arm.md)。 有关监视事件的信息，请参阅[监视 Azure 虚拟机备份的警报](backup-azure-monitor-vms.md)。
+有关如何从恢复点重新创建虚拟机的信息，请查看 [Restore Azure VMs](backup-azure-arm-restore-vms.md)（还原 Azure VM）。 如果需要有关如何保护虚拟机的信息，请参阅[初步了解：将 VM 备份到恢复服务保管库](backup-azure-vms-first-look-arm.md)。 有关监视事件的信息，请参阅[监视 Azure 虚拟机备份的警报](backup-azure-monitor-vms.md)。
 
 <!--Update_Description: wording update -->

@@ -3,8 +3,8 @@ title: "排查网络安全组问题 - PowerShell | Azure"
 description: "了解如何使用 Azure PowerShell 在 Azure Resource Manager 部署模型中排查网络安全组问题。"
 services: virtual-network
 documentationcenter: na
-author: AnithaAdusumilli
-manager: narayan
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 4c732bb7-5cb1-40af-9e6d-a2a307c2a9c4
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/23/2016
-ms.date: 01/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: adb7a6ba75847ec47526af9078396c1a03821224
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 01/15/2018
+ms.author: v-yeche
+ms.openlocfilehash: 8b67cbfaadbafd10bdf83132ed6ecd61a11d9a4f
+ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>使用 Azure PowerShell 排查网络安全组问题
 > [!div class="op_single_selector"]
-> * [Azure 门户](virtual-network-nsg-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-nsg-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 > 
 > 
@@ -33,7 +33,7 @@ ms.lasthandoff: 06/23/2017
 
 使用 NSG 可以控制流入和流出虚拟机 (VM) 的流量类型。 可对 Azure 虚拟网络 (VNet) 中的子网和/或网络接口 (NIC) 应用 NSG。 对 NIC 应用的有效规则是对 NIC 应用的 NSG 以及对 NIC 所连接到的子网应用的 NSG 的规则聚合。 这些 NSG 的规则有时互相冲突，影响 VM 的网络连接。  
 
-可以查看 NSG 中对 VM NIC 应用的所有有效安全规则。 本文说明如何在 Azure Resource Manager 部署模型中使用这些规则来排查 VM 连接问题。 如果不熟悉 VNet 与 NSG 的概念，请参阅[虚拟网络](virtual-networks-overview.md)和[网络安全组](virtual-networks-nsg.md)概述文章。
+可以查看 NSG 中对 VM NIC 应用的所有有效安全规则。 本文说明如何在 Azure 资源管理器部署模型中使用这些规则来排查 VM 连接问题。 如果不熟悉 VNet 与 NSG 的概念，请参阅[虚拟网络](virtual-networks-overview.md)和[网络安全组](virtual-networks-nsg.md)概述文章。
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>使用有效的安全规则排查 VM 流量流问题
 以下情景是常见连接问题的示例：
@@ -45,7 +45,7 @@ ms.lasthandoff: 06/23/2017
 ## <a name="detailed-troubleshooting-steps"></a>详细故障排除步骤
 完成以下步骤排查 VM 的 NSG 问题：
 
-1. 启动 Azure PowerShell 会话并登录到 Azure。 如果不熟悉如何使用 Azure PowerShell，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 一文。
+1. 启动 Azure PowerShell 会话并登录到 Azure。 如果不熟悉如何使用 Azure PowerShell，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 一文。 你的帐户必须有权对网络接口执行 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 操作。 若要了解如何向帐户分配操作，请参阅[创建用于 Azure 基于角色的访问控制的自定义角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions)。
 2. 输入以下命令，返回对资源组 *RG1* 中名为 *VM1-NIC1* 的 NIC 应用的所有 NSG 规则：
 
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -160,7 +160,7 @@ ms.lasthandoff: 06/23/2017
 
    * 有两个 **NetworkSecurityGroup** 部分：一个与子网 (*Subnet1*) 相关联，另一个与 NIC (*VM1-NIC1*) 相关联。 在本示例中，两个都已应用 NSG。
    * **Association** 显示与给定的 NSG 关联的资源（子网或 NIC）。 如果在移动 NSG 资源/解除 NSG 资源的关联之后紧接着运行此命令，可能需要等待几秒钟时间，更改才会反映在命令输出中。 
-   * 前面带有 *defaultSecurityRules*的规则名称：创建 NSG 时，将在其中创建几个默认的安全规则。 无法删除默认规则，但可以使用更高优先级的规则将其覆盖。
+   * 前面带有 *defaultSecurityRules*的规则名称：创建 NSG 时，在其中创建几个默认的安全规则。 无法删除默认规则，但可以使用更高优先级的规则将其覆盖。
      请参阅 [NSG 概述](virtual-networks-nsg.md#default-rules)一文，详细了解 NSG 默认安全规则。
    * **ExpandedAddressPrefix** 扩展 NSG 默认标记的地址前缀。 标记代表多个地址前缀。 对 VM 与特定地址前缀的连接进行故障排除时，扩展标记很有用。 例如，如果有 VNET 对等互连，VIRTUAL_NETWORK 标记将在上述输出中扩展，显示对等互连的 VNet 前缀。
 
@@ -198,3 +198,4 @@ ms.lasthandoff: 06/23/2017
 * 如果已创建对等互连的 VNet，则默认情况下，VIRTUAL_NETWORK 标记会自动扩展，包含对等互连的 VNet 的前缀。 可以在 **ExpandedAddressPrefix** 列表中查看这些前缀，排查与 VNet 对等互连相关的任何问题。 
 * 仅当有 NSG 与 VM 的 NIC 和/或子网关联时，才会显示有效安全规则。 
 * 如果没有任何 NSG 与 NIC 或子网关联，并且向 VM 分配了公共 IP 地址，则会打开所有端口以便进行入站和出站访问。 如果 VM 使用公共 IP 地址，我们强烈建议对 NIC 或子网应用 NSG。
+<!-- Update_Description: update meta properties, wording update, update link -->

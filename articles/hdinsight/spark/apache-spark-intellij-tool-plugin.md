@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/25/2017
-ms.date: 12/25/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: b8748d7693234e3f28bb4ab3bdc485dae6e31f90
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: bf7c4245a8ec01e19e923d379004a99f891a296e
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用用于 IntelliJ 的 Azure 工具包为 HDInsight 群集创建 Spark 应用程序
 
@@ -260,9 +260,6 @@ ms.lasthandoff: 12/15/2017
 ## <a name="seealso"></a>后续步骤
 * [概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
-### <a name="demo"></a>演示
-* 创建 Scala 项目（视频）：[Create Spark Scala Applications](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)（创建 Spark Scala 应用程序）
-* 远程调试（视频）：[Use Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)（使用用于 IntelliJ 的 Azure 工具包远程调试 HDInsight 群集上的 Spark 应用程序）
 
 ### <a name="scenarios"></a>方案
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)

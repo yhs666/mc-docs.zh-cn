@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 origin.date: 10/31/2016
-ms.date: 07/17/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: cee41a6e534c4e4d36e214d357348b9d9aa8d8f9
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: 5c2a25a92e16c04f16ab3263e8e483030b0a6060
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中管理数据库
-SQL 数据仓库自动执行管理数据库的许多方面的操作。 例如，若要缩放性能，你只需调整相应级别的计算资源并为这些资源付费，然后即可让 SQL 数据仓库执行向外扩展和缩减的所有工作。
+SQL 数据仓库自动执行管理数据库的许多方面的操作。 例如，如果要缩放性能，用户只需调整相应级别的计算资源并为这些资源付费，即可让 SQL 数据仓库执行向外扩展和缩减的所有工作。
 
-你肯定需要监视工作负荷以确定所需性能，并对长时间运行的查询进行故障排除。 你还需要执行几个安全任务来管理用户和登录名的权限。
+肯定需要监视工作负荷以确定所需性能，并对长时间运行的查询进行故障排除。 还需要执行几个安全任务来管理用户和登录名的权限。
 
 本概述介绍管理 SQL 数据仓库的这些方面内容。
 
@@ -34,21 +34,22 @@ SQL 数据仓库自动执行管理数据库的许多方面的操作。 例如，
 * 暂停和恢复
 * 性能最佳实践
 * 监视查询
-* “安全”
+* 安全性
 * 备份和还原
 
 ## <a name="management-tools"></a>管理工具
-可以使用多种工具来管理 SQL 数据仓库中的数据库。 管理数据库时，你将为需要执行的每种类型的任务制定工具首选项。
+可以使用多种工具来管理 SQL 数据仓库中的数据库。 管理数据库时，将为需要执行的每种类型的任务制定工具首选项。
 
 ### <a name="azure-portal"></a>Azure 门户
-[Azure 门户][Azure portal] 是一个基于 Web 的门户，你可以从中创建、更新和删除数据库以及监视数据库资源。 如果你刚开始使用 Azure、管理少量的数据仓库数据库或需要快速执行某些操作，该工具是理想之选。
+
+            [Azure 门户][Azure portal] 是一个基于 Web 的门户，可以从中创建、更新和删除数据库以及监视数据库资源。 如果刚开始使用 Azure、管理少量的数据仓库数据库或需要快速执行某些操作，该工具是理想之选。
 
 若要开始使用 Azure 门户，请参阅[创建 SQL 数据仓库（Azure 门户）][Create a SQL Data Warehouse (Azure portal)]。
 
 ### <a name="sql-server-data-tools-in-visual-studio"></a>Visual Studio 中的 SQL Server Data Tools
-使用 Visual Studio 中的 [SQL Server Data Tools][SQL Server Data Tools] (SSDT)，可连接到你的数据库并对其进行管理和开发。 如果你是熟悉 Visual Studio 或其他集成开发环境 (IDE) 的应用程序开发人员，请尝试使用 Visual Studio 中的 SSDT。
+使用 Visual Studio 中的 [SQL Server Data Tools][SQL Server Data Tools] (SSDT)，可连接到数据库并对其进行管理和开发。 如果是熟悉 Visual Studio 或其他集成开发环境 (IDE) 的应用程序开发人员，请尝试使用 Visual Studio 中的 SSDT。
 
-使用 SSDT 包含的 SQL Server 对象资源管理器，可以针对 SQL 数据仓库数据库进行可视化、连接和执行脚本。 若要快速连接到 SQL 数据仓库，只需在 Azure 经典管理门户中查看数据库详细信息时，单击命令栏中的“在 Visual Studio 中打开”按钮。  
+使用 SSDT 包含的 SQL Server 对象资源管理器，可以针对 SQL 数据仓库数据库进行可视化、连接和执行脚本。 若要快速连接到 SQL 数据仓库，只需在 Azure 门户中查看数据库详细信息时，单击命令栏中的“在 Visual Studio 中打开”按钮。  
 
 若要开始使用 Visual Studio 中的 SSDT，请参阅 [使用 Visual Studio 查询 Azure SQL 数据仓库][Query Azure SQL Data Warehouse with Visual Studio]。
 
@@ -66,7 +67,7 @@ DMV 是管理 SQL 数据仓库的必备工具。 在门户中显示的所有信�
 若要了解有关缩放 DWU 的详细信息，请参阅[缩放性能]。
 
 ## <a name="pause-and-resume"></a>暂停和恢复
-为了节省成本，可以按需暂停和恢复计算资源。 例如，如果你晚上和周末不使用数据库，那么可以在这些时间暂停数据库的使用，然后在白天时恢复使用。 当数据库暂停时不对 DWU 进行收费。
+为了节省成本，可以按需暂停和恢复计算资源。 例如，如果晚上和周末不使用数据库，那么可以在这些时间暂停数据库的使用，然后在白天时恢复使用。 当数据库暂停时不对 DWU 进行收费。
 
 有关详细信息，请参阅[暂停计算][Pause compute]和[恢复计算][Resume compute]。
 
@@ -76,11 +77,11 @@ DMV 是管理 SQL 数据仓库的必备工具。 在门户中显示的所有信�
 若要查看在开发工作负荷时最重要的注意事项的摘要，请参阅 [SQL 数据仓库最佳实践][SQL Data Warehouse Best Practices]。
 
 ## <a name="query-monitoring"></a>监视查询
-有时某个查询运行时间太长，但你不能确定哪个查询才是问题所在。 SQL 数据仓库包含动态管理视图 (DMV)，可用于找出哪个查询用时过长。
+有时查询运行时间太长，但你不能确定哪个是问题所在。 SQL 数据仓库包含动态管理视图 (DMV)，可用于找出哪个查询用时过长。
 
 若要查找长时间运行的查询，请参阅[使用 DMV 监视工作负荷][Monitor your workload using DMVs]。
 
-## <a name="security"></a>“安全”
+## <a name="security"></a>安全性
 若要维护一个安全系统，必须警惕和防范任何类型的未经授权的访问。 安全系统需要确保防火墙规则已到位，以便只有经过授权的 IP 地址才能连接。 它需要对用户凭据进行相应身份验证。 用户连接到数据库后，用户只应有权执行最小数量的操作。 若要保护数据，可以使用加密。 具有审核和跟踪功能也很重要，以便在有任何可疑活动时可以追溯事件。
 
 若要了解管理安全性，请直接访问 [安全性概述][Security overview]。
@@ -110,7 +111,8 @@ DMV 是管理 SQL 数据仓库的必备工具。 在门户中显示的所有信�
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
-[SQL Server Data Tools]: https://msdn.microsoft.com/zh-cn/library/mt204009.aspx
+[SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
 
 <!--Other web references-->
 [Azure portal]: http://portal.azure.cn/
+<!-- Update_Description: update meta properties, wording update -->

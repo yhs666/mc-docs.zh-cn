@@ -13,11 +13,11 @@ ms.workload: identity
 origin.date: 04/28/2017
 ms.author: v-junlch
 ms.date: 06/12/2017
-ms.openlocfilehash: 741926c1f9c0792e42f4b825a05a8d98add39520
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: b85fac50e3ca1d1c13677a1793441bb9445c323b
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 资源提供程序操作
 
@@ -335,11 +335,11 @@ ms.lasthandoff: 06/21/2017
 |/checknameavailability/action|检查名称是否可用于新的 Redis 缓存|
 |/register/action|将“Microsoft.Cache”资源提供程序注册到订阅|
 |/unregister/action|从订阅中取消注册“Microsoft.Cache”资源提供程序|
-|/redis/write|在管理门户中修改 Redis 缓存的设置和配置|
-|/redis/read|在管理门户中查看 Redis 缓存的设置和配置|
+|/redis/write|在门户中修改 Redis 缓存的设置和配置|
+|/redis/read|在门户中查看 Redis 缓存的设置和配置|
 |/redis/delete|删除整个 Redis 缓存|
-|/redis/listKeys/action|在管理门户中查看 Redis 缓存访问密钥的值|
-|/redis/regenerateKey/action|在管理门户中更改 Redis 缓存访问密钥的值|
+|/redis/listKeys/action|在门户中查看 Redis 缓存访问密钥的值|
+|/redis/regenerateKey/action|在门户中更改 Redis 缓存访问密钥的值|
 |/redis/import/action|将多个 Blob 中指定格式的数据导入 Redis|
 |/redis/export/action|将 Redis 数据以指定的格式导出到带前缀的存储 Blob|
 |/redis/forceReboot/action|强制重新启动缓存实例（可能会发生数据丢失）。|
@@ -927,7 +927,7 @@ ms.lasthandoff: 06/21/2017
 |/lcsprojects/write|创建和更新属于用户的 Microsoft Dynamics Lifecycle Services 项目。 只能更新名称和说明属性。 与项目关联的订阅和位置在创建后无法更新|
 |/lcsprojects/delete|删除属于用户的 Microsoft Dynamics Lifecycle Services 项目|
 |/lcsprojects/clouddeployments/read|显示属于用户的 Microsoft Dynamics Lifecycle Services 项目中的 Microsoft Dynamics AX 2012 R3 评估部署|
-|/lcsprojects/clouddeployments/write|在属于用户的 Microsoft Dynamics Lifecycle Services 项目中创建 Microsoft Dynamics AX 2012 R3 评估部署。 可从 Azure 管理门户管理部署|
+|/lcsprojects/clouddeployments/write|在属于用户的 Microsoft Dynamics Lifecycle Services 项目中创建 Microsoft Dynamics AX 2012 R3 评估部署。 可从 Azure 门户管理部署|
 |/lcsprojects/connectors/read|读取属于 Microsoft Dynamics Lifecycle Services 项目的连接器|
 |/lcsprojects/connectors/write|创建和更新属于 Microsoft Dynamics Lifecycle Services 项目的连接器|
 
@@ -1429,7 +1429,7 @@ ms.lasthandoff: 06/21/2017
 |/vaults/replicationRecoveryPlans/reProtect/action|重新保护恢复计划|
 |/Vaults/extendedInformation/read|“获取扩展信息”操作获取表示“vault”类型的 Azure 资源的对象扩展信息|
 |/Vaults/extendedInformation/write|“获取扩展信息”操作获取表示“vault”类型的 Azure 资源的对象扩展信息|
-|/Vaults/extendedInformation/delete|“获取扩展信息”操作获取表示“vault”类型的 Azure 资源的对象扩展信息|
+|/Vaults/extendedInformation/delete|“获取扩展信息”操作获取表示“vault”类型的 Azure 资源的对象的扩展信息|
 |/Vaults/backupManagementMetaData/read|返回恢复服务保管库的备份管理元数据。|
 |/Vaults/backupProtectionContainers/read|返回属于订阅的所有容器|
 |/Vaults/backupFabrics/operationResults/read|返回操作状态|

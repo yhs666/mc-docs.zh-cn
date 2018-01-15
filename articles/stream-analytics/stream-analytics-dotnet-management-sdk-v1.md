@@ -1,7 +1,7 @@
 ---
 title: "用于 Azure 流分析的 Management .NET SDK v1.x | Azure"
 description: "流分析管理 .NET SDK 入门。 了解如何设置和运行分析作业。 创建项目、输入、输出和转换。"
-keywords: ".net SDK, 分析 API"
+keywords: ".net SDK、分析 API"
 services: stream-analytics
 documentationcenter: 
 author: rockboyfor
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/06/2017
-ms.date: 10/02/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: dbb5d5c0d6e22bfe2808c4686d772ce0ac260439
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 9610af8af99916a0dcfdbdd1c0132be9adf181be
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK v1.x：使用用于 .NET 的 Azure 流分析 API 设置和运行分析作业
-了解如何通过管理 .NET SDK 设置和运行使用 .NET 版流分析 API 的分析作业。 设置项目、创建输入和输出源、转换，以及开始和停止作业。 就分析作业来说，可以从 Blob 存储或事件中心流式传输数据。
+了解如何通过 Management .NET SDK 使用用于 .NET 的流分析 API 设置和运行分析作业。 设置项目、创建输入和输出源、转换，以及开始和停止作业。 就分析作业来说，可以从 Blob 存储或事件中心流式传输数据。
 
 请参阅 [.NET 版流分析 API 的管理参考文档](https://msdn.microsoft.com/library/azure/dn889315.aspx)。
 
@@ -57,7 +57,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 若要使用 .NET 版流分析 API 创建分析作业，请首先设置项目。
 
 1. 创建 Visual Studio C# .NET 控制台应用程序。
-2. 在程序包管理器控制台中运行以下命令来安装 NuGet 包。 第一个是 Azure 流分析管理 .NET SDK。 第二个是用于进行身份验证的 Azure Active Directory 客户端。
+2. 在程序包管理器控制台中运行以下命令以安装 NuGet 包。 第一个是 Azure 流分析管理 .NET SDK。 第二个是用于进行身份验证的 Azure Active Directory 客户端。
 
         Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 1.8.3
         Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
@@ -320,7 +320,7 @@ resourceGroupName 变量的值应该与你在先决条件步骤中创建或选�
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 ## <a name="get-support"></a>获取支持
-如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://www.azure.cn/support/forums/)。
 
 ## <a name="next-steps"></a>后续步骤
 现已学习了使用 .NET SDK 创建和运行分析作业的基础知识。 若要了解更多信息，请参阅下列文章：
@@ -339,7 +339,7 @@ resourceGroupName 变量的值应该与你在先决条件步骤中创建或选�
 
 <!--Link references-->
 [azure.blob.storage]: /storage/
-[azure.blob.storage.use]: /storage-dotnet-how-to-use-blobs/
+[azure.blob.storage.use]: /storage/storage-dotnet-how-to-use-blobs/
 
 [azure.event.hubs]: https://www.azure.cn/home/features/event-hubs/
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx

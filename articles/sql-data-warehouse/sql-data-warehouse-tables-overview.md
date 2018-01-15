@@ -13,17 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-origin.date: 06/29/2016
-ms.date: 07/24/2017
+origin.date: 12/14/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2384805f98f8e498efad98f1d839ad34464c8e7b
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: cb8d0b68019f9bd688a58ba83d694e97b8f48f65
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>概述 SQL 数据仓库中的表
-
 > [!div class="op_single_selector"]
 > * [概述][Overview]
 > * [数据类型][Data Types]
@@ -35,7 +34,7 @@ ms.lasthandoff: 07/26/2017
 > 
 > 
 
-在 Azure SQL 数据仓库中创建表的入门操作很简单。  基本的 [CREATE TABLE][CREATE TABLE] 语法与常用语法无异，这种语法你在使用其他数据库时很可能已经很熟悉了。  创建表时，只需为表和列命名，并为每个列定义数据类型即可。  如果已经在其他数据库中创建过表，则此操作对你来说应该很熟悉。
+在 Azure SQL 数据仓库中创建表的入门操作很简单。  基本的 [CREATE TABLE][CREATE TABLE] 语法与常用语法无异，这种语法你在使用其他数据库时很可能已经非常熟悉。  创建表时，只需为表和列命名，并为每个列定义数据类型即可。  如果已经在其他数据库中创建过表，则此操作对你来说应该很熟悉。
 
 ```sql  
 CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
@@ -53,7 +52,7 @@ RENAME OBJECT Customer TO CustomerOrig;
 由 SQL 数据仓库之类的分布式系统引入的新的基本属性是 **分布列**。  分布列的含义正如其名。  分布列是指决定后台数据如何分布或划分的列。  如果在创建表时未指定分布列，该表的数据会自动根据 **轮循机制**进行分布。  虽然在某些情况下轮循机制表可能已经足够，但是定义分布列可以大大减少查询期间的数据移动，从而优化性能。  在表中有少量数据的情况下，选择创建具有“复制”分布类型的表会将数据复制到每个计算节点，并减少每次查询执行时的数据移动。 若要详细了解如何选择分布列，请参阅[分布表][Distribute]。
 
 ## <a name="indexing-and-partitioning-tables"></a>对表进行索引和分区
-当你在使用 SQL 数据仓库的过程中变得更老练以后，如果你想要优化性能，则需了解有关表设计的详细信息。  若要了解详细信息，请参阅有关[表数据类型][Data Types]、[分布表][Distribute]、[为表编制索引][Index]、[将表分区][Partition]的文章。
+在使用 SQL 数据仓库的过程中变得更老练以后，如果想要优化性能，则需了解有关表设计的详细信息。  若要了解详细信息，请参阅有关[表数据类型][Data Types]、[分布表][Distribute]、[为表编制索引][Index]、[将表分区][Partition]的文章。
 
 ## <a name="table-statistics"></a>表统计信息
 若要获取 SQL 数据仓库的最佳性能，统计信息异常重要。  由于 SQL 数据仓库不会自动创建和更新统计信息（这可能与在 Azure SQL 数据库中遇到的情况一样），因此请阅读我们有关[统计信息][Statistics]的文章。该文章可能是需要阅读的最重要的文章之一，可确保获得最佳查询性能。
@@ -63,6 +62,7 @@ RENAME OBJECT Customer TO CustomerOrig;
 
 ## <a name="external-tables"></a>外部表
 外部表，也称 PolyBase 表，是指可以从 SQL 数据仓库查询但其指向的数据却位于 SQL 数据仓库外部的表。  例如，可以创建一个外部表，让其指向 Azure Blob 存储上的文件。  有关如何创建和查询外部表的更多详细信息，请参阅 [使用 PolyBase 加载数据][Load data with Polybase]。  
+<!-- Not Available on Azure Data Lake Store -->
 
 ## <a name="unsupported-table-features"></a>不支持的表功能
 虽然 SQL 数据仓库包含许多与其他数据库提供的表功能相同的表功能，但也有一些功能是不受支持的。  下面是目前仍不支持的部分表功能的列表。

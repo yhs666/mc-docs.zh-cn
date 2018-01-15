@@ -14,24 +14,24 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 12/25/2017
+origin.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: b81cfa431f488080d32d904d5e6179f8b070c3aa
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: d7e07442fc4fd79e60ae3b46dfccd78f82d354f4
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Hue
 
 了解如何在 HDInsight 群集上安装 Hue，并使用隧道将请求路由至 Hue。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="what-is-hue"></a>什么是 Hue？
-Hue 是用来与 Hadoop 群集交互的一系列 Web 应用程序。 可以使用 Hue 浏览与 Hadoop 群集关联的存储（对于 HDInsight 群集，为 WASB）、运行 Hive 作业和 Pig 脚本等等。 HDInsight Hadoop 群集上的 Hue 安装提供以下组件。
+Hue 是一组 Web 应用程序，用来与 Hadoop 群集交互。 可以使用 Hue 浏览与 Hadoop 群集关联的存储（对于 HDInsight 群集，为 WASB）、运行 Hive 作业和 Pig 脚本等等。 HDInsight Hadoop 群集上的 Hue 安装提供以下组件。
 
 * Beeswax Hive 编辑器
 * Pig
@@ -96,7 +96,7 @@ Hue 是用来与 Hadoop 群集交互的一系列 Web 应用程序。 可以使�
 
         hostname -f
 
-    此命令将返回类似于下面的名称：
+    此命令返回类似于下面的名称：
 
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.chinacloudapp.cn
 

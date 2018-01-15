@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/10/2017
-ms.date: 11/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b50b715a4d74d4e54946dcccbf349db58b6f8b1
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: c99b666868b6b439988dcab3fffa06230fb4266d
+ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>创建具有加速网络的虚拟机
 
@@ -49,7 +49,8 @@ ms.lasthandoff: 11/02/2017
 * **网络接口创建：**只能为新 NIC 启用加速网络。 不能为现有 NIC 启用。
 * **VM 创建：**已启用加速网络的 NIC 只能在创建 VM 时附加到该 VM。 该 NIC 无法附加到现有 VM。
 * **区域：**具有加速网络的 Windows VM 已在大多数 Azure 区域中提供。 已在大多区域中提供具有加速网络的 Linux VM。 支持此功能的区域正在不断增加。 请参阅下面的 Azure 虚拟网络更新博客获取最新信息。   
-* **支持的操作系统：**Windows：Microsoft Windows Server 2012 R2 Datacenter 和 Windows Server 2016。 Linux：使用内核 4.4.0-77 或更高版本的 Ubuntu Server 16.04 LTS、SLES 12 SP2、RHEL 7.3 和 CentOS 7.3（由“Rogue Wave Software”发布）。
+* **支持的操作系统：**Windows：Microsoft Windows Server 2012 R2 Datacenter 和 Windows Server 2016。 Linux：使用内核 4.4.0-77 或更高版本的 Ubuntu Server 16.04 LTS、SLES 12 SP2 和 CentOS 7.3（由“Rogue Wave Software”发布）。
+<!-- Not Available on RHEL 7.3 -->
 * **VM 大小：**具有八个或多个核心的通用和计算优化实例大小。 有关详细信息，请参阅有关 [Windows](../virtual-machines/windows/sizes.md?toc=%2fvirtual-network%2ftoc.json) 和 [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) VM 大小的文章。 支持的 VM 实例大小组合今后会不断增加。
 * **仅通过 Azure 资源管理器 (ARM) 进行部署：**无法使用加速网络通过 ASM/RDFE 进行部署。
 
@@ -67,9 +68,9 @@ ms.lasthandoff: 11/02/2017
 
     |设置|值|
     |---|---|
-    |名称|MyVm|
-    |资源组|保留选中“新建”并输入 *MyResourceGroup*|
-    |位置|中国北部 2|
+    |Name|MyVm|
+    |资源组|让“新建”保持选中状态，并输入 MyResourceGroup|
+    |位置|中国北部|
 
     如果不熟悉 Azure，请详细了解[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)、[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和[位置](https://www.azure.cn/regions)（也称为区域）。
 5. 在显示的“选择大小”边栏选项卡，在“最小核心数”框中输入 *8*，并单击“查看所有”。
@@ -81,7 +82,7 @@ ms.lasthandoff: 11/02/2017
 ### <a name="windows-powershell"></a>PowerShell
 1. 安装最新版本的 Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请阅读 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/get-started-azureps?toc=%2fvirtual-network%2ftoc.json)一文。
 2. 单击 Windows“开始”按钮，键入 PowerShell，然后在搜索结果中单击“PowerShell”，启动 PowerShell 会话。
-3. 在 PowerShell 窗口中输入 `login-azurermaccount` 命令，使用 Azure [帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果还没有帐户，可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial-full)。
+3. 在 PowerShell 窗口中输入 `login-azurermaccount -EnvironmentName AzureChinaCloud` 命令，使用 Azure [帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果还没有帐户，可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial-full)。
 4. 在浏览器中复制以下脚本：
     ```powershell
     $RgName="MyResourceGroup"
@@ -165,7 +166,8 @@ ms.lasthandoff: 11/02/2017
 9. 现在已为 VM 启用加速网络。
 
 ## <a name="create-a-linux-vm"></a>创建 Linux VM
-可以使用 Azure 门户或 Azure [PowerShell](#linux-powershell) 创建 Ubuntu 或 SLES VM。 对于 RHEL 和 CentOS Vm，工作流是不同的。  请参阅以下说明。
+可以使用 Azure 门户或 Azure [PowerShell](#linux-powershell) 创建 Ubuntu 或 SLES VM。 有关 RHEL 和 CentOS 说明，请参阅 [CentOS](#rhel-and-centos)。
+<!-- Not Available on RHET -->
 
 ### <a name="linux-portal"></a>门户
 1. 完成本文[创建 Linux VM -  PowerShell](#linux-powershell)部分中所述的步骤 1-5，注册适用于 Linux 预览版的加速网络。  无法在门户中为预览版注册。
@@ -184,7 +186,6 @@ ms.lasthandoff: 11/02/2017
 2. 单击 Windows“开始”按钮，键入 PowerShell，然后在搜索结果中单击“PowerShell”，启动 PowerShell 会话。
 3. 在 PowerShell 窗口中输入 `login-azurermaccount` 命令，使用 Azure [帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果还没有帐户，可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial-full)。
 4. 完成以下步骤，注册适用于 Azure 预览版的加速网络：
-    - 将包含 Azure 订阅 ID 和目标用途的电子邮件发送到 [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e)。 请等待来自 Microsoft 的有关启用订阅的邮件确认。
     - 输入以下命令确认已针对预览版注册：
 
         ```powershell
@@ -206,7 +207,7 @@ ms.lasthandoff: 11/02/2017
 
     ```powershell
     $RgName="MyResourceGroup"
-    $Location="chinanorth2"
+    $Location="chinanorth"
 
     # Create a resource group
     New-AzureRmResourceGroup `
@@ -310,18 +311,20 @@ ms.lasthandoff: 11/02/2017
      chmod +x ./configure_hv_sriov.sh
      sudo ./configure_hv_sriov.sh
      ```
-3. 运行脚本后，VM 会在暂停 60 秒后重启。
+3. 运行脚本后，VM 将会在暂停 60 秒后重启。
 4. 重启 VM 后，再次完成步骤 5-7 与它重新连接。
 5. 运行 `ifconfig` 命令并确认 bond0 是否已启动，以及接口是否显示为 UP。 
 
  >[!NOTE]
       >使用加速网络的应用程序必须通过 *bond0* 接口而不是 *eth0* 接口通信。  在加速网络推出正式版之前，接口名称可以会更改。
 
-#### <a name="rhelcentos"></a>RHEL/CentOS
+<a name="rhel-and-centos"></a>
+#### <a name="centos"></a>CentOS
 
-创建 Red Hat Enterprise Linux 或 CentOS 7.3 VM 需要一些额外步骤才能加载 SR-IOV 所需的最新驱动程序和网卡虚拟函数 (VF) 驱动程序。 第一阶段的说明准备了可用于生成一个或多个预加载驱动程序的虚拟机的映像。
+创建 CentOS 7.3 VM 需要一些额外步骤才能加载 SR-IOV 所需的最新驱动程序和网卡虚拟函数 (VF) 驱动程序。 第一阶段的说明准备了可用于生成一个或多个预加载驱动程序的虚拟机的映像。
+<!-- Not Available on Red Hat Enterprise Linux -->
 
-##### <a name="phase-one-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>第一阶段：准备 Red Hat Enterprise Linux or CentOS 7.3 基础映像。 
+##### <a name="phase-one-centos-73-base-image"></a>第一阶段：CentOS 7.3 基本映像。 
 
 1.  在 Azure 上预配 non-SRIOV CentOS 7.3 VM
 

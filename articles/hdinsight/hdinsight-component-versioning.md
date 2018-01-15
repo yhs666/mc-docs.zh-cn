@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/14/2017
-ms.date: 12/25/2017
+origin.date: 12/13/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4ac2b4a268d8513f89ce22df2f8fd5dd3df2ab36
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 1918636422889a0911ac023a35976fe8985c6a9b
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight 提供了哪些 Hadoop 组件和版本？
 
-了解 Azure HDInsight 中的 Apache Hadoop 生态系统组件和版本，以及标准和高级服务级别。 另外，还将了解如何检查 HDInsight 中的 Hadoop 组件版本。 
+了解 Microsoft Azure HDInsight 中的 Apache Hadoop 生态系统组件和版本，以及企业安全包。 另外，还将了解如何检查 HDInsight 中的 Hadoop 组件版本。 
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/15/2017
 ## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>可与不同 HDInsight 版本使用的 Hadoop 组件
 Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版本选项创建 HDP 分发版的一个特定版本和该分发版内包含的一组组件。 从 2017 年 2 月 17 日起，Azure HDInsight 使用的默认群集版本是 3.5 并基于 HDP 2.5。
 
-下表中列出了与 HDInsight 群集版本关联的组件版本。 
+下表中列出了与 HDInsight 群集版本关联的组件版本： 
 
 > [!NOTE]
 > HDInsight 服务的默认版本可能会更改，不会另行通知。 如果依赖某个版本，建议在使用 .NET SDK 以及 Azure PowerShell 和 Azure CLI 创建群集时指定 HDInsight 版本。
@@ -80,7 +80,7 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 下表列出了 Azure 门户上当前可用的 HDInsight 版本。 其中列出了与每个 HDInsight 版本对应的 HDP 版本以及产品发行日期。 还提供了支持到期日期和停用日期（如果已知这些日期）。
 
 > [!NOTE]
-> 在对某个版本的支持到期后，不能通过 Microsoft Azure 经典门户获得该版本。 但是，可继续使用 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 参数和 .NET SDK 获取群集版本，直到版本停用的那天为止。
+> 在对某个版本的支持到期后，不能通过 Microsoft Azure 门户获得该版本。 但是，可继续使用 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 参数和 .NET SDK 获取群集版本，直到版本停用的那天为止。
 > 
 > 对于 HDInsight 2.1 和更高版本，默认情况下会集部署具有两个头节点的高度可用群集。 它们不适用于 HDInsight 1.6 版本的群集。
 
@@ -113,8 +113,8 @@ Windows 上的 HDInsight 的停用日期是 2018 年 7 月 31 日。 如果针�
 ### <a name="which-versions-of-hdinsight-on-windows-are-affected"></a>Windows 上的哪些 HDInsight 版本会受影响？
 Azure HDInsight 版本 3.3 是适用于 Windows 的最后 HDInsight 版本。 在 Windows 上的 HDInsight 停用之前，必须将所有 HDInsight Windows 3.3 或更低版本的群集迁移到 Linux 上的 HDInsight 版本 3.5 或更高版本。 将群集迁移到 Linux 上的 HDInsight 后，将仍然能够创建新群集或调整现有群集的大小。 
 
-### <a name="what-do-i-need-to-do"></a>我需要做什么？
-在 2018 年 7 月 31 日之前，将你的 HDInsight Windows 群集迁移到受支持的 HDInsight Linux 群集。 可以在 [HDInsight 迁移文档](/hdinsight/hdinsight-migrate-from-windows-to-linux)中了解详细信息。 有关 Azure HDInsight 版本的详细信息，请参阅[支持的版本](/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)列表。 
+### <a name="what-do-i-need-to-do"></a>我需要做些什么？
+在 2018 年 7 月 31 日之前，将你的 HDInsight Windows 群集迁移到受支持的 HDInsight Linux 群集。 可以在 [HDInsight 迁移文档](hdinsight-migrate-from-windows-to-linux.md)中了解详细信息。 有关 Azure HDInsight 版本的详细信息，请参阅[支持的版本](hdinsight-component-versioning.md#supported-hdinsight-versions)列表。 
 
 ### <a name="where-do-i-find-the-cluster-os-type"></a>可以在哪里找到群集 OS 类型？
 在 Azure 门户中，转到 HDInsight 群集概述页，然后在“概要”下找到“群集类型”。 该页上列出了群集 OS 类型。 
@@ -123,7 +123,7 @@ Azure HDInsight 版本 3.3 是适用于 Windows 的最后 HDInsight 版本。 �
 HDInsight Windows 群集将按现样运行，但是你将无法创建新的 HDInsight Windows 群集，也无法调整现有 HDInsight Windows 群集的大小。 
 
 ### <a name="my-cluster-has-a-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>我的群集具有 .NET 依赖项。 在 Linux 上如何解决此依赖关系？
-可以使用 [Mono 项目](http://www.mono-project.com/)解决 Linux 群集依赖关系。 .NET 的此开源实现可用于 HDInsight Linux 群集。 可以在 [HDInsight 迁移文档](/hdinsight/hdinsight-migrate-from-windows-to-linux)中了解详细信息。 
+可以使用 [Mono 项目](http://www.mono-project.com/)解决 Linux 群集依赖关系。 .NET 的此开源实现可用于 HDInsight Linux 群集。 可以在 [HDInsight 迁移文档](hdinsight-migrate-from-windows-to-linux.md)中了解详细信息。 
 
 ### <a name="im-a-new-customer-for-hdinsight-on-windows-how-can-i-create-an-hdinsight-windows-cluster"></a>我是 Windows 上的 HDInsight 的新客户。 如何创建 HDInsight Windows 群集？
 从 2017 年 7 月 3 日起，只有现有 HDInsight Windows 客户可以创建新的 HDInsight Windows 群集。 新客户无法使用 PowerShell 或 SDK 在 Azure 门户中创建 HDInsight Windows 群集。 我们建议新客户创建 Linux HDInsight 群集。 现有客户仍然可以创建新的 HDInsight Windows 群集，直到 Windows 上的 HDInsight 停用的那一天。 
@@ -137,10 +137,10 @@ HDInsight Windows 群集将按现样运行，但是你将无法创建新的 HDIn
 * 能够利用 Hadoop 和其他大数据技术的开源社区练习主动开发
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>Linux 上的 HDInsight 是否比 Windows 上的 HDInsight 提供了更多的功能？
-从 HDInsight 版本 3.4 开始，Microsoft 仅在 Linux OS 上发行了 HDInsight。 因此，HDInsight 中的某些组件仅可供 Linux 使用。 这些组件包括 Apache Ranger、Kafka、交互式查询、Spark、HDInsight 应用程序。 
+从 HDInsight 版本 3.4 开始，Microsoft 只会在 Linux OS 上发布 HDInsight。 因此，HDInsight 中的某些组件仅可供 Linux 使用。 这些组件包括 Apache Ranger、Kafka、交互式查询、Spark、HDInsight 应用程序。 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 群集版本的服务级别协议
-服务级别协议 (SLA) 是按“支持窗口”定义的。 支持窗口是 HDInsight 群集版本受 Microsoft 客户服务和支持部门支持的时间段。 如果版本的“支持到期日期”已过，则 HDInsight 处于支持窗口外。 有关支持的版本的详细信息，请参阅[支持的 HDInsight 群集版本](/hdinsight/hdinsight-migrate-from-windows-to-linux)列表。 指定的 HDInsight 版本 X 的支持到期日期（在提供更新的 X+1 版本后）为按以下公式计算所得时间的较晚者：  
+服务级别协议 (SLA) 是按“支持窗口”定义的。 支持窗口是 HDInsight 群集版本受 Microsoft 客户服务和支持部门支持的时间段。 如果版本的“支持到期日期”已过，则 HDInsight 处于支持窗口外。 有关支持的版本的详细信息，请参阅[支持的 HDInsight 群集版本](hdinsight-migrate-from-windows-to-linux.md)列表。 指定的 HDInsight 版本 X 的支持到期日期（在提供更新的 X+1 版本后）为按以下公式计算所得时间的较晚者：  
 
 * 公式 1：发布 HDInsight 群集版本 X 的日期加 180 天。
 * 公式 2：在 Azure 门户中提供 HDInsight 群集版本 X+1 的日期加 90 天。
@@ -157,8 +157,8 @@ _停用日期_是指在此后不能在 HDInsight 上创建此群集版本的日�
 本部分提供了与 HDInsight 一起使用的 Hortonworks 数据平台分发版和 Apache 组件的发行说明的链接。
 * HDInsight 群集版本 3.6 使用基于 [Hortonworks 数据平台 2.6](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) 的 Hadoop 分发版。 
 * HDInsight 群集版本 3.5 使用基于 [Hortonworks 数据平台 2.5](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/ch_relnotes_v250.html) 的 Hadoop 分发版。 HDInsight 群集版本 3.5 是在 Azure 门户中创建的“默认”Hadoop 群集。
-* HDInsight 群集版本 3.4 使用基于 [Hortonworks 数据平台 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) 的 Hadoop 分发版。 
-* HDInsight 群集版本 3.3 使用基于 [Hortonworks 数据平台 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html) 的 Hadoop 分发版。
+* HDInsight 群集版本 3.4 使用基于 [Hortonworks 数据平台 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html)的 Hadoop 分发版。 
+* HDInsight 群集版本 3.3 使用基于 [Hortonworks 数据平台 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html)的 Hadoop 分发版。
 
   * Apache 网站上提供了 [Apache Storm 发行说明](https://storm.apache.org/2015/11/05/storm0100-released.html)。
   * Apache 网站上提供了 [Apache Hive 发行说明](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843)。
@@ -170,8 +170,10 @@ _停用日期_是指在此后不能在 HDInsight 上创建此群集版本的日�
 * HDInsight 群集版本 2.1 使用基于 [Hortonworks 数据平台 1.3][hdp-1-3-0]的 Hadoop 分发版。
 * HDInsight 群集版本 1.6 使用基于 [Hortonworks 数据平台 1.1][hdp-1-1-0]的 Hadoop 分发版。
 
-### <a name="pricing-and-sla"></a>定价和 SLA
-有关 HDInsight 的定价和 SLA 的信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
+
+
+
+
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>群集的默认节点配置和虚拟机大小
 下表列出了 HDInsight 群集的默认虚拟机 (VM) 大小。

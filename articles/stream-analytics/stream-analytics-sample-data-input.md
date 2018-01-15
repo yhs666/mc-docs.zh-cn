@@ -1,5 +1,5 @@
 ---
-title: "Azure 流分析中的采样输入 | Azure"
+title: "Azure 流分析中的查询测试 | Azure"
 description: "在对流分析作业进行故障排除时确定问题。"
 keywords: "对输入、输入采样进行故障排除"
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 04/20/2017
-ms.date: 10/02/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: a872a93b1a3b78d4639e4908b50180e0da559eee
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 9b148a932ed631491eff0f3fd1c668e66521ad2c
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="azure-stream-analytics-input-stream-sampling"></a>Azure 流分析输入流采样
+# <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>Azure 流分析查询测试和输入流采样
 
 通过使用 Azure 流分析，可以对来自文件的输入事件进行采样，还可以测试门户中的查询，而无需启动或停止作业。
 
@@ -67,4 +67,4 @@ ms.lasthandoff: 09/28/2017
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

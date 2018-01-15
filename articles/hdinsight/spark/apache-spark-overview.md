@@ -15,20 +15,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/07/2017
-ms.date: 12/25/2017
+origin.date: 12/13/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 96c2eb6486b1ce4f800b0e14deaf79b75c835cec
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: ff6fdeab90e4cf2fea77cfb44b6eece8cf3aa69c
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>HDInsight 上的 Spark 简介
 
 本文介绍 HDInsight 上的 Spark。 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> 是一种开放源代码并行处理框架，支持内存中处理，以提升大数据分析应用程序的性能。 HDInsight 上的 Spark 群集兼容 Azure 存储 (WASB)，因此可以通过 Spark 群集轻松处理 Azure 中存储的现有数据。
 
-在 HDInsight 上创建 Spark 群集时，将会创建已安装并配置了 Spark 的 Azure 计算资源。 在 HDInsight 中创建 Spark 群集只需要约十分钟。 系统将要处理的数据存储在 Azure 存储中。 请参阅[将 Azure 存储与 HDInsight 配合使用](../hdinsight-hadoop-use-blob-storage.md)。
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]在 HDInsight 上创建 Spark 群集时，将会创建已安装并配置了 Spark 的 Azure 计算资源。 在 HDInsight 中创建 Spark 群集只需要约 10 分钟。 系统将要处理的数据存储在 Azure 存储中。 请参阅[将 Azure 存储与 HDInsight 配合使用](../hdinsight-hadoop-use-blob-storage.md)。
 
 ![Spark：一种统一框架](./media/apache-spark-overview/hdinsight-spark-overview.png)
 

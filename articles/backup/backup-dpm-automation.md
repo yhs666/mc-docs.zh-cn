@@ -3,8 +3,8 @@ title: "Azure 备份 - 使用 PowerShell 备份 DPM 工作负荷 | Microsoft 文
 description: "了解如何使用 PowerShell 部署和管理 Data Protection Manager (DPM) 的 Azure 备份"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: NKolli1
+manager: shreeshd
 editor: 
 ms.assetid: e9bd223c-2398-4eb1-9bf3-50e08970fea7
 ms.service: backup
@@ -13,21 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 10/31/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: c64db9f10b0ab4abfde26c2c422a89f68087d0e7
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: 7c58028fe34a16bfc80b5f3804794f0512eef9e9
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>使用 PowerShell 部署和管理 Data Protection Manager (DPM) 服务器的 Azure 备份
-> [!div class="op_single_selector"]
-> * [ARM](backup-dpm-automation.md)
-> * [经典](backup-dpm-automation-classic.md)
->
->
-
 本文说明如何使用 PowerShell 在 DPM 服务器上设置 Azure 备份，以及管理备份和恢复。
 
 ## <a name="setting-up-the-powershell-environment"></a>设置 PowerShell 环境
@@ -67,7 +61,7 @@ PS C:\> Switch-AzureMode AzureResourceManager
 - 加密设置
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
-以下步骤引导创建恢复服务保管库。 恢复服务保管库不同于备份保管库。
+以下步骤引导用户创建恢复服务保管库。 恢复服务保管库不同于备份保管库。
 
 1. 如果是首次使用 Azure 备份，则必须使用 **Register-AzureRMResourceProvider** cmdlet 将 Azure 恢复服务提供程序注册到订阅。
 
@@ -86,10 +80,10 @@ PS C:\> Switch-AzureMode AzureResourceManager
     ```
 4. 指定要使用的存储冗余类型；可以使用[本地冗余存储 (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) 或[异地冗余存储 (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage)。 以下示例显示，testVault 的 -BackupStorageRedundancy 选项设置为 GeoRedundant。
 
-    > [!TIP]
-    > 许多 Azure 备份 cmdlet 要求使用恢复服务保管库对象作为输入。 因此，在变量中存储备份恢复服务保管库对象可提供方便。
-    >
-    >
+   > [!TIP]
+   > 许多 Azure 备份 cmdlet 要求使用恢复服务保管库对象作为输入。 出于此原因，在变量中存储备份恢复服务保管库对象可提供方便。
+   >
+   >
 
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testVault"
@@ -122,7 +116,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 PS C:\> MARSAgentInstaller.exe /q
 ```
 
-这以所有默认选项安装代理。 将在后台执行安装几分钟。 如果没有指定 */nu* 选项，则安装结束时，会打开“Windows Update”窗口，以检查是否有任何更新。
+这会以所有默认选项安装代理。 安装在几分钟内在后台完成。 如果没有指定 */nu* 选项，则安装结束时，会打开“Windows Update”窗口，以检查是否有任何更新。
 
 代理在已安装程序列表中显示。 若要查看已安装的程序列表，请转到“**控制面板**”“ > **程序** > ”“**程序和功能**”。
 
@@ -185,7 +179,7 @@ $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="networking"></a>联网
+## <a name="networking"></a>网络
 如果 DPM 计算机与 Internet 上 Azure 备份服务的连接是通过代理服务器建立的，则只有提供代理服务器设置，才能成功备份。 为此，可以结合 ```-ProxyServer``` 和 ```-ProxyPort```、 ```-ProxyUsername```和 ```ProxyPassword``` 参数使用 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet。 此示例未使用代理服务器，因此我们要显式清除任何代理相关的信息。
 
 ```
@@ -230,12 +224,12 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 ```
 
 ## <a name="protect-data-to-azure-backup"></a>在 Azure 备份中保护数据
-本部分中需要将生产服务器添加到 DPM，并分别在本地 DPM 存储和 Azure 备份中保护数据。 在示例中，我们将演示如何备份文件和文件夹。 可以轻松地延伸这种思路，以备份 DPM 支持的任何数据源。 所有 DPM 备份均受保护组 (PG) 控制，该组由四个部分构成：
+本部分中需要将生产服务器添加到 DPM，并分别在本地 DPM 存储和 Azure 备份中保护数据。 在示例中，我们演示如何备份文件和文件夹。 可以轻松地延伸这种思路，以备份 DPM 支持的任何数据源。 所有 DPM 备份均受保护组 (PG) 控制，该组由四个部分构成：
 
-1. **组成员**是要在相同保护组中保护的所有可保护对象的列表（在 DPM 中也称为*数据源*）。 例如，你可能想要保护一个保护组中的生产 VM 与另一个保护组中的 SQL Server 数据库，因为两者可能有不同的备份要求。 在可以备份生产服务器上的任何数据源之前，需要确保 DPM 代理已安装在服务器上并受 DPM 的管理。 遵循[安装 DPM 代理](https://technet.microsoft.com/library/bb870935.aspx)的步骤，并将代理链接到相应的 DPM 服务器。
+1. **组成员**是要在相同保护组中保护的所有可保护对象的列表（在 DPM 中也称为*数据源*）。 例如，你可能想要保护一个保护组中的生产 VM 与另一个保护组中的 SQL Server 数据库，因为两者可能有不同的备份要求。 在可以备份生产服务器上的任何数据源之前，需要确保 DPM 代理已安装在服务器上并受 DPM 的管理。 执行[安装 DPM 代理](https://technet.microsoft.com/library/bb870935.aspx)的步骤，并将代理链接到相应的 DPM 服务器。
 2. **数据保护方法** 指定目标备份位置 - 磁带、磁盘和云。 在本示例中，我们会在本地磁盘和云中保护数据。
 3. **备份计划** ，用于指定需要进行备份的时间，以及应该在 DPM 服务器和生产服务器之间同步数据的频率。
-4. **保留计划** ，用于指定要在 Azure 中保留恢复点的时长。
+4. 一个**备份计划**，指定要在 Azure 中保留恢复点多长时间。
 
 ### <a name="creating-a-protection-group"></a>创建保护组
 首先，使用 [New-DPMProtectionGroup](https://technet.microsoft.com/library/hh881722) cmdlet 创建新的保护组。
@@ -258,10 +252,10 @@ PS C:\> $MPG = Get-ModifiableProtectionGroup $PG
 3. 获取该服务器上所有数据源的列表。
 4. 选择一个或多个数据源，并将其添加到保护组
 
-使用 [Get-DPMProductionServer](https://technet.microsoft.com/library/hh881600) cmdlet 获取安装 DPM 代理并由 DPM 服务器管理的服务器的列表。 在本示例中，我们将进行筛选，并只为备份配置名为 *productionserver01* 的 PS。
+使用 [Get-DPMProductionServer](https://technet.microsoft.com/library/hh881600) cmdlet 获取安装 DPM 代理并由 DPM 服务器管理的服务器的列表。 在本示例中，我们进行筛选，并只为备份配置名为 *productionserver01* 的 PS。
 
 ```
-PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) -contains "productionserver01"
+PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) -contains "productionserver01"}
 ```
 
 现在使用 [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) cmdlet 获取 ```$server``` 上的数据源列表。 在本示例中，我们将筛选要为备份配置的卷 *D:\*。 然后，使用 [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) cmdlet 将此数据源添加到保护组。 请记得使用 *modifiable* 保护组对象 ```$MPG``` 来完成添加。
@@ -272,7 +266,7 @@ PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Nam
 PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 ```
 
-视需要重复此步骤多次，直到已将选择的所有数据源添加到保护组。 也可以只从一个数据源开始，完成创建保护组的工作流，然后将更多的数据源添加到保护组。
+视需要重复此步骤多次，直到已将选择的所有数据源添加到保护组。 你也可以只从一个数据源开始，完成创建保护组的工作流，然后将更多的数据源添加到保护组。
 
 ### <a name="selecting-the-data-protection-method"></a>选择数据保护方法
 将数据源添加到保护组后，下一步是使用 [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) cmdlet 指定保护方法。 在本示例中，为本地磁盘和云备份设置保护组。 还需使用带 -Online 标志的 [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732.aspx) cmdlet 指定想要将其送到云中进行保护的数据源。
@@ -283,7 +277,7 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS -Onlin
 ```
 
 ### <a name="setting-the-retention-range"></a>设置保留范围
-使用 [Set-DPMPolicyObjective](https://technet.microsoft.com/library/hh881762) cmdlet 设置备份点保留。 尽管在定义备份计划之前设置保留点看起来有点奇怪，但使用 ```Set-DPMPolicyObjective``` cmdlet 会自动设置稍后可修改的默认备份计划。 用户始终可以先设置备份计划，再设置保留策略。
+使用 [Set-DPMPolicyObjective](https://technet.microsoft.com/library/hh881762) cmdlet 设置备份点保留。 尽管在定义备份计划之前设置保留点看起来有点奇怪，但使用 ```Set-DPMPolicyObjective``` cmdlet 会自动设置稍后可修改的默认备份计划。 始终可以先设置备份计划，再设置保留策略。
 
 以下示例中的 cmdlet 将设置磁盘备份的保留参数。 这会将备份保留 10 天，并每隔 6 小时在生产服务器和 DPM 服务器之间同步数据。 ```SynchronizationFrequencyMinutes``` 不会定义创建备份点的频率，只会定义数据复制到 DPM 服务器的频率。  此设置可防止备份变得太大。
 
@@ -354,7 +348,7 @@ PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 ## <a name="restore-data-protected-on-azure"></a>还原 Azure 上受保护的数据
 还原数据是 ```RecoverableItem``` 对象和 ```RecoveryOption``` 对象的组合结果。 在上一部分中，我们已获取数据源的备份点列表。
 
-在以下示例中，我们将演示如何通过组合备份点与恢复目标，从 Azure 备份还原 Hyper-V 虚拟机。 此示例包括：
+在以下示例中，我们演示如何通过组合备份点与恢复目标，从 Azure 备份还原 Hyper-V 虚拟机。 此示例包括：
 
 - 使用 [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592) cmdlet 创建恢复选项。
 - 使用 ```Get-DPMRecoveryPoint``` cmdlet 获取备份点的数组。
@@ -375,4 +369,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 ## <a name="next-steps"></a>后续步骤
 - 有关 DPM 到 Azure 备份的详细信息，请参阅 [DPM 备份简介](backup-azure-dpm-introduction.md)
 
-<!--Update_Description: link update-->
+<!--Update_Description: code and link update-->

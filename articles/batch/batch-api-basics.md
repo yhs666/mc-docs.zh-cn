@@ -3,8 +3,8 @@ title: "面向开发人员的 Azure Batch 概述 | Microsoft 文档"
 description: "从开发的角度了解 Batch 服务的功能及其 API。"
 services: batch
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: v-dotren
+manager: timlt
 editor: 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 origin.date: 11/16/2017
-ms.date: 12/04/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2b3e9566240bebb81bf27a0d8e82bc0f1155db6
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: f58966f4cb3bcd2545bbdce0ae2493cc9beaccd4
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 开发大规模并行计算解决方案
 
@@ -57,10 +57,8 @@ ms.lasthandoff: 12/07/2017
 - [计算节点](#compute-node)
 - [池](#pool)
 - [作业](#job)
-
   - [作业计划](#scheduled-jobs)
 - [任务](#task)
-
   - [启动任务](#start-task)
   - [作业管理器任务](#job-manager-task)
   - [作业准备和释放任务](#job-preparation-and-release-tasks)
@@ -138,7 +136,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 
     - *OS 系列* 还确定了要与操作系统一起安装哪些版本的 .NET。
     - 与云服务中的辅助角色一样，可以指定 *OS 版本*（有关辅助角色的详细信息，请参阅 [Cloud Services overview](../cloud-services/cloud-services-choose-me.md)（云服务概述）中的 [Tell me about cloud services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services)（介绍云服务）部分）。
-    - 与辅助角色一样，对于 *OS 版本*，建议指定 `*`，使节点可自动升级，而无需采取措施来适应新的版本。 选择特定 OS 版本的主要用例是在允许更新版本之前执行向后兼容测试，以确保保持应用程序兼容性。 验证后，便可以更新池的 *OS 版本*并安装新的操作系统映像 – 所有正在运行的任务会中断并重新排队。
+    - 与辅助角色一样，对于 *OS 版本*，建议指定 `*`，使节点可自动升级，而无需采取措施来适应新的版本。 选择特定 OS 版本的主要用例是在允许更新版本之前执行向后兼容测试，以确保保持应用程序兼容性。 验证后，便可以更新池的 *OS 版本* 并安装新的操作系统映像 – 所有正在运行的任务会中断并重新排队。
 
 创建池时，需要选择适当的 **nodeAgentSkuId**，具体取决于 VHD 基本映像的 OS。 可通过调用[列出支持的节点代理 SKU](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) 操作获得可用节点代理 SKU ID 到其 OS 映像引用的映射。
 
@@ -152,8 +150,6 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 #### <a name="container-support-in-virtual-machine-pools"></a>虚拟机池中的容器支持
 
 使用 Batch API 创建虚拟机配置池时，可以将池设置为在 Docker 容器中运行任务。 目前，必须使用支持 Docker 容器的映像创建池。 将 Windows Server 2016 Datacenter 与 Azure Marketplace 中的容器映像配合使用，或者提供自定义 VM 映像（其中包含 Docker Community Edition 或 Enterprise Edition 以及任何必需的驱动程序）。 池设置必须包括[容器配置](https://docs.microsoft.com/rest/api/batchservice/pool/add#definitions_containerconfiguration)，该配置在创建池时将容器映像复制到 VM。 然后，在池中运行的任务即可引用容器映像和容器运行选项。
-
-有关详细信息，请参阅[在 Azure Batch 上运行 Docker 容器应用程序](batch-docker-container-workloads.md)。
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>计算节点类型和目标节点数
 
@@ -204,7 +200,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 
 ### <a name="start-tasks-for-compute-nodes"></a>计算节点的启动任务
 
-可选的 *启动任务* 会在每个节点加入池以及节点每次重新启动或重置映像时在该节点上运行。 启动任务特别适合用于准备计算节点，以便执行任务，例如，在计算节点上安装运行任务的应用程序。
+可选的 *启动任务* 会在每个节点加入池以及节点每次重新启动或重置映像时在该节点上运行。 启动任务特别适用于准备计算节点，以便执行任务，例如安装可通过任务在计算节点上运行的应用程序。
 
 ### <a name="application-packages"></a>应用程序包
 
@@ -265,6 +261,9 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 - **Application packages** 。 [应用程序包](#application-packages) 提供任务运行的应用程序的简化部署和版本控制。 在共享池的环境中，任务级应用程序包特别有用：不同的作业在一个池上运行，完成某个作业时不删除该池。 如果作业中的任务少于池中的节点，任务应用程序包可以减少数据传输，因为应用程序只部署到运行任务的节点。
 - Docker 中心的**容器映像**引用，或者专用注册表和其他设置，用于创建 Docker 容器，其中的任务运行在节点上。 如果池使用容器配置进行设置，则仅指定此信息。
 
+> [!NOTE]
+> 最长任务生存期（从添加到作业时算起到任务完成时结束）为 7 天。 已完成的任务会无限期保存；最长生存期内未完成的任务的数据不可访问。
+
 除了可以定义在节点上运行计算的任务以外，Batch 服务还提供以下特殊任务：
 
 - [启动任务](#start-task)
@@ -274,7 +273,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 - [任务依赖项](#task-dependencies)
 
 ### <a name="start-task"></a>启动任务
-通过将 **启动任务** 与池相关联，可以准备池节点的操作环境。 例如，可以执行诸如安装任务所要运行的应用程序或启动后台进程等操作。 启动任务在节点每次启动时运行，且只要保留在池中就会持续运行（包括首次将节点添加到池时，以及节点重新启动或重置映像时）。
+通过将**启动任务**与池相关联，可以准备池节点的操作环境。 可以执行各种操作，例如，安装任务所要运行的应用程序或启动后台进程。 启动任务在节点每次启动时运行，且只要保留在池中就会持续运行（包括首次将节点添加到池时，以及节点重新启动或重置映像时）。
 
 启动任务的主要优点是可以包含全部所需的信息，使你能够配置计算节点，以及安装执行任务所需的应用程序。 因此，增加池中的节点数和指定新的目标节点计数一样简单。 启动任务向 Batch 服务提供配置新节点并使其准备好接受任务所需的信息。
 
@@ -378,7 +377,7 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 若要了解应用程序包功能的详细信息，请参阅[使用 Batch 应用程序包将应用程序部署到计算节点](batch-application-packages.md)。
 
 > [!NOTE]
-> 如果将池应用程序包添加到 *现有* 池，则必须重新启动其计算节点，应用程序包才会应用到节点。
+> 如果将池应用程序包添加到现有池，则必须重新启动其计算节点，应用程序包才会应用到节点。
 >
 >
 

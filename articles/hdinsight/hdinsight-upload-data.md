@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/25/2017
-ms.date: 12/25/2017
+origin.date: 12/15/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9ee958b1d0e705cb837faac85b43a039d89729ab
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 24f81a3fd699b309ae3de9ec667f6af16019f375
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上传 Hadoop 作业的数据
 Azure HDInsight 在 Azure 存储之上提供了一个功能完备的 Hadoop 分布式文件系统 (HDFS)。 该系统为一个 HDFS 扩展，可为客户提供无缝体验。 在该系统的帮助下，Hadoop 生态系统中的整套组件能够直接操作其管理的数据。 Azure Blob 存储和 HDFS 是独立的文件系统，并且已针对数据的存储和计算进行了优化。 有关使用 Azure 存储的益处的信息，请参阅[将 Azure 存储与 HDInsight 配合使用][hdinsight-storage]。
@@ -165,7 +165,7 @@ AzCopy on Linux 预览版已推出。  请参阅[宣布推出 AzCopy on Linux �
 hadoop -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-例如 `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+例如： `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 由于 HDInsight 的默认文件系统在 Azure 存储中，/example/data.txt 实际是在 Azure 存储中。 也可以将该文件表示为：
 
@@ -187,7 +187,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
 | 客户端 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [用于 HDInsight 的 Microsoft Visual Studio Tools](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [用于 HDInsight 的 Microsoft Visual Studio Tools](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
 | [Azure 存储资源管理器](http://storageexplorer.com/) |✔ |✔ |✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
@@ -195,7 +195,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>用于 HDInsight 的 Visual Studio 工具
-有关详细信息，请参阅[导航链接的资源](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources)。
+有关详细信息，请参阅[导航链接的资源](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources)。
 
 #### <a id="storageexplorer"></a>Azure 存储资源管理器
 *Azure 存储资源管理器* 是一种用于在 Blob 中检查和更改数据的实用工具。 它是一个免费的开源工具，可从 [http://storageexplorer.com/](http://storageexplorer.com/)下载。 也可以从此链接获取源代码。
@@ -300,14 +300,14 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 [azure-azcopy-download]:../storage/common/storage-use-azcopy.md
 [azure-azcopy]:../storage/common/storage-use-azcopy.md
 
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 

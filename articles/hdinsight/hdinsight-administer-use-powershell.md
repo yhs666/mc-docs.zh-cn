@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/25/2017
-ms.date: 10/23/2017
+origin.date: 12/15/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: e070c6d361af730230d8af162d9c8016a4306760
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 9c5ff8545a0c830bf7a277e6779711d9af58cb95
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -83,7 +83,7 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 使用群集缩放功能，可更改 Azure HDInsight 中运行的群集使用的辅助节点数，而无需重新创建群集。
 
 > [!NOTE]
-> 只支持使用 HDInsight 3.1.3 或更高版本的群集。 如果不确定群集的版本，可以查看“属性”页面。  请参阅 [列出并显示群集](hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。
+> 只支持使用 HDInsight 3.1.3 或更高版本的群集。 如果不确定群集的版本，可以查看“属性”页面。  请参阅[列出和显示群集](hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。
 >
 >
 

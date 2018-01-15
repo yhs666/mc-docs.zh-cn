@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 10/02/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1563fbb8890100e22e3f3a3f25dee86994bf8615
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: dafbaaf1935f9705c15e8d1e60162a5a50d64d14
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解流分析作业监视以及如何监视查询
 
@@ -34,14 +34,14 @@ Azure 门户提供了可用于监视和排查查询和作业性能问题的关�
 ![监视作业仪表板](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>可用于流分析的指标
-| 度量值                 | 定义                               |
+| 指标                 | 定义                               |
 | ---------------------- | ---------------------------------------- |
 | 流单元利用率 %       | 从作业的“比例”选项卡向一个作业分配的流单元利用率。 如果此指标达到 80% 或以上，则很可能会出现事件处理延迟或停止处理的情况。 |
 | 输入事件数           | 流分析作业收到的数据量，以事件计数来衡量。 这可以用于验证正在发送到输入源的事件。 |
 | 输出事件数          | 流分析作业发送到输出目标的数据量，以事件计数来衡量。 |
 | 无序事件数    | 收到的无序事件的数目，系统根据事件排序策略来删除这些事件，或者为其提供一个经过调整的时间戳。 这可能会受“无序容错时段”设置的影响。 |
 | 数据转换错误数 | 流分析作业导致的数据转换错误的数目。 |
-| 运行时错误         | 执行流分析作业的过程中发生的错误总数。 |
+| 运行时错误         | 与查询处理相关的错误总数（不包括引入事件或输出结果时发现的错误） |
 | 延迟输入事件数      | 延迟到达的事件的数目，系统根据延迟到达容错时段设置的事件排序策略配置删除这些事件，或者调整其时间戳。 |
 | 函数请求数      | Azure 机器学习函数（如果存在）的调用数。 |
 | 失败的函数请求数 | 失败的 Azure 机器学习函数（如果存在）调用数。 |
@@ -58,7 +58,7 @@ Azure 门户提供了可用于监视和排查查询和作业性能问题的关�
 此时间是作业的最新输出的应用程序时间（即，使用来自事件数据的时间戳的时间）。
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/forums/)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
@@ -67,4 +67,4 @@ Azure 门户提供了可用于监视和排查查询和作业性能问题的关�
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update meta properties -->

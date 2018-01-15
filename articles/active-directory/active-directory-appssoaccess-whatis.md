@@ -17,11 +17,11 @@ ms.date: 09/20/2017
 ms.author: v-junlch
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 0abd5ec28d002c1a6fe12d925c0e2faf0cc43201
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: e766c5eca3b930f17d701cd93da1e8587da3669a
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Azure Active Directory 的应用程序访问与单一登录是什么？
 单一登录是指只需使用单个用户帐户登录一次，就能访问展开业务所需的全部应用程序和资源。 登录之后，可以访问全部所需的应用程序，而无需再次进行身份验证（例如键入密码）。
@@ -38,7 +38,7 @@ Azure AD 能轻松集成到许多现今热门的 SaaS 应用程序；它提供�
 
 * 单一登录使用户能够基于他们在 Azure AD 中的组织帐户访问他们的 SaaS 应用程序。 单一登录使用户能够使用其单个组织帐户通过应用程序的身份验证
 * 用户预配使用户能够基于 Windows Server Active Directory 和/或 Azure AD 中所做的更改，对目标 SaaS 进行预配和取消预配操作。 预配的帐户通过单一登录身份验证之后，可授权用户使用应用程序。
-* Azure 管理门户中的集中式应用程序访问管理实现了 SaaS 应用程序的单点访问和管理，并且可以将应用程序访问决策和审批委派给组织中的任何人
+* Azure 门户中的集中式应用程序访问管理实现了 SaaS 应用程序的单点访问和管理，并且可以将应用程序访问决策和审批委派给组织中的任何人
 * 在 Azure AD 中对异常用户活动进行统一报告和监视
 
 ## <a name="how-does-single-sign-on-with-azure-active-directory-work"></a>Azure Active Directory 中单一登录的工作原理是什么？
@@ -80,63 +80,15 @@ Azure AD 允许对支持 SAML 2.0、WS 联合身份验证或 OpenID Connect 协�
 * Firefox 26.0 或更高版本 -- 在 Windows XP SP2 或更高版本上，以及在 Mac OS X 10.6 或更高版本上
 
 ### <a name="existing-single-sign-on"></a>现有单一登录
-配置应用程序的单一登录时，Azure 管理门户提供了第三个选项，即“现有的单一登录”。 管理员使用此选项即可创建指向应用程序的链接，并将其放置在所选用户的访问面板上。
+配置应用程序的单一登录时，Azure 门户提供了第三个选项，即“现有的单一登录”。 管理员使用此选项即可创建指向应用程序的链接，并将其放置在所选用户的访问面板上。
 
 例如，如果有一个应用程序配置为使用 Active Directory 联合身份验证服务 2.0 验证用户身份，则管理员可以使用“现有的单一登录”选项在访问面板上创建指向该应用程序的链接。 当用户访问该链接时，使用 Active Directory 联合身份验证服务 2.0 或者由该应用程序提供的任何现有的单一登录解决方案来验证这些用户的身份。
 
 ### <a name="user-provisioning"></a>用户预配
-对于某些应用程序，Azure AD 允许从 Azure 管理门户中使用 Windows Server Active Directory 或 Azure AD 标识信息，对第三方 SaaS 应用程序中的帐户进行自动用户预配和取消预配操作。 在 Azure AD 中向用户授予这些应用程序之一的权限后，即可在目标 SaaS 应用程序中自动创建（预配）帐户。
+对于某些应用程序，Azure AD 允许从 Azure 门户中使用 Windows Server Active Directory 或 Azure AD 标识信息，对第三方 SaaS 应用程序中的帐户进行自动用户预配和取消预配操作。 在 Azure AD 中向用户授予这些应用程序之一的权限后，即可在目标 SaaS 应用程序中自动创建（预配）帐户。
 
 在 Azure AD 中删除用户或更改其信息时，这些更改也会反映在 SaaS 应用程序中。 这意味着，配置自动身份生命周期管理可使管理员能够从 SaaS 应用程序控制并提供自动预配和取消预配。 在 Azure AD 中，这种身份生命周期管理的自动化通过用户预配启用。
 
-##<a name="get-started-with-the-azure-ad-application-gallery"></a>Azure 应用程序库入门
-
-已准备就绪？ 若要在 Azure AD 和组织所用的 SaaS 应用程序之间部署单一登录，请遵循这些指导原则。
-
-### <a name="using-the-azure-ad-application-gallery"></a>使用 Azure 应用程序库
-[Azure Active Directory 应用程序库](https://azure.microsoft.com/marketplace/active-directory/all/)提供了一份已知能够支持 Azure Active Directory 单一登录的应用程序列表。
-
-![][1]
-
-以下是有关了解应用支持哪些功能的一些提示：
-
-* Azure AD 支持自动预配和取消预配 [Azure Active Directory 应用程序库](https://azure.microsoft.com/marketplace/active-directory/all/)中所有“特色”应用。
-* 在 [此处](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)可以找到专门支持使用 SAML，WS 联合身份验证或 OpenID Connect 协议的联合单一登录的联合应用程序列表。
-
-找到应用程序后，可以遵循应用程序库和 Azure 管理门户中显示的分步说明启用单一登录。
-
-### <a name="application-not-in-the-gallery"></a>应用程序不在库中怎么办？
-如果在 Azure AD 应用程序库中找不到应用程序，可以选择：
-
-* **添加你使用的但未列出的应用** - 使用 Azure 管理门户内应用库中的“自定义”类别来连接组织正在使用但未列出的应用程序。 可以添加支持 SAML 2.0 的任何应用程序作为联合应用，或者添加具有 HTML 登录页的任何应用程序作为密码 SSO 应用。 
-* **添加正在开发的自有应用** - 如果你自己开发了应用程序，请遵照 Azure AD 开发人员文档中的指导原则使用 Azure AD 图形 API 来实施联合单一登录或预配。 有关详细信息，请参阅以下资源：
-  
-  * [Azure AD 的身份验证方案](./developactive-directory-authentication-scenarios.md)
-  * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
-  * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
-  * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
-* **请求应用集成** - 使用 [Azure AD 反馈论坛](https://feedback.azure.com/forums/169401-azure-active-directory/)请求所需应用程序的支持。
-
-### <a name="using-the-azure-management-portal"></a>使用 Azure 管理门户
-可以使用 Azure 管理门户中的 Active Directory 扩展来配置应用程序单一登录。 首先，需要从该门户的“Active Directory”部分中选择一个目录：
-
-![][2]
-
-若要管理第三方 SaaS 应用程序，可切换到所选目录的“应用程序”选项卡。 管理员使用此视图可执行以下操作：
-
-* 从 Azure AD 库添加新应用程序，以及添加正在开发的应用
-* 删除集成的应用程序
-* 管理已集成的应用程序
-
-第三方 SaaS 应用程序的典型管理任务包括：
-
-* 使用密码 SSO 或联合 SSO（如果可用于目标 SaaS）通过 Azure AD 启用单一登录
-* （可选）为用户预配和取消预配启用用户预配（标识生命周期管理）
-* 对于启用了用户预配的应用程序，选择哪些用户可以访问该应用程序
-
-对于支持联合单一登录的库应用，配置通常要求提供附加配置设置（例如证书和元数据），以便在第三方应用程序与 Azure AD 之间建立联合信任。 配置向导指导完成详细操作，并允许轻松访问 SaaS 应用程序特定的数据和说明。
-
-对于支持自动用户预配的库应用，需要为 Azure AD 提供管理 SaaS 应用程序中帐户的权限。 至少需要提供向目标应用程序进行身份验证时 Azure AD 应使用的凭据。 是否需要提供附加配置设置取决于应用程序的要求。
 
 ## <a name="deploying-azure-ad-integrated-applications-to-users"></a>为用户部署 Azure AD 集成的应用程序
 Azure AD 提供多种可自定义的方式来向组织中的用户部署应用程序：
@@ -157,14 +109,14 @@ Azure AD 提供多种可自定义的方式来向组织中的用户部署应用�
 有关 Office 365 应用程序启动器的详细信息，请参阅[让应用出现在 Office 365 应用启动器中](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher)。
 
 ### <a name="direct-sign-on-to-federated-apps"></a>直接登录联合应用
-大多数支持 SAML 2.0、WS 联合身份验证或 OpenID Connect 的联合应用程序也支持用户在应用程序启动，再通过 Azure AD 的自动重定向或单击链接进行登录。 这称为服务提供者发起的登录，Azure AD 应用程序库中的大多数联合应用程序都支持这种方式（请参阅 Azure 管理门户上应用的单一登录配置向导中链接的文档来了解详细信息）。
+大多数支持 SAML 2.0、WS 联合身份验证或 OpenID Connect 的联合应用程序也支持用户在应用程序启动，再通过 Azure AD 的自动重定向或单击链接进行登录。 这称为服务提供者发起的登录，Azure AD 应用程序库中的大多数联合应用程序都支持这种方式（请参阅 Azure 门户上应用的单一登录配置向导中链接的文档来了解详细信息）。
 
 ![][5]
 
 ### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>联合、基于密码或现有应用的直接登录链接
 Azure AD 还为支持基于密码单一登录、现有单一登录以及任何形式的联合单一登录的各个应用程序提供直接单一登录链接。
 
-这些链接是专门编写的 URL，通过 Azure AD 登录过程针对特定应用程序发送给用户，用户无需从 Azure AD 访问面板或 Office 365 启动。 可以在 Azure 管理门户上“Active Directory”部分中任何预先集成的应用程序的“仪表板”选项卡下找到这些单一登录 URL，如以下屏幕截图所示。
+这些链接是专门编写的 URL，通过 Azure AD 登录过程针对特定应用程序发送给用户，用户无需从 Azure AD 访问面板或 Office 365 启动。 可以在 Azure 门户上“Active Directory”部分中任何预先集成的应用程序的“仪表板”选项卡下找到这些单一登录 URL，如以下屏幕截图所示。
 
 ![][6]
 
@@ -178,7 +130,7 @@ Azure AD 还为支持基于密码单一登录、现有单一登录以及任何�
 
 当已授权的用户单击其中一个应用程序特定的链接时，他们会先看到其组织登录页（假设他们尚未登录），登录之后重定向到该应用，而不会先停留在访问面板。 如果用户未安装访问应用程序所需的必备组件（例如基于密码的单一登录浏览器扩展），链接会提示用户安装缺少的扩展。 如果应用程序的单一登录配置发生更改，链接 URL 也会保持不变。
 
-这些链接使用与访问面板和 Office 365 相同的访问控制机制，只有在 Azure 管理门户中已分配到应用程序的用户或组能够成功通过身份验证。 不过，任何未经授权的用户都会看到一条消息说明他们未获得访问权限，并会获得一个加载访问面板的链接用于查看他们有权访问的应用程序。
+这些链接使用与访问面板和 Office 365 相同的访问控制机制，只有在 Azure 门户中已分配到应用程序的用户或组能够成功通过身份验证。 不过，任何未经授权的用户都会看到一条消息说明他们未获得访问权限，并会获得一个加载访问面板的链接用于查看他们有权访问的应用程序。
 
 ## <a name="related-articles"></a>相关文章
 - [有关 Azure Active Directory 中应用程序管理的文章索引](active-directory-apps-index.md)

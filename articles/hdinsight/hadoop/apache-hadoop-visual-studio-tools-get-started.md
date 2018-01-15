@@ -16,13 +16,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/27/2017
-ms.date: 12/18/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6cb931329c10a9c9d663969487cb400924020e81
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 17382026abf89538f1b1a80ab643c57f9efe028d
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="connect-to-azure-hdinsight-and-run-hive-queries-using-data-lake-tools-for-visual-studio"></a>使用用于 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 并运行 Hive 查询
 
@@ -148,7 +148,7 @@ ms.lasthandoff: 12/08/2017
 
 1. 在“服务器资源管理器”中，展开“Azure”，然后展开“HDInsight 群集”。
 2. 右键单击要运行查询的群集，然后单击“编写 Hive 查询”。
-3. 输入 Hive 查询。 请注意，Hive 编辑器支持 IntelliSense。 用于 Visual Studio 的 Data Lake 工具支持在用户编辑 Hive 脚本时加载远程元数据。 例如，当键入“SELECT * FROM”时，IntelliSense 将列出所有建议的表名称。 在指定表名称后，IntelliSense 将列出列名称。 该工具几乎支持所有 Hive DML 语句、子查询和内置 UDF。
+3. 输入 Hive 查询。 请注意，Hive 编辑器支持 IntelliSense。 用于 Visual Studio 的 Data Lake 工具支持在编辑 Hive 脚本时加载远程元数据。 例如，当键入“SELECT * FROM”时，IntelliSense 将列出所有建议的表名称。 在指定表名称后，IntelliSense 列出列名称。 该工具几乎支持所有 Hive DML 语句、子查询和内置 UDF。
    
     ![Data Lake 工具：HDInsight Visual Studio Tools IntelliSense](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.table.names.png "U-SQL IntelliSense")
    
@@ -158,9 +158,11 @@ ms.lasthandoff: 12/08/2017
    > 只建议 HDInsight 工具栏中所选群集元数据。
    > 
    > 
+   
 4. （可选）：单击“验证脚本”，检查脚本语法错误。
    
     ![Data Lake 工具：用于 Visual Studio 的 Data Lake 工具本地验证](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.validate.hive.script.png "验证脚本")
+    
 5. 单击“提交”或“提交(高级)”。 使用高级提交选项，可以针对脚本配置“作业名称”、“参数”、“其他配置”和“状态目录”：
    
     ![HDInsight Hadoop hive 查询](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png "提交查询")
@@ -168,6 +170,7 @@ ms.lasthandoff: 12/08/2017
     在提交作业后，将看到“Hive 作业摘要”窗口。
    
     ![HDInsight Hadoop Hive 查询摘要](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.run.hive.job.summary.png "Hive 作业摘要")
+    
 6. 使用“刷新”按钮更新状态，直到作业状态更改为“已完成”。
 7. 单击底部的链接可查看：**作业查询**、**作业输出**、**作业日志**或 **Yarn 日志**。
 
@@ -177,6 +180,7 @@ ms.lasthandoff: 12/08/2017
 2. 从左窗格中选择“HDInsight”，在中间窗格中选择“Hive 应用程序”，输入属性，然后单击“确定”。
    
     ![Data Lake 工具：HDInsight Visual Studio 工具新建 hive 项目](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png "从 Visual Studio 创建 Hive 应用程序")
+    
 3. 在“解决方案资源管理器”中，双击“Script.hql”将其打开。
 4. 若要验证 Hive 脚本，可以单击“验证脚本”按钮，或在 Hive 编辑器中右键单击该脚本，然后在上下文菜单中单击“验证脚本”。
 
@@ -262,5 +266,4 @@ Data Lake Visual Studio 工具支持显示 Tez 执行引擎运行的 Hive 作业
 * [在 HDInsight 中使用 Hadoop Hive](hdinsight-use-hive.md)
 * [开始在 HDInsight 中使用 Hadoop](apache-hadoop-linux-tutorial-get-started.md)
 * [在 HDInsight 中提交 Hadoop 作业](submit-apache-hadoop-jobs-programmatically.md)
-* [使用 HDInsight 中的 Hadoop 分析 Twitter 数据](../hdinsight-analyze-twitter-data.md)
 

@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 07/11/2017
 ms.date: 1/1/2018
 ms.author: v-nany
-ms.openlocfilehash: c83514a4f010d571b41d5c35e3f481c90c2cf294
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 9940d600d2b882fe509c7763c73b626a50c0bd8e
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>对应用程序执行许可时发生的意外错误
 
@@ -72,9 +72,7 @@ ms.lasthandoff: 01/05/2018
 
     -   从 Azure AD 应用程序库添加应用程序
 
-## <a name="next-steps"></a>后续步骤 
 
-[Azure Active Directory（v1 终结点）中的应用、权限和许可](active-directory-apps-permissions-consent.md)<br>
 
 
 

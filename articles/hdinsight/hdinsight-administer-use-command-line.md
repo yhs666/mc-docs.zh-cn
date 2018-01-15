@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/25/2017
-ms.date: 12/25/2017
+origin.date: 12/15/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 78917289c1fc13610830dbcef0cb79ebff9467b6
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: e275d1b7b079ec67d2d3e88fa0e2dc7e3a3f4f58
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>使用 Azure CLI 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -105,7 +105,7 @@ azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 ```
 
 ## <a name="next-steps"></a>后续步骤
-在本文中，已了解如何执行不同的 HDInsight 群集管理任务。 若要了解更多信息，请参阅下列文章：
+在本文中，已了解如何执行不同的 HDInsight 群集管理任务。 要了解更多信息，请参阅下列文章：
 
 * [使用 Azure 门户管理 HDInsight][hdinsight-admin-portal]
 * [使用 Azure PowerShell 管理 HDInsight][hdinsight-admin-powershell]

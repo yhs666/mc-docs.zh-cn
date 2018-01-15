@@ -16,20 +16,20 @@ ms.workload: big-data
 origin.date: 11/07/2017
 ms.date: 12/18/2017
 ms.author: v-yiso
-ms.openlocfilehash: 78d8944a740a662780a73923e6a767204c020d99
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 767c7c82f842b923b062f7acb66d68b67082d625
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>使用 MirrorMaker 通过 Kafka on HDInsight 复制 Apache Kafka 主题
 
-了解如何使用 Apache Kafka 镜像功能将主题复制到辅助群集。 镜像可以作为连续进程运行，也可间断式地用作将数据从一个群集迁移到另一个群集的方法。
+了解如何使用 Apache Kafka 镜像功能将主题复制到辅助群集。 镜像可以作为连续的进程运行，或者间接用作将数据从一个群集复制到另一个群集的方法。
 
 在此示例中，镜像用于在两个 HDInsight 群集之间复制主题。 这两个群集位于同一区域的 Azure 虚拟网络中。
 
 > [!WARNING]
-> 不应将镜像视为实现容错的方法。 主题中项的偏移在源群集与目标群集之间有所不同，因此客户端不能换用这两种群集。
+> 不应将镜像视为一种实现容错的方式。 主题中项的偏移在源群集与目标群集之间有所不同，因此客户端不能换用这两种群集。
 >
 > 如果关心容错能力，应该为群集中的主题设置复制。 有关详细信息，请参阅 [Kafka on HDInsight 入门](apache-kafka-get-started.md)。
 
@@ -37,9 +37,9 @@ ms.lasthandoff: 12/08/2017
 
 镜像通过使用 MirrorMaker 工具（Apache Kafka 的一部分）来使用源群集上主题中的记录，然后在目标群集上创建本地副本。 MirrorMaker 使用一个或多个*使用者*从源群集读取记录，使用*生成者*将记录写入本地（目标）群集。
 
-下图演示了镜像过程：
+下图说明镜像过程：
 
-![镜像过程图示](./media/apache-kafka-mirroring/kafka-mirroring.png)
+![镜像过程示意图](./media/apache-kafka-mirroring/kafka-mirroring.png)
 
 Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的权限。 Kafka 生成者或使用者必须与 Kafka 群集中的节点在同一 Azure 虚拟网络中。 对于此示例，Kafka 源和目标群集都位于 Azure 虚拟网络中。 下图显示了这两个群集之间的通信流：
 
@@ -64,26 +64,26 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
 ## <a name="create-kafka-clusters"></a>创建 Kafka 群集
 
-虽然可手动创建 Azure 虚拟网络和 Kafka 群集，但使用 Azure 资源管理器模板会更简单。 使用以下步骤将 Azure 虚拟网络和两个 Kafka 群集部署到 Azure 订阅。
+尽管可以手动创建 Azure 虚拟网络和 Kafka 群集，但使用 Azure Resource Manager 模板会更容易。 使用以下步骤将 Azure 虚拟网络和两个 Kafka 群集部署到 Azure 订阅。
 
 1. 使用以下按钮登录到 Azure，并在 Azure 门户中打开模板。
 
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.chinacloudapi.cn%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.chinacloudapi.cn%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     如需 Azure 资源管理器模板，请访问 **https://hditutorialdata.blob.core.chinacloudapi.cn/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**。
 
     > [!WARNING]
     > 若要确保 Kafka on HDInsight 的可用性，群集必须至少包含 3 个辅助节点。 此模板创建的 Kafka 群集包含三个辅助角色节点。
 
-2. 使用以下信息来填充“自定义部署”边栏选项卡上的项：
-
-    ![HDInsight 自定义部署](./media/hdinsight-apache-kafka-mirroring/parameters.png)
-
+2. 使用以下信息填充“自定义部署”  边栏选项卡上的条目：
+    
+    ![HDInsight 自定义部署](./media/apache-kafka-mirroring/parameters.png)
+    
     * **资源组**：创建一个组或选择现有组。 此组包含 HDInsight 群集。
 
     * **位置**：选择在地理上邻近的位置。
 
-    * **基群集名称**：此值将用作 Kafka 群集的基名称。 例如，输入 **hdi** 会创建名为 **source-hdi** 和 **dest-hdi** 的群集。
+    * **基群集名称**：此值用作 Kafka 群集的基名称。 例如，输入 **hdi** 会创建名为 **source-hdi** 和 **dest-hdi** 的群集。
 
     * **群集登录用户名**：Kafka 源群集和目标群集的管理员用户名。
 
@@ -108,9 +108,9 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
     ssh sshuser@source-BASENAME-ssh.azurehdinsight.cn
     ```
 
-    用创建群集时使用的 SSH 用户名替换 **sshuser**。 将 **BASENAME** 替换为创建群集时使用的基名称。
+    将 **sshuser** 替换为创建群集时使用的 SSH 用户名。 将 **BASENAME** 替换为创建群集时使用的基名称。
 
-    有关信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
+    有关信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 使用以下命令查找源群集的 Zookeeper 主机：
 
@@ -143,7 +143,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
     echo $SOURCE_ZKHOSTS
     ```
 
-    这会返回类似于以下文本的信息：
+    此命令返回类似于以下文本的信息：
 
     `zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:2181`
 
@@ -159,7 +159,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
     用创建群集时使用的 SSH 用户名替换 **sshuser**。 将 **BASENAME** 替换为创建群集时使用的基名称。
 
-    有关信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
+    有关信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. `consumer.properties` 文件用于配置与源群集的通信。 若要创建文件，请使用以下命令：
 
@@ -176,11 +176,11 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
     将 **SOURCE_ZKHOSTS** 替换为**源**群集中的 Zookeeper 主机信息。
 
-    此文件说明从 Kafka 源群集读取记录时要使用的使用者信息。 有关使用者配置的详细信息，请参阅 kafka.apache.org 中的[使用者配置](https://kafka.apache.org/documentation#consumerconfigs)。
+    此文件描述从源 Kafka 群集读取时要使用的使用者信息。 有关使用者配置的详细信息，请参阅 kafka.apache.org 上的 [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) （使用者配置）。
 
     若要保存文件，请使用 Ctrl+X、Y，然后按 Enter。
 
-3. 配置与目标群集通信的创建器之前，必须找到**目标**群集的中转站主机。 使用以下命令检索此信息：
+3. 在配置用来与目标群集通信的生成者之前，必须查找 **目标** 群集的中转站主机。 使用以下命令检索此信息：
 
     ```bash
     sudo apt -y install jq
@@ -262,7 +262,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
 ## <a name="delete-the-cluster"></a>删除群集
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 由于本文档中的步骤在相同的 Azure 资源组中创建两个群集，因此可在 Azure 门户中删除资源组。 删除资源组会删除按照本文档创建的所有资源（Azure 虚拟网络和群集使用的存储帐户）。
 
@@ -271,7 +271,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 本文档已介绍如何使用 MirrorMaker 创建 Kafka 群集的副本。 请使用以下链接探索 Kafka 的其他用法：
 
 * [Apache Kafka MirrorMaker 文档](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) 。
-* [Apache Kafka on HDInsight 入门](hdinsight-apache-kafka-get-started.md)
-* [将 Apache Spark 与 Kafka on HDInsight 结合使用](hdinsight-apache-spark-with-kafka.md)
-* [将 Apache Storm 与 Kafka on HDInsight 结合使用](hdinsight-apache-storm-with-kafka.md)
-* [通过 Azure 虚拟网络连接到 Kafka](hdinsight-apache-kafka-connect-vpn-gateway.md)
+* [Apache Kafka on HDInsight 入门](apache-kafka-get-started.md)
+* [将 Apache Spark 与 Kafka on HDInsight 结合使用](../hdinsight-apache-spark-with-kafka.md)
+* [将 Apache Storm 与 Kafka on HDInsight 结合使用](../hdinsight-apache-storm-with-kafka.md)
+* [通过 Azure 虚拟网络连接到 Kafka](apache-kafka-connect-vpn-gateway.md)

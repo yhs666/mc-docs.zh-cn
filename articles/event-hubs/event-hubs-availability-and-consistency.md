@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/15/2017
-ms.date: 09/04/2017
+origin.date: 11/28/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: f09f51465756d0f6b3eede2afcacfb0d52d65637
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: b1b32bd2682a63e86961868c4b8b3770a3c6f45e
+ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>事件中心内的可用性和一致性
 
@@ -37,7 +37,7 @@ Brewer 的定理按如下所示定义一致性和可用性：
 事件中心在分区数据模型的基础上构建。 可以在设置过程中配置事件中心内的分区数，但以后无法更改此值。 由于必须对事件中心使用分区，因此需要在应用程序的可用性和一致性方面进行决策。
 
 ## <a name="availability"></a>可用性
-开始使用事件中心的最简单方法是使用默认行为。 如果创建新的 `EventHubClient` 对象并使用 `Send` 方法，会自动在事件中心内的各个分区之间分发这些事件。 此行为可实现最大运行时间量。
+开始使用事件中心的最简单方法是使用默认行为。 如果创建新的 **[EventHubClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** 对象并使用 **[Send](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** 方法，会自动在事件中心内的各个分区之间分发这些事件。 此行为可实现最大运行时间量。
 
 对于需要最大运行时间的用例，此模型是首选模型。
 
@@ -67,4 +67,4 @@ await eventHubClient.SendAsync(data);
 * [事件中心服务概述](event-hubs-what-is-event-hubs.md)
 * [创建事件中心](event-hubs-create.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

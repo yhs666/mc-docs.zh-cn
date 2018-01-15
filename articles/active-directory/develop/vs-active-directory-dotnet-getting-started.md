@@ -1,10 +1,10 @@
 ---
-title: "Visual Studio MVC 项目中的 Azure AD 入门 | Azure"
+title: "Visual Studio MVC 项目中的 Azure AD 入门 | Microsoft 文档"
 description: "通过 Visual Studio 连接服务连接到或创建 Azure AD 之后，如何在 MVC 项目中开始使用 Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: mtillman
 editor: 
 ms.assetid: 1c8b6a58-5144-4965-a905-625b9ee7b22b
 ms.service: active-directory
@@ -13,24 +13,27 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 origin.date: 03/01/2017
-ms.date: 04/17/2017
+ms.date: 01/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9b9bfcce6bfb0b5ec971fe6df91d454c866059aa
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.custom: aaddev
+ms.openlocfilehash: efcbaf084db57f01d0029df075e4841e24d41360
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="getting-started-with-azure-active-directory-and-visual-studio-connected-services-mvc-projects"></a>开始使用 Azure Active Directory 和 Visual Studio 连接服务（MVC 项目）
 > [!div class="op_single_selector"]
->- [入门](./vs-active-directory-dotnet-getting-started.md)
->- [发生了什么情况](./vs-active-directory-dotnet-what-happened.md)
+> * [入门](vs-active-directory-dotnet-getting-started.md)
+> * [发生了什么情况](vs-active-directory-dotnet-what-happened.md)
+> 
+> 
 
 ## <a name="requiring-authentication-to-access-controllers"></a>访问控制器需要身份验证
-你项目中的所有控制器均带有 **Authorize** 属性。 此属性要求用户先进行身份验证，然后才能访问这些控制器。 若要允许匿名访问控制器，请从控制器删除此属性。 如果您想要更详细地设置这些权限，请将该属性应用到需要身份验证的每个方法，而不是将它应用到控制器类。
+项目中的所有控制器均带有 **Authorize** 属性。 此属性要求用户先进行身份验证，才能访问这些控制器。 若要允许匿名访问控制器，请从控制器删除此属性。 如果想要更详细地设置这些权限，请将该属性应用到需要身份验证的每个方法，而不是将它应用到控制器类。
 
 ## <a name="adding-signin--signout-controls"></a>添加 SignIn/SignOut 控件
-若要将 SignIn/SignOut 控件添加到视图，可使用 **_LoginPartial.cshtml** 分部视图将该功能添加到某个视图。 下面是已添加到标准 **_Layout.cshtml** 视图的功能示例。 （注意带有 navbar-collapse 类的 div 中的最后一个元素）：
+要将 SignIn/SignOut 控件添加到视图，可使用 **_LoginPartial.cshtml** 分部视图将该功能添加到某个视图。 下面是已添加到标准 **_Layout.cshtml** 视图的功能示例。 （注意带有 navbar-collapse 类的 div 中的最后一个元素）：
 
 <pre>
     &lt;!DOCTYPE html&gt; 
@@ -78,4 +81,7 @@ ms.lasthandoff: 06/21/2017
 </pre>
 
 ## <a name="next-steps"></a>后续步骤
-- [详细了解 Azure Active Directory](https://www.azure.cn/home/features/identity/)
+- [详细了解 Azure Active Directory](/active-directory/) 
+
+
+<!-- Update_Description: link update -->

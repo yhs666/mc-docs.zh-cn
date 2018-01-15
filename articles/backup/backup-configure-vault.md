@@ -3,8 +3,8 @@ title: "使用 Azure 备份代理备份文件和文件夹 | Microsoft 文档"
 description: "使用 Azure 备份代理将 Windows 文件和文件夹备份到 Azure。 创建恢复服务保管库，安装备份代理，定义备份策略，以及对文件和文件夹运行初始备份。"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: 
 keywords: "备份保管库; 备份 Windows 服务器; 备份 windows;"
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
@@ -14,21 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 09/04/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: d534853467d3adcae17675e821986587d1c12e05
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: c6f550484582be9af0a2f2e923bbd8fbc56293e5
+ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>通过 Resource Manager 部署模型将 Windows Server 或客户端备份到 Azure
-> [!div class="op_single_selector"]
-> * [Azure 门户](backup-configure-vault.md)
-> * [经典管理门户](backup-configure-vault-classic.md)
->
->
-
 本文介绍如何通过 Resource Manager 部署模型使用 Azure 备份将 Windows Server（或 Windows 客户端）文件和文件夹备份到 Azure。
 
 [!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
@@ -53,7 +47,7 @@ ms.lasthandoff: 09/08/2017
 
     ![创建恢复服务保管库步骤 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    此时将打开“恢复服务保管库”边栏选项卡，其中会提示你提供“名称”、“订阅”、“资源组”和“位置”。
+    此时会打开恢复服务保管库边栏选项卡，其中会提示提供“名称”、“订阅”、“资源组”和“位置”。
 
     ![创建恢复服务保管库步骤 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
@@ -85,7 +79,7 @@ ms.lasthandoff: 09/08/2017
 
 1. 从“恢复服务保管库”边栏选项卡中，单击新保管库  。
 
-    ![从恢复服务保管库列表中选择新保管库](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![在恢复服务保管库列表中选择新保管库](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
     选择保管库时，“恢复服务保管库”边栏选项卡会缩窄，“设置”边栏选项卡（*顶部有保管库的名称*）和保管库详细信息边栏选项卡会打开。
 
@@ -103,13 +97,13 @@ ms.lasthandoff: 09/08/2017
 
   ![存储配置选项](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-  默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余” 。 如果不使用 Azure 作为主要备份存储终结点，则选择“本地冗余” ，以减少 Azure 存储成本。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy.md#geo-redundant-storage)和[本地冗余](../storage/common/storage-redundancy.md#locally-redundant-storage)存储选项。
+  默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余” 。 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy.md#geo-redundant-storage)和[本地冗余](../storage/common/storage-redundancy.md#locally-redundant-storage)存储选项。
 
 现在，你已创建了保管库，接下来请准备基础结构以备份文件和文件夹，方法是下载并安装 Azure 恢复服务代理，下载保管库凭据，并使用这些凭据向保管库注册该代理。
 
 ## <a name="configure-the-vault"></a>配置保管库
 
-1. 在“恢复服务保管库”边栏选项卡（对应于刚创建的保管库）的“开始”部分中单击“备份”，并在“开始备份”边栏选项卡上选择“备份目标”。
+1. 在“恢复服务保管库”边栏选项卡（对应于刚创建的保管库）的“开始”部分单击“备份”，并在“开始使用备份”边栏选项卡上选择“备份目标”。
 
   ![打开备份目标边栏选项卡](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
@@ -127,7 +121,7 @@ ms.lasthandoff: 09/08/2017
 
   单击“确定”后，会在“备份目标”旁边显示一个复选标记，并会打开“准备基础结构”边栏选项卡。
 
-  ![已配置备份目标，接下来准备基础结构](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
+  ![配置备份目标以后，接下来准备基础结构](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
 4. 在“准备基础结构”边栏选项卡上，单击“下载 Windows Server 或 Windows 客户端的代理”。
 
@@ -149,7 +143,7 @@ ms.lasthandoff: 09/08/2017
 
   ![下载保管库凭据](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-  保管库凭据下载到“下载”文件夹。 下载完保管库凭据以后，会显示一个弹出窗口，询问用户是要打开还是要保存凭据。 单击“保存” 。 ，可以让尝试打开保管库凭据的对话框关闭。 不能打开保管库凭据。 继续下一步。 保管库凭据位于“下载”文件夹中。   
+  保管库凭据下载到“下载”文件夹。 下载完保管库凭据以后，会显示一个弹出窗口，询问用户是要打开还是要保存凭据。 单击“保存” 。 如果意外地单击了“打开”，可以让尝试打开保管库凭据的对话框关闭。 不能打开保管库凭据。 继续下一步。 保管库凭据位于“下载”文件夹中。   
 
   ![已下载保管库凭据](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 
@@ -185,9 +179,9 @@ ms.lasthandoff: 09/08/2017
 如果计算机/代理具有有限的 internet 访问，请确保计算机/代理上的防火墙设置配置为允许以下 URL： <br>
     1. www.msftncsi.com
     2. *.Microsoft.com
-    3. *.WindowsAzure.com
-    4. *.microsoftonline.com
-    5. *.windows.ne
+    3. *.WindowsAzure.cn
+    4. *.microsoftonline.cn
+    5. *.chinacloudapi.cn
 
 
 ## <a name="create-the-backup-policy"></a>创建备份策略
@@ -224,8 +218,8 @@ ms.lasthandoff: 09/08/2017
     保留策略指定备份将存储的时间长度。 可以根据备份的创建时间指定不同的保留策略，而不只是为所有备份点指定一个“通用的策略”。 可以根据需要修改每日、每周、每月和每年保留策略。
 9. 在“选择初始备份类型”页上，选择初始备份类型。 将“自动通过网络”选项保持选中状态，然后单击“下一步”。
 
-    可以通过网络自动备份，或者脱机备份。 本文的余下部分介绍自动备份过程。 如果想要执行脱机备份，请查看 [Azure 备份中的脱机备份工作流](backup-azure-backup-import-export.md)以了解更多信息。
-10. 在“确认”页上复查信息，然后单击“完成”。
+    可以通过网络自动备份，或者脱机备份。 本文的余下部分介绍自动备份过程。 如果想要执行脱机备份，请查看 [Azure 备份中的脱机备份工作流](backup-azure-backup-import-export.md) 以了解更多信息。
+10. 在“确认”页上复查信息，并单击“**完成**”。
 11. 在向导完成创建备份计划后，请单击“**关闭**”。
 
 ### <a name="enable-network-throttling"></a>启用网络限制
@@ -246,7 +240,7 @@ Azure 备份代理提供了网络限制。 限制功能将控制数据传输期�
     ![网络限制](./media/backup-configure-vault/throttling-dialog.png)
 3. 启用限制后，指定在“**工作时间**”和“**非工作时间**”允许使用多少带宽进行备份数据传输。
 
-    带宽值从每秒 512 千字节 (Kbps) 开始，最高可为每秒 1,023 兆字节 (MBps)。 还可以指定“工作时间”的开始和结束时间，以及一周中有哪几天被视为工作日。 指定的工作时间以外的时间视为非工作时间。
+    带宽值从每秒 512 千字节 (Kbps) 开始，最高可为每秒 1,023 兆字节 (MBps)。 还可以指定“**工作时间**”的开始和结束时间，以及一周中有哪几天被视为工作日。 指定的工作时间以外的时间视为非工作时间。
 4. 单击 **“确定”**。
 
 ### <a name="to-back-up-files-and-folders-for-the-first-time"></a>首次备份文件和文件夹

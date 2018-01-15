@@ -1,8 +1,8 @@
 ---
 title: "Azure Active Directory 概念证明操作手册：构建基块 | Microsoft Docs"
-description: "研究并快速实现标识和访问管理方案"
+description: "浏览并快速实现标识和访问管理方案"
 services: active-directory
-keywords: "azure active directory, 演练手册, 概念证明, PoC"
+keywords: "azure active directory 操作手册, 概念证明, PoC"
 documentationcenter: 
 author: dstefanMSFT
 manager: femila
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 05/04/2017
 ms.author: v-junlch
 ms.date: 06/12/2017
-ms.openlocfilehash: dce1e9cae74a3c69537a9a157b991c3b9b39fb50
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: ee507a7db9349e4c1dd502d44cfd667fe7a479f5
+ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念证明操作手册：构建基块
 
@@ -27,8 +27,8 @@ ms.lasthandoff: 06/21/2017
 
 | 角色 | 说明 | 概念证明 (PoC) 责任 |
 | --- | --- | --- |
-| **标识体系结构/开发团队** | 此团队通常是设计解决方案、实现原型、推动审批以及最后将解决方案转交给运营部门的团队 | 他们提供环境并从管理角度评估不同的方案 |
-| **本地标识运营团队** | 管理不同的本地标识源：Active Directory 林、LDAP 目录、HR 系统和联合标识提供程序。 | 提供 PoC 方案所需的本地资源的访问权限。<br/>应该尽量减少与此团队的交互|
+| **标识体系结构/开发团队** | 此团队通常负责设计解决方案、实现原型、推动审批但最终不涉及运营 | 他们提供环境并从管理角度评估不同的方案 |
+| **本地标识运营团队** | 管理不同的本地标识源：Active Directory 林、LDAP 目录、HR 系统和联合标识提供程序。 | 提供 PoC 方案所需的本地资源的访问权限。<br/>他们应尽量少涉及|
 | **应用程序技术所有者** | 要与 Azure AD 集成的不同云应用和服务的技术所有者 | 提供有关 SaaS 应用程序（可能是用于测试的实例）的详细信息 |
 | **Azure AD 全局管理员** | 管理 Azure AD 配置 | 提供用于配置同步服务的凭据。 在 PoC 过程中，该团队通常就是标识体系结构团队，但在运营阶段，它们是两个不同的团队|
 | **数据库团队** | 数据库基础结构的所有者 | 提供对 SQL 环境（ADFS 或 Azure AD Connect）的访问权限，以完成特定的方案准备工作。<br/>应该尽量减少与此团队的交互 |
@@ -41,11 +41,11 @@ ms.lasthandoff: 06/21/2017
 
 | 先决条件 | 资源 |
 | --- | --- |
-| 使用有效 Azure 订阅定义的 Azure AD 租户 | [如何获取 Azure Active Directory 租户](./develop/active-directory-howto-tenant.md)<br/>**注意：**如果你已创建一个具有 Azure AD Premium 许可证的环境，可以导航到 https://aka.ms/accessaad 获取一个没有上限的订阅 <br/>在以下网页中了解详细信息：https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 和 https://technet.microsoft.com/library/dn832618.aspx |
+| 使用有效 Azure 订阅定义的 Azure AD 租户 | [如何获取 Azure Active Directory 租户](./develop/active-directory-howto-tenant.md)<br/>**请注意：**如果环境中已经具备 Azure AD Premium 许可证，则可以通过导航到 https://aka.ms/accessaad 来获取零上限订阅 <br/>在以下网页中了解详细信息：https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 和 https://technet.microsoft.com/library/dn832618.aspx |
 | Azure AD 全局管理员凭据 | 在 Azure Active Directory 中分配管理员角色 |
 | 可选但强烈建议：用作应急措施的并行实验室环境 | [Azure AD Connect 的先决条件](./connect/active-directory-aadconnect-prerequisites.md) |
 
-## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>目录同步 - 密码哈希同步 (PHS) - 新安装
+## <a name="directory-synchronization--password-hash-sync-phs--new-installation"></a>目录同步 - 密码哈希同步 (PHS) - 新安装
 
 大约完成时间：一小时（如果 PoC 用户数不超过 1,000 个）
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 06/21/2017
 | 下载最新版本的 Azure AD Connect | [下载 Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) |
 | 使用最简单的路径安装 Azure AD Connect：快速安装 <br/>1.根据目标 OU 进行筛选，以最小化同步周期时间<br/>2.在本地组中选择一组目标用户。<br/>3.部署其他 POC 主题所需的功能 | [Azure AD Connect：自定义安装：域和 OU 筛选](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect：自定义安装：基于组的筛选](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect：将本地标识与 Azure Active Directory 集成：配置同步功能](./connect/active-directory-aadconnect.md#configure-sync-features) |
 | 打开 Azure AD Connect UI，查看正在运行的配置文件是否已完成（导入、同步和导出） | [Azure AD Connect 同步：计划程序](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
-| 打开 Azure AD 管理门户，转到“所有用户”边栏选项卡，添加“授权来源”列，然后会看到正确标记为来自“Windows Server AD”的用户 | [Azure AD 管理门户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
+| 打开 Azure AD 门户，转到“所有用户”边栏选项卡，添加“授权来源”列，会看到正确标记为来自“Windows Server AD”的用户 | [Azure AD 门户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
 ### <a name="considerations"></a>注意事项
 
@@ -127,11 +127,11 @@ ms.lasthandoff: 06/21/2017
 
 | 步骤 | 资源 |
 | --- | --- |
-| 在 Azure AD 管理门户中导航到“用户和组”边栏选项卡 | [Azure AD 管理门户：用户和组](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
+| 在 Azure AD 门户中导航到“用户和组”边栏选项卡 | [Azure AD 门户：用户和组](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | 选择“所有用户”边栏选项卡 |  |
 | 在顶部栏中选择“多重身份验证”按钮 | Azure MFA 门户的直接 URL：https://aka.ms/mfaportal |
 | 在“用户”设置中选择 PoC 用户，并为他们启用 MFA | [Azure 多重身份验证中的用户状态](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
-| 以 PoC 用户身份登录，然后逐步完成验证过程  |  |
+| 以 PoC 用户身份登录，并完成验证过程  |  |
 
 ### <a name="considerations"></a>注意事项
 
