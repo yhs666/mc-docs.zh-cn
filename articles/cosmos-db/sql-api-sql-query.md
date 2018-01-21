@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 07/25/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: bdb8b646896afe4068326edd2f0ce9d63c33b0a6
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: e7a02e9f84e980e31b212e3238d551f34cd2309d
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查询
 
@@ -1417,35 +1417,35 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
   <td><strong>说明</strong></td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_array">IS_ARRAY (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_array">IS_ARRAY (expr)</a></td>
   <td>返回一个布尔值，它指示值的类型是否为数组。</td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_bool">IS_BOOL (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_bool">IS_BOOL (expr)</a></td>
   <td>返回一个布尔值，它指示值的类型是否为布尔。</td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_null">IS_NULL (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_null">IS_NULL (expr)</a></td>
   <td>返回一个布尔值，它指示值的类型是否为 null。</td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_number">IS_NUMBER (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_number">IS_NUMBER (expr)</a></td>
   <td>返回一个布尔值，它指示值的类型是否为数字。</td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_object">IS_OBJECT (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_object">IS_OBJECT (expr)</a></td>
   <td>返回一个布尔值，它指示值的类型是否为 JSON 对象。</td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_string">IS_STRING (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_string">IS_STRING (expr)</a></td>
   <td>返回一个布尔值，它指示值的类型是否为字符串。</td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_defined">IS_DEFINED (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_defined">IS_DEFINED (expr)</a></td>
   <td>返回一个布尔，它指示属性是否已经分配了值。</td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_primitive">IS_PRIMITIVE (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_primitive">IS_PRIMITIVE (expr)</a></td>
   <td>返回一个布尔值，它指示值的类型是否为字符串、数字、布尔或 null。</td>
 </tr>
 
@@ -1466,22 +1466,22 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
 | 使用情况 | 说明 |
 | --- | --- |
-| [LENGTH (str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_length) |返回指定字符串的字符数 |
-| [CONCAT (str_expr, str_expr [, str_expr])](../cosmos-db/documentdb-sql-query-reference.md#bk_concat) |返回一个字符串，该字符串是连接两个或多个字符串值的结果。 |
-| [SUBSTRING (str_expr, num_expr, num_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_substring) |返回部分字符串表达式。 |
-| [STARTSWITH (str_expr, str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_startswith) |返回一个布尔值，该值指示第一个字符串表达式是否以第二个字符串表达式结尾 |
-| [ENDSWITH (str_expr, str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_endswith) |返回一个布尔值，该值指示第一个字符串表达式是否以第二个字符串表达式结尾 |
-| [CONTAINS (str_expr, str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_contains) |返回一个布尔值，该值指示第一个字符串表达式是否包含第二个字符串表达式。 |
-| [INDEX_OF (str_expr, str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_index_of) |返回第一个指定的字符串表达式中第一次出现第二个字符串表达式的起始位置，如果未找到字符串，则返回 -1。 |
-| [LEFT (str_expr, num_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_left) |返回具有指定字符数的字符串的左侧部分。 |
-| [RIGHT (str_expr, num_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_right) |返回具有指定字符数的字符串的右侧部分。 |
-| [LTRIM (str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_ltrim) |返回删除前导空格后的字符串表达式。 |
-| [RTRIM (str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_rtrim) |返回截断所有尾随空格后的字符串表达式。 |
-| [LOWER (str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_lower) |返回在将大写字符数据转换为小写后的字符串表达式。 |
-| [UPPER (str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_upper) |返回在将小写字符数据转换为大写后的字符串表达式。 |
-| [REPLACE (str_expr, str_expr, str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_replace) |将出现的所有指定字符串值替换为另一个字符串值。 |
+| [LENGTH (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_length) |返回指定字符串的字符数 |
+| [CONCAT (str_expr, str_expr [, str_expr])](../cosmos-db/sql-api-sql-query-reference.md#bk_concat) |返回一个字符串，该字符串是连接两个或多个字符串值的结果。 |
+| [SUBSTRING (str_expr, num_expr, num_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_substring) |返回部分字符串表达式。 |
+| [STARTSWITH (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_startswith) |返回一个布尔值，该值指示第一个字符串表达式是否以第二个字符串表达式结尾 |
+| [ENDSWITH (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_endswith) |返回一个布尔值，该值指示第一个字符串表达式是否以第二个字符串表达式结尾 |
+| [CONTAINS (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_contains) |返回一个布尔值，该值指示第一个字符串表达式是否包含第二个字符串表达式。 |
+| [INDEX_OF (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_index_of) |返回第一个指定的字符串表达式中第一次出现第二个字符串表达式的起始位置，如果未找到字符串，则返回 -1。 |
+| [LEFT (str_expr, num_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_left) |返回具有指定字符数的字符串的左侧部分。 |
+| [RIGHT (str_expr, num_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_right) |返回具有指定字符数的字符串的右侧部分。 |
+| [LTRIM (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_ltrim) |返回删除前导空格后的字符串表达式。 |
+| [RTRIM (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_rtrim) |返回截断所有尾随空格后的字符串表达式。 |
+| [LOWER (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_lower) |返回在将大写字符数据转换为小写后的字符串表达式。 |
+| [UPPER (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_upper) |返回在将小写字符数据转换为大写后的字符串表达式。 |
+| [REPLACE (str_expr, str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_replace) |将出现的所有指定字符串值替换为另一个字符串值。 |
 | [REPLICATE (str_expr, num_expr)](/cosmos-db/sql-api-sql-query-reference#bk_replicate) |将一个字符串值重复指定的次数。 |
-| [REVERSE (str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_reverse) |返回字符串值的逆序排序形式。 |
+| [REVERSE (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_reverse) |返回字符串值的逆序排序形式。 |
 
 借助这些函数，现可以运行以下查询。 例如，可以返回大写形式的家庭名称，如下所示：
 
@@ -1535,10 +1535,10 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
 | 使用情况 | 说明 |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_array_length) |返回指定数组表达式的元素数。 |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](../cosmos-db/documentdb-sql-query-reference.md#bk_array_concat) |返回一个数组，该数组是连接两个或更多数组值的结果。 |
-| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](../cosmos-db/documentdb-sql-query-reference.md#bk_array_contains) |返回一个布尔，它指示数组是否包含指定的值。 可以指定是要执行完全还是部分匹配。 |
-| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](../cosmos-db/documentdb-sql-query-reference.md#bk_array_slice) |返回部分数组表达式。 |
+| [ARRAY_LENGTH (arr_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_array_length) |返回指定数组表达式的元素数。 |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](../cosmos-db/sql-api-sql-query-reference.md#bk_array_concat) |返回一个数组，该数组是连接两个或更多数组值的结果。 |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](../cosmos-db/sql-api-sql-query-reference.md#bk_array_contains) |返回一个布尔，它指示数组是否包含指定的值。 可以指定是要执行完全还是部分匹配。 |
+| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](../cosmos-db/sql-api-sql-query-reference.md#bk_array_slice) |返回部分数组表达式。 |
 
 数组函数可用于在 JSON 内操纵数组。 例如，下面的查询返回其中一位父母是“Robin Wakefield”的所有文档。 
 

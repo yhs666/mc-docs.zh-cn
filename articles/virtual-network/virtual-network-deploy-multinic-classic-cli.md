@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 12/11/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: af10baabe065c931b51df6d947f0d43573b7342e
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 9203225f84bcbf56ef0d382f3a6c6d9522f4aa6a
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建具有多个 NIC 的 VM（经典）
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/08/2017
 以下步骤使用名为 *IaaSStory* 的资源组作为主资源组，并在名为 *IaaSStory-BackEnd* 的资源组中实现后端服务器。
 
 ## <a name="prerequisites"></a>先决条件
-需要先创建具有此方案需要的所有资源的 *IaaSStory* 资源组，才能创建数据库服务器。 若要创建这些资源，请完成以下步骤。 若要创建虚拟网络，请完成[创建虚拟网络](virtual-networks-create-vnet-classic-cli.md)一文中的步骤。
+创建数据库服务器之前，需要先使用此方案的所有必需资源创建 *IaaSStory* 资源组。 若要创建这些资源，请完成以下步骤。 若要创建 VNet，请完成[创建虚拟网络](virtual-networks-create-vnet-classic-cli.md)一文中的步骤。
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 12/08/2017
         --location $location
     ```
 
-2. 为要由 VM 使用的 OS 和数据磁盘创建高级存储帐户。
+2. 为 VM 要使用的 OS 和数据磁盘创建高级存储帐户。
 
     ```azurecli
     azure storage account create $prmStorageAccountName \
@@ -192,6 +192,6 @@ ms.lasthandoff: 12/08/2017
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>步骤 5 - 在 VM 的操作系统中配置路由
 
-Azure DHCP 会将默认网关分配给附加到虚拟机的第一个（主）网络接口。 Azure 不会将默认网关分配给附加到虚拟机的其他（辅助）网络接口。 因此，默认情况下无法与辅助网络接口所在子网的外部资源进行通信。 但是，辅助网络接口可以与其子网之外的资源进行通信。 若要为辅助网络接口配置路由，请参阅[在具有多个网络接口的虚拟机操作系统中进行路由选择](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces)。
+Azure DHCP 会将默认网关分配给附加到虚拟机的第一个（主）网络接口。 Azure 不会将默认网关分配给附加到虚拟机的其他（辅助）网络接口。 因此，默认情况下无法与辅助网络接口所在子网的外部资源进行通信。 但是，辅助网络接口可以与其子网之外的资源进行通信。 若要为辅助网络接口配置路由，请参阅[在具有多个网络接口的虚拟机操作系统中进行路由选择](virtual-network-network-interface-vm.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update link -->

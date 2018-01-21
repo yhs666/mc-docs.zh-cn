@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/12/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 966defbd2e6b918a3347c4523facd35879d2da19
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 3851f6e8176acc6e3fc81de911876011dac04afd
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 表 .NET API：下载和发行说明
 > [!div class="op_single_selector"]
@@ -41,32 +41,32 @@ ms.lasthandoff: 12/22/2017
 >
 
 <!-- Not Avaialble ## Release notes -->
-<!-- Not Avaialble ## Release and Retirement dates --》
+<!-- Not Avaialble ## Release and Retirement dates -->
 
-## <a name="troubleshooting"></a> Troubleshooting
-## Troubleshooting
+## <a name="troubleshooting"></a> 故障排除
+## <a name="troubleshooting"></a>故障排除
 
-If you get the error 
+如果在尝试使用 Microsoft.Azure.CosmosDB.Table NuGet 包时看到以下错误： 
 
 ```
 Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: 'nuget.org', 
 'CliFallbackFolder', 'Microsoft Visual Studio Offline Packages', 'Azure Service Fabric SDK'`
 ```
 
-when attempting to use the Microsoft.Azure.CosmosDB.Table NuGet package, you have two options to fix the issue:
+可以使用下列两种方法之一解决此问题：
 
-* Use Package Manage Console to install the Microsoft.Azure.CosmosDB.Table package and its dependencies. To do this, type the following in the Package Manager Console for your solution. 
+* 使用包管理器控制台安装 Microsoft.Azure.CosmosDB.Table 包及其依赖项。 为此，请在解决方案的包管理器控制台中键入以下代码。 
     ```
     Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
     ```
 
-* Using your preferred Nuget package management tool, install the Microsoft.Azure.Storage.Common Nuget package before installing Microsoft.Azure.CosmosDB.Table.
+* 使用首选 Nuget 包管理工具先安装 Microsoft.Azure.Storage.Common Nuget 包，再安装 Microsoft.Azure.CosmosDB.Table。
 
-## FAQ
+## <a name="faq"></a>常见问题
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## See also
-To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](table-introduction.md).
+## <a name="see-also"></a>另请参阅
+若要了解有关 Azure Cosmos DB 表 API 的详细信息，请参阅 [Azure Cosmos DB 表 API 简介](table-introduction.md)。
 
 <!-- Update_Description: update meta properties, wording update -->

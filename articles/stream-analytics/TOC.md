@@ -16,6 +16,7 @@
 <!-- Not Available ### [Stream Analytics on IoT Edge (preview)](stream-analytics-edge.md) -->
 <!-- Not Available ### [Anomaly detection in Azure usage guide (preview)](stream-analytics-machine-learning-anomaly-detection.md)-->
 ### [使用流分析进行高频率交易模拟](stream-analytics-high-frequency-trading.md)
+<!-- Not Available ### [Azure Functions with Azure Stream Analytics](stream-analytics-with-azure-functions.md) -->
 
 ## 创建作业
 ### [创建输入](stream-analytics-define-inputs.md)
@@ -50,6 +51,7 @@
 ## 管理
 ### [轮转输入/输出凭据](stream-analytics-login-credentials-inputs-outputs.md)
 <!-- Not Available ### [Job reliability during updates](stream-analytics-job-reliability.md) -->
+<!-- Not Available ### [Configure compatibility level](stream-analytics-compatibility-level.md) -->
 
 ## 故障排除
 ### [故障排除指南](stream-analytics-troubleshooting-guide.md)
@@ -81,4 +83,4 @@
 <!-- Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)-->
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics) -->
 
-<!--ms.date: 01/015/2018 -->
+<!--ms.date: 01/22/2018 -->

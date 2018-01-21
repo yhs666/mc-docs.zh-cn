@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 12/11/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12bbc494bf47d890a1e55c571df156c50b1f8309
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 79f6acb0d5445fd2d49b690580c597cefeb3502d
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>使用 PowerShell 创建具有多个 NIC 的 VM（经典）
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-需要先创建具有此方案需要的所有资源的 *IaaSStory* 资源组，才能创建数据库服务器。 若要创建这些资源，请完成以下步骤。 若要创建虚拟网络，请完成[创建虚拟网络](virtual-networks-create-vnet-classic-netcfg-ps.md)一文中的步骤。
+创建数据库服务器之前，需要先使用此方案的所有必需资源创建 *IaaSStory* 资源组。 若要创建这些资源，请完成以下步骤。 若要创建虚拟网络，请完成[创建虚拟网络](virtual-networks-create-vnet-classic-netcfg-ps.md)一文中的步骤。
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 12/08/2017
 ### <a name="step-3---create-vms"></a>步骤 3 - 创建 VM
 需要使用循环创建所需数量的 VM，并在循环中创建所需的 NIC 和 VM。 若要创建 NIC 和 VM，请执行以下步骤。
 
-1. 启动 `for` 循环，基于 `$numberOfVMs` 变量的值重复执行命令，从而以所需次数创建一个 VM 和两个 NIC。
+1. 启动 `for` 循环以基于 `$numberOfVMs` 变量的值重复执行命令以根据需要创建任意多次一个 VM 和两个 NIC。
 
     ```powershell
     for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
@@ -199,6 +199,6 @@ ms.lasthandoff: 12/08/2017
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>步骤 5 - 在 VM 的操作系统中配置路由
 
-Azure DHCP 会将默认网关分配给附加到虚拟机的第一个（主）网络接口。 Azure 不会将默认网关分配给附加到虚拟机的其他（辅助）网络接口。 因此，默认情况下无法与辅助网络接口所在子网的外部资源进行通信。 但是，辅助网络接口可以与其子网之外的资源进行通信。 若要为辅助网络接口配置路由，请参阅[在具有多个网络接口的虚拟机操作系统中进行路由选择](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces)。
+Azure DHCP 会将默认网关分配给附加到虚拟机的第一个（主）网络接口。 Azure 不会将默认网关分配给附加到虚拟机的其他（辅助）网络接口。 因此，默认情况下无法与辅助网络接口所在子网的外部资源进行通信。 但是，辅助网络接口可以与其子网之外的资源进行通信。 若要为辅助网络接口配置路由，请参阅[在具有多个网络接口的虚拟机操作系统中进行路由选择](virtual-network-network-interface-vm.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update link  -->

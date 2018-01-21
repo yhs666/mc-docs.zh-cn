@@ -14,29 +14,25 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 10/02/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0a5e4996f794614c07de0fc4b6572189c60b74fc
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 39433b90380724f7373a59928f8d0e7e38afcbd5
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>开始使用 Azure 流分析处理来自 IoT 设备的数据
 在本教程中，会学习如何创建流处理逻辑，以从物联网 (IoT) 设备收集数据。 我们会使用真实的物联网 (IoT) 用例来演示如何经济实惠地快速生成解决方案。
 
 ## <a name="prerequisites"></a>先决条件
 * [Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)
-* 可从 [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
+* 可从 [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted)
 
 ## <a name="scenario"></a>方案
 Contoso 是一家工业自动化公司，该公司已将其制造流程完全自动化。 这家工厂中的设备配有可实时发送数据流的传感器。 在此方案中，产品车间经理希望通过传感器数据获得实时见解，从而找到规律并采取措施。 我们对传感器数据使用流分析查询语言 (SAQL)，查找传入数据流的有趣规律。
 
-下图中，Texas Instruments SensorTag 设备正在生成数据。
-
-![Texas Instruments SensorTag](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
-
-数据的有效负载是 JSON 格式，如下所示：
+下图中，Texas Instruments SensorTag 设备正在生成数据。 数据的有效负载是 JSON 格式，如下所示：
 
     {
         "time": "2016-01-26T20:47:53.0000000",  
@@ -69,7 +65,7 @@ Contoso 是一家工业自动化公司，该公司已将其制造流程完全自
 
     ![正在创建作业](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
-### <a name="create-an-azure-stream-analytics-query"></a>创建 Azure 流分析查询
+## <a name="create-an-azure-stream-analytics-query"></a>创建 Azure 流分析查询
 创建作业后，接着需要打开并生成查询。 可单击相应磁贴轻松访问作业。
 
 ![作业磁贴](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
@@ -79,7 +75,7 @@ Contoso 是一家工业自动化公司，该公司已将其制造流程完全自
 ![查询框](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
 ### <a name="query-archive-your-raw-data"></a>查询：存档原始数据
-查询的最简单形式是传递查询，该查询会将所有输入数据存档到其指定的输出。 将示例数据文件从 [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) 下载到计算机中的某个位置。 
+查询的最简单形式是传递查询，该查询会将所有输入数据存档到其指定的输出。 将示例数据文件从 [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted) 下载到计算机中的某个位置。 
 
 1. 从 PassThrough.txt 文件粘贴查询。 
 
@@ -117,7 +113,9 @@ Contoso 是一家工业自动化公司，该公司已将其制造流程完全自
 
 此时使用 **LEFT OUTER** 联接到相同的数据流（自联接）。 对于 **INNER** 联接，仅当找到匹配项时才返回结果。  对于 **LEFT OUTER** 联接，如果联接左侧的事件不匹配，则返回右侧所有列的带 NULL 的行。 这种方法对于查找事件缺失很有用。 有关详细信息，请参阅 MSDN 文档 [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx)（联接）。
 
-## <a name="conclusion"></a>结束语
+## <a name="conclusion"></a>结论
 本教程旨在演示如何编写不同的流分析查询语言查询，并在浏览器中查看结果。 但是，这仅仅是一个开始。 使用流分析还可以完成许多其他操作。 流分析支持多种输入和输出，甚至可以使用 Azure 机器学习中的函数，因而是用于分析数据流的可靠工具。 有关如何编写查询的详细信息，请阅读有关[常用查询模式](stream-analytics-stream-analytics-query-patterns.md)的文章。
 
-<!--Update_Description: wording update-->
+<!--Not Available on https://azure.microsoft.com/en-us/documentation/learning-paths/stream-analytics/ -->
+
+<!--Update_Description: wording update -->

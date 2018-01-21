@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 10/17/2017
-ms.date: 12/11/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 767827092c4fac73fb57e40dad8623198fab7152
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 28e37d5ca8cdc7dd596341de15073d0c18e74161
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="what-is-stream-analytics"></a>什么是流分析？
 

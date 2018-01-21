@@ -3,8 +3,8 @@ title: "为 Azure 应用程序网关配置重定向 - PowerShell | Microsoft Doc
 description: "本页提供有关使用 PowerShell 为应用程序网关配置重定向的方案"
 documentationcenter: na
 services: application-gateway
-author: alexchen2016
-manager: digimobile
+author: davidmu1
+manager: timlt
 editor: 
 ms.service: application-gateway
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/18/2017
-ms.date: 12/29/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: a6043dace42631bb8ee0eb649e9293fc4fddf64a
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 6a220e3604ac1eafb54195f332612623d81fcbb6
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-redirection-on-application-gateway-with-powershell"></a>使用 PowerShell 在应用程序网关上配置重定向
 
@@ -105,7 +105,9 @@ Add-AzureRmApplicationGatewayHttpListener -Name appgatewayhttplistener2  -Protoc
 # Get the new listener
 $listener = Get-AzureRmApplicationGatewayHttpListener -Name appgatewayhttplistener2 -ApplicationGateway $gw
 
-# Add a redirection configuration using a permanent redirect and targeting the existing listener
+# Add a redirection configuration using a permanent redirect targeting the existing listener and get the redirect configuration
+
+Add-AzureRmApplicationGatewayRedirectConfiguration -Name redirectpath6 -RedirectType Permanent -TargetListener $httpslistener -IncludePath $true -IncludeQueryString $true -ApplicationGateway $gw
 $redirectconfig = Get-AzureRmApplicationGatewayRedirectConfiguration -Name redirectpath6 -ApplicationGateway $gw
 
 # Retrieve the existing backend http settings to be used

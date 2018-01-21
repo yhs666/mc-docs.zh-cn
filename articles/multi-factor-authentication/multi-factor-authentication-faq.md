@@ -13,55 +13,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/16/2017
-ms.date: 06/27/2017
+ms.date: 01/16/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab8173f233be716adcd91ab76aee5e514396b214
-ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.openlocfilehash: 68c3b3bb93930b7dc50f86dd463c3819d0e7a7aa
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>有关 Azure 多重身份验证的常见问题
+# <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>有关 Azure 多重身份验证的常见问题解答
 本“常见问题解答”文章解答有关 Azure 多重身份验证和使用多重身份验证服务的常见问题。 其中的问题已划分为常规服务问题、计费模式问题、用户体验问题和故障排除问题。
 
 ## <a name="general"></a>常规
-**问：Azure 多重身份验证服务器如何处理用户数据？**
-
-使用多重身份验证服务器时，用户数据只存储在本地服务器中。 云中不会持久存储任何用户数据。 当用户执行双重验证时，多重身份验证服务器会将数据发送到 Azure 多重身份验证云服务以进行身份验证。 多重身份验证服务器和多重身份验证云服务器之间的通信通过出站端口 443 使用安全套接字层 (SSL) 或传输层安全性 (TLS)。
-
-当身份验证请求发送到云服务时，将收集数据用于身份验证和使用情况报告。 双重验证日志中包含的数据字段如下：
-
-- **唯一 ID**（用户名或本地多重身份验证服务器 ID）
-- **姓名**（可选）
-- **电子邮件地址**（可选）
-- **电话号码**（用于语音通话或短信身份验证）
-- **设备令牌**（用于移动应用身份验证）
-- **身份验证模式**
-- **身份验证结果**
-- **多重身份验证服务器名称**
-- **多重身份验证服务器 IP**
-- **客户端 IP**（如果可用）
-
-可以在多重身份验证服务器中配置可选字段。
-
-验证结果（成功或拒绝）和任何拒绝原因（如果有）与身份验证数据一起存储。 可在身份验证和使用情况报告中使用这些数据。
 
 ## <a name="billing"></a>计费
-可以参考多[重身份验证定价页](https://www.azure.cn/pricing/details/multi-factor-authentication/)或者有关[如何获取 Azure 多重身份验证](multi-factor-authentication-versions-plans.md)的文档解答大多数计费问题。
+可参阅 [多重身份验证定价页](https://www.azure.cn/pricing/details/multi-factor-authentication/)获得大多数计费问题的答案。
 
 **问：通过电话或短信进行身份验证时，我的组织是否需要付费？**
 
-否。对于通过 Azure 多重身份验证拨打的每个电话或者向用户发送的每条短信，你都不需要付费。
+否。对于通过 Azure 多重身份验证拨打的每个电话或者向用户发送的每条短信，都不需要付费。
 
-你的用户可能需要为收到的电话或短信支付费用，取决于个人电话服务。
+用户可能需要为收到的电话或短信支付费用，取决于个人电话服务。
 
 
 ## <a name="manage-and-support-user-accounts"></a>管理和支持用户帐户
 
 **问：如果用户的手机未收到响应，或者用户没带手机，我该怎么告诉他们？**
 
-但愿你的用户已配置多种验证方法。 请告诉他们再次尝试登录，但需要在登录页上选择另一种验证方法。
+但愿用户已配置多种验证方法。 请告诉他们再次尝试登录，但需要在登录页上选择另一种验证方法。
 
 可以让用户转到[最终用户故障排除指南](./end-user/multi-factor-authentication-end-user-troubleshoot.md)。
 
@@ -78,17 +58,6 @@ ms.lasthandoff: 06/29/2017
 
 如果必须使用短信，建议尽可能使用单向短信，而不要使用双向短信。 单向短信更加可靠，可以防止由于回复其他国家/地区发来的短信而给用户造成的全球短信费用。
 
-**问：是否可以更改在系统超时之前，用户必须输入短信中验证代码的时限？**
-
-在某些情况下可以。 可以在 Azure MFA 服务器 7.0 和更高版本中配置双向短信的超时设置。
-
-默认情况下，Azure MFA 服务器会存储一次性密码 300 秒（5 分钟）。 如果用户在 300 秒后输入其代码，其身份验证将被拒绝。 可以通过设置注册表项来调整超时。
-
-1. 转到 HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor。
-2. 创建名为 **pfsvc_pendingSmsTimeoutSeconds** 的 DWORD 注册表项，并设置希望 Azure MFA 服务器存储一次性密码的时间长短（以秒为单位）。
-
-对于单向短信，MFA 服务器将存储一次性密码 300 秒，而 Azure AD 中基于云的 MFA 将存储一次性密码 180 秒。 此设置不可配置。
-
 **问：为何系统提示用户注册其安全信息？**
 
 有多种原因会导致系统提示用户注册其安全信息：
@@ -96,7 +65,7 @@ ms.lasthandoff: 06/29/2017
 - 该用户的管理员已在 Azure AD 中为其启用 MFA，但没有为其帐户注册安全信息。
 - 该用户已在 Azure AD 中启用自助密码重置。 以后如果用户忘记了密码，安全信息可帮助他们重置密码。
 - 该用户访问的应用程序配置了一个要求使用 MFA 的条件访问策略，但该应用程序以前未注册 MFA。
-- 该用户正在将某个设备注册到 Azure AD（包括 Azure AD Join），并且你的组织要求使用 MFA 进行设备注册，但该用户以前未注册 MFA。
+- 该用户正在将某个设备注册到 Azure AD（包括 Azure AD Join），并且组织要求使用 MFA 进行设备注册，但该用户以前未注册 MFA。
 - 该用户正在 Windows 10 中生成 Windows Hello for Business（需要 MFA），但以前未注册 MFA。
 - 组织已创建并启用一个 MFA 注册策略，该策略已应用到该用户。
 - 该用户以前已注册 MFA，但选择的验证方法后来被管理员禁用。 因此，该用户必须再次完成 MFA 注册，以选择新的默认验证方法。
@@ -105,12 +74,12 @@ ms.lasthandoff: 06/29/2017
 ## <a name="errors"></a>错误
 **问：如果用户使用移动应用通知时看到“身份验证请求不适用于已激活的帐户”错误消息，该怎么办？**
 
-告诉他们按照此过程从移动应用中删除其帐户，然后重新添加：
+告诉他们按照此过程从移动应用中删除其帐户，并重新添加：
 
-1. 转到 Azure 门户配置文件，然后使用组织帐户登录。
+1. 转到 Azure 门户配置文件，并使用组织帐户登录。
 2. 选择“其他安全性验证” 。
 3. 从移动应用中删除现有帐户。
-4. 单击“配置”，然后按照说明重新配置移动应用。
+4. 单击“配置”，并按照说明重新配置移动应用。
 
 **问：如果用户在登录非浏览器应用程序时看到 0x800434D4L 错误消息，该怎么办？**
 
@@ -119,7 +88,7 @@ ms.lasthandoff: 06/29/2017
 此问题的解决方法是使用不同的用户帐户进行管理员相关操作和非管理员操作。 稍后，可以在管理员帐户与非管理员帐户之间链接邮箱，以便能够使用非管理员帐户登录到 Outlook。 了解如何 [使管理员能够打开和查看用户邮箱的内容](http://help.outlook.com/141/gg709759.aspx?sl=1)，获取有关此解决方法的更多详细信息。
 
 ## <a name="next-steps"></a>后续步骤
-如果此处未解答你的问题，请将其留在页面底部的评论中。 或者，以下是一些用于获取帮助的其他选项：
+如果此处未解答问题，请将其留在页面底部的评论中。 或者，以下是一些用于获取帮助的其他选项：
 
 - 在 [Microsoft 支持知识库](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) 中搜索常见技术问题的解决方法。
 - 在 [Azure Active Directory 论坛](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)中搜索和浏览来自社区的技术问题与解答，或者提出自己的问题。

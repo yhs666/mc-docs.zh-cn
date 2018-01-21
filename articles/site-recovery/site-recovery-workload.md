@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 12/15/2017
-ms.date: 01/01/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8b0e212dd26463369dacaf988fc33f571d4f8e9f
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 7e687dac52293b1e453f6f5472519082a140e712
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>可以通过 Azure Site Recovery 保护哪些工作负荷？
 
@@ -163,4 +163,4 @@ Azure Site Recovery 可以将环境中的关键组件复制到冷远程站点或
 ## <a name="next-steps"></a>后续步骤
 
 Azure VM 复制[入门](azure-to-azure-quickstart.md)。
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

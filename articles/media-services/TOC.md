@@ -35,7 +35,9 @@
 #### [更改存储访问密钥后更新媒体服务](media-services-roll-storage-access-keys.md)
 #### [跨多个存储帐户管理资产](meda-services-managing-multiple-storage-accounts.md)
 ### [配额和限制](media-services-quotas-and-limitations.md)
-
+## [配置 Postman](media-rest-apis-with-postman.md)
+### [环境](postman-environment.md)
+### [集合](postman-collection.md)
 ## 上传内容
 ### 将文件上传到帐户中
 #### [Azure 门户](media-services-portal-upload-files.md)

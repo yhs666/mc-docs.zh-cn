@@ -3,8 +3,8 @@ title: "Azure AD Connect 同步：操作任务和注意事项 | Microsoft Docs"
 description: "本主题介绍 Azure AD Connect 同步的操作任务，以及如何准备运行此组件。"
 services: active-directory
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: AndKjell
+manager: mtillman
 editor: 
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/13/2017
-ms.date: 12/25/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: 50c97df49e162a040137348537b8fdfe5a32b3db
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 4cfc390163d0e7a87af406084b8ccbdcd0ff0d3e
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect 同步：操作任务和注意事项
 本主题旨在介绍 Azure AD Connect 同步的操作任务。
@@ -262,7 +262,7 @@ do
 } while ($reader.Read)
 
 #need to write out any users that didn't get picked up in a batch of 1000
-#export the collection of users as as CSV
+#export the collection of users as CSV
 Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 ```

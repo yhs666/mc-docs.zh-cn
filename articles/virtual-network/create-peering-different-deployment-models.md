@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/11/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9842cf691044a157e2f8b2bf88336f21f4aec68f
-ms.sourcegitcommit: ac0aab977d289366db6a9b230f27a6a8c6c190e9
+ms.openlocfilehash: bc6483578bf300941c2f2aae4c834849ad50e4ff
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>创建虚拟网络对等互连 - 不同的部署模型，相同的订阅 
 
@@ -36,8 +36,9 @@ ms.lasthandoff: 12/18/2017
 
 不能在通过经典部署模型部署的两个虚拟网络之间创建对等互连。 如需连接两个通过经典部署模型创建的虚拟网络，可使用 Azure [VPN 网关](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)来连接它们。 
 
-本教程将在同一区域中的虚拟网络之间建立对等互连。 使用 Azure [VPN 网关](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)在不同区域连接虚拟网络的功能现已公开发布且无需注册。
-<!-- Not Available on (Different Region is invalid) [Register for global virtual network peering](#register) -->
+<!-- PENDING on (Different Region is invalid) [Register for global virtual network peering](#register) -->
+本教程将在同一区域中的虚拟网络之间建立对等互连。 在不同区域的虚拟网络之间建立对等互连的功能目前处于预览版状态。 首先完成[注册全局虚拟网络对等互连](#register)中的步骤，然后再尝试在不同区域中的虚拟网络之间建立对等互连，否则对等互连的建立将失败。 使用 Azure [VPN 网关](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)在不同区域连接虚拟网络的功能现已公开发布且无需注册。
+<!-- PENDING on (Different Region is invalid) [Register for global virtual network peering](#register) -->
 
 可以使用 [Azure 门户](#portal)、Azure [命令行接口](#cli) (CLI)、Azure [PowerShell](#powershell)、或 [Azure 资源管理器模板](#template)创建虚拟网络对等互连。 单击以前的任何工具链接即可直接转到使用所选工具创建虚拟网络对等互连的步骤。
 
@@ -273,10 +274,58 @@ ms.lasthandoff: 12/18/2017
     > [!WARNING]
     > 导入更改的网络配置文件会导致订阅中现有虚拟网络（经典）发生变化。 请确保只删除之前的虚拟网络，且不会从订阅中更改或删除任何其他现有虚拟网络。 
 
-<!-- Not Available ## <a name="register"></a>Register for the global virtual network peering preview -->
-<!-- Currently is valid in  (US West Central, Canada Central, and US West 2)-->
-<!-- Can not Register the feature of AllowGlobalVnetPeering in Powershell -->
-<!-- Can not Register the feature of AllowGlobalVnetPeering in CLI -->
+<!-- PENDING ## <a name="register"></a>Register for the global virtual network peering preview -->
+## <a name="register"></a>注册全局虚拟网络对等互连（预览版）
+
+在不同区域的虚拟网络之间建立对等互连的功能目前处于预览版状态。 此功能可在有限的几个区域（最初为美国中西部、加拿大中部和美国西部 2）使用。 与在同一区域的虚拟网络之间创建对等互连相比，于不同区域的虚拟网络之间创建的对等互连在可用性和可靠性方面可能无法比肩。 有关此功能可用性和状态方面的最新通知，请参阅 [Azure 虚拟网络更新](https://www.azure.cn/what-is-new/)页。
+
+若要跨区域在虚拟网络之间建立对等互连，必须先通过使用 Azure PowerShell 或 Azure CLI 完成以下步骤（在要对其建立对等互连的每个虚拟网络所在的订阅中执行）来注册预览版：
+
+### <a name="powershell"></a>PowerShell
+
+1. 安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+2. 使用 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 命令启动 PowerShell 会话并登录到 Azure。
+3. 通过输入以下命令，注册要对其建立对等互连的每个虚拟网络所在订阅的预览版：
+
+    ```powershell
+    Register-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider `
+      -ProviderNamespace Microsoft.Network
+    ```
+4. 输入以下命令，确认已针对预览版进行了注册：
+
+    ```powershell    
+    Get-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    ```
+
+    输入之前的命令，在收到的两个订阅的“RegistrationState”输出为“已注册”后，才能完成本文中在门户、Azure CLI、PowerShell 或资源管理器模板部分中进行的步骤。
+
+### <a name="azure-cli"></a>Azure CLI
+
+1. [安装并配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)。
+2. 输入 `az --version` 命令，确保使用的是版本 2.0.18 或更高版本的 Azure CLI。 如果不是，请安装最新版本。
+3. 使用 `az login` 命令登录到 Azure。
+4. 输入以下命令，针对预览版进行注册：
+
+    ```azurecli
+    az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
+    az provider register --name Microsoft.Network
+    ```
+
+5. 输入以下命令，确认已针对预览版进行了注册：
+
+    ```azurecli
+    az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
+    ```
+
+    输入之前的命令，在收到的两个订阅的“RegistrationState”输出为“已注册”后，才能完成本文中在门户、Azure CLI、PowerShell 或资源管理器模板部分中进行的步骤。
+<!-- PENDING ## <a name="register"></a>Register for the global virtual network peering preview -->
+
 ## <a name="next-steps"></a>后续步骤
 
 - 在针对生产用途创建虚拟网络对等互连之前，请充分熟悉重要的[虚拟网络对等互连约束和行为](virtual-network-manage-peering.md#requirements-and-constraints)。

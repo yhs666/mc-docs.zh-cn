@@ -3,23 +3,23 @@ title: "配置 Azure 多重身份验证 | Microsoft Docs"
 description: "本文介绍如何配置 Azure 多重身份验证设置。"
 services: multi-factor-authentication
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/29/2017
-ms.date: 12/22/2017
+origin.date: 01/03/2018
+ms.date: 01/16/2018
 ms.author: v-junlch
 ms.reviewer: richagi
-ms.openlocfilehash: 43c4f2ab5e713657099dfe0bb618b8ebd20dae50
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: b141f4c08176c0e4b69490d8d10e6f161b7f9c0d
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>配置 Azure 多重身份验证设置
 
@@ -56,4 +56,4 @@ ms.lasthandoff: 12/28/2017
 
 6. 单击“保存” 。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update metedata properties -->

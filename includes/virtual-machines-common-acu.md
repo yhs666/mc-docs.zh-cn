@@ -14,8 +14,13 @@
 | [A5-A7](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
 | [A1_v2-A8_v2](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
 | [A2m_v2-A8m_v2](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
+| [D1-D14](../articles/virtual-machines/windows/sizes-general.md) |160 | 1:1 |
+| [D1_v2-D15_v2](../articles/virtual-machines/windows/sizes-general.md) |210 - 250* | 1:1 |
+| [DS1-DS14](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160 | 1:1 |
+| [DS1_v2-DS15_v2](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |210-250* | 1:1 |
+| [F1-F16](../articles/virtual-machines/windows/sizes-compute.md) |210-250* | 1:1 |
+| [F1s-F16s](../articles/virtual-machines/windows/sizes-compute.md) |210-250* | 1:1 |
 <!-- Not Available  [A8-A11]  -->
-| [D1-D14](../articles/virtual-machines/windows/sizes-general.md) |160 | 1:1 | | [D1_v2-D15_v2](../articles/virtual-machines/windows/sizes-general.md) |210 - 250* | 1:1 | | [DS1-DS14](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160 | 1:1 | | [DS1_v2-DS15_v2](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |210-250* | 1:1 | | [F1-F16](../articles/virtual-machines/windows/sizes-compute.md) |210-250* | 1:1 | | [F1s-F16s](../articles/virtual-machines/windows/sizes-compute.md) |210-250* | 1:1 |
 <!-- Not Available  [G1-G5]  -->
 <!-- Not Available  [GS1-GS5]  -->
 <!-- Not Available  [H] -->

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 12/04/2017
-ms.date: 01/01/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4d34aefad0d09a915deeb12d9dda690e452597d3
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 2a2d48a290de1f87d04452b819bfae1266477f71
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>适用于 VMware 到 Azure 部署的 Azure Site Recovery 部署规划器
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery Deployment Planner 用户指南。
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/29/2017
 
 此外还需要创建适当类型和数量的目标 Azure 存储帐户。 考虑到使用量会随着时间的推移而增加，从而导致源生产服务器数目的增加，请创建标准或高级存储帐户。 选择每个 VM 的存储类型时，需要考虑到工作负荷特征（例如每秒读/写 I/O 操作数 [IOPS] 或数据变动量）和 Site Recovery 限制。
 
-Azure Site Recovery 部署规划器（第 2 版）是一个命令行工具，适用于 Hyper-V 到 Azure 和 VMware 到 Azure 灾难恢复方案。 可以使用此工具远程分析 VMware VM（不会给生产造成任何影响），了解成功进行复制和测试性故障转移所需满足的带宽和 Azure 存储要求。 不需在本地安装任何 Site Recovery 组件即可运行此工具。 但是，为了获得准确的吞吐量结果，建议在满足最终需要部署的 Site Recovery 配置服务器（生产部署的前几个步骤之一）的最低要求的 Windows Server 上运行 Planner。
+Azure Site Recovery 部署规划器是一个命令行工具，适用于 Hyper-V 到 Azure 和 VMware 到 Azure 灾难恢复方案。 可以使用此工具远程分析 VMware VM（不会给生产造成任何影响），了解成功进行复制和测试性故障转移所需满足的带宽和 Azure 存储要求。 不需在本地安装任何 Site Recovery 组件即可运行此工具。 但是，为了获得准确的吞吐量结果，建议在满足最终需要部署的 Site Recovery 配置服务器（生产部署的前几个步骤之一）的最低要求的 Windows Server 上运行 Planner。
 
 该工具提供以下详细信息：
 
@@ -106,9 +106,9 @@ Azure Site Recovery 部署规划器（第 2 版）是一个命令行工具，适
 
     示例：  
     将 .zip 文件复制到 E:\ 驱动器并将它解压缩。
-   E:\ASR Deployment Planner_v2.0zip
+   E:\ASR Deployment Planner_v2.1zip
 
-    E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>更新至最新版本的部署规划器
 如果部署规划器为旧版，请执行以下操作之一：
@@ -121,6 +121,10 @@ Azure Site Recovery 部署规划器（第 2 版）是一个命令行工具，适
  >
  >每个新的 Deployment Planner 都是 .zip 文件的累积更新。 不需要将最新文件复制到旧文件夹。 可以创建和使用新文件夹。
 
+## <a name="version-history"></a>版本历史记录
+最新的 ASR 部署规划器工具版本为 2.1。
+请参阅 [ASR 部署规划器版本历史记录](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx)页，了解每个更新中增加的修补程序。
+
 ## <a name="next-steps"></a>后续步骤
 * [运行部署规划器](site-recovery-vmware-deployment-planner-run.md)。
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: wording update -->

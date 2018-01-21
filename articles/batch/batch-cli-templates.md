@@ -2,21 +2,21 @@
 title: "运行端到端的 Azure Batch 作业而无需编写代码（预览版） | Microsoft Docs"
 description: "创建 Azure CLI 的模板文件，以创建 Batch 池、作业和任务。"
 services: batch
-author: alexchen2016
-manager: digimobile
+author: mscurrell
+manager: timlt
 ms.assetid: 
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-origin.date: 10/17/2017
-ms.date: 12/04/2017
+origin.date: 12/18/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: f2d16589c86191fa6ecce718be1fbf3e37b6326b
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: 0a08e294247d1d20c0055ac5c6ed12214cecf842
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>使用 Azure Batch CLI 模板和文件传输（预览版）
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/07/2017
 
 -   已创建作业模板。 创建模板的用户了解如何调用 ffmpeg，以便将源视频转码为不同的分辨率，并指定任务命令行；他们还了解存在包含源视频文件（每个输入文件均包含所需任务）的文件夹。
 
--   具有一组要转码的视频文件的最终用户首先需要使用池模板创建一个池，然后仅指定池 ID 和所需的 VM 数量。 然后，他们可以上传源文件以进行转码。 可使用作业模板提交作业，仅指定池 ID 和上传的源文件的位置。 创建批处理作业时，每个输入文件生成一项任务。 最后，将下载已转码的输出文件。
+-   具有一组要转码的视频文件的最终用户首先需要使用池模板创建一个池，然后仅指定池 ID 和所需的 VM 数量。 然后，他们可以上传源文件以进行转码。 可使用作业模板提交作业，仅指定池 ID 和上传的源文件的位置。 创建批处理作业时，每个输入文件生成一项任务。 最后，可下载已转码的输出文件。
 
 ## <a name="installation"></a>安装
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 12/07/2017
 安装 Azure CLI 后，即可使用以下 CLI 命令安装最新版本的 Batch 扩展：
 
 ```azurecli
-az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.1/azure_batch_cli_extensions-2.0.1-py2.py3-none-any.whl
 ```
 
 有关批处理扩展的详细信息，请参阅 [Azure Batch CLI Extensions for Windows, Mac and Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux)（Windows、Mac 和 Linux 的 Azure Batch CLI 扩展）。
@@ -69,7 +69,7 @@ az batch pool create --json-file AppPool.json
 
 Azure Batch 模板在功能和语法上非常类似于 Azure 资源管理器模板。 它们是包含项属性名称和值的 JSON 文件，但添加了以下主要概念：
 
--   **参数**
+-   **Parameters**
 
     -   允许在正文部分中指定属性值，使用模板时，仅需提供参数值。 例如，池的完整定义应放入正文且仅定义池 id 的一个参数；因此仅需提供一个池 ID 字符串来创建池。
         

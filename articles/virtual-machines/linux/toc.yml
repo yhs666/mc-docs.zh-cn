@@ -149,8 +149,6 @@
           href: ../../backup/tutorial-restore-files.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
     - name: 管理 VM
       items:
-        - name: 为 VM 预付 - 保留实例
-          href: prepay-reserved-vm-instances.md
         - name: 常见 CLI 任务
           href: cli-manage.md
         - name: 移动 VM
@@ -251,20 +249,6 @@
           href: docker-compose-quickstart.md
     - name: 运行应用程序
       items:
-        - name: OpenShift
-          items:
-            - name: OpenShift 概述
-              href: openshift-get-started.md
-            - name: OpenShift 先决条件
-              href: openshift-prerequisites.md
-            - name: OpenShift Origin
-              href: openshift-origin.md
-            - name: OpenShift 容器平台
-              href: openshift-container-platform.md
-            - name: OpenShift 部署后任务
-              href: openshift-post-deployment.md
-            - name: 对部署进行故障排除
-              href: openshift-troubleshooting.md
         - name: FreeBSD 数据包筛选器
           href: freebsd-pf-nat.md
         - name: 数据库
@@ -275,8 +259,6 @@
               href: install-mongodb.md
             - name: PostgreSQL
               href: postgresql-install.md
-            - name: Linux 上的 MS SQL
-              href: /sql/provision-sql-server-linux-virtual-machine.md
     - name: 管理存储
       items:
         - name: 磁盘常见问题解答

@@ -16,11 +16,11 @@ origin.date: 12/13/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d5c189893f11c24f475a4dfde9fbbbb92eafb577
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 1445dff1cf436e05fbebbee54e1b1286c5ee3091
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>将具有 CI/CD 的应用程序部署到 Service Fabric 群集
 本教程是一个系列的第三部分，介绍了如何使用 Visual Studio Team Services 为 Azure Service Fabric 应用程序设置持续集成和部署。  需要一个现有的 Service Fabric 应用程序，将使用在[生成 .NET 应用程序](service-fabric-tutorial-create-dotnet-app.md)中创建的应用程序作为示例。
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/29/2017
 > * [构建 .NET Service Fabric 应用程序](service-fabric-tutorial-create-dotnet-app.md)
 > * [将应用程序部署到远程群集](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * 使用 Visual Studio Team Services 配置 CI/CD
-> * [设置监视和诊断应用程序](service-fabric-tutorial-monitoring-aspnet.md)
+<!-- Not Available on > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)-->
 
 ## <a name="prerequisites"></a>先决条件
 在开始学习本教程之前：
@@ -168,9 +168,7 @@ Team Services 发布定义描述了将应用程序包部署到群集的工作流
 > * 创建发布定义
 > * 自动部署和升级应用程序
 
-转到下一教程：
-> [!div class="nextstepaction"]
-> [设置监视和诊断应用程序](service-fabric-tutorial-monitoring-aspnet.md) 
+<!-- Not Available on > [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md) -->
 
 <!-- Image References -->
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png

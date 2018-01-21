@@ -3,8 +3,8 @@ title: "Azure AD Connect 同步：函数引用 | Microsoft Docs"
 description: "在 Azure AD Connect 同步中引用声明性设置表达式。"
 services: active-directory
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: andkjell
+manager: mtillman
 editor: 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 12/20/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0e2fbe02d08f6b813561d5bf13a094cc3a8b8549
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 21f85e7c879162d9e298b002b3e6aca474035364
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步：函数引用
 在 Azure AD Connect 中，函数用于在同步期间操作属性值。  
@@ -156,12 +156,6 @@ CDate 函数通过字符串返回 UTC DateTime。 DateTime 不是 Sync 中的原
 
 `CDate("2013-01-10 4:00 PM -8")`  
 返回表示 "2013-01-11 12:00 AM" 的 DateTime
-
-
-
-
-
-
 
 
 - - -
@@ -547,7 +541,7 @@ DNComponent 函数返回从左边起的指定 DN 组件的值。
 - ComponentNumber：要返回的 DN 中的组件
 
 **示例：**  
-`DNComponent([dn],1)`  
+`DNComponent(CRef([dn]),1)`  
 如果 dn 为 "cn=Joe,ou=…,"，则返回 Joe
 
 - - -
@@ -565,8 +559,8 @@ DNComponentRev 函数返回从右边起（末尾）的指定 DN 组件的值。
 
 **示例：**  
 如果 dn 为“cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com”，则  
-`DNComponentRev([dn],3)`  
-`DNComponentRev([dn],1,"DC")`  
+`DNComponentRev(CRef([dn]),3)`  
+`DNComponentRev(CRef([dn]),1,"DC")`  
 两者都返回 US。
 
 - - -
@@ -1343,4 +1337,4 @@ UCase 函数将字符串中的所有字符都转换为大写形式。
 - [Azure AD Connect Sync：自定义同步选项](active-directory-aadconnectsync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

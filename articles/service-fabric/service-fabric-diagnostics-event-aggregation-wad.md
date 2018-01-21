@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 11/02/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: e9769dfab33d231bf6e7bf05ff6aa5428fbd212b
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 698af0221260844c53c4c875c6101e2a3e04ca85
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 诊断聚合和集合事件
 > [!div class="op_single_selector"]
@@ -260,19 +260,20 @@ ms.lasthandoff: 12/29/2017
 
 如果使用 Application Insights 接收器（如下面部分所述）并想要这些指标显示在 Application Insights 中，则确保将接收器名称添加到“sinks”部分中，如上所示。 这将自动向你的 Application Insights 资源发送单独配置的性能计数器。
 
-## <a name="send-logs-to-application-insights"></a>将日志发送到 Application Insights
+<!-- Not Available on ## Send logs to Application Insights -->
 
-将监视和诊断数据发送到 Application Insights (AI) 可作为 WAD 配置的一部分。 如果决定使用 AI 进行事件分析和可视化，请阅读[使用 Application Insights 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-appinsights.md)，将 AI 接收器设置为“WadCfg”的一部分。
 
 ## <a name="next-steps"></a>后续步骤
 
-正确配置 Azure 诊断后，将看到来自 ETW 和 EventSource 日志的存储表中的数据。 如果选择使用 OMS、Kibana 或其他不在 Resource Manager 模板中直接配置的任何数据分析和可视化平台，请确保设置所选平台以读入这些存储表中的数据。 对于 OMS 这样做相对简单，相关介绍在[使用 OMS 的事件和日志分析](service-fabric-diagnostics-event-analysis-oms.md)中。 Application Insights 则有点特殊，由于它可以被配置为诊断扩展配置中的一部分，所以如果选择使用 AI 请参考[相应的文章](service-fabric-diagnostics-event-analysis-appinsights.md)。
+正确配置 Azure 诊断后，将看到来自 ETW 和 EventSource 日志的存储表中的数据。 如果选择使用 OMS、Kibana 或其他不在 Resource Manager 模板中直接配置的任何数据分析和可视化平台，请确保设置所选平台以读入这些存储表中的数据。
+<!-- Not Available on  [Event and log analysis through OMS](service-fabric-diagnostics-event-analysis-oms.md).-->
+<!-- Not Available on [appropriate article](service-fabric-diagnostics-event-analysis-appinsights.md) -->
 
 >[!NOTE]
 >目前没有任何方法可以筛选或清理已发送到表的事件。 如果未实施某个过程从表中删除事件，该表会不断增大。 目前，在[监视器示例](https://github.com/Azure-Samples/service-fabric-watchdog-service)中有一个运行数据整理服务的示例，建议为自己编写一个，除非有需要存储超过 30 或 90 天日志的的理由。
 
 * [了解如何使用诊断扩展收集性能计数器或日志](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-* [使用 Application Insights 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [使用 OMS 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-oms.md)
+<!-- Not Available on * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
+<!-- Not Available on * [Event Analysis and Visualization with OMS](service-fabric-diagnostics-event-analysis-oms.md) -->
 
 <!--Update_Description: update link -->

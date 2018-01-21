@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 10/15/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: f370659127f9e9962232c74bfec7be511dcd6eef
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 171074dab95e8d0b6dbb3e1e4c79fe806e024309
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>使用 EventFlow 聚合和收集事件
 
@@ -86,7 +86,7 @@ internal sealed class ServiceEventSource : EventSource
 }
 ```
 
-请注意， `eventFlowConfig.json` 文件是服务配置包的一部分。 对此文件所做的更改可以包含在服务的完整升级或者仅限配置的升级中，会接受 Service Fabric 升级运行状况检查，如果升级失败，这些更改会自动回滚。 有关详细信息，请参阅 [Service Fabric 应用程序升级](service-fabric-application-upgrade.md)。
+请注意， `eventFlowConfig.json` 文件是服务配置包的一部分。 对此文件的更改可以包含在服务的完全升级或仅配置的升级中，并且会接受 Service Fabric 升级运行状况检查和自动回退（如果升级失败）。 有关详细信息，请参阅 [Service Fabric 应用程序升级](service-fabric-application-upgrade.md)。
 
 通过配置的 *filters* 节可进一步自定义将通过 EventFlow 管道到达输出的信息，使你能够删除或包含某些信息，或更改事件数据的结构。 有关筛选的详细信息，请参阅 [EventFlow 筛选器](https://github.com/Azure/diagnostics-eventflow#filters)。
 
@@ -153,8 +153,8 @@ servicefabric:/<section-name>/<setting-name>
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Application Insights 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [使用 OMS 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-oms.md)
+<!-- Not Available on * * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
+<!-- Not Available on * [Event Analysis and Visualization with OMS](service-fabric-diagnostics-event-analysis-oms.md) -->
 * [EventFlow 文档](https://github.com/Azure/diagnostics-eventflow)
 
 <!--Update_Description: update meta properties, wording update -->

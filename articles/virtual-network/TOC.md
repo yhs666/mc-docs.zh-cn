@@ -53,7 +53,10 @@
 #### [不同部署模型 - 同一订阅](create-peering-different-deployment-models.md)
 #### [不同部署模型 - 不同订阅](create-peering-different-deployment-models-subscriptions.md)
 
+<!-- Not Available on ### [Virtual network service endpoints](virtual-network-service-endpoints-configure.md)-->
+<!-- Not Available on ### Public IP address - availability zone -->
 ### 虚拟机
+#### [虚拟机网络吞吐量](virtual-machine-network-throughput.md)
 #### 创建具有静态公共 IP 地址的 VM
 ##### [Azure 门户](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
@@ -62,7 +65,7 @@
 ##### 经典
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
 
-#### 使用静态专用 IP 地址创建 VM
+#### 创建 VM - 静态专用 IP 地址
 ##### [Azure 门户](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
@@ -71,7 +74,7 @@
 ###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
 ###### [Azure CLI](virtual-networks-static-private-ip-classic-cli.md)
 
-#### 创建具有多个网络接口的 VM
+#### 创建 VM - 多个网络接口
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)
 ##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)
 ##### [模板](virtual-network-deploy-multinic-arm-template.md)
@@ -80,14 +83,13 @@
 ###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
 ###### [Azure CLI](virtual-network-deploy-multinic-classic-cli.md)
 
-#### 创建具有多个 IP 地址的 VM
+#### 创建 VM - 多个 IP 地址
 ##### [Azure 门户](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md)
-##### [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)
+##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [模板](virtual-network-multiple-ip-addresses-template.md)
+<!-- Not Available on #### Create VM - Accelerated networking -->
 
-#### [创建具有加速网络的 VM](virtual-network-create-vm-accelerated-networking.md)
 
 ### 连接方案
 #### [虚拟网络 (VNet) 到 VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fvirtual-network%2ftoc.json)
@@ -152,6 +154,7 @@
 ### 虚拟机
 #### [将 VM 移到其他子网](virtual-networks-move-vm-role-to-subnet.md)
 ### [公共 IP 地址](virtual-network-public-ip-address.md)
+<!--Not Available ### DDoS Protection -->
 
 ## 故障排除
 ### 网络安全组
@@ -190,4 +193,4 @@
 ## [网络资源提供程序](resource-groups-networking.md)
 
 <!--Update_Description: update meta properties, update link-->
-<!--ms.date: 01/15/2018-->
+<!--ms.date: 01/22/2018-->

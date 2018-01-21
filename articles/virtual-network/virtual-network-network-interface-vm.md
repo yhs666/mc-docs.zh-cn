@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/15/2017
-ms.date: 01/15/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5670b4e3a5c8463dbb04f2162c0a1b3a56e2286b
-ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
+ms.openlocfilehash: 55ef0fd612d37958ec30b5578a3b46a2ce9f25fa
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>在虚拟机中添加或删除网络接口。
 
@@ -119,6 +119,5 @@ ms.lasthandoff: 01/12/2018
 - 可将任何主要或辅助网络接口的任何 IP 配置的任何 IP 地址添加到 Azure 负载均衡器后端池。 过去，只能将主要网络接口的主要 IP 地址添加到后端池。 若要详细了解 IP 地址和配置，请阅读[添加、更改或删除 IP 地址](virtual-network-network-interface-addresses.md)一文。
 - 删除 VM 不会删除附加到其中的网络接口。 删除 VM 时，网络接口会从此 VM 中分离。 可将网络接口添加到不同的 VM，也可将其删除。
 - 如果网络接口分配有专用 IPv6 地址，则在创建 VM 时必须将其添加（附加）到 VM。 创建 VM 后，无法将分配有 IPv6 地址的网络接口添加到 VM。 如果在创建虚拟机时添加分配有专用 IPv6 地址的网络接口，则无论该 VM 大小支持多少个网络接口，仅可将该网络接口添加到虚拟机。 若要深入了解如何将 IP 地址分配给网络接口，请参阅[网络接口 IP 地址](virtual-network-network-interface-addresses.md)。
-- IPv6 也一样：在创建 VM 后，无法将已启用加速网络的网络接口附加到该 VM。 此外，若要利用加速网络，还必须在 VM 操作系统中完成相应的步骤。 若要详细了解加速网络以及使用加速网络时的其他约束，请参阅[创建启用加速网络的 VM](virtual-network-create-vm-accelerated-networking.md)。
 
 <!--Update_Description: update meta properties, wording udpate, add constraints content  -->

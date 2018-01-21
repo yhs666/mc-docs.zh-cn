@@ -16,11 +16,11 @@ origin.date: 08/09/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ebf70c0505386f95b1d4c29a1c1cd8528a5ccaac
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 592e2e0380a40d42a4a133a2c5c27acdb5881977
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>将应用程序部署到 Azure 中的合作群集
 本教程是一个系列的第二部分，介绍如何将 Azure Service Fabric 应用程序部署到 Azure 中的合作群集。
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/01/2017
 > * [构建 .NET Service Fabric 应用程序](service-fabric-tutorial-create-dotnet-app.md)
 > * 将应用程序部署到远程群集
 > * [使用 Visual Studio Team Services 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [设置监视和诊断应用程序](service-fabric-tutorial-monitoring-aspnet.md)
+<!-- Not Available on > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md) -->
 
 ## <a name="prerequisites"></a>先决条件
 在开始学习本教程之前：

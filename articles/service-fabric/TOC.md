@@ -15,11 +15,11 @@
 ### [1 - 生成 .NET 应用程序](service-fabric-tutorial-create-dotnet-app.md)
 ### [2 - 部署应用程序](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3 - 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-### [4 - 监视和诊断](service-fabric-tutorial-monitoring-aspnet.md)
+<!-- Not Available on ### [4- Monitor and Diagnose](service-fabric-tutorial-monitoring-aspnet.md) -->
 
 ## 将现有 .NET 应用容器化
 ### [1 - 使用 Docker Compose 部署 .NET 应用](service-fabric-host-app-in-a-container.md)
-### [2 - 监视容器](service-fabric-tutorial-monitoring-wincontainers.md)
+<!-- Not Available on ### [2- Monitor your container](service-fabric-tutorial-monitoring-wincontainers.md)-->
 
 ## 创建 Linux 容器应用
 ### [1- 创建容器映像](service-fabric-tutorial-create-container-images.md)
@@ -145,9 +145,9 @@
 #### 使用 Azure 诊断聚合事件
 ##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
 ##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
-### 分析事件
-#### [使用 Application Insights 分析事件](service-fabric-diagnostics-event-analysis-appinsights.md)
-#### [使用 OMS 分析事件](service-fabric-diagnostics-event-analysis-oms.md)
+<!-- Not Available on ### Analyze events-->
+<!-- Not Available on #### [Analyze events with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
+<!-- Not Available on #### [Analyze events with OMS](service-fabric-diagnostics-event-analysis-oms.md) -->
 ### [排查本地群集的故障](service-fabric-troubleshoot-local-cluster-setup.md)
 
 ## [与 API 管理集成](service-fabric-api-management-overview.md)

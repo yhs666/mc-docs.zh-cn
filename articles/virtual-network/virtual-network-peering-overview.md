@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/11/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: ad73d9aba79c5c83527691a44fac1b9643cec0c4
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: c47198a1fd72437eb783557277fe979892c2faa2
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="virtual-network-peering"></a>虚拟网络对等互连
 
@@ -30,16 +30,19 @@ ms.lasthandoff: 12/08/2017
 * 对等虚拟网络之间的网络流量是专用的。 虚拟网络之间的流量仅限于 Microsoft 主干网络。 在虚拟网络之间通信不需公共 Internet、网关或加密。
 * 不同虚拟网络中资源之间的连接延迟低且带宽高。
 * 在虚拟网络对等互连之后，一个虚拟网络中的资源与另一虚拟网络中的资源通信的功能。
-* 跨 Azure 订阅和部署模型传输数据的功能。
-<!-- Not Available on  across Azure regions (preview). -->
+* 跨 Azure 订阅、部署模型和 Azure 区域传输数据的功能（预览版）。
+<!-- PENDING on  across Azure regions (preview). -->
 * 可将通过 Azure 资源管理器创建的虚拟网络对等互连，或者将一个通过资源管理器创建的虚拟网络对等互连到通过经典部署模型创建的虚拟网络。 若要详细了解 Azure 部署模型，请参阅[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。
 * 在创建对等互连之时或之后，虚拟网络中的资源不会出现停机的现象。
 
 ## <a name="requirements-constraints"></a>要求和约束
 
-* 在同一区域中的虚拟网络之间建立对等互连的功能已推出正式版。 
-<!-- Not Available on across Azure regions -->
-<!-- Not Available on the Warning of across Azure regions -->
+* 在同一区域中的虚拟网络之间建立对等互连的功能已推出正式版。 在不同区域中进行虚拟网络对等互连之前，必须先[注册订阅](virtual-network-create-peering.md#register)（针对预览版）。 如果尚未完成预览版的注册，则无法在不同区域创建虚拟网络之间的对等互连。
+    > [!WARNING]
+    > 跨区域创建的虚拟网络对等互连与正式版中的对等互连相比，可用性和可靠性级别可能不同。 虚拟网络对等互连的功能可能存在约束，不一定可在所有 Azure 区域中使用。 有关此功能可用性和状态方面的最新通知，请参阅 [Azure 虚拟网络更新](https://www.azure.cn/what-is-new/)页。
+<!-- PENDING on across Azure regions -->
+<!-- PENDING on the Warning of across Azure regions -->
+
 * 对等虚拟网络的 IP 地址空间不得重叠。
 * 虚拟网络与另一虚拟网络对等后，不能在虚拟网络的地址空间中添加或删除地址范围。 若需向对等互连的虚拟网络的地址空间添加地址范围，必须先删除对等互连，然后添加地址空间，最后再添加对等互连。
 * 虚拟网络对等互连在两个虚拟网络之间进行。 对等互连之间没有任何派生的可传递关系。 例如，如果 virtualNetworkA 与 virtualNetworkB 对等互连，而 virtualNetworkB 与 virtualNetworkC 对等互连，则 virtualNetworkA 不会对等互连到 virtualNetworkC。
@@ -57,20 +60,22 @@ ms.lasthandoff: 12/08/2017
 
 对等互连虚拟网络中虚拟机之间的流量直接通过 Microsoft 主干基础结构路由，而不通过网关或公共 Internet 路由。
 
-虚拟网络中的虚拟机可以访问同一区域中对等互连虚拟网络上的内部负载均衡。 全局虚拟网络对等互连正式版会支持内部负载均衡器。
+虚拟网络中的虚拟机可以访问同一区域中对等互连虚拟网络上的内部负载均衡。 对内部负载均衡器的支持并未扩展到全局对等互连的虚拟网络（预览版）。 全局虚拟网络对等互连正式版会支持内部负载均衡器。
 
 可根据需要将网络安全组应用于虚拟网络（阻止访问其他虚拟网络）或子网。
 配置虚拟网络对等互连时，可打开或关闭虚拟网络之间的网络安全组规则。 如果打开对等虚拟网络之间的完全连接（这是默认选项），则可将网络安全组应用到特定子网或虚拟机，以便阻止或拒绝特定访问。 若要深入了解网络安全组，请参阅[网络安全组概述](virtual-networks-nsg.md)。
 
 ## <a name="service-chaining"></a>服务链
 
-可以将指向对等虚拟网络中虚拟机的用户定义的路由表配置为“下一跃点”IP 地址，以便启用服务链。 使用服务链，可以通过用户定义的路由将流量从一个虚拟网络定向到对等虚拟网络中的虚拟设备。
+可将指向对等虚拟网络中虚拟机的用户定义的路由表配置为“下一跃点”IP 地址（也可配置指向虚拟网关的用户定义的路由），以便启用服务链。 使用服务链，可以通过用户定义的路由将流量从一个虚拟网络定向到对等虚拟网络中的虚拟设备（或虚拟网关）。
 
-还可以有效构建中心辐射型环境，中心可在其中托管基础结构组件，如网络虚拟设备。 然后，可将所有分支虚拟网络对等互连到中心虚拟网络。 流量可以流经在中心虚拟网络中运行的网络虚拟设备。 简言之，通过虚拟网络对等互连，用户定义的路由中的下一跃点 IP 地址可以成为对等虚拟网络中虚拟机的 IP 地址。 若要深入了解用户定义的路由，请参阅[用户定义的路由概述](virtual-networks-udr-overview.md)。 若要了解如何创建中心和分支网络拓扑，请参阅[中心和分支网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#virtual network-peering)。
+可以部署中心辐射型网络，允许中心虚拟网络在其中托管基础结构组件，如网络虚拟设备或 VPN 网关。 然后，可将所有分支虚拟网络对等互连到中心虚拟网络。 流量可以流经中心虚拟网络中的网络虚拟设备或 VPN 网关。 
+
+通过虚拟网络对等互连，用户定义的路由中的下一个跃点可以成为对等虚拟网络中虚拟机或 VNP 网关的 IP 地址。 但在虚拟网络之间进行路由时，不能通过用户定义的路由将 ExpressRoute 网关指定为下一跃点类型。 若要深入了解用户定义的路由，请参阅[用户定义的路由概述](virtual-networks-udr-overview.md#user-defined)。 若要了解如何创建中心和分支网络拓扑，请参阅[中心和分支网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#virtual network-peering)。
 
 ## <a name="gateways-and-on-premises-connectivity"></a>网关和本地连接
 
-无论是否与另一个虚拟网络建立对等互连，每个虚拟网络仍可具有自己的网关，并使用它连接到本地网络。 即使虚拟网络对等，用户也可以使用网关配置[虚拟网络到虚拟网络连接](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
+无论是否与另一个虚拟网络建立对等互连，每个虚拟网络仍可具有自己的网关，并使用它连接到本地网络。 即使虚拟网络对等，用户也可以使用网关配置[虚拟网络到虚拟网络连接](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fvirtual-network%2ftoc.json)。
 
 若已配置虚拟网络互连的两个选项，则虚拟网络之间的流量将通过对等配置（即通过 Azure 主干）流通。
 
@@ -78,8 +83,8 @@ ms.lasthandoff: 12/08/2017
 
 ![虚拟网络对等互连传输](./media/virtual-networks-peering-overview/figure04.png)
 
-通过不同部署模型或不同区域创建的虚拟网络之间的对等互连关系不支持网关传输。 若要使网关传输正常工作，对等互连关系中的两个虚拟网络都必须通过资源管理器创建，并且必须在同一区域中。
-<!-- Not Available on Globally peered virtual networks -->
+通过不同部署模型或不同区域创建的虚拟网络之间的对等互连关系不支持网关传输。 若要使网关传输正常工作，对等互连关系中的两个虚拟网络都必须通过资源管理器创建，并且必须在同一区域中。 全局对等互连的虚拟网络目前不支持网关传输。
+<!--PENDING on Globally peered virtual networks -->
 
 正在共享单个 Azure ExpressRoute 连接的虚拟网络对等时，它们之间的流量会通过对等关系（即通过 Azure 主干网）流通。 仍可在各个虚拟网络中使用本地网关连接到本地线路。 或者，也可以使用共享网关，并为本地连接配置传输。
 
@@ -100,24 +105,21 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="monitor"></a>监视
 
-对等互连两个通过 Resource Manager 创建的虚拟网络时，必须为对等互连中的每个虚拟网络都配置对等互连。
-可以监视对等互连的状态。 对等互连处于以下状态之一：
+对等互连两个通过 Resource Manager 创建的虚拟网络时，必须为对等互连中的每个虚拟网络都配置对等互连。 可以监视对等互连的状态。 对等互连处于以下状态之一：
 
-* **已启动**：从第一个虚拟网络创建与第二个虚拟网络的对等互连时，对等互连状态为“已启动”。
-
-* **已连接**：从第二个虚拟网络创建与第一个虚拟网络的对等互连时，对等互连状态为“已连接”。 如果查看第一个虚拟网络的对等互连状态，将看到其状态从“已启动”更改为“已连接”。 直到两个虚拟网络对等互连的对等互连状态均为“已连接”时，对等互连才成功建立。
-
-* **已断开连接**：如果在建立连接后删除了某个对等互连链接，对等互连状态为“已断开连接”。
+* **已启动**：创建从第一个虚拟网络到第二个虚拟网络的对等互连时显示的状态。
+* **已连接**：创建从第二个虚拟网络到第一个虚拟网络的对等互连后显示的状态。 第一个虚拟网络的对等互连状态从“已启动”更改为“已连接”。 直到两个虚拟网络对等互连的状态均为“已连接”时，虚拟网络对等互连才成功建立。
+* **已断开连接**：如果在两个虚拟网络之间建立对等互连后删除了从一个虚拟网络到另一个虚拟网络的对等互连，则这种情况下显示的状态为“已断开连接”。
 
 ## <a name="troubleshoot"></a>故障排除
 
-若要排查通过对等互连传送的流量问题，可以[检查有效路由](virtual-network-routes-troubleshoot-portal.md)。
+若要确认虚拟网络对等互连，可以[检查有效路由](virtual-network-routes-troubleshoot-portal.md)，看虚拟网络的任何子网中是否存在网络接口。 如果虚拟网络对等互连存在，则虚拟网络中的所有子网都会有下一跃点类型为“VNet 对等互连”的路由，这适用于每个对等互连的虚拟网络中的每个地址空间。
 
 <!--Not Available [connectivity check](../network-watcher/network-watcher-connectivity-portal.md). -->
 
 ## <a name="limits"></a>限制
 
-允许单个虚拟网络建立的对等互连数存在限制。 
+允许单个虚拟网络建立的对等互连数存在限制。 有关详细信息，请参阅 [Azure 网络限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
 ## <a name="pricing"></a>定价
 
@@ -137,4 +139,4 @@ ms.lasthandoff: 12/08/2017
 * 了解如何创建[中心和分支网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#virtual network-peering)。
 * 了解所有[虚拟网络对等互连设置以及如何对其进行更改](virtual-network-manage-peering.md)
 
-<!--Update_Description: wording update， update meta properties -->
+<!--Update_Description: wording update， update meta properties, Update link -->

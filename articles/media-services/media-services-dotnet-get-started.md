@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 12/10/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 8b988cd339549f2ccf4c9f4714128c9415cd61e7
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 39448f7551021194e510792683391908fae24c0b
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -70,8 +70,8 @@ ms.lasthandoff: 12/22/2017
 若要启动流式处理终结点，请执行以下操作：
 
 1. 在 [Azure 门户](https://portal.azure.cn/)登录。
-2. 在“设置”窗口中，单击“流式处理终结点”。 
-3. 单击默认的流式处理终结点。 
+2. 在“设置”窗口中，单击“流式处理终结点”。
+3. 单击默认的流式处理终结点。
 
     此时会显示“默认流式处理终结点详细信息”窗口。
 
@@ -396,6 +396,6 @@ https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b3
 
 <!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-  [Portal]: http://manage.windowsazure.cn/
+[Portal]: http://portal.azure.cn/
 
 <!--Update_Description: update code to use AAD token instead of ACS-->

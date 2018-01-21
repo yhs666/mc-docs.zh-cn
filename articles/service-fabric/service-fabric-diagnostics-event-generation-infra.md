@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 11/20/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 07a085df6e9e2ca262ee31f0dda639811b1d4610
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 0daedd4487d3b86e45e9fb443a15552a540a737b
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="platform-level-event-and-log-generation"></a>平台级别事件和日志生成
 
@@ -83,7 +83,7 @@ if (!result.HasValue)
 
 为了充分利用这些日志，我们强烈建议在群集创建过程中启用“诊断”。 如果开启诊断，部署群集时，Windows Azure 诊断就可确认运行 Operational、Reliable Services 和 Reliable Actors 通道，并按照[通过 Azure 诊断聚合事件](service-fabric-diagnostics-event-aggregation-wad.md)中所述存储数据。
 
-如上图所示，还存在一个用于添加 Application Insights (AI) 检测密钥的可选字段。 如果选择使用 AI 对所有事件进行分析（阅读[通过 Application Insights 进行事件分析](service-fabric-diagnostics-event-analysis-appinsights.md)了解相关详细信息），请在此处添加 AppInsights resource instrumentationKey (GUID)。
+<!-- Not Available on [Event Analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)),-->
 
 如果要将容器部署到群集中，通过将此代码添加到“WadCfg > DiagnosticMonitorConfiguration”，启用 WAD 来读取 docker 统计信息：
 
@@ -105,7 +105,8 @@ if (!result.HasValue)
 
 以下是设置群集收集性能数据的两种常见方式：
 
-* 使用代理：这是从计算机中收集性能的首选方法，因为代理通常有可以收集的可能性能指标列表，并且选择要收集或更改的指标是一个相对简单的过程。 阅读有关[如何配置适用于 Service Fabric 的 OMS](service-fabric-diagnostics-event-analysis-oms.md) 的文章，了解有关 OMS 代理的更多信息，OMS 代理是一个能够读取群集 VM 和已部署容器的性能数据的监视代理。
+* 使用代理：这是从计算机中收集性能的首选方法，因为代理通常有可以收集的可能性能指标列表，并且选择要收集或更改的指标是一个相对简单的过程。 
+<!-- Not Available on  [how to configure the OMS for Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) -->
 <!-- Not Available [Setting up the OMS Windows Agent](../log-analytics/log-analytics-windows-agents.md) -->
 * 配置诊断以将性能计数器写入表中：对于 Azure 上的群集，这意味着更改 Azure 诊断配置以从群就中的 VM 读取适当的性能计数器，如果要部署任何容器，也能使其读取 docker 统计数据。 阅读有关在 Service Fabric 中配置 [WAD 中的性能计数器](service-fabric-diagnostics-event-aggregation-wad.md)的文章，设置性能计数器集合。
 

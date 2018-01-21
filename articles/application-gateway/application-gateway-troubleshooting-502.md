@@ -1,10 +1,10 @@
 ---
 title: "排查 Azure 应用程序网关的网关无效 (502) 错误 | Microsoft Docs"
-description: "了解如何排查应用程序网关 502 错误"
+description: "了解如何排查应用程序网关的 502 错误"
 services: application-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: amitsriva
+manager: rossort
 editor: 
 tags: azure-resource-manager
 ms.assetid: 1d431ead-d318-47d8-b3ad-9c69f7e08813
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/09/2017
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: c3f0eb81a2d65f8881c3fc564993eb854ca85e17
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: ca373b73af7ec51a1fb4b05a2cba7e18374eebde
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>排查应用程序网关中的网关无效错误
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 11/10/2017
 
 | 探测属性 | 说明 |
 | --- | --- |
-| 名称 |探测的名称。 此名称用于在后端 HTTP 设置中引用探测。 |
+| Name |探测的名称。 此名称用于在后端 HTTP 设置中引用探测。 |
 | 协议 |用于发送探测的协议。 探测使用后端 HTTP 设置中定义的协议 |
 | 主机 |用于发送探测的主机名。 仅当应用程序网关上配置了多站点时才适用。 这与 VM 主机名不同。 |
 | 路径 |探测的相对路径。 有效路径以“/”开头。 将探测发送到 \<protocol\>://\<host\>:\<port\>\<path\> |
@@ -119,8 +119,7 @@ ms.lasthandoff: 11/10/2017
 - 如果在应用程序网关中设置了单站点，则默认情况下，除非已在自定义探测中进行配置，否则应将主机名指定为“127.0.0.1”。
 - 确保对 http://\<host\>:\<port\>\<path\> 的调用返回 HTTP 结果代码 200。
 - 确保 Interval、Time-out 和 UnhealtyThreshold 都在可接受的范围内。
-- 如果使用 HTTPS 探测器，请通过在后端服务器本身上配置回退证书，确保后端服务器不需要 SNI。 
-- 确保 Interval、Time-out 和 UnhealtyThreshold 都在可接受的范围内。
+- 如果使用 HTTPS 探测器，请通过在后端服务器本身上配置回退证书，确保后端服务器不需要 SNI。
 
 ## <a name="request-time-out"></a>请求超时
 
@@ -133,7 +132,7 @@ ms.lasthandoff: 11/10/2017
 应用程序网关允许用户通过 BackendHttpSetting 配置此设置，并可将此设置应用到不同的池。 不同的后端池可以有不同的 BackendHttpSetting，因此可配置不同的请求超时。
 
 ```powershell
-New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+    New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
 ## <a name="empty-backendaddresspool"></a>BackendAddressPool 为空
@@ -182,7 +181,7 @@ BackendAddressPoolsText：
 
 ### <a name="cause"></a>原因
 
-如果 BackendAddressPool 的所有实例都运行不正常，则应用程序网关不包含任何要将用户请求路由到其中的后端。 当后端实例运行正常但尚未部署所需的应用程序时，也可能会发生此情况。
+如果 BackendAddressPool 的所有实例都运行不正常，则应用程序网关不会包含任何要将用户请求路由到其中的后端。 当后端实例运行正常但尚未部署所需的应用程序时，也可能会发生此情况。
 
 ### <a name="solution"></a>解决方案
 
@@ -193,3 +192,4 @@ BackendAddressPoolsText：
 如果上述步骤无法解决问题，请开具[支持票证](https://www.azure.cn/support/contact/)。
 
 
+<!-- Update_Description: wording update -->

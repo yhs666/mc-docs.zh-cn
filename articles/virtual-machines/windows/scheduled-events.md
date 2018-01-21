@@ -16,104 +16,103 @@ ms.workload: infrastructure-services
 origin.date: 08/14/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: c5a0941de9c4e26e49805c4b0c0d10aab8df8802
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: c4a6703b934d157271f77281c9a8a0845ca66f73
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Azure 元数据服务：适用于 Windows VM 的计划事件（预览）
 
 > [!NOTE] 
 > 同意使用条款即可使用预览版。 
 >
-<!-- Not Available on [Azure Supplemental Terms of Use for Azure Previews](https://www.azure.cn/support/legal/preview-supplemental-terms/).--》
+<!-- Not Available on [Azure Supplemental Terms of Use for Azure Previews](https://www.azure.cn/support/legal/preview-supplemental-terms/). -->
 
-Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine maintenance. It provides information about upcoming maintenance events (e.g. reboot) so your application can prepare for them and limit disruption. It is available for all Azure Virtual Machine types including PaaS and IaaS on both Windows and Linux. 
+预定事件是一个 Azure 元数据服务，可提供应用程序时间用于准备虚拟机维护。 它提供有关即将发生的维护事件的信息（例如重新启动），使应用程序可以为其准备并限制中断。 它可用于 Windows 和 Linux 上的所有 Azure 虚拟机类型（包括 PaaS 和 IaaS）。 
 
-For information about Scheduled Events on Linux, see [Scheduled Events for Linux VMs](../linux/scheduled-events.md).
+有关 Linux 上的计划事件的信息，请参阅[适用于 Linux VM 的计划事件](../linux/scheduled-events.md)。
 
-## Why Scheduled Events?
+## <a name="why-scheduled-events"></a>为何使用计划事件？
 
-Many applications can benefit from time to prepare for virtual machine maintenance. The time can be used to perform application specific tasks that improve availability, reliability, and serviceability including: 
+许多应用程序都可以受益于时间来准备虚拟机维护。 时间可以用于执行应用程序的特定任务的提高可用性、可靠性和可维护性，包括： 
 
-- Checkpoint and restore
-- Connection draining
-- Primary replica failover 
-- Removal from load balancer pool
-- Event logging
-- Graceful shutdown 
+- 检查点和还原
+- 连接清空
+- 主要副本故障转移 
+- 从负载均衡器池删除
+- 事件日志记录
+- 正常关闭 
 
-Using Scheduled Events your application can discover when maintenance will occur and trigger tasks to limit its impact.  
+使用计划事件，应用程序可以发现维护的发生，并触发任务以限制其影响。  
 
-Scheduled Events provides events in the following use cases:
-- Platform initiated maintenance (e.g. Host OS Update)
-- User initiated maintenance (e.g. user restarts or redeploys a VM)
+预定事件提供以下用例中的事件：
+- 平台启动维护（例如主机 OS 更新）
+- 用户启动的维护（例如，用户重启或重新部署 VM）
 
-## The basics  
+## <a name="the-basics"></a>基础知识  
 
-Azure Metadata service exposes information about running Virtual Machines using a REST Endpoint accessible from within the VM. The information is available via a non-routable IP so that it is not exposed outside the VM.
+Azure 元数据服务公开在 VM 中使用可访问的 REST 终结点运行虚拟机的相关信息。 该信息通过不可路由的 IP 提供，因此不会在 VM 外部公开。
 
-### Scope
-Scheduled events are delivered to:
-- All Virtual Machines in a Cloud Service
-- All Virtual Machines in an Availability Set
-- All Virtual Machines in a Scale Set Placement Group. 
+### <a name="scope"></a>作用域
+计划的事件传送到：
+- 云服务中的所有虚拟机
+- 可用性集中的所有虚拟机
+- 规模集位置组中的所有虚拟机。 
 
-As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
+因此，应查看事件中的 `Resources` 字段以确定将受到影响的 VM。 
 
-## Discovering the endpoint
-For VNET enabled VMs, the full endpoint for the latest version of Scheduled Events is: 
+## <a name="discovering-the-endpoint"></a>发现终结点
+对于启用 VNET 的 VM，预定事件的最新版本的完整终结点是： 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
 
-In the case where a Virtual Machine is created within a Virtual Network (VNet), the metadata service is available from a static non-routable IP, `169.254.169.254`.
-If the Virtual Machine is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
-Refer to this sample to learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
+如果在虚拟网络 (VNet) 中创建虚拟机，可从不可路由 IP `169.254.169.254` 获得元数据服务。
+如果不是在虚拟网络中创建虚拟机（云服务和经典 VM 的默认情况），则需使用额外的逻辑以发现要使用的 IP 地址。 请参阅此示例，了解如何[发现主机终结点](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)。
 
-### Versioning 
-The Scheduled Events Service is versioned. Versions are mandatory and the current version is `2017-08-01`.
+### <a name="versioning"></a>版本控制 
+计划事件服务受版本控制。 版本是必需的，当前版本为 `2017-08-01`。
 
-| Version | Release Notes | 
+| 版本 | 发行说明 | 
 | - | - | 
-| 2017-08-01 | <li> Removed prepended underscore from resource names for Iaas VMs<br><li>Metadata Header requirement enforced for all requests | 
-| 2017-03-01 | <li>Public Preview Version
+| 2017-08-01 | <li> 已从 Iaas VM 的资源名称中删除下划线<br><li>针对所有请求强制执行元数据标头要求 | 
+| 2017-03-01 | <li>公共预览版
 
 > [!NOTE] 
-> Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
+> 支持的计划事件的前一预览版 {latest} 发布为 api-version。 此格式不再受支持，并且将在未来弃用。
 
-### Using headers
-When you query the Metadata Service, you must provide the header `Metadata:true` to ensure the request was not unintentionally redirected. The `Metadata:true` header is required for all scheduled events requests. Failure to include the header in the request will result in a Bad Request response from the Metadata Service.
+### <a name="using-headers"></a>使用标头
+查询元数据服务时，必须提供标头 `Metadata:true` 以确保不会在无意中重定向该请求。 `Metadata:true` 标头对于所有预定事件请求是必需的。 不在请求中包含标头会导致元数据服务发出的“错误的请求”响应。
 
-### Enabling Scheduled Events
-The first time you make a request for scheduled events, Azure implicitly enables the feature on your Virtual Machine. As a result, you should expect a delayed response in your first call of up to two minutes.
+### <a name="enabling-scheduled-events"></a>启用计划事件
+首次请求计划事件时，Azure 会在虚拟机上隐式启用该功能。 因此，第一次调用时应该会延迟响应最多两分钟。
 
 > [!NOTE]
-> Scheduled Events is automatically disabled for your service if your service doesn't call the end point for 1 day. Once Scheduled Events is disabled for your service, there will be no events created for user initiated maintenance.
+> 如果服务有 1 天未调用终结点，会自动为服务禁用预定事件。 为服务禁用计划事件后，不会为用户启动的维护创建事件。
 
-### User initiated maintenance
-User initiated virtual machine maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. This allows you to test the maintenance preparation logic in your application and allows your application to prepare for user initiated maintenance.
+### <a name="user-initiated-maintenance"></a>用户启动的维护
+用户通过 Azure 门户、API、CLI 或 PowerShell 启动的虚拟机维护会生成计划事件。 这样便可以在应用程序中测试维护准备逻辑，并可以通过应用程序准备用户启动的维护。
 
-Restarting a virtual machine schedules an event with type `Reboot`. Redeploying a virtual machine schedules an event with type `Redeploy`.
-
-> [!NOTE] 
-> Currently a maximum of 100 user initiated maintenance operations can be simultaneously scheduled.
+重启虚拟机会计划 `Reboot` 类型的事件。 重新部署虚拟机会计划 `Redeploy` 类型的事件。
 
 > [!NOTE] 
-> Currently user initiated maintenance resulting in Scheduled Events is not configurable. Configurability is planned for a future release.
+> 目前，可以同时计划最多 100 个用户启动的维护操作。
 
-## Using the API
+> [!NOTE] 
+> 目前，生成计划事件的用户启动的维护不可配置。 可配置性已计划在将来的版本中推出。
 
-### Query for events
-You can query for Scheduled Events simply by making the following call:
+## <a name="using-the-api"></a>使用 API
 
-#### Powershell
+### <a name="query-for-events"></a>查询事件
+只需进行以下调用即可查询计划事件：
+
+#### <a name="powershell"></a>Powershell
 ```
 curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @{"Metadata"="true"}
 ```
 
-A response contains an array of scheduled events. An empty array means that there are currently no events scheduled.
-In the case where there are scheduled events, the response contains an array of events: 
+响应包含计划事件的数组。 数组为空意味着目前没有计划事件。
+如果有计划事件，响应会包含事件的数组： 
 ```
 {
     "DocumentIncarnation": {IncarnationID},
@@ -130,30 +129,30 @@ In the case where there are scheduled events, the response contains an array of 
 }
 ```
 
-### Event properties
-|Property  |  Description |
+### <a name="event-properties"></a>事件属性
+|属性  |  说明 |
 | - | - |
-| EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for few seconds. The CPU is suspended, but there is no impact on memory, open files, or network connections. <li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). |
-| ResourceType | Type of resource this event impacts. <br><br> Values: <ul><li>`VirtualMachine`|
-| Resources| List of resources this event impacts. This is guaranteed to contain machines from at most one [Update Domain](manage-availability.md), but may not contain all machines in the UD. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| Event Status | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided; the event will no longer be returned when the event is completed.
-| NotBefore| Time after which this event may start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
+| EventId | 此事件的全局唯一标识符。 <br><br> 示例： <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | 此事件造成的影响。 <br><br> 值： <br><ul><li> `Freeze`：虚拟机计划暂停数秒。 暂停 CPU，但不会对内存、打开文件或网络连接造成影响。 <li>`Reboot`：虚拟机将计划重新启动（非持久性内存将丢失）。 <li>`Redeploy`：虚拟机计划移到另一个节点（临时磁盘将丢失）。 |
+| ResourceType | 此事件影响的资源的类型。 <br><br> 值： <ul><li>`VirtualMachine`|
+| 资源| 此事件影响的资源的列表。 它保证最多只能包含一个[更新域](manage-availability.md)的计算机，但可能不包含该更新域中的所有计算机。 <br><br> 示例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| 事件状态 | 此事件的状态。 <br><br> 值： <ul><li>`Scheduled`：此事件计划在 `NotBefore` 属性指定的时间之后启动。<li>`Started`：此事件已启动。</ul> 不提供 `Completed` 或类似状态；事件完成后，将不再返回事件。
+| NotBefore| 此事件可能会在之后启动的时间。 <br><br> 示例： <br><ul><li> 2016-09-19T18:29:47Z  |
 
-### Event scheduling
-Each event is scheduled a minimum amount of time in the future based on event type. This time is reflected in an event's `NotBefore` property. 
+### <a name="event-scheduling"></a>事件计划
+将根据事件类型为每个事件计划将来的最小量时间。 此时间反映在某个事件的 `NotBefore` 属性上。 
 
-|EventType  | Minimum Notice |
+|EventType  | 最小值通知 |
 | - | - |
-| Freeze| 15 minutes |
-| Reboot | 15 minutes |
-| Redeploy | 10 minutes |
+| 冻结| 15 分钟 |
+| 重新启动 | 15 分钟 |
+| 重新部署 | 10 分钟 |
 
-### Starting an event 
+### <a name="starting-an-event"></a>启动事件 
 
-Once you have learned of an upcoming event and completed your logic for graceful shutdown, you can approve the outstanding event by making a `POST` call to the metadata service with the `EventId`. This indicates to Azure that it can shorten the minimum notification time (when possible). 
+了解即将发生的事件并完成正常关闭逻辑后，可以通过使用 `EventId` 对元数据服务进行 `POST` 调用来批准未完成的事件。 这指示 Azure 可以缩短最小通知时间（如可能）。 
 
-The following is the json expected in the `POST` request body. The request should contain a list of `StartRequests`. Each `StartRequest` contains the `EventId` for the event you want to expedite:
+下面是 `POST` 请求正文中所需的 json。 请求应包含 `StartRequests` 列表。 每个 `StartRequest` 包含想要加速的事件的 `EventId`：
 ```
 {
     "StartRequests" : [
@@ -164,17 +163,17 @@ The following is the json expected in the `POST` request body. The request shoul
 }
 ```
 
-#### Powershell
+#### <a name="powershell"></a>Powershell
 ```
 curl -H @{"Metadata"="true"} -Method POST -Body '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
-> Acknowledging an event allows the event to proceed for all `Resources` in the event, not just the virtual machine that acknowledges the event. You may therefore choose to elect a leader to coordinate the acknowledgement, which may be as simple as the first machine in the `Resources` field.
+> 确认事件后，即可允许事件针对事件中所有的 `Resources` 继续进行，而不仅仅是确认该事件的虚拟机。 因此，可以选择一个指挥计算机来协调该确认，为简单起见，可选择 `Resources` 字段中的第一个计算机。
 
-## PowerShell sample 
+## <a name="powershell-sample"></a>PowerShell 示例 
 
-The following sample queries the metadata service for scheduled events and approves each outstanding event.
+下例将查询计划事件的元数据服务器并审核所有未完成的事件。
 
 ```PowerShell
 # How to get scheduled events 
@@ -231,9 +230,9 @@ foreach($event in $scheduledEvents.Events)
 }
 ``` 
 
-## Next steps 
+## <a name="next-steps"></a>后续步骤 
 
-- Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events Github Repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
-- Read more about the APIs available in the [Instance Metadata service](instance-metadata-service.md).
-- Learn about [planned maintenance for Windows virtual machines in Azure](planned-maintenance.md).
+- 在 [Azure 实例元数据计划事件 Github 存储库](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)中查看预定事件代码示例
+- 有关 API 的更多信息，请参阅[实例元数据服务](instance-metadata-service.md)。
+- 了解 [Azure 中 Windows 虚拟机的计划内维护](planned-maintenance.md)。
 <!-- Update_Description: update meta properties， remove C# sample code  -->

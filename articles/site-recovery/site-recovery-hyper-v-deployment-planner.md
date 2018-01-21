@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 12/02/2017
-ms.date: 01/01/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5fd2a6004afcefb0a0a4e0eeb65b173d8c790664
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 1a38c76571dcf6640daf5328dee5a13c40971cf4
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器
 本文为适用于 Hyper-V 到 Azure 生产部署的 Azure Site Recovery 部署规划器用户指南。
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/29/2017
 
 此外还需要创建适当类型和数量的目标 Azure 存储帐户。 考虑到使用量会随着时间的推移而增加，从而导致源生产服务器数目的增加，请创建标准或高级存储帐户。 选择每个 VM 的存储类型时，需要考虑到工作负荷特征，例如每秒读/写 I/O 操作数 (IOPS) 或数据变动量，以及 Azure Site Recovery 限制。 
 
-Azure Site Recovery 部署规划器（第 2 版）是一个命令行工具，适用于 Hyper-V 到 Azure 和 VMware 到 Azure 灾难恢复方案。 可以使用此工具远程分析多个 Hyper-V 主机上存在的 Hyper-V VM（不会给生产造成任何影响），了解成功进行复制和测试性故障转移/故障转移所需满足的带宽和 Azure 存储要求。 不需在本地安装任何 Azure Site Recovery 组件即可运行此工具。 但是，为了获取准确的已实现吞吐量结果，建议在 Windows Server 上运行此规划器，该 Server 的硬件配置应与用来启用灾难恢复保护（通过恢复到 Azure 的方式进行保护）的某个 Hyper-V 服务器相同。 
+Azure Site Recovery 部署规划器是一个命令行工具，适用于 Hyper-V 到 Azure 和 VMware 到 Azure 灾难恢复方案。 可以使用此工具远程分析多个 Hyper-V 主机上存在的 Hyper-V VM（不会给生产造成任何影响），了解成功进行复制和测试性故障转移/故障转移所需满足的带宽和 Azure 存储要求。 不需在本地安装任何 Azure Site Recovery 组件即可运行此工具。 但是，为了获取准确的已实现吞吐量结果，建议在 Windows Server 上运行此规划器，该 Server 的硬件配置应与用来启用灾难恢复保护（通过恢复到 Azure 的方式进行保护）的某个 Hyper-V 服务器相同。 
 
 该工具提供以下详细信息：
 
@@ -119,9 +119,9 @@ VM 的推荐配置：8 vCPU，16 GB RAM，300 GB HDD。
 3.  解压缩 .zip 文件夹。
 该文件夹包含多个文件和子文件夹。 可执行文件是父文件夹中的 ASRDeploymentPlanner.exe。
 
-示例：将 .zip 文件复制到 E:\ 驱动器并将它解压缩。 E:\ASR Deployment Planner_v2.0.zip
+示例：将 .zip 文件复制到 E:\ 驱动器并将它解压缩。 E:\ASR Deployment Planner_v2.1.zip
 
-E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>更新至最新版本的部署规划器
 如果部署规划器为旧版，请执行以下操作之一：
@@ -134,7 +134,10 @@ E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
   >
   >每个新的 Deployment Planner 都是 .zip 文件的累积更新。 不需将最新文件复制到旧文件夹。 可以创建和使用新文件夹。
 
+## <a name="version-history"></a>版本历史记录
+最新的 ASR 部署规划器工具版本为 2.1。
+请参阅 [ASR 部署规划器版本历史记录](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx)页，了解每个更新中增加的修补程序。
+
 ## <a name="next-steps"></a>后续步骤
 * [运行部署规划器](site-recovery-hyper-v-deployment-planner-run.md)。
-<!-- Update_Description: new articles on site recovery hyper v deplyment planner -->
-<!-- ms.date: 01/01/2018 -->
+<!-- Update_Description: add version history content -->

@@ -15,17 +15,17 @@ ms.workload: NA
 origin.date: 07/19/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5b006d199f37211f8a97abae92abae274c54151e
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 6160807ffdbfd2d6785f8a31511ea2cd345c68b2
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>将 Windows 容器中的 .NET 应用程序部署到 Azure Service Fabric
 
 本教程介绍如何在 Azure 上的 Windows 容器中部署现有 ASP.NET 应用程序。
 
-本教程介绍如何：
+本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
 > * 在 Visual Studio 中创建 Docker 项目
@@ -212,14 +212,14 @@ Edge 会在内部 NAT 网络上使用容器的 IP 地址（通常为 172.x.x.x�
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何：
+在本教程中，你已学习了如何执行以下操作：
 
 > [!div class="checklist"]
 > * 在 Visual Studio 中创建 Docker 项目
 > * 容器化现有应用程序
 > * 设置与 Visual Studio 和 VSTS 的持续集成
 
-在本教程的下一部分中，了解如何设置[容器监视](service-fabric-tutorial-monitoring-wincontainers.md)。
+<!-- Not Available on In the next part of the tutorial, learn how to set up [monitoring for your container](service-fabric-tutorial-monitoring-wincontainers.md). -->
 
 <!--   NOTE SURE WHAT WE SHOULD DO YET HERE
 

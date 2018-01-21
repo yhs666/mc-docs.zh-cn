@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 11/02/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0461c9c61c6c4e35ff37d2d29dde6c1d16d4c81c
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 6008f4fe876ad1d5acd551ea87ad8ce24cf537f5
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>使用 Linux Azure 诊断聚合和收集事件
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/01/2017
 >
 >
 
-运行 Azure Service Fabric 群集时，最好是从一个中心位置的所有节点中收集日志。 将日志放在中心位置可帮助分析和排查群集中的问题，或该群集中运行的应用程序与服务的问题。
+当你运行 Azure Service Fabric 群集时，最好是从一个中心位置的所有节点中收集日志。 将日志放在中心位置可帮助分析和排查群集中的问题，或该群集中运行的应用程序与服务的问题。
 
 上传和收集日志的方式之一是使用可将日志上传到 Azure 存储、也能选择将日志发送到 Azure Application Insights 或事件中心的 Linux Azure 诊断 (LAD) 扩展。 也可以使用外部进程读取存储中的事件，并将它们放在分析平台产品（例如其他日志分析解决方案）中。
 <!-- Not Available [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) -->
@@ -53,6 +53,6 @@ Service Fabric 通过 [LTTng](http://lttng.org) 发出几个现成可用的日�
 ## <a name="next-steps"></a>后续步骤
 
 1. 若要更详细了解在排查问题时应检查哪些事件，请参阅 [LTTng 文档](http://lttng.org/docs)和[使用 LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
-2. [设置 OMS 代理](service-fabric-diagnostics-event-analysis-oms.md)来帮助收集指标，监视在群集上部署的容器，以及使日志可视化
+<!-- Not Available on 2. [Set up the OMS agent](service-fabric-diagnostics-event-analysis-oms.md) to help gather metrics, monitor Containers deployed on your cluster, and visualize your logs -->
 
 <!--Update_Description: update meta properties -->
