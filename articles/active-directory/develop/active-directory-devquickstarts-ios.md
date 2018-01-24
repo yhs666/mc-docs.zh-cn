@@ -1,5 +1,5 @@
 ---
-title: "将 Azure AD 集成到 iOS 应用中 | Microsoft Docs"
+title: "Azure AD iOS 入门 | Microsoft Docs"
 description: "如何构建与 Azure AD 相集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 iOS 应用程序。"
 services: active-directory
 documentationcenter: ios
@@ -12,19 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-origin.date: 01/07/2017
-ms.date: 01/02/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 462d15555f76663104d6456ab49f9a165925ed81
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: ac4d170e1e18bd0fbe515a509f07af51e3d6888b
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="integrate-azure-ad-into-an-ios-app"></a>将 Azure AD 集成到 iOS 应用中
+# <a name="azure-ad-ios-getting-started"></a>Azure AD iOS 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
 
 对于需要访问受保护资源的 iOS 客户端，Azure Active Directory (Azure AD) 提供了 Active Directory 身份验证库 (ADAL)。 ADAL 简化了应用用来获取访问令牌的过程。 为了演示这种简便性，我们在本文中构建了一个“目标 C 待办事项列表”应用程序，它可以：
 
@@ -56,7 +55,7 @@ ms.lasthandoff: 01/04/2018
 ```
 
 - **aap-scheme** - 已在 XCode 项目中注册。 它是其他应用程序与你联系的方式。 可以在 Info.plist -> URL types -> URL Identifier 下找到此信息。 如果尚未配置一个或多个方案，则你应该创建一个。
-- **bundle-id** - 这是在 XCode 中项目设置的“ID”下找到的捆绑标识符。
+- **bundle-id** - 这是位于 XCode 项目设置中“identity”下的捆绑标识符。
 
 此快速入门代码的一个示例：***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
@@ -69,7 +68,7 @@ ms.lasthandoff: 01/04/2018
 4. 单击“应用注册”，然后选择“新建应用程序注册”。
 5. 创建新的**本机**应用程序。
     - 应用程序的**名称**向最终用户描述该应用程序。
-    - “重定向 URI”  是 Azure AD 要用来返回令牌响应的方案与字符串组合。  请根据上面的信息输入特定于应用程序的值。
+    - **重定向 URI** 是 Azure AD 用来返回令牌响应的方案与字符串组合。  请输入特定于应用程序并基于之前的重定向 URI 信息的一个值。
 6. 完成注册后，Azure AD 将为应用分配一个唯一的应用程序 ID。  在后面的部分中会用到此值，因此，请从应用程序选项卡中复制此值。
 7. 在“设置”页上，选择“所需权限”，并选择“添加”。 选择“Microsoft Graph”作为 API，并在“委派的权限”下添加“读取目录数据”权限。  这会设置应用程序以在 Azure AD Graph API 中查询用户。
 

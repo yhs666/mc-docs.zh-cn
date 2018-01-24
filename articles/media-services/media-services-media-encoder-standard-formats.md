@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/20/2017
-ms.date: 09/04/2017
+ms.date: 1/22/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 79c950c4b1293c811dd29e5dc81f930d2108a626
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.openlocfilehash: b4bf1844ab9e7efec52513aa76443ce57ea39776
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard 格式和编解码器
 本文档包含最常见的导入和导出文件格式的列表，可以将这些格式用于 Media Encoder Standard。
@@ -51,9 +51,9 @@ Media Encoder Standard 支持在输入容器中带有以下音频格式：
 
 或
 
-* MXF、GXF 和 QuickTime 文件，其中的音频以独立 PCM 曲目的形式携带，但可以从文件元数据推导频道映射（到立体声或 5.1）
+* MXF、GXF 和 QuickTime 文件，其中的音频以独立 PCM 轨道的形式携带，但可以从文件元数据推导频道映射（到立体声或 5.1 的映射）
 
-注意，不久的将来会提供对显式/用户提供的频道映射的支持。
+在不久的将来会提供对显式/用户提供的频道映射的支持。
 
 ## <a name="input-video-codecs"></a>输入视频编解码器
 | 输入视频编解码器 | 支持 |
@@ -63,7 +63,7 @@ Media Encoder Standard 支持在输入容器中带有以下音频格式：
 | DVCPro/DVCProHD（MXF 格式） |是 |
 | 数字视频 (DV)（AVI 文件格式） |是 |
 | JPEG 2000 |是 |
-| Mpeg-2（最高支持 422 Profile 和 High Level；包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs® 和 D10 等变体） |最高支持 422 Profile |
+| MPEG-2（最高支持 422 Profile 和 High Level；包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs® 和 D10 等变体） |最高支持 422 Profile |
 | MPEG-1 |是 |
 | VC-1/WMV9 |是 |
 | Canopus HQ/HQX |否 |

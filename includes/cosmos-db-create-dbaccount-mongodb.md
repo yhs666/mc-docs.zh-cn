@@ -6,14 +6,15 @@
 3. 在“新建帐户”边栏选项卡中，为 Azure Cosmos DB 帐户指定所需的配置。 
 
     使用 Azure Cosmos DB，可以选择以下三个编程模型之一：MongoDB、SQL 和表（键/值）。 
-<!-- Not Available on Gremlin (graph database) and Cassandra -->
+    <!-- Not Available on Gremlin (graph database) and Cassandra -->
 
-    In this quick start we'll be programming against the MongoDB API so you'll choose **MongoDB** as you fill out the form. But if you have document data from a catalog app, or key/value (table) data, realize that Azure Cosmos DB can provide a highly available, globally-distributed database service platform for all your mission-critical applications.
-<!-- Not Available on Graph data for a social media app-->
+    在本快速入门教程中，我们会针对 MongoDB API 编程，因此，在填写表单时，请选择“MongoDB”。 但如果有来自目录应用的文档数据或键/值（表）数据，请意识到 Azure Cosmos DB 可以为所有任务关键型应用程序提供高度可用的多区域分布式数据库服务平台。
+    <!-- NOTICE: global-distributed TO multiple region-distributed -->
+    <!-- Not Available on Graph data for a social media app-->
 
-    Fill out the **New account** blade using the information in the table as a guide.
+    以表中的信息作为指南，填写“新建帐户”边栏选项卡。
 
-    ![Screen shot of the New Azure Cosmos DB blade](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
+    ![“新 Azure Cosmos DB”边栏选项卡的屏幕截图](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
 
     设置|建议的值|说明
     ---|---|---

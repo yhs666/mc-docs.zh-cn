@@ -3,8 +3,8 @@ title: "在 Azure 应用程序网关上配置 SSL 策略 - PowerShell | Microsof
 description: "本页提供有关在 Azure 应用程序网关上配置 SSL 策略的说明"
 documentationcenter: na
 services: application-gateway
-author: alexchen2016
-manager: digimobile
+author: davidmu1
+manager: timlt
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/19/2017
-ms.date: 09/14/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: b4545183d0854fd8e83c1d495326f71d5ddbf1f3
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: 007c1fecac549c0b15fe7294a0a79c0d82c9f76e
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>在应用程序网关上配置 SSL 策略版本和密码套件
 
@@ -111,6 +111,8 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>配置自定义 SSL 策略
 
+在配置自定义 SSL 策略时，你将传递以下参数：PolicyType、MinProtocolVersion、CipherSuite 和 ApplicationGateway。 如果尝试传递其他参数，则在创建或更新应用程序网关时会出错。 
+
 如下示例将在应用程序网关上设置自定义 SSL 策略。 它将最低协议版本设置为 `TLSv1_1`，并启用以下密码套件：
 
 - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -131,9 +133,17 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroup Adatum
 
 # set the SSL policy on the application gateway
 Set-AzureRmApplicationGatewaySslPolicy -ApplicationGateway $gw -PolicyType Custom -MinProtocolVersion TLSv1_1 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+
+# validate the SSL policy locally
+Get-AzureRmApplicationGatewaySslPolicy -ApplicationGateway $gw
+
+# update the gateway with validated SSL policy
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>使用预定义 SSL 策略创建应用程序网关
+
+在配置预定义 SSL 策略时，你将传递以下参数：PolicyType、PolicyName 和 ApplicationGateway。 如果尝试传递其他参数，则在创建或更新应用程序网关时会出错。
 
 如下示例会使用预定义 SSL 策略创建一个新的应用程序网关。
 
@@ -172,7 +182,33 @@ $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyN
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "China North" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="next-steps"></a>后续步骤
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>使用预定义 SSL 策略更新现有应用程序网关
 
-请访问[应用程序网关重定向概述](application-gateway-redirect-overview.md)，了解如何将 HTTP 流量重定向至 HTTPS 终结点。
+若要设置自定义 SSL 策略，请传递以下参数：**PolicyType**、**MinProtocolVersion**、**CipherSuite** 和 **ApplicationGateway**。 若要设置预定义 SSL 策略，请传递以下参数：**PolicyType**、**PolicyName** 和 **ApplicationGateway**。 如果尝试传递其他参数，则在创建或更新应用程序网关时会出错。
 
+下面的示例同时提供了自定义策略和预定义策略的代码示例。 取消注释要使用的策略。
+
+```powershell
+# You have to change these parameters to match your environment.
+$AppGWname = "YourAppGwName"
+$RG = "YourResourceGroupName"
+
+$AppGw = get-azurermapplicationgateway -Name $AppGWname -ResourceGroupName $RG
+
+# SSL Custom Policy
+# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
+
+# SSL Predefined Policy
+# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S" -ApplicationGateway $AppGW
+
+# Update AppGW
+# The SSL policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
+$SetGW = Set-AzureRmApplicationGateway -ApplicationGateway $AppGW
+
+
+
+## Next steps
+
+Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn how to redirect HTTP traffic to a HTTPS endpoint.
+
+<!-- Update_Description: code update -->

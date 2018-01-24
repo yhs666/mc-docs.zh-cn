@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Windows 应用商店入门 | Microsoft Docs"
+title: "Azure AD Windows 通用平台 (UWP/XAML) 入门 | Microsoft Docs"
 description: "生成与 Azure AD 集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 Windows 应用商店应用。"
 services: active-directory
 documentationcenter: windows
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 09/16/2016
-ms.date: 01/02/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 0a1fdaa62387c465b15496cd628d6e339bbdda65
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 8474c4a91bbf74d9fc15f7062d0a661cca548785
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="integrate-azure-ad-with-windows-store-apps"></a>将 Azure AD 与 Windows 应用商店应用集成
+# <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD Windows 通用平台 (UWP/XAML) 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -53,7 +53,7 @@ ms.lasthandoff: 01/04/2018
 4. 单击“应用注册”，然后选择“新建应用程序注册”。
 5. 创建一个**本机**应用程序。
     - **名称** - 向用户描述应用。
-    - “重定向 URI”  是 Azure AD 要用来返回令牌响应的方案与字符串组合。 现在，输入一个占位符值（例如，**http://DirectorySearcher**）。 稍后将替换此值。
+    - **重定向 URI** 是 Azure AD 用来返回令牌响应的方案与字符串组合。 现在，输入一个占位符值（例如，**http://DirectorySearcher**）。 稍后将替换此值。
 6. 完成注册后，Azure AD 将向应用分配唯一的应用程序 ID。 复制“应用程序”选项卡上的值，因为稍后需用到此值。
 7. 在“设置”页上，选择“所需权限”，并选择“添加”。
 8. 对于 **Azure Active Directory** 应用，选择“Microsoft Graph”作为 API。

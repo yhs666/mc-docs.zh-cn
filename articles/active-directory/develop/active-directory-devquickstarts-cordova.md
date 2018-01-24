@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-origin.date: 01/07/2017
-ms.date: 01/02/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 945f57f32eeaefe5277e71477c76d44990aa0c23
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 790cfbe01cfcf983c0a4b409b2a70b625fdc7d61
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>将 Azure AD Apache Cordova 应用程序集成
+# <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -92,8 +92,8 @@ Azure AD 仅向已知应用程序颁发令牌。 在从应用使用 Azure AD 之
 3. 在左窗格中，单击“更多服务”，并选择“Azure Active Directory”。
 4. 单击“应用注册”，然后选择“新建应用程序注册”。
 5. 创建一个**本机**应用程序。 （尽管 Cordova 应用基于 HTML，但这里我们要创建一个本机客户端应用程序，否则该应用程序不工作。）
-  - **名称**向用户描述应用程序。
-  - “重定向 URI”是用于向应用返回令牌的 URI。 输入 **http://MyDirectorySearcherApp**。
+      - **名称**向用户描述应用程序。
+    - “重定向 URI”是用于将令牌返回应用的 URI。 输入 **http://MyDirectorySearcherApp**。
 
 完成注册后，Azure AD 将向应用分配唯一应用程序 ID。 在以下各节中将需要此值。 可以在新建应用的应用程序选项卡上找到它。
 
@@ -275,16 +275,16 @@ app.context.acquireTokenSilentAsync(resourceUri, clientId)
    使用 `cordova run android --list` 查看所有可用目标，使用 `cordova run android --target=<target_name>` 在特定的设备或模拟器（例如 `cordova run android --target="Nexus4_emulator"`）上运行应用程序。
 
 ### <a name="ios"></a>iOS
-  在连接的设备上运行：`cordova run ios --device`
+   在连接的设备上运行：`cordova run ios --device`
 
-  在默认的模拟器上运行：`cordova emulate ios`
+   在默认的模拟器上运行：`cordova emulate ios`
 
-  > [!NOTE]
-  > 确保已安装 `ios-sim` 包，使其在模拟器上运行。 有关详细信息，请参阅“先决条件”部分。
+   > [!NOTE]
+   > 确保已安装 `ios-sim` 包，使其在模拟器上运行。 有关详细信息，请参阅“先决条件”部分。
 
-  使用 `cordova run ios --list` 查看所有可用目标，使用 `cordova run ios --target=<target_name>` 在特定的设备或模拟器（例如 `cordova run android --target="iPhone-6"`）上运行应用程序。
+    Use `cordova run ios --list` to see all available targets and `cordova run ios --target=<target_name>` to run the application on specific device or emulator (for example, `cordova run android --target="iPhone-6"`).
 
-  使用 `cordova run --help` 可查看其他生成和运行选项。
+    Use `cordova run --help` to see additional build and run options.
 
 ## <a name="next-steps"></a>后续步骤
 [GitHub](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient) 中提供了已完成示例（无配置值）以供参考。

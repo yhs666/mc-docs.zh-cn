@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 11/21/2017
-ms.date: 01/01/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: be127548408f9f636b0b121757f9811a86514ef4
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: b192b705ec2a9369bb6bc2cbedc4a785241160cc
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 到 Azure VM 复制问题故障排除
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/29/2017
 
 如果 VM 上不存在任何最新的受信任根证书，则“启用复制”作业可能会失败。 没有证书，VM 发出的 Site Recovery 服务调用的身份验证和授权会失败。 将显示失败的“启用复制”Site Recovery 作业的错误消息：
 
-错误代码 | 可能的原因 | 建议
+错误代码 | 可能的原因 | **建议**
 --- | --- | ---
 151066<br></br>消息：Site Recovery 配置失败。 | 计算机上不存在用于授权和身份验证的必需受信根证书。 | - 对于运行 Windows 操作系统的 VM，请确保计算机上存在受信任的根证书。 有关信息，请参阅[配置受信任根和不允许的证书](https://technet.microsoft.com/library/dn265983.aspx)。<br></br>- 对于运行 Linux 操作系统的 VM，请按照 Linux 操作系统版本分发商发布的受信任的根证书指南进行操作。
 
@@ -130,6 +130,21 @@ ms.lasthandoff: 12/29/2017
 
 可以使用[删除过时的 ASR 配置脚本](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)，删除 Azure VM 上过时的 Site Recovery 配置。 删除过时的配置后，启用复制时应会看到该 VM。
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>VM 的预配状态无效（错误代码 150019）
+
+若要在 VM 上启用复制，则预配状态应该是“成功”。 可以通过执行以下步骤来检查 VM 状态。
+
+1.  在 Azure 门户中，从“所有服务”中选择“资源浏览器”。
+2.  展开“订阅”列表并选择你的订阅。
+3.  展开“资源组”并选择 VM 的资源组。
+4.  展开“资源”列表并选择你的虚拟机
+5.  在右侧的实例视图中检查“预配状态”字段。
+
+### <a name="fix-the-problem"></a>解决问题
+
+- 如果“预配状态”为“失败”，请联系支持人员并提供详细信息以排除故障。
+- 如果“预配状态”为“正在更新”，则无法部署另一扩展。 检查 VM 上是否有任何正在进行的操作，等待它们完成，然后重试失败的 Site Recovery“启用复制”作业。
+
 ## <a name="next-steps"></a>后续步骤
 [复制 Azure 虚拟机](azure-to-azure-quickstart.md)
-<!-- Update_Description: new article on site recovery azure to azure troubleshoot errors -->
+<!-- Update_Description: add VM's provisioning state is not valid content(error code 150019) -->

@@ -1,10 +1,10 @@
 ---
 title: "Azure 多重身份验证用户状态"
-description: "在 Azure MFA 中了解用户状态信息。"
+description: "了解 Azure 多重身份验证中的用户状态。"
 services: multi-factor-authentication
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.assetid: 0b9fde23-2d36-45b3-950d-f88624a68fbd
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -12,107 +12,92 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 09/07/2017
+ms.date: 01/16/2018
 ms.author: v-junlch
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: a6022aa01f40139cc105dc38964b1bd91d9c5415
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: a2012ff71119d0e6ef83ab9c55da9663c2ea2cd4
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="user-status-in-azure-multi-factor-authentication"></a>Azure 多重身份验证中的用户状态
+# <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>如何要求对用户或组进行双重验证
+
+**通过更改用户状态启用 Azure 多重身份验证**是要求进行双重验证的传统方法。 启用的所有用户在每次登录时都要执行双重验证。 启用某个用户会覆盖可能影响该用户的任何条件性访问策略。 
+
+## <a name="enable-azure-mfa-by-changing-user-status"></a>通过更改用户状态启用 Azure MFA
 
 Azure 多重身份验证中的用户帐户具有以下三种不同状态：
 
-| 状态 | 说明 | 受影响的非浏览器应用 |
-|:---:|:---:|:---:|
-| 已禁用 |未加入多重身份验证 (MFA) 的新用户的默认状态。 |否 |
-| Enabled |用户已加入 Azure MFA 但尚未注册。 系统会在用户下次登录时提示注册。 |否。  它们继续工作，直到注册过程完成。 |
-| 强制 |用户已登记，并已完成 Azure MFA 的注册过程。 |是的。  应用需要应用密码。 |
+| 状态 | 说明 | 受影响的非浏览器应用 | 受影响的浏览器应用 | 新式身份验证受影响 |
+|:---:|:---:|:---:|:--:|:--:|
+| 已禁用 |没有在 Azure MFA 中注册某个新用户的默认状态。 |否 |否 |否 |
+| Enabled |用户已加入 Azure MFA 但尚未注册。 在用户下次登录时会提示他们进行注册。 |否。  它们继续工作，直到注册过程完成。 | 是的。 会话过期后，会要求进行 Azure MFA 注册。| 是的。 访问令牌过期后，会要求进行 Azure MFA 注册。 |
+| 强制 |用户已登记，并已完成 Azure MFA 的注册过程。 |是的。  应用需要应用密码。 |是的。 在登录时会要求进行 Azure MFA。 | 是的。 在登录时会要求进行 Azure MFA。 |
 
 用户的状态反映管理员是否已在 Azure MFA 中登记用户以及用户是否已完成注册过程。
 
-所有用户的初始状态均为“已禁用”。 在 Azure MFA 中登记用户时，用户的状态将更改为“已启用”。 当已启用的用户登录并完成注册过程时，用户的状态将更改为“强制”。  
+所有用户的初始状态均为“已禁用”。 在 Azure MFA 中注册用户后，用户的状态将更改为“已启用”。 当已启用的用户登录并完成注册过程后，用户的状态将更改为“强制”。  
 
-## <a name="view-user-status"></a>查看用户状态
+### <a name="view-the-status-for-a-user"></a>查看用户状态
 
 使用以下步骤来访问可在其中查看和管理用户状态的页面：
 
-1. 以管理员身份登录 [Azure 经典管理门户](https://manage.windowsazure.cn) 。
-2. 在左侧选择“Active Directory”。
-3. 从目录中选择要查看的用户。
-   ![选择目录 - 屏幕截图](./media/multi-factor-authentication-get-started-cloud/directory1.png)
-4. 选择“用户”。
-5. 在页面底部，选择“管理多重身份验证”。![选择“管理多重身份验证”- 屏幕截图](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6. 此时会打开一个显示用户状态的新选项卡。
+1. 以管理员身份登录到 [Azure 门户](https://portal.azure.cn)。
+2. 转到“Azure Active Directory” > “用户和组” > “所有用户”。
+3. 选择“多重身份验证”。
+   选择“多重身份验证”![](./media/multi-factor-authentication-get-started-user-states/selectmfa.png)
+4. 此时会打开一个新页面，其中显示了用户状态。
    ![多重身份验证用户状态 - 屏幕截图](./media/multi-factor-authentication-get-started-user-states/userstate1.png)
 
-## <a name="change-the-status-from-disabled-to-enabled"></a>将状态从“已禁用”更改为“已启用”
+### <a name="change-the-status-for-a-user"></a>更改用户状态
 
-1. 使用前面所述的步骤访问多重身份验证用户页面。 
-2. 找到想要对其启用 Azure MFA 的用户。 可能需要在顶部切换视图。 确保状态为“已禁用”。
-
+1. 使用前文的步骤访问 Azure 多重身份验证“用户”页面。
+2. 找到希望对其启用 Azure MFA 的用户。 可能需要在顶部更改视图。 
    ![查找用户 - 屏幕截图](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 3. 勾选用户名旁边的框。
-4. 在右侧的快速步骤下，单击“启用”。
-
+4. 在右侧，在“快速步骤”下，选择“启用”或“禁用”。
    ![启用选定的用户 - 屏幕截图](./media/multi-factor-authentication-get-started-cloud/user1.png)
-5. 选择“启用多重身份验证”。
 
-   ![启用多重身份验证 - 屏幕截图](./media/multi-factor-authentication-get-started-cloud/enable2.png)
-6. 请注意，用户状态已从“已禁用”更改为“已启用”。
-   
-   ![显示用户状态现为“已启用”- 屏幕截图](./media/multi-factor-authentication-get-started-cloud/user.png)
+   >[!TIP]
+   >“已启用”的用户在注册 Azure MFA 后会自动切换到“强制”。 不应手动将用户状态更改为“强制”。 
 
-启用用户后，应通过电子邮件通知他们。 在电子邮件告知他们在下次登录时需要注册，以及某些非浏览器应用可能不支持双重验证。 还可以包括指向 [Azure MFA 最终用户指南](../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)的链接，以便帮助他们上手。 
+5. 在打开的弹出窗口中确认你的选择。 
 
-## <a name="to-change-the-state-from-enabledenforced-to-disabled"></a>将状态从已启用/强制更改为已禁用
+启用用户后，通过电子邮件通知他们。 告诉他们将需要在下次登录时进行注册。 还可以包括指向 [Azure MFA 最终用户指南](./end-user/multi-factor-authentication-end-user.md)的链接，以便帮助他们上手。
 
-1. 使用 [查看用户状态](#view-user-states) 中的步骤访问多重身份验证用户页面。
-6. 找到要禁用的用户。 可能需要在顶部切换视图。 确保状态为“已启用”或“强制”。
-7. 勾选用户名旁边的框。
-8. 在右侧的快速步骤下，单击“禁用”。
-   ![禁用用户 - 屏幕截图](./media/multi-factor-authentication-get-started-user-states/userstate2.png)
-9. 系统会提示确认该操作。 单击 **“是”**。
-10. 如果已成功禁用用户，则会显示成功消息。 单击“关闭” 。
-
-## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>使用 PowerShell 自动开启双重验证
-若要使用 [Azure AD PowerShell](../powershell-install-configure.md) 更改[状态](./multi-factor-authentication-whats-next.md)，可以使用以下代码。  可以将 `$st.State` 更改为以下状态之一：
+### <a name="use-powershell"></a>使用 PowerShell
+若要使用 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview) 更改用户状态，请更改 `$st.State`。 有三种可能的状态：
 
 - Enabled
 - 强制
 - 已禁用  
 
-> [!IMPORTANT]
-> 我们不建议将用户直接从“禁用”状态移到“强制”状态。
+不要直接将用户移动到“强制”状态。 如果这样做了，则非基于浏览器的应用将停止工作，因为用户尚未完成 Azure MFA 注册并获得应用密码。
 
-可以选择使用 PowerShell 批量启用用户。 目前，Azure 门户未提供批量启用功能，需要单独选择每个用户。 如果有许多用户，则此任务会十分繁琐。 使用以下代码创建 PowerShell 脚本后，可循环访问用户列表并启用这些用户。
+当你需要批量启用用户时，使用 PowerShell 是一个不错的选择。 创建一个 PowerShell 脚本，它会循环访问用户列表并启用它们：
 
-```
-    $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-    $st.RelyingParty = "*"
-    $st.State = "Enabled"
-    $sta = @($st)
-    Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
-```
+        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+        $st.RelyingParty = "*"
+        $st.State = "Enabled"
+        $sta = @($st)
+        Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-下面是一个示例：
+下面的脚本就是一个示例。
 
-```
-$users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
-foreach ($user in $users)
-{
-    $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-    $st.RelyingParty = "*"
-    $st.State = "Enabled"
-    $sta = @($st)
-    Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-}
-```
+    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
+    foreach ($user in $users)
+    {
+        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+        $st.RelyingParty = "*"
+        $st.State = "Enabled"
+        $sta = @($st)
+        Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
+    }
 
 ## <a name="next-steps"></a>后续步骤
 
-- 管理[用户及其设备](multi-factor-authentication-manage-users-and-devices.md)的多重身份验证设置
+- 管理[用户及其设备](multi-factor-authentication-manage-users-and-devices.md)的 Azure 多重身份验证设置。
 
+<!-- Update_Description: wording update -->

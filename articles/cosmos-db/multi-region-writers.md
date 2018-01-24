@@ -16,26 +16,29 @@ origin.date: 05/23/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 632cc49d60312b60276b52bce3020b1c9892c680
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 3e5b9ce36b8d71953e554fd2488650c324154f8a
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 多主机全局复制数据库体系结构
-Azure Cosmos DB 支持统包的[全球复制](distribute-data-globally.md)，允许在工作负荷中的任意位置以低延迟的访问将数据分配到多个区域。 此模型常用于发布者/使用者工作负荷。在这些工作负荷中，单个地理区域包含一个作者，其他（读取）区域包含分布于全球的读者。 
+Azure Cosmos DB 支持统包的[全球复制](distribute-data-globally.md)，允许在工作负荷中的任意位置以低延迟的访问将数据分配到多个区域。 此模型常用于发布者/使用者工作负荷。在这些工作负荷中，单个地理区域包含一个作者，其他（读取）区域包含分布于多个区域的读者。 
+<!-- Notice: 全球 to 多个区域 -->
 
-还可以使用 Azure Cosmos DB 的全局复制支持来构建作者和读者分布于全球的应用程序。 本文档概述一种使用 Azure Cosmos DB 为全球分布的作者实现本地写入和本地读取访问的模式。
+还可以使用 Azure Cosmos DB 的多区域复制支持来构建作者和读者分布于多个区域的应用程序。 本文档概述一种使用 Azure Cosmos DB 为全球分布的作者实现本地写入和本地读取访问的模式。
+<!-- Notice: 全球 to 多个区域 -->
 
 ## <a id="ExampleScenario"></a>内容发布 - 示例方案
-让我们借助一个真实的方案，介绍如何在 Azure Cosmos DB 中使用全局分布式多区域/多主读写模式。 假设已在 Azure Cosmos DB 上构建一个内容发布平台。 为了向发布者和使用者提供良好的用户体验，此平台必须满足以下要求。
+让我们借助一个真实的方案，介绍如何在 Azure Cosmos DB 中使用全球分布式多区域/多主读写模式。 假设已在 Azure Cosmos DB 上构建一个内容发布平台。 为了向发布者和使用者提供良好的用户体验，此平台必须满足一些要求。
 
-* 作者和订户遍布全球 
+* 作者和订户遍布多个区域 
 * 作者必须将文章发布（写入）到本地（最近的）区域
-* 作者的文章拥有遍布全球的读者/订户。 
+* 作者的文章拥有遍布多个区域的读者/订户。 
 * 新文章发布时，订户应会收到通知。
 * 订户必须能从本地区域阅读文章。 订户还应能对这些文章添加评论。 
 * 包括文章作者在内的任何人都应能在本地区域查看文章所附的所有评论。 
+<!-- Notice: 全球 to 多个区域 -->
 
 假设存在数百万的使用者和发布者以及数十亿篇文章，我们很快就必须面对扩展以及保证访问位置的问题。 与大多数可伸缩性问题一样，解决方案在于良好的分区策略。 接下来，让我们看看如何将文章、评论和通知作为文档建模、配置 Azure Cosmos DB 帐户以及实现数据访问层。 
 
@@ -313,9 +316,9 @@ Azure Cosmos DB 支持统包的[全球复制](distribute-data-globally.md)，允
 因此，通过选择合适的分区键和静态的基于帐户的分区，可以使用 Azure Cosmos DB 实现多区域本地写入和读取。
 
 ## <a id="NextSteps"></a>后续步骤
-本文以内容发布作为示例方案，介绍如何通过 Azure Cosmos DB 使用全局分布式多区域读写模式。
+本文以内容发布作为示例方案，介绍如何通过 Azure Cosmos DB 使用全球分布式多区域读写模式。
 
-* 了解 Azure Cosmos DB 如何支持 [全局分布](distribute-data-globally.md)
+* 了解 Azure Cosmos DB 如何支持[全球分布](distribute-data-globally.md)
 * 了解 [Azure Cosmos DB 中的自动和手动故障转移](regional-failover.md)
 * 了解 [Azure Cosmos DB 的全局一致性](consistency-levels.md)
 * 使用 [Azure Cosmos DB - SQL API](tutorial-global-distribution-sql-api.md) 在使用多个区域的情况下进行开发

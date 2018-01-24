@@ -17,17 +17,19 @@ origin.date: 05/10/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 794df1d04e3aa1492165fd5cd496e346e74077e6
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 85a42d46a337d302fc2fe56d4f1bfc3f1b74f950
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure Cosmos DB：在 .NET 中使用 SQL API 进行开发
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档及键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
+<!-- NOTICE: 全球分布 TO 多个区域分布 -->
+<!-- Not Available on Graph -->
 
 本教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户，然后使用 [SQL .NET API](sql-api-introduction.md) 创建具有[分区键](sql-api-partition-data.md#partition-keys)的文档数据库和集合。 通过在创建集合时定义分区键，应用程序能够随数据增加轻松进行扩展。 
 
@@ -129,9 +131,9 @@ await client.CreateDatabaseAsync(new Database { Id = "db" });
 ```
 ## <a name="decide-on-a-partition-key"></a>确定分区键 
 
-集合是存储文档的容器。 集合是逻辑资源，可以[跨一个或多个物理分区](partition-data.md)。 [分区键](sql-api-partition-data.md)是文档内用于在服务器或分区间分发数据的属性（或路径）。 具有相同分区键的所有文档都存储在同一分区中。 
+集合是存储文档的容器。 集合是逻辑资源，可以[跨一个或多个物理分区](partition-data.md)。 [分区键](sql-api-partition-data.md)是文档内用于在服务器或分区间分布数据的属性（或路径）。 具有相同分区键的所有文档都存储在同一分区中。 
 
-确定分区键非常重要，需在创建集合前进行。 分区键是文档内可供 Azure Cosmos DB 用于在多个服务器或分区间分发数据的属性（或路径）。 Cosmos DB 对分区键值进行哈希处理，并使用经过哈希处理的结果来确定会在其中存储文档的分区。 具有相同分区键的所有文档都存储在同一分区中，创建集合后无法更改分区键。 
+确定分区键非常重要，需在创建集合前进行。 分区键是文档内可供 Azure Cosmos DB 用于在多个服务器或分区间分布数据的属性（或路径）。 Cosmos DB 对分区键值进行哈希处理，并使用经过哈希处理的结果来确定会在其中存储文档的分区。 具有相同分区键的所有文档都存储在同一分区中，创建集合后无法更改分区键。 
 
 本教程会分区键设置为 `/deviceId`，以便单个设备的所有数据都存储在单个分区中。 请选择具有大量值的分区键，以相同频率使用每个值，以确保 Cosmos DB 能在数据增加时保持负载均衡并达到集合的全部吞吐量。 
 

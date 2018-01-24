@@ -1,5 +1,5 @@
 ---
-title: "查看使用 Azure Site Recovery 执行 Hyper-V 到 Azure 的复制的体系结构 | Azure"
+title: "Azure Site Recovery 中的 Hyper-V 到 Azure 复制体系结构 | Azure"
 description: "本文概述通过 Azure Site Recovery 服务将本地 Hyper-V VM（不带 VMM）复制到 Azure 时所用的组件和体系结构。"
 services: site-recovery
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2017
-ms.date: 11/20/2017
+origin.date: 12/19/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: d7bfe857a9d1f0871bcf974d6993caaa85ae80a8
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: af94ee4399feb15cd8baee4b8c3c837dcae5eca4
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V 到 Azure 复制体系结构
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/15/2017
 **VMM 服务器** | VMM 服务器上有一个或多个包含 Hyper-V 主机的云。 | 在 VMM 服务器上安装 Site Recovery 提供程序，以便协调通过 Site Recovery 进行的复制，并在恢复服务保管库中注册服务器。
 **Hyper-V 主机** | 一个或多个由 VMM 管理的 Hyper-V 主机/群集。 |  在每个主机或群集成员上安装恢复服务代理。
 **Hyper-V VM** | 一个或多个在 Hyper-V 主机服务器上运行的 VM。 | 不需在 VM 上显式安装任何内容。
-**网络** | 在 VMM 服务器上设置的逻辑网络和 VM 网络。 VM 网络应链接到与云关联的逻辑网络。 | VM 网络将映射到 Azure 虚拟网络。 如果在故障转移后创建 Azure VM，它们会添加到已映射至 VM 网络的 Azure 网络。
+**联网** | 在 VMM 服务器上设置的逻辑网络和 VM 网络。 VM 网络应链接到与云关联的逻辑网络。 | VM 网络将映射到 Azure 虚拟网络。 如果在故障转移后创建 Azure VM，它们会添加到已映射至 VM 网络的 Azure 网络。
 
 **Hyper-V 到 Azure 体系结构（使用 VMM）**
 
@@ -133,7 +133,5 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-检查支持矩阵，按照本教程启用从 Hyper-V 到 Azure 的复制。
-运行故障转移和故障回复。
-
-<!-- Update_Description: new articles on site recovery concepts hypwe-v to azure architecture -->
+根据[此教程](tutorial-prepare-azure.md)开始使用 Hyper-V 到 Azure 复制。
+<!-- Update_Description: update meta properties, wording update -->

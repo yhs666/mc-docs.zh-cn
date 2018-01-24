@@ -16,17 +16,19 @@ ms.topic: quickstart
 origin.date: 11/29/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 256bf80e8c42ac1addcbf68b0b2e42716609352f
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 401e783f7324152b92e5f87bb86be15f10f21502
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB：使用 Python 和 Azure 门户生成 SQL API 应用
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
-Azure Cosmos DB 由 21Vianet 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档及键/值，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档及键/值，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
+<!-- NOTICE: globally TO multiple-region  -->
 <!-- Not Available on Graph databases-->
 
 本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户、文档数据库和集合。 然后将构建并运行基于 [SQL Python API](sql-api-sdk-python.md) 构建的控制台应用。

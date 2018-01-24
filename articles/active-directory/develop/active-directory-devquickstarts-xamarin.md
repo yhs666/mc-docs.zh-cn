@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Xamarin 入门 | Microsoft 文档"
+title: "Azure AD Xamarin 入门 | Microsoft Docs"
 description: "构建一个与 Azure AD 集成以方便登录，并使用 OAuth 调用受 Azure AD 保护的 API 的 Xamarin 应用程序。"
 services: active-directory
 documentationcenter: xamarin
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 01/07/2017
-ms.date: 01/02/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 7e21969046bfc062b0f630fb48be5ce8475511ad
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: cf604595083e5ccf6a682ac257ec200369ebdba8
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="integrate-azure-ad-with-xamarin-apps"></a>将 Azure AD 与 Xamarin 应用集成
+# <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/04/2018
 4. 单击“应用注册”，然后选择“新建应用程序注册”。
 5. 创建新的**本机**应用程序。
     - **名称** - 向用户描述应用。
-    - “重定向 URI”  是 Azure AD 要用来返回令牌响应的方案与字符串组合。 输入一个值（例如 http://DirectorySearcher）。
+    - **重定向 URI** 是 Azure AD 用于返回令牌响应的方案和字符串组合。 输入一个值（例如 http://DirectorySearcher）。
 6. 完成注册后，Azure AD 将为应用分配唯一的应用程序 ID。 复制“应用程序”选项卡中的值，因为稍后需用到此值。
 7. 在“设置”页上，选择“所需权限”，并选择“添加”。
 8. 选择“Microsoft Graph”作为 API。 在“委派权限”下面，添加“读取目录数据”权限。  

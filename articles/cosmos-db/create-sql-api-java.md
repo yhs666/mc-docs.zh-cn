@@ -16,17 +16,19 @@ ms.topic: quickstart
 origin.date: 12/15/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: f60489209550c6dc99bcb44d749b6d213cbbf4b7
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 3877a4f7bcfd7f5c9c0801748616422ae5111885
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB：使用 Java 和 Azure 门户创建文档数据库
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
-Azure Cosmos DB 由 21Vianet 提供，是全球分布的多模型数据库服务。 使用 Azure Cosmos DB，可以快速创建和查询托管文档和表。
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 使用 Azure Cosmos DB，可以快速创建和查询托管文档和表。
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
+<!-- NOTICE: globally TO multiple-region  -->
 <!-- Not Available on Graph databases-->
 
 本快速入门通过适用于 Azure Cosmos DB 的 Azure 门户工具创建文档数据库。 本快速入门还介绍了如何使用 [SQL Java API](sql-api-sdk-java.md) 快速创建 Java 控制台应用。 本快速入门中的说明适用于任何能够运行 Java 的操作系统。 通过完成本快速入门，可以熟悉如何通过 UI 或编程方式（以首选方式为准）创建和修改文档数据库资源。

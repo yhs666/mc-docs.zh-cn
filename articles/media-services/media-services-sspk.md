@@ -15,17 +15,17 @@ ms.topic: article
 origin.date: 08/09/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: f265d5721266bdb7a9cd69087b070489e271e7eb
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: d04536243aa93ca71d0b8a06c2f529281e0081df
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>授权 Microsoft® 平滑流式处理客户端移植工具包
 ## <a name="overview"></a>概述
-Microsoft 平滑流式处理客户端移植工具包（简称 **SSPK**）是经过优化的平滑流式处理客户端实现，可帮助嵌入式设备制造商、有线和移动运营商、内容服务提供商、手持设备制造商、独立软件供应商 (ISV) 和解决方案提供商创建产品和服务，用于流式传输平滑流式处理格式的自适应流式处理内容。 SSPK 是平滑流客户端的与设备和平台无关的实现，许可接受方可将它移植到任何设备和平台。 
+Microsoft 平滑流式处理客户端移植工具包（简称 **SSPK**）是经过优化的平滑流式处理客户端实现，可帮助嵌入式设备制造商、有线和移动运营商、内容服务提供商、手持设备制造商、独立软件供应商 (ISV) 和解决方案提供商创建产品和服务，用于流式传输平滑流式处理格式的自适应内容。 SSPK 是平滑流式处理客户端的与设备和平台无关的实现，许可接受方可将它移植到任何设备和平台。 
 
-下面是一个高级体系结构。IIS 平滑流式处理移植工具包框是 Microsoft 提供的平滑流式处理客户端实现，包含用于播放平滑流式处理内容的所有核心逻辑。 特定设备或平台的合作伙伴可以通过实现相应的接口来移植该框架。 
+下面是一个高级体系结构。IIS 平滑流式处理移植工具包框架是 Microsoft 提供的平滑流式处理客户端实现，包含用于播放平滑流式处理内容的所有核心逻辑。 然后，特定设备或平台的合作伙伴可以通过实现相应的接口来移植该内容。 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
@@ -104,7 +104,7 @@ Microsoft 根据此许可证提供全部所需的知识产权，以便从其他�
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL Technoly Electronics (Huizhou) Co., Ltd.
+* TCL Technology Electronics (Huizhou) Co., Ltd.
 * Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
@@ -131,7 +131,7 @@ Microsoft 根据此许可证提供全部所需的知识产权，以便从其他�
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
 * Hisense International Co., Ltd. 
-* Homecast Co.,Ltd
+* Homecast Co., Ltd
 * Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
 * Kaonmedia Co., Ltd.
@@ -141,7 +141,7 @@ Microsoft 根据此许可证提供全部所需的知识产权，以便从其他�
 * Saffron Digital Limited
 * Sagemcom Broadband SAS
 * Shenzhen Coship Electronics CO., LTD
-* Shenzhen Jiuzhou Electric Co.,Ltd
+* Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.

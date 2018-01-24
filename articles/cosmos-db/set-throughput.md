@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/13/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6bed10b6ff6db0bdbdfee33b06b4fcf62283cb40
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 5246c9cd99f945031e1d4e459de1ecb31cc26c2d
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>设置 Azure Cosmos DB 容器的吞吐量
 
@@ -86,5 +86,6 @@ await client.ReplaceOfferAsync(offer);
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解有关使用 Cosmos DB 进行预配和全球扩展的详细信息，请参阅[使用 Cosmos DB 进行分区和缩放](partition-data.md)。
+若要了解有关使用 Cosmos DB 进行预配和多区域扩展的详细信息，请参阅[使用 Cosmos DB 进行分区和缩放](partition-data.md)。
+<!-- Notice: 全球 to 多个区域 -->
 <!-- Update_Description: update link , wording update -->

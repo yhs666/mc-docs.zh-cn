@@ -16,11 +16,11 @@ ms.workload: database
 origin.date: 11/29/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: dbc928437fe1d8d9be60dfa8a6dec00ab2986349
-ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
+ms.openlocfilehash: 00b458f066393c58291a67029b643975e6bae905
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 01/12/2018
 | [创建 MongoDB API 帐户](scripts/create-mongodb-database-account-cli.md) | 创建单个 Azure Cosmos DB MongoDB API 帐户、数据库和集合。 |
 |**缩放 Azure Cosmos DB**||
 | [缩放容器吞吐量](scripts/scale-collection-throughput-cli.md) | 更改容器上预配的吞吐量。|
-|[将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级](scripts/scale-multiregion-cli.md)|在全球范围内将帐户数据复制到具有指定故障转移优先级的多个区域中。|
+|[将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级](scripts/scale-multiregion-cli.md)|多数据中心将帐户数据复制到具有指定故障转移优先级的多个区域中。|
 |**保护 Azure Cosmos DB**||
 | [获取帐户密钥](scripts/secure-get-account-key-cli.md) | 获取帐户的主要和辅助主写入密钥以及主要和辅助只读密钥。|
 | [获取 MongoDB 连接字符串](scripts/secure-mongo-connection-string-cli.md) | 获取用于将 MongoDB 应用连接到 Azure Cosmos DB 帐户的连接字符串。|
@@ -47,6 +47,7 @@ ms.lasthandoff: 01/12/2018
 |[将 Web 应用连接到 Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md)|创建并连接 Azure Cosmos DB 数据库和 Azure Web 应用。|
 |||
 <!--NOTICES: Line 35 全球范围 to 多个数据中心范围  -->
+<!--NOTICE: Line 35 Globally TO Multiple data-center-->
 
 <!--Not Available the parent file of includes file of cosmos-db-sql-api.md-->
 <!--ms.date:12/25/2017-->

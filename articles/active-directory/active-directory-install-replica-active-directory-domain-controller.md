@@ -17,17 +17,17 @@ ms.date: 11/22/2017
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: a34223690e07a03e12eb8c359861d8e4a933eb7b
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 9b4e54e6e1da98a5150e151bad46e4d91377b7b6
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>在 Azure 虚拟网络中安装副本 Active Directory 域控制器
 本文介绍如何在 Azure 虚拟网络中的 Azure 虚拟机 (VM) 上为本地 Active Directory 域安装用作副本 DC 的域控制器 (DC)。 也可以[在 Azure 虚拟网络中安装 Windows Server Active Directory 林](active-directory-new-forest-virtual-machine.md)。 有关如何在 Azure 虚拟网络上安装 Active Directory 域服务 (AD DS)，请参阅[在 Azure 虚拟机上部署 Windows Server Active Directory 的指南](https://msdn.microsoft.com/library/azure/jj156090.aspx)。
 
 ## <a name="scenario-diagram"></a>方案示意图
-在此案例中，外部用户需要访问在添加域的服务器上运行的应用程序。 运行应用程序服务器和副本 DC 的 VM 安装在 Azure 虚拟网络中。 可以使用 [ExpressRoute](../expressroute/expressroute-locations-providers.md) 或[站点到站点 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) 将虚拟网络连接到本地网络，如下所示： 
+在此案例中，外部用户需要访问在添加域的服务器上运行的应用程序。 运行应用程序服务器和副本 DC 的 VM 安装在 Azure 虚拟网络中。 可以使用 [ExpressRoute](../expressroute/expressroute-locations-providers.md) 或站点到站点 VPN 将虚拟网络连接到本地网络，如下所示： 
 
 ![用图解法表示 pf Active Directory 域控制器 Azure vnet][1]
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 04/20/2017
 ms.date: 11/07/2017
 ms.author: v-junlch
-ms.openlocfilehash: d37582b766ab1ea081ad670cadd7085208a4e7bf
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: afa62cd90536ebadcbbacbf11b318ef907c53c80
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>将站点到站点连接添加到包含现有 VPN 网关连接的 VNet（经典）
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/10/2017
 
 在完成多站点过程后，便可轻松自如地使用网络配置文件。 但是，如果有多个人在处理网络配置，需要确保每个人都知道这个限制。 这并不意味着完全不能使用门户。 除了无法对此特定虚拟网络进行配置更改以外，可以使用它来完成其他任何操作。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在开始配置之前，请确认满足以下条件：
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 11/10/2017
 2. 配置新网关并创建 VPN 隧道。 有关说明，请参阅[指定 SKU 和 VPN 类型](vpn-gateway-howto-site-to-site-classic-portal.md#sku)。 请确保将“路由类型”指定为“动态”。
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>如果没有站点到站点虚拟网络：
-1. 按照以下说明创建站点到站点虚拟网络：[创建使用站点到站点 VPN 连接的虚拟网络](vpn-gateway-site-to-site-create.md)。  
+1. 按照以下说明创建站点到站点虚拟网络：创建使用站点到站点 VPN 连接的虚拟网络。  
 2. 按照以下说明配置动态路由网关：[配置 VPN 网关](vpn-gateway-configure-vpn-gateway-mp.md)。 请务必为网关类型选择“动态路由”。
 
 ## <a name="export"></a>2.导出网络配置文件

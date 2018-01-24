@@ -15,11 +15,11 @@ ms.workload: identity
 origin.date: 07/26/2017
 ms.date: 08/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: f6c17dbd9448169e8b2fe21d8c1a3b17c60ab160
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: aab29414f20282ea733fbd0cdd6abacc3634e519
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>有关在 Azure 虚拟机上部署 Windows Server Active Directory 的指导
 本文阐述在本地部署 Windows Server Active Directory 域服务 (AD DS) 和 Active Directory 联合身份验证服务 (AD FS) 与在 Azure 虚拟机上部署这些服务的重要区别。
@@ -52,7 +52,6 @@ ms.lasthandoff: 01/12/2018
 
 建议首先查看涉及以下主题的教程和指南：
 
-- [在 Azure 门户中配置站点到站点 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 - [在 Azure 虚拟网络中安装新的 Active Directory 林](active-directory-new-forest-virtual-machine.md)
 - [在 Azure 上安装副本 Active Directory 域控制器](active-directory-install-replica-active-directory-domain-controller.md)
 
@@ -62,7 +61,7 @@ ms.lasthandoff: 01/12/2018
 ### <a name="azure-virtual-machines-may-need-connectivity-to-the-on-premises-corporate-network"></a>可能需要向 Azure 虚拟机提供与本地企业网络的连接。
 将 Azure 虚拟机连回本地企业网络需要 Azure 虚拟网络，其中包括可无缝连接 Azure 虚拟机和本地虚拟机的站点到站点或站点到点虚拟专用网络 (VPN) 组件。 此 VPN 组件还可使本地域成员计算机可访问在 Azure 虚拟机上独占托管其域控制器的 Windows Server Active Directory 域。 但是，如果 VPN 失败，则依赖于 Windows Server Active Directory 的身份验证和其他操作也会失败，注意到这一点很重要。 虽然用户也许能够使用现有缓存的凭据进行登录，但其票证尚未发出或已过时的所有对等或客户端对服务器身份验证尝试都会失败。
 
-请参阅[虚拟网络](/virtual-network/)，观看演示视频并获得分步教程的列表，其中包括[在 Azure 门户中配置站点到站点 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)。
+请参阅[虚拟网络](/virtual-network/)，观看演示视频并获得分步教程的列表，包括“在 Azure 门户中配置站点到站点 VPN”。
 
 > [!NOTE]
 > 也可以在未与本地网络连接的 Azure 虚拟网络上部署 Windows Server Active Directory。 但是，本主题中的准则假设使用 Azure 虚拟网络，因为它提供对 Windows Server 至关重要的 IP 寻址功能。
@@ -124,7 +123,7 @@ Azure 也很适合替代其他情况下成本高昂的灾难恢复 (DR) 站点�
 ## <a name="contrasts-between-deploying-windows-server-active-directory-domain-controllers-on-azure-virtual-machines-versus-on-premises"></a>在 Azure 虚拟机上部署的 Windows Server Active Directory 域控制器与本地部署的域控制器之间的比较
 - 对于任何包括多个 VM 的 Windows Server Active Directory 部署方案，必须使用 Azure 虚拟网络以确保 IP 地址一致。 请注意，本指南假设 DC 在 Azure 虚拟网络上运行。
 - 就本地 DC 来说，建议使用静态 IP 地址。 静态 IP 地址只能使用 Azure PowerShell 配置。 有关详细信息，请参阅 [Static internal IP address for VMs](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) （VM 的静态内部 IP 地址）。 如果使用监视系统或其他解决方案来检查来宾操作系统中的静态 IP 地址配置，则可以为 VM 的网络适配器属性分配同一静态 IP 地址。 但请注意，如果 VM 正在进行服务修复或已在门户中关闭并且其地址已解除分配，则该网络适配器会被放弃。 在这种情况下，需要重置来宾中的静态 IP 地址。
-- 在虚拟网络上部署 VM 并不意味着（或要求）连回本地网络；虚拟网络仅产生这种可能性。 必须创建一个虚拟网络，供 Azure 与本地网络之间进行专用通信。 需要在本地网络上部署 VPN 终结点。 打开的 VPN 从 Azure 通向本地网络。 有关详细信息，请参阅[虚拟网络概述](../virtual-network/virtual-networks-overview.md)和[在 Azure 门户中配置站点到站点 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)。
+- 在虚拟网络上部署 VM 并不意味着（或要求）连回本地网络；虚拟网络仅产生这种可能性。 必须创建一个虚拟网络，供 Azure 与本地网络之间进行专用通信。 需要在本地网络上部署 VPN 终结点。 打开的 VPN 从 Azure 通向本地网络。 有关详细信息，请参阅[虚拟网络概述](../virtual-network/virtual-networks-overview.md)和“在 Azure 门户中配置站点到站点 VPN”。
 
     > [!NOTE]
     > 可以使用[创建点到站点 VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) 的选项将单独的基于 Windows 的计算机直接连接到 Azure 虚拟网络。
@@ -145,7 +144,7 @@ Azure 也很适合替代其他情况下成本高昂的灾难恢复 (DR) 站点�
     AD FS 服务器使用 Active Directory 域服务对用户进行身份验证。 建议将域控制器部署在 AD FS 服务器所在的同一个网络中。 这样，当 Azure 网络与本地网络之间的链接断开时可以保持业务连续性，并可以在登录时降低延迟和提高性能。
 3. **部署多个 AD FS 节点以实现高可用性和负载均衡。**
    
-    在大多数情况下，AD FS 启用的应用程序失败是不可接受的，因为需要安全令牌的应用程序往往是任务关键型应用程序。 鉴于 AD FS 现在对于访问任务关键型应用程序起着关键作用，必须通过多个 AD FS 代理和 AD FS 服务器为 AD FS 服务提供高可用性。 为实现请求分发，负载均衡器通常部署在 AD FS 代理和 AD FS 服务器的前端。
+    在大多数情况下，AD FS 启用的应用程序失败是不可接受的，因为需要安全令牌的应用程序往往是任务关键型应用程序。 鉴于 AD FS 现在对于访问任务关键型应用程序起着关键作用，必须通过多个 AD FS 代理和 AD FS 服务器为 AD FS 服务提供高可用性。 为实现请求分布，负载均衡器通常部署在 AD FS 代理和 AD FS 服务器的前端。
 4. **部署一个或多个 Web 应用程序代理节点以进行 Internet 访问。**
    
     当用户需要访问受 AD FS 服务保护的应用程序时，需要通过 Internet 使用 AD FS 服务。 这可以通过部署 Web 应用程序代理服务来实现。 强烈建议部署多个节点以提供高可用性和负载均衡。
@@ -282,7 +281,7 @@ SharePoint 部署在 Azure 虚拟机上，并且该应用程序不依赖企业�
 为了简化和满足此新要求的部署和配置需要，决定在 Azure 虚拟机上另外安装两个 Web 前端和两个 Windows Server AD FS 代理服务器。 将直接向 Internet 公开所有四个 VM，并使用 Azure 虚拟网络的站点到站点 VPN 功能为其提供与本地网络的连接。
 
 #### <a name="scenario-considerations-and-how-technology-areas-apply-to-the-scenario"></a>方案注意事项和技术领域如何适用于方案
-- [网络拓扑](#BKMK_NetworkTopology)：创建 Azure 虚拟网络并[配置跨界连接](../vpn-gateway/vpn-gateway-site-to-site-create.md)。
+- [网络拓扑](#BKMK_NetworkTopology)：创建 Azure 虚拟网络并配置跨界连接。
   
   > [!NOTE]
   > 对于每个 Windows Server AD FS 证书，确保在 Azure 上运行的 Windows Server AD FS 实例可访问在证书模板和所得证书中定义的 URL。 这可能需要与 PKI 基础结构的各部分具有跨界连接。 例如，如果 CRL 的终结点基于 LDAP，并以独占方式托管在本地，则需要跨界连接。 如果这样不可取，则可能必须使用可通过 Internet 访问其 CRL 的 CA 颁发的证书。
@@ -304,7 +303,7 @@ SharePoint 部署在 Azure 虚拟机上，并且该应用程序不依赖企业�
 在 Azure 虚拟机上部署一个 LDAP 感知应用程序。 该应用程序支持 Windows 集成身份验证，并使用 Windows Server AD DS 作为配置和用户配置文件数据的存储库。 该应用程序的目标是利用现有企业 Windows Server AD DS 并提供单一登录。 该应用程序无法感知声明。 用户还需要直接从 Internet 访问该应用程序。 为了针对性能和成本进行优化，决定在 Azure 上将另外两个属于企业域一部分的域控制器与应用程序部署在一起。
 
 #### <a name="scenario-considerations-and-how-technology-areas-apply-to-the-scenario"></a>方案注意事项和技术领域如何适用于方案
-- [网络拓扑](#BKMK_NetworkTopology)：创建使用[跨界连接](../vpn-gateway/vpn-gateway-site-to-site-create.md)的 Azure 虚拟网络。
+- [网络拓扑](#BKMK_NetworkTopology)：创建使用跨界连接的 Azure 虚拟网络。
 - [安装方法](#BKMK_InstallMethod)：从企业 Windows Server Active Directory 域中部署副本 DC。 对于副本 DC，可在 VM 上安装 Windows Server AD DS，并可使用“从介质安装”(IFM) 功能减少在安装期间需要复制到新 DC 的数据量。 有关教程，请参阅[在 Azure 上安装副本 Active Directory 域控制器](active-directory-install-replica-active-directory-domain-controller.md)。 即使使用 IFM，在本地生成虚拟 DC 再将整个虚拟硬盘 (VHD) 移至云也比在安装期间复制 Windows Server AD DS 更加高效。 为安全起见，建议将 VHD 复制到 Azure 后立即从本地网络中删除它。
 - [Windows Server Active Directory 站点拓扑](#BKMK_ADSiteTopology)：在 Active Directory 站点和服务中新建一个 Azure 站点。 创建一个 Windows Server Active Directory 子网对象以表示 Azure 虚拟网络，并将该子网添加到站点中。 新建包括新 Azure 站点和 Azure 虚拟网络 VPN 终结点所在站点的站点链接以控制和优化 Azure 往返 Windows Server Active Directory 的流量。
 - [IP 寻址和 DNS](#BKMK_IPAddressDNS)：

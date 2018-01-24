@@ -3,25 +3,24 @@ title: "将应用程序与 Azure Active Directory 集成"
 description: "如何在 Azure Active Directory (Azure AD) 中添加、更新或删除应用程序。"
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: PatAltimore
 manager: mtillman
 editor: mbaldwin
-ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/04/2017
-ms.date: 01/10/2018
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: 7750620ca00de04a9e7e5070c26fa1a6dfdedd72
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: ea491b83c42365cb565f1515fa9a2b3db7db863d
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>将应用程序与 Azure Active Directory 集成
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -111,6 +110,8 @@ ms.lasthandoff: 01/11/2018
 
 - 委托的权限：客户端应用程序需要以登录用户的身份访问 Web API，但访问权限受所选权限的限制。 除非权限需要管理员许可，否则用户可以授予此类型的权限。 
 
+    > [!NOTE]
+    > 将委托权限添加到应用程序不会自动向租户中的用户授予许可。 在运行时，用户仍必须手动许可添加的委托权限，除非管理员在 Azure 门户的应用程序页的“所需权限”部分中单击“授予权限”按钮。 
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>添加用于访问 Web API 的应用程序凭据或权限
 1. 登录到 [Azure 门户](https://portal.azure.cn)。

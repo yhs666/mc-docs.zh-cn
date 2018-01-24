@@ -1,6 +1,6 @@
 ---
 title: "通过 Azure 网络观察程序检查连接性 - Azure CLI 2.0 | Azure"
-description: "本页说明如何使用 Azure CLI 2.0 通过网络观察程序执行连接性检查"
+description: "本页说明了如何使用 Azure CLI 2.0 通过网络观察程序使用连接监视"
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 origin.date: 07/11/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: a6f3348979f25f17dfcdfbeb03ba222a9cd84f79
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 856f698588432665b55c9e4deecff6498770d6f2
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>使用 Azure CLI 2.0 通过 Azure 网络观察程序检查连接性
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/14/2017
 
 了解如何使用连接来验证是否可以建立从虚拟机到给定终结点的直接 TCP 连接。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 本文假定你拥有以下资源：
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 11/14/2017
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 > [!IMPORTANT]
-> 连接性检查需要虚拟机扩展 `AzureNetworkWatcherExtension`。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md)。
+> 连接监视需要虚拟机扩展 `AzureNetworkWatcherExtension`。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md)。
 
 ## <a name="register-the-preview-capability"></a>注册预览版功能 
 
-连接检查目前以公共预览版提供，使用此功能之前需要注册。 为此，请运行以下 CLI 示例
+连接监视目前以公共预览版提供，使用此功能之前需要注册。 为此，请运行以下 CLI 示例
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

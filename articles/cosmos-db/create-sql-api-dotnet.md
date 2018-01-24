@@ -16,18 +16,21 @@ ms.topic: quickstart
 origin.date: 12/15/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 45af4c628fdd96ebcaca0239e19b772f9fb34006
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: b7301babb4064451df0e2be0e1fea1aa5ff56b9f
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB：使用 .NET 和 Azure 门户构建 SQL API Web 应用
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
-Azure Cosmos DB 由 21Vianet 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档及键/值，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档及键/值，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
+<!-- NOTICE: globally TO multiple-region  -->
 <!-- Not Available on Graph databases -->
+
 
 本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户、文档数据库和集合。 然后，将构建并部署基于 [SQL .NET API](sql-api-sdk-dotnet.md) 构建的“待办事项列表”Web 应用，如以下屏幕截图中所示。 
 

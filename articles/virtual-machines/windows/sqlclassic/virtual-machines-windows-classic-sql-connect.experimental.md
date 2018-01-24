@@ -16,11 +16,11 @@ origin.date: 01/31/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 1fd12a563fe7a0bd47bb791bc4ac8f9d5376c1b5
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: d9526d8f71762e97ba3f9c5722f26dc5d6692b33
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>连接到 Azure 上的 SQL Server 虚拟机（经典部署）
 > [!div class="op_single_selector"]
@@ -30,13 +30,13 @@ ms.lasthandoff: 08/18/2017
 > 
 
 ## <a name="overview"></a>概述
-本主题介绍如何连接到运行于 Azure 虚拟机的 SQL Server 实例。 它介绍了一些[常规连接方案](#connection-scenarios)，并提供了[在 Azure VM 中配置 SQL Server 连接的详细步骤](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)。
+本主题介绍如何连接到 Azure 中虚拟机上运行的 SQL Server 实例。 它介绍了一些[常规连接方案](#connection-scenarios)，并提供了[在 Azure VM 中配置 SQL Server 连接的详细步骤](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)。
 
 > [!IMPORTANT] 
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 如果使用的是 Resource Manager VM，请参阅[使用 Resource Manager 连接到 Azure 上的 SQL Server 虚拟机](../sql/virtual-machines-windows-sql-connect.md)。
 
 ## <a name="connection-scenarios"></a>连接方案
-将客户端连接到虚拟机上运行的 SQL Server 的方式各不相同，具体取决于客户端的位置与计算机/网络配置。 这些方案包括：
+客户端连接虚拟机上运行的 SQL Server 的方式取决于客户端的位置与计算机/网络配置。 这些方案包括：
 
 * [连接到同一云服务中的 SQL Server](#connect-to-sql-server-in-the-same-cloud-service)
 * [通过 Internet 连接到 SQL Server](#connect-to-sql-server-over-the-internet)
@@ -71,7 +71,7 @@ ms.lasthandoff: 08/18/2017
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>连接到同一虚拟网络中的 SQL Server
-[虚拟网络](../../../virtual-network/virtual-networks-overview.md)支持其他方案。 可以连接同一虚拟网络中的 VM，即使这些 VM 位于不同的云服务中。 使用[站点到站点 VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)，可以创建连接 VM 与本地网络和计算机的混合体系结构。
+[虚拟网络](../../../virtual-network/virtual-networks-overview.md)支持其他方案。 可以连接同一虚拟网络中的 VM，即使这些 VM 位于不同的云服务中。 使用站点到站点 VPN，可以创建连接 VM 与本地网络和计算机的混合体系结构。
 
 虚拟网络还允许将 Azure VM 加入域。 加入域是将 Windows 身份验证用于 SQL Server 的唯一方式。 其他连接方案需要使用用户名和密码进行 SQL 身份验证。
 

@@ -13,19 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 12/04/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: f150833182536ac21622c4bfcbb1facd00a89044
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 13babbf9a7841fce54a50d9e52038631e375a7c9
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>使用 PowerShell 和 Azure Resource Manager 将 VMM 云中的 Hyper-V 虚拟机复制到 Azure
 > [!div class="op_single_selector"]
-> * [Azure 门户](site-recovery-vmm-to-azure.md)
+> * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-> * [经典管理门户](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell - 经典](site-recovery-deploy-with-powershell.md)
 >
 >
@@ -45,7 +44,7 @@ Azure Site Recovery 可在许多部署方案中安排虚拟机的复制、故障
 * 为这些虚拟机启用保护。
 * 测试故障转移以确保一切都正常工作。
 
-<!-- Not Available [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=hypervrecovmgr). -->
+如果在设置本方案时遇到问题，请将问题发布到 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
 
 > [!NOTE]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用 Resource Manager 部署模型。
@@ -70,13 +69,13 @@ Azure Site Recovery 可在许多部署方案中安排虚拟机的复制、故障
 * 需要具有运行 System Center 2012 R2 的 VMM 服务器。
 * 包含要保护的虚拟机的任何 VMM 服务器必须运行有 Azure Site Recovery 提供程序。 这是在部署 Azure Site Recovery 期间安装的。
 * 在 VMM 服务器上需要至少有一个要保护的云。 云应当包含：
-    * 一个或多个 VMM 主机组。
-    * 每个主机组中有一个或多个 Hyper-V 主机服务器或群集。
-    * 源 Hyper-V 服务器上有一个或多个虚拟机。
+  * 一个或多个 VMM 主机组。
+  * 每个主机组中有一个或多个 Hyper-V 主机服务器或群集。
+  * 源 Hyper-V 服务器上有一个或多个虚拟机。
 * 了解有关设置 VMM 云的更多信息：
-    * 在 [System Center 2012 R2 VMM 中私有云的新增功能](http://go.microsoft.com/fwlink/?LinkId=324952)及 [VMM 2012 和云](http://go.microsoft.com/fwlink/?LinkId=324956)中阅读有关私有 VMM 云的详细信息。
-    * 了解有关 [配置 VMM 云结构](site-recovery-support-matrix-to-azure.md#BKMK_Fabric)的信息
-    * 准备好云结构元素后，通过[在 VMM 中创建私有云](http://go.microsoft.com/fwlink/p/?LinkId=324953)和 [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM（演练：使用 System Center 2012 SP1 VMM 创建私有云）](http://go.microsoft.com/fwlink/p/?LinkId=324954)，了解如何创建私有云。
+  * 在 [System Center 2012 R2 VMM 中私有云的新增功能](http://go.microsoft.com/fwlink/?LinkId=324952)及 [VMM 2012 和云](http://go.microsoft.com/fwlink/?LinkId=324956)中阅读有关私有 VMM 云的详细信息。
+  * 了解有关 [配置 VMM 云结构](site-recovery-support-matrix-to-azure.md#BKMK_Fabric)的信息
+  * 准备好云结构元素后，通过[在 VMM 中创建私有云](http://go.microsoft.com/fwlink/p/?LinkId=324953)和 [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM（演练：使用 System Center 2012 SP1 VMM 创建私有云）](http://go.microsoft.com/fwlink/p/?LinkId=324954)，了解如何创建私有云。
 
 ### <a name="hyper-v-prerequisites"></a>Hyper-V 先决条件
 * Hyper-V 主机服务器必须至少运行具有 Hyper-V 角色的 Windows Server 2012 或 Microsoft Hyper-V Server 2012 并且安装了最新的更新。
@@ -131,6 +130,7 @@ Azure Site Recovery 可在许多部署方案中安排虚拟机的复制、故障
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>步骤 3：设置恢复服务保管库上下文
+
 通过运行以下命令设置保管库上下文。
 
         Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
@@ -164,6 +164,7 @@ Azure Site Recovery 可在许多部署方案中安排虚拟机的复制、故障
         $encryptionFilePath = "C:\temp\".\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
 
 ## <a name="step-5-create-an-azure-storage-account"></a>步骤 5：创建 Azure 存储帐户
+
 如果没有 Azure 存储帐户，请运行以下命令，在与保管库相同的地区创建一个启用异地复制的帐户：
 
         $StorageAccountName = "teststorageacc1"    #StorageAccountname
@@ -214,7 +215,7 @@ Azure Site Recovery 可在许多部署方案中安排虚拟机的复制、故障
         }
         }While($isJobLeftForProcessing)
 
-若要检查作业是否完成，请遵循 [监视活动](#monitor)中的步骤。
+若要检查作业是否完成，请遵循[监视活动](#monitor)中的步骤。
 
 ## <a name="step-8-configure-network-mapping"></a>步骤 8：配置网络映射
 在开始网络映射之前，请验证源 VMM 服务器上的虚拟机是否已连接到一个 VM 网络。 此外，请创建一个或多个 Azure 虚拟机。

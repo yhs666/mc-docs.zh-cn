@@ -16,17 +16,20 @@ origin.date: 11/16/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: cbac4709a92097bb49162331aebf122c6ddac085
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 696770de50250b53ca84d252ad530c7f933ab1e9
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>快速入门：使用 Python 和 Azure Cosmos DB 生成表 API 应用
 
 本快速入门介绍如何使用 Python 和 Azure Cosmos DB [表 API](table-introduction.md)，通过克隆 GitHub 中的示例来生成应用。 此外，本快速入门还介绍了如何创建 Azure Cosmos DB 帐户，以及如何在基于 Web 的 Azure 门户中使用数据资源管理器创建表和实体。
 
-Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值、宽列和图形数据库，它们都受益于以 Azure Cosmos DB 为核心的全球分布和水平缩放功能。 
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值以及宽列，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
+<!-- NOTICE: globally TO multiple-region  -->
+<!-- Not Available on Graph -->
 
 ## <a name="prerequisites"></a>先决条件
 

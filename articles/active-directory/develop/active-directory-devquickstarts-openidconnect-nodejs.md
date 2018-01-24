@@ -1,5 +1,5 @@
 ---
-title: "使用 Node.js 进行 Azure AD 登录和注销入门 | Microsoft Docs"
+title: "Azure AD Node.js Web 应用入门 | Microsoft Docs"
 description: "了解如何构建用于登录的与 Azure AD 集成的 Node.js Express MVC Web 应用。"
 services: active-directory
 documentationcenter: nodejs
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-origin.date: 01/07/2017
-ms.date: 01/02/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 7c1783e2de111de0241dd9096f511c8162c940f4
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 1b540f38b7c6039a82cb68bfb9fb2c690ea2c418
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>使用 Azure AD 进行 Node.js Web 应用登录和注销
+# <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js Web 应用入门
 此处，我们使用 Passport 进行以下操作：
 
 - 通过 Azure Active Directory (Azure AD) 将用户登录到应用。
@@ -187,7 +187,7 @@ Passport 是 Node.js 的身份验证中间件。 Passport 很灵活并且采用�
     ```JavaScript
         // configure Express (section 2)
 
-        var app = express();
+          var app = express();
           app.configure(function() {
           app.set('views', __dirname + '/views');
           app.set('view engine', 'ejs');
@@ -417,3 +417,4 @@ Passport 是 Node.js 的身份验证中间件。 Passport 很灵活并且采用�
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 
+<!-- Update_Description: wording update -->

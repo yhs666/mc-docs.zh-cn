@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 11/02/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5db5daaa45e1fda397b32658f5bf9eba00dca056
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 6d30f79d243e8c1fd6cc71f44b64c8f423cac729
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位
 现已推出：Azure Cosmos DB [请求单位计算器](https://www.documentdb.com/capacityplanner)。 了解[估计吞吐量需求](request-units.md#estimating-throughput-needs)。
@@ -27,10 +27,12 @@ ms.lasthandoff: 12/22/2017
 ![吞吐量计算器][5]
 
 ## <a name="introduction"></a>简介
-[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 是由 Microsoft 提供的全球分布式多模型数据库。 使用 Azure Cosmos DB，无需租用虚拟机、部署软件或监视数据库。 Azure Cosmos DB 由 Microsoft 顶级工程师操作和持续监视，以提供一流的可用性、性能和数据保护。 可以使用自己选择的 API 访问数据，例如使用 [SQL API](documentdb-introduction.md)、[MongoDB API](mongodb-introduction.md) 和[表 API](table-introduction.md)，这些都是本机支持的。 Azure Cosmos DB 的计费依据是请求单位 (RU)。 借助 RU，无需保留读取/写入容量或预配 CPU、内存和 IOPS。
+[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 是 21Vianet 提供的多区域分布式多模型数据库。 使用 Azure Cosmos DB，无需租用虚拟机、部署软件或监视数据库。 Azure Cosmos DB 由我们的顶级工程师负责运营和持续监视，可以提供一流的可用性、性能和数据保护。 可以使用自己选择的 API 访问数据，例如使用 [SQL API](documentdb-introduction.md)、[MongoDB API](mongodb-introduction.md) 和[表 API](table-introduction.md)，这些都是本机支持的。 Azure Cosmos DB 的计费依据是请求单位 (RU)。 借助 RU，无需保留读取/写入容量或预配 CPU、内存和 IOPS。
 <!-- Not Available on Graph -->
+<!-- Notice: 全球 to 多个区域 -->
 
 Azure Cosmos DB 支持不同操作（范围从简单读取、写入到复杂图形查询等）的许多 API。 并非所有请求都是相同的，因此系统会根据请求所需的计算量为它们分配规范化数量的**请求单位**。 操作的请求单位数是确定性的，可以通过响应标头跟踪 Azure Cosmos DB 中的任何操作消耗的请求单位数。 
+<!-- Notice: 全球 to 多个区域 -->
 
 若要提供可预测的性能，需要以 100 RU/秒为单位保留吞吐量。 
 

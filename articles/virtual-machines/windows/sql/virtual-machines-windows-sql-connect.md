@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 origin.date: 12/12/2017
 ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: ef37822ba8e8378268a3bce931c03bc154507cc9
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: df31f6603191889f410f6d5ed74ba3e4ac89be50
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>连接到 Azure 上的 SQL Server 虚拟机
 
@@ -81,7 +81,7 @@ Server=sqlvmlabel.chinaeast.cloudapp.chinacloudapi.cn,1500;Integrated Security=f
 > [!IMPORTANT]
 > SQL Server Developer Edition 和 Express Edition 的虚拟机映像不会自动启用 TCP/IP 协议。 对于 Developer Edition 和 Express Edition，在创建 VM 后，必须使用 SQL Server 配置管理器[手动启用 TCP/IP 协议](#manualtcp) 。
 
-专用连接通常与[虚拟网络](../../../virtual-network/virtual-networks-overview.md)结合使用，从而启用多个方案。 可以连接同一虚拟网络中的 VM，即使这些 VM 位于不同的资源组中。 使用[站点到站点 VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)，可以创建连接 VM 与本地网络和计算机的混合体系结构。
+专用连接通常与[虚拟网络](../../../virtual-network/virtual-networks-overview.md)结合使用，从而启用多个方案。 可以连接同一虚拟网络中的 VM，即使这些 VM 位于不同的资源组中。 使用站点到站点 VPN，可以创建连接 VM 与本地网络和计算机的混合体系结构。
 
 虚拟网络还允许将 Azure VM 加入域。 这是对 SQL Server 使用 Windows 身份验证的唯一方式。 其他连接方案需要使用用户名和密码进行 SQL 身份验证。
 

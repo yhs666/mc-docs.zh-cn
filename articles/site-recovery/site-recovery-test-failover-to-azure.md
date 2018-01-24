@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 10/16/2017
-ms.date: 12/04/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 11b9f4950021244d2a29240a06b5ed2ab8f27aeb
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 5e3dc0b1cb9225503620bf0d74315e33105f3c3a
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Site Recovery 中到 Azure 的测试故障转移
 
@@ -111,4 +111,4 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="next-steps"></a>后续步骤
 完成灾难恢复演练后，详细了解其他类型的[故障转移](site-recovery-failover.md)。
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: wording update -->

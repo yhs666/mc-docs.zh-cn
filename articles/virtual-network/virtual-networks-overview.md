@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/12/2017
-ms.date: 01/15/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: c1c2c5e39df9e1520a38f7e57d31606d03636409
-ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
+ms.openlocfilehash: 790f6655e0349f2843d2226db4e623d1595ad72c
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-virtual-network"></a>Azure 虚拟网络
 
-Azure 资源可以通过 Azure 虚拟网络服务与虚拟网络中的其他资源安全地通信。 虚拟网络是你自己的网络在云中的表现形式。 虚拟网络是对专用于订阅的 Azure 云进行的逻辑隔离。 可将虚拟网络连接到其他虚拟网络，或本地网络。 下图显示了 Azure 虚拟网络服务的部分功能：
+Azure 资源可以通过 Azure 虚拟网络服务与虚拟网络中的其他资源安全地通信。 虚拟网络是对专用于订阅的 Azure 云进行的逻辑隔离。 可将虚拟网络连接到其他虚拟网络，或本地网络。 下图显示了 Azure 虚拟网络服务的部分功能：
 
 ![网络示意图](./media/virtual-networks-overview/virtual-network-overview.png)
 

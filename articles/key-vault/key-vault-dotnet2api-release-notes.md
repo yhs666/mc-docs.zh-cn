@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/02/2017
-ms.date: 06/12/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6c8ba8aad22a3b2dc277c83747b702384d6ac748
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 85b95465576208415c751c1cf602be3fe0436e09
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure 密钥保管库 .NET 2.0 - 发行说明和迁移指南
 以下说明和指南适用于使用 Azure Key Vault .NET/C# 库的开发人员。 在从 1.0 版到 2.0 版的转换中，进行了大量需要代码迁移的更新，使你可以受益于功能的改进和新增，例如 **Key Vault 证书**支持。
@@ -37,8 +37,9 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="net-support"></a>.NET 支持
 
-- Azure Key Vault .NET/C# 库 2.0 版不支持 **.NET 4.0**
-- Azure Key Vault .NET/C# 库 2.0 版支持 **.NET Core**
+- Azure Key Vault .NET 库 2.0 版不支持 **.NET 4.0**
+- Azure Key Vault .NET 库 2.0 版支持 **.NET Framework 4.5.2**
+- Azure Key Vault .NET 库 2.0 版支持 **.NET Standard 1.4**
 
 ## <a name="namespaces"></a>命名空间
 
@@ -56,7 +57,7 @@ ms.lasthandoff: 06/21/2017
 ## <a name="return-types"></a>返回类型
 
 - **KeyList** 和 **SecretList** 将返回 *IPage<T>* 而不是 *ListKeysResponseMessage*
-- 生成的 **BackupKeyAsync** 将返回 *BackupKeyResult*，其中包含*值*（备份 blob）。 以前，该方法经过包装，并且只返回值。
+- 生成的 **BackupKeyAsync** 将返回 *BackupKeyResult*，其中包含*值*（备份 blob）。 在该方法包装之前，仅返回值。
 
 ## <a name="exceptions"></a>异常
 
@@ -109,3 +110,4 @@ ms.lasthandoff: 06/21/2017
 - 该包已分解为 **Microsoft.Azure.KeyVault.Extensions** 和用于加密操作的 **Microsoft.Azure.KeyVault.Cryptography**。
 
 
+<!-- Update_Description: wording update -->

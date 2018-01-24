@@ -1,6 +1,6 @@
 ---
 title: "将 Apache Spark 连接到 Azure Cosmos DB | Azure"
-description: "使用本教程来了解 Azure Cosmos DB Spark 连接器：使用该连接器可将 Apache Spark 连接到 Azure Cosmos DB，以便在 Microsoft 提供的针对云设计的多租户全球分布式数据库系统中执行分布式聚合和数据科学。"
+description: "使用本教程来了解 Azure Cosmos DB Spark 连接器：使用该连接器可将 Apache Spark 连接到 Azure Cosmos DB，以便在 Microsoft 提供的针对云设计的多租户多区域分布式数据库系统中执行分布式聚合和数据科学。"
 keywords: apache spark
 services: cosmos-db
 documentationcenter: 
@@ -16,16 +16,18 @@ ms.topic: article
 origin.date: 12/08/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: e127c1c42c32cafafe577e327ef212826b00a8f1
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 1820790d351eaa40de4df2c2911d2c646c23eada
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
+<!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>使用 Spark 到 Azure Cosmos DB 的连接器加速实时大数据分析
 
-Spark 到 Azure Cosmos DB 的连接器能使 Azure Cosmos DB 充当 Apache Spark 作业的输入源或输出接收器。 将 [Spark](http://spark.apache.org/) 连接到 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 后，可以使用 Azure Cosmos DB 快速保存和查询数据，更快地解决瞬息万变的数据科学问题。 Spark 到 Azure Cosmos DB 的连接器有效利用本机 Azure Cosmos DB 托管的索引。 针对快速变化的全球分布的数据执行分析和向下推送谓词筛选时，这些索引可用于实现可更新的列（范围从物联网 (IoT) 到数据科学以及分析方案）。
+Spark 到 Azure Cosmos DB 的连接器能使 Azure Cosmos DB 充当 Apache Spark 作业的输入源或输出接收器。 将 [Spark](http://spark.apache.org/) 连接到 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 后，可以使用 Azure Cosmos DB 快速保存和查询数据，更快地解决瞬息万变的数据科学问题。 Spark 到 Azure Cosmos DB 的连接器有效利用本机 Azure Cosmos DB 托管的索引。 针对快速变化的多区域分布的数据执行分析和向下推送谓词筛选时，这些索引可用于实现可更新的列（范围从物联网 (IoT) 到数据科学以及分析方案）。
 <!-- Not Available  [Perform graph analytics using Spark and Apache TinkerPop Gremlin](spark-connector-graph.md) -->
+<!-- Notice: 全球 to 多个区域 -->
 
 ## <a name="download"></a>下载
 
@@ -36,7 +38,8 @@ Spark 到 Azure Cosmos DB 的连接器能使 Azure Cosmos DB 充当 Apache Spark
 连接器利用以下组件：
 
 * 使用 [Azure Cosmos DB](http://documentdb.com)，客户可跨任意数量的地理区域弹性缩放吞吐量与存储。 该服务提供：
-   * 统包的[全球分布](distribute-data-globally.md)和水平缩放
+   * 统包式[多区域分布](distribute-data-globally.md)和水平缩放
+<!-- Notice: 全球 to 多个区域 -->
    * 准确率达 99% 的有保证单一数位延迟
    * [多个妥善定义的一致性模型](consistency-levels.md)
    * 具有多宿主功能的有保证高可用性
@@ -254,6 +257,7 @@ df.show()
 
 ## <a name="distributed-aggregation-example"></a>分布式聚合示例
 本部分举例说明了如何结合使用 Apache Spark 和 Azure Cosmos DB 来执行分布式聚合与分析。 Azure Cosmos DB 已经支持聚合，[使用 Azure Cosmos DB 在全球范围内聚合](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)博客中对此进行了讨论。 下面是可以通过 Apache Spark 将其提升到下一级别的方式。
+<!-- Notice: 全球 to 多个区域 -->
 
 请注意，这些聚合与 [Spark 到 Azure Cosmos DB 的连接器 Notebook](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Spark-to-CosmosDB_Connector.ipynb) 相关。
 

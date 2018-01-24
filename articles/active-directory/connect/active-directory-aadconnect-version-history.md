@@ -3,8 +3,8 @@ title: "Azure AD Connect：版本发布历史记录 | Microsoft Docs"
 description: "本文列出 Azure AD Connect 和 Azure AD Sync 的所有版本"
 services: active-directory
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: 
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 12/14/2017
-ms.date: 12/25/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: 35bf07c40008868c4c73e63d8cacda6532c9b000
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: ea9ecc5f25e3d3dd6e09e9fa7b11994b296145f9
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本发布历史记录
 Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特性和功能。 并非所有的新增内容都适用于所有受众。

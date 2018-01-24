@@ -16,16 +16,17 @@ origin.date: 11/20/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fb36b58a9dd3901f4699e18578f1773eb3eb0042
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: ce83a87a0dc44fcb43a52ea50177b683249207b7
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB：在 .NET 中使用表 API 进行开发
 
-Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档和键/值数据库，所有这些都受益于以 Azure Cosmos DB 为核心的全球分布和水平缩放功能。
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档及键/值数据库，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
 <!--Not Available on Graph -->
+<!-- Notice: 全球 to 多个区域 -->
 
 本教程涵盖以下任务： 
 
@@ -49,7 +50,7 @@ Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduct
 
 如果当前使用 Azure 表存储，可以通过 Azure Cosmos DB 表 API 获得以下好处：
 
-- 具有多宿主的统包[全局分发](distribute-data-globally.md)与[自动和手动故障转移](regional-failover.md)
+- 具有多宿主的统包式[全球分布](distribute-data-globally.md)与[自动和手动故障转移](regional-failover.md)
 - 支持针对所有属性的自动架构不可知索引（“辅助索引”）和快速查询 
 - 支持跨任意数量的区域实现[存储和吞吐量的独立缩放](partition-data.md)
 - 支持[按表的专用吞吐量](request-units.md)，可以从每秒数百个请求扩展到每秒数百万个请求

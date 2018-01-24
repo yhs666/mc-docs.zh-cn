@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 05/29/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 37e20ad13300931f5e2592d80d35ea73cd9ce4ad
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 8c6262569189f77cd13eb1dbc7d077222cb51eaf
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
 生活在大规模互连的社会中，这意味着有时候你也成了社交网络中的一部分。 我们使用社交网络与朋友、同事和家人保持联系，有时还会与有共同兴趣的人分享我们的激情。
@@ -215,6 +215,7 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
 
 ## <a name="a-planet-scale-social-experience"></a>全球范围内的社交体验
 最后，还必须说明一个非常重要的主题：**可伸缩性**。 在设计体系结构时，因为需要处理更多的数据和/或希望拥有更大的地理覆盖范围，所以每个组件的自行可伸缩性至关重要。 幸运的是，通过使用 Cosmos DB 完成此类复杂任务是一种**统包体验**。
+<!-- Notice: 全球 to 多个区域 -->
 
 Cosmos DB 根据给定的**分区键**（定义为文档中的一个属性）自动创建分区，从而支持现成可用的[动态分区](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/)。 必须在设计时定义正确的分区键，并记住可用的[最佳做法](../cosmos-db/partition-data.md#designing-for-partitioning)；对于社交体验，分区策略必须与查询（需要在同一分区内进行读取）和写入（通过在多个分区上分散写入来避免“热点”）方式保持一致。 一些相关选项是：基于临时键（日/月/周）的分区，按内容类别、地理区域和用户进行划分；这一切都取决于查询数据并将其显示在社交体验中的方式。 
 
@@ -226,13 +227,16 @@ Cosmos DB 根据给定的**分区键**（定义为文档中的一个属性）自
 
 如果平台的发展越来越好，来自其他国家/地区或洲的用户注意到平台并开始使用它，这是一件多么让人惊喜的事！
 
-但是你很快会意识到他们在平台的体验并不理想；他们与运营区域相距太远，延迟问题非常严重，显然不希望他们因此退出平台。 如果有一种简单的方法可以**扩展全球覆盖范围**就好了······确实有！
+但是你很快会意识到他们在平台的体验并不理想；他们与运营区域相距太远，延迟问题非常严重，显然不希望他们因此退出平台。 如果有一种简单的方法可以**扩展多区域覆盖范围**就好了······确实有！
+<!-- Notice: 全球 to 多个区域 -->
 
 通过 Cosmos DB，只需单击数次即可通过透明方式[全局复制数据](../cosmos-db/tutorial-global-distribution-sql-api.md)，并从[客户端代码](../cosmos-db/tutorial-global-distribution-sql-api.md)中自动选择可用区域。 这也意味着可以拥有[多个故障转移区域](regional-failover.md)。 
 
-全局复制数据时，需确保客户端可以利用该数据。 如果要使用 Web 前端或从移动客户端访问 API，则可以部署 [Microsoft Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)并在所有所需区域克隆 Azure 应用服务（方法是通过使用性能配置支持扩展的全球覆盖范围）。 客户端访问前端或 API 时，将被路由到最近的应用服务，而该应用服务将连接到本地的 Cosmos DB 副本。
+将数据复制到多个区域时，需确保客户端可以利用该数据。 如果要使用 Web 前端或从移动客户端访问 API，则可以部署 [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)并在所有所需区域克隆 Azure 应用服务（方法是使用某个性能配置来支持扩展的多区域覆盖范围）。 客户端访问前端或 API 时，将被路由到最近的应用服务，而该应用服务将连接到本地的 Cosmos DB 副本。
+<!-- Notice: 全球 to 多个区域 -->
 
-![将全球覆盖范围添加到社交平台](./media/social-media-apps/social-media-apps-global-replicate.png)
+![将多区域覆盖范围添加到社交平台](./media/social-media-apps/social-media-apps-global-replicate.png)
+<!-- Notice: 全球 to 多个区域 -->
 
 ## <a name="conclusion"></a>结论
 本文尝试说明一种完全在 Azure 上创建具有低成本服务社交网络，并可通过鼓励使用多层存储解决方案和称为“阶梯”的数据分布得到良好结果的替代方法。

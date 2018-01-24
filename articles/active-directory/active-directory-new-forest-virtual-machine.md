@@ -16,18 +16,18 @@ ms.workload: identity
 origin.date: 12/06/2017
 ms.date: 1/1/2018
 ms.author: v-nany
-ms.openlocfilehash: 9f22ea6697eb6101fe4608193e068f3635243822
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: ddc9aa71ee53a5ac1cdde8881803134cdb6100bf
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>在 Azure 虚拟网络中安装新的 Active Directory 林
 本文说明如何在 [Azure 虚拟网络](../virtual-network/virtual-networks-overview.md)上的虚拟机 (VM) 中创建新的 Windows Server Active Directory 环境。 在此情况下，Azure 虚拟网络未连接到本地网络。
 
 也有可能对下列相关文章感兴趣：
 
-- 可以有选择性地[配置站点到站点 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)，然后安装新林，或者将本地林扩展到 Azure 虚拟网络。 有关这些步骤的说明，请参阅[在 Azure 虚拟网络中安装副本 Active Directory 域控制器](./active-directory-install-replica-active-directory-domain-controller.md)。
+- 可以选择配置站点到站点 VPN，并安装新林，或者将本地林扩展到 Azure 虚拟网络。 有关这些步骤的说明，请参阅[在 Azure 虚拟网络中安装副本 Active Directory 域控制器](./active-directory-install-replica-active-directory-domain-controller.md)。
 - 有关在 Azure 虚拟网络上安装 Active Directory 域服务 (AD DS) 的概念性指南，请参阅[在 Azure 虚拟机上部署 Windows Server Active Directory 的指南](https://msdn.microsoft.com/library/azure/jj156090.aspx)。
 
 ## <a name="scenario-diagram"></a>方案示意图
@@ -108,7 +108,6 @@ ms.lasthandoff: 12/29/2017
 ## <a name="see-also"></a>另请参阅
 - [如何在 Azure 虚拟网络中安装新的 Active Directory 林](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 - [在 Azure 虚拟机上部署 Windows Server Active Directory 的指南](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-- [配置站点到站点 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 - [在 Azure 虚拟网络中安装副本 Active Directory 域控制器](./active-directory-install-replica-active-directory-domain-controller.md)
 - [Azure IT Pro IaaS：(01) 虚拟机基础知识](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 - [Azure IT Pro IaaS：(05) 创建虚拟网络和跨界连接](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)

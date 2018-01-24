@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Java Web 应用入门 | Microsoft 文档"
-description: "构建一个可让用户使用工作或学校帐户登录的 Java Web 应用。"
+description: "生成可让用户使用工作或学校帐户登录的 Java Web 应用。"
 services: active-directory
 documentationcenter: java
 author: navyasric
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-origin.date: 02/01/2017
-ms.date: 01/10/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 0bf3c470667723253fc1b0f751e4d36e39990d47
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 70fb449e25736f0cf530907d2e4fa0e3c794a958
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>通过 Azure AD 实现 Java Web 应用登录和注销
+# <a name="azure-ad-java-web-app-getting-started"></a>Azure AD Java Web 应用入门
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 使用 Azure Active Directory (Azure AD)，只需编写几行代码、提供单一登录和注销，就能轻松外包 Web 应用的标识管理。 可以使用社区驱动的用于 Java 的 Azure Active Directory 身份验证库 (ADAL4J) 将用户登录到 Java Web 应用或者从中注销。
@@ -365,11 +365,11 @@ ms.lasthandoff: 01/11/2018
     import org.json.JSONObject;
 
     /**
-     * This class provides the methods to parse JSON Data from a JSON Formatted
+     * This class provides the methods to parse JSON data from a JSON-formatted
      * String.
-     * 
-     * @author Azure Active Directory Contributor
-     * 
+     *
+     * @author Azure Active Directory contributor
+     *
      */
     public class JSONHelper {
 
@@ -586,9 +586,9 @@ ms.lasthandoff: 01/11/2018
 
     /**
      * This is Helper class for all RestClient class.
-     * 
+     *
      * @author Azure Active Directory Contributor
-     * 
+     *
      */
     public class HttpClientHelper {
 
@@ -655,7 +655,7 @@ ms.lasthandoff: 01/11/2018
 
         /**
          * for bad response, whose responseCode is not 200 level
-         * 
+         *
          * @param responseCode
          * @param errorCode
          * @param errorMsg
@@ -673,7 +673,7 @@ ms.lasthandoff: 01/11/2018
 
         /**
          * for bad response, whose responseCode is not 200 level
-         * 
+         *
          * @param responseCode
          * @param errorCode
          * @param errorMsg
@@ -694,7 +694,7 @@ ms.lasthandoff: 01/11/2018
 
         /**
          * for good response
-         * 
+         *
          * @param responseCode
          * @param responseMsg
          * @return
@@ -729,6 +729,7 @@ ms.lasthandoff: 01/11/2018
 1. 创建名为 DirectoryObject.java 的文件，该文件用于存储有关任何目录对象的基本数据。 稍后可以使用此文件执行其他任何 Graph 查询。 若要创建该文件，请粘贴以下代码：
 
     ```Java
+
     package com.microsoft.aad.adal4jsample;
 
     /**
@@ -742,7 +743,7 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * 
+         *
          * @return
          */
         public abstract String getObjectId();
@@ -753,30 +754,31 @@ ms.lasthandoff: 01/11/2018
         public abstract void setObjectId(String objectId);
 
         /**
-         * 
+         *
          * @return
          */
         public abstract String getObjectType();
 
         /**
-         * 
+         *
          * @param objectType
          */
         public abstract void setObjectType(String objectType);
 
         /**
-         * 
+         *
          * @return
          */
         public abstract String getDisplayName();
 
         /**
-         * 
+         *
          * @param displayName
          */
         public abstract void setDisplayName(String displayName);
 
     }
+
     ```
 
 2. 创建名为 User.java 的文件，该文件用于存储有关目录中任何用户的基本数据。 这些是用于目录数据的基本 getter 和 setter 方法，可粘贴以下代码：
@@ -882,7 +884,7 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The objectType of this User.
+         * @return The objectType of this user.
          */
         public String getObjectType() {
             return objectType;
@@ -896,7 +898,7 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The userPrincipalName of this User.
+         * @return The userPrincipalName of this user.
          */
         public String getUserPrincipalName() {
             return userPrincipalName;
@@ -910,7 +912,7 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The usageLocation of this User.
+         * @return The usageLocation of this user.
          */
         public String getUsageLocation() {
             return usageLocation;
@@ -924,7 +926,7 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The telephoneNumber of this User.
+         * @return The telephoneNumber of this user.
          */
         public String getTelephoneNumber() {
             return telephoneNumber;
@@ -938,35 +940,35 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The surname of this User.
+         * @return The surname of this user.
          */
         public String getSurname() {
             return surname;
         }
 
         /**
-         * @param surname The surname to set to this User Object.
+         * @param surname The surname to set to this User object.
          */
         public void setSurname(String surname) {
             this.surname = surname;
         }
 
         /**
-         * @return The streetAddress of this User.
+         * @return The streetAddress of this user.
          */
         public String getStreetAddress() {
             return streetAddress;
         }
 
         /**
-         * @param streetAddress The streetAddress to set to this User.
+         * @param streetAddress The streetAddress to set to this user.
          */
         public void setStreetAddress(String streetAddress) {
             this.streetAddress = streetAddress;
         }
 
         /**
-         * @return The state of this User.
+         * @return The state of this user.
          */
         public String getState() {
             return state;
@@ -980,49 +982,49 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The preferredLanguage of this User.
+         * @return The preferredLanguage of this user.
          */
         public String getPreferredLanguage() {
             return preferredLanguage;
         }
 
         /**
-         * @param preferredLanguage The preferredLanguage to set to this User.
+         * @param preferredLanguage The preferredLanguage to set to this user.
          */
         public void setPreferredLanguage(String preferredLanguage) {
             this.preferredLanguage = preferredLanguage;
         }
 
         /**
-         * @return The postalCode of this User.
+         * @return The postalCode of this user.
          */
         public String getPostalCode() {
             return postalCode;
         }
 
         /**
-         * @param postalCode The postalCode to set to this User.
+         * @param postalCode The postalCode to set to this user.
          */
         public void setPostalCode(String postalCode) {
             this.postalCode = postalCode;
         }
 
         /**
-         * @return The physicalDeliveryOfficeName of this User.
+         * @return The physicalDeliveryOfficeName of this user.
          */
         public String getPhysicalDeliveryOfficeName() {
             return physicalDeliveryOfficeName;
         }
 
         /**
-         * @param physicalDeliveryOfficeName The physicalDeliveryOfficeName to set to this User Object.
+         * @param physicalDeliveryOfficeName The physicalDeliveryOfficeName to set to this User object.
          */
         public void setPhysicalDeliveryOfficeName(String physicalDeliveryOfficeName) {
             this.physicalDeliveryOfficeName = physicalDeliveryOfficeName;
         }
 
         /**
-         * @return The passwordPolicies of this User.
+         * @return The passwordPolicies of this user.
          */
         public String getPasswordPolicies() {
             return passwordPolicies;
@@ -1036,7 +1038,7 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The mobile of this User.
+         * @return The mobile of this user.
          */
         public String getMobile() {
             return mobile;
@@ -1050,7 +1052,7 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The Password of this User.
+         * @return The password of this user.
          */
         public String getPassword() {
             return password;
@@ -1064,7 +1066,7 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The mail of this User.
+         * @return The mail of this user.
          */
         public String getMail() {
             return mail;
@@ -1078,7 +1080,7 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The MailNickname of this User.
+         * @return The MailNickname of this user.
          */
         public String getMailNickname() {
             return mailNickname;
@@ -1092,21 +1094,21 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The jobTitle of this User.
+         * @return The jobTitle of this user.
          */
         public String getJobTitle() {
             return jobTitle;
         }
 
         /**
-         * @param jobTitle The jobTitle to set to this User Object.
+         * @param jobTitle The jobTitle to set to this User object.
          */
         public void setJobTitle(String jobTitle) {
             this.jobTitle = jobTitle;
         }
 
         /**
-         * @return The givenName of this User.
+         * @return The givenName of this user.
          */
         public String getGivenName() {
             return givenName;
@@ -1120,35 +1122,35 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The facsimileTelephoneNumber of this User.
+         * @return The facsimileTelephoneNumber of this user.
          */
         public String getFacsimileTelephoneNumber() {
             return facsimileTelephoneNumber;
         }
 
         /**
-         * @param facsimileTelephoneNumber The facsimileTelephoneNumber to set to this User Object.
+         * @param facsimileTelephoneNumber The facsimileTelephoneNumber to set to this User object.
          */
         public void setFacsimileTelephoneNumber(String facsimileTelephoneNumber) {
             this.facsimileTelephoneNumber = facsimileTelephoneNumber;
         }
 
         /**
-         * @return The displayName of this User.
+         * @return The displayName of this user.
          */
         public String getDisplayName() {
             return displayName;
         }
 
         /**
-         * @param displayName The displayName to set to this User Object.
+         * @param displayName The displayName to set to this User object.
          */
         public void setDisplayName(String displayName) {
             this.displayName = displayName;
         }
 
         /**
-         * @return The dirSyncEnabled of this User.
+         * @return The dirSyncEnabled of this user.
          */
         public String getDirSyncEnabled() {
             return dirSyncEnabled;
@@ -1162,7 +1164,7 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The department of this User.
+         * @return The department of this user.
          */
         public String getDepartment() {
             return department;
@@ -1176,7 +1178,7 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The lastDirSyncTime of this User.
+         * @return The lastDirSyncTime of this user.
          */
         public String getLastDirSyncTime() {
             return lastDirSyncTime;
@@ -1190,42 +1192,42 @@ ms.lasthandoff: 01/11/2018
         }
 
         /**
-         * @return The country of this User.
+         * @return The country of this user.
          */
         public String getCountry() {
             return country;
         }
 
         /**
-         * @param country The country to set to this User.
+         * @param country The country to set to this user.
          */
         public void setCountry(String country) {
             this.country = country;
         }
 
         /**
-         * @return The city of this User.
+         * @return The city of this user.
          */
         public String getCity() {
             return city;
         }
 
         /**
-         * @param city The city to set to this User.
+         * @param city The city to set to this user.
          */
         public void setCity(String city) {
             this.city = city;
         }
 
         /**
-         * @return The accountEnabled attribute of this User.
+         * @return The accountEnabled attribute of this user.
          */
         public String getAccountEnabled() {
             return accountEnabled;
         }
 
         /**
-         * @param accountEnabled The accountEnabled to set to this User.
+         * @param accountEnabled The accountEnabled to set to this user.
          */
         public void setAccountEnabled(String accountEnabled) {
             this.accountEnabled = accountEnabled;

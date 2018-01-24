@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 07/17/2017
 ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: a94b5127df920b2b7d8d9b48fa76cc4fc561b6b1
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 8656f0c698b650ef615a6efb008fb431c86b3210
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 的监视和诊断
 
@@ -70,7 +70,10 @@ ms.lasthandoff: 12/29/2017
 
 ## <a name="event-analysis"></a>事件分析
 
-可以借助市场中有许多优异平台来分析和可视化监视与诊断数据。 我们推荐的两个平台是 [OMS](service-fabric-diagnostics-event-analysis-oms.md) 和 [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)，因为它们能够与 Service Fabric 更好地集成；但同时应该考察[弹性堆栈](https://www.elastic.co/products)（尤其是考虑在脱机环境中运行群集时）、[Splunk](https://www.splunk.com/) 或其他任何偏爱的平台。
+可以借助市场中有许多优异平台来分析和可视化监视与诊断数据。
+<!-- Not Available on  [OMS](service-fabric-diagnostics-event-analysis-oms.md)-->
+<!-- Not Available on  [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
+ 此外，还应考虑 [Elastic Stack](https://www.elastic.co/products)（尤其是考虑在脱机环境中运行群集时）、[Splunk](https://www.splunk.com/) 或其他任何偏好的平台。
 
 选择任何平台时的要点应该包括用户界面和查询选项的习惯性、是否能够可视化数据和轻松创建易读的仪表板，以及平台提供的用于增强监视的其他工具（例如自动警报）。
 

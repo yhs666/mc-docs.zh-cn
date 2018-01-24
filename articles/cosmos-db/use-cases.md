@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 11/15/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 868be047cfbf2f2624129fc3cd3696632353a365
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 2d52a536897ead891dd2864b403f475b2ad325f4
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Azure Cosmos DB 常见用例
 本文概述了 Azure Cosmos DB 的几个常见用例。  本文中的建议可以作为使用 Cosmos DB 开发应用程序的一个起点。   
@@ -32,13 +32,16 @@ ms.lasthandoff: 12/22/2017
 * 对 Web 和移动应用程序使用 Azure Cosmos DB 有什么好处？
 
 ## <a name="introduction"></a>简介
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 提供的全球分布式数据库服务。 该服务允许客户跨数目不限的地理区域弹性（独立）缩放吞吐量与存储。 Azure Cosmos DB 是一项全球分布式数据库服务，它在当前市场中率先提供了综合[服务级别协议](https://www.azure.cn/support/sla/cosmos-db/)，包含吞吐量、延迟、可用性和一致性。 
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是 21Vianet 提供的多区域分布式数据库服务。 该服务允许客户跨数目不限的地理区域弹性（独立）缩放吞吐量与存储。 Azure Cosmos DB 是当前市场中提供的第一个多区域分布式数据库服务，提供了综合[服务级别协议](https://www.azure.cn/support/sla/cosmos-db/)，包含吞吐量、延迟、可用性和一致性。 
+<!-- Notice: 全球 to 多个区域 -->
 
-Azure Cosmos DB 是在各种应用程序和用例中广泛使用的全球分布式多模型数据库。 它以可扩展的方式本机支持多种数据模型（键值、文档和纵栏式）和许多用于数据访问的 API，包括 [MongoDB API](mongodb-introduction.md)、[SQL API](documentdb-introduction.md) 和[表 API](table-introduction.md)。 
+Azure Cosmos DB 是在各种应用程序和用例中广泛使用的多区域分布式多模型数据库。 它以可扩展的方式本机支持多种数据模型（键值、文档和纵栏式）和许多用于数据访问的 API，包括 [MongoDB API](mongodb-introduction.md)、[SQL API](documentdb-introduction.md) 和[表 API](table-introduction.md)。 
 <!--Not Available on [Graph API (Gremlin)](graph-introduction.md) -->
+<!-- Notice: 全球 to 多个区域 -->
 <!--Not Available on [serverless](http://azure.com/serverless) -->
 
-下面介绍了 Azure Cosmos DB 的几个属性，这些属性使 Cosmos DB 非常适用于想要实现全球分布的高性能应用程序。
+下面介绍了 Azure Cosmos DB 的几个属性，这些属性使 Cosmos DB 非常适用于想要实现多区域分布的高性能应用程序。
+<!-- Notice: 全球 to 多个区域 -->
 
 * Azure Cosmos DB 采用本机方式对数据进行分区，以实现高可用性和可伸缩性。 Azure Cosmos DB 为所有单区域帐户和具有松散一致性的所有多区域帐户提供对可用性、吞吐量和一致性的 99.99% 保证，为所有多区域数据库帐户提供 99.999% 的读取可用性。
 * Azure Cosmos DB 采用由 SSD 提供支持的存储，具有低延迟毫秒级响应时间。
@@ -105,6 +108,7 @@ Azure Cosmos DB 的一个常见用例就是存储和查询 Web、移动和社交
 如今，新式应用程序都具有复杂的视图和体验。 它们通常采用动态设计，迎合对用户首选项或情绪以及品牌塑造的需求。 因此，应用程序需要能够有效地检索个性化设置，以快速呈现 UI 元素和体验。 
 
 Cosmos DB 支持的 JSON 格式是一种用于呈现 UI 布局数据的有效格式，它不仅轻量而且可由 JavaScript 轻松理解。 Cosmos DB 提供可调的一致性级别，可以实现快速读取和低延迟写入。 因此，在 Cosmos DB 中将包括个性化设置的 UI 布局数据存储为 JSON 文档是获取网络数据的一种有效方法。
+<!-- Notice: 全球 to 多个区域 -->
 
 ![Azure Cosmos DB Web 应用参考体系结构](./media/use-cases/personalization.png)
 

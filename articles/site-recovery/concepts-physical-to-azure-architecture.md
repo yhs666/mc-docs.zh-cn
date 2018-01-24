@@ -1,5 +1,5 @@
 ---
-title: "查看用于将物理服务器复制到 Azure 的体系结构 | Azure"
+title: "Azure Site Recovery 中的物理服务器到 Azure 复制体系结构 | Azure"
 description: "本文概述了使用 Azure Site Recovery 服务将本地物理服务器复制到 Azure 所需使用的组件和体系结构"
 services: site-recovery
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2017
-ms.date: 11/20/2017
+origin.date: 12/19/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4757841d247be941a1976dd4121d3cafd19c9230
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: d0fe631084979ff5d1ab2031bd49d77f9f707dcc
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>物理服务器到 Azure 复制体系结构
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/15/2017
     - 配置服务器通过 HTTPS 443 出站端口来与 Azure 协调复制管理。
     - 进程服务器从源计算机接收数据、优化和加密数据，并通过 443 出站端口将其发送到 Azure 存储。
     - 如果启用了多 VM 一致性，则复制组中的计算机将通过端口 20004 相互通信。 如果将多台计算机分组到复制组，并且这些组在故障转移时共享崩溃一致且应用一致的恢复点，请使用多 VM 方案。 如果计算机运行相同的工作负荷并需要保持一致，这种做法非常有用。
-4. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以使用 Azure ExpressRoute [公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)。 不支持通过站点到站点 VPN 将流量从本地站点复制到 Azure。
+4. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以使用 Azure ExpressRoute [公共对等互连](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)。 不支持通过站点到站点 VPN 将流量从本地站点复制到 Azure。
 <!-- Sync late on azure-public-peering -->
 
 **物理机到 Azure 的复制过程**
@@ -63,21 +63,18 @@ ms.lasthandoff: 11/15/2017
 在设置复制并运行故障恢复演练（测试故障转移）来检查是否一切都按预期工作后，可以根据需要运行故障转移和故障回复。 请注意：
 
 - 不支持计划内故障转移。
-- 必须故障回复到本地 VMware VM。 这意味着，即使将本地物理服务器复制到 Azure，也需要本地 VMware 基础结构。
-
-1. 对单台计算机进行故障转移，或者创建恢复计划来同时对多台计算机进行故障转移。
-2. 运行故障转移时，将使用 Azure 存储中的已复制数据创建 Azure VM。
-3. 触发初始故障转移之后，可提交它来开始访问 Azure VM 中的工作负荷。
-
-当本地主站点再次可用时，便可以故障回复。
-
-1. 需要设置故障回复基础结构，包括：
+- 必须故障回复到本地 VMware VM。 这意味着，即使将本地物理服务器复制到 Azure 时也需要本地 VMware 基础结构。
+- 对单台计算机进行故障转移，或者创建恢复计划来同时对多台计算机进行故障转移。
+- 运行故障转移时，将使用 Azure 存储中的已复制数据创建 Azure VM。
+- 触发初始故障转移之后，可提交它来开始访问 Azure VM 中的工作负荷。
+- 当本地主站点再次可用时，便可以故障回复。
+- 需要设置故障回复基础结构，包括：
     - **Azure 中的临时进程服务器**：若要从 Azure 进行故障回复，需要设置用作进程服务器的 Azure VM，以处理从 Azure 进行的复制。 故障回复完成后，可以删除此 VM。
     - **VPN 连接**：若要进行故障回复，需要设置从 Azure 网络到本地站点的 VPN 连接（或 Azure ExpressRoute）。
     - **单独的主目标服务器**：默认情况下，在本地 VMware VM 上与配置服务器一起安装的主目标服务器用于处理故障回复。 不过，如果需要对大量流量进行故障回复，应设置专用于此用途的单独的本地主目标服务器。
     - **故障回复策略**：若要复制回到本地站点，需要创建故障回复策略。 这是在创建从本地到 Azure 的复制策略时自动创建的。
     - **VMware 基础结构**： 需要一个用于故障回复的 VMware 基础结构。 无法故障回复到物理服务器。
-2. 所有组件均就位后，故障回复分三个阶段进行：
+- 所有组件均就位后，故障回复分三个阶段进行：
     - 第 1 阶段：重新保护 Azure VM，以便它们可以从 Azure 复制回本地 VMware VM。
     - 第 2 阶段：运行到本地站点的故障转移。
     - 第 3 阶段：在工作负荷进行故障回复后，重新启用复制。
@@ -88,7 +85,5 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-复查支持矩阵，按照本教程启用从 VMware 到 Azure 的复制。
-运行故障转移和故障回复。
-
-<!-- Update_Description: new articles on site recovery concepts physical to azure architecture -->
+根据[此教程](tutorial-physical-to-azure.md)启用物理服务器到 Azure 复制。
+<!-- Update_Description: update meta properties -->

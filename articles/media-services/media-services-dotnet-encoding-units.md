@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/16/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: fc70a42181747b29e9a7b59d64f05980e9d6fc25
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 0895f61352e272a9acd0720afe8e92a5c6edd803
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>如何使用 .NET SDK 缩放编码
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="overview"></a>概述
 > [!IMPORTANT]
-> 请确保查看[概述](media-services-scale-media-processing-overview.md)主题，以获取有关缩放媒体处理主题的详细信息。
+> 请确保查看[概述](media-services-scale-media-processing-overview.md)主题，获取有关调整媒体处理规模的详细信息。
 > 
 > 
 

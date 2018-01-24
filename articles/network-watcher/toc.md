@@ -7,7 +7,9 @@
 ## [安全组视图](network-watcher-security-group-view-overview.md)
 ## [下一跃点](network-watcher-next-hop-overview.md)
 ## [VPN 连接故障排除](network-watcher-troubleshoot-overview.md)
-## [连接检查](network-watcher-connectivity-overview.md)
+## [连接监视](network-watcher-connectivity-overview.md)
+## [服务限制](../azure-subscription-service-limits.md?toc=%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
+
 # 入门
 ## [配置网络观察程序](network-watcher-create.md)
 ## 管理数据包捕获
@@ -55,6 +57,7 @@
 ### [Azure CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 ### [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 ### [REST](network-watcher-nsg-flow-logging-rest.md)
+
 # 如何
 ## [使用 Azure 自动化监视 VPN 网关](network-watcher-monitor-with-azure-automation.md)
 ## [通过 VPN 网关诊断本地连接](network-watcher-diagnose-on-premises-connectivity.md)
@@ -71,9 +74,15 @@
 ### [使用 Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [使用 Grafana](network-watcher-nsg-grafana.md)
 ### [使用 Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+## [确定位置和 Azure 区域之间的相对延迟](view-relative-latencies.md)
 
-# 引用
-## [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+# 参考
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/network/watcher?view=azure-cli-latest)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/#network_watcher)
+## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.network)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher) 
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html#azure.mgmt.network.NetworkManagementClient.network_watchers)
+
 ## [.NET](https://docs.microsoft.com/dotnet/api)
 ## [REST](https://docs.microsoft.com/rest/api/networkwatcher/)
 # 相关内容
@@ -87,3 +96,4 @@
 ## [服务更新](https://www.azure.cn/what-is-new/)
 ## [SLA](https://www.azure.cn/support/legal/sla/)
 <!--Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)-->
+<!--ms.date: 01/22/2018 -->

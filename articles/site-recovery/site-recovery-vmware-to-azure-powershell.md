@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 14/12/2017
-ms.date: 01/01/2018
+origin.date: 01/02/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: c84f819653c8e18d942b46b71d277534a2623945
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: e4035a9b9d28f5c4fb987eb8cc8db52e392d747e
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="replicate-and-failover-vmware-virtual-machines-to-azure-using-azure-site-recovery-powershell"></a>使用 Azure Site Recovery PowerShell 将 VMware 虚拟机复制和故障转移到 Azure
 
@@ -110,7 +110,7 @@ C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials
 ## <a name="set-the-vault-context"></a>设置保管库上下文
 
 > [!TIP]
-> Azure Site Recovery PowerShell 模块（AzureRm.RecoveryServices.SiteRecovery 模块）为大多数 cmdlet 提供了易用的别名。 该模块中的 cmdlet 采用 *\<操作>-**AzureRmRecoveryServicesAsr**\<对象>* 格式，等效的别名采用 *\<操作>-**ASR**\<对象>* 格式。 本文使用 cmdlet 别名以便于阅读。
+> Azure Site Recovery PowerShell 模块（AzureRm.RecoveryServices.SiteRecovery 模块）为大多数 cmdlet 提供了易用的别名。 模块中的 cmdlet 采用 *\<Operation>-**AzureRmRecoveryServicesAsr**\<Object>* 形式，并具有采用 *\<Operation>-**ASR**\<Object>* 形式的等效别名。 本文使用 cmdlet 别名以便于阅读。
 
 使用 Set-ASRVaultContext cmdlet 设置保管库上下文。 设置后，PowerShell 会话中的后续 Azure Site Recovery 操作将在所选保管库的上下文中执行。 以下示例使用 $vault 变量中的保管库详细信息为 PowerShell 会话指定保管库上下文。
  ```azurepowershell
@@ -479,5 +479,4 @@ Succeeded
 
 ## <a name="next-steps"></a>后续步骤
 查看 [Azure Site Recovery PowerShell 参考](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery)来了解如何通过 PowerShell 执行其他任务，例如创建恢复计划，以及对恢复计划执行测试故障转移。
-<!-- Update_Description: new articles on site recovery vmware to azure powershell -->
-<!-- ms.date: 01/01/2018 -->
+<!-- Update_Description: update meta properties -->

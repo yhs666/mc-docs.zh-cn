@@ -15,17 +15,18 @@ ms.topic: get-started-article
 origin.date: 11/20/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5b2cc657ed01e01f565880b6129f17149fb3ace7
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: f2ad346d435895bd6ac81f01c8ef5fc6cfae35c6
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 表 API 简介
 
 [Azure Cosmos DB](introduction.md) 提供的表 API 适用于为 Azure 表存储编写且需要以下高级功能的应用程序：
 
-* [统包式全局分发](distribute-data-globally.md)。
+* [统包式多区域分布](distribute-data-globally.md)。
+<!-- Notice: 全球 to 多个区域 -->
 * 全球范围内[专用的吞吐量](partition-data.md)。
 * 99% 的情况下低至个位数的毫秒级延迟。
 * 保证高可用性。
@@ -43,12 +44,16 @@ ms.lasthandoff: 12/22/2017
 | --- | --- | --- |
 | 延迟 | 快速，但对延迟没有上限。 | 读取操作和写入操作的低至个位数的毫秒级延迟（通过以下统计数据提供支持：在全球任何位置，对于任何规模，99% 的情况下读取操作的延迟 < 10 毫秒、写入操作的延迟 < 15 毫秒）。 |
 | 吞吐量 | 可变吞吐量模型。 表的可伸缩性限制为 20,000 个操作/秒。 | 使用 SLA 支持的[每个表专用保留吞吐量](request-units.md)实现高度可缩放。 帐户没有吞吐量上限，每个表支持 >1000 万个操作/秒。 |
-| 全球分布 | 具有一个可选可读辅助读取区域以实现高可用性的单一区域。 不能启动故障转移。 | 从 1 个到 30 多个区域进行[统包式全局分发](distribute-data-globally.md)。 支持在全球各地随时[自动和手动故障转移](regional-failover.md)。 |
+| 多区域分布 | 具有一个可选可读辅助读取区域以实现高可用性的单一区域。 不能启动故障转移。 | [统包式多区域分布](distribute-data-globally.md)，分布到一到多个区域。 支持在中国各地随时[自动和手动故障转移](regional-failover.md)。 |
 | 索引 | 仅对 PartitionKey 和 RowKey 建立主索引。 没有辅助索引。 | 自动对所有属性完成编制索引，没有索引管理。 |
 | 查询 | 执行查询时使用主键的索引，否则进行扫描。 | 查询可以利用属性的自动索引缩短查询时间。 |
 | 一致性 | 在主要区域内实现强一致性。 在辅助区域内实现最终一致性。 | [五个定义完善的一致性级别](consistency-levels.md)可基于应用程序需要权衡可用性、延迟、吞吐量和一致性。 |
 | 定价 | 存储优化。 | 吞吐量优化。 |
 | SLA | 99.99% 可用性。 | 在公开发布时，为所有单区域帐户和具有松散一致性的所有多区域帐户提供 99.99% 的可用性 SLA，为所有多区域数据库帐户提供 99.999% 的读取可用性方面的[行业领先的综合 SLA](https://www.azure.cn/support/sla/cosmos-db/)。 |
+
+<!-- Notice: 全球 to 各个区域 -->
+<!-- Notice: 全球 to 多个区域 -->
+<!-- Notice: 全球各地 to 中国各地 -->
 
 ## <a name="get-started"></a>入门
 
@@ -64,7 +69,7 @@ ms.lasthandoff: 12/22/2017
 * [使用表 API 生成 .NET 应用程序](create-table-dotnet.md)
 * [在 .NET 中使用表 API 进行开发](tutorial-develop-table-dotnet.md)
 * [使用表 API 查询表数据](tutorial-query-table.md)
-* [了解如何使用表 API 设置 Azure Cosmos DB 全局分发](tutorial-global-distribution-table.md)
+* [了解如何使用表 API 设置 Azure Cosmos DB 全球分布](tutorial-global-distribution-table.md)
 * [Azure Cosmos DB 表 .NET API](table-sdk-dotnet.md)
 * [Azure Cosmos DB 表 Java API](table-sdk-java.md)
 * [Azure Cosmos DB 表 Node.js API](table-sdk-nodejs.md)

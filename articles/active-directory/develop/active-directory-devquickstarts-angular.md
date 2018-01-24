@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-origin.date: 01/07/2017
-ms.date: 01/02/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: ffb61f51bf1c94d20075488a9cd6e0032a4671cf
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: f230247470323dcab7021eddc63001b83060d4fb
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="help-secure-angularjs-single-page-apps-by-using-azure-ad"></a>使用 Azure AD 帮助保护 AngularJS 单页面应用的安全
+# <a name="azure-ad-angularjs-getting-started"></a>Azure AD AngularJS 入门
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 01/04/2018
 4. 单击“应用注册”，然后选择“新建应用程序注册”。
 5. 创建一个新的 Web 应用程序和/或 Web API：
   - **名称**向用户描述应用程序。
-  - **登录 URL** 是用户可以在其中登录并使用你的应用的 URL。 此 URL 以后可以更改。
+  - **登录 URL** 是用户可以在其中登录并使用你的应用的 URL。 此 URL 以后可以更改。 本示例的默认位置是 `https://localhost:44326/`。
 6. 完成注册后，Azure AD 将向应用分配唯一应用程序 ID。  在后面的部分中会用到此值，因此，请从应用程序选项卡中复制此值。
 7. Adal.js 使用 OAuth 隐式流来与 Azure AD 通信。 必须为应用程序启用隐式流：
   1. 单击应用程序，并选择“清单”打开内联清单编辑器。

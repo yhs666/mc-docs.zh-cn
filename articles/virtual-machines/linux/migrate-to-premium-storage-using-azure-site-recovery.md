@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 08/15/2017
 ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: e39a717db250357098fa11e44cebc96d5fc06fcc
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: b157bf62f6429dd05eb0ddc9ebe77bde563f0e65
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 迁移到高级存储
 
@@ -210,7 +210,8 @@ Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM �
 ## <a name="troubleshooting"></a>故障排除
 
 * [监视虚拟机和物理服务器的保护及其故障排除](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Azure Site Recovery 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr)
+* [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 
+<!-- Replace [Azure Site Recovery forum] with [MSDN Azure 和 CSDN Azure]-->
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -219,7 +220,7 @@ Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM �
 * [Migrate Azure Virtual Machines between Storage Accounts（在存储帐户之间迁移 Azure 虚拟机）](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [创建 Windows Server VHD 并将其上传到 Azure](../windows/classic/createupload-vhd.md)
 * [创建并上传包含 Linux 操作系统的虚拟硬盘](../linux/classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [将虚拟机从 Amazon AWS 迁移到 Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+<!--Not Available on * [Migrating Virtual Machines from Amazon AWS to Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)-->
 
 另请参阅以下资源，深入了解 Azure 存储和 Azure 虚拟机：
 

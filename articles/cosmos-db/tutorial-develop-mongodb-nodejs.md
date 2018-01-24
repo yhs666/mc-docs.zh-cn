@@ -16,18 +16,19 @@ origin.date: 09/05/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 08067ea180fc6ef1908207219d54f089d861327a
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 7996e91b668e21bcca865bc21f42ef5e325e22f7
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 
 
-本教程包含多个部分，演示了如何通过 Express、Angular 和 Node.js（MEAN 堆栈）创建新的 [MongoDB API](mongodb-introduction.md) 应用，然后将其连接到 Azure Cosmos DB 数据库。 Azure Cosmos DB 支持 MongoDB 客户端连接，因此可以用 Azure Cosmos DB 来代替 MongoDB，所用代码与用于 MongoDB 应用的代码相同，而优势则会增强。 Azure Cosmos DB 的优势包括：简化云部署、缩放、安全、全局复制数据、多模型支持，以及超快的读取和写入速度。 
+本教程包含多个部分，演示了如何通过 Express、Angular 和 Node.js（MEAN 堆栈）创建新的 [MongoDB API](mongodb-introduction.md) 应用，然后将其连接到 Azure Cosmos DB 数据库。 Azure Cosmos DB 支持 MongoDB 客户端连接，因此可以用 Azure Cosmos DB 来代替 MongoDB，所用代码与用于 MongoDB 应用的代码相同，而优势则会增强。 Azure Cosmos DB 的优势包括：简化云部署、缩放、安全、多区域复制数据、多模型支持，以及超快的读取和写入速度。 
 
-Azure Cosmos DB 由 21Vianet 提供，是全球分布的多模型数据库服务。 可以通过它来快速创建和查询文档以及键/值，它们都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。 
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可以通过它来快速创建和查询文档以及键/值，它们都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
 <!-- Not Available on Graph databases-->
+<!-- NOTICE: 全球分布 TO 多个区域分布 -->
 
 本教程分为多个部分，涵盖以下任务：
 

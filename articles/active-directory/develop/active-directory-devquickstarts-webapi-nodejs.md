@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory Node.js 入门"
+title: "Azure AD Node.js Web API 入门 | Microsoft Docs"
 description: "如何生成一个与 Azure AD 集成、可用于身份验证的 Node.js REST Web API。"
 services: active-directory
 documentationcenter: nodejs
@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-origin.date: 10/17/2017
-ms.date: 01/10/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 9a8c4908a6b48494a72ccfe814e03a00c2c8d115
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: e64ea638cc528b5e91b030e9702addd8764cfa3b
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="secure-nodejs-web-api-with-azure-active-directory"></a>使用 Azure Active Directory 保护 Node.js Web API
+# <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js Web API 入门
 
 本文演示如何使用 [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) 模块通过 [Passport](http://passportjs.org/) 保护 [Restify](http://restify.com/) API 终结点，以处理与 Azure Active Directory (AAD) 之间的通信。 
 

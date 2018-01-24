@@ -3,8 +3,8 @@ title: "泛型 SQL 连接器 | Microsoft Docs"
 description: "本文介绍如何配置 Microsoft 的泛型 SQL 连接器。"
 services: active-directory
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: fimguy
+manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/31/2017
-ms.date: 11/22/2017
+origin.date: 12/19/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: f5f76d34b085a2dc0d73a5f43a403252cd5301d9
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 7803df87195dd9744088df9431bb3e29fdd02b94
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>泛型 SQL 连接器技术参考
 本指南介绍泛型 SQL 连接器。 本文适用于以下产品：
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/24/2017
 
 | 功能 | 支持 |
 | --- | --- |
-| 连接的数据源 |此连接器支持所有 64 位 ODBC 驱动程序。 此连接器已进行以下各项的测试： <li>Microsoft SQL Server 和 SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 和 11g</li><li>MySQL 5.x</li> |
+| 连接的数据源 |此连接器支持所有 64 位 ODBC 驱动程序。 已经过以下软件的测试： <li>Microsoft SQL Server 和 SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 和 11g</li><li>MySQL 5.x</li> |
 | 方案 |<li>对象生命周期管理</li><li>密码管理</li> |
 | 操作 |<li>完全导入和增量导入、导出</li><li>对于导出：添加、删除、更新和替换</li><li>设置密码、更改密码</li> |
 | 架构 |<li>动态发现对象和属性</li> |
@@ -89,7 +89,7 @@ ms.lasthandoff: 11/24/2017
 **导出类型: 对象替换**：在导出期间，只有一些属性已更改时，包含所有属性的整个对象将会导出并替换现有对象。
 
 ### <a name="schema-1-detect-object-types"></a>架构 1（检测对象类型）
-此页面上，配置连接器要如何在数据库中查找不同的对象类型。
+此页面上，将配置连接器要如何在数据库中查找不同的对象类型。
 
 每个对象类型显示为一个分区，并且在“配置分区和层次结构”上进一步设置。
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 11/24/2017
 说明：
 
 - 如果连接器无法检测属性类型，则使用字符串数据类型。
-- 可将嵌套表视为包含一个列的数据库表。 Oracle 不以任何特定顺序存储嵌套表的行。 但是，将嵌套表检索到 PL/SQL 变量时，行便有从 1 开始的连续下标。 通过该下标可获得单个行的类似于数组的访问。
+- 可将嵌套表视为包含一个列的数据库表。 Oracle 不以任何特定顺序存储嵌套表的行。 但是，当你将嵌套表检索到 PL/SQL 变量时，行便有从 1 开始的连续下标。 通过该下标可获得单个行的类似于数组的访问。
 - 连接器不支持 **VARRYS**。
 
 ### <a name="schema-5-define-partition-for-reference-attributes"></a>架构 5（定义引用属性的分区）
@@ -159,7 +159,7 @@ ms.lasthandoff: 11/24/2017
 
  </br> 如果选择了 “*”，则还必须指定包含对象类型的列的名称。</br> ![](./media/active-directory-aadconnectsync-connector-genericsql/any-03.png)
 
-导入后，你会看到如下图所示的内容：
+导入后，会看到如下图所示的内容：
 
   ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/after-import.png)
 
@@ -180,7 +180,7 @@ ms.lasthandoff: 11/24/2017
   - 水印策略不支持已删除的对象。
 - **快照**（仅适用于 Microsoft SQL Server）[使用快照生成差异视图](https://technet.microsoft.com/library/cc720640.aspx)
 - **更改跟踪**（仅适用于 Microsoft SQL Server）[关于更改跟踪](https://msdn.microsoft.com/library/bb933875.aspx)  
-  的限制：
+  限制：
   - 定位点和 DN 属性必须属于表中所选对象的主键。
   - 在使用更改跟踪的导入和导出期间，不支持 SQL 查询。
 
@@ -232,7 +232,11 @@ ms.lasthandoff: 11/24/2017
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **表/视图**  
-若要导入对象的多值属性，必须在“多值表/视图名称”中提供逗号分隔的表/视图名称，并在父表的“联接条件”中提供各自的联接条件。
+若要导入对象的多值属性，必须在“多值表/视图名称”中提供表/视图名称，以及在父表的“联接条件”中提供各自的联接条件。 如果数据源中有多个多值表，则可以使用联合到单个视图。
+
+>[!IMPORTANT]
+常规 SQL 管理代理仅使用一个多值表。 请不要在多值表/视图的名称中放入多个表名。 这是通用 SQL 的限制。
+
 
 示例：想要导入员工对象及其所有多值属性。 有两个表：Employee（主表）和 Department（多值）。
 请执行以下操作：

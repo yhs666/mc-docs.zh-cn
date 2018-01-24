@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 04/20/2017
-ms.date: 10/02/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 09a362a95531e31d9f9e16ee026b6abf87ba616c
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: a93db485bd8705a7188270a5b14631b8de252153
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>在 Azure 门户中测试 Azure 流分析查询
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 09/28/2017
 
 ## <a name="test-the-input"></a>测试输入
 
-1. 若要使用示例输入数据进行测试，请右键单击任意输入，然后选择“从文件上传示例数据”。
+1. 若要使用示例输入数据进行测试，请右键单击任意输入，然后选择“从文件上传示例数据”。 当前只能上传 JSON 格式的数据。 如果数据采用其他格式（如 CSV），则应在上传前将其转换为 JSON 格式。 可以使用任何开源转换工具（如 [CSV 到 JSON 转换器](http://www.convertcsv.com/csv-to-json.htm)）将数据转换为 JSON 格式。
 
     ![流分析查询编辑器测试查询](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
@@ -56,4 +56,4 @@ ms.lasthandoff: 09/28/2017
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

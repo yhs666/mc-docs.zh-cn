@@ -13,31 +13,31 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/15/2017
-ms.date: 12/11/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: a10885ea330add8d6191cdd40268e541d995773f
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: abbb77a1efced64ac4f908100e66b2b03e44a904
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="optimize-network-throughput-for-azure-virtual-machines"></a>优化 Azure 虚拟机的网络吞吐量
+# <a name="optimize-network-throughput-for-azure-virtual-machines"></a>优化 Azure 虚拟机网络吞吐量
 
 Azure 虚拟机 (VM) 的默认网络设置可以进一步针对网络吞吐量进行优化。 本文介绍如何优化 Azure 的 Windows 和 Linux VM（包括 Ubuntu、CentOS 和 Red Hat 等主要发行版）的网络吞吐量。
 
 ## <a name="windows-vm"></a>Windows VM
 
-与不使用 RSS 的 VM 相比，使用接收方缩放 (RSS) 的 VM 可达到更高的最大吞吐量。 RSS 在 Windows VM 中默认已禁用。 完成以下步骤以确定是否启用了 RSS 并在已禁用它时启用它。
+与不使用 RSS 的 VM 相比，使用接收方缩放 (RSS) 的 VM 可达到更高的最大吞吐量。 RSS 在 Windows VM 中默认已禁用。 完成以下步骤可确定是否已启用 RSS，并在禁用的情况下将它启用。
 <!-- Not Avaialable virtual-network-create-vm-accelerated-networking.md -->
 
-1. 输入 `Get-NetAdapterRss` PowerShell 命令查看是否为网络适配器启用了 RSS。 从 `Get-NetAdapterRss`返回的以下示例输出中可以看出，RSS 未启用。
+1. 使用 `Get-NetAdapterRss` PowerShell 命令查看是否为网络适配器启用了 RSS。 从 `Get-NetAdapterRss`返回的以下示例输出中可以看出，RSS 未启用。
 
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
-2. 输入以下命令启用 RSS：
+2. 若要启用 RSS，请输入以下命令：
 
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
@@ -48,7 +48,7 @@ Azure 虚拟机 (VM) 的默认网络设置可以进一步针对网络吞吐量�
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : True
+    Enabled                  : True
     ```
 
 ## <a name="linux-vm"></a>Linux VM
@@ -58,12 +58,14 @@ Azure 虚拟机 (VM) 的默认网络设置可以进一步针对网络吞吐量�
 ### <a name="ubuntu-for-new-deployments"></a>用于新部署的 Ubuntu
 
 Ubuntu Azure 内核在 Azure 上提供最佳网络性能，并且自 2017 年 9 月 21 日起已成为默认内核。 若要获得此内核，请首先安装 16.04-LTS 的最新支持版本，如下所述：
+
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
+
 创建完成后，输入以下命令获取最新更新。 这些步骤也适用于当前正在运行 Ubuntu Azure 内核的 VM。
 
 ```bash
@@ -98,7 +100,8 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-如果 VM 没有 Azure 内核，版本号将通常以“4.4”开头。 在这些情况下，请以 root 身份运行以下命令。
+如果 VM 没有 Azure 内核，版本号将通常以“4.4”开头。 如果 VM 没有 Azure 内核，请以 root 身份运行以下命令：
+
 ```bash
 #run as root or preface with sudo
 apt-get update
@@ -111,14 +114,15 @@ reboot
 ### <a name="centos"></a>CentOS
 
 若要获得最新优化，最好通过指定以下参数，创建具有最新支持版本的 VM：
+
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
 "Sku": "7.4",
 "Version": "latest"
 ```
-新的和现有的 VM 可受益于安装最新 Linux Integration Services (LIS)。
-从 4.2.2-2 开始，吞吐量优化位于 LIS 中，尽管更高版本包含更多改进。 输入以下命令以安装最新 LIS：
+
+新的和现有的 VM 可受益于安装最新 Linux Integration Services (LIS)。 从 4.2.2-2 开始，吞吐量优化位于 LIS 中，尽管更高版本包含更多改进。 输入以下命令以安装最新 LIS：
 
 ```bash
 sudo yum update
@@ -129,14 +133,15 @@ sudo yum install microsoft-hyper-v
 ### <a name="red-hat"></a>Red Hat
 
 若要获得优化，最好通过指定以下参数，创建具有最新支持版本的 VM：
+
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7-RAW"
 "Version": "latest"
 ```
-新的和现有的 VM 可受益于安装最新 Linux Integration Services (LIS)。
-吞吐量优化功能在从 4.2 开始的 LIS 中。 输入以下命令下载并安装 LIS：
+
+新的和现有的 VM 可受益于安装最新 Linux Integration Services (LIS)。 吞吐量优化功能在从 4.2 开始的 LIS 中。 输入以下命令下载并安装 LIS：
 
 ```bash
 mkdir lis4.2.3-1
@@ -150,7 +155,8 @@ install.sh #or upgrade.sh if prior LIS was previously installed
 查看[下载页](https://www.microsoft.com/download/details.aspx?id=55106)，详细了解适用于 Hyper-V 的 Linux Integration Services 版本 4.2。
 
 ## <a name="next-steps"></a>后续步骤
-* 既然 VM 进行了优化，请参阅[带宽/吞吐量测试 (Azure VM)](virtual-network-bandwidth-testing.md)，了解方案的结果。
+* 请参阅[带宽/吞吐量测试 Azure VM](virtual-network-bandwidth-testing.md)，查阅方案的优化结果。
+* 阅读有关如何 [将带宽分配给虚拟机] (virtual-machine-network-throughput.md) 的信息
 * 通过 [Azure 虚拟网络常见问题解答 (FAQ)](virtual-networks-faq.md) 了解详细信息
 
-<!--Update_Description: wording update， update meta properties -->
+<!--Update_Description: wording update，update link, update meta properties -->

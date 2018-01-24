@@ -16,14 +16,15 @@ origin.date: 10/17/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2d7927a176053406d4716d44e9c8e97b8dd6ac9
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 403af8a9f4c01a00ed75d02c9869f158c86e2c7a
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Azure Cosmos DB 中用于保证业务连续性的自动区域性故障转移
-Azure Cosmos DB 可通过提供完全托管的[多区域数据库帐户](distribute-data-globally.md)简化数据的全球分布。这些帐户在一致性、可用性和性能方面进行了很好的平衡，各方面的效果都有相应的保证。 Cosmos DB 帐户提供以下优势：高可用性，10 毫秒以下的延迟，[妥善定义的一致性级别](consistency-levels.md)，使用多宿主 API 实现透明的区域性故障转移，以及在全球范围内弹性缩放吞吐量和存储。 
+Azure Cosmos DB 可通过提供完全托管的[多区域数据库帐户](distribute-data-globally.md)来简化多区域数据分布。这些帐户在一致性、可用性和性能之间提供明确的折衷，并且全部附带了相应的保证。 Cosmos DB 帐户提供以下优势：高可用性，10 毫秒以下的延迟，[妥善定义的一致性级别](consistency-levels.md)，使用多宿主 API 实现透明的区域性故障转移，以及在多区域范围内弹性缩放吞吐量和存储。 
+<!-- Notice: 全球 to 多个区域 -->
 
 Cosmos DB 支持显式和策略驱动型故障转移，方便用户在发生故障时控制端到端系统行为。 本文介绍：
 
@@ -31,9 +32,8 @@ Cosmos DB 支持显式和策略驱动型故障转移，方便用户在发生故�
 * 如何在 Cosmos DB 中进行自动故障转移，以及数据中心不可用时会发生什么情况？
 * 如何在应用程序体系结构中使用手动故障转移？
 
-还可以通过 Azure Friday 视频，与 Scott Hanselman 和工程（主管）经理 Karthik Raman 一起，了解区域故障转移的相关信息。
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+<!-- Not Available on >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  -->
 
 ## <a id="ConfigureMultiRegionApplications"></a>配置多区域应用程序
 在深入探讨故障转移模式之前，我们先介绍如何配置应用程序，以便在需要进行区域性故障转移时充分利用多区域可用性，确保足够的还原能力。
@@ -69,9 +69,10 @@ DocumentClient usClient = new DocumentClient(
 
 以下体系结构示意图显示多区域应用程序部署，其中 Cosmos DB 和该应用程序配置为可在四个 Azure 地理区域使用。  
 
-![使用 Azure Cosmos DB 实施全球分布式应用程序部署](./media/regional-failover/app-deployment.png)
+![使用 Azure Cosmos DB 实施多区域分布式应用程序部署](./media/regional-failover/app-deployment.png)
 
 现在，让我们看看 Cosmos DB 服务如何通过自动故障转移处理区域性故障。 
+<!-- Notice: 全球 to 多个区域 -->
 
 ## <a id="AutomaticFailovers"></a>自动故障转移
 在极少的情况下出现 Azure 区域性中断或数据中心中断时，Cosmos DB 会自动触发故障转移，转移受影响区域中存在的所有 Cosmos DB 帐户。 
@@ -133,14 +134,16 @@ do
 
 **遵循时钟模型**：如果应用程序的流量模式可以根据一天的时间进行预测，则可根据一天的时间定期将写入状态转移到最活动的地理区域。
 
-**服务更新**：某些全球分布式应用程序的部署可能需要在计划内服务更新期间通过流量管理器将流量重新路由到其他区域。 现在，此类应用程序部署可以使用手动故障转移，将写入状态保留给在服务更新时段会有活动流量的区域。
+**服务更新**：某些多区域分布式应用程序的部署可能需要在计划内服务更新期间通过流量管理器将流量重新路由到其他区域。 现在，此类应用程序部署可以使用手动故障转移，将写入状态保留给在服务更新时段会有活动流量的区域。
+<!-- Notice: 全球 to 多个区域 -->
 
 **业务连续性和灾难恢复 (BCDR) 以及高可用性和灾难恢复 (HADR) 演练**：大多数企业应用程序在开发和发布过程中都会进行业务连续性测试。 BCDR 和 HADR 测试通常是进行符合性认证的重要一步，并可确保在发生区域性中断时服务的可用性。 可以对使用 Cosmos DB 进行存储的应用程序实施 BCDR 就绪性测试，方法是：触发对 Cosmos DB 帐户的手动故障转移，以及/或者动态添加和删除某个区域。
 
-本文探讨了如何在 Cosmos DB 中使用手动和自动故障转移，以及如何配置 Cosmos DB 帐户和应用程序才能让其全局可用。 可以利用 Cosmos DB 的全局复制支持改善端到端延迟情况，确保即使在发生区域故障的情况下，也可以顺利使用这些帐户和应用程序。 
+本文探讨了如何在 Cosmos DB 中使用手动和自动故障转移，以及如何配置 Cosmos DB 帐户和应用程序才能让其多区域可用。 可以利用 Cosmos DB 的多区域复制支持改善端到端延迟情况，确保即使在发生区域故障的情况下，也可以顺利使用这些帐户和应用程序。 
 
 ## <a id="NextSteps"></a>后续步骤
-* 了解 Cosmos DB 如何支持[全球分布](distribute-data-globally.md)
+* 了解 Cosmos DB 如何支持[多区域分布](distribute-data-globally.md)
+<!-- Notice: 全球 to 多个区域 -->
 * 了解 [Azure Cosmos DB 的全局一致性](consistency-levels.md)
 * 使用 Azure Cosmos DB 的 [SQL API](tutorial-global-distribution-sql-api.md) 在使用多个区域的情况下进行开发
 * 了解如何使用 Azure Cosmos DB 构建[多区域编写器体系结构](multi-region-writers.md)

@@ -16,16 +16,18 @@ ms.topic: quickstart
 origin.date: 10/02/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 07267279f9a07376cd98e00e4119cba1cccbf11f
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: eaa3f258ee62c2a14a2f3d47a6a1dc1d0f9b999f
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB：借助 MongoDB API 构建 Flask 应用
 
-Azure Cosmos DB 是 Azure 的全球分布式多模型数据库服务。 可快速创建和查询文档及键/值，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。
-<!--Not Available on Graph databases -->
+Azure Cosmos DB 是 Azure 的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
+<!-- NOTICE: globally TO multiple-region  -->
+
 
 本快速入门指南使用以下 [Flask 示例](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample)并演示如何借助 [Azure Cosmos DB 模拟器](/local-emulator.md) 而不是 MongoDB 构建简单的待办事项 Flask 应用。
 

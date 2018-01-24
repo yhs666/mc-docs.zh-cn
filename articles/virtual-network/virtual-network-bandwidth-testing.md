@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/21/2017
-ms.date: 01/15/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 15c99e8b66e849e2dffe4adde42a9d919f675265
-ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
+ms.openlocfilehash: 9369a9b6563e5b32ba8323f5daf086bea5430242
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>带宽/吞吐量测试 (NTTTCP)
 
@@ -94,19 +94,16 @@ ntttcp -s -m 8,\*,10.0.0.4 -t 300
 在 Linux VM 上（发送方和接收方），运行以下命令以在 VM 上准备 ntttcp-for-linux：
 
 CentOS - 安装 Git：
-
 ``` bash
   yum install gcc -y  
   yum install git -y
 ```
 Ubuntu — 安装 Git：
-
 ``` bash
  apt-get -y install build-essential  
  apt-get -y install git
 ```
 在两个 VM 上同时获取并安装：
-
 ``` bash
  git clone https://github.com/Microsoft/ntttcp-for-linux
  cd ntttcp-for-linux/src
@@ -163,6 +160,7 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 
 ## <a name="next-steps"></a>后续步骤
 * 根据得到的结果，也许能够为方案[优化网络吞吐量计算机](virtual-network-optimize-network-bandwidth.md)。
+* 阅读有关如何 [将带宽分配给虚拟机] (virtual-machine-network-throughput.md) 的信息
 * 通过 [Azure 虚拟网络常见问题解答 (FAQ)](virtual-networks-faq.md) 了解详细信息
 
 <!--Update_Description: update meta properties, wording update -->

@@ -16,11 +16,11 @@ ms.workload: na
 origin.date: 10/18/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: d30da8cbf09c7d6ec68b977c924a65e651090337
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: bb6e4c4df25479814b40e872f9bcd64a8c6f76ba
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
@@ -56,9 +56,10 @@ ms.lasthandoff: 12/22/2017
 <!-- Not Available on VIDEO -->
 
 ## <a name="how-the-emulator-works"></a>模拟器的工作原理
-Azure Cosmos DB 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它支持和 Azure Cosmos DB 相同的功能，包括支持创建和查询 JSON 文档、预配集合和调整集合的规模，以及执行存储过程和触发器。 可以使用 Azure Cosmos DB 模拟器开发和测试应用程序，并通过对 Azure Cosmos DB 的连接终结点进行单一配置更改将其部署到全球范围的 Azure。
+Azure Cosmos DB 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它支持和 Azure Cosmos DB 相同的功能，包括支持创建和查询 JSON 文档、预配集合和调整集合的规模，以及执行存储过程和触发器。 可以使用 Azure Cosmos DB 模拟器开发和测试应用程序，并通过对 Azure Cosmos DB 的连接终结点进行单一配置更改将其部署到多区域范围的 Azure。
+<!-- Notice: 全球 to 多个区域 -->
 
-虽然创建了实际 Azure Cosmos DB 服务的高保真本地模拟，但是 Azure Cosmos DB 模拟器的实现不同于该服务。 例如，Azure Cosmos DB 模拟器针对持久性使用标准 OS 组件（如本地文件系统），针对连接性使用 HTTPS 协议堆栈。 这意味着，不可通过 Azure Cosmos DB 模拟器使用某些依赖于 Azure 基础结构的功能，如全局复制、读/写的单位数毫秒延迟，以及可调整的一致性级别。
+虽然创建了实际 Azure Cosmos DB 服务的高保真本地模拟，但是 Azure Cosmos DB 模拟器的实现不同于该服务。 例如，Azure Cosmos DB 模拟器针对持久性使用标准 OS 组件（如本地文件系统），针对连接性使用 HTTPS 协议堆栈。 这意味着，不可通过 Azure Cosmos DB 模拟器使用某些依赖于 Azure 基础结构的功能，如多区域复制、读/写的单位数毫秒延迟，以及可调整的一致性级别。
 
 > [!NOTE]
 > 目前，模拟器中的数据资源管理器仅支持创建 SQL API 集合与 MongoDB 集合。 模拟器中的数据资源管理器目前不支持创建表。 

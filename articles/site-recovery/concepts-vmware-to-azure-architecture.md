@@ -1,5 +1,5 @@
 ---
-title: "查看执行 VMware 到 Azure 的复制的体系结构 | Azure"
+title: "Azure Site Recovery 中的 VMware 到 Azure 复制体系结构 | Azure"
 description: "本文概述了使用 Azure Site Recovery 服务将本地 VMware VM 复制到 Azure 时使用的组件和体系结构"
 services: site-recovery
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2017
-ms.date: 11/20/2017
+origin.date: 12/19/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: ae895ab2c68df89deb57641752548490d777b897
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: b811176d686226a33529e5c1358f3174193b4e5e
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware 到 Azure 复制体系结构
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/15/2017
     - 配置服务器通过 HTTPS 443 出站端口来与 Azure 协调复制管理。
     - 进程服务器从源计算机接收数据、优化和加密数据，并通过 443 出站端口将其发送到 Azure 存储。
     - 如果启用了多 VM 一致性，则复制组中的计算机将通过端口 20004 相互通信。 如果将多台计算机分组到复制组，并且这些组在故障转移时共享崩溃一致且应用一致的恢复点，请使用多 VM 方案。 如果计算机运行相同的工作负荷并需要保持一致，这种做法非常有用。
-4. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以使用 Azure ExpressRoute [公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)。 不支持通过站点到站点 VPN 将流量从本地站点复制到 Azure。
+4. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以使用 Azure ExpressRoute [公共对等互连](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)。 不支持通过站点到站点 VPN 将流量从本地站点复制到 Azure。
 <!-- Sync late on azure-public-peering-->
 
 **VMware 到 Azure 的复制过程**
@@ -84,7 +84,5 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-复查支持矩阵，按照本教程启用从 VMware 到 Azure 的复制。
-运行故障转移和故障回复。
-
-<!-- Update_Description: new articles on site recovery concepts vmware to azure architecture -->
+根据[此教程](tutorial-vmware-to-azure.md)启用 VMware 到 Azure 复制。
+<!-- Update_Description: update meta properties -->

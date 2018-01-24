@@ -1,6 +1,6 @@
 ---
 title: "Azure Cosmos DB 简介 | Azure"
-description: "了解 Azure Cosmos DB。 此全球分布式多模型数据库是为了实现低延迟、弹性的可伸缩性和高可用性而构建的。"
+description: "了解 Azure Cosmos DB。 此多区域分布式多模型数据库是为了实现低延迟、弹性的可伸缩性和高可用性而构建的。"
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
@@ -16,27 +16,31 @@ origin.date: 12/15/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6ff255541ccaae88ebf7c363855bec4cedc36d47
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: cd789b83f58fe424a22695f3bed8833dc0b070e8
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
+<!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Azure Cosmos DB 由 21Vianet 提供，是全球分布的多模型数据库。 只需单击一个按钮，即可通过 Azure Cosmos DB 跨任意数量的 Azure 地理区域弹性且独立地缩放吞吐量和存储。 它通过综合[服务级别协议](https://www.azure.cn/support/sla/documentdb/) (SLA) 提供吞吐量、延迟、可用性和一致性保证，这是其他数据库服务无法提供的。
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库。 只需单击一个按钮，即可通过 Azure Cosmos DB 跨任意数量的 Azure 地理区域弹性且独立地缩放吞吐量和存储。 它通过综合[服务级别协议](https://www.azure.cn/support/sla/documentdb/) (SLA) 提供吞吐量、延迟、可用性和一致性保证，这是其他数据库服务无法提供的。
 
 <!-- Not Avaialble [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
 
-![Azure Cosmos DB 是 21Vianet 的全球分布式数据库服务，可以弹性扩展，可保证低延迟，有五个一致性模型，并且保证满足综合 SLA](./media/introduction/azure-cosmos-db.png)
+![Azure Cosmos DB 是 21Vianet 提供的多区域分布式数据库服务，可以弹性横向扩展，可保证低延迟，有五个一致性模型，并且保证满足综合 SLA](./media/introduction/azure-cosmos-db.png)
 <!-- Not Avaialble [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
 
 ## <a name="key-capabilities"></a>关键功能
-作为一种全局分布式多模型数据库服务，Azure Cosmos DB 可以轻松地生成可缩放且响应迅速的全局规模应用程序：
+作为一种多区域分布式多模型数据库服务，Azure Cosmos DB 可以轻松地生成可缩放且响应迅速的多区域规模应用程序：
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
 
-* **统包式全局分配**
+* **统包式多区域分布**
     * [单击按钮](tutorial-global-distribution-sql-api.md)即可将[数据分配](distribute-data-globally.md)到任意数目的 [Azure 区域](https://www.azure.cn/support/service-dashboard/)。 这样就可以将数据置于用户所在的位置，确保将客户可能会遇到到的延迟降至最低。 
     * 使用 Azure Cosmos DB 的多宿主 API，应用始终能够知道最近的区域在哪里，于是就会将请求发送到最近的数据中心。 所有这些无需更改任何配置即可实现。 只需设置写入区域并根据需要设置尽可能多的读取区域即可。
     * 有了多宿主 API 功能，在添加和删除 Cosmos DB 数据库的区域时，不需重新部署应用程序即可让其保持高可用性。
@@ -47,7 +51,7 @@ Azure Cosmos DB 由 21Vianet 提供，是全球分布的多模型数据库。 �
     * 多种语言的 SDK 均支持以下数据模型的 API：
         * [SQL API](sql-api-introduction.md)：使用丰富的 SQL 查询功能的无架构 JSON 数据库引擎。
         * [MongoDB API](mongodb-introduction.md)：一种可大规模缩放的服务型 MongoDB，由 Azure Cosmos DB 平台提供支持。 与现有 MongoDB 库、驱动程序、工具和应用程序兼容。
-        * [表 API](table-introduction.md)：一种键值对型数据库服务，可以在不进行应用更改的情况下，为现有的 Azure 表存储应用程序提供高级功能（例如，自动索引、低延迟保证、全局分发）。
+        * [表 API](table-introduction.md)：一种键值对型数据库服务，可以在不进行应用更改的情况下，为现有的 Azure 表存储应用程序提供高级功能（例如，自动索引、低延迟保证、多区域分布）。
 <!--Not Available * [Cassandra API](cassandra-introduction.md)-->
 <!--Not Available * [Graph (Gremlin) API](graph-introduction.md)-->
         * Additional data models coming soon!
@@ -55,6 +59,7 @@ Azure Cosmos DB 由 21Vianet 提供，是全球分布的多模型数据库。 �
 * **在全球范围内按需求灵活且独立地缩放吞吐量和存储**
     * 以[秒](request-units.md)为时间粒度轻松缩放数据库吞吐量，并随时对其进行更改。 
     * [透明且自动地](partition-data.md)缩放存储大小，以满足现在和将来对大小的要求。
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
 
 * 构建快速响应的任务关键型应用程序
     * Azure Cosmos DB 向其客户保证了 99% 的情况下端到端的低延迟。 
@@ -65,8 +70,9 @@ Azure Cosmos DB 由 21Vianet 提供，是全球分布的多模型数据库。 �
     * 部署到任意数量的 [Azure 区域](https://www.azure.cn/support/service-dashboard/)，在提高可用性的同时改进性能。
     * 动态设置区域的优先级，并在保证不丢失数据的情况下，对一个或多个区域进行[故障模拟](regional-failover.md)，测试整个应用的端到端可用性（超出单纯数据库的范围）。 
 
-* 以正确方式编写全球发布式应用程序
+* **编写多区域分布式应用程序的正确方式**
     * 五个定义完善、实用且直观的[一致性模型](consistency-levels.md)提供了一系列的一致性：从类似于 SQL 的“强”一致性到类似于 NoSQL 的“宽松”终极一致性，以及介于二者之间的其他一致性。 
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
 
 * 退款保证
     * 针对业务关键型数据提供的有关可用性、延迟、吞吐量和一致性的[服务级别协议](https://www.azure.cn/support/sla/documentdb/)具有行业领先、财务支持充分、内容全面的特点。 
@@ -85,12 +91,13 @@ Azure Cosmos DB 提供关系数据库和非关系数据库的最佳功能。
 
 | 功能 | 关系数据库   | 非关系 (NoSQL) 数据库 |    Azure Cosmos DB |
 | --- | --- | --- | --- |
-| 全球分布 | 否 | 否 | 是的，可以在 30 多个区域通过多宿主 API 实现统包式分发|
+| 多区域分布 | 否 | 否 | 是的，可以在 30 多个区域通过多宿主 API 实现统包式分布|
 | 横向缩放 | 否 | 是 | 是的，可以独立缩放存储和吞吐量 | 
 | 延迟保证 | 否 | 是 | 是的，99% 的情况下可以确保读取延迟低于 10 毫秒，写入延迟低于 15 毫秒 | 
 | 高可用性 | 否 | 是 | 是的，Azure Cosmos DB 始终可用，实施定义完善的 PACELC 权衡，并提供自动和手动故障转移选项|
 | 数据模型 + API | 关系 + SQL | 多模型 + OSS API | 多模型 + SQL + OSS API（即将推出更多） |
 | SLA | 是 | 否 | 是的，综合性 SLA 的内容涵盖延迟、吞吐量、一致性和可用性 |
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>受益于 Azure Cosmos DB 的解决方案
 

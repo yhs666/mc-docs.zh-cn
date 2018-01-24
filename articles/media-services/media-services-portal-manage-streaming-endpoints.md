@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/10/2017
-ms.date: 09/25/2017
+ms.date: 1/22/2018
 ms.author: v-johch
-ms.openlocfilehash: aff9b813ef99b68f9989855561dfaced1fb74d42
-ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
+ms.openlocfilehash: 693ac3d021d5ed79403dc8463caa077881d0e501
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>使用 Azure 门户管理流式处理终结点
 
-本主题说明如何使用 Azure 门户管理流式处理终结点。
+本文说明了如何使用 Azure 门户管理流式处理终结点。 
 
 >[!NOTE]
->请确保查看[概述](media-services-streaming-endpoints-overview.md)主题。
+>请确保查看[概述](media-services-streaming-endpoints-overview.md)一文。 
 
-有关如何缩放流式处理终结点的信息，请参阅[此](media-services-portal-scale-streaming-endpoints.md)主题。
+有关如何缩放流式处理终结点的信息，请参阅[此](media-services-portal-scale-streaming-endpoints.md)文章。
 
 ## <a name="start-managing-streaming-endpoints"></a>开始管理流式处理终结点 
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 09/19/2017
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 Azure 媒体服务帐户。
 2. 在“设置”边栏选项卡中，选择“流式处理终结点”。
-
+   
     ![流式处理终结点](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
@@ -50,13 +50,13 @@ ms.lasthandoff: 09/19/2017
 
 若要使用 Azure 门户添加/删除流式处理终结点，请执行以下操作：
 
-1. 若要添加流式处理终结点，请单击页面顶部的“+ 终结点”  。
+1. 若要添加流式处理终结点，请单击页面顶部的“+ 终结点”  。 
 
     如果计划使用不同的 CDN 或者使用一个 CDN 和直接访问，则可能需要多个流式处理终结点。
 
-2. 若要删除流式处理终结点，请按“删除”  按钮。
+2. 若要删除流式处理终结点，请按“删除”  按钮。      
 3. 单击“启动”  按钮以启动流式处理终结点。
-
+   
     ![流式处理终结点](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 ## <a id="configure_streaming_endpoints"></a>配置流式处理终结点

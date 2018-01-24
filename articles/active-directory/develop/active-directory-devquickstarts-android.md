@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Android 入门 | Microsoft 文档"
-description: "如何构建一个与 Azure AD 集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 Android 应用程序。"
+description: "如何生成一个与 Azure AD 集成以方便登录，并使用 OAuth2.0 调用受 Azure AD 保护 API 的 Android 应用程序。"
 services: active-directory
 documentationcenter: android
 author: danieldobalian
@@ -12,23 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-origin.date: 01/07/2017
-ms.date: 01/09/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 758d95e93a5655aa352547137ad2510f872fb0f9
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 033fef4cc8a04a92835796fbb7071c04b7950530
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="integrate-azure-ad-into-an-android-app"></a>将 Azure AD 集成到 Android 应用中
+# <a name="azure-ad-android-getting-started"></a>Azure AD Android 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> 试用新的[开发人员门户](https://identity.microsoft.com/Docs/Android)预览版，只需花费几分钟时间，它就能帮助你开始使用 Azure AD。 在开发人员门户中，可以逐步完成注册应用并将 Azure AD 集成到代码的整个过程。 完成上述过程后，会获得一个可对租户中的用户进行身份验证的简单应用程序，以及一个可以接受令牌并执行验证的后端。
->
->
 
 如果要开发桌面应用程序，Azure Active Directory (Azure AD) 可让你简单直接地使用用户的本地 Active Directory 帐户对其进行身份验证。 它还可以让应用程序安全地使用 Azure AD 保护的任何 Web API，例如 Office 365 API 或 Azure API。
 
