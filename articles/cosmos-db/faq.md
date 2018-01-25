@@ -1,6 +1,6 @@
 ---
 title: "Azure Cosmos DB 常见问题解答 | Azure"
-description: "获取有关 Azure Cosmos DB（全局分布式多模型数据库服务）的常见问题的解答。 了解容量、性能级别和缩放。"
+description: "获取有关 Azure Cosmos DB（多区域分布式多模型数据库服务）的常见问题的解答。 了解容量、性能级别和缩放。"
 keywords: "数据库问题, 常见问题, documentdb, azure, Microsoft azure"
 services: cosmos-db
 author: rockboyfor
@@ -16,16 +16,16 @@ ms.topic: article
 origin.date: 11/15/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 91044347262c46e8271cb30ce0cde2ff2de13b07
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: d15f6d4f983d4448e0cdc20b46d55dc9baaf1384
+ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常见问题解答
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基础知识
 ### <a name="what-is-azure-cosmos-db"></a>什么是 Azure Cosmos DB？
-Azure Cosmos DB 是全局复制的多模型数据库服务，可针对无架构数据提供丰富的查询，帮助提供可靠的可配置性能，并支持快速开发。 这一切都通过一个托管平台来实现，而该平台有 Azure 强大的功能与影响力作为后盾。 
+Azure Cosmos DB 是多区域复制的多模型数据库服务，可针对无架构数据提供丰富的查询，帮助提供可靠的可配置性能，并支持快速开发。 这一切都通过一个托管平台来实现，而该平台有 Azure 强大的功能与影响力作为后盾。 
 
 如果 Web、移动、游戏和 IoT 应用程序的关键要求是可预测的吞吐量、高可用性、低延迟和无架构数据模型，那么，Azure Cosmos DB 无疑是最合适的解决方案。 它提供了架构灵活性和丰富的索引，并且对集成的 JavaScript 提供了多文档事务性支持。 
 
@@ -145,7 +145,8 @@ SQL API 通过 JavaScript 存储过程和触发器支持语言集成式事务。
 是的，因为 Azure Cosmos DB 是 RESTful 服务，而资源链接固定不变，所以可以缓存。 SQL API 客户端可以通过指定“If-None-Match”标头来读取任何资源（例如文档或集合），然后在服务器版本更改后更新本地副本。
 
 ### <a name="is-a-local-instance-of-sql-api-available"></a>SQL API 的本地实例是否可用？
-是的。 [Azure Cosmos DB 模拟器](local-emulator.md)提供对 Cosmos DB 服务的高保真模拟。 它支持和 Azure Cosmos DB 相同的功能，包括支持创建和查询 JSON 文档、预配集合和调整集合的规模，以及执行存储过程和触发器。 可以使用 Azure Cosmos DB 模拟器开发和测试应用程序，并通过对 Azure Cosmos DB 的连接终结点进行单一配置更改将其部署到全球范围的 Azure。
+是的。 [Azure Cosmos DB 模拟器](local-emulator.md)提供对 Cosmos DB 服务的高保真模拟。 它支持和 Azure Cosmos DB 相同的功能，包括支持创建和查询 JSON 文档、预配集合和调整集合的规模，以及执行存储过程和触发器。 可以使用 Azure Cosmos DB 模拟器开发和测试应用程序，并通过对 Azure Cosmos DB 的连接终结点进行单一配置更改将其部署到多区域范围的 Azure。
+<!-- Notice: 全球范围 to 多个区域范围 -->
 
 ## <a name="develop-against-the-api-for-mongodb"></a>针对 API for MongoDB 进行开发
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API for MongoDB 是什么？
@@ -273,13 +274,13 @@ DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB>;AccountKey
 是的，支持相同的 API。
 
 ### <a name="do-i-need-to-migrate-my-existing-azure-table-storage-applications-to-the-sdk-if-i-do-not-want-to-use-the-table-api-features"></a>如果我不想使用表 API 功能，是否需要将现有 Azure 表存储应用程序迁移到该 SDK？
-否，可以在没有任何干扰的情况下创建和使用现有 Azure 表存储资产。 但是，如果不使用表 API，则无法从自动索引、其他一致性选项或全局分发中受益。 
+否，可以在没有任何干扰的情况下创建和使用现有 Azure 表存储资产。 但是，如果不使用表 API，则无法从自动索引、其他一致性选项或多区域分发中受益。 
 
 ### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-across-multiple-regions-of-azure"></a>如何在跨多个 Azure 区域的表 API 中添加数据复制？
-可以使用 Azure Cosmos DB 门户的[全局复制设置](tutorial-global-distribution-sql-api.md#portal)来添加适合应用程序的区域。 若要开发全局分布式应用程序，还应添加其 PreferredLocation 信息已设置为本地区域的应用程序，以减轻读取延迟。 
+可以使用 Azure Cosmos DB 门户的[多区域复制设置](tutorial-global-distribution-sql-api.md#portal)来添加适合应用程序的区域。 若要开发多区域分布式应用程序，还应添加其 PreferredLocation 信息已设置为本地区域的应用程序，以减轻读取延迟。 
 
 ### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>如何在表 API 中更改帐户的主要写入区域？
-可以使用 Azure Cosmos DB 的全局复制门户窗格来添加区域，然后故障转移到所需的区域。 有关说明，请参阅[使用多区域 Azure Cosmos DB 帐户进行开发](regional-failover.md)。 
+可以使用 Azure Cosmos DB 的多区域复制门户窗格来添加区域，然后故障转移到所需的区域。 有关说明，请参阅[使用多区域 Azure Cosmos DB 帐户进行开发](regional-failover.md)。 
 
 ### <a name="how-do-i-configure-my-preferred-read-regions-for-low-latency-when-i-distribute-my-data"></a>如何配置首选的读取区域以降低分配数据时的延迟？ 
 请使用 app.config 文件中的 PreferredLocation 键，方便从本地位置读取。 对于现有应用程序，如果设置 LocationMode，表 API 会引发错误。 请删除该代码，因为表 API 会从 app.config 文件中选取此信息。 有关详细信息，请参阅 [Azure Cosmos DB 功能](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities)。
@@ -295,13 +296,14 @@ Azure 表存储默认在区域中提供“强”一致性，在辅助位置提�
 是的。若要了解如何利用 Azure Cosmos DB 的分布式特性，请参阅[一致性级别](consistency-levels.md)。 由于一致性级别有充分的保证，因此可以放心使用。 有关详细信息，请参阅 [Azure Cosmos DB 功能](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities)。
 
 ### <a name="when-global-distribution-is-enabled-how-long-does-it-take-to-replicate-the-data"></a>启用全局分发后，需要花费多长时间复制数据？
-Azure Cosmos DB 会在本地区域持续提交数据，然后在几毫秒内将数据立即推送到其他区域。 这种形式的复制只取决于数据中心的往返时间 (RTT)。 若要详细了解 Azure Cosmos DB 的全局分发功能，请参阅 [Azure Cosmos DB：Azure 上的全局分布式数据库服务](distribute-data-globally.md)。
+Azure Cosmos DB 会在本地区域持续提交数据，然后在几毫秒内将数据立即推送到其他区域。 这种形式的复制只取决于数据中心的往返时间 (RTT)。 若要详细了解 Azure Cosmos DB 的全局分发功能，请参阅 [Azure Cosmos DB：Azure 上的多区域分布式数据库服务](distribute-data-globally.md)。
 
 ### <a name="can-the-read-request-consistency-level-be-changed"></a>是否可以更改读取请求一致性级别？
 使用 Azure Cosmos DB 时，可以在容器级别（在表上）设置一致性级别。 使用 .NET SDK，可以通过在 app.config 文件中提供 TableConsistencyLevel 键值来更改级别。 可能的值：Strong、Bounded Staleness、Session、ConsistentPrefix、Eventual。 有关详细信息，请参阅 [Azure Cosmos DB 中可以优化的数据一致性级别](consistency-levels.md)。 关键是，在设置请求一致性级别时，不能超出表的设置。 例如，不能将表的一致性级别设置为“Eventual”，将请求一致性级别设置为“Strong”。 
 
 ### <a name="how-does-the-table-api-handle-failover-if-a-region-goes-down"></a>在某个区域出现故障时，表 API 如何处理故障转移？ 
-表 API 利用 Cosmos DB 的全球分布式平台。 若要确保应用程序能够容许数据中心停机，请在 Azure Cosmos DB 门户中为帐户额外启用至少一个区域。详见[使用多区域 Azure Cosmos DB 帐户进行开发](regional-failover.md)。 可以通过使用门户设置区域的优先级（[使用多区域 Azure Cosmos DB 帐户进行开发](regional-failover.md)）。 
+表 API 利用 Azure Cosmos DB 的多区域分布式平台。 若要确保应用程序能够容许数据中心停机，请在 Azure Cosmos DB 门户中为帐户额外启用至少一个区域。详见[使用多区域 Azure Cosmos DB 帐户进行开发](regional-failover.md)。 可以通过使用门户设置区域的优先级（[使用多区域 Azure Cosmos DB 帐户进行开发](regional-failover.md)）。 
+<!-- Notice: 全球 to 多个区域 -->
 
 可以视需要为帐户添加任意数目的区域，并通过提供故障转移优先级来控制可将该帐户故障转移到哪个位置。 当然，若要使用数据库，还需在其中提供应用程序。 这样操作时，客户不会遇到停机的情况。 [最新的 .NET 客户端 SDK](table-sdk-dotnet.md)可自动寻址，但其他 SDK 则不可以。 换句话说，它能够检测到有故障的区域，并自动故障转移到新区域。
 
@@ -382,7 +384,7 @@ Azure Cosmos DB 针对操作设置上限，在性能和延迟方面提供保证�
 
 ### <a name="azure-table-storage-has-been-very-inexpensive-for-me-because-i-pay-only-to-store-the-data-and-i-rarely-query-the-azure-cosmos-db-table-api-offering-seems-to-be-charging-me-even-though-i-have-not-performed-a-single-transaction-or-stored-anything-can-you-please-explain"></a>Azure 表存储对我而言非常便宜，因为我只需支付数据的存储费用，并且我很少进行查询。 但是，即使我未执行任何事务或存储任何数据，Azure Cosmos DB 表 API 服务似乎也要收费。 能否请你解释一下？
 
-根据设计，Azure Cosmos DB 是一个全局分布式的、基于 SLA 的系统，在可用性、延迟和吞吐量方面提供保证。 如果在 Azure Cosmos DB 中保留吞吐量，吞吐量就会获得保证，这与其他系统的吞吐量有所不同。 Azure Cosmos DB 会根据客户请求提供额外功能，例如辅助索引和全局分发。  
+根据设计，Azure Cosmos DB 是一个多区域分布式的、基于 SLA 的系统，在可用性、延迟和吞吐量方面提供保证。 如果在 Azure Cosmos DB 中保留吞吐量，吞吐量就会获得保证，这与其他系统的吞吐量有所不同。 Azure Cosmos DB 会根据客户请求提供额外功能，例如辅助索引和全局分发。  
 
 ### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>在向 Azure 表存储引入数据时，我从未收到过“配额已满”通知（指示分区已满）。 但使用表 API 时会收到此消息。 是此产品有限制，迫使我更改现有的应用程序吗？
 

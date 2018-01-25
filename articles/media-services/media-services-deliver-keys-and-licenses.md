@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure 媒体服务传送 DRM 许可证或 AES 密钥"
-description: "本文介绍如何使用 Azure 媒体服务 (AMS) 来传送 PlayReady 许可证和 AES 密钥，但使用本地服务器完成余下的操作（编码、加密、流式传输）。"
+title: "使用 Azure 媒体服务传送 DRM 许可证或 AES 密钥 | Azure"
+description: "本文介绍如何使用 Azure 媒体服务来传送 PlayReady 与 AES 密钥，但余下的操作（编码、加密、流式传输）是使用本地服务器完成的。"
 services: media-services
 documentationcenter: 
 author: yunan2016
@@ -13,38 +13,41 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/10/2017
-ms.date: 09/25/2017
+ms.date: 1/22/2018
 ms.author: v-johch
-ms.openlocfilehash: ed92aeb296c7fa9fd0253e3f61591e6d22aad5ee
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: fc45fbb8e65e59a6f8a93c22d47d068e70471882
+ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>使用 Azure 媒体服务传送 DRM 许可证或 AES 密钥
-Azure 媒体服务 (AMS) 可让你引入、编码、添加内容保护，以及流式传输内容。 但是，有些客户只想使用 AMS 来传送许可证和/或密钥，并使用他们的本地服务器来进行编码、加密和流式传输。 本文说明如何使用 AMS 来传送 PlayReady 许可证，但使用本地服务器完成余下的操作。 
+Azure 媒体服务可引入、编码、添加内容保护，以及流式传输内容。  一些客户希望将媒体服务仅用于传送许可证和/或密钥，以及通过使用其本地服务器进行编码、加密和流式处理。 本文说明如何使用媒体服务来传送 PlayReady 许可证，但使用本地服务器来完成其余部分。 
 
 ## <a name="overview"></a>概述
-媒体服务提供传送 PlayReady DRM 许可证及 AES-128 密钥的服务。 媒体服务还提供用于配置所需权限和限制的 API，这样当用户播放 DRM 保护的内容时，DRM 运行时便会强制实施这些权限和限制。 当用户请求受保护的内容时，播放器应用程序将从 AMS 许可证服务请求许可证。 AMS 许可证服务将向播放器颁发许可证（如果播放器已获授权）。 PlayReady 许可证包含客户端播放器用来对内容进行解密和流式传输的解密密钥。
+媒体服务提供传送 PlayReady 数字版权管理 (DRM) 许可证及 AES-128 密钥的服务。 媒体服务还提供用于配置所需权限和限制的 API，这样当用户播放 DRM 保护的内容时，DRM 运行时便会强制实施这些权限和限制。 当用户请求受保护的内容时，播放器应用程序会从媒体服务许可证服务请求许可证。 如果许可证获得授权，媒体服务许可证服务会向该播放器颁发许可证。 PlayReady 和 Widevine 许可证包含客户端播放器用来对内容进行解密和流式传输的解密密钥。
 
-媒体服务支持通过多种方式对发出许可证或密钥请求的用户进行授权。 可以配置内容密钥的授权策略，该策略可以包含一种或多种限制：开放或令牌限制。 令牌限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。 媒体服务支持采用简单 Web 令牌 (SWT) 格式和 JSON Web 令牌 (JWT) 格式的令牌。
+媒体服务支持通过多种方式对发出许可证或密钥请求的用户进行授权。 配置内容密钥授权策略。 策略可以有一个或多个限制。 选项为打开或令牌限制。 令牌限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。 媒体服务支持采用简单 Web 令牌 (SWT) 格式和 JSON Web 令牌 (JWT) 格式的令牌。
 
-下图显示了使用 AMS 传送 PlayReady 许可证，但使用本地服务器完成其余部分所要执行的主要步骤。
+下图显示了使用媒体服务传送 PlayReady 许可证，但使用本地服务器完成其余部分所要执行的主要步骤：
 
 ![使用 PlayReady 进行保护](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
 
 ## <a name="download-sample"></a>下载示例
-可以从 [此处](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses)下载本文所述的示例。
+若要下载本文中所述的示例，请参阅[在 .NET 中使用 Azure 媒体服务传送 PlayReady 许可证](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses)。
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>创建和配置 Visual Studio 项目
 
-1. 设置开发环境，并根据[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述，在 app.config 文件中填充连接信息。 
-2. 将以下元素添加到 app.config 文件中定义的 **appSettings**：
+1. 设置开发环境，并根据[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述，在 app.config 文件中填充连接信息。
 
-    <add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/>
+2. 将以下元素添加到 app.config 文件中定义的 appSettings：
+
+    add key="Issuer" value="http://testacs.com"/
+    
+    add key="Audience" value="urn:test"/
 
 ## <a name="net-code-example"></a>.NET 代码示例
-以下代码示例演示如何创建通用内容密钥，并获取 PlayReady 许可证获取 URL。 需要从 AMS 获取一下信息片段并配置本地服务器：内容密钥、 密钥 ID、 许可证获取 URL。 配置本地服务器后，可以从自己的流服务器进行流式传输。 由于加密的流指向 AMS 许可证服务器，播放器将从 AMS 请求许可证。 如果选择令牌身份验证，AMS 许可证服务器将验证通过 HTTPS 发送的令牌，然后（如果有效）将许可证传回给播放器。 （代码示例仅演示了如何创建通用内容密钥，并获取 PlayReady 许可证获取 URL。 如果想要传送 AES-128 密钥，则需要创建信封内容密钥，并获取密钥获取 URL，[此文章](media-services-protect-with-aes128.md)介绍了具体的操作）。
+以下代码示例演示如何创建通用内容密钥，并获取 PlayReady 许可证获取 URL。 若要配置本地服务器，需要一个内容密钥、密钥 ID 和许可证获取 URL。 配置本地服务器后，可以从自己的流服务器进行流式传输。 由于加密的流指向媒体服务许可证服务器，因此播放器会从媒体服务请求许可证。 如果选择令牌身份验证，则媒体服务许可证服务器将对通过 HTTPS 发送的令牌进行验证。 如果该令牌有效，许可证服务器会将许可证传递回播放器中。 以下代码示例仅演示如何创建通用内容密钥，并获取 PlayReady 或 Widevine 许可证获取 URL。 如果想要传送 AES-128 密钥，则需要创建信封内容密钥，并获取密钥获取 URL。 有关详细信息，请参阅[使用 AES-128 动态加密和密钥传递服务](media-services-protect-with-aes128.md)。
 
 ```
 using System;
@@ -134,7 +137,7 @@ namespace DeliverDRMLicenses
             // Configure PlayReady  license templates.
             string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
 
-            
+
             IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
                 _context.ContentKeyAuthorizationPolicyOptions.Create("",
                     ContentKeyDeliveryType.PlayReadyLicense,

@@ -1,6 +1,6 @@
 ---
-title: "使用 Site Recovery 将本地 VM 和物理服务器迁移到 Azure | Azure"
-description: "本文介绍如何使用 Azure Site Recovery 将本地 VM 和物理服务器迁移到 Azure"
+title: "关于 Azure Site Recovery 中的迁移 | Azure"
+description: "本文介绍如何使用 Azure Site Recovery 服务迁移本地和 Azure VM。"
 services: site-recovery
 documentationcenter: 
 author: rockboyfor
@@ -11,61 +11,45 @@ ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 10/30/2017
-ms.date: 12/04/2017
+ms.topic: article
+origin.date: 01/07/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1fe191c9263f531e4d0548ab311ef0c07788e04a
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 93c549abe36066f78b44e7f56fab227d84d6e817
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="migrate-to-azure-with-site-recovery"></a>使用 Site Recovery 迁移到 Azure
+# <a name="about-migration"></a>关于迁移
 
-请阅读本文，了解如何使用 [Azure Site Recovery](site-recovery-overview.md) 服务将本地虚拟机 (VM) 和物理服务器迁移到 Azure VM。
+阅读此文快速了解 [Azure Site Recovery](site-recovery-overview.md) 服务如何帮助迁移计算机。 
 
-<!-- Not Available ## Before you start -->
+下面是可以使用 Site Recovery 迁移的内容：
 
-## <a name="what-do-we-mean-by-migration"></a>迁移的意思是什么？
-
-可以部署 Site Recovery，以便复制本地 VM 和物理服务器并将其迁移。
-
-- 复制时，可以将本地计算机配置为定期复制到 Azure。 然后，当出现中断时，可以将计算机从本地站点故障转移到 Azure，从该处进行访问。 当本地站点再次可用时，便可从 Azure 进行故障回复。
-- 使用 Site Recovery 进行迁移时，请将本地计算机复制到 Azure。 然后将其从本地站点故障转移到 Azure，完成迁移过程。 不涉及故障回复。  
-
-## <a name="what-can-site-recovery-migrate"></a>Site Recovery 可以迁移哪些工作负荷？
-
-可以：
-
-- **从本地迁移**：将本地 Hyper-V VM、VMware VM 和物理服务器迁移到 Azure。 迁移之后，在本地计算机上运行的工作负荷将在 Azure VM 上运行。 
+- **从本地迁移到 Azure**：将本地 Hyper-V VM、VMware VM 和物理服务器迁移到 Azure。 迁移之后，在本地计算机上运行的工作负荷将在 Azure VM 上运行。 
 - **在 Azure 中迁移**：在 Azure 区域之间迁移 Azure VM。 
 - **迁移 AWS**：将 AWS Windows 实例迁移到 Azure IaaS VM。 
 
-## <a name="migrate-from-on-premises-to-azure"></a>从本地迁移到 Azure
+## <a name="what-do-we-mean-by-migration"></a>迁移的意思是什么？
 
-迁移本地 VMware VM、Hyper-V VM 和物理服务器时，所执行的步骤与进行完全复制几乎相同。 
+除了可以使用 Site Recovery 对本地和 Azure VM 进行灾难恢复外，还可以使用 Site Recovery 服务迁移这些 VM。 区别是什么？
 
-## <a name="migrate-between-azure-regions"></a>在 Azure 区域之间迁移
+- 对于灾难恢复，定期将计算机复制到 Azure。 发生服务中断时，将从主站点将计算机故障转移到辅助 Azure 站点，并从该处对其进行访问。 当主站点再次可用时，可从 Azure 进行故障回复。
+- 对于迁移，将本地计算机复制到 Azure 或将 Azure VM 复制到辅助区域。 然后可将 VM 从主站点故障转移到辅助站点，并完成迁移过程。 不涉及故障回复。  
 
-在区域之间迁移 Azure VM 时，所执行的步骤与进行完全迁移几乎相同。
+## <a name="migration-scenarios"></a>迁移方案
 
-1. 为需要迁移的虚拟机[启用复制](azure-to-azure-tutorial-enable-replication.md)。
-2. [运行快速测试故障转移](azure-to-azure-tutorial-dr-drill.md)，确保一切正常运行。
-3. 然后，使用“完成迁移”选项[运行计划外故障转移](azure-to-azure-tutorial-failover-failback.md)。
-4. 完成迁移后，即可[设置灾难恢复复制](site-recovery-azure-to-azure-after-migration.md)，以便从迁移到的 Azure 区域复制到辅助区域。
-
-## <a name="migrate-aws-to-azure"></a>将 AWS 迁移到 Azure
-
-可将 AWS 实例迁移到 Azure VM。
-- 此方案仅支持迁移。 换而言之，可以复制 AWS 实例并将其故障转移到 Azure，但无法故障回复。
-- 在迁移过程中，AWS 实例的处理方式与物理服务器相同。 需要设置一个恢复服务保管库，部署本地配置服务器用于管理复制，将该服务器添加到保管库，然后指定复制设置。
-- 为想要迁移的计算机启用复制，运行快速测试故障转移。 然后，使用“完成迁移”选项运行计划外故障转移。
+**方案** | **详细信息**
+--- | ---
+**从本地迁移到 Azure** | 可将本地 VMware VM、Hyper-V VM 和物理服务器迁移到 Azure。 为此，完成的步骤几乎与完整灾难恢复的步骤一样。 只是不会将计算机从 Azure 故障回复到本地站点。
+**在 Azure 区域之间迁移** | 可将 Azure VM 从一个 Azure 区域迁移到另一个 Azure 区域。 迁移完成后，现在可以在迁移到的次要区域中为 Azure VM 配置灾难恢复。
+**将 AWS 迁移到 Azure** | 可将 AWS 实例迁移到 Azure VM。 Site Recovery 将 AWS 实例视为物理服务器以实现迁移目的。 
 
 ## <a name="next-steps"></a>后续步骤
 
 - [将本地计算机迁移到 Azure](tutorial-migrate-on-premises-to-azure.md)
-- [将 VM 从一个 Azure 区域迁移到另一个](site-recovery-migrate-azure-to-azure.md)
+- [将 VM 从一个 Azure 区域迁移到另一个](tutorial-migrate-azure-to-azure.md)
 - [将 AWS 迁移到 Azure](tutorial-migrate-aws-to-azure.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, add migration scenarios -->

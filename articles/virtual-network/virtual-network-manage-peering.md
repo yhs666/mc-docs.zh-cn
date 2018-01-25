@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/06/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: c94d334943f8facf11949b19d61f0bece82d5313
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: dc7f76973a1a75970731bed27743eb06bfc73ad1
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>创建、更改或删除虚拟网络对等互连
 
@@ -33,13 +33,15 @@ ms.lasthandoff: 11/28/2017
 >
 
 <a name="before"></a>
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在完成本文任何部分中的步骤之前，请完成以下任务：
 
+- 查看 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文，了解对等互连的限制。
 - 使用 Azure 帐户登录到 Azure 门户、Azure 命令行接口 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用 PowerShell 命令来完成本文中的任务，请[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
-- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请[安装和配置 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli??view=azure-cli-latest)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
+- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请[安装和配置 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)。 确保安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。 请勿安装 CLI 及其必备组件，可使用 Azure Cloud Shell。 Azure Cloud Shell 是可直接在 Azure 门户中运行的免费 Bash shell。 Cloud Shell 预安装有 Azure CLI 并将其配置为与帐户一起使用。 若要使用 Cloud Shell，请单击[门户](https://portal.azure.cn)顶部的 Cloud Shell **>_** 按钮。 
+
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 <a name="create"></a>
@@ -50,7 +52,7 @@ ms.lasthandoff: 11/28/2017
 >
 
 1. 使用分配了必要[角色或权限](#permissions)的帐户登录到[门户](https://portal.azure.cn)。
-2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“虚拟网络”。 当“虚拟网络”出现在搜索结果中时，请单击它。 如果“虚拟网络(经典)”出现在列表中，请不要选择它，因为无法从通过经典部署模型部署的虚拟网络创建对等互连。
+2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“virtual networks”。 当“虚拟网络”出现在搜索结果中时，请单击它。 如果“虚拟网络(经典)”出现在列表中，请不要选择它，因为无法从通过经典部署模型部署的虚拟网络创建对等互连。
 3. 在显示的“虚拟网络”边栏选项卡中，单击想要为其创建对等互连的虚拟网络。
 4. 在针对所选虚拟网络显示的窗格中，单击“设置”部分中的“对等互连”。
 5. 单击“+ 添加”。 
@@ -58,24 +60,28 @@ ms.lasthandoff: 11/28/2017
     - 名称：对等互连的名称在虚拟网络中必须唯一。
     - 虚拟网络部署模型：选择要与之对等互连的虚拟网络是通过哪种部署模型部署的。
     - 我知道我的资源 ID：如果可以通过读取方式访问要与之对等互连的虚拟网络，请让此复选框保留取消选中状态。 如果不能通过读取方式访问要与之对等互连的虚拟网络或订阅，则请选中此框。 在选中此框时显示的“资源 ID”复选框中，输入要与之对等互连的虚拟网络的完整资源 ID。 输入的虚拟网络资源 ID 必须与此虚拟网络位于同一 Azure [区域](https://www.azure.cn/regions)。 如果要选择不同区域中的虚拟网络，请[注册订阅以获取预览版](virtual-network-create-peering.md)。 完整的资源 ID 类似于 /subscriptions/<Id>/resourceGroups/<资源组名称>/providers/Microsoft.Network/virtualNetworks/<虚拟网络名称>。 可以通过查看虚拟网络的属性，获取虚拟网络的资源 ID。 若要了解如何查看虚拟网络的属性，请参阅[管理虚拟网络](virtual-network-manage-network.md#view-vnet)。
-    - 订阅：选择要进行对等互连的虚拟网络的[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)。 将列出一个或多个订阅，具体取决于帐户可以通过读取方式访问多少个订阅。 如果选中“资源 ID”复选框，则此设置不可用。 只要两个虚拟网络都是通过 Resource Manager 创建的，就可以对等互连不同订阅中的虚拟网络。 在预览版中，可以跨通过不同部署模型创建的订阅进行对等互连。 在通过不同部署模型（存在于不同订阅中）部署的虚拟网络之间创建对等互连之前，请先注册预览版。 详细了解如何注册预览版，以及如何[对等互连不同订阅中通过不同部署模型创建的虚拟网络](create-peering-different-deployment-models-subscriptions.md)。
+    - 订阅：选择要与之对等互连的虚拟网络的[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)。 将列出一个或多个订阅，具体取决于帐户可以通过读取方式访问多少个订阅。 如果选中“资源 ID”复选框，则此设置不可用。 只要两个虚拟网络都是通过 Resource Manager 创建的，就可以对等互连不同订阅中的虚拟网络。 在预览版中，可以跨通过不同部署模型创建的订阅进行对等互连。 在通过不同部署模型（存在于不同订阅中）部署的虚拟网络之间创建对等互连之前，请先注册预览版。 详细了解如何注册预览版，以及如何[对等互连不同订阅中通过不同部署模型创建的虚拟网络](create-peering-different-deployment-models-subscriptions.md)。
     - 虚拟网络：选择要与之对等互连的虚拟网络。 可以选择通过任一 Azure 部署模型创建的虚拟网络。 如果要选择不同区域中的虚拟网络，请[注册订阅以获取预览版](virtual-network-create-peering.md)。 必须能够通过读取方式访问虚拟网络，该虚拟网络才会显示在列表中。 如果列出了某个虚拟网络，但显示为灰色，则可能是因为该虚拟网络的地址空间与此虚拟网络的地址空间重叠。 如果虚拟网络地址空间重叠，则无法进行对等互连。 如果选中“资源 ID”复选框，则此设置不可用。
     - 允许虚拟网络访问：如果要启用两个虚拟网络之间的通信，请选择“启用”（默认）。 启用虚拟网络之间的通信可允许资源连接到任意虚拟网络，并以相同的带宽和延迟互相之间进行通信，就如同它们是连接到同一个虚拟网络一样。 这两个虚拟网络中的资源之间的所有通信都在 Azure 专用网络上进行。 网络安全组的默认标记 VirtualNetwork 包含虚拟网络和已对等互连的虚拟网络。 若要了解网络安全组默认标记的详细信息，请阅读[网络安全组概述](virtual-networks-nsg.md#default-tags)一文。  如果不希望流量流到已对等互连的虚拟网络，请选择“禁用”。 如果已将一个虚拟网络与另一个虚拟网络对等互连，但有时想要禁用这两个虚拟网络之间的流量流动，则可以选择“禁用”。 你会发现，启用/禁用比删除并重新创建对等互连更加方便。 当禁用此设置时，流量不会在已对等互连的虚拟网络间流动。
-    - 允许转发的流量：选中此框即可让转发到已对等互连的虚拟网络的流量（流量不是源自已对等互连的虚拟网络）流动到此虚拟网络。 如果已在要与之对等互连的虚拟网络中部署网络虚拟设备，并已通过创建用户定义的路由在整个网络虚拟设备中转发流量，则流量转发会很常见。 如果保留此框的未选中状态（默认），从已对等互连的虚拟网络转发的流量将无法流动到此虚拟网络。 虽然启用此功能即可通过对等互连转发流量，但不会创建任何用户定义的路由或网络虚拟设备。 用户定义的路由和网络虚拟设备是单独创建的。 了解[用户定义的路由](virtual-networks-udr-overview.md)。
-    - 允许网关传输：如果虚拟网关已附加到此虚拟网络，而你想要允许流量从已对等互连的虚拟网络流经网关，请选中此框。 例如，此虚拟网络可以通过虚拟网关附加到本地网络。 选中此框即可让流量从已对等互连的虚拟网络流经附加到此虚拟网络的网关。 如果选中此框，则已对等互连的虚拟网络不能有已配置的网关。 设置从另一个虚拟网络到此虚拟网络的对等互连时，已对等互连的虚拟网络必须已选中复选框“使用远程网关”。 如果保留此框的未选中状态（默认），则来自已对等互连的虚拟网络的流量仍可流动到此虚拟网络，但无法流经附加到此虚拟网络的虚拟网关。 了解有关[虚拟网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#s2smulti)的详细信息。 
+    - **允许转发的流量：**选中此框将允许从某个虚拟网络转发的（不是从该虚拟网络发起的）流量通过对等互连流到此虚拟网络。 例如，假设有名为 Spoke1、Spoke2 和 Hub 的三个虚拟网络。 每个辐射虚拟网络与中心虚拟网络之间存在一个对等互连，但各个辐射虚拟网络之间不存在对等互连。 一个网络虚拟设备部署在中心虚拟网络中，用户定义的路由应用于通过该网络虚拟设备在各个子网之间路由流量的每个辐射虚拟网络。 如果没有为每个辐射虚拟网络与中心虚拟网络之间的对等互连选中此复选框，则流量不会在各个辐射虚拟网络之间流动，因为中心在各个虚拟网络之间转发流量。 虽然启用此功能即可通过对等互连转发流量，但不会创建任何用户定义的路由或网络虚拟设备。 用户定义的路由和网络虚拟设备是单独创建的。 了解[用户定义的路由](virtual-networks-udr-overview.md#user-defined)。
+    - 允许网关传输：如果虚拟网关已附加到此虚拟网络，而你想要允许流量从已对等互连的虚拟网络流经网关，请选中此框。 例如，此虚拟网络可以通过虚拟网关附加到本地网络。 网关可以是 ExpressRoute 或 VPN 网关。 选中此框将允许来自所对等互连的虚拟网络的流量通过附加到此虚拟网络的网关流到本地网络。 如果选中此框，则已对等互连的虚拟网络不能有已配置的网关。 设置从另一虚拟网络到此虚拟网络的对等互连时，对等互连的虚拟网络必须选中复选框“使用远程网关”。 如果保留此框的未选中状态（默认），则来自已对等互连的虚拟网络的流量仍可流动到此虚拟网络，但无法流经附加到此虚拟网络的虚拟网关。 
 
-        如果要将 Resource Manager 虚拟网络与经典虚拟网络对等互连，则无法启用此选项。 虽然流量在这两个虚拟网络之间流动，但经典虚拟网络的流量无法流经附加到 Resource Manager 虚拟网络的网关。
+    除了将流量转发到本地网络之外，VPN 网关还可以在与该网关所在的虚拟网络对等互连的虚拟网络之间转发网络流量，各个虚拟网络不需要都彼此对等互连。 想要在中心（请参阅针对“允许转发的流量”描述的中心和辐射示例）虚拟网络中使用 VPN 网关在未彼此对等互连的辐射虚拟网络之间路由流量时，这非常有用。 了解有关[虚拟网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#s2smulti)的详细信息。 此方案要求实现用户定义的路由来将虚拟网络网关指定为下一跃点类型。 了解[用户定义的路由](virtual-networks-udr-overview.md#user-defined)。 只能将 VPN 网关指定为用户定义的路由中的下一跃点类型，不能将 ExpressRoute 网关指定为用户定义的路由中的下一跃点类型。
+
+        You cannot enable this option if you're peering a virtual network (Resource Manager) with a virtual network (classic). Though the traffic flows between the two virtual networks, the virtual network (classic) traffic cannot flow through a network gateway attached to the virtual network (Resource Manager). 
 
     - 使用远程网关：选中此框即可让来自此虚拟网络的流量流经附加到要与之对等互连的虚拟网络的虚拟网关。 例如，要与之对等互连的虚拟网络附加了一个 VPN 网关，因此可与本地网络通信。  选中此框即可让来自此虚拟网络的流量流经附加到已对等互连的虚拟网络的 VPN 网关。 如果选中此框，已对等互连的虚拟网络必须附加有虚拟网关，并且必须已选中“允许网关传输”复选框。 如果保留此框的未选中状态（默认），则来自已对等互连的虚拟网络的流量仍可流动到此虚拟网络，但无法流经附加到此虚拟网络的虚拟网关。 
-
+此虚拟网络只有一个对等互连可以启用此设置。
+如果已在虚拟网络中配置了网关，则无法使用此设置。
         如果要将 Resource Manager 虚拟网络与经典虚拟网络对等互连，则无法启用此选项。 虽然流量在这两个虚拟网络之间流动，但 Resource Manager 虚拟网络的流量无法流经附加到经典虚拟网络的网关。
+
 7. 单击“确定”按钮，将子网添加到所选的虚拟网络。
 
 ### <a name="commands"></a>命令
 
 |工具|命令|
 |---|---|
-|CLI|[az network vnet peering create](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?view=azure-cli-latest#create)|
+|CLI|[az network vnet peering create](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?view=azure-cli-latest#create?toc=%2fvirtual-network%2ftoc.json#create)|
 |PowerShell|[Add-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering?toc=%2fvirtual-network%2ftoc.json)|
 
 ### <a name="scenarios"></a>方案
@@ -93,7 +99,7 @@ ms.lasthandoff: 11/28/2017
 ## <a name="view-or-change-peering-settings"></a>查看或更改对等互连设置
 
 1. 使用分配了必要[角色或权限](#permissions)的帐户登录到[门户](https://portal.azure.cn)。
-2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“虚拟网络”。 当“虚拟网络”出现在搜索结果中时，请单击它。
+2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“virtual networks”。 当“虚拟网络”出现在搜索结果中时，请单击它。
 3. 在显示的“虚拟网络”边栏选项卡中，单击想要为其创建对等互连的虚拟网络。
 4. 在针对所选虚拟网络显示的窗格中，单击“设置”部分中的“对等互连”。
 5. 单击要查看或更改其设置的对等互连。
@@ -109,8 +115,8 @@ ms.lasthandoff: 11/28/2017
 
 |工具|命令|
 |---|---|
-|CLI|[az network vnet peering list](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?view=azure-cli-latest#list) 可列出虚拟网络的对等互连，[az network vnet peering show](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?view=azure-cli-latest#show) 可显示特定对等互连的设置，[az network vnet peering update](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?view=azure-cli-latest#update) 可更改对等互连设置。|
-|PowerShell|[Get-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?toc=%2fvirtual-network%2ftoc.json) 可检索视图对等互连设置，[Set-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering?toc=%2fvirtual-network%2ftoc.json) 可更改设置。|
+|CLI|[az network vnet peering list](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#list) 可列出虚拟网络的对等互连，[az network vnet peering show](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#show) 可显示特定对等互连的设置，[az network vnet peering update](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update) 可更改对等互连设置。|
+|PowerShell|[Get-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?toc=%2fvirtual-network%2ftoc.json) 可检索并查看对等互连设置，[Set-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering?toc=%2fvirtual-network%2ftoc.json) 可更改设置。|
 
 <a name="delete-subnet"></a>
 ## <a name="delete-a-peering"></a>删除对等互连
@@ -119,7 +125,7 @@ ms.lasthandoff: 11/28/2017
 如果希望虚拟网络偶尔进行通信，而非始终通信，则与其删除对等互连，不如将“允许虚拟网络访问”设置设为“禁用”。 若要了解如何操作，请阅读本文[创建对等互连](#create-peering)部分的步骤 6。 可发现禁用和启用网络访问比删除并重新创建对等互连更加容易。
 
 1. 使用分配了必要[角色或权限](#permissions)的帐户登录到[门户](https://portal.azure.cn)。
-2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“虚拟网络”。 当“虚拟网络”出现在搜索结果中时，请单击它。
+2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“virtual networks”。 当“虚拟网络”出现在搜索结果中时，请单击它。
 3. 在显示的“虚拟网络”边栏选项卡中，单击要从其中删除对等互连的虚拟网络。
 4. 在针对所选虚拟网络显示的边栏选项卡中，单击“设置”下的“对等互连”。
 5. 在显示在对等互连边栏选项卡中的对等互连列表中，右键单击要删除的对等互连，单击“删除”，然后单击“是”，从第一个虚拟网络中删除对等互连。
@@ -129,7 +135,7 @@ ms.lasthandoff: 11/28/2017
 
 |工具|命令|
 |---|---|
-|CLI|[az network vnet peering delete](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?view=azure-cli-latest#delete)|
+|CLI|[az network vnet peering delete](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#delete)|
 |PowerShell|[Remove-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="requirements-and-constraints"></a>要求和约束 
@@ -150,8 +156,8 @@ ms.lasthandoff: 11/28/2017
 - 处于对等互连中的两个虚拟网络中的资源可以互相之间以相同的带宽和延迟进行通信，就如同资源是位于同一个虚拟网络中一样。 但是，每种虚拟机大小都有其自己的最大网络带宽。 若要详细了解不同虚拟机大小的最大网络带宽，请阅读有关 [Windows](../virtual-machines/windows/sizes.md?toc=%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) 虚拟机大小的文章。
 - 可以对等互连在同一个或者不同订阅中通过资源管理器部署的虚拟网络。
 - 可以对等互连在同一或不同订阅（预览）中通过不同部署模型部署的虚拟网络。 
-- 两个虚拟网络都存在于的订阅必须关联到同一 Azure Active Directory 租户。 如果还没有 AD 租户，可以快速[创建一个](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fvirtual-network%2ftoc.json#start-from-scratch)。 可以使用 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#V2V)连接关联到不同 Active Directory 租户的不同订阅中的两个虚拟网络。
-- 一个虚拟网络可以对等互连到另一个虚拟网络，也可以通过 Azure 虚拟网络网关连接到另一个虚拟网络。 当虚拟网络同时通过对等互连和网关连接时，虚拟网络的流量会根据对等互连配置流动，而不是通过网关流动。
+- 两个虚拟网络都存在于其中的订阅必须关联到同一 Azure Active Directory 租户。 如果还没有 AD 租户，可以快速[创建一个](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fvirtual-network%2ftoc.json#start-from-scratch)。 可以使用 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#V2V)连接关联到不同 Active Directory 租户的不同订阅中的两个虚拟网络。
+- 一个虚拟网络可以对等互连到另一个虚拟网络，也可以通过 Azure 虚拟网关连接到另一个虚拟网络。 当虚拟网络同时通过对等互连和网关连接时，虚拟网络的流量会根据对等互连配置流动，而不是通过网关流动。
 - 对于利用虚拟网络对等互连的入口和出口流量，有少许收费。 有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/networking/)。
 
 ## <a name="permissions"></a>权限
@@ -160,15 +166,15 @@ ms.lasthandoff: 11/28/2017
 
 |虚拟网络|部署模型|角色|权限|
 |---|---|---|---|
-|myVnetA|资源管理器|[网络参与者](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+|myVnetA|Resource Manager|[网络参与者](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |经典|[经典网络参与者](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#classic-network-contributor)|不适用|
-|myVnetB|资源管理器|[网络参与者](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+|myVnetB|Resource Manager|[网络参与者](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||经典|[经典网络参与者](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 详细了解[内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)以及将特定的权限分配到[自定义角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json)（仅限资源管理器）。
 
 ## <a name="next-steps"></a>后续步骤
 
-了解如何创建[中心和分支网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)
+了解如何创建[中心辐射型网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)
 
 <!--Update_Description: update meta properties, wording update, udpate link-->

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 10/30/2017
-ms.date: 01/01/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1f0e15a7b02a40f37bb81ed1d70a456b4231b44e
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 448ab38ba1672ffbe54ea34ebbe6f92dd292aefa
+ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>从本地复制到 Azure 时的 Azure Site Recovery 支持矩阵
 
@@ -65,30 +65,30 @@ ms.lasthandoff: 12/29/2017
 
  **VMware/物理服务器** | Hyper-V（有/无 VMM） |
 --- | --- |
-64 位 Windows Server 2016（服务器核心，带桌面体验的服务器）\*、Windows Server 2012 R2、Windows Server 2012、带 SP1（或更高版本）的 Windows Server 2008 R2<br/><br/> CentOS：5.2 到 5.11、6.1 到 6.9、7.0 到 7.3 <br/><br/>Ubuntu 14.04 LTS 服务器[（支持的内核版本）](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS 服务器[（支持的内核版本）](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>（不支持复制计算机从 SLES 11 SP3 升级到 SLES 11 SP4。 如果已将复制计算机从 SLES 11SP3 升级到 SLES 11 SP4，则需要禁用复制，并在升级后再次对计算机启用保护。） | [Azure 支持的](https://technet.microsoft.com/library/cc794868.aspx)
+64 位 Windows Server 2016（服务器核心，带桌面体验的服务器）\*、Windows Server 2012 R2、Windows Server 2012、带 SP1（或更高版本）的 Windows Server 2008 R2<br/><br/> CentOS：5.2 到 5.11、6.1 到 6.9、7.0 到 7.4 <br/><br/>Ubuntu 14.04 LTS 服务器[（支持的内核版本）](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS 服务器[（支持的内核版本）](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>（不支持复制计算机从 SLES 11 SP3 升级到 SLES 11 SP4。 如果已将复制计算机从 SLES 11SP3 升级到 SLES 11 SP4，则需要禁用复制，并在升级后再次对计算机启用保护。） | [Azure 支持的](https://technet.microsoft.com/library/cc794868.aspx)
 <!-- Not Available on Red Hat Enterprise, Oracle -->
 
 >[!NOTE]
 >
 > \* 不支持 Windows Server 2016 Nano Server。
-
->[!IMPORTANT]
->（适用于复制到 Azure 的 VMware/物理服务器）
 >
-> 在 Red Hat Enterprise Linux Server 7+ 和 CentOS 7+ 服务器上，从 Azure Site Recovery 移动服务版本 9.8 开始支持内核版本 3.10.0-514。<br/><br/>
-> 使用内核版本为 3.10.0-514，且移动服务版本低于版本 9.8 的客户需要先禁用复制，将移动服务的版本更新至版本 9.8，再重新启用复制。
+> 在 Linux 分发版中，仅支持属于分发的次要版本发布/更新的常用内核。
+>
+> 不支持在由 Azure Site Recovery 提供保护的 VMware 虚拟机或物理服务器上跨 Linux 分发版的主版本进行升级。 跨主版本（例如 CentOS 6.* 到 CentOS 7.*）升级操作系统时，将禁用计算机的复制、升级计算机上的操作系统，然后再次启用复制。
+> 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>VMware/物理服务器支持的 Ubuntu 内核版本
 
 **版本** | **移动服务版本** | **内核版本** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-generic 到 3.13.0-117-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic 到 3.13.0-121-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-generic 到 3.13.0-128-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-91-generic |
 14.04 LTS | 9.12 | 3.13.0-24-generic 到 3.13.0-132-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-generic 到 3.13.0-137-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-104-generic |
 16.04 LTS | 9.10 | 4.4.0-21-generic 到 4.4.0-81-generic、<br/>4.8.0-34-generic 到 4.8.0-56-generic、<br/>4.10.0-14-generic 到 4.10.0-24-generic |
 16.04 LTS | 9.11 | 4.4.0-21-generic 到 4.4.0-91-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-32-generic |
 16.04 LTS | 9.12 | 4.4.0-21-generic 到 4.4.0-96-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-35-generic |
+16.04 LTS | 9.13 | 4.4.0-21-generic 到 4.4.0-104-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Linux 上支持的文件系统和来宾存储配置（VMware/物理服务器）
 
@@ -102,8 +102,7 @@ ms.lasthandoff: 12/29/2017
 不支持使用 HP CCISS 存储控制器的物理服务器。<br/>
 
 >[!Note]
-> 在 Linux 服务器中，下列目录（如果设置为单独的分区/文件系统）必须位于源服务器的同一磁盘（OS 磁盘）：   / (root)、/boot、/usr、/usr/local、/var 和 /etc<br/><br/>
-> 从移动服务版本 9.10 开始支持 XFS 文件系统上的 XFSv5 功能（例如元数据校验和）。 如果使用 XFSv5 功能，请确保运行移动服务 9.10 或更高版本。 可以使用 xfs_info 实用工具来检查 XFS 超级块中是否存在分区。 如果 ftype 设置为 1，则会使用 XFSv5 功能。
+> 在 Linux 服务器中，下列目录（如果设置为单独的分区/文件系统）必须位于源服务器的同一磁盘（OS 磁盘）：   / (root)、/boot、/usr、/usr/local 和 /etc，并且 /boot 应位于磁盘分区上且不应为 LVM 卷<br/><br/>
 >
 
 ## <a name="support-for-network-configuration"></a>网络配置支持
