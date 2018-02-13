@@ -2306,11 +2306,6 @@
       "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/virtual-machines/virtual-machines-linux-redhat-create-upload-vhd.md",
-      "redirect_url": "/virtual-machines/linux/redhat-create-upload-vhd",
-      "redirect_document_id": "false"
-    },
-    {
       "source_path": "articles/virtual-machines/virtual-machines-linux-regions-and-availability.md",
       "redirect_url": "/virtual-machines/linux/regions-and-availability",
       "redirect_document_id": "false"
