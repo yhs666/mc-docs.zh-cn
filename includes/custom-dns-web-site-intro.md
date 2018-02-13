@@ -1,1 +1,0 @@
-创建 Web 应用时，Azure 会提供 chinacloudsites.cn 域的友好子域，以便用户可以使用类似于 http://&lt;mywebapp&gt;.chinacloudsites.cn 的 URL 访问该 Web 应用。 还可以将自定义域名（例如 contoso.com）与 Web 应用相关联，为用户提供更易识别的域名。
