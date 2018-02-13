@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1b7bf03c862c1aeffa741c4b6ee58f12f6b4b2a1
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: bf7d4df657b21c998abe9d87447e8bc8151deacd
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-in-stream-analytics-jobs"></a>在流分析作业中轮转输入和输出的登录凭据
 ## <a name="abstract"></a>摘要
@@ -183,7 +183,7 @@ Azure 流分析目前不允许在作业运行时替换输入/输出上的凭据�
     Command(s) completed successfully.
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

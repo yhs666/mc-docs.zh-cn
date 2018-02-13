@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 06/22/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2b34b584091e9f16b76c8b21363ff21e3d4f98ec
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 6e674d89989433b08c37565e3f53c413a0e3567a
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 流分析中的查询并行化
 本文说明了如何利用 Azure 流分析中的并行化。 了解如何通过配置输入分区和调整分析查询定义来缩放流分析作业。
@@ -218,7 +218,7 @@ PowerBI 输出当前不支持分区。 因此，此方案不易并行。
 > 
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

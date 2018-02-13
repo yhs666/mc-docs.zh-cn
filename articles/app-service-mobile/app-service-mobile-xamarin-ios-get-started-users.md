@@ -3,8 +3,8 @@ title: "Xamarin iOS 应用中的移动应用身份验证入门"
 description: "了解如何使用移动应用通过各种标识提供者（包括 AAD 和 Microsoft）对 Xamarin iOS 应用的用户进行身份验证。"
 services: app-service\mobile
 documentationcenter: xamarin
-author: dhei
-manager: panarasi
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.service: app-service-mobile
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 orgin.date: 07/05/2017
 ms.author: v-yiso
-ms.date: 07/31/2017
-ms.openlocfilehash: 84de42e77efca6a98a0e30ea7eb2a578ba3537fb
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 01/29/2018
+ms.openlocfilehash: ed9259dc77c0b7377bb8e2901ffe6c5157f7e497
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>向 Xamarin.iOS 应用添加身份验证
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/28/2017
 
 2. 单击“身份验证/授权”菜单选项。
 
-3. 在“允许的外部重定向 URL”中，输入 `url_scheme_of_your_app://easyauth.callback`。  此字符串中的 **url_scheme_of_your_app** 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  请记下所选的字符串，因为需要在几个地方使用 URL 方案调整移动应用程序代码。
+3. 在“允许的外部重定向 URL”中，输入 `url_scheme_of_your_app://easyauth.callback`。  此字符串中的 **url_scheme_of_your_app** 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  应记下此字符串，因为在一些地方需要使用此 URL 方案调整移动应用代码。
 
 4. 单击 **“确定”**。
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 07/28/2017
 
 ##<a name="add-authentication-to-the-app"></a>向应用程序添加身份验证
 
-本部分介绍如何修改应用程序，以便在显示数据之前显示登录屏幕。 应用启动时，它不会连接到应用服务，并且不会显示任何数据。 用户首次执行刷新笔势后，将显示登录屏幕；成功登录后，将显示 Todo 项列表。
+本部分介绍如何修改应用程序，以便在显示数据之前显示登录屏幕。 应用启动时，它不会连接到应用服务，并且不会显示任何数据。 用户首次执行刷新笔势后，显示登录屏幕；成功登录后，显示 Todo 项列表。
 
 1. 在客户端项目中，打开文件 **QSTodoService.cs**，向 QSTodoService 类添加以下 using 语句和带访问器的 `MobileServiceUser`：
 

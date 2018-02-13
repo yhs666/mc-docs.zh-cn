@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 11/16/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: e1a3ddedc7cdfcd0d60dbf7a53afbf0942cc452c
-ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
+ms.openlocfilehash: 75c0d891f09bb36fe53054b035c58e78cf9df361
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 
@@ -143,7 +143,8 @@ ms.lasthandoff: 01/12/2018
 
 ### <a name="ip-address-version"></a>IP 地址版本
 
-专用 IP 地址是使用 IPv4 或 IPv6 地址创建的。 只能使用动态分配方法分配专用 IPv6 地址。 无法在虚拟网络上的专用 IPv6 地址之间通信。 可以通过面向 Internet 的负载均衡器，从 Internet 与专用 IPv6 地址进行入站通信。 有关详细信息，请参阅[使用 IPv6 创建面向 Internet 的负载均衡器](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fvirtual-network%2ftoc.json)。
+专用 IP 地址是使用 IPv4 地址创建的。 
+<!-- Not Available on IPV6 -->
 
 ### <a name="allocation-method"></a>分配方法
 

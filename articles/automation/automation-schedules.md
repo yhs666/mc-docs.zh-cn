@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 origin.date: 09/29/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: 9e3887b52d0a0a0710d8923d6d89e880c16fdba2
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 8df270f42b602e4fd3cc0dba1572b82c4ecc7015
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自动化中计划 Runbook
-要将 Azure 自动化中的 Runbook 计划为在指定的时间启动，可以将它链接到一个或多个计划。 可以在 Azure 经典门户和 Azure 门户中将 Runbook 的计划配置为运行一次或按每小时或每天计划重复运行，也可以将它们计划为每周、每月、每周或每月的特定几天，或者每月的某一天运行。  可将一个 Runbook 链接到多个计划，一个计划可以链接多个 Runbook。
+要将 Azure 自动化中的 Runbook 计划为在指定的时间启动，可以将它链接到一个或多个计划。 可以在 Azure 门户中为 runbook 配置计划，使其运行一次或者每小时或每日定期运行。 还可以将它们计划为每周、每月、每周的特定几天或每月的特定几天或每月的特定一天运行。  可将一个 Runbook 链接到多个计划，一个计划可以链接多个 Runbook。
 
 > [!NOTE]
 > 目前计划不支持 Azure Automation DSC 配置。
@@ -65,7 +65,6 @@ ms.lasthandoff: 01/12/2018
 4. 在“新建计划”窗格中，键入新计划的“名称”和（可选）“说明”。
 5. 通过选择“一次”或“定期”来选择该计划是运行一次，还是按计划重复运行。  如果选择“一次”，请指定“开始时间”，并单击“创建”。  如果选择“定期”，请指定“开始时间”以及想要 Runbook 重复运行的频率（按“小时”、按“天”、按“周”或按“月”）。  如果从下拉列表中选择了“周”或“月”，则“定期选项”将出现在窗格中，选择它后，会显示“定期选项”窗格，如果已选择“周”，则可以选择星期几。  如果选择了“月”，则可以在日历上按“工作日”或每月的特定日进行选择，并最后选择是否希望在每月的最后一天运行它，单击“确定”。   
 
-
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>使用 Windows PowerShell 创建新计划
 可以使用 [New-AzureAutomationSchedule](https://docs.microsoft.com/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) cmdlet 在 Azure 自动化中为经典 Runbook 创建新计划，或使用 [New-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet 在 Azure 门户中为 Runbook 创建新计划。 必须指定计划的开始时间以及它应运行的频率。
 
@@ -92,7 +91,6 @@ ms.lasthandoff: 01/12/2018
 2. 单击要计划的 Runbook 的名称。
 3. 如果 Runbook 当前未链接到计划，则系统会提供“创建新计划”或“链接到现有计划”选项。  
 4. 如果 Runbook 有参数，可以选择选项“修改运行设置(默认值:Azure)”，此时会显示“参数”窗格，可以在其中相应地输入信息。  
-
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>使用 Windows PowerShell 将计划链接到 Runbook
 可以使用 [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) 将计划链接到经典 Runbook，或者使用 [Register-AzureRmAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet（针对 Azure 门户中的 Runbook）。  可以使用 Parameters 参数指定 Runbook 参数的值。 有关指定参数值的详细信息，请参阅[在 Azure 自动化中启动 Runbook](automation-starting-a-runbook.md)。
@@ -122,7 +120,6 @@ ms.lasthandoff: 01/12/2018
 1. 在 Azure 门户中，从你的自动化帐户中，从左侧的“共享资源”部分下选择“计划”。
 2. 单击某个计划的名称以打开详细信息窗格。
 3. 将“已启用”更改为“否”。
-
 
 ### <a name="to-disable-a-schedule-with-windows-powershell"></a>使用 Windows PowerShell 禁用计划
 可以使用 [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) cmdlet 更改经典 Runbook 的现有计划的属性，或者使用[Set-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationschedule) cmdlet（针对 Azure 门户中的 Runbook）。 若要禁用计划，请将“IsEnabled”参数指定为“false”。

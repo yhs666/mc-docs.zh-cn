@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/18/2017
-ms.date: 12/25/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: a477906b21dc50b8324e279a40aed481b341da9a
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: a6a6b7ae881821752d6180fdd44395cc0fc2a5d9
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>将 Azure 资源部署到多个订阅或资源组
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 12/22/2017
 
 如果将 `resourceGroup` 设置为不存在的资源组的名称，则部署将失败。
 
-若要部署示例模板，请使用 2017 年 5 月或之后发布的 Azure PowerShell 或 Azure CLI 版本。
+若要部署示例模板，请使用 Azure PowerShell 4.0.0 或更高版本，也可以使用 Azure CLI 2.0.0 或更高版本。
 
 ## <a name="use-the-resourcegroup-function"></a>使用 resourceGroup() 函数
 
@@ -282,4 +282,4 @@ az group deployment create \
 * 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
 * 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-powershell-sas-token.md)。
 
-<!-- Update_Description: update meta properties, add example templates content-->
+<!-- Update_Description: wording update -->

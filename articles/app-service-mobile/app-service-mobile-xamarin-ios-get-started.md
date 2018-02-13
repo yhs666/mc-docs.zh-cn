@@ -2,22 +2,24 @@
 title: "适用于 Xamarin iOS 应用的 Azure 应用服务移动应用入门 | Azure"
 description: "按照本教程进行操作，开始使用移动应用进行 Xamarin.iOS 开发。"
 services: app-service\mobile
-documentationCenter: xamarin
-authors: adrianhall
-manager: dwrede
+documentationcenter: xamarin
+author: conceptdev
+manager: crdun
 editor: 
+ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: df94766664b756ae0dbf790dc033eca443f66117
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: c439d7dec4926256d09ac99792764d7f671ef2c1
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 #<a name="create-a-xamarinios-app"></a>创建 Xamarin iOS 应用
 
@@ -25,7 +27,7 @@ ms.lasthandoff: 07/13/2017
 
 ##<a name="overview"></a>概述
 
-本教程说明如何使用 Azure 移动应用后端向 Xamarin.iOS 移动应用添加基于云的后端服务。  创建一个新的移动应用后端以及一个简单的 _待办事项列表_ Xamarin.iOS 应用，此应用将应用数据存储在 Azure 中。
+本教程说明如何使用 Azure 移动应用后端向 Xamarin.iOS 移动应用添加基于云的后端服务。  将创建一个新的移动应用后端以及一个简单的 *待办事项列表* Xamarin.iOS 应用，此应用将应用数据存储在 Azure 中。
 
 只有在完成本教程后，才可以学习有关使用 Azure 应用服务中的移动应用功能的所有其他 Xamarin.iOS 教程。
 
@@ -38,9 +40,6 @@ ms.lasthandoff: 07/13/2017
 * Visual Studio with Xamarin。 有关说明，请参阅 [设置和安装 Visual Studio 和 Xamarin](https://msdn.microsoft.com/zh-cn/library/mt613162.aspx) 。
 
 * 安装了 Xcode v7.0 版或更高版本以及 Xamarin Studio Community 的 Mac。 请参阅[设置和安装 Visual Studio 和 Xamarin](https://msdn.microsoft.com/zh-cn/library/mt613162.aspx) 以及 [Mac 用户的设置、安装和验证](https://msdn.microsoft.com/zh-cn/library/mt488770.aspx) (MSDN)。
-
->[!NOTE]
-> 如果要在注册 Azure 帐户之前就开始使用 Azure 应用服务，请转到 [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile)（试用应用服务）。 可以立即在应用服务中创建短期的入门级移动应用 - 无需信用卡，也无需做出承诺。
 
 ## <a name="create-an-azure-mobile-app-backend"></a>创建 Azure 移动应用后端
 
@@ -71,15 +70,16 @@ ms.lasthandoff: 07/13/2017
     ![][8]
 
 4. 按 F5 键生成项目，并在 iPhone 模拟器中启动应用。
-
 5. 在应用中键入有意义的文本（例如“Learn Xamarin”），然后单击“+”按钮。
 
     ![][10]
 
     来自请求的数据被插入到 TodoItem 表。 移动应用后端返回存储在表中的项，数据显示在列表中。
 
->[!NOTE]
->可以在 QSTodoService.cs C# 文件中查看用于访问移动应用后端以查询和插入数据的代码。
+> [!NOTE]
+> 可以在 QSTodoService.cs C# 文件中查看用于访问移动应用后端以查询和插入数据的代码。
+>
+>
 
 ##<a name="next-steps"></a>后续步骤
 

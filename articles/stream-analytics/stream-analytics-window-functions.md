@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: fef788d0c767ccd7c447af180d15985f67109801
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: a6d7f5616d13956b1f11ec4f7544e91812814a95
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>流分析开窗函数简介
 在许多实时流方案中，只需要对临时窗口中包含的数据执行操作。 开窗函数的本机支持是 Azure 流分析的重要功能，可对编写复杂流处理作业的开发人员工作效率造成重大影响。 流分析支持开发人员使用[**翻转**](https://msdn.microsoft.com/library/dn835055.aspx)、[**跳跃**](https://msdn.microsoft.com/library/dn835041.aspx)和[**滑动**](https://msdn.microsoft.com/library/dn835051.aspx)窗口对流数据执行临时操作。 值得注意的是，所有[开窗](https://msdn.microsoft.com/library/dn835019.aspx)操作都在窗口**结束**时输出结果。 窗口的输出是基于所用聚合函数的单个事件。 该事件包含窗口的结束时间戳，所有开窗函数都以固定的长度定义。 最后，请务必注意，所有开窗函数只能在 [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx) 子句中使用。
@@ -43,7 +43,7 @@ ms.lasthandoff: 09/28/2017
 ![流分析滑动开窗函数简介](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 ## <a name="getting-help-with-window-functions"></a>获取开窗函数的帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

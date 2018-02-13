@@ -1,6 +1,6 @@
 ---
 title: "Polybase 数据加载 - 从 Azure 存储 Blob 到 Azure SQL 数据仓库 | Azure"
-description: "本教程使用 Azure 门户和 SQL Server Management Studio 将北京市出租车数据从 Azure Blob 存储加载到 Azure SQL 数据仓库。"
+description: "本教程使用 Azure 门户和 SQL Server Management Studio 将出租车数据从 Azure Blob 存储加载到 Azure SQL 数据仓库。"
 services: sql-data-warehouse
 documentationcenter: 
 author: rockboyfor
@@ -18,15 +18,15 @@ origin.date: 11/17/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
 ms.reviewer: barbkess
-ms.openlocfilehash: 08d5e1a87699f8fd61dc702c00aa3723481e33d0
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: f1251ef71f42b239f376bda2cf3ee38c0cd94f44
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>使用 PolyBase 将数据从 Azure Blob 存储加载到 Azure SQL 数据仓库
 
-PolyBase 是一种标准加载技术，用于将数据加载到 SQL 数据仓库。 在本教程中，使用 PolyBase 将北京市出租车数据从 Azure Blob 存储加载到 Azure SQL 数据仓库。 本教程使用 [Azure 门户](https://portal.azure.cn)和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) 执行以下操作： 
+PolyBase 是一种标准加载技术，用于将数据加载到 SQL 数据仓库。 在本教程中，使用 PolyBase 将出租车数据从 Azure Blob 存储加载到 Azure SQL 数据仓库。 本教程使用 [Azure 门户](https://portal.azure.cn)和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) 执行以下操作： 
 
 > [!div class="checklist"]
 > * 在 Azure 门户中创建数据仓库
@@ -221,7 +221,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 ## <a name="create-external-tables-for-the-sample-data"></a>为示例数据创建外部表
 
-已准备好开始将数据加载到新的数据仓库。 本教程说明如何使用 [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide.md) 从 Azure 存储 Blob 加载北京市出租车数据。 若要了解如何将数据置于 Azure Blob 存储或如何将其直接从源加载到 SQL 数据仓库以供将来参考，请参阅[加载概述](sql-data-warehouse-overview-load.md)。
+已准备好开始将数据加载到新的数据仓库。 本教程说明了如何使用 [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide.md) 从 Azure 存储 Blob 加载出租车数据。 若要了解如何将数据置于 Azure Blob 存储或如何将其直接从源加载到 SQL 数据仓库以供将来参考，请参阅[加载概述](sql-data-warehouse-overview-load.md)。
 
 运行以下 SQL 脚本，指定有关想要加载的数据的信息。 此信息包括数据所在的位置、数据内容的格式以及数据的表定义。 
 

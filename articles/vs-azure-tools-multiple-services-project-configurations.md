@@ -3,8 +3,8 @@ title: "使用多种服务配置来配置 Azure 项目 | Microsoft Docs"
 description: "了解如何通过更改 ServiceDefinition.csdef、ServiceConfiguration.Local.cscfg 和 ServiceConfiguration.Cloud.cscfg 文件来配置 Azure 云服务项目。"
 services: visual-studio-online
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.service: multiple
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/11/2017
-ms.date: 12/28/2017
+ms.date: 01/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: bd39feb50044a55fff8a2ca6089acf88763e1ff0
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 469db1a56c50f17aa8aa85f663c5e6d2e343cf56
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>使用多种服务配置来配置 Visual Studio 中的 Azure 项目
 
@@ -78,7 +78,7 @@ Visual Studio 中的 Azure 云服务项目包括三个配置文件：`ServiceDef
 
 1. 在“连接时使用”下，选择“你的订阅”选项，以从订阅中选择存储帐户。 然后 Visual Studio 会从 `.publishsettings` 文件自动获取存储帐户凭据。
 1. 选择“手动输入凭据”，以便直接使用来自 Azure 门户的信息指定帐户名和密钥。 复制帐户密钥：a。 导航到 Azure 门户上的存储帐户，然后选择“管理密钥”。
-    2. 在“管理密钥访问权限”页面上，选择主访问密钥的文本，并按 Ctrl+C 进行复制。
+    b. 要复制帐户密钥，请导航到 Azure 门户中的存储帐户，选择“设置”>“访问密钥”，然后使用“复制”按钮将主访问密钥复制到剪贴板。
 1. 选择其中一个连接选项。 “指定自定义终结点”会要求你指定 blob、表和队列的特定 URL。 自定义终结点允许你使用[自定义域](storage/blobs/storage-custom-domain-name.md)以及更精确地控制访问权限。 请参阅[配置 Azure 存储连接字符串](./storage/common/storage-configure-connection-string.md)。
 1. 选择“确定”，然后选择“文件 > 保存”，以使用新的连接字符串更新配置。
 

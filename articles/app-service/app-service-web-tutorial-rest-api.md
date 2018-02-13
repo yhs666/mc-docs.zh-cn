@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/13/2017
-ms.date: 12/04/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: bd3efaf57a85effc94b1b77ff5043fc9d2af0b28
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 9f6ba7348636bd0f8d1236f139bee5da3e3b410f
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>构建 Node.js RESTful API 并将它部署到 Azure 中的 API 应用
 
@@ -84,7 +84,7 @@ yo swaggerize --apiPath api.json --framework express
 1. 将 *lib* 文件夹复制到 `yo swaggerize` 创建的 *ContactList* 文件夹，然后将目录更改为 *ContactList*。
 
     ```bash
-    cp -r lib/ ContactList/
+    cp -r lib ContactList/
     cd ContactList
     ```
 
@@ -246,8 +246,16 @@ yo swaggerize --apiPath api.json --framework express
     node_modules/
     ```
     确认已通过 `git status` 忽略 `node_modules` 文件夹。
+    
+4. 将以下行添加到 `package.json`。 Swaggerize 生成的代码没有指定 Node.js 引擎的版本。 在未指定版本的情况下，Azure 使用默认版本 `0.10.18`，该版本与生成的代码不兼容。
 
-4. 提交存储库更改。
+    ```javascript
+    "engines": {
+        "node": "~0.10.22"
+    },
+    ```
+
+5. 提交存储库更改。
     ```bash
     git add .
     git commit -m "initial version"

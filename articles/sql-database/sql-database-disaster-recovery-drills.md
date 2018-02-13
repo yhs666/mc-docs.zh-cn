@@ -16,11 +16,11 @@ ms.workload: Inactive
 origin.date: 10/20/2016
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 70207261f99201101c30b53c15630f1c11980b37
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 8cc222468b82d238cc2e6a1f2acff86c071e3e58
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="performing-disaster-recovery-drill"></a>执行灾难恢复演练
 建议定期对恢复工作流执行应用程序就绪性验证。 验证应用程序的行为以及数据丢失和/或涉及到故障转移的中断所造成的影响，是一种良好的工程实践。 许多行业标准在涉及到业务连续性认证方面也会提出此要求。
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/05/2018
 若要防止执行灾难恢复演练时发生潜在的数据丢失，请通过创建生产环境的副本在测试环境中执行演练，并使用测试环境来验证应用程序的故障转移工作流。
 
 #### <a name="outage-simulation"></a>中断模拟
-若要模拟服务中断，可以删除或重命名源数据库。 这会导致应用程序连接失败。
+若要模拟中断，可重命名源数据库。 这会导致应用程序连接失败。
 
 #### <a name="recovery"></a>恢复
 * 根据[此处](sql-database-disaster-recovery.md)所述，在另一台服务器中执行数据库异地还原。

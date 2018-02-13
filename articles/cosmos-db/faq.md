@@ -13,30 +13,35 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2017
-ms.date: 12/25/2017
+origin.date: 01/02/2018
+ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: d15f6d4f983d4448e0cdc20b46d55dc9baaf1384
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 560d3b02ee894058aeaf1bf4525a7e1681d2601d
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
+<!-- meta.description: GLOBALLY to multiple-region -->
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常见问题解答
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基础知识
 ### <a name="what-is-azure-cosmos-db"></a>什么是 Azure Cosmos DB？
+
 Azure Cosmos DB 是多区域复制的多模型数据库服务，可针对无架构数据提供丰富的查询，帮助提供可靠的可配置性能，并支持快速开发。 这一切都通过一个托管平台来实现，而该平台有 Azure 强大的功能与影响力作为后盾。 
+<!-- GLOBALLY to multiple-region -->
 
 如果 Web、移动、游戏和 IoT 应用程序的关键要求是可预测的吞吐量、高可用性、低延迟和无架构数据模型，那么，Azure Cosmos DB 无疑是最合适的解决方案。 它提供了架构灵活性和丰富的索引，并且对集成的 JavaScript 提供了多文档事务性支持。 
 
 有关部署和使用此服务的更多数据库问题、解答及说明，请参阅 [Azure Cosmos DB 文档页面]((https://docs.azure.cn/cosmos-db/)。
 
 ### <a name="what-happened-to-the-documentdb-api"></a>DocumentDB API 有哪些变化？
+
 Azure Cosmos DB DocumentDB API 或 SQL (DocumentDB) API 现在称为 Azure Cosmos DB SQL API。 无需进行任何更改即可继续运行使用 DocumentDB API 构建的应用。 功能保持相同。
 
 如果你以前有一个 DocumentDB API 帐户，则现在有一个 SQL API 帐户，费用不会有任何变化。 
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>用作服务 Azure DocumentDB 发生了什么变化？
+
 Azure DocumentDB 服务现在是 Azure Cosmos DB 服务的一部分，自身以 SQL API 形式呈现。 无需针对 Azure Cosmos DB SQL API 进行任何更改，就能运行针对 Azure DocumentDB 生成的应用程序。 此外，Azure Cosmos DB 还支持表 API 和 MongoDB API。
 <!--Not Available on  Graph API (Preview), and Cassandra API (Preview) -->
 
@@ -68,14 +73,14 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 有关详细信息，请参阅 [Azure Cosmos DB 定价详细信息](https://www.azure.cn/pricing/details/cosmos-db/)页。 Azure Cosmos DB 使用费取决于预配的容器数、容器的联机小时数，以及每个容器的预配吞吐量。 在这里，术语“容器”是指 SQL API 集合、MongoDB API 集合以及表 API 表。 
 <!-- Not Avaialbe  Graph API graph -->
 
-### <a name="is-a-free-account-available"></a>有免费帐户吗？
+### <a name="is-a-trial-account-available"></a>有试用帐户吗？
 <!-- Not Available [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
 如果不熟悉 Azure，可以注册 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，这样可以得到 30 天试用期和信用额度，以便试用所有 Azure 服务。 如果你有 Visual Studio 订阅，则还有资格[免费获取 Azure 信用额度](https://www.azure.cn/support/legal/offer-rate-plans/)，可用于任何 Azure 服务。 
 
 也可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)在本地免费开发和测试应用程序，无需创建 Azure 订阅。 如果对应用程序在 Azure Cosmos DB 模拟器中的工作情况感到满意，则可以切换到在云中使用 Azure Cosmos DB 帐户。
 
-### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>如何获取与 Azure Cosmos DB 相关的其他帮助？
-如需任何帮助，请在 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) 或 [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDocumentDB)上联系我们，或者通过向 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) 发送邮件安排与 Azure Cosmos DB 工程团队进行一对一交谈。 
+### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>如何获取 Azure Cosmos DB 的更多帮助？
+如需任何帮助，请在 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) 或 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上联系我们，或者通过向 [Azure 支持部门](https://www.azure.cn/support/contact/)发送邮件安排与 Azure Cosmos DB 工程团队进行一对一交谈。 
 
 <!-- Not Avaialble ## Try Azure Cosmos DB subscriptions-->
 ## <a name="set-up-azure-cosmos-db"></a>设置 Azure Cosmos DB
@@ -213,7 +218,7 @@ Azure Cosmos DB 实施严格的安全要求和标准。 Azure Cosmos DB 帐户�
 | TableServiceExtensions | " " |
 | TableServiceQuery | " " |
 
-如果其中的任何差异会给项目造成问题，请联系 [Azure 支持部门](https://www.azure.cn/support/support-ticket-form)并告诉我们。
+如果其中的任何差异会给项目造成问题，请联系 [Azure 支持部门](https://www.azure.cn/support/contact/)并告诉我们。
 
 ### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>如何提供有关 SDK 或 Bug 的反馈？
 可通过以下途径提供反馈：
@@ -225,7 +230,7 @@ Azure Cosmos DB 实施严格的安全要求和标准。 Azure Cosmos DB 帐户�
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>连接到表 API 需要使用哪个连接字符串？
 连接字符串为：
 ```
-DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB>;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountNameFromDocumentDB>.documents.azure.cn
+DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB>;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountName>.documents.azure.cn
 ```
 可以通过 Azure 门户中的“连接字符串”页获取连接字符串。 
 
@@ -281,6 +286,7 @@ DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB>;AccountKey
 
 ### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>如何在表 API 中更改帐户的主要写入区域？
 可以使用 Azure Cosmos DB 的多区域复制门户窗格来添加区域，然后故障转移到所需的区域。 有关说明，请参阅[使用多区域 Azure Cosmos DB 帐户进行开发](regional-failover.md)。 
+<!-- Notice: 全球范围 to 多个区域范围 -->
 
 ### <a name="how-do-i-configure-my-preferred-read-regions-for-low-latency-when-i-distribute-my-data"></a>如何配置首选的读取区域以降低分配数据时的延迟？ 
 请使用 app.config 文件中的 PreferredLocation 键，方便从本地位置读取。 对于现有应用程序，如果设置 LocationMode，表 API 会引发错误。 请删除该代码，因为表 API 会从 app.config 文件中选取此信息。 有关详细信息，请参阅 [Azure Cosmos DB 功能](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities)。
@@ -385,6 +391,7 @@ Azure Cosmos DB 针对操作设置上限，在性能和延迟方面提供保证�
 ### <a name="azure-table-storage-has-been-very-inexpensive-for-me-because-i-pay-only-to-store-the-data-and-i-rarely-query-the-azure-cosmos-db-table-api-offering-seems-to-be-charging-me-even-though-i-have-not-performed-a-single-transaction-or-stored-anything-can-you-please-explain"></a>Azure 表存储对我而言非常便宜，因为我只需支付数据的存储费用，并且我很少进行查询。 但是，即使我未执行任何事务或存储任何数据，Azure Cosmos DB 表 API 服务似乎也要收费。 能否请你解释一下？
 
 根据设计，Azure Cosmos DB 是一个多区域分布式的、基于 SLA 的系统，在可用性、延迟和吞吐量方面提供保证。 如果在 Azure Cosmos DB 中保留吞吐量，吞吐量就会获得保证，这与其他系统的吞吐量有所不同。 Azure Cosmos DB 会根据客户请求提供额外功能，例如辅助索引和全局分发。  
+<!-- Notice: 全球范围 to 多个区域范围 -->
 
 ### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>在向 Azure 表存储引入数据时，我从未收到过“配额已满”通知（指示分区已满）。 但使用表 API 时会收到此消息。 是此产品有限制，迫使我更改现有的应用程序吗？
 
@@ -408,4 +415,4 @@ Azure Cosmos DB 是基于 SLA 的系统，在可用性、延迟和吞吐量方�
 [azure-portal]: https://portal.azure.cn
 [query]: sql-api-sql-query.md
 
-<!--Update_Description: update link, wording update, remove Cassandra FAQ content -->
+<!--Update_Description: update link, wording update -->

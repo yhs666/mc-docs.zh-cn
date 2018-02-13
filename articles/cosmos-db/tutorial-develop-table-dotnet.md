@@ -12,15 +12,15 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-origin.date: 11/20/2017
-ms.date: 12/25/2017
+origin.date: 12/18/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ce83a87a0dc44fcb43a52ea50177b683249207b7
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: abcf0c1c71cd33d310b457d152fe3b0554b467fc
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB：在 .NET 中使用表 API 进行开发
 
@@ -50,7 +50,7 @@ Azure Cosmos DB 为有某类需求的应用程序提供[表 API](table-introduct
 
 如果当前使用 Azure 表存储，可以通过 Azure Cosmos DB 表 API 获得以下好处：
 
-- 具有多宿主的统包式[全球分布](distribute-data-globally.md)与[自动和手动故障转移](regional-failover.md)
+- 具有多宿主的统包[全局分发](distribute-data-globally.md)与[自动和手动故障转移](regional-failover.md)
 - 支持针对所有属性的自动架构不可知索引（“辅助索引”）和快速查询 
 - 支持跨任意数量的区域实现[存储和吞吐量的独立缩放](partition-data.md)
 - 支持[按表的专用吞吐量](request-units.md)，可以从每秒数百个请求扩展到每秒数百万个请求
@@ -151,8 +151,6 @@ Azure Cosmos DB 支持大量 Azure 表存储 API 中不可用的功能。
 
 | 键 | 说明 |
 | --- | --- |
-| TableThroughput | 表的保留吞吐量以请求单位 (RU) /秒表示。 单个表可支持数百至数百万的 RU/s。 请参阅[请求单位](request-units.md)。 默认为 `400` |
-| TableIndexingPolicy | 符合索引策略规范的 JSON 字符串。 若要查看如何将索引策略更改为包括/排除特定列，请参阅[索引策略](indexing-policies.md)。 |
 | TableQueryMaxItemCount | 配置单个往返过程中按每个表查询所返回的最大项数。 默认为 `-1`，使 Azure Cosmos DB 在运行时能够动态确定该值。 |
 | TableQueryEnableScan | 如果查询无法使用任何筛选器的索引，则无论如何要通过扫描运行它。 默认值为 `false`。|
 | TableQueryMaxDegreeOfParallelism | 用于执行跨分区查询的并行度。 `0` 是不使用任何预提取的串行，`1` 是使用预提取的串行，更高的值会增加并行度的速率。 默认为 `-1`，使 Azure Cosmos DB 在运行时能够动态确定该值。 |
@@ -167,10 +165,6 @@ Azure Cosmos DB 支持大量 Azure 表存储 API 中不可用的功能。
       <add key="CosmosDBStorageConnectionString" 
         value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.azure.cn" />
       <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.cn;EndpointSuffix=core.chinacloudapi.cn" />
-
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}"/>
 
       <!-- Table query options -->
       <add key="TableQueryMaxItemCount" value="-1"/>
@@ -198,12 +192,12 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");
 
-table.CreateIfNotExists();
+table.CreateIfNotExists(throughput: 800);
 ```
 
 在表创建方式上存在一个重要差异。 与 Azure 存储的基于消耗的事务模型不同，Azure Cosmos DB 保留吞吐量。 吞吐量是专用/保留的，因此即使请求速率处于配置的吞吐量水平或以下，用户也不会受到限制。
 
-可通过以 RU（请求单位）/秒的形式配置 `TableThroughput` 的设置，来配置默认吞吐量。 
+可以通过以 CreateIfNotExists 参数的形式提供它来配置默认吞吐量。
 
 对 1-KB 实体的 1 次读取规范化为 1 RU，并将根据其他操作的 CPU、内存和 IOPS 消耗量将其规范化为固定 RU 值。 详细了解 [Azure Cosmos DB 中的请求单位](request-units.md)，具体说来就是[密钥值存储](key-value-store-cost.md)的请求单位。
 

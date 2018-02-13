@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 04/20/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1190d652813a52862e825d9942b9e79edf36c05c
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 6b8fdbdf427be3e643385d59b5937352f1428381
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Azure 流分析故障排除指南
 
@@ -89,7 +89,7 @@ Azure 流分析故障排除可能看上去是一项复杂的工作。 与大量�
 
 ## <a name="get-help"></a>获取帮助
 
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
 
 ## <a name="next-steps"></a>后续步骤
 

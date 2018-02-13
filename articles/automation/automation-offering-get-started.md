@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 08/31/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: 1dd7679c98d1936647a895069b54d6ddbd1154bb
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 8738f5f923d9876364f62323740bd41011d198b0
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="getting-started-with-azure-automation"></a>Azure 自动化入门
 
@@ -88,10 +88,6 @@ Azure 自动化 DSC 可用于管理各种计算机：
 * **Runbooks** - 是基于 Windows PowerShell 的 Azure 自动化中执行某些自动化过程的一组任务。    
 
 每个自动化帐户的自动化资源都与单个 Azure 区域关联，但自动化帐户可以管理订阅中的所有资源。 如果策略要求将数据和资源隔离到特定的区域，请在不同区域中创建自动化帐户。
-
-> [!NOTE]
-> 无法在 Azure 经典门户中访问使用在 Azure 门户创建的自动化帐户及其包含的资源。 如果你想要使用 Windows PowerShell 来管理这些帐户或其资源，必须使用 Azure 资源管理器模块。
-> 
 
 在 Azure 门户中创建自动化帐户时，会自动创建两个身份验证实体：
 

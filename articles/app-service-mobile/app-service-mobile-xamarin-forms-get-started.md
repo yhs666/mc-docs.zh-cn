@@ -3,8 +3,8 @@ title: "移动应用入门（使用 Xamarin.Forms）"
 description: "按本教程操作，开始使用移动应用进行 Xamarin.Forms 开发"
 services: app-service\mobile
 documentationcenter: xamarin
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
 ms.service: app-service-mobile
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 10/09/2017
-ms.openlocfilehash: a95616821dd5f122761b416c1cba6726e2b6b46b
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.date: 01/29/2018
+ms.openlocfilehash: 27a8058490cd95706e5fd31e0ec709d665e0fa56
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 01/22/2018
 ---
 #<a name="create-a-xamarinforms-app"></a>创建 Xamarin.Forms 应用
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 09/22/2017
 
 ##<a name="prerequisites"></a>先决条件
 
-若要完成本教程，需要以下各项：
+要完成本教程，需要以下各项：
 
 * 有效的 Azure 帐户。 如果没有帐户，可以注册 Azure 试用版并获取多达 10 个免费的移动应用，即使在试用期结束之后仍可继续使用这些应用。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 09/22/2017
 
 1. 转到 [Azure 门户]。
 
-2. 在移动应用的“设置”边栏选项卡的“移动”下，选择“开始使用” > “Xamarin.Forms”。 在“步骤 3”下选择“创建新应用”，然后选择“下载”。
+2. 在移动应用的设置边栏选项卡上，单击“快速入门”（在“部署”下）>“Xamarin.Forms”。 在步骤 3 下，单击“创建新应用”（如果尚未选择它）。  接下来，单击“下载”  按钮。
 
    此操作下载一个项目，其中包含连接到移动应用的客户端应用程序。 将压缩的项目文件保存到本地计算机，并记下保存位置。
 
@@ -199,4 +199,4 @@ ms.lasthandoff: 09/22/2017
 <!-- URLs. -->
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure 门户]: https://portal.azure.cn/
+[Azure Portal]: https://portal.azure.cn/

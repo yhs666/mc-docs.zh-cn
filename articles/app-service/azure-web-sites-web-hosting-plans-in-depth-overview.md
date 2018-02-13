@@ -1,5 +1,5 @@
 ---
-title: "Azure 应用服务计划概述 | Microsoft Docs"
+title: "Azure 应用服务计划概述"
 description: "了解针对 Azure 应用服务的应用服务计划的工作原理，以及如何利用它们进行管理。"
 keywords: "应用服务, azure 应用服务, 缩放, 可缩放, 可伸缩性, 应用服务计划, 应用服务成本"
 services: app-service
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/09/2017
-ms.date: 01/02/2018
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2def592eef8a05298a0b2e4dc89c6a970654af4d
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.openlocfilehash: e76b04b0ab89aa42f90c97d87aaaa15e35c1f19d
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure 应用服务计划概述
 
@@ -37,6 +37,8 @@ ms.lasthandoff: 12/25/2017
 
 - **共享计算**：“免费”和“共享”，这两个基本层在其他应用服务应用（包括其他客户的应用）所在的同一个 Azure VM 上运行应用。 这些层针对共享资源中运行的每个应用分配 CPU 配额，且资源不可横向扩展。
 - **专用计算**：“基本”、“标准”、“高级”层在专用的 Azure VM 上运行应用。 只有同一应用服务计划中的应用可以共享相同的计算资源。 层越高，可用于横向扩展的 VM 实例就越多。
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 每个层还提供应用服务功能的特定子集。 这些功能包括自定义域和 SSL 证书、自动缩放、部署槽位、备份、流量管理器集成，等等。 层越高，可用的功能越多。 若要了解每个定价层支持的功能，请参阅[应用服务计划详细信息](https://azure.microsoft.com/pricing/details/app-service/plans/)。
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 11/11/2016
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: 55eeea98fba304c46385dc72c6f296cb65d59141
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: ed05a09dc99b126c0362c7fa6232ffcf7da9f098
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure 自动化中的 Runbook 输出和消息
 大多数 Azure 自动化 Runbook 向用户或旨在由其他工作流使用的复杂对象提供某种形式的输出，例如错误消息。 Windows PowerShell 提供 [多个流](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) ，以便从脚本或工作流发送输出。 Azure 自动化以不同方式处理其中的每个流，在创建 Runbook 时，应该遵循有关如何使用每个流的最佳实践。
@@ -206,8 +206,8 @@ Windows PowerShell 使用 [Preference 变量](http://technet.microsoft.com/libra
 1. 在 Azure 门户中，打开自动化帐户。
 2. 单击“Runbook”  磁贴打开 Runbook 列表。
 3. 在“Runbook”边栏选项卡上，单击以从 Runbook 列表中选择图形 Runbook。
-4. 在所选 Runbook 的“设置”边栏选项卡上，单击“日志记录和跟踪”。
-5. 在“日志记录和跟踪”边栏选项卡的“记录详细记录”下，单击“启用”以启用详细日志记录，在“活动级别跟踪”下，根据所需跟踪级别，将跟踪级别更改为“基本”或“详细”。<br>
+4. 在所选 Runbook 的“设置”边栏选项卡上，单击“日志记录和跟踪” 。
+5. 在“日志记录和跟踪”边栏选项卡的“记录详细记录”下，单击“启用”以启用详细日志记录；在“活动级别跟踪”下，根据所需的跟踪级别，将跟踪级别更改为“基本”或“详细”。<br>
    
    ![“图形创作日志记录和跟踪”边栏选项卡](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 

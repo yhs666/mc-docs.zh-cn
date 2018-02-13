@@ -2,11 +2,11 @@
 title: 'Azure 门户：使用查询编辑器查询 Azure SQL 数据库 | Azure description: 了解如何使用 SQL 查询编辑器在 Azure 门户中连接到 SQL 数据库。 然后，通过运行 Transact-SQL (T-SQL) 语句来查询和编辑数据。
 metacanonical: '' keywords: 连接到 sql 数据库, azure 门户, 门户, 查询编辑器 services: sql-database documentationcenter: '' author: yunan2016 manager: digimobile editor: ''
 
-ms.assetid: ms.service: sql-database ms.custom: mvc,DBs & servers ms.workload: data-management ms.tgt_pltfrm: na ms.devlang: na ms.topic: hero-article origin.date: 08/02/2017 ms.date: 01/08/2018 ms.author: v-nany
+ms.assetid: ms.service: sql-database ms.custom: mvc,DBs & servers ms.workload: data-management ms.tgt_pltfrm: na ms.devlang: na ms.topic: hero-article origin.date: 01/10/2018 ms.date: 01/22/2018 ms.author: v-nany
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure 门户：使用 SQL 查询编辑器进行连接并查询数据
 
-SQL 查询编辑器是一款浏览器查询工具，可以轻松有效地在 Azure SQL 数据库或 Azure SQL 数据仓库中执行 SQL 查询，不需离开 Azure 门户。 本快速入门演示了如何使用查询编辑器连接到 SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。 
+SQL 查询编辑器是一款浏览器查询工具，可以轻松有效地在 Azure SQL 数据库或 Azure SQL 数据仓库中执行 SQL 查询，不需离开 Azure 门户。 本快速入门演示了如何使用查询编辑器连接到 SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -25,17 +25,15 @@ SQL 查询编辑器是一款浏览器查询工具，可以轻松有效地在 Azu
 
 1. 单击左侧菜单中的“SQL 数据库”，然后单击要查询的数据库。
 
-2. 在数据库的“SQL 数据库”页上，单击工具栏上的“工具”。 此时会打开“工具”页。
+2. 在数据库的 SQL 数据库页的左侧菜单中找到并单击“数据资源管理器(预览)”。
 
-    ![工具菜单](./media/sql-database-connect-query-portal/tools-menu.png)
+    ![查找查询编辑器](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. 依次单击“查询编辑器(预览版)”、“预览条款”复选框、“确定”。 此时会打开“查询编辑器”页。
-
-4. 单击“登录”，在出现提示时选择“SQL Server 身份验证”，然后提供在创建数据库时提供的服务器管理员登录名和密码。
+3. 单击“登录”，在出现提示时选择“SQL Server 身份验证”，然后提供在创建数据库时提供的服务器管理员登录名和密码。
 
     ![登录](./media/sql-database-connect-query-portal/login-menu.png) 
 
-5. 单击“确定”登录。
+4. 单击“确定”登录。
 
 
 ## <a name="connect-using-azure-ad"></a>使用 Azure AD 进行连接
@@ -55,7 +53,7 @@ SQL 查询编辑器是一款浏览器查询工具，可以轻松有效地在 Azu
 
 4. 在 Active Directory 管理员边栏选项卡顶部单击“保存”命令，设置 Active Directory 管理员。
 
-导航到要查询的 SQL 数据库，单击工具栏上的“工具命令”，选择“查询编辑器(预览版)”选项。 “查询编辑器”页此时会打开，并自动将你连接到数据库。
+导航到要查询的 SQL 数据库，单击左侧菜单中的“数据资源管理器(预览)”。 “数据资源管理器”页此时会打开，并自动将你连接到数据库。
 
 
 ## <a name="run-query-using-query-editor"></a>使用查询编辑器运行查询

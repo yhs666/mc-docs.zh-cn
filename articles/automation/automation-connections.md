@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 01/13/2017
 ms.date: 01/12/2018
 ms.author: v-nany
-ms.openlocfilehash: cb12f07e4c1394b854f744fcf7635136045a3036
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: f7c664d8f3695a932256c0ac743c3bb821a1b536
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自动化中的连接资产
 
@@ -80,9 +80,11 @@ ms.lasthandoff: 01/12/2018
 
 如果熟悉自动化的[运行方式帐户](automation-sec-configure-azure-runas-account.md)（可使用服务主体对 Runbook 进行身份验证），可以使用 PowerShell 脚本（在从门户创建运行方式帐户时作为替代方法提供）通过以下示例命令创建新的连接资产。  
 
-    $ConnectionAssetName = "AzureRunAsConnection"
-    $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
-    New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
+```powershell
+$ConnectionAssetName = "AzureRunAsConnection"
+$ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
+New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
+```
 
 可以使用脚本创建连接资产，因为在创建自动化帐户时，该帐户默认情况下会在使用连接类型 **AzurServicePrincipal** 时自动包括多个全局模块，以便创建 **AzureRunAsConnection** 连接资产。  牢记这一点很重要，因为如果尝试使用其他身份验证方法创建新的连接资产来连接到服务或应用程序，则会失败，原因在于连接类型尚未在自动化帐户中定义。  如需详细了解如何通过 [PowerShell 库](https://www.powershellgallery.com)为自定义模块创建自己的连接类型，请参阅[集成模块](automation-integration-modules.md)
   
@@ -94,8 +96,10 @@ ms.lasthandoff: 01/12/2018
 
 以下示例命令演示如何使用前面所述的运行方式帐户，向 Runbook 中的 Azure Resource Manager 资源进行身份验证。  此示例使用代表运行方式帐户的连接资产，该帐户引用基于证书的服务主体而非凭据。  
 
-    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint -EnvironmentName "AzureChinaCloud"
+```powershell
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint -EnvironmentName "AzureChinaCloud" 
+```
 
 ### <a name="graphical-runbook-samples"></a>图形 Runbook 示例
 

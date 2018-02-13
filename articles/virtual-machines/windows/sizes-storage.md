@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 11/28/2017
-ms.date: 01/15/2018
+origin.date: 01/11/2018
+ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: ac21e677facc34fb1f29844478aa48c3713d7af6
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 3d27e8f7a04c7306cd3b3d79069224b501ba746e
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>存储优化虚拟机大小
 

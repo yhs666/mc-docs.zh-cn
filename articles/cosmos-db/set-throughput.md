@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/13/2017
-ms.date: 12/25/2017
+origin.date: 01/02/2018
+ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5246c9cd99f945031e1d4e459de1ecb31cc26c2d
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 2aea47e13d529f014da698f21559d253d845518e
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>设置 Azure Cosmos DB 容器的吞吐量
 
@@ -74,6 +74,28 @@ offer = new OfferV2(offer, 12000);
 await client.ReplaceOfferAsync(offer);
 ```
 
+<a id="set-throughput-java"></a>
+
+## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>使用 SQL API for Java 设置吞吐量
+
+此代码片段取自 [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) 存储库中的 OfferCrudSamples.java 文件。 
+
+```Java
+// find offer associated with this collection
+Iterator < Offer > it = client.queryOffers(
+    String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
+assertThat(it.hasNext(), equalTo(true));
+
+Offer offer = it.next();
+assertThat(offer.getString("offerResourceId"), equalTo(collectionResourceId));
+assertThat(offer.getContent().getInt("offerThroughput"), equalTo(throughput));
+
+// update the offer
+int newThroughput = 10300;
+offer.getContent().put("offerThroughput", newThroughput);
+client.replaceOffer(offer);
+```
+
 ## <a name="throughput-faq"></a>吞吐量常见问题
 
 **是否可以将吞吐量设置为小于 400 RU/s？**
@@ -88,4 +110,4 @@ await client.ReplaceOfferAsync(offer);
 
 若要了解有关使用 Cosmos DB 进行预配和多区域扩展的详细信息，请参阅[使用 Cosmos DB 进行分区和缩放](partition-data.md)。
 <!-- Notice: 全球 to 多个区域 -->
-<!-- Update_Description: update link , wording update -->
+<!-- Update_Description: udpate meta properties, wording update, add the content of Set the throughtput by using SQL API for java  -->

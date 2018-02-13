@@ -1,11 +1,12 @@
 ---
-title: "Azure 移动应用中的脱机数据同步 | Azure"
+title: "Azure 移动应用中的脱机数据同步"
 description: "Azure 移动应用脱机数据同步功能的概念参考和概述"
-documentationCenter: windows
-authors: adrianhall
-manager: dwrede
+documentationcenter: windows
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
+ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 origin.date: 10/30/2016
 ms.author: v-yiso
-ms.date: 10/09/2017
-ms.openlocfilehash: 2359bd3592f30a6b4c256f045da804b8ce3769e8
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.date: 01/29/2018
+ms.openlocfilehash: 4443c028222a5a4376e0b4f2da18316372a00b5d
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Azure 移动应用中的脱机数据同步
 ## <a name="what-is-offline-data-sync"></a>什么是脱机数据同步？
@@ -30,7 +31,7 @@ ms.lasthandoff: 09/22/2017
 
 * 通过缓存在设备上的本地服务器数据来提高应用程序响应能力
 * 创建当网络出问题时仍可使用的稳健应用
-* 允许最终用户创建和修改数据，甚至在没有网络访问权限，并支持方案具有很少或没有连接时
+* 允许最终用户创建和修改数据，甚至在没有网络访问权限，并且支持方案具有很少或没有连接时也是如此
 * 跨多个设备同步数据和同一个记录修改由两个设备时检测冲突
 * 在高延迟状态下或者在流量计费网络中限制网络使用
 
@@ -98,8 +99,8 @@ ms.lasthandoff: 09/22/2017
 
 <!-- Links -->
 [.NET 客户端 SDK]: ./app-service-mobile-dotnet-how-to-use-client-library.md
-[Android：启用脱机同步]: ./app-service-mobile-android-get-started-offline-data.md
-[iOS：启用脱机同步]: ./app-service-mobile-ios-get-started-offline-data.md
+[Android: Enable offline sync（Android：启用脱机同步）]: ./app-service-mobile-android-get-started-offline-data.md
+[iOS: Enable offline sync（iOS：启用脱机同步）]: ./app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: Enable offline sync（Xamarin iOS：启用脱机同步）]: ./app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Enable offline sync（Xamarin Android：启用脱机同步）]: app-service-mobile-xamarin-android-get-started-offline-data.md
 [通用 Windows 平台：启用脱机同步]: ./app-service-mobile-windows-store-dotnet-get-started-offline-data.md

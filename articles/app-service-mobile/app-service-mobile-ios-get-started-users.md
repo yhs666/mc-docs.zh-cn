@@ -2,22 +2,24 @@
 title: "使用 Azure 移动应用在 iOS 中添加身份验证"
 description: "了解如何使用 Azure 移动应用通过各种标识提供者（包括 AAD 和 Microsoft）对 iOS 应用的用户进行身份验证。"
 services: app-service\mobile
-documentationCenter: ios
-authors: yuaxu
-manager: yochayk
+documentationcenter: ios
+author: conceptdev
+manager: crdun
 editor: 
+ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+origin.date: 01/23/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 57edf40b325277eec872c290cbbf56a61ef40bea
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: ad086d6c3d10e05204ac0334b94a6eb59d9f84a6
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Add authentication to your iOS app（将身份验证添加到 iOS 应用）
 
@@ -32,7 +34,7 @@ ms.lasthandoff: 06/21/2017
 
 安全身份验证要求为应用定义新的 URL 方案。  此方案允许在完成身份验证过程后，身份验证系统重定向到应用。  在本教程中，我们自始至终使用 URL 方案 _appname_ 。  但是，可以使用任何你所选的 URL 方案。  该方案是移动应用的唯一方案。  在服务器端启用重定向：
 
-1. 在 [Azure 门户]中，选择你的应用服务。
+1. 在 [Azure 门户]中，选择应用服务。
 
 2. 单击“身份验证/授权”菜单选项。
 
@@ -40,7 +42,7 @@ ms.lasthandoff: 06/21/2017
 
 4. 将“管理模式”设置为“高级”。
 
-5. 在“允许的外部重定向 URL”中，输入 `appname://easyauth.callback`。  此字符串中的 _appname_ 是你的移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  请记下所选的字符串，因为你将需要在几个地方使用 URL 方案调整移动应用程序代码。
+5. 在“允许的外部重定向 URL”中，输入 `appname://easyauth.callback`。  此字符串中的 _appname_ 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  应记下此字符串，因为在一些地方需要使用此 URL 方案调整移动应用代码。
 
 6. 单击 **“确定”**。
 
@@ -76,10 +78,9 @@ ms.lasthandoff: 06/21/2017
     }
     ```
 
-    如果未使用 Google 作为标识提供者，请将 google 更改为 microsoftaccount、twitter、facebook 或 windowsazureactivedirectory。 如果使用 Facebook，则必须在应用中[将 Facebook 域列入允许列表][1]
-   。
+    如果未使用 Google 作为标识提供者，请将 google 更改为 microsoftaccount、twitter、facebook 或 windowsazureactivedirectory。 如果使用 Facebook，则必须在应用中[将 Facebook 域添加到允许列表][1]。
 
-    将 **urlScheme** 替换为应用的唯一名称。  urlScheme 应与在 Azure 门户中的“允许的外部重定向 URL”字段中指定的 URL 方案协议相同  。 身份验证回调使用 urlScheme 在完成身份验证请求之后切换回到你的应用。
+    将 **urlScheme** 替换为应用程序的唯一名称。  urlScheme 应与在 Azure 门户中的“允许的外部重定向 URL”字段中指定的 URL 方案协议相同  。 身份验证回调使用 urlScheme 在完成身份验证请求之后切换回到应用。
 
 2. 将 QSTodoListViewController.m 中 `viewDidLoad` 的 `[self refresh]` 替换为以下代码：
 
@@ -110,7 +111,7 @@ ms.lasthandoff: 06/21/2017
     }
     ```
 
-   在行读取 `#pragma mark - Core Data stack`之前直接添加此代码。  将 _appname_ 替换为步骤 1 中使用的 urlScheme 值。
+   在行读取 `#pragma mark - Core Data stack`之前直接添加此代码。  用在步骤 1 中使用过的 urlScheme 值替换 _appname_。
 
 5. 打开 `AppName-Info.plist` 文件（将 AppName 替换为应用的名称），并添加以下代码：
 
@@ -128,7 +129,7 @@ ms.lasthandoff: 06/21/2017
     </array>
     ```
 
-    此代码应放置在 `<dict>` 元素内部。  将 appname 字符串（位于 CFBundleURLSchemes 的数组内）替换为步骤 1 中所选的应用名称。  你还可以在 plist 编辑器中进行这些更改 - 在 XCode 中单击 `AppName-Info.plist` 文件可打开 plist 编辑器。
+    此代码应放置在 `<dict>` 元素内部。  将 appname 字符串（位于 CFBundleURLSchemes 的数组内）替换为步骤 1 中所选的应用名称。  还可在 plist 编辑器中做这些更改 - 单击 XCode 中的 `AppName-Info.plist` 文件，打开 plist 编辑器。
 
     将 CFBundleURLName 的 `com.microsoft.azure.zumo` 字符串替换为 Apple 捆绑包标识符。
 
@@ -163,10 +164,9 @@ ms.lasthandoff: 06/21/2017
     }
     ```
 
-    如果未使用 Google 作为标识提供者，请将 google 更改为 microsoftaccount、twitter、facebook 或 windowsazureactivedirectory。 如果使用 Facebook，则必须在应用中[将 Facebook 域列入允许列表][1]
-   。
+    如果未使用 Google 作为标识提供者，请将 google 更改为 microsoftaccount、twitter、facebook 或 windowsazureactivedirectory。 如果使用 Facebook，则必须在应用中[将 Facebook 域添加到允许列表][1]。
 
-    将 **urlScheme** 替换为应用的唯一名称。  urlScheme 应与在 Azure 门户中的“允许的外部重定向 URL”字段中指定的 URL 方案协议相同  。 身份验证回调使用 urlScheme 在完成身份验证请求之后切换回到你的应用。
+    将 **urlScheme** 替换为应用程序的唯一名称。  urlScheme 应与在 Azure 门户中的“允许的外部重定向 URL”字段中指定的 URL 方案协议相同  。 身份验证回调使用 urlScheme 在完成身份验证请求之后切换回到应用。
 
 2. 删除 ToDoTableViewController.swift 中 `viewDidLoad()` 末尾的 `self.refreshControl?.beginRefreshing()` 和 `self.onRefresh(self.refreshControl)` 行。 在其位置上添加对 `loginAndGetData()` 的调用：
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 06/21/2017
     }
     ```
 
-    将 _appname_ 替换为步骤 1 中使用的 urlScheme 值。
+    用在步骤 1 中使用过的 urlScheme 值替换 _appname_。
 
 4. 打开 `AppName-Info.plist` 文件（将 AppName 替换为应用的名称），并添加以下代码：
 
@@ -207,7 +207,7 @@ ms.lasthandoff: 06/21/2017
     </array>
     ```
 
-    此代码应放置在 `<dict>` 元素内部。  将 appname 字符串（位于 CFBundleURLSchemes 的数组内）替换为步骤 1 中所选的应用名称。  你还可以在 plist 编辑器中进行这些更改 - 在 XCode 中单击 `AppName-Info.plist` 文件可打开 plist 编辑器。
+    此代码应放置在 `<dict>` 元素内部。  将 appname 字符串（位于 CFBundleURLSchemes 的数组内）替换为步骤 1 中所选的应用名称。  还可在 plist 编辑器中做这些更改 - 单击 XCode 中的 `AppName-Info.plist` 文件，打开 plist 编辑器。
 
     将 CFBundleURLName 的 `com.microsoft.azure.zumo` 字符串替换为 Apple 捆绑包标识符。
 

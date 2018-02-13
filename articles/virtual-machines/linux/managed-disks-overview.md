@@ -13,13 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 10/30/2017
+ms.date: 01/29/2048
 ms.author: v-yeche
-ms.openlocfilehash: a0fc4f31bbb99bbe9d9d9270cb6cbf37ad17a0be
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 3562a5c481c9400b04bd0dee75acdcac9ba6e3f9
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
-
+<!--The parent file of includes file of virtual-machines-managed-disks-overview.md-->
+<!--ms.date:01/29/2018-->

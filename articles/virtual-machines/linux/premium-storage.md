@@ -13,17 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 11/27/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: 75a8de90c3a8b3c9cf77380f94f32ce6d7181632
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: c45c8ea02e9bac6da9db0110fa8db433cf88a940
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/23/2018
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
-<!--Not Available the parent file of includes file of virtual-machines-common-premium-storage.md-->
-<!--ms.date:11/27/2017-->
-
-<!--Not Available the parent file of includes file of virtual-machines-common-premium-storage.md-->
-<!--ms.date:11/27/2017-->
+<!--The parent file of includes file of virtual-machines-common-premium-storage.md-->
+<!--ms.date:02/05/2018-->

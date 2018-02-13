@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/22/2017
-ms.date: 01/15/2018
+ms.date: 01/22/2018
 ms.author: v-nany
-ms.openlocfilehash: 1c0b1150d075ac5cd22b4e4e50ce33734242cb9e
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 1598dd649fe02e22160752d519b57152fe71c00c
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure 自动化中的常见问题解答 
 本文介绍如何排除 Azure 自动化中遇到的常见错误，并提供可能的解决方案建议。
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/12/2018
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>场景：登录 Azure 帐户失败
 错误：使用 Add-AzureAccount 或 Login-AzureRmAccount cmdlet 时收到“Unknown_user_type: 用户类型未知”错误。
 
-**错误原因：** 如果凭据资产名称无效或者用于设置自动化凭据资产的用户名和密码无效，则会出现此错误。
+**错误原因：**如果凭据资产名称无效或者用于设置自动化凭据资产的用户名和密码无效，则会出现此错误。
 
 **疑难解答提示：** 为了确定具体错误，请执行以下步骤：  
 
@@ -59,11 +59,11 @@ ms.lasthandoff: 01/12/2018
    * 如果在输出中看到了订阅详细信息，请确认你对 **Select-AzureSubscription** cmdlet 使用了正确的订阅名称或 ID。   
 
 ### <a name="scenario-authentication-to-azure-failed-because-multi-factor-authentication-is-enabled"></a>场景：无法向 Azure 进行身份验证，因为已启用多重身份验证
-**错误：**使用 Azure 用户名和密码向 Azure 进行身份验证时，收到“Add-AzureAccount: AADSTS50079: 需要进行强身份验证注册(验证)”错误。
+错误：使用 Azure 用户名和密码向 Azure 进行身份验证时，收到“Add-AzureAccount: AADSTS50079: 需要进行强身份验证注册(验证)”错误。
 
-错误原因：如果对 Azure 帐户设置了多重身份验证，则不能使用 Azure Active Directory 用户对 Azure 进行身份验证。  而只能使用证书或服务主体向 Azure 进行身份验证。
+错误原因：如果对 Azure 帐户设置了多重身份验证，则不能使用 Azure Active Directory 用户对 Azure 进行身份验证。 而只能使用证书或服务主体向 Azure 进行身份验证。
 
-疑难解答提示：若要将证书用于 Azure 服务管理 cmdlet，请参阅[创建并添加管理 Azure 服务所需的证书](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)。 若要将服务主体用于 Azure Resource Manager cmdlet，请参阅[使用 Azure 门户创建服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)和[通过 Azure Resource Manager 对服务主体进行身份验证](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
+**疑难解答提示：**要将证书用于 Azure 经典部署模型 cmdlet，请参阅[创建并添加管理 Azure 服务所需的证书](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)。 若要将服务主体用于 Azure Resource Manager cmdlet，请参阅[使用 Azure 门户创建服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)和[通过 Azure Resource Manager 对服务主体进行身份验证](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
 
 ## <a name="common-errors-when-working-with-runbooks"></a>使用 Runbook 时的常见错误
 ### <a name="scenario-the-runbook-job-start-was-attempted-three-times-but-it-failed-to-start-each-time"></a>方案：runbook 作业已尝试启动三次，但每次均启动失败
@@ -73,35 +73,33 @@ ms.lasthandoff: 01/12/2018
 
 1. 内存限制。  我们对分配给沙盒自动化服务限制的内存进行了限制，因此，如果使用超过 400 MB 的内存，作业可能会失败。 
 
-2. 模块不兼容。  如果模块依赖关系不正确，则可能会发生这种情况，并且如果模块依赖关系正确，runbook 通常会返回“找不到命令”或“无法绑定参数”消息。 
+2. 模块不兼容。 如果模块依赖关系不正确，则可能会发生这种情况，并且如果它们不正确，则 runbook 通常会返回“找不到命令”或“无法绑定参数”消息。 
 
-**疑难解答提示：** 下述解决方案中的任何一种都可以解决此问题：  
+**疑难解答提示：**下述解决方案中的任何一种都可以解决此问题：
 
-* 在内存限制内工作的建议方法是拆分多个 runbook 之间的工作负载，不作为内存中的诸多数据进行处理，不从 runbook 写入不必要的输出，或考虑在 PowerShell 工作流 runbook 中写入多少个检查点。  
+* 在内存限制内工作的建议方法是将工作负荷拆分到多个 runbook 上，尽可能不在内存中处理很多数据，不写入不必要的 runbook 输出，或考虑将多少个检查点写入 PowerShell 工作流 runbook 中。  
 
-* 你需要按照[如何更新 Azure 自动化中的 Azure PowerShell 模块](automation-update-azure-modules.md)中的步骤来更新 Azure 模块。  
+* 按照[如何更新 Azure 自动化中的 Azure PowerShell 模块](automation-update-azure-modules.md)中的步骤更新 Azure 模块。  
 
 
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>场景：Runbook 因反序列化的对象而失败
 错误：Runbook 失败，出现错误“无法绑定参数 ``<ParameterName>``。 无法将反序列化 ``<ParameterType>`` 类型的 ``<ParameterType>`` 值转换成 ``<ParameterType>`` 类型”。
 
 
-            **错误原因：**如果 Runbook 为 PowerShell 工作流，则会将复杂对象以反序列化格式进行存储，以便在工作流暂停的情况下保留 Runbook 状态。  
+            **错误原因：**如果 Runbook 为 PowerShell 工作流，则会将复杂对象以反序列化格式进行存储，以便在工作流暂停的情况下保留 Runbook 状态。
 
-**疑难解答提示：**  
-下述三种解决方案中的任何一种都可以解决此问题：
+**疑难解答提示：**下述三种解决方案中的任何一种都可以解决此问题：
 
-1. 如果要将复杂对象从一个 cmdlet 传送到另一个 cmdlet，则可将这两个 cmdlet 包装在 InlineScript 中。  
-2. 传递复杂对象中你所需要的名称或值，不必传递整个对象。  
-3. 使用 PowerShell Runbook，而不使用 PowerShell 工作流 Runbook。  
+1. 如果要将复杂对象从一个 cmdlet 传送到另一个 cmdlet，则可将这两个 cmdlet 包装在 InlineScript 中。
+2. 传递复杂对象中你所需要的名称或值，不必传递整个对象。
+3. 使用 PowerShell Runbook，而不使用 PowerShell 工作流 Runbook。
 
 ### <a name="scenario-runbook-job-failed-because-the-allocated-quota-exceeded"></a>场景：Runbook 作业失败，因为超过了分配的配额
 **错误：** Runbook 作业失败，出现“已达到此订阅的每月总作业运行时间配额”错误。
 
 错误原因：作业执行时间超过帐户的 500 分钟免费配额时，就会出现此错误。 此配额适用于所有类型的作业执行任务，例如测试作业、从门户启动作业、使用 Webhook 执行作业，以及通过 Azure 门户或数据中心计划要执行的作业。 若要详细了解自动化的定价，请参阅[自动化定价](https://www.azure.cn/pricing/details/automation/)。
 
-
-            **疑难解答提示：**如果你想要每月使用 500 分钟以上的处理时间，则需将订阅从免费层改为基本层。 可以通过下述步骤升级到基本层：  
+**疑难解答提示：**如果想要每月使用 500 分钟以上的处理时间，则需将订阅从免费层改为基本层。 可以通过下述步骤升级到基本层：  
 
 1. 登录到 Azure 订阅  
 2. 选择要升级的自动化帐户  
@@ -112,38 +110,36 @@ ms.lasthandoff: 01/12/2018
 **错误：**Runbook 作业失败，出现“``<cmdlet name>``: 无法将 ``<cmdlet name>`` 一词识别为 cmdlet、函数、脚本文件或可运行程序的名称”错误。
 
 
-            **错误原因：**当 PowerShell 引擎找不到要在 Runbook 中使用的 cmdlet 时，则会导致此错误。  这可能是因为，帐户中缺少包含该 cmdlet 的模块、与 Runbook 名称存在名称冲突，或者该 cmdlet 也存在于其他模块中，而自动化无法解析该名称。
+            **错误原因：**当 PowerShell 引擎找不到要在 Runbook 中使用的 cmdlet 时，则会导致此错误。 这可能是因为，帐户中缺少包含该 cmdlet 的模块、与 Runbook 名称存在名称冲突，或者该 cmdlet 也存在于其他模块中，而自动化无法解析该名称。
 
-**疑难解答提示：** 下述解决方案中的任何一种都可以解决此问题：  
+**疑难解答提示：**下述解决方案中的任何一种都可以解决此问题：  
 
 * 检查输入的 cmdlet 名称是否正确。  
-* 确保 cmdlet 存在于自动化帐户中，且没有冲突。 若要验证 cmdlet 是否存在，请在编辑模式下打开 Runbook，然后搜索希望在库中找到的 cmdlet，或者运行 **Get-Command ``<CommandName>``**。  验证该 cmdlet 可供帐户使用且与其他 cmdlet 或 Runbook 不存在名称冲突以后，可将其添加到画布上，并确保使用的是 Runbook 中的有效参数集。  
+* 确保 cmdlet 存在于自动化帐户中，且没有冲突。 若要验证 cmdlet 是否存在，请在编辑模式下打开 Runbook，然后搜索希望在库中找到的 cmdlet，或者运行 **Get-Command ``<CommandName>``**。 验证该 cmdlet 可供帐户使用且与其他 cmdlet 或 Runbook 不存在名称冲突以后，可将其添加到画布上，并确保使用的是 Runbook 中的有效参数集。  
 * 如果存在名称冲突且 cmdlet 可在两个不同的模块中使用，则可使用 cmdlet 的完全限定名称来解决此问题。 例如，可以使用 ModuleName\CmdletName。  
 * 如果是在本地执行混合辅助角色组中的 Runbook，则请确保模块/cmdlet 已安装在托管混合辅助角色的计算机上。
 
 ### <a name="scenario-a-long-running-runbook-consistently-fails-with-the-exception-the-job-cannot-continue-running-because-it-was-repeatedly-evicted-from-the-same-checkpoint"></a>场景：某个长时间运行的 Runbook 不断失败并出现异常：“该作业无法继续运行，因为它已反复从同一个检查点逐出”。
 **错误原因：**此行为是设计使然，因为 Azure 自动化中对进程的“公平份额”监视会自动暂停执行时间超过 3 小时的 Runbook。 但是，返回的错误消息不会提供“后续措施”选项。 Runbook 可能会出于多种原因而暂停。 发生暂停的主要原因是出错。 例如，Runbook 中出现未捕获到的异常、网络故障、运行 Runbook 的 Runbook 辅助角色崩溃，都会导致 Runbook 暂停，并在恢复时从其最后一个检查点开始运行。
 
-**疑难解答提示：** 避免此问题的有记录解决方法是在工作流中使用检查点。  若要了解详细信息，请参阅[了解 PowerShell 工作流](automation-powershell-workflow.md#checkpoints)。  [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/)（在 Runbook 中使用检查点）博客文章中提供了有关“公平份额”和检查点的更全面说明。
+**疑难解答提示：** 避免此问题的有记录解决方法是在工作流中使用检查点。 若要了解详细信息，请参阅[了解 PowerShell 工作流](automation-powershell-workflow.md#checkpoints)。 [Using Checkpoints in Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/)（在 Runbook 中使用检查点）博客文章中提供了有关“公平份额”和检查点的更全面说明。
 
 ## <a name="common-errors-when-importing-modules"></a>导入模块时的常见错误
 ### <a name="scenario-module-fails-to-import-or-cmdlets-cant-be-executed-after-importing"></a>场景：模块无法导入，或者 cmdlet 在导入后无法执行
 **错误：** 模块无法导入，或者虽然成功导入，但无法提取 cmdlet。
 
-**错误原因：** 模块无法成功导入到 Azure 自动化中的一些常见原因是：  
+**错误原因：** 模块无法成功导入到 Azure 自动化中的一些常见原因是：
 
-* 结构与自动化所需的模块结构不符。  
-* 该模块依赖于其他模块，而后者尚未部署到自动化帐户。  
-* 该模块的文件夹中缺少依赖项。  
-* 使用了 **New-AzureRmAutomationModule** cmdlet 来上传该模块，但你尚未提供完整的存储路径，或者尚未使用可公开访问的 URL 来加载该模块。  
+* 结构与自动化所需的模块结构不符。
+* 该模块依赖于其他模块，而后者尚未部署到自动化帐户。
+* 该模块的文件夹中缺少依赖项。
+* 使用了 **New-AzureRmAutomationModule** cmdlet 来上传该模块，但你尚未提供完整的存储路径，或者尚未使用可公开访问的 URL 来加载该模块。
 
-**疑难解答提示：**  
-下述解决方案中的任何一种都可以解决此问题：  
+**疑难解答提示：**下述解决方案中的任何一种都可以解决此问题：
 
-* 请确保该模块遵循以下格式：  
-  ModuleName.Zip -> 模块名称或版本号 -> (ModuleName.psm1, ModuleName.psd1)
-* 打开 .psd1 文件，看模块是否有任何依赖项。  如果有，则将这些模块上传到自动化帐户。  
-* 确保任何引用的 .dll 都存在于模块文件夹中。  
+* 确保该模块遵循以下格式：模块名称.Zip **->** 模块名称或版本号 **->**（模块名称.psm1、模块名称.psd1）
+* 打开 .psd1 文件，看模块是否有任何依赖项。 如果有，则将这些模块上传到自动化帐户。
+* 确保任何引用的 .dll 都存在于模块文件夹中。
 
 ## <a name="next-steps"></a>后续步骤
 如果执行了上述故障排除步骤但仍找不到答案，则可查看下面的其他支持选项。

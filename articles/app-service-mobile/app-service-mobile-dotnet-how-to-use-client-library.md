@@ -1,24 +1,25 @@
 ---
-title: "使用应用服务移动应用托管客户端库 (Windows | Xamarin) | Azure"
+title: "使用应用服务移动应用托管客户端库 (Windows | Xamarin)"
 description: "了解如何在 Windows 和 Xamarin 应用中使用 Azure 应用服务移动应用的 .NET 客户端。"
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
-manager: adrianha
+author: conceptdev
+manager: crdun
 editor: 
+ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 01/04/2017
-ms.author: adrianha
-ms.date: 07/31/2017
-ms.openlocfilehash: fba8aa71ee865320aa8bcea8c66318d19a3a1c7b
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.author: v-yiso
+ms.date: 01/29/2018
+ms.openlocfilehash: 4a66b0873df4bb6a715582a9d7506c5041acda2d
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何使用 Azure 移动应用的托管客户端
 
@@ -38,12 +39,12 @@ ms.lasthandoff: 10/30/2017
 .NET 平台支持以下平台：
 
 * 适用于 API 19 到 24 的 Xamarin Android 版本（KitKat 到 Nougat）
-* Xamarin iOS 版支持 iOS 8.0 及更高版本
+* 适用于 iOS 8.0 及更高版本的 Xamarin iOS 版本
 * 通用 Windows 平台
 * Windows Phone 8.1
 * Windows Phone 8.0（Silverlight 应用程序除外）
 
-“服务器流”身份验证在呈现的 UI 中使用 WebView。  如果设备不能呈现 WebView UI，则需要其他身份验证方法。  因此这个 SDK 不适用于监视类型或同样受限制的设备。
+“服务器流”身份验证使用 WebView 显示 UI。  如果设备不能呈现 WebView UI，则需要其他身份验证方法。  因此，此 SDK 不适用于手表类型或类似的受限设备。
 
 ##<a name="setup"></a>安装与先决条件
 
@@ -145,7 +146,7 @@ IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 - [按 ID 查找数据](#lookingup)
 
 >[!NOTE]
-> 将强制使用服务器驱动的页大小来防止返回所有行。  分页可以防止对大型数据集发出的默认请求对服务造成负面影响。  若要返回 50 行以上，请根据[按页返回数据](#paging)所述使用 `Skip` 和 `Take` 方法。
+> 通过强制使用服务器驱动的页大小来防止返回所有行。  分页可以防止对大型数据集发出的默认请求对服务造成负面影响。  若要返回 50 行以上，请根据[按页返回数据](#paging)所述使用 `Skip` 和 `Take` 方法。
 
 ###<a name="filtering"></a>如何筛选返回的数据
 
@@ -181,7 +182,7 @@ List<TodoItem> items = await todoTable
    .ToListAsync();
 ```
 
-服务器 SDK 将此示例转换成 SQL 查询：
+服务器 SDK 会将此示例转换成 SQL 查询：
 
 ```
 SELECT *
@@ -208,7 +209,7 @@ List<TodoItem> items = await todoTable
 * 数字精度（Math.Floor、Math.Ceiling），
 * 字符串函数（Length、Substring、Replace、IndexOf、StartsWith、EndsWith），
 * 日期属性（年、月、日、小时、分钟、秒），
-* 对象的访问属性，以及
+* 对象的属性访问，以及
 * 组合上述任意运算的表达式。
 
 在考虑服务器 SDK 支持的操作时，可以参考 [OData v3 文档]。
@@ -347,7 +348,7 @@ var inserted = await table.InsertAsync(jo);
 * 更方便地合并不同表或数据库中的记录。
 * ID 值能够更好地与应用程序的逻辑相集成。
 
-如果插入的记录中未设置字符串 ID 值，移动应用后端将为 ID 生成唯一值。 可以在客户端或后端中使用 [Guid.NewGuid] 方法生成自己的 ID 值。
+如果插入的记录中未设置字符串 ID 值，移动应用后端为 ID 生成唯一值。 可以在客户端或后端中使用 [Guid.NewGuid] 方法生成自己的 ID 值。
 
 ```
 JObject jo = new JObject();
@@ -451,7 +452,7 @@ private async void UpdateToDoItem(TodoItem item)
 
 private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 {
-    //Ask user to choose the resoltion between versions
+    //Ask user to choose the resolution between versions
     MessageDialog msgDialog = new MessageDialog(
         String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n",
         serverItem.Text, localItem.Text),
@@ -537,14 +538,14 @@ PullOptions pullOptions = new PullOptions
 
 ##<a name="#offlinesync"></a>使用脱机表
 
-脱机表使用本地 SQLite 存储来存储数据，供脱机时使用。  所有表操作都针对本地 SQLite 存储（而不是远程服务器存储）完成。  若要创建脱机表，请先准备项目：
+脱机表使用本地 SQLite 存储来存储数据，供脱机时使用。  所有表操作都针对本地 SQLite 存储（而不是远程服务器存储）完成。  若要创建脱机表，首先应准备项目：
 
 1. 在 Visual Studio 中，右键单击解决方案，再单击“管理解决方案的 NuGet 包…”，然后在解决方案的所有项目中搜索并安装 Microsoft.Azure.Mobile.Client.SQLiteStore NuGet 包。
 
 2. （可选）若要支持 Windows 设备，请安装以下 SQLite 运行时包之一：
 
     * **Windows 8.1 运行时：** 安装 [SQLite for Windows 8.1][3]。
-    * **Windows Phone 8.1：** 安装 [SQLite for Windows Phone 8.1][4]。
+    * **Windows Phone 8.1：**安装 [SQLite for Windows Phone 8.1][4]。
     * **通用 Windows 平台** 安装 [适用于通用 Windows 的 SQLite][5]。
 
 3. （可选）。 对于 Windows 设备，单击“引用” > “添加引用...”，展开 “Windows”文件夹 >“扩展”，然后启用相应的 SQLite for Windows SDK 和 Visual C++ 2013 Runtime for Windows SDK。
@@ -560,7 +561,7 @@ store.DefineTable<TodoItem>();
 await this.client.SyncContext.InitializeAsync(store);
 ```
 
-存储初始化通常在创建客户端后立即完成。  **OfflineDbPath** 应该是适合在支持的所有平台上使用的文件名。  如果路径是完全限定的路径（即以斜杠开头），则将使用该路径。  如果路径不是完全限定路径，文件会放在平台特定的位置。
+存储初始化通常在创建客户端后立即完成。  **OfflineDbPath** 应该是适合在支持的所有平台上使用的文件名。  如果路径是完全限定的路径（即以斜杠开头），则将使用该路径。  如果不是完全限定的路径，则该文件位于平台特定的位置。
 
 * 对于 iOS 和 Android 设备，默认路径为“个人文件”文件夹。
 * 对于 Windows 设备，默认路径是应用程序特定的“AppData”文件夹。
@@ -647,12 +648,12 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
 * `InvokeApiAsync("completeAll",...)` 在后端调用 /api/completeAll
 * `InvokeApiAsync("/.auth/me",...)` 在后端调用 /.auth/me
 
-可以使用 InvokeApiAsync 调用任何 WebAPI，包括未使用 Azure 移动应用定义的那些 WebAPI。  使用 InvokeApiAsync() 时，将随请求一起发送相应的标头（包括身份验证标头）。
+可使用 InvokeApiAsync 调用任意 WebAPI，包括未使用 Azure 移动应用定义的 WebAPI。  使用 InvokeApiAsync() 时，将随请求一起发送相应的标头（包括身份验证标头）。
 
 ## <a name="authentication"></a>对用户进行身份验证
 移动应用支持使用各种外部标识提供者对应用程序用户进行身份验证和授权，这些提供者包括：Facebook、Google、Microsoft 帐户、Twitter 和 Azure Active Directory。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。 有关详细信息，请参阅 [向应用程序添加身份验证]教程。
 
-支持两种身份验证流：client-managed 和 server-managed 流。 服务器托管流依赖于提供者的 Web 身份验证界面，因此可提供最简便的身份验证体验。 客户端托管流依赖于提供者和设备特定的 SDK，因此允许与设备特定的功能进行更深入的集成。
+支持两种身份验证流：client-managed 和 server-managed 流。 服务器托管的流依赖于提供者的 Web 身份验证界面，因此可提供最简便的身份验证体验。 客户端托管流依赖于提供者和设备特定的 SDK，因此允许与设备特定的功能进行更深入的集成。
 
 > [!NOTE]
 > 建议在生产应用中使用客户端托管流。
@@ -681,7 +682,7 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
 2. 在 Visual Studio 或 Xamarin Studio 中打开项目，并添加对 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 包的引用。 搜索时，请包含预发行版。
 3. 根据使用的平台，将以下代码添加到应用程序。 在每条代码中进行以下替换：
 
-    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。可以从 [ Azure 经典管理门户]中的 Azure Active Directory 的“域”选项卡复制此值。
+    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。可以在 [Azure 门户]中从 Azure Active Directory 的域选项卡复制此值。
     * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
     * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
 
@@ -1039,7 +1040,7 @@ private async void InsertTodoItem(TodoItem todoItem)
 
 ###<a name="headers"></a>如何自定义请求标头
 
-若要支持特定的应用程序方案，可能需要自定义与移动应用后端之间的通信。 例如，可能需要将一个自定义标头添加到每个传出请求，甚至要更改响应状态代码。 可使用自定义 [DelegatingHandler]，如以下示例中所示：
+若要支持特定的应用程序方案，可能需要自定义与移动应用后端之间的通信。 例如，可能需要将一个自定义标头添加到每个传出请求，甚至要更改响应状态代码。 可以使用自定义 [DelegatingHandler] 来实现此目的，如以下示例中所示：
 
 ```
 public async Task CallClientWithHandler()
@@ -1048,7 +1049,6 @@ public async Task CallClientWithHandler()
     IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
     var newItem = new TodoItem { Text = "Hello world", Complete = false };
     await todoTable.InsertAsync(newItem);
-```
 }
 
     public class MyHandler : DelegatingHandler
@@ -1059,7 +1059,6 @@ public async Task CallClientWithHandler()
             // Change the request-side here based on the HttpRequestMessage
             request.Headers.Add("x-my-header", "my value");
 
-    ```
         // Do the request
         var response = await base.SendAsync(request, cancellationToken);
 
@@ -1068,8 +1067,9 @@ public async Task CallClientWithHandler()
         // Return the modified response
         return response;
     }
-    ```
-    }
+}
+```
+
 
 <!-- Anchors. -->
 
@@ -1119,7 +1119,6 @@ public async Task CallClientWithHandler()
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/zh-cn/library/azure/dn250579(v=azure.10).aspx
 [Azure 门户]: https://portal.azure.cn/
-[Azure Classic Management Portal]: https://manage.windowsazure.cn/
 [EnableQueryAttribute]: https://msdn.microsoft.com/zh-cn/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/zh-cn/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/zh-cn/library/windows/apps/Hh701916.aspx

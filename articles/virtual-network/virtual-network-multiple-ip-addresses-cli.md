@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/17/2016
-ms.date: 12/11/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: 894425b4e7d7ab71f546b6ff3d3c9087f9aba1aa
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 012c9b39effb54e447cb0c6b43cc4407304780f6
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>使用 Azure CLI 将多个 IP 地址分配给虚拟机
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/08/2017
 1. 安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) （若尚未安装）。
 2. 通过完成[为 Linux VM 创建 SSH 公钥和私钥对](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fvirtual-network%2ftoc.json)中的步骤创建适用于 Linux VM 的 SSH 公钥和私钥对。
 3. 从命令行界面使用命令 `az login` 登录，并选择要使用的订阅。
-4. 通过在 Linux 或 Mac 计算机上执行以下脚本创建 VM。 该脚本创建 1 个资源组、1 个虚拟网络 (VNet)、1 个具有 3 个 IP 配置的 NIC，以及附加 2 个 NIC 的 VM。 NIC、公共 IP 地址、虚拟网络和 VM 资源均必须位于同一位置和订阅。 虽然资源不必都存在于同一资源组中，但是在以下脚本中资源都存在于同一资源组中。
+4. 通过在 Linux 或 Mac 计算机上执行以下脚本创建 VM。 该脚本创建一个资源组、一个虚拟网络 (VNet)、一个具有三个 IP 配置的 NIC 和一个附加有两个 NIC 的 VM。 NIC、公共 IP 地址、虚拟网络和 VM 资源均必须位于同一位置和订阅。 虽然资源不必都存在于同一资源组中，但是在以下脚本中资源都存在于同一资源组中。
 
 ```bash
 
@@ -128,8 +128,8 @@ azure network nic ip-config create \
 VmName="myVm"
 
 # Replace the value for the following **VmSize** variable with a value from the
-# https://docs.azure.cn/virtual-machines/virtual-machines-linux-sizes rticle. The script fails if the VM size
-# is not supported in the location you select. Run the `azure vm sizes --location estchinaeast` command to get a full list
+# https://docs.azure.cn/virtual-machines/virtual-machines-linux-sizes article. The script fails if the VM size
+# is not supported in the location you select. Run the `azure vm sizes --location chinaeast` command to get a full list
 # of VMs in US West Central, for example.
 
 VmSize="Standard_DS1"
@@ -159,7 +159,7 @@ az vm create \
 
 除了创建具有附带 3 个 IP 配置的 NIC 的 VM，该脚本还创建：
 
-- 创建单个高级托管磁盘（默认情况下），但对于可以创建的磁盘类型，可以有其他选择。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fvirtual-network%2ftoc.json) 一文。
+- 单个高级托管磁盘（默认情况下），但对于可以创建的磁盘类型，可以有其他选择。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fvirtual-network%2ftoc.json) 一文。
 - 一个包含 1 个子网和 2 个公共 IP 地址的虚拟网络。 或者，可以使用*现有*虚拟网络、子网、NIC 或公共 IP 地址资源。 若要了解如何使用现有网络资源，而不是创建其他资源，请输入 `az vm create -h`。
 
 公共 IP 地址会产生少许费用。 有关 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 可在一个订阅中使用的公共 IP 地址数有限制。
@@ -170,7 +170,7 @@ az vm create \
 
 ## <a name="add"></a>将 IP 地址添加到 VM
 
-完成以下步骤，可将其他专用和公共 IP 地址添加到现有 NIC。 示例根据本文所述的 [方案](#Scenario) 生成。
+完成以下步骤，可将其他专用和公共 IP 地址添加到现有 NIC。 这些示例是基于本文中所述的[方案](#Scenario)制作的。
 
 1. 打开命令行界面，并在单个会话中完成本部分的剩余步骤。 如果尚未安装并配置 Azure CLI，请完成 [Azure CLI 2.0 安装](https://docs.azure.cn/zh-cn/cli/install-az-cli2?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)一文中的步骤，并使用 `az-login` 命令登录到 Azure 帐户。
 
@@ -219,7 +219,7 @@ az vm create \
         --public-ip-address myPublicIP3
         ```
 
-    - **将资源关联到现有 IP 配置**公共 IP 地址资源只能关联到尚未与任何公共 IP 地址资源关联的 IP 配置。 可输入以下命令，确定某个 IP 配置是否具有关联的公共 IP 地址：
+    - **将资源关联到现有 IP 配置**公共 IP 地址资源只能关联到尚未与任何公共 IP 地址资源关联的 IP 配置。 输入以下命令即可确定某个 IP 配置是否具有关联的公共 IP 地址：
 
         ```bash
         az network nic ip-config list \
@@ -277,6 +277,6 @@ az vm create \
 4. 根据本文[将 IP 地址添加到 VM 操作系统](#os-config)部分中的说明，将添加到 NIC 的专用 IP 地址添加到 VM 操作系统。 请勿向操作系统添加公共 IP 地址。
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-<!--Not Available the parent file of includes file of virtual-network-multiple-ip-addresses-intro.md-->
-<!--ms.date:12/11/2017-->
-<!-- Update_Description: update meta properties, update link, wording update -->
+<!--The parent file of includes file of virtual-network-multiple-ip-addresses-os-config.md-->
+<!--ms.date:01/29/2018-->
+<!-- Update_Description: update meta properties wording update -->

@@ -1,4 +1,5 @@
-**上次文档更新**：太平洋标准时间 1 月 6 日下午 6:30。
+<!-- No Need to update due to we have update zh.cn repository on 01/23/2018 -->
+**文档上次更新时间**：太平洋标准时间 1 月 12 日下午 3:00。
 
 最近发现了一种称为推理执行旁道攻击的[新型 CPU 漏洞](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002)，这使想要了解其详情的客户向我们提出了问题。  
 
@@ -38,7 +39,12 @@
 ### <a name="linux"></a>Linux
 如果使用 Linux 且托管不受信任的代码，还应将 Linux 更新到一个实现内核页表隔离 (KPTI) 的较新版本，内核页表隔离会将内核使用的页表与属于用户空间的页表分隔开来。 这些防御措施需要 Linux 操作系统更新，可以在推出后从分发版提供方获取。 操作系统提供方可告诉你保护在默认情况下是处于启用状态还是禁用状态。
 
+随着我们从硬件供应商那里收到微码更新，我们将继续更新这些最佳做法。 请记得回头检查更新的指南。
+
 ## <a name="next-steps"></a>后续步骤
 
 若要了解详细信息，请参阅 [Securing Azure customers from CPU vulnerability](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/)（确保 Azure 客户免受 CPU 漏洞影响）。
-<!-- ms.date: 01/09/2018 -->
+<!--Update_Description: update the update notice message for Linux -->
+<!--ms.date: 01/29/2018-->
+<!-- No Need to update due to we have update zh.cn repository on 01/23/2018 -->
+

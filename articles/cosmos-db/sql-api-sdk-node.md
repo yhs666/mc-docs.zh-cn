@@ -1,6 +1,6 @@
 ---
 title: "Azure Cosmos DB：SQL Node.js API、SDK 和资源 | Azure"
-description: "了解有关 SQL Node.js API 和 SDK 的全部信息，包括发布日期、停用日期和 Azure Cosmos DB Node.js SDK 各版本之间所做的更改。"
+description: "全面了解 SQL Node.js API 和 SDK，以及 Azure Cosmos DB Node.js SDK 各版本之间所做的更改。"
 services: cosmos-db
 documentationcenter: nodejs
 author: rockboyfor
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 11/14/2017
-ms.date: 12/25/2017
+origin.date: 01/04/2018
+ms.date: 01/29/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dff2b428f1fbd9093da430f3c6ef045f655680db
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: d88c18d5466084c39c36d4d16dffd739d8dea267
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Node.js SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -71,4 +71,4 @@ ms.lasthandoff: 12/22/2017
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
 
-<!-- Update_Description: new articles on SQL api sdk nodejs -->
+<!-- Update_Description: update meta properties, wording update -->

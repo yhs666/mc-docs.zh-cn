@@ -16,14 +16,14 @@ ms.workload: big-data
 origin.date: 08/08/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 01e175b3e709f66b22490ac1f0b2e50fc943433a
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: e96c8bc920eaa4379c1ff015000843a57eb069bf
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>常用流分析使用模式的查询示例
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询记录在[流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)指南中。 本文档概述了以真实情况为基础的多个常见查询模式的解决方案。 此项工作仍在进行，将继续使用新的模式不断进行更新。
 
 ## <a name="query-example-convert-data-types"></a>查询示例：转换数据类型
@@ -43,7 +43,7 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询�
 | --- | --- |
 | Honda |3000 |
 
-**解决方案**；
+**解决方案**：
 
     SELECT
         Make,
@@ -75,7 +75,7 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询�
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
-**解决方案**；
+**解决方案**：
 
     SELECT
         *
@@ -105,7 +105,7 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询�
 | 1 辆 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 辆 Toyota |2015-01-01T00:00:10.0000000Z |
 
-**解决方案**；
+**解决方案**：
 
     SELECT
         CASE
@@ -151,7 +151,7 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询�
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
-**解决方案**；
+**解决方案**：
 
     SELECT
         *
@@ -244,7 +244,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
-**解决方案**；
+**解决方案**：
 
     SELECT
         Make,
@@ -254,7 +254,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 
-**说明**：使用 LAG 来查看后退一个事件之后的输入流，并获得“制造商”字段的值。 然后，将它与当前事件的“制造商”字段进行比较，如果二者不同，则输出该事件。
+**说明**：使用 **LAG** 来查看后退一个事件之后的输入流，并获得“制造商”字段的值。 然后，将它与当前事件的“制造商”字段进行比较，如果二者不同，则输出该事件。
 
 ## <a name="query-example-find-the-first-event-in-a-window"></a>查询示例：查找时间范围内的第一个事件
 **说明**：查找每 10 分钟时间间隔内的第一辆汽车。
@@ -273,7 +273,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 
 **输出**：
 
-| 牌照 | 制造商 | 时间 |
+| LicensePlate | 制造商 | 时间 |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
@@ -299,7 +299,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
 
-**解决方案**；
+**解决方案**：
 
     SELECT 
         LicensePlate,
@@ -327,12 +327,12 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 
 **输出**：
 
-| 牌照 | 制造商 | 时间 |
+| LicensePlate | 制造商 | 时间 |
 | --- | --- | --- |
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
 
-**解决方案**；
+**解决方案**：
 
     WITH LastInWindow AS
     (
@@ -374,7 +374,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
-**解决方案**；
+**解决方案**：
 
     SELECT
         Make,
@@ -394,18 +394,18 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 
 **输入**：  
 
-| 用户 | 功能 | 事件 | 时间 |
+| User | 功能 | 事件 | 时间 |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |开始 |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |结束 |2015-01-01T00:00:08.0000000Z |
 
 **输出**：  
 
-| 用户 | 功能 | 持续时间 |
+| User | 功能 | 持续时间 |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
-**解决方案**；
+**解决方案**：
 
 ```
     SELECT
@@ -440,7 +440,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 | --- | --- |
 | 2015-01-01T00:00:02.000Z |2015-01-01T00:00:07.000Z |
 
-**解决方案**；
+**解决方案**：
 
 ```
     WITH SelectPreviousEvent AS
@@ -493,7 +493,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 | 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6 |
 | 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6 |
 
-**解决方案**；
+**解决方案**：
 
     SELECT
         System.Timestamp AS windowEnd,
@@ -505,7 +505,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 **说明**：此查询每隔 5 秒生成一个事件，并输出上次收到的最后一个事件。 [跳跃窗口](https://msdn.microsoft.com/library/dn835041.aspx "跳跃窗口 - Azure 流分析")持续时间确定查询将查找最新事件的时间（在本例中为 300 秒）。
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

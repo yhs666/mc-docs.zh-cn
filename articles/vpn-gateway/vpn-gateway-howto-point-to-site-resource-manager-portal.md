@@ -3,8 +3,8 @@ title: "使用点到站点和本机 Azure 证书身份验证将计算机连接�
 description: "通过使用证书验证创建点到站点 VPN 网关连接，安全地将计算机连接到 Azure 虚拟网络。 本文适用于资源管理器部署模型并使用 Azure 门户。"
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a15ad327-e236-461f-a18e-6dbedbf74943
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/25/2017
-ms.date: 12/29/2017
+origin.date: 01/17/2018
+ms.date: 01/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6cce2641043d29ba4b85264905c386f2dedc2a64
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: e3ee4fe34e6c4868d94c635585dfe7cdd6841c55
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：Azure 门户
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/04/2018
 
 连接方客户端可以使用以下身份验证方法：
 
-- RADIUS 服务器 - 目前以预览版提供
+- RADIUS 服务器
 - VPN 网关本机 Azure 证书身份验证
 
 本文可用来帮助使用本机 Azure 证书身份验证配置采用身份验证的 P2S 配置。 如果希望使用 RADIUS 对进行连接的用户进行身份验证，请参阅[使用 RADIUS 身份验证的 P2S](point-to-site-how-to-radius-ps.md)。
@@ -48,7 +48,7 @@ ms.lasthandoff: 01/04/2018
 
 - SSTP 是基于 SSL 的 VPN 隧道，仅在 Windows 客户端平台上受支持。 它可以穿透防火墙，这使得它成为一个可用来从任何位置连接到 Azure 的理想选项。 在服务器端，我们支持 SSTP 1.0、1.1 和 1.2 版。 客户端决定要使用的版本。 对于 Windows 8.1 及更高版本，SSTP 默认使用 1.2。
 
-- IKEv2 VPN，这是一种基于标准的 IPsec VPN 解决方案。 IKEv2 VPN 可用于从 Mac 设备进行连接（OSX 10.11 和更高版本）。 IKEv2 目前以预览版提供。
+- IKEv2 VPN，这是一种基于标准的 IPsec VPN 解决方案。 IKEv2 VPN 可用于从 Mac 设备进行连接（OSX 10.11 和更高版本）。
 
 点到站点本机 Azure 证书身份验证连接需要以下项：
 
@@ -143,7 +143,7 @@ Azure 使用证书对通过点到站点 VPN 连接连接到 VNet 的客户端进
 
 如果想要从另一台客户端计算机（而不是用于生成客户端证书的计算机）创建 P2S 连接，需要安装客户端证书。 安装客户端证书时，需要使用导出客户端证书时创建的密码。
 
-确保已将客户端证书与整个证书链（默认）一起作为 .pfx 导出。 否则，根证书信息就不会出现在客户端计算机上，客户端将无法进行正常的身份验证。 
+确保已将客户端证书与整个证书链（默认）一起作为 .pfx 导出。 否则，根证书信息就不会出现在客户端计算机上，客户端将无法进行正常的身份验证。
 
 有关安装步骤，请参阅[安装客户端证书](point-to-site-how-to-vpn-client-install-azure-cert.md)。
 
@@ -239,4 +239,4 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 ## <a name="next-steps"></a>后续步骤
 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/#pivot=services&panel=Compute)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。
 
-<!--Update_Description: update metedata properties -->
+<!--Update_Description: wording update -->

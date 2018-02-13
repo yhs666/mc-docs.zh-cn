@@ -3,8 +3,8 @@ title: "使用移动服务时，应用服务有何作用？"
 description: "了解应用服务为现有的移动服务项目带来的优势。"
 services: app-service\mobile
 documentationcenter: ios
-author: adrianhall
-manager: adrianha
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 07/31/2017
-ms.openlocfilehash: f87764707afbeddeef3c17eaa07ed4876bcf7984
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 01/29/2018
+ms.openlocfilehash: b0b4dfe305ccede433e674e44e51ed0ddd55bf61
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="getting-started"> </a>使用移动服务时，应用服务有何作用？
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 07/28/2017
 - （适用于 Node.js）利用 Node 生态系统的任何纯 JavaScript 库，包括常用的 MVC 库。
 
 ## <a name="access-on-premises-data-using-vnet"></a>使用 VNet 访问本地数据
-有了移动服务，现在便可以使用混合连接访问本地资源。 但是，在某些情况下，VPN 解决方案更合适。 通过 *Azure 应用服务* ，可以将 Azure VNet 用于移动应用后端代码。
+有了移动服务，现在便可以使用混合连接访问本地资源。 但是，在某些情况下，VPN 解决方案更合适。 通过 *Azure 应用服务*，可以将 Azure VNet 用于移动应用后端代码。
 
 ##<a name="use-your-favorite-backend-language"></a>使用偏好的后端语言
 *Azure 应用服务* 提供对 ASP.NET 与 Node.js 平台更广泛、更丰富的支持，包括对最新运行时的访问。
@@ -64,6 +64,6 @@ ms.lasthandoff: 07/28/2017
 ##<a name="ready-stage-go"></a>各就位，预备，跑！
 使用 *Azure 应用服务* ，可以为移动应用创建多个专用测试和过渡环境。 可以在部署之前使用这些环境执行测试。 无需停机即可切换到生产环境。 预先加载 Web 应用，确保最佳客户体验。
 
-可以遵循此 *教程* ，开始将 [应用服务](./app-service-mobile-migrating-from-mobile-services.md)用于现有移动服务。
+可以遵循此 *教程*，开始将 [应用服务](./app-service-mobile-migrating-from-mobile-services.md)用于现有移动服务。
 
 <!--Update_Description: update meta data only-->

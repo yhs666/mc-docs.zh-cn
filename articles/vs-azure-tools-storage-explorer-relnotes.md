@@ -1,10 +1,10 @@
 ---
-title: "Azure 存储资源管理器（预览版）发行说明 | Microsoft Docs"
+title: "Azure 存储资源管理器（预览版）发行说明"
 description: "Azure 存储资源管理器（预览版）的发行说明"
 services: storage
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cawa
+manager: paulyuk
 editor: 
 ms.assetid: 
 ms.service: storage
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/31/2017
-ms.date: 12/28/2017
+ms.date: 01/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: fd20fc6294ec58050565a2f6f1f9c9308fbfb8fe
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 39ee009c8e92f26f8de119079fc8321f4330b694
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-storage-explorer-preview-release-notes"></a>Azure 存储资源管理器（预览版）发行说明
 
-本文包含 Azure 存储资源管理器 0.9.2（预览版）及先前版本的发行说明。
+本文包含 Azure 存储资源管理器 0.9.3（预览版）及先前版本的发行说明。
 
 [Azure 存储资源管理器（预览版）](./vs-azure-tools-storage-manage-with-storage-explorer.md)是一款独立应用，可用于在 Windows、macOS 和 Linux 上轻松处理 Azure 存储数据。
 

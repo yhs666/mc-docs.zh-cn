@@ -17,11 +17,11 @@ ms.workload: database
 origin.date: 06/23/2017
 ms.date: 07/31/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 8edfb13ae88c084ffaff06855b929c032442a536
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 2af58bbd37092b0f2db7261fd18404889cff47b7
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure PowerShell 示例
 
@@ -48,6 +48,6 @@ ms.lasthandoff: 01/05/2018
 | **在数据库之间同步数据**||
 | [在 SQL 数据库之间同步数据](scripts/sql-database-sync-data-between-sql-databases.md) | 此 PowerShell 脚本将数据同步配置为在多个 Azure SQL 数据库之间进行同步。 |
 | [在 SQL 数据库和本地 SQL Server 之间同步数据](scripts/sql-database-sync-data-between-azure-onprem.md) | 此 PowerShell 脚本将数据同步配置为在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步。 |
-|||
+| [更新 SQL 数据同步的同步架构](scripts/sql-database-sync-update-schema.md) | 此 PowerShell 脚本将在数据同步的同步架构中添加或删除项。 |
 |||
 <!--Update_Description: wording update-->

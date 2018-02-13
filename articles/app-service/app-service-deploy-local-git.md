@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2016
-ms.date: 10/30/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: ea14d138a6594331d1b317d66ba4d8acc2e510b2
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: f48403900ffc0d4b1d216834c57b1c3ff3876eeb
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 本教程说明如何将应用从本地计算机上的 Git 存储库部署到 [Azure Web 应用](app-service-web-overview.md)。 应用服务支持结合 [Azure 门户]中的“本地 Git”部署选项使用此方法。  
@@ -68,7 +68,7 @@ git init
 2. 在应用服务应用的边栏选项卡中，单击“设置”>“部署源”。 依次单击“选择源”、“本地 Git 存储库”、“确定”。  
 
     ![本地 Git 存储库](./media/app-service-deploy-local-git/local_git_selection.png)
-3. 如果这是你第一次在 Azure 中设置存储库，则需要为其创建登录凭据。 你将使用它们从本地 Git 存储库登录到 Azure 存储库并推送更改。 在应用的边栏选项卡中，单击“设置”>“部署凭据”，并配置部署用户名和密码。 完成后，单击“保存”。
+3. 如果这是你第一次在 Azure 中设置存储库，则需要为其创建登录凭据。 你将使用它们从本地 Git 存储库登录到 Azure 存储库并推送更改。 在应用的边栏选项卡中，单击“部署”>“部署凭据”，然后配置部署用户名和密码。 完成后，单击“保存”。
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
@@ -159,14 +159,14 @@ git config --global http.postBuffer 524288000
 
   * npm ERR! \`cmd "/c" "node-gyp rebuild"\` 失败，1
 
-      或
+      OR
   * npm ERR! [modulename@version] 预安装：\`make || gmake\`
 
 ## <a name="additional-resources"></a>其他资源
 * [Git 文档](http://git-scm.com/documentation)
 * [项目 Kudu 文档](https://github.com/projectkudu/kudu/wiki)
 * [Continous Deployment to Azure App Service](app-service-continuous-deployment.md)（连续部署到 Azure 应用服务）
-* [如何使用适用于 Azure 的 PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [如何使用适用于 Azure 的 PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview)
 * [如何使用 Azure 命令行接口](../cli-install-nodejs.md)
 
 [Azure Developer Center]: /develop/overview/

@@ -62,7 +62,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 ## <a name="supported-vms"></a>支持的 VM
 高级存储支持 DS 系列、DSv2 系列和 Fs 系列 VM。 可将标准和高级存储磁盘用于这些 VM 类型。 不能在不兼容高级存储的 VM 系列中使用高级存储磁盘。
-<!-- Not Available on GS Series LS Series-->
+<!-- Not Available on GS Series LS Series and B-series -->
 
 有关 Azure 中适用于 Windows 的 VM 类型和大小的信息，请参阅 [Windows VM 大小](../articles/virtual-machines/windows/sizes.md)。 有关 Azure 中适用于 Linux 的 VM 类型和大小的信息，请参阅 [Linux VM 大小](../articles/virtual-machines/linux/sizes.md)。
 
@@ -91,7 +91,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 * **分析**
 
-    若要使用高级存储中的磁盘分析 VM 性能，请在 [Azure 门户](https://portal.azure.cn)中启用 VM 诊断。 有关详细信息，请参阅[使用 Azure 诊断扩展监视 Azure VM](https://azure.microsoft.com/blog2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)。 
+    若要使用高级存储中的磁盘分析 VM 性能，请在 [Azure 门户](https://portal.azure.cn)中启用 VM 诊断。 有关详细信息，请参阅[使用 Azure 诊断扩展监视 Azure VM](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)。 
 
     若要查看磁盘性能，请使用基于操作系统的工具，例如适用于 Windows VM 的 [Windows 性能监视器](https://technet.microsoft.com/library/cc749249.aspx)和适用于 Linux VM 的 [iostat](http://linux.die.net/man/1/iostat) 命令。
 
@@ -305,5 +305,8 @@ sudo yum install microsoft-hyper-v
 * [迁移到 Azure 高级存储](../articles/storage/common/storage-migration-to-premium-storage.md)
 
 ### <a name="blog-posts"></a>博客文章
-* [Azure Premium Storage generally available](https://azure.microsoft.com/blogazure-premium-storage-now-generally-available-2/)（Azure 高级存储已正式推出）
+* [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)（Azure 高级存储已正式推出）
 <!-- Not Available on * [Announcing the GS-series: Adding Premium Storage support to the largest VMs in the public cloud](https://azure.microsoft.com/blogazure-has-the-most-powerful-vms-in-the-public-cloud/) -->
+
+<!--Update_Description: wording update-->
+<!--ms.date: 01/29/2018-->

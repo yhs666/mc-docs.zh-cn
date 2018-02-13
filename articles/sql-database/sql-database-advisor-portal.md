@@ -16,11 +16,11 @@ ms.workload: data-management
 origin.date: 07/05/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 19791bb985c03ca47d84b13f06cb30b7a82cde9c
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 409ad36d5eb9168096a557d6ad478b6592548e45
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>查找并应用性能建议
 
@@ -91,6 +91,10 @@ Azure SQL 数据库允许通过以下三个选项之一完全控制建议的启�
 2. 从列表中选择一个放弃的项，查看其详细信息。
 3. （可选）单击“撤消放弃”，将索引重新添加到“建议”的主列表。
 
+> [!NOTE]
+> 请注意，如果已启用 SQL 数据库[自动优化](sql-database-automatic-tuning.md)，并且如果已手动放弃列表中的建议，则此类建议将永远不会自动应用。 放弃建议是让用户能够在需要某条特定建议不应当应用的情况下启用自动优化的方便方法。
+> 可以通过选择“撤消放弃”选项将放弃的建议添加回建议列表来还原此行为。
+> 
 
 ### <a name="enable-automatic-tuning"></a>启用自动优化
 可以将 Azure SQL 数据库设置为自动实施建议。 建议变为可用时，会自动应用。 与该服务所管理的所有建议一样，如果存在负面的性能影响，则会还原建议。
@@ -121,7 +125,7 @@ Azure SQL 数据库允许通过以下三个选项之一完全控制建议的启�
 | 挂起 |已经接收应用建议命令并计划执行。 |
 | 执行 |正在应用建议。 |
 | 验证 |已成功应用建议，服务正在权衡优势。 |
-| 成功 |已成功应用建议，并且已权衡优势。 |
+| Success |已成功应用建议，并且已权衡优势。 |
 | 错误 |在应用建议的过程期间发生了错误。 这可能是暂时性问题，或可能是表的架构更改所致，并且脚本不再有效。 |
 | 还原 |已应用建议，但该建议被认为是非性能的且正在被自动还原。 |
 | 已还原 |已还原建议。 |
@@ -151,7 +155,7 @@ Azure SQL 数据库提供可提高 SQL 数据库性能的建议。 通过提供 
 
 * 请参阅[自动优化](sql-database-automatic-tuning.md)详细了解 Azure SQL 数据库中的自动优化。
 * 请参阅[性能建议](sql-database-advisor.md)，获取 Azure SQL 数据库性能建议的概述。
-* 请参阅[查询性能见解](sql-database-query-performance.md)，了解排名靠前的查询的性能影响。
+* 若要了解排名靠前的查询的性能影响，请参阅[查询性能见解](sql-database-query-performance.md)。
 
 ## <a name="additional-resources"></a>其他资源
 * [查询存储](https://msdn.microsoft.com/library/dn817826.aspx)

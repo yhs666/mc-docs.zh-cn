@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/02/2017
-ms.date: 12/25/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6d30f79d243e8c1fd6cc71f44b64c8f423cac729
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 4dab6f9fcc551f7abd743ecacb84e055071cd0b0
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位
 现已推出：Azure Cosmos DB [请求单位计算器](https://www.documentdb.com/capacityplanner)。 了解[估计吞吐量需求](request-units.md#estimating-throughput-needs)。
@@ -56,7 +56,7 @@ Azure Cosmos DB 通过*保留*资源提供快速且可预测的性能，以满�
 启用新集合或表时，请指定希望保留的每秒请求单位数（每秒 RU 数）。 Azure Cosmos DB 将会根据预配的吞吐量分配物理分区来托管集合，并拆分/重新均衡分区中不断增长的数据。
 <!-- Not Available on Graph -->
 
-如果为集合预配的请求单位数大于或等于 2,500，Azure Cosmos DB 要求指定分区键。 以后将集合的吞吐量扩展到 2,500 个请求单位以上时，也需要使用分区键。 因此，我们强烈建议在创建吞吐量容器时配置[分区键](partition-data.md)，不管初始吞吐量有多大。 由于数据可能需要跨多个分区拆分，因此需要选择一个基数较高（一百到几百万个非重复值）的分区键。 通过选择具有大量非重复值的分区键，可以确保 Azure Cosmos DB 能够统一缩放集合/表与请求。 
+可以“固定”或“无限制”模式创建 Azure Cosmos DB 容器。 固定大小的容器上限为 10 GB，10,000 RU/s 吞吐量。 若要创建无限制容器，必须指定最低 1,000 RU/秒的吞吐量和一个[分区键](partition-data.md)。 由于数据可能需要跨多个分区拆分，因此需要选择一个基数较高（一百到几百万个非重复值）的分区键。 通过选择具有大量非重复值的分区键，可以确保 Azure Cosmos DB 能够统一缩放集合/表与请求。 
 <!-- Not Available on Graph -->
 
 > [!NOTE]
@@ -213,7 +213,7 @@ await client.ReplaceOfferAsync(offer);
 5. 记录应用程序使用的任何自定义脚本（存储过程、触发器、用户定义的函数）的请求单位费用。
 6. 根据给定的预计每秒运行的操作估计数计算所需的请求单位。
 
-### <a id="GetLastRequestStatistics"></a>使用 API for MongoDB 的 GetLastRequestStatistics 命令
+## <a id="GetLastRequestStatistics"></a>使用 API for MongoDB 的 GetLastRequestStatistics 命令
 API for MongoDB 支持使用自定义命令 *getLastRequestStatistics* 来检索指定操作的请求费用。
 
 例如，在 Mongo Shell 中，执行所需的操作来验证请求费用。

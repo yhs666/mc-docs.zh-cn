@@ -16,11 +16,11 @@ ms.workload: data-management
 origin.date: 12/14/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: e1efb3a1412649c45f04827553d9d75347d56386
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 26d5ac23f0f0922f5f69242a8cd0a02126df1ae3
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL 数据库资源限制
 
@@ -128,4 +128,4 @@ ms.lasthandoff: 01/05/2018
 - 有关单一数据库的信息，请参阅[单一数据库资源](sql-database-resource-limits.md)。
 - 有关弹性池的信息，请参阅[弹性池](sql-database-elastic-pool.md)。
 - 有关 DTU 和 eDTU 的信息，请参阅 [DTU 和 eDTU](sql-database-what-is-a-dtu.md)。
-<!--Update_Description: update Global CLI 2.0 links to Mooncake CLI 2.0 links-->
+- 有关 tempdb 大小限制的信息，请参阅 https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database。

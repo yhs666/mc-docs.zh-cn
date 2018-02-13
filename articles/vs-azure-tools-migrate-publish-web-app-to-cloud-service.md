@@ -3,8 +3,8 @@ title: "如何通过 Visual Studio 将 Web 应用程序迁移和发布到 Azure 
 description: "了解如何使用 Visual Studio 将 Web 应用程序迁移和发布到 Azure 云服务"
 services: visual-studio-online
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 9394adfd-a645-4664-9354-dd5df08e8c91
 ms.service: multiple
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 11/10/2017
-ms.date: 12/28/2017
+ms.date: 01/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: ea7194a221b355cae842de078cb0037284b2aff0
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 89d09f295983607be281982c18d4cdc58ca3887c
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>如何：通过 Visual Studio 将 Web 应用程序迁移和发布到 Azure 云服务
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/28/2017
 
 ## <a name="migrate-a-project-to-cloud-services"></a>将项目迁移到云服务
 
-1. 右键单击 Web 应用程序项目，然后选择“转换”>“转换到 Azure 云服务项目”。 （如果解决方案中已有 Web 角色项目，则不会显示此命令。）
+1. 右键单击 Web 应用程序项目，然后选择“转换”>“转换到 Azure 云服务项目”。 （请注意，如果解决方案中已有 web 角色项目，则不会显示此命令。）
 1. Visual Studio 在包含所需 Web 角色的解决方案中创建一个云服务项目。 该项目的名称与加上后缀 `.Azure` 的应用程序项目相同。
 1. 对于 MVC 2、MVC 3、MVC 4 和 Silverlight 业务应用程序需要的任何程序集，Visual Studio 还将“复制本地”属性设置为 true。 此属性将这些程序集添加到用于部署的服务包。
 

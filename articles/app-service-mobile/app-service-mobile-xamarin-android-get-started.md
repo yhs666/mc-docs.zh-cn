@@ -2,22 +2,24 @@
 title: "适用于 Xamarin.Android 应用的 Azure 移动应用入门"
 description: "按照本教程进行操作，开始使用 Azure 移动应用进行 Xamarin Android 开发"
 services: app-service\mobile
-documentationCenter: xamarin
-authors: adrianhall
-manager: erikre
+documentationcenter: xamarin
+author: conceptdev
+manager: crdun
 editor: 
+ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9847e5dbabfd0d09d0df55f9c0c033076693853b
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: c6fa3c89a1f6f22c49246e8cd17d605e361ce9b7
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 #<a name="create-a-xamarinandroid-app"></a>创建 Xamarin.Android 应用
 
@@ -41,9 +43,6 @@ ms.lasthandoff: 07/13/2017
 
 * Visual Studio with Xamarin。 有关说明，请参阅 [设置和安装 Visual Studio 和 Xamarin](https://msdn.microsoft.com/zh-cn/library/mt613162.aspx) 。  
 
->[!NOTE]
-> 如果想要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到 [试用应用服务](https://tryappservice.azure.com/?appServiceName=mobile)。  可以立即在应用服务中创建短期的入门级移动应用。 无需付费，也不需要做出任何承诺。
-
 ## <a name="create-an-azure-mobile-app-backend"></a>创建 Azure 移动应用后端
 
 按照下列步骤创建移动应用后端。
@@ -63,18 +62,18 @@ ms.lasthandoff: 07/13/2017
       将压缩的项目文件保存到本地计算机，并记下保存位置。
 
 2. 按 **F5** 键生成项目并启动该应用。
-
 3. 在应用中键入有意义的文本（例如“完成教程”），然后单击“添加”按钮。
 
     ![][10]
 
     来自请求的数据被插入到 TodoItem 表。 移动应用后端返回存储在表中的项，数据显示在列表中。
 
-    > [!NOTE]
-    > 可以查看访问移动应用后端以查询和插入数据的代码，这些代码在 ToDoActivity.cs C# 文件中。
+   > [!NOTE]
+   > 可以查看访问移动应用后端以查询和插入数据的代码，这些代码在 ToDoActivity.cs C# 文件中。
+   >
+   >
 
 ##<a name="next-steps"></a>后续步骤
-
 * [向应用添加脱机同步](./app-service-mobile-xamarin-android-get-started-offline-data.md)
 * [向应用添加身份验证](./app-service-mobile-xamarin-android-get-started-users.md)
 * [如何使用 Azure 移动应用的托管客户端](./app-service-mobile-dotnet-how-to-use-client-library.md)

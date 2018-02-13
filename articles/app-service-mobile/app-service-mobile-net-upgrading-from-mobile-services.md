@@ -2,22 +2,24 @@
 title: "从移动服务升级到 Azure 应用服务"
 description: "了解如何轻松将移动服务应用程序升级到应用服务移动应用"
 services: app-service\mobile
-documentationCenter: 
-authors: adrianhall
-manager: dwrede
+documentationcenter: 
+author: conceptdev
+manager: crdun
 editor: 
+ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: c9b10f3537b657a098a4ac94de0b90c952326d84
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.openlocfilehash: 07c7dbe5f914657e5e19d597e105b162901863a2
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>将现有 .NET Azure 移动服务升级到应用服务
 
@@ -31,8 +33,10 @@ ms.lasthandoff: 10/30/2017
 
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[!TIP]
-> 建议在升级之前先[执行迁移](./app-service-mobile-migrating-from-mobile-services.md)。 这样，就能在同一个应用服务计划中放置两个版本的应用程序，且无需支付额外的费用。
+> [!TIP]
+> 建议在升级之前先[执行迁移](app-service-mobile-migrating-from-mobile-services.md)。 这样，就能在同一个应用服务计划中放置两个版本的应用程序，且无需支付额外的费用。
+>
+>
 
 ###<a name="improvements-in-mobile-apps-net-server-sdk"></a>移动应用 .NET 服务器 SDK 改进
 
@@ -40,7 +44,7 @@ ms.lasthandoff: 10/30/2017
 
 - NuGet 依赖项有更大的灵活性。 宿主环境不再提供其自身的 NuGet 包版本，因此可以使用替代的兼容版本。 但是，如果移动服务器 SDK 或依赖项有新的关键 Bug 修复或安全更新，则必须手动更新服务。
 
-- 移动 SDK 有更大的灵活性。 可以明确控制要设置哪些功能和路由，例如身份验证、表 API 和推送注册终结点。 若要了解详细信息，请参阅[如何使用适用于 Azure 移动应用的 .NET 服务器 SDK](./app-service-mobile-net-upgrading-from-mobile-services.md#server-project-setup)。
+* 移动 SDK 有更大的灵活性。 可以明确控制要设置哪些功能和路由，例如身份验证、表 API 和推送注册终结点。 若要了解详细信息，请参阅[如何使用适用于 Azure 移动应用的 .NET 服务器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
 - 支持其他 ASP.NET 项目类型和路由。 现在，可以在与移动后端项目相同的项目中托管 MVC 和 Web API 控制器。
 
@@ -52,6 +56,8 @@ ms.lasthandoff: 10/30/2017
 
 >[!TIP]
 > 建议先阅读并充分了解本主题的余下内容，再开始升级。 请记下以下概括的所有功能。
+>
+>
 
 移动服务客户端 SDK 与新的移动应用服务器 SDK **不** 兼容。 为了提供应用程序的服务连续性，不应该将更改发布到当前正在为发布的客户端提供服务的站点。 而应该创建新的移动应用作为副本。 可以在同一个应用服务计划中放置此应用程序，以免产生额外的财务成本。
 
@@ -69,7 +75,7 @@ ms.lasthandoff: 10/30/2017
 
 接下来，根据 [.NET 后端创建说明](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app)创建第二个应用程序实例。 当系统提示选择应用服务计划或“托管计划”时，请选择已迁移的应用程序的计划。
 
-可能需要使用与移动服务中相同的数据库和通知中心。 可以打开 [Azure 门户]并导航到原始应用程序，复制这些值，然后单击“设置” > “应用程序设置”。 在“连接字符串”下，复制 `MS_NotificationHubConnectionString` 和 `MS_TableConnectionString`。 导航到新的升级站点并粘贴这些值，覆盖任何现有值。 针对应用所需的任何其他应用程序设置重复此过程。 如果未使用迁移的服务，可以从 [Azure 经典管理门户]中“移动服务”部分的“配置”选项卡中读取连接字符串和应用设置。
+可能需要使用与移动服务中相同的数据库和通知中心。 可以打开 [Azure 门户]并导航到原始应用程序，复制这些值，然后单击“设置” > “应用程序设置”。 在“连接字符串”下，复制 `MS_NotificationHubConnectionString` 和 `MS_TableConnectionString`。 导航到新的升级站点并粘贴这些值，覆盖任何现有值。 针对应用所需的任何其他应用程序设置重复此过程。 如果未使用迁移的服务，可以从 [Azure 经典门户]上“移动服务”部分中的“配置”选项卡中读取连接字符串和应用设置。
 
 为应用程序制作 ASP.NET 项目的副本，并将其发布到新站点。 通过使用新 URL 更新的客户端应用程序副本验证一切是否正常工作。
 
@@ -167,7 +173,7 @@ ms.lasthandoff: 10/30/2017
 在 iOS 上，应该根据以下列表更改数据实体的核心数据架构。 请注意，属性 `createdAt`、`updatedAt` 和 `version` 不再有 `ms_` 前缀：
 
 | 属性 |  类型   | 注意                                                 |
-|---------- |  ------ | -----------------------------------------------------|
+| --- | --- | --- |
 | id        | 字符串（标记为必需）  | 远程存储中的主键         |
 | createdAt | 日期    | （可选）映射到 createdAt 系统属性         |
 | updatedAt | 日期    | （可选）映射到 updatedAt 系统属性         |
@@ -291,7 +297,7 @@ traceWriter.Info("Hello, World");
 <!-- URLs. -->
 
 [Azure 门户]: https://portal.azure.cn/
-[Azure 经典管理门户]: https://manage.windowsazure.cn/
+[Azure 经典门户]: https://manage.windowsazure.cn/
 [什么是移动应用？]: ./app-service-mobile-value-prop.md
 [I already use web sites and mobile services - how does App Service help me?]: ./app-service-mobile-value-prop-migration-from-mobile-services.md
 [移动应用服务器 SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server

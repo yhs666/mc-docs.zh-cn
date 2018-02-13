@@ -1,10 +1,10 @@
 ---
-title: "使用移动应用在 Apache Cordova 中添加身份验证 | Azure 应用服务"
+title: "使用移动应用在 Apache Cordova 中添加身份验证"
 description: "了解如何使用 Azure 应用服务中的移动应用，通过各种标识提供者对 Apache Cordova 应用的用户进行身份验证。"
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
 ms.service: app-service-mobile
@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 origin.date: 10/30/2016
 ms.author: v-yiso
-ms.date: 07/31/2017
-ms.openlocfilehash: 3b7a3befa44f38c80ef96912aa7326ef30cbd384
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 01/29/2018
+ms.openlocfilehash: 2365e1edd547f66269d442402c4d669863e6047b
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>将身份验证添加到 Apache Cordova 应用
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 07/28/2017
 
 现在，可以验证是否已禁用对后端的匿名访问。 在 Visual Studio 中：
 
-* 打开你在完成 [Get started with Mobile Apps]教程后创建的项目。
+* 打开完成[Get started with Mobile Apps]教程后创建的项目。
 * 在 **Google Android 模拟器**中运行应用程序。
 * 验证应用启动后显示“意外的连接失败”。
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 07/28/2017
         }, handleError);
     ```
 
-    此代码将替换用于创建表引用和刷新 UI 的现有代码。
+    此代码替换用于创建表引用和刷新 UI 的现有代码。
 
     login() 方法开始对提供程序进行身份验证。 login() 方法是返回 JavaScript Promise 的异步函数。  初始化的剩余部分放置在 promise 响应中，因此在 login() 方法完成之前不会执行。
 

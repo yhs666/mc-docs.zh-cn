@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/07/2016
-ms.date: 12/04/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: c9563ceb7d3d390e8c33c13ed052d8e564f48409
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 6139b313f91d8aa80cfae39a203aded2f0ac3819
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure 应用服务、虚拟机、Service Fabric 和云服务的比较
 ## <a name="overview"></a>概述
 Azure 提供几种托管网站的方式：[Azure 应用服务][Azure App Service]、[虚拟机][Virtual Machines]、[Service Fabric][Service Fabric] 和[云服务][Cloud Services]。 本文可帮助你了解这几种方式，并针对 Web 应用程序做出正确的选择。
 
-Azure 应用服务是大多数 Web 应用的最佳选择。 部署和管理都已集成到平台，站点可以快速缩放以应对高流量负载，而内置的负载均衡和流量管理器可以实现高可用性。 [WebJobs][WebJobs] 功能使得将后台作业处理添加到应用服务 Web 应用变得轻松。
+Azure 应用服务是大多数 Web 应用的最佳选择。 部署和管理都已集成到平台，站点可以快速缩放以应对高流量负载，而内置的负载均衡和流量管理器可以实现高可用性。 可使用[联机迁移工具](https://www.migratetoazure.net/)将现有站点轻松迁移到 Azure 应用服务、使用 Web 应用程序库中的开源应用，还可使用所选框架和工具新建站点。 [WebJobs][WebJobs] 功能使得将后台作业处理添加到应用服务 Web 应用变得轻松。
 
 如果要创建新应用或重新编写现有应用以使用微服务体系结构，Service Fabric 是不错的选择。 在共享计算机池上运行的应用可以从小规模开始，根据需要扩展为包含成百上千个计算机的大规模。 有状态服务可轻松地以一致且可靠的方式存储应用状态，而 Service Fabric 会自动管理服务分区、缩放和可用性。  Service Fabric 也支持具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 的 WebAPI。  与应用服务相比，Service Fabric 也能更好地控制或直接访问基础结构。 可以远程登录服务器，或配置服务器启动任务。 云服务的控制和易用程度类似于 Service Fabric，但它现在是旧版服务，因此建议将 Service Fabric 用于新的开发。
 
-如果现有应用程序需要大幅修改才能在应用服务或 Service Fabric 中运行，可选择虚拟机来简化到云的迁移。 但相比于 Azure 应用服务和 Service Fabric，正确配置、保护和维护 VM 需要更多的时间和 IT 专业知识。 如果考虑采用 Azure 虚拟机，请确保将修补、更新和管理 VM 环境所需的持续性维护工作纳入考虑。 Azure 虚拟机是服务架构 (IaaS)，而应用服务和 Service Fabric 是平台即服务 (Paas)。 
+如果现有应用程序需要大幅修改才能在应用服务或 Service Fabric 中运行，可选择虚拟机来简化到云的迁移。 但相比于 Azure 应用服务和 Service Fabric，正确配置、保护和维护 VM 需要更多的时间和 IT 专业知识。 如果你考虑采用 Azure 虚拟机，请确保将修补、更新和管理 VM 环境所需的持续性维护工作纳入考虑。 Azure 虚拟机是服务架构 (IaaS)，而应用服务和 Service Fabric 是平台即服务 (Paas)。 
 
 ## <a name="features"></a>功能比较
 下表比较了应用服务、云服务、虚拟机和 Service Fabric 的功能，帮助用户做出最佳选择。 若要了解每个选项的 SLA 的当前信息，请参阅 [Azure 服务级别协议](https://www.azure.cn/support/legal/sla/)。
 
-| 功能 | 应用服务（Web 应用） | 云服务（web 角色） | 虚拟机 | Service Fabric | 说明 |
+| 功能 | 应用服务（Web 应用） | 云服务（web 角色） | 虚拟机 | Service Fabric | 注释 |
 | --- | --- | --- | --- | --- | --- |
 | 接近即时的部署 |X | | |X |将应用程序或应用程序更新部署到云服务（或者创建 VM）至少需要几分钟；将应用程序部署到 Web 应用只需数秒钟。 |
 | 向上扩展到更大的计算机且无需重新部署 |X | | |X | |
@@ -49,12 +49,14 @@ Azure 应用服务是大多数 Web 应用的最佳选择。 部署和管理都�
 | 访问 Service Bus、存储空间、SQL 数据库之类的服务 |X |X |X |X | |
 | 托管多层体系结构的 web 或 web 服务层 |X |X |X |X | |
 | 托管多层体系结构的中间层 |X |X |X |X |应用服务 Web 应用可轻松托管 REST API 中间层，而 [WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) 功能可托管后台处理作业。 可在专用网站中运行 WebJobs，实现层的独立可扩展性。 |
+| 集成的 MySQL-as-a-service 支持 |X |X | | | |
 | 支持 ASP.NET、经典 ASP、Node.js、PHP、Python |X |X |X |X |Service Fabric 支持使用 [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) 创建 Web 前端，或者也可按[来宾可执行文件](../service-fabric/service-fabric-deploy-existing-app.md)的形式部署任何类型的应用程序（Node.js、Java 等）。 |
 | 向外扩展到多个实例且无需重新部署 |X |X |X |X |虚拟机可以扩大到多个实例，但必须编写这些虚拟机上运行的服务，来处理向外扩展。需要配置负载均衡器，跨计算机路由请求；还需要创建地缘组，防止因维护或硬件故障导致同时重新启动所有实例。 |
 | 支持 SSL |X |X |X |X |对于应用服务 Web 应用，只有基本和标准模式支持自定义域名的 SSL。 若要了解如何结合使用 SSL 和 Web 应用，请参阅[为 Azure 网站配置 SSL 证书](app-service-web-tutorial-custom-ssl.md)。 |
 | Visual Studio 集成 |X |X |X |X | |
 | 远程调试 |X |X |X | | |
-| 使用 [Azure 虚拟网络](/virtual-network/)进行网络隔离 |X |X |X |X |另请参阅 [Azure 网站的虚拟网络集成](/app-service-web/app-service-vnet-integration-powershell/) |
+| 使用 TFS 部署代码 |X |X |X |X | |
+| 使用 [Azure 虚拟网络](/virtual-network/)进行网络隔离 |X |X |X |X |另请参阅 [Azure 网站的虚拟网络集成](/app-service/web-sites-integrate-with-vnet) |
 | 支持 [Azure 流量管理器](/traffic-manager/) |X |X |X |X | |
 | 集成的端点监视 |X |X |X | | |
 | 对服务器的远程桌面访问 | |X |X |X | |
@@ -77,7 +79,7 @@ Azure 应用服务是大多数 Web 应用的最佳选择。 部署和管理都�
 * [我想为移动客户端托管 REST API 或 Web 服务。](#mobile)
 
 ### <a id="onprem"></a> 需要具有后台处理的 Web 前端和数据库后端，运行与本地资产集成的业务应用程序。
-Azure 应用服务是针对复杂业务应用程序的理想解决方案。 可以通过该网站开发应用，这些应用可以在负载均衡平台上自动缩放、使用 Active Directory 进行保护并连接到本地资源。 使用该网站，可以通过世界级门户和 API 轻松地管理这些应用，并且还能通过应用洞察工具深入了解客户使用这些应用的情况。 [Webjobs][Webjobs] 功能可将后台进程和任务作为 Web 层的一部分运行，而 VNET 功能则可轻松地重新连接到本地资源。 Azure 应用服务针对 Web 应用提供三个 9 的 SLA，且能够：
+Azure 应用服务是针对复杂业务应用程序的理想解决方案。 可以通过该网站开发应用，这些应用可以在负载均衡平台上自动缩放、使用 Active Directory 进行保护并连接到本地资源。 使用该网站，可以通过世界级门户和 API 轻松地管理这些应用，并且还能通过应用洞察工具深入了解客户使用这些应用的情况。 [Webjobs][Webjobs] 功能允许将后台进程和任务作为 Web 层的一部分运行，而混合连接和 VNET 功能则可实现轻松地重新连接到本地资源。 Azure 应用服务针对 Web 应用提供三个 9 的 SLA，且能够：
 
 * 在自愈性自动修补云平台上安全可靠地运行应用程序。
 * 跨数据中心的全国网络进行自动缩放。
@@ -96,7 +98,7 @@ Azure 应用服务是托管公司网站的理想解决方案。 通过 Web 应�
 * 与 Azure Active Directory 集成
 
 ### <a id="iis6"></a> 我具有在 Windows Server 2003 上运行的 IIS6 应用程序。
-Azure 应用服务可轻松避免在迁移较旧的 IIS6 应用程序时带来的基础结构成本。 因为与 Visual Studio 和常见的 CMS 工具集成，所以能够更轻松地将 IIS6 应用程序直接部署到云中。 部署后，Azure 门户可以提供强大的管理工具，允许通过缩减规模管理成本，并根据需要扩展规模来满足业务要求。 使用迁移工具可以：
+Azure 应用服务可轻松避免在迁移较旧的 IIS6 应用程序时带来的基础结构成本。 Microsoft 已经创建[易于使用的迁移工具和详细的迁移指南](https://www.migratetoazure.net/)，可利用它检查兼容性，并确定需要进行的任何更改。 因为与 Visual Studio、TFS 和常见的 CMS 工具集成，所以能够更轻松地将 IIS6 应用程序直接部署到云中。 部署后，Azure 门户可以提供强大的管理工具，允许通过缩减规模管理成本，并根据需要扩展规模来满足业务要求。 使用迁移工具可以：
 
 * 轻松快速地将旧版 Windows Server 2003 Web 应用程序迁移到云中。
 * 选择在本地保留附加的 SQL 数据库，以创建混合应用程序。
@@ -110,13 +112,15 @@ Azure 应用服务是适合该情况的强大解决方案，原因是其可免�
 * 根据需要向应用程序添加其他 Azure 服务和功能。
 * 使用 HTTPS 保护 Web 应用。
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 ### <a id="designer"></a> 我是 Web 或图形设计师，我想为客户设计和构建网站
 对 Web 开发人员和设计师而言，Azure 应用服务可与各种框架和工具轻松集成（包括 Git 和 FTP 的部署支持），并可与 Visual Studio 和 SQL 数据库等工具和服务紧密集成。 通过应用服务，可以：
 
 * 将命令行工具用于[自动化任务][scripting]。
 * 使用流行的语言，如 [.Net][dotnet]、[PHP][PHP]、[Node.js][nodejs] 和 [Python][Python]。
 * 选择三个不同的扩展级别，向上扩展到超高容量。
-* 与其他 Azure 服务（例如 [SQL 数据库][sqldatabase]、[服务总线][servicebus]和[存储][Storage]）集成。
+* 与其他 Azure 服务（例如 [SQL 数据库][sqldatabase]、[服务总线][servicebus]和[存储空间][Storage]）或者来自 [Azure 应用商店][azurestore]的合作伙伴产品（例如 MySQL 和 MongoDB）集成。
 * 与工具集成，例如 Visual Studio、Git、WebMatrix、WebDeploy、TFS 和 FTP。
 
 ### <a id="multitier"></a>我要将带有 Web 前端的多层应用程序迁移到云中
@@ -170,7 +174,7 @@ Azure 应用服务是适合该情况的强大解决方案，原因是其可免�
 [Service Fabric]: /service-fabric/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
-[azurestore]: https://azuremarketplace.microsoft.com/marketplace/apps
+[azurestore]: https://market.azure.cn/zh-cn/marketplace/apps
 [scripting]: https://azure.microsoft.com/documentation/scripts/?services=web-sites
 [dotnet]: /develop/net/
 [nodejs]: /develop/nodejs/

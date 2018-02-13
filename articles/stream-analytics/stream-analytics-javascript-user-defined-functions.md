@@ -15,11 +15,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 200380758a08902f7c65b36e97515c44a78890fb
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 1413fc660645c2c085f42518c46684ffa99f7e2b
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Azure 流分析 JavaScript 用户定义的函数
 Azure 流分析支持以 JavaScript 编写的用户定义的函数。 利用 JavaScript 提供的丰富 **String**、**RegExp**、**Math**、**Array** 和 **Date** 方法，可以更轻松地创建包含流分析作业的复杂数据转换。
@@ -56,7 +56,7 @@ JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接
     }
     ```
 
-6. 选择“保存”。 该函数随即显示在函数列表中。
+6. 选择“其他安全性验证” 。 该函数随即显示在函数列表中。
 7. 选择新的 **hex2Int** 函数并检查函数定义。 所有函数的函数别名带有 **UDF** 前缀。 在流分析查询中调用该函数时，需要 *包含该前缀* 。 在本例中，调用的是 **UDF.hex2Int**。
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>在查询中调用 JavaScript 用户定义的函数
@@ -84,11 +84,11 @@ Azure 流分析 JavaScript 用户定义的函数支持标准的内置 JavaScript
 
 流分析查询语言与 JavaScript 支持的类型有差别。 下表列出了两者之间的转换映射：
 
-流分析 | JavaScript
+流分析 | Javascript
 --- | ---
 bigint | 数字（JavaScript 只能精确呈现最大 2^53 的整数）
 DateTime | 日期（JavaScript 仅支持毫秒）
-double | Number
+Double | Number
 nvarchar(MAX) | String
 记录 | 对象
 Array | Array
@@ -96,7 +96,7 @@ Null | Null
 
 下面是 JavaScript 到流分析的转换：
 
-JavaScript | 流分析
+Javascript | 流分析
 --- | ---
 Number | 如果数字已舍入并介于 long.MinValue 和 long.MaxValue 之间，则为 Bigint；否则为 double日期
 日期 | DateTime
@@ -136,7 +136,7 @@ FROM
 ```
 
 ## <a name="get-help"></a>获取帮助
-如需更多帮助，请访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+若需更多帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

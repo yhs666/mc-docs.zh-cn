@@ -12,16 +12,14 @@
 # 如何
 ## 创建模板
 ### [模板节](resource-group-authoring-templates.md)
-### [模板最佳实践](resource-manager-template-best-practices.md)
-### [链接到其他模板](resource-group-linked-templates.md)
+#### [Parameters](resource-manager-templates-parameters.md)
+#### [变量](resource-manager-templates-variables.md)
+#### [资源](resource-manager-templates-resources.md)
+#### [输出](resource-manager-templates-outputs.md)
+### [链接和嵌套模板](resource-group-linked-templates.md)
 ### [定义资源之间的依赖关系](resource-group-define-dependencies.md)
 ### [创建多个实例](resource-group-create-multiple.md)
-### [设置位置](resource-manager-template-location.md)
-### [分配标记](resource-manager-template-tags.md)
-### [设置子资源名称和类型](resource-manager-template-child-resource.md)
-### [更新资源](resource-manager-update.md)
-### [对参数使用对象](resource-manager-objects-as-parameters.md)
-### [在链接模板之间共享状态](best-practices-resource-manager-state.md)
+### [更新资源](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/update-resource)
 ### [用于设计模板的模式](best-practices-resource-manager-design-templates.md)
 
 ## 部署
@@ -37,7 +35,7 @@
 #### [部署资源](resource-group-template-deploy-portal.md)
 #### [导出模板](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [跨资源组部署](resource-manager-cross-resource-group-deployment.md)
+### [多个资源组或订阅](resource-manager-cross-resource-group-deployment.md)
 ### [与 Visual Studio Team Services 的持续集成](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure-resource-manager%2ftoc.json)
 ### [在部署期间传递安全值](resource-manager-keyvault-parameter.md)
 
@@ -66,28 +64,22 @@
 
 ## 故障排除
 ### [常见部署错误](resource-manager-common-deployment-errors.md)
-### [了解部署错误](resource-manager-troubleshoot-tips.md)
-### 解决错误
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
 #### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [Linux 部署问题](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 #### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [Linux 预配和分配问题](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+#### [Windows 预配和分配问题](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
 <!-- Not Avaible #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)-->
 #### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-### 虚拟机部署错误
-#### Linux
-##### [部署问题](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-##### [预配和分配问题](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-##### [常见错误消息](../virtual-machines/linux/error-messages.md)
-#### Windows
-##### [部署问题](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-##### [预配和分配问题](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-##### [常见错误消息](../virtual-machines/windows/error-messages.md)
+#### [Windows 部署问题](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+### [了解部署错误](resource-manager-troubleshoot-tips.md)
 
-# 引用
+# 参考
 ## [模板格式](https://docs.microsoft.com/en-us/azure/templates/)
 ## [模板函数](resource-group-template-functions.md)
 ### [数组和对象函数](resource-group-template-functions-array.md)
@@ -112,4 +104,4 @@
 ## [限制请求](resource-manager-request-limits.md)
 ## [跟踪异步操作](resource-manager-async-operations.md)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager) -->
-<!--ms.date: 10/23/2017-->
+<!--ms.date: 01/29/2018 -->

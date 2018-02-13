@@ -12,24 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/07/2016
-ms.date: 12/04/2017
+origin.date: 11/28/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: a65cced927a7250e4672be859267fb14661ad6b6
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: c924a883198b95ff032f472d46e77d8038da71ce
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>如何：在 Azure 应用服务中监视 Web 应用
 [应用服务](app-service-web-overview.md)在 [Azure 门户](https://portal.azure.cn)中提供了内置监视功能。
-还能查看应用的**配额**和**度量值**以及应用服务计划、设置**警报**，甚至基于这些度量值自动**缩放**。
+在 Azure 门户中，可以查看应用的**配额**和**指标**以及应用服务计划、设置**警报**，甚至基于这些指标自动**缩放**。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="understanding-quotas-and-metrics"></a>了解配额和度量值
 ### <a name="quotas"></a>配额
 对于托管在应用服务中的应用程序，其可用资源受到某些 *限制* 。 限制由与应用关联的**应用服务计划**定义。
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 如果应用程序托管在**免费**或**共享**计划中，则该应用可用资源的限制由**配额**定义。
 
@@ -38,7 +40,7 @@ ms.lasthandoff: 11/28/2017
 **免费**或**共享**应用的**配额**如下：
 
 * **CPU（短期）**
-  * 5 分钟内允许此应用程序使用的 CPU 量。 此配额每 5 分钟重置。
+  * 5 分钟内允许此应用程序使用的 CPU 量。 此配额每五分钟重置。
 * **CPU（天）**
   * 1 天内允许此应用程序使用的 CPU 总量。 此配额每隔 24 小时在 UTC 午夜时间重置。
 * **内存**
@@ -51,8 +53,10 @@ ms.lasthandoff: 11/28/2017
 
 适用于托管在**基本**、**标准**和**高级**计划中的应用的唯一配额是**文件系统**。
 
+有关各种应用服务 SKU 可用的特定配额、限制和功能的详细信息，请参阅：[Azure 订阅服务限制](../azure-subscription-service-limits.md#app-service-limits)
+
 #### <a name="quota-enforcement"></a>配额强制执行
-如果应用程序的使用量超过 **CPU（短期）**、**CPU（天）**或**带宽**配额，则将终止该应用程序，直到配额重置。 在此期间，所有传入请求都将导致 **HTTP 403**。
+如果应用程序超过 **CPU（短期）**、**CPU（天）**或**带宽**配额，则将终止该应用程序，直到配额重置。 在此期间，所有传入请求都将导致 **HTTP 403**。
 ![][http403]
 
 如果超过应用程序**内存**配额，则将重启该应用程序。
@@ -124,14 +128,14 @@ ms.lasthandoff: 11/28/2017
 
 **CPU 时间**对托管在**免费**或**共享**计划中的应用很有用，因为这些应用的其中一个配额由应用所用的 CPU 时间定义。
 
-**CPU 百分比**对托管在**基本**、**标准**和**高级**计划中的应用很有用，因为这些应用可以按比例扩大，并且该指标能很好反映所有实例的总体使用情况。
+**CPU 百分比**适用于托管在**基本**、**标准**和**高级**计划中的应用，因为它们可横向缩放。CPU 百分比是所有实例中总用量的良好指标。
 
 ## <a name="metrics-granularity-and-retention-policy"></a>度量值粒度和保留策略
 应用程序和应用服务计划的度量值由具有下列粒度和保留策略的服务进行记录和聚合：
 
-* **分钟**粒度级的度量值将保留 **48 小时**
+* **分钟**粒度级的指标将保留 **30 小时**
 * **小时**粒度级的度量值将保留 **30 天**
-* **天**粒度级的度量值将保留 **90 天**
+* **天**粒度级的指标将保留 **30 天**
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>在 Azure 门户中监视配额和度量值。
 可以在 [Azure 门户](https://portal.azure.cn)中查看影响应用程序的各种**配额**和**指标**。
@@ -148,14 +152,12 @@ ms.lasthandoff: 11/28/2017
 ## <a name="alerts-and-autoscale"></a>警报和自动缩放
 可将应用或应用服务计划的指标挂接到警报。 有关详细信息，请参阅[接收警报通知](../monitoring-and-diagnostics/insights-alerts-portal.md)。
 
-托管在基本、标准或高级应用服务计划中的应用服务应用支持**自动缩放**。 这样便可以配置监视应用服务计划度量值的规则，还能增加或减少根据需要提供其他资源或在过度预配时节约资金的实例计数。 可以在此处详细了解自动缩放：[如何缩放](../monitoring-and-diagnostics/insights-how-to-scale.md)。
+托管在基本、标准或高级应用服务计划中的应用服务应用支持**自动缩放**。 使用自动缩放可以配置监视应用服务计划指标的规则。 规则可以增加或减少实例计数，并根据需要提供更多的资源。 规则还有助于避免应用程序过度预配，从而节省资金。 可以在此处了解有关自动缩放的详细信息：[如何缩放](../monitoring-and-diagnostics/insights-how-to-scale.md)以及 [Azure 监视器自动缩放的最佳做法](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
-
-## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:/cloud-services/cloud-services-sizes-specs
+
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

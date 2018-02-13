@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 04/14/2017
 ms.date: 01/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 9711eed01e0c5806b51f4539ac9fced6b96b0a5e
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: a85b2eaa8fc06266a1189ed7eb6641b2e4342826
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 自动化中的凭据资产
 自动化凭据资产包含 [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) 对象，该对象包含用户名和密码等安全凭据。 Runbook 和 DSC 配置可能会使用在身份验证时接受 PSCredential 对象的 cmdlet，也可能会提取 PSCredential 对象的用户名和密码，以便提供给需要进行身份验证的某些应用程序或服务。 在 Azure 自动化中安全地存储凭据的属性，并可以在 Runbook 或 DSC 配置中通过 [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) 活动访问这些属性。
@@ -82,8 +82,6 @@ ms.lasthandoff: 01/12/2018
     $pw = ConvertTo-SecureString "PassWord!" -AsPlainText -Force
     $cred = New-Object �TypeName System.Management.Automation.PSCredential �ArgumentList $user, $pw
     New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
-
-
 
 ## <a name="using-a-powershell-credential"></a>使用 PowerShell 凭据
 在 Runbook 或 DSC 配置中使用 **Get-AutomationPSCredential** 活动检索凭据资产。 此操作将返回 [PSCredential 对象](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx)，可将其用于需要 PSCredential 参数的活动或 cmdlet。 还可以检索要单独使用的凭据对象的属性。 该对象具有一个用于用户名和安全密码的属性，或者可以使用 GetNetworkCredential 方法返回 [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) 对象，该对象将提供该密码的不安全版本。

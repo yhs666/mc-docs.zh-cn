@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 11/08/2017
-ms.date: 01/08/2018
+ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: 470a05336a86051fc728a12306017cc09ba6f759
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 2da4ed9a71fe485294dedfb9daa0d477f7681748
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>计算优化虚拟机大小
 
@@ -31,10 +31,13 @@ ms.lasthandoff: 01/05/2018
 ## <a name="other-sizes"></a>其他大小
 - [常规用途](sizes-general.md)
 - [内存优化](sizes-memory.md)
+<!--Not Available - [Storage optimized](sizes-storage.md)-->
+<!--Not Available - [GPU](sizes-gpu.md)-->
+<!--Not Available - [High performance compute](sizes-hpc.md)-->
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
 <!--The parent file of includes file of virtual-machines-common-sizes-compute.md-->
-<!--ms.date:01/08/2018-->
-<!-- Update_Description: update meta properties, update link -->
+<!--ms.date:01/29/2018-->
+<!-- Update_Description: update meta properties -->

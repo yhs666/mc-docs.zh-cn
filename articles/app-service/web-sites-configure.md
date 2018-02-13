@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 10/30/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8c76360bbcb55c5089bb01734952d89898ea06f2
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 797389f452b765edf1b871c4218a768b40932838
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>在 Azure 应用服务中配置 Web 应用
 本主题介绍如何使用 [Azure 门户]配置 Web 应用。
@@ -46,6 +46,8 @@ ms.lasthandoff: 10/20/2017
 
 <a name="platform"></a>
 **平台**。 选择是要在 32 位还是 64 位环境中运行 Web 应用。 64 位环境需要“基本”或“标准”模式。 “免费”和“共享”模式始终在 32 位环境下运行。
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 **Web 套接字**。 设为“开”以启用 WebSocket 协议；例如，如果 Web 应用使用 [ASP.NET SignalR] 或 [socket.io](https://socket.io/)。
 
@@ -117,11 +119,11 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 1. 在 Web 应用边栏选项卡上，单击“所有设置” 。
 2. 单击“部署凭据” 。
 3. 输入用户名和密码。
-4. 单击“保存” 。
+4. 单击“保存”。
 
 ![设置部署凭据][configure03]
 
-完整的 FTP 用户名是“app\username”，其中 *app* 是 Web 应用的名称。 用户名列在 Web 应用边栏选项卡的“Essentials” 下。  
+完整的 FTP 用户名是“app\username”，其中 *app* 是 Web 应用的名称。 用户名列在 Web 应用边栏选项卡的“Essentials” 下。
 
 ![FTP 部署凭据][configure02]
 
@@ -159,7 +161,7 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 [在 Azure 应用服务中配置自定义域名]: ./app-service-web-tutorial-custom-domain.md
 [为 Azure 应用服务中的 Web 应用部署到过渡环境]: ./web-sites-staged-publishing.md。
 [Enable HTTPS for an app in Azure Web App（为 Azure 应用服务中的应用启用 HTTPS）]: ./app-service-web-tutorial-custom-ssl.md
-[如何监视 Web 终结点状态]: ./web-sites-monitor.md
+[如何监视 Web 终结点状态]: ./web-sites-monitor.md#webendpointstatus
 [Azure 应用服务中 Web 应用的监视基础知识]: ./web-sites-monitor.md
 [管道模式]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [在 Azure 应用服务中缩放 Web 应用]: ./web-sites-scale.md

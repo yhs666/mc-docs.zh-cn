@@ -1,23 +1,25 @@
 ---
 title: "为 Azure 移动应用启用脱机同步 (Cordova) | Azure"
 description: "了解如何在 Cordova 应用程序中使用应用服务移动应用来缓存和同步脱机数据"
-documentationCenter: cordova
-authors: adrianhall
-manager: erikre
+documentationcenter: cordova
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
+ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/30/2016
+origin.date: 10/30/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: efee84e1017be3d4a12da3233de74c7a4d6de841
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 897f22d694162906b27505bb668eb6ed4ac79e8d
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>为 Cordova 移动应用启用脱机同步
 
@@ -25,14 +27,14 @@ ms.lasthandoff: 06/21/2017
 
 本教程介绍适用于 Cordova 的 Azure 移动应用的脱机同步功能。 借助脱机同步，最终用户即使在没有网络连接时也能够与移动应用进行交互（查看、添加或修改数据）。 在本地数据库中存储更改。  设备重新联机后，这些更改会与远程服务同步。
 
-本教程基于完成教程 [Apache Cordova 快速入门]时创建的移动应用的 Cordova 快速入门解决方案。 在本教程中，将更新快速入门解决方案，以添加 Azure 移动应用的脱机功能。  我们还重点介绍了该应用中的特定于脱机的代码。
+本教程基于完成教程 [Apache Cordova 快速入门]时创建的移动应用的 Cordova 快速入门解决方案。 在本教程中，需更新快速入门解决方案，以便添加 Azure 移动应用的脱机功能。  我们还重点介绍了该应用中的特定于脱机的代码。
 
 若要了解有关脱机同步功能的详细信息，请参阅主题 [增量同步]。 若要深入了解 API 用法，请参阅 [API 文件](https://azure.github.io/azure-mobile-apps-js-client)。
 
 ## <a name="add-offline-sync-to-the-quickstart-solution"></a>在快速入门解决方案中添加脱机同步功能
 应用中必须添加脱机同步代码。 脱机同步功能需要 cordova-sqlite-storage 插件，该插件会在项目中包含 Azure 移动应用时自动添加到应用中。 快速入门项目包含上述两个插件。
 
-1. 在 Visual Studio 解决方案资源管理器中，打开 index.js，然后将以下代码
+1. 在 Visual Studio 解决方案资源管理器中，打开 index.js，并将以下代码
 
     ```
     var client,            // Connection to the Azure Mobile App backend
@@ -148,13 +150,13 @@ ms.lasthandoff: 06/21/2017
 
 示例中 syncContext 的 push 方法仅会在应用启动时在登录的回调函数中调用。  在实际应用程序中，还可以手动或在网络状态发生更改时触发此同步功能。
 
-如果对一个表执行拉取操作，并且该表具有由上下文跟踪的未完成的本地更新，那么该拉取操作将自动触发推送操作。 在此示例中刷新、添加和完成项时，可省略显式 **push** 调用，因为它可能是冗余的。
+如果对一个表执行拉取操作，并且该表具有由上下文跟踪的未完成的本地更新，那么该拉取操作自动触发推送操作。 在此示例中刷新、添加和完成项时，可省略显式 **push** 调用，因为它可能是冗余的。
 
-在所提供的代码中，将查询远程 todoItem 表中的所有记录，也可以筛选记录，只需将查询 ID 和查询传递给 **push**即可。 有关详细信息，请参阅 *Azure 移动应用中的脱机数据同步* 中的 [增量同步]部分。
+在所提供的代码中，会查询远程 todoItem 表中的所有记录，也可以筛选记录，只需将查询 ID 和查询传递给 **push** 即可。 有关详细信息，请参阅 *Azure 移动应用中的脱机数据同步* 中的 [增量同步]部分。
 
 ## <a name="optional-disable-authentication"></a>（可选）禁用身份验证
 
-如果不想在测试脱机同步功能之前设置身份验证，请注释禁止登录的回调函数，但让回调函数内部的代码保持取消注释状态。  注释禁止登录行后，该代码应如下所示：
+如果不想在测试脱机同步功能之前设置身份验证，请为用于登录的回调函数添加注释，但不对回调函数内的代码添加注释。  注释禁止登录行后，该代码应如下所示：
 
 ```
   // Login to the service.
@@ -167,7 +169,7 @@ ms.lasthandoff: 06/21/2017
   // }, handleError);
 ```
 
-现在，应用将在运行应用时与 Azure 后端同步。
+现在，应用会在运行应用时与 Azure 后端同步。
 
 ## <a name="run-the-client-app"></a>运行客户端应用
 启用脱机同步后，可在每个平台上至少运行一次客户端应用程序，以填充本地存储数据库。 稍后，模拟脱机场景，并在应用处于脱机状态时修改本地存储中的数据。
@@ -175,7 +177,7 @@ ms.lasthandoff: 06/21/2017
 ## <a name="optional-test-the-sync-behavior"></a>（可选）测试同步行为
 本节对客户端项目进行修改，通过对后端使用无效的应用程序 URL 来模拟脱机场景。 添加或更改数据项时，这些更改保存在本地存储中，但在重新建立连接之前，这些更改不会同步到后端数据存储中。
 
-1. 在解决方案资源管理器中，打开 index.js 项目文件，然后更改应用程序 URL，使其指向无效的 URL，如以下代码所示：
+1. 在解决方案资源管理器中，打开 index.js 项目文件，并更改应用程序 URL，使其指向无效的 URL，如以下代码所示：
 
     ```
     client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net-fail');
@@ -193,7 +195,7 @@ ms.lasthandoff: 06/21/2017
 
 5. （可选）使用 Visual Studio 查看 Azure SQL 数据库表，看看后端数据库中的数据是否未更改。
 
-    在 Visual Studio 中，打开“服务器资源管理器”。 导航到“Azure”->“SQL 数据库”中的数据库。 右键单击数据库并选择“在 SQL Server 对象资源管理器中打开” ****。 现在便可以浏览 SQL 数据库表及其内容。
+    在 Visual Studio 中，打开“服务器资源管理器”。 导航到“Azure”->“SQL 数据库”中的数据库。 右键单击数据库并选择“在 SQL Server 对象资源管理器中打开” 。 现在便可以浏览 SQL 数据库表及其内容。
 
 ## <a name="optional-test-the-reconnection-to-your-mobile-backend"></a>（可选）测试与移动后端的重新连接
 

@@ -3,7 +3,7 @@ title: "从移动服务升级到 Azure 应用服务 - Node.js"
 description: "了解如何轻松将移动服务应用程序升级到应用服务移动应用"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 ms.assetid: c58f6df0-5aad-40a3-bddc-319c378218e3
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile
 ms.devlang: node
 ms.topic: article
 origin.date: 10/01/2016
-ms.date: 12/04/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 576ccf11c978b86887206f735ec1e548acb6e9d5
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: ad9caef97d3d494a7f8a0221a70ac19ab520aa99
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>将现有 Node.js Azure 移动服务升级到应用服务
 
@@ -109,11 +109,11 @@ ms.lasthandoff: 11/24/2017
 
 2. 单击“+新建” > “Web + 移动” > “移动应用”，然后提供移动应用后端的名称。
 
-3. 对于“资源组”，请选择现有资源组，或创建新组（使用与应用相同的名称）。 
+3. 对于“资源组”，请选择现有资源组，或创建新组（使用与应用相同的名称。） 
 
     可以选择其他应用服务计划或创建新的计划。 若要深入了解应用服务计划以及如何在不同定价层和所需位置中创建新计划，请参阅 [Azure App Service 计划深入概述](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
 
-4. 对于“应用服务计划”，请选择默认计划（位于[标准层](https://www.azure.cn/pricing/details/app-service/)）。 还可以选择其他计划，或[创建一个新计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 应用服务计划的设置将确定与应用关联的[位置、功能、成本和计算资源](https://www.azure.cn/pricing/details/app-service/)。 
+4. 对于“应用服务计划”，请选择默认计划（位于[标准层](https://www.azure.cn/pricing/details/app-service/)）。 还可以选择其他计划，或[创建一个新计划](../app-service/app-service-plan-manage.md#create-an-app-service-plan)。 应用服务计划的设置将确定与应用关联的[位置、功能、成本和计算资源](https://www.azure.cn/pricing/details/app-service/)。 
 
     做出有关计划的决定后，单击“创建” 。 这会创建移动应用后端。 
 

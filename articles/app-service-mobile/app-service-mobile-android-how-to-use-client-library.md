@@ -1,10 +1,10 @@
 ---
-title: "如何使用用于 Android 的 Azure 移动应用 SDK | Microsoft Docs"
+title: "如何使用用于 Android 的 Azure 移动应用 SDK"
 description: "如何使用用于 Android 的 Azure 移动应用 SDK"
 services: app-service\mobile
 documentationcenter: android
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 origin.date: 11/16/2017
 ms.author: v-yiso
-ms.date: 12/04/2017
-ms.openlocfilehash: 55f160f40d5425f3c522f0dabd2888ef0d0ae719
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.date: 01/29/2018
+ms.openlocfilehash: cb097f0ec64d0f758c4d042bf075915ec6bb4b8f
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用用于 Android 的 Azure 移动应用 SDK
 
@@ -350,7 +350,7 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-可将谓词与以下逻辑方法相组合：**and**、**or** 和 **not**。 以下示例组合前述两个示例。
+可将谓词与以下逻辑方法相组合：**and**、**or** 和 **not**。 以下示例组合前面的两个示例。
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -400,11 +400,11 @@ List<ToDoItemNarrow> result = mToDoTable
     .get();
 ```
 
-Select 函数的参数是要返回的表列的字符串名称。  **select** 方法需要接在 **where** 和 **orderBy** 等方法的后面。 它可以后接 **skip** 和 **top** 等分页方法。
+select 函数的参数是要返回的表列的字符串名称。  **select** 方法需要接在 **where** 和 **orderBy** 等方法的后面。 它可以后接 **skip** 和 **top** 等分页方法。
 
 ### <a name="paging"></a>在页中返回数据
 
-数据**始终**在页面中返回。  返回的最大记录数由服务器设置。  如果客户端请求更多记录，服务器将返回最大记录数。  默认情况下，服务器上的最大页面大小为 50 个记录。
+数据**始终**在页面中返回。  返回的最大记录数由服务器设置。  如果客户端请求更多记录，则服务器返回最大记录数。  默认情况下，服务器上的最大页面大小为 50 个记录。
 
 第一个示例说明如何选择表中的前 5 个项。 该查询返回 **ToDoItems**表中的项。 **mToDoTable** 是对前面创建的后端表的引用：
 
@@ -464,7 +464,7 @@ List<ToDoItem> results = mToDoTable
         .get();
 ```
 
-链接的查询方法必须按照以下顺序排序：
+必须按照以下顺序排序已链接的查询方法：
 
 1. 筛选 (**where**) 方法。
 2. 排序 (**orderBy**) 方法。
@@ -479,7 +479,7 @@ List<ToDoItem> results = mToDoTable
 - 屏幕布局
 - 将两者关联起来的适配器。
 
-以下示例代码将移动应用 SQL Azure 表 **ToDoItem** 中的数据返回到一个数组中。 此活动是数据应用程序的常见模式。  数据库查询通常会返回行的集合，客户端在列表或数组中获取该集合。 在此示例中，该数组就是数据源。  代码指定屏幕布局，用于定义设备中显示的数据视图。  这两者与适配器绑定在一起，在此代码中，适配器是 **ArrayAdapter&lt;ToDoItem&gt;** 类的扩展。
+以下示例代码将移动应用 SQL Azure 表 **ToDoItem** 中的数据返回到一个数组中。 此活动是数据应用程序的常见模式。  数据库查询通常会返回行的集合，客户端在列表或数组中获取该集合。 在此示例中，该数组就是数据源。  代码将指定屏幕布局，用于定义设备中显示的数据视图。  这两者与适配器绑定在一起，在此代码中，适配器是 **ArrayAdapter&lt;ToDoItem&gt;** 类的扩展。
 
 #### <a name="layout"></a>定义布局
 
@@ -677,7 +677,7 @@ ToDoItem result = mToDoTable
 
 ##<a name="untyped"></a>如何处理非类型化数据
 
-使用非类型化编程模型可以准确控制 JSON 序列化。  在某些常见方案中，可能会希望使用非类型化编程模型。 例如，如果后端表中包含许多列，但只需要引用其中几个列。  类型化模型需要在数据类中定义移动应用后端中定义的所有列。  用于访问数据的大多数 API 调用都与类型化编程调用类似。 主要差别在于，在非类型化模型中，要对 **MobileServiceJsonTable** 对象而不是 **MobileServiceTable** 对象调用方法。
+使用非类型化编程模型可以准确控制 JSON 序列化。  在某些常见方案中，可能会希望使用非类型化编程模型。 例如，如果后端表包含很多列，并且只需引用列的子集。  类型化模型需要在数据类中定义移动应用后端中定义的所有列。  用于访问数据的大多数 API 调用都与类型化编程调用类似。 主要差别在于，在非类型化模型中，要对 **MobileServiceJsonTable** 对象而不是 **MobileServiceTable** 对象调用方法。
 
 ### <a name="json_instance"></a>创建非类型化表的实例
 
@@ -825,7 +825,7 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 对于联机表，可以使用 `.getTable()`。  对于脱机表，可以使用 `.getSyncTable()`：
 
 ```java
-MobileServiceTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
+MobileServiceSyncTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
 ```
 
 可用于联机表的所有方法（包括筛选、排序、分页、插入数据、更新数据和删除数据）同样适用于脱机表。
@@ -897,9 +897,9 @@ public void completeItem(View view) {
 
 应用服务支持使用各种外部标识提供者[对应用用户进行身份验证](app-service-mobile-android-get-started-users.md)，这些提供者包括：Facebook、Google、Microsoft 帐户、Twitter 和 Azure Active Directory。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在后端中使用已经过身份验证的用户的标识来实施授权规则。
 
-支持两种身份验证流：**服务器**流和**客户端**流。 服务器流依赖于标识提供者的 Web 界面，因此可提供最简单的身份验证体验。  无需其他 SDK 即可实现服务器流身份验证。 服务器流身份验证不会与移动设备深度集成，因此仅建议用于概念验证方案。
+支持两种身份验证流：**服务器**流和**客户端**流。 服务器流依赖于标识提供者 Web 界面，因此可提供最简便的身份验证体验。  无需其他 SDK 即可实现服务器流身份验证。 服务器流身份验证不会与移动设备深度集成，因此仅建议用于概念验证方案。
 
-客户端流依赖于标识提供者提供的 SDK，因此允许与设备特定的功能（例如单一登录）进行更深入的集成。  例如，可以将 Facebook SDK 集成到移动应用程序。  移动客户端会切换到 Facebook 应用，并在换回移动应用前确认已登录。
+客户端流依赖于标识提供者提供的 SDK，因此允许与设备特定的功能（例如单一登录）进行更深入的集成。  例如，可以将 Facebook SDK 集成到移动应用程序中。  移动客户端会切换到 Facebook 应用，并在换回移动应用前确认已登录。
 
 在应用中启用身份验证需要执行以下四个步骤：
 

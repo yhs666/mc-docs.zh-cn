@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 04/20/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9b148a932ed631491eff0f3fd1c668e66521ad2c
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 8eb9d4d9239aaaa15dd63cb064a6e1f312e6c0a9
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>Azure 流分析查询测试和输入流采样
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 01/11/2018
 
 ## <a name="get-help"></a>获取帮助
 
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

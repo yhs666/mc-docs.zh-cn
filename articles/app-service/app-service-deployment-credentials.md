@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 01/05/2016
-ms.date: 01/02/2018
+origin.date: 01/05/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: a7ff15b3a741bdb42771ca2bc6ed693c991d9653
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.openlocfilehash: 66bae3c5315d8ef83f5506474235d0117470523f
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>为 Azure 应用服务配置部署凭据
 [Azure 应用服务](app-service-web-overview.md)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](app-service-deploy-local-git.md)和 [FTP/S 部署](app-service-deploy-ftp.md)。 这些凭据与 Azure Active Directory 凭据不同。
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/25/2017
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-在应用的 *属性* 中找到 **FTP**部署用户名。
+以及在应用的“属性”中查找 FTP 部署用户名。
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
 

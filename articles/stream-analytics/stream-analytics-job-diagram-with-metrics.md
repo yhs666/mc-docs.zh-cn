@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 05/01/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 48543e4a7134c8eb11f3bdc55b2b1d997f8cf029
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: b5ec51e331f41c1214eac16f2219ff0e1cfb1348
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>使用作业关系图进行数据驱动调试
 
@@ -86,7 +86,7 @@ QueryLastProcessedTime 指标指示特定步骤收到数据的时间。 通过�
 *   **InputEventsSourcesBackloggedTotal** 告知还需要为事件中心和 Azure IoT 中心输入读取多少条消息。
 
 ## <a name="get-help"></a>获取帮助
-若要获取更多帮助，请访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+若需更多帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [流分析简介](stream-analytics-introduction.md)

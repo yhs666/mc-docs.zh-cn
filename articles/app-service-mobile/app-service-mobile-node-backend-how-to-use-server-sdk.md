@@ -1,5 +1,5 @@
 ---
-title: "如何使用用于移动应用的 Node.js 后端服务器 SDK | Microsoft Docs"
+title: "如何使用用于移动应用的 Node.js 后端服务器 SDK"
 description: "了解如何使用适用于 Azure 应用服务移动应用的 Node.js 后端服务器 SDK。"
 services: app-service\mobile
 documentationcenter: 
@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 12/04/2017
-ms.openlocfilehash: a1aee92ac5f81f052a2de9986089153fe1c50b11
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.date: 01/29/2018
+ms.openlocfilehash: d9338bdb5306286cd7e6ba1cd6594bce8a265346
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>如何使用 Azure 移动应用 Node.js SDK
 
@@ -119,14 +119,12 @@ Visual Studio 2015 需要使用一个扩展在 IDE 中开发 Node.js 应用程�
 5. 右键单击 npm 节点，然后选择“安装新的 npm 包...”。
 
 6. 创建第一个 Node.js 应用程序时，可能需要刷新 npm 目录。  如有需要，可单击“刷新”  。
-
-7. 在搜索框中输入 _azure-mobile-apps_ 。  单击 azure-mobile-apps 2.0.0 包，然后单击“安装包”。
+7. 在搜索框中输入 *azure-mobile-apps* 。  单击 azure-mobile-apps 2.0.0 包，然后单击“安装包”。
 
     ![安装新的 npm 包][2]
 
 8. 单击“关闭” 。
-
-9. 打开 _app.js_ 文件，添加对 Azure 移动应用 SDK 的支持。  库底部的第 6 行需要语句，添加以下代码：
+9. 打开 *app.js* 文件，添加对 Azure 移动应用 SDK 的支持。  库底部的第 6 行需要语句，添加以下代码：
 
     ```
     var bodyParser = require('body-parser');
@@ -154,7 +152,8 @@ Visual Studio 2015 需要使用一个扩展在 IDE 中开发 Node.js 应用程�
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
-返回“开始使用”边栏选项卡，在“创建表 API”下选择“Node.js”作为“后端语言”。 选中“我已了解此操作会覆盖所有站点内容”框，然后单击“创建 TodoItem 表”。
+返回“开始使用”边栏选项卡，在“创建表 API”下选择“Node.js”作为“后端语言”。
+选中“我已了解此操作会覆盖所有站点内容”框，然后单击“创建 TodoItem 表”。
 
 ### <a name="download-quickstart"></a>如何：使用 Git 下载 Node.js 后端快速入门代码项目
 
@@ -204,15 +203,15 @@ var mobile = azureMobileApps({ homePage: true });
 
 ## <a name="TableOperations"></a>表操作 
 
-azure-mobile-apps Node.js Server SDK 提供将存储在 Azure SQL 数据库中的表公开为 WebAPI 的机制。  提供的操作有五种。
+azure-mobile-apps Node.js Server SDK 提供存储在 Azure SQL 数据库中的表公开为 WebAPI 的机制。  提供的操作有五种。
 
 | 操作 | 说明 |
-| --------- | ----------- |
-| GET /tables/_tablename_ | 获取表中的所有记录 |
-| GET /tables/_tablename_/:id | 获取表中的特定记录 |
-| POST /tables/_tablename_ | 创建表中记录 |
-| PATCH /tables/_tablename_/:id | 更新表中记录 |
-| DELETE /tables/_tablename_/:id | 删除表中的记录 |
+| --- | --- |
+| GET /tables/*tablename* |获取表中的所有记录 |
+| GET /tables/*tablename*/:id |获取表中的特定记录 |
+| POST /tables/*tablename* |创建表中记录 |
+| PATCH /tables/*tablename*/:id |更新表中记录 |
+| DELETE /tables/*tablename*/:id |删除表中的记录 |
 
 此 WebAPI 支持 [OData]，并扩展表架构以支持[脱机数据同步]。
 
@@ -294,6 +293,8 @@ Azure 移动应用 Node.js SDK 利用 [mssql Node.js 包] 来建立和使用 SQL
 
 > [!TIP]
 > 内存驱动程序不提供完整的测试工具集。  若要在本地测试后端，建议使用 SQL Express 数据存储和 mssql 驱动程序。
+>
+>
 
 1. 下载并安装 [Microsoft SQL Server 2014 Express]。  请务必安装带有工具的 SQL Server 2014 Express 版本。  除非确实需要 64 位支持，否则请使用 32 位版本，因为它在运行时消耗的内存更少。
 
@@ -310,7 +311,7 @@ Azure 移动应用 Node.js SDK 利用 [mssql Node.js 包] 来建立和使用 SQL
       ![Configure SQL Express for TCP/IP][3]
       ```
 
-  7. 单击 **“确定”**。  在弹出对话框中单击“确定”  。
+  7. 单击 **“确定”**。  在弹出对话框中单击“确定”。
   8. 在左侧的树菜单中，单击“SQL Server 服务”  。
   9. 右键单击 SQL Server (SQLEXPRESS)，然后选择“重启”
   10. 关闭 SQL Server 2014 配置管理器。
@@ -320,7 +321,7 @@ Azure 移动应用 Node.js SDK 利用 [mssql Node.js 包] 来建立和使用 SQL
   1. 在对象资源管理器中右键单击实例，并选择“属性”
   2. 选择“安全性”页。
   3. 确保已选择“SQL Server 和 Windows 身份验证模式” 
-  4. 单击 **“确定”**
+  4. 单击“确定” 
 
       ```
       ![Configure SQL Express Authentication][4]
@@ -329,7 +330,7 @@ Azure 移动应用 Node.js SDK 利用 [mssql Node.js 包] 来建立和使用 SQL
   5. 在“对象资源管理器”中展开“安全性” > “登录”
   6. 右键单击“登录”，然后选择“新建登录名...”
   7. 输入登录名。  选择“SQL Server 身份验证”。  输入密码，然后在“确认密码”中输入相同的密码。  密码必须符合 Windows 复杂性要求。
-  8. 单击 **“确定”**
+  8. 单击“确定” 
 
       ```
       ![Add a new user to SQL Express][5]
@@ -338,7 +339,7 @@ Azure 移动应用 Node.js SDK 利用 [mssql Node.js 包] 来建立和使用 SQL
   9. 右键单击新登录名并选择“属性” 
   10. 选择“服务器角色”页 
   11. 选中 **dbcreator** 服务器角色旁边的框
-  12. 单击“确定” 
+  12. 单击 **“确定”**
   13. 关闭 SQL Server 2015 Management Studio
 
 请务必记下选择的用户名和密码。  可能需要根据特定的数据库要求分配其他服务器角色或权限。
@@ -352,14 +353,13 @@ $env:SQLCONNSTR_MS_TableConnectionString = "Server=127.0.0.1; Database=mytestdat
 通过 TCP/IP 连接访问数据库，并为连接提供用户名和密码。
 
 ### <a name="howto-config-localdev"></a>如何配置项目以进行本地开发
+Azure 移动应用从本地文件系统读取名为 *azureMobile.js* 的 JavaScript 文件。  不要使用此文件在生产环境中配置 Azure 移动应用 SDK，请改用 [Azure 门户] 中的“应用设置”。  *azureMobile.js* 文件应导出配置对象。  最常见的设置如下：
 
-Azure 移动应用从本地文件系统读取名为 _azureMobile.js_ 的 JavaScript 文件。  不要使用此文件在生产环境中配置 Azure 移动应用 SDK，请改用 [Azure 门户] 中的“应用设置”。  _azureMobile.js_ 文件应导出配置对象。  最常见的设置如下：
+* 数据库设置
+* 诊断日志记录设置
+* 备用 CORS 设置
 
-- 数据库设置
-- 诊断日志记录设置
-- 备用 CORS 设置
-
-下面是实现前面的数据库设置的 _azureMobile.js_ 文件示例：
+下面是实现前面的数据库设置的 *azureMobile.js* 文件示例：
 
 ```
 module.exports = {
@@ -382,18 +382,17 @@ module.exports = {
 建议将 azureMobile.js 添加到 .gitignore 文件（或其他源代码管理 ignore 文件），防止将密码存储在云中。  请始终在 [Azure 门户]中的“应用设置”内配置生产设置。
 
 ### <a name="howto-appsettings"></a>如何配置移动应用的应用设置
+*azureMobile.js* 文件中的大多数设置在 [Azure 门户]中都有等效的应用设置。  请使用以下列表在“应用设置”中配置应用：
 
-_azureMobile.js_ 文件中的大多数设置在 [Azure 门户]中都有等效的应用设置。  请使用以下列表在“应用设置”中配置应用：
-
-| 应用设置                 | _azureMobile.js_ 设置  | 说明                               | 有效值                                |
-| :-------------------------- | :------------------------ | :---------------------------------------- | :------------------------------------------ |
-| MS_MobileAppName        | 名称                      | 应用的名称                       | 字符串                                      |
-| MS_MobileLoggingLevel   | logging.level             | 要记录的消息的最小日志级别      | error、warning、info、verbose、debug、silly |
-| MS_DebugMode            | debug                     | 启用或禁用调试模式              | true、false                                 |
-| MS_TableSchema          | data.schema               | SQL 表的默认架构名称        | 字符串（默认值：dbo）                       |
-| MS_DynamicSchema        | data.dynamicSchema        | 启用或禁用调试模式              | true、false                                 |
-| MS_DisableVersionHeader | 版本（设置为 undefined）| 禁用 X-ZUMO-Server-Version 标头 | true、false                                 |
-| MS_SkipVersionCheck     | skipversioncheck          | 禁用客户端 API 版本检查     | true、false                                 |
+| 应用设置 | *azureMobile.js* 设置 | 说明 | 有效值 |
+|:--- |:--- |:--- |:--- |
+| MS_MobileAppName |name |应用的名称 |字符串 |
+| MS_MobileLoggingLevel |logging.level |要记录的消息的最小日志级别 |error、warning、info、verbose、debug、silly |
+| MS_DebugMode |debug |启用或禁用调试模式 |true、false |
+| MS_TableSchema |data.schema |SQL 表的默认架构名称 |字符串（默认值：dbo） |
+| MS_DynamicSchema |data.dynamicSchema |启用或禁用调试模式 |true、false |
+| MS_DisableVersionHeader |版本（设置为 undefined） |禁用 X-ZUMO-Server-Version 标头 |true、false |
+| MS_SkipVersionCheck |skipversioncheck |禁用客户端 API 版本检查 |true、false |
 
 若要指定某项应用设置，请执行以下操作：
 
@@ -416,15 +415,15 @@ _azureMobile.js_ 文件中的大多数设置在 [Azure 门户]中都有等效的
 
 1. 登录到 [Azure 门户]。
 
-2. 在窗口左上方，单击“+新建”按钮 >“Web + 移动”>“移动应用”，然后为移动应用后端提供名称。
+2. 在窗口左上方，单击“+新建”按钮 >“Web + 移动”>“移动应用”，并为移动应用后端提供名称。
 
 3. 在“资源组”框中，输入与应用相同的名称。
 
 4. 系统将选择“默认应用服务”计划。  如果想要更改应用服务计划，请单击“应用服务计划”>“+ 新建”。  提供新应用服务计划的名称并选择适当的位置。  单击“定价层”并选择适当的服务定价层。 选择“全部查看”以查看其他定价选项，例如“免费”和“共享”。  选择定价层后，单击“选择”按钮。  返回“应用服务计划”边栏选项卡，然后单击“确定”。
 
-5. 单击“创建” 。 预配移动应用后端可能需要几分钟时间。  预配移动应用后端后，门户将打开移动应用后端的“设置”边栏选项卡。
+5. 单击“创建”。 预配移动应用后端可能需要几分钟时间。  预配移动应用后端后，门户将打开移动应用后端的“设置”边栏选项卡。
 
-创建移动应用后端后，可以选择将现有的 SQL 数据库连接到移动应用后端，或创建新的 SQL 数据库。  在本部分中，我们将创建 SQL 数据库。
+创建移动应用后端后，可以选择将现有的 SQL 数据库连接到移动应用后端，或创建新的 SQL 数据库。  本部分创建 SQL 数据库。
 
 > [!NOTE]
 > 如果在与移动应用后端相同的位置已有一个数据库，则可以选择“使用现有数据库”，然后选择该数据库。 因为会产生更高的延迟，所以不建议使用位于不同位置的数据库。
@@ -488,7 +487,7 @@ module.exports = table;
 
 ### <a name="howto-tables-getidentity"></a>如何对表使用身份验证声明
 
-可以设置不同的声明，在设置身份验证时将请求这些声明。  这些声明通常无法通过 `context.user` 对象获取。  但是，它们可以使用 `context.user.getIdentity()` 方法来检索。  `getIdentity()` 方法返回可解析成某个对象的 Promise。  该对象由身份验证方法（microsoftaccount 或 aad）进行键控。
+可以设置各种声明，在设置身份验证时会请求这些声明。  这些声明通常无法通过 `context.user` 对象获取。  但是，它们可以使用 `context.user.getIdentity()` 方法来检索。  `getIdentity()` 方法返回可解析成某个对象的 Promise。  该对象由身份验证方法（microsoftaccount 或 aad）进行键控。
 
 例如，如果设置 Microsoft 帐户身份验证并请求电子邮件地址声明，可使用以下表控制器将电子邮件地址添加到记录：
 
@@ -609,7 +608,7 @@ table.insert(function (context) {
 module.exports = table;
 ```
 
-正常执行查询的操作有可使用 Where 子句来调整的查询属性。 查询属性是一种 [QueryJS] 对象，用于将 OData 查询转换成数据后端可以处理的某种形式。  在简单的相等性比较方案中（如上例），可以使用映射。 也可添加特定的 SQL 子句：
+正常执行查询的操作有可使用 Where 子句来调整的查询属性。 查询属性是一种 [QueryJS] 对象，用于将 OData 查询转换成数据后端可以处理的某种形式。  在简单的相等性比较方案中（如上例），可以使用映射。 还可以添加特定的 SQL 子句：
 
 ```
 context.query.where('myfield eq ?', 'value');
@@ -869,7 +868,7 @@ app.use(mobile);
 app.listen(process.env.PORT || 3000);
 ```
 
-传输前，该文件采用 Base-64 编码。  这会增加实际上传的大小（因此必须考虑该大小）。
+该文件在传输之前是以 Base-64 编码的。  这会增加实际上传的大小（因此必须考虑该大小）。
 
 ### <a name="howto-customapi-sql"></a>如何执行自定义 SQL 语句
 

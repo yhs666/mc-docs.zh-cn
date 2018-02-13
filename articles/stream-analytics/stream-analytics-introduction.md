@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 10/17/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 28e37d5ca8cdc7dd596341de15073d0c18e74161
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 893c035c3221f261e6826a8670ac0a003e6a2400
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="what-is-stream-analytics"></a>什么是流分析？
 
@@ -91,6 +91,6 @@ Azure 流分析是托管的事件处理引擎，用于设置针对流式处理�
 
 * 入门方式：[在 IoT 设备中试验输入和查询](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)。
 * 构建[端到端流分析解决方案](stream-analytics-real-time-fraud-detection.md)，通过检查电话元数据来找出欺诈性电话。
-* 在 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)中查找流分析问题的答案。
+* 在 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 中查找流分析问题的解答。
 
 <!--Update_Description: update meta properties, wording update -->

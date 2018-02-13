@@ -1,23 +1,25 @@
 ---
-title: "创建在移动应用中使用的通用 Windows 平台 (UWP) | Azure"
+title: "创建在移动应用中使用的通用 Windows 平台 (UWP)"
 description: "按照本教程进行操作，开始使用 C#、Visual Basic 或 JavaScript 通过 Azure 移动应用后端进行通用 Windows 平台 (UWP) 应用开发。"
 services: app-service\mobile
-documentationCenter: windows
-authors: adrianhall
-manager: erikre
+documentationcenter: windows
+author: conceptdev
+manager: crdun
 editor: 
+ms.assetid: 47124296-2908-4d92-85e0-05c4aa6db916
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 13bd32d796e49f9fb2bf612378f7bf9daa57a54c
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 88d5974eef848c9d9d136a5e09811431701dfbd1
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 #<a name="create-a-windows-app"></a>创建 Windows 应用
 
@@ -37,17 +39,13 @@ ms.lasthandoff: 06/21/2017
 
 ##<a name="prerequisites"></a>先决条件
 
-若要完成本教程，需要以下各项：
+要完成本教程，需要以下各项：
 
 * 有效的 Azure 帐户。 如果没有帐户，可以注册 Azure 试用版并获取多达 10 个免费的移动应用，即使在试用期结束之后仍可继续使用这些应用。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
 * [Visual Studio Community 2015] 或更高版本。
 
->[!NOTE]
-> 如果要在注册 Azure 帐户之前就开始使用 Azure 应用服务，请转到 [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile)（试用应用服务）。 在那里，可以立即在应用服务中创建短期的入门级移动应用 - 无需信用卡，也无需做出承诺。
-
-##<a name="create-a-new-azure-mobile-app-backend"></a>创建新的 Azure 移动应用后端
-
+## <a name="create-a-new-azure-mobile-app-backend"></a>创建新的 Azure 移动应用后端
 按照下列步骤创建新的移动应用后端。
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]

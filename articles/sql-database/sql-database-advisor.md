@@ -3,7 +3,7 @@ title: "性能建议 - Azure SQL 数据库 | Azure"
 description: "Azure SQL 数据库提供有关 SQL 数据库的建议，以提升当前的查询性能。"
 services: sql-database
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: monicar
 ms.assetid: 1db441ff-58f5-45da-8d38-b54dc2aa6145
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 09/20/2017
-ms.date: 11/06/2017
-ms.author: v-johch
-ms.openlocfilehash: 882a47aa8791861090591abd0641b409205de30e
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.date: 1/22/2018
+ms.author: v-nany
+ms.openlocfilehash: c75de5843e9903fc04a627f34a2343b8fc8e8524
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="performance-recommendations"></a>性能建议
 
@@ -35,9 +35,9 @@ Azure SQL 数据库持续监视执行的查询并找出可以改进性能的索�
 
 使用建议创建的索引始终标记为 auto_created 索引。 可以通过查看 sys.indexes 视图，确定哪些是 auto_created 索引。 自动创建的索引不会阻止 ALTER/RENAME 命令。 如果尝试删除包含自动创建的索引的列，那么命令将会传递下去，自动创建的索引会随列一起删除。 常规索引会阻止对具有索引的列执行的 ALTER/RENAME 命令。
 
-在应用创建索引建议后，Azure SQL 数据库会将查询性能与基线性能进行比较。 如果新索引确实带来了性能提升，系统会将建议标记为成功，并生成影响力报表。 否则，索引将会自动还原。 这样，Azure SQL 数据库可确保应用的建议只会提升数据库性能。
+在应用创建索引建议后，Azure SQL 数据库会将查询性能与基线性能进行比较。 如果新索引确实带来了性能提升，系统会将建议标记为成功，并生成影响力报表。 否则，索引将会自动还原。 通过这种方式，Azure SQL 数据库可以确保使用建议只会改进数据库性能。
 
-所有“创建索引”建议都有撤回策略，即如果在过去 20 分钟内数据库或池 DTU 使用率超过 80% 或存储空间使用率超过 90%，则不允许应用建议。 在这种情况下，将推迟应用建议。
+所有“创建索引”建议都有退让策略，即如果数据库或池的资源使用率很高，则不允许应用建议。 退让策略将考虑 CPU、数据 IO、日志 IO 和可用存储。 如果在过去 30 分钟内 CPU、数据 IO 或日志 IO 高于 80%，则创建索引将会推迟。 如果创建索引后可用存储低于 10%，建议将进入错误状态。 如果几天后自动优化仍认为索引会很有益，此过程将再次启动。 此过程将重复，直到没有足够的存储可用来创建索引或不再认为索引有益。
 
 ## <a name="drop-index-recommendations"></a>删除索引建议
 除了检测缺少的索引外，Azure SQL 数据库还会持续分析现有索引的性能。 如果某个索引未使用，Azure SQL 数据库会建议删除该索引。 在两种情况下会建议删除索引：

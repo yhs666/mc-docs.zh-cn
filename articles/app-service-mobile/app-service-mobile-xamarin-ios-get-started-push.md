@@ -2,22 +2,24 @@
 title: "使用 Azure 应用服务向 Xamarin.iOS 应用添加推送通知"
 description: "了解如何使用 Azure 应用服务将推送通知发送到 Xamarin iOS 应用"
 services: app-service\mobile
-documentationCenter: xamarin
-authors: adrianhall
-manager: dwrede
+documentationcenter: xamarin
+author: conceptdev
+manager: crdun
 editor: 
+ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
+origin.date: 10/12/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0cb9fe2d32803787d80dd7cc16410134283c2e4e
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 1bc945b63981f0b7795c3a71576e03ffa4a05f83
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>向 Xamarin.iOS 应用添加推送通知
 
@@ -133,22 +135,22 @@ ms.lasthandoff: 06/21/2017
     }
     ```
 
-你的应用现已更新，可支持推送通知。
+应用现已更新，可支持推送通知。
 
 ## <a name="test"></a>在应用程序中测试推送通知
 
 1. 在支持 iOS 的设备中按“运行”按钮，以生成项目并启动应用，然后单击“确定”接受推送通知。
 
     > [!NOTE]
-    > 你必须显式接受来自应用程序的推送通知。 此请求只会在首次运行应用程序时出现。
+    > 必须显式接受来自应用程序的推送通知。 此请求只会在首次运行应用程序时出现。
 
 2. 在应用中，键入一项任务，然后单击加号 (**+**) 图标。
 
-3. 检查是否已收到通知，然后单击“确定”以取消通知  。
+3. 检查是否已收到通知，并单击“确定”取消通知。
 
-4. 重复步骤 2 并立即关闭应用，然后检查是否已显示通知。
+4. 重复步骤 2 并立即关闭应用，并检查是否已显示通知。
 
-你已成功完成本教程。
+已成功完成本教程。
 
 <!-- Images. -->
 

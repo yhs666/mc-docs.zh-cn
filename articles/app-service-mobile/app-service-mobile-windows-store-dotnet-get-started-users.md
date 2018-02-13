@@ -1,9 +1,9 @@
 ---
-title: "向通用 Windows 平台 (UWP) 应用添加身份验证 | Azure 移动应用"
+title: "向通用 Windows 平台 (UWP) 应用添加身份验证"
 description: "了解如何使用 Azure 应用服务移动应用通过各种标识提供者（包括 AAD 和 Microsoft）对通用 Windows 平台 (UWP) 应用的用户进行身份验证。"
 services: app-service\mobile
 documentationcenter: windows
-author: dhei
+author: conceptdev
 manager: panarasi
 editor: 
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/05/2017
 ms.author: v-yiso
-ms.date: 07/31/2017
-ms.openlocfilehash: e6d23013eb255d921ed52d32a1a56d564d062a93
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 01/29/2018
+ms.openlocfilehash: 195c931a00477a99ae7de2b72a2f9e1cd3643ace
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="add-authentication-to-your-windows-app"></a>向 Windows 应用添加身份验证
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 07/28/2017
 
 2. 单击“身份验证/授权”菜单选项。
 
-3. 在“允许的外部重定向 URL”中，输入 `url_scheme_of_your_app://easyauth.callback`。  此字符串中的 **url_scheme_of_your_app** 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  请记下所选的字符串，因为需要在几个地方使用 URL 方案调整移动应用程序代码。
+3. 在“允许的外部重定向 URL”中，输入 `url_scheme_of_your_app://easyauth.callback`。  此字符串中的 **url_scheme_of_your_app** 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  应记下此字符串，因为在一些地方需要使用此 URL 方案调整移动应用代码。
 
 4. 单击 **“确定”**。
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 07/28/2017
     }
     ```
 
-5. 打开 MainPage.xaml 项目文件，找到定义“保存”按钮的元素  ，将其替换为以下代码：
+5. 打开 MainPage.xaml 项目文件，找到定义“保存”按钮的元素，将其替换为以下代码：
 
     ```
     <Button Name="ButtonSave" Visibility="Collapsed" Margin="0,8,8,0" 

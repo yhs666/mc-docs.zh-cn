@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/29/2017
-ms.date: 12/25/2017
+origin.date: 12/20/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: 039b2528d5e6a952fbd7e29dadb5ef2ad582e906
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: d91d4815a7fe96de10e7c8b911ab89f6bdab04ff
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>排查使用 Azure Resource Manager 时的常见 Azure 部署错误
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/22/2017
 | 冲突 | 资源的当前状态不允许你所请求的操作。 例如，仅当创建 VM 或该 VM 已取消分配时，才允许磁盘重设大小。 | |
 | DeploymentActive | 等待目标为此资源组的并发部署完成。 | |
 | DnsRecordInUse | DNS 记录名称必须唯一。 提供其他名称，或者修改现有的记录。 | |
-| ImageNotFound | 检查 VM 映像设置。 | [排查 Linux 映像问题](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)和[排查 Windows 映像问题](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| ImageNotFound | 检查 VM 映像设置。 |  |
 | InUseSubnetCannotBeDeleted | 如果尝试更新某个资源时，系统却通过删除和创建该资源来处理该请求，这种情况下可能会遇到该错误。 请确保指定所有未更改的值。 | [更新资源](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | 获取相应租户的访问令牌。 只能从帐户所属的租户获取该令牌。 | |
 | InvalidContentLink | 原因很可能是你尝试链接到一个不可用的嵌套模板。 请仔细检查提供给嵌套模板的 URI。 如果模板在存储帐户中存在，请确保 URI 可访问。 可能需要传递 SAS 令牌。 | [链接的模板](resource-group-linked-templates.md) |

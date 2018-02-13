@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 04/14/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: ea0ada79cda324d0b741ee07b64c31b190c68520
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 1b4bf02207bac12c5e8cda220037a03d9a1bc4d6
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 自动化中的图形创作
 ## <a name="introduction"></a>简介

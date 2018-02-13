@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 08/28/2017
-ms.date: 11/27/2017
+origin.date: 12/28/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: e864fa4ce24e199367316418d88a841251c65b09
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 720e210f01ccd342e2bb81fca705d5be5ffbb23d
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>使用 Azure PowerShell 创建服务主体来访问资源
 
@@ -28,10 +28,10 @@ ms.lasthandoff: 11/24/2017
 * 将不同于自己的权限的权限分配给应用标识。 通常情况下，这些权限仅限于应用需执行的操作。
 * 执行无人参与的脚本时，使用证书进行身份验证。
 
-本主题介绍如何通过 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 为应用程序进行一切所需设置，使之能够使用自己的凭据和标识运行。
+本文演示如何通过 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 为应用程序进行一切所需设置，使之能够使用自己的凭据和标识运行。
 
 ## <a name="required-permissions"></a>所需的权限
-若要完成本主题，必须在 Azure Active Directory 和 Azure 订阅中均具有足够的权限。 具体而言，必须能够在 Azure Active Directory 中创建应用并向角色分配服务主体。 
+要完成本文，必须在 Azure Active Directory 和 Azure 订阅中均有足够的权限。 具体而言，必须能够在 Azure Active Directory 中创建应用并向角色分配服务主体。 
 
 检查帐户是否有足够权限的最简方法是使用门户。 请参阅[检查所需的权限](resource-group-create-service-principal-portal.md#required-permissions)。
 
@@ -105,8 +105,10 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
+ $SecurePassword = convertto-securestring $Password -asplaintext -force
+
  # Create Service Principal for the AD app
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $SecurePassword
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -317,7 +319,7 @@ Param (
 有关该脚本的几个注意事项：
 
 * 访问范围限定于订阅。
-* 在此示例中，将服务主体添加到“参与者”角色。 对于其他角色，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。
+* 在此示例中，要将服务主体添加到“参与者”角色。 对于其他角色，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。
 * 该脚本休眠 15 秒，让新的服务主体有时间传遍 Azure Active Directory。 如果脚本等待时长不足，会显示错误：“PrincipalNotFound: 主体 {ID} 不存在于目录中”。
 * 如果需要向服务主体授予对其他订阅或资源组的访问权限，请使用不同的范围再次运行 `New-AzureRMRoleAssignment` cmdlet。
 
@@ -347,7 +349,7 @@ Param (
  Login-AzureRmAccount -EnvironmentName AzureChinaCloud -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
 ```
 
-应用程序 ID 和租户 ID 不敏感，因此可以直接将它们嵌入脚本中。 如果需要检索租户 ID，请使用：
+应用程序 ID 和租户 ID 不是敏感信息，可将它们直接嵌入脚本中。 如果需要检索租户 ID，请使用：
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
@@ -375,7 +377,7 @@ Remove-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed75527
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
 ```
 
-若要添加证书值，请按本主题所示创建自签名证书。 然后，使用：
+要添加证书值，请按本文所示创建自签名证书。 然后，使用：
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
@@ -420,10 +422,10 @@ Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 * [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>后续步骤
-* 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅[使用 Azure 资源管理器 API 进行授权的开发人员指南](resource-manager-api-authentication.md)。
+* 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅 [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md)（使用 Azure 资源管理器 API 进行授权的开发人员指南）。
 * 有关应用程序和服务主体的详细说明，请参阅 [Application Objects and Service Principal Objects](../active-directory/develop/active-directory-application-objects.md)（应用程序对象和服务主体对象）。 
 * 有关 Azure Active Directory 身份验证的详细信息，请参阅 [Authentication Scenarios for Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md)（Azure AD 的身份验证方案）。
 <!-- Notice: active-directory/develop/ is correct-->
-* 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。
+* 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure Resource Manager 资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。
 
-<!--Update_Description: wording update， update link-->
+<!--Update_Description: wording update， update meta properties -->

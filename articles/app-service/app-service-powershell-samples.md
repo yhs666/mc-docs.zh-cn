@@ -10,22 +10,22 @@ tags: azure-service-management
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.service: app-service
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
 origin.date: 03/08/2017
-ms.date: 12/04/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 708e55d7ff9973855c72e29dd52419656f37a596
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: ed331a13db3ad15d1336e28b2e9b060c5dc04042
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 示例
 
-下表包含指向使用 Azure PowerShell 生成的 bash 脚本的链接。
+下表包含指向使用 Azure PowerShell 生成的 PowerShell 脚本的链接。
 
 | | |
 |-|-|

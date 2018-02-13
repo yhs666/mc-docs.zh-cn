@@ -93,6 +93,8 @@
       href: distribute-data-globally.md
     - name: 分区
       href: partition-data.md
+    - name: 唯一键
+      href: unique-keys.md
     - name: 一致性
       href: consistency-levels.md
     - name: 吞吐量
@@ -135,8 +137,10 @@
               href: programming.md
             - name: 性能测试
               href: performance-testing.md
-            - name: 性能提示
+            - name: .NET 性能提示
               href: performance-tips.md
+            - name: Java 性能提示
+              href: performance-tips-java.md
             - name: 多主设置
               href: multi-region-writers.md
             - name: 日期时间
@@ -196,6 +200,8 @@
               href: mongodb-mongochef.md
             - name: 使用 Robomongo
               href: mongodb-robomongo.md
+            - name: 使用 Mongoose
+              href: mongodb-mongoose.md
             - name: MongoDB 功能支持
               href: mongodb-feature-support.md
             - name: Angular 教程系列

@@ -13,13 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 08/23/2016
-ms.date: 10/25/2016
-ms.author: v-dazen
-ms.openlocfilehash: 9d5b589398f55132a20613b1a9336866a4f184f0
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 01/29/2018
+ms.author: v-yeche
+ms.openlocfilehash: e4a252b5ffa41f9aa3563ccc1441b6549f442ce2
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azurelogcollector-extension"></a>AzureLogCollector 扩展
 [!INCLUDE [virtual-machines-common-log-collector-extension](../../../includes/virtual-machines-common-log-collector-extension.md)]
+
+
+<!--The parent file of includes file of virtual-machines-common-log-collector-extension.md-->
+<!--ms.date:01/29/2018-->

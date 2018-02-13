@@ -16,28 +16,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 09/19/2017
-ms.date: 12/25/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: 60b02b32c729c1f805e53dd58f100b571411c338
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 95acce7be27f848a6762c67b9acb18432cbd3e1e
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>在 Azure 存储资源管理器（预览版）中管理 Azure Cosmos DB
 
-通过在 Azure 存储资源管理器中使用 Azure Cosmos DB，用户可以管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器以及其他 Azure 实体（如存储 blob 和队列）。 现在可以使用相同工具在一个位置管理不同 Azure 实体。 当前，Azure 存储资源管理器支持 SQL 和 MongoDB 帐户。 Azure 存储资源管理器不能与 Azure Cosmos DB 本地模拟器配合工作。 
+通过在 Azure 存储资源管理器中使用 Azure Cosmos DB，用户可以管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器以及其他 Azure 实体（如存储 blob 和队列）。 现在可以使用相同工具在一个位置管理不同 Azure 实体。 当前，Azure 存储资源管理器支持 SQL <!--and MongoDB--> 帐户。 Azure 存储资源管理器不能与 Azure Cosmos DB 本地模拟器配合工作。 
 
 在本文中，你可以了解如何使用存储资源管理器管理 Azure Cosmos DB。
 
 ## <a name="prerequisites"></a>先决条件
 
-一个用于 SQL API 或 MongoDB API 的 Azure Cosmos DB 帐户。 如果你没有帐户，则可以按照 [Azure Cosmos DB：使用 .NET 和 Azure 门户构建 SQL API Web 应用](create-sql-api-dotnet.md)中所述，在 Azure 门户中创建一个。
+一个适用于 SQL API 的 Azure Cosmos DB 帐户。 如果你没有帐户，则可以按照 [Azure Cosmos DB：使用 .NET 和 Azure 门户构建 SQL API Web 应用](create-sql-api-dotnet.md)中所述，在 Azure 门户中创建一个。
 
 ## <a name="installation"></a>安装
 
 在此处安装最新的 Azure 存储资源管理器版本：[Azure 存储资源管理器](https://azure.microsoft.com/en-us/features/storage-explorer/)，现在我们支持 Windows、Linux 和 MAC 版本。
-<!-- Storage Explorer is https://azure.microsoft.com/en-us/features/storage-explorer/-->
+<!-- Storage Explorer download link is https://azure.microsoft.com/en-us/features/storage-explorer/-->
 
 ## <a name="connect-to-an-azure-subscription"></a>连接到 Azure 订阅
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 12/22/2017
 
     ![通过连接字符串连接到 Azure Cosmos DB](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. 为你的帐户类型选择相应“默认体验”（“DocumentDB”或“MongoDB”），粘贴你的“连接字符串”，然后单击“确定”以连接 Azure Cosmos DB 帐户。 有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account#get-the--connection-string)。
+2. 为帐户类型选择相应“默认体验”（“DocumentDB”），粘贴“连接字符串”，然后单击“确定”以连接 Azure Cosmos DB 帐户。 有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account#get-the--connection-string)。
 
     ![连接字符串](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -152,6 +152,7 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="next-steps"></a>后续步骤
 
+<!-- Not Available on [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be) -->
 * 在[存储资源管理器（预览版）入门](/vs-azure-tools-storage-manage-with-storage-explorer)中了解有关存储资源管理器和连接更多服务的详细信息。
 
 <!--Update_Description: update meta properties, update link, wording update -->

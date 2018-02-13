@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 06/02/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
-ms.openlocfilehash: bf3bf5fccefed8fd89d379c2d1f42cd1e053fdeb
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 21f1595054bc0b6723784007373001216bb6cc64
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="managing-azure-automation-data"></a>管理 Azure 自动化数据
 本文包含有关管理 Azure 自动化环境的多个主题。
@@ -47,13 +47,13 @@ Azure 自动化会自动删除并永久移除 90 天之前的作业。
 删除 Azure 中的某个自动化帐户时，该帐户中的所有对象都会被删除，包括 Runbook、模块、配置、设置、作业和资产。 在删除帐户后，这些对象不可恢复。  在删除自动化帐户之前，可以参考以下信息来备份该帐户的内容。 
 
 ### <a name="runbooks"></a>Runbook
-可以使用 Azure 管理门户或 Windows PowerShell 中的 [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) cmdlet 将 Runbook 导出到脚本文件。 可以根据[创建或导入 Runbook](/automation/automation-creating-importing-runbook) 中所述，将这些脚本文件导入另一个自动化帐户。
+可以使用 Azure 门户或 Windows PowerShell 中的 [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) cmdlet 将 Runbook 导出到脚本文件。 可以根据[创建或导入 Runbook](/automation/automation-creating-importing-runbook) 中所述，将这些脚本文件导入另一个自动化帐户。
 
 ### <a name="integration-modules"></a>集成模块
 无法从 Azure 自动化导出集成模块。  必须确保这些模块可在自动化帐户外部使用。
 
 ### <a name="assets"></a>资产
-无法从 Azure 自动化中导出[资产](/automation/)。  使用 Azure 管理门户时，必须记下变量、凭据、证书、连接和计划的详细信息。  然后，必须手动创建用户导入到另一个自动化中的 Runbook 使用的任何资产。
+无法从 Azure 自动化中导出[资产](/automation/)。  使用 Azure 门户时，必须记下变量、凭据、证书、连接和计划的详细信息。  然后，必须手动创建用户导入到另一个自动化中的 Runbook 使用的任何资产。
 
 但可以使用 [Azure cmdlet](https://msdn.microsoft.com/library/dn690262.aspx) 检索未加密资产的详细信息，然后保存这些资产供将来参考，或在另一个自动化帐户中创建等效的资产。
 

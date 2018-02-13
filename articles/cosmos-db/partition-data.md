@@ -12,59 +12,79 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/15/2017
-ms.date: 12/25/2017
+origin.date: 01/05/2018
+ms.date: 01/29/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff792cfccc37660a30ea22366a9807b976b5dcac
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: bcb6a35318414bc3f14b1e7be7c3a367df7e24d2
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中分区和缩放
 
-[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 是一种全局分布的多模型数据库服务，旨在帮助用户实现快速且可预测的性能。 随着应用程序的发展，它也不断无缝扩展。 本文概述了分区如何应用于 Azure Cosmos DB 中的所有数据模型。 文中还介绍了如何配置 Azure Cosmos DB 容器以有效扩展应用程序。
+[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 是一种多区域分布式多模型数据库服务，旨在帮助用户实现快速且可预测的性能。 随着应用程序的发展，它也不断无缝扩展。 本文概述了分区如何应用于 Azure Cosmos DB 中的所有数据模型。 文中还介绍了如何配置 Azure Cosmos DB 容器以有效扩展应用程序。
+<!-- Notice in meta: 全球分布 to 多个区域分布 -->
 <!-- Not Avaialble > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]-->
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB 中的分区
-在 Azure Cosmos DB 中，可在任何规模以毫秒级响应时间对无架构数据进行存储和查询。 Azure Cosmos DB 提供称作集合（适用于文档）或表的容器用于存储数据。 容器是逻辑资源，可跨一个或多个物理分区或服务器。 Azure Cosmos DB 根据存储大小以及容器的预配吞吐量确定分区数。 Azure Cosmos DB 中的每个分区都关联了一个大小固定且受 SSD 支持的存储，并且会复制分区以实现高可用性。 分区完全由 Azure Cosmos DB 进行管理，因此，无需编写复杂的代码或亲自管理分区。 Azure Cosmos DB 容器在存储和吞吐量方面没有限制。 
+在 Azure Cosmos DB 中，可在任何规模以毫秒级响应时间对无架构数据进行存储和查询。 Azure Cosmos DB 提供称作集合（适用于文档）或表的容器用于存储数据。 
 <!-- Not Available Graph-->
+
+容器是逻辑资源，可跨一个或多个物理分区或服务器。 Azure Cosmos DB 根据存储大小以及容器的预配吞吐量确定分区数。 
+
+物理分区指大小固定且受 SSD 支持的保留存储。 将复制每个物理分区以实现高可用性。 一个或多个物理分区即构成一个容器。 物理分区完全由 Azure Cosmos DB 进行管理，因此，无需编写复杂的代码或亲自管理分区。 Azure Cosmos DB 容器在存储和吞吐量方面没有限制。 
+
+逻辑分区指物理分区内用于存储与单个分区键值关联的所有数据的分区。 逻辑分区最大可达 10 GB。下图中，单个容器有三个逻辑分区。 每个逻辑分区存储一个分区键（分别为 LAX、AMS 和 MEL）的数据。 每个 LAX、AMS 和 MEL 逻辑分区均不能超过 10 GB 的最大逻辑分区限制。 
 
 ![资源分区](./media/introduction/azure-cosmos-db-partitioning.png) 
 
-分区对应用程序是透明的。 Azure Cosmos DB 通过对单一容器资源调用方法/API 来支持快速读取和写入、查询、事务逻辑、一致性级别和精细访问控制。 该服务处理跨分区发配数据并将查询请求路由到正确的分区。 
+当集合满足[分区先决条件](#prerequisites)时，分区行为对应用程序是透明的。 Azure Cosmos DB 通过对单一容器资源调用方法/API 来支持快速读取和写入、查询、事务逻辑、一致性级别和精细访问控制。 该服务处理跨物理和逻辑分区分布数据并将查询请求路由到正确的分区。 
 
-分区的工作原理 每个项必须有一个唯一标识自身的分区键和行键。 分区键充当数据的逻辑分区，为 Azure Cosmos DB 提供用于跨分区分配数据的自然边界。 简而言之，分区在 Azure Cosmos DB 中的工作原理如下：
+## <a name="how-does-partitioning-work"></a>分区的工作原理
 
-* 使用每秒请求数吞吐量 `T` 预配 Azure Cosmos DB 容器。
-* Azure Cosmos DB 在幕后预配所需的分区来提供每秒请求数 `T`。 如果 `T` 高于每个分区的最大吞吐量 `t`，则 Azure Cosmos DB 会预配 `N` = `T/t` 个分区。
-* Azure Cosmos DB 在 `N` 个分区之间均衡分配分区键哈希的键空间。 因此，每个分区（物理分区）托管 `1/N` 个分区键值（逻辑分区）。
-* 当物理分区 `p` 达到其存储上限时，Azure Cosmos DB 会将 `p` 无缝拆分为两个新的分区 `p1` 和 `p2`。 它会向每个分区分发对应于大约一半键的值。 此拆分操作对应用程序不可见。
-* 同样，预配吞吐量高于 `t*N` 时，Azure Cosmos DB 会拆分一个或多个分区，以支持更高的吞吐量。
+分区的工作原理 每个项必须有一个唯一标识自身的分区键和行键。 分区键充当数据的逻辑分区，为 Azure Cosmos DB 提供用于跨物理分区分布数据的自然边界。 请记住，单个逻辑分区的数据必须驻留在单个物理分区中，但物理分区管理由 Azure Cosmos DB 管理。 
+
+简而言之，分区在 Azure Cosmos DB 中的工作原理如下：
+
+* 使用每秒请求数吞吐量 **T** 预配 Azure Cosmos DB 容器。
+* Azure Cosmos DB 在后台预配所需的分区来提供每秒请求数 **T**。 如果 **T** 高于每个分区的最大吞吐量 **t**，则 Azure Cosmos DB 会预配 **N = T/t** 个分区。
+* Azure Cosmos DB 在 **N** 个分区之间均衡分配分区键哈希的键空间。 因此，每个分区（物理分区）托管 **1/N** 个分区键值（逻辑分区）。
+* 当物理分区 **p** 达到其存储限制时，Azure Cosmos DB 会将 **p** 无缝拆分为两个新的分区 **p1** 和 **p2**。 它会向每个分区分发对应于大约一半键的值。 此拆分操作对应用程序不可见。 如果物理分区达到其存储限制，但物理分区中的所有数据属于同一个逻辑分区键，则不会发生该拆分操作。 这是由于单个逻辑分区键的所有数据必须驻留在同一个物理分区中，因此无法将物理分区拆分为 p1 和 p2。 在这种情况下，应采用其他分区键策略。
+* 当预配高于 **t*N** 的吞吐量时，Azure Cosmos DB 会拆分一个或多个分区，以支持更高的吞吐量。
 
 如下表中所示，为了与每个 API 的语义匹配，分区键的语义略有不同：
 
 | API | 分区键 | 行键 |
 | --- | --- | --- |
-| Azure Cosmos DB | 自定义分区键路径 | 固定 `id` | 
-| MongoDB | 自定义共享密钥  | 固定 `_id` | 
+| Azure Cosmos DB | 自定义分区键路径 | 固定 `id` |
+| MongoDB | 自定义共享密钥  | 固定 `_id` |
 <!-- 不可用 | Graph | 自定义分区键属性 | 固定 `id` | -->
-| 表 | 固定 `PartitionKey` | 固定 `RowKey` | 
+| 表 | 固定 `PartitionKey` | 固定 `RowKey` |
 
-Azure Cosmos DB 使用基于哈希的分区。 写入某个项时，Azure Cosmos DB 将对分区键值进行哈希处理，并使用经过哈希处理的结果来确定要在其中存储该项的分区。 Azure Cosmos DB 将分区键相同的所有项存储在同一个物理分区中。 选择分区键是设计时需要做出的重要决定。 选择的属性名称必须具有范围较宽的值，并采用均匀的访问模式。
+Azure Cosmos DB 使用基于哈希的分区。 写入某个项时，Azure Cosmos DB 将对分区键值进行哈希处理，并使用经过哈希处理的结果来确定要在其中存储该项的分区。 Azure Cosmos DB 将分区键相同的所有项存储在同一个物理分区中。 选择分区键是设计时需要做出的重要决定。 选择的属性名称必须具有范围较宽的值，并采用均匀的访问模式。 如果物理分区达到其存储限制，但分区中的所有数据使用同一个分区键，则 Azure Cosmos DB 返回“分区键达到 10 GB 的最大大小”错误并且不拆分分区，因此选择分区键是一个非常重要的决策。
 
 > [!NOTE]
 > 采用具有大量不同值（最少几百到几千个）的分区键是最佳做法。
 >
 
-可以“固定”或“无限制”模式创建 Azure Cosmos DB 容器。 固定大小的容器上限为 10 GB，10,000 RU/s 吞吐量。 若要以无限制模式创建容器，必须指定最低 2,500 RU/秒的吞吐量。
+可在 Azure 门户中以*固定*或*无限制*模式创建 Azure Cosmos DB 容器。 固定大小的容器上限为 10 GB，10,000 RU/s 吞吐量。 若要以无限制模式创建容器，必须指定 1,000 RU/s 的吞吐量下限以及一个分区键。
 
 建议检查数据在分区中的分配方式。 若要在门户中检查此项，请转到 Azure Cosmos DB 帐户并单击“监视”部分中的“指标”，然后在右窗格中单击“存储”选项卡以查看数据在不同物理分区中进行分区的的方式。
 
 ![资源分区](./media/partition-data/partitionkey-example.png)
 
 左侧图像显示错误分区键的结果，右侧图像显示正确分区键的结果。 在左侧图像中，可以看到数据在分区之间不均匀分布。 应尽可能分配数据，使得图看起来类似于右侧图像。
+
+<a name="prerequisites"></a>
+## <a name="prerequisites-for-partitioning"></a>分区的先决条件
+
+若要像[分区的工作原理](#how-does-partitioning-work)中所述将物理分区自动拆分为 **p1** 和 **p2**，必须创建具有 1,000 RU/s 或更高吞吐量的容器，并且必须提供分区键。 在 Azure 门户中创建容器时，选择“无限制”存储容量选项，以利用分区和自动缩放。 
+
+如果是在 Azure 门户中或以编程方式创建的容器，其初始吞吐量为 1,000 RU/s 或更高，且数据包含分区键，则可以利用分区，而不必对容器进行更改，这包括**固定**大小的容器，前提是所创建的初始容器的吞吐量不小于 1,000 RU/s 且数据中存在分区键。
+
+如果创建的是没有分区键的**固定**大小容器，或吞吐量小于 1,000 RU/s 的**固定**大小容器，则无法如本文所述自动拆分容器。 若要将数据从这类容器迁移到无限制的容器（吞吐量至少为 1000 RU/s，并具有分区键），则需使用[数据迁移工具](import-data.md)或[更改源库](change-feed.md)迁移更改。 
 
 ## <a name="partitioning-and-provisioned-throughput"></a>分区和设置的吞吐量
 Azure Cosmos DB 旨在提供可预测的性能。 创建容器时，可以根据*每秒[请求单位](request-units.md) (RU) 数*保留吞吐量。 每个请求将分配有一个 RU 计费，RU 计费与系统资源（如操作使用的 CPU、内存和 IO）的数量成比例。 读取 1kb 会话一致性文档会使用 1 RU。 无论存储的项数或同时运行的并发请求数如何，读数都为 1 RU。 较大的项要求较高的 RU，具体取决于大小。 如果知道实体大小及为应用程序提供支持需要的读取次数，则可以为应用程序的读取需求配置准确的吞吐量。 
@@ -125,25 +145,18 @@ db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
 
 ### <a name="table-api"></a>表 API
 
-使用表 API 可在应用程序的 appSettings 配置中为表指定吞吐量。
-
-```xml
-<configuration>
-    <appSettings>
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-    </appSettings>
-</configuration>
-```
-
-然后，使用 Azure 表存储 SDK 创建表。 分区键隐式创建为 `PartitionKey` 值。 
+若要使用 Azure Cosmos DB 表 API 创建表，请使用 CreateIfNotExists 方法。 
 
 ```csharp
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists();
+table.CreateIfNotExists(throughput: 800);
 ```
+
+吞吐量设置为 CreateIfNotExists 的参数。
+
+分区键隐式创建为 `PartitionKey` 值。 
 
 可以使用以下代码片段检索单个实体：
 
@@ -194,4 +207,4 @@ Azure Cosmos DB 最常见的用例之一是日志记录和遥测。 选取恰当
 * 了解 [Azure Cosmos DB 中的预配吞吐量](request-units.md)。
 * 了解 [Azure Cosmos DB 中的全局分布](distribute-data-globally.md)。
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties, wording update, update link -->

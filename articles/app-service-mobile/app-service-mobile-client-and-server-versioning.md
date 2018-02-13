@@ -1,23 +1,25 @@
 ---
-title: "移动应用和移动服务中的客户端与服务器 SDK 版本控制 | Azure 应用服务"
+title: "移动应用和移动服务中的客户端与服务器 SDK 版本控制"
 description: "客户端 SDK 列表，以及移动服务与 Azure 移动应用的服务器 SDK 版本兼容性"
 services: app-service\mobile
-documentationCenter: 
-authors: adrianhall
-manager: erikre
+documentationcenter: 
+author: conceptdev
+manager: crdun
 editor: 
+ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: df96a246d9760890ccd0118e3927d598c0fea405
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 8d1b6dafad19b4b1c157eb53edf1105cf7153467
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>移动应用和移动服务中的客户端与服务器版本控制
 
@@ -28,7 +30,7 @@ Azure 移动服务的最新版本是 Azure 应用服务的 **移动应用** 功�
 
 注意：每当本文档提到 *移动服务* 后端时，该后端不一定要托管在移动服务中。 现在，可以将移动服务迁移到应用服务上运行，而无需更改任何代码，但服务还是使用移动服务 SDK 版本。
 
-有关如何迁移到应用服务而不更改任何代码的详细信息，请参阅 [Migrate a Mobile Service to Azure App Service]（将移动服务迁移到 Azure 应用服务）一文。
+有关如何迁移到应用服务而不更改任何代码的详细信息，请参阅[将移动服务迁移到 Azure App Service] 一文。
 
 ## <a name="header-specification"></a>标头规范
 
@@ -48,13 +50,15 @@ POST https://service.chinacloudsites.cn/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 > [!NOTE]
 > 移动服务和移动应用之间有许多行为发生了变化，尤其是在脱机同步、身份验证和推送通知方面。 应在完成测试之后才选择不要进行版本检查，以确保这些行为的更改不会影响应用功能。
+>
+>
 
 ## <a name="summary-of-compatibility-for-all-versions"></a>所有版本的兼容性摘要
 
 下图显示了所有客户端与服务器类型之间的兼容性。 后端根据使用的服务器 SDK 分类为移动服务或移动应用。
 
 |                           | **移动服务** Node.js 或 .NET | **移动应用** Node.js 或 .NET |
-| ----------                | -----------------------             |   ----------------              |
+| --- | --- | --- |
 | [移动服务客户端] | 正常                                  | 错误\*                         |
 | [移动应用客户端]     | 错误\*                             | 正常                              |
 
@@ -68,12 +72,12 @@ POST https://service.chinacloudsites.cn/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 下表中的客户端 SDK 与 **移动服务**兼容。
 
-注意：移动服务客户端 SDK 不发送 `ZUMO-API-VERSION` 的标头值。 如果服务收到此标头或查询字符串值，将返回错误，除非已按上述明确选择不要进行检查。
+注意：移动服务客户端 SDK 不发送 `ZUMO-API-VERSION` 的标头值。 如果服务收到此标头或查询字符串值，则返回错误，除非已按上述明确选择不要进行检查。
 
 ### <a name="MobileServicesClients"></a> 移动 *服务* 客户端 SDK
 
 | 客户端平台                   | 版本                                                                   | 版本标头值 |
-| -------------------               | ------------------------                                                  | -------------------  |
+| --- | --- | --- |
 | 托管客户端（Windows、Xamarin） | [1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) | 不适用                  |
 | iOS                               | [2.2.2](http://aka.ms/gc6fex)                                             | 不适用                  |
 | Android                           | [2.0.3](https://go.microsoft.com/fwLink/?LinkID=280126)                   | 不适用                  |
@@ -82,7 +86,7 @@ POST https://service.chinacloudsites.cn/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 ### <a name="mobile-services-server-sdks"></a>移动 *服务* 服务器 SDK
 
 | 服务器平台  | 版本                                                                                                        | 接受的版本标头 |
-| ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
+| --- | --- | --- |
 | .NET             | [WindowsAzure.MobileServices.Backend.* 版本 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **无版本标头** |
 | Node.js          | （即将推出）                        | **无版本标头** |
 
@@ -91,7 +95,7 @@ POST https://service.chinacloudsites.cn/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 ### <a name="behavior-of-mobile-services-backends"></a>移动服务后端的行为
 
 | ZUMO-API-VERSION | MS_SkipVersionCheck 的值 | 响应 |
-| ---------------- | ---------------------------- | -------- |
+| --- | --- | --- |
 | 未指定    | 任意                          | 200 - 正常 |
 | 任何值        | True                         | 200 - 正常 |
 | 任何值        | False/未指定          | 400 - 错误的请求 |
@@ -103,7 +107,7 @@ POST https://service.chinacloudsites.cn/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 版本检查从 **Azure 移动应用**以下版本的客户端 SDK 开始引入：
 
 | 客户端平台                   | 版本                   | 版本标头值 |
-| -------------------               | ------------------------  | -----------------    |
+| --- | --- | --- |
 | 托管客户端（Windows、Xamarin） | [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) | 2.0.0 |
 | iOS                               | [3.0.0](http://go.microsoft.com/fwlink/?LinkID=529823) | 2.0.0  |
 | Android                           | [3.0.0](http://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) | 3.0.0 |
@@ -115,14 +119,14 @@ POST https://service.chinacloudsites.cn/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 以下服务器 SDK 版本包含版本检查：
 
 | 服务器平台  | SDK 中 IsInRole 中的声明                                                                                                        | 接受的版本标头 |
-| ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
+| --- | --- | --- |
 | .NET             | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2.0.0 |
 | Node.js          | [azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps)                         | 2.0.0 |
 
 ### <a name="behavior-of-mobile-apps-backends"></a>移动应用后端的行为
 
 | ZUMO-API-VERSION | MS_SkipVersionCheck 的值 | 响应 |
-| ---------------- | ---------------------------- | -------- |
+| --- | --- | --- |
 | x.y.z 或 Null    | True                         | 200 - 正常 |
 | Null             | False/未指定          | 400 - 错误的请求 |
 | 1.x.y            | False/未指定          | 400 - 错误的请求 |
@@ -131,10 +135,10 @@ POST https://service.chinacloudsites.cn/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Migrate a Mobile Service to Azure App Service]
+- [将移动服务迁移到 Azure App Service]
 
 [移动服务客户端]: #MobileServicesClients
 [移动应用客户端]: #MobileAppsClients
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Migrate a Mobile Service to Azure App Service]: ./app-service-mobile-migrating-from-mobile-services.md
+[将移动服务迁移到 Azure App Service]: ./app-service-mobile-migrating-from-mobile-services.md

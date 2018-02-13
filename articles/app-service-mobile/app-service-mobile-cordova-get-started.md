@@ -1,10 +1,10 @@
 ---
-title: "在 Azure 应用服务移动应用中创建 Cordova 应用 | Azure"
+title: "在 Azure 应用服务移动应用中创建 Cordova 应用"
 description: "遵循本教程开始使用 Azure 移动应用后端进行 Apache Cordova 开发"
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: erikre
+author: conceptdev
+manager: crdun
 editor: 
 tags: 
 keywords: "cordova,javascript,移动,客户端"
@@ -14,27 +14,27 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-origin.date: 10/30/2016
-ms.date: 01/23/2017
+origin.date: 07/07/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: f19fb76cf2c0db2f40597adcc1877e7784e9a50a
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 75c85cae1bfdc53717df570a6bca483ca54563f0
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-an-apache-cordova-app"></a>创建 Apache Cordova 应用
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>概述
-本教程说明如何使用 Azure 移动应用后端向 Apache Cordova 移动应用添加基于云的后端服务。  创建一个新的移动应用后端以及一个简单的待办事项列表  Apache Cordova 应用，此应用将应用数据存储在 Azure 中。
+本教程说明如何使用 Azure 移动应用后端向 Apache Cordova 移动应用添加基于云的后端服务。  将创建一个新的移动应用后端以及一个简单的*待办事项列表* Apache Cordova 应用，此应用将应用数据存储在 Azure 中。
 
 只有在完成本教程后，才可以学习有关使用 Azure 应用服务中的移动应用功能的所有其他 Apache Cordova 教程。
 
 ## <a name="prerequisites"></a>先决条件
 若要完成本教程，需要满足以下先决条件：
 
-* 装有 [Visual Studio Community 2015] 或更高版本的电脑。
+* 装有 [Visual Studio Community 2017] 或更高版本的电脑。
 * [用于 Apache Cordova 的 Visual Studio 工具]
 * [有效的 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 06/21/2017
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.cn/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: http://www.visualstudio.com/
 [用于 Apache Cordova 的 Visual Studio 工具]: https://www.visualstudio.com/features/cordova-vs.aspx
 [脱机数据]: ./app-service-mobile-offline-data-sync.md
 [身份验证]: ./app-service-mobile-auth.md

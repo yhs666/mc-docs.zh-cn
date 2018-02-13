@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 24114f07abe00a582830ae9f79032973e21d2bc7
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: ffe9ce2c13981272ec953f49480ff72286c25ffd
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-write-queries-in-stream-analytics"></a>如何使用流分析编写查询
 针对 Azure 流分析中的流处理逻辑编写查询将作为一种“现有查询”来实施，该查询在作业启动前定义并在数据抵达作业时对数据执行。 使用一种类似于 SQL 的查询语言来表示数据转换，这种语言大部分是 T-SQL 的一个子集，但增加了某些用于表示临时语义的语言扩展，例如 [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx)。
@@ -58,12 +58,12 @@ ms.lasthandoff: 09/28/2017
             [github](https://github.com/Azure/azure-stream-analytics/tree/master/Sample Data) 提供了几个样本文件，还可以通过输入选项卡上的“样本数据”功能，从自己的数据流输入获取样本数据。  
 
     ![查询输入](./media/stream-analytics-write-queries/5-stream-analytics-write-queries.png)  
-4. 在关闭对话框后，你的查询使用测试数据运行，并且你会在“查询”页的底部看到结果。  
+4. 在关闭对话框后，查询将使用测试数据运行，并且可在“查询”页的底部看到结果。  
 
     ![查询摘要](./media/stream-analytics-write-queries/6-stream-analytics-write-queries.png)  
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

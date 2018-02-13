@@ -1,0 +1,109 @@
+- name: Azure 自动化用户文档
+  href: index.yml
+- name: 概述
+  items:
+    - name: 什么是自动化？
+      href: automation-intro.md
+- name: 快速入门
+  expanded: true
+  items:
+    - name: 创建自动化帐户
+      href: automation-quickstart-create-account.md
+    - name: 创建 runbook
+      href: automation-quickstart-create-runbook.md
+- name: 如何
+  items:
+    - name: 身份验证和安全性
+      items:
+        - name: 创建独立的自动化帐户
+          href: automation-create-standalone-account.md
+        - name: 创建 Azure AD 用户帐户
+          href: automation-create-aduser-account.md
+        - name: 创建自动化运行方式帐户
+          href: automation-create-runas-account.md
+        - name: 验证自动化帐户配置
+          href: automation-verify-runas-authentication.md
+        - name: 管理基于角色的访问控制
+          href: automation-role-based-access-control.md
+        - name: 管理自动化帐户
+          href: automation-manage-account.md
+    - name: 创建 Runbook
+      items:
+        - name: Runbook 类型
+          href: automation-runbook-types.md
+        - name: 创建和导入 Runbook
+          href: automation-creating-importing-runbook.md
+        - name: 编辑文本 Runbook
+          href: automation-edit-textual-runbook.md
+        - name: 编辑图形 Runbook
+          href: automation-graphical-authoring-intro.md
+        - name: 测试 Runbook
+          href: automation-testing-runbook.md
+        - name: 了解 PowerShell 工作流
+          href: automation-powershell-workflow.md
+        - name: 子 Runbook
+          href: automation-child-runbooks.md
+        - name: Runbook 输出
+          href: automation-runbook-output-and-messages.md
+    - name: 自动化
+      items:
+        - name: 启动 Runbook
+          href: automation-starting-a-runbook.md
+        - name: 从 Webhook 启动 Runbook
+          href: automation-webhooks.md
+        - name: 配置 Runbook 输入参数
+          href: automation-runbook-input-parameters.md
+        - name: 图形 Runbook 中的错误处理
+          href: automation-runbook-graphical-error-handling.md
+        - name: 跟踪 Runbook 作业
+          href: automation-runbook-execution.md
+        - name: 更改 Runbook 设置
+          href: automation-runbook-settings.md
+        - name: 管理 Azure 自动化数据
+          href: automation-managing-data.md
+        - name: 从 Log Analytics 警报调用 Azure 自动化 Runbook
+          href: automation-invoke-runbook-from-omsla-alert.md
+        - name: 将 JSON 对象传递到 Azure 自动化 Runbook
+          href: automation-pass-json-string.md
+    - name: 管理资产
+      items:
+        - name: 证书
+          href: automation-certificates.md
+        - name: 连接
+          href: automation-connections.md
+        - name: 凭据
+          href: automation-credentials.md
+        - name: 集成模块
+          href: automation-integration-modules.md
+        - name: 计划
+          href: automation-schedules.md
+        - name: 变量
+          href: automation-variables.md
+    - name: 方案
+      items:
+        - name: Runbook 库
+          href: automation-runbook-gallery.md
+        - name: 删除资源组
+          href: automation-scenario-remove-resourcegroup.md
+        - name: 在 Azure 自动化 PowerShell Runbook 中部署 Azure 资源管理器模板
+          href: automation-deploy-template-runbook.md
+    - name: 迁移
+      items:
+        - name: 移动自动化帐户
+          href: automation-migrate-account-subscription.md
+    - name: 故障排除
+      items:
+        - name: 排查常见错误
+          href: automation-troubleshooting-automation-errors.md
+- name: 参考
+  items:
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/azurerm.automation'
+    - name: Azure PowerShell（经典）
+      href: 'https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0'
+    - name: .NET
+      href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.management.automation'
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/automation'
+    - name: REST（经典）
+      href: 'https://msdn.microsoft.com/library/azure/mt163781'

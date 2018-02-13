@@ -3,7 +3,7 @@ title: "Xamarin Android 中的移动应用身份验证入门"
 description: "了解如何使用移动应用通过各种标识提供者（包括 AAD 和 Microsoft）对 Xamarin Android 应用的用户进行身份验证。"
 services: app-service\mobile
 documentationcenter: xamarin
-author: dhei
+author: conceptdev
 manager: panarasi
 editor: 
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/05/2017
 ms.author: v-yiso
-ms.date: 01/02/2018
-ms.openlocfilehash: 4ebcf2a9f044c725fb6d9f1c6f98b11b156fe1f4
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.date: 01/29/2018
+ms.openlocfilehash: 2e50de9139688751a739f5333655fe5200e49201
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>向 Xamarin.Android 应用添加身份验证
 
@@ -104,6 +104,8 @@ ms.lasthandoff: 12/25/2017
     > 如果使用的标识提供者不是 MicrosoftAccount，请将传递给上述 **LoginAsync** 的值更改为以下值：_WindowsAzureActiveDirectory_。
     > 
     > 
+    
+    
 3. 在 **OnCreate** 方法中，删除或注释掉以下代码行：
 
     ```

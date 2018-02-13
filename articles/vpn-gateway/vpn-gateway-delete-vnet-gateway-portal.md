@@ -3,8 +3,8 @@ title: "删除虚拟网络网关：Azure 门户：Resource Manager | Microsoft D
 description: "在 Resource Manager 部署模型中使用 Azure 门户删除虚拟网络网关。"
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,13 +14,13 @@ ms.topic:
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/20/2017
-ms.date: 12/29/2017
+ms.date: 01/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1cf7db0d21aea2ad1c514619791e4b5803b51196
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 32aebf8e4c70015dfa557eafadf92f433ec3a59e
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>使用门户删除虚拟网络网关
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/04/2018
 
 本文提供了有关删除使用资源管理器部署模型部署的 Azure VPN 网关的说明。 可以使用多种不同的方法来删除 VPN 网关配置中的虚拟网络网关。
 
-- 如果要删除所有信息并从头开始配置（例如，在测试环境中），可以删除资源组。 删除某个资源组时，会删除该组中的所有资源。 仅当不想保留资源组中的任何资源时，才建议使用此方法。 使用这种方法时，无法做到有选择性地删除一部分资源。
+- 如果要删除所有信息并从头开始配置（例如，在测试环境中），可以删除资源组。 删除某个资源组时，会删除该组中的所有资源。 仅在不想保留资源组中的任何资源时，才建议使用此方法。 使用这种方法时，无法做到有选择性地删除一部分资源。
 
 - 如果想要保留资源组中的某些资源，则删除虚拟网络网关的过程会略微复杂一些。 在删除虚拟网络网关之前，必须先删除任何依赖于该网关的资源。 遵循的步骤取决于创建的连接类型，以及每个连接的依赖资源。
 

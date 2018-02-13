@@ -1,23 +1,25 @@
 ---
-title: "使用移动应用为通用 Windows 平台 (UWP) 应用启用脱机同步 | Azure 应用服务"
+title: "使用移动应用为通用 Windows 平台 (UWP) 应用启用脱机同步"
 description: "了解如何在通用 Windows 平台 (UWP) 应用中使用 Azure 移动应用缓存和同步脱机数据。"
-documentationCenter: windows
-authors: adrianhall
-manager: erikre
+documentationcenter: windows
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
+ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: ba82cdd9a2622e1c9a6b148ce1df01e2ea046f99
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 33feafa2081215b54db2d9c74f97534893142feb
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>为 Windows 应用启用脱机同步
 
@@ -27,7 +29,7 @@ ms.lasthandoff: 06/21/2017
 
 本教程演示如何使用 Azure 移动应用后端为通用 Windows 平台 (UWP) 应用添加脱机支持。 脱机同步允许最终用户与移动应用交互（查看、添加或修改数据），即使在没有网络连接时也是如此。 在本地数据库中存储更改。 设备重新联机后，这些更改会与远程后端同步。
 
-在本教程中，将更新 [创建 Windows 应用] 教程中的 UWP 应用项目，支持 Azure 移动应用的脱机功能。 如果不使用下载的快速入门服务器项目，必须将数据访问扩展包添加到项目。 有关服务器扩展包的详细信息，请参阅[使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
+本教程会更新[创建 Windows 应用] 教程中的 UWP 应用项目，支持 Azure 移动应用的脱机功能。 如果不使用下载的快速入门服务器项目，必须将数据访问扩展包添加到项目。 有关服务器扩展包的详细信息，请参阅[使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
 若要了解有关脱机同步功能的详细信息，请参阅主题 [Azure 移动应用中的脱机数据同步]。
 
@@ -42,24 +44,24 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>更新客户端应用以支持脱机功能
 
-脱机情况下，可使用 Azure 移动应用脱机功能与本地数据库交互。 若要在应用中使用这些功能，请将 [SyncContext][synccontext] 初始化到本地存储。 然后，通过 [IMobileServiceSyncTable][IMobileServiceSyncTable] 接口引用表。 SQLite 在设备上用作本地存储。
+脱机情况下，可使用 Azure 移动应用脱机功能与本地数据库交互。 要在应用中使用这些功能，请将 [SyncContext][synccontext] 初始化到本地存储。 然后，通过 [IMobileServiceSyncTable][IMobileServiceSyncTable] 接口引用表。 SQLite 在设备上用作本地存储。
 
 1. 安装 [适用于通用 Windows 平台的 SQLite 运行时](http://sqlite.org/2016/sqlite-uwp-3120200.vsix)。
 
 2. 在 Visual Studio 中，打开在 [创建 Windows 应用] 教程中完成的 UWP 应用项目的 NuGet 包管理器。
     搜索并安装 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 包。
 
-4. 在解决方案资源管理器中，右键单击“引用”，再单击“添加引用...” >  > “通用 Windows” > “扩展”，然后同时启用“适用于通用 Windows 平台的 SQLite”和“适用于通用 Windows 平台应用的 Visual C++ 2015 运行时”。
+4. 在解决方案资源管理器中，右键单击“引用”>“添加引用...”>“通用 Windows”>“扩展”，并同时启用“适用于通用 Windows 平台的 SQLite”和“适用于通用 Windows 平台应用的 Visual C++ 2015 运行时”。
 
     ![添加 SQLite UWP 引用][1]
 
 5. 打开 MainPage.xaml.cs 文件，并取消注释 `#define OFFLINE_SYNC_ENABLED` 定义。
 
-6. 在 Visual Studio 中，按 **F5** 键重新生成并运行客户端应用。 应用的工作方式与启用脱机同步之前一样。 但是，本地数据库中现在填充了可以在脱机方案中使用的数据。
+6. 在 Visual Studio 中，按 **F5** 键重新生成并运行客户端应用。 应用的工作方式与启用脱机同步之前一样。但是，本地数据库中现在填充了可以在脱机方案中使用的数据。
 
 ## <a name="update-sync"></a>更新应用以与后端断开连接
 
-在本部分中，将断开与移动应用后端的连接，以模拟脱机情况。 添加数据项时，异常处理程序将指示该应用处于脱机模式。 在此状态下，新项将添加到本地存储，下次以连接状态运行推送时，这些新项将同步到移动应用后端。
+本部分断开与移动应用后端的连接，以模拟脱机情况。 添加数据项时，异常处理程序会指示该应用处于脱机模式。 在此状态下，新项会添加到本地存储，下次以连接状态运行推送时，这些新项将同步到移动应用后端。
 
 1. 编辑共享项目中的 App.xaml.cs。 注释掉 MobileServiceClient 的初始化并添加使用无效移动应用 URL 的以下行：
 
@@ -71,7 +73,7 @@ ms.lasthandoff: 06/21/2017
 
 2. 按 **F5** 生成并运行应用。 请注意，在应用启动时，同步刷新将失败。
 
-3. 输入新项，并注意每次单击“保存” [] 时，推送将失败，并显示 **CancelledByNetworkError**状态。 但是，新的待办事项在可被推送到移动应用后端之前，将存在于本地存储中。  在生产应用中，如果取消显示这些异常，客户端应用的行为将会像它仍连接到移动应用后端时一样。
+3. 输入新项，并注意每次单击“保存”时，推送会失败，并显示 [CancelledByNetworkError] 状态。 但是，新的待办事项在可被推送到移动应用后端之前，将存在于本地存储中。  在生产应用中，如果取消显示这些异常，客户端应用的行为将会像它仍连接到移动应用后端时一样。
 
 4. 关闭应用程序并重新启动它，以验证你创建的新项目是否已永久保存到本地存储中。
 
@@ -83,7 +85,7 @@ ms.lasthandoff: 06/21/2017
 
 在本部分中，会将应用重新连接到移动应用后端。 这些更改可模拟应用上的网络重新连接。
 
-首次运行该应用程序时，`OnNavigatedTo` 事件处理程序将调用 `InitLocalStoreAsync`。 而此方法又将调用 `SyncAsync` ，将本地存储与后端数据库同步。 应用将在启动时尝试同步。
+首次运行该应用程序时，`OnNavigatedTo` 事件处理程序将调用 `InitLocalStoreAsync`。 而此方法又将调用 `SyncAsync`，将本地存储与后端数据库同步。 应用会尝试在启动时同步。
 
 1. 在共享项目中，打开 App.xaml.cs，并取消注释 `MobileServiceClient` 之前的初始化，以使用正确的移动应用 URL。
 
@@ -101,9 +103,7 @@ ms.lasthandoff: 06/21/2017
 
 *  [PushAsync] 由于此方法是 [IMobileServicesSyncContext] 的成员，因此对所有表进行的更改将推送到后端。 只有具有本地更改的记录才会被发送到服务器。
 
-* [PullAsync]****
-   从 [IMobileServiceSyncTable] 启动拉取操作。 当表中存在被跟踪的更改时，会执行隐式推送操作以确保本地存储中的所有表以及关系都保持一致。 PushOtherTables 参数控制在隐式推送操作中是否推送上下文中的其他表。 query** 参数使用 [IMobileServiceTableQuery<T>][IMobileServiceTableQuery]
-   或 OData 查询字符串来筛选返回的数据。 *queryId* 参数用于定义增量同步。 有关详细信息，请参阅  [Azure 移动应用中的脱机数据同步](./app-service-mobile-offline-data-sync.md#how-sync-works)。
+* **[PullAsync]** 从 [IMobileServiceSyncTable] 启动拉取操作。 当表中存在被跟踪的更改时，会执行隐式推送操作以确保本地存储中的所有表以及关系都保持一致。 *PushOtherTables* 参数控制在隐式推送操作中是否推送上下文中的其他表。 query 参数使用 [IMobileServiceTableQuery<T>][IMobileServiceTableQuery] 或 OData 查询字符串来筛选返回的数据。 *queryId* 参数用于定义增量同步。有关详细信息，请参阅 [Azure 移动应用中的脱机数据同步](./app-service-mobile-offline-data-sync.md#how-sync-works)。
 
 * [PurgeAsync] 应用应定期调用此方法，从本地存储中清除过时数据。 需要清除尚未同步的任何更改时，请使用 force 参数。
 
@@ -140,7 +140,7 @@ ms.lasthandoff: 06/21/2017
 [IMobileServicesSyncContext]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynccontext(v=azure.10).aspx
 [MobileServicePushFailedException]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushfailedexception(v=azure.10).aspx
 [Status]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushcompletionresult.status(v=azure.10).aspx
-[]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushstatus(v=azure.10).aspx
+[CancelledByNetworkError]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushstatus(v=azure.10).aspx
 [PullAsync]: https://msdn.microsoft.com/zh-cn/library/azure/mt667558(v=azure.10).aspx
 [PushAsync]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileservicesynccontextextensions.pushasync(v=azure.10).aspx
 [PurgeAsync]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable.purgeasync(v=azure.10).aspx

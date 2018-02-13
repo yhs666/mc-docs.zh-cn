@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/06/2017
-ms.date: 12/25/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: cef2e1b75baae73acfeae8fcdf1c34147f2b8906
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 1259ea8a85e8c23329d33c31c7682bd2443599f6
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 模板和 Azure PowerShell 部署资源
 
@@ -27,10 +27,10 @@ ms.lasthandoff: 12/22/2017
 
 所部署的 Resource Manager 模板可以是计算机上的本地文件，也可以是位于 GitHub 等存储库中的外部文件。 本文中部署的模板可在[示例模板](#sample-template)部分找到，也可作为 [GitHub 中的存储帐户模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json)。
 
-[!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install.md)]
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell 模块，然后运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 创建与 Azure 的连接。
 
 <a id="deploy-local-template"></a> 
-## <a name="deploy-a-template-from-your-local-machine"></a> 从本地计算机部署模板
+## <a name="deploy-a-template-from-your-local-machine"></a>从本地计算机部署模板
 
 将资源部署到 Azure 时，执行以下操作：
 

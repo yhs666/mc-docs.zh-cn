@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 origin.date: 10/18/2017
-ms.date: 12/25/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: dccc761d7c8f4d5a2d3b872d6246a099e0215a84
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: c853afd70feaa2d4f24121aae40232559039d884
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 语法参考
 
@@ -2795,4 +2795,4 @@ SELECT ST_ISVALIDDETAILED({
 ## <a name="next-steps"></a>后续步骤  
  [Azure Cosmos DB 的 SQL 语法和 SQL 查询](sql-api-sql-query.md)   
  [Azure Cosmos DB 文档](/cosmos-db/)
-<!-- Update_Description: new articles on SQL api query reference -->
+<!-- Update_Description: update meta properties -->

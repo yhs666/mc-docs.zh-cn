@@ -18,11 +18,11 @@ ms.workload: data-management
 origin.date: 01/23/2017
 ms.date: 07/03/2017
 ms.author: v-johch
-ms.openlocfilehash: 83112b7d3a84a4360ed27d22587721f3654f537e
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 736ee9fb5a5c0a81917a2dbe42859847eba706c5
+ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>控制和授予数据库访问权限
 
@@ -30,6 +30,7 @@ ms.lasthandoff: 07/13/2017
 
 >  [!NOTE]  
 >  本主题适用于 Azure SQL 服务器，同时也适用于在 Azure SQL 服务器中创建的 SQL 数据库和 SQL 数据仓库数据库。 为简单起见，在提到 SQL 数据库和 SQL 数据仓库时，本文统称 SQL 数据库。 
+>
 
 > [!TIP]
 > 有关教程，请参阅[保护 Azure SQL 数据库](sql-database-security-tutorial.md)。
@@ -38,7 +39,7 @@ ms.lasthandoff: 07/13/2017
 ## <a name="unrestricted-administrative-accounts"></a>非受限管理帐户
 有两个充当管理员的管理帐户（**服务器管理员**和 **Active Directory 管理员**）。 若要在 SQL 服务器中识别这些管理员帐户，请打开 Azure 门户并导航到 SQL 服务器的属性。
 
-![SQL Server 管理员](./media/sql-database-manage-logins/sql-admins.png)
+![SQL 服务器管理员](./media/sql-database-manage-logins/sql-admins.png)
 
 - **服务器管理员**   
 创建 Azure SQL 服务器时，必须指定**服务器管理员登录名**。 SQL 服务器创建该帐户作为 master 数据库中的登录名。 此帐户通过 SQL Server 身份验证（用户名和密码）进行连接。 此类帐户只能存在一个。   
@@ -68,13 +69,13 @@ ms.lasthandoff: 07/13/2017
 有关创建服务器、数据库和服务器级防火墙规则，以及使用 SQL Server Management Studio 查询数据库的演练，请参阅[通过 Azure 门户和 SQL Server Management Studio 开始使用 Azure SQL 数据库服务器、数据库和防火墙规则](sql-database-get-started-portal.md)。
 
 > [!IMPORTANT]
-> 建议始终使用最新版本的 Management Studio 以与 Azure 和 SQL 数据库的更新保持同步。 [更新 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。
+> 建议始终使用最新版本的 Management Studio 以保持与 Azure 和 SQL 数据库的更新同步。 [更新 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。
 
 ## <a name="additional-server-level-administrative-roles"></a>其他服务器级管理角色
 除了上述服务器级管理角色以外，SQL 数据库还在可以添加用户帐户的 master 数据库中提供了两个受限的管理角色，这些角色可授予创建数据库或管理登录名的权限。
 
 ### <a name="database-creators"></a>数据库创建者
-其中一个管理角色是 **dbmanager** 角色。 此角色的成员可以创建新数据库。 若要使用此角色，请在 `master` 数据库中创建一个用户，然后将该用户添加到 **dbmanager** 数据库角色。 若要创建数据库，用户必须是 master 数据库中基于 SQL Server 登录名的用户，或者是基于 Azure Active Directory 用户的包含数据库用户。
+其中一个管理角色是 **dbmanager** 角色。 此角色的成员可以创建新数据库。 如果要使用此角色，请在 `master` 数据库中创建一个用户，并将该用户添加到 **dbmanager** 数据库角色。 若要创建数据库，用户必须是 master 数据库中基于 SQL Server 登录名的用户，或者是基于 Azure Active Directory 用户的包含数据库用户。
 
 1. 使用管理员帐户连接到 master 数据库。
 2. 可选步骤：使用 [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 语句创建 SQL Server 身份验证登录名。 示例语句：
@@ -116,7 +117,7 @@ ms.lasthandoff: 07/13/2017
 ## <a name="non-administrator-users"></a>非管理员用户
 非管理员帐户通常无需访问 master 数据库。 使用 [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) 语句在数据库级别创建包含数据库用户。 该用户可以是 Azure Active Directory 身份验证包含数据库用户（如果你已针对 Azure AD 身份验证配置了环境），可以是 SQL Server 身份验证包含数据库用户，也可以是基于 SQL Server 身份验证登录名（在前一步骤中创建）的 SQL Server 身份验证用户。有关详细信息，请参阅[包含的数据库用户 - 使数据库可移植](https://msdn.microsoft.com/library/ff929188.aspx)。 
 
-若要创建用户，请先连接到数据库，然后执行如下所示的语句：
+如果要创建用户，请先连接到数据库，并执行如下所示的语句：
 
 ```
 CREATE USER Mary FROM LOGIN Mary; 
@@ -149,10 +150,10 @@ GRANT ALTER ANY USER TO Mary;
 
 - 使用 SQL Server 身份验证时，请在数据库中创建包含的数据库用户。 将一个或多个数据库用户添加到[数据库角色](https://msdn.microsoft.com/library/ms189121)，然后向数据库角色分配[权限](https://msdn.microsoft.com/library/ms191291.aspx)。
 
-数据库角色可以是内置的角色，例如 **db_owner**、**db_ddladmin**、**db_datawriter**、**db_datareader**、**db_denydatawriter** 和 **db_denydatareader**。 **db_owner** 通常用于向部分用户授予完全权限。 其他固定数据库角色可用于快速开发简单的数据库，但不建议用于大多数生产数据库。 例如，**db_datareader** 固定数据库角色授予用户对数据库中每个表的读取访问权限，这通常超出了必要的范畴。 而如果先使用 [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) 语句创建自己的用户定义数据库角色，然后再根据业务需要向每个角色授予所需的最低权限，则要合适得多。 如果用户是多个角色的成员，则会聚合所有这些角色的权限。
+数据库角色可以是内置的角色，例如 **db_owner**、**db_ddladmin**、**db_datawriter**、**db_datareader**、**db_denydatawriter** 和 **db_denydatareader**。 **db_owner** 通常用于向部分用户授予完全权限。 其他固定数据库角色可用于快速开发简单的数据库，但不建议用于大多数生产数据库。 例如，**db_datareader** 固定数据库角色授予用户对数据库中每个表的读取访问权限，这通常超出了必要的范畴。 而如果先使用 [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) 语句创建自己的用户定义数据库角色，再根据业务需要向每个角色授予所需的最低权限，则要合适得多。 如果用户是多个角色的成员，则会聚合所有这些角色的权限。
 
 ## <a name="permissions"></a>权限
-可以在 SQL 数据库中单独授予或拒绝 100 多种权限。 这些权限中，许多都是嵌套式的。 例如，针对架构的 `UPDATE` 权限包括针对该架构中每个表的 `UPDATE` 权限。 与大多数权限系统中的情况一样，拒绝某个权限将覆盖对该权限的授予操作。 考虑到权限的嵌套性质和数目，可能需要进行仔细的研究才能设计出适当的权限系统，以便对你的数据库进行恰当的保护。 一开始可以了解[权限（数据库引擎）](https://msdn.microsoft.com/library/ms191291.aspx)中的权限列表，然后查看这些权限的[海报大小的图](http://go.microsoft.com/fwlink/?LinkId=229142)。
+可以在 SQL 数据库中单独授予或拒绝 100 多种权限。 这些权限中，许多都是嵌套式的。 例如，针对架构的 `UPDATE` 权限包括针对该架构中每个表的 `UPDATE` 权限。 与大多数权限系统中的情况一样，拒绝某个权限将覆盖对该权限的授予操作。 考虑到权限的嵌套性质和数目，可能需要进行仔细的研究才能设计出适当的权限系统，以便对数据库进行恰当的保护。 一开始可以了解[权限（数据库引擎）](https://msdn.microsoft.com/library/ms191291.aspx)中的权限列表，然后查看这些权限的[海报大小的图](http://go.microsoft.com/fwlink/?LinkId=229142)。
 
 ### <a name="considerations-and-restrictions"></a>注意事项和限制
 管理 SQL 数据库中的登录名和用户时，请注意以下事项：
@@ -164,8 +165,8 @@ GRANT ALTER ANY USER TO Mary;
 * 执行 `CREATE/ALTER/DROP LOGIN` 语句时，必须连接到 master 数据库。 但不建议使用登录名。 改用包含的数据库用户。
 * 若要连接到用户数据库，必须在连接字符串中提供数据库的名称。
 * 只有服务器级别主体登录名和 **master** 数据库中**loginmanager** 数据库角色的成员才有权执行 `CREATE LOGIN`、`ALTER LOGIN` 和 `DROP LOGIN` 语句。
-* 在 ADO.NET 应用程序中执行 `CREATE/ALTER/DROP LOGIN` 和 `CREATE/ALTER/DROP DATABASE` 语句时，不允许使用参数化命令。 有关详细信息，请参阅[命令和参数](https://msdn.microsoft.com/library/ms254953.aspx)。
-* 在执行 `CREATE/ALTER/DROP DATABASE` 和 `CREATE/ALTER/DROP LOGIN` 语句时，上述每个语句都必须是 Transact-SQL 批中的唯一语句。 否则将会出错。 例如，以下 Transact-SQL 将检查该数据库是否存在。 如果该数据库存在，则调用 `DROP DATABASE` 语句删除该数据库。 因为 `DROP DATABASE` 语句不是该批处理中的唯一语句，所以执行以下 Transact-SQL 将导致错误。
+* 在 ADO.NET 应用程序中执行 `CREATE/ALTER/DROP LOGIN` 和 `CREATE/ALTER/DROP DATABASE` 语句时，不允许使用参数化命令。 有关详细信息，请参阅 [命令和参数](https://msdn.microsoft.com/library/ms254953.aspx)。
+* 在执行 `CREATE/ALTER/DROP DATABASE` 和 `CREATE/ALTER/DROP LOGIN` 语句时，上述每个语句都必须是 Transact-SQL 批中的唯一语句。 否则会出错。 例如，以下 Transact-SQL 检查该数据库是否存在。 如果该数据库存在，则调用 `DROP DATABASE` 语句删除该数据库。 因为 `DROP DATABASE` 语句不是该批处理中的唯一语句，所以执行以下 Transact-SQL 将导致错误。
 
   ```
   IF EXISTS (SELECT [name]
@@ -176,7 +177,7 @@ GRANT ALTER ANY USER TO Mary;
   ```
 
 * 在使用 `FOR/FROM LOGIN` 选项执行 `CREATE USER` 语句时，该语句必须是 Transact-SQL 批中的唯一语句。
-* 在使用 `WITH LOGIN` 选项执行 `ALTER USER` 语句时，该语句必须是 Transact-SQL 批中的唯一语句。
+* 在使用 `WITH LOGIN` 选项执行 `ALTER USER` 语句时，该语句必须是 Transact-SQL 批处理中的唯一语句。
 * 若要执行 `CREATE/ALTER/DROP` 操作，用户需要对数据库拥有 `ALTER ANY USER` 权限。
 * 在数据库角色的所有者尝试在该数据库角色中添加或删除其他数据库用户时，可能会发生以下错误：“此数据库中不存在用户或角色‘Name’”。 在用户对所有者不可见时，将会发生此错误。 若要解决此问题，请向角色所有者授予对该用户的 `VIEW DEFINITION` 权限。 
 

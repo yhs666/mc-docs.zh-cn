@@ -1,10 +1,10 @@
 ---
-title: "Xamarin.Forms 应用中的移动应用身份验证入门 | Microsoft Docs"
+title: "Xamarin.Forms 应用中的移动应用身份验证入门"
 description: "了解如何使用移动应用通过各种标识提供者（包括 AAD、Google、Facebook、Twitter 和 Microsoft）对 Xamarin Forms 应用的用户进行身份验证。"
 services: app-service\mobile
 documentationcenter: xamarin
 author: panarasi
-manager: syntaxc4
+manager: crdun
 editor: 
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
 ms.service: app-service-mobile
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/07/2017
 ms.author: v-yiso
-ms.date: 12/04/2017
-ms.openlocfilehash: c8a5923aace7a3c8115b233b000563e10037c305
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.date: 01/29/2018
+ms.openlocfilehash: d6c1aec3aba291335d7dabc7595ffd502c6aa7b1
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>向 Xamarin Forms 应用添加身份验证
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/24/2017
 
 2. 单击“身份验证/授权”菜单选项。
 
-3. 在“允许的外部重定向 URL”中，输入 `url_scheme_of_your_app://easyauth.callback`。  此字符串中的 **url_scheme_of_your_app** 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  请记下所选的字符串，因为需要在几个地方使用 URL 方案调整移动应用程序代码。
+3. 在“允许的外部重定向 URL”中，输入 `url_scheme_of_your_app://easyauth.callback`。  此字符串中的 **url_scheme_of_your_app** 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  应记下此字符串，因为在一些地方需要使用此 URL 方案调整移动应用代码。
 
 4. 单击 **“确定”**。
 
@@ -144,7 +144,7 @@ ms.lasthandoff: 11/24/2017
 本部分演示如何在 Android 应用项目中实现 **IAuthenticate** 接口。 如果不要支持 Android 设备，请跳过本部分。
 
 1. 在 Visual Studio 或 Xamarin Studio 中，右键单击 droid 项目，然后单击“设为启动项目”。
-2. 按 F5 在调试器中启动项目，然后验证启动该应用后，是否会引发状态代码为 401（“未授权”）的未处理异常。 之所以会生成 401 代码，是因为对后端的访问仅限于授权用户。
+2. 按 F5 在调试器中启动项目，然后验证启动该应用后，是否会引发状态代码为 401（“未授权”）的未处理异常。 因为后端上的访问仅限于授权用户，因此会生成 401 代码。
 3. 在 Android 项目中打开 MainActivity.cs，并添加以下 `using` 语句：
 
     ```
@@ -292,7 +292,7 @@ This section shows how to implement the **IAuthenticate** interface in the iOS a
 
     This code ensures the authenticator is initialized before the app is loaded.
 
-6. Add **{url_scheme_of_your_app}** to URL Schemes in Info.plist.
+8. Open Info.plist and add a **URL Type**. Set the **Identifier** to a name of your choosing, the **URL Schemes** to the URL scheme for your app, and the **Role** to None.
 
 7. Rebuild the app, run it, then sign in with the authentication provider you chose and verify you are able to access data as an authenticated user.
 
@@ -407,6 +407,6 @@ Now that you completed this basic authentication tutorial, consider continuing o
 [5]: ./app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
 [6]: ./app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
 [7]: https://msdn.microsoft.com/zh-cn/library/azure/jj730936(v=azure.10).aspx
-
+[8]: https://portal.azure.cn
 
 <!--Update_Description:add the section of "Add app to the Allowed External Redirect URLs" and update some code-->

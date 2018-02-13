@@ -3,7 +3,7 @@ title: "关于 Azure 应用服务中的移动应用"
 description: "了解应用服务为企业移动应用带来的优势。"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: fe8e3db2a09069d15f19b81c2773359d05204189
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 01/29/2018
+ms.openlocfilehash: caceab01b1b330d7936f0f116c05f745d307a5f6
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="getting-started"> </a>关于 Azure 应用服务中的移动应用
 Azure 应用服务是完全托管的平台即服务 (PaaS) 产品，适用于专业开发人员。 该服务为 Web、移动和集成方案提供丰富的功能集。 
@@ -58,7 +58,7 @@ Azure 应用服务中的移动应用功能为企业开发人员和系统集成�
 ## <a name="azure-app-service-features"></a>Azure 应用服务功能
 以下平台功能可用于移动生产站点：
 
-* 自动缩放：使用应用服务可以快速地进行纵向或横向扩展，以处理任何传入的客户负载。 手动选择 VM 的数量和大小，或者设置自动缩放，根据负载或计划来缩放移动应用后端。
+* **自动缩放**：使用应用服务可以快速地进行纵向或横向扩展，以处理任何传入的客户负载。 手动选择 VM 的数量和大小，或者设置自动缩放，根据负载或计划来缩放移动应用后端。
 
   深入了解[自动缩放]。
 
@@ -66,15 +66,13 @@ Azure 应用服务中的移动应用功能为企业开发人员和系统集成�
 
   深入了解 [过渡环境]。
 
-* 连续部署：应用服务可与常用供应链管理 (SCM) 系统集成，用于将新版后端推送到 SCM 系统的分支以实现自动部署。
+* **持续部署**：应用服务可与常用源代码控制管理 (SCM) 系统集成，以便将新版后端推送到 SCM 系统的分支以实现自动部署。
 
   深入了解 [部署选项](../app-service/app-service-deploy-local-git.md)。
 
 * 虚拟网络：应用服务可以使用虚拟网络、Azure ExpressRoute 或混合连接与本地资源建立连接。
 
   深入了解[混合连接]、[虚拟网络]。
-
-  了解有关[虚拟网络]的详细信息。
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -85,11 +83,10 @@ Azure 应用服务中的移动应用功能为企业开发人员和系统集成�
 有关 Azure 应用服务平台的详细信息，请参阅 [Azure 应用服务]。
 
 <!-- URLs. -->
-[Migrate your Mobile Service to App Service]: ./app-service-mobile-migrating-from-mobile-services.md
-[Azure 应用服务]: ../app-service/app-service-value-prop-what-is.md
+[Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [入门]: app-service-mobile-ios-get-started.md
 [Azure 表存储]:../cosmos-db/table-storage-how-to-use-dotnet.md
-[Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
+[Azure Cosmos DB]: ../cosmos-db/sql-api-get-started.md
 [身份验证功能]: ./app-service-mobile-auth.md
 [数据功能]: ./app-service-mobile-offline-data-sync.md
 [推送通知功能]: ../notification-hubs/notification-hubs-push-notification-overview.md

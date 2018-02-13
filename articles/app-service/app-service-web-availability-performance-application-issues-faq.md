@@ -14,13 +14,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 12/04/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3af7411d4883e36348e5060975adcf01a21dea1d
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 9b6c6bf1cd25267a97de5c9d18e5a5683a210aaf
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/28/2017
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>如何解决 CPU 占用高的问题？
 
-在某些 CPU 占用高的情况下，应用可能真的需要更多计算资源。 在这种情况下，请考虑缩放到更高的服务层，以便应用程序获取所需的所有资源。 其他情况下，高 CPU 占用可能是由错误循环或编码实践导致的。 深入了解 CPU 占用升高的触发因素这一过程分为两部分。 首先，创建进程转储，然后分析此进程转储。 有关详细信息，请参阅[捕获和分析 Web 应用高 CPU 占用的转储文件](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)。
+在某些 CPU 占用高的情况下，应用可能真的需要更多计算资源。 在这种情况下，请考虑缩放到更高的服务层，以便应用程序获取所需的所有资源。 其他情况下，高 CPU 占用可能是由错误循环或编码实践导致的。 深入了解 CPU 占用升高的触发因素这一过程分为两部分。 首先，创建一个进程转储，然后分析该进程转储。 有关详细信息，请参阅[捕获和分析 Web 应用高 CPU 占用的转储文件](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)。
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>如何解决内存占用高的问题？
 
@@ -84,6 +84,9 @@ ms.lasthandoff: 11/28/2017
 * Web 应用已达到资源配额限制，该限制可能适用于免费或共享缩放服务计划。
 
 若要了解导致错误的原因并解决问题，请按照 [Web 应用：“错误 403 - 此 web 应用已停止”](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/)中的步骤进行操作。
+## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>可从何处了解有关各种应用服务计划的配额和限制的详细信息？
+
+有关配额和限制的信息，请参阅[应用服务限制](../azure-subscription-service-limits.md#app-service-limits)。 
 
 ## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>如何缩短空闲时间后第一个请求的响应时间？
 
@@ -100,7 +103,7 @@ ms.lasthandoff: 11/28/2017
 1. 在 Azure 门户中，转到自己的 Web 应用。
 3. 选择“所有设置” > “诊断日志”。
 4. 对于“失败的请求跟踪”，选择“打开”。
-5. 选择“保存”。
+5. 选择“其他安全性验证” 。
 6. 在 Web 应用边栏选项卡，选择“工具”。
 7. 选择“Visual Studio Online”。
 8. 如果设置不是“打开”，则选择“打开”。

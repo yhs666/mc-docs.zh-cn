@@ -10,15 +10,15 @@
 
 如果从现有的 VHD（80 GB）创建标准托管磁盘，需要多少费用？
 
-从 80 GB VHD 创建的标准托管磁盘被视为下一个可用的标准磁盘大小（S10 磁盘）。 我们按 S10 磁盘定价收费。 有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/storage)。
+从 80 GB VHD 创建的标准托管磁盘被视为下一个可用的标准磁盘大小（S10 磁盘）。 我们按 S10 磁盘定价收费。 有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/storage/)。
 
 **标准托管磁盘是否产生任何事务成本？**
 
-是的。 我们针对每个事务进行收费。 有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/storage)。
+是的。 我们针对每个事务进行收费。 有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/storage/)。
 
 **对于标准托管磁盘，是对磁盘上的数据实际大小收费还是对磁盘的预配容量收费？**
 
-我们根据磁盘的预配容量收费。 有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/storage)。
+我们根据磁盘的预配容量收费。 有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/storage/)。
 
 高级托管磁盘与非托管磁盘的定价有何不同？
 
@@ -34,11 +34,11 @@
 
 是否可以使用 Azure 存储帐户中的 VHD 文件以不同的订阅创建托管磁盘？
 
-不可以。
+否。
 
 **是否可以使用 Azure 存储帐户中的 VHD 文件在不同的区域中创建托管磁盘？**
 
-不可以。
+否。
 
 客户使用托管磁盘是否存在任何规模限制？
 
@@ -46,15 +46,15 @@
 
 **是否可以创建托管磁盘的增量快照？**
 
-不可以。 当前的快照功能可提供托管磁盘的完整副本。 但我们计划在将来支持增量快照。
+否。 当前的快照功能可提供托管磁盘的完整副本。 但我们计划在将来支持增量快照。
 
 可用性集中的 VM 是否可以同时包含托管和非托管磁盘？
 
-不可以。 可用性集中的 VM 必须全部使用托管磁盘或全部使用非托管磁盘。 创建可用性集时，可以选择要使用的磁盘类型。
+否。 可用性集中的 VM 必须全部使用托管磁盘或全部使用非托管磁盘。 创建可用性集时，可以选择要使用的磁盘类型。
 
 **托管磁盘是否是 Azure 门户中的默认选项？**
 
-目前不是，但将来会成为默认选项。
+是的。 
 
 **是否可以创建一个空托管磁盘？**
 
@@ -88,7 +88,6 @@
 
 是的。 我们支持非托管磁盘和托管磁盘。 建议对新的工作负荷使用托管磁盘，并将当前的工作负荷迁移到托管磁盘。
 
-
 如果创建 128 GB 磁盘，然后将大小增加到 130 GB，是否会针对下一磁盘大小 (512 GB) 进行收费？
 
 是的。
@@ -99,12 +98,53 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 
 是否可以收缩或缩小托管磁盘？
 
-不可以。 目前，不支持此功能。 
+否。 目前，不支持此功能。 
+
+**是否可以在磁盘上中断租用？**
+
+否。 目前不支持此功能，因为租用的作用是防止磁盘在使用时被意外删除。
 
 当使用专用（未使用系统准备工具创建或未通用化）操作系统磁盘预配 VM 时，是否可以更改计算机名称属性？
 
-不可以。 无法更新计算机名称属性。 新 VM 从创建操作系统磁盘时所用的父 VM 继承该属性。 
+否。 无法更新计算机名称属性。 新 VM 从创建操作系统磁盘时所用的父 VM 继承该属性。 
 
+在哪里可找到用于使用托管磁盘创建 VM 的示例 Azure 资源管理器模板？
+* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)（使用托管磁盘的模板列表）
+* https://github.com/chagarw/MDPP
+
+## <a name="migrate-to-managed-disks"></a>迁移到托管磁盘 
+
+**迁移到托管磁盘之前/之后，需要在现有的 Azure 备份服务配置中进行哪些更改？**
+
+不需要进行任何更改。 
+
+**在迁移之前通过 Azure 备份服务创建的 VM 备份是否可继续工作？**
+
+是的，备份可以顺利工作。
+
+**迁移到托管磁盘之前/之后，需要在现有的 Azure 磁盘加密配置中进行哪些更改？**
+
+不需要进行任何更改。 
+
+**是否支持将现有 VM 规模集 (VMSS) 从非托管磁盘自动迁移到托管磁盘？**
+
+否。 可以使用包含非托管磁盘的旧 VMSS 中的映像创建包含托管磁盘的新 VMSS。 
+
+**是否可以通过迁移到托管磁盘之前创建的页 Blob 快照创建托管磁盘？**
+
+否。 可将页 Blob 快照导出为页 Blob，然后从导出的页 Blob 创建托管磁盘。 
+
+**是否可将 Azure Site Recovery 保护的本地计算机故障转移到包含托管磁盘的 VM？**
+
+是的，可以选择故障转移到包含托管磁盘的 VM。
+
+**迁移是否影响 Azure Site Recovery (ASR) 通过 Azure 到 Azure 复制保护的 Azure VM？**
+
+是的。 包含托管磁盘的 VM 不支持 ASR Azure 到 Azure 保护。 2018 日历年第一季度末将会支持这种保护。 
+
+**是否可以迁移位于存储帐户中现在或以前已加密的 VM 的非托管磁盘迁移到托管磁盘？**
+
+是
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>托管磁盘和存储服务加密 
 
@@ -118,11 +158,11 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 
 是否可以为托管磁盘禁用存储服务加密？
 
-不可以。
+否。
 
 存储服务加密是否仅适用于特定区域？
 
-不可以。 它适用于托管磁盘可用的所有区域。 托管磁盘适用于所有公共区域和德国。
+否。 它适用于托管磁盘可用的所有区域。 托管磁盘适用于所有公共区域和德国。
 
 如何确定托管磁盘是否已加密？
 
@@ -135,7 +175,7 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 * [使用 Azure CLI 复制托管磁盘](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 * [使用 PowerShell 复制托管磁盘](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-**托管快照和映像是否加密？**
+**是否已加密托管快照和映像？**
 
 是的。 2017 年 6 月 9 日之后创建的所有托管快照和映像均会自动加密。 
 
@@ -143,9 +183,9 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 
 是
 
-是否会同时加密从托管磁盘或快照导出的 VHD？
+**是否同时会加密从托管磁盘或快照导出的 VHD？**
 
-不可以。 但如果将 VHD 从加密托管磁盘或快照导出到加密存储帐户，则会对其进行加密。 
+否。 但如果将 VHD 从加密托管磁盘或快照导出到加密存储帐户，则会对其进行加密。 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>高级磁盘：托管和非托管
 
@@ -154,8 +194,9 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 是的。
 
 是否可以同时将高级和标准数据磁盘附加到不支持高级存储的大小系列，例如 D、Dv2 或 F 系列？
+<!-- Not Available on G-series-->
 
-不可以。 只可以将标准数据磁盘附加到不使用支持高级存储的大小系列的 VM。
+否。 只可以将标准数据磁盘附加到不使用支持高级存储的大小系列的 VM。
 
 如果从现有的 VHD (80 GB) 创建高级数据磁盘，需要多少费用？
 
@@ -163,11 +204,12 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 
 使用高级存储时是否存在事务成本？
 
-每个磁盘大小都有固定成本，其根据 IOPS 和吞吐量的特定限制进行预配。 其他成本包括出站带宽和快照容量（如果适用）。 有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/storage)。
+每个磁盘大小都有固定成本，其根据 IOPS 和吞吐量的特定限制进行预配。 其他成本包括出站带宽和快照容量（如果适用）。 有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/storage/)。
 
 可从磁盘缓存获取的 IOPS 和吞吐量限制是多少？
 
 DS 系列的缓存和本地 SSD 合并限制是每个核心 4,000 IOPS，以及每个核心每秒 33 MB。 
+<!-- Not Available on G-series-->
 
 托管磁盘 VM 是否支持本地 SSD？
 
@@ -201,7 +243,7 @@ Azure 支持的最大页 blob 大小是 8 TB (8,191 GB)。 我们不支持将大
 
 非托管磁盘或页 blob 是否支持 P4 和 P6 磁盘大小？
 
-不可以。 仅托管磁盘支持 P4 (32 GB) 和 P6 (64 GB) 磁盘大小。 即将提供非托管磁盘和页 blob 支持。
+否。 仅托管磁盘支持 P4 (32 GB) 和 P6 (64 GB) 磁盘大小。 即将提供非托管磁盘和页 blob 支持。
 
 如果在支持较小磁盘（约 2017 年 6 月 15 日）之前创建了小于 64 GB 的高级托管磁盘，将如何计费？
 
@@ -211,4 +253,11 @@ Azure 支持的最大页 blob 大小是 8 TB (8,191 GB)。 我们不支持将大
 
 可以拍摄小磁盘的快照，然后创建磁盘以自动根据预配大小将定价层切换到 P4 或 P6。 
 
+## <a name="what-if-my-question-isnt-answered-here"></a>如果未在此处找到相关问题怎么办？
 
+如果未在此处找到相关问题，请联系我们获取帮助。 可以在本文末尾的评论中发布问题。 若要与 Azure 存储团队和其他社区成员就本文进行沟通，请使用 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
+
+<!--Not Available on [Azure feedback forum](https://feedback.azure.com/forums/217298-storage).-->
+
+<!--Update_Description: add question and answer content of Migrate to Managed Disks -->
+<!--ms.date: 01/29/2018-->

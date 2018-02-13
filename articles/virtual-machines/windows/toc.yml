@@ -65,8 +65,6 @@
             - name: 约束的 vCPU
               href: constrained-vcpu.md
           href: sizes-memory.md
-        - name: 存储优化
-          href: sizes-storage.md
         - name: Azure 计算单元 (ACU)
           href: acu.md
     - name: 维护和更新

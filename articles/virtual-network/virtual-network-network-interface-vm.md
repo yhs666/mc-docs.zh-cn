@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 12/15/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 55ef0fd612d37958ec30b5578a3b46a2ce9f25fa
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: cef4d965b1327c66bab1ba371f60c2f9bae2557c
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>在虚拟机中添加或删除网络接口。
 
@@ -54,7 +54,8 @@ ms.lasthandoff: 01/19/2018
 2. 在门户顶部的搜索框中，搜索要将网络接口添加到的 VM 的名称，或依次单击“所有服务”、“虚拟机”来浏览该 VM。 找到该 VM 后，请单击它。 要将网络接口添加到的 VM 必须支持需添加的网络接口数。 若要了解每种 VM 大小支持的网络接口数量，请阅读有关 [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-network%2ftoc.json) VM 大小的文章。  
 3. 在“设置”下面单击“概述”。 单击“停止”，等待 VM 的“状态”更改为“已停止(已解除分配)”。 
 4. 在“设置”下面单击“网络”。
-5. 单击“附加网络接口”。 在当前尚未附加到其他 VM 的现有网络接口列表中，单击要附加的网络接口。 选择的网络接口不能已启用加速网络、不能分配有 IPv6 地址，并且必须与当前已附加到 VM 的网络接口位于同一个虚拟网络中。 如果没有现有的网络接口，必须先创建一个。 若要创建网络接口，请单击“创建网络接口”。 若要详细了解如何创建网络接口，请参阅[创建网络接口](virtual-network-network-interface.md#create-a-network-interface)。 若要详细了解将网络接口添加到虚拟机时的约束，请参阅[约束](#constraints)。
+5. 单击“附加网络接口”。 在当前尚未附加到其他 VM 的现有网络接口列表中，单击要附加的网络接口。 该网络接口必须与当前附加到 VM 的网络接口位于同一虚拟网络中。 如果没有现有的网络接口，必须先创建一个。 若要创建网络接口，请单击“创建网络接口”。 若要详细了解如何创建网络接口，请参阅[创建网络接口](virtual-network-network-interface.md#create-a-network-interface)。 若要详细了解将网络接口添加到虚拟机时的约束，请参阅[约束](#constraints)。
+<!--Not Available on accelerated networking and IPv6 address -->
 6. 单击 **“确定”**。
 7. 在“设置”下面单击“概述”。 单击“启动”以启动虚拟机。
 8. 配置 VM 操作系统以正常使用多个网络接口。 有关详细信息，请参阅“为多个网络接口配置 [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) 或 [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) 操作系统”。
@@ -118,6 +119,5 @@ ms.lasthandoff: 01/19/2018
 - 尽管同一 VM 中的网络接口可以连接到 VNet 中的不同子网，但这些网络接口必须全部连接到同一个 VNet。
 - 可将任何主要或辅助网络接口的任何 IP 配置的任何 IP 地址添加到 Azure 负载均衡器后端池。 过去，只能将主要网络接口的主要 IP 地址添加到后端池。 若要详细了解 IP 地址和配置，请阅读[添加、更改或删除 IP 地址](virtual-network-network-interface-addresses.md)一文。
 - 删除 VM 不会删除附加到其中的网络接口。 删除 VM 时，网络接口会从此 VM 中分离。 可将网络接口添加到不同的 VM，也可将其删除。
-- 如果网络接口分配有专用 IPv6 地址，则在创建 VM 时必须将其添加（附加）到 VM。 创建 VM 后，无法将分配有 IPv6 地址的网络接口添加到 VM。 如果在创建虚拟机时添加分配有专用 IPv6 地址的网络接口，则无论该 VM 大小支持多少个网络接口，仅可将该网络接口添加到虚拟机。 若要深入了解如何将 IP 地址分配给网络接口，请参阅[网络接口 IP 地址](virtual-network-network-interface-addresses.md)。
-
+<!--Not Availble on IPv6 -->
 <!--Update_Description: update meta properties, wording udpate, add constraints content  -->

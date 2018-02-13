@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 04/20/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: e8dd499210e85d836a08edf15923ecf9f6a27e32
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 20689a33b7ceb6ffb455e7931478a81297f8b6f1
+ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>以编程方式创建流分析作业监视器
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 09/28/2017
 ## <a name="create-a-project"></a>创建一个项目
 
 1. 创建 Visual Studio C# .NET 控制台应用程序。
-2. 在程序包管理器控制台中运行以下命令来安装 NuGet 包。 第一个是 Azure 流分析管理 .NET SDK。 第二个是 Azure Monitor SDK，将用于启用监视功能。 最后一个是用于进行身份验证的 Azure Active Directory 客户端。
+2. 在程序包管理器控制台中运行以下命令以安装 NuGet 包。 第一个是 Azure 流分析管理 .NET SDK。 第二个是 Azure Monitor SDK，将用于启用监视功能。 最后一个是用于进行身份验证的 Azure Active Directory 客户端。
 
     ```
     Install-Package Microsoft.Azure.Management.StreamAnalytics
@@ -177,7 +177,7 @@ ms.lasthandoff: 09/28/2017
 
 ## <a name="get-support"></a>获取支持
 
-如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,10 +1,10 @@
 ---
-title: "Azure 移动应用中的身份验证和授权 | Microsoft Docs"
+title: "Azure 移动应用中的身份验证和授权"
 description: "Azure 移动应用身份验证/授权功能的概念参考和概述"
 services: app-service\mobile
 documentationcenter: 
 author: mattchenderson
-manager: syntaxc4
+manager: cfowler
 editor: 
 ms.assetid: a46dbf70-867d-48f6-8885-7f5207ad102e
 ms.service: app-service-mobile
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 10/01/2016
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 522471e47483b6a464572a5432e1d8904359e3fe
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.openlocfilehash: 422fbc82eccf803bb3d1e068d5faa6ee5246585f
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Azure 移动应用中的身份验证和授权
 
@@ -59,6 +59,8 @@ ms.lasthandoff: 10/30/2017
 
 >[!TIP]
 > 大多数应用程序都应该使用提供程序 SDK 来获得更自然的登录体验，使用刷新支持和其他提供程序特定的优势。
+> 
+> 
 
 ### <a name="how-authentication-without-a-provider-sdk-works"></a>不使用提供程序 SDK 进行身份验证的工作原理
 

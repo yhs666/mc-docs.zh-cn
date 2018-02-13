@@ -2,22 +2,24 @@
 title: "如何使用适用于 Azure 移动应用的 Apache Cordova 插件"
 description: "如何使用适用于 Azure 移动应用的 Apache Cordova 插件"
 services: app-service\mobile
-documentationCenter: javascript
-authors: adrianhall
-manager: erikre
+documentationcenter: javascript
+author: conceptdev
+manager: crdun
 editor: 
+ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
+origin.date: 10/30/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 368dcd37b927c241f612ea17efe15e90d05be38a
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: ba2d944581860deb2475935c292acc575fd83f3e
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 Apache Cordova 客户端库
 
@@ -73,7 +75,7 @@ Azure 移动应用 Cordova 插件同时支持 Ionic v1 和 v2 应用。  只有 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="auth"></a>如何对用户进行身份验证
-Azure 应用服务支持使用各种外部标识提供者对应用用户进行身份验证和授权，这些提供者包括：Facebook、Google、Microsoft 帐户和 Twitter。 你可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 你还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。 有关详细信息，请参阅 [Get started with authentication] （身份验证入门）教程。
+Azure 应用服务支持使用各种外部标识提供者（例如 Facebook、Google、Microsoft 帐户和 Twitter）对应用的用户进行身份验证和授权。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。 有关详细信息，请参阅[身份验证入门]教程。
 
 在 Apache Cordova 应用中使用身份验证时，以下 Cordova 插件必须可用：
 
@@ -101,7 +103,7 @@ Azure 应用服务支持使用各种外部标识提供者对应用用户进行�
 4. 在“观察”菜单中单击“资源浏览器”，然后单击“转到”。  会打开新窗口或选项卡。
 5. 在左侧导航栏中，展开站点的“config”、“authsettings”节点。
 6. 单击“编辑” 
-7. 查找“allowedExternalRedirectUrls”元素。  它可能被设置为 null 或值数组。  将该值更改为以下值：
+7. 查找“allowedExternalRedirectUrls”元素。  该元素可能已设置为 null 或值数组。  将该值更改为以下值：
 
     ```
      "allowedExternalRedirectUrls": [
@@ -119,9 +121,9 @@ Azure 应用服务支持使用各种外部标识提供者对应用用户进行�
 
 1. 登录到 [Azure 门户]
 2. 选择“所有资源”或“应用服务”，然后单击移动应用的名称。
-3. “设置”边栏选项卡会自动打开。  如果没有打开，请单击“所有设置” 。
+3. “设置”边栏选项卡随即自动打开。  如果没有打开，请单击“所有设置” 。
 4. 在“API”菜单下面单击“CORS”  。
-5. 在提供的框中输入想要添加的 URL，然后按 Enter。
+5. 在提供的框中输入想要添加的 URL，并按 Enter。
 6. 根据需要输入其他 URL。
 7. 单击“保存”  保存这些设置。
 
@@ -177,7 +179,7 @@ pushHandler.on('error', function (error) {
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.cn
 [Azure Mobile Apps Quick Start]: ./app-service-mobile-cordova-get-started.md
-[Get started with authentication]: ./app-service-mobile-cordova-get-started-users.md
+[身份验证入门]: ./app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: ./app-service-mobile-cordova-get-started-users.md
 
 [适用于 Azure 移动应用的 Apache Cordova 插件]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps

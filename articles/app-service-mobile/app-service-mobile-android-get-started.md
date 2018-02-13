@@ -1,37 +1,38 @@
 ---
-title: "在 Azure 应用服务移动应用中创建 Android 应用 | Azure"
+title: "在 Azure 应用服务移动应用中创建 Android 应用"
 description: "遵循本教程开始使用 Azure 移动应用后端进行 Android 开发"
 services: app-service\mobile
-documentationCenter: android
-authors: yuaxu
-manager: erikre
+documentationcenter: android
+author: conceptdev
+manager: crdun
 editor: 
+ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34a9
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2724caaeca31994b4b60fa223b03df999c2ef401
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 62e43077d72a620d1c9e58bbe4828e5a2408ddeb
+ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 #<a name="create-an-android-app"></a>创建 Android 应用
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>概述
-
-本教程演示如何使用 Azure 移动应用后端向 Android 移动应用添加基于云的后端服务。  将创建一个新的移动应用后端和一个简单的 _待办事项列表_ Android 应用，此应用将应用数据存储在 Azure 中。
+本教程演示如何使用 Azure 移动应用后端向 Android 移动应用添加基于云的后端服务。  将创建一个新的移动应用后端和一个简单的 *待办事项列表* Android 应用，此应用将应用数据存储在 Azure 中。
 
 只有在完成本教程后，才可以学习有关使用 Azure 应用服务中的移动应用功能的所有其他 Android 教程。
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，需要以下各项：
+要完成本教程，需要以下各项：
 
 * [Android 开发人员工具](https://developer.android.com/sdk/index.html)，其中包含 Android Studio 集成开发环境和最新的 Android 平台。
 * Azure Mobile Android SDK，下载的快速入门项目中会自动引用它。
